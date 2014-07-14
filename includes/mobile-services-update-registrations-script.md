@@ -10,7 +10,7 @@
 
 3.  삽입 함수를 다음의 코드로 바꾼 후 **Save**를 클릭합니다.
     
-         function insert(item, user, request) {
+        function insert(item, user, request) {
 			var registrationTable = tables.getTable('Registrations');
 			registrationTable
 				.where({ handle: item.handle })
@@ -27,4 +27,3 @@
     이렇게 하면 새 테이블에 등록 정보를 저장하는 새 삽입 스크립트가 등록됩니다.
 
 <!-- images-->
-

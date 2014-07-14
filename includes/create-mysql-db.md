@@ -1,10 +1,8 @@
+
 # Azure에서 MySQL 데이터베이스를 만드는 방법
 
-이 가이드에서는 [ClearDB][1]를 사용하여 [Azure 스토어](/en-us/store/overview/)에서 MySQL
-데이터베이스를 만드는 방법 및 [Azure 웹 사이트](/en-us/manage/services/web-sites/)를 만들 때
-MySQL 데이터베이스를 연결된 리소스로 만드는 방법을 보여 줍니다. [ClearDB][1]는 Azure 데이터 센터에서
-MySQL 데이터베이스를 실행 및 관리하고 모든 응용 프로그램에서 연결할 수 있게 해 주는 내결함성
-DasS(Database-as-a-Service) 공급자입니다.
+이 가이드에서는 [ClearDB][1]를 사용하여 [Azure 스토어](/en-us/store/overview/)에서 MySQL 데이터베이스를 만드는 방법 및 [Azure 웹 사이트](/en-us/manage/services/web-sites/)를 만들 때 MySQL 데이터베이스를 연결된 리소스로 만드는 방법을 보여 줍니다. [ClearDB][1]는 Azure 데이터 센터에서 MySQL 데이터베이스를 실행 및 관리하고 모든 응용 프로그램에서 연결할 수 있게 해 주는 내결함성 DasS(Database-as-a-Service) 공급자입니다.
+
 ## 목차
 
 * [방법: Azure 스토어에서 MySQL 데이터베이스 만들기](#CreateFromStore)
@@ -14,12 +12,12 @@ DasS(Database-as-a-Service) 공급자입니다.
 <p>웹 사이트를 만드는 과정에서 MySQL 데이터베이스를 만드는 경우 무료 데이터베이스만 만들 수 있습니다. Azure 스토어에서 MySQL 데이터베이스를 만드는 경우 무료 데이터베이스를 만들거나 유료 옵션 중에서 선택할 수 있습니다.</p> 
 </div>
 
- <h2><a  id="CreateFromStore" ></a>방법: Azure 스토어에서 MySQL 데이터베이스 만들기</h2>
+ <h2><a id="CreateFromStore" ></a>방법: Azure 스토어에서 MySQL 데이터베이스 만들기</h2>
 
 
 [Azure 스토어](/en-us/store/overview/)에서 MySQL 데이터베이스를 만들려면 다음을 수행합니다.
 
-1.  [Azure 관리 포털][2]에 로그인합니다.
+1.  [Azure 관리 포털][2]에 로그인합니다. 
 2.  페이지 맨 아래에 있는 **+NEW**를 클릭하고 **STORE**를 선택합니다.
     
     ![스토어에서 추가 기능 선택](./media/create-mysql-db/select-store.png)
@@ -42,32 +40,26 @@ DasS(Database-as-a-Service) 공급자입니다.
     ![Azure 포털에서 MySQL 데이터베이스
     관리](./media/create-mysql-db/manage-mysql-add-on.png)
 
-7.  페이지 맨 아래에 있는 **CONNECTION INFO**를 클릭하여 데이터베이스 연결 정보를 가져올 수 있습니다(위에
-    표시됨).
+7.  페이지 맨 아래에 있는 **CONNECTION INFO**를 클릭하여 데이터베이스 연결 정보를 가져올 수 있습니다(위에 표시됨).
     
     ![MySql 연결 정보](./media/create-mysql-db/mysql-conn-info.png)
 
-<h2><a  id="CreateForWebSite" ></a>방법: Azure 웹 사이트에 대한 연결된 리소스로 MySQL 데이터베이스 만들기</h2>
+<h2><a id="CreateForWebSite" ></a>방법: Azure 웹 사이트에 대한 연결된 리소스로 MySQL 데이터베이스 만들기</h2>
 
 
-[Azure 웹 사이트](/en-us/manage/services/web-sites/)를 만들 때 MySQL 데이터베이스를 연결된
-리소스로 만들려면 다음을 수행합니다.
+[Azure 웹 사이트](/en-us/manage/services/web-sites/)를 만들 때 MySQL 데이터베이스를 연결된 리소스로 만들려면 다음을 수행합니다.
 
-1.  [Azure 관리 포털][2]에 로그인합니다.
-2.  페이지 맨 아래에 있는 **+NEW**를 클릭하고 **COMPUTE**, **WEB SITE**, **CREATE WITH
-    DATABASE**를 차례로 선택합니다.
+1.  [Azure 관리 포털][2]에 로그인합니다. 
+2.  페이지 맨 아래에 있는 **+NEW**를 클릭하고 **COMPUTE**, **WEB SITE**, **CREATE WITH DATABASE**를 차례로 선택합니다.
     
     ![데이터베이스를 사용하여 웹 사이트 만들기](./media/create-mysql-db/custom_create.png)
 
-3.  웹 사이트의 **URL**을 제공하고 사이트의 **REGION**을 선택한 다음 **DATABASE** 드롭다운에서
-    **Create a new MySQL database**를 선택합니다. 선택적으로, 연결 문자열의 기본 이름을 바꿀 수
-    있습니다. 페이지 맨 아래에 있는 화살표를 클릭합니다.
+3.  웹 사이트의 **URL**을 제공하고 사이트의 **REGION**을 선택한 다음 **DATABASE** 드롭다운에서 **Create a new MySQL database**를 선택합니다. 선택적으로, 연결 문자열의 기본 이름을 바꿀 수 있습니다. 페이지 맨 아래에 있는 화살표를 클릭합니다.
     
     ![웹 사이트 세부 정보
     제공](./media/create-mysql-db/provide-website-details.png)
 
-4.  데이터베이스 **NAME**을 제공하고 데이터베이스의 **REGION**을 선택한 다음(웹 사이트의 지역과 같아야 함)
-    ClearDB의 약관에 동의하고 프레임 맨 아래에 있는 확인 표시를 클릭합니다.
+4.  데이터베이스 **NAME**을 제공하고 데이터베이스의 **REGION**을 선택한 다음(웹 사이트의 지역과 같아야 함) ClearDB의 약관에 동의하고 프레임 맨 아래에 있는 확인 표시를 클릭합니다.
     
     ![MySQL 세부 정보 제공](./media/create-mysql-db/provide-mysql-details.png)
 
@@ -80,8 +72,7 @@ DasS(Database-as-a-Service) 공급자입니다.
     
     ![구성 탭으로 이동](./media/create-mysql-db/go-to-configure-tab.png)
 
-7.  **connection strings** 섹션까지 아래로 스크롤하고 **Show Connection Strings**를
-    클릭합니다.
+7.  **connection strings** 섹션까지 아래로 스크롤하고 **Show Connection Strings**를 클릭합니다.
     
     ![연결 문자열 표시](./media/create-mysql-db/show-conn-string.png)
 
@@ -90,7 +81,7 @@ DasS(Database-as-a-Service) 공급자입니다.
     ![표시된 연결 문자열](./media/create-mysql-db/shown-conn-string.png)
 <div class="dev-callout"> 
 <b>참고</b> 
-<p>연결 문자열은 웹 사이트 응용 프로그램에서 연결 문자열 이름으로 액세스할 수 있습니다. .NET 응용 프로그램의 경우 <b>connectionStrings</b> 개체에서 연결 문자열을 사용할 수 있습니다. 다른 프로그래밍 언어에서는 연결 문자열을 환경 변수로 액세스할 수 있습니다. 자세한 내용은 <a  href="/en-us/manage/services/web-sites/how-to-configure-websites/">웹 사이트를 구성하는 방법</a>을 참조하십시오.</p> 
+<p>연결 문자열은 웹 사이트 응용 프로그램에서 연결 문자열 이름으로 액세스할 수 있습니다. .NET 응용 프로그램의 경우 <b>connectionStrings</b> 개체에서 연결 문자열을 사용할 수 있습니다. 다른 프로그래밍 언어에서는 연결 문자열을 환경 변수로 액세스할 수 있습니다. 자세한 내용은 <a href="/en-us/manage/services/web-sites/how-to-configure-websites/">웹 사이트를 구성하는 방법</a>을 참조하십시오.</p> 
 </div>
 
  

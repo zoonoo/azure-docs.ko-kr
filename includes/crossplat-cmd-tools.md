@@ -1,9 +1,8 @@
+
 # Mac 및 Linux에서 Azure 명령줄 도구를 사용하는 방법
 
-이 가이드에서는 Mac 및 Linux에 Azure 명령줄 도구를 사용하여 Azure에 서비스를 만들고 관리하는 방법을 설명합니다.
-**도구 설치**, **게시 설정 가져오기**, **Azure 웹 사이트 만들기 및 관리**, **Azure 가상 컴퓨터 만들기
-및 관리** 등의 시나리오를 다룹니다. 포괄적인 참조 설명서는 [Mac 및 Linux용 Azure 명령줄 도구
-설명서][1](영문)를 참조하십시오.
+이 가이드에서는 Mac 및 Linux에 Azure 명령줄 도구를 사용하여 Azure에 서비스를 만들고 관리하는 방법을 설명합니다. **도구 설치**, **게시 설정 가져오기**, **Azure 웹 사이트 만들기 및 관리**, **Azure 가상 컴퓨터 만들기 및 관리** 등의 시나리오를 다룹니다. 포괄적인 참조 설명서는 [Mac 및 Linux용 Azure 명령줄 도구 설명서][1](영문)를 참조하십시오.
+
 ## 목차
 
 * [Mac 및 Linux용 Azure 명령줄 도구 정의](#Overview)
@@ -13,7 +12,7 @@
 * [Azure 웹 사이트를 만들고 관리하는 방법](#WebSites)
 * [Azure 가상 컴퓨터를 만들고 관리하는 방법](#VMs)
 
-<h2><a  id="Overview" ></a>Mac 및 Linux용 Azure 명령줄 도구 정의</h2>
+<h2><a id="Overview" ></a>Mac 및 Linux용 Azure 명령줄 도구 정의</h2>
 
 
 Mac 및 Linux용 Azure 명령줄 도구는 Azure 서비스를 배포 및 관리하기 위한 명령줄 도구 집합입니다.
@@ -24,19 +23,16 @@ Mac 및 Linux용 Azure 명령줄 도구는 Azure 서비스를 배포 및 관리�
 * Azure 웹 사이트 만들기 및 관리
 * Azure 가상 컴퓨터 만들기 및 관리
 
-지원되는 명령의 전체 목록을 보려면 도구를 설치한 후 명령줄에서 `azure -help`를 입력하거나 [참조 설명서][1]를
-참조하십시오.
+지원되는 명령의 전체 목록을 보려면 도구를 설치한 후 명령줄에서 `azure -help`를 입력하거나 [참조 설명서][1]를 참조하십시오.
 
-<h2><a  id="Download">Mac 및 Linux에서 Azure 명령줄 도구를 설치하는 방법</a></h2>
+<h2><a id="Download">Mac 및 Linux에서 Azure 명령줄 도구를 설치하는 방법</a></h2>
 
 
 다음 목록에는 운영 체제에 따른 명령줄 도구 설치 정보가 포함되어 있습니다.
 
-* **Mac**: [Azure SDK 설치 관리자][2]를 다운로드합니다. 다운로드한 .pkg 파일을 열고 메시지가 표시되면
-  설치 단계를 완료합니다.
+* **Mac**: [Azure SDK 설치 관리자][2]를 다운로드합니다. 다운로드한 .pkg 파일을 열고 메시지가 표시되면 설치 단계를 완료합니다.
 
-* **Linux**: 최신 버전의 [Node.js][3]를 설치한 후([패키지 관리자를 통해 Node.js 설치][4](영문)
-  참조) 다음 명령을 실행합니다.
+* **Linux**: 최신 버전의 [Node.js][3]를 설치한 후([패키지 관리자를 통해 Node.js 설치][4](영문) 참조) 다음 명령을 실행합니다.
   
         npm install azure-cli -g
   
@@ -44,37 +40,31 @@ Mac 및 Linux용 Azure 명령줄 도구는 Azure 서비스를 배포 및 관리�
   
         sudo npm install azure-cli -g
 
-* **Windows**: Windows 설치 관리자(.msi 파일)를 실행합니다. 이 파일은 [Azure 명령줄
-  도구][5]에서 사용할 수 있습니다.
+* **Windows**: Windows 설치 관리자(.msi 파일)를 실행합니다. 이 파일은 [Azure 명령줄 도구][5]에서 사용할 수 있습니다.
 
-설치를 테스트하려면 명령 프롬프트에 `azure`를 입력합니다. 설치에 성공하면 사용 가능한 모든 `azure` 명령 목록이
-표시됩니다.
+설치를 테스트하려면 명령 프롬프트에 `azure`를 입력합니다. 설치에 성공하면 사용 가능한 모든 `azure` 명령 목록이 표시됩니다.
 
-<h2><a  id="CreateAccount" ></a>Azure 계정을 만드는 방법</h2>
+<h2><a id="CreateAccount" ></a>Azure 계정을 만드는 방법</h2>
 
 
 Mac 및 Linux용 Azure 명령줄 도구를 사용하려면 Azure 계정이 필요합니다.
 
-웹 브라우저를 열고 [http://www.windowsazure.com][6]으로 이동한 후 오른쪽 위에 있는 **무료 체험**을
-클릭합니다.
+웹 브라우저를 열고 [http://www.windowsazure.com][6]으로 이동한 후 오른쪽 위에 있는 **무료 체험**을 클릭합니다.
 
 ![Azure 웹 사이트](./media/crossplat-cmd-tools/freetrial.png)
 
 계정을 만들기 위한 지침을 따르십시오.
 
-<h2><a  id="Account" ></a>게시 설정을 다운로드 및 가져오는 방법</h2>
+<h2><a id="Account" ></a>게시 설정을 다운로드 및 가져오는 방법</h2>
 
 
-시작하려면 먼저 게시 설정을 다운로드하고 가져와야 합니다. 그러면 Azure 서비스를 만들고 관리하기 위한 도구를 사용할 수
-있습니다. 게시 설정을 다운로드하려면 `account download` 명령을 사용합니다.
+시작하려면 먼저 게시 설정을 다운로드하고 가져와야 합니다. 그러면 Azure 서비스를 만들고 관리하기 위한 도구를 사용할 수 있습니다. 게시 설정을 다운로드하려면 `account download` 명령을 사용합니다.
 
     azure account download
 
-기본 브라우저가 열리고 관리 포털에 로그인하라는 메시지가 표시됩니다. 로그인하면 `.publishsettings` 파일이
-다운로드됩니다. 이 파일이 저장된 위치를 기록해 둡니다.
+기본 브라우저가 열리고 관리 포털에 로그인하라는 메시지가 표시됩니다. 로그인하면 `.publishsettings` 파일이 다운로드됩니다. 이 파일이 저장된 위치를 기록해 둡니다.
 
-`{path to .publishsettings file}`을 해당 `.publishsettings` 파일의 경로로 바꿔서 다음
-명령을 실행하여 `.publishsettings` 파일을 가져옵니다.
+`{path to .publishsettings file}`을 해당 `.publishsettings` 파일의 경로로 바꿔서 다음 명령을 실행하여 `.publishsettings` 파일을 가져옵니다.
 
     azure account import {path to .publishsettings file}
 
@@ -100,7 +90,8 @@ Mac 및 Linux용 Azure 명령줄 도구를 사용하려면 Azure 계정이 필�
 
  이제 Azure 웹 사이트와 Azure 가상 컴퓨터를 만들고 관리할 준비가 되었습니다.
 
-<h2><a  id="WebSites" ></a>Azure 웹 사이트를 만들고 관리하는 방법</h2>
+<h2><a id="WebSites" ></a>Azure 웹 사이트를 만들고 관리하는 방법</h2>
+
 ### 웹 사이트 만들기
 
 Azure 웹 사이트를 만들려면 먼저 `MySite`라는 빈 디렉터리를 만들고 해당 디렉터리로 이동합니다.
@@ -124,6 +115,7 @@ git 리포지토리인 경우 이 명령은 기존 리포지토리에 새 원격
 콘텐츠를 커밋합니다. 다음 git 명령을 사용하여 웹 사이트 콘텐츠를 Azure에 밀어 넣습니다.
 
     git push azure master
+
 ### GitHub에서 게시 설정
 
 GitHub 리포지토리에서 연속 게시를 설정하려면 사이트를 만들 때 `--GitHub` 옵션을 사용합니다.
@@ -138,6 +130,7 @@ GitHub에서 게시를 설정할 때 사용되는 기본 분기는 마스터 분
 실행합니다.
 
     azure site repository <branch  name>
+
 ### 앱 설정 구성
 
 앱 설정은 런타임에 응용 프로그램에서 사용할 수 있는 키-값 쌍입니다. Azure 웹 사이트에 대해 설정된 경우 앱 설정 값은
@@ -157,6 +150,7 @@ GitHub에서 게시를 설정할 때 사용되는 기본 분기는 마스터 분
 기존 키의 값을 변경하려면 먼저 기존 키를 지운 후 다시 추가해야 합니다. clear 명령은 다음과 같습니다.
 
     azure site config clear <key> 
+
 ### 사이트 나열 및 표시
 
 웹 사이트를 나열하려면 다음 명령을 사용합니다.
@@ -167,14 +161,15 @@ GitHub에서 게시를 설정할 때 사용되는 기본 분기는 마스터 분
 정보를 보여 줍니다.
 
     azure site show MySite
+
 ### 사이트 중지, 시작 또는 다시 시작
 
-`site stop`, `site start` 또는 `site restart` 명령을 사용하여 사이트를 중지, 시작 또는 다시
-시작할 수 있습니다.
+`site stop`, `site start` 또는 `site restart` 명령을 사용하여 사이트를 중지, 시작 또는 다시 시작할 수 있습니다.
 
     azure site stop MySite
     azure site start MySite
     azure site restart MySite
+
 ### 사이트 삭제
 
 마지막으로, `site delete` 명령을 사용하여 사이트를 삭제할 수 있습니다.
@@ -188,7 +183,7 @@ GitHub에서 게시를 설정할 때 사용되는 기본 분기는 마스터 분
 
     azure site -help 
 
-<h2><a  id="VMs" ></a>Azure 가상 컴퓨터를 만들고 관리하는 방법</h2>
+<h2><a id="VMs" ></a>Azure 가상 컴퓨터를 만들고 관리하는 방법</h2>
 
 
 Azure 가상 컴퓨터는 사용자가 제공하거나 이미지 갤러리에서 사용 가능한 가상 컴퓨터 이미지(.vhd 파일)에서 만들어집니다.
@@ -196,11 +191,7 @@ Azure 가상 컴퓨터는 사용자가 제공하거나 이미지 갤러리에서
 
     azure vm image list
 
-`vm create` 명령을 사용하여 사용 가능한 이미지 중 하나에서 가상 컴퓨터를 프로비전 및 시작할 수 있습니다. 다음
-예제에서는 이미지 갤러리(CentOS 6.2)의 이미지에서 Linux 가상 컴퓨터(`myVM`)를 만드는 방법을 보여 줍니다.
-가상 컴퓨터의 루트 사용자 이름과 암호는 각각 `myusername` 및 `Mypassw0rd`입니다. `--location`
-매개 변수는 가상 컴퓨터가 만들어지는 데이터 센터를 지정합니다. `--location` 매개 변수를 생략하면 위치를 선택하라는
-메시지가 표시됩니다.
+`vm create` 명령을 사용하여 사용 가능한 이미지 중 하나에서 가상 컴퓨터를 프로비전 및 시작할 수 있습니다. 다음 예제에서는 이미지 갤러리(CentOS 6.2)의 이미지에서 Linux 가상 컴퓨터(`myVM`)를 만드는 방법을 보여 줍니다. 가상 컴퓨터의 루트 사용자 이름과 암호는 각각 `myusername` 및 `Mypassw0rd`입니다. `--location` 매개 변수는 가상 컴퓨터가 만들어지는 데이터 센터를 지정합니다. `--location` 매개 변수를 생략하면 위치를 선택하라는 메시지가 표시됩니다.
 
     azure vm create myVM OpenLogic__OpenLogic-CentOS-62-20120509-en-us-30GB.vhd myusername --location "West US"
 
@@ -214,13 +205,11 @@ Azure 가상 컴퓨터는 사용자가 제공하거나 이미지 갤러리에서
 
     azure vm image create myImage /path/to/myImage.vhd --os linux --location "West US"
 
-로컬 .vhd에서 이미지를 만드는 대신 Azure Blob 저장소에 저장된 .vhd에서 이미지를 만들 수 있습니다.
-`blob-url` 매개 변수를 사용하여 이 작업을 수행할 수 있습니다.
+로컬 .vhd에서 이미지를 만드는 대신 Azure Blob 저장소에 저장된 .vhd에서 이미지를 만들 수 있습니다. `blob-url` 매개 변수를 사용하여 이 작업을 수행할 수 있습니다.
 
     azure vm image create myImage --blob-url <url  to .vhd in Blob Storage> --os linux
 
-이미지를 만든 후 `vm create`를 사용하여 이미지에서 가상 컴퓨터를 프로비전할 수 있습니다. 아래 명령은 위에서 만든
-이미지(`myImage`)를 통해 `myVM`이라는 가상 컴퓨터를 만듭니다.
+이미지를 만든 후 `vm create`를 사용하여 이미지에서 가상 컴퓨터를 프로비전할 수 있습니다. 아래 명령은 위에서 만든 이미지(`myImage`)를 통해 `myVM`이라는 가상 컴퓨터를 만듭니다.
 
     azure vm create myVM myImage myusername --location "West US"
 
@@ -229,8 +218,7 @@ create endpoint` 명령을 사용하여 `myVM`에 외부 포트 22와 로컬 포
 
     azure vm endpoint create myVM 22 22
 
-`vm show` 명령을 사용하여 가상 컴퓨터에 대한 자세한 정보(IP 주소, DNS 이름 및 끝점 정보 포함)를 가져올 수
-있습니다.
+`vm show` 명령을 사용하여 가상 컴퓨터에 대한 자세한 정보(IP 주소, DNS 이름 및 끝점 정보 포함)를 가져올 수 있습니다.
 
     azure vm show myVM
 

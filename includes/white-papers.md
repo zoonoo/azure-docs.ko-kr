@@ -11,7 +11,7 @@
     <tbody>
       <tr>
         <td  style="width: 200px;">
-          <a  href="http://go.microsoft.com/?linkid=9751405">Azure 응용 프로그램 개발에 대한 유용한 보안 정보(영문)</a>
+          <a href="http://go.microsoft.com/?linkid=9751405">Azure 응용 프로그램 개발에 대한 유용한 보안 정보(영문)</a>
 
         </td>
 
@@ -21,7 +21,7 @@
 
       <tr>
         <td  style="width: 200px;">
-          <a  href="http://download.microsoft.com/download/6/0/2/6028B1AE-4AEE-46CE-9187-641DA97FC1EE/Windows%20Azure%20Security%20Overview%20v1.01.pdf">Azure 보안 개요(영문)</a>
+          <a href="http://download.microsoft.com/download/6/0/2/6028B1AE-4AEE-46CE-9187-641DA97FC1EE/Windows%20Azure%20Security%20Overview%20v1.01.pdf">Azure 보안 개요(영문)</a>
 
         </td>
 
@@ -31,7 +31,7 @@
 
       <tr>
         <td  style="width: 200px;">
-          <a  href="http://download.microsoft.com/download/F/2/6/F26E80C5-C43B-4913-99AB-F2E4DFBFCBBF/Single%20Sign-On%20from%20Active%20Directory%20to%20a%20Windows%20Azure%20Application%20Whitepaper-RTW.pdf">Active Directory에서 Azure 응용 프로그램 백서에 이르는 Single Sign-On(영문)</a>
+          <a href="http://download.microsoft.com/download/F/2/6/F26E80C5-C43B-4913-99AB-F2E4DFBFCBBF/Single%20Sign-On%20from%20Active%20Directory%20to%20a%20Windows%20Azure%20Application%20Whitepaper-RTW.pdf">Active Directory에서 Azure 응용 프로그램 백서에 이르는 Single Sign-On(영문)</a>
 
         </td>
 
@@ -41,7 +41,7 @@
 
       <tr>
         <td  style="width: 200px;">
-          <a  href="http://go.microsoft.com/fwlink/?LinkId=153401">Azure 테이블 - 테이블 저장소 프로그래밍(영문)</a>
+          <a href="http://go.microsoft.com/fwlink/?LinkId=153401">Azure 테이블 - 테이블 저장소 프로그래밍(영문)</a>
 
         </td>
 
@@ -51,7 +51,7 @@
 
       <tr>
         <td  style="width: 200px;">
-          <a  href="http://go.microsoft.com/?linkid=9751403">Azure AppFabric용 서비스 버스에 대한 개발자 가이드(영문)</a>
+          <a href="http://go.microsoft.com/?linkid=9751403">Azure AppFabric용 서비스 버스에 대한 개발자 가이드(영문)</a>
 
         </td>
 
@@ -61,7 +61,7 @@
 
       <tr>
         <td  style="width: 200px;">
-          <a  href="http://go.microsoft.com/fwlink/?LinkId=153402">Azure 큐 - 큐 저장소 프로그래밍(영문)</a>
+          <a href="http://go.microsoft.com/fwlink/?LinkId=153402">Azure 큐 - 큐 저장소 프로그래밍(영문)</a>
 
         </td>
 
@@ -71,7 +71,7 @@
 
       <tr>
         <td  style="width: 200px;">
-          <a  href="http://go.microsoft.com/?linkid=9710117">Azure 드라이브 백서 - NTFS 클라우드 응용 프로그램에 영구적 드라이브 사용(영문)</a>
+          <a href="http://go.microsoft.com/?linkid=9710117">Azure 드라이브 백서 - NTFS 클라우드 응용 프로그램에 영구적 드라이브 사용(영문)</a>
 
         </td>
 
@@ -81,7 +81,7 @@
 
       <tr>
         <td  style="width: 200px;">
-          <a  href="http://go.microsoft.com/?linkid=9682907">Azure 소개(영문)</a>
+          <a href="http://go.microsoft.com/?linkid=9682907">Azure 소개(영문)</a>
 
         </td>
 
@@ -91,7 +91,7 @@
 
       <tr>
         <td  style="width: 200px;">
-          <a  href="http://go.microsoft.com/fwlink/?LinkId=153400">Azure Blob - Blob 저장소 프로그래밍(영문)</a>
+          <a href="http://go.microsoft.com/fwlink/?LinkId=153400">Azure Blob - Blob 저장소 프로그래밍(영문)</a>
 
         </td>
 
@@ -101,7 +101,7 @@
 
       <tr>
         <td  style="width: 200px;">
-          <a  href="http://go.microsoft.com/?linkid=9751501">Azure 프로그래밍 모델(영문)</a>
+          <a href="http://go.microsoft.com/?linkid=9751501">Azure 프로그래밍 모델(영문)</a>
 
         </td>
 
@@ -112,7 +112,7 @@
 
       <tr>
         <td  style="width: 200px;">
-          <a  href="http://go.microsoft.com/?linkid=9752158">Windows HPC Server 및 Azure(영문)</a>
+          <a href="http://go.microsoft.com/?linkid=9752158">Windows HPC Server 및 Azure(영문)</a>
 
         </td>
 
@@ -122,7 +122,7 @@
 
       <tr>
         <td  style="width: 200px;">
-          <a  href="http://go.microsoft.com/?linkid=9692818">유사점 및 차이점 - SQL Azure 대 SQL Server(영문)</a>
+          <a href="http://go.microsoft.com/?linkid=9692818">유사점 및 차이점 - SQL Azure 대 SQL Server(영문)</a>
 
         </td>
 
@@ -132,7 +132,7 @@
 
       <tr>
         <td  style="width: 200px;">
-          <a  href="http://go.microsoft.com/?linkid=9752188">IT as a Service(영문)</a>
+          <a href="http://go.microsoft.com/?linkid=9752188">IT as a Service(영문)</a>
 
         </td>
 
@@ -142,7 +142,7 @@
 
       <tr>
         <td  style="width: 200px;">
-          <a  href="http://go.microsoft.com/?linkid=9736945">SQL Azure용 보안 지침(영문)</a>
+          <a href="http://go.microsoft.com/?linkid=9736945">SQL Azure용 보안 지침(영문)</a>
 
         </td>
 
@@ -152,7 +152,7 @@
 
       <tr>
         <td  style="width: 200px;">
-          <a  href="http://download.microsoft.com/download/E/B/5/EB512F2E-7771-40A3-8025-0DC6D9429951/An%20Introduction%20to%20Windows%20Azure%20platform%20AppFabric%20for%20Developers.docx">개발자용 Azure AppFabric 소개(영문)</a>
+          <a href="http://download.microsoft.com/download/E/B/5/EB512F2E-7771-40A3-8025-0DC6D9429951/An%20Introduction%20to%20Windows%20Azure%20platform%20AppFabric%20for%20Developers.docx">개발자용 Azure AppFabric 소개(영문)</a>
 
         </td>
 
@@ -162,7 +162,7 @@
 
       <tr>
         <td  style="width: 200px;">
-          <a  href="http://download.microsoft.com/download/F/9/E/F9EAD956-18D1-42D8-AB1C-7F119856ABBF/Windows%20Azure%20for%20ISVs,%20v1.2--Chappell.pdf">Azure 및 ISV - 의사 결정자용 가이드(영문)</a>
+          <a href="http://download.microsoft.com/download/F/9/E/F9EAD956-18D1-42D8-AB1C-7F119856ABBF/Windows%20Azure%20for%20ISVs,%20v1.2--Chappell.pdf">Azure 및 ISV - 의사 결정자용 가이드(영문)</a>
 
         </td>
 
@@ -172,7 +172,7 @@
 
       <tr>
         <td  style="width: 200px;">
-          <a  href="http://go.microsoft.com/?linkid=9751401">클라우드 최적화 - 클라우드 컴퓨팅에 대한 비즈니스 의사 결정을 위한 프레임워크(영문)</a>
+          <a href="http://go.microsoft.com/?linkid=9751401">클라우드 최적화 - 클라우드 컴퓨팅에 대한 비즈니스 의사 결정을 위한 프레임워크(영문)</a>
 
         </td>
 
@@ -182,7 +182,7 @@
 
       <tr>
         <td  style="width: 200px;">
-          <a  href="http://download.microsoft.com/download/C/A/7/CA7A9801-736E-421E-A386-16B37C83FFE8/Windows-Azure-AppFabric-PDC10-Overview.docx">Azure AppFabric 개요(영문)</a>
+          <a href="http://download.microsoft.com/download/C/A/7/CA7A9801-736E-421E-A386-16B37C83FFE8/Windows-Azure-AppFabric-PDC10-Overview.docx">Azure AppFabric 개요(영문)</a>
 
         </td>
 
@@ -192,7 +192,7 @@
 
       <tr>
         <td  style="width: 200px;">
-          <a  href="http://go.microsoft.com/?linkid=9752190">클라우드 경제성(영문)</a>
+          <a href="http://go.microsoft.com/?linkid=9752190">클라우드 경제성(영문)</a>
 
         </td>
 
@@ -202,7 +202,7 @@
 
       <tr>
         <td  style="width: 200px;">
-          <a  href="http://go.microsoft.com/?linkid=9696879">시스템 통합자 백서(영문)</a>
+          <a href="http://go.microsoft.com/?linkid=9696879">시스템 통합자 백서(영문)</a>
 
         </td>
 
@@ -212,7 +212,7 @@
 
       <tr>
         <td  style="width: 200px;">
-          <a  href="http://go.microsoft.com/?linkid=9761001">비즈니스 리더용 클라우드 플랫폼(영문)</a>
+          <a href="http://go.microsoft.com/?linkid=9761001">비즈니스 리더용 클라우드 플랫폼(영문)</a>
 
         </td>
 
@@ -222,7 +222,7 @@
 
       <tr>
         <td  style="width: 200px;">
-          <a  href="http://go.microsoft.com/?linkid=9776229">Azure AppFabric 캐싱을 사용하도록 응용 프로그램 구성(영문)</a>
+          <a href="http://go.microsoft.com/?linkid=9776229">Azure AppFabric 캐싱을 사용하도록 응용 프로그램 구성(영문)</a>
 
         </td>
 
@@ -232,7 +232,7 @@
 
       <tr>
         <td  style="width: 200px;">
-          <a  href="http://go.microsoft.com/?linkid=9686976">Microsoft SQL Azure 개요(영문)</a>
+          <a href="http://go.microsoft.com/?linkid=9686976">Microsoft SQL Azure 개요(영문)</a>
 
         </td>
 
@@ -242,7 +242,7 @@
 
       <tr>
         <td  style="width: 200px;">
-          <a  href="http://go.microsoft.com/?linkid=9737837">사용자 지정 IIS 웹/Microsoft SQL Server 응용 프로그램 마이그레이션 시나리오(영문)</a>
+          <a href="http://go.microsoft.com/?linkid=9737837">사용자 지정 IIS 웹/Microsoft SQL Server 응용 프로그램 마이그레이션 시나리오(영문)</a>
 
         </td>
 
@@ -252,7 +252,7 @@
 
       <tr>
         <td  style="width: 200px;">
-          <a  href="http://go.microsoft.com/?linkid=9737839">사용자 지정 웹(신속한 확장 가능에 중점) 응용 프로그램 마이그레이션 시나리오(영문)</a>
+          <a href="http://go.microsoft.com/?linkid=9737839">사용자 지정 웹(신속한 확장 가능에 중점) 응용 프로그램 마이그레이션 시나리오(영문)</a>
 
         </td>
 
@@ -262,7 +262,7 @@
 
       <tr>
         <td  style="width: 200px;">
-          <a  href="http://go.microsoft.com/?linkid=9737838">사용자 지정 전자 상거래(탄력성에 중점) 응용 프로그램 마이그레이션 시나리오(영문)</a>
+          <a href="http://go.microsoft.com/?linkid=9737838">사용자 지정 전자 상거래(탄력성에 중점) 응용 프로그램 마이그레이션 시나리오(영문)</a>
 
         </td>
 
@@ -272,7 +272,7 @@
 
       <tr>
         <td  style="width: 200px;">
-          <a  href="http://go.microsoft.com/?linkid=9736946">SQL Azure로 개발 및 배포(영문)</a>
+          <a href="http://go.microsoft.com/?linkid=9736946">SQL Azure로 개발 및 배포(영문)</a>
 
         </td>
 
@@ -284,4 +284,3 @@
   
 </tbody>
 </table>
-

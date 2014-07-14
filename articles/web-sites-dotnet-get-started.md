@@ -1,16 +1,16 @@
 <properties  linkid="develop-net-tutorials-get-started-vs2013" urlDisplayName="Get started with Azure for ASP.NET" pageTitle="Get started with Azure for ASP.NET" metaKeywords="" description="This tutorial shows you how to create an ASP.NET web project in Visual Studio 2013 and deploy it to an Azure Web Site. In less than 15 minutes you'll have an app up and running in the cloud." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Get started with Azure and ASP.NET" authors="tdykstra" solutions="" manager="wpickett" editor="mollybos" />
+
 # Azure 및 ASP.NET 시작
 
  
-<div  class="dev-center-tutorial-selector sublanding"><a  href="/en-us/develop/net/tutorials/get-started/" title="Visual Studio 2013" class="current">Visual Studio 2013</a><a  href="/en-us/develop/net/tutorials/get-started-vs2012/" title="Visual Studio 2012">Visual Studio 2012</a></div>
+<div  class="dev-center-tutorial-selector sublanding"><a href="/en-us/develop/net/tutorials/get-started/" title="Visual Studio 2013" class="current">Visual Studio 2013</a><a href="/en-us/develop/net/tutorials/get-started-vs2012/" title="Visual Studio 2012">Visual Studio 2012</a></div>
 
  이 자습서에서는 Visual Studio 2013 또는 Web Express용 Visual Studio 2013을 사용하여
 ASP.NET 웹 응용 프로그램을 만들고 Azure 웹 사이트에 배포하는 방법을 보여 줍니다. 이 자습서에서는 이전에 Azure
 또는 ASP.NET을 사용한 경험이 없다고 가정합니다. 이 자습서를 완료하면 클라우드에서 간단한 웹 응용 프로그램을 실행할 수
 있습니다.
 
-Azure 계정은 무료로 개설할 수 있으며, Visual Studio 2013이 아직 없는 경우 SDK에서 Web Express용
-Visual Studio 2013을 자동으로 설치합니다. 따라서 Azure용 개발을 무료로 시작할 수 있습니다.
+Azure 계정은 무료로 개설할 수 있으며, Visual Studio 2013이 아직 없는 경우 SDK에서 Web Express용 Visual Studio 2013을 자동으로 설치합니다. 따라서 Azure용 개발을 무료로 시작할 수 있습니다.
 
 다음 내용을 배웁니다.
 
@@ -26,6 +26,7 @@ Visual Studio 2013을 자동으로 설치합니다. 따라서 Azure용 개발을
 > [WACOM.NOTE] 이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 [MSDN 구독자 혜택을
 > 활성화](/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)하거나 [무료 체험을
 > 등록](/en-us/pricing/free-trial/?WT.mc_id=A261C142F)할 수 있습니다.
+
 ### 자습서 세그먼트
 
 * [개발 환경 설정](#set-up-the-development-environment)
@@ -35,6 +36,7 @@ Visual Studio 2013을 자동으로 설치합니다. 따라서 Azure용 개발을
 * [다음 단계](#next-steps)
 
 [WACOM.INCLUDE [install-sdk-2013-only](../includes/install-sdk-2013-only.md)]
+
 ## ASP.NET 웹 응용 프로그램 만들기
 
 첫 번째 단계에서는 웹 응용 프로그램 프로젝트를 만듭니다. Visual Studio에서 나중에 프로젝트를 배포할 Azure 웹
@@ -138,6 +140,7 @@ Visual Studio 2013을 자동으로 설치합니다. 따라서 Azure용 개발을
     
     ![웹 사이트가
     만들어짐](./media/web-sites-dotnet-get-started-vs2013/GS13sitecreated1.png)
+
 ## Azure에 응용 프로그램 배포
 
 1.  **Web Publish Activity** 창에서 **Publish MyExample to this site now**를
@@ -201,6 +204,7 @@ Visual Studio 2013을 자동으로 설치합니다. 따라서 Azure용 개발을
     사이트](./media/web-sites-dotnet-get-started-vs2013/GS13deployedsite.png)
 
 7.  브라우저를 닫습니다.
+
 ## 변경 및 다시 배포
 
 자습서의 이 섹션(옵션)에서는 웹 프로젝트를 변경하고 개발 컴퓨터에서 로컬로 프로젝트를 실행하여 변경 내용을 확인한 다음
@@ -260,6 +264,7 @@ Azure에 변경 내용을 배포합니다.
 
 이 도구 모음은 기본적으로 사용하도록 설정되어 있지 않습니다. **보기 - 도구 모음** 메뉴에서 사용하도록 설정합니다. 이 도구
 모음을 사용하여 프로필을 선택하거나, 단추를 클릭하여 게시하거나, 단추를 클릭하여 **웹 게시** 마법사를 열 수 있습니다.
+
 ## 다음 단계
 
 이 자습서에서는 간단한 웹 응용 프로그램을 만들고 Azure 웹 사이트에 배포하는 방법을 확인했습니다. 다음은 자세한 내용을
@@ -269,6 +274,7 @@ Azure에 변경 내용을 배포합니다.
 * 사이트의 관리, 크기 조정 및 문제 해결을 수행하는 방법
 * 데이터베이스 및 권한 부여 기능을 추가하는 방법
 * 웹 응용 프로그램용 웹 사이트, 클라우드 서비스 및 VM을 선택하는 방법
+
 ### 웹 프로젝트를 배포하는 다른 방법
 
 이 자습서에서는 단일 작업으로 사이트를 만들고 배포하는 가장 빠른 방법을 확인했습니다. Visual Studio를 사용하거나
@@ -279,6 +285,7 @@ Azure에 변경 내용을 배포합니다.
 Azure는 Visual Studio에서 수행할 수 있는 것과 동일한 배포 작업을 수행하는 데 사용할 수 있는 PowerShell
 스크립트를 생성하여 해당 작업을 간소화합니다. 자세한 내용은 [자동화(Azure에서 실제 클라우드 앱 빌드)][4](영문)를
 참조하십시오.
+
 ### 웹 사이트를 관리하는 방법
 
 [Azure 관리 포털](en-us/services/management-portal/)은 웹 사이트, 클라우드 서비스, 가상
@@ -291,12 +298,14 @@ Visual Studio의 **서버 탐색기**에서 바로 일부 웹 사이트 관리 �
 수행할 수 있는 작업에 대한 자세한 내용은 [Visual Studio에서 Azure 웹 사이트 문제
 해결](/en-us/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/)을
 참조하십시오.
+
 ### 웹 사이트 크기를 조정하는 방법
 
 사이트가 공용이고 트래픽이 증가하기 시작하면 응답 시간이 느려질 수 있습니다. 이 문제를 해결하기 위해 관리 포털의
 **Scale** 탭에서 서버 리소스를 쉽게 추가할 수 있습니다. 자세한 내용은 [웹 사이트 크기를 조정하는
 방법](/en-us/manage/services/web-sites/how-to-scale-websites/)을 참조하십시오. 웹
 사이트 크기를 조정하기 위해 서버 리소스를 추가하는 것은 무료가 아닙니다.
+
 ### 웹 사이트 문제를 해결하는 방법
 
 문제 해결을 위해 추적 또는 로그 출력을 확인할 수도 있습니다. Visual Studio는 Azure 로그가 생성될 때 실시간으로
@@ -304,12 +313,14 @@ Visual Studio의 **서버 탐색기**에서 바로 일부 웹 사이트 관리 �
 [Visual Studio에서 Azure 웹 사이트 문제
 해결](/en-us/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/)을
 참조하십시오.
+
 ### 데이터베이스 및 권한 부여 기능을 추가하는 방법
 
 대부분의 프로덕션 웹 사이트는 데이터베이스를 사용하고 일부 사이트 기능을 권한 있는 특정 사용자로 제한합니다. 데이터베이스
 액세스, 인증 및 권한 부여를 시작하는 방법을 보여 주는 자습서는 [Azure 웹 사이트에 멤버 자격, OAuth 및 SQL
 데이터베이스가 포함된 보안 ASP.NET MVC 앱
 배포](/en-us/develop/net/tutorials/web-site-with-sql-database/)를 참조하십시오.
+
 ### 응용 프로그램이 클라우드 서비스에서 실행되어야 하는지 여부를 결정하는 방법
 
 Azure에서는 웹 응용 프로그램을 웹 사이트(이 자습서에 설명됨), 클라우드 서비스 또는 가상 컴퓨터에서 실행할 수 있습니다.

@@ -1,10 +1,9 @@
-<h2><a  id="AdditionalServices" ></a><span  class="short-header">추가 Twilio 서비스 사용</span>방법: 추가 Twilio 서비스</h2>
+<h2><a id="AdditionalServices" ></a><span  class="short-header">추가 Twilio 서비스 사용</span>방법: 추가 Twilio 서비스</h2>
 
 
-여기에서 보여 준 예뿐만 아니라 Twilio는 Azure 응용 프로그램에서 Twilio 기능을 활용할 수 있는 웹 기반 API를
-제공합니다. 자세한 내용은 [Twilio API 설명서][1](영문)를 참조하십시오.
+여기에서 보여 준 예뿐만 아니라 Twilio는 Azure 응용 프로그램에서 Twilio 기능을 활용할 수 있는 웹 기반 API를 제공합니다. 자세한 내용은 [Twilio API 설명서][1](영문)를 참조하십시오.
 
-<h2><a  id="NextSteps" ></a><span  class="short-header">다음 단계</span>다음 단계</h2>
+<h2><a id="NextSteps" ></a><span  class="short-header">다음 단계</span>다음 단계</h2>
 
 
 Twilio 서비스에 관한 기본적인 사항들을 익혔으며 자세한 내용을 보려면 다음 링크를 따라가십시오.

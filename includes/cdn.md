@@ -1,7 +1,7 @@
+
 # Azure에 CDN 사용
 
-Azure CDN(콘텐츠 배달 네트워크)은 미국, 유럽, 아시아, 오스트레일리아 및 남아메리카의 물리적 노드에서 계산 인스턴스의
-Blob 및 정적 콘텐츠를 캐시하여 고대역폭 콘텐츠를 제공하기 위한 글로벌 솔루션을 개발자에게 제공합니다. 현재 CDN 노드 위치
+Azure CDN(콘텐츠 배달 네트워크)은 미국, 유럽, 아시아, 오스트레일리아 및 남아메리카의 물리적 노드에서 계산 인스턴스의 Blob 및 정적 콘텐츠를 캐시하여 고대역폭 콘텐츠를 제공하기 위한 글로벌 솔루션을 개발자에게 제공합니다. 현재 CDN 노드 위치
 목록은 [Azure CDN 노드 위치][1]를 참조하십시오.
 
 이 작업에는 다음 단계가 포함됩니다.
@@ -20,7 +20,7 @@ CDN을 사용하여 Azure 데이터를 캐시할 경우의 혜택은 다음과 �
 이제 기존 CDN 고객이 [Azure 관리 포털][2]에서 Azure CDN을 사용할 수 있습니다. CDN은 구독에 대한 추가
 기능이며 별도의 [요금제](/en-us/pricing/calculator/?scenario=full)를 사용합니다.
 
-<a  id="Step1"> </a>
+<a id="Step1"> </a>
 
 <h2>1단계: 저장소 계정 만들기</h2>
 
@@ -33,13 +33,13 @@ CDN을 사용하여 Azure 데이터를 캐시할 경우의 혜택은 다음과 �
 저장소 계정을 만들려면 관련 구독에 대한 서비스 관리자 또는 공동 관리자여야 합니다.
 <div class="dev-callout">
 <strong>참고</strong>
-<p>Azure 서비스 관리 API를 사용하여 이 작업을 수행하는 방법에 대한 자세한 내용은 <a  href="http://msdn.microsoft.com/en-us/library/windowsazure/hh264518.aspx">저장소 계정 만들기</a> 참조 항목을 참조하십시오.</p>
+<p>Azure 서비스 관리 API를 사용하여 이 작업을 수행하는 방법에 대한 자세한 내용은 <a href="http://msdn.microsoft.com/en-us/library/windowsazure/hh264518.aspx">저장소 계정 만들기</a> 참조 항목을 참조하십시오.</p>
 </div>
 
  **Azure 구독에 대한 저장소 계정을 만들려면**
 
-1.  [Azure 관리 포털][2]에 로그인합니다.
-2.  왼쪽 아래에서 **New**를 클릭한 후 **Storage**를 클릭합니다.
+1.  [Azure 관리 포털][2]에 로그인합니다. 
+2.  왼쪽 아래에서 **New**를 클릭한 후 **Storage**를 클릭합니다. 
 3.  **Quick Create**를 클릭합니다.
     
     **Create Storage Account** 대화 상자가 나타납니다.
@@ -62,13 +62,13 @@ CDN을 사용하여 Azure 데이터를 캐시할 경우의 혜택은 다음과 �
 5.  **Region/Affinity Group** 드롭다운 목록에서 저장소 계정의 지리적 위치를 선택합니다. 또는 선호도
     그룹을 사용합니다. 선호도 그룹을 만드는 방법에 대한 지침은 [Azure에서 선호도 그룹을 만드는 방법][4]을
     참조하십시오.
-6.  **Subscription** 드롭다운 목록에서 저장소 계정을 사용할 구독을 선택합니다.
+6.  **Subscription** 드롭다운 목록에서 저장소 계정을 사용할 구독을 선택합니다. 
 7.  **Create Storage Account**를 클릭합니다. 저장소 계정을 만드는 프로세스를 완료하려면 몇 분 정도 걸릴
     수 있습니다.
 8.  저장소 계정이 만들어졌는지 확인하려면 계정이 **Online** 상태인 **Storage**에 대해 나열된 항목에
     표시되는지 확인합니다.
 
-<a  id="Step2"> </a>
+<a id="Step2"> </a>
 
 <h2>2단계: 저장소 계정에 대한 새 CDN 끝점 만들기</h2>
 
@@ -105,7 +105,7 @@ CDN을 사용하여 Azure 데이터를 캐시할 경우의 혜택은 다음과 �
 		</div>
 
 
-<a  id="Step3"> </a>
+<a id="Step3"> </a>
 
 <h2>3단계: CDN 콘텐츠 액세스</h2>
 
@@ -114,7 +114,7 @@ CDN에 캐시된 콘텐츠에 액세스하려면 포털에 제공된 CDN URL을 
 
 http://<*CDNNamespace*>.vo.msecnd.net/<*myPublicContainer*>/<*BlobName*>
 
-<a  id="Step4"> </a>
+<a id="Step4"> </a>
 
 <h2>4단계: CDN에서 콘텐츠 제거</h2>
 
@@ -127,11 +127,11 @@ http://<*CDNNamespace*>.vo.msecnd.net/<*myPublicContainer*>/<*BlobName*>
 * 관리 포털을 사용하여 CDN 끝점을 사용하지 않도록 설정하거나 삭제할 수 있습니다.
 * 더 이상 개체 요청에 응답하지 않도록 호스티드 서비스를 수정할 수 있습니다.
 
-CDN에 이미 캐시된 개체는 개체의 TTL(Time-to-Live) 기간이 만료될 때까지 캐시된 상태로 유지됩니다.
-TTL(Time-to-Live)이 만료되면 CDN에서 CDN 끝점이 여전히 유효하며 개체에 익명으로 액세스할 수 있는지
+CDN에 이미 캐시된 개체는 개체의 TTL(Time-to-Live) 기간이 만료될 때까지 캐시된 상태로 유지됩니다. TTL(Time-to-Live)이 만료되면 CDN에서 CDN 끝점이 여전히 유효하며 개체에 익명으로 액세스할 수 있는지
 확인합니다. 그렇지 않으면 개체가 더 이상 캐시되지 않습니다.
 
 현재 Azure CDN에 사용할 수 있는 명시적 "삭제" 도구는 없습니다.
+
 ## 추가 리소스
 
 * [Azure에서 선호도 그룹을 만드는 방법][4]
