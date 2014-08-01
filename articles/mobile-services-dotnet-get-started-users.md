@@ -142,10 +142,10 @@
 
 
 <!-- Anchors. -->
-[Register your app for authentication and configure Mobile Services]: #register
-[Restrict table permissions to authenticated users]: #permissions
-[Add authentication to the app]: #add-authentication
-[Next Steps]:#next-steps
+[인증을 위해 앱 등록 및 모바일 서비스 구성]: #register
+[테이블 사용 권한을 인증된 사용자로 제한]: #permissions
+[앱에 인증 추가]: #add-authentication
+[다음 단계]:#next-steps
 
 <!-- Images. -->
 
