@@ -1,0 +1,283 @@
+<properties linkid="develop-php-website-with-sql-database-and-git" urlDisplayName="Web w/ SQL + Git" pageTitle="PHP web site with SQL Database and Git - Azure tutorial" metaKeywords="" description="A tutorial that demonstrates how to create a PHP web site that stores data in SQL Database and use Git deployment to Azure." metaCanonical="" services="web-sites,sql-database" documentationCenter="PHP" title="Create a PHP web site with a SQL Database and deploy using Git" authors="waltpo" solutions="" manager="" editor="mollybos" />
+
+SQL 데이터베이스를 사용하여 PHP 웹 사이트 만들기 및 Git를 사용하여 배포
+=======================================================================
+
+이 자습서에서는 Azure SQL 데이터베이스를 사용하여 PHP Azure 웹 사이트를 만들고 Git를 사용하여 배포하는 방법을 설명합니다. 이 자습서는 컴퓨터에 [PHP](http://www.php.net/manual/en/install.php), [SQL Server Express](http://www.microsoft.com/en-us/download/details.aspx?id=29062), [PHP용 SQL Server를 위한 Microsoft 드라이버](http://www.microsoft.com/en-us/download/details.aspx?id=20098)(영문), 웹 서버 및 [Git](http://git-scm.com/)가 설치되어 있다고 가정합니다. 이 가이드를 완료하면 Azure에서 실행하는 PHP-SQL 데이터베이스 웹 사이트가 완성됩니다.
+
+> [WACOM.NOTE] PHP, SQL Server Express, PHP용 SQL Server를 위한 Microsoft 드라이버 및 IIS(인터넷 정보 서비스)는 [Microsoft 웹 플랫폼 설치 관리자](http://www.microsoft.com/web/downloads/platform.aspx)(영문)를 사용하여 설치하고 구성할 수 있습니다.
+
+다음 내용을 배웁니다.
+
+-   Azure 관리 포털을 사용하여 Azure 웹 사이트 및 SQL 데이터베이스를 만드는 방법. PHP는 Azure 웹 사이트에서 기본적으로 사용하도록 설정되어 있으므로 PHP 코드를 실행하기 위해 특별한 조치를 취할 필요가 없습니다.
+-   Git를 사용하여 응용 프로그램을 Azure에 게시 및 다시 게시하는 방법
+
+이 자습서의 지침에 따라 PHP에서 간단한 등록 웹 응용 프로그램을 빌드할 수 있습니다. 응용 프로그램은 Azure 웹 사이트에 호스트됩니다. 아래에는 완성된 응용 프로그램의 스크린샷이 표시되어 있습니다.
+
+![Azure PHP 웹 사이트](./media/web-sites-php-sql-database-deploy-use-git/running_app_3.png)
+
+[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
+
+Azure 웹 사이트 만들기 및 Git 게시 설정
+---------------------------------------
+
+Azure 웹 사이트 및 SQL 데이터베이스를 만들려면 다음 단계를 따르십시오.
+
+1.  [Azure 관리 포털](https://manage.windowsazure.com/)에 로그인합니다.
+2.  포털의 왼쪽 아래에서 **새로 만들기** 아이콘을 클릭합니다.
+
+	![새 Azure 웹 사이트 만들기](./media/web-sites-php-sql-database-deploy-use-git/new_website.jpg)
+
+3.  **웹 사이트**를 클릭한 후 **사용자 지정 만들기**를 클릭합니다.
+
+    ![새 웹 사이트 사용자 지정 만들기](./media/web-sites-php-sql-database-deploy-use-git/custom_create.png)
+
+    **URL**에 대한 값을 입력하고 **데이터베이스** 드롭다운에서 **새 SQL 데이터베이스 만들기**를 선택한 후 **지역** 드롭다운에서 웹 사이트에 대한 데이터 센터를 선택합니다. 대화 상자 아래쪽의 화살표를 클릭합니다.
+
+    ![웹 사이트 세부 정보 채우기](./media/web-sites-php-sql-database-deploy-use-git/website_details_sqlazure.jpg)
+
+4.  데이터베이스 **이름**에 값을 입력하고 **버전**[(WEB 또는 BUSINESS)](http://msdn.microsoft.com/en-us/library/windowsazure/ee621788.aspx), 데이터베이스의 **최대 크기**, **정렬** 및 **새 SQL 데이터베이스 서버**를 선택합니다. 대화 상자 아래쪽의 화살표를 클릭합니다.
+
+    ![SQL 데이터베이스 설정 입력](./media/web-sites-php-sql-database-deploy-use-git/database_settings.jpg)
+
+5.  관리자 이름 및 암호를 입력하고, 암호를 확인하고, 새 SQL 데이터베이스 서버를 만들 지역을 선택하고, `Azure 서비스가 서버에 액세스할 수 있도록 허용합니다.` 상자를 선택합니다.
+
+    ![새 SQL 데이터베이스 서버 만들기](./media/web-sites-php-sql-database-deploy-use-git/create_server.jpg)
+
+    웹 사이트가 만들어지면 **Creation of Web Site "[SITENAME]" completed successfully** 텍스트가 표시됩니다. 이제 Git 게시를 사용하도록 설정할 수 있습니다.
+
+6.  웹 사이트 목록에 표시되는 웹 사이트의 이름을 클릭하여 웹 사이트의 빠른 시작 대시보드를 엽니다.
+
+    ![웹 사이트 대시보드 열기](./media/web-sites-php-sql-database-deploy-use-git/go_to_dashboard.png)
+
+7.  빠른 시작 페이지 맨 아래에 있는 **소스 제어에서 배포 설정**을 클릭합니다.
+
+    ![Git 게시 설정](./media/web-sites-php-sql-database-deploy-use-git/setup_git_publishing.png)
+
+8.  "소스 코드 위치?" 질문이 나타나면 **Local Git repository**를 선택한 후 화살표를 클릭합니다.
+
+    ![소스 코드 위치](./media/web-sites-php-sql-database-deploy-use-git/where_is_code.png)
+
+9.  Git 게시를 사용하도록 설정하려면 사용자 이름 및 암호를 지정해야 합니다. 만든 사용자 이름 및 암호를 기록해 둡니다. 이전에 Git 리포지토리를 설정한 경우 이 단계를 건너뜁니다.
+
+    ![게시 자격 증명 만들기](./media/web-sites-php-sql-database-deploy-use-git/git-deployment-credentials.png)
+
+    리포지토리를 설정하는 데 몇 초 정도 걸립니다.
+
+10. 리포지토리가 준비되면 응용 프로그램 파일을 리포지토리에 푸시하는 지침이 표시됩니다. 이러한 지침은 나중에 필요하므로 기록해 둡니다.
+
+    ![Git 지침](./media/web-sites-php-sql-database-deploy-use-git/git-instructions.png)
+
+SQL 데이터베이스 연결 정보 가져오기
+-----------------------------------
+
+Azure 웹 사이트에서 실행되는 SQL 데이터베이스 인스턴스에 연결하려면 연결 정보가 필요합니다. SQL 데이터베이스 연결 정보를 가져오려면 다음 단계를 따르십시오.
+
+1.  Azure 관리 포털에서 **연결된 리소스**를 클릭한 후 데이터베이스 이름을 클릭합니다.
+
+    ![연결된 리소스](./media/web-sites-php-sql-database-deploy-use-git/linked_resources.jpg)
+
+2.  **연결 문자열 보기**를 클릭합니다.
+
+    ![연결 문자열](./media/web-sites-php-sql-database-deploy-use-git/connection_string.jpg)
+
+3.  나타나는 대화 상자의 **PHP** 섹션에서 `서버`, `데이터베이스` 및 `사용자 이름`의 값을 기록해 놓습니다.
+
+로컬에서 응용 프로그램 빌드 및 테스트
+-------------------------------------
+
+등록 응용 프로그램은 이름과 전자 메일 주소를 지정하여 이벤트에 등록하는 데 사용할 수 있는 간단한 PHP 응용 프로그램입니다. 이전 등록자에 대한 정보가 테이블에 표시되어 있습니다. 등록 정보는 SQL 데이터베이스 인스턴스에 저장되어 있습니다. 응용 프로그램은 다음과 같은 두 파일로 구성되어 있습니다(아래에서 사용할 수 있는 코드 복사/붙여넣기).
+
+-   **index.php**: 등록 양식 및 등록자 정보가 포함된 테이블을 표시합니다.
+-   **createtable.php**: 응용 프로그램용 SQL 데이터베이스 테이블을 만듭니다. 이 파일은 한 번만 사용됩니다.
+
+응용 프로그램을 로컬에서 실행하려면 아래 단계를 따릅니다. 이러한 단계는 로컬 컴퓨터에 PHP, SQL Server Express 및 웹 서버가 설정되어 있으며 [SQL Server용 PDO 확장](http://php.net/pdo_sqlsrv)(영문)이 사용하도록 설정되어 있다는 것을 전제로 합니다.
+
+1.  `registration`이라는 SQL Server 데이터베이스를 만듭니다. 이는 `sqlcmd` 명령 프롬프트에서 다음 명령으로 수행할 수 있습니다.
+
+         >sqlcmd -S localhost\sqlexpress -U <local user name> -P <local password>
+         1> create database registration
+         2> GO   
+
+2.  웹 서버의 루트 디렉터리에서 `registration`이라는 폴더를 만들고 이 폴더 내에 `createtable.php` 및 `index.php`라는 두 파일을 만듭니다.
+
+3.  텍스트 편집기 또는 IDE에서 `createtable.php` 파일을 열고 아래 코드를 추가합니다. 이 코드는 `registration` 데이터베이스에 `registration_tbl` 테이블을 만드는 데 사용됩니다.
+
+         <
+         php
+         // DB connection info
+         $host = "localhost\sqlexpress";
+         $user = "user name";
+         $pwd = "password";
+         $db = "registration";
+         try {
+             $conn = new PDO( "sqlsrv:Server= $host ; Database = $db ", $user, $pwd);
+             $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
+             $sql = "CREATE TABLE registration_tbl(
+             id INT NOT NULL IDENTITY(1,1) 
+             PRIMARY KEY(id),
+             name VARCHAR(30),
+             email VARCHAR(30),
+             date DATE)";
+             $conn->query($sql);
+         }
+         catch(Exception $e) {
+             die(print_r($e));
+         }
+         echo "<h3>Table created.</h3>";
+         
+         >
+
+    `$user` 및 `$pwd`의 값을 로컬 SQL Server 사용자 이름 및 암호로 업데이트해야 합니다.
+
+4.  웹 브라우저를 열고 **http://localhost/registration/createtable.php**로 이동합니다. 그러면 데이터베이스에 `registration_tbl` 테이블이 만들어집니다.
+
+5.  텍스트 편집기 또는 IDE에서 **index.php** 파일을 열고 페이지의 기본 HTML 및 CSS 코드를 추가합니다(PHP 코드는 이후 단계에서 추가 예정).
+
+         <html>
+         <head>
+         <Title>Registration Form</Title>
+         <style type="text/css">
+             body { background-color: #fff; border-top: solid 10px #000;
+                 color: #333; font-size: .85em; margin: 20; padding: 20;
+                 font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+             }
+             h1, h2, h3,{ color: #000; margin-bottom: 0; padding-bottom: 0; }
+             h1 { font-size: 2em; }
+             h2 { font-size: 1.75em; }
+             h3 { font-size: 1.2em; }
+             table { margin-top: 0.75em; }
+             th { font-size: 1.2em; text-align: left; border: none; padding-left: 0; }
+             td { padding: 0.25em 2em 0.25em 0em; border: 0 none; }
+         </style>
+         </head>
+         <body>
+         <h1>Register here!</h1>
+         <p>Fill in your name and email address, then click <strong>Submit</strong> to register.</p>
+         <form method="post" action="index.php" enctype="multipart/form-data" >
+               Name  <input type="text" name="name" id="name"/></br>
+               Email <input type="text" name="email" id="email"/></br>
+               <input type="submit" name="submit" value="Submit" />
+         </form>
+         <
+         php
+
+         
+         >
+         </body>
+         </html>
+
+6.  PHP 태그 내에서 데이터베이스 연결에 필요한 PHP 코드를 추가합니다.
+
+         // DB connection info
+         $host = "localhost\sqlexpress";
+         $user = "user name";
+         $pwd = "password";
+         $db = "registration";
+         // Connect to database.
+         try {
+             $conn = new PDO( "sqlsrv:Server= $host ; Database = $db ", $user, $pwd);
+             $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
+         }
+         catch(Exception $e) {
+             die(var_dump($e));
+         }
+
+    다시 `$user` 및 `$pwd`의 값을 로컬 MySQL 사용자 이름 및 암호로 업데이트해야 합니다.
+
+7.  데이터베이스 연결 코드 다음에 등록 정보를 데이터베이스에 삽입하는 데 필요한 코드를 추가합니다.
+
+         if(!empty($_POST)) {
+         try {
+             $name = $_POST['name'];
+             $email = $_POST['email'];
+             $date = date("Y-m-d");
+             // Insert data
+             $sql_insert = "INSERT INTO registration_tbl (name, email, date) 
+                            VALUES (
+         ,
+         ,
+         )";
+             $stmt = $conn->prepare($sql_insert);
+             $stmt->bindValue(1, $name);
+             $stmt->bindValue(2, $email);
+             $stmt->bindValue(3, $date);
+             $stmt->execute();
+         }
+         catch(Exception $e) {
+             die(var_dump($e));
+         }
+         echo "<h3>Your're registered!</h3>";
+         }
+
+8.  마지막으로 위 코드 다음에 데이터베이스에서 데이터 검색에 필요한 코드를 추가합니다.
+
+         $sql_select = "SELECT * FROM registration_tbl";
+         $stmt = $conn->query($sql_select);
+         $registrants = $stmt->fetchAll(); 
+         if(count($registrants) > 0) {
+             echo "<h2>People who are registered:</h2>";
+             echo "<table>";
+             echo "<tr><th>Name</th>";
+             echo "<th>Email</th>";
+             echo "<th>Date</th></tr>";
+             foreach($registrants as $registrant) {
+                 echo "<tr><td>".$registrant['name']."</td>";
+                 echo "<td>".$registrant['email']."</td>";
+                 echo "<td>".$registrant['date']."</td></tr>";
+             }
+            echo "</table>";
+         } else {
+             echo "<h3>No one is currently registered.</h3>";
+         }
+
+이제 **http://localhost/registration/index.php**로 이동하여 응용 프로그램을 테스트할 수 있습니다.
+
+응용 프로그램 게시
+------------------
+
+응용 프로그램을 로컬에서 테스트한 후 Git를 사용하여 Azure 웹 사이트에 게시할 수 있습니다. 하지만 먼저 응용 프로그램의 데이터베이스 연결 정보를 업데이트해야 합니다. 이전에 **SQL 데이터베이스 연결 정보 가져오기** 섹션에서 가져온 데이터베이스 연결 정보를 사용하여 `createdatabase.php` 및 `index.php` 파일 **모두**에서 다음 정보를 적합한 값으로 업데이트합니다.
+
+    // DB connection info
+    $host = "tcp:<value of SERVER>";
+    $user = "<value of USERNAME>@<server ID>";
+    $pwd = "<your password>";
+    $db = "<value of DATABASE>";
+
+> [WACOM.NOTE] `$host`에서 SERVER 값 앞에 `tcp:`를 추가해야 하며 `$user`의 값은 USERNAME, '@' 및 서버 ID의 연결입니다. 서버 ID는 SERVER 값의 첫 10자입니다.
+
+이제 Git 게시를 설정하고 응용 프로그램을 게시할 수 있습니다.
+
+> [WACOM.NOTE] 이들은 앞서 "Azure 웹 사이트 만들기 및 Git 게시 설정" 섹션의 끝에서 설명한 단계와 동일합니다.
+
+1.  GitBash를 열거나 Git가 `PATH`에 있는 경우 터미널을 열고 응용 프로그램의 루트 디렉터리로 이동한 후 다음 명령을 실행합니다.
+
+         git init
+         git add .
+         git commit -m "initial commit"
+         git remote add azure [URL for remote repository]
+         git push azure master
+
+    이전에 만든 암호를 입력하라는 메시지가 나타납니다.
+
+2.  **http://[사이트 이름].azurewebsites.net/createtable.php**로 이동하여 응용 프로그램용 MySQL 테이블을 만듭니다.
+3.  **http://[사이트 이름].azurewebsites.net/index.php**로 이동하여 응용 프로그램을 사용합니다.
+
+응용 프로그램을 게시한 후 변경을 시작하고 Git를 사용하여 변경 내용을 게시할 수 있습니다.
+
+응용 프로그램의 변경 내용 게시
+------------------------------
+
+응용 프로그램의 변경 내용을 게시하려면 다음 단계를 따르십시오.
+
+1.  응용 프로그램을 로컬에서 변경합니다.
+2.  GitBash를 열거나 Git가 `PATH`에 있는 경우 터미널을 열고 응용 프로그램의 루트 디렉터리로 이동한 후 다음 명령을 실행합니다.
+
+         git add .
+         git commit -m "comment describing changes"
+         git push azure master
+
+    이전에 만든 암호를 입력하라는 메시지가 나타납니다.
+
+3.  **http://[사이트 이름].azurewebsites.net/index.php**로 이동하여 변경 내용을 확인합니다.
+
