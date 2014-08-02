@@ -253,7 +253,7 @@ Azure 웹 사이트를 만들었으므로 로컬에서 응용 프로그램을 �
     ![Azure PHP 웹
     사이트](./media/web-sites-php-mysql-deploy-use-git/running_app_2.png)
 
-4.  또한 Azure 관리 포털의 \'배포\' 탭에서 새 배포를 볼 수도 있습니다.
+4.  또한 Azure 관리 포털의 '배포' 탭에서 새 배포를 볼 수도 있습니다.
     
     ![웹 사이트 배포
     목록](./media/web-sites-php-mysql-deploy-use-git/php-deployments-list.png)

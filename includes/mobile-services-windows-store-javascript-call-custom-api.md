@@ -1,63 +1,66 @@
 
-##<a name="update-app"></a>Update the app to call the custom API
 
-1. In Visual Studio, open the default.html file in your quickstart project, locate the **button** element named `buttonRefresh`, and add the following new element right after it: 
+사용자 지정 API를 호출하도록 앱 업데이트
+----------------------------------------
 
-		<button id="buttonCompleteAll" style="margin-left: 5px">Complete All</button>
+1.  Visual Studio에서 퀵 스타트 프로젝트의 default.html 파일을 열고 이름이 `buttonRefresh`인 **button** 요소를 찾아 바로 뒤에 다음과 같은 새 요소를 추가합니다.
 
-	This adds a new button to the page. 
+         <button id="buttonCompleteAll" style="margin-left: 5px">Complete All</button>
 
-2. Open the default.js code file in the `js` project folder, locate the **refreshTodoItems** function and make sure that this function contains the following code:
+    이 코드는 페이지에 새 단추를 추가합니다.
 
-	    todoTable.where({ complete: false })
-	       .read()
-	       .done(function (results) {
-	           todoItems = new WinJS.Binding.List(results);
-	           listItems.winControl.itemDataSource = todoItems.dataSource;
-	       });            
+2.  `js` 프로젝트 폴더의 default.js 코드 파일을 열고 **refreshTodoItems** 함수를 찾아 이 함수에 다음 코드가 포함되었는지 확인합니다.
 
-	This filters the items so that completed items are not returned by the query.
+         todoTable.where({ complete: false })
+            .read()
+            .done(function (results) {
+                todoItems = new WinJS.Binding.List(results);
+                listItems.winControl.itemDataSource = todoItems.dataSource;
+            });            
 
-3. After the **refreshTodoItems** function, add the following code:
+    이 코드는 완료된 항목이 쿼리에서 반환되지 않도록 항목을 필터링합니다.
 
-		var completeAllTodoItems = function () {
-		    var okCommand = new Windows.UI.Popups.UICommand("OK");
-		
-		    // Asynchronously call the custom API using the POST method. 
-		    mobileService.invokeApi("completeall", {
-		        body: null,
-		        method: "post"
-		    }).done(function (results) {
-		        var message = results.result.count + " item(s) marked as complete.";
-		        var dialog = new Windows.UI.Popups.MessageDialog(message);
-		        dialog.commands.append(okCommand);
-		        dialog.showAsync().done(function () {
-		            refreshTodoItems();
-		        });
-		    }, function (error) {
-		        var dialog = new Windows.UI.Popups
-		            .MessageDialog(error.message);
-		        dialog.commands.append(okCommand);
-		        dialog.showAsync().done();
-		    });
-		};
+3.  **refreshTodoItems** 함수 뒤에 다음 코드를 추가합니다.
 
-        buttonCompleteAll.addEventListener("click", function () {
-            completeAllTodoItems();
-        });
+         var completeAllTodoItems = function () {
+             var okCommand = new Windows.UI.Popups.UICommand("OK");
+            
+             // Asynchronously call the custom API using the POST method. 
+             mobileService.invokeApi("completeall", {
+                 body: null,
+                 method: "post"
+             }).done(function (results) {
+                 var message = results.result.count + " item(s) marked as complete.";
+                 var dialog = new Windows.UI.Popups.MessageDialog(message);
+                 dialog.commands.append(okCommand);
+                 dialog.showAsync().done(function () {
+                     refreshTodoItems();
+                 });
+             }, function (error) {
+                 var dialog = new Windows.UI.Popups
+                     .MessageDialog(error.message);
+                 dialog.commands.append(okCommand);
+                 dialog.showAsync().done();
+             });
+         };
 
-	This method handles the **Click** event for the new button. The **InvokeApiAsync** method is called on the client, which sends a POST request to the new custom API. The result returned by the custom API is displayed in a message dialog, as are any errors.
+         buttonCompleteAll.addEventListener("click", function () {
+             completeAllTodoItems();
+         });
 
-## <a name="test-app"></a>Test the app
+    이 메서드는 새 단추의 **Click** 이벤트를 처리합니다. **InvokeApiAsync** 메서드가 클라이언트에서 호출되어 POST 요청을 새 사용자 지정 API로 보냅니다. 사용자 지정 API에서 반환하는 결과는 오류와 마찬가지로 메시지 대화 상자에 표시됩니다.
 
-1. In Visual Studio, press the **F5** key to rebuild the project and start the app.
+앱 테스트
+---------
 
-2. In the app, type some text in **Insert a TodoItem**, then click **Save**.
+1.  Visual Studio에서 **F5** 키를 눌러 프로젝트를 다시 빌드하고 앱을 시작합니다.
 
-3. Repeat the previous step until you have added several todo items to the list.
+2.  앱에서 **Insert a TodoItem**에 일부 텍스트를 입력하고 **Save**를 클릭합니다.
 
-4. Click the **Complete All** button.
+3.  목록에 todo 항목을 여러 개 추가할 때까지 이전 단계를 반복합니다.
 
-  	![](./media/mobile-services-windows-store-javascript-call-custom-api/mobile-custom-api-windows-store-completed.png)
+4.  **Complete All** 단추를 클릭합니다.
 
-	A message dialog is displayed that indicates the number of items marked complete and the filtered query is executed again, which clears all items from the list.
+	![](./media/mobile-services-windows-store-javascript-call-custom-api/mobile-custom-api-windows-store-completed.png)
+
+    완료 표시된 항목 수를 나타내는 메시지 대화 상자가 표시되고 필터링된 쿼리가 다시 실행되어 목록에서 모든 항목을 지웁니다.

@@ -1,43 +1,45 @@
 
 
-1. Open the project file default.js and in the **app.OnActivated** method overload, replace the last call to the **refreshTodoItems** method with the following code: 
-	
-        var userId = null;
+1.  default.js 프로젝트 파일을 열고 **app.OnActivated** 메서드 오버로드에서 **refreshTodoItems** 메서드에 대한 마지막 호출을 다음 코드로 바꿉니다.
 
-        // Request authentication from Mobile Services using a Facebook login.
-        var login = function () {
-            return new WinJS.Promise(function (complete) {
-                client.login("facebook").done(function (results) {
-                    userId = results.userId;
-                    refreshTodoItems();
-                    var message = "You are now logged in as: " + userId;
-                    var dialog = new Windows.UI.Popups.MessageDialog(message);
-                    dialog.showAsync().done(complete);
-                }, function (error) {
-                    userId = null;
-                    var dialog = new Windows.UI.Popups
-                        .MessageDialog("An error occurred during login", "Login Required");
-                    dialog.showAsync().done(complete);
-                });
-            });
-        }            
+         var userId = null;
 
-        var authenticate = function () {
-            login().then(function () {
-                if (userId === null) {
+         // Request authentication from Mobile Services using a Facebook login.
+         var login = function () {
+             return new WinJS.Promise(function (complete) {
+                 client.login("facebook").done(function (results) {
+                     userId = results.userId;
+                     refreshTodoItems();
+                     var message = "You are now logged in as: " + userId;
+                     var dialog = new Windows.UI.Popups.MessageDialog(message);
+                     dialog.showAsync().done(complete);
+                 }, function(error) {
+                     userId = null;
+                     var dialog = new Windows.UI.Popups
+                         .MessageDialog("An error occurred during login", "Login Required");
+                     dialog.showAsync().done(complete);
+                 });
+             });
+         }            
 
-                    // Authentication failed, try again.
-                    authenticate();
-                }
-            });
-        }
+         var authenticate = function () {
+             login().then(function () {
+                 if (userId === null) {
 
-        authenticate();
+                     // Authentication failed, try again.
+                     authenticate();
+                 }
+             });
+         }
 
-    This creates a member variable for storing the current user and a method to handle the authentication process. The user is authenticated by using a Facebook login. If you are using an identity provider other than Facebook, change the value passed to the <strong>login</strong> method above to one of the following: _microsoftaccount_, _twitter_, or _google_.
+         authenticate();
 
-    >[WACOM.NOTE]If you registered your Windows Store app package information with Mobile Services, you should call the <a href="http://go.microsoft.com/fwlink/p/?LinkId=322050" target="_blank">login</a> method by supplying a value of <strong>true</strong> for the <em>useSingleSignOn</em> parameter. If you do not do this, your users will still be presented with a login prompt every time that the login method is called.
+    현재 사용자를 저장하기 위한 멤버 변수와 인증 프로세스를 처리할 메서드가 만들어집니다. 사용자는 Facebook 로그인을 사용하여 인증됩니다. Facebook 이외의 ID 공급자를 사용하는 경우 위의 **login** 메서드에 전달된 값을 다음 중 하나로 변경합니다. *microsoftaccount*, *twitter* 또는 *google* 중 하나로 변경합니다.
 
-9. Press the F5 key to run the app and sign into the app with your chosen identity provider. 
+    > [WACOM.NOTE]모바일 서비스에 Windows 스토어 앱 패키지 정보를 등록한 경우 *useSingleSignOn* 매개 변수에 **true** 값을 제공하여 [login](http://go.microsoft.com/fwlink/p/?LinkId=322050) 메서드를 호출해야 합니다. 그렇지 않으면 로그인 메서드가 호출될 때마다 사용자에게 로그인 프롬프트가 표시됩니다.
 
-   	When you are successfully logged-in, the app should run without errors, and you should be able to query Mobile Services and make updates to data.
+2.  F5 키를 눌러 앱을 실행하고 선택한 ID 공급자로 앱에 로그인합니다.
+
+  로그인하고 나면 앱이 오류 없이 실행되며 모바일 서비스를 쿼리하고 데이터를 업데이트할 수 있게 됩니다.
+
+

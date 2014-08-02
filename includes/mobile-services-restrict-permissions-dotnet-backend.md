@@ -1,30 +1,31 @@
 
 
-By default, all requests to mobile service resources are restricted to clients that present the application key, which does not strictly secure access to resources. To secure your resources, you need to restrict access to authenticated clients only.
+기본적으로 모바일 서비스 리소스에 대한 모든 요청은 리소스에 대한 액세스가 엄격하게 보안되지 않는 응용 프로그램 키를 제공하는 클라이언트에게로 제한되어 있습니다. 리소스를 보안하려면 인증된 클라이언트만 액세스를 허용해야 합니다.
 
-1. In Visual Studio, open the project that contains your mobile service. 
+1.  Visual Studio에서 해당 모바일 서비스가 포함된 프로젝트를 엽니다.
 
-2. In Solution Explorer, expand the Controllers folder and open the TodoItemController.cs project file.
+2.  솔루션 탐색기에서 컨트롤러 폴더를 확장하고 TodoItemController.cs 프로젝트 파일을 엽니다.
 
-	The **TodoItemController** class implements data access for the TodoItem table. 
+    **TodoItemController** 클래스는 TodoItem 테이블에 대한 데이터 액세스를 구현합니다.
 
-3. Add the following `using` statement at the top of the code page:
+3.  코드 페이지의 맨 위에 다음 `using` 문을 추가합니다.
 
-		using Microsoft.WindowsAzure.Mobile.Service.Security;
+         using Microsoft.WindowsAzure.Mobile.Service.Security;
 
-4. Apply the following AuthorizeLevel attribute to the **TodoItemController** class:
+4.  **TodoItemController** 클래스에 다음 AuthorizeLevel 특성을 적용합니다.
 
-		[AuthorizeLevel(AuthorizationLevel.User)] 
+         [AuthorizeLevel(AuthorizationLevel.User)] 
 
-	This will ensure that all operations against the **TodoItem** table require an authenticated user. 
+    그러면 **TodoItem** 테이블에 대한 모든 작업에 인증된 사용자가 필요합니다.
 
-	>[WACOM.NOTE]Apply the AuthorizeLevel attribute to individual methods to set specific authorization levels on the methods exposed by the controller.
+    > [WACOM.NOTE]개별 메서드에 AuthorizeLevel 특성을 적용하여 컨트롤러에 표시된 메서드에서 특정 권한 수준을 설정합니다.
 
-5. Expand the App_Start folder, open the WebApiConfig.cs project file, then add the following code to the **Register** method:
+5.  App\_Start 폴더를 확장하고 WebApiConfig.cs 프로젝트 파일을 연 다음 **Register** 메서드에 다음 코드를 추가합니다.
 
-		config.SetIsHosted(true);
-	
-	This tells the local mobile service project to run as if it is being hosted in Azure, including honoring the AuthorizeLevel settings. Without this setting, all HTTP requests to *localhost* are permitted without authentication despite the AuthorizeLevel setting.  
+         config.SetIsHosted(true);
 
-6. Republish your service project.
+    이렇게 하면 로컬 모바일 서비스 프로젝트가 AuthorizeLevel 설정을 유지하며 Azure에서 호스트 중인 것처럼 실행됩니다. 이 설정이 없는 경우 *localhost*에 대한 모든 HTTP 요청은 AuthorizeLevel 설정에도 불구하고 인증 없이 허용됩니다.
+
+6.  서비스 프로젝트를 다시 게시합니다.
+
 

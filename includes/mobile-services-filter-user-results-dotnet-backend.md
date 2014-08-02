@@ -1,43 +1,44 @@
 
 
-Now that authentication is required to access data in the TodoItem table, you can use the userID value assigned by Mobile Services to filter returned data.
+TodoItem 테이블의 데이터에 액세스하는 데 인증이 필요하므로 모바일 서비스에서 할당한 userID 값을 사용하여 반환된 데이터를 필터링할 수 있습니다.
 
->[WACOM.NOTE]The methods below should have the **RequiresAuthorizationAttribute** applied at the **User** **Authorizationlevel**. This restricts table access to only authenticated users.
+> [WACOM.NOTE]아래 메서드에서는 **User** **Authorizationlevel**에서 **RequiresAuthorizationAttribute**를 적용합니다. 그러면 테이블 액세스가 인증된 사용자로만 제한됩니다.
 
-1. In Visual Studio 2013, open your mobile service project, expand the DataObjects folder, then open the TodoItem.cs project file.
+1.  Visual Studio 2013에서 모바일 서비스 프로젝트를 열고 DataObjects 폴더를 확장한 후 TodoItem.cs 프로젝트 파일을 엽니다.
 
-	The TodoItem class defines the data object, and you need to add a UserId property to use for filtering.
+    TodoItem 클래스가 데이터 개체를 정의합니다. 필터링에 사용하려면 UserId 속성을 추가해야 합니다.
 
-2. Add the following new UserId property to the **TodoItem** class:
+2.  다음과 같은 새 UserId 속성을 **TodoItem** 클래스에 추가합니다.
 
-		public string UserId { get; set; }
+         public string UserId { get; set; }
 
-	>[WACOM.NOTE] When using the default database initializer, Entity Framework will drop and recreate the database whenever it detects a data model change in the Code First model definition. To make this data model change and maintain existing data in the database, you must use Code First Migrations. The default initializer cannot be used against a SQL Database in Azure. For more information, see [How to Use Code First Migrations to Update the Data Model](/en-us/documentation/articles/mobile-services-dotnet-backend-use-code-first-migrations).
+    > [WACOM.NOTE] 기본 데이터베이스 이니셜라이저를 사용할 경우 Entity Framework에서는 Code First 모델 정의에서 데이터 모델 변경이 감지될 때마다 데이터베이스를 삭제하고 다시 만듭니다. 이 데이터 모델을 변경하고 데이터베이스에서 기존 데이터를 유지하려면 Code First 마이그레이션을 사용해야 합니다. Azure에서는 SQL 데이터베이스에 대해 기본 이니셜라이저를 사용할 수 없습니다. 자세한 내용은 [Code First 마이그레이션을 사용하여 데이터 모델을 업데이트하는 방법](/en-us/documentation/articles/mobile-services-dotnet-backend-use-code-first-migrations)을 참조하십시오.
 
-3. In Solution Explorer, expand the Controllers folder, open the TodoItemController.cs project file, and add the following **using** statement:
+3.  솔루션 탐색기에서 Controllers 폴더를 확장하고 TodoItemController.cs 프로젝트 파일을 열어 다음 **using** 문을 추가합니다.
 
-		using Microsoft.WindowsAzure.Mobile.Service.Security;
+         using Microsoft.WindowsAzure.Mobile.Service.Security;
 
-	The **TodoItemController** class implements data access for the TodoItem table. 
- 
-4. Locate the **PostTodoItem** method and add the following code at the end right before the **return** statement:
+    **TodoItemController** 클래스는 TodoItem 테이블에 대한 데이터 액세스를 구현합니다.
 
-		// Get the logged-in user.
-	    var currentUser = User as ServiceUser;
-	
-	    // Set the user ID on the item.
-	    item.UserId = currentUser.Id;
+4.  **PostTodoItem** 메서드를 찾아 **return** 문 바로 앞 끝 부분에 다음 코드를 추가합니다.
 
-    This code adds a UserId value to the item, which is the user ID of the authenticated user, before it is inserted into the TodoItem table. 
-	
+         // Get the logged-in user.
+         var currentUser = User as ServiceUser;
 
-5. Locate the **GetAllTodoItems** method and replace the existing **return** statement with the following line of code:
+         // Set the user ID on the item.
+         item.UserId = currentUser.Id;
 
-        // Get the logged-in user.
-        var currentUser = User as ServiceUser;
+    이 코드는 항목에 UserId 값을 추가합니다. 이 값은 TodoItem 테이블에 삽입되기 전에 인증된 사용자의 사용자 ID입니다.
 
-        return Query().Where(todo => todo.UserId == currentUser.Id);
+5.  **GetAllTodoItems** 메서드를 찾아 기존 **return** 문을 다음 코드 줄로 바꿉니다.
 
-   	This query filters the returned TodoItem objects so that each user only receives the items that they inserted. You can optionally 
+         // Get the logged-in user.
+         var currentUser = User as ServiceUser;
 
-6. Republish the mobile service project to Azure.
+         return Query().Where(todo => todo.UserId == currentUser.Id);
+
+        이 쿼리는 반환된 TodoItem 개체를 필터링하여 각 사용자가 자신이 삽입한 항목만 수신하도록 합니다. 이 단계는 옵션입니다. 
+
+6.  Azure에 모바일 서비스 프로젝트를 다시 게시합니다.
+
+

@@ -1,11 +1,13 @@
 
 
-The mobile service project that you download lets you to run your new mobile service right on your local computer or virtual machine. This makes it easy to debug your service code before you even publish it to Azure.
+다운로드하는 모바일 서비스 프로젝트를 통해 로컬 컴퓨터 또는 가상 컴퓨터에서 새 모바일 서비스를 실행할 수 있습니다. 이렇게 하면 Azure에 게시하기 전이더라도 서비스 코드를 쉽게 디버그할 수 있습니다.
 
-1. Browse to the location where you saved the compressed project files, expand the files on your computer, and open the solution file in Visual Studio.
+1.  압축된 프로젝트 파일을 저장한 위치로 이동한 후 컴퓨터에서 파일 압축을 풀고 Visual Studio에서 솔루션 파일을 엽니다.
 
-2. Press the **F5** key to rebuild the project and start the mobile service locally.
+2.  **F5** 키를 눌러 프로젝트를 다시 빌드하고 모바일 서비스를 로컬로 시작합니다.
 
-	![](./media/mobile-services-dotnet-backend-test-local-service/mobile-service-startup.png)
+    ![](./media/mobile-services-dotnet-backend-test-local-service/mobile-service-startup.png)
 
-	A web page is displayed after the mobile service starts successfully.
+    모바일 서비스가 성공적으로 시작된 후에 웹 페이지가 표시됩니다.
+
+

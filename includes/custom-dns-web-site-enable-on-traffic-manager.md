@@ -1,7 +1,10 @@
-After the records for your domain name have propagated, you should be able to use your browser to verify that your custom domain name can be used to access your web site.
+<p>도메인 이름의 레코드가 전파된 후 브라우저를 사용하여 웹 사이트에 액세스하는 데 사용자 지정 도메인 이름을 사용할 수 있는지 확인할 수 있습니다.</p>
 
-> [WACOM.NOTE] It can take some time for your CNAME to propagate through the DNS system. You can use a service such as <a href="http://www.digwebinterface.com/">http://www.digwebinterface.com/</a> to verify that the CNAME is available.
+도메인 이름의 레코드가 전파된 후 브라우저를 사용하여 웹 사이트에 액세스하는 데 사용자 지정 도메인 이름을 사용할 수 있는지 확인할 수 있습니다.
 
-If you have not already added your web site as a Traffic Manager endpoint, you must do this before name resolution will work, as the custom domain name routes to Traffic Manager. Traffic Manager then routes to your web site. Use the information in [Add or Delete Endpoints](http://msdn.microsoft.com/en-us/library/windowsazure/hh744839.aspx) to add your web site as an endpoint in your Traffic Manager profile.
+> [WACOM.NOTE] CNAME이 DNS 시스템을 통해 전파되는 데 약간의 시간이 걸릴 수 있습니다. <http://www.digwebinterface.com/> 등의 서비스를 사용하여 CNAME을 사용할 수 있는지 확인할 수 있습니다.
 
-> [WACOM.NOTE] If your web site is not listed when adding an endpoint, verify that it is configured for Standard mode. You must use Standard mode for your web site in order to work with Traffic Manager.
+웹 사이트를 트래픽 관리자 끝점으로 아직 추가하지 않은 경우 이름 확인이 적용되기 전에 사용자 지정 도메인 이름이 트래픽 관리자로 라우팅할 때 이를 수행해야 합니다. Traffic Manager then routes to your web site. [끝점 추가 또는 삭제](http://msdn.microsoft.com/en-us/library/windowsazure/hh744839.aspx)의 내용을 참조하여 트래픽 관리자 프로필에서 웹 사이트를 끝점으로 추가합니다.
+
+> [WACOM.NOTE] 끝점을 추가할 때 웹 사이트가 목록에 나열되지 않는 경우 웹 사이트가 표준 모드로 구성되었는지 확인하십시오. 표준 모드로 구성된 웹 사이트만이 트래픽 관리자에서 작동합니다.
+

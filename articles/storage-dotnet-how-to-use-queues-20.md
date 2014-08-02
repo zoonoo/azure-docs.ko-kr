@@ -160,7 +160,7 @@ NuGet을 통해 코드 프로젝트에서 참조할 수 있습니다. 특정 ODa
 
  기존 큐에 메시지를 삽입하려면 먼저 새 **CloudQueueMessage**를 만듭니다. 그런 다음, **AddMessage**
 메서드를 호출합니다. **CloudQueueMessage**는 문자열(UTF-8 형식) 또는 **바이트** 배열에서 만들 수
-있습니다. 다음은 큐가 없는 경우 새로 만들고 \'Hello, World\' 메시지를 삽입하는 코드입니다.
+있습니다. 다음은 큐가 없는 경우 새로 만들고 'Hello, World' 메시지를 삽입하는 코드입니다.
 
     // Retrieve storage account from connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(

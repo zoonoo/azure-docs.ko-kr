@@ -213,7 +213,7 @@ Azure 클라우드 서비스가 아닌 응용 프로그램을 작성하는 경�
     2011/architecture/description.txt
     2011/photo7.jpg
 
- 위 샘플과 같이 \'photos\' 컨테이너에서 **ListBlobs**를 호출하면 반환된 컬렉션에 디렉터리를 나타내는 **CloudBlobDirectory** 및 **CloudBlockBlob** 개체와 최상위 수준의 Blob이 포함됩니다. 결과 출력은 다음과 같습니다.
+ 위 샘플과 같이 'photos' 컨테이너에서 **ListBlobs**를 호출하면 반환된 컬렉션에 디렉터리를 나타내는 **CloudBlobDirectory** 및 **CloudBlockBlob** 개체와 최상위 수준의 Blob이 포함됩니다. 결과 출력은 다음과 같습니다.
 
     Directory: https://<a ccountname>.blob.core.windows.net/photos/2010/
     Directory: https://<a ccountname>.blob.core.windows.net/photos/2011/

@@ -58,7 +58,7 @@
 
 ## 로컬에서 응용 프로그램 빌드 및 테스트
 
-이 섹션에서는 [nodejs.org]의 \'hello world\' 예가 포함된 **server.js** 파일을 만들겠습니다.
+이 섹션에서는 [nodejs.org]의 'hello world' 예가 포함된 **server.js** 파일을 만들겠습니다.
 이 예는 원본 예에서 수정된 것으로, Azure 웹 사이트에서 실행되는 경우의 수신 포트로 process.env.PORT가 추가되었습니다.
 
 1.  텍스트 편집기를 사용하여 **server.js**라는 새 파일을 **helloworld** 디렉터리에 만듭니다.
@@ -140,8 +140,8 @@
 
 ## 응용 프로그램에 변경 내용 게시
 
-1.  텍스트 편집기에서 **server.js** 파일을 열고 \'Hello World\\n\'를 \'Hello
-    Azure\\n\'로 변경합니다. 파일을 저장합니다.
+1.  텍스트 편집기에서 **server.js** 파일을 열고 'Hello World\\n'를 'Hello
+    Azure\\n'로 변경합니다. 파일을 저장합니다.
 2.  명령줄에서 **helloworld** 디렉터리로 이동한 후 다음 명령을 실행합니다.
     
          git add .

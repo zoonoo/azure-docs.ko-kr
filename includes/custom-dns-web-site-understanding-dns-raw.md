@@ -1,48 +1,49 @@
-The Domain Name System (DNS) is used to locate things on the internet. For example, when you enter an address in your browser, or click a link on a web page, it uses DNS to translate the domain into an IP address. The IP address is sort of like a street address, but it's not very human friendly. For example, it is much easier to remember a DNS name like **contoso.com** than it is to remember an IP address such as 192.168.1.88 or 2001:0:4137:1f67:24a2:3888:9cce:fea3.
 
-The DNS system is based on *records*. Records associate a specific *name*, such as **contoso.com**, with either an IP address or another DNS name. When an application, such as a web browser, looks up a name in DNS, it finds the record, and uses whatever it points to as the address. If the value it points to is an IP address, the browser will use that value. If it points to another DNS name, then the application has to do resolution again. Ultimately, all name resolution will end in an IP address.
+DNS(Domain Name System)는 인터넷에서 대상을 찾는 데 사용됩니다. 예를 들어 브라우저에서 주소를 입력하거나 웹 페이지의 링크를 클릭하면 브라우저에서 DNS를 사용하여 도메인을 IP 주소로 변환합니다. IP 주소는 일종의 거리 주소와 비슷하지만 사람에게 그다지 친화적이지는 않습니다. 예를 들어 192.168.1.88 또는 2001:0:4137:1f67:24a2:3888:9cce:fea3과 같은 IP 주소보다는 **contoso.com**과 같은 DNS 이름을 기억하기는 것이 훨씬 쉽습니다.
 
-When you create an Azure Web Site, a DNS name is automatically assigned to the site. This name takes the form of **&lt;yoursitename&gt;.azurewebsites.net**. There is also an virtual IP address available for use when creating DNS records, so you can either create records that point to the **.azurewebsites.net**, or you can point to the IP address.
+DNS 시스템은 *레코드*를 기반으로 합니다. 레코드는 **contoso.com**과 같은 구체적인 *이름*을 IP 주소 또는 DNS 이름과 연결합니다. 웹 브라우저와 같은 응용 프로그램에서 DNS의 이름을 조회할 경우 레코드를 찾아 해당 레코드가 가리키는 항목을 주소로 사용합니다. 가리키는 값이 IP 주소인 경우 브라우저는 해당 값을 사용합니다. 다른 DNS 이름을 가리키면 응용 프로그램은 다시 확인을 수행해야 합니다. 최종적으로 모든 이름 확인은 IP 주소 확인으로 완료됩니다.
 
-> [WACOM.NOTE] The IP address of your web site will change if you delete and recreate your web site, or change the web site mode to free after it has been set to basic, shared, or standard.
+Azure 웹 사이트를 만들 때 DNS 이름이 사이트에 자동으로 할당됩니다. 이 이름의 형식은 **&lt;yoursitename\>.azurewebsites.net**과 같습니다. 또한 DNS 레코드를 만들 때 사용할 수 있는 가상 IP 주소도 있으므로 **.azurewebsites.net**을 가리키는 레코드를 만들거나 IP 주소를 가리킬 수 있습니다.
 
-There are also multiple types of records, each with their own functions and limitations, but for web sites we only care about two, *CNAME* and *A* records.
+> [WACOM.NOTE] 웹 사이트를 삭제하고 다시 만들 경우 또는 기본, 공유 또는 표준으로 설정된 웹 사이트 모드를 무료로 변경한 경우 웹 사이트의 IP 주소가 변경됩니다.
 
-###CNAME or Alias record
+레코드의 유형은 여러 가지이며 각 유형에는 고유한 기능 및 제한이 있지만 웹 사이트의 경우 *CNAME* 및 *A* 레코드, 두 가지만 주의하면 됩니다.
 
-A CNAME record maps a *specific* DNS name, such as **mail.contoso.com** or **www.contoso.com**, to another (canonical) domain name. In the case of Azure Web Sites, the canonical domain name is the **&lt;myapp>.azurewebsites.net** domain name of your web site. Once created, the CNAME creates an alias for the **&lt;myapp>.azurewebsites.net** domain name. The CNAME entry will resolve to the IP address of your **&lt;myapp>.azurewebsites.net** domain name automatically, so if the IP address of the web site changes, you do not have to take any action.
+### CNAME 또는 별칭 레코드
 
-> [WACOM.NOTE] Some domain registrars only allow you to map subdomains when using a CNAME record, such as **www.contoso.com**, and not root names, such as **contoso.com**. For more information on CNAME records, see the documentation provided by your registrar, <a href="http://en.wikipedia.org/wiki/CNAME_record">the Wikipedia entry on CNAME record</a>, or the <a href="http://tools.ietf.org/html/rfc1035">IETF Domain Names - Implementation and Specification</a> document.
+CNAME 레코드는 **mail.contoso.com** 또는 **www.contoso.com**과 같은 *특정* DNS 이름을 다른(정식) 도메인 이름으로 매핑합니다. Azure 웹 사이트의 경우 정식 도메인 이름은 사용 중인 웹 사이트의 **&lt;myapp\>.azurewebsites.net** 도메인 이름입니다. CNAME을 만들면 **&lt;myapp\>.azurewebsites.net** 도메인 이름에 대한 별칭이 생성됩니다. CNAME 항목은 **&lt;myapp\>.azurewebsites.net** 도메인 이름의 IP 주소로 자동으로 확인되므로 웹 사이트의 IP 주소가 변경될 경우에도 특별한 조치를 수행할 필요가 없습니다.
 
-###A record
+> [WACOM.NOTE] **contoso.com**과 같은 루트 이름이 아닌 **www.contoso.com**과 같은 CNAME 레코드를 사용할 경우 일부 도메인 등록 기관에서만 하위 도메인을 매핑할 수 있습니다. CNAME 레코드에 대한 자세한 내용은 등록 기관에서 제공하는 설명서인 [CNAME 레코드에 대한 Wikipedia 항목](http://en.wikipedia.org/wiki/CNAME_record)(영문) 또는 [IETF 도메인 이름 - 구현 및 사양](http://tools.ietf.org/html/rfc1035)(영문) 문서를 참조하십시오.
 
-An A record maps a domain, such as **contoso.com** or **www.contoso.com**, *or a wildcard domain* such as **\*.contoso.com**, to an IP address. In the case of an Azure Web Site, either the virtual IP of the service or a specific IP address that you purchased for your web site.
+### A 레코드
 
-The main benefits of an A record over a CNAME record are:
+A 레코드는 **contoso.com**, **www.contoso.com** 등의 도메인이나 **\*.contoso.com** 등의 *와일드카드 도메인*을 IP 주소에 매핑합니다. Azure 웹 사이트의 경우 서비스의 가상 IP 또는 웹 사이트용으로 구입한 특정 IP 주소입니다.
 
-* You can map a root domain such as **contoso.com** to an IP address; many registrars only allow this using A records
+A 레코드가 CNAME 레코드보다 나은 주요 장점은 다음과 같습니다.
 
-* You can have one entry that uses a wildcard, such as **\*.contoso.com**, which would handle requests for multiple sub-domains such as **mail.contoso.com**, **login.contoso.com**, or **www.contso.com**.
+-   **contoso.com**과 같은 루트 도메인을 IP 주소로 매핑할 수 있습니다. 많은 등록 기관에서 A 레코드 사용만 허용합니다.
 
-> [WACOM.NOTE] Since an A record is mapped to a static IP address, it cannot automatically resolve changes to the IP address of your web site. An IP address for use with A records is provided when you configure custom domain name settings for your web site; however, this value may change if you delete and recreate your web site, or change the web site mode to back to free.
+-   **\*.contoso.com**과 같이 와일드카드를 사용하는 하나의 항목만 지정하고, 이 항목 하나로 **mail.contoso.com**, **login.contoso.com** 또는 **www.contso.com**과 같은 여러 하위 도메인에 대한 요청을 처리할 수 있습니다.
 
-###Azure Web Site DNS specifics
+> [WACOM.NOTE] A 레코드는 고정 IP 주소에 매핑되므로 변경 내용을 웹 사이트의 IP 주소로 자동으로 확인할 수 없습니다. A 레코드에 사용할 IP 주소는 웹 사이트에 대한 사용자 지정 도메인 이름 설정을 구성할 때 제공됩니다. 그러나 웹 사이트를 삭제하고 다시 만들거나 웹 사이트 모드를 다시 무료로 변경할 경우 이 값이 변경될 수도 있습니다.
 
-Using an A record with Azure Web Sites requires you to first create an CNAME record that maps either:
+### Azure 웹 사이트 DNS 설명
 
-* A DNS name of **www** to your **&lt;yourwebsitename&gt;.azurewebsites.net**.
-OR
-* A DNS name of **awverify.www** to **awverify.&lt;yourwebsitename&gt;.azurewebsites.net**.
+Azure 웹 사이트에 A 레코드를 사용하려면 먼저 다음 중 하나를 매핑하는 CNAME 레코드를 만들어야 합니다.
 
-This CNAME record is used to verify that you own the domain you are attempting to use. This is in addition to creating an A record pointing to the virtual IP address of your web site.
+-   **www**의 DNS 이름을 **&lt;yourwebsitename\>.azurewebsites.net**에 매핑 또는
+-   **awverify.www**의 DNS 이름을 **awverify.&lt;yourwebsitename\>.azurewebsites.net**에 매핑
 
-You can find the IP address, as well as the **awverify.www** name and **.azurewebsites.net** names for your web site by performing the following steps:
+이 CNAME 레코드는 사용하려는 도메인을 소유하고 있는지 확인하는 데 사용됩니다. 또한 이 레코드는 사용 중인 웹 사이트의 가상 IP 주소를 가리키는 A 레코드를 만듭니다.
 
-1. In your browser, open the [Azure Management Portal](https://manage.windowsazure.com).
+다음 단계를 수행하면 웹 사이트의 IP 주소뿐만 아니라 **awverify.www** 이름 및 **.azurewebsites.net** 이름도 찾을 수 있습니다.
 
-2. In the **Web Sites** tab, click the name of your site, select **Dashboard**, and then select **Manage Domains** from the bottom of the page.
+1.  브라우저에서 [Azure 관리 포털](https://manage.windowsazure.com)을 엽니다.
 
-	![](./media/custom-dns-web-site/dncmntask-cname-6.png)
+2.  **웹 사이트** 탭에서 사이트 이름을 클릭하고 **대시보드**를 선택한 후 페이지 맨 아래에서 **도메인 관리**를 선택합니다.
 
-6. In the **MANAGE CUSTOM DOMAINS** dialog, you will see the **awverify** information, the currently assigned **.azurewebsites.net** domain name, and the virtual IP address.
+    ![](./media/custom-dns-web-site/dncmntask-cname-6.png)
+
+3.  **사용자 지정 도메인 관리** 대화 상자에서 **awverify** 정보, 현재 할당된 **.azurewebsites.net** 도메인 이름 및 가상 IP 주소를 확인할 수 있습니다.
+
 

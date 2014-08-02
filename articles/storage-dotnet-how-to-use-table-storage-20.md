@@ -227,7 +227,7 @@ System.Configuration.dll에 대한 참조를 프로젝트에 추가하고 다른
  <h2><a name="retrieve-all-entities"></a><span  class="short-header">모든 엔터티 검색</span>방법: 파티션의 모든 엔터티 검색</h2>
 
 
- 테이블에서 파티션의 모든 엔터티를 쿼리하려면 **TableQuery** 개체를 사용합니다. 다음 코드 예제에서는 \'Smith\'가 파티션 키인 엔터티에 대한 필터를 지정합니다. 이 예제에서는 쿼리 결과에 있는 각 엔터티의 필드를 콘솔에 출력합니다.
+ 테이블에서 파티션의 모든 엔터티를 쿼리하려면 **TableQuery** 개체를 사용합니다. 다음 코드 예제에서는 'Smith'가 파티션 키인 엔터티에 대한 필터를 지정합니다. 이 예제에서는 쿼리 결과에 있는 각 엔터티의 필드를 콘솔에 출력합니다.
 
     // 연결 문자열에서 저장소 계정을 검색합니다.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -252,7 +252,7 @@ System.Configuration.dll에 대한 참조를 프로젝트에 추가하고 다른
  <h2><a name="retrieve-range-entities"></a><span  class="short-header">엔터티 범위 검색</span>방법: 파티션의 엔터티 범위 검색</h2>
 
 
- 파티션의 모든 엔터티를 쿼리하지 않으려면 파티션 키 필터를 행 키 필터와 결합하여 범위를 지정할 수 있습니다. 다음 코드 예제에서는 두 개의 필터를 사용하여 행 키(이름)가 알파벳에서 \'E\'보다 앞에 오는 문자로 시작하는 \'Smith\' 파티션의 모든 엔터티를 가져온 다음 쿼리 결과를 출력합니다.
+ 파티션의 모든 엔터티를 쿼리하지 않으려면 파티션 키 필터를 행 키 필터와 결합하여 범위를 지정할 수 있습니다. 다음 코드 예제에서는 두 개의 필터를 사용하여 행 키(이름)가 알파벳에서 'E'보다 앞에 오는 문자로 시작하는 'Smith' 파티션의 모든 엔터티를 가져온 다음 쿼리 결과를 출력합니다.
 
     // 연결 문자열에서 저장소 계정을 검색합니다.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -281,7 +281,7 @@ System.Configuration.dll에 대한 참조를 프로젝트에 추가하고 다른
  <h2><a name="retrieve-single-entity"></a><span  class="short-header">단일 엔터티 검색</span>방법: 단일 엔터티 검색</h2>
 
 
- 단일 특정 엔터티를 검색하는 쿼리를 작성할 수 있습니다. 다음 코드에서는 **TableOperation**을 사용하여 고객 \'Ben Smith\'를 지정합니다. 이 메서드는 컬렉션 대신 하나의 엔터티만 반환하며, **TableResult.Result**에서 반환된 값은 **CustomerEntity**입니다. 쿼리에 파티션과 행 키를 모두 지정하는 것이 테이블 서비스에서 단일 엔터티를 검색하는 가장 빠른 방법입니다.
+ 단일 특정 엔터티를 검색하는 쿼리를 작성할 수 있습니다. 다음 코드에서는 **TableOperation**을 사용하여 고객 'Ben Smith'를 지정합니다. 이 메서드는 컬렉션 대신 하나의 엔터티만 반환하며, **TableResult.Result**에서 반환된 값은 **CustomerEntity**입니다. 쿼리에 파티션과 행 키를 모두 지정하는 것이 테이블 서비스에서 단일 엔터티를 검색하는 가장 빠른 방법입니다.
 
     // 연결 문자열에서 저장소 계정을 검색합니다.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(

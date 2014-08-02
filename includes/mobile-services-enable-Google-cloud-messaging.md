@@ -1,38 +1,37 @@
 
 
-<p></p>
+**참고**
 
-<div class="dev-callout"><b>Note</b>
-<p>To complete the procedure in this topic, you must have a Google account that has a verified email address. To create a new Google account, go to <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>.</p>
-</div> 
+이 항목의 절차를 완료하려면 검증된 전자 메일 주소가 포함된 Google 계정이 있어야 합니다. 새 Google 계정을 만들려면 [accounts.google.com](http://go.microsoft.com/fwlink/p/?LinkId=268302)으로 이동하십시오.
 
-1. Navigate to the <a href="http://cloud.google.com/console" target="_blank">Google Cloud Console</a> web site, sign-in with your Google account credentials, and then click **CREATE PROJECT**.
+1.  [Google 클라우드 콘솔](http://cloud.google.com/console)(영문) 웹 사이트로 이동하고 Google 계정 자격 증명을 사용하여 로그인한 후 **CREATE PROJECT**를 클릭합니다.
 
-   	![](./media/notification-hubs-android-get-started/mobile-services-google-new-project.png)   
+  ![](./media/notification-hubs-android-get-started/mobile-services-google-new-project.png)   
 
-	<div class="dev-callout"><b>Note</b>
-	<p>When you already have an existing project, you are directed to the <strong>Projects</strong> page after login. To create a new project from the Dashboard, expand <strong>API Project</strong>, click <strong>Create...</strong> under <strong>Other projects</strong>, then enter a project name and click <strong>Create project</strong>.</p>
-    </div>
+    **참고**
 
-2. Enter a project name, accept the terms of service, and click **Create**. Carry out the requested SMS Verification, and click **Create** again.
+    기존 프로젝트가 이미 있는 경우 로그인하면 **Projects** 페이지로 이동됩니다. Dashboard에서 새 프로젝트를 만들려면 **API Project**를 확장하고 **Other projects** 아래의 **Create...**를 클릭한 후 프로젝트 이름을 입력하고 **Create project**를 클릭합니다.
 
-3. Make a note of the project number in the **Projects** section. 
+2.  프로젝트 이름을 입력하고 서비스 약관에 동의한 후 **Create**를 클릭합니다. 요청한 SMS 인증을 수행하고 **Create**를 다시 클릭합니다.
 
-	Later in the tutorial you set this value as the PROJECT_ID variable in the client.
+3.  **Projects** 섹션에 있는 프로젝트 번호를 기록해 둡니다.
 
-4. In the left column, click **APIs & auth**, then scoll down and click the toggle to enable **Google Cloud Messaging for Android** and accept the terms of service. 
+    이 자습서 뒷부분에서 이 값을 클라이언트의 PROJECT\_ID 변수로 설정합니다.
 
-	![](./media/notification-hubs-android-get-started/mobile-services-google-enable-GCM.png)
+4.  왼쪽 열에서 **APIs & auth**를 클릭한 다음 아래로 스크롤하여 **Google Cloud Messaging for Android**를 사용하도록 토글을 클릭하고 서비스 약관에 동의합니다.
 
-5. Click **Credentials**, and then click **CREATE NEW KEY** 
+  ![](./media/notification-hubs-android-get-started/mobile-services-google-enable-GCM.png)
 
-   	![](./media/notification-hubs-android-get-started/mobile-services-google-create-server-key.png)
+5.  **Credentials**를 클릭한 다음 **CREATE NEW KEY**를 클릭합니다.
 
-6. In **Create a new key**, click **Server key**. In the next window click **Create**.
+  ![](./media/notification-hubs-android-get-started/mobile-services-google-create-server-key.png)
 
-   	![](./media/notification-hubs-android-get-started/mobile-services-google-create-server-key2.png)
+6.  **Create a new key**에서 **Server key**를 클릭합니다. 다음 창에서 **Create**를 클릭합니다.
 
-7. Make a note of the **API key** value.
+  ![](./media/notification-hubs-android-get-started/mobile-services-google-create-server-key2.png)
 
-   	![](./media/notification-hubs-android-get-started/mobile-services-google-create-server-key3.png) 
+7.  **API key** 값을 기록해 둡니다.
+
+  ![](./media/notification-hubs-android-get-started/mobile-services-google-create-server-key3.png) 
+
 

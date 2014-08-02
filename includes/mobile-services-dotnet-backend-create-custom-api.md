@@ -1,51 +1,51 @@
 
 
-1. In Visual Studio Solution Explorer, right-click the Controllers folder for the mobile service project, expand **Add**, then click **New Scaffolded Item**.
+1.  Visual Studio 솔루션 탐색기에서 모바일 서비스 프로젝트의 Controllers 폴더를 마우스 오른쪽 단추로 클릭하고 **추가**를 확장한 후 **새 스캐폴드 항목**을 클릭합니다.
 
-	This displays the Add Scaffold dialog.
+    그러면 스캐폴드 추가 대화 상자가 표시됩니다.
 
-2. Expand **Azure Mobile Services** and click **Azure Mobile Services Custom Controller**, then click **Add**, supply a **Controller name** of `CompleteAllController`, then click **Add** again.
+2.  **Azure 모바일 서비스**를 확장하고 **Azure 모바일 서비스 사용자 지정 컨트롤러**를 클릭한 후 **추가**를 클릭하고 `CompleteAllController`의 **컨트롤러 이름**을 지정한 후 **추가**를 다시 클릭합니다.
 
-	![](./media/mobile-services-dotnet-backend-create-custom-api/add-custom-api-controller.png)
+    ![](./media/mobile-services-dotnet-backend-create-custom-api/add-custom-api-controller.png)
 
-	This creates a new empty controller class named **CompleteAllController**.
+    그러면 이름이 **CompleteAllController**인 빈 컨트롤러 클래스가 새로 생성됩니다.
 
->[WACOM.NOTE]If your dialog doesn't have Mobile Services-specific scaffolds, instead create a new **Web API Controller - Empty**. In this new controller class, add a public **Services** property, which returns the **ApiServices** type. This property is used to access server-specific settings from inside your controller.
+	> [WACOM.NOTE]대화 상자에 모바일 서비스별 스캐폴드가 없는 경우 새 **Web API 컨트롤러 - 비어 있음**이 생성됩니다. 이 새 컨트롤러 클래스에서 **Services** 속성을 추가하면 **ApiServices** 유형이 반환됩니다. 이 속성은 컨트롤러 내부에서 서버별 설정에 액세스하는 데 사용됩니다.
 
-3. In the new CompleteAllController.cs project file, add the following **using** statements:
+1.  새 CompleteAllController.cs 프로젝트 파일에서 다음 **using** 문을 추가합니다.
 
-		using System.Threading.Tasks;
-		using todolistService.Models;
+         using System.Threading.Tasks;
+         using todolistService.Models;
 
-	In the above code, replace `todolistService` with the namespace of your mobile service project, which should be the mobile service name appended with `Service`. 
+    위 코드에서 `todolistService`를 모바일 서비스 프로젝트의 네임스페이스로 바꿉니다. 그러면 `Service`가 추가된 모바일 서비스 이름이 됩니다.
 
-4. Add the following code to the new controller:
+2.  새 컨트롤러에 다음 코드를 추가합니다.
 
-	    // POST api/completeall        
-        public Task<int> Post()
-        {
-            using (todolistContext context = new todolistContext())
-            {
-                // Get the database from the context.
-                var database = context.Database;
+         // POST api/completeall        
+         public Task<int> Post()
+         {
+             using (todolistContext context = new todolistContext())
+             {
+                 // Get the database from the context.
+                 var database = context.Database;
 
-                // Create a SQL statement that sets all uncompleted items
-                // to complete and execute the statement asynchronously.
-                var sql = @"UPDATE TodoItems SET Complete = 1 " +
-                            @"WHERE Complete = 0; SELECT @@ROWCOUNT as count";
-                var result = database.ExecuteSqlCommandAsync(sql);
+                 // Create a SQL statement that sets all uncompleted items
+                 // to complete and execute the statement asynchronously.
+                 var sql = @"UPDATE TodoItems SET Complete = 1 " +
+                             @"WHERE Complete = 0; SELECT @@ROWCOUNT as count";
+                 var result = database.ExecuteSqlCommandAsync(sql);
 
-                // Log the result.
-                Services.Log.Info(string.Format("{0} items set to 'complete'.", 
-                    result.ToString()));
-                
-                return result;
-            }
-        }
+                 // Log the result.
+                 Services.Log.Info(string.Format("{0} items set to 'complete'.", 
+                     result.ToString()));
+                    
+                 return result;
+             }
+         }
 
-	In the above code, replace `todolistContext` with the name of the DbContext for your data model, which should be the mobile service name appended with `Context`. This code uses the [Database Class](http://msdn.microsoft.com/en-us/library/system.data.entity.database(v=vs.113).aspx) to access the **TodoItems** table directly to set the completed flag on all items. This method supports a POST request, and the number of changed rows is returned to the client as an integer value.
+    위 코드에서 `todolistContext`를 데이터 모델의 DbContext 이름으로 바꿉니다. 그러면 `Context`와 함께 추가된 모바일 서비스 이름이 됩니다. 이 코드에서는 **TodoItems** 테이블에 직접 액세스하여 모든 항목에 완료 플래그를 설정하는 데 [Database 클래스](http://msdn.microsoft.com/en-us/library/system.data.entity.database(v=vs.113).aspx)를 사용합니다. 이 메서드는 POST 요청을 지원하며, 변경된 행의 수가 정수 값으로 클라이언트에 반환됩니다.
 
-	> [WACOM.NOTE] Default permissions are set, which means that any user of the app can call the custom API. However, the application key is not distributed or stored securely and cannot be considered a secure credential. Because of this, you should consider restricting access to only authenticated users on operations that modify data or affect the mobile service. 
+    > [WACOM.NOTE] 기본 권한이 설정되어 앱의 모든 사용자가 사용자 지정 API를 호출할 수 있습니다. 하지만 응용 프로그램 키가 안전하게 분산되거나 저장되지 않으므로 보안 인증으로 생각하면 안 됩니다. 이 때문에 데이터를 수정하거나 모바일 서비스에 영향을 미치는 작업은 인증된 사용자만 액세스하도록 제한하는 것을 고려해야 합니다.
 
-Next, you will modify the quickstart app to add a new button and code that asynchronously calls the new custom API.
+다음 과정에서는 새 단추와 새 사용자 지정 API를 비동기적으로 호출하는 코드를 추가하는 퀵 스타트 앱을 수정합니다.
 

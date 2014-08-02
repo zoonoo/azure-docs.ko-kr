@@ -1,28 +1,30 @@
 
 
-1. Open the project file QSTodoListViewController.m and in the **viewDidLoad** method, remove the following code that reloads the data into the table:
+1.  프로젝트 파일 QSTodoListViewController.m을 열고 **viewDidLoad** 메서드에서 테이블로 데이터를 다시 로드하는 다음 코드를 제거합니다.
 
-        [self refresh];
+         [self refresh];
 
-2.	Just after the **viewDidLoad** method, add the following code:  
+2.  **viewDidLoad** 메서드 바로 뒤에 다음 코드를 추가합니다.
 
         - (void)viewDidAppear:(BOOL)animated
         {
             MSClient *client = self.todoService.client;
-            
+                
             if (client.currentUser != nil) {
                 return;
             }
-            
+                
             [client loginWithProvider:@"facebook" controller:self animated:YES completion:^(MSUser *user, NSError *error) {
                 [self refresh];
             }];
         }
 
-    <div class="dev-callout"><b>Note</b>
-	<p>If you are using an identity provider other than Facebook, change the value passed to <strong>loginWithProvider</strong> above to one of the following: <em>microsoftaccount</em>, <em>facebook</em>, <em>twitter</em>, or <em>google</em>.</p>
-    </div>
-		
-3. Press the **Run** button to build the project, start the app in the iPhone emulator, then log-on with your chosen identity provider.
+    **참고**
 
-   	When you are successfully logged-in, the app should run without errors, and you should be able to query Mobile Services and make updates to data.
+    Facebook 이외의 ID 공급자를 사용하는 경우 위의 **loginWithProvider**에 전달된 값을 다음 중 하나로 변경합니다. *microsoftaccount*, *facebook*, *twitter* 또는 *google*.
+
+3.  **실행** 단추를 눌러 프로젝트를 빌드하고 iPhone 에뮬레이터에서 앱을 시작한 후 선택한 ID 공급자로 로그온합니다.
+
+	로그인하고 나면 앱이 오류 없이 실행되며 모바일 서비스를 쿼리하고 데이터를 업데이트할 수 있게 됩니다.
+
+

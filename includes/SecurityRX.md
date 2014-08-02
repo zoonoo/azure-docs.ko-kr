@@ -394,7 +394,7 @@ SQL 데이터베이스는 SQL Server 인증만 지원하며 Windows 인증(통�
 
 * **IssuerNameRegistry**. 신뢰할 수 있는 STS(Security Token Services)를 지정합니다. 신뢰할 수 있는 STS만 표시됩니다.
 * **cookieHandler requireSsl="true"**. 세션 쿠키가 SSL 프로토콜을 통해 전송되는지를 지정합니다.
-* **wsFederation\'s requireHttps="true"**. ID 공급자와의 페더레이션 프로토콜 통신이 SSL 프로토콜을 통해 수행되는지를 지정합니다.
+* **wsFederation's requireHttps="true"**. ID 공급자와의 페더레이션 프로토콜 통신이 SSL 프로토콜을 통해 수행되는지를 지정합니다.
 * **tokenReplayDetection enabled="true"**. 토큰 재생 검색 기능을 사용할 수 있는지를 지정합니다. 이 기능은 사용된 토큰의 로컬 복사본을 관리하면서 서버 선호도를 만듭니다.
 * **audienceUris**. 토큰의 대상 그룹을 지정합니다. 응용 프로그램이 응용 프로그램에 사용할 수 없는 토큰을 받으면 WIF에서 이를 거부합니다.
 * **requestValidation** 및 **httpRuntime requestValidationType**. ASP.NET 유효성 검사 기능을 사용하거나 사용하지 않도록 설정합니다. [WIF(Windows Identity Foundation): 잠재적으로 위험한 Request.Form 값이 클라이언트에서 검색되었음][66]에서 설명하는 지침을 참조하십시오.
