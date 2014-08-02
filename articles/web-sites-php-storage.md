@@ -427,4 +427,651 @@ Git를 사용하여 응용 프로그램을 게시하려면 아래 단계를 따�
 
 3.  **http://[your web site domain]/index.php**로 이동하여 변경 내용을 표시합니다.
 
+'.\$\_GET['pk'].'
+
+표시된 것처럼, 쿼리 필터에 전달된 형식은 `Key eq 'Value'`입니다. 쿼리 구문에 대한 전체 설명은 [여기](http://msdn.microsoft.com/en-us/library/windowsazure/dd894031.aspx)에서 볼 수 있습니다.
+
+그런 다음 속성을 변경할 수 있습니다.
+
+      $entity->setPropertyValue('complete', ($_GET['complete'] == 'true') 
+     true : false);
+
+그리고 `updateEntity` 메서드는 업데이트를 수행합니다.
+
+      try{
+          $result = $tableRestProxy->updateEntity('tasks', $entity);
+      }
+      catch(ServiceException $e){
+          $code = $e->getCode();
+          $error_message = $e->getMessage();
+          echo $code.": ".$error_message."<br />";
+      }
+
+엔터티를 삽입한 후 페이지가 홈페이지로 돌아가도록 만들려면 다음과 같이 합니다.
+
+      header('Location: index.php');     
+      
+      >
+
+엔터티 삭제
+-----------
+
+항목 삭제는 `deleteItem`에 대한 단일 호출을 통해 수행합니다. 값에 전달된 **PartitionKey** 및 **RowKey**은 함께 엔터티의 기본 키를 구성합니다. **deleteitem.php**라는 파일을 만들고 다음 코드를 삽입합니다.
+
+     <
+        php
+        
+        require_once "init.php";      
+        $tableRestProxy->deleteEntity('tasks', $_GET['pk'], $_GET['rk']);        
+        header('Location: index.php');
+        
+        
+        >
+
+Azure 저장소 계정 만들기
+------------------------
+
+응용 프로그램에서 데이터를 클라우드에 저장하도록 만들려면 먼저 Azure에 저장소 계정을 만든 다음 적절한 인증 정보를 *Configuration* 클래스에 전달해야 합니다.
+
+1.  [Azure 관리 포털](https://manage.windowsazure.com)에 로그인합니다.
+
+2.  포털의 왼쪽 아래에서 **+ 새로 만들기** 아이콘을 클릭합니다.
+
+    ![새 Azure 웹 사이트 만들기](./media/web-sites-php-storage/new_website.jpg)
+
+3.  **데이터 서비스**, **저장소**, **빠른 생성**을 차례로 클릭합니다.
+
+    ![새 웹 사이트 사용자 지정 만들기](./media/web-sites-php-storage/storage-quick-create.png)
+
+    **URL**에 값을 입력하고 **지역** 드롭다운에서 웹 사이트의 데이터 센터를 선택합니다. 대화 상자 하단에 있는 **저장소 계정 만들기** 단추를 클릭합니다.
+
+    ![웹 사이트 세부 정보 채우기](./media/web-sites-php-storage/storage-quick-create-details.png)
+
+    저장소 계정이 만들어지면 **Creation of Storage Account '[NAME]' completed successfully** 텍스트가 표시됩니다.
+
+4.  **저장소** 탭이 선택되어 있는지 확인한 다음 목록에서 방금 만든 저장소 계정을 선택합니다.
+
+5.  하단 앱 바에서 **키 관리**를 클릭합니다.
+
+    ![키 관리 선택](./media/web-sites-php-storage/storage-manage-keys.png)
+
+6.  만든 저장소 계정 및 기본 키의 이름을 메모합니다.
+
+    ![키 관리 선택](./media/web-sites-php-storage/storage-access-keys.png)
+
+7.  **init.php**를 열고 마지막 단계에서 메모한 계정 이름 및 키를 사용하여 `[YOUR_STORAGE_ACCOUNT_NAME]` 및 `[YOUR_STORAGE_ACCOUNT_KEY]`를 바꿉니다. 파일을 저장합니다.
+
+Azure 웹 사이트 만들기 및 Git 게시 설정
+---------------------------------------
+
+다음 단계에 따라 Azure 웹 사이트를 만듭니다.
+
+1.  [Azure 관리 포털](https://manage.windowsazure.com)에 로그인합니다.
+2.  포털의 왼쪽 아래에서 **+ 새로 만들기** 아이콘을 클릭합니다.
+
+    ![새 Azure 웹 사이트 만들기](./media/web-sites-php-storage/new_website.jpg)
+
+3.  **계산**, **웹 사이트**, **빠른 생성**을 차례로 클릭합니다.
+
+    ![새 웹 사이트 사용자 지정 만들기](./media/web-sites-php-storage/website-quick-create.png)
+
+    **URL**에 값을 입력하고 **지역** 드롭다운에서 웹 사이트의 데이터 센터를 선택합니다. 대화 상자 하단에 있는 **새 웹 사이트 만들기** 단추를 클릭합니다.
+
+    ![웹 사이트 세부 정보 채우기](./media/web-sites-php-storage/website-quick-create-details.png)
+
+    웹 사이트가 만들어지면 **Creation of Web Site '[SITENAME]' completed successfully** 텍스트가 표시됩니다. 이제 Git 게시를 사용하도록 설정할 수 있습니다.
+
+4.  웹 사이트 목록에 표시되는 웹 사이트의 이름을 클릭하여 웹 사이트의 **빠른 시작** 대시보드를 엽니다.
+
+    ![웹 사이트 대시보드 열기](./media/web-sites-php-storage/go_to_dashboard.png)
+
+5.  빠른 시작 페이지의 오른쪽 아래에서 **Set up a deployment from source control**을 선택합니다.
+
+    ![Git 게시 설정](./media/web-sites-php-storage/setup_git_publishing.png)
+
+6.  "소스 코드 위치?" 질문이 나타나면 **Local Git repository**를 선택한 후 화살표를 클릭합니다.
+
+    ![소스 코드 위치](./media/web-sites-php-storage/where_is_code.png)
+
+7.  Git 게시를 사용하도록 설정하려면 사용자 이름 및 암호를 지정해야 합니다. 만든 사용자 이름 및 암호를 기록해 둡니다. 이전에 Git 리포지토리를 설정한 경우 이 단계를 건너뜁니다.
+
+    ![게시 자격 증명 만들기](./media/web-sites-php-storage/git-deployment-credentials.png)
+
+    리포지토리를 설정하는 데 몇 초 정도 걸립니다.
+
+8.  Git 리포지토리가 준비되면 로컬 리포지토리를 설정하고 파일을 Azure에 푸시하는 데 사용할 수 있는 Git 명령 관련 지침이 제공됩니다.
+
+    ![웹 사이트용 리포지토리 생성 후 반환된 Git 배포 지침](./media/web-sites-php-storage/git-instructions.png)
+
+    다음 섹션에서 응용 프로그램을 게시할 때에도 사용되므로 위 지침을 메모하십시오.
+
+응용 프로그램 게시
+------------------
+
+Git를 사용하여 응용 프로그램을 게시하려면 아래 단계를 따르십시오.
+
+1.  응용 프로그램 루트에서 **vendor/microsoft/windowsazure** 폴더를 열고 다음 파일 및 폴더를 삭제합니다.
+
+    -   .git
+    -   .gitattributes
+    -   .gitignore
+
+    작성기 패키지 관리자가 Azure 클라이언트 라이브러리 및 종속성을 다운로드할 때 이들이 있는 GitHub 리포지토리를 복제하여 다운로드합니다. 다음 단계에서 응용 프로그램의 루트 폴더 밖에 리포지토리를 생성하여 Git를 통해 응용 프로그램이 배포됩니다. Git는 리포지토리별 파일이 제거되지 않는 한, 클라이언트 라이브러리가 있는 하위 리포지토리를 무시합니다.
+
+2.  GitBash를 열거나 Git가 `PATH`에 있는 경우 터미널을 열고 응용 프로그램의 루트 디렉터리로 이동한 후 다음 명령을 실행합니다(**참고:** **Azure 웹 사이트 만들기 및 Git 게시 설정** 섹션의 마지막 부분에 설명된 단계와 같음).
+
+         git init
+         git add .
+         git commit -m "initial commit"
+         git remote add azure [URL for remote repository]
+         git push azure master
+
+    이전에 만든 암호를 입력하라는 메시지가 나타납니다.
+
+3.  **http://[your web site domain]/createtable.php**로 이동하여 응용 프로그램의 테이블을 만듭니다.
+4.  **http://[your web site domain]/index.php**로 이동하여 응용 프로그램을 사용하기 시작합니다.
+
+응용 프로그램을 게시한 후 변경을 시작하고 Git를 사용하여 변경 내용을 게시할 수 있습니다.
+
+응용 프로그램에 변경 내용 게시
+------------------------------
+
+응용 프로그램에 변경 내용을 게시하려면 다음 단계를 따르십시오.
+
+1.  응용 프로그램을 로컬에서 변경합니다.
+2.  GitBash를 열거나 Git가 `PATH`에 있는 경우 터미널을 열고 응용 프로그램의 루트 디렉터리로 이동한 후 다음 명령을 실행합니다.
+
+         git add .
+         git commit -m "comment describing changes"
+         git push azure master
+
+    이전에 만든 암호를 입력하라는 메시지가 나타납니다.
+
+3.  **http://[your web site domain]/index.php**로 이동하여 변경 내용을 표시합니다.
+
+and RowKey eq
+
+표시된 것처럼, 쿼리 필터에 전달된 형식은 `Key eq 'Value'`입니다. 쿼리 구문에 대한 전체 설명은 [여기](http://msdn.microsoft.com/en-us/library/windowsazure/dd894031.aspx)에서 볼 수 있습니다.
+
+그런 다음 속성을 변경할 수 있습니다.
+
+      $entity->setPropertyValue('complete', ($_GET['complete'] == 'true') 
+     true : false);
+
+그리고 `updateEntity` 메서드는 업데이트를 수행합니다.
+
+      try{
+          $result = $tableRestProxy->updateEntity('tasks', $entity);
+      }
+      catch(ServiceException $e){
+          $code = $e->getCode();
+          $error_message = $e->getMessage();
+          echo $code.": ".$error_message."<br />";
+      }
+
+엔터티를 삽입한 후 페이지가 홈페이지로 돌아가도록 만들려면 다음과 같이 합니다.
+
+      header('Location: index.php');     
+      
+      >
+
+엔터티 삭제
+-----------
+
+항목 삭제는 `deleteItem`에 대한 단일 호출을 통해 수행합니다. 값에 전달된 **PartitionKey** 및 **RowKey**은 함께 엔터티의 기본 키를 구성합니다. **deleteitem.php**라는 파일을 만들고 다음 코드를 삽입합니다.
+
+     <
+        php
+        
+        require_once "init.php";      
+        $tableRestProxy->deleteEntity('tasks', $_GET['pk'], $_GET['rk']);        
+        header('Location: index.php');
+        
+        
+        >
+
+Azure 저장소 계정 만들기
+------------------------
+
+응용 프로그램에서 데이터를 클라우드에 저장하도록 만들려면 먼저 Azure에 저장소 계정을 만든 다음 적절한 인증 정보를 *Configuration* 클래스에 전달해야 합니다.
+
+1.  [Azure 관리 포털](https://manage.windowsazure.com)에 로그인합니다.
+
+2.  포털의 왼쪽 아래에서 **+ 새로 만들기** 아이콘을 클릭합니다.
+
+    ![새 Azure 웹 사이트 만들기](./media/web-sites-php-storage/new_website.jpg)
+
+3.  **데이터 서비스**, **저장소**, **빠른 생성**을 차례로 클릭합니다.
+
+    ![새 웹 사이트 사용자 지정 만들기](./media/web-sites-php-storage/storage-quick-create.png)
+
+    **URL**에 값을 입력하고 **지역** 드롭다운에서 웹 사이트의 데이터 센터를 선택합니다. 대화 상자 하단에 있는 **저장소 계정 만들기** 단추를 클릭합니다.
+
+    ![웹 사이트 세부 정보 채우기](./media/web-sites-php-storage/storage-quick-create-details.png)
+
+    저장소 계정이 만들어지면 **Creation of Storage Account '[NAME]' completed successfully** 텍스트가 표시됩니다.
+
+4.  **저장소** 탭이 선택되어 있는지 확인한 다음 목록에서 방금 만든 저장소 계정을 선택합니다.
+
+5.  하단 앱 바에서 **키 관리**를 클릭합니다.
+
+    ![키 관리 선택](./media/web-sites-php-storage/storage-manage-keys.png)
+
+6.  만든 저장소 계정 및 기본 키의 이름을 메모합니다.
+
+    ![키 관리 선택](./media/web-sites-php-storage/storage-access-keys.png)
+
+7.  **init.php**를 열고 마지막 단계에서 메모한 계정 이름 및 키를 사용하여 `[YOUR_STORAGE_ACCOUNT_NAME]` 및 `[YOUR_STORAGE_ACCOUNT_KEY]`를 바꿉니다. 파일을 저장합니다.
+
+Azure 웹 사이트 만들기 및 Git 게시 설정
+---------------------------------------
+
+다음 단계에 따라 Azure 웹 사이트를 만듭니다.
+
+1.  [Azure 관리 포털](https://manage.windowsazure.com)에 로그인합니다.
+2.  포털의 왼쪽 아래에서 **+ 새로 만들기** 아이콘을 클릭합니다.
+
+    ![새 Azure 웹 사이트 만들기](./media/web-sites-php-storage/new_website.jpg)
+
+3.  **계산**, **웹 사이트**, **빠른 생성**을 차례로 클릭합니다.
+
+    ![새 웹 사이트 사용자 지정 만들기](./media/web-sites-php-storage/website-quick-create.png)
+
+    **URL**에 값을 입력하고 **지역** 드롭다운에서 웹 사이트의 데이터 센터를 선택합니다. 대화 상자 하단에 있는 **새 웹 사이트 만들기** 단추를 클릭합니다.
+
+    ![웹 사이트 세부 정보 채우기](./media/web-sites-php-storage/website-quick-create-details.png)
+
+    웹 사이트가 만들어지면 **Creation of Web Site '[SITENAME]' completed successfully** 텍스트가 표시됩니다. 이제 Git 게시를 사용하도록 설정할 수 있습니다.
+
+4.  웹 사이트 목록에 표시되는 웹 사이트의 이름을 클릭하여 웹 사이트의 **빠른 시작** 대시보드를 엽니다.
+
+    ![웹 사이트 대시보드 열기](./media/web-sites-php-storage/go_to_dashboard.png)
+
+5.  빠른 시작 페이지의 오른쪽 아래에서 **Set up a deployment from source control**을 선택합니다.
+
+    ![Git 게시 설정](./media/web-sites-php-storage/setup_git_publishing.png)
+
+6.  "소스 코드 위치?" 질문이 나타나면 **Local Git repository**를 선택한 후 화살표를 클릭합니다.
+
+    ![소스 코드 위치](./media/web-sites-php-storage/where_is_code.png)
+
+7.  Git 게시를 사용하도록 설정하려면 사용자 이름 및 암호를 지정해야 합니다. 만든 사용자 이름 및 암호를 기록해 둡니다. 이전에 Git 리포지토리를 설정한 경우 이 단계를 건너뜁니다.
+
+    ![게시 자격 증명 만들기](./media/web-sites-php-storage/git-deployment-credentials.png)
+
+    리포지토리를 설정하는 데 몇 초 정도 걸립니다.
+
+8.  Git 리포지토리가 준비되면 로컬 리포지토리를 설정하고 파일을 Azure에 푸시하는 데 사용할 수 있는 Git 명령 관련 지침이 제공됩니다.
+
+    ![웹 사이트용 리포지토리 생성 후 반환된 Git 배포 지침](./media/web-sites-php-storage/git-instructions.png)
+
+    다음 섹션에서 응용 프로그램을 게시할 때에도 사용되므로 위 지침을 메모하십시오.
+
+응용 프로그램 게시
+------------------
+
+Git를 사용하여 응용 프로그램을 게시하려면 아래 단계를 따르십시오.
+
+1.  응용 프로그램 루트에서 **vendor/microsoft/windowsazure** 폴더를 열고 다음 파일 및 폴더를 삭제합니다.
+
+    -   .git
+    -   .gitattributes
+    -   .gitignore
+
+    작성기 패키지 관리자가 Azure 클라이언트 라이브러리 및 종속성을 다운로드할 때 이들이 있는 GitHub 리포지토리를 복제하여 다운로드합니다. 다음 단계에서 응용 프로그램의 루트 폴더 밖에 리포지토리를 생성하여 Git를 통해 응용 프로그램이 배포됩니다. Git는 리포지토리별 파일이 제거되지 않는 한, 클라이언트 라이브러리가 있는 하위 리포지토리를 무시합니다.
+
+2.  GitBash를 열거나 Git가 `PATH`에 있는 경우 터미널을 열고 응용 프로그램의 루트 디렉터리로 이동한 후 다음 명령을 실행합니다(**참고:** **Azure 웹 사이트 만들기 및 Git 게시 설정** 섹션의 마지막 부분에 설명된 단계와 같음).
+
+         git init
+         git add .
+         git commit -m "initial commit"
+         git remote add azure [URL for remote repository]
+         git push azure master
+
+    이전에 만든 암호를 입력하라는 메시지가 나타납니다.
+
+3.  **http://[your web site domain]/createtable.php**로 이동하여 응용 프로그램의 테이블을 만듭니다.
+4.  **http://[your web site domain]/index.php**로 이동하여 응용 프로그램을 사용하기 시작합니다.
+
+응용 프로그램을 게시한 후 변경을 시작하고 Git를 사용하여 변경 내용을 게시할 수 있습니다.
+
+응용 프로그램에 변경 내용 게시
+------------------------------
+
+응용 프로그램에 변경 내용을 게시하려면 다음 단계를 따르십시오.
+
+1.  응용 프로그램을 로컬에서 변경합니다.
+2.  GitBash를 열거나 Git가 `PATH`에 있는 경우 터미널을 열고 응용 프로그램의 루트 디렉터리로 이동한 후 다음 명령을 실행합니다.
+
+         git add .
+         git commit -m "comment describing changes"
+         git push azure master
+
+    이전에 만든 암호를 입력하라는 메시지가 나타납니다.
+
+3.  **http://[your web site domain]/index.php**로 이동하여 변경 내용을 표시합니다.
+
+'.\$\_GET['rk'].'
+
+표시된 것처럼, 쿼리 필터에 전달된 형식은 `Key eq 'Value'`입니다. 쿼리 구문에 대한 전체 설명은 [여기](http://msdn.microsoft.com/en-us/library/windowsazure/dd894031.aspx)에서 볼 수 있습니다.
+
+그런 다음 속성을 변경할 수 있습니다.
+
+      $entity->setPropertyValue('complete', ($_GET['complete'] == 'true') 
+     true : false);
+
+그리고 `updateEntity` 메서드는 업데이트를 수행합니다.
+
+      try{
+          $result = $tableRestProxy->updateEntity('tasks', $entity);
+      }
+      catch(ServiceException $e){
+          $code = $e->getCode();
+          $error_message = $e->getMessage();
+          echo $code.": ".$error_message."<br />";
+      }
+
+엔터티를 삽입한 후 페이지가 홈페이지로 돌아가도록 만들려면 다음과 같이 합니다.
+
+      header('Location: index.php');     
+      
+      >
+
+엔터티 삭제
+-----------
+
+항목 삭제는 `deleteItem`에 대한 단일 호출을 통해 수행합니다. 값에 전달된 **PartitionKey** 및 **RowKey**은 함께 엔터티의 기본 키를 구성합니다. **deleteitem.php**라는 파일을 만들고 다음 코드를 삽입합니다.
+
+     <
+        php
+        
+        require_once "init.php";      
+        $tableRestProxy->deleteEntity('tasks', $_GET['pk'], $_GET['rk']);        
+        header('Location: index.php');
+        
+        
+        >
+
+Azure 저장소 계정 만들기
+------------------------
+
+응용 프로그램에서 데이터를 클라우드에 저장하도록 만들려면 먼저 Azure에 저장소 계정을 만든 다음 적절한 인증 정보를 *Configuration* 클래스에 전달해야 합니다.
+
+1.  [Azure 관리 포털](https://manage.windowsazure.com)에 로그인합니다.
+
+2.  포털의 왼쪽 아래에서 **+ 새로 만들기** 아이콘을 클릭합니다.
+
+    ![새 Azure 웹 사이트 만들기](./media/web-sites-php-storage/new_website.jpg)
+
+3.  **데이터 서비스**, **저장소**, **빠른 생성**을 차례로 클릭합니다.
+
+    ![새 웹 사이트 사용자 지정 만들기](./media/web-sites-php-storage/storage-quick-create.png)
+
+    **URL**에 값을 입력하고 **지역** 드롭다운에서 웹 사이트의 데이터 센터를 선택합니다. 대화 상자 하단에 있는 **저장소 계정 만들기** 단추를 클릭합니다.
+
+    ![웹 사이트 세부 정보 채우기](./media/web-sites-php-storage/storage-quick-create-details.png)
+
+    저장소 계정이 만들어지면 **Creation of Storage Account '[NAME]' completed successfully** 텍스트가 표시됩니다.
+
+4.  **저장소** 탭이 선택되어 있는지 확인한 다음 목록에서 방금 만든 저장소 계정을 선택합니다.
+
+5.  하단 앱 바에서 **키 관리**를 클릭합니다.
+
+    ![키 관리 선택](./media/web-sites-php-storage/storage-manage-keys.png)
+
+6.  만든 저장소 계정 및 기본 키의 이름을 메모합니다.
+
+    ![키 관리 선택](./media/web-sites-php-storage/storage-access-keys.png)
+
+7.  **init.php**를 열고 마지막 단계에서 메모한 계정 이름 및 키를 사용하여 `[YOUR_STORAGE_ACCOUNT_NAME]` 및 `[YOUR_STORAGE_ACCOUNT_KEY]`를 바꿉니다. 파일을 저장합니다.
+
+Azure 웹 사이트 만들기 및 Git 게시 설정
+---------------------------------------
+
+다음 단계에 따라 Azure 웹 사이트를 만듭니다.
+
+1.  [Azure 관리 포털](https://manage.windowsazure.com)에 로그인합니다.
+2.  포털의 왼쪽 아래에서 **+ 새로 만들기** 아이콘을 클릭합니다.
+
+    ![새 Azure 웹 사이트 만들기](./media/web-sites-php-storage/new_website.jpg)
+
+3.  **계산**, **웹 사이트**, **빠른 생성**을 차례로 클릭합니다.
+
+    ![새 웹 사이트 사용자 지정 만들기](./media/web-sites-php-storage/website-quick-create.png)
+
+    **URL**에 값을 입력하고 **지역** 드롭다운에서 웹 사이트의 데이터 센터를 선택합니다. 대화 상자 하단에 있는 **새 웹 사이트 만들기** 단추를 클릭합니다.
+
+    ![웹 사이트 세부 정보 채우기](./media/web-sites-php-storage/website-quick-create-details.png)
+
+    웹 사이트가 만들어지면 **Creation of Web Site '[SITENAME]' completed successfully** 텍스트가 표시됩니다. 이제 Git 게시를 사용하도록 설정할 수 있습니다.
+
+4.  웹 사이트 목록에 표시되는 웹 사이트의 이름을 클릭하여 웹 사이트의 **빠른 시작** 대시보드를 엽니다.
+
+    ![웹 사이트 대시보드 열기](./media/web-sites-php-storage/go_to_dashboard.png)
+
+5.  빠른 시작 페이지의 오른쪽 아래에서 **Set up a deployment from source control**을 선택합니다.
+
+    ![Git 게시 설정](./media/web-sites-php-storage/setup_git_publishing.png)
+
+6.  "소스 코드 위치?" 질문이 나타나면 **Local Git repository**를 선택한 후 화살표를 클릭합니다.
+
+    ![소스 코드 위치](./media/web-sites-php-storage/where_is_code.png)
+
+7.  Git 게시를 사용하도록 설정하려면 사용자 이름 및 암호를 지정해야 합니다. 만든 사용자 이름 및 암호를 기록해 둡니다. 이전에 Git 리포지토리를 설정한 경우 이 단계를 건너뜁니다.
+
+    ![게시 자격 증명 만들기](./media/web-sites-php-storage/git-deployment-credentials.png)
+
+    리포지토리를 설정하는 데 몇 초 정도 걸립니다.
+
+8.  Git 리포지토리가 준비되면 로컬 리포지토리를 설정하고 파일을 Azure에 푸시하는 데 사용할 수 있는 Git 명령 관련 지침이 제공됩니다.
+
+    ![웹 사이트용 리포지토리 생성 후 반환된 Git 배포 지침](./media/web-sites-php-storage/git-instructions.png)
+
+    다음 섹션에서 응용 프로그램을 게시할 때에도 사용되므로 위 지침을 메모하십시오.
+
+응용 프로그램 게시
+------------------
+
+Git를 사용하여 응용 프로그램을 게시하려면 아래 단계를 따르십시오.
+
+1.  응용 프로그램 루트에서 **vendor/microsoft/windowsazure** 폴더를 열고 다음 파일 및 폴더를 삭제합니다.
+
+    -   .git
+    -   .gitattributes
+    -   .gitignore
+
+    작성기 패키지 관리자가 Azure 클라이언트 라이브러리 및 종속성을 다운로드할 때 이들이 있는 GitHub 리포지토리를 복제하여 다운로드합니다. 다음 단계에서 응용 프로그램의 루트 폴더 밖에 리포지토리를 생성하여 Git를 통해 응용 프로그램이 배포됩니다. Git는 리포지토리별 파일이 제거되지 않는 한, 클라이언트 라이브러리가 있는 하위 리포지토리를 무시합니다.
+
+2.  GitBash를 열거나 Git가 `PATH`에 있는 경우 터미널을 열고 응용 프로그램의 루트 디렉터리로 이동한 후 다음 명령을 실행합니다(**참고:** **Azure 웹 사이트 만들기 및 Git 게시 설정** 섹션의 마지막 부분에 설명된 단계와 같음).
+
+         git init
+         git add .
+         git commit -m "initial commit"
+         git remote add azure [URL for remote repository]
+         git push azure master
+
+    이전에 만든 암호를 입력하라는 메시지가 나타납니다.
+
+3.  **http://[your web site domain]/createtable.php**로 이동하여 응용 프로그램의 테이블을 만듭니다.
+4.  **http://[your web site domain]/index.php**로 이동하여 응용 프로그램을 사용하기 시작합니다.
+
+응용 프로그램을 게시한 후 변경을 시작하고 Git를 사용하여 변경 내용을 게시할 수 있습니다.
+
+응용 프로그램에 변경 내용 게시
+------------------------------
+
+응용 프로그램에 변경 내용을 게시하려면 다음 단계를 따르십시오.
+
+1.  응용 프로그램을 로컬에서 변경합니다.
+2.  GitBash를 열거나 Git가 `PATH`에 있는 경우 터미널을 열고 응용 프로그램의 루트 디렉터리로 이동한 후 다음 명령을 실행합니다.
+
+         git add .
+         git commit -m "comment describing changes"
+         git push azure master
+
+    이전에 만든 암호를 입력하라는 메시지가 나타납니다.
+
+3.  **http://[your web site domain]/index.php**로 이동하여 변경 내용을 표시합니다.
+
+'); \$entities = \$result-\>getEntities(); \$entity = \$entities[0];
+
+표시된 것처럼, 쿼리 필터에 전달된 형식은 `Key eq 'Value'`입니다. 쿼리 구문에 대한 전체 설명은 [여기](http://msdn.microsoft.com/en-us/library/windowsazure/dd894031.aspx)에서 볼 수 있습니다.
+
+그런 다음 속성을 변경할 수 있습니다.
+
+      $entity->setPropertyValue('complete', ($_GET['complete'] == 'true') 
+     true : false);
+
+그리고 `updateEntity` 메서드는 업데이트를 수행합니다.
+
+      try{
+          $result = $tableRestProxy->updateEntity('tasks', $entity);
+      }
+      catch(ServiceException $e){
+          $code = $e->getCode();
+          $error_message = $e->getMessage();
+          echo $code.": ".$error_message."<br />";
+      }
+
+엔터티를 삽입한 후 페이지가 홈페이지로 돌아가도록 만들려면 다음과 같이 합니다.
+
+      header('Location: index.php');     
+      
+      >
+
+엔터티 삭제
+-----------
+
+항목 삭제는 `deleteItem`에 대한 단일 호출을 통해 수행합니다. 값에 전달된 **PartitionKey** 및 **RowKey**은 함께 엔터티의 기본 키를 구성합니다. **deleteitem.php**라는 파일을 만들고 다음 코드를 삽입합니다.
+
+     <
+        php
+        
+        require_once "init.php";      
+        $tableRestProxy->deleteEntity('tasks', $_GET['pk'], $_GET['rk']);        
+        header('Location: index.php');
+        
+        
+        >
+
+Azure 저장소 계정 만들기
+------------------------
+
+응용 프로그램에서 데이터를 클라우드에 저장하도록 만들려면 먼저 Azure에 저장소 계정을 만든 다음 적절한 인증 정보를 *Configuration* 클래스에 전달해야 합니다.
+
+1.  [Azure 관리 포털](https://manage.windowsazure.com)에 로그인합니다.
+
+2.  포털의 왼쪽 아래에서 **+ 새로 만들기** 아이콘을 클릭합니다.
+
+    ![새 Azure 웹 사이트 만들기](./media/web-sites-php-storage/new_website.jpg)
+
+3.  **데이터 서비스**, **저장소**, **빠른 생성**을 차례로 클릭합니다.
+
+    ![새 웹 사이트 사용자 지정 만들기](./media/web-sites-php-storage/storage-quick-create.png)
+
+    **URL**에 값을 입력하고 **지역** 드롭다운에서 웹 사이트의 데이터 센터를 선택합니다. 대화 상자 하단에 있는 **저장소 계정 만들기** 단추를 클릭합니다.
+
+    ![웹 사이트 세부 정보 채우기](./media/web-sites-php-storage/storage-quick-create-details.png)
+
+    저장소 계정이 만들어지면 **Creation of Storage Account '[NAME]' completed successfully** 텍스트가 표시됩니다.
+
+4.  **저장소** 탭이 선택되어 있는지 확인한 다음 목록에서 방금 만든 저장소 계정을 선택합니다.
+
+5.  하단 앱 바에서 **키 관리**를 클릭합니다.
+
+    ![키 관리 선택](./media/web-sites-php-storage/storage-manage-keys.png)
+
+6.  만든 저장소 계정 및 기본 키의 이름을 메모합니다.
+
+    ![키 관리 선택](./media/web-sites-php-storage/storage-access-keys.png)
+
+7.  **init.php**를 열고 마지막 단계에서 메모한 계정 이름 및 키를 사용하여 `[YOUR_STORAGE_ACCOUNT_NAME]` 및 `[YOUR_STORAGE_ACCOUNT_KEY]`를 바꿉니다. 파일을 저장합니다.
+
+Azure 웹 사이트 만들기 및 Git 게시 설정
+---------------------------------------
+
+다음 단계에 따라 Azure 웹 사이트를 만듭니다.
+
+1.  [Azure 관리 포털](https://manage.windowsazure.com)에 로그인합니다.
+2.  포털의 왼쪽 아래에서 **+ 새로 만들기** 아이콘을 클릭합니다.
+
+    ![새 Azure 웹 사이트 만들기](./media/web-sites-php-storage/new_website.jpg)
+
+3.  **계산**, **웹 사이트**, **빠른 생성**을 차례로 클릭합니다.
+
+    ![새 웹 사이트 사용자 지정 만들기](./media/web-sites-php-storage/website-quick-create.png)
+
+    **URL**에 값을 입력하고 **지역** 드롭다운에서 웹 사이트의 데이터 센터를 선택합니다. 대화 상자 하단에 있는 **새 웹 사이트 만들기** 단추를 클릭합니다.
+
+    ![웹 사이트 세부 정보 채우기](./media/web-sites-php-storage/website-quick-create-details.png)
+
+    웹 사이트가 만들어지면 **Creation of Web Site '[SITENAME]' completed successfully** 텍스트가 표시됩니다. 이제 Git 게시를 사용하도록 설정할 수 있습니다.
+
+4.  웹 사이트 목록에 표시되는 웹 사이트의 이름을 클릭하여 웹 사이트의 **빠른 시작** 대시보드를 엽니다.
+
+    ![웹 사이트 대시보드 열기](./media/web-sites-php-storage/go_to_dashboard.png)
+
+5.  빠른 시작 페이지의 오른쪽 아래에서 **Set up a deployment from source control**을 선택합니다.
+
+    ![Git 게시 설정](./media/web-sites-php-storage/setup_git_publishing.png)
+
+6.  "소스 코드 위치?" 질문이 나타나면 **Local Git repository**를 선택한 후 화살표를 클릭합니다.
+
+    ![소스 코드 위치](./media/web-sites-php-storage/where_is_code.png)
+
+7.  Git 게시를 사용하도록 설정하려면 사용자 이름 및 암호를 지정해야 합니다. 만든 사용자 이름 및 암호를 기록해 둡니다. 이전에 Git 리포지토리를 설정한 경우 이 단계를 건너뜁니다.
+
+    ![게시 자격 증명 만들기](./media/web-sites-php-storage/git-deployment-credentials.png)
+
+    리포지토리를 설정하는 데 몇 초 정도 걸립니다.
+
+8.  Git 리포지토리가 준비되면 로컬 리포지토리를 설정하고 파일을 Azure에 푸시하는 데 사용할 수 있는 Git 명령 관련 지침이 제공됩니다.
+
+    ![웹 사이트용 리포지토리 생성 후 반환된 Git 배포 지침](./media/web-sites-php-storage/git-instructions.png)
+
+    다음 섹션에서 응용 프로그램을 게시할 때에도 사용되므로 위 지침을 메모하십시오.
+
+응용 프로그램 게시
+------------------
+
+Git를 사용하여 응용 프로그램을 게시하려면 아래 단계를 따르십시오.
+
+1.  응용 프로그램 루트에서 **vendor/microsoft/windowsazure** 폴더를 열고 다음 파일 및 폴더를 삭제합니다.
+
+    -   .git
+    -   .gitattributes
+    -   .gitignore
+
+    작성기 패키지 관리자가 Azure 클라이언트 라이브러리 및 종속성을 다운로드할 때 이들이 있는 GitHub 리포지토리를 복제하여 다운로드합니다. 다음 단계에서 응용 프로그램의 루트 폴더 밖에 리포지토리를 생성하여 Git를 통해 응용 프로그램이 배포됩니다. Git는 리포지토리별 파일이 제거되지 않는 한, 클라이언트 라이브러리가 있는 하위 리포지토리를 무시합니다.
+
+2.  GitBash를 열거나 Git가 `PATH`에 있는 경우 터미널을 열고 응용 프로그램의 루트 디렉터리로 이동한 후 다음 명령을 실행합니다(**참고:** **Azure 웹 사이트 만들기 및 Git 게시 설정** 섹션의 마지막 부분에 설명된 단계와 같음).
+
+         git init
+         git add .
+         git commit -m "initial commit"
+         git remote add azure [URL for remote repository]
+         git push azure master
+
+    이전에 만든 암호를 입력하라는 메시지가 나타납니다.
+
+3.  **http://[your web site domain]/createtable.php**로 이동하여 응용 프로그램의 테이블을 만듭니다.
+4.  **http://[your web site domain]/index.php**로 이동하여 응용 프로그램을 사용하기 시작합니다.
+
+응용 프로그램을 게시한 후 변경을 시작하고 Git를 사용하여 변경 내용을 게시할 수 있습니다.
+
+응용 프로그램에 변경 내용 게시
+------------------------------
+
+응용 프로그램에 변경 내용을 게시하려면 다음 단계를 따르십시오.
+
+1.  응용 프로그램을 로컬에서 변경합니다.
+2.  GitBash를 열거나 Git가 `PATH`에 있는 경우 터미널을 열고 응용 프로그램의 루트 디렉터리로 이동한 후 다음 명령을 실행합니다.
+
+         git add .
+         git commit -m "comment describing changes"
+         git push azure master
+
+    이전에 만든 암호를 입력하라는 메시지가 나타납니다.
+
+3.  **http://[your web site domain]/index.php**로 이동하여 변경 내용을 표시합니다.
 
