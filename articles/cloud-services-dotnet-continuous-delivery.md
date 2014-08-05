@@ -1,4 +1,4 @@
-<properties  linkid="dev-net-common-tasks-continuous-delivery" urlDisplayName="Continuous Delivery" pageTitle="Continuous delivery for cloud services with TFS in Azure" metaKeywords="Azure continuous delivery, continuous delivery sample code, continuous deliver PowerShell" description="Learn how to set up continuous delivery for Azure cloud apps. Code samples for MSBuild command-line statements and PowerShell scripts." metaCanonical="" services="" documentationCenter="" title="Continuous Delivery for Cloud Services in Azure" authors="ghogen" solutions="" manager="" editor="" />
+<properties linkid="dev-net-common-tasks-continuous-delivery" urlDisplayName="Continuous Delivery" pageTitle="Continuous delivery for cloud services with TFS in Azure" metaKeywords="Azure continuous delivery, continuous delivery sample code, continuous deliver PowerShell" description="Learn how to set up continuous delivery for Azure cloud apps. Code samples for MSBuild command-line statements and PowerShell scripts." metaCanonical="" services="" documentationCenter="" title="Continuous Delivery for Cloud Services in Azure" authors="ghogen" solutions="" manager="" editor="" />
 
 # Azure 클라우드 서비스의 지속적인 전송
 
@@ -564,10 +564,19 @@ Write-Output "$(Get-Date -f $timeStampFormat) - Azure Cloud Service deploy scrip
 </pre>
 
 
-
+ [Continuous Delivery to Azure by Using Team Foundation Service]: ../cloud-services-continuous-delivery-use-vso/
+  [Step 1: Configure the Build Server]: #step1
+  [Step 2: Build a Package using MSBuild Commands]: #step2
+  [Step 3: Build a Package using TFS Team Build (Optional)]: #step3
+  [Step 4: Publish a Package using a PowerShell Script]: #step4
+  [Step 5: Publish a Package using TFS Team Build (Optional)]: #step5
+  [Team Foundation Build Service]: http://go.microsoft.com/fwlink/p/?LinkId=239963
+  [.NET Framework 4]: http://go.microsoft.com/fwlink/?LinkId=239538
+  [.NET Framework 4.5]: http://go.microsoft.com/fwlink/?LinkId=245484
+  [Azure Authoring Tools]: http://go.microsoft.com/fwlink/?LinkId=239600
   [Azure 라이브러리][]: http://go.microsoft.com/fwlink/?LinkId=257862
-  [Azure Tools for Visual Studio]:http://go.microsoft.com/fwlink/?LinkId=257862 
-  [MSBuild 명령줄 참조]: http://msdn.microsoft.com/en-us/library/ms164311(v=VS.90).aspx
+  [Azure Tools for Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=257862
+  [MSBuild Command Line Reference]: http://msdn.microsoft.com/en-us/library/ms164311(v=VS.90).aspx
   [1]: http://go.microsoft.com/fwlink/p/?LinkId=239966
   [Understanding the Team Foundation Build System]: http://go.microsoft.com/fwlink/?LinkId=238798
   [Configure a Build Machine]: http://go.microsoft.com/fwlink/?LinkId=238799
@@ -575,11 +584,9 @@ Write-Output "$(Get-Date -f $timeStampFormat) - Azure Cloud Service deploy scrip
   [2]: ./media/cloud-services-dotnet-continuous-delivery/tfs-02.png
   [Azure PowerShell cmdlets]: http://go.microsoft.com/fwlink/?LinkId=256262
   [the .publishsettings file]: https://manage.windowsazure.com/download/publishprofile.aspx?wa=wsignin1.0
-  [이 문서의 끝]: #script
-
-
-
-[1]: http://go.microsoft.com/fwlink/p/?LinkId=239963
-[2]: http://go.microsoft.com/fwlink/?LinkId=239538
-[3]: http://go.microsoft.com/fwlink/?LinkId=245484
-[4]: http://go.microsoft.com/fwlink/?LinkId=239600
+  [end of this article]: #script
+  
+  [3]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-03.png
+  [4]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-04.png
+  [5]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-05.png
+  [6]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-06.png
