@@ -29,6 +29,7 @@ Visual Studio에서 Azure 웹 사이트 문제 해결
 11. [실패한 요청 로그 보기](#failedrequestlogs)
 12. [다음 단계](#nextsteps)
 
+<a name="prerequisites"></a>
 필수 구성 요소
 --------------
 
@@ -38,6 +39,7 @@ Visual Studio에서 Azure 웹 사이트 문제 해결
 
 로그 스트리밍 기능은 .NET Framework 4 이상을 대상으로 하는 응용 프로그램에 대해서만 작동합니다.
 
+<a name="sitemanagement">
 사이트 구성 및 관리
 -------------------
 
@@ -66,7 +68,7 @@ Visual Studio를 사용하면 관리 포털에서 사용할 수 있는 사이트
     이 창에 있는 응용 프로그램 설정 및 연결 문자열 상자에 대한 자세한 내용은 [Azure 웹 사이트: 응용 프로그램 설정 및 연결 문자열 작동 방식](http://blogs.msdn.com/b/windowsazure/archive/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work.aspx)(영문)을 참조하십시오.
 
     이 창에서 지원하지 않는 사이트 관리 작업을 수행하려는 경우 **Full Web Site Settings**를 클릭하여 브라우저 창에서 관리 포털을 열 수 있습니다. 자세한 내용은 [웹 사이트를 구성하는 방법](/en-us/manage/services/web-sites/how-to-configure-websites/#howtochangeconfig)을 참조하십시오.
-
+<a name="remoteview"></a>
 원격 뷰
 -------
 
@@ -106,6 +108,7 @@ Visual Studio를 사용하면 관리 포털에서 사용할 수 있는 사이트
 
 Web.config 파일을 편집하는 방법은 문제를 더 쉽게 해결할 수 있도록 Azure 웹 사이트의 파일 읽기/편집 기능을 사용하는 한 가지 예에 지나지 않습니다.
 
+<a name="remotedebug"></a>
 원격 디버깅
 -----------
 
@@ -207,6 +210,7 @@ Web.config 파일을 편집하는 방법은 문제를 더 쉽게 해결할 수 �
 
 -   디버거를 원하는 프로세스에 수동으로 연결할 수 있습니다. 웹 사이트 프로세스(w3wp.exe)를 디버그할 수 있을 뿐 아니라 [WebJob](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/getting-started-with-windows-azure-webjobs) 같은 다른 프로세스도 디버그할 수 있습니다. Visual Studio에서 디버그 모드를 사용하는 방법에 대한 자세한 내용은 [Visual Studio의 디버깅](http://msdn.microsoft.com/en-us/library/vstudio/sc65sadd.aspx)을 참조하십시오.
 
+<a name="logsoverview"></a>
 로그 개요진단 로그 개요
 -----------------------
 
@@ -225,6 +229,7 @@ Azure 웹 사이트에서 실행하는 ASP.NET 응용 프로그램은 다음과 
 
 로그 파일은 웹 사이트의 파일 시스템에 있는 *LogFiles* 폴더의 파일에 기록됩니다. 웹 서버 로그 및 응용 프로그램 로그는 또한 Azure 저장소 계정에도 기록될 수 있습니다. 저장소 계정에서는 파일 시스템에서 보존할 수 있는 로그보다 훨씬 많은 볼륨의 로그를 보존할 수 있습니다. 파일 시스템을 사용하는 경우 최대 100MB의 로그로 제한됩니다. 참고로, 파일 시스템 로그는 단기 보존용입니다. 제한값에 도달한 경우 Azure는 새 로그를 위한 공간을 만들기 위해 오래된 로그 파일을 삭제합니다.
 
+<a name="apptracelogs"></a>
 응용 프로그램 로그응용 프로그램 추적 로그 만들기 및 보기
 --------------------------------------------------------
 
@@ -389,6 +394,7 @@ Azure 웹 사이트에서 실행하는 ASP.NET 응용 프로그램은 다음과 
 
 검색 문자열 또는 정규식을 입력하면 Visual Studio에서 클라이언트 측의 로깅 정보가 필터링됩니다. 즉, **Output** 창에 로그가 표시된 후에 조건을 입력할 수 있으며 로그를 다시 생성할 필요 없이 필터링 조건을 변경할 수 있습니다.
 
+<a name="webserverlogs"></a>
 웹 서버 로그웹 서버 로그 보기
 -----------------------------
 
@@ -416,6 +422,7 @@ Azure 웹 사이트에서 실행하는 ASP.NET 응용 프로그램은 다음과 
 
 관리 포털을 사용하여 Azure 저장소 계정에 기록하도록 웹 서버 로깅을 설정한 후 Visual Studio에서 로깅을 사용하지 않도록 설정하면 Visual Studio에서 로깅을 사용하도록 다시 설정할 때 저장소 계정 설정이 복원됩니다.
 
+<a name="detailederrorlogs"></a>
 오류 로그자세한 오류 메시지 로그 보기
 -------------------------------------
 
@@ -441,6 +448,7 @@ Azure 웹 사이트에서 실행하는 ASP.NET 응용 프로그램은 다음과 
 
     ![브라우저 창의 자세한 오류 로그](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-detailederrorloginbrowser.png)
 
+<a name="downloadlogs"></a>
 로그 다운로드파일 시스템 로그 다운로드
 --------------------------------------
 
@@ -464,6 +472,7 @@ Azure 웹 사이트에서 실행하는 ASP.NET 응용 프로그램은 다음과 
 
     참고로, *deployments* 폴더는 소스 제어 게시로 인해 생성되는 것이며 Visual Studio 게시와는 전혀 관계가 없습니다. *Git* 폴더는 소스 제어 게시 및 로그 파일 스트리밍 서비스와 관련된 추적 로그용입니다.
 
+<a name="storagelogs"></a>
 저장소 로그저장소 로그 보기
 ---------------------------
 
@@ -547,6 +556,7 @@ Azure 웹 사이트에서 실행하는 ASP.NET 응용 프로그램은 다음과 
 
     ![서버 탐색기의 추적 테이블](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-tracetablerow.png)
 
+<a name="failedrequestlogs"></a>
 실패한 요청 로그실패한 요청 추적 로그 보기
 ------------------------------------------
 
@@ -602,6 +612,7 @@ Visual Studio를 사용하여 실패한 요청 추적을 사용하도록 설정�
 
     ![브라우저의 실패한 요청 추적](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-failedrequestinbrowser.png)
 
+<a name="nextsteps"></a>
 다음 단계다음 단계
 ------------------
 
@@ -685,3 +696,4 @@ Microsoft TechNet 웹 사이트에 포함된 [실패한 요청 추적 사용](ht
 
 웹 사이트가 아닌 Azure 클라우드 서비스를 디버그하려면 [클라우드 서비스 디버깅](http://msdnstage.redmond.corp.microsoft.com/en-us/library/windowsazure/ee405479.aspx)을 참조하십시오.
 
+[GetStarted]: /en-us/develop/net/tutorials/get-started/

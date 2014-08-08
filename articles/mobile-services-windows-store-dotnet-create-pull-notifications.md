@@ -15,6 +15,7 @@
 
 이 자습서는 모바일 서비스 quickstart를 기반으로 합니다. 이 자습서를 시작하기 전에 먼저 [모바일 서비스 시작](/en-us/develop/mobile/tutorials/get-started/#create-new-service) 또는 [데이터 시작](/en-us/develop/mobile/tutorials/get-started-with-data-dotnet)을 완료해야 합니다.
 
+<a name="define-custom-api">
 사용자 지정 API 정의
 --------------------
 
@@ -88,6 +89,7 @@
 
 다음에는 새 사용자 지정 API를 요청하여 라이브 타일을 업데이트하는 정기 알림을 시작하도록 빠른 시작 앱을 수정합니다.
 
+<a name="update-app"></a>
 앱 업데이트 정기 알림을 켜도록 앱 업데이트
 ------------------------------------------
 
@@ -108,6 +110,7 @@
 
     이 코드는 새 **tiles** 사용자 지정 API에서 타일 템플릿 데이터를 요청하기 위해 정기 알림을 켭니다. 데이터의 업데이트 빈도와 가장 일치하는 [PeriodicUpdateRecurrance] 값을 선택합니다.
 
+<a name="test-app"></a>
 앱 테스트
 ---------
 

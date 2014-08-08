@@ -49,6 +49,7 @@ Azure 계정은 무료로 개설할 수 있으며, Visual Studio 2013이 아직 
 
 [WACOM.INCLUDE [install-sdk-2012-only](../includes/install-sdk-2012-only.md)]
 
+<a name="createWASA"></a>
 저장소 계정 만들기Azure 저장소 계정 만들기
 ------------------------------------------
 
@@ -94,6 +95,7 @@ Visual Studio에서 샘플 응용 프로그램을 실행할 때 Azure 개발 저
 
 9.  다음 섹션에서 사용하도록 이 키 중 하나를 클립보드에 복사해 두십시오.
 
+<a name="installASE"></a>
 ASE 설치Azure 저장소 탐색기 설치
 --------------------------------
 
@@ -115,6 +117,7 @@ ASE(**Azure 저장소 탐색기**)는 Azure 저장소 테이블, 큐 및 Blob을
 
 Azure 저장소와 함께 작동하는 다른 도구도 사용할 수 있습니다. 자세한 내용은 [Azure 저장소 탐색기(2014)](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx)를 참조하십시오.
 
+<a name="createcloudsvc"></a>
 클라우드 서비스 만들기클라우드 서비스 만들기
 --------------------------------------------
 
@@ -144,6 +147,7 @@ Azure 저장소와 함께 작동하는 다른 도구도 사용할 수 있습니�
 
     이 단계가 완료되도록 기다리지 않고도 다음 단계로 진행할 수 있습니다.
 
+<a name="downloadcnfg"></a>
 다운로드 및 실행완료된 솔루션 다운로드 및 실행
 ----------------------------------------------
 
@@ -209,6 +213,7 @@ Azure 저장소와 함께 작동하는 다른 도구도 사용할 수 있습니�
 
 입력하고 본 데이터는 Azure 개발 저장소에 저장됩니다. 개발 저장소는 SQL Server Express LocalDB 데이터베이스를 사용하여 클라우드에서 Azure 저장소가 작동하는 방식을 에뮬레이트합니다. 프로젝트를 다운로드하면 프로젝트에서 사용하도록 구성된 곳이 개발 저장소이기 때문에, 응용 프로그램이 개발 저장소를 사용합니다. 이 설정은 **AzureEmailService** 프로젝트의 *.cscfg* 파일에 저장되어 있습니다. *ServiceConfiguration.Local.cscfg* 파일은 로컬에서 Visual Studio에서 응용 프로그램을 실행할 때 사용되는 항목을 결정하고, *ServiceConfiguration.Cloud.cscfg* 파일은 응용 프로그램을 클라우드에 배포할 때 사용되는 항목을 결정합니다. 이전에 만든 Azure 저장소 계정을 사용하도록 응용 프로그램을 구성하는 방법을 뒷부분에서 알아보겠습니다.
 
+<a name="StorageExpVS"></a>
 개발자 저장소Visual Studio에서 개발자 저장소 보기
 -------------------------------------------------
 
@@ -234,6 +239,7 @@ Visual Studio에서 저장소 브라우저를 사용하여 Azure 저장소 리�
 
 > [WACOM.NOTE] 최신 SDK의 경우 **서버 탐색기**에서 개발 저장소를 업데이트할 수 있습니다.
 
+<a name="conf4azureStorage"></a>
 저장소 계정 사용Azure 저장소 계정을 사용하도록 응용 프로그램 구성
 -----------------------------------------------------------------
 
@@ -369,6 +375,7 @@ Visual Studio에서 저장소 브라우저를 사용하여 Azure 저장소 리�
 
     ![ASE](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-se4.png)
 
+<a name="sendGrid"></a>
 SendGridSendGrid를 사용하도록 응용 프로그램 구성
 ------------------------------------------------
 
@@ -394,6 +401,7 @@ SendGridSendGrid를 사용하도록 응용 프로그램 구성
 
 클라우드 구성 파일을 업데이트하면 클라우드에서 응용 프로그램을 실행할 때 사용될 설정이 구성됩니다. 응용 프로그램이 로컬에서 실행되는 동안 전자 메일을 보내도록 하려는 경우 *ServiceConfiguration.Local.cscfg* 파일도 업데이트해야 합니다.
 
+<a name="deployAz"></a>
 Azure에 배포Azure에 응용 프로그램 배포
 --------------------------------------
 
@@ -485,6 +493,7 @@ Azure에 배포Azure에 응용 프로그램 배포
 
     ![게시](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-12.png)
 
+<a name="swap"></a>
 프로덕션스테이징에서 프로덕션으로 응용 프로그램 수준 올리기
 -----------------------------------------------------------
 
@@ -506,6 +515,7 @@ Azure에 배포Azure에 응용 프로그램 배포
 
     저장소 계정 설정을 변경하지 않은 경우 스테이징된 버전의 응용 프로그램을 테스트하는 동안 입력한 데이터가 클라우드에서 응용 프로그램을 실행할 때 표시됩니다.
 
+<a name="trace"></a>
 추적추적 데이터 구성 및 보기
 ----------------------------
 
@@ -540,6 +550,7 @@ Azure에 배포Azure에 응용 프로그램 배포
 
     ![대시보드](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-trc.png)
 
+<a name="addRole"></a>
 역할 인스턴스 추가증가한 로드를 처리하도록 다른 작업자 역할 인스턴스 추가
 -------------------------------------------------------------------------
 
@@ -577,6 +588,7 @@ Visual Studio에서 수행하려면 클라우드 프로젝트의 **역할** 아�
 
     ![인스턴스 보기](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-in2.png)
 
+<a name="nextsteps"></a>
 다음 단계다음 단계
 ------------------
 
@@ -585,3 +597,58 @@ Visual Studio에서 수행하려면 클라우드 프로젝트의 **역할** 아�
 Azure 저장소 테이블, 큐 및 Blob 작업 관련 추가 리소스에 대한 링크는 [이 시리즈의 마지막 자습서](/en-us/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/) 끝 부분을 참조하십시오.
 [자습서 3](/en-us/develop/net/tutorials/multi-tier-web-site/3-web-role/)
 
+
+
+
+
+[Set up the development environment]: #setupdevenv
+[Set up a free Azure account]: #setupwindowsazure
+[Create an Azure Storage account]: #createWASA
+[Install Azure Storage Explorer]: #installASE
+[Create a Cloud Service]: #createcloudsvc
+[Download and run the completed solution]: #downloadcnfg
+[View developer storage in Visual Studio]: #StorageExpVS
+[Configure the application for Azure Storage]: #conf4azureStorage
+[Deploy the application to Azure]: #deployAz
+[Promote the application from staging to production]: #swap
+[Configure the application to use SendGrid]: #sendGrid
+[Configure and view trace data]: #trace
+[Add another worker role instance to handle increased load]: #addRole
+
+[firsttutorial]: /en-us/develop/net/tutorials/multi-tier-web-site/1-overview/
+
+[tut3]: /en-us/develop/net/tutorials/multi-tier-web-site/3-web-role/
+[tut5]: /en-us/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/
+[NewPortal]: http://manage.windowsazure.com
+[managestorage]: /en-us/manage/services/storage/how-to-manage-a-storage-account/
+[autoscalingappblock]: /en-us/develop/net/how-to-guides/autoscaling/
+
+
+[mtas-portal-new-storage]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-portal-new-storage.png
+[mtas-storage-quick]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-storage-quick.png
+[mtas-create-storage-url-test]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-create-storage-url-test.png
+[mtas-manage-keys]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-manage-keys.png
+[mtas-guid-keys]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-guid-keys.PNG
+[mtas-new-cloud]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-new-cloud.png
+[mtas-create-cloud]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-create-cloud.png
+[mtas-ase-add]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-ase-add.png
+[mtas-ase-add2]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-ase-add2.png
+
+[mtas-rt-prop]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-rt-prop.png
+[mtas-mailinglist1]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-mailinglist1.png
+[mtas-create1]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-create1.png
+[mtas-mailing-list-index-page]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-mailing-list-index-page.png
+[mtas-subscribers-index-page]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-subscribers-index-page.png
+[mtas-message-create-page]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-message-create-page.png
+[mtas-message-index-page]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-message-index-page.png
+[mtas-serverExplorer]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-serverExplorer.png
+[mtas-wasVSdata]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-wasVSdata.png
+[mtas-elip]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-elip.png
+[mtas-enter]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-enter.png
+[mtas-ase1]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-ase1.png
+
+
+[mtas-se3]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-se3.png
+[mtas-aesp]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-aesp.png
+[mtas-1]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-1.png
+[mtas-se4]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-se4.png

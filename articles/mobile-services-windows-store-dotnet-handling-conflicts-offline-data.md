@@ -1,4 +1,4 @@
-
+<properties linkid="develop-mobile-tutorials-handle-conflcits-offline-data-dotnet" urlDisplayName="Handle Conflicts with Offline Data" pageTitle="Handle Conflicts with offline data in Mobile Services (Windows Store) | Mobile Dev Center" metaKeywords="" description="Learn how to handle conflicts with offline data in your Windows Store application." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Handling conflicts with offline data in Mobile Services" authors="wesmc" />
 
 모바일 서비스에서 오프라인 데이터를 사용하여 충돌 처리
 ======================================================
@@ -36,6 +36,7 @@
 
 앱이 모바일 서비스에 아직 연결되어 있지 않으므로 **푸시** 및 **끌어오기** 단추를 누르면 예외가 발생합니다.
 
+<a name="download-app"></a>
 데이터 모델에 열 추가
 ---------------------
 
@@ -47,6 +48,7 @@
 
 이 테이블을 포함하도록 데이터베이스를 업데이트합니다.
 
+<a name="add-column"></a>
 ### .NET 백 엔드 모바일 서비스에 대한 데이터베이스 업데이트
 
 모바일 서비스에 대해 .NET 백 엔드를 사용 중인 경우 다음 단계에 따라 데이터베이스에 대한 스키마를 업데이트합니다.
@@ -76,6 +78,7 @@
 
 5.  Visual Studio의 솔루션 탐색기에서 .NET 백 엔드 모바일 서비스 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 클릭하여 변경 내용을 게시합니다.
 
+<a name="dotnet-backend"></a>
 ### JavaScript 백 엔드 모바일 서비스에 대한 데이터베이스 업데이트
 
 JavaScript 백 엔드 모바일 서비스에 대해 **TodoWithDate**라는 새 테이블을 추가합니다. JavaScript 백 엔드 모바일 서비스에 대해 **TodoWithDate** 테이블을 추가하려면 다음 단계를 따르십시오.
@@ -122,6 +125,7 @@ JavaScript 백 엔드 모바일 서비스에 대해 **TodoWithDate**라는 새 �
 
 	![][3]
 
+<a name="javascript-backend"></a>
 백 엔드에서 데이터를 업데이트하여 충돌 생성
 -------------------------------------------
 
@@ -150,6 +154,7 @@ JavaScript 백 엔드 모바일 서비스에 대해 **TodoWithDate**라는 새 �
 
     ![](./media/mobile-services-windows-store-dotnet-handling-conflicts-offline-data/mobile-services-handling-conflicts-app-run3.png)
 
+<a name="test-app"></a>
 동기화 충돌 처리를 위한 코드 검토
 ---------------------------------
 
