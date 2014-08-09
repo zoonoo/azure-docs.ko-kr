@@ -261,5 +261,5 @@ Express 2012 for Web에서 라이브러리와 도구를 쉽게 설치 및 업데
 
 
 
-[1]: http://msdn.microsoft.com/en-us/library/windowsazure/hh367516.aspx
-[2]: http://msdn.microsoft.com/en-us/library/windowsazure/hh367512.aspx
+[1]: http://msdn.microsoft.com/ko-kr/library/windowsazure/hh367516.aspx
+[2]: http://msdn.microsoft.com/ko-kr/library/windowsazure/hh367512.aspx

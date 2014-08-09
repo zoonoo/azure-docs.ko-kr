@@ -28,7 +28,7 @@ Microsoft HPC 팩을 사용하여 하이브리드 클러스터 설정
 필수 조건
 ---------
 
-> [WACOM.NOTE] 이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](http://www.windowsazure.com/en-us/pricing/free-trial/)을 참조하십시오.
+> [WACOM.NOTE] 이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](http://www.windowsazure.com/ko-kr/pricing/free-trial/)을 참조하십시오.
 
 또한 이 자습서에는 다음이 필요합니다.
 

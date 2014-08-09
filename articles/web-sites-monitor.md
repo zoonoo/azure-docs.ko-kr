@@ -132,7 +132,7 @@ Azure 저장소 계정에 대한 자세한 내용은 [저장소 계정을 관리
 
 Azure PowerShell에서 **Set-AzureWebsite** cmdlet을 사용해서도 진단을 사용하도록 설정할 수 있습니다.
 
-Azure PowerShell을 설치하지 않았거나 Azure 구독을 사용하도록 이를 구성하지 않은 경우 [Azure PowerShell을 사용하는 방법](http://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/powershell-cmdlets/)(영문)을 참조하십시오.
+Azure PowerShell을 설치하지 않았거나 Azure 구독을 사용하도록 이를 구성하지 않은 경우 [Azure PowerShell을 사용하는 방법](http://www.windowsazure.com/ko-kr/develop/nodejs/how-to-guides/powershell-cmdlets/)(영문)을 참조하십시오.
 
 **참고**
 
@@ -203,7 +203,7 @@ Azure PowerShell을 설치하지 않았거나 Azure 구독을 사용하도록 �
 
     **참고**
 
-    **Azure PowerShell**이 아직 설치되지 않은 경우 설치 및 구성 정보에 대해서는 [Azure PowerShell Cmdlet 시작](http://msdn.microsoft.com/en-us/library/windowsazure/jj554332.aspx)을 참조하십시오.
+    **Azure PowerShell**이 아직 설치되지 않은 경우 설치 및 구성 정보에 대해서는 [Azure PowerShell Cmdlet 시작](http://msdn.microsoft.com/ko-kr/library/windowsazure/jj554332.aspx)을 참조하십시오.
 
 2.  Azure PowerShell 프롬프트에서 다음 명령을 사용하여 로그 파일을 다운로드합니다.
 
@@ -232,7 +232,7 @@ Azure PowerShell을 설치하지 않았거나 Azure 구독을 사용하도록 �
 명령이 실행된 명령 프롬프트, PowerShell, bash 또는 터미널 세션에 로그 정보가 표시됩니다.
 **참고**
 
-**azure** 명령이 설치되지 않은 경우 설치 및 구성 정보에 대해서는 [Azure 명령줄 도구를 사용하는 방법](http://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/command-line-tools/)(영문)을 참조하십시오.
+**azure** 명령이 설치되지 않은 경우 설치 및 구성 정보에 대해서는 [Azure 명령줄 도구를 사용하는 방법](http://www.windowsazure.com/ko-kr/develop/nodejs/how-to-guides/command-line-tools/)(영문)을 참조하십시오.
 
 ### 로그 파일 읽기
 
@@ -296,8 +296,8 @@ Azure PowerShell을 설치하지 않았거나 Azure 구독을 사용하도록 �
 
 웹 사이트 끝점 모니터링에 대한 자세한 내용은 다음 비디오를 참조하십시오.
 
--   [스캇 거트리(Scott Guthrie)의 Azure 웹 사이트 소개 및 끝점 모니터링 설정(영문)](http://www.windowsazure.com/en-us/documentation/videos/websites-and-endpoint-monitoring-scottgu/)
+-   [스캇 거트리(Scott Guthrie)의 Azure 웹 사이트 소개 및 끝점 모니터링 설정(영문)](http://www.windowsazure.com/ko-kr/documentation/videos/websites-and-endpoint-monitoring-scottgu/)
 
--   [Azure 웹 사이트 가동 및 끝점 모니터링 - 스테판 스차코우(Stefan Schackow)(영문)](http://www.windowsazure.com/en-us/documentation/videos/azure-web-sites-endpoint-monitoring-and-staying-up/)
+-   [Azure 웹 사이트 가동 및 끝점 모니터링 - 스테판 스차코우(Stefan Schackow)(영문)](http://www.windowsazure.com/ko-kr/documentation/videos/azure-web-sites-endpoint-monitoring-and-staying-up/)
 
 

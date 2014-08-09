@@ -3,7 +3,7 @@
 Java에서 Azure SQL 데이터베이스를 사용하는 방법
 ===============================================
 
-다음 단계는 Java에서 Azure SQL 데이터베이스를 사용하는 방법을 보여 줍니다. 간단히 하기 위해 명령줄 예제가 표시되어 있지만, Azure 내에 온-프레미스 또는 다른 환경에 호스트된 웹 응용 프로그램에 대해 아주 유사한 단계가 적용됩니다. 이 가이드는 [Azure 관리 포털](https://windows.azure.com)에서 서버 생성 및 데이터베이스 생성에 대해 다룹니다. 프로덕션 포털에서 이러한 작업을 수행하는 방법에 대한 자세한 내용은 [Java에서 SQL 데이터베이스 사용](http://msdn.microsoft.com/en-us/library/windowsazure/hh749029.aspx)(영문)을 참조하십시오.
+다음 단계는 Java에서 Azure SQL 데이터베이스를 사용하는 방법을 보여 줍니다. 간단히 하기 위해 명령줄 예제가 표시되어 있지만, Azure 내에 온-프레미스 또는 다른 환경에 호스트된 웹 응용 프로그램에 대해 아주 유사한 단계가 적용됩니다. 이 가이드는 [Azure 관리 포털](https://windows.azure.com)에서 서버 생성 및 데이터베이스 생성에 대해 다룹니다. 프로덕션 포털에서 이러한 작업을 수행하는 방법에 대한 자세한 내용은 [Java에서 SQL 데이터베이스 사용](http://msdn.microsoft.com/ko-kr/library/windowsazure/hh749029.aspx)(영문)을 참조하십시오.
 
 Azure SQL 데이터베이스 정의
 ---------------------------
@@ -37,7 +37,7 @@ Azure SQL 데이터베이스는 Azure에 관계형 데이터베이스 관리 시
 개념
 ----
 
-Azure SQL 데이터베이스는 SQL Server 기술을 기반으로 하므로 Java에서 SQL 데이터베이스에 액세스하는 것은 Java에서 SQL Server에 액세스하는 것과 매우 유사합니다. 로컬에서 SQL Server를 사용하여 응용 프로그램을 개발한 후 연결 문자열만 변경하여 SQL 데이터베이스에 연결할 수 있습니다. 응용 프로그램에 대해 SQL Server JDBC 드라이버를 사용할 수 있습니다. 그러나 응용 프로그램에 영향을 줄 수 있는 SQL 데이터베이스와 SQL Server 간의 몇 가지 차이점이 있습니다. 자세한 내용은 [지침 및 제한 사항(SQL 데이터베이스)](http://msdn.microsoft.com/en-us/library/windowsazure/ff394102.aspx)을 참조하십시오.
+Azure SQL 데이터베이스는 SQL Server 기술을 기반으로 하므로 Java에서 SQL 데이터베이스에 액세스하는 것은 Java에서 SQL Server에 액세스하는 것과 매우 유사합니다. 로컬에서 SQL Server를 사용하여 응용 프로그램을 개발한 후 연결 문자열만 변경하여 SQL 데이터베이스에 연결할 수 있습니다. 응용 프로그램에 대해 SQL Server JDBC 드라이버를 사용할 수 있습니다. 그러나 응용 프로그램에 영향을 줄 수 있는 SQL 데이터베이스와 SQL Server 간의 몇 가지 차이점이 있습니다. 자세한 내용은 [지침 및 제한 사항(SQL 데이터베이스)](http://msdn.microsoft.com/ko-kr/library/windowsazure/ff394102.aspx)을 참조하십시오.
 
 SQL 데이터베이스에 대한 추가 리소스는 [다음 단계](#nextsteps) 섹션을 참조하십시오.
 
@@ -48,7 +48,7 @@ SQL 데이터베이스에 대한 추가 리소스는 [다음 단계](#nextsteps)
 
 -   JDK(Java 개발자 키트), v 1.6 이상
 -   Azure 구독. http://www.microsoft.com/windowsazure/offers/ 에서 구입할 수 있습니다.
--   Eclipse를 사용하는 경우 Eclipse IDE for Java EE Developers, Indigo 이상이 필요합니다. http://www.eclipse.org/downloads/ 에서 다운로드할 수 있습니다. 또한 Eclipse용 Azure 플러그 인(Java 포함)(Microsoft Open Technologies 제공)이 필요합니다. 이 플러그인을 설치하는 동안 Microsoft JDBC Driver 4.0 for SQL Server가 포함되어 있는지 확인하십시오. 자세한 내용은 [Eclipse용 Azure 플러그 인(Java 포함)(Microsoft Open Technologies 제공) 설치](http://msdn.microsoft.com/en-us/library/windowsazure/hh690946.aspx)(영문)를 참조하십시오.
+-   Eclipse를 사용하는 경우 Eclipse IDE for Java EE Developers, Indigo 이상이 필요합니다. http://www.eclipse.org/downloads/ 에서 다운로드할 수 있습니다. 또한 Eclipse용 Azure 플러그 인(Java 포함)(Microsoft Open Technologies 제공)이 필요합니다. 이 플러그인을 설치하는 동안 Microsoft JDBC Driver 4.0 for SQL Server가 포함되어 있는지 확인하십시오. 자세한 내용은 [Eclipse용 Azure 플러그 인(Java 포함)(Microsoft Open Technologies 제공) 설치](http://msdn.microsoft.com/ko-kr/library/windowsazure/hh690946.aspx)(영문)를 참조하십시오.
 -   Eclipse를 사용하지 않는 경우 http://www.microsoft.com/en-us/download/details.aspx?id=11774 에서 다운로드할 수 있는 Microsoft JDBC Driver 4.0 for SQL Server가 필요합니다.
 
 Azure SQL 데이터베이스 만들기
@@ -132,7 +132,7 @@ Java에서 Azure SQL 데이터베이스 사용
     4.  **Add Library** 대화 상자에서 **Microsoft JDBC Driver 4.0 for SQL Server**를 선택하고 **Next**를 클릭한 다음 **Finish**를 클릭합니다.
     5.  **OK**를 클릭하여 **Properties** 대화 상자를 닫습니다.
 
-    Eclipse를 사용하지 않는 경우 Microsoft JDBC Driver 4.0 for SQL Server JAR을 클래스 경로에 추가합니다. 관련 정보는 [JDBC 드라이버 사용](http://msdn.microsoft.com/en-us/library/ms378526.aspx)(영문)을 참조하십시오.
+    Eclipse를 사용하지 않는 경우 Microsoft JDBC Driver 4.0 for SQL Server JAR을 클래스 경로에 추가합니다. 관련 정보는 [JDBC 드라이버 사용](http://msdn.microsoft.com/ko-kr/library/ms378526.aspx)(영문)을 참조하십시오.
 
 4.  **HelloSQLAzure.java** 코드 내에서 다음과 같이 `import` 문을 추가합니다.
 
@@ -713,7 +713,7 @@ Azure 배포 내 Java에서 SQL 데이터베이스를 사용하려면, 위에 �
 3.  **New Assembly Directive** 대화 상자에서 **Java Build Path Entries**를 클릭한 후 **Next**를 클릭합니다.
 4.  **Microsoft JDBC Driver 4.0 SQL Server**를 선택한 다음 **Finish**를 클릭합니다.
 5.  **OK**를 클릭하여 **Properties** 대화 상자를 닫습니다.
-6.  프로젝트의 WAR 파일을 approot 폴더로 내보내고 [Eclipse용 Azure 플러그 인(Java 포함)(Microsoft Open Technologies 제공)을 사용하여 Hello World 응용 프로그램 만들기](http://msdn.microsoft.com/en-us/library/windowsazure/hh690944.aspx)(영문)에 설명된 단계에 따라 Azure 프로젝트를 다시 빌드합니다. 이 항목에는 계산 에뮬레이터와 Azure에서 응용 프로그램을 실행하는 방법도 설명되어 있습니다.
+6.  프로젝트의 WAR 파일을 approot 폴더로 내보내고 [Eclipse용 Azure 플러그 인(Java 포함)(Microsoft Open Technologies 제공)을 사용하여 Hello World 응용 프로그램 만들기](http://msdn.microsoft.com/ko-kr/library/windowsazure/hh690944.aspx)(영문)에 설명된 단계에 따라 Azure 프로젝트를 다시 빌드합니다. 이 항목에는 계산 에뮬레이터와 Azure에서 응용 프로그램을 실행하는 방법도 설명되어 있습니다.
 
 **Eclipse를 사용하지 않는 경우 Microsoft JDBC Driver 4.0 SQL Server 패키지 만들기**
 
@@ -722,5 +722,5 @@ Azure 배포 내 Java에서 SQL 데이터베이스를 사용하려면, 위에 �
 다음 단계
 ---------
 
-Microsoft JDBC Driver for SQL Server에 대한 자세한 내용은 [JDBC 드라이버 개요](http://msdn.microsoft.com/en-us/library/ms378749.aspx)(영문)를 참조하십시오. SQL 데이터베이스에 대한 자세한 내용은 [SQL 데이터베이스 개요](http://msdn.microsoft.com/en-us/library/windowsazure/ee336241.aspx)(영문)를 참조하십시오.
+Microsoft JDBC Driver for SQL Server에 대한 자세한 내용은 [JDBC 드라이버 개요](http://msdn.microsoft.com/ko-kr/library/ms378749.aspx)(영문)를 참조하십시오. SQL 데이터베이스에 대한 자세한 내용은 [SQL 데이터베이스 개요](http://msdn.microsoft.com/ko-kr/library/windowsazure/ee336241.aspx)(영문)를 참조하십시오.
 

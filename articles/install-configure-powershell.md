@@ -226,8 +226,8 @@ Azure 및 Windows PowerShell을 사용하는 방법을 알아볼 수 있는 몇 
 [4]: http://go.microsoft.com/fwlink/?LinkId=320796
 [5]: http://go.microsoft.com/fwlink/?LinkId=324796
 [6]: http://manage.windowsazure.com
-[7]: http://msdn.microsoft.com/en-us/library/windowsazure/gg456328.aspx
-[8]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554330.aspx
+[7]: http://msdn.microsoft.com/ko-kr/library/windowsazure/gg456328.aspx
+[8]: http://msdn.microsoft.com/ko-kr/library/windowsazure/jj554330.aspx
 [9]: http://go.microsoft.com/fwlink/p/?LinkId=320212
 [10]: http://go.microsoft.com/fwlink/?LinkId=320213
 [11]: http://go.microsoft.com/fwlink/p/?LinkId=320211

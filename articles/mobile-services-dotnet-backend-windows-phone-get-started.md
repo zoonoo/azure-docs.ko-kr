@@ -3,17 +3,17 @@
 모바일 서비스 시작
 ==================
 
-[Windows 스토어 C\#](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started "Windows 스토어 C#")[Windows 스토어 JavaScript](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started "Windows 스토어 JavaScript")[Windows Phone](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started "Windows Phone")[iOS](/en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started "iOS") [Android](/en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started "Android")
+[Windows 스토어 C\#](/ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started "Windows 스토어 C#")[Windows 스토어 JavaScript](/ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started "Windows 스토어 JavaScript")[Windows Phone](/ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started "Windows Phone")[iOS](/ko-kr/documentation/articles/mobile-services-dotnet-backend-ios-get-started "iOS") [Android](/ko-kr/documentation/articles/mobile-services-dotnet-backend-android-get-started "Android")
 
-[.NET 백 엔드](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started/ ".NET 백 엔드") | [JavaScript 백 엔드](/en-us/documentation/articles/mobile-services-windows-phone-get-started/ "JavaScript 백 엔드")
+[.NET 백 엔드](/ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started/ ".NET 백 엔드") | [JavaScript 백 엔드](/ko-kr/documentation/articles/mobile-services-windows-phone-get-started/ "JavaScript 백 엔드")
 
-이 자습서는 Azure 모바일 서비스를 사용하여 Windows Phone 8 앱에 클라우드 기반 백 엔드 서비스를 추가하는 방법을 보여 줍니다. 이 자습서에서는 새 모바일 서비스와 새 모바일 서비스에 앱 데이터를 저장하는 간단한 *할 일 모음* 앱을 둘 다 만듭니다. 만들게 될 모바일 서비스에서는 지원되는 .NET 언어를 사용하며, 서버 쪽 비즈니스 논리와 모바일 서비스 관리에 Visual Studio를 사용합니다. JavaScript를 사용하여 서버 쪽 비즈니스 논리를 작성하도록 지원하는 모바일 서비스를 만들려면 이 항목의 [JavaScript 백 엔드 버전](/en-us/documentation/articles/mobile-services-windows-phone-get-started)을 참조하십시오.
+이 자습서는 Azure 모바일 서비스를 사용하여 Windows Phone 8 앱에 클라우드 기반 백 엔드 서비스를 추가하는 방법을 보여 줍니다. 이 자습서에서는 새 모바일 서비스와 새 모바일 서비스에 앱 데이터를 저장하는 간단한 *할 일 모음* 앱을 둘 다 만듭니다. 만들게 될 모바일 서비스에서는 지원되는 .NET 언어를 사용하며, 서버 쪽 비즈니스 논리와 모바일 서비스 관리에 Visual Studio를 사용합니다. JavaScript를 사용하여 서버 쪽 비즈니스 논리를 작성하도록 지원하는 모바일 서비스를 만들려면 이 항목의 [JavaScript 백 엔드 버전](/ko-kr/documentation/articles/mobile-services-windows-phone-get-started)을 참조하십시오.
 
 완성된 앱의 스크린샷은 다음과 같습니다.
 
 ![](./media/mobile-services-windows-phone-get-started/mobile-quickstart-completed-wp8.png)
 
-> [WACOM.NOTE]이 자습서를 완료하려면 Azure 모바일 서비스 기능을 사용할 수 있는 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A30A4DDE2&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-phone-get-started%2F)을 참조하십시오.
+> [WACOM.NOTE]이 자습서를 완료하려면 Azure 모바일 서비스 기능을 사용할 수 있는 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](http://www.windowsazure.com/ko-kr/pricing/free-trial/?WT.mc_id=A30A4DDE2&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-phone-get-started%2F)을 참조하십시오.
 > 이 자습서를 완료하려면 [Visual Studio Professional 2013](https://go.microsoft.com/fwLink/p/?LinkID=257546)이 필요합니다. 무료 평가판을 이용할 수 있습니다.
 
 새 모바일 서비스 만들기
@@ -58,7 +58,7 @@
 
 [WACOM.INCLUDE [mobile-services-dotnet-backend-publish-service](../includes/mobile-services-dotnet-backend-publish-service.md)]
 
-1.  Windows Phone 앱 프로젝트에서 App.xaml.cs 파일을 열어 [MobileServiceClient](http://msdn.microsoft.com/en-us/library/Windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx) 인스턴스를 만드는 코드를 찾은 다음, *localhost*를 사용하여 이 클라이언트를 만드는 코드는 주석 처리하고 원격 모바일 서비스 URL을 사용하여 클라이언트를 만드는 코드는 주석 처리를 제거합니다. 다음과 같습니다.
+1.  Windows Phone 앱 프로젝트에서 App.xaml.cs 파일을 열어 [MobileServiceClient](http://msdn.microsoft.com/ko-kr/library/Windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx) 인스턴스를 만드는 코드를 찾은 다음, *localhost*를 사용하여 이 클라이언트를 만드는 코드는 주석 처리하고 원격 모바일 서비스 URL을 사용하여 클라이언트를 만드는 코드는 주석 처리를 제거합니다. 다음과 같습니다.
 
     ``` {}
     public static MobileServiceClient MobileService = new MobileServiceClient(
@@ -80,20 +80,20 @@
 
 ![](./media/mobile-services-dotnet-backend-windows-phone-get-started/mobile-quickstart-startup-wp8.png)
 
-Azure에서 실행 중인 모바일 서비스에 대해 새 클라이언트 앱을 실행하는 방법을 보여 줍니다. 로컬 컴퓨터에서 실행 중인 모바일 서비스로 Windows Phone 앱을 테스트하려면 먼저 Windows Phone 장치 또는 에뮬레이터에서 액세스할 수 있도록 웹 서버와 방화벽을 구성해야 합니다. 자세한 내용은 [로컬 모바일 서비스에 연결할 수 있도록 로컬 웹 서버 구성](/en-us/documentation/articles/mobile-services-dotnet-backend-how-to-configure-iis-express)을 참조하십시오.
+Azure에서 실행 중인 모바일 서비스에 대해 새 클라이언트 앱을 실행하는 방법을 보여 줍니다. 로컬 컴퓨터에서 실행 중인 모바일 서비스로 Windows Phone 앱을 테스트하려면 먼저 Windows Phone 장치 또는 에뮬레이터에서 액세스할 수 있도록 웹 서버와 방화벽을 구성해야 합니다. 자세한 내용은 [로컬 모바일 서비스에 연결할 수 있도록 로컬 웹 서버 구성](/ko-kr/documentation/articles/mobile-services-dotnet-backend-how-to-configure-iis-express)을 참조하십시오.
 
 다음 단계
 ---------
 
 이제 빠른 시작을 완료했으며 모바일 서비스에서 중요한 추가 작업을 수행하는 방법을 알아보겠습니다.
 
--   [데이터 시작하기](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data)
+-   [데이터 시작하기](/ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data)
   <br/>모바일 서비스를 사용하여 데이터를 저장 및 쿼리하는 방법에 대해 자세히 알아보십시오.
 
--   [인증 시작](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-users)
+-   [인증 시작](/ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-users)
   <br/>ID 공급자를 사용하여 앱 사용자를 인증하는 방법을 알아봅니다.
 
--   [푸시 알림 시작](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push)
+-   [푸시 알림 시작](/ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push)
   <br/>기본적인 푸시 알림을 앱에 보내는 방법을 알아봅니다.
 
 

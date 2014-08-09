@@ -209,5 +209,5 @@ Azure 웹 사이트를 만들었지만 아직 콘텐츠가 없습니다. 다음 
 
 ### 응용 프로그램이 클라우드 서비스에서 실행되어야 하는지 여부를 결정하는 방법
 
-Azure 웹 사이트 대신 Azure 클라우드 서비스에서 응용 프로그램을 실행하려는 경우도 있습니다. 자세한 내용은 [Azure 실행 모델](/en-us/develop/net/fundamentals/compute/)(영문) 및 [Azure 웹 사이트, 클라우드 서비스 및 VM: 각 항목을 사용해야 하는 경우](http://msdn.microsoft.com/en-us/library/windowsazure/jj218759.aspx)(영문)를 참조하십시오. 다중 계층 ASP.NET 웹 응용 프로그램을 만들고 클라우드 서비스에 배포하는 방법을 보여 주는 자습서 시리즈는 [저장소 테이블, 큐 및 Blob을 사용한 .NET 다중 계층 응용 프로그램](/en-us/develop/net/tutorials/multi-tier-web-site/1-overview/)을 참조하십시오.
+Azure 웹 사이트 대신 Azure 클라우드 서비스에서 응용 프로그램을 실행하려는 경우도 있습니다. 자세한 내용은 [Azure 실행 모델](/en-us/develop/net/fundamentals/compute/)(영문) 및 [Azure 웹 사이트, 클라우드 서비스 및 VM: 각 항목을 사용해야 하는 경우](http://msdn.microsoft.com/ko-kr/library/windowsazure/jj218759.aspx)(영문)를 참조하십시오. 다중 계층 ASP.NET 웹 응용 프로그램을 만들고 클라우드 서비스에 배포하는 방법을 보여 주는 자습서 시리즈는 [저장소 테이블, 큐 및 Blob을 사용한 .NET 다중 계층 응용 프로그램](/en-us/develop/net/tutorials/multi-tier-web-site/1-overview/)을 참조하십시오.
 

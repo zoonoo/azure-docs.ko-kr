@@ -53,8 +53,8 @@
 
 
 [1]: https://manage.windowsazure.com/
-[2]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554212.aspx
+[2]: http://msdn.microsoft.com/ko-kr/library/windowsazure/jj554212.aspx
 [3]: http://go.microsoft.com/fwlink/p/?LinkId=309046
-[4]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554218.aspx
-[5]: http://msdn.microsoft.com/en-us/library/windowsazure/dn303373.aspx
-[6]: http://msdn.microsoft.com/en-us/library/windowsazure/dn280974.aspx
+[4]: http://msdn.microsoft.com/ko-kr/library/windowsazure/jj554218.aspx
+[5]: http://msdn.microsoft.com/ko-kr/library/windowsazure/dn303373.aspx
+[6]: http://msdn.microsoft.com/ko-kr/library/windowsazure/dn280974.aspx

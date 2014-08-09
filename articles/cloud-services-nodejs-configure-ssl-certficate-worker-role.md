@@ -135,9 +135,9 @@ Node.js 응용 프로그램을 작업자 역할에 배포할 경우 Node.exe에�
 추가 리소스
 -----------
 
-[인증서를 서비스와 연결](http://msdn.microsoft.com/en-us/library/windowsazure/gg465718.aspx)
+[인증서를 서비스와 연결](http://msdn.microsoft.com/ko-kr/library/windowsazure/gg465718.aspx)
 
 [Azure 웹 역할에서 Node.js 응용 프로그램에 대한 SSL 구성](/en-us/develop/nodejs/common-tasks/enable-ssl/)
 
-[HTTPS 끝점에 SSL 인증서 구성](http://msdn.microsoft.com/en-us/library/windowsazure/ff795779.aspx)
+[HTTPS 끝점에 SSL 인증서 구성](http://msdn.microsoft.com/ko-kr/library/windowsazure/ff795779.aspx)
 

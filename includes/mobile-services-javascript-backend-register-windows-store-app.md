@@ -10,7 +10,7 @@
 
   이렇게 하면 앱을 새로 Windows 스토어에 등록하게 됩니다.
 
-3.  Visual Studio 2012 Express for Windows 8에서 [모바일 서비스 시작](/en-us/documentation/articles/mobile-services-windows-store-get-started/) 자습서를 완료할 때 만든 프로젝트를 엽니다.
+3.  Visual Studio 2012 Express for Windows 8에서 [모바일 서비스 시작](/ko-kr/documentation/articles/mobile-services-windows-store-get-started/) 자습서를 완료할 때 만든 프로젝트를 엽니다.
 
 4.  솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **스토어**를 클릭한 후 **응용 프로그램을 스토어에 연결...**을 클릭합니다.
 

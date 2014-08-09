@@ -3,11 +3,11 @@
 테이블 저장소를 사용하는 Python 웹 응용 프로그램
 ================================================
 
-이 자습서에서는 Python용 Azure 클라이언트 라이브러리로 테이블 저장소를 사용하는 응용 프로그램을 만드는 방법에 대해 알아봅니다. 이 응용 프로그램이 첫 번째 Python Azure 앱인 경우 먼저 [Django Hello World 웹 응용 프로그램](http://windowsazure.com/en-us/documentation/articles/virtual-machines-python-django-web-app-windows-server)을 살펴보는 게 좋습니다.
+이 자습서에서는 Python용 Azure 클라이언트 라이브러리로 테이블 저장소를 사용하는 응용 프로그램을 만드는 방법에 대해 알아봅니다. 이 응용 프로그램이 첫 번째 Python Azure 앱인 경우 먼저 [Django Hello World 웹 응용 프로그램](http://windowsazure.com/ko-kr/documentation/articles/virtual-machines-python-django-web-app-windows-server)을 살펴보는 게 좋습니다.
 
 이 가이드의 경우 Azure에 배포할 수 있는 웹 기반 작업 목록 응용 프로그램을 만듭니다. 작업 목록을 통해 사용자는 작업을 가져오고 새 작업을 추가하고 작업을 완료로 표시할 수 있습니다. 웹 프레임워크로 Django를 사용합니다.
 
-작업 항목은 Azure 저장소에 저장됩니다. Azure 저장소는 내결함성과 고가용성이 있는 구조화되지 않은 데이터 저장소를 제공합니다. Azure 저장소에는 데이터를 저장하고 액세스할 수 있는 일부 데이터 구조가 포함되며, Python용 Azure SDK에 포함된 API 또는 REST API를 통해 저장소 서비스를 활용할 수 있습니다. 자세한 내용은 [Azure에 데이터 저장 및 액세스](http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx)를 참조하십시오.
+작업 항목은 Azure 저장소에 저장됩니다. Azure 저장소는 내결함성과 고가용성이 있는 구조화되지 않은 데이터 저장소를 제공합니다. Azure 저장소에는 데이터를 저장하고 액세스할 수 있는 일부 데이터 구조가 포함되며, Python용 Azure SDK에 포함된 API 또는 REST API를 통해 저장소 서비스를 활용할 수 있습니다. 자세한 내용은 [Azure에 데이터 저장 및 액세스](http://msdn.microsoft.com/ko-kr/library/windowsazure/gg433040.aspx)를 참조하십시오.
 
 다음 내용을 배웁니다.
 
@@ -22,7 +22,7 @@
 개발 환경 설정
 --------------
 
-**참고:** Python 또는 클라이언트 라이브러리를 설치해야 하는 경우 [Python 설치 가이드](http://windowsazure.com/en-us/documentation/articles/python-how-to-install)(영문)를 참조하십시오.
+**참고:** Python 또는 클라이언트 라이브러리를 설치해야 하는 경우 [Python 설치 가이드](http://windowsazure.com/ko-kr/documentation/articles/python-how-to-install)(영문)를 참조하십시오.
 
 *Windows의 경우*: Windows WebPI 설치 관리자를 사용했으면 이미 Django와 Client Libs가 설치되어 있습니다.
 
@@ -176,13 +176,13 @@ URL 매핑
 계산 에뮬레이터에서 응용 프로그램 실행, 응용 프로그램 게시 및 중지/삭제
 -----------------------------------------------------------------------
 
-기본 제공된 Django 서버에서 앱을 성공적으로 실행했으면 Azure 에뮬레이터(Windows에만 해당)에 배포한 다음 Azure에 게시하여 좀 더 테스트할 수 있습니다. 이 작업을 수행하는 방법에 대한 일반적인 지침은 이러한 단계를 자세히 설명하는 [Django Hello World 웹 응용 프로그램](http://windowsazure.com/en-us/documentation/articles/virtual-machines-python-django-web-app-windows-server) 문서를 참조하십시오.
+기본 제공된 Django 서버에서 앱을 성공적으로 실행했으면 Azure 에뮬레이터(Windows에만 해당)에 배포한 다음 Azure에 게시하여 좀 더 테스트할 수 있습니다. 이 작업을 수행하는 방법에 대한 일반적인 지침은 이러한 단계를 자세히 설명하는 [Django Hello World 웹 응용 프로그램](http://windowsazure.com/ko-kr/documentation/articles/virtual-machines-python-django-web-app-windows-server) 문서를 참조하십시오.
 
 다음 단계
 ---------
 
 이제 Azure 테이블 저장소 서비스의 기본 사항을 배웠으므로 다음 링크를 따라 좀 더 복잡한 저장소 작업을 수행하는 방법을 알아보십시오.
 
--   다음 MSDN 참조를 확인하십시오. [Azure에서 데이터 저장 및 액세스](http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx)
+-   다음 MSDN 참조를 확인하십시오. [Azure에서 데이터 저장 및 액세스](http://msdn.microsoft.com/ko-kr/library/windowsazure/gg433040.aspx)
 -   다음 Azure 저장소 팀 블로그(영문)를 방문하십시오. http://blogs.msdn.com/b/windowsazurestorage/
 

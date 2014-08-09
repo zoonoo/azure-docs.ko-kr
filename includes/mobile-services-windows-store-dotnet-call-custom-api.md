@@ -53,7 +53,7 @@
              await dialog.ShowAsync();
          }
 
-    이 메서드는 새 단추의 **Click** 이벤트를 처리합니다. [InvokeApiAsync](http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx)(영문) 메서드가 클라이언트에서 호출되어 POST 요청을 새 사용자 지정 API로 보냅니다. 사용자 지정 API에서 반환하는 결과는 오류와 마찬가지로 메시지 대화 상자에 표시됩니다.
+    이 메서드는 새 단추의 **Click** 이벤트를 처리합니다. [InvokeApiAsync](http://msdn.microsoft.com/ko-kr/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx)(영문) 메서드가 클라이언트에서 호출되어 POST 요청을 새 사용자 지정 API로 보냅니다. 사용자 지정 API에서 반환하는 결과는 오류와 마찬가지로 메시지 대화 상자에 표시됩니다.
 
 앱 테스트
 ---------

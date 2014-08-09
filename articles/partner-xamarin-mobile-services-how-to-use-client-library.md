@@ -66,7 +66,7 @@ Azure 모바일 서비스용 Xamarin Component 클라이언트를 사용하는 �
 테이블 참조 만들기방법: 테이블 참조 만들기
 ------------------------------------------
 
-모바일 서비스 테이블의 데이터에 액세스하거나 데이터를 수정하는 모든 코드는 `MobileServiceTable` 개체에 대한 함수를 호출합니다. `MobileServiceClient` 인스턴스에 대해 [GetTable](http://msdn.microsoft.com/en-us/library/windowsazure/jj554275.aspx) 함수를 호출하여 테이블에 대한 참조를 구합니다.
+모바일 서비스 테이블의 데이터에 액세스하거나 데이터를 수정하는 모든 코드는 `MobileServiceTable` 개체에 대한 함수를 호출합니다. `MobileServiceClient` 인스턴스에 대해 [GetTable](http://msdn.microsoft.com/ko-kr/library/windowsazure/jj554275.aspx) 함수를 호출하여 테이블에 대한 참조를 구합니다.
 
     IMobileServiceTable<TodoItem> todoTable = 
         client.GetTable<TodoItem>();
@@ -165,7 +165,7 @@ Azure 모바일 서비스용 Xamarin Component 클라이언트를 사용하는 �
                     .Take(3);                              
     List<TodoItem> items = await query.ToListAsync();
 
-[IncludeTotalCount](http://msdn.microsoft.com/en-us/library/windowsazure/jj730933.aspx) 메서드를 사용하여 쿼리가 지정된 take 페이징/제한 절을 무시하고 반환되었을 *모든* 레코드의 총 개수를 가져오도록 할 수도 있습니다.
+[IncludeTotalCount](http://msdn.microsoft.com/ko-kr/library/windowsazure/jj730933.aspx) 메서드를 사용하여 쿼리가 지정된 take 페이징/제한 절을 무시하고 반환되었을 *모든* 레코드의 총 개수를 가져오도록 할 수도 있습니다.
 
     query = query.IncludeTotalCount();
 
@@ -267,7 +267,7 @@ await `todoTable.InsertAsync` 호출이 반환된 후 서버의 개체 ID가 클
 
 모바일 서비스가 Windows 스토어 또는 Windows Phone 앱에서 인증 프로세스를 관리하게 하려면 앱을 ID 공급자에 등록해야 합니다. 그런 다음, 모바일 서비스에서 공급자로부터 제공된 응용 프로그램 ID 및 암호를 구성해야 합니다. 자세한 내용은 "인증 시작" 자습서([Xamarin.iOS](/en-us/develop/mobile/tutorials/get-started-with-users-xamarin-ios/)/[Xamarin.Android](/en-us/develop/mobile/tutorials/get-started-with-users-xamarin-android/))를 참조하십시오.
 
-ID 공급자를 등록하고 나면 공급자의 [MobileServiceAuthenticationProvider](http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceauthenticationprovider.aspx) 값을 사용하여 [LoginAsync 메서드](http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclientextensions.loginasync.aspx)를 호출합니다. 예를 들어 다음 코드는 Facebook을 사용한 서버 흐름 로그인을 시작합니다.
+ID 공급자를 등록하고 나면 공급자의 [MobileServiceAuthenticationProvider](http://msdn.microsoft.com/ko-kr/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceauthenticationprovider.aspx) 값을 사용하여 [LoginAsync 메서드](http://msdn.microsoft.com/ko-kr/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclientextensions.loginasync.aspx)를 호출합니다. 예를 들어 다음 코드는 Facebook을 사용한 서버 흐름 로그인을 시작합니다.
 
     private MobileServiceUser user;
     private async System.Threading.Tasks.Task Authenticate()
@@ -293,9 +293,9 @@ ID 공급자를 등록하고 나면 공급자의 [MobileServiceAuthenticationPro
         }
     }
 
-Facebook 이외의 ID 공급자를 사용하는 경우 위의 [MobileServiceAuthenticationProvider](http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceauthenticationprovider.aspx) 값을 공급자에 대한 값으로 변경합니다.
+Facebook 이외의 ID 공급자를 사용하는 경우 위의 [MobileServiceAuthenticationProvider](http://msdn.microsoft.com/ko-kr/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceauthenticationprovider.aspx) 값을 공급자에 대한 값으로 변경합니다.
 
-이 경우 모바일 서비스는 선택한 공급자의 로그인 페이지를 표시하고 ID 공급자 로그인 후 모바일 서비스 인증 토큰을 생성하여 OAuth 2.0 인증 흐름을 관리합니다. [LoginAsync 메서드](http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclientextensions.loginasync.aspx)는 [MobileServiceUser](http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.aspx)를 반환하며, 여기서 인증된 사용자의 [userId](http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid.aspx) 및 [MobileServiceAuthenticationToken](http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.mobileserviceauthenticationtoken.aspx)이 JWT(JSON 웹 토큰)로 제공됩니다. 이 토큰은 캐시했다가 만료될 때까지 다시 사용할 수 있습니다. 자세한 내용은 [인증 토큰 캐시](#caching)를 참조하십시오.
+이 경우 모바일 서비스는 선택한 공급자의 로그인 페이지를 표시하고 ID 공급자 로그인 후 모바일 서비스 인증 토큰을 생성하여 OAuth 2.0 인증 흐름을 관리합니다. [LoginAsync 메서드](http://msdn.microsoft.com/ko-kr/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclientextensions.loginasync.aspx)는 [MobileServiceUser](http://msdn.microsoft.com/ko-kr/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.aspx)를 반환하며, 여기서 인증된 사용자의 [userId](http://msdn.microsoft.com/ko-kr/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid.aspx) 및 [MobileServiceAuthenticationToken](http://msdn.microsoft.com/ko-kr/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.mobileserviceauthenticationtoken.aspx)이 JWT(JSON 웹 토큰)로 제공됩니다. 이 토큰은 캐시했다가 만료될 때까지 다시 사용할 수 있습니다. 자세한 내용은 [인증 토큰 캐시](#caching)를 참조하십시오.
 
 ### 클라이언트 흐름
 

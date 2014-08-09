@@ -144,7 +144,7 @@ Linux VM을 설정하는 방법에 대한 자세한 내용은 [Linux 관리](/en
 -   [NumPy - Python의 숫자 라이브러리(영문)](http://www.numpy.org)
 -   [Django 프로젝트 - 완성도 높은 웹 프레임워크/CMS(영문)](http://www.djangoproject.com)
 -   [IPython - Python용 고급 REPL/Notebook(영문)](http://ipython.org)
--   [Azure의 IPython Notebook](http://windowsazure.com/en-us/documentation/articles/virtual-machines-python-ipython-notebook)
+-   [Azure의 IPython Notebook](http://windowsazure.com/ko-kr/documentation/articles/virtual-machines-python-ipython-notebook)
 -   [CodePlex의 Python Tools for Visual Studio(영문)](http://pytools.codeplex.com)
 -   [Virtualenv(영문)](http://pypi.python.org/pypi/virtualenv)
 
@@ -155,7 +155,7 @@ Linux VM을 설정하는 방법에 대한 자세한 내용은 [Linux 관리](/en
 [NumPy - A numerics library for Python]: http://www.numpy.org
 [Django Project - A mature web framework/CMS]: http://www.djangoproject.com 
 [IPython - an advanced REPL/Notebook for Python]: http://ipython.org
-[IPython Notebook on Azure]: http://windowsazure.com/en-us/documentation/articles/virtual-machines-python-ipython-notebook
+[IPython Notebook on Azure]: http://windowsazure.com/ko-kr/documentation/articles/virtual-machines-python-ipython-notebook
 [Python Tools for Visual Studio on CodePlex]: http://pytools.codeplex.com 
 [Python Package Index (PyPI)]: http://pypi.python.org/pypi
 [Virtualenv]: http://pypi.python.org/pypi/virtualenv 

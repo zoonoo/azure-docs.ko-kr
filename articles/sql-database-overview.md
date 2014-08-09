@@ -93,7 +93,7 @@ Management Studio는 단일 작업 영역에서 여러 SQL Server 인스턴스 �
 
 Management Studio에는 구문 검사기, 다시 사용하기 위해 스크립트 및 명명된 쿼리를 저장하는 기능과 같이 현재 관리 포털에서 사용할 수 없는 기능이 포함되어 있습니다. SQL 데이터베이스는 단순히 TDS(Tabular Data Stream) 끝점입니다. Management Studio를 비롯하여 TDS를 사용하여 작업하는 도구는 SQL 데이터베이스 작업에 사용할 수 있습니다. 온-프레미스 서버용으로 개발하는 스크립트는 SQL 데이터베이스 논리 서버에서 실행됩니다.
 
-다음 단계에서는 Management Studio를 사용하여 Azure의 논리 서버에 연결합니다. 이 단계를 수행하려면 SQL Server Management Studio 2008 R2 또는 2012 버전이 있어야 합니다. Management Studio를 다운로드하거나 연결하는 데 도움말이 필요한 경우 이 사이트의 [Management Studio를 사용하여 SQL 데이터베이스 관리](http://www.windowsazure.com/en-us/develop/net/common-tasks/sql-azure-management/)(영문)를 참조하십시오.
+다음 단계에서는 Management Studio를 사용하여 Azure의 논리 서버에 연결합니다. 이 단계를 수행하려면 SQL Server Management Studio 2008 R2 또는 2012 버전이 있어야 합니다. Management Studio를 다운로드하거나 연결하는 데 도움말이 필요한 경우 이 사이트의 [Management Studio를 사용하여 SQL 데이터베이스 관리](http://www.windowsazure.com/ko-kr/develop/net/common-tasks/sql-azure-management/)(영문)를 참조하십시오.
 
 연결하려면 먼저 로컬 시스템에서 포트 1433에 대한 아웃바운드 요청을 허용하는 방화벽 예외를 만들어야 하는 경우가 있습니다. 기본적으로 안전한 컴퓨터의 경우 일반적으로 포트 1433이 열려 있지 않습니다.
 
@@ -134,7 +134,7 @@ School 샘플 데이터베이스는 편의상 단순합니다. 모든 해당 개
 
 ### 온-프레미스 서버에서 school 데이터베이스 만들기
 
-이 데이터베이스를 만드는 스크립트는 [SQL 데이터베이스 관리 시작](http://www.windowsazure.com/en-us/manage/tutorials/sql-azure-management/)(영문)에서 찾을 수 있습니다. 이 가이드에서는 Management Studio에서 이러한 스크립트를 실행하여 school 데이터베이스의 온-프레미스 버전을 만듭니다.
+이 데이터베이스를 만드는 스크립트는 [SQL 데이터베이스 관리 시작](http://www.windowsazure.com/ko-kr/manage/tutorials/sql-azure-management/)(영문)에서 찾을 수 있습니다. 이 가이드에서는 Management Studio에서 이러한 스크립트를 실행하여 school 데이터베이스의 온-프레미스 버전을 만듭니다.
 
 1.  Management Studio에서 온-프레미스 서버에 연결합니다. **데이터베이스**를 마우스 오른쪽 단추로 클릭하고 **새 데이터베이스**를 클릭한 후 *school*을 입력합니다.
 
@@ -763,14 +763,14 @@ School 샘플 데이터베이스는 편의상 단순합니다. 모든 해당 개
 
 6.  두 번째 쿼리 창을 열고 연결 컨텍스트를 *sqlwriter*로 변경합니다. 동일한 쿼리가 이제 성공적으로 실행됩니다.
 
-이제 몇 가지 로그인을 만들고 테스트했습니다. 자세한 내용은 [SQL 데이터베이스에서 데이터베이스 및 로그인 관리](http://msdn.microsoft.com/en-us/library/windowsazure/ee336235.aspx) 및 [동적 관리 뷰를 사용하여 SQL 데이터베이스 모니터링](http://msdn.microsoft.com/en-us/library/windowsazure/ff394114.aspx)을 참조하십시오.
+이제 몇 가지 로그인을 만들고 테스트했습니다. 자세한 내용은 [SQL 데이터베이스에서 데이터베이스 및 로그인 관리](http://msdn.microsoft.com/ko-kr/library/windowsazure/ee336235.aspx) 및 [동적 관리 뷰를 사용하여 SQL 데이터베이스 모니터링](http://msdn.microsoft.com/ko-kr/library/windowsazure/ff394114.aspx)을 참조하십시오.
 
 논리 서버 및 데이터베이스 인스턴스 모니터링
 -------------------------------------------
 
 로그인 감사, 추적 실행 및 성능 카운터 사용처럼 온-프레미스 서버에서 사용하는 것에 익숙한 모니터링 도구 및 기술은 SQL 데이터베이스에 대해 사용할 수 없습니다. Azure에서는 DMV(Data Management View)를 사용하여 데이터 용량, 쿼리 문제 및 현재 연결을 모니터링할 수 있습니다.
 
-자세한 내용은 [동적 관리 뷰를 사용하여 SQL 데이터베이스 모니터링](http://msdn.microsoft.com/en-us/library/windowsazure/ff394114.aspx)(영문)을 참조하십시오.
+자세한 내용은 [동적 관리 뷰를 사용하여 SQL 데이터베이스 모니터링](http://msdn.microsoft.com/ko-kr/library/windowsazure/ff394114.aspx)(영문)을 참조하십시오.
 
 SQL 데이터베이스 솔루션 확장
 ----------------------------
@@ -795,7 +795,7 @@ Azure에서는 페더레이션을 통해 규모 확장이 가장 잘 수행됩�
 
 SQL 데이터베이스에서 페더레이션은 확장성과 성능을 향상시키는 데 사용됩니다. 한 데이터베이스 내의 하나 이상의 테이블이 행으로 분할되어 여러 데이터베이스(페더레이션 멤버)에 분배됩니다. 이러한 유형의 행 분할을 흔히 '분할'이라고 합니다. 이러한 분할이 유용한 기본 시나리오는 확장성과 성능을 향상시키거나 용량을 관리해야 하는 경우입니다.
 
-페더레이션은 Business Edition에서 지원됩니다. 자세한 내용은 [SQL 데이터베이스의 페더레이션](http://msdn.microsoft.com/en-us/library/windowsazure/hh597452.aspx) 및 [SQL 데이터베이스 페더레이션 자습서 - DBA](http://msdn.microsoft.com/en-us/library/windowsazure/hh778416.aspx)를 참조하십시오.
+페더레이션은 Business Edition에서 지원됩니다. 자세한 내용은 [SQL 데이터베이스의 페더레이션](http://msdn.microsoft.com/ko-kr/library/windowsazure/hh597452.aspx) 및 [SQL 데이터베이스 페더레이션 자습서 - DBA](http://msdn.microsoft.com/ko-kr/library/windowsazure/hh778416.aspx)를 참조하십시오.
 
 **다른 형식의 저장소 고려**
 
@@ -806,6 +806,6 @@ Azure는 테이블 저장소 및 Blob 저장소를 비롯한 여러 형식의 �
 
 이제 SQL 데이터베이스 관리의 기본 사항을 배웠으므로 다음 링크를 따라 좀 더 복잡한 관리 작업을 수행하는 방법을 알아보십시오.
 
--   MSDN에서 [SQL 데이터베이스](http://msdn.microsoft.com/en-us/library/windowsazure/gg619386) 참조
+-   MSDN에서 [SQL 데이터베이스](http://msdn.microsoft.com/ko-kr/library/windowsazure/gg619386) 참조
 -   [SQL 데이터베이스 TechNet WIKI](http://social.technet.microsoft.com/wiki/contents/articles/2267.sql-azure-technet-wiki-articles-index-en-us.aspx)(영문) 방문
 

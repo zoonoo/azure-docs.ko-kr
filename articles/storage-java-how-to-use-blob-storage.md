@@ -3,7 +3,7 @@
 Java에서 Blob 저장소를 사용하는 방법
 ====================================
 
-이 가이드에서는 Azure Blob 저장소 서비스를 사용하여 일반 시나리오를 수행하는 방법을 보여 줍니다. 샘플은 Java로 작성되었으며 [Java용 Azure SDK](http://www.windowsazure.com/en-us/develop/java/)(영문)를 사용합니다. Blob **업로드**, **나열**, **다운로드** 및 **삭제** 시나리오를 다룹니다. Blob에 대한 자세한 내용은 [다음 단계](#NextSteps) 섹션을 참조하십시오.
+이 가이드에서는 Azure Blob 저장소 서비스를 사용하여 일반 시나리오를 수행하는 방법을 보여 줍니다. 샘플은 Java로 작성되었으며 [Java용 Azure SDK](http://www.windowsazure.com/ko-kr/develop/java/)(영문)를 사용합니다. Blob **업로드**, **나열**, **다운로드** 및 **삭제** 시나리오를 다룹니다. Blob에 대한 자세한 내용은 [다음 단계](#NextSteps) 섹션을 참조하십시오.
 
 목차
 ----
@@ -32,7 +32,7 @@ Azure 저장소 계정 만들기
 Java 응용 프로그램 만들기
 -------------------------
 
-이 가이드에서는 Java 응용 프로그램 내에서 로컬로 또는 Azure의 웹 역할 또는 작업자 역할 내에서 실행되는 코드에서 실행할 수 있는 저장소 기능을 사용합니다. JDK(Java 개발 키트)를 다운로드하여 설치했으며 [Java용 Azure SDK 다운로드](http://www.windowsazure.com/en-us/develop/java/)(영문)의 지침에 따라 Java용 Azure 라이브러리 및 Azure SDK를 설치하고 Azure 구독에서 Azure 저장소 계정을 만들었다고 가정합니다.
+이 가이드에서는 Java 응용 프로그램 내에서 로컬로 또는 Azure의 웹 역할 또는 작업자 역할 내에서 실행되는 코드에서 실행할 수 있는 저장소 기능을 사용합니다. JDK(Java 개발 키트)를 다운로드하여 설치했으며 [Java용 Azure SDK 다운로드](http://www.windowsazure.com/ko-kr/develop/java/)(영문)의 지침에 따라 Java용 Azure 라이브러리 및 Azure SDK를 설치하고 Azure 구독에서 Azure 저장소 계정을 만들었다고 가정합니다.
 
 응용 프로그램을 만드는 데는 메모장을 포함한 어떠한 개발 도구도 사용할 수 있습니다. 또한 Java 프로젝트를 컴파일하고 Java용 Azure 라이브러리를 참조할 수 있어야 합니다.
 
@@ -214,5 +214,5 @@ Blob을 삭제하려면 Blob 참조를 가져온 후 **delete**를 호출합니�
 -   MSDN 참조: [Azure에서 데이터 저장 및 액세스]
 -   Azure 저장소 팀 블로그를 방문하십시오. http://blogs.msdn.com/b/windowsazurestorage/
 
-[Azure SDK for Java]: http://www.windowsazure.com/en-us/develop/java/
-[Storing and Accessing Data in Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
+[Azure SDK for Java]: http://www.windowsazure.com/ko-kr/develop/java/
+[Storing and Accessing Data in Azure]: http://msdn.microsoft.com/ko-kr/library/windowsazure/gg433040.aspx

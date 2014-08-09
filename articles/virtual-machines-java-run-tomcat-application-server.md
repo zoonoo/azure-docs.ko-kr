@@ -139,7 +139,7 @@ Tomcat이 외부 컴퓨터에서 실행되는 것을 보려면 끝점을 만들�
 
 ## 다음 단계
 
-* <http://www.windowsazure.com/en-us/develop/java/>에서
+* <http://www.windowsazure.com/ko-kr/develop/java/>에서
   사용 가능한 정보를 통해 Azure 저장소, 서비스 버스, SQL 데이터베이스 등 Java 응용 프로그램과 함께 포함할 기타
   서비스에 대해 자세히 알아보십시오.
 

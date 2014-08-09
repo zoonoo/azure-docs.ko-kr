@@ -48,9 +48,9 @@ Visual Studio 2013의 푸시 알림 추가 마법사를 사용하여 Windows 스
             public string ChannelUri { get; set; }
         }
 
-이 Windows 장치에서 *Platform* 필드에는 항상 `windowsstore` 또는 `windowsphone`이 반환됩니다. 동적 스키마를 사용하도록 설정하면(기본값) 모바일 서비스에서 Registrations 테이블에 platform 열을 추가합니다(아직 없는 경우). 자세한 내용은 [동적 스키마](http://msdn.microsoft.com/en-us/library/windowsazure/jj193175.aspx)를 참조하십시오.
+이 Windows 장치에서 *Platform* 필드에는 항상 `windowsstore` 또는 `windowsphone`이 반환됩니다. 동적 스키마를 사용하도록 설정하면(기본값) 모바일 서비스에서 Registrations 테이블에 platform 열을 추가합니다(아직 없는 경우). 자세한 내용은 [동적 스키마](http://msdn.microsoft.com/ko-kr/library/windowsazure/jj193175.aspx)를 참조하십시오.
 
-알림을 보내는 서버 쪽 스크립트에서 platform 필드를 사용하여 [push 개체](http://msdn.microsoft.com/en-us/library/windowsazure/jj554217.aspx)에 대해 호출할 플랫폼별 함수를 결정합니다. 다음 스크립트는 **푸시 알림 시작** 자습서([Windows 스토어 C\#](/en-us/develop/mobile/tutorials/get-started-with-push-dotnet-vs2012/)/[Windows 스토어 JavaScript](/en-us/develop/mobile/tutorials/get-started-with-push-js-vs2012/)/[Windows Phone](/en-us/develop/mobile/tutorials/get-started-with-push-wp8/)/[iOS](/en-us/develop/mobile/tutorials/get-started-with-push-ios/)/[Android](/en-us/develop/mobile/tutorials/get-started-with-push-android/))에서 서버 스크립트를 여러 클라이언트 플랫폼을 사용하도록 수정한 것입니다.
+알림을 보내는 서버 쪽 스크립트에서 platform 필드를 사용하여 [push 개체](http://msdn.microsoft.com/ko-kr/library/windowsazure/jj554217.aspx)에 대해 호출할 플랫폼별 함수를 결정합니다. 다음 스크립트는 **푸시 알림 시작** 자습서([Windows 스토어 C\#](/en-us/develop/mobile/tutorials/get-started-with-push-dotnet-vs2012/)/[Windows 스토어 JavaScript](/en-us/develop/mobile/tutorials/get-started-with-push-js-vs2012/)/[Windows Phone](/en-us/develop/mobile/tutorials/get-started-with-push-wp8/)/[iOS](/en-us/develop/mobile/tutorials/get-started-with-push-ios/)/[Android](/en-us/develop/mobile/tutorials/get-started-with-push-android/))에서 서버 스크립트를 여러 클라이언트 플랫폼을 사용하도록 수정한 것입니다.
 
      function insert(item, user, request) {
             request.execute({
@@ -111,5 +111,5 @@ Visual Studio 프로젝트에서 코드를 다시 사용하기 위한 모범 사
 
 이식 가능한 클래스 라이브러리를 사용하면 Windows 스토어, Windows Phone 등과 같은 여러 플랫폼에서 작동하는 관리되는 어셈블리를 작성하고 빌드할 수 있습니다. 많은 프로젝트에서 공유할 코드를 포함하는 클래스를 만든 다음 여러 프로젝트에서 클래스를 참조할 수 있습니다.
 
-.NET Framework 이식 가능한 클래스 라이브러리를 사용하여 MVVM(Model-View-View Model) 패턴을 구현하고 여러 플랫폼에서 어셈블리를 공유할 수 있습니다. Visual Studio 2012의 이식 가능한 클래스 라이브러리 프로젝트에서 모델 및 뷰 모델 클래스를 구현한 다음 다른 플랫폼에 대해 사용자 지정된 뷰를 만들 수 있습니다. 예를 들어 플랫폼 간에 공통되는 모델 코드에서는 플랫폼에 상관없이 원본(예: Azure 모바일 서비스)에서 데이터를 검색할 수 있습니다. MSDN 라이브러리에서는 [개요 및 예제](http://msdn.microsoft.com/en-us/library/gg597391(v=vs.110)), [API 차이점](http://msdn.microsoft.com/en-us/library/gg597392(v=vs.110)) 설명, [이식 가능한 클래스 라이브러리를 사용한 MVVM 패턴 구현](http://msdn.microsoft.com/en-us/library/hh563947(v=vs.110)) 예제, 추가 [규범 지침](http://msdn.microsoft.com/en-us/library/windowsphone/develop/jj714086(v=vs.105).aspx) 및 이식 가능한 클래스 라이브러리 프로젝트에서의 [리소스 관리](http://msdn.microsoft.com/en-us/library/hh871422(v=vs.110)) 방법에 대한 정보를 제공합니다.
+.NET Framework 이식 가능한 클래스 라이브러리를 사용하여 MVVM(Model-View-View Model) 패턴을 구현하고 여러 플랫폼에서 어셈블리를 공유할 수 있습니다. Visual Studio 2012의 이식 가능한 클래스 라이브러리 프로젝트에서 모델 및 뷰 모델 클래스를 구현한 다음 다른 플랫폼에 대해 사용자 지정된 뷰를 만들 수 있습니다. 예를 들어 플랫폼 간에 공통되는 모델 코드에서는 플랫폼에 상관없이 원본(예: Azure 모바일 서비스)에서 데이터를 검색할 수 있습니다. MSDN 라이브러리에서는 [개요 및 예제](http://msdn.microsoft.com/ko-kr/library/gg597391(v=vs.110)), [API 차이점](http://msdn.microsoft.com/ko-kr/library/gg597392(v=vs.110)) 설명, [이식 가능한 클래스 라이브러리를 사용한 MVVM 패턴 구현](http://msdn.microsoft.com/ko-kr/library/hh563947(v=vs.110)) 예제, 추가 [규범 지침](http://msdn.microsoft.com/ko-kr/library/windowsphone/develop/jj714086(v=vs.105).aspx) 및 이식 가능한 클래스 라이브러리 프로젝트에서의 [리소스 관리](http://msdn.microsoft.com/ko-kr/library/hh871422(v=vs.110)) 방법에 대한 정보를 제공합니다.
 

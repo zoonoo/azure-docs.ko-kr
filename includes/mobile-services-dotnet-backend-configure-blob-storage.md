@@ -18,7 +18,7 @@
 
     ![](./media/mobile-services-configure-blob-storage/mobile-blob-storage-app-settings.png)
 
-    저장소 계정 액세스 키는 암호화되어 앱 설정에 저장됩니다. 런타임 시 서버 스크립트에서 이 키에 액세스할 수 있습니다. 자세한 내용은 [앱 설정](http://msdn.microsoft.com/en-us/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7)을 참조하십시오.
+    저장소 계정 액세스 키는 암호화되어 앱 설정에 저장됩니다. 런타임 시 서버 스크립트에서 이 키에 액세스할 수 있습니다. 자세한 내용은 [앱 설정](http://msdn.microsoft.com/ko-kr/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7)을 참조하십시오.
 
 3.  Visual Studio의 솔루션 탐색기에서 모바일 서비스 프로젝트의 Web.config 파일을 열고 다음과 같은 새 앱 설정을 추가하여 자리 표시자를 포털에서 앱 설정으로 지정한 저장소 계정 이름 및 액세스 키로 바꿉니다.
 

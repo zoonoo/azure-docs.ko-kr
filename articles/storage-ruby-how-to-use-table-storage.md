@@ -170,7 +170,7 @@ Azure 모듈은 **AZURE\_STORAGE\_ACCOUNT** 및 **AZURE\_STORAGE\_ACCESS\_KEY** 
 
 이제 테이블 저장소의 기본 사항을 배웠으므로 다음 링크를 따라 좀 더 복잡한 저장소 작업을 수행하는 방법을 알아보십시오.
 
--   다음 MSDN 참조를 확인하십시오. [Azure에서 데이터 저장 및 액세스](http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx)
+-   다음 MSDN 참조를 확인하십시오. [Azure에서 데이터 저장 및 액세스](http://msdn.microsoft.com/ko-kr/library/windowsazure/gg433040.aspx)
 -   [Azure 저장소 팀 블로그](http://blogs.msdn.com/b/windowsazurestorage/)(영문)를 방문하십시오.
 -   GitHub에서 [Azure SDK for Ruby](http://github.com/WindowsAzure/azure-sdk-for-ruby) 리포지토리를 방문하십시오.
 

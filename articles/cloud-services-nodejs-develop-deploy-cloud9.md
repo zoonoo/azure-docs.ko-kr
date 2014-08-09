@@ -120,7 +120,7 @@ Azure 계정 만들기
 
     4.  파일을 선택한 후 **업로드**를 클릭합니다.
 
-4.  **+ 새로 만들기**를 클릭하여 새 호스티드 서비스를 만듭니다. *호스티드 서비스*는 응용 프로그램이 Azure에 배포될 때 호스트되는 컨테이너입니다. 자세한 내용은 [Azure에 대한 호스티드 서비스 만들기 개요](http://msdn.microsoft.com/en-us/library/windowsazure/jj155995.aspx)(영문)를 참조하십시오.
+4.  **+ 새로 만들기**를 클릭하여 새 호스티드 서비스를 만듭니다. *호스티드 서비스*는 응용 프로그램이 Azure에 배포될 때 호스트되는 컨테이너입니다. 자세한 내용은 [Azure에 대한 호스티드 서비스 만들기 개요](http://msdn.microsoft.com/ko-kr/library/windowsazure/jj155995.aspx)(영문)를 참조하십시오.
 
     ![새 배포 만들기](./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_createdeployment.png)
 
@@ -151,9 +151,9 @@ Azure 프로덕션 환경에 배포
 
     ![web.config 파일을 찾을 수 없음 메시지](./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_no_web_config.png)
 
-5.  이 프로젝트를 Azure에 처음 배포하는 경우 **''csdef' 파일이 없음'** 오류가 표시됩니다. **예**를 선택하여 .csdef 파일을 만듭니다. 'ServiceDefinition.csdef' 파일이 프로젝트에 추가됩니다. ServiceDefinition.csdef는 응용 프로그램을 게시하는 데 필요한 Azure 관련 파일입니다. 자세한 내용은 [Azure에 대한 호스티드 서비스 만들기 개요](http://msdn.microsoft.com/en-us/library/windowsazure/jj155995.aspx)(영문)를 참조하십시오.
+5.  이 프로젝트를 Azure에 처음 배포하는 경우 **''csdef' 파일이 없음'** 오류가 표시됩니다. **예**를 선택하여 .csdef 파일을 만듭니다. 'ServiceDefinition.csdef' 파일이 프로젝트에 추가됩니다. ServiceDefinition.csdef는 응용 프로그램을 게시하는 데 필요한 Azure 관련 파일입니다. 자세한 내용은 [Azure에 대한 호스티드 서비스 만들기 개요](http://msdn.microsoft.com/ko-kr/library/windowsazure/jj155995.aspx)(영문)를 참조하십시오.
 
-6.  이 응용 프로그램에 대한 인스턴스 크기를 선택하라는 메시지가 표시됩니다. **작음**을 선택하고 **만들기**를 클릭합니다. Azure VM 크기에 대한 자세한 내용은 [가상 컴퓨터 크기를 구성하는 방법](http://msdn.microsoft.com/en-us/library/windowsazure/ee814754.aspx)을 참조하십시오.
+6.  이 응용 프로그램에 대한 인스턴스 크기를 선택하라는 메시지가 표시됩니다. **작음**을 선택하고 **만들기**를 클릭합니다. Azure VM 크기에 대한 자세한 내용은 [가상 컴퓨터 크기를 구성하는 방법](http://msdn.microsoft.com/ko-kr/library/windowsazure/ee814754.aspx)을 참조하십시오.
 
     ![csdef 파일 값 지정](./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_createcsdef.png)
 
@@ -201,7 +201,7 @@ Azure 스테이징 환경에 업데이트 배포
 VIP 교환을 사용하여 업데이트를 프로덕션으로 이동
 ------------------------------------------------
 
-프로덕션 또는 스테이징 환경에 서비스를 배포하면 VIP(가상 IP 주소)가 해당 환경의 서비스에 할당됩니다. 스테이징 환경에서 프로덕션 환경으로 서비스를 이동하려는 경우 다시 배포하지 않고 스테이징 및 프로덕션 배포를 교환하는 VIP 교환을 통해 이동할 수 있습니다. VIP 교환을 사용하면 프로덕션 환경의 가동 중지 시간 없이 테스트 및 스테이징된 응용 프로그램이 프로덕션에 배포됩니다. 자세한 내용은 [Azure에서 배포 관리 개요](http://msdn.microsoft.com/en-us/library/windowsazure/gg433027.aspx)를 참조하십시오.
+프로덕션 또는 스테이징 환경에 서비스를 배포하면 VIP(가상 IP 주소)가 해당 환경의 서비스에 할당됩니다. 스테이징 환경에서 프로덕션 환경으로 서비스를 이동하려는 경우 다시 배포하지 않고 스테이징 및 프로덕션 배포를 교환하는 VIP 교환을 통해 이동할 수 있습니다. VIP 교환을 사용하면 프로덕션 환경의 가동 중지 시간 없이 테스트 및 스테이징된 응용 프로그램이 프로덕션에 배포됩니다. 자세한 내용은 [Azure에서 배포 관리 개요](http://msdn.microsoft.com/ko-kr/library/windowsazure/gg433027.aspx)를 참조하십시오.
 
 1.  배포 대화 상자에서 **포털 열기** 링크를 클릭하여 Azure 관리 포털을 엽니다.
 

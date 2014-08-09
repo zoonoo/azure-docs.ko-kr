@@ -9,7 +9,7 @@ Azure 미리 보기 관리 포털에서 저장소 계정을 모니터링할 수 
 
 **참고**
 
-관리 포털에서 모니터링 데이터를 검사하면 추가 비용이 발생할 수 있습니다. 자세한 내용은 [저장소 분석 및 청구](http://msdn.microsoft.com/en-us/library/windowsazure/hh360997.aspx)를 참조하십시오.
+관리 포털에서 모니터링 데이터를 검사하면 추가 비용이 발생할 수 있습니다. 자세한 내용은 [저장소 분석 및 청구](http://msdn.microsoft.com/ko-kr/library/windowsazure/hh360997.aspx)를 참조하십시오.
 
 목차
 ----
@@ -46,7 +46,7 @@ Azure 미리 보기 관리 포털에서 저장소 계정을 모니터링할 수 
 
 대략 한 시간 이후부터 대시보드 및 **모니터** 페이지에서 모니터링 데이터를 볼 수 있습니다.
 
-메트릭은 저장소 계정에서 이름이 \$MetricsTransactionsBlob, \$MetricsTransactionsTable, \$MetricsTransactionsQueue 및 \$MetricsCapacityBlob인 네 가지 테이블에 저장됩니다. 자세한 내용은 [저장소 분석 메트릭 정보](http://msdn.microsoft.com/en-us/library/windowsazure/hh343258.aspx)(영문)를 참조하십시오.
+메트릭은 저장소 계정에서 이름이 \$MetricsTransactionsBlob, \$MetricsTransactionsTable, \$MetricsTransactionsQueue 및 \$MetricsCapacityBlob인 네 가지 테이블에 저장됩니다. 자세한 내용은 [저장소 분석 메트릭 정보](http://msdn.microsoft.com/ko-kr/library/windowsazure/hh343258.aspx)(영문)를 참조하십시오.
 
 모니터링 수준 및 보존 정책을 설정한 후 관리 포털에서 모니터링에 사용할 수 있는 메트릭과 메트릭 차트에 넣을 메트릭을 선택할 수 있습니다. 기본 메트릭 집합이 각 모니터링 수준에서 표시됩니다. **메트릭 추가**를 사용하여 메트릭 목록에 메트릭을 추가하거나 제거할 수 있습니다.
 
@@ -93,7 +93,7 @@ Azure 미리 보기 관리 포털에서 저장소 계정을 모니터링할 수 
 
     **참고**
 
-    메트릭을 선택할 때 비용을 고려하십시오. 모니터링 화면 새로 고침과 관련한 트랜잭션 및 송신 비용이 발생할 수 있습니다. 자세한 내용은 [저장소 분석 및 청구](http://msdn.microsoft.com/en-us/library/windowsazure/hh360997.aspx)를 참조하십시오.
+    메트릭을 선택할 때 비용을 고려하십시오. 모니터링 화면 새로 고침과 관련한 트랜잭션 및 송신 비용이 발생할 수 있습니다. 자세한 내용은 [저장소 분석 및 청구](http://msdn.microsoft.com/ko-kr/library/windowsazure/hh360997.aspx)를 참조하십시오.
 
 3.  **메트릭 추가**를 클릭합니다.
 
@@ -145,5 +145,5 @@ Azure 미리 보기 관리 포털에서 저장소 계정을 모니터링할 수 
 
 4.  **저장**을 클릭합니다.
 
-진단 로그는 저장소 계정의 이름이 \$logs인 Blob 컨테이너에 저장됩니다. \$logs 컨테이너 액세스에 대한 자세한 내용은 [저장소 분석 로깅 정보](http://msdn.microsoft.com/en-us/library/windowsazure/hh343262.aspx)를 참조하십시오.
+진단 로그는 저장소 계정의 이름이 \$logs인 Blob 컨테이너에 저장됩니다. \$logs 컨테이너 액세스에 대한 자세한 내용은 [저장소 분석 로깅 정보](http://msdn.microsoft.com/ko-kr/library/windowsazure/hh343262.aspx)를 참조하십시오.
 

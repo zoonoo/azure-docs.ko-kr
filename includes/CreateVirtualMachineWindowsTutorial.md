@@ -154,6 +154,6 @@ Azure에서 Windows 가상 컴퓨터를 구성하는 방법에 대한 자세한 
 [3]: http://manage.windowsazure.com
 [4]: http://go.microsoft.com/fwlink/p/?LinkID=23435
 [5]: http://go.microsoft.com/FWLink/p/?LinkID=390493
-[6]: http://www.windowsazure.com/en-us/manage/linux/how-to-guides/setup-endpoints/
-[7]: http://www.windowsazure.com/en-us/documentation/articles/cloud-services-connect-virtual-machine/
-[8]: http://www.windowsazure.com/en-us/documentation/articles/manage-availability-virtual-machines/
+[6]: http://www.windowsazure.com/ko-kr/manage/linux/how-to-guides/setup-endpoints/
+[7]: http://www.windowsazure.com/ko-kr/documentation/articles/cloud-services-connect-virtual-machine/
+[8]: http://www.windowsazure.com/ko-kr/documentation/articles/manage-availability-virtual-machines/

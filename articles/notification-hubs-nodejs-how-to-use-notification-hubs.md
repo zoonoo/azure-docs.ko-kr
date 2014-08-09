@@ -17,12 +17,12 @@
 서비스 버스 알림 허브 정의
 --------------------------
 
-Azure 서비스 버스 알림 허브는 모바일 서비스에 푸시 알림을 보내는 사용하기 쉽고 확장 가능한 다중 플랫폼 인프라를 제공합니다. 자세한 내용은 [Azure 서비스 버스 알림 허브](http://msdn.microsoft.com/en-us/library/windowsazure/jj927170.aspx)를 참조하십시오.
+Azure 서비스 버스 알림 허브는 모바일 서비스에 푸시 알림을 보내는 사용하기 쉽고 확장 가능한 다중 플랫폼 인프라를 제공합니다. 자세한 내용은 [Azure 서비스 버스 알림 허브](http://msdn.microsoft.com/ko-kr/library/windowsazure/jj927170.aspx)를 참조하십시오.
 
 Node.js 응용 프로그램 만들기
 ----------------------------
 
-빈 Node.js 응용 프로그램을 만듭니다. Node.js 응용 프로그램을 만드는 방법에 대한 지침은 [Node.js 응용 프로그램을 만들어 Azure 웹 사이트에 배포하기](/en-us/develop/nodejs/tutorials/create-a-website-(mac)/), [Node.js 클라우드 서비스](/en-us/documentation/articles/cloud-services-nodejs-develop-deploy-app/)(Windows PowerShell 사용) 또는 [WebMatrix를 사용하는 웹 사이트](/en-us/develop/nodejs/tutorials/web-site-with-webmatrix/)를 참조하십시오.
+빈 Node.js 응용 프로그램을 만듭니다. Node.js 응용 프로그램을 만드는 방법에 대한 지침은 [Node.js 응용 프로그램을 만들어 Azure 웹 사이트에 배포하기](/en-us/develop/nodejs/tutorials/create-a-website-(mac)/), [Node.js 클라우드 서비스](/ko-kr/documentation/articles/cloud-services-nodejs-develop-deploy-app/)(Windows PowerShell 사용) 또는 [WebMatrix를 사용하는 웹 사이트](/en-us/develop/nodejs/tutorials/web-site-with-webmatrix/)를 참조하십시오.
 
 서비스 버스를 사용하도록 응용 프로그램 구성
 -------------------------------------------
@@ -134,11 +134,11 @@ Azure PowerShell에 제공된 **Get-AzureSbNamespace** cmdlet 또는 Azure 명�
 -   Tags - 태그 식별자. 태그를 제공하지 않은 경우 모든 클라이언트에게 알림이 전송됩니다.
 -   Payload - 메시지의 XML 페이로드
 -   TargetName - 'toast'는 알림 메시지를 나타내고, 'token'은 타일 알림을 나타냅니다.
--   NotificationClass - 알림 우선 순위. 유효한 값은 [서버의 푸시 알림](http://msdn.microsoft.com/en-us/library/hh221551.aspx)(영문)의 HTTP 헤더 요소 섹션을 참조하십시오.
+-   NotificationClass - 알림 우선 순위. 유효한 값은 [서버의 푸시 알림](http://msdn.microsoft.com/ko-kr/library/hh221551.aspx)(영문)의 HTTP 헤더 요소 섹션을 참조하십시오.
 -   Options - 선택적 요청 헤더
 -   Callback - 콜백 함수
 
-유효한 TargetName, NotificationClass 및 헤더 옵션 목록은 [서버의 푸시 알림](http://msdn.microsoft.com/en-us/library/hh221551.aspx)(영문)을 참조하십시오.
+유효한 TargetName, NotificationClass 및 헤더 옵션 목록은 [서버의 푸시 알림](http://msdn.microsoft.com/ko-kr/library/hh221551.aspx)(영문)을 참조하십시오.
 
 다음 코드는 **NotificationHubService**에 의해 표시되는 **MpnsService** 인스턴스를 사용하여 알림 경고를 보냅니다.
 
@@ -159,7 +159,7 @@ Azure PowerShell에 제공된 **Get-AzureSbNamespace** cmdlet 또는 Azure 명�
 -   Options - 선택적 요청 헤더
 -   Callback - 콜백 함수
 
-유효한 유형 및 요청 헤더 목록은 [푸시 알림 서비스 요청 및 응답 헤더](http://msdn.microsoft.com/en-us/library/windows/apps/hh465435.aspx)를 참조하십시오.
+유효한 유형 및 요청 헤더 목록은 [푸시 알림 서비스 요청 및 응답 헤더](http://msdn.microsoft.com/ko-kr/library/windows/apps/hh465435.aspx)를 참조하십시오.
 
 다음 코드는 **NotificationHubService**에 의해 표시되는 **WnsService** 인스턴스를 사용하여 알림 경고를 보냅니다.
 
@@ -175,6 +175,6 @@ Azure PowerShell에 제공된 **Get-AzureSbNamespace** cmdlet 또는 Azure 명�
 
 이제 서비스 버스 토픽의 기본 사항을 익혔으므로 다음 링크를 따라 자세히 알아보십시오.
 
--   다음 MSDN 참조를 확인하십시오. [Azure 서비스 버스 알림 허브](http://msdn.microsoft.com/en-us/library/windowsazure/jj927170.aspx)
+-   다음 MSDN 참조를 확인하십시오. [Azure 서비스 버스 알림 허브](http://msdn.microsoft.com/ko-kr/library/windowsazure/jj927170.aspx)
 -   GitHub에서 [Azure SDK for Node](https://github.com/WindowsAzure/azure-sdk-for-node) 리포지토리를 방문하십시오.
 

@@ -15,11 +15,11 @@ Hadoop 관련 기술(예: Java 기반 MapReduce 프로그래밍 및 스트리밍
 
 **필수 조건**:
 
--   Azure 계정이 있어야 합니다. 계정 등록 옵션은 [Azure 평가판 사용](http://www.windowsazure.com/en-us/pricing/free-trial/) 페이지를 참조하십시오.
+-   Azure 계정이 있어야 합니다. 계정 등록 옵션은 [Azure 평가판 사용](http://www.windowsazure.com/ko-kr/pricing/free-trial/) 페이지를 참조하십시오.
 
 -   HDInsight 클러스터를 미리 프로비전해야 합니다. 이 클러스터를 만드는 여러 방법에 대한 지침은 [HDInsight 클러스터 프로비전](/en-us/manage/services/hdinsight/provision-hdinsight-clusters/)을 참조하십시오.
 
--   Azure PowerShell을 설치하고 계정과 함께 사용하도록 구성해야 합니다. 설치 방법에 대한 지침은 [Azure PowerShell 설치 및 구성](/en-us/documentation/articles/install-configure-powershell/)을 참조하십시오.
+-   Azure PowerShell을 설치하고 계정과 함께 사용하도록 구성해야 합니다. 설치 방법에 대한 지침은 [Azure PowerShell 설치 및 구성](/ko-kr/documentation/articles/install-configure-powershell/)을 참조하십시오.
 
 샘플
 ----
@@ -48,7 +48,7 @@ Azure PowerShell을 사용하여 샘플을 실행할 수 있습니다. 실행 �
 -   [Azure HDInsight SDK 문서](http://msdnstage.redmond.corp.microsoft.com/en-us/library/dn479185.aspx)
 -   [HDInsight 디버그: 오류 메시지](/en-us/manage/services/hdinsight/debug-error-messages/)
 
-[Powershell-install-configure]: /en-us/documentation/articles/install-configure-powershell/
+[Powershell-install-configure]: /ko-kr/documentation/articles/install-configure-powershell/
 
 [hdinsight-debug-error-messages]: /en-us/manage/services/hdinsight/debug-error-messages/
 [hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/en-us/library/dn479185.aspx

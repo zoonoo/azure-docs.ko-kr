@@ -20,7 +20,7 @@ Visual Studio 2013 및 무료로 제공되는 Azure SDK for .NET을 사용하면
 
 ![](./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-01.png)
 
-**참고** Azure는 저장소 큐 기능도 제공합니다. Azure 저장소 큐 및 서비스 버스 큐에 대한 자세한 내용은 [Azure 큐 및 Azure 서비스 버스 큐 - 비교 및 대조](http://msdn.microsoft.com/en-us/library/windowsazure/hh767287.aspx)를 참조하십시오.
+**참고** Azure는 저장소 큐 기능도 제공합니다. Azure 저장소 큐 및 서비스 버스 큐에 대한 자세한 내용은 [Azure 큐 및 Azure 서비스 버스 큐 - 비교 및 대조](http://msdn.microsoft.com/ko-kr/library/windowsazure/hh767287.aspx)를 참조하십시오.
 
 [WACOM.INCLUDE [create-account-note](../includes/create-account-note.md)]
 
@@ -115,7 +115,7 @@ Visual Studio 서버 탐색기를 사용하여 네임스페이스 및 서비스 
 
 ### Visual Studio 서버 탐색기를 사용하여 네임스페이스 및 메시징 엔터티 관리
 
-관리 포털 대신 Visual Studio를 사용하여 네임스페이스를 관리하고 연결 정보를 가져오려면 [여기](http://http://msdn.microsoft.com/en-us/library/windowsazure/ff687127.aspx) 나오는 **Visual Studio에서 Azure에 연결하려면** 섹션에서 설명하는 절차를 따르십시오. Azure에 로그인하면 서버 탐색기의 **Microsoft Azure** 트리 아래에 있는 **Service Bus** 노드에 이미 만들어진 네임스페이스가 자동으로 채워집니다. 네임스페이스를 마우스 오른쪽 단추로 클릭한 후 **속성**을 클릭하여 연결 문자열 및 Visual Studio **속성** 창에 이 네임스페이스와 관련하여 표시되는 다른 메타데이터를 표시합니다.
+관리 포털 대신 Visual Studio를 사용하여 네임스페이스를 관리하고 연결 정보를 가져오려면 [여기](http://http://msdn.microsoft.com/ko-kr/library/windowsazure/ff687127.aspx) 나오는 **Visual Studio에서 Azure에 연결하려면** 섹션에서 설명하는 절차를 따르십시오. Azure에 로그인하면 서버 탐색기의 **Microsoft Azure** 트리 아래에 있는 **Service Bus** 노드에 이미 만들어진 네임스페이스가 자동으로 채워집니다. 네임스페이스를 마우스 오른쪽 단추로 클릭한 후 **속성**을 클릭하여 연결 문자열 및 Visual Studio **속성** 창에 이 네임스페이스와 관련하여 표시되는 다른 메타데이터를 표시합니다.
 
 **SharedAccessKey** 값을 적어 두거나 클립보드에 복사해 둡니다.
 
@@ -485,7 +485,7 @@ Azure는 Microsoft 클라우드 서비스 전체에서 Azure 서비스 클라이
 
 서비스 버스에 대한 자세한 내용은 다음 리소스를 참조하십시오.
 
--   [Azure 서비스 버스](http://msdn.microsoft.com/en-us/library/windowsazure/ee732537.aspx)
+-   [Azure 서비스 버스](http://msdn.microsoft.com/ko-kr/library/windowsazure/ee732537.aspx)
 -   [서비스 버스 사용 방법](/en-us/manage/services/service-bus/)
 -   [서비스 버스 큐를 사용하는 방법](/en-us/develop/net/how-to-guides/service-bus-queues/)
 
@@ -493,7 +493,7 @@ Azure는 Microsoft 클라우드 서비스 전체에서 Azure 서비스 클라이
 
 -   [저장소 테이블, 큐 및 Blob을 사용하는 .NET 다중 계층 응용 프로그램](/en-us/develop/net/tutorials/multi-tier-web-site/1-overview/)
 
-Azure 클라우드 서비스가 아닌 Azure 웹 사이트에서 다중 계층 응용 프로그램의 프런트 엔드를 구현할 수 있습니다. 웹 사이트와 클라우드 서비스의 차이점에 대한 자세한 내용은 [Azure 실행 모델](http://www.windowsazure.com/en-us/develop/net/fundamentals/compute/)(영문)을 참조하십시오.
+Azure 클라우드 서비스가 아닌 Azure 웹 사이트에서 다중 계층 응용 프로그램의 프런트 엔드를 구현할 수 있습니다. 웹 사이트와 클라우드 서비스의 차이점에 대한 자세한 내용은 [Azure 실행 모델](http://www.windowsazure.com/ko-kr/develop/net/fundamentals/compute/)(영문)을 참조하십시오.
 
 이 자습서에서 만든 응용 프로그램을 클라우드 서비스 웹 역할이 아닌 표준 웹 프로젝트로 구현하려면 다음 차이점을 고려하여 이 자습서의 단계를 수행하십시오.
 
@@ -503,12 +503,12 @@ Azure 클라우드 서비스가 아닌 Azure 웹 사이트에서 다중 계층 �
 
 3.  프런트 엔드와 백 엔드를 별도로 테스트하거나 별도의 Visual Studio 인스턴스에서 둘 다를 동시에 실행할 수 있습니다.
 
-Azure 웹 사이트에 프런트 엔드를 배포하는 방법에 대한 자세한 내용은 [Azure 웹 사이트에 ASP.NET 웹 응용 프로그램 배포](http://www.windowsazure.com/en-us/develop/net/tutorials/get-started/)(영문)를 참조하십시오. Azure 클라우드 서비스에 백 엔드를 배포하는 방법에 대한 자세한 내용은 [저장소 테이블, 큐 및 Blob을 사용하는 .NET 다중 계층 응용 프로그램](/en-us/develop/net/tutorials/multi-tier-web-site/1-overview/)(영문)을 참조하십시오.
+Azure 웹 사이트에 프런트 엔드를 배포하는 방법에 대한 자세한 내용은 [Azure 웹 사이트에 ASP.NET 웹 응용 프로그램 배포](http://www.windowsazure.com/ko-kr/develop/net/tutorials/get-started/)(영문)를 참조하십시오. Azure 클라우드 서비스에 백 엔드를 배포하는 방법에 대한 자세한 내용은 [저장소 테이블, 큐 및 Blob을 사용하는 .NET 다중 계층 응용 프로그램](/en-us/develop/net/tutorials/multi-tier-web-site/1-overview/)(영문)을 참조하십시오.
 
 
 [0]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-01.png
   [1]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-100.png
-  [sbqueuecomparison]: http://msdn.microsoft.com/en-us/library/windowsazure/hh767287.aspx
+  [sbqueuecomparison]: http://msdn.microsoft.com/ko-kr/library/windowsazure/hh767287.aspx
   [2]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-101.png
   [Get Tools and SDK]: http://go.microsoft.com/fwlink/?LinkId=271920
   [3]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-3.png
@@ -545,8 +545,8 @@ Azure 웹 사이트에 프런트 엔드를 배포하는 방법에 대한 자세�
   [32]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-41.png
   [33]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-4-2-WebPI.png
   [34]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/VSProperties.png
-  [sbmsdn]: http://msdn.microsoft.com/en-us/library/windowsazure/ee732537.aspx  
+  [sbmsdn]: http://msdn.microsoft.com/ko-kr/library/windowsazure/ee732537.aspx  
   [sbwacom]: /en-us/manage/services/service-bus/  
   [sbwacomqhowto]: /en-us/develop/net/how-to-guides/service-bus-queues/  
   [mutitierstorage]: /en-us/develop/net/tutorials/multi-tier-web-site/1-overview/ 
-  [executionmodels]: http://www.windowsazure.com/en-us/develop/net/fundamentals/compute/
+  [executionmodels]: http://www.windowsazure.com/ko-kr/develop/net/fundamentals/compute/

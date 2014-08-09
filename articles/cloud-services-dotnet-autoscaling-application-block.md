@@ -371,19 +371,19 @@ Visual Studio에서 규칙 파일이 출력 폴더에 복사되었는지 확인�
 [방법: 자동 크기 조정 규칙 정의]: #DefineAutoscalingRules 
 [방법: 자동 크기 조정 응용 프로그램 블록 구성]: #Configure 
 
-[Azure에서 성능 카운터 사용]: http://www.windowsazure.com/en-us/develop/net/common-tasks/performance-profiling/ 
+[Azure에서 성능 카운터 사용]: http://www.windowsazure.com/ko-kr/develop/net/common-tasks/performance-profiling/ 
 [NuGet]: http://nuget.org/ 
 [Azure 관리 포털]: http://manage.windowsazure.com 
-[서비스 정보 데이터 저장]: http://msdn.microsoft.com/en-us/library/hh680878(PandP.50).aspx 
-[작업자 역할에서 자동 크기 조정 응용 프로그램 블록 호스팅]: http://msdn.microsoft.com/en-us/library/hh680914(PandP.50).aspx 
-[제한 동작 구현]: http://msdn.microsoft.com/en-us/library/hh680896(PandP.50).aspx 
-[규칙 순위 및 조정 이해]: http://msdn.microsoft.com/en-us/library/hh680923(PandP.50).aspx 
-[자동 크기 조정 응용 프로그램 블록 확장 및 수정]: http://msdn.microsoft.com/en-us/library/hh680889(PandP.50).aspx 
-[최적화 안정기를 사용하여 고주파 진동 방지 및 비용 최적화]: http://msdn.microsoft.com/en-us/library/hh680951(PandP.50).aspx 
-[알림 및 수동 크기 조정 사용]: http://msdn.microsoft.com/en-us/library/hh680885(PandP.50).aspx 
-[확장 그룹 정의]: http://msdn.microsoft.com/en-us/library/hh680902(PandP.50).aspx 
-[WASABiCmdlet을 사용하여 Windows PowerShell을 통해 블록 조작]: http://msdn.microsoft.com/en-us/library/hh680938(PandP.50).aspx 
-[Azure용 Enterprise Library 5.0 통합 팩에 대한 개발자 가이드]: http://msdn.microsoft.com/en-us/library/hh680949(PandP.50).aspx 
-[Sage가 자동 크기 조정을 사용하여 Azure 호스팅 비용을 절감하는 방법]: http://msdn.microsoft.com/en-us/library/jj838716(PandP.50).aspx 
-[TechNet 및 MSDN 호스팅 비용과 Azure에서 자동 크기 조정으로 인한 환경적 영향 줄이기]: http://msdn.microsoft.com/en-us/library/jj838718(PandP.50).aspx
+[서비스 정보 데이터 저장]: http://msdn.microsoft.com/ko-kr/library/hh680878(PandP.50).aspx 
+[작업자 역할에서 자동 크기 조정 응용 프로그램 블록 호스팅]: http://msdn.microsoft.com/ko-kr/library/hh680914(PandP.50).aspx 
+[제한 동작 구현]: http://msdn.microsoft.com/ko-kr/library/hh680896(PandP.50).aspx 
+[규칙 순위 및 조정 이해]: http://msdn.microsoft.com/ko-kr/library/hh680923(PandP.50).aspx 
+[자동 크기 조정 응용 프로그램 블록 확장 및 수정]: http://msdn.microsoft.com/ko-kr/library/hh680889(PandP.50).aspx 
+[최적화 안정기를 사용하여 고주파 진동 방지 및 비용 최적화]: http://msdn.microsoft.com/ko-kr/library/hh680951(PandP.50).aspx 
+[알림 및 수동 크기 조정 사용]: http://msdn.microsoft.com/ko-kr/library/hh680885(PandP.50).aspx 
+[확장 그룹 정의]: http://msdn.microsoft.com/ko-kr/library/hh680902(PandP.50).aspx 
+[WASABiCmdlet을 사용하여 Windows PowerShell을 통해 블록 조작]: http://msdn.microsoft.com/ko-kr/library/hh680938(PandP.50).aspx 
+[Azure용 Enterprise Library 5.0 통합 팩에 대한 개발자 가이드]: http://msdn.microsoft.com/ko-kr/library/hh680949(PandP.50).aspx 
+[Sage가 자동 크기 조정을 사용하여 Azure 호스팅 비용을 절감하는 방법]: http://msdn.microsoft.com/ko-kr/library/jj838716(PandP.50).aspx 
+[TechNet 및 MSDN 호스팅 비용과 Azure에서 자동 크기 조정으로 인한 환경적 영향 줄이기]: http://msdn.microsoft.com/ko-kr/library/jj838718(PandP.50).aspx
 

@@ -36,7 +36,7 @@ Azure 웹 사이트에서 ASP.NET 웹 양식 출력 캐싱을 사용하는 방�
 ASP.NET 프로젝트 구성
 ---------------------
 
-1.  먼저, [최신](http://www.windowsazure.com/en-us/downloads/?sdk=net) **Azure SDK for .NET**이 설치되어 있어야 합니다.
+1.  먼저, [최신](http://www.windowsazure.com/ko-kr/downloads/?sdk=net) **Azure SDK for .NET**이 설치되어 있어야 합니다.
 
 2.  Visual Studio의 **솔루션 탐색기**에서 ASP.NET 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 선택합니다. WebMatrix를 사용하는 경우 도구 모음의 **NuGet** 단추를 대신 클릭합니다.
 

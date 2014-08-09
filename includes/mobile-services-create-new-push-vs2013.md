@@ -1,6 +1,6 @@
 먼저 Visual Studio 2013의 푸시 알림 추가 마법사를 사용하여 앱을 Windows 스토어에 등록하고, 푸시 알림을 사용하도록 모바일 서비스를 구성하고, 코드를 추가하여 장치 채널에 앱을 등록합니다.
 
-1.  아직 완료하지 않았다면 [Visual Studio 2013에서 publishsettings 파일 가져오기](/en-us/documentation/articles/mobile-services-windows-how-to-import-publishsettings/) 단계에 따라 publisher.settings 파일을 Visual Studio로 가져오십시오.
+1.  아직 완료하지 않았다면 [Visual Studio 2013에서 publishsettings 파일 가져오기](/ko-kr/documentation/articles/mobile-services-windows-how-to-import-publishsettings/) 단계에 따라 publisher.settings 파일을 Visual Studio로 가져오십시오.
     
     Visual Studio를 사용하여 Azure 구독으로 모바일 서비스를 만들고 관리하고 있는 경우에는 이를 실행하지 않아도 됩니다.
 

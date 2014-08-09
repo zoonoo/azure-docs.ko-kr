@@ -79,8 +79,8 @@ Azure에서 배포를 실행하면 역할 인스턴스에 연결할 수 있습�
 추가 리소스
 -----------
 
--   [Azure에서 역할 인스턴스 원격 액세스](http://msdn.microsoft.com/en-us/library/windowsazure/hh124107.aspx)
--   [Azure 역할과 함께 원격 데스크톱 사용](http://msdn.microsoft.com/en-us/library/windowsazure/gg443832.aspx)
+-   [Azure에서 역할 인스턴스 원격 액세스](http://msdn.microsoft.com/ko-kr/library/windowsazure/hh124107.aspx)
+-   [Azure 역할과 함께 원격 데스크톱 사용](http://msdn.microsoft.com/ko-kr/library/windowsazure/gg443832.aspx)
 
   [Step 1: Configure the service for Remote Desktop access using Azure PowerShell]: #step1
   [Step 2: Connect to the role instance]: #step2
@@ -98,6 +98,6 @@ Azure에서 배포를 실행하면 역할 인스턴스에 연결할 수 있습�
   [6]: ./media/cloud-services-nodejs-enable-remote-desktop/remote-desktop-13.png
   [7]: ./media/cloud-services-nodejs-enable-remote-desktop/remote-desktop-14.png
   
-  [Remotely Accessing Role Instances in Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/hh124107.aspx
-  [Using Remote Desktop with Azure Roles]: http://msdn.microsoft.com/en-us/library/windowsazure/gg443832.aspx
+  [Remotely Accessing Role Instances in Azure]: http://msdn.microsoft.com/ko-kr/library/windowsazure/hh124107.aspx
+  [Using Remote Desktop with Azure Roles]: http://msdn.microsoft.com/ko-kr/library/windowsazure/gg443832.aspx
 

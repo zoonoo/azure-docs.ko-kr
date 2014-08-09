@@ -134,15 +134,15 @@ Azure 서비스 클라이언트를 만들려면 **ServicesBuilder** 클래스를
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179439.aspx
+        // http://msdn.microsoft.com/ko-kr/library/windowsazure/dd179439.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
     }
 
-**setPublicAccess(PublicAccessType::CONTAINER\_AND\_BLOBS)**를 호출하면 익명 요청을 통해 컨테이너 및 Blob 데이터에 액세스할 수 있습니다. **setPublicAccess(PublicAccessType::BLOBS\_ONLY)**를 호출하면 익명 요청을 통해 Blob 데이터에만 액세스할 수 있습니다. 컨테이너 ACL에 대한 자세한 내용은 [컨테이너 ACL 설정(REST API)](http://msdn.microsoft.com/en-us/library/windowsazure/dd179391.aspx)을 참조하십시오.
+**setPublicAccess(PublicAccessType::CONTAINER\_AND\_BLOBS)**를 호출하면 익명 요청을 통해 컨테이너 및 Blob 데이터에 액세스할 수 있습니다. **setPublicAccess(PublicAccessType::BLOBS\_ONLY)**를 호출하면 익명 요청을 통해 Blob 데이터에만 액세스할 수 있습니다. 컨테이너 ACL에 대한 자세한 내용은 [컨테이너 ACL 설정(REST API)](http://msdn.microsoft.com/ko-kr/library/windowsazure/dd179391.aspx)을 참조하십시오.
 
-Blob 서비스 오류 코드에 대한 자세한 내용은 [Blob 서비스 오류 코드](http://msdn.microsoft.com/en-us/library/windowsazure/dd179439.aspx)(영문)를 참조하십시오.
+Blob 서비스 오류 코드에 대한 자세한 내용은 [Blob 서비스 오류 코드](http://msdn.microsoft.com/ko-kr/library/windowsazure/dd179439.aspx)(영문)를 참조하십시오.
 
 방법: 컨테이너에 Blob 업로드
 ----------------------------
@@ -168,7 +168,7 @@ Blob 서비스 오류 코드에 대한 자세한 내용은 [Blob 서비스 오�
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179439.aspx
+        // http://msdn.microsoft.com/ko-kr/library/windowsazure/dd179439.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -203,7 +203,7 @@ Blob 서비스 오류 코드에 대한 자세한 내용은 [Blob 서비스 오�
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179439.aspx
+        // http://msdn.microsoft.com/ko-kr/library/windowsazure/dd179439.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -231,7 +231,7 @@ Blob을 다운로드하려면 **BlobRestProxy-\>getBlob** 메서드를 호출한
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179439.aspx
+        // http://msdn.microsoft.com/ko-kr/library/windowsazure/dd179439.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -260,7 +260,7 @@ Blob을 삭제하려면 컨테이너 이름 및 Blob 이름을 **BlobRestProxy-\
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179439.aspx
+        // http://msdn.microsoft.com/ko-kr/library/windowsazure/dd179439.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -287,7 +287,7 @@ Blob을 삭제하려면 컨테이너 이름 및 Blob 이름을 **BlobRestProxy-\
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179439.aspx
+        // http://msdn.microsoft.com/ko-kr/library/windowsazure/dd179439.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -298,7 +298,7 @@ Blob을 삭제하려면 컨테이너 이름 및 Blob 이름을 **BlobRestProxy-\
 
 이제 Azure Blob 서비스의 기본 사항을 배웠으므로 다음 링크를 따라 좀 더 복잡한 저장소 작업을 수행하는 방법을 알아보십시오.
 
--   다음 MSDN 참조를 확인하십시오. [Azure에 데이터 저장 및 액세스](http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx)
+-   다음 MSDN 참조를 확인하십시오. [Azure에 데이터 저장 및 액세스](http://msdn.microsoft.com/ko-kr/library/windowsazure/gg433040.aspx)
 -   Azure 저장소 팀 블로그를 방문하십시오. <http://blogs.msdn.com/b/windowsazurestorage/>
 -   <https://github.com/WindowsAzure/azure-sdk-for-php-samples/blob/master/storage/BlockBlobExample.php>에서 PHP 블록 Blob 예제를 참조하십시오.
 -   <https://github.com/WindowsAzure/azure-sdk-for-php-samples/blob/master/storage/PageBlobExample.php>에서 PHP 페이지 Blob 예제를 참조하십시오.

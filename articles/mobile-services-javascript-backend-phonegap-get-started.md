@@ -1,6 +1,6 @@
 <properties pageTitle="Get started with Mobile Services with PhoneGap | Mobile Dev Center" metaKeywords="" description="Follow this tutorial to get started using Azure Mobile Services for PhoneGap development for iOS, Android, and Windows Phone." metaCanonical="" services="mobile" documentationCenter="Mobile" title="Get started with Mobile Services" authors="glenga" solutions="" manager="" editor="" />
 
-[Windows 스토어](/en-us/documentation/articles/mobile-services-windows-store-get-started "Windows 스토어") [Windows Phone](/en-us/documentation/articles/mobile-services-windows-phone-get-started "Windows Phone") [iOS](/en-us/documentation/articles/mobile-services-ios-get-started "iOS") [Android](/en-us/documentation/articles/mobile-services-android-get-started "Android") [HTML](/en-us/documentation/articles/mobile-services-html-get-started "HTML") [Xamarin.iOS](/en-us/documentation/articles/partner-xamarin-mobile-services-ios-get-started "Xamarin.iOS") [Xamarin.Android](/en-us/documentation/articles/partner-xamarin-mobile-services-android-get-started "Xamarin.Android") [Sencha](/en-us/documentation/articles/partner-sencha-mobile-services-get-started/ "Sencha") [PhoneGap](/en-us/documentation/articles/mobile-services-javascript-backend-phonegap-get-started/ "PhoneGap")
+[Windows 스토어](/ko-kr/documentation/articles/mobile-services-windows-store-get-started "Windows 스토어") [Windows Phone](/ko-kr/documentation/articles/mobile-services-windows-phone-get-started "Windows Phone") [iOS](/ko-kr/documentation/articles/mobile-services-ios-get-started "iOS") [Android](/ko-kr/documentation/articles/mobile-services-android-get-started "Android") [HTML](/ko-kr/documentation/articles/mobile-services-html-get-started "HTML") [Xamarin.iOS](/ko-kr/documentation/articles/partner-xamarin-mobile-services-ios-get-started "Xamarin.iOS") [Xamarin.Android](/ko-kr/documentation/articles/partner-xamarin-mobile-services-android-get-started "Xamarin.Android") [Sencha](/ko-kr/documentation/articles/partner-sencha-mobile-services-get-started/ "Sencha") [PhoneGap](/ko-kr/documentation/articles/mobile-services-javascript-backend-phonegap-get-started/ "PhoneGap")
 
 모바일 서비스 시작
 ==================
@@ -141,10 +141,10 @@ PhoneGap은 다중 플랫폼용 개발을 지원합니다. PhoneGap 도구 자�
 
 이제 빠른 시작을 완료했으며 모바일 서비스에서 중요한 추가 작업을 수행하는 방법을 알아보겠습니다.
 
--   [데이터 시작하기](/en-us/documentation/articles/mobile-services-html-get-started-data)
+-   [데이터 시작하기](/ko-kr/documentation/articles/mobile-services-html-get-started-data)
   <br/>모바일 서비스를 사용하여 데이터를 저장 및 쿼리하는 방법에 대해 자세히 알아보십시오.
 
--   [인증 시작](/en-us/documentation/articles/mobile-services-html-get-started-users)
+-   [인증 시작](/ko-kr/documentation/articles/mobile-services-html-get-started-users)
   <br/>ID 공급자를 사용하여 앱 사용자를 인증하는 방법을 알아봅니다.
 
 

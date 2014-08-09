@@ -3,11 +3,11 @@
 모바일 서비스에서 오프라인 데이터를 사용하여 충돌 처리
 ======================================================
 
-[Windows 스토어 C\#](/en-us/documentation/articles/mobile-services-windows-store-dotnet-handling-conflicts-offline-data "Windows 스토어 C#")
+[Windows 스토어 C\#](/ko-kr/documentation/articles/mobile-services-windows-store-dotnet-handling-conflicts-offline-data "Windows 스토어 C#")
 
 이 항목에서는 Azure 모바일 서비스의 오프라인 기능을 사용할 때 데이터를 동기화하고 충돌을 처리하는 방법을 보여 줍니다. 이 자습서에서는 오프라인 데이터와 온라인 데이터를 모두 지원하는 앱을 다운로드하고, 모바일 서비스를 앱에 통합한 다음 Azure 관리 포털에 로그인하여 앱을 실행하면서 데이터베이스를 보고 업데이트합니다.
 
-이 자습서는 이전 자습서인 [오프라인 데이터 시작](/en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data)의 단계 및 샘플 앱을 기반으로 합니다. 이 자습서를 시작하기 전에 먼저 [오프라인 데이터 시작](/en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data)을 완료해야 합니다.
+이 자습서는 이전 자습서인 [오프라인 데이터 시작](/ko-kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data)의 단계 및 샘플 앱을 기반으로 합니다. 이 자습서를 시작하기 전에 먼저 [오프라인 데이터 시작](/ko-kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data)을 완료해야 합니다.
 
 이 자습서에서는 다음 기본 단계를 단계별로 안내합니다.
 
@@ -24,7 +24,7 @@
 샘플 프로젝트 다운로드
 ----------------------
 
-이 자습서는 Visual Studio 2013의 Windows 스토어 앱 프로젝트인 [충돌 처리 코드 샘플](http://go.microsoft.com/fwlink/?LinkId=394787)을 기반으로 합니다. 이 앱의 UI는 각 TodoItem에 대해 새 날짜 열이 있다는 점을 제외하고 [오프라인 데이터 시작](/en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data) 자습서의 앱과 비슷합니다.
+이 자습서는 Visual Studio 2013의 Windows 스토어 앱 프로젝트인 [충돌 처리 코드 샘플](http://go.microsoft.com/fwlink/?LinkId=394787)을 기반으로 합니다. 이 앱의 UI는 각 TodoItem에 대해 새 날짜 열이 있다는 점을 제외하고 [오프라인 데이터 시작](/ko-kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data) 자습서의 앱과 비슷합니다.
 
 1.  [충돌 처리 코드 샘플](http://go.microsoft.com/fwlink/?LinkId=394787)의 C\# 버전을 다운로드합니다.
 
@@ -131,7 +131,7 @@ JavaScript 백 엔드 모바일 서비스에 대해 **TodoWithDate**라는 새 �
 
 실제로 한 앱에서 업데이트를 데이터베이스의 레코드에 푸시한 후 다른 앱에서 해당 레코드의 이전 버전을 기반으로 하는 동일한 레코드에 변경 내용을 푸시하려고 하면 동기화 충돌이 발생합니다. 앱의 인스턴스가 업데이트된 레코드를 끌어오지 않고 동일한 레코드를 업데이트하려고 하면 충돌이 발생하고 앱에서 `MobileServicePreconditionFailedException` 예외가 표시됩니다.
 
-앱을 다른 컴퓨터에 배포하여 앱의 두 인스턴스를 실행함으로써 충돌을 생성하려면 [데이터베이스 충돌 처리](/en-us/documentation/articles/mobile-services-windows-store-dotnet-handle-database-conflicts/#test-app) 자습서의 배포 지침을 따를 수 있습니다.
+앱을 다른 컴퓨터에 배포하여 앱의 두 인스턴스를 실행함으로써 충돌을 생성하려면 [데이터베이스 충돌 처리](/ko-kr/documentation/articles/mobile-services-windows-store-dotnet-handle-database-conflicts/#test-app) 자습서의 배포 지침을 따를 수 있습니다.
 
 다음 단계에서는 Visual Studio에서 데이터베이스를 업데이트하여 충돌을 발생하는 방법을 보여 줍니다.
 
@@ -211,8 +211,8 @@ JavaScript 백 엔드 모바일 서비스에 대해 **TodoWithDate**라는 새 �
 
 <!-- URLs -->
 [Handling conflicts code sample]: http://go.microsoft.com/fwlink/?LinkId=394787
-[Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-windows-store-get-started/
-[Get started with offline data]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data
+[Get started with Mobile Services]: /ko-kr/documentation/articles/mobile-services-windows-store-get-started/
+[Get started with offline data]: /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data
 [SQLite for Windows 8.1]: http://go.microsoft.com/fwlink/?LinkId=394776
 [Azure Management Portal]: https://manage.windowsazure.com/
-[Handling Database Conflicts]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-handle-database-conflicts/#test-app
+[Handling Database Conflicts]: /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-handle-database-conflicts/#test-app

@@ -1,13 +1,13 @@
-<properties linkid="develop-mobile-tutorials-get-started-with-push-js-vs2013" urlDisplayName="Get Started with Push (JS)" pageTitle="Get started with push notifications (Android JavaScript) | Mobile Dev Center" metaKeywords="" description="Learn how to use Windows Azure Mobile Services to send push notifications to your Android JavaScript app." metaCanonical="http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-push-dotnet/" services="" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="ricksal" solutions="" writer="ricksal" manager="" editor="" />
+<properties linkid="develop-mobile-tutorials-get-started-with-push-js-vs2013" urlDisplayName="Get Started with Push (JS)" pageTitle="Get started with push notifications (Android JavaScript) | Mobile Dev Center" metaKeywords="" description="Learn how to use Windows Azure Mobile Services to send push notifications to your Android JavaScript app." metaCanonical="http://www.windowsazure.com/ko-kr/develop/mobile/tutorials/get-started-with-push-dotnet/" services="" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="ricksal" solutions="" writer="ricksal" manager="" editor="" />
 
 모바일 서비스에서 푸시 알림 시작
 ================================
 
-[Windows 스토어 C\#](/en-us/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push "Windows 스토어 C#") [Windows 스토어 JavaScript](/en-us/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push "Windows 스토어 JavaScript") [Windows Phone](/en-us/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push "Windows Phone") [iOS](/en-us/documentation/articles/mobile-services-ios-get-started-push "iOS") [Android](/en-us/documentation/articles/mobile-services-javascript-backend-android-get-started-push "Android")
+[Windows 스토어 C\#](/ko-kr/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push "Windows 스토어 C#") [Windows 스토어 JavaScript](/ko-kr/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push "Windows 스토어 JavaScript") [Windows Phone](/ko-kr/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push "Windows Phone") [iOS](/ko-kr/documentation/articles/mobile-services-ios-get-started-push "iOS") [Android](/ko-kr/documentation/articles/mobile-services-javascript-backend-android-get-started-push "Android")
 
 이 항목에서는 Azure 모바일 서비스를 사용하여 Android 앱에 푸시 알림을 보내는 방법을 보여 줍니다. 이 자습서에서는 GCM(Google Cloud Messaging)을 사용하여 퀵 스타트 프로젝트에 푸시 알림을 추가합니다. 이 작업을 완료하면 레코드가 삽입될 때마다 모바일 서비스에서 푸시 알림을 전송합니다.
 
-[WACOM.NOTE]이 자습서는 현재 Preview에 있는 알림 허브와 모바일 서비스를 통합하는 방법을 보여 줍니다. 기본적으로 JavaScript 백 엔드에서는 알림 허브를 사용하여 푸시 알림을 보낼 수 없습니다. 새 알림 허브가 생성된 이후에는 통합 프로세스를 되돌릴 수 없습니다. 오늘만 [이 항목 버전](/en-us/documentation/articles/mobile-services-android-get-started-push/)에 설명된 기본 푸시 지원을 사용하여 iOS에 대한 푸시 알림을 사용할 수 있습니다.
+[WACOM.NOTE]이 자습서는 현재 Preview에 있는 알림 허브와 모바일 서비스를 통합하는 방법을 보여 줍니다. 기본적으로 JavaScript 백 엔드에서는 알림 허브를 사용하여 푸시 알림을 보낼 수 없습니다. 새 알림 허브가 생성된 이후에는 통합 프로세스를 되돌릴 수 없습니다. 오늘만 [이 항목 버전](/ko-kr/documentation/articles/mobile-services-android-get-started-push/)에 설명된 기본 푸시 지원을 사용하여 iOS에 대한 푸시 알림을 사용할 수 있습니다.
 
 이 자습서에서는 푸시 알림을 사용하도록 설정하는 다음 기본 단계를 단계별로 안내합니다.
 

@@ -3,7 +3,7 @@
 모바일 서비스를 사용하여 푸시 알림에 현재 사용자 등록
 =====================================================
 
-[Windows 스토어 C\#](/en-us/documentation/articles/notification-hubs-windows-store-mobile-services-register-user-push-notifications/ "Windows 스토어 C#")[iOS](/en-us/documentation/articles/notification-hubs-ios-mobile-services-register-user-push-notifications/ "iOS")
+[Windows 스토어 C\#](/ko-kr/documentation/articles/notification-hubs-windows-store-mobile-services-register-user-push-notifications/ "Windows 스토어 C#")[iOS](/ko-kr/documentation/articles/notification-hubs-ios-mobile-services-register-user-push-notifications/ "iOS")
 
 이 항목에서는 Azure 모바일 서비스에 의해 등록이 수행될 때 Azure 알림 허브를 사용하여 푸시 알림 등록을 요청하는 방법을 보여 줍니다. 이 항목은 [알림 허브를 통해 사용자에게 알림](/en-us/manage/services/notification-hubs/notify-users) 자습서를 확장합니다. 이미 해당 자습서의 필수 단계를 완료하여 인증된 모바일 서비스를 만든 상태여야 합니다. 사용자 알림 시나리오에 대한 자세한 내용은 [알림 허브를 통해 사용자에게 알림](/en-us/manage/services/notification-hubs/notify-users)을 참조하십시오.
 

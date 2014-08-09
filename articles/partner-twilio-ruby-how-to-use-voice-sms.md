@@ -88,7 +88,7 @@ Ruby 응용 프로그램 만들기
 
 Twilio 서비스를 사용하고 Azure에서 실행되고 있는 Ruby 응용 프로그램은 Twilio 서비스를 사용하는 다른 Ruby 응용 프로그램과 차이가 없습니다. Twilio 서비스가 RESTful이고 여러 가지 방법으로 Ruby에서 호출될 수 있기는 하지만, 이 문서에서는 [Ruby용 Twilio 도우미 라이브러리](https://www.twilio.com/docs/ruby/install)(영문)와 Twilio 서비스를 사용하는 방법을 집중적으로 설명합니다.
 
-먼저, 새 Ruby 웹 응용 프로그램의 호스트 역할을 할 [새 Azure Linux VM을 설정합니다](http://www.windowsazure.com/en-us/develop/ruby/tutorials/web-app-with-linux-vm/)(영문). Rails 앱을 만드는 것과 관련된 단계는 무시하고 VM 설정만 수행하십시오. 외부 포트 80과 내부 포트 5000으로 끝점을 만들어야 합니다.
+먼저, 새 Ruby 웹 응용 프로그램의 호스트 역할을 할 [새 Azure Linux VM을 설정합니다](http://www.windowsazure.com/ko-kr/develop/ruby/tutorials/web-app-with-linux-vm/)(영문). Rails 앱을 만드는 것과 관련된 단계는 무시하고 VM 설정만 수행하십시오. 외부 포트 80과 내부 포트 5000으로 끝점을 만들어야 합니다.
 
 아래 예제에서는 매우 간단한 Ruby용 웹 프레임워크인 [Sinatra](http://www.sinatrarb.com/)를 사용합니다. 그러나 Ruby on Rails를 비롯한 다른 웹 프레임워크와 함께 Ruby용 Twilio 도우미 라이브러리를 사용할 수도 있습니다.
 

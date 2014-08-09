@@ -103,7 +103,7 @@ SSL 인증서를 가져오려면 다음 단계를 따르십시오.
         ...
         </WebRole>
 
-    **Certificates** 섹션에서는 인증서의 이름, 위치 및 인증서가 위치한 저장소의 이름을 정의합니다. 인증서를 사용자 인증서 저장소에 설치했으므로 "My"라는 값을 사용합니다. 다른 인증서 저장소 위치도 사용할 수 있습니다. 자세한 내용은 [인증서를 서비스와 연결하는 방법](http://msdn.microsoft.com/en-us/library/windowsazure/gg465718.aspx)을 참조하십시오.
+    **Certificates** 섹션에서는 인증서의 이름, 위치 및 인증서가 위치한 저장소의 이름을 정의합니다. 인증서를 사용자 인증서 저장소에 설치했으므로 "My"라는 값을 사용합니다. 다른 인증서 저장소 위치도 사용할 수 있습니다. 자세한 내용은 [인증서를 서비스와 연결하는 방법](http://msdn.microsoft.com/ko-kr/library/windowsazure/gg465718.aspx)을 참조하십시오.
 
 2.  서비스 정의 파일에서 **Endpoints** 섹션 내의 http **InputEndpoint** 요소를 업데이트하여 HTTPS를 사용하도록 설정합니다.
 
@@ -158,11 +158,11 @@ SSL 인증서를 가져오려면 다음 단계를 따르십시오.
 추가 리소스
 -----------
 
-[인증서를 서비스와 연결하는 방법](http://msdn.microsoft.com/en-us/library/windowsazure/gg465718.aspx)
+[인증서를 서비스와 연결하는 방법](http://msdn.microsoft.com/ko-kr/library/windowsazure/gg465718.aspx)
 
 [Azure 작업자 역할에서 Node.js 응용 프로그램에 대한 SSL 구성](/en-us/develop/nodejs/common-tasks/enable-ssl-worker-role/)
 
-[HTTPS 끝점에 SSL 인증서 구성](http://msdn.microsoft.com/en-us/library/windowsazure/ff795779.aspx)
+[HTTPS 끝점에 SSL 인증서 구성](http://msdn.microsoft.com/ko-kr/library/windowsazure/ff795779.aspx)
 
 
 
@@ -182,11 +182,11 @@ SSL 인증서를 가져오려면 다음 단계를 따르십시오.
   [Azure Management Portal]: http://manage.windowsazure.com
   
   
-  [How to Associate a Certificate with a Service]: http://msdn.microsoft.com/en-us/library/windowsazure/gg465718.aspx
+  [How to Associate a Certificate with a Service]: http://msdn.microsoft.com/ko-kr/library/windowsazure/gg465718.aspx
   
   [site-url]: ./media/cloud-services-nodejs-configure-ssl-certificate/site-url.png
   [8]: ./media/cloud-services-nodejs-configure-ssl-certificate/enable-ssl-08.png
-  [How to Configure an SSL Certificate on an HTTPS Endpoint]: http://msdn.microsoft.com/en-us/library/windowsazure/ff795779.aspx
+  [How to Configure an SSL Certificate on an HTTPS Endpoint]: http://msdn.microsoft.com/ko-kr/library/windowsazure/ff795779.aspx
   [powershell-menu]: ./media/cloud-services-nodejs-configure-ssl-certificate/azure-powershell-start.png
   [cert-wizard]: ./media/cloud-services-nodejs-configure-ssl-certificate/certificateimport.png
   [key-protection]: ./media/cloud-services-nodejs-configure-ssl-certificate/exportable.png

@@ -3,12 +3,12 @@
 모바일 서비스에서 푸시 알림 시작하기
 ====================================
 
-[Windows Store C\#](/en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-push "Windows Store C#")[Windows Store JavaScript](/en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-push "Windows Store JavaScript")[Windows Phone](/en-us/documentation/articles/mobile-services-windows-phone-get-started-push "Windows Phone")[iOS](/en-us/documentation/articles/mobile-services-ios-get-started-push "iOS")[Android](/en-us/documentation/articles/mobile-services-android-get-started-push "Android")[Xamarin.iOS](/en-us/documentation/articles/partner-xamarin-mobile-services-ios-get-started-push "Xamarin.iOS")[Xamarin.Android](/en-us/documentation/articles/partner-xamarin-mobile-services-android-get-started-push "Xamarin.Android")
-[.NET 백엔드](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push/ ".NET 백엔드") | [JavaScript 백엔드](/en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-push/ "JavaScript 백엔드")
+[Windows Store C\#](/ko-kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-push "Windows Store C#")[Windows Store JavaScript](/ko-kr/documentation/articles/mobile-services-windows-store-javascript-get-started-push "Windows Store JavaScript")[Windows Phone](/ko-kr/documentation/articles/mobile-services-windows-phone-get-started-push "Windows Phone")[iOS](/ko-kr/documentation/articles/mobile-services-ios-get-started-push "iOS")[Android](/ko-kr/documentation/articles/mobile-services-android-get-started-push "Android")[Xamarin.iOS](/ko-kr/documentation/articles/partner-xamarin-mobile-services-ios-get-started-push "Xamarin.iOS")[Xamarin.Android](/ko-kr/documentation/articles/partner-xamarin-mobile-services-android-get-started-push "Xamarin.Android")
+[.NET 백엔드](/ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push/ ".NET 백엔드") | [JavaScript 백엔드](/ko-kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-push/ "JavaScript 백엔드")
 
 이 항목에서는 Visual Studio 2013에서 Azure 모바일 서비스를 사용하여 Windows 스토어 앱에 푸시 알림을 전송하는 방법에 대해 설명합니다. 이 자습서에서는 WNS(Windows 푸시 알림 서비스)를 사용하여 Visual Studio에서 직접 quickstart 프로젝트에 푸시 알림을 추가합니다. 이 작업을 완료하면 레코드가 삽입될 때마다 모바일 서비스에서 푸시 알림을 전송합니다.
 
-> [WACOM.NOTE]이제 모바일 서비스가 Azure 알림 허브와 통합되어 템플릿, 다중 플랫폼, 확장 등 추가적인 푸시 알림 기능을 지원합니다. 이 통합 기능은 현재 사전 검토 단계입니다. 자세한 내용은 [푸시 알림 시작하기](/en-us/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push/)를 참조하십시오.
+> [WACOM.NOTE]이제 모바일 서비스가 Azure 알림 허브와 통합되어 템플릿, 다중 플랫폼, 확장 등 추가적인 푸시 알림 기능을 지원합니다. 이 통합 기능은 현재 사전 검토 단계입니다. 자세한 내용은 [푸시 알림 시작하기](/ko-kr/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push/)를 참조하십시오.
 
 이 자습서에서는 푸시 알림을 사용하기 위한 다음과 같은 기본 단계를 안내합니다.
 

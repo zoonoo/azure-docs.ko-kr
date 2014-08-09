@@ -30,7 +30,7 @@ Azure 웹 사이트는 웹 서버 및 웹 응용 프로그램 모두의 정보�
 
 ### 응용 프로그램 진단
 
-응용 프로그램 진단을 통해 웹 응용 프로그램에서 생성된 정보를 캡처할 수 있습니다. ASP.NET 응용 프로그램은 [System.Diagnostics.Trace](http://msdn.microsoft.com/en-us/library/36hhw2t6.aspx) 클래스를 사용하여 응용 프로그램 진단 로그에 정보를 로깅할 수 있습니다. 예를 들면 다음과 같습니다.
+응용 프로그램 진단을 통해 웹 응용 프로그램에서 생성된 정보를 캡처할 수 있습니다. ASP.NET 응용 프로그램은 [System.Diagnostics.Trace](http://msdn.microsoft.com/ko-kr/library/36hhw2t6.aspx) 클래스를 사용하여 응용 프로그램 진단 로그에 정보를 로깅할 수 있습니다. 예를 들면 다음과 같습니다.
 
     System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
 
@@ -50,7 +50,7 @@ Visual Studio를 사용하여 응용 프로그램 진단으로 작업하는 방�
 
 **사이트 진단**을 사용하도록 설정하는 경우 **웹 서버 로깅**에 대해 **저장소** 또는 **파일 시스템**을 선택해야 합니다. **저장소**를 선택하면 저장소 계정을 선택하고 로그를 기록할 Blob 컨테이너를 선택할 수 있습니다. **사이트 진단**에 대한 기타 모든 로그는 파일 시스템에만 기록됩니다.
 
-> [WACOM.NOTE] **테이블 저장소** 또는 **Blob 저장소**에 저장된 정보는 이러한 저장소 시스템에서 바로 작업할 수 있는 저장소 클라이언트 또는 응용 프로그램을 사용해서만 액세스할 수 있습니다. 예를 들어 Visual Studio 2013에는 테이블 또는 Blob 저장소를 탐색하는 데 사용할 수 있는 저장소 탐색기를 포함하고 있으며, HDInsight는 Blob 저장소에 저장된 데이터에 액세스하는 데 사용될 수 있습니다. 또한 [Azure SDK](http://www.windowsazure.com/en-us/downloads/#) 중 하나를 사용하여 Azure 저장소에 액세스하는 응용 프로그램을 작성할 수도 있습니다.
+> [WACOM.NOTE] **테이블 저장소** 또는 **Blob 저장소**에 저장된 정보는 이러한 저장소 시스템에서 바로 작업할 수 있는 저장소 클라이언트 또는 응용 프로그램을 사용해서만 액세스할 수 있습니다. 예를 들어 Visual Studio 2013에는 테이블 또는 Blob 저장소를 탐색하는 데 사용할 수 있는 저장소 탐색기를 포함하고 있으며, HDInsight는 Blob 저장소에 저장된 데이터에 액세스하는 데 사용될 수 있습니다. 또한 [Azure SDK](http://www.windowsazure.com/ko-kr/downloads/#) 중 하나를 사용하여 Azure 저장소에 액세스하는 응용 프로그램을 작성할 수도 있습니다.
 
 다음은 **응용 프로그램 진단**을 사용하도록 설정한 경우에 사용할 수 있는 설정입니다.
 
@@ -62,7 +62,7 @@ Visual Studio를 사용하여 응용 프로그램 진단으로 작업하는 방�
 
 > [WACOM.NOTE] 파일 시스템, 테이블 저장소 또는 Blob 저장소를 원하는 방식으로 결합하여 동시에 사용하도록 설정할 수 있으며 로그 수준은 개별적으로 구성할 수 있습니다. 예를 들어 장기적인 로깅 솔루션으로 Blob 저장소에 오류 및 경고를 기록하면서 파일 시스템 로깅은 세부 정보 표시 수준으로 사용할 수 있습니다.
 
-> [WACOM.NOTE] 진단은 Azure PowerShell에서 **Set-AzureWebsite** cmdlet을 통해 사용하도록 설정할 수도 있습니다. Azure PowerShell을 설치하지 않았거나 Azure 구독을 사용하도록 Azure PowerShell을 구성하지 않은 경우 [Azure PowerShell 사용 방법](http://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/powershell-cmdlets/)(영문)을 참조하십시오.
+> [WACOM.NOTE] 진단은 Azure PowerShell에서 **Set-AzureWebsite** cmdlet을 통해 사용하도록 설정할 수도 있습니다. Azure PowerShell을 설치하지 않았거나 Azure 구독을 사용하도록 Azure PowerShell을 구성하지 않은 경우 [Azure PowerShell 사용 방법](http://www.windowsazure.com/ko-kr/develop/nodejs/how-to-guides/powershell-cmdlets/)(영문)을 참조하십시오.
 
 ## 방법: 로그 다운로드
 
@@ -94,7 +94,7 @@ FTP를 사용하여 진단 정보에 액세스하려면 Azure 관리 포털에�
 
 이 명령을 실행하면 **-Name** 매개 변수로 지정된 웹 사이트의 로그가 현재 디렉터리의 **logs.zip**이라는 파일에 저장됩니다.
 
-> [WACOM.NOTE] Azure PowerShell을 설치하지 않았거나 Azure 구독을 사용하도록 Azure PowerShell을 구성하지 않은 경우 [Azure PowerShell 사용 방법](http://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/powershell-cmdlets/)(영문)을 참조하십시오.
+> [WACOM.NOTE] Azure PowerShell을 설치하지 않았거나 Azure 구독을 사용하도록 Azure PowerShell을 구성하지 않은 경우 [Azure PowerShell 사용 방법](http://www.windowsazure.com/ko-kr/develop/nodejs/how-to-guides/powershell-cmdlets/)(영문)을 참조하십시오.
 
 ### Azure 명령줄 도구로 다운로드
 
@@ -104,7 +104,7 @@ Azure 명령줄 도구를 사용하여 로그 파일을 다운로드하려면 �
 
 이 명령을 실행하면 'websitename'이라는 웹 사이트의 로그가 현재 디렉터리의 **diagnostics.zip**이라는 파일에 저장됩니다.
 
-> [WACOM.NOTE] Azure 명령줄 도구를 설치하지 않았거나 Azure 구독을 사용하도록 Azure 명령줄 도구를 구성하지 않은 경우 [Azure 명령줄 도구 사용 방법](http://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/command-line-tools/)(영문)을 참조하십시오.
+> [WACOM.NOTE] Azure 명령줄 도구를 설치하지 않았거나 Azure 구독을 사용하도록 Azure 명령줄 도구를 구성하지 않은 경우 [Azure 명령줄 도구 사용 방법](http://www.windowsazure.com/ko-kr/develop/nodejs/how-to-guides/command-line-tools/)(영문)을 참조하십시오.
 
 ## 방법: 스트림 로그
 
@@ -132,7 +132,7 @@ HTTP와 같은 특정 로그 유형을 필터링하려면 **-Path** 매개 변�
 
 사용 가능한 경로 목록을 보려면 -ListPath 매개 변수를 사용합니다.
 
-> [WACOM.NOTE] Azure PowerShell을 설치하지 않았거나 Azure 구독을 사용하도록 Azure PowerShell을 구성하지 않은 경우 [Azure PowerShell 사용 방법](http://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/powershell-cmdlets/)(영문)을 참조하십시오.
+> [WACOM.NOTE] Azure PowerShell을 설치하지 않았거나 Azure 구독을 사용하도록 Azure PowerShell을 구성하지 않은 경우 [Azure PowerShell 사용 방법](http://www.windowsazure.com/ko-kr/develop/nodejs/how-to-guides/powershell-cmdlets/)(영문)을 참조하십시오.
 
 ### Azure 명령줄 도구로 스트리밍
 
@@ -150,7 +150,7 @@ HTTP와 같은 특정 로그 유형을 필터링하려면 **-Path** 매개 변�
 
     azure site log tail websitename --path http
 
-> [WACOM.NOTE] Azure 명령줄 도구를 설치하지 않았거나 Azure 구독을 사용하도록 Azure 명령줄 도구를 구성하지 않은 경우 [Azure 명령줄 도구 사용 방법](http://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/command-line-tools/)(영문)을 참조하십시오.
+> [WACOM.NOTE] Azure 명령줄 도구를 설치하지 않았거나 Azure 구독을 사용하도록 Azure 명령줄 도구를 구성하지 않은 경우 [Azure 명령줄 도구 사용 방법](http://www.windowsazure.com/ko-kr/develop/nodejs/how-to-guides/command-line-tools/)(영문)을 참조하십시오.
 
 ## 방법: 진단 로그 이해
 

@@ -24,7 +24,7 @@
 Node.js 응용 프로그램 만들기
 ----------------------------
 
-빈 Node.js 응용 프로그램을 만듭니다. Node.js 응용 프로그램을 만드는 방법에 대한 지침은 [Node.js 응용 프로그램을 만들어 Azure 웹 사이트에 배포하기](/en-us/develop/nodejs/tutorials/create-a-website-(mac)/), [Node.js 클라우드 서비스](/en-us/documentation/articles/cloud-services-nodejs-develop-deploy-app/)(Windows PowerShell 사용) 또는 [WebMatrix를 사용하는 웹 사이트](/en-us/develop/nodejs/tutorials/web-site-with-webmatrix/)를 참조하십시오.
+빈 Node.js 응용 프로그램을 만듭니다. Node.js 응용 프로그램을 만드는 방법에 대한 지침은 [Node.js 응용 프로그램을 만들어 Azure 웹 사이트에 배포하기](/en-us/develop/nodejs/tutorials/create-a-website-(mac)/), [Node.js 클라우드 서비스](/ko-kr/documentation/articles/cloud-services-nodejs-develop-deploy-app/)(Windows PowerShell 사용) 또는 [WebMatrix를 사용하는 웹 사이트](/en-us/develop/nodejs/tutorials/web-site-with-webmatrix/)를 참조하십시오.
 
 서비스 버스를 사용하도록 응용 프로그램 구성
 -------------------------------------------
@@ -171,6 +171,6 @@ Azure SDK for Node.js에는 재시도 논리를 구현하는 두 필터 **Expone
 
 이제 서비스 버스 큐의 기본 사항을 익혔으므로 다음 링크를 따라 자세히 알아보십시오.
 
--   MSDN 참조: [큐, 토픽 및 구독](http://msdn.microsoft.com/en-us/library/windowsazure/hh367516.aspx)
+-   MSDN 참조: [큐, 토픽 및 구독](http://msdn.microsoft.com/ko-kr/library/windowsazure/hh367516.aspx)
 -   GitHub에서 [Azure SDK for Node](https://github.com/WindowsAzure/azure-sdk-for-node) 리포지토리를 방문하십시오.
 

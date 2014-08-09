@@ -38,8 +38,8 @@ MapReduce 작업의 출력은 키-값 쌍 집합입니다. 키는 단어를 지�
 
 MapReduce 작업을 실행하려면 다음 요소가 필요합니다.
 
--   MapReduce 프로그램. 이 자습서에서는 직접 작성할 필요가 없도록 HDInsight 클러스터와 함께 제공된 단어 수 계산 샘플을 사용합니다. 이 샘플은 */example/jars/hadoop-examples.jar*에 있습니다. 버전 3.0 HDInsight 클러스터에서는 파일 이름이 *hadoop-mapreduce-examples.jar*입니다. 고유한 MapReduce 작업을 작성하는 방법에 대한 지침은 [HDInsight용 Java MapReduce 프로그램 개발](/en-us/documentation/articles/hdinsight-develop-deploy-java-mapreduce/)을 참조하십시오.
--   입력 파일. */example/data/gutenberg/davinci.txt*를 입력 파일로 사용합니다. 파일 업로드에 대한 자세한 내용은 [HDInsight에 데이터 업로드](/en-us/documentation/articles/hdinsight-upload-data/)를 참조하십시오.
+-   MapReduce 프로그램. 이 자습서에서는 직접 작성할 필요가 없도록 HDInsight 클러스터와 함께 제공된 단어 수 계산 샘플을 사용합니다. 이 샘플은 */example/jars/hadoop-examples.jar*에 있습니다. 버전 3.0 HDInsight 클러스터에서는 파일 이름이 *hadoop-mapreduce-examples.jar*입니다. 고유한 MapReduce 작업을 작성하는 방법에 대한 지침은 [HDInsight용 Java MapReduce 프로그램 개발](/ko-kr/documentation/articles/hdinsight-develop-deploy-java-mapreduce/)을 참조하십시오.
+-   입력 파일. */example/data/gutenberg/davinci.txt*를 입력 파일로 사용합니다. 파일 업로드에 대한 자세한 내용은 [HDInsight에 데이터 업로드](/ko-kr/documentation/articles/hdinsight-upload-data/)를 참조하십시오.
 -   출력 파일 폴더. */example/data/WordCountOutput*을 출력 파일 폴더로 사용합니다. 폴더가 없는 경우 시스템에서 새로 만듭니다. 해당 폴더가 있으면 MapReduce 작업이 실패합니다. MapReduce 작업을 두 번째 실행하려면 출력 폴더를 삭제하거나 다른 출력 폴더를 지정해야 합니다.
 
 Azure PowerShell을 사용하여 샘플 실행
@@ -208,9 +208,9 @@ MapReduce 작업의 출력 파일은 변경할 수 없습니다. 따라서 이 �
 MapReduce는 강력한 진단 기능을 제공하는 반면 익히기 어려울 수 있습니다. Pig, Hive 등의 기타 언어를 사용하면 HDInsight에 저장된 데이터로 더 쉽게 작업할 수 있습니다. 자세한 내용은 다음 문서를 참조하십시오.
 
 -   [Azure HDInsight 시작](/en-us/manage/services/hdinsight/get-started-hdinsight/)
--   [HDInsight용 Java MapReduce 프로그램 개발](/en-us/documentation/articles/hdinsight-develop-deploy-java-mapreduce/)
--   [HDInsight용 C\# Hadoop 스트리밍 MapReduce 프로그램 개발](/en-us/documentation/articles/hdinsight-hadoop-develop-deploy-streaming-jobs/)
--   [HDInsight와 함께 Hive 사용](/en-us/documentation/articles/hdinsight-use-hive/)
--   [HDInsight와 함께 Pig 사용](/en-us/documentation/articles/hdinsight-use-pig/)
--   [HDInsight 샘플 실행](/en-us/documentation/articles/hdinsight-run-samples/)
+-   [HDInsight용 Java MapReduce 프로그램 개발](/ko-kr/documentation/articles/hdinsight-develop-deploy-java-mapreduce/)
+-   [HDInsight용 C\# Hadoop 스트리밍 MapReduce 프로그램 개발](/ko-kr/documentation/articles/hdinsight-hadoop-develop-deploy-streaming-jobs/)
+-   [HDInsight와 함께 Hive 사용](/ko-kr/documentation/articles/hdinsight-use-hive/)
+-   [HDInsight와 함께 Pig 사용](/ko-kr/documentation/articles/hdinsight-use-pig/)
+-   [HDInsight 샘플 실행](/ko-kr/documentation/articles/hdinsight-run-samples/)
 

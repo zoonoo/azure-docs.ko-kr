@@ -18,7 +18,7 @@
 1부: 공유 액세스 서명을 생성하는 콘솔 응용 프로그램 만들기
 ==========================================================
 
-먼저 Azure Storage Client Library for .NET(버전 2.0)을 설치했는지 확인합니다. 클라이언트 라이브러리에 대한 최신 어셈블리가 들어 있는 [NuGet 패키지](http://nuget.org/packages/WindowsAzure.Storage/ "NuGet 패키지")를 설치할 수 있습니다. 이는 최신 수정이 설치되어 있는지 확인하는 권장 방법입니다. 클라이언트 라이브러리를 최신 버전 [Azure SDK for .NET](http://www.windowsazure.com/en-us/downloads/)의 일부로 다운로드할 수도 있습니다.
+먼저 Azure Storage Client Library for .NET(버전 2.0)을 설치했는지 확인합니다. 클라이언트 라이브러리에 대한 최신 어셈블리가 들어 있는 [NuGet 패키지](http://nuget.org/packages/WindowsAzure.Storage/ "NuGet 패키지")를 설치할 수 있습니다. 이는 최신 수정이 설치되어 있는지 확인하는 권장 방법입니다. 클라이언트 라이브러리를 최신 버전 [Azure SDK for .NET](http://www.windowsazure.com/ko-kr/downloads/)의 일부로 다운로드할 수도 있습니다.
 
 Visual Studio에서 새 Windows 콘솔 응용 프로그램을 만들고 이름을 **GenerateSharedAccessSignatures**로 지정합니다. 다음 중 한 가지 방법을 사용하여 **Microsoft.WindowsAzure.Configuration.dll** 및 **Microsoft.WindowsAzure.Storage.dll**에 대한 참조를 추가합니다.
 
@@ -524,9 +524,9 @@ Blob에서 만든 공유 액세스 서명을 모두 사용하여 **UseBlobSAS()*
 
 [공유 액세스 서명, 1부: SAS 모델 이해](../storage-dotnet-shared-access-signature-part-1/)
 
-[Azure 저장소 리소스에 대한 액세스 관리](http://msdn.microsoft.com/en-us/library/windowsazure/ee393343.aspx)
+[Azure 저장소 리소스에 대한 액세스 관리](http://msdn.microsoft.com/ko-kr/library/windowsazure/ee393343.aspx)
 
-[공유 액세스 서명을 사용하여 액세스 위임(REST API)](http://msdn.microsoft.com/en-us/library/windowsazure/ee395415.aspx)
+[공유 액세스 서명을 사용하여 액세스 위임(REST API)](http://msdn.microsoft.com/ko-kr/library/windowsazure/ee395415.aspx)
 
 [테이블 및 큐 SAS 소개](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)
 

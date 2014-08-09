@@ -50,7 +50,7 @@ Visual Studio 2012도 필요합니다.
         }
     }
 
-템플릿은 [알림 허브 지침](http://msdn.microsoft.com/en-us/library/jj927170.aspx) 문서에서 자세한 내용을 알아볼 수 있는 매우 강력한 기능입니다. 템플릿 식 언어에 대한 참조는 [방법: 서비스 버스 알림 허브(iOS 앱)](http://msdn.microsoft.com/en-us/library/jj927168.aspx)에 있습니다.
+템플릿은 [알림 허브 지침](http://msdn.microsoft.com/ko-kr/library/jj927170.aspx) 문서에서 자세한 내용을 알아볼 수 있는 매우 강력한 기능입니다. 템플릿 식 언어에 대한 참조는 [방법: 서비스 버스 알림 허브(iOS 앱)](http://msdn.microsoft.com/ko-kr/library/jj927168.aspx)에 있습니다.
 
 앱 UI앱 사용자 인터페이스
 -------------------------
@@ -166,7 +166,7 @@ MainStoryboard\_iPhone.storyboard에서 지원되는 3가지 언어 즉 영어, 
 
 -   [알림 허브를 통해 사용자에게 알림: ASP.NET](/en-us/manage/services/notification-hubs/notify-users-aspnet)(영문)
 -   [알림 허브를 통해 사용자에게 알림: 모바일 서비스](/en-us/manage/services/notification-hubs/notify-users)(영문)
--   [알림 허브 지침](http://msdn.microsoft.com/en-us/library/jj927170.aspx)
+-   [알림 허브 지침](http://msdn.microsoft.com/ko-kr/library/jj927170.aspx)
 
-템플릿 식 언어에 대한 참조는 [iOS용 알림 허브 방법](http://msdn.microsoft.com/en-us/library/jj927168.aspx)에 있습니다.
+템플릿 식 언어에 대한 참조는 [iOS용 알림 허브 방법](http://msdn.microsoft.com/ko-kr/library/jj927168.aspx)에 있습니다.
 

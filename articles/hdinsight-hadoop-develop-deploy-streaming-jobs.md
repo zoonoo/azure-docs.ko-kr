@@ -10,7 +10,7 @@ Hadoop은 MapReduce에 대한 스트리밍 API를 제공합니다. 이 API를 �
 이 자습서를 시작하기 전에 다음이 있어야 합니다.
 
 -   Azure HDInsight Emulator 설치. 자세한 내용은 [HDInsight Emulator 사용 시작](/en-us/manage/services/hdinsight/get-started-with-windows-azure-hdinsight-emulator/)을 참조하십시오.
--   에뮬레이터 컴퓨터에 Azure PowerShell 설치. 자세한 내용은 [Azure PowerShell 설치 및 구성](/en-us/documentation/articles/install-configure-powershell/)을 참조하십시오.
+-   에뮬레이터 컴퓨터에 Azure PowerShell 설치. 자세한 내용은 [Azure PowerShell 설치 및 구성](/ko-kr/documentation/articles/install-configure-powershell/)을 참조하십시오.
 -   Azure 구독. 자세한 내용은 [구매 옵션](https://www.windowsazure.com/en-us/pricing/purchase-options/), [회원 제안](https://www.windowsazure.com/en-us/pricing/member-offers/) 또는 [무료 평가판](https://www.windowsazure.com/en-us/pricing/free-trial/)을 참조하십시오.
 
 이 문서에서는 다음을 수행합니다.
@@ -199,7 +199,7 @@ C\#으로 단어 계산 Hadoop 스트리밍 프로그램 개발
 
 **HDInsight PowerShell을 사용하여 MapReduce 작업을 실행하려면**
 
-1.  Azure PowerShell을 엽니다. 자세한 내용은 [Azure PowerShell 설치 및 구성](/en-us/documentation/articles/install-configure-powershell/)을 참조하십시오.
+1.  Azure PowerShell을 엽니다. 자세한 내용은 [Azure PowerShell 설치 및 구성](/ko-kr/documentation/articles/install-configure-powershell/)을 참조하십시오.
 2.  다음 명령을 실행하여 변수를 설정합니다.
 
          $clusterName = "http://localhost:50111"
@@ -525,7 +525,7 @@ MapReduce 작업 출력 검색
 
 -   [Azure HDInsight 시작](/en-us/manage/services/hdinsight/get-started-hdinsight/)
 -   [HDInsight Emulator 시작](/en-us/manage/services/hdinsight/get-started-with-windows-azure-hdinsight-emulator/)
--   [HDInsight용 Java MapReduce 프로그램 개발](/en-us/documentation/articles/hdinsight-develop-deploy-java-mapreduce/)
+-   [HDInsight용 Java MapReduce 프로그램 개발](/ko-kr/documentation/articles/hdinsight-develop-deploy-java-mapreduce/)
 -   [HDInsight와 함께 Azure Blob 저장소 사용](/en-us/manage/services/hdinsight/howto-blob-store/)
 -   [PowerShell을 사용하여 HDInsight 관리](/en-us/manage/services/hdinsight/administer-hdinsight-using-powershell/)
 -   [HDInsight에 데이터 업로드](/en-us/manage/services/hdinsight/howto-upload-data-to-hdinsight/)

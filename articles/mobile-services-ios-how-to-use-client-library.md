@@ -30,7 +30,7 @@
 설정 및 필수 조건
 -----------------
 
-이 가이드에서는 이미 모바일 서비스 및 테이블을 만들었다고 가정합니다. 자세한 내용은 [테이블 만들기](http://msdn.microsoft.com/en-us/library/windowsazure/jj193162.aspx)를 참조하십시오. 이 항목의 예에서는 이름이 `ToDoItem`이고 다음 열이 포함된 테이블을 사용합니다.
+이 가이드에서는 이미 모바일 서비스 및 테이블을 만들었다고 가정합니다. 자세한 내용은 [테이블 만들기](http://msdn.microsoft.com/ko-kr/library/windowsazure/jj193162.aspx)를 참조하십시오. 이 항목의 예에서는 이름이 `ToDoItem`이고 다음 열이 포함된 테이블을 사용합니다.
 
 -   `id`
 -   `text`
@@ -236,7 +236,7 @@ MSQuery 개체는 다음 쿼리 동작을 제어할 수 있게 합니다.
 -   인쇄 가능한 문자: **"**(0x0022), **\+** (0x002B), **/** (0x002F), **?** (0x003F), **\\** (0x005C), **`** (0x0060)
 -   ID "." 및 ".."
 
-또는 테이블에 정수 ID를 사용할 수 있습니다. 정수 ID를 사용하려면 `--integerId` 옵션을 사용하는 `mobile table create` 명령으로 테이블을 만들어야 합니다. 이 명령은 Azure용 CLI(명령줄 인터페이스)와 함께 사용됩니다. CLI 사용에 대한 자세한 내용은 [모바일 서비스 테이블 관리 CLI](http://www.windowsazure.com/en-us/manage/linux/other-resources/command-line-tools/#Mobile_Tables)(영문)를 참조하십시오.
+또는 테이블에 정수 ID를 사용할 수 있습니다. 정수 ID를 사용하려면 `--integerId` 옵션을 사용하는 `mobile table create` 명령으로 테이블을 만들어야 합니다. 이 명령은 Azure용 CLI(명령줄 인터페이스)와 함께 사용됩니다. CLI 사용에 대한 자세한 내용은 [모바일 서비스 테이블 관리 CLI](http://www.windowsazure.com/ko-kr/manage/linux/other-resources/command-line-tools/#Mobile_Tables)(영문)를 참조하십시오.
 
 동적 스키마가 사용하도록 설정된 경우 모바일 서비스에서 삽입 또는 업데이트 요청에서 개체의 필드를 기준으로 새 열을 자동으로 생성합니다. 자세한 내용은 [동적 스키마](http://go.microsoft.com/fwlink/p/?LinkId=296271)를 참조하십시오.
 
@@ -292,7 +292,7 @@ ID 공급자 구성에 대한 자세한 내용은 [인증 시작](/en-us/develop
 
 인증에 성공하면 할당된 사용자 ID 값과 인증 토큰이 포함된 사용자 개체가 반환됩니다. 이 사용자 ID를 서버 스크립트에서 사용하여 요청의 유효성을 검사하거나 요청을 수정할 수 있습니다. 자세한 내용은 [스크립트를 사용하여 사용자 권한 부여](/en-us/develop/mobile/tutorials/authorize-users-in-scripts-ios)를 참조하십시오. 토큰 자체는 후속 로그인에 사용하도록 안전하게 캐시할 수 있습니다.
 
-테이블에 대해 사용 권한을 설정하여 특정 작업을 위한 액세스를 인증된 사용자로만 제한할 수도 있습니다. 자세한 정보는 [사용 권한](http://msdn.microsoft.com/en-us/library/windowsazure/jj193161.aspx)을 참조하십시오.
+테이블에 대해 사용 권한을 설정하여 특정 작업을 위한 액세스를 인증된 사용자로만 제한할 수도 있습니다. 자세한 정보는 [사용 권한](http://msdn.microsoft.com/ko-kr/library/windowsazure/jj193161.aspx)을 참조하십시오.
 
 ### 서버 관리 로그인
 
@@ -460,11 +460,11 @@ MSLoginController에 대한 참조를 가져와서 다음을 사용하여 직접
 
 [Handling Expired Tokens]: http://go.microsoft.com/fwlink/p/?LinkId=301955
 [Live Connect SDK]: http://go.microsoft.com/fwlink/p/?LinkId=301960
-[Permissions]: http://msdn.microsoft.com/en-us/library/windowsazure/jj193161.aspx
+[Permissions]: http://msdn.microsoft.com/ko-kr/library/windowsazure/jj193161.aspx
 [Use scripts to authorize users]: /en-us/develop/mobile/tutorials/authorize-users-in-scripts-ios
 [Dynamic schema]: http://go.microsoft.com/fwlink/p/?LinkId=296271
 [How to: access custom parameters]: /en-us/develop/mobile/how-to-guides/work-with-server-scripts#access-headers
-[Create a table]: http://msdn.microsoft.com/en-us/library/windowsazure/jj193162.aspx
+[Create a table]: http://msdn.microsoft.com/ko-kr/library/windowsazure/jj193162.aspx
 [NSDictionary object]: http://go.microsoft.com/fwlink/p/?LinkId=301965
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
-[CLI to manage Mobile Services tables]: http://www.windowsazure.com/en-us/manage/linux/other-resources/command-line-tools/#Mobile_Tables
+[CLI to manage Mobile Services tables]: http://www.windowsazure.com/ko-kr/manage/linux/other-resources/command-line-tools/#Mobile_Tables

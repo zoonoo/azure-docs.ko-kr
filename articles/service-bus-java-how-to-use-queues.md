@@ -3,7 +3,7 @@
 서비스 버스 큐를 사용하는 방법
 ==============================
 
-이 가이드에서는 서비스 버스 큐를 사용하는 방법을 보여 줍니다. 샘플은 Java로 작성되었으며 [Java용 Azure SDK](http://msdn.microsoft.com/en-us/library/windowsazure/hh690953(v=vs.103).aspx)(영문)를 사용합니다. 여기서 다루는 시나리오에는 **큐 만들기**, **메시지 보내기 및 받기**, **큐 삭제** 등이 포함됩니다.
+이 가이드에서는 서비스 버스 큐를 사용하는 방법을 보여 줍니다. 샘플은 Java로 작성되었으며 [Java용 Azure SDK](http://msdn.microsoft.com/ko-kr/library/windowsazure/hh690953(v=vs.103).aspx)(영문)를 사용합니다. 여기서 다루는 시나리오에는 **큐 만들기**, **메시지 보내기 및 받기**, **큐 삭제** 등이 포함됩니다.
 
 목차
 ----
@@ -176,5 +176,5 @@ Java 파일 맨 위에 다음 import 문을 추가합니다.
 다음 단계
 ---------
 
-지금까지 서비스 버스 큐의 기본 사항에 대해 알아보았습니다. 자세한 내용은 MSDN 항목 [큐, 토픽 및 구독](http://msdn.microsoft.com/en-us/library/windowsazure/hh367516.aspx)을 참조하십시오.
+지금까지 서비스 버스 큐의 기본 사항에 대해 알아보았습니다. 자세한 내용은 MSDN 항목 [큐, 토픽 및 구독](http://msdn.microsoft.com/ko-kr/library/windowsazure/hh367516.aspx)을 참조하십시오.
 

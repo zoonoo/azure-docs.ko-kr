@@ -9,8 +9,8 @@ Hive는 대규모 데이터의 요약, 쿼리 및 분석에 적용할 수 있는
 
 이 자습서를 시작하기 전에 다음이 있어야 합니다.
 
--   Azure HDInsight 클러스터. HDInsight 클러스터 프로비전에 대한 자세한 내용은 [HDInsight 시작](/en-us/documentation/articles/hdinsight-get-started/) 또는 [HDInsight 클러스터 프로비전](/en-us/documentation/articles/hdinsight-provision-clusters/)을 참조하십시오.
--   Azure PowerShell이 설치 및 구성된 워크스테이션. 자세한 내용은 [Azure PowerShell 설치 및 구성](/en-us/documentation/articles/install-configure-powershell/)을 참조하십시오.
+-   Azure HDInsight 클러스터. HDInsight 클러스터 프로비전에 대한 자세한 내용은 [HDInsight 시작](/ko-kr/documentation/articles/hdinsight-get-started/) 또는 [HDInsight 클러스터 프로비전](/ko-kr/documentation/articles/hdinsight-provision-clusters/)을 참조하십시오.
+-   Azure PowerShell이 설치 및 구성된 워크스테이션. 자세한 내용은 [Azure PowerShell 설치 및 구성](/ko-kr/documentation/articles/install-configure-powershell/)을 참조하십시오.
 
 **예상 완료 시간:** 30분
 
@@ -34,9 +34,9 @@ Hive는 대규모 데이터의 요약, 쿼리 및 분석에 적용할 수 있는
 
 **HDInsight 저장소 이해**
 
-HDInsight는 데이터 저장소로 Azure Blob 저장소를 사용합니다. *WASB* 또는 *Azure 저장소 - Blob*이라고 합니다. WASB는 Azure Blob 저장소에서 HDFS의 Microsoft 구현입니다. 자세한 내용은 [HDInsight에서 Azure Blob 저장소 사용](/en-us/documentation/articles/hdinsight-use-blob-storage/)을 참조하십시오.
+HDInsight는 데이터 저장소로 Azure Blob 저장소를 사용합니다. *WASB* 또는 *Azure 저장소 - Blob*이라고 합니다. WASB는 Azure Blob 저장소에서 HDFS의 Microsoft 구현입니다. 자세한 내용은 [HDInsight에서 Azure Blob 저장소 사용](/ko-kr/documentation/articles/hdinsight-use-blob-storage/)을 참조하십시오.
 
-HDInsight 클러스터를 프로비전할 때 Blob 저장소 컨테이너는 HDFS에서처럼 기본 파일 시스템으로 지정됩니다. 프로비전 프로세스 중에 이 컨테이너 외에도 동일한 Azure 저장소 계정 또는 다른 Azure 저장소 계정에서 컨테이너를 추가할 수 있습니다. 저장소 계정 추가에 대한 지침은 [HDInsight 클러스터 프로비전](/en-us/documentation/articles/hdinsight-provision-clusters/)을 참조하십시오.
+HDInsight 클러스터를 프로비전할 때 Blob 저장소 컨테이너는 HDFS에서처럼 기본 파일 시스템으로 지정됩니다. 프로비전 프로세스 중에 이 컨테이너 외에도 동일한 Azure 저장소 계정 또는 다른 Azure 저장소 계정에서 컨테이너를 추가할 수 있습니다. 저장소 계정 추가에 대한 지침은 [HDInsight 클러스터 프로비전](/ko-kr/documentation/articles/hdinsight-provision-clusters/)을 참조하십시오.
 
 이 자습서에 사용된 PowerShell 스크립트를 간소화하려면 모든 파일이 */tutorials/flightdelays*에 있는 기본 파일 시스템 컨테이너에 저장되어야 합니다. 기본적으로 이 컨테이너 이름은 HDInsight 클러스터 이름과 동일합니다.
 
@@ -46,7 +46,7 @@ WASB 구문은 다음과 같습니다.
 
 > [WACOM.NOTE] HDInsight 클러스터 버전 3.0에서는 *wasb://* 구문만 지원됩니다. 이전 *asv://* 구문은 HDInsight 2.1 및 1.6 클러스터에서는 지원되지만 HDInsight 3.0 클러스터에서는 지원되지 않으며 그 이상 버전에서도 지원되지 않습니다.
 
-> WASB 경로는 가상 경로입니다. 자세한 내용은 [HDInsight에서 Azure Blob 저장소 사용](/en-us/documentation/articles/hdinsight-use-blob-storage/)을 참조하십시오.
+> WASB 경로는 가상 경로입니다. 자세한 내용은 [HDInsight에서 Azure Blob 저장소 사용](/ko-kr/documentation/articles/hdinsight-use-blob-storage/)을 참조하십시오.
 
 기본 파일 시스템 컨테이너에 저장된 파일은 다음 URI 중 아무거나 사용하여 HDInsight에서 액세스할 수 있습니다(예제로 flightdelays.hql 사용).
 
@@ -101,7 +101,7 @@ Hive 내부 테이블 및 외부 테이블에 대해 알아야 할 사항이 몇
 
 **Azure Blob 저장소에 비행 지연 데이터를 업로드하려면**
 
-1.  Azure PowerShell을 엽니다. 자세한 내용은 [Azure PowerShell 설치 및 구성](/en-us/documentation/articles/install-configure-powershell/)을 참조하십시오.
+1.  Azure PowerShell을 엽니다. 자세한 내용은 [Azure PowerShell 설치 및 구성](/ko-kr/documentation/articles/install-configure-powershell/)을 참조하십시오.
 2.  다음 명령을 실행하여 Azure 구독에 연결합니다.
 
          Add-AzureAccount
@@ -387,7 +387,7 @@ HiveQL 명령의 전체 목록을 보려면 [Hive 데이터 정의 언어](https
 HiveQL 스크립트 실행
 --------------------
 
-Hive를 실행하는 데 사용할 수 있는 몇 가지 Azure PowerShell cmdlet이 있습니다. 이 자습서에서는 Invoke-Hive를 사용합니다. 다른 방법에 대해서는 [HDInsight에서 Hive 사용](/en-us/documentation/articles/hdinsight-use-hive/)을 참조하십시오. Invoke-Hive를 사용하여 HiveQL 문이나 HiveQL 스크립트 중 하나를 실행할 수 있습니다. 만들어서 Azure Blob 저장소에 업로드한 HiveQL 스크립트를 사용합니다.
+Hive를 실행하는 데 사용할 수 있는 몇 가지 Azure PowerShell cmdlet이 있습니다. 이 자습서에서는 Invoke-Hive를 사용합니다. 다른 방법에 대해서는 [HDInsight에서 Hive 사용](/ko-kr/documentation/articles/hdinsight-use-hive/)을 참조하십시오. Invoke-Hive를 사용하여 HiveQL 문이나 HiveQL 스크립트 중 하나를 실행할 수 있습니다. 만들어서 Azure Blob 저장소에 업로드한 HiveQL 스크립트를 사용합니다.
 
 알려진 Hive 경로 문제가 있습니다. 문제 해결을 위한 지침은 [TechNet Wiki](http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx)(영문)에서 찾을 수 있습니다.
 
@@ -515,11 +515,11 @@ Azure SQL 데이터베이스로 Hive 작업 출력 내보내기
 
 이제 파일을 Blob 저장소로 업로드하는 방법, Blob 저장소의 데이터를 사용하여 Hive 테이블을 채우는 방법, Hive 쿼리를 실행하는 방법, Sqoop을 사용하여 HDFS의 데이터를 Azure SQL 데이터베이스로 내보내는 방법을 익혔습니다. 자세한 내용은 다음 문서를 참조하십시오.
 
--   [HDInsight 시작](/en-us/documentation/articles/hdinsight-get-started/)
--   [HDInsight에서 Hive 사용](/en-us/documentation/articles/hdinsight-use-hive/)
--   [HDInsight에서 Oozie 사용](/en-us/documentation/articles/hdinsight-use-oozie/)
+-   [HDInsight 시작](/ko-kr/documentation/articles/hdinsight-get-started/)
+-   [HDInsight에서 Hive 사용](/ko-kr/documentation/articles/hdinsight-use-hive/)
+-   [HDInsight에서 Oozie 사용](/ko-kr/documentation/articles/hdinsight-use-oozie/)
 -   [HDInsight에서 Sqoop 사용](../hdinsight-use-sqoop/)
--   [HDInsight에서 Pig 사용](/en-us/documentation/articles/hdinsight-use-pig/)
--   [HDInsight용 Java MapReduce 프로그램 개발](/en-us/documentation/articles/hdinsight-develop-deploy-java-mapreduce/)
--   [HDInsight용 C\# Hadoop 스트리밍 프로그램 개발](/en-us/documentation/articles/hdinsight-hadoop-develop-deploy-streaming-jobs/)
+-   [HDInsight에서 Pig 사용](/ko-kr/documentation/articles/hdinsight-use-pig/)
+-   [HDInsight용 Java MapReduce 프로그램 개발](/ko-kr/documentation/articles/hdinsight-develop-deploy-java-mapreduce/)
+-   [HDInsight용 C\# Hadoop 스트리밍 프로그램 개발](/ko-kr/documentation/articles/hdinsight-hadoop-develop-deploy-streaming-jobs/)
 

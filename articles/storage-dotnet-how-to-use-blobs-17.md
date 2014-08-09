@@ -238,7 +238,7 @@ Blob을 다운로드하려면 먼저 Blob 참조를 검색합니다. 다음 예�
 
 
 
-[1]: http://msdn.microsoft.com/en-us/library/windowsazure/ee758697.aspx
-[2]: http://msdn.microsoft.com/en-us/library/windowsazure/wl_svchosting_mref_reference_home
-[3]: http://msdn.microsoft.com/en-us/library/windowsazure/dd179355
-[4]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
+[1]: http://msdn.microsoft.com/ko-kr/library/windowsazure/ee758697.aspx
+[2]: http://msdn.microsoft.com/ko-kr/library/windowsazure/wl_svchosting_mref_reference_home
+[3]: http://msdn.microsoft.com/ko-kr/library/windowsazure/dd179355
+[4]: http://msdn.microsoft.com/ko-kr/library/windowsazure/gg433040.aspx

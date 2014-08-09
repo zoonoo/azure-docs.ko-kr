@@ -11,9 +11,9 @@ Azure 모바일 서비스를 사용하여 앱을 배포하는 경우 서버 오�
 가용성 문제가 발생하는 경우 더 손쉽게 복구하기 위해 미리 대비할 수 있습니다.
 
 -   **Azure 모바일 서비스 SQL 데이터베이스에서 데이터 백업**
-    모바일 서비스 응용 프로그램 데이터는 Azure SQL 데이터베이스에 저장됩니다. [SQL 데이터베이스 비즈니스 연속성 지침](http://msdn.microsoft.com/en-us/library/windowsazure/hh852669.aspx)의 설명대로 데이터를 백업하는 것이 좋습니다.
+    모바일 서비스 응용 프로그램 데이터는 Azure SQL 데이터베이스에 저장됩니다. [SQL 데이터베이스 비즈니스 연속성 지침](http://msdn.microsoft.com/ko-kr/library/windowsazure/hh852669.aspx)의 설명대로 데이터를 백업하는 것이 좋습니다.
 -   **모바일 서비스 스크립트 백업**
-    [Team Foundation Service](http://tfs.visualstudio.com/) 또는 [GitHub] 등의 소스 제어 시스템에 모바일 서비스 스크립트를 저장하는 것이 좋으며 모바일 서비스 자체에만 복사본을 가지고 있는 것은 좋지 않습니다. 모바일 서비스 [소스 제어 기능](http://www.windowsazure.com/en-us/develop/mobile/tutorials/store-scripts-in-source-control/)(영문)을 사용하거나 [Azure 명령줄 도구를 사용](http://www.windowsazure.com/en-us/develop/mobile/tutorials/command-line-administration/)(영문)하여 Azure 포털을 통해 다운로드할 수 있습니다. 포털에서 "preview"라는 레이블이 있는 기능은 특히 주의하십시오. 해당 스크립트의 경우 복구가 보장되지 않으므로 고유한 소스 제어 원본에서 스크립트를 복구해야 할 수 있습니다.
+    [Team Foundation Service](http://tfs.visualstudio.com/) 또는 [GitHub] 등의 소스 제어 시스템에 모바일 서비스 스크립트를 저장하는 것이 좋으며 모바일 서비스 자체에만 복사본을 가지고 있는 것은 좋지 않습니다. 모바일 서비스 [소스 제어 기능](http://www.windowsazure.com/ko-kr/develop/mobile/tutorials/store-scripts-in-source-control/)(영문)을 사용하거나 [Azure 명령줄 도구를 사용](http://www.windowsazure.com/ko-kr/develop/mobile/tutorials/command-line-administration/)(영문)하여 Azure 포털을 통해 다운로드할 수 있습니다. 포털에서 "preview"라는 레이블이 있는 기능은 특히 주의하십시오. 해당 스크립트의 경우 복구가 보장되지 않으므로 고유한 소스 제어 원본에서 스크립트를 복구해야 할 수 있습니다.
 -   **보조 모바일 서비스 예약**
     모바일 서비스의 가용성 문제가 발생하는 경우 대체 Azure 지역에 모바일 서비스를 다시 배포해야 할 수 있습니다. 용량을 사용할 수 있도록 하려면(예: 흔하지 않은 상황이지만 전체 지역이 손실된 경우) 대체 지역에 보조 모바일 서비스를 만들고 기본 서비스의 모드와 동일하거나 그보다 높은 모드로 설정하는 것이 좋습니다. 즉, 기본 서비스가 공유 모드인 경우 보조 서비스를 공유 또는 예약으로 만들 수 있습니다. 하지만 기본 서비스가 예약인 경우에는 보조 서비스도 예약이어야 합니다.
 
@@ -25,7 +25,7 @@ Azure 모바일 서비스를 사용하여 앱을 배포하는 경우 서버 오�
 -   모바일 서비스에 연결된 앱이 장시간 동안 모바일 서비스와 통신할 수 없습니다.
 -   [Azure 포털](http://manage.windowsazure.com/)에서 모바일 서비스 상태가 **비정상**으로 표시됩니다.
 -   Azure 포털에서 모바일 서비스의 모든 탭의 위쪽에 **비정상** 배너가 나타나고 관리 작업에서 오류 메시지가 발생합니다.
--   [Azure 서비스 대시보드](http://www.windowsazure.com/en-us/support/service-dashboard/)가 가용성 문제를 나타냅니다.
+-   [Azure 서비스 대시보드](http://www.windowsazure.com/ko-kr/support/service-dashboard/)가 가용성 문제를 나타냅니다.
 
 복구재해 복구
 -------------
@@ -42,7 +42,7 @@ Azure 모바일 서비스를 사용하여 앱을 배포하는 경우 서버 오�
 
     아직 보조 모바일 서비스를 예약해 두지 않았다면 이번에는 다른 Azure 지역에서 보조 모바일 서비스를 만듭니다. 해당 코드를 기본 서비스의 모드와 같거나 그보다 높게 설정합니다. 즉, 기본 서비스가 공유 모드인 경우 보조 서비스를 공유 또는 예약으로 만들 수 있습니다. 하지만 기본 서비스가 예약인 경우에는 보조 서비스도 예약이어야 합니다.
 
-3.  [명령줄 도구를 사용하여 모바일 서비스 자동화](http://www.windowsazure.com/en-us/develop/mobile/tutorials/command-line-administration/)의 설명대로 구독에서 작동하도록 Azure 명령줄 도구를 구성합니다.
+3.  [명령줄 도구를 사용하여 모바일 서비스 자동화](http://www.windowsazure.com/ko-kr/develop/mobile/tutorials/command-line-administration/)의 설명대로 구독에서 작동하도록 Azure 명령줄 도구를 구성합니다.
 
 4.  이제 보조 서비스를 사용하여 기본 서비스를 복구할 수 있습니다.
 
@@ -69,7 +69,7 @@ Azure 모바일 서비스를 사용하여 앱을 배포하는 경우 서버 오�
 
 6.  복구된 서비스가 Azure SQL 데이터베이스와 통신하고 있는지 확인합니다. 복구 명령은 모바일 서비스를 복구하지만 원본 데이터베이스에 대한 연결은 유지합니다. 기본 Azure 지역의 문제가 데이터베이스에도 영향을 미치는 경우에는 복구된 서비스가 올바르게 실행되지 않을 수 있습니다. Azure 서비스 대시보드를 사용하여 특정 지역의 데이터베이스 상태를 검사할 수 있습니다. 원래 데이터베이스가 작동하지 않는 경우 다음과 같이 복구할 수 있습니다.
 
-    -   [SQL 데이터베이스 비즈니스 연속성 지침](http://msdn.microsoft.com/en-us/library/windowsazure/hh852669.aspx)의 설명대로 Azure SQL 데이터베이스를 방금 모바일 서비스를 복구한 Azure 지역으로 복구합니다.
+    -   [SQL 데이터베이스 비즈니스 연속성 지침](http://msdn.microsoft.com/ko-kr/library/windowsazure/hh852669.aspx)의 설명대로 Azure SQL 데이터베이스를 방금 모바일 서비스를 복구한 Azure 지역으로 복구합니다.
     -   Azure 포털에서 모바일 서비스의 **구성** 탭에서 "데이터베이스 변경"을 선택한 후 새로 복구된 데이터베이스를 선택합니다.
 
 이제 모바일 서비스가 새 Azure 지역으로 복구되어 원래 URL을 사용하여 저장소 앱의 트래픽을 허용하는 상태가 되었습니다.

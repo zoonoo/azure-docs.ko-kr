@@ -3,9 +3,9 @@
 .Net 백 엔드를 사용하여 모바일 서비스에서 데이터 유효성 검사 및 수정
 ====================================================================
 
-[Windows 스토어 C\#](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-validate-modify-data/ "Windows 스토어 C#") [Windows 스토어 JavaScript](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-validate-modify-data/ "Windows 스토어 JavaScript") [Windows Phone](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-validate-modify-data/ "Windows Phone") [iOS](/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-ios "iOS") [Android](/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-android "Android") [HTML](/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-html "HTML")[Xamarin.iOS](/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-ios "Xamarin.iOS") [Xamarin.Android](/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-android "Xamarin.Android")
+[Windows 스토어 C\#](/ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-validate-modify-data/ "Windows 스토어 C#") [Windows 스토어 JavaScript](/ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-validate-modify-data/ "Windows 스토어 JavaScript") [Windows Phone](/ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-phone-validate-modify-data/ "Windows Phone") [iOS](/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-ios "iOS") [Android](/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-android "Android") [HTML](/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-html "HTML")[Xamarin.iOS](/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-ios "Xamarin.iOS") [Xamarin.Android](/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-android "Xamarin.Android")
 
-[.NET 백 엔드](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-validate-modify-data/ ".NET 백 엔드") | [JavaScript 백 엔드](/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-wp8 "JavaScript 백 엔드")
+[.NET 백 엔드](/ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-phone-validate-modify-data/ ".NET 백 엔드") | [JavaScript 백 엔드](/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-wp8 "JavaScript 백 엔드")
 
 이 항목에서는 .Net 백 엔드 Azure 모바일 서비스에서 코드를 사용하여 데이터를 유효성 검사 및 수정하는 방법을 보여 줍니다. .Net 백 엔드 서비스는 Web API 프레임워크에 기본 제공되는 HTTP 서비스입니다. Web API 프레임워크로 정의되는 `ApiController` 클래스에 대해 잘 알고 있다면 모바일 서비스에 제공되는 `TableController` 클래스는 쉽게 이해할 수 있습니다. `TableController`는 `ApiController` 클래스에서 파생되며 데이터베이스 테이블 연결을 위한 추가 기능을 제공합니다. 이 클래스는 이 자습서에서 다루는 유효성 검사 및 데이터 수정을 비롯하여 삽입 및 업데이트 중인 데이터에 대한 작업을 수행하는 데 사용될 수 있습니다.
 
@@ -17,7 +17,7 @@
 4.  [CompleteDate에 대한 타임스탬프 추가](#add-timestamp)
 5.  [CompleteDate를 표시하도록 클라이언트 업데이트](#update-client-timestamp)
 
-이 자습서는 이전 자습서인 [시작](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started/) 또는 [데이터 시작](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/)의 단계 및 샘플 앱을 기반으로 합니다. 이 자습서를 시작하기 전에 먼저 [시작](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started/) 또는 [데이터 시작](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/) 자습서를 완료해야 합니다.
+이 자습서는 이전 자습서인 [시작](/ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started/) 또는 [데이터 시작](/ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/)의 단계 및 샘플 앱을 기반으로 합니다. 이 자습서를 시작하기 전에 먼저 [시작](/ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started/) 또는 [데이터 시작](/ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/) 자습서를 완료해야 합니다.
 
 유효성 검사 추가
 ----------------
@@ -152,10 +152,10 @@ CompleteDate를 표시하도록 클라이언트 업데이트
 
 서버 스크립트는 사용자를 인증할 때 및 푸시 알림을 보내기 위해서도 사용됩니다. 자세한 내용은 다음 자습서를 참조하십시오.
 
--   [사용자의 서비스 쪽 권한 부여](en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-authorize-users-in-scripts/)
+-   [사용자의 서비스 쪽 권한 부여](ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-phone-authorize-users-in-scripts/)
     인증된 사용자의 ID를 기준으로 데이터를 필터링하는 방법을 알아봅니다.
 
--   [푸시 알림 시작](en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push/)
+-   [푸시 알림 시작](ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push/)
     기본적인 푸시 알림을 앱에 보내는 방법을 알아봅니다.
 
 -   [모바일 서비스 .NET 방법 개념 참조](/en-us/develop/mobile/how-to-guides/work-with-net-client-library)

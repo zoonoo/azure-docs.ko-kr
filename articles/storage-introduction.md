@@ -129,7 +129,7 @@ Azure 저장소는 HTTP/HTTPS 요청을 수행할 수 있는 임의의 언어로
 
 Azure 저장소를 시작하려면 다음 리소스를 탐색하십시오.
 
--   [Azure 저장소 설명서](/en-us/documentation/services/storage/)
+-   [Azure 저장소 설명서](/ko-kr/documentation/services/storage/)
 -   [Azure 저장소 확장성 및 성능 목표](http://msdn.microsoft.com/library/windowsazure/dn249410.aspx)
 
 ### .NET 개발자

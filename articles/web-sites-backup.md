@@ -5,7 +5,7 @@ Azure 웹 사이트 백업
 
 Azure 웹 사이트 백업 및 복원 기능을 통해 웹 사이트 백업을 수동이나 자동으로 쉽게 만들 수 있습니다. 웹 사이트를 이전 상태로 복원하거나 원본 사이트 백업 중 하나를 기반으로 새 웹 사이트를 만들 수 있습니다.
 
-백업에서 Azure 웹 사이트 복원에 대한 자세한 내용은 [Azure 웹 사이트 복원](http://www.windowsazure.com/en-us/documentation/articles/web-sites-restore/)을 참조하십시오.
+백업에서 Azure 웹 사이트 복원에 대한 자세한 내용은 [Azure 웹 사이트 복원](http://www.windowsazure.com/ko-kr/documentation/articles/web-sites-restore/)을 참조하십시오.
 
 이 문서에서는 다음을 수행합니다.
 --------------------------------
@@ -32,7 +32,7 @@ Azure 웹 사이트 백업 및 복원 기능을 통해 웹 사이트 백업을 �
 
 ## 요구 사항 및 제한 사항
 
--   백업 및 복원 기능은 사이트가 표준 계층에 있어야 합니다. 표준 계층을 사용하는 웹 사이트의 크기 조정에 대한 자세한 내용은 [웹 사이트 크기를 조정하는 방법](http://www.windowsazure.com/en-us/documentation/articles/web-sites-scale/)을 참조하십시오.
+-   백업 및 복원 기능은 사이트가 표준 계층에 있어야 합니다. 표준 계층을 사용하는 웹 사이트의 크기 조정에 대한 자세한 내용은 [웹 사이트 크기를 조정하는 방법](http://www.windowsazure.com/ko-kr/documentation/articles/web-sites-scale/)을 참조하십시오.
 
 -   백업 및 복원 기능에는 백업할 웹 사이트와 동일한 구독에 속해야 하는 Azure 저장소 계정이 있어야 합니다. 아직 저장소 계정이 없는 경우에는 Azure 포털의 왼쪽 창에서 **저장소** 단추(표 아이콘)를 클릭한 후 아래의 명령 모음에서 **새로 만들기**를 선택하여 저장소 계정을 만들 수 있습니다. Azure 저장소 계정에 대한 자세한 내용은 이 문서의 끝에 있는 [링크](#moreaboutstorage)를 참조하십시오.
 
@@ -114,15 +114,15 @@ Azure 웹 사이트 백업 및 복원 기능을 통해 웹 사이트 백업을 �
 -   미리 보는 동안 백업 및 복원 작업은 Azure 관리 포털을 통해서만 사용할 수 있습니다.
 
 ## 다음 단계
-  백업에서 Azure 웹 사이트 복원에 대한 자세한 내용은 [Azure 웹 사이트 복원](http://www.windowsazure.com/en-us/documentation/articles/web-sites-restore/)을 참조하십시오.
+  백업에서 Azure 웹 사이트 복원에 대한 자세한 내용은 [Azure 웹 사이트 복원](http://www.windowsazure.com/ko-kr/documentation/articles/web-sites-restore/)을 참조하십시오.
 
 ### 저장소 계정에 대한 자세한 정보
 
-[저장소 계정 정의](http://www.windowsazure.com/en-us/documentation/articles/storage-whatis-account/)
+[저장소 계정 정의](http://www.windowsazure.com/ko-kr/documentation/articles/storage-whatis-account/)
 
-[방법: 저장소 계정 만들기](http://www.windowsazure.com/en-us/documentation/articles/storage-create-storage-account/)
+[방법: 저장소 계정 만들기](http://www.windowsazure.com/ko-kr/documentation/articles/storage-create-storage-account/)
 
-[저장소 계정을 모니터링하는 방법](http://www.windowsazure.com/en-us/documentation/articles/storage-monitor-storage-account/)
+[저장소 계정을 모니터링하는 방법](http://www.windowsazure.com/ko-kr/documentation/articles/storage-monitor-storage-account/)
 
 [Azure 저장소 대금 청구 이해(영문)](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx)
 

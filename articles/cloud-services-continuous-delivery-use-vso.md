@@ -46,7 +46,7 @@ Visual Studio Online에 등록1단계: Visual Studio Online에 등록
 소스 제어에 프로젝트 체크 인.2단계: 소스 제어에 프로젝트 체크 인
 ----------------------------------------------------------------
 
-1.  Visual Studio에서 배포할 솔루션을 열거나 새 솔루션을 만듭니다. 이 연습의 단계에 따라 웹 사이트 또는 클라우드 서비스(Azure 응용 프로그램)를 배포할 수 있습니다. 새 솔루션을 만들려는 경우 새 Azure 클라우드 서비스 프로젝트 또는 새 ASP.NET MVC 프로젝트를 만듭니다. 프로젝트의 대상을 .NET Framework 4 또는 4.5로 지정했는지 확인하고, 클라우드 서비스 프로젝트를 만드는 경우 ASP.NET MVC 웹 역할 및 작업자 역할을 추가하고 웹 역할을 위한 인터넷 응용 프로그램을 선택합니다. 메시지가 표시되면 **인터넷 응용 프로그램**을 선택합니다. 웹 사이트를 만들려는 경우 ASP.NET 웹 응용 프로그램 프로젝트 템플릿을 선택한 후 MVC를 선택합니다. 자세한 내용은 [Azure 및 ASP.NET 시작](http://www.windowsazure.com/en-us/documentation/articles/web-sites-dotnet-get-started/)(영문)을 참조하십시오.
+1.  Visual Studio에서 배포할 솔루션을 열거나 새 솔루션을 만듭니다. 이 연습의 단계에 따라 웹 사이트 또는 클라우드 서비스(Azure 응용 프로그램)를 배포할 수 있습니다. 새 솔루션을 만들려는 경우 새 Azure 클라우드 서비스 프로젝트 또는 새 ASP.NET MVC 프로젝트를 만듭니다. 프로젝트의 대상을 .NET Framework 4 또는 4.5로 지정했는지 확인하고, 클라우드 서비스 프로젝트를 만드는 경우 ASP.NET MVC 웹 역할 및 작업자 역할을 추가하고 웹 역할을 위한 인터넷 응용 프로그램을 선택합니다. 메시지가 표시되면 **인터넷 응용 프로그램**을 선택합니다. 웹 사이트를 만들려는 경우 ASP.NET 웹 응용 프로그램 프로젝트 템플릿을 선택한 후 MVC를 선택합니다. 자세한 내용은 [Azure 및 ASP.NET 시작](http://www.windowsazure.com/ko-kr/documentation/articles/web-sites-dotnet-get-started/)(영문)을 참조하십시오.
 
 2.  솔루션의 상황에 맞는 메뉴를 열고 **소스 제어에 솔루션 추가**를 선택합니다.
 
@@ -156,7 +156,7 @@ Azure에 프로젝트 연결3단계: Azure에 프로젝트 연결
 <tr data-morhtml="true"><td data-morhtml="true">게시 프로필</td><td data-morhtml="true">.azurePubxml 파일. 프로필을 체크 인한 경우 여기에서 선택할 수 있음</td></tr>
 </table>
 <br/>
- 저장소 계정 속성을 비워둔 경우 Azure에서 저장소 계정을 검색합니다. 클라우드 서비스와 동일한 이름의 저장소 계정이 있는 경우 그 이름을 사용합니다. 그렇지 않으면 다른 저장소 계정을 사용하거나, 저장소 계정이 없는 경우에는 계정을 새로 만듭니다. 저장소 계정은 저장소 파일 및 기타 데이터의 Azure 위치를 제공합니다. 자세한 내용은 [저장소 계정 정의](http://www.windowsazure.com/en-us/documentation/articles/storage-whatis-account)(영문)를 참조하십시오.
+ 저장소 계정 속성을 비워둔 경우 Azure에서 저장소 계정을 검색합니다. 클라우드 서비스와 동일한 이름의 저장소 계정이 있는 경우 그 이름을 사용합니다. 그렇지 않으면 다른 저장소 계정을 사용하거나, 저장소 계정이 없는 경우에는 계정을 새로 만듭니다. 저장소 계정은 저장소 파일 및 기타 데이터의 Azure 위치를 제공합니다. 자세한 내용은 [저장소 계정 정의](http://www.windowsazure.com/ko-kr/documentation/articles/storage-whatis-account)(영문)를 참조하십시오.
 
 1.  이제 빌드가 완료됩니다.
 
@@ -192,7 +192,7 @@ Azure에 프로젝트 연결3단계: Azure에 프로젝트 연결
 이 단계는 웹 사이트가 아닌 클라우드 서비스에만 적용됩니다. 준비가 되면 관리 포털에서 교환 단추를 선택하여 스테이징 환경에서 프로덕션 환경으로 수준을 올릴 수 있습니다. 새로 배포된 스테이징 환경에서 프로덕션으로 수준이 올라가며, 이전 프로덕션 환경이 있는 경우 스테이징 환경으로 변경됩니다. 활성 배포는 프로덕션 환경과 스테이징 환경에서 서로 다를 수 있지만 최근 빌드의 배포 기록은 환경과 관계없이 동일합니다.
  ![](./media/cloud-services-continuous-delivery-use-vso/tfs35.png)
 
-자세한 내용은 [Visual Studio Online](http://go.microsoft.com/fwlink/?LinkId=253861)을 참조하십시오. Git를 사용하는 경우 [Git에서 코드 공유](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx) 및 [소스 제어에서 Azure 웹 사이트로 게시](http://www.windowsazure.com/en-us/documentation/articles/web-sites-publish-source-control)(영문)를 참조하십시오.
+자세한 내용은 [Visual Studio Online](http://go.microsoft.com/fwlink/?LinkId=253861)을 참조하십시오. Git를 사용하는 경우 [Git에서 코드 공유](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx) 및 [소스 제어에서 Azure 웹 사이트로 게시](http://www.windowsazure.com/ko-kr/documentation/articles/web-sites-publish-source-control)(영문)를 참조하십시오.
 
 [0]: ./media/cloud-services-continuous-delivery-use-vso/tfs0.PNG
 [1]: ./media/cloud-services-continuous-delivery-use-vso/tfs1.png

@@ -52,11 +52,11 @@ Azure 가상 컴퓨터 배포
 
 **1단계: SSH 키 쌍 생성**
 
-Azure는 프로비전 시간에 PEM 또는 DER 인코딩된 X509 공개 키를 필요로 합니다. [Azure에서 Linux 환경의 SSH를 사용하는 방법](http://www.windowsazure.com/en-us/manage/linux/how-to-guides/ssh-into-linux/)(영문)에 설명된 지침에 따라 공개/개인 키 쌍을 생성합니다. Windows 또는 Linux에서 putty.exe를 SSH 클라이언트로 사용할 계획이면 PEM 인코딩된 RSA 개인 키를 puttygen.exe를 사용하여 PPK 형식으로 변환해야 합니다. 이에 대한 지침은 [Azure에서의 Linux VM 배포를 위한 SSH 키 쌍 생성](http://blogs.msdn.com/b/hanuk/archive/2012/06/07/generating-ssh-key-pair-for-linux-vm-deployment-on-windows-azure.aspx)(영문)에서 확인할 수 있습니다.
+Azure는 프로비전 시간에 PEM 또는 DER 인코딩된 X509 공개 키를 필요로 합니다. [Azure에서 Linux 환경의 SSH를 사용하는 방법](http://www.windowsazure.com/ko-kr/manage/linux/how-to-guides/ssh-into-linux/)(영문)에 설명된 지침에 따라 공개/개인 키 쌍을 생성합니다. Windows 또는 Linux에서 putty.exe를 SSH 클라이언트로 사용할 계획이면 PEM 인코딩된 RSA 개인 키를 puttygen.exe를 사용하여 PPK 형식으로 변환해야 합니다. 이에 대한 지침은 [Azure에서의 Linux VM 배포를 위한 SSH 키 쌍 생성](http://blogs.msdn.com/b/hanuk/archive/2012/06/07/generating-ssh-key-pair-for-linux-vm-deployment-on-windows-azure.aspx)(영문)에서 확인할 수 있습니다.
 
 **2단계: Ubuntu VM 만들기**
 
-첫 번째 Ubuntu VM을 만들려면 Azure 미리 보기 포털에 로그인하고 **새로 만들기**, **가상 컴퓨터**, **갤러리에서**, **Unbuntu Server 12.xx**를 차례로 클릭한 후, 오른쪽 화살표를 클릭합니다. Linux VM을 만드는 방법을 설명하는 자습서는 [Linux를 실행하는 가상 컴퓨터 만들기](http://www.windowsazure.com/en-us/manage/linux/tutorials/virtual-machine-from-gallery/)(영문)를 참조하십시오.
+첫 번째 Ubuntu VM을 만들려면 Azure 미리 보기 포털에 로그인하고 **새로 만들기**, **가상 컴퓨터**, **갤러리에서**, **Unbuntu Server 12.xx**를 차례로 클릭한 후, 오른쪽 화살표를 클릭합니다. Linux VM을 만드는 방법을 설명하는 자습서는 [Linux를 실행하는 가상 컴퓨터 만들기](http://www.windowsazure.com/ko-kr/manage/linux/tutorials/virtual-machine-from-gallery/)(영문)를 참조하십시오.
 
 그런 다음, VM 구성 화면에서 다음 정보를 입력합니다.
 

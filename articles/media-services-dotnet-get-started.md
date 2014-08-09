@@ -27,7 +27,7 @@ Azure Media Services SDK를 기반으로 하는 연습 및 개발에는 다음 �
 
 **참고**
 
-이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A8A8397B5)을 참조하십시오.
+이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](http://www.windowsazure.com/ko-kr/pricing/free-trial/?WT.mc_id=A8A8397B5)을 참조하십시오.
 
 프로젝트 설정
 -------------
@@ -179,7 +179,7 @@ Main 메서드에서 **\_context = new CloudMediaContext(\_accountName, \_accoun
 서버의 자산 인코딩 및 출력 자산 다운로드
 ----------------------------------------
 
-미디어 서비스에서 인코딩, 암호화, 형식 변환 등 여러 가지 방법으로 미디어 콘텐츠를 처리하는 작업을 생성할 수 있습니다. 미디어 서비스 작업에는 작업 처리에 대한 세부 정보를 지정하는 태스크가 항상 하나 이상 포함됩니다. 이 섹션에서는 기본적인 인코딩 태스크를 생성한 다음 Azure Media Encoder를 사용하여 수행하는 작업을 실행합니다. 태스크는 기본 설정 문자열을 사용하여 수행하는 인코딩의 유형을 지정합니다. 사용 가능한 기본 설정 인코딩 값을 보려면 [Azure Media Encoder용 태스크 기본 설정 문자열](http://msdn.microsoft.com/en-us/library/windowsazure/jj129582.aspx)을 참조하십시오. 미디어 서비스는 Microsoft Expression Encoder와 같은 미디어 파일 입력 및 출력 형식을 지원합니다. 지원되는 형식 목록은 [미디어 서비스에 대해 지원되는 파일 형식](http://msdn.microsoft.com/en-us/library/windowsazure/hh973634.aspx)을 참조하십시오.
+미디어 서비스에서 인코딩, 암호화, 형식 변환 등 여러 가지 방법으로 미디어 콘텐츠를 처리하는 작업을 생성할 수 있습니다. 미디어 서비스 작업에는 작업 처리에 대한 세부 정보를 지정하는 태스크가 항상 하나 이상 포함됩니다. 이 섹션에서는 기본적인 인코딩 태스크를 생성한 다음 Azure Media Encoder를 사용하여 수행하는 작업을 실행합니다. 태스크는 기본 설정 문자열을 사용하여 수행하는 인코딩의 유형을 지정합니다. 사용 가능한 기본 설정 인코딩 값을 보려면 [Azure Media Encoder용 태스크 기본 설정 문자열](http://msdn.microsoft.com/ko-kr/library/windowsazure/jj129582.aspx)을 참조하십시오. 미디어 서비스는 Microsoft Expression Encoder와 같은 미디어 파일 입력 및 출력 형식을 지원합니다. 지원되는 형식 목록은 [미디어 서비스에 대해 지원되는 파일 형식](http://msdn.microsoft.com/ko-kr/library/windowsazure/hh973634.aspx)을 참조하십시오.
 
 1.  클래스에 다음과 같은 **CreateEncodingJob** 메서드 정의를 추가합니다. 이 메서드는 인코딩 작업에 대해 필요한 여러 태스크를 수행하는 방법을 설명합니다.
 
@@ -649,6 +649,6 @@ File download path:  C:\supportFiles\outputfiles\interview2_metadata.xml
 
 이 연습에서는 간단한 미디어 서비스 응용 프로그램을 빌드하기 위한 일련의 프로그래밍 작업을 설명했습니다. 서버 컨텍스트 가져오기, 자산 생성, 자산 인코딩, 서버의 자산 다운로드 또는 액세스를 비롯하여 기본적인 미디어 서비스 프로그래밍 작업에 대해 배웠습니다. 다음 단계 및 고급 개발 작업에 대해서는 다음을 참조하십시오.
 
--   [미디어 서비스 사용 방법(영문)](http://www.windowsazure.com/en-us/develop/net/how-to-guides/media-services/)
--   [Media Services REST API를 사용하여 응용 프로그램 작성](http://msdn.microsoft.com/en-us/library/windowsazure/hh973618.aspx)
+-   [미디어 서비스 사용 방법(영문)](http://www.windowsazure.com/ko-kr/develop/net/how-to-guides/media-services/)
+-   [Media Services REST API를 사용하여 응용 프로그램 작성](http://msdn.microsoft.com/ko-kr/library/windowsazure/hh973618.aspx)
 

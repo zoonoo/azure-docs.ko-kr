@@ -92,7 +92,7 @@ Azure 서비스 클라이언트를 만들려면 **ServicesBuilder** 클래스를
 방법: 테이블 만들기
 -------------------
 
-**TableRestProxy** 개체를 통해 **createTable** 메서드를 사용하여 테이블을 만들 수 있습니다. 테이블을 만드는 중에 테이블 서비스 제한 시간을 설정할 수 있습니다. 테이블 서비스 제한 시간에 대한 자세한 내용은 [테이블 서비스 작업의 제한 시간 설정](http://msdn.microsoft.com/en-us/library/windowsazure/dd894042.aspx)을 참조하십시오.
+**TableRestProxy** 개체를 통해 **createTable** 메서드를 사용하여 테이블을 만들 수 있습니다. 테이블을 만드는 중에 테이블 서비스 제한 시간을 설정할 수 있습니다. 테이블 서비스 제한 시간에 대한 자세한 내용은 [테이블 서비스 작업의 제한 시간 설정](http://msdn.microsoft.com/ko-kr/library/windowsazure/dd894042.aspx)을 참조하십시오.
 
     require_once 'vendor\autoload.php';
 
@@ -111,10 +111,10 @@ Azure 서비스 클라이언트를 만들려면 **ServicesBuilder** 클래스를
         $error_message = $e->getMessage();
         // Handle exception based on error codes and messages.
         // Error codes and messages can be found here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+        // http://msdn.microsoft.com/ko-kr/library/windowsazure/dd179438.aspx
     }
 
-테이블 이름의 제한 사항에 대한 자세한 내용은 [테이블 서비스 데이터 모델 이해](http://msdn.microsoft.com/en-us/library/windowsazure/dd179338.aspx)를 참조하십시오.
+테이블 이름의 제한 사항에 대한 자세한 내용은 [테이블 서비스 데이터 모델 이해](http://msdn.microsoft.com/ko-kr/library/windowsazure/dd179338.aspx)를 참조하십시오.
 
 방법: 테이블에 엔터티 추가
 --------------------------
@@ -146,12 +146,12 @@ Azure 서비스 클라이언트를 만들려면 **ServicesBuilder** 클래스를
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+        // http://msdn.microsoft.com/ko-kr/library/windowsazure/dd179438.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
     }
 
-테이블 속성 및 유형에 대한 자세한 내용은 [테이블 서비스 데이터 모델 이해](http://msdn.microsoft.com/en-us/library/windowsazure/dd179338.aspx)를 참조하십시오.
+테이블 속성 및 유형에 대한 자세한 내용은 [테이블 서비스 데이터 모델 이해](http://msdn.microsoft.com/ko-kr/library/windowsazure/dd179338.aspx)를 참조하십시오.
 
 **TableRestProxy** 클래스는 엔터티 삽입을 위한 2개의 대체 메서드로 **insertOrMergeEntity** 및 **insertOrReplaceEntity**를 제공합니다. 이러한 메서드를 사용하려면 새 **Entity**를 만들어 두 메서드 중 하나에 매개 변수로 전달합니다. 각 메서드는 엔터티가 없을 경우 해당 엔터티를 삽입합니다. 엔터티가 이미 있을 경우, **insertOrMergeEntity**는 속성이 이미 있으면 속성 값을 업데이트하고 속성이 없으면 새 속성을 추가하지만 **insertOrReplaceEntity**는 기존 엔터티를 완전히 바꿉니다. 다음 예제에서는 **insertOrMergeEntity**를 사용하는 방법을 보여 줍니다. `PartitionKey`가 "tasksSeattle"이고 `RowKey`가 "1"인 엔터티가 아직 없으면 이 엔터티가 삽입됩니다. 그러나 위의 예제와 같이 엔터티가 이미 삽입되어 있으면 `DueDate` 속성이 업데이트되고 `Status` 속성이 추가됩니다. `Description` 및 `Location` 속성 또한 업데이트되지만, 업데이트 값과 속성 값이 같기 때문에 실제로는 속성 값이 변경되지 않습니다. 이 2개의 속성이 예제와 같이 추가되지는 않지만 대상 엔터티에 이미 있는 경우, 두 속성의 기존 값은 변경되지 않습니다.
 
@@ -187,7 +187,7 @@ Azure 서비스 클라이언트를 만들려면 **ServicesBuilder** 클래스를
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+        // http://msdn.microsoft.com/ko-kr/library/windowsazure/dd179438.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -212,7 +212,7 @@ Azure 서비스 클라이언트를 만들려면 **ServicesBuilder** 클래스를
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+        // http://msdn.microsoft.com/ko-kr/library/windowsazure/dd179438.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -225,7 +225,7 @@ Azure 서비스 클라이언트를 만들려면 **ServicesBuilder** 클래스를
 방법: 파티션의 모든 엔터티 검색
 -------------------------------
 
-엔터티 쿼리는 필터를 사용하여 구성됩니다(자세한 내용은 [테이블 및 엔터티 쿼리](http://msdn.microsoft.com/en-us/library/windowsazure/dd894031.aspx) 참조). 파티션의 모든 엔터티를 검색하려면 "PartitionKey eq *partition\_name*" 필터를 사용합니다. 다음 예제에서는 필터를 **queryEntities** 메서드에 전달하여 `tasksSeattle` 파티션의 모든 엔터티를 검색하는 방법을 보여 줍니다.
+엔터티 쿼리는 필터를 사용하여 구성됩니다(자세한 내용은 [테이블 및 엔터티 쿼리](http://msdn.microsoft.com/ko-kr/library/windowsazure/dd894031.aspx) 참조). 파티션의 모든 엔터티를 검색하려면 "PartitionKey eq *partition\_name*" 필터를 사용합니다. 다음 예제에서는 필터를 **queryEntities** 메서드에 전달하여 `tasksSeattle` 파티션의 모든 엔터티를 검색하는 방법을 보여 줍니다.
 
     require_once 'vendor\autoload.php';
 
@@ -243,7 +243,7 @@ Azure 서비스 클라이언트를 만들려면 **ServicesBuilder** 클래스를
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+        // http://msdn.microsoft.com/ko-kr/library/windowsazure/dd179438.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -258,7 +258,7 @@ Azure 서비스 클라이언트를 만들려면 **ServicesBuilder** 클래스를
 방법: 파티션의 엔터티 하위 집합 검색
 ------------------------------------
 
-이전 예제에서 사용된 동일한 패턴을 파티션의 엔터티 하위 집합 검색에 사용할 수 있습니다. 검색되는 엔터티 하위 집합은 사용하는 필터에 의해 결정됩니다(자세한 내용은 [테이블 및 엔터티 쿼리](http://msdn.microsoft.com/en-us/library/windowsazure/dd894031.aspx)). 다음 예제에서는 필터를 사용하여 특정 `Location` 값과 지정한 날짜보다 작은 `DueDate` 값을 갖는 모든 엔터티를 검색하는 방법을 보여 줍니다.
+이전 예제에서 사용된 동일한 패턴을 파티션의 엔터티 하위 집합 검색에 사용할 수 있습니다. 검색되는 엔터티 하위 집합은 사용하는 필터에 의해 결정됩니다(자세한 내용은 [테이블 및 엔터티 쿼리](http://msdn.microsoft.com/ko-kr/library/windowsazure/dd894031.aspx)). 다음 예제에서는 필터를 사용하여 특정 `Location` 값과 지정한 날짜보다 작은 `DueDate` 값을 갖는 모든 엔터티를 검색하는 방법을 보여 줍니다.
 
     require_once 'vendor\autoload.php';
 
@@ -276,7 +276,7 @@ Azure 서비스 클라이언트를 만들려면 **ServicesBuilder** 클래스를
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+        // http://msdn.microsoft.com/ko-kr/library/windowsazure/dd179438.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -311,7 +311,7 @@ Azure 서비스 클라이언트를 만들려면 **ServicesBuilder** 클래스를
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+        // http://msdn.microsoft.com/ko-kr/library/windowsazure/dd179438.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -358,7 +358,7 @@ Azure 서비스 클라이언트를 만들려면 **ServicesBuilder** 클래스를
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+        // http://msdn.microsoft.com/ko-kr/library/windowsazure/dd179438.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -384,7 +384,7 @@ Azure 서비스 클라이언트를 만들려면 **ServicesBuilder** 클래스를
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+        // http://msdn.microsoft.com/ko-kr/library/windowsazure/dd179438.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -441,13 +441,13 @@ Azure 서비스 클라이언트를 만들려면 **ServicesBuilder** 클래스를
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+        // http://msdn.microsoft.com/ko-kr/library/windowsazure/dd179438.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
     }
 
-테이블 일괄 작업에 대한 자세한 내용은 [엔터티 그룹 트랜잭션 수행](http://msdn.microsoft.com/en-us/library/windowsazure/dd894038.aspx)을 참조하십시오.
+테이블 일괄 작업에 대한 자세한 내용은 [엔터티 그룹 트랜잭션 수행](http://msdn.microsoft.com/ko-kr/library/windowsazure/dd894038.aspx)을 참조하십시오.
 
 방법: 테이블 삭제
 -----------------
@@ -469,7 +469,7 @@ Azure 서비스 클라이언트를 만들려면 **ServicesBuilder** 클래스를
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+        // http://msdn.microsoft.com/ko-kr/library/windowsazure/dd179438.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -480,6 +480,6 @@ Azure 서비스 클라이언트를 만들려면 **ServicesBuilder** 클래스를
 
 이제 Azure 테이블 서비스의 기본 사항을 배웠으므로 다음 링크를 따라 좀 더 복잡한 저장소 작업을 수행하는 방법을 알아보십시오.
 
--   MSDN 참조: [Azure에 데이터 저장 및 액세스](http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx)
+-   MSDN 참조: [Azure에 데이터 저장 및 액세스](http://msdn.microsoft.com/ko-kr/library/windowsazure/gg433040.aspx)
 -   Azure 저장소 팀 블로그를 방문하십시오. http://blogs.msdn.com/b/windowsazurestorage/
 

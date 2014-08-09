@@ -192,13 +192,13 @@ Entity Framework를 통해 개발자는 관계형 저장소 스키마에 대해 
 
     metadata=res://*/SchoolModel.csdl|res://*/SchoolModel.ssdl|res://*/SchoolModel.msl;provider=System.Data.SqlClient;provider connection string="Data Source=xxxxxxxxxx.database.windows.net;Initial Catalog=School;Persist Security Info=True;User ID=MyAdmin;Password=***********"
 
-자세한 내용은 [Entity Framework용 EntityClient 공급자](http://msdn.microsoft.com/en-us/library/bb738561.aspx)(영문)를 참조하십시오.
+자세한 내용은 [Entity Framework용 EntityClient 공급자](http://msdn.microsoft.com/ko-kr/library/bb738561.aspx)(영문)를 참조하십시오.
 
 다음 단계
 ---------
 
 SQL 데이터베이스 연결의 기본 사항을 알아봤습니다. 이제 다음 리소스에서 SQL 데이터베이스에 대해 자세히 알아봅니다.
 
--   [개발: 방법 항목(SQL 데이터베이스)](http://msdn.microsoft.com/en-us/library/windowsazure/ee621787.aspx)
--   [SQL 데이터베이스](http://msdn.microsoft.com/en-us/library/windowsazure/ee336279.aspx)
+-   [개발: 방법 항목(SQL 데이터베이스)](http://msdn.microsoft.com/ko-kr/library/windowsazure/ee621787.aspx)
+-   [SQL 데이터베이스](http://msdn.microsoft.com/ko-kr/library/windowsazure/ee336279.aspx)
 

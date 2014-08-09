@@ -9,7 +9,7 @@ Azure 웹 사이트 크기를 확장하려면 두 가지 관련 작업을 수행
 
 관리 포털의 크기 조정 탭에서 모드를 쉽게 변경하고 구성할 수 있습니다. 필요에 따라 크기를 확장하거나 축소할 수 있습니다. 이러한 변경은 적용하는 데 몇 초밖에 걸리지 않으며 웹 호스팅 계획의 모든 웹 사이트에 영향을 줍니다. 또한 변경을 적용하기 위해 코드를 변경하거나 응용 프로그램을 다시 배포할 필요도 없습니다.
 
-웹 호스팅 계획에 대한 자세한 내용은 [Azure 웹 사이트 웹 호스팅 계획](http://go.microsoft.com/fwlink/?LinkId=9845584)을 참조하십시오. 개별 웹 호스팅 계획의 가격 및 기능에 대한 자세한 내용은 [웹 사이트 가격 정보](http://www.windowsazure.com/en-us/pricing/details/web-sites/)를 참조하십시오.
+웹 호스팅 계획에 대한 자세한 내용은 [Azure 웹 사이트 웹 호스팅 계획](http://go.microsoft.com/fwlink/?LinkId=9845584)을 참조하십시오. 개별 웹 호스팅 계획의 가격 및 기능에 대한 자세한 내용은 [웹 사이트 가격 정보](http://www.windowsazure.com/ko-kr/pricing/details/web-sites/)를 참조하십시오.
 
 > [WACOM.NOTE] 웹 사이트를 **무료** 웹 호스팅 계획 모드에서 **기본** 또는 **표준** 웹 호스팅 계획 모드로 전환하기 전에 웹 사이트 구독에 대한 지출 한도를 제거해야 합니다. Microsoft Azure 웹 사이트 구독에 대한 옵션을 보거나 변경하려면 [Microsoft Azure 구독](http://go.microsoft.com/fwlink/?LinkID=235288)을 참조하십시오.
 
@@ -153,34 +153,34 @@ Azure 웹 사이트 크기를 확장하려면 두 가지 관련 작업을 수행
 
 **웹 끝점 모니터링**
 
--   웹 끝점 모니터링은 기본 및 표준 웹 호스팅 계획 모드에서 사용할 수 있습니다. 웹 끝점 모니터링에 대한 자세한 내용은 [웹 사이트를 모니터링하는 방법](http://www.windowsazure.com/en-us/documentation/articles/web-sites-monitor/)을 참조하십시오.
+-   웹 끝점 모니터링은 기본 및 표준 웹 호스팅 계획 모드에서 사용할 수 있습니다. 웹 끝점 모니터링에 대한 자세한 내용은 [웹 사이트를 모니터링하는 방법](http://www.windowsazure.com/ko-kr/documentation/articles/web-sites-monitor/)을 참조하십시오.
 
--   개발자를 비롯하여 모든 사용자에게 유용한 가격 및 기능을 포함하여 웹 호스팅 계획의 나머지 모든 기능에 대한 자세한 내용은 [웹 사이트 가격 정보](http://www.windowsazure.com/en-us/pricing/details/web-sites/)를 참조하십시오.
+-   개발자를 비롯하여 모든 사용자에게 유용한 가격 및 기능을 포함하여 웹 호스팅 계획의 나머지 모든 기능에 대한 자세한 내용은 [웹 사이트 가격 정보](http://www.windowsazure.com/ko-kr/pricing/details/web-sites/)를 참조하십시오.
 
 ## 다음 단계 
 - 확장 가능하며 복원력이 뛰어난 아키텍처 빌드를 포함하여 Azure 웹 사이트 모범 사례에 대해서는 [모범 사례: Azure 웹 사이트(WAWS)](http://blogs.msdn.com/b/windowsazure/archive/2014/02/10/best-practices-windows-azure-websites-waws.aspx)(영문)를 참조하십시오.
 
 -   가격, 지원 및 SLA에 대한 자세한 내용은 다음 링크를 방문하십시오.
 
-    [데이터 전송 가격 정보](http://www.windowsazure.com/en-us/pricing/details/data-transfers/)
+    [데이터 전송 가격 정보](http://www.windowsazure.com/ko-kr/pricing/details/data-transfers/)
 
-    [Microsoft Azure 지원 계획](http://www.windowsazure.com/en-us/support/plans/)
+    [Microsoft Azure 지원 계획](http://www.windowsazure.com/ko-kr/support/plans/)
 
-    [서비스 수준 계약](http://www.windowsazure.com/en-us/support/legal/sla/)
+    [서비스 수준 계약](http://www.windowsazure.com/ko-kr/support/legal/sla/)
 
-    [SQL 데이터베이스 가격 정보](http://www.windowsazure.com/en-us/pricing/details/sql-database/)
+    [SQL 데이터베이스 가격 정보](http://www.windowsazure.com/ko-kr/pricing/details/sql-database/)
 
     [Microsoft Azure를 위한 가상 컴퓨터 및 클라우드 서비스 크기](http://go.microsoft.com/fwlink/?LinkId=309169)
 
-    [웹 사이트 가격 정보](http://www.windowsazure.com/en-us/pricing/details/web-sites/)
+    [웹 사이트 가격 정보](http://www.windowsazure.com/ko-kr/pricing/details/web-sites/)
 
-    [웹 사이트 가격 정보 - SSL 연결](http://www.windowsazure.com/en-us/pricing/details/web-sites/#ssl-connections)
+    [웹 사이트 가격 정보 - SSL 연결](http://www.windowsazure.com/ko-kr/pricing/details/web-sites/#ssl-connections)
 
 -   다음 링크는 Azure 웹 사이트 크기 조정에 대한 비디오입니다.
 
-    [Azure 웹 사이트를 크기 조정하는 방법 - 스테판 스차코우(Stefan Schackow)(영문)](http://www.windowsazure.com/en-us/documentation/videos/azure-web-sites-free-vs-standard-scaling/)
+    [Azure 웹 사이트를 크기 조정하는 방법 - 스테판 스차코우(Stefan Schackow)(영문)](http://www.windowsazure.com/ko-kr/documentation/videos/azure-web-sites-free-vs-standard-scaling/)
 
-    [Azure 웹 사이트, CPU 또는 예약 리소스 크기 자동 조정 - 스테판 스차코우(Stefan Schackow)(영문)](http://www.windowsazure.com/en-us/documentation/videos/auto-scaling-azure-web-sites/)
+    [Azure 웹 사이트, CPU 또는 예약 리소스 크기 자동 조정 - 스테판 스차코우(Stefan Schackow)(영문)](http://www.windowsazure.com/ko-kr/documentation/videos/auto-scaling-azure-web-sites/)
 
-    [Azure 웹 사이트 크기를 조정하는 방법 - 스테판 스차코우(Stefan Schackow)(영문)](http://www.windowsazure.com/en-us/documentation/videos/how-azure-web-sites-scale/)
+    [Azure 웹 사이트 크기를 조정하는 방법 - 스테판 스차코우(Stefan Schackow)(영문)](http://www.windowsazure.com/ko-kr/documentation/videos/how-azure-web-sites-scale/)
 

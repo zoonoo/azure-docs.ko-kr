@@ -300,6 +300,6 @@ App.config 파일을 사용하여 클라이언트를 구성할 수도 있습니�
 
 
 [1]: http://manage.windowsazure.com
-[2]: http://msdn.microsoft.com/en-us/library/windowsazure/ee173564.aspx
-[3]: http://msdn.microsoft.com/en-us/library/windowsazure/ee173543.aspx
+[2]: http://msdn.microsoft.com/ko-kr/library/windowsazure/ee173564.aspx
+[3]: http://msdn.microsoft.com/ko-kr/library/windowsazure/ee173543.aspx
 [4]: http://code.msdn.microsoft.com/windowsazure

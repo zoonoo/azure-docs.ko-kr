@@ -42,11 +42,11 @@ Apache Oozie는 Hadoop 작업을 관리하는 워크플로/조정 시스템입�
          [TRACE] 816
          [WARN]  4
 
-    Hive에 대한 자세한 내용은 [HDInsight에서 Hive 사용](/en-us/documentation/articles/hdinsight-use-hive/)을 참조하십시오.
+    Hive에 대한 자세한 내용은 [HDInsight에서 Hive 사용](/ko-kr/documentation/articles/hdinsight-use-hive/)을 참조하십시오.
 
 2.  HiveQL 작업 출력을 Azure SQL 데이터베이스의 테이블에 내보내는 Sqoop 작업입니다. Sqoop에 대한 자세한 내용은 [HDInsight에서 Sqoop 사용](../hdinsight-use-sqoop/)을 참조하십시오.
 
-> [WACOM.NOTE] HDInsight 클러스터에서 지원되는 Oozie 버전에 대해서는 [HDInsight에서 제공하는 클러스터 버전의 새로운 기능](/en-us/documentation/articles/hdinsight-component-versioning/)을 참조하십시오.
+> [WACOM.NOTE] HDInsight 클러스터에서 지원되는 Oozie 버전에 대해서는 [HDInsight에서 제공하는 클러스터 버전의 새로운 기능](/ko-kr/documentation/articles/hdinsight-component-versioning/)을 참조하십시오.
 
 > [WACOM.NOTE] 이 자습서는 HDInsight 클러스터 버전 2.1 및 3.0에 적용됩니다. 이 문서는 HDInsight 에뮬레이터에 대해 테스트되었습니다.
 
@@ -56,7 +56,7 @@ Apache Oozie는 Hadoop 작업을 관리하는 워크플로/조정 시스템입�
 이 자습서를 시작하기 전에 다음이 있어야 합니다.
 
 -   Azure PowerShell이 설치 및 구성된 **워크스테이션**. 자세한 내용은 [Azure PowerShell 설치 및 구성](/en-us/manage/install-and-configure-windows-powershell/)을 참조하십시오. PowerShell 스크립트를 실행하려면 관리자로 Azure PowerShell을 실행하고 실행 정책을 *RemoteSigned*로 설정해야 합니다. [Windows PowerShell 스크립트 실행](http://technet.microsoft.com/en-us/library/ee176949.aspx)(영문)을 참조하십시오.
--   **HDInsight 클러스터**. HDInsight 클러스터 만들기에 대한 자세한 내용은 [HDInsight 클러스터 프로비전](/en-us/documentation/articles/hdinsight-provision-clusters/) 또는 [HDInsight 시작](/en-us/documentation/articles/hdinsight-get-started/)을 참조하십시오. 자습서를 완료하려면 다음 데이터가 필요합니다.
+-   **HDInsight 클러스터**. HDInsight 클러스터 만들기에 대한 자세한 내용은 [HDInsight 클러스터 프로비전](/ko-kr/documentation/articles/hdinsight-provision-clusters/) 또는 [HDInsight 시작](/ko-kr/documentation/articles/hdinsight-get-started/)을 참조하십시오. 자습서를 완료하려면 다음 데이터가 필요합니다.
 
    <table data-morhtml="true" border="1">
   <tr data-morhtml="true"><th data-morhtml="true">클러스터 속성</th><th data-morhtml="true">PowerShell 변수 이름</th><th data-morhtml="true">값</th><th data-morhtml="true">설명</th></tr>
@@ -286,15 +286,15 @@ Azure PowerShell 스크립트를 실행하여 다음을 수행합니다.
 
 **HDInsight 저장소 이해**
 
-HDInsight는 데이터 저장소로 Azure Blob 저장소를 사용합니다. 이를 *WASB* 또는 *Azure 저장소 - Blob*이라고 합니다. WASB는 Azure Blob 저장소에 구현한 Microsoft의 HDFS입니다. 자세한 내용은 [HDInsight에서 Azure Blob 저장소 사용](/en-us/documentation/articles/hdinsight-use-blob-storage/)을 참조하십시오.
+HDInsight는 데이터 저장소로 Azure Blob 저장소를 사용합니다. 이를 *WASB* 또는 *Azure 저장소 - Blob*이라고 합니다. WASB는 Azure Blob 저장소에 구현한 Microsoft의 HDFS입니다. 자세한 내용은 [HDInsight에서 Azure Blob 저장소 사용](/ko-kr/documentation/articles/hdinsight-use-blob-storage/)을 참조하십시오.
 
-HDInsight 클러스터를 프로비전할 때 Azure 저장소 계정 및 이 계정에서 오는 특정 Blob 저장소 컨테이너가 HDFS의 경우와 같이 기본 파일 시스템으로 지정됩니다. 프로비전 프로세스 중에 이 저장소 계정 외에도 동일한 Azure 구독 또는 다른 Azure 구독에서 저장소 계정을 추가할 수 있습니다. 저장소 계정 추가에 대한 지침은 [HDInsight 클러스터 프로비전](/en-us/documentation/articles/hdinsight-provision-clusters/)을 참조하십시오. 이 자습서에서 사용되는 PowerShell 스크립트를 간소화하기 위해 모든 파일이 */tutorials/useoozie*에 위치한 기본 파일 시스템 컨테이너에 저장됩니다. 기본적으로 이 컨테이너 이름은 HDInsight 클러스터 이름과 동일합니다. WASB 구문은 다음과 같습니다.
+HDInsight 클러스터를 프로비전할 때 Azure 저장소 계정 및 이 계정에서 오는 특정 Blob 저장소 컨테이너가 HDFS의 경우와 같이 기본 파일 시스템으로 지정됩니다. 프로비전 프로세스 중에 이 저장소 계정 외에도 동일한 Azure 구독 또는 다른 Azure 구독에서 저장소 계정을 추가할 수 있습니다. 저장소 계정 추가에 대한 지침은 [HDInsight 클러스터 프로비전](/ko-kr/documentation/articles/hdinsight-provision-clusters/)을 참조하십시오. 이 자습서에서 사용되는 PowerShell 스크립트를 간소화하기 위해 모든 파일이 */tutorials/useoozie*에 위치한 기본 파일 시스템 컨테이너에 저장됩니다. 기본적으로 이 컨테이너 이름은 HDInsight 클러스터 이름과 동일합니다. WASB 구문은 다음과 같습니다.
 
     wasb[s]://<ContainerName>@<StorageAccountName>.blob.core.windows.net/<path>/<filename>
 
 > [WACOM.NOTE] HDInsight 클러스터 버전 3.0에서는 *wasb://* 구문만 지원됩니다. 이전 *asv://* 구문은 HDInsight 2.1 및 1.6 클러스터에서 지원되지만 HDInsight 3.0 클러스터에서는 지원되지 않으며 이후 버전에서도 지원되지 않을 것입니다.
 
-> [WACOM.NOTE] WASB 경로는 가상 경로입니다. 자세한 내용은 [HDInsight에서 Azure Blob 저장소 사용](/en-us/documentation/articles/hdinsight-use-blob-storage/)을 참조하십시오.
+> [WACOM.NOTE] WASB 경로는 가상 경로입니다. 자세한 내용은 [HDInsight에서 Azure Blob 저장소 사용](/ko-kr/documentation/articles/hdinsight-use-blob-storage/)을 참조하십시오.
 
 기본 파일 시스템 컨테이너에 저장된 파일은 HDInsight에서 다음 URI를 사용하여 액세스할 수 있습니다(workflow.xml을 예로 사용함).
 
@@ -686,7 +686,7 @@ Azure PowerShell은 현재 Oozie 작업 정의용 cmdlet을 제공하지 않습�
 
 **작업 오류 로그를 확인하려면**
 
-워크플로 문제를 해결하기 위해 클러스터 headnode에서 C:\\apps\\dist\\oozie-3.3.2.1.3.2.0-05\\oozie-win-distro\\logs\\Oozie.log에 있는 Oozie 로그 파일을 확인할 수 있습니다. RDP에 대한 자세한 내용은 [관리 포털을 사용하여 HDInsight 클러스터 관리](/en-us/documentation/articles/hdinsight-administer-use-management-portal/)를 참조하십시오.
+워크플로 문제를 해결하기 위해 클러스터 headnode에서 C:\\apps\\dist\\oozie-3.3.2.1.3.2.0-05\\oozie-win-distro\\logs\\Oozie.log에 있는 Oozie 로그 파일을 확인할 수 있습니다. RDP에 대한 자세한 내용은 [관리 포털을 사용하여 HDInsight 클러스터 관리](/ko-kr/documentation/articles/hdinsight-administer-use-management-portal/)를 참조하십시오.
 
 **자습서를 다시 실행하려면**
 
@@ -728,14 +728,14 @@ Azure PowerShell은 현재 Oozie 작업 정의용 cmdlet을 제공하지 않습�
 
 이 자습서에서는 Oozie 워크플로를 정의하는 방법 및 Azure PowerShell을 사용하여 Oozie 작업을 실행하는 방법을 알아보았습니다. 자세한 내용은 다음 문서를 참조하십시오.
 
--   [HDInsight 시작](/en-us/documentation/articles/hdinsight-get-started/)
--   [HDInsight Emulator 시작](/en-us/documentation/articles/hdinsight-get-started-emulator/)
--   [HDInsight에서 Azure Blob 저장소 사용](/en-us/documentation/articles/hdinsight-use-blob-storage/)
--   [PowerShell을 사용하여 HDInsight 관리](/en-us/documentation/articles/hdinsight-administer-use-powershell/)
--   [HDInsight에 데이터 업로드](/en-us/documentation/articles/hdinsight-upload-data/)
+-   [HDInsight 시작](/ko-kr/documentation/articles/hdinsight-get-started/)
+-   [HDInsight Emulator 시작](/ko-kr/documentation/articles/hdinsight-get-started-emulator/)
+-   [HDInsight에서 Azure Blob 저장소 사용](/ko-kr/documentation/articles/hdinsight-use-blob-storage/)
+-   [PowerShell을 사용하여 HDInsight 관리](/ko-kr/documentation/articles/hdinsight-administer-use-powershell/)
+-   [HDInsight에 데이터 업로드](/ko-kr/documentation/articles/hdinsight-upload-data/)
 -   [HDInsight에서 Sqoop 사용](../hdinsight-use-sqoop/)
--   [HDInsight에서 Hive 사용](/en-us/documentation/articles/hdinsight-use-hive/)
--   [HDInsight에서 Pig 사용](/en-us/documentation/articles/hdinsight-use-pig/)
--   [HDInsight용 C\# Hadoop 스트리밍 작업 개발](/en-us/documentation/articles/hdinsight-hadoop-develop-deploy-streaming-jobs/)
--   [HDInsight용 Java MapReduce 프로그램 개발](/en-us/documentation/articles/hdinsight-develop-deploy-java-mapreduce/)
+-   [HDInsight에서 Hive 사용](/ko-kr/documentation/articles/hdinsight-use-hive/)
+-   [HDInsight에서 Pig 사용](/ko-kr/documentation/articles/hdinsight-use-pig/)
+-   [HDInsight용 C\# Hadoop 스트리밍 작업 개발](/ko-kr/documentation/articles/hdinsight-hadoop-develop-deploy-streaming-jobs/)
+-   [HDInsight용 Java MapReduce 프로그램 개발](/ko-kr/documentation/articles/hdinsight-develop-deploy-java-mapreduce/)
 

@@ -33,5 +33,5 @@ Blob 서비스에는 다음 구성 요소가 포함됩니다.
 
 
 
-[1]: http://msdn.microsoft.com/en-us/library/dn249410.aspx
-[2]: http://msdn.microsoft.com/en-us/library/windowsazure/ee691964.aspx
+[1]: http://msdn.microsoft.com/ko-kr/library/dn249410.aspx
+[2]: http://msdn.microsoft.com/ko-kr/library/windowsazure/ee691964.aspx

@@ -3,8 +3,8 @@
 모바일 서비스 사용자의 서비스 쪽 권한 부여
 ==========================================
 
-[Windows 스토어 C\#](/en-us/documentation/articles/mobile-services-windows-store-dotnet-authorize-users-in-scripts "Windows 스토어 C#")[Windows 스토어 JavaScript](/en-us/documentation/articles/mobile-services-windows-store-javascript-authorize-users-in-scripts "Windows 스토어 JavaScript")[Windows Phone](/en-us/documentation/articles/mobile-services-windows-phone-authorize-users-in-scripts "Windows Phone")[iOS](/en-us/documentation/articles/mobile-services-ios-authorize-users-in-scripts "iOS")[Android](/en-us/documentation/articles/mobile-services-android-authorize-users-in-scripts "Android")[HTML](/en-us/documentation/articles/mobile-services-html-authorize-users-in-scripts "HTML")[Xamarin.iOS](/en-us/documentation/articles/partner-xamarin-mobile-services-ios-authorize-users-in-scripts "Xamarin.iOS")[Xamarin.Android](/en-us/documentation/articles/partner-xamarin-mobile-services-android-authorize-users-in-scripts "Xamarin.Android")
-[.NET 백 엔드](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-authorize-users-in-scripts/ ".NET 백 엔드") | [JavaScript 백 엔드](/en-us/documentation/articles/mobile-services-windows-store-javascript-authorize-users-in-scripts/ "JavaScript 백 엔드")
+[Windows 스토어 C\#](/ko-kr/documentation/articles/mobile-services-windows-store-dotnet-authorize-users-in-scripts "Windows 스토어 C#")[Windows 스토어 JavaScript](/ko-kr/documentation/articles/mobile-services-windows-store-javascript-authorize-users-in-scripts "Windows 스토어 JavaScript")[Windows Phone](/ko-kr/documentation/articles/mobile-services-windows-phone-authorize-users-in-scripts "Windows Phone")[iOS](/ko-kr/documentation/articles/mobile-services-ios-authorize-users-in-scripts "iOS")[Android](/ko-kr/documentation/articles/mobile-services-android-authorize-users-in-scripts "Android")[HTML](/ko-kr/documentation/articles/mobile-services-html-authorize-users-in-scripts "HTML")[Xamarin.iOS](/ko-kr/documentation/articles/partner-xamarin-mobile-services-ios-authorize-users-in-scripts "Xamarin.iOS")[Xamarin.Android](/ko-kr/documentation/articles/partner-xamarin-mobile-services-android-authorize-users-in-scripts "Xamarin.Android")
+[.NET 백 엔드](/ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-authorize-users-in-scripts/ ".NET 백 엔드") | [JavaScript 백 엔드](/ko-kr/documentation/articles/mobile-services-windows-store-javascript-authorize-users-in-scripts/ "JavaScript 백 엔드")
 
 이 항목에서는 서버 스크립트를 사용하여 인증된 사용자에게 Windows 스토어 앱에서 Azure 모바일 서비스의 데이터에 액세스할 수 있는 권한을 부여하는 방법을 보여 줍니다. 이 자습서에서는 모바일 서비스에 스크립트를 등록하여 인증된 사용자의 userId를 기반으로 쿼리를 필터링함으로써 각 사용자가 자신의 고유 데이터만 볼 수 있도록 만듭니다.
 
@@ -73,7 +73,7 @@
 
 이제 인증 관련 작업의 기본 사항을 설명하는 자습서를 마쳤습니다. 다음의 모바일 서비스 항목에 대해서도 자세히 알아보십시오.
 
--   [데이터 시작하기](/en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-data/)
+-   [데이터 시작하기](/ko-kr/documentation/articles/mobile-services-windows-store-javascript-get-started-data/)
     <br/>모바일 서비스를 사용하여 데이터를 저장 및 쿼리하는 방법에 대해 자세히 알아보십시오.
 
 -   [푸시 알림 시작](/en-us/develop/mobile/tutorials/get-started-with-push-js)

@@ -17,8 +17,8 @@ Blob 저장소를 사용하는 온-프레미스 응용 프로그램
 
 1.  JDK(Java Developer Kit) v1.6 이상이 설치되어 있어야 합니다.
 2.  Azure SDK가 설치되어 있어야 합니다.
-3.  Java용 Azure 라이브러리를 위한 JAR 및 해당하는 종속성 JAR이 설치되어 있어야 하며 Java 컴파일러가 사용하는 빌드 경로에 있어야 합니다. Java용 Azure 라이브러리 설치에 대한 자세한 내용은 [Java용 Azure SDK 다운로드](http://www.windowsazure.com/en-us/develop/java/)를 참조하십시오.
-4.  Azure 저장소 계정이 설정되어 있어야 합니다. 아래 코드에서 저장소 계정의 계정 이름 및 계정 키를 사용해야 합니다. 저장소 계정 만들기에 대한 내용은 [저장소 계정을 만드는 방법](http://www.windowsazure.com/en-us/manage/services/storage/how-to-create-a-storage-account/)을, 계정 키 검색에 대한 내용은 [저장소 계정을 관리하는 방법](http://www.windowsazure.com/en-us/manage/services/storage/how-to-manage-a-storage-account/)을 참조하십시오.
+3.  Java용 Azure 라이브러리를 위한 JAR 및 해당하는 종속성 JAR이 설치되어 있어야 하며 Java 컴파일러가 사용하는 빌드 경로에 있어야 합니다. Java용 Azure 라이브러리 설치에 대한 자세한 내용은 [Java용 Azure SDK 다운로드](http://www.windowsazure.com/ko-kr/develop/java/)를 참조하십시오.
+4.  Azure 저장소 계정이 설정되어 있어야 합니다. 아래 코드에서 저장소 계정의 계정 이름 및 계정 키를 사용해야 합니다. 저장소 계정 만들기에 대한 내용은 [저장소 계정을 만드는 방법](http://www.windowsazure.com/ko-kr/manage/services/storage/how-to-create-a-storage-account/)을, 계정 키 검색에 대한 내용은 [저장소 계정을 관리하는 방법](http://www.windowsazure.com/ko-kr/manage/services/storage/how-to-manage-a-storage-account/)을 참조하십시오.
 5.  이름을 지정한 로컬 이미지 파일을 만들어 c:\\myimages\\image1.jpg 경로에 저장해야 합니다. 또는 예제에서 **FileInputStream** 생성자를 수정하여 다른 이미지 경로 및 파일 이름을 사용합니다.
 
 [WACOM.INCLUDE [create-account-note](../includes/create-account-note.md)]
@@ -349,5 +349,5 @@ Azure 핵심 저장소 클래스, Azure Blob 클라이언트 클래스, Java IO 
         }
     }
 
-다른 Blob 저장소 클래스 및 메서드 개요는 [Java에서 Blob 저장소 서비스를 사용하는 방법](http://www.windowsazure.com/en-us/develop/java/how-to-guides/blob-storage/)을 참조하십시오.
+다른 Blob 저장소 클래스 및 메서드 개요는 [Java에서 Blob 저장소 서비스를 사용하는 방법](http://www.windowsazure.com/ko-kr/develop/java/how-to-guides/blob-storage/)을 참조하십시오.
 

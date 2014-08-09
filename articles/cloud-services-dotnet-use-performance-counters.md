@@ -5,7 +5,7 @@ Azure에서 성능 카운터 사용
 
 Azure 응용 프로그램에서 성능 카운터를 사용하여 시스템 병목 상태, 미세 조정 시스템, 응용 프로그램 성능을 확인하는 데 도움을 줄 수 있는 데이터를 수집할 수 있습니다. Windows Server 2008, Windows Server 2012, IIS 및 ASP.NET에서 사용할 수 있는 성능 카운터를 수집하여 Azure 응용 프로그램의 상태를 확인하는 데 사용할 수 있습니다.
 
-이 항목에서는 diagnostics.wadcfg 구성 파일을 사용하여 응용 프로그램에서 성능 카운터를 사용하도록 설정하는 방법에 대해 설명합니다. [Azure 관리 포털](http://manage.windowsazure.com)에서의 응용 프로그램 성능 모니터링에 대한 내용은 [클라우드 서비스를 모니터링하는 방법](https://www.windowsazure.com/en-us/manage/services/cloud-services/how-to-monitor-a-cloud-service/)을 참조하십시오. 문제를 해결하고 Azure 응용 프로그램을 최적화하기 위한 로깅 및 추적 전략 만들기와 진단 및 기타 기술 사용에 대한 더 많은 세부 지침은 [Azure 응용 프로그램 개발 문제 해결 모범 사례](http://msdn.microsoft.com/en-us/library/windowsazure/hh771389.aspx)(영문)를 참조하십시오.
+이 항목에서는 diagnostics.wadcfg 구성 파일을 사용하여 응용 프로그램에서 성능 카운터를 사용하도록 설정하는 방법에 대해 설명합니다. [Azure 관리 포털](http://manage.windowsazure.com)에서의 응용 프로그램 성능 모니터링에 대한 내용은 [클라우드 서비스를 모니터링하는 방법](https://www.windowsazure.com/en-us/manage/services/cloud-services/how-to-monitor-a-cloud-service/)을 참조하십시오. 문제를 해결하고 Azure 응용 프로그램을 최적화하기 위한 로깅 및 추적 전략 만들기와 진단 및 기타 기술 사용에 대한 더 많은 세부 지침은 [Azure 응용 프로그램 개발 문제 해결 모범 사례](http://msdn.microsoft.com/ko-kr/library/windowsazure/hh771389.aspx)(영문)를 참조하십시오.
 
 이 작업에는 다음 단계가 포함됩니다.
 
@@ -53,7 +53,7 @@ diagnostics.wadcfg 파일을 열고 **DiagnosticMonitorConfiguration** 요소에
         <PerformanceCounterConfiguration counterSpecifier="\.NET CLR Jit(_Global_)\% Time in Jit" sampleRate="PT30S" />
         </PerformanceCounters>    
 
-**bufferQuotaInMB** 특성은 데이터 수집 형식(Azure 로그, IIS 로그 등)에 사용할 수 있는 파일 시스템 저장소의 최대량을 지정합니다. 기본값은 0입니다. 할당량에 도달하면 새 데이터가 추가될 때 가장 오래된 데이터가 삭제됩니다. 모든 **bufferQuotaInMB** 속성의 합계는 **OverallQuotaInMB** 특성 값보다 커야 합니다. 진단 데이터를 수집하는 데 필요한 저장소 양을 결정하는 자세한 논의는 [Azure 응용 프로그램 개발 문제 해결 모범 사례](http://msdn.microsoft.com/en-us/library/windowsazure/hh771389.aspx)(영문)의 WAD 설정 섹션을 참조하십시오.
+**bufferQuotaInMB** 특성은 데이터 수집 형식(Azure 로그, IIS 로그 등)에 사용할 수 있는 파일 시스템 저장소의 최대량을 지정합니다. 기본값은 0입니다. 할당량에 도달하면 새 데이터가 추가될 때 가장 오래된 데이터가 삭제됩니다. 모든 **bufferQuotaInMB** 속성의 합계는 **OverallQuotaInMB** 특성 값보다 커야 합니다. 진단 데이터를 수집하는 데 필요한 저장소 양을 결정하는 자세한 논의는 [Azure 응용 프로그램 개발 문제 해결 모범 사례](http://msdn.microsoft.com/ko-kr/library/windowsazure/hh771389.aspx)(영문)의 WAD 설정 섹션을 참조하십시오.
 
 **scheduledTransferPeriod** 특성은 데이터의 예약 전송 사이의 간격을 지정합니다(가장 가까운 시간(분)으로 반올림됨). 다음 예제에서는 PT30M(30분)으로 설정됩니다. 전송 간격을 1분처럼 작은 값으로 설정하면 프로덕션에서 응용 프로그램의 성능에 악영향을 주지만 테스트할 때 진단 작업을 빠르게 보는 데는 유용할 수 있습니다. 예약 전송 간격은 인스턴스에서 진단 데이터를 덮어쓰지 않을 정도로 작고 응용 프로그램의 성능에 영향을 주지 않을 정도로 커야 합니다.
 
@@ -159,7 +159,7 @@ diagnostics.wadcfg 파일을 열고 **DiagnosticMonitorConfiguration** 요소에
 3단계: 성능 카운터 데이터 쿼리
 ------------------------------
 
-응용 프로그램이 배포되고 진단 모니터가 실행되면 성능 카운터를 수집하여 해당 데이터를 Azure 저장소에 보관하기 시작합니다. **Visual Studio의 서버 탐색기**, [Azure 저장소 탐색기](http://azurestorageexplorer.codeplex.com/) 또는 Cerebrata의 [Azure Diagnostics Manager](http://www.cerebrata.com/Products/AzureDiagnosticsManager/Default.aspx)와 같은 도구를 사용하여 **WADPerformanceCountersTable** 테이블의 성능 카운터 데이터를 확인합니다. 또한 [C\#][], [Java](http://www.windowsazure.com/en-us/develop/java/how-to-guides/table-service/), [Node.js][], [Python](http://www.windowsazure.com/en-us/develop/python/how-to-guides/table-service/) 또는 [PHP](http://www.windowsazure.com/en-us/develop/php/how-to-guides/table-service/)를 사용하여 테이블 서비스를 프로그래밍 방식으로 쿼리할 수도 있습니다.
+응용 프로그램이 배포되고 진단 모니터가 실행되면 성능 카운터를 수집하여 해당 데이터를 Azure 저장소에 보관하기 시작합니다. **Visual Studio의 서버 탐색기**, [Azure 저장소 탐색기](http://azurestorageexplorer.codeplex.com/) 또는 Cerebrata의 [Azure Diagnostics Manager](http://www.cerebrata.com/Products/AzureDiagnosticsManager/Default.aspx)와 같은 도구를 사용하여 **WADPerformanceCountersTable** 테이블의 성능 카운터 데이터를 확인합니다. 또한 [C\#][], [Java](http://www.windowsazure.com/ko-kr/develop/java/how-to-guides/table-service/), [Node.js][], [Python](http://www.windowsazure.com/ko-kr/develop/python/how-to-guides/table-service/) 또는 [PHP](http://www.windowsazure.com/ko-kr/develop/php/how-to-guides/table-service/)를 사용하여 테이블 서비스를 프로그래밍 방식으로 쿼리할 수도 있습니다.
 
 다음 C\# 예제는 **WADPerformanceCountersTable** 테이블에 대한 간단한 쿼리를 보여 주고 진단 데이터를 CSV 파일에 저장합니다. 성능 카운터를 CSV 파일에 저장하고 나면 Microsoft Excel 또는 다른 도구의 그래픽 기능을 사용하여 데이터를 시각화할 수 있습니다. Azure SDK for .NET 2012년 10월 이상 버전에 포함되어 있는 Microsoft.WindowsAzure.Storage.dll에 참조를 추가해야 합니다. 어셈블리는 %Program Files%\\Microsoft SDKs\\Azure.NET SDK\\version-num\\ref\\ 디렉터리에 설치됩니다.
 
@@ -237,20 +237,20 @@ diagnostics.wadcfg 파일을 열고 **DiagnosticMonitorConfiguration** 요소에
 
 이제 성능 카운터 수집의 기본 사항을 배웠으므로 다음 링크를 따라 좀 더 복잡한 문제 해결 시나리오를 구현하는 방법을 알아보십시오.
 
--   [Azure 응용 프로그램 개발 문제 해결 모범 사례(영문)](http://msdn.microsoft.com/en-us/library/windowsazure/hh771389.aspx)
+-   [Azure 응용 프로그램 개발 문제 해결 모범 사례(영문)](http://msdn.microsoft.com/ko-kr/library/windowsazure/hh771389.aspx)
 -   [클라우드 서비스를 모니터링하는 방법](https://www.windowsazure.com/en-us/manage/services/cloud-services/how-to-monitor-a-cloud-service/)
--   [자동 크기 조정 응용 프로그램 블록을 사용하는 방법](http://www.windowsazure.com/en-us/develop/net/how-to-guides/autoscaling/)
--   [탄력적이고 복원력이 뛰어난 클라우드 앱 빌드(영문)](http://msdn.microsoft.com/en-us/library/hh680949(PandP.50).aspx)
+-   [자동 크기 조정 응용 프로그램 블록을 사용하는 방법](http://www.windowsazure.com/ko-kr/develop/net/how-to-guides/autoscaling/)
+-   [탄력적이고 복원력이 뛰어난 클라우드 앱 빌드(영문)](http://msdn.microsoft.com/ko-kr/library/hh680949(PandP.50).aspx)
 
 추가 리소스
 -----------
 
 -   [Azure에서 진단 사용](https://www.windowsazure.com/en-us/develop/net/common-tasks/diagnostics/)
--   [Azure 진단을 사용하여 로깅 데이터 수집](http://msdn.microsoft.com/en-us/library/windowsazure/gg433048.aspx)
--   [Azure 응용 프로그램 디버깅](http://msdn.microsoft.com/en-us/library/windowsazure/ee405479.aspx)
+-   [Azure 진단을 사용하여 로깅 데이터 수집](http://msdn.microsoft.com/ko-kr/library/windowsazure/gg433048.aspx)
+-   [Azure 응용 프로그램 디버깅](http://msdn.microsoft.com/ko-kr/library/windowsazure/ee405479.aspx)
 
 
-  [Overview of Creating and Using Performance Counters in an Azure Application]: http://msdn.microsoft.com/en-us/library/windowsazure/hh411520.aspx
+  [Overview of Creating and Using Performance Counters in an Azure Application]: http://msdn.microsoft.com/ko-kr/library/windowsazure/hh411520.aspx
   [Prerequisites]: #prereqs
   [Step 1: Collect and store data from performance counters]: #step1
   [Step 2: (Optional) Create custom performance counters]: #step2
@@ -258,19 +258,19 @@ diagnostics.wadcfg 파일을 열고 **DiagnosticMonitorConfiguration** 요소에
   [Next Steps]: #nextsteps
   [Additional Resources]: #additional
   
-  [Collecting Logging Data by Using Azure Diagnostics]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433048.aspx
-  [Debugging an Azure Application]: http://msdn.microsoft.com/en-us/library/windowsazure/ee405479.aspx
-  [How to Use the Autoscaling Application Block]: http://www.windowsazure.com/en-us/develop/net/how-to-guides/autoscaling/
-  [Troubleshooting Best Practices for Developing Azure Applications]: http://msdn.microsoft.com/en-us/library/windowsazure/hh771389.aspx
+  [Collecting Logging Data by Using Azure Diagnostics]: http://msdn.microsoft.com/ko-kr/library/windowsazure/gg433048.aspx
+  [Debugging an Azure Application]: http://msdn.microsoft.com/ko-kr/library/windowsazure/ee405479.aspx
+  [How to Use the Autoscaling Application Block]: http://www.windowsazure.com/ko-kr/develop/net/how-to-guides/autoscaling/
+  [Troubleshooting Best Practices for Developing Azure Applications]: http://msdn.microsoft.com/ko-kr/library/windowsazure/hh771389.aspx
   [Enabling Diagnostics in Azure]: https://www.windowsazure.com/en-us/develop/net/common-tasks/diagnostics/
-  [How to use the Table Storage Service]: http://www.windowsazure.com/en-us/develop/net/how-to-guides/table-services/
+  [How to use the Table Storage Service]: http://www.windowsazure.com/ko-kr/develop/net/how-to-guides/table-services/
   [Azure Storage Explorer]: http://azurestorageexplorer.codeplex.com/
   
-  [Java]: http://www.windowsazure.com/en-us/develop/java/how-to-guides/table-service/
-  [Python]: http://www.windowsazure.com/en-us/develop/python/how-to-guides/table-service/
-  [PHP]: http://www.windowsazure.com/en-us/develop/php/how-to-guides/table-service/
+  [Java]: http://www.windowsazure.com/ko-kr/develop/java/how-to-guides/table-service/
+  [Python]: http://www.windowsazure.com/ko-kr/develop/python/how-to-guides/table-service/
+  [PHP]: http://www.windowsazure.com/ko-kr/develop/php/how-to-guides/table-service/
   
-  [Building Elastic and Resilient Cloud Apps]: http://msdn.microsoft.com/en-us/library/hh680949(PandP.50).aspx
+  [Building Elastic and Resilient Cloud Apps]: http://msdn.microsoft.com/ko-kr/library/hh680949(PandP.50).aspx
   [Azure Management Portal]: http://manage.windowsazure.com
   [Azure Diagnostics Manager]: http://www.cerebrata.com/Products/AzureDiagnosticsManager/Default.aspx
   [How to Monitor Cloud Services]: https://www.windowsazure.com/en-us/manage/services/cloud-services/how-to-monitor-a-cloud-service/

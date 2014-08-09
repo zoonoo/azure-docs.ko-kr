@@ -134,7 +134,7 @@ Qpid 속성 파일 JNDI 공급자에서 destination을 정의하는 데 사용�
   </tr>
 </table>
 
-**참고**: 서비스 버스 토픽 구독에서 받는 경우 JNDI에 지정된 물리적 이름은 토픽 이름이어야 합니다. 구독 이름은 JMS 응용 프로그램 코드에서 지속형 구독을 만들 때 제공됩니다. [Service Bus AMQP 1.0 개발자 가이드](http://msdn.microsoft.com/en-us/library/windowsazure/jj841071.aspx)에서는 JMS의 서비스 버스 토픽 구독 작업에 대한 세부 정보를 제공합니다.
+**참고**: 서비스 버스 토픽 구독에서 받는 경우 JNDI에 지정된 물리적 이름은 토픽 이름이어야 합니다. 구독 이름은 JMS 응용 프로그램 코드에서 지속형 구독을 만들 때 제공됩니다. [Service Bus AMQP 1.0 개발자 가이드](http://msdn.microsoft.com/ko-kr/library/windowsazure/jj841071.aspx)에서는 JMS의 서비스 버스 토픽 구독 작업에 대한 세부 정보를 제공합니다.
 
 ### JMS 응용 프로그램 작성
 
@@ -272,7 +272,7 @@ JMS와 .NET 간의 크로스 플랫폼 메시징
 
 위에서 설명한 샘플 JMS 응용 프로그램 및 동반 가이드([.NET 서비스 버스 .NET API와 함께 AMQP 1.0을 사용하는 방법](http://aka.ms/lym3vk))에서 제공하는 유사한 .NET 응용 프로그램을 사용하여 .NET과 Java 간에 메시지를 교환할 수 있습니다.
 
-서비스 버스 및 AMQP 1.0을 사용하는 크로스 플랫폼 메시징에 대한 자세한 내용은 [Service Bus AMQP 1.0 개발자 가이드](http://msdn.microsoft.com/en-us/library/windowsazure/jj841071.aspx)를 참조하십시오.
+서비스 버스 및 AMQP 1.0을 사용하는 크로스 플랫폼 메시징에 대한 자세한 내용은 [Service Bus AMQP 1.0 개발자 가이드](http://msdn.microsoft.com/ko-kr/library/windowsazure/jj841071.aspx)를 참조하십시오.
 
 ### JMS에서 .NET으로
 
@@ -344,13 +344,13 @@ JMS에서 .NET으로의 메시징을 시연하려면:
 
 이 방법 가이드에서는 널리 사용되는 JMS API 및 AMQP 1.0을 통해 Java에서 서비스 버스 조정된 메시징 기능(큐 및 게시/구독 토픽)에 액세스하는 방법을 설명했습니다.
 
-.NET, C, Python, PHP 등의 다른 언어에서도 Service Bus AMQP 1.0을 사용할 수 있습니다. 이러한 언어로 빌드한 구성 요소는 서비스 버스의 AMQP 1.0 지원을 사용하여 안정적이며 완전히 신뢰할 수 있는 상태로 메시지를 교환할 수 있습니다. 자세한 내용은 [Service Bus AMQP 1.0 개발자 가이드](http://msdn.microsoft.com/en-us/library/windowsazure/jj841071.aspx)를 참조하십시오.
+.NET, C, Python, PHP 등의 다른 언어에서도 Service Bus AMQP 1.0을 사용할 수 있습니다. 이러한 언어로 빌드한 구성 요소는 서비스 버스의 AMQP 1.0 지원을 사용하여 안정적이며 완전히 신뢰할 수 있는 상태로 메시지를 교환할 수 있습니다. 자세한 내용은 [Service Bus AMQP 1.0 개발자 가이드](http://msdn.microsoft.com/ko-kr/library/windowsazure/jj841071.aspx)를 참조하십시오.
 
 추가 정보
 ---------
 
 -   [Azure 서비스 버스의 AMQP 1.0 지원](http://aka.ms/pgr3dp)
 -   [서비스 버스 .NET API와 함께 AMQP 1.0을 사용하는 방법](http://aka.ms/lym3vk)
--   [Service Bus AMQP 1.0 개발자 가이드](http://msdn.microsoft.com/en-us/library/windowsazure/jj841071.aspx)
--   [서비스 버스 큐를 사용하는 방법](http://www.windowsazure.com/en-us/develop/net/how-to-guides/service-bus-queues/)
+-   [Service Bus AMQP 1.0 개발자 가이드](http://msdn.microsoft.com/ko-kr/library/windowsazure/jj841071.aspx)
+-   [서비스 버스 큐를 사용하는 방법](http://www.windowsazure.com/ko-kr/develop/net/how-to-guides/service-bus-queues/)
 

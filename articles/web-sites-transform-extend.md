@@ -3,7 +3,7 @@
 사이트 변환 및 확장
 ===================
 
-XDT([XML 문서 변환](http://msdn.microsoft.com/en-us/library/dd465326.aspx))(영문) 선언을 사용하여 Windows Azure 웹 사이트의 [ApplicationHost.config](http://www.iis.net/learn/get-started/planning-your-iis-architecture/introduction-to-applicationhostconfig) 파일을 변환할 수 있습니다. XDT 선언을 사용하여 사용자 지정 사이트 관리 작업을 가능하게 하는 개인 사이트 확장을 추가할 수도 있습니다. 이 문서에는 웹 인터페이스를 통해 PHP 설정을 관리할 수 있는 샘플 PHP Manager 사이트 확장이 포함되어 있습니다.
+XDT([XML 문서 변환](http://msdn.microsoft.com/ko-kr/library/dd465326.aspx))(영문) 선언을 사용하여 Windows Azure 웹 사이트의 [ApplicationHost.config](http://www.iis.net/learn/get-started/planning-your-iis-architecture/introduction-to-applicationhostconfig) 파일을 변환할 수 있습니다. XDT 선언을 사용하여 사용자 지정 사이트 관리 작업을 가능하게 하는 개인 사이트 확장을 추가할 수도 있습니다. 이 문서에는 웹 인터페이스를 통해 PHP 설정을 관리할 수 있는 샘플 PHP Manager 사이트 확장이 포함되어 있습니다.
 
 -   [ApplicationHost.config에서 사이트 구성 변환](#transform)
 -   [사이트 확장](#extend)

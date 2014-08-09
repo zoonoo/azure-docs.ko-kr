@@ -70,7 +70,7 @@ HDInsight는 다양한 Hadoop 구성 요소에서 작동합니다. 검증되어 
 -   클러스터 프로비전 중 HDInsight .NET SDK 또는 Azure PowerShell의 클러스터 사용자 지정 매개 변수를 사용합니다. 그러면 이러한 구성 변경 내용이 클러스터 수명 동안 유지되며 Azure 플랫폼이 유지 관리를 위해 정기적으로 수행하는 클러스터 노드 이미지로 다시 설치의 영향을 받지 않습니다. 클러스터 사용자 지정 매개 변수 사용에 대한 자세한 내용은 [HDInsight 클러스터 프로비전](/en-us/manage/services/hdinsight/provision-hdinsight-clusters/)을 참조하십시오.
 -   Mahout, Cascading 등의 일부 네이티브 Java 구성 요소는 클러스터에서 JAR 파일로 실행할 수 있습니다. 이러한 JAR 파일은 Azure Blob 저장소(WASB)에 배포되고 Hadoop 작업 제출 메커니즘을 통해 HDInsight 클러스터에 제출될 수 있습니다. 자세한 내용은 [프로그래밍 방식으로 Hadoop 작업 제출](/en-us/manage/services/hdinsight/submit-hadoop-jobs-programmatically/)을 참조하십시오.
 
-    > [WACOM.NOTE] HDInsight 클러스터에 jar 파일을 배포하거나 HDInsight 클러스터에서 jar 파일을 호출하는 데 문제가 있는 경우 [Microsoft 지원 센터](http://www.windowsazure.com/en-us/support/options/)로 문의하십시오.
+    > [WACOM.NOTE] HDInsight 클러스터에 jar 파일을 배포하거나 HDInsight 클러스터에서 jar 파일을 호출하는 데 문제가 있는 경우 [Microsoft 지원 센터](http://www.windowsazure.com/ko-kr/support/options/)로 문의하십시오.
 
     > Mahout 및 Cascading은 둘 다 HDInsight에서 지원되지 않으며 Microsoft 지원을 받을 수 없습니다. 지원되는 구성 요소 목록은 [HDInsight에서 제공하는 클러스터 버전의 새로운 기능](/en-us/manage/services/hdinsight/versioning-in-hdinsight/)을 참조하십시오.
 

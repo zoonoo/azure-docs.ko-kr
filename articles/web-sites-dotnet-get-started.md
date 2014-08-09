@@ -279,7 +279,7 @@ Azure에 변경 내용을 배포합니다.
 
 이 자습서에서는 단일 작업으로 사이트를 만들고 배포하는 가장 빠른 방법을 확인했습니다. Visual Studio를 사용하거나
 [소스 제어 시스템][2]에서 [배포를 자동화][3]하여 배포하는 다른 방법에 대한 개요는 [Azure 웹 사이트를 배포하는
-방법](/en-us/documentation/articles/web-sites-deploy/")을 참조하십시오.
+방법](/ko-kr/documentation/articles/web-sites-deploy/")을 참조하십시오.
 
 배포를 자동화하는 한 가지 방법으로 Windows PowerShell 스크립트를 사용합니다. Visual Studio 및
 Azure는 Visual Studio에서 수행할 수 있는 것과 동일한 배포 작업을 수행하는 데 사용할 수 있는 PowerShell

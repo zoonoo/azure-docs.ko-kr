@@ -7,7 +7,7 @@ Azure 웹 사이트에서 PHP 웹 사이트를 만드는 방법
 
 일반적으로, PHP 웹 사이트를 만드는 작업은 Azure 웹 사이트에서 *임의의* 웹 사이트를 만드는 방법과 동일합니다. 기본적으로, PHP는 모든 웹 사이트에 대해 사용할 수 있습니다. PHP 구성(또는 사용자 지정된 PHP 런타임 제공)에 대한 자세한 내용은 [Azure 웹 사이트에서 PHP를 구성하는 방법](/en-us/develop/php/common-tasks/configure-php-web-site/)을 참조하십시오.
 
-아래에 설명된 각 옵션은 공유 호스팅 환경에서 웹 사이트를 무료로 만드는 방법을 보여 줍니다. 그러나 CPU 및 대역폭 사용량에는 어느 정도 제한이 있습니다. 자세한 내용은 [Azure 웹 사이트 가격 책정](http://www.windowsazure.com/en-us/pricing/details/#header-1)을 참조하십시오. 웹 사이트를 업그레이드하고 크기를 조정하는 방법에 대한 자세한 내용은 [웹 사이트 크기를 조정하는 방법](/en-us/manage/services/web-sites/how-to-scale-websites/)을 참조하십시오.
+아래에 설명된 각 옵션은 공유 호스팅 환경에서 웹 사이트를 무료로 만드는 방법을 보여 줍니다. 그러나 CPU 및 대역폭 사용량에는 어느 정도 제한이 있습니다. 자세한 내용은 [Azure 웹 사이트 가격 책정](http://www.windowsazure.com/ko-kr/pricing/details/#header-1)을 참조하십시오. 웹 사이트를 업그레이드하고 크기를 조정하는 방법에 대한 자세한 내용은 [웹 사이트 크기를 조정하는 방법](/en-us/manage/services/web-sites/how-to-scale-websites/)을 참조하십시오.
 
 목차
 ----

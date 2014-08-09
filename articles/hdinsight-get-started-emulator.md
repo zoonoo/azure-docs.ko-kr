@@ -3,7 +3,7 @@
 HDInsight Emulator 시작
 =======================
 
-이 자습서는 Microsoft HDInsight Emulator for Azure(이전의 HDInsight Server Developer Preview)를 사용하여 시작합니다. HDInsight Emulator에는 Azure HDInsight와 동일한 Hadoop 에코시스템의 구성 요소가 제공됩니다. 배포된 버전에 대한 정보를 포함한 자세한 내용은 [Azure HDInsight에 포함된 Hadoop 버전](http://www.windowsazure.com/en-us/manage/services/hdinsight/howto-hadoop-version/ "HDInsight 구성 요소 및 버전")(영문)을 참조하십시오.
+이 자습서는 Microsoft HDInsight Emulator for Azure(이전의 HDInsight Server Developer Preview)를 사용하여 시작합니다. HDInsight Emulator에는 Azure HDInsight와 동일한 Hadoop 에코시스템의 구성 요소가 제공됩니다. 배포된 버전에 대한 정보를 포함한 자세한 내용은 [Azure HDInsight에 포함된 Hadoop 버전](http://www.windowsazure.com/ko-kr/manage/services/hdinsight/howto-hadoop-version/ "HDInsight 구성 요소 및 버전")(영문)을 참조하십시오.
 
 HDInsight Emulator는 Azure HDInsight에 로컬 개발 환경을 제공합니다. Hadoop에 익숙한 경우 HDFS를 사용하여 Emulator를 시작할 수 있습니다. 하지만 HDInsight에서 기본 파일 시스템은 Azure Blob 저장소(WASB, 일명 Azure 저장소 - Blob)이므로 결국 WASB를 사용하여 작업을 개발하게 됩니다. Azure 저장소 에뮬레이터를 사용하여 WASB에 대한 개발을 시작할 수 있습니다(데이터의 작은 하위 집합만 사용하려는 경우 - HDInsight Emulator의 구성을 변경할 필요는 없으며 저장소 계정 이름만 다르면 됨). 그다음에 다시 일부 데이터만 사용하여 Azure 저장소에 대해 로컬로 작업을 테스트합니다(HDInsight Emulator의 구성을 변경해야 함). 마지막으로, 작업의 계산 부분을 HDInsight로 이동하고 프로덕션 데이터에 대해 작업을 실행할 준비가 되었습니다.
 
@@ -19,7 +19,7 @@ HDInsight를 사용하는 자습서는 [Azure HDInsight 사용 시작](/en-us/ma
     -   Windows Server 2008 R2 서비스 팩 1
     -   Windows 8
     -   Windows Server 2012
--   Azure PowerShell을 설치하고 구성합니다. 지침은 [Azure PowerShell 설치 및 구성](/en-us/documentation/articles/install-configure-powershell/)을 참조하십시오.
+-   Azure PowerShell을 설치하고 구성합니다. 지침은 [Azure PowerShell 설치 및 구성](/ko-kr/documentation/articles/install-configure-powershell/)을 참조하십시오.
 
 자습서 내용
 -----------
@@ -422,7 +422,7 @@ Azure HDInsight는 Azure Blob 저장소를 기본 파일 시스템으로 사용�
 
 ### 저장소 에뮬레이터에 연결
 
-Azure 저장소 에뮬레이터에는 [Azure SDK for .NET](http://www.windowsazure.com/en-us/downloads/)이 제공됩니다. 저장소 에뮬레이터는 자동으로 시작되지 않습니다. 수동으로 시작해야 합니다. 응용 프로그램 이름은 *Azure 저장소 에뮬레이터*입니다. 에뮬레이터를 시작/중지하려면 Windows 시스템 트레이에서 파란색 Azure 아이콘을 마우스 오른쪽 단추로 클릭한 다음 Show Storage Emulator UI를 클릭합니다.
+Azure 저장소 에뮬레이터에는 [Azure SDK for .NET](http://www.windowsazure.com/ko-kr/downloads/)이 제공됩니다. 저장소 에뮬레이터는 자동으로 시작되지 않습니다. 수동으로 시작해야 합니다. 응용 프로그램 이름은 *Azure 저장소 에뮬레이터*입니다. 에뮬레이터를 시작/중지하려면 Windows 시스템 트레이에서 파란색 Azure 아이콘을 마우스 오른쪽 단추로 클릭한 다음 Show Storage Emulator UI를 클릭합니다.
 
 > [WACOM.NOTE] 저장소 에뮬레이터를 시작할 때 다음 오류 메시지가 나타날 수도 있습니다.
 
@@ -573,7 +573,7 @@ HDInsight PowerShell 실행
 
 Get-Credential을 호출하면 프롬프트가 나타납니다. 사용자 이름에 **hadoop**을 사용해야 합니다. 암호는 아무 문자열이나 사용할 수 있습니다. 클러스터 이름은 항상 **http://localhost:50111**입니다.
 
-Hadoop 작업 제출에 대한 자세한 내용은 [Hadoop 작업을 프로그래밍 방식으로 제출](/en-us/manage/services/hdinsight/submit-hadoop-jobs-programmatically/)을 참조하십시오. HDInsight PowerShell cmdlet에 대한 자세한 내용은 [HDInsight cmdlet 참조](http://msdn.microsoft.com/en-us/library/windowsazure/dn479228.aspx)를 참조하십시오.
+Hadoop 작업 제출에 대한 자세한 내용은 [Hadoop 작업을 프로그래밍 방식으로 제출](/en-us/manage/services/hdinsight/submit-hadoop-jobs-programmatically/)을 참조하십시오. HDInsight PowerShell cmdlet에 대한 자세한 내용은 [HDInsight cmdlet 참조](http://msdn.microsoft.com/ko-kr/library/windowsazure/dn479228.aspx)를 참조하십시오.
 
 다음 단계
 ---------
@@ -581,7 +581,7 @@ Hadoop 작업 제출에 대한 자세한 내용은 [Hadoop 작업을 프로그�
 이 자습서에서는 HDInsight Emulator를 설치했으며 일부 Hadoop 작업을 실행했습니다. 자세한 내용은 다음 문서를 참조하십시오.
 
 -   [Azure HDInsight를 사용하여 시작](/en-us/manage/services/hdinsight/get-started-hdinsight/)
--   [HDInsight용 Java MapReduce 프로그램 개발](/en-us/documentation/articles/hdinsight-develop-deploy-java-mapreduce/)
+-   [HDInsight용 Java MapReduce 프로그램 개발](/ko-kr/documentation/articles/hdinsight-develop-deploy-java-mapreduce/)
 -   [HDInsight용 C\# Hadoop 스트리밍 MapReduce 프로그램 개발](/en-us/manage/services/hdinsight/develop-deploy-hadoop-streaming-jobs/)
 -   [HDInsight Emulator 릴리스 정보](https://gettingstarted.hadooponazure.com/releaseNotes.html)
 -   [HDInsight 토론을 위한 MSDN 포럼](http://social.msdn.microsoft.com/Forums/en-US/hdinsight)

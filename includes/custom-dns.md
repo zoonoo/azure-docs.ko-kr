@@ -150,4 +150,4 @@ A 레코드를 만들려면 먼저 클라우드 서비스의 가상 IP 주소를
 [1]: http://en.wikipedia.org/wiki/CNAME_record
 [2]: http://tools.ietf.org/html/rfc1035
 [3]: https://manage.windowsazure.com
-[4]: http://msdn.microsoft.com/en-us/library/windowsazure/gg680307.aspx
+[4]: http://msdn.microsoft.com/ko-kr/library/windowsazure/gg680307.aspx

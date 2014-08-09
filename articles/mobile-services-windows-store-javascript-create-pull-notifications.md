@@ -5,7 +5,7 @@
 
 [Windows 스토어 C\#](/en-us/develop/mobile/tutorials/create-pull-notifications-dotnet "Windows 스토어 C#")[Windows 스토어 JavaScript](/en-us/develop/mobile/tutorials/create-pull-notifications-js "Windows 스토어 JavaScript")
 
-이 항목에서는 Windows 스토어 앱에서 사용자 지정 API를 사용하여 정기 알림을 지원하는 방법을 보여 줍니다. 정기 알림을 사용하면 Windows에서 주기적으로 사용자 지정 API 끝점에 액세스하고 타일 특정 형식으로 반환된 XML을 사용하여 시작 메뉴의 앱 타일을 업데이트합니다. 자세한 내용은 [정기 알림](http://msdn.microsoft.com/en-us/library/windows/apps/jj150587.aspx)을 참조하십시오.
+이 항목에서는 Windows 스토어 앱에서 사용자 지정 API를 사용하여 정기 알림을 지원하는 방법을 보여 줍니다. 정기 알림을 사용하면 Windows에서 주기적으로 사용자 지정 API 끝점에 액세스하고 타일 특정 형식으로 반환된 XML을 사용하여 시작 메뉴의 앱 타일을 업데이트합니다. 자세한 내용은 [정기 알림](http://msdn.microsoft.com/ko-kr/library/windows/apps/jj150587.aspx)을 참조하십시오.
 
 [모바일 서비스 시작](/en-us/develop/mobile/tutorials/get-started/#create-new-service) 또는 [데이터 시작](/en-us/develop/mobile/tutorials/started-with-data-js) 자습서를 마쳤을 때 만든 앱에 이 기능을 추가합니다. 그러려면 다음 단계를 완료합니다.
 
@@ -82,7 +82,7 @@
 
  
    	<div class="dev-callout"><b>참고</b>
-   		<p>이 사용자 지정 API 스크립트는 <strong>require</strong> 함수를 사용하여 참조되는 Node.js <a href="http://go.microsoft.com/fwlink/p/LinkId=306750">wns 모듈</a>을 사용합니다. 이 모듈은 서버 스크립트에서 푸시 알림을 보내는 데 사용되는 <a href="http://msdn.microsoft.com/en-us/library/windowsazure/jj554217.aspx">push 개체</a>에서 반환된 <a href="http://go.microsoft.com/fwlink/p/LinkId=260591">wns 개체</a>와 다릅니다.
+   		<p>이 사용자 지정 API 스크립트는 <strong>require</strong> 함수를 사용하여 참조되는 Node.js <a href="http://go.microsoft.com/fwlink/p/LinkId=306750">wns 모듈</a>을 사용합니다. 이 모듈은 서버 스크립트에서 푸시 알림을 보내는 데 사용되는 <a href="http://msdn.microsoft.com/ko-kr/library/windowsazure/jj554217.aspx">push 개체</a>에서 반환된 <a href="http://go.microsoft.com/fwlink/p/LinkId=260591">wns 개체</a>와 다릅니다.
    	</div>
 
 다음에는 새 사용자 지정 API를 요청하여 라이브 타일을 업데이트하는 정기 알림을 시작하도록 빠른 시작 앱을 수정합니다.

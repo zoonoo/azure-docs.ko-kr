@@ -5,7 +5,7 @@ Windows Server를 실행하는 가상 컴퓨터의 이미지를 캡처하는 방
 
 이미지 갤러리의 이미지를 사용하여 쉽게 가상 컴퓨터를 만들 수도 있고 고유의 이미지를 캡처하여 사용자 지정 가상 컴퓨터를 만드는 데 사용할 수도 있습니다. 이미지는 가상 컴퓨터를 만드는 데 템플릿으로 사용되는 가상 하드 디스크(.vhd) 파일입니다. 구성된 가상 컴퓨터에는 있는 컴퓨터 이름 및 사용자 계정 설정과 같은 특정 설정이 이미지에는 없으므로 이미지는 템플릿입니다. 동일한 방식으로 설정된 가상 컴퓨터를 여러 개 만들려면 구성된 가상 컴퓨터의 이미지를 캡처하여 해당 이미지를 템플릿으로 사용할 수 있습니다.
 
-1.  [Windows Server를 실행하는 가상 컴퓨터에 로그온하는 방법](http://www.windowsazure.com/en-us/manage/windows/how-to-guides/log-on-a-windows-vm/)에 나열된 단계에 따라 가상 컴퓨터에 연결합니다.
+1.  [Windows Server를 실행하는 가상 컴퓨터에 로그온하는 방법](http://www.windowsazure.com/ko-kr/manage/windows/how-to-guides/log-on-a-windows-vm/)에 나열된 단계에 따라 가상 컴퓨터에 연결합니다.
 
 2.  관리자로 명령 프롬프트 창을 엽니다.
 

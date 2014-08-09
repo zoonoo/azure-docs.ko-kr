@@ -1,4 +1,4 @@
 Azure 웹 사이트의 공유, 기본 및 표준 모드에서만 웹 사이트의 사용자 지정 도메인 이름을 설정할 수 있습니다. 웹 사이트를 무료 웹 사이트 모드에서 공유, 기본 또는 표준 모드로 전환하기 전에 먼저 웹 사이트 구독에 대해 적용된 지출 한도를 제거해야 합니다.
 
-사이트의 모드를 변경하는 방법을 비롯한 웹 사이트 모드에 대한 자세한 내용은 [웹 사이트 크기를 조정하는 방법](http://www.windowsazure.com/en-us/documentation/articles/web-sites-scale/)(영문)을 참조하십시오.
+사이트의 모드를 변경하는 방법을 비롯한 웹 사이트 모드에 대한 자세한 내용은 [웹 사이트 크기를 조정하는 방법](http://www.windowsazure.com/ko-kr/documentation/articles/web-sites-scale/)(영문)을 참조하십시오.
 

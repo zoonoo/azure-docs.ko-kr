@@ -137,7 +137,7 @@ Azure 저장소와 함께 작동하는 다른 도구도 사용할 수 있습니�
 
     저장소 계정을 만든 것과 동일한 지역에서 클라우드 서비스를 만들어야 합니다. 클라우드 서비스와 저장소 계정이 서로 다른 데이터 센터, 즉 서로 다른 지역에 있는 경우 대기 시간이 길어지고 데이터 센터 외부 대역폭에 대한 요금이 발생합니다. 데이터 센터 내부 대역폭은 무료입니다.
 
-    Azure 선호도 그룹은 데이터 센터 리소스 사이의 거리를 최소화하는 메커니즘을 제공하며, 이로 인해 대기 시간이 줄어들 수 있습니다. 이 자습서는 선호도 그룹을 사용하지 않습니다. 자세한 내용은 [Azure에서 선호도 그룹을 만드는 방법](http://msdn.microsoft.com/en-us/library/jj156209.aspx)을 참조하십시오.
+    Azure 선호도 그룹은 데이터 센터 리소스 사이의 거리를 최소화하는 메커니즘을 제공하며, 이로 인해 대기 시간이 줄어들 수 있습니다. 이 자습서는 선호도 그룹을 사용하지 않습니다. 자세한 내용은 [Azure에서 선호도 그룹을 만드는 방법](http://msdn.microsoft.com/ko-kr/library/jj156209.aspx)을 참조하십시오.
 
 6.  **클라우드 서비스 만들기**를 클릭합니다.
 
@@ -323,7 +323,7 @@ Visual Studio에서 저장소 브라우저를 사용하여 Azure 저장소 리�
 
 2.  `WorkerRoleA` 및 `WorkerRoleB` 요소에서 이 두 가지 연결 문자열의 `Setting` 요소를 삭제한 후 `MvcWebRole` 요소에서 `Setting` 요소를 복사하여 제자리에 붙여 넣습니다.
 
-구성 파일에 대한 자세한 내용은 [Azure 프로젝트 구성](http://msdn.microsoft.com/en-us/library/windowsazure/ee405486.aspx)을 참조하십시오.
+구성 파일에 대한 자세한 내용은 [Azure 프로젝트 구성](http://msdn.microsoft.com/ko-kr/library/windowsazure/ee405486.aspx)을 참조하십시오.
 
 ### 저장소 계정을 사용하도록 구성된 응용 프로그램 테스트
 
@@ -385,7 +385,7 @@ SendGridSendGrid를 사용하도록 응용 프로그램 구성
 
 ### SendGrid 계정 만들기
 
-1.  [Azure와 함께 SendGrid를 사용하여 전자 메일을 보내는 방법](http://www.windowsazure.com/en-us/develop/net/how-to-guides/sendgrid-email-service/ "SendGrid")(영문)의 지침에 따라 무료 계정을 등록합니다.
+1.  [Azure와 함께 SendGrid를 사용하여 전자 메일을 보내는 방법](http://www.windowsazure.com/ko-kr/develop/net/how-to-guides/sendgrid-email-service/ "SendGrid")(영문)의 지침에 따라 무료 계정을 등록합니다.
 
 ### 작업자 역할 속성에서 SendGrid 자격 증명 업데이트
 
@@ -483,7 +483,7 @@ Azure에 배포Azure에 응용 프로그램 배포
 
 12. **Mailing List**, **Subscriber** 및 **Message** 웹 페이지에 일부 데이터를 입력하여 응용 프로그램을 테스트합니다.
 
-    **참고**: 테스트를 완료한 후에는 사용하지 않는 리소스에 대해 비용을 부담하지 않도록 응용 프로그램을 삭제하십시오. [Azure 무료 평가판 계정](http://www.windowsazure.com/en-us/pricing/free-trial/ "무료 평가판 계정")을 사용하는 경우에는 배포된 세 개의 역할이 몇 주 만에 월 한도를 소진합니다. Azure 관리 포털을 사용하여 배포를 삭제하려면 클라우드 서비스를 선택하고 페이지 아래쪽에 있는 **삭제**를 클릭한 다음 프로덕션 배포나 스테이징 배포를 선택합니다.
+    **참고**: 테스트를 완료한 후에는 사용하지 않는 리소스에 대해 비용을 부담하지 않도록 응용 프로그램을 삭제하십시오. [Azure 무료 평가판 계정](http://www.windowsazure.com/ko-kr/pricing/free-trial/ "무료 평가판 계정")을 사용하는 경우에는 배포된 세 개의 역할이 몇 주 만에 월 한도를 소진합니다. Azure 관리 포털을 사용하여 배포를 삭제하려면 클라우드 서비스를 선택하고 페이지 아래쪽에 있는 **삭제**를 클릭한 다음 프로덕션 배포나 스테이징 배포를 선택합니다.
 
     ![게시](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-19.png)
 
@@ -546,7 +546,7 @@ Azure에 배포Azure에 응용 프로그램 배포
 
     각 작업자 역할 및 웹 역할의 `ConfigureDiagnostics` 메서드는 추적 API 호출 시 데이터를 기록하도록 추적 리스너를 구성합니다. 자세한 내용은 [Azure 클라우드 응용 프로그램에서 추적 사용](http://blogs.msdn.com/b/windowsazure/archive/2012/10/24/using-trace-in-windows-azure-cloud-applications-1.aspx "Azure에서 추적 사용")(영문)을 참조하십시오.
 
-3.  **서버 탐색기**에서 이전에 추가한 저장소 계정의 **WADLogsTable**을 두 번 클릭합니다(**저장소** / **yourstorageaccountname** / **테이블** 확장). [WCF 데이터 서비스 필터](http://msdn.microsoft.com/en-us/library/windowsazure/ff683669.aspx "WCF 필터")를 입력하여 표시 엔터티를 제한할 수 있습니다. 다음 이미지에는 경고 및 오류 메시지만 표시되어 있습니다.
+3.  **서버 탐색기**에서 이전에 추가한 저장소 계정의 **WADLogsTable**을 두 번 클릭합니다(**저장소** / **yourstorageaccountname** / **테이블** 확장). [WCF 데이터 서비스 필터](http://msdn.microsoft.com/ko-kr/library/windowsazure/ff683669.aspx "WCF 필터")를 입력하여 표시 엔터티를 제한할 수 있습니다. 다음 이미지에는 경고 및 오류 메시지만 표시되어 있습니다.
 
     ![대시보드](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-trc.png)
 
@@ -554,9 +554,9 @@ Azure에 배포Azure에 응용 프로그램 배포
 역할 인스턴스 추가증가한 로드를 처리하도록 다른 작업자 역할 인스턴스 추가
 -------------------------------------------------------------------------
 
-Azure 역할에서 계산 리소스를 확장하는 데는 두 가지 방법이 있습니다. 즉, [가상 컴퓨터 크기](http://msdn.microsoft.com/en-us/library/windowsazure/ee814754.aspx "VM 크기")를 지정하거나 실행 중인 가상 컴퓨터 인스턴스 수를 지정합니다.
+Azure 역할에서 계산 리소스를 확장하는 데는 두 가지 방법이 있습니다. 즉, [가상 컴퓨터 크기](http://msdn.microsoft.com/ko-kr/library/windowsazure/ee814754.aspx "VM 크기")를 지정하거나 실행 중인 가상 컴퓨터 인스턴스 수를 지정합니다.
 
-VM(가상 컴퓨터) 크기는 *ServiceDefinition.csdef* 파일에 있는 `WebRole` 또는 `WorkerRole` 요소의 `vmsize` 특성에서 지정됩니다. 기본 설정은 `Small`로서 코어 하나 및 1.75GB RAM을 제공합니다. 다중 스레드이며 많은 메모리, 디스크, 대역폭을 사용하는 응용 프로그램의 경우 성능 향상을 위해 VM 크기를 늘릴 수 있습니다. 예를 들어 `ExtraLarge` VM에는 8개의 CPU 코어와 14GB RAM이 있습니다. 단일 컴퓨터에서 메모리, CPU 코어, 디스크 및 대역폭을 높이는 것을 *강화*라고 합니다. [비동기 메서드](http://www.asp.net/mvc/tutorials/mvc-4/using-asynchronous-methods-in-aspnet-mvc-4 "비동기 MVC")를 사용하는 ASP.NET 웹 응용 프로그램의 경우 강화가 필요합니다. VM 크기별로 제공되는 리소스에 대한 설명은 [Virtual 가상 컴퓨터 크기](http://msdn.microsoft.com/en-us/library/windowsazure/ee814754.aspx "VM 크기")를 참조하십시오.
+VM(가상 컴퓨터) 크기는 *ServiceDefinition.csdef* 파일에 있는 `WebRole` 또는 `WorkerRole` 요소의 `vmsize` 특성에서 지정됩니다. 기본 설정은 `Small`로서 코어 하나 및 1.75GB RAM을 제공합니다. 다중 스레드이며 많은 메모리, 디스크, 대역폭을 사용하는 응용 프로그램의 경우 성능 향상을 위해 VM 크기를 늘릴 수 있습니다. 예를 들어 `ExtraLarge` VM에는 8개의 CPU 코어와 14GB RAM이 있습니다. 단일 컴퓨터에서 메모리, CPU 코어, 디스크 및 대역폭을 높이는 것을 *강화*라고 합니다. [비동기 메서드](http://www.asp.net/mvc/tutorials/mvc-4/using-asynchronous-methods-in-aspnet-mvc-4 "비동기 MVC")를 사용하는 ASP.NET 웹 응용 프로그램의 경우 강화가 필요합니다. VM 크기별로 제공되는 리소스에 대한 설명은 [Virtual 가상 컴퓨터 크기](http://msdn.microsoft.com/ko-kr/library/windowsazure/ee814754.aspx "VM 크기")를 참조하십시오.
 
 이 응용 프로그램의 작업자 역할 B는 전자 메일 보내기 작업을 하므로 큰 부하를 받는 제한적 구성 요소입니다. (작업자 역할 A는 큐 메시지를 만들기만 하므로 리소스를 많이 사용하지 않습니다.) 작업자 역할 B는 다중 스레드가 아니며 메모리 사용 공간이 크지 않기 때문에 적합한 강화 대상이 아닙니다. 작업자 역할 B는 인스턴스 수를 늘려 선형적으로(즉, 인스턴스를 두 배로 늘리면 성능도 거의 두 배가 됨) 확장할 수 있습니다. 계산 인스턴스 수를 늘리는 것을 *규모 확장*이라고 합니다. 인스턴스별로 비용이 발생하므로, 응용 프로그램에 필요할 때만 규모를 확장해야 합니다.
 

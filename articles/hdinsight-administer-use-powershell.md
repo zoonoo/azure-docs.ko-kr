@@ -3,7 +3,7 @@
 PowerShell을 사용하여 HDInsight 관리
 ====================================
 
-Azure PowerShell은 Azure에서 작업의 배포와 관리를 제어 및 자동화하기 위해 사용할 수 있는 강력한 스크립팅 환경입니다. 이 문서에서는 Windows PowerShell을 통해 로컬 Azure PowerShell 콘솔을 사용하여 HDInsight 클러스터를 관리하는 방법을 알아보겠습니다. HDInsight PowerShell cmdlet의 목록은 [HDInsight cmdlet 참조](http://msdn.microsoft.com/en-us/library/windowsazure/dn479228.aspx)를 참조하십시오.
+Azure PowerShell은 Azure에서 작업의 배포와 관리를 제어 및 자동화하기 위해 사용할 수 있는 강력한 스크립팅 환경입니다. 이 문서에서는 Windows PowerShell을 통해 로컬 Azure PowerShell 콘솔을 사용하여 HDInsight 클러스터를 관리하는 방법을 알아보겠습니다. HDInsight PowerShell cmdlet의 목록은 [HDInsight cmdlet 참조](http://msdn.microsoft.com/ko-kr/library/windowsazure/dn479228.aspx)를 참조하십시오.
 
 **필수 조건:**
 
@@ -11,7 +11,7 @@ Azure PowerShell은 Azure에서 작업의 배포와 관리를 제어 및 자동�
 
 -   Azure 구독. Azure는 구독 기반 플랫폼입니다. HDInsight PowerShell cmdlet은 구독을 사용하여 작업을 수행합니다. 구독을 얻는 방법에 대한 자세한 내용은 [구매 옵션](https://www.windowsazure.com/en-us/pricing/purchase-options/), [구성원 제공 항목](https://www.windowsazure.com/en-us/pricing/member-offers/) 또는 [무료 평가판](https://www.windowsazure.com/en-us/pricing/free-trial/)을 참조하십시오.
 
--   Azure PowerShell이 포함된 워크스테이션. 자세한 내용은 [Azure PowerShell 설치 및 구성](/en-us/documentation/articles/install-configure-powershell/)을 참조하십시오.
+-   Azure PowerShell이 포함된 워크스테이션. 자세한 내용은 [Azure PowerShell 설치 및 구성](/ko-kr/documentation/articles/install-configure-powershell/)을 참조하십시오.
 
 이 문서의 내용
 --------------
@@ -136,7 +136,7 @@ HDInsight 클러스터에는 다음과 같은 HTTP 웹 서비스가 있습니다
 
 > [WACOM.NOTE] 액세스 권한을 부여/해지하여 클러스터 사용자 이름 및 암호를 다시 설정합니다.
 
-Azure 관리 포털을 사용하여 이 작업을 수행할 수도 있습니다. [관리 포털을 사용하여 HDInsight 관리](/en-us/documentation/articles/hdinsight-administer-use-management-portal/)를 참조하십시오.
+Azure 관리 포털을 사용하여 이 작업을 수행할 수도 있습니다. [관리 포털을 사용하여 HDInsight 관리](/ko-kr/documentation/articles/hdinsight-administer-use-management-portal/)를 참조하십시오.
 
 MapReduce 작업 제출
 -------------------
@@ -176,7 +176,7 @@ WASB 접두사에 대한 자세한 내용은 [Use Azure Blob storage for HDInsig
     # Display the output
     cat ./example/data/WordCountOutput/part-r-00000 | findstr "there"
 
-MapReduce 작업 개발 및 실행에 대한 자세한 내용은 [HDInsight와 함께 MapReduce 사용](/en-us/documentation/articles/hdinsight-use-mapreduce/)을 참조하십시오.
+MapReduce 작업 개발 및 실행에 대한 자세한 내용은 [HDInsight와 함께 MapReduce 사용](/ko-kr/documentation/articles/hdinsight-use-mapreduce/)을 참조하십시오.
 
 Hive 작업 제출
 --------------
@@ -202,12 +202,12 @@ HDInsight 클러스터 배포는 *hivesampletable*이라는 샘플 Hive 테이�
 
 Hive 작업은 먼저 클러스터에 생성된 Hive 테이블을 표시한 후 hivesampletable에서 반환된 데이터를 표시합니다.
 
-Hive 사용에 대한 자세한 내용은 [HDInsight와 함께 Hive 사용](/en-us/documentation/articles/hdinsight-use-hive/)을 참조하십시오.
+Hive 사용에 대한 자세한 내용은 [HDInsight와 함께 Hive 사용](/ko-kr/documentation/articles/hdinsight-use-hive/)을 참조하십시오.
 
 Blob 저장소에 데이터 업로드
 ---------------------------
 
-[HDInsight에 데이터 업로드](/en-us/documentation/articles/hdinsight-upload-data/)를 참조하십시오.
+[HDInsight에 데이터 업로드](/ko-kr/documentation/articles/hdinsight-upload-data/)를 참조하십시오.
 
 Blob 저장소에서 MapReduce 출력 다운로드
 ---------------------------------------
@@ -217,11 +217,11 @@ Blob 저장소에서 MapReduce 출력 다운로드
 참고 항목
 ---------
 
--   [HDInsight Cmdlet 참조 문서](http://msdn.microsoft.com/en-us/library/windowsazure/dn479228.aspx)
--   [관리 포털을 사용하여 HDInsight 관리](/en-us/documentation/articles/hdinsight-administer-use-management-portal/)
--   [명령줄 인터페이스를 사용하여 HDInsight 관리](/en-us/documentation/articles/hdinsight-administer-use-command-line/)
--   [HDInsight 클러스터 프로비전](/en-us/documentation/articles/hdinsight-provision-clusters/)
--   [HDInsight에 데이터 업로드](/en-us/documentation/articles/hdinsight-upload-data/)
--   [프로그래밍 방식으로 Hadoop 작업 제출](/en-us/documentation/articles/hdinsight-submit-hadoop-jobs-programmatically/)
--   [Azure HDInsight 시작](/en-us/documentation/articles/hdinsight-get-started/)
+-   [HDInsight Cmdlet 참조 문서](http://msdn.microsoft.com/ko-kr/library/windowsazure/dn479228.aspx)
+-   [관리 포털을 사용하여 HDInsight 관리](/ko-kr/documentation/articles/hdinsight-administer-use-management-portal/)
+-   [명령줄 인터페이스를 사용하여 HDInsight 관리](/ko-kr/documentation/articles/hdinsight-administer-use-command-line/)
+-   [HDInsight 클러스터 프로비전](/ko-kr/documentation/articles/hdinsight-provision-clusters/)
+-   [HDInsight에 데이터 업로드](/ko-kr/documentation/articles/hdinsight-upload-data/)
+-   [프로그래밍 방식으로 Hadoop 작업 제출](/ko-kr/documentation/articles/hdinsight-submit-hadoop-jobs-programmatically/)
+-   [Azure HDInsight 시작](/ko-kr/documentation/articles/hdinsight-get-started/)
 

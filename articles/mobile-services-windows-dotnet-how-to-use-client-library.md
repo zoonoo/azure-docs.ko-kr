@@ -5,7 +5,7 @@ Azure 모바일 서비스용 .NET 클라이언트를 사용하는 방법
 
 [.NET Framework](/en-us/develop/mobile/how-to-guides/work-with-net-client-library/ ".NET Framework") [HTML/JavaScript](/en-us/develop/mobile/how-to-guides/work-with-html-js-client/ "HTML/JavaScript")[iOS](/en-us/develop/mobile/how-to-guides/work-with-ios-client-library/ "iOS")[Android](/en-us/develop/mobile/how-to-guides/work-with-android-client-library/ "Android")[Xamarin](/en-us/develop/mobile/how-to-guides/work-with-xamarin-client-library/ "Xamarin")
 
-이 가이드에서는 Windows 스토어 앱 및 Windows Phone 앱에서 Azure 서비스용 .NET 클라이언트를 사용하는 일반적인 시나리오를 수행하는 방법을 보여 줍니다. 여기서 다루는 시나리오에는 데이터 쿼리, 삽입, 업데이트, 삭제 및 사용자 인증과 오류 처리가 포함됩니다. 모바일 서비스를 처음 접하는 경우 먼저 "모바일 서비스 빠른 시작" 자습서인 [Windows 스토어 빠른 시작 자습서](http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started/)(영문)/[Windows Phone 빠른 시작 자습서](http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-wp8/)(영문) 및 ".NET에서 데이터 시작" 자습서인 [Windows 스토어 데이터 자습서](http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-data-dotnet/)(영문)/[Windows Phone 데이터 자습서](http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-data-wp8/)(영문)를 완료해야 합니다. 빠른 시작 자습서에는 [모바일 서비스 SDK](http://nuget.org/packages/WindowsAzure.MobileServices/)가 필요하며, 이 자습서를 참조하여 계정을 구성하고 첫 모바일 서비스를 만들 수 있습니다.
+이 가이드에서는 Windows 스토어 앱 및 Windows Phone 앱에서 Azure 서비스용 .NET 클라이언트를 사용하는 일반적인 시나리오를 수행하는 방법을 보여 줍니다. 여기서 다루는 시나리오에는 데이터 쿼리, 삽입, 업데이트, 삭제 및 사용자 인증과 오류 처리가 포함됩니다. 모바일 서비스를 처음 접하는 경우 먼저 "모바일 서비스 빠른 시작" 자습서인 [Windows 스토어 빠른 시작 자습서](http://www.windowsazure.com/ko-kr/develop/mobile/tutorials/get-started/)(영문)/[Windows Phone 빠른 시작 자습서](http://www.windowsazure.com/ko-kr/develop/mobile/tutorials/get-started-wp8/)(영문) 및 ".NET에서 데이터 시작" 자습서인 [Windows 스토어 데이터 자습서](http://www.windowsazure.com/ko-kr/develop/mobile/tutorials/get-started-with-data-dotnet/)(영문)/[Windows Phone 데이터 자습서](http://www.windowsazure.com/ko-kr/develop/mobile/tutorials/get-started-with-data-wp8/)(영문)를 완료해야 합니다. 빠른 시작 자습서에는 [모바일 서비스 SDK](http://nuget.org/packages/WindowsAzure.MobileServices/)가 필요하며, 이 자습서를 참조하여 계정을 구성하고 첫 모바일 서비스를 만들 수 있습니다.
 
 목차
 ----
@@ -71,7 +71,7 @@ Azure 모바일 서비스용 .NET 클라이언트를 사용하는 방법
 테이블 참조 만들기방법: 테이블 참조 만들기
 ------------------------------------------
 
-모바일 서비스 테이블의 데이터에 액세스하거나 데이터를 수정하는 모든 코드는 `MobileServiceTable` 개체에 대한 함수를 호출합니다. `MobileServiceClient` 인스턴스에 대해 [GetTable](http://msdn.microsoft.com/en-us/library/windowsazure/jj554275.aspx) 함수를 호출하여 테이블에 대한 참조를 구합니다.
+모바일 서비스 테이블의 데이터에 액세스하거나 데이터를 수정하는 모든 코드는 `MobileServiceTable` 개체에 대한 함수를 호출합니다. `MobileServiceClient` 인스턴스에 대해 [GetTable](http://msdn.microsoft.com/ko-kr/library/windowsazure/jj554275.aspx) 함수를 호출하여 테이블에 대한 참조를 구합니다.
 
     IMobileServiceTable<TodoItem> todoTable = 
         client.GetTable<TodoItem>();
@@ -151,7 +151,7 @@ Azure 모바일 서비스용 .NET 클라이언트를 사용하는 방법
 
 ### 방법: 페이지에서 데이터 반환
 
-기본적으로 서버는 첫 50개 행만 반환합니다. [Take](http://msdn.microsoft.com/en-us/library/windowsazure/dn250574.aspx) 메서드를 호출하여 반환 행 수를 늘릴 수 있습니다. `Take`를 [Skip](http://msdn.microsoft.com/en-us/library/windowsazure/dn250573.aspx) 메서드와 함께 사용하면 쿼리에서 반환되는 전체 데이터 집합의 특정 "페이지"가 요청됩니다. 다음 쿼리를 실행하면 테이블에서 맨 위에 있는 세 개의 항목을 반환합니다.
+기본적으로 서버는 첫 50개 행만 반환합니다. [Take](http://msdn.microsoft.com/ko-kr/library/windowsazure/dn250574.aspx) 메서드를 호출하여 반환 행 수를 늘릴 수 있습니다. `Take`를 [Skip](http://msdn.microsoft.com/ko-kr/library/windowsazure/dn250573.aspx) 메서드와 함께 사용하면 쿼리에서 반환되는 전체 데이터 집합의 특정 "페이지"가 요청됩니다. 다음 쿼리를 실행하면 테이블에서 맨 위에 있는 세 개의 항목을 반환합니다.
 
     // Define a filtered query that returns the top 3 items.
     MobileServiceTableQuery<TodoItem> query = todoTable
@@ -166,7 +166,7 @@ Azure 모바일 서비스용 .NET 클라이언트를 사용하는 방법
                     .Take(3);                              
     List<TodoItem> items = await query.ToListAsync();
 
-[IncludeTotalCount](http://msdn.microsoft.com/en-us/library/windowsazure/dn250560.aspx) 메서드를 사용하여 쿼리가 지정된 take 페이징/제한 절을 무시하고 반환되었을 *모든* 레코드의 총 개수를 가져오도록 할 수도 있습니다.
+[IncludeTotalCount](http://msdn.microsoft.com/ko-kr/library/windowsazure/dn250560.aspx) 메서드를 사용하여 쿼리가 지정된 take 페이징/제한 절을 무시하고 반환되었을 *모든* 레코드의 총 개수를 가져오도록 할 수도 있습니다.
 
     query = query.IncludeTotalCount();
 
@@ -244,7 +244,7 @@ Azure 모바일 서비스용 .NET 클라이언트를 사용하는 방법
 -   인쇄 가능한 문자: **"**(0x0022), **+** (0x002B), **/** (0x002F), **?** (0x003F), **\\** (0x005C), **\`** (0x0060)
 -   ID "." 및 ".."
 
-또는 테이블에 정수 ID를 사용할 수 있습니다. 정수 ID를 사용하려면 `--integerId` 옵션을 사용하는 `mobile table create` 명령으로 테이블을 만들어야 합니다. 이 명령은 Azure용 CLI(명령줄 인터페이스)와 함께 사용됩니다. CLI 사용에 대한 자세한 내용은 [모바일 서비스 테이블 관리 CLI](http://www.windowsazure.com/en-us/manage/linux/other-resources/command-line-tools/#Mobile_Tables)(영문)를 참조하십시오.
+또는 테이블에 정수 ID를 사용할 수 있습니다. 정수 ID를 사용하려면 `--integerId` 옵션을 사용하는 `mobile table create` 명령으로 테이블을 만들어야 합니다. 이 명령은 Azure용 CLI(명령줄 인터페이스)와 함께 사용됩니다. CLI 사용에 대한 자세한 내용은 [모바일 서비스 테이블 관리 CLI](http://www.windowsazure.com/ko-kr/manage/linux/other-resources/command-line-tools/#Mobile_Tables)(영문)를 참조하십시오.
 
 형식화되지 않은 데이터를 삽입하려면 아래와 같이 JSON.NET을 이용할 수 있습니다.
 
@@ -379,7 +379,7 @@ Azure 모바일 서비스용 .NET 클라이언트를 사용하는 방법
 	    await msgDialog.ShowAsync();
 	}
 
-모바일 서비스에 낙관적 동시성을 사용하는 전체 예제는 [낙관적 동시성 자습서](http://www.windowsazure.com/en-us/develop/mobile/tutorials/handle-database-write-conflicts-dotnet/)(영문)를 참조하십시오.
+모바일 서비스에 낙관적 동시성을 사용하는 전체 예제는 [낙관적 동시성 자습서](http://www.windowsazure.com/ko-kr/develop/mobile/tutorials/handle-database-write-conflicts-dotnet/)(영문)를 참조하십시오.
 
 데이터 표시방법: 모바일 서비스에서 사용자 인터페이스에 데이터 바인딩
 --------------------------------------------------------------------
@@ -398,7 +398,7 @@ Azure 모바일 서비스용 .NET 클라이언트를 사용하는 방법
     ListBox lb = new ListBox();
     lb.ItemsSource = items;
 
-Windows 런타임의 일부 컨트롤은 [ISupportIncrementalLoading](http://msdn.microsoft.com/en-us/library/windows/apps/Hh701916)이라는 인터페이스를 지원합니다. 이 인터페이스에서는 사용자가 스크롤할 때 컨트롤이 추가 데이터를 요청할 수 있습니다. 컨트롤에서 발생하는 호출을 자동으로 처리하는 `MobileServiceIncrementalLoadingCollection`을 통해 Windows 스토어 앱용으로 이 인터페이스를 기본적으로 지원합니다. Windows 스토어 앱에서 `MobileServiceIncrementalLoadingCollection`을 사용하려면 다음을 수행합니다.
+Windows 런타임의 일부 컨트롤은 [ISupportIncrementalLoading](http://msdn.microsoft.com/ko-kr/library/windows/apps/Hh701916)이라는 인터페이스를 지원합니다. 이 인터페이스에서는 사용자가 스크롤할 때 컨트롤이 추가 데이터를 요청할 수 있습니다. 컨트롤에서 발생하는 호출을 자동으로 처리하는 `MobileServiceIncrementalLoadingCollection`을 통해 Windows 스토어 앱용으로 이 인터페이스를 기본적으로 지원합니다. Windows 스토어 앱에서 `MobileServiceIncrementalLoadingCollection`을 사용하려면 다음을 수행합니다.
 
          MobileServiceIncrementalLoadingCollection<TodoItem,TodoItem> items;
         items =  todoTable.Where(todoItem => todoItem.Complete == false)
@@ -419,15 +419,15 @@ Windows Phone에서 새 컬렉션을 사용하려면 `IMobileServiceTableQuery<T
 인증방법: 사용자 인증
 ---------------------
 
-모바일 서비스는 Facebook, Google, Microsoft 계정, Twitter, Azure Active Directory 등 다양한 외부 ID 공급자를 사용하는 앱 사용자에 대한 인증 및 권한 부여를 지원합니다. 테이블에 대해 사용 권한을 설정하여 특정 작업을 위한 액세스를 인증된 사용자로만 제한할 수 있습니다. 인증된 사용자의 ID를 사용하여 서버 스크립트에 인증 규칙을 구현할 수도 있습니다. 자세한 내용은 "인증 시작" 자습서([Windows 스토어](http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-users-dotnet/)(영문)/[Windows Phone](http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-users-wp8/)(영문))를 참조하십시오.
+모바일 서비스는 Facebook, Google, Microsoft 계정, Twitter, Azure Active Directory 등 다양한 외부 ID 공급자를 사용하는 앱 사용자에 대한 인증 및 권한 부여를 지원합니다. 테이블에 대해 사용 권한을 설정하여 특정 작업을 위한 액세스를 인증된 사용자로만 제한할 수 있습니다. 인증된 사용자의 ID를 사용하여 서버 스크립트에 인증 규칙을 구현할 수도 있습니다. 자세한 내용은 "인증 시작" 자습서([Windows 스토어](http://www.windowsazure.com/ko-kr/develop/mobile/tutorials/get-started-with-users-dotnet/)(영문)/[Windows Phone](http://www.windowsazure.com/ko-kr/develop/mobile/tutorials/get-started-with-users-wp8/)(영문))를 참조하십시오.
 
 두 가지의 인증 흐름, 즉 *서버 흐름*과 *클라이언트 흐름*이 지원됩니다. 서버 흐름의 경우 공급자의 웹 인증 인터페이스를 사용하므로 인증 경험이 가장 단순합니다. 클라이언트 흐름의 경우 공급자 특정 장치별 SDK를 사용하므로 장치 특정 기능을 통해 더욱 강력한 통합이 가능합니다.
 
 ### 서버 흐름
 
-모바일 서비스가 Windows 스토어 또는 Windows Phone 앱에서 인증 프로세스를 관리하게 하려면 앱을 ID 공급자에 등록해야 합니다. 그런 다음, 모바일 서비스에서 공급자로부터 제공된 응용 프로그램 ID 및 암호를 구성해야 합니다. 자세한 내용은 "인증 시작" 자습서([Windows 스토어](http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-users-dotnet/)(영문)/[Windows Phone](http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-users-wp8/)(영문))를 참조하십시오.
+모바일 서비스가 Windows 스토어 또는 Windows Phone 앱에서 인증 프로세스를 관리하게 하려면 앱을 ID 공급자에 등록해야 합니다. 그런 다음, 모바일 서비스에서 공급자로부터 제공된 응용 프로그램 ID 및 암호를 구성해야 합니다. 자세한 내용은 "인증 시작" 자습서([Windows 스토어](http://www.windowsazure.com/ko-kr/develop/mobile/tutorials/get-started-with-users-dotnet/)(영문)/[Windows Phone](http://www.windowsazure.com/ko-kr/develop/mobile/tutorials/get-started-with-users-wp8/)(영문))를 참조하십시오.
 
-ID 공급자를 등록하고 나면 공급자의 [MobileServiceAuthenticationProvider](http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceauthenticationprovider.aspx) 값을 사용하여 [LoginAsync 메서드](http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclientextensions.loginasync.aspx)를 호출합니다. 예를 들어 다음 코드는 Facebook을 사용한 서버 흐름 로그인을 시작합니다.
+ID 공급자를 등록하고 나면 공급자의 [MobileServiceAuthenticationProvider](http://msdn.microsoft.com/ko-kr/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceauthenticationprovider.aspx) 값을 사용하여 [LoginAsync 메서드](http://msdn.microsoft.com/ko-kr/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclientextensions.loginasync.aspx)를 호출합니다. 예를 들어 다음 코드는 Facebook을 사용한 서버 흐름 로그인을 시작합니다.
 
      private MobileServiceUser user;
     private async System.Threading.Tasks.Task Authenticate()
@@ -453,9 +453,9 @@ ID 공급자를 등록하고 나면 공급자의 [MobileServiceAuthenticationPro
         }
     }
 
-Facebook 이외의 ID 공급자를 사용하는 경우 위의 [MobileServiceAuthenticationProvider](http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceauthenticationprovider.aspx) 값을 공급자에 대한 값으로 변경합니다.
+Facebook 이외의 ID 공급자를 사용하는 경우 위의 [MobileServiceAuthenticationProvider](http://msdn.microsoft.com/ko-kr/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceauthenticationprovider.aspx) 값을 공급자에 대한 값으로 변경합니다.
 
-이 경우 모바일 서비스는 선택한 공급자의 로그인 페이지를 표시하고 ID 공급자 로그인 후 모바일 서비스 인증 토큰을 생성하여 OAuth 2.0 인증 흐름을 관리합니다. [LoginAsync 메서드](http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclientextensions.loginasync.aspx)는 [MobileServiceUser](http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.aspx)를 반환하며, 여기서 인증된 사용자의 [userId](http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid.aspx) 및 [MobileServiceAuthenticationToken](http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.mobileserviceauthenticationtoken.aspx)이 JWT(JSON 웹 토큰)로 제공됩니다. 이 토큰은 캐시했다가 만료될 때까지 다시 사용할 수 있습니다. 자세한 내용은 [인증 토큰 캐시](#caching)를 참조하십시오.
+이 경우 모바일 서비스는 선택한 공급자의 로그인 페이지를 표시하고 ID 공급자 로그인 후 모바일 서비스 인증 토큰을 생성하여 OAuth 2.0 인증 흐름을 관리합니다. [LoginAsync 메서드](http://msdn.microsoft.com/ko-kr/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclientextensions.loginasync.aspx)는 [MobileServiceUser](http://msdn.microsoft.com/ko-kr/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.aspx)를 반환하며, 여기서 인증된 사용자의 [userId](http://msdn.microsoft.com/ko-kr/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid.aspx) 및 [MobileServiceAuthenticationToken](http://msdn.microsoft.com/ko-kr/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.mobileserviceauthenticationtoken.aspx)이 JWT(JSON 웹 토큰)로 제공됩니다. 이 토큰은 캐시했다가 만료될 때까지 다시 사용할 수 있습니다. 자세한 내용은 [인증 토큰 캐시](#caching)를 참조하십시오.
 
 **Windows 스토어 앱**
 
@@ -508,7 +508,7 @@ Microsoft 계정을 사용하여 단일 로그인 환경을 제공하는 방법�
 
 ### 인증 토큰 캐시
 
-일부 경우, 사용자가 처음으로 인증된 후에 login 메서드 호출을 방지할 수 있습니다. Windows 스토어 앱용 [PasswordVault](http://msdn.microsoft.com/en-us/library/windows/apps/windows.security.credentials.passwordvault.aspx)를 사용하여 사용자가 처음 로그인할 때 현재 사용자 ID를 캐시하고 이후에 매번 캐시에서 해당 사용자 ID가 이미 있는지 여부를 확인할 수 있습니다. 캐시가 비어 있는 경우에도 사용자가 로그인 프로세스를 거치도록 해야 합니다.
+일부 경우, 사용자가 처음으로 인증된 후에 login 메서드 호출을 방지할 수 있습니다. Windows 스토어 앱용 [PasswordVault](http://msdn.microsoft.com/ko-kr/library/windows/apps/windows.security.credentials.passwordvault.aspx)를 사용하여 사용자가 처음 로그인할 때 현재 사용자 ID를 캐시하고 이후에 매번 캐시에서 해당 사용자 ID가 이미 있는지 여부를 확인할 수 있습니다. 캐시가 비어 있는 경우에도 사용자가 로그인 프로세스를 거치도록 해야 합니다.
 
     // After logging in
     PasswordVault vault = new PasswordVault();
@@ -535,7 +535,7 @@ Microsoft 계정을 사용하여 단일 로그인 환경을 제공하는 방법�
     client.Logout();
     vault.Remove(vault.Retrieve("Facebook", user.UserId));
 
-Windows Phone 앱의 경우 [ProtectedData](http://msdn.microsoft.com/en-us/library/system.security.cryptography.protecteddata%28VS.95%29.aspx) 클래스를 사용하여 데이터를 암호화 및 캐시하고 격리된 저장소에 중요 정보를 저장할 수 있습니다.
+Windows Phone 앱의 경우 [ProtectedData](http://msdn.microsoft.com/ko-kr/library/system.security.cryptography.protecteddata%28VS.95%29.aspx) 클래스를 사용하여 데이터를 암호화 및 캐시하고 격리된 저장소에 중요 정보를 저장할 수 있습니다.
 
 오류 처리방법: 오류 처리
 ------------------------
@@ -622,7 +622,7 @@ Windows Phone 앱의 경우 [ProtectedData](http://msdn.microsoft.com/en-us/libr
 
 ### 방법: serialization 사용자 지정
 
-[MobileServiceClient](http://msdn.microsoft.com/en-us/library/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx) 클래스는 [JsonSerializerSettings](http://james.newtonking.com/projects/json/help/?topic=html/T_Newtonsoft_Json_JsonSerializerSettings.htm) 형식의 `SerializerSettings` 속성을 표시합니다.
+[MobileServiceClient](http://msdn.microsoft.com/ko-kr/library/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx) 클래스는 [JsonSerializerSettings](http://james.newtonking.com/projects/json/help/?topic=html/T_Newtonsoft_Json_JsonSerializerSettings.htm) 형식의 `SerializerSettings` 속성을 표시합니다.
 
 이 속성을 사용하면 예를 들어 모든 속성을 소문자로 변환하는 속성을 포함한 JSON.NET 속성(다수의 속성)을 설정할 수 있습니다.
 

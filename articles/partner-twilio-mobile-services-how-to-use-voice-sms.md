@@ -75,14 +75,14 @@ Twilio에서 계정에 대한 여러 전화 번호를 인증해야 합니다. �
 모바일 서비스 만들기
 --------------------
 
-Twilio 사용 응용 프로그램을 호스트하는 모바일 서비스도 다른 모바일 서비스와 동일합니다. 모바일 서비스 사용자 지정 API 스크립트에서 참조하기 위해 Twilio node.js 라이브러리를 추가하면 됩니다. 최초 모바일 서비스 만들기에 대한 내용은 [모바일 서비스 시작](http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started/)(영문)을 참조하십시오.
+Twilio 사용 응용 프로그램을 호스트하는 모바일 서비스도 다른 모바일 서비스와 동일합니다. 모바일 서비스 사용자 지정 API 스크립트에서 참조하기 위해 Twilio node.js 라이브러리를 추가하면 됩니다. 최초 모바일 서비스 만들기에 대한 내용은 [모바일 서비스 시작](http://www.windowsazure.com/ko-kr/develop/mobile/tutorials/get-started/)(영문)을 참조하십시오.
 
 Twilio Node.js 라이브러리를 사용하도록 모바일 서비스 구성
 ---------------------------------------------------------
 
 Twilio는 Node.js 라이브러리를 제공하며, 이 라이브러리는 Twilio의 여러 가지 요소를 래핑함으로써 Twilio REST API 및 Twilio 클라이언트를 간단하고 쉽게 조작해서 TwiML 응답을 생성하는 방법을 제공합니다.
 
-모바일 서비스에서 Twilio node.js 라이브러리를 사용하려면 모바일 서비스 npm 모듈 지원을 사용해야 합니다. 이는 원본 제어에서 스크립트를 저장함으로써 사용할 수 있습니다. [원본 제어에 스크립트 저장](http://www.windowsazure.com/en-us/develop/mobile/tutorials/store-scripts-in-source-control/)(영문) 자습서에는 모바일 서비스에서 처음으로 원본 제어를 설정하고 Git 리포지토리에 서버 스크립트를 저장하는 방법이 나와 있습니다.
+모바일 서비스에서 Twilio node.js 라이브러리를 사용하려면 모바일 서비스 npm 모듈 지원을 사용해야 합니다. 이는 원본 제어에서 스크립트를 저장함으로써 사용할 수 있습니다. [원본 제어에 스크립트 저장](http://www.windowsazure.com/ko-kr/develop/mobile/tutorials/store-scripts-in-source-control/)(영문) 자습서에는 모바일 서비스에서 처음으로 원본 제어를 설정하고 Git 리포지토리에 서버 스크립트를 저장하는 방법이 나와 있습니다.
 
 모바일 서비스에 대해 원본 제어를 설정했으면 모바일 서비스 대시보드에서 구성 탭을 열고 Git URL을 찾아 복사합니다.
 

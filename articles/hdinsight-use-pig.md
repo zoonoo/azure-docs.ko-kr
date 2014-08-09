@@ -18,7 +18,7 @@ Pig Latin에 대한 자세한 내용은 [Pig Latin 참조 설명서 1](http://pi
 이 문서를 시작하기 전에 다음 요구 사항을 확인하십시오.
 
 -   Azure HDInsight 클러스터를 만듭니다. 자세한 내용은 [Azure HDInsight 시작](/en-us/manage/services/hdinsight/get-started-hdinsight/) 또는 [HDInsight 클러스터 프로비전](/en-us/manage/services/hdinsight/provision-hdinsight-clusters/)을 참조하십시오.
--   Azure PowerShell을 설치하고 구성합니다. 자세한 내용은 [Azure PowerShell 설치 및 구성](/en-us/documentation/articles/install-configure-powershell/)을 참조하십시오.
+-   Azure PowerShell을 설치하고 구성합니다. 자세한 내용은 [Azure PowerShell 설치 및 구성](/ko-kr/documentation/articles/install-configure-powershell/)을 참조하십시오.
 
 **예상 완료 시간:** 30분
 
@@ -176,7 +176,7 @@ PowerShell을 사용하여 Pig Latin 실행
 
 **PowerShell을 사용하여 Pig Latin을 실행하려면**
 
-1.  Azure PowerShell 콘솔 창을 엽니다. 자세한 내용은 [Azure PowerShell 설치 및 구성](/en-us/documentation/articles/install-configure-powershell/)을 참조하십시오.
+1.  Azure PowerShell 콘솔 창을 엽니다. 자세한 내용은 [Azure PowerShell 설치 및 구성](/ko-kr/documentation/articles/install-configure-powershell/)을 참조하십시오.
 2.  다음 명령을 실행하여 Azure 구독에 연결합니다.
 
          Add-AzureAccount
@@ -250,7 +250,7 @@ Pig를 사용하여 데이터를 분석할 수 있지만, HDInsight에 포함된
 [hdinsight-provision]: /en-us/manage/services/hdinsight/provision-hdinsight-clusters/
 [hdinsight-configure-powershell]: /en-us/manage/services/hdinsight/install-and-configure-powershell-for-hdinsight/ 
 
-[Powershell-install-configure]: /en-us/documentation/articles/install-configure-powershell/
+[Powershell-install-configure]: /ko-kr/documentation/articles/install-configure-powershell/
 
 [image-hdi-log4j-sample]: ./media/hdinsight-use-pig/HDI.wholesamplefile.png
 [image-hdi-pig-data-transformation]: ./media/hdinsight-use-pig/HDI.DataTransformation.gif

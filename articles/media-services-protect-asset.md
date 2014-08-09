@@ -9,7 +9,7 @@ Azure 미디어 서비스에서 Microsoft PlayReady Protection과 통합되어 �
 
 다음 예제에서는 PlayReady Protection을 제공하는 간단한 작업을 만드는 방법을 보여 줍니다.
 
-1.  구성 데이터를 검색합니다. [Azure 미디어 암호기에 대한 작업 기본 설정](http://msdn.microsoft.com/en-us/library/hh973610.aspx) 항목에서 예제 구성 파일을 가져올 수 있습니다.
+1.  구성 데이터를 검색합니다. [Azure 미디어 암호기에 대한 작업 기본 설정](http://msdn.microsoft.com/ko-kr/library/hh973610.aspx) 항목에서 예제 구성 파일을 가져올 수 있습니다.
 2.  MP4 입력 파일을 업로드합니다.
 3.  MP4 파일을 부드러운 스트리밍 자산으로 변환합니다.
 4.  PlayReady를 사용하여 자산을 암호화합니다.
@@ -104,7 +104,7 @@ private static IJob CreatePlayReadyProtectionJob(string inputMediaFilePath, stri
 
 PlayReady Protection에 대한 자세한 내용은 다음을 참조하십시오.
 
--   [Microsoft PlayReady를 사용하여 자산 보호](http://msdn.microsoft.com/en-us/library/dn189154.aspx)
+-   [Microsoft PlayReady를 사용하여 자산 보호](http://msdn.microsoft.com/ko-kr/library/dn189154.aspx)
 -   [Microsoft PlayReady](http://www.microsoft.com/PlayReady/)
 
 다음 단계

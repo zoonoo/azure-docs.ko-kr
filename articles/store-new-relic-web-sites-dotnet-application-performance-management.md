@@ -17,7 +17,7 @@ Azure 스토어에서 제공하는 New Relic의 특별 가격
 
 New Relic Standard는 Azure 사용자에게 무료입니다. New Relic Pro는 사용 중인 웹 사이트 모드에 따라 여러 패키지로 제공되며 reserved 모드에서 실행 중인 경우에는 인스턴스 크기에 따라 제공됩니다.
 
-가격 책정 정보는 [Azure 스토어의 New Relic 페이지](http://www.windowsazure.com/en-us/gallery/store/new-relic/new-relic/)(영문)를 참조하십시오.
+가격 책정 정보는 [Azure 스토어의 New Relic 페이지](http://www.windowsazure.com/ko-kr/gallery/store/new-relic/new-relic/)(영문)를 참조하십시오.
 
 **참고:**
 
@@ -49,7 +49,7 @@ Azure 스토어에서 직접 New Relic에 등록하려면 다음과 같이 간�
 
 ### 2단계. New Relic 패키지 설치
 
-New Relic Web Sites Agent는 NuGet 패키지로 분산되고 Visual Studio나 WebMatrix를 사용하여 웹 사이트에 추가될 수 있습니다. Azure 웹 사이트로 Visual Studio나 WebMatrix를 사용하는 데 익숙지 않으면 [Visual Studio를 사용하여 Azure 웹 사이트에 ASP.NET 웹 응용 프로그램 배포](http://www.windowsazure.com/en-us/develop/net/tutorials/get-started/) 또는 [Microsoft WebMatrix로 웹 사이트 개발 및 배포](http://www.windowsazure.com/en-us/develop/net/tutorials/website-with-webmatrix/)를 참조하십시오.
+New Relic Web Sites Agent는 NuGet 패키지로 분산되고 Visual Studio나 WebMatrix를 사용하여 웹 사이트에 추가될 수 있습니다. Azure 웹 사이트로 Visual Studio나 WebMatrix를 사용하는 데 익숙지 않으면 [Visual Studio를 사용하여 Azure 웹 사이트에 ASP.NET 웹 응용 프로그램 배포](http://www.windowsazure.com/ko-kr/develop/net/tutorials/get-started/) 또는 [Microsoft WebMatrix로 웹 사이트 개발 및 배포](http://www.windowsazure.com/ko-kr/develop/net/tutorials/website-with-webmatrix/)를 참조하십시오.
 
 사용 중인 특정 개발 환경에 맞게 다음 단계를 수행합니다.
 

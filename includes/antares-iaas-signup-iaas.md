@@ -5,4 +5,4 @@
 
 
 
-[1]: http://www.windowsazure.com/en-us/pricing/free-trial
+[1]: http://www.windowsazure.com/ko-kr/pricing/free-trial

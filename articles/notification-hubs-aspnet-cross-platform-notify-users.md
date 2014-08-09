@@ -62,7 +62,7 @@
 -   **[Azure 알림 허브 개요](http://go.microsoft.com/fwlink/p/?LinkId=317339)**
     개요 항목에는 템플릿에 대한 세부 정보가 포함되어 있습니다.
 
--   **[Windows 스토어에 대한 알림 허브 방법](http://msdn.microsoft.com/en-us/library/windowsazure/jj927172.aspx)**
+-   **[Windows 스토어에 대한 알림 허브 방법](http://msdn.microsoft.com/ko-kr/library/windowsazure/jj927172.aspx)**
     템플릿 표현 언어 참조가 포함되어 있습니다.
 
 

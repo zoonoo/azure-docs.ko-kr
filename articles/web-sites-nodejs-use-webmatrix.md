@@ -22,7 +22,7 @@ Azure에 로그인
 
 이 자습서를 완료하려면 Azure 웹 사이트 기능이 사용하도록 설정된 Azure 계정이 필요합니다.
 
-계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A7171371E)을 참조하십시오.
+계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](http://www.windowsazure.com/ko-kr/pricing/free-trial/?WT.mc_id=A7171371E)을 참조하십시오.
 
 1.  WebMatrix를 시작합니다.
 2.  이번에 처음으로 WebMatrix를 사용하는 경우 Azure에 로그인하라는 메시지가 표시됩니다. 또는 **로그인** 단추를 클릭하고 **계정 추가**를 선택할 수 있습니다. Microsoft 계정을 사용하여 **로그인**하도록 선택합니다.
@@ -91,7 +91,7 @@ Azure에 응용 프로그램 게시
 다음 단계
 ---------
 
-Azure에 제공되는 Node.js 버전에 대한 정보 및 응용 프로그램에 사용할 버전 지정 방법에 대한 자세한 내용은 [Azure 응용 프로그램에서 Node.js 버전 지정](http://www.windowsazure.com/en-us/develop/nodejs/common-tasks/specifying-a-node-version/)(영문)을 참조하십시오.
+Azure에 제공되는 Node.js 버전에 대한 정보 및 응용 프로그램에 사용할 버전 지정 방법에 대한 자세한 내용은 [Azure 응용 프로그램에서 Node.js 버전 지정](http://www.windowsazure.com/ko-kr/develop/nodejs/common-tasks/specifying-a-node-version/)(영문)을 참조하십시오.
 
-응용 프로그램을 Azure에 배포한 후 문제가 발생하는 경우 [Azure 웹 사이트에서 Node.js 응용 프로그램 디버그 방법](http://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/Debug-Website/)(영문)에서 문제를 진단하는 방법에 대한 정보를 참조하십시오.
+응용 프로그램을 Azure에 배포한 후 문제가 발생하는 경우 [Azure 웹 사이트에서 Node.js 응용 프로그램 디버그 방법](http://www.windowsazure.com/ko-kr/develop/nodejs/how-to-guides/Debug-Website/)(영문)에서 문제를 진단하는 방법에 대한 정보를 참조하십시오.
 

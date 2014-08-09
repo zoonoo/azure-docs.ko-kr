@@ -26,9 +26,9 @@ Azure 포털에서 페이지 또는 "탭" 집합을 사용하여 웹 사이트�
  - **HTTP 서버 오류** - 전송된 HTTP "5xx 서버 오류" 메시지의 개수입니다.
  - **요청** - 웹 사이트에 대한 모든 클라이언트 요청 개수입니다.
  <br />**참고:**
-페이지 아래에 있는 **메트릭 추가**를 선택하여 **모니터** 관리 페이지에서 성능 메트릭을 더 추가할 수 있습니다. 자세한 내용은 [웹 사이트를 모니터링하는 방법](http://www.windowsazure.com/en-us/manage/services/web-sites/how-to-monitor-websites/)을 참조하십시오.
+페이지 아래에 있는 **메트릭 추가**를 선택하여 **모니터** 관리 페이지에서 성능 메트릭을 더 추가할 수 있습니다. 자세한 내용은 [웹 사이트를 모니터링하는 방법](http://www.windowsazure.com/ko-kr/manage/services/web-sites/how-to-monitor-websites/)을 참조하십시오.
 
--   **웹 끝점 상태** - 모니터링을 위해 구성된 웹 끝점의 목록입니다. 끝점이 구성되어 있지 않은 경우 **웹 끝점 모니터링 구성**을 클릭하고 **구성** 관리 페이지의 **모니터링** 섹션으로 이동하십시오. 자세한 내용은 [웹 사이트를 모니터링하는 방법](http://www.windowsazure.com/en-us/manage/services/web-sites/how-to-monitor-websites/)을 참조하십시오.
+-   **웹 끝점 상태** - 모니터링을 위해 구성된 웹 끝점의 목록입니다. 끝점이 구성되어 있지 않은 경우 **웹 끝점 모니터링 구성**을 클릭하고 **구성** 관리 페이지의 **모니터링** 섹션으로 이동하십시오. 자세한 내용은 [웹 사이트를 모니터링하는 방법](http://www.windowsazure.com/ko-kr/manage/services/web-sites/how-to-monitor-websites/)을 참조하십시오.
 
 -   **자동 크기 조정 상태** - 표준 모드에서 필요한 만큼만 사용할 수 있도록 리소스를 자동으로 확장할 수 있습니다. 자동 크기 조정을 사용하려면 **자동 크기 조정 구성**을 선택하여 **크기 조정** 페이지로 이동합니다. 웹 사이트가 무료 또는 공유 모드에 있는 경우 표준 모드로 변경해야(**크기 조정** 페이지에서 변경할 수 있음) 자동 크기 조정을 구성할 수 있습니다. **자동 크기 조정 작업 로그**를 클릭하면 웹 사이트의 자동 크기 작업 기록을 볼 수 있는 **관리 서비스** 포털로 이동됩니다. 기본 쿼리는 24시간 동안으로 지정되지만 쿼리를 변경할 수 있습니다.
 
@@ -49,7 +49,7 @@ Azure 포털에서 페이지 또는 "탭" 집합을 사용하여 웹 사이트�
  - **관리 서비스** - Microsoft Azure 관리 서비스 포털에서 웹 사이트에 대한 작업 로그를 보려면 **작업 로그** 링크를 클릭합니다.
  - **가상 IP 주소** - **구성** 탭의 **SSL 바인딩** 섹션에서 웹 사이트에 대한 IP 기반 SSL 바인딩을 구성한 경우 웹 사이트의 가상 IP 주소를 표시합니다.
  - **사이트 URL** - 공개적으로 액세스 가능한 인터넷 웹 사이트 주소를 지정합니다.
- - **컴퓨팅 모드** - 웹 사이트가 무료, 공유, 기본 또는 표준 모드에서 실행 중인지 여부를 지정합니다. 웹 크기 조정 그룹 모드에 대한 자세한 내용은 [웹 사이트 크기를 조정하는 방법](http://www.windowsazure.com/en-us/manage/services/web-sites/how-to-scale-websites)을 참조하십시오.
+ - **컴퓨팅 모드** - 웹 사이트가 무료, 공유, 기본 또는 표준 모드에서 실행 중인지 여부를 지정합니다. 웹 크기 조정 그룹 모드에 대한 자세한 내용은 [웹 사이트 크기를 조정하는 방법](http://www.windowsazure.com/ko-kr/manage/services/web-sites/how-to-scale-websites)을 참조하십시오.
  - **FTP 호스트 이름** - FTP를 통해 웹 사이트에 게시할 때 사용할 URL을 지정합니다.
  - **FTPS 호스트 이름** - FTPS를 통해 웹 사이트에 게시할 때 사용할 URL을 지정합니다.
  - **배포 사용자/FTP 사용자** - FTP 또는 Git를 통해 Microsoft Azure에 웹 사이트를 배포할 때 사용되는 계정을 나타냅니다.
@@ -67,12 +67,12 @@ Azure 포털에서 페이지 또는 "탭" 집합을 사용하여 웹 사이트�
 모니터
 ------
 
-**모니터** 관리 페이지는 웹 사이트의 사용량 정보를 표시하는 차트를 제공합니다. 기본적으로 차트는 위의 대시보드 섹션에서 설명한 **대시보드** 페이지의 차트와 동일한 메트릭을 표시합니다. 또한 HTTP 성공, HTTP 리디렉션, HTTP 401 오류, HTTP 403 오류, HTTP 404 오류 및 HTTP 406 오류 메트릭을 표시하도록 차트를 구성할 수도 있습니다. 이러한 메트릭에 대한 자세한 내용은 [웹 사이트를 모니터링하는 방법](http://www.windowsazure.com/en-us/manage/services/web-sites/how-to-monitor-websites/)을 참조하십시오.
+**모니터** 관리 페이지는 웹 사이트의 사용량 정보를 표시하는 차트를 제공합니다. 기본적으로 차트는 위의 대시보드 섹션에서 설명한 **대시보드** 페이지의 차트와 동일한 메트릭을 표시합니다. 또한 HTTP 성공, HTTP 리디렉션, HTTP 401 오류, HTTP 403 오류, HTTP 404 오류 및 HTTP 406 오류 메트릭을 표시하도록 차트를 구성할 수도 있습니다. 이러한 메트릭에 대한 자세한 내용은 [웹 사이트를 모니터링하는 방법](http://www.windowsazure.com/ko-kr/manage/services/web-sites/how-to-monitor-websites/)을 참조하십시오.
 
 웹 작업
 -------
 
-웹 작업 관리 페이지에서 주문형, 예약형 또는 연속형 웹 사이트 작업을 만들 수 있습니다. 자세한 내용은 [Microsoft Azure 웹 사이트에서 WebJob 기능 사용 방법](http://www.windowsazure.com/en-us/documentation/articles/web-sites-create-web-jobs/)을 참조하십시오.
+웹 작업 관리 페이지에서 주문형, 예약형 또는 연속형 웹 사이트 작업을 만들 수 있습니다. 자세한 내용은 [Microsoft Azure 웹 사이트에서 WebJob 기능 사용 방법](http://www.windowsazure.com/ko-kr/documentation/articles/web-sites-create-web-jobs/)을 참조하십시오.
 
 구성
 ----
@@ -94,7 +94,7 @@ Azure 포털에서 페이지 또는 "탭" 집합을 사용하여 웹 사이트�
 -   **처리기 매핑** - 특정 파일 형식(예: \*.php)에 대한 요청을 처리하는 사용자 지정 스크립트 프로세서를 추가합니다.
 -   **가상 응용 프로그램 및 디렉터리** - 웹 사이트와 연결된 가상 응용 프로그램 및 디렉터리를 구성합니다. 사이트 구성에서 가상 디렉터리를 응용 프로그램으로 표시하는 옵션도 있습니다.
 
-웹 사이트를 구성하는 방법에 대한 자세한 내용은 [웹 사이트를 구성하는 방법](http://www.windowsazure.com/en-us/manage/services/web-sites/how-to-configure-websites)을 참조하십시오.
+웹 사이트를 구성하는 방법에 대한 자세한 내용은 [웹 사이트를 구성하는 방법](http://www.windowsazure.com/ko-kr/manage/services/web-sites/how-to-configure-websites)을 참조하십시오.
 
 크기 조정
 ---------
@@ -103,7 +103,7 @@ Azure 포털에서 페이지 또는 "탭" 집합을 사용하여 웹 사이트�
 
 **표준** 모드에서는 **인스턴스 크기**를 변경하여 각 인스턴스의 코어 수 및 메모리 용량도 늘릴 수 있습니다. 비용 효율성을 높이기 위해 Microsoft Azure에서 웹 사이트의 리소스를 동적으로 할당하도록 설정하는 **자동 크기 조정** 옵션을 선택할 수 있습니다.
 
-웹 사이트의 크기 조정 옵션 구성에 대한 자세한 내용은 [웹 사이트 크기를 조정하는 방법](http://www.windowsazure.com/en-us/manage/services/web-sites/how-to-scale-websites)을 참조하십시오.
+웹 사이트의 크기 조정 옵션 구성에 대한 자세한 내용은 [웹 사이트 크기를 조정하는 방법](http://www.windowsazure.com/ko-kr/manage/services/web-sites/how-to-scale-websites)을 참조하십시오.
 
 연결된 리소스
 -------------
@@ -113,7 +113,7 @@ Azure 포털에서 페이지 또는 "탭" 집합을 사용하여 웹 사이트�
 백업
 ----
 
-**백업** 관리 페이지에서 웹 사이트의 자동 또는 수동 백업을 만들거나 웹 사이트를 이전 상태로 복원하거나 백업 중 하나를 기반으로 새 웹 사이트를 만들 수 있습니다. 자세한 내용은 [Microsoft Azure 웹 사이트 백업](http://www.windowsazure.com/en-us/documentation/articles/web-sites-backup/)(영문) 및 [Microsoft Azure 웹 사이트 복원](http://www.windowsazure.com/en-us/documentation/articles/web-sites-restore/)(영문)을 참조하십시오.
+**백업** 관리 페이지에서 웹 사이트의 자동 또는 수동 백업을 만들거나 웹 사이트를 이전 상태로 복원하거나 백업 중 하나를 기반으로 새 웹 사이트를 만들 수 있습니다. 자세한 내용은 [Microsoft Azure 웹 사이트 백업](http://www.windowsazure.com/ko-kr/documentation/articles/web-sites-backup/)(영문) 및 [Microsoft Azure 웹 사이트 복원](http://www.windowsazure.com/ko-kr/documentation/articles/web-sites-restore/)(영문)을 참조하십시오.
 
 관리 페이지 아이콘
 ------------------

@@ -5,7 +5,7 @@ Azure 모바일 서비스용 HTML/JavaScript 클라이언트를 사용하는 방
 
 [.NET Framework](/en-us/develop/mobile/how-to-guides/work-with-net-client-library/ ".NET Framework")[HTML/JavaScript](/en-us/develop/mobile/how-to-guides/work-with-html-js-client/ "HTML/JavaScript")[iOS](/en-us/develop/mobile/how-to-guides/work-with-ios-client-library/ "iOS")[Android](/en-us/develop/mobile/how-to-guides/work-with-android-client-library/ "Android")[Xamarin](/en-us/develop/mobile/how-to-guides/work-with-xamarin-client-library/ "Xamarin")
 
-이 가이드에서는 Azure 모바일 서비스용 HTML/JavaScript 클라이언트를 사용하여 일반적인 시나리오를 수행하는 방법을 보여 줍니다. 여기서 다루는 시나리오에는 데이터 쿼리, 삽입, 업데이트, 삭제 및 사용자 인증과 오류 처리가 포함됩니다. 모바일 서비스를 처음으로 접하는 경우 먼저 모바일 서비스 [Windows 스토어 JavaScript 빠른 시작](http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started) 또는 [HTML 빠른 시작](http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-html)을 완료해야 합니다. 빠른 시작 자습서를 참조하여 계정을 구성하고 첫 모바일 서비스를 만들 수 있습니다.
+이 가이드에서는 Azure 모바일 서비스용 HTML/JavaScript 클라이언트를 사용하여 일반적인 시나리오를 수행하는 방법을 보여 줍니다. 여기서 다루는 시나리오에는 데이터 쿼리, 삽입, 업데이트, 삭제 및 사용자 인증과 오류 처리가 포함됩니다. 모바일 서비스를 처음으로 접하는 경우 먼저 모바일 서비스 [Windows 스토어 JavaScript 빠른 시작](http://www.windowsazure.com/ko-kr/develop/mobile/tutorials/get-started) 또는 [HTML 빠른 시작](http://www.windowsazure.com/ko-kr/develop/mobile/tutorials/get-started-html)을 완료해야 합니다. 빠른 시작 자습서를 참조하여 계정을 구성하고 첫 모바일 서비스를 만들 수 있습니다.
 
 목차
 ----
@@ -41,7 +41,7 @@ Azure 모바일 서비스용 HTML/JavaScript 클라이언트를 사용하는 방
 
             <script src='http://ajax.aspnetcdn.com/ajax/mobileservices/MobileServices.Web-1.1.2.min.js'></script>
 
-편집기에서 JavaScript 파일을 열거나 만들고 `MobileServiceClient` 변수를 정의하는 다음 코드를 추가하고 `MobileServiceClient` 생성자에 모바일 서비스의 응용 프로그램 URL 및 응용 프로그램 키를 이 순서대로 제공합니다. 자리 표시자 `AppUrl`을 모바일 서비스의 응용 프로그램 URL 및 응용 프로그램 키가 있는 `AppKey`로 바꿔야 합니다. 모바일 서비스의 응용 프로그램 URL 및 응용 프로그램 키를 구하는 방법에 대한 자세한 내용은 [Windows 스토어 JavaScript에서 데이터 시작](http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-data-js)(영문) 또는 [HTML/JavaScript에서 데이터 시작](http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-data-html/)(영문) 자습서를 참조하십시오.
+편집기에서 JavaScript 파일을 열거나 만들고 `MobileServiceClient` 변수를 정의하는 다음 코드를 추가하고 `MobileServiceClient` 생성자에 모바일 서비스의 응용 프로그램 URL 및 응용 프로그램 키를 이 순서대로 제공합니다. 자리 표시자 `AppUrl`을 모바일 서비스의 응용 프로그램 URL 및 응용 프로그램 키가 있는 `AppKey`로 바꿔야 합니다. 모바일 서비스의 응용 프로그램 URL 및 응용 프로그램 키를 구하는 방법에 대한 자세한 내용은 [Windows 스토어 JavaScript에서 데이터 시작](http://www.windowsazure.com/ko-kr/develop/mobile/tutorials/get-started-with-data-js)(영문) 또는 [HTML/JavaScript에서 데이터 시작](http://www.windowsazure.com/ko-kr/develop/mobile/tutorials/get-started-with-data-html/)(영문) 자습서를 참조하십시오.
 
             var MobileServiceClient = WindowsAzure.MobileServiceClient;
             var client = new MobileServiceClient('AppUrl', 'AppKey');
@@ -303,7 +303,7 @@ Query 개체에 `where` 호출을 추가하고 매개 변수로 개체를 전달
 -   인쇄 가능한 문자: **"**(0x0022), **+** (0x002B), **/** (0x002F), **?** (0x003F), **\\** (0x005C), **\`** (0x0060)
 -   ID "." 및 ".."
 
-또는 테이블에 정수 ID를 사용할 수 있습니다. 정수 ID를 사용하려면 `--integerId` 옵션을 사용하는 `mobile table create` 명령으로 테이블을 만들어야 합니다. 이 명령은 Azure용 CLI(명령줄 인터페이스)와 함께 사용됩니다. CLI 사용에 대한 자세한 내용은 [모바일 서비스 테이블 관리 CLI](http://www.windowsazure.com/en-us/manage/linux/other-resources/command-line-tools/#Mobile_Tables)(영문)를 참조하십시오.
+또는 테이블에 정수 ID를 사용할 수 있습니다. 정수 ID를 사용하려면 `--integerId` 옵션을 사용하는 `mobile table create` 명령으로 테이블을 만들어야 합니다. 이 명령은 Azure용 CLI(명령줄 인터페이스)와 함께 사용됩니다. CLI 사용에 대한 자세한 내용은 [모바일 서비스 테이블 관리 CLI](http://www.windowsazure.com/ko-kr/manage/linux/other-resources/command-line-tools/#Mobile_Tables)(영문)를 참조하십시오.
 
 데이터 수정방법: 모바일 서비스의 데이터 수정
 --------------------------------------------
@@ -372,7 +372,7 @@ Query 개체에 `where` 호출을 추가하고 매개 변수로 개체를 전달
                alert("Error: " + err);
             });
 
-Windows 스토어 앱에서 쿼리 결과를 사용하여 [WinJS.Binding.List] 개체를 만들 수 있으며, 이 개체를 [ListView](http://msdn.microsoft.com/en-us/library/windows/apps/br211837.aspx) 개체의 데이터 원본으로 바인딩할 수 있습니다. 자세한 내용은 [데이터 바인딩(JavaScript 및 HTML을 사용한 Windows 스토어 앱)](http://msdn.microsoft.com/en-us/library/windows/apps/hh758311.aspx)(영문)을 참조하십시오.
+Windows 스토어 앱에서 쿼리 결과를 사용하여 [WinJS.Binding.List] 개체를 만들 수 있으며, 이 개체를 [ListView](http://msdn.microsoft.com/ko-kr/library/windows/apps/br211837.aspx) 개체의 데이터 원본으로 바인딩할 수 있습니다. 자세한 내용은 [데이터 바인딩(JavaScript 및 HTML을 사용한 Windows 스토어 앱)](http://msdn.microsoft.com/ko-kr/library/windows/apps/hh758311.aspx)(영문)을 참조하십시오.
 
 인증방법: 사용자 인증
 ---------------------
@@ -395,7 +395,7 @@ ID 공급자를 등록하고 나면 공급자의 [MobileServiceAuthenticationPro
 
 Facebook 이외의 ID 공급자를 사용하는 경우 위의 `login` 메서드에 전달된 값을 다음 중 하나로 변경합니다. `microsoftaccount`, `facebook`, `twitter`, `google` 또는 `windowsazureactivedirectory`.
 
-이 경우 모바일 서비스는 선택한 공급자의 로그인 페이지를 표시하고 ID 공급자 로그인 후 모바일 서비스 인증 토큰을 생성하여 OAuth 2.0 인증 흐름을 관리합니다. [login](http://msdn.microsoft.com/en-us/library/windowsazure/jj554236.aspx) 함수를 완료하면 사용자 ID와 모바일 서비스 인증 토큰을 각각 **userId** 및 **authenticationToken** 필드에 표시하는 JSON 개체(**user**)가 반환됩니다. 이 토큰은 캐시했다가 만료될 때까지 다시 사용할 수 있습니다. 자세한 내용은 [인증 토큰 캐시]를 참조하십시오.
+이 경우 모바일 서비스는 선택한 공급자의 로그인 페이지를 표시하고 ID 공급자 로그인 후 모바일 서비스 인증 토큰을 생성하여 OAuth 2.0 인증 흐름을 관리합니다. [login](http://msdn.microsoft.com/ko-kr/library/windowsazure/jj554236.aspx) 함수를 완료하면 사용자 ID와 모바일 서비스 인증 토큰을 각각 **userId** 및 **authenticationToken** 필드에 표시하는 JSON 개체(**user**)가 반환됩니다. 이 토큰은 캐시했다가 만료될 때까지 다시 사용할 수 있습니다. 자세한 내용은 [인증 토큰 캐시]를 참조하십시오.
 
 **Windows 스토어 앱**
 
@@ -419,7 +419,7 @@ Windows 스토어 앱 사용자를 인증하는 데 Microsoft 계정 로그인 �
               });
         });
 
-단순화된 이 예제는 [login](http://msdn.microsoft.com/en-us/library/windowsazure/jj554236.aspx) 함수를 호출하여 모바일 서비스에 제공된 토큰을 Live Connect에서 가져옵니다. Microsoft 계정을 사용하여 단일 로그인 환경을 제공하는 방법을 보여 주는 전체 예제는 [단일 로그인으로 앱 인증](/en-us/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/)을 참조하십시오.
+단순화된 이 예제는 [login](http://msdn.microsoft.com/ko-kr/library/windowsazure/jj554236.aspx) 함수를 호출하여 모바일 서비스에 제공된 토큰을 Live Connect에서 가져옵니다. Microsoft 계정을 사용하여 단일 로그인 환경을 제공하는 방법을 보여 주는 전체 예제는 [단일 로그인으로 앱 인증](/en-us/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/)을 참조하십시오.
 
 클라이언트 인증을 위해 Facebook 또는 Google API를 사용할 때는 예제가 약간 달라집니다.
 
@@ -436,7 +436,7 @@ Windows 스토어 앱 사용자를 인증하는 데 Microsoft 계정 로그인 �
 
 ### 인증 토큰 캐시
 
-일부 경우, 사용자가 처음으로 인증된 후에 login 메서드 호출을 방지할 수 있습니다. [sessionStorage](http://msdn.microsoft.com/en-us/library/cc197062(v=vs.85).aspx) 또는 [localStorage](http://msdn.microsoft.com/en-us/library/cc197062(v=vs.85).aspx)를 사용하여 사용자가 처음 로그인할 때 현재 사용자 ID를 캐시하고 이후에 매번 캐시에서 해당 사용자 ID가 이미 있는지 여부를 확인할 수 있습니다. 캐시가 비어 있거나 호출이 실패하는 경우(현재 로그인 세션이 만료되었음을 의미함)에도 로그인 프로세스를 거쳐야 합니다.
+일부 경우, 사용자가 처음으로 인증된 후에 login 메서드 호출을 방지할 수 있습니다. [sessionStorage](http://msdn.microsoft.com/ko-kr/library/cc197062(v=vs.85).aspx) 또는 [localStorage](http://msdn.microsoft.com/ko-kr/library/cc197062(v=vs.85).aspx)를 사용하여 사용자가 처음 로그인할 때 현재 사용자 ID를 캐시하고 이후에 매번 캐시에서 해당 사용자 ID가 이미 있는지 여부를 확인할 수 있습니다. 캐시가 비어 있거나 호출이 실패하는 경우(현재 로그인 세션이 만료되었음을 의미함)에도 로그인 프로세스를 거쳐야 합니다.
 
         // After logging in
         sessionStorage.loggedInUser = JSON.stringify(client.currentUser);
@@ -496,7 +496,7 @@ Promise방법: promise 사용
 
 Promise는 완료할 작업을 아직 계산되지 않은 값으로 예약하는 메커니즘을 제공합니다. 비동기 API 조작을 관리하는 추상적 개념입니다.
 
-`done` promise는 제공된 함수가 완료되거나 오류가 발생하면 곧바로 실행됩니다. `then` promise와 달리, 함수 내부에서 처리되지 않은 오류를 throw하며 처리기가 실행을 완료하고 나면 이 함수는 오류 상태의 promise로서 then으로부터 반환된 오류를 throw합니다. 자세한 내용은 [done](http://msdn.microsoft.com/en-us/library/windows/apps/hh701079.aspx)(영문)을 참조하십시오.
+`done` promise는 제공된 함수가 완료되거나 오류가 발생하면 곧바로 실행됩니다. `then` promise와 달리, 함수 내부에서 처리되지 않은 오류를 throw하며 처리기가 실행을 완료하고 나면 이 함수는 오류 상태의 promise로서 then으로부터 반환된 오류를 throw합니다. 자세한 내용은 [done](http://msdn.microsoft.com/ko-kr/library/windows/apps/hh701079.aspx)(영문)을 참조하십시오.
 
          promise.done(onComplete, onError);
 
@@ -509,7 +509,7 @@ Promise는 완료할 작업을 아직 계산되지 않은 값으로 예약하는
                alert("Error: " + err);
             });
 
-`then` promise와 `done` promise는 동일합니다. 하지만 `then` promise와 달리, `done`은 함수 내부에서 처리되지 않은 오류를 반드시 throw합니다. `then`에 오류 처리기를 제공하지 않은 경우 연산에서 오류가 발생하면 오류가 throw되지 않고 대신 오류 상태의 promise가 반환됩니다. 자세한 내용은 [then](http://msdn.microsoft.com/en-us/library/windows/apps/br229728.aspx)(영문)을 참조하십시오.
+`then` promise와 `done` promise는 동일합니다. 하지만 `then` promise와 달리, `done`은 함수 내부에서 처리되지 않은 오류를 반드시 throw합니다. `then`에 오류 처리기를 제공하지 않은 경우 연산에서 오류가 발생하면 오류가 throw되지 않고 대신 오류 상태의 promise가 반환됩니다. 자세한 내용은 [then](http://msdn.microsoft.com/ko-kr/library/windows/apps/br229728.aspx)(영문)을 참조하십시오.
 
          promise.then(onComplete, onError).done( /* Your success and error handlers */ );
 
@@ -522,7 +522,7 @@ Promise는 완료할 작업을 아직 계산되지 않은 값으로 예약하는
                alert("Error: " + err);
             });
 
-다양한 방법으로 promise를 사용할 수 있습니다. 이전 `then` 함수에서 반환되는 promise에 대해 `then` 또는 `done`을 호출하는 방법으로 promise 연산을 연결할 수 있습니다. 연산의 중간 단계에는 `then`을 사용하고(예: `.then().then()`), 연산의 마지막 단계에는 `done`을 사용합니다(예: `.then().then().done()`). `then`은 promise를 반환하기 때문에 여러 `then` 함수를 연결할 수 있습니다. undefined를 반환하기 때문에 두 개 이상의 `done` 메서드를 연결할 수 없습니다. [then과 done의 차이에 대해 자세히 알아보십시오](http://msdn.microsoft.com/en-us/library/windows/apps/hh700334.aspx)(영문).
+다양한 방법으로 promise를 사용할 수 있습니다. 이전 `then` 함수에서 반환되는 promise에 대해 `then` 또는 `done`을 호출하는 방법으로 promise 연산을 연결할 수 있습니다. 연산의 중간 단계에는 `then`을 사용하고(예: `.then().then()`), 연산의 마지막 단계에는 `done`을 사용합니다(예: `.then().then().done()`). `then`은 promise를 반환하기 때문에 여러 `then` 함수를 연결할 수 있습니다. undefined를 반환하기 때문에 두 개 이상의 `done` 메서드를 연결할 수 없습니다. [then과 done의 차이에 대해 자세히 알아보십시오](http://msdn.microsoft.com/ko-kr/library/windows/apps/hh700334.aspx)(영문).
 
 todoItemTable.insert({ text: "foo" }).then(function (inserted) { inserted.newField = 123; return todoItemTable.update(inserted); }).done(function (insertedAndUpdated) { alert(JSON.stringify(insertedAndUpdated)); })
 

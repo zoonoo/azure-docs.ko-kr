@@ -93,7 +93,7 @@ Azure에서 서비스 버스 큐 사용을 시작하려면 먼저 서비스 네�
 계산 집약적인 작업을 수행하는 .NET 응용 프로그램을 만드는 방법
 --------------------------------------------------------------
 
-1.  개발 컴퓨터(직접 생성한 가상 컴퓨터일 필요는 없음)에서 [.NET용 Azure SDK](http://www.windowsazure.com/en-us/develop/net/)(영문)를 다운로드합니다.
+1.  개발 컴퓨터(직접 생성한 가상 컴퓨터일 필요는 없음)에서 [.NET용 Azure SDK](http://www.windowsazure.com/ko-kr/develop/net/)(영문)를 다운로드합니다.
 2.  **TSPSolver**라는 프로젝트를 사용하여 .NET 콘솔 응용 프로그램을 만듭니다. 대상 프레임워크가 **.NET Framework 4**(**.NET Framework 4 Client Profile** 아님)용으로 설정되어 있는지 확인합니다. 대상 프레임워크는 다음과 같이 프로젝트를 만든 후에 설정할 수 있습니다. Visual Studio의 메뉴에서 **프로젝트**를 클릭하고 **속성**을 클릭한 후 **응용 프로그램** 탭을 클릭한 다음 **대상 프레임워크** 값을 설정합니다.
 3.  Microsoft ServiceBus 라이브러리에 추가합니다. Visual Studio 솔루션 탐색기에서 **TSPSolver**를 마우스 오른쪽 단추로 클릭하고 **참조 추가**를 클릭한 후 **찾아보기** 탭을 클릭하고 **C:\\Program Files\\Microsoft SDKs\\Windows Azure.NET SDK\\2012-06\\ref**로 이동한 후 참조로 **Microsoft.ServiceBus.dll**을 선택합니다.
 4.  System Runtime Serialization 라이브러리에 추가합니다. Visual Studio 솔루션 탐색기에서 **TSPSolver**를 마우스 오른쪽 단추로 클릭하고 **참조 추가**를 클릭한 후 **.NET** 탭을 클릭하고 참조로 **System.Runtime.Serialization**을 선택합니다.

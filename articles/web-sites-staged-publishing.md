@@ -118,7 +118,7 @@ Azure 웹 사이트 포털 페이지 맨 아래에 있는 명령 모음에서 **
 
 Azure PowerShell은 Windows PowerShell을 통해 Azure를 관리하기 위한 cmdlet을 제공하는 모듈로, Azure 웹 사이트 배포 슬롯을 관리하는 기능도 지원합니다.
 
--   Azure PowerShell을 설치 및 구성하는 방법과 Azure 구독에 Azure PowerShell을 인증하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법](http://www.windowsazure.com/en-us/documentation/articles/install-configure-powershell)(영문)을 참조하십시오.
+-   Azure PowerShell을 설치 및 구성하는 방법과 Azure 구독에 Azure PowerShell을 인증하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법](http://www.windowsazure.com/ko-kr/documentation/articles/install-configure-powershell)(영문)을 참조하십시오.
 
 -   PowerShell에서 Azure 웹 사이트에 사용할 수 있는 cmdlet을 나열하려면 `help AzureWebsite`를 호출합니다.
 
@@ -176,7 +176,7 @@ Azure PowerShell은 Windows PowerShell을 통해 Azure를 관리하기 위한 cm
 
 Azure 플랫폼 간 명령줄 인터페이스(xplat-cli)는 Azure 플랫폼 작업을 위한 플랫폼 간 오픈 소스 명령 집합을 제공하며, Azure 웹 사이트의 배포 슬롯을 관리하는 기능을 지원합니다.
 
--   xplat-cli 설치 및 구성 지침과 xplat-cli를 Azure 구독에 연결하는 방법에 대한 자세한 내용은 [Azure 플랫폼 간 명령줄 인터페이스 설치 및 구성](http://www.windowsazure.com/en-us/documentation/articles/xplat-cli)(영문)을 참조하십시오.
+-   xplat-cli 설치 및 구성 지침과 xplat-cli를 Azure 구독에 연결하는 방법에 대한 자세한 내용은 [Azure 플랫폼 간 명령줄 인터페이스 설치 및 구성](http://www.windowsazure.com/ko-kr/documentation/articles/xplat-cli)(영문)을 참조하십시오.
 
 -   xplat-cli에서 Azure 웹 사이트에 사용할 수 있는 명령을 나열하려면 `azure site -h`를 호출합니다.
 

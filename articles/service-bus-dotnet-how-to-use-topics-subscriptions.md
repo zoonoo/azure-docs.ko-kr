@@ -344,6 +344,6 @@ path*>/subscriptions/<*subscription name*>" 형식으로 제공됩니다.
 
 
 
-[1]: http://msdn.microsoft.com/en-us/library/hh367516.aspx
-[2]: http://msdn.microsoft.com/en-us/library/microsoft.servicebus.messaging.sqlfilter.aspx
-[3]: http://msdn.microsoft.com/en-us/library/hh367512.aspx
+[1]: http://msdn.microsoft.com/ko-kr/library/hh367516.aspx
+[2]: http://msdn.microsoft.com/ko-kr/library/microsoft.servicebus.messaging.sqlfilter.aspx
+[3]: http://msdn.microsoft.com/ko-kr/library/hh367512.aspx

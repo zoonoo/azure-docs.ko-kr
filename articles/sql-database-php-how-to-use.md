@@ -23,7 +23,7 @@ Azure SQL 데이터베이스는 Azure에 관계형 데이터베이스 관리 시
 개념
 ----
 
-Azure SQL 데이터베이스는 SQL Server 기술을 기반으로 하므로 PHP에서 SQL 데이터베이스에 액세스하는 것은 PHP에서 SQL Server에 액세스하는 것과 매우 유사합니다. 로컬에서 SQL Server를 사용하여 응용 프로그램을 개발한 후 연결 문자열만 변경하여 SQL 데이터베이스에 연결할 수 있습니다. 그러나 응용 프로그램에 영향을 줄 수 있는 SQL 데이터베이스와 SQL Server 간의 몇 가지 차이점이 있습니다. 자세한 내용은 [지침 및 제한 사항(SQL 데이터베이스)](http://msdn.microsoft.com/en-us/library/windowsazure/ff394102.aspx)을 참조하십시오.
+Azure SQL 데이터베이스는 SQL Server 기술을 기반으로 하므로 PHP에서 SQL 데이터베이스에 액세스하는 것은 PHP에서 SQL Server에 액세스하는 것과 매우 유사합니다. 로컬에서 SQL Server를 사용하여 응용 프로그램을 개발한 후 연결 문자열만 변경하여 SQL 데이터베이스에 연결할 수 있습니다. 그러나 응용 프로그램에 영향을 줄 수 있는 SQL 데이터베이스와 SQL Server 간의 몇 가지 차이점이 있습니다. 자세한 내용은 [지침 및 제한 사항(SQL 데이터베이스)](http://msdn.microsoft.com/ko-kr/library/windowsazure/ff394102.aspx)을 참조하십시오.
 
 PHP에서 SQL 데이터베이스에 액세스하는 권장 방법은 [Microsoft Drivers for PHP for SQL Server](http://www.microsoft.com/download/en/details.aspx?id=20098)(영문)를 사용하는 것입니다. (이 문서의 예제에서는 이러한 드라이버를 사용합니다.) Microsoft Drivers for PHP for SQL Server는 Windows에서만 작동합니다.
 
@@ -113,16 +113,16 @@ SQL 데이터베이스 연결 정보를 가져오려면 포털에서 **SQL 데�
 다음 단계
 ---------
 
-앞에서 언급했듯이 SQL 데이터베이스 사용은 SQL Server 사용과 매우 유사합니다. 앞에 표시된 것처럼 SQL 데이터베이스에 대한 연결을 설정하고 나면 **SQLSRV** 또는 **PDO\_SQLSRV** API를 사용하여 데이터를 삽입, 검색, 업데이트 및 삭제할 수 있습니다. **SQLSRV** 및 **PDO\_SQLSRV** API에 대한 자세한 내용은 [Microsoft Drivers for PHP for SQL Server 설명서](http://msdn.microsoft.com/en-us/library/dd638075(SQL.10).aspx)를 참조하십시오. 그러나 응용 프로그램에 영향을 줄 수 있는 SQL 데이터베이스와 SQL Server 간의 몇 가지 차이점이 있습니다. 자세한 내용은 [지침 및 제한 사항(SQL 데이터베이스)](http://msdn.microsoft.com/en-us/library/windowsazure/ff394102.aspx)을 참조하십시오.
+앞에서 언급했듯이 SQL 데이터베이스 사용은 SQL Server 사용과 매우 유사합니다. 앞에 표시된 것처럼 SQL 데이터베이스에 대한 연결을 설정하고 나면 **SQLSRV** 또는 **PDO\_SQLSRV** API를 사용하여 데이터를 삽입, 검색, 업데이트 및 삭제할 수 있습니다. **SQLSRV** 및 **PDO\_SQLSRV** API에 대한 자세한 내용은 [Microsoft Drivers for PHP for SQL Server 설명서](http://msdn.microsoft.com/ko-kr/library/dd638075(SQL.10).aspx)를 참조하십시오. 그러나 응용 프로그램에 영향을 줄 수 있는 SQL 데이터베이스와 SQL Server 간의 몇 가지 차이점이 있습니다. 자세한 내용은 [지침 및 제한 사항(SQL 데이터베이스)](http://msdn.microsoft.com/ko-kr/library/windowsazure/ff394102.aspx)을 참조하십시오.
 
 Azure에서 PHP로 SQL 데이터베이스를 사용하는 방법을 보여 주는 샘플은 https://github.com/WindowsAzure/azure-sdk-for-php-samples/tree/master/tasklist-sqlazure 에서 제공합니다.
 
 [download-drivers]: http://www.microsoft.com/download/en/details.aspx?id=20098
-[limitations]: http://msdn.microsoft.com/en-us/library/windowsazure/ff394102.aspx
+[limitations]: http://msdn.microsoft.com/ko-kr/library/windowsazure/ff394102.aspx
 [odbc-php]: http://www.php.net/odbc
 [manual-config]: http://php.net/manual/en/install.windows.iis7.php
 [install-drivers]: http://php.net/manual/en/sqlsrv.requirements.php
-[driver-docs]: http://msdn.microsoft.com/en-us/library/dd638075(SQL.10).aspx
+[driver-docs]: http://msdn.microsoft.com/ko-kr/library/dd638075(SQL.10).aspx
 [access-php-odbc]: http://social.technet.microsoft.com/wiki/contents/articles/accessing-sql-azure-from-php.aspx
 [install-sql-express]: http://www.microsoft.com/en-us/download/details.aspx?id=29062
 [preview-portal]: https://manage.windowsazure.com

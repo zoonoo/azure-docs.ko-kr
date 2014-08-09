@@ -3,7 +3,7 @@
 Azure용 Linux 가상 컴퓨터 준비
 ==============================
 
-Azure의 가상 컴퓨터는 가상 컴퓨터를 만들 때 선택한 운영 체제를 실행합니다. Azure는 가상 컴퓨터의 운영 체제를 가상 하드 디스크에 VHD 형식(.vhd 파일)으로 저장합니다. 복제를 위해 준비된 운영 체제의 VHD를 이미지라고 합니다. 이 문서에서는 설치하여 범용화한 운영 체제와 함께 .vhd 파일을 업로드하여 고유의 이미지를 만드는 방법을 보여 줍니다. Azure의 디스크 및 이미지에 대한 자세한 내용은 [디스크 및 이미지 관리](http://msdn.microsoft.com/en-us/library/windowsazure/jj672979.aspx)를 참조하십시오.
+Azure의 가상 컴퓨터는 가상 컴퓨터를 만들 때 선택한 운영 체제를 실행합니다. Azure는 가상 컴퓨터의 운영 체제를 가상 하드 디스크에 VHD 형식(.vhd 파일)으로 저장합니다. 복제를 위해 준비된 운영 체제의 VHD를 이미지라고 합니다. 이 문서에서는 설치하여 범용화한 운영 체제와 함께 .vhd 파일을 업로드하여 고유의 이미지를 만드는 방법을 보여 줍니다. Azure의 디스크 및 이미지에 대한 자세한 내용은 [디스크 및 이미지 관리](http://msdn.microsoft.com/ko-kr/library/windowsazure/jj672979.aspx)를 참조하십시오.
 
 **참고**: 가상 컴퓨터를 만드는 경우 운영 체제 설정을 사용자 지정하여 응용 프로그램 실행을 원활하게 할 수 있습니다. 설정한 구성은 해당 가상 컴퓨터의 디스크에 저장됩니다. 자세한 내용은 [사용자 지정 가상 컴퓨터를 만드는 방법](/en-us/manage/windows/how-to-guides/custom-create-a-vm/)(영문)을 참조하십시오.
 
@@ -14,7 +14,7 @@ Azure의 가상 컴퓨터는 가상 컴퓨터를 만들 때 선택한 운영 체
 
 이 문서에서는 사용자에게 다음 항목이 있다고 가정합니다.
 
--   **관리 인증서** - VHD를 업로드할 구독에 필요한 관리 인증서를 만들어 .cer 파일로 내보냈습니다. 인증서 만들기에 대한 자세한 내용은 [Azure용 관리 인증서 만들기](http://msdn.microsoft.com/en-us/library/windowsazure/gg551722.aspx)를 참조하십시오.
+-   **관리 인증서** - VHD를 업로드할 구독에 필요한 관리 인증서를 만들어 .cer 파일로 내보냈습니다. 인증서 만들기에 대한 자세한 내용은 [Azure용 관리 인증서 만들기](http://msdn.microsoft.com/ko-kr/library/windowsazure/gg551722.aspx)를 참조하십시오.
 
 -   **.vhd 파일에 설치된 Linux 운영 체제.** - 지원되는 Linux 운영 체제가 가상 하드 디스크에 설치되어 있습니다. .vhd 파일을 만드는 도구는 여러 가지가 있습니다. Hyper-V와 같은 가상화 솔루션을 사용하여 .vhd 파일을 만들고 운영 체제를 설치할 수 있습니다. 자세한 내용은 [Hyper-V 역할 설치 및 가상 시스템 구성](http://technet.microsoft.com/en-us/library/hh846766.aspx)을 참조하십시오.
 
@@ -24,7 +24,7 @@ Azure의 가상 컴퓨터는 가상 컴퓨터를 만들 때 선택한 운영 체
 
 -   **Linux Azure 명령줄 도구.** Linux 운영 체제를 사용하여 이미지를 만드는 경우 이 도구를 사용하여 VHD 파일을 업로드합니다. 도구를 다운로드하려면 [Linux 및 Mac용 Azure 명령줄 도구](http://go.microsoft.com/fwlink/?LinkID=253691&clcid=0x409)를 참조하십시오.
 
--   **Add-AzureVhd cmdlet**은, Azure PowerShell 모듈의 일부입니다. 모듈을 다운로드하려면 [Azure 다운로드](/en-us/develop/downloads/)를 참조하십시오. 참조 정보는 [Add-AzureVhd](http://msdn.microsoft.com/en-us/library/windowsazure/dn205185.aspx)(영문)를 참조하십시오.
+-   **Add-AzureVhd cmdlet**은, Azure PowerShell 모듈의 일부입니다. 모듈을 다운로드하려면 [Azure 다운로드](/en-us/develop/downloads/)를 참조하십시오. 참조 정보는 [Add-AzureVhd](http://msdn.microsoft.com/ko-kr/library/windowsazure/dn205185.aspx)(영문)를 참조하십시오.
 
 모든 배포와 관련하여 다음 내용에 유의하십시오.
 
@@ -534,7 +534,7 @@ Azure Linux 에이전트를 사용하려면 python-pyasn1 패키지가 설치되
 
     여기서 `<PathToFile>`는 .publishsettings 파일의 전체 경로입니다.
 
-    자세한 내용은 [Azure Cmdlets 시작](http://msdn.microsoft.com/en-us/library/windowsazure/jj554332.aspx)을 참조하십시오.
+    자세한 내용은 [Azure Cmdlets 시작](http://msdn.microsoft.com/ko-kr/library/windowsazure/jj554332.aspx)을 참조하십시오.
 
 4단계: Azure에 이미지 업로드
 ----------------------------
@@ -547,7 +547,7 @@ Azure Linux 에이전트를 사용하려면 python-pyasn1 패키지가 설치되
 
     `Add-AzureVhd -Destination <BlobStorageURL>/<YourImagesFolder>/<VHDName> -LocalFilePath <PathToVHDFile>`
 
-    자세한 내용은 [Add-AzureVhd](http://msdn.microsoft.com/en-us/library/windowsazure/dn205185.aspx)(영문)를 참조하십시오.
+    자세한 내용은 [Add-AzureVhd](http://msdn.microsoft.com/ko-kr/library/windowsazure/dn205185.aspx)(영문)를 참조하십시오.
 
 -   Linux 명령줄 도구를 사용하여 이미지를 업로드합니다. 다음 명령을 사용하여 이미지를 업로드할 수 있습니다.
 

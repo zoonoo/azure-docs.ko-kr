@@ -3,8 +3,8 @@
 모바일 서비스에서 인증 시작
 ===========================
 
-[Windows 스토어 C\#](/en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-users "Windows 스토어 C#")[Windows 스토어 JavaScript](/en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-users "Windows 스토어 JavaScript")[Windows Phone](/en-us/documentation/articles/mobile-services-windows-phone-get-started-users "Windows Phone")[iOS](/en-us/documentation/articles/mobile-services-ios-get-started-users "iOS")[Android](/en-us/documentation/articles/mobile-services-android-get-started-users "Android")[HTML](/en-us/documentation/articles/mobile-services-html-get-started-users "HTML")[Xamarin.iOS](/en-us/documentation/articles/partner-xamarin-mobile-services-ios-get-started-users "Xamarin.iOS")[Xamarin.Android](/en-us/documentation/articles/partner-xamarin-mobile-services-android-get-started-users "Xamarin.Android")
-[.NET 백 엔드](/en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started-users/ ".NET 백 엔드") | [JavaScript 백 엔드](/en-us/documentation/articles/mobile-services-ios-get-started-users/ "JavaScript 백 엔드")
+[Windows 스토어 C\#](/ko-kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-users "Windows 스토어 C#")[Windows 스토어 JavaScript](/ko-kr/documentation/articles/mobile-services-windows-store-javascript-get-started-users "Windows 스토어 JavaScript")[Windows Phone](/ko-kr/documentation/articles/mobile-services-windows-phone-get-started-users "Windows Phone")[iOS](/ko-kr/documentation/articles/mobile-services-ios-get-started-users "iOS")[Android](/ko-kr/documentation/articles/mobile-services-android-get-started-users "Android")[HTML](/ko-kr/documentation/articles/mobile-services-html-get-started-users "HTML")[Xamarin.iOS](/ko-kr/documentation/articles/partner-xamarin-mobile-services-ios-get-started-users "Xamarin.iOS")[Xamarin.Android](/ko-kr/documentation/articles/partner-xamarin-mobile-services-android-get-started-users "Xamarin.Android")
+[.NET 백 엔드](/ko-kr/documentation/articles/mobile-services-dotnet-backend-ios-get-started-users/ ".NET 백 엔드") | [JavaScript 백 엔드](/ko-kr/documentation/articles/mobile-services-ios-get-started-users/ "JavaScript 백 엔드")
 
 이 항목에서는 iOS 앱에서 Azure 모바일 서비스의 사용자를 인증하는 방법을 보여 줍니다. 이 자습서에서는 모바일 서비스가 지원하는 ID 공급자를 사용하여 빠른 시작 프로젝트에 인증을 추가합니다. 모바일 서비스에서 인증되고 권한이 부여된 후 사용자 ID 값이 표시됩니다.
 
@@ -28,7 +28,7 @@
 
 [WACOM.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)]
 
-1.  Xcode에서 [모바일 서비스 시작](/en-us/documentation/articles/mobile-services-ios-get-started) 자습서를 완료했을 때 생성된 프로젝트를 엽니다.
+1.  Xcode에서 [모바일 서비스 시작](/ko-kr/documentation/articles/mobile-services-ios-get-started) 자습서를 완료했을 때 생성된 프로젝트를 엽니다.
 
 2.  **Run** 단추를 눌러 프로젝트를 빌드하고 iPhone 에뮬레이터에서 앱을 시작합니다. 그리고 앱이 시작된 후 상태 코드 401(인증되지 않음)의 처리되지 않은 예외가 발생하는지 확인합니다.
 

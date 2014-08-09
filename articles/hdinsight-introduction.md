@@ -102,7 +102,7 @@ HDInsight(및 주로 Hadoop 기술)는 일단 작성된 후에는 자주 업데�
 
 -   [HDInsight 샘플 실행](/en-us/manage/services/hdinsight/howto-run-samples/): HDInsight와 함께 제공된 샘플을 실행하는 방법에 대한 자습서입니다.
 
--   [빅데이터 및 Azure](http://www.windowsazure.com/en-us/home/scenarios/big-data/): Azure로 구축할 수 있는 것을 보여 주는 빅데이터 시나리오입니다.
+-   [빅데이터 및 Azure](http://www.windowsazure.com/ko-kr/home/scenarios/big-data/): Azure로 구축할 수 있는 것을 보여 주는 빅데이터 시나리오입니다.
 
 -   [Azure HDInsight SDK](http://msdnstage.redmond.corp.microsoft.com/en-us/library/dn479185.aspx): HDinsight SDK의 참조 설명서입니다.
 
@@ -110,9 +110,9 @@ HDInsight(및 주로 Hadoop 기술)는 일단 작성된 후에는 자주 업데�
 
 -   [Azure 홈페이지](https://www.windowsazure.com/en-us/): 응용 프로그램을 구축하는 데 필요한 시나리오, 무료 평가판 등록, 개발 도구 및 설명서입니다.
 
--   [Azure SQL 데이터베이스](http://msdn.microsoft.com/en-us/library/windowsazure/ee336279.aspx): SQL 데이터베이스용 MSDN 설명서입니다.
+-   [Azure SQL 데이터베이스](http://msdn.microsoft.com/ko-kr/library/windowsazure/ee336279.aspx): SQL 데이터베이스용 MSDN 설명서입니다.
 
--   [SQL 데이터베이스용 관리 포털](http://msdn.microsoft.com/en-us/library/windowsazure/gg442309.aspx): 클라우드에서 SQL 데이터베이스를 관리하기 위한 간단하고 사용하기 쉬운 데이터베이스 관리 도구입니다.
+-   [SQL 데이터베이스용 관리 포털](http://msdn.microsoft.com/ko-kr/library/windowsazure/gg442309.aspx): 클라우드에서 SQL 데이터베이스를 관리하기 위한 간단하고 사용하기 쉬운 데이터베이스 관리 도구입니다.
 
 -   [SQL 데이터베이스용 Adventure Works](http://msftdbprodsamples.codeplex.com/releases/view/37304): SQL 데이터베이스 샘플 데이터베이스를 위한 다운로드 페이지입니다.
 

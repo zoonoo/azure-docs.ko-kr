@@ -35,7 +35,7 @@ ASP.NET MVC 5에서 빌드되고 데이터베이스 액세스에 ADO.NET Entity 
 * [Azure 및 SQL 데이터베이스에 응용 프로그램 업데이트 게시](#bkmk_deploydatabaseupdate)
 
 <a name="bkmk_setupdevenv"></a>
-<!-- the next line produces the "Set up the development environment" section as see at http://www.windowsazure.com/en-us/documentation/articles/web-sites-dotnet-get-started/-->
+<!-- the next line produces the "Set up the development environment" section as see at http://www.windowsazure.com/ko-kr/documentation/articles/web-sites-dotnet-get-started/-->
 [WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 <h2><a name="bkmk_setupwindowsazure"></a>Azure 환경 설정</h2>
@@ -873,10 +873,10 @@ Azure 응용 프로그램에 데이터를 저장하는 또 다른 방법은 Azur
 [8]: http://www.asp.net/web-api/overview/security/preventing-cross-site-request-forgery-(csrf)-attacks
 [9]: https://www.owasp.org/index.php/Main_Page
 [10]: https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)
-[11]: http://www.windowsazure.com/en-us/develop/net/tutorials/web-site-with-sql-database/
+[11]: http://www.windowsazure.com/ko-kr/develop/net/tutorials/web-site-with-sql-database/
 [12]: http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application
 [13]: http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started
 [14]: http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api
-[15]: http://www.windowsazure.com/en-us/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/
+[15]: http://www.windowsazure.com/ko-kr/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/
 [16]: http://blogs.msdn.com/b/rickandy/
 [17]: https://twitter.com/blowdart

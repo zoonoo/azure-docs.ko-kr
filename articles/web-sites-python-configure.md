@@ -5,7 +5,7 @@ Azure 웹 사이트를 사용하여 Python 구성
 
 이 자습서에서는 Azure 웹 사이트에서 기본 WSGI(Web Server Gateway Interface) 규격 Python 응용 프로그램을 제작 및 구성하는 옵션을 설명합니다. Azure 웹 사이트를 시작하기는 간단하며, Python 응용 프로그램은 다른 Azure 서비스로 확장할 여유가 있습니다. Azure 웹 사이트 플랫폼에는 Python 2.7 및 Python용 일반 wfastcgi.py FastCGI 처리기가 포함되어 있습니다. Python 처리기를 사용하도록 웹 사이트를 구성하기만 하면 됩니다.
 
-Azure 웹 사이트에서 Django 프레임워크 구성에 대한 자세한 예는 다음 자습서를 참조하십시오. <http://www.windowsazure.com/en-us/develop/python/tutorials/web-sites-with-django>(영문)
+Azure 웹 사이트에서 Django 프레임워크 구성에 대한 자세한 예는 다음 자습서를 참조하십시오. <http://www.windowsazure.com/ko-kr/develop/python/tutorials/web-sites-with-django>(영문)
 
 WSGI 지원
 ---------
@@ -15,7 +15,7 @@ WSGI는 웹 서버와 Python 간 인터페이스를 정의하는 [PEP 3333](http
 웹 사이트 만들기
 ----------------
 
-이 자습서에서는 기존 Azure 구독 및 Azure 관리 포털에 대한 액세스 권한이 있다고 가정합니다. 웹 사이트 만들기에 대한 자세한 지침은 <http://www.windowsazure.com/en-us/manage/services/web-sites/how-to-create-websites>(영문)에서 볼 수 있습니다.
+이 자습서에서는 기존 Azure 구독 및 Azure 관리 포털에 대한 액세스 권한이 있다고 가정합니다. 웹 사이트 만들기에 대한 자세한 지침은 <http://www.windowsazure.com/ko-kr/manage/services/web-sites/how-to-create-websites>(영문)에서 볼 수 있습니다.
 
 요컨대 기존 웹 사이트가 없는 경우 Azure 관리 포털에서 웹 사이트를 만들 수 있습니다. 웹 사이트 기능을 선택하고 빠른 생성 옵션을 사용하여 웹 사이트에 대한 URL을 지정합니다.
 

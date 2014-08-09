@@ -3,7 +3,7 @@
 모바일 서비스를 사용하여 Azure 저장소에 이미지 업로드
 =====================================================
 
-[Windows 스토어 C\#](/en-us/documentation/articles/mobile-services-windows-store-dotnet-upload-data-blob-storage "Windows 스토어 C#")[Windows Phone](/en-us/documentation/articles/mobile-services-windows-phone-upload-data-blob-storage "Windows Phone")
+[Windows 스토어 C\#](/ko-kr/documentation/articles/mobile-services-windows-store-dotnet-upload-data-blob-storage "Windows 스토어 C#")[Windows Phone](/ko-kr/documentation/articles/mobile-services-windows-phone-upload-data-blob-storage "Windows Phone")
 
 이 항목에서는 Azure 모바일 서비스를 사용하여, 사용자가 만든 이미지를 앱에서 Azure 저장소에 업로드하고 저장하는 방법에 대해 설명합니다. 모바일 서비스에서는 SQL 데이터베이스를 사용하여 데이터를 저장합니다. 그러나 Azure Blob 저장소 서비스에는 Blob(Binary Large Object) 데이터를 저장하는 것이 좀 더 효율적입니다.
 
@@ -22,7 +22,7 @@
 -   [Azure 저장소 계정](/en-us/manage/services/storage/how-to-create-a-storage-account)
 -   컴퓨터에 연결되는 카메라 또는 기타 이미지 캡처 장치
 
-이 자습서는 모바일 서비스 quickstart를 기반으로 합니다. 이 자습서를 시작하기 전에 먼저 [모바일 서비스 시작하기](/en-us/documentation/articles/mobile-services-windows-store-get-started)를 완료해야 합니다.
+이 자습서는 모바일 서비스 quickstart를 기반으로 합니다. 이 자습서를 시작하기 전에 먼저 [모바일 서비스 시작하기](/ko-kr/documentation/articles/mobile-services-windows-store-get-started)를 완료해야 합니다.
 
 Windows 스토어 앱용 저장소 클라이언트 설치
 ------------------------------------------
@@ -55,7 +55,7 @@ SAS를 사용하여 Blob 저장소에 이미지를 업로드하려면 먼저 Win
 
     SendGrid 전자 메일 서비스를 사용해 모바일 서비스에 전자 메일 기능을 추가하는 방법에 대해 알아보십시오. 이 항목에서는 SendGrid를 사용해 전자 메일을 보내기 위해 서버 쪽 스크립트를 추가하는 방법에 대해 설명합니다.
 
--   [모바일 서비스에서 백엔드 작업 예약](/en-us/documentation/articles/mobile-services-schedule-recurring-tasks)
+-   [모바일 서비스에서 백엔드 작업 예약](/ko-kr/documentation/articles/mobile-services-schedule-recurring-tasks)
 
     모바일 서비스 작업 스케줄러 기능을 사용하여, 예약된 시간에 실행되는 서버 스크립트 코드를 정의하는 방법에 대해 알아보십시오.
 

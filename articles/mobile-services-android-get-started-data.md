@@ -23,7 +23,7 @@
 
 **참고**
 
-이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AED8DE357)을 참조하십시오.
+이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](http://www.windowsazure.com/ko-kr/pricing/free-trial/?WT.mc_id=AED8DE357)을 참조하십시오.
 
 이 자습서에는 [모바일 서비스 Android SDK](http://go.microsoft.com/fwlink/p/?LinkID=280126), Eclipse IDE(통합 개발 환경) 및 ADT(Android 개발자 도구) 플러그 인이 포함된 [Android SDK](https://go.microsoft.com/fwLink/p/?LinkID=280125), Android 4.2 이상 버전이 필요합니다.
 

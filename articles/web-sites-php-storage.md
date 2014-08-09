@@ -111,7 +111,7 @@ Azure 클라이언트 라이브러리 설치
           
           >
 
-    다음에서 오류 코드 및 메시지 검색을 찾을 수 있습니다. <http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx>
+    다음에서 오류 코드 및 메시지 검색을 찾을 수 있습니다. <http://msdn.microsoft.com/ko-kr/library/windowsazure/dd179438.aspx>
 
 테이블 쿼리
 -----------
@@ -272,7 +272,7 @@ Azure 클라이언트 라이브러리 설치
 		$entities = $result->getEntities();		
 		$entity = $entities[0];
 
-    표시된 것처럼, 쿼리 필터에 전달된 형식은 `Key eq 'Value'`입니다. 쿼리 구문에 대한 전체 설명은 [여기](http://msdn.microsoft.com/en-us/library/windowsazure/dd894031.aspx)에서 볼 수 있습니다.
+    표시된 것처럼, 쿼리 필터에 전달된 형식은 `Key eq 'Value'`입니다. 쿼리 구문에 대한 전체 설명은 [여기](http://msdn.microsoft.com/ko-kr/library/windowsazure/dd894031.aspx)에서 볼 수 있습니다.
 
 -   그런 다음 속성을 변경할 수 있습니다.
 

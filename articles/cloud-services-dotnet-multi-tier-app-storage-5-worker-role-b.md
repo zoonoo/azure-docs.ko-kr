@@ -282,11 +282,11 @@ SendGrid를 사용하여 전자 메일을 보내려면 SendGrid NuGet 패키지�
 
     절전 모드 시간의 목적은 [이전 자습서](/en-us/develop/net/tutorials/multi-tier-web-site/4-worker-role-a/)에 설명된 대로 Azure 저장소 트랜잭션 비용을 최소화하기 위한 것입니다.
 
-    [GetMessage](http://msdn.microsoft.com/en-us/library/windowsazure/ee741827.aspx) 메서드가 큐 항목을 큐에서 끌어올 때 이 큐 항목은 큐에 액세스하는 다른 모든 작업자 및 웹 역할에게 30초 동안 보이지 않습니다. 이는 하나의 작업자 역할 인스턴스만 지정된 큐 메시지를 선택해서 처리하도록 하기 위함입니다. [표시 제한 시간](http://msdn.microsoft.com/en-us/library/windowsazure/ee758454.aspx) 매개 변수를 `GetMessage` 메서드로 전달하여 이 *단독 임대* 시간(큐 항목이 안 보이는 시간)을 명시적으로 설정할 수 있습니다. 작업자 역할이 큐 메시지를 처리하는 데 30초 이상 걸리면 다른 역할 인스턴스가 동일한 메시지를 처리하지 못하도록 단독 임대 시간을 늘려야 합니다.
+    [GetMessage](http://msdn.microsoft.com/ko-kr/library/windowsazure/ee741827.aspx) 메서드가 큐 항목을 큐에서 끌어올 때 이 큐 항목은 큐에 액세스하는 다른 모든 작업자 및 웹 역할에게 30초 동안 보이지 않습니다. 이는 하나의 작업자 역할 인스턴스만 지정된 큐 메시지를 선택해서 처리하도록 하기 위함입니다. [표시 제한 시간](http://msdn.microsoft.com/ko-kr/library/windowsazure/ee758454.aspx) 매개 변수를 `GetMessage` 메서드로 전달하여 이 *단독 임대* 시간(큐 항목이 안 보이는 시간)을 명시적으로 설정할 수 있습니다. 작업자 역할이 큐 메시지를 처리하는 데 30초 이상 걸리면 다른 역할 인스턴스가 동일한 메시지를 처리하지 못하도록 단독 임대 시간을 늘려야 합니다.
 
     반면, 단독 임대 시간을 아주 큰 값으로 설정하지는 않습니다. 예를 들어 단독 임대 시간이 48시간으로 설정되어 있고 큐에서 메시지를 제거한 후 작업자 역할이 예기치 않게 종료되면 다른 작업자 역할이 48시간 동안 메시지를 처리하지 못하게 됩니다. 단독 임대 최대값은 7일입니다.
 
-    [GetMessages](http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.storageclient.cloudqueue.getmessages.aspx) 메서드(이름 끝에 "s"가 있음)를 사용하여 한 번의 호출로 최대 32개의 메시지를 큐에서 끌어올 수 있습니다. 큐에 액세스할 때마다 약간의 트랜잭션 비용이 발생하고 메시지가 32개 반환되거나 하나도 반환되지 않거나 이 트랜잭션 비용은 같습니다. 다음 코드는 한 번의 호출로 메시지를 최대 32개까지 가져와 처리합니다.
+    [GetMessages](http://msdn.microsoft.com/ko-kr/library/windowsazure/microsoft.windowsazure.storageclient.cloudqueue.getmessages.aspx) 메서드(이름 끝에 "s"가 있음)를 사용하여 한 번의 호출로 최대 32개의 메시지를 큐에서 끌어올 수 있습니다. 큐에 액세스할 때마다 약간의 트랜잭션 비용이 발생하고 메시지가 32개 반환되거나 하나도 반환되지 않거나 이 트랜잭션 비용은 같습니다. 다음 코드는 한 번의 호출로 메시지를 최대 32개까지 가져와 처리합니다.
 
     	foreach (CloudQueueMessage msg in sendEmailQueue.GetMessages(32))
          {
@@ -571,14 +571,14 @@ Azure 테이블 서비스에 대한 자세한 내용은 다음 리소스를 참�
 
 -   [Azure 테이블 저장소 필수 지식](http://blogs.msdn.com/b/brunoterkaly/archive/2012/11/08/essential-knowledge-for-azure-table-storage.aspx)(Bruno Terkaly의 블로그)(영문)
 -   [Azure 테이블을 최대한 활용하는 방법](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/11/06/how-to-get-most-out-of-windows-azure-tables.aspx)(Azure 저장소 팀 블로그)(영문)
--   [.NET에서 테이블 저장소 서비스를 사용하는 방법](http://www.windowsazure.com/en-us/develop/net/how-to-guides/table-services/)
+-   [.NET에서 테이블 저장소 서비스를 사용하는 방법](http://www.windowsazure.com/ko-kr/develop/net/how-to-guides/table-services/)
 -   [Azure Storage Client Library 2.0 테이블 자세히 알아보기](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/11/06/windows-azure-storage-client-library-2-0-tables-deep-dive.aspx)(Azure 저장소 팀 블로그)(영문)
--   [실제 사용: Azure 테이블 저장소에 대한 확장 가능한 분할 전략 설계](http://msdn.microsoft.com/en-us/library/windowsazure/hh508997.aspx)(영문)를 참조하십시오.
+-   [실제 사용: Azure 테이블 저장소에 대한 확장 가능한 분할 전략 설계](http://msdn.microsoft.com/ko-kr/library/windowsazure/hh508997.aspx)(영문)를 참조하십시오.
 
 Azure 큐 서비스 및 Azure 서비스 버스 큐에 대한 자세한 내용은 다음 리소스를 참조하십시오.
 
 -   [큐 중심 작업 패턴(Azure에서 실제 클라우드 앱 빌드)(영문)](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern)
--   [Azure 큐 및 Azure 서비스 버스 큐 - 비교 및 대조](http://msdn.microsoft.com/en-us/library/windowsazure/hh767287.aspx)
+-   [Azure 큐 및 Azure 서비스 버스 큐 - 비교 및 대조](http://msdn.microsoft.com/ko-kr/library/windowsazure/hh767287.aspx)
 -   [.NET에서 큐 저장소 서비스를 사용하는 방법](/en-us/develop/net/how-to-guides/queue-service/)
 
 Azure Blob 서비스에 대한 자세한 내용은 다음 리소스를 참조하십시오.
@@ -589,7 +589,7 @@ Azure Blob 서비스에 대한 자세한 내용은 다음 리소스를 참조하
 Azure 클라우드 서비스 역할 자동 크기 조정에 대한 자세한 내용은 다음 리소스를 참조하십시오.
 
 -   [자동 크기 조정 응용 프로그램 블록을 사용하는 방법](/en-us/develop/net/how-to-guides/autoscaling/)
--   [자동 크기 조정 및 Azure(영문)](http://msdn.microsoft.com/en-us/library/hh680945(v=PandP.50).aspx)
+-   [자동 크기 조정 및 Azure(영문)](http://msdn.microsoft.com/ko-kr/library/hh680945(v=PandP.50).aspx)
 -   [Azure에서 탄력적이고 크기를 자동으로 조정할 수 있는 솔루션 빌드](http://channel9.msdn.com/Events/WindowsAzureConf/2012/B04)(MSDN channel 9 동영상)(영문)
 
 감사의 말감사의 말
@@ -629,9 +629,9 @@ Azure 클라우드 서비스 역할 자동 크기 조정에 대한 자세한 내
 [queuehowto]: /en-us/develop/net/how-to-guides/queue-service/
 
 [blobhowto]: /en-us/develop/net/how-to-guides/blob-storage/
-[GetMessage]: http://msdn.microsoft.com/en-us/library/windowsazure/ee741827.aspx
+[GetMessage]: http://msdn.microsoft.com/ko-kr/library/windowsazure/ee741827.aspx
 [getstartedtutorial]: /en-us/develop/net/tutorials/get-started
-[sbqueuecomparison]: http://msdn.microsoft.com/en-us/library/windowsazure/hh767287.aspx
+[sbqueuecomparison]: http://msdn.microsoft.com/ko-kr/library/windowsazure/hh767287.aspx
 [autoscalingappblock]: /en-us/develop/net/how-to-guides/autoscaling/
 
 
@@ -645,4 +645,4 @@ Azure 클라우드 서비스 역할 자동 크기 조정에 대한 자세한 내
 
 
 [mtas-worker-b-settings]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-worker-role-b/mtas-worker-b-settings.png
-[autoscaling-and-windows-azure]: http://msdn.microsoft.com/en-us/library/hh680945(v=PandP.50).aspx
+[autoscaling-and-windows-azure]: http://msdn.microsoft.com/ko-kr/library/hh680945(v=PandP.50).aspx

@@ -9,7 +9,7 @@ Microsoft의 빅데이터 솔루션이 가진 주요 기능 중 하나는 Micros
 
 이 문서를 시작하기 전에 다음이 있어야 합니다.
 
--   HDInsight 클러스터. 구성하려면 [Azure HDInsight 시작](/en-us/documentation/articles/hdinsight-get-started/)을 참조하십시오.
+-   HDInsight 클러스터. 구성하려면 [Azure HDInsight 시작](/ko-kr/documentation/articles/hdinsight-get-started/)을 참조하십시오.
 -   Windows 8, Windows 7, Windows Server 2012 또는 Windows Server 2008 R2를 실행하는 컴퓨터.
 -   Office 2013 Professional Plus, Office 365 Pro Plus, Excel 2013 Standalone 또는 Office 2010 Professional Plus
 
@@ -63,12 +63,12 @@ Excel용 파워 쿼리 추가 기능을 사용하면 HDInsight 클러스터에�
 
 이 문서에서는 파워 쿼리를 사용하여 HDInsight에서 Excel로 데이터를 가져오는 방법을 알아보았습니다. 마찬가지로 HDInsight에서 SQL Azure로 데이터를 가져올 수 있습니다. 데이터를 HDInsight에 업로드할 수도 있습니다. 자세한 내용은 다음 문서를 참조하십시오.
 
--   [HDInsight에 Microsoft Hive ODBC 드라이버로 Excel 연결](/en-us/documentation/articles/hdinsight-connect-excel-hive-ODBC-driver/)
--   [HDInsight에 데이터 업로드](/en-us/documentation/articles/hdinsight-upload-data/).
+-   [HDInsight에 Microsoft Hive ODBC 드라이버로 Excel 연결](/ko-kr/documentation/articles/hdinsight-connect-excel-hive-ODBC-driver/)
+-   [HDInsight에 데이터 업로드](/ko-kr/documentation/articles/hdinsight-upload-data/).
 
-[hdinsight-excel-odbc]: /en-us/documentation/articles/hdinsight-connect-excel-hive-ODBC-driver/
-[hdinsight-get-started]: /en-us/documentation/articles/hdinsight-get-started/
-[hdinsight-upload-data]: /en-us/documentation/articles/hdinsight-upload-data/
+[hdinsight-excel-odbc]: /ko-kr/documentation/articles/hdinsight-connect-excel-hive-ODBC-driver/
+[hdinsight-get-started]: /ko-kr/documentation/articles/hdinsight-get-started/
+[hdinsight-upload-data]: /ko-kr/documentation/articles/hdinsight-upload-data/
 
 [image-hdi-powerquery-hdi-source]: ./media/hdinsight-connect-excel-power-query/HDI.PowerQuery.SelectHdiSource.png
 [image-hdi-powerquery-importdata]: ./media/hdinsight-connect-excel-power-query/HDI.PowerQuery.ImportData.png 

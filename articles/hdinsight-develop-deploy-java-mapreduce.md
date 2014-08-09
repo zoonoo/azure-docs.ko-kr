@@ -10,7 +10,7 @@ HDInsight용 Java MapReduce 프로그램 개발
 이 자습서를 시작하기 전에 다음이 있어야 합니다.
 
 -   Azure HDInsight Emulator 설치. 자세한 내용은 [HDInsight Emulator 사용 시작](/en-us/manage/services/hdinsight/get-started-with-windows-azure-hdinsight-emulator/)을 참조하십시오.
--   에뮬레이터 컴퓨터에 Azure PowerShell 설치. 자세한 내용은 [Azure PowerShell 설치 및 구성](/en-us/documentation/articles/install-configure-powershell/)을 참조하십시오.
+-   에뮬레이터 컴퓨터에 Azure PowerShell 설치. 자세한 내용은 [Azure PowerShell 설치 및 구성](/ko-kr/documentation/articles/install-configure-powershell/)을 참조하십시오.
 -   Azure 구독. 자세한 내용은 [구매 옵션](https://www.windowsazure.com/en-us/pricing/purchase-options/), [회원 제안](https://www.windowsazure.com/en-us/pricing/member-offers/) 또는 [무료 평가판](https://www.windowsazure.com/en-us/pricing/free-trial/)을 참조하십시오.
 
 이 문서에서는 다음을 수행합니다.
@@ -235,7 +235,7 @@ Azure HDInsight는 데이터 저장소에 Azure Blob 저장소를 사용합니�
          $containerName_Data = "<ContainerName>"
          $location = "<MicrosoftDataCenter>"  # For example, "East US"
 
-    **\$subscripionName**은 Azure 구독과 연결됩니다. **\$storageAccountName\_Data** 및 **\$containerName\_Data**를 명명해야 합니다. 명명 제한에 대해서는 [컨테이너와 Blob, 메타데이터의 명명 및 참조](http://msdn.microsoft.com/en-us/library/windowsazure/dd135715.aspx)를 참조하십시오.
+    **\$subscripionName**은 Azure 구독과 연결됩니다. **\$storageAccountName\_Data** 및 **\$containerName\_Data**를 명명해야 합니다. 명명 제한에 대해서는 [컨테이너와 Blob, 메타데이터의 명명 및 참조](http://msdn.microsoft.com/ko-kr/library/windowsazure/dd135715.aspx)를 참조하십시오.
 
 3.  다음 명령을 실행하여 저장소 계정 및 계정의 Blob 저장소 컨테이너를 만듭니다.
 
@@ -493,7 +493,7 @@ MapReduce 작업 출력 검색
 
 이 자습서에서는 Java MapReduce 작업을 개발하는 방법, HDInsight Emulator에서 응용 프로그램을 테스트하는 방법 및 HDInsight 클러스터를 프로비전하고 클러스터에서 MapReduce를 실행하도록 PowerShell 스크립트를 작성하는 방법에 대해 알아보았습니다. 자세한 내용은 다음 문서를 참조하십시오.
 
--   [HDInsight용 C\# Hadoop 스트리밍 MapReduce 프로그램 개발](/en-us/documentation/articles/hdinsight-hadoop-develop-deploy-streaming-jobs/)
+-   [HDInsight용 C\# Hadoop 스트리밍 MapReduce 프로그램 개발](/ko-kr/documentation/articles/hdinsight-hadoop-develop-deploy-streaming-jobs/)
 -   [Azure HDInsight 시작](/en-us/manage/services/hdinsight/get-started-hdinsight/)
 -   [HDInsight Emulator 시작](/en-us/manage/services/hdinsight/get-started-with-windows-azure-hdinsight-emulator/)
 -   [HDInsight와 함께 Azure Blob 저장소 사용](/en-us/manage/services/hdinsight/howto-blob-store/)
@@ -501,6 +501,6 @@ MapReduce 작업 출력 검색
 -   [HDInsight에 데이터 업로드](/en-us/manage/services/hdinsight/howto-upload-data-to-hdinsight/)
 -   [HDInsight와 함께 Hive 사용](/en-us/manage/services/hdinsight/using-hive-with-hdinsight/)
 -   [HDInsight와 함께 Pig 사용](/en-us/manage/services/hdinsight/using-pig-with-hdinsight/)
--   [HDInsight에 파워 쿼리로 Excel 연결](/en-us/documentation/articles/hdinsight-connect-excel-power-query/)
+-   [HDInsight에 파워 쿼리로 Excel 연결](/ko-kr/documentation/articles/hdinsight-connect-excel-power-query/)
 -   [HDInsight에 Microsoft Hive ODBC 드라이버로 Excel 연결](../hdinsight-connect-excel-hive-ODBC-driver/)
 

@@ -68,4 +68,4 @@ Azure에서 서비스 버스 토픽 및 구독 사용을 시작하려면 먼저 
 
 
 [1]: http://manage.windowsazure.com
-[2]: http://http://msdn.microsoft.com/en-us/library/windowsazure/ff687127.aspx
+[2]: http://http://msdn.microsoft.com/ko-kr/library/windowsazure/ff687127.aspx

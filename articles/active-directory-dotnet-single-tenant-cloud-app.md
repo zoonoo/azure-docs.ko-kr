@@ -187,7 +187,7 @@ Azure Active Directory를 사용하여 단일 테넌트 응용 프로그램 개�
 
 1.  샘플 응용 프로그램을 다운로드하여 필요한 폴더로 추출합니다.
 2.  샘플 코드를 사용하려면 먼저 서비스 사용자에게 추가 권한을 제공해야 합니다. 이러한 권한을 통해 서비스 사용자는 Graph API를 사용하여 데이터를 읽을 수 있습니다. **시작** 메뉴에서 **Windows PowerShell용 Microsoft Online Services 모듈** 콘솔을 실행합니다.
-3.  서비스 지원 관리자 역할에 읽기 권한을 추가하여 서비스 사용자에게 이 권한을 제공합니다. 서비스 사용자에 역할 할당에 대한 자세한 내용은 [Graph API의 역할 기반 액세스 제어](http://msdn.microsoft.com/en-us/library/hh974466.aspx)를 참조하십시오. 다음 명령을 입력하고 Enter 키를 누릅니다.
+3.  서비스 지원 관리자 역할에 읽기 권한을 추가하여 서비스 사용자에게 이 권한을 제공합니다. 서비스 사용자에 역할 할당에 대한 자세한 내용은 [Graph API의 역할 기반 액세스 제어](http://msdn.microsoft.com/ko-kr/library/hh974466.aspx)를 참조하십시오. 다음 명령을 입력하고 Enter 키를 누릅니다.
 
          Add-MsolRoleMember -RoleMemberType "ServicePrincipal" -RoleName "Service Support Administrator" -RoleMemberObjectId $appPrincipal.ObjectId 
 
@@ -222,5 +222,5 @@ Azure Active Directory를 사용하여 단일 테넌트 응용 프로그램 개�
 
 이 자습서에서는 Azure Active Directory의 Single Sign-On 기능을 사용하여 단일 테넌트 응용 프로그램을 만들고 구성하는 방법을 살펴보았습니다. 또한 Graph API를 사용하여 테넌트의 디렉터리 데이터에 액세스했습니다. 샘플 응용 프로그램을 탐색하여 사용자의 응용 프로그램에서 Graph API를 활용하는 방법을 알아보는 것이 좋습니다.
 
-Graph API에 대해 자세히 알아보려면 [MSDN에서 이에 대한 문서를 읽어](http://msdn.microsoft.com/en-us/library/hh974476.aspx) 볼 수 있습니다. 또한 [Azure Active Directory를 사용하여 다중 테넌트 클라우드 응용 프로그램 개발](http://g.microsoftonline.com/0AX00en/121)(영문) 자습서를 참조하여 Azure Active Directory용 다중 테넌트 응용 프로그램을 만들 수 있습니다.
+Graph API에 대해 자세히 알아보려면 [MSDN에서 이에 대한 문서를 읽어](http://msdn.microsoft.com/ko-kr/library/hh974476.aspx) 볼 수 있습니다. 또한 [Azure Active Directory를 사용하여 다중 테넌트 클라우드 응용 프로그램 개발](http://g.microsoftonline.com/0AX00en/121)(영문) 자습서를 참조하여 Azure Active Directory용 다중 테넌트 응용 프로그램을 만들 수 있습니다.
 

@@ -177,9 +177,9 @@ Azure 관리 포털을 사용하여 저장소 계정을 만들 수 있습니다.
 
 
 
-[1]: http://msdn.microsoft.com/en-us/library/windowsazure/jj672979.aspx
-[2]: http://msdn.microsoft.com/en-us/library/windowsazure/gg551722.aspx
+[1]: http://msdn.microsoft.com/ko-kr/library/windowsazure/jj672979.aspx
+[2]: http://msdn.microsoft.com/ko-kr/library/windowsazure/gg551722.aspx
 [3]: http://technet.microsoft.com/en-us/library/hh846766.aspx
-[4]: http://msdn.microsoft.com/en-us/library/windowsazure/dn205185.aspx
+[4]: http://msdn.microsoft.com/ko-kr/library/windowsazure/dn205185.aspx
 [5]: http://technet.microsoft.com/en-us/library/bb457073.aspx
-[6]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554332.aspx
+[6]: http://msdn.microsoft.com/ko-kr/library/windowsazure/jj554332.aspx

@@ -3,7 +3,7 @@
 Linux 운영 체제가 포함된 가상 하드 디스크 만들기 및 업로드
 ==========================================================
 
-Azure의 가상 컴퓨터는 가상 컴퓨터를 만들 때 선택한 운영 체제를 실행합니다. Azure는 가상 컴퓨터의 운영 체제를 가상 하드 디스크에 VHD 형식(.vhd 파일)으로 저장합니다. 복제를 위해 준비된 운영 체제의 VHD를 이미지라고 합니다. 이 문서에서는 설치하여 범용화한 운영 체제와 함께 .vhd 파일을 업로드하여 고유의 이미지를 만드는 방법을 보여 줍니다. Azure의 디스크 및 이미지에 대한 자세한 내용은 [디스크 및 이미지 관리](http://msdn.microsoft.com/en-us/library/windowsazure/jj672979.aspx)를 참조하십시오.
+Azure의 가상 컴퓨터는 가상 컴퓨터를 만들 때 선택한 운영 체제를 실행합니다. Azure는 가상 컴퓨터의 운영 체제를 가상 하드 디스크에 VHD 형식(.vhd 파일)으로 저장합니다. 복제를 위해 준비된 운영 체제의 VHD를 이미지라고 합니다. 이 문서에서는 설치하여 범용화한 운영 체제와 함께 .vhd 파일을 업로드하여 고유의 이미지를 만드는 방법을 보여 줍니다. Azure의 디스크 및 이미지에 대한 자세한 내용은 [디스크 및 이미지 관리](http://msdn.microsoft.com/ko-kr/library/windowsazure/jj672979.aspx)를 참조하십시오.
 
 **참고**: 가상 컴퓨터를 만드는 경우 운영 체제 설정을 사용자 지정하여 응용 프로그램 실행을 원활하게 할 수 있습니다. 설정한 구성은 해당 가상 컴퓨터의 디스크에 저장됩니다. 지침은 [사용자 지정 가상 컴퓨터를 만드는 방법](/en-us/manage/windows/how-to-guides/custom-create-a-vm/)(영문)을 참조하십시오.
 
@@ -628,7 +628,7 @@ Azure의 가상 컴퓨터는 가상 컴퓨터를 만들 때 선택한 운영 체
 
     여기서 `<PathToFile>`는 .publishsettings 파일의 전체 경로입니다.
 
-    자세한 내용은 [Azure Cmdlets 시작](http://msdn.microsoft.com/en-us/library/windowsazure/jj554332.aspx)을 참조하십시오.
+    자세한 내용은 [Azure Cmdlets 시작](http://msdn.microsoft.com/ko-kr/library/windowsazure/jj554332.aspx)을 참조하십시오.
 
 4단계: Azure에 이미지 업로드
 ----------------------------
@@ -641,7 +641,7 @@ Azure의 가상 컴퓨터는 가상 컴퓨터를 만들 때 선택한 운영 체
 
     `Add-AzureVhd -Destination <BlobStorageURL>/<YourImagesFolder>/<VHDName> -LocalFilePath <PathToVHDFile>`
 
-    자세한 내용은 [Add-AzureVhd](http://msdn.microsoft.com/en-us/library/windowsazure/dn205185.aspx)(영문)를 참조하십시오.
+    자세한 내용은 [Add-AzureVhd](http://msdn.microsoft.com/ko-kr/library/windowsazure/dn205185.aspx)(영문)를 참조하십시오.
 
 -   Linux 명령줄 도구를 사용하여 이미지를 업로드합니다. 다음 명령을 사용하여 이미지를 업로드할 수 있습니다.
 

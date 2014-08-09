@@ -20,7 +20,7 @@
 
 > [WACOM.NOTE]모바일 장치 클라이언트에서 데이터 오버플로를 방지하기 위해 모바일 서비스는 기본적으로 응답의 최대 항목 수를 50개로 설정하는 자동 페이지 제한을 구현합니다. 페이지 크기를 지정하여 응답의 항목 수를 명시적으로 최대 1,000개까지 요청할 수 있습니다.
 
-이 자습서는 이전 자습서인 [데이터 시작](/en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-data/)의 단계 및 샘플 앱을 기반으로 합니다. 이 자습서를 시작하기 전에 적어도 데이터 시리즈 작업의 첫 번째 자습서인 [데이터 시작](/en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-data/)을 완료해야 합니다.
+이 자습서는 이전 자습서인 [데이터 시작](/ko-kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-data/)의 단계 및 샘플 앱을 기반으로 합니다. 이 자습서를 시작하기 전에 적어도 데이터 시리즈 작업의 첫 번째 자습서인 [데이터 시작](/ko-kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-data/)을 완료해야 합니다.
 
 [WACOM.INCLUDE [mobile-services-windows-dotnet-paging](../includes/mobile-services-windows-dotnet-paging.md)]
 
@@ -46,10 +46,10 @@
 
 
 <!-- URLs. -->
-[Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-windows-store-get-started/
-[Get started with data]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-data/
-[인증 시작]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-users/
-[푸시 알림 시작]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-push/
+[Get started with Mobile Services]: /ko-kr/documentation/articles/mobile-services-windows-store-get-started/
+[Get started with data]: /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-data/
+[인증 시작]: /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-users/
+[푸시 알림 시작]: /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-push/
 
 [Management Portal]: https://manage.windowsazure.com/
 [모바일 서비스 .NET 방법 개념 참조]: /en-us/develop/mobile/how-to-guides/work-with-net-client-library

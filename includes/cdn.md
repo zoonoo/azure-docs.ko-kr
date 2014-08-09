@@ -33,7 +33,7 @@ CDN을 사용하여 Azure 데이터를 캐시할 경우의 혜택은 다음과 �
 저장소 계정을 만들려면 관련 구독에 대한 서비스 관리자 또는 공동 관리자여야 합니다.
 <div class="dev-callout">
 <strong>참고</strong>
-<p>Azure 서비스 관리 API를 사용하여 이 작업을 수행하는 방법에 대한 자세한 내용은 <a href="http://msdn.microsoft.com/en-us/library/windowsazure/hh264518.aspx">저장소 계정 만들기</a> 참조 항목을 참조하십시오.</p>
+<p>Azure 서비스 관리 API를 사용하여 이 작업을 수행하는 방법에 대한 자세한 내용은 <a href="http://msdn.microsoft.com/ko-kr/library/windowsazure/hh264518.aspx">저장소 계정 만들기</a> 참조 항목을 참조하십시오.</p>
 </div>
 
  **Azure 구독에 대한 저장소 계정을 만들려면**
@@ -141,12 +141,12 @@ CDN에 이미 캐시된 개체는 개체의 TTL(Time-to-Live) 기간이 만료�
 
 
 
-[1]: http://msdn.microsoft.com/en-us/library/windowsazure/gg680302.aspx
+[1]: http://msdn.microsoft.com/ko-kr/library/windowsazure/gg680302.aspx
 [2]: https://manage.windowsazure.com/
-[3]: http://msdn.microsoft.com/en-us/library/windowsazure/ee924681.aspx
-[4]: http://msdn.microsoft.com/en-us/library/windowsazure/hh531560.aspx
-[5]: http://msdn.microsoft.com/en-us/library/gg680306.aspx
-[6]: http://msdn.microsoft.com/en-us/library/dd179354.aspx
-[7]: http://msdn.microsoft.com/en-us/library/windowsazure/hh531567.aspx
-[8]: http://msdn.microsoft.com/en-us/library/windowsazure/ee460807.aspx
-[9]: http://msdn.microsoft.com/en-us/library/windowsazure/gg680307.aspx
+[3]: http://msdn.microsoft.com/ko-kr/library/windowsazure/ee924681.aspx
+[4]: http://msdn.microsoft.com/ko-kr/library/windowsazure/hh531560.aspx
+[5]: http://msdn.microsoft.com/ko-kr/library/gg680306.aspx
+[6]: http://msdn.microsoft.com/ko-kr/library/dd179354.aspx
+[7]: http://msdn.microsoft.com/ko-kr/library/windowsazure/hh531567.aspx
+[8]: http://msdn.microsoft.com/ko-kr/library/windowsazure/ee460807.aspx
+[9]: http://msdn.microsoft.com/ko-kr/library/windowsazure/gg680307.aspx

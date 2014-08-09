@@ -104,7 +104,7 @@ Azure 테이블 저장소 사용 여부를 결정할 때에는 비용과 성능�
 
 테이블 저장소에 대한 자세한 내용은 다음을 참조하십시오.
 
--   [Azure 테이블 저장소 및 Azure SQL 데이터베이스 - 비교 및 대조](http://msdn.microsoft.com/en-us/library/jj553018.aspx)
+-   [Azure 테이블 저장소 및 Azure SQL 데이터베이스 - 비교 및 대조](http://msdn.microsoft.com/ko-kr/library/jj553018.aspx)
 -   [Azure 테이블 저장소 성능 고려 사항(영문)](http://go.microsoft.com/fwlink/?LinkId=252663)
 -   [SQL 데이터베이스 및 Azure 테이블 저장소(영문)](http://go.microsoft.com/fwlink/?LinkId=252664)
 -   [Azure 테이블 저장소 삽입 일괄 처리로 성능 향상(영문)](http://go.microsoft.com/fwlink/?LinkID=252665). 이 문서에서는 몇 가지 성능 결과에 대해 설명합니다.
@@ -202,8 +202,8 @@ Azure 저장소 큐는 대규모 큐 크기, 진행 상황 추적 등의 기능�
 Azure는 Hadoop을 직접 지원하며 기타 기술의 사용도 지원합니다. Azure HDInsight Service에 대한 자세한 내용은 다음을 참조하십시오.
 
 -   [빅데이터](/en-us/solutions/big-data/)
--   [Azure HDInsight Service](/en-us/documentation/services/hdinsight/)
--   [Azure HDInsight Service 시작](/en-us/documentation/articles/hdinsight-get-started/)
+-   [Azure HDInsight Service](/ko-kr/documentation/services/hdinsight/)
+-   [Azure HDInsight Service 시작](/ko-kr/documentation/articles/hdinsight-get-started/)
 
 다양한 noSQL 저장 방법과 관련된 문제를 다룬 다음과 같은 문서를 참조하십시오.
 

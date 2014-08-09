@@ -17,7 +17,7 @@ Smooth Streaming Client SDK for Windows 8을 사용하면 개발자가 주문형
 필수 조건
 =========
 
--   Windows 8 32비트 또는 64비트. MSDN에서 [Windows 8 Enterprise Evaluation](http://msdn.microsoft.com/en-us/evalcenter/jj554510.aspx)을 다운로드할 수 있습니다.
+-   Windows 8 32비트 또는 64비트. MSDN에서 [Windows 8 Enterprise Evaluation](http://msdn.microsoft.com/ko-kr/evalcenter/jj554510.aspx)을 다운로드할 수 있습니다.
 -   Windows 8에 설치된 Visual Studio 2012 또는 Visual Studio Express 2012 for Windows 8. [여기서](http://www.microsoft.com/visualstudio/11/en-us/downloads) 평가판을 다운로드할 수 있습니다.
 -   [Microsoft Smooth Streaming Client SDK for Windows 8](http://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Homehttp://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Home)
 
@@ -30,7 +30,7 @@ Smooth Streaming Client SDK for Windows 8을 사용하면 개발자가 주문형
 
 ![부드러운 스트리밍 Windows 스토어 응용 프로그램 예](./media/media-services-build-smooth-streaming-apps/SSClientWin8-1.png)
 
-Windows 스토어 응용 프로그램 개발에 대한 자세한 내용은 [유용한 Windows 8용 앱 개발](http://msdn.microsoft.com/en-us/windows/apps/br229512.aspx)을 참조하십시오. 이 단원에는 다음 절차가 포함되어 있습니다.
+Windows 스토어 응용 프로그램 개발에 대한 자세한 내용은 [유용한 Windows 8용 앱 개발](http://msdn.microsoft.com/ko-kr/windows/apps/br229512.aspx)을 참조하십시오. 이 단원에는 다음 절차가 포함되어 있습니다.
 
 1.  Windows 스토어 프로젝트 만들기
 2.  사용자 인터페이스 디자인(XAML)

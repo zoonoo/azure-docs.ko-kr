@@ -135,7 +135,7 @@ Azure에 호스티드 서비스를 배포하려면 서비스 정의 파일과 �
 
 ## <a id="def"> </a>서비스 정의 파일
 
-앞에서 언급했듯이, 서비스 정의(CSDEF) 파일은 전체 응용 프로그램을 구성하는 다양한 역할을 설명하는 XML 파일입니다. XML 파일의 전체 스키마는 [http://msdn.microsoft.com/en-us/library/windowsazure/ee758711.aspx][]에서 확인할 수 있습니다. CSDEF 파일에는 응용 프로그램에서 사용하려는 각 역할에 대한 WebRole 또는 WorkerRole 요소가 포함되어 있습니다. WebRole 요소를 사용하여 역할을 웹 역할로 배포하면 Windows Server 2008 및 IIS(Internet Information Server)가 포함된 역할 인스턴스에서 코드가 실행됩니다. WorkerRole 요소를 사용하여 역할을 작업자 역할로 배포하면 역할 인스턴스에 Windows Server 2008이 포함됩니다(IIS는 설치되지 않음).
+앞에서 언급했듯이, 서비스 정의(CSDEF) 파일은 전체 응용 프로그램을 구성하는 다양한 역할을 설명하는 XML 파일입니다. XML 파일의 전체 스키마는 [http://msdn.microsoft.com/ko-kr/library/windowsazure/ee758711.aspx][]에서 확인할 수 있습니다. CSDEF 파일에는 응용 프로그램에서 사용하려는 각 역할에 대한 WebRole 또는 WorkerRole 요소가 포함되어 있습니다. WebRole 요소를 사용하여 역할을 웹 역할로 배포하면 Windows Server 2008 및 IIS(Internet Information Server)가 포함된 역할 인스턴스에서 코드가 실행됩니다. WorkerRole 요소를 사용하여 역할을 작업자 역할로 배포하면 역할 인스턴스에 Windows Server 2008이 포함됩니다(IIS는 설치되지 않음).
 
 다른 일부 메커니즘을 사용하여 들어오는 웹 요청을 수신 대기하는 작업자 역할을 만들고 배포할 수 있습니다. 예를 들어 코드에서 .NET HttpListener를 만들고 사용할 수 있습니다. 역할 인스턴스는 모두 Windows Server 2008을 실행하고 있으므로 Windows Server 2008에서 실행 중인 응용 프로그램이 정상적으로 사용할 수 있는 모든 작업을 코드에서 수행할 수 있습니다.
 
@@ -335,9 +335,9 @@ Azure에 호스티드 서비스를 배포하려면 서비스 정의 파일과 �
 
 ## <a id="cfg"> </a>서비스 구성 파일
 
-서비스 구성(CSCFG) 파일은 응용 프로그램을 다시 배포하지 않고도 변경할 수 있는 설정을 설명하는 XML 파일입니다. XML 파일의 전체 스키마는 [http://msdn.microsoft.com/en-us/library/windowsazure/ee758710.aspx][5]에서 확인할 수 있습니다. CSCFG 파일에는 응용 프로그램의 각 역할에 대한 Role 요소가 포함되어 있습니다. 다음은 CSCFG 파일에 지정할 수 있는 항목 중 일부입니다.
+서비스 구성(CSCFG) 파일은 응용 프로그램을 다시 배포하지 않고도 변경할 수 있는 설정을 설명하는 XML 파일입니다. XML 파일의 전체 스키마는 [http://msdn.microsoft.com/ko-kr/library/windowsazure/ee758710.aspx][5]에서 확인할 수 있습니다. CSCFG 파일에는 응용 프로그램의 각 역할에 대한 Role 요소가 포함되어 있습니다. 다음은 CSCFG 파일에 지정할 수 있는 항목 중 일부입니다.
 
-* **OS 버전**. 이 특성을 사용하면 응용 프로그램 코드를 실행 중인 모든 역할 인스턴스에 사용하려는 OS(운영 체제) 버전을 선택할 수 있습니다. 이 OS를 *게스트 OS*라고 하며, 각각의 새로운 버전에 게스트 OS가 릴리스될 당시 사용 가능한 최신 보안 패치와 업데이트가 포함되어 있습니다. osVersion 특성 값을 "\*"로 설정하면 새 게스트 OS 버전이 사용 가능할 때 Azure에서 각 역할 인스턴스의 게스트 OS를 자동으로 업데이트합니다. 그러나 특정 게스트 OS 버전을 선택하여 자동 업데이트를 옵트아웃(opt out)할 수 있습니다. 예를 들어 osVersion 특성을 "WA-GUEST-OS-2.8\_201109-01" 값으로 설정하면 모든 역할 인스턴스가 [http://msdn.microsoft.com/en-us/library/hh560567.aspx][6] 웹 페이지에 설명된 항목을 얻게 됩니다. 게스트 OS 버전에 대한 자세한 내용은 [Azure 게스트 OS에 대한 업그레이드 관리][7]를 참조하십시오.
+* **OS 버전**. 이 특성을 사용하면 응용 프로그램 코드를 실행 중인 모든 역할 인스턴스에 사용하려는 OS(운영 체제) 버전을 선택할 수 있습니다. 이 OS를 *게스트 OS*라고 하며, 각각의 새로운 버전에 게스트 OS가 릴리스될 당시 사용 가능한 최신 보안 패치와 업데이트가 포함되어 있습니다. osVersion 특성 값을 "\*"로 설정하면 새 게스트 OS 버전이 사용 가능할 때 Azure에서 각 역할 인스턴스의 게스트 OS를 자동으로 업데이트합니다. 그러나 특정 게스트 OS 버전을 선택하여 자동 업데이트를 옵트아웃(opt out)할 수 있습니다. 예를 들어 osVersion 특성을 "WA-GUEST-OS-2.8\_201109-01" 값으로 설정하면 모든 역할 인스턴스가 [http://msdn.microsoft.com/ko-kr/library/hh560567.aspx][6] 웹 페이지에 설명된 항목을 얻게 됩니다. 게스트 OS 버전에 대한 자세한 내용은 [Azure 게스트 OS에 대한 업그레이드 관리][7]를 참조하십시오.
 
 * **인스턴스**. 이 요소의 값은 특정 역할에 대한 코드를 실행하여 프로비전하려는 역할 인스턴스 수를 나타냅니다. 응용 프로그램을 다시 배포하지 않고도 새 CSCFG 파일을 Azure에 업로드할 수 있으므로 간단하게 이 요소의 값을 변경하고 새 CSCFG 파일을 업로드하여 응용 프로그램 코드를 실행하는 역할 인스턴스 수를 동적으로 늘리거나 줄일 수 있습니다. 이렇게 하면 역할 인스턴스 실행에 대해 부과되는 요금을 제어하는 동시에 실제 작업 요구에 맞게 응용 프로그램을 쉽게 확장하거나 축소할 수 있습니다.
 
@@ -371,15 +371,15 @@ Azure에 호스티드 서비스를 배포하려면 서비스 정의 파일과 �
 
  
 
-[1]: http://www.windowsazure.com/en-us/develop/net/common-tasks/custom-dns/
-[2]: http://www.windowsazure.com/en-us/develop/net/fundamentals/cloud-storage/
-[3]: http://www.windowsazure.com/en-us/pricing/calculator/
-[4]: http://msdn.microsoft.com/en-us/library/windowsazure/gg981929.aspx
-[5]: http://msdn.microsoft.com/en-us/library/windowsazure/ee758710.aspx
-[6]: http://msdn.microsoft.com/en-us/library/hh560567.aspx
-[7]: http://msdn.microsoft.com/en-us/library/ee924680.aspx
-[8]: http://www.windowsazure.com/en-us/develop/net/fundamentals/deploying-applications/
-[9]: http://msdn.microsoft.com/en-us/library/gg432967.aspx
-[10]: http://msdn.microsoft.com/en-us/library/gg433038.aspx
-[11]: http://msdn.microsoft.com/en-us/library/gg186051.aspx
-[12]: http://msdn.microsoft.com/en-us/library/windowsazure/ee405486.aspx
+[1]: http://www.windowsazure.com/ko-kr/develop/net/common-tasks/custom-dns/
+[2]: http://www.windowsazure.com/ko-kr/develop/net/fundamentals/cloud-storage/
+[3]: http://www.windowsazure.com/ko-kr/pricing/calculator/
+[4]: http://msdn.microsoft.com/ko-kr/library/windowsazure/gg981929.aspx
+[5]: http://msdn.microsoft.com/ko-kr/library/windowsazure/ee758710.aspx
+[6]: http://msdn.microsoft.com/ko-kr/library/hh560567.aspx
+[7]: http://msdn.microsoft.com/ko-kr/library/ee924680.aspx
+[8]: http://www.windowsazure.com/ko-kr/develop/net/fundamentals/deploying-applications/
+[9]: http://msdn.microsoft.com/ko-kr/library/gg432967.aspx
+[10]: http://msdn.microsoft.com/ko-kr/library/gg433038.aspx
+[11]: http://msdn.microsoft.com/ko-kr/library/gg186051.aspx
+[12]: http://msdn.microsoft.com/ko-kr/library/windowsazure/ee405486.aspx

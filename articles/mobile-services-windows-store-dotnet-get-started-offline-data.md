@@ -3,13 +3,13 @@
 모바일 서비스에서 오프라인 데이터 시작
 ======================================
 
-[Windows 스토어 C\#](/en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data "Windows 스토어 C#")
+[Windows 스토어 C\#](/ko-kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data "Windows 스토어 C#")
 
 이 항목에서는 Azure 모바일 서비스의 오프라인 기능을 사용하는 방법을 보여 줍니다. Azure 모바일 서비스의 오프라인 기능을 사용하면 오프라인에서 모바일 서비스를 사용하여 로컬 데이터베이스를 조작할 수 있습니다. 온라인으로 다시 전환되면 오프라인 기능을 사용하여 로컬 변경을 모바일 서비스와 동기화할 수 있습니다.
 
-이 자습서에서는 [모바일 서비스 시작](/en-us/documentation/articles/mobile-services-windows-store-get-started/) 또는 [데이터 시작](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/) 자습서에서 작성한 앱을 업데이트하여 Azure 모바일 서비스의 오프라인 기능을 지원합니다. 그다음 연결이 끊긴 오프라인 시나리오에서 데이터를 추가하고, 해당 항목을 온라인 데이터베이스와 동기화한 후 Azure 관리 포털에 로그인하여 앱을 실행할 때 수행된 데이터 변경 사항을 확인합니다.
+이 자습서에서는 [모바일 서비스 시작](/ko-kr/documentation/articles/mobile-services-windows-store-get-started/) 또는 [데이터 시작](/ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/) 자습서에서 작성한 앱을 업데이트하여 Azure 모바일 서비스의 오프라인 기능을 지원합니다. 그다음 연결이 끊긴 오프라인 시나리오에서 데이터를 추가하고, 해당 항목을 온라인 데이터베이스와 동기화한 후 Azure 관리 포털에 로그인하여 앱을 실행할 때 수행된 데이터 변경 사항을 확인합니다.
 
-> [WACOM.NOTE] 이 자습서는 Windows 스토어 앱에서 모바일 서비스를 통해 Azure를 사용하여 데이터를 저장하고 검색할 수 있는 방법을 더욱 잘 이해할 수 있도록 돕기 위한 것입니다. 이 항목에서는 모바일 서비스 퀵 스타트에서 완료한 다수의 단계를 순서대로 안내합니다. 모바일 서비스를 처음 사용하는 경우 먼저 [모바일 서비스 시작](/en-us/documentation/articles/mobile-services-windows-store-get-started/) 자습서를 완료하는 것이 좋습니다.
+> [WACOM.NOTE] 이 자습서는 Windows 스토어 앱에서 모바일 서비스를 통해 Azure를 사용하여 데이터를 저장하고 검색할 수 있는 방법을 더욱 잘 이해할 수 있도록 돕기 위한 것입니다. 이 항목에서는 모바일 서비스 퀵 스타트에서 완료한 다수의 단계를 순서대로 안내합니다. 모바일 서비스를 처음 사용하는 경우 먼저 [모바일 서비스 시작](/ko-kr/documentation/articles/mobile-services-windows-store-get-started/) 자습서를 완료하는 것이 좋습니다.
 
 이 자습서에서는 다음 기본 단계를 단계별로 안내합니다.
 
@@ -21,12 +21,12 @@
 이 자습서를 사용하려면 다음이 필요합니다.
 
 -   Windows 8.1에서 실행 중인 Visual Studio 2013
--   [모바일 서비스 시작](/en-us/documentation/articles/mobile-services-windows-store-get-started/) 또는 [데이터 시작](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/) 자습서 완료
+-   [모바일 서비스 시작](/ko-kr/documentation/articles/mobile-services-windows-store-get-started/) 또는 [데이터 시작](/ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/) 자습서 완료
 -   Azure 모바일 서비스 SDK NuGet 패키지 버전 1.3.0-alpha
 -   Azure 모바일 서비스 SQLite 스토어 NuGet 패키지 0.1.0-alpha
 -   SQLite for Windows 8.1
 
-> [WACOM.NOTE] 이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28)을 참조하십시오.
+> [WACOM.NOTE] 이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](http://www.windowsazure.com/ko-kr/pricing/free-trial/?WT.mc_id=AE564AB28)을 참조하십시오.
 
 오프라인 기능을 지원하도록 앱 업데이트
 --------------------------------------
@@ -41,7 +41,7 @@ Azure 모바일 서비스의 오프라인 기능을 사용하면 오프라인에
 
     > [WACOM.NOTE] Internet Explorer를 사용하는 경우 SQLite를 설치하기 위해 링크를 클릭하면 .vsix를 .zip 파일로 다운로드할지를 묻는 메시지가 표시될 수 있습니다. 파일을 하드 드라이브의 원하는 위치에 .zip 대신 .vsix 확장명으로 저장합니다. Windows 탐색기에서 .vsix 파일을 두 번 클릭하여 설치를 실행합니다.
 
-2.  Visual Studio에서 [모바일 서비스 시작](/en-us/documentation/articles/mobile-services-windows-store-get-started/) 또는 [데이터 시작](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/) 자습서에서 완료한 프로젝트를 엽니다. **Windows 확장** 참조를 **Windows 런타임용 SQLite(Windows 8.1)**에 추가합니다.
+2.  Visual Studio에서 [모바일 서비스 시작](/ko-kr/documentation/articles/mobile-services-windows-store-get-started/) 또는 [데이터 시작](/ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/) 자습서에서 완료한 프로젝트를 엽니다. **Windows 확장** 참조를 **Windows 런타임용 SQLite(Windows 8.1)**에 추가합니다.
 
     ![](./media/mobile-services-windows-store-dotnet-get-started-offline-data/mobile-services-add-reference-sqlite-dialog.png)
 
@@ -244,7 +244,7 @@ Azure 모바일 서비스의 오프라인 기능을 사용하면 오프라인에
 다음 단계
 ---------
 
--   [모바일 서비스에 대한 오프라인 지원을 통해 충돌 처리](/en-us/documentation/articles/mobile-services-windows-store-dotnet-handling-conflicts-offline-data/)
+-   [모바일 서비스에 대한 오프라인 지원을 통해 충돌 처리](/ko-kr/documentation/articles/mobile-services-windows-store-dotnet-handling-conflicts-offline-data/)
 
 
 <!-- Anchors. -->
@@ -269,10 +269,10 @@ Azure 모바일 서비스의 오프라인 기능을 사용하면 오프라인에
 
 
 <!-- URLs. -->
-[Handling conflicts with offline support for Mobile Services]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-handling-conflicts-offline-data/ 
+[Handling conflicts with offline support for Mobile Services]: /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-handling-conflicts-offline-data/ 
 [Getting Started Offline Sample]: http://go.microsoft.com/fwlink/?LinkId=394777
 [Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started/#create-new-service
-[Getting Started]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started/
-[Get started with data]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/
-[Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-windows-store-get-started/
+[Getting Started]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started/
+[Get started with data]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/
+[Get started with Mobile Services]: /ko-kr/documentation/articles/mobile-services-windows-store-get-started/
 [SQLite for Windows 8.1]: http://go.microsoft.com/fwlink/?LinkId=394776

@@ -3,7 +3,7 @@
 
 웹 사이트를 만드는 경우 Azure는 azurewebsites.net 도메인의 친숙한 하위 도메인을 제공하므로 사용자가 http://<mysite>.azurewebsites.net 등의 URL을 사용하여 웹 사이트에 액세스할 수 있습니다. 그러나 웹 사이트를 공유 또는 표준 모드로 구성하는 경우 웹 사이트를 고유한 도메인 이름에 매핑할 수 있습니다.
 
-선택적으로, Azure 트래픽 관리자를 사용하여 웹 사이트로 들어오는 트래픽의 부하를 분산할 수도 있습니다. 웹 사이트에서 트래픽 관리자를 사용하는 방법에 대한 자세한 내용은 [Azure 트래픽 관리자를 사용하여 Azure 웹 사이트 트래픽 제어](/en-us/documentation/articles/web-sites-traffic-manager/)를 참조하십시오.
+선택적으로, Azure 트래픽 관리자를 사용하여 웹 사이트로 들어오는 트래픽의 부하를 분산할 수도 있습니다. 웹 사이트에서 트래픽 관리자를 사용하는 방법에 대한 자세한 내용은 [Azure 트래픽 관리자를 사용하여 Azure 웹 사이트 트래픽 제어](/ko-kr/documentation/articles/web-sites-traffic-manager/)를 참조하십시오.
 
 > [WACOM.NOTE] 이 작업의 절차는 Azure 웹 사이트에 적용됩니다. 클라우드 서비스의 경우 [Azure에서 사용자 지정 도메인 이름 구성][1]을 참조하십시오.
 
@@ -34,7 +34,7 @@ A 레코드는 **contoso.com**, **www.contoso.com** 등의 도메인이나 **\*.
 
 > [WACOM.NOTE] A 레코드는 고정 IP 주소에 매핑되므로 변경 내용을 웹 사이트의 IP 주소로 자동으로 확인할 수 없습니다. A 레코드에 사용할 IP 주소는 웹 사이트에 대한 사용자 지정 도메인 이름 설정을 구성할 때 제공됩니다. 그러나 웹 사이트를 삭제하고 다시 만들거나 웹 사이트 모드를 다시 무료로 변경할 경우 이 값이 변경될 수도 있습니다.
 
-> [WACOM.NOTE] A 레코드는 트래픽 관리자를 사용한 부하 분산에 사용할 수 없습니다. 자세한 내용은 [Azure 트래픽 관리자를 사용하여 Azure 웹 사이트 트래픽 제어](/en-us/documentation/articles/web-sites-traffic-manager/)를 참조하십시오.
+> [WACOM.NOTE] A 레코드는 트래픽 관리자를 사용한 부하 분산에 사용할 수 없습니다. 자세한 내용은 [Azure 트래픽 관리자를 사용하여 Azure 웹 사이트 트래픽 제어](/ko-kr/documentation/articles/web-sites-traffic-manager/)를 참조하십시오.
 
 <a name="bkmk_configsharedmode"></a><h2>공유 또는 표준 모드에 대해 웹 사이트 구성</h2>
 
@@ -340,16 +340,16 @@ A 레코드를 만들려면 먼저 웹 사이트의 IP 주소를 찾아야 합�
 
 
 
-[1]: http://www.windowsazure.com/en-us/develop/net/common-tasks/custom-dns/
-[2]: http://www.windowsazure.com/en-us/pricing/details/web-sites/
+[1]: http://www.windowsazure.com/ko-kr/develop/net/common-tasks/custom-dns/
+[2]: http://www.windowsazure.com/ko-kr/pricing/details/web-sites/
 [3]: http://en.wikipedia.org/wiki/CNAME_record
 [4]: http://tools.ietf.org/html/rfc1035
 [5]: https://www.windowsazure.com/en-us/pricing/details/
 [6]: http://manage.windowsazure.com
-[7]: http://msdn.microsoft.com/en-us/library/windowsazure/dn339012.aspx
-[8]: http://msdn.microsoft.com/en-us/library/windowsazure/hh744839.aspx
-[9]: http://www.windowsazure.com/en-us/manage/install-and-configure-windows-powershell/
-[10]: http://www.windowsazure.com/en-us/manage/install-and-configure-cli/
+[7]: http://msdn.microsoft.com/ko-kr/library/windowsazure/dn339012.aspx
+[8]: http://msdn.microsoft.com/ko-kr/library/windowsazure/hh744839.aspx
+[9]: http://www.windowsazure.com/ko-kr/manage/install-and-configure-windows-powershell/
+[10]: http://www.windowsazure.com/ko-kr/manage/install-and-configure-cli/
 [11]: http://www.digwebinterface.com/
-[12]: http://www.windowsazure.com/en-us/manage/services/web-sites/how-to-manage-websites/
-[13]: http://www.windowsazure.com/en-us/develop/net/common-tasks/enable-ssl-web-site/
+[12]: http://www.windowsazure.com/ko-kr/manage/services/web-sites/how-to-manage-websites/
+[13]: http://www.windowsazure.com/ko-kr/develop/net/common-tasks/enable-ssl-web-site/

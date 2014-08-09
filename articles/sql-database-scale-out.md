@@ -26,12 +26,12 @@ Azure에서는 페더레이션을 통해 규모 확장이 가장 잘 수행됩�
 
 SQL 데이터베이스에서 페더레이션은 확장성과 성능을 향상시키는 데 사용됩니다. 한 데이터베이스 내의 하나 이상의 테이블이 행으로 분할되어 여러 데이터베이스(페더레이션 멤버)에 분배됩니다. 이러한 유형의 행 분할을 흔히 '분할'이라고 합니다. 이러한 분할이 유용한 기본 시나리오는 확장성과 성능을 향상시키거나 용량을 관리해야 하는 경우입니다.
 
-페더레이션은 Business Edition에서 지원됩니다. 자세한 내용은 [SQL 데이터베이스의 페더레이션](http://msdn.microsoft.com/en-us/library/windowsazure/hh597452.aspx) 및 [SQL 데이터베이스 페더레이션 자습서 - DBA](http://msdn.microsoft.com/en-us/library/windowsazure/hh778416.aspx)를 참조하십시오.
+페더레이션은 Business Edition에서 지원됩니다. 자세한 내용은 [SQL 데이터베이스의 페더레이션](http://msdn.microsoft.com/ko-kr/library/windowsazure/hh597452.aspx) 및 [SQL 데이터베이스 페더레이션 자습서 - DBA](http://msdn.microsoft.com/ko-kr/library/windowsazure/hh778416.aspx)를 참조하십시오.
 
 다른 형식의 저장소 고려
 -----------------------
 
 Azure는 테이블 저장소 및 Blob 저장소를 비롯한 여러 형식의 데이터 저장소를 지원합니다. 관계형 기능이 필요하지 않은 경우 테이블 또는 Blob 저장소가 더 경제적일 수 있습니다.
 
-[Federations in SQL Database]: http://msdn.microsoft.com/en-us/library/windowsazure/hh597452.aspx
-[SQL Database Federations Tutorial - DBA]: http://msdn.microsoft.com/en-us/library/windowsazure/hh778416.aspx
+[Federations in SQL Database]: http://msdn.microsoft.com/ko-kr/library/windowsazure/hh597452.aspx
+[SQL Database Federations Tutorial - DBA]: http://msdn.microsoft.com/ko-kr/library/windowsazure/hh778416.aspx

@@ -16,7 +16,7 @@
 
 -   Windows PowerShell, 버전 3.0 이상. Windows PowerShell 버전을 확인하려면 `$PSVersionTable`을 입력하고 `PSVersion` 값이 3.0 이상인지를 확인합니다. 최신 버전을 설치하려면 [Windows Management Framework 3.0](http://www.microsoft.com/en-us/download/details.aspx?id=34595) 또는 [Windows Management Framework 4.0](http://www.microsoft.com/en-us/download/details.aspx?id=40855)을 참조하십시오.
 
--   Azure PowerShell 버전 0.8.0 이상. 최신 버전을 설치하여 Azure 구독에 연결하려면 [Azure PowerShell 설치 및 구성 방법](http://www.windowsazure.com/en-us/documentation/articles/install-configure-powershell/)(영문)을 참조하십시오.
+-   Azure PowerShell 버전 0.8.0 이상. 최신 버전을 설치하여 Azure 구독에 연결하려면 [Azure PowerShell 설치 및 구성 방법](http://www.windowsazure.com/ko-kr/documentation/articles/install-configure-powershell/)(영문)을 참조하십시오.
 
 이 자습서는 Windows PowerShell 초보자용으로 설계되었지만, 모듈, cmdlet, 세션 등과 같은 기본 개념을 잘 알고 있다고 가정합니다. Windows PowerShell에 대한 자세한 내용은 [Windows PowerShell 시작](http://technet.microsoft.com/en-us/library/hh857337.aspx)(영문)을 참조하십시오.
 
@@ -42,7 +42,7 @@ Azure PowerShell 모듈 정보
 
 Azure PowerShell 버전 0.8.0 이상을 설치하면 다음과 같은 세 가지 Windows PowerShell 모듈이 포함되어 있습니다.
 
--   **Azure**: 저장소 계정, 웹 사이트, 데이터베이스, 가상 컴퓨터, 미디어 서비스와 같은 개별 리소스 관리를 위한 기존 cmdlet을 포함합니다. 자세한 내용은 [ACS 서비스 관리 Cmdlet](http://msdn.microsoft.com/en-us/library/jj152841.aspx)(영문)을 참조하십시오.
+-   **Azure**: 저장소 계정, 웹 사이트, 데이터베이스, 가상 컴퓨터, 미디어 서비스와 같은 개별 리소스 관리를 위한 기존 cmdlet을 포함합니다. 자세한 내용은 [ACS 서비스 관리 Cmdlet](http://msdn.microsoft.com/ko-kr/library/jj152841.aspx)(영문)을 참조하십시오.
 
 -   **AzureResourceManager**: 리소스 그룹에 대한 Azure 리소스를 작성, 관리 및 배포하는 cmdlet을 포함합니다. 자세한 내용은 [Azure 리소스 관리자 Cmdlet](http://go.microsoft.com/fwlink/?LinkID=394765)(영문)을 참조하십시오.
 
@@ -488,5 +488,5 @@ AzureResourceManager 모듈에는 오류를 방지하는 데 유용한 cmdlet이
 -   [Azure 블로그](http://blogs.msdn.com/windowsazure)(영문): Azure의 새로운 기능에 대해 알아보십시오.
 -   [Windows PowerShell 블로그](http://blogs.msdn.com/powershell): Windows PowerShell의 새로운 기능에 대해 알아보십시오.
 -   ["Hey, Scripting Guy!" 블로그](http://blogs.technet.com/b/heyscriptingguy/)(영문): 커뮤니티에서 실제 팁과 요령을 확인하십시오.
--   [리소스 관리자와 함께 Azure 플랫폼 간 명령줄 인터페이스 사용](http://www.windowsazure.com/en-us/documentation/articles/xplat-cli-azure-resource-manager/)(영문): 리소스 관리자 작업을 자동화하는 다른 방법에 대해 알아보십시오.
+-   [리소스 관리자와 함께 Azure 플랫폼 간 명령줄 인터페이스 사용](http://www.windowsazure.com/ko-kr/documentation/articles/xplat-cli-azure-resource-manager/)(영문): 리소스 관리자 작업을 자동화하는 다른 방법에 대해 알아보십시오.
 

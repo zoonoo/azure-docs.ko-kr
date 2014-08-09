@@ -21,7 +21,7 @@
 
 **참고**
 
-이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A756A2826&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-html%2F)을 참조하십시오.
+이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](http://www.windowsazure.com/ko-kr/pricing/free-trial/?WT.mc_id=A756A2826&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-html%2F)을 참조하십시오.
 
 ### 추가 요구 사항
 
@@ -139,7 +139,7 @@
 	![](./media/mobile-services-html-get-started-data/mobile-services-set-cors-localhost.png)
 
     <div class="dev-callout"><b>참고</b>
-        <p>localhost 이외의 웹 서버에 빠른 시작 앱을 배포하는 경우, 웹 서버 호스트 이름을 <strong>Allow requests from host names</strong> 목록에 추가해야 합니다. 자세한 내용은 <a href="http://msdn.microsoft.com/en-us/library/windowsazure/dn155871.aspx" target="_blank">크로스-원본 자원 공</a>를 참조하십시오.</p>
+        <p>localhost 이외의 웹 서버에 빠른 시작 앱을 배포하는 경우, 웹 서버 호스트 이름을 <strong>Allow requests from host names</strong> 목록에 추가해야 합니다. 자세한 내용은 <a href="http://msdn.microsoft.com/ko-kr/library/windowsazure/dn155871.aspx" target="_blank">크로스-원본 자원 공</a>를 참조하십시오.</p>
     </div>
 
 이제 새 모바일 서비스를 앱의 데이터 저장소로 사용할 준비가 되었습니다.
@@ -326,5 +326,5 @@
 
 [Mobile Services HTML/JavaScript How-to Conceptual Reference]: /en-us/develop/mobile/how-to-guides/work-with-html-js-client
 
-[Cross-origin resource sharing]: http://msdn.microsoft.com/en-us/library/windowsazure/dn155871.aspx
+[Cross-origin resource sharing]: http://msdn.microsoft.com/ko-kr/library/windowsazure/dn155871.aspx
 

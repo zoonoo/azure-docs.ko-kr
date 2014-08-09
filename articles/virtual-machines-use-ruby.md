@@ -23,7 +23,7 @@ Ruby를 사용하여 Azure 가상 컴퓨터를 관리하는 방법
 서비스 관리
 -----------
 
-Azure에서는 Azure 가상 컴퓨터 관리를 포함하여 [서비스 관리 작업용 REST API](http://msdn.microsoft.com/en-us/library/windowsazure/ee460799.aspx)를 사용할 수 있습니다. Azure SDK for Ruby는 **Azure::VirtualMachineSerivce** 클래스를 통해 가상 컴퓨터의 관리 작업을 노출합니다. [Azure 관리 포털](https://manage.windowsazure.com)을 통해 사용할 수 있는 가상 컴퓨터 관리 기능 중 다수는 이 클래스를 사용해 액세스할 수 있습니다.
+Azure에서는 Azure 가상 컴퓨터 관리를 포함하여 [서비스 관리 작업용 REST API](http://msdn.microsoft.com/ko-kr/library/windowsazure/ee460799.aspx)를 사용할 수 있습니다. Azure SDK for Ruby는 **Azure::VirtualMachineSerivce** 클래스를 통해 가상 컴퓨터의 관리 작업을 노출합니다. [Azure 관리 포털](https://manage.windowsazure.com)을 통해 사용할 수 있는 가상 컴퓨터 관리 기능 중 다수는 이 클래스를 사용해 액세스할 수 있습니다.
 
 서비스 관리 API를 사용하면 Azure에서 호스트되는 다양한 서비스를 관리할 수 있지만, 이 문서에서는 Azure 가상 컴퓨터 관리에 대해서만 자세히 설명합니다.
 
@@ -41,7 +41,7 @@ Azure 관리 인증서 만들기
 
 **Azure::VirtualMachineService** 클래스를 통해 노출된 작업과 같은 서비스 관리 작업을 수행할 때는 Azure 구독 ID 및 구독의 관리 인증서가 포함된 파일을 제공해야 합니다. 두 가지 모두 Azure REST API로 인증할 때 SDK에서 사용됩니다.
 
-Azure 플랫폼 간 명령줄 인터페이스(xplat-cli)를 사용하여 구독 ID 및 관리 인증서를 구해야 합니다. xplat-cli 설치 및 구성에 대한 자세한 내용은 [Azure 플랫폼 간 명령줄 인터페이스 설치 및 구성](http://www.windowsazure.com/en-us/manage/install-and-configure-cli/)을 참조하십시오.
+Azure 플랫폼 간 명령줄 인터페이스(xplat-cli)를 사용하여 구독 ID 및 관리 인증서를 구해야 합니다. xplat-cli 설치 및 구성에 대한 자세한 내용은 [Azure 플랫폼 간 명령줄 인터페이스 설치 및 구성](http://www.windowsazure.com/ko-kr/manage/install-and-configure-cli/)을 참조하십시오.
 
 xplat-cli를 구성하고 나면 다음 단계를 수행하여 Azure 구독 ID를 검색하고 관리 인증서를 내보낼 수 있습니다.
 
@@ -180,7 +180,7 @@ VM 생성의 기본 동작을 다시 정의(예: 새로 만드는 대신 기존 
 
 -   **:ssh\_port** - SSH 통신에 사용할 공용 포트. 생략되는 경우 SSH 포트는 기본적으로 22로 설정됩니다.
 
--   **:vm\_size** - VM의 크기. 이 값에 따라 VM의 메모리 크기, 코어 수, 대역폭, 기타 물리적 특징이 결정됩니다. 사용할 수 있는 크기 및 물리적 특징에 대한 자세한 내용은 [Azure를 위한 가상 컴퓨터 및 클라우드 서비스 크기](http://msdn.microsoft.com/en-us/library/windowsazure/dn197896.aspx)를 참조하십시오.
+-   **:vm\_size** - VM의 크기. 이 값에 따라 VM의 메모리 크기, 코어 수, 대역폭, 기타 물리적 특징이 결정됩니다. 사용할 수 있는 크기 및 물리적 특징에 대한 자세한 내용은 [Azure를 위한 가상 컴퓨터 및 클라우드 서비스 크기](http://msdn.microsoft.com/ko-kr/library/windowsazure/dn197896.aspx)를 참조하십시오.
 
 -   **:winrm\_transport** - WinRM에서 사용할 수 있는 전송 배열. 유효한 전송은 'http' 및 'https'입니다. 전송으로 'https'가 지정된 경우에는 **:ssh\_private\_key\_file** 및 **:ssh\_certificate\_file**을 사용하여 HTTPS 통신 보안을 유지하는 데 사용되는 인증서도 지정해야 합니다.
 
@@ -359,7 +359,7 @@ Azure 구독의 저장소 계정 목록을 가져오려면 **list\_storage\_acco
 
 이제 프로그래밍 방식으로 Azure 가상 컴퓨터 만들기의 기본 사항을 배웠으므로 다음 링크를 따라 더 많은 VM 작업을 수행하는 방법을 알아보십시오.
 
--   [가상 컴퓨터](http://www.windowsazure.com/en-us/documentation/services/virtual-machines/)(영문) 기능 페이지를 방문하십시오.
--   다음 MSDN 참조를 확인하십시오. [가상 컴퓨터](http://msdn.microsoft.com/en-us/library/windowsazure/jj156003.aspx)
--   [가상 컴퓨터에서 Ruby on Rails 응용 프로그램](http://www.windowsazure.com/en-us/develop/ruby/tutorials/web-app-with-linux-vm/)을 호스트하는 방법을 알아보십시오.
+-   [가상 컴퓨터](http://www.windowsazure.com/ko-kr/documentation/services/virtual-machines/)(영문) 기능 페이지를 방문하십시오.
+-   다음 MSDN 참조를 확인하십시오. [가상 컴퓨터](http://msdn.microsoft.com/ko-kr/library/windowsazure/jj156003.aspx)
+-   [가상 컴퓨터에서 Ruby on Rails 응용 프로그램](http://www.windowsazure.com/ko-kr/develop/ruby/tutorials/web-app-with-linux-vm/)을 호스트하는 방법을 알아보십시오.
 

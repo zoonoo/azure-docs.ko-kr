@@ -263,8 +263,8 @@ https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2012-02-12&s
 
 [공유 액세스 서명, 2부: Blob 서비스를 통해 SAS 만들기 및 사용](../storage-dotnet-shared-access-signature-part-2/)
 
-[Azure 저장소 리소스에 대한 액세스 관리](http://msdn.microsoft.com/en-us/library/windowsazure/ee393343.aspx)
+[Azure 저장소 리소스에 대한 액세스 관리](http://msdn.microsoft.com/ko-kr/library/windowsazure/ee393343.aspx)
 
-[공유 액세스 서명을 사용하여 액세스 위임(REST API)](http://msdn.microsoft.com/en-us/library/windowsazure/ee395415.aspx)
+[공유 액세스 서명을 사용하여 액세스 위임(REST API)](http://msdn.microsoft.com/ko-kr/library/windowsazure/ee395415.aspx)
 
 [테이블 및 큐 SAS 소개](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)

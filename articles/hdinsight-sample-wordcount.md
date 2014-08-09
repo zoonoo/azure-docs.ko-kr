@@ -14,11 +14,11 @@ Hadoop MapReduce 프로그램은 텍스트 파일을 읽고 각 단어가 나오
 
 **필수 조건**:
 
--   Azure 계정이 있어야 합니다. 계정 등록 옵션은 [Azure 평가판 사용](http://www.windowsazure.com/en-us/pricing/free-trial/) 페이지를 참조하십시오.
+-   Azure 계정이 있어야 합니다. 계정 등록 옵션은 [Azure 평가판 사용](http://www.windowsazure.com/ko-kr/pricing/free-trial/) 페이지를 참조하십시오.
 
 -   HDInsight 클러스터를 미리 프로비전해야 합니다. 이 클러스터를 만드는 여러 방법에 대한 자세한 내용은 [Azure HDInsight 시작](/en-us/manage/services/hdinsight/get-started-hdinsight/) 또는 [HDInsight 클러스터 프로비전](/en-us/manage/services/hdinsight/provision-hdinsight-clusters/)을 참조하십시오.
 
--   Azure PowerShell을 설치하고 계정과 함께 사용하도록 구성해야 합니다. 설치 및 구성 방법에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성](/en-us/documentation/articles/install-configure-powershell/)을 참조하십시오.
+-   Azure PowerShell을 설치하고 계정과 함께 사용하도록 구성해야 합니다. 설치 및 구성 방법에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성](/ko-kr/documentation/articles/install-configure-powershell/)을 참조하십시오.
 
 이 문서에서는 다음을 수행합니다.
 --------------------------------
@@ -35,7 +35,7 @@ Azure PowerShell을 사용하여 샘플 실행
 
 **MapReduce 작업을 제출하려면**
 
-1.  **Azure PowerShell**을 엽니다. Azure PowerShell 콘솔 창을 여는 방법에 대한 지침은 [Azure PowerShell 설치 및 구성](/en-us/documentation/articles/install-configure-powershell/)을 참조하십시오.
+1.  **Azure PowerShell**을 엽니다. Azure PowerShell 콘솔 창을 여는 방법에 대한 지침은 [Azure PowerShell 설치 및 구성](/ko-kr/documentation/articles/install-configure-powershell/)을 참조하십시오.
 
 2.  다음 명령에서 변수 2개를 설정한 후 실행합니다.
 

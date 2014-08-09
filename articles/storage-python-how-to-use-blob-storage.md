@@ -143,7 +143,7 @@ Blob을 다운로드하려면 **get\_blob** 메서드를 사용하여 Blob 콘�
 
 이제 Blob 저장소의 기본 사항을 배웠으므로 다음 링크를 따라 좀 더 복잡한 저장소 작업을 수행하는 방법을 알아보십시오.
 
--   MSDN 참조: [Azure에서 데이터 저장 및 액세스](http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx)
+-   MSDN 참조: [Azure에서 데이터 저장 및 액세스](http://msdn.microsoft.com/ko-kr/library/windowsazure/gg433040.aspx)
 -   [Azure 저장소 팀 블로그](http://blogs.msdn.com/b/windowsazurestorage/)(영문)를 방문하십시오.
 
   [Next Steps]: #next-steps
@@ -156,5 +156,5 @@ Blob을 다운로드하려면 **get\_blob** 메서드를 사용하여 Blob 콘�
   [How To: Download Blobs]: #download-blobs
   [How To: Delete a Blob]: #delete-blobs
   [How To: Upload and Download Large Blobs]: #large-blobs
-  [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
+  [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/ko-kr/library/windowsazure/gg433040.aspx
   [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/

@@ -60,8 +60,8 @@ static ILocator GetStreamingHLSOriginLocator( string targetAssetID)
 
 자산 제공에 대한 자세한 내용은 다음을 참조하십시오.
 
--   [Media Services for .NET을 사용하여 자산 제공(영문)](http://msdn.microsoft.com/en-us/library/jj129575.aspx)
--   [Media Services REST API를 사용하여 자산 제공(영문)](http://msdn.microsoft.com/en-us/library/jj129578.aspx)
+-   [Media Services for .NET을 사용하여 자산 제공(영문)](http://msdn.microsoft.com/ko-kr/library/jj129575.aspx)
+-   [Media Services REST API를 사용하여 자산 제공(영문)](http://msdn.microsoft.com/ko-kr/library/jj129578.aspx)
 
 다음 단계
 ---------
@@ -73,6 +73,6 @@ static ILocator GetStreamingHLSOriginLocator( string targetAssetID)
 -   [Media Services SDK for .NET을 사용하여 응용 프로그램 빌드](http://go.microsoft.com/fwlink/?linkid=247821)
 -   [Azure Media Services REST API를 사용하여 응용 프로그램 빌드](http://go.microsoft.com/fwlink/?linkid=252967)
 -   [미디어 서비스 포럼](http://social.msdn.microsoft.com/Forums/en-US/MediaServices/threads)
--   [미디어 서비스 계정을 모니터링하는 방법](http://www.windowsazure.com/en-us/manage/services/media-services/how-to-monitor-a-media-services-account/)
--   [미디어 서비스에서 콘텐츠를 관리하는 방법](http://www.windowsazure.com/en-us/manage/services/media-services/how-to-manage-content-in-media-services/)
+-   [미디어 서비스 계정을 모니터링하는 방법](http://www.windowsazure.com/ko-kr/manage/services/media-services/how-to-monitor-a-media-services-account/)
+-   [미디어 서비스에서 콘텐츠를 관리하는 방법](http://www.windowsazure.com/ko-kr/manage/services/media-services/how-to-manage-content-in-media-services/)
 

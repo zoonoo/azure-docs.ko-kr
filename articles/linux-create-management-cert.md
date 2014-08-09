@@ -5,7 +5,7 @@ Azure에서 Linux용 관리 인증서 만들기
 
 서비스 관리 API를 사용하여 Azure 이미지 플랫폼을 조작하려는 경우 관리 인증서가 필요합니다.
 
-이러한 인증서를 만들고 관리하는 방법에 대한 설명서는 <http://msdn.microsoft.com/en-us/library/windowsazure/gg551721.aspx>에 이미 나와 있습니다. 또한 OpenSSL을 사용하여 관리 인증서를 만들 수도 있습니다. 자세한 내용은 [OpenSSL](http://openssl.org/)(영문)을 참조하십시오. 그러나 이 설명서는 주로 모든 Linux 사용자가 액세스할 수 없는 Silverlight 포털의 사용을 집중적으로 다루고 있습니다. 이러한 인증서에 액세스하고, 인증서를 다른 도구 및 파트너와 통합하고, 이 기능이 Azure 관리 포털에 추가될 때까지 직접 인증서를 사용하는 방법을 설명합니다.
+이러한 인증서를 만들고 관리하는 방법에 대한 설명서는 <http://msdn.microsoft.com/ko-kr/library/windowsazure/gg551721.aspx>에 이미 나와 있습니다. 또한 OpenSSL을 사용하여 관리 인증서를 만들 수도 있습니다. 자세한 내용은 [OpenSSL](http://openssl.org/)(영문)을 참조하십시오. 그러나 이 설명서는 주로 모든 Linux 사용자가 액세스할 수 없는 Silverlight 포털의 사용을 집중적으로 다루고 있습니다. 이러한 인증서에 액세스하고, 인증서를 다른 도구 및 파트너와 통합하고, 이 기능이 Azure 관리 포털에 추가될 때까지 직접 인증서를 사용하는 방법을 설명합니다.
 
 목차
 ----
@@ -75,7 +75,7 @@ Windows에서 PowerShell 또는 [http://www.fourmilab.ch/webtools/base64/base64.
 Azure 관리 포털을 사용하여 관리 인증서 설치
 -------------------------------------------
 
-관리 인증서는 다양한 방법으로 만들 수 있습니다. 인증서 만들기에 대한 자세한 내용은 [Azure용 관리 인증서 만들기](http://msdn.microsoft.com/en-us/library/windowsazure/gg551722.aspx)를 참조하십시오. 인증서는 만든 후 Azure의 구독에 추가하십시오.
+관리 인증서는 다양한 방법으로 만들 수 있습니다. 인증서 만들기에 대한 자세한 내용은 [Azure용 관리 인증서 만들기](http://msdn.microsoft.com/ko-kr/library/windowsazure/gg551722.aspx)를 참조하십시오. 인증서는 만든 후 Azure의 구독에 추가하십시오.
 
 1.  Azure 관리 포털에 로그인합니다.
 

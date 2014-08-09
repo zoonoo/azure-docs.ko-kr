@@ -97,7 +97,7 @@ Azure에서 서비스 버스 큐 사용을 시작하려면 먼저 서비스 네�
 계산 집약적인 작업을 수행하는 Java 응용 프로그램을 만드는 방법
 --------------------------------------------------------------
 
-1.  개발 컴퓨터(직접 생성한 가상 컴퓨터일 필요는 없음)에서 [Java용 Azure SDK](http://www.windowsazure.com/en-us/develop/java/)를 다운로드합니다.
+1.  개발 컴퓨터(직접 생성한 가상 컴퓨터일 필요는 없음)에서 [Java용 Azure SDK](http://www.windowsazure.com/ko-kr/develop/java/)를 다운로드합니다.
 2.  이 섹션의 끝부분에 있는 예제 코드를 사용하여 Java 콘솔 응용 프로그램을 만듭니다. 이 자습서의 목적에 맞춰 Java 파일 이름으로 **TSPSolver.java**를 사용합니다. **your\_service\_bus\_namespace**, **your\_service\_bus\_owner** 및 **your\_service\_bus\_key** 자리 표시자를 각각 서비스 버스의 **네임스페이스**, **기본 발급자** 및 **기본 키** 값을 사용하도록 수정합니다.
 3.  코딩 후에 응용 프로그램을 실행 가능한 Java 아카이브(JAR)로 내보내고 필요한 라이브러리를 생성된 JAR 안에 패키징합니다. 이 자습서의 목적에 맞춰 생성된 JAR의 이름으로 **TSPSolver.jar**를 사용합니다.
 

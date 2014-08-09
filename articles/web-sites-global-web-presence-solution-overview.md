@@ -1,9 +1,9 @@
-<properties linkid="websites-global-web-presence" urlDisplayName="Create a Global Web Presence on Azure Web Sites" pageTitle="Create a Global Web Presence on Azure Web Sites" metaKeywords="" description="This guide provides a technical overview of how to host your organization's (.COM) site on Azure Web Sites. This includes deployment, custom domains, SSL, and monitoring." metaCanonical="http://www.windowsazure.com/en-us/documentation/articles/web-sites-global-web-presence-solution-overview/" services="" documentationCenter="" title="Create a Global Web Presence on Azure Web Sites" authors="jroth" solutions="" manager="paulettm" editor="mollybos" />
+<properties linkid="websites-global-web-presence" urlDisplayName="Create a Global Web Presence on Azure Web Sites" pageTitle="Create a Global Web Presence on Azure Web Sites" metaKeywords="" description="This guide provides a technical overview of how to host your organization's (.COM) site on Azure Web Sites. This includes deployment, custom domains, SSL, and monitoring." metaCanonical="http://www.windowsazure.com/ko-kr/documentation/articles/web-sites-global-web-presence-solution-overview/" services="" documentationCenter="" title="Create a Global Web Presence on Azure Web Sites" authors="jroth" solutions="" manager="paulettm" editor="mollybos" />
 
 Azure 웹 사이트에 글로벌 웹 서비스 만들기
 =========================================
 
-이 가이드는 Azure에 조직의 사이트(.COM)를 호스트하는 방법에 대한 기술적 개요를 제공합니다. 이 시나리오를 글로벌 웹 서비스라고도 합니다. 웹 사이트는 Azure에서 웹 응용 프로그램을 생성, 마이그레이션, 확장 및 관리하는 가장 빠르고 간단한 방법이기 때문에 이 가이드는 [Azure 웹 사이트](/en-us/documentation/services/web-sites/)(영문) 사용을 중점적으로 다룹니다. 그러나 일부 응용 프로그램 요구 사항은 IIS를 실행하는 [Azure 클라우드 서비스](/en-us/documentation/services/cloud-services/)(영문) 또는 [Azure 가상 컴퓨터](/en-us/documentation/services/virtual-machines/)(영문)에 더 적합합니다. 이 또한 웹 응용 프로그램 호스팅에 대해 탁월한 선택입니다. 처음 계획 단계인 경우 [Azure 웹 사이트, 클라우드 서비스 및 VM: 각 항목을 사용해야 하는 경우](/en-us/manage/services/web-sites/choose-web-app-service)(영문)를 참조하십시오. 클라우드 서비스 또는 가상 컴퓨터를 사용하기 위한 요구 사항이 없는 경우, 글로벌 웹 서비스 호스팅에 웹 사이트를 사용하는 것을 권장합니다. 이 문서의 나머지는 이 시나리오로 웹 사이트를 사용하는 방법을 안내합니다.
+이 가이드는 Azure에 조직의 사이트(.COM)를 호스트하는 방법에 대한 기술적 개요를 제공합니다. 이 시나리오를 글로벌 웹 서비스라고도 합니다. 웹 사이트는 Azure에서 웹 응용 프로그램을 생성, 마이그레이션, 확장 및 관리하는 가장 빠르고 간단한 방법이기 때문에 이 가이드는 [Azure 웹 사이트](/ko-kr/documentation/services/web-sites/)(영문) 사용을 중점적으로 다룹니다. 그러나 일부 응용 프로그램 요구 사항은 IIS를 실행하는 [Azure 클라우드 서비스](/ko-kr/documentation/services/cloud-services/)(영문) 또는 [Azure 가상 컴퓨터](/ko-kr/documentation/services/virtual-machines/)(영문)에 더 적합합니다. 이 또한 웹 응용 프로그램 호스팅에 대해 탁월한 선택입니다. 처음 계획 단계인 경우 [Azure 웹 사이트, 클라우드 서비스 및 VM: 각 항목을 사용해야 하는 경우](/en-us/manage/services/web-sites/choose-web-app-service)(영문)를 참조하십시오. 클라우드 서비스 또는 가상 컴퓨터를 사용하기 위한 요구 사항이 없는 경우, 글로벌 웹 서비스 호스팅에 웹 사이트를 사용하는 것을 권장합니다. 이 문서의 나머지는 이 시나리오로 웹 사이트를 사용하는 방법을 안내합니다.
 
 이 가이드에서는 다음 영역에 대해 설명합니다.
 
@@ -15,7 +15,7 @@ Azure 웹 사이트에 글로벌 웹 서비스 만들기
 
 **참고**
 
-이 가이드에서는 공용 .COM 사이트 개발에 맞는 가장 일반적인 몇 가지 영역과 작업에 대해 설명합니다. 그러나 각자의 특정 구현에 사용할 수 있는 Azure 웹 사이트의 다른 기능도 있습니다. 이러한 기능을 검토하려면 [디지털 마케팅 캠페인](http://www.windowsazure.com/en-us/manage/services/web-sites/digital-marketing-campaign-solution-overview)(영문) 및 [비즈니스 응용 프로그램](http://www.windowsazure.com/en-us/manage/services/web-sites/business-application-solution-overview)(영문)의 다른 가이드도 참조하십시오.
+이 가이드에서는 공용 .COM 사이트 개발에 맞는 가장 일반적인 몇 가지 영역과 작업에 대해 설명합니다. 그러나 각자의 특정 구현에 사용할 수 있는 Azure 웹 사이트의 다른 기능도 있습니다. 이러한 기능을 검토하려면 [디지털 마케팅 캠페인](http://www.windowsazure.com/ko-kr/manage/services/web-sites/digital-marketing-campaign-solution-overview)(영문) 및 [비즈니스 응용 프로그램](http://www.windowsazure.com/ko-kr/manage/services/web-sites/business-application-solution-overview)(영문)의 다른 가이드도 참조하십시오.
 
 Azure 웹 사이트 만들기
 ----------------------
@@ -192,26 +192,26 @@ Azure 웹 사이트는 실제 사이트 URL에 대해 자동으로 보안 연결
 </tr>
 <tr>
    <td valign="middle"><strong>계획</strong></td>
-   <td valign="top">- <a href="http://www.windowsazure.com/en-us/manage/services/web-sites/choose-web-app-service">Azure 웹 사이트, 클라우드 서비스 및 VM: 각 항목을 사용해야 하는 경우</a>(영문)</td>
+   <td valign="top">- <a href="http://www.windowsazure.com/ko-kr/manage/services/web-sites/choose-web-app-service">Azure 웹 사이트, 클라우드 서비스 및 VM: 각 항목을 사용해야 하는 경우</a>(영문)</td>
 </tr>
 <tr>
    <td valign="middle"><strong>생성</strong></td>
-   <td valign="top">- <a href="http://www.windowsazure.com/en-us/manage/services/web-sites/how-to-create-websites/">웹 사이트를 생성하고 배포하는 방법</a></td>
+   <td valign="top">- <a href="http://www.windowsazure.com/ko-kr/manage/services/web-sites/how-to-create-websites/">웹 사이트를 생성하고 배포하는 방법</a></td>
 </tr>
 <tr>
    <td valign="middle"><strong>배포</strong></td>
-   <td valign="top">- <a href="http://www.windowsazure.com/en-us/develop/net/common-tasks/publishing-with-git/">소스 제어에서 Azure 웹 사이트로 게시</a>(영문)<br/>- <a href="http://www.windowsazure.com/en-us/develop/net/tutorials/get-started/">Azure 웹 사이트에 ASP.NET 웹 응용 프로그램 배포</a>(영문)<br/>- <a href="http://www.windowsazure.com/en-us/develop/net/tutorials/website-with-webmatrix/">Microsoft WebMatrix를 사용하여 웹 사이트 개발 및 배포(영문)</a></td>
+   <td valign="top">- <a href="http://www.windowsazure.com/ko-kr/develop/net/common-tasks/publishing-with-git/">소스 제어에서 Azure 웹 사이트로 게시</a>(영문)<br/>- <a href="http://www.windowsazure.com/ko-kr/develop/net/tutorials/get-started/">Azure 웹 사이트에 ASP.NET 웹 응용 프로그램 배포</a>(영문)<br/>- <a href="http://www.windowsazure.com/ko-kr/develop/net/tutorials/website-with-webmatrix/">Microsoft WebMatrix를 사용하여 웹 사이트 개발 및 배포(영문)</a></td>
 </tr>
 <tr>
    <td valign="middle"><strong>사용자 지정 도메인</strong></td>
-   <td valign="top">- <a href="http://www.windowsazure.com/en-us/develop/net/common-tasks/custom-dns-web-site/">Azure 웹 사이트에 대한 사용자 지정 도메인 이름 구성(영문)</a></td>
+   <td valign="top">- <a href="http://www.windowsazure.com/ko-kr/develop/net/common-tasks/custom-dns-web-site/">Azure 웹 사이트에 대한 사용자 지정 도메인 이름 구성(영문)</a></td>
 </tr>
 <tr>
    <td valign="middle"><strong>SSL</strong></td>
-   <td valign="top">- <a href="http://www.windowsazure.com/en-us/develop/net/common-tasks/enable-ssl-web-site/">Azure 웹 사이트에 대해 SSL 인증서 구성(영문)</a></td>
+   <td valign="top">- <a href="http://www.windowsazure.com/ko-kr/develop/net/common-tasks/enable-ssl-web-site/">Azure 웹 사이트에 대해 SSL 인증서 구성(영문)</a></td>
 </tr>
 <tr>
    <td valign="middle"><strong>모니터</strong></td>
-   <td valign="top">- <a href="http://www.windowsazure.com/en-us/manage/services/web-sites/how-to-monitor-websites/">웹 사이트를 모니터링하는 방법(영문)</a></td>
+   <td valign="top">- <a href="http://www.windowsazure.com/ko-kr/manage/services/web-sites/how-to-monitor-websites/">웹 사이트를 모니터링하는 방법(영문)</a></td>
 </tr>
 </table>

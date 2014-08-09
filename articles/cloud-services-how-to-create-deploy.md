@@ -37,24 +37,24 @@ Azure에서 응용 프로그램을 클라우드 서비스로 배포하려면 다
 
 클라우드 서비스를 배포하려면 먼저 응용 프로그램 코드 및 클라우드 서비스 구성 파일(.cscfg)에서 클라우드 서비스 패키지(.cspkg)를 만들어야 합니다. 각 클라우드 서비스 패키지에는 응용 프로그램 파일과 구성이 포함됩니다. 서비스 구성 파일은 구성 설정을 제공합니다.
 
-Azure SDK는 필요한 배포 파일을 준비하는 도구를 제공합니다. [Azure 다운로드](http://www.windowsazure.com/en-us/develop/downloads/) 페이지에서 응용 프로그램 코드를 개발하려는 언어로 SDK를 설치할 수 있습니다.
+Azure SDK는 필요한 배포 파일을 준비하는 도구를 제공합니다. [Azure 다운로드](http://www.windowsazure.com/ko-kr/develop/downloads/) 페이지에서 응용 프로그램 코드를 개발하려는 언어로 SDK를 설치할 수 있습니다.
 
 클라우드 서비스를 처음 사용하는 경우 [Azure 코드 샘플](http://code.msdn.microsoft.com/windowsazure/)(영문)에서 샘플 클라우드 서비스 패키지(.cspkg) 및 서비스 구성 파일(.cscfg)을 다운로드하여 작업할 수 있습니다.
 
 세 가지 클라우드 서비스 기능은 서비스 패키지를 내보내기 전에 특별히 구성해야 합니다.
 
--   데이터 암호화에 SSL(Secure Sockets Layer)을 사용하는 클라우드 서비스를 배포하려는 경우 SSL에 맞게 응용 프로그램을 구성합니다. 자세한 내용은 [HTTPS 끝점에서 SSL 인증서를 구성하는 방법](http://msdn.microsoft.com/en-us/library/windowsazure/ff795779.aspx)을 참조하십시오.
+-   데이터 암호화에 SSL(Secure Sockets Layer)을 사용하는 클라우드 서비스를 배포하려는 경우 SSL에 맞게 응용 프로그램을 구성합니다. 자세한 내용은 [HTTPS 끝점에서 SSL 인증서를 구성하는 방법](http://msdn.microsoft.com/ko-kr/library/windowsazure/ff795779.aspx)을 참조하십시오.
 
--   역할 인스턴스에 대한 원격 데스크톱 연결을 구성하려면 원격 데스크톱에 대한 역할을 구성합니다. 원격 액세스를 위한 서비스 정의 파일 준비에 대한 자세한 내용은 [역할에 대한 원격 데스크톱 연결 설정 개요](http://msdn.microsoft.com/en-us/library/windowsazure/gg433010.aspx)(영문)를 참조하십시오.
+-   역할 인스턴스에 대한 원격 데스크톱 연결을 구성하려면 원격 데스크톱에 대한 역할을 구성합니다. 원격 액세스를 위한 서비스 정의 파일 준비에 대한 자세한 내용은 [역할에 대한 원격 데스크톱 연결 설정 개요](http://msdn.microsoft.com/ko-kr/library/windowsazure/gg433010.aspx)(영문)를 참조하십시오.
 
--   클라우드 서비스에 대해 자세한 모니터링을 구성하려면 클라우드 서비스에 Azure 진단을 사용하도록 설정합니다. *최소 모니터링*(기본 모니터링 수준)에서는 역할 인스턴스(가상 컴퓨터)에 대해 호스트 운영 체제에서 수집된 성능 카운터를 사용합니다. "자세한 모니터링\*에서는 역할 인스턴스 내 성능 데이터를 기반으로 추가 메트릭을 수집하여 응용 프로그램 처리 중 발생하는 문제를 보다 자세히 분석할 수 있습니다. Azure 진단을 사용하도록 설정하는 방법에 대해 알아보려면 [Azure에서 진단 사용](http://www.windowsazure.com/en-us/develop/net/common-tasks/diagnostics/)(영문)을 참조하십시오.
+-   클라우드 서비스에 대해 자세한 모니터링을 구성하려면 클라우드 서비스에 Azure 진단을 사용하도록 설정합니다. *최소 모니터링*(기본 모니터링 수준)에서는 역할 인스턴스(가상 컴퓨터)에 대해 호스트 운영 체제에서 수집된 성능 카운터를 사용합니다. "자세한 모니터링\*에서는 역할 인스턴스 내 성능 데이터를 기반으로 추가 메트릭을 수집하여 응용 프로그램 처리 중 발생하는 문제를 보다 자세히 분석할 수 있습니다. Azure 진단을 사용하도록 설정하는 방법에 대해 알아보려면 [Azure에서 진단 사용](http://www.windowsazure.com/ko-kr/develop/net/common-tasks/diagnostics/)(영문)을 참조하십시오.
 
 시작하기 전에
 -------------
 
--   Azure SDK를 설치하지 않은 경우 **Azure SDK 설치**를 클릭하여 [Azure 다운로드 페이지](http://www.windowsazure.com/en-us/develop/downloads/)를 열고 코드를 개발하려는 언어의 SDK를 다운로드합니다. 이 작업은 나중에 수행할 수 있습니다.
+-   Azure SDK를 설치하지 않은 경우 **Azure SDK 설치**를 클릭하여 [Azure 다운로드 페이지](http://www.windowsazure.com/ko-kr/develop/downloads/)를 열고 코드를 개발하려는 언어의 SDK를 다운로드합니다. 이 작업은 나중에 수행할 수 있습니다.
 
--   역할 인스턴스에 인증서가 필요한 경우 인증서를 만듭니다. 클라우드 서비스에는 개인 키가 포함된 .pfx 파일이 필요합니다. 클라우드 서비스를 만들고 배포할 때 Azure에 인증서를 업로드할 수 있습니다. 인증서 만들기에 대한 자세한 내용은 [HTTPS 끝점에서 SSL 인증서를 구성하는 방법](http://msdn.microsoft.com/en-us/library/windowsazure/ff795779.aspx)을 참조하십시오.
+-   역할 인스턴스에 인증서가 필요한 경우 인증서를 만듭니다. 클라우드 서비스에는 개인 키가 포함된 .pfx 파일이 필요합니다. 클라우드 서비스를 만들고 배포할 때 Azure에 인증서를 업로드할 수 있습니다. 인증서 만들기에 대한 자세한 내용은 [HTTPS 끝점에서 SSL 인증서를 구성하는 방법](http://msdn.microsoft.com/ko-kr/library/windowsazure/ff795779.aspx)을 참조하십시오.
 
 -   클라우드 서비스를 선호도 그룹에 배포하려면 선호도 그룹을 만듭니다. 선호도 그룹을 사용하면 클라우드 서비스 및 다른 Azure 서비스를 지역의 동일한 위치에 배포할 수 있습니다. 선호도 그룹은 관리 포털의 **네트워크** 영역에 있는 **선호도 그룹** 페이지에서 만들 수 있습니다. 자세한 내용은 **선호도 그룹** 페이지에 대한 도움말을 참조하십시오.
 
@@ -70,7 +70,7 @@ Azure SDK는 필요한 배포 파일을 준비하는 도구를 제공합니다. 
 3.  **지역/선호도 그룹**에서 클라우드 서비스를 배포할 지역 또는 선호도 그룹을 선택합니다. 클라우드 서비스를 지역 내의 다른 Azure 서비스와 동일한 위치에 배포하려면 선호도 그룹을 선택합니다.
 
     > [WACOM.NOTE]
-    > 선호도 그룹을 만들려면 관리 포털의 **네트워크** 영역을 열고 **선호도 그룹**을 클릭한 다음 **새 선호도 그룹 만들기** 또는 **만들기**를 클릭합니다. 이전 Azure 관리 포털에서 만든 선호도 그룹을 사용할 수 있습니다. 또한 Azure 서비스 관리 API를 사용하여 선호도 그룹을 만들고 관리할 수 있습니다. 자세한 내용은 [선호도 그룹에 대한 작업](http://msdn.microsoft.com/en-us/library/windowsazure/ee460798.aspx)을 참조하십시오.
+    > 선호도 그룹을 만들려면 관리 포털의 **네트워크** 영역을 열고 **선호도 그룹**을 클릭한 다음 **새 선호도 그룹 만들기** 또는 **만들기**를 클릭합니다. 이전 Azure 관리 포털에서 만든 선호도 그룹을 사용할 수 있습니다. 또한 Azure 서비스 관리 API를 사용하여 선호도 그룹을 만들고 관리할 수 있습니다. 자세한 내용은 [선호도 그룹에 대한 작업](http://msdn.microsoft.com/ko-kr/library/windowsazure/ee460798.aspx)을 참조하십시오.
 
 4.  **클라우드 서비스 만들기**를 클릭합니다.
 
@@ -118,12 +118,12 @@ Azure SDK는 필요한 배포 파일을 준비하는 도구를 제공합니다. 
 
     ![CloudServices\_QuickStartPage](./media/cloud-services-how-to-create-deploy/CloudServices_QuickStartPage.png)
 
-3.  Azure SDK를 설치하지 않은 경우 **Azure SDK 설치**를 클릭하여 [Azure 다운로드 페이지](http://www.windowsazure.com/en-us/develop/downloads/)를 열고 코드를 개발하려는 언어의 SDK를 다운로드합니다.
+3.  Azure SDK를 설치하지 않은 경우 **Azure SDK 설치**를 클릭하여 [Azure 다운로드 페이지](http://www.windowsazure.com/ko-kr/develop/downloads/)를 열고 코드를 개발하려는 언어의 SDK를 다운로드합니다.
 
     다운로드 페이지에서 웹 앱을 개발하는 클라이언트 라이브러리 및 소스 코드를 Node.js, Java, PHP 및 다른 언어로 설치하여 확장 가능한 Azure 클라우드 서비스로 배포할 수도 있습니다.
 
     > [WACOM.NOTE]
-    > 이전에 만든 클라우드 서비스(이전에는 *호스티드 서비스*라고 함)의 경우 가상 컴퓨터(역할 인스턴스)의 게스트 운영 체제가 설치하는 Azure SDK와 호환되는지 확인해야 합니다. 자세한 내용은 [Azure SDK 릴리스 정보](http://msdn.microsoft.com/en-us/library/windowsazure/hh552718.aspx)를 참조하십시오.
+    > 이전에 만든 클라우드 서비스(이전에는 *호스티드 서비스*라고 함)의 경우 가상 컴퓨터(역할 인스턴스)의 게스트 운영 체제가 설치하는 Azure SDK와 호환되는지 확인해야 합니다. 자세한 내용은 [Azure SDK 릴리스 정보](http://msdn.microsoft.com/ko-kr/library/windowsazure/hh552718.aspx)를 참조하십시오.
 
 4.  **새 프로덕션 배포** 또는 **새 스테이징 배포**를 클릭합니다.
 
@@ -141,7 +141,7 @@ Azure SDK는 필요한 배포 파일을 준비하는 도구를 제공합니다. 
 
 8.  클라우드 서비스에 인스턴스가 하나만 있는 역할이 포함되어 있으면 **Deploy even if one or more roles contain a single instance** 확인란을 선택하여 배포가 계속 진행되도록 합니다.
 
-Azure는 모든 역할에 둘 이상의 인스턴스가 있는 경우에만 유지 관리 및 서비스 업데이트 중 클라우드 서비스에 대한 99.95%의 액세스를 보장할 수 있습니다. 필요한 경우 클라우드 서비스를 배포한 후 **크기 조정** 페이지에서 추가 역할 인스턴스를 추가할 수 있습니다. 자세한 내용은 [서비스 수준 계약](http://www.windowsazure.com/en-us/support/legal/sla/)을 참조하십시오.
+Azure는 모든 역할에 둘 이상의 인스턴스가 있는 경우에만 유지 관리 및 서비스 업데이트 중 클라우드 서비스에 대한 99.95%의 액세스를 보장할 수 있습니다. 필요한 경우 클라우드 서비스를 배포한 후 **크기 조정** 페이지에서 추가 역할 인스턴스를 추가할 수 있습니다. 자세한 내용은 [서비스 수준 계약](http://www.windowsazure.com/ko-kr/support/legal/sla/)을 참조하십시오.
 
 1.  확인(확인 표시)을 클릭하여 클라우드 서비스 배포를 시작합니다.
 

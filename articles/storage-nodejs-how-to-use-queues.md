@@ -56,7 +56,7 @@ Azure 큐 서비스는 HTTP 또는 HTTPS를 사용하여 인증된 호출을 통
 Azure 저장소 계정 만들기
 ------------------------
 
-저장소 작업을 사용하려면 Azure 저장소 계정이 필요합니다. 다음 단계에 따라 저장소 계정을 만들 수 있습니다. [REST API를 사용](http://msdn.microsoft.com/en-us/library/windowsazure/hh264518.aspx)하여 저장소 계정을 만들 수도 있습니다.
+저장소 작업을 사용하려면 Azure 저장소 계정이 필요합니다. 다음 단계에 따라 저장소 계정을 만들 수 있습니다. [REST API를 사용](http://msdn.microsoft.com/ko-kr/library/windowsazure/hh264518.aspx)하여 저장소 계정을 만들 수도 있습니다.
 
 1.  [Azure 관리 포털](http://manage.windowsazure.com)에 로그인합니다.
 
@@ -273,7 +273,7 @@ Azure SDK for Node.js에는 재시도 논리를 구현하는 두 필터 **Expone
 
 이제 큐 저장소의 기본 사항을 배웠으므로 다음 링크를 따라 좀 더 복잡한 저장소 작업을 수행하는 방법을 알아보십시오.
 
--   MSDN 참조: [Azure에 데이터 저장 및 액세스](http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx)
+-   MSDN 참조: [Azure에 데이터 저장 및 액세스](http://msdn.microsoft.com/ko-kr/library/windowsazure/gg433040.aspx)
 -   [Azure 저장소 팀 블로그](http://blogs.msdn.com/b/windowsazurestorage/)(영문)를 방문하십시오.
 -   GitHub에서 [Azure SDK for Node](https://github.com/WindowsAzure/azure-sdk-for-node) 리포지토리를 방문하십시오.
 

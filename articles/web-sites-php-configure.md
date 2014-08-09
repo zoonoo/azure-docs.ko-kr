@@ -99,6 +99,6 @@ Azure 웹 사이트는 기본 PHP 런타임 대신, 사용자가 PHP 스크립�
 
 Azure 웹 사이트에서 PHP를 구성하는 방법을 배웠으므로 다음 링크를 따라 다른 작업을 더 수행하는 방법을 알아보십시오.
 
--   [Azure에서 웹 사이트 구성, 모니터링 및 크기 조정(영문)](http://www.windowsazure.com/en-us/manage/services/web-sites/)
--   [PHP용 Azure SDK 다운로드(영문)](http://www.windowsazure.com/en-us/develop/php/common-tasks/download-php-sdk/)
+-   [Azure에서 웹 사이트 구성, 모니터링 및 크기 조정(영문)](http://www.windowsazure.com/ko-kr/manage/services/web-sites/)
+-   [PHP용 Azure SDK 다운로드(영문)](http://www.windowsazure.com/ko-kr/develop/php/common-tasks/download-php-sdk/)
 

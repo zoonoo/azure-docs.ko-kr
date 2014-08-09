@@ -40,9 +40,9 @@ Azure 관리 포털에서 웹 사이트의 구성 옵션을 변경하고 웹 사
             **참고**: '소스 제어에서 배포'를 사용하도록 설정한 경우 배포 사이트가 Visual Studio Online 편집기에서 변경한 사항을 덮어쓸 수 있습니다. 따라서 Visual Studio Online에서 사이트 콘텐츠를 직접 편집하려는 경우 '소스 제어에서 배포'를 사용하지 않는 것이 가장 좋습니다.
 
     -   **인증서** - 표준 모드에서만 **업로드**를 클릭하여 사용자 지정 도메인용 SSL 인증서를 업로드할 수 있습니다. 업로드한 인증서가 여기에 나열됩니다. 와일드카드("별") 인증서(별표가 있는 인증서)가 지원됩니다. 인증서를 업로드한 후 구독 및 지역에 있는 모든 웹 사이트에 할당할 수 있습니다. 별 인증서는 오직 한 번만 업로드해야 하지만 유효한 도메인 내의 모든 사이트에 사용될 수 있습니다. 사이트에 지정된 인증서에 대해 활성화된 바인딩이 없는 경우에만 인증서를 삭제할 수 있습니다.
-        **참고:** 사용자 지정 도메인은 공유 및 표준 모드에서만 사용할 수 있으며, 사용자 지정 도메인에 대한 SSL 지원은 표준 모드에서만 사용할 수 있습니다. Azure에서 사용자 지정 도메인에 대해 SSL을 구성하는 방법에 대한 자세한 내용은 [Azure 웹 사이트에 HTTPS 사용](http://www.windowsazure.com/en-us/documentation/articles/web-sites-configure-ssl-certificate/)을 참조하십시오.
-    -   **도메인 이름** - 여기서 웹 사이트의 추가 도메인 이름을 보거나 추가합니다. **도메인 관리**를 클릭하여 사용자 지정 도메인을 추가할 수 있습니다. 사용자 지정 도메인은 **공유** 및 **표준** 모드에서만 사용할 수 있습니다. **크기 조정** 관리 페이지에서 웹 사이트 모드를 변경할 수 있습니다. 사용자 지정 도메인은 무료 모드에서 사용할 수 없습니다. 사용자 지정 도메인 구성에 대한 자세한 내용은 [Azure 웹 사이트에 대한 사용자 지정 도메인 이름 구성](http://www.windowsazure.com/en-us/documentation/articles/web-sites-custom-domain-name/)을 참조하십시오.
-    -   **SSL 바인딩** - 사용자 지정 도메인에 대한 SSL 바인딩은 표준 모드에서만 사용할 수 있습니다. 특정 도메인 이름에 대한 SSL 모드(**SNI**, **IP** 또는 **No SSL**)를 선택합니다. SNI 또는 IP를 선택하는 경우 업로드한 인증서에서 도메인에 대한 인증서를 지정할 수 있습니다. Azure에서 사용자 지정 도메인에 대해 SSL을 구성하는 방법에 대한 자세한 내용은 [Azure 웹 사이트에 HTTPS 사용](http://www.windowsazure.com/en-us/documentation/articles/web-sites-configure-ssl-certificate/)을 참조하십시오. SNI에 대한 자세한 내용은 [서버 이름 표시](http://en.wikipedia.org/wiki/Server_Name_Indication)를 참조하십시오.
+        **참고:** 사용자 지정 도메인은 공유 및 표준 모드에서만 사용할 수 있으며, 사용자 지정 도메인에 대한 SSL 지원은 표준 모드에서만 사용할 수 있습니다. Azure에서 사용자 지정 도메인에 대해 SSL을 구성하는 방법에 대한 자세한 내용은 [Azure 웹 사이트에 HTTPS 사용](http://www.windowsazure.com/ko-kr/documentation/articles/web-sites-configure-ssl-certificate/)을 참조하십시오.
+    -   **도메인 이름** - 여기서 웹 사이트의 추가 도메인 이름을 보거나 추가합니다. **도메인 관리**를 클릭하여 사용자 지정 도메인을 추가할 수 있습니다. 사용자 지정 도메인은 **공유** 및 **표준** 모드에서만 사용할 수 있습니다. **크기 조정** 관리 페이지에서 웹 사이트 모드를 변경할 수 있습니다. 사용자 지정 도메인은 무료 모드에서 사용할 수 없습니다. 사용자 지정 도메인 구성에 대한 자세한 내용은 [Azure 웹 사이트에 대한 사용자 지정 도메인 이름 구성](http://www.windowsazure.com/ko-kr/documentation/articles/web-sites-custom-domain-name/)을 참조하십시오.
+    -   **SSL 바인딩** - 사용자 지정 도메인에 대한 SSL 바인딩은 표준 모드에서만 사용할 수 있습니다. 특정 도메인 이름에 대한 SSL 모드(**SNI**, **IP** 또는 **No SSL**)를 선택합니다. SNI 또는 IP를 선택하는 경우 업로드한 인증서에서 도메인에 대한 인증서를 지정할 수 있습니다. Azure에서 사용자 지정 도메인에 대해 SSL을 구성하는 방법에 대한 자세한 내용은 [Azure 웹 사이트에 HTTPS 사용](http://www.windowsazure.com/ko-kr/documentation/articles/web-sites-configure-ssl-certificate/)을 참조하십시오. SNI에 대한 자세한 내용은 [서버 이름 표시](http://en.wikipedia.org/wiki/Server_Name_Indication)를 참조하십시오.
     -   **배포** - 다음 설정을 사용하여 배포를 구성합니다.
         -   **Git URL** - Azure 웹 사이트에서 Git 리포지토리를 만든 경우 이 URL이 콘텐츠가 푸시되는 위치가 됩니다.
         -   **배포 트리거 URL** - 이 URL은 커밋이 리포지토리로 푸시될 때 배포를 트리거하는 GitHub, CodePlex, Bitbucket 또는 기타 리포지토리에 설정될 수 있습니다.
@@ -56,7 +56,7 @@ Azure 관리 포털에서 웹 사이트의 구성 옵션을 변경하고 웹 사
             -   **저장소 액세스 키** - 선택한 저장소 계정의 키를 표시합니다. 저장소 계정의 키를 재생성한 경우 수동으로 새 키를 여기에 입력하거나 **동기화** 단추 중 하나를 사용합니다. 동기화 단추는 현재 로그온한 사용자가 선택한 저장소 계정에 대한 액세스 권한을 가진 경우에만 사용할 수 있습니다.
             -   **Synchronize Primary Key** - Azure 저장소 계정의 최신 기본 키를 검색합니다.
             -   **Synchronize Secondary Key** - Azure 저장소 계정의 최신 보조 키를 검색합니다.
-                **참고:** Azure 저장소 액세스 키에 대한 자세한 내용은 [방법: 저장소 액세스 키 보기, 복사 및 재생성](http://www.windowsazure.com/en-us/documentation/articles/storage-manage-storage-account/#regeneratestoragekeys)(영문)을 참조하십시오.
+                **참고:** Azure 저장소 액세스 키에 대한 자세한 내용은 [방법: 저장소 액세스 키 보기, 복사 및 재생성](http://www.windowsazure.com/ko-kr/documentation/articles/storage-manage-storage-account/#regeneratestoragekeys)(영문)을 참조하십시오.
     -   **사이트 진단** - 웹 사이트에 대한 진단 정보를 수집하기 위해 다음과 같은 옵션을 설정합니다.
         -   **웹 서버 로깅** - 웹 사이트에 웹 서버 로깅을 사용하도록 설정할지 여부를 지정합니다. 웹 서버 로그는 W3C 확장 로그 파일 형식으로 저장됩니다. 로그는 Azure 저장소 또는 파일 시스템에 저장할 수 있습니다.
             **팁**: 파일 시스템의 최대 로그 저장 크기는 100MB입니다. 이보다 큰 기록을 유지해야 하는 경우 더 많은 저장 용량을 지원하는 Azure 저장소를 사용하십시오.
@@ -72,7 +72,7 @@ Azure 관리 포털에서 웹 사이트의 구성 옵션을 변경하고 웹 사
              **참고**: 원격 디버깅은 48시간 동안만 사용하도록 설정되며 20자를 초과하는 사이트 이름 또는 사용자 이름에서는 작동하지 않습니다.
     -   **모니터링** - 표준 모드의 웹 사이트에서는 HTTP 또는 HTTPS 끝점의 가용성을 테스트할 수 있습니다. 지리적으로 분산된 최대 3곳의 끝점을 테스트할 수 있습니다. HTTP 응답 코드가 400 이상이거나 응답에 30초 넘게 걸리는 경우 모니터링 테스트가 실패합니다. 지정된 모든 위치에서 모니터링 테스트가 성공하는 경우 끝점은 사용 가능한 것으로 간주됩니다.
     -   **developer analytics** - **추가 기능**을 선택하여 목록에서 분석 추가 기능을 선택하거나, Azure 저장소로 이동하여 분석 추가 기능을 선택합니다. **사용자 지정**을 선택하면 목록에서 New Relic 같은 분석 공급자를 선택할 수 있습니다. 사용자 지정 공급자를 사용하는 경우 **공급자 키** 상자에 라이선스 키를 입력해야 합니다.
-         **참고**: Azure 웹 사이트에서 New Relic 사용에 대한 자세한 내용은 [Azure 웹 사이트에서 New Relic 응용 프로그램 성능 관리](http://www.windowsazure.com/en-us/documentation/articles/store-new-relic-web-sites-dotnet-application-performance-management/)(영문)를 참조하십시오.
+         **참고**: Azure 웹 사이트에서 New Relic 사용에 대한 자세한 내용은 [Azure 웹 사이트에서 New Relic 응용 프로그램 성능 관리](http://www.windowsazure.com/ko-kr/documentation/articles/store-new-relic-web-sites-dotnet-application-performance-management/)(영문)를 참조하십시오.
     -   **앱 설정** - 시작할 때 웹 응용 프로그램에서 로드되는 이름/값 쌍을 지정합니다. .NET 사이트의 경우 런타임에 이러한 설정이 .NET 구성 AppSettings에 주입되어 기존 설정을 재정의합니다. PHP 및 노드 사이트에서는 런타임에 이러한 설정을 환경 변수로 사용할 수 있습니다.
     -   **연결 문자열** - 연결된 리소스의 연결 문자열을 봅니다. .NET 사이트의 경우 런타임에 이러한 연결 문자열이 .NET 구성 connectionStrings 설정에 주입되어 키가 연결된 데이터베이스 이름과 같은 기존 항목을 재정의합니다. PHP 및 노드 사이트에서는 런타임에 이러한 설정을 환경 변수로 사용할 수 있으며, 환경 변수 앞에는 연결 형식이 옵니다. 환경 변수 접두사는 다음과 같습니다.
         -   SQL Server: SQLCONNSTR\_
@@ -116,18 +116,18 @@ MySQL 데이터베이스를 사용하도록 웹 사이트를 구성하려면 SQL
 ## 방법: 사용자 지정 도메인 이름 구성
 ----------------------------------
 
-사용자 지정 도메인 이름을 사용하도록 웹 사이트를 구성하는 방법에 대한 자세한 내용은 [Azure 웹 사이트에 대한 사용자 지정 도메인 이름 구성](http://www.windowsazure.com/en-us/documentation/articles/web-sites-custom-domain-name/)을 참조하십시오.
+사용자 지정 도메인 이름을 사용하도록 웹 사이트를 구성하는 방법에 대한 자세한 내용은 [Azure 웹 사이트에 대한 사용자 지정 도메인 이름 구성](http://www.windowsazure.com/ko-kr/documentation/articles/web-sites-custom-domain-name/)을 참조하십시오.
 
 방법: SSL을 사용하도록 웹 사이트 구성
 -------------------------------------
 
-Azure에서 사용자 지정 도메인에 대해 SSL을 구성하는 방법에 대한 자세한 내용은 [Azure 웹 사이트에 HTTPS 사용](http://www.windowsazure.com/en-us/documentation/articles/web-sites-configure-ssl-certificate/)을 참조하십시오.
+Azure에서 사용자 지정 도메인에 대해 SSL을 구성하는 방법에 대한 자세한 내용은 [Azure 웹 사이트에 HTTPS 사용](http://www.windowsazure.com/ko-kr/documentation/articles/web-sites-configure-ssl-certificate/)을 참조하십시오.
 
 다음 단계
 ---------
 
--   [웹 사이트 크기를 조정하는 방법](http://www.windowsazure.com/en-us/documentation/articles/web-sites-scale/)
+-   [웹 사이트 크기를 조정하는 방법](http://www.windowsazure.com/ko-kr/documentation/articles/web-sites-scale/)
 
--   [웹 사이트를 모니터링하는 방법](http://www.windowsazure.com/en-us/documentation/articles/web-sites-monitor/)
+-   [웹 사이트를 모니터링하는 방법](http://www.windowsazure.com/ko-kr/documentation/articles/web-sites-monitor/)
 
 

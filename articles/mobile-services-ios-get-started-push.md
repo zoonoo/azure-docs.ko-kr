@@ -1,4 +1,4 @@
-<properties linkid="develop-mobile-tutorials-get-started-with-push-ios" urlDisplayName="Get Started with Push (iOS)" pageTitle="Get started with push notifications (iOS) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to send push notifications to your iOS app." metaCanonical="http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-push-dotnet/" services="" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="" solutions="" manager="" editor="" />
+<properties linkid="develop-mobile-tutorials-get-started-with-push-ios" urlDisplayName="Get Started with Push (iOS)" pageTitle="Get started with push notifications (iOS) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to send push notifications to your iOS app." metaCanonical="http://www.windowsazure.com/ko-kr/develop/mobile/tutorials/get-started-with-push-dotnet/" services="" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="" solutions="" manager="" editor="" />
 
 모바일 서비스에서 푸시 알림 시작하기
 ====================================
@@ -11,7 +11,7 @@
 
 [자습서 보기](http://channel9.msdn.com/posts/iOS-Support-in-Windows-Azure-Mobile-Services) [동영상 재생](http://channel9.msdn.com/posts/iOS-Support-in-Windows-Azure-Mobile-Services) 10:37
 
-> [WACOM.NOTE] 이 항목에서는 모바일 서비스에서 제공하는 기존 지원을 통해 푸시 알림을 사용하도록 설정하는 방법에 대해 설명합니다. 템플릿 기반, 플랫폼 간 푸시 알림을 수많은 장치에 보낼 수 있도록 Azure 알림 허브가 모바일 서비스와 통합됩니다. 알림 허브를 사용하는 푸시 알림은 기본적으로 사용되지 않으며, 현재 모바일 서비스 라이브러리에서 iOS에 대한 알림 허브 지원이 제공되지 않습니다. 그러나 알림 허브 라이브러리를 사용하여 모바일 서비스에서 푸시 알림을 전송할 수 있습니다. 자세한 내용은 [알림 허브 시작하기](/en-us/documentation/articles/notification-hubs-ios-get-started/)를 참조하십시오.
+> [WACOM.NOTE] 이 항목에서는 모바일 서비스에서 제공하는 기존 지원을 통해 푸시 알림을 사용하도록 설정하는 방법에 대해 설명합니다. 템플릿 기반, 플랫폼 간 푸시 알림을 수많은 장치에 보낼 수 있도록 Azure 알림 허브가 모바일 서비스와 통합됩니다. 알림 허브를 사용하는 푸시 알림은 기본적으로 사용되지 않으며, 현재 모바일 서비스 라이브러리에서 iOS에 대한 알림 허브 지원이 제공되지 않습니다. 그러나 알림 허브 라이브러리를 사용하여 모바일 서비스에서 푸시 알림을 전송할 수 있습니다. 자세한 내용은 [알림 허브 시작하기](/ko-kr/documentation/articles/notification-hubs-ios-get-started/)를 참조하십시오.
 
 이 자습서에서는 푸시 알림을 사용하기 위한 다음과 같은 기본 단계를 안내합니다.
 

@@ -154,7 +154,7 @@ Azure가 역할을 오프라인으로 전환하면 부하 분산 장치에서 �
 
 표시된 `OnStop` 메서드 코드에서는 `Requests Current`에 대한 ASP.NET 성능 카운터가 생성됩니다. `Requests Current` 카운터 값에는 큐에 대기 중이거나, 현재 실행 중이거나, 클라이언트에 쓰기 위해 대기 중인 요청 등 현재 요청 수가 포함됩니다. `Requests Current` 값은 초 단위로 확인되며, 0까지 떨어지면 `OnStop` 메서드가 반환됩니다. `OnStop`이 반환되면 역할이 종료됩니다.
 
-[주문형 전송](http://msdn.microsoft.com/en-us/library/windowsazure/gg433075.aspx)을 수행하지 않고 `OnStop` 메서드에서 호출된 경우에는 추적 데이터가 저장되지 않습니다. 원격 데스크톱 연결에서 [dbgview](http://technet.microsoft.com/en-us/sysinternals/bb896647.aspx) 유틸리티를 사용하여 실시간으로 `OnStop` 추적 정보를 볼 수 있습니다.
+[주문형 전송](http://msdn.microsoft.com/ko-kr/library/windowsazure/gg433075.aspx)을 수행하지 않고 `OnStop` 메서드에서 호출된 경우에는 추적 데이터가 저장되지 않습니다. 원격 데스크톱 연결에서 [dbgview](http://technet.microsoft.com/en-us/sysinternals/bb896647.aspx) 유틸리티를 사용하여 실시간으로 `OnStop` 추적 정보를 볼 수 있습니다.
 
 저장소 클라이언트 라이브러리 업데이트저장소 클라이언트 라이브러리 NuGet 패키지 업데이트
 ---------------------------------------------------------------------------------------
@@ -181,7 +181,7 @@ Azure 저장소 테이블, 큐 및 Blob 작업에 사용하는 API 프레임워�
 
          using Microsoft.WindowsAzure.StorageClient;
 
-1.7 버전의 SCL에는 테이블 쿼리 코딩을 간소화하는 LINQ 공급자가 포함되어 있습니다. 이 자습서가 작성된 날짜를 기준으로 2.0 TSL(Table Service Layer)에는 아직 LINQ 공급자가 없습니다. LINQ를 사용하려는 경우 [Microsoft.WindowsAzure.Storage.Table.DataServices](http://msdn.microsoft.com/en-us/library/microsoft.windowsazure.storage.table.dataservices.aspx) 네임스페이스에서 SCL 1.7 LINQ 공급자에 액세스할 수 있습니다. 2.0 TSL은 성능을 향상시키도록 설계되었으며 1.7 LINQ 공급자는 이러한 향상 기능 중 일부를 활용하지 못합니다. 샘플 응용 프로그램은 2.0 TSL을 사용하므로 쿼리에 LINQ를 사용하지 않습니다. SCL 및 TSL 2.0에 대한 자세한 내용은 [이 시리즈의 마지막 자습서](/en-us/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/) 끝에 있는 리소스를 참조하십시오.
+1.7 버전의 SCL에는 테이블 쿼리 코딩을 간소화하는 LINQ 공급자가 포함되어 있습니다. 이 자습서가 작성된 날짜를 기준으로 2.0 TSL(Table Service Layer)에는 아직 LINQ 공급자가 없습니다. LINQ를 사용하려는 경우 [Microsoft.WindowsAzure.Storage.Table.DataServices](http://msdn.microsoft.com/ko-kr/library/microsoft.windowsazure.storage.table.dataservices.aspx) 네임스페이스에서 SCL 1.7 LINQ 공급자에 액세스할 수 있습니다. 2.0 TSL은 성능을 향상시키도록 설계되었으며 1.7 LINQ 공급자는 이러한 향상 기능 중 일부를 활용하지 못합니다. 샘플 응용 프로그램은 2.0 TSL을 사용하므로 쿼리에 LINQ를 사용하지 않습니다. SCL 및 TSL 2.0에 대한 자세한 내용은 [이 시리즈의 마지막 자습서](/en-us/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/) 끝에 있는 리소스를 참조하십시오.
 
 > [WACOM.NOTE] 저장소 클라이언트 라이브러리 2.1에서는 LINQ 지원이 다시 추가되었지만 이 자습서는 저장소 테이블 쿼리에 LINQ를 사용하지 않습니다. 최신 SCL은 비동기 프로그래밍도 지원하지만 비동기 코드는 이 자습서에 표시되어 있지 않습니다. 비동기 프로그래밍에 대한 자세한 내용 및 Azure SCL과 함께 사용하는 코드 예제는 전자책의 다음 장 및 다운로드 가능한 프로젝트를 참조하십시오. [.NET 4.5의 비동기 지원을 사용하여 호출 차단 방지](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices#async)(영문)
 
@@ -310,15 +310,15 @@ App\_Start 코드Application\_Start 메서드에 테이블, 큐 및 Blob 컨테�
              public string Description { get; set; }
          }
 
-    Azure 저장소 TSL 2.0 API에서는 테이블 작업에 사용하는 엔터티 클래스가 [TableEntity](http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.storage.table.tableentity.aspx)에서 파생되어야 합니다. 이 클래스는 `PartitionKey`, `RowKey`, `TimeStamp` 및 `ETag` 필드를 정의합니다. `TimeStamp` 및 `ETag` 속성은 시스템에서 사용됩니다. 자습서의 뒷부분에서 `ETag` 속성이 동시성 처리에 사용되는 방법을 확인합니다.
+    Azure 저장소 TSL 2.0 API에서는 테이블 작업에 사용하는 엔터티 클래스가 [TableEntity](http://msdn.microsoft.com/ko-kr/library/windowsazure/microsoft.windowsazure.storage.table.tableentity.aspx)에서 파생되어야 합니다. 이 클래스는 `PartitionKey`, `RowKey`, `TimeStamp` 및 `ETag` 필드를 정의합니다. `TimeStamp` 및 `ETag` 속성은 시스템에서 사용됩니다. 자습서의 뒷부분에서 `ETag` 속성이 동시성 처리에 사용되는 방법을 확인합니다.
 
-    미리 정의된 모델 클래스를 사용하는 대신 키 값 쌍의 사전 컬렉션으로 테이블 행 작업을 수행하려는 경우 사용할 [DynamicTableEntity](http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.storage.table.dynamictableentity.aspx) 클래스도 있습니다. 자세한 내용은 [Azure 저장소 클라이언트 라이브러리 2.0 테이블 심층 검토](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/11/06/windows-azure-storage-client-library-2-0-tables-deep-dive.aspx)(영문)를 참조하십시오.
+    미리 정의된 모델 클래스를 사용하는 대신 키 값 쌍의 사전 컬렉션으로 테이블 행 작업을 수행하려는 경우 사용할 [DynamicTableEntity](http://msdn.microsoft.com/ko-kr/library/windowsazure/microsoft.windowsazure.storage.table.dynamictableentity.aspx) 클래스도 있습니다. 자세한 내용은 [Azure 저장소 클라이언트 라이브러리 2.0 테이블 심층 검토](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/11/06/windows-azure-storage-client-library-2-0-tables-deep-dive.aspx)(영문)를 참조하십시오.
 
     `mailinglist` 테이블 파티션 키는 메일 그룹 이름입니다. 이 엔터티 클래스에서는 `PartitionKey` 속성(`TableEntity` 클래스에 정의됨) 또는 `ListName` 속성(`MailingList` 클래스에 정의됨)을 사용하여 파티션 키 값에 액세스할 수 있습니다. `ListName` 속성은 `PartitionKey`를 지원 변수로 사용합니다. `ListName` 속성을 정의하면 코드에서 더 설명적인 변수 이름을 사용할 수 있으며, `ListName` 속성에 형식 지정 및 유효성 검사 DataAnnotations 특성을 추가할 수 있으므로 웹 UI를 더 쉽게 프로그래밍할 수 있지만 `PartitionKey` 속성에 직접 추가할 수는 없습니다.
 
     `ListName` 속성의 `RegularExpression` 특성을 사용하면 MVC에서 사용자 입력의 유효성을 검사하여 입력된 목록 이름에 영숫자 문자나 밑줄만 포함되어 있는지 확인합니다. 이 제한은 URL의 쿼리 문자열에 쉽게 사용할 수 있도록 목록 이름을 간단하게 유지하기 위해 구현되었습니다.
 
-    **참고:** 목록 이름 형식을 덜 제한적으로 설정하려는 경우 쿼리 문자열에 사용될 때 다른 문자와 URL로 인코드된 목록 이름을 허용할 수 있습니다. 그러나 특정 문자는 Azure 테이블 파티션 키 또는 행 키에 허용되지 않으며 적어도 이러한 문자는 제외해야 합니다. 허용되지 않거나 파티션 키 또는 행 키 필드에서 문제를 발생시키는 문자에 대한 자세한 내용은 [테이블 서비스 데이터 모델 이해](http://msdn.microsoft.com/en-us/library/windowsazure/dd179338.aspx) 및 [PartitionKey 또는 RowKey의 % 문자](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/05/28/partitionkey-or-rowkey-containing-the-percent-character-causes-some-windows-azure-tables-apis-to-fail.aspx)를 참조하십시오.
+    **참고:** 목록 이름 형식을 덜 제한적으로 설정하려는 경우 쿼리 문자열에 사용될 때 다른 문자와 URL로 인코드된 목록 이름을 허용할 수 있습니다. 그러나 특정 문자는 Azure 테이블 파티션 키 또는 행 키에 허용되지 않으며 적어도 이러한 문자는 제외해야 합니다. 허용되지 않거나 파티션 키 또는 행 키 필드에서 문제를 발생시키는 문자에 대한 자세한 내용은 [테이블 서비스 데이터 모델 이해](http://msdn.microsoft.com/ko-kr/library/windowsazure/dd179338.aspx) 및 [PartitionKey 또는 RowKey의 % 문자](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/05/28/partitionkey-or-rowkey-containing-the-percent-character-causes-some-windows-azure-tables-apis-to-fail.aspx)를 참조하십시오.
 
     `MailingList` 클래스는 이 테이블의 모든 메일 그룹 행에 해당 값이 행 키로 포함되어 있으므로 `RowKey`를 하드 코드된 문자열 "mailinglist"로 설정하는 기본 생성자를 정의합니다. 테이블 구조에 대한 설명은 [시리즈의 첫 번째 자습서](/en-us/develop/net/tutorials/multi-tier-web-site/1-overview/)를 참조하십시오. 이 테이블의 구독자 행에 대한 행 키인 전자 메일 주소와 다르기만 하면 모든 상수 값을 이 목적으로 선택할 수 있습니다.
 
@@ -383,7 +383,7 @@ App\_Start 코드Application\_Start 메서드에 테이블, 큐 및 Blob 컨테�
              return subscriber;
          }
 
-    두 쿼리의 유일한 차이점은 [TableOperation.Retrieve](http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.storage.table.tableoperation.retrieve.aspx) 메서드에 전달하는 모델 유형입니다. 모델 유형은 쿼리에서 반환해야 하는 행의 스키마(속성)를 지정합니다. 단일 테이블에 여러 행의 각기 다른 스키마가 포함될 수 있습니다. 일반적으로 행을 읽을 때는 행을 생성하는 데 사용된 것과 동일한 모델 유형을 지정합니다.
+    두 쿼리의 유일한 차이점은 [TableOperation.Retrieve](http://msdn.microsoft.com/ko-kr/library/windowsazure/microsoft.windowsazure.storage.table.tableoperation.retrieve.aspx) 메서드에 전달하는 모델 유형입니다. 모델 유형은 쿼리에서 반환해야 하는 행의 스키마(속성)를 지정합니다. 단일 테이블에 여러 행의 각기 다른 스키마가 포함될 수 있습니다. 일반적으로 행을 읽을 때는 행을 생성하는 데 사용된 것과 동일한 모델 유형을 지정합니다.
 
     **인덱스** 페이지에는 메일 그룹 행이 모두 표시되므로 `Index` 메서드의 쿼리에서 "mailinglist"가 행 키로 포함된 `MailingList` 엔터티를 모두 반환합니다(테이블의 다른 행은 전자 메일 주소를 행 키로 사용하며 구독자 정보를 포함함).
 

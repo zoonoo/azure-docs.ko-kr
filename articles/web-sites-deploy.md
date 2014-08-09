@@ -39,7 +39,7 @@ Azure 웹 사이트에 고유 콘텐츠를 배포하는 많은 옵션이 있습�
 자세한 내용은 다음 리소스를 참조하십시오.
 
 -   [지속적으로 Azure에 전송](http://www.visualstudio.com/en-us/learn/continuous-delivery-in-vs)(영문). TFVC를 사용하여 VSO에서 Azure 웹 사이트로의 지속적인 전송을 설정하는 방법을 보여 주는 단계별 자습서입니다. TFVC는 분산된 소스 제어 옵션인 Git과 대조되는 VSO의 중앙 집중식 소스 제어 옵션입니다.
--   [Visual Studio Online을 사용하여 Azure에 지속적으로 전송](/en-us/documentation/articles/cloud-services-continuous-delivery-use-vso/)(영문). VSO에 등록하고, 프로젝트를 소스 제어에 체크 인하고, 프로젝트가 Azure에 지속적으로 전송되도록(자동 배포) 설정하는 방법을 설명합니다. 클라우드 서비스에 대해 작성되었지만, Visual Studio Online에서 배포를 설정하는 프로세스 중 상당 부분은 웹 사이트에 대해서도 비슷합니다.
+-   [Visual Studio Online을 사용하여 Azure에 지속적으로 전송](/ko-kr/documentation/articles/cloud-services-continuous-delivery-use-vso/)(영문). VSO에 등록하고, 프로젝트를 소스 제어에 체크 인하고, 프로젝트가 Azure에 지속적으로 전송되도록(자동 배포) 설정하는 방법을 설명합니다. 클라우드 서비스에 대해 작성되었지만, Visual Studio Online에서 배포를 설정하는 프로세스 중 상당 부분은 웹 사이트에 대해서도 비슷합니다.
 
 ### Git을 사용한 리포지토리 웹 사이트
 
@@ -47,7 +47,7 @@ Azure 웹 사이트에 고유 콘텐츠를 배포하는 많은 옵션이 있습�
 
 자세한 내용은 다음 리소스를 참조하십시오.
 
--   [소스 제어에서 Azure 웹 사이트로 게시](/en-us/documentation/articles/web-sites-publish-source-control/). Git을 사용하여 로컬 컴퓨터에서 Azure 웹 사이트로 바로 게시하는 방법(Azure에서는 이 게시 방법을 Local Git라고 함)을 설명합니다. GitHub, CodePlex 또는 BitBucket에서 Git 리포지토리의 지속적인 배포를 가능하게 하는 방법도 보여 줍니다.
+-   [소스 제어에서 Azure 웹 사이트로 게시](/ko-kr/documentation/articles/web-sites-publish-source-control/). Git을 사용하여 로컬 컴퓨터에서 Azure 웹 사이트로 바로 게시하는 방법(Azure에서는 이 게시 방법을 Local Git라고 함)을 설명합니다. GitHub, CodePlex 또는 BitBucket에서 Git 리포지토리의 지속적인 배포를 가능하게 하는 방법도 보여 줍니다.
 -   [Git, Mercurial 및 DropBox의 Azure 포럼](http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=azuregit)(영문).
 
 ### Mercurial을 사용한 리포지토리 웹 사이트
@@ -56,7 +56,7 @@ Azure 웹 사이트에 고유 콘텐츠를 배포하는 많은 옵션이 있습�
 
 Mercurial을 사용하여 배포하는 방법에 대한 자세한 내용은 다음 리소스를 참조하십시오.
 
--   [소스 제어에서 Azure 웹 사이트로 게시](/en-us/documentation/articles/web-sites-publish-source-control/). 이 자습서에서는 Git 리포지토리를 게시하는 방법을 설명하지만, CodePlex 또는 BitBucket에서 호스트되는 Mercurial 리포지토리에 대한 프로세스도 비슷합니다.
+-   [소스 제어에서 Azure 웹 사이트로 게시](/ko-kr/documentation/articles/web-sites-publish-source-control/). 이 자습서에서는 Git 리포지토리를 게시하는 방법을 설명하지만, CodePlex 또는 BitBucket에서 호스트되는 Mercurial 리포지토리에 대한 프로세스도 비슷합니다.
 -   [Git, Mercurial 및 DropBox의 Azure 포럼](http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=azuregit)(영문).
 
 ### DropBox
@@ -80,7 +80,7 @@ Visual Studio에서 Azure 웹 사이트에 배포하는 방법에 대한 자세�
 
 -   [Azure 및 ASP.NET 시작](/en-us/develop/net/tutorials/get-started/). Visual Studio 및 웹 배포를 사용하여 간단한 ASP.NET MVC 웹 프로젝트를 만들고 배포하는 방법을 설명합니다.
 -   [Azure 웹 사이트에 멤버 자격, OAuth 및 SQL 데이터베이스를 포함한 ASP.NET MVC 5 앱 배포](/en-us/develop/net/tutorials/web-site-with-sql-database/). Visual Studio, 웹 배포 및 Entity Framework Code First 마이그레이션을 사용하여 SQL 데이터베이스가 포함된 ASP.NET MVC 웹 프로젝트를 만들고 배포하는 방법을 설명합니다.
--   [Visual Studio 및 ASP.NET의 웹 배포 개요](http://msdn.microsoft.com/en-us/library/dd394698.aspx)(영문). Visual Studio를 사용한 웹 배포에 대한 기본적인 소개입니다. 이전에 작성되기는 했지만 웹 응용 프로그램과 함께 데이터베이스를 배포하는 옵션의 개요, 직접 수행해야 하거나 Visual Studio에서 수행하도록 수동 구성해야 하는 추가 배포 작업 목록 등 여전히 관련 있는 정보를 포함하고 있습니다. 이 항목은 Azure 웹 사이트에 배포하는 것 외에도 배포 전반에 대한 내용입니다.
+-   [Visual Studio 및 ASP.NET의 웹 배포 개요](http://msdn.microsoft.com/ko-kr/library/dd394698.aspx)(영문). Visual Studio를 사용한 웹 배포에 대한 기본적인 소개입니다. 이전에 작성되기는 했지만 웹 응용 프로그램과 함께 데이터베이스를 배포하는 옵션의 개요, 직접 수행해야 하거나 Visual Studio에서 수행하도록 수동 구성해야 하는 추가 배포 작업 목록 등 여전히 관련 있는 정보를 포함하고 있습니다. 이 항목은 Azure 웹 사이트에 배포하는 것 외에도 배포 전반에 대한 내용입니다.
 -   [Visual Studio를 사용한 ASP.NET 웹 배포](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/introduction)(영문). 12개 부분으로 구성된 자습서 시리즈로, 이 목록의 다른 자료보다 더 폭넓은 배포 작업 범위를 다룹니다.
 -   [Visual Studio 2012를 사용하여 Git 리포지토리에서 바로 Azure에 ASP.NET 웹 사이트 배포](http://www.dotnetcurry.com/ShowArticle.aspx?ID=881)(영문). Git 플러그 인을 사용하여 코드를 Git에 커밋하고 Azure를 Git 리포지토리에 연결하여 Visual Studio에서 ASP.NET 웹 프로젝트를 배포하는 방법을 설명합니다.
 
@@ -88,9 +88,9 @@ Visual Studio에서 Azure 웹 사이트에 배포하는 방법에 대한 자세�
 
 WebMatrix에서 Azure 웹 사이트에 배포하는 방법에 대한 자세한 내용은 다음 리소스를 참조하십시오.
 
--   [Microsoft WebMatrix로 웹 사이트 개발 및 배포](http://www.windowsazure.com/en-us/documentation/articles/web-sites-dotnet-using-webmatrix/). WebMatrix 템플릿을 사용하여 간단한 ASP.NET 웹 사이트를 만들고 WebMatrix 및 웹 배포를 사용하여 이 웹 사이트를 Azure 웹 사이트에 배포하는 방법을 설명합니다.
--   [WebMatrix를 사용하여 Node.js 웹 사이트 빌드 및 Azure에 배포](http://www.windowsazure.com/en-us/documentation/articles/web-sites-nodejs-use-webmatrix/).
--   [WebMatrix를 사용하여 PHP-MySQL Azure 웹 사이트 만들기 및 배포](http://www.windowsazure.com/en-us/documentation/articles/web-sites-php-mysql-use-webmatrix/)(영문).
+-   [Microsoft WebMatrix로 웹 사이트 개발 및 배포](http://www.windowsazure.com/ko-kr/documentation/articles/web-sites-dotnet-using-webmatrix/). WebMatrix 템플릿을 사용하여 간단한 ASP.NET 웹 사이트를 만들고 WebMatrix 및 웹 배포를 사용하여 이 웹 사이트를 Azure 웹 사이트에 배포하는 방법을 설명합니다.
+-   [WebMatrix를 사용하여 Node.js 웹 사이트 빌드 및 Azure에 배포](http://www.windowsazure.com/ko-kr/documentation/articles/web-sites-nodejs-use-webmatrix/).
+-   [WebMatrix를 사용하여 PHP-MySQL Azure 웹 사이트 만들기 및 배포](http://www.windowsazure.com/ko-kr/documentation/articles/web-sites-php-mysql-use-webmatrix/)(영문).
 -   [WebMatrix 3: 통합된 Git 및 Azure에 배포](http://www.codeproject.com/Articles/577581/Webmatrixplus3-3aplusIntegratedplusGitplusandplusD)(영문). WebMatrix를 사용하여 Git 소스 제어 리포지토리에서 배포하는 방법을 설명합니다.
 
 FTP 유틸리티를 사용하여 배포
@@ -102,8 +102,8 @@ FTP 유틸리티를 사용하여 웹 사이트 파일을 Azure에 쉽게 복사�
 
 자세한 내용은 다음 리소스를 참조하십시오.
 
--   [PHP-MySQL Azure 웹 사이트 만들기 및 FTP를 사용하여 배포](/en-us/documentation/articles/web-sites-php-mysql-deploy-use-ftp/).
--   [웹 사이트를 관리하는 방법](http://www.windowsazure.com/en-us/documentation/articles/web-sites-manage/). FTP 자격 증명 설정 방법을 설명하는 PHP 자습서에 포함되지 않은 추가 정보가 있습니다. 자격 증명을 가져오는 방법에 대해 문서 자체에 누락된 정보는 페이지 아래쪽에 있는 주석을 참조하십시오.
+-   [PHP-MySQL Azure 웹 사이트 만들기 및 FTP를 사용하여 배포](/ko-kr/documentation/articles/web-sites-php-mysql-deploy-use-ftp/).
+-   [웹 사이트를 관리하는 방법](http://www.windowsazure.com/ko-kr/documentation/articles/web-sites-manage/). FTP 자격 증명 설정 방법을 설명하는 PHP 자습서에 포함되지 않은 추가 정보가 있습니다. 자격 증명을 가져오는 방법에 대해 문서 자체에 누락된 정보는 페이지 아래쪽에 있는 주석을 참조하십시오.
 
 온-프레미스 소스 제어 시스템에서 배포
 -------------------------------------
@@ -124,7 +124,7 @@ Azure에서는 해당 위치에서 배포하기 위해 Git 또는 Mercurial을 �
 
 자세한 내용은 다음 리소스를 참조하십시오.
 
--   [소스 제어에서 Azure 웹 사이트로 게시](/en-us/documentation/articles/web-sites-publish-source-control/). Git을 사용하여 로컬 컴퓨터에서 Azure 웹 사이트로 바로 게시하는 방법(Azure에서는 이 게시 방법을 Local Git라고 함)을 설명합니다. GitHub, CodePlex 또는 BitBucket에서 Git 리포지토리의 지속적인 배포를 가능하게 하는 방법도 보여 줍니다.
+-   [소스 제어에서 Azure 웹 사이트로 게시](/ko-kr/documentation/articles/web-sites-publish-source-control/). Git을 사용하여 로컬 컴퓨터에서 Azure 웹 사이트로 바로 게시하는 방법(Azure에서는 이 게시 방법을 Local Git라고 함)을 설명합니다. GitHub, CodePlex 또는 BitBucket에서 Git 리포지토리의 지속적인 배포를 가능하게 하는 방법도 보여 줍니다.
 -   [git/hg 리포지토리에서 Azure 웹 사이트에 게시](http://blog.davidebbo.com/2013/04/publishing-to-azure-web-sites-from-any.html)(영문). Azure 웹 사이트의 "외부 리포지토리" 기능에 대해 설명하는 David Ebbo의 블로그입니다.
 -   [Git, Mercurial 및 DropBox의 Azure 포럼](http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=azuregit)(영문).
 -   [하나의 Git 리포지토리에서 Azure에 두 웹 사이트 배포](http://www.hanselman.com/blog/DeployingTWOWebsitesToWindowsAzureFromOneGitRepository.aspx)(영문). Scott Hanselman의 블로그 게시물입니다.
@@ -155,7 +155,7 @@ Azure 웹 사이트의 [FTP/FTPS](http://en.wikipedia.org/wiki/File_Transfer_Pro
 
 ### Windows PowerShell
 
-[Windows PowerShell](http://msdn.microsoft.com/en-us/library/dd835506.aspx)(영문)에서 MSBuild 또는 FTP 기능을 수행할 수 있습니다. 이 기능을 수행하는 경우 Azure REST 관리 API를 쉽게 호출할 수 있는 Windows PowerShell cmdlet 컬렉션을 사용할 수도 있습니다.
+[Windows PowerShell](http://msdn.microsoft.com/ko-kr/library/dd835506.aspx)(영문)에서 MSBuild 또는 FTP 기능을 수행할 수 있습니다. 이 기능을 수행하는 경우 Azure REST 관리 API를 쉽게 호출할 수 있는 Windows PowerShell cmdlet 컬렉션을 사용할 수도 있습니다.
 
 자세한 내용은 다음 리소스를 참조하십시오.
 
@@ -191,5 +191,5 @@ Mac 또는 Linux 컴퓨터에서 명령줄을 사용하여 FTP를 사용한 배�
 다음 단계
 ---------
 
-자세한 내용은 [Azure 웹 사이트 설명서](/en-us/documentation/services/web-sites/)의 배포 섹션을 참조하십시오.
+자세한 내용은 [Azure 웹 사이트 설명서](/ko-kr/documentation/services/web-sites/)의 배포 섹션을 참조하십시오.
 

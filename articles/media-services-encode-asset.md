@@ -5,7 +5,7 @@
 
 이 문서는 Azure 미디어 서비스 프로그래밍을 소개하는 시리즈 중 하나입니다. 이전 항목은 [방법: 미디어 프로세서 가져오기](http://go.microsoft.com/fwlink/?LinkID=301732&ampclcid=0x409)입니다.
 
-서버의 미디어 콘텐츠의 경우 Azure Media Encoder를 사용하여 다수의 미디어 인코딩 및 형식으로 콘텐츠를 인코드할 수 있습니다. 미디어 서비스 파트너가 제공하는 인코더, 즉 [Azure 마켓플레이스](https://datamarket.azure.com/)를 통해 사용할 수 있는 타사 인코더를 사용할 수도 있습니다. [인코더 기본 설정](http://msdn.microsoft.com/en-us/library/hh973610.aspx) 문자열이나 구성 파일을 사용하여 인코딩 작업의 세부 정보를 지정할 수 있습니다.
+서버의 미디어 콘텐츠의 경우 Azure Media Encoder를 사용하여 다수의 미디어 인코딩 및 형식으로 콘텐츠를 인코드할 수 있습니다. 미디어 서비스 파트너가 제공하는 인코더, 즉 [Azure 마켓플레이스](https://datamarket.azure.com/)를 통해 사용할 수 있는 타사 인코더를 사용할 수도 있습니다. [인코더 기본 설정](http://msdn.microsoft.com/ko-kr/library/hh973610.aspx) 문자열이나 구성 파일을 사용하여 인코딩 작업의 세부 정보를 지정할 수 있습니다.
 
 MP4로 인코드
 ------------
@@ -109,9 +109,9 @@ MP4로 인코드
 -   곧바로 부드러운 스트리밍으로 인코드
 -   MP4로 인코드한 후 부드러운 스트리밍으로 변환
 
-곧바로 부드러운 스트리밍으로 인코드하려면 위에 나온 코드를 사용하고 부드러운 스트리밍 인코더 기본 설정 중 하나를 사용합니다. 인코더 기본 설정 전체 목록은 [Azure Media Encoder용 태스크 기본 설정 문자열](http://msdn.microsoft.com/en-us/library/jj129582.aspx)(영문)을 참조하십시오.
+곧바로 부드러운 스트리밍으로 인코드하려면 위에 나온 코드를 사용하고 부드러운 스트리밍 인코더 기본 설정 중 하나를 사용합니다. 인코더 기본 설정 전체 목록은 [Azure Media Encoder용 태스크 기본 설정 문자열](http://msdn.microsoft.com/ko-kr/library/jj129582.aspx)(영문)을 참조하십시오.
 
-MP4를 부드러운 스트리밍으로 변환하려면 Azure Media Packager를 사용합니다. Azure Media Packager에서는 문자열 기본 설정이 지원되지 않으므로, XML에서 구성 옵션을 지정해야 합니다. MP4를 부드러운 스트리밍으로 변환하는 데 필요한 XML은 [Azure Media Packager용 태스크 기본 설정](http://msdn.microsoft.com/en-us/library/windowsazure/hh973635.aspx)에서 찾을 수 있습니다. XML을 복사하여 프로젝트에서 MediaPackager\_MP4ToSmooth.xml이라는 파일에 붙여넣습니다. 다음 코드는 MP4 자산을 부드러운 스트리밍으로 변환하는 방법을 보여 줍니다. 다음 메서드는 기존 자산을 변환합니다.
+MP4를 부드러운 스트리밍으로 변환하려면 Azure Media Packager를 사용합니다. Azure Media Packager에서는 문자열 기본 설정이 지원되지 않으므로, XML에서 구성 옵션을 지정해야 합니다. MP4를 부드러운 스트리밍으로 변환하는 데 필요한 XML은 [Azure Media Packager용 태스크 기본 설정](http://msdn.microsoft.com/ko-kr/library/windowsazure/hh973635.aspx)에서 찾을 수 있습니다. XML을 복사하여 프로젝트에서 MediaPackager\_MP4ToSmooth.xml이라는 파일에 붙여넣습니다. 다음 코드는 MP4 자산을 부드러운 스트리밍으로 변환하는 방법을 보여 줍니다. 다음 메서드는 기존 자산을 변환합니다.
 
 <pre><code>
 private static IJob ConvertMP4toSmooth(IAsset assetToConvert, string configFilePath)
@@ -153,17 +153,17 @@ private static IJob ConvertMP4toSmooth(IAsset assetToConvert, string configFileP
 
 자산 처리에 대한 자세한 내용은 다음을 참조하십시오.
 
--   [Media Services SDK for .NET을 사용하여 자산 처리(영문)](http://msdn.microsoft.com/en-us/library/jj129580.aspx)
--   [Media Services REST API를 사용하여 자산 처리(영문)](http://msdn.microsoft.com/en-us/library/jj129574.aspx)
+-   [Media Services SDK for .NET을 사용하여 자산 처리(영문)](http://msdn.microsoft.com/ko-kr/library/jj129580.aspx)
+-   [Media Services REST API를 사용하여 자산 처리(영문)](http://msdn.microsoft.com/ko-kr/library/jj129574.aspx)
 
 다음 단계
 ---------
 자산을 인코드하는 작업을 만드는 방법을 알아보았습니다. 이제 [미디어 서비스 작업 진행 상태를 확인하는 방법](http://go.microsoft.com/fwlink/?LinkID=301737&ampclcid=0x409) 항목으로 이동하십시오.
 
 [Azure Marketplace]: https://datamarket.azure.com/
-[Encoder Preset]: http://msdn.microsoft.com/en-us/library/hh973610.aspx
+[Encoder Preset]: http://msdn.microsoft.com/ko-kr/library/hh973610.aspx
 [How to: Get a Media Processor Instance]:http://go.microsoft.com/fwlink/?LinkId=301732
 [How to: Upload an Encrypted Asset]:http://go.microsoft.com/fwlink/?LinkId=301733
 [How to: Deliver an Asset by Download]:http://go.microsoft.com/fwlink/?LinkId=301734
 [How to Check Job Progress]:http://go.microsoft.com/fwlink/?LinkId=301737
-[Task Preset for Azure Media Packager]:http://msdn.microsoft.com/en-us/library/windowsazure/hh973635.aspx
+[Task Preset for Azure Media Packager]:http://msdn.microsoft.com/ko-kr/library/windowsazure/hh973635.aspx

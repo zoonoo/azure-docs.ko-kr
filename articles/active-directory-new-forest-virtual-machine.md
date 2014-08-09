@@ -138,18 +138,18 @@ DC 설치가 완료된 후 VM에 다시 연결하고 DC에 로그온합니다. �
 
 
 
-[1]: http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx
-[2]: http://msdn.microsoft.com/en-us/library/windowsazure/dn133795.aspx
-[3]: http://www.windowsazure.com/en-us/documentation/articles/virtual-networks-install-replica-active-directory-domain-controller/
-[4]: http://msdn.microsoft.com/en-us/library/windowsazure/jj156090.aspx
+[1]: http://msdn.microsoft.com/ko-kr/library/windowsazure/jj156007.aspx
+[2]: http://msdn.microsoft.com/ko-kr/library/windowsazure/dn133795.aspx
+[3]: http://www.windowsazure.com/ko-kr/documentation/articles/virtual-networks-install-replica-active-directory-domain-controller/
+[4]: http://msdn.microsoft.com/ko-kr/library/windowsazure/jj156090.aspx
 [5]: http://www.microsoft.com/en-us/download/details.aspx?id=41684
 [6]: https://manage.windowsazure.com
-[7]: http://msdn.microsoft.com/en-us/library/windowsazure/dn630228.aspx
+[7]: http://msdn.microsoft.com/ko-kr/library/windowsazure/dn630228.aspx
 [8]: http://technet.microsoft.com/library/jj574166.aspx
-[9]: http://www.windowsazure.com/en-us/manage/services/networking/create-a-virtual-network/
-[10]: http://www.windowsazure.com/en-us/documentation/articles/virtual-networks-create-site-to-site-cross-premises-connectivity/
-[11]: http://www.windowsazure.com/en-us/documentation/articles/install-configure-powershell/
-[12]: http://msdn.microsoft.com/en-us/library/windowsazure/jj156055.aspx
-[13]: http://msdn.microsoft.com/en-us/library/windowsazure/jj152841
+[9]: http://www.windowsazure.com/ko-kr/manage/services/networking/create-a-virtual-network/
+[10]: http://www.windowsazure.com/ko-kr/documentation/articles/virtual-networks-create-site-to-site-cross-premises-connectivity/
+[11]: http://www.windowsazure.com/ko-kr/documentation/articles/install-configure-powershell/
+[12]: http://msdn.microsoft.com/ko-kr/library/windowsazure/jj156055.aspx
+[13]: http://msdn.microsoft.com/ko-kr/library/windowsazure/jj152841
 [14]: http://windowsitpro.com/windows-azure/set-azure-vm-static-ip-address
 [15]: http://technet.microsoft.com/en-us/library/hh831734.aspx

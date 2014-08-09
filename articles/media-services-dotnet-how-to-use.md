@@ -9,7 +9,7 @@ OData 기반 REST API를 사용하여 미디어 서비스를 프로그래밍할 
 
 미디어 서비스 REST API 또는 미디어 서비스 SDK를 사용하여 프로그래밍을 시작하려면 먼저 [미디어 서비스에 대한 Azure 계정 설정](#setup-account) 섹션에 설명된 대로 미디어 서비스에 Azure 계정을 사용하도록 설정합니다.
 
-최신 미디어 서비스 SDK 설명서는 [여기](http://msdn.microsoft.com/en-us/library/hh973613.aspx)에 있습니다.
+최신 미디어 서비스 SDK 설명서는 [여기](http://msdn.microsoft.com/ko-kr/library/hh973613.aspx)에 있습니다.
 
 미디어 서비스 정의
 ------------------
@@ -28,7 +28,7 @@ Azure 미디어 서비스는 Microsoft Media Platform 및 타사 미디어 구�
 -   **인코딩**. 인코딩 작업에는 미디어 자산 인코딩, 변형 및 변환이 포함됩니다. Azure 미디어 인코더를 사용하여 클라우드에서 인코딩 작업을 실행할 수 있습니다. 인코딩 옵션은 다음과 같습니다.
     -   Azure 미디어 인코더를 사용하고 업계 최고의 IIS 부드러운 스트리밍, MP4, Apple HTTP 라이브 스트리밍으로 변환 등의 다양한 표준 코덱 및 형식으로 작업
     -   입력과 출력을 총체적으로 제어하여 전체 라이브러리 또는 개별 파일 변환
-    -   지원되는 다양한 파일 형식, 형식 및 코덱 집합([미디어 서비스에 대해 지원되는 파일 형식](http://msdn.microsoft.com/en-us/library/hh973634))
+    -   지원되는 다양한 파일 형식, 형식 및 코덱 집합([미디어 서비스에 대해 지원되는 파일 형식](http://msdn.microsoft.com/ko-kr/library/hh973634))
     -   지원되는 형식 변환. 미디어 서비스를 통해 ISO MP4(.mp4)를 부드러운 스트리밍 파일 형식(PIFF 1.3)(.ismv; .isma)으로 변환할 수 있습니다. 부드러운 스트리밍 파일 형식(PIFF)을 Apple HTTP 라이브 스트리밍(.msu8, .ts)으로 변환할 수도 있습니다.
 -   **보호**. 콘텐츠 보호는 보안 전송, 저장소 및 전달을 위해 라이브 스트리밍 또는 주문형 콘텐츠를 암호화하는 작업입니다. 미디어 서비스는 콘텐츠 보호를 위해 DRM 기술을 알 수 없는 솔루션을 제공합니다. 현재 지원되는 DRM 기술은 Microsoft PlayReady 및 MPEG Common Encryption입니다. 추가 DRM 기술도 지원될 예정입니다.
 -   **스트림**. 콘텐츠 스트리밍은 라이브 또는 주문형으로 콘텐츠를 클라이언트에 보내는 작업입니다. 또는 클라우드에서 특정 미디어 파일을 다운로드할 수 있습니다. 미디어 서비스는 콘텐츠 스트리밍을 위해 형식을 알 수 없는 솔루션을 제공합니다. 미디어 서비스는 스트리밍과 관련해서 부드러운 스트리밍, Apple HTTP 라이브 스트리밍 및 MP4 형식을 지원합니다. 추가 형식도 지원될 예정입니다. 수백만 명의 사용자로 확장하는 옵션을 지원하는 타사 CDN을 사용하여 스트리밍 콘텐츠를 매끄럽게 제공할 수도 있습니다.
@@ -78,7 +78,7 @@ PC 및 Mac의 경우 Microsoft Silverlight 또는 Adobe Open Source Media Framew
 
 Windows 8의 경우 HTML, Javascript, XAML, C\#, C+ 등의 지원되는 개발 언어와 구문을 사용하여 Windows 스토어 응용 프로그램을 빌드할 수 있습니다.
 
--   [Smooth Streaming Client SDK for Windows 8](http://go.microsoft.com/fwlink/?LinkID=246146). 이 SDK를 사용하여 Windows 스토어 응용 프로그램을 만드는 방법에 대한 자세한 내용은 [부드러운 스트리밍 Windows 스토어 응용 프로그램을 빌드하는 방법](http://go.microsoft.com/fwlink/?LinkId=271647)(영문)을 참조하십시오. HTML5로 부드러운 스트리밍 플레이어를 만드는 방법에 대한 자세한 내용은 [연습: 첫 번째 HTML5 부드러운 스트리밍 플레이어 빌드](http://msdn.microsoft.com/en-us/library/jj573656(v=vs.90).aspx)(영문)를 참조하십시오.
+-   [Smooth Streaming Client SDK for Windows 8](http://go.microsoft.com/fwlink/?LinkID=246146). 이 SDK를 사용하여 Windows 스토어 응용 프로그램을 만드는 방법에 대한 자세한 내용은 [부드러운 스트리밍 Windows 스토어 응용 프로그램을 빌드하는 방법](http://go.microsoft.com/fwlink/?LinkId=271647)(영문)을 참조하십시오. HTML5로 부드러운 스트리밍 플레이어를 만드는 방법에 대한 자세한 내용은 [연습: 첫 번째 HTML5 부드러운 스트리밍 플레이어 빌드](http://msdn.microsoft.com/ko-kr/library/jj573656(v=vs.90).aspx)(영문)를 참조하십시오.
 
 -   [Microsoft Media Platform: Windows 8 Windows 스토어 응용 프로그램용 플레이어 프레임워크](http://playerframework.codeplex.com/wikipage?title=Player%20Framework%20for%20Windows%208%20Metro%20Style%20Apps&referringTitle=Home)
 

@@ -83,7 +83,7 @@ Azure 서비스 구성에서 연결 문자열을 구성하려면
         </appSettings>
     </configuration>
 
-저장소 연결 문자열에 대한 자세한 내용은 [연결 문자열 구성](http://msdn.microsoft.com/en-us/library/windowsazure/ee758697.aspx)을 참조하십시오.
+저장소 연결 문자열에 대한 자세한 내용은 [연결 문자열 구성](http://msdn.microsoft.com/ko-kr/library/windowsazure/ee758697.aspx)을 참조하십시오.
 
 이제 이 가이드의 방법 작업을 수행할 준비가 되었습니다.
 
@@ -103,7 +103,7 @@ Azure 서비스 구성에서 연결 문자열을 구성하려면
 큐 만들기방법: 큐 만들기
 ------------------------
 
-**CloudQueueClient** 개체를 통해 큐에 대한 참조 개체를 가져올 수 있습니다. 다음 코드는 **CloudQueueClient** 개체를 만듭니다. 이 가이드의 모든 코드는 Azure 응용 프로그램의 서비스 구성에 저장된 저장소 연결 문자열을 사용합니다. **CloudStorageAccount** 개체를 만드는 다른 방법도 있습니다. 자세한 내용은 [CloudStorageAccount](http://msdn.microsoft.com/en-us/library/microsoft.windowsazure.cloudstorageaccount_methods.aspx) 설명서를 참조하십시오.
+**CloudQueueClient** 개체를 통해 큐에 대한 참조 개체를 가져올 수 있습니다. 다음 코드는 **CloudQueueClient** 개체를 만듭니다. 이 가이드의 모든 코드는 Azure 응용 프로그램의 서비스 구성에 저장된 저장소 연결 문자열을 사용합니다. **CloudStorageAccount** 개체를 만드는 다른 방법도 있습니다. 자세한 내용은 [CloudStorageAccount](http://msdn.microsoft.com/ko-kr/library/microsoft.windowsazure.cloudstorageaccount_methods.aspx) 설명서를 참조하십시오.
 
     // Retrieve storage account from connection string
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -268,9 +268,9 @@ Azure 서비스 구성에서 연결 문자열을 구성하려면
 이제 큐 저장소의 기본 사항을 배웠으므로 다음 링크를 따라 좀 더 복잡한 저장소 작업을 수행하는 방법을 알아보십시오.
 
 -   사용 가능한 API에 대한 자세한 내용은 큐 서비스 참조 설명서를 참조하십시오.
-    -   [.NET 클라이언트 라이브러리 참조](http://msdn.microsoft.com/en-us/library/windowsazure/wl_svchosting_mref_reference_home)
-    -   [REST API 참조](http://msdn.microsoft.com/en-us/library/windowsazure/dd179355)
--   Azure 저장소를 사용하여 수행할 수 있는 고급 작업에 대한 자세한 내용은 [Azure에 데이터 저장 및 액세스](http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx)를 참조하십시오.
+    -   [.NET 클라이언트 라이브러리 참조](http://msdn.microsoft.com/ko-kr/library/windowsazure/wl_svchosting_mref_reference_home)
+    -   [REST API 참조](http://msdn.microsoft.com/ko-kr/library/windowsazure/dd179355)
+-   Azure 저장소를 사용하여 수행할 수 있는 고급 작업에 대한 자세한 내용은 [Azure에 데이터 저장 및 액세스](http://msdn.microsoft.com/ko-kr/library/windowsazure/gg433040.aspx)를 참조하십시오.
 -   Azure에 데이터를 저장하기 위한 추가 옵션에 대한 자세한 내용은 추가 기능 가이드를 참조하십시오.
     -   [테이블 저장소](/en-us/develop/net/how-to-guides/table-services/)를 사용하여 구조화된 데이터를 저장합니다.
     -   [Blob 저장소](/en-us/develop/net/how-to-guides/blob-storage/)를 사용하여 구조화되지 않은 데이터를 저장합니다.

@@ -3,7 +3,7 @@
 알림 허브 시작
 ==============
 
-[Windows 스토어 C#](/en-us/manage/services/notification-hubs/getting-started-windows-dotnet "Windows 스토어 C#")[Windows Phone](/en-us/documentation/articles/notification-hubs-windows-phone-get-started/ "Windows Phone")[iOS](/en-us/documentation/articles/notification-hubs-ios-get-started/ "iOS")[Android](/en-us/documentation/articles/notification-hubs-android-get-started/ "Android")[Kindle](/en-us/documentation/articles/notification-hubs-kindle-get-started/ "Kindle")[Xamarin.iOS](/en-us/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/ "Xamarin.iOS")[Xamarin.Android](/en-us/documentation/articles/partner-xamarin-notification-hubs-android-get-started/ "Xamarin.Android")
+[Windows 스토어 C#](/en-us/manage/services/notification-hubs/getting-started-windows-dotnet "Windows 스토어 C#")[Windows Phone](/ko-kr/documentation/articles/notification-hubs-windows-phone-get-started/ "Windows Phone")[iOS](/ko-kr/documentation/articles/notification-hubs-ios-get-started/ "iOS")[Android](/ko-kr/documentation/articles/notification-hubs-android-get-started/ "Android")[Kindle](/ko-kr/documentation/articles/notification-hubs-kindle-get-started/ "Kindle")[Xamarin.iOS](/ko-kr/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/ "Xamarin.iOS")[Xamarin.Android](/ko-kr/documentation/articles/partner-xamarin-notification-hubs-android-get-started/ "Xamarin.Android")
 
 이 항목은 Azure 알림 허브를 사용하여 Windows Phone 8 응용 프로그램에 푸시 알림을 보내는 방법을 보여 줍니다. 이 자습서에서는 MPNS(Microsoft 푸시 알림 서비스)를 사용하여 푸시 알림을 받는 새 Windows Phone 8 앱을 만듭니다. 완료하면 알림 허브를 사용하여 앱을 실행하는 모든 장치로 푸시 알림을 브로드캐스트할 수 있습니다.
 
@@ -21,7 +21,7 @@
 
 **참고**
 
-이 자습서를 완료하려면 활성 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F)을 참조하십시오.
+이 자습서를 완료하려면 활성 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](http://www.windowsazure.com/ko-kr/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F)을 참조하십시오.
 
 알림 허브 만들기알림 허브 만들기
 --------------------------------
@@ -56,7 +56,7 @@
 
 **참고**
 
-이 자습서에서는 인증되지 않은 모드로 MPNS를 사용합니다. MPNS 인증되지 않은 모드에는 각 채널로 보낼 수 있는 알림에 대한 제한이 있습니다. 알림 허브는 [MPNS 인증된 모드](http://msdn.microsoft.com/en-us/library/windowsphone/develop/ff941099(v=vs.105).aspx)를 지원합니다.
+이 자습서에서는 인증되지 않은 모드로 MPNS를 사용합니다. MPNS 인증되지 않은 모드에는 각 채널로 보낼 수 있는 알림에 대한 제한이 있습니다. 알림 허브는 [MPNS 인증된 모드](http://msdn.microsoft.com/ko-kr/library/windowsphone/develop/ff941099(v=vs.105).aspx)를 지원합니다.
 
 앱 연결알림 허브에 앱 연결
 --------------------------
@@ -109,7 +109,7 @@
 알림 보내기백 엔드에서 알림 보내기
 ----------------------------------
 
-[REST 인터페이스](http://msdn.microsoft.com/en-us/library/windowsazure/dn223264.aspx)를 사용하여 모든 백 엔드에서 알림 허브를 사용하여 알림을 보낼 수 있습니다. 이 자습서에서는 .NET 콘솔 앱 및 노드 스크립트를 사용하는 모바일 서비스를 통해 알림을 보냅니다.
+[REST 인터페이스](http://msdn.microsoft.com/ko-kr/library/windowsazure/dn223264.aspx)를 사용하여 모든 백 엔드에서 알림 허브를 사용하여 알림을 보낼 수 있습니다. 이 자습서에서는 .NET 콘솔 앱 및 노드 스크립트를 사용하는 모바일 서비스를 통해 알림을 보냅니다.
 
 .NET 앱을 사용하여 알림을 보내려면
 
@@ -150,10 +150,10 @@
 
 6.  F5 키를 눌러 앱을 실행합니다. 그러면 알림 메시지가 수신되어야 합니다. Windows Phone 에뮬레이터가 실행 중이고 앱이 닫혔는지 확인합니다.
 
-MSDN의 [알림 카탈로그](http://msdn.microsoft.com/en-us/library/windowsphone/develop/jj662938(v=vs.105).aspx) 및 [타일 카탈로그](http://msdn.microsoft.com/en-us/library/windowsphone/develop/hh202948(v=vs.105).aspx)에서 가능한 모든 페이로드를 찾을 수 있습니다.
+MSDN의 [알림 카탈로그](http://msdn.microsoft.com/ko-kr/library/windowsphone/develop/jj662938(v=vs.105).aspx) 및 [타일 카탈로그](http://msdn.microsoft.com/ko-kr/library/windowsphone/develop/hh202948(v=vs.105).aspx)에서 가능한 모든 페이로드를 찾을 수 있습니다.
 
 다음 단계
 ---------
 
-이 간단한 예제에서는 모든 Windows Phone 8 장치로 알림을 브로드캐스트했습니다. 특정 사용자를 대상으로 하려면 [알림 허브를 사용하여 사용자에게 알림 푸시](/en-us/manage/services/notification-hubs/notify-users-aspnet)(영문) 자습서를 참조하십시오. 사용자를 관심 그룹별로 분할하려면 [알림 허브를 사용하여 뉴스 속보 보내기](/en-us/manage/services/notification-hubs/breaking-news-dotnet)(영문)를 참조하십시오. [알림 허브 지침](http://msdn.microsoft.com/en-us/library/jj927170.aspx)에서 알림 허브 사용 방법을 자세히 알아보십시오.
+이 간단한 예제에서는 모든 Windows Phone 8 장치로 알림을 브로드캐스트했습니다. 특정 사용자를 대상으로 하려면 [알림 허브를 사용하여 사용자에게 알림 푸시](/en-us/manage/services/notification-hubs/notify-users-aspnet)(영문) 자습서를 참조하십시오. 사용자를 관심 그룹별로 분할하려면 [알림 허브를 사용하여 뉴스 속보 보내기](/en-us/manage/services/notification-hubs/breaking-news-dotnet)(영문)를 참조하십시오. [알림 허브 지침](http://msdn.microsoft.com/ko-kr/library/jj927170.aspx)에서 알림 허브 사용 방법을 자세히 알아보십시오.
 

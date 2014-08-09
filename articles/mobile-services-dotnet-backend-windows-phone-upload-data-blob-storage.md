@@ -23,7 +23,7 @@
 -   Microsoft Visual Studio용 Nuget 패키지 관리자 설치
 -   [Azure 저장소 계정](/en-us/manage/services/storage/how-to-create-a-storage-account)
 
-이 자습서는 모바일 서비스 퀵 스타트를 기반으로 합니다. 이 자습서를 시작하기 전에 먼저 [모바일 서비스 시작하기](/en-us/documentation/articles/mobile-services-windows-phone-get-started)를 완료해야 합니다.
+이 자습서는 모바일 서비스 퀵 스타트를 기반으로 합니다. 이 자습서를 시작하기 전에 먼저 [모바일 서비스 시작하기](/ko-kr/documentation/articles/mobile-services-windows-phone-get-started)를 완료해야 합니다.
 
 Windows 스토어 앱용 저장소 클라이언트 설치
 ------------------------------------------
@@ -54,7 +54,7 @@ TodoItem 컨트롤러를 업데이트하여 공유 액세스 서명 생성
 
     SendGrid 전자 메일 서비스를 사용해 모바일 서비스에 전자 메일 기능을 추가하는 방법에 대해 알아보십시오. 이 항목에서는 SendGrid를 사용해 전자 메일을 보내기 위해 서버 쪽 스크립트를 추가하는 방법에 대해 설명합니다.
 
--   [모바일 서비스에서 백 엔드 작업 예약](/en-us/documentation/articles/mobile-services-dotnet-backend-schedule-recurring-tasks)
+-   [모바일 서비스에서 백 엔드 작업 예약](/ko-kr/documentation/articles/mobile-services-dotnet-backend-schedule-recurring-tasks)
 
     모바일 서비스 작업 스케줄러 기능을 사용하여, 예약된 시간에 실행되는 서버 스크립트 코드를 정의하는 방법에 대해 알아보십시오.
 

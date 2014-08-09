@@ -36,7 +36,7 @@
 	-   [Facebook 로그인](/en-us/develop/mobile/how-to-guides/register-for-facebook-authentication/)
 	-   [Twitter 로그인](/en-us/develop/mobile/how-to-guides/register-for-twitter-authentication/)
 	-   [Google 로그인](/en-us/develop/mobile/how-to-guides/register-for-google-authentication/)
-	-   [Azure Active Directory](/en-us/documentation/articles/mobile-services-how-to-register-active-directory-authentication/)
+	-   [Azure Active Directory](/ko-kr/documentation/articles/mobile-services-how-to-register-active-directory-authentication/)
 
     	공급자가 생성한 클라이언트 ID 및 암호 값을 기록해 두어야 합니다.
 

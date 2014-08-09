@@ -61,7 +61,7 @@ Azure에서 응용 프로그램 준비
 추가 리소스
 -----------
 
--   [Azure에서 VIP를 교환하여 프로덕션에 서비스 업그레이드를 배포하는 방법](http://msdn.microsoft.com/en-us/library/windowsazure/ee517253.aspx)
--   [Azure의 배포 관리 개요](http://msdn.microsoft.com/en-us/library/windowsazure/hh386336.aspx)
+-   [Azure에서 VIP를 교환하여 프로덕션에 서비스 업그레이드를 배포하는 방법](http://msdn.microsoft.com/ko-kr/library/windowsazure/ee517253.aspx)
+-   [Azure의 배포 관리 개요](http://msdn.microsoft.com/ko-kr/library/windowsazure/hh386336.aspx)
 
 

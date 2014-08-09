@@ -80,5 +80,5 @@ Windows 컴퓨터를 사용하는 경우 PuTTY를 사용하여 VM에 연결합�
 
 [1]: http://go.microsoft.com/fwlink/p/?LinkID=294063
 [2]: http://manage.windowsazure.com
-[3]: http://msdn.microsoft.com/en-us/library/ms161962.aspx
+[3]: http://msdn.microsoft.com/ko-kr/library/ms161962.aspx
 [4]: http://www.puttyssh.org/download.html

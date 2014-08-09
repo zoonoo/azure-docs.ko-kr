@@ -11,7 +11,7 @@
 
 ![Wordpress 블로그](./media/website-from-gallery/wordpressgallery-09.png)
 <div class="dev-callout"><strong>참고</strong>
-<p>이 자습서를 완료하려면 Azure 계정이 필요합니다. 몇 분 만에 무료 체험 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://www.windowsazure.com/en-us/develop/php/tutorials/create-a-windows-azure-account/" target="_blank">Azure 계정 만들기</a>(영문)를 참조하십시오.</p>
+<p>이 자습서를 완료하려면 Azure 계정이 필요합니다. 몇 분 만에 무료 체험 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://www.windowsazure.com/ko-kr/develop/php/tutorials/create-a-windows-azure-account/" target="_blank">Azure 계정 만들기</a>(영문)를 참조하십시오.</p>
 </div>
 
 ## 포털에서 웹 사이트 만들기

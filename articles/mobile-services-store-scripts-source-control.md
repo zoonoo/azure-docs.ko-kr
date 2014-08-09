@@ -75,7 +75,7 @@
 
 7.  .\\service\\table 하위 폴더를 열면 TodoItem 테이블에 대한 작업 권한이 JSON으로 표현된 TodoItem.json 파일이 포함된 것이 확인됩니다.
 
-    이 테이블에 대해 서버 스크립트가 정의되어 있다면 주어진 테이블 작업에 대한 스크립트가 포함된 `TodoItem._<operation>_.js`라는 파일이 한 개 이상 있습니다. 스케줄러 및 사용자 지정 API 스크립트는 개별 이름을 사용하여 별도의 폴더에 유지됩니다. 자세한 내용은 [원본 제어](http://msdn.microsoft.com/en-us/library/windowsazure/c25aaede-c1f0-4004-8b78-113708761643)를 참조하십시오.
+    이 테이블에 대해 서버 스크립트가 정의되어 있다면 주어진 테이블 작업에 대한 스크립트가 포함된 `TodoItem._<operation>_.js`라는 파일이 한 개 이상 있습니다. 스케줄러 및 사용자 지정 API 스크립트는 개별 이름을 사용하여 별도의 폴더에 유지됩니다. 자세한 내용은 [원본 제어](http://msdn.microsoft.com/ko-kr/library/windowsazure/c25aaede-c1f0-4004-8b78-113708761643)를 참조하십시오.
 
 지금까지 로컬 리포지토리를 만들었습니다. 이제 서버 스크립트를 변경하고 변경 내용을 다시 모바일 서비스에 밀어 넣을 수 있습니다.
 
@@ -184,7 +184,7 @@
 
 <!-- URLs. -->
 [Git website]: http://git-scm.com
-[Source control]: http://msdn.microsoft.com/en-us/library/windowsazure/c25aaede-c1f0-4004-8b78-113708761643
+[Source control]: http://msdn.microsoft.com/ko-kr/library/windowsazure/c25aaede-c1f0-4004-8b78-113708761643
 [Installing Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 [Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started
 [Get started with data]: /en-us/develop/mobile/tutorials/get-started-with-data-dotnet

@@ -159,7 +159,7 @@ Azure 패키지를 빌드하도록 TFS를 구성하려면 다음 단계를 수�
     
         Add-AzureCertificate -serviceName 'mytestcloudservice' -certToDeploy (get-item cert:\CurrentUser\MY\C33B6C432C25581601B84C80F86EC2809DC224E8
     
-    또는 개인 키로 인증서 파일 PFX를 내보내고 Azure 관리 포털을 사용하여 각 대상 클라우드 서비스에 인증서를 업로드할 수 있습니다. 자세한 내용은 [http://msdn.microsoft.com/en-us/library/windowsazure/gg443832.aspx][]에서 확인할 수 있습니다.
+    또는 개인 키로 인증서 파일 PFX를 내보내고 Azure 관리 포털을 사용하여 각 대상 클라우드 서비스에 인증서를 업로드할 수 있습니다. 자세한 내용은 [http://msdn.microsoft.com/ko-kr/library/windowsazure/gg443832.aspx][]에서 확인할 수 있습니다.
     
     **배포 업그레이드 및 배포 삭제 -> 새 배포**
     
@@ -576,7 +576,7 @@ Write-Output "$(Get-Date -f $timeStampFormat) - Azure Cloud Service deploy scrip
   [Azure Authoring Tools]: http://go.microsoft.com/fwlink/?LinkId=239600
   [Azure 라이브러리][]: http://go.microsoft.com/fwlink/?LinkId=257862
   [Azure Tools for Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=257862
-  [MSBuild Command Line Reference]: http://msdn.microsoft.com/en-us/library/ms164311(v=VS.90).aspx
+  [MSBuild Command Line Reference]: http://msdn.microsoft.com/ko-kr/library/ms164311(v=VS.90).aspx
   [1]: http://go.microsoft.com/fwlink/p/?LinkId=239966
   [Understanding the Team Foundation Build System]: http://go.microsoft.com/fwlink/?LinkId=238798
   [Configure a Build Machine]: http://go.microsoft.com/fwlink/?LinkId=238799

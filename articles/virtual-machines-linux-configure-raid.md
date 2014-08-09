@@ -1,4 +1,4 @@
-<properties linkid="manage-linux-howto-configure-raid" urlDisplayName="Configure RAID on Linux" pageTitle="Configure software RAID on avirtual machine running Linux in Azure" metaKeywords="raid in Azure, madadm Azure, stripe disks in Azure" description="Learn how to use mdadm to configure RAID on Linux in Azure." metaCanonical="http://www.windowsazure.com/en-us/manage/linux/articles/virtual-machines-linux-configure-raid" services="virtual-machines" documentationCenter="" title="" authors="szark" solutions="" writer="" manager="" editor="" />
+<properties linkid="manage-linux-howto-configure-raid" urlDisplayName="Configure RAID on Linux" pageTitle="Configure software RAID on avirtual machine running Linux in Azure" metaKeywords="raid in Azure, madadm Azure, stripe disks in Azure" description="Learn how to use mdadm to configure RAID on Linux in Azure." metaCanonical="http://www.windowsazure.com/ko-kr/manage/linux/articles/virtual-machines-linux-configure-raid" services="virtual-machines" documentationCenter="" title="" authors="szark" solutions="" writer="" manager="" editor="" />
 
 Linux에서 소프트웨어 RAID 구성
 ==============================
@@ -8,9 +8,9 @@ Azure에서 Linux 가상 컴퓨터의 소프트웨어 RAID를 사용하여 연�
 데이터 디스크 연결
 ------------------
 
-RAID 장치를 구성하는 데 일반적으로 두 개 이상의 빈 데이터 디스크가 필요합니다. 이 문서에서는 Linux 가상 컴퓨터에 데이터 디스크를 연결하는 방법은 자세히 다루지 않습니다. Azure에서 빈 데이터 디스크를 Linux 가상 컴퓨터에 연결하는 방법에 대한 자세한 내용은 Azure 문서 [디스크 연결](http://www.windowsazure.com/en-us/documentation/articles/storage-windows-attach-disk/#attachempty)을 참조하십시오.
+RAID 장치를 구성하는 데 일반적으로 두 개 이상의 빈 데이터 디스크가 필요합니다. 이 문서에서는 Linux 가상 컴퓨터에 데이터 디스크를 연결하는 방법은 자세히 다루지 않습니다. Azure에서 빈 데이터 디스크를 Linux 가상 컴퓨터에 연결하는 방법에 대한 자세한 내용은 Azure 문서 [디스크 연결](http://www.windowsazure.com/ko-kr/documentation/articles/storage-windows-attach-disk/#attachempty)을 참조하십시오.
 
->[WACOM.NOTE] ExtraSmall VM 크기는 가상 컴퓨터에 연결된 2개 이상의 데이터 디스크를 지원하지 않습니다.  VM 크기 및 지원되는 데이터 디스크 수에 대한 자세한 내용은 [Azure를 위한 가상 컴퓨터 및 클라우드 서비스 크기](http://msdn.microsoft.com/en-us/library/windowsazure/dn197896.aspx)를 참조하십시오.
+>[WACOM.NOTE] ExtraSmall VM 크기는 가상 컴퓨터에 연결된 2개 이상의 데이터 디스크를 지원하지 않습니다.  VM 크기 및 지원되는 데이터 디스크 수에 대한 자세한 내용은 [Azure를 위한 가상 컴퓨터 및 클라우드 서비스 크기](http://msdn.microsoft.com/ko-kr/library/windowsazure/dn197896.aspx)를 참조하십시오.
 
 mdadm 유틸리티 설치
 -------------------

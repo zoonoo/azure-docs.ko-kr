@@ -394,20 +394,20 @@ Management Studio를 사용하여 Azure 가상 컴퓨터에서 실행 중인 SQL
 
 
 [1]: http://manage.windowsazure.com
-[2]: http://www.windowsazure.com/en-us/pricing/free-trial/
+[2]: http://www.windowsazure.com/ko-kr/pricing/free-trial/
 [3]: http://go.microsoft.com/fwlink/p/?LinkId=294719
 [4]: http://go.microsoft.com/fwlink/p/?LinkId=294720
 [5]: http://go.microsoft.com/fwlink/p/?LinkId=294738
 [6]: http://msdn.microsoft.com/library/cc707783.aspx
-[7]: http://www.windowsazure.com/en-us/pricing/license-mobility/
+[7]: http://www.windowsazure.com/ko-kr/pricing/license-mobility/
 [8]: http://www.microsoft.com/en-us/sqlserver/get-sql-server/how-to-buy.aspx
 [9]: http://msdn.microsoft.com/library/ms161962.aspx
 [10]: http://go.microsoft.com/fwlink/p/?LinkId=294819
-[11]: http://msdn.microsoft.com/en-us/library/cc646023.aspx
-[12]: http://msdn.microsoft.com/en-us/library/ms191294.aspx
+[11]: http://msdn.microsoft.com/ko-kr/library/cc646023.aspx
+[12]: http://msdn.microsoft.com/ko-kr/library/ms191294.aspx
 [13]: http://go.microsoft.com/fwlink/?LinkId=294719
 [14]: http://go.microsoft.com/fwlink/?LinkId=294723
-[15]: http://msdn.microsoft.com/en-us/library/aa337562.aspx
+[15]: http://msdn.microsoft.com/ko-kr/library/aa337562.aspx
 [16]: http://social.technet.microsoft.com/wiki/contents/articles/how-to-troubleshoot-connecting-to-the-sql-server-database-engine.aspx
 [17]: http://go.microsoft.com/fwlink/p/?LinkId=294721
 [18]: http://go.microsoft.com/fwlink/p/?LinkId=294722

@@ -18,7 +18,7 @@
 
 -   Microsoft Visual Studio 2012 Express for Windows 이상
 -   이 자습서는 모바일 서비스 quickstart를 기반으로 합니다. 이 자습서를 시작하기 전에 먼저 [모바일 서비스 시작하기](/en-us/develop/mobile/tutorials/get-started)를 완료해야 합니다.
--   [Azure 계정](http://www.windowsazure.com/en-us/pricing/free-trial/)
+-   [Azure 계정](http://www.windowsazure.com/ko-kr/pricing/free-trial/)
 -   Azure 모바일 서비스 NuGet 패키지 1.1.0 이상. 최신 버전을 얻으려면 아래 단계를 따르십시오.
     1.  Visual Studio에서 프로젝트를 열고 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **Nuget 패키지 관리**를 클릭합니다.
 

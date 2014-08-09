@@ -137,8 +137,8 @@ Code First 마이그레이션에서는 스냅숏 방법을 사용하여 데이�
 이 코드는 [AddOrUpdate] 도우미 확장 메서드를 호출하여 새 UserId 열에 시드 데이터를 추가합니다. [AddOrUpdate]를 사용하면 중복 행이 생성되지 않습니다.
 
 [DropCreateDatabaseIfModelChanges]: http://msdn.microsoft.com/query/dev12.query?appId=Dev12IDEF1&l=EN-US&k=k("System.Data.Entity.DropCreateDatabaseIfModelChanges\`1");k(TargetFrameworkMoniker-.NETFramework,Version%3Dv4.5);k(DevLang-csharp)&rd=true 
-[Seed]: http://msdn.microsoft.com/en-us/library/hh829453(v=vs.113).aspx 
+[Seed]: http://msdn.microsoft.com/ko-kr/library/hh829453(v=vs.113).aspx 
 [Azure Management Portal]: https://manage.windowsazure.com/ 
-[DbContext]: http://msdn.microsoft.com/en-us/library/system.data.entity.dbcontext(v=vs.113).aspx 
-[AddOrUpdate]: http://msdn.microsoft.com/en-us/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx
+[DbContext]: http://msdn.microsoft.com/ko-kr/library/system.data.entity.dbcontext(v=vs.113).aspx 
+[AddOrUpdate]: http://msdn.microsoft.com/ko-kr/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx
 

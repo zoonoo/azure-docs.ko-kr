@@ -7,7 +7,7 @@ Socket.IO는 node.js 서버와 클라이언트 간의 실시간 통신을 제공
 
 **참고**
 
-이 작업의 절차는 Azure 웹 사이트에 적용됩니다. 클라우드 서비스에 대해서는 [Azure 클라우드 서비스에서 Socket.IO를 사용하여 Node.js 채팅 응용 프로그램 빌드](http://www.windowsazure.com/en-us/develop/nodejs/tutorials/app-using-socketio/)를 참조하십시오.
+이 작업의 절차는 Azure 웹 사이트에 적용됩니다. 클라우드 서비스에 대해서는 [Azure 클라우드 서비스에서 Socket.IO를 사용하여 Node.js 채팅 응용 프로그램 빌드](http://www.windowsazure.com/ko-kr/develop/nodejs/tutorials/app-using-socketio/)를 참조하십시오.
 
 아래에는 완성된 응용 프로그램의 스크린샷이 표시되어 있습니다.
 
@@ -68,7 +68,7 @@ Azure 웹 사이트 만들기 및 Git 게시 사용
 
 **참고**
 
-이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A7171371E)을 참조하십시오.
+이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](http://www.windowsazure.com/ko-kr/pricing/free-trial/?WT.mc_id=A7171371E)을 참조하십시오.
 
 1.  명령줄에서 **\\node\\chat**로 디렉터리를 변경하고 다음 명령을 사용하여 새 Azure 웹 사이트를 만들고 해당 웹 사이트 및 로컬 디렉터리에 대해 Git 리포지토리를 사용하도록 설정합니다. 그렇게 하면 'azure'라는 Git 원격이 만들어집니다.
 

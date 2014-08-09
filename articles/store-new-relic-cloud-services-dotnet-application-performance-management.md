@@ -17,7 +17,7 @@ Azure 스토어에서 제공하는 New Relic의 특별 가격
 
 New Relic Standard는 Azure 사용자에게 무료이며, New Relic Pro는 Azure 클라우드 서비스의 인스턴스 크기에 따라 제공됩니다.
 
-가격 책정 정보는 [Azure 스토어의 New Relic 페이지](http://www.windowsazure.com/en-us/gallery/store/new-relic/new-relic/)(영문)를 참조하십시오.
+가격 책정 정보는 [Azure 스토어의 New Relic 페이지](http://www.windowsazure.com/ko-kr/gallery/store/new-relic/new-relic/)(영문)를 참조하십시오.
 
 **참고:**
 

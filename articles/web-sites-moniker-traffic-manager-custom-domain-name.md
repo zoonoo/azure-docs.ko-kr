@@ -3,9 +3,9 @@
 트래픽 관리자를 사용하는 Azure 웹 사이트에 대한 사용자 지정 도메인 이름 구성(Moniker)
 =====================================================================================
 
-[사용자 지정 도메인](/en-us/documentation/articles/web-sites-custom-domain-name "사용자 지정 도메인")[GoDaddy](/en-us/documentation/articles/web-sites-godaddy-custom-domain-name "GoDaddy")[Network Solutions](/en-us/documentation/articles/web-sites-network-solutions-custom-domain-name "Network Solutions")[Register.com](/en-us/documentation/articles/web-sites-registerdotcom-custom-domain-name "Register.com")[Enom](/en-us/documentation/articles/web-sites-enom-custom-domain-name "Enom")[Moniker](/en-us/documentation/articles/web-sites-moniker-custom-domain-name "Moniker")[Dotster](/en-us/documentation/articles/web-sites-dotster-custom-domain-name "Dotster")[DomainDiscover](/en-us/documentation/articles/web-sites-domaindiscover-custom-domain-name "DomainDiscover")[Directnic](/en-us/documentation/articles/web-sites-directnic-custom-domain-name "Directnic")
+[사용자 지정 도메인](/ko-kr/documentation/articles/web-sites-custom-domain-name "사용자 지정 도메인")[GoDaddy](/ko-kr/documentation/articles/web-sites-godaddy-custom-domain-name "GoDaddy")[Network Solutions](/ko-kr/documentation/articles/web-sites-network-solutions-custom-domain-name "Network Solutions")[Register.com](/ko-kr/documentation/articles/web-sites-registerdotcom-custom-domain-name "Register.com")[Enom](/ko-kr/documentation/articles/web-sites-enom-custom-domain-name "Enom")[Moniker](/ko-kr/documentation/articles/web-sites-moniker-custom-domain-name "Moniker")[Dotster](/ko-kr/documentation/articles/web-sites-dotster-custom-domain-name "Dotster")[DomainDiscover](/ko-kr/documentation/articles/web-sites-domaindiscover-custom-domain-name "DomainDiscover")[Directnic](/ko-kr/documentation/articles/web-sites-directnic-custom-domain-name "Directnic")
 
-[웹 사이트](/en-us/documentation/articles/web-sites-moniker-custom-domain-name/ "웹 사이트") | [트래픽 관리자를 사용하는 웹 사이트](/en-us/documentation/articles/web-sites-moniker-traffic-manager-custom-domain-name/ "트래픽 관리자를 사용하는 웹 사이트")
+[웹 사이트](/ko-kr/documentation/articles/web-sites-moniker-custom-domain-name/ "웹 사이트") | [트래픽 관리자를 사용하는 웹 사이트](/ko-kr/documentation/articles/web-sites-moniker-traffic-manager-custom-domain-name/ "트래픽 관리자를 사용하는 웹 사이트")
 
 [WACOM.INCLUDE [intro](../includes/custom-dns-web-site-intro-traffic-manager.md)]
 

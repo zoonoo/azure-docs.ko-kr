@@ -246,4 +246,4 @@ SQL 데이터베이스는 개별 데이터베이스를 모니터링할 수 있�
 
 
 
-[1]: http://www.windowsazure.com/en-us/develop/net/how-to-guides/sql-azure/
+[1]: http://www.windowsazure.com/ko-kr/develop/net/how-to-guides/sql-azure/

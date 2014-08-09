@@ -15,7 +15,7 @@
   프로비전](/en-us/manage/services/hdinsight/provision-hdinsight-clusters/)을
   참조하십시오.
 * Azure PowerShell을 설치하고 구성합니다. 자세한 내용은 [Azure PowerShell 설치 및
-  구성](/en-us/documentation/articles/install-configure-powershell/)을
+  구성](/ko-kr/documentation/articles/install-configure-powershell/)을
   참조하십시오.
 
 ## 이 문서에서는 다음을 수행합니다.
@@ -47,7 +47,7 @@ Hadoop MapReduce는 방대한 양의 데이터를 처리하는 응용 프로그�
 
 1.  **Azure PowerShell**을 엽니다. Azure PowerShell 콘솔 창을 여는 방법에 대한 지침은
     [Azure PowerShell 설치 및
-    구성](/en-us/documentation/articles/install-configure-powershell/)을
+    구성](/ko-kr/documentation/articles/install-configure-powershell/)을
     참조하십시오.
 
 2.  다음 PowerShell 명령을 실행하여 두 변수를 설정합니다.
@@ -146,7 +146,7 @@ HDInsight 클러스터는 *hivesampletable*이라는 샘플 Hive 테이블과 �
 
 1.  **Azure PowerShell**을 엽니다. Azure PowerShell 콘솔 창을 여는 방법에 대한 지침은
     [Azure PowerShell 설치 및
-    구성](/en-us/documentation/articles/install-configure-powershell/)을
+    구성](/ko-kr/documentation/articles/install-configure-powershell/)을
     참조하십시오.
 
 2.  다음 명령에서 처음 2개 변수를 설정한 후 명령을 실행합니다.
@@ -535,5 +535,5 @@ Visual Studio에 응용 프로그램이 열려 있을 때 **F5**를 눌러 응�
 [1]: http://hive.apache.org/
 [2]: http://nuget.codeplex.com/wikipage?title=Getting%20Started
 [3]: http://manage.windowsazure.com/
-[4]: http://msdn.microsoft.com/en-us/library/windowsazure/gg551722.aspx
-[5]: http://msdn.microsoft.com/en-us/library/windowsazure/dn479228.aspx
+[4]: http://msdn.microsoft.com/ko-kr/library/windowsazure/gg551722.aspx
+[5]: http://msdn.microsoft.com/ko-kr/library/windowsazure/dn479228.aspx

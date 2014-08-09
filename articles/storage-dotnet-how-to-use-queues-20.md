@@ -345,12 +345,12 @@ NuGet을 통해 코드 프로젝트에서 참조할 수 있습니다. 특정 ODa
 
 
 
-[1]: http://msdn.microsoft.com/en-us/library/windowsazure/ee758697.aspx
-[2]: http://www.windowsazure.com/en-us/develop/net/#
+[1]: http://msdn.microsoft.com/ko-kr/library/windowsazure/ee758697.aspx
+[2]: http://www.windowsazure.com/ko-kr/develop/net/#
 [3]: http://nuget.org/packages/Microsoft.Data.OData/5.0.2
 [4]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
 [5]: http://nuget.org/packages/System.Spatial/5.0.2
-[6]: http://msdn.microsoft.com/en-us/library/microsoft.windowsazure.cloudstorageaccount_methods.aspx
-[7]: http://msdn.microsoft.com/en-us/library/windowsazure/dn495001(v=azure.10).aspx
-[8]: http://msdn.microsoft.com/en-us/library/windowsazure/dd179355
-[9]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
+[6]: http://msdn.microsoft.com/ko-kr/library/microsoft.windowsazure.cloudstorageaccount_methods.aspx
+[7]: http://msdn.microsoft.com/ko-kr/library/windowsazure/dn495001(v=azure.10).aspx
+[8]: http://msdn.microsoft.com/ko-kr/library/windowsazure/dd179355
+[9]: http://msdn.microsoft.com/ko-kr/library/windowsazure/gg433040.aspx

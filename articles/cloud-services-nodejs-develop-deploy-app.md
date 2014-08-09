@@ -5,7 +5,7 @@ Azure 클라우드 서비스에서 Node.js 응용 프로그램 빌드 및 배포
 
 이 가이드를 완료하면 간단한 Node.js 응용 프로그램을 Azure 클라우드 서비스에서 실행할 수 있습니다. 클라우드 서비스는 Azure에서 확장 가능한 클라우드 응용 프로그램의 구성 요소입니다. 이 클라우드 서비스는 응용 프로그램의 프런트 엔드 및 백 엔드 구성 요소의 구분과 독립적인 관리 및 확장을 허용합니다. 클라우드 서비스는 각 역할을 안정적으로 호스팅할 수 있는 강력한 전용 가상 컴퓨터를 제공합니다.
 
-클라우드 서비스에 대한 자세한 내용 및 Azure 웹 사이트와 가상 컴퓨터와의 비교에 대한 자세한 내용은 [Azure 웹 사이트, 클라우드 서비스 및 VM: 용도](http://msdn.microsoft.com/en-us/library/windowsazure/jj218759.aspx)(영문)를 참조하십시오.
+클라우드 서비스에 대한 자세한 내용 및 Azure 웹 사이트와 가상 컴퓨터와의 비교에 대한 자세한 내용은 [Azure 웹 사이트, 클라우드 서비스 및 VM: 용도](http://msdn.microsoft.com/ko-kr/library/windowsazure/jj218759.aspx)(영문)를 참조하십시오.
 
 **간단한 웹 사이트를 빌드하려는 경우**
 
@@ -15,7 +15,7 @@ Azure 클라우드 서비스에서 Node.js 응용 프로그램 빌드 및 배포
 
 아래에는 완성된 응용 프로그램의 스크린샷이 표시되어 있습니다.
 
-![hello world 페이지를 표시하는 브라우저 창입니다. URL은 페이지가 Azure에서 호스트됨을 나타냅니다.](https://wacomdpsstablestorage.blob.core.windows.net/articlesmedia/demo-ppe.windowsazure.com/en-us/documentation/articles/cloud-services-nodejs-develop-deploy-app/20140107035927/node21.png)
+![hello world 페이지를 표시하는 브라우저 창입니다. URL은 페이지가 Azure에서 호스트됨을 나타냅니다.](https://wacomdpsstablestorage.blob.core.windows.net/articlesmedia/demo-ppe.windowsazure.com/ko-kr/documentation/articles/cloud-services-nodejs-develop-deploy-app/20140107035927/node21.png)
 
 새 노드 응용 프로그램 만들기
 ----------------------------
@@ -46,7 +46,7 @@ Azure 클라우드 서비스에서 Node.js 응용 프로그램 빌드 및 배포
 
     -   **ServiceConfiguration.Cloud.cscfg**, **ServiceConfiguration.Local.cscfg** 및 **ServiceDefinition.csdef**는 응용 프로그램을 게시하는 데 필요한 Azure 관련 파일입니다.
 
-    이러한 파일에 대한 자세한 내용은 [Azure에 대한 호스티드 서비스 만들기 개요](http://msdn.microsoft.com/en-us/library/windowsazure/jj155995.aspx)(영문)를 참조하십시오.
+    이러한 파일에 대한 자세한 내용은 [Azure에 대한 호스티드 서비스 만들기 개요](http://msdn.microsoft.com/ko-kr/library/windowsazure/jj155995.aspx)(영문)를 참조하십시오.
 
     -   **deploymentSettings.json**에는 Azure PowerShell 배포 cmdlet에 사용되는 로컬 설정이 저장됩니다.
 
@@ -141,7 +141,7 @@ Azure에 응용 프로그램 배포
 
 3.  **저장소 계정**이 없는 경우 새로 만듭니다. Azure 저장소 계정은 배포 중 응용 프로그램 패키지를 저장하는 데 사용됩니다. 배포가 완료된 후에는 저장소 계정을 삭제해도 안전합니다.
 
-4.  **클라우드 서비스**가 아직 없는 경우 새로 만듭니다. **클라우드 서비스**는 응용 프로그램이 Azure에 배포될 때 호스트되는 컨테이너입니다. 자세한 내용은 [Azure에 대한 호스티드 서비스 만들기 개요](http://msdn.microsoft.com/en-us/library/windowsazure/jj155995.aspx)(영문)를 참조하십시오.
+4.  **클라우드 서비스**가 아직 없는 경우 새로 만듭니다. **클라우드 서비스**는 응용 프로그램이 Azure에 배포될 때 호스트되는 컨테이너입니다. 자세한 내용은 [Azure에 대한 호스티드 서비스 만들기 개요](http://msdn.microsoft.com/ko-kr/library/windowsazure/jj155995.aspx)(영문)를 참조하십시오.
 
 5.  배포 패키지를 Azure에 게시합니다.
 
@@ -179,7 +179,7 @@ Azure에 응용 프로그램 배포
 
     **참고**
 
-    서비스를 삭제해도 서비스가 처음 게시될 때 만들어진 저장소 계정은 삭제되지 않으므로 사용된 저장소에 대해 계속 요금이 청구됩니다. 저장소 계정 삭제에 대한 자세한 내용은 [Azure 구독에서 저장소 계정을 삭제하는 방법](http://msdn.microsoft.com/en-us/library/windowsazure/hh531562.aspx)(영문)을 참조하십시오.
+    서비스를 삭제해도 서비스가 처음 게시될 때 만들어진 저장소 계정은 삭제되지 않으므로 사용된 저장소에 대해 계속 요금이 청구됩니다. 저장소 계정 삭제에 대한 자세한 내용은 [Azure 구독에서 저장소 계정을 삭제하는 방법](http://msdn.microsoft.com/ko-kr/library/windowsazure/hh531562.aspx)(영문)을 참조하십시오.
 
 
 
@@ -187,7 +187,7 @@ Azure에 응용 프로그램 배포
 [mkdir]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-6.png
 [nodejs.org]: http://nodejs.org/
 [A directory listing of the helloworld folder.]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-7.png
-[Overview of Creating a Hosted Service for Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/jj155995.aspx
+[Overview of Creating a Hosted Service for Azure]: http://msdn.microsoft.com/ko-kr/library/windowsazure/jj155995.aspx
 [A directory listing of the WebRole1 folder]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-8.png
 [The menu displayed when right-clicking the Azure emulator from the task bar.]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-11.png
 [A browser window displaying http://www.windowsazure.com/ with the Free Trial link highlighted]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-12.png

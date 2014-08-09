@@ -5,9 +5,9 @@ Azure 웹 사이트에서 디지털 마케팅 캠페인 만들기
 
 이 가이드는 Azure 웹 사이트에서 디지털 마케팅 캠페인을 만드는 방법에 대한 기술적 개요를 제공합니다. 디지털 마케팅 캠페인은 일반적으로 단기간 마케팅 목표를 달성하기 위한 짧은 수명의 엔터티입니다. 두 가지 주요 시나리오를 고려해야 합니다. 첫 번째 시나리오에서는 타 마케팅 회사가 프로모션 기간에 고객을 위한 캠페인을 만들고 관리합니다. 두 번째 시나리오에서는 마케팅 회사가 디지털 마케팅 캠페인을 만든 후 해당 리소스의 소유권을 고객에게 전송합니다. 그러면 고객이 디지털 마케팅 캠페인을 스스로 운영 및 관리합니다.
 
-[Azure 웹 사이트](/en-us/documentation/services/web-sites/)는 두 가지 시나리오에 모두 적합합니다. 캠페인을 빠르게 만들 수 있고, 여러 프레임워크와 언어를 지원하고, 사용자 수요에 맞게 크기를 조정할 수 있으며, 많은 배포 및 소스 제어 시스템을 수용합니다. Azure를 사용하면 마케팅 캠페인을 개선할 수 있는 미디어 서비스 등의 기타 Azure 서비스에도 액세스할 수 있습니다.
+[Azure 웹 사이트](/ko-kr/documentation/services/web-sites/)는 두 가지 시나리오에 모두 적합합니다. 캠페인을 빠르게 만들 수 있고, 여러 프레임워크와 언어를 지원하고, 사용자 수요에 맞게 크기를 조정할 수 있으며, 많은 배포 및 소스 제어 시스템을 수용합니다. Azure를 사용하면 마케팅 캠페인을 개선할 수 있는 미디어 서비스 등의 기타 Azure 서비스에도 액세스할 수 있습니다.
 
-웹 사이트를 호스트하는 데 [Azure 클라우드 서비스](/en-us/documentation/services/cloud-services/) 또는 [Azure 가상 컴퓨터](/en-us/documentation/services/virtual-machines/)를 사용할 수도 있지만, Azure 웹 사이트에서 제공하지 않는 필수 기능이 있는 경우가 아니라면 이 시나리오에는 이상적인 선택이 아닙니다. 이러한 옵션에 대해 알아보려면 [Azure 웹 사이트, 클라우드 서비스 및 VM: 각 항목을 사용해야 하는 경우](/en-us/manage/services/web-sites/choose-web-app-service)(영문)를 참조하십시오.
+웹 사이트를 호스트하는 데 [Azure 클라우드 서비스](/ko-kr/documentation/services/cloud-services/) 또는 [Azure 가상 컴퓨터](/ko-kr/documentation/services/virtual-machines/)를 사용할 수도 있지만, Azure 웹 사이트에서 제공하지 않는 필수 기능이 있는 경우가 아니라면 이 시나리오에는 이상적인 선택이 아닙니다. 이러한 옵션에 대해 알아보려면 [Azure 웹 사이트, 클라우드 서비스 및 VM: 각 항목을 사용해야 하는 경우](/en-us/manage/services/web-sites/choose-web-app-service)(영문)를 참조하십시오.
 
 이 가이드에서는 다음 영역에 대해 설명합니다.
 
@@ -19,7 +19,7 @@ Azure 웹 사이트에서 디지털 마케팅 캠페인 만들기
 
 **참고**
 
-이 가이드에서는 공용 .COM 사이트 개발에 맞는 가장 일반적인 몇 가지 영역과 작업에 대해 설명합니다. 그러나 각자의 특정 구현에 사용할 수 있는 Azure 웹 사이트의 다른 기능도 있습니다. 이러한 기능에 대해 알아보려면 [글로벌 웹 서비스](http://www.windowsazure.com/en-us/manage/services/web-sites/global-web-presence-solution-overview/)(영문) 및 [비즈니스 응용 프로그램](http://www.windowsazure.com/en-us/manage/services/web-sites/business-application-solution-overview)(영문)에서 제공하는 다른 가이드도 참조하십시오.
+이 가이드에서는 공용 .COM 사이트 개발에 맞는 가장 일반적인 몇 가지 영역과 작업에 대해 설명합니다. 그러나 각자의 특정 구현에 사용할 수 있는 Azure 웹 사이트의 다른 기능도 있습니다. 이러한 기능에 대해 알아보려면 [글로벌 웹 서비스](http://www.windowsazure.com/ko-kr/manage/services/web-sites/global-web-presence-solution-overview/)(영문) 및 [비즈니스 응용 프로그램](http://www.windowsazure.com/ko-kr/manage/services/web-sites/business-application-solution-overview)(영문)에서 제공하는 다른 가이드도 참조하십시오.
 
 기존 웹 사이트 배포
 -------------------
@@ -67,7 +67,7 @@ ASP.NET 개발자인 경우 소셜 미디어와의 통합이 Visual Studio에서
 클라우드 컴퓨팅은 예측할 수 없는 작업에 유용합니다. 디지털 마케팅 캠페인은 이 범주에 속합니다. 수명이 비교적 짧은 마케팅 사이트의 인기는 예측하기가 어렵습니다. 사용자 관심을 끄는 정도 및 사이트에 트래픽을 더하는 관련 소셜 미디어 상호 작용에 크게 의존하기 때문입니다. Azure는 웹 사이트와 클라우드 서비스 모두의 크기 조정을 위한 몇 가지 옵션을 제공합니다.
 
 -   [Azure 관리 포털](http://manage.windowsazure.com/)을 통해 수동으로 크기를 조정합니다.
--   [서비스 관리 API](http://msdn.microsoft.com/en-us/library/windowsazure/ee460799.aspx)(영문) 또는 [PowerShell 스크립팅](http://msdn.microsoft.com/en-us/library/windowsazure/jj152841.aspx)을 통해 프로그래밍 방식으로 크기를 조정합니다.
+-   [서비스 관리 API](http://msdn.microsoft.com/ko-kr/library/windowsazure/ee460799.aspx)(영문) 또는 [PowerShell 스크립팅](http://msdn.microsoft.com/ko-kr/library/windowsazure/jj152841.aspx)을 통해 프로그래밍 방식으로 크기를 조정합니다.
 -   자동 크기 조정(사전 검토) 기능을 통해 자동으로 크기를 조정합니다.
 
 관리 포털에서 웹 사이트의 **크기 조정** 탭으로 이동합니다. 몇 가지 크기 조정 옵션이 있습니다. 첫 번째 옵션에서는 웹 사이트 모드를 **무료**, **공유** 또는 **표준**으로 지정합니다.
@@ -86,14 +86,14 @@ ASP.NET 개발자인 경우 소셜 미디어와의 통합이 Visual Studio에서
 
 **참고**
 
-클라우드 서비스와 웹 역할을 사용하도록 선택한 웹 응용 프로그램의 경우 큐에 있는 항목의 길이를 기반으로 크기를 조정할 수 있는 추가 옵션이 있습니다. 클라우드 서비스에서는 백 엔드 큐를 처리하는 역할이 일반적인 아키텍처 패턴입니다. 클라우드 서비스 크기 조정에 대한 자세한 내용은 [클라우드 서비스의 크기를 조정하는 방법](http://www.windowsazure.com/en-us/manage/services/cloud-services/how-to-scale-a-cloud-service/)(영문)을 참조하십시오.
+클라우드 서비스와 웹 역할을 사용하도록 선택한 웹 응용 프로그램의 경우 큐에 있는 항목의 길이를 기반으로 크기를 조정할 수 있는 추가 옵션이 있습니다. 클라우드 서비스에서는 백 엔드 큐를 처리하는 역할이 일반적인 아키텍처 패턴입니다. 클라우드 서비스 크기 조정에 대한 자세한 내용은 [클라우드 서비스의 크기를 조정하는 방법](http://www.windowsazure.com/ko-kr/manage/services/cloud-services/how-to-scale-a-cloud-service/)(영문)을 참조하십시오.
 
 기타 서비스와 통합
 ------------------
 
-디지털 마케팅 사이트는 종종 비디오 스트리밍과 같은 리치 미디어와 통합됩니다. Azure에 이러한 사이트를 호스트하면 관련 Azure 서비스와 긴밀하게 통합됩니다. 예를 들면 Azure 미디어 서비스를 사용하여 웹 사이트용 비디오를 인코딩 및 스트리밍할 수 있습니다. 미디어 서비스에 대한 자세한 내용은 [Azure 미디어 서비스 개념 및 시나리오 소개](http://msdn.microsoft.com/en-us/library/windowsazure/dn223282.aspx)(영문)를 참조하십시오.
+디지털 마케팅 사이트는 종종 비디오 스트리밍과 같은 리치 미디어와 통합됩니다. Azure에 이러한 사이트를 호스트하면 관련 Azure 서비스와 긴밀하게 통합됩니다. 예를 들면 Azure 미디어 서비스를 사용하여 웹 사이트용 비디오를 인코딩 및 스트리밍할 수 있습니다. 미디어 서비스에 대한 자세한 내용은 [Azure 미디어 서비스 개념 및 시나리오 소개](http://msdn.microsoft.com/ko-kr/library/windowsazure/dn223282.aspx)(영문)를 참조하십시오.
 
-좀 더 강력한 응용 프로그램을 만들기 위해 기타 Azure 서비스를 사용할 수 있습니다. 예를 들면, 웹 사이트에서 새로운 [Azure 캐시 서비스(사전 검토)](http://msdn.microsoft.com/en-us/library/windowsazure/dn386094.aspx) 기능이 제공하는 분산 캐싱을 사용할 수 있습니다. 또는 Azure 저장소 서비스를 사용하여 응용 프로그램 데이터 및 리소스를 저장할 수 있습니다. 예를 들어 그래픽, 비디오 및 기타 큰 파일은 Blob에 지속적으로 저장할 수 있습니다. 관계형 데이터 요구 사항에 맞게 Azure SQL 데이터베이스 및 MySQL과 같은 데이터베이스 서비스를 사용할 수도 있습니다.
+좀 더 강력한 응용 프로그램을 만들기 위해 기타 Azure 서비스를 사용할 수 있습니다. 예를 들면, 웹 사이트에서 새로운 [Azure 캐시 서비스(사전 검토)](http://msdn.microsoft.com/ko-kr/library/windowsazure/dn386094.aspx) 기능이 제공하는 분산 캐싱을 사용할 수 있습니다. 또는 Azure 저장소 서비스를 사용하여 응용 프로그램 데이터 및 리소스를 저장할 수 있습니다. 예를 들어 그래픽, 비디오 및 기타 큰 파일은 Blob에 지속적으로 저장할 수 있습니다. 관계형 데이터 요구 사항에 맞게 Azure SQL 데이터베이스 및 MySQL과 같은 데이터베이스 서비스를 사용할 수도 있습니다.
 
 캠페인 모니터링
 ---------------
@@ -126,31 +126,31 @@ ASP.NET 개발자인 경우 소셜 미디어와의 통합이 Visual Studio에서
 </tr>
 <tr>
    <td valign="middle"><strong>계획</strong></td>
-   <td valign="top">- <a href="http://www.windowsazure.com/en-us/manage/services/web-sites/choose-web-app-service">Azure 웹 사이트, 클라우드 서비스 및 VM: 각 항목을 사용해야 하는 경우</a>(영문)</td>
+   <td valign="top">- <a href="http://www.windowsazure.com/ko-kr/manage/services/web-sites/choose-web-app-service">Azure 웹 사이트, 클라우드 서비스 및 VM: 각 항목을 사용해야 하는 경우</a>(영문)</td>
 </tr>
 <tr>
    <td valign="middle"><strong>생성</strong></td>
-   <td valign="top">- <a href="http://www.windowsazure.com/en-us/manage/services/web-sites/how-to-create-websites/">웹 사이트를 생성하고 배포하는 방법</a></td>
+   <td valign="top">- <a href="http://www.windowsazure.com/ko-kr/manage/services/web-sites/how-to-create-websites/">웹 사이트를 생성하고 배포하는 방법</a></td>
 </tr>
 <tr>
    <td valign="middle"><strong>배포</strong></td>
-   <td valign="top">- <a href="http://www.windowsazure.com/en-us/develop/net/common-tasks/publishing-with-git/">소스 제어에서 Azure 웹 사이트로 게시</a><br/>- <a href="http://www.windowsazure.com/en-us/manage/services/web-sites/how-to-create-websites/">Azure 웹 사이트에 ASP.NET 웹 응용 프로그램 배포</a>(영문)</td>
+   <td valign="top">- <a href="http://www.windowsazure.com/ko-kr/develop/net/common-tasks/publishing-with-git/">소스 제어에서 Azure 웹 사이트로 게시</a><br/>- <a href="http://www.windowsazure.com/ko-kr/manage/services/web-sites/how-to-create-websites/">Azure 웹 사이트에 ASP.NET 웹 응용 프로그램 배포</a>(영문)</td>
 </tr>
 <tr>
    <td valign="middle"><strong>소셜 미디어</strong></td>
-   <td valign="top">- <a href="http://www.windowsazure.com/en-us/develop/net/tutorials/web-site-with-sql-database/">Azure 웹 사이트에 멤버 자격, OAuth 및 SQL 데이터베이스가 포함된 보안 ASP.NET MVC 앱 배포</a><br/>- <a href="http://blogs.msdn.com/b/africaapps/archive/2013/02/20/creating-a-facebook-app-using-asp-net-mvc-facebook-templates-and-hosting-them-for-free-on-windows-azure-websites.aspx">ASP.NET MVC Facebook 템플릿을 사용하여 Facebook 앱 만들기</a>(영문)<br/>- <a href="http://blogs.msdn.com/b/webdev/archive/2012/12/13/the-new-facebook-application-template-and-library-for-asp.net-mvc.aspx">ASP.NET MVC용 Facebook 응용 프로그램 템플릿 및 라이브러리</a>(영문)</td>
+   <td valign="top">- <a href="http://www.windowsazure.com/ko-kr/develop/net/tutorials/web-site-with-sql-database/">Azure 웹 사이트에 멤버 자격, OAuth 및 SQL 데이터베이스가 포함된 보안 ASP.NET MVC 앱 배포</a><br/>- <a href="http://blogs.msdn.com/b/africaapps/archive/2013/02/20/creating-a-facebook-app-using-asp-net-mvc-facebook-templates-and-hosting-them-for-free-on-windows-azure-websites.aspx">ASP.NET MVC Facebook 템플릿을 사용하여 Facebook 앱 만들기</a>(영문)<br/>- <a href="http://blogs.msdn.com/b/webdev/archive/2012/12/13/the-new-facebook-application-template-and-library-for-asp.net-mvc.aspx">ASP.NET MVC용 Facebook 응용 프로그램 템플릿 및 라이브러리</a>(영문)</td>
 </tr>
 <tr>
    <td valign="middle"><strong>크기 조정</strong></td>
-   <td valign="top">- <a href="http://www.windowsazure.com/en-us/manage/services/web-sites/how-to-scale-websites/">웹 사이트 크기를 조정하는 방법</a></td>
+   <td valign="top">- <a href="http://www.windowsazure.com/ko-kr/manage/services/web-sites/how-to-scale-websites/">웹 사이트 크기를 조정하는 방법</a></td>
 </tr>
 <tr>
    <td valign="middle"><strong>리치 미디어</strong></td>
-   <td valign="top">- <a href="http://msdn.microsoft.com/en-us/library/windowsazure/dn223282.aspx">Azure 미디어 서비스 개념 및 시나리오 소개(영문)</a></td>
+   <td valign="top">- <a href="http://msdn.microsoft.com/ko-kr/library/windowsazure/dn223282.aspx">Azure 미디어 서비스 개념 및 시나리오 소개(영문)</a></td>
 </tr>
 <tr>
    <td valign="middle"><strong>모니터</strong></td>
-   <td valign="top">- <a href="http://www.windowsazure.com/en-us/manage/services/web-sites/how-to-monitor-websites/">웹 사이트를 모니터링하는 방법</a>(영문)<br/>- <a href="http://msdn.microsoft.com/library/windowsazure/dn306638.aspx">방법: Azure에서 경고 알림 받기 및 경고 규칙 관리</a>(영문)</td>
+   <td valign="top">- <a href="http://www.windowsazure.com/ko-kr/manage/services/web-sites/how-to-monitor-websites/">웹 사이트를 모니터링하는 방법</a>(영문)<br/>- <a href="http://msdn.microsoft.com/library/windowsazure/dn306638.aspx">방법: Azure에서 경고 알림 받기 및 경고 규칙 관리</a>(영문)</td>
 </tr>
 </table>
 

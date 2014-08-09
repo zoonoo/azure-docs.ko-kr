@@ -3,7 +3,7 @@
 모바일 서비스를 사용하여 Azure 저장소에 이미지 업로드
 =====================================================
 
-[Windows 스토어 C\#](/en-us/documentation/articles/mobile-services-windows-store-dotnet-upload-data-blob-storage "Windows 스토어 C#")[Windows Phone](/en-us/documentation/articles/mobile-services-windows-phone-upload-data-blob-storage "Windows Phone")
+[Windows 스토어 C\#](/ko-kr/documentation/articles/mobile-services-windows-store-dotnet-upload-data-blob-storage "Windows 스토어 C#")[Windows Phone](/ko-kr/documentation/articles/mobile-services-windows-phone-upload-data-blob-storage "Windows Phone")
 
 이 항목에서는 Azure 모바일 서비스를 사용하여, 사용자가 만든 이미지를 앱에서 Azure 저장소에 업로드하고 저장하는 방법에 대해 설명합니다. 모바일 서비스에서는 SQL 데이터베이스를 사용하여 데이터를 저장합니다. 그러나 Azure Blob 저장소 서비스에는 BLOB(Binary Large Object) 데이터를 저장하는 것이 좀 더 효율적입니다.
 
@@ -23,7 +23,7 @@
 -   Microsoft Visual Studio용 Nuget 패키지 관리자 설치
 -   [Azure 저장소 계정](/en-us/manage/services/storage/how-to-create-a-storage-account)
 
-이 자습서는 모바일 서비스 quickstart를 기반으로 합니다. 이 자습서를 시작하기 전에 먼저 [모바일 서비스 시작하기](/en-us/documentation/articles/mobile-services-windows-phone-get-started)를 완료해야 합니다.
+이 자습서는 모바일 서비스 quickstart를 기반으로 합니다. 이 자습서를 시작하기 전에 먼저 [모바일 서비스 시작하기](/ko-kr/documentation/articles/mobile-services-windows-phone-get-started)를 완료해야 합니다.
 
 Windows 스토어 앱용 저장소 클라이언트 설치
 ------------------------------------------

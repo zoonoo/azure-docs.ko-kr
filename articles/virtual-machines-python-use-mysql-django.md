@@ -3,7 +3,7 @@
 Django Hello World - MySQL Windows Edition
 ==========================================
 
-이 자습서에서는 단일 Azure 가상 컴퓨터에서 MySQL과 Django를 함께 사용하는 방법을 설명합니다. 이 가이드에서는 이전에 Azure를 사용한 경험이 어느 정도 있다고 가정합니다. Azure 및 Django에 대한 지침을 보려면 [Django Hello World](http://windowsazure.com/en-us/documentation/articles/virtual-machines-python-django-web-app-windows-server)를 참조하십시오. 또한 이 가이드에서는 MySQL에 대한 지식도 어느 정도 있다고 가정합니다. MySQL 개요에 대해서는 [MySQL 웹 사이트](http://dev.mysql.com/doc/)(영문)를 참조하십시오.
+이 자습서에서는 단일 Azure 가상 컴퓨터에서 MySQL과 Django를 함께 사용하는 방법을 설명합니다. 이 가이드에서는 이전에 Azure를 사용한 경험이 어느 정도 있다고 가정합니다. Azure 및 Django에 대한 지침을 보려면 [Django Hello World](http://windowsazure.com/ko-kr/documentation/articles/virtual-machines-python-django-web-app-windows-server)를 참조하십시오. 또한 이 가이드에서는 MySQL에 대한 지식도 어느 정도 있다고 가정합니다. MySQL 개요에 대해서는 [MySQL 웹 사이트](http://dev.mysql.com/doc/)(영문)를 참조하십시오.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
@@ -13,7 +13,7 @@ Django Hello World - MySQL Windows Edition
 -   Python에서 직접 MySQL 사용
 -   MySQL Django 응용 프로그램 호스트 및 실행
 
-Azure VM에 호스트되는 MySQL 데이터베이스를 활용하여 [Django Hello World](http://windowsazure.com/en-us/documentation/articles/virtual-machines-python-django-web-app-windows-server) 샘플을 확장해서 *World*를 대체하는 흥미로운 문자열을 찾아보겠습니다. 대체 문자열은 MySQL을 기반으로 하는 Django *카운터* 앱을 통해 결정됩니다. Hello World 샘플의 경우와 마찬가지로 이 Django 응용 프로그램도 Azure 가상 컴퓨터에 호스트됩니다.
+Azure VM에 호스트되는 MySQL 데이터베이스를 활용하여 [Django Hello World](http://windowsazure.com/ko-kr/documentation/articles/virtual-machines-python-django-web-app-windows-server) 샘플을 확장해서 *World*를 대체하는 흥미로운 문자열을 찾아보겠습니다. 대체 문자열은 MySQL을 기반으로 하는 Django *카운터* 앱을 통해 결정됩니다. Hello World 샘플의 경우와 마찬가지로 이 Django 응용 프로그램도 Azure 가상 컴퓨터에 호스트됩니다.
 
 이 자습서의 프로젝트 파일은 **C:\\django\\helloworld**에 저장되며 완료된 응용 프로그램은 다음과 유사하게 보입니다.
 
@@ -84,7 +84,7 @@ MySQL 및 Django를 호스트하도록 가상 컴퓨터 설정
 Django Hello World 응용 프로그램 확장
 -------------------------------------
 
-1.  [Django Hello World](http://windowsazure.com/en-us/documentation/articles/virtual-machines-python-django-web-app-windows-server) 자습서에 나와 있는 지침을 따라서 Django로 간단한 "Hello World" 웹 응용 프로그램을 만듭니다.
+1.  [Django Hello World](http://windowsazure.com/ko-kr/documentation/articles/virtual-machines-python-django-web-app-windows-server) 자습서에 나와 있는 지침을 따라서 Django로 간단한 "Hello World" 웹 응용 프로그램을 만듭니다.
 
 2.  원하는 텍스트 편집기에서 **C:\\django\\helloworld\\helloworld\\settings.py**를 엽니다. 읽을 **DATABASES** 글로벌 사전을 다음과 같이 수정합니다.
 

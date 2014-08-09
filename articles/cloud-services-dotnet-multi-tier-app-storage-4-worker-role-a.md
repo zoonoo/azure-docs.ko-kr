@@ -268,7 +268,7 @@ SendEmail 모델 추가SendEmail 모델 추가
              }
          }
 
-    모든 작업이 `while` 블록에서 무한 루프를 통해서 완료되며, 처리되지 않은 예외를 방지하기 위해 `while` 블록의 모든 코드가 `try`-`catch` 블록에 래핑되어 있습니다. 처리되지 않은 예외가 발생하는 경우 Azure가 [UnhandledException](http://msdn.microsoft.com/en-us/library/system.appdomain.unhandledexception.aspx) 이벤트를 발생시키고, 작업자 프로세스가 종료되며, 해당 역할이 오프라인으로 전환됩니다. 작업자 역할이 Azure에 의해 다시 시작되지만, 여기에는 몇 분 정도 걸립니다. `try` 블록은 `TraceError`를 호출하여 오류를 기록한 후 오류가 지속되는 경우 오류 메시지가 과도하게 여러 번 반복되지 않도록 60초 동안 유휴 상태로 유지됩니다. 프로덕션 응용 프로그램에서 `try` 블록으로 전자 메일을 관리자에게 보낼 수 있습니다.
+    모든 작업이 `while` 블록에서 무한 루프를 통해서 완료되며, 처리되지 않은 예외를 방지하기 위해 `while` 블록의 모든 코드가 `try`-`catch` 블록에 래핑되어 있습니다. 처리되지 않은 예외가 발생하는 경우 Azure가 [UnhandledException](http://msdn.microsoft.com/ko-kr/library/system.appdomain.unhandledexception.aspx) 이벤트를 발생시키고, 작업자 프로세스가 종료되며, 해당 역할이 오프라인으로 전환됩니다. 작업자 역할이 Azure에 의해 다시 시작되지만, 여기에는 몇 분 정도 걸립니다. `try` 블록은 `TraceError`를 호출하여 오류를 기록한 후 오류가 지속되는 경우 오류 메시지가 과도하게 여러 번 반복되지 않도록 60초 동안 유휴 상태로 유지됩니다. 프로덕션 응용 프로그램에서 `try` 블록으로 전자 메일을 관리자에게 보낼 수 있습니다.
 
     `Run` 메서드는 `message` 테이블에서 내일 전 날짜로 예약된 `message` 행에 대한 쿼리를 처리합니다.
 

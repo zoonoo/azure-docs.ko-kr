@@ -15,27 +15,27 @@ Azure Multi-Factor Authentication 정의
 
 ### 클라우드 Azure Active Directory 보안
 
-Azure AD ID에 Multi-Factor Authentication을 사용하도록 설정하면 사용자가 다음에 로그인할 때 추가 유효성 검사를 설정하라는 메시지가 표시됩니다. Azure, Microsoft Online Services(예: Office 365 및 Dynamics CRM Online) 및 추가 설정 없이 Azure AD를 통합하는 타사 클라우드 서비스에 안전하게 액세스할 수 있도록 Multi-Factor Authentication을 사용합니다. 다단계 인증은 다수의 전역 사용자 및 응용 프로그램에 대해 사용하도록 신속하게 설정할 수 있습니다. [자세한 정보](http://msdn.microsoft.com/en-us/library/dn249466.aspx)
+Azure AD ID에 Multi-Factor Authentication을 사용하도록 설정하면 사용자가 다음에 로그인할 때 추가 유효성 검사를 설정하라는 메시지가 표시됩니다. Azure, Microsoft Online Services(예: Office 365 및 Dynamics CRM Online) 및 추가 설정 없이 Azure AD를 통합하는 타사 클라우드 서비스에 안전하게 액세스할 수 있도록 Multi-Factor Authentication을 사용합니다. 다단계 인증은 다수의 전역 사용자 및 응용 프로그램에 대해 사용하도록 신속하게 설정할 수 있습니다. [자세한 정보](http://msdn.microsoft.com/ko-kr/library/dn249466.aspx)
 
 ### 온-프레미스 리소스 및 Active Directory 보안
 
-Azure Multi-Factor Authentication 서버를 사용하여 IIS 및 Active Directory와 같은 온-프레미스 리소스에 대해 Multi-Factor Authentication을 사용하도록 설정합니다. Azure Multi-Factor Authentication 서버를 통해 관리자는 Microsoft IIS 웹 응용 프로그램을 보호하는 IIS 인증, RADIUS 인증, LDAP 인증 및 Windows 인증과 통합할 수 있습니다. [자세한 정보](http://msdn.microsoft.com/en-us/library/dn249467.aspx)
+Azure Multi-Factor Authentication 서버를 사용하여 IIS 및 Active Directory와 같은 온-프레미스 리소스에 대해 Multi-Factor Authentication을 사용하도록 설정합니다. Azure Multi-Factor Authentication 서버를 통해 관리자는 Microsoft IIS 웹 응용 프로그램을 보호하는 IIS 인증, RADIUS 인증, LDAP 인증 및 Windows 인증과 통합할 수 있습니다. [자세한 정보](http://msdn.microsoft.com/ko-kr/library/dn249467.aspx)
 
 ### 사용자 지정 응용 프로그램 보안
 
-SDK를 사용하면 클라우드 서비스와 직접 통합할 수 있습니다. 활성 인증 전화 통화 및 문자 메시지 유효성 검사를 응용 프로그램의 로그인 또는 트랜잭션 프로세스에 구축하여 응용 프로그램의 기존 사용자 데이터베이스를 활용합니다. [자세한 정보](http://msdn.microsoft.com/en-us/library/dn249464.aspx)
+SDK를 사용하면 클라우드 서비스와 직접 통합할 수 있습니다. 활성 인증 전화 통화 및 문자 메시지 유효성 검사를 응용 프로그램의 로그인 또는 트랜잭션 프로세스에 구축하여 응용 프로그램의 기존 사용자 데이터베이스를 활용합니다. [자세한 정보](http://msdn.microsoft.com/ko-kr/library/dn249464.aspx)
 
 ### Office 365용 Multi-Factor Authentication
 
-Azure Multi-Factor Authentication에서 구동되는 Office 365용 Multi-Factor Authentication은 Office 365 응용 프로그램과 배타적으로 호환되며 Office 365 포털에서 관리됩니다. 따라서 이제 관리자는 다단계 인증을 사용하여 Office 365 리소스의 보안을 유지할 수 있습니다. [자세한 정보](http://msdn.microsoft.com/en-us/library/dn383636.aspx)
+Azure Multi-Factor Authentication에서 구동되는 Office 365용 Multi-Factor Authentication은 Office 365 응용 프로그램과 배타적으로 호환되며 Office 365 포털에서 관리됩니다. 따라서 이제 관리자는 다단계 인증을 사용하여 Office 365 리소스의 보안을 유지할 수 있습니다. [자세한 정보](http://msdn.microsoft.com/ko-kr/library/dn383636.aspx)
 
 ### Azure 관리자를 위한 Multi-Factor Authentication
 
-모든 Azure 관리자는 Office 365에 적용되는 것과 동일한 Multi-Factor Authentication 기능을 무료로 사용할 수 있습니다. Azure 구독의 모든 관리 계정은 이제 이 핵심 다단계 인증 기능을 사용하여 추가의 보호 기능을 얻을 수 있습니다. 따라서 VM 및 웹 사이트 만들기, 저장소나 모바일 서비스 또는 다른 Azure 서비스 관리를 위해 Azure 포털에 액세스하려는 관리자는 자신의 관리자 계정에 다단계 인증을 추가할 수 있습니다. [자세한 정보](http://msdn.microsoft.com/en-us/library/dn249471.aspx)
+모든 Azure 관리자는 Office 365에 적용되는 것과 동일한 Multi-Factor Authentication 기능을 무료로 사용할 수 있습니다. Azure 구독의 모든 관리 계정은 이제 이 핵심 다단계 인증 기능을 사용하여 추가의 보호 기능을 얻을 수 있습니다. 따라서 VM 및 웹 사이트 만들기, 저장소나 모바일 서비스 또는 다른 Azure 서비스 관리를 위해 Azure 포털에 액세스하려는 관리자는 자신의 관리자 계정에 다단계 인증을 추가할 수 있습니다. [자세한 정보](http://msdn.microsoft.com/ko-kr/library/dn249471.aspx)
 
 ### Multi-Factor Authentication 기능 비교
 
-다음은 사용 가능한 다단계 인증의 버전 및 제공되는 기능의 간략한 개요를 보여 줍니다. 다음을 사용하여 자신에게 적합한 다단계 인증 버전을 결정할 수 있습니다. [자세한 정보](http://msdn.microsoft.com/en-us/library/dn249471.aspx)
+다음은 사용 가능한 다단계 인증의 버전 및 제공되는 기능의 간략한 개요를 보여 줍니다. 다음을 사용하여 자신에게 적합한 다단계 인증 버전을 결정할 수 있습니다. [자세한 정보](http://msdn.microsoft.com/ko-kr/library/dn249471.aspx)
 
 ![Azure Multi-Factor Authentication 기능 비교](./media/multi-factor-authentication/mfacomparison1.png)
 

@@ -34,7 +34,7 @@ Azure SDK for the .NET Framework를 설치하여 개발 환경을 설정합니�
 
 모바일 브라우저 에뮬레이터도 필요합니다. 다음을 사용할 수 있습니다.
 
--   [Windows 7 Phone Emulator](http://msdn.microsoft.com/en-us/library/ff402530(VS.92).aspx) (이 자습서에서 대부분의 스크린샷에 사용된 에뮬레이터입니다.)
+-   [Windows 7 Phone Emulator](http://msdn.microsoft.com/ko-kr/library/ff402530(VS.92).aspx) (이 자습서에서 대부분의 스크린샷에 사용된 에뮬레이터입니다.)
 -   iPhone을 에뮬레이트하려면 사용자 에이전트 문자열을 변경하십시오. How-To Geek의 [이 블로그 항목](http://www.howtogeek.com/113439/how-to-change-your-browsers-user-agent-without-installing-any-extensions/)(영문)을 참조하십시오.
 -   [Opera Mobile Emulator](http://www.opera.com/developer/tools/mobile/)
 -   [Apple Safari](http://www.apple.com/safari/download/)(사용자 에이전트를 iPhone으로 설정). Safari에서 사용자 에이전트를 "iPhone"으로 설정하는 방법에 대한 지침은 David Alison의 블로그에서 [Safari를 IE로 사용하는 방법](http://www.davidalison.com/2008/05/how-to-let-safari-pretend-its-ie.html)(영문)을 참조하십시오.

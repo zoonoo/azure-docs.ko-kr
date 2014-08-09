@@ -101,7 +101,7 @@ SLA는 "지원 기간" 면에서 정의됩니다. 지원 기간은 Microsoft 고
 
 **버전 관리에 대한 추가 사항 및 정보**
 
--   SQL Server JDBC 드라이버는 HDInsight에서 내부적으로 사용되며 외부 작업에는 사용되지 않습니다. ODBC를 사용하여 HDInsight에 연결하려는 경우 Microsoft Hive ODBC 드라이버를 사용하십시오. Hive ODBC 사용에 대한 자세한 내용은 [HDInsight에 Microsoft Hive ODBC 드라이버로 Excel 연결](/en-us/documentation/articles/hdinsight-connect-excel-hive-ODBC-driver)을 참조하십시오.
+-   SQL Server JDBC 드라이버는 HDInsight에서 내부적으로 사용되며 외부 작업에는 사용되지 않습니다. ODBC를 사용하여 HDInsight에 연결하려는 경우 Microsoft Hive ODBC 드라이버를 사용하십시오. Hive ODBC 사용에 대한 자세한 내용은 [HDInsight에 Microsoft Hive ODBC 드라이버로 Excel 연결](/ko-kr/documentation/articles/hdinsight-connect-excel-hive-ODBC-driver)을 참조하십시오.
 
 -   HDInsight 클러스터 버전 3.0에서는 [Hortonworks Data Platform 2.0](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.0.8.0/bk_releasenotes_hdp_2.0/content/ch_relnotes-hdp2.0.8.0.html)(영문)을 기반으로 하는 Hadoop 배포를 사용합니다.
 

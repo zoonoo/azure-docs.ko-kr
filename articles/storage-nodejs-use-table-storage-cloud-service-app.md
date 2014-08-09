@@ -3,11 +3,11 @@
 저장소를 사용하는 Node.js 웹 응용 프로그램
 ==========================================
 
-이 자습서에서는 Node.js용 Azure 클라이언트 라이브러리를 사용하여 데이터 관리 서비스로 작업하여 [Express를 사용하는 Node.js 웹 응용 프로그램](http://www.windowsazure.com/en-us/develop/nodejs/tutorials/web-app-with-express/) 자습서에서 만든 응용 프로그램을 확장합니다. Azure에 배포할 수 있는 웹 기반 작업 목록 응용 프로그램을 만들도록 응용 프로그램을 확장합니다. 작업 목록을 통해 사용자는 작업을 가져오고 새 작업을 추가하고 작업을 완료로 표시할 수 있습니다.
+이 자습서에서는 Node.js용 Azure 클라이언트 라이브러리를 사용하여 데이터 관리 서비스로 작업하여 [Express를 사용하는 Node.js 웹 응용 프로그램](http://www.windowsazure.com/ko-kr/develop/nodejs/tutorials/web-app-with-express/) 자습서에서 만든 응용 프로그램을 확장합니다. Azure에 배포할 수 있는 웹 기반 작업 목록 응용 프로그램을 만들도록 응용 프로그램을 확장합니다. 작업 목록을 통해 사용자는 작업을 가져오고 새 작업을 추가하고 작업을 완료로 표시할 수 있습니다.
 
-작업 항목은 Azure 저장소에 저장됩니다. Azure 저장소는 내결함성과 고가용성이 있는 구조화되지 않은 데이터 저장소를 제공합니다. Azure 저장소에는 데이터를 저장하고 액세스할 수 있는 일부 데이터 구조가 포함되며, Node.js용 Azure SDK에 포함된 API 또는 REST API를 통해 저장소 서비스를 활용할 수 있습니다. 자세한 내용은 [Azure에 데이터 저장 및 액세스](http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx)를 참조하십시오.
+작업 항목은 Azure 저장소에 저장됩니다. Azure 저장소는 내결함성과 고가용성이 있는 구조화되지 않은 데이터 저장소를 제공합니다. Azure 저장소에는 데이터를 저장하고 액세스할 수 있는 일부 데이터 구조가 포함되며, Node.js용 Azure SDK에 포함된 API 또는 REST API를 통해 저장소 서비스를 활용할 수 있습니다. 자세한 내용은 [Azure에 데이터 저장 및 액세스](http://msdn.microsoft.com/ko-kr/library/windowsazure/gg433040.aspx)를 참조하십시오.
 
-이 자습서는 [Node.js 웹 응용 프로그램](http://www.windowsazure.com/en-us/develop/nodejs/tutorials/getting-started/) 및 [Express로 Node.js 빌드](http://www.windowsazure.com/en-us/develop/nodejs/tutorials/web-app-with-express/) 자습서를 완료했다고 가정합니다.
+이 자습서는 [Node.js 웹 응용 프로그램](http://www.windowsazure.com/ko-kr/develop/nodejs/tutorials/getting-started/) 및 [Express로 Node.js 빌드](http://www.windowsazure.com/ko-kr/develop/nodejs/tutorials/web-app-with-express/) 자습서를 완료했다고 가정합니다.
 
 다음 내용을 배웁니다.
 

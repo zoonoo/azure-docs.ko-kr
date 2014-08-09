@@ -17,7 +17,7 @@
 
 Azure 명령줄 도구를 사용하여 모바일 서비스를 관리하려면 Azure 모바일 서비스 기능을 사용할 수 있는 Azure 계정이 필요합니다.
 
--   계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](http://www.windowsazure.com/en-us/pricing/free-trial/)을 참조하십시오.
+-   계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](http://www.windowsazure.com/ko-kr/pricing/free-trial/)을 참조하십시오.
 
 -   기존 계정이 있지만 Azure 모바일 서비스 미리 보기를 사용하도록 설정해야 하는 경우 [Azure 미리 보기 기능 사용](../create-a-windows-azure-account/#enable)을 참조하십시오.
 

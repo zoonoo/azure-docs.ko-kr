@@ -7,7 +7,7 @@ BizTalk 서비스: 작업 로그를 사용한 문제 해결
 
 **참고**
 
-이 기능은 서비스가 시작되었을 경우, 백업되었을 경우 등과 같은 BizTalk 서비스의 관리 작업에 대한 로그만 캡처합니다. 이러한 작업은 Azure 관리 포털에서 수행되었는지 또는 [BizTalk 서비스 REST API](http://msdn.microsoft.com/en-us/library/windowsazure/dn232347.aspx)를 사용하여 수행되었는지 여부와 관계없이 추적됩니다. 관리 서비스를 사용하여 추적된 작업의 전체 목록을 보려면 [Azure 관리 서비스를 사용하여 추적된 작업](#bizops)을 참조하십시오.
+이 기능은 서비스가 시작되었을 경우, 백업되었을 경우 등과 같은 BizTalk 서비스의 관리 작업에 대한 로그만 캡처합니다. 이러한 작업은 Azure 관리 포털에서 수행되었는지 또는 [BizTalk 서비스 REST API](http://msdn.microsoft.com/ko-kr/library/windowsazure/dn232347.aspx)를 사용하여 수행되었는지 여부와 관계없이 추적됩니다. 관리 서비스를 사용하여 추적된 작업의 전체 목록을 보려면 [Azure 관리 서비스를 사용하여 추적된 작업](#bizops)을 참조하십시오.
 
 BizTalk 서비스 런타임과 관련된 작업(예: 브리지에서 처리하는 메시지 등)에 대한 로그는 캡처하지 않습니다. 이러한 로그를 보려면 BizTalk 서비스 포털에서 추적 뷰를 사용해야 합니다. 자세한 내용은 [메시지 추적](http://msdn.microsoft.com/library/windowsazure/hh949805.aspx)(영문)을 참조하십시오.
 

@@ -211,7 +211,7 @@ Twilio 제공 URL을 사용하지 않고 HTTP 응답을 반환하는 고유한 U
         <Say>Good bye.</Say>
     </Response>
 
-**ApiVersion** 매개 변수는 Twilio 음성 요청(SMS 요청 아님)에 사용할 수 있습니다. Twilio 음성 및 SMS 요청에 사용 가능한 요청 매개 변수를 보려면 각각 <https://www.twilio.com/docs/api/twiml/twilio\_request> 및 <https://www.twilio.com/docs/api/twiml/sms/twilio\_request>를 참조하십시오. **RoleName** 환경 변수는 Azure 배포의 일부로 사용할 수 있습니다. **System.getenv**에서 선택될 수 있도록 사용자 지정 환경 변수를 추가하려면 [기타 역할 구성 설정](http://msdn.microsoft.com/en-us/library/windowsazure/hh690945.aspx)의 환경 변수 섹션을 참조하십시오.
+**ApiVersion** 매개 변수는 Twilio 음성 요청(SMS 요청 아님)에 사용할 수 있습니다. Twilio 음성 및 SMS 요청에 사용 가능한 요청 매개 변수를 보려면 각각 <https://www.twilio.com/docs/api/twiml/twilio\_request> 및 <https://www.twilio.com/docs/api/twiml/sms/twilio\_request>를 참조하십시오. **RoleName** 환경 변수는 Azure 배포의 일부로 사용할 수 있습니다. **System.getenv**에서 선택될 수 있도록 사용자 지정 환경 변수를 추가하려면 [기타 역할 구성 설정](http://msdn.microsoft.com/ko-kr/library/windowsazure/hh690945.aspx)의 환경 변수 섹션을 참조하십시오.
 
 JSP 페이지가 TwiML 응답을 제공하도록 설정된 경우 **CallFactory.create** 메서드에 전달되는 URL로 JSP 페이지의 URL을 사용합니다. 예를 들어 MyTwiML이라는 웹 응용 프로그램이 Azure 호스티드 서비스에 배포되어 있고 JSP 페이지의 이름이 mytwiml.jsp인 경우 다음과 같이 URL을 **CallFactory.create**에 전달할 수 있습니다.
 

@@ -91,7 +91,7 @@ Twilio에서 계정에 대한 여러 전화 번호를 인증해야 합니다. �
 Azure 응용 프로그램 만들기
 --------------------------
 
-Twilio 사용 응용 프로그램을 호스트하는 Azure 응용 프로그램도 다른 Azure 응용 프로그램과 동일합니다. 단지 Twilio .NET 라이브러리를 추가하고 Twilio .NET 라이브러리를 사용하도록 역할을 구성하면 됩니다. 초기 Azure 프로젝트 만들기에 대한 자세한 내용은 [Visual Studio에서 Azure 프로젝트 만들기](http://msdn.microsoft.com/en-us/library/windowsazure/ee405487.aspx)를 참조하십시오.
+Twilio 사용 응용 프로그램을 호스트하는 Azure 응용 프로그램도 다른 Azure 응용 프로그램과 동일합니다. 단지 Twilio .NET 라이브러리를 추가하고 Twilio .NET 라이브러리를 사용하도록 역할을 구성하면 됩니다. 초기 Azure 프로젝트 만들기에 대한 자세한 내용은 [Visual Studio에서 Azure 프로젝트 만들기](http://msdn.microsoft.com/ko-kr/library/windowsazure/ee405487.aspx)를 참조하십시오.
 
 Twilio 라이브러리를 사용하도록 응용 프로그램 구성
 -------------------------------------------------
@@ -304,7 +304,7 @@ Azure에서 ASP.NET과 함께 Twilio 사용에 대한 자세한 내용은 [Azure
 
 [twilio_rest_making_calls]: http://www.twilio.com/docs/api/rest/making-calls
 
-[vs_project]:http://msdn.microsoft.com/en-us/library/windowsazure/ee405487.aspx
+[vs_project]:http://msdn.microsoft.com/ko-kr/library/windowsazure/ee405487.aspx
 [nuget]:http://nuget.org/
 [twilio_github_repo]:https://github.com/twilio/twilio-csharp
 

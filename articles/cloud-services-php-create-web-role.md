@@ -33,7 +33,7 @@ PHP용 Azure SDK 다운로드
 방법: 클라우드 서비스 프로젝트 만들기
 -------------------------------------
 
-PHP 웹 또는 작업자 역할을 만드는 첫 번째 단계는 Azure 서비스 프로젝트를 만드는 것입니다. Azure 서비스 프로젝트는 웹 및 작업자 역할의 논리 컨테이너 역할을 하며 프로젝트의 [서비스 정의(.csdef)](http://msdn.microsoft.com/en-us/library/windowsazure/ee758711.aspx) 및 [서비스 구성(.cscfg)](http://msdn.microsoft.com/en-us/library/windowsazure/ee758710.aspx) 파일이 포함되어 있습니다.
+PHP 웹 또는 작업자 역할을 만드는 첫 번째 단계는 Azure 서비스 프로젝트를 만드는 것입니다. Azure 서비스 프로젝트는 웹 및 작업자 역할의 논리 컨테이너 역할을 하며 프로젝트의 [서비스 정의(.csdef)](http://msdn.microsoft.com/ko-kr/library/windowsazure/ee758711.aspx) 및 [서비스 구성(.cscfg)](http://msdn.microsoft.com/ko-kr/library/windowsazure/ee758710.aspx) 파일이 포함되어 있습니다.
 
 새 Azure 서비스 프로젝트를 만들려면 다음 명령을 실행합니다.
 
@@ -112,7 +112,7 @@ PHP 웹 또는 작업자 역할을 프로젝트에 추가하면 응용 프로그
 
 1.  Azure 서비스 프로젝트를 만들고 위 [방법: 클라우드 서비스 프로젝트 만들기](#CreateProject) 및 [방법: PHP 웹 또는 작업자 역할 추가](#AddRole) 섹션에 설명된 대로 PHP 웹 역할을 추가합니다.
 2.  웹 역할의 루트 디렉터리에 있는 `bin` 폴더에 `php` 폴더를 만든 후 PHP 런타임(모든 바이너리, 구성 파일, 하위 폴더 등)을 `php` 폴더에 추가합니다.
-3.  (옵션) PHP 런타임이 [Microsoft Drivers for PHP for SQL Server](http://php.net/sqlsrv)를 사용하면 웹 역할이 프로비전될 때 [SQL Server Native Client 2012](http://msdn.microsoft.com/en-us/sqlserver/aa937733.aspx)를 설치하도록 웹 역할을 구성해야 합니다. 이렇게 하려면 `sqlncli.msi` 설치 관리자를 웹 역할의 루트 디렉터리에 있는 `bin` 폴더에 추가합니다. 설치 관리자를 [sqlncli.msi x64 설치 관리자](http://go.microsoft.com/fwlink/?LinkID=239648)(영문)에서 다운로드할 수 있습니다. 다음 단계에 설명되어 있는 시작 스크립트는 역할이 프로비전될 때 설치 관리자를 자동으로 실행합니다. PHP 런타임이 Microsoft Drivers for PHP for SQL Server를 사용하지 않으면 다음 단계의 스크립트에서 다음 줄을 제거할 수 있습니다.
+3.  (옵션) PHP 런타임이 [Microsoft Drivers for PHP for SQL Server](http://php.net/sqlsrv)를 사용하면 웹 역할이 프로비전될 때 [SQL Server Native Client 2012](http://msdn.microsoft.com/ko-kr/sqlserver/aa937733.aspx)를 설치하도록 웹 역할을 구성해야 합니다. 이렇게 하려면 `sqlncli.msi` 설치 관리자를 웹 역할의 루트 디렉터리에 있는 `bin` 폴더에 추가합니다. 설치 관리자를 [sqlncli.msi x64 설치 관리자](http://go.microsoft.com/fwlink/?LinkID=239648)(영문)에서 다운로드할 수 있습니다. 다음 단계에 설명되어 있는 시작 스크립트는 역할이 프로비전될 때 설치 관리자를 자동으로 실행합니다. PHP 런타임이 Microsoft Drivers for PHP for SQL Server를 사용하지 않으면 다음 단계의 스크립트에서 다음 줄을 제거할 수 있습니다.
 
          msiexec /i sqlncli.msi /qn IACCEPTSQLNCLILICENSETERMS=YES
 
@@ -148,7 +148,7 @@ PHP 웹 또는 작업자 역할을 프로젝트에 추가하면 응용 프로그
 
 1.  Azure 서비스 프로젝트를 만들고 위 [방법: 클라우드 서비스 프로젝트 만들기](#CreateProject) 및 [방법: PHP 웹 또는 작업자 역할 추가](#AddRole) 섹션에 설명된 대로 PHP 작업자 역할을 추가합니다.
 2.  작업자 역할의 루트 디렉터리에 `php` 폴더를 만든 후 PHP 런타임(모든 바이너리, 구성 파일, 하위 폴더 등)을 `php` 폴더에 추가합니다.
-3.  (옵션) PHP 런타임이 [Microsoft Drivers for PHP for SQL Server](http://php.net/sqlsrv)를 사용하면 작업자 역할이 프로비전될 때 [SQL Server Native Client 2012](http://msdn.microsoft.com/en-us/sqlserver/aa937733.aspx)를 설치하도록 작업자 역할을 구성해야 합니다. 이렇게 하려면 `sqlncli.msi` 설치 관리자를 작업자 역할의 루트 디렉터리에 추가합니다. 설치 관리자를 [sqlncli.msi x64 설치 관리자](http://go.microsoft.com/fwlink/?LinkID=239648)(영문)에서 다운로드할 수 있습니다. 다음 단계에 설명되어 있는 시작 스크립트는 역할이 프로비전될 때 설치 관리자를 자동으로 실행합니다. PHP 런타임이 Microsoft Drivers for PHP for SQL Server를 사용하지 않으면 다음 단계의 스크립트에서 다음 줄을 제거할 수 있습니다.
+3.  (옵션) PHP 런타임이 [Microsoft Drivers for PHP for SQL Server](http://php.net/sqlsrv)를 사용하면 작업자 역할이 프로비전될 때 [SQL Server Native Client 2012](http://msdn.microsoft.com/ko-kr/sqlserver/aa937733.aspx)를 설치하도록 작업자 역할을 구성해야 합니다. 이렇게 하려면 `sqlncli.msi` 설치 관리자를 작업자 역할의 루트 디렉터리에 추가합니다. 설치 관리자를 [sqlncli.msi x64 설치 관리자](http://go.microsoft.com/fwlink/?LinkID=239648)(영문)에서 다운로드할 수 있습니다. 다음 단계에 설명되어 있는 시작 스크립트는 역할이 프로비전될 때 설치 관리자를 자동으로 실행합니다. PHP 런타임이 Microsoft Drivers for PHP for SQL Server를 사용하지 않으면 다음 단계의 스크립트에서 다음 줄을 제거할 수 있습니다.
 
          msiexec /i sqlncli.msi /qn IACCEPTSQLNCLILICENSETERMS=YES
 
@@ -186,7 +186,7 @@ PHP 웹 또는 작업자 역할을 프로젝트에 추가하면 응용 프로그
 방법: 계산 및 저장소 에뮬레이터에서 응용 프로그램 실행
 ------------------------------------------------------
 
-Azure 계산 및 저장소 에뮬레이터는 클라우드에 배포하기 전에 Azure 응용 프로그램을 테스트할 수 있는 로컬 환경을 제공합니다. 에뮬레이터와 Azure 환경 사이에는 약간의 차이가 있습니다. 좀 더 이해하려면 [계산 에뮬레이터와 Azure의 차이점](http://msdn.microsoft.com/en-us/library/windowsazure/gg432960.aspx) 및 [저장소 에뮬레이터와 Azure 저장소 서비스의 차이점](http://msdn.microsoft.com/en-us/library/windowsazure/gg433135.aspx)을 참조하십시오.
+Azure 계산 및 저장소 에뮬레이터는 클라우드에 배포하기 전에 Azure 응용 프로그램을 테스트할 수 있는 로컬 환경을 제공합니다. 에뮬레이터와 Azure 환경 사이에는 약간의 차이가 있습니다. 좀 더 이해하려면 [계산 에뮬레이터와 Azure의 차이점](http://msdn.microsoft.com/ko-kr/library/windowsazure/gg432960.aspx) 및 [저장소 에뮬레이터와 Azure 저장소 서비스의 차이점](http://msdn.microsoft.com/ko-kr/library/windowsazure/gg433135.aspx)을 참조하십시오.
 
 계산 에뮬레이터를 사용하려면 PHP를 로컬로 설치해야 합니다. 계산 에뮬레이터는 로컬 PHP 설치를 사용하여 응용 프로그램을 실행합니다.
 
@@ -218,10 +218,10 @@ Azure 계산 및 저장소 에뮬레이터는 클라우드에 배포하기 전�
 [Azure SDK for PHP]: /en-us/develop/php/common-tasks/download-php-sdk/
 [install ps and emulators]: http://go.microsoft.com/fwlink/?LinkId=253447&clcid=0x409
 [What is a Cloud Service?]: /en-us/manage/services/cloud-services/what-is-a-cloud-service/
-[service definition (.csdef)]: http://msdn.microsoft.com/en-us/library/windowsazure/ee758711.aspx
-[service configuration (.cscfg)]: http://msdn.microsoft.com/en-us/library/windowsazure/ee758710.aspx
+[service definition (.csdef)]: http://msdn.microsoft.com/ko-kr/library/windowsazure/ee758711.aspx
+[service configuration (.cscfg)]: http://msdn.microsoft.com/ko-kr/library/windowsazure/ee758710.aspx
 [iis.net]: http://www.iis.net/
-[sql native client]: http://msdn.microsoft.com/en-us/sqlserver/aa937733.aspx
+[sql native client]: http://msdn.microsoft.com/ko-kr/sqlserver/aa937733.aspx
 [sqlsrv drivers]: http://php.net/sqlsrv
 [sqlncli.msi x64 installer]: http://go.microsoft.com/fwlink/?LinkID=239648
 [How to: Import publish settings]: /en-us/develop/php/how-to-guides/powershell-cmdlets/#ImportPubSettings

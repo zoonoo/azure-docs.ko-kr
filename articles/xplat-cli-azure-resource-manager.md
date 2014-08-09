@@ -1,4 +1,4 @@
-<properties linkid="script-xplat-intro" urlDisplayName="Microsoft Azure Cross-Platform Command-Line Interface" pageTitle="Using Microsoft Azure Cross-Platform Command-Line Interface with the Resource Manager" title="Using Microsoft Azure Cross-Platform Command-Line Interface with the Resource Manager" metaKeywords="windows azure cross-platform command-line interface Resource Manager, windows azure command-line resource manager, azure command-line resource manager, azure cli resource manager" description="Use the Microsoft Azure Cross-Platform Command-Line Interface with the Resource Manager" metaCanonical="http://www.windowsazure.com/en-us/script/xplat-cli-intro" umbracoNaviHide="0" disqusComments="1" editor="mollybos" manager="paulettm" documentationCenter="" solutions="" authors="larryfr" services="" />
+<properties linkid="script-xplat-intro" urlDisplayName="Microsoft Azure Cross-Platform Command-Line Interface" pageTitle="Using Microsoft Azure Cross-Platform Command-Line Interface with the Resource Manager" title="Using Microsoft Azure Cross-Platform Command-Line Interface with the Resource Manager" metaKeywords="windows azure cross-platform command-line interface Resource Manager, windows azure command-line resource manager, azure command-line resource manager, azure cli resource manager" description="Use the Microsoft Azure Cross-Platform Command-Line Interface with the Resource Manager" metaCanonical="http://www.windowsazure.com/ko-kr/script/xplat-cli-intro" umbracoNaviHide="0" disqusComments="1" editor="mollybos" manager="paulettm" documentationCenter="" solutions="" authors="larryfr" services="" />
 
 리소스 관리자에서 Azure 플랫폼 간 명령줄 인터페이스 사용
 ========================================================
@@ -7,7 +7,7 @@
 
 > [WACOM.NOTE] 리소스 관리자는 현재 Preview 상태이며, Azure 서비스 관리와 동일한 수준의 관리 기능을 제공하지 않습니다.
 
-> [WACOM.NOTE] xplat-cli를 아직 설치 및 구성하지 않은 경우 xplat-cli를 설치, 구성 및 사용하는 방법에 대한 자세한 단계는 [Microsoft Azure 플랫폼 간 명령줄 인터페이스 설치 및 구성](/en-us/documentation/articles/xplat-cli/)을 참조하십시오.
+> [WACOM.NOTE] xplat-cli를 아직 설치 및 구성하지 않은 경우 xplat-cli를 설치, 구성 및 사용하는 방법에 대한 자세한 단계는 [Microsoft Azure 플랫폼 간 명령줄 인터페이스 설치 및 구성](/ko-kr/documentation/articles/xplat-cli/)을 참조하십시오.
 
 리소스 관리자
 -------------
@@ -27,7 +27,7 @@
 
 현재 xplat-cli를 통해 리소스 관리자에 대한 작업을 하려면 조직 계정을 사용하여 Microsoft Azure에 인증해야 합니다. Microsoft 계정 또는 .publishsettings 파일을 통해 설치한 인증서를 사용하여 인증할 수는 없습니다.
 
-조직 계정을 사용하여 인증하는 방법에 대한 자세한 내용은 [Microsoft Azure 플랫폼 간 명령줄 인터페이스 설치 및 구성](/en-us/documentation/articles/xplat-cli/)을 참조하십시오.
+조직 계정을 사용하여 인증하는 방법에 대한 자세한 내용은 [Microsoft Azure 플랫폼 간 명령줄 인터페이스 설치 및 구성](/ko-kr/documentation/articles/xplat-cli/)을 참조하십시오.
 
 그룹 및 템플릿 작업
 -------------------
@@ -162,6 +162,6 @@
 다음 단계
 ---------
 
--   Azure 플랫폼 간 명령줄 인터페이스를 사용하는 방법에 대한 자세한 내용은 [Microsoft Azure 플랫폼 간 명령줄 인터페이스 설치 및 구성](/en-us/documentation/articles/xplat-cli/)을 참조하십시오.
+-   Azure 플랫폼 간 명령줄 인터페이스를 사용하는 방법에 대한 자세한 내용은 [Microsoft Azure 플랫폼 간 명령줄 인터페이스 설치 및 구성](/ko-kr/documentation/articles/xplat-cli/)을 참조하십시오.
 -   Azure PowerShell을 사용하는 리소스 관리자 작업에 대한 자세한 내용은 [리소스 관리자와 함께 Windows PowerShell 사용 시작](http://go.microsoft.com/fwlink/?LinkId=394760)(영문)을 참조하십시오.
 

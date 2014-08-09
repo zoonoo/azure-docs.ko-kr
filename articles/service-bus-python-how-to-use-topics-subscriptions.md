@@ -148,6 +148,6 @@
 
 이제 서비스 버스 토픽의 기본 사항을 익혔으므로 다음 링크를 따라 자세히 알아보십시오.
 
--   다음 MSDN 참조를 확인하십시오. [큐, 토픽 및 구독](http://msdn.microsoft.com/en-us/library/hh367516.aspx)
--   [SqlFilter](http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx)에 대한 API 참조
+-   다음 MSDN 참조를 확인하십시오. [큐, 토픽 및 구독](http://msdn.microsoft.com/ko-kr/library/hh367516.aspx)
+-   [SqlFilter](http://msdn.microsoft.com/ko-kr/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx)에 대한 API 참조
 

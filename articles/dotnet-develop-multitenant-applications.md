@@ -39,7 +39,7 @@ Azure의 다중 테넌트 응용 프로그램
 
 다시 말해서, 확장성이 뛰어난 서비스를 제공하기 위해 고려해야 할 점이 많이 있지만 다수의 다중 테넌트 응용 프로그램에 공통적인 목표와 요구 사항도 많습니다. 일부는 특정 시나리오에서 적절하지 않을 수 있으며, 개별 목표와 요구 사항의 중요성은 시나리오별로 다릅니다. 다중 테넌트 응용 프로그램 공급자에게는 테넌트의 목표와 요구 사항 충족, 수익성, 청구, 여러 서비스 수준, 프로비전, 유지 관리 모니터링, 자동화와 같은 목표와 요구 사항도 있습니다.
 
-다중 테넌트 응용 프로그램 설계와 관련된 추가 고려 사항에 대한 자세한 내용은 [Azure에서 다중 테넌트 응용 프로그램 호스트](http://msdn.microsoft.com/en-us/library/hh534480.aspx)(영문)를 참조하십시오.
+다중 테넌트 응용 프로그램 설계와 관련된 추가 고려 사항에 대한 자세한 내용은 [Azure에서 다중 테넌트 응용 프로그램 호스트](http://msdn.microsoft.com/ko-kr/library/hh534480.aspx)(영문)를 참조하십시오.
 
 Azure에는 다중 테넌트 시스템을 설계할 때 발생하는 주요 문제를 해결할 수 있는 많은 기능이 있습니다.
 
@@ -86,11 +86,11 @@ Azure에는 응용 프로그램의 새 테넌트를 프로비전하는 방법이
     -   마스터 참조 데이터베이스에서 복사
     -   데이터베이스 가져오기 및 내보내기를 사용하여 파일에서 새 데이터베이스 프로비전
 
-다중 테넌트 응용 프로그램에 Azure를 적용할 수 있는 방법을 심도 있게 다룬 내용을 보려면 [Azure에서 다중 테넌트 응용 프로그램 디자인](http://msdn.microsoft.com/en-us/library/windowsazure/hh689716)을 참조하십시오.
+다중 테넌트 응용 프로그램에 Azure를 적용할 수 있는 방법을 심도 있게 다룬 내용을 보려면 [Azure에서 다중 테넌트 응용 프로그램 디자인](http://msdn.microsoft.com/ko-kr/library/windowsazure/hh689716)을 참조하십시오.
 
 <!--links-->
 
-[Hosting a Multi-Tenant Application on Azure]: http://msdn.microsoft.com/en-us/library/hh534480.aspx
-[Designing Multitenant Applications on Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/hh689716
+[Hosting a Multi-Tenant Application on Azure]: http://msdn.microsoft.com/ko-kr/library/hh534480.aspx
+[Designing Multitenant Applications on Azure]: http://msdn.microsoft.com/ko-kr/library/windowsazure/hh689716
 
 

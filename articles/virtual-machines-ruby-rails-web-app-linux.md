@@ -124,7 +124,7 @@ Rails 응용 프로그램 만들기
 Azure 가상 컴퓨터 만들기
 ------------------------
 
-[여기](http://windowsazure.com/en-us/documentation/articles/virtual-machines-linux-tutorial)에 나와 있는 지침을 따라 Linux를 호스트하는 Azure 가상 컴퓨터를 만드십시오.
+[여기](http://windowsazure.com/ko-kr/documentation/articles/virtual-machines-linux-tutorial)에 나와 있는 지침을 따라 Linux를 호스트하는 Azure 가상 컴퓨터를 만드십시오.
 
 **참고**
 
@@ -262,16 +262,16 @@ gem 설치 및 Rails 시작
 
 이 문서에서는 기본 양식 기반 Rails 응용 프로그램을 만들어 Azure 가상 컴퓨터에 게시하는 방법을 알아보았습니다. 지금까지 대부분의 작업을 수동으로 처리했지만 프로덕션 환경에서는 자동화하는 것이 좋습니다. 또한 대부분의 프로덕션 환경은 Rails 응용 프로그램을 다른 서버 프로세스(예: Apache 또는 NginX)와 함께 호스트하며 이러한 서버 프로세스는 Rails 응용 프로그램의 여러 인스턴스로 라우팅하여 정적 리소스를 제공하는 요청을 처리합니다.
 
-Rails 응용 프로그램의 자동 배포와 Unicorn 웹 서버 및 NginX 사용에 대한 자세한 내용은 [Unicorn+NginX+Capistrano 및 Azure 가상 컴퓨터](http://windowsazure.com/en-us/documentation/articles/virtual-machines-ruby-deploy-capistrano-host-nginx-unicorn/)를 참조하십시오.
+Rails 응용 프로그램의 자동 배포와 Unicorn 웹 서버 및 NginX 사용에 대한 자세한 내용은 [Unicorn+NginX+Capistrano 및 Azure 가상 컴퓨터](http://windowsazure.com/ko-kr/documentation/articles/virtual-machines-ruby-deploy-capistrano-host-nginx-unicorn/)를 참조하십시오.
 
 Ruby on Rails에 대해 자세히 알아보려면 [Ruby on Rails 가이드](http://guides.rubyonrails.org/)(영문)를 참조하십시오.
 
 Azure SDK for Ruby를 사용하여 Ruby 응용 프로그램에서 Azure 서비스에 액세스하려면 다음을 참조하십시오.
 
--   [Blob을 사용하여 데이터 저장](http://windowsazure.com/en-us/documentation/articles/storage-ruby-how-to-use-blob-storage)
+-   [Blob을 사용하여 데이터 저장](http://windowsazure.com/ko-kr/documentation/articles/storage-ruby-how-to-use-blob-storage)
 
--   [테이블을 사용하여 키/값 쌍 저장(영문)](http://www.windowsazure.com/en-us/develop/ruby/how-to-guides/table-service/)
+-   [테이블을 사용하여 키/값 쌍 저장(영문)](http://www.windowsazure.com/ko-kr/develop/ruby/how-to-guides/table-service/)
 
--   [콘텐츠 배달 네트워크로 높은 대역폭 콘텐츠 제공](http://www.windowsazure.com/en-us/develop/ruby/app-services/)
+-   [콘텐츠 배달 네트워크로 높은 대역폭 콘텐츠 제공](http://www.windowsazure.com/ko-kr/develop/ruby/app-services/)
 
 

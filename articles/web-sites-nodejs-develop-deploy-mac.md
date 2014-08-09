@@ -16,7 +16,7 @@
 
  
 <div  class="dev-callout"><strong>참고</strong>
-<p>이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A7171371E" target="_blank">Azure 무료 평가판</a>을 참조하십시오.</p>
+<p>이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://www.windowsazure.com/ko-kr/pricing/free-trial/?WT.mc_id=A7171371E" target="_blank">Azure 무료 평가판</a>을 참조하십시오.</p>
 </div>
 
  1.  [Azure 관리 포털][1]에 로그인합니다.
@@ -181,6 +181,6 @@ Azure에 제공되는 Node.js 버전에 대한 정보 및 응용 프로그램에
 [1]: http://manage.windowsazure.com
 [2]: http://git-scm.com/
 [3]: http://git-scm.com/download
-[4]: http://www.windowsazure.com/en-us/develop/nodejs/common-tasks/working-with-node-modules/
-[5]: http://www.windowsazure.com/en-us/develop/nodejs/common-tasks/specifying-a-node-version/
-[6]: http://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/Debug-Website/
+[4]: http://www.windowsazure.com/ko-kr/develop/nodejs/common-tasks/working-with-node-modules/
+[5]: http://www.windowsazure.com/ko-kr/develop/nodejs/common-tasks/specifying-a-node-version/
+[6]: http://www.windowsazure.com/ko-kr/develop/nodejs/how-to-guides/Debug-Website/

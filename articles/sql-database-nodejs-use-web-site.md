@@ -66,7 +66,7 @@ Azure 웹 사이트 및 SQL 데이터베이스를 만들려면 다음 단계를 
 
     ![웹 사이트 세부 정보 입력](./media/sql-database-nodejs-use-web-site/website_details_sqlazure.jpg)
 
-4.  데이터베이스 **이름**에 값을 입력하고 **버전**[(WEB 또는 BUSINESS)](http://msdn.microsoft.com/en-us/library/windowsazure/ee621788.aspx), 데이터베이스의 **최대 크기**, **데이터 정렬** 및 **새 SQL 데이터베이스 서버**를 선택합니다. 대화 상자 맨 아래에 있는 화살표를 클릭합니다.
+4.  데이터베이스 **이름**에 값을 입력하고 **버전**[(WEB 또는 BUSINESS)](http://msdn.microsoft.com/ko-kr/library/windowsazure/ee621788.aspx), 데이터베이스의 **최대 크기**, **데이터 정렬** 및 **새 SQL 데이터베이스 서버**를 선택합니다. 대화 상자 맨 아래에 있는 화살표를 클릭합니다.
 
     ![SQL 데이터베이스 설정 입력](./media/sql-database-nodejs-use-web-site/database_settings.jpg)
 

@@ -59,7 +59,7 @@
 지원 티켓을 열려면 다음을 수행합니다.
 
 1.  [관리 포털](http://manage.windowsazure.com)에서 Azure 계정으로 로그인합니다.
-2.  [지원](http://www.windowsazure.com/en-us/support/contact/)으로 이동합니다.
+2.  [지원](http://www.windowsazure.com/ko-kr/support/contact/)으로 이동합니다.
 3.  "지원 받기"를 클릭합니다.
 4.  사용 중인 구독을 선택합니다.
 5.  지원 유형으로 "기술적"을 선택합니다.

@@ -240,5 +240,5 @@
 -   **[알림 허브를 통해 사용자에게 플랫폼 간 알림 보내기](/en-us/manage/services/notification-hubs/notify-users-xplat-mobile-services)(영문)**
     이 자습서는 플랫폼별 템플릿을 사용하여 알림을 등록하도록 현재 **알림 허브를 통해 사용자에게 알림** 자습서를 확장합니다. 이를 통해 서버 쪽 코드의 단일 메서드에서 알림을 보낼 수 있습니다.
 
-알림 허브에 대한 자세한 내용은 [Azure 알림 허브](http://msdn.microsoft.com/en-us/library/windowsazure/jj927170.aspx)를 참조하십시오.
+알림 허브에 대한 자세한 내용은 [Azure 알림 허브](http://msdn.microsoft.com/ko-kr/library/windowsazure/jj927170.aspx)를 참조하십시오.
 

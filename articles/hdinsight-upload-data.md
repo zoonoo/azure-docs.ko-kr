@@ -57,13 +57,13 @@ Azure PowerShell은 Azure에서 작업의 배포와 관리를 제어 및 자동�
 환경입니다. Azure PowerShell을 사용하면, MapReduce 작업에서 처리할 수 있도록 데이터를 Blob 저장소에
 업로드할 수 있습니다. Azure PowerShell을 실행하기 위해 워크스테이션을 구성하는 방법에 대한 자세한 내용은
 [Azure PowerShell 설치 및
-구성](/en-us/documentation/articles/install-configure-powershell/)을
+구성](/ko-kr/documentation/articles/install-configure-powershell/)을
 참조하십시오.
 
 **Blob 저장소에 로컬 파일을 업로드하려면**
 
 1.  [Azure PowerShell 설치 및
-    구성](/en-us/documentation/articles/install-configure-powershell/)의
+    구성](/ko-kr/documentation/articles/install-configure-powershell/)의
     지침에 따라 Azure PowerShell 콘솔 창을 엽니다.
 2.  다음 스크립트에서 처음 5개의 변수 값을 설정합니다.
     
@@ -179,7 +179,7 @@ Sqoop은 Hadoop과 관계형 데이터베이스 간 데이터 전송을 위해 �
 **Sqoop 및 PowerShell을 사용하여 HDInsight로 데이터를 가져오려면**
 
 1.  [Azure PowerShell 설치 및
-    구성](/en-us/documentation/articles/install-configure-powershell/)의
+    구성](/ko-kr/documentation/articles/install-configure-powershell/)의
     지침에 따라 Azure PowerShell 콘솔 창을 엽니다.
 2.  다음 스크립트에서 처음 8개의 변수 값을 설정합니다.
     
@@ -229,7 +229,7 @@ Sqoop 사용에 대한 자세한 내용은 [HDInsight와 함께 Sqoop 사용](..
 
 
 [1]: http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx
-[2]: http://msdn.microsoft.com/en-us/library/windowsazure/jj152841.aspx
+[2]: http://msdn.microsoft.com/ko-kr/library/windowsazure/jj152841.aspx
 [3]: http://azurestorageexplorer.codeplex.com/
 [4]: http://www.cerebrata.com/Products/CloudStorageStudio/
 [5]: http://clumsyleaf.com/products/cloudxplorer

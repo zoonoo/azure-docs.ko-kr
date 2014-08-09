@@ -52,7 +52,7 @@
 	  </visual>
 	</toast>
 
-템플릿은 매우 강력한 기능입니다. 자세한 내용은 [알림 허브 지침](http://msdn.microsoft.com/en-us/library/jj927170.aspx) 문서를 참조하십시오. 템플릿 표현 언어에 대한 참조는 [Windows 스토어용 알림 허브 방법](http://msdn.microsoft.com/en-us/library/jj927172.aspx)을 참조하십시오.
+템플릿은 매우 강력한 기능입니다. 자세한 내용은 [알림 허브 지침](http://msdn.microsoft.com/ko-kr/library/jj927170.aspx) 문서를 참조하십시오. 템플릿 표현 언어에 대한 참조는 [Windows 스토어용 알림 허브 방법](http://msdn.microsoft.com/ko-kr/library/jj927172.aspx)을 참조하십시오.
 
 앱 ui앱 사용자 인터페이스
 -------------------------
@@ -157,5 +157,5 @@ Windows 스토어 앱에서
 다음 단계
 ---------
 
-템플릿 사용에 대한 자세한 내용은 [알림 허브를 통해 사용자에게 알림: ASP.NET](/en-us/manage/services/notification-hubs/notify-users-aspnet), [알림 허브를 통해 사용자에게 알림: 모바일 서비스](/en-us/manage/services/notification-hubs/notify-users) 및 [알림 허브 지침](http://msdn.microsoft.com/en-us/library/jj927170.aspx)을 참조하십시오. 템플릿 표현 언어에 대한 자세한 내용은 [Windows 스토어용 알림 허브 방법](http://msdn.microsoft.com/en-us/library/jj927172.aspx)을 참조하십시오.
+템플릿 사용에 대한 자세한 내용은 [알림 허브를 통해 사용자에게 알림: ASP.NET](/en-us/manage/services/notification-hubs/notify-users-aspnet), [알림 허브를 통해 사용자에게 알림: 모바일 서비스](/en-us/manage/services/notification-hubs/notify-users) 및 [알림 허브 지침](http://msdn.microsoft.com/ko-kr/library/jj927170.aspx)을 참조하십시오. 템플릿 표현 언어에 대한 자세한 내용은 [Windows 스토어용 알림 허브 방법](http://msdn.microsoft.com/ko-kr/library/jj927172.aspx)을 참조하십시오.
 

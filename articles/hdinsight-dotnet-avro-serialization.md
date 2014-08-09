@@ -1265,6 +1265,6 @@ Microsoft .NET Library for Avro는 NuGet 패키지로 배포되며, Visual Studi
 
 
 
-[1]: http://msdn.microsoft.com/en-us/library/ms731072(v=vs.110).aspx
+[1]: http://msdn.microsoft.com/ko-kr/library/ms731072(v=vs.110).aspx
 [2]: http://avro.apache.org/docs/current/spec.html#Required+Codecs
-[3]: http://msdn.microsoft.com/en-us/library/system.io.compression.deflatestream(v=vs.110).aspx
+[3]: http://msdn.microsoft.com/ko-kr/library/system.io.compression.deflatestream(v=vs.110).aspx

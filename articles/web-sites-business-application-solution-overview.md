@@ -3,7 +3,7 @@
 Azure 웹 사이트에서 LOB(기간 업무) 응용 프로그램 만들기
 =======================================================
 
-이 가이드는 Azure 웹 사이트에서 LOB(기간 업무) 응용 프로그램을 만드는 방법에 대한 기술적 개요를 제공합니다. 이 문서의 목적에 따라, 이러한 응용 프로그램은 내부 비즈니스 사용을 위해 보안 기능을 갖춘 인트라넷 응용 프로그램인 것으로 가정합니다. 비즈니스 응용 프로그램에는 두 가지 고유한 특성이 있습니다. 이러한 응용 프로그램에는 대개 회사 디렉터리에 대한 인증이 필요합니다. 또한 일반적으로 온-프레미스 데이터 및 서비스에 대한 액세스 또는 통합이 필요합니다. 이 가이드는 [Azure 웹 사이트](/en-us/documentation/services/web-sites/)에서 비즈니스 응용 프로그램을 빌드하는 데 초점을 맞춥니다. 그러나 [Azure 클라우드 서비스](/en-us/documentation/services/cloud-services/) 또는 [Azure 가상 컴퓨터](/en-us/documentation/services/virtual-machines/)가 요구 사항에 더 적합한 상황도 있습니다. 이러한 옵션 간의 차이점을 검토하는 것이 중요합니다. 자세한 내용은 [Azure 웹 사이트, 클라우드 서비스 및 VM: 각 항목을 사용해야 하는 경우](/en-us/manage/services/web-sites/choose-web-app-service)(영문)를 참조하십시오.
+이 가이드는 Azure 웹 사이트에서 LOB(기간 업무) 응용 프로그램을 만드는 방법에 대한 기술적 개요를 제공합니다. 이 문서의 목적에 따라, 이러한 응용 프로그램은 내부 비즈니스 사용을 위해 보안 기능을 갖춘 인트라넷 응용 프로그램인 것으로 가정합니다. 비즈니스 응용 프로그램에는 두 가지 고유한 특성이 있습니다. 이러한 응용 프로그램에는 대개 회사 디렉터리에 대한 인증이 필요합니다. 또한 일반적으로 온-프레미스 데이터 및 서비스에 대한 액세스 또는 통합이 필요합니다. 이 가이드는 [Azure 웹 사이트](/ko-kr/documentation/services/web-sites/)에서 비즈니스 응용 프로그램을 빌드하는 데 초점을 맞춥니다. 그러나 [Azure 클라우드 서비스](/ko-kr/documentation/services/cloud-services/) 또는 [Azure 가상 컴퓨터](/ko-kr/documentation/services/virtual-machines/)가 요구 사항에 더 적합한 상황도 있습니다. 이러한 옵션 간의 차이점을 검토하는 것이 중요합니다. 자세한 내용은 [Azure 웹 사이트, 클라우드 서비스 및 VM: 각 항목을 사용해야 하는 경우](/en-us/manage/services/web-sites/choose-web-app-service)(영문)를 참조하십시오.
 
 이 가이드에서는 다음 영역에 대해 설명합니다.
 
@@ -15,7 +15,7 @@ Azure 웹 사이트에서 LOB(기간 업무) 응용 프로그램 만들기
 
 **참고**
 
-이 가이드에서는 공용 .COM 사이트 개발에 맞는 가장 일반적인 몇 가지 영역과 작업에 대해 설명합니다. 그러나 각자의 특정 구현에 사용할 수 있는 Azure 웹 사이트의 다른 기능도 있습니다. 이러한 기능에 대해 알아보려면 [글로벌 웹 서비스](http://www.windowsazure.com/en-us/manage/services/web-sites/global-web-presence-solution-overview/)(영문) 및 [디지털 마케팅 캠페인](http://www.windowsazure.com/en-us/manage/services/web-sites/digital-marketing-campaign-solution-overview)(영문)에서 제공하는 다른 가이드도 참조하십시오.
+이 가이드에서는 공용 .COM 사이트 개발에 맞는 가장 일반적인 몇 가지 영역과 작업에 대해 설명합니다. 그러나 각자의 특정 구현에 사용할 수 있는 Azure 웹 사이트의 다른 기능도 있습니다. 이러한 기능에 대해 알아보려면 [글로벌 웹 서비스](http://www.windowsazure.com/ko-kr/manage/services/web-sites/global-web-presence-solution-overview/)(영문) 및 [디지털 마케팅 캠페인](http://www.windowsazure.com/ko-kr/manage/services/web-sites/digital-marketing-campaign-solution-overview)(영문)에서 제공하는 다른 가이드도 참조하십시오.
 
 이점 고려
 ---------
@@ -29,8 +29,8 @@ LOB(기간 업무) 응용 프로그램은 대개 회사 사용자를 대상으�
 
 비즈니스 응용 프로그램 시나리오에서는 인증 전략이 가장 중요한 결정 사항 중 하나입니다. 다음과 같은 몇 가지 옵션이 있습니다.
 
--   [Azure Active Directory 서비스](/en-us/documentation/services/active-directory/)를 사용합니다. 독립형 디렉터리로 사용할 수도 있고 온-프레미스 Active Directory와 동기화할 수도 있습니다. 그러면 응용 프로그램이 Azure Active Directory와 조작하여 사용자를 인증합니다. 이 접근 방식의 개요는 [Azure Active Directory 사용](/en-us/manage/windows/fundamentals/identity/#ad)을 참조하십시오.
--   Azure 가상 컴퓨터 및 가상 네트워크를 사용하여 Active Directory를 설치합니다. 이 옵션을 사용하면 온-프레미스 Active Directory를 클라우드에 확장 설치할 수 있습니다. ADFS(Active Directory Federation Services)를 사용하여 ID 요청을 온-프레미스 AD로 다시 페더레이션하는 방법을 선택할 수도 있습니다. 그러면 Azure 응용 프로그램의 인증은 ADFS를 통해 온-프레미스 Active Directory로 전달됩니다. 이 접근 방식에 대한 자세한 내용은 [VM에서 Windows Server Active Directory 실행](/en-us/manage/windows/fundamentals/identity/#adinvm) 및 [Azure 가상 컴퓨터에 Windows Server Active Directory 배포에 대한 지침](http://msdn.microsoft.com/en-us/library/windowsazure/jj156090.aspx)을 참조하십시오.
+-   [Azure Active Directory 서비스](/ko-kr/documentation/services/active-directory/)를 사용합니다. 독립형 디렉터리로 사용할 수도 있고 온-프레미스 Active Directory와 동기화할 수도 있습니다. 그러면 응용 프로그램이 Azure Active Directory와 조작하여 사용자를 인증합니다. 이 접근 방식의 개요는 [Azure Active Directory 사용](/en-us/manage/windows/fundamentals/identity/#ad)을 참조하십시오.
+-   Azure 가상 컴퓨터 및 가상 네트워크를 사용하여 Active Directory를 설치합니다. 이 옵션을 사용하면 온-프레미스 Active Directory를 클라우드에 확장 설치할 수 있습니다. ADFS(Active Directory Federation Services)를 사용하여 ID 요청을 온-프레미스 AD로 다시 페더레이션하는 방법을 선택할 수도 있습니다. 그러면 Azure 응용 프로그램의 인증은 ADFS를 통해 온-프레미스 Active Directory로 전달됩니다. 이 접근 방식에 대한 자세한 내용은 [VM에서 Windows Server Active Directory 실행](/en-us/manage/windows/fundamentals/identity/#adinvm) 및 [Azure 가상 컴퓨터에 Windows Server Active Directory 배포에 대한 지침](http://msdn.microsoft.com/ko-kr/library/windowsazure/jj156090.aspx)을 참조하십시오.
 -   사용자를 인증하는 데 여러 ID 서비스를 사용하기 위해 [Azure ACS(액세스 제어 서비스)](http://msdn.microsoft.com/library/windowsazure/hh147631.aspx)와 같은 중간 서비스를 이용합니다. 이 옵션은 Active Directory 또는 다른 ID 공급자를 통해 인증하기 위한 추상화를 제공합니다. 자세한 내용은 [Azure Active Directory 액세스 제어 사용](/en-us/manage/windows/fundamentals/identity/#ac)을 참조하십시오.
 
 이 비즈니스 응용 프로그램 시나리오에서는 첫 번째 Azure Active Directory 사용 시나리오가 응용 프로그램의 인증 전략을 구현하기 위한 가장 빠른 경로를 제공합니다. 이 가이드의 나머지 부분은 Azure Active Directory에 초점을 맞춥니다. 그러나 각자의 비즈니스 응용 프로그램에 따라 나머지 두 솔루션 중 하나가 더 적합할 수도 있습니다. 예를 들어, ID 정보를 클라우드에 동기화하는 기능이 허용되지 않는 경우 ADFS 솔루션이 더 나은 옵션일 수 있습니다. 또는 다른 ID 공급자(예: Facebook)를 지원해야 하는 경우 ACS 솔루션이 더 적합할 수 있습니다.
@@ -104,13 +104,13 @@ LOB(기간 업무) 응용 프로그램을 관리할 때에는 배포용 소스 �
 
 LOB(기간 업무) 응용 프로그램의 다수는 온-프레미스 데이터 및 서비스와 통합해야 합니다. 특정 데이터 유형을 클라우드로 이동할 수 없는 데에는 여러 가지 이유가 있습니다. 실무적인 이유이거나 규제상의 이유일 수 있습니다. 어떤 데이터를 Azure에 호스트하고 어떤 데이터를 온-프레미스에 둘지를 결정하는 계획 단계라면 [Azure 보안 센터](/en-us/support/trust-center/)의 리소스를 검토하는 것이 중요합니다. 하이브리드 웹 응용 프로그램은 Azure에서 실행되며 온-프레미스에 남아 있는 리소스에 액세스합니다.
 
-가상 컴퓨터 또는 클라우드 서비스를 사용할 때에는 가상 네트워크를 사용하여 Azure의 응용 프로그램을 회사 네트워크와 연결할 수 있습니다. 그러나 웹 사이트는 가상 네트워크를 지원하지 않으므로, 이런 유형의 웹 사이트 통합을 수행하기 위한 가장 좋은 방법은 [Azure 서비스 버스 릴레이 서비스](http://msdn.microsoft.com/en-us/library/windowsazure/jj860549.aspx)를 사용하는 것입니다. 서비스 버스 릴레이 서비스를 사용하면 클라우드의 응용 프로그램을 회사 네트워크에서 실행 중인 WCF 서비스에 안전하게 연결할 수 있습니다. 서비스 버스를 사용하면 방화벽 포트를 열지 않고도 이러한 통신이 가능합니다.
+가상 컴퓨터 또는 클라우드 서비스를 사용할 때에는 가상 네트워크를 사용하여 Azure의 응용 프로그램을 회사 네트워크와 연결할 수 있습니다. 그러나 웹 사이트는 가상 네트워크를 지원하지 않으므로, 이런 유형의 웹 사이트 통합을 수행하기 위한 가장 좋은 방법은 [Azure 서비스 버스 릴레이 서비스](http://msdn.microsoft.com/ko-kr/library/windowsazure/jj860549.aspx)를 사용하는 것입니다. 서비스 버스 릴레이 서비스를 사용하면 클라우드의 응용 프로그램을 회사 네트워크에서 실행 중인 WCF 서비스에 안전하게 연결할 수 있습니다. 서비스 버스를 사용하면 방화벽 포트를 열지 않고도 이러한 통신이 가능합니다.
 
 아래의 다이어그램에서는 클라우드 응용 프로그램과 온-프레미스 WCF 서비스 모두 앞서 만든 네임스페이스를 통해 서비스 버스와 통신합니다. 온-프레미스 WCF 서비스는 클라우드로 이동할 수 없는 내부 데이터 및 서비스에 액세스합니다. WCF 서비스는 네임스페이스에 끝점을 등록합니다. Azure에서 실행 중인 웹 사이트는 서비스 버스의 이 끝점에도 연결됩니다. 이 단계를 완료하려면 발신 공개 HTTP 요청만 수행할 수 있어야 합니다.
 
 ![BusinessApplicationsServiceBusRelay](./media/web-sites-business-application-solution-overview/BusinessApplications_ServiceBusRelay.png)
 
-이제 서비스 버스는 클라우드 응용 프로그램을 온-프레미스 WCF 서비스에 연결합니다. 그러면 Azure와 온-프레미스에서 모두 서비스와 리소스를 사용하는 하이브리드 응용 프로그램을 만들기 위한 기본 아키텍처가 제공됩니다. 자세한 내용은 [서비스 버스 릴레이 서비스 사용 방법](/en-us/develop/net/how-to-guides/service-bus-relay/) 및 [서비스 버스 릴레이된 메시징 자습서](http://msdn.microsoft.com/en-us/library/windowsazure/ee706736.aspx)(영문)를 참조하십시오. 이 기술을 설명하는 샘플은 [Enterprise Pizza - 서비스 버스를 사용하여 웹 사이트를 온-프레미스에 연결](http://code.msdn.microsoft.com/windowsazure/Enterprise-Pizza-e2d8f2fa)(영문)을 참조하십시오.
+이제 서비스 버스는 클라우드 응용 프로그램을 온-프레미스 WCF 서비스에 연결합니다. 그러면 Azure와 온-프레미스에서 모두 서비스와 리소스를 사용하는 하이브리드 응용 프로그램을 만들기 위한 기본 아키텍처가 제공됩니다. 자세한 내용은 [서비스 버스 릴레이 서비스 사용 방법](/en-us/develop/net/how-to-guides/service-bus-relay/) 및 [서비스 버스 릴레이된 메시징 자습서](http://msdn.microsoft.com/ko-kr/library/windowsazure/ee706736.aspx)(영문)를 참조하십시오. 이 기술을 설명하는 샘플은 [Enterprise Pizza - 서비스 버스를 사용하여 웹 사이트를 온-프레미스에 연결](http://code.msdn.microsoft.com/windowsazure/Enterprise-Pizza-e2d8f2fa)(영문)을 참조하십시오.
 
 응용 프로그램 모니터링
 ----------------------
@@ -143,23 +143,23 @@ Azure를 사용하면 보안 인트라넷 응용 프로그램을 클라우드에
 </tr>
 <tr>
    <td valign="middle"><strong>계획</strong></td>
-   <td valign="top">- <a href="http://www.windowsazure.com/en-us/manage/services/web-sites/choose-web-app-service">Azure 웹 사이트, 클라우드 서비스 및 VM: 각 항목을 사용해야 하는 경우</a>(영문)</td>
+   <td valign="top">- <a href="http://www.windowsazure.com/ko-kr/manage/services/web-sites/choose-web-app-service">Azure 웹 사이트, 클라우드 서비스 및 VM: 각 항목을 사용해야 하는 경우</a>(영문)</td>
 </tr>
 <tr>
    <td valign="middle"><strong>만들기 및 배포</strong></td>
-   <td valign="top">- <a href ="http://www.windowsazure.com/en-us/develop/net/tutorials/get-started/">Azure 웹 사이트에 ASP.NET 웹 응용 프로그램 배포</a>(영문)<br/>- <a href="http://www.windowsazure.com/en-us/develop/net/tutorials/web-site-with-sql-database/">Azure에 보안 ASP.NET MVC 응용 프로그램 배포</a>(영문)</td>
+   <td valign="top">- <a href ="http://www.windowsazure.com/ko-kr/develop/net/tutorials/get-started/">Azure 웹 사이트에 ASP.NET 웹 응용 프로그램 배포</a>(영문)<br/>- <a href="http://www.windowsazure.com/ko-kr/develop/net/tutorials/web-site-with-sql-database/">Azure에 보안 ASP.NET MVC 응용 프로그램 배포</a>(영문)</td>
 </tr>
 <tr>
    <td valign="middle"><strong>인증</strong></td>
-   <td valign="top">- <a href ="http://www.windowsazure.com/en-us/manage/windows/fundamentals/identity/">Azure ID 옵션 이해</a>(영문)<br/>- <a href="http://www.windowsazure.com/en-us/documentation/services/active-directory/">Azure Active Directory 서비스</a><br/>- <a href="http://technet.microsoft.com/en-us/library/jj573650.aspx">Azure AD 테넌트란?</a><br/>- <a href="http://msdn.microsoft.com/library/windowsazure/dn151790.aspx">Azure AD를 사용하여 웹 응용 프로그램에 Sign-On 추가</a>(영문)<br/>- <a href="http://www.asp.net/aspnet/overview/aspnet-and-visual-studio-2012/windows-azure-authentication">Azure 인증 자습서</a>(영문)</td>
+   <td valign="top">- <a href ="http://www.windowsazure.com/ko-kr/manage/windows/fundamentals/identity/">Azure ID 옵션 이해</a>(영문)<br/>- <a href="http://www.windowsazure.com/ko-kr/documentation/services/active-directory/">Azure Active Directory 서비스</a><br/>- <a href="http://technet.microsoft.com/en-us/library/jj573650.aspx">Azure AD 테넌트란?</a><br/>- <a href="http://msdn.microsoft.com/library/windowsazure/dn151790.aspx">Azure AD를 사용하여 웹 응용 프로그램에 Sign-On 추가</a>(영문)<br/>- <a href="http://www.asp.net/aspnet/overview/aspnet-and-visual-studio-2012/windows-azure-authentication">Azure 인증 자습서</a>(영문)</td>
 </tr>
 <tr>
    <td valign="middle"><strong>서비스 버스 릴레이</strong></td>
-   <td valign="top">- <a href="http://www.windowsazure.com/en-us/develop/net/how-to-guides/service-bus-relay/">서비스 버스 릴레이 서비스 사용 방법</a><br/>- <a href="http://msdn.microsoft.com/en-us/library/windowsazure/ee706736.aspx">서비스 버스 릴레이된 메시징 자습서</a>(영문)</td>
+   <td valign="top">- <a href="http://www.windowsazure.com/ko-kr/develop/net/how-to-guides/service-bus-relay/">서비스 버스 릴레이 서비스 사용 방법</a><br/>- <a href="http://msdn.microsoft.com/ko-kr/library/windowsazure/ee706736.aspx">서비스 버스 릴레이된 메시징 자습서</a>(영문)</td>
 </tr>
 <tr>
    <td valign="middle"><strong>모니터</strong></td>
-   <td valign="top">- <a href ="http://www.windowsazure.com/en-us/manage/services/web-sites/how-to-monitor-websites/">웹 사이트를 모니터링하는 방법</a>(영문)<br/>- <a href="http://msdn.microsoft.com/library/windowsazure/dn306638.aspx">방법: Azure에서 경고 알림 받기 및 경고 규칙 관리</a>(영문)<br/>- <a href="http://www.windowsazure.com/en-us/manage/services/web-sites/how-to-monitor-websites/#howtoconfigdiagnostics">방법: 진단 구성 및 웹 사이트의 로그 다운로드</a><br/>- <a href="http://www.windowsazure.com/en-us/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/">Visual Studio에서 Azure 웹 사이트 문제 해결</a></td>
+   <td valign="top">- <a href ="http://www.windowsazure.com/ko-kr/manage/services/web-sites/how-to-monitor-websites/">웹 사이트를 모니터링하는 방법</a>(영문)<br/>- <a href="http://msdn.microsoft.com/library/windowsazure/dn306638.aspx">방법: Azure에서 경고 알림 받기 및 경고 규칙 관리</a>(영문)<br/>- <a href="http://www.windowsazure.com/ko-kr/manage/services/web-sites/how-to-monitor-websites/#howtoconfigdiagnostics">방법: 진단 구성 및 웹 사이트의 로그 다운로드</a><br/>- <a href="http://www.windowsazure.com/ko-kr/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/">Visual Studio에서 Azure 웹 사이트 문제 해결</a></td>
 </tr>
 </table>
 

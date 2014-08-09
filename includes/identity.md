@@ -127,7 +127,7 @@ David Chappell은 미국 캘리포니아주 샌프란시스코에 있는 Chappel
 
 
 
-[1]: http://msdn.microsoft.com/en-us/library/windowsazure/jj156090.aspx
+[1]: http://msdn.microsoft.com/ko-kr/library/windowsazure/jj156090.aspx
 [2]: http://download.microsoft.com/download/E/5/A/E5A59052-EE48-4D64-897B-5F7C608165B8/IntroducingOData.pdf
 [3]: http://www.davidchappell.com/writing/white_papers/Claims-Based_Identity_for_Windows_v3.0--Chappell.docx
 [4]: http://www.davidchappell.com

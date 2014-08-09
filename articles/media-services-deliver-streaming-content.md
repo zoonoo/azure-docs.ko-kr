@@ -70,8 +70,8 @@ private static ILocator GetStreamingOriginLocator( string targetAssetID)
 
 자산 제공에 대한 자세한 내용은 다음을 참조하십시오.
 
--   [Media Services for .NET을 사용하여 자산 제공(영문)](http://msdn.microsoft.com/en-us/library/jj129575.aspx)
--   [Media Services REST API를 사용하여 자산 제공(영문)](http://msdn.microsoft.com/en-us/library/jj129578.aspx)
+-   [Media Services for .NET을 사용하여 자산 제공(영문)](http://msdn.microsoft.com/ko-kr/library/jj129575.aspx)
+-   [Media Services REST API를 사용하여 자산 제공(영문)](http://msdn.microsoft.com/ko-kr/library/jj129578.aspx)
 
 다음 단계
 ---------

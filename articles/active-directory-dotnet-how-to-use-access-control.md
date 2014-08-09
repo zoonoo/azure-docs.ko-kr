@@ -360,4 +360,4 @@ ACS 기능을 자세히 살펴보고 추가 시나리오를 실험하려면 [액
 [1]: http://go.microsoft.com/fwlink/?LinkID=212360
 [2]: http://go.microsoft.com/fwlink/?LinkID=245849
 [3]: http://manage.WindowsAzure.com
-[4]: http://msdn.microsoft.com/en-us/library/hh377151.aspx
+[4]: http://msdn.microsoft.com/ko-kr/library/hh377151.aspx

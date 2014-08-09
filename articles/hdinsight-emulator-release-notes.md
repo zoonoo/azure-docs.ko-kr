@@ -67,7 +67,7 @@ v0.4.0.0, 릴리스 날짜: 2013년 3월 25일
 
 -   Azure HDInsight 서비스를 사용하여 원격으로 실행 중인 클러스터 및 로컬 설치 등 여러 클러스터에 연결합니다.
 
--   HDInsight 서비스에 대한 자세한 내용은 http://www.windowsazure.com/en-us/manage/services/hdinsight(영문)를 참조하십시오.
+-   HDInsight 서비스에 대한 자세한 내용은 http://www.windowsazure.com/ko-kr/manage/services/hdinsight(영문)를 참조하십시오.
 
 -   로컬 클러스터에 ASV를 구성합니다.
 
@@ -252,5 +252,5 @@ v1.0.0.0, 릴리스 날짜: 2012년 10월 23일
 다음 단계
 ---------
 
--   [HDInsight Emulator 시작](/en-us/documentation/articles/hdinsight-get-started-emulator/)
+-   [HDInsight Emulator 시작](/ko-kr/documentation/articles/hdinsight-get-started-emulator/)
 

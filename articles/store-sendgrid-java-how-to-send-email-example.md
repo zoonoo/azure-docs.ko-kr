@@ -19,7 +19,7 @@ Azure 배포에서 Java의 SendGrid를 사용하여 전자 메일을 보내는 �
 
 또한 고유한 SendGrid 사용자 이름 및 암호가 있어야 전자 메일을 보낼 수 있습니다. SendGrid를 시작하려면 [Java의 SendGrid를 사용하여 전자 메일을 보내는 방법](../store-sendgrid-java-how-to-send-email)을 참조하십시오.
 
-또한 [Eclipse에서 Azure용 Hello World 응용 프로그램 만들기](http://msdn.microsoft.com/en-us/library/windowsazure/hh690944)(영문)에 나온 정보나 Eclipse를 사용하지 않는 경우 Azure에서 Java 응용 프로그램을 호스트하는 다른 기술을 익히는 것이 좋습니다.
+또한 [Eclipse에서 Azure용 Hello World 응용 프로그램 만들기](http://msdn.microsoft.com/ko-kr/library/windowsazure/hh690944)(영문)에 나온 정보나 Eclipse를 사용하지 않는 경우 Azure에서 Java 응용 프로그램을 호스트하는 다른 기술을 익히는 것이 좋습니다.
 
 전자 메일을 보내기 위한 웹 양식 만들기
 --------------------------------------
@@ -200,7 +200,7 @@ emailform.jsp는 전자 메일을 보낼 뿐만 아니라 사용자에게 결과
 
 이 코드는 Azure의 Java에서 SendGrid를 사용하는 방법을 보여 줍니다. Azure를 프로덕션에 배포하기 전에 더 많은 오류 처리 또는 기타 기능을 추가할 수 있습니다. 예를 들면 다음과 같습니다.
 
--   웹 양식을 사용하는 대신 Azure 저장소 Blob 또는 SQL 데이터베이스를 사용하여 전자 메일 주소 및 전자 메일 메시지를 저장할 수 있습니다. Java에서 Azure 저장소 Blob 사용에 대한 내용은 [Java에서 Blob 저장소 서비스를 사용하는 방법](http://www.windowsazure.com/en-us/develop/java/how-to-guides/blob-storage/)(영문)을 참조하십시오. Java에서 SQL 데이터베이스 사용에 대한 내용은 [Java에서 SQL 데이터베이스 사용](http://www.windowsazure.com/en-us/develop/java/how-to-guides/using-sql-azure-in-java/)(영문)을 참조하십시오.
--   웹 양식을 사용하여 검색하는 대신, `RoleEnvironment.getConfigurationSettings`를 사용하여 배포의 구성 설정에서 SendGrid 사용자 이름 및 암호를 검색할 수 있습니다. `RoleEnvironment` 클래스에 대한 자세한 내용은 [JSP에서 Azure 서비스 런타임 라이브러리 사용](http://msdn.microsoft.com/en-us/library/windowsazure/hh690948)(영문) 및 Azure 서비스 런타임 패키지 설명서(&lt;http://dl.windowsazure.com/javadoc\>)(영문)를 참조하십시오.
+-   웹 양식을 사용하는 대신 Azure 저장소 Blob 또는 SQL 데이터베이스를 사용하여 전자 메일 주소 및 전자 메일 메시지를 저장할 수 있습니다. Java에서 Azure 저장소 Blob 사용에 대한 내용은 [Java에서 Blob 저장소 서비스를 사용하는 방법](http://www.windowsazure.com/ko-kr/develop/java/how-to-guides/blob-storage/)(영문)을 참조하십시오. Java에서 SQL 데이터베이스 사용에 대한 내용은 [Java에서 SQL 데이터베이스 사용](http://www.windowsazure.com/ko-kr/develop/java/how-to-guides/using-sql-azure-in-java/)(영문)을 참조하십시오.
+-   웹 양식을 사용하여 검색하는 대신, `RoleEnvironment.getConfigurationSettings`를 사용하여 배포의 구성 설정에서 SendGrid 사용자 이름 및 암호를 검색할 수 있습니다. `RoleEnvironment` 클래스에 대한 자세한 내용은 [JSP에서 Azure 서비스 런타임 라이브러리 사용](http://msdn.microsoft.com/ko-kr/library/windowsazure/hh690948)(영문) 및 Azure 서비스 런타임 패키지 설명서(&lt;http://dl.windowsazure.com/javadoc\>)(영문)를 참조하십시오.
 -   Java의 SendGrid 사용에 대한 자세한 내용은 [Java의 SendGrid를 사용하여 전자 메일을 보내는 방법](../store-sendgrid-java-how-to-send-email)을 참조하십시오.
 

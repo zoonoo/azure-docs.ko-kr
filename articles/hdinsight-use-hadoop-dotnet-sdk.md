@@ -42,7 +42,7 @@ Hadoop .NET SDK 다운로드 및 설치
 자습서 준비
 -----------
 
-자습서를 진행하려면 먼저 [Azure 구독](http://www.windowsazure.com/en-us/pricing/free-trial/) 및 [Azure 저장소 계정](http://www.windowsazure.com/en-us/manage/services/storage/how-to-create-a-storage-account/)이 있어야 합니다. 또한 Azure 저장소 계정 이름 및 계정 키도 알아야 합니다. 이러한 정보를 얻는 방법에 대한 자세한 내용은 *방법: 저장소 액세스 키 보기, 복사 및 다시 생성* 섹션([저장소 계정을 관리하는 방법](/en-us/manage/services/storage/how-to-manage-a-storage-account/))을 참조하십시오.
+자습서를 진행하려면 먼저 [Azure 구독](http://www.windowsazure.com/ko-kr/pricing/free-trial/) 및 [Azure 저장소 계정](http://www.windowsazure.com/ko-kr/manage/services/storage/how-to-create-a-storage-account/)이 있어야 합니다. 또한 Azure 저장소 계정 이름 및 계정 키도 알아야 합니다. 이러한 정보를 얻는 방법에 대한 자세한 내용은 *방법: 저장소 액세스 키 보기, 복사 및 다시 생성* 섹션([저장소 계정을 관리하는 방법](/en-us/manage/services/storage/how-to-manage-a-storage-account/))을 참조하십시오.
 
 또한 이 자습서에서 사용할 Actors.txt 파일도 다운로드해야 합니다. 다음 단계를 수행하여 이 파일을 개발 환경에 다운로드합니다.
 

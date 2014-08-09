@@ -170,7 +170,7 @@ NuGet 패키지는 또한 ServiceConfiguration.cscfg에 있는 캐시 클라이�
       </ConfigurationSettings>
     </Role>
 
-> In-Role Cache는 캐시 서버 및 캐시 클라이언트 진단 수준을 모두 제공합니다. 진단 수준은 캐싱을 위해 수집되는 진단 정보의 수준을 구성하는 단일 설정입니다. 자세한 내용은 [In-Role Cache 문제 해결 및 진단](http://msdn.microsoft.com/en-us/library/windowsazure/hh914135.aspx)을 참조하십시오.
+> In-Role Cache는 캐시 서버 및 캐시 클라이언트 진단 수준을 모두 제공합니다. 진단 수준은 캐싱을 위해 수집되는 진단 정보의 수준을 구성하는 단일 설정입니다. 자세한 내용은 [In-Role Cache 문제 해결 및 진단](http://msdn.microsoft.com/ko-kr/library/windowsazure/hh914135.aspx)을 참조하십시오.
 
 NuGet 패키지는 또한 다음 어셈블리에 참조를 추가합니다.
 
@@ -296,7 +296,7 @@ In-Role Cache의 세션 상태 공급자는 ASP.NET 응용 프로그램의 Out o
 
 In-Role Cache에 세션 상태 공급자를 사용하려면 지정된 섹션의 주석 처리를 제거합니다. 제공된 코드 조각에 기본 캐시가 지정되어 있습니다. 다른 캐시를 사용하려면 **cacheName** 특성에서 원하는 캐시를 지정하십시오.
 
-캐싱 서비스 세션 상태 공급자에 대해 자세히 알아보려면 [In-Role Cache용 세션 상태 공급자](http://msdn.microsoft.com/en-us/library/windowsazure/gg185668.aspx)를 참조하십시오.
+캐싱 서비스 세션 상태 공급자에 대해 자세히 알아보려면 [In-Role Cache용 세션 상태 공급자](http://msdn.microsoft.com/ko-kr/library/windowsazure/gg185668.aspx)를 참조하십시오.
 
 ## 방법: 캐시에 ASP.NET 페이지 출력 캐싱 저장
 
@@ -325,14 +325,14 @@ In-Role Cache에 출력 캐시 공급자를 사용하려면 지정된 섹션의 
 
 이 예제에서는 캐시된 페이지 데이터가 캐시에 60초 동안 머물게 되며, 각 매개 변수 조합에 따라 페이지의 다른 버전이 캐시됩니다. 사용 가능한 옵션에 대한 자세한 내용은 [OutputCache 지시문](http://go.microsoft.com/fwlink/?LinkId=251979)을 참조하십시오.
 
-In-Role Cache에 출력 캐시 공급자를 사용하는 방법에 대한 자세한 내용은 [In-Role Cache용 출력 캐시 공급자](http://msdn.microsoft.com/en-us/library/windowsazure/gg185662.aspx)를 참조하십시오.
+In-Role Cache에 출력 캐시 공급자를 사용하는 방법에 대한 자세한 내용은 [In-Role Cache용 출력 캐시 공급자](http://msdn.microsoft.com/ko-kr/library/windowsazure/gg185662.aspx)를 참조하십시오.
 
 ## 다음 단계
 
 이제 In-Role Cache의 기본 사항을 배웠으므로 다음 링크를 따라 좀 더 복잡한 캐싱 작업을 수행하는 방법을 알아보십시오.
 
 -   다음 MSDN 참조를 확인하십시오. [In-Role Cache](http://www.microsoft.com/en-us/showcase/Search.aspx?phrase=azure+caching)
--   In-Role Cache로 마이그레이션하는 방법: [In-Role Cache로 마이그레이션](http://msdn.microsoft.com/en-us/library/hh914163.aspx)
--   샘플 확인: [In-Role Cache 샘플](http://msdn.microsoft.com/en-us/library/jj189876.aspx)
+-   In-Role Cache로 마이그레이션하는 방법: [In-Role Cache로 마이그레이션](http://msdn.microsoft.com/ko-kr/library/hh914163.aspx)
+-   샘플 확인: [In-Role Cache 샘플](http://msdn.microsoft.com/ko-kr/library/jj189876.aspx)
 -   In-Role Cache에 대한 TechEd 2013의 [최대 성능: Azure 캐싱으로 클라우드 서비스 응용 프로그램 가속화](http://channel9.msdn.com/Events/TechEd/NorthAmerica/2013/WAD-B326#fbid=kmrzkRxQ6gU)(영문) 세션
 

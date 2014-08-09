@@ -3,9 +3,9 @@
 푸시 알림 모바일 서비스 시작
 ============================
 
-[Windows 스토어 C\#](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push "Windows 스토어 C#") [Windows 스토어 JavaScript](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push "Windows 스토어 JavaScript") [Windows Phone](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push "Windows Phone")
+[Windows 스토어 C\#](/ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push "Windows 스토어 C#") [Windows 스토어 JavaScript](/ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push "Windows 스토어 JavaScript") [Windows Phone](/ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push "Windows Phone")
 
-[.NET 백 엔드](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push ".NET 백 엔드") | [JavaScript 백 엔드](/en-us/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push/ "JavaScript 백 엔드")
+[.NET 백 엔드](/ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push ".NET 백 엔드") | [JavaScript 백 엔드](/ko-kr/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push/ "JavaScript 백 엔드")
 
 이 항목에서는 Windows Azure .Net 런타임 모바일 서비스를 사용하여 Windows Phone 8 앱에 푸시 알림을 보내는 방법을 보여 줍니다. 이 자습서에서는 빠른 시작 프로젝트에 대한 Windows Azure 알림 허브를 사용하여 푸시 알림을 사용하도록 설정합니다. 이 작업을 완료하면 레코드가 삽입될 때마다 .Net 런타임 모바일 서비스에서 알림 허브를 사용하여 푸시 알림을 전송합니다. 모바일 서비스를 통해 무료로 만드는 알림 허브는 모바일 서비스와 별도로 관리할 수 있으며, 다른 응용 프로그램과 서비스에서도 사용 가능합니다.
 
@@ -15,7 +15,7 @@
 2.  [푸시 알림을 전송하도록 서버 업데이트](#update-server)
 3.  [푸시 알림을 받기 위한 데이터 삽입](#test)
 
-이 자습서는 모바일 서비스 quickstart를 기반으로 합니다. 이 자습서를 시작하기 전에 먼저 [모바일 서비스 시작하기](/en-us/documentation/articles/mobile-services-windows-store-get-started) 또는 [데이터 시작하기](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data)를 완료하여 프로젝트를 모바일 서비스에 연결해야 합니다.
+이 자습서는 모바일 서비스 quickstart를 기반으로 합니다. 이 자습서를 시작하기 전에 먼저 [모바일 서비스 시작하기](/ko-kr/documentation/articles/mobile-services-windows-store-get-started) 또는 [데이터 시작하기](/ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data)를 완료하여 프로젝트를 모바일 서비스에 연결해야 합니다.
 
 알림 등록을 위해 앱 업데이트
 ----------------------------
@@ -104,7 +104,7 @@
 
 ![](./media/mobile-services-dotnet-backend-windows-phone-get-started-push/mobile-push-tab.png)
 
-> [WACOM.NOTE]이 자습서에서는 인증되지 않은 모드로 MPNS를 사용합니다. 이 모드에서 MPNS는 장치 채널로 전송할 수 있는 알림 수를 제한합니다. 이 제한을 제거하려면 **업로드**를 클릭하고 인증서를 선택하여 인증서를 생성 및 업로드해야 합니다. 인증서 생성에 대한 자세한 내용은 [Windows Phone의 푸시 알림을 보내도록 인증된 웹 서비스 설정](http://msdn.microsoft.com/en-us/library/windowsphone/develop/ff941099(v=vs.105).aspx)을 참조하십시오.
+> [WACOM.NOTE]이 자습서에서는 인증되지 않은 모드로 MPNS를 사용합니다. 이 모드에서 MPNS는 장치 채널로 전송할 수 있는 알림 수를 제한합니다. 이 제한을 제거하려면 **업로드**를 클릭하고 인증서를 선택하여 인증서를 생성 및 업로드해야 합니다. 인증서 생성에 대한 자세한 내용은 [Windows Phone의 푸시 알림을 보내도록 인증된 웹 서비스 설정](http://msdn.microsoft.com/ko-kr/library/windowsphone/develop/ff941099(v=vs.105).aspx)을 참조하십시오.
 
 이렇게 하면 푸시 알림을 보낼 수 있도록 모바일 서비스가 인증되지 않은 모드에서 MPNS에 연결됩니다.
 
@@ -138,16 +138,16 @@
 
 다음의 모바일 서비스 항목에 대해서도 자세히 알아보십시오.
 
--   [데이터 시작](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data)
+-   [데이터 시작](/ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data)
   <br/>.Net 런타임 모바일 서비스를 사용하여 데이터를 저장 및 쿼리하는 방법에 대해 자세히 알아보십시오.
 
--   [인증 시작](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-users)
+-   [인증 시작](/ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-users)
   <br/>.Net 런타임 모바일 서비스를 사용하여 서로 다른 계정 유형의 앱 사용자를 인증하는 방법에 대해 알아보십시오.
 
 -   [모바일 서비스 서버 스크립트 참조](http://go.microsoft.com/fwlink/?LinkId=262293)
   <br/>서버 스크립트의 등록 및 사용에 대해 자세히 알아보십시오.
 
--   [모바일 서비스 .NET 방법 개념 참조](/en-us/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library)
+-   [모바일 서비스 .NET 방법 개념 참조](/ko-kr/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library)
   <br/>.NET과 함께 모바일 서비스를 사용하는 방법에 대해 자세히 알아보십시오.
 
 

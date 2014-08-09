@@ -9,7 +9,7 @@ ACS 네임스페이스 관리
 
 2.  ID 공급자, 서비스 ID, 규칙 및 포털 관리자를 검토하고 만료된 항목을 제거합니다.
 
-ACS에 대한 자세한 내용은 [액세스 제어 서비스 2.0](http://msdn.microsoft.com/en-us/library/gg429786.aspx)을 참조하십시오.
+ACS에 대한 자세한 내용은 [액세스 제어 서비스 2.0](http://msdn.microsoft.com/ko-kr/library/gg429786.aspx)을 참조하십시오.
 
 인증서 및 키 관리 지침
 ----------------------
@@ -38,13 +38,13 @@ ACS에 대한 자세한 내용은 [액세스 제어 서비스 2.0](http://msdn.m
 
 인증서 또는 키가 만료되면 ACS에서 토큰을 발급하지 못해 신뢰 당사자가 정상적으로 작동할 수 없습니다. ACS는 만료된 인증서와 키를 무시하므로 인증서 또는 키를 먼저 구성하지 않은 것처럼 실제로 예외가 발생합니다. 다음 섹션에는 ACS에서 관리하는 각 인증서 및 키에 대한 정보, 인증서 및 키를 갱신하는 방법, 만료되어 갱신이 필요한 경우를 아는 방법이 나와 있습니다.
 
--   ACS 관리 포털의 인증서 및 키 섹션에서 서비스 네임스페이스 및 신뢰 당사자 응용 프로그램과 관련된 인증서 및 키를 관리하십시오. 이러한 자격 증명 유형에 대한 자세한 내용은 [인증서 및 키](http://msdn.microsoft.com/en-us/library/gg185932.aspx)(영문)를 참조하십시오.
--   ACS 관리 포털의 서비스 ID 섹션에서 서비스 ID와 관련된 자격 증명(인증서, 키 또는 암호)을 관리하십시오. 서비스 ID에 대한 자세한 내용은 [서비스 ID](http://msdn.microsoft.com/en-us/library/gg185945.aspx)(영문)를 참조하십시오.
--   ACS 관리 포털의 서비스 관리 섹션에서 ACS 관리 서비스 계정과 관련된 자격 증명(인증서, 키 또는 암호)을 관리하십시오. ACS 관리 서비스에 대한 자세한 내용은 [ACS 관리 서비스](http://msdn.microsoft.com/en-us/library/gg185972.aspx)(영문)를 참조하십시오.
+-   ACS 관리 포털의 인증서 및 키 섹션에서 서비스 네임스페이스 및 신뢰 당사자 응용 프로그램과 관련된 인증서 및 키를 관리하십시오. 이러한 자격 증명 유형에 대한 자세한 내용은 [인증서 및 키](http://msdn.microsoft.com/ko-kr/library/gg185932.aspx)(영문)를 참조하십시오.
+-   ACS 관리 포털의 서비스 ID 섹션에서 서비스 ID와 관련된 자격 증명(인증서, 키 또는 암호)을 관리하십시오. 서비스 ID에 대한 자세한 내용은 [서비스 ID](http://msdn.microsoft.com/ko-kr/library/gg185945.aspx)(영문)를 참조하십시오.
+-   ACS 관리 포털의 서비스 관리 섹션에서 ACS 관리 서비스 계정과 관련된 자격 증명(인증서, 키 또는 암호)을 관리하십시오. ACS 관리 서비스에 대한 자세한 내용은 [ACS 관리 서비스](http://msdn.microsoft.com/ko-kr/library/gg185972.aspx)(영문)를 참조하십시오.
 
-ACS 관리 포털에 표시되지 않는 인증서 및 키 유형이 있습니다. 특히 AD FS 같은 WS-Federation ID 공급자의 경우, ID 공급자가 사용하는 인증서의 유효성을 미리 확인해야 합니다. 현재 WS-Federation ID 공급자의 메타데이터를 통해 사용 가능한 인증서는 ACS 관리 포털에 표시되지 않습니다. 인증서의 유효성을 확인하려면 관리 서비스를 사용하여 [IdentityProviderKey](http://msdn.microsoft.com/en-us/library/hh124084.aspx)의 StartDate 및 EndDate 속성의 유효 날짜 및 만료 날짜를 확인해야 합니다. 인증서 또는 키가 만료되어 유효하지 않게 되면 ACS에서 인증서 또는 키에 해당하는 [ACS 오류 코드](http://msdn.microsoft.com/en-us/library/gg185949.aspx)(영문)를 내기 시작합니다. 특정 오류 코드에 대해서는 아래 섹션을 참조하십시오.
+ACS 관리 포털에 표시되지 않는 인증서 및 키 유형이 있습니다. 특히 AD FS 같은 WS-Federation ID 공급자의 경우, ID 공급자가 사용하는 인증서의 유효성을 미리 확인해야 합니다. 현재 WS-Federation ID 공급자의 메타데이터를 통해 사용 가능한 인증서는 ACS 관리 포털에 표시되지 않습니다. 인증서의 유효성을 확인하려면 관리 서비스를 사용하여 [IdentityProviderKey](http://msdn.microsoft.com/ko-kr/library/hh124084.aspx)의 StartDate 및 EndDate 속성의 유효 날짜 및 만료 날짜를 확인해야 합니다. 인증서 또는 키가 만료되어 유효하지 않게 되면 ACS에서 인증서 또는 키에 해당하는 [ACS 오류 코드](http://msdn.microsoft.com/ko-kr/library/gg185949.aspx)(영문)를 내기 시작합니다. 특정 오류 코드에 대해서는 아래 섹션을 참조하십시오.
 
-[ACS 관리 서비스](http://msdn.microsoft.com/en-us/library/gg185972.aspx)(영문)를 사용하여 인증서 및 키를 프로그래밍 방식으로 업데이트할 수 있습니다. [코드 샘플: 관리 서비스](http://msdn.microsoft.com/en-us/library/gg185970.aspx)(영문)의 일부로 다운로드할 수 있는 KeyManagement 코드 샘플을 검토해 보십시오.
+[ACS 관리 서비스](http://msdn.microsoft.com/ko-kr/library/gg185972.aspx)(영문)를 사용하여 인증서 및 키를 프로그래밍 방식으로 업데이트할 수 있습니다. [코드 샘플: 관리 서비스](http://msdn.microsoft.com/ko-kr/library/gg185970.aspx)(영문)의 일부로 다운로드할 수 있는 KeyManagement 코드 샘플을 검토해 보십시오.
 
 사용 가능한 인증서 및 키
 ------------------------
@@ -104,7 +104,7 @@ ACS 관리 포털의 인증서 및 키 섹션을 통해 토큰 서명 인증서�
 
 10. 합당한 유예 기간이 지난 후, 인증서 및 키 페이지의 토큰 서명 섹션에서 삭제 단추를 눌러 ACS 구성에서 이전 인증서를 제거합니다.
 
-자세한 내용은 [인증서 및 키](http://msdn.microsoft.com/en-us/library/gg185932.aspx)(영문)를 참조하십시오.
+자세한 내용은 [인증서 및 키](http://msdn.microsoft.com/ko-kr/library/gg185932.aspx)(영문)를 참조하십시오.
 
 서명 인증서가 만료되면 토큰을 요청할 때 다음과 같은 오류가 표시됩니다.
 
@@ -165,7 +165,7 @@ ACS 관리 포털의 인증서 및 키 섹션을 통해 토큰 서명 키를 관
 
 10. 합당한 유예 기간이 지난 후, 인증서 및 키 페이지의 토큰 서명 섹션에서 삭제 단추를 눌러 ACS 구성에서 이전 키를 제거합니다.
 
-자세한 내용은 [인증서 및 키](http://msdn.microsoft.com/en-us/library/gg185932.aspx)(영문)를 참조하십시오.
+자세한 내용은 [인증서 및 키](http://msdn.microsoft.com/ko-kr/library/gg185932.aspx)(영문)를 참조하십시오.
 
 서명 키가 만료되면 토큰을 요청할 때 다음과 같은 오류가 표시됩니다.
 
@@ -221,7 +221,7 @@ ACS 관리 포털의 인증서 및 키 섹션을 통해 토큰 암호화 인증�
 7.  추가 단추를 눌러 만료될 기존 인증서 옆에 ACS에 새 암호화 인증서를 구성합니다.
 8.  삭제를 눌러 이전 암호화 인증서를 제거합니다.
 
-자세한 내용은 [인증서 및 키](http://msdn.microsoft.com/en-us/library/gg185932.aspx)(영문)를 참조하십시오.
+자세한 내용은 [인증서 및 키](http://msdn.microsoft.com/ko-kr/library/gg185932.aspx)(영문)를 참조하십시오.
 
 암호화 인증서가 만료되면 토큰을 요청할 때 다음과 같은 오류가 표시됩니다.
 
@@ -282,7 +282,7 @@ ACS 관리 포털의 인증서 및 키 섹션을 통해 토큰 암호 해독 인
 
 10. 합당한 유예 기간이 지난 후, 인증서 및 키 페이지의 토큰 서명 섹션에서 삭제 단추를 눌러 ACS 구성에서 이전 인증서를 제거합니다.
 
-자세한 내용은 [인증서 및 키](http://msdn.microsoft.com/en-us/library/gg185932.aspx)(영문)를 참조하십시오.
+자세한 내용은 [인증서 및 키](http://msdn.microsoft.com/ko-kr/library/gg185932.aspx)(영문)를 참조하십시오.
 
 암호 해독 인증서가 만료되면 토큰을 요청할 때 다음과 같은 오류가 표시됩니다.
 
@@ -339,7 +339,7 @@ ACS 관리 포털의 서비스 ID 페이지를 통해 서비스 ID 자격 증명
 
 9.  클라이언트를 모두 업데이트한 후(또는 합당한 유예 기간이 지난 후) 삭제 단추를 눌러 이전 인증서 또는 키를 제거합니다.
 
-자세한 내용은 [서비스 ID](http://msdn.microsoft.com/en-us/library/gg185945.aspx)(영문)를 참조하십시오.
+자세한 내용은 [서비스 ID](http://msdn.microsoft.com/ko-kr/library/gg185945.aspx)(영문)를 참조하십시오.
 
 다음은 자격 증명이 만료된 경우 ACS에서 내는 예외입니다.
 
@@ -365,7 +365,7 @@ ACS 관리 포털의 서비스 ID 페이지를 통해 서비스 ID 자격 증명
 </tr>
 </table>
 
-대칭 키 또는 암호의 만료 날짜를 확인하고 업데이트하거나 서비스 ID 자격 증명으로 새 인증서를 업로드하려면 [방법: X.509 인증서, 암호 또는 대칭 키를 사용하여 서비스 ID 추가](http://msdn.microsoft.com/en-us/library/gg185924.aspx)(영문)에 설명된 지침을 따르십시오. 서비스 ID 자격 증명 목록은 서비스 ID 편집 페이지에서 볼 수 있습니다.
+대칭 키 또는 암호의 만료 날짜를 확인하고 업데이트하거나 서비스 ID 자격 증명으로 새 인증서를 업로드하려면 [방법: X.509 인증서, 암호 또는 대칭 키를 사용하여 서비스 ID 추가](http://msdn.microsoft.com/ko-kr/library/gg185924.aspx)(영문)에 설명된 지침을 따르십시오. 서비스 ID 자격 증명 목록은 서비스 ID 편집 페이지에서 볼 수 있습니다.
 
 관리 서비스 자격 증명
 ---------------------
@@ -406,7 +406,7 @@ ACS 관리 포털의 관리 서비스 페이지를 통해 관리 서비스 자�
 
 9.  클라이언트를 모두 업데이트한 후(또는 합당한 유예 기간이 지난 후) 삭제 단추를 눌러 이전 인증서 또는 키를 제거합니다.
 
-자세한 내용은 [ACS 관리 서비스](http://msdn.microsoft.com/en-us/library/gg185972.aspx)(영문)를 참조하십시오.
+자세한 내용은 [ACS 관리 서비스](http://msdn.microsoft.com/ko-kr/library/gg185972.aspx)(영문)를 참조하십시오.
 
 이러한 자격 증명이 만료되면 ACS에서 다음과 같은 예외를 냅니다.
 
@@ -437,7 +437,7 @@ ACS 관리 서비스 계정 자격 증명 목록은 ACS 관리 포털의 관리 
 WS-Federation ID 공급자 인증서
 ------------------------------
 
-WS-Federation ID 공급자 인증서는 해당 메타데이터를 통해 사용 가능합니다. AD FS와 같은 WS-Federation ID 공급자를 구성할 때는 URL이나 파일로 제공되는 WS-Federation 메타데이터를 통해 WS-Federation 서명 인증서를 구성합니다. 자세한 내용은 [WS-Federation ID 공급자](http://msdn.microsoft.com/en-us/library/gg185933.aspx)(영문) 및 [방법: AD FS 2.0을 ID 공급자로 구성](http://msdn.microsoft.com/en-us/library/gg185961.aspx)(영문)을 참조하십시오. ACS에 WS-Federation ID 공급자를 구성한 후에는 ACS 관리 서비스를 사용하여 이 공급자의 인증서 유효성을 쿼리합니다. ACS 관리 포털 또는 ACS 관리 서비스를 통해 메타데이터를 연속으로 업로드하면 키가 교체됩니다.
+WS-Federation ID 공급자 인증서는 해당 메타데이터를 통해 사용 가능합니다. AD FS와 같은 WS-Federation ID 공급자를 구성할 때는 URL이나 파일로 제공되는 WS-Federation 메타데이터를 통해 WS-Federation 서명 인증서를 구성합니다. 자세한 내용은 [WS-Federation ID 공급자](http://msdn.microsoft.com/ko-kr/library/gg185933.aspx)(영문) 및 [방법: AD FS 2.0을 ID 공급자로 구성](http://msdn.microsoft.com/ko-kr/library/gg185961.aspx)(영문)을 참조하십시오. ACS에 WS-Federation ID 공급자를 구성한 후에는 ACS 관리 서비스를 사용하여 이 공급자의 인증서 유효성을 쿼리합니다. ACS 관리 포털 또는 ACS 관리 서비스를 통해 메타데이터를 연속으로 업로드하면 키가 교체됩니다.
 
 다음은 인증서가 만료된 경우 ACS에서 내는 예외입니다.
 

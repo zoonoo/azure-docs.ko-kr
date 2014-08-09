@@ -3,9 +3,9 @@
 Azure에서 가상 네트워크 만들기
 ==============================
 
-Azure 관리 포털을 사용하여 기본 Azure 가상 네트워크를 만들려면 이 자습서의 단계를 따르십시오. Azure 가상 네트워크에 대한 자세한 내용은 [Azure 가상 네트워크 개요](http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx)를 참조하십시오.
+Azure 관리 포털을 사용하여 기본 Azure 가상 네트워크를 만들려면 이 자습서의 단계를 따르십시오. Azure 가상 네트워크에 대한 자세한 내용은 [Azure 가상 네트워크 개요](http://msdn.microsoft.com/ko-kr/library/windowsazure/jj156007.aspx)를 참조하십시오.
 
-이 자습서에서는 이전에 Azure를 사용한 경험이 없다고 가정합니다. 가상 네트워크를 만들기 위해 필요한 단계에 익숙해지는 데 도움이 됩니다. 가상 네트워크에 대한 설계 시나리오 및 고급 정보를 찾는다면 [Azure 가상 네트워크 개요](http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx)를 참조하십시오.
+이 자습서에서는 이전에 Azure를 사용한 경험이 없다고 가정합니다. 가상 네트워크를 만들기 위해 필요한 단계에 익숙해지는 데 도움이 됩니다. 가상 네트워크에 대한 설계 시나리오 및 고급 정보를 찾는다면 [Azure 가상 네트워크 개요](http://msdn.microsoft.com/ko-kr/library/windowsazure/jj156007.aspx)를 참조하십시오.
 
 이 자습서를 완료하면 Azure 서비스 및 가상 컴퓨터를 배포할 수 있는 가상 네트워크가 생깁니다.
 
@@ -15,7 +15,7 @@ Azure 관리 포털을 사용하여 기본 Azure 가상 네트워크를 만들�
 
 추가 가상 네트워크 구성 절차 및 설정은 [Azure 가상 네트워크 구성 작업](http://go.microsoft.com/fwlink/?LinkId=296652)을 참조하십시오.
 
-Azure 가상 컴퓨터에 AD DS를 배포하는 방법에 대한 지침은 [Azure 가상 컴퓨터에서의 Windows Server Active Directory 배포 지침](http://msdn.microsoft.com/en-us/library/windowsazure/jj156090.aspx)을 참조하십시오.
+Azure 가상 컴퓨터에 AD DS를 배포하는 방법에 대한 지침은 [Azure 가상 컴퓨터에서의 Windows Server Active Directory 배포 지침](http://msdn.microsoft.com/ko-kr/library/windowsazure/jj156090.aspx)을 참조하십시오.
 
 목표
 ----
@@ -97,13 +97,13 @@ Azure 가상 컴퓨터에 AD DS를 배포하는 방법에 대한 지침은 [Azur
 참고 항목
 ---------
 
--   [Azure 가상 네트워크 개요](http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx)
+-   [Azure 가상 네트워크 개요](http://msdn.microsoft.com/ko-kr/library/windowsazure/jj156007.aspx)
 
 -   [Azure 가상 네트워크 FAQ](http://go.microsoft.com/fwlink/?LinkId=296650)
 
 -   [Azure 가상 네트워크 구성 작업](http://go.microsoft.com/fwlink/?LinkId=296652)
 
--   [네트워크 구성 파일을 사용하여 가상 네트워크 구성](http://msdn.microsoft.com/en-us/library/windowsazure/jj156097.aspx)
+-   [네트워크 구성 파일을 사용하여 가상 네트워크 구성](http://msdn.microsoft.com/ko-kr/library/windowsazure/jj156097.aspx)
 
 -   [Azure 이름 확인 개요](http://go.microsoft.com/fwlink/?LinkId=248097)
 

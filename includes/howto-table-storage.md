@@ -32,4 +32,4 @@ Azure 테이블 저장소 서비스는 다량의 구조화된 데이터를 저�
 
 
 [1]: http://www.odata.org/
-[2]: http://msdn.microsoft.com/en-us/library/dn249410.aspx
+[2]: http://msdn.microsoft.com/ko-kr/library/dn249410.aspx

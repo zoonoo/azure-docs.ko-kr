@@ -129,6 +129,6 @@ Ambari 모니터링 API 호출을 사용하는 방법을 알아보았습니다. 
 -   [관리 포털을 사용하여 HDInsight 클러스터 관리](../hdinsight-administer-use-management-portal/)
 -   [Azure PowerShell을 사용하여 HDInsight 클러스터 관리](../hdinsight-administer-use-powershell/)
 -   [명령줄 인터페이스를 사용하여 HDInsight 클러스터 관리](../hdinsight-administer-use-command-line/)
--   [HDInsight 설명서](/en-us/documentation/services/hdinsight/)
+-   [HDInsight 설명서](/ko-kr/documentation/services/hdinsight/)
 -   [HDInsight 시작](../hdinsight-get-started/)
 

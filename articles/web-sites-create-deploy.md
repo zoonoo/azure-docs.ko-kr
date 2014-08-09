@@ -4,7 +4,7 @@
 
 이 항목에서는 갤러리에서 또는 관리 포털을 사용하여 웹 사이트를 만드는 방법을 보여 줍니다.
 
-만든 Azure 웹 사이트에 콘텐츠를 배포하는 방법에 대한 자세한 내용은 [Azure 웹 사이트](/en-us/documentation/services/web-sites/)의 **배포** 섹션을 참조하십시오.
+만든 Azure 웹 사이트에 콘텐츠를 배포하는 방법에 대한 자세한 내용은 [Azure 웹 사이트](/ko-kr/documentation/services/web-sites/)의 **배포** 섹션을 참조하십시오.
 
 ## 목차
 
@@ -65,7 +65,7 @@ Azure에서 웹 사이트를 만들려면 다음 단계를 따르십시오.
 
 ## <a name="nextsteps"></a>다음 단계
 
-자세한 내용은 [Azure 웹 사이트](/en-us/documentation/services/web-sites/)를 참조하십시오.
+자세한 내용은 [Azure 웹 사이트](/ko-kr/documentation/services/web-sites/)를 참조하십시오.
 
 
 

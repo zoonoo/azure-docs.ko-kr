@@ -110,7 +110,7 @@ Azure에서 서비스 버스 기능 사용을 시작하려면 먼저 서비스 �
 
 ### Visual Studio 서버 탐색기를 사용하여 서비스 네임스페이스 관리
 
-관리 포털 대신 Visual Studio를 사용하여 네임스페이스를 관리하고 연결 정보를 가져오려면 [여기](http://http://msdn.microsoft.com/en-us/library/windowsazure/ff687127.aspx) 나오는 **Visual Studio에서 Azure에 연결하려면** 섹션에서 설명하는 절차를 따르십시오. Azure에 로그인하면 서버 탐색기의 **Microsoft Azure** 트리 아래에 있는 **Service Bus** 노드에 이미 만들어진 네임스페이스가 자동으로 채워집니다. 네임스페이스를 마우스 오른쪽 단추로 클릭한 후 **속성**을 클릭하여 연결 문자열 및 Visual Studio **속성** 창에 이 네임스페이스와 관련하여 표시되는 다른 메타데이터를 표시합니다.
+관리 포털 대신 Visual Studio를 사용하여 네임스페이스를 관리하고 연결 정보를 가져오려면 [여기](http://http://msdn.microsoft.com/ko-kr/library/windowsazure/ff687127.aspx) 나오는 **Visual Studio에서 Azure에 연결하려면** 섹션에서 설명하는 절차를 따르십시오. Azure에 로그인하면 서버 탐색기의 **Microsoft Azure** 트리 아래에 있는 **Service Bus** 노드에 이미 만들어진 네임스페이스가 자동으로 채워집니다. 네임스페이스를 마우스 오른쪽 단추로 클릭한 후 **속성**을 클릭하여 연결 문자열 및 Visual Studio **속성** 창에 이 네임스페이스와 관련하여 표시되는 다른 메타데이터를 표시합니다.
 
 ![](./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/VSProperties.png)
 
@@ -401,7 +401,7 @@ ASP.NET MVC 응용 프로그램 만들기ASP.NET MVC 응용 프로그램 만들�
     AZURE에 배포응용 프로그램을 AZURE에 배포할 준비
     -----------------------------------------------
 
-    Azure 클라우드 서비스 또는 Azure 웹 사이트에 응용 프로그램을 배포할 수 있습니다. 웹 사이트와 클라우드 서비스의 차이점에 대한 자세한 내용은 [Azure 실행 모델](http://www.windowsazure.com/en-us/develop/net/fundamentals/compute/)(영문)을 참조하십시오. Azure 웹 사이트에 응용 프로그램을 배포하는 방법에 대한 자세한 내용은 [Azure 웹 사이트에 ASP.NET 웹 응용 프로그램 배포](http://www.windowsazure.com/en-us/develop/net/tutorials/get-started/)(영문)를 참조하십시오. 이 섹션에서는 Azure 클라우드 서비스에 응용 프로그램을 배포하는 자세한 단계를 설명합니다.
+    Azure 클라우드 서비스 또는 Azure 웹 사이트에 응용 프로그램을 배포할 수 있습니다. 웹 사이트와 클라우드 서비스의 차이점에 대한 자세한 내용은 [Azure 실행 모델](http://www.windowsazure.com/ko-kr/develop/net/fundamentals/compute/)(영문)을 참조하십시오. Azure 웹 사이트에 응용 프로그램을 배포하는 방법에 대한 자세한 내용은 [Azure 웹 사이트에 ASP.NET 웹 응용 프로그램 배포](http://www.windowsazure.com/ko-kr/develop/net/tutorials/get-started/)(영문)를 참조하십시오. 이 섹션에서는 Azure 클라우드 서비스에 응용 프로그램을 배포하는 자세한 단계를 설명합니다.
 
     클라우드 서비스에 응용 프로그램을 배포하기 위해 클라우드 서비스 프로젝트 배포 프로젝트를 솔루션에 추가합니다. 배포 프로젝트에는 클라우드에서 응용 프로그램을 올바르게 실행하는 데 필요한 구성 정보가 포함됩니다.
 
@@ -537,7 +537,7 @@ ASP.NET MVC 응용 프로그램 만들기ASP.NET MVC 응용 프로그램 만들�
 
         ![](./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hy-service1.png)
 
-웹 사이트와 클라우드 서비스의 차이점에 대한 자세한 내용은 [Azure 실행 모델](http://www.windowsazure.com/en-us/develop/net/fundamentals/compute/)(영문)을 참조하십시오.
+웹 사이트와 클라우드 서비스의 차이점에 대한 자세한 내용은 [Azure 실행 모델](http://www.windowsazure.com/ko-kr/develop/net/fundamentals/compute/)(영문)을 참조하십시오.
 
 응용 프로그램 삭제응용 프로그램 중지 및 삭제
 --------------------------------------------
@@ -559,7 +559,7 @@ Azure는 사용된 서버 시간의 시간당 웹 역할 인스턴스 요금을 
 
 서비스 버스에 대한 자세한 내용은 다음 리소스를 참조하십시오.
 
--   [Azure 서비스 버스](http://msdn.microsoft.com/en-us/library/windowsazure/ee732537.aspx)
+-   [Azure 서비스 버스](http://msdn.microsoft.com/ko-kr/library/windowsazure/ee732537.aspx)
 -   [서비스 버스 사용 방법](/en-us/manage/services/service-bus/)
 -   [서비스 버스 큐를 사용하는 방법](/en-us/develop/net/how-to-guides/service-bus-queues/)
 

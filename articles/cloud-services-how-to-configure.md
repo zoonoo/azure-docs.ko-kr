@@ -64,7 +64,7 @@ Azure는 각 역할에 둘 이상의 역할 인스턴스(가상 컴퓨터)가 �
 
     c. 클라우드 서비스에 인스턴스가 하나뿐인 역할이 포함된 경우 **Apply configuration even if one or more roles contain a single instance** 확인란을 선택하여 역할의 구성 업데이트를 진행하도록 설정합니다.
 
-    모든 역할에 대해 두 개 이상의 인스턴스를 정의하지 않는 경우 Azure는 서비스 구성 업데이트 과정에서 최소 99.95%의 클라우드 서비스 가용성을 보장할 수 없습니다. 자세한 내용은 [서비스 수준 계약](http://www.windowsazure.com/en-us/support/legal/sla/)을 참조하십시오.
+    모든 역할에 대해 두 개 이상의 인스턴스를 정의하지 않는 경우 Azure는 서비스 구성 업데이트 과정에서 최소 99.95%의 클라우드 서비스 가용성을 보장할 수 없습니다. 자세한 내용은 [서비스 수준 계약](http://www.windowsazure.com/ko-kr/support/legal/sla/)을 참조하십시오.
 
     d. 확인(확인 표시)을 클릭합니다.
 
@@ -81,7 +81,7 @@ Windows Server 기반 가상 컴퓨터가 두 대 이상 연결되어 구성된 
 
 ### 서비스 정의 파일에서 원격 액세스를 구성하려면
 
-서비스 정의 파일(.csdef)에 **가져오기** 요소를 추가하여 RemoteAccess 및 RemoteForwarder 모듈을 서비스 모델로 가져옵니다. 이 모듈이 이미 있는 경우 Azure는 원격 데스크톱의 구성 설정을 서비스 구성 파일에 추가합니다. 원격 데스크톱 구성을 완료하려면 인증서를 Azure에 가져오고 서비스 구성 파일에서 인증서를 지정해야 합니다. 자세한 내용은 [Azure에서 역할에 대한 원격 데스크톱 연결 설정](http://msdn.microsoft.com/en-us/library/windowsazure/hh124107.aspx)을 참조하십시오.
+서비스 정의 파일(.csdef)에 **가져오기** 요소를 추가하여 RemoteAccess 및 RemoteForwarder 모듈을 서비스 모델로 가져옵니다. 이 모듈이 이미 있는 경우 Azure는 원격 데스크톱의 구성 설정을 서비스 구성 파일에 추가합니다. 원격 데스크톱 구성을 완료하려면 인증서를 Azure에 가져오고 서비스 구성 파일에서 인증서를 지정해야 합니다. 자세한 내용은 [Azure에서 역할에 대한 원격 데스크톱 연결 설정](http://msdn.microsoft.com/ko-kr/library/windowsazure/hh124107.aspx)을 참조하십시오.
 
 ### 관리 포털에서 역할 인스턴스의 원격 액세스를 사용하도록 설정하거나 수정하려면
 

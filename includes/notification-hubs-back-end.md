@@ -8,7 +8,7 @@
 <h3><a name="console"></a>C#으로 콘솔 응용 프로그램에서 알림을 보내려면</h3>
 
 
-[알림 허브 시작](/en-us/documentation/articles/notification-hubs-windows-store-dotnet-get-started/)을 완료했을 때 콘솔 응용 프로그램을 만들었으면 1~3단계를 건너뛰십시오.
+[알림 허브 시작](/ko-kr/documentation/articles/notification-hubs-windows-store-dotnet-get-started/)을 완료했을 때 콘솔 응용 프로그램을 만들었으면 1~3단계를 건너뛰십시오.
 
 1.  Visual Studio에서 다음과 같이 새로운 Visual C# 콘솔 응용 프로그램을 만듭니다.
     
@@ -166,6 +166,6 @@
 
 
 
-[1]: http://msdn.microsoft.com/en-us/library/windowsazure/dn223264.aspx
+[1]: http://msdn.microsoft.com/ko-kr/library/windowsazure/dn223264.aspx
 [2]: http://nuget.org/packages/WindowsAzure.ServiceBus/
 [3]: https://manage.windowsazure.com/

@@ -154,6 +154,6 @@
 
 
 
-[1]: http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx
+[1]: http://msdn.microsoft.com/ko-kr/library/windowsazure/jj156007.aspx
 [2]: http://manage.windowsazure.com/
-[3]: http://msdn.microsoft.com/en-us/library/windowsazure/jj156097.aspx
+[3]: http://msdn.microsoft.com/ko-kr/library/windowsazure/jj156097.aspx

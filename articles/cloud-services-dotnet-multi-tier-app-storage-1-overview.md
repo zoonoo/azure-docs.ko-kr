@@ -105,7 +105,7 @@ Azure 저장소 테이블, 큐 및 Blob을 사용하는 ASP.NET 다중 계층 �
 테이블Azure 테이블
 ------------------
 
-Azure 전자 메일 서비스 응용 프로그램은 Azure 저장소 테이블에 데이터를 저장합니다. Azure 테이블은 [Azure SQL 데이터베이스](http://msdn.microsoft.com/en-us/library/windowsazure/ee336279.aspx)와 같은 관계형 데이터베이스가 아닌 NoSQL 데이터 저장소입니다. 따라서 Azure 테이블은 효율성 및 확장성이 데이터 정규화 및 관계 무결성보다 더 중요한 경우에 적합한 선택입니다. 예를 들어 이 응용 프로그램에서 한 작업자 역할은 큐 작업 항목이 만들어질 때마다 행을 만들고 다른 작업자 역할은 전자 메일을 보낼 때마다 행을 검색하여 업데이트하면 관계형 데이터베이스가 사용된 경우 성능 병목 현상이 발생할 수 있습니다. 또한 Azure 테이블은 Azure SQL보다 저렴합니다. Azure 테이블에 대한 자세한 내용은 [이 시리즈의 마지막 자습서](/en-us/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/) 끝에 나열된 리소스를 참조하십시오.
+Azure 전자 메일 서비스 응용 프로그램은 Azure 저장소 테이블에 데이터를 저장합니다. Azure 테이블은 [Azure SQL 데이터베이스](http://msdn.microsoft.com/ko-kr/library/windowsazure/ee336279.aspx)와 같은 관계형 데이터베이스가 아닌 NoSQL 데이터 저장소입니다. 따라서 Azure 테이블은 효율성 및 확장성이 데이터 정규화 및 관계 무결성보다 더 중요한 경우에 적합한 선택입니다. 예를 들어 이 응용 프로그램에서 한 작업자 역할은 큐 작업 항목이 만들어질 때마다 행을 만들고 다른 작업자 역할은 전자 메일을 보낼 때마다 행을 검색하여 업데이트하면 관계형 데이터베이스가 사용된 경우 성능 병목 현상이 발생할 수 있습니다. 또한 Azure 테이블은 Azure SQL보다 저렴합니다. Azure 테이블에 대한 자세한 내용은 [이 시리즈의 마지막 자습서](/en-us/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/) 끝에 나열된 리소스를 참조하십시오.
 
 다음 섹션에서는 Azure 전자 메일 서비스 응용 프로그램에서 사용하는 Azure 테이블의 내용에 대해 설명합니다. 테이블 및 관계를 보여 주는 다이어그램은 이 페이지 뒷부분에 있는 [Azure 전자 메일 서비스 데이터 다이어그램](#datadiagram)을 참조하십시오.
 
@@ -173,7 +173,7 @@ Azure 테이블의 모든 행에는 행을 고유하게 식별하는 *파티션 
     <tr>
 	  <td>SubscriberGUID</td>
 	  <td>문자열</td>
-	  <td>전자 메일 주소를 그룹에 추가하면 생성됩니다. 구독 및 구독 취소 링크에서 사용되므로 다른 사람의 전자 메일 주소를 구독하거나 구독 취소하기가 어렵습니다.<br /><br /> 구독 및 구독 취소 웹 페이지에 대한 일부 쿼리는 PartitionKey와 이 속성만 지정합니다. 메일 그룹 크기가 증가하면 쿼리 시간이 더 오래 걸리므로 RowKey를 사용하지 않고 파티션을 쿼리하면 응용 프로그램의 확장성이 제한됩니다. 확장성을 향상시키는 옵션은 RowKey 속성에 SubscriberGUID가 있는 조회 행을 추가하는 것입니다. 예를 들어 각 전자 메일 주소에 대해 한 행의 RowKey에는 &quot;email:student1@domain.com&quot;이 있고 같은 구독자에 대한 다른 행의 RowKey에는 &quot;guid:6f32b03b-90ed-41a9-b8ac-c1310c67b66a&quot;가 있을 수 있습니다. 파티션 내 행의 원자성 배치 트랜잭션은 코딩하기 쉬우므로 이 기능도 간단하게 구현할 수 있습니다. 샘플 응용 프로그램의 다음 릴리스에서는 이 기능을 구현하려고 합니다. 자세한 내용은 <a href="http://msdn.microsoft.com/en-us/library/windowsazure/hh508997.aspx">실제: Azure 테이블 저장소에 대한 확장 가능한 분할 전략 설계</a>(영문)를 참조하십시오.
+	  <td>전자 메일 주소를 그룹에 추가하면 생성됩니다. 구독 및 구독 취소 링크에서 사용되므로 다른 사람의 전자 메일 주소를 구독하거나 구독 취소하기가 어렵습니다.<br /><br /> 구독 및 구독 취소 웹 페이지에 대한 일부 쿼리는 PartitionKey와 이 속성만 지정합니다. 메일 그룹 크기가 증가하면 쿼리 시간이 더 오래 걸리므로 RowKey를 사용하지 않고 파티션을 쿼리하면 응용 프로그램의 확장성이 제한됩니다. 확장성을 향상시키는 옵션은 RowKey 속성에 SubscriberGUID가 있는 조회 행을 추가하는 것입니다. 예를 들어 각 전자 메일 주소에 대해 한 행의 RowKey에는 &quot;email:student1@domain.com&quot;이 있고 같은 구독자에 대한 다른 행의 RowKey에는 &quot;guid:6f32b03b-90ed-41a9-b8ac-c1310c67b66a&quot;가 있을 수 있습니다. 파티션 내 행의 원자성 배치 트랜잭션은 코딩하기 쉬우므로 이 기능도 간단하게 구현할 수 있습니다. 샘플 응용 프로그램의 다음 릴리스에서는 이 기능을 구현하려고 합니다. 자세한 내용은 <a href="http://msdn.microsoft.com/ko-kr/library/windowsazure/hh508997.aspx">실제: Azure 테이블 저장소에 대한 확장 가능한 분할 전략 설계</a>(영문)를 참조하십시오.
 	  </td>
     </tr>
 </table>
@@ -636,23 +636,23 @@ Azure 전자 메일 서비스를 다운로드하면 프런트 엔드 및 백 엔
 모든 구성 요소를 클라우드 서비스에 유지하면 구성 및 배포가 간단합니다. Azure 웹 사이트에서 ASP.NET MVC 프런트 엔드를 사용하여 응용 프로그램을 만들면 두 가지 배포를 사용할 수 있습니다. 하나는 Azure 웹 사이트에 배포하고 하나는 Azure 클라우드 서비스에 배포합니다. 또한 Azure 클라우드 서비스 웹 역할은 Azure 웹 사이트에서 사용할 수 없는 다음과 같은 기능을 제공합니다.
 
 -   사용자 지정 및 와일드카드 인증서 지원.
--   IIS의 구성 방식 완벽하게 제어. Azure 웹 사이트에서는 많은 IIS 기능을 사용할 수 없습니다. Azure 웹 역할을 사용하면 [AppCmd](http://www.iis.net/learn/get-started/getting-started-with-iis/getting-started-with-appcmdexe "appCmd") 프로그램을 실행하는 시작 명령을 정의하여 *Web.config* 파일에서 구성할 수 없는 IIS 설정을 수정할 수 있습니다. 자세한 내용은 [Azure에서 IIS 구성 요소를 구성하는 방법](http://msdn.microsoft.com/en-us/library/windowsazure/gg433059.aspx) 및 [특정 IP 주소의 웹 역할 액세스를 차단하는 방법](http://msdn.microsoft.com/en-us/library/windowsazure/jj154098.aspx)을 참조하십시오.
+-   IIS의 구성 방식 완벽하게 제어. Azure 웹 사이트에서는 많은 IIS 기능을 사용할 수 없습니다. Azure 웹 역할을 사용하면 [AppCmd](http://www.iis.net/learn/get-started/getting-started-with-iis/getting-started-with-appcmdexe "appCmd") 프로그램을 실행하는 시작 명령을 정의하여 *Web.config* 파일에서 구성할 수 없는 IIS 설정을 수정할 수 있습니다. 자세한 내용은 [Azure에서 IIS 구성 요소를 구성하는 방법](http://msdn.microsoft.com/ko-kr/library/windowsazure/gg433059.aspx) 및 [특정 IP 주소의 웹 역할 액세스를 차단하는 방법](http://msdn.microsoft.com/ko-kr/library/windowsazure/jj154098.aspx)을 참조하십시오.
 -   [자동 크기 조정 응용 프로그램 블록](/en-us/develop/net/how-to-guides/autoscaling/)을 사용하여 자동으로 웹 응용 프로그램의 크기 조정 지원.
 -   관리자 권한으로 실행하는 시작 스크립트를 실행하여 응용 프로그램 설치, 레지스트리 설정 수정, 성능 카운터 설치 등을 수행하는 기능.
--   [Azure Connect](http://msdn.microsoft.com/en-us/library/windowsazure/gg433122.aspx) 및 [Azure 가상 네트워크](http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx)에서 사용할 네트워크 격리.
+-   [Azure Connect](http://msdn.microsoft.com/ko-kr/library/windowsazure/gg433122.aspx) 및 [Azure 가상 네트워크](http://msdn.microsoft.com/ko-kr/library/windowsazure/jj156007.aspx)에서 사용할 네트워크 격리.
 -   디버깅 및 고급 진단을 위한 원격 데스크톱 액세스.
--   [가상 IP 교환](http://msdn.microsoft.com/en-us/library/windowsazure/ee517253.aspx "VIP 교환")을 사용한 롤링 업그레이드. 이 기능은 스테이징 및 프로덕션 배포의 콘텐츠를 교환합니다.
+-   [가상 IP 교환](http://msdn.microsoft.com/ko-kr/library/windowsazure/ee517253.aspx "VIP 교환")을 사용한 롤링 업그레이드. 이 기능은 스테이징 및 프로덕션 배포의 콘텐츠를 교환합니다.
 
 Azure 웹 사이트는 클라우드 서비스에서 실행되는 웹 역할에 비해 유사한 용량의 비용이 저렴하므로 다른 아키텍처는 몇 가지 비용상의 혜택을 제공할 수 있습니다. 시리즈의 뒷부분에 나오는 자습서에서는 두 아키텍처에서 다른 구현 정보를 설명합니다.
 
-Azure 웹 사이트 및 Azure 클라우드 서비스를 선택하는 방법에 대한 자세한 내용은 [Azure 실행 모델](http://www.windowsazure.com/en-us/manage/windows/fundamentals/compute/)(영문)을 참조하십시오.
+Azure 웹 사이트 및 Azure 클라우드 서비스를 선택하는 방법에 대한 자세한 내용은 [Azure 실행 모델](http://www.windowsazure.com/ko-kr/manage/windows/fundamentals/compute/)(영문)을 참조하십시오.
 
 비용비용
 --------
 
 이 섹션에서는 자습서가 게시된 2012년 12월 적용 비용을 기준으로 Azure에서 샘플 응용 프로그램을 실행하는 비용에 대해 간략하게 설명합니다. 비용을 기준으로 비즈니스 결정을 내리기 전에 다음 웹 페이지에서 현재 비용을 확인하십시오.
 
--   [Azure 가격 계산기](http://www.windowsazure.com/en-us/pricing/calculator/)
+-   [Azure 가격 계산기](http://www.windowsazure.com/ko-kr/pricing/calculator/)
 -   [SendGrid Azure](http://sendgrid.com/windowsazure.html)
 
 비용은 유지 관리를 결정한 웹 및 작업자 역할 인스턴스 수의 영향을 받습니다. [Azure 클라우드 서비스 99.95% SLA(서비스 수준 계약)](https://www.windowsazure.com/en-us/support/legal/sla/ "SLA")에 대한 자격을 갖추려면 각 역할에 대해 둘 이상의 인스턴스를 배포해야 합니다. 둘 이상의 역할 인스턴스를 실행해야 하는 이유 중 하나는 응용 프로그램을 실행하는 가상 컴퓨터가 운영 체제 업그레이드를 위해 한 달에 약 두 번 다시 시작되기 때문입니다. OS 업데이트에 대한 자세한 내용은 [OS 업그레이드로 인해 역할 인스턴스 다시 시작](http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx)(영문)을 참조하십시오.

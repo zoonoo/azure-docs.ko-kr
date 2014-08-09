@@ -286,7 +286,7 @@ Visual Studio에서 **Contact** 개체에 대한 CRUD 데이터베이스 작업�
          enable-migrations -ContextTypeName ContactManagerContext
 
     ![enable-migrations](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxE.png) 
-    프로젝트에 두 [DbContext](http://msdn.microsoft.com/en-us/library/system.data.entity.dbcontext(v=VS.103).aspx) 파생 클래스(방금 추가한 **ContactManagerContext** 및 멤버 자격 데이터베이스에 대해 사용되는 **UsersContext**)가 들어 있기 때문에 컨텍스트 형식 이름(**ContactManagerContext**)을 지정해야 합니다. **ContactManagerContext** 클래스는 Visual Studio 스캐폴딩 마법사가 추가했습니다.
+    프로젝트에 두 [DbContext](http://msdn.microsoft.com/ko-kr/library/system.data.entity.dbcontext(v=VS.103).aspx) 파생 클래스(방금 추가한 **ContactManagerContext** 및 멤버 자격 데이터베이스에 대해 사용되는 **UsersContext**)가 들어 있기 때문에 컨텍스트 형식 이름(**ContactManagerContext**)을 지정해야 합니다. **ContactManagerContext** 클래스는 Visual Studio 스캐폴딩 마법사가 추가했습니다.
 
     **enable-migrations** 명령은 *Migrations* 폴더를 만들고 해당 폴더에 *Configuration.cs* 파일을 넣습니다. 이 파일을 편집하여 마이그레이션을 구성할 수 있습니다.
 
@@ -463,9 +463,9 @@ OAuthAdd an OAuth Provider
 Authorize 특성을 사용하여 응용 프로그램 보호
 --------------------------------------------
 
-이 섹션에서는 [Authorize](http://msdn.microsoft.com/en-us/library/system.web.mvc.authorizeattribute(v=vs.100).aspx) 특성을 적용하여 작업 메서드에 대한 액세스를 제한합니다. 익명 사용자는 홈페이지만 볼 수 있습니다. 등록된 사용자는 연락처 세부 정보, 정보 및 연락처 페이지를 볼 수 있습니다. *canEdit* 역할의 사용자만 데이터를 변경하는 작업 메서드에 액세스할 수 있습니다.
+이 섹션에서는 [Authorize](http://msdn.microsoft.com/ko-kr/library/system.web.mvc.authorizeattribute(v=vs.100).aspx) 특성을 적용하여 작업 메서드에 대한 액세스를 제한합니다. 익명 사용자는 홈페이지만 볼 수 있습니다. 등록된 사용자는 연락처 세부 정보, 정보 및 연락처 페이지를 볼 수 있습니다. *canEdit* 역할의 사용자만 데이터를 변경하는 작업 메서드에 액세스할 수 있습니다.
 
-1.  응용 프로그램에 [Authorize](http://msdn.microsoft.com/en-us/library/system.web.mvc.authorizeattribute(v=vs.100).aspx) 필터와 [RequireHttps](http://msdn.microsoft.com/en-us/library/system.web.mvc.requirehttpsattribute(v=vs.108).aspx) 필터를 추가합니다. 또 다른 방법은 각 컨트롤러에 [Authorize](http://msdn.microsoft.com/en-us/library/system.web.mvc.authorizeattribute(v=vs.100).aspx) 특성과 [RequireHttps](http://msdn.microsoft.com/en-us/library/system.web.mvc.requirehttpsattribute(v=vs.108).aspx) 특성을 추가하는 것이지만 전체 응용 프로그램에 적용하는 것이 보안상 더 좋은 모범 사례입니다. 전체적으로 추가하면 새로 추가된 모든 컨트롤러와 작업 메서드가 자동으로 보호되므로 따로 적용할 필요가 없습니다. 자세한 내용은 [ASP.NET MVC 4 앱 및 새 AllowAnonymous 특성 보안 유지](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx)(영문)를 참조하십시오. *App\_Start\\FilterConfig.cs* 파일을 열고 *RegisterGlobalFilters* 메서드를 다음으로 바꿉니다.
+1.  응용 프로그램에 [Authorize](http://msdn.microsoft.com/ko-kr/library/system.web.mvc.authorizeattribute(v=vs.100).aspx) 필터와 [RequireHttps](http://msdn.microsoft.com/ko-kr/library/system.web.mvc.requirehttpsattribute(v=vs.108).aspx) 필터를 추가합니다. 또 다른 방법은 각 컨트롤러에 [Authorize](http://msdn.microsoft.com/ko-kr/library/system.web.mvc.authorizeattribute(v=vs.100).aspx) 특성과 [RequireHttps](http://msdn.microsoft.com/ko-kr/library/system.web.mvc.requirehttpsattribute(v=vs.108).aspx) 특성을 추가하는 것이지만 전체 응용 프로그램에 적용하는 것이 보안상 더 좋은 모범 사례입니다. 전체적으로 추가하면 새로 추가된 모든 컨트롤러와 작업 메서드가 자동으로 보호되므로 따로 적용할 필요가 없습니다. 자세한 내용은 [ASP.NET MVC 4 앱 및 새 AllowAnonymous 특성 보안 유지](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx)(영문)를 참조하십시오. *App\_Start\\FilterConfig.cs* 파일을 열고 *RegisterGlobalFilters* 메서드를 다음으로 바꿉니다.
 
          public static void
          RegisterGlobalFilters(GlobalFilterCollection filters)
@@ -530,7 +530,7 @@ Azure 웹 사이트에는 유효한 보안 인증서가 포함되어 있으므�
 DB 준비데이터 배포 스크립트 작성
 --------------------------------
 
-멤버 자격 데이터베이스는 Entity Framework Code First에서 관리하지 않으므로 마이그레이션을 사용하여 배포할 수 없습니다. [dbDacFx](http://msdn.microsoft.com/en-us/library/dd394698.aspx) 공급자를 사용하여 데이터베이스 스키마를 배포하고, 게시 프로필을 구성하여 최초 멤버 자격 데이터를 멤버 자격 테이블에 삽입할 스크립트를 실행할 것입니다.
+멤버 자격 데이터베이스는 Entity Framework Code First에서 관리하지 않으므로 마이그레이션을 사용하여 배포할 수 없습니다. [dbDacFx](http://msdn.microsoft.com/ko-kr/library/dd394698.aspx) 공급자를 사용하여 데이터베이스 스키마를 배포하고, 게시 프로필을 구성하여 최초 멤버 자격 데이터를 멤버 자격 테이블에 삽입할 스크립트를 실행할 것입니다.
 
 이 자습서는 SQL Server Management Studio(SSMS)를 사용하여 데이터 배포 스크립트를 작성합니다.
 
@@ -687,20 +687,20 @@ DB 업데이트멤버 자격 데이터베이스 업데이트
 다양한 Facebook, Google 및 Yahoo 로그온 단추를 받으려면 블로그 게시물 [ASP.NET MVC 4에서 외부 로그인 단추 사용자 지정](http://www.beabigrockstar.com/customizing-external-login-buttons-in-asp-net-mvc-4/)(영문)을 참조하십시오. Windows 인증 사용에 대한 자세한 내용은 다음을 참조하십시오.
 
 -   [Azure 인증(영문)](http://www.asp.net/vnext/overview/fall-2012-update/windows-azure-authentication)
--   [ASP.NET MVC를 사용하여 인트라넷 사이트를 만드는 방법(영문)](http://msdn.microsoft.com/en-us/library/gg703322(v=vs.98).aspx)
+-   [ASP.NET MVC를 사용하여 인트라넷 사이트를 만드는 방법(영문)](http://msdn.microsoft.com/ko-kr/library/gg703322(v=vs.98).aspx)
 
 Azure 응용 프로그램에 데이터를 저장하는 또 다른 방법은 Azure 저장소를 사용하는 것입니다. Azure 저장소는 비관계형 데이터 저장소를 Blob 및 테이블 형식으로 제공합니다. ASP.NET MVC 및 Azure에 대한 자세한 내용은 다음 링크를 참조하십시오.
 
--   [저장소 테이블, 큐 및 Blob을 사용하는 .NET 다중 계층 응용 프로그램](http://www.windowsazure.com/en-us/develop/net/tutorials/multi-tier-web-site/1-overview/)(영문)
+-   [저장소 테이블, 큐 및 Blob을 사용하는 .NET 다중 계층 응용 프로그램](http://www.windowsazure.com/ko-kr/develop/net/tutorials/multi-tier-web-site/1-overview/)(영문)
 -   [ASP.NET MVC 4 소개(영문)](http://www.asp.net/mvc/tutorials/mvc-4/getting-started-with-aspnet-mvc4/intro-to-aspnet-mvc-4)
 -   [MVC를 사용하여 Entity Framework 시작(영문)](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application)
 -   [OAuth 2.0 및 로그인(영문)](http://blogs.msdn.com/b/vbertocci/archive/2013/01/02/oauth-2-0-and-sign-in.aspx)
 
-Azure 웹 사이트에 웹 응용 프로그램을 배포하는 방법을 확인했습니다. Azure 웹 사이트를 구성하고, 관리하고, 크기를 조정하는 방법에 대해 알아보려면 [일반 작업](http://www.windowsazure.com/en-us/develop/net/common-tasks/)(영문) 페이지에서 방법 항목을 참조하십시오.
+Azure 웹 사이트에 웹 응용 프로그램을 배포하는 방법을 확인했습니다. Azure 웹 사이트를 구성하고, 관리하고, 크기를 조정하는 방법에 대해 알아보려면 [일반 작업](http://www.windowsazure.com/ko-kr/develop/net/common-tasks/)(영문) 페이지에서 방법 항목을 참조하십시오.
 
 Azure 웹 사이트를 디버그하는 방법에 대해 알아보려면 [Visual Studio에서 Azure 웹 사이트 문제 해결](/en-us/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/)(영문)을 참조하십시오.
 
-Azure 클라우드 서비스에 응용 프로그램을 배포하는 방법에 대해 알아보려면 [이 자습서의 클라우드 서비스 버전](http://www.windowsazure.com/en-us/develop/net/tutorials/cloud-service-with-sql-database/)(영문) 및 [Azure를 사용하여 웹 응용 프로그램 개발](http://msdn.microsoft.com/en-us/library/Hh674484)(영문)을 참조하십시오. Azure 웹 사이트 대신 Azure 클라우드 서비스에서 ASP.NET 웹 응용 프로그램을 실행하는 경우는 다음과 같습니다.
+Azure 클라우드 서비스에 응용 프로그램을 배포하는 방법에 대해 알아보려면 [이 자습서의 클라우드 서비스 버전](http://www.windowsazure.com/ko-kr/develop/net/tutorials/cloud-service-with-sql-database/)(영문) 및 [Azure를 사용하여 웹 응용 프로그램 개발](http://msdn.microsoft.com/ko-kr/library/Hh674484)(영문)을 참조하십시오. Azure 웹 사이트 대신 Azure 클라우드 서비스에서 ASP.NET 웹 응용 프로그램을 실행하는 경우는 다음과 같습니다.
 
 -   응용 프로그램을 실행하는 웹 서버의 관리자 권한을 원하는 경우
 -   원격 데스크톱 연결을 사용하여 응용 프로그램을 실행하는 웹 서버에 액세스하려는 경우
@@ -713,5 +713,5 @@ SQL 데이터베이스 사용 방법에 대한 자세한 내용은 [ASP.NET 데�
 Entity Framework 및 Code First 마이그레이션에 대한 자세한 내용은 다음 리소스를 참조하십시오.
 
 -   [MVC를 사용하여 Entity Framework 시작(영문)](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application)
--   [Code First 마이그레이션(영문)](http://msdn.microsoft.com/en-us/library/hh770484)
+-   [Code First 마이그레이션(영문)](http://msdn.microsoft.com/ko-kr/library/hh770484)
 

@@ -55,7 +55,7 @@ HDInsight 클러스터는 Azure Blob 저장소 컨테이너를 기본 파일 시
 		</tr>
 		<tr>
 			<td>HDINSIGHT 버전</td>
-			<td>버전 선택. 기본값은 Hadoop 1.2 클러스터에서 실행되는 2.0 버전입니다. 3.0은 Hadoop 2.2 클러스터를 사용합니다. 자세한 내용은 <a href="http://www.windowsazure.com/en-us/manage/services/hdinsight/versioning-in-hdinsight/">Azure HDInsight에 포함된 Hadoop 버전</a>(영문)을 참조하십시오.</td>
+			<td>버전 선택. 기본값은 Hadoop 1.2 클러스터에서 실행되는 2.0 버전입니다. 3.0은 Hadoop 2.2 클러스터를 사용합니다. 자세한 내용은 <a href="http://www.windowsazure.com/ko-kr/manage/services/hdinsight/versioning-in-hdinsight/">Azure HDInsight에 포함된 Hadoop 버전</a>(영문)을 참조하십시오.</td>
 		</tr>
 		<tr>
 			<td>지역</td>
@@ -157,7 +157,7 @@ HDInsight 클러스터는 Azure Blob 저장소 컨테이너를 기본 파일 시
 Azure PowerShell 사용
 ---------------------
 
-Azure PowerShell은 Azure에서 작업의 배포와 관리를 제어 및 자동화하기 위해 사용할 수 있는 강력한 스크립팅 환경입니다. HDInsight PowerShell cmdlet을 실행하도록 워크스테이션을 구성하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성](/en-us/documentation/articles/install-configure-powershell/)을 참조하십시오. HDInsight와 함께 PowerShell을 사용하는 방법에 대한 자세한 내용은 [PowerShell을 사용하여 HDInsight 관리](/en-us/manage/services/hdinsight/administer-hdinsight-using-powershell/)를 참조하십시오. HDInsight PowerShell cmdlet의 목록은 [HDInsight cmdlet 참조](http://msdn.microsoft.com/en-us/library/windowsazure/dn479228.aspx)를 참조하십시오.
+Azure PowerShell은 Azure에서 작업의 배포와 관리를 제어 및 자동화하기 위해 사용할 수 있는 강력한 스크립팅 환경입니다. HDInsight PowerShell cmdlet을 실행하도록 워크스테이션을 구성하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성](/ko-kr/documentation/articles/install-configure-powershell/)을 참조하십시오. HDInsight와 함께 PowerShell을 사용하는 방법에 대한 자세한 내용은 [PowerShell을 사용하여 HDInsight 관리](/en-us/manage/services/hdinsight/administer-hdinsight-using-powershell/)를 참조하십시오. HDInsight PowerShell cmdlet의 목록은 [HDInsight cmdlet 참조](http://msdn.microsoft.com/ko-kr/library/windowsazure/dn479228.aspx)를 참조하십시오.
 
 PowerShell을 사용하여 HDInsight 클러스터를 프로비전하려면 다음 절차가 필요합니다.
 
@@ -546,7 +546,7 @@ Visual Studio에 응용 프로그램이 열려 있을 때 **F5**를 눌러 응�
 [hdinsight-admin-powershell]: /en-us/manage/services/hdinsight/administer-hdinsight-using-powershell/
 [hdinsight-submit-jobs]: /en-us/manage/services/hdinsight/submit-hadoop-jobs-programmatically/
 [hdinsight-configure-powershell]: /en-us/manage/services/hdinsight/install-and-configure-powershell-for-hdinsight/ 
-[hdinsight-powershell-reference]: http://msdn.microsoft.com/en-us/library/windowsazure/dn479228.aspx
+[hdinsight-powershell-reference]: http://msdn.microsoft.com/ko-kr/library/windowsazure/dn479228.aspx
 
 [azure-create-storageaccount]: /en-us/manage/services/storage/how-to-create-a-storage-account/ 
 [azure-management-portal]: https://manage.windowsazure.com/
@@ -557,7 +557,7 @@ Visual Studio에 응용 프로그램이 열려 있을 때 **F5**를 눌러 응�
 [azure-member-offers]: https://www.windowsazure.com/en-us/pricing/member-offers/
 [azure-free-trial]: https://www.windowsazure.com/en-us/pricing/free-trial/
 
-[Powershell-install-configure]: /en-us/documentation/articles/install-configure-powershell/
+[Powershell-install-configure]: /ko-kr/documentation/articles/install-configure-powershell/
 
 
 [image-customprovision-page1]: ./media/hdinsight-provision-clusters/HDI.CustomProvision.Page1.png 

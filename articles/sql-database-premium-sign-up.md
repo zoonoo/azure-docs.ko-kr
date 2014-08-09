@@ -37,7 +37,7 @@ Azure SQL 데이터베이스는 SQL 데이터베이스용 Premium이라는 새 �
 
     활성화된 유료 Azure 구독만 미리 볼 수 있습니다. 여러 구독을 등록할 수 있지만, 각 구독은 한 번만 등록할 수 있습니다.
 
-    미리 보기 구독에 등록함으로써 추가 요금이 발생하지는 않지만, 활성화되고 Premium 할당량이 부여되면 Premium 데이터베이스 생성 또는 업그레이드의 경우 [SQL 데이터베이스 가격 정보](http://www.windowsazure.com/en-us/pricing/details/sql-database/)에 설명된 가격을 따릅니다.
+    미리 보기 구독에 등록함으로써 추가 요금이 발생하지는 않지만, 활성화되고 Premium 할당량이 부여되면 Premium 데이터베이스 생성 또는 업그레이드의 경우 [SQL 데이터베이스 가격 정보](http://www.windowsazure.com/ko-kr/pricing/details/sql-database/)에 설명된 가격을 따릅니다.
 
     등록 요청의 현재 상태가 미리 보기 기능 목록에 반영됩니다.
 

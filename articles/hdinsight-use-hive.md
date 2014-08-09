@@ -10,7 +10,7 @@ log4j 로그 파일의 데이터를 쿼리하고 기본 통계를 보고합니�
 
 * **HDInsight 클러스터**를 미리 프로비전해두어야 합니다. Azure 포털에서 프로비전하는 방법을 자세히 알아보려면 [HDInsight시작](/en-us/manage/services/hdinsight/get-started-hdinsight/)을 참조하십시오. HDInsight 클러스터를 만드는 기타 여러 방법에 대한 지침은 [HDInsight 클러스터 프로비전](/en-us/manage/services/hdinsight/provision-hdinsight-clusters/)을 참조하십시오.
 
-* 워크스테이션에 **Azure PowerShell**을 미리 설치해두어야 합니다. 설치 방법에 대한 지침은 [Azure PowerShell 설치 및 구성](/en-us/documentation/articles/install-configure-powershell/)을 참조하십시오.
+* 워크스테이션에 **Azure PowerShell**을 미리 설치해두어야 합니다. 설치 방법에 대한 지침은 [Azure PowerShell 설치 및 구성](/ko-kr/documentation/articles/install-configure-powershell/)을 참조하십시오.
 
 **예상 완료 시간:** 30분
 
@@ -87,7 +87,7 @@ Hive 쿼리는 **Start-AzureHDInsightJob** cmdlet 또는 **Invoke-Hive** cmdlet�
 **Start-AzureHDInsightJob을 사용하여 Hive 쿼리를 실행하려면**
 
 1.  Azure PowerShell 콘솔 창을 엽니다. 지침은 [Azure PowerShell 설치 및
-    구성](/en-us/documentation/articles/install-configure-powershell/)에서
+    구성](/ko-kr/documentation/articles/install-configure-powershell/)에서
     찾아볼 수 있습니다.
 2.  다음 명령을 실행하여 Azure 구독에 연결합니다.
     
@@ -201,9 +201,9 @@ Hive를 사용하면 SQL과 유사한 쿼리 언어로 손쉽게 데이터를 �
 * [Azure HDInsight
   시작](/en-us/manage/services/hdinsight/get-started-hdinsight/)
 * [HDInsight를 사용하여 비행 지연 데이터
-  분석](/en-us/documentation/articles/hdinsight-analyze-flight-delay-data/)
+  분석](/ko-kr/documentation/articles/hdinsight-analyze-flight-delay-data/)
 * [HDInsight와 함께 Oozie
-  사용](/en-us/documentation/articles/hdinsight-use-oozie/)
+  사용](/ko-kr/documentation/articles/hdinsight-use-oozie/)
 * [프로그래밍 방식으로 Hadoop 작업
   제출](/en-us/manage/services/hdinsight/submit-hadoop-jobs-programmatically/)
 * [HDInsight에 데이터

@@ -55,7 +55,7 @@ Azure SQL 데이터 동기화 시작
 
 ### 2b 단계: 새 클라이언트 에이전트 설치
 
-[클라이언트 에이전트 설치(SQL 데이터 동기화)](http://msdn.microsoft.com/en-us/library/jj823137.aspx)의 지침에 따라 에이전트를 설치합니다.
+[클라이언트 에이전트 설치(SQL 데이터 동기화)](http://msdn.microsoft.com/ko-kr/library/jj823137.aspx)의 지침에 따라 에이전트를 설치합니다.
 
 ### 2c 단계: 새 SQL 데이터 동기화 에이전트 마법사 완료
 
@@ -68,7 +68,7 @@ Azure SQL 데이터 동기화 시작
 3단계: 클라이언트 에이전트에 SQL Server 데이터베이스 등록
 ---------------------------------------------------------
 
-클라이언트 에이전트가 설치된 후 동기화 그룹에 포함하려는 모든 온-프레미스 SQL Server 데이터베이스를 에이전트에 등록합니다. 에이전트에 데이터베이스를 등록하려면 [클라이언트 에이전트에 SQL Server 데이터베이스 등록](http://msdn.microsoft.com/en-us/library/jj823138.aspx)의 지침에 따릅니다.
+클라이언트 에이전트가 설치된 후 동기화 그룹에 포함하려는 모든 온-프레미스 SQL Server 데이터베이스를 에이전트에 등록합니다. 에이전트에 데이터베이스를 등록하려면 [클라이언트 에이전트에 SQL Server 데이터베이스 등록](http://msdn.microsoft.com/ko-kr/library/jj823138.aspx)의 지침에 따릅니다.
 
 4단계: 동기화 그룹 만들기
 -------------------------
@@ -176,7 +176,7 @@ Azure SQL 데이터 동기화에서는 동기화할 테이블과 열을 선택�
 SQL 데이터베이스와 SQL 데이터 동기화에 대한 자세한 내용은 다음을 참조하십시오.
 
 -   [SQL 데이터베이스 프리미엄 제품 등록] (../sign-up-for-sql-database-premium/)
--   [SQL 데이터 동기화(WA 포털)](http://msdn.microsoft.com/en-us/library/windowsazure/jj856263.aspx)
+-   [SQL 데이터 동기화(WA 포털)](http://msdn.microsoft.com/ko-kr/library/windowsazure/jj856263.aspx)
 -   [Azure SQL 데이터베이스 시작](../getting-started-w-sql-databases/)
 -   [SQL Server 데이터베이스 수명 주기](http://go.microsoft.com/fwlink/?LinkId=275193)
 

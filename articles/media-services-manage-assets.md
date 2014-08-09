@@ -76,8 +76,8 @@ foreach (IAsset asset in _context.Assets)
 
 자산 관리에 대한 자세한 내용은 다음을 참조하십시오.
 
--   [Media Services SDK for .NET을 사용하여 자산 관리(영문)](http://msdn.microsoft.com/en-us/library/jj129589.aspx)
--   [Media Services REST API를 사용하여 자산 관리(영문)](http://msdn.microsoft.com/en-us/library/jj129583.aspx)
+-   [Media Services SDK for .NET을 사용하여 자산 관리(영문)](http://msdn.microsoft.com/ko-kr/library/jj129589.aspx)
+-   [Media Services REST API를 사용하여 자산 관리(영문)](http://msdn.microsoft.com/ko-kr/library/jj129583.aspx)
 
 다음 단계
 ---------

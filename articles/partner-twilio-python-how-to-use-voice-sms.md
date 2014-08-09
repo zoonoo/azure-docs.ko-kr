@@ -93,7 +93,7 @@ PHP 응용 프로그램 만들기
 
 Twilio 서비스를 사용하고 Azure에서 실행되고 있는 PHP 응용 프로그램은 Twilio 서비스를 사용하는 다른 PHP 응용 프로그램과 차이가 없습니다. Twilio 서비스가 REST 기반이고 여러 가지 방법으로 PHP에서 호출될 수 있기는 하지만, 이 문서에서는 [Github의 PHP용 Twilio 라이브러리](https://github.com/twilio/twilio-php)(영문)와 Twilio 서비스를 사용하는 방법을 집중적으로 설명합니다. PHP용 Twilio 라이브러리 사용에 대한 자세한 내용은 <http://readthedocs.org/docs/twilio-php/en/latest/index.html>(영문)을 참조하십시오.
 
-Twilio/PHP 응용 프로그램을 빌드하여 Azure에 배포하는 방법에 대한 자세한 지침은 [Azure의 PHP 응용 프로그램에서 Twilio를 사용하여 전화 통화를 거는 방법](http://windowsazure.com/en-us/documentation/articles/partner-twilio-php-make-phone-call)(영문)에서 제공합니다.
+Twilio/PHP 응용 프로그램을 빌드하여 Azure에 배포하는 방법에 대한 자세한 지침은 [Azure의 PHP 응용 프로그램에서 Twilio를 사용하여 전화 통화를 거는 방법](http://windowsazure.com/ko-kr/documentation/articles/partner-twilio-php-make-phone-call)(영문)에서 제공합니다.
 
 Twilio 라이브러리를 사용하도록 응용 프로그램 구성
 -------------------------------------------------
@@ -252,7 +252,7 @@ PHP 페이지가 TwiML 응답을 제공하도록 설정하고 나서 `Services_T
 		echo 'Error: ' . $e->getMessage();
 	}
 
-Azure에서 PHP와 함께 Twilio를 사용하는 방법에 대한 자세한 내용은 [Azure의 PHP 응용 프로그램에서 Twilio를 사용하여 전화 통화를 거는 방법](http://windowsazure.com/en-us/documentation/articles/partner-twilio-php-make-phone-call)(영문)을 참조하십시오.
+Azure에서 PHP와 함께 Twilio를 사용하는 방법에 대한 자세한 내용은 [Azure의 PHP 응용 프로그램에서 Twilio를 사용하여 전화 통화를 거는 방법](http://windowsazure.com/ko-kr/documentation/articles/partner-twilio-php-make-phone-call)(영문)을 참조하십시오.
 
 방법: 추가 Twilio 서비스 사용
 -----------------------------

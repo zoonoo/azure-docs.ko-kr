@@ -264,5 +264,5 @@ URI 체계는 *wasb:* 접두사를 사용한 암호화되지 않은 액세스와
 
 
 
-[1]: http://msdn.microsoft.com/en-us/library/windowsazure/dd179354.aspx
-[2]: http://msdn.microsoft.com/en-us/library/windowsazure/dd135733.aspx
+[1]: http://msdn.microsoft.com/ko-kr/library/windowsazure/dd179354.aspx
+[2]: http://msdn.microsoft.com/ko-kr/library/windowsazure/dd135733.aspx
