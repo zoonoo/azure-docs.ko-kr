@@ -68,7 +68,7 @@ Visual Studio는 빌드 서버에 설치할 필요가 없습니다. Team Foundat
 
 <h2> <a name="step3"> </a><span  class="short-header">TFS를 사용하여 패키지 빌드</span>3단계: TFS 팀 빌드를 사용하여 패키지 빌드(옵션)</h2>
 
-TFS(Team Foundation Server)를 빌드 컨트롤러로 설정하고 빌드 서버를 TFS 빌드 컴퓨터로 설정한 경우 Azure 패키지에 대해 자동화된 빌드를 설정할 수 있습니다. Team Foundation Server를 빌드 시스템으로 설정하고 사용하는 방법에 대한 자세한 내용은 [Team Foundation 빌드 시스템 이해][](영문)를 참조하십시오. 특히 다음 절차에서는 빌드 서버를 [빌드 컴퓨터 구성][](영문)에 설명된 대로 구성했다고 가정합니다.
+TFS(Team Foundation Server)를 빌드 컨트롤러로 설정하고 빌드 서버를 TFS 빌드 컴퓨터로 설정한 경우 Azure 패키지에 대해 자동화된 빌드를 설정할 수 있습니다. Team Foundation Server를 빌드 시스템으로 설정하고 사용하는 방법에 대한 자세한 내용은 [Team Foundation 빌드 시스템 이해](http://go.microsoft.com/fwlink/p/?LinkId=239963)(영문)를 참조하십시오. 특히 다음 절차에서는 빌드 서버를 [빌드 컴퓨터 구성](http://go.microsoft.com/fwlink/?LinkId=238798)(영문)에 설명된 대로 구성했다고 가정합니다.
 
 Azure 패키지를 빌드하도록 TFS를 구성하려면 다음 단계를 수행하십시오.
 
@@ -159,7 +159,7 @@ Azure 패키지를 빌드하도록 TFS를 구성하려면 다음 단계를 수�
     
         Add-AzureCertificate -serviceName 'mytestcloudservice' -certToDeploy (get-item cert:\CurrentUser\MY\C33B6C432C25581601B84C80F86EC2809DC224E8
     
-    또는 개인 키로 인증서 파일 PFX를 내보내고 Azure 관리 포털을 사용하여 각 대상 클라우드 서비스에 인증서를 업로드할 수 있습니다. 자세한 내용은 [http://msdn.microsoft.com/ko-kr/library/windowsazure/gg443832.aspx][]에서 확인할 수 있습니다.
+    또는 개인 키로 인증서 파일 PFX를 내보내고 Azure 관리 포털을 사용하여 각 대상 클라우드 서비스에 인증서를 업로드할 수 있습니다. 자세한 내용은 [http://msdn.microsoft.com/en-us/library/windowsazure/gg443832.aspx][]에서 확인할 수 있습니다.
     
     **배포 업그레이드 및 배포 삭제 -> 새 배포**
     
@@ -576,9 +576,9 @@ Write-Output "$(Get-Date -f $timeStampFormat) - Azure Cloud Service deploy scrip
   [Azure Authoring Tools]: http://go.microsoft.com/fwlink/?LinkId=239600
   [Azure 라이브러리][]: http://go.microsoft.com/fwlink/?LinkId=257862
   [Azure Tools for Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=257862
-  [MSBuild Command Line Reference]: http://msdn.microsoft.com/ko-kr/library/ms164311(v=VS.90).aspx
+  [MSBuild Command Line Reference]: http://msdn.microsoft.com/en-us/library/ms164311(v=VS.90).aspx
   [1]: http://go.microsoft.com/fwlink/p/?LinkId=239966
-  [Team Foundation 빌드시스템이해]: http://go.microsoft.com/fwlink/?LinkId=238798
+  [Understanding the Team Foundation Build System]: http://go.microsoft.com/fwlink/?LinkId=238798
   [Configure a Build Machine]: http://go.microsoft.com/fwlink/?LinkId=238799
   [0]: ./media/cloud-services-dotnet-continuous-delivery/tfs-01.png
   [2]: ./media/cloud-services-dotnet-continuous-delivery/tfs-02.png

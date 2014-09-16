@@ -83,8 +83,7 @@ Azure 포털을 사용하여 웹 사이트에서 Git 리포지토리를 사용�
 
 2.  페이지의 왼쪽에서 **Web Sites**를 선택한 후 리포지토리를 사용하도록 하려는 웹 사이트를 선택합니다.
     
-    ![선택한 웹 사이트를 나타내는
-    이미지](./media/publishing-with-git/git-select-website.png)
+    ![선택한 웹 사이트를 나타내는 이미지](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/en-us/documentation/articles/web-sites-publish-source-control-git/20140909120351/includes/publishing-with-git/git-select-website.png)
 
 3.  **DASHBOARD** 탭을 선택합니다.
 
@@ -142,8 +141,7 @@ Azure 포털을 사용하여 웹 사이트에서 Git 리포지토리를 사용�
 
 4.  포털에서 포털 아래쪽의 **BROWSE** 링크를 클릭하여 **index.html**이 배포되었는지 확인합니다. 'Hello Git!'가 포함된 페이지가 나타납니다.
     
-    !['Hello Git!'가 포함된 웹
-    페이지](./media/publishing-with-git/git-hello-git.png)
+    !['Hello Git!'가 포함된 웹 페이지](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/en-us/documentation/articles/web-sites-publish-source-control-git/20140909120351/includes/publishing-with-git/git-hello-git.png)
 
 5.  텍스트 편집기를 사용하여 'Yay!'를 포함하도록 **index.html** 파일을 변경한 후 저장합니다.
 
@@ -283,14 +281,14 @@ Azure **Dashboard**에서 지속적인 배포를 사용하지 않도록 설정�
 
 
 
-[1]: http://www.windowsazure.com/ko-kr/develop/net/common-tasks/publishing-with-tfs/
+[1]: http://www.windowsazure.com/en-us/develop/net/common-tasks/publishing-with-tfs/
 [2]: http://git-scm.com/book/en/Getting-Started-Installing-Git
-[3]: http://www.windowsazure.com/ko-kr/develop/overview/
+[3]: http://www.windowsazure.com/en-us/develop/overview/
 [4]: http://manage.windowsazure.com
 [5]: https://help.github.com/articles/create-a-repo
 [6]: http://codeplex.codeplex.com/wikipage?title=Using%20Git%20with%20CodePlex&referringTitle=Source%20control%20clients&ProjectName=codeplex
 [7]: https://confluence.atlassian.com/display/BITBUCKET/Create+an+Account+and+a+Git+Repo
 [8]: https://gist.github.com/trey/2722927
 [9]: http://mercurial.selenic.com/wiki/QuickStart
-[10]: http://www.windowsazure.com/ko-kr/develop/nodejs/how-to-guides/powershell-cmdlets/
+[10]: http://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/powershell-cmdlets/
 [11]: http://git-scm.com/documentation

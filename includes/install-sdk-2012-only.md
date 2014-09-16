@@ -13,8 +13,7 @@
 
 3.  웹 플랫폼 설치 관리자 창에서 **설치**를 클릭하여 설치를 계속합니다.
     
-    ![웹 플랫폼 설치 관리자 - Azure SDK for
-    .NET](./media/install-sdk-2012-only/WebPI46-2012.png)
+    ![웹 플랫폼 설치 관리자 - Azure SDK for .NET](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/en-us/documentation/articles/web-sites-dotnet-get-started-vs2012/20140815090453/includes/install-sdk-2012-only/webpi46-2012.png)
 
 설치가 완료되면 개발을 시작하는 데 필요한 내용이 모두 준비된 것입니다.
 

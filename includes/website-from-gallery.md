@@ -11,7 +11,7 @@
 
 ![Wordpress 블로그](./media/website-from-gallery/wordpressgallery-09.png)
 <div class="dev-callout"><strong>참고</strong>
-<p>이 자습서를 완료하려면 Azure 계정이 필요합니다. 몇 분 만에 무료 체험 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://www.windowsazure.com/ko-kr/develop/php/tutorials/create-a-windows-azure-account/" target="_blank">Azure 계정 만들기</a>(영문)를 참조하십시오.</p>
+<p>이 자습서를 완료하려면 Azure 계정이 필요합니다. 몇 분 만에 무료 체험 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://www.windowsazure.com/en-us/develop/php/tutorials/create-a-windows-azure-account/" target="_blank">Azure 계정 만들기</a>(영문)를 참조하십시오.</p>
 </div>
 
 ## 포털에서 웹 사이트 만들기
@@ -29,7 +29,7 @@
 4.  목록에서 WordPress 아이콘을 찾아 클릭한 후 **Next**를 클릭합니다.
     
     ![목록에서
-    WordPress](./media/website-from-gallery/wordpressgallery-03.png)
+    WordPress](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/en-us/documentation/articles/web-sites-php-web-site-gallery/20140818090955/includes/website-from-gallery/wordpressgallery-03.png)
 
 5.  **Configure Your App** 페이지에서 모든 필드에 대해 값을 입력하거나 선택합니다.
 * 선택한 URL 이름을 입력합니다.
@@ -59,7 +59,7 @@
 3.  WordPress에 필요한 해당 구성 정보를 입력하고, **Install WordPress**를 클릭하여 구성을 마무리하고 웹 사이트의 로그인 페이지를 엽니다.
     
     ![WordPress에
-    로그인](./media/website-from-gallery/wordpressgallery-08.png)
+    로그인](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/en-us/documentation/articles/web-sites-php-web-site-gallery/20140818090955/includes/website-from-gallery/wordpressgallery-08.png)
 
 4.  **Welcome** 페이지에서 지정한 사용자 이름과 암호를 입력하여 새 WordPress 웹 사이트에 로그인합니다.
 

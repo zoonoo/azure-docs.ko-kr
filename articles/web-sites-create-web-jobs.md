@@ -58,8 +58,7 @@ Microsoft Azure 웹 사이트를 사용하면 사용자 웹 사이트에서 프�
 
 1.  연속형 작업을 만들려면 한 번 실행되는 작업을 만드는 단계를 그대로 따르고 **How to Run** 상자에서 **Run continuously**를 선택합니다.
     
-    ![새로운 연속형
-    작업](./media/web-sites-create-web-jobs/03aNewContinuousJob.png)
+    ![새로운 연속형 작업](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/en-us/documentation/articles/web-sites-create-web-jobs/20140815090453/03anewcontinuousjob.png)
 
 2.  연속형 작업을 시작 또는 중지하려면 목록에서 작업을 선택하고 명령 모음에서 **시작** 또는 **중지**를 클릭합니다.
 
@@ -96,46 +95,38 @@ Microsoft Azure 웹 사이트를 사용하면 사용자 웹 사이트에서 프�
 
 6.  **Weeks**를 선택하는 경우 **On a Particular Schedule** 상자를 선택하고 작업을 실행하려는 요일을 지정합니다.
     
-    ![요일
-    예약](./media/web-sites-create-web-jobs/09SchdWeeksOnParticular.png)
+    ![요일 예약](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/en-us/documentation/articles/web-sites-create-web-jobs/20140815090453/09schdweeksonparticular.png)
 
 7.  **Months**를 선택하고 **On a Particular Schedule** 상자를 선택한 경우 한 달 중 특정 **Days**에 실행하도록 작업을 설정할 수 있습니다.
     
-    ![한 달 중 특정 날짜
-    예약](./media/web-sites-create-web-jobs/10SchdMonthsOnPartDays.png)
+    ![한 달 중 특정 날짜 예약](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/en-us/documentation/articles/web-sites-create-web-jobs/20140815090453/10schdmonthsonpartdays.png)
 
 8.  **Week Days**를 선택하면 작업을 실행하려는 해당 달의 요일을 하나 이상 선택할 수 있습니다.
     
-    ![한 달 중 특정 요일
-    예약](./media/web-sites-create-web-jobs/11SchdMonthsOnPartWeekDays.png)
+    ![한 달 중 특정 요일 예약](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/en-us/documentation/articles/web-sites-create-web-jobs/20140815090453/11schdmonthsonpartweekdays.png)
 
 9.  마지막으로 **Occurrences** 옵션을 사용하면 작업을 실행하도록 지정한 요일이 한 달 중 몇 번째 주(첫째, 둘째, 셋째 등)에 해당하는지를 선택할 수 있습니다.
     
-    ![한 달 중 특정 주의 특정 요일
-    예약](./media/web-sites-create-web-jobs/12SchdMonthsOnPartWeekDaysOccurences.png)
+    ![한 달 중 특정 주의 특정 요일 예약](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/en-us/documentation/articles/web-sites-create-web-jobs/20140815090453/12schdmonthsonpartweekdaysoccurences.png)
 
 10. 하나 이상의 작업을 만들면 WebJobs 탭에 작업의 상태, 일정 유형 및 기타 정보와 함께 이름이 나타납니다. 최근 30개 작업의 기록 정보가 유지됩니다.
     
-    ![작업
-    목록](./media/web-sites-create-web-jobs/13WebJobsListWithSeveralJobs.png)
+    ![작업 목록](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/en-us/documentation/articles/web-sites-create-web-jobs/20140815090453/13webjobslistwithseveraljobs.png)
 
 ### 예약된 작업 및 Azure 스케줄러 예약 작업을
 Azure 스케줄러 포털에서 추가로 구성할 수 있습니다.
 
 1.  Azure 스케줄러 포털 페이지로 이동하려면 WebJobs 페이지에서 작업의 **일정** 링크를 클릭합니다.
     
-    ![Azure 스케줄러
-    링크](./media/web-sites-create-web-jobs/31LinkToScheduler.png)
+    ![Azure 스케줄러 링크](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/en-us/documentation/articles/web-sites-create-web-jobs/20140815090453/31linktoscheduler.png)
 
 2.  스케줄러 페이지에서 작업을 클릭합니다.
     
-    ![스케줄러 포털 페이지의
-    작업](./media/web-sites-create-web-jobs/32SchedulerPortal.png)
+    ![스케줄러 포털 페이지의 작업](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/en-us/documentation/articles/web-sites-create-web-jobs/20140815090453/32schedulerportal.png)
 
 3.  작업을 추가로 구성할 수 있는 **Job Action** 페이지가 열립니다.
     
-    ![스케줄러의 작업 동작
-    페이지](./media/web-sites-create-web-jobs/33JobActionPageInScheduler.png)
+    ![스케줄러의 작업 동작 페이지](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/en-us/documentation/articles/web-sites-create-web-jobs/20140815090453/33jobactionpageinscheduler.png)
 
 <!-- ================ ViewJobHistory ================= -->
 
@@ -146,26 +137,21 @@ Azure 스케줄러 포털에서 추가로 구성할 수 있습니다.
 
 1.  링크를 클릭하면 작업에 대한 WebJob 세부 정보 페이지가 열립니다. 이 페이지에는 명령 실행 이름, 마지막으로 실행한 시간 및 명령 성공/실패 여부가 표시됩니다. **Recent job runs**에서 시간을 클릭하면 추가 세부 정보를 볼 수 있습니다.
     
-    ![WebJob 세부
-    정보](./media/web-sites-create-web-jobs/15WebJobDetails.png)
+    ![WebJob 세부 정보](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/en-us/documentation/articles/web-sites-create-web-jobs/20140815090453/15webjobdetails.png)
 
 2.  **WebJob Run Details** 페이지가 나타납니다. 로그 내용의 텍스트를 보려면 **Toggle Output**을 클릭합니다. 출력 로그는 텍스트 형식으로 되어 있습니다.
     
-    ![WebJob 실행 세부
-    작업](./media/web-sites-create-web-jobs/16WebJobRunDetails.png)
+    ![WebJob 실행 세부 작업](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/en-us/documentation/articles/web-sites-create-web-jobs/20140815090453/16webjobrundetails.png)
 
 3.  별도의 브라우저 창에서 출력 텍스트를 보려면 **다운로드** 링크를 클릭합니다. 텍스트 자체를 다운로드하려면 링크를 마우스   오른쪽 단추로 클릭하고 브라우저 옵션을 사용하여 파일 내용을 저장합니다.
     
-    ![로그 출력
-    다운로드](./media/web-sites-create-web-jobs/17DownloadLogOutput.png)
+    ![로그 출력 다운로드](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/en-us/documentation/articles/web-sites-create-web-jobs/20140815090453/17downloadlogoutput.png)
 
 4.  페이지 맨 위의 **WebJobs** 링크를 사용하면 기록 대시보드의 웹 작업 목록을 편리하게 이용할 수 있습니다.
     
-    ![웹 작업 목록
-    링크](./media/web-sites-create-web-jobs/18WebJobsLinkToDashboardList.png)
+    ![웹 작업 목록 링크](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/en-us/documentation/articles/web-sites-create-web-jobs/20140815090453/18webjobslinktodashboardlist.png)
     
-    ![기록 대시보드의 작업
-    목록](./media/web-sites-create-web-jobs/19WebJobsListInJobsDashboard.png)
+    ![기록 대시보드의 작업 목록](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/en-us/documentation/articles/web-sites-create-web-jobs/20140815090453/19webjobslistinjobsdashboard.png)
     
     이러한 링크 중 하나를 클릭하면 선택한 작업의 WebJob Details 페이지로 이동합니다.
 
@@ -224,6 +210,6 @@ WebJob 기능에 대해 주석이 첨부된 링크 목록을 확인하려면 [Az
 [3]: http://blog.amitapple.com/post/74215124623/deploy-azure-webjobs
 [4]: http://blog.amitapple.com/post/73574681678/git-deploy-console-app
 [5]: http://go.microsoft.com/fwlink/?LinkId=390226
-[6]: http://www.windowsazure.com/ko-kr/documentation/videos/azure-webjobs-basics/
-[7]: http://www.windowsazure.com/ko-kr/documentation/videos/azure-webjobs-schedule-and-dashboard/
-[8]: http://www.windowsazure.com/ko-kr/documentation/videos/azure-scheduler-how-to/
+[6]: http://www.windowsazure.com/en-us/documentation/videos/azure-webjobs-basics/
+[7]: http://www.windowsazure.com/en-us/documentation/videos/azure-webjobs-schedule-and-dashboard/
+[8]: http://www.windowsazure.com/en-us/documentation/videos/azure-scheduler-how-to/

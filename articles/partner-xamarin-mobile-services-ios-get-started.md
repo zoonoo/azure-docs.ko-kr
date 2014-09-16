@@ -3,7 +3,7 @@
 모바일 서비스 시작
 ==================
 
-[Windows 스토어](/ko-kr/documentation/articles/mobile-services-windows-store-get-started "Windows 스토어") [Windows Phone](/ko-kr/documentation/articles/mobile-services-windows-phone-get-started "Windows Phone") [iOS](/ko-kr/documentation/articles/mobile-services-ios-get-started "iOS") [Android](/ko-kr/documentation/articles/mobile-services-android-get-started "Android") [HTML](/ko-kr/documentation/articles/mobile-services-html-get-started "HTML") [Xamarin.iOS](/ko-kr/documentation/articles/partner-xamarin-mobile-services-ios-get-started "Xamarin.iOS") [Xamarin.Android](/ko-kr/documentation/articles/partner-xamarin-mobile-services-android-get-started "Xamarin.Android") [Sencha](/ko-kr/documentation/articles/partner-sencha-mobile-services-get-started/ "Sencha") [PhoneGap](/ko-kr/documentation/articles/mobile-services-javascript-backend-phonegap-get-started/ "PhoneGap")
+[Windows 스토어](/en-us/documentation/articles/mobile-services-windows-store-get-started "Windows 스토어") [Windows Phone](/en-us/documentation/articles/mobile-services-windows-phone-get-started "Windows Phone") [iOS](/en-us/documentation/articles/mobile-services-ios-get-started "iOS") [Android](/en-us/documentation/articles/mobile-services-android-get-started "Android") [HTML](/en-us/documentation/articles/mobile-services-html-get-started "HTML") [Xamarin.iOS](/en-us/documentation/articles/partner-xamarin-mobile-services-ios-get-started "Xamarin.iOS") [Xamarin.Android](/en-us/documentation/articles/partner-xamarin-mobile-services-android-get-started "Xamarin.Android") [Sencha](/en-us/documentation/articles/partner-sencha-mobile-services-get-started/ "Sencha") [PhoneGap](/en-us/documentation/articles/mobile-services-javascript-backend-phonegap-get-started/ "PhoneGap")
 
 이 자습서에서는 Azure 모바일 서비스를 사용하여 Xamarin.iOS 앱에 클라우드 기반 백 엔드 서비스를 추가하는 방법을 보여 줍니다. 이 자습서에서는 새 모바일 서비스와 새 모바일 서비스에 앱 데이터를 저장하는 간단한 *할 일 모음* 앱을 둘 다 만듭니다.
 
@@ -19,7 +19,7 @@
 
 **참고**
 
-이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](http://www.windowsazure.com/ko-kr/pricing/free-trial/?WT.mc_id=A643EE910&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-xamarin-ios%2F)을 참조하십시오.
+이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A643EE910&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-xamarin-ios%2F)을 참조하십시오.
 
 새 모바일 서비스 만들기
 -----------------------
@@ -43,11 +43,11 @@
 
     ![](./media/partner-xamarin-mobile-services-ios-get-started/mobile-quickstart-steps-xamarin-ios.png)
 
-1.  아직 수행하지 않은 경우 [Xcode] v4.4 이상 버전 및 [Xamarin Studio](http://xamarin.com/download)를 다운로드하여 설치합니다.
+3.  아직 수행하지 않은 경우 [Xcode] v4.4 이상 버전 및 [Xamarin Studio](http://xamarin.com/download)를 다운로드하여 설치합니다.
 
-2.  **TodoItems 테이블 만들기**를 클릭하여 앱 데이터를 저장할 테이블을 만듭니다.
+4.  **TodoItems 테이블 만들기**를 클릭하여 앱 데이터를 저장할 테이블을 만듭니다.
 
-3.  **앱 다운로드 및 실행**에서 **다운로드**를 클릭합니다.
+5.  **앱 다운로드 및 실행**에서 **다운로드**를 클릭합니다.
 
     그러면 모바일 서비스에 연결되고 Xamarin.iOS용 Azure 모바일 서비스 구성 요소를 참조하는 샘플 *할 일 모음* 응용 프로그램용 프로젝트가 다운로드됩니다. 압축된 프로젝트 파일을 로컬 컴퓨터에 저장하고 저장한 위치를 기록해 둡니다.
 

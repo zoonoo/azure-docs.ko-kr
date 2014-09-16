@@ -23,7 +23,7 @@ Microsoft Azure Preview 포털은 통합 스트리밍 로그 뷰어를 제공하
 
 `Trace.TraceError("My error statement");`
 
-The Trace class lives in the System.Diagnostics namespace.
+클래스는 System.Diagnostics 네임스페이스에 있습니다.
 
 node.js 앱에서는 다음 코드를 쓰면 동일한 결과를 얻을 수 있습니다.
 

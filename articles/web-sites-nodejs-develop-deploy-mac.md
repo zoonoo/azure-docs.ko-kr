@@ -16,45 +16,45 @@
 
  
 <div  class="dev-callout"><strong>참고</strong>
-<p>이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://www.windowsazure.com/ko-kr/pricing/free-trial/?WT.mc_id=A7171371E" target="_blank">Azure 무료 평가판</a>을 참조하십시오.</p>
+<p>이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A7171371E" target="_blank">Azure 무료 평가판</a>을 참조하십시오.</p>
 </div>
 
- 1.  [Azure 관리 포털][1]에 로그인합니다.
+1.  [Azure 관리 포털][1]에 로그인합니다.
 
 2.  포털의 왼쪽 아래에서 **+ 새로 만들기** 아이콘을 클릭합니다.
     
     ![+ 새로 만들기 링크가 강조 표시된 Azure
-    포털](./media/web-sites-nodejs-develop-deploy-mac/plus-new.png)
+    포털](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/en-us/documentation/articles/web-sites-nodejs-develop-deploy-mac/20140818090955/plus-new.png)
 
 3.  **웹 사이트**를 클릭한 후 **빠른 생성**을 클릭합니다. **URL**에 값을 입력하고 **지역** 드롭다운에서 웹 사이트의 데이터 센터를 선택합니다. 대화 상자 맨 아래에 있는 확인 표시를 클릭합니다.
     
     ![빠른 생성 대화
-    상자](./media/web-sites-nodejs-develop-deploy-mac/create-quick-website.png)
+    상자](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/en-us/documentation/articles/web-sites-nodejs-develop-deploy-mac/20140818090955/create-quick-website.png)
 
 4.  웹 사이트 상태가 **실행**으로 변경되면 웹 사이트의 이름을 클릭하여 **대시보드**에 액세스합니다.
     
     ![웹 사이트 대시보드
-    열기](./media/web-sites-nodejs-develop-deploy-mac/go_to_dashboard.png)
+    열기](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/en-us/documentation/articles/web-sites-nodejs-develop-deploy-mac/20140818090955/go_to_dashboard.png)
 
 5.  빠른 시작 페이지의 오른쪽 아래에서 **Set up a deployment from source control**을 선택합니다.
     
     ![Git 게시
-    설정](./media/web-sites-nodejs-develop-deploy-mac/setup_git_publishing.png)
+    설정](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/en-us/documentation/articles/web-sites-nodejs-develop-deploy-mac/20140818090955/setup_git_publishing.png)
 
 6.  "소스 코드 위치?" 질문이 나타나면 **Local Git repository**를 선택한 후 화살표를 클릭합니다.
     
     ![소스 코드
-    위치](./media/web-sites-nodejs-develop-deploy-mac/where_is_code.png)
+    위치](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/en-us/documentation/articles/web-sites-nodejs-develop-deploy-mac/20140818090955/where_is_code.png)
 
 7.  Git 게시를 사용하도록 설정하려면 사용자 이름 및 암호를 지정해야 합니다. Azure 웹 사이트에 대해 이전에 게시를 사용하도록 설정한 경우 사용자 이름 또는 암호를 묻는 메시지가 표시되지 않습니다. 대신, 이전에 지정한 사용자 이름과 암호를 사용하여 Git 리포지토리가 만들어집니다. 사용자 이름과 암호를 기록해 두십시오. 만드는 모든 Azure 웹 사이트의 Git 게시에 이 사용자 이름과 암호가 사용되기 때문입니다.
     
     ![사용자 이름 및 암호를 묻는 대화
-    상자](./media/web-sites-nodejs-develop-deploy-mac/git-deployment-credentials.png)
+    상자](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/en-us/documentation/articles/web-sites-nodejs-develop-deploy-mac/20140818090955/git-deployment-credentials.png)
 
 8.  Git 리포지토리가 준비되면 로컬 리포지토리를 설정하고 파일을 Azure에 푸시하는 데 사용할 수 있는 Git 명령 관련 지침이 제공됩니다.
     
     ![웹 사이트용 리포지토리 생성 후 반환된 Git 배포
-    지침](./media/web-sites-nodejs-develop-deploy-mac/git-instructions.png)
+    지침](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/en-us/documentation/articles/web-sites-nodejs-develop-deploy-mac/20140818090955/git-instructions.png)
 
 ## 로컬에서 응용 프로그램 빌드 및 테스트
 
@@ -82,21 +82,17 @@
 4.  웹 브라우저를 열고 http://localhost:1337로 이동합니다. 아래 스크린샷에 표시된 것처럼 "Hello World"가 표시된 웹 페이지가 나타납니다.
     
     !['Hello World' 메시지를 표시하는
-    브라우저](./media/web-sites-nodejs-develop-deploy-mac/helloworldlocal.png)
+    브라우저](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/en-us/documentation/articles/web-sites-nodejs-develop-deploy-mac/20140818090955/helloworldlocal.png)
 
 ## 응용 프로그램 게시
 
 1.  명령줄에서 **helloworld** 디렉터리로 이동한 후 다음 명령을 입력하여 로컬 Git 리포지토리를 초기화합니다.
     
-         git init
-    
+		git init
 
-
-**Git 명령을 사용할 수 없는 경우**
-[Git][2]은 Azure 웹 사이트를 배포하는 데 사용할 수 있는 분산된 버전 제어 시스템입니다. 플랫폼별 설치 지침은 [Git 다운로드 페이지][3](영문)를 참조하십시오.
-
-
-
+	<div class="dev-callout"><strong>Git 명령을 사용할 수 없는 경우</strong>
+	<p><a href="http://git-scm.com/" target="_blank">Git</a>은 Azure 웹 사이트를 배포하는 데 사용할 수 있는 분산된 버전 제어 시스템입니다. 플랫폼별 설치 지침은 <a href="http://git-scm.com/download" target="_blank">Git 다운로드 페이지</a>(영문)를 참조하십시오.</p>
+	</div>
 
 2.  다음 명령을 사용하여 리포지토리에 파일을 추가합니다.
     
@@ -108,7 +104,7 @@
          git remote add azure [URL for remote repository]
     
     ![웹 사이트용 리포지토리 생성 후 반환된 Git 배포
-    지침](./media/web-sites-nodejs-develop-deploy-mac/git-instructions.png)
+    지침](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/en-us/documentation/articles/web-sites-nodejs-develop-deploy-mac/20140818090955/git-instructions.png)
 
 4.  다음 명령을 사용하여 변경 내용을 Azure에 푸시합니다.
     
@@ -134,7 +130,7 @@
     관리 포털 내에서 Azure 웹 사이트의 배포 탭으로 이동하면 배포 기록에서 첫 번째 배포를 볼 수 있습니다.
     
     ![포털의 Git 배포
-    상태](./media/web-sites-nodejs-develop-deploy-mac/git_deployments_first.png)
+    상태](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/en-us/documentation/articles/web-sites-nodejs-develop-deploy-mac/20140818090955/git_deployments_first.png)
 
 5.  관리 포털 내에서 Azure 웹 사이트 페이지의 **찾아보기** 단추를 사용하여 사이트를 탐색합니다.
 
@@ -151,7 +147,7 @@
     이전에 만든 암호를 입력하라는 메시지가 나타납니다. 관리 포털 내에서 Azure 웹 사이트의 배포 탭으로 이동하면 업데이트된 배포 기록을 볼 수 있습니다.
     
     ![포털의 업데이트된 Git 배포
-    상태](./media/web-sites-nodejs-develop-deploy-mac/git_deployments_second.png)
+    상태](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/en-us/documentation/articles/web-sites-nodejs-develop-deploy-mac/20140818090955/git_deployments_second.png)
 
 3.  **찾아보기** 단추를 사용하여 사이트로 이동한 후 업데이트가 적용되었는지 확인합니다.
     
@@ -181,6 +177,6 @@ Azure에 제공되는 Node.js 버전에 대한 정보 및 응용 프로그램에
 [1]: http://manage.windowsazure.com
 [2]: http://git-scm.com/
 [3]: http://git-scm.com/download
-[4]: http://www.windowsazure.com/ko-kr/develop/nodejs/common-tasks/working-with-node-modules/
-[5]: http://www.windowsazure.com/ko-kr/develop/nodejs/common-tasks/specifying-a-node-version/
-[6]: http://www.windowsazure.com/ko-kr/develop/nodejs/how-to-guides/Debug-Website/
+[4]: http://www.windowsazure.com/en-us/develop/nodejs/common-tasks/working-with-node-modules/
+[5]: http://www.windowsazure.com/en-us/develop/nodejs/common-tasks/specifying-a-node-version/
+[6]: http://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/Debug-Website/

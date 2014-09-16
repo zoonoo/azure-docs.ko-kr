@@ -117,7 +117,9 @@
 <h2><a id="subnets" ></a>3단계: 서브넷 및 사이트 만들기</h2>
 
 
-1.  YourPrimaryDC에서 시작, 관리 도구, Active Directory 사이트 및 서비스를 차례로 클릭합니다. 2.  **사이트**를 클릭하고, **서브넷**을 마우스 오른쪽 단추로 클릭한 후 **새 서브넷**을 클릭합니다.
+1.  YourPrimaryDC에서 시작, 관리 도구, Active Directory 사이트 및 서비스를 차례로 클릭합니다. 
+
+2.  **사이트**를 클릭하고, **서브넷**을 마우스 오른쪽 단추로 클릭한 후 **새 서브넷**을 클릭합니다.
     
     ![CreateSubnetsandSites1](./media/virtual-networks-install-replica-active-directory-domain-controller/CreateSubnetsandSites1.png)
 
@@ -294,10 +296,10 @@ Windows PowerShell 사용에 대한 자세한 내용은 [Azure PowerShell 시작
 
 
 
-[1]: http://msdn.microsoft.com/ko-kr/library/windowsazure/jj156007.aspx
-[2]: http://msdn.microsoft.com/ko-kr/library/windowsazure/jj156090.aspx
-[3]: http://www.windowsazure.com/ko-kr/manage/services/networking/cross-premises-connectivity/
-[4]: http://www.windowsazure.com/ko-kr/manage/services/networking/add-a-vm-to-a-virtual-network/
+[1]: http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx
+[2]: http://msdn.microsoft.com/en-us/library/windowsazure/jj156090.aspx
+[3]: http://www.windowsazure.com/en-us/manage/services/networking/cross-premises-connectivity/
+[4]: http://www.windowsazure.com/en-us/manage/services/networking/add-a-vm-to-a-virtual-network/
 [5]: http://technet.microsoft.com/en-us/library/cc753500.aspx
-[6]: http://msdn.microsoft.com/ko-kr/library/windowsazure/jj156055.aspx
-[7]: http://msdn.microsoft.com/ko-kr/library/windowsazure/jj152841
+[6]: http://msdn.microsoft.com/en-us/library/windowsazure/jj156055.aspx
+[7]: http://msdn.microsoft.com/en-us/library/windowsazure/jj152841

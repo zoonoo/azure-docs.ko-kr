@@ -1,9 +1,8 @@
-<properties linkid="script-xplat-intro" urlDisplayName="Azure Cross-Platform Command-Line Interface" pageTitle="The Azure Cross-Platform Command-Line Interface" title="The Azure Cross-Platform Command-Line Interface" metaKeywords="Azure cross-platform command-line interface, Azure command-line, azure command-line, azure cli" description="Install and configure the Azure Cross-Platform Command-Line Interface to manage Azure Services" metaCanonical="http://www.windowsazure.com/ko-kr/script/xplat-cli-intro" umbracoNaviHide="0" disqusComments="1" editor="mollybos" manager="paulettm" documentationCenter="" solutions="" authors="larryfr" services="" />
+<properties linkid="script-xplat-intro" urlDisplayName="Azure Cross-Platform Command-Line Interface" pageTitle="The Azure Cross-Platform Command-Line Interface" title="The Azure Cross-Platform Command-Line Interface" metaKeywords="Azure cross-platform command-line interface, Azure command-line, azure command-line, azure cli" description="Install and configure the Azure Cross-Platform Command-Line Interface to manage Azure Services" metaCanonical="http://www.windowsazure.com/en-us/script/xplat-cli-intro" umbracoNaviHide="0" disqusComments="1" editor="mollybos" manager="paulettm" documentationCenter="" solutions="" authors="larryfr" services="" />
 
-Azure 플랫폼 간 명령줄 인터페이스 설치 및 구성
-==============================================
+#Azure 플랫폼 간 명령줄 인터페이스 설치 및 구성
 
-[PowerShell](/en-us/manage/install-and-configure-windows-powershell/ "PowerShell")[플랫폼 간 CLI](/en-us/manage/install-and-configure-cli/ "플랫폼 간 CLI")
+<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/manage/install-and-configure-windows-powershell/" title="PowerShell">PowerShell</a><a href="/en-us/manage/install-and-configure-cli/" title="Cross-Platform CLI" class="current">Cross-Platform CLI</a></div>
 
 Azure 플랫폼 간 명령줄 인터페이스(xplat-cli)는 Azure 플랫폼 작업을 위한 플랫폼 간 오픈 소스 명령 집합을 제공합니다. xplat-cli는 웹 사이트, 가상 컴퓨터, 모바일 서비스, SQL 데이터베이스 및 Azure 플랫폼에서 제공하는 기타 서비스를 관리하는 기능과 같이 Azure 관리 포털에서 제공하는 기능과 동일한 기능을 대부분 제공합니다.
 
@@ -96,13 +95,13 @@ xplat-cli에서 제공하는 일부 명령은 Azure 구독 없이도 작동하�
     >
     > 5.  마지막으로, Azure 포털에서 로그아웃한 후 새 조직 계정을 사용하여 다시 로그인합니다. 이 계정으로 처음 로그인하는 경우 암호를 변경하라는 메시지가 표시됩니다.
     >
-    > Microsoft Azure의 조직 계정에 대한 자세한 내용은 [조직으로 Microsoft Azure에 등록](http://www.windowsazure.com/ko-kr/documentation/articles/sign-up-organization/)(영문)을 참조하십시오.
+    > Microsoft Azure의 조직 계정에 대한 자세한 내용은 [조직으로 Microsoft Azure에 등록](http://www.windowsazure.com/en-us/documentation/articles/sign-up-organization/)(영문)을 참조하십시오.
 
 -   게시 설정 파일 방법은 구독 및 인증서가 유효한 기간 동안 관리 작업을 수행할 수 있게 해 주는 인증서를 설치합니다. 이 방법을 통해 장기 실행 작업에 자동화를 쉽게 사용할 수 있습니다. 정보를 다운로드하고 가져온 후에는 다시 제공할 필요가 없습니다. 그러나 이 방법을 사용할 경우 인증서에 대한 액세스 권한이 있는 모든 사용자가 구독을 관리할 수 있으므로 구독에 대한 액세스를 관리하는 것이 어렵습니다.
 
-인증 및 구독 관리에 대한 자세한 내용은 ["계정 기반 인증 및 인증서 기반 인증 간의 차이점"](http://msdn.microsoft.com/ko-kr/library/windowsazure/hh531793.aspx#BKMK_AccountVCert)을 참조하십시오.
+인증 및 구독 관리에 대한 자세한 내용은 ["계정 기반 인증 및 인증서 기반 인증 간의 차이점"](http://msdn.microsoft.com/en-us/library/windowsazure/hh531793.aspx#BKMK_AccountVCert)을 참조하십시오.
 
-계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](http://www.windowsazure.com/ko-kr/pricing/free-trial/?WT.mc_id=A7171371E)을 참조하십시오.
+계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A7171371E)을 참조하십시오.
 
 ### 로그인 방법 사용
 
@@ -253,7 +252,7 @@ Azure 서비스 관리 모드로 다시 변경하려면 다음 명령을 사용�
 
 > [WACOM.NOTE] 리소스 관리자 모드와 Azure 서비스 관리 모드는 함께 사용할 수 없습니다. 즉, 한 모드에서 만든 리소스는 다른 모드에서 관리할 수 없습니다.
 
-xplat-cli를 사용하여 리소스 관리자 작업을 수행하는 방법에 대한 자세한 내용은 [리소스 관리자와 함께 Azure 플랫폼 간 명령줄 인터페이스 사용](/ko-kr/documentation/articles/xplat-cli-azure-resource-manager/)을 참조하십시오.
+xplat-cli를 사용하여 리소스 관리자 작업을 수행하는 방법에 대한 자세한 내용은 [리소스 관리자와 함께 Azure 플랫폼 간 명령줄 인터페이스 사용](/en-us/documentation/articles/xplat-cli-azure-resource-manager/)을 참조하십시오.
 
 ### Azure 서비스 관리 모드에서 서비스 작업
 

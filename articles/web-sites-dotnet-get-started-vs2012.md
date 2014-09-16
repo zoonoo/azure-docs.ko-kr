@@ -1,13 +1,10 @@
 <properties linkid="" urlDisplayName="" pageTitle="" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Get started with Azure and ASP.NET" authors="tdykstra" solutions="" manager="wpickett" editor="mollybos" />
 
-Azure 및 ASP.NET 시작
-=====================
+#Azure 및 ASP.NET 시작
 
-[Visual Studio 2013](/en-us/develop/net/tutorials/get-started/ "Visual Studio 2013")[Visual Studio 2012](/en-us/develop/net/tutorials/get-started-vs2012/ "Visual Studio 2012")
+<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/develop/net/tutorials/get-started/" title="Visual Studio 2013">Visual Studio 2013</a><a href="/en-us/develop/net/tutorials/get-started-vs2012/" title="Visual Studio 2012" class="current">Visual Studio 2012</a></div>
 
-**참고**
-
-[이 자습서의 더 최신 버전](/en-us/develop/net/tutorials/get-started/)을 사용할 수 있습니다. Visual Studio 2012를 사용하려면 이 버전의 내용을 계속 따를 수 있지만 본 자습서에는 최신 Azure SDK 기능이 일부 표시되지 않습니다.
+<div class="dev-callout"><strong>참고</strong><p><a href="/en-us/develop/net/tutorials/get-started/">이 자습서의 더 최신 버전</a>을 사용할 수 있습니다. Visual Studio 2012를 사용하려면 이 버전의 내용을 계속 따를 수 있지만 본 자습서에는 최신 Azure SDK 기능이 일부 표시되지 않습니다.</p></div>
 
 이 자습서에서는 Visual Studio 2012 또는 Visual Studio 2012 Express for Web의 웹 게시 마법사를 사용하여 ASP.NET 웹 응용 프로그램을 Azure 웹 사이트에 배포하는 방법을 보여 줍니다. 원하는 경우 Visual Studio 2010 또는 Visual Web Developer Express 2010을 사용하여 자습서 단계를 따를 수 있습니다.
 
@@ -24,7 +21,7 @@ Azure 계정은 무료로 개설할 수 있으며, Visual Studio 2012이 아직 
 
 ![웹 사이트 예](./media/web-sites-dotnet-get-started-vs2012/DeployedWebSite.png)
 
-**참고** 이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 [MSDN 구독자 혜택을 활성화](/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)하거나 [무료 평가판을 등록](/en-us/pricing/free-trial/?WT.mc_id=A261C142F)할 수 있습니다.
+<div class="dev-callout"><p><strong>참고</strong> 이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 <a href="/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F" target="_blank">MSDN 구독자 혜택을 활성화</a>하거나 <a href="/en-us/pricing/free-trial/?WT.mc_id=A261C142F" target="_blank">무료 평가판을 등록</a>할 수 있습니다.</p></div>
 
 ### 자습서 세그먼트
 
@@ -209,5 +206,5 @@ Azure 웹 사이트를 만들었지만 아직 콘텐츠가 없습니다. 다음 
 
 ### 응용 프로그램이 클라우드 서비스에서 실행되어야 하는지 여부를 결정하는 방법
 
-Azure 웹 사이트 대신 Azure 클라우드 서비스에서 응용 프로그램을 실행하려는 경우도 있습니다. 자세한 내용은 [Azure 실행 모델](/en-us/develop/net/fundamentals/compute/)(영문) 및 [Azure 웹 사이트, 클라우드 서비스 및 VM: 각 항목을 사용해야 하는 경우](http://msdn.microsoft.com/ko-kr/library/windowsazure/jj218759.aspx)(영문)를 참조하십시오. 다중 계층 ASP.NET 웹 응용 프로그램을 만들고 클라우드 서비스에 배포하는 방법을 보여 주는 자습서 시리즈는 [저장소 테이블, 큐 및 Blob을 사용한 .NET 다중 계층 응용 프로그램](/en-us/develop/net/tutorials/multi-tier-web-site/1-overview/)을 참조하십시오.
+Azure 웹 사이트 대신 Azure 클라우드 서비스에서 응용 프로그램을 실행하려는 경우도 있습니다. 자세한 내용은 [Azure 실행 모델](/en-us/develop/net/fundamentals/compute/)(영문) 및 [Azure 웹 사이트, 클라우드 서비스 및 VM: 각 항목을 사용해야 하는 경우](http://msdn.microsoft.com/en-us/library/windowsazure/jj218759.aspx)(영문)를 참조하십시오. 다중 계층 ASP.NET 웹 응용 프로그램을 만들고 클라우드 서비스에 배포하는 방법을 보여 주는 자습서 시리즈는 [저장소 테이블, 큐 및 Blob을 사용한 .NET 다중 계층 응용 프로그램](/en-us/develop/net/tutorials/multi-tier-web-site/1-overview/)을 참조하십시오.
 

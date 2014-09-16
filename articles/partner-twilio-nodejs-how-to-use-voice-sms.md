@@ -78,8 +78,7 @@ node.js 웹 사이트를 선택하고 "구성" 링크를 클릭합니다. 아래
 있는 영역이 표시됩니다. 표시된 것처럼 Twilio 계정 자격 증명([Twilio 대시보드에서 찾을 수 있음][6](영문))을
 입력하고 이름을 각각 "TWILIO_ACCOUNT_SID" 및 "TWILIO_AUTH_TOKEN"으로 지정합니다.
 
-![Azure 관리
-콘솔](./media/partner-twilio-nodejs-how-to-use-voice-sms/twilio_1.png)
+![Azure 관리콘솔](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/en-us/documentation/articles/partner-twilio-nodejs-how-to-use-voice-sms/20140811091037/twilio_1.png)
 
 이러한 변수를 구성하고 나서 Azure 콘솔에서 응용 프로그램을 다시 시작합니다.
 
@@ -160,23 +159,23 @@ node.js 웹 사이트를 선택하고 "구성" 링크를 클릭합니다. 아래
 
 이제 "views"라는 디렉터리를 만들고 이 디렉터리 내에 다음 내용이 포함된 "index.ejs"라는 파일을 만듭니다.
 
-	  &lt;!DOCTYPE html&gt;
-	  &lt;html&gt;
-	  &lt;head&gt;
-	      &lt;title&gt;Twilio Test&lt;/title&gt;
-	      &lt;style&gt;
+	  <!DOCTYPE html>
+	  <html>
+	  <head>
+	      <title>Twilio Test</title>
+	      <style>
 	      input { height:20px; width:300px; font-size:18px; margin:5px; padding:5px; }
-	      &lt;/style&gt;
-	  &lt;/head&gt;
-	  &lt;body&gt;
-	      &lt;h1&gt;Twilio Test&lt;/h1&gt;
-	      &lt;form action="/call" method="POST"&gt;
-	          &lt;input placeholder="Enter a phone number" name="number"/&gt;
-	          &lt;br/&gt;
-	          &lt;input type="submit" value="Call the number above"/&gt;
-	      &lt;/form&gt;
-	  &lt;/body&gt;
-	  &lt;/html&gt;
+	      </style>
+	  </head>
+	  <body>
+	      <h1>Twilio Test</h1>
+	      <form action="/call" method="POST">
+	          <input placeholder="Enter a phone number" name="number"/>
+	          <br/>
+	          <input type="submit" value="Call the number above"/>
+	      </form>
+	  </body>
+	  </html>
 
 이제 웹 사이트를 Azure에 배포하고 홈을 엽니다. 텍스트 필드에 전화 번호를 입력하고 Twilio 번호로부터 전화를 받을 수
 있어야 합니다!
@@ -209,13 +208,13 @@ node.js 웹 사이트를 선택하고 "구성" 링크를 클릭합니다. 아래
 
 "views/index.ejs"에서 첫 번째 양식 아래에 다른 양식을 추가하여 번호 및 문자 메시지를 제출합니다.
 
-  &lt;form action="/sms" method="POST"&gt;
-      &lt;input placeholder="Enter a phone number" name="number"/&gt;
-      &lt;br/&gt;
-      &lt;input placeholder="Enter a message to send" name="message"/&gt;
-      &lt;br/&gt;
-      &lt;input type="submit" value="Send text to the number above"/&gt;
-  &lt;/form&gt;
+  	<form action="/sms" method="POST">
+    	<input placeholder="Enter a phone number" name="number"/>
+        <br/>
+        <input placeholder="Enter a message to send" name="message"/>
+        <br/>
+        <input type="submit" value="Send text to the number above"/>
+    </form>
 
 응용 프로그램을 Azure에 다시 배포하고 나면 이제 해당 양식을 제출하고 자신(또는 가까운 친구)에게 문자 메시지를 보낼 수
 있어야 합니다!
@@ -242,7 +241,7 @@ Azure에서 node.js와 Twilio 해킹을 즐기시기를 바랍니다!
 [2]: https://www.twilio.com/docs/api/twiml
 [3]: http://www.twilio.com/blog/2013/04/introduction-to-twilio-client-with-node-js.html
 [4]: http://ahoy.twilio.com/azure
-[5]: http://www.windowsazure.com/ko-kr/develop/nodejs/tutorials/create-a-website-(mac)/
+[5]: http://www.windowsazure.com/en-us/develop/nodejs/tutorials/create-a-website-(mac)/
 [6]: https://www.twilio.com/user/account
 [7]: http://npmjs.org
 [8]: http://expressjs.com
