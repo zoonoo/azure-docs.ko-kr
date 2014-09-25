@@ -1,4 +1,3 @@
-
 # Azure 보안 지침
 
 ## 요약
@@ -44,8 +43,7 @@ Azure용 응용 프로그램을 개발할 때 ID 및 액세스 권한과 관련�
 
 공격은 이러한 취약성을 이용하여 응용 프로그램을 손상시킵니다. 예를 들어 Cross Site Scripting 또는 XSS는 정리되지 않은 출력을 이용하는 공격입니다. 다른 예로는 네트워크에서 암호화되지 않은 상태로 보낸 자격 증명을 수집하는 도청이 있습니다. 이러한 공격으로 인해 ID 스푸핑 위협이 발생할 수 있습니다. 간단하게 위협, 취약성 및 공격을 부적절한 상황으로 간주합니다. 다음은 Azure에 배포된 웹 응용 프로그램과 관련된 부적절한 상황을 전체적으로 설명하는 다이어그램(J.D. Meier의 [Azure 보안 정보 PDF][1])입니다.
 
-![위협, 취약성 및
-공격](./media/SecurityRX/02_ThreatsVulnerabilitiesandAttacks.gif)
+![위협, 취약성 및공격](./media/SecurityRX/02_ThreatsVulnerabilitiesandAttacks.gif)
 
 개발자인 사용자는 취약성을 제어할 수 있습니다. 취약성이 적어질수록 공격자가 이용할 수 있는 옵션도 줄어듭니다.
 
@@ -151,7 +149,7 @@ STRIDE 모델에서 ID 및 액세스 관련 취약성은 모든 위협에 노출
 
 Azure AD 액세스 제어에서 서비스 ID 기능을 사용합니다. 이는 Windows Server 및 IIS에 응용 프로그램을 배포할 때 사용하던 IIS 응용 프로그램 풀 응용 프로그램과 비슷합니다. WCF(SOAP) 서비스의 WIF에서 처리되는 SAML 토큰을 발급하도록 Azure AD 액세스 제어를 구성합니다.
 
-![WCF(SOAP) 서비스](<./media/SecurityRX/04_WCF(SOAP)Service.gif>)
+![WCF(SOAP) 서비스][81]
 
 이 시나리오를 구현하려면 다음 리소스를 참조하십시오.
 
@@ -444,77 +442,77 @@ Azure AD 액세스 제어 배포 시 다음 보안 노브를 고려합니다. �
 
 
 [1]: http://blogs.msdn.com/b/jmeier/archive/2010/08/03/now-available-azure-security-notes-pdf.aspx
-[2]: http://msdn.microsoft.com/ko-kr/library/ff649461.aspx
-[3]: http://msdn.microsoft.com/ko-kr/library/ff650760.aspx
+[2]: http://msdn.microsoft.com/en-us/library/ff649461.aspx
+[3]: http://msdn.microsoft.com/en-us/library/ff650760.aspx
 [4]: http://code.msdn.microsoft.com/site/search?f%5B0%5D.Type=SearchText&f%5B0%5D.Value=wif&f%5B1%5D.Type=Topic&f%5B1%5D.Value=claims-based%20authentication
 [5]: http://visualstudiogallery.msdn.microsoft.com/e21bf653-dfe1-4d81-b3d3-795cb104066e
 [6]: http://www.microsoft.com/en-us/download/details.aspx?id=17331
 [7]: http://www.microsoft.com/en-us/download/details.aspx?displaylang=en&id=4451
 [8]: http://msdn.microsoft.com/library/gg429786.aspx
-[9]: http://msdn.microsoft.com/ko-kr/library/gg185920.aspx
-[10]: http://msdn.microsoft.com/ko-kr/library/windowsazure/gg185939.aspx
-[11]: http://msdn.microsoft.com/ko-kr/library/ff423674.aspx
+[9]: http://msdn.microsoft.com/en-us/library/gg185920.aspx
+[10]: http://msdn.microsoft.com/en-us/library/windowsazure/gg185939.aspx
+[11]: http://msdn.microsoft.com/en-us/library/ff423674.aspx
 [12]: http://www.microsoft.com/en-us/download/details.aspx?id=14347
-[13]: http://msdn.microsoft.com/ko-kr/IdentityTrainingCourse
+[13]: http://msdn.microsoft.com/en-us/IdentityTrainingCourse
 [14]: http://social.technet.microsoft.com/wiki/contents/articles/2735.ad-fs-2-0-content-map.aspx
 [15]: http://technet.microsoft.com/en-us/library/dd807033(WS.10).aspx
 [16]: http://technet.microsoft.com/en-us/library/dd807050(WS.10).aspx
-[17]: http://msdn.microsoft.com/ko-kr/library/ee393343.aspx
+[17]: http://msdn.microsoft.com/en-us/library/ee393343.aspx
 [18]: http://blog.smarx.com/posts/new-storage-feature-signed-access-signatures
 [19]: http://blog.smarx.com/posts/shared-access-signatures-are-easy-these-days
-[20]: http://msdn.microsoft.com/ko-kr/library/gg429779.aspx
-[21]: http://msdn.microsoft.com/ko-kr/library/gg185926.aspx
-[22]: http://msdn.microsoft.com/ko-kr/library/gg185907.aspx
-[23]: http://msdn.microsoft.com/ko-kr/library/gg185914.aspx
-[24]: http://msdn.microsoft.com/ko-kr/library/gg185947.aspx
-[25]: http://msdn.microsoft.com/ko-kr/library/gg185938.aspx
-[26]: http://msdn.microsoft.com/ko-kr/library/gg185924.aspx
-[27]: http://msdn.microsoft.com/ko-kr/library/hh289316.aspx
-[28]: http://msdn.microsoft.com/ko-kr/library/gg185954.aspx
-[29]: http://msdn.microsoft.com/ko-kr/library/gg185952.aspx
-[30]: http://msdn.microsoft.com/ko-kr/library/gg185927.aspx
-[31]: http://msdn.microsoft.com/ko-kr/library/gg185961.aspx
-[32]: http://msdn.microsoft.com/ko-kr/library/gg185905.aspx
-[33]: http://msdn.microsoft.com/ko-kr/library/hh127796.aspx
-[34]: http://msdn.microsoft.com/ko-kr/library/gg185958.aspx
-[35]: http://msdn.microsoft.com/ko-kr/library/hh289317.aspx
-[36]: http://msdn.microsoft.com/ko-kr/library/gg983271.aspx
+[20]: http://msdn.microsoft.com/en-us/library/gg429779.aspx
+[21]: http://msdn.microsoft.com/en-us/library/gg185926.aspx
+[22]: http://msdn.microsoft.com/en-us/library/gg185907.aspx
+[23]: http://msdn.microsoft.com/en-us/library/gg185914.aspx
+[24]: http://msdn.microsoft.com/en-us/library/gg185947.aspx
+[25]: http://msdn.microsoft.com/en-us/library/gg185938.aspx
+[26]: http://msdn.microsoft.com/en-us/library/gg185924.aspx
+[27]: http://msdn.microsoft.com/en-us/library/hh289316.aspx
+[28]: http://msdn.microsoft.com/en-us/library/gg185954.aspx
+[29]: http://msdn.microsoft.com/en-us/library/gg185952.aspx
+[30]: http://msdn.microsoft.com/en-us/library/gg185927.aspx
+[31]: http://msdn.microsoft.com/en-us/library/gg185961.aspx
+[32]: http://msdn.microsoft.com/en-us/library/gg185905.aspx
+[33]: http://msdn.microsoft.com/en-us/library/hh127796.aspx
+[34]: http://msdn.microsoft.com/en-us/library/gg185958.aspx
+[35]: http://msdn.microsoft.com/en-us/library/hh289317.aspx
+[36]: http://msdn.microsoft.com/en-us/library/gg983271.aspx
 [37]: http://code.msdn.microsoft.com/REST-WCF-With-SWT-Token-123d93c0
-[38]: http://msdn.microsoft.com/ko-kr/library/gg185976.aspx
-[39]: http://msdn.microsoft.com/ko-kr/library/gg185919.aspx
-[40]: http://msdn.microsoft.com/ko-kr/library/gg185977.aspx
+[38]: http://msdn.microsoft.com/en-us/library/gg185976.aspx
+[39]: http://msdn.microsoft.com/en-us/library/gg185919.aspx
+[40]: http://msdn.microsoft.com/en-us/library/gg185977.aspx
 [41]: http://code.msdn.microsoft.com/ASPNET-Web-App-To-REST-WCF-b2b95f82
-[42]: http://msdn.microsoft.com/ko-kr/library/gg185955.aspx
+[42]: http://msdn.microsoft.com/en-us/library/gg185955.aspx
 [43]: http://blogs.msdn.com/b/alikl/archive/2010/11/18/authorization-with-rolemanager-for-claims-aware-wif-asp-net-web-applications.aspx
 [44]: http://www.microsoft.com/downloads/details.aspx?FamilyID=c148b2df-c7af-46bb-9162-2c9422208504
-[45]: http://msdn.microsoft.com/ko-kr/library/windowsazure/ff394108.aspx#authentication
-[46]: http://msdn.microsoft.com/ko-kr/library/windowsazure/ee336280.aspx
-[47]: http://msdn.microsoft.com/ko-kr/library/windowsazure/ee336243.aspx
-[48]: http://msdn.microsoft.com/ko-kr/library/windowsazure/ee621781.aspx
-[49]: http://msdn.microsoft.com/ko-kr/library/windowsazure/ee621789.aspx
-[50]: http://msdn.microsoft.com/ko-kr/library/windowsazure/ff394110.aspx
-[51]: http://msdn.microsoft.com/ko-kr/library/windowsazure/gg715284.aspx
-[52]: http://msdn.microsoft.com/ko-kr/library/windowsazure/ff951633.aspx
+[45]: http://msdn.microsoft.com/en-us/library/windowsazure/ff394108.aspx#authentication
+[46]: http://msdn.microsoft.com/en-us/library/windowsazure/ee336280.aspx
+[47]: http://msdn.microsoft.com/en-us/library/windowsazure/ee336243.aspx
+[48]: http://msdn.microsoft.com/en-us/library/windowsazure/ee621781.aspx
+[49]: http://msdn.microsoft.com/en-us/library/windowsazure/ee621789.aspx
+[50]: http://msdn.microsoft.com/en-us/library/windowsazure/ff394110.aspx
+[51]: http://msdn.microsoft.com/en-us/library/windowsazure/gg715284.aspx
+[52]: http://msdn.microsoft.com/en-us/library/windowsazure/ff951633.aspx
 [53]: http://channel9.msdn.com/posts/Securing-Service-Bus-with-ACS
 [54]: https://skydrive.live.com/view.aspx?cid=123CCD2A7AB10107&resid=123CCD2A7AB10107%211849
-[55]: http://msdn.microsoft.com/ko-kr/library/hh403962.aspx
-[56]: http://msdn.microsoft.com/ko-kr/library/windowsazure/gg618003.aspx
-[57]: http://msdn.microsoft.com/ko-kr/library/windowsazure/gg278346.aspx
-[58]: http://msdn.microsoft.com/ko-kr/library/ee706741.aspx
-[59]: http://msdn.microsoft.com/ko-kr/library/gg193417.aspx
+[55]: http://msdn.microsoft.com/en-us/library/hh403962.aspx
+[56]: http://msdn.microsoft.com/en-us/library/windowsazure/gg618003.aspx
+[57]: http://msdn.microsoft.com/en-us/library/windowsazure/gg278346.aspx
+[58]: http://msdn.microsoft.com/en-us/library/ee706741.aspx
+[59]: http://msdn.microsoft.com/en-us/library/gg193417.aspx
 [60]: http://go.microsoft.com/fwlink/?LinkId=219162
 [61]: http://go.microsoft.com/fwlink/?LinkId=219163
 [62]: http://go.microsoft.com/fwlink/?LinkId=221323
 [63]: https://datamarket.azure.com/
-[64]: http://msdn.microsoft.com/ko-kr/library/ee517298.aspx
+[64]: http://msdn.microsoft.com/en-us/library/ee517298.aspx
 [65]: http://blogs.msdn.com/b/alikl/archive/2010/12/02/windows-identity-foundation-wif-security-for-asp-net-web-applications-threats-amp-countermeasures.aspx
 [66]: http://social.technet.microsoft.com/wiki/contents/articles/1725.windows-identity-foundation-wif-a-potentially-dangerous-request-form-value-was-detected-from-the-client-wresult-t-requestsecurityto.aspx
-[67]: http://msdn.microsoft.com/ko-kr/library/gg185962.aspx
-[68]: http://msdn.microsoft.com/ko-kr/library/hh204521.aspx
+[67]: http://msdn.microsoft.com/en-us/library/gg185962.aspx
+[68]: http://msdn.microsoft.com/en-us/library/hh204521.aspx
 [69]: http://go.microsoft.com/fwlink/?LinkId=214555
 [70]: http://go.microsoft.com/fwlink/?LinkId=214561
 [71]: http://go.microsoft.com/fwlink/?LinkId=214562
-[72]: http://msdn.microsoft.com/ko-kr/library/windowsazure/gg429786.aspx
+[72]: http://msdn.microsoft.com/en-us/library/windowsazure/gg429786.aspx
 [73]: http://social.technet.microsoft.com/wiki/contents/articles/2590.aspx
 [74]: http://social.technet.microsoft.com/wiki/contents/articles/2777.aspx
 [75]: http://www.microsoft.com/security/sdl/default.aspx
@@ -523,3 +521,4 @@ Azure AD 액세스 제어 배포 시 다음 보안 노브를 고려합니다. �
 [78]: http://www.microsoft.com/security/msrc/default.aspx
 [79]: http://www.microsoft.com/security/sir/
 [80]: http://msdn.microsoft.com/security/
+[81]:./media/SecurityRX/04_WCF(SOAP)Service.gif
