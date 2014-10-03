@@ -1,22 +1,20 @@
-<h2><a name="setupdevenv"></a><span  class="short-header">환경 설정</span>개발 환경 설정</h2>
-
+## <a name="setupdevenv"></a><span class="short-header">환경 설정</span>개발 환경 설정
 
 시작하려면 Azure SDK for .NET을 설치하여 개발 환경 설정을 설정합니다.
 
-1.  해당 SDK를 설치하려면 아래 링크를 클릭하십시오. 이 자습서를 사용하려면 Visual Studio 2012가 필요합니다. Visual Studio가 설치되어 있지 않은 경우 SDK를 설치할 때 Visual Studio Express for Web이 같이 설치됩니다.
-    
-    * [Azure SDK for Visual Studio 2012][1]
-    
+1.  해당 SDK를 설치하려면 아래 링크를 클릭하세요. 이 자습서를 사용하려면 Visual Studio 2012이 필요합니다. Visual Studio가 설치되어 있지 않은 경우 SDK를 설치할 때 Visual Studio Express for Web이 같이 설치됩니다.
+
+    -   [Azure SDK for Visual Studio 2012][]
+
     **참고:** 사용자 컴퓨터에 SDK 종속성이 얼마나 있었는지에 따라 SDK를 설치하는 시간이 몇 분에서 30분 또는 그 이상이 될 수 있습니다.
 
 2.  실행 가능한 설치 프로그램을 실행할지 또는 저장할지 묻는 메시지가 표시되면 **실행**을 클릭합니다.
 
 3.  웹 플랫폼 설치 관리자 창에서 **설치**를 클릭하여 설치를 계속합니다.
-    
-    ![웹 플랫폼 설치 관리자 - Azure SDK for .NET](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/en-us/documentation/articles/web-sites-dotnet-get-started-vs2012/20140815090453/includes/install-sdk-2012-only/webpi46-2012.png)
+
+    ![웹 플랫폼 설치 관리자 - Azure SDK for .NET][]
 
 설치가 완료되면 개발을 시작하는 데 필요한 내용이 모두 준비된 것입니다.
 
-
-
-[1]: http://go.microsoft.com/fwlink/?LinkID=324323
+  [Azure SDK for Visual Studio 2012]: http://go.microsoft.com/fwlink/?LinkID=324323
+  [웹 플랫폼 설치 관리자 - Azure SDK for .NET]: ./media/install-sdk-2012-only/WebPI46-2012.png

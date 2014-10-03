@@ -1,34 +1,36 @@
 <properties linkid="manage-linux-howto-linux-agent" urlDisplayName="Linux Agent guide" pageTitle="Linux Agent User Guide for Azure" metaKeywords="" description="Learn how to install and configure Linux Agent (waagent) to manage your virtual machine's interaction with Azure Fabric Controller." metaCanonical="" services="virtual-machines" documentationCenter="" title="Azure Linux Agent User Guide" authors="" solutions="" manager="" editor="" />
 
-Azure Linux 에이전트 사용자 가이드
-==================================
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author></tags>
 
-소개
-----
+# Azure Linux 에이전트 사용자 가이드
+
+## 소개
 
 Azure Linux 에이전트(waagent)는 가상 컴퓨터의 Azure 패브릭 컨트롤러에 대한 조작을 관리합니다. 이 에이전트는 다음과 같은 Linux IaaS 배포 기능을 제공합니다.
 
 -   **이미지 프로비전**
-    -   사용자 계정 만들기
-    -   SSH 인증 유형 구성
-    -   SSH 공개 키 및 키 쌍 배포
-    -   호스트 이름 설정
-    -   플랫폼 DNS에 호스트 이름 게시
-    -   플랫폼에 SSH 호스트 키 지문 보고
-    -   리소스 디스크 관리
-    -   리소스 디스크 포맷 및 탑재
-    -   스왑 공간 구성
+-   사용자 계정 만들기
+-   SSH 인증 유형 구성
+-   SSH 공개 키 및 키 쌍 배포
+-   호스트 이름 설정
+-   플랫폼 DNS에 호스트 이름 게시
+-   플랫폼에 SSH 호스트 키 지문 보고
+-   리소스 디스크 관리
+-   리소스 디스크 포맷 및 탑재
+-   스왑 공간 구성
 -   **네트워킹**
-    -   플랫폼 DHCP 서버와의 호환성을 개선하기 위한 경로 관리
-    -   네트워크 인터페이스 이름의 안정성 확인
+-   플랫폼 DHCP 서버와의 호환성을 개선하기 위한 경로 관리
+-   네트워크 인터페이스 이름의 안정성 확인
 -   **커널**
-    -   가상 NUMA 구성
-    -   /dev/random의 Hyper-V 엔트로피 이용
-    -   루트 장치(원격일 수 있음)에 대한 SCSI 시간 제한 구성
+-   가상 NUMA 구성
+-   /dev/random의 Hyper-V 엔트로피 이용
+-   루트 장치(원격일 수 있음)에 대한 SCSI 시간 제한 구성
 -   **진단**
-    -   직렬 포트로 콘솔 리디렉션
+-   직렬 포트로 콘솔 리디렉션
 -   **SCVMM 배포**
-    -   System Center Virtual Machine Manager 2012 R2 환경에서 실행되는 경우 Linux용 VMM 에이전트 검색 및 부트스트랩
+
+    -   System Center Virtual Machine Manager 2012 R2 환경에서 실행되는 경우
+        Linux용 VMM 에이전트 검색 및 부트스트랩
 
 플랫폼에서 에이전트로의 정보 흐름은 다음 두 채널을 통해 진행됩니다.
 
@@ -40,8 +42,8 @@ Azure Linux 에이전트(waagent)는 가상 컴퓨터의 Azure 패브릭 컨트�
 
 최신 Linux 에이전트는 다음에서 직접 가져올 수 있습니다.
 
--   [Azure에서 Linux를 인증하는 다른 배포 공급자](http://support.microsoft.com/kb/2805216)
--   또는 [Azure Linux 에이전트의 Github 오픈 소스 리포지토리](https://github.com/WindowsAzure/WALinuxAgent)(영문)에서
+-   [Azure에서 Linux를 인증하는 다른 배포 공급자][]
+-   또는 [Azure Linux 에이전트의 Github 오픈 소스 리포지토리][](영문)에서
 
 ### 지원되는 Linux 배포
 
@@ -68,8 +70,7 @@ Waagent는 다음과 같은 일부 시스템 패키지가 있어야 제대로 �
 -   텍스트 처리 도구: sed, grep
 -   네트워크 도구: ip-route
 
-설치
-----
+## 설치
 
 배포 패키지 리포지토리의 RPM 또는 DEB 패키지를 사용하여 설치하는 방법이 Azure Linux Azure를 설치 및 업그레이드하는 기본 방법입니다.
 
@@ -80,8 +81,7 @@ Waagent는 다음과 같은 일부 시스템 패키지가 있어야 제대로 �
 
 에이전트의 로그 파일은 /var/log/waagent.log에 저장됩니다.
 
-명령줄 옵션
------------
+## 명령줄 옵션
 
 ### 플래그
 
@@ -93,52 +93,55 @@ Waagent는 다음과 같은 일부 시스템 패키지가 있어야 제대로 �
 -   help: 지원되는 명령 및 플래그를 나열합니다.
 
 -   install: 에이전트를 수동으로 설치합니다.
-	-   시스템에서 필수 종속성을 확인합니다.
+-   시스템에서 필수 종속성을 확인합니다.
 
-	-   SysV init 스크립트(/etc/init.d/waagent) 및 logrotate 구성 파일(/etc/logrotate.d/waagent)을 만들고, 부팅 시 init 스크립트를 실행하도록 이미지를 구성합니다.
+-   SysV init 스크립트(/etc/init.d/waagent) 및 logrotate 구성 파일(/etc/logrotate.d/waagent)을 만들고, 부팅 시 init 스크립트를 실행하도록 이미지를 구성합니다.
 
-	-   /etc/waagent.conf에 샘플 구성 파일을 씁니다.
+-   /etc/waagent.conf에 샘플 구성 파일을 씁니다.
 
-	-   /etc/waagent.conf.old로 기존 구성 파일을 모두 이동합니다.
+-   /etc/waagent.conf.old로 기존 구성 파일을 모두 이동합니다.
 
-	-   커널 버전을 검색하고 필요한 경우 VNUMA 해결 방법을 적용합니다.
+-   커널 버전을 검색하고 필요한 경우 VNUMA 해결 방법을 적용합니다.
 
-	-   /var/lib/waagent/로 네트워킹을 방해할 수 있는 udev 규칙(/lib/udev/rules.d/75-persistent-net-generator.rules, /etc/udev/rules.d/70-persistent-net.rules)을 이동합니다.
+-   /var/lib/waagent/로 네트워킹을 방해할 수 있는 udev 규칙(/lib/udev/rules.d/75-persistent-net-generator.rules, /etc/udev/rules.d/70-persistent-net.rules)을 이동합니다.
 
-	-   uninstall: waagent 및 연결된 파일을 제거합니다.
-	-   시스템에서 init 스크립트의 등록을 취소하고 삭제합니다.
+-   uninstall: waagent 및 연결된 파일을 제거합니다.
+-   시스템에서 init 스크립트의 등록을 취소하고 삭제합니다.
 
-	-   /etc/waagent.conf에서 logrotate 구성 및 waagent 구성 파일을 삭제합니다.
+-   /etc/waagent.conf에서 logrotate 구성 및 waagent 구성 파일을 삭제합니다.
 
-	-   설치 중 이동된 모든 udev 규칙을 복원합니다.
+-   설치 중 이동된 모든 udev 규칙을 복원합니다.
 
 -   VNUMA 해결 방법을 자동으로 되돌릴 수 없으므로, 필요한 경우 NUMA를 다시 사용하도록 설정하려면 GRUB 구성 파일을 직접 편집해야 합니다.
 
 -   deprovision: 시스템을 정리하여 다시 프로비전하기에 적합하도록 만듭니다. 이 작업은 다음을 삭제합니다.
-	-   모든 SSH 호스트 키(구성 파일에서 Provisioning.RegenerateSshHostKeyPair가 'y'인 경우)
+-   모든 SSH 호스트 키(구성 파일에서 Provisioning.RegenerateSshHostKeyPair가 'y'인 경우)
 
-	-   /etc/resolv.conf의 Nameserver 구성
+-   /etc/resolv.conf의 Nameserver 구성
 
-	-   /etc/shadow의 루트 암호(구성 파일에서 Provisioning.DeleteRootPassword가 'y'인 경우)
+-   /etc/shadow의 루트 암호(구성 파일에서 Provisioning.DeleteRootPassword가 'y'인 경우)
 
-	-   캐시된 DHCP 클라이언트 임대
+-   캐시된 DHCP 클라이언트 임대
 
-	-   호스트 이름을 localhost.localdomain으로 다시 설정
+-   호스트 이름을 localhost.localdomain으로 다시 설정
 
-**경고:** Deprovision 명령을 사용한다고 해서 이미지에서 중요한 정보를 모두 지우고 다시 배포하기에 적합하게 만든다고 보증할 수는 없습니다.
+**Warning:** Deprovision 명령을 사용한다고 해서 이미지에서 중요한 정보를 모두 지우고 다시 배포하기에 적합하게 만든다고 보증할 수는 없습니다.
 
 -   deprovision+user: -deprovision(위 참조) 명령의 모든 작업을 수행하고 마지막으로 프로비전한 사용자 계정(/var/lib/waagent에서 가져온 계정) 및 연결된 데이터를 삭제합니다. Azure에서 이전에 프로비전한 이미지의 프로비전을 해제하여 이미지를 캡처하고 다시 사용할 수 있도록 하는 경우에 이 매개 변수를 사용합니다.
 
 -   version: waagent의 버전을 표시합니다.
 
--   serialconsole: ttyS0(첫 번째 직렬 포트)을 부팅 콘솔로 표시하도록 GRUB를 구성합니다. 이 매개 변수는 커널 부팅 로그를 직렬 포트로 보내고 디버깅에 사용할 수 있도록 설정합니다.
+-   serialconsole: ttyS0(첫 번째 직렬 포트)을 부팅 콘솔로 표시하도록
+    GRUB를 구성합니다. 이 매개 변수는 커널 부팅 로그를 직렬 포트로 보내고
+    디버깅에 사용할 수 있도록 설정합니다.
 
--   daemon: waagent를 디먼으로 실행하여 플랫폼에 대한 조작을 관리합니다. 이 인수는 waagent init 스크립트에서 waagent에 지정됩니다.
+-   daemon: waagent를 디먼으로 실행하여 플랫폼 조작을 관리합니다.
+     이 인수는 waagent init 스크립트에서 waagent에 지정됩니다.
 
-구성
-----
+## 구성
 
-구성 파일(/etc/waagent.conf)은 waagent의 동작을 제어합니다. 다음은 샘플 구성 파일입니다.
+구성 파일(/etc/waagent.conf)은 waagent의 작업을 제어합니다.
+샘플 구성 파일이 아래에 나와 있습니다.
 
     #
     # Azure Linux Agent Configuration   
@@ -161,7 +164,10 @@ Waagent는 다음과 같은 일부 시스템 패키지가 있어야 제대로 �
     OS.RootDeviceScsiTimeout=300
     OS.OpensslPath=None
 
-다양한 구성 옵션이 아래에 자세히 설명되어 있습니다. 구성 옵션으로는 부울, 문자열 또는 정수의 세 가지 형식이 있습니다. 부울 구성 옵션은 "y" 또는 "n"으로 지정할 수 있습니다. 특수 키워드 "None"은 아래에 자세히 설명된 대로 일부 문자열 형식 구성 항목에 사용할 수 있습니다.
+다양한 구성 옵션은 아래에 자세히 설명되어 있습니다.
+구성 옵션은 3가지로 부울, 문자열 또는 정수입니다.
+부울 구성 옵션은 "y" 또는 "n"으로 지정할 수 있습니다.
+특수 키워드인 "None"은 아래에 자세히 설명된 일부 문자열 유형 구성 항목에 사용할 수 있습니다.
 
 **Role.StateConsumer:**
 
@@ -212,7 +218,7 @@ Waagent는 다음과 같은 일부 시스템 패키지가 있어야 제대로 �
 형식: 문자열
  기본값: rsa
 
-이 옵션은 가상 컴퓨터의 SSH 디먼에서 지원하는 암호화 알고리즘 형식으로 설정할 수 있습니다. 일반적으로 지원되는 값은 "rsa", "dsa" 및 "ecdsa"입니다. Windows의 "putty.exe"는 "ecdsa"를 지원하지 않습니다. 따라서 Windows에서 putty.exe를 사용하여 Linux 배포에 연결하려는 경우 "rsa" 또는 "dsa"를 사용하십시오.
+이 옵션은 가상 컴퓨터의 SSH 디먼에서 지원하는 암호화 알고리즘 형식으로 설정할 수 있습니다. 일반적으로 지원되는 값은 "rsa", "dsa" 및 "ecdsa"입니다. Windows의 "putty.exe"는 "ecdsa"를 지원하지 않습니다. 따라서 Windows에서 putty.exe를 사용하여 Linux 배포에 연결하려는 경우 "rsa" 또는 "dsa"를 사용하세요.
 
 **Provisioning.MonitorHostName:**
 
@@ -240,7 +246,7 @@ Waagent는 다음과 같은 일부 시스템 패키지가 있어야 제대로 �
 형식: 문자열
  기본값: /mnt/resource
 
-이 옵션은 리소스 디스크가 탑재되는 경로를 지정합니다.
+이 옵션은 리소스 디스크가 탑재되는 경로를 지정합니다. 리소스 디스크는 *임시* 디스크이며 VM의 프로비전을 해제할 때 비워질 수 있습니다.
 
 **ResourceDisk.EnableSwap:**
 
@@ -284,8 +290,7 @@ Waagent는 다음과 같은 일부 시스템 패키지가 있어야 제대로 �
 
 이 옵션은 openssl 이진의 대체 경로를 지정하는 데 사용하여 암호화 작업에 사용할 수 있습니다.
 
-부록
-----
+## 부록
 
 ### 샘플 Role 구성 파일
 
@@ -305,33 +310,7 @@ Waagent는 다음과 같은 일부 시스템 패키지가 있어야 제대로 �
         <PrivilegeLevel mode="max" />
         <AdditionalProperties><CgiHandlers></CgiHandlers></AdditionalProperties></HostingEnvironmentSettings>
         <ApplicationSettings>
-          <Setting name="__ModelData" value="<m role="LinuxVM" xmlns="urn:azure:m:v1"><r name="LinuxVM"><e name="HTTP" /><e name="Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp" /><e name="Microsoft.WindowsAzure.Plugins.RemoteForwarder.RdpInput" /><e name="SSH" /></r></m>" />
-          <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountEncryptedPassword" value="..." />
-          <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountExpiration" value="2015-11-06T23:59:59.0000000-08:00" />
-          <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountUsername" value="rdos" />
-          <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.Enabled" value="true" />
-          <Setting name="Microsoft.WindowsAzure.Plugins.RemoteForwarder.Enabled" value="true" />
-          <Setting name="startpage" value="Hello World!" />
-          <Setting name="Certificate|Microsoft.WindowsAzure.Plugins.RemoteAccess.PasswordEncryption" value="sha1:C093FA5CD3AAE057CB7C4E04532B2E16E07C26CA" />
-        </ApplicationSettings>
-        <ResourceReferences>
-          <Resource name="DiagnosticStore" type="directory" request="Microsoft.Cis.Fabric.Controller.Descriptions.ServiceDescription.Data.Policy" sticky="true" size="1" path="a99549a92e38498f98cf2989330cd2f1.LinuxVM.DiagnosticStore<?xml version="1.0" encoding="utf-8"?>
-    <HostingEnvironmentConfig version="1.0.0.0" goalStateIncarnation="1">
-      <StoredCertificates>
-        <StoredCertificate name="Stored0Microsoft.WindowsAzure.Plugins.RemoteAccess.PasswordEncryption" certificateId="sha1:C093FA5CD3AAE057CB7C4E04532B2E16E07C26CA" storeName="My" configurationLevel="System" />
-      </StoredCertificates>
-      <Deployment name="a99549a92e38498f98cf2989330cd2f1" guid="{374ef9a2-de81-4412-ac87-e586fc869923}" incarnation="14">
-        <Service name="LinuxDemo1" guid="{00000000-0000-0000-0000-000000000000}" />
-        <ServiceInstance name="a99549a92e38498f98cf2989330cd2f1.4" guid="{250ac9df-e14c-4c5b-9cbc-f8a826ced0e7}" />
-      </Deployment>
-      <Incarnation number="1" instance="LinuxVM_IN_2" guid="{5c87ab8b-2f6a-4758-9f74-37e68c3e957b}" />
-      <Role guid="{47a04da2-d0b7-26e2-f039-b1f1ab11337a}" name="LinuxVM" hostingEnvironmentVersion="1" software="" softwareType="ApplicationPackage" entryPoint="" parameters="" settleTimeSeconds="10" />
-      <HostingEnvironmentSettings name="full" Runtime="rd_fabric_stable.111026-1712.RuntimePackage_1.0.0.9.zip">
-        <CAS mode="full" />
-        <PrivilegeLevel mode="max" />
-        <AdditionalProperties><CgiHandlers></CgiHandlers></AdditionalProperties></HostingEnvironmentSettings>
-        <ApplicationSettings>
-          <Setting name="__ModelData" value="<m role="LinuxVM" xmlns="urn:azure:m:v1"><r name="LinuxVM"><e name="HTTP" /><e name="Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp" /><e name="Microsoft.WindowsAzure.Plugins.RemoteForwarder.RdpInput" /><e name="SSH" /></r></m>" />
+          <Setting name="__ModelData" value="&lt;m role=&quot;LinuxVM&quot; xmlns=&quot;urn:azure:m:v1&quot;>&lt;r name=&quot;LinuxVM&quot;>&lt;e name=&quot;HTTP&quot; />&lt;e name=&quot;Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp&quot; />&lt;e name=&quot;Microsoft.WindowsAzure.Plugins.RemoteForwarder.RdpInput&quot; />&lt;e name=&quot;SSH&quot; />&lt;/r>&lt;/m>" />
           <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountEncryptedPassword" value="..." />
           <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountExpiration" value="2015-11-06T23:59:59.0000000-08:00" />
           <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountUsername" value="rdos" />
@@ -342,9 +321,6 @@ Waagent는 다음과 같은 일부 시스템 패키지가 있어야 제대로 �
         </ApplicationSettings>
         <ResourceReferences>
           <Resource name="DiagnosticStore" type="directory" request="Microsoft.Cis.Fabric.Controller.Descriptions.ServiceDescription.Data.Policy" sticky="true" size="1" path="a99549a92e38498f98cf2989330cd2f1.LinuxVM.DiagnosticStore\" disableQuota="false" />
-        </ResourceReferences>
-      </HostingEnvironmentConfig>
-    quot; disableQuota="false" />
         </ResourceReferences>
       </HostingEnvironmentConfig>
 
@@ -424,3 +400,6 @@ Waagent는 다음과 같은 일부 시스템 패키지가 있어야 제대로 �
         </Instance>
       </Instances>
     </SharedConfig>
+
+  [Azure에서 Linux를 인증하는 다른 배포 공급자]: http://support.microsoft.com/kb/2805216
+  [Azure Linux 에이전트의 Github 오픈 소스 리포지토리]: https://github.com/WindowsAzure/WALinuxAgent
