@@ -1,0 +1,148 @@
+APNS(Apple Push Notification Service)는 인증서를 사용하여 모바일 서비스를 인증합니다. 필요한 인증서를 만들어 모바일 서비스에 업로드하려면 해당 지침을 따르세요. 공식 APNS 기능 설명서는 [Apple Push Notification Service][](영문)를 참조하세요.
+
+## 인증서 서명 요청 파일 생성
+
+먼저, 서명된 인증서를 생성하기 위해 Apple에서 사용하는 CSR(인증서 서명 요청) 파일을 생성해야 합니다.
+
+1.  Utilities 폴더에서 Keychain Access 도구를 실행합니다.
+
+2.  **Keychain Access**를 클릭하고 **Certificate Assistant**를 확장한 다음 **Request a Certificate from a Certificate Authority...**를 클릭합니다.
+
+    ![][]
+
+3.  **User Email Address**와 **Common Name**을 선택하고, **Saved to disk**가 선택되어 있는지 확인한 후 **Continue**를 클릭합니다. **CA Email Address** 필드는 필요하지 않으므로 비워둡니다.
+
+    ![][1]
+
+4.  **Save As**에 CSR(인증서 서명 요청) 파일의 이름을 입력하고, **Where**에서 위치를 선택한 후 **Save**를 클릭합니다.
+
+    ![][2]
+
+    CSR 파일이 선택한 위치에 저장됩니다. 기본 위치는 바탕 화면입니다. 이 파일을 저장한 위치를 기억해두세요.
+
+이제 Apple에 앱을 등록하고, 푸시 알림을 사용하도록 설정하고, 내보낸 CSR을 업로드하여 푸시 인증서를 만들 것입니다.
+
+## 푸시 알림에 대해 앱 등록
+
+모바일 서비스에서 iOS 앱으로 푸시 알림을 보내려면 Apple에 앱을 등록하고 푸시 알림도 등록해야 합니다.
+
+1.  아직 앱을 등록하지 않은 경우 Apple Developer Center의 [iOS Provisioning Portal][]로 이동하여 Apple ID로 로그온하고 **Identifiers**와 **App IDs**를 클릭한 다음에 **+** 기호를 클릭하여 새 앱을 등록합니다.
+
+    ![][3]
+
+2.  **Description**에 앱의 이름을 입력하고, **Bundle Identifier**에 *MobileServices.Quickstart* 값을 입력하고, "App Services" 섹션에서 "Push Notifications" 옵션을 선택하고, **Continue**를 클릭합니다. 이 예제에서는 **MobileServices.Quickstart** ID를 사용하지만 실제로 이 ID를 사용해서는 안 됩니다. 모든 사용자는 고유한 앱 ID를 사용해야 하기 때문입니다. 사용자의 전체 이름 또는 이니셜을 앱 이름 뒤에 추가하는 것이 좋습니다.
+
+    ![][4]
+
+    앱 ID가 생성되고 정보를 **제출**하도록 요청됩니다. **제출**을 클릭합니다.
+
+    ![][5]
+
+    **Submit**를 클릭하면 아래와 같은 **Registration complete** 화면이 표시됩니다. **Done**을 클릭합니다.
+
+    ![][6]
+
+    > [WACOM.NOTE] *MobileServices.Quickstart* 외의 **Bundle Identifier** 값을 제공하려는 경우 Xcode 프로젝트에서도 Bundle Identifier(번들 식별자) 값을 업데이트해야 합니다.
+
+3.  방금 만든 앱 ID를 찾아 해당 행을 클릭합니다.
+
+    ![][7]
+
+    앱 ID를 클릭하면 앱 및 앱 ID에 대한 세부 정보가 표시됩니다. **설정** 단추를 클릭합니다.
+
+    ![][8]
+
+4.  화면 아래로 스크롤하여 **Development Push SSL Certificate** 섹션에서 **Create Certificate...** 단추를 클릭합니다.
+
+    ![][9]
+
+    "Add iOS Certificate" assistant가 표시됩니다.
+
+    > [WACOM.NOTE] 이 자습서에서는 개발 인증서를 사용합니다. 프로덕션 인증서를 등록할 때에도 동일한 프로세스가 사용됩니다. 모바일 서비스로 인증서를 업로드할 때 동일한 인증서 유형을 설정해야 합니다.
+
+5.  **Choose File**을 클릭하고, 첫 번째 작업에서 만든 CSR 파일이 저장된 위치로 이동하여 파일을 선택하고, **Generate**를 클릭합니다.
+
+    ![][10]
+
+6.  포털에서 인증서가 생성되면 **Download** 단추를 클릭하고 **Done**을 클릭합니다.
+
+    ![][11]
+
+    서명 인증서가 다운로드되어 컴퓨터의 다운로드 폴더에 저장됩니다.
+
+    ![][12]
+
+    > [WACOM.NOTE] 기본적으로 다운로드된 개발 증명서 파일은 이름이 **aps\_development.cer**로 지정됩니다.
+
+7.  다운로드한 푸시 인증서 **aps\_development.cer**을 두 번 클릭합니다.
+
+    아래와 같이 새 인증서가 Keychain에 설치됩니다.
+
+    ![][13]
+
+    > [WACOM.NOTE] 인증서의 이름은 다를 수 있지만 **Apple Development iOS Push Notification Services:**가 앞에 옵니다.
+
+나중에 이 인증서를 사용하여 .p12 파일을 생성하고 모바일 서비스에 업로드하여 APNS에서의 인증에 사용하게 됩니다.
+
+## 앱용 프로비저닝 프로필 만들기
+
+1.  [iOS Provisioning Portal][]로 돌아가, **Provisioning Profiles**와 **All**을 차례로 선택하고 **+** 단추를 클릭하여 새 프로필을 만듭니다. **Add iOS Provisioning Profile** 마법사가 실행됩니다.
+
+    ![][14]
+
+2.  **Development**에서 프로비저닝 프로필 유형으로 **iOS App Development**를 선택하고 **Continue**를 클릭합니다.
+
+    ![][15]
+
+3.  **App ID** 드롭다운 목록에서 모바일 서비스 Quickstart 앱의 앱 ID를 선택하고 **Continue**를 클릭합니다.
+
+    ![][16]
+
+4.  **Select certificates** 화면에서 앞서 만든 인증서를 선택하고 **Continue**를 클릭합니다.
+
+    ![][17]
+
+5.  테스트에 사용할 **Devices**를 선택하고 **Continue**를 클릭합니다.
+
+    ![][18]
+
+6.  마지막으로, **Profile Name**에서 프로필의 이름을 선택하고 **Generate**와 **Done**을 차례로 클릭합니다.
+
+    ![][19]
+
+    새 프로비저닝 프로필이 생성됩니다.
+
+7.  Xcode에서 Organizer를 열고 Devices view를 선택하고, 왼쪽 창의 **Library** 섹션에서 **Provisioning Profiles**를 선택하고, 가운데 창의 아래쪽에서 **Refresh** 단추를 클릭합니다.
+
+    ![][20]
+
+8.  **Targets** 아래에서 **Quickstart**를 클릭하고 **Code Signing Identity**를 확장한 다음, **Debug** 아래에서 새 프로필을 선택합니다.
+
+    ![][21]
+
+이제 Xcode 프로젝트에서 코드 서명에 새 프로필을 사용하게 됩니다. 다음 단계에서는 인증서를 Azure에 업로드해야 합니다.
+
+  [Apple Push Notification Service]: http://go.microsoft.com/fwlink/p/?LinkId=272584
+  []: ./media/enable-apple-push-notifications/mobile-services-ios-push-step5.png
+  [1]: ./media/enable-apple-push-notifications/mobile-services-ios-push-step6.png
+  [2]: ./media/enable-apple-push-notifications/mobile-services-ios-push-step7.png
+  [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
+  [3]: ./media/enable-apple-push-notifications/mobile-services-ios-push-02.png
+  [4]: ./media/enable-apple-push-notifications/mobile-services-ios-push-03.png
+  [5]: ./media/enable-apple-push-notifications/mobile-services-ios-push-04.png
+  [6]: ./media/enable-apple-push-notifications/mobile-services-ios-push-05.png
+  [7]: ./media/enable-apple-push-notifications/mobile-services-ios-push-06.png
+  [8]: ./media/enable-apple-push-notifications/mobile-services-ios-push-07.png
+  [9]: ./media/enable-apple-push-notifications/mobile-services-ios-push-08.png
+  [10]: ./media/enable-apple-push-notifications/mobile-services-ios-push-10.png
+  [11]: ./media/enable-apple-push-notifications/mobile-services-ios-push-11.png
+  [12]: ./media/enable-apple-push-notifications/mobile-services-ios-push-step9.png
+  [13]: ./media/enable-apple-push-notifications/mobile-services-ios-push-step10.png
+  [14]: ./media/enable-apple-push-notifications/mobile-services-ios-push-12.png
+  [15]: ./media/enable-apple-push-notifications/mobile-services-ios-push-13.png
+  [16]: ./media/enable-apple-push-notifications/mobile-services-ios-push-14.png
+  [17]: ./media/enable-apple-push-notifications/mobile-services-ios-push-15.png
+  [18]: ./media/enable-apple-push-notifications/mobile-services-ios-push-16.png
+  [19]: ./media/enable-apple-push-notifications/mobile-services-ios-push-17.png
+  [20]: ./media/enable-apple-push-notifications/mobile-services-ios-push-01.png
+  [21]: ./media/enable-apple-push-notifications/mobile-services-ios-push-step17.png
