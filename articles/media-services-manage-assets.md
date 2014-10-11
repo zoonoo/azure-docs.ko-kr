@@ -1,15 +1,16 @@
 <properties linkid="develop-media-services-how-to-guides-manage-assets" urlDisplayName="Manage Assets in Media Services" pageTitle="How to Manage Assets in Media Services - Azure" metaKeywords="" description="Learn how to manage assets on Media Services. You can also manage jobs, tasks, access policies, locators, and more. Code samples are written in C# and use the Media Services SDK for .NET." metaCanonical="" services="media-services" documentationCenter="" title="How to: Manage Assets in storage" authors="migree" solutions="" manager="" editor="" />
 
-방법: 저장소의 자산 관리
-========================
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="migree"></tags>
 
-이 문서는 Azure 미디어 서비스 프로그래밍을 소개하는 시리즈 중 하나입니다. 이전 항목은 [방법: 자산 보호](http://go.microsoft.com/fwlink/?LinkID=301813&clcid=0x409)(영문)입니다.
+# 방법: 저장소의 자산 관리
+
+이 문서는 Azure 미디어 서비스 프로그래밍을 소개하는 시리즈 중 하나입니다. 이전 항목은 [방법: 자산 보호][](영문)입니다.
 
 미디어 자산을 만들어 미디어 서비스에 업로드한 후에는 서버에서 자산에 액세스하고 자산을 관리할 수 있습니다. 서버에서 미디어 서비스의 일부인 작업, 태스크, 액세스 정책, 로케이터 등의 다른 개체도 관리할 수 있습니다.
 
 다음 예는 assetId를 사용하여 자산을 쿼리하는 방법을 보여 줍니다.
 
-``` {}
+<pre><code>
 static IAsset GetAsset(string assetId)
 {
     // Use a LINQ Select query to get an asset.
@@ -22,12 +23,11 @@ static IAsset GetAsset(string assetId)
 
     return asset;
 }
-```
+</code></pre>
 
 서버에서 사용할 수 있는 모든 자산을 나열하려면 자산 컬렉션을 반복하고 각 자산에 대한 정보를 표시하는 다음 메서드를 사용할 수 있습니다.
 
-``` {}
- 
+<pre><code> 
 static void ListAssets()
 {
     string waitMessage = "Building the list. This may take a few "
@@ -63,24 +63,24 @@ static void ListAssets()
     // Display output in console.
     Console.Write(builder.ToString());
 }
-```
+</code></pre>
 
 다음 코드 조각은 미디어 서비스 계정에서 모든 자산을 삭제합니다.
 
-``` {}
-foreach (IAsset asset in _context.Assets)
-{
-    asset.Delete();
-}
-```
+    foreach (IAsset asset in _context.Assets){ asset.Delete();}
 
-자산 관리에 대한 자세한 내용은 다음을 참조하십시오.
+</p>
+자산 관리에 대한 자세한 내용은 다음을 참조하세요.
 
--   [Media Services SDK for .NET을 사용하여 자산 관리(영문)](http://msdn.microsoft.com/ko-kr/library/jj129589.aspx)
--   [Media Services REST API를 사용하여 자산 관리(영문)](http://msdn.microsoft.com/ko-kr/library/jj129583.aspx)
+-   [Media Services SDK for .NET을 사용하여 자산 관리(영문)][]
+-   [Media Services REST API를 사용하여 자산 관리(영문)][]
 
-다음 단계
----------
+</p>
+## 다음 단계
 
-자산 관리 방법을 알아보았습니다. [다운로드를 통해 자산을 제공하는 방법](http://go.microsoft.com/fwlink/?LinkID=301734&clcid=0x409)(영문) 항목을 이동하십시오.
+자산 관리 방법을 알아보았습니다. [다운로드를 통해 자산을 제공하는 방법][](영문) 항목을 이동하세요.
 
+  [방법: 자산 보호]: http://go.microsoft.com/fwlink/?LinkID=301813&clcid=0x409
+  [Media Services SDK for .NET을 사용하여 자산 관리(영문)]: http://msdn.microsoft.com/en-us/library/jj129589.aspx
+  [Media Services REST API를 사용하여 자산 관리(영문)]: http://msdn.microsoft.com/en-us/library/jj129583.aspx
+  [다운로드를 통해 자산을 제공하는 방법]: http://go.microsoft.com/fwlink/?LinkID=301734&clcid=0x409

@@ -1,7 +1,8 @@
-<properties linkid="develop-media-services-how-to-guides-ios-media-player-framework" urlDisplayName="iOS Media Player Framework" pageTitle="Use the iOS Media Player Framework with Azure Media Services" metaKeywords="" description="Learn how to use the Media Services iOS Media Player Framework library to create rich, dynamic apps.," metaCanonical="" services="media-services" documentationCenter="" title="How to use the Azure Media Services iOS Media Player Framework" authors="" solutions="" manager="" editor="" />
+<properties linkid="develop-media-services-how-to-guides-ios-media-player-framework" urlDisplayName="iOS Media Player Framework" pageTitle="Use the iOS Media Player Framework with Azure Media Services" metaKeywords="" description="Learn how to use the Media Services iOS Media Player Framework library to create rich, dynamic apps.," metaCanonical="" services="media-services" documentationCenter="" title="How to use the Azure Media Services iOS Media Player Framework" authors="migree" solutions="" manager="" editor="" />
 
-Azure 미디어 서비스 iOS 미디어 플레이어 프레임워크를 사용하는 방법
-==================================================================
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="mobile-ios" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="migree"></tags>
+
+# Azure 미디어 서비스 iOS 미디어 플레이어 프레임워크를 사용하는 방법
 
 Azure 미디어 서비스 iOS 미디어 플레이어 프레임워크 라이브러리를 사용하면 iPod, iPhone 및 iPad 개발자가 즉석에서 비디오 및 오디오 스트림을 만들고 혼합하는 풍부한 동적 클라이언트 응용 프로그램을 쉽게 만들 수 있습니다. 예를 들어 스포츠 콘텐츠를 표시하는 응용 프로그램은 선택한 위치에 광고를 쉽게 삽입할 수 있으며, 주요 콘텐츠가 되감기는 경우에도 광고가 표시되는 빈도를 제어할 수 있습니다. 교육 응용 프로그램은 동일한 기능을 사용하여 주요 콘텐츠로 돌아가기 전에 주요 강의에 보충 내용이나 사이드바가 포함된 콘텐츠를 만들 수 있습니다.
 
@@ -18,8 +19,7 @@ Azure 미디어 서비스 iOS 미디어 플레이어 프레임워크 라이브�
 
 SDK에는 이러한 기능을 사용하여 즉석에서 콘텐츠 스트림을 만드는 iOS 응용 프로그램을 빌드하고 사용자가 단추를 눌러 동적으로 삽입을 트리거할 수 있게 하는 방법을 보여 주는 SamplePlayer 응용 프로그램이 포함되어 있습니다. 이 자습서에서는 SamplePlayer 응용 프로그램의 주요 구성 요소 및 이 응용 프로그램을 사용자 응용 프로그램의 시작점으로 사용하는 방법을 보여 줍니다.
 
-SamplePlayer 응용 프로그램 시작
--------------------------------
+## SamplePlayer 응용 프로그램 시작
 
 다음 단계에서는 응용 프로그램을 가져오고 프레임워크를 사용하는 응용 프로그램 영역 둘러보기를 제공하는 방법을 설명합니다.
 
@@ -31,29 +31,32 @@ SamplePlayer 응용 프로그램 시작
 
 3.  샘플 플레이어의 구조는 다음과 같습니다.
 
-![HLS 샘플 코드 구조](http://mingfeiy.com/wp-content/uploads/2013/01/HLS-Structure.png)
+ ![HLS 샘플 코드 구조][]
 
 1.  iPad 폴더 아래에는 두 개의 .xib 파일 **SeekbarViewController** 및 **SamplePlayerViewController**가 있습니다. 두 파일은 iPad 응용 프로그램 UI 레이아웃을 만듭니다. 마찬가지로, iPhone 폴더 아래에는 검색 표시줄과 컨트롤러를 정의하는 두 개의 .xib 파일이 있습니다.
 
 2.  주요 응용 프로그램 논리는 `Shared` 폴더 아래의 **SamplePlayerViewController.m**에 있습니다. 아래 설명된 코드 조각은 대부분 이 파일에 있습니다.
 
-UI 레이아웃 이해
-----------------
+## UI 레이아웃 이해
 
-플레이어 인터페이스를 정의하는 두 개의 .xib 파일이 있습니다. 다음 논의에서는 iPad 레이아웃을 예로 사용하지만 iPhone 레이아웃도 유사하며 원칙은 동일합니다. 
-### SamplePlayerViewController\_iPad.xib ![샘플 플레이어 주소 표시줄](http://mingfeiy.com/wp-content/uploads/2013/01/addressbar.png)
+플레이어 인터페이스를 정의하는 두 개의 .xib 파일이 있습니다. 다음 논의에서는 iPad 레이아웃을 예로 사용하지만 iPhone 레이아웃도 유사하며 원칙은 동일합니다.
 
--   **미디어 URL**은 미디어 스트림을 로드하는 데 사용되는 URL입니다. 응용 프로그램에는 URL 선택 단추를 통해 사용할 수 있는 미리 채워진 미디어 URL 목록이 있습니다. 또는 고유한 HLS(HTTP 라이브 스트리밍) 콘텐츠 URL을 입력할 수 있습니다. 이 미디어 콘텐츠는 첫 번째 주요 콘텐츠로 사용됩니다. **참고: 이 URL을 비워 두지 마십시오.**
+### SamplePlayerViewController\_iPad.xib
+
+![샘플 플레이어 주소 표시줄][]
+
+-   **미디어 URL**은 미디어 스트림을 로드하는 데 사용되는 URL입니다. 응용 프로그램에는 URL 선택 단추를 통해 사용할 수 있는 미리 채워진 미디어 URL 목록이 있습니다. 또는 고유한 HLS(HTTP 라이브 스트리밍) 콘텐츠 URL을 입력할 수 있습니다. 이 미디어 콘텐츠는 첫 번째 주요 콘텐츠로 사용됩니다.
+    **참고: 이 URL을 비워 두지 마세요.**
 
 -   **URL 선택** 단추를 통해 미디어 URL 목록에서 대체 URL을 선택할 수 있습니다.
 
 ### SeekbarViewController\_iPad.xib
 
-![검색 표시줄 컨트롤러](http://mingfeiy.com/wp-content/uploads/2013/01/controller.png) \* 
+![검색 표시줄 컨트롤러][]
 
-* **재생 단추**를 사용하여 미디어 재생을 재생 및 일시 중지합니다.
+-   **재생 단추**를 사용하여 미디어 재생을 재생 및 일시 중지합니다.
 
-* **검색 표시줄**은 전체 재생 타임라인을 프로젝트합니다. 검색하는 경우 길게 누르고 원하는 위치로 끈 다음 검색 표시줄에서 검색 단추를 놓습니다.
+-   **검색 표시줄**은 전체 재생 타임라인을 프로젝트합니다. 검색하는 경우 길게 누르고 원하는 위치로 끈 다음 검색 표시줄에서 검색 단추를 놓습니다.
 
 **참고**: 사용자가 광고를 검색하는 경우 광고 기간이 포함된 새 검색 표시줄이 나타납니다. 주요 검색 표시줄에는 주요 콘텐츠의 기간만 표시됩니다. 즉, 주요 검색 표시줄에서 광고 기간은 0입니다.
 
@@ -83,7 +86,9 @@ UI 레이아웃 이해
 
 -   **MediaTime** 개체는 주요 콘텐츠로 예약할 비디오 클립을 제어합니다. 이전 예제에서 비디오 클립은 80초 기간(0초부터 80초까지)으로 예약됩니다.
 -   **clipBeginMediaTime**은 비디오 재생이 시작되는 시작 시간을 나타냅니다. 예를 들어 **clipBeginMediaTime** = 5인 경우 이 비디오 클립은 비디오 클립 시작부터 5초 후에 시작됩니다.
--   **clipEndMediaTime**은 비디오 재생 종료 시간을 나타냅니다. **clipEndMediaTime**=100인 경우 비디오 클립 시작부터 100초 후에 비디오 재생이 종료됩니다. \*프레임워크에 **appendContentClip**을 요청하여 **MediaTime**을 예약합니다. 이전 예제에서 주요 콘텐츠 URL은 `[NSURL URLWithString:url]`로 제공되며 **withMedia**를 사용하여 해당 미디어의 예약이 설정됩니다. `[framework appendContentClip:[NSURL URLWithString:url] withMediaTime:mediaTime andGetClipId:&clipId])`
+-   **clipEndMediaTime**은 비디오 재생 종료 시간을 나타냅니다. **clipEndMediaTime**=100인 경우 비디오 클립 시작부터 100초 후에 비디오 재생이 종료됩니다.
+    \*프레임워크에 **appendContentClip**을 요청하여 **MediaTime**을 예약합니다. 이전 예제에서 주요 콘텐츠 URL은 `[NSURL URLWithString:url]`로 제공되며 **withMedia**를 사용하여 해당 미디어의 예약이 설정됩니다.
+     `[framework appendContentClip:[NSURL URLWithString:url] withMediaTime:mediaTime andGetClipId:&clipId])` .
 
 **참고:** 항상 프리롤 광고를 비롯한 광고 일정보다 빠른 일정을 주요 콘텐츠에 지정합니다.
 
@@ -101,18 +106,19 @@ UI 레이아웃 이해
 
 이전 코드 뒤에 이 작업을 수행하면 주요 콘텐츠 타임라인에 콘텐츠 스트림 두 개가 예약됩니다. 첫 번째 콘텐츠는 `URLWithString:url`을 기준으로 예약되고 두 번째 콘텐츠는 `URLWithString:secondContent`를 기준으로 예약됩니다. 두 번째 콘텐츠의 경우 미디어 스트림 시작부터 30초 지점에서 콘텐츠가 시작되고 80초에서 종료됩니다.
 
-광고 일정
----------
+## 광고 일정
 
 현재 릴리스에서는 **pauseTimeline=false** 광고만 지원되므로 광고가 종료된 후 플레이어에서 주요 콘텐츠가 중단된 위치부터 시작됩니다.
 
-다음은 몇 가지 주요 사항입니다. 
-* 광고를 예약할 때 모든 **LinearTime.duration**이 0이어야 합니다. 
-* **clipEndMediaTime**이 광고 기간보다 길면 완료 후에 광고가 종료되며 예외가 발생하지 않습니다. 광고 기회가 손실되지 않도록 광고 기본 기간이 렌더링 시간(**clipEndMediaTime**) 이내에 있는지 확인하는 것이 좋습니다. 
-* 프리롤, 중간롤 및 포스트롤 광고가 지원됩니다. 프리롤은 모든 콘텐츠의 시작 부분에만 예약됩니다. 예를 들어 RCE(가편집) 시나리오의 두 번째 콘텐츠에 대해서는 프리롤을 예약할 수 없습니다.
-* 고정 광고 및 한 번 재생 광고가 지원되며 프리롤, 중간롤 또는 포스트롤 광고와 함께 사용할 수 있습니다. 
-* 광고 형식은 .Mp4 또는 HLS일 수 있습니다.
+다음은 몇 가지 주요 사항입니다.
 
+-   광고를 예약할 때 모든 **LinearTime.duration**이 0이어야 합니다.
+-   **clipEndMediaTime**이 광고 기간보다 길면 완료 후에 광고가 종료되며 예외가 발생하지 않습니다. 광고 기회가 손실되지 않도록 광고 기본 기간이 렌더링 시간(**clipEndMediaTime**) 이내에 있는지 확인하는 것이 좋습니다.
+-   프리롤, 중간롤 및 포스트롤 광고가 지원됩니다. 프리롤은 모든 콘텐츠의 시작 부분에만 예약됩니다. 예를 들어 RCE(가편집) 시나리오의 두 번째 콘텐츠에 대해서는 프리롤을 예약할 수 없습니다.
+-   고정 광고 및 한 번 재생 광고가 지원되며 프리롤, 중간롤 또는 포스트롤 광고와 함께 사용할 수 있습니다.
+-   광고 형식은 .Mp4 또는 HLS일 수 있습니다.
+
+</p>
 ### 프리롤, 중간롤 및 포스트롤 광고와 광고 포드를 예약하는 방법
 
 #### 프리롤 광고 예약
@@ -133,12 +139,13 @@ UI 레이아웃 이해
         [self logFrameworkError];
     }
 
-**AdInfo** 개체는 광고 클립에 대한 모든 정보를 나타냅니다. 
-* **ClipURL**은 클립 원본의 URL입니다. 
-* **mediaTime** 속성은 광고가 재생되는 기간을 나타냅니다. (**clipBeginMediaTime**은 광고의 시작 시간이고 **clipEndMediaTime**은 광고의 끝을 정의합니다. 이전 샘플 코드는 0부터 시작하여 5초 광고 기간까지 5초 동안 광고를 예약합니다. 
-* **Policy** 개체는 현재 프레임워크에서 사용되지 않습니다. 
-* 광고 포드가 아닌 경우 **appendTo** 값을 -1로 설정해야 합니다. 
-* **type** 값은 프리롤, 중간롤, 포스트롤 또는 광고 포드일 수 있습니다. 프리롤 또는 포스트롤의 경우 관련 타이밍이 없으므로 유형을 지정합니다.
+**AdInfo** 개체는 광고 클립에 대한 모든 정보를 나타냅니다.
+
+-   **ClipURL**은 클립 원본의 URL입니다.
+-   **mediaTime** 속성은 광고가 재생되는 기간을 나타냅니다. (**clipBeginMediaTime**은 광고의 시작 시간이고 **clipEndMediaTime**은 광고의 끝을 정의합니다. 이전 샘플 코드는 0부터 시작하여 5초 광고 기간까지 5초 동안 광고를 예약합니다.
+-   **Policy** 개체는 현재 프레임워크에서 사용되지 않습니다.
+-   광고 포드가 아닌 경우 **appendTo** 값을 -1로 설정해야 합니다.
+-   **type** 값은 프리롤, 중간롤, 포스트롤 또는 광고 포드일 수 있습니다. 프리롤 또는 포스트롤의 경우 관련 타이밍이 없으므로 유형을 지정합니다.
 
 #### 중간롤 광고 예약
 
@@ -167,8 +174,7 @@ UI 레이아웃 이해
 
 광고 포드는 여러 광고가 연속 재생되는 광고 브레이크입니다. 다음은 하나의 광고 포드에 광고 두 개를 예약하기 위한 코드입니다.
 
-    NSString *adpodSt1=@"https://portalvhdsq3m25bf47d15c.blob.core.windows.net/asset-e47b43fd-05dc-4587-ac87-5916439ad07f/Windows%208_%20Cliffjumpers.mp4
-        st=2012-11-28T16%3A31%3A57Z&se=2014-11-28T16%3A31%3A57Z&sr=c&si=2a6dbb1e-f906-4187-a3d3-7e517192cbd0&sig=qrXYZBekqlbbYKqwovxzaVZNLv9cgyINgMazSCbdrfU%3D";
+    NSString *adpodSt1=@"https://portalvhdsq3m25bf47d15c.blob.core.windows.net/asset-e47b43fd-05dc-4587-ac87-5916439ad07f/Windows%208_%20Cliffjumpers.mp4?st=2012-11-28T16%3A31%3A57Z&se=2014-11-28T16%3A31%3A57Z&sr=c&si=2a6dbb1e-f906-4187-a3d3-7e517192cbd0&sig=qrXYZBekqlbbYKqwovxzaVZNLv9cgyINgMazSCbdrfU%3D";
     AdInfo *adpodInfo1 = [[[AdInfo alloc] init] autorelease];
     adpodInfo1.clipURL = [NSURL URLWithString:adpodSt1];
     adpodInfo1.mediaTime = [[[ManifestTime alloc] init] autorelease];
@@ -183,8 +189,7 @@ UI 레이아웃 이해
         [self logFrameworkError];
     }
         
-    NSString *adpodSt2=@"https://portalvhdsq3m25bf47d15c.blob.core.windows.net/asset-532531b8-fca4-4c15-86f6-45f9f45ec980/Windows%208_%20Sign%20in%20with%20a%20Smile.mp4
-        st=2012-11-28T16%3A35%3A26Z&se=2014-11-28T16%3A35%3A26Z&sr=c&si=c6ede35c-f212-4ccd-84da-805c4ebf64be&sig=zcWsj1JOHJB6TsiQL5ZbRmCSsEIsOJOcPDRvFVI0zwA%3D";
+    NSString *adpodSt2=@"https://portalvhdsq3m25bf47d15c.blob.core.windows.net/asset-532531b8-fca4-4c15-86f6-45f9f45ec980/Windows%208_%20Sign%20in%20with%20a%20Smile.mp4?st=2012-11-28T16%3A35%3A26Z&se=2014-11-28T16%3A35%3A26Z&sr=c&si=c6ede35c-f212-4ccd-84da-805c4ebf64be&sig=zcWsj1JOHJB6TsiQL5ZbRmCSsEIsOJOcPDRvFVI0zwA%3D";
     AdInfo *adpodInfo2 = [[[AdInfo alloc] init] autorelease];
     adpodInfo2.clipURL = [NSURL URLWithString:adpodSt2];
     adpodInfo2.mediaTime = [[[ManifestTime alloc] init] autorelease];
@@ -198,15 +203,21 @@ UI 레이아웃 이해
         [self logFrameworkError];
     }
 
-여기서 확인할 몇 가지 사항은 다음과 같습니다. 
-* 첫 번째 클립에서 **appendTo**는 -1입니다. `[framework scheduleClip:adpodInfo1 atTime:adLinearTime forType:PlaylistEntryType_Media andGetClipId:&adIndex]`를 호출할 때 `adIndex`는 광고 포드에서 이 첫 번째 클립의 끝을 나타내는 고유한 값을 받습니다. 광고 포드의 두 번째 클립에서 **appendTo**를 `adpodInfo2.appendTo = adIndex;`로 설정하여 두 번째 광고의 시작을 첫 번째 광고의 끝과 일치시킵니다. 이 경우 첫 번째 클립의 끝 위치가 두 번째 클립의 시작 위치로 지정됩니다. 
-* 유형을 `AdType_Pod`로 설정하여 광고 포드임을 나타내야 합니다.
+여기서 확인할 몇 가지 사항은 다음과 같습니다.
+
+-   첫 번째 클립에서 **appendTo**는 -1입니다. 또한 `[framework scheduleClip:adpodInfo1 atTime:adLinearTime forType:PlaylistEntryType_Media andGetClipId:&adIndex]`를 호출할 때 `adIndex`는 광고 포드에서 이 첫 번째 클립의 끝을 나타내는 고유한 값을 받습니다. 광고 포드의 두 번째 클립에서 **appendTo**를 `adpodInfo2.appendTo = adIndex;`로 설정하여 두 번째 광고의 시작을 첫 번째 광고의 끝과 일치시킵니다. 이 경우 첫 번째 클립의 끝 위치가 두 번째 클립의 시작 위치로 지정됩니다.
+-   유형을 `AdType_Pod`로 설정하여 광고 포드임을 나타내야 합니다.
 
 ### 한 번 재생 또는 "고정" 광고를 예약하는 방법
 
     AdInfo *oneTimeInfo = [[[AdInfo alloc] init] autorelease];
     oneTimeInfo.deleteAfterPlay = YES;
 
-이전 코드 예제와 같이 **deleteAfterPlay**를 **YES**로 설정하면 이 광고가 한 번만 재생됩니다. **deleteAfterPlay**를 **NO**로 설정하면 이 광고가 계속 재생되며 "고정 광고"라고 합니다. 
-### 자세한 내용은 [Azure 미디어 플레이어 프레임워크 위키](https://github.com/WindowsAzure/azure-media-player-framework/wiki)를 참조하십시오.
+이전 코드 예제와 같이 **deleteAfterPlay**를 **YES**로 설정하면 이 광고가 한 번만 재생됩니다. **deleteAfterPlay**를 **NO**로 설정하면 이 광고가 계속 재생되며 "고정 광고"라고 합니다.
 
+### 자세한 내용은 [Azure 미디어 플레이어 프레임워크 위키][](영문)를 참조하세요.
+
+  [HLS 샘플 코드 구조]: http://mingfeiy.com/wp-content/uploads/2013/01/HLS-Structure.png
+  [샘플 플레이어 주소 표시줄]: http://mingfeiy.com/wp-content/uploads/2013/01/addressbar.png
+  [검색 표시줄 컨트롤러]: http://mingfeiy.com/wp-content/uploads/2013/01/controller.png
+  [Azure 미디어 플레이어 프레임워크 위키]: https://github.com/WindowsAzure/azure-media-player-framework/wiki

@@ -1,28 +1,27 @@
-<properties linkid="manage-services-storage-net-shared-access-signature-part-2" urlDisplayName="" pageTitle="Create and use a SAS with the Blob Service | Microsoft Azure" metaKeywords="Azure blob, shared access signatures, stored access policy" description="Explore generating and using shared access signatures with the Blob service" metaCanonical="" services="storage" documentationCenter="" title="Part 2: Create and Use a SAS with the Blob Service" authors="tamram" solutions="" manager="mbaldwin" editor="cgronlun" />
+<properties linkid="manage-services-storage-net-shared-access-signature-part-2" urlDisplayName="" pageTitle="Create and use a SAS with the Blob Service | Microsoft Azure" metaKeywords="Azure blob, shared access signatures, stored access policy" description="Explore generating and using shared access signatures with the Blob service" metaCanonical="" services="storage" documentationCenter="" title="Part 2: Create and Use a SAS with the Blob Service" solutions="" authors="tamram" manager="mbaldwin" editor="cgronlun" />
 
-공유 액세스 서명, 2부: Blob 서비스를 통해 SAS 만들기 및 사용
-============================================================
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tamram"></tags>
 
-이 자습서의 [1부](../storage-dotnet-shared-access-signature-part-1/)에서는 SAS(공유 액세스 서명)에 대해 설명하고 SAS 사용을 위한 모범 사례를 살펴보았습니다. 2부에서는 Azure Blob 서비스를 사용하여 공유 액세스 서명을 생성한 다음 사용하는 방법에 대해 살펴봅니다. 예제는 C\#으로 작성되었으며 Azure Storage Client Library for .NET을 사용합니다. 시나리오에서는 공유 액세스 서명 작업의 다음과 같은 측면을 다룹니다.
+# 공유 액세스 서명, 2부: Blob 서비스를 통해 SAS 만들기 및 사용
+
+이 자습서의 [1부][]에서는 SAS(공유 액세스 서명)에 대해 설명하고 SAS 사용을 위한 모범 사례를 살펴보았습니다. 2부에서는 Azure Blob 서비스를 사용하여 공유 액세스 서명을 생성한 다음 사용하는 방법에 대해 살펴봅니다. 예제는 C#으로 작성되었으며 Azure Storage Client Library for .NET을 사용합니다. 시나리오에서는 공유 액세스 서명 작업의 다음과 같은 측면을 다룹니다.
 
 -   컨테이너에서 공유 액세스 서명 생성
 -   Blob에서 공유 액세스 서명 생성
 -   컨테이너의 리소스에서 서명을 관리하는 저장된 액세스 정책 만들기
 -   클라이언트 응용 프로그램에서 공유 액세스 서명 테스트
 
-이 자습서 정보
-==============
+# 이 자습서 정보
 
 이 자습서에서는 두 콘솔 응용 프로그램을 만들어 컨테이너 및 Blob에 대한 공유 액세스 서명을 만드는 과정을 중점적으로 다룹니다. 첫 번째 콘솔 응용 프로그램에서는 컨테이너 및 Blob에 대한 공유 액세스 서명을 생성합니다. 이 응용 프로그램에서는 저장소 계정 키를 알고 있습니다. 클라이언트 응용 프로그램 역할을 하는 두 번째 콘솔 응용 프로그램에서는 첫 번째 응용 프로그램에서 만든 공유 액세스 서명을 사용하여 컨테이너 및 Blob 리소스에 액세스합니다. 이 응용 프로그램에서는 컨테이너 및 Blob 리소스에 대한 액세스를 인증하는 데에만 공유 액세스 서명을 사용하고, 계정 키에 대해 알지 못합니다.
 
-1부: 공유 액세스 서명을 생성하는 콘솔 응용 프로그램 만들기
-==========================================================
+# 1부: 공유 액세스 서명을 생성하는 콘솔 응용 프로그램 만들기
 
-먼저 Azure Storage Client Library for .NET(버전 2.0)을 설치했는지 확인합니다. 클라이언트 라이브러리에 대한 최신 어셈블리가 들어 있는 [NuGet 패키지](http://nuget.org/packages/WindowsAzure.Storage/ "NuGet 패키지")를 설치할 수 있습니다. 이는 최신 수정이 설치되어 있는지 확인하는 권장 방법입니다. 클라이언트 라이브러리를 최신 버전 [Azure SDK for .NET](http://www.windowsazure.com/ko-kr/downloads/)의 일부로 다운로드할 수도 있습니다.
+먼저 Azure Storage Client Library for .NET을 설치했는지 확인합니다. 클라이언트 라이브러리에 대한 최신 어셈블리가 들어 있는 [NuGet 패키지][]를 설치할 수 있습니다. 이는 최신 수정이 설치되어 있는지 확인하는 권장 방법입니다. 클라이언트 라이브러리를 최신 버전 [Azure SDK for .NET][]의 일부로 다운로드할 수도 있습니다.
 
 Visual Studio에서 새 Windows 콘솔 응용 프로그램을 만들고 이름을 **GenerateSharedAccessSignatures**로 지정합니다. 다음 중 한 가지 방법을 사용하여 **Microsoft.WindowsAzure.Configuration.dll** 및 **Microsoft.WindowsAzure.Storage.dll**에 대한 참조를 추가합니다.
 
--   NuGet 패키지를 설치하려면 먼저 [NuGet Package Manager Extension for Visual Studio](http://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c)를 설치합니다. Visual Studio에서 **프로젝트 | NuGet 패키지 관리**를 선택하고 온라인에서 **Azure 저장소**를 검색한 다음 지침에 따라 설치하십시오.
+-   NuGet 패키지를 설치하려면 먼저 [NuGet Package Manager Extension for Visual Studio][]를 설치합니다. Visual Studio에서 **프로젝트 | NuGet 패키지 관리**를 선택하고 온라인에서 **Azure 저장소**를 검색한 다음 지침에 따라 설치하세요.
 -   또는 Azure SDK 설치에서 어셈블리를 찾은 다음 참조를 추가합니다.
 
 Program.cs 파일의 맨 위에 다음 **using** 문을 추가합니다.
@@ -43,8 +42,7 @@ Program.cs 파일의 맨 위에 다음 **using** 문을 추가합니다.
       </appSettings> 
     </configuration>
 
-컨테이너에 대한 공유 액세스 서명 URI 생성
------------------------------------------
+## 컨테이너에 대한 공유 액세스 서명 URI 생성
 
 먼저 새 컨테이너에서 공유 액세스 서명을 생성하는 메서드를 추가합니다. 이 경우 서명은 저장된 액세스 정책과 연결되지 않으므로, URI에서 만료 시간과 허용된 권한을 나타내는 정보를 전달합니다.
 
@@ -93,12 +91,11 @@ Program.cs 파일의 맨 위에 다음 **using** 문을 추가합니다.
 
 새 컨테이너에 대한 공유 액세스 서명 URI를 출력하도록 컴파일 및 실행합니다. URI는 다음과 비슷합니다.
 
-https://storageaccount.blob.core.windows.net/sascontainer?sv=2012-02-12&se=2013-04-13T00%3A12%3A08Z&sr=c&sp=wl&sig=t%2BbzU9%2B7ry4okULN9S0wst%2F8MCUhTjrHyV9rDNLSe8g%3D
+<https://storageaccount.blob.core.windows.net/sascontainer?sv=2012-02-12&se=2013-04-13T00%3A12%3A08Z&sr=c&sp=wl&sig=t%2BbzU9%2B7ry4okULN9S0wst%2F8MCUhTjrHyV9rDNLSe8g%3D>
 
 코드를 실행하면 컨테이너에서 만든 공유 액세스 서명이 다음 4시간 동안 유효해집니다. 서명은 클라이언트에게 컨테이너에 있는 Blob을 나열하고 컨테이너에 새 Blob을 쓸 수 있는 권한을 부여합니다.
 
-Blob에 대한 공유 액세스 서명 URI 생성
--------------------------------------
+## Blob에 대한 공유 액세스 서명 URI 생성
 
 이제 컨테이너 내에서 새 Blob을 만들고 해당 Blob에 대한 공유 액세스 서명을 생성하는 비슷한 코드를 작성합니다. 이 공유 액세스 서명은 저장된 액세스 정책과 연결되지 않으므로, URI에 대한 시작 시간, 만료 시간 및 권한 정보를 포함합니다.
 
@@ -142,16 +139,15 @@ Blob에 대한 공유 액세스 서명 URI 생성
 
 새 Blob에 대한 공유 액세스 서명 URI를 출력하도록 컴파일 및 실행합니다. URI는 다음과 비슷합니다.
 
-https://storageaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2012-02-12&st=2013-04-12T23%3A37%3A08Z&se=2013-04-13T00%3A12%3A08Z&sr=b&sp=rw&sig=dF2064yHtc8RusQLvkQFPItYdeOz3zR8zHsDMBi4S30%3D
+<https://storageaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2012-02-12&st=2013-04-12T23%3A37%3A08Z&se=2013-04-13T00%3A12%3A08Z&sr=b&sp=rw&sig=dF2064yHtc8RusQLvkQFPItYdeOz3zR8zHsDMBi4S30%3D>
 
-컨테이너에 대한 저장된 액세스 정책 만들기
------------------------------------------
+## 컨테이너에 대한 저장된 액세스 정책 만들기
 
 이제 연결된 공유 액세스 서명에 대한 제약 조건을 정의하는 컨테이너에 대한 저장된 액세스 정책을 만들어 보겠습니다.
 
 이전 예제에서는 공유 액세스 서명 URI 자체에 대한 시작 시간(암시적 또는 명시적), 만료 시간 및 사용 권한을 지정했습니다. 다음 예제에서는 공유 액세스 서명이 아니라 저장된 액세스 정책에 대해 이러한 설정을 지정합니다. 그러면 공유 액세스 서명을 다시 실행하지 않고 제약 조건을 변경할 수 있습니다.
 
-공유 액세스 서명에 대해 하나 이상의 제약 조건을 설정하고 저장된 액세스 정책에 대해 나머지 제약 조건을 설정할 수 있습니다. 하지만 시작 시간, 만료 시간 및 사용 권한을 한 곳에서만 지정할 수 있습니다. 예를 들어 사용 권한을 공유 액세스 서명에 대해 지정하고 저장된 액세스 정책에 대해서도 지정할 수는 없습니다.
+공유 액세스 서명에 대해 하나 이상의 제약 조건이 설정하고 저장된 액세스 정책에 대해 나머지 제약 조건을 설정할 수 있습니다. 하지만 시작 시간, 만료 시간 및 사용 권한을 한 곳에서만 지정할 수 있습니다. 예를 들어 사용 권한을 공유 액세스 서명에 대해 지정하고 저장된 액세스 정책에 대해서도 지정할 수는 없습니다.
 
 새 저장된 액세스 정책을 만들고 정책 이름을 반환하는 새 메서드를 추가합니다.
 
@@ -180,8 +176,7 @@ https://storageaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2012-02
     string sharedAccessPolicyName = "tutorialpolicy";
     CreateSharedAccessPolicy(blobClient, container, sharedAccessPolicyName);
 
-액세스 정책을 사용하는 컨테이너에 대한 공유 액세스 서명 URI 생성
-----------------------------------------------------------------
+## 액세스 정책을 사용하는 컨테이너에 대한 공유 액세스 서명 URI 생성
 
 이제 이전에 만든 컨테이너에 대한 다른 공유 액세스 서명을 만듭니다. 이번에는 이전 예제에서 만든 액세스 정책에 서명을 연결합니다.
 
@@ -203,8 +198,7 @@ https://storageaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2012-02
     Console.WriteLine("Container SAS URI using stored access policy: " + GetContainerSasUriWithPolicy(container, sharedAccessPolicyName));
     Console.WriteLine();
 
-액세스 정책을 사용하는 Blob에 대한 공유 액세스 서명 URI 생성
-------------------------------------------------------------
+## 액세스 정책을 사용하는 Blob에 대한 공유 액세스 서명 URI 생성
 
 마지막으로 다른 Blob을 만들고 액세스 정책에 연결되는 공유 액세스 서명을 생성하는 비슷한 메서드를 추가합니다.
 
@@ -279,10 +273,9 @@ Blob을 만들고 공유 액세스 서명을 생성하는 새 메서드를 추�
 
 GenerateSharedAccessSignatures 콘솔 응용 프로그램을 실행하면 콘솔 창에 다음과 비슷한 출력이 표시됩니다. 이는 자습서의 2부에서 사용할 공유 액세스 서명입니다.
 
-![sas-console-output-1](./media/storage-dotnet-shared-access-signature-part-2/sas-console-output-1.PNG)
+![sas-console-output-1][]
 
-2부: 공유 액세스 서명을 테스트하는 콘솔 응용 프로그램 만들기
-============================================================
+# 2부: 공유 액세스 서명을 테스트하는 콘솔 응용 프로그램 만들기
 
 이전 예제에서 만든 공유 액세스 서명을 테스트하려면 서명을 사용하여 컨테이너 및 Blob에서 작업을 수행하는 두 번째 콘솔 응용 프로그램을 만듭니다.
 
@@ -306,8 +299,7 @@ Program.cs 파일의 맨 위에 다음 **using** 문을 추가합니다.
         string blobSASWithAccessPolicy = "<your blob SAS with access policy>";
     }
 
-공유 액세스 서명을 사용하여 컨테이너 작업을 수행하는 메서드 추가
-----------------------------------------------------------------
+## 공유 액세스 서명을 사용하여 컨테이너 작업을 수행하는 메서드 추가
 
 이제 컨테이너에서 공유 액세스 서명을 사용하여 일부 대표적인 컨테이너 작업을 테스트하는 메서드를 추가합니다. 공유 액세스 서명은 서명만을 기반으로 하여 컨테이너에 대한 액세스를 인증하여 컨테이너에 대한 참조를 반환하는 데 사용됩니다.
 
@@ -419,8 +411,7 @@ Program.cs에 다음 메서드를 추가합니다.
         Console.ReadLine();
     }
 
-공유 액세스 서명을 사용하여 Blob 작업을 수행하는 메서드 추가
-------------------------------------------------------------
+## 공유 액세스 서명을 사용하여 Blob 작업을 수행하는 메서드 추가
 
 마지막으로 Blob에서 공유 액세스 서명을 사용하여 일부 대표적인 Blob 작업을 테스트하는 메서드를 추가합니다. 이 경우 공유 액세스 서명을 전달하여 Blob에 대한 참조를 반환하는 생성자 **CloudBlockBlob(String)**을 사용합니다. 다른 인증은 필요하지 않으며 서명만을 기반으로 합니다.
 
@@ -517,16 +508,24 @@ Blob에서 만든 공유 액세스 서명을 모두 사용하여 **UseBlobSAS()*
 
 콘솔 응용 프로그램을 실행하고 출력을 관찰하여 서명별로 허용되는 작업을 확인합니다. 콘솔 창의 출력은 다음과 비슷합니다.
 
-![sas-console-output-2](./media/storage-dotnet-shared-access-signature-part-2/sas-console-output-2.PNG)
+![sas-console-output-2][]
 
-다음 단계
-=========
+# 다음 단계
 
-[공유 액세스 서명, 1부: SAS 모델 이해](../storage-dotnet-shared-access-signature-part-1/)
+[공유 액세스 서명, 1부: SAS 모델 이해][1부]
 
-[Azure 저장소 리소스에 대한 액세스 관리](http://msdn.microsoft.com/ko-kr/library/windowsazure/ee393343.aspx)
+[Azure 저장소 리소스에 대한 액세스 관리][]
 
-[공유 액세스 서명을 사용하여 액세스 위임(REST API)](http://msdn.microsoft.com/ko-kr/library/windowsazure/ee395415.aspx)
+[공유 액세스 서명을 사용하여 액세스 위임(REST API)][]
 
-[테이블 및 큐 SAS 소개](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)
+[테이블 및 큐 SAS 소개][]
 
+  [1부]: ../storage-dotnet-shared-access-signature-part-1/
+  [NuGet 패키지]: http://nuget.org/packages/WindowsAzure.Storage/ "NuGet 패키지"
+  [Azure SDK for .NET]: http://www.windowsazure.com/en-us/downloads/
+  [NuGet Package Manager Extension for Visual Studio]: http://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c
+  [sas-console-output-1]: ./media/storage-dotnet-shared-access-signature-part-2/sas-console-output-1.PNG
+  [sas-console-output-2]: ./media/storage-dotnet-shared-access-signature-part-2/sas-console-output-2.PNG
+  [Azure 저장소 리소스에 대한 액세스 관리]: http://msdn.microsoft.com/en-us/library/windowsazure/ee393343.aspx
+  [공유 액세스 서명을 사용하여 액세스 위임(REST API)]: http://msdn.microsoft.com/en-us/library/windowsazure/ee395415.aspx
+  [테이블 및 큐 SAS 소개]: http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx

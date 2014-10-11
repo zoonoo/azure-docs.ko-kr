@@ -1,179 +1,166 @@
-<properties linkid="dev-nodejs-how-to-table-services" urlDisplayName="Table Service" pageTitle="How to use table storage (Node.js) | Microsoft Azure" metaKeywords="Azure table storage service, Azure table service Node.js, table storage Node.js" description="Learn how to use the table storage service in Azure. Code samples are written using the Node.js API." metaCanonical="" services="storage" documentationCenter="Node.js" title="How to Use the Table Service from Node.js" authors="" solutions="" manager="" editor="" />
+<properties linkid="dev-nodejs-how-to-table-services" urlDisplayName="Table Service" pageTitle="How to use table storage (Node.js) | Microsoft Azure" metaKeywords="Azure table storage service, Azure table service Node.js, table storage Node.js" description="Learn how to use the table storage service in Azure. Code samples are written using the Node.js API." metaCanonical="" services="storage" documentationCenter="Node.js" title="How to Use the Table Service from Node.js" authors="larryfr" solutions="" manager="" editor="" />
 
-Node.js에서 테이블 서비스를 사용하는 방법
-=========================================
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr"></tags>
 
-이 가이드에서는 Azure 테이블 서비스를 사용하여 일반 시나리오를 수행하는 방법을 보여 줍니다. 샘플은 Node.js API를 사용하여 작성되었습니다. **테이블 만들기 및 삭제, 테이블에서 엔터티 삽입 및 쿼리** 등의 시나리오를 다룹니다. 테이블에 대한 자세한 내용은 [다음 단계](#next-steps) 섹션을 참조하십시오.
+# Node.js에서 테이블 서비스를 사용하는 방법
 
-목차
-----
+이 가이드에서는 Microsoft Azure 테이블 서비스를 사용하여 일반 시나리오를
+수행하는 방법을 보여 줍니다. 샘플은 Node.js API를 사용하여
+작성되었습니다. **테이블 만들기 및 삭제, 테이블에서 엔터티 삽입 및
+쿼리** 등의 시나리오를 다룹니다. 테이블에
+대한 자세한 내용은 [다음 단계][] 섹션을 참조하세요.
 
--   [테이블 서비스 정의](#what-is)
--   [개념](#concepts)
--   [Azure 저장소 계정 만들기](#create-account)
--   [Node.js 응용 프로그램 만들기](#create-app)
--   [저장소에 액세스하도록 응용 프로그램 구성](#configure-access)
--   [Azure 저장소 연결 설정](#setup-connection-string)
--   [방법: 테이블 만들기](#create-table)
--   [방법: 테이블에 엔터티 추가](#add-entity)
--   [방법: 엔터티 업데이트](#update-entity)
--   [방법: 엔터티 그룹 작업](#change-entities)
--   [방법: 엔터티 쿼리](#query-for-entity)
--   [방법: 엔터티 집합 쿼리](#query-set-entities)
--   [방법: 엔터티 속성 하위 집합 쿼리](#query-entity-properties)
--   [방법: 엔터티 삭제](#delete-entity)
--   [방법: 테이블 삭제](#delete-table)
--   [다음 단계](#next-steps)
+## 목차
 
-테이블 서비스 정의
-------------------
+-   [테이블 서비스 정의][]
+-   [개념][]
+-   [Azure 저장소 계정 만들기][]
+-   [Node.js 응용 프로그램 만들기][]
+-   [저장소에 액세스하도록 응용 프로그램 구성][]
+-   [Azure 저장소 연결 설정][]
+-   [방법: 테이블 만들기][]
+-   [방법: 테이블에 엔터티 추가][]
+-   [방법: 엔터티 업데이트][]
+-   [방법: 엔터티 그룹 작업][]
+-   [방법: 항목 검색][]
+-   [방법: 엔터티 집합 쿼리][]
+-   [방법: 엔터티 삭제][]
+-   [방법: 테이블 삭제][]
+-   [방법: 공유 액세스 서명 작업][]
+-   [다음 단계][]
 
-Azure 테이블 서비스는 다량의 구조화된 데이터를 저장합니다. 이 서비스는 Azure 클라우드 내부 및 외부에서 인증된 호출을 수락합니다. Azure 테이블은 구조화된 비관계형 데이터를 저장하는 데 적합합니다. 테이블 서비스의 일반적인 사용은 다음과 같습니다.
+[WACOM.INCLUDE [howto-table-storage][]]
 
--   처리량 요구를 충족하도록 자동으로 크기 조정되는 다량의 구조화된 데이터(수 TB) 저장
--   복합 조인, 외래 키 또는 저장 프로시저가 필요하지 않고 빠른 액세스를 위해 역정규화할 수 있는 데이터 집합 저장
--   클러스터형 인덱스를 사용하여 사용자 프로필과 같은 데이터를 빠르게 쿼리
+## <a name="create-account"></a>Azure 저장소 계정 만들기
 
-테이블 서비스를 사용하여 구조화된 비관계형 데이터 집합을 저장 및 쿼리할 수 있으며, 볼륨이 증가하면 테이블 규모가 확장됩니다.
+[WACOM.INCLUDE [create-storage-account][]]
 
-개념
-----
+## <a name="create-app"> </a>Node.js 응용 프로그램 만들기
 
-테이블 서비스에는 다음 구성 요소가 포함됩니다.
+빈 Node.js 응용 프로그램을 만듭니다. Node.js 응용 프로그램을 만드는 방법에 대한 지침은 [Node.js 응용 프로그램을 만들어 Azure 웹 사이트에 배포하기][], [Node.js 클라우드 서비스][](Windows PowerShell 사용) 또는 [WebMatrix를 사용하는 웹 사이트][]를 참조하세요.
 
-![Table1](./media/storage-nodejs-how-to-use-table-storage/table1.png)
+## <a name="configure-access"> </a>저장소에 액세스하도록 응용 프로그램 구성
 
--   **URL 형식:** 코드에서 다음 주소 형식을 사용하여 계정의 테이블 주소를 지정합니다.
-
-        http://storageaccount.table.core.windows.net/table  
-
-    OData 프로토콜과 함께 이 주소를 사용하여 Azure 테이블 주소를 직접 지정할 수 있습니다. 자세한 내용은 [OData.org](http://www.odata.org/)를 참조하십시오.
-
--   **저장소 계정:** Azure 저장소에 대한 모든 액세스는 저장소 계정을 통해 수행됩니다. 저장소 계정에 있는 Blob, 테이블 및 큐 콘텐츠의 총 크기는 100TB를 초과할 수 없습니다.
-
--   **테이블**: 테이블은 무제한 엔터티 컬렉션입니다. 테이블은 엔터티에 스키마를 적용하지 않으므로 단일 테이블에 각기 다른 속성 집합을 가진 엔터티가 포함될 수 있습니다. 한 계정에 많은 테이블이 포함될 수 있습니다.
-
--   **엔터티**: 엔터티는 데이터베이스 행과 유사한 속성 집합입니다. 엔터티의 크기는 최대 1MB일 수 있습니다.
-
--   **속성**: 속성은 이름 값 쌍입니다. 각 엔터티에 데이터를 저장할 속성을 최대 252개까지 포함할 수 있습니다. 또한 각 엔터티에는 파티션 키, 행 키 및 타임스탬프를 지정하는 시스템 속성 세 개가 있습니다. 동일한 파티션 키를 가진 엔터티는 보다 신속하게 쿼리할 수 있으며 원자성 작업으로 삽입/업데이트할 수 있습니다. 엔터티의 행 키는 파티션 내의 고유 식별자입니다.
-
-Azure 저장소 계정 만들기
-------------------------
-
-저장소 작업을 사용하려면 Azure 저장소 계정이 필요합니다. 다음 단계에 따라 저장소 계정을 만들 수 있습니다. [REST API를 사용](http://msdn.microsoft.com/ko-kr/library/windowsazure/hh264518.aspx)하여 저장소 계정을 만들 수도 있습니다.
-
-1.  [Azure 관리 포털](http://manage.windowsazure.com)에 로그인합니다.
-
-2.  탐색 창 맨 아래쪽에서 **+새로 만들기**를 클릭합니다.
-
-    ![+새로 만들기](./media/storage-nodejs-how-to-use-table-storage/plus-new.png)
-
-3.  **저장소 계정**을 클릭한 후 **빠른 생성**을 클릭합니다.
-
-    ![빠른 생성 대화 상자](./media/storage-nodejs-how-to-use-table-storage/quick-storage.png)
-
-4.  URL에서 저장소 계정의 URI에 사용할 하위 도메인 이름을 입력합니다. 이 입력에는 3-24자의 소문자와 숫자를 사용할 수 있습니다. 이 값은 구독에 대한 Blob, 큐 또는 테이블 리소스의 주소를 지정하는 데 사용되는 URI 내의 호스트 이름이 됩니다.
-
-5.  저장소를 찾을 영역/선호도 그룹을 선택합니다. Azure 응용 프로그램에서 저장소를 사용하는 경우 응용 프로그램을 배포할 영역과 동일한 영역을 선택합니다.
-
-6.  **저장소 계정 만들기**를 클릭합니다.
-
-Node.js 응용 프로그램 만들기
-----------------------------
-
-빈 Node.js 응용 프로그램을 만듭니다. Node.js 응용 프로그램을 만드는 방법에 대한 지침은 [Node.js 응용 프로그램을 만들어 Azure 웹 사이트에 배포하기](/en-us/develop/nodejs/tutorials/create-a-website-(mac)/), [Node.js 클라우드 서비스]({localLink:2221} "Web App with Express")(Windows PowerShell 사용) 또는 [WebMatrix를 사용하는 웹 사이트](/en-us/develop/nodejs/tutorials/web-site-with-webmatrix/)를 참조하십시오.
-
-저장소에 액세스하도록 응용 프로그램 구성
-----------------------------------------
-
-Azure 저장소를 사용하려면 저장소 REST 라이브러리와 통신하는 편리한 라이브러리 집합이 포함되어 있는 Node.js Azure 패키지를 다운로드하여 사용해야 합니다.
+Azure 저장소를 사용하려면 저장소 REST 서비스와 통신하는 편리한 라이브러리 집합이 포함되어 있는 Node.js용
+Azure Storage SDK가 필요합니다.
 
 ### NPM(Node Package Manager)을 사용하여 패키지 가져오기
 
 1.  **PowerShell**(Windows), **Terminal**(Mac), **Bash**(Unix) 등과 같은 명령줄 인터페이스를 사용하여 샘플 응용 프로그램을 만든 폴더로 이동합니다.
 
-2.  명령 창에 **npm install azure**를 입력합니다. 그러면 다음과 같이 출력됩니다.
+2.  명령 창에 **npm install azure-storage**를 입력합니다. 그러면 다음과 같이 출력됩니다.
 
-        azure@0.7.5 node_modules\azure
-        ├── dateformat@1.0.2-1.2.3
-        ├── xmlbuilder@0.4.2
-        ├── node-uuid@1.2.0
-        ├── mime@1.2.9
+        azure-storage@0.1.0 node_modules\azure-storage
+        ├── extend@1.2.1
+        ├── xmlbuilder@0.4.3
+        ├── mime@1.2.11
         ├── underscore@1.4.4
-        ├── validator@1.1.1
-        ├── tunnel@0.0.2
-        ├── wns@0.5.3
+        ├── validator@3.1.0
+        ├── node-uuid@1.4.1
         ├── xml2js@0.2.7 (sax@0.5.2)
-        └── request@2.21.0 (json-stringify-safe@4.0.0, forever-agent@0.5.0, aws-sign@0.3.0, tunnel-agent@0.3.0, oauth-sign@0.3.0, qs@0.6.5, cookie-jar@0.3.0, node-uuid@1.4.0, http-signature@0.9.11, form-data@0.0.8, hawk@0.13.1)
+        └── request@2.27.0 (json-stringify-safe@5.0.0, tunnel-agent@0.3.0, aws-sign@0.3.0, forever-agent@0.5.2, qs@0.6.6, oauth-sign@0.3.0, cookie-jar@0.3.0, hawk@1.0.0, form-data@0.1.3, http-signature@0.10.0)
 
-3.  **ls** 명령을 수동으로 실행하여 **node\_modules** 폴더가 만들어졌는지 확인할 수 있습니다. 이 폴더에서 저장소에 액세스하는 데 필요한 라이브러리가 들어 있는 **azure** 패키지를 찾습니다.
+3.  **ls** 명령을 수동으로 실행하여
+    **node\_modules** 폴더가 만들어졌는지 확인할 수 있습니다. 이 폴더에서 저장소에
+    액세스하는 데 필요한 라이브러리가 들어 있는 **azure-storage** 패키지를
+    찾습니다.
 
 ### 패키지 가져오기
 
-메모장 또는 다른 텍스트 편집기를 사용하여 저장소를 사용할 응용 프로그램의 **server.js** 파일 맨 위에 다음을 추가합니다.
+메모장 또는 다른 텍스트 편집기를 사용하여 저장소를 사용할 응용 프로그램의
+**server.js** 파일 맨 위에 다음을 추가합니다.
 
-    var azure = require('azure');
+    var azure = require('azure-storage');
 
-Azure 저장소 연결 설정
-----------------------
+## <a name="setup-connection-string"> </a>Azure 저장소 연결 설정
 
-Azure 모듈은 AZURE\_STORAGE\_ACCOUNT 및 AZURE\_STORAGE\_ACCESS\_KEY 환경 변수를 읽고 Azure 저장소 계정에 연결하는 데 필요한 정보를 확인합니다. 이러한 환경 변수가 설정되어 있지 않은 경우 **TableService**를 호출할 때 계정 정보를 지정해야 합니다.
+Azure 모듈은 AZURE\_STORAGE\_ACCOUNT 및 AZURE\_STORAGE\_ACCESS\_KEY, 또는 AZURE\_STORAGE\_CONNECTION\_STRING 환경 변수를 읽고 Azure 저장소 계정에 연결하는 데 필요한 정보를 확인합니다. 이러한 환경 변수가 설정되어 있지 않은 경우 **TableService**를 호출할 때 계정 정보를 지정해야 합니다.
 
-Azure 클라우드 서비스의 구성 파일에서 환경 변수를 설정하는 방법에 대한 예제는 [Node.js 클라우드 서비스 및 저장소](/en-us/develop/nodejs/tutorials/web-app-with-storage/)를 참조하십시오.
+Azure 웹 사이트의 관리 포털에서 환경 변수를 설정하는 방법에 대한 예는 [Node.js 웹 응용 프로그램 및 저장소][]를 참조하세요.
 
-Azure 웹 사이트의 관리 포털에서 환경 변수를 설정하는 방법에 대한 예제는 [Node.js 웹 응용 프로그램 및 저장소](/en-us/develop/nodejs/tutorials/web-site-with-storage/)를 참조하십시오.
+## <a name="create-table"> </a>테이블을 만드는 방법
 
-테이블을 만드는 방법
---------------------
+다음 코드는 **TableService** 개체를 만든 다음 이 개체를 사용하여
+새 테이블을 만듭니다. **server.js**의 위쪽에 다음을 추가합니다.
 
-다음 코드는 **TableService** 개체를 만든 다음 이 개체를 사용하여 새 테이블을 만듭니다. **server.js**의 위쪽에 다음을 추가합니다.
+    var tableSvc = azure.createTableService();
 
-    var tableService = azure.createTableService();
+**createTableIfNotExists**를 호출하면 지정된 이름의 테이블이 없는 경우 새 테이블을
+만듭니다. 다음 예제에서는 'mytable'이라는 새 테이블(없는 경우)을 만듭니다.
 
-**createTableIfNotExists**를 호출하면 지정된 테이블(있는 경우)이 반환되거나 새 테이블이 지정된 이름으로 만들어집니다(테이블이 없는 경우). 다음 예제에서는 'mytable'이라는 새 테이블(없는 경우)을 만듭니다.
-
-    tableService.createTableIfNotExists('mytable', function(error){
-        if (!error) {
+    tableSvc.createTableIfNotExists('mytable', function(error, result, response){
+        if(!error){
             // Table exists or created
         }
     });
+
+`result` 값은 새 테이블이 만들어질 경우 `true`이고 테이블이 이미 있을 경우 `false`입니다. `response` 값에는 요청에 대한 정보가 포함됩니다.
 
 ### 필터
 
 **TableService**를 사용하여 수행되는 작업에 선택적 필터링 작업을 적용할 수 있습니다. 필터링 작업은 로깅, 자동으로 다시 시도 등을 포함할 수 있습니다. 필터는 서명을 사용하여 메서드를 구현하는 개체입니다.
 
-     function handle (requestOptions, next)
+        function handle (requestOptions, next)
 
 요청 옵션에 대한 전처리를 수행한 후 메서드는 다음 서명을 사용하여 콜백을 전달하는 "next"를 호출해야 합니다.
 
-     function (returnObject, finalCallback, next)
+        function (returnObject, finalCallback, next)
 
 이 콜백에서 returnObject(서버에 요청 응답 반환)를 처리한 후 콜백은 next(있는 경우)를 호출하여 다른 필터를 계속 처리하거나 finalCallback을 호출하여 서비스 호출을 종료해야 합니다.
 
 Azure SDK for Node.js에는 재시도 논리를 구현하는 두 필터 **ExponentialRetryPolicyFilter** 및 **LinearRetryPolicyFilter**가 포함되어 있습니다. 다음은 **ExponentialRetryPolicyFilter**를 사용하는 **TableService** 개체를 만듭니다.
 
     var retryOperations = new azure.ExponentialRetryPolicyFilter();
-    var tableService = azure.createTableService().withFilter(retryOperations);
+    var tableSvc = azure.createTableService().withFilter(retryOperations);
 
-테이블에 엔터티를 추가하는 방법
--------------------------------
+## <a name="add-entity"> </a>테이블에 엔터티를 추가하는 방법
 
-엔터티를 추가하려면 먼저 엔터티 속성과 데이터 형식을 정의하는 개체를 만듭니다. 모든 엔터티에 대해 **PartitionKey** 및 **RowKey**를 지정해야 합니다. 이 두 키는 엔터티의 고유한 식별자이며, 다른 속성보다 훨씬 더 빠르게 쿼리할 수 있는 값입니다. 시스템에서는 **PartitionKey**를 사용하여 여러 저장소 노드를 통해 테이블의 엔터티를 자동으로 분산합니다. **PartitionKey**가 동일한 엔터티는 동일한 노드에 저장됩니다. **RowKey**는 엔터티가 속하는 파티션 내에서 엔터티의 고유한 ID입니다. 테이블에 엔터티를 추가하려면 엔터티 개체를 **insertEntity** 메서드에 전달합니다.
+엔터티를 추가하려면 먼저 엔터티 속성을 정의하는 개체를
+만듭니다. 모든 엔터티에는 엔터티의 고유 식별자인 **PartitionKey**와 **RowKey**를 포함해야 합니다.
 
-    var task = {
-        PartitionKey : 'hometasks'
-        , RowKey : '1'
-        , Description : 'Take out the trash'
-        , DueDate: new Date(2012, 6, 20)
+-   **PartitionKey** - 엔터티가 저장된 파티션을 확인합니다.
+
+-   **RowKey** - 파티션에 있는 엔터티를 고유하게 식별합니다.
+
+**PartitionKey**와 **RowKey**는 모두 문자열 값이어야 합니다. 자세한 내용은 [테이블 서비스 데이터 모델 이해][]를 참조하세요.
+
+다음은 엔터티를 정의하는 경우의 예입니다. **dueDate**는 **Edm.DateTime** 유형으로 정의됩니다. 유형 지정은 선택적이며 지정하지 않을 경우 유형이 유추됩니다.
+
+    var task = { 
+      PartitionKey: {'_':'hometasks'},
+      RowKey: {'_': '1'},
+      description: {'_':'take out the trash'},
+      dueDate: {'_':new Date(2015, 6, 20), '$':'Edm.DateTime'}
     };
-    tableService.insertEntity('mytable', task, function(error){
-        if (!error) {
+
+> [WACOM.NOTE] 각 레코드에는 엔터티가 삽입되거나 업데이트될 경우 Azure에서 설정되는 **Timestamp** 필드도 있습니다.
+
+**entityGenerator**를 사용하여 엔터티를 만들 수도 있습니다. 다음 예에서는 **entityGenerator**를 사용하여 같은 작업 엔터티를 만듭니다.
+
+    var entGen = azure.TableUtilities.entityGenerator;
+    var task = {
+      PartitionKey: entGen.String('hometasks'),
+      RowKey: entGen.String('1'),
+      description: entGen.String('take out the trash'),
+      dueDate: entGen.DateTime(new Date(Date.UTC(2015, 6, 20))),
+    };
+
+테이블에 엔터티를 추가하려면 엔터티 개체를
+**insertEntity** 메서드에 전달합니다.
+
+    tableSvc.insertEntity('mytable',task, function (error, result, response) {
+        if(!error){
             // Entity inserted
         }
     });
 
-엔터티를 업데이트하는 방법
---------------------------
+작업에 성공할 경우 `result` 값에는 삽입한 레코드의 [ETag][]가 포함되고 `response` 값에는 작업에 대한 정보가 포함됩니다.
+
+> [WACOM.NOTE] 기본적으로 **insertEntity**는 삽입된 엔터티를 `response` 정보의 일부로 반환하지 않습니다. 이 엔터티에서 다른 작업을 수행할 계획이거나 정보를 캐시하고 싶은 경우에는 `result` 값의 일부로 반환하면 유용합니다. 다음과 같이 **echoContent**를 사용하도록 설정하면 됩니다.
+>
+> `tableSvc.insertEntity('mytable', task, {echoContent: true}, function (error, result, response) {...}`
+
+## <a name="update-entity"> </a>엔터티를 업데이트하는 방법
 
 다음과 같은 여러 메서드를 사용하여 기존 엔터티를 업데이트할 수 있습니다.
 
@@ -187,154 +174,275 @@ Azure SDK for Node.js에는 재시도 논리를 구현하는 두 필터 **Expone
 
 다음 예제에서는 **updateEntity**를 사용하여 엔터티를 업데이트하는 방법을 보여 줍니다.
 
-    var task = {
-        PartitionKey : 'hometasks'
-        , RowKey : '1'
-        , Description : 'Wash Dishes'
-    }
-    tableService.updateEntity('mytable', task, function(error){
-        if (!error) {
-            // Entity has been updated
-        }
+    tableSvc.updateEntity('mytable', updatedTask, function(error, result, response){
+      if(!error) {
+        // Entity updated
+      }
     });
 
+> [WACOM.NOTE] 기본적으로는 엔터티를 업데이트할 때 업데이트할 데이터를 이전에 다른 프로세서에서 수정했는지 확인하지 않습니다. 동시 업데이트를 지원하려면:
+>
+> 1.  업데이트할 개체의 ETag를 가져옵니다. 모든 엔터티 관련 작업에서 `response` 의 일부로 반환되며 `response['.metadata'].etag`를 통해 검색할 수 있습니다.
+>
+> 2.  엔터티에서 업데이트 작업을 수행할 때 이전에 검색한 ETag 정보를 새 엔터티에 추가합니다. 예를 들면 다음과 같습니다.
+>
+>     `entity2['.metadata'].etag = currentEtag;`
+>
+> 3.  업데이트 작업을 수행합니다. ETag 값을 검색한 후에 응용 프로그램의 다른 인스턴스 등에서 엔터티가 수정된 경우에는 요청에 지정된 업데이트 조건이 충족되지 않았다는 내용의 `error`가 반환됩니다.
+>
 **updateEntity** 및 **mergeEntity**를 사용할 때 업데이트 중인 엔터티가 없는 경우 업데이트 작업이 실패합니다. 따라서 엔터티의 존재 여부에 상관없이 엔터티를 저장하려면 **insertOrReplaceEntity** 또는 **insertOrMergeEntity**를 대신 사용해야 합니다.
 
-엔터티 그룹 작업 방법
----------------------
+`result`값에는 업데이트 작업이 성공할 경우 업데이트된 엔터티의 **Etag**가 포함됩니다.
 
-서버에서 원자성 처리를 수행하도록 여러 작업을 일괄적으로 제출하는 것이 좋은 경우도 있습니다. 이렇게 하려면 **TableService**에서 **beginBatch** 메서드를 사용한 다음 평상시처럼 여러 작업을 호출합니다. 이러한 연산자의 콜백 함수가 작업을 서버에 제출하지 않고 일괄적으로 처리하도록 지정한다는 점만 다릅니다. 일괄 제출하려면 **commitBatch**를 호출합니다. 이 메서드에 제공되는 콜백은 전체 배치가 성공적으로 제출되었는지 여부를 나타냅니다. 다음 예제에서는 두 엔터티를 일괄적으로 제출하는 방법을 보여 줍니다.
+## <a name="change-entities"> </a>엔터티 그룹 작업 방법
 
-    var tasks=[
-        {
-            PartitionKey : 'hometasks'
-            , RowKey : '1'
-            , Description : 'Take out the trash.'
-            , DueDate : new Date(2012, 6, 20)
-        }
-        , {
-            PartitionKey : 'hometasks'
-            , RowKey : '2'
-            , Description : 'Wash the dishes.'
-            , DueDate : new Date(2012, 6, 20)
-        }
-    ]
-    tableService.beginBatch();
-    var async=require('async');
+서버에서 원자성 처리를 수행하도록 여러 작업을 일괄적으로 제출하는
+것이 좋은 경우도 있습니다. 그러려면
+**TableBatch** 클래스를 사용하여 배치를 만든 다음 **TableService**의 **executeBatch** 메서드를 사용하여 일괄 처리 작업을 수행합니다.
 
-    async.forEach(tasks
-        , function taskIterator(task, callback){
-            tableService.insertEntity('mytable', task, function(error){
-                if (!error) {
-                    // Entity inserted
-                    callback(null);
-                } else {
-                    callback(error);
-                }
-            });
-        }
-        , function(error){
-            if (!error) {
-                // All inserts completed
-                tableService.commitBatch(function(error){
-                    if (!error) {
-                        // Batch successfully commited
-                    }
-                });
-            }
-        });
+다음 예제에서는 두 엔터티를 일괄적으로 제출하는 방법을 보여 줍니다.
 
-**참고**
+    var task1 = { 
+      PartitionKey: {'_':'hometasks'},
+      RowKey: {'_': '1'},
+      description: {'_':'Take out the trash'},
+      dueDate: {'_':new Date(2015, 6, 20)}
+    };
+    var task2 = { 
+      PartitionKey: {'_':'hometasks'},
+      RowKey: {'_': '2'},
+      description: {'_':'Wash the dishes'},
+      dueDate: {'_':new Date(2015, 6, 20)}
+    };
 
-위 예제에서는 'async' 모듈을 사용하여 **commitBatch**를 호출하기 전에 모든 엔터티를 제출하도록 합니다.
+    var batch = new azure.TableBatch();
 
-엔터티를 쿼리하는 방법
-----------------------
+    batch.insertEntity(task1, {echoContent: true});
+    batch.insertEntity(task2, {echoContent: true});
 
-테이블에서 엔터티를 쿼리하려면 **PartitionKey** 및 **RowKey**를 전달하여 **queryEntity** 메서드를 사용합니다.
-
-    tableService.queryEntity('mytable'
-        , 'hometasks'
-        , '1'
-        , function(error, entity){
-            if (!error) {
-                // entity contains the returned entity
-            }
-        });
-
-엔터티 집합을 쿼리하는 방법
----------------------------
-
-테이블을 쿼리하려면 **TableQuery** 개체를 사용하여 **select**, **from**, **where**(**wherePartitionKey**, **whereRowKey**, **whereNextPartitionKey**, **whereNextRowKey** 등과 같은 편의 절 포함), **and**, **or** 및 **top** 절을 사용하여 쿼리 식을 작성합니다. 그런 다음 쿼리 식을 **queryEntities** 메서드에 전달합니다. 콜백 내의 **for** 루프에서 결과를 사용할 수 있습니다.
-
-이 예제에서는 **PartitionKey**를 기반으로 Seattle에서의 모든 작업을 찾습니다.
-
-    var query = azure.TableQuery
-        .select()
-        .from('mytable')
-        .where('PartitionKey eq 
-        ', 'hometasks');
-    tableService.queryEntities(query, function(error, entities){
-        if (!error) {
-            //entities contains an array of entities
-        }
+    tableSvc.executeBatch('mytable', batch, function (error, result, response) {
+      if(!error) {
+        // Batch completed
+      }
     });
 
-엔터티 속성 하위 집합을 쿼리하는 방법
--------------------------------------
+일괄 처리 작업에 성공할 경우 `result` 값에는 일괄 처리의 각 작업에 대한 정보가 포함됩니다.
 
-테이블 쿼리에서는 엔터티에서 일부 속성만 검색할 수 있습니다. *프로젝션*이라고 하는 이 기술은 특히 대역폭을 줄이며 큰 엔터티에 대한 쿼리 성능을 향상시킬 수 있습니다. **select** 절을 사용하고 가져올 속성의 이름을 클라이언트에 전달합니다.
+### 일괄 처리 작업
 
-다음 코드의 쿼리에서는 테이블에서 엔터티에 대한 **설명**을 반환합니다. 프로그램 출력에서 **DueDate**는 서버에서 전송되지 않았기 때문에 **undefined**로 표시됩니다.
+배치에 추가된 작업은 `operations` 속성을 보고 검사할 수 있습니다. 작업에 다음 메서드를 사용할 수도 있습니다.
 
-**참고**
+-   **clear** - 배치에서 모든 작업을 지웁니다.
 
-다음 코드 조작은 클라우드 저장소 서비스에 대해서만 작동합니다. **select** 키워드는 저장소 에뮬레이터에서 지원되지 않습니다.
+-   **getOperations** - 배치에서 작업을 가져옵니다.
 
-    var query = azure.TableQuery
-        .select('Description')
-        .from('mytable')
-        .where('PartitionKey eq 
-        ', 'hometasks');
-    tableService.queryEntities(query, function(error, entities){
-        if (!error) {
-            //entities contains an array of entities
-        }
+-   **hasOperations** - 배치에 작업이 포함되어 있으면 true를 반환합니다.
+
+-   **removeOperations** - 작업을 제거합니다.
+
+-   **size** - 배치에 있는 작업의 수를 반환합니다.
+
+## <a name="query-for-entity"> </a>엔터티를 검색하는 방법
+
+**PartitionKey**와 **RowKey**를 기반으로 특정 엔터티를 반환하려면 **retrieveEntity** 메서드를 사용합니다.
+
+    tableSvc.retrieveEntity('mytable', 'hometasks', '1', function(error, result, response){
+      if(!error){
+        // result contains the entity
+      }
     });
 
-엔터티를 삭제하는 방법
-----------------------
+이 작업이 완료되면 `result` 값에 엔터티가 포함됩니다.
 
-파티션 및 행 키를 사용하여 엔터티를 삭제할 수 있습니다. 이 예제에서 **task1** 개체는 삭제할 엔터티의 **RowKey** 및 **PartitionKey** 값을 포함합니다. 그런 다음 개체는 **deleteEntity** 메서드에 전달됩니다.
+## <a name="query-set-entities"> </a>엔터티 집합을 쿼리하는 방법
 
-    tableService.deleteEntity('mytable'
-        , {
-            PartitionKey : 'hometasks'
-            , RowKey : '1'
-        }
-        , function(error){
-            if (!error) {
-                // Entity deleted
-            }
-        });
+테이블을 쿼리하려면 **TableQuery** 개체와 다음 절을 사용하여
+쿼리 식을 구성합니다.
 
-테이블을 삭제하는 방법
-----------------------
+-   **select** - 쿼리에서 반환할 필드입니다.
+
+-   **where** - where 절입니다.
+
+    -   **and** - `and` where 조건입니다.
+
+    -   **or** - `or` where 조건입니다.
+
+-   **top** - 가져올 항목의 수입니다.
+
+다음 예에서는 PartitionKey가 'hometasks'인 상위 5개의 항목을 반환하는 쿼리를 구성합니다.
+
+    var query = new azure.TableQuery()
+      .top(5)
+      .where('PartitionKey eq ?', 'hometasks');
+
+**select**가 사용되지 않았기 때문에 모든 필드가 반환됩니다. 테이블에 대해 쿼리를 수행하려면 **queryEntities**를 사용합니다. 다음 예에서는 이 쿼리를 사용하여 'mytable'에서 엔터티를 반환합니다.
+
+    tableSvc.queryEntities('mytable',query, null, function(error, result, response) {
+      if(!error) {
+        // query was successful
+      }
+    });
+
+성공할 경우 `result.entries` 값에는 쿼리와 일치하는 엔터티의 배열이 포함됩니다. 쿼리에서 엔터티를 모두 반환할 수 없는 경우에는 `result.continuationToken`을 **queryEntities**의 세 번째 매개 변수로 사용하여 더 많은 결과를 검색할 수 있습니다. 초기 쿼리의 경우에는 두 번째 매개 변수가 *null*이어야 합니다.
+
+### 엔터티 속성 하위 집합을 쿼리하는 방법
+
+테이블에 대한 쿼리 하나로는 엔터티에서 몇 개의 필드만 검색할 수 있습니다.
+이렇게 해서 대역폭을 줄이고 특히 큰 엔터티에서 쿼리 성능을 높일 수 있습니다. **select** 절을 사용하여 반환할 필드의 이름을 전달합니다. 예를 들어 다음 쿼리에서는 **description** 및 **dueDate** 필드만 반환합니다.
+
+    var query = new azure.TableQuery()
+      .select(['description', 'dueDate'])
+      .top(5)
+      .where('PartitionKey eq ?', 'hometasks');
+
+## <a name="delete-entity"> </a>엔터티를 삭제하는 방법
+
+파티션 및 행 키를 사용하여 엔터티를 삭제할 수 있습니다. 이 예에서
+**task1** 개체는 삭제할 엔터티의 **RowKey** 및
+**PartitionKey** 값을 포함합니다. 그런 다음 개체가
+**deleteEntity** 메서드에 전달됩니다.
+
+    var task = { 
+      PartitionKey: {'_':'hometasks'},
+      RowKey: {'_': '1'}
+    };
+
+    tableSvc.deleteEntity('mytable', task, function(error, response){
+      if(!error) {
+        // Entity deleted
+      }
+    });
+
+> [WACOM.NOTE] 항목을 삭제할 때 항목이 다른 프로세스에서 수정되지 않았는지 확인할 수 있도록 ETag를 사용하는 것이 좋을 수 있습니다. ETag 사용에 대한 자세한 내용은 [방법: 엔터티 업데이트][]를 참조하세요.
+
+## <a name="delete-table"> </a>테이블을 삭제하는 방법
 
 다음 코드에서는 저장소 계정에서 테이블을 삭제합니다.
 
-    tableService.deleteTable('mytable', function(error){
-        if (!error) {
+    tableSvc.deleteTable('mytable', function(error, response){
+        if(!error){
             // Table deleted
         }
     });
 
-다음 단계
----------
+테이블이 있는지 확실하지 않은 경우에는 **deleteTableIfExists**를 사용합니다.
 
-이제 테이블 저장소의 기본 사항을 배웠으므로 다음 링크를 따라 좀 더 복잡한 저장소 작업을 수행하는 방법을 알아보십시오.
+## <a name="sas"></a>방법: 공유 액세스 서명 작업
 
--   다음 MSDN 참조를 확인하십시오. [Azure에 데이터 저장 및 액세스](http://msdn.microsoft.com/ko-kr/library/windowsazure/gg433040.aspx)
--   [Azure 저장소 팀 블로그](http://blogs.msdn.com/b/windowsazurestorage/)(영문)를 방문하십시오.
--   GitHub에서 [Azure SDK for Node](https://github.com/WindowsAzure/azure-sdk-for-node) 리포지토리를 방문하십시오.
+SAS(공유 액세스 서명)는 저장소 계정 이름이나 키를 제공하지 않으면서 테이블에 세분화된 액세스 권한을 안전하게 제공하는 방법입니다. SAS는 모바일 앱에서 레코드를 쿼리하는 경우와 같이 데이터에 대해 제한된 액세스를 제공하는 경우에 자주 사용합니다.
 
+클라우드 기반 서비스와 같이 신뢰할 수 있는 응용 프로그램에서는 **TableService**의 **generateSharedAccessSignature**를 사용하여 SAS를 생성하고 신뢰할 수 없거나 신뢰가 약한 응용 프로그램에 제공합니다. 예를 들면 모바일 앱이 여기에 해당됩니다. SAS는 SAS가 유효한 시작 및 종료 날짜와 SAS 소유자에게 부여되는 액세스 수준을 설명하는 정책을 사용하여 생성됩니다.
+
+다음 예에서는 SAS 소유자가 테이블을 쿼리('r')할 수 있도록 허용하며 만든 후 100분이 지나면 만료되는 새 공유 액세스 정책을 생성합니다.
+
+    var startDate = new Date();
+    var expiryDate = new Date(startDate);
+    expiryDate.setMinutes(startDate.getMinutes() + 100);
+    startDate.setMinutes(startDate.getMinutes() - 100);
+        
+    var sharedAccessPolicy = {
+      AccessPolicy: {
+        Permissions: azure.TableUtilities.SharedAccessPermissions.QUERY,
+        Start: startDate,
+        Expiry: expiryDate
+      },
+    };
+
+    var tableSAS = tableSvc.generateSharedAccessSignature('mytable', sharedAccessPolicy);
+    var host = tableSvc.host;
+
+SAS 소유자가 테이블에 액세스할 때 필요하므로 호스트 정보도 제공해야 합니다.
+
+그러고 나면 클라이언트 응용 프로그램에서 **TableServiceWithSAS**에 SAS를 사용하여 테이블에 대한 작업을 수행합니다. 다음 예에서는 테이블을 연결하고 쿼리를 수행합니다.
+
+    var sharedTableService = azure.createTableServiceWithSas(host, tableSAS);
+    var query = azure.TableQuery()
+      .where('PartitionKey eq ?', 'hometasks');
+        
+    sharedTableService.queryEntities(query, null, function(error, result, response) {
+      if(!error) {
+        // result contains the entities
+      }
+    });
+
+SAS가 쿼리 액세스만으로 생성되었기 때문에 엔터티를 삽입, 업데이트 또는 삭제하려고 하면 오류가 반환됩니다.
+
+### 액세스 제어 목록
+
+ACL(액세스 제어 목록)을 사용하여 SAS에 액세스 정책을 설정할 수도 있습니다. 이 방법은 여러 클라이언트에서 테이블에 액세스하게 하면서 각 클라이언트에 서로 다른 액세스 정책을 제공하려는 경우에 유용합니다.
+
+ACL은 각 정책에 ID가 연결된 액세스 정책 배열을 사용하여 구현됩니다. 다음 예에서는 'user1'와 'user2'에 대해 하나씩, 두 개의 정책을 정의합니다.
+
+    var sharedAccessPolicy = [
+      {
+        AccessPolicy: {
+          Permissions: azure.TableUtilities.SharedAccessPermissions.QUERY,
+          Start: startDate,
+          Expiry: expiryDate
+        },
+        Id: 'user1'
+      },
+      {
+        AccessPolicy: {
+          Permissions: azure.TableUtilities.SharedAccessPermissions.ADD,
+          Start: startDate,
+          Expiry: expiryDate
+        },
+        Id: 'user2'
+      }
+    ];
+
+다음 예에서는 **hometasks** 테이블의 현재 ACL을 가져온 다음 **setTableAcl**을 사용하여 새 정책을 추가합니다. 이 접근 방식을 통해 다음을 수행할 수 있습니다.
+
+    tableSvc.getTableAcl('hometasks', function(error, result, response) {
+      if(!error){
+        //push the new policy into signedIdentifiers
+        result.signedIdentifiers.push(sharedAccessPolicy);
+        tableSvc.setTableAcl('hometasks', result, function(error, result, response){
+          if(!error){
+            // ACL set
+          }
+        });
+      }
+    });
+
+ACL이 설정되고 나면 정책의 ID를 기반으로 SAS를 만들 수 있습니다. 다음 예에서는 'user2'에 대해 새 SAS를 만듭니다.
+
+    tableSAS = tableSvc.generateSharedAccessSignature('hometasks', { Id: 'user2' });
+
+## <a name="next-steps"> </a>다음 단계
+
+이제 테이블 저장소의 기본 사항을 배웠으므로 다음 링크를 따라 좀 더 복잡한 저장소
+작업을 수행하는 방법을 알아보세요.
+
+-   다음 MSDN 참조를 확인하세요. [Azure에 데이터 저장 및 액세스][]
+-   [Azure 저장소 팀 블로그][](영문)를 방문하세요.
+-   GitHub에서 [Azure Storage SDK for Node][] 리포지토리를 방문하세요.
+
+  [다음 단계]: #next-steps
+  [테이블 서비스 정의]: #what-is
+  [개념]: #concepts
+  [Azure 저장소 계정 만들기]: #create-account
+  [Node.js 응용 프로그램 만들기]: #create-app
+  [저장소에 액세스하도록 응용 프로그램 구성]: #configure-access
+  [Azure 저장소 연결 설정]: #setup-connection-string
+  [방법: 테이블 만들기]: #create-table
+  [방법: 테이블에 엔터티 추가]: #add-entity
+  [방법: 엔터티 업데이트]: #update-entity
+  [방법: 엔터티 그룹 작업]: #change-entities
+  [방법: 항목 검색]: #query-for-entity
+  [방법: 엔터티 집합 쿼리]: #query-set-entities
+  [방법: 엔터티 삭제]: #delete-entity
+  [방법: 테이블 삭제]: #delete-table
+  [방법: 공유 액세스 서명 작업]: #sas
+  [howto-table-storage]: ../includes/howto-table-storage.md
+  [create-storage-account]: ../includes/create-storage-account.md
+  [Node.js 응용 프로그램을 만들어 Azure 웹 사이트에 배포하기]: /en-us/documentation/articles/web-sites-nodejs-develop-deploy-mac/
+  [Node.js 클라우드 서비스]: /en-us/documentation/articles/cloud-services-nodejs-develop-deploy-app/
+  [WebMatrix를 사용하는 웹 사이트]: /en-us/documentation/articles/web-sites-nodejs-use-webmatrix/
+  [Node.js 웹 응용 프로그램 및 저장소]: /en-us/documentation/articles/storage-nodejs-use-table-storage-web-site/
+  [테이블 서비스 데이터 모델 이해]: http://msdn.microsoft.com/library/azure/dd179338.aspx
+  [ETag]: http://en.wikipedia.org/wiki/HTTP_ETag
+  [Azure에 데이터 저장 및 액세스]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
+  [Azure 저장소 팀 블로그]: http://blogs.msdn.com/b/windowsazurestorage/
+  [Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node
