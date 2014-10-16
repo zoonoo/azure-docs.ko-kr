@@ -1,0 +1,15 @@
+### 변경된 내용
+
+###### 참조 추가됨
+
+Azure 저장소 NuGet 패키지가 Visual Studio 프로젝트에 추가되었습니다.
+이 패키지는 Microsoft.Data.Edm, Microsoft.Data.OData, Microsoft.Data.Services.Client, Microsoft.WindowsAzure.Configuration, Microsoft.WindowsAzure.Storage, Newtonsoft.Json, System.Data, System.Spatial 등과 같은 .NET 참조를 추가합니다.
+
+###### 추가된 Azure 저장소에 대한 연결 문자열
+
+선택한 저장소 계정의 연결 문자열과 키를 포함하는 요소가 생성되었습니다. 다음 파일이 수정되었습니다.
+
+-   ServiceDefinition.csdef
+-   ServiceConfiguration.Cloud.cscfg
+-   ServiceConfiguration.Local.cscfg
+
