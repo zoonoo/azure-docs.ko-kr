@@ -82,6 +82,6 @@ del 메서드를 사용하여 데이터 테이블의 행을 삭제합니다. 반
         items.splice(items.indexOf(todoItem), 1);
     });
 
-  [인증 시작]: http://azure.microsoft.com/en-us/documentation/articles/mobile-services-html-get-started-users/
+  [인증 시작]: http://azure.microsoft.com/ko-kr/documentation/articles/mobile-services-html-get-started-users/
   [Promise]: 
   [query]: (http://msdn.microsoft.com/library/azure/jj613353.aspx)

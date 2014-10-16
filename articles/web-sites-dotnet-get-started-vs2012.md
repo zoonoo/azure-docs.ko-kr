@@ -254,5 +254,5 @@ Azure 웹 사이트 대신 Azure 클라우드 서비스에서 응용 프로그�
   [Visual Studio에서 Azure 웹 사이트 문제 해결]: /en-us/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/
   [Azure 웹 사이트에 멤버 자격, OAuth 및 SQL 데이터베이스가 포함된 보안 ASP.NET MVC 앱 배포]: /en-us/develop/net/tutorials/web-site-with-sql-database/
   [Azure 실행 모델]: /en-us/develop/net/fundamentals/compute/
-  [Azure 웹 사이트, 클라우드 서비스 및 가상 컴퓨터 비교]: http://azure.microsoft.com/en-us/documentation/articles/choose-web-site-cloud-service-vm/
+  [Azure 웹 사이트, 클라우드 서비스 및 가상 컴퓨터 비교]: http://azure.microsoft.com/ko-kr/documentation/articles/choose-web-site-cloud-service-vm/
   [저장소 테이블, 큐 및 Blob을 사용한 .NET 다중 계층 응용 프로그램]: /en-us/develop/net/tutorials/multi-tier-web-site/1-overview/

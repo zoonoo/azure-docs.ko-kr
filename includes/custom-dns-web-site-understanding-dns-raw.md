@@ -54,5 +54,5 @@ Azure 웹 사이트에서 A 레코드를 사용하려면 먼저 다음 CNAME 레
   [IETF 도메인 이름 - 구현 및 사양]: http://tools.ietf.org/html/rfc1035
   [Azure 관리 포털]: https://manage.windowsazure.com
   []: ./media/custom-dns-web-site/dncmntask-cname-6.png
-  [웹 사이트 크기를 조정하는 방법]: http://www.windowsazure.com/en-us/documentation/articles/web-sites-scale/
+  [웹 사이트 크기를 조정하는 방법]: http://www.windowsazure.com/ko-kr/documentation/articles/web-sites-scale/
   [1]: ./media/custom-dns-web-site/managecustomdomains.png

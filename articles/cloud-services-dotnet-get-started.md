@@ -795,7 +795,7 @@ Azure 저장소 모범 사례 및 패턴에 대한 비디오 소개는 [Microsof
 -   [.NET에서 Blob 저장소를 사용하는 방법][]
 -   [.NET에서 큐 저장소를 사용하는 방법][]
 
-  [Azure 클라우드 서비스]: /en-us/documentation/articles/fundamentals-application-models/#CloudServices
+  [Azure 클라우드 서비스]: /ko-kr/documentation/articles/fundamentals-application-models/#CloudServices
   [Azure SQL 데이터베이스]: http://msdn.microsoft.com/library/azure/ee336279
   [Azure Blob 서비스]: http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage
   [Azure 큐 서비스]: http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern
@@ -803,9 +803,9 @@ Azure 저장소 모범 사례 및 패턴에 대한 비디오 소개는 [Microsof
   [광고 목록]: ./media/cloud-services-dotnet-get-started/list.png
   [Azure 웹 사이트]: /en-us/services/web-sites/
   [WebJobs]: http://go.microsoft.com/fwlink/?LinkId=390226
-  [Azure WebJobs SDK 시작]: /en-us/documentation/articles/websites-dotnet-webjobs-sdk-get-started/
-  [Azure 웹 사이트, 클라우드 서비스 및 가상 컴퓨터 비교]: http://azure.microsoft.com/en-us/documentation/articles/choose-web-site-cloud-service-vm/
-  [Azure 클라우드 서비스에 대한 기본 개념]: http://azure.microsoft.com/en-us/documentation/articles/fundamentals-application-models/#CloudServices
+  [Azure WebJobs SDK 시작]: /ko-kr/documentation/articles/websites-dotnet-webjobs-sdk-get-started/
+  [Azure 웹 사이트, 클라우드 서비스 및 가상 컴퓨터 비교]: http://azure.microsoft.com/ko-kr/documentation/articles/choose-web-site-cloud-service-vm/
+  [Azure 클라우드 서비스에 대한 기본 개념]: http://azure.microsoft.com/ko-kr/documentation/articles/fundamentals-application-models/#CloudServices
   [ASP.NET MVC]: http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started
   [웹 양식]: http://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview
   [MSDN 구독자 혜택을 활성화]: /en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A55E3C668
@@ -828,7 +828,7 @@ Azure 저장소 모범 사례 및 패턴에 대한 비디오 소개는 [Microsof
   [새 클라우드 서비스]: ./media/cloud-services-dotnet-get-started/newcs.png
   [새 SQL 데이터베이스]: ./media/cloud-services-dotnet-get-started/newdb.png
   [Azure에서 선호도 그룹을 만드는 방법]: http://msdn.microsoft.com/en-us/library/jj156209.aspx
-  [저장소 계정을 관리하는 방법]: /en-us/documentation/articles/storage-manage-storage-account/
+  [저장소 계정을 관리하는 방법]: /ko-kr/documentation/articles/storage-manage-storage-account/
   [새 저장소 계정]: ./media/cloud-services-dotnet-get-started/newstorage.png
   [Web.config 변환]: http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/web-config-transformations
   [중요한 데이터를 공개 소스 코드 리포지토리에 저장하지 마세요]: http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#secrets
@@ -862,12 +862,12 @@ Azure 저장소 모범 사례 및 패턴에 대한 비디오 소개는 [Microsof
   [EF 연결 복원]: http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application
   [PhluffyFotos]: http://code.msdn.microsoft.com/PhluffyFotos-Sample-7ecffd31
   [테이블, 큐 및 Blob이 포함된 Azure 클라우드 서비스 다중 계층 응용 프로그램]: http://code.msdn.microsoft.com/windowsazure/Windows-Azure-Multi-Tier-eadceb36
-  [단계별 자습서 시리즈]: http://azure.microsoft.com/en-us/documentation/articles/cloud-services-dotnet-multi-tier-app-storage-1-overview/
+  [단계별 자습서 시리즈]: http://azure.microsoft.com/ko-kr/documentation/articles/cloud-services-dotnet-multi-tier-app-storage-1-overview/
   [Windows Azure의 클라우드 서비스 기본 사항]: http://code.msdn.microsoft.com/Cloud-Service-Fundamentals-4ca72649
   [Windows Azure에서 실제 클라우드 앱 빌드]: http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction
   [Microsoft Azure 저장소 – 새로운 기능, 모범 사례 및 패턴]: http://channel9.msdn.com/Events/Build/2014/3-628
   [Azure 클라우드 서비스 1부: 소개]: http://justazure.com/microsoft-azure-cloud-services-part-1-introduction/
-  [3]: /en-us/documentation/services/cloud-services/
-  [Azure 저장소]: /en-us/documentation/services/storage/
-  [.NET에서 Blob 저장소를 사용하는 방법]: /en-us/documentation/articles/storage-dotnet-how-to-use-blobs/
-  [.NET에서 큐 저장소를 사용하는 방법]: /en-us/documentation/articles/storage-dotnet-how-to-use-queues/
+  [3]: /ko-kr/documentation/services/cloud-services/
+  [Azure 저장소]: /ko-kr/documentation/services/storage/
+  [.NET에서 Blob 저장소를 사용하는 방법]: /ko-kr/documentation/articles/storage-dotnet-how-to-use-blobs/
+  [.NET에서 큐 저장소를 사용하는 방법]: /ko-kr/documentation/articles/storage-dotnet-how-to-use-queues/

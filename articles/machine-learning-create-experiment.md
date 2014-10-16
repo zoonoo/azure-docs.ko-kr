@@ -192,4 +192,4 @@
   [모델 점수 매기기 모듈]: ./media/machine-learning-create-experiment/screen8a.png
   [평가 결과]: ./media/machine-learning-create-experiment/screen9.png
   [실험 완료]: ./media/machine-learning-create-experiment/screen10.png
-  [연습: Azure Machine Learning을 사용한 예측 솔루션 개발]: http://azure.microsoft.com/en-us/documentation/articles/machine-learning-walkthrough-develop-predictive-solution/
+  [연습: Azure Machine Learning을 사용한 예측 솔루션 개발]: http://azure.microsoft.com/ko-kr/documentation/articles/machine-learning-walkthrough-develop-predictive-solution/

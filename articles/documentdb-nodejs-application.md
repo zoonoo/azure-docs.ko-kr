@@ -507,7 +507,7 @@ Visual Studio용 Node.js 도구가 설치되어 있으면 몇 개의 단계만 �
   [Git]: http://git-scm.com/
   [Visual Studio 2013]: http://msdn.microsoft.com/en-us/vstudio/cc136611.aspx
   [Visual Studio용 Node.js 도구]: https://nodejstools.codeplex.com/
-  [Azure CLI]: http://azure.microsoft.com/en-us/documentation/articles/xplat-cli/
+  [Azure CLI]: http://azure.microsoft.com/ko-kr/documentation/articles/xplat-cli/
   [Azure관리 포털]: http://portal.azure.com
   [1]: ./media/documentdb-nodejs-application/image2.png
   [2]: ./media/documentdb-nodejs-application/image3.png

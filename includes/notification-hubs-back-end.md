@@ -83,9 +83,9 @@
 
 
 
-  [푸시 시작]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push/
-  [Java/PHP에서 알림 허브를 사용하는 방법]: /en-us/documentation/articles/notification-hubs-java-backend-how-to/
+  [푸시 시작]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push/
+  [Java/PHP에서 알림 허브를 사용하는 방법]: /ko-kr/documentation/articles/notification-hubs-java-backend-how-to/
   [알림 허브 REST 인터페이스]: http://msdn.microsoft.com/en-us/library/windowsazure/dn223264.aspx
-  [알림 허브 시작]: /en-us/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
+  [알림 허브 시작]: /ko-kr/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
   []: ./media/notification-hubs-back-end/notification-hub-create-console-app.png
   [WindowsAzure.ServiceBus NuGet 패키지]: http://nuget.org/packages/WindowsAzure.ServiceBus/

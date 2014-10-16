@@ -4,7 +4,7 @@
 
 # HTML 응용 프로그램에서 사용자 지정 API 호출
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/mobile-services-windows-store-dotnet-call-custom-api" title="Windows 스토어 C#">Windows 스토어 C#</a><a href="/en-us/documentation/articles/mobile-services-windows-store-javascript-call-custom-api" title="Windows 스토어 JavaScript">Windows 스토어 JavaScript</a><a href="/en-us/documentation/articles/mobile-services-windows-phone-call-custom-api" title="Windows Phone">Windows Phone</a><a href="/en-us/documentation/articles/mobile-services-ios-call-custom-api" title="iOS" >iOS</a><a href="/en-us/documentation/articles/mobile-services-android-call-custom-api" title="Android">Android</a><a href="/en-us/documentation/articles/mobile-services-html-call-custom-api" title="HTML" class="current">HTML</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/ko-kr/documentation/articles/mobile-services-windows-store-dotnet-call-custom-api" title="Windows 스토어 C#">Windows 스토어 C#</a><a href="/ko-kr/documentation/articles/mobile-services-windows-store-javascript-call-custom-api" title="Windows 스토어 JavaScript">Windows 스토어 JavaScript</a><a href="/ko-kr/documentation/articles/mobile-services-windows-phone-call-custom-api" title="Windows Phone">Windows Phone</a><a href="/ko-kr/documentation/articles/mobile-services-ios-call-custom-api" title="iOS" >iOS</a><a href="/ko-kr/documentation/articles/mobile-services-android-call-custom-api" title="Android">Android</a><a href="/ko-kr/documentation/articles/mobile-services-html-call-custom-api" title="HTML" class="current">HTML</a></div>
 
 이 항목에서는 HTML 응용 프로그램에서 사용자 지정 API를 호출하는 방법을 보여 줍니다. 사용자 지정 API는 삽입, 업데이트, 삭제 또는 읽기 작업에 매핑되지 않는 서버 기능을 노출하는 사용자 지정 끝점을 정의할 수 있게 합니다. 사용자 지정 API를 사용하면 HTTP 메시지 헤더 읽기와 설정 및 JSON 이외의 메시지 본문 형식 정의를 비롯하여 더 효율적으로 메시징을 제어할 수 있습니다.
 
@@ -72,14 +72,14 @@
 <!-- Anchors. -->
 <!-- URLs. -->
 
-  [Windows 스토어 C\#]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-call-custom-api "Windows 스토어 C#"
-  [Windows 스토어 JavaScript]: /en-us/documentation/articles/mobile-services-windows-store-javascript-call-custom-api "Windows 스토어 JavaScript"
-  [Windows Phone]: /en-us/documentation/articles/mobile-services-windows-phone-call-custom-api "Windows Phone"
-  [iOS]: /en-us/documentation/articles/mobile-services-ios-call-custom-api "iOS"
-  [Android]: /en-us/documentation/articles/mobile-services-android-call-custom-api "Android"
-  [HTML]: /en-us/documentation/articles/mobile-services-html-call-custom-api "HTML"
-  [모바일 서비스 시작]: /en-us/documentation/articles/mobile-services-html-get-started
-  [데이터 시작]: /en-us/documentation/articles/mobile-services-html-get-started-data
+  [Windows 스토어 C\#]: /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-call-custom-api "Windows 스토어 C#"
+  [Windows 스토어 JavaScript]: /ko-kr/documentation/articles/mobile-services-windows-store-javascript-call-custom-api "Windows 스토어 JavaScript"
+  [Windows Phone]: /ko-kr/documentation/articles/mobile-services-windows-phone-call-custom-api "Windows Phone"
+  [iOS]: /ko-kr/documentation/articles/mobile-services-ios-call-custom-api "iOS"
+  [Android]: /ko-kr/documentation/articles/mobile-services-android-call-custom-api "Android"
+  [HTML]: /ko-kr/documentation/articles/mobile-services-html-call-custom-api "HTML"
+  [모바일 서비스 시작]: /ko-kr/documentation/articles/mobile-services-html-get-started
+  [데이터 시작]: /ko-kr/documentation/articles/mobile-services-html-get-started-data
   [사용자 지정 API 정의]: #define-custom-api
   [사용자 지정 API를 호출하도록 앱 업데이트]: #update-app
   [앱 테스트]: #test-app

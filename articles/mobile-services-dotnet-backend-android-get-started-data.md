@@ -5,15 +5,15 @@
 # 모바일 서비스에서 데이터 시작
 
 <div class="dev-center-tutorial-selector sublanding">
-    <a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/" title="Windows 스토어 C#">Windows 스토어 C#</a>
-    <a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/" title="Windows 스토어 JavaScript">Windows 스토어 JavaScript</a>
-    <a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/" title="Windows Phone">Windows Phone</a>
-    <a href="/en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started-data/" title="iOS">iOS</a>
-    <a href="/en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started-data/" title="Android" class="current">Android</a>
+    <a href="/ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/" title="Windows 스토어 C#">Windows 스토어 C#</a>
+    <a href="/ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/" title="Windows 스토어 JavaScript">Windows 스토어 JavaScript</a>
+    <a href="/ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/" title="Windows Phone">Windows Phone</a>
+    <a href="/ko-kr/documentation/articles/mobile-services-dotnet-backend-ios-get-started-data/" title="iOS">iOS</a>
+    <a href="/ko-kr/documentation/articles/mobile-services-dotnet-backend-android-get-started-data/" title="Android" class="current">Android</a>
 </div>
 
 <div class="dev-center-tutorial-subselector">
-    <a href="/en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started-data/" title=".NET 백 엔드" class="current">.NET 백 엔드</a> | 
+    <a href="/ko-kr/documentation/articles/mobile-services-dotnet-backend-android-get-started-data/" title=".NET 백 엔드" class="current">.NET 백 엔드</a> | 
     <a href="/en-us/develop/mobile/tutorials/get-started-with-data-android/"  title="JavaScript 백 엔드">JavaScript 백 엔드</a>
 </div>
 
@@ -118,12 +118,12 @@
 <!-- Images. -->
 <!-- URLs. -->
 
-  [Windows 스토어 C\#]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/ "Windows 스토어 C#"
-  [Windows 스토어 JavaScript]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/ "Windows 스토어 JavaScript"
-  [Windows Phone]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/ "Windows Phone"
-  [iOS]: /en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started-data/ "iOS"
-  [Android]: /en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started-data/ "Android"
-  [.NET 백 엔드]: /en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started-data/ ".NET 백 엔드"
+  [Windows 스토어 C\#]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/ "Windows 스토어 C#"
+  [Windows 스토어 JavaScript]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/ "Windows 스토어 JavaScript"
+  [Windows Phone]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/ "Windows Phone"
+  [iOS]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-ios-get-started-data/ "iOS"
+  [Android]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-android-get-started-data/ "Android"
+  [.NET 백 엔드]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-android-get-started-data/ ".NET 백 엔드"
   [JavaScript 백 엔드]: /en-us/develop/mobile/tutorials/get-started-with-data-android/ "JavaScript 백 엔드"
   [JavaScript 백 엔드 버전]: /en-us/develop/mobile/tutorials/get-started-with-data-android
   [새 모바일 서비스 만들기]: #create-service
@@ -146,4 +146,4 @@
   [2]: ./media/mobile-services-dotnet-backend-android-get-started-data/sql-azure-query.png
   [인증 시작]: /en-us/develop/mobile/tutorials/get-started-with-users-android
   [푸시 알림 시작]: /en-us/develop/mobile/tutorials/get-started-with-push-android
-  [모바일 서비스 .NET 방법 개념 참조]: /en-us/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library
+  [모바일 서비스 .NET 방법 개념 참조]: /ko-kr/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library

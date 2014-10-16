@@ -5,9 +5,9 @@
 # Active Directory 인증 라이브러리 Single Sign-On으로 앱 인증
 
 <div class="dev-center-tutorial-selector sublanding">
-<a href="/en-us/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication" title="Windows 스토어 C#" class="current">Windows 스토어 C#</a>
-<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-ios-adal-sso-authentication" title="iOS" >iOS</a>
-<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-adal-sso-authentication" title="Xamarin.iOS">Xamarin.iOS</a>
+<a href="/ko-kr/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication" title="Windows 스토어 C#" class="current">Windows 스토어 C#</a>
+<a href="/ko-kr/documentation/articles/mobile-services-dotnet-backend-ios-adal-sso-authentication" title="iOS" >iOS</a>
+<a href="/ko-kr/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-adal-sso-authentication" title="Xamarin.iOS">Xamarin.iOS</a>
 </div>
 
 이 자습서에서는 Active Directory 인증 라이브러리를 사용하여 빠른 시작 프로젝트에 인증을 추가합니다.
@@ -181,16 +181,16 @@ Azure Active Directory에 앱을 등록하려면 Windows 스토어에 앱을 연
 <!-- Images -->
 <!-- URLs. -->
 
-  [Windows 스토어 C\#]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication "Windows 스토어 C#"
-  [iOS]: /en-us/documentation/articles/mobile-services-dotnet-backend-ios-adal-sso-authentication "iOS"
-  [Xamarin.iOS]: /en-us/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-adal-sso-authentication "Xamarin.iOS"
-  [모바일 서비스 시작]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/
+  [Windows 스토어 C\#]: /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication "Windows 스토어 C#"
+  [iOS]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-ios-adal-sso-authentication "iOS"
+  [Xamarin.iOS]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-adal-sso-authentication "Xamarin.iOS"
+  [모바일 서비스 시작]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/
   [Azure Active Directory에 모바일 서비스 등록]: #register-mobile-service-aad
   [Azure Active Directory에 앱 등록]: #register-app-aad
   [인증을 요구하도록 모바일 서비스 구성]: #require-authentication
   [클라이언트 앱에 인증 코드 추가]: #add-authentication-code
   [인증을 사용하여 클라이언트 테스트]: #test-client
-  [데이터 시작]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/
+  [데이터 시작]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/
   [mobile-services-dotnet-adal-register-service]: ../includes/mobile-services-dotnet-adal-register-service.md
   []: ./media/mobile-services-windows-store-dotnet-adal-sso-authenticate/mobile-services-vs-associate-app.png
   [1]: ./media/mobile-services-windows-store-dotnet-adal-sso-authenticate/mobile-services-vs-reserve-store-appname.png
@@ -208,6 +208,6 @@ Azure Active Directory에 앱을 등록하려면 Windows 스토어에 앱을 연
   [11]: ./media/mobile-services-windows-store-dotnet-adal-sso-authenticate/mobile-services-native-add-permissions.png
   [mobile-services-restrict-permissions-dotnet-backend]: ../includes/mobile-services-restrict-permissions-dotnet-backend.md
   [mobile-services-dotnet-adal-install-nuget]: ../includes/mobile-services-dotnet-adal-install-nuget.md
-  [Azure Active Directory에 등록하는 방법]: /en-us/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
+  [Azure Active Directory에 등록하는 방법]: /ko-kr/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
   [12]: ./media/mobile-services-windows-store-dotnet-adal-sso-authenticate/mobile-services-package-appxmanifest.png
   [13]: ./media/mobile-services-windows-store-dotnet-adal-sso-authenticate/mobile-services-app-run.png

@@ -258,7 +258,7 @@
 
 - [HDInsight Emulator 시작][]
 
-  []: http://azure.microsoft.com/en-us/documentation/services/hdinsight/
+  []: http://azure.microsoft.com/ko-kr/documentation/services/hdinsight/
   [//{container}@{account}/{path]: mailto://{container}@{account}/{path
   [HDInsight Emulator 시작]: ../hdinsight-get-started-emulator/
  

@@ -6,7 +6,7 @@
 
 ### Azure 저장소 시작
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/vs-storage-cloud-services-getting-started-blobs" title="Blob" class="current">Blob</a><a href="/en-us/documentation/articles/vs-storage-cloud-services-getting-started-queues" title="큐">큐</a><a href="/en-us/documentation/articles/vs-storage-cloud-services-getting-started-tables" title="테이블">테이블</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/ko-kr/documentation/articles/vs-storage-cloud-services-getting-started-blobs" title="Blob" class="current">Blob</a><a href="/ko-kr/documentation/articles/vs-storage-cloud-services-getting-started-queues" title="큐">큐</a><a href="/ko-kr/documentation/articles/vs-storage-cloud-services-getting-started-tables" title="테이블">테이블</a></div>
 
 Azure 큐 저장소는 HTTP 또는 HTTPS를 사용하여 인증된 호출을 통해 전 세계 어디에서나 액세스할 수 있는 다수의 메시지를 저장하기 위한 서비스입니다. 단일 큐 메시지의 크기는 최대 64KB일 수 있으며, 하나의 큐에 저장소 계정의 총 용량 제한까지 수백만 개의 메시지가 포함될 수 있습니다. 자세한 내용은 [.NET에서 큐 저장소를 사용하는 방법][.NET에서 큐 저장소를 사용하는 방법](영문)을 참조하세요.
 
@@ -29,8 +29,8 @@ Azure 큐 저장소는 HTTP 또는 HTTPS를 사용하여 인증된 호출을 통
 [WACOM.INCLUDE [vs-storage-getting-started-queues-include][vs-storage-getting-started-queues-include]]
 
   [vs-storage-aspnet-getting-started-intro]: ../includes/vs-storage-aspnet-getting-started-intro.md
-  [Blob]: /en-us/documentation/articles/vs-storage-cloud-services-getting-started-blobs "Blob"
-  [큐]: /en-us/documentation/articles/vs-storage-cloud-services-getting-started-queues "큐"
-  [테이블]: /en-us/documentation/articles/vs-storage-cloud-services-getting-started-tables "테이블"
-  [.NET에서 큐 저장소를 사용하는 방법]: http://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-how-to-use-queues/ ".NET에서 큐 저장소를 사용하는 방법"
+  [Blob]: /ko-kr/documentation/articles/vs-storage-cloud-services-getting-started-blobs "Blob"
+  [큐]: /ko-kr/documentation/articles/vs-storage-cloud-services-getting-started-queues "큐"
+  [테이블]: /ko-kr/documentation/articles/vs-storage-cloud-services-getting-started-tables "테이블"
+  [.NET에서 큐 저장소를 사용하는 방법]: http://azure.microsoft.com/ko-kr/documentation/articles/storage-dotnet-how-to-use-queues/ ".NET에서 큐 저장소를 사용하는 방법"
   [vs-storage-getting-started-queues-include]: ../includes/vs-storage-getting-started-queues-include.md

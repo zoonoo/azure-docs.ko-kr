@@ -76,7 +76,7 @@
   []: ./media/mobile-services-javascript-backend-windows-store-javascript-get-started/mobile-portal-quickstart.png
   [1]: ./media/mobile-services-javascript-backend-windows-store-javascript-get-started/mobile-quickstart-steps.png
   [mobile-services-javascript-backend-run-app]: ../includes/mobile-services-javascript-backend-run-app.md
-  [데이터 시작하기]: /en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-data
-  [인증 시작]: /en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-users
-  [푸시 알림 시작]: /en-us/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push
-  [단일 모바일 서비스에서 여러 장치 플랫폼 지원]: /en-us/documentation/articles/mobile-services-how-to-use-multiple-clients-single-service#shared-vs
+  [데이터 시작하기]: /ko-kr/documentation/articles/mobile-services-windows-store-javascript-get-started-data
+  [인증 시작]: /ko-kr/documentation/articles/mobile-services-windows-store-javascript-get-started-users
+  [푸시 알림 시작]: /ko-kr/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push
+  [단일 모바일 서비스에서 여러 장치 플랫폼 지원]: /ko-kr/documentation/articles/mobile-services-how-to-use-multiple-clients-single-service#shared-vs

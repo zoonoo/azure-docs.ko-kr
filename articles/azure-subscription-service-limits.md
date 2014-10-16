@@ -42,12 +42,12 @@
 <td align="left"><p>200</p></td>
 </tr>
 <tr class="odd">
-<td align="left"><p>구독당 <a href="http://azure.microsoft.com/en-us/documentation/articles/storage-whatis-account/">저장소 계정</a></p></td>
+<td align="left"><p>구독당 <a href="http://azure.microsoft.com/ko-kr/documentation/articles/storage-whatis-account/">저장소 계정</a></p></td>
 <td align="left"><p>20</p></td>
 <td align="left"><p>50</p></td>
 </tr>
 <tr class="even">
-<td align="left"><p>구독당 <a href="http://azure.microsoft.com/en-us/documentation/articles/cloud-services-what-is/">클라우드 서비스</a></p></td>
+<td align="left"><p>구독당 <a href="http://azure.microsoft.com/ko-kr/documentation/articles/cloud-services-what-is/">클라우드 서비스</a></p></td>
 <td align="left"><p>20</p></td>
 <td align="left"><p>200</p></td>
 </tr>
@@ -105,7 +105,7 @@
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left"><p><a href="http://azure.microsoft.com/en-us/documentation/articles/cloud-services-what-is/">배포당 웹/작업자 역할<sup>1</sup></a></p></td>
+<td align="left"><p><a href="http://azure.microsoft.com/ko-kr/documentation/articles/cloud-services-what-is/">배포당 웹/작업자 역할<sup>1</sup></a></p></td>
 <td align="left"><p>25</p></td>
 <td align="left"><p>25</p></td>
 </tr>
@@ -146,7 +146,7 @@
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left"><p>클라우드 서비스당 <a href="http://azure.microsoft.com/en-us/documentation/services/virtual-machines/">가상 컴퓨터</a><sup>1</sup></p></td>
+<td align="left"><p>클라우드 서비스당 <a href="http://azure.microsoft.com/ko-kr/documentation/services/virtual-machines/">가상 컴퓨터</a><sup>1</sup></p></td>
 <td align="left"><p>50</p></td>
 <td align="left"><p>50</p></td>
 </tr>
@@ -289,15 +289,15 @@ SQL 데이터베이스 제한에 대한 자세한 내용은 다음 항목을 참
   [고객 지원]: http://azure.microsoft.com/en-us/support/faq/
   [구독]: http://msdn.microsoft.com/en-us/library/azure/hh531793.aspx
   [공동 관리자]: http://msdn.microsoft.com/en-us/library/azure/gg456328.aspx
-  [저장소 계정]: http://azure.microsoft.com/en-us/documentation/articles/storage-whatis-account/
-  [클라우드 서비스]: http://azure.microsoft.com/en-us/documentation/articles/cloud-services-what-is/
+  [저장소 계정]: http://azure.microsoft.com/ko-kr/documentation/articles/storage-whatis-account/
+  [클라우드 서비스]: http://azure.microsoft.com/ko-kr/documentation/articles/cloud-services-what-is/
   [가상 네트워크]: http://msdn.microsoft.com/library/azure/jj156007.aspx
   [로컬 네트워크]: http://msdn.microsoft.com/en-us/library/jj157100.aspx
   [선호도 그룹]: http://msdn.microsoft.com/en-us/library/azure/jj156085.aspx
   [인스턴스 입력 끝점]: http://msdn.microsoft.com/en-us/library/gg557552.aspx#InstanceInputEndpoint
   [입력 끝점]: http://msdn.microsoft.com/en-us/library/gg557552.aspx#InputEndpoint
   [내부 끝점]: http://msdn.microsoft.com/en-us/library/gg557552.aspx#InternalEndpoint
-  [가상 컴퓨터]: http://azure.microsoft.com/en-us/documentation/services/virtual-machines/
+  [가상 컴퓨터]: http://azure.microsoft.com/ko-kr/documentation/services/virtual-machines/
   [가상 네트워크 게이트웨이]: http://msdn.microsoft.com/en-us/library/azure/jj156210.aspx
   [Azure 저장소 확장성 및 성능 목표]: http://msdn.microsoft.com/library/azure/dn249410.aspx
   [Azure SQL 데이터베이스 서비스 계층(Edition)]: http://msdn.microsoft.com/en-us/library/azure/dn741340.aspx

@@ -361,7 +361,7 @@ Azure 구독의 저장소 계정 목록을 가져오려면 **list\_storage\_acco
 
 이제 프로그래밍 방식으로 Azure 가상 컴퓨터 만들기의 기본 사항을 배웠으므로 다음 링크를 따라 더 많은 VM 작업을 수행하는 방법을 알아보십시오.
 
--   [가상 컴퓨터](http://www.windowsazure.com/en-us/documentation/services/virtual-machines/)(영문) 기능 페이지를 방문하십시오.
+-   [가상 컴퓨터](http://www.windowsazure.com/ko-kr/documentation/services/virtual-machines/)(영문) 기능 페이지를 방문하십시오.
 -   다음 MSDN 참조를 확인하십시오. [가상 컴퓨터](http://msdn.microsoft.com/en-us/library/windowsazure/jj156003.aspx)
 -   [가상 컴퓨터에서 Ruby on Rails 응용 프로그램](http://www.windowsazure.com/en-us/develop/ruby/tutorials/web-app-with-linux-vm/)을 호스트하는 방법을 알아보십시오.
 

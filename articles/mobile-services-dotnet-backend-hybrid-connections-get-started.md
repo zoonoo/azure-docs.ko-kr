@@ -178,8 +178,8 @@ SQL Server를 구성하는 방법에 대한 자세한 내용은 [SQL Server Expr
   [연결을 사용하도록 모바일 서비스 수정]: #CreateService
   [Visual Studio 다운로드]: http://www.visualstudio.com/downloads/download-visual-studio-vs
   [Microsoft 웹 플랫폼 데이터베이스 페이지]: http://www.microsoft.com/web/platform/database.aspx
-  [1]: /en-us/documentation/articles/web-sites-hybrid-connection-connect-on-premises-sql-server#InstallSQL
-  [SQL Server 데이터베이스 온-프레미스]: /en-us/documentation/articles/web-sites-hybrid-connection-connect-on-premises-sql-server#CreateSQLDB
+  [1]: /ko-kr/documentation/articles/web-sites-hybrid-connection-connect-on-premises-sql-server#InstallSQL
+  [SQL Server 데이터베이스 온-프레미스]: /ko-kr/documentation/articles/web-sites-hybrid-connection-connect-on-premises-sql-server#CreateSQLDB
   [Azure 관리 포털]: http://go.microsoft.com/fwlink/p/?linkid=213885&clcid=0x409
   [BizTalk 서비스 만들기]: ./media/mobile-services-dotnet-backend-hybrid-connections-get-started/1.png
   [새로운 BizTalk 서비스 구성]: ./media/mobile-services-dotnet-backend-hybrid-connections-get-started/2.png
@@ -190,11 +190,11 @@ SQL Server를 구성하는 방법에 대한 자세한 내용은 [SQL Server Expr
   [하이브리드 연결 관리자 설치]: ./media/mobile-services-dotnet-backend-hybrid-connections-get-started/6.png
   [2]: ./media/mobile-services-dotnet-backend-hybrid-connections-get-started/7.png
   [온-프레미스 설치 연결됨]: ./media/mobile-services-dotnet-backend-hybrid-connections-get-started/8.png
-  [모바일 서비스 시작하기]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/
+  [모바일 서비스 시작하기]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/
   [하이브리드 연결 연계]: ./media/mobile-services-dotnet-backend-hybrid-connections-get-started/9.png
   [연계된 하이브리드 연결 선택]: ./media/mobile-services-dotnet-backend-hybrid-connections-get-started/10.png
   [연결 문자열에 대한 앱 설정]: ./media/mobile-services-dotnet-backend-hybrid-connections-get-started/11.png
   [SQL Management Studio]: ./media/mobile-services-dotnet-backend-hybrid-connections-get-started/12.png
   [하이브리드 연결 웹 사이트]: http://azure.microsoft.com/en-us/services/biztalk-services/
   [하이브리드 연결 개요]: http://go.microsoft.com/fwlink/p/?LinkID=397274
-  [BizTalk 서비스: 대시보드, 모니터, 확장, 구성 및 하이브리드 연결 탭]: http://azure.microsoft.com/en-us/documentation/articles/biztalk-dashboard-monitor-scale-tabs/
+  [BizTalk 서비스: 대시보드, 모니터, 확장, 구성 및 하이브리드 연결 탭]: http://azure.microsoft.com/ko-kr/documentation/articles/biztalk-dashboard-monitor-scale-tabs/

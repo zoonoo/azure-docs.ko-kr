@@ -198,7 +198,7 @@ Marlin은 REST API 위의 얇은 레이어로, C#에서 ProtoBuf를 사용하여
   [구매 옵션]: http://azure.microsoft.com/en-us/pricing/purchase-options/
   [구성원 제공 항목]: http://azure.microsoft.com/en-us/pricing/member-offers/
   [무료 평가판]: http://azure.microsoft.com/en-us/pricing/free-trial/
-  [저장소 계정을 만드는 방법]: http://azure.microsoft.com/en-us/documentation/articles/storage-create-storage-account/
+  [저장소 계정을 만드는 방법]: http://azure.microsoft.com/ko-kr/documentation/articles/storage-create-storage-account/
   [Azure 포털에서 HBase 클러스터 프로비전]: #create-hbase-cluster
   [HBase 셸에서 HBase 샘플 테이블 만들기]: #create-sample-table
   [Hive를 사용하여 HBase 테이블 쿼리]: #hive-query

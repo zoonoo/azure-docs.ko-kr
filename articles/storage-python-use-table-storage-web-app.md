@@ -175,9 +175,9 @@ windowsazure를 가져온 직후 다음 코드를 **views.py**에 추가하고 '
 -   다음 MSDN 참조를 확인하세요. [Azure에서 데이터 저장 및 액세스][Azure에 데이터 저장 및 액세스]
 -   다음 Azure 저장소 팀 블로그(영문)를 방문하세요. <http://blogs.msdn.com/b/windowsazurestorage/>
 
-  [Django Hello World 웹 응용 프로그램]: http://windowsazure.com/en-us/documentation/articles/virtual-machines-python-django-web-app-windows-server
+  [Django Hello World 웹 응용 프로그램]: http://windowsazure.com/ko-kr/documentation/articles/virtual-machines-python-django-web-app-windows-server
   [Azure에 데이터 저장 및 액세스]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
   []: ./media/storage-python-use-table-storage-web-app/web-app-with-storage-Finaloutput-mac.png
   [create-account-note]: ../includes/create-account-note.md
-  [Python 설치 가이드]: http://windowsazure.com/en-us/documentation/articles/python-how-to-install
+  [Python 설치 가이드]: http://windowsazure.com/ko-kr/documentation/articles/python-how-to-install
   [create-storage-account]: ../includes/create-storage-account.md

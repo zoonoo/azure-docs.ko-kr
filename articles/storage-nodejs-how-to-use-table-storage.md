@@ -437,10 +437,10 @@ ACL이 설정되고 나면 정책의 ID를 기반으로 SAS를 만들 수 있습
   [방법: 공유 액세스 서명 작업]: #sas
   [howto-table-storage]: ../includes/howto-table-storage.md
   [create-storage-account]: ../includes/create-storage-account.md
-  [Node.js 응용 프로그램을 만들어 Azure 웹 사이트에 배포하기]: /en-us/documentation/articles/web-sites-nodejs-develop-deploy-mac/
-  [Node.js 클라우드 서비스]: /en-us/documentation/articles/cloud-services-nodejs-develop-deploy-app/
-  [WebMatrix를 사용하는 웹 사이트]: /en-us/documentation/articles/web-sites-nodejs-use-webmatrix/
-  [Node.js 웹 응용 프로그램 및 저장소]: /en-us/documentation/articles/storage-nodejs-use-table-storage-web-site/
+  [Node.js 응용 프로그램을 만들어 Azure 웹 사이트에 배포하기]: /ko-kr/documentation/articles/web-sites-nodejs-develop-deploy-mac/
+  [Node.js 클라우드 서비스]: /ko-kr/documentation/articles/cloud-services-nodejs-develop-deploy-app/
+  [WebMatrix를 사용하는 웹 사이트]: /ko-kr/documentation/articles/web-sites-nodejs-use-webmatrix/
+  [Node.js 웹 응용 프로그램 및 저장소]: /ko-kr/documentation/articles/storage-nodejs-use-table-storage-web-site/
   [테이블 서비스 데이터 모델 이해]: http://msdn.microsoft.com/library/azure/dd179338.aspx
   [ETag]: http://en.wikipedia.org/wiki/HTTP_ETag
   [Azure에 데이터 저장 및 액세스]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx

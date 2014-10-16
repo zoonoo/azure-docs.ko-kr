@@ -301,7 +301,7 @@ Azure Redis 세션 상태 공급자를 구성하고 사용하는 방법에 대�
   [캐시 구성]: #enable-caching
   [새 캐시]: ./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-new-cache-menu.png
   [1]: ./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-cache-create.png
-  [리소스 그룹을 사용하여 Azure 리소스 관리]: http://azure.microsoft.com/en-us/documentation/articles/azure-preview-portal-using-resource-groups/
+  [리소스 그룹을 사용하여 Azure 리소스 관리]: http://azure.microsoft.com/ko-kr/documentation/articles/azure-preview-portal-using-resource-groups/
   [캐시 만듬]: ./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-cache-created.png
   [찾아보기 블레이드]: ./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-browse-caches.png
   [캐시]: ./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-caches.png

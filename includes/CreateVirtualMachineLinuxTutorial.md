@@ -227,7 +227,7 @@ Azure의 Linux에 대한 자세한 내용은 다음 문서를 참조하세요.
   [Azure 소개]: http://go.microsoft.com/fwlink/p/?LinkId=311926
   [관리 포털]: http://manage.windowsazure.com
   [확장 관리]: http://go.microsoft.com/FWLink/p/?LinkID=390493
-  [가상 컴퓨터로 끝점을 설정하는 방법]: http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-set-up-endpoints/
+  [가상 컴퓨터로 끝점을 설정하는 방법]: http://azure.microsoft.com/ko-kr/documentation/articles/virtual-machines-set-up-endpoints/
   [PuTTY 다운로드]: http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
   [OpenSSH]: http://www.openssh.org/
   [SSH 세부 정보 찾기]: ./media/CreateVirtualMachineLinuxTutorial/SSHdetails.png
@@ -242,5 +242,5 @@ Azure의 Linux에 대한 자세한 내용은 다음 문서를 참조하세요.
   [디스크 정보 나열]: ./media/CreateVirtualMachineLinuxTutorial/diskinfo.png
   [디스크 변경 내용 쓰기]: ./media/CreateVirtualMachineLinuxTutorial/diskwrite.png
   [파일 시스템 만들기]: ./media/CreateVirtualMachineLinuxTutorial/diskfilesystem.png
-  [Azure의 Linux 소개]: http://www.windowsazure.com/en-us/documentation/articles/introduction-linux/
-  [Mac 및 Linux에서 Azure 명령줄 도구를 사용하는 방법]: http://www.windowsazure.com/en-us/documentation/articles/xplat-cli/
+  [Azure의 Linux 소개]: http://www.windowsazure.com/ko-kr/documentation/articles/introduction-linux/
+  [Mac 및 Linux에서 Azure 명령줄 도구를 사용하는 방법]: http://www.windowsazure.com/ko-kr/documentation/articles/xplat-cli/

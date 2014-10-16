@@ -720,7 +720,7 @@ ASP.NET Web Forms에 대해 자세한 내용은 ASP.NET 웹 사이트의 [ASP.NE
 
 자습서 자체뿐 아니라 설명된 제품과 관련해서 마음에 드는 사항이나 바라는 개선 사항에 대한 의견을 남겨주세요. 사용자 의견은 개선 사항의 우선 순위를 지정하는 데 도움이 됩니다. [코드 사용 방법 보기][]에서 새 항목을 요청하고 투표할 수도 있습니다.
 
-  [Azure 웹 사이트에 멤버 자격, OAuth 및 SQL 데이터베이스를 포함한 보안 ASP.NET MVC 5 앱 배포]: http://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/
+  [Azure 웹 사이트에 멤버 자격, OAuth 및 SQL 데이터베이스를 포함한 보안 ASP.NET MVC 5 앱 배포]: http://azure.microsoft.com/ko-kr/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/
   [연락처 - 편집 페이지]: ./media/web-sites-dotnet-web-forms-secure/SecureWebForms00.png
   [MSDN 구독자 혜택을 활성화]: /en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
   [무료 평가판을 등록]: /en-us/pricing/free-trial/?WT.mc_id=A261C142F
@@ -794,7 +794,7 @@ ASP.NET Web Forms에 대해 자세한 내용은 ASP.NET 웹 사이트의 [ASP.NE
   [AspNetUserRoles 데이터]: ./media/web-sites-dotnet-web-forms-secure/SecureWebForms36.png
   [13]: ./media/web-sites-dotnet-web-forms-secure/SecureWebForms37.png
   [ASP.NET Web Forms 알아보기]: http://www.asp.net/web-forms
-  [Microsoft Azure 자습서 및 가이드]: http://azure.microsoft.com/en-us/documentation/services/web-sites/#net
+  [Microsoft Azure 자습서 및 가이드]: http://azure.microsoft.com/ko-kr/documentation/services/web-sites/#net
   [@RickAndMSFT]: https://twitter.com/RickAndMSFT
   [@blowdart]: https://twitter.com/blowdart
   [코드 사용 방법 보기]: http://aspnet.uservoice.com/forums/228522-show-me-how-with-code

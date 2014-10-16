@@ -166,7 +166,7 @@ HDInsight(및 주로 Hadoop 기술)는 일단 작성된 후에는 자주 업데�
   [SQL Server 2012 Analysis Services]: http://www.microsoft.com/sqlserver/en/us/solutions-technologies/business-intelligence/SQL-Server-2012-analysis-services.aspx
   [SQL Server 2012 Reporting]: http://www.microsoft.com/en-us/sqlserver/solutions-technologies/business-intelligence/reporting.aspx
   [HDInsight 설명서]: http://go.microsoft.com/fwlink/?LinkID=285601
-  [HDInsight 릴리스 정보]: http://azure.microsoft.com/en-us/documentation/articles/hdinsight-release-notes/
+  [HDInsight 릴리스 정보]: http://azure.microsoft.com/ko-kr/documentation/articles/hdinsight-release-notes/
   [Azure HDInsight 시작]: ../hdinsight-get-started/
   [HDInsight 샘플 실행]: ../hdinsight-run-samples/
   [빅데이터 및 Azure]: http://azure.microsoft.com/en-us/solutions/big-data/

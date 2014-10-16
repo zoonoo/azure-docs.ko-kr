@@ -5,8 +5,8 @@
 # 모바일 서비스에서 오프라인 데이터 동기화를 사용하여 충돌 처리
 
 <div class="dev-center-tutorial-selector sublanding">
-<a href="/en-us/documentation/articles/mobile-services-windows-store-dotnet-handling-conflicts-offline-data" title="Windows 스토어 C#">Windows 스토어 C#</a>
-<a href="/en-us/documentation/articles/mobile-services-windows-phone-handling-conflicts-offline-data" title="Windows Phone" class="current">Windows Phone</a>
+<a href="/ko-kr/documentation/articles/mobile-services-windows-store-dotnet-handling-conflicts-offline-data" title="Windows 스토어 C#">Windows 스토어 C#</a>
+<a href="/ko-kr/documentation/articles/mobile-services-windows-phone-handling-conflicts-offline-data" title="Windows Phone" class="current">Windows Phone</a>
 </div>
 
 이 항목에서는 Azure 모바일 서비스의 오프라인 기능을 사용할 때 데이터를 동기화하고 충돌을 처리하는 방법을 보여 줍니다. 이 자습서에서는 오프라인 데이터와 온라인 데이터를 모두 지원하는 앱을 다운로드하고, 모바일 서비스를 앱에 통합한 다음 Azure 관리 포털에 로그인하여 앱을 실행하면서 데이터베이스를 보고 업데이트합니다.
@@ -195,9 +195,9 @@ JavaScript 백 엔드 모바일 서비스에 대해 **TodoWithDate**라는 새 �
 <!-- Images -->
 <!-- URLs -->
 
-  [Windows 스토어 C\#]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-handling-conflicts-offline-data "Windows 스토어 C#"
-  [Windows Phone]: /en-us/documentation/articles/mobile-services-windows-phone-handling-conflicts-offline-data "Windows Phone"
-  [오프라인 데이터 시작]: /en-us/documentation/articles/mobile-services-windows-phone-get-started-offline-data
+  [Windows 스토어 C\#]: /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-handling-conflicts-offline-data "Windows 스토어 C#"
+  [Windows Phone]: /ko-kr/documentation/articles/mobile-services-windows-phone-handling-conflicts-offline-data "Windows Phone"
+  [오프라인 데이터 시작]: /ko-kr/documentation/articles/mobile-services-windows-phone-get-started-offline-data
   [Windows Phone 프로젝트 다운로드]: #download-app
   [데이터베이스에 대한 기한 열 추가]: #add-column
   [.NET 백 엔드 모바일 서비스에 대한 데이터베이스 업데이트]: #dotnet-backend
@@ -208,7 +208,7 @@ JavaScript 백 엔드 모바일 서비스에 대해 **TodoWithDate**라는 새 �
   [충돌 처리 코드 샘플]: http://go.microsoft.com/fwlink/?LinkId=398257
   []: ./media/mobile-services-windows-phone-handling-conflicts-offline-data/mobile-services-handling-conflicts-app-run1.png
   [SQLite for Windows Phone 8]: http://go.microsoft.com/fwlink/?LinkId=397953
-  [Code First 마이그레이션을 사용하여 데이터 모델을 업데이트하는 방법]: /en-us/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations
+  [Code First 마이그레이션을 사용하여 데이터 모델을 업데이트하는 방법]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations
   [Azure 관리 포털]: https://manage.windowsazure.com/
   [1]: ./media/mobile-services-windows-phone-handling-conflicts-offline-data/mobile-services-todowithdate-push1.png
   [2]: ./media/mobile-services-windows-phone-handling-conflicts-offline-data/vs-emulator-wvga.png

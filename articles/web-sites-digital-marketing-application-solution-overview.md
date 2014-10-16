@@ -5,9 +5,9 @@ Azure 웹 사이트에서 디지털 마케팅 캠페인 만들기
 
 이 가이드는 Azure 웹 사이트에서 디지털 마케팅 캠페인을 만드는 방법에 대한 기술적 개요를 제공합니다. 디지털 마케팅 캠페인은 일반적으로 단기간 마케팅 목표를 달성하기 위한 짧은 수명의 엔터티입니다. 두 가지 주요 시나리오를 고려해야 합니다. 첫 번째 시나리오에서는 타 마케팅 회사가 프로모션 기간에 고객을 위한 캠페인을 만들고 관리합니다. 두 번째 시나리오에서는 마케팅 회사가 디지털 마케팅 캠페인을 만든 후 해당 리소스의 소유권을 고객에게 전송합니다. 그러면 고객이 디지털 마케팅 캠페인을 스스로 운영 및 관리합니다.
 
-[Azure 웹 사이트](/en-us/documentation/services/web-sites/)는 두 가지 시나리오에 모두 적합합니다. 캠페인을 빠르게 만들 수 있고, 여러 프레임워크와 언어를 지원하고, 사용자 수요에 맞게 크기를 조정할 수 있으며, 많은 배포 및 소스 제어 시스템을 수용합니다. Azure를 사용하면 마케팅 캠페인을 개선할 수 있는 미디어 서비스 등의 기타 Azure 서비스에도 액세스할 수 있습니다.
+[Azure 웹 사이트](/ko-kr/documentation/services/web-sites/)는 두 가지 시나리오에 모두 적합합니다. 캠페인을 빠르게 만들 수 있고, 여러 프레임워크와 언어를 지원하고, 사용자 수요에 맞게 크기를 조정할 수 있으며, 많은 배포 및 소스 제어 시스템을 수용합니다. Azure를 사용하면 마케팅 캠페인을 개선할 수 있는 미디어 서비스 등의 기타 Azure 서비스에도 액세스할 수 있습니다.
 
-웹 사이트를 호스트하는 데 [Azure 클라우드 서비스](/en-us/documentation/services/cloud-services/) 또는 [Azure 가상 컴퓨터](/en-us/documentation/services/virtual-machines/)를 사용할 수도 있지만, Azure 웹 사이트에서 제공하지 않는 필수 기능이 있는 경우가 아니라면 이 시나리오에는 이상적인 선택이 아닙니다. 이러한 옵션에 대해 알아보려면 [Azure 웹 사이트, 클라우드 서비스 및 VM: 각 항목을 사용해야 하는 경우](/en-us/manage/services/web-sites/choose-web-app-service)(영문)를 참조하십시오.
+웹 사이트를 호스트하는 데 [Azure 클라우드 서비스](/ko-kr/documentation/services/cloud-services/) 또는 [Azure 가상 컴퓨터](/ko-kr/documentation/services/virtual-machines/)를 사용할 수도 있지만, Azure 웹 사이트에서 제공하지 않는 필수 기능이 있는 경우가 아니라면 이 시나리오에는 이상적인 선택이 아닙니다. 이러한 옵션에 대해 알아보려면 [Azure 웹 사이트, 클라우드 서비스 및 VM: 각 항목을 사용해야 하는 경우](/en-us/manage/services/web-sites/choose-web-app-service)(영문)를 참조하십시오.
 
 이 가이드에서는 다음 영역에 대해 설명합니다.
 

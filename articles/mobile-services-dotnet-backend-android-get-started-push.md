@@ -4,11 +4,11 @@
 
 # 모바일 서비스에서 푸시 알림 시작
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push/" title="Windows 스토어 C#">Windows 스토어 C#</a><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push/" title="Windows 스토어 JavaScript">Windows 스토어 JavaScript</a><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push/" title="Windows Phone">Windows Phone</a><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push/" title="iOS">iOS</a><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started-push/" title="Android" class="current">Android</a>
-<!---<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-get-started-push" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-xamarin-android-get-started-push" title="Xamarin.Android">Xamarin.Android</a>-->
+<div class="dev-center-tutorial-selector sublanding"><a href="/ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push/" title="Windows 스토어 C#">Windows 스토어 C#</a><a href="/ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push/" title="Windows 스토어 JavaScript">Windows 스토어 JavaScript</a><a href="/ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push/" title="Windows Phone">Windows Phone</a><a href="/ko-kr/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push/" title="iOS">iOS</a><a href="/ko-kr/documentation/articles/mobile-services-dotnet-backend-android-get-started-push/" title="Android" class="current">Android</a>
+<!---<a href="/ko-kr/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-get-started-push" title="Xamarin.iOS">Xamarin.iOS</a><a href="/ko-kr/documentation/articles/mobile-services-dotnet-backend-xamarin-android-get-started-push" title="Xamarin.Android">Xamarin.Android</a>-->
 </div>
 
-<div class="dev-center-tutorial-subselector"><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started-push/" title=".NET 백 엔드" class="current">.NET 백 엔드</a> | <a href="/en-us/documentation/articles/mobile-services-javascript-backend-android-get-started-push/"  title="JavaScript 백 엔드">JavaScript 백 엔드</a></div>
+<div class="dev-center-tutorial-subselector"><a href="/ko-kr/documentation/articles/mobile-services-dotnet-backend-android-get-started-push/" title=".NET 백 엔드" class="current">.NET 백 엔드</a> | <a href="/ko-kr/documentation/articles/mobile-services-javascript-backend-android-get-started-push/"  title="JavaScript 백 엔드">JavaScript 백 엔드</a></div>
 
 이 항목에서는 Azure 모바일 서비스를 사용하여 Android 앱에 푸시 알림을 보내는 방법을 보여 줍니다. 이 자습서에서는 GCM(Google Cloud Messaging)을 사용하여 퀵 스타트 프로젝트에 푸시 알림을 추가합니다. 이 작업을 완료하면 레코드가 삽입될 때마다 모바일 서비스에서 푸시 알림을 전송합니다.
 
@@ -164,21 +164,21 @@ Google API를 지원하는 AVD(Android Virtual Device)를 사용해야 합니다
 <!-- Images. -->
 <!-- URLs. -->
 
-  [Windows 스토어 C\#]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push/ "Windows 스토어 C#"
-  [Windows 스토어 JavaScript]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push/ "Windows 스토어 JavaScript"
-  [Windows Phone]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push/ "Windows Phone"
-  [iOS]: /en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push/ "iOS"
-  [Android]: /en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started-push/ "Android"
-  [.NET 백 엔드]: /en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started-push/ ".NET 백 엔드"
-  [JavaScript 백 엔드]: /en-us/documentation/articles/mobile-services-javascript-backend-android-get-started-push/ "JavaScript 백 엔드"
+  [Windows 스토어 C\#]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push/ "Windows 스토어 C#"
+  [Windows 스토어 JavaScript]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push/ "Windows 스토어 JavaScript"
+  [Windows Phone]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push/ "Windows Phone"
+  [iOS]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push/ "iOS"
+  [Android]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-android-get-started-push/ "Android"
+  [.NET 백 엔드]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-android-get-started-push/ ".NET 백 엔드"
+  [JavaScript 백 엔드]: /ko-kr/documentation/articles/mobile-services-javascript-backend-android-get-started-push/ "JavaScript 백 엔드"
   [Google Cloud Messaging 사용]: #register
   [푸시 요청을 전송하도록 모바일 서비스 구성]: #configure
   [푸시 알림을 전송하도록 서버 업데이트]: #update-server
   [앱에 푸시 알림 추가]: #update
   [로컬 테스트에 푸시 알림 사용]: #local-testing
   [게시된 모바일 서비스에 대해 앱 테스트]: #test-app
-  [모바일 서비스 시작하기]: /en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started
-  [데이터 시작하기]: /en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started-data
+  [모바일 서비스 시작하기]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-android-get-started
+  [데이터 시작하기]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-android-get-started-data
   [Azure 무료 평가판]: http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started-data%2F
   [GCM 사용]: ../includes/mobile-services-enable-Google-cloud-messaging.md
   [Azure 관리 포털]: https://manage.windowsazure.com/
@@ -194,6 +194,6 @@ Google API를 지원하는 AVD(Android Virtual Device)를 사용해야 합니다
   [3]: ./media/mobile-services-android-get-started-push/mobile-services-android-virtual-device-manager-edit.png
   [mobile-services-dotnet-backend-configure-local-push]: ../includes/mobile-services-dotnet-backend-configure-local-push.md
   [4]: ./media/mobile-services-android-get-started-push/mobile-quickstart-push1-android.png
-  [인증 시작]: /en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started-users
-  [알림 허브 정의]: /en-us/documentation/articles/notification-hubs-overview/
-  [모바일 서비스에 Android 클라이언트 라이브러리를 사용하는 방법]: /en-us/documentation/articles/mobile-services-android-how-to-use-client-library
+  [인증 시작]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-android-get-started-users
+  [알림 허브 정의]: /ko-kr/documentation/articles/notification-hubs-overview/
+  [모바일 서비스에 Android 클라이언트 라이브러리를 사용하는 방법]: /ko-kr/documentation/articles/mobile-services-android-how-to-use-client-library

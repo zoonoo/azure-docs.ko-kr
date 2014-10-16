@@ -134,7 +134,7 @@ TodoItem 클래스는 데이터 개체를 정의하고, 클라이언트에서 �
 
 
   []: ./media/mobile-services-configure-blob-storage/mobile-add-storage-nuget-package-dotnet.png
-  [Code First 마이그레이션을 사용하여 데이터 모델을 업데이트하는 방법]: /en-us/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations
+  [Code First 마이그레이션을 사용하여 데이터 모델을 업데이트하는 방법]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations
   [저장소 계정을 만드는 방법]: /en-us/manage/services/storage/how-to-create-a-storage-account
   [1]: ./media/mobile-services-configure-blob-storage/mobile-blob-storage-account.png
   [2]: ./media/mobile-services-configure-blob-storage/mobile-blob-storage-account-keys.png

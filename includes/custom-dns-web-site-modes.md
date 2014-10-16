@@ -2,4 +2,4 @@ Azure 웹 사이트의 공유, 기본 및 표준 모드에서만 웹 사이트�
 
 사이트의 모드를 변경하는 방법을 비롯한 웹 사이트 모드에 대한 자세한 내용은 [웹 사이트 크기를 조정하는 방법][](영문)을 참조하세요.
 
-  [웹 사이트 크기를 조정하는 방법]: /en-us/documentation/articles/web-sites-scale/
+  [웹 사이트 크기를 조정하는 방법]: /ko-kr/documentation/articles/web-sites-scale/

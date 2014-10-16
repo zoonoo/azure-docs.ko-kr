@@ -446,8 +446,8 @@ Visual Studio 웹 응용 프로그램을 사용하려면 Azure에서 액세스�
   [온-프레미스 데이터베이스에 등록된 사용자]: ./media/web-sites-hybrid-connection-connect-on-premises-sql-server/F11HCTestShowMemberDb.png
   [Josh Twist가 소개하는 하이브리드 연결(채널 9 비디오)(영문)]: http://channel9.msdn.com/Shows/Azure-Friday/Josh-Twist-introduces-hybrid-connections
   [하이브리드 연결 웹 사이트]: http://azure.microsoft.com/en-us/services/biztalk-services/
-  [BizTalk 서비스: 대시보드, 모니터, 확장, 구성 및 하이브리드 연결 탭]: http://azure.microsoft.com/en-us/documentation/articles/biztalk-dashboard-monitor-scale-tabs/
+  [BizTalk 서비스: 대시보드, 모니터, 확장, 구성 및 하이브리드 연결 탭]: http://azure.microsoft.com/ko-kr/documentation/articles/biztalk-dashboard-monitor-scale-tabs/
   [원활한 응용 프로그램 이식성으로 실시간 하이브리드 연결 클라우드 구축(채널 9 비디오)(영문)]: http://channel9.msdn.com/events/TechEd/NorthAmerica/2014/DCIM-B323#fbid=
-  [하이브리드 연결을 사용하여 Azure 모바일 서비스에서 온-프레미스 SQL Server에 연결]: http://azure.microsoft.com/en-us/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started/
+  [하이브리드 연결을 사용하여 Azure 모바일 서비스에서 온-프레미스 SQL Server에 연결]: http://azure.microsoft.com/ko-kr/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started/
   [하이브리드 연결을 사용하여 Azure 모바일 서비스에서 온-프레미스 SQL Server에 연결(채널 9 비디오)(영문)]: http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Connect-to-an-on-premises-SQL-Server-from-Azure-Mobile-Services-using-Hybrid-Connections
   [ASP.NET ID 개요(영문)]: http://www.asp.net/identity

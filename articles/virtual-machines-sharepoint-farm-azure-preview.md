@@ -73,4 +73,4 @@ SharePoint 서버 팜은 Azure 리소스 관리자 및 스크립트를 사용하
   [http://[FQDN]]: http://[FQDN]
   [SharePoint 2013 구성]: http://technet.microsoft.com/library/ee836142.aspx
   [Microsoft Azure 미리 보기 포털]: https://portal.azure.com/
-  [리소스 관리자에서 Windows PowerShell 사용]: http://azure.microsoft.com/en-us/documentation/articles/powershell-azure-resource-manager/
+  [리소스 관리자에서 Windows PowerShell 사용]: http://azure.microsoft.com/ko-kr/documentation/articles/powershell-azure-resource-manager/

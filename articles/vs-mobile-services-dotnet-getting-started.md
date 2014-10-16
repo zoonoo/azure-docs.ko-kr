@@ -67,4 +67,4 @@ App.xaml.cs 파일에 선택한 모바일 서비스의 응용 프로그램 URL �
 
     await todoTable.DeleteAsync(item);
 
-  [인증 시작]: http://azure.microsoft.com/en-us/documentation/articles/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users/
+  [인증 시작]: http://azure.microsoft.com/ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users/

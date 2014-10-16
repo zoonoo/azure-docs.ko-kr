@@ -213,7 +213,7 @@ Microsoft Excel용 파워 쿼리 추가 기능을 사용하여 HDInsight의 작�
   [Hive]: http://go.microsoft.com/fwlink/?LinkId=510085
   [HDInsight의 Hadoop 소개]: ../hdinsight-introduction/
   [HDInsight Emulator 시작]: ../hdinsight-get-started-emulator/
-  [HDInsight에서 HBase 클러스터 프로비전]: http://azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-get-started/
+  [HDInsight에서 HBase 클러스터 프로비전]: http://azure.microsoft.com/ko-kr/documentation/articles/hdinsight-hbase-get-started/
   [Hadoop와 HBase 간 차이점]: http://go.microsoft.com/fwlink/?LinkId=510237
   [HDI.GetStartedFlow]: ./media/hdinsight-get-started/HDI.GetStartedFlow.png
   [구매 옵션]: http://azure.microsoft.com/en-us/pricing/purchase-options/
@@ -229,7 +229,7 @@ Microsoft Excel용 파워 쿼리 추가 기능을 사용하여 HDInsight의 작�
   [Azure 관리 포털]: https://manage.windowsazure.com/
   [HDI.StorageAccount.QuickCreate]: ./media/hdinsight-get-started/HDI.StorageAccount.QuickCreate.png
   [저장소 계정을 만드는 방법]: ../storage-create-storage-account/
-  [HDInsight 구성 요소 버전 관리]: http://azure.microsoft.com/en-us/documentation/articles/hdinsight-component-versioning/
+  [HDInsight 구성 요소 버전 관리]: http://azure.microsoft.com/ko-kr/documentation/articles/hdinsight-component-versioning/
   [HDI.ClusterStatus]: ./media/hdinsight-get-started/HDI.ClusterStatus.png
   [HDI.QuickCreateCluster]: ./media/hdinsight-get-started/HDI.QuickCreateCluster.png
   [HDInsight에서 제공하는 클러스터 버전의 새로운 기능]: ../hdinsight-component-versioning/

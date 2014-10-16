@@ -778,5 +778,5 @@ Azure는 사용된 서버 시간의 시간당 웹 역할 인스턴스
   [33]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hy-service1.png
   [34]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-43.png
   [Azure 서비스 버스]: http://msdn.microsoft.com/en-us/library/windowsazure/ee732537.aspx
-  [서비스 버스 사용 방법]: /en-us/documentation/services/service-bus/
+  [서비스 버스 사용 방법]: /ko-kr/documentation/services/service-bus/
   [서비스 버스 큐를 사용하는 방법]: /en-us/develop/net/how-to-guides/service-bus-queues/

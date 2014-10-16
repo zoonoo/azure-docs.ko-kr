@@ -113,7 +113,7 @@ Azure 기계 학습은 Azure 지원 제공물의 일부로 지원됩니다. Azur
 또한 Azure 기계 학습은 MSDN에 커뮤니티 포럼을 갖고 있으며, 여기에서 Azure 기계 학습 관련 질문을 할 수 있습니다. 이 포럼은 Azure 기계 학습 팀에서 모니터합니다. [Azure 포럼][]을 방문해보세요.
 
   [시작하기 페이지]: http://go.microsoft.com/fwlink/?LinkId=404226
-  [Azure 기계 학습 센터]: http://azure.microsoft.com/en-us/documentation/services/machine-learning/
+  [Azure 기계 학습 센터]: http://azure.microsoft.com/ko-kr/documentation/services/machine-learning/
   [http://azure.microsoft.com/ko-kr/pricing/details/machine-learning/]: http://azure.microsoft.com/en-us/pricing/details/machine-learning/
   [http://azure.microsoft.com/ko-kr/pricing/free-trial-faq/]: http://azure.microsoft.com/en-us/pricing/free-trial-faq/
   [사용자 피드백 포럼]: http://go.microsoft.com/fwlink/?LinkId=404231

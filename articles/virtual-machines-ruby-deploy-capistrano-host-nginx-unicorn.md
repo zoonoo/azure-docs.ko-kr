@@ -475,7 +475,7 @@ Azure SDK for Ruby를 사용하여 Ruby 응용 프로그램에서 Azure 서비�
   [여기]: /en-us/manage/linux/tutorials/virtual-machine-from-gallery/
   [Azure 관리 포털]: https://manage.windowsazure.com/
   [Capistrano]: http://capistranorb.com
-  [Azure에서 Linux와 SSH를 사용하는 방법]: http://azure.microsoft.com/en-us/documentation/articles/linux-use-ssh-key/
+  [Azure에서 Linux와 SSH를 사용하는 방법]: http://azure.microsoft.com/ko-kr/documentation/articles/linux-use-ssh-key/
   [nginx 시작 페이지]: ./media/virtual-machines-ruby-deploy-capistrano-host-nginx-unicorn/welcomenginx.png
   [Azure, Ruby on Rails, Capistrano 3 및 PostgreSQL]: http://wootstudio.ca/articles/tutorial-windows-azure-ruby-on-rails-capistrano-3-postgresql
   [Capistrano 3 자습서]: http://www.talkingquickly.co.uk/2014/01/deploying-rails-apps-to-a-vps-with-capistrano-v3/

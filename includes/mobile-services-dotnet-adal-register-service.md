@@ -43,6 +43,6 @@
 
 <!-- URLs. -->
 
-  [Azure Active Directory에 등록하는 방법]: /en-us/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
+  [Azure Active Directory에 등록하는 방법]: /ko-kr/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
   [Azure 관리 포털]: https://manage.windowsazure.com/
   []: ./media/mobile-services-dotnet-adal-register-service/mobile-services-aad-app-manage-manifest.png

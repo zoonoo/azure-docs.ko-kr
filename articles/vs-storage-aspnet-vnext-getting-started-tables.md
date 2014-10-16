@@ -6,7 +6,7 @@
 
 # Azure 저장소 시작
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/vs-storage-aspnet-vnext-getting-started-blobs" title="Blob" class="current">Blob</a><a href="/en-us/documentation/articles/vs-storage-aspnet-vnext-getting-started-queues" title="큐">큐</a><a href="/en-us/documentation/articles/vs-storage-aspnet-vnext-getting-started-tables" title="테이블">테이블</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/ko-kr/documentation/articles/vs-storage-aspnet-vnext-getting-started-blobs" title="Blob" class="current">Blob</a><a href="/ko-kr/documentation/articles/vs-storage-aspnet-vnext-getting-started-queues" title="큐">큐</a><a href="/ko-kr/documentation/articles/vs-storage-aspnet-vnext-getting-started-tables" title="테이블">테이블</a></div>
 
 Azure 테이블 저장소 서비스를 사용하면 많은 양의 구조화된 데이터를 저장할 수 있습니다. 이 서비스는 Azure 클라우드 내부 및 외부에서 인증된 호출을 수락하는 NoSQL 데이터 저장소입니다. Azure 테이블은 구조화된 비관계형 데이터를 저장하는 데 적합합니다. 자세한 내용은 [.NET에서 테이블 저장소를 사용하는 방법][.NET에서 테이블 저장소를 사용하는 방법](영문)을 참조하세요.
 
@@ -33,8 +33,8 @@ ASP.NET vNext 프로젝트에서 프로그래밍 방식으로 테이블에 액�
 [WACOM.INCLUDE [vs-storage-getting-started-tables-include][vs-storage-getting-started-tables-include]]
 
   [vs-storage-aspnet-vnext-getting-started-intro]: ../includes/vs-storage-aspnet-vnext-getting-started-intro.md
-  [Blob]: /en-us/documentation/articles/vs-storage-aspnet-vnext-getting-started-blobs "Blob"
-  [큐]: /en-us/documentation/articles/vs-storage-aspnet-vnext-getting-started-queues "큐"
-  [테이블]: /en-us/documentation/articles/vs-storage-aspnet-vnext-getting-started-tables "테이블"
-  [.NET에서 테이블 저장소를 사용하는 방법]: http://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-how-to-use-tables/#create-table ".NET에서 테이블 저장소를 사용하는 방법"
+  [Blob]: /ko-kr/documentation/articles/vs-storage-aspnet-vnext-getting-started-blobs "Blob"
+  [큐]: /ko-kr/documentation/articles/vs-storage-aspnet-vnext-getting-started-queues "큐"
+  [테이블]: /ko-kr/documentation/articles/vs-storage-aspnet-vnext-getting-started-tables "테이블"
+  [.NET에서 테이블 저장소를 사용하는 방법]: http://azure.microsoft.com/ko-kr/documentation/articles/storage-dotnet-how-to-use-tables/#create-table ".NET에서 테이블 저장소를 사용하는 방법"
   [vs-storage-getting-started-tables-include]: ../includes/vs-storage-getting-started-tables-include.md

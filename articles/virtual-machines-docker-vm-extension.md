@@ -134,7 +134,7 @@ Azure용 Docker VM 확장은 특수 동작을 제공하는 여러 VM 확장 중 
 
   [Docker]: https://www.docker.com/
   [Linux 컨테이너]: http://en.wikipedia.org/wiki/LXC
-  [Azure Linux 에이전트]: http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-agent-user-guide/
+  [Azure Linux 에이전트]: http://azure.microsoft.com/ko-kr/documentation/articles/virtual-machines-linux-agent-user-guide/
   [MS Open Tech 블로그 알림]: http://msopentech.com/blog/2014/08/15/getting_started_docker_on_microsoft_azure/
   [Docker 및 Linux 컨테이너]: #Docker-and-Linux-Containers
   [Azure와 함께 Docker VM 확장을 사용하는 방법]: #How-to-use-the-Docker-VM-Extension-with-Azure
@@ -149,11 +149,11 @@ Azure용 Docker VM 확장은 특수 동작을 제공하는 여러 VM 확장 중 
   [AppArmor]: http://wiki.apparmor.net/index.php/Main_Page
   [azure-cli]: https://github.com/Azure/azure-sdk-tools-xplat
   [Boot2Docker]: https://docs.docker.com/installation/windows/
-  [여기]: http://azure.microsoft.com/en-us/documentation/articles/xplat-cli/#install
+  [여기]: http://azure.microsoft.com/ko-kr/documentation/articles/xplat-cli/#install
   [노드 패키지 관리자(npm)]: http://en.wikipedia.org/wiki/Npm_%28software%29
   [1]: https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-an-ubuntu-14-04-server
   [Mac installer]: http://go.microsoft.com/fwlink/?linkid=252249&clcid=0x409
-  [Azure 구독에 연결하는 방법]: http://azure.microsoft.com/en-us/documentation/articles/xplat-cli/#configure
+  [Azure 구독에 연결하는 방법]: http://azure.microsoft.com/ko-kr/documentation/articles/xplat-cli/#configure
   [Docker 설치 지침]: https://docs.docker.com/installation/#installation
   [!@\#$%^&+=]: mailto:!@#$%^&+=
   []: ./media/virtual-machines-docker/dockercreateresults.png

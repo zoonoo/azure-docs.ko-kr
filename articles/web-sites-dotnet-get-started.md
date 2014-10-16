@@ -339,23 +339,23 @@ Azure 계정은 무료로 개설할 수 있으며, Visual Studio 2013이 아직 
   [Azure 관리 포털]: /en-us/services/management-portal/
   [새 웹 사이트가 호출된 포털 홈페이지]: ./media/web-sites-dotnet-get-started-vs2013/portalhome.png
   [포털 웹 사이트 대시보드 탭]: ./media/web-sites-dotnet-get-started-vs2013/portaldashboard.png
-  [구성]: /en-us/documentation/articles/web-sites-configure//
+  [구성]: /ko-kr/documentation/articles/web-sites-configure//
   [WebSockets]: /blog/2013/11/14/introduction-to-websockets-on-windows-azure-web-sites/
-  [진단 로깅]: /en-us/documentation/articles/web-sites-enable-diagnostic-log/
+  [진단 로깅]: /ko-kr/documentation/articles/web-sites-enable-diagnostic-log/
   [연결 문자열 값]: /blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/
   [포털 웹 사이트 구성 탭]: ./media/web-sites-dotnet-get-started-vs2013/portalconfigure.png
-  [크기 조정]: /en-us/documentation/articles/web-sites-scale/
+  [크기 조정]: /ko-kr/documentation/articles/web-sites-scale/
   [포털 웹 사이트 크기 조정 탭]: ./media/web-sites-dotnet-get-started-vs2013/portalscale.png
   [Azure 미리 보기 포털]: /en-us/overview/preview-portal/
   [소스 제어 시스템]: http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control
   [배포를 자동화]: http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery
-  [Azure 웹 사이트를 배포하는 방법]: /en-us/documentation/articles/web-sites-deploy/"
+  [Azure 웹 사이트를 배포하는 방법]: /ko-kr/documentation/articles/web-sites-deploy/"
   [자동화(Azure에서 실제 클라우드 앱 빌드)]: http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything
   [Visual Studio에서 Azure 웹 사이트 문제 해결]: /en-us/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/
   [Azure 웹 사이트에 멤버 자격, OAuth 및 SQL 데이터베이스가 포함된 보안 ASP.NET MVC 앱 배포]: /en-us/develop/net/tutorials/web-site-with-sql-database/
-  [Azure 웹 사이트에 대한 사용자 지정 도메인 이름 구성]: /en-us/documentation/articles/web-sites-custom-domain-name/
-  [Azure 웹 사이트에 HTTPS 사용]: http://azure.microsoft.com/en-us/documentation/articles/web-sites-configure-ssl-certificate/
-  [웹 사이트를 구성하는 방법]: http://azure.microsoft.com/en-us/documentation/articles/web-sites-configure/
+  [Azure 웹 사이트에 대한 사용자 지정 도메인 이름 구성]: /ko-kr/documentation/articles/web-sites-custom-domain-name/
+  [Azure 웹 사이트에 HTTPS 사용]: http://azure.microsoft.com/ko-kr/documentation/articles/web-sites-configure-ssl-certificate/
+  [웹 사이트를 구성하는 방법]: http://azure.microsoft.com/ko-kr/documentation/articles/web-sites-configure/
   [ASP.NET SignalR]: http://www.asp.net/signalr
   [Windows Azure 웹 사이트에서 SignalR 사용]: http://www.asp.net/signalr/overview/signalr-20/getting-started-with-signalr-20/using-signalr-with-windows-azure-web-sites
   [Azure 실행 모델]: /en-us/develop/net/fundamentals/compute/

@@ -654,15 +654,15 @@ Azure에 명령줄 도구를 사용하려면 먼저 구독에 대한 정보가 �
   [Twitter Bootstrap]: https://github.com/twbs/bootstrap
   [1]: http://getbootstrap.com/
   [작업 목록의 새 항목 이미지]: ./media/storage-nodejs-use-table-storage-web-site/table_todo_list.png
-  [Node.js 응용 프로그램을 만들어 Azure 웹 사이트에 배포]: /en-us/documentation/articles/web-sites-nodejs-develop-deploy-mac/
+  [Node.js 응용 프로그램을 만들어 Azure 웹 사이트에 배포]: /ko-kr/documentation/articles/web-sites-nodejs-develop-deploy-mac/
   [antares-iaas-signup]: ../includes/antares-iaas-signup.md
-  [Azure 플랫폼 간 명령줄 인터페이스 설치 및 구성]: /en-us/documentation/articles/xplat-cli/
+  [Azure 플랫폼 간 명령줄 인터페이스 설치 및 구성]: /ko-kr/documentation/articles/xplat-cli/
   [다운로드 페이지]: ./media/storage-nodejs-use-table-storage-web-site/azure-account-download-cli.png
   [Git remote]: http://git-scm.com/docs/git-remote
   [웹 사이트 대시보드 열기]: ./media/storage-nodejs-use-table-storage-web-site/go_to_dashboard.png
   [구성 링크]: ./media/storage-nodejs-use-table-storage-web-site/sql-task-configure.png
   [앱 설정]: ./media/storage-nodejs-use-table-storage-web-site/storage-tasks-appsettings.png
   [앱 설정 저장]: ./media/storage-nodejs-use-table-storage-web-site/savebutton.png
-  [MongoDB가 있는 Node.js 웹 응용 프로그램]: /en-us/documentation/articles/web-sites-nodejs-store-data-mongodb/
-  [Git를 사용하여 Azure 웹 사이트에 게시]: /en-us/documentation/articles/web-sites-publish-source-control/
-  [Node.js 응용 프로그램을 만들어 Azure 웹 사이트에 배포]: /en-us/documentation/articles/web-sites-nodejs-develop-deploy-mac/
+  [MongoDB가 있는 Node.js 웹 응용 프로그램]: /ko-kr/documentation/articles/web-sites-nodejs-store-data-mongodb/
+  [Git를 사용하여 Azure 웹 사이트에 게시]: /ko-kr/documentation/articles/web-sites-publish-source-control/
+  [Node.js 응용 프로그램을 만들어 Azure 웹 사이트에 배포]: /ko-kr/documentation/articles/web-sites-nodejs-develop-deploy-mac/

@@ -178,7 +178,7 @@ Azure 저장소를 시작하려면 다음 리소스를 탐색하세요.
   [무료 평가판]: /en-us/pricing/free-trial/
   [구입 옵션]: /en-us/pricing/purchase-options/
   [MSDN 구독자]: /en-us/pricing/member-offers/msdn-benefits-details/
-  [Azure 가져오기/내보내기 서비스]: http://azure.microsoft.com/en-us/documentation/articles/storage-import-export-service/
+  [Azure 가져오기/내보내기 서비스]: http://azure.microsoft.com/ko-kr/documentation/articles/storage-import-export-service/
   [공유 액세스 서명]: ../storage-dotnet-shared-access-signature-part-1/
   [storage-replication-options]: ../includes/storage-replication-options.md
   [저장소 가격 정보]: /en-us/pricing/details/storage/
@@ -193,7 +193,7 @@ Azure 저장소를 시작하려면 다음 리소스를 탐색하세요.
   [Ruby]: /en-us/develop/ruby/
   [Python]: /en-us/develop/python/
   [PowerShell]: http://msdn.microsoft.com/library/dn495240.aspx
-  [Azure 저장소 설명서]: /en-us/documentation/services/storage/
+  [Azure 저장소 설명서]: /ko-kr/documentation/services/storage/
   [.NET에서 Blob 저장소를 사용하는 방법]: ../storage-dotnet-how-to-use-blobs/
   [.NET에서 테이블 저장소를 사용하는 방법]: ../storage-dotnet-how-to-use-tables/
   [.NET에서 큐 저장소를 사용하는 방법]: ../storage-dotnet-how-to-use-queues/

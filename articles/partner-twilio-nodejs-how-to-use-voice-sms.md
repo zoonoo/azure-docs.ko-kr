@@ -78,7 +78,7 @@ node.js 웹 사이트를 선택하고 "구성" 링크를 클릭합니다. 아래
 있는 영역이 표시됩니다. 표시된 것처럼 Twilio 계정 자격 증명([Twilio 대시보드에서 찾을 수 있음][6](영문))을
 입력하고 이름을 각각 "TWILIO_ACCOUNT_SID" 및 "TWILIO_AUTH_TOKEN"으로 지정합니다.
 
-![Azure 관리콘솔](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/en-us/documentation/articles/partner-twilio-nodejs-how-to-use-voice-sms/20140811091037/twilio_1.png)
+![Azure 관리콘솔](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/ko-kr/documentation/articles/partner-twilio-nodejs-how-to-use-voice-sms/20140811091037/twilio_1.png)
 
 이러한 변수를 구성하고 나서 Azure 콘솔에서 응용 프로그램을 다시 시작합니다.
 

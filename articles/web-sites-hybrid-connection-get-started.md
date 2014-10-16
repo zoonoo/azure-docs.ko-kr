@@ -201,9 +201,9 @@ Microsoft Azure의 웹 사이트를 정적 TCP 포트를 사용하는 온-프레
   [설치]: ./media/web-sites-hybrid-connection-get-started/D08HCMInstalling.png
   [닫기 클릭]: ./media/web-sites-hybrid-connection-get-started/D09HCMInstallComplete.png
   [연결됨 상태]: ./media/web-sites-hybrid-connection-get-started/D10HCStatusConnected.png
-  [하이브리드 연결을 사용하여 Azure 모바일 서비스에서 온-프레미스 SQL Server에 연결]: http://azure.microsoft.com/en-us/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started/
+  [하이브리드 연결을 사용하여 Azure 모바일 서비스에서 온-프레미스 SQL Server에 연결]: http://azure.microsoft.com/ko-kr/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started/
   [Josh Twist가 소개하는 하이브리드 연결(채널 9 비디오)(영문)]: http://channel9.msdn.com/Shows/Azure-Friday/Josh-Twist-introduces-hybrid-connections
   [하이브리드 연결 웹 사이트]: http://azure.microsoft.com/en-us/services/biztalk-services/
-  [BizTalk 서비스: 대시보드, 모니터, 확장, 구성 및 하이브리드 연결 탭]: http://azure.microsoft.com/en-us/documentation/articles/biztalk-dashboard-monitor-scale-tabs/
+  [BizTalk 서비스: 대시보드, 모니터, 확장, 구성 및 하이브리드 연결 탭]: http://azure.microsoft.com/ko-kr/documentation/articles/biztalk-dashboard-monitor-scale-tabs/
   [원활한 응용 프로그램 이식성으로 실시간 하이브리드 연결 클라우드 구축(채널 9 비디오)(영문)]: http://channel9.msdn.com/events/TechEd/NorthAmerica/2014/DCIM-B323#fbid=
   [하이브리드 연결을 사용하여 Azure 모바일 서비스에서 온-프레미스 SQL Server에 연결(채널 9 비디오)(영문)]: http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Connect-to-an-on-premises-SQL-Server-from-Azure-Mobile-Services-using-Hybrid-Connections

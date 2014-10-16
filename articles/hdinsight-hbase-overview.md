@@ -58,7 +58,7 @@ HBase를 데이터 저장소로 사용하여 HBase 위에서 응용 프로그램
 [Bigtable: 구조화된 데이터의 분산 저장소 시스템][]
 
   [Azure 가상 네트워크에 HDInsight 클러스터 프로비전]: ../hdinsight-hbase-provision-vnet/
-  [HDInsight에서 Hadoop와 함께 HBase를 사용하여 시작]: http://azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-get-started/
+  [HDInsight에서 Hadoop와 함께 HBase를 사용하여 시작]: http://azure.microsoft.com/ko-kr/documentation/articles/hdinsight-hbase-get-started/
   [Phoenix]: http://phoenix.apache.org/
   [HDInsight에서 HBase를 사용하여 Twitter 데이터 분석]: ../hdinsight-hbase-analyze-twitter-sentiment/
   [Maven을 통해 HDInsight(Hadoop)와 함께 HBase를 사용하는 Java 응용 프로그램 작성]: ../hdinsight-hbase-build-java-maven/

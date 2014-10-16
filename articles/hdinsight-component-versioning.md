@@ -104,7 +104,7 @@ SLA는 "지원 기간" 면에서 정의됩니다. 지원 기간은 Microsoft 고
 
   [Azure HDInsight]: http://go.microsoft.com/fwlink/?LinkID=285601
   [Ambari 설명서]: https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md
-  [HDInsight 릴리스 정보]: http://azure.microsoft.com/en-us/documentation/articles/hdinsight-release-notes/
+  [HDInsight 릴리스 정보]: http://azure.microsoft.com/ko-kr/documentation/articles/hdinsight-release-notes/
   [New-AzureHDInsightCluster]: http://msdn.microsoft.com/en-us/library/dn593744.aspx
   [Family 4]: http://msdn.microsoft.com/en-us/library/azure/ee924680.aspx#explanation
   [Hortonworks Data Platform 2.1]: http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.1.1/bk_releasenotes_hdp_2.1/content/ch_relnotes-hdp-2.1.1.html

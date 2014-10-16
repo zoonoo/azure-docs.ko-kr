@@ -75,7 +75,7 @@
   [mobile-services-selector-get-started]: ../includes/mobile-services-selector-get-started.md
   [Windows 및 Windows Phone을 대상으로 하는 범용 Windows 앱 작성]: http://msdn.microsoft.com/en-us/library/windows/apps/xaml/dn609832.aspx
   [빠른 시작: 모바일 서비스 추가(JavaScript 백 엔드)]: http://msdn.microsoft.com/en-us/library/windows/apps/xaml/dn263180.aspx
-  [Windows Phone에 대한 데이터로 시작]: /en-us/documentation/articles/mobile-services-windows-phone-get-started-data
+  [Windows Phone에 대한 데이터로 시작]: /ko-kr/documentation/articles/mobile-services-windows-phone-get-started-data
   [mobile-services-windows-universal-get-started]: ../includes/mobile-services-windows-universal-get-started.md
   [Azure 무료 평가판]: http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-services-javascript-backend-windows-store-javascript-get-started%2F
   [Visual Studio 2013 Express for Windows]: http://go.microsoft.com/fwlink/?LinkId=257546
@@ -83,7 +83,7 @@
   []: ./media/mobile-services-javascript-backend-windows-store-dotnet-get-started/mobile-portal-quickstart.png
   [1]: ./media/mobile-services-javascript-backend-windows-store-dotnet-get-started/mobile-quickstart-steps.png
   [mobile-services-javascript-backend-run-app]: ../includes/mobile-services-javascript-backend-run-app.md
-  [데이터 시작하기]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-data
-  [인증 시작]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-users
-  [푸시 알림 시작]: /en-us/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push
-  [단일 모바일 서비스에서 여러 장치 플랫폼 지원]: /en-us/documentation/articles/mobile-services-how-to-use-multiple-clients-single-service#shared-vs
+  [데이터 시작하기]: /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-data
+  [인증 시작]: /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-users
+  [푸시 알림 시작]: /ko-kr/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push
+  [단일 모바일 서비스에서 여러 장치 플랫폼 지원]: /ko-kr/documentation/articles/mobile-services-how-to-use-multiple-clients-single-service#shared-vs

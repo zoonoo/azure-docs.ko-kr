@@ -121,7 +121,7 @@ Azure 클라우드 서비스가 정답입니다. PaaS(Platform as a Service)의 
 
 #### 계산 모델 선택
 
-Azure 웹 사이트, 클라우드 서비스 및 가상 컴퓨터 비교 페이지(<http://azure.microsoft.com/en-us/documentation/articles/choose-web-site-cloud-service-vm/> )에서는 계산 모델을 선택하는 방법에 대한 자세한 내용을 제공합니다.
+Azure 웹 사이트, 클라우드 서비스 및 가상 컴퓨터 비교 페이지(<http://azure.microsoft.com/ko-kr/documentation/articles/choose-web-site-cloud-service-vm/> )에서는 계산 모델을 선택하는 방법에 대한 자세한 내용을 제공합니다.
 
 ## <span id="data"></span></a>데이터 관리
 
@@ -563,7 +563,7 @@ SendGrid는 전자 메일을 보낼 수 있는 Azure 스토어의 응용 프로�
   [미디어]: #media
   [상거래]: #commerce
   [시작하기]: #start
-  [Windows Azure 인포그래픽]: http://azure.microsoft.com/en-us/documentation/infographics/azure/ "Microsoft Azure 포스터 인포그래픽"
+  [Windows Azure 인포그래픽]: http://azure.microsoft.com/ko-kr/documentation/infographics/azure/ "Microsoft Azure 포스터 인포그래픽"
   [1]: ./media/intro-to-azure/AzureComponentsIntroNew800.png
   [Azure 가상 컴퓨터]: ./media/intro-to-azure/VirtualMachinesIntroNew.png
   [Azure 웹 사이트]: ./media/intro-to-azure/AzureWebsitesIntroNew.png
@@ -592,7 +592,7 @@ SendGrid는 전자 메일을 보낼 수 있는 Azure 스토어의 응용 프로�
   [Azure CDN]: ./media/intro-to-azure/CDNIntroNew.png
   [HDInsight]: ./media/intro-to-azure/HDInsightIntroNew.png
   [Azure 미디어 서비스]: ./media/intro-to-azure/MediaServicesIntroNew.png
-  [Azure Media Services Poster]: http://azure.microsoft.com/en-us/documentation/infographics/media-services/
+  [Azure Media Services Poster]: http://azure.microsoft.com/ko-kr/documentation/infographics/media-services/
   [Azure 마켓플레이스]: http://datamarket.azure.com/
   [Azure 스토어]: /en-us/store/overview/
   [Azure 상거래]: ./media/intro-to-azure/CommerceIntroNew.png

@@ -544,7 +544,7 @@ Visual Studio에 응용 프로그램이 열려 있을 때 **F5**를 눌러 응�
 * [프로그래밍 방식으로 Hadoop 작업 제출][]
 * [Azure HDInsight SDK 문서][]
 
-  [HDInsight에서 HBase 클러스터 프로비전]: http://azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-get-started/
+  [HDInsight에서 HBase 클러스터 프로비전]: http://azure.microsoft.com/ko-kr/documentation/articles/hdinsight-hbase-get-started/
   [Hadoop와 HBase 간 차이점]: http://go.microsoft.com/fwlink/?LinkId=510237
   [Apache Hadoop]: http://go.microsoft.com/fwlink/?LinkId=510084
   [HDInsight의 Hadoop 소개]: ../hdinsight-introduction/

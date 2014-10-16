@@ -55,6 +55,6 @@ Azure에서 Blob, 테이블, 큐 및 파일 서비스에 파일과 데이터를 
   [선호도 그룹 작업]: http://msdn.microsoft.com/en-us/library/windowsazure/ee460798.aspx
   [storage-replication-options]: ../includes/storage-replication-options.md
   [StoragePage]: ./media/storage-create-storage-account/Storage_StoragePage.png
-  [azure.com]: http://azure.microsoft.com/en-us/documentation/services/storage/
+  [azure.com]: http://azure.microsoft.com/ko-kr/documentation/services/storage/
   [MSDN]: http://msdn.microsoft.com/en-us/library/gg433040.aspx
   [Azure 저장소 팀 블로그]: http://blogs.msdn.com/b/windowsazurestorage/

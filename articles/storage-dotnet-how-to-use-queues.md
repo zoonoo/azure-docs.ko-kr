@@ -340,7 +340,7 @@ Storage Client Library for .NET의 ODataLib 종속성은 WCF 데이터 서비스
   [Storage Client Library for .NET 참조]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
   [REST API 참조]: http://msdn.microsoft.com/en-us/library/windowsazure/dd179355
   [Azure에 데이터 저장 및 액세스]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
-  [Azure WebJobs SDK 시작]: /en-us/documentation/articles/websites-dotnet-webjobs-sdk-get-started/
-  [테이블 저장소]: /en-us/documentation/articles/storage-dotnet-how-to-use-tables/
-  [Blob 저장소]: /en-us/documentation/articles/storage-dotnet-how-to-use-blobs/
-  [SQL 데이터베이스]: /en-us/documentation/articles/sql-database-dotnet-how-to-use/
+  [Azure WebJobs SDK 시작]: /ko-kr/documentation/articles/websites-dotnet-webjobs-sdk-get-started/
+  [테이블 저장소]: /ko-kr/documentation/articles/storage-dotnet-how-to-use-tables/
+  [Blob 저장소]: /ko-kr/documentation/articles/storage-dotnet-how-to-use-blobs/
+  [SQL 데이터베이스]: /ko-kr/documentation/articles/sql-database-dotnet-how-to-use/

@@ -90,5 +90,5 @@ Blob을 삭제하려면 먼저 Blob 참조를 가져온 다음 Delete() 메서�
     // Delete the blob.
     blockBlob.Delete();
 
-  [.NET에서 Blob 저장소를 사용하는 방법]: http://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-how-to-use-blobs/#list-blob
-  [1]: http://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-how-to-use-blobs/#download-blobs
+  [.NET에서 Blob 저장소를 사용하는 방법]: http://azure.microsoft.com/ko-kr/documentation/articles/storage-dotnet-how-to-use-blobs/#list-blob
+  [1]: http://azure.microsoft.com/ko-kr/documentation/articles/storage-dotnet-how-to-use-blobs/#download-blobs

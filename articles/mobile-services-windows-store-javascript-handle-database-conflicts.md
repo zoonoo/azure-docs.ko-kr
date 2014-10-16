@@ -272,18 +272,18 @@ Azure 모바일 서비스는 각 테이블에 추가되는 `__version` 시스템
 
 이 자습서에서는 모바일 서비스에서 데이터 작업 시 발생하는 쓰기 충돌을 처리하도록 Windows 스토어 앱을 설정하는 방법을 알아보았습니다. 이제 다음 자습서 중 하나에서 데이터 시리즈를 완료하십시오.
 
--   [스크립트를 사용하여 데이터 유효성 검사 및 수정](/en-us/documentation/articles/mobile-services-windows-store-javascript-validate-modify-data-server-scripts/)
+-   [스크립트를 사용하여 데이터 유효성 검사 및 수정](/ko-kr/documentation/articles/mobile-services-windows-store-javascript-validate-modify-data-server-scripts/)
     모바일 서비스에서 서버 스크립트를 사용하여 앱에서 전송된 데이터의 유효성을 검사하고 변경하는 방법을 자세히 알아봅니다.
 
--   [페이징을 사용하여 쿼리 구체화](/en-us/documentation/articles/mobile-services-windows-store-javascript-add-paging-data/)
+-   [페이징을 사용하여 쿼리 구체화](/ko-kr/documentation/articles/mobile-services-windows-store-javascript-add-paging-data/)
     쿼리에 페이징을 사용하여 단일 요청으로 처리되는 데이터 양을 제어하는 방법을 알아봅니다.
 
 데이터 시리즈를 완료한 후에는 다음 Windows 스토어 자습서 중 하나를 시도해 볼 수도 있습니다.
 
--   [인증 시작](/en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-users/)
+-   [인증 시작](/ko-kr/documentation/articles/mobile-services-windows-store-javascript-get-started-users/)
     앱 사용자를 인증하는 방법을 알아봅니다.
 
--   [푸시 알림 시작](/en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-push/)
+-   [푸시 알림 시작](/ko-kr/documentation/articles/mobile-services-windows-store-javascript-get-started-push/)
     모바일 서비스를 사용하여 기본적인 푸시 알림을 앱에 보내는 방법을 알아봅니다.
 
 

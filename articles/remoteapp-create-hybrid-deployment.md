@@ -188,7 +188,7 @@ RemoteApp 하이브리드 배포를 만들고 배포했습니다. 다음 단계�
 
   [필요한 업데이트]: http://support.microsoft.com/kb/2977219
   [RemoteApp의 미리 보기]: http://azure.microsoft.com/en-us/services/remoteapp/
-  [Azure PowerShell]: http://azure.microsoft.com/en-us/documentation/articles/install-configure-powershell/
+  [Azure PowerShell]: http://azure.microsoft.com/ko-kr/documentation/articles/install-configure-powershell/
   [Azure 관리 포털]: http://manage.windowsazure.com
   [관리 포털에서 사이트 간 VPN 구성]: http://msdn.microsoft.com/library/azure/dn133795.aspx
   [디렉터리 동기화 로드맵]: http://msdn.microsoft.com//library/azure/hh967642.aspx
