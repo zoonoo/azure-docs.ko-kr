@@ -1,0 +1,137 @@
+<properties pageTitle="How to authorize developer accounts using OAuth 2.0 in Azure API Management" metaKeywords="" description="Learn how to authorize users using OAuth 2.0 in API Management." metaCanonical="" services="api-management" documentationCenter="API Management" title="How to authorize developer accounts using OAuth 2.0 in Azure API Management" authors="sdanie" solutions="" manager="" editor="" />
+
+<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie"></tags>
+
+# Azure API 관리에서 OAuth 2.0을 사용하여 개발자 계정에 권한을 부여하는 방법
+
+API 관리는 사용자가 OAuth 2.0 권한 부여를 사용하여 개발자 포털에 액세스하는 기능을 제공합니다. 이 가이드에서는 OAuth 2.0 권한 부여를 사용하도록 API 관리 서비스 인스턴스를 구성하는 방법을 설명합니다.
+
+> OAuth 2.0에 대한 자세한 내용은 [][]<http://oauth.net/2/></a>의 사양을 참조하세요.
+
+## 항목 내용
+
+-   [필수 조건][필수 조건]
+-   [API 관리에서 OAuth 2.0 권한 부여 서버 구성][API 관리에서 OAuth 2.0 권한 부여 서버 구성]
+-   [OAuth 2.0 사용자 권한 부여를 사용하도록 API 구성][OAuth 2.0 사용자 권한 부여를 사용하도록 API 구성]
+-   [개발자 포털에서 OAuth 2.0 사용자 권한 부여 테스트][개발자 포털에서 OAuth 2.0 사용자 권한 부여 테스트]
+
+## <a name="prerequisites"> </a>필수 조건
+
+이 가이드에서는 개발자 계정에 대해 OAuth 2.0 권한 부여를 사용하도록 API 관리 서비스 인스턴스를 구성하는 방법을 설명합니다. 그러나 OAuth 2.0 공급자를 구성하는 방법은 설명하지 않습니다. 각 OAuth 2.0 공급자의 구성은 서로 다르지만 구성 단계는 비슷하며, API 관리 서비스 인스턴스에서 OAuth 2.0을 구성하는 데 사용되는 필수 정보도 동일합니다. 이 항목에서는 OAuth 2.0 공급자로서 Azure Active Directory를 사용하는 예제를 설명합니다.
+
+> Azure Active Directory를 사용하여 OAuth 2.0을 구성하는 방법에 대한 자세한 내용은 [WebApp-GraphAPI-DotNet][WebApp-GraphAPI-DotNet] 샘플을 참조하세요.
+
+## <a name="step1"> </a>API 관리에서 OAuth 2.0 권한 부여 서버 구성
+
+시작하려면 Azure 포털에서 API 관리 서비스에 대한 **관리 콘솔**을 클릭합니다. API 관리의 관리용 포털이 열립니다.
+
+![API 관리 콘솔][API 관리 콘솔]
+
+> 아직 API 관리 서비스 인스턴스를 만들지 않은 경우 [Azure API 관리 시작][Azure API 관리 시작] 자습서의 [API 관리 서비스 인스턴스 만들기][API 관리 서비스 인스턴스 만들기]를 참조하세요.
+
+왼쪽의 **API 관리** 메뉴에서 **보안**을 클릭하고 **OAuth 2.0**을 클릭한 다음 **권한 부여 서버 추가**를 클릭합니다.
+
+![OAuth 2.0][OAuth 2.0]
+
+**권한 부여 서버 추가**를 클릭하면 새 권한 부여 서버 양식이 표시됩니다.
+
+![새 서버][새 서버]
+
+**이름** 필드에 이름을 입력하고 원하는 경우 **설명** 필드에 설명을 입력합니다.
+
+> 이러한 필드는 현재 API 관리 서비스 인스턴스 내에서 OAuth 2.0 권한 부여 서버를 식별하는 데 사용되며, 해당 값은 OAuth 2.0 서버에서 제공되지 않습니다.
+
+**클라이언트 등록 페이지 URL**을 입력합니다. 사용자는 이 페이지에서 계정을 만들고 관리할 수 있습니다. 사용되는 OAuth 2.0 공급자에 따라 페이지는 달라집니다.
+
+양식의 다음 섹션에는 **인증 코드 부여 형식**, **권한 부여 끝점 URL** 및 **권한 부여 요청 방법** 설정이 포함되어 있습니다.
+
+![새 서버][1]
+
+원하는 형식을 선택하여 **인증 코드 부여 형식**을 지정합니다. 기본적으로는 **인증 코드**가 지정됩니다.
+
+**권한 부여 끝점 URL**을 입력합니다. Azure Active Directory의 경우 이 URL은 다음 URL과 비슷합니다. 여기서 `<client_id>`는 OAuth 2.0 서버에 대해 응용 프로그램을 식별하는 클라이언트 ID로 바뀝니다.
+
+    https://login.windows.net/<client_id>/oauth2/authorize
+
+**권한 부여 요청 방법**은 권한 부여 요청이 OAuth 2.0 서버로 전송되는 방법을 지정합니다. 기본적으로는 **GET**이 선택됩니다.
+
+다음 섹션에서는 **토큰 끝점 URL**, **클라이언트 인증 방법**, **액세스 토큰 전송 방법** 및 **기본 범위**를 지정합니다.
+
+![새 서버][2]
+
+Azure Active Directory OAuth 2.0 서버의 경우 **토큰 끝점 URL**의 형식은 다음과 같습니다. `<APPID>`의 형식은 `yourapp.onmicrosoft.com`입니다.
+
+    https://login.windows.net/<APPID>/oauth2/token
+
+**클라이언트 인증 방법**의 기본 설정은 **기본**이고 **액세스 토큰 전송 방법**의 기본 설정은 **권한 부여 헤더**입니다. 양식의 이 섹션에서 **기본 범위**와 함께 이러한 값을 구성합니다.
+
+**클라이언트 자격 증명** 섹션에는 **클라이언트 ID** 및 **클라이언트 암호**가 포함되어 있습니다. OAuth 2.0 서버 만들기 및 구성 프로세스 중에 이러한 값을 가져옵니다. **클라이언트 ID** 및 **클라이언트 암호**를 지정하고 나면 **인증 코드**의 **redirect\_uri**가 생성됩니다. 이 URI를 사용하여 OAuth 2.0 서버 구성에서 회신 URL을 구성합니다.
+
+![새 서버][3]
+
+**인증 코드 부여 형식**을 **리소스 소유자 암호**로 설정한 경우 **리소스 소유자 암호 자격 증명** 섹션에서 해당 자격 증명을 지정합니다. 그렇지 않은 경우에는 자격 증명을 비워 두면 됩니다.
+
+![새 서버][4]
+
+양식에 필요한 정보를 모두 입력한 후 **저장**을 클릭하여 API 관리 OAuth 2.0 권한 부여 서버 구성을 저장합니다. 서버 구성을 저장한 후에는 다음 섹션에서 설명하는 것처럼 이 구성을 사용하도록 API를 구성할 수 있습니다.
+
+## <a name="step2"> </a>OAuth 2.0 사용자 권한 부여를 사용하도록 API 구성
+
+왼쪽의 **API 관리** 메뉴에서 **API**를 클릭하고 원하는 API의 이름을 클릭한 후에 **보안**을 클릭하고 **OAuth 2.0**의 확인란을 선택합니다.
+
+![사용자 권한 부여][사용자 권한 부여]
+
+드롭다운 목록에서 원하는 **권한 부여 서버**를 선택하고 **저장**을 클릭합니다.
+
+![사용자 권한 부여][5]
+
+## <a name="step3"> </a>개발자 포털에서 OAuth 2.0 사용자 권한 부여 테스트
+
+OAuth 2.0 권한 부여 서버를 구성하고 해당 서버를 사용하도록 API를 구성한 후에는 개발자 포털로 이동하여 API를 호출하는 방법으로 권한 부여를 테스트할 수 있습니다. 오른쪽 위 메뉴에서 **개발자 포털**을 클릭합니다.
+
+![개발자 포털][개발자 포털]
+
+상단 메뉴에서 **API**를 클릭하고 **Echo API**를 선택합니다.
+
+![Echo API][Echo API]
+
+> API 한 개만 구성했거나 계정에 표시한 경우에는 API를 클릭하면 해당 API에 대한 작업으로 직접 연결됩니다.
+
+**GET 리소스** 작업을 선택하고 **콘솔 시작**을 클릭한 후에 드롭다운에서 **인증 코드**를 선택합니다.
+
+![콘솔 시작][콘솔 시작]
+
+**인증 코드**를 선택하면 OAuth 2.0 공급자의 로그인 양식이 포함된 팝업 창이 표시됩니다. 이 예제에서는 Azure Active Directory에서 로그인 양식을 제공합니다.
+
+> 팝업을 사용하지 않도록 설정한 경우 브라우저에서 팝업을 사용하도록 설정하라는 메시지가 표시됩니다. 팝업을 사용하도록 설정한 후 **인증 코드**를 다시 선택하면 로그인 양식이 표시됩니다.
+
+![로그인][로그인]
+
+로그인하고 나면 **요청 헤더**에 요청 권한을 부여하는 `Authorization : Bearer` 헤더가 채워집니다.
+
+![요청 헤더 토큰][요청 헤더 토큰]
+
+이제 나머지 매개 변수에 대해 원하는 값을 구성하고 요청을 제출할 수 있습니다.
+
+  []: http://oauth.net/2/
+  [필수 조건]: #prerequisites
+  [API 관리에서 OAuth 2.0 권한 부여 서버 구성]: #step1
+  [OAuth 2.0 사용자 권한 부여를 사용하도록 API 구성]: #step2
+  [개발자 포털에서 OAuth 2.0 사용자 권한 부여 테스트]: #step3
+  [WebApp-GraphAPI-DotNet]: https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet
+  [API 관리 콘솔]: ./media/api-management-howto-oauth2/api-management-management-console.png
+  [Azure API 관리 시작]: ../api-management-get-started
+  [API 관리 서비스 인스턴스 만들기]: ../api-management-get-started/#create-service-instance
+  [OAuth 2.0]: ./media/api-management-howto-oauth2/api-management-oauth2.png
+  [새 서버]: ./media/api-management-howto-oauth2/api-management-oauth2-server-1.png
+  [1]: ./media/api-management-howto-oauth2/api-management-oauth2-server-2.png
+  [2]: ./media/api-management-howto-oauth2/api-management-oauth2-server-3.png
+  [3]: ./media/api-management-howto-oauth2/api-management-oauth2-server-4.png
+  [4]: ./media/api-management-howto-oauth2/api-management-oauth2-server-5.png
+  [사용자 권한 부여]: ./media/api-management-howto-oauth2/api-management-user-authorization.png
+  [5]: ./media/api-management-howto-oauth2/api-management-user-authorization-save.png
+  [개발자 포털]: ./media/api-management-howto-oauth2/api-management-developer-portal-menu.png
+  [Echo API]: ./media/api-management-howto-oauth2/api-management-apis-echo-api.png
+  [콘솔 시작]: ./media/api-management-howto-oauth2/api-management-open-console.png
+  [로그인]: ./media/api-management-howto-oauth2/api-management-oauth2-signin.png
+  [요청 헤더 토큰]: ./media/api-management-howto-oauth2/api-management-request-header-token.png
