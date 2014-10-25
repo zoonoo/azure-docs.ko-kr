@@ -1,39 +1,36 @@
-<properties linkid="develop-nodejs-how-to-guides-service-bus-notification-hubs" urlDisplayName="Notification Hubs" pageTitle="Service Bus Notification Hubs - Node.js Dev Center" metaKeywords="" description="Learn how to use Service Bus Notification Hubs to send push notifications. Code samples are written for Node.js applications." metaCanonical="" services="service-bus" documentationCenter="Node.js" title="How to Use Service Bus Notification Hubs" authors="larryfr" solutions="" manager="" editor="" />
+<properties linkid="develop-nodejs-how-to-guides-service-bus-notification-hubs" urlDisplayName="Notification Hubs" pageTitle="Notification Hubs - Node.js Dev Center" metaKeywords="" description="Learn how to use Notification Hubs to send push notifications. Code samples are written for Node.js applications." metaCanonical="" services="service-bus" documentationCenter="nodejs" title="How to Use Notification Hubs" authors="larryfr" solutions="" manager="" editor="" />
 
-서비스 버스 알림 허브를 사용하는 방법
-=====================================
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"></tags>
 
-이 가이드에서는 Node.js 응용 프로그램에서 서비스 버스 알림 허브를 사용하는 방법을 보여 줍니다. 여기서 다루는 시나리오에는 **Android, iOS, Windows Phone 및 Windows 스토어 응용 프로그램에 알림 보내기**가 포함됩니다. 알림 허브에 대한 자세한 내용은 [다음 단계](#next) 섹션을 참조하십시오.
+# 알림 허브를 사용하는 방법
 
-목차
-----
+이 가이드에서는 Node.js 응용 프로그램에서 알림 허브를 사용하는 방법을 보여 줍니다. 여기서 다루는 시나리오에는 **Android, iOS, Windows Phone 및 Windows 스토어 응용 프로그램에 알림 보내기**가 포함됩니다. 알림 허브에 대한 자세한 내용은 [다음 단계][] 섹션을 참조하십시오.
 
--   [서비스 버스 알림 허브 정의](#hub)
--   [Node.js 응용 프로그램 만들기](#create)
--   [서비스 버스를 사용하도록 응용 프로그램 구성](#config)
--   [방법: 알림 보내기](#send)
--   [다음 단계](#next)
+## 목차
 
-서비스 버스 알림 허브 정의
---------------------------
+-   [알림 허브 정의][]
+-   [Node.js 응용 프로그램 만들기][]
+-   [알림 허브를 사용하도록 응용 프로그램 구성][]
+-   [방법: 알림 보내기][]
+-   [다음 단계][]
 
-Azure 서비스 버스 알림 허브는 모바일 서비스에 푸시 알림을 보내는 사용하기 쉽고 확장 가능한 다중 플랫폼 인프라를 제공합니다. 자세한 내용은 [Azure 서비스 버스 알림 허브](http://msdn.microsoft.com/ko-kr/library/windowsazure/jj927170.aspx)를 참조하십시오.
+## <span id="hub"></span></a>알림 허브 정의
 
-Node.js 응용 프로그램 만들기
-----------------------------
+Azure 알림 허브는 모바일 서비스에 푸시 알림을 보내는 사용하기 쉽고 확장 가능한 다중 플랫폼 인프라를 제공합니다. 자세한 내용은 [Azure 알림 허브][]를 참조하십시오.
 
-빈 Node.js 응용 프로그램을 만듭니다. Node.js 응용 프로그램을 만드는 방법에 대한 지침은 [Node.js 응용 프로그램을 만들어 Azure 웹 사이트에 배포하기](/en-us/develop/nodejs/tutorials/create-a-website-(mac)/), [Node.js 클라우드 서비스](/ko-kr/documentation/articles/cloud-services-nodejs-develop-deploy-app/)(Windows PowerShell 사용) 또는 [WebMatrix를 사용하는 웹 사이트](/en-us/develop/nodejs/tutorials/web-site-with-webmatrix/)를 참조하십시오.
+## <span id="create"></span></a>Node.js 응용 프로그램 만들기
 
-서비스 버스를 사용하도록 응용 프로그램 구성
--------------------------------------------
+빈 Node.js 응용 프로그램을 만듭니다. Node.js 응용 프로그램을 만드는 방법에 대한 지침은 [Node.js 응용 프로그램을 만들어 Azure 웹 사이트에 배포하기][], [Node.js 클라우드 서비스][](Windows PowerShell 사용) 또는 [WebMatrix를 사용하는 웹 사이트][]를 참조하십시오.
 
-Azure 서비스 버스를 사용하려면 Node.js Azure 패키지를 다운로드하여 사용해야 합니다. 이 패키지에는 서비스 버스 REST 서비스와 통신하는 편의 라이브러리 집합이 포함되어 있습니다.
+## <span id="config"></span></a>알림 허브를 사용하도록 응용 프로그램 구성
+
+Azure 알림 허브를 사용하려면 Node.js Azure 패키지를 다운로드하여 사용해야 합니다. 이 패키지에는 REST 서비스와 통신하는 편리한 라이브러리 집합이 포함되어 있습니다.
 
 ### NPM(Node Package Manager)을 사용하여 패키지 가져오기
 
 1.  **PowerShell**(Windows), **Terminal**(Mac), **Bash**(Unix) 등과 같은 명령줄 인터페이스를 사용하여 샘플 응용 프로그램을 만든 폴더로 이동합니다.
 
-2.  명령 창에 **npm install azure**를 입력합니다. 그러면 다음과 같이 출력됩니다.
+2.  명령 창에 **npm install azure**를 입력합니다.    그러면 다음과 같이 출력됩니다.
 
         azure@0.7.0 node_modules\azure
         |-- dateformat@1.0.2-1.2.3
@@ -47,17 +44,17 @@ Azure 서비스 버스를 사용하려면 Node.js Azure 패키지를 다운로�
         |-- xml2js@0.2.6 (sax@0.4.2)
         |-- request@2.16.6 (forever-agent@0.2.0, aws-sign@0.2.0, tunnel-agent@0.2.0, oauth-sign@0.2.0, json-stringify-safe@3.0.0, cookie-jar@0.2.0, node-uuid@1.4.0, qs@0.5.5, hawk@0.10.2, form-data@0.0.7)
 
-3.  **ls** 또는 **dir** 명령을 수동으로 실행하여 **node\_modules** 폴더가 만들어졌는지 확인할 수 있습니다. 이 폴더에서 서비스 버스 알림 허브에 액세스하는 데 필요한 라이브러리가 들어 있는 **azure** 패키지를 찾습니다.
+3.  **ls** 또는 **dir** 명령을 수동으로 실행하여    **node\_modules** 폴더가 만들어졌는지 확인할 수 있습니다. 이 폴더에서    알림 허브에 액세스하는 데 필요한 라이브러리가 들어 있는   **azure** 패키지를 찾습니다.
 
 ### 모듈 가져오기
 
 텍스트 편집기를 사용하여 다음을 응용 프로그램의 **server.js** 파일 맨 위에 추가합니다.
 
-     var azure = require('azure');
+    var azure = require('azure');
 
-### Azure 서비스 버스 연결 설정
+### Azure 알림 허브 연결 설정
 
-**NotificationHubService** 개체를 사용하면 허브 알림으로 작업할 수 있습니다. 다음 코드는 **hubname** 알림 허브에 대한 **NotificationHubService** 개체를 만듭니다. 이 코드를 **server.js** 파일의 위쪽, Azure 모듈을 가져오기 위한 문 뒤에 추가하십시오.
+**NotificationHubService** 개체를 사용하면 허브 알림으로 작업할 수 있습니다. 다음 코드는 **hubname**이라는 알림 허브에 대한 **NotificationHubService** 개체를 만듭니다. 이 코드를 **server.js** 파일 위쪽의 Azure 모듈을 가져오기 위한 문 뒤에 추가하세요.
 
     var notificationHubService = azure.createNotificationHubService('hubname','connectionstring');
 
@@ -69,19 +66,20 @@ Azure 서비스 버스를 사용하려면 Node.js Azure 패키지를 다운로�
 
 3.  **간략 상태** 섹션에서 **연결 문자열 보기**를 선택하고 연결 문자열 값을 복사합니다.
 
-**참고**
+<div class="dev-callout">
+<strong>참고</strong>
+<p>Azure PowerShell에 제공된 <b>Get-AzureSbNamespace</b> cmdlet 또는 Azure 명령줄 도구의 <b>azure sb namespace show</b> 명령을 사용하여 연결 문자열을 검색할 수도 있습니다.</p>
 
-Azure PowerShell에 제공된 **Get-AzureSbNamespace** cmdlet 또는 Azure 명령줄 도구의 **azure sb namespace show** 명령을 사용하여 연결 문자열을 검색할 수도 있습니다.
+</div>
 
-알림을 보내는 방법
-------------------
+## <span id="send"></span></a> 알림을 보내는 방법
 
 **NotificationHubService** 개체는 특정 장치 및 응용 프로그램에 알림을 보내는 다음 개체 인스턴스를 표시합니다.
 
--   **Android** - **notificationHubService.gcm**에서 제공되는 **GcmService** 개체를 사용합니다.
--   **iOS** - **notificationHubService.apns**에서 액세스할 수 있는 **ApnsService** 개체를 사용합니다.
--   **Windows Phone** - **notificationHubService.mpns**에서 제공되는 **MpnsService** 개체를 사용합니다.
--   **Windows 스토어 응용 프로그램** - **notificationHubService.wns**에서 제공되는 **WnsService** 개체를 사용합니다.
+-   **Android** - **notificationHubService.gcm** 에서 제공되는 **GcmService** 개체를 사용합니다.
+-   **iOS** - **notificationHubService.apns** 에서 액세스할 수 있는 **ApnsService** 개체를 사용합니다.
+-   **Windows Phone** - **notificationHubService.mpns** 에서 제공되는 **MpnsService** 개체를 사용합니다.
+-   **Windows 스토어 응용 프로그램** - **notificationHubService.wns** 에서 제공되는 **WnsService** 개체를 사용합니다.
 
 ### Android 응용 프로그램 알림을 보내는 방법
 
@@ -91,9 +89,9 @@ Azure PowerShell에 제공된 **Get-AzureSbNamespace** cmdlet 또는 Azure 명�
 -   Payload - 메시지의 JSON 또는 문자열 페이로드
 -   Callback - 콜백 함수
 
-페이로드 형식에 대한 자세한 내용은 [GCM 서버 구현](http://developer.android.com/google/gcm/server.html#payload)(영문)의 페이로드 섹션을 참조하십시오.
+페이로드 형식에 대한 자세한 내용은 [GCM 서버 구현][](영문)의 페이로드 섹션을 참조하십시오.
 
-다음 코드는 **NotificationHubService**에 의해 표시되는 **GcmService** 인스턴스를 사용하여 모든 클라이언트에 메시지를 보냅니다.
+다음 코드는 **NotificationHubService** 에 의해 표시되는 **GcmService** 인스턴스를 사용하여 모든 클라이언트에 메시지를 보냅니다.
 
     var payload = {
       data: {
@@ -114,18 +112,18 @@ Azure PowerShell에 제공된 **Get-AzureSbNamespace** cmdlet 또는 Azure 명�
 -   Payload - 메시지의 JSON 또는 문자열 페이로드
 -   Callback - 콜백 함수
 
-페이로드 형식에 대한 자세한 내용은 [로컬 및 푸시 알림 프로그래밍 가이드](http://developer.apple.com/library/ios/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/ApplePushService/ApplePushService.html)(영문)의 알림 페이로드 섹션을 참조하십시오.
+페이로드 형식에 대한 자세한 내용은 [로컬 및 푸시 알림 프로그래밍 가이드][](영문)의 알림 페이로드 섹션을 참조하십시오.
 
 다음 코드는 **NotificationHubService**에 의해 표시되는 **ApnsService** 인스턴스를 사용하여 모든 클라이언트에 경고 메시지를 보냅니다.
 
-	var payload={ 
-	    alert: 'Hello!'
-	  };
-	notificationHubService.apns.send(null, payload, function(error){
-	  if(!error){
- 	    // notification sent
+    var payload={
+        alert: 'Hello!'
+      };
+    notificationHubService.apns.send(null, payload, function(error){
+      if(!error){
+        // notification sent
       }
-	});
+    });
 
 ### Windows Phone 알림을 보내는 방법
 
@@ -134,20 +132,20 @@ Azure PowerShell에 제공된 **Get-AzureSbNamespace** cmdlet 또는 Azure 명�
 -   Tags - 태그 식별자. 태그를 제공하지 않은 경우 모든 클라이언트에게 알림이 전송됩니다.
 -   Payload - 메시지의 XML 페이로드
 -   TargetName - 'toast'는 알림 메시지를 나타내고, 'token'은 타일 알림을 나타냅니다.
--   NotificationClass - 알림 우선 순위. 유효한 값은 [서버의 푸시 알림](http://msdn.microsoft.com/ko-kr/library/hh221551.aspx)(영문)의 HTTP 헤더 요소 섹션을 참조하십시오.
+-   NotificationClass - 알림 우선 순위. 유효한 값은 [서버의 푸시 알림][](영문)의 HTTP 헤더 요소 섹션을 참조하십시오.
 -   Options - 선택적 요청 헤더
 -   Callback - 콜백 함수
 
-유효한 TargetName, NotificationClass 및 헤더 옵션 목록은 [서버의 푸시 알림](http://msdn.microsoft.com/ko-kr/library/hh221551.aspx)(영문)을 참조하십시오.
+유효한 TargetName, NotificationClass 및 헤더 옵션 목록은 [서버의 푸시 알림][](영문)을 참조하십시오.
 
-다음 코드는 **NotificationHubService**에 의해 표시되는 **MpnsService** 인스턴스를 사용하여 알림 경고를 보냅니다.
+다음 코드는 **NotificationHubService** 에 의해 표시되는 **MpnsService** 인스턴스를 사용하여 알림 경고를 보냅니다.
 
-	var payload = '<?xml version="1.0" encoding="utf-8"?><wp:Notification xmlns:wp="WPNotification"><wp:Toast><wp:Text1>string</wp:Text1><wp:Text2>string</wp:Text2></wp:Toast></wp:Notification>';
-	notificationHubService.mpns.send(null, payload, 'toast', 22, function(error){
-	  if(!error){
-	    //notification sent
-	  }
-	});
+    var payload = '<?xml version="1.0" encoding="utf-8"?><wp:Notification xmlns:wp="WPNotification"><wp:Toast><wp:Text1>string</wp:Text1><wp:Text2>string</wp:Text2></wp:Toast></wp:Notification>';
+    notificationHubService.mpns.send(null, payload, 'toast', 22, function(error){
+      if(!error){
+        //notification sent
+      }
+    });
 
 ### Windows 스토어 응용 프로그램 알림을 보내는 방법
 
@@ -159,22 +157,35 @@ Azure PowerShell에 제공된 **Get-AzureSbNamespace** cmdlet 또는 Azure 명�
 -   Options - 선택적 요청 헤더
 -   Callback - 콜백 함수
 
-유효한 유형 및 요청 헤더 목록은 [푸시 알림 서비스 요청 및 응답 헤더](http://msdn.microsoft.com/ko-kr/library/windows/apps/hh465435.aspx)를 참조하십시오.
+유효한 유형 및 요청 헤더 목록은 [푸시 알림 서비스 요청 및 응답 헤더][]를 참조하십시오.
 
 다음 코드는 **NotificationHubService**에 의해 표시되는 **WnsService** 인스턴스를 사용하여 알림 경고를 보냅니다.
 
-	var payload = '<toast><visual><binding template="ToastText01"><text id="1">Hello!</text></binding></visual></toast>';
-	notificationHubService.wns.send(null, payload , 'wns/toast', function(error){
-	  if(!error){
- 	    // notification sent
-	  }
-	});
+    var payload = '<toast><visual><binding template="ToastText01"><text id="1">Hello!</text></binding></visual></toast>';
+    notificationHubService.wns.send(null, payload , 'wns/toast', function(error){
+      if(!error){
+        // notification sent
+      }
+    });
 
-다음 단계
----------
+## <span id="next"></span></a>다음 단계
 
-이제 서비스 버스 토픽의 기본 사항을 익혔으므로 다음 링크를 따라 자세히 알아보십시오.
+이제 알림 허브 사용에 대한 기본 사항을 익혔으므로 다음 링크를 따라 자세히 알아보세요.
 
--   다음 MSDN 참조를 확인하십시오. [Azure 서비스 버스 알림 허브](http://msdn.microsoft.com/ko-kr/library/windowsazure/jj927170.aspx)
--   GitHub에서 [Azure SDK for Node](https://github.com/WindowsAzure/azure-sdk-for-node) 리포지토리를 방문하십시오.
+-   다음 MSDN 참조를 확인하세요. [Azure 알림 허브][].
+-   GitHub에서 [Azure SDK for Node][] 리포지토리를 방문하십시오.
 
+  [다음 단계]: #next
+  [알림 허브 정의]: #hub
+  [Node.js 응용 프로그램 만들기]: #create
+  [알림 허브를 사용하도록 응용 프로그램 구성]: #config
+  [방법: 알림 보내기]: #send
+  [Azure 알림 허브]: http://msdn.microsoft.com/ko-KR/library/windowsazure/jj927170.aspx
+  [Node.js 응용 프로그램을 만들어 Azure 웹 사이트에 배포하기]: /ko-KR/develop/nodejs/tutorials/create-a-website-(mac)/
+  [Node.js 클라우드 서비스]: /ko-KR/documentation/articles/cloud-services-nodejs-develop-deploy-app/
+  [WebMatrix를 사용하는 웹 사이트]: /ko-KR/develop/nodejs/tutorials/web-site-with-webmatrix/
+  [GCM 서버 구현]: http://developer.android.com/google/gcm/server.html#payload
+  [로컬 및 푸시 알림 프로그래밍 가이드]: http://developer.apple.com/library/ios/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/ApplePushService/ApplePushService.html
+  [서버의 푸시 알림]: http://msdn.microsoft.com/ko-KR/library/hh221551.aspx
+  [푸시 알림 서비스 요청 및 응답 헤더]: http://msdn.microsoft.com/ko-KR/library/windows/apps/hh465435.aspx
+  [Azure SDK for Node]: https://github.com/WindowsAzure/azure-sdk-for-node

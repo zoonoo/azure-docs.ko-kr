@@ -4,40 +4,40 @@
 
 # Azure 검색을 사용하여 지리 공간적 검색 앱 만들기
 
--   [필수 조건][필수 조건]
--   [Bing 지도][Bing 지도]
--   [Bing 지도 DataFlow API를 사용하여 C#에서 지도 지역 코딩][Bing 지도 DataFlow API를 사용하여 C#에서 지도 지역 코딩]
--   [Azure 검색 및 Bing 지도를 사용하여 MVC4 응용 프로그램에 매핑 추가][Azure 검색 및 Bing 지도를 사용하여 MVC4 응용 프로그램에 매핑 추가]
--   [AdventureWorksWebGeo 살펴보기][AdventureWorksWebGeo 살펴보기]
--   [다음 단계][다음 단계]
+-   [필수 조건](#sub-1)
+-   [Bing 지도](#sub-2)
+-   [Bing 지도 DataFlow API를 사용하여 C#에서 지도 지역 코딩](#sub-3)
+-   [Azure 검색 및 Bing 지도를 사용하여 MVC4 응용 프로그램에 매핑 추가](#sub-4)
+-   [AdventureWorksWebGeo 살펴보기](#sub-5)
+-   [다음 단계](#next-steps)
 
 ## 개요
 
 이 자습서에는 Azure 검색 및 Bing 지도를 사용하여 웹 응용 프로그램에 지리 공간적 검색 기능을 추가하는 방법을 보여 줍니다. 지리적 검색 기능을 통해 현재 위치에서 5km 거리 내의 모든 식당을 찾는 등 특정 지점 거리 내의 대상을 검색할 수 있습니다. Azure 검색의 지리 공간 기능은 일반적으로 사용되는 매핑 기능을 지원합니다. 예를 들어 다각형 경계 내의 주택 매물을 표시하는 부동산 앱에서 다각형 도형을 사용하려는 경우 OData 또는 간단한 검색 구문을 통해 원하는 도형을 쉽게 사용할 수 있습니다.
 
-보다 자세한 개요를 확인하려면 [Azure 검색 및 지리 공간적 데이터][Azure 검색 및 지리 공간적 데이터] Channel 9 비디오를 시청하세요.
+보다 자세한 개요를 확인하려면 [Azure 검색 및 지리 공간적 데이터](http://channel9.msdn.com/Shows/Data-Exposed/Azure-Search-and-Geospatial-Data) Channel 9 비디오를 시청하세요.
 
-![][]
+![][7]
 
 여기서는 응용 프로그램을 만들기 위해 Bing 매핑 서비스를 사용하여 CSV 파일에서 로드한 주소에 지역 코드를 적용한 다음 결과 데이터를 검색 인덱스에 저장합니다.
 
-이 자습서는 [Azure 검색 – Adventure Works 데모][Azure 검색 – Adventure Works 데모]를 기반으로 작성되었습니다. 해당 데모를 아직 연습해 보지 않았다면 인덱스를 만들고 웹 앱에서 Azure 검색 API를 호출하는 작업을 먼저 수행해 보세요.
+이 자습서는 [Azure 검색 – Adventure Works 데모](http://azuresearchadventureworksdemo.codeplex.com)를 기반으로 작성되었습니다. 해당 데모를 아직 연습해 보지 않았다면 인덱스를 만들고 웹 앱에서 Azure 검색 API를 호출하는 작업을 먼저 수행해 보세요.
 
 ## 필수 조건
 
--   ASP.NET MVC 4 및 SQL Server가 설치된 Visual Studio 2012 이상 버전. Visual Studio 2013 Express는 웹의 [다운로드 센터][다운로드 센터]에서 다운로드할 수 있습니다.
--   Azure 검색 서비스. 검색 서비스 이름과 관리 키가 필요합니다. 자세한 내용은 [Azure 미리 보기 포털에서 검색 구성][Azure 미리 보기 포털에서 검색 구성]을 참조하세요.
+-   ASP.NET MVC 4 및 SQL Server가 설치된 Visual Studio 2012 이상 버전. Visual Studio 2013 Express는 웹의 [다운로드 센터](http://www.microsoft.com/ko-kr/download/details.aspx?id=40747)에서 다운로드할 수 있습니다.
+-   Azure 검색 서비스. 검색 서비스 이름과 관리 키가 필요합니다. 자세한 내용은 [Azure 미리 보기 포털에서 검색 구성](../search-configure/) 을 참조하세요.
 -   Bing 지도 서비스 및 서비스 액세스용 키. 관련 지침은 다음 섹션에 나와 있습니다.
--   [CodePlex의 Azure 검색 지리적 검색 샘플][CodePlex의 Azure 검색 지리적 검색 샘플]. 소스 탭에서 **다운로드**를 클릭하여 솔루션 zip 파일을 다운로드하세요.
+-   [CodePlex의 Azure 검색 지리적 검색 샘플](https://azuresearchgeospatial.codeplex.com/). 소스 탭에서 **다운로드**를 클릭하여 솔루션 zip 파일을 다운로드하세요.
 
-    ![][1]
+    ![][12]
 
 이 솔루션에는 다음의 두 프로젝트가 포함되어 있습니다.
 
 -   **StoreIndexer**: Azure 검색 인덱스를 만들고 데이터를 로드합니다.
 -   **AdventureWorksWebGeo**: Azure 검색 인덱스를 쿼리하고 Bing 지도에 매장 위치를 표시하는 MVC4 기반 응용 프로그램입니다.
 
-[WACOM.INCLUDE [이 자습서를 완료하려면 Azure 계정이 필요합니다.][이 자습서를 완료하려면 Azure 계정이 필요합니다.]]
+[WACOM.INCLUDE [이 자습서를 완료하려면 Azure 계정이 필요합니다.](../includes/free-trial-note.md)]
 
 ## Bing 지도
 
@@ -49,7 +49,7 @@
 
 ### Bing 지도용 계정 만들기
 
-1.  [Bing 지도 포털][Bing 지도 포털]로 이동하여 새 계정을 만듭니다. 계정을 만들려면 세부 정보를 입력합니다.
+1.  [Bing 지도 포털](https://www.bingmapsportal.com/)로 이동하여 새 계정을 만듭니다. 계정을 만들려면 세부 정보를 입력합니다.
 
 2.  계정을 만든 후 **키 만들기 또는 보기**를 선택하고 세부 정보를 입력하여 키를 만듭니다. 이 데모에서는 **평가판 키**를 선택할 수 있습니다.
 
@@ -63,7 +63,7 @@
 
 그러면 지도를 지역 코딩하는 방법을 설명하는 코드를 살펴보겠습니다.
 
-1.  Visual Studio에서 AdventureWorksGeo 솔루션을 열고 솔루션 탐색기에서 **StoreIndexer** 프로젝트를 확장한 다음 Program.cs를 엽니다. 인덱스 만들기에 대해서는 [Azure 검색 – Adventure Works 데모][2]에서 이미 설명했으므로 Program.cs에서 인덱스를 만드는 방법에 대한 설명은 생략합니다.
+1.  Visual Studio에서 AdventureWorksGeo 솔루션을 열고 솔루션 탐색기에서 **StoreIndexer** 프로젝트를 확장한 다음 Program.cs를 엽니다. 인덱스 만들기에 대해서는 [Azure 검색 – Adventure Works 데모](http://azuresearchadventureworksdemo.codeplex.com/)에서 이미 설명했으므로 Program.cs에서 인덱스를 만드는 방법에 대한 설명은 생략합니다.
 
 2.  **Main** 함수로 이동하여 **ApplyStoreData**를 호출하는지 확인합니다. 해당 함수로 이동한 다음 코드를 단계별로 실행합니다.
 
@@ -97,7 +97,7 @@
 
 4.  Web.config를 저장합니다.
 
-5.  **F5** 키를 눌러 프로젝트를 시작합니다. 빌드 오류가 발생하는 경우 [문제 해결][문제 해결] 단계를 따르세요.
+5.  **F5** 키를 눌러 프로젝트를 시작합니다. 빌드 오류가 발생하는 경우 [문제 해결](#err-mvc) 단계를 따르세요.
 
 매장이 지도 위에 점으로 겹쳐져 표시됩니다. 매장 중 하나를 클릭하면 매장 세부 정보를 보여 주는 팝업이 표시됩니다. 이러한 모든 정보는 이전 단계에서 만든 "stores"라는 Azure 검색 인덱스에서 가져온 것입니다.
 
@@ -140,22 +140,15 @@ AdventureWorksWeb을 빌드할 때 "파일이나 어셈블리 'System.Web.Mvc, V
 
 -   사용자가 지도의 영역을 끌어 검색할 영역을 지정할 수 있는 사용자 그리기 선택 영역. 이렇게 그린 영역은 Azure 검색에서 지리적 교차 API를 사용하여 필터링된 다음 지도에 플로팅됩니다.
 
-<!--Anchors--> <!--Image references-->
+<!--Anchors-->
+[Prerequisites]: #sub-1
+[Bing Maps]: #sub-2
+[Geocode Addresses in C# using Bing Maps DataFlow API]: #sub-3
+[Add Mapping to an MVC4 Application using Azure Search and Bing Maps]: #sub-4
+[Explore AdventureWorksWebGeo]: #sub-5
+[Next steps]: #next-steps
 
-  [필수 조건]: #sub-1
-  [Bing 지도]: #sub-2
-  [Bing 지도 DataFlow API를 사용하여 C#에서 지도 지역 코딩]: #sub-3
-  [Azure 검색 및 Bing 지도를 사용하여 MVC4 응용 프로그램에 매핑 추가]: #sub-4
-  [AdventureWorksWebGeo 살펴보기]: #sub-5
-  [다음 단계]: #next-steps
-  [Azure 검색 및 지리 공간적 데이터]: http://channel9.msdn.com/Shows/Data-Exposed/Azure-Search-and-Geospatial-Data
-  []: ./media/search-create-geospatial/AzureSearch-geo1-App.PNG
-  [Azure 검색 – Adventure Works 데모]: http://azuresearchadventureworksdemo.codeplex.com
-  [다운로드 센터]: http://www.microsoft.com/en-us/download/details.aspx?id=40747
-  [Azure 미리 보기 포털에서 검색 구성]: ../search-configure/
-  [CodePlex의 Azure 검색 지리적 검색 샘플]: https://azuresearchgeospatial.codeplex.com/
-  [1]: ./media/search-create-geospatial/AzureSearch_Create2_CodeplexDownload.PNG
-  [이 자습서를 완료하려면 Azure 계정이 필요합니다.]: ../includes/free-trial-note.md
-  [Bing 지도 포털]: https://www.bingmapsportal.com/
-  [2]: http://azuresearchadventureworksdemo.codeplex.com/
-  [문제 해결]: #err-mvc
+
+<!--Image references-->
+[7]: ./media/search-create-geospatial/AzureSearch-geo1-App.PNG
+[12]: ./media/search-create-geospatial/AzureSearch_Create2_CodeplexDownload.PNG

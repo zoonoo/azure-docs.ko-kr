@@ -4,36 +4,36 @@
 
 # HDInsight에서 HBase를 사용하여 Twitter 데이터 실시간 분석
 
-이 문서에서는 HDInsight(Hadoop) 클러스터에서 HBase를 사용하여 빅데이터를 실시간으로 [데이터 분석][데이터 분석]하는 방법을 설명합니다.
+이 문서에서는 HDInsight(Hadoop) 클러스터에서 HBase를 사용하여 빅데이터를 실시간으로 [데이터 분석](http://en.wikipedia.org/wiki/Sentiment_analysis)하는 방법을 설명합니다.
 
 소셜 웹 사이트는 빅데이터 채택의 주요 추진력 중 하나입니다. Twitter와 같은 사이트에서 제공하는 공개 API는 대중적인 추세를 분석하고 이해하는 데 유용한 데이터 원본입니다. 이 자습서에는 다음을 수행하기 위한 콘솔 스트리밍 서비스 응용 프로그램과 ASP.NET 웹 응용 프로그램을 개발합니다.
 
-![][]
+![][img-app-arch]
 
 -   Twitter 스트리밍 API를 사용하여 실시간으로 지오 태그가 적용된 트윗 가져오기
 -   이러한 트윗의 데이터 평가
 -   Microsoft HBase SDK를 사용하여 HBase에 데이터 정보 저장
 -   ASP.NET 웹 응용 프로그램을 사용하여 Bing 지도에 실시간 통계 결과를 그림으로 나타내기. 트윗이 시각화된 모양은 다음과 같습니다.
 
-    ![hdinsight.hbase.twitter.sentiment.bing.map][hdinsight.hbase.twitter.sentiment.bing.map]
+    ![hdinsight.hbase.twitter.sentiment.bing.map][img-bing-map]
 
     특정 키워드를 사용해 트윗을 쿼리하여 트윗에 표현된 의견이 긍정적인지 부정적인지 아니면 중립적인지를 파악할 수 있습니다.
 
-전체 Visual Studio 솔루션 샘플은 [][]<https://github.com/maxluk/tweet-sentiment></a>에서 확인할 수 있습니다.
+전체 Visual Studio 솔루션 샘플은 [https://github.com/maxluk/tweet-sentiment](https://github.com/maxluk/tweet-sentiment)에서 확인할 수 있습니다.
 
 ## 이 문서에서는 다음을 수행합니다.
 
--   [필수 조건][필수 조건]
--   [Twitter 응용 프로그램 만들기][Twitter 응용 프로그램 만들기]
--   [간단한 Twitter 스트리밍 서비스 만들기][간단한 Twitter 스트리밍 서비스 만들기]
--   [Twitter 데이터 시각화를 위한 Azure 웹 사이트 만들기][Twitter 데이터 시각화를 위한 Azure 웹 사이트 만들기]
--   [다음 단계][다음 단계]
+-   [필수 조건](#prerequisites)
+-   [Twitter 응용 프로그램 만들기](#twitter)
+-   [간단한 Twitter 스트리밍 서비스 만들기](#streaming)
+-   [Twitter 데이터 시각화를 위한 Azure 웹 사이트 만들기](#web)
+-   [다음 단계](#nextsteps)
 
 ## <span id="prerequisites"></span></a>필수 조건
 
 이 자습서를 시작하기 전에 다음이 있어야 합니다.
 
--   **HDInsight의 HBase 클러스터**. 클러스터 프로비전 지침은 [HDInsight에서 Hadoop을 통해 HBase 사용 시작][HDInsight에서 Hadoop을 통해 HBase 사용 시작]을 참조하세요. 자습서를 완료하려면 다음 데이터가 필요합니다.
+-   **HDInsight의 HBase 클러스터**. 클러스터 프로비전 지침은 [HDInsight에서 Hadoop을 통해 HBase 사용 시작][hBase-get-started]을 참조하세요. 자습서를 완료하려면 다음 데이터가 필요합니다.
 
     | 클러스터 속성        | 설명                                                                                                |
     |----------------------|-----------------------------------------------------------------------------------------------------|
@@ -41,17 +41,17 @@
     | 클러스터 사용자 이름 | Hadoop 사용자 계정 이름입니다. 기본 Hadoop 사용자 이름은 **admin**입니다.                           |
     | 클러스터 사용자 암호 | Hadoop 클러스터 사용자 암호입니다.                                                                  |
 
--   Visual Studio 2013이 설치된 **워크스테이션**. 관련 지침은 [Visual Studio 설치][Visual Studio 설치]를 참조하세요.
+-   Visual Studio 2013이 설치된 **워크스테이션**. 관련 지침은 [Visual Studio 설치](http://msdn.microsoft.com/ko-kr/library/e2h7fzkw.aspx)를 참조하세요.
 
 ## <span id="twitter"></span></a>Twitter 응용 프로그램 ID 및 암호 만들기
 
-Twitter 스트리밍 API는 [OAuth][OAuth]를 사용하여 요청 권한을 부여합니다.
+Twitter 스트리밍 API는 [OAuth](http://oauth.net/)를 사용하여 요청 권한을 부여합니다.
 
 OAuth를 사용하는 첫 단계는 Twitter 개발자 사이트에서 새 응용 프로그램을 만드는 것입니다.
 
 **Twitter 응용 프로그램 ID 및 암호를 만들려면 다음 단계를 수행합니다.**
 
-1.  [][1]<https://apps.twitter.com/></a>(영문)에 로그인합니다. Twitter 계정이 없는 경우 **Sign up now** 링크를 클릭합니다.
+1.  [https://apps.twitter.com/](https://apps.twitter.com/)(영문)에 로그인합니다. Twitter 계정이 없는 경우 **Sign up now** 링크를 클릭합니다.
 2.  **Create New App**을 클릭합니다.
 3.  **Name**, **Description**, **Website**를 입력합니다. 웹 사이트 필드는 실제로 사용되지는 않으므로 유효한 URL을 입력하지 않아도 됩니다. 다음 표는 사용할 샘플 값을 보여 줍니다.
 
@@ -68,7 +68,7 @@ OAuth를 사용하는 첫 단계는 Twitter 개발자 사이트에서 새 응용
 8.  페이지의 오른쪽 위 모서리에서 **Test OAuth**를 클릭합니다.
 9.  **API 키**, **API 암호**, **액세스 토큰** 및 **액세스 토큰 암호**를 기록해 둡니다. 이 값은 자습서의 뒷부분에서 필요합니다.
 
-    ![hdi.hbase.twitter.sentiment.twitter.app][hdi.hbase.twitter.sentiment.twitter.app]
+    ![hdi.hbase.twitter.sentiment.twitter.app][img-twitter-app]
 
 ## <span id="streaming"></span></a> 간단한 Twitter 스트리밍 서비스 만들기
 
@@ -91,12 +91,12 @@ OAuth를 사용하는 첫 단계는 Twitter 개발자 사이트에서 새 응용
 **Nuget 패키지를 설치하고 SDK 참조를 추가하려면 다음 단계를 수행합니다.**
 
 1.  **도구** 메뉴에서 **Nuget 패키지 관리자**, **패키지 관리자 콘솔**을 차례로 클릭합니다. 페이지 아래쪽에 콘솔 패널이 열립니다.
-2.  다음 명령을 사용하여 Twitter API에 액세스하는 데 사용되는 [Tweetinvi][Tweetinvi] 패키지와 개체를 직렬화/역직렬화하는 데 사용되는 [Protobuf-net][Protobuf-net] 패키지를 설치합니다.
+2.  다음 명령을 사용하여 Twitter API에 액세스하는 데 사용되는 [Tweetinvi](https://www.nuget.org/packages/TweetinviAPI/) 패키지와 개체를 직렬화/역직렬화하는 데 사용되는 [Protobuf-net](https://www.nuget.org/packages/protobuf-net/) 패키지를 설치합니다.
 
         Install-Package TweetinviAPI
         Install-Package protobuf-net 
 
-    > [WACOM.NOTE] Microsoft Hbase SDK Nuget 패키지는 2014년 8월 26일 현재 제공되지 않습니다. 이 패키지의 Github 리포지토리는 [][2]<https://github.com/hdinsight/hbase-sdk-for-net></a>입니다. SDK가 제공될 때까지는 dll을 직접 작성해야 합니다. 해당 지침은 [HDInsight에서 Hadoop을 통해 HBase 사용 시작][HDInsight에서 Hadoop을 통해 HBase 사용 시작]을 참조하세요.
+    > [WACOM.NOTE] Microsoft Hbase SDK Nuget 패키지는 2014년 8월 26일 현재 제공되지 않습니다. 이 패키지의 Github 리포지토리는 [https://github.com/hdinsight/hbase-sdk-for-net](https://github.com/hdinsight/hbase-sdk-for-net)입니다. SDK가 제공될 때까지는 dll을 직접 작성해야 합니다. 해당 지침은 [HDInsight에서 Hadoop을 통해 HBase 사용 시작][hdinsight-hbase-get-started]을 참조하세요.
 
 3.  **솔루션 탐색기**에서 **참조**를 마우스 오른쪽 단추로 클릭하고 **참조 추가**를 클릭합니다.
 4.  왼쪽 창에서 **어셈블리**를 확장하고 **프레임워크**를 클릭합니다.
@@ -413,7 +413,7 @@ OAuth를 사용하는 첫 단계는 Twitter 개발자 사이트에서 새 응용
 
 **데이터 사전 파일을 다운로드하려면 다음 단계를 수행합니다.**
 
-1.  [][]<https://github.com/maxluk/tweet-sentiment></a>로 이동합니다.
+1.  [https://github.com/maxluk/tweet-sentiment](https://github.com/maxluk/tweet-sentiment)로 이동합니다.
 2.  **ZIP 다운로드**를 클릭합니다.
 3.  로컬에서 파일의 압축을 풉니다.
 4.  **../tweet-sentiment/SimpleStreamingService/data/dictionary/dictionary.tsv**에서 파일을 복사합니다.
@@ -423,7 +423,7 @@ OAuth를 사용하는 첫 단계는 Twitter 개발자 사이트에서 새 응용
 
 1.  Visual Studio에서 **F5** 키를 누릅니다. 아래에 콘솔 응용 프로그램 스크린샷이 나와 있습니다.
 
-    ![hdinsight.hbase.twitter.sentiment.streaming.service][hdinsight.hbase.twitter.sentiment.streaming.service]
+    ![hdinsight.hbase.twitter.sentiment.streaming.service][img-streaming-service]
 
 2.  웹 응용 프로그램을 개발하는 동안 더 많은 데이터를 사용할 수 있도록 스트리밍 콘솔 응용 프로그램을 실행 상태로 유지합니다.
 
@@ -455,11 +455,11 @@ OAuth를 사용하는 첫 단계는 Twitter 개발자 사이트에서 새 응용
 **Nuget 패키지를 설치하려면 다음 단계를 수행합니다.**
 
 1.  **도구** 메뉴에서 **Nuget 패키지 관리자**, **패키지 관리자 콘솔**을 차례로 클릭합니다. 페이지 아래쪽에 콘솔 패널이 열립니다.
-2.  다음 명령을 사용하여 개체를 직렬화/역직렬화하는 데 사용되는 [Protobuf-net][Protobuf-net] 패키지를 설치합니다.
+2.  다음 명령을 사용하여 개체를 직렬화/역직렬화하는 데 사용되는 [Protobuf-net](https://www.nuget.org/packages/protobuf-net/) 패키지를 설치합니다.
 
         Install-Package protobuf-net 
 
-    > [WACOM.NOTE] Microsoft Hbase SDK Nuget 패키지는 2014년 8월 20일 현재 제공되지 않습니다. 이 패키지의 Github 리포지토리는 [][2]<https://github.com/hdinsight/hbase-sdk-for-net></a>입니다. SDK가 제공될 때까지는 dll을 직접 작성해야 합니다. 해당 지침은 [HDInsight에서 Hadoop을 통해 HBase 사용 시작][HDInsight에서 Hadoop을 통해 HBase 사용 시작]을 참조하세요.
+    > [WACOM.NOTE] Microsoft Hbase SDK Nuget 패키지는 2014년 8월 20일 현재 제공되지 않습니다. 이 패키지의 Github 리포지토리는 [https://github.com/hdinsight/hbase-sdk-for-net](https://github.com/hdinsight/hbase-sdk-for-net)입니다. SDK가 제공될 때까지는 dll을 직접 작성해야 합니다. 해당 지침은 [HDInsight에서 Hadoop을 통해 HBase 사용 시작][hdinsight-hbase-get-started]을 참조하세요.
 
 **HBaseReader 클래스를 추가하려면 다음 단계를 수행합니다.**
 
@@ -621,7 +621,7 @@ OAuth를 사용하는 첫 단계는 Twitter 개발자 사이트에서 새 응용
 1.  **솔루션 탐색기**에서 **TweetSentimentWeb**을 확장합니다.
 2.  **스크립트**를 마우스 오른쪽 단추로 클릭하고 **추가**를 클릭한 다음 **JavaScript 파일**을 클릭합니다.
 3.  항목 이름에 **heatmap.js**를 입력합니다.
-4.  다음 코드를 복사하여 파일에 붙여 넣습니다. 이 코드는 Alastair Aitchison이 작성한 것입니다. 자세한 내용은 [][3]<http://alastaira.wordpress.com/2011/04/15/bing-maps-ajax-v7-heatmap-library/></a>를 참조하세요.
+4.  다음 코드를 복사하여 파일에 붙여 넣습니다. 이 코드는 Alastair Aitchison이 작성한 것입니다. 자세한 내용은 [http://alastaira.wordpress.com/2011/04/15/bing-maps-ajax-v7-heatmap-library/](http://alastaira.wordpress.com/2011/04/15/bing-maps-ajax-v7-heatmap-library/)를 참조하세요.
 
         /*******************************************************************************
         * Author: Alastair Aitchison
@@ -1190,46 +1190,47 @@ OAuth를 사용하는 첫 단계는 Twitter 개발자 사이트에서 새 응용
 1.  스트리밍 서비스 콘솔 응용 프로그램이 계속 실행되고 있는지 확인합니다. 그래야 실시간 변경 내용을 확인할 수 있습니다.
 2.  **F5** 키를 눌러 웹 응용 프로그램을 실행합니다.
 
-    ![hdinsight.hbase.twitter.sentiment.bing.map][hdinsight.hbase.twitter.sentiment.bing.map]
+    ![hdinsight.hbase.twitter.sentiment.bing.map][img-bing-map]
 
 3.  텍스트 상자에 키워드를 입력하고 **검색**을 클릭합니다. HBase 테이블에 수집된 데이터에 따라 일부 키워드는 검색되지 않을 수도 있습니다. "love", "xbox", "playstation" 등의 일반적인 키워드를 사용해 보세요.
 4.  **긍정적**, **중립**, **부정적** 간을 전환하여 주제에 대한 데이터를 비교합니다.
 5.  다른 시간에 스트리밍 서비스를 실행한 다음 같은 키워드를 검색하여 결과를 비교해 봅니다.
 
-원하는 경우 Azure 웹 사이트에 응용 프로그램을 배포할 수 있습니다. 관련 지침은 [Azure 웹 사이트 및 ASP.NET 시작][Azure 웹 사이트 및 ASP.NET 시작]을 참조하세요.
+원하는 경우 Azure 웹 사이트에 응용 프로그램을 배포할 수 있습니다. 관련 지침은 [Azure 웹 사이트 및 ASP.NET 시작][website-get-started]을 참조하세요.
 
 ## <span id="nextsteps"></span></a>다음 단계
 
 이 자습서에서는 트윗을 가져와서 트윗 데이터를 분석하고 데이터를 HBase에 저장한 다음 실시간 Twitter 데이터를 Bing 지도에 표시하는 방법을 알아보았습니다. 자세한 내용은 다음을 참조하세요.
 
--   [HDInsight 시작][HDInsight 시작]
--   [HDInsight의 Hadoop에서 Twitter 데이터 분석][HDInsight의 Hadoop에서 Twitter 데이터 분석]
--   [HDInsight를 사용하여 비행 지연 데이터 분석][HDInsight를 사용하여 비행 지연 데이터 분석]
--   [HDInsight용 C# Hadoop 스트리밍 프로그램 개발][HDInsight용 C# Hadoop 스트리밍 프로그램 개발]
--   [HDInsight용 Java MapReduce 프로그램 개발][HDInsight용 Java MapReduce 프로그램 개발]
+-   [HDInsight 시작][hdinsight-get-started]
+-   [HDInsight의 Hadoop에서 Twitter 데이터 분석][hdinsight-analyze-twitter-data]
+-   [HDInsight를 사용하여 비행 지연 데이터 분석][hdinsight-analyze-flight-delay-data]
+-   [HDInsight용 C# Hadoop 스트리밍 프로그램 개발][hdinsight-develop-streaming]
+-   [HDInsight용 Java MapReduce 프로그램 개발][hdinsight-develop-mapreduce]
 
-  [데이터 분석]: http://en.wikipedia.org/wiki/Sentiment_analysis
-  []: ./media/hdinsight-hbase-analyze-twitter-sentiment/AppArchitecture.png
-  [hdinsight.hbase.twitter.sentiment.bing.map]: ./media/hdinsight-hbase-analyze-twitter-sentiment/TwitterSentimentBingMap.png
+
+  [img-app-arch]: ./media/hdinsight-hbase-analyze-twitter-sentiment/AppArchitecture.png
+  [img-bing-map]: ./media/hdinsight-hbase-analyze-twitter-sentiment/TwitterSentimentBingMap.png
   []: https://github.com/maxluk/tweet-sentiment
   [필수 조건]: #prerequisites
   [Twitter 응용 프로그램 만들기]: #twitter
   [간단한 Twitter 스트리밍 서비스 만들기]: #streaming
   [Twitter 데이터 시각화를 위한 Azure 웹 사이트 만들기]: #web
   [다음 단계]: #nextsteps
-  [HDInsight에서 Hadoop을 통해 HBase 사용 시작]: ../hdinsight-hbase-get-started/
-  [Visual Studio 설치]: http://msdn.microsoft.com/en-us/library/e2h7fzkw.aspx
+  [hBase-get-started]: ../hdinsight-hbase-get-started/
+  [hdinsight-hbase-get-started]: ../hdinsight-hbase-get-started/
+  [Visual Studio 설치]: http://msdn.microsoft.com/ko-kr/library/e2h7fzkw.aspx
   [OAuth]: http://oauth.net/
   [1]: https://apps.twitter.com/
-  [hdi.hbase.twitter.sentiment.twitter.app]: ./media/hdinsight-hbase-analyze-twitter-sentiment/TwitterApp.png
+  [img-twitter-app]: ./media/hdinsight-hbase-analyze-twitter-sentiment/TwitterApp.png
   [Tweetinvi]: https://www.nuget.org/packages/TweetinviAPI/
   [Protobuf-net]: https://www.nuget.org/packages/protobuf-net/
   [2]: https://github.com/hdinsight/hbase-sdk-for-net
-  [hdinsight.hbase.twitter.sentiment.streaming.service]: ./media/hdinsight-hbase-analyze-twitter-sentiment/StreamingService.png
+  [img-streaming-service]: ./media/hdinsight-hbase-analyze-twitter-sentiment/StreamingService.png
   [3]: http://alastaira.wordpress.com/2011/04/15/bing-maps-ajax-v7-heatmap-library/
-  [Azure 웹 사이트 및 ASP.NET 시작]: ../web-sites-dotnet-get-started/
-  [HDInsight 시작]: ../hdinsight-get-started/
-  [HDInsight의 Hadoop에서 Twitter 데이터 분석]: ../hdinsight-analyze-twitter-data/
-  [HDInsight를 사용하여 비행 지연 데이터 분석]: ../hdinsight-analyze-flight-delay-data/
-  [HDInsight용 C# Hadoop 스트리밍 프로그램 개발]: ../hdinsight-hadoop-develop-deploy-streaming-jobs/
-  [HDInsight용 Java MapReduce 프로그램 개발]: ../hdinsight-develop-deploy-java-mapreduce/
+  [website-get-started]: ../web-sites-dotnet-get-started/
+  [hdinsight-get-started]: ../hdinsight-get-started/
+  [hdinsight-analyze-twitter-data]: ../hdinsight-analyze-twitter-data/
+  [hdinsight-analyze-flight-delay-data]: ../hdinsight-analyze-flight-delay-data/
+  [hdinsight-develop-streaming]: ../hdinsight-hadoop-develop-deploy-streaming-jobs/
+  [hdinsight-develop-mapreduce]: ../hdinsight-develop-deploy-java-mapreduce/

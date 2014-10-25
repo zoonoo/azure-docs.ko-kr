@@ -1,7 +1,8 @@
-<properties linkid="manage-services-manage-acs" urlDisplayName="Manage ACS" pageTitle="Access Control Service - Azure service management" metaKeywords="" description="Learn how to manage your Azure Access Control Service (ACS) using certificates and keys." metaCanonical="" services="active-directory" documentationCenter="" title="Managing Your ACS Namespace" authors="" solutions="" manager="" editor="" />
+<properties linkid="manage-services-manage-acs" urlDisplayName="Manage ACS" pageTitle="Access Control Service - Azure service management" metaKeywords="" description="Learn how to manage your Azure Access Control Service (ACS) using certificates and keys." metaCanonical="" services="active-directory" documentationCenter="" title="Managing Your ACS Namespace" authors="mbaldwin" solutions="" manager="mbaldwin" editor="" />
 
-ACS 네임스페이스 관리
-=====================
+<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="mbaldwin"></tags>
+
+# ACS 네임스페이스 관리
 
 이 항목에서는 Azure ACS(액세스 제어 서비스)를 사용하는 응용 프로그램이 중단 없이 계속 잘 작동하도록 정기적으로 수행하는 것이 권장되는 관리 작업을 설명합니다. 이러한 관리 작업은 다음과 같습니다.
 
@@ -9,10 +10,9 @@ ACS 네임스페이스 관리
 
 2.  ID 공급자, 서비스 ID, 규칙 및 포털 관리자를 검토하고 만료된 항목을 제거합니다.
 
-ACS에 대한 자세한 내용은 [액세스 제어 서비스 2.0](http://msdn.microsoft.com/ko-kr/library/gg429786.aspx)을 참조하십시오.
+ACS에 대한 자세한 내용은 [액세스 제어 서비스 2.0][]을 참조하십시오.
 
-인증서 및 키 관리 지침
-----------------------
+## 인증서 및 키 관리 지침
 
 보안상의 이유로, ACS에서 사용하는 인증서와 키는 만료됩니다. 인증서와 키를 갱신할 수 있도록 만료 날짜를 알아두는 것이 중요합니다.
 
@@ -38,16 +38,15 @@ ACS에 대한 자세한 내용은 [액세스 제어 서비스 2.0](http://msdn.m
 
 인증서 또는 키가 만료되면 ACS에서 토큰을 발급하지 못해 신뢰 당사자가 정상적으로 작동할 수 없습니다. ACS는 만료된 인증서와 키를 무시하므로 인증서 또는 키를 먼저 구성하지 않은 것처럼 실제로 예외가 발생합니다. 다음 섹션에는 ACS에서 관리하는 각 인증서 및 키에 대한 정보, 인증서 및 키를 갱신하는 방법, 만료되어 갱신이 필요한 경우를 아는 방법이 나와 있습니다.
 
--   ACS 관리 포털의 인증서 및 키 섹션에서 서비스 네임스페이스 및 신뢰 당사자 응용 프로그램과 관련된 인증서 및 키를 관리하십시오. 이러한 자격 증명 유형에 대한 자세한 내용은 [인증서 및 키](http://msdn.microsoft.com/ko-kr/library/gg185932.aspx)(영문)를 참조하십시오.
--   ACS 관리 포털의 서비스 ID 섹션에서 서비스 ID와 관련된 자격 증명(인증서, 키 또는 암호)을 관리하십시오. 서비스 ID에 대한 자세한 내용은 [서비스 ID](http://msdn.microsoft.com/ko-kr/library/gg185945.aspx)(영문)를 참조하십시오.
--   ACS 관리 포털의 서비스 관리 섹션에서 ACS 관리 서비스 계정과 관련된 자격 증명(인증서, 키 또는 암호)을 관리하십시오. ACS 관리 서비스에 대한 자세한 내용은 [ACS 관리 서비스](http://msdn.microsoft.com/ko-kr/library/gg185972.aspx)(영문)를 참조하십시오.
+-   ACS 관리 포털의 인증서 및 키 섹션에서 서비스 네임스페이스 및 신뢰 당사자 응용 프로그램과 관련된 인증서 및 키를 관리하십시오. 이러한 자격 증명 유형에 대한 자세한 내용은 [인증서 및 키][](영문)를 참조하십시오.
+-   ACS 관리 포털의 서비스 ID 섹션에서 서비스 ID와 관련된 자격 증명(인증서, 키 또는 암호)을 관리하십시오. 서비스 ID에 대한 자세한 내용은 [서비스 ID][](영문)를 참조하십시오.
+-   ACS 관리 포털의 서비스 관리 섹션에서 ACS 관리 서비스 계정과 관련된 자격 증명(인증서, 키 또는 암호)을 관리하십시오. ACS 관리 서비스에 대한 자세한 내용은 [ACS 관리 서비스][](영문)를 참조하십시오.
 
-ACS 관리 포털에 표시되지 않는 인증서 및 키 유형이 있습니다. 특히 AD FS 같은 WS-Federation ID 공급자의 경우, ID 공급자가 사용하는 인증서의 유효성을 미리 확인해야 합니다. 현재 WS-Federation ID 공급자의 메타데이터를 통해 사용 가능한 인증서는 ACS 관리 포털에 표시되지 않습니다. 인증서의 유효성을 확인하려면 관리 서비스를 사용하여 [IdentityProviderKey](http://msdn.microsoft.com/ko-kr/library/hh124084.aspx)의 StartDate 및 EndDate 속성의 유효 날짜 및 만료 날짜를 확인해야 합니다. 인증서 또는 키가 만료되어 유효하지 않게 되면 ACS에서 인증서 또는 키에 해당하는 [ACS 오류 코드](http://msdn.microsoft.com/ko-kr/library/gg185949.aspx)(영문)를 내기 시작합니다. 특정 오류 코드에 대해서는 아래 섹션을 참조하십시오.
+ACS 관리 포털에 표시되지 않는 인증서 및 키 유형이 있습니다. 특히 AD FS 같은 WS-Federation ID 공급자의 경우, ID 공급자가 사용하는 인증서의 유효성을 미리 확인해야 합니다. 현재 WS-Federation ID 공급자의 메타데이터를 통해 사용 가능한 인증서는 ACS 관리 포털에 표시되지 않습니다. 인증서의 유효성을 확인하려면 관리 서비스를 사용하여 [IdentityProviderKey][]의 StartDate 및 EndDate 속성의 유효 날짜 및 만료 날짜를 확인해야 합니다. 인증서 또는 키가 만료되어 유효하지 않게 되면 ACS에서 인증서 또는 키에 해당하는 [ACS 오류 코드][](영문)를 내기 시작합니다. 특정 오류 코드에 대해서는 아래 섹션을 참조하십시오.
 
-[ACS 관리 서비스](http://msdn.microsoft.com/ko-kr/library/gg185972.aspx)(영문)를 사용하여 인증서 및 키를 프로그래밍 방식으로 업데이트할 수 있습니다. [코드 샘플: 관리 서비스](http://msdn.microsoft.com/ko-kr/library/gg185970.aspx)(영문)의 일부로 다운로드할 수 있는 KeyManagement 코드 샘플을 검토해 보십시오.
+[ACS 관리 서비스][](영문)를 사용하여 인증서 및 키를 프로그래밍 방식으로 업데이트할 수 있습니다. [코드 샘플: 관리 서비스][](영문)의 일부로 다운로드할 수 있는 KeyManagement 코드 샘플을 검토해 보십시오.
 
-사용 가능한 인증서 및 키
-------------------------
+## 사용 가능한 인증서 및 키
 
 다음은 ACS에서 사용되며 만료 날짜를 알고 있어야 하는 인증서 및 키 목록입니다.
 
@@ -61,8 +60,7 @@ ACS 관리 포털에 표시되지 않는 인증서 및 키 유형이 있습니�
 
 이 항목의 나머지 부분에서는 각 인증서와 키에 대해 자세히 설명합니다.
 
-토큰 서명 인증서
-----------------
+## 토큰 서명 인증서
 
 ACS는 발급하는 모든 보안 토큰에 서명합니다. ACS에서 발급한 SAML 토큰을 사용하는 응용 프로그램을 작성할 때는 X.509 인증서를 사용하여 서명합니다.
 
@@ -70,29 +68,29 @@ ACS 관리 포털의 인증서 및 키 섹션을 통해 토큰 서명 인증서�
 
 **토큰 서명 인증서를 관리하려면**
 
-1.  인터넷 브라우저를 열고 Azure 관리 포털(<http://go.microsoft.com/fwlink/?LinkID=129428>)을 방문합니다.
+1.  인터넷 브라우저를 열고 Azure 관리 포털([][]<http://go.microsoft.com/fwlink/?LinkID=129428></a>)을 방문합니다.
 
 2.  Windows Live ID를 사용하여 웹 사이트에 로그온합니다. Windows Live ID가 없는 경우 등록을 클릭하여 ID를 만듭니다.
 
 3.  Windows Live ID로 로그인하면 관리 포털 페이지로 리디렉션됩니다. 이 페이지의 왼쪽 하단에서 **서비스 버스 및 액세스 제어**를 클릭합니다.
 
-    ![](./media/manage-acs-namespace/ACS1.png)
+    ![][]
 
 4.  ACS 관리 포털을 시작하려면 왼쪽의 트리에서 **액세스 제어**를 클릭하고 구성하려는 ACS 서비스 네임스페이스를 선택한 다음 페이지의 맨 위에 있는 도구 모음에서 **액세스 제어 서비스** 단추를 클릭합니다.
 
-    ![](./media/manage-acs-namespace/ACS2.png)
+    ![][1]
 
     이때 화면이 다음과 같이 표시되어야 합니다.
 
-    ![](./media/manage-acs-namespace/ACS3.png)
+    ![][2]
 
 5.  서비스 설정 섹션의 왼쪽에 있는 트리에서 **인증서 및 키**를 클릭합니다.
 
-    ![](./media/manage-acs-namespace/ACS4.png)
+    ![][3]
 
     이때 화면이 다음과 같이 표시되어야 합니다.
 
-    ![](./media/manage-acs-namespace/ACS5.png)
+    ![][4]
 
 6.  토큰 서명 섹션에서 추가 단추를 눌러 만료될 기존 인증서 옆에 ACS의 새 인증서를 "보조" 키로 구성합니다.
 
@@ -104,26 +102,21 @@ ACS 관리 포털의 인증서 및 키 섹션을 통해 토큰 서명 인증서�
 
 10. 합당한 유예 기간이 지난 후, 인증서 및 키 페이지의 토큰 서명 섹션에서 삭제 단추를 눌러 ACS 구성에서 이전 인증서를 제거합니다.
 
-자세한 내용은 [인증서 및 키](http://msdn.microsoft.com/ko-kr/library/gg185932.aspx)(영문)를 참조하십시오.
+자세한 내용은 [인증서 및 키][](영문)를 참조하십시오.
 
 서명 인증서가 만료되면 토큰을 요청할 때 다음과 같은 오류가 표시됩니다.
 
-<table><tr><td><b>오류 코드</b>
-</td>
-<td><b>메시지</b>
-</td>
-<td><b>메시지를 해결하기 위해 필요한 작업</b>
-</td>
+<table><tr><td><b>오류 코드</b></td>
+<td><b>Message</b></td>
+<td><b>메시지를 해결하기 위해 필요한 작업</b></td>
 </tr>
 <tr>
 <td>ACS50004</td>
 <td>기본 X.509 서명 인증서가 구성되지 않았습니다. SAML에 대해 서명 인증서가 필요합니다.</td>
-<td>선택한 신뢰 당사자가 토큰 유형으로 SAML을 사용하는 경우, 신뢰 당사자 또는 서비스 네임스페이스에 대해 유효한 X.509 인증서가 구성되었는지 확인하십시오. 인증서는 기본으로 설정되어야 하며 유효 기간이 지나지 않아야 합니다.</td>
-</tr>
+<td>선택한 신뢰 당사자가 토큰 유형으로 SAML을 사용하는 경우, 신뢰 당사자 또는 서비스 네임스페이스에 대해 유효한 X.509 인증서가 구성되었는지 확인하십시오. 인증서는 기본으로 설정되어야 하며 유효 기간이 지나지 않아야 합니다.</td></tr>
 </table>
 
-토큰 서명 키
-------------
+## 토큰 서명 키
 
 ACS는 발급하는 모든 보안 토큰에 서명합니다. ACS에서 발급한 SWT 토큰을 사용하는 응용 프로그램을 작성할 때는 256비트 대칭 서명 키가 사용됩니다.
 
@@ -131,29 +124,29 @@ ACS 관리 포털의 인증서 및 키 섹션을 통해 토큰 서명 키를 관
 
 **토큰 서명 키를 관리하려면**
 
-1.  인터넷 브라우저를 열고 Azure 관리 포털(<http://go.microsoft.com/fwlink/?LinkID=129428>)을 방문합니다.
+1.  인터넷 브라우저를 열고 Azure 관리 포털([][]<http://go.microsoft.com/fwlink/?LinkID=129428></a>)을 방문합니다.
 
 2.  Windows Live ID를 사용하여 웹 사이트에 로그온합니다. Windows Live ID가 없는 경우 등록을 클릭하여 ID를 만듭니다.
 
 3.  Windows Live ID로 로그인하면 관리 포털 페이지로 리디렉션됩니다. 이 페이지의 왼쪽 하단에서 **서비스 버스 및 액세스 제어**를 클릭합니다.
 
-    ![](./media/manage-acs-namespace/ACS1.png)
+    ![][]
 
 4.  ACS 관리 포털을 시작하려면 왼쪽의 트리에서 **액세스 제어**를 클릭하고 구성하려는 ACS 서비스 네임스페이스를 선택한 다음 페이지의 맨 위에 있는 도구 모음에서 **액세스 제어 서비스** 단추를 클릭합니다.
 
-    ![](./media/manage-acs-namespace/ACS2.png)
+    ![][1]
 
     이때 화면이 다음과 같이 표시되어야 합니다.
 
-    ![](./media/manage-acs-namespace/ACS3.png)
+    ![][2]
 
 5.  서비스 설정 섹션의 왼쪽에 있는 트리에서 **인증서 및 키**를 클릭합니다.
 
-    ![](./media/manage-acs-namespace/ACS4.png)
+    ![][3]
 
     이때 화면이 다음과 같이 표시되어야 합니다.
 
-    ![](./media/manage-acs-namespace/ACS5.png)
+    ![][4]
 
 6.  토큰 서명 섹션에서 추가 단추를 눌러 만료될 기존 키 옆에 ACS의 새 키를 "보조" 키로 구성합니다.
 
@@ -165,27 +158,21 @@ ACS 관리 포털의 인증서 및 키 섹션을 통해 토큰 서명 키를 관
 
 10. 합당한 유예 기간이 지난 후, 인증서 및 키 페이지의 토큰 서명 섹션에서 삭제 단추를 눌러 ACS 구성에서 이전 키를 제거합니다.
 
-자세한 내용은 [인증서 및 키](http://msdn.microsoft.com/ko-kr/library/gg185932.aspx)(영문)를 참조하십시오.
+자세한 내용은 [인증서 및 키][](영문)를 참조하십시오.
 
 서명 키가 만료되면 토큰을 요청할 때 다음과 같은 오류가 표시됩니다.
 
-
-<table><tr><td><b>오류 코드</b>
-</td>
-<td><b>메시지</b>
-</td>
-<td><b>메시지를 해결하기 위해 필요한 작업</b>
-</td>
+<table><tr><td><b>오류 코드</b></td>
+<td><b>Message</b></td>
+<td><b>메시지를 해결하기 위해 필요한 작업</b></td>
 </tr>
 <tr>
 <td>ACS50003</td>
 <td>기본 대칭 서명 키가 구성되지 않았습니다. SWT에 대해 대칭 서명 키가 필요합니다.</td>
-<td>선택한 신뢰 당사자가 토큰 유형으로 SWT를 사용하는 경우, 신뢰 당사자 또는 서비스 네임스페이스에 대해 대칭 키가 구성되었으며 키가 기본으로 설정되고 유효 기간이 지나지 않았는지 확인하십시오.</td>
-</tr>
+<td>선택한 신뢰 당사자가 토큰 유형으로 SWT를 사용하는 경우, 신뢰 당사자 또는 서비스 네임스페이스에 대해 대칭 키가 구성되었으며 키가 기본으로 설정되고 유효 기간이 지나지 않았는지 확인하십시오.</td></tr>
 </table>
 
-토큰 암호화 인증서
-------------------
+## 토큰 암호화 인증서
 
 신뢰 당사자 응용 프로그램이 WS-Trust 프로토콜을 통해 소유 증명 토큰을 사용하는 웹 서비스인 경우에는 토큰 암호화가 필요합니다. 그 외 경우에, 토큰 암호화는 선택 사항입니다.
 
@@ -193,54 +180,49 @@ ACS 관리 포털의 인증서 및 키 섹션을 통해 토큰 암호화 인증�
 
 **토큰 암호화 인증서를 관리하려면**
 
-1.  인터넷 브라우저를 열고 Azure 관리 포털(<http://go.microsoft.com/fwlink/?LinkID=129428>)을 방문합니다.
+1.  인터넷 브라우저를 열고 Azure 관리 포털([][]<http://go.microsoft.com/fwlink/?LinkID=129428></a>)을 방문합니다.
 
 2.  Windows Live ID를 사용하여 웹 사이트에 로그온합니다. Windows Live ID가 없는 경우 등록을 클릭하여 ID를 만듭니다.
 
 3.  Windows Live ID로 로그인하면 관리 포털 페이지로 리디렉션됩니다. 이 페이지의 왼쪽 하단에서 **서비스 버스 및 액세스 제어**를 클릭합니다.
 
-    ![](./media/manage-acs-namespace/ACS1.png)
+    ![][]
 
 4.  ACS 관리 포털을 시작하려면 왼쪽의 트리에서 **액세스 제어**를 클릭하고 구성하려는 ACS 서비스 네임스페이스를 선택한 다음 페이지의 맨 위에 있는 도구 모음에서 **액세스 제어 서비스** 단추를 클릭합니다.
 
-    ![](./media/manage-acs-namespace/ACS2.png)
+    ![][1]
 
     이때 화면이 다음과 같이 표시되어야 합니다.
 
-    ![](./media/manage-acs-namespace/ACS3.png)
+    ![][2]
 
 5.  서비스 설정 섹션의 왼쪽에 있는 트리에서 **인증서 및 키**를 클릭합니다.
 
-    ![](./media/manage-acs-namespace/ACS4.png)
+    ![][3]
 
     이때 화면이 다음과 같이 표시되어야 합니다.
 
-    ![](./media/manage-acs-namespace/ACS7.png)
+    ![][5]
 
 6.  신뢰 당사자 응용 프로그램에서 토큰 암호 해독에 대해 사용되는 해당 인증서 또는 키를 업데이트합니다.
 7.  추가 단추를 눌러 만료될 기존 인증서 옆에 ACS에 새 암호화 인증서를 구성합니다.
 8.  삭제를 눌러 이전 암호화 인증서를 제거합니다.
 
-자세한 내용은 [인증서 및 키](http://msdn.microsoft.com/ko-kr/library/gg185932.aspx)(영문)를 참조하십시오.
+자세한 내용은 [인증서 및 키][](영문)를 참조하십시오.
 
 암호화 인증서가 만료되면 토큰을 요청할 때 다음과 같은 오류가 표시됩니다.
 
-<table><tr><td><b>오류 코드</b>
-</td>
-<td><b>메시지</b>
-</td>
-<td><b>메시지를 해결하기 위해 필요한 작업</b>
-</td>
+<table><tr><td><b>오류 코드</b></td>
+<td><b>Message</b></td>
+<td><b>메시지를 해결하기 위해 필요한 작업</b></td>
 </tr>
 <tr>
 <td>ACS50005</td>
 <td>토큰 암호화가 필요하지만 신뢰 당사자에 대해 암호화 인증서가 구성되지 않았습니다.</td>
-<td>선택한 신뢰 당사자에 대해 토큰 암호화를 비활성화하거나 토큰 암호화에 대해 사용할 X.509 인증서를 업로드하십시오.</td>
-</tr>
+<td>선택한 신뢰 당사자에 대해 토큰 암호화를 비활성화하거나 토큰 암호화에 대해 사용할 X.509 인증서를 업로드하십시오.</td></tr>
 </table>
 
-토큰 암호 해독 인증서
----------------------
+## 토큰 암호 해독 인증서
 
 ACS는 WS-Federation ID 공급자(예: AD FS 2.0)에서 보낸 암호화된 토큰을 수락할 수 있습니다. 암호 해독에는 ACS에서 호스트되는 X.509 인증서가 사용됩니다.
 
@@ -248,29 +230,29 @@ ACS 관리 포털의 인증서 및 키 섹션을 통해 토큰 암호 해독 인
 
 **토큰 암호 해독 인증서를 관리하려면**
 
-1.  인터넷 브라우저를 열고 Azure 관리 포털(<http://go.microsoft.com/fwlink/?LinkID=129428>)을 방문합니다.
+1.  인터넷 브라우저를 열고 Azure 관리 포털([][]<http://go.microsoft.com/fwlink/?LinkID=129428></a>)을 방문합니다.
 
 2.  Windows Live ID를 사용하여 웹 사이트에 로그온합니다. Windows Live ID가 없는 경우 등록을 클릭하여 ID를 만듭니다.
 
 3.  Windows Live ID로 로그인하면 관리 포털 페이지로 리디렉션됩니다. 이 페이지의 왼쪽 하단에서 **서비스 버스 및 액세스 제어**를 클릭합니다.
 
-    ![](./media/manage-acs-namespace/ACS1.png)
+    ![][]
 
 4.  ACS 관리 포털을 시작하려면 왼쪽의 트리에서 **액세스 제어**를 클릭하고 구성하려는 ACS 서비스 네임스페이스를 선택한 다음 페이지의 맨 위에 있는 도구 모음에서 **액세스 제어 서비스** 단추를 클릭합니다.
 
-    ![](./media/manage-acs-namespace/ACS2.png)
+    ![][1]
 
     이때 화면이 다음과 같이 표시되어야 합니다.
 
-    ![](./media/manage-acs-namespace/ACS3.png)
+    ![][2]
 
 5.  서비스 설정 섹션의 왼쪽에 있는 트리에서 **인증서 및 키**를 클릭합니다.
 
-    ![](./media/manage-acs-namespace/ACS4.png)
+    ![][3]
 
     이때 화면이 다음과 같이 표시되어야 합니다.
 
-    ![](./media/manage-acs-namespace/ACS9.png)
+    ![][6]
 
 6.  토큰 암호 해독 섹션에서 추가 단추를 눌러 만료될 기존 인증서 옆에 ACS의 새 인증서를 "보조" 키로 구성합니다.
 
@@ -282,26 +264,22 @@ ACS 관리 포털의 인증서 및 키 섹션을 통해 토큰 암호 해독 인
 
 10. 합당한 유예 기간이 지난 후, 인증서 및 키 페이지의 토큰 서명 섹션에서 삭제 단추를 눌러 ACS 구성에서 이전 인증서를 제거합니다.
 
-자세한 내용은 [인증서 및 키](http://msdn.microsoft.com/ko-kr/library/gg185932.aspx)(영문)를 참조하십시오.
+자세한 내용은 [인증서 및 키][](영문)를 참조하십시오.
 
 암호 해독 인증서가 만료되면 토큰을 요청할 때 다음과 같은 오류가 표시됩니다.
 
-<table><tr><td><b>오류 코드</b>
-</td>
-<td><b>메시지</b>
-</td>
+<table><tr><td><b>오류 코드</b></td>
+<td><b>Message</b></td>
 </tr>
 <tr>
 <td>ACS10001</td>
 <td>SOAP 헤더를 처리하는 중 오류가 발생했습니다.</td>
 </tr>
 <tr><td>ACS20001</td>
-<td>WS-Federation 로그인 응답을 처리하는 중 오류가 발생했습니다.</td>
-</tr>
+<td>WS-Federation 로그인 응답을 처리하는 중 오류가 발생했습니다.</td></tr>
 </table>
 
-서비스 ID 자격 증명
--------------------
+## 서비스 ID 자격 증명
 
 서비스 ID는 ACS 네임스페이스에 대해 전역적으로 구성되는 자격 증명으로, 응용 프로그램 또는 클라이언트가 ACS에 직접 인증하고 토큰을 받을 수 있도록 합니다. ACS 서비스 ID와 연결할 수 있는 세 가지 자격 증명 유형은 대칭 키, 암호 및 X.509 인증서입니다.
 
@@ -309,29 +287,29 @@ ACS 관리 포털의 서비스 ID 페이지를 통해 서비스 ID 자격 증명
 
 **서비스 ID 자격 증명을 관리하려면**
 
-1.  인터넷 브라우저를 열고 Azure 관리 포털(<http://go.microsoft.com/fwlink/?LinkID=129428>)을 방문합니다.
+1.  인터넷 브라우저를 열고 Azure 관리 포털([][]<http://go.microsoft.com/fwlink/?LinkID=129428></a>)을 방문합니다.
 
 2.  Windows Live ID를 사용하여 웹 사이트에 로그온합니다. Windows Live ID가 없는 경우 등록을 클릭하여 ID를 만듭니다.
 
 3.  Windows Live ID로 로그인하면 관리 포털 페이지로 리디렉션됩니다. 이 페이지의 왼쪽 하단에서 **서비스 버스 및 액세스 제어**를 클릭합니다.
 
-    ![](./media/manage-acs-namespace/ACS1.png)
+    ![][]
 
 4.  ACS 관리 포털을 시작하려면 왼쪽의 트리에서 **액세스 제어**를 클릭하고 구성하려는 ACS 서비스 네임스페이스를 선택한 다음 페이지의 맨 위에 있는 도구 모음에서 **액세스 제어 서비스** 단추를 클릭합니다.
 
-    ![](./media/manage-acs-namespace/ACS2.png)
+    ![][1]
 
     이때 화면이 다음과 같이 표시되어야 합니다.
 
-    ![](./media/manage-acs-namespace/ACS3.png)
+    ![][2]
 
 5.  서비스 설정 섹션의 왼쪽에 있는 트리에서 **서비스 ID**를 클릭합니다.
 
-    ![](./media/manage-acs-namespace/ACS11.png)
+    ![][7]
 
 6.  편집하려는 서비스 ID를 클릭합니다.
 
-    ![](./media/manage-acs-namespace/ACS112.png)
+    ![][8]
 
 7.  자격 증명 섹션에서 추가 단추를 눌러 만료될 기존 인증서 옆에 ACS의 새 인증서를 구성합니다.
 
@@ -339,36 +317,42 @@ ACS 관리 포털의 서비스 ID 페이지를 통해 서비스 ID 자격 증명
 
 9.  클라이언트를 모두 업데이트한 후(또는 합당한 유예 기간이 지난 후) 삭제 단추를 눌러 이전 인증서 또는 키를 제거합니다.
 
-자세한 내용은 [서비스 ID](http://msdn.microsoft.com/ko-kr/library/gg185945.aspx)(영문)를 참조하십시오.
+자세한 내용은 [서비스 ID][](영문)를 참조하십시오.
 
 다음은 자격 증명이 만료된 경우 ACS에서 내는 예외입니다.
 
-<table><tr><td><b>자격 증명</b>
-</td>
-<td><b>오류 코드</b>
-</td>
-<td><b>메시지</b>
-</td>
-<td><b>메시지를 해결하기 위해 필요한 작업</b>
-</td>
+<table>
+<colgroup>
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>자격 증명&gt;</strong></td>
+<td align="left"><strong>오류 코드</strong></td>
+<td align="left"><strong>Message</strong></td>
+<td align="left"><strong>메시지를 해결하기 위해 필요한 작업</strong></td>
 </tr>
-<tr>
-<td>대칭 키, 암호</td>
-<td>ACS50006</td>
-<td>서명 인증에 실패했습니다. (메시지에 더 자세한 내용이 표시될 수 있습니다.)</td>
-<td  />
+<tr class="even">
+<td align="left">대칭 키, 암호</td>
+<td align="left">ACS50006</td>
+<td align="left">서명 인증에 실패했습니다. (메시지에 더 자세한 내용이 표시될 수 있습니다.)</td>
+<td align="left"></td>
 </tr>
-<tr><td>X.509 인증서</td>
-<td>ACS50016</td>
-<td>제목 '<인증서 제목 이름>' 및 지문 '<인증서 지문>'이 있는 X509 인증서가 구성된 인증서와 일치하지 않습니다.</td>
-<td>요청한 인증서가 ACS에 업로드되었는지 확인하십시오.</td>
+<tr class="odd">
+<td align="left">X.509 인증서</td>
+<td align="left">ACS50016</td>
+<td align="left">제목 '&lt;인증서 제목 이름&gt;' 및 지문 '&lt;인증서 지문&gt;'이 있는 X509 인증서가 구성된 인증서와 일치하지 않습니다.</td>
+<td align="left">요청한 인증서가 ACS에 업로드되었는지 확인하십시오.</td>
 </tr>
+</tbody>
 </table>
 
-대칭 키 또는 암호의 만료 날짜를 확인하고 업데이트하거나 서비스 ID 자격 증명으로 새 인증서를 업로드하려면 [방법: X.509 인증서, 암호 또는 대칭 키를 사용하여 서비스 ID 추가](http://msdn.microsoft.com/ko-kr/library/gg185924.aspx)(영문)에 설명된 지침을 따르십시오. 서비스 ID 자격 증명 목록은 서비스 ID 편집 페이지에서 볼 수 있습니다.
+대칭 키 또는 암호의 만료 날짜를 확인하고 업데이트하거나 서비스 ID 자격 증명으로 새 인증서를 업로드하려면 [방법: X.509 인증서, 암호 또는 대칭 키를 사용하여 서비스 ID 추가][](영문)에 설명된 지침을 따르십시오. 서비스 ID 자격 증명 목록은 서비스 ID 편집 페이지에서 볼 수 있습니다.
 
-관리 서비스 자격 증명
----------------------
+## 관리 서비스 자격 증명
 
 ACS 관리 서비스는 ACS 네임스페이스의 설정을 프로그래밍 방식으로 관리하고 구성할 수 있도록 하는 ACS의 주요 구성 요소입니다. ACS 관리 서비스 계정은 세 가지 유형의 자격 증명에 연결될 수 있습니다. 여기에는 대칭 키, 암호 및 X.509 인증서가 있습니다.
 
@@ -376,29 +360,29 @@ ACS 관리 포털의 관리 서비스 페이지를 통해 관리 서비스 자�
 
 **ACS 관리 서비스 자격 증명을 관리하려면**
 
-1.  인터넷 브라우저를 열고 Azure 관리 포털(<http://go.microsoft.com/fwlink/?LinkID=129428>)을 방문합니다.
+1.  인터넷 브라우저를 열고 Azure 관리 포털([][]<http://go.microsoft.com/fwlink/?LinkID=129428></a>)을 방문합니다.
 
 2.  Windows Live ID를 사용하여 웹 사이트에 로그온합니다. Windows Live ID가 없는 경우 등록을 클릭하여 ID를 만듭니다.
 
 3.  Windows Live ID로 로그인하면 관리 포털 페이지로 리디렉션됩니다. 이 페이지의 왼쪽 하단에서 **서비스 버스 및 액세스 제어**를 클릭합니다.
 
-    ![](./media/manage-acs-namespace/ACS1.png)
+    ![][]
 
 4.  ACS 관리 포털을 시작하려면 왼쪽의 트리에서 **액세스 제어**를 클릭하고 구성하려는 ACS 서비스 네임스페이스를 선택한 다음 페이지의 맨 위에 있는 도구 모음에서 **액세스 제어 서비스** 단추를 클릭합니다.
 
-    ![](./media/manage-acs-namespace/ACS2.png)
+    ![][1]
 
     이때 화면이 다음과 같이 표시되어야 합니다.
 
-    ![](./media/manage-acs-namespace/ACS3.png)
+    ![][2]
 
 5.  관리 섹션의 왼쪽에 있는 트리에서 **관리 서비스**를 클릭합니다.
 
-    ![](./media/manage-acs-namespace/ACS14.png)
+    ![][9]
 
 6.  관리 서비스 계정을 클릭합니다.
 
-    ![](./media/manage-acs-namespace/ACS15.png)
+    ![][10]
 
 7.  자격 증명 섹션에서 추가 단추를 눌러 만료될 기존 인증서 옆에 ACS의 새 인증서를 구성합니다.
 
@@ -406,56 +390,78 @@ ACS 관리 포털의 관리 서비스 페이지를 통해 관리 서비스 자�
 
 9.  클라이언트를 모두 업데이트한 후(또는 합당한 유예 기간이 지난 후) 삭제 단추를 눌러 이전 인증서 또는 키를 제거합니다.
 
-자세한 내용은 [ACS 관리 서비스](http://msdn.microsoft.com/ko-kr/library/gg185972.aspx)(영문)를 참조하십시오.
+자세한 내용은 [ACS 관리 서비스][](영문)를 참조하십시오.
 
 이러한 자격 증명이 만료되면 ACS에서 다음과 같은 예외를 냅니다.
 
-<table><tr><td><b>자격 증명</b>
-</td>
-<td><b>오류 코드</b>
-</td>
-<td><b>메시지</b>
-</td>
-<td><b>메시지를 해결하기 위해 필요한 작업</b>
-</td>
+<table>
+<colgroup>
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>자격 증명&gt;</strong></td>
+<td align="left"><strong>오류 코드</strong></td>
+<td align="left"><strong>Message</strong></td>
+<td align="left"><strong>메시지를 해결하기 위해 필요한 작업</strong></td>
 </tr>
-<tr>
-<td>대칭 키, 암호</td>
-<td>ACS50006</td>
-<td>서명 인증에 실패했습니다. (메시지에 더 자세한 내용이 표시될 수 있습니다.)</td>
-<td  />
+<tr class="even">
+<td align="left">대칭 키, 암호</td>
+<td align="left">ACS50006</td>
+<td align="left">서명 인증에 실패했습니다. (메시지에 더 자세한 내용이 표시될 수 있습니다.)</td>
+<td align="left"></td>
 </tr>
-<tr><td>X.509 인증서</td>
-<td>ACS50016</td>
-<td>제목 '<인증서 제목 이름>' 및 지문 '<인증서 지문>'이 있는 X509 인증서가 구성된 인증서와 일치하지 않습니다.</td>
-<td>요청한 인증서가 ACS에 업로드되었는지 확인하십시오.</td>
+<tr class="odd">
+<td align="left">X.509 인증서</td>
+<td align="left">ACS50016</td>
+<td align="left">제목 '&lt;인증서 제목 이름&gt;' 및 지문 '&lt;인증서 지문&gt;'이 있는 X509 인증서가 구성된 인증서와 일치하지 않습니다.</td>
+<td align="left">요청한 인증서가 ACS에 업로드되었는지 확인하십시오.</td>
 </tr>
+</tbody>
 </table>
 
 ACS 관리 서비스 계정 자격 증명 목록은 ACS 관리 포털의 관리 서비스 계정 편집 페이지에서 볼 수 있습니다.
 
-WS-Federation ID 공급자 인증서
-------------------------------
+## WS-Federation ID 공급자 인증서
 
-WS-Federation ID 공급자 인증서는 해당 메타데이터를 통해 사용 가능합니다. AD FS와 같은 WS-Federation ID 공급자를 구성할 때는 URL이나 파일로 제공되는 WS-Federation 메타데이터를 통해 WS-Federation 서명 인증서를 구성합니다. 자세한 내용은 [WS-Federation ID 공급자](http://msdn.microsoft.com/ko-kr/library/gg185933.aspx)(영문) 및 [방법: AD FS 2.0을 ID 공급자로 구성](http://msdn.microsoft.com/ko-kr/library/gg185961.aspx)(영문)을 참조하십시오. ACS에 WS-Federation ID 공급자를 구성한 후에는 ACS 관리 서비스를 사용하여 이 공급자의 인증서 유효성을 쿼리합니다. ACS 관리 포털 또는 ACS 관리 서비스를 통해 메타데이터를 연속으로 업로드하면 키가 교체됩니다.
+WS-Federation ID 공급자 인증서는 해당 메타데이터를 통해 사용 가능합니다. AD FS와 같은 WS-Federation ID 공급자를 구성할 때는 URL이나 파일로 제공되는 WS-Federation 메타데이터를 통해 WS-Federation 서명 인증서를 구성합니다. 자세한 내용은 [WS-Federation ID 공급자][](영문) 및 [방법: AD FS 2.0을 ID 공급자로 구성][](영문)을 참조하십시오. ACS에 WS-Federation ID 공급자를 구성한 후에는 ACS 관리 서비스를 사용하여 이 공급자의 인증서 유효성을 쿼리합니다. ACS 관리 포털 또는 ACS 관리 서비스를 통해 메타데이터를 연속으로 업로드하면 키가 교체됩니다.
 
 다음은 인증서가 만료된 경우 ACS에서 내는 예외입니다.
 
-<table><tr><td><b>오류 코드</b>
-</td>
-<td><b>메시지</b>
-</td>
+<table><tr><td><b>오류 코드</b></td>
+<td><b>Message</b></td>
 </tr>
 <tr>
 <td>ACS10001</td>
 <td>SOAP 헤더를 처리하는 중 오류가 발생했습니다.</td>
 </tr>
 <tr><td>ACS20001</td>
-<td>WS-Federation 로그인 응답을 처리하는 중 오류가 발생했습니다.</td>
-</tr>
-<tr><td>ACS50006</td>
-<td>서명 인증에 실패했습니다. (메시지에 더 자세한 내용이 표시될 수 있습니다.)</td>
-</tr>
+<td>WS-Federation 로그인 응답을 처리하는 중 오류가 발생했습니다.</td></tr>
+<tr><td>ACS50006</td><td>서명 인증에 실패했습니다. (메시지에 더 자세한 내용이 표시될 수 있습니다.)</td></tr>
 </table>
 
-
+  [액세스 제어 서비스 2.0]: http://msdn.microsoft.com/library/azure/hh147631.aspx
+  [인증서 및 키]: http://msdn.microsoft.com/ko-KR/library/gg185932.aspx
+  [서비스 ID]: http://msdn.microsoft.com/ko-KR/library/gg185945.aspx
+  [ACS 관리 서비스]: http://msdn.microsoft.com/ko-KR/library/gg185972.aspx
+  [IdentityProviderKey]: http://msdn.microsoft.com/ko-KR/library/hh124084.aspx
+  [ACS 오류 코드]: http://msdn.microsoft.com/ko-KR/library/gg185949.aspx
+  [코드 샘플: 관리 서비스]: http://msdn.microsoft.com/ko-KR/library/gg185970.aspx
+  []: http://go.microsoft.com/fwlink/?LinkID=129428
+  []: ./media/manage-acs-namespace/ACS1.png
+  [1]: ./media/manage-acs-namespace/ACS2.png
+  [2]: ./media/manage-acs-namespace/ACS3.png
+  [3]: ./media/manage-acs-namespace/ACS4.png
+  [4]: ./media/manage-acs-namespace/ACS5.png
+  [5]: ./media/manage-acs-namespace/ACS7.png
+  [6]: ./media/manage-acs-namespace/ACS9.png
+  [7]: ./media/manage-acs-namespace/ACS11.png
+  [8]: ./media/manage-acs-namespace/ACS112.png
+  [방법: X.509 인증서, 암호 또는 대칭 키를 사용하여 서비스 ID 추가]: http://msdn.microsoft.com/ko-KR/library/gg185924.aspx
+  [9]: ./media/manage-acs-namespace/ACS14.png
+  [10]: ./media/manage-acs-namespace/ACS15.png
+  [WS-Federation ID 공급자]: http://msdn.microsoft.com/ko-KR/library/gg185933.aspx
+  [방법: AD FS 2.0을 ID 공급자로 구성]: http://msdn.microsoft.com/ko-KR/library/gg185961.aspx

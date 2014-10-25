@@ -1,11 +1,14 @@
-<properties linkid="notification-hubs-how-to-guides-howto-register-user-with-aspnet-webapi-ios" urlDisplayName="Notify iOS app users by using Web API" pageTitle="Register the current user for push notifications by using Web API - Notification Hubs" metaKeywords="Azure registering application, Notification Hubs, Azure push notifications, push notification iOS app" description="Learn how to request push notification registration in an iOS app with Azure Notification Hubs when registeration is performed by ASP.NET Web API." metaCanonical="" services="notification-hubs" documentationCenter="" title="Register the current user for push notifications by using ASP.NET" authors="" solutions="" manager="" editor="" />
+<properties linkid="notification-hubs-how-to-guides-howto-register-user-with-aspnet-webapi-ios" urlDisplayName="Notify iOS app users by using Web API" pageTitle="Register the current user for push notifications by using Web API - Notification Hubs" metaKeywords="Azure registering application, Notification Hubs, Azure push notifications, push notification iOS app" description="Learn how to request push notification registration in an iOS app with Azure Notification Hubs when registeration is performed by ASP.NET Web API." metaCanonical="" services="notification-hubs" documentationCenter="" title="Register the current user for push notifications by using ASP.NET" authors="krisragh" solutions="" manager="" editor="" />
 
-ASP.NET을 사용하여 푸시 알림에 현재 사용자 등록
-===============================================
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh"></tags>
 
-[Windows 스토어 C\#](/ko-kr/documentation/articles/notification-hubs-windows-store-aspnet-register-user-push-notifications/ "Windows 스토어 C#")[iOS](/ko-kr/documentation/articles/notification-hubs-ios-aspnet-register-user-push-notifications/ "iOS")
+# ASP.NET을 사용하여 푸시 알림에 현재 사용자 등록
 
-이 항목에서는 ASP.NET Web API에서 등록을 수행할 때 Azure 알림 허브를 통해 푸시 알림 등록을 요청하는 방법을 보여 줍니다. 이 항목은 [알림 허브를 통해 사용자에게 알림](/en-us/manage/services/notification-hubs/notify-users-aspnet) 자습서를 확장합니다. 이 자습서에서 인증된 모바일 서비스를 만드는 데 필요한 단계를 이미 완료했어야 합니다. 사용자 알림 시나리오에 대한 자세한 내용은 [알림 허브를 통해 사용자에게 알림](/en-us/manage/services/notification-hubs/notify-users-aspnet)을 참조하십시오.
+<div class="dev-center-tutorial-selector sublanding">
+    <a href="/ko-KR/documentation/articles/notification-hubs-windows-store-aspnet-register-user-push-notifications/" title="Windows 스토어 C#">Windows 스토어 C#</a><a href="/ko-KR/documentation/articles/notification-hubs-ios-aspnet-register-user-push-notifications/" title="iOS" class="current">iOS</a>
+</div>
+
+이 항목에서는 ASP.NET Web API에서 등록을 수행할 때 Azure 알림 허브를 통해 푸시 알림 등록을 요청하는 방법을 보여 줍니다. 이 항목은 [알림 허브를 통해 사용자에게 알림][] 자습서를 확장합니다. 이미 해당 자습서의 필수 단계를 완료하여 인증된 모바일 서비스를 만든 상태여야 합니다. 사용자 알림 시나리오에 대한 자세한 내용은 [알림 허브를 통해 사용자에게 알림][]을 참조하십시오.
 
 1.  MainStoryboard\_iPhone.storyboard의 개체 라이브러리에서 다음 구성 요소를 추가합니다.
 
@@ -19,78 +22,78 @@ ASP.NET을 사용하여 푸시 알림에 현재 사용자 등록
 
     이때 스토리보드가 다음과 같이 표시됩니다.
 
-   	![][0] 
+    ![][]
 
 2.  단말기 편집기에서 모든 전환된 컨트롤에 대한 콘센트를 만든 다음 호출하고, 텍스트 필드를 뷰 컨트롤러(대리자)에 연결하고, **로그인** 단추에 대한 **동작**을 만듭니다.
 
-   	![][1]
+    ![][1]
 
-        이제 BreakingNewsViewController.h 파일에 다음 코드가 포함되어 있습니다.
-                
-         @property (weak, nonatomic) IBOutlet UILabel *installationId;
-         @property (weak, nonatomic) IBOutlet UITextField *User;
-         @property (weak, nonatomic) IBOutlet UITextField *Password;
-            
-         - (IBAction)login:(id)sender;
+    이제 BreakingNewsViewController.h 파일에 다음 코드가 포함되어 있습니다.
+
+        @property (weak, nonatomic) IBOutlet UILabel *installationId;
+        @property (weak, nonatomic) IBOutlet UITextField *User;
+        @property (weak, nonatomic) IBOutlet UITextField *Password;
+
+        - (IBAction)login:(id)sender;
 
 3.  **DeviceInfo**라는 클래스를 만들고 다음 코드를 DeviceInfo.h 파일의 인터페이스 섹션에 복사합니다.
 
-         @property (readonly, nonatomic) NSString* installationId;
-         @property (nonatomic) NSData* deviceToken;
+        @property (readonly, nonatomic) NSString* installationId;
+        @property (nonatomic) NSData* deviceToken;
 
 4.  다음 코드를 DeviceInfo.m 파일의 구현 섹션에 복사합니다.
 
-             @synthesize installationId = _installationId;
+            @synthesize installationId = _installationId;
 
-             - (id)init {
-                 if (!(self = [super init]))
-                     return nil;
-                    
-                 NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-                 _installationId = [defaults stringForKey:@"PushToUserInstallationId"];
-                 if(!_installationId) {
-                     CFUUIDRef newUUID = CFUUIDCreate(kCFAllocatorDefault);
-                     _installationId = (__bridge_transfer NSString *)CFUUIDCreateString(kCFAllocatorDefault, newUUID);
-                     CFRelease(newUUID);
-                        
-                     //store the install ID so we don't generate a new one next time
-                     [defaults setObject:_installationId forKey:@"PushToUserInstallationId"];
-                     [defaults synchronize];
-                 }
-                    
-                 return self;
-             }
-                
-             - (NSString*)getDeviceTokenInHex {
-                 const unsigned *tokenBytes = [[self deviceToken] bytes];
-                 NSString *hexToken = [NSString stringWithFormat:@"%08X%08X%08X%08X%08X%08X%08X%08X",
-                                       ntohl(tokenBytes[0]), ntohl(tokenBytes[1]), ntohl(tokenBytes[2]),
-                                       ntohl(tokenBytes[3]), ntohl(tokenBytes[4]), ntohl(tokenBytes[5]),
-                                       ntohl(tokenBytes[6]), ntohl(tokenBytes[7])];
-                 return hexToken;
-             }
+            - (id)init {
+                if (!(self = [super init]))
+                    return nil;
+
+                NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+                _installationId = [defaults stringForKey:@"PushToUserInstallationId"];
+                if(!_installationId) {
+                    CFUUIDRef newUUID = CFUUIDCreate(kCFAllocatorDefault);
+                    _installationId = (__bridge_transfer NSString *)CFUUIDCreateString(kCFAllocatorDefault, newUUID);
+                    CFRelease(newUUID);
+
+                    //store the install ID so we don't generate a new one next time
+                    [defaults setObject:_installationId forKey:@"PushToUserInstallationId"];
+                    [defaults synchronize];
+                }
+
+                return self;
+            }
+
+            - (NSString*)getDeviceTokenInHex {
+                const unsigned *tokenBytes = [[self deviceToken] bytes];
+                NSString *hexToken = [NSString stringWithFormat:@"%08X%08X%08X%08X%08X%08X%08X%08X",
+                                      ntohl(tokenBytes[0]), ntohl(tokenBytes[1]), ntohl(tokenBytes[2]),
+                                      ntohl(tokenBytes[3]), ntohl(tokenBytes[4]), ntohl(tokenBytes[5]),
+                                      ntohl(tokenBytes[6]), ntohl(tokenBytes[7])];
+                return hexToken;
+            }
 
 5.  PushToUserAppDelegate.h에서 다음 속성 단일 항목을 추가합니다.
 
-         @property (strong, nonatomic) DeviceInfo* deviceInfo;
+        @property (strong, nonatomic) DeviceInfo* deviceInfo;
 
 6.  PushToUserAppDelegate.m의 **didFinishLaunchingWithOptions** 메서드에 다음 코드를 추가합니다.
 
-         self.deviceInfo = [[DeviceInfo alloc] init];
-            
-         [[UIApplication sharedApplication] registerForRemoteNotificationTypes: UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
+        self.deviceInfo = [[DeviceInfo alloc] init];
 
-    첫 번째 행은 **DeviceInfo** 단일 항목을 초기화합니다. 두 번째 행은 푸시 알림 등록을 시작합니다. 이미 언급한 것처럼 [알림 허브 시작](/en-us/manage/services/notification-hubs/get-started-notification-hubs-ios) 자습서를 이미 완료했습니다.
+        [[UIApplication sharedApplication] registerForRemoteNotificationTypes: UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
+
+    첫 번째 행은 **DeviceInfo** 단일 항목을 초기화합니다. 두 번째 행은 푸시 알림 등록을 시작합니다. 이미 언급한 것처럼 [알림 허브 시작][] 자습서를 이미 완료했습니다.
 
 7.  PushToUserAppDelegate.m의 AppDelegate에서 **didRegisterForRemoteNotificationsWithDeviceToken** 메서드를 구현하고 다음 코드를 추가합니다.
 
-         self.deviceInfo.deviceToken = deviceToken;
+        self.deviceInfo.deviceToken = deviceToken;
 
     이 코드는 요청에 대한 장치 토큰을 설정합니다.
 
-    **참고**
-
-    이때 이 메서드에 다른 코드가 없어야 합니다. [알림 허브 시작](/en-us/manage/services/notification-hubs/get-started-notification-hubs-ios/) 자습서를 완료할 때 추가한 **registerNativeWithDeviceToken** 메서드를 이미 호출한 경우 해당 호출을 주석으로 처리하거나 제거해야 합니다.
+    <div class="dev-callout"><b>참고</b>
+<p>이때 이 메서드에 다른 코드가 있어서는 안 됩니다. <a href="/ko-KR/manage/services/notification-hubs/get-started-notification-hubs-ios/" target="_blank">알림 허브 시작</a> 자습서를 완료할 때 추가된 <b>registerNativeWithDeviceToken</b> 메서드에 대한 호출이 이미 있는 경우 해당 호출을 주석으로 처리하거나 제거해야 합니다.</p>
+</div>
 
 8.  PushToUserAppDelegate.m 파일에서 다음 처리기 메서드를 추가합니다.
 
@@ -102,21 +105,21 @@ ASP.NET을 사용하여 푸시 알림에 현재 사용자 등록
             [alert show];
         }
 
-    이 메서드는 실행 중인 앱에서 알림을 수신할 경우 UI에 경고를 표시합니다.
+    이 메서드는 앱이 실행되고 있는 동안 알림을 받으면 UI에 경고를 표시합니다.
 
 9.  PushToUserViewController.m 파일을 열고 다음 구현에 키보드를 반환합니다.
 
-         - (BOOL)textFieldShouldReturn:(UITextField *)theTextField {
-             if (theTextField == self.User || theTextField == self.Password) {
-                 [theTextField resignFirstResponder];
-             }
-             return YES;
-         }
+        - (BOOL)textFieldShouldReturn:(UITextField *)theTextField {
+            if (theTextField == self.User || theTextField == self.Password) {
+                [theTextField resignFirstResponder];
+            }
+            return YES;
+        }
 
 10. PushToUserViewController.m 파일의 **viewDidLoad** 메서드에서 다음과 같이 installationId 레이블을 초기화합니다.
 
-         DeviceInfo* deviceInfo = [(PushToUserAppDelegate*)[[UIApplication sharedApplication]delegate] deviceInfo];
-         Self.installationId.text = deviceInfo.installationId;
+        DeviceInfo* deviceInfo = [(PushToUserAppDelegate*)[[UIApplication sharedApplication]delegate] deviceInfo];
+        Self.installationId.text = deviceInfo.installationId;
 
 11. PushToUserViewController.m의 인터페이스에 다음 속성을 추가합니다.
 
@@ -133,87 +136,85 @@ ASP.NET을 사용하여 푸시 알림에 현재 사용자 등록
                 }
                 return _downloadQueue;
             }
-                
+
             // base64 encoding
             - (NSString*)base64forData:(NSData*)theData
             {
                 const uint8_t* input = (const uint8_t*)[theData bytes];
                 NSInteger length = [theData length];
-                    
+
                 static char table[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
-                    
+
                 NSMutableData* data = [NSMutableData dataWithLength:((length + 2) / 3) * 4];
                 uint8_t* output = (uint8_t*)data.mutableBytes;
-                    
+
                 NSInteger i;
                 for (i=0; i < length; i += 3) {
                     NSInteger value = 0;
                     NSInteger j;
                     for (j = i; j < (i + 3); j++) {
                         value <<= 8;
-                            
+
                         if (j < length) {
                             value |= (0xFF & input[j]);
                         }
                     }
-                        
+
                     NSInteger theIndex = (i / 3) * 4;
                     output[theIndex + 0] =                    table[(value >> 18) & 0x3F];
                     output[theIndex + 1] =                    table[(value >> 12) & 0x3F];
-                    output[theIndex + 2] = (i + 1) < length 
-         table[(value >> 6)  & 0x3F] : '=';
-                    output[theIndex + 3] = (i + 2) < length 
-         table[(value >> 0)  & 0x3F] : '=';
+                    output[theIndex + 2] = (i + 1) < length ? table[(value >> 6)  & 0x3F] : '=';
+                    output[theIndex + 3] = (i + 2) < length ? table[(value >> 0)  & 0x3F] : '=';
                 }
-                    
+
                 return [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
             }
 
 13. XCode로 만든 **login** 처리기 메서드에 다음 코드를 복사합니다.
 
-			DeviceInfo* deviceInfo = [(PushToUserAppDelegate*)[[UIApplication sharedApplication]delegate] deviceInfo];
-    
-		    // build JSON
-		    NSString* json = [NSString stringWithFormat:@"{\"platform\":\"ios\", \"instId\":\"%@\", \"deviceToken\":\"%@\"}", deviceInfo.installationId, [deviceInfo getDeviceTokenInHex]];
-		    
-		    // build auth string
-		    NSString* authString = [NSString stringWithFormat:@"%@:%@", self.User.text, self.Password.text];
-		    
-		    NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://nhnotifyuser.azurewebsites.net/api/register"]];
-		    [request setHTTPMethod:@"POST"];
-		    [request setHTTPBody:[json dataUsingEncoding:NSUTF8StringEncoding]];
-		    [request addValue:[@([json lengthOfBytesUsingEncoding:NSUTF8StringEncoding]) description] forHTTPHeaderField:@"Content-Length"];
-		    [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-		    [request addValue:[NSString stringWithFormat:@"Basic %@",[self base64forData:[authString dataUsingEncoding:NSUTF8StringEncoding]]] forHTTPHeaderField:@"Authorization"];
-		    
-		    // connect with POST
-		    [NSURLConnection sendAsynchronousRequest:request queue:[self downloadQueue] completionHandler:^(NSURLResponse* response, NSData* data, NSError* error) {
-		        // add UIAlert depending on response.
-		        if (error != nil) {
-		            NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*)response;
-		            if ([httpResponse statusCode] == 200) {
-		                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Back-end registration" message:@"Registration successful" delegate:nil cancelButtonTitle: @"OK" otherButtonTitles:nil, nil];
-		                [alert show];
-		            } else {
-		                NSLog(@"status: %ld", (long)[httpResponse statusCode]);
-		            }
-		        } else {
-		            NSLog(@"error: %@", error);
-		        }
-		    }];
+            DeviceInfo* deviceInfo = [(PushToUserAppDelegate*)[[UIApplication sharedApplication]delegate] deviceInfo];
 
-    이 메서드는 푸시 알림에 대한 설치 ID와 채널을 모두 가져온 다음, 알림 허브에서 등록을 만드는 인증된 웹 API 메서드에 장치 유형과 함께 보냅니다. 이 웹 API는 [알림 허브를 통해 사용자에게 알림](/en-us/manage/services/notification-hubs/notify-users-aspnet)에서 정의했습니다.
+            // build JSON
+            NSString* json = [NSString stringWithFormat:@"{\"platform\":\"ios\", \"instId\":\"%@\", \"deviceToken\":\"%@\"}", deviceInfo.installationId, [deviceInfo getDeviceTokenInHex]];
 
-클라이언트 앱이 업데이트되었으므로, 이제 [알림 허브를 통해 사용자에게 알림](/en-us/manage/services/notification-hubs/notify-users-aspnet)으로 돌아가서 알림 허브를 사용하여 알림을 보내도록 모바일 서비스를 업데이트합니다.
+            // build auth string
+            NSString* authString = [NSString stringWithFormat:@"%@:%@", self.User.text, self.Password.text];
 
-<!-- Anchors. -->
+            NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://nhnotifyuser.azurewebsites.net/api/register"]];
+            [request setHTTPMethod:@"POST"];
+            [request setHTTPBody:[json dataUsingEncoding:NSUTF8StringEncoding]];
+            [request addValue:[@([json lengthOfBytesUsingEncoding:NSUTF8StringEncoding]) description] forHTTPHeaderField:@"Content-Length"];
+            [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+            [request addValue:[NSString stringWithFormat:@"Basic %@",[self base64forData:[authString dataUsingEncoding:NSUTF8StringEncoding]]] forHTTPHeaderField:@"Authorization"];
 
-<!-- Images. -->
-[0]: ./media/notification-hubs-ios-aspnet-register-user-push-notifications/notification-hub-user-aspnet-ios1.png
-[1]: ./media/notification-hubs-ios-aspnet-register-user-push-notifications/notification-hub-user-aspnet-ios2.png
+            // connect with POST
+            [NSURLConnection sendAsynchronousRequest:request queue:[self downloadQueue] completionHandler:^(NSURLResponse* response, NSData* data, NSError* error) {
+                // add UIAlert depending on response.
+                if (error != nil) {
+                    NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*)response;
+                    if ([httpResponse statusCode] == 200) {
+                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Back-end registration" message:@"Registration successful" delegate:nil cancelButtonTitle: @"OK" otherButtonTitles:nil, nil];
+                        [alert show];
+                    } else {
+                        NSLog(@"status: %ld", (long)[httpResponse statusCode]);
+                    }
+                } else {
+                    NSLog(@"error: %@", error);
+                }
+            }];
 
+    이 메서드는 푸시 알림에 대한 설치 ID와 채널을 모두 가져온 다음, 알림 허브에서 등록을 만드는 인증된 웹 API 메서드에 장치 유형과 함께 보냅니다. 이 웹 API는 [알림 허브를 통해 사용자에게 알림][]에서 정의했습니다.
+
+클라이언트 앱이 업데이트되었으므로 [알림 허브를 통해 사용자에게 알림][]으로 돌아가서 알림 허브를 사용하여 알림을 보내도록 모바일 서비스를 업데이트합니다.
+
+<!-- Anchors. --> 
+<!-- Images. --> 
 <!-- URLs. -->
-[Notify users with Notification Hubs]: /en-us/manage/services/notification-hubs/notify-users-aspnet
 
-[Azure Management Portal]: https://manage.windowsazure.com/
-[Get Started with Notification Hubs]: /en-us/manage/services/notification-hubs/get-started-notification-hubs-ios
+  [Windows 스토어 C#]: /ko-KR/documentation/articles/notification-hubs-windows-store-aspnet-register-user-push-notifications/ "Windows 스토어 C#"
+  [iOS]: /ko-KR/documentation/articles/notification-hubs-ios-aspnet-register-user-push-notifications/ "iOS"
+  [알림 허브를 통해 사용자에게 알림]: /ko-KR/manage/services/notification-hubs/notify-users-aspnet
+  []: ./media/notification-hubs-ios-aspnet-register-user-push-notifications/notification-hub-user-aspnet-ios1.png
+  [1]: ./media/notification-hubs-ios-aspnet-register-user-push-notifications/notification-hub-user-aspnet-ios2.png
+  [알림 허브 시작]: /ko-KR/manage/services/notification-hubs/get-started-notification-hubs-ios
+  [2]: /ko-KR/manage/services/notification-hubs/get-started-notification-hubs-ios/

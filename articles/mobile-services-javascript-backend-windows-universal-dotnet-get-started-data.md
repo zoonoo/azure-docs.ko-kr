@@ -75,7 +75,7 @@
 
     이제 **TodoItem** 테이블에 모바일 서비스에서 생성된 id 값을 가진 데이터가 포함되었으며 해당 열이 앱의 TodoItem 클래스와 일치하도록 테이블에 자동으로 추가되었습니다.
 
-![][]
+![][0]
 
 이제 **데이터 시작** 자습서를 마쳤습니다.
 
@@ -103,7 +103,7 @@
 <!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
 
   [mobile-services-selector-get-started-data]: ../includes/mobile-services-selector-get-started-data.md
-  [Windows 및 Windows Phone을 대상으로 하는 범용 Windows 앱 작성]: http://msdn.microsoft.com/en-us/library/windows/apps/xaml/dn609832.aspx
+  [Windows 및 Windows Phone을 대상으로 하는 범용 Windows 앱 작성]: http://msdn.microsoft.com/ko-kr/library/windows/apps/xaml/dn609832.aspx
   [Windows Phone에서 데이터 시작]: /ko-kr/documentation/articles/mobile-services-windows-phone-get-started-data
   [이 버전]: /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-data
   [Windows 스토어 앱 프로젝트 다운로드]: #download-app
@@ -112,17 +112,17 @@
   [모바일 서비스를 사용하도록 앱 업데이트]: #update-app
   [모바일 서비스에 대해 앱 테스트]: #test-app
   [Azure 관리 포털에서 업로드된 데이터 확인]: #view-data
-  [Azure 무료 평가판]: http://azure.microsoft.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-services-javascript-backend-windows-universal-dotnet-get-started-data%2F
+  [Azure 무료 평가판]: http://azure.microsoft.com/ko-kr/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fazure.microsoft.com%2Fko-kr%2Fdocumentation%2Farticles%2Fmobile-services-javascript-backend-windows-universal-dotnet-get-started-data%2F
   [Visual Studio Express 2013 for Windows]: https://go.microsoft.com/fwLink/p/?LinkID=257546
   [mobile-services-windows-universal-dotnet-download-project]: ../includes/mobile-services-windows-universal-dotnet-download-project.md
   [mobile-services-create-new-service-vs2013]: ../includes/mobile-services-create-new-service-vs2013.md
   [MobileServiceClient 클래스]: http://go.microsoft.com/fwlink/p/?LinkId=302030
   [mobile-services-create-new-table-vs2013]: ../includes/mobile-services-create-new-table-vs2013.md
-  [동적 스키마]: http://msdn.microsoft.com/en-us/library/windowsazure/jj193175.aspx
+  [동적 스키마]: http://msdn.microsoft.com/ko-kr/library/windowsazure/jj193175.aspx
   [mobile-services-windows-dotnet-update-data-app]: ../includes/mobile-services-windows-dotnet-update-data-app.md
   [mobile-services-windows-universal-test-app]: ../includes/mobile-services-windows-universal-test-app.md
   [관리 포털]: https://manage.windowsazure.com/
-  []: ./media/mobile-services-javascript-backend-windows-universal-dotnet-get-started-data/mobile-todoitem-data-browse.png
+  [0]: ./media/mobile-services-javascript-backend-windows-universal-dotnet-get-started-data/mobile-todoitem-data-browse.png
   [스크립트를 사용하여 데이터 유효성 검사 및 수정]: /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-validate-modify-data-server-scripts/
   [페이징을 사용하여 쿼리 구체화]: /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-add-paging-data/
   [인증 시작]: /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-users/

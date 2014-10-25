@@ -1,23 +1,26 @@
-<properties linkid="develop-net-common-tasks-diagnostics-logging-and-instrumentation" urlDisplayName="Enable diagnostic logging" pageTitle="Enable diagnostic logging - Azure Web Sites" metaKeywords="Azure diagnostics web sites, Azure Management Portal diagnostics, Azure diagnostics, web site diagnostics, web site debug" description="Learn how to enable diagnostic logging and add instrumentation to your application, as well as how to access the information logged by Azure." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Enable diagnostic logging for Azure Web Sites" authors="larryfr" solutions="" manager="" editor="" />
+<properties linkid="develop-net-common-tasks-diagnostics-logging-and-instrumentation" urlDisplayName="Enable diagnostic logging" pageTitle="Enable diagnostic logging - Azure Websites" metaKeywords="Azure diagnostics web sites, Azure Management Portal diagnostics, Azure diagnostics, web site diagnostics, web site debug" description="Learn how to enable diagnostic logging and add instrumentation to your application, as well as how to access the information logged by Azure." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Enable diagnostic logging for Azure Websites" authors="larryfr" solutions="" manager="" editor="" />
 
-Azure 웹 사이트에 진단 로그 사용
-================================
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"></tags>
+
+# Azure 웹 사이트에 진단 로그 사용
 
 Azure는 Azure 웹 사이트에 호스팅된 응용 프로그램을 디버그하는 데 도움이 되는 기본 제공 진단 로그를 제공합니다. 이 문서에서는 진단 로그를 사용하도록 설정하는 방법, 응용 프로그램에 계측을 추가하는 방법 및 Azure에서 기록된 정보에 액세스하는 방법을 설명합니다.
 
-> [WACOM.NOTE] 이 문서에서는 Azure 관리 포털, Azure PowerShell 및 Azure 플랫폼 간 명령줄 인터페이스를 사용하여 진단 로그로 작업하는 방법을 설명합니다. Visual Studio를 사용하여 진단 로그로 작업하는 방법에 대한 자세한 내용은 [Visual Studio에서 Azure 웹 사이트 문제 해결](/en-us/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/)을 참조하십시오.
+> [WACOM.NOTE] 이 문서에서는 Azure 관리 포털, Azure PowerShell 및 Azure 플랫폼 간 명령줄 인터페이스를 사용하여 진단 로그로 작업하는 방법을 설명합니다. Visual Studio를 사용하여 진단 로그로 작업하는 방법에 대한 자세한 내용은 [Visual Studio에서 Azure 웹 사이트 문제 해결][]을 참조하십시오.
 
-목차
-----
+## 목차
 
--   [정의: 웹 사이트 진단이란?](#whatisdiag)
--   [방법: 진단 사용](#enablediag)
--   [방법: 로그 다운로드](#download)
--   [방법: 스트림 로그](#streamlogs)
--   [방법: 진단 로그 이해](#understandlogs)
--   [다음 단계](#nextsteps)
+-   [정의: 웹 사이트 진단이란?][]
+-   [방법: 진단 사용][]
+-   [방법: 로그 다운로드][]
+-   [방법: 스트림 로그][]
+-   [방법: 진단 로그 이해][]
+-   [다음 단계][]
+
+<a name="whatisdiag"></a>
 
 ## 웹 사이트 진단이란?
+
 Azure 웹 사이트는 웹 서버 및 웹 응용 프로그램 모두의 정보를 로깅할 수 있도록 진단 기능을 제공합니다. 이는 논리적으로 **사이트 진단** 및 **응용 프로그램 진단**으로 구분됩니다.
 
 ### 사이트 진단
@@ -26,31 +29,33 @@ Azure 웹 사이트는 웹 서버 및 웹 응용 프로그램 모두의 정보�
 
 -   **Detailed Error Logging** - 오류를 나타내는 HTTP 상태 코드(상태 코드 400 이상)의 자세한 오류 정보를 로깅합니다. 여기에는 서버에서 오류 코드를 반환한 이유를 확인하는 데 도움이 되는 정보가 포함될 수 있습니다.
 -   **실패한 요청 추적** - 요청을 처리하는 데 사용된 IIS 구성 요소 추적 및 각 구성 요소에 소요된 시간을 포함하여 실패한 요청에 대해 자세한 정보를 로깅합니다. 이는 사이트 성능을 개선하거나 반환된 특정 HTTP 오류를 유발한 항목을 격리하려는 경우에 유용합니다.
--   **웹 서버 로깅** - [W3C 확장 로그 파일 형식](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx)을 사용하여 웹 사이트에 대한 모든 HTTP 트랜잭션을 로깅합니다. 이 보고서는 처리된 요청 수, 특정 IP 주소에서 들어온 요청 수 등의 전체 사이트 메트릭을 확인하는 경우에 유용합니다.
+-   **웹 서버 로깅** - [W3C 확장 로그 파일 형식][]을 사용하여 웹 사이트에 대한 모든 HTTP 트랜잭션을 로깅합니다. 이 보고서는 처리된 요청 수, 특정 IP 주소에서 들어온 요청 수 등의 전체 사이트 메트릭을 확인하는 경우에 유용합니다.
 
 ### 응용 프로그램 진단
 
-응용 프로그램 진단을 통해 웹 응용 프로그램에서 생성된 정보를 캡처할 수 있습니다. ASP.NET 응용 프로그램은 [System.Diagnostics.Trace](http://msdn.microsoft.com/ko-kr/library/36hhw2t6.aspx) 클래스를 사용하여 응용 프로그램 진단 로그에 정보를 로깅할 수 있습니다. 예를 들면 다음과 같습니다.
+응용 프로그램 진단을 통해 웹 응용 프로그램에서 생성된 정보를 캡처할 수 있습니다. ASP.NET 응용 프로그램은 [System.Diagnostics.Trace][] 클래스를 사용하여 응용 프로그램 진단 로그에 정보를 로깅할 수 있습니다. 예를 들면 다음과 같습니다.
 
     System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
 
 응용 프로그램 진단을 사용하면 특정 코드 부분이 사용된 경우 정보를 내보내서 실행 중인 응용 프로그램 문제를 해결할 수 있습니다. 이는 특정 경로가 코드에 사용된 이유를 확인하는 경우, 일반적으로 경로가 오류 또는 기타 예기치 않은 동작을 유발한 경우에 가장 유용합니다.
 
-Visual Studio를 사용하여 응용 프로그램 진단으로 작업하는 방법에 대한 자세한 내용은 [Visual Studio에서 Azure 웹 사이트 문제 해결](http://www.windowsazure.com/ko-kr/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/)을 참조하십시오.
+Visual Studio를 사용하여 응용 프로그램 진단으로 작업하는 방법에 대한 자세한 내용은 [Visual Studio에서 Azure 웹 사이트 문제 해결][1]을 참조하십시오.
 
 > [WACOM.NOTE] web.config 파일을 변경하는 것과 달리, 응용 프로그램 진단을 사용하도록 설정하거나 진단 로그 수준을 변경하면 응용 프로그램이 실행되는 앱 도메인이 재순환되지 않습니다.
 
 또한 웹 사이트에 응용 프로그램을 게시하는 경우 Azure 웹 사이트는 배포 정보를 로깅합니다. 이는 자동으로 수행되며 배포 로깅에 대한 구성 설정은 없습니다. 배포 로깅을 사용하면 배포가 실패한 이유를 확인할 수 있습니다. 예를 들어 사용자 지정 배포 스크립트를 사용하는 경우 스크립트가 실패한 이유를 확인하는 데 배포 로깅을 사용할 수 있습니다.
 
+<a name="enablediag"></a>
+
 ## 방법: 진단 사용
 
-[Azure 관리 포털](https://manage.microsoft.com)에서 Azure 웹 사이트의 **구성** 페이지를 방문하여 진단을 사용하도록 설정할 수 있습니다. **구성** 페이지에서 **응용 프로그램 진단** 및 **사이트 진단** 섹션을 사용하여 로깅을 사용하도록 설정합니다.
+[Azure 관리 포털][]에서 Azure 웹 사이트의 **구성** 페이지를 방문하여 진단을 사용하도록 설정할 수 있습니다. **구성** 페이지에서 **응용 프로그램 진단** 및 **사이트 진단** 섹션을 사용하여 로깅을 사용하도록 설정합니다.
 
 **응용 프로그램 진단**을 사용하도록 설정하는 경우 **로깅 수준**을 선택해야 하고 **파일 시스템**, **테이블 저장소** 또는 **Blob 저장소**에 로깅을 사용하도록 설정할지 여부를 선택해야 합니다. 세 저장소 위치 모두는 로깅된 이벤트에 대해 동일한 기본 정보를 제공하는 반면 **테이블 저장소** 및 **Blob 저장소**는 **파일 시스템**에 기록하는 것보다 인스턴스 ID, 스레드 ID 및 좀 더 세부적인 타임스탬프(눈금 형식) 등 추가 정보를 로깅합니다.
 
 **사이트 진단**을 사용하도록 설정하는 경우 **웹 서버 로깅**에 대해 **저장소** 또는 **파일 시스템**을 선택해야 합니다. **저장소**를 선택하면 저장소 계정을 선택하고 로그를 기록할 Blob 컨테이너를 선택할 수 있습니다. **사이트 진단**에 대한 기타 모든 로그는 파일 시스템에만 기록됩니다.
 
-> [WACOM.NOTE] **테이블 저장소** 또는 **Blob 저장소**에 저장된 정보는 이러한 저장소 시스템에서 바로 작업할 수 있는 저장소 클라이언트 또는 응용 프로그램을 사용해서만 액세스할 수 있습니다. 예를 들어 Visual Studio 2013에는 테이블 또는 Blob 저장소를 탐색하는 데 사용할 수 있는 저장소 탐색기를 포함하고 있으며, HDInsight는 Blob 저장소에 저장된 데이터에 액세스하는 데 사용될 수 있습니다. 또한 [Azure SDK](http://www.windowsazure.com/ko-kr/downloads/#) 중 하나를 사용하여 Azure 저장소에 액세스하는 응용 프로그램을 작성할 수도 있습니다.
+> [WACOM.NOTE] **테이블 저장소** 또는 **Blob 저장소**에 저장된 정보는 이러한 저장소 시스템에서 바로 작업할 수 있는 저장소 클라이언트 또는 응용 프로그램을 사용해서만 액세스할 수 있습니다. 예를 들어 Visual Studio 2013에는 테이블 또는 Blob 저장소를 탐색하는 데 사용할 수 있는 저장소 탐색기를 포함하고 있으며, HDInsight는 Blob 저장소에 저장된 데이터에 액세스하는 데 사용될 수 있습니다. 또한 [Azure SDK][] 중 하나를 사용하여 Azure 저장소에 액세스하는 응용 프로그램을 작성할 수도 있습니다.
 
 다음은 **응용 프로그램 진단**을 사용하도록 설정한 경우에 사용할 수 있는 설정입니다.
 
@@ -62,7 +67,9 @@ Visual Studio를 사용하여 응용 프로그램 진단으로 작업하는 방�
 
 > [WACOM.NOTE] 파일 시스템, 테이블 저장소 또는 Blob 저장소를 원하는 방식으로 결합하여 동시에 사용하도록 설정할 수 있으며 로그 수준은 개별적으로 구성할 수 있습니다. 예를 들어 장기적인 로깅 솔루션으로 Blob 저장소에 오류 및 경고를 기록하면서 파일 시스템 로깅은 세부 정보 표시 수준으로 사용할 수 있습니다.
 
-> [WACOM.NOTE] 진단은 Azure PowerShell에서 **Set-AzureWebsite** cmdlet을 통해 사용하도록 설정할 수도 있습니다. Azure PowerShell을 설치하지 않았거나 Azure 구독을 사용하도록 Azure PowerShell을 구성하지 않은 경우 [Azure PowerShell 사용 방법](http://www.windowsazure.com/ko-kr/develop/nodejs/how-to-guides/powershell-cmdlets/)(영문)을 참조하십시오.
+> [WACOM.NOTE] 진단은 Azure PowerShell에서 **Set-AzureWebsite** cmdlet을 통해 사용하도록 설정할 수도 있습니다. Azure PowerShell을 설치하지 않았거나 Azure 구독을 사용하도록 Azure PowerShell을 구성하지 않은 경우 [Azure PowerShell 사용 방법][](영문)을 참조하십시오.
+
+<a name="download"></a>
 
 ## 방법: 로그 다운로드
 
@@ -72,11 +79,11 @@ Visual Studio를 사용하여 응용 프로그램 진단으로 작업하는 방�
 
 -   **응용 프로그램 로그** - /LogFiles/Application/입니다. 이 폴더에는 응용 프로그램 로깅으로 생성된 정보가 포함된 하나 이상의 텍스트 파일이 포함됩니다.
 
--   **실패한 요청 추적** - /LogFiles/W3SVC########\#/입니다. 이 폴더에는 하나의 XSL 파일 및 하나 이상의 XML 파일이 포함되어 있습니다. XSL 파일은 XML 파일을 Internet Explorer에서 볼 때 XML 파일의 내용에 서식을 지정하고 필터링하는 기능을 제공하므로 XSL 파일은 XML 파일과 동일한 디렉터리에 다운로드해야 합니다.
+-   **실패한 요청 추적** - /LogFiles/W3SVC#\#\#\#\#\#\#\#\#/입니다. 이 폴더에는 하나의 XSL 파일 및 하나 이상의 XML 파일이 포함되어 있습니다. XSL 파일은 XML 파일을 Internet Explorer에서 볼 때 XML 파일의 내용에 서식을 지정하고 필터링하는 기능을 제공하므로 XSL 파일은 XML 파일과 동일한 디렉터리에 다운로드해야 합니다.
 
 -   **Detailed Error Logs** - /LogFiles/DetailedErrors/입니다. 이 폴더에는 발생한 HTTP 오류에 대해 방대한 정보를 제공하는 하나 이상의 .htm 파일이 포함되어 있습니다.
 
--   **웹 서버 로그** - /LogFiles/http/RawLogs입니다. 이 폴더에는 [W3C 확장 로그 파일 형식](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx)을 사용하여 서식이 지정된 하나 이상의 텍스트 파일이 포함되어 있습니다.
+-   **웹 서버 로그** - /LogFiles/http/RawLogs입니다. 이 폴더에는 [W3C 확장 로그 파일 형식][]을 사용하여 서식이 지정된 하나 이상의 텍스트 파일이 포함되어 있습니다.
 
 -   **Deployment logs** - /LogFiles/Git입니다. 이 폴더에는 Azure 웹 사이트에서 사용된 내부 배포 프로세스에서 생성된 로그와 Git 배포용 로그가 포함되어 있습니다.
 
@@ -94,7 +101,7 @@ FTP를 사용하여 진단 정보에 액세스하려면 Azure 관리 포털에�
 
 이 명령을 실행하면 **-Name** 매개 변수로 지정된 웹 사이트의 로그가 현재 디렉터리의 **logs.zip**이라는 파일에 저장됩니다.
 
-> [WACOM.NOTE] Azure PowerShell을 설치하지 않았거나 Azure 구독을 사용하도록 Azure PowerShell을 구성하지 않은 경우 [Azure PowerShell 사용 방법](http://www.windowsazure.com/ko-kr/develop/nodejs/how-to-guides/powershell-cmdlets/)(영문)을 참조하십시오.
+> [WACOM.NOTE] Azure PowerShell을 설치하지 않았거나 Azure 구독을 사용하도록 Azure PowerShell을 구성하지 않은 경우 [Azure PowerShell 사용 방법][](영문)을 참조하십시오.
 
 ### Azure 명령줄 도구로 다운로드
 
@@ -104,7 +111,9 @@ Azure 명령줄 도구를 사용하여 로그 파일을 다운로드하려면 �
 
 이 명령을 실행하면 'websitename'이라는 웹 사이트의 로그가 현재 디렉터리의 **diagnostics.zip**이라는 파일에 저장됩니다.
 
-> [WACOM.NOTE] Azure 명령줄 도구를 설치하지 않았거나 Azure 구독을 사용하도록 Azure 명령줄 도구를 구성하지 않은 경우 [Azure 명령줄 도구 사용 방법](http://www.windowsazure.com/ko-kr/develop/nodejs/how-to-guides/command-line-tools/)(영문)을 참조하십시오.
+> [WACOM.NOTE] Azure 명령줄 도구를 설치하지 않았거나 Azure 구독을 사용하도록 Azure 명령줄 도구를 구성하지 않은 경우 [Azure 명령줄 도구 사용 방법][](영문)을 참조하십시오.
+
+<a name="streamlogs"></a>
 
 ## 방법: 스트림 로그
 
@@ -132,7 +141,7 @@ HTTP와 같은 특정 로그 유형을 필터링하려면 **-Path** 매개 변�
 
 사용 가능한 경로 목록을 보려면 -ListPath 매개 변수를 사용합니다.
 
-> [WACOM.NOTE] Azure PowerShell을 설치하지 않았거나 Azure 구독을 사용하도록 Azure PowerShell을 구성하지 않은 경우 [Azure PowerShell 사용 방법](http://www.windowsazure.com/ko-kr/develop/nodejs/how-to-guides/powershell-cmdlets/)(영문)을 참조하십시오.
+> [WACOM.NOTE] Azure PowerShell을 설치하지 않았거나 Azure 구독을 사용하도록 Azure PowerShell을 구성하지 않은 경우 [Azure PowerShell 사용 방법][](영문)을 참조하십시오.
 
 ### Azure 명령줄 도구로 스트리밍
 
@@ -150,7 +159,9 @@ HTTP와 같은 특정 로그 유형을 필터링하려면 **-Path** 매개 변�
 
     azure site log tail websitename --path http
 
-> [WACOM.NOTE] Azure 명령줄 도구를 설치하지 않았거나 Azure 구독을 사용하도록 Azure 명령줄 도구를 구성하지 않은 경우 [Azure 명령줄 도구 사용 방법](http://www.windowsazure.com/ko-kr/develop/nodejs/how-to-guides/command-line-tools/)(영문)을 참조하십시오.
+> [WACOM.NOTE] Azure 명령줄 도구를 설치하지 않았거나 Azure 구독을 사용하도록 Azure 명령줄 도구를 구성하지 않은 경우 [Azure 명령줄 도구 사용 방법][](영문)을 참조하십시오.
+
+<a name="understandlogs"></a>
 
 ## 방법: 진단 로그 이해
 
@@ -174,177 +185,177 @@ HTTP와 같은 특정 로그 유형을 필터링하려면 **-Path** 매개 변�
 
 테이블 저장소에 로깅하면 추가 속성을 사용하여 테이블에 저장된 데이터와 이벤트에 대한 좀 더 세부적인 정보를 쉽게 검색할 수 있습니다. 다음 속성(열)이 테이블에 저장된 각 엔터티(행)에 사용됩니다.
 
-<table  style="width:100%;border-collapse:collapse">
+<table style="width:100%;border-collapse:collapse">
 <thead>
 <tr>
-<th  style="width:45%;border:1px solid black;background-color:#0099dd">속성 이름</th>
+<th style="width:45%;border:1px solid black;background-color:#0099dd">속성 이름</th>
+<th style="border:1px solid black;vertical-align:top;background-color:#0099dd">
+값/형식
 
-<th  style="border:1px solid black;vertical-align:top;background-color:#0099dd">값/형식</th>
-
+</th>
 </tr>
-
 <tr>
-<td  style="border:1px solid black;vertical-align:top">PartitionKey</td>
+<td style="border:1px solid black;vertical-align:top">
+PartitionKey
 
-<td  style="border:1px solid black;vertical-align:top">yyyyMMddHH 형식의 이벤트 날짜/시간</td>
+</td>
+<td style="border:1px solid black;vertical-align:top">
+yyyyMMddHH 형식의 이벤트 날짜/시간
 
+</td>
 </tr>
-
 </thead>
-
 <tr>
-<td  style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">RowKey</td>
+<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">
+RowKey
 
-<td  style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">이 엔터티를 고유하게 식별하는 GUID 값</td>
+</td>
+<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">
+이 엔터티를 고유하게 식별하는 GUID 값
 
+</td>
 </tr>
-
 <tr>
-<td  style="border:1px solid black;vertical-align:top">Timestamp</td>
+<td style="border:1px solid black;vertical-align:top">
+Timestamp
 
-<td  style="border:1px solid black;vertical-align:top">이벤트가 발생한 날짜 및 시간</td>
+</td>
+<td style="border:1px solid black;vertical-align:top">
+이벤트가 발생한 날짜 및 시간
 
+</td>
 </tr>
-
 <tr>
-<td  style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">EventTickCount</td>
+<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">
+EventTickCount
 
-<td  style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">이벤트가 발생한 날짜 및 시간(눈금 형식, 더 높은 정밀도)</td>
+</td>
+<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">
+이벤트가 발생한 날짜 및 시간(눈금 형식, 더 높은 정밀도)
 
+</td>
 </tr>
-
 <tr>
-<td  style="border:1px solid black;vertical-align:top">ApplicationName</td>
+<td style="border:1px solid black;vertical-align:top">
+ApplicationName
 
-<td  style="border:1px solid black;vertical-align:top">웹 사이트 이름</td>
+</td>
+<td style="border:1px solid black;vertical-align:top">
+웹 사이트 이름
 
+</td>
 </tr>
-
 <tr>
-<td  style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Level</td>
+<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">
+Level
 
-<td  style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">이벤트 수준(예: 오류, 경고, 정보)</td>
+</td>
+<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">
+이벤트 수준(예: 오류, 경고, 정보)
 
+</td>
 </tr>
-
 <tr>
-<td  style="border:1px solid black;vertical-align:top">EventId</td>
+<td style="border:1px solid black;vertical-align:top">
+EventId
 
-<td  style="border:1px solid black;vertical-align:top">이 이벤트의 이벤트 ID<br  />
-지정된 값이 없으면 0으로 기본 설정됨</td>
+</td>
+<td style="border:1px solid black;vertical-align:top">
+이 이벤트의 이벤트 ID
+지정된 값이 없으면 0으로 기본 설정됨
 
+</td>
 </tr>
-
 <tr>
-<td  style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">InstanceId</td>
+<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">
+InstanceId
 
-<td  style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">이벤트가 발생한 웹 사이트의 인스턴스</td>
+</td>
+<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">
+이벤트가 발생한 웹 사이트의 인스턴스
 
+</td>
 </tr>
-
 <tr>
-<td  style="border:1px solid black;vertical-align:top">Pid</td>
+<td style="border:1px solid black;vertical-align:top">
+Pid
 
-<td  style="border:1px solid black;vertical-align:top">프로세스 ID</td>
+</td>
+<td style="border:1px solid black;vertical-align:top">
+프로세스 ID
 
+</td>
 </tr>
-
 <tr>
-<td  style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Tid</td>
+<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">
+Tid
 
-<td  style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">이벤트가 생성된 스레드의 스레드 ID</td>
+</td>
+<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">
+이벤트가 생성된 스레드의 스레드 ID
 
+</td>
 </tr>
-
 <tr>
-<td  style="border:1px solid black;vertical-align:top">Message</td>
+<td style="border:1px solid black;vertical-align:top">
+Message
 
-<td  style="border:1px solid black;vertical-align:top">이벤트 세부 정보 메시지</td>
+</td>
+<td style="border:1px solid black;vertical-align:top">
+이벤트 세부 정보 메시지
 
+</td>
 </tr>
-
 </table>
-
 **Blob 저장소**
 
 Blob 저장소에 로깅하는 경우 데이터는 쉼표로 구분된 값(CSV) 형식으로 저장됩니다. 테이블 저장소와 마찬가지로 이벤트에 대해 좀 더 세부적인 정보를 제공하기 위해 추가 필드가 로깅됩니다. CSV에서 다음 속성이 각 행에 사용됩니다.
 
-<table  style="width:100%;border-collapse:collapse">
+<table style="width:100%;border-collapse:collapse">
 <thead>
 <tr>
-<th  style="width:45%;border:1px solid black;background-color:#0099dd">속성 이름</th>
-
-<th  style="border:1px solid black;vertical-align:top;background-color:#0099dd">값/형식</th>
-
+<th style="width:45%;border:1px solid black;background-color:#0099dd">속성 이름</th>
+<th style="border:1px solid black;vertical-align:top;background-color:#0099dd">값/형식</th>
 </tr>
-
 </thead>
-
 <tr>
-<td  style="border:1px solid black;vertical-align:top">Date</td>
-
-<td  style="border:1px solid black;vertical-align:top">이벤트가 발생한 날짜 및 시간</td>
-
+<td style="border:1px solid black;vertical-align:top">Date</td>
+<td style="border:1px solid black;vertical-align:top">이벤트가 발생한 날짜 및 시간</td>
 </tr>
-
 <tr>
-<td  style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Level</td>
-
-<td  style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">이벤트 수준(예: 오류, 경고, 정보)</td>
-
+<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Level</td>
+<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">이벤트 수준(예: 오류, 경고, 정보)</td>
 </tr>
-
 <tr>
-<td  style="border:1px solid black;vertical-align:top">ApplicationName</td>
-
-<td  style="border:1px solid black;vertical-align:top">웹 사이트 이름</td>
-
+<td style="border:1px solid black;vertical-align:top">ApplicationName</td>
+<td style="border:1px solid black;vertical-align:top">웹 사이트 이름 </td>
 </tr>
-
 <tr>
-<td  style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">InstanceId</td>
-
-<td  style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">이벤트가 발생한 웹 사이트의 인스턴스</td>
-
+<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">InstanceId</td>
+<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">이벤트가 발생한 웹 사이트의 인스턴스</td>
 </tr>
-
 <tr>
-<td  style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">EventTickCount</td>
-
-<td  style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">이벤트가 발생한 날짜 및 시간(눈금 형식, 더 높은 정밀도)</td>
-
+<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">EventTickCount</td>
+<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">이벤트가 발생한 날짜 및 시간(눈금 형식, 더 높은 정밀도)</td>
 </tr>
-
 <tr>
-<td  style="border:1px solid black;vertical-align:top">EventId</td>
-
-<td  style="border:1px solid black;vertical-align:top">이 이벤트의 이벤트 ID<br  />
-지정된 값이 없으면 0으로 기본 설정됨</td>
-
+<td style="border:1px solid black;vertical-align:top">EventId</td>
+<td style="border:1px solid black;vertical-align:top">이 이벤트의 이벤트 ID<br>지정된 값이 없으면 0으로 기본 설정됨</td>
 </tr>
-
 <tr>
-<td  style="border:1px solid black;vertical-align:top">Pid</td>
-
-<td  style="border:1px solid black;vertical-align:top">프로세스 ID</td>
-
+<td style="border:1px solid black;vertical-align:top">Pid</td>
+<td style="border:1px solid black;vertical-align:top">프로세스 ID</td>
 </tr>
-
 <tr>
-<td  style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Tid</td>
-
-<td  style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">이벤트가 생성된 스레드의 스레드 ID</td>
-
+<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Tid</td>
+<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">이벤트가 생성된 스레드의 스레드 ID</td>
 </tr>
-
 <tr>
-<td  style="border:1px solid black;vertical-align:top">Message</td>
-
-<td  style="border:1px solid black;vertical-align:top">이벤트 세부 정보 메시지</td>
-
+<td style="border:1px solid black;vertical-align:top">Message</td>
+<td style="border:1px solid black;vertical-align:top">이벤트 세부 정보 메시지</td>
 </tr>
-
 </table>
+
 Blob에 저장된 데이터는 다음과 비슷합니다.
 
     date,level,applicationName,instanceId,eventTickCount,eventId,pid,tid,message
@@ -354,9 +365,9 @@ Blob에 저장된 데이터는 다음과 비슷합니다.
 
 ### 실패한 요청 추적
 
-실패한 요청 추적은 **fr######.xml**이라는 XML 파일에 저장됩니다. 로깅된 정보를 더 쉽게 볼 수 있도록 **freb.xsl**라는 XSL 스타일시트가 XML 파일과 동일한 디렉터리에 제공됩니다. Internet Explorer에서 XML 파일 중 하나를 열면 XSL 스타일시트를 사용하여 추적 정보에 서식이 지정되어 표시됩니다. 이는 다음과 비슷하게 나타납니다.
+실패한 요청 추적은 **fr\#\#\#\#\#\#.xml**이라는 XML 파일에 저장됩니다. 로깅된 정보를 더 쉽게 볼 수 있도록 **freb.xsl**라는 XSL 스타일시트가 XML 파일과 동일한 디렉터리에 제공됩니다. Internet Explorer에서 XML 파일 중 하나를 열면 XSL 스타일시트를 사용하여 추적 정보에 서식이 지정되어 표시됩니다. 이는 다음과 비슷하게 나타납니다.
 
-![브라우저에 표시된 실패한 요청](./media/web-sites-enable-diagnostic-log/tws-failedrequestinbrowser.png)
+![브라우저에 표시된 실패한 요청][]
 
 ### 자세한 오류 로그
 
@@ -364,14 +375,36 @@ Blob에 저장된 데이터는 다음과 비슷합니다.
 
 ### 웹 서버 로그
 
-웹 서버 로그는 [W3C 확장 로그 파일 형식](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx)을 사용하여 서식이 지정됩니다. 이 정보는 텍스트 편집기를 사용하여 읽거나 [Log Parser](http://go.microsoft.com/fwlink/?LinkId=246619)와 같은 유틸리티를 사용하여 구문 분석할 수 있습니다.
+웹 서버 로그는 [W3C 확장 로그 파일 형식][]을 사용하여 서식이 지정됩니다. 이 정보는 텍스트 편집기를 사용하여 읽거나 [Log Parser][]와 같은 유틸리티를 사용하여 구문 분석할 수 있습니다.
 
 > [WACOM.NOTE] Azure 웹 사이트에서 생성된 로그는 **s-computername**, **s-ip** 또는 **cs-version** 필드를 지원하지 않습니다.
 
+<a name="nextsteps"></a>
+
 ## 다음 단계
 
--   [웹 사이트를 모니터링하는 방법](/en-us/manage/services/web-sites/how-to-monitor-websites/)
--   [자습서 - 웹 사이트 문제 해결](/en-us/develop/net/best-practices/troubleshooting-web-sites/)
--   [Visual Studio에서 Azure 웹 사이트 문제 해결](/en-us/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/)
--   [HDInsight에서 웹 사이트 로그 분석](http://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)
+</p>
+-   [웹 사이트를 모니터링하는 방법(영문)][]
+-   [자습서 - 웹 사이트 문제 해결][]
+-   [Visual Studio에서 Azure 웹 사이트 문제 해결][]
+-   [HDInsight에서 웹 사이트 로그 분석][]
 
+  [Visual Studio에서 Azure 웹 사이트 문제 해결]: /ko-KR/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/
+  [정의: 웹 사이트 진단이란?]: #whatisdiag
+  [방법: 진단 사용]: #enablediag
+  [방법: 로그 다운로드]: #download
+  [방법: 스트림 로그]: #streamlogs
+  [방법: 진단 로그 이해]: #understandlogs
+  [다음 단계]: #nextsteps
+  [W3C 확장 로그 파일 형식]: http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx
+  [System.Diagnostics.Trace]: http://msdn.microsoft.com/ko-KR/library/36hhw2t6.aspx
+  [1]: http://www.windowsazure.com/ko-kr/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/
+  [Azure 관리 포털]: https://manage.microsoft.com
+  [Azure SDK]: http://www.windowsazure.com/ko-KR/downloads/#
+  [Azure PowerShell 사용 방법]: http://www.windowsazure.com/ko-KR/develop/nodejs/how-to-guides/powershell-cmdlets/
+  [Azure 명령줄 도구 사용 방법]: http://www.windowsazure.com/ko-KR/develop/nodejs/how-to-guides/command-line-tools/
+  [브라우저에 표시된 실패한 요청]: ./media/web-sites-enable-diagnostic-log/tws-failedrequestinbrowser.png
+  [Log Parser]: http://go.microsoft.com/fwlink/?LinkId=246619
+  [웹 사이트를 모니터링하는 방법(영문)]: /ko-KR/manage/services/web-sites/how-to-monitor-websites/
+  [자습서 - 웹 사이트 문제 해결]: /ko-KR/develop/net/best-practices/troubleshooting-web-sites/
+  [HDInsight에서 웹 사이트 로그 분석]: http://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413

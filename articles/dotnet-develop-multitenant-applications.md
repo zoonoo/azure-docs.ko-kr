@@ -1,23 +1,40 @@
 <properties linkid="develop-net-architecture-multi-tenant-web-application" urlDisplayName="Multi-Tenant Web Application Pattern" pageTitle="Multi-Tenant Web Application Pattern - Azure Architecture" metaKeywords="" description="Find architectural overviews and design patterns that describe how to implement a multi-tenant web application on Azure." metaCanonical="" services="" documentationCenter=".NET" title="Multitenant Applications in Azure" authors="" solutions="" manager="" editor="" />
 
--   [계산](/en-us/develop/net/compute/)
--   [데이터 서비스](/en-us/develop/net/data/)
--   [앱 서비스](/en-us/develop/net/app-services/)
--   [참조](/en-us/develop/net/reference/)
--   [지침](/en-us/develop/net/guidance/)
--   [아키텍처](/en-us/develop/net/architecture/)
--   [샘플](/en-us/develop/net/samples/)
--   [시나리오 기반 자습서](/en-us/develop/net/end-to-end-Apps/)
+<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author></tags>
 
--   [포럼](/en-us/support/forums/)
--   섹션 내용(이동):
--   [응용 프로그램 아키텍처 개요](/en-us/develop/net/architecture/#overviews)
--   **응용 프로그램 패턴: 다중 테넌트 앱**
--   [응용 프로그램 패턴: 부하 테스트](/en-us/develop/net/architecture/load-testing-pattern/)
--   [디자인 패턴](/en-us/develop/net/architecture/#designpatterns)
+<div>
+<div class="left-nav">
+<div class="static-nav">
+<ul>
+<li class="menu-nodejs-compute"><a href="/ko-KR/develop/net/compute/">계산</a></li>
+<li class="menu-nodejs-data"><a href="/ko-KR/develop/net/data/">데이터 서비스</a></li>
+<li class="menu-nodejs-appservices"><a href="/ko-KR/develop/net/app-services/">앱 서비스</a></li>
+<li><a href="/ko-KR/develop/net/reference/">참조</a></li>
+<li><a href="/ko-KR/develop/net/guidance/">지침</a></li>
+<li><a href="/ko-KR/develop/net/architecture/">아키텍처</a></li>
+<li><a href="/ko-KR/develop/net/samples/">샘플</a></li>
+<li><a href="/ko-KR/develop/net/end-to-end-Apps/">시나리오 기반 자습서</a></li>
+</ul>
+<ul class="links">
+<li class="forum"><a href="/ko-KR/support/forums/">포럼</a></li>
+</ul>
+</div>
 
-Azure의 다중 테넌트 응용 프로그램
-=================================
+<div class="floating-nav jump-to"><br />
+<ul>
+<li>섹션 내용(이동):</li>
+<li><a href="/ko-KR/develop/net/architecture/#overviews">응용 프로그램 아키텍처 개요</a></li>
+<li><strong>응용 프로그램 패턴: 다중 테넌트 앱</strong></li>
+<li><a href="/ko-KR/develop/net/architecture/load-testing-pattern/">응용 프로그램 패턴: 부하 테스트</a></li>
+<li><a href="/ko-KR/develop/net/architecture/#designpatterns">디자인 패턴</a></li>
+</ul>
+</div>
+
+</div>
+
+</div>
+
+# Azure의 다중 테넌트 응용 프로그램
 
 다중 테넌트 응용 프로그램은 개별 사용자, 즉 "테넌트"가 자신의 고유 항목처럼 응용 프로그램을 볼 수 있게 하는 공유 리소스입니다. 다중 테넌트 응용 프로그램이 적합한 일반적인 시나리오는 모든 응용 프로그램 사용자가 사용자 환경을 사용자 지정하려고 하지만 기본적인 비즈니스 요구 사항을 동일하게 준수해야 하는 상황입니다. 대규모 다중 테넌트 응용 프로그램의 예로는 Office 365, Outlook.com 및 visualstudio.com이 있습니다.
 
@@ -39,7 +56,7 @@ Azure의 다중 테넌트 응용 프로그램
 
 다시 말해서, 확장성이 뛰어난 서비스를 제공하기 위해 고려해야 할 점이 많이 있지만 다수의 다중 테넌트 응용 프로그램에 공통적인 목표와 요구 사항도 많습니다. 일부는 특정 시나리오에서 적절하지 않을 수 있으며, 개별 목표와 요구 사항의 중요성은 시나리오별로 다릅니다. 다중 테넌트 응용 프로그램 공급자에게는 테넌트의 목표와 요구 사항 충족, 수익성, 청구, 여러 서비스 수준, 프로비전, 유지 관리 모니터링, 자동화와 같은 목표와 요구 사항도 있습니다.
 
-다중 테넌트 응용 프로그램 설계와 관련된 추가 고려 사항에 대한 자세한 내용은 [Azure에서 다중 테넌트 응용 프로그램 호스트](http://msdn.microsoft.com/ko-kr/library/hh534480.aspx)(영문)를 참조하십시오.
+다중 테넌트 응용 프로그램 설계와 관련된 추가 고려 사항에 대한 자세한 내용은 [Azure에서 다중 테넌트 응용 프로그램 호스트][](영문)를 참조하십시오.
 
 Azure에는 다중 테넌트 시스템을 설계할 때 발생하는 주요 문제를 해결할 수 있는 많은 기능이 있습니다.
 
@@ -48,8 +65,8 @@ Azure에는 다중 테넌트 시스템을 설계할 때 발생하는 주요 문�
 -   호스트 헤더로 웹 사이트 테넌트 분할(SSL 통신을 사용하거나 사용하지 않음)
 -   쿼리 매개 변수로 웹 사이트 테넌트 분할
 -   작업자 역할의 웹 서비스
-    -   작업자 역할. 일반적으로 응용 프로그램 백 엔드에서 데이터를 처리함
-    -   웹 역할. 일반적으로 응용 프로그램의 프런트 엔드 역할을 합니다.
+	- 작업자 역할. 일반적으로 응용 프로그램 백 엔드에서 데이터를 처리함.
+	- 웹 역할. 일반적으로 응용 프로그램의 프런트 엔드 역할을 합니다.
 
 **저장소**
 
@@ -69,7 +86,7 @@ SQL Azure 데이터베이스 등의 데이터 관리나 Azure 저장소 서비�
 Azure에서는 몇 가지 네트워킹 서비스를 통해 인증을 지원하고 호스트된 응용 프로그램의 관리 효율성을 향상합니다. 다음과 같은 서비스가 있습니다.
 
 -   Azure 가상 네트워크를 사용하여 Azure에서 VPN(가상 사설망)을 프로비전하고 관리하며 온-프레미스 IT 인프라와 안전하게 연결할 수 있습니다.
--   가상 네트워크 트래픽 관리자를 사용하면 같은 데이터 센터에서 또는 세계적으로 서로 다른 데이터 센터에서 실행 중인 들어오는 트래픽의 부하를 여러 Azure 호스티드 서비스에 분산할 수 있습니다.
+-   가상 네트워크 트래픽 관리자를 사용하면 같은 데이터 센터에서 또는 세계적으로 서로 다른 데이터 센터에서 실행 중인 들어오는 트래픽의 부하를 여러 Azure 호스팅 서비스에 분산할 수 있습니다.
 -   Azure AD(Azure Active Directory)는 클라우드 응용 프로그램과 관련하여 ID를 관리하고 액세스를 제어할 수 있게 하는 최신 REST 기반 서비스입니다. 응용 프로그램 리소스에 Azure AD를 사용하면 코드에서 인증 및 권한 부여 기능을 팩터링하도록 허용하는 동시에 사용자가 웹 응용 프로그램 및 서비스에 액세스하도록 손쉽게 인증하고 권한을 부여할 수 있습니다.
 -   Azure 서비스 버스는 분산 및 하이브리드 응용 프로그램에 대해 복잡한 방화벽 및 보안 인프라 없이도 Azure 호스트된 응용 프로그램과 온-프레미스 응용 프로그램 및 서비스 사이의 통신과 같은 보안 메시징 및 데이터 흐름 기능을 제공합니다. 응용 프로그램 리소스의 서비스 버스 릴레이를 사용합니다. 끝점으로 노출되는 서비스는 테넌트에 속할 수 있으며(예를 들어 온-프레미스와 같이 시스템 외부에서 호스트됨) 또는 테넌트용으로 특별히 프로비전된(중요한 테넌트 특정 데이터가 전송되므로) 서비스일 수 있습니다.
 
@@ -86,11 +103,20 @@ Azure에는 응용 프로그램의 새 테넌트를 프로비전하는 방법이
     -   마스터 참조 데이터베이스에서 복사
     -   데이터베이스 가져오기 및 내보내기를 사용하여 파일에서 새 데이터베이스 프로비전
 
-다중 테넌트 응용 프로그램에 Azure를 적용할 수 있는 방법을 심도 있게 다룬 내용을 보려면 [Azure에서 다중 테넌트 응용 프로그램 디자인](http://msdn.microsoft.com/ko-kr/library/windowsazure/hh689716)을 참조하십시오.
+][].
 
 <!--links-->
 
-[Hosting a Multi-Tenant Application on Azure]: http://msdn.microsoft.com/ko-kr/library/hh534480.aspx
-[Designing Multitenant Applications on Azure]: http://msdn.microsoft.com/ko-kr/library/windowsazure/hh689716
-
-
+  [계산]: /ko-KR/develop/net/compute/
+  [데이터 서비스]: /ko-KR/develop/net/data/
+  [앱 서비스]: /ko-KR/develop/net/app-services/
+  [참조]: /ko-KR/develop/net/reference/
+  [지침]: /ko-KR/develop/net/guidance/
+  [아키텍처]: /ko-KR/develop/net/architecture/
+  [샘플]: /ko-KR/develop/net/samples/
+  [시나리오 기반 자습서]: /ko-KR/develop/net/end-to-end-Apps/
+  [포럼]: /ko-KR/support/forums/
+  [응용 프로그램 아키텍처 개요]: /ko-KR/develop/net/architecture/#overviews
+  [응용 프로그램 패턴: 부하 테스트]: /ko-KR/develop/net/architecture/load-testing-pattern/
+  [디자인 패턴]: /ko-KR/develop/net/architecture/#designpatterns
+  [Azure에서 다중 테넌트 응용 프로그램 호스트]: http://msdn.microsoft.com/ko-KR/library/hh534480.aspx

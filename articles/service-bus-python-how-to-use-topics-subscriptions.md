@@ -1,42 +1,46 @@
-<properties linkid="develop-python-service-bus-topics" urlDisplayName="Service Bus Topics" pageTitle="How to use Service Bus topics (Python) - Azure" metaKeywords="Get started Azure Service Bus topics publising subscribe messaging Python" description="Learn how to use Service Bus topics and subscriptions in Azure. Code samples are written for Python applications." metaCanonical="" services="service-bus" documentationCenter="Python" title="How to Use Service Bus Topics/Subscriptions" authors="" solutions="" manager="" editor="" />
+<properties linkid="develop-python-service-bus-topics" urlDisplayName="Service Bus Topics" pageTitle="How to use Service Bus topics (Python) - Azure" metaKeywords="Get started Azure Service Bus topics publising subscribe messaging Python" description="Learn how to use Service Bus topics and subscriptions in Azure. Code samples are written for Python applications." metaCanonical="" services="service-bus" documentationCenter="Python" title="How to Use Service Bus Topics/Subscriptions" authors="huvalo" solutions="" manager="" editor="" />
 
-서비스 버스 토픽/구독을 사용하는 방법
-=====================================
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo"></tags>
 
-이 가이드에서는 Python 응용 프로그램에서 서비스 버스 토픽과 구독을 사용하는 방법을 보여 줍니다. 여기서 다루는 시나리오에는 **토픽 및 구독 만들기, 구독 필터 만들기, 토픽에 메시지 보내기,** **구독에서 메시지 받기,** **토픽 및 구독 삭제** 등이 포함됩니다. 토픽 및 구독에 대한 자세한 내용은 [다음 단계](#Next_Steps) 섹션을 참조하십시오.
+# 서비스 버스 토픽/구독을 사용하는 방법
 
-목차
-----
+이 가이드에서는 Python 응용 프로그램에서 서비스 버스 토픽과 구독을 사용하는 방법을 보여 줍니다. 여기서 다루는 시나리오에는 **토픽 및 구독 만들기, 구독 필터 만들기, 토픽에 메시지 보내기**, **구독에서 메시지 받기**, **토픽 및 구독 삭제** 등이 포함됩니다. 토픽 및 구독에 대한 자세한 내용은 [다음 단계][] 섹션을 참조하세요.
 
--   [서비스 버스 토픽 및 구독 정의](#what-are-service-bus-topics)
--   [서비스 네임스페이스 만들기](#create-a-service-namespace)
--   [네임스페이스에 대한 기본 관리 자격 증명 얻기](#obtain-default-credentials)
--   [방법: 토픽 만들기](#How_to_Create_a_Topic)
--   [방법: 구독 만들기](#How_to_Create_Subscriptions)
--   [방법: 토픽에 메시지 보내기](#How_to_Send_Messages_to_a_Topic)
--   [방법: 구독에서 메시지 받기](#How_to_Receive_Messages_from_a_Subscription)
--   [방법: 응용 프로그램 크래시 및 읽을 수 없는 메시지 처리](#How_to_Handle_Application_Crashes_and_Unreadable_Messages)
--   [방법: 토픽 및 구독 삭제](#How_to_Delete_Topics_and_Subscriptions)
--   [다음 단계](#Next_Steps)
+## 목차
 
-[WACOM.INCLUDE [howto-service-bus-topics](../includes/howto-service-bus-topics.md)]
+-   [서비스 버스 토픽 및 구독 정의][]
+-   [서비스 네임스페이스 만들기][]
+-   [네임스페이스에 대한 기본 관리 자격 증명 얻기][]
+-   [방법: 토픽 만들기][]
+-   [방법: 구독 만들기][]
+-   [방법: 토픽에 메시지 보내기][]
+-   [방법: 구독에서 메시지 받기][]
+-   [방법: 응용 프로그램 크래시 및 읽을 수 없는 메시지 처리][]
+-   [방법: 토픽 및 구독 삭제][]
+-   [다음 단계][]
 
-**참고:** Python 또는 클라이언트 라이브러리를 설치해야 하는 경우 [Python 설치 가이드](../python-how-to-install/)(영문)를 참조하십시오.
+[WACOM.INCLUDE [howto-service-bus-topics][]]
 
-토픽을 만드는 방법
-------------------
+**참고:** Python 또는 클라이언트 라이브러리를 설치해야 하는 경우 [Python 설치 가이드][](영문)를 참조하세요.
+
+## <a name="How_to_Create_a_Topic"></a> 토픽을 만드는 방법
 
 **ServiceBusService** 개체를 사용하면 토픽으로 작업할 수 있습니다. 프로그래밍 방식으로 Azure 서비스 버스에 액세스하려는 Python 파일의 맨 위쪽에 다음을 추가합니다.
 
     from azure.servicebus import *
 
-다음 코드는 **ServiceBusService** 개체를 만듭니다. 'mynamespace', 'mykey' 및 'myissuer'를 실제 네임스페이스, 키 및 발급자로 바꿉니다.
+다음 코드는 **ServiceBusService** 개체를 만듭니다. 'mynamespace', 'sharedaccesskeyname' 및 'sharedaccesskey'를 실제 네임스페이스, SAS(공유 액세스 서명) 키 이름 및 값으로 바꿉니다.
 
-    bus_service = ServiceBusService(service_namespace='mynamespace', account_key='mykey', issuer='myissuer')
+    bus_service = ServiceBusService(
+        service_namespace='mynamespace',
+        shared_access_key_name='sharedaccesskeyname',
+        shared_access_key_value='sharedaccesskey')
+
+SAS 키 이름 및 값에 대한 값은 Azure 포털 연결 정보 또는 Visual Studio 속성 창(이전 섹션에 표시된 대로 서버 탐색기에서 서비스 버스 네임스페이스 선택)에서 확인할 수 있습니다.
 
     bus_service.create_topic('mytopic')
 
-**create\_topic**는 또한 추가 옵션을 지원합니다. 이러한 옵션을 통해 메시지 TTL(Time to Live)이나 최대 토픽 크기 등 기본 토픽 설정을 재정의할 수 있습니다. 다음은 최대 토픽 크기를 5GB, TTL(Time to Live)을 1분으로 설정하는 예제입니다.
+또한 **create\_topic**은 추가 옵션을 지원합니다. 이러한 옵션을 통해 메시지 TTL(Time to Live)이나 최대 토픽 크기 등 기본 토픽 설정을 재정의할 수 있습니다. 다음은 최대 토픽 크기를 5GB, TTL(Time to Live)을 1분으로 설정하는 예제입니다.
 
     topic_options = Topic()
     topic_options.max_size_in_megabytes = '5120'
@@ -44,8 +48,7 @@
 
     bus_service.create_topic('mytopic', topic_options)
 
-구독을 만드는 방법
-------------------
+## <a name="How_to_Create_Subscriptions"></a> 구독을 만드는 방법
 
 토픽 구독은 **ServiceBusService** 개체로도 만들 수 있습니다. 구독에는 이름이 지정되며, 구독의 가상 큐에 전달되는 메시지 집합을 제한하는 선택적 필터가 있을 수 있습니다.
 
@@ -53,7 +56,7 @@
 
 ### 기본(MatchAll) 필터를 사용하여 구독 만들기
 
-**MatchAll** 필터는 새 구독을 만들 때 필터를 지정하지 않은 경우 사용되는 기본 필터입니다. **MatchAll** 필터를 사용하면 토픽에 게시된 모든 메시지가 구독의 가상 큐에 배치됩니다. 다음 예제에서는 'AllMessages'라는 구독을 만들고 기본 **MatchAll** 필터를 사용합니다.
+**MatchAll** 필터는 새 구독을 만들 때 필터를 지정하지 않은 경우 사용되는 기본 필터입니다. **MatchAll** 필터를 사용하면 토픽에 게시된 모든 메시지가 구독의 가상 큐에 배치됩니다. 다음 예에서는 'AllMessages'라는 구독을 만들고 기본 **MatchAll** 필터를 사용합니다.
 
     bus_service.create_subscription('mytopic', 'AllMessages')
 
@@ -61,7 +64,7 @@
 
 토픽에 전송된 메시지 중 특정 토픽 구독 내에 나타나야 하는 메시지의 범위를 지정하는 필터를 설정할 수도 있습니다.
 
-구독에서 지원하는 가장 유연한 유형의 필터는 SQL92 하위 집합을 구현하는 **SqlFilter**입니다. SQL 필터는 토픽에 게시된 메시지의 속성에 적용됩니다. SQL 필터와 함께 사용할 수 있는 식에 대한 자세한 내용은 [SqlFilter.SqlExpression][] 구문을 참조하십시오.
+구독에서 지원하는 가장 유연한 유형의 필터는 SQL92 하위 집합을 구현하는 **SqlFilter**입니다. SQL 필터는 토픽에 게시된 메시지의 속성에 적용됩니다. SQL 필터와 함께 사용할 수 있는 식에 대한 자세한 내용은 [SqlFilter.SqlExpression][] 구문을 참조하세요.
 
 **ServiceBusService** 개체의 **create\_rule** 메서드를 사용하여 구독에 필터를 추가할 수 있습니다. 이 메서드를 사용하면 기존 구독에 새 필터를 추가할 수 있습니다.
 
@@ -78,7 +81,7 @@
     bus_service.create_rule('mytopic', 'HighMessages', 'HighMessageFilter', rule)
     bus_service.delete_rule('mytopic', 'HighMessages', DEFAULT_RULE_NAME)
 
-마찬가지로, 다음 예제에서는 **messagenumber** 속성이 3보다 작거나 같은 메시지만 선택하는 **SqlFilter**를 사용하여 'LowMessages'라는 구독을 만듭니다.
+마찬가지로, 다음 예에서는 **SqlFilter**를 사용하여 **messagenumber** 속성이 3보다 작거나 같은 메시지만 선택하는 'LowMessages'라는 구독을 만듭니다.
 
     bus_service.create_subscription('mytopic', 'LowMessages')
 
@@ -91,12 +94,11 @@
 
 이제 'mytopic'으로 메시지를 보내는 경우 'AllMessages' 토픽 구독을 구독하는 수신자에게는 항상 배달되고, 'HighMessages' 및 'LowMessages' 토픽 구독을 구독하는 수신자에게는 메시지 내용에 따라 선택적으로 배달됩니다.
 
-토픽에 메시지를 보내는 방법
----------------------------
+## <a name="How_to_Send_Messages_to_a_Topic"></a> 토픽에 메시지를 보내는 방법
 
 서비스 버스 토픽에 메시지를 보내려면 응용 프로그램에서 **ServiceBusService** 개체의 **send\_topic\_message** 메서드를 사용해야 합니다.
 
-다음 예제에서는 다섯 개의 테스트 메시지를 'mytopic'으로 보내는 방법을 보여 줍니다. 루프가 반복될 때마다 각 메시지의 **messagenumber** 속성 값이 달라지는 것을 알 수 있습니다(메시지를 수신하는 구독 결정).
+다음 예에서는 다섯 개의 테스트 메시지를 'mytopic'으로 보내는 방법을 보여 줍니다. 루프가 반복될 때마다 각 메시지의 **messagenumber** 속성 값이 달라지는 것을 알 수 있습니다(메시지를 수신하는 구독 결정).
 
     for i in range(5):
         msg = Message('Msg ' + str(i), custom_properties={'messagenumber':i})
@@ -104,38 +106,35 @@
 
 서비스 버스 토픽은 256MB의 최대 메시지 크기를 지원합니다(표준 및 사용자 지정 응용 프로그램 속성이 포함된 헤더의 최대 크기는 64MB임). 한 토픽에 저장되는 메시지 수에는 제한이 없지만 한 토픽에 저장되는 총 메시지 크기는 제한됩니다. 이 토픽 크기는 생성 시 정의되며 상한이 5GB입니다.
 
-구독에서 메시지를 받는 방법
----------------------------
+## <a name="How_to_Receive_Messages_from_a_Subscription"></a> 구독에서 메시지를 받는 방법
 
 **ServiceBusService** 개체의 **receive\_subscription\_message** 메서드를 사용하여 구독에서 메시지를 받습니다.
 
-    msg = bus_service.receive_subscription_message('mytopic', 'LowMessages')
+    msg = bus_service.receive_subscription_message('mytopic', 'LowMessages', peek_lock=False)
     print(msg.body)
 
-읽은 메시지는 구독에서 삭제됩니다. 그러나 선택적 매개 변수 **peek\_lock**을 **True**로 설정하여 구독에서 삭제되지 않도록 메시지를 읽은(peek) 후 잠글 수 있습니다.
+**peek\_lock** 매개 변수가 **False**로 설정된 경우 메시지를 읽으면 구독에서 해당 메시지가 삭제됩니다. **peek\_lock** 매개 변수를 **True**로 설정하여 큐에서 삭제되지 않도록 메시지를 읽은(peek) 후 잠글 수 있습니다.
 
-받기 작업의 일부로 메시지를 읽고 삭제하는 기본 동작은 가장 단순한 모델이며, 실패할 경우 응용 프로그램이 메시지를 처리하지 않아도 되는 시나리오에서 가장 효과적입니다. 이해를 돕기 위해 소비자가 수신 요청을 실행한 후 처리하기 전에 크래시되는 시나리오를 고려해 보십시오. 서비스 버스는 메시지를 이용되는 것으로 표시하기 때문에 응용 프로그램이 다시 시작되고 메시지 소비를 다시 시작할 경우 크래시 전에 소비된 메시지가 누락됩니다.
+받기 작업의 일부로 메시지를 읽고 삭제하는 동작은 가장 단순한 모델이며, 실패할 경우 응용 프로그램이 메시지를 처리하지 않아도 되는 시나리오에서 가장 효과적입니다. 이해를 돕기 위해 소비자가 수신 요청을 실행한 후 처리하기 전에 크래시되는 시나리오를 고려해 보세요. 서비스 버스는 메시지를 이용되는 것으로 표시하기 때문에 응용 프로그램이 다시 시작되고 메시지 소비를 다시 시작할 경우 크래시 전에 소비된 메시지가 누락됩니다.
 
-**peek\_lock** 매개 변수를 **True**로 설정하면 수신은 2단계 작업이 되므로, 메시지 누락을 허용하지 않는 응용 프로그램을 지원할 수 있습니다. 서비스 버스는 요청을 받으면 소비할 다음 메시지를 찾아서 다른 소비자가 수신할 수 없도록 잠근 후 응용 프로그램에 반환합니다. 응용 프로그램은 메시지 처리를 완료하거나 추가 처리를 위해 안전하게 저장한 후 **Message** 개체에 대해 **delete** 메서드를 호출하여 수신 프로세스의 두 번째 단계를 완료합니다. **delete** 메서드는 메시지를 소비 중인 것으로 표시하고 구독에서 제거합니다.
+**peek\_lock** 매개 변수를 **True**로 설정하면 수신은 2단계 작업이 되므로, 메시지 누락을 허용하지 않는 응용 프로그램을 지원할 수 있습니다. 서비스 버스는 요청을 받으면 소비할 다음 메시지를 찾아서 다른 소비자가 수신할 수 없도록 잠근 후 응용 프로그램에 반환합니다. 응용 프로그램은 메시지 처리를 완료하거나 추가 처리를 위해 안전하게 저장한 후, **Message** 개체의 **delete** 메서드를 호출하여 수신 프로세스의 두 번째 단계를 완료합니다. **delete** 메서드는 메시지를 이용되는 것으로 표시하고 구독에서 제거합니다.
 
     msg = bus_service.receive_subscription_message('mytopic', 'LowMessages', peek_lock=True)
     print(msg.body)
 
     msg.delete()
 
-응용 프로그램 크래시 및 읽을 수 없는 메시지를 처리하는 방법
------------------------------------------------------------
+## <a name="How_to_Handle_Application_Crashes_and_Unreadable_Messages"></a> 응용 프로그램 크래시 및 읽을 수 없는 메시지를 처리하는 방법
 
-서비스 버스는 응용 프로그램 오류나 메시지 처리 문제를 정상적으로 복구하는 데 유용한 기능을 제공합니다. 어떤 이유로든 수신 응용 프로그램이 메시지를 처리할 수 없는 경우 **Message** 개체의 **unlock** 메서드를 호출할 수 있습니다. 그러면 서비스 버스에서 구독 내 메시지의 잠금을 해제하므로 동일한 소비 응용 프로그램이나 다른 소비 응용 프로그램에서 메시지를 다시 받을 수 있습니다.
+서비스 버스는 응용 프로그램 오류나 메시지 처리 문제를 정상적으로 복구하는 데 유용한 기능을 제공합니다. 어떤 이유로든 수신 응용 프로그램이 메시지를 처리할 수 없는 경우 **Message** 개체의 **unlock** 메서드를 호출할 수 있습니다. 그러면 서비스 버스에서 구독 메시지의 잠금을 해제하므로 동일한 소비 응용 프로그램이나 다른 소비 응용 프로그램에서 메시지를 다시 받을 수 있습니다.
 
-구독 내에서 잠긴 메시지와 연결된 시간 제한도 있으며, 응용 프로그램에서 잠금 시간 제한이 만료되기 전에 메시지를 처리하지 못하는 경우(예: 응용 프로그램이 크래시되는 경우) 서비스 버스가 메시지를 자동으로 잠금 해제하여 다시 받을 수 있게 합니다.
+구독 내에서 잠긴 메시지와 연결된 제한 시간도 있으며, 응용 프로그램에서 잠금 제한 시간이 만료되기 전에 메시지를 처리하지 못하는 경우(예: 응용 프로그램이 크래시되는 경우) 서비스 버스가 메시지를 자동으로 잠금 해제하여 다시 받을 수 있게 합니다.
 
 응용 프로그램이 메시지를 처리한 후 **delete** 메서드가 호출되기 전에 크래시되는 경우, 다시 시작될 때 메시지가 응용 프로그램에 다시 배달됩니다. 이를 **최소 한 번 이상 처리**라고 합니다. 즉, 각 메시지가 최소 한 번 이상 처리되지만 특정 상황에서는 동일한 메시지가 다시 배달될 수 있습니다. 중복 처리가 허용되지 않는 시나리오에서는 응용 프로그램 개발자가 중복 메시지 배달을 처리하는 논리를 응용 프로그램에 추가해야 합니다. 이 경우 대체로 배달 시도 간에 일정하게 유지되는 메시지의 **MessageId** 속성을 사용합니다.
 
-토픽과 구독을 삭제하는 방법
----------------------------
+## <a name="How_to_Delete_Topics_and_Subscriptions"></a> 토픽과 구독을 삭제하는 방법
 
-토픽과 구독은 영구적이므로, Azure 관리 포털 또는 프로그래밍 방식을 통해 명시적으로 삭제해야 합니다. 아래 예제에서는 'mytopic'이라는 토픽을 삭제하는 방법을 보여 줍니다.
+토픽과 구독은 영구적이므로, Azure 관리 포털 또는 프로그래밍 방식을 통해 명시적으로 삭제해야 합니다. 아래 예에서는 'mytopic'이라는 토픽을 삭제하는 방법을 보여 줍니다.
 
     bus_service.delete_topic('mytopic')
 
@@ -143,11 +142,24 @@
 
     bus_service.delete_subscription('mytopic', 'HighMessages')
 
-다음 단계
----------
+## <a name="Next_Steps"></a>다음 단계
 
-이제 서비스 버스 토픽의 기본 사항을 익혔으므로 다음 링크를 따라 자세히 알아보십시오.
+이제 서비스 버스 토픽의 기본 사항을 익혔으므로 다음 링크를 따라 자세히 알아보세요.
 
--   다음 MSDN 참조를 확인하십시오. [큐, 토픽 및 구독](http://msdn.microsoft.com/ko-kr/library/hh367516.aspx)
--   [SqlFilter](http://msdn.microsoft.com/ko-kr/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx)에 대한 API 참조
+-   다음 MSDN 참조를 확인하세요. [큐, 토픽 및 구독][]
+-   [SqlFilter][]에 대한 API 참조
 
+  [다음 단계]: #Next_Steps
+  [서비스 버스 토픽 및 구독 정의]: #what-are-service-bus-topics
+  [서비스 네임스페이스 만들기]: #create-a-service-namespace
+  [네임스페이스에 대한 기본 관리 자격 증명 얻기]: #obtain-default-credentials
+  [방법: 토픽 만들기]: #How_to_Create_a_Topic
+  [방법: 구독 만들기]: #How_to_Create_Subscriptions
+  [방법: 토픽에 메시지 보내기]: #How_to_Send_Messages_to_a_Topic
+  [방법: 구독에서 메시지 받기]: #How_to_Receive_Messages_from_a_Subscription
+  [방법: 응용 프로그램 크래시 및 읽을 수 없는 메시지 처리]: #How_to_Handle_Application_Crashes_and_Unreadable_Messages
+  [방법: 토픽 및 구독 삭제]: #How_to_Delete_Topics_and_Subscriptions
+  [howto-service-bus-topics]: ../includes/howto-service-bus-topics.md
+  [Python 설치 가이드]: ../python-how-to-install/
+  [큐, 토픽 및 구독]: http://msdn.microsoft.com/ko-KR/library/hh367516.aspx
+  [SqlFilter]: http://msdn.microsoft.com/ko-KR/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx

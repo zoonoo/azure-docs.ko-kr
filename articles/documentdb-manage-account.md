@@ -6,11 +6,11 @@
 
 ## 목차
 
--   [방법: DocumentDB 액세스 키 보기, 복사 및 다시 생성][방법: DocumentDB 액세스 키 보기, 복사 및 다시 생성]
--   [방법: DocumentDB 일관성 설정 관리][방법: DocumentDB 일관성 설정 관리]
--   [방법: DocumentDB 용량 설정 관리][방법: DocumentDB 용량 설정 관리]
--   [방법: DocumentDB 계정 삭제][방법: DocumentDB 계정 삭제]
--   [다음 단계][다음 단계]
+-   [방법: DocumentDB 액세스 키 보기, 복사 및 다시 생성](#keys)
+-   [방법: DocumentDB 일관성 설정 관리](#consistency)
+-   [방법: DocumentDB 용량 설정 관리](#capacity)
+-   [방법: DocumentDB 계정 삭제](#delete)
+-   [다음 단계](#next)
 
 ## <span id="keys"></span></a>방법: 액세스 키 보기, 복사 및 다시 생성
 
@@ -20,22 +20,16 @@ DocumentDB 계정을 만들 때는 DocumentDB 계정 액세스 시
 제공하므로 DocumentDB 계정을 계속 사용하면서 키를
 다시 생성할 수 있습니다.
 
-[Azure 관리 미리 보기
-포털][Azure 관리 미리 보기
-포털][Azure 관리 미리 보기
-포털][Azure 관리 미리 보기
-포털]에서
+[Azure 관리 미리 보기 포털](https://portal.azure.com/)[](http://manage.windowsazure.com)에서
 DocumentDB 계정 블레이드의 **키** 부분에 액세스하면 DocumentDB 계정에
 액세스하는 데 사용되는 액세스 키를 보고 복사하고 다시 생성할 수
 있습니다.
 
-![][]
+![](./media/documentdb-manage-account/image002.jpg)
 
 ### 액세스 키 보기 및 복사
 
-1. [Azure 관리 미리 보기
-포털][Azure 관리 미리 보기
-포털]에서 DocumentDB 계정에 액세스합니다.
+1. [Azure 관리 미리 보기 포털](https://portal.azure.com/)에서 DocumentDB 계정에 액세스합니다.
 
 2. 요약 렌즈에서 **키**를 클릭합니다.
 
@@ -44,7 +38,7 @@ DocumentDB 계정 블레이드의 **키** 부분에 액세스하면 DocumentDB �
 
 4. Ctrl+C를 눌러 키를 복사합니다.
 
-  ![][1]
+  ![](./media/documentdb-manage-account/image004.jpg)
 
 ### 액세스 키 다시 생성
 
@@ -67,8 +61,7 @@ DocumentDB 계정을 사용하는 웹 응용 프로그램이나 클라우드 서
 액세스 키를 업데이트합니다.
 
 2. DocumentDB 계정의 기본 액세스 키를 다시 생성합니다.
-이렇게 하려면 [Azure 관리 미리 보기 포털][Azure 관리 미리 보기
-포털]에서
+이렇게 하려면 [Azure 관리 미리 보기 포털](https://portal.azure.com/)
 DocumentDB 계정에 액세스합니다.
 
 3. 요약 렌즈에서 **키**를 클릭합니다.
@@ -108,15 +101,11 @@ DocumentDB는 개발자가 일관성, 가용성 및 대기 시간을 예측 가�
 
 *기본적으로 DocumentDB 계정은 세션 일관성 수준으로 프로비전됩니다.
 DocumentDB 일관성 설정에 대한
-자세한 내용은 [일관성
-수준][일관성
-수준] 섹션을 참조하세요.*
+자세한 내용은 [일관성 수준](http://go.microsoft.com/fwlink/p/?LinkId=402365)  섹션을 참조하세요.*
 
 ### DocumentDB 계정의 기본 일관성을 지정하려면
 
-1. [Azure 관리 미리 보기
-포털][Azure 관리 미리 보기
-포털]에서 DocumentDB 계정에 액세스합니다.
+1. [Azure 관리 미리 보기 포털](https://portal.azure.com/)에서 DocumentDB 계정에 액세스합니다.
 
 2. 구성 렌즈에서 **일관성**을 클릭합니다.
 
@@ -128,9 +117,9 @@ DocumentDB 일관성 설정에 대한
 5. Azure 관리 미리 보기 포털 알림 허브를 통해
 작업 진행률을 모니터링할 수 있습니다.
 
-![][2]
+ ![](./media/documentdb-manage-account/image005.png)
 
-![][3]
+ ![](./media/documentdb-manage-account/image006.png)
 
 *기본 일관성 설정 변경 내용이 DocumentDB 계정에 적용될 때까지
 몇 분 정도 걸릴 수 있습니다.*
@@ -149,9 +138,7 @@ Microsoft Azure DocumentDB는 수명 주기 전체에 걸쳐 응용 프로그램
 
 ### 용량 단위를 추가하거나 제거하려면
 
-1. [Azure 관리 미리 보기
-포털][Azure 관리 미리 보기
-포털]에서 DocumentDB 계정에 액세스합니다.
+1. [Azure 관리 미리 보기 포털](https://portal.azure.com/)에서 DocumentDB 계정에 액세스합니다.
 
 2. 사용량 렌즈에서 **크기 조정**을 클릭합니다.
 
@@ -165,7 +152,7 @@ Microsoft Azure DocumentDB는 수명 주기 전체에 걸쳐 응용 프로그램
 *DocumentDB 미리 보기에서는 DocumentDB 계정당 용량 단위를
 5개까지 지원합니다.*
 
-![][4]
+![](./media/documentdb-manage-account/image007.png)
 
  
 
@@ -181,7 +168,7 @@ Microsoft Azure DocumentDB는 수명 주기 전체에 걸쳐 응용 프로그램
 문서, 첨부 파일을 비롯하여 해당 계정의 모든 리소스가
 삭제됩니다.*
 
-![][5]
+![](./media/documentdb-manage-account/image009.png)
 
 1. [Azure 관리 미리 보기
 포털][Azure 관리 미리 보기
@@ -198,9 +185,8 @@ Microsoft Azure DocumentDB는 수명 주기 전체에 걸쳐 응용 프로그램
 ## <span id="next"></span></a>다음 단계
 
 -   [DocumentDB 계정 사용을 시작하는
-    방법][DocumentDB 계정 사용을 시작하는
-    방법]에 대해 알아볼 수 있습니다.
--   DocumentDB에 대해 자세히 알아보려면 [azure.com][azure.com]의 Azure DocumentDB
+    방법](http://go.microsoft.com/fwlink/p/?LinkId=402364)에 대해 알아볼 수 있습니다.
+-   DocumentDB에 대해 자세히 알아보려면 [azure.com](http://go.microsoft.com/fwlink/?LinkID=402319&clcid=0x409)의 Azure DocumentDB
     설명서를
     참조하세요.
 
@@ -211,17 +197,14 @@ Microsoft Azure DocumentDB는 수명 주기 전체에 걸쳐 응용 프로그램
   [방법: DocumentDB 용량 설정 관리]: #capacity
   [방법: DocumentDB 계정 삭제]: #delete
   [다음 단계]: #next
-  [Azure 관리 미리 보기
-  포털]: https://portal.azure.com/
+  [Azure 관리 미리 보기 포털]: https://portal.azure.com/
   []: http://manage.windowsazure.com
   []: ./media/documentdb-manage-account/image002.jpg
   [1]: ./media/documentdb-manage-account/image004.jpg
-  [일관성
-  수준]: http://go.microsoft.com/fwlink/p/?LinkId=402365
+  [일관성 수준]: http://go.microsoft.com/fwlink/p/?LinkId=402365
   [2]: ./media/documentdb-manage-account/image005.png
   [3]: ./media/documentdb-manage-account/image006.png
   [4]: ./media/documentdb-manage-account/image007.png
   [5]: ./media/documentdb-manage-account/image009.png
-  [DocumentDB 계정 사용을 시작하는
-  방법]: http://go.microsoft.com/fwlink/p/?LinkId=402364
+  [DocumentDB 계정 사용을 시작하는 방법]: http://go.microsoft.com/fwlink/p/?LinkId=402364
   [azure.com]: http://go.microsoft.com/fwlink/?LinkID=402319&clcid=0x409

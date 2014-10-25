@@ -84,7 +84,7 @@ Visual Studio Online을 사용하는 경우 소스 제어에서 연속 배포를
   [웹 사이트를 실행하는 동안 수행할 작업]: #while-your-website-is-running
   [웹 사이트를 업데이트할 때 수행할 작업]: #when-you-update-your-website
   [Azure 관리 포털을 통해 웹 사이트 관리]: http://azure.microsoft.com/ko-kr/documentation/articles/web-sites-manage/
-  [가격 세부 정보]: http://azure.microsoft.com/en-us/pricing/details/websites/
+  [가격 세부 정보]: http://azure.microsoft.com/ko-kr/pricing/details/websites/
   [웹 호스팅 계획]: http://azure.microsoft.com/ko-kr/documentation/articles/azure-web-sites-web-hosting-plans-in-depth-overview
   [계층을 전환]: http://azure.microsoft.com/ko-kr/documentation/articles/web-sites-scale/
   [Azure 관리 포털]: https://manage.windowsazure.com/
@@ -99,7 +99,7 @@ Visual Studio Online을 사용하는 경우 소스 제어에서 연속 배포를
   [Azure 웹 사이트에서 New Relic 응용 프로그램 성능 관리]: http://azure.microsoft.com/ko-kr/documentation/articles/store-new-relic-web-sites-dotnet-application-performance-management/
   [자동 백업]: http://azure.microsoft.com/ko-kr/documentation/articles/web-sites-backup/
   [이 비디오]: http://azure.microsoft.com/ko-kr/documentation/videos/azure-websites-automatic-and-easy-backup/
-  [재해 복구]: http://msdn.microsoft.com/en-us/library/azure/hh852669.aspx
+  [재해 복구]: http://msdn.microsoft.com/ko-kr/library/azure/hh852669.aspx
   [Visual Studio에서 문제를 해결]: http://azure.microsoft.com/ko-kr/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/#remotedebug
   [Azure 웹 사이트에 진단 로그 사용]: http://azure.microsoft.com/ko-kr/documentation/articles/web-sites-enable-diagnostic-log/
   [Azure 웹 사이트에서 Node.js 응용 프로그램 디버그 방법]: http://azure.microsoft.com/ko-kr/documentation/articles/web-sites-nodejs-debug/

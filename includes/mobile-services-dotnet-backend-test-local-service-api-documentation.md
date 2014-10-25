@@ -18,7 +18,7 @@
 
 4.  **GET 테이블/TodoItem** 링크를 클릭합니다.
 
-    ![][]
+    ![][0]
 
     그러면 API의 GET 응답 페이지가 표시됩니다.
 
@@ -33,7 +33,7 @@
   [로컬에서 모바일 서비스 프로젝트 시작]: ./media/mobile-services-dotnet-backend-test-local-service-api-documentation/vs-start-debug-service-project.png
   [작업 표시줄에서 모바일 서비스 확인]: ./media/mobile-services-dotnet-backend-test-local-service-api-documentation/iis-express-tray.png
   [모바일 서비스 시작 페이지]: ./media/mobile-services-dotnet-backend-test-local-service-api-documentation/service-welcome-page.png
-  []: ./media/mobile-services-dotnet-backend-test-local-service-api-documentation/service-api-documentation-page.png
+  [0]: ./media/mobile-services-dotnet-backend-test-local-service-api-documentation/service-api-documentation-page.png
   [1]: ./media/mobile-services-dotnet-backend-test-local-service-api-documentation/service-try-this-out-get-todoitems.png
   [.NET 백 엔드 모바일 서비스에 대한 데이터 모델 변경 방법]: ./ko-kr/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations/
   [2]: ./media/mobile-services-dotnet-backend-test-local-service-api-documentation/service-try-this-out-get-response.png

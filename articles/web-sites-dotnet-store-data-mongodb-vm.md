@@ -1,53 +1,55 @@
-<properties linkid="develop-dotnet-website-with-mongodb-vm" urlDisplayName="Website with MongoDB VM" pageTitle=".NET web site with MongoDB on a virtual machine - Azure" metaKeywords="Azure Git ASP.NET MongoDB, Git .NET, Git MongoDB, ASP.NET MongoDB, Azure MongoDB, Azure ASP.NET, Azure tutorial" description="A tutorial that teaches you how to use Git to deploy an ASP.NET app to an Azure web site connected to MongoDB on a virtual machine." metaCanonical="" services="web-sites,virtual-machines" documentationCenter=".NET" title="Create an Azure web site that connects to MongoDB running on a virtual machine in Azure" authors="" solutions="" manager="" editor="" />
+<properties linkid="develop-dotnet-website-with-mongodb-vm" urlDisplayName="Website with MongoDB VM" pageTitle=".NET website with MongoDB on a virtual machine - Azure" metaKeywords="Azure Git ASP.NET MongoDB, Git .NET, Git MongoDB, ASP.NET MongoDB, Azure MongoDB, Azure ASP.NET, Azure tutorial" description="A tutorial that teaches you how to use Git to deploy an ASP.NET app to an Azure website connected to MongoDB on a virtual machine." metaCanonical="" services="web-sites,virtual-machines" documentationCenter=".NET" title="Create an Azure website that connects to MongoDB running on a virtual machine in Azure" authors="cephalin" solutions="" manager="wpickett" editor="" />
 
-Azure의 가상 컴퓨터에서 실행되는 MongoDB에 연결되는 Azure 웹 사이트 만들기
-==========================================================================
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin"></tags>
 
-Git을 사용하여 Azure 웹 사이트에 ASP.NET 응용 프로그램을 배포할 수 있습니다. 이 자습서에서는 Azure의 가상 컴퓨터에서 실행되는 MongoDB 데이터베이스에 연결되는 간단한 프런트 엔드 ASP.NET MVC 작업 목록 응용 프로그램을 빌드합니다. [MongoDB](http://www.mongodb.org)는 대중적인 오픈 소스의 고성능 NoSQL 데이터베이스입니다. 개발 컴퓨터에서 ASP.NET 응용 프로그램을 실행하고 테스트한 후에 Git을 사용하여 Azure 웹 사이트에 응용 프로그램을 업로드합니다.
+# Azure의 가상 컴퓨터에서 실행되는 MongoDB에 연결되는 Azure 웹 사이트 만들기
 
-[WACOM.INCLUDE [create-account-and-websites-and-vms-note](../includes/create-account-and-websites-and-vms-note.md)]
+Git을 사용하여 Azure 웹 사이트에 ASP.NET 응용 프로그램을 배포할 수 있습니다. 이 자습서에서는 Azure의 가상 컴퓨터에서 실행되는 MongoDB 데이터베이스에 연결되는 간단한 프런트 엔드 ASP.NET MVC 작업 목록 응용 프로그램을 빌드합니다. [MongoDB][]는 대중적인 오픈 소스의 고성능 NoSQL 데이터베이스입니다. 개발 컴퓨터에서 ASP.NET 응용 프로그램을 실행하고 테스트한 후에 Git을 사용하여 Azure 웹 사이트에 응용 프로그램을 업로드합니다.
 
-개요
-----
+[WACOM.INCLUDE [create-account-and-websites-and-vms-note][]]
+
+## 개요
 
 이 자습서에서는 다음 작업을 수행합니다.
 
--   [가상 컴퓨터 만들기 및 MongoDB 설치](#virtualmachine)
--   [개발 컴퓨터에서 My Task List ASP.NET 응용 프로그램 만들기 및 실행](#createapp)
--   [Azure 웹 사이트 만들기](#createwebsite)
--   [Git을 사용하여 웹 사이트에 ASP.NET 응용 프로그램 배포](#deployapp)
+-   [가상 컴퓨터 만들기 및 MongoDB 설치][]
+-   [개발 컴퓨터에서 My Task List ASP.NET 응용 프로그램 만들기 및 실행][]
+-   [Azure 웹 사이트 만들기][]
+-   [Git을 사용하여 웹 사이트에 ASP.NET 응용 프로그램 배포][]
 
-배경 지식
----------
+## 배경 지식
 
 다음과 관련한 지식이 있으면 이 자습서에 유용하지만 필수 사항은 아닙니다.
 
--   MongoDB의 C\# 드라이버. MongoDB에 대한 C\# 응용 프로그램 개발에 대한 자세한 내용은 MongoDB [CSharp 언어 센터](http://docs.mongodb.org/ecosystem/drivers/csharp/)(영문)를 참조하십시오.
--   ASP .NET 웹 응용 프로그램 프레임워크. 자세한 내용은 [ASP.NET 웹 사이트](http://www.asp.net/)에서 알아볼 수 있습니다.
--   ASP .NET MVC 웹 응용 프로그램 프레임워크. 자세한 내용은 [ASP.NET MVC 웹 사이트](http://www.asp.net/mvc)에서 알아볼 수 있습니다.
--   Azure. [Azure](http://www.windowsazure.com)의 내용을 읽어 보고 시작할 수 있습니다.
+-   MongoDB의 C# 드라이버. MongoDB에 대한 C# 응용 프로그램 개발에 대한 자세한 내용은 MongoDB [CSharp 언어 센터][](영문)를 참조하십시오.
+-   ASP .NET 웹 응용 프로그램 프레임워크. 자세한 내용은 [ASP.NET 웹 사이트][]에서 알아볼 수 있습니다.
+-   ASP .NET MVC 웹 응용 프로그램 프레임워크. 자세한 내용은 [ASP.NET MVC 웹 사이트][]에서 알아볼 수 있습니다.
+-   Azure. [Azure][]의 내용을 읽어 보고 시작할 수 있습니다.
 
-준비
-----
+## 준비
 
 이 섹션에서는 Azure에서 가상 컴퓨터를 만들고 MongoDB를 설치한 후 개발 환경을 설정하는 방법을 알아봅니다.
+
+<span id="virtualmachine"></span></a>
 
 ### 가상 컴퓨터 만들기 및 MongoDB 설치
 
 이 자습서는 Azure에서 가상 컴퓨터를 만든 적이 있는 개발자를 대상으로 합니다. 가상 컴퓨터를 만든 후에는 가상 컴퓨터에 MongoDB를 설치해야 합니다.
 
--   Windows 가상 컴퓨터를 만들고 MongoDB를 설치하려면 [Azure에서 Windows Server를 실행하는 가상 컴퓨터에 MongoDB 설치](/en-us/manage/windows/common-tasks/install-mongodb/)를 참조하십시오.
--   또는 Linux 가상 컴퓨터를 만들고 MongoDB를 설치하려면 [Azure에서 CentOS Linux를 실행하는 가상 컴퓨터에 MongoDB 설치](/en-us/manage/linux/common-tasks/mongodb-on-a-linux-vm/)를 참조하십시오.
+-   Windows 가상 컴퓨터를 만들고 MongoDB를 설치하려면 [Azure에서 Windows Server를 실행하는 가상 컴퓨터에 MongoDB 설치][]를 참조하십시오.
+-   또는 Linux 가상 컴퓨터를 만들고 MongoDB를 설치하려면 [Azure에서 CentOS Linux를 실행하는 가상 컴퓨터에 MongoDB 설치][]를 참조하십시오.
 
 Azure에서 가상 컴퓨터를 만들고 MongoDB를 설치한 후에는 가상 컴퓨터의 DNS 이름(예: "testlinuxvm.cloudapp.net") 및 끝점에서 지정한 MongoDB의 외부 포트를 기억해 둬야 합니다. 이 정보는 자습서의 뒷부분에서 필요합니다.
 
 ### Visual Studio 설치
 
-[Visual Studio Express 2013 for Web](http://www.microsoft.com/visualstudio/eng/2013-downloads#d-2013-express) 또는 [Visual Studio 2013](http://www.microsoft.com/visualstudio/eng/2013-downloads)을 설치하고 실행하여 시작합니다.
+[Visual Studio Express 2013 for Web][] 또는 [Visual Studio 2013][]을 설치하고 실행하여 시작합니다.
 
 Visual Studio는 IDE(통합 개발 환경)입니다. 문서를 작성하는 데 Microsoft Word를 사용하는 것처럼 응용 프로그램을 만드는 데 IDE를 사용합니다. 이 자습서에서는 Microsoft Visual Studio 2013을 사용하지만, 무료 버전 Microsoft Visual Studio인 Microsoft Visual Studio Express 2013을 사용해도 됩니다.
 
-## 개발 컴퓨터에서 My Task List ASP.NET 응용 프로그램 만들기 및 실행 ##
+<span id="createapp"></span></a>
+
+## 개발 컴퓨터에서 My Task List ASP.NET 응용 프로그램 만들기 및 실행
 
 이 섹션에서는 Visual Studio를 사용하여 "My Task List"라는 ASP.NET 응용 프로그램을 만듭니다. 응용 프로그램 실행은 로컬에서 하지만 Azure의 가상 컴퓨터에 연결하여 해당 위치에서 만든 MongoDB 인스턴스를 사용합니다.
 
@@ -55,42 +57,42 @@ Visual Studio는 IDE(통합 개발 환경)입니다. 문서를 작성하는 데 
 
 Visual Studio에서 **새 프로젝트**를 클릭합니다.
 
-![시작 페이지 새 프로젝트](./media/web-sites-dotnet-store-data-mongodb-vm/NewProject.png)
+![시작 페이지 새 프로젝트][]
 
-**새 프로젝트** 창에서 왼쪽 창에 있는 **Visual C\#**을 선택한 후 **웹**을 선택합니다. 가운데 창에서 **ASP.NET 웹 응용 프로그램**을 선택합니다. 맨 아래에서 프로젝트 이름을 "MyTaskListApp"으로 지정한 후 **확인**을 클릭합니다.
+**새 프로젝트** 창에서 왼쪽 창에 있는 **Visual C#**을 선택한 후 **웹**을 선택합니다. 가운데 창에서 **ASP.NET 웹 응용 프로그램**을 선택합니다. 맨 아래에서 프로젝트 이름을 "MyTaskListApp"으로 지정한 후 **확인**을 클릭합니다.
 
-![새 프로젝트 대화 상자](./media/web-sites-dotnet-store-data-mongodb-vm/NewProjectMyTaskListApp.png)
+![새 프로젝트 대화 상자][]
 
 **새 ASP.NET 프로젝트** 대화 상자에서 **MVC**를 선택한 후 **확인**을 클릭합니다.
 
-![MVC 템플릿 선택](./media/web-sites-dotnet-store-data-mongodb-vm/VS2013SelectMVCTemplate.png)
+![MVC 템플릿 선택][]
 
 프로젝트가 완성되고 나면 템플릿에서 만들어진 기본 페이지가 나타납니다.
 
-![기본 ASP.NET MVC 응용 프로그램](./media/web-sites-dotnet-store-data-mongodb-vm/VS2013DefaultMVCApplication.png)
+![기본 ASP.NET MVC 응용 프로그램][]
 
-### MongoDB C\# 드라이버 설치
+### MongoDB C# 드라이버 설치
 
-MongoDB는 드라이버를 통해 C\# 응용 프로그램에 대한 클라이언트 쪽 지원을 제공하며, 이 드라이버는 로컬 개발 컴퓨터에 설치해야 합니다. C\# 드라이버는 NuGet을 통해 사용할 수 있습니다.
+MongoDB는 드라이버를 통해 C# 응용 프로그램에 대한 클라이언트 쪽 지원을 제공하며, 이 드라이버는 로컬 개발 컴퓨터에 설치해야 합니다. C# 드라이버는 NuGet을 통해 사용할 수 있습니다.
 
-MongoDB C\# 드라이버를 설치하려면
+MongoDB C# 드라이버를 설치하려면
 
 1.  **솔루션 탐색기**에서 **MyTaskListApp** 프로젝트 아래에 있는 **참조** 마우스 오른쪽 단추로 클릭하고 **Manage NuGetPackages**를 선택합니다.
 
-    ![NuGet 패키지 관리](./media/web-sites-dotnet-store-data-mongodb-vm/VS2013ManageNuGetPackages.png)
+    ![NuGet 패키지 관리][]
 
 2.  **Manage NuGet 패키지 관리** 창에서 왼쪽 창에 있는 **온라인**을 클릭합니다. 오른쪽의 **온라인 검색** 상자에서 "mongocsharpdriver"를 입력합니다. **설치**를 클릭하여 드라이버를 설치합니다.
 
-    ![MongoDB C\# 드라이버 검색](./media/web-sites-dotnet-store-data-mongodb-vm/SearchforMongoDBCSharpDriver.png)
+    ![MongoDB C# 드라이버 검색][]
 
 3.  **동의함**을 클릭하여 10gen, Inc. 사용 조건에 동의합니다.
 
-4.  드라이버가 설치된 후에는 **닫기**를 클릭합니다.
-	![MongoDB C\# 드라이버 설치](./media/web-sites-dotnet-store-data-mongodb-vm/MongoDBCsharpDriverInstalled.png)
+4.  드라이버가 설치된 후 **닫기**를 클릭합니다.
+    ![MongoDB C# 드라이버 설치 완료][]
 
-이제 MongoDB C\# 드라이버가 설치되었습니다. **MongoDB.Driver.dll** 및 **MongoDB.Bson.dll** 라이브러리에 대한 참조가 프로젝트에 추가되었습니다.
+이제 MongoDB C# 드라이버가 설치되었습니다. **MongoDB.Driver.dll** 및 **MongoDB.Bson.dll** 라이브러리에 대한 참조가 프로젝트에 추가되었습니다.
 
-![MongoDB C\# 드라이버 참조](./media/web-sites-dotnet-store-data-mongodb-vm/MongoDBCSharpDriverReferences.png)
+![MongoDB C# 드라이버 참조][]
 
 ### 모델 추가
 
@@ -317,9 +319,9 @@ MongoDB C\# 드라이버를 설치하려면
 
 ### 사이트 스타일 설정
 
-페이지 위쪽에 있는 제목을 변경하려면 **솔루션 탐색기**에서 *Views\\Shared\\\_Layout.cshtml* 파일을 열고 탐색 모음 헤더에 있는 "Application name"을 "My Task List Application"으로 바꿉니다. 다음과 같습니다.
+페이지 위쪽에 있는 제목을 변경하려면 **솔루션 탐색기**에서 \*Views\\Shared\\\_Layout.cshtml\* 파일을 열고 탐색 모음 헤더에 있는 "Application name"을 "My Task List Application"으로 바꿉니다. 다음과 같습니다.
 
- 	@Html.ActionLink("My Task List Application", "Index", "Home", null, new { @class = "navbar-brand" })
+    @Html.ActionLink("My Task List Application", "Index", "Home", null, new { @class = "navbar-brand" })
 
 작업 목록 메뉴를 설정하려면 *\\Views\\Home\\Index.cshtml* 파일을 열고 기존 코드를 다음 코드로 바꿉니다.
 
@@ -402,7 +404,7 @@ MongoDB C\# 드라이버를 설치하려면
 
 **솔루션 탐색기**가 다음과 같습니다.
 
-![솔루션 탐색기](./media/web-sites-dotnet-store-data-mongodb-vm/SolutionExplorerMyTaskListApp.png)
+![솔루션 탐색기][]
 
 ### MongoDB 연결 문자열 설정
 
@@ -410,7 +412,7 @@ MongoDB C\# 드라이버를 설치하려면
 
     private string connectionString = "mongodb://<vm-dns-name>";
 
-`<vm-dns-name>`을 이 자습서 [가상 컴퓨터 만들기 및 MongoDB 설치](#virtualmachine) 단계에 만든 MongoDB를 실행하는 가상 컴퓨터의 DNS 이름으로 바꿉니다. 가상 컴퓨터의 DNS 이름을 찾으려면 Azure 관리 포털로 이동하여 **가상 컴퓨터**를 선택하고 **DNS 이름**을 찾습니다.
+`<vm-dns-name>`을 이 자습서의 [가상 컴퓨터 만들기 및 MongoDB 설치][] 단계에서 만든 MongoDB를 실행하는 가상 컴퓨터의 DNS 이름으로 바꿉니다. 가상 컴퓨터의 DNS 이름을 찾으려면 Azure 관리 포털로 이동하여 **가상 컴퓨터**를 선택하고 **DNS 이름**을 찾습니다.
 
 가상 컴퓨터의 DNS 이름이 "testlinuxvm.cloudapp.net"이고 MongoDB가 기본 포트 27017을 수신 대기하는 경우 연결 문자열 코드 줄은 다음과 같습니다.
 
@@ -418,60 +420,99 @@ MongoDB C\# 드라이버를 설치하려면
 
 가상 컴퓨터 끝점이 MongoDB에 대해 다른 외부 포트를 지정하는 경우, 이 포트를 연결 문자열에서 지정할 수 있습니다.
 
- 	private string connectionString = "mongodb://testlinuxvm.cloudapp.net:12345";
+    private string connectionString = "mongodb://testlinuxvm.cloudapp.net:12345";
 
-MongoDB 연결 문자열에 대한 자세한 내용은 [연결](http://www.mongodb.org/display/DOCS/Connections)(영문)을 참조하십시오.
+MongoDB 연결 문자열에 대한 자세한 내용은 [연결][](영문)을 참조하십시오.
 
 ### 로컬 배포 테스트
 
 개발 컴퓨터에서 응용 프로그램을 실행하려면 **디버그** 메뉴에서 **디버깅 시작** 선택하거나 **F5** 키를 누릅니다. IIS Express가 시작되고 브라우저가 열려 응용 프로그램의 홈페이지를 시작합니다. 새 작업을 추가할 수 있습니다. 이 작업은 Azure의 가상 컴퓨터에서 실행되는 MongoDB 데이터베이스에 추가됩니다.
 
-![My Task List 응용 프로그램](./media/web-sites-dotnet-store-data-mongodb-vm/TaskListAppBlank.png)
+![My Task List 응용 프로그램][]
 
-Azure 웹 사이트에 응용 프로그램 배포Azure 웹 사이트에 ASP.NET 응용 프로그램 배포
---------------------------------------------------------------------------------
+## <span class="short-header">Azure 웹 사이트에 응용 프로그램 배포</span>Azure 웹 사이트에 ASP.NET 응용 프로그램 배포
 
 이 섹션에서는 웹 사이트를 만들고 Git을 사용하여 My Task List ASP.NET 응용 프로그램을 배포합니다.
 
+<span id="createwebsite"></span></a>
+
 ### Azure 웹 사이트 만들기
+
 이 섹션에서는 Azure 웹 사이트를 만듭니다.
 
-1.  웹 브라우저를 열고 [Azure 관리 포털](http://manage.windowsazure.com)로 이동합니다. Azure 계정으로 로그인합니다.
+1.  웹 브라우저를 열고 [Azure 관리 포털][]로 이동합니다. Azure 계정으로 로그인합니다.
 2.  페이지 맨 아래에 있는 **+새로 만들기**를 클릭한 후 **웹 사이트**를 클릭하고 **빠른 생성**을 클릭합니다.
 3.  응용 프로그램의 URL에 사용할 고유한 접두사를 입력합니다.
 4.  지역을 선택합니다.
 5.  **웹 사이트 만들기**를 클릭합니다.
 
-![새 웹 사이트 만들기](./media/web-sites-dotnet-store-data-mongodb-vm/WAWSCreateWebSite.png)
+  ![새 웹 사이트 만들기][]
 
-1.  웹 사이트가 신속하게 만들어져 **웹 사이트**에 나열됩니다.
+1.  웹 사이트가 신속하게 만들어지고 **웹 사이트**에 나열됩니다.
 
-![WAWSDashboardMyTaskListApp](./media/web-sites-dotnet-store-data-mongodb-vm/WAWSDashboardMyTaskListApp.png)
+  ![WAWSDashboardMyTaskListApp][]
 
-### Git을 사용하여 웹 사이트에 ASP.NET 
-응용 프로그램 배포 이 섹션에서는 Git을 사용하여 My Task List 응용 프로그램을 배포합니다.
+<span id="deployapp"></span></a>
+
+### Git을 사용하여 웹 사이트에 ASP.NET 응용 프로그램 배포
+
+이 섹션에서는 Git를 사용하여 My Task List 응용 프로그램을 배포합니다.
 
 1.  **웹 사이트**에서 웹 사이트 이름을 클릭한 후 **대시보드**를 클릭합니다. 오른쪽의 간략 상태 아래에서 **소스 제어에서 배포 설정**을 클릭합니다.
 2.  **소스 코드 위치?** 페이지에서 **로컬 Git 리포지토리**를 선택하고 **다음** 화살표를 클릭합니다.
 3.  Git 리포지토리가 신속하게 만들어집니다. 결과 페이지에 나온 지침을 기록해 두십시오. 이 정보를 다음 섹션에서 사용합니다.
 
-    ![Git 리포지토리 준비됨](./media/web-sites-dotnet-store-data-mongodb-vm/RepoReady.png)
+    ![Git 리포지토리 준비됨][]
 
 4.  **Azure에 로컬 파일 푸시** 아래에 Azure에 코드를 푸시하기 위한 지침이 나옵니다. 지침은 다음과 유사합니다.
 
-    ![Azure에 로컬 파일 푸시](./media/web-sites-dotnet-store-data-mongodb-vm/GitInstructions.png)
+    ![Azure에 로컬 파일 푸시][]
 
 5.  Git이 설치되지 않은 경우 1단계의 **Get it here** 링크를 사용하여 설치하십시오.
 6.  2단계의 지침에 따라 로컬 파일을 커밋합니다.
 7.  원격 Azure 리포지토리를 추가하고 3단계의 지침에 따라 Azure 웹 사이트에 파일을 푸시합니다.
 8.  배포가 완료되면 다음 확인 사항이 표시됩니다.
 
-    ![배포 완료](./media/web-sites-dotnet-store-data-mongodb-vm/GitDeploymentComplete.png)
+    ![배포 완료][]
 
-9.  이제 Azure 웹 사이트를 사용할 수 있습니다. **대시보드** 페이지에서 사이트 및 **사이트 URL** 필드를 확인하여 사이트의 URL을 찾습니다. 이 자습서의 절차에 따르면 사이트를 다음 URL에서 사용할 수 있습니다. http://mytasklistapp.azurewebsites.net.
+9.  이제 Azure 웹 사이트를 사용할 수 있습니다. **대시보드** 페이지에서 사이트 및 **사이트 URL** 필드를 확인하여 사이트의 URL을 찾습니다. 이 자습서의 절차에 따르면 사이트를 다음 URL에서 사용할 수 있습니다. <http://mytasklistapp.azurewebsites.net>
 
-요약
-----
+## 요약
 
-이제 ASP.NET 응용 프로그램을 Azure 웹 사이트에 배포했습니다. 사이트를 보려면 **대시보드** 페이지의 **사이트 URL** 필드에서 링크를 클릭합니다. MongoDB에 대한 C\# 응용 프로그램 개발에 대한 자세한 내용은 [CSharp 언어 센터](http://docs.mongodb.org/ecosystem/drivers/csharp/)(영문)를 참조하십시오.
+이제 ASP.NET 응용 프로그램을 Azure 웹 사이트에 배포했습니다. 사이트를 보려면 **대시보드** 페이지의 **사이트 URL** 필드에서 링크를 클릭합니다. MongoDB에 대한 C# 응용 프로그램 개발에 대한 자세한 내용은 [CSharp 언어 센터][](영문)를 참조하십시오.
 
+<!-- HYPERLINKS --> 
+<!-- IMAGES --> 
+<!-- TOC BOOKMARKS -->
+
+  [MongoDB]: http://www.mongodb.org
+  [create-account-and-websites-and-vms-note]: ../includes/create-account-and-websites-and-vms-note.md
+  [가상 컴퓨터 만들기 및 MongoDB 설치]: #virtualmachine
+  [개발 컴퓨터에서 My Task List ASP.NET 응용 프로그램 만들기 및 실행]: #createapp
+  [Azure 웹 사이트 만들기]: #createwebsite
+  [Git을 사용하여 웹 사이트에 ASP.NET 응용 프로그램 배포]: #deployapp
+  [CSharp 언어 센터]: http://docs.mongodb.org/ecosystem/drivers/csharp/
+  [ASP.NET 웹 사이트]: http://www.asp.net/
+  [ASP.NET MVC 웹 사이트]: http://www.asp.net/mvc
+  [Azure]: http://www.windowsazure.com
+  [Azure에서 Windows Server를 실행하는 가상 컴퓨터에 MongoDB 설치]: /ko-KR/manage/windows/common-tasks/install-mongodb/
+  [Azure에서 CentOS Linux를 실행하는 가상 컴퓨터에 MongoDB 설치]: /ko-KR/manage/linux/common-tasks/mongodb-on-a-linux-vm/
+  [Visual Studio Express 2013 for Web]: http://www.microsoft.com/visualstudio/eng/2013-downloads#d-2013-express
+  [Visual Studio 2013]: http://www.microsoft.com/visualstudio/eng/2013-downloads
+  [시작 페이지 새 프로젝트]: ./media/web-sites-dotnet-store-data-mongodb-vm/NewProject.png
+  [새 프로젝트 대화 상자]: ./media/web-sites-dotnet-store-data-mongodb-vm/NewProjectMyTaskListApp.png
+  [MVC 템플릿 선택]: ./media/web-sites-dotnet-store-data-mongodb-vm/VS2013SelectMVCTemplate.png
+  [기본 ASP.NET MVC 응용 프로그램]: ./media/web-sites-dotnet-store-data-mongodb-vm/VS2013DefaultMVCApplication.png
+  [NuGet 패키지 관리]: ./media/web-sites-dotnet-store-data-mongodb-vm/VS2013ManageNuGetPackages.png
+  [MongoDB C# 드라이버 검색]: ./media/web-sites-dotnet-store-data-mongodb-vm/SearchforMongoDBCSharpDriver.png
+  [MongoDB C# 드라이버 설치 완료]: ./media/web-sites-dotnet-store-data-mongodb-vm/MongoDBCsharpDriverInstalled.png
+  [MongoDB C# 드라이버 참조]: ./media/web-sites-dotnet-store-data-mongodb-vm/MongoDBCSharpDriverReferences.png
+  [솔루션 탐색기]: ./media/web-sites-dotnet-store-data-mongodb-vm/SolutionExplorerMyTaskListApp.png
+  [연결]: http://www.mongodb.org/display/DOCS/Connections
+  [My Task List 응용 프로그램]: ./media/web-sites-dotnet-store-data-mongodb-vm/TaskListAppBlank.png
+  [Azure 관리 포털]: http://manage.windowsazure.com
+  [새 웹 사이트 만들기]: ./media/web-sites-dotnet-store-data-mongodb-vm/WAWSCreateWebSite.png
+  [WAWSDashboardMyTaskListApp]: ./media/web-sites-dotnet-store-data-mongodb-vm/WAWSDashboardMyTaskListApp.png
+  [Git 리포지토리 준비됨]: ./media/web-sites-dotnet-store-data-mongodb-vm/RepoReady.png
+  [Azure에 로컬 파일 푸시]: ./media/web-sites-dotnet-store-data-mongodb-vm/GitInstructions.png
+  [배포 완료]: ./media/web-sites-dotnet-store-data-mongodb-vm/GitDeploymentComplete.png

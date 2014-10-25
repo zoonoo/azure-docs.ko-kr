@@ -8,7 +8,7 @@
 
 3.  Windows 스토어 앱을 다시 실행하고 **TodoItem 삽입**에 텍스트를 입력한 후에 **저장**을 클릭합니다.
 
-    ![][]
+    ![][0]
 
     삽입이 완료되면 Windows 스토어 및 Windows Phone 앱이 모두 WNS에서 푸시 알림을 수신합니다.
 
@@ -18,6 +18,6 @@
 
     ![][2]
 
-  []: ./media/mobile-services-javascript-backend-windows-universal-test-push/mobile-quickstart-push1.png
+  [0]: ./media/mobile-services-javascript-backend-windows-universal-test-push/mobile-quickstart-push1.png
   [1]: ./media/mobile-services-javascript-backend-windows-universal-test-push/mobile-quickstart-push2.png
   [2]: ./media/mobile-services-javascript-backend-windows-universal-test-push/mobile-quickstart-push5-wp8.png

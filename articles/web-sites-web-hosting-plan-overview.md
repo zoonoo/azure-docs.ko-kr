@@ -1,14 +1,14 @@
-<properties pageTitle="What is a web hosting plan?" description="Web hosting plan overview" title="What is a web hosting plan?" authors="adamab" />
+<properties pageTitle="What is a web hosting plan?" description="Web hosting plan overview" title="What is a web hosting plan?" services="web-sites" authors="adamab" />
 
-웹 호스팅 계획이란?
-===================
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="adamab"></tags>
+
+# 웹 호스팅 계획이란?
 
 웹 호스팅 계획은 웹 사이트를 통해 공유할 수 있는 기능 및 용량의 집합을 나타냅니다. 웹 호스팅 계획은 각 계층에 고유한 기능이 있는 몇 가지 가격 계층(예: 무료, 공유, 기본 및 표준)을 지원합니다. 동일한 구독, 리소스 그룹 및 지리적 위치에 있는 사이트는 웹 호스팅 계획을 공유할 수 있습니다.
 
-웹 호스팅 계획의 기능
----------------------
+## 웹 호스팅 계획의 기능
 
-각 가격 계층(예: 무료, 공유, 기본 및 표준)에는 고유한 기능 집합이 있습니다. 최신 기능 및 가격 정보는 [여기를 참조](http://go.microsoft.com/fwlink/?LinkID=394421)하십시오.
+각 가격 계층(예: 무료, 공유, 기본 및 표준)에는 고유한 기능 집합이 있습니다. 최신 기능 및 가격 정보는 [여기를 참조][]하십시오.
 
 다음은 웹 호스팅 계획 및 기능에 대해 유용한 몇 가지 정보입니다.
 
@@ -16,8 +16,9 @@
 -   동일한 구독, 위치 및 리소스 그룹에 있는 사이트는 모두 웹 호스팅 계획을 공유할 수 있습니다.
 -   자동 확장과 같은 기능은 웹 호스팅 계획을 대상으로 지정하여 작동합니다. 개별 사이트를 자동으로 확장하려면 해당 사이트에 대한 전용 웹 호스팅 계획을 구성해야 합니다.
 
-웹 호스팅 계획 및 용량
-----------------------
+[웹 호스팅 계획 관리에 대해 자세히 알아보십시오][](영문).
+
+## 웹 호스팅 계획 및 용량
 
 무료 및 공유 계층의 웹 호스팅 계획은 사이트에 공유 인프라를 제공합니다. 즉, 사이트가 리소스를 다른 고객의 사이트와 공유합니다.
 
@@ -33,14 +34,27 @@
 
 왼쪽 메뉴 모음에 있는 **찾아보기** 단추를 사용한 후 화면에 표시되는 작업 창 오른쪽 위에 있는 **모든 항목**을 클릭하여 모든 구독에 대한 웹 호스팅 계획을 모두 볼 수 있습니다.
 
-![](./media/web-sites-web-hosting-plan-overview/browse-everything.png) 
-![](./media/web-sites-web-hosting-plan-overview/browse-web-hosting-plans.png)
+![][]
+![][1]
 
 또한 웹 사이트 블레이드의 맨 위에 표시되는 리소스 그룹의 그래픽 표시를 보면 각 웹 사이트에 연결된 웹 호스팅 계획도 볼 수 있습니다.
 
-![](./media/web-sites-web-hosting-plan-overview/web-hosting-plan-resource-map.png)
+![][2]
 
-계획을 클릭하면 웹 호스팅 계획을 관리할 수 있는 블레이드가 시작됩니다. [웹 호스팅 계획 관리에 대해 자세히 알아보십시오](http://go.microsoft.com/fwlink/?LinkID=394411)(영문).
+계획을 클릭하면 웹 호스팅 계획을 관리할 수 있는 블레이드가 시작됩니다. [웹 호스팅 계획 관리에 대해 자세히 알아보십시오][](영문).
 
-![](./media/web-sites-web-hosting-plan-overview/web-hosting-plan-blade.png)
+![][3]
 
+### 다음 단계
+
+Azure에 등록하려면 [Microsoft Azure 무료 평가판][]을 참조하세요.
+
+<!-- Images. -->
+
+  [여기를 참조]: http://go.microsoft.com/fwlink/?LinkID=394421
+  [웹 호스팅 계획 관리에 대해 자세히 알아보십시오]: http://go.microsoft.com/fwlink/?LinkID=394411
+  []: ./media/web-sites-web-hosting-plan-overview/browse-everything.png
+  [1]: ./media/web-sites-web-hosting-plan-overview/browse-web-hosting-plans.png
+  [2]: ./media/web-sites-web-hosting-plan-overview/web-hosting-plan-resource-map.png
+  [3]: ./media/web-sites-web-hosting-plan-overview/web-hosting-plan-blade.png
+  [Microsoft Azure 무료 평가판]: http://azure.microsoft.com/ko-KR/pricing/free-trial/

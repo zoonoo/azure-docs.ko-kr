@@ -105,7 +105,7 @@
   [mobile-services-create-new-push-vs2013]: ../includes/mobile-services-create-new-push-vs2013.md
   [mobile-services-dotnet-backend-update-server-push]: ../includes/mobile-services-dotnet-backend-update-server-push.md
   [mobile-services-dotnet-backend-configure-local-push-vs2013]: ../includes/mobile-services-dotnet-backend-configure-local-push-vs2013.md
-  [MobileServiceClient 개체]: http://msdn.microsoft.com/en-us/library/azure/jj554219.aspx
+  [MobileServiceClient 개체]: http://msdn.microsoft.com/ko-kr/library/azure/jj554219.aspx
   [mobile-services-dotnet-backend-windows-universal-test-push]: ../includes/mobile-services-dotnet-backend-windows-universal-test-push.md
   [인증된 사용자에게 푸시 알림 보내기]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-push-notifications-app-users/
   [데이터 시작하기]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-universal-javascript-get-started-data

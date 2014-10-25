@@ -6,13 +6,13 @@
 
 ## <a name="webclient"></a>웹 사용 현황 분석 설정
 
-아직 [웹 프로젝트에 Application Insights를 추가][웹 프로젝트에 Application Insights를 추가]하지 않은 경우 지금 추가합니다.
+아직 [웹 프로젝트에 Application Insights를 추가][start]하지 않은 경우 지금 추가합니다.
 
 ## <a name="usage"></a>사용 현황 분석
 
 응용 프로그램 개요 블레이드에는 다음과 같은 사용 현황 타일이 표시됩니다.
 
-![][]
+![](./media/appinsights/appinsights-47usage.png)
 
 ### 브라우저별 세션
 
@@ -26,13 +26,13 @@
 
 페이지 보기 타일을 클릭하면 보다 자세한 기록을 볼 수 있습니다.
 
-![][1]
+![](./media/appinsights/appinsights-49usage.png)
 
 시간 범위를 클릭하면 보다 오랜 기간의 기록(최대 7일)을 볼 수 있습니다.
 
 그래프를 클릭하면 표시할 수 있는 다른 메트릭을 볼 수 있습니다.
 
-![][2]
+![](./media/appinsights/appinsights-63usermetrics.png)
 
 ## 사용자 지정 페이지 수
 
@@ -50,13 +50,13 @@
 
 진단 검색 블레이드에서 필터를 페이지 보기로 설정합니다.
 
-![][3]
+![](./media/appinsights/appinsights-51searchpageviews.png)
 
 보다 자세한 정보를 확인하려면 원하는 이벤트를 선택합니다.
 
-> [WACOM.NOTE] [검색][검색]을 사용하는 경우 단어 단위를 사용해야 합니다. 예를 들어 "Abou"와 "bout"는 "About"과 일치하지 않지만 "Abou\* "는 일치합니다. 또한 검색 용어는 와일드로 시작할 수 없습니다. 예를 들어 "\*bou"로 검색해도 "About"는 검색되지 않습니다.
+> [WACOM.NOTE] [검색][diagnostic]을 사용하는 경우 단어 단위를 사용해야 합니다. 예를 들어 "Abou"와 "bout"는 "About"과 일치하지 않지만 "Abou\* "는 일치합니다. 또한 검색 용어는 와일드로 시작할 수 없습니다. 예를 들어 "\*bou"로 검색해도 "About"는 검색되지 않습니다.
 
-> [진단 검색에 대해 자세히 알아보기][검색]
+> [진단 검색에 대해 자세히 알아보기][diagnostic]
 
 ## 사용 현황 추적
 
@@ -64,24 +64,24 @@
 
 ## 자세한 정보
 
--   [Application Insights - 시작][웹 프로젝트에 Application Insights를 추가]
--   [라이브 웹 서버 모니터링][라이브 웹 서버 모니터링]
--   [웹 응용 프로그램의 성능 모니터링][웹 응용 프로그램의 성능 모니터링]
--   [진단 로그 검색][검색]
--   [웹 테스트를 사용한 가용성 추적][웹 테스트를 사용한 가용성 추적]
--   [사용 현황 추적][사용 현황 추적]
--   [질문과 대답 및 문제 해결][질문과 대답 및 문제 해결]
+-   [Application Insights - 시작][start]
+-   [라이브 웹 서버 모니터링][redfield]
+-   [웹 응용 프로그램의 성능 모니터링][perf]
+-   [진단 로그 검색][diagnostic]
+-   [웹 테스트를 사용한 가용성 추적][availability]
+-   [사용 현황 추적][usage]
+-   [질문과 대답 및 문제 해결][qna]
 
 <!--Link references-->
 
-  [웹 프로젝트에 Application Insights를 추가]: ../app-insights-start-monitoring-app-health-usage/
+  [start]: ../app-insights-start-monitoring-app-health-usage/
   []: ./media/appinsights/appinsights-47usage.png
   [1]: ./media/appinsights/appinsights-49usage.png
   [2]: ./media/appinsights/appinsights-63usermetrics.png
   [3]: ./media/appinsights/appinsights-51searchpageviews.png
-  [검색]: ../app-insights-search-diagnostic-logs/
-  [라이브 웹 서버 모니터링]: ../app-insights-monitor-performance-live-website-now/
-  [웹 응용 프로그램의 성능 모니터링]: ../app-insights-web-monitor-performance/
-  [웹 테스트를 사용한 가용성 추적]: ../app-insights-monitor-web-app-availability/
-  [사용 현황 추적]: ../app-insights-web-track-usage/
-  [질문과 대답 및 문제 해결]: ../app-insights-troubleshoot-faq/
+  [diagnostic]: ../app-insights-search-diagnostic-logs/
+  [redfield]: ../app-insights-monitor-performance-live-website-now/
+  [perf]: ../app-insights-web-monitor-performance/
+  [availability]: ../app-insights-monitor-web-app-availability/
+  [usage]: ../app-insights-web-track-usage/
+  [qna]: ../app-insights-troubleshoot-faq/

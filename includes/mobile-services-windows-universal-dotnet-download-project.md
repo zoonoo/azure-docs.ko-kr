@@ -10,7 +10,7 @@
 
 4.  앱에서 **Insert a TodoItem**에 일부 텍스트를 입력하고 **Save**를 클릭합니다.
 
-    ![][]
+    ![][0]
 
     저장된 텍스트가 표시됩니다.
 
@@ -21,5 +21,5 @@
 6.  3단계와 4단계를 반복하여 샘플이 같은 방식으로 동작하는지 확인합니다.
 
   [GetStartedWithMobileServices 앱]: http://go.microsoft.com/fwlink/p/?LinkID=510826
-  []: ./media/mobile-services-windows-universal-dotnet-download-project/mobile-quickstart-startup.png
+  [0]: ./media/mobile-services-windows-universal-dotnet-download-project/mobile-quickstart-startup.png
   [1]: ./media/mobile-services-windows-universal-dotnet-download-project/mobile-quickstart-startup-wp8.png

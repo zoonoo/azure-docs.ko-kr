@@ -1,20 +1,22 @@
-<properties linkid="dev-net-transform-extend-site" urlDisplayName="Service Bus Topics" pageTitle="Transform and extend your site" metaKeywords="none" description="TBD" metaCanonical="" disqusComments="1" umbracoNaviHide="0" authors="timamm" writer="timamm" editor="mollybos" manager="paulettm" title="Transform and extend your site" />
+<properties linkid="dev-net-transform-extend-site" urlDisplayName="Service Bus Topics" pageTitle="Transform and extend your site" metaKeywords="none" description="TBD" metaCanonical="" disqusComments="1" umbracoNaviHide="0" authors="cephalin" writer="cephalin" editor="mollybos" manager="wpickett" title="Transform and extend your site"/>
 
-사이트 변환 및 확장
-===================
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin"></tags>
 
-XDT([XML 문서 변환](http://msdn.microsoft.com/ko-kr/library/dd465326.aspx))(영문) 선언을 사용하여 Windows Azure 웹 사이트의 [ApplicationHost.config](http://www.iis.net/learn/get-started/planning-your-iis-architecture/introduction-to-applicationhostconfig) 파일을 변환할 수 있습니다. XDT 선언을 사용하여 사용자 지정 사이트 관리 작업을 가능하게 하는 개인 사이트 확장을 추가할 수도 있습니다. 이 문서에는 웹 인터페이스를 통해 PHP 설정을 관리할 수 있는 샘플 PHP Manager 사이트 확장이 포함되어 있습니다.
+# 사이트 변환 및 확장
 
--   [ApplicationHost.config에서 사이트 구성 변환](#transform)
--   [사이트 확장](#extend)
-    -   [개인 사이트 확장 개요](#overview)
-    -   [사이트 확장 예: PHP Manager](#SiteSample)
-        -   [PHP Manager 웹 앱](#PHPwebapp)
-        -   [applicationHost.xdt 파일](#XDT)
-    -   [사이트 확장 배포](#deploy)
+XDT([XML 문서 변환][]) 선언을 사용하여 Windows Azure 웹 사이트의 [ApplicationHost.config][] 파일을 변환할 수 있습니다. XDT 선언을 사용하여 사용자 지정 사이트 관리 작업을 가능하게 하는 개인 사이트 확장을 추가할 수도 있습니다. 이 문서에는 웹 인터페이스를 통해 PHP 설정을 관리할 수 있는 샘플 PHP Manager 사이트 확장이 포함되어 있습니다.
 
-ApplicationHost.config에서 사이트 구성 변환
--------------------------------------------
+<!-- MINI TOC -->
+
+-   [ApplicationHost.config에서 사이트 구성 변환][]
+-   [사이트 확장][]
+    -   [개인 사이트 확장 개요][]
+    -   [사이트 확장 예: PHP Manager][]
+        -   [PHP Manager 웹 앱][]
+        -   [applicationHost.xdt 파일][]
+    -   [사이트 확장 배포][]
+
+## <span id="transform"></span></a>ApplicationHost.config에서 사이트 구성 변환
 
 Azure 웹 사이트 플랫폼에서는 융통성 있게 사이트 구성을 제어할 수 있습니다. Windows Azure 웹 사이트에서 직접적인 편집에 표준 IIS ApplicationHost.config 구성 파일을 사용할 수 없지만, 이 플랫폼은 XDT(XML 문서 변환)를 기반으로 하여 선언적인 ApplicationHost.config 변환 모델을 지원합니다.
 
@@ -22,30 +24,30 @@ Azure 웹 사이트 플랫폼에서는 융통성 있게 사이트 구성을 제�
 
 다음 applicationHost.xdt 샘플은 PHP 5.4를 사용하는 사이트에 새로운 사용자 지정 환경 변수를 추가하는 방법을 보여 줍니다.
 
-	<?xml version="1.0"?> 
-	<configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform"> 
-  		<system.webServer> 
-    			<fastCgi>
-      				<application>
-         				<environmentVariables>
-            					<environmentVariable name="CONFIGTEST" value="TEST" xdt:Transform="Insert" xdt:Locator="XPath(/configuration/system.webServer/fastCgi/application[contains(@fullPath,'5.4')]/environmentVariables)" />	
-         				</environmentVariables>
-      				</application>
-    			</fastCgi> 
-  		</system.webServer> 
-	</configuration> 
+    <?xml version="1.0"?> 
+    <configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform"> 
+        <system.webServer> 
+                <fastCgi>
+                    <application>
+                        <environmentVariables>
+                                <environmentVariable name="CONFIGTEST" value="TEST" xdt:Transform="Insert" xdt:Locator="XPath(/configuration/system.webServer/fastCgi/application[contains(@fullPath,'5.4')]/environmentVariables)" />  
+                        </environmentVariables>
+                    </application>
+                </fastCgi> 
+        </system.webServer> 
+    </configuration> 
 
 변환 상태가 포함된 로그 파일 및 자세한 정보는 FTP 루트의 LogFiles\\Transform 아래에서 사용할 수 있습니다.
 
-추가 샘플은 <https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions>(영문)를 참조하십시오.
+추가 샘플은 [][]<https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions></a>(영문)를 참조하십시오.
 
-**참고**<br />
+**참고**
+
 `system.webServer` 아래에 있는 모듈 목록의 요소를 제거하거나 요소의 순서를 바꿀 수 없지만 목록에 추가할 수는 있습니다.
 
-사이트 확장
------------
+## <span id="extend"></span></a>사이트 확장
 
-### 개인 사이트 확장 개요
+### <span id="overview"></span></a>개인 사이트 확장 개요
 
 Azure 웹 사이트는 사이트 관리 작업을 위한 확장 포인트로 사이트 확장을 지원합니다. 실제로 일부 Azure 웹 사이트 플랫폼 기능은 사전 설치된 사이트 확장으로 구현됩니다. 사전 설치된 플랫폼 확장은 수정할 수 없는 반면, 고유 사이트의 개인 확장은 만들고 구성할 수 있습니다. 또한 이 기능은 XDT 선언이 있어야 사용할 수 있습니다. 개인 사이트 확장을 만드는 주요 단계는 다음과 같습니다.
 
@@ -56,23 +58,23 @@ Azure 웹 사이트는 사이트 관리 작업을 위한 확장 포인트로 사
 
 웹 응용 프로그램의 내부 링크는 ApplicationHost.xdt 파일에 지정된 응용 프로그램 경로의 상대 경로를 가리켜야 합니다. ApplicationHost.xdt 파일이 변경되면 사이트를 재순환해야 합니다.
 
-**참고**: 이 주요 요소에 대한 자세한 내용은 <https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions>(영문)를 참조하십시오. 개인 사이트 확장을 만들고 사용하도록 설정하는 단계를 설명하는 자세한 예제가 포함되어 있습니다. 다음에 나오는 PHP Manager 예제의 소스 코드는 <https://github.com/projectkudu/PHPManager>(영문)에서 다운로드할 수 있습니다.
+**참고**: 이 주요 요소에 대한 자세한 내용은 [][]<https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions></a>(영문)를 참조하십시오. 개인 사이트 확장을 만들고 사용하도록 설정하는 단계를 설명하는 자세한 예제가 포함되어 있습니다. 다음에 나오는 PHP Manager 예제의 소스 코드는 [][1]<https://github.com/projectkudu/PHPManager></a>(영문)에서 다운로드할 수 있습니다.
 
-### 사이트 확장 예: PHP Manager
+### <span id="SiteSample"></span></a>사이트 확장 예: PHP Manager
 
 PHP Manager는 사이트 관리자가 PHP .ini 파일을 직접 수정할 필요 없이 웹 인터페이스에서 쉽게 PHP 설정을 보고 구성할 수 있게 하는 사이트 확장입니다. PHP의 일반적인 구성 파일에는 프로그램 파일 아래에 있는 php.ini 파일 및 사이트의 루트 폴더에 있는 .user.ini 파일이 포함됩니다. php.ini 파일은 Azure 웹 사이트 플랫폼에서 직접 편집할 수 없기 때문에 PHP Manager 확장에서 .user.ini 파일을 사용하여 설정 변경을 적용합니다.
 
-#### PHP Manager 웹 앱
+#### <span id="PHPwebapp"></span></a>PHP Manager 웹 앱
 
 다음은 PHP Manager 웹 사이트의 홈페이지입니다.
 
-![TransformSitePHPUI](./media/web-sites-transform-extend/TransformSitePHPUI.png)
+![TransformSitePHPUI][]
 
 사이트 확장은 사이트의 루트 폴더에 있는 추가 ApplicationHost.xdt 파일 외에는 일반적인 웹 응용 프로그램과 같습니다. ApplicationHost.xdt 파일에 대한 자세한 내용은 이 문서의 다음 섹션에서 확인할 수 있습니다.
 
 PHP Manager 확장은 Visual Studio ASP.NET MVC 4 웹 응용 프로그램 템플릿을 사용하여 만들어졌습니다. 다음은 솔루션 탐색기의 보기로, PHP Manager 사이트 확장의 구조를 보여 줍니다.
 
-![TransformSiteSolEx](./media/web-sites-transform-extend/TransformSiteSolEx.png)
+![TransformSiteSolEx][]
 
 파일 I/O에 필요한 유일한 특수 논리는 사이트의 wwwroot 디렉터리가 있는 위치를 나타내는 것입니다. 다음 코드 예제에서 환경 변수 "HOME"은 사이트 루트 경로를 나타내며 wwwroot 경로는 "site\\wwwroot"를 추가하여 구성할 수 있음을 알 수 있습니다.
 
@@ -102,64 +104,64 @@ PHP Manager 확장은 Visual Studio ASP.NET MVC 4 웹 응용 프로그램 템플
 
 이 요구 사항을 따르지 않으려면 웹 사이트 내에서 상대 경로만 사용하거나 ASP.NET 웹 사이트의 경우 적절한 링크를 만드는 `@Html.ActionLink` 메서드를 사용하면 됩니다.
 
-#### applicationHost.xdt 파일
+#### <span id="XDT"></span></a>applicationHost.xdt 파일
 
 사이트 확장용 코드는 %HOME%\\SiteExtensions[your-extension-name] 아래에 위치합니다. 이를 확장 루트라고 합니다.
 
 applicationHost.config 파일에 사이트 확장을 등록하려면 확장 루트에 ApplicationHost.xdt라는 파일을 배치해야 합니다. ApplicationHost.xdt 파일의 콘텐츠는 다음과 같습니다.
 
-	<?xml version="1.0"?>
-	<configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
-  		<system.applicationHost>
-    			<sites>
-      				<site name="%XDT_SCMSITENAME%" xdt:Locator="Match(name)">
-						<!-- NOTE: Add your extension name in the application paths below -->
-        				<application path="/[your-extension-name]" xdt:Locator="Match(path)" xdt:Transform="Remove" />
-        				<application path="/[your-extension-name]" applicationPool="%XDT_APPPOOLNAME%" xdt:Transform="Insert">
-          					<virtualDirectory path="/" physicalPath="%XDT_EXTENSIONPATH%" />
-        				</application>
-      				</site>
-    			</sites>
-  		</system.applicationHost>
-	</configuration>
+    <?xml version="1.0"?>
+    <configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+        <system.applicationHost>
+                <sites>
+                    <site name="%XDT_SCMSITENAME%" xdt:Locator="Match(name)">
+                        <!-- NOTE: Add your extension name in the application paths below -->
+                        <application path="/[your-extension-name]" xdt:Locator="Match(path)" xdt:Transform="Remove" />
+                        <application path="/[your-extension-name]" applicationPool="%XDT_APPPOOLNAME%" xdt:Transform="Insert">
+                            <virtualDirectory path="/" physicalPath="%XDT_EXTENSIONPATH%" />
+                        </application>
+                    </site>
+                </sites>
+        </system.applicationHost>
+    </configuration>
 
 확장 이름으로 선택하는 이름은 확장 루트 폴더와 이름이 같아야 합니다.
 
 이렇게 하면 `system.applicationHost` 사이트 목록에서 SCM 사이트 아래에 새 응용 프로그램 경로를 추가하는 효과가 있습니다. SCM 사이트는 특정 액세스 자격 증명이 사용되는 사이트 관리 끝점입니다. 여기에는 URL `https://[your-site-name].scm.azurewebsites.net`이 포함됩니다.
 
-	<system.applicationHost>
-  		...
-  		<site name="~1[your-website]" id="1716402716">
-      			<bindings>
-        			<binding protocol="http" bindingInformation="*:80: [your-website].scm.azurewebsites.net" />
-        			<binding protocol="https" bindingInformation="*:443: [your-website].scm.azurewebsites.net" />
-      			</bindings>
-      			<traceFailedRequestsLogging enabled="false" directory="C:\DWASFiles\Sites\[your-website]\VirtualDirectory0\LogFiles" />
-      			<detailedErrorLogging enabled="false" directory="C:\DWASFiles\Sites\[your-website]\VirtualDirectory0\LogFiles\DetailedErrors" />
-      			<logFile logSiteId="false" />
-      			<application path="/" applicationPool="[your-website]">
-        			<virtualDirectory path="/" physicalPath="D:\Program Files (x86)\SiteExtensions\Kudu\1.24.20926.5" />
-      			</application>
-				<!-- Note the custom changes that go here -->
-      			<application path="/[your-extension-name]" applicationPool="[your-website]">
-        			<virtualDirectory path="/" physicalPath="C:\DWASFiles\Sites\[your-website]\VirtualDirectory0\SiteExtensions\[your-extension-name]" />
-      			</application>
-    		</site>
-  	</sites>
-	  ...
-	</system.applicationHost>
+    <system.applicationHost>
+        ...
+        <site name="~1[your-website]" id="1716402716">
+                <bindings>
+                    <binding protocol="http" bindingInformation="*:80: [your-website].scm.azurewebsites.net" />
+                    <binding protocol="https" bindingInformation="*:443: [your-website].scm.azurewebsites.net" />
+                </bindings>
+                <traceFailedRequestsLogging enabled="false" directory="C:\DWASFiles\Sites\[your-website]\VirtualDirectory0\LogFiles" />
+                <detailedErrorLogging enabled="false" directory="C:\DWASFiles\Sites\[your-website]\VirtualDirectory0\LogFiles\DetailedErrors" />
+                <logFile logSiteId="false" />
+                <application path="/" applicationPool="[your-website]">
+                    <virtualDirectory path="/" physicalPath="D:\Program Files (x86)\SiteExtensions\Kudu\1.24.20926.5" />
+                </application>
+                <!-- Note the custom changes that go here -->
+                <application path="/[your-extension-name]" applicationPool="[your-website]">
+                    <virtualDirectory path="/" physicalPath="C:\DWASFiles\Sites\[your-website]\VirtualDirectory0\SiteExtensions\[your-extension-name]" />
+                </application>
+            </site>
+    </sites>
+      ...
+    </system.applicationHost>
 
-### 사이트 확장 배포
+### <span id="deploy"></span></a>사이트 확장 배포
 
 사이트 확장을 설치하려면 확장을 설치할 사이트의 `\SiteExtensions\[your-extension-name]` 폴더에 웹 앱의 모든 파일을 FTP를 사용하여 복사할 수 있습니다. 이 위치에 ApplicationHost.xdt 파일도 복사해야 합니다.
 
 다음으로, Windows Azure 웹 사이트 포털에서 확장이 있는 웹 사이트의 **구성** 탭으로 이동합니다. **앱 설정** 섹션에서 키 `WEBSITE_PRIVATE_EXTENSIONS`를 추가하고 `1` 값을 지정합니다.
 
-![TransformSiteappSettings](./media/web-sites-transform-extend/TransformSiteappSettings.png)
+![TransformSiteappSettings][]
 
 마지막으로, Windows Azure 포털에서 웹 사이트를 다시 시작하여 확장을 사용하도록 설정합니다.
 
-![TransformSiteRestart](./media/web-sites-transform-extend/TransformSiteRestart.png)
+![TransformSiteRestart][]
 
 다음 주소에서 사이트 확장을 볼 수 있습니다.
 
@@ -167,3 +169,20 @@ applicationHost.config 파일에 사이트 확장을 등록하려면 확장 루�
 
 이 URL은 HTTPS가 사용되며 ".scm"이 포함된 것을 제외하고는 사이트의 URL과 같습니다.
 
+<!-- IMAGES -->
+
+  [XML 문서 변환]: http://msdn.microsoft.com/ko-KR/library/dd465326.aspx
+  [ApplicationHost.config]: http://www.iis.net/learn/get-started/planning-your-iis-architecture/introduction-to-applicationhostconfig
+  [ApplicationHost.config에서 사이트 구성 변환]: #transform
+  [사이트 확장]: #extend
+  [개인 사이트 확장 개요]: #overview
+  [사이트 확장 예: PHP Manager]: #SiteSample
+  [PHP Manager 웹 앱]: #PHPwebapp
+  [applicationHost.xdt 파일]: #XDT
+  [사이트 확장 배포]: #deploy
+  []: https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions
+  [1]: https://github.com/projectkudu/PHPManager
+  [TransformSitePHPUI]: ./media/web-sites-transform-extend/TransformSitePHPUI.png
+  [TransformSiteSolEx]: ./media/web-sites-transform-extend/TransformSiteSolEx.png
+  [TransformSiteappSettings]: ./media/web-sites-transform-extend/TransformSiteappSettings.png
+  [TransformSiteRestart]: ./media/web-sites-transform-extend/TransformSiteRestart.png

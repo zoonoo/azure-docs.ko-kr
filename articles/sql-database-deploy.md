@@ -1,7 +1,8 @@
-<properties linkid="manage-services-how-to-deploy-a-sqldb" urlDisplayName="How to deploy" pageTitle="How to deploy a SQL Database - Azure" metaKeywords="" description="Learn how to deploy a SQL Server database to Azure. You will use the Deploy Database to SQL Database wizard to upload a sample database." metaCanonical="" services="sql-database" documentationCenter="" title="How to Deploy a Database to Azure" authors="" solutions="" manager="" editor="" />
+<properties linkid="manage-services-how-to-deploy-a-sqldb" urlDisplayName="How to deploy" pageTitle="How to deploy a SQL Database - Azure" metaKeywords="" description="Learn how to deploy a SQL Server database to Azure. You will use the Deploy Database to SQL Database wizard to upload a sample database." metaCanonical="" services="sql-database" documentationCenter="" title="How to Deploy a Database to Azure" authors="Lori Clark" solutions="" manager="" editor="" />
 
-Azure에 데이터베이스를 배포하는 방법
-====================================
+<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="Lori Clark"></tags>
+
+# <span id="howtodeploySQLdb"></span></a>Azure에 데이터베이스를 배포하는 방법
 
 온-프레미스 SQL Server 데이터베이스를 Azure로 이동할 수 있는 방법에는 여러 가지가 있습니다. 이 작업에서는 Deploy Database to SQL Database 마법사를 사용하여 샘플 데이터베이스를 업로드합니다.
 
@@ -9,17 +10,15 @@ School 샘플 데이터베이스는 편의상 단순합니다. 모든 해당 개
 
 **참고:** Azure로 마이그레이션하기 위해 온-프레미스 데이터베이스를 준비하는 방법에 대한 자세한 지침은 SQL 데이터베이스 마이그레이션 가이드를 참조하십시오. 또한 Azure 트레이닝 키트 다운로드를 고려하십시오. 이 키트에는 온-프레미스 데이터베이스를 마이그레이션하는 다른 방법을 보여 주는 랩이 포함되어 있습니다.
 
-목차
-----
+## 목차
 
--   [방법: 온-프레미스 서버에서 school 데이터베이스 만들기](#schooldb)
--   [방법: SQL 데이터베이스에 배포](#deploydb)
--   [방법: 데이터베이스 배포 확인](#verify)
+-   [방법: 온-프레미스 서버에서 school 데이터베이스 만들기][]
+-   [방법: SQL 데이터베이스에 배포][]
+-   [방법: 데이터베이스 배포 확인][]
 
-방법: 온-프레미스 서버에서 school 데이터베이스 만들기
------------------------------------------------------
+## <span id="schooldb"></span></a>방법: 온-프레미스 서버에서 school 데이터베이스 만들기
 
-이 데이터베이스를 만드는 스크립트는 [SQL 데이터베이스 관리 시작](/en-us/manage/services/sql-databases/getting-started-w-sql-databases/)(영문)에서 찾을 수 있습니다. 이 가이드에서는 Management Studio에서 이러한 스크립트를 실행하여 school 데이터베이스의 온-프레미스 버전을 만듭니다.
+이 데이터베이스를 만드는 스크립트는 [SQL 데이터베이스 관리 시작][](영문)에서 찾을 수 있습니다. 이 가이드에서는 Management Studio에서 이러한 스크립트를 실행하여 school 데이터베이스의 온-프레미스 버전을 만듭니다.
 
 1.  Management Studio에서 온-프레미스 서버에 연결합니다. **데이터베이스**를 마우스 오른쪽 단추로 클릭하고 **새 데이터베이스**를 클릭한 후 *school*을 입력합니다.
 
@@ -27,7 +26,7 @@ School 샘플 데이터베이스는 편의상 단순합니다. 모든 해당 개
 
 3.  자습서에서 스키마 만들기 스크립트를 복사한 후 실행합니다.
 
-``` {}
+<div style="width:auto; height:300px; overflow:auto"><pre>
     -- Create the Department table.
     IF NOT EXISTS (SELECT * FROM sys.objects 
         WHERE object_id = OBJECT_ID(N'[dbo].[Department]') 
@@ -263,11 +262,11 @@ School 샘플 데이터베이스는 편의상 단순합니다. 모든 해당 개
     ALTER TABLE [dbo].[OfficeAssignment] CHECK 
      CONSTRAINT [FK_OfficeAssignment_Person];
     GO
-```
+</pre></div>
 
 이제 데이터 삽입 스크립트를 복사한 후 실행합니다.
 
-``` {}
+<div style="width:auto; height:300px; overflow:auto"><pre>
     -- Insert data into the Person table.
     SET IDENTITY_INSERT dbo.Person ON;
     GO
@@ -517,14 +516,13 @@ School 샘플 데이터베이스는 편의상 단순합니다. 모든 해당 개
     INSERT INTO dbo.StudentGrade (CourseID, StudentID, Grade)
     VALUES (1061, 30, 4);
     GO
-```
+</pre></div>
 
 이제 Azure로 내보낼 수 있는 온-프레미스 데이터베이스가 있습니다. 다음 단계로 .bacpacxt 파일을 만들어 이 파일을 Azure에 로드하고 SQL 데이터베이스로 가져오는 마법사를 실행합니다.
 
-방법: SQL 데이터베이스에 배포
------------------------------
+## <span id="deploydb"></span></a>방법: SQL 데이터베이스에 배포
 
-1.  Management Studio에서 마이그레이션할 데이터베이스가 포함되어 있는 온-프레미스 SQL Server 인스턴스에 연결합니다.
+1.  Management Studio에서 마이그레이션할 데이터베이스가 포함된 온-프레미스 SQL Server 인스턴스에 연결합니다.
 
 2.  방금 만든 school 데이터베이스를 마우스 오른쪽 단추로 클릭하고 **작업**을 가리킨 후 **SQL Azure에 데이터베이스 배포**를 클릭합니다.
 
@@ -546,8 +544,7 @@ School 샘플 데이터베이스는 편의상 단순합니다. 모든 해당 개
 
 11. **다음**을 클릭하고 **마침**을 클릭하여 마법사를 실행합니다.
 
-방법: 데이터베이스 배포 확인
-----------------------------
+## <span id="verify"></span></a>방법: 데이터베이스 배포 확인
 
 1.  Management Studio의 개체 탐색기에서 데이터베이스를 새로 고쳐 방금 만든 새 데이터베이스를 표시합니다.
 
@@ -557,14 +554,14 @@ School 샘플 데이터베이스는 편의상 단순합니다. 모든 해당 개
 
 4.  다음 쿼리를 실행하여 데이터에 액세스할 수 있는지 확인합니다.
 
-``` {}
+<div style="width:auto; height:auto; overflow:auto"><pre>
     SELECT
-        Course.Title as "Course Title"
-        ,Department.Name as "Department"
-        ,Person.LastName as "Instructor"
-        ,OnsiteCourse.Location as "Location"
-        ,OnsiteCourse.Days as "Days"
-        ,OnsiteCourse.Time as "Time"
+        Course.Title as &quot;Course Title&quot;
+        ,Department.Name as &quot;Department&quot;
+        ,Person.LastName as &quot;Instructor&quot;
+        ,OnsiteCourse.Location as &quot;Location&quot;
+        ,OnsiteCourse.Days as &quot;Days&quot;
+        ,OnsiteCourse.Time as &quot;Time&quot;
     FROM
      Course
      INNER JOIN Department
@@ -575,4 +572,9 @@ School 샘플 데이터베이스는 편의상 단순합니다. 모든 해당 개
        ON CourseInstructor.PersonID = Person.PersonID
      INNER JOIN OnsiteCourse
         ON OnsiteCourse.CourseID = CourseInstructor.CourseID;
-```
+</pre></div>
+
+  [방법: 온-프레미스 서버에서 school 데이터베이스 만들기]: #schooldb
+  [방법: SQL 데이터베이스에 배포]: #deploydb
+  [방법: 데이터베이스 배포 확인]: #verify
+  [SQL 데이터베이스 관리 시작]: /ko-KR/manage/services/sql-databases/getting-started-w-sql-databases/

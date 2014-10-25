@@ -113,7 +113,7 @@
   [Azure에 모바일 서비스 게시]: #publish-mobile-service
   [Azure에서 호스트되는 서비스에 대해 앱 테스트]: #test-azure-hosted
   [SQL 데이터베이스에 저장된 데이터 확인]: #view-stored-data
-  [Azure 무료 평가판]: http://azure.microsoft.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-universal-javascript-get-started-data%2F
+  [Azure 무료 평가판]: http://azure.microsoft.com/ko-kr/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fazure.microsoft.com%2Fko-kr%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-universal-javascript-get-started-data%2F
   [Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=257546
   [mobile-services-windows-universal-javascript-download-project]: ../includes/mobile-services-windows-universal-javascript-download-project.md
   [mobile-services-dotnet-backend-create-new-service-vs2013]: ../includes/mobile-services-dotnet-backend-create-new-service-vs2013.md
@@ -122,8 +122,8 @@
   [mobile-services-dotnet-backend-publish-service]: ../includes/mobile-services-dotnet-backend-publish-service.md
   [mobile-services-windows-universal-test-app]: ../includes/mobile-services-windows-universal-test-app.md
   [mobile-services-dotnet-backend-view-sql-data]: ../includes/mobile-services-dotnet-backend-view-sql-data.md
-  [스크립트를 사용하여 데이터 유효성 검사 및 수정]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-js
-  [페이징을 사용하여 쿼리 구체화]: /en-us/develop/mobile/tutorials/add-paging-to-data-js
+  [스크립트를 사용하여 데이터 유효성 검사 및 수정]: /ko-kr/develop/mobile/tutorials/validate-modify-and-augment-data-js
+  [페이징을 사용하여 쿼리 구체화]: /ko-kr/develop/mobile/tutorials/add-paging-to-data-js
   [인증 시작]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-users/
   [푸시 알림 시작]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push/
   [모바일 서비스 .NET 방법 개념 참조]: /ko-kr/documentation/articles/mobile-services-html-how-to-use-client-library/

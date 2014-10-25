@@ -1,34 +1,32 @@
 <properties linkid="dev-ruby-how-to-service-bus-queues" urlDisplayName="Service Bus Queues" pageTitle="How to use Service Bus queues (Ruby) - Azure" metaKeywords="Azure Service Bus queues, Azure queues, Azure messaging, Azure queues Ruby" description="Learn how to use Service Bus queues in Azure. Code samples written in Ruby." metaCanonical="" services="service-bus" documentationCenter="Ruby" title="How to Use Service Bus Queues" authors="guayan" solutions="" manager="" editor="" />
 
-서비스 버스 큐를 사용하는 방법
-==============================
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="01/01/1900" ms.author="guayan"></tags>
 
-이 가이드에서는 서비스 버스 큐를 사용하는 방법을 보여 줍니다. 샘플은 Ruby로 작성되었으며 Azure gem을 사용합니다. 여기서 다루는 시나리오에는 **큐 만들기, 메시지 보내기 및 받기**, **큐 삭제** 등이 포함됩니다. 큐에 대한 자세한 내용은 [다음 단계](#next-steps) 섹션을 참조하십시오.
+# 서비스 버스 큐를 사용하는 방법
 
-목차
-----
+이 가이드에서는 서비스 버스 큐를 사용하는 방법을 보여 줍니다. 샘플은 Ruby로 작성되었으며 Azure gem을 사용합니다. 여기서 다루는 시나리오에는 **큐 만들기, 메시지 보내기 및 받기**, **큐 삭제** 등이 포함됩니다. 큐에 대한 자세한 내용은 [다음 단계][] 섹션을 참조하세요.
 
--   [서비스 버스 큐 정의](#what-are-service-bus-queues)
--   [서비스 네임스페이스 만들기](#create-a-service-namespace)
--   [네임스페이스에 대한 기본 관리 자격 증명 얻기](#obtain-default-credentials)
--   [Ruby 응용 프로그램 만들기](#create-a-ruby-application)
--   [서비스 버스를 사용하도록 응용 프로그램 구성](#configure-your-application-to-use-service-bus)
--   [Azure 서비스 버스 연결 설정](#setup-a-windows-azure-service-bus-connection)
--   [큐를 만드는 방법](#how-to-create-a-queue)
--   [큐에 메시지를 보내는 방법](#how-to-send-messages-to-a-queue)
--   [큐에서 메시지를 받는 방법](#how-to-receive-messages-from-a-queue)
--   [응용 프로그램 크래시 및 읽을 수 없는 메시지를 처리하는 방법](#how-to-handle-application-crashes-and-unreadable-messages)
--   [다음 단계](#next-steps)
+## 목차
 
-[WACOM.INCLUDE [howto-service-bus-queues](../includes/howto-service-bus-queues.md)]
+-   [서비스 버스 큐 정의][]
+-   [서비스 네임스페이스 만들기][]
+-   [네임스페이스에 대한 기본 관리 자격 증명 얻기][]
+-   [Ruby 응용 프로그램 만들기][]
+-   [서비스 버스를 사용하도록 응용 프로그램 구성][]
+-   [Azure 서비스 버스 연결 설정][]
+-   [큐를 만드는 방법][]
+-   [큐에 메시지를 보내는 방법][]
+-   [큐에서 메시지를 받는 방법][]
+-   [응용 프로그램 크래시 및 읽을 수 없는 메시지를 처리하는 방법][]
+-   [다음 단계][]
 
-Ruby 응용 프로그램 만들기
--------------------------
+[WACOM.INCLUDE [howto-service-bus-queues][]]
 
-Ruby 응용 프로그램을 만듭니다. 자세한 내용은 [Azure에서 Ruby 응용 프로그램 만들기](/en-us/develop/ruby/tutorials/web-app-with-linux-vm/)(영문)를 참조하십시오.
+## <span id="create-a-ruby-application"></span></a>Ruby 응용 프로그램 만들기
 
-서비스 버스를 사용하도록 응용 프로그램 구성
--------------------------------------------
+Ruby 응용 프로그램을 만듭니다. 자세한 내용은 [Azure에서 Ruby 응용 프로그램 만들기][](영문)를 참조하십시오.
+
+## <span id="configure-your-application-to-use-service-bus"></span></a> 서비스 버스를 사용하도록 응용 프로그램 구성
 
 Azure 서비스 버스를 사용하려면 저장소 REST 서비스와 통신하는 편리한 라이브러리 집합이 포함된 Ruby Azure 패키지를 다운로드하여 사용해야 합니다.
 
@@ -44,16 +42,14 @@ Azure 서비스 버스를 사용하려면 저장소 REST 서비스와 통신하�
 
     require "azure"
 
-Azure 서비스 버스 연결 설정
----------------------------
+## <span id="setup-a-windows-azure-service-bus-connection"></span></a>Azure 서비스 버스 연결 설정
 
 Azure 모듈은 **AZURE\_SERVICEBUS\_NAMESPACE** 및 **AZURE\_SERVICEBUS\_ACCESS\_KEY** 환경 변수를 읽고 Azure 서비스 버스 네임스페이스에 연결하는 데 필요한 정보를 확인합니다. 이러한 환경 변수를 설정하지 않은 경우 **Azure::ServiceBusService**를 사용하기 전에 다음 코드로 네임스페이스 정보를 지정해야 합니다.
 
     Azure.config.sb_namespace = "<your azure service bus namespace>"
     Azure.config.sb_access_key = "<your azure service bus access key>"
 
-큐를 만드는 방법
-----------------
+## <span id="how-to-create-a-queue"></span></a>큐를 만드는 방법
 
 **Azure::ServiceBusService** 개체를 사용하면 큐로 작업할 수 있습니다. 큐를 만들려면 **create\_queue()** 메서드를 사용합니다. 다음 예제에서는 큐를 만들거나 오류가 있는 경우 오류를 출력합니다.
 
@@ -72,8 +68,7 @@ Azure 모듈은 **AZURE\_SERVICEBUS\_NAMESPACE** 및 **AZURE\_SERVICEBUS\_ACCESS
 
     queue = azure_service_bus_service.create_queue(queue)
 
-큐에 메시지를 보내는 방법
--------------------------
+## <span id="how-to-send-messages-to-a-queue"></span></a>큐에 메시지를 보내는 방법
 
 서비스 버스 큐에 메시지를 보내기 위해 응용 프로그램에서 **Azure::ServiceBusService** 개체의 **send\_queue\_message()** 메서드를 호출합니다. 서비스 버스 큐로 보내고 받는 메시지는 **Azure::ServiceBus::BrokeredMessage** 개체이며 표준 속성 집합(예: **label** 및 **time\_to\_live**), 응용 프로그램별 사용자 지정 속성을 저장하는 데 사용되는 사전 및 임의 응용 프로그램 데이터 본문을 포함합니다. 응용 프로그램은 문자열 값을 메시지로 전달하여 메시지의 본문을 설정할 수 있습니다. 그러면 필수 표준 속성이 기본값으로 채워집니다.
 
@@ -85,8 +80,7 @@ Azure 모듈은 **AZURE\_SERVICEBUS\_NAMESPACE** 및 **AZURE\_SERVICEBUS\_ACCESS
 
 서비스 버스 큐는 256KB의 최대 메시지 크기를 지원합니다(표준 및 사용자 지정 응용 프로그램 속성이 포함된 헤더의 최대 크기는 64KB임). 한 큐에 저장되는 메시지 수에는 제한이 없지만 한 큐에 저장되는 총 메시지 크기는 제한됩니다. 이 큐 크기는 생성 시 정의되며 상한이 5GB입니다.
 
-큐에서 메시지를 받는 방법
--------------------------
+## <span id="how-to-receive-messages-from-a-queue"></span></a>큐에서 메시지를 받는 방법
 
 **Azure::ServiceBusService** 개체의 **receive\_queue\_message()** 메서드를 사용하여 큐에서 메시지를 받습니다. 기본적으로 메시지는 큐에서 삭제하지 않고 읽고 잠급니다. 그러나 **:peek\_lock** 옵션을 **false**로 설정하여 메시지를 읽고 큐에서 삭제할 수 있습니다.
 
@@ -99,11 +93,9 @@ Azure 모듈은 **AZURE\_SERVICEBUS\_NAMESPACE** 및 **AZURE\_SERVICEBUS\_ACCESS
     message = azure_service_bus_service.receive_queue_message("test-queue", 
       { :peek_lock => false })
     message = azure_service_bus_service.receive_queue_message("test-queue")
-    azure_service_bus_service.delete_queue_message("test-queue",
-      message.sequence_number, message.lock_token)
+    azure_service_bus_service.delete_queue_message(message)
 
-응용 프로그램 크래시 및 읽을 수 없는 메시지를 처리하는 방법
------------------------------------------------------------
+## <span id="how-to-handle-application-crashes-and-unreadable-messages"></span></a> 응용 프로그램 크래시 및 읽을 수 없는 메시지를 처리하는 방법
 
 서비스 버스는 응용 프로그램 오류나 메시지 처리 문제를 정상적으로 복구하는 데 유용한 기능을 제공합니다. 어떤 이유로든 수신 응용 프로그램이 메시지를 처리할 수 없는 경우 **Azure::ServiceBusService** 개체의 **unlock\_queue\_message()** 메서드를 호출할 수 있습니다. 그러면 서비스 버스에서 큐 메시지의 잠금을 해제하므로 동일한 소비 응용 프로그램이나 다른 소비 응용 프로그램에서 메시지를 다시 받을 수 있습니다.
 
@@ -111,13 +103,29 @@ Azure 모듈은 **AZURE\_SERVICEBUS\_NAMESPACE** 및 **AZURE\_SERVICEBUS\_ACCESS
 
 응용 프로그램이 메시지를 처리한 후 **delete\_queue\_message()** 메서드가 호출되기 전에 크래시되는 경우, 다시 시작될 때 메시지가 응용 프로그램에 다시 배달됩니다. 이를 **최소 한 번 이상 처리**라고 합니다. 즉, 각 메시지가 최소 한 번 이상 처리되지만 특정 상황에서는 동일한 메시지가 다시 배달될 수 있습니다. 중복 처리가 허용되지 않는 시나리오에서는 응용 프로그램 개발자가 중복 메시지 배달을 처리하는 논리를 응용 프로그램에 추가해야 합니다. 이 경우 대체로 배달 시도 간에 일정하게 유지되는 메시지의 **message\_id** 속성을 사용합니다.
 
-다음 단계
----------
+## <span id="next-steps"></span></a>다음 단계
 
 이제 서비스 버스 큐의 기본 사항을 익혔으므로 다음 링크를 따라 자세히 알아보십시오.
 
--   다음 MSDN 참조를 확인하십시오. [큐, 토픽 및 구독](http://msdn.microsoft.com/ko-kr/library/windowsazure/hh367516.aspx)
--   GitHub에서 [Azure SDK for Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby)(영문) 리포지토리를 방문하십시오.
+-   다음 MSDN 참조를 확인하세요. [큐, 토픽 및 구독][]
+-   GitHub에서 [Azure SDK for Ruby][](영문) 리포지토리를 방문하세요.
 
-이 문서에서 설명한 Azure 서비스 버스 큐와 [Azure 큐 서비스를 사용하는 방법](/en-us/develop/ruby/how-to-guides/queue-service/)(영문) 문서에서 설명한 Azure 큐를 비교하려면 [Azure 큐 및 Azure 서비스 버스 큐 - 비교 및 대조](http://msdn.microsoft.com/ko-kr/library/windowsazure/hh767287.aspx)를 참조하십시오.
+이 문서에서 설명한 Azure 서비스 버스 큐와 [Azure 큐 서비스를 사용하는 방법][](영문) 문서에서 설명한 Azure 큐를 비교하려면 [Azure 큐 및 Azure 서비스 버스 큐 - 비교 및 대조][]를 참조하십시오.
 
+  [다음 단계]: #next-steps
+  [서비스 버스 큐 정의]: #what-are-service-bus-queues
+  [서비스 네임스페이스 만들기]: #create-a-service-namespace
+  [네임스페이스에 대한 기본 관리 자격 증명 얻기]: #obtain-default-credentials
+  [Ruby 응용 프로그램 만들기]: #create-a-ruby-application
+  [서비스 버스를 사용하도록 응용 프로그램 구성]: #configure-your-application-to-use-service-bus
+  [Azure 서비스 버스 연결 설정]: #setup-a-windows-azure-service-bus-connection
+  [큐를 만드는 방법]: #how-to-create-a-queue
+  [큐에 메시지를 보내는 방법]: #how-to-send-messages-to-a-queue
+  [큐에서 메시지를 받는 방법]: #how-to-receive-messages-from-a-queue
+  [응용 프로그램 크래시 및 읽을 수 없는 메시지를 처리하는 방법]: #how-to-handle-application-crashes-and-unreadable-messages
+  [howto-service-bus-queues]: ../includes/howto-service-bus-queues.md
+  [Azure에서 Ruby 응용 프로그램 만들기]: /ko-KR/develop/ruby/tutorials/web-app-with-linux-vm/
+  [큐, 토픽 및 구독]: http://msdn.microsoft.com/ko-KR/library/windowsazure/hh367516.aspx
+  [Azure SDK for Ruby]: https://github.com/WindowsAzure/azure-sdk-for-ruby
+  [Azure 큐 서비스를 사용하는 방법]: /ko-KR/develop/ruby/how-to-guides/queue-service/
+  [Azure 큐 및 Azure 서비스 버스 큐 - 비교 및 대조]: http://msdn.microsoft.com/ko-KR/library/windowsazure/hh767287.aspx

@@ -15,4 +15,4 @@
 
   [SQL 데이터베이스 관리를 위해 로그인]: ./media/mobile-services-dotnet-backend-view-sql-data/manage-sql-azure-database.png
   [SQL 데이터베이스에 저장된 항목 쿼리]: ./media/mobile-services-dotnet-backend-view-sql-data/sql-azure-query.png
-  [EntityData]: http://msdn.microsoft.com/en-us/library/microsoft.windowsazure.mobile.service.entitydata.aspx
+  [EntityData]: http://msdn.microsoft.com/ko-kr/library/microsoft.windowsazure.mobile.service.entitydata.aspx

@@ -6,7 +6,7 @@
 
 3.  새 todoitem의 텍스트를 입력합니다. 그런 다음 **Save**를 클릭합니다. IIS Express에서 로컬로 호스트한 모바일 서비스에서 만든 데이터베이스에 새 todoItem이 삽입됩니다.
 
-    ![][]
+    ![][0]
 
 4.  항목 중 하나의 확인란을 클릭하여 완료로 표시합니다.
 
@@ -16,6 +16,6 @@
 
     ![][2]
 
-  []: ./media/mobile-services-dotnet-backend-test-local-service-data/new-local-todoitem.png
+  [0]: ./media/mobile-services-dotnet-backend-test-local-service-data/new-local-todoitem.png
   [1]: ./media/mobile-services-dotnet-backend-test-local-service-data/local-item-checked.png
   [2]: ./media/mobile-services-dotnet-backend-test-local-service-data/vs-show-local-table-data.png

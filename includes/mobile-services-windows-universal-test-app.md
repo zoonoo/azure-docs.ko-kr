@@ -2,7 +2,7 @@
 
 2.  앱에서 **Insert a TodoItem**에서 *Complete the tutorial* 등의 의미 있는 텍스트를 입력하고 **Save**를 클릭합니다.
 
-    ![][]
+    ![][0]
 
     Azure에 호스트된 새 모바일 서비스에 POST 요청이 전송됩니다.
 
@@ -12,5 +12,5 @@
 
     앱이 시작된 후 이전 단계에서 저장한 데이터가 모바일 서비스에서 로드됩니다.
 
-  []: ./media/mobile-services-windows-universal-test-app/mobile-quickstart-startup.png
+  [0]: ./media/mobile-services-windows-universal-test-app/mobile-quickstart-startup.png
   [1]: ./media/mobile-services-windows-universal-test-app/mobile-quickstart-completed-wp8.png

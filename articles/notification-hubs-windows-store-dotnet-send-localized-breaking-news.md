@@ -1,40 +1,43 @@
 <properties linkid="develop-notificationhubs-tutorials-send-localized-breaking-news-windowsdotnet" urlDisplayName="Localized Breaking News" pageTitle="Notification Hubs Localized Breaking News Tutorial" metaKeywords="" description="Learn how to use Azure Service Bus Notification Hubs to send localized breaking news notifications." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="" title="Use Notification Hubs to send localized breaking news" authors="ricksal" solutions="" manager="" editor="" />
 
-알림 허브를 사용하여 지역화된 속보 보내기
-=========================================
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal"></tags>
 
-[Windows 스토어 C\#](/en-us/manage/services/notification-hubs/breaking-news-localized-dotnet "Windows 스토어 C#")[iOS](/en-us/manage/services/notification-hubs/breaking-news-localized-ios "iOS")
+# 알림 허브를 사용하여 지역화된 속보 보내기
 
-이 항목에서는 Azure 알림 허브의 **템플릿** 기능을 사용하여 언어 및 장치별로 지역화된 속보 알림을 브로드캐스트하는 방법을 보여 줍니다. 이 자습서에서는 [알림 허브를 사용하여 속보 보내기](/en-us/manage/services/notification-hubs/breaking-news-dotnet)에서 만든 Windows 스토어 앱을 시작합니다. 완료되면 원하는 범주를 등록하고, 알림을 받을 언어를 지정하여 해당 언어로 된 선택한 범주에 대한 푸시 알림만 받을 수 있습니다.
+<div class="dev-center-tutorial-selector sublanding"> 
+        <a href="/ko-KR/documentation/articles/notification-hubs-windows-store-dotnet-send-localized-breaking-news/" title="Windows 스토어 C#" class="current">Windows 스토어 C#</a><a href="/ko-KR/documentation/articles/notification-hubs-ios-send-localized-breaking-news/" title="iOS">iOS</a>
+</div>
+
+이 항목에서는 Azure 알림 허브의 **템플릿** 기능을 사용하여 언어 및 장치별로 지역화된 속보 알림을 브로드캐스트하는 방법을 보여 줍니다. 이 자습서에서는 [알림 허브를 사용하여 속보 보내기][]에서 만든 Windows 스토어 앱으로 시작합니다. 이 자습서를 완료하면 관심 있는 범주를 등록하고, 알림을 받을 언어를 지정하고, 선택한 범주에 대한 푸시 알림만 해당 언어로 받을 수 있습니다.
 
 이 자습서에서는 이 시나리오를 사용하기 위한 다음 기본 단계를 차례로 안내합니다.
 
-1.  [템플릿 개념](#concepts)
-2.  [앱 사용자 인터페이스](#ui)
-3.  [Windows 스토어 클라이언트 앱 빌드](#building-client)
-4.  [백 엔드에서 알림 보내기](#send)
+1.  [템플릿 개념][]
+2.  [앱 사용자 인터페이스][]
+3.  [Windows 스토어 클라이언트 앱 빌드][]
+4.  [백 엔드에서 알림 보내기][]
 
-이 시나리오는 두 부분으로 분류됩니다.
+이 시나리오는 다음과 같은 두 부분으로 구성되어 있습니다.
 
 -   Windows 스토어 앱을 사용하면 클라이언트 장치에서 언어를 지정하고, 다른 속보 범주를 구독할 수 있습니다.
 
--   백 엔드에서 Azure 알림 허브의 **태그** 및 **템플릿** 기능을 사용하여 알림을 브로드캐스트합니다.
+-   백 엔드는 Azure 알림 허브의 **태그** 및 **템플릿** 기능을 사용하여 알림을 브로드캐스트합니다.
 
-필수 조건
----------
+## 필수 조건
 
-[알림 허브를 사용하여 속보 보내기](/en-us/manage/services/notification-hubs/breaking-news-dotnet) 자습서를 이미 완료하고 사용 가능한 코드가 있어야 합니다. 이 자습서는 해당 코드를 기반으로 직접 빌드됩니다.
+이미 [알림 허브를 사용하여 속보 보내기][] 자습서를 완료한 상태여야 하며 사용 가능한 코드가 있어야 합니다. 이 자습서에서는 해당 코드를 기반으로 직접 빌드하기 때문입니다.
 
-또한 Visual Studio 2012가 필요합니다.
+Visual Studio 2012도 필요합니다.
 
-개념템플릿 개념
----------------
+## <a name="concepts"></a><span class="short-header">개념</span>템플릿 개념
 
-[알림 허브를 사용하여 속보 보내기](/en-us/manage/services/notification-hubs/breaking-news-dotnet)에서는 **태그**를 사용하여 다른 뉴스 범주에 대한 알림을 구독하는 앱을 빌드했습니다. 하지만 대부분의 앱은 여러 시장을 대상으로 하므로 지역화해야 합니다. 즉, 알림 내용을 직접 지역화하여 해당하는 장치 집합에 제공해야 합니다. 이 항목에서는 알림 허브의 **템플릿** 기능을 사용하여 지역화된 속보 알림을 쉽게 제공하는 방법을 보여 줍니다.
+[알림 허브를 사용하여 속보 보내기][]에서 **태그**를 사용하여 다른 뉴스 범주에 대한 알림을 구독하는 앱을 빌드했습니다.
+그러나 많은 앱은 여러 시장을 대상으로 하고 지역화를 필요로 합니다. 즉, 알림 자체의 내용을 지역화해서 올바른 장치 집합으로 전달해야 합니다.
+이 항목에서는 알림 허브의 **템플릿** 기능을 사용하여 지역화된 속보 알림을 쉽게 전달하는 방법을 보여 줍니다.
 
-참고: 지역화된 알림을 보내는 한 가지 방법은 각 태그를 여러 버전으로 만드는 것입니다. 예를 들어 영어, 프랑스어 및 북경어를 지원하려면 세계 뉴스에 대해 "world\_en", "world\_fr" 및 "world\_ch"의 세 가지 태그가 필요합니다. 그런 다음 지역화된 세계 뉴스 버전을 각 태그로 보내야 합니다. 이 항목에서는 템플릿을 사용하여 태그의 확산을 방지하고 여러 메시지를 보낼 필요가 없도록 합니다.
+참고: 지역화된 알림을 보내는 한 가지 방법은 각 태그의 여러 버전을 만드는 것입니다. 예를 들어 영어, 프랑스어 및 북경어를 지원하려면 세계 뉴스에 대한 3가지 태그 즉 "world\_en", "world\_fr" 및 "world\_ch"가 필요합니다. 그런 다음 이러한 각 태그로 세계 뉴스의 지역화된 버전을 보내야 합니다. 이 항목에서는 템플릿을 사용하여 태그 급증과 여러 메시지 보내기 요구 사항을 방지합니다.
 
-높은 수준의 템플릿을 사용하면 특정 장치에서 알림을 받는 방법을 지정할 수 있습니다. 템플릿은 앱에서 백 엔드로 보낸 메시지에 포함된 속성을 참조하여 정확한 페이로드 형식을 지정합니다. 여기서는 모든 지원되는 언어를 포함하는 로캘을 알 수 없는 메시지를 보냅니다.
+높은 수준에서 봤을 때 템플릿은 특정 장치가 알림을 받는 방법을 지정하는 한 가지 방법입니다. 템플릿은 앱 백 엔드에서 전송한 메시지의 일부인 속성을 참조하여 정확한 페이로드 형식을 지정합니다. 여기서는 지원되는 모든 언어가 포함된 로캘을 알 수 없는 메시지를 보냅니다.
 
     {
         "News_English": "...",
@@ -42,24 +45,23 @@
         "News_Mandarin": "..."
     }
 
-그런 다음 장치에 올바른 속성을 참조하는 템플릿이 등록되어 있는지 확인합니다. 예를 들어 간단한 알림 메시지를 받으려는 Windows 스토어 앱에 다음 템플릿을 등록합니다.
+그런 다음 올바른 속성을 참조하는 템플릿을 사용하여 장치가 등록되도록 합니다. 예를 들어 간단한 알림 메시지를 받으려는 Windows 스토어 앱에 다음 템플릿을 등록합니다.
 
-	<toast>
-	  <visual>
-	    <binding template=\"ToastText01\">
-	      <text id=\"1\">$(News_English)</text>
-	    </binding>
-	  </visual>
-	</toast>
+    <toast>
+      <visual>
+        <binding template=\"ToastText01\">
+          <text id=\"1\">$(News_English)</text>
+        </binding>
+      </visual>
+    </toast>
 
-템플릿은 매우 강력한 기능입니다. 자세한 내용은 [알림 허브 지침](http://msdn.microsoft.com/ko-kr/library/jj927170.aspx) 문서를 참조하십시오. 템플릿 표현 언어에 대한 참조는 [Windows 스토어용 알림 허브 방법](http://msdn.microsoft.com/ko-kr/library/jj927172.aspx)을 참조하십시오.
+템플릿은 [알림 허브 지침][] 문서에서 자세한 내용을 알아볼 수 있는 매우 강력한 기능입니다. 템플릿 표현 언어에 대한 참조는 [Windows 스토어용 알림 허브 방법][]을 참조하십시오.
 
-앱 ui앱 사용자 인터페이스
--------------------------
+## <a name="ui"></a><span class="short-header">앱 UI</span>앱 사용자 인터페이스
 
-이제 템플릿을 사용하여 지역화된 속보를 보내도록, [알림 허브를 사용하여 속보 보내기](/en-us/manage/services/notification-hubs/breaking-news-dotnet) 항목에서 만든 속보 앱을 수정합니다.
+이제 [알림 허브를 사용하여 속보 보내기][] 항목에서 만든 속보 앱을 수정하고 템플릿을 사용하여 지역화된 속보를 보냅니다.
 
-지역화된 메시지를 받도록 클라이언트 앱을 조정하려면 *기존* 등록(즉, 템플릿을 지정한 등록)을 템플릿 등록으로 바꾸어야 합니다.
+지역화된 메시지를 받도록 클라이언트 앱을 조정하려면 *네이티브* 등록(즉, 템플릿을 지정하는 등록)을 템플릿 등록으로 바꿔야 합니다.
 
 Windows 스토어 앱에서
 
@@ -94,25 +96,24 @@ Windows 스토어 앱에서
         <Button Content="Subscribe" HorizontalAlignment="Center" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Click="Button_Click" />
     </Grid>
 
-앱 uiWindows 스토어 클라이언트 앱 빌드
---------------------------------------
+## <a name="building-client"></a><span class="building app">앱 ui</span>Windows 스토어 클라이언트 앱 빌드
 
 1.  Notifications 클래스에서 *StoreCategoriesAndSubscribe* 및 *SubscribeToCateories* 메서드에 로캘 매개 변수를 추가합니다.
 
-         public async Task StoreCategoriesAndSubscribe(string locale, IEnumerable<string> categories)
-         {
-             ApplicationData.Current.LocalSettings.Values["categories"] = string.Join(",", categories);
-             ApplicationData.Current.LocalSettings.Values["locale"] = locale;
-             await SubscribeToCategories(locale, categories);
-         }
+        public async Task StoreCategoriesAndSubscribe(string locale, IEnumerable<string> categories)
+        {
+            ApplicationData.Current.LocalSettings.Values["categories"] = string.Join(",", categories);
+            ApplicationData.Current.LocalSettings.Values["locale"] = locale;
+            await SubscribeToCategories(locale, categories);
+        }
 
-         public async Task SubscribeToCategories(string locale, IEnumerable<string> categories)
-         {
-             var channel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
-             var template = String.Format(@"<toast><visual><binding template=""ToastText01""><text id=""1"">$(News_{0})</text></binding></visual></toast>", locale);
+        public async Task SubscribeToCategories(string locale, IEnumerable<string> categories)
+        {
+            var channel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
+            var template = String.Format(@"<toast><visual><binding template=""ToastText01""><text id=""1"">$(News_{0})</text></binding></visual></toast>", locale);
 
-             await hub.RegisterTemplateAsync(channel.Uri, template, "newsTemplate", categories);
-         }
+            await hub.RegisterTemplateAsync(channel.Uri, template, "newsTemplate", categories);
+        }
 
     *RegisterNativeAsync* 메서드를 호출하는 대신 *RegisterTemplateAsync*를 호출합니다. 템플릿이 로캘에 종속하는 특정 알림 형식을 등록합니다. 또한 알림 메시지용 템플릿, 타일 알림용 템플릿 등 여러 템플릿을 등록할 수도 있으므로 템플릿의 이름("newsTemplate")을 제공합니다. 그런 다음 템플릿을 업데이트하거나 삭제하려면 해당 이름을 지정해야 합니다.
 
@@ -120,42 +121,56 @@ Windows 스토어 앱에서
 
 2.  다음 메서드를 추가하여 저장된 로캘을 검색합니다.
 
-         public string RetrieveLocale()
-         {
-             var locale = (string) ApplicationData.Current.LocalSettings.Values["locale"];
-             return locale != null 
-         locale : "English";
-         }
+        public string RetrieveLocale()
+        {
+            var locale = (string) ApplicationData.Current.LocalSettings.Values["locale"];
+            return locale != null ? locale : "English";
+        }
 
 3.  MainPage.xaml.cs에서 아래와 같이 로캘 콤보 상자의 현재 값을 검색한 후 Notifications 클래스에 대한 호출에 값을 제공하여 단추 클릭 처리기를 업데이트합니다.
 
-          var locale = (string)Locale.SelectedItem;
-                
-          var categories = new HashSet<string>();
-          if (WorldToggle.IsOn) categories.Add("World");
-          if (PoliticsToggle.IsOn) categories.Add("Politics");
-          if (BusinessToggle.IsOn) categories.Add("Business");
-          if (TechnologyToggle.IsOn) categories.Add("Technology");
-          if (ScienceToggle.IsOn) categories.Add("Science");
-          if (SportsToggle.IsOn) categories.Add("Sports");
+         var locale = (string)Locale.SelectedItem;
 
-          await ((App)Application.Current).Notifications.StoreCategoriesAndSubscribe(locale, categories);
+         var categories = new HashSet<string>();
+         if (WorldToggle.IsOn) categories.Add("World");
+         if (PoliticsToggle.IsOn) categories.Add("Politics");
+         if (BusinessToggle.IsOn) categories.Add("Business");
+         if (TechnologyToggle.IsOn) categories.Add("Technology");
+         if (ScienceToggle.IsOn) categories.Add("Science");
+         if (SportsToggle.IsOn) categories.Add("Sports");
 
-          var dialog = new MessageDialog(String .Format("Locale: {0}; Subscribed to: {1}", locale, string.Join(",", categories)));
-          dialog.Commands.Add(new UICommand("OK"));
-          await dialog.ShowAsync();
+         await ((App)Application.Current).Notifications.StoreCategoriesAndSubscribe(locale, categories);
 
-4.  마지막으로 App.xaml.cs 파일의 *OnLaunched* 메서드에서 알림 단일 항목에 대한 호출을 업데이트해야 합니다.
+         var dialog = new MessageDialog(String .Format("Locale: {0}; Subscribed to: {1}", locale, string.Join(",", categories)));
+         dialog.Commands.Add(new UICommand("OK"));
+         await dialog.ShowAsync();
 
-         Notifications.SubscribeToCategories(Notifications.RetrieveLocale(), Notifications.RetrieveCategories());
+4.  마지막으로 App.xaml.cs 파일의 *OnLaunched* 메서드에서
+    알림 단일 항목에 대한 호출을 업데이트해야 합니다.
 
-지역화된 알림 보내기백 엔드에서 지역화된 알림 보내기
-----------------------------------------------------
+        Notifications.SubscribeToCategories(Notifications.RetrieveLocale(), Notifications.RetrieveCategories());
 
-[WACOM.INCLUDE [notification-hubs-localized-back-end](../includes/notification-hubs-localized-back-end.md)]
+## <a name="send"></a><span class="short-header">지역화된 알림 보내기</span>백 엔드에서 지역화된 알림 보내기
 
-다음 단계
----------
+[WACOM.INCLUDE [notification-hubs-localized-back-end][]]
 
-템플릿 사용에 대한 자세한 내용은 [알림 허브를 통해 사용자에게 알림: ASP.NET](/en-us/manage/services/notification-hubs/notify-users-aspnet), [알림 허브를 통해 사용자에게 알림: 모바일 서비스](/en-us/manage/services/notification-hubs/notify-users) 및 [알림 허브 지침](http://msdn.microsoft.com/ko-kr/library/jj927170.aspx)을 참조하십시오. 템플릿 표현 언어에 대한 자세한 내용은 [Windows 스토어용 알림 허브 방법](http://msdn.microsoft.com/ko-kr/library/jj927172.aspx)을 참조하십시오.
+## 다음 단계
 
+템플릿 사용에 대한 자세한 내용은 [알림 허브를 통해 사용자에게 알림: ASP.NET][], [알림 허브를 통해 사용자에게 알림: 모바일 서비스][] 및 [알림 허브 지침][]을 참조하십시오. 템플릿 표현 언어에 대한 자세한 내용은 [Windows 스토어용 알림 허브 방법][]을 참조하십시오.
+
+<!-- Anchors. --> 
+<!-- Images. --> 
+<!-- URLs. -->
+
+  [Windows 스토어 C#]: /ko-KR/documentation/articles/notification-hubs-windows-store-dotnet-send-localized-breaking-news/ "Windows 스토어 C#"
+  [iOS]: /ko-KR/documentation/articles/notification-hubs-ios-send-localized-breaking-news/ "iOS"
+  [알림 허브를 사용하여 속보 보내기]: /ko-KR/manage/services/notification-hubs/breaking-news-dotnet
+  [템플릿 개념]: #concepts
+  [앱 사용자 인터페이스]: #ui
+  [Windows 스토어 클라이언트 앱 빌드]: #building-client
+  [백 엔드에서 알림 보내기]: #send
+  [알림 허브 지침]: http://msdn.microsoft.com/ko-KR/library/jj927170.aspx
+  [Windows 스토어용 알림 허브 방법]: http://msdn.microsoft.com/ko-KR/library/jj927172.aspx
+  [notification-hubs-localized-back-end]: ../includes/notification-hubs-localized-back-end.md
+  [알림 허브를 통해 사용자에게 알림: ASP.NET]: /ko-KR/manage/services/notification-hubs/notify-users-aspnet
+  [알림 허브를 통해 사용자에게 알림: 모바일 서비스]: /ko-KR/manage/services/notification-hubs/notify-users

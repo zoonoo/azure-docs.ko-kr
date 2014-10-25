@@ -20,7 +20,7 @@ Azure RemoteApp은 Windows Server 2012 R2 템플릿 이미지를 사용하여 �
 
 서비스를 만들기 전에 다음을 수행해야 합니다.
 
--   RemoteApp의 미리 보기에 등록합니다. [][]<http://azure.microsoft.com/en-us/services/remoteapp/></a>에서 등록할 수 있습니다.
+-   RemoteApp의 미리 보기에 등록합니다. [][0]<http://azure.microsoft.com/ko-kr/services/remoteapp/></a>에서 등록할 수 있습니다.
 -   RemoteApp 서비스 계정으로 사용할 Active Directory의 사용자 계정을 만듭니다. 이 계정의 권한은 도메인에 컴퓨터를 가입시킬 수 있는 권한만으로 제한합니다.
 -   온-프레미스 네트워크에 대한 IP 주소 정보 및 VPN 장치 정보를 수집합니다.
 -   [Azure PowerShell][Azure PowerShell] 모듈을 설치합니다.
@@ -113,7 +113,7 @@ Azure RemoteApp은 Windows Server 2012 R2 템플릿 이미지를 사용하여 �
 -   [RemoteApp의 하이브리드 배포를 만드는 방법][RemoteApp의 하이브리드 배포를 만드는 방법]
 -   [RemoteApp의 클라우드 배포를 만드는 방법][RemoteApp의 클라우드 배포를 만드는 방법]
 
-  []: http://azure.microsoft.com/en-us/services/remoteapp/
+  [0]: http://azure.microsoft.com/ko-kr/services/remoteapp/
   [Azure PowerShell]: http://azure.microsoft.com/ko-kr/documentation/articles/install-configure-powershell/
   [RemoteApp의 하이브리드 배포를 만드는 방법]: http://azure.microsoft.com/ko-kr/documentation/articles/remoteapp-create-hybrid-deployment/
   [RemoteApp의 클라우드 배포를 만드는 방법]: http://azure.microsoft.com/ko-kr/documentation/articles/remoteapp-create-cloud-deployment/

@@ -146,10 +146,10 @@ Windows PowerShell을 사용하여 역할 기반 액세스 제어를 관리하�
 
   [Windows PowerShell]: /ko-kr/documentation/articles/powershell-rbac.md "Windows PowerShell"
   [플랫폼 간 CLI]: /ko-kr/documentation/articles/xplat-cli-rbac.md "플랫폼 간 CLI"
-  [Windows Management Framework 3.0]: http://www.microsoft.com/en-us/download/details.aspx?id=34595
-  [Windows Management Framework 4.0]: http://www.microsoft.com/en-us/download/details.aspx?id=40855
+  [Windows Management Framework 3.0]: http://www.microsoft.com/ko-kr/download/details.aspx?id=34595
+  [Windows Management Framework 4.0]: http://www.microsoft.com/ko-kr/download/details.aspx?id=40855
   [Azure PowerShell 설치 및 구성 방법]: http://www.windowsazure.com/ko-kr/documentation/articles/install-configure-powershell/
-  [Windows PowerShell 시작]: http://technet.microsoft.com/en-us/library/hh857337.aspx
+  [Windows PowerShell 시작]: http://technet.microsoft.com/ko-kr/library/hh857337.aspx
   [Azure PowerShell을 설치 및 구성하는 방법(영문)]: http://azure.microsoft.com/ko-kr/documentation/articles/install-configure-powershell/
   [리소스 관리자에서 Windows PowerShell 사용]: http://azure.microsoft.com/ko-kr/documentation/articles/powershell-azure-resource-manager/
   [구독에 연결]: #connect

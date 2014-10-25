@@ -39,7 +39,7 @@
 
     이제 두 프로젝트가 모두 단일 **UploadChannel** 호출을 공유할 수 있습니다.
 
-    <div class="dev-callout"><strong>참고</strong> <p><code data-inline="1">#if...#endif</code> 래핑 <a href="http://msdn.microsoft.com/en-us/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx">MobileServiceClient</a> 정의를 앱의 두 버전에서 모두 사용되는 래핑 해제된 단일 정의로 통합하여 생성되는 코드를 간소화할 수도 있습니다.</p></div>
+    <div class="dev-callout"><strong>참고</strong> <p><code data-inline="1">#if...#endif</code> 래핑 <a href="http://msdn.microsoft.com/ko-kr/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx">MobileServiceClient</a> 정의를 앱의 두 버전에서 모두 사용되는 래핑 해제된 단일 정의로 통합하여 생성되는 코드를 간소화할 수도 있습니다.</p></div>
 
 이제 앱에서 푸시 알림을 사용하도록 설정했으므로 모바일 서비스가 푸시 알림을 보내도록 업데이트해야 합니다.
 
@@ -103,7 +103,7 @@
   [Microsoft 스토어 계정]: http://go.microsoft.com/fwlink/p/?LinkId=280045
   [Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=391934
   [mobile-services-create-new-push-vs2013]: ../includes/mobile-services-create-new-push-vs2013.md
-  [MobileServiceClient]: http://msdn.microsoft.com/en-us/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx
+  [MobileServiceClient]: http://msdn.microsoft.com/ko-kr/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx
   [mobile-services-dotnet-backend-update-server-push]: ../includes/mobile-services-dotnet-backend-update-server-push.md
   [mobile-services-dotnet-backend-configure-local-push-vs2013]: ../includes/mobile-services-dotnet-backend-configure-local-push-vs2013.md
   [mobile-services-dotnet-backend-windows-universal-test-push]: ../includes/mobile-services-dotnet-backend-windows-universal-test-push.md
