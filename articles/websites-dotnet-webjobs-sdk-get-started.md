@@ -422,7 +422,7 @@ Azure 저장소 계정은 큐 및 Blob 데이터를 클라우드에 저장하기
 
 1.  Visual Studio의 **파일** 메뉴에서 **새로 만들기** \> **프로젝트**를 선택합니다.
 
-2.  **새 프로젝트** 대화 상자에서 **Visual C\#** \> **웹** \> **ASP.NET 웹 응용 프로그램**을 클릭합니다.
+2.  **새 프로젝트** 대화 상자에서 **Visual C#** \> **웹** \> **ASP.NET 웹 응용 프로그램**을 클릭합니다.
 
 3.  프로젝트 이름을 ContosoAdsWeb으로, 솔루션 이름을 ContosoAdsWebJobsSDK로 지정하고(다운로드한 솔루션과 같은 폴더에 배치하는 경우에는 솔루션 이름 변경) **확인**을 클릭합니다.
 
@@ -446,7 +446,7 @@ Azure 저장소 계정은 큐 및 Blob 데이터를 클라우드에 저장하기
 
 8.  **솔루션 탐색기**에서 솔루션(프로젝트 아님)을 마우스 오른쪽 단추로 클릭하고 **추가** \> **새 프로젝트**를 선택합니다.
 
-9.  **새 프로젝트 추가** 대화 상자에서 **Visual C\#** \> **Windows 데스크톱** \> **클래스 라이브러리** 템플릿을 선택합니다.
+9.  **새 프로젝트 추가** 대화 상자에서 **Visual C#** \> **Windows 데스크톱** \> **클래스 라이브러리** 템플릿을 선택합니다.
 
 10. 프로젝트의 이름을 *ContosoAdsCommon*으로 지정한 다음 **확인**을 클릭합니다.
 
@@ -865,7 +865,7 @@ WebJob이 웹 사이트에서 실행될 경우 웹 사이트에 대해 수행할
 
 자세한 내용은 [Azure WebJob 권장 리소스][Azure WebJob 권장 리소스](영문)를 참조하세요.
 
-  [Azure 웹 사이트]: /ko-kr/documentation/articles/fundamentals-application-models/#WebSites
+  [Azure 웹 사이트]: /ko--kr/documentation/articles/fundamentals-application-models/#WebSites
   [Azure SQL 데이터베이스]: http://msdn.microsoft.com/library/azure/ee336279
   [Azure Blob 서비스]: http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage
   [Azure 큐 서비스]: http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern
@@ -884,16 +884,16 @@ WebJob이 웹 사이트에서 실행될 경우 웹 사이트에 대해 수행할
   [ASP.NET MVC]: http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started
   [웹 양식]: http://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview
   [free-trial-note]: ../includes/free-trial-note.md
-  [WebJob]: /ko-kr/documentation/articles/web-sites-create-web-jobs/
+  [WebJob]: /ko--kr/documentation/articles/web-sites-create-web-jobs/
   [AlwaysOn]: http://weblogs.asp.net/scottgu/archive/2014/01/16/windows-azure-staging-publishing-support-for-web-sites-monitoring-improvements-hyper-v-recovery-manager-ga-and-pci-compliance.aspx
   [광고 테이블]: ./media/websites-dotnet-webjobs-sdk-get-started/adtable.png
   [Contoso Ads 아키텍처]: ./media/websites-dotnet-webjobs-sdk-get-started/apparchitecture.png
-  [Azure 웹 사이트, 클라우드 서비스 및 가상 컴퓨터 비교]: /ko-kr/documentation/articles/choose-web-site-cloud-service-vm/
+  [Azure 웹 사이트, 클라우드 서비스 및 가상 컴퓨터 비교]: /ko--kr/documentation/articles/choose-web-site-cloud-service-vm/
   [install-sdk-2013-only]: ../includes/install-sdk-2013-only.md
   [Azure 관리 포털]: http://manage.windowsazure.com
-  [저장소 계정을 관리하는 방법]: /ko-kr/documentation/articles/storage-manage-storage-account/
+  [저장소 계정을 관리하는 방법]: /ko--kr/documentation/articles/storage-manage-storage-account/
   [새 저장소 계정]: ./media/websites-dotnet-webjobs-sdk-get-started/newstorage.png
-  [SQL Server Express LocalDB]: http://msdn.microsoft.com/en-us/library/hh510202.aspx
+  [SQL Server Express LocalDB]: http://msdn.microsoft.com/ko--kr/library/hh510202.aspx
   [1]: http://manage.windowsazure.com/
   [액세스 키 관리 단추]: ./media/websites-dotnet-webjobs-sdk-get-started/mak.png
   [액세스 키 관리 대화 상자]: ./media/websites-dotnet-webjobs-sdk-get-started/cpak.png
@@ -919,7 +919,7 @@ WebJob이 웹 사이트에서 실행될 경우 웹 사이트에 대해 수행할
   [인증 변경]: ./media/websites-dotnet-webjobs-sdk-get-started/chgauth.png
   [인증 없음]: ./media/websites-dotnet-webjobs-sdk-get-started/noauth.png
   [New Azure WebJob Project(새 Azure WebJob 프로젝트) 프로젝트 메뉴 선택 항목]: ./media/websites-dotnet-webjobs-sdk-get-started/newawjp.png
-  [Visual Studio를 사용하여 WebJob을 배포하는 방법]: /ko-kr/documentation/articles/websites-dotnet-deploy-webjobs/
+  [Visual Studio를 사용하여 WebJob을 배포하는 방법]: /ko--kr/documentation/articles/websites-dotnet-deploy-webjobs/
   [WebJob SDK 패키지 찾기]: ./media/websites-dotnet-webjobs-sdk-get-started/updstg.png
   [WebJob 프로젝트에만 WebJob SDK 패키지 설치]: ./media/websites-dotnet-webjobs-sdk-get-started/updstg2.png
   [SQL Server 데이터베이스를 사용하는 Entity Framework 코드를 작성하는]: http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc
@@ -927,9 +927,9 @@ WebJob이 웹 사이트에서 실행될 경우 웹 사이트에 대해 수행할
   [Program.cs 섹션]: #programcs
   [ResolveBlobName]: #resolveblobname
   [재시도 정책]: http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling
-  [HttpPostedFileBase]: http://msdn.microsoft.com/en-us/library/system.web.httppostedfilebase.aspx
+  [HttpPostedFileBase]: http://msdn.microsoft.com/ko--kr/library/system.web.httppostedfilebase.aspx
   [WebJob SDK 0.3.0 베타 알림]: http://azure.microsoft.com/blog/2014/06/18/announcing-the-0-3-0-beta-preview-of-microsoft-azure-webjobs-sdk/http://azure.microsoft.com/blog/2014/06/18/announcing-the-0-3-0-beta-preview-of-microsoft-azure-webjobs-sdk/
-  [클라우드 서비스 버전의 응용 프로그램]: /ko-kr/documentation/articles/cloud-services-dotnet-get-started/
+  [클라우드 서비스 버전의 응용 프로그램]: /ko--kr/documentation/articles/cloud-services-dotnet-get-started/
   [https://{websitename}.scm.azurewebsites.net/azurejobs/\#/functions]: https://{websitename}.scm.azurewebsites.net/azurejobs/#/functions
   [WebJob SDK를 사용한 로컬 개발을 위해 대시보드 가져오기]: http://blogs.msdn.com/b/jmstall/archive/2014/01/27/getting-a-dashboard-for-local-development-with-the-webjobs-sdk.aspx
   [종속성 주입]: http://www.asp.net/mvc/tutorials/hands-on-labs/aspnet-mvc-4-dependency-injection
@@ -938,5 +938,5 @@ WebJob이 웹 사이트에서 실행될 경우 웹 사이트에 대해 수행할
   [EF Code First 마이그레이션]: http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application
   [EF 연결 복원]: http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application
   [AzureWebJobs]: http://aspnet.codeplex.com/SourceControl/latest#Samples/AzureWebJobs/ReadMe.txt
-  [Visual Studio에서 Azure 웹 사이트 문제 해결]: /ko-kr/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/
+  [Visual Studio에서 Azure 웹 사이트 문제 해결]: /ko--kr/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/
   [Azure WebJob 권장 리소스]: http://go.microsoft.com/fwlink/?LinkId=390226

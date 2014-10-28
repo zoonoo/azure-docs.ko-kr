@@ -5,8 +5,8 @@
 # Azure 알림 허브 보안 푸시
 
 <div class="dev-center-tutorial-selector sublanding"> 
-        <a href="/ko-kr/documentation/articles/notification-hubs-windows-dotnet-secure-push/" title="Windows 범용">Windows 범용</a><a href="/ko-kr/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/" title="iOS">iOS</a>
-        <a href="/ko-kr/documentation/articles/notification-hubs-aspnet-backend-android-secure-push/" title="Android" class="current">Android</a>
+        <a href="/ko--kr/documentation/articles/notification-hubs-windows-dotnet-secure-push/" title="Windows 범용">Windows 범용</a><a href="/ko--kr/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/" title="iOS">iOS</a>
+        <a href="/ko--kr/documentation/articles/notification-hubs-aspnet-backend-android-secure-push/" title="Android" class="current">Android</a>
 </div>
 
 Microsoft Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플랫폼 및 규모 확장 푸시 인프라에 액세스할 수 있어, 모바일 플랫폼용 소비자 응용 프로그램 및 엔터프라이즈 응용 프로그램 모두에 대한 푸시 알림을 매우 간단하게 구현할 수 있습니다.
@@ -118,8 +118,8 @@ Microsoft Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플
 
 4.  Android 앱 UI에서 **로그인**을 클릭합니다. 그리고 나서 **푸시 보내기**를 클릭합니다.
 
-  [Windows 범용]: /ko-kr/documentation/articles/notification-hubs-windows-dotnet-secure-push/ "Windows 범용"
-  [iOS]: /ko-kr/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/ "iOS"
-  [Android]: /ko-kr/documentation/articles/notification-hubs-aspnet-backend-android-secure-push/ "Android"
-  [알림 허브 시작(Android)]: http://azure.microsoft.com/ko-kr/documentation/articles/notification-hubs-android-get-started/
+  [Windows 범용]: /ko--kr/documentation/articles/notification-hubs-windows-dotnet-secure-push/ "Windows 범용"
+  [iOS]: /ko--kr/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/ "iOS"
+  [Android]: /ko--kr/documentation/articles/notification-hubs-aspnet-backend-android-secure-push/ "Android"
+  [알림 허브 시작(Android)]: http://azure.microsoft.com/ko--kr/documentation/articles/notification-hubs-android-get-started/
   [notification-hubs-aspnet-backend-securepush]: ../includes/notification-hubs-aspnet-backend-securepush.md

@@ -8,11 +8,11 @@
 
 ## 목차
 
--   [미디어 서비스 정의][]
--   [미디어 서비스용 Azure 계정 설정][]
--   [미디어 서비스 개발을 위한 설정][]
--   [방법: Java에서 미디어 서비스 사용][]
--   [추가 리소스][]
+-   [미디어 서비스 정의][미디어 서비스 정의]
+-   [미디어 서비스용 Azure 계정 설정][미디어 서비스용 Azure 계정 설정]
+-   [미디어 서비스 개발을 위한 설정][미디어 서비스 개발을 위한 설정]
+-   [방법: Java에서 미디어 서비스 사용][방법: Java에서 미디어 서비스 사용]
+-   [추가 리소스][추가 리소스]
 
 ## <a name="what-are"></a><span class="short header">미디어 서비스 정의</span>미디어 서비스 정의
 
@@ -20,7 +20,7 @@ Azure 미디어 서비스는 Microsoft Media Platform 및 타사 미디어 구�
 
 다음 다이어그램은 기본 미디어 서비스 아키텍처를 보여 줍니다.
 
-![미디어 서비스 아키텍처][]
+![미디어 서비스 아키텍처][미디어 서비스 아키텍처]
 
 ### 미디어 서비스 기능 지원
 
@@ -111,23 +111,23 @@ Azure 미디어 서비스는 Microsoft Media Platform 및 타사 미디어 구�
 
 SDK 및 플레이어 프레임워크를 통해 미디어 클라이언트 응용 프로그램을 빌드하여 미디어 서비스 솔루션의 도달 범위를 확장합니다. 이러한 클라이언트는 다양한 장치와 플랫폼에서 매력적인 사용자 환경을 제공하는 미디어 서비스 응용 프로그램을 빌드하려는 개발자를 위한 것입니다. 빌드하려는 클라이언트 응용 프로그램을 사용할 장치에 따라, Microsoft 및 타사 파트너가 제공하는 SDK 및 플레이어 프레임워크에 대한 옵션을 사용할 수 있습니다.
 
-사용 가능한 클라이언트 SDK 및 플레이어 프레임워크 목록은 다음과 같습니다. 이러한 SDK 및 플레이어 프레임워크와 기타 계획된 SDK 및 플레이어 프레임워크, 지원할 수 있는 기능에 대한 자세한 내용은 [미디어 서비스 클라이언트 개발][](영문)을 참조하세요.
+사용 가능한 클라이언트 SDK 및 플레이어 프레임워크 목록은 다음과 같습니다. 이러한 SDK 및 플레이어 프레임워크와 기타 계획된 SDK 및 플레이어 프레임워크, 지원할 수 있는 기능에 대한 자세한 내용은 [미디어 서비스 클라이언트 개발][미디어 서비스 클라이언트 개발](영문)을 참조하세요.
 
 #### Mac 및 PC 클라이언트 지원
 
 PC 및 Mac의 경우 Microsoft Silverlight 또는 Adobe Open Source Media Framework를 사용하여 스트리밍 환경을 대상으로 지정할 수 있습니다.
 
--   [Silverlight용 부드러운 스트리밍 클라이언트][]
--   [Microsoft Media Platform: Silverlight용 플레이어 프레임워크][]
--   [OSMF 2.0용 부드러운 스트리밍 플러그 인][]. 이 플러그 인을 사용하는 방법에 대한 자세한 내용은 [Adobe Open Source Media Framework용 부드러운 스트리밍 플러그 인을 사용하는 방법][](영문)을 참조하세요.
+-   [Silverlight용 부드러운 스트리밍 클라이언트][Silverlight용 부드러운 스트리밍 클라이언트]
+-   [Microsoft Media Platform: Silverlight용 플레이어 프레임워크][Microsoft Media Platform: Silverlight용 플레이어 프레임워크]
+-   [OSMF 2.0용 부드러운 스트리밍 플러그 인][OSMF 2.0용 부드러운 스트리밍 플러그 인]. 이 플러그 인을 사용하는 방법에 대한 자세한 내용은 [Adobe Open Source Media Framework용 부드러운 스트리밍 플러그 인을 사용하는 방법][Adobe Open Source Media Framework용 부드러운 스트리밍 플러그 인을 사용하는 방법](영문)을 참조하세요.
 
 #### Windows 8 응용 프로그램
 
 Windows 8의 경우 HTML, Javascript, XAML, C#, C+ 등의 지원되는 개발 언어와 구문을 사용하여 Windows 스토어 응용 프로그램을 빌드할 수 있습니다.
 
--   [Smooth Streaming Client SDK for Windows 8][]. 이 SDK를 사용하여 Windows 스토어 응용 프로그램을 만드는 방법에 대한 자세한 내용은 [부드러운 스트리밍 Windows 스토어 응용 프로그램을 빌드하는 방법][](영문)을 참조하세요. HTML5로 부드러운 스트리밍 플레이어를 만드는 방법에 대한 자세한 내용은 [연습: 첫 번째 HTML5 부드러운 스트리밍 플레이어 빌드][](영문)를 참조하세요.
+-   [Smooth Streaming Client SDK for Windows 8][Smooth Streaming Client SDK for Windows 8]. 이 SDK를 사용하여 Windows 스토어 응용 프로그램을 만드는 방법에 대한 자세한 내용은 [부드러운 스트리밍 Windows 스토어 응용 프로그램을 빌드하는 방법][부드러운 스트리밍 Windows 스토어 응용 프로그램을 빌드하는 방법](영문)을 참조하세요. HTML5로 부드러운 스트리밍 플레이어를 만드는 방법에 대한 자세한 내용은 [연습: 첫 번째 HTML5 부드러운 스트리밍 플레이어 빌드][연습: 첫 번째 HTML5 부드러운 스트리밍 플레이어 빌드](영문)를 참조하세요.
 
--   [Microsoft Media Platform: Windows 8 Windows 스토어 응용 프로그램용 플레이어 프레임워크][]
+-   [Microsoft Media Platform: Windows 8 Windows 스토어 응용 프로그램용 플레이어 프레임워크][Microsoft Media Platform: Windows 8 Windows 스토어 응용 프로그램용 플레이어 프레임워크]
 
 #### Xbox
 
@@ -140,19 +140,19 @@ Xbox는 부드러운 스트리밍 콘텐츠를 사용할 수 있는 Xbox LIVE �
 
 연결된 TV, 셋톱 박스, Blu-Ray 플레이어, OTT TV 박스, 모바일 장치 등 사용자 지정 응용 프로그램 개발 프레임워크 및 사용자 지정 미디어 파이프라인이 있는 장치. Microsoft는 사용이 허가될 수 있는 다음 포팅 키트를 제공하며 파트너가 플랫폼에 대한 부드러운 스트리밍 재생을 포팅할 수 있게 합니다.
 
--   [부드러운 스트리밍 클라이언트 포팅 키트][]
--   [Microsoft PlayReady 장치 포팅 키트][]
+-   [부드러운 스트리밍 클라이언트 포팅 키트][부드러운 스트리밍 클라이언트 포팅 키트]
+-   [Microsoft PlayReady 장치 포팅 키트][Microsoft PlayReady 장치 포팅 키트]
 
 #### Windows Phone
 
 Microsoft는 Windows Phone용 프리미엄 비디오 응용 프로그램을 빌드하는 데 사용할 수 있는 SDK를 제공합니다.
 
--   [Silverlight용 부드러운 스트리밍 클라이언트][]
--   [Microsoft Media Platform: Silverlight용 플레이어 프레임워크][]
+-   [Silverlight용 부드러운 스트리밍 클라이언트][Silverlight용 부드러운 스트리밍 클라이언트]
+-   [Microsoft Media Platform: Silverlight용 플레이어 프레임워크][Microsoft Media Platform: Silverlight용 플레이어 프레임워크]
 
 #### iOS 장치
 
-iPhone, iPod 및 iPad를 비롯한 iOS 장치의 경우 Microsoft는 프리미엄 비디오 콘텐츠를 제공하기 위해 이러한 플랫폼용 응용 프로그램을 빌드하는 데 사용할 수 있는 SDK, 즉 Smooth Streaming SDK for iOS Devices with PlayReady를 제공합니다. 이 SDK는 라이선스 실시권자만 사용할 수 있습니다. 자세한 내용은 [Microsoft에 전자 메일로 문의][]하세요. iOS 개발에 대한 자세한 내용은 [iOS 개발자 센터][]를 참조하세요.
+iPhone, iPod 및 iPad를 비롯한 iOS 장치의 경우 Microsoft는 프리미엄 비디오 콘텐츠를 제공하기 위해 이러한 플랫폼용 응용 프로그램을 빌드하는 데 사용할 수 있는 SDK, 즉 Smooth Streaming SDK for iOS Devices with PlayReady를 제공합니다. 이 SDK는 라이선스 실시권자만 사용할 수 있습니다. 자세한 내용은 [Microsoft에 전자 메일로 문의][Microsoft에 전자 메일로 문의]하세요. iOS 개발에 대한 자세한 내용은 [iOS 개발자 센터][iOS 개발자 센터]를 참조하세요.
 
 #### Android 장치
 
@@ -160,7 +160,7 @@ iPhone, iPod 및 iPad를 비롯한 iOS 장치의 경우 Microsoft는 프리미�
 
 ## <a name="setup-account"></a><span class="short header">계정 설정</span>미디어 서비스용 Azure 계정 설정
 
-미디어 서비스 계정을 설정하려면 Azure 관리 포털을 사용하세요. [미디어 서비스 계정을 만드는 방법][](영문)을 참조하세요. 관리 포털에서 계정을 만들면 미디어 서비스 개발을 위해 컴퓨터를 설정할 준비가 됩니다.
+미디어 서비스 계정을 설정하려면 Azure 관리 포털을 사용하세요. [미디어 서비스 계정을 만드는 방법][미디어 서비스 계정을 만드는 방법](영문)을 참조하세요. 관리 포털에서 계정을 만들면 미디어 서비스 개발을 위해 컴퓨터를 설정할 준비가 됩니다.
 
 ## <a name="setup-dev"> </a><span class="short header">미디어 서비스 개발을 위한 설정</span>
 
@@ -168,8 +168,8 @@ iPhone, iPod 및 iPad를 비롯한 iOS 장치의 경우 Microsoft는 프리미�
 
 ### 필수 조건
 
--   신규 또는 기존 Azure 구독의 미디어 서비스 계정. [미디어 서비스 계정을 만드는 방법][](영문)을 참조하세요.
--   [Azure Java 개발자 센터][](영문)에서 설치할 수 있는 Java용 Azure 라이브러리
+-   신규 또는 기존 Azure 구독의 미디어 서비스 계정. [미디어 서비스 계정을 만드는 방법][미디어 서비스 계정을 만드는 방법](영문)을 참조하세요.
+-   [Azure Java 개발자 센터][Azure Java 개발자 센터](영문)에서 설치할 수 있는 Java용 Azure 라이브러리
 
 ## <a name="connect"> </a><span class="short header">Java에서 미디어 서비스 사용</span>방법: Java에서 미디어 서비스 사용
 
@@ -334,7 +334,7 @@ iPhone, iPod 및 iPad를 비롯한 iOS 장치의 경우 Microsoft는 프리미�
 
             // Create a task with the specified media processor, in this case to transform the original asset to the H264 Broadband 720p preset.
             // Information on the various configurations can be found at
-            // http://msdn.microsoft.com/en-us/library/windowsazure/jj129582.aspx.
+            // http://msdn.microsoft.com/ko-kr/library/windowsazure/jj129582.aspx.
             // This example uses only one task, but others could be added.
             Task.CreateBatchOperation task = Task.create(
                     mediaProcessor.getId(),
@@ -493,7 +493,7 @@ iPhone, iPod 및 iPad를 비롯한 iOS 장치의 경우 Microsoft는 프리미�
 
 ## <a name="additional-resources"></a><span class="short header">추가 리소스</span>추가 리소스
 
-미디어 서비스 Javadoc 설명서에 대해서는 [Java용 Azure 라이브러리 설명서][](영문)를 참조하세요.
+미디어 서비스 Javadoc 설명서에 대해서는 [Java용 Azure 라이브러리 설명서][Java용 Azure 라이브러리 설명서](영문)를 참조하세요.
 
   [미디어 서비스 정의]: #what-are
   [미디어 서비스용 Azure 계정 설정]: #setup-account
@@ -501,21 +501,21 @@ iPhone, iPod 및 iPad를 비롯한 iOS 장치의 경우 Microsoft는 프리미�
   [방법: Java에서 미디어 서비스 사용]: #connect
   [추가 리소스]: #additional-resources
   [미디어 서비스 아키텍처]: ./media/media-services-dotnet-how-to-use/wams-01.png
-  [미디어 서비스 클라이언트 개발]: http://msdn.microsoft.com/en-us/library/windowsazure/dn223283.aspx
+  [미디어 서비스 클라이언트 개발]: http://msdn.microsoft.com/ko-kr/library/windowsazure/dn223283.aspx
   [Silverlight용 부드러운 스트리밍 클라이언트]: http://www.iis.net/download/smoothclient
   [Microsoft Media Platform: Silverlight용 플레이어 프레임워크]: http://smf.codeplex.com/documentation
   [OSMF 2.0용 부드러운 스트리밍 플러그 인]: http://go.microsoft.com/fwlink/?LinkId=275022
   [Adobe Open Source Media Framework용 부드러운 스트리밍 플러그 인을 사용하는 방법]: http://go.microsoft.com/fwlink/?LinkId=275034
   [Smooth Streaming Client SDK for Windows 8]: http://go.microsoft.com/fwlink/?LinkID=246146
   [부드러운 스트리밍 Windows 스토어 응용 프로그램을 빌드하는 방법]: http://go.microsoft.com/fwlink/?LinkId=271647
-  [연습: 첫 번째 HTML5 부드러운 스트리밍 플레이어 빌드]: http://msdn.microsoft.com/en-us/library/jj573656.aspx
+  [연습: 첫 번째 HTML5 부드러운 스트리밍 플레이어 빌드]: http://msdn.microsoft.com/ko-kr/library/jj573656.aspx
   [Microsoft Media Platform: Windows 8 Windows 스토어 응용 프로그램용 플레이어 프레임워크]: http://playerframework.codeplex.com/wikipage?title=Player%20Framework%20for%20Windows%208%20Metro%20Style%20Apps&referringTitle=Home
-  [부드러운 스트리밍 클라이언트 포팅 키트]: http://www.microsoft.com/en-us/mediaplatform/sspk.aspx
+  [부드러운 스트리밍 클라이언트 포팅 키트]: http://www.microsoft.com/ko-kr/mediaplatform/sspk.aspx
   [Microsoft PlayReady 장치 포팅 키트]: http://www.microsoft.com/PlayReady/Licensing/device_technology.mspx
   [Microsoft에 전자 메일로 문의]: mailto:askdrm@microsoft.com
   [iOS 개발자 센터]: https://developer.apple.com/devcenter/ios/index.action
   [1]: mailto:sspkinfo@microsoft.com?subject=Partner%20SDKs%20for%20Android%20Devices
   [미디어 서비스 계정을 만드는 방법]: http://go.microsoft.com/fwlink/?linkid=256662
-  [Azure Java 개발자 센터]: http://www.windowsazure.com/en-us/develop/java/
-  [2]: http://www.windowsazure.com/en-us/manage/services/media-services/how-to-create-a-media-services-account/
+  [Azure Java 개발자 센터]: http://www.windowsazure.com/ko-kr/develop/java/
+  [2]: http://www.windowsazure.com/ko-kr/manage/services/media-services/how-to-create-a-media-services-account/
   [Java용 Azure 라이브러리 설명서]: http://dl.windowsazure.com/javadoc/

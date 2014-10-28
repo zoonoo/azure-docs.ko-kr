@@ -111,5 +111,5 @@ Microsoft Azure에 호스트된 새 모바일 서비스에 POST 요청이 전송
   [8]: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started/image015.png
   [9]: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started/mobile-data-tab.png
   [10]: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started/mobile-data-browse.png
-  [인증 시작]: /ko-kr/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-users
-  [푸시 알림 시작]: /ko-kr/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push
+  [인증 시작]: /ko--kr/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-users
+  [푸시 알림 시작]: /ko--kr/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push

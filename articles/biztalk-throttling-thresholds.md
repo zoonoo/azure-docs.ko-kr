@@ -90,19 +90,19 @@ Azure BizTalk 서비스가 제한 상태에 들어가면 다음과 같은 상황
 
 ## 추가 Azure BizTalk 서비스 항목
 
--   [Azure BizTalk 서비스 SDK 설치][]
--   [자습서: Azure BizTalk 서비스][]
--   [Azure BizTalk 서비스 SDK로 시작하는 방법][]
--   [Azure BizTalk 서비스][]
+-   [Azure BizTalk 서비스 SDK 설치][Azure BizTalk 서비스 SDK 설치]
+-   [자습서: Azure BizTalk 서비스][자습서: Azure BizTalk 서비스]
+-   [Azure BizTalk 서비스 SDK로 시작하는 방법][Azure BizTalk 서비스 SDK로 시작하는 방법]
+-   [Azure BizTalk 서비스][Azure BizTalk 서비스]
 
 ## 참고 항목
 
--   [BizTalk 서비스: Developer, Basic, Standard 및 Premium Editions 차트][]
--   [BizTalk 서비스: Azure 관리 포털을 사용하여 프로비전][]
--   [BizTalk 서비스: 상태 차트 프로비전][]
--   [BizTalk 서비스: 대시보드, 모니터 및 크기 조정 탭][]
--   [BizTalk 서비스: 백업 및 복원][]
--   [BizTalk 서비스: 발급자 이름 및 발급자 키][]
+-   [BizTalk 서비스: Developer, Basic, Standard 및 Premium Editions 차트][BizTalk 서비스: Developer, Basic, Standard 및 Premium Editions 차트]
+-   [BizTalk 서비스: Azure 관리 포털을 사용하여 프로비전][BizTalk 서비스: Azure 관리 포털을 사용하여 프로비전]
+-   [BizTalk 서비스: 상태 차트 프로비전][BizTalk 서비스: 상태 차트 프로비전]
+-   [BizTalk 서비스: 대시보드, 모니터 및 크기 조정 탭][BizTalk 서비스: 대시보드, 모니터 및 크기 조정 탭]
+-   [BizTalk 서비스: 백업 및 복원][BizTalk 서비스: 백업 및 복원]
+-   [BizTalk 서비스: 발급자 이름 및 발급자 키][BizTalk 서비스: 발급자 이름 및 발급자 키]
 
   [Azure BizTalk 서비스 SDK 설치]: http://go.microsoft.com/fwlink/p/?LinkID=241589
   [자습서: Azure BizTalk 서비스]: http://go.microsoft.com/fwlink/p/?LinkID=236944

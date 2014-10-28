@@ -614,7 +614,7 @@ AutoMapper가 이제 개체를 다른 개체에 매핑합니다. 이름이 일�
 [DTO와 모델 간 매핑 설정]: #Mapping
 [도메인별 논리 구현]: #DomainManager
 [DTO를 사용하여 TableController 구현]: #Controller
-[하이브리드 연결을 사용하여 Azure 모바일 서비스에서 온-프레미스 SQL Server에 연결]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started/
+[하이브리드 연결을 사용하여 Azure 모바일 서비스에서 온-프레미스 SQL Server에 연결]: /ko--kr/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started/
 [Azure 관리 포털]: http://manage.windowsazure.com
 [**EntityData**]: http://msdn.microsoft.com/library/microsoft.windowsazure.mobile.service.entitydata.aspx
 [**OnModelCreating**]: http://msdn.microsoft.com/library/system.data.entity.dbcontext.onmodelcreating.aspx

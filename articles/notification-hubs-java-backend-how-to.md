@@ -5,7 +5,7 @@
 # Java/PHP에서 알림 허브를 사용하는 방법
 
 <div class="dev-center-tutorial-selector sublanding"> 
-        <a href="/ko-kr/documentation/articles/notification-hubs-java-backend-how-to/" title="Java" class="current">Java</a><a href="/ko-kr/documentation/articles/notification-hubs-php-backend-how-to/" title="PHP">PHP</a>
+        <a href="/ko--kr/documentation/articles/notification-hubs-java-backend-how-to/" title="Java" class="current">Java</a><a href="/ko--kr/documentation/articles/notification-hubs-php-backend-how-to/" title="PHP">PHP</a>
 </div>
 
 MSDN 항목 [알림 허브 REST API][알림 허브 REST API]에 설명된 대로 알림 허브 REST 인터페이스를 사용하여 Java/PHP/Ruby 백 엔드에서 모든 알림 허브 기능에 액세스할 수 있습니다.
@@ -356,16 +356,16 @@ iOS 기본 알림을 보내려면 다음을 수행합니다.
 -   [속보 자습서]에서 알림 허브 태그 지정 기능에 대해 계속 알아봅니다.
 -   [사용자에게 알림 자습서]에서 개별 사용자에게 알림을 게시하는 방법을 알아봅니다.
 
-  [Java]: /ko-kr/documentation/articles/notification-hubs-java-backend-how-to/ "Java"
-  [PHP]: /ko-kr/documentation/articles/notification-hubs-php-backend-how-to/ "PHP"
-  [알림 허브 REST API]: http://msdn.microsoft.com/en-us/library/dn223264.aspx
-  [시작 자습서]: http://azure.microsoft.com/ko-kr/documentation/articles/notification-hubs-ios-get-started/
-  [.NET 알림 허브 SDK]: http://msdn.microsoft.com/en-us/library/jj933431.aspx
+  [Java]: /ko--kr/documentation/articles/notification-hubs-java-backend-how-to/ "Java"
+  [PHP]: /ko--kr/documentation/articles/notification-hubs-php-backend-how-to/ "PHP"
+  [알림 허브 REST API]: http://msdn.microsoft.com/ko--kr/library/dn223264.aspx
+  [시작 자습서]: http://azure.microsoft.com/ko--kr/documentation/articles/notification-hubs-ios-get-started/
+  [.NET 알림 허브 SDK]: http://msdn.microsoft.com/ko--kr/library/jj933431.aspx
   [Java REST 래퍼 샘플]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-java
   [자습서 완료]: #complete-tutorial
-  [MSDN]: http://msdn.microsoft.com/en-us/library/dn530746.aspx
+  [MSDN]: http://msdn.microsoft.com/ko--kr/library/dn530746.aspx
   [Apache HttpComponents]: http://hc.apache.org/httpcomponents-client-ga/
   [Apache Commons-Codec]: http://commons.apache.org/proper/commons-codec/
   [Apache Commons-Io]: http://commons.apache.org/proper/commons-io/
-  [여기]: http://msdn.microsoft.com/en-us/library/dn495627.aspx
-  [알림 허브 REST API 설명서]: http://msdn.microsoft.com/en-us/library/dn495827.aspx
+  [여기]: http://msdn.microsoft.com/ko--kr/library/dn495627.aspx
+  [알림 허브 REST API 설명서]: http://msdn.microsoft.com/ko--kr/library/dn495827.aspx

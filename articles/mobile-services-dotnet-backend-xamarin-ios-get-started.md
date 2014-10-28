@@ -75,7 +75,7 @@
 
     Azure에 호스트된 새 모바일 서비스에 POST 요청이 전송됩니다. 요청에서 데이터가 TodoItem 테이블에 삽입됩니다. TodoItem 테이블에 저장된 항목이 모바일 서비스에서 반환된 후 데이터가 목록에 표시됩니다.
 
-> [WACOM.NOTE]모바일 서비스에 액세스하여 QSTodoService.cs C\# 파일에서 데이터를 쿼리 및 삽입하는 코드를 검토할 수 있습니다.
+> [WACOM.NOTE]모바일 서비스에 액세스하여 QSTodoService.cs C# 파일에서 데이터를 쿼리 및 삽입하는 코드를 검토할 수 있습니다.
 
 ## 다음 단계
 
@@ -92,10 +92,10 @@
 <!-- URLs. -->
 
   [mobile-services-selector-get-started]: ../includes/mobile-services-selector-get-started.md
-  [JavaScript 백 엔드 버전]: /ko-kr/documentation/articles/partner-xamarin-mobile-services-ios-get-started
-  [빠른 시작: 모바일 서비스 추가(.NET 백 엔드)]: http://msdn.microsoft.com/en-us/library/windows/apps/dn629482.aspx
+  [JavaScript 백 엔드 버전]: /ko--kr/documentation/articles/partner-xamarin-mobile-services-ios-get-started
+  [빠른 시작: 모바일 서비스 추가(.NET 백 엔드)]: http://msdn.microsoft.com/ko--kr/library/windows/apps/dn629482.aspx
   []: ./media/mobile-services-dotnet-backend-xamarin-ios-get-started/mobile-quickstart-completed-ios.png
-  [Azure 무료 평가판]: http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-xamarin-ios-get-started
+  [Azure 무료 평가판]: http://www.windowsazure.com/ko--kr/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fko--kr%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-xamarin-ios-get-started
   [Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=257546
   [mobile-services-dotnet-backend-create-new-service]: ../includes/mobile-services-dotnet-backend-create-new-service.md
   [1]: ./media/mobile-services-dotnet-backend-xamarin-ios-get-started/mobile-portal-quickstart-xamarin-ios.png
@@ -107,5 +107,5 @@
   [3]: ./media/mobile-services-dotnet-backend-xamarin-ios-get-started/mobile-xamarin-project-ios-vs.png
   [4]: ./media/mobile-services-dotnet-backend-xamarin-ios-get-started/mobile-xamarin-project-ios-xs.png
   [5]: ./media/mobile-services-dotnet-backend-xamarin-ios-get-started/mobile-quickstart-startup-ios.png
-  [인증 시작]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-get-started-users
-  [푸시 알림 시작]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-get-started-push
+  [인증 시작]: /ko--kr/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-get-started-users
+  [푸시 알림 시작]: /ko--kr/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-get-started-push

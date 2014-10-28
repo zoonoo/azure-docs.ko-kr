@@ -26,9 +26,9 @@
 ## <a name="q01"></a> Visual Studio의 내 프로젝트에 Application Insights를 추가하는 옵션이 표시되지 않습니다.
 
 + [Visual Studio 업데이트 3][Visual Studio 업데이트 3]이 설치되어 있는지 확인하세요. 이 업데이트는 Application Insights 도구가 사전 설치되어 제공되므로 확장 관리자에서 Application Insights를 확인할 수 있습니다.
-+ 현재 Microsoft Azure 미리 보기의 Application Insights는 C\# 또는 Visual Basic의 ASP.NET 웹 프로젝트에서만 사용할 수 있습니다.
++ 현재 Microsoft Azure 미리 보기의 Application Insights는 C# 또는 Visual Basic의 ASP.NET 웹 프로젝트에서만 사용할 수 있습니다.
 + 기존 프로젝트가 있는 경우 솔루션 탐색기로 이동하여 웹 프로젝트(다른 프로젝트 또는 솔루션이 아님)를 클릭하세요. 그러면 '프로젝트에 Application Insights 원격 분석 추가' 메뉴 항목이 표시됩니다.
-+ 새 프로젝트를 만들고 있는 경우 Visual Studio에서 파일 \> 새 프로젝트를 열고 {Visual C\#|Visual Basic} \> 웹 \> ASP.NET 웹 응용 프로그램을 선택합니다. 그러면 프로젝트에 Application Insights를 추가하는 옵션이 표시됩니다.
++ 새 프로젝트를 만들고 있는 경우 Visual Studio에서 파일 \> 새 프로젝트를 열고 {Visual C#|Visual Basic} \> 웹 \> ASP.NET 웹 응용 프로그램을 선택합니다. 그러면 프로젝트에 Application Insights를 추가하는 옵션이 표시됩니다.
 
 ## <a name="q02"></a> 내 새 웹 프로젝트는 만들었는데 Application Insights를 추가하지 못했습니다.
 

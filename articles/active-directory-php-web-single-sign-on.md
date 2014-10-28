@@ -15,20 +15,20 @@
 
 이 연습에는 다음과 같은 개발 환경 필수 조건이 필요합니다.
 
--   [Azure Active Directory용 PHP 샘플 코드][]
--   [Eclipse PDT 3.0.x All In Ones][]
+-   [Azure Active Directory용 PHP 샘플 코드][Azure Active Directory용 PHP 샘플 코드]
+-   [Eclipse PDT 3.0.x All In Ones][Eclipse PDT 3.0.x All In Ones]
 -   PHP 5.3.1(웹 플랫폼 설치 관리자를 통해)
 -   IIS(인터넷 정보 서비스) 7.5(SSL 사용)
 -   Windows PowerShell
--   [Office 365 PowerShell Commandlet][]
+-   [Office 365 PowerShell Commandlet][Office 365 PowerShell Commandlet]
 
 ### 목차
 
--   [소개][]
--   [1단계: PHP 응용 프로그램 만들기][]
--   [2단계: 회사 디렉터리 테넌트에서 응용 프로그램 프로비전][]
--   [3단계: 직원 로그인을 위해 WS-Federation을 사용하여 응용 프로그램 보호][]
--   [요약][]
+-   [소개][소개]
+-   [1단계: PHP 응용 프로그램 만들기][1단계: PHP 응용 프로그램 만들기]
+-   [2단계: 회사 디렉터리 테넌트에서 응용 프로그램 프로비전][2단계: 회사 디렉터리 테넌트에서 응용 프로그램 프로비전]
+-   [3단계: 직원 로그인을 위해 WS-Federation을 사용하여 응용 프로그램 보호][3단계: 직원 로그인을 위해 WS-Federation을 사용하여 응용 프로그램 보호]
+-   [요약][요약]
 
 ## <a name="createapp"></a>1단계: PHP 응용 프로그램 만들기
 

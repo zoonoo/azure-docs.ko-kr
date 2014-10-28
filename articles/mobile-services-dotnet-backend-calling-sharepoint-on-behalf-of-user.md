@@ -194,8 +194,8 @@ Word 문서를 만들려면 OpenXML NuGet 패키지를 사용합니다. NuGet �
 [액세스 토큰 가져오기 및 SharePoint API 호출]: #obtain-token
 [Word 문서 만들기 및 업로드]: #create-document
 [응용 프로그램 테스트]: #test-application
-[SharePoint Online]: http://office.microsoft.com/en-us/sharepoint/
-[Active Directory 인증 라이브러리 Single Sign-On으로 앱 인증]: http://azure.microsoft.com/ko-kr/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication/
+[SharePoint Online]: http://office.microsoft.com/ko--kr/sharepoint/
+[Active Directory 인증 라이브러리 Single Sign-On으로 앱 인증]: http://azure.microsoft.com/ko--kr/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication/
 [Azure 관리 포털]: https://manage.windowsazure.com/
 []: ./media/mobile-services-dotnet-backend-calling-sharepoint-on-behalf-of-user/aad-web-application.png
 [1]: ./media/mobile-services-dotnet-backend-calling-sharepoint-on-behalf-of-user/aad-sharepoint-permissions.png

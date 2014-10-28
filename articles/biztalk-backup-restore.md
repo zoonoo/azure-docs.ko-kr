@@ -6,16 +6,16 @@
 
 Azure BizTalk 서비스에는 백업 및 복원 기능이 포함되어 있습니다. 이 항목에서는 다음을 비롯해 Azure 관리 포털을 사용하여 BizTalk 서비스를 백업하고 복원하는 방법에 대해 설명합니다.
 
--   [시작하기 전에][]
--   [백업 만들기][]
--   [백업 복원][]
--   [백업 대상][]
+-   [시작하기 전에][시작하기 전에]
+-   [백업 만들기][백업 만들기]
+-   [백업 복원][백업 복원]
+-   [백업 대상][백업 대상]
 
-[BizTalk 서비스 REST API][]를 사용하여 BizTalk 서비스를 백업할 수도 있습니다.
+[BizTalk 서비스 REST API][BizTalk 서비스 REST API]를 사용하여 BizTalk 서비스를 백업할 수도 있습니다.
 
 ## <a name="beforebackup"></a>시작하기 전에
 
--   일부 버전에서는 백업 및 복원을 사용하지 못할 수도 있습니다. [BizTalk 서비스: Edition 차트][]를 참조하세요.
+-   일부 버전에서는 백업 및 복원을 사용하지 못할 수도 있습니다. [BizTalk 서비스: Edition 차트][BizTalk 서비스: Edition 차트]를 참조하세요.
 
     **참고** 하이브리드 연결은 버전에 상관없이 백업되지 않습니다.
 
@@ -39,9 +39,9 @@ Azure BizTalk 서비스에는 백업 및 복원 기능이 포함되어 있습니
 
 언제든 백업을 만들어 완벽하게 제어할 수 있습니다. 이 섹션에서는 다음을 비롯해 Azure 관리 포털을 사용하여 백업을 만드는 단계를 설명합니다.
 
-[주문형 백업][]
+[주문형 백업][주문형 백업]
 
-[백업 예약][]
+[백업 예약][백업 예약]
 
 #### <a name="backupnow"></a>주문형 백업
 
@@ -72,13 +72,13 @@ Azure BizTalk 서비스에는 백업 및 복원 기능이 포함되어 있습니
 
 BizTalk 서비스 대시보드에 **실패** 상태가 표시된 경우:
 
-![마지막으로 예약된 백업 상태][]
+![마지막으로 예약된 백업 상태][마지막으로 예약된 백업 상태]
 
-이 링크를 클릭하면 문제 해결에 도움이 되는 관리 서비스 작업 로그가 열립니다. [BizTalk 서비스: 작업 로그를 사용한 문제 해결][](영문)을 참조하십시오.
+이 링크를 클릭하면 문제 해결에 도움이 되는 관리 서비스 작업 로그가 열립니다. [BizTalk 서비스: 작업 로그를 사용한 문제 해결][BizTalk 서비스: 작업 로그를 사용한 문제 해결](영문)을 참조하십시오.
 
 ## <a name="restore"></a>복원
 
-Azure 관리 포털 또는 [BizTalk 서비스 REST API 복원][]에서 백업을 복원할 수 있습니다. 이 섹션에서는 관리 포털을 사용하여 복원하는 단계를 설명합니다.
+Azure 관리 포털 또는 [BizTalk 서비스 REST API 복원][BizTalk 서비스 REST API 복원]에서 백업을 복원할 수 있습니다. 이 섹션에서는 관리 포털을 사용하여 복원하는 단계를 설명합니다.
 
 #### 복원하기 전에
 
@@ -203,19 +203,19 @@ Azure 관리 포털에서 BizTalk 서비스를 시작하려면 복원된 BizTalk
 </table>
 ## 다음
 
-Azure 관리 포털에서 Azure BizTalk 서비스를 만들려면 [BizTalk 서비스: Azure 관리 포털을 사용하여 프로비전][]을 참조하십시오. 응용 프로그램을 만들려면 [Azure BizTalk 서비스][]로 이동하십시오.
+Azure 관리 포털에서 Azure BizTalk 서비스를 만들려면 [BizTalk 서비스: Azure 관리 포털을 사용하여 프로비전][BizTalk 서비스: Azure 관리 포털을 사용하여 프로비전]을 참조하십시오. 응용 프로그램을 만들려면 [Azure BizTalk 서비스][Azure BizTalk 서비스]로 이동하십시오.
 
 ## 참고 항목
 
 -   [BizTalk 서비스 백업][BizTalk 서비스 REST API]
 -   [백업에서 BizTalk 서비스 복원][BizTalk 서비스 REST API 복원]
--   [BizTalk 서비스: Developer, Basic, Standard 및 Premium Editions 차트][]
--   [BizTalk 서비스: Azure 관리 포털을 사용하여 프로비전][]
--   [BizTalk 서비스: 상태 차트 프로비전][]
--   [BizTalk 서비스: 대시보드, 모니터 및 크기 조정 탭][]
--   [BizTalk 서비스: 제한][]
--   [BizTalk 서비스: 발급자 이름 및 발급자 키][]
--   [Azure BizTalk 서비스 SDK로 시작하는 방법][]
+-   [BizTalk 서비스: Developer, Basic, Standard 및 Premium Editions 차트][BizTalk 서비스: Developer, Basic, Standard 및 Premium Editions 차트]
+-   [BizTalk 서비스: Azure 관리 포털을 사용하여 프로비전][BizTalk 서비스: Azure 관리 포털을 사용하여 프로비전]
+-   [BizTalk 서비스: 상태 차트 프로비전][BizTalk 서비스: 상태 차트 프로비전]
+-   [BizTalk 서비스: 대시보드, 모니터 및 크기 조정 탭][BizTalk 서비스: 대시보드, 모니터 및 크기 조정 탭]
+-   [BizTalk 서비스: 제한][BizTalk 서비스: 제한]
+-   [BizTalk 서비스: 발급자 이름 및 발급자 키][BizTalk 서비스: 발급자 이름 및 발급자 키]
+-   [Azure BizTalk 서비스 SDK로 시작하는 방법][Azure BizTalk 서비스 SDK로 시작하는 방법]
 
   [시작하기 전에]: #beforebackup
   [백업 만들기]: #createbu

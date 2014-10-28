@@ -289,9 +289,9 @@ PowerShell을 사용하지 않고 HDInsight에서 작업을 원격으로 실행�
   [예제 실행]: #running
   [문제 해결]: #troubleshooting
   [다음 단계]: #next
-  [Azure PowerShell을 설치 및 구성하는 방법]: http://azure.microsoft.com/ko-kr/documentation/articles/install-configure-powershell/
+  [Azure PowerShell을 설치 및 구성하는 방법]: http://azure.microsoft.com/ko--kr/documentation/articles/install-configure-powershell/
   [streaming.py]: #streamingpy
   [jython.py]: #jythonpy
-  [HDInsight에서 Hadoop 작업용 데이터 업로드]: /ko-kr/documentation/articles/hdinsight-upload-data/
+  [HDInsight에서 Hadoop 작업용 데이터 업로드]: /ko--kr/documentation/articles/hdinsight-upload-data/
   [Azure HDInsight에 모듈을 배포하는 방법]: http://blogs.msdn.com/b/benjguin/archive/2014/03/03/how-to-deploy-a-python-module-to-windows-azure-hdinsight.aspx
   [Linux에서 Azure HDInsight를 사용하는 방법]: http://blogs.msdn.com/b/benjguin/archive/2014/02/18/how-to-use-hdinsight-from-linux.aspx

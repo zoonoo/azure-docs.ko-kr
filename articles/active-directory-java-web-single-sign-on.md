@@ -15,21 +15,21 @@
 
 이 자습서에서는 특정 응용 프로그램 서버를 사용하지만 숙련된 Java 개발자의 경우 아래에 설명된 프로세스를 다른 환경에도 적용할 수 있습니다. 이 자습서에는 다음과 같은 개발 환경 필수 조건이 필요합니다.
 
--   [Azure Active Directory용 Java 샘플 코드][]
--   [Java Runtime Environment 1.6][]
--   [JBoss Application Server 버전 7.1.1.Final][]
--   [JBoss Developer Studio IDE][]
+-   [Azure Active Directory용 Java 샘플 코드][Azure Active Directory용 Java 샘플 코드]
+-   [Java Runtime Environment 1.6][Java Runtime Environment 1.6]
+-   [JBoss Application Server 버전 7.1.1.Final][JBoss Application Server 버전 7.1.1.Final]
+-   [JBoss Developer Studio IDE][JBoss Developer Studio IDE]
 -   IIS(인터넷 정보 서비스) 7.5(SSL 사용)
 -   Windows PowerShell
--   [Office 365 PowerShell Commandlet][]
+-   [Office 365 PowerShell Commandlet][Office 365 PowerShell Commandlet]
 
 ### 목차
 
--   [소개][]
--   [1단계: Java 응용 프로그램 만들기][]
--   [2단계: 회사 디렉터리 테넌트에서 응용 프로그램 프로비전][]
--   [3단계: 직원 로그인을 위해 WS-Federation을 사용하여 응용 프로그램 보호][]
--   [요약][]
+-   [소개][소개]
+-   [1단계: Java 응용 프로그램 만들기][1단계: Java 응용 프로그램 만들기]
+-   [2단계: 회사 디렉터리 테넌트에서 응용 프로그램 프로비전][2단계: 회사 디렉터리 테넌트에서 응용 프로그램 프로비전]
+-   [3단계: 직원 로그인을 위해 WS-Federation을 사용하여 응용 프로그램 보호][3단계: 직원 로그인을 위해 WS-Federation을 사용하여 응용 프로그램 보호]
+-   [요약][요약]
 
 ## <a name="createapp"></a>1단계: Java 응용 프로그램 만들기
 

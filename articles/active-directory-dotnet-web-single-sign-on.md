@@ -17,20 +17,20 @@
 
 -   Visual Studio 2010 SP1
 -   Microsoft .NET Framework 4.0
--   [ASP.NET MVC 3][]
--   [Windows Identity Foundation 1.0 런타임][]
--   [Windows Identity Foundation 3.5 SDK][]
+-   [ASP.NET MVC 3][ASP.NET MVC 3]
+-   [Windows Identity Foundation 1.0 런타임][Windows Identity Foundation 1.0 런타임]
+-   [Windows Identity Foundation 3.5 SDK][Windows Identity Foundation 3.5 SDK]
 -   IIS(인터넷 정보 서비스) 7.5(SSL 사용)
 -   Windows PowerShell
--   [Office 365 PowerShell Commandlet][]
+-   [Office 365 PowerShell Commandlet][Office 365 PowerShell Commandlet]
 
 ### 목차
 
--   [소개][]
--   [1단계: ASP.NET MVC 응용 프로그램 만들기][]
--   [2단계: 회사 디렉터리 테넌트에서 응용 프로그램 프로비전][]
--   [3단계: 직원 로그인을 위해 WS-Federation을 사용하여 응용 프로그램 보호][]
--   [요약][]
+-   [소개][소개]
+-   [1단계: ASP.NET MVC 응용 프로그램 만들기][1단계: ASP.NET MVC 응용 프로그램 만들기]
+-   [2단계: 회사 디렉터리 테넌트에서 응용 프로그램 프로비전][2단계: 회사 디렉터리 테넌트에서 응용 프로그램 프로비전]
+-   [3단계: 직원 로그인을 위해 WS-Federation을 사용하여 응용 프로그램 보호][3단계: 직원 로그인을 위해 WS-Federation을 사용하여 응용 프로그램 보호]
+-   [요약][요약]
 
 ## <a name="createapp"></a>1단계: ASP.NET MVC 응용 프로그램 만들기
 
@@ -166,13 +166,13 @@
             }
         </p> 
 
-18. 변경 내용을 **Index.cshtml** 파일에 저장한 후 **F5** 키를 눌러 응용 프로그램을 실행합니다. 디렉터리 테넌트 자격 증명을 사용하여 로그인할 수 있는 Office 365 ID 공급자 페이지로 리디렉션됩니다(예: [john.doe@awesomecomputers.onmicrosoft.com][]).
+18. 변경 내용을 **Index.cshtml** 파일에 저장한 후 **F5** 키를 눌러 응용 프로그램을 실행합니다. 디렉터리 테넌트 자격 증명을 사용하여 로그인할 수 있는 Office 365 ID 공급자 페이지로 리디렉션됩니다(예: [john.doe@awesomecomputers.onmicrosoft.com][john.doe@awesomecomputers.onmicrosoft.com]).
 
 19. 자격 증명을 사용하여 로그인하고 나면 계정의 클레임이 표시되는 홈 컨트롤러의 인덱스 페이지로 리디렉션됩니다. 여기에 Azure Active Directory에서 제공하는 Single Sign-On을 사용하여 응용 프로그램에 인증된 사용자가 표시됩니다.
 
 ## <a name="summary"></a>요약
 
-이 자습서에서는 Azure Active Directory의 Single Sign-On 기능을 사용하여 단일 테넌트 응용 프로그램을 만들고 구성하는 방법을 살펴보았습니다. 또한 [Azure Active Directory를 사용하여 다중 테넌트 클라우드 응용 프로그램 개발][](영문) 자습서를 참조하여 Azure Active Directory용 다중 테넌트 응용 프로그램을 만들 수 있습니다.
+이 자습서에서는 Azure Active Directory의 Single Sign-On 기능을 사용하여 단일 테넌트 응용 프로그램을 만들고 구성하는 방법을 살펴보았습니다. 또한 [Azure Active Directory를 사용하여 다중 테넌트 클라우드 응용 프로그램 개발][Azure Active Directory를 사용하여 다중 테넌트 클라우드 응용 프로그램 개발](영문) 자습서를 참조하여 Azure Active Directory용 다중 테넌트 응용 프로그램을 만들 수 있습니다.
 
   [ASP.NET MVC 3]: http://www.microsoft.com/ko-KR/download/details.aspx?id=4211
   [Windows Identity Foundation 1.0 런타임]: http://www.microsoft.com/ko-KR/download/details.aspx?id=17331

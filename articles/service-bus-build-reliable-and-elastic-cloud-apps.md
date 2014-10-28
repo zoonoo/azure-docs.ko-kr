@@ -32,16 +32,16 @@
 
 -   [클라우드 서비스][클라우드 서비스]
 
-  [서비스 버스 큐를 사용하여 .NET 다중 계층 응용 프로그램 빌드]: /ko-kr/documentation/articles/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/
-  [Microsoft Azure 서비스 버스 - David Chappell]: http://azure.microsoft.com/ko-kr/documentation/articles/fundamentals-service-bus-hybrid-solutions/
-  [큐 기반 부하 평준화 패턴(영문)]: http://msdn.microsoft.com/en-us/library/dn589783.aspx
-  [경쟁 소비자]: http://msdn.microsoft.com/en-us/library/dn568101.aspx
+  [서비스 버스 큐를 사용하여 .NET 다중 계층 응용 프로그램 빌드]: /ko--kr/documentation/articles/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/
+  [Microsoft Azure 서비스 버스 - David Chappell]: http://azure.microsoft.com/ko--kr/documentation/articles/fundamentals-service-bus-hybrid-solutions/
+  [큐 기반 부하 평준화 패턴(영문)]: http://msdn.microsoft.com/ko--kr/library/dn589783.aspx
+  [경쟁 소비자]: http://msdn.microsoft.com/ko--kr/library/dn568101.aspx
   [운송 솔루션 공급자의 광고차 활용 - Xerox(영문)]: http://www.microsoft.com/casestudies/Case_Study_Detail.aspx?CaseStudyID=710000000945
-  [서비스 버스 큐를 사용하는 방법]: http://azure.microsoft.com/ko-kr/documentation/articles/service-bus-dotnet-how-to-use-queues/
+  [서비스 버스 큐를 사용하는 방법]: http://azure.microsoft.com/ko--kr/documentation/articles/service-bus-dotnet-how-to-use-queues/
   [서비스 버스 조정된 메시징의 배달 못한 메시지(2011년 10월 21일 블로그 게시물)(영문)]: http://geekswithblogs.net/asmith/articles/147398.aspx
-  [서비스 버스 중단 및 재해로부터 서비스 버스 응용 프로그램을 보호하는 최상의 방법(영문)]: http://sandboxmsdnstage.redmond.corp.microsoft.com/en-us/library/azure/jj554355.aspx
+  [서비스 버스 중단 및 재해로부터 서비스 버스 응용 프로그램을 보호하는 최상의 방법(영문)]: http://sandboxmsdnstage.redmond.corp.microsoft.com/ko--kr/library/azure/jj554355.aspx
   [조정된 메시징: 요청 응답]: http://code.msdn.microsoft.com/windowsazure/Brokered-Messaging-Request-2b4ff5d8
-  [Azure 서비스 버스를 사용한 다층 계층 응용 프로그램(영문)]: http://azure.microsoft.com/ko-kr/documentation/articles/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/
-  [Azure 큐 및 Azure 서비스 버스 큐 - 비교 및 대조]: http://msdn.microsoft.com/en-us/library/azure/hh767287.aspx
-  [서비스 버스 REST API 참조]: http://msdn.microsoft.com/en-us/library/azure/hh780717.aspx
-  [클라우드 서비스]: http://azure.microsoft.com/ko-kr/documentation/services/cloud-services/
+  [Azure 서비스 버스를 사용한 다층 계층 응용 프로그램(영문)]: http://azure.microsoft.com/ko--kr/documentation/articles/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/
+  [Azure 큐 및 Azure 서비스 버스 큐 - 비교 및 대조]: http://msdn.microsoft.com/ko--kr/library/azure/hh767287.aspx
+  [서비스 버스 REST API 참조]: http://msdn.microsoft.com/ko--kr/library/azure/hh780717.aspx
+  [클라우드 서비스]: http://azure.microsoft.com/ko--kr/documentation/services/cloud-services/

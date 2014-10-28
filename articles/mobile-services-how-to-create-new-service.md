@@ -13,6 +13,6 @@
 
 
   [Azure 관리 포털]: https://manage.windowsazure.com/
-  [모바일 서비스 시작]: /ko-kr/documentation/articles/mobile-services-javascript-backend-phonegap-get-started/
-  [Azure 무료 평가판]: http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A30A4DDE2&returnurl=http%3A%2F%2FFen-us%2Fdocumentation%2Farticles%2Fmobile-services-how-to-create-new-service%2F
+  [모바일 서비스 시작]: /ko--kr/documentation/articles/mobile-services-javascript-backend-phonegap-get-started/
+  [Azure 무료 평가판]: http://www.windowsazure.com/ko--kr/pricing/free-trial/?WT.mc_id=A30A4DDE2&returnurl=http%3A%2F%2FFko--kr%2Fdocumentation%2Farticles%2Fmobile-services-how-to-create-new-service%2F
   [mobile-services-create-new-service]: ../includes/mobile-services-create-new-service.md

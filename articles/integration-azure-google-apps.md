@@ -45,40 +45,40 @@ Google Apps API 액세스 사용
 4.  응용 프로그램 목록에서 **Google Apps**를 선택하여 Google Apps 구성 대화 상자를 엽니다.
 5.  **Single Sign-On 구성** 대화 상자를 열려면 **Single Sign-On 구성**을 클릭합니다.
 
-    ![Google\_Tutorial\_01][]
+    ![Google\_Tutorial\_01][Google\_Tutorial\_01]
 
 6.  이 앱에 대한 Single Sign-On 모드 선택 대화 상자 페이지에서 사용자가 Azure AD의 계정으로 인증을 모드로 선택하고 다음 단추를 클릭합니다.
 
-    ![Google\_Tutorial\_02][]
+    ![Google\_Tutorial\_02][Google\_Tutorial\_02]
 
 7.  **앱 URL 구성** 대화 상자의 **Google Apps 테넌트 URL** 텍스트 상자에 Google Apps 테넌트 URL을 입력하고 **다음** 단추를 클릭합니다.
 
-    ![Google\_Tutorial\_03][]
+    ![Google\_Tutorial\_03][Google\_Tutorial\_03]
 
 8.  **Google Apps에서 Single Sign-On 구성** 대화 상자에서 다음 단계를 수행하고 **완료** 단추를 클릭합니다.
 
     -   **인증서 다운로드**를 클릭하고 인증서를 **c:\\googleapps.cer**로 저장합니다.
     -   Google Apps 로그인 페이지를 열고 로그온합니다.
 
-    ![Google\_Tutorial\_04][]
+    ![Google\_Tutorial\_04][Google\_Tutorial\_04]
 
     -   **관리 콘솔**에서 보안을 클릭합니다.
 
-    ![Google\_Tutorial\_05][]
+    ![Google\_Tutorial\_05][Google\_Tutorial\_05]
 
     보안 아이콘이 표시되지 않는 경우 페이지 맨 아래에 있는 기타 컨트롤을 클릭해야 합니다.
 
 9.  **보안** 페이지에서 **고급** 설정을 클릭합니다.
 
-    ![Google\_Tutorial\_06][]
+    ![Google\_Tutorial\_06][Google\_Tutorial\_06]
 
 10. 페이지의 **고급** 설정 섹션에서 **Single Sign-On 설정**을 선택합니다.
 
-    ![Google\_Tutorial\_07][]
+    ![Google\_Tutorial\_07][Google\_Tutorial\_07]
 
 11. Single Sign-On 설정 페이지에서 다음 단계를 수행합니다.
 
-    ![Google\_Tutorial\_08][]
+    ![Google\_Tutorial\_08][Google\_Tutorial\_08]
 
         + Select <strong>Enable Single Sign-on</strong>.
         + On the <strong>Configure single sign-on at Google Apps</strong> page in the Azure AD Portal, copy the <strong>SINGLE SIGN-ON URL</strong>, and then paste it into the related textbox on the <strong>Security page</strong> in the Google Apps <strong>Admin console</strong>.
@@ -89,7 +89,7 @@ Google Apps API 액세스 사용
 
 12. Azure AD 포털의 **Google Apps에서 Single Sign-On 구성** 페이지에서 완료 단추를 클릭합니다.
 
-이제 [액세스 패널][]로 이동하여 Google Apps에 대한 Single Sign-On을 테스트할 수 있습니다.
+이제 [액세스 패널][액세스 패널]로 이동하여 Google Apps에 대한 Single Sign-On을 테스트할 수 있습니다.
 
 # Google Apps API 액세스 사용
 
@@ -100,13 +100,13 @@ Google Apps API 액세스 사용
 1.  Google Apps 테넌트에 로그온합니다.
 2.  **관리 콘솔**에서 **보안**을 클릭합니다.
 
-    ![Google\_Tutorial\_05][]
+    ![Google\_Tutorial\_05][Google\_Tutorial\_05]
 
     보안 아이콘이 표시되지 않는 경우 관리 콘솔 맨 아래에 있는 기타 컨트롤을 클릭합니다.
 3.  보안 페이지에서 **API 참조**를 클릭하여 관련 구성 대화 상자 페이지를 엽니다.
 4.  **API 액세스 사용**을 선택합니다.
 
-    ![Google\_Tutorial\_09][]
+    ![Google\_Tutorial\_09][Google\_Tutorial\_09]
 
     </p>
 
@@ -115,7 +115,7 @@ Google Apps API 액세스 사용
 Google Apps를 통해 사용자 프로비전을 구성하려면 Azure AD 도메인과 Google Apps 도메인에 동일한 FQDN(정규화된 도메인 이름)이 있어야 합니다. 그러나 예를 들어 체험 테넌트를 사용하여 이 자습서의 시나리오를 테스트하는 경우 일반적으로 테넌트의 FQDN이 일치하지 않습니다. 이 문제를 해결하기 위해 Azure AD 및 Google Apps에서 사용자 지정 도메인을 구성할 수 있습니다.
 사용자 지정 도메인을 구성하려면 공용 도메인의 DNS 영역 파일에 대한 액세스 권한이 필요합니다.
 
-![Google\_Tutorial\_10][]
+![Google\_Tutorial\_10][Google\_Tutorial\_10]
 
 ## Azure AD에서 사용자 지정 도메인을 추가하려면
 
@@ -125,34 +125,34 @@ Google Apps를 통해 사용자 프로비전을 구성하려면 Azure AD 도메�
 4.  **도메인 이름 추가** 텍스트 상자를 열려면 도메인 이름을 입력하고 **추가**를 클릭합니다.
 5.  **다음**을 클릭하여 **도메인 이름 확인** 대화 상자 페이지를 엽니다.
 
-    ![Google\_Tutorial\_11][]
+    ![Google\_Tutorial\_11][Google\_Tutorial\_11]
 
 6.  **레코드 종류**를 선택하고 DNS 영역 파일에 선택한 레코드를 등록합니다.
 
-    ![Google\_Tutorial\_12][]
+    ![Google\_Tutorial\_12][Google\_Tutorial\_12]
 
 7.  **nslookup 명령**을 사용하여 DNS 레코드가 등록되었는지 확인해야 합니다.
 
-    ![Google\_Tutorial\_13][]
+    ![Google\_Tutorial\_13][Google\_Tutorial\_13]
 
 ## Google Apps에서 사용자 지정 도메인을 추가하려면
 
 1.  Google Apps 테넌트에 로그온합니다.
 2.  **관리 콘솔**에서 **도메인**을 클릭합니다.
 
-    ![Google\_Tutorial\_14][]
+    ![Google\_Tutorial\_14][Google\_Tutorial\_14]
 
 3.  **사용자 지정 도메인 추가**를 클릭합니다.
 
-    ![Google\_Tutorial\_15][]
+    ![Google\_Tutorial\_15][Google\_Tutorial\_15]
 
 4.  **이미 소유한 도메인 사용**을 클릭한 후 **계속**을 클릭합니다.
 
-    ![Google\_Tutorial\_16][]
+    ![Google\_Tutorial\_16][Google\_Tutorial\_16]
 
 5.  사용자 지정 도메인의 이름을 입력하고 **계속**을 클릭합니다.
 
-    ![Google\_Tutorial\_17][]
+    ![Google\_Tutorial\_17][Google\_Tutorial\_17]
 
 6.  도메인의 소유권을 확인하는 단계를 완료합니다.
 
@@ -171,7 +171,7 @@ Google Apps를 통해 사용자 프로비전을 구성하려면 Azure AD 도메�
 4.  **계정 동기화 구성** 대화 상자를 열려면 **계정 동기화 구성**을 클릭합니다.
 5.  **계정 동기화 구성** 대화 상자에서 Google Apps 도메인 이름, Google Apps 사용자 이름 및 Google Apps 암호를 제공하고 **다음** 단추를 클릭합니다.
 
-    ![Google\_Tutorial\_18][]
+    ![Google\_Tutorial\_18][Google\_Tutorial\_18]
 
 6.  **확인** 대화 상자 페이지에서 **완료** 단추를 클릭하여 **계정 동기화 구성** 대화 상자를 닫습니다.
 

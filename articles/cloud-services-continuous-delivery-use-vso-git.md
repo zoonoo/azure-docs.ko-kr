@@ -249,7 +249,7 @@ Git을 사용할 경우 보통 작업 분기에서 변경한 다음 개발이 �
   [1]: http://go.microsoft.com/fwlink/?LinkId=397665
   []: ./media/cloud-services-continuous-delivery-use-vso-git/CloneThisRepository.PNG
   [2]: ./media/cloud-services-continuous-delivery-use-vso-git/CreateNewSolutionInClonedRepo.PNG
-  [Azure 및 ASP.NET 시작]: http://www.windowsazure.com/ko-kr/documentation/articles/web-sites-dotnet-get-started/
+  [Azure 및 ASP.NET 시작]: http://www.windowsazure.com/ko--kr/documentation/articles/web-sites-dotnet-get-started/
   [3]: ./media/cloud-services-continuous-delivery-use-vso-git/CommitMenuItem.PNG
   [4]: ./media/cloud-services-continuous-delivery-use-vso-git/CommitAChange2.PNG
   [Azure 포털]: http://manage.windowsazure.com
@@ -284,4 +284,4 @@ Git을 사용할 경우 보통 작업 분기에서 변경한 다음 개발이 �
   [33]: ./media/cloud-services-continuous-delivery-use-vso-git/IncludeWorkingBranch.PNG
   [Visual Studio Online]: http://go.microsoft.com/fwlink/?LinkId=253861
   [Git에서 코드 공유]: http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx
-  [소스 제어에서 Azure 웹 사이트로 게시]: http://www.windowsazure.com/ko-kr/documentation/articles/web-sites-publish-source-control
+  [소스 제어에서 Azure 웹 사이트로 게시]: http://www.windowsazure.com/ko--kr/documentation/articles/web-sites-publish-source-control

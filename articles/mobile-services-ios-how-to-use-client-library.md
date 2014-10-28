@@ -8,39 +8,39 @@
   <a href="/en-us/develop/mobile/how-to-guides/work-with-net-client-library/" title=".NET Framework">.NET Framework</a><a href="/en-us/develop/mobile/how-to-guides/work-with-html-js-client/" title="HTML/JavaScript">HTML/JavaScript</a><a href="/en-us/develop/mobile/how-to-guides/work-with-ios-client-library/" title="iOS" class="current">iOS</a><a href="/en-us/develop/mobile/how-to-guides/work-with-android-client-library/" title="Android" class="current">Android</a><a href="/en-us/develop/mobile/how-to-guides/work-with-xamarin-client-library/" title="Xamarin" class="current">Xamarin</a>
 </div>
 
-이 가이드에서는 Azure 모바일 서비스용 iOS 클라이언트를 사용하여 일반적인 시나리오를 수행하는 방법을 보여 줍니다. 샘플은 Objective-C로 작성되었으며 [모바일 서비스 SDK][]가 필요합니다. 이 자습서에는 [iOS SDK][](영문)도 필요합니다. 여기서 다루는 시나리오에는 데이터 쿼리, 삽입, 업데이트, 삭제 및 사용자 인증과 오류 처리가 포함됩니다. 모바일 서비스를 처음 접하는 경우 먼저 [모바일 서비스 빠른 시작][]을 완료하는 것이 좋습니다. 빠른 시작 자습서를 참조하여 계정을 구성하고 첫 모바일 서비스를 만들 수 있습니다.
+이 가이드에서는 Azure 모바일 서비스용 iOS 클라이언트를 사용하여 일반적인 시나리오를 수행하는 방법을 보여 줍니다. 샘플은 Objective-C로 작성되었으며 [모바일 서비스 SDK][모바일 서비스 SDK]가 필요합니다. 이 자습서에는 [iOS SDK][iOS SDK](영문)도 필요합니다. 여기서 다루는 시나리오에는 데이터 쿼리, 삽입, 업데이트, 삭제 및 사용자 인증과 오류 처리가 포함됩니다. 모바일 서비스를 처음 접하는 경우 먼저 [모바일 서비스 빠른 시작][모바일 서비스 빠른 시작]을 완료하는 것이 좋습니다. 빠른 시작 자습서를 참조하여 계정을 구성하고 첫 모바일 서비스를 만들 수 있습니다.
 
 ## 목차
 
--   [모바일 서비스 정의][]
--   [개념][]
--   [설정 및 필수 조건][]
--   [방법: 모바일 서비스 클라이언트 만들기][]
--   [방법: 테이블 참조 만들기][]
--   [방법: 모바일 서비스에서 데이터 쿼리][]
-    -   [반환된 데이터 필터링][]
-    -   [MSQuery 개체 사용][]
-    -   [특정 열 선택][]
--   [방법: 모바일 서비스에 데이터 삽입][]
--   [방법: 모바일 서비스의 데이터 수정][]
--   [방법: 사용자 인터페이스에 데이터 바인딩][]
--   [방법: 사용자 인증][]
--   [방법: 오류 처리][]
+-   [모바일 서비스 정의][모바일 서비스 정의]
+-   [개념][개념]
+-   [설정 및 필수 조건][설정 및 필수 조건]
+-   [방법: 모바일 서비스 클라이언트 만들기][방법: 모바일 서비스 클라이언트 만들기]
+-   [방법: 테이블 참조 만들기][방법: 테이블 참조 만들기]
+-   [방법: 모바일 서비스에서 데이터 쿼리][방법: 모바일 서비스에서 데이터 쿼리]
+    -   [반환된 데이터 필터링][반환된 데이터 필터링]
+    -   [MSQuery 개체 사용][MSQuery 개체 사용]
+    -   [특정 열 선택][특정 열 선택]
+-   [방법: 모바일 서비스에 데이터 삽입][방법: 모바일 서비스에 데이터 삽입]
+-   [방법: 모바일 서비스의 데이터 수정][방법: 모바일 서비스의 데이터 수정]
+-   [방법: 사용자 인터페이스에 데이터 바인딩][방법: 사용자 인터페이스에 데이터 바인딩]
+-   [방법: 사용자 인증][방법: 사용자 인증]
+-   [방법: 오류 처리][방법: 오류 처리]
 
-<!--- [How to: Design unit tests] - [How to: Customize the client]     - [Customize request headers]     - [Customize data type serialization] - [Next steps][]-->
+<!--- [How to: Design unit tests] - [How to: Customize the client]     - [Customize request headers]     - [Customize data type serialization] - [Next steps][Next steps]-->
 
-[WACOM.INCLUDE [mobile-services-concepts][]]
+[WACOM.INCLUDE [mobile-services-concepts][mobile-services-concepts]]
 
 ## <a name="Setup"></a>설정 및 필수 조건
 
-이 가이드에서는 이미 모바일 서비스 및 테이블을 만들었다고 가정합니다. 자세한 내용은 [테이블 만들기][]를 참조하거나 [모바일 서비스 시작하기][모바일 서비스 빠른 시작] 자습서에서 만든 `ToDoItem` 테이블을 다시 사용합니다l. 이 항목의 예에서는 이름이 `ToDoItem`이고 다음 열이 포함된 테이블을 사용합니다.
+이 가이드에서는 이미 모바일 서비스 및 테이블을 만들었다고 가정합니다. 자세한 내용은 [테이블 만들기][테이블 만들기]를 참조하거나 [모바일 서비스 시작하기][모바일 서비스 빠른 시작] 자습서에서 만든 `ToDoItem` 테이블을 다시 사용합니다l. 이 항목의 예에서는 이름이 `ToDoItem`이고 다음 열이 포함된 테이블을 사용합니다.
 
 -   `id`
 -   `text`
 -   `complete`
 -   `duration`
 
-iOS 응용 프로그램을 처음 만드는 경우 응용 프로그램의 [**이진과 라이브러리 연결**][] 설정에 `WindowsAzureMobileServices.framework`를 추가해야 합니다. 이 설정 중 "기타 추가…"를 클릭하고, 다운로드한 Windows Azure 모바일 서비스 SDK의 위치를 찾아서 해당 위치를 선택합니다.
+iOS 응용 프로그램을 처음 만드는 경우 응용 프로그램의 [**이진과 라이브러리 연결**][**이진과 라이브러리 연결**] 설정에 `WindowsAzureMobileServices.framework`를 추가해야 합니다. 이 설정 중 "기타 추가…"를 클릭하고, 다운로드한 Windows Azure 모바일 서비스 SDK의 위치를 찾아서 해당 위치를 선택합니다.
 
 또한 해당 파일이나 응용 프로그램의 .pch 파일에서 다음 참조를 추가해야 합니다.
 
@@ -83,7 +83,7 @@ MSTable 개체가 있으면 쿼리를 만들 수 있습니다. 다음과 같은 
 다음 매개 변수가 콜백에서 지원됩니다.
 
 -   *items*: 쿼리와 일치한 레코드의 **NSArray**입니다.
--   *totalCount*: 쿼리의 현재 페이지에 반환된 항목뿐만 아니라 모든 페이지에 있는 항목의 총 개수입니다. 요청에서 총 개수를 명시적으로 요청하지 않는 경우 이 값은 -1로 설정됩니다. 자세한 내용은 [페이지에서 데이터 반환][]을 참조하세요.
+-   *totalCount*: 쿼리의 현재 페이지에 반환된 항목뿐만 아니라 모든 페이지에 있는 항목의 총 개수입니다. 요청에서 총 개수를 명시적으로 요청하지 않는 경우 이 값은 -1로 설정됩니다. 자세한 내용은 [페이지에서 데이터 반환][페이지에서 데이터 반환]을 참조하세요.
 -   *error*: 발생한 오류입니다. 오류가 발생하지 않은 경우 `nil`입니다.
 
 ### <a name="filtering"></a>방법: 반환된 데이터 필터링
@@ -196,11 +196,11 @@ MSQuery 개체는 다음 쿼리 동작을 제어할 수 있게 합니다.
     };
 
 이 매개 변수는 `myKey1=value1&myKey2=value2`로 쿼리 URI에 추가됩니다.
-자세한 내용은 [방법: 사용자 지정 매개 변수 액세스][]를 참조하세요.
+자세한 내용은 [방법: 사용자 지정 매개 변수 액세스][방법: 사용자 지정 매개 변수 액세스]를 참조하세요.
 
 ## <a name="inserting"></a><span class="short-header">데이터 삽입</span>방법: 모바일 서비스에 데이터 삽입
 
-테이블에 새 행을 삽입하려면 새 [NSDictionary 개체][](영문)를 만들어 삽입 함수에 전달합니다. 다음 코드는 테이블에 새 할 일 항목을 삽입합니다.
+테이블에 새 행을 삽입하려면 새 [NSDictionary 개체][NSDictionary 개체](영문)를 만들어 삽입 함수에 전달합니다. 다음 코드는 테이블에 새 할 일 항목을 삽입합니다.
 
     NSDictionary *newItem = @{@"text": @"my new item", @"complete" : @NO};
     [table insert:newItem completion:^(NSDictionary *result, NSError *error) {
@@ -243,13 +243,13 @@ MSQuery 개체는 다음 쿼리 동작을 제어할 수 있게 합니다.
 
 `id`의 값은 고유해야 하며 다음과 같은 문자를 포함해서는 안 됩니다.
 
--   제어 문자: [0x0000-0x001F] 및 [0x007F-0x009F]. 자세한 내용은 [ASCII 제어 코드 C0 및 C1][](영문)을 참조하세요.
+-   제어 문자: [0x0000-0x001F] 및 [0x007F-0x009F]. 자세한 내용은 [ASCII 제어 코드 C0 및 C1][ASCII 제어 코드 C0 및 C1](영문)을 참조하세요.
 -   인쇄 가능한 문자: **"**(0x0022), **+** (0x002B), **/** (0x002F), **?** (0x003F), **\\** (0x005C), **\`** (0x0060)
 -   ID "." 및 ".."
 
-또는 테이블에 정수 ID를 사용할 수 있습니다. 정수 ID를 사용하려면 `mobile table create` 명령으로 `--integerId` 옵션을 사용하여 테이블을 만들어야 합니다. 이 명령은 Azure용 CLI(명령줄 인터페이스)와 함께 사용됩니다. CLI 사용에 대한 자세한 내용은 [모바일 서비스 테이블 관리 CLI][](영문)를 참조하세요.
+또는 테이블에 정수 ID를 사용할 수 있습니다. 정수 ID를 사용하려면 `mobile table create` 명령으로 `--integerId` 옵션을 사용하여 테이블을 만들어야 합니다. 이 명령은 Azure용 CLI(명령줄 인터페이스)와 함께 사용됩니다. CLI 사용에 대한 자세한 내용은 [모바일 서비스 테이블 관리 CLI][모바일 서비스 테이블 관리 CLI](영문)를 참조하세요.
 
-동적 스키마가 사용하도록 설정된 경우 모바일 서비스에서 삽입 또는 업데이트 요청에서 개체의 필드를 기준으로 새 열을 자동으로 생성합니다. 자세한 내용은 [동적 스키마][]를 참조하세요.
+동적 스키마가 사용하도록 설정된 경우 모바일 서비스에서 삽입 또는 업데이트 요청에서 개체의 필드를 기준으로 새 열을 자동으로 생성합니다. 자세한 내용은 [동적 스키마][동적 스키마]를 참조하세요.
 
 ## <a name="modifying"></a><span class="short-header">데이터 수정</span>방법: 모바일 서비스의 데이터 수정
 
@@ -291,7 +291,7 @@ MSQuery 개체는 다음 쿼리 동작을 제어할 수 있게 합니다.
 -   Twitter
 -   Azure Active Directory
 
-ID 공급자 구성에 대한 자세한 내용은 [인증 시작][]을 참조하세요.
+ID 공급자 구성에 대한 자세한 내용은 [인증 시작][인증 시작]을 참조하세요.
 
 모바일 서비스에서는 다음과 같은 두 가지 인증 워크플로를 지원합니다.
 
@@ -299,9 +299,9 @@ ID 공급자 구성에 대한 자세한 내용은 [인증 시작][]을 참조하
 
 -   클라이언트 관리 로그인에서는 앱이 ID 공급자에게 토큰을 요청한 후 이 토큰을 인증을 위해 모바일 서비스에 제시해야 합니다.
 
-인증에 성공하면 할당된 사용자 ID 값과 인증 토큰이 포함된 사용자 개체가 반환됩니다. 이 사용자 ID를 서버 스크립트에서 사용하여 요청의 유효성을 검사하거나 요청을 수정할 수 있습니다. 자세한 내용은 [스크립트를 사용하여 사용자 권한 부여][]를 참조하세요. 토큰 자체는 후속 로그인에 사용하도록 안전하게 캐시할 수 있습니다.
+인증에 성공하면 할당된 사용자 ID 값과 인증 토큰이 포함된 사용자 개체가 반환됩니다. 이 사용자 ID를 서버 스크립트에서 사용하여 요청의 유효성을 검사하거나 요청을 수정할 수 있습니다. 자세한 내용은 [스크립트를 사용하여 사용자 권한 부여][스크립트를 사용하여 사용자 권한 부여]를 참조하세요. 토큰 자체는 후속 로그인에 사용하도록 안전하게 캐시할 수 있습니다.
 
-테이블에 대해 사용 권한을 설정하여 특정 작업을 위한 액세스를 인증된 사용자로만 제한할 수도 있습니다. 자세한 정보는 [사용 권한][]을 참조하세요.
+테이블에 대해 사용 권한을 설정하여 특정 작업을 위한 액세스를 인증된 사용자로만 제한할 수도 있습니다. 자세한 정보는 [사용 권한][사용 권한]을 참조하세요.
 
 ### 서버 관리 로그인
 
@@ -334,7 +334,7 @@ MSLoginController에 대한 참조를 가져와서 다음을 사용하여 직접
 
 로그인 프로세스가 모바일 서비스 클라이언트 외부에서 이루어지는 경우가 있습니다. 이는 Single Sign-On 기능을 사용하려는 경우 또는 사용자 정보를 얻기 위해 앱에서 바로 ID 공급자에 연락해야 하는 경우 필요할 수 있습니다. 이런 경우 지원되는 ID 공급자로부터 별도로 획득한 토큰을 제공하여 모바일 서비스에 로그인할 수 있습니다.
 
-다음 예에서는 [Live Connect SDK][](영문)를 사용하여 iOS 앱용 Single Sign-On을 사용하도록 설정합니다.
+다음 예에서는 [Live Connect SDK][Live Connect SDK](영문)를 사용하여 iOS 앱용 Single Sign-On을 사용하도록 설정합니다.
 
     [client loginWithProvider:@"microsoftaccount" 
         token:@{@"authenticationToken" : self.liveClient.session.authenticationToken}
@@ -415,7 +415,7 @@ MSLoginController에 대한 참조를 가져와서 다음을 사용하여 직접
 <p>토큰은 중요한 데이터이므로 장치가 분실 또는 도난되는 경우에 대비하여 암호화하여 저장해야 합니다.</p>
 </div>
 
-캐시된 토큰을 사용하면 사용자는 토큰이 만료될 때까지 다시 로그인할 필요가 없습니다. 사용자가 만료된 토큰으로 로그인하려고 하면 401 권한 없음 응답이 반환됩니다. 이때 사용자는 다시 로그인하여 새 토큰을 획득해야 하며, 새 토큰은 다시 캐시할 수 있습니다. 필터를 사용하면 앱이 모바일 서비스를 호출할 때마다 만료된 토큰을 처리하는 코드를 작성하지 않아도 됩니다. 필터를 사용하여 모바일 서비스 호출 및 모바일 서비스에서 나오는 응답을 차단할 수 있습니다. 필터의 코드는 응답에 401이 있는지 테스트하고, 토큰이 만료된 경우 로그인 프로세스를 트리거한 다음, 401을 생성한 요청을 다시 시도합니다. 자세한 내용은 [만료된 토큰 처리][](영문)를 참조하세요.
+캐시된 토큰을 사용하면 사용자는 토큰이 만료될 때까지 다시 로그인할 필요가 없습니다. 사용자가 만료된 토큰으로 로그인하려고 하면 401 권한 없음 응답이 반환됩니다. 이때 사용자는 다시 로그인하여 새 토큰을 획득해야 하며, 새 토큰은 다시 캐시할 수 있습니다. 필터를 사용하면 앱이 모바일 서비스를 호출할 때마다 만료된 토큰을 처리하는 코드를 작성하지 않아도 됩니다. 필터를 사용하여 모바일 서비스 호출 및 모바일 서비스에서 나오는 응답을 차단할 수 있습니다. 필터의 코드는 응답에 401이 있는지 테스트하고, 토큰이 만료된 경우 로그인 프로세스를 트리거한 다음, 401을 생성한 요청을 다시 시도합니다. 자세한 내용은 [만료된 토큰 처리][만료된 토큰 처리](영문)를 참조하세요.
 
 ## <a name="errors"></a><span class="short-header">오류 처리</span>방법: 오류 처리
 
@@ -432,7 +432,7 @@ MSLoginController에 대한 참조를 가져와서 다음을 사용하여 직접
 
 또한 각 오류 코드에 대해 상수가 정의되어 있습니다. 이 코드에 대한 설명은 MSError.h 파일에서 찾을 수 있습니다.
 
-유효성 검사 및 오류 처리의 예를 보려면 [모바일 서비스에서 서버 스크립트를 사용하여 데이터 유효성 검사 및 수정][]을 참조하세요. 이 항목에서는 서버 스크립트를 사용하여 서버 쪽 유효성 검사가 구현됩니다. 잘못된 데이터가 제출되는 경우 오류 응답이 반환되며 이 응답은 클라이언트에서 처리됩니다.
+유효성 검사 및 오류 처리의 예를 보려면 [모바일 서비스에서 서버 스크립트를 사용하여 데이터 유효성 검사 및 수정][모바일 서비스에서 서버 스크립트를 사용하여 데이터 유효성 검사 및 수정]을 참조하세요. 이 항목에서는 서버 스크립트를 사용하여 서버 쪽 유효성 검사가 구현됩니다. 잘못된 데이터가 제출되는 경우 오류 응답이 반환되며 이 응답은 클라이언트에서 처리됩니다.
 
 <!--
 <h2><a name="#unit-testing"></a><span class="short-header">Designing tests</span>How to: Design unit tests</h2>  _(Optional) This section shows how to write unit test when using the client library (info from Yavor)._  <h2><a name="#customizing"></a><span class="short-header">Customizing the client</span>How to: Customize the client</h2>  _(Optional) This section shows how to send customize client behaviors._  ###<a name="custom-headers"></a>How to: Customize request headers  _(Optional) This section shows how to send custom request headers._  For more information see, New topic about processing headers in the server-side.  ###<a name="custom-serialization"></a>How to: Customize serialization  _(Optional) This section shows how to use attributes to customize how data types are serialized._  For more information see, New topic about processing headers in the server-side.  ## <a name="next-steps"></a>Next steps

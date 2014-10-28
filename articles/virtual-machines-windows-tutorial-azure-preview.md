@@ -4,7 +4,7 @@
 
 # Azure 미리 보기 포털에서 Windows Server를 실행하는 가상 컴퓨터 만들기
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/ko-kr/documentation/articles/virtual-machines-windows-tutorial/" title="Azure 포털">Azure 포털</a><a href="/ko-kr/documentation/articles/virtual-machines-windows-tutorial-azure-preview/" title="Azure 미리 보기 포털" class="current">Azure 미리 보기 포털</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/ko--kr/documentation/articles/virtual-machines-windows-tutorial/" title="Azure 포털">Azure 포털</a><a href="/ko--kr/documentation/articles/virtual-machines-windows-tutorial-azure-preview/" title="Azure 미리 보기 포털" class="current">Azure 미리 보기 포털</a></div>
 
 이 자습서에서는 Azure 미리 보기 포털의 VM 갤러리를 사용하여 Windows Server를 실행하는 Azure VM(가상 컴퓨터)를 쉽게 만드는 방법을 보여 줍니다. 이 갤러리는 Windows 운영 체제, Linux 기반 운영 체제, 응용 프로그램 이미지 등 다양한 이미지를 제공합니다.
 
@@ -89,14 +89,14 @@ Azure에서 Windows 가상 컴퓨터를 구성하는 방법에 대한 자세한 
 
 [가상 컴퓨터의 가용성 관리][가상 컴퓨터의 가용성 관리]
 
-  [Azure 포털]: /ko-kr/documentation/articles/virtual-machines-windows-tutorial/ "Azure 포털"
-  [Azure 미리 보기 포털]: /ko-kr/documentation/articles/virtual-machines-windows-tutorial-azure-preview/ "Azure 미리 보기 포털"
-  [Azure 계정 만들기]: http://www.windowsazure.com/en-us/develop/php/tutorials/create-a-windows-azure-account/
+  [Azure 포털]: /ko--kr/documentation/articles/virtual-machines-windows-tutorial/ "Azure 포털"
+  [Azure 미리 보기 포털]: /ko--kr/documentation/articles/virtual-machines-windows-tutorial-azure-preview/ "Azure 미리 보기 포털"
+  [Azure 계정 만들기]: http://www.windowsazure.com/ko--kr/develop/php/tutorials/create-a-windows-azure-account/
   [가상 컴퓨터를 만드는 방법]: #createvirtualmachine
   [가상 컴퓨터를 만든 후 로그온하는 방법]: #logon
   [가상 컴퓨터]: http://go.microsoft.com/fwlink/p/?LinkID=271224
   [1]: https://portal.azure.com
-  [무료 평가판]: http://www.windowsazure.com/en-us/pricing/free-trial/
+  [무료 평가판]: http://www.windowsazure.com/ko--kr/pricing/free-trial/
   [명령 모음에서 새로 만들기 선택]: ./media/virtual-machines-windows-tutorial-azure-preview/new_button_preview_portal.png
   [갤러리에서 VM 이미지 선택]: ./media/virtual-machines-windows-tutorial-azure-preview/image_gallery_preview_portal.png
   [호스트 이름 및 로그온 자격 증명 구성]: ./media/virtual-machines-windows-tutorial-azure-preview/create_vm_preview_portal.png
@@ -107,7 +107,7 @@ Azure에서 Windows 가상 컴퓨터를 구성하는 방법에 대한 자세한 
   [가상 컴퓨터에 로그온]: ./media/virtual-machines-windows-tutorial-azure-preview/connect_vm_preview_portal.png
   [연결 계속]: ./media/virtual-machines-log-on-windows-server/connectpublisher.png
   [컴퓨터의 ID 확인]: ./media/virtual-machines-log-on-windows-server/connectverify.png
-  [클라우드 서비스에서 가상 컴퓨터를 연결하는 방법]: http://www.windowsazure.com/ko-kr/documentation/articles/cloud-services-connect-virtual-machine/
-  [Windows Server 운영 체제를 포함하는 가상 하드 디스크를 만들고 업로드하는 방법]: http://www.windowsazure.com/ko-kr/documentation/articles/virtual-machines-create-upload-vhd-windows-server/
-  [가상 컴퓨터에 데이터 디스크 연결]: http://www.windowsazure.com/ko-kr/documentation/articles/storage-windows-attach-disk/
-  [가상 컴퓨터의 가용성 관리]: http://www.windowsazure.com/ko-kr/documentation/articles/manage-availability-virtual-machines/
+  [클라우드 서비스에서 가상 컴퓨터를 연결하는 방법]: http://www.windowsazure.com/ko--kr/documentation/articles/cloud-services-connect-virtual-machine/
+  [Windows Server 운영 체제를 포함하는 가상 하드 디스크를 만들고 업로드하는 방법]: http://www.windowsazure.com/ko--kr/documentation/articles/virtual-machines-create-upload-vhd-windows-server/
+  [가상 컴퓨터에 데이터 디스크 연결]: http://www.windowsazure.com/ko--kr/documentation/articles/storage-windows-attach-disk/
+  [가상 컴퓨터의 가용성 관리]: http://www.windowsazure.com/ko--kr/documentation/articles/manage-availability-virtual-machines/

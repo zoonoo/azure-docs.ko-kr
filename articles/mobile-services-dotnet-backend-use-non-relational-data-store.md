@@ -96,9 +96,9 @@
 [비관계형 저장소 만들기]: #create-store
 [데이터 및 컨트롤러 수정]: #modify-service
 [응용 프로그램 테스트]: #test-application
-[모바일 서비스 시작]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started
-[데이터 시작]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data
+[모바일 서비스 시작]: /ko--kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started
+[데이터 시작]: /ko--kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data
 [Azure 관리 포털]: https://manage.windowsazure.com/
-[MongoLab 추가 기능 페이지]: /en-us/gallery/store/mongolab/mongolab
+[MongoLab 추가 기능 페이지]: /ko--kr/gallery/store/mongolab/mongolab
 []: ./media/mobile-services-dotnet-backend-use-non-relational-data-store/create-mongo-lab.png
 [1]: ./media/mobile-services-dotnet-backend-use-non-relational-data-store/mongo-connection-string.png

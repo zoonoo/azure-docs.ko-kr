@@ -78,7 +78,7 @@ DocumentDB를 사용하려면 사용 가능한 지리적 영역에 DocumentDB �
   [2]: ./media/documentdb-create-account/ca3.png
   [DocumentDB 가격 정보]: http://go.microsoft.com/fwlink/p/?LinkID=402317&clcid=0x409
   [DocumentDB 용량 및 성능 관리]: ../documentdb-manage/
-  [리소스 그룹을 사용하여 Azure 리소스 관리]: http://azure.microsoft.com/ko-kr/documentation/articles/azure-preview-portal-using-resource-groups/
+  [리소스 그룹을 사용하여 Azure 리소스 관리]: http://azure.microsoft.com/ko--kr/documentation/articles/azure-preview-portal-using-resource-groups/
   [3]: ./media/documentdb-create-account/ca4.png
   [4]: ./media/documentdb-create-account/ca5.png
   [5]: ./media/documentdb-create-account/ca6.png

@@ -745,12 +745,12 @@ App.xaml.cs 파일을 열고 **MobileServiceClient** 인스턴스를 `App` 클�
 [3]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/04leaderboard.png
 [4]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/05leaderboard.png
 [EF Code First]: http://msdn.microsoft.com/en-US/data/ee712907#codefirst
-[데이터베이스 쓰기 충돌 해결]: http://azure.microsoft.com/ko-kr/documentation/articles/mobile-services-windows-store-dotnet-handle-database-conflicts/
-[탐색 속성]: http://msdn.microsoft.com/en-us/data/jj713564.aspx
+[데이터베이스 쓰기 충돌 해결]: http://azure.microsoft.com/ko--kr/documentation/articles/mobile-services-windows-store-dotnet-handle-database-conflicts/
+[탐색 속성]: http://msdn.microsoft.com/ko--kr/data/jj713564.aspx
 [5]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/06leaderboard.png
 [6]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/07leaderboard.png
 [7]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/08leaderboard.png
-[REST API]: http://msdn.microsoft.com/en-us/library/azure/jj710104.aspx
+[REST API]: http://msdn.microsoft.com/ko--kr/library/azure/jj710104.aspx
 [.NET 백 엔드에서 AutoMapper를 사용하여 데이터베이스 유형과 클라이언트 유형 간 매핑]: http://blogs.msdn.com/b/azuremobile/archive/2014/05/19/mapping-between-database-types-and-client-type-in-the-net-backend-using-automapper.aspx
 [Web API에서 특성 라우팅]: http://www.asp.net/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2
 [8]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/10leaderboard.png
@@ -761,7 +761,7 @@ App.xaml.cs 파일을 열고 **MobileServiceClient** 인스턴스를 `App` 클�
 [13]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/15leaderboard.png
 [14]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/16leaderboard.png
 [15]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/17leaderboard.png
-[Azure 모바일 서비스에 대해 자세히 알아보기]: /en-us/develop/mobile/resources/
-[데이터베이스 쓰기 충돌 처리]: /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-handle-database-conflicts/
-[푸시 알림 추가]: /ko-kr/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
-[인증 시작]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet
+[Azure 모바일 서비스에 대해 자세히 알아보기]: /ko--kr/develop/mobile/resources/
+[데이터베이스 쓰기 충돌 처리]: /ko--kr/documentation/articles/mobile-services-windows-store-dotnet-handle-database-conflicts/
+[푸시 알림 추가]: /ko--kr/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
+[인증 시작]: /ko--kr/develop/mobile/tutorials/get-started-with-users-dotnet

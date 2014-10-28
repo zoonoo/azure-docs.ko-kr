@@ -4,9 +4,9 @@
 
 # 모바일 서비스에서 데이터 시작
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/" title="Windows 스토어 C#">Windows 스토어 C#</a><a href="/ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/" title="Windows 스토어 JavaScript">Windows 스토어 JavaScript</a><a href="/ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/" title="Windows Phone">Windows Phone</a><a href="/ko-kr/documentation/articles/mobile-services-dotnet-backend-ios-get-started-data/" title="iOS" class="current">iOS</a><a href="/ko-kr/documentation/articles/mobile-services-dotnet-backend-android-get-started-data/" title="Android">Android</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/ko--kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/" title="Windows 스토어 C#">Windows 스토어 C#</a><a href="/ko--kr/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/" title="Windows 스토어 JavaScript">Windows 스토어 JavaScript</a><a href="/ko--kr/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/" title="Windows Phone">Windows Phone</a><a href="/ko--kr/documentation/articles/mobile-services-dotnet-backend-ios-get-started-data/" title="iOS" class="current">iOS</a><a href="/ko--kr/documentation/articles/mobile-services-dotnet-backend-android-get-started-data/" title="Android">Android</a></div>
 
-<div class="dev-center-tutorial-subselector"><a href="/ko-kr/documentation/articles/mobile-services-dotnet-backend-ios-get-started-data/" title=".NET 백 엔드" class="current">.NET 백 엔드</a> | <a href="/en-us/develop/mobile/tutorials/get-started-with-data-ios/"  title="JavaScript 백 엔드">JavaScript 백 엔드</a></div>
+<div class="dev-center-tutorial-subselector"><a href="/ko--kr/documentation/articles/mobile-services-dotnet-backend-ios-get-started-data/" title=".NET 백 엔드" class="current">.NET 백 엔드</a> | <a href="/ko--kr/develop/mobile/tutorials/get-started-with-data-ios/"  title="JavaScript 백 엔드">JavaScript 백 엔드</a></div>
 
 이 항목에서는 Azure 모바일 서비스를 사용하여 iOS 앱에서 데이터를 활용하는 방법을 보여 줍니다. 이 자습서에서는 데이터를 메모리에 저장하는 앱을 다운로드하고, 새 모바일 서비스를 만들고, 모바일 서비스를 앱과 통합하고, 앱을 실행할 때 수행된 데이터 변경 내용을 확인합니다.
 
@@ -17,7 +17,7 @@
 </div>
 
 <div class="dev-callout"><b>참고</b>
-<p>이 자습서는 iOS 앱에서 모바일 서비스를 통해 Azure를 사용하여 데이터를 저장하고 검색할 수 있는 방법을 더욱 잘 이해할 수 있도록 돕기 위한 것입니다. 이 항목에서는 모바일 서비스 퀵 스타트에서 완료한 다수의 단계를 순서대로 안내합니다. 모바일 서비스를 처음 사용하는 경우 먼저 <a href="/en-us/develop/mobile/tutorials/get-started-ios">모바일 서비스 시작</a> 자습서를 완료하는 것이 좋습니다.</p>
+<p>이 자습서는 iOS 앱에서 모바일 서비스를 통해 Azure를 사용하여 데이터를 저장하고 검색할 수 있는 방법을 더욱 잘 이해할 수 있도록 돕기 위한 것입니다. 이 항목에서는 모바일 서비스 퀵 스타트에서 완료한 다수의 단계를 순서대로 안내합니다. 모바일 서비스를 처음 사용하는 경우 먼저 <a href="/ko--kr/develop/mobile/tutorials/get-started-ios">모바일 서비스 시작</a> 자습서를 완료하는 것이 좋습니다.</p>
 </div>
 
 이 자습서에서는 다음 기본 단계를 단계별로 안내합니다.
@@ -125,15 +125,15 @@
 <!-- Images. --> 
 <!-- URLs. -->
 
-[Windows 스토어 C\#]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/ "Windows 스토어 C#"
-[Windows 스토어 JavaScript]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/ "Windows 스토어 JavaScript"
-[Windows Phone]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/ "Windows Phone"
-[iOS]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-ios-get-started-data/ "iOS"
-[Android]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-android-get-started-data/ "Android"
-[.NET 백 엔드]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-ios-get-started-data/ ".NET 백 엔드"
-[JavaScript 백 엔드]: /en-us/develop/mobile/tutorials/get-started-with-data-ios/ "JavaScript 백 엔드"
-[JavaScript 백 엔드 버전]: /en-us/develop/mobile/tutorials/get-started-with-data-ios
-[모바일 서비스 시작]: /en-us/develop/mobile/tutorials/get-started-ios
+[Windows 스토어 C#]: /ko--kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/ "Windows 스토어 C#"
+[Windows 스토어 JavaScript]: /ko--kr/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/ "Windows 스토어 JavaScript"
+[Windows Phone]: /ko--kr/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/ "Windows Phone"
+[iOS]: /ko--kr/documentation/articles/mobile-services-dotnet-backend-ios-get-started-data/ "iOS"
+[Android]: /ko--kr/documentation/articles/mobile-services-dotnet-backend-android-get-started-data/ "Android"
+[.NET 백 엔드]: /ko--kr/documentation/articles/mobile-services-dotnet-backend-ios-get-started-data/ ".NET 백 엔드"
+[JavaScript 백 엔드]: /ko--kr/develop/mobile/tutorials/get-started-with-data-ios/ "JavaScript 백 엔드"
+[JavaScript 백 엔드 버전]: /ko--kr/develop/mobile/tutorials/get-started-with-data-ios
+[모바일 서비스 시작]: /ko--kr/develop/mobile/tutorials/get-started-ios
 [iOS 앱 프로젝트 다운로드]: #download-app
 [모바일 서비스 만들기]: #create-service
 [로컬로 서비스 다운로드]: #download-the-service-locally
@@ -144,7 +144,7 @@
 [모바일 서비스 iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [XCode 4.5]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Visual Studio Express for Web]: http://go.microsoft.com/p/?linkid=9832232
-[Azure 무료 평가판]: http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A756A2826&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-ios%2F
+[Azure 무료 평가판]: http://www.windowsazure.com/ko--kr/pricing/free-trial/?WT.mc_id=A756A2826&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fko--kr%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-ios%2F
 [GetStartedWithData 앱]: http://go.microsoft.com/fwlink/p/?LinkId=268622
 []: ./media/mobile-services-dotnet-backend-ios-get-started-data/mobile-quickstart-startup-ios.png
 [mobile-services-dotnet-backend-create-new-service]: ../includes/mobile-services-dotnet-backend-create-new-service.md
@@ -155,7 +155,7 @@
 [Azure 관리 포털]: https://manage.windowsazure.com/
 [1]: ./media/mobile-services-dotnet-backend-ios-get-started-data/manage-sql-azure-database.png
 [2]: ./media/mobile-services-dotnet-backend-ios-get-started-data/sql-azure-query.png
-[스크립트를 사용하여 데이터 유효성 검사 및 수정]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
-[페이징을 사용하여 쿼리 구체화]: /en-us/develop/mobile/tutorials/add-paging-to-data-ios
-[인증 시작]: /en-us/develop/mobile/tutorials/get-started-with-users-ios
-[푸시 알림 시작]: /en-us/develop/mobile/tutorials/get-started-with-push-ios
+[스크립트를 사용하여 데이터 유효성 검사 및 수정]: /ko--kr/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
+[페이징을 사용하여 쿼리 구체화]: /ko--kr/develop/mobile/tutorials/add-paging-to-data-ios
+[인증 시작]: /ko--kr/develop/mobile/tutorials/get-started-with-users-ios
+[푸시 알림 시작]: /ko--kr/develop/mobile/tutorials/get-started-with-push-ios

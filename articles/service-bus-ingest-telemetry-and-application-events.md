@@ -22,10 +22,10 @@
 -   [저장소][저장소]
 -   [HDInsight][HDInsight]
 
-  [이벤트 허브(영문)]: http://msdn.microsoft.com/en-us/library/dn789973.aspx
-  [이벤트 허브 가격 정보]: http://azure.microsoft.com/en-us/pricing/details/event-hubs/
-  [이벤트 소싱 패턴(영문)]: http://msdn.microsoft.com/en-us/library/dn589792.aspx
+  [이벤트 허브(영문)]: http://msdn.microsoft.com/ko--kr/library/dn789973.aspx
+  [이벤트 허브 가격 정보]: http://azure.microsoft.com/ko--kr/pricing/details/event-hubs/
+  [이벤트 소싱 패턴(영문)]: http://msdn.microsoft.com/ko--kr/library/dn589792.aspx
   [이벤트 허브 REST API 참조(영문)]: http://go.microsoft.com/fwlink/?LinkId=403977
   [이벤트 허브 코드 샘플(영문)]: http://go.microsoft.com/fwlink/?LinkID=402449
-  [저장소]: http://azure.microsoft.com/ko-kr/documentation/services/storage/
-  [HDInsight]: http://azure.microsoft.com/ko-kr/documentation/services/hdinsight/
+  [저장소]: http://azure.microsoft.com/ko--kr/documentation/services/storage/
+  [HDInsight]: http://azure.microsoft.com/ko--kr/documentation/services/hdinsight/

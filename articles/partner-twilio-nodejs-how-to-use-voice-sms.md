@@ -248,7 +248,7 @@ Azure에서 node.js와 Twilio 해킹을 즐기시기를 바랍니다!
   [TwiML]: https://www.twilio.com/docs/api/twiml
   [Twilio 개발자 블로그]: http://www.twilio.com/blog/2013/04/introduction-to-twilio-client-with-node-js.html
   [계정을 등록]: http://ahoy.twilio.com/azure
-  [이 작업을 수행하는 공식 설명서가 여기에 있습니다]: http://www.windowsazure.com/en-us/develop/nodejs/tutorials/create-a-website-(mac)/
+  [이 작업을 수행하는 공식 설명서가 여기에 있습니다]: http://www.windowsazure.com/ko--kr/develop/nodejs/tutorials/create-a-website-(mac)/
   [Twilio 대시보드에서 찾을 수 있음]: https://www.twilio.com/user/account
   [Azure 관리 콘솔]: ./media/partner-twilio-nodejs-how-to-use-voice-sms/twilio_1.png
   [npm]: http://npmjs.org

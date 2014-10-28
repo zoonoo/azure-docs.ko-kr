@@ -5,15 +5,15 @@
 # 모바일 서비스에서 인증 시작
 
 <div class="dev-center-tutorial-selector sublanding">
-    <a href="/ko-kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-users" title="Windows 스토어 C#">Windows 스토어 C#</a>
-    <a href="/ko-kr/documentation/articles/mobile-services-windows-store-javascript-get-started-users" title="Windows 스토어 JavaScript">Windows 스토어 JavaScript</a>
-    <a href="/ko-kr/documentation/articles/mobile-services-windows-phone-get-started-users" title="Windows Phone">Windows Phone</a>
-    <a href="/ko-kr/documentation/articles/mobile-services-ios-get-started-users" title="iOS">iOS</a>
-    <a href="/ko-kr/documentation/articles/mobile-services-android-get-started-users" title="Android">Android</a>
-    <a href="/ko-kr/documentation/articles/mobile-services-html-get-started-users" title="HTML">HTML</a>
-    <a href="/ko-kr/documentation/articles/partner-xamarin-mobile-services-ios-get-started-users" title="Xamarin.iOS">Xamarin.iOS</a>
-    <a href="/ko-kr/documentation/articles/partner-xamarin-mobile-services-android-get-started-users" title="Xamarin.Android">Xamarin.Android</a>
-    <a href="/ko-kr/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-users" title="Appcelerator" class="current">Appcelerator</a>
+    <a href="/ko--kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-users" title="Windows 스토어 C#">Windows 스토어 C#</a>
+    <a href="/ko--kr/documentation/articles/mobile-services-windows-store-javascript-get-started-users" title="Windows 스토어 JavaScript">Windows 스토어 JavaScript</a>
+    <a href="/ko--kr/documentation/articles/mobile-services-windows-phone-get-started-users" title="Windows Phone">Windows Phone</a>
+    <a href="/ko--kr/documentation/articles/mobile-services-ios-get-started-users" title="iOS">iOS</a>
+    <a href="/ko--kr/documentation/articles/mobile-services-android-get-started-users" title="Android">Android</a>
+    <a href="/ko--kr/documentation/articles/mobile-services-html-get-started-users" title="HTML">HTML</a>
+    <a href="/ko--kr/documentation/articles/partner-xamarin-mobile-services-ios-get-started-users" title="Xamarin.iOS">Xamarin.iOS</a>
+    <a href="/ko--kr/documentation/articles/partner-xamarin-mobile-services-android-get-started-users" title="Xamarin.Android">Xamarin.Android</a>
+    <a href="/ko--kr/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-users" title="Appcelerator" class="current">Appcelerator</a>
 </div>
 
 이 항목은 앱에서 Microsoft Azure 모바일 서비스의 사용자를 인증하는 방법을 보여 줍니다. 이 자습서에서는 모바일 서비스가 지원하는 ID 공급자를 사용하여 퀵 스타트 프로젝트에 인증을 추가합니다. 모바일 서비스에서 인증되고 권한이 부여된 후 사용자 ID 값이 표시됩니다.
@@ -98,18 +98,18 @@
 
 
 
-  [Windows 스토어 C\#]: /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-users "Windows 스토어 C#"
-  [Windows 스토어 JavaScript]: /ko-kr/documentation/articles/mobile-services-windows-store-javascript-get-started-users "Windows 스토어 JavaScript"
-  [Windows Phone]: /ko-kr/documentation/articles/mobile-services-windows-phone-get-started-users "Windows Phone"
-  [iOS]: /ko-kr/documentation/articles/mobile-services-ios-get-started-users "iOS"
-  [Android]: /ko-kr/documentation/articles/mobile-services-android-get-started-users "Android"
-  [HTML]: /ko-kr/documentation/articles/mobile-services-html-get-started-users "HTML"
-  [Xamarin.iOS]: /ko-kr/documentation/articles/partner-xamarin-mobile-services-ios-get-started-users "Xamarin.iOS"
-  [Xamarin.Android]: /ko-kr/documentation/articles/partner-xamarin-mobile-services-android-get-started-users "Xamarin.Android"
-  [Appcelerator]: /ko-kr/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-users "Appcelerator"
+  [Windows 스토어 C#]: /ko--kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-users "Windows 스토어 C#"
+  [Windows 스토어 JavaScript]: /ko--kr/documentation/articles/mobile-services-windows-store-javascript-get-started-users "Windows 스토어 JavaScript"
+  [Windows Phone]: /ko--kr/documentation/articles/mobile-services-windows-phone-get-started-users "Windows Phone"
+  [iOS]: /ko--kr/documentation/articles/mobile-services-ios-get-started-users "iOS"
+  [Android]: /ko--kr/documentation/articles/mobile-services-android-get-started-users "Android"
+  [HTML]: /ko--kr/documentation/articles/mobile-services-html-get-started-users "HTML"
+  [Xamarin.iOS]: /ko--kr/documentation/articles/partner-xamarin-mobile-services-ios-get-started-users "Xamarin.iOS"
+  [Xamarin.Android]: /ko--kr/documentation/articles/partner-xamarin-mobile-services-android-get-started-users "Xamarin.Android"
+  [Appcelerator]: /ko--kr/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-users "Appcelerator"
   [인증을 위해 앱 등록 및 모바일 서비스 구성]: #register
   [테이블 사용 권한을 인증된 사용자로 제한]: #permissions
   [앱에 인증 추가]: #add-authentication
-  [모바일 서비스 시작]: /ko-kr/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started
+  [모바일 서비스 시작]: /ko--kr/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started
   [mobile-services-register-authentication]: ../includes/mobile-services-register-authentication.md
   [mobile-services-restrict-permissions-javascript-backend]: ../includes/mobile-services-restrict-permissions-javascript-backend.md

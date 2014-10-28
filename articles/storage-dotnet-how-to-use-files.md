@@ -152,7 +152,7 @@ Azure 파일 공유를 마운트하는 방법을 보여 주기 위해 Azure 가�
 
 Visual Studio에서 새 콘솔 응용 프로그램을 만들고 Azure 저장소 NuGet 패키지를 설치하려면
 
-1.  Visual Studio에서 **파일** -\> **새 프로젝트**를 선택하고 Visual C\# 템플릿 목록에서 **Windows** -\> **콘솔 응용 프로그램**을 선택합니다.
+1.  Visual Studio에서 **파일** -\> **새 프로젝트**를 선택하고 Visual C# 템플릿 목록에서 **Windows** -\> **콘솔 응용 프로그램**을 선택합니다.
 2.  콘솔 응용 프로그램 이름을 지정하고 **확인**을 클릭합니다.
 3.  프로젝트가 만들어지면 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 선택합니다. 온라인에서 "WindowsAzure.Storage"를 검색하고 **설치**를 클릭하여 Azure 저장소 패키지와 종속성을 설치합니다.
 
@@ -252,19 +252,19 @@ Visual Studio에서 새 콘솔 응용 프로그램을 만들고 Azure 저장소 
   [온-프레미스 응용 프로그램을 만들어 파일 저장소 액세스]: #create-console-app
   [다음 단계]: #next-steps
   [files-concepts]: ./media/storage-dotnet-how-to-use-files/files-concepts.png
-  [Azure 저장소 확장성 및 성능 목표]: http://msdn.microsoft.com/en-us/library/dn249410.aspx
-  [공유, 디렉터리, 파일 및 메타데이터 이름 지정 및 참조]: http://msdn.microsoft.com/en-us/library/azure/dn167011.aspx
-  [Microsoft Azure 미리 보기 페이지]: /en-us/services/preview/
+  [Azure 저장소 확장성 및 성능 목표]: http://msdn.microsoft.com/ko--kr/library/dn249410.aspx
+  [공유, 디렉터리, 파일 및 메타데이터 이름 지정 및 참조]: http://msdn.microsoft.com/ko--kr/library/azure/dn167011.aspx
+  [Microsoft Azure 미리 보기 페이지]: /ko--kr/services/preview/
   [create-storage-account]: ../includes/create-storage-account.md
-  [Azure PowerShell 설치 및 구성 방법]: /ko-kr/documentation/articles/install-configure-powershell/
-  [Windows Server를 실행하는 가상 컴퓨터 만들기]: /ko-kr/documentation/articles/virtual-machines-windows-tutorial/
-  [Windows Server를 실행하는 가상 컴퓨터에 로그온하는 방법]: /ko-kr/documentation/articles/virtual-machines-log-on-windows-server/
-  [System.IO 네임스페이스]: http://msdn.microsoft.com/en-us/library/gg145019(v=vs.110).aspx
+  [Azure PowerShell 설치 및 구성 방법]: /ko--kr/documentation/articles/install-configure-powershell/
+  [Windows Server를 실행하는 가상 컴퓨터 만들기]: /ko--kr/documentation/articles/virtual-machines-windows-tutorial/
+  [Windows Server를 실행하는 가상 컴퓨터에 로그온하는 방법]: /ko--kr/documentation/articles/virtual-machines-log-on-windows-server/
+  [System.IO 네임스페이스]: http://msdn.microsoft.com/ko--kr/library/gg145019(v=vs.110).aspx
   [Azure .NET 저장소 클라이언트 라이브러리]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
-  [파일 서비스 REST API 참조(영문)]: http://msdn.microsoft.com/en-us/library/azure/dn167006.aspx
+  [파일 서비스 REST API 참조(영문)]: http://msdn.microsoft.com/ko--kr/library/azure/dn167006.aspx
   [Microsoft Azure 파일 서비스 소개(영문)]: http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx
   [Microsoft Azure 파일에 대한 연결 유지(영문)]: http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx
-  [Blob 저장소]: /ko-kr/documentation/articles/storage-dotnet-how-to-use-blobs/
-  [테이블 저장소]: /ko-kr/documentation/articles/storage-dotnet-how-to-use-tables/
-  [큐 저장소]: /ko-kr/documentation/articles/storage-dotnet-how-to-use-queues/
-  [SQL 데이터베이스]: /ko-kr/documentation/articles/sql-database-dotnet-how-to-use/
+  [Blob 저장소]: /ko--kr/documentation/articles/storage-dotnet-how-to-use-blobs/
+  [테이블 저장소]: /ko--kr/documentation/articles/storage-dotnet-how-to-use-tables/
+  [큐 저장소]: /ko--kr/documentation/articles/storage-dotnet-how-to-use-queues/
+  [SQL 데이터베이스]: /ko--kr/documentation/articles/sql-database-dotnet-how-to-use/

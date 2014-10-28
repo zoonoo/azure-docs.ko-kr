@@ -9,60 +9,60 @@
 
 이러한 오류 메시지 중 일부는 Azure 포털에서 HDinsight 클러스터를 관리할 때도 발생할 수 있습니다. 하지만 이때 발생할 수 있는 다른 오류 메시지는 해당 컨텍스트에서 가능한 수정 작업의 제약 조건으로 인해 세분화하기 어렵습니다. 다른 오류 메시지는 뚜렷한 해결 방법이 있는 경우 제공됩니다. 예를 들면 매개 변수의 제약 조건이 위반된 경우 값이 입력된 상자의 오른쪽에 팝업 메시지가 표시됩니다. 여기서는 너무 많은 데이터 노드가 요청된 경우입니다. 이를 해결하는 방법은 22 이하의 허용된 값으로 숫자를 줄이는 것입니다.
 
-![HDI.Debugging.ErrorMessages.Portal][]
+![HDI.Debugging.ErrorMessages.Portal][HDI.Debugging.ErrorMessages.Portal]
 
-Azure PowerShell 또는 Azure 포털에서 사용자에게 표시될 수 있는 오류가 [HDInsight 오류][] 섹션에 사전순 이름별로 나열되어 있으며, 오류에 대한 다음 정보를 제공하는 [오류 설명 및 완화][] 섹션의 항목과 연결되어 있습니다.
+Azure PowerShell 또는 Azure 포털에서 사용자에게 표시될 수 있는 오류가 [HDInsight 오류][HDInsight 오류] 섹션에 사전순 이름별로 나열되어 있으며, 오류에 대한 다음 정보를 제공하는 [오류 설명 및 완화][오류 설명 및 완화] 섹션의 항목과 연결되어 있습니다.
 
 - **설명**: 사용자에게 표시되는 오류 메시지
 - **완화**: 오류를 복구하기 위해 수행할 수 있는 단계
 
 ### HDInsight 오류
 
-[AtleastOneSqlMetastoreMustBeProvided][]
-[AzureRegionNotSupported][]
-[ClusterContainerRecordNotFound][]
-[ClusterDnsNameInvalidReservedWord][]
-[ClusterNameUnavailable][]
-[ClusterUserNameInvalid][]
-[ClusterUserNameInvalidReservedWord][]
-[ContainerNameMisMatchWithDnsName][]
-[DataNodeDefinitionNotFound][]
-[DeploymentDeletionFailure][]
-[DnsMappingNotFound][]
-[DuplicateClusterContainerRequest][]
-[DuplicateClusterInHostedService][]
-[FailureToUpdateDeploymentStatus][]
-[HdiRestoreClusterAltered][]
-[HeadNodeConfigNotFound][]
-[HeadNodeConfigNotFound][]
-[HostedServiceCreationFailure][]
-[HostedServiceHasProductionDeployment][]
-[HostedServiceNotFound][]
-[HostedServiceWithNoDeployment][]
-[InsufficientResourcesCores][]
-[InsufficientResourcesHostedServices][]
-[InternalErrorRetryRequest][]
-[InvalidAzureStorageLocation][]
-[InvalidNodeSizeForDataNode][]
-[InvalidNodeSizeForHeadNode][]
-[InvalidRightsForDeploymentDeletion][]
-[InvalidStorageAccountBlobContainerName][]
-[InvalidStorageAccountConfigurationSecretKey][]
-[InvalidVersionHeaderFormat][]
-[MoreThanOneHeadNode][]
-[OperationTimedOutRetryRequest][]
-[ParameterNullOrEmpty][]
-[PreClusterCreationValidationFailure][]
-[RegionCapabilityNotAvailable][]
-[StorageAccountNotColocated][]
-[SubscriptionIdNotActive][]
-[SubscriptionIdNotFound][]
-[UnableToResolveDNS][]
-[UnableToVerifyLocationOfResource][]
-[VersionCapabilityNotAvailable][]
-[VersionNotSupported][]
-[VersionNotSupportedInRegion][]
-[WasbAccountConfigNotFound][]
+[AtleastOneSqlMetastoreMustBeProvided][AtleastOneSqlMetastoreMustBeProvided]
+[AzureRegionNotSupported][AzureRegionNotSupported]
+[ClusterContainerRecordNotFound][ClusterContainerRecordNotFound]
+[ClusterDnsNameInvalidReservedWord][ClusterDnsNameInvalidReservedWord]
+[ClusterNameUnavailable][ClusterNameUnavailable]
+[ClusterUserNameInvalid][ClusterUserNameInvalid]
+[ClusterUserNameInvalidReservedWord][ClusterUserNameInvalidReservedWord]
+[ContainerNameMisMatchWithDnsName][ContainerNameMisMatchWithDnsName]
+[DataNodeDefinitionNotFound][DataNodeDefinitionNotFound]
+[DeploymentDeletionFailure][DeploymentDeletionFailure]
+[DnsMappingNotFound][DnsMappingNotFound]
+[DuplicateClusterContainerRequest][DuplicateClusterContainerRequest]
+[DuplicateClusterInHostedService][DuplicateClusterInHostedService]
+[FailureToUpdateDeploymentStatus][FailureToUpdateDeploymentStatus]
+[HdiRestoreClusterAltered][HdiRestoreClusterAltered]
+[HeadNodeConfigNotFound][HeadNodeConfigNotFound]
+[HeadNodeConfigNotFound][HeadNodeConfigNotFound]
+[HostedServiceCreationFailure][HostedServiceCreationFailure]
+[HostedServiceHasProductionDeployment][HostedServiceHasProductionDeployment]
+[HostedServiceNotFound][HostedServiceNotFound]
+[HostedServiceWithNoDeployment][HostedServiceWithNoDeployment]
+[InsufficientResourcesCores][InsufficientResourcesCores]
+[InsufficientResourcesHostedServices][InsufficientResourcesHostedServices]
+[InternalErrorRetryRequest][InternalErrorRetryRequest]
+[InvalidAzureStorageLocation][InvalidAzureStorageLocation]
+[InvalidNodeSizeForDataNode][InvalidNodeSizeForDataNode]
+[InvalidNodeSizeForHeadNode][InvalidNodeSizeForHeadNode]
+[InvalidRightsForDeploymentDeletion][InvalidRightsForDeploymentDeletion]
+[InvalidStorageAccountBlobContainerName][InvalidStorageAccountBlobContainerName]
+[InvalidStorageAccountConfigurationSecretKey][InvalidStorageAccountConfigurationSecretKey]
+[InvalidVersionHeaderFormat][InvalidVersionHeaderFormat]
+[MoreThanOneHeadNode][MoreThanOneHeadNode]
+[OperationTimedOutRetryRequest][OperationTimedOutRetryRequest]
+[ParameterNullOrEmpty][ParameterNullOrEmpty]
+[PreClusterCreationValidationFailure][PreClusterCreationValidationFailure]
+[RegionCapabilityNotAvailable][RegionCapabilityNotAvailable]
+[StorageAccountNotColocated][StorageAccountNotColocated]
+[SubscriptionIdNotActive][SubscriptionIdNotActive]
+[SubscriptionIdNotFound][SubscriptionIdNotFound]
+[UnableToResolveDNS][UnableToResolveDNS]
+[UnableToVerifyLocationOfResource][UnableToVerifyLocationOfResource]
+[VersionCapabilityNotAvailable][VersionCapabilityNotAvailable]
+[VersionNotSupported][VersionNotSupported]
+[VersionNotSupportedInRegion][VersionNotSupportedInRegion]
+[WasbAccountConfigNotFound][WasbAccountConfigNotFound]
 
 
 
@@ -229,11 +229,11 @@ Azure PowerShell 또는 Azure 포털에서 사용자에게 표시될 수 있는 
 
 <h3><a id="UnableToResolveDNS"></a>UnableToResolveDNS</h3
 - **설명**: *DnsUrl* DNS를 확인할 수 없습니다. Blob 끝점에 정규화된 URL을 지정했는지 확인하세요.
-- **완화**: 올바른 Blob URL을 제공하세요. URL은 전체가 유효해야 하며, *<http://>*로 시작하고 *[.com][]*으로 끝나야 합니다. 정규화된 URL은 일반적으로 manage.windowsazure.com 포털의 저장소 탭에서 찾아볼 수 있습니다.
+- **완화**: 올바른 Blob URL을 제공하세요. URL은 전체가 유효해야 하며, *<http://>*로 시작하고 *[.com][.com]*으로 끝나야 합니다. 정규화된 URL은 일반적으로 manage.windowsazure.com 포털의 저장소 탭에서 찾아볼 수 있습니다.
 
 <h3><a id="UnableToVerifyLocationOfResource"></a>UnableToVerifyLocationOfResource</h3>
 - **설명**: *DnsUrl* 리소스의 위치를 확인할 수 없습니다. Blob 끝점에 정규화된 URL을 지정했는지 확인하세요.
-- **완화**: 올바른 Blob URL을 제공하세요. URL은 전체가 유효해야 하며, *<http://>*로 시작하고 *[.com][]*으로 끝나야 합니다. 정규화된 URL은 일반적으로 manage.windowsazure.com 포털의 저장소 탭에서 찾아볼 수 있습니다.
+- **완화**: 올바른 Blob URL을 제공하세요. URL은 전체가 유효해야 하며, *<http://>*로 시작하고 *[.com][.com]*으로 끝나야 합니다. 정규화된 URL은 일반적으로 manage.windowsazure.com 포털의 저장소 탭에서 찾아볼 수 있습니다.
 
 <h3><a id="VersionCapabilityNotAvailable"></a>VersionCapabilityNotAvailable</h3>
 - **설명**: *지정된버전* 버전 및 구독 ID인 *구독Id*에서 사용할 수 없는 버전 정보 값입니다.
@@ -253,7 +253,7 @@ Azure PowerShell 또는 Azure 포털에서 사용자에게 표시될 수 있는 
 
 <h2><a id="resources"></a>Additional Debugging Resources</h2> 
 
-* [Azure HDInsight SDK 문서][]
+* [Azure HDInsight SDK 문서][Azure HDInsight SDK 문서]
 
   [HDI.Debugging.ErrorMessages.Portal]: ./media/hdinsight-debug-jobs/hdi-debug-errormessages-portal.png
   [HDInsight 오류]: #hdinsight-error-messages
@@ -303,4 +303,4 @@ Azure PowerShell 또는 Azure 포털에서 사용자에게 표시될 수 있는 
   [VersionNotSupportedInRegion]: #VersionNotSupportedInRegion
   [WasbAccountConfigNotFound]: #WasbAccountConfigNotFound
   [.com]: http://
-  [Azure HDInsight SDK 문서]: http://msdnstage.redmond.corp.microsoft.com/en-us/library/dn479185.aspx
+  [Azure HDInsight SDK 문서]: http://msdnstage.redmond.corp.microsoft.com/ko-kr/library/dn479185.aspx

@@ -77,14 +77,14 @@
 
 6.  Visual Studio 및 Azure SDK for .NET 2.4와 설치한 컴퓨터로 인증서(.pfx)를 가져옵니다.
 
-  [연속 배달]: http://azure.microsoft.com/ko-kr/documentation/articles/cloud-services-dotnet-continuous-delivery/
+  [연속 배달]: http://azure.microsoft.com/ko--kr/documentation/articles/cloud-services-dotnet-continuous-delivery/
   [클라우드 서비스에 원격 디버깅 사용]: #cloudservice
   [가상 컴퓨터에 원격 디버깅 사용]: #virtualmachine
-  [Azure에 대한 명령줄 빌드]: http://msdn.microsoft.com/en-us/library/hh535755.aspx
-  [Visual Studio 2013용 원격 도구]: http://www.microsoft.com/en-us/download/details.aspx?id=40781
-  [Visual Studio 2012 업데이트 4용 원격 도구]: http://www.microsoft.com/en-us/download/details.aspx?id=38184
+  [Azure에 대한 명령줄 빌드]: http://msdn.microsoft.com/ko--kr/library/hh535755.aspx
+  [Visual Studio 2013용 원격 도구]: http://www.microsoft.com/ko--kr/download/details.aspx?id=40781
+  [Visual Studio 2012 업데이트 4용 원격 도구]: http://www.microsoft.com/ko--kr/download/details.aspx?id=38184
   [Azure용 서비스 인증서 만들기]: http://msdn.microsoft.com/library/azure/gg432987.aspx
-  [Windows Server를 실행하는 가상 컴퓨터 만들기]: http://azure.microsoft.com/ko-kr/documentation/articles/virtual-machines-windows-tutorial/
-  [Visual Studio에서 Azure 가상 컴퓨터 만들기]: http://msdn.microsoft.com/en-us/library/azure/dn569263.aspx
+  [Windows Server를 실행하는 가상 컴퓨터 만들기]: http://azure.microsoft.com/ko--kr/documentation/articles/virtual-machines-windows-tutorial/
+  [Visual Studio에서 Azure 가상 컴퓨터 만들기]: http://msdn.microsoft.com/ko--kr/library/azure/dn569263.aspx
   [Azure 포털 페이지]: http://go.microsoft.com/fwlink/p/?LinkID=269851
   [Azure Powershell]: http://go.microsoft.com/?linkid=9811175&clcid=0x409

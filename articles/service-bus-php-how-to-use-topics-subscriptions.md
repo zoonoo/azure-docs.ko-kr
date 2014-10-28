@@ -4,44 +4,44 @@
 
 # 서비스 버스 토픽/구독을 사용하는 방법
 
-이 가이드에서는 서비스 버스 토픽과 구독을 사용하는 방법을 보여 줍니다. 샘플은 PHP로 작성되었으며 [PHP용 Azure SDK][]를 사용합니다. 여기서 다루는 시나리오에는 **토픽 및 구독 만들기**, **구독 필터 만들기**, **토픽에 메시지 보내기**, **구독에서 메시지 받기**, **토픽 및 구독 삭제** 등이 포함됩니다.
+이 가이드에서는 서비스 버스 토픽과 구독을 사용하는 방법을 보여 줍니다. 샘플은 PHP로 작성되었으며 [PHP용 Azure SDK][PHP용 Azure SDK]를 사용합니다. 여기서 다루는 시나리오에는 **토픽 및 구독 만들기**, **구독 필터 만들기**, **토픽에 메시지 보내기**, **구독에서 메시지 받기**, **토픽 및 구독 삭제** 등이 포함됩니다.
 
 ## 목차
 
--   [서비스 버스 토픽 및 구독 정의][]
--   [서비스 네임스페이스 만들기][]
--   [네임스페이스에 대한 기본 관리 자격 증명 얻기][]
--   [PHP 응용 프로그램 만들기][]
--   [Azure 클라이언트 라이브러리 가져오기][]
--   [서비스 버스를 사용하도록 응용 프로그램 구성][]
--   [방법: 토픽 만들기][]
--   [방법: 구독 만들기][]
--   [방법: 토픽에 메시지 보내기][]
--   [방법: 구독에서 메시지 받기][]
--   [방법: 응용 프로그램 크래시 및 읽을 수 없는 메시지 처리][]
--   [방법: 토픽 및 구독 삭제][]
--   [다음 단계][]
+-   [서비스 버스 토픽 및 구독 정의][서비스 버스 토픽 및 구독 정의]
+-   [서비스 네임스페이스 만들기][서비스 네임스페이스 만들기]
+-   [네임스페이스에 대한 기본 관리 자격 증명 얻기][네임스페이스에 대한 기본 관리 자격 증명 얻기]
+-   [PHP 응용 프로그램 만들기][PHP 응용 프로그램 만들기]
+-   [Azure 클라이언트 라이브러리 가져오기][Azure 클라이언트 라이브러리 가져오기]
+-   [서비스 버스를 사용하도록 응용 프로그램 구성][서비스 버스를 사용하도록 응용 프로그램 구성]
+-   [방법: 토픽 만들기][방법: 토픽 만들기]
+-   [방법: 구독 만들기][방법: 구독 만들기]
+-   [방법: 토픽에 메시지 보내기][방법: 토픽에 메시지 보내기]
+-   [방법: 구독에서 메시지 받기][방법: 구독에서 메시지 받기]
+-   [방법: 응용 프로그램 크래시 및 읽을 수 없는 메시지 처리][방법: 응용 프로그램 크래시 및 읽을 수 없는 메시지 처리]
+-   [방법: 토픽 및 구독 삭제][방법: 토픽 및 구독 삭제]
+-   [다음 단계][다음 단계]
 
-[WACOM.INCLUDE [howto-service-bus-topics][]]
+[WACOM.INCLUDE [howto-service-bus-topics](../includes/howto-service-bus-topics.md)]
 
 ## <span id="CreateApplication"></span></a>PHP 응용 프로그램 만들기
 
-Azure Blob 서비스에 액세스하는 PHP 응용 프로그램을 만드는 데 유일한 요구 사항은 코드 내에서 [PHP용 Azure SDK][]의 클래스를 참조하는 것입니다. 응용 프로그램을 만드는 데는 메모장을 포함한 어떠한 개발 도구도 사용할 수 있습니다.
+Azure Blob 서비스에 액세스하는 PHP 응용 프로그램을 만드는 데 유일한 요구 사항은 코드 내에서 [PHP용 Azure SDK][PHP용 Azure SDK]의 클래스를 참조하는 것입니다. 응용 프로그램을 만드는 데는 메모장을 포함한 어떠한 개발 도구도 사용할 수 있습니다.
 
 > [WACOM.NOTE]
-> PHP를 설치하려면 [OpenSSL 확장][]도 설치되어 있고 사용하도록 설정되어 있어야 합니다.
+> PHP를 설치하려면 [OpenSSL 확장][OpenSSL 확장]도 설치되어 있고 사용하도록 설정되어 있어야 합니다.
 
 이 가이드에서는 PHP 응용 프로그램 내에서 로컬로 또는 Azure 웹 역할, 작업자 역할 또는 웹 사이트 내에서 실행되는 코드에서 호출할 수 있는 서비스 기능을 사용합니다.
 
 ## <span id="GetClientLibrary"></span></a>Azure 클라이언트 라이브러리 가져오기
 
-[WACOM.INCLUDE [get-client-libraries][]]
+[WACOM.INCLUDE [get-client-libraries](../includes/get-client-libraries.md)]
 
 ## <span id="ConfigureApp"></span></a>서비스 버스를 사용하도록 응용 프로그램 구성
 
 Azure 서비스 버스 토픽 API를 사용하려면 다음을 수행해야 합니다.
 
-1.  [require\_once][] 문을 사용하여 자동 로더 파일 참조
+1.  [require\_once][require\_once] 문을 사용하여 자동 로더 파일 참조
 2.  사용할 수 있는 모든 클래스 참조
 
 다음 예제에서는 자동 로더 파일을 포함하고 **ServiceBusService** 클래스를 참조하는 방법을 보여 줍니다.
@@ -144,12 +144,12 @@ Azure 서비스 클라이언트를 만들려면 **ServicesBuilder** 클래스를
 
 ### 필터를 사용하여 구독 만들기
 
-토픽에 전송된 메시지 중 특정 토픽 구독 내에 나타나야 하는 메시지의 범위를 지정하는 필터를 설정할 수도 있습니다. 구독에서 지원하는 가장 유연한 유형의 필터는 SQL92 하위 집합을 구현하는 **SqlFilter**입니다. SQL 필터는 토픽에 게시된 메시지의 속성에 적용됩니다. SqlFilter에 대한 자세한 내용은 [SqlFilter.SqlExpression 속성][](영문)을 참조하십시오.
+토픽에 전송된 메시지 중 특정 토픽 구독 내에 나타나야 하는 메시지의 범위를 지정하는 필터를 설정할 수도 있습니다. 구독에서 지원하는 가장 유연한 유형의 필터는 SQL92 하위 집합을 구현하는 **SqlFilter**입니다. SQL 필터는 토픽에 게시된 메시지의 속성에 적용됩니다. SqlFilter에 대한 자세한 내용은 [SqlFilter.SqlExpression 속성][SqlFilter.SqlExpression 속성](영문)을 참조하십시오.
 
     > [WACOM.NOTE]
     > Each rule on a subscription processes incoming messages independently, adding their result messages to the subscription. In addition, each new subscription has a default <b>Rule</b> with a filter that adds all messages from the topic to the subscription. To receive only messages matching your filter, you must remove the default rule. You can remove the default rule by using the <b>ServiceBusRestProxy->deleteRule</b> method.
 
-아래 예제에서는 사용자 지정 **MessageNumber** 속성이 3보다 큰 메시지만 선택하는 **SqlFilter**를 사용하여 "HighMessages"라는 구독을 만듭니다(사용자 지정 속성을 메시지에 추가하는 방법에 대한 자세한 내용은 [방법: 토픽에 메시지 보내기][] 참조).
+아래 예제에서는 사용자 지정 **MessageNumber** 속성이 3보다 큰 메시지만 선택하는 **SqlFilter**를 사용하여 "HighMessages"라는 구독을 만듭니다(사용자 지정 속성을 메시지에 추가하는 방법에 대한 자세한 내용은 [방법: 토픽에 메시지 보내기][방법: 토픽에 메시지 보내기] 참조).
 
     $subscriptionInfo = new SubscriptionInfo("HighMessages");
     $serviceBusRestProxy->createSubscription("mytopic", $subscriptionInfo);
@@ -205,7 +205,7 @@ Azure 서비스 클라이언트를 만들려면 **ServicesBuilder** 클래스를
         echo $code.": ".$error_message."<br />";
     }
 
-서비스 버스 토픽으로 전송된 메시지는 **BrokeredMessage** 클래스 인스턴스입니다. **BrokeredMessage** 개체에는 표준 속성 및 메서드 집합(예: **getLabel**, **getTimeToLive**, **setLabel** 및 **setTimeToLive**)과 응용 프로그램별 사용자 지정 속성을 저장하는 데 사용될 수 있는 속성이 있습니다. 다음 예에서는 앞에서 만든 `mytopic` 토픽에 5개의 테스트 메시지를 보내는 방법을 보여 줍니다. **setProperty** 메서드는 각 메시지에 사용자 지정 속성(`MessageNumber`)을 추가하는 데 사용됩니다. 각 메시지에서 `MessageNumber` 속성 값이 어떻게 다른지 살펴봅니다. 이를 사용하여 위의 [방법: 구독 만들기][] 섹션에서와 같이 메시지를 받는 구독을 결정할 수 있습니다.
+서비스 버스 토픽으로 전송된 메시지는 **BrokeredMessage** 클래스 인스턴스입니다. **BrokeredMessage** 개체에는 표준 속성 및 메서드 집합(예: **getLabel**, **getTimeToLive**, **setLabel** 및 **setTimeToLive**)과 응용 프로그램별 사용자 지정 속성을 저장하는 데 사용될 수 있는 속성이 있습니다. 다음 예에서는 앞에서 만든 `mytopic` 토픽에 5개의 테스트 메시지를 보내는 방법을 보여 줍니다. **setProperty** 메서드는 각 메시지에 사용자 지정 속성(`MessageNumber`)을 추가하는 데 사용됩니다. 각 메시지에서 `MessageNumber` 속성 값이 어떻게 다른지 살펴봅니다. 이를 사용하여 위의 [방법: 구독 만들기][방법: 구독 만들기] 섹션에서와 같이 메시지를 받는 구독을 결정할 수 있습니다.
 
     for($i = 0; $i < 5; $i++){
         // Create message.
@@ -313,7 +313,7 @@ Azure 서비스 클라이언트를 만들려면 **ServicesBuilder** 클래스를
 ## <span id="NextSteps"></span></a>다음 단계
 
 지금까지 서비스 버스 큐의 기본 사항에 대해 알아보았습니다.
-자세한 내용은 MSDN 항목 [큐, 토픽 및 구독][]을 참조하세요.
+자세한 내용은 MSDN 항목 [큐, 토픽 및 구독][큐, 토픽 및 구독]을 참조하세요.
 
   [PHP용 Azure SDK]: http://go.microsoft.com/fwlink/?LinkId=252473
   [서비스 버스 토픽 및 구독 정의]: #what-are-service-bus-topics

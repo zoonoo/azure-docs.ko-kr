@@ -289,14 +289,14 @@
 <!-- Images. --> 
 <!-- URLs. -->
 
-[사용자 시작]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users
+[사용자 시작]: /ko--kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users
 [계정 테이블 설정]: #table-setup
 [등록 끝점 만들기]: #register-endpoint
 [LoginProvider 만들기]: #login-provider
 [로그인 끝점 만들기]: #login-endpoint
 [인증을 요구하도록 모바일 서비스 구성]: #require-authentication
 [테스트 클라이언트를 사용하여 로그인 흐름 테스트]: #test-login
-[모바일 서비스 시작]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started
+[모바일 서비스 시작]: /ko--kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started
 [mobile-services-restrict-permissions-dotnet-backend]: ../includes/mobile-services-restrict-permissions-dotnet-backend.md
 []: ./media/mobile-services-dotnet-backend-get-started-custom-authentication/mobile-services-dotnet-backend-debug-start.png
 [1]: ./media/mobile-services-dotnet-backend-get-started-custom-authentication/mobile-services-dotnet-backend-try-out.png

@@ -154,7 +154,7 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 3. 그룹 정책을 수정하는 컴퓨터에서 다음을 수행합니다.
 
 - .ADMX 파일을 *%WINROOT%\\PolicyDefinitions* 폴더에 복사합니다.
-- .ADML 파일을 *%WINROOT%\\PolicyDefinitions\\en-us* 폴더에 복사합니다.
+- .ADML 파일을 *%WINROOT%\\PolicyDefinitions\\ko--kr* 폴더에 복사합니다.
 
 복사되면 그룹 정책 편집기를 사용하여 정책을 변경할 수 있습니다.
 
@@ -185,11 +185,11 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 [BizTalk 서비스를 생성]: http://go.microsoft.com/fwlink/p/?LinkID=329870
 [하이브리드 연결 탭]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionTab.png
 [BizTalk 서비스: Editions 차트]: http://go.microsoft.com/fwlink/p/?LinkID=302279
-[Azure 모바일 서비스 및 하이브리드 연결]: http://azure.microsoft.com/ko-kr/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started
+[Azure 모바일 서비스 및 하이브리드 연결]: http://azure.microsoft.com/ko--kr/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started
 [온-프레미스 설치]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionOnPremSetup.png
 [REST API]: http://msdn.microsoft.com/library/azure/dn232347.aspx
 [관리 옵션]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionManageConn.png
 [하이브리드 연결 단계별 과정: Azure 웹 사이트에서 온-프레미스 SQL Server에 연결]: http://go.microsoft.com/fwlink/?LinkID=397979
-[하이브리드 연결 개요]: http://azure.microsoft.com/ko-kr/documentation/articles/integration-hybrid-connection-overview
+[하이브리드 연결 개요]: http://azure.microsoft.com/ko--kr/documentation/articles/integration-hybrid-connection-overview
 [Azure 관리 포털을 사용하여 BizTalk 서비스 만들기]: http://go.microsoft.com/fwlink/p/?LinkID=302280
 [BizTalk 서비스: 대시보드, 모니터 및 크기 조정 탭]: http://go.microsoft.com/fwlink/p/?LinkID=302281

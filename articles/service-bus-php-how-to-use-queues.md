@@ -102,7 +102,7 @@ Azure 서비스 클라이언트를 만들려면 **ServicesBuilder** 클래스를
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179357
+        // http://msdn.microsoft.com/ko--kr/library/windowsazure/dd179357
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -135,7 +135,7 @@ Azure 서비스 클라이언트를 만들려면 **ServicesBuilder** 클래스를
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/hh780775
+        // http://msdn.microsoft.com/ko--kr/library/windowsazure/hh780775
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -185,7 +185,7 @@ Azure 서비스 클라이언트를 만들려면 **ServicesBuilder** 클래스를
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here:
-        // http://msdn.microsoft.com/en-us/library/windowsazure/hh780735
+        // http://msdn.microsoft.com/ko--kr/library/windowsazure/hh780735
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -219,4 +219,4 @@ Azure 서비스 클라이언트를 만들려면 **ServicesBuilder** 클래스를
   [OpenSSL 확장]: http://php.net/openssl
   [get-client-libraries]: ../includes/get-client-libraries.md
   [require\_once]: http://php.net/require_once
-  [큐, 토픽 및 구독]: http://msdn.microsoft.com/en-us/library/windowsazure/hh367516.aspx
+  [큐, 토픽 및 구독]: http://msdn.microsoft.com/ko--kr/library/windowsazure/hh367516.aspx

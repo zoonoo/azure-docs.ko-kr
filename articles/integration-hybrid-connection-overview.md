@@ -112,10 +112,10 @@
 [지원되는 구성]: #KnownIssues
 [보안]: #HCSecurity
 [하이브리드 연결]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionImage.png
-[하이브리드 연결 만들기 및 관리]: http://azure.microsoft.com/ko-kr/documentation/articles/integration-hybrid-connection-create-manage
+[하이브리드 연결 만들기 및 관리]: http://azure.microsoft.com/ko--kr/documentation/articles/integration-hybrid-connection-create-manage
 [Azure 웹 사이트를 온-프레미스 리소스에 연결(영문)]: http://go.microsoft.com/fwlink/p/?LinkId=397538
 [하이브리드 연결 단계별 과정: Azure 웹 사이트에서 온-프레미스 SQL Server에 연결]: http://go.microsoft.com/fwlink/?LinkID=397979
-[Azure 모바일 서비스 및 하이브리드 연결(영문)]: http://azure.microsoft.com/ko-kr/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started
+[Azure 모바일 서비스 및 하이브리드 연결(영문)]: http://azure.microsoft.com/ko--kr/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started
 [Microsoft Azure의 BizTalk 서비스를 관리하기 위한 REST API]: http://msdn.microsoft.com/library/azure/dn232347.aspx
 [BizTalk 서비스: Editions 차트]: http://go.microsoft.com/fwlink/p/?LinkID=302279
 [Azure 관리 포털을 사용하여 BizTalk 서비스 만들기]: http://go.microsoft.com/fwlink/p/?LinkID=302280

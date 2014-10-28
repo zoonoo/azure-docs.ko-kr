@@ -479,49 +479,49 @@ JavaScript 백 엔드의 경우, SQL Server Management Studio 또는 Azure SQL �
   [고급 진단]: #AdvancedDiagnosing
   [인덱스 만들기]: #CreatingIndexes
   [모바일 서비스 포털 - 인덱스 설정]: ./media/mobile-services-sql-scale-guidance/set-index-portal-ui.png
-  [Entity Framework의 인덱스 주석]: http://msdn.microsoft.com/en-us/data/jj591583.aspx#Index
+  [Entity Framework의 인덱스 주석]: http://msdn.microsoft.com/ko--kr/data/jj591583.aspx#Index
   [고급 인덱싱]: #AdvancedIndexing
-  [테이블 개체]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554210.aspx
-  [mssql 개체]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554212.aspx
-  [관계형 테이블 조인]: http://azure.microsoft.com/ko-kr/documentation/articles/mobile-services-how-to-use-server-scripts/#joins
-  [Windows 스토어]: http://azure.microsoft.com/ko-kr/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library/#paging
-  [iOS]: http://azure.microsoft.com/ko-kr/documentation/articles/mobile-services-ios-how-to-use-client-library/#paging
-  [Android]: http://azure.microsoft.com/ko-kr/documentation/articles/mobile-services-android-how-to-use-client-library/#paging
-  [HTML/JavaScript]: http://azure.microsoft.com/ko-kr/documentation/articles/mobile-services-html-how-to-use-client-library/#paging
-  [Xamarin]: http://azure.microsoft.com/ko-kr/documentation/articles/partner-xamarin-mobile-services-how-to-use-client-library/#paging
-  [쿼리 개체]: http://msdn.microsoft.com/en-us/library/azure/jj613353.aspx
-  [Take 메서드]: http://msdn.microsoft.com/en-us/library/vstudio/bb503062(v=vs.110).aspx
+  [테이블 개체]: http://msdn.microsoft.com/ko--kr/library/windowsazure/jj554210.aspx
+  [mssql 개체]: http://msdn.microsoft.com/ko--kr/library/windowsazure/jj554212.aspx
+  [관계형 테이블 조인]: http://azure.microsoft.com/ko--kr/documentation/articles/mobile-services-how-to-use-server-scripts/#joins
+  [Windows 스토어]: http://azure.microsoft.com/ko--kr/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library/#paging
+  [iOS]: http://azure.microsoft.com/ko--kr/documentation/articles/mobile-services-ios-how-to-use-client-library/#paging
+  [Android]: http://azure.microsoft.com/ko--kr/documentation/articles/mobile-services-android-how-to-use-client-library/#paging
+  [HTML/JavaScript]: http://azure.microsoft.com/ko--kr/documentation/articles/mobile-services-html-how-to-use-client-library/#paging
+  [Xamarin]: http://azure.microsoft.com/ko--kr/documentation/articles/partner-xamarin-mobile-services-how-to-use-client-library/#paging
+  [쿼리 개체]: http://msdn.microsoft.com/ko--kr/library/azure/jj613353.aspx
+  [Take 메서드]: http://msdn.microsoft.com/ko--kr/library/vstudio/bb503062(v=vs.110).aspx
   [고급 쿼리 디자인]: #AdvancedQuery
-  [알림 허브를 사용하여 최신 뉴스 전송]: http://azure.microsoft.com/ko-kr/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/
-  [모바일 서비스를 사용하여 Azure 저장소에 이미지 업로드]: http://azure.microsoft.com/ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage/
-  [Azure 캐시]: http://azure.microsoft.com/en-us/services/cache/
-  [Windows Server를 실행하는 가상 컴퓨터 만들기]: http://azure.microsoft.com/ko-kr/documentation/articles/virtual-machines-windows-tutorial/
-  [SQL Server 버전 - Express]: http://www.microsoft.com/en-us/server-cloud/products/sql-server-editions/sql-server-express.aspx
+  [알림 허브를 사용하여 최신 뉴스 전송]: http://azure.microsoft.com/ko--kr/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/
+  [모바일 서비스를 사용하여 Azure 저장소에 이미지 업로드]: http://azure.microsoft.com/ko--kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage/
+  [Azure 캐시]: http://azure.microsoft.com/ko--kr/services/cache/
+  [Windows Server를 실행하는 가상 컴퓨터 만들기]: http://azure.microsoft.com/ko--kr/documentation/articles/virtual-machines-windows-tutorial/
+  [SQL Server 버전 - Express]: http://www.microsoft.com/ko--kr/server-cloud/products/sql-server-editions/sql-server-express.aspx
   [SQL Server Management Studio]: ./media/mobile-services-sql-scale-guidance/1.png
   [Azure 관리 포털 - SQL 데이터베이스]: ./media/mobile-services-sql-scale-guidance/2.png
   [동적 관리 뷰를 사용하여 SQL 데이터베이스 모니터링]: http://go.microsoft.com/fwlink/p/?linkid=309725&clcid=0x409
   [SQL Server Management Studio - 동적 관리 뷰]: ./media/mobile-services-sql-scale-guidance/8.png
   [SQL 데이터베이스 관리 포털 - 새 쿼리]: ./media/mobile-services-sql-scale-guidance/9.png
   [SQL 데이터베이스 관리 포털 - 쿼리 성능]: ./media/mobile-services-sql-scale-guidance/10.png
-  [sys.resource\_stats]: http://msdn.microsoft.com/en-us/library/dn269979.aspx
-  [sys.event\_log]: http://msdn.microsoft.com/en-us/library/azure/jj819229.aspx
+  [sys.resource\_stats]: http://msdn.microsoft.com/ko--kr/library/dn269979.aspx
+  [sys.event\_log]: http://msdn.microsoft.com/ko--kr/library/azure/jj819229.aspx
   [클러스터형 인덱스 디자인 지침]: #ClusteredIndexes
-  [복합 키]: http://msdn.microsoft.com/en-us/library/ms179610(v=sql.120).aspx
-  [PRIMARY KEY 제약 조건 만들기 및 수정]: http://technet.microsoft.com/en-us/library/ms181043(v=sql.105).aspx
-  [비클러스터형 인덱스 만들기]: http://technet.microsoft.com/en-us/library/ms189280.aspx
-  [클러스터형 인덱스 만들기]: http://technet.microsoft.com/en-us/library/ms186342(v=sql.120).aspx
-  [고유 인덱스 만들기]: http://technet.microsoft.com/en-us/library/ms187019.aspx
+  [복합 키]: http://msdn.microsoft.com/ko--kr/library/ms179610(v=sql.120).aspx
+  [PRIMARY KEY 제약 조건 만들기 및 수정]: http://technet.microsoft.com/ko--kr/library/ms181043(v=sql.105).aspx
+  [비클러스터형 인덱스 만들기]: http://technet.microsoft.com/ko--kr/library/ms189280.aspx
+  [클러스터형 인덱스 만들기]: http://technet.microsoft.com/ko--kr/library/ms186342(v=sql.120).aspx
+  [고유 인덱스 만들기]: http://technet.microsoft.com/ko--kr/library/ms187019.aspx
   [누락 인덱스 동적 관리 뷰]: sys-missing-index-stats
   [1]: ./media/mobile-services-sql-scale-guidance/11.png
   [SQL Server Management Studio - 쿼리 계획]: ./media/mobile-services-sql-scale-guidance/12.png
   [SQL 데이터베이스 관리 포털 - 쿼리 계획]: ./media/mobile-services-sql-scale-guidance/13.png
-  [Azure SQL 데이터베이스 설명서]: http://azure.microsoft.com/ko-kr/documentation/services/sql-database/
+  [Azure SQL 데이터베이스 설명서]: http://azure.microsoft.com/ko--kr/documentation/services/sql-database/
   [Azure SQL 데이터베이스 성능 및 크기 조정]: http://go.microsoft.com/fwlink/p/?linkid=397217&clcid=0x409
-  [Azure SQL 데이터베이스 문제 해결]: http://msdn.microsoft.com/en-us/library/azure/ee730906.aspx
-  [인덱스 기본]: http://technet.microsoft.com/en-us/library/ms190457(v=sql.105).aspx
-  [일반 인덱스 디자인 지침]: http://technet.microsoft.com/en-us/library/ms191195(v=sql.105).aspx
-  [고유 인덱스 디자인 지침]: http://technet.microsoft.com/en-us/library/ms187019(v=sql.105).aspx
-  [2]: http://technet.microsoft.com/en-us/library/ms190639(v=sql.105).aspx
+  [Azure SQL 데이터베이스 문제 해결]: http://msdn.microsoft.com/ko--kr/library/azure/ee730906.aspx
+  [인덱스 기본]: http://technet.microsoft.com/ko--kr/library/ms190457(v=sql.105).aspx
+  [일반 인덱스 디자인 지침]: http://technet.microsoft.com/ko--kr/library/ms191195(v=sql.105).aspx
+  [고유 인덱스 디자인 지침]: http://technet.microsoft.com/ko--kr/library/ms187019(v=sql.105).aspx
+  [2]: http://technet.microsoft.com/ko--kr/library/ms190639(v=sql.105).aspx
   [키 비용 확인(영문)]: http://www.sqlskills.com/blogs/kimberly/how-much-does-that-key-cost-plus-sp_helpindex9/
-  [Entity Framework 5 성능 고려 사항]: http://msdn.microsoft.com/en-us/data/hh949853
-  [Code First 데이터 주석]: http://msdn.microsoft.com/en-us/data/jj591583.aspx
+  [Entity Framework 5 성능 고려 사항]: http://msdn.microsoft.com/ko--kr/data/hh949853
+  [Code First 데이터 주석]: http://msdn.microsoft.com/ko--kr/data/jj591583.aspx

@@ -8,7 +8,7 @@ Socket.IO는 node.js 서버와 클라이언트 간에 실시간 커뮤니케이�
 
 아래에는 완성된 응용 프로그램의 스크린샷이 표시되어 있습니다.
 
-![Azure에 호스트된 서비스를 표시하는 브라우저 창][]
+![Azure에 호스트된 서비스를 표시하는 브라우저 창][Azure에 호스트된 서비스를 표시하는 브라우저 창]
 
 ## 클라우드 서비스 프로젝트 만들기
 
@@ -16,9 +16,9 @@ Socket.IO는 node.js 서버와 클라이언트 간에 실시간 커뮤니케이�
 
 1.  **시작 메뉴** 또는 **시작 화면**에서 **Azure PowerShell**을 검색합니다. 마지막으로, **Azure PowerShell**을 마우스 오른쪽 단추로 클릭하고 **관리자 권한으로 실행**을 선택합니다.
 
-    ![Azure PowerShell 아이콘][]
+    ![Azure PowerShell 아이콘][Azure PowerShell 아이콘]
 
-    [WACOM.INCLUDE [install-dev-tools][]]
+    [WACOM.INCLUDE [install-dev-tools](../includes/install-dev-tools.md)]
 
 2.  디렉터리를 **c:\\node** 디렉터리로 변경한 후 다음 명령을 입력하여 **chatapp**라는 이름의 새 솔루션과 **WorkerRole1**이라는 작업자 역할을 만듭니다.
 
@@ -27,19 +27,19 @@ Socket.IO는 node.js 서버와 클라이언트 간에 실시간 커뮤니케이�
 
     다음과 같은 응답이 표시됩니다.
 
-    ![new-azureservice 및 add-azurenodeworkerrolecmdlets의 출력][]
+    ![new-azureservice 및 add-azurenodeworkerrolecmdlets의 출력][new-azureservice 및 add-azurenodeworkerrolecmdlets의 출력]
 
 ## 채팅 예제 다운로드
 
-이 프로젝트에서는 [Socket.IO GitHub 리포지토리][]의 채팅 예제를 사용합니다. 다음 단계에 따라 예제를 다운로드하여 이전에 만든 프로젝트에 추가하세요.
+이 프로젝트에서는 [Socket.IO GitHub 리포지토리][Socket.IO GitHub 리포지토리]의 채팅 예제를 사용합니다. 다음 단계에 따라 예제를 다운로드하여 이전에 만든 프로젝트에 추가하세요.
 
 1.  **복제** 단추를 눌러 리포지토리의 로컬 복사본을 만듭니다. **ZIP** 단추를 눌러 프로젝트를 다운로드할 수도 있습니다.
 
-    ![ZIP 다운로드 아이콘이 강조 표시된 https://github.com/LearnBoost/socket.io/tree/master/examples/chat을 표시하는 브라우저 창][]
+    ![ZIP 다운로드 아이콘이 강조 표시된 https://github.com/LearnBoost/socket.io/tree/master/examples/chat을 표시하는 브라우저 창][ZIP 다운로드 아이콘이 강조 표시된 https://github.com/LearnBoost/socket.io/tree/master/examples/chat을 표시하는 브라우저 창]
 
 2.  **examples\\chat** 디렉터리를 찾을 때까지 로컬 리포지토리의 디렉터리 구조를 탐색합니다. 이 디렉터리의 내용을 이전에 만든 **C:\\node\\chatapp\\WorkerRole1** 디렉터리로 복사합니다.
 
-    ![보관 파일에서 압축을 푼 examples\\chat 디렉터리의 내용을 표시하는 탐색기][]
+    ![보관 파일에서 압축을 푼 examples\chat 디렉터리의 내용을 표시하는 탐색기][보관 파일에서 압축을 푼 examples\chat 디렉터리의 내용을 표시하는 탐색기]
 
     위 스크린샷에서 강조 표시된 항목은 **examples\\chat** 디렉터리에서 복사한 파일입니다.
 
@@ -75,7 +75,7 @@ server.js에 변경 내용을 저장한 후 다음 단계에 따라 필요한 �
 
     그러면 package.json 파일에 나열된 모듈이 설치됩니다. 명령을 완료한 후 다음과 유사한 출력이 표시됩니다.
 
-    ![npm 설치 명령의 출력][]
+    ![npm 설치 명령의 출력][npm 설치 명령의 출력]
 
 2.  이 예제는 원래 Socket.IO GitHub 리포지토리의 일부이고, 상대 경로에서 Socket.IO 라이브러리를 직접 참조하며 package.json 파일에서 Socket.IO가 참조되지 않기 때문에 다음 명령을 실행하여 모듈을 설치해야 합니다.
 
@@ -89,7 +89,7 @@ server.js에 변경 내용을 저장한 후 다음 단계에 따라 필요한 �
 
 2.  브라우저 창이 열리면 애칭을 입력하고 Enter 키를 누릅니다. 이렇게 하면 특정 애칭으로 메시지를 게시할 수 있습니다. 다중 사용자 기능을 테스트하려면 같은 URL을 사용하여 브라우저 창을 추가로 열고 다른 애칭을 입력합니다.
 
-    ![User1 및 User2의 채팅 메시지를 표시하는 두 브라우저 창][]
+    ![User1 및 User2의 채팅 메시지를 표시하는 두 브라우저 창][User1 및 User2의 채팅 메시지를 표시하는 두 브라우저 창]
 
 3.  응용 프로그램을 테스트한 후 다음 명령을 실행하여 에뮬레이터를 중지합니다.
 
@@ -105,7 +105,7 @@ server.js에 변경 내용을 저장한 후 다음 단계에 따라 필요한 �
 <p>제공한 구독 이름이 가져온 게시 프로필에 존재하지 않는다는 내용의 오류를 받게 되는 경우, Azure를 배포하기 전에 구독에 대한 게시 프로필을 다운로드하고 가져와야 합니다. <a href="https://www.windowsazure.com/ko-KR/develop/nodejs/tutorials/getting-started/">Azure 클라우드 서비스에 Node.js 응용 프로그램 빌드 및 배포</a>(영문)에서 <b>Azure에 응용 프로그램 배포</b> 섹션을 참조하십시오.</p>
 </div>
 
-    ![Azure에 호스트된 서비스를 표시하는 브라우저 창][]
+    ![Azure에 호스트된 서비스를 표시하는 브라우저 창][Azure에 호스트된 서비스를 표시하는 브라우저 창]
 
     <div class="dev-callout">
 <strong>참고</strong>
@@ -121,7 +121,7 @@ server.js에 변경 내용을 저장한 후 다음 단계에 따라 필요한 �
 
 ## 다음 단계
 
-이 자습서에서는 Azure 클라우드 서비스에 호스팅된 기본 채팅 응용 프로그램을 만드는 방법을 학습했습니다. 이 응용 프로그램을 Azure 웹 사이트에 호스트하는 방법을 학습하려면 [Azure 웹 사이트에서 Socket.IO를 사용하여 Node.js 채팅 응용 프로그램 빌드][]를 참조하세요.
+이 자습서에서는 Azure 클라우드 서비스에 호스팅된 기본 채팅 응용 프로그램을 만드는 방법을 학습했습니다. 이 응용 프로그램을 Azure 웹 사이트에 호스트하는 방법을 학습하려면 [Azure 웹 사이트에서 Socket.IO를 사용하여 Node.js 채팅 응용 프로그램 빌드][Azure 웹 사이트에서 Socket.IO를 사용하여 Node.js 채팅 응용 프로그램 빌드]를 참조하세요.
 
   [Azure에 호스트된 서비스를 표시하는 브라우저 창]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-10.png
   [Azure PowerShell 아이콘]: ./media/cloud-services-nodejs-chat-app-socketio/azure-powershell-start.png

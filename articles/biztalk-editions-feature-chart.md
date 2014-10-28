@@ -214,25 +214,25 @@ BizTalk 어댑터 서비스는 Azure BizTalk 서비스에서 사용됩니다. Bi
 
 #### BizTalk 서비스의 한 단계에서 어떻게 다른 단계로 마이그레이션합니까?
 
-백업을 사용하고 한 단계에서 다른 단계로의 마이그레이션 흐름을 복원합니다. 일부 마이그레이션 경로만 지원됩니다. 지원되는 마이그레이션 경로에 대한 자세한 내용은 [BizTalk 서비스: 백업 및 복원][]을 참조하십시오.
+백업을 사용하고 한 단계에서 다른 단계로의 마이그레이션 흐름을 복원합니다. 일부 마이그레이션 경로만 지원됩니다. 지원되는 마이그레이션 경로에 대한 자세한 내용은 [BizTalk 서비스: 백업 및 복원][BizTalk 서비스: 백업 및 복원]을 참조하십시오.
 
 #### 이 서비스에 BizTalk 어댑터 서비스도 포함되어 있습니까? 소프트웨어를 어떻게 받습니까?
 
-네. BizTalk 어댑터 서비스는 BizTalk Adapter Pack과 함께 Azure BizTalk 서비스 SDK [다운로드][]에 포함되어 있습니다.
+네. BizTalk 어댑터 서비스는 BizTalk Adapter Pack과 함께 Azure BizTalk 서비스 SDK [다운로드][다운로드]에 포함되어 있습니다.
 
 ## 다음
 
-Azure 관리 포털에서 Azure BizTalk 서비스를 프로비전하려면 [BizTalk 서비스: Azure 관리 포털을 사용하여 프로비전][]을 참조하십시오. 응용 프로그램을 만들려면 [Azure BizTalk 서비스][]로 이동하십시오.
+Azure 관리 포털에서 Azure BizTalk 서비스를 프로비전하려면 [BizTalk 서비스: Azure 관리 포털을 사용하여 프로비전][BizTalk 서비스: Azure 관리 포털을 사용하여 프로비전]을 참조하십시오. 응용 프로그램을 만들려면 [Azure BizTalk 서비스][Azure BizTalk 서비스]로 이동하십시오.
 
 ## 참고 항목
 
--   [BizTalk 서비스: Azure 관리 포털을 사용하여 프로비전][]
--   [BizTalk 서비스: 상태 차트 프로비전][]
--   [BizTalk 서비스: 대시보드, 모니터 및 크기 조정 탭][]
--   [BizTalk 서비스: 백업 및 복원][]
--   [BizTalk 서비스: 제한][]
--   [BizTalk 서비스: 발급자 이름 및 발급자 키][]
--   [Azure BizTalk 서비스 SDK로 시작하는 방법][]
+-   [BizTalk 서비스: Azure 관리 포털을 사용하여 프로비전][BizTalk 서비스: Azure 관리 포털을 사용하여 프로비전]
+-   [BizTalk 서비스: 상태 차트 프로비전][BizTalk 서비스: 상태 차트 프로비전]
+-   [BizTalk 서비스: 대시보드, 모니터 및 크기 조정 탭][BizTalk 서비스: 대시보드, 모니터 및 크기 조정 탭]
+-   [BizTalk 서비스: 백업 및 복원][BizTalk 서비스: 백업 및 복원]
+-   [BizTalk 서비스: 제한][BizTalk 서비스: 제한]
+-   [BizTalk 서비스: 발급자 이름 및 발급자 키][BizTalk 서비스: 발급자 이름 및 발급자 키]
+-   [Azure BizTalk 서비스 SDK로 시작하는 방법][Azure BizTalk 서비스 SDK로 시작하는 방법]
 
   [Azure BizTalk 서비스 가격]: http://go.microsoft.com/fwlink/p/?LinkID=304011
   [BizTalk 서비스: 백업 및 복원]: http://go.microsoft.com/fwlink/p/?LinkID=329873

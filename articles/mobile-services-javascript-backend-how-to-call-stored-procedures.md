@@ -72,7 +72,7 @@ SQL Server 저장 프로시저를 호출해야 하는 이유는 다음과 같습
 
 **MobileServiceClient** 개체에서 **invokeApi** 메서드를 호출하도록 클라이언트 코드를 수정합니다. 추가 코드 구문은 클라이언트 장치에 따라 달라지며, 다음 항목들에서 설명합니다.
 
--   [Windows 스토어 C\#][Windows 스토어 C\#]
+-   [Windows 스토어 C#][Windows 스토어 C#]
 -   [Windows 스토어 JavaScript][Windows 스토어 JavaScript]
 -   [Windows Phone][Windows Phone]
 -   [iOS][iOS]
@@ -153,15 +153,15 @@ SQL Server 저장 프로시저를 호출해야 하는 이유는 다음과 같습
   [매개 변수를 사용한 저장 프로시저 호출]: #parameters
   [추가 정보]: #more
   [Azure 모바일 서비스 .Net 백 엔드 작동 방법]: http://curah.microsoft.com/64518/how-the-azure-mobile-services-net-backend-works
-  [mssql 개체]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554212.aspx
-  [사용자 지정 API]: http://msdn.microsoft.com/en-us/library/windowsazure/dn280974.aspx
-  [Windows 스토어 C\#]: http://azure.microsoft.com/ko-kr/documentation/articles/mobile-services-windows-store-dotnet-call-custom-api/
-  [Windows 스토어 JavaScript]: http://azure.microsoft.com/ko-kr/documentation/articles/mobile-services-windows-store-javascript-call-custom-api/
-  [Windows Phone]: http://azure.microsoft.com/ko-kr/documentation/articles/mobile-services-windows-phone-call-custom-api/
-  [iOS]: http://azure.microsoft.com/ko-kr/documentation/articles/mobile-services-ios-call-custom-api/
-  [Android]: http://azure.microsoft.com/ko-kr/documentation/articles/mobile-services-android-call-custom-api/
-  [HTML]: http://azure.microsoft.com/ko-kr/documentation/articles/mobile-services-html-call-custom-api/
+  [mssql 개체]: http://msdn.microsoft.com/ko--kr/library/windowsazure/jj554212.aspx
+  [사용자 지정 API]: http://msdn.microsoft.com/ko--kr/library/windowsazure/dn280974.aspx
+  [Windows 스토어 C#]: http://azure.microsoft.com/ko--kr/documentation/articles/mobile-services-windows-store-dotnet-call-custom-api/
+  [Windows 스토어 JavaScript]: http://azure.microsoft.com/ko--kr/documentation/articles/mobile-services-windows-store-javascript-call-custom-api/
+  [Windows Phone]: http://azure.microsoft.com/ko--kr/documentation/articles/mobile-services-windows-phone-call-custom-api/
+  [iOS]: http://azure.microsoft.com/ko--kr/documentation/articles/mobile-services-ios-call-custom-api/
+  [Android]: http://azure.microsoft.com/ko--kr/documentation/articles/mobile-services-android-call-custom-api/
+  [HTML]: http://azure.microsoft.com/ko--kr/documentation/articles/mobile-services-html-call-custom-api/
   [스크립트를 사용하여 읽기 작업을 2번 이상 수행하는 방법]: http://social.msdn.microsoft.com/Forums/windowsazure/en-US/fccf4ae7-f43c-4c2d-8518-32e2df84a824/how-do-i-do-more-than-1-read-operation-by-scripting?forum=azuremobile
   [다른 스키마에서 저장 프로시저에 액세스]: http://blogs.msdn.com/b/jpsanders/archive/2013/05/02/windows-azure-mobile-services-accessing-a-stored-procedure-from-a-different-schema.aspx
-  [JavaScript 백 엔드 모바일 서비스 작업]: http://azure.microsoft.com/ko-kr/documentation/articles/mobile-services-how-to-use-server-scripts/
-  [mssql 개체]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554212.aspx
+  [JavaScript 백 엔드 모바일 서비스 작업]: http://azure.microsoft.com/ko--kr/documentation/articles/mobile-services-how-to-use-server-scripts/
+  [mssql 개체]: http://msdn.microsoft.com/ko--kr/library/windowsazure/jj554212.aspx

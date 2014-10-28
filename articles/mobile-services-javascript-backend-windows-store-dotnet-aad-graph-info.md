@@ -5,12 +5,12 @@
 # Azure Active Directory 그래프 정보 액세스
 
 <div class="dev-center-tutorial-selector sublanding">
-    <a href="/ko-kr/documentation/articles/mobile-services-javascript-backend-windows-store-aad-graph-info/" title="Windows 스토어 C#" class="current">Windows 스토어 C#</a>
+    <a href="/ko--kr/documentation/articles/mobile-services-javascript-backend-windows-store-aad-graph-info/" title="Windows 스토어 C#" class="current">Windows 스토어 C#</a>
 </div>
 
 <div class="dev-center-tutorial-subselector">
-    <a href="/ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-aad-graph-info/" title=".NET 백 엔드">.NET 백 엔드</a> |
-    <a href="/ko-kr/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-aad-graph-info/" title="JavaScript 백 엔드" class="current">JavaScript 백 엔드</a>
+    <a href="/ko--kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-aad-graph-info/" title=".NET 백 엔드">.NET 백 엔드</a> |
+    <a href="/ko--kr/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-aad-graph-info/" title="JavaScript 백 엔드" class="current">JavaScript 백 엔드</a>
 </div>
 
 모바일 서비스에서 제공되는 다른 ID 공급자와 마찬가지로 AAD(Azure Active Directory) 공급자에서도 디렉토리에 대한 프로그래밍 방식의 액세스를 위해 사용할 수 있는 리치 [그래프 API][그래프 API]가 지원됩니다. 이 자습서에서는 [그래프 API][그래프 API]를 사용하여 디렉토리에서 검색하는 추가 사용자 정보를 기반으로 인증된 사용자의 앱 환경을 개인 설정하기 위해 ToDoList 앱을 업데이트합니다.
@@ -145,22 +145,22 @@
 <!-- Images -->
 <!-- URLs. -->
 
-  [Windows 스토어 C\#]: /ko-kr/documentation/articles/mobile-services-javascript-backend-windows-store-aad-graph-info/ "Windows 스토어 C#"
-  [.NET 백 엔드]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-aad-graph-info/ ".NET 백 엔드"
-  [JavaScript 백 엔드]: /ko-kr/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-aad-graph-info/ "JavaScript 백 엔드"
+  [Windows 스토어 C#]: /ko--kr/documentation/articles/mobile-services-javascript-backend-windows-store-aad-graph-info/ "Windows 스토어 C#"
+  [.NET 백 엔드]: /ko--kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-aad-graph-info/ ".NET 백 엔드"
+  [JavaScript 백 엔드]: /ko--kr/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-aad-graph-info/ "JavaScript 백 엔드"
   [그래프 API]: http://msdn.microsoft.com/library/azure/hh974478.aspx
-  [인증 시작]: /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-users/
+  [인증 시작]: /ko--kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-users/
   [AAD에서 앱 등록을 위한 액세스 키 생성]: #generate-key
   [GetUserInfo 사용자 지정 API 만들기]: #create-api
   [사용자 지정 API를 사용하도록 앱 업데이트]: #update-app
   [앱 테스트]: #test-app
-  [사용자 지정 API 자습서l]: /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-call-custom-api/
-  [Azure Active Directory 로그인 사용 등록]: /ko-kr/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
+  [사용자 지정 API 자습서l]: /ko--kr/documentation/articles/mobile-services-windows-store-dotnet-call-custom-api/
+  [Azure Active Directory 로그인 사용 등록]: /ko--kr/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
   [mobile-services-generate-aad-app-registration-access-key]: ../includes/mobile-services-generate-aad-app-registration-access-key.md
-  [그래프 REST API]: http://msdn.microsoft.com/en-us/library/azure/hh974478.aspx
+  [그래프 REST API]: http://msdn.microsoft.com/ko--kr/library/azure/hh974478.aspx
   [Azure 관리 포털]: https://manage.windowsazure.com/
   []: ./media/mobile-services-javascript-backend-windows-store-dotnet-aad-graph-info/create-getuserinfo.png
-  [사용자 가져오기]: http://msdn.microsoft.com/en-us/library/azure/dn151678.aspx
+  [사용자 가져오기]: http://msdn.microsoft.com/ko--kr/library/azure/dn151678.aspx
   [mobile-services-aad-graph-info-update-app]: ../includes/mobile-services-aad-graph-info-update-app.md
   [mobile-services-aad-graph-info-test-app]: ../includes/mobile-services-aad-graph-info-test-app.md
-  [모바일 서비스의 AAD에서 역할 기반 액세스 제어]: /ko-kr/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/
+  [모바일 서비스의 AAD에서 역할 기반 액세스 제어]: /ko--kr/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/

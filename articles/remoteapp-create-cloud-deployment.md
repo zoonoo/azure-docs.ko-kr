@@ -20,13 +20,13 @@
 
 서비스를 만들기 전에 다음을 수행해야 합니다.
 
--   RemoteApp의 미리 보기에 등록합니다. [][]<http://azure.microsoft.com/en-us/services/remoteapp/></a>에서 등록할 수 있습니다.
+-   RemoteApp의 미리 보기에 등록합니다. [][]<http://azure.microsoft.com/ko-kr/services/remoteapp/></a>에서 등록할 수 있습니다.
 -   액세스 권한을 부여할 사용자 및 그룹에 대한 정보를 수집합니다. 이 정보는 사용자 또는 그룹의 Microsoft 계정 정보나 Active Directory 조직 계정 정보가 될 수 있습니다.
 -   이 프로세스에서는 구독의 일부로 제공된 템플릿 이미지를 사용할 예정이거나 사용할 템플릿 이미지를 이미 업로드했다고 가정합니다. 다른 템플릿 이미지를 업로드해야 하는 경우 템플릿 이미지 페이지에서 그렇게 할 수 있습니다. 단지 **템플릿 이미지 업로드**를 클릭하고 마법사의 단계를 따르면 됩니다.
 
 ## **1단계: RemoteApp 서비스 만들기**
 
-1.  [Windows Azure 관리 포털][]에서, RemoteApp 페이지로 이동합니다.
+1.  [Windows Azure 관리 포털][Windows Azure 관리 포털]에서, RemoteApp 페이지로 이동합니다.
 2.  **새로 만들기 \> 빠른 생성**을 클릭합니다.
 
 3.  서비스의 이름을 입력하고 지역을 선택합니다.
@@ -43,7 +43,7 @@ RemoteApp 서비스를 만든 후 RemoteApp **빠른 시작** 페이지로 이�
 
 ## **2단계: Active Directory 디렉터리 동기화 구성(선택 사항)**
 
-Active Directory를 사용하는 경우 RemoteApp에서는 Azure Active Directory 테넌트와 사용자, 그룹, 연락처 및 암호를 동기화하려면 Azure Active Directory와 온-프레미스 Active Directory 간의 디렉터리 동기화가 필요합니다. 계획 정보 및 자세한 단계에 대해서는 [디렉터리 동기화 로드맵][]을 참조하세요.
+Active Directory를 사용하는 경우 RemoteApp에서는 Azure Active Directory 테넌트와 사용자, 그룹, 연락처 및 암호를 동기화하려면 Azure Active Directory와 온-프레미스 Active Directory 간의 디렉터리 동기화가 필요합니다. 계획 정보 및 자세한 단계에 대해서는 [디렉터리 동기화 로드맵][디렉터리 동기화 로드맵]을 참조하세요.
 
 ## **3단계: RemoteApp 프로그램 게시**
 
@@ -68,6 +68,6 @@ RemoteApp 서비스를 만들었으므로 원격 리소스를 사용할 수 있�
 
 RemoteApp 클라우드 배포를 만들고 배포했습니다. 다음 단계는 사용자가 원격 데스크톱 클라이언트를 다운로드하여 설치하도록 설정하는 것입니다. RemoteApp 빠른 시작 페이지에서 클라이언트의 URL을 찾을 수 있습니다. 그런 다음, 사용자가 Azure에 로그인하여 게시된 RemoteApp 프로그램에 액세스하도록 합니다.
 
-  []: http://azure.microsoft.com/en-us/services/remoteapp/
+  []: http://azure.microsoft.com/ko-kr/services/remoteapp/
   [Windows Azure 관리 포털]: http://manage.windowsazure.com
-  [디렉터리 동기화 로드맵]: http://msdn.microsoft.com/en-us/library/azure/hh967642.aspx
+  [디렉터리 동기화 로드맵]: http://msdn.microsoft.com/ko-kr/library/azure/hh967642.aspx

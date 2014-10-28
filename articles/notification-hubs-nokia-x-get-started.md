@@ -4,7 +4,7 @@
 
 # 알림 허브 시작
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/ko-kr/documentation/articles/notification-hubs-windows-store-dotnet-get-started/" title="Windows 범용">Windows 범용</a><a href="/ko-kr/documentation/articles/notification-hubs-windows-phone-get-started/" title="Windows Phone">Windows Phone</a><a href="/ko-kr/documentation/articles/notification-hubs-ios-get-started/" title="iOS">iOS</a><a href="/ko-kr/documentation/articles/notification-hubs-android-get-started/" title="Android">Android</a><a href="/ko-kr/documentation/articles/notification-hubs-kindle-get-started/" title="Kindle">Kindle</a><a href="/ko-kr/documentation/articles/notification-hubs-nokia-x-get-started/" title="Nokia X" class="current">Nokia X</a><a href="/ko-kr/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/" title="Xamarin.iOS">Xamarin.iOS</a><a href="/ko-kr/documentation/articles/partner-xamarin-notification-hubs-android-get-started/" title="Xamarin.Android">Xamarin.Android</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/ko--kr/documentation/articles/notification-hubs-windows-store-dotnet-get-started/" title="Windows 범용">Windows 범용</a><a href="/ko--kr/documentation/articles/notification-hubs-windows-phone-get-started/" title="Windows Phone">Windows Phone</a><a href="/ko--kr/documentation/articles/notification-hubs-ios-get-started/" title="iOS">iOS</a><a href="/ko--kr/documentation/articles/notification-hubs-android-get-started/" title="Android">Android</a><a href="/ko--kr/documentation/articles/notification-hubs-kindle-get-started/" title="Kindle">Kindle</a><a href="/ko--kr/documentation/articles/notification-hubs-nokia-x-get-started/" title="Nokia X" class="current">Nokia X</a><a href="/ko--kr/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/" title="Xamarin.iOS">Xamarin.iOS</a><a href="/ko--kr/documentation/articles/partner-xamarin-notification-hubs-android-get-started/" title="Xamarin.Android">Xamarin.Android</a></div>
 
 이 항목에서는 **Azure 알림 허브**를 사용하여 **Nokia X**의 Android 응용 프로그램에 푸시 알림을 보내는 방법을 보여 줍니다. 이 자습서에서는 Nokia 알림 서비스를 사용하여 푸시 알림을 받는 빈 Android 앱을 만듭니다. 완료하면 알림 허브를 사용하여 앱을 실행하는 모든 장치로 푸시 알림을 브로드캐스트할 수 있습니다.
 
@@ -16,7 +16,7 @@
 -   [앱에 알림을 보내는 방법][앱에 알림을 보내는 방법]
 -   [앱 테스트][앱 테스트]
 
-<div class="dev-callout"><strong>참고</strong> <p>이 자습서를 완료하려면 활성 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure 무료 평가판</a>을 참조하세요.</p></div>
+<div class="dev-callout"><strong>참고</strong> <p>이 자습서를 완료하려면 활성 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://www.windowsazure.com/ko--kr/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fko--kr%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure 무료 평가판</a>을 참조하세요.</p></div>
 
 이 자습서를 사용하려면 다음이 필요합니다.
 
@@ -298,7 +298,7 @@
 
 [REST 인터페이스][REST 인터페이스]를 사용하여 모든 백 엔드에서 알림 허브를 사용하여 알림을 보낼 수 있습니다. 이 자습서에서는 .NET 콘솔 앱을 사용하여 이를 보여 줍니다.
 
-1.  새 Visual C\# 콘솔 응용 프로그램을 만듭니다.
+1.  새 Visual C# 콘솔 응용 프로그램을 만듭니다.
 
     ![][14]
 
@@ -346,20 +346,20 @@ Android 앱이 알림 허브에 등록될 수 없으면 'Eclipse Logcat' 로그�
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [Windows 범용]: /ko-kr/documentation/articles/notification-hubs-windows-store-dotnet-get-started/ "Windows 범용"
-  [Windows Phone]: /ko-kr/documentation/articles/notification-hubs-windows-phone-get-started/ "Windows Phone"
-  [iOS]: /ko-kr/documentation/articles/notification-hubs-ios-get-started/ "iOS"
-  [Android]: /ko-kr/documentation/articles/notification-hubs-android-get-started/ "Android"
-  [Kindle]: /ko-kr/documentation/articles/notification-hubs-kindle-get-started/ "Kindle"
-  [Nokia X]: /ko-kr/documentation/articles/notification-hubs-nokia-x-get-started/ "Nokia X"
-  [Xamarin.iOS]: /ko-kr/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/ "Xamarin.iOS"
-  [Xamarin.Android]: /ko-kr/documentation/articles/partner-xamarin-notification-hubs-android-get-started/ "Xamarin.Android"
+  [Windows 범용]: /ko--kr/documentation/articles/notification-hubs-windows-store-dotnet-get-started/ "Windows 범용"
+  [Windows Phone]: /ko--kr/documentation/articles/notification-hubs-windows-phone-get-started/ "Windows Phone"
+  [iOS]: /ko--kr/documentation/articles/notification-hubs-ios-get-started/ "iOS"
+  [Android]: /ko--kr/documentation/articles/notification-hubs-android-get-started/ "Android"
+  [Kindle]: /ko--kr/documentation/articles/notification-hubs-kindle-get-started/ "Kindle"
+  [Nokia X]: /ko--kr/documentation/articles/notification-hubs-nokia-x-get-started/ "Nokia X"
+  [Xamarin.iOS]: /ko--kr/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/ "Xamarin.iOS"
+  [Xamarin.Android]: /ko--kr/documentation/articles/partner-xamarin-notification-hubs-android-get-started/ "Xamarin.Android"
   [Nokia 알림 서비스 구성]: #register
   [알림 허브 구성]: #configure-hub
   [알림 허브에 앱 연결]: #connect-hub
   [앱에 알림을 보내는 방법]: #send
   [앱 테스트]: #test-app
-  [Azure 무료 평가판]: http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F
+  [Azure 무료 평가판]: http://www.windowsazure.com/ko--kr/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fko--kr%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F
   [여기]: http://developer.nokia.com/resources/library/nokia-x/getting-started/environment-setup.html
   [1]: http://developer.nokia.com/resources/library/nokia-x/getting-started/device-setup.html
   [2]: http://go.microsoft.com/fwlink/?linkid=389797&clcid=0x409
@@ -378,6 +378,6 @@ Android 앱이 알림 허브에 등록될 수 없으면 'Eclipse Logcat' 로그�
   [11]: ./media/notification-hubs-nokia-x-get-started/NewAndroidApp.png
   [12]: ./media/notification-hubs-nokia-x-get-started/AndroidBuildTarget.png
   [13]: ./media/notification-hubs-nokia-x-get-started/NewJavaClass.png
-  [REST 인터페이스]: http://msdn.microsoft.com/en-us/library/windowsazure/dn223264.aspx
+  [REST 인터페이스]: http://msdn.microsoft.com/ko--kr/library/windowsazure/dn223264.aspx
   [14]: ./media/notification-hubs-nokia-x-get-started/ConsoleProject.png
   [WindowsAzure.ServiceBus NuGet 패키지]: http://nuget.org/packages/WindowsAzure.ServiceBus/

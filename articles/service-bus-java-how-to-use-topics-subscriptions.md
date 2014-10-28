@@ -222,7 +222,7 @@ Java용 Azure 라이브러리를 빌드 경로에 추가하고 프로젝트 배�
 
 지금까지 서비스 버스 큐의 기본 사항에 대해 알아보았습니다. 자세한 내용은MSDN 항목 [서비스 버스 큐, 토픽 및 구독][서비스 버스 큐, 토픽 및 구독](영문)을 참조하세요.
 
-  [Java용 Azure SDK]: http://www.windowsazure.com/en-us/develop/java/
+  [Java용 Azure SDK]: http://www.windowsazure.com/ko--kr/develop/java/
   [서비스 버스 토픽 및 구독 정의]: #what-are-service-bus-topics
   [서비스 네임스페이스 만들기]: #create-a-service-namespace
   [네임스페이스에 대한 기본 관리 자격 증명 얻기]: #obtain-default-credentials

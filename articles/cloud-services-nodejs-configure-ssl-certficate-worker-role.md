@@ -114,7 +114,7 @@ Node.js 응용 프로그램을 작업자 역할에 배포할 경우 Node.exe에�
 
 2.  아래로 스크롤하고 다음과 같이 **사이트 URL**로 표시된 링크를 클릭합니다.
 
-    ![사이트 URL][]
+    ![사이트 URL][사이트 URL]
 
     <div class="dev-callout">
 <strong>참고</strong>
@@ -129,11 +129,11 @@ Node.js 응용 프로그램을 작업자 역할에 배포할 경우 Node.exe에�
 
 ## 추가 리소스
 
-[인증서를 서비스와 연결하는 방법][]
+[인증서를 서비스와 연결하는 방법][인증서를 서비스와 연결하는 방법]
 
-[Azure 웹 역할에서 Node.js 응용 프로그램에 대한 SSL 구성][]
+[Azure 웹 역할에서 Node.js 응용 프로그램에 대한 SSL 구성][Azure 웹 역할에서 Node.js 응용 프로그램에 대한 SSL 구성]
 
-[HTTPS 끝점에 SSL 인증서 구성][]
+[HTTPS 끝점에 SSL 인증서 구성][HTTPS 끝점에 SSL 인증서 구성]
 
   [1단계: Node.js 서비스 만들기 및 클라우드에 서비스 게시]: #step1
   [2단계: SSL 인증서 다운로드]: #step2

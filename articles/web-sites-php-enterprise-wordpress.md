@@ -72,28 +72,28 @@ Blob 저장소는 기본적으로 여러 지역에 지리적으로 분산되어 
 </tr>
 <tr class="even">
 <td align="left"><strong>전자 메일 보내기</strong></td>
-<td align="left"><a href="http://azure.microsoft.com/en-us/gallery/store/sendgrid/sendgrid-azure/">SendGrid</a> 및 <a href="http://wordpress.org/plugins/sendgrid-email-delivery-simplified/">SendGrid 사용을 위한 WordPress 플러그 인</a></td>
+<td align="left"><a href="http://azure.microsoft.com/ko--kr/gallery/store/sendgrid/sendgrid-azure/">SendGrid</a> 및 <a href="http://wordpress.org/plugins/sendgrid-email-delivery-simplified/">SendGrid 사용을 위한 WordPress 플러그 인</a></td>
 </tr>
 <tr class="odd">
 <td align="left"><strong>사용자 지정 도메인 이름</strong></td>
-<td align="left"><a href="http://azure.microsoft.com/ko-kr/documentation/articles/web-sites-custom-domain-name/">Azure 웹 사이트를 포함하는 사용자 지정 도메인 이름</a></td>
+<td align="left"><a href="http://azure.microsoft.com/ko--kr/documentation/articles/web-sites-custom-domain-name/">Azure 웹 사이트를 포함하는 사용자 지정 도메인 이름</a></td>
 </tr>
 <tr class="even">
 <td align="left"><strong>HTTPS</strong></td>
-<td align="left"><a href="http://azure.microsoft.com/ko-kr/documentation/articles/web-sites-configure-ssl-certificate/">Azure 웹 사이트의 HTTPS 지원</a></td>
+<td align="left"><a href="http://azure.microsoft.com/ko--kr/documentation/articles/web-sites-configure-ssl-certificate/">Azure 웹 사이트의 HTTPS 지원</a></td>
 </tr>
 <tr class="odd">
 <td align="left"><strong>사전 프로덕션 유효성 검사</strong></td>
-<td align="left"><a href="http://azure.microsoft.com/ko-kr/documentation/articles/web-sites-staged-publishing/">Azure 웹 사이트에 대한 스테이징된 게시 지원</a>
+<td align="left"><a href="http://azure.microsoft.com/ko--kr/documentation/articles/web-sites-staged-publishing/">Azure 웹 사이트에 대한 스테이징된 게시 지원</a>
 <p>스테이징에서 프로덕션으로 사이트를 전환하면 WordPress 구성도 이동됩니다. 스테이징된 사이트를 프로덕션 사이트로 전환하기 전에 프로덕션 사이트에 필요한 수준으로 모든 설정을 업데이트해야 합니다.</p></td>
 </tr>
 <tr class="even">
 <td align="left"><strong>모니터링 및 문제 해결</strong></td>
-<td align="left"><a href="http://azure.microsoft.com/ko-kr/documentation/articles/web-sites-enable-diagnostic-log/">Azure 웹 사이트의 진단 로깅</a> 및 <a href="http://azure.microsoft.com/ko-kr/documentation/articles/web-sites-monitor/">Azure 웹 사이트 모니터링</a></td>
+<td align="left"><a href="http://azure.microsoft.com/ko--kr/documentation/articles/web-sites-enable-diagnostic-log/">Azure 웹 사이트의 진단 로깅</a> 및 <a href="http://azure.microsoft.com/ko--kr/documentation/articles/web-sites-monitor/">Azure 웹 사이트 모니터링</a></td>
 </tr>
 <tr class="odd">
 <td align="left"><strong>사이트 배포</strong></td>
-<td align="left"><a href="http://azure.microsoft.com/ko-kr/documentation/articles/web-sites-deploy/">Azure 웹 사이트 배포</a></td>
+<td align="left"><a href="http://azure.microsoft.com/ko--kr/documentation/articles/web-sites-deploy/">Azure 웹 사이트 배포</a></td>
 </tr>
 </tbody>
 </table>
@@ -220,7 +220,7 @@ WordPress 사이트가 만들어지거나 마이그레이션되면 다음 정보
 <tbody>
 <tr class="odd">
 <td align="left"><strong>웹 사이트 모드, 크기 설정 및 확장 사용</strong></td>
-<td align="left"><a href="http://azure.microsoft.com/ko-kr/documentation/articles/web-sites-scale/">웹 사이트를 확장하는 방법</a></td>
+<td align="left"><a href="http://azure.microsoft.com/ko--kr/documentation/articles/web-sites-scale/">웹 사이트를 확장하는 방법</a></td>
 </tr>
 <tr class="even">
 <td align="left"><strong>영구 데이터베이스 연결 사용</strong>
@@ -243,16 +243,16 @@ WordPress 사이트가 만들어지거나 마이그레이션되면 다음 정보
 <td align="left"><strong>성능 향상</strong></td>
 <td align="left"><ul>
 <li><p><a href="http://blogs.msdn.com/b/windowsazure/archive/2013/11/18/disabling-arr-s-instance-affinity-in-windows-azure-web-sites.aspx">ARR 쿠키 사용 안 함</a> - 여러 웹 사이트 인스턴스에서 WordPress를 실행할 때 성능을 향상시킬 수 있습니다.</p></li>
-<li><p>캐싱을 사용하도록 설정합니다. <a href="http://msdn.microsoft.com/en-us/library/azure/dn690470.aspx">Redis 캐시</a>(미리 보기)를 <a href="https://wordpress.org/plugins/redis-object-cache/">Redis 개체 캐시 WordPress 플러그 인</a>과 함께 사용하거나 <a href="http://azure.microsoft.com/en-us/gallery/store/">Azure Store</a>의 기타 캐싱 서비스 중 하나를 사용합니다.</p></li>
+<li><p>캐싱을 사용하도록 설정합니다. <a href="http://msdn.microsoft.com/ko--kr/library/azure/dn690470.aspx">Redis 캐시</a>(미리 보기)를 <a href="https://wordpress.org/plugins/redis-object-cache/">Redis 개체 캐시 WordPress 플러그 인</a>과 함께 사용하거나 <a href="http://azure.microsoft.com/ko--kr/gallery/store/">Azure Store</a>의 기타 캐싱 서비스 중 하나를 사용합니다.</p></li>
 <li><p><a href="http://ruslany.net/2010/03/make-wordpress-faster-on-iis-with-wincache-1-1/">Wincache로 WordPress를 더 빠르게 만드는 방법</a> - Wincache는 웹 사이트에 대해 기본적으로 사용되도록 설정되어 있습니다.</p></li>
-<li><p><a href="http://azure.microsoft.com/ko-kr/documentation/articles/web-sites-scale/">Azure 웹 사이트를 확장</a>하고 <a href="http://www.cleardb.com/developers/cdbr/introduction">ClearDB 고가용성 라우팅</a> 또는 <a href="http://www.mysql.com/products/cluster/">MySQL 클러스터 CGE</a> 사용</p></li>
+<li><p><a href="http://azure.microsoft.com/ko--kr/documentation/articles/web-sites-scale/">Azure 웹 사이트를 확장</a>하고 <a href="http://www.cleardb.com/developers/cdbr/introduction">ClearDB 고가용성 라우팅</a> 또는 <a href="http://www.mysql.com/products/cluster/">MySQL 클러스터 CGE</a> 사용</p></li>
 </ul></td>
 </tr>
 <tr class="even">
 <td align="left"><strong>저장소에 Blob 사용</strong></td>
 <td align="left"><ol>
-<li><p><a href="http://azure.microsoft.com/ko-kr/documentation/articles/storage-create-storage-account/">Azure 저장소 계정 만들기</a></p></li>
-<li><p><a href="http://azure.microsoft.com/ko-kr/documentation/articles/cdn-how-to-use/">CDN(Content Distribution Network)를 사용</a>하여 Blob에 저장된 데이터를 지리적으로 분산하는 방법을 알아봅니다.</p></li>
+<li><p><a href="http://azure.microsoft.com/ko--kr/documentation/articles/storage-create-storage-account/">Azure 저장소 계정 만들기</a></p></li>
+<li><p><a href="http://azure.microsoft.com/ko--kr/documentation/articles/cdn-how-to-use/">CDN(Content Distribution Network)를 사용</a>하여 Blob에 저장된 데이터를 지리적으로 분산하는 방법을 알아봅니다.</p></li>
 <li><p><a href="https://wordpress.org/plugins/windows-azure-storage/">WordPress용 Azure 저장소 플러그 인</a>을 설치하고 구성합니다.</p>
 <p>이 플러그 인의 자세한 설치 및 구성 정보에 대해서는 <a href="http://plugins.svn.wordpress.org/windows-azure-storage/trunk/UserGuide.docx">사용자 가이드</a>(영문)를 참조하세요.</p></li>
 </ol></td>
@@ -260,29 +260,29 @@ WordPress 사이트가 만들어지거나 마이그레이션되면 다음 정보
 <tr class="odd">
 <td align="left"><strong>전자 메일 사용</strong></td>
 <td align="left"><ol>
-<li><p><a href="http://azure.microsoft.com/en-us/gallery/store/sendgrid/sendgrid-azure/">Azure Store를 사용하여 SendGrid 사용</a></p></li>
+<li><p><a href="http://azure.microsoft.com/ko--kr/gallery/store/sendgrid/sendgrid-azure/">Azure Store를 사용하여 SendGrid 사용</a></p></li>
 <li><p><a href="http://wordpress.org/plugins/sendgrid-email-delivery-simplified/">WordPress용 SendGrid 플러그 인 설치</a></p></li>
 </ol></td>
 </tr>
 <tr class="even">
 <td align="left"><strong>사용자 지정 도메인 이름 구성</strong></td>
-<td align="left"><a href="http://azure.microsoft.com/ko-kr/documentation/articles/web-sites-custom-domain-name/">Azure 웹 사이트에서 사용자 지정 도메인 이름 사용</a></td>
+<td align="left"><a href="http://azure.microsoft.com/ko--kr/documentation/articles/web-sites-custom-domain-name/">Azure 웹 사이트에서 사용자 지정 도메인 이름 사용</a></td>
 </tr>
 <tr class="odd">
 <td align="left"><strong>사용자 지정 도메인 이름에 HTTPS 사용</strong></td>
-<td align="left"><a href="http://azure.microsoft.com/ko-kr/documentation/articles/web-sites-configure-ssl-certificate/">Azure 웹 사이트에 HTTPS 사용</a></td>
+<td align="left"><a href="http://azure.microsoft.com/ko--kr/documentation/articles/web-sites-configure-ssl-certificate/">Azure 웹 사이트에 HTTPS 사용</a></td>
 </tr>
 <tr class="even">
 <td align="left"><strong>사이트 부하 분산 또는 지리적으로 분산</strong></td>
-<td align="left"><a href="http://azure.microsoft.com/blog/2014/03/27/azure-traffic-manager-can-now-integrate-with-azure-web-sites/">Azure 트래픽 관리자로 트래픽 라우팅</a>(영문) 사용자 지정 도메인을 사용하는 경우 <a href="http://azure.microsoft.com/ko-kr/documentation/articles/web-sites-custom-domain-name/">Azure 웹 사이트에서 사용자 지정 도메인 이름 사용</a>에서 사용자 지정 도메인 이름에 트래픽 관리자를 사용하는 방법을 참조하세요.</td>
+<td align="left"><a href="http://azure.microsoft.com/blog/2014/03/27/azure-traffic-manager-can-now-integrate-with-azure-web-sites/">Azure 트래픽 관리자로 트래픽 라우팅</a>(영문) 사용자 지정 도메인을 사용하는 경우 <a href="http://azure.microsoft.com/ko--kr/documentation/articles/web-sites-custom-domain-name/">Azure 웹 사이트에서 사용자 지정 도메인 이름 사용</a>에서 사용자 지정 도메인 이름에 트래픽 관리자를 사용하는 방법을 참조하세요.</td>
 </tr>
 <tr class="odd">
 <td align="left"><strong>자동 웹 사이트 백업 사용</strong></td>
-<td align="left"><a href="http://azure.microsoft.com/ko-kr/documentation/articles/web-sites-backup/">Azure 웹 사이트 백업</a></td>
+<td align="left"><a href="http://azure.microsoft.com/ko--kr/documentation/articles/web-sites-backup/">Azure 웹 사이트 백업</a></td>
 </tr>
 <tr class="even">
 <td align="left"><strong>진단 로깅 사용</strong></td>
-<td align="left"><a href="http://azure.microsoft.com/ko-kr/documentation/articles/web-sites-enable-diagnostic-log/">Azure 웹 사이트에 진단 로그 사용</a></td>
+<td align="left"><a href="http://azure.microsoft.com/ko--kr/documentation/articles/web-sites-enable-diagnostic-log/">Azure 웹 사이트에 진단 로그 사용</a></td>
 </tr>
 </tbody>
 </table>
@@ -332,34 +332,34 @@ WordPress 사이트가 만들어지거나 마이그레이션되면 다음 정보
   [방법]: #howto
   [추가 리소스]: #resources
   [Azure Store의 ClearDB]: http://www.cleardb.com/store/azure
-  [Windows]: http://azure.microsoft.com/ko-kr/documentation/articles/virtual-machines-mysql-windows-server-2008r2/
-  [Linux]: http://azure.microsoft.com/ko-kr/documentation/articles/virtual-machines-linux-mysql-use-opensuse/
+  [Windows]: http://azure.microsoft.com/ko--kr/documentation/articles/virtual-machines-mysql-windows-server-2008r2/
+  [Linux]: http://azure.microsoft.com/ko--kr/documentation/articles/virtual-machines-linux-mysql-use-opensuse/
   [ClearDB 가격 책정]: http://www.cleardb.com/pricing.view
-  [PHP 버전 5.3, 5.4 및 5.5]: http://azure.microsoft.com/ko-kr/documentation/articles/web-sites-php-configure/
+  [PHP 버전 5.3, 5.4 및 5.5]: http://azure.microsoft.com/ko--kr/documentation/articles/web-sites-php-configure/
   [단일 Azure 지역에 호스트된 Azure 웹 사이트 및 MySQL 데이터베이스]: ./media/web-sites-enterprise-wordpress/basic-diagram.png
   [트래픽 관리자]: http://azure.microsoft.com/blog/2014/03/27/azure-traffic-manager-can-now-integrate-with-azure-web-sites/
   [Azure 웹 사이트, 다중 지역에 호스트, CDBR 고가용성 라우터를 사용하여 여러 지역의 MySQL로 라우팅]: ./media/web-sites-enterprise-wordpress/multi-region-diagram.png
   [CDBR 고가용성 라우터]: http://www.cleardb.com/developers/cdbr/introduction
   [MySQL 클러스터 CGE]: http://www.mysql.com/products/cluster/
-  [Redis 캐시]: http://msdn.microsoft.com/en-us/library/azure/dn690470.aspx
-  [Memcache 클라우드]: http://azure.microsoft.com/en-us/gallery/store/garantiadata/memcached/
-  [MemCachier]: http://azure.microsoft.com/en-us/gallery/store/memcachier/memcachier/
-  [Azure Store]: http://azure.microsoft.com/en-us/gallery/store/
+  [Redis 캐시]: http://msdn.microsoft.com/ko--kr/library/azure/dn690470.aspx
+  [Memcache 클라우드]: http://azure.microsoft.com/ko--kr/gallery/store/garantiadata/memcached/
+  [MemCachier]: http://azure.microsoft.com/ko--kr/gallery/store/memcachier/memcachier/
+  [Azure Store]: http://azure.microsoft.com/ko--kr/gallery/store/
   [Azure 웹 사이트, 다중 지역에 호스트, MySQL용 CDBR 고가용성 라우터 사용, 관리되는 캐시, Blob 저장소 및 CDN 포함]: ./media/web-sites-enterprise-wordpress/performance-diagram.png
-  [CDN(Content Distribution Network)]: http://azure.microsoft.com/ko-kr/documentation/articles/cdn-how-to-use/
+  [CDN(Content Distribution Network)]: http://azure.microsoft.com/ko--kr/documentation/articles/cdn-how-to-use/
   [Blob 저장소 사용을 위한 WordPress 플러그 인]: https://wordpress.org/plugins/windows-azure-storage/
-  [SendGrid]: http://azure.microsoft.com/en-us/gallery/store/sendgrid/sendgrid-azure/
+  [SendGrid]: http://azure.microsoft.com/ko--kr/gallery/store/sendgrid/sendgrid-azure/
   [SendGrid 사용을 위한 WordPress 플러그 인]: http://wordpress.org/plugins/sendgrid-email-delivery-simplified/
-  [Azure 웹 사이트를 포함하는 사용자 지정 도메인 이름]: http://azure.microsoft.com/ko-kr/documentation/articles/web-sites-custom-domain-name/
-  [Azure 웹 사이트의 HTTPS 지원]: http://azure.microsoft.com/ko-kr/documentation/articles/web-sites-configure-ssl-certificate/
-  [Azure 웹 사이트에 대한 스테이징된 게시 지원]: http://azure.microsoft.com/ko-kr/documentation/articles/web-sites-staged-publishing/
-  [Azure 웹 사이트의 진단 로깅]: http://azure.microsoft.com/ko-kr/documentation/articles/web-sites-enable-diagnostic-log/
-  [Azure 웹 사이트 모니터링]: http://azure.microsoft.com/ko-kr/documentation/articles/web-sites-monitor/
-  [Azure 웹 사이트 배포]: http://azure.microsoft.com/ko-kr/documentation/articles/web-sites-deploy/
-  [Azure 웹 사이트 백업]: http://azure.microsoft.com/ko-kr/documentation/articles/web-sites-backup/
-  [Azure 웹 사이트 복원]: http://azure.microsoft.com/ko-kr/documentation/articles/web-sites-restore/
-  [웹 사이트 규모 및 모드 용량을 비롯한 가격 책정 세부 정보]: https://azure.microsoft.com/en-us/pricing/details/web-sites/
-  [Azure 웹 사이트 확장]: http://azure.microsoft.com/ko-kr/documentation/articles/web-sites-scale/
+  [Azure 웹 사이트를 포함하는 사용자 지정 도메인 이름]: http://azure.microsoft.com/ko--kr/documentation/articles/web-sites-custom-domain-name/
+  [Azure 웹 사이트의 HTTPS 지원]: http://azure.microsoft.com/ko--kr/documentation/articles/web-sites-configure-ssl-certificate/
+  [Azure 웹 사이트에 대한 스테이징된 게시 지원]: http://azure.microsoft.com/ko--kr/documentation/articles/web-sites-staged-publishing/
+  [Azure 웹 사이트의 진단 로깅]: http://azure.microsoft.com/ko--kr/documentation/articles/web-sites-enable-diagnostic-log/
+  [Azure 웹 사이트 모니터링]: http://azure.microsoft.com/ko--kr/documentation/articles/web-sites-monitor/
+  [Azure 웹 사이트 배포]: http://azure.microsoft.com/ko--kr/documentation/articles/web-sites-deploy/
+  [Azure 웹 사이트 백업]: http://azure.microsoft.com/ko--kr/documentation/articles/web-sites-backup/
+  [Azure 웹 사이트 복원]: http://azure.microsoft.com/ko--kr/documentation/articles/web-sites-restore/
+  [웹 사이트 규모 및 모드 용량을 비롯한 가격 책정 세부 정보]: https://azure.microsoft.com/ko--kr/pricing/details/web-sites/
+  [Azure 웹 사이트 확장]: http://azure.microsoft.com/ko--kr/documentation/articles/web-sites-scale/
   [WordPress 내보내기]: http://en.support.wordpress.com/export/
   [WordPress 가져오기 도구 플러그 인]: http://wordpress.org/plugins/wordpress-importer/
   [사이트]: http://codex.wordpress.org/WordPress_Backups
@@ -375,11 +375,11 @@ WordPress 사이트가 만들어지거나 마이그레이션되면 다음 정보
   [ARR 쿠키 사용 안 함]: http://blogs.msdn.com/b/windowsazure/archive/2013/11/18/disabling-arr-s-instance-affinity-in-windows-azure-web-sites.aspx
   [Redis 개체 캐시 WordPress 플러그 인]: https://wordpress.org/plugins/redis-object-cache/
   [Wincache로 WordPress를 더 빠르게 만드는 방법]: http://ruslany.net/2010/03/make-wordpress-faster-on-iis-with-wincache-1-1/
-  [Azure 저장소 계정 만들기]: http://azure.microsoft.com/ko-kr/documentation/articles/storage-create-storage-account/
+  [Azure 저장소 계정 만들기]: http://azure.microsoft.com/ko--kr/documentation/articles/storage-create-storage-account/
   [사용자 가이드]: http://plugins.svn.wordpress.org/windows-azure-storage/trunk/UserGuide.docx
   []: resources
   [WordPress 최적화(영문)]: http://codex.wordpress.org/WordPress_Optimization
-  [WordPress 사이트를 멀티 사이트로 변환(영문)]: http://azure.microsoft.com/ko-kr/documentation/articles/web-sites-php-convert-wordpress-multisite/
+  [WordPress 사이트를 멀티 사이트로 변환(영문)]: http://azure.microsoft.com/ko--kr/documentation/articles/web-sites-php-convert-wordpress-multisite/
   [Azure용 ClearDB 업그레이드 마법사(영문)]: http://www.cleardb.com/store/azure/upgrade
   [Azure 웹 사이트의 하위 폴더에 WordPress 호스트(영문)]: http://blogs.msdn.com/b/webapps/archive/2013/02/13/hosting-wordpress-in-a-subfolder-of-your-windows-azure-web-site.aspx
   [단계별 작업: Azure를 사용하여 WordPress 사이트 만들기]: http://blogs.technet.com/b/blainbar/archive/2013/08/07/article-create-a-wordpress-site-using-windows-azure-read-on.aspx

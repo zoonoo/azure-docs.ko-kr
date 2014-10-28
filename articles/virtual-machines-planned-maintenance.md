@@ -55,8 +55,8 @@ Microsoft Azure는 계획된 유지 관리 이벤트로 인해 두 개의 다른
   [다중 인스턴스 업데이트]: #multi-instance-update
   [단일 인스턴스 업데이트]: #single-instance-update
   [메일 알림]: #email-notification
-  [가상 컴퓨터의 가용성 관리]: http://azure.microsoft.com/ko-kr/documentation/articles/virtual-machines-manage-availability/
+  [가상 컴퓨터의 가용성 관리]: http://azure.microsoft.com/ko--kr/documentation/articles/virtual-machines-manage-availability/
   [서비스 수준 계약]: ../../support/legal/sla/
-  [중복성을 위해 가용성 집합의 다중 가상 컴퓨터 구성]: http://azure.microsoft.com/ko-kr/documentation/articles/virtual-machines-manage-availability/#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy
+  [중복성을 위해 가용성 집합의 다중 가상 컴퓨터 구성]: http://azure.microsoft.com/ko--kr/documentation/articles/virtual-machines-manage-availability/#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy
   []: ./media/virtual-machines-planned-maintenance/EventViewerPostReboot.png
   [1]: ./media/virtual-machines-planned-maintenance/vmplanned1.png

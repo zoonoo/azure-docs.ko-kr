@@ -425,9 +425,9 @@ HDInsight 클러스터의 버전에 사용되는 HDP에 대한 릴리스 정보�
 
 -   HDInsight 클러스터 버전 1.6에서는 [Hortonworks Data Platform 1.1][Hortonworks Data Platform 1.1](영문)을 기반으로 하는 Hadoop 배포를 사용합니다.
 
-  [New-AzureHDInsightCluster]: http://msdn.microsoft.com/en-us/library/dn593744.aspx
-  [HDInsight SDK]: http://msdn.microsoft.com/en-us/library/azure/dn469975.aspx
-  [HDInsight 구성 요소 버전]: http://azure.microsoft.com/ko-kr/documentation/articles/hdinsight-component-versioning/
+  [New-AzureHDInsightCluster]: http://msdn.microsoft.com/ko--kr/library/dn593744.aspx
+  [HDInsight SDK]: http://msdn.microsoft.com/ko--kr/library/azure/dn469975.aspx
+  [HDInsight 구성 요소 버전]: http://azure.microsoft.com/ko--kr/documentation/articles/hdinsight-component-versioning/
   []: http://i.imgur.com/cmOl5fM.png
   [Mahout]: http://hortonworks.com/hadoop/mahout/
   [Breiman 예제]: https://mahout.apache.org/users/classification/breiman-example.html

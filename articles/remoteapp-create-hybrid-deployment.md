@@ -23,11 +23,11 @@
 
 서비스를 만들기 전에 다음을 수행해야 합니다.
 
--   [필요한 업데이트][]를 설치하여 Azure RemoteApp의 성능을 개선합니다.
--   [RemoteApp의 미리 보기][]에 등록합니다.
+-   [필요한 업데이트][필요한 업데이트]를 설치하여 Azure RemoteApp의 성능을 개선합니다.
+-   [RemoteApp의 미리 보기][RemoteApp의 미리 보기]에 등록합니다.
 -   RemoteApp 서비스 계정으로 사용할 Active Directory의 사용자 계정을 만듭니다. 이 계정의 권한은 도메인에 컴퓨터를 가입시킬 수 있는 권한만으로 제한합니다.
 -   온-프레미스 네트워크에 대한 IP 주소 정보 및 VPN 장치 정보를 수집합니다.
--   [Azure PowerShell][] 모듈을 설치합니다.
+-   [Azure PowerShell][Azure PowerShell] 모듈을 설치합니다.
 -   액세스 권한을 부여할 사용자 및 그룹에 대한 정보를 수집합니다. 이 정보는 사용자 또는 그룹의 Microsoft 계정 정보나 Active Directory 조직 계정 정보가 될 수 있습니다.
 
 ## **1단계: 템플릿 이미지 만들기**
@@ -117,7 +117,7 @@ Azure RemoteApp은 Windows Server 2012 R2 템플릿 이미지를 사용하여 �
 
 ## **2단계: RemoteApp 서비스 만들기**
 
-1.  [Azure 관리 포털][]에서, RemoteApp 페이지로 이동합니다.
+1.  [Azure 관리 포털][Azure 관리 포털]에서, RemoteApp 페이지로 이동합니다.
 2.  **새로 만들기 \> VPN으로 만들기**를 클릭합니다.
 3.  서비스의 이름을 입력하고 **RemoteApp 서비스 만들기**를 클릭합니다.
 
@@ -137,7 +137,7 @@ RemoteApp 서비스를 만든 후 RemoteApp **빠른 시작** 페이지로 이�
     -   DNS 서버 IP 주소
     -   VPN IP 주소
 
-    자세한 내용은 [관리 포털에서 사이트 간 VPN 구성][]을 참조하세요.
+    자세한 내용은 [관리 포털에서 사이트 간 VPN 구성][관리 포털에서 사이트 간 VPN 구성]을 참조하세요.
 
 4.  그런 다음 빠른 시작 페이지로 돌아가서 **스크립트 가져오기**를 클릭하여 스크립트를 다운로드해서 방금 만든 가상 네트워크에 연결할 VPN 장치를 구성합니다. VPN 장치에 대한 다음 정보가 필요합니다.
 
@@ -161,7 +161,7 @@ RemoteApp 템플릿 이미지에는 사용자와 공유할 프로그램이 포�
 
 ## **5단계: Active Directory 디렉터리 동기화 구성**
 
-RemoteApp에서는 사용자, 그룹, 연락처 및 암호를 Azure Active Directory 테넌트로 동기화하기 위해 Azure Active Directory와 온-프레미스 Active Directory 간의 디렉터리 동기화가 필요합니다. 계획 정보 및 자세한 단계에 대해서는 [디렉터리 동기화 로드맵][]을 참조하세요.
+RemoteApp에서는 사용자, 그룹, 연락처 및 암호를 Azure Active Directory 테넌트로 동기화하기 위해 Azure Active Directory와 온-프레미스 Active Directory 간의 디렉터리 동기화가 필요합니다. 계획 정보 및 자세한 단계에 대해서는 [디렉터리 동기화 로드맵][디렉터리 동기화 로드맵]을 참조하세요.
 
 ## **6단계: RemoteApp 프로그램 게시**
 
@@ -187,7 +187,7 @@ RemoteApp 서비스를 만들었으므로 원격 리소스를 사용할 수 있�
 RemoteApp 하이브리드 배포를 만들고 배포했습니다. 다음 단계는 사용자가 원격 데스크톱 클라이언트를 다운로드하여 설치하도록 설정하는 것입니다. RemoteApp 빠른 시작 페이지에서 클라이언트의 URL을 찾을 수 있습니다. 그런 다음, 사용자가 Azure에 로그인하여 게시된 RemoteApp 프로그램에 액세스하도록 합니다.
 
   [필요한 업데이트]: http://support.microsoft.com/kb/2977219
-  [RemoteApp의 미리 보기]: http://azure.microsoft.com/en-us/services/remoteapp/
+  [RemoteApp의 미리 보기]: http://azure.microsoft.com/ko-kr/services/remoteapp/
   [Azure PowerShell]: http://azure.microsoft.com/ko-kr/documentation/articles/install-configure-powershell/
   [Azure 관리 포털]: http://manage.windowsazure.com
   [관리 포털에서 사이트 간 VPN 구성]: http://msdn.microsoft.com/library/azure/dn133795.aspx

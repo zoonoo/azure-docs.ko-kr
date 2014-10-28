@@ -393,7 +393,7 @@ PowerShell에서 사용하는 경우 다음 클래스를 사용하는 Mahout 작
 이러한 클래스를 사용하는 작업을 실행하려면 HDInsight 클러스터에 연결하여 Hadoop 명령줄을 사용하는 작업을 실행하세요. 예제에 대해서는 [Hadoop 명령줄을 사용하여 데이터 분류][Hadoop 명령줄을 사용하여 데이터 분류]를 참조하세요.
 
   [Apache Mahout]: http://mahout.apache.org
-  [HDInsight에서 Hadoop을 사용하여 시작]: http://azure.microsoft.com/ko-kr/documentation/articles/hdinsight-get-started/
+  [HDInsight에서 Hadoop을 사용하여 시작]: http://azure.microsoft.com/ko--kr/documentation/articles/hdinsight-get-started/
   [Mahout 설치]: #install
   [기계 학습]: http://en.wikipedia.org/wiki/Machine_learning
   [PowerShell을 사용하여 추천 생성]: #recommendations
@@ -401,9 +401,9 @@ PowerShell에서 사용하는 경우 다음 클래스를 사용하는 Mahout 작
   [문제 해결]: #troubleshooting
   [영화에 대한 평가 데이터]: http://grouplens.org/datasets/movielens/
   [MovieLens 100k]: http://files.grouplens.org/datasets/movielens/ml-100k.zip
-  [Azure PowerShell]: http://azure.microsoft.com/ko-kr/documentation/articles/install-configure-powershell/
+  [Azure PowerShell]: http://azure.microsoft.com/ko--kr/documentation/articles/install-configure-powershell/
   [HDInsight-Tools]: https://github.com/Blackmist/hdinsight-tools
-  [HDInsight에 Hadoop 작업용 데이터 업로드]: http://azure.microsoft.com/ko-kr/documentation/articles/hdinsight-upload-data/
+  [HDInsight에 Hadoop 작업용 데이터 업로드]: http://azure.microsoft.com/ko--kr/documentation/articles/hdinsight-upload-data/
   [랜덤 포리스트]: http://en.wikipedia.org/wiki/Random_forest
   []: http://nsl.cs.unb.ca/NSL-KDD/
   [KDDTrain+.ARFF]: http://nsl.cs.unb.ca/NSL-KDD/KDDTrain+.arff

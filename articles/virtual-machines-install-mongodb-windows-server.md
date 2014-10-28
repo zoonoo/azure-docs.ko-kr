@@ -43,6 +43,6 @@
   [Azure 관리 포털]: http://manage.windowsazure.com
   [virtual-machines-create-WindowsVM]: ../includes/virtual-machines-create-WindowsVM.md
   [howto-attach-disk-windows-linux]: ../includes/howto-attach-disk-windows-linux.md
-  [Windows 가상 컴퓨터에 데이터 디스크를 연결하는 방법]: http://azure.microsoft.com/ko-kr/documentation/articles/storage-windows-attach-disk/
+  [Windows 가상 컴퓨터에 데이터 디스크를 연결하는 방법]: http://azure.microsoft.com/ko--kr/documentation/articles/storage-windows-attach-disk/
   [install-and-run-mongo-on-win2k8-vm]: ../includes/install-and-run-mongo-on-win2k8-vm.md
   [MongoDB 설명서]: http://www.mongodb.org/display/DOCS/Home

@@ -8,30 +8,30 @@
 
 <div class="dev-center-tutorial-subselector"><a href="/ko-KR/documentation/articles/web-sites-domaindiscover-custom-domain-name/" title="웹 사이트">웹 사이트</a> | <a href="/ko-KR/documentation/articles/web-sites-domaindiscover-traffic-manager-custom-domain-name/" title="트래픽 관리자를 사용하는 웹 사이트" class="current">트래픽 관리자를 사용하는 웹 사이트</a></div>
 
-[WACOM.INCLUDE [websites-cloud-services-css-guided-walkthrough][]]
+[WACOM.INCLUDE [websites-cloud-services-css-guided-walkthrough](../includes/websites-cloud-services-css-guided-walkthrough.md)]
 
-[WACOM.INCLUDE [intro][]]
+[WACOM.INCLUDE [intro](../includes/custom-dns-web-site-intro-traffic-manager.md)]
 
-이 문서에서는 Azure 웹 사이트 및 [DomainDiscover.com][]에서 구매한 사용자 지정 도메인 이름 사용에 대한 지침을 제공합니다. DomainDiscover.com은 [TierraNet][]의 일부입니다.
+이 문서에서는 Azure 웹 사이트 및 [DomainDiscover.com][DomainDiscover.com]에서 구매한 사용자 지정 도메인 이름 사용에 대한 지침을 제공합니다. DomainDiscover.com은 [TierraNet][TierraNet]의 일부입니다.
 
-[WACOM.INCLUDE [tmwebsitefooter][]]
+[WACOM.INCLUDE [tmwebsitefooter](../includes/custom-dns-web-site-traffic-manager-notes.md)]
 
-[WACOM.INCLUDE [introfooter][]]
+[WACOM.INCLUDE [introfooter](../includes/custom-dns-web-site-intro-notes.md)]
 
 이 문서의 내용
 
--   [DNS 레코드 이해][]
--   [표준 모드에 대해 웹 사이트 구성][]
--   [사용자 지정 도메인에 대한 DNS 레코드 추가][]
--   [웹 사이트에 트래픽 관리자 사용][]
+-   [DNS 레코드 이해][DNS 레코드 이해]
+-   [표준 모드에 대해 웹 사이트 구성][표준 모드에 대해 웹 사이트 구성]
+-   [사용자 지정 도메인에 대한 DNS 레코드 추가][사용자 지정 도메인에 대한 DNS 레코드 추가]
+-   [웹 사이트에 트래픽 관리자 사용][웹 사이트에 트래픽 관리자 사용]
 
 ## <a name="understanding-records"></a>DNS 레코드 이해
 
-[WACOM.INCLUDE [understandingdns][]]
+[WACOM.INCLUDE [understandingdns](../includes/custom-dns-web-site-understanding-dns-traffic-manager.md)]
 
 ## <a name="bkmk_configsharedmode"></a>표준 모드에 대해 웹 사이트 구성
 
-[WACOM.INCLUDE [modes][]]
+[WACOM.INCLUDE [modes](../includes/custom-dns-web-site-modes-traffic-manager.md)]
 
 <a name="bkmk_configurecname"></a>
 
@@ -41,15 +41,15 @@
 
 1.  **Login** 메뉴에서 **Control Panel**을 선택하여 사용 중인 계정으로 DomainDiscover.com(TierraNet)에 로그온합니다.
 
-    ![DomainDiscover 로그인 메뉴][]
+    ![DomainDiscover 로그인 메뉴][DomainDiscover 로그인 메뉴]
 
 2.  **Domain Services** 페이지에서 Azure 웹 사이트에 사용할 도메인을 선택합니다.
 
-    ![도메인 관리 페이지][]
+    ![도메인 관리 페이지][도메인 관리 페이지]
 
 3.  도메인 설정에서 **DNS Service**의 **Edit** 단추를 클릭합니다.
 
-    ![DNS 편집 단추][]
+    ![DNS 편집 단추][DNS 편집 단추]
 
 4.  **Manage DNS** 창의 **Add Records** 목록에서 추가할 DNS 레코드 유형을 선택합니다. 그런 다음 **추가** 단추를 클릭합니다.
 

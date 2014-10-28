@@ -187,7 +187,7 @@ WebJob 프로젝트 자체를 배포하려면 **솔루션 탐색기**에서 이 
 Azure WebJob 및 WebJob SDK에 대한 자세한 내용은 [Azure WebJob - 권장 리소스][Azure WebJob - 권장 리소스](영문)를 참조하세요.
 
   [Azure WebJob]: http://go.microsoft.com/fwlink/?LinkId=390226
-  [Microsoft Azure 웹 사이트에서 WebJob을 사용하여 백그라운드 작업 실행]: /ko-kr/documentation/articles/web-sites-create-web-jobs/
+  [Microsoft Azure 웹 사이트에서 WebJob을 사용하여 백그라운드 작업 실행]: /ko--kr/documentation/articles/web-sites-create-web-jobs/
   [개요]: #overview
   [필수 조건]: #prerequisites
   [기존 콘솔 응용 프로그램 프로젝트에 WebJob 배포 사용]: #convert
@@ -214,8 +214,8 @@ Azure WebJob 및 WebJob SDK에 대한 자세한 내용은 [Azure WebJob - 권장
   [New Azure WebJob Project(새 Azure WebJob 프로젝트) 메뉴 항목]: ./media/websites-dotnet-deploy-webjobs/nawj.png
   [WebJob 템플릿을 표시하는 새 프로젝트 대화 상자]: ./media/websites-dotnet-deploy-webjobs/np.png
   [1]: ./media/websites-dotnet-deploy-webjobs/aaw2.png
-  [Azure 스케줄러]: /en-us/services/scheduler/
+  [Azure 스케줄러]: /ko--kr/services/scheduler/
   []: http://schemastore.org/schemas/json/webjob-publish-settings.json
   [2]: http://schemastore.org/schemas/json/webjobs-list.json
-  [Azure 웹 사이트 배포 방법]: /ko-kr/documentation/articles/websites-dotnet-deploy/
+  [Azure 웹 사이트 배포 방법]: /ko--kr/documentation/articles/websites-dotnet-deploy/
   [Azure WebJob - 권장 리소스]: http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/azure-webjobs-recommended-resources

@@ -4,22 +4,22 @@
 
 # Azure에서 음성 및 SMS 기능을 위해 Twilio를 사용하는 방법
 
-이 가이드에서는 Azure에서 Twilio API 서비스로 일반 프로그래밍 작업을 수행하는 방법을 보여 줍니다. 이 문서의 시나리오에서는 전화 통화를 걸고 SMS(Short Message Service) 메시지를 보냅니다. 응용 프로그램에서 음성 및 SMS 사용 방법과 Twilio에 대한 자세한 내용은 [다음 단계][] 섹션을 참조하세요.
+이 가이드에서는 Azure에서 Twilio API 서비스로 일반 프로그래밍 작업을 수행하는 방법을 보여 줍니다. 이 문서의 시나리오에서는 전화 통화를 걸고 SMS(Short Message Service) 메시지를 보냅니다. 응용 프로그램에서 음성 및 SMS 사용 방법과 Twilio에 대한 자세한 내용은 [다음 단계][다음 단계] 섹션을 참조하세요.
 
 ## 목차
 
--   [Twilio 정의][]
--   [Twilio 가격 책정][]
--   [개념][]
--   [Twilio 계정 만들기][]
--   [전화 번호 확인][]
--   [Azure 응용 프로그램 만들기][]
--   [Twilio 라이브러리를 사용하도록 응용 프로그램 구성][]
--   [방법: 발신 전화 걸기][]
--   [방법: SMS 메시지 보내기][]
--   [방법: 고유한 웹 사이트에서 TwiML 응답 제공][]
--   [방법: 추가 Twilio 서비스 사용][]
--   [다음 단계][]
+-   [Twilio 정의][Twilio 정의]
+-   [Twilio 가격 책정][Twilio 가격 책정]
+-   [개념][개념]
+-   [Twilio 계정 만들기][Twilio 계정 만들기]
+-   [전화 번호 확인][전화 번호 확인]
+-   [Azure 응용 프로그램 만들기][Azure 응용 프로그램 만들기]
+-   [Twilio 라이브러리를 사용하도록 응용 프로그램 구성][Twilio 라이브러리를 사용하도록 응용 프로그램 구성]
+-   [방법: 발신 전화 걸기][방법: 발신 전화 걸기]
+-   [방법: SMS 메시지 보내기][방법: SMS 메시지 보내기]
+-   [방법: 고유한 웹 사이트에서 TwiML 응답 제공][방법: 고유한 웹 사이트에서 TwiML 응답 제공]
+-   [방법: 추가 Twilio 서비스 사용][방법: 추가 Twilio 서비스 사용]
+-   [다음 단계][다음 단계]
 
 ## <span id="WhatIs"></span></a>Twilio 정의
 
@@ -29,13 +29,13 @@ Twilio는 개발자가 응용 프로그램에 음성, VoIP 및 메시징을 포�
 
 ## <span id="Pricing"></span></a>Twilio 가격 책정 및 특별 제공
 
-Azure 고객은 문자 1000개 또는 인바운드 1000분의 무료 크레딧을 제공하는 [특가 제공][]을 혜택을 받을 수 있습니다. 이 Twilio 크레딧은 모든 Twilio 사용량에 적용될 수 있습니다. 10달러의 크레딧은 전화 번호 및 메시지 또는 통화 대상의 위치에 따라 SMS 메시지를 1,000개 보내거나 최대 1000분간 인바운드 음성을 받을 수 있는 금액입니다. [ahoy.twilio.com/azure][](영문)에서 이 Twilio 크레딧을 충전하고 시작하세요.
+Azure 고객은 문자 1000개 또는 인바운드 1000분의 무료 크레딧을 제공하는 [특가 제공][특가 제공]을 혜택을 받을 수 있습니다. 이 Twilio 크레딧은 모든 Twilio 사용량에 적용될 수 있습니다. 10달러의 크레딧은 전화 번호 및 메시지 또는 통화 대상의 위치에 따라 SMS 메시지를 1,000개 보내거나 최대 1000분간 인바운드 음성을 받을 수 있는 금액입니다. [ahoy.twilio.com/azure][ahoy.twilio.com/azure](영문)에서 이 Twilio 크레딧을 충전하고 시작하세요.
 
 Twilio는 종량제 서비스입니다. 설정 수수료는 없으며 언제든 계정을 종료할 수 있습니다. [Twilio 가격 책정][1](영문)에서 자세한 내용을 볼 수 있습니다.
 
 ## <span id="Concepts"></span></a>개념
 
-Twilio API는 응용 프로그램에 대한 음성 및 SMS 기능을 제공하는 RESTful API입니다. 클라이언트 라이브러리는 다양한 언어로 사용할 수 있습니다. 목록에 대해서는 [Twilio API 라이브러리][](영문)를 참조하세요.
+Twilio API는 응용 프로그램에 대한 음성 및 SMS 기능을 제공하는 RESTful API입니다. 클라이언트 라이브러리는 다양한 언어로 사용할 수 있습니다. 목록에 대해서는 [Twilio API 라이브러리][Twilio API 라이브러리](영문)를 참조하세요.
 
 Twilio API의 핵심 요소는 Twilio 동사와 TwiML(Twilio Markup Language)입니다.
 
@@ -43,7 +43,7 @@ Twilio API의 핵심 요소는 Twilio 동사와 TwiML(Twilio Markup Language)입
 
 API는 Twilio 동사를 활용합니다. 예를 들어 **\<Say\>** 동사는 Twilio에 통화 메시지를 음성으로 전달하도록 지시합니다.
 
-다음은 Twilio 동사의 목록입니다. 기타 동사 및 기능에 대해서는 [Twilio Markup Language 설명서][](영문)에서 알아보세요.
+다음은 Twilio 동사의 목록입니다. 기타 동사 및 기능에 대해서는 [Twilio Markup Language 설명서][Twilio Markup Language 설명서](영문)에서 알아보세요.
 
 -   **\<Dial\>**: 발신자를 다른 전화에 연결합니다.
 -   **\<Gather\>**: 전화 키패드에 입력된 숫자를 수집합니다.
@@ -69,24 +69,24 @@ TwiML은 Twilio에 통화 또는 SMS 처리 방법을 알려 주는 Twilio 동�
 
 응용 프로그램에서 Twilio API를 호출할 때 API 매개 변수 중 하나는 TwiML 응답을 반환하는 URL입니다. 개발을 위해서 Twilio 제공 URL을 사용하여 응용 프로그램에 사용되는 TwiML 응답을 제공할 수 있습니다. 또한 TwiML 응답을 생성하는 고유한 URL을 호스트할 수도 있고, **TwiMLResponse** 개체를 사용할 수도 있습니다.
 
-Twilio 동사, 특성 및 TwiML에 대한 자세한 내용은 [TwiML][Twilio Markup Language 설명서](영문)을 참조하세요. Twilio API에 대한 자세한 내용은 [Twilio API][](영문)를 참조하세요.
+Twilio 동사, 특성 및 TwiML에 대한 자세한 내용은 [TwiML][Twilio Markup Language 설명서](영문)을 참조하세요. Twilio API에 대한 자세한 내용은 [Twilio API][Twilio API](영문)를 참조하세요.
 
 ## <span id="CreateAccount"></span></a>Twilio 계정 만들기
 
-Twilio 계정을 사용할 준비가 되었다면 [Twilio 체험][](영문)에서 등록하세요. 무료 계정으로 시작했다가 나중에 계정을 업그레이드할 수 있습니다.
+Twilio 계정을 사용할 준비가 되었다면 [Twilio 체험][Twilio 체험](영문)에서 등록하세요. 무료 계정으로 시작했다가 나중에 계정을 업그레이드할 수 있습니다.
 
-Twilio 계정을 등록하면 계정 ID 및 인증 토큰을 받게 됩니다. 둘 다 Twilio API 통화를 하는 데 필요합니다. 계정에 대한 무단 액세스를 방지하려면 인증 토큰을 안전하게 유지하세요. 계정 ID 및 인증 토큰은 [Twilio 계정 페이지][](영문)의 **ACCOUNT SID** 및 **AUTH TOKEN**에서 각기 확인할 수 있습니다.
+Twilio 계정을 등록하면 계정 ID 및 인증 토큰을 받게 됩니다. 둘 다 Twilio API 통화를 하는 데 필요합니다. 계정에 대한 무단 액세스를 방지하려면 인증 토큰을 안전하게 유지하세요. 계정 ID 및 인증 토큰은 [Twilio 계정 페이지][Twilio 계정 페이지](영문)의 **ACCOUNT SID** 및 **AUTH TOKEN**에서 각기 확인할 수 있습니다.
 
 ## <span id="VerifyPhoneNumbers"></span></a>전화 번호 확인
 
-Twilio에서 계정에 대한 여러 전화 번호를 인증해야 합니다. 예를 들어 아웃바운드 통화를 하려는 경우 Twilio에서 전화 번호를 아웃바운드 발신자 번호로 확인해야 합니다. 마찬가지로, SMS 메시지를 받을 전화 번호를 원하는 경우 Twilio에서 수신 전화 번호를 확인해야 합니다. 전화 번호를 확인하는 방법에 대한 자세한 내용은 [번호 관리][](영문)를 참조하세요. 아래 코드 중 일부는 Twilio에서 확인해야 하는 전화 번호를 사용합니다.
+Twilio에서 계정에 대한 여러 전화 번호를 인증해야 합니다. 예를 들어 아웃바운드 통화를 하려는 경우 Twilio에서 전화 번호를 아웃바운드 발신자 번호로 확인해야 합니다. 마찬가지로, SMS 메시지를 받을 전화 번호를 원하는 경우 Twilio에서 수신 전화 번호를 확인해야 합니다. 전화 번호를 확인하는 방법에 대한 자세한 내용은 [번호 관리][번호 관리](영문)를 참조하세요. 아래 코드 중 일부는 Twilio에서 확인해야 하는 전화 번호를 사용합니다.
 
-응용 프로그램의 기존 번호를 사용하지 않고 Twilio 전화 번호를 구매할 수도 있습니다. Twilio 전화 번호를 구매하는 방법에 대해서는 [Twilio 전화 번호 도움말][](영문)을 참조하세요.
+응용 프로그램의 기존 번호를 사용하지 않고 Twilio 전화 번호를 구매할 수도 있습니다. Twilio 전화 번호를 구매하는 방법에 대해서는 [Twilio 전화 번호 도움말][Twilio 전화 번호 도움말](영문)을 참조하세요.
 
 ## <span id="create_app"></span></a>Azure 응용 프로그램 만들기
 
 Twilio 사용 응용 프로그램을 호스트하는 Azure 응용 프로그램도 다른 Azure 응용 프로그램과 동일합니다. Twilio .NET 라이브러리를 추가하고 Twilio .NET 라이브러리를 사용하도록 역할을 구성하면 됩니다.
-초기 Azure 프로젝트를 만드는 방법에 대한 자세한 내용은 [Visual Studio에서 Azure 프로젝트 만들기][]를 참조하세요.
+초기 Azure 프로젝트를 만드는 방법에 대한 자세한 내용은 [Visual Studio에서 Azure 프로젝트 만들기][Visual Studio에서 Azure 프로젝트 만들기]를 참조하세요.
 
 ## <span id="configure_app"></span></a>Twilio 라이브러리를 사용하도록 응용 프로그램 구성
 
@@ -187,7 +187,7 @@ Twilio 클라이언트 JavaScript SDK와 함께 사용할 수 있는 기능 토�
 
 이 가이드에 제공된 샘플에서는 Twilio.API 라이브러리를 사용합니다.
 
-이 라이브러리는 Visual Studio 2010 및 2012에 사용 가능한 [NuGet 패키지 관리자 확장명을 사용하여 설치][]할 수 있습니다. 소스 코드는 [GitHub][](영문)에서 호스트됩니다. GitHub는 라이브러리 사용에 대한 전체 설명서가 들어 있는 Wiki를 포함합니다.
+이 라이브러리는 Visual Studio 2010 및 2012에 사용 가능한 [NuGet 패키지 관리자 확장명을 사용하여 설치][NuGet 패키지 관리자 확장명을 사용하여 설치]할 수 있습니다. 소스 코드는 [GitHub][GitHub](영문)에서 호스트됩니다. GitHub는 라이브러리 사용에 대한 전체 설명서가 들어 있는 Wiki를 포함합니다.
 
 기본적으로, Microsoft Visual Studio 2010은 버전 1.2의 NuGet을 설치합니다. Twilio 라이브러리를 설치하려면 버전 1.6 이상의 NuGet이 필요합니다. NuGet 설치 또는 업데이트에 대해서는 [][]<http://nuget.org/></a>(영문)를 참조하세요.
 
@@ -238,7 +238,7 @@ Twilio 클라이언트 JavaScript SDK와 함께 사용할 수 있는 기능 토�
 
 **client.InitiateOutboundCall** 메서드에 전달된 매개 변수에 대한 자세한 내용은 [][2]<http://www.twilio.com/docs/api/rest/making-calls></a>(영문)를 참조하세요.
 
-언급한 대로 이 코드는 Twilio 제공 사이트를 사용하여 TwiML 응답을 반환합니다. 이 사이트 대신 고유한 사이트를 사용하여 TwiML 응답을 제공할 수 있습니다. 자세한 내용은 [방법: 고유한 웹 사이트에서 TwiML 응답 제공][]을 참조하세요.
+언급한 대로 이 코드는 Twilio 제공 사이트를 사용하여 TwiML 응답을 반환합니다. 이 사이트 대신 고유한 사이트를 사용하여 TwiML 응답을 제공할 수 있습니다. 자세한 내용은 [방법: 고유한 웹 사이트에서 TwiML 응답 제공][방법: 고유한 웹 사이트에서 TwiML 응답 제공]을 참조하세요.
 
 ## <span id="howto_send_sms"></span></a>방법: SMS 메시지 보내기
 
@@ -265,7 +265,7 @@ Twilio 클라이언트 JavaScript SDK와 함께 사용할 수 있는 기능 토�
 
 ## <span id="howto_provide_twiml_responses"></span></a>방법: 고유한 웹 사이트에서 TwiML 응답 제공
 
-응용 프로그램에서 Twilio API에 대한 호출을 시작하면(예: **client.InitiateOutboundCall** 메서드를 통해) Twilio에서 TwiML 응답을 반환해야 하는 URL로 요청을 보냅니다. [방법: 발신 전화 걸기][]의 예제에서는 Twilio 제공 URL인 [][3]<http://twimlets.com/message></a>를 사용하여 응답을 반환합니다.
+응용 프로그램에서 Twilio API에 대한 호출을 시작하면(예: **client.InitiateOutboundCall** 메서드를 통해) Twilio에서 TwiML 응답을 반환해야 하는 URL로 요청을 보냅니다. [방법: 발신 전화 걸기][방법: 발신 전화 걸기]의 예제에서는 Twilio 제공 URL인 [][3]<http://twimlets.com/message></a>를 사용하여 응답을 반환합니다.
 
 <div class="dev-callout">
 <b>참고</b>
@@ -358,9 +358,9 @@ TwiML 응답을 제공하는 방법을 설정한 후에는 **client.InitiateOutb
     // Place the call.
     var call = client.InitiateOutboundCall(options);
 
-Azure에서 ASP.NET과 함께 Twilio 사용에 대한 자세한 내용은 [Azure의 웹 역할에서 Twilio를 사용하여 전화를 거는 방법][]을 참조하세요.
+Azure에서 ASP.NET과 함께 Twilio 사용에 대한 자세한 내용은 [Azure의 웹 역할에서 Twilio를 사용하여 전화를 거는 방법][Azure의 웹 역할에서 Twilio를 사용하여 전화를 거는 방법]을 참조하세요.
 
-[WACOM.INCLUDE [twilio\_additional\_services\_and\_next\_steps][]]
+[WACOM.INCLUDE [twilio\_additional\_services\_and\_next\_steps][twilio\_additional\_services\_and\_next\_steps]]
 
   [다음 단계]: #NextSteps
   [Twilio 정의]: #WhatIs

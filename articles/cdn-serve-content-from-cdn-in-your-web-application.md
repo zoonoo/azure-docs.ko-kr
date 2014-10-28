@@ -36,8 +36,8 @@
   <span class="wa-icon-bulb"></span>
   <h5><a name="note"></a>이 자습서를 완료하려면 Azure 계정이 있어야 합니다.</h5>
   <ul>
-    <li><a href="http://azure.microsoft.com/en-us/pricing/free-trial/?WT.mc_id=A261C142F">Azure 계정을 무료로 개설</a>할 수 있음 - 유료 Azure 서비스를 사용해볼 수 있는 크레딧을 받게 되며 크레딧을 모두 사용한 후에도 계정을 유지하고 무료 Azure 서비스(예: 웹 서비스)를 사용할 수 있습니다.</li>
-    <li><a href="http://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F">MSDN 구독자 혜택을 활성화</a>할 수 있음 - MSDN 구독은 유료 Azure 서비스에 사용할 수 있는 크레딧을 매달 제공합니다.</li>
+    <li><a href="http://azure.microsoft.com/ko--kr/pricing/free-trial/?WT.mc_id=A261C142F">Azure 계정을 무료로 개설</a>할 수 있음 - 유료 Azure 서비스를 사용해볼 수 있는 크레딧을 받게 되며 크레딧을 모두 사용한 후에도 계정을 유지하고 무료 Azure 서비스(예: 웹 서비스)를 사용할 수 있습니다.</li>
+    <li><a href="http://azure.microsoft.com/ko--kr/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F">MSDN 구독자 혜택을 활성화</a>할 수 있음 - MSDN 구독은 유료 Azure 서비스에 사용할 수 있는 크레딧을 매달 제공합니다.</li>
   <ul>
 </div>
 
@@ -269,11 +269,11 @@ Azure CDN을 Azure 클라우드 서비스와 통합하는 방법에 대한 자�
   [ASP.NET 응용 프로그램에서 CDN 끝점으로 콘텐츠 업로드 자동화]: #upload
   [원하는 콘텐츠 업데이트를 반영하도록 CDN 캐시 구성]: #update
   [쿼리 문자열을 사용하여 최신 콘텐츠 즉시 제공]: #query
-  [Microsoft Azure 계정]: http://azure.microsoft.com/en-us/account/
+  [Microsoft Azure 계정]: http://azure.microsoft.com/ko--kr/account/
   [Azure SDK]: http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409
   [Azure PowerShell]: http://go.microsoft.com/?linkid=9811175&clcid=0x409
-  [Azure 계정을 무료로 개설]: http://azure.microsoft.com/en-us/pricing/free-trial/?WT.mc_id=A261C142F
-  [MSDN 구독자 혜택을 활성화]: http://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
+  [Azure 계정을 무료로 개설]: http://azure.microsoft.com/ko--kr/pricing/free-trial/?WT.mc_id=A261C142F
+  [MSDN 구독자 혜택을 활성화]: http://azure.microsoft.com/ko--kr/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
   [Azure 관리 포털]: http://manage.windowsazure.com/
   []: media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-1.PNG
   [1]: media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-2.PNG
@@ -281,7 +281,7 @@ Azure CDN을 Azure 클라우드 서비스와 통합하는 방법에 대한 자�
   [3]: media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-3-succeed.PNG
   [www.ip-address.org]: http://www.ip-address.org
   [4]: media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-4.PNG
-  [Azure CDN(콘텐츠 배달 네트워크) 노드 위치]: http://msdn.microsoft.com/en-us/library/azure/gg680302.aspx
+  [Azure CDN(콘텐츠 배달 네트워크) 노드 위치]: http://msdn.microsoft.com/ko--kr/library/azure/gg680302.aspx
   [5]: media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-2-enablequerya.PNG
   [6]: media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-2-enablequeryb.PNG
   [7]: media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-5.PNG
@@ -292,12 +292,12 @@ Azure CDN을 Azure 클라우드 서비스와 통합하는 방법에 대한 자�
   [12]: media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-10.PNG
   [13]: media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-11-blob.PNG
   [14]: media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-11-cdn.PNG
-  [Azure 클라우드 서비스의 지속적인 전송]: http://azure.microsoft.com/ko-kr/documentation/articles/cloud-services-dotnet-continuous-delivery/
+  [Azure 클라우드 서비스의 지속적인 전송]: http://azure.microsoft.com/ko--kr/documentation/articles/cloud-services-dotnet-continuous-delivery/
   [ASP.NET 응용 프로그램에서 Azure Blob으로 콘텐츠 파일 업로드]: http://gallery.technet.microsoft.com/scriptcenter/Upload-Content-Files-from-41c2142a
   [15]: media/cdn-serve-content-from-cdn-in-your-web-application/cdn-updates-1.PNG
-  [Azure 클라우드 서비스]: http://azure.microsoft.com/en-us/services/cloud-services/
+  [Azure 클라우드 서비스]: http://azure.microsoft.com/ko--kr/services/cloud-services/
   [stackoverflow]: http://stackoverflow.com/a/13736433
-  [Azure CDN과 클라우드 응용 프로그램 통합]: http://azure.microsoft.com/ko-kr/documentation/articles/cloud-services-how-to-create-deploy/
+  [Azure CDN과 클라우드 응용 프로그램 통합]: http://azure.microsoft.com/ko--kr/documentation/articles/cloud-services-how-to-create-deploy/
   [Azure CDN(콘텐츠 배달 네트워크) 개요]: http://msdn.microsoft.com/library/azure/ff919703.aspx
-  [16]: http://azure.microsoft.com/ko-kr/documentation/Articles/cdn-cloud-service-with-cdn/
-  [Azure에 CDN 사용]: http://azure.microsoft.com/ko-kr/documentation/articles/cdn-how-to-use/
+  [16]: http://azure.microsoft.com/ko--kr/Documentation/Articles/cdn-cloud-service-with-cdn/
+  [Azure에 CDN 사용]: http://azure.microsoft.com/ko--kr/documentation/articles/cdn-how-to-use/

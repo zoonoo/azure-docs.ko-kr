@@ -152,5 +152,5 @@ SQL 데이터베이스와 함께 모바일 서비스 .NET 백 엔드를 사용�
 [Azure 관리 포털의 로그]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/13.png
 [.NET 백 엔드 NuGet 패키지]: http://www.nuget.org/packages?q=%22mobile+services+.net+backend%22
 [어셈블리 로드 충돌을 나타내는 도움말 페이지]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/14.png
-[Code First 마이그레이션]: http://msdn.microsoft.com/en-us/data/jj591621
-[.NET 백 엔드 모바일 서비스에 대한 데이터 모델 변경 방법]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations/
+[Code First 마이그레이션]: http://msdn.microsoft.com/ko--kr/data/jj591621
+[.NET 백 엔드 모바일 서비스에 대한 데이터 모델 변경 방법]: /ko--kr/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations/

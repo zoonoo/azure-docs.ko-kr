@@ -198,7 +198,7 @@ Excel의 파워 쿼리 추가 기능을 사용하여 HDInsight의 출력을 Exce
 -   [HDInsight에서 Hive 사용][HDInsight에서 Hive 사용]
 -   [HDInsight에서 Pig 사용][HDInsight에서 Pig 사용]
 -   [HDInsight에서 Oozie 사용][HDInsight에서 Oozie 사용]
--   [HDInsight용 C\# Hadoop 스트리밍 프로그램 개발][HDInsight용 C\# Hadoop 스트리밍 프로그램 개발]
+-   [HDInsight용 C# Hadoop 스트리밍 프로그램 개발][HDInsight용 C# Hadoop 스트리밍 프로그램 개발]
 -   [HDInsight용 Java MapReduce 프로그램 개발][HDInsight용 Java MapReduce 프로그램 개발]
 
   [Hadoop 2.2]: ../hdinsight-get-started "HDInsight에서 Hadoop 2.2 사용 시작"
@@ -207,9 +207,9 @@ Excel의 파워 쿼리 추가 기능을 사용하여 HDInsight의 출력을 Exce
   [Apache Hadoop]: http://hadoop.apache.org/
   [HDInsight에서 제공하는 클러스터 버전의 새로운 기능]: ../hdinsight-component-versioning/
   [HDInsight Emulator 시작]: ../hdinsight-get-started-emulator/
-  [구매 옵션]: http://azure.microsoft.com/en-us/pricing/purchase-options/
-  [구성원 제공 항목]: http://azure.microsoft.com/en-us/pricing/member-offers/
-  [무료 평가판]: http://azure.microsoft.com/en-us/pricing/free-trial/
+  [구매 옵션]: http://azure.microsoft.com/ko--kr/pricing/purchase-options/
+  [구성원 제공 항목]: http://azure.microsoft.com/ko--kr/pricing/member-offers/
+  [무료 평가판]: http://azure.microsoft.com/ko--kr/pricing/free-trial/
   [HDInsight 클러스터 프로비전]: #provision
   [Hive 작업 실행]: #sample
   [Microsoft 비즈니스 인텔리전스 도구에 연결]: #powerquery
@@ -224,7 +224,7 @@ Excel의 파워 쿼리 추가 기능을 사용하여 HDInsight의 출력을 Exce
   [hdi.dashboard]: ./media/hdinsight-get-started/HDI.dashboard.png
   [hdi.dashboard.query.select]: ./media/hdinsight-get-started/HDI.dashboard.query.select.png
   [hdi.dashboard.query.select.result]: ./media/hdinsight-get-started/HDI.dashboard.query.select.result.png
-  [Microsoft 다운로드 센터]: http://www.microsoft.com/en-us/download/details.aspx?id=39379
+  [Microsoft 다운로드 센터]: http://www.microsoft.com/ko--kr/download/details.aspx?id=39379
   [HDI.GettingStarted.PowerQuery.ImportData]: ./media/hdinsight-get-started/HDI.GettingStarted.PowerQuery.ImportData.png
   [HDI.GettingStarted.PowerQuery.ImportData2]: ./media/hdinsight-get-started/HDI.GettingStarted.PowerQuery.ImportData2.png
   [PowerShell을 사용하여 HDInsight 관리]: ../hdinsight-administer-use-powershell/
@@ -233,6 +233,6 @@ Excel의 파워 쿼리 추가 기능을 사용하여 HDInsight의 출력을 Exce
   [HDInsight에서 Hive 사용]: ../hdinsight-use-hive/
   [HDInsight에서 Pig 사용]: ../hdinsight-use-pig/
   [HDInsight에서 Oozie 사용]: ../hdinsight-use-oozie/
-  [HDInsight용 C\# Hadoop 스트리밍 프로그램 개발]: ../hdinsight-hadoop-develop-deploy-streaming-jobs/
+  [HDInsight용 C# Hadoop 스트리밍 프로그램 개발]: ../hdinsight-hadoop-develop-deploy-streaming-jobs/
   [HDInsight용 Java MapReduce 프로그램 개발]: ../hdinsight-develop-deploy-java-mapreduce/
   [img-hdi-getstarted-video]: ./media/hdinsight-get-started/HDI.GetStarted.Video.png

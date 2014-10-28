@@ -3,7 +3,7 @@
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="yavorg"></tags>
 # 모바일 서비스 .NET 백 엔드 사용
 
-<div class="dev-center-tutorial-subselector"><a href="/ko-kr/documentation/articles/mobile-services-dotnet-backend-how-to-use/" title=".NET 백 엔드" class="current">.NET 백 엔드</a> | <a href="/ko-kr/documentation/articles/mobile-services-how-to-use-server-scripts/"  title="JavaScript 백 엔드">JavaScript 백 엔드</a></div>
+<div class="dev-center-tutorial-subselector"><a href="/ko--kr/documentation/articles/mobile-services-dotnet-backend-how-to-use/" title=".NET 백 엔드" class="current">.NET 백 엔드</a> | <a href="/ko--kr/documentation/articles/mobile-services-how-to-use-server-scripts/"  title="JavaScript 백 엔드">JavaScript 백 엔드</a></div>
 
 이 문서에서는 Azure 모바일 서비스에서 .NET 백 엔드를 사용하는 방법에 대한 자세한 정보와 예를 제공합니다. 이 토픽의 내용은 다음과 같습니다.
 
@@ -21,8 +21,8 @@
 이 프로그래밍 모델의 근본에는 CRUD 데이터 액세스 패턴에 대해 사용자 지정된 정규 Web API [**ApiController**][**ApiController**]인 [**TableController<t>**][**TableController<t>**] 클래스가 있습니다. **TableController**는 SQL([Entity Framework][Entity Framework] 사용), [Azure 테이블 저장소][Azure 테이블 저장소], [MongoDB][MongoDB] 또는 사용자 고유의 사용자 지정 저장소를 포함하여 다양한 데이터 저장소를 사용할 수 있습니다.
 
 
-[.NET 백 엔드]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-how-to-use/ ".NET 백 엔드"
-[JavaScript 백 엔드]: /ko-kr/documentation/articles/mobile-services-how-to-use-server-scripts/ "JavaScript 백 엔드"
+[.NET 백 엔드]: /ko--kr/documentation/articles/mobile-services-dotnet-backend-how-to-use/ ".NET 백 엔드"
+[JavaScript 백 엔드]: /ko--kr/documentation/articles/mobile-services-how-to-use-server-scripts/ "JavaScript 백 엔드"
 [소개]: #intro
 [테이블 작업]: #table-scripts
 [ASP.NET Web API]: http://www.asp.net/web-api

@@ -19,7 +19,7 @@
 
 이 항목에서는 Android 앱용 백 엔드 데이터 소스로서 Azure 모바일 서비스를 사용하는 방법을 보여 줍니다. 이 자습서에서는 새 모바일 서비스를 만들고, 데이터를 메모리에 저장하는 앱용 Eclipse Android 프로젝트를 다운로드하고, 모바일 서비스를 앱과 통합하고, 앱을 실행할 때 수행된 데이터 변경 내용을 확인합니다.
 
-이 자습서에서 만드는 모바일 서비스는 모바일 서비스의 .NET 런타임을 지원합니다. 따라서 사용자는 모바일 서비스에서 서버 쪽 비즈니스 논리에 .NET 언어 및 Visual Studio를 사용할 수 있습니다. JavaScript에서 서버 쪽 비즈니스 논리를 작성할 수 있게 해 주는 모바일 서비스를 만들려면 이 항목의 [JavaScript 백 엔드 버전][]을 참조하세요.
+이 자습서에서 만드는 모바일 서비스는 모바일 서비스의 .NET 런타임을 지원합니다. 따라서 사용자는 모바일 서비스에서 서버 쪽 비즈니스 논리에 .NET 언어 및 Visual Studio를 사용할 수 있습니다. JavaScript에서 서버 쪽 비즈니스 논리를 작성할 수 있게 해 주는 모바일 서비스를 만들려면 이 항목의 [JavaScript 백 엔드 버전][JavaScript 백 엔드 버전]을 참조하세요.
 
 <div class="dev-callout"><b>참고</b>
 <p>이 자습서를 완료하려면 Visual Studio 2013이 필요합니다.</p>
@@ -27,31 +27,31 @@
 
 이 자습서에서는 다음 기본 단계를 단계별로 안내합니다.
 
-1.  [새 모바일 서비스 만들기][]
-2.  [로컬로 서비스 다운로드][]
-3.  [모바일 서비스 테스트][]
-4.  [Azure에 모바일 서비스 게시][]
-5.  [GetStartedWithData 프로젝트 다운로드][]
-6.  [데이터 액세스에 모바일 서비스를 사용하도록 앱 업데이트][]
-7.  [게시된 모바일 서비스에 대해 앱 테스트][]
+1.  [새 모바일 서비스 만들기][새 모바일 서비스 만들기]
+2.  [로컬로 서비스 다운로드][로컬로 서비스 다운로드]
+3.  [모바일 서비스 테스트][모바일 서비스 테스트]
+4.  [Azure에 모바일 서비스 게시][Azure에 모바일 서비스 게시]
+5.  [GetStartedWithData 프로젝트 다운로드][GetStartedWithData 프로젝트 다운로드]
+6.  [데이터 액세스에 모바일 서비스를 사용하도록 앱 업데이트][데이터 액세스에 모바일 서비스를 사용하도록 앱 업데이트]
+7.  [게시된 모바일 서비스에 대해 앱 테스트][게시된 모바일 서비스에 대해 앱 테스트]
 
 <div class="dev-callout"><strong>참고</strong> <p>이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started-data%2F" target="_blank">Azure 무료 평가판</a>을 참조하세요.</p></div>
 
 ## <a name="create-service"></a><span class="short-header">새 모바일 서비스 만들기</span>새 모바일 서비스 만들기
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-create-new-service][]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-create-new-service][mobile-services-dotnet-backend-create-new-service]]
 
 ## <a name="download-the-service"></a><span class="short-header">서비스 다운로드</span>로컬 컴퓨터로 서비스 다운로드
 
-[WACOM.INCLUDE [mobile-services-download-service-locally][]]
+[WACOM.INCLUDE [mobile-services-download-service-locally][mobile-services-download-service-locally]]
 
 ## <a name="test-the-service"></a><span class="short-header">서비스 테스트</span>모바일 서비스 테스트
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-test-local-service][]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-test-local-service][mobile-services-dotnet-backend-test-local-service]]
 
 ## <a name="publish-the-service"></a><span class="short-header">서비스 게시</span>Azure에 모바일 서비스 게시
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-publish-service][]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-publish-service][mobile-services-dotnet-backend-publish-service]]
 
 ## <a name="download-app"></a><span class="short-header">프로젝트 다운로드</span>GetStartedWithData 프로젝트 다운로드
 
@@ -61,15 +61,15 @@
 
 ### Android SDK 버전 확인
 
-[WACOM.INCLUDE [mobile-services-verify-android-sdk-version][]]
+[WACOM.INCLUDE [mobile-services-verify-android-sdk-version][mobile-services-verify-android-sdk-version]]
 
 ### 샘플 코드 검사 및 실행
 
-[WACOM.INCLUDE [mobile-services-android-run-sample-code][]]
+[WACOM.INCLUDE [mobile-services-android-run-sample-code][mobile-services-android-run-sample-code]]
 
 ## <a name="update-app"></a><span class="short-header">앱 업데이트</span>데이터 액세스에 모바일 서비스를 사용하도록 앱 업데이트
 
-[WACOM.INCLUDE [mobile-services-android-getting-started-with-data][]]
+[WACOM.INCLUDE [mobile-services-android-getting-started-with-data][mobile-services-android-getting-started-with-data]]
 
 ## <a name="test-app"></a><span class="short-header">앱 테스트</span>게시된 모바일 서비스에 대해 앱 테스트
 
@@ -105,13 +105,13 @@
 
 다른 자습서도 시도해보세요.
 
--   [인증 시작][]
+-   [인증 시작][인증 시작]
     <br/>앱 사용자를 인증하는 방법을 알아봅니다.
 
--   [푸시 알림 시작][]
+-   [푸시 알림 시작][푸시 알림 시작]
     <br/>기본적인 푸시 알림을 앱에 보내는 방법을 알아봅니다.
 
--   [모바일 서비스 .NET 방법 개념 참조][]
+-   [모바일 서비스 .NET 방법 개념 참조][모바일 서비스 .NET 방법 개념 참조]
     <br/>.NET과 함께 모바일 서비스를 사용하는 방법에 대해 자세히 알아보세요.
 
 <!-- Anchors. -->

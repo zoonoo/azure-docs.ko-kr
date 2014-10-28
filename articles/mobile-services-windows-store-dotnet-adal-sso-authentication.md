@@ -14,24 +14,24 @@
 
 사용자를 인증하려면 먼저 AAD(Azure Active Directory)에 응용 프로그램을 등록해야 합니다. 이 작업은 다음 두 단계로 수행됩니다. 먼저, 모바일 서비스를 등록하고 그에 대한 사용 권한을 표시합니다. 두 번째로 Windows 스토어 앱을 등록하여 해당 사용 권한에 대한 액세스를 부여해야 합니다.
 
-> [WACOM.NOTE] 이 자습서는 모바일 서비스를 통해 Windows 스토어 앱에 대한 Single Sign-On Azure Active Directory 인증을 수행할 수 있는 방법을 더욱 잘 이해할 수 있도록 돕기 위한 것입니다. 모바일 서비스를 처음 사용하는 경우 [모바일 서비스 시작][] 자습서를 완료하는 것이 좋습니다.
+> [WACOM.NOTE] 이 자습서는 모바일 서비스를 통해 Windows 스토어 앱에 대한 Single Sign-On Azure Active Directory 인증을 수행할 수 있는 방법을 더욱 잘 이해할 수 있도록 돕기 위한 것입니다. 모바일 서비스를 처음 사용하는 경우 [모바일 서비스 시작][모바일 서비스 시작] 자습서를 완료하는 것이 좋습니다.
 
 이 자습서에서는 다음 기본 단계를 단계별로 안내합니다.
 
-1.  [Azure Active Directory에 모바일 서비스 등록][]
-2.  [Azure Active Directory에 앱 등록][]
-3.  [인증을 요구하도록 모바일 서비스 구성][]
-4.  [클라이언트 앱에 인증 코드 추가][]
-5.  [인증을 사용하여 클라이언트 테스트][]
+1.  [Azure Active Directory에 모바일 서비스 등록][Azure Active Directory에 모바일 서비스 등록]
+2.  [Azure Active Directory에 앱 등록][Azure Active Directory에 앱 등록]
+3.  [인증을 요구하도록 모바일 서비스 구성][인증을 요구하도록 모바일 서비스 구성]
+4.  [클라이언트 앱에 인증 코드 추가][클라이언트 앱에 인증 코드 추가]
+5.  [인증을 사용하여 클라이언트 테스트][인증을 사용하여 클라이언트 테스트]
 
 이 자습서를 사용하려면 다음이 필요합니다.
 
 -   Windows 8.1에서 실행 중인 Visual Studio 2013
--   [모바일 서비스 시작][] 또는 [데이터 시작][] 자습서 완료
+-   [모바일 서비스 시작][모바일 서비스 시작] 또는 [데이터 시작][데이터 시작] 자습서 완료
 -   Microsoft Azure 모바일 서비스 SDK NuGet 패키지
 -   Active Directory 인증 라이브러리 NuGet 패키지
 
-[WACOM.INCLUDE [mobile-services-dotnet-adal-register-service][]]
+[WACOM.INCLUDE [mobile-services-dotnet-adal-register-service][mobile-services-dotnet-adal-register-service]]
 
 ## <a name="register-app-aad"></a>Azure Active Directory에 앱 등록
 
@@ -57,7 +57,7 @@ Azure Active Directory에 앱을 등록하려면 Windows 스토어에 앱을 연
 
 이제 네이티브 앱 설정으로 구성할 패키지 SID를 검색해야 합니다.
 
-1.  [Windows 개발자 센터 대시보드][]에 로그인하고 앱에서 **편집**을 클릭합니다.
+1.  [Windows 개발자 센터 대시보드][Windows 개발자 센터 대시보드]에 로그인하고 앱에서 **편집**을 클릭합니다.
 
     ![][2]
 
@@ -75,7 +75,7 @@ Azure Active Directory에 앱을 등록하려면 Windows 스토어에 앱을 연
 
 ### 네이티브 앱 등록 만들기
 
-1.  [관리 포털][]에서 **Active Directory**로 이동한 다음 디렉터리를 클릭합니다.
+1.  [관리 포털][관리 포털]에서 **Active Directory**로 이동한 다음 디렉터리를 클릭합니다.
 
     ![][6]
 
@@ -105,13 +105,13 @@ Azure Active Directory에 앱을 등록하려면 Windows 스토어에 앱을 연
 
 ## <a name="require-authentication"></a>인증을 요구하도록 모바일 서비스 구성
 
-[WACOM.INCLUDE [mobile-services-restrict-permissions-dotnet-backend][]]
+[WACOM.INCLUDE [mobile-services-restrict-permissions-dotnet-backend][mobile-services-restrict-permissions-dotnet-backend]]
 
 ## <a name="add-authentication-code"></a>클라이언트 앱에 인증 코드 추가
 
 1.  Visual Studio에서 Windows 스토어 클라이언트 앱 프로젝트를 엽니다.
 
-    [WACOM.INCLUDE [mobile-services-dotnet-adal-install-nuget][]]
+    [WACOM.INCLUDE [mobile-services-dotnet-adal-install-nuget][mobile-services-dotnet-adal-install-nuget]]
 
 1.  Visual Studio의 솔루션 탐색기에서 MainPage.xaml.cs 파일을 열고 문을 사용하여 다음을 추가합니다.
 
@@ -151,7 +151,7 @@ Azure Active Directory에 앱을 등록하려면 Windows 스토어에 앱을 연
 
 3.  `AuthenticateAsync` 메서드에 대한 코드에서 응용 프로그램을 제공한 테넌트의 이름으로 **INSERT-AUTHORITY-HERE**를 바꾸고, 형식은 <https://login.windows.net/tenant-name.onmicrosoft.com>입니다. 이 값은 [Azure 관리 포털][관리 포털]에서 Azure Active Directory의 도메인 탭에서 복사할 수 있습니다.
 
-4.  위의 `AuthenticateAsync` 메서드에 대한 코드에서 **INSERT-RESOURCE-URI-HERE**를 모바일 서비스에 대한 **앱 ID URI**로 바꿉니다. [Azure Active Directory에 등록하는 방법][] 항목을 따르면 앱 ID URI가 <https://todolist.azure-mobile.net/login/aad>와 유사합니다.
+4.  위의 `AuthenticateAsync` 메서드에 대한 코드에서 **INSERT-RESOURCE-URI-HERE**를 모바일 서비스에 대한 **앱 ID URI**로 바꿉니다. [Azure Active Directory에 등록하는 방법][Azure Active Directory에 등록하는 방법] 항목을 따르면 앱 ID URI가 <https://todolist.azure-mobile.net/login/aad>와 유사합니다.
 
 5.  위의 `AuthenticateAsync` 메서드에 대한 코드에서 **INSERT-CLIENT-ID-HERE**를 네이티브 클라이언트 응용 프로그램에서 복사한 클라이언트 ID로 바꿉니다.
 

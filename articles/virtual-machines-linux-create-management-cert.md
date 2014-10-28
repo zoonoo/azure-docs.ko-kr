@@ -132,7 +132,7 @@ Azure에 .vhd 파일을 업로드하려면 추가한 관리 인증서의 지문 
 
 여기서 xxxxx는 [인코딩한 파일]의 내용이며, 이 내용은 Azure account import (File) 명령으로 Linux Azure 명령줄 도구에 세부 정보를 제공하는 데사용합니다.
 
-  []: http://msdn.microsoft.com/en-us/library/azure/gg981929.aspx
+  []: http://msdn.microsoft.com/ko--kr/library/azure/gg981929.aspx
   [OpenSSL]: http://openssl.org/
   [publishsettings 파일에서 관리 인증서 가져오기]: #createcert
   [Azure 관리 포털을 사용하여 관리 인증서 설치]: #management

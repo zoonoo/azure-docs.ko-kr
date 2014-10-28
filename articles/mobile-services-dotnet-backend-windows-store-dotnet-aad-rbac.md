@@ -5,12 +5,12 @@
 # 모바일 서비스 및 Azure Active Directory의 역할 기반 액세스 제어
 
 <div class="dev-center-tutorial-selector sublanding">
-    <a href="/ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac/" title="Windows 스토어 C#" class="current">Windows 스토어 C#</a>
+    <a href="/ko--kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac/" title="Windows 스토어 C#" class="current">Windows 스토어 C#</a>
 </div>
 
 <div class="dev-center-tutorial-subselector">
-    <a href="/ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac/" title=".NET 백 엔드" class="current">.NET 백 엔드</a> | 
-    <a href="/ko-kr/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/" title="JavaScript 백 엔드">JavaScript 백 엔드</a>
+    <a href="/ko--kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac/" title=".NET 백 엔드" class="current">.NET 백 엔드</a> | 
+    <a href="/ko--kr/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/" title="JavaScript 백 엔드">JavaScript 백 엔드</a>
 </div>
 
 
@@ -292,19 +292,19 @@ RBAC(역할 기반 액세스 제어)는 사용자가 가질 수 있는 역할에
 <!-- Images --> 
 <!-- URLs. -->
 
-[Windows 스토어 C\#]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac/ "Windows 스토어 C#"
-[.NET 백 엔드]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac/ ".NET 백 엔드"
-[JavaScript 백 엔드]: /ko-kr/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/ "JavaScript 백 엔드"
+[Windows 스토어 C#]: /ko--kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac/ "Windows 스토어 C#"
+[.NET 백 엔드]: /ko--kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac/ ".NET 백 엔드"
+[JavaScript 백 엔드]: /ko--kr/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/ "JavaScript 백 엔드"
 [그래프 클라이언트 라이브러리]: http://go.microsoft.com/fwlink/?LinkId=510536
-[인증 시작]: /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-users/
+[인증 시작]: /ko--kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-users/
 [멤버 자격이 포함된 Sales 그룹 만들기]: #create-group
 [통합 응용 프로그램에 대한 키 생성]: #generate-key
 [사용자 지정 권한 부여 특성 만들기]: #create-custom-authorization-attribute
 [역할 기반 액세스 확인을 데이터베이스 작업에 추가]: #add-access-checking
 [클라이언트 액세스 테스트]: #test-client
-[서버 스크립트 저장]: /ko-kr/documentation/articles/mobile-services-store-scripts-source-control/
+[서버 스크립트 저장]: /ko--kr/documentation/articles/mobile-services-store-scripts-source-control/
 [mobile-services-aad-rbac-create-sales-group]: ../includes/mobile-services-aad-rbac-create-sales-group.md
-[Azure Active Directory 로그인 사용 등록]: /ko-kr/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
+[Azure Active Directory 로그인 사용 등록]: /ko--kr/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
 [mobile-services-generate-aad-app-registration-access-key]: ../includes/mobile-services-generate-aad-app-registration-access-key.md
 []: ./media/mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac/add-authorize-aad-role-class.png
 [mobile-services-aad-rbac-test-app]: ../includes/mobile-services-aad-rbac-test-app.md

@@ -107,7 +107,7 @@ Azure SDK 2.3은 업데이트된 저장소 에뮬레이터를 포함하며 Stora
 -   [Build 2014: Azure 리소스 그룹 모델: 최신 클라우드에 대한 최신 관리(비디오)][Build 2014: Azure 리소스 그룹 모델: 최신 클라우드에 대한 최신 관리(비디오)](영문)
 
   [Visual Studio 2013 업데이트 2 RC]: http://aka.ms/vs2013update2rc
-  [Azure SDK 2.3]: http://www.windowsazure.com/en-us/downloads/
+  [Azure SDK 2.3]: http://www.windowsazure.com/ko--kr/downloads/
   [Azure PowerShell]: http://go.microsoft.com/?linkid=9811175
   [Azure 플랫폼 간 명령줄 인터페이스]: http://go.microsoft.com/?linkid=9828653
   [Azure SDK for .NET 2.3 릴리스 정보]: http://go.microsoft.com/fwlink/p/?LinkId=393548
@@ -120,30 +120,30 @@ Azure SDK 2.3은 업데이트된 저장소 에뮬레이터를 포함하며 Stora
   [.NET을 사용한 모바일 개발]: #mobile
   [Storage Client Library 3.0 및 새로운 저장소 에뮬레이터]: #storage
   [리소스 관리자]: #arm
-  [Azure 및 ASP.NET 시작]: http://azure.microsoft.com/ko-kr/documentation/articles/web-sites-dotnet-get-started/
-  [Visual Studio용 Azure 도구 사용(영문)]: http://msdn.microsoft.com/en-us/library/azure/ff687127.aspx
+  [Azure 및 ASP.NET 시작]: http://azure.microsoft.com/ko--kr/documentation/articles/web-sites-dotnet-get-started/
+  [Visual Studio용 Azure 도구 사용(영문)]: http://msdn.microsoft.com/ko--kr/library/azure/ff687127.aspx
   [Visual Studio 2013에서 ASP.NET 웹 프로젝트 만들기(영문)]: http://asp.net/visual-studio/overview/2013/creating-web-projects-in-visual-studio
   [Build 2014: Visual Studio 2013 업데이트 2 이상에서 ASP.NET 및 웹을 위한 새로운 기능(비디오)]: http://channel9.msdn.com/Events/Build/2014/3-602
-  [Visual Studio에서 클라우드 서비스 또는 가상 컴퓨터 디버깅(영문)]: http://msdn.microsoft.com/en-us/library/azure/ff683670.aspx
-  [Emulator Express를 사용하여 클라우드 서비스 실행 및 디버그(영문)]: http://msdn.microsoft.com/en-us/library/windowsazure/dn339018.aspx
-  [Visual Studio에서 Azure 웹 사이트 문제 해결]: http://www.windowsazure.com/ko-kr/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio
-  [서버 탐색기에서 가상 컴퓨터 만들기(영문)]: http://msdn.microsoft.com/en-us/library/windowsazure/dn569263.aspx
-  [서버 탐색기에서 Azure 가상 컴퓨터 액세스(영문)]: http://msdn.microsoft.com/en-us/library/windowsazure/jj131259.aspx
-  [Visual Studio 서버 탐색기로 서비스 버스 리소스 찾아보기(영문)]: http://msdn.microsoft.com/en-us/library/windowsazure/jj149828.aspx
-  [서버 탐색기로 저장소 리소스 찾아보기(영문)]: http://msdn.microsoft.com/en-us/library/windowsazure/ff683677.aspx
-  [Azure PowerShell을 설치 및 구성하는 방법(영문)]: http://www.windowsazure.com/ko-kr/documentation/articles/install-configure-powershell/
-  [Azure PowerShell 설명서(영문)]: http://msdn.microsoft.com/en-us/library/windowsazure/jj156055.aspx
+  [Visual Studio에서 클라우드 서비스 또는 가상 컴퓨터 디버깅(영문)]: http://msdn.microsoft.com/ko--kr/library/azure/ff683670.aspx
+  [Emulator Express를 사용하여 클라우드 서비스 실행 및 디버그(영문)]: http://msdn.microsoft.com/ko--kr/library/windowsazure/dn339018.aspx
+  [Visual Studio에서 Azure 웹 사이트 문제 해결]: http://www.windowsazure.com/ko--kr/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio
+  [서버 탐색기에서 가상 컴퓨터 만들기(영문)]: http://msdn.microsoft.com/ko--kr/library/windowsazure/dn569263.aspx
+  [서버 탐색기에서 Azure 가상 컴퓨터 액세스(영문)]: http://msdn.microsoft.com/ko--kr/library/windowsazure/jj131259.aspx
+  [Visual Studio 서버 탐색기로 서비스 버스 리소스 찾아보기(영문)]: http://msdn.microsoft.com/ko--kr/library/windowsazure/jj149828.aspx
+  [서버 탐색기로 저장소 리소스 찾아보기(영문)]: http://msdn.microsoft.com/ko--kr/library/windowsazure/ff683677.aspx
+  [Azure PowerShell을 설치 및 구성하는 방법(영문)]: http://www.windowsazure.com/ko--kr/documentation/articles/install-configure-powershell/
+  [Azure PowerShell 설명서(영문)]: http://msdn.microsoft.com/ko--kr/library/windowsazure/jj156055.aspx
   [Build 2014: Azure의 새로운 SDK, 도구 및 서비스로 모두 자동화(비디오)]: http://channel9.msdn.com/Events/Build/2014/3-621
-  [Windows PowerShell 스크립트를 사용하여 개발 및 테스트 환경에 게시]: http://msdn.microsoft.com/en-us/library/windowsazure/dn642480.aspx
+  [Windows PowerShell 스크립트를 사용하여 개발 및 테스트 환경에 게시]: http://msdn.microsoft.com/ko--kr/library/windowsazure/dn642480.aspx
   [클라우드 커버: Azure 모바일 서비스 .NET 백 엔드(비디오)]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-137-The-Azure-Mobile-Services-NET-Backend-with-Yavor-Georgiev
-  [Azure 모바일 개발자 센터]: /en-us/develop/mobile/
-  [빠른 시작: 모바일 서비스 추가]: http://msdn.microsoft.com/en-us/library/windows/apps/xaml/dn629482.aspx
-  [Visual Studio를 사용하여 실행 중인 앱에 푸시 알림을 보내는 방법]: http://msdn.microsoft.com/en-us/library/windows/apps/xaml/dn614131.aspx
-  [모바일 서비스에 사용자 지정 API 및 예약된 작업을 만드는 방법]: http://msdn.microsoft.com/en-us/library/windows/apps/xaml/dn614130.aspx
+  [Azure 모바일 개발자 센터]: /ko--kr/develop/mobile/
+  [빠른 시작: 모바일 서비스 추가]: http://msdn.microsoft.com/ko--kr/library/windows/apps/xaml/dn629482.aspx
+  [Visual Studio를 사용하여 실행 중인 앱에 푸시 알림을 보내는 방법]: http://msdn.microsoft.com/ko--kr/library/windows/apps/xaml/dn614131.aspx
+  [모바일 서비스에 사용자 지정 API 및 예약된 작업을 만드는 방법]: http://msdn.microsoft.com/ko--kr/library/windows/apps/xaml/dn614130.aspx
   [Azure Storage Client Library 3.0]: http://go.microsoft.com/fwlink/?LinkId=394927
-  [Azure 저장소 소개]: /ko-kr/documentation/articles/storage-introduction/
+  [Azure 저장소 소개]: /ko--kr/documentation/articles/storage-introduction/
   [Build 2014: Microsoft Azure 저장소 – 새로운 기능, 모범 사례 및 패턴(비디오)]: http://channel9.msdn.com/Events/Build/2014/3-628
   [Microsoft Azure Storage @ BUILD 2014(영문)]: http://blogs.msdn.com/b/windowsazurestorage/archive/2014/04/08/microsoft-azure-storage-build-2014.aspx
   [리소스 관리자로 Azure PowerShell 사용(영문)]: http://go.microsoft.com/fwlink/?LinkID=394767
-  [리소스 관리자에서 Azure 플랫폼 간 명령줄 인터페이스 사용]: /ko-kr/documentation/articles/xplat-cli-azure-resource-manager/
+  [리소스 관리자에서 Azure 플랫폼 간 명령줄 인터페이스 사용]: /ko--kr/documentation/articles/xplat-cli-azure-resource-manager/
   [Build 2014: Azure 리소스 그룹 모델: 최신 클라우드에 대한 최신 관리(비디오)]: http://channel9.msdn.com/Events/Build/2014/2-607

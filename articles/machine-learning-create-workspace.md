@@ -11,7 +11,7 @@ Microsoft Azure Machine Learning 작업 영역(ML 작업 영역)에는 실험을
 1.  Microsoft Azure 계정으로 로그인합니다.
 2.  Microsoft Azure 서비스 패널에서 **기계 학습**을 클릭합니다.
 
-![][]
+![][0]
 
 1.  **기계 학습 작업 영역 만들기**를 클릭합니다.
 2.  **빠른 생성** 페이지에서
@@ -26,5 +26,5 @@ Microsoft Azure Machine Learning 작업 영역(ML 작업 영역)에는 실험을
 
 <!--Anchors--> <!--Image references--> <!--Link references-->
 
-  []: ./media/machine-learning-create-workspace/cw1.png
+  [0]: ./media/machine-learning-create-workspace/cw1.png
   [1]: ./media/machine-learning-create-workspace/cw2.png

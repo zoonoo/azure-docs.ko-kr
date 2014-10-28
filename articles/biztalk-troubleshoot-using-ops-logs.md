@@ -16,7 +16,7 @@
 1.  Azure 관리 포털에서 관리 서비스를 클릭한 다음 작업 로그 탭을 클릭합니다.
 2.  구독, 날짜 범위, 서비스 종류(예: BizTalk 서비스), 서비스 이름 또는 상태(작업 상태, 예: 성공, 실패)와 같은 다양한 매개 변수를 기준으로 로그를 필터링할 수 있습니다.
 3.  확인 표시를 클릭하여 필터링된 목록을 봅니다. 다음 그림은 testbiztalkservice와 관련된 작업을 보여 줍니다.
-    ![작업 로그 보기][]
+    ![작업 로그 보기][작업 로그 보기]
 4.  특정 작업에 대한 자세한 내용을 보려면 페이지 맨 아래에서 **세부 정보**를 클릭합니다.
 
 ## <a name="bizops"></a>Azure 관리 서비스를 사용하여 추적된 작업
@@ -90,15 +90,15 @@
 
 ## 참고 항목
 
--   [BizTalk 서비스 백업][]
--   [백업에서 BizTalk 서비스 복원][]
--   [BizTalk 서비스: Developer, Basic, Standard 및 Premium Editions 차트][]
--   [BizTalk 서비스: Azure 관리 포털을 사용하여 프로비전][]
--   [BizTalk 서비스: 상태 차트 프로비전][]
--   [BizTalk 서비스: 대시보드, 모니터 및 크기 조정 탭][]
--   [BizTalk 서비스: 제한][]
--   [BizTalk 서비스: 발급자 이름 및 발급자 키][]
--   [Azure BizTalk 서비스 SDK로 시작하는 방법][]
+-   [BizTalk 서비스 백업][BizTalk 서비스 백업]
+-   [백업에서 BizTalk 서비스 복원][백업에서 BizTalk 서비스 복원]
+-   [BizTalk 서비스: Developer, Basic, Standard 및 Premium Editions 차트][BizTalk 서비스: Developer, Basic, Standard 및 Premium Editions 차트]
+-   [BizTalk 서비스: Azure 관리 포털을 사용하여 프로비전][BizTalk 서비스: Azure 관리 포털을 사용하여 프로비전]
+-   [BizTalk 서비스: 상태 차트 프로비전][BizTalk 서비스: 상태 차트 프로비전]
+-   [BizTalk 서비스: 대시보드, 모니터 및 크기 조정 탭][BizTalk 서비스: 대시보드, 모니터 및 크기 조정 탭]
+-   [BizTalk 서비스: 제한][BizTalk 서비스: 제한]
+-   [BizTalk 서비스: 발급자 이름 및 발급자 키][BizTalk 서비스: 발급자 이름 및 발급자 키]
+-   [Azure BizTalk 서비스 SDK로 시작하는 방법][Azure BizTalk 서비스 SDK로 시작하는 방법]
 
   [BizTalk 서비스 REST API]: http://msdn.microsoft.com/ko-KR/library/windowsazure/dn232347.aspx
   [Azure 관리 서비스를 사용하여 추적된 작업]: #bizops

@@ -18,22 +18,22 @@
 
 -   Visual Studio 2010 SP1
 -   Microsoft .NET Framework 4.0
--   [ASP.NET MVC 3][]
--   [Windows Identity Foundation 1.0 런타임][]
--   [Windows Identity Foundation 3.5 SDK][]
--   [WCF Data Services for OData V3][]
+-   [ASP.NET MVC 3][ASP.NET MVC 3]
+-   [Windows Identity Foundation 1.0 런타임][Windows Identity Foundation 1.0 런타임]
+-   [Windows Identity Foundation 3.5 SDK][Windows Identity Foundation 3.5 SDK]
+-   [WCF Data Services for OData V3][WCF Data Services for OData V3]
 -   IIS(인터넷 정보 서비스) 7.5(SSL 사용)
 -   Windows PowerShell
--   [Office 365 PowerShell Commandlet][]
+-   [Office 365 PowerShell Commandlet][Office 365 PowerShell Commandlet]
 
 ### 목차
 
--   [소개][]
--   [1단계: ASP.NET MVC 응용 프로그램 만들기][]
--   [2단계: 회사 디렉터리 테넌트에서 응용 프로그램 프로비전][]
--   [3단계: 직원 로그인을 위해 WS-Federation을 사용하여 응용 프로그램 보호][]
--   [4단계: Graph API를 사용하여 디렉터리 데이터 읽기][]
--   [요약][]
+-   [소개][소개]
+-   [1단계: ASP.NET MVC 응용 프로그램 만들기][1단계: ASP.NET MVC 응용 프로그램 만들기]
+-   [2단계: 회사 디렉터리 테넌트에서 응용 프로그램 프로비전][2단계: 회사 디렉터리 테넌트에서 응용 프로그램 프로비전]
+-   [3단계: 직원 로그인을 위해 WS-Federation을 사용하여 응용 프로그램 보호][3단계: 직원 로그인을 위해 WS-Federation을 사용하여 응용 프로그램 보호]
+-   [4단계: Graph API를 사용하여 디렉터리 데이터 읽기][4단계: Graph API를 사용하여 디렉터리 데이터 읽기]
+-   [요약][요약]
 
 ## <a name="createapp"></a>1단계: ASP.NET MVC 응용 프로그램 만들기
 
@@ -169,19 +169,19 @@
             }
         </p> 
 
-18. 변경 내용을 **Index.cshtml** 파일에 저장한 후 **F5** 키를 눌러 응용 프로그램을 실행합니다. 디렉터리 테넌트 자격 증명을 사용하여 로그인할 수 있는 Office 365 ID 공급자 페이지로 리디렉션됩니다(예: [john.doe@awesomecomputers.onmicrosoft.com][]).
+18. 변경 내용을 **Index.cshtml** 파일에 저장한 후 **F5** 키를 눌러 응용 프로그램을 실행합니다. 디렉터리 테넌트 자격 증명을 사용하여 로그인할 수 있는 Office 365 ID 공급자 페이지로 리디렉션됩니다(예: [john.doe@awesomecomputers.onmicrosoft.com][john.doe@awesomecomputers.onmicrosoft.com]).
 
 19. 자격 증명을 사용하여 로그인하고 나면 계정의 클레임이 표시되는 홈 컨트롤러의 인덱스 페이지로 리디렉션됩니다. 여기에 Azure Active Directory에서 제공하는 Single Sign-On을 사용하여 응용 프로그램에 인증된 사용자가 표시됩니다.
 
 ## <a name="readdata"></a>4단계: Graph API를 사용하여 디렉터리 데이터 읽기
 
-이 단계에서는 Graph API를 사용하여 Azure Active Directory 테넌트에 연결하고 데이터를 읽는 방법을 보여 줍니다. Graph API를 시작하려면 ASP.NET 응용 프로그램인 [Graph API용 쓰기 지원이 포함된 샘플 응용 프로그램][](영문)을 다운로드하십시오. 이 응용 프로그램에는 Graph API에 대해 쉽게 인증하고 요청하는 도우미 메서드가 포함되어 있습니다.
+이 단계에서는 Graph API를 사용하여 Azure Active Directory 테넌트에 연결하고 데이터를 읽는 방법을 보여 줍니다. Graph API를 시작하려면 ASP.NET 응용 프로그램인 [Graph API용 쓰기 지원이 포함된 샘플 응용 프로그램][Graph API용 쓰기 지원이 포함된 샘플 응용 프로그램](영문)을 다운로드하십시오. 이 응용 프로그램에는 Graph API에 대해 쉽게 인증하고 요청하는 도우미 메서드가 포함되어 있습니다.
 
 또한 2단계에서 만든 응용 프로그램의 서비스 사용자에 권한을 추가합니다. 이러한 권한을 추가하려면 AppPrincipalId 값이 필요합니다.
 
 1.  샘플 응용 프로그램을 다운로드하여 필요한 폴더로 추출합니다.
 2.  샘플 코드를 사용하려면 먼저 서비스 사용자에게 추가 권한을 제공해야 합니다. 이러한 권한을 통해 서비스 사용자는 Graph API를 사용하여 데이터를 읽을 수 있습니다. **시작** 메뉴에서 **Windows PowerShell용 Microsoft Online Services 모듈** 콘솔을 실행합니다.
-3.  서비스 지원 관리자 역할에 읽기 권한을 추가하여 서비스 사용자에게 이 권한을 제공합니다. 서비스 사용자에 역할 할당에 대한 자세한 내용은 [Graph API의 역할 기반 액세스 제어][]를 참조하십시오. 다음 명령을 입력하고 Enter 키를 누릅니다.
+3.  서비스 지원 관리자 역할에 읽기 권한을 추가하여 서비스 사용자에게 이 권한을 제공합니다. 서비스 사용자에 역할 할당에 대한 자세한 내용은 [Graph API의 역할 기반 액세스 제어][Graph API의 역할 기반 액세스 제어]를 참조하십시오. 다음 명령을 입력하고 Enter 키를 누릅니다.
 
         Add-MsolRoleMember -RoleMemberType "ServicePrincipal" -RoleName "Service Support Administrator" -RoleMemberObjectId $appPrincipal.ObjectId 
 
@@ -213,7 +213,7 @@
 
 이 자습서에서는 Azure Active Directory의 Single Sign-On 기능을 사용하여 단일 테넌트 응용 프로그램을 만들고 구성하는 방법을 살펴보았습니다. 또한 Graph API를 사용하여 테넌트의 디렉터리 데이터에 액세스했습니다. 샘플 응용 프로그램을 탐색하여 사용자의 응용 프로그램에서 Graph API를 활용하는 방법을 알아보는 것이 좋습니다.
 
-Graph API에 대해 자세히 알아보려면 [MSDN에서 이에 대한 문서를 읽어][] 볼 수 있습니다. 또한 [Azure Active Directory를 사용하여 다중 테넌트 클라우드 응용 프로그램 개발][](영문) 자습서를 참조하여 Azure Active Directory용 다중 테넌트 응용 프로그램을 만들 수 있습니다.
+Graph API에 대해 자세히 알아보려면 [MSDN에서 이에 대한 문서를 읽어][MSDN에서 이에 대한 문서를 읽어] 볼 수 있습니다. 또한 [Azure Active Directory를 사용하여 다중 테넌트 클라우드 응용 프로그램 개발][Azure Active Directory를 사용하여 다중 테넌트 클라우드 응용 프로그램 개발](영문) 자습서를 참조하여 Azure Active Directory용 다중 테넌트 응용 프로그램을 만들 수 있습니다.
 
   [ASP.NET MVC 3]: http://www.microsoft.com/ko-KR/download/details.aspx?id=4211
   [Windows Identity Foundation 1.0 런타임]: http://www.microsoft.com/ko-KR/download/details.aspx?id=17331

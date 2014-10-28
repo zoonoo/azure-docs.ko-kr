@@ -5,11 +5,11 @@
 # 모바일 서비스에서 오프라인 데이터 동기화 시작
 
 <div class="dev-center-tutorial-selector sublanding">
-<a href="/ko-kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data" title="Windows 스토어 C#">Windows 스토어 C#</a>
-<a href="/ko-kr/documentation/articles/mobile-services-windows-phone-get-started-offline-data" title="Windows Phone">Windows Phone</a>
-<a href="/ko-kr/documentation/articles/mobile-services-ios-get-started-offline-data" title="iOS" class="current">iOS</a>
-<a href="/ko-kr/documentation/articles/mobile-services-xamarin-ios-get-started-offline-data" title="Xamarin.iOS">Xamarin.iOS</a>
-<a href="/ko-kr/documentation/articles/mobile-services-xamarin-android-get-started-offline-data" title="Xamarin.Android">Xamarin.Android</a>
+<a href="/ko--kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data" title="Windows 스토어 C#">Windows 스토어 C#</a>
+<a href="/ko--kr/documentation/articles/mobile-services-windows-phone-get-started-offline-data" title="Windows Phone">Windows Phone</a>
+<a href="/ko--kr/documentation/articles/mobile-services-ios-get-started-offline-data" title="iOS" class="current">iOS</a>
+<a href="/ko--kr/documentation/articles/mobile-services-xamarin-ios-get-started-offline-data" title="Xamarin.iOS">Xamarin.iOS</a>
+<a href="/ko--kr/documentation/articles/mobile-services-xamarin-android-get-started-offline-data" title="Xamarin.Android">Xamarin.Android</a>
 </div>
 
 이 자습서에서는 최종 사용자에게 네트워크 액세스가 없어도 사용 가능한 앱을 개발자가 작성할 수 있게 해주는 모바일 서비스의 오프라인 동기화 기능에 대해 설명합니다.
@@ -31,13 +31,13 @@
 
 
 
-  [Windows 스토어 C\#]: /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data "Windows 스토어 C#"
-  [Windows Phone]: /ko-kr/documentation/articles/mobile-services-windows-phone-get-started-offline-data "Windows Phone"
-  [iOS]: /ko-kr/documentation/articles/mobile-services-ios-get-started-offline-data "iOS"
-  [Xamarin.iOS]: /ko-kr/documentation/articles/mobile-services-xamarin-ios-get-started-offline-data "Xamarin.iOS"
-  [Xamarin.Android]: /ko-kr/documentation/articles/mobile-services-xamarin-android-get-started-offline-data "Xamarin.Android"
-  [모바일 서비스 시작]: /ko-kr/documentation/articles/mobile-services-ios-get-started/
-  [데이터 시작]: /ko-kr/documentation/articles/mobile-services-ios-get-started-data/
-  [Azure 무료 평가판]: http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28
+  [Windows 스토어 C#]: /ko--kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data "Windows 스토어 C#"
+  [Windows Phone]: /ko--kr/documentation/articles/mobile-services-windows-phone-get-started-offline-data "Windows Phone"
+  [iOS]: /ko--kr/documentation/articles/mobile-services-ios-get-started-offline-data "iOS"
+  [Xamarin.iOS]: /ko--kr/documentation/articles/mobile-services-xamarin-ios-get-started-offline-data "Xamarin.iOS"
+  [Xamarin.Android]: /ko--kr/documentation/articles/mobile-services-xamarin-android-get-started-offline-data "Xamarin.Android"
+  [모바일 서비스 시작]: /ko--kr/documentation/articles/mobile-services-ios-get-started/
+  [데이터 시작]: /ko--kr/documentation/articles/mobile-services-ios-get-started-data/
+  [Azure 무료 평가판]: http://www.windowsazure.com/ko--kr/pricing/free-trial/?WT.mc_id=AE564AB28
   [iOS 오프라인 ToDo 목록]: https://github.com/Azure/mobile-services-samples/tree/master/TodoOffline/iOS/blog20140611
   [동반 블로그 게시물]: http://aka.ms/iosoffline

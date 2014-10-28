@@ -56,7 +56,7 @@ Application Insights를 통해 라이브 응용 프로그램의 가용성, 성�
 
 [Visual Studio의 프로젝트에 Application Insights 추가]: ../app-insights-monitor-application-health-usage/
 [이제 라이브 웹 서비스의 문제 진단]: ../app-insights-monitor-performance-live-website-now/
-[이전 버전의 Application Insights]: http://msdn.microsoft.com/en-us/library/dn481095.aspx
+[이전 버전의 Application Insights]: http://msdn.microsoft.com/ko--kr/library/dn481095.aspx
 [Application Insights의 예제 응용 프로그램 모니터]: ./media/appinsights/appinsights-00-appblade.png
 [Application Insights]: ../app-insights-get-started/
 [Application Insights의 메트릭 탐색]: ../app-insights-explore-metrics/

@@ -14,22 +14,22 @@
 
 이 자습서에서는 모바일 서비스에서 생성한 SAS를 사용하여 사진을 찍고 이미지를 Azure에 업로드하는 기능을 모바일 서비스 퀵 스타트 앱에 추가합니다. 이를 위해 모바일 서비스 퀵 스타트를 업데이트하여 Blob 저장소 서비스에 이미지를 업로드하는 다음과 같은 기본 단계를 안내합니다.
 
-1.  [저장소 클라이언트 라이브러리 설치][]
-2.  [클라이언트 앱을 업데이트하여 이미지 캡처][]
-3.  [모바일 서비스 프로젝트에 저장소 클라이언트 설치][]
-4.  [데이터 모델에서 TodoItem 정의 업데이트][]
-5.  [테이블 컨트롤러를 업데이트하여 SAS 생성][]
-6.  [이미지를 업로드하여 앱 테스트][]
+1.  [저장소 클라이언트 라이브러리 설치][저장소 클라이언트 라이브러리 설치]
+2.  [클라이언트 앱을 업데이트하여 이미지 캡처][클라이언트 앱을 업데이트하여 이미지 캡처]
+3.  [모바일 서비스 프로젝트에 저장소 클라이언트 설치][모바일 서비스 프로젝트에 저장소 클라이언트 설치]
+4.  [데이터 모델에서 TodoItem 정의 업데이트][데이터 모델에서 TodoItem 정의 업데이트]
+5.  [테이블 컨트롤러를 업데이트하여 SAS 생성][테이블 컨트롤러를 업데이트하여 SAS 생성]
+6.  [이미지를 업로드하여 앱 테스트][이미지를 업로드하여 앱 테스트]
 
 이 자습서를 사용하려면 다음이 필요합니다.
 
 -   Microsoft Visual Studio 2013 또는 이상 버전
 -   Microsoft Visual Studio용 Nuget 패키지 관리자 설치
--   [Azure 저장소 계정][]
+-   [Azure 저장소 계정][Azure 저장소 계정]
 
-이 자습서는 모바일 서비스 퀵 스타트를 기반으로 합니다. 이 자습서를 시작하기 전에 먼저 [모바일 서비스 시작하기][]를 완료해야 합니다.
+이 자습서는 모바일 서비스 퀵 스타트를 기반으로 합니다. 이 자습서를 시작하기 전에 먼저 [모바일 서비스 시작하기][모바일 서비스 시작하기]를 완료해야 합니다.
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-configure-blob-storage][]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-configure-blob-storage][mobile-services-dotnet-backend-configure-blob-storage]]
 
 ## <a name="install-storage-client"></a>Windows 스토어 앱용 저장소 클라이언트 설치
 
@@ -45,7 +45,7 @@ SAS를 사용하여 앱에서 Blob 저장소에 이미지를 업로드하려면 
 
 다음 단계에서는 이미지를 캡처하고 업로드하도록 퀵 스타트 앱을 업데이트합니다.
 
-[WACOM.INCLUDE [mobile-services-windows-store-dotnet-upload-to-blob-storage][]]
+[WACOM.INCLUDE [mobile-services-windows-store-dotnet-upload-to-blob-storage][mobile-services-windows-store-dotnet-upload-to-blob-storage]]
 
 <!-- Anchors. --> 
 

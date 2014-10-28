@@ -86,7 +86,7 @@ Azure Preview 포털에서 감사를 설정합니다. 이때 Azure SQL 데이터
 <!--Link references-->
 
   [미리 보기를 등록]: http://go.microsoft.com/fwlink/?LinkId=404163
-  [Azure 보안 센터]: http://azure.microsoft.com/en-us/support/trust-center/compliance/
+  [Azure 보안 센터]: http://azure.microsoft.com/ko--kr/support/trust-center/compliance/
   [Azure SQL 데이터베이스 감사 기본 사항]: #subheading-1
   [데이터베이스에 대한 감사 설정]: #subheading-2
   [감사 로그 및 보고서 분석]: #subheading-3
@@ -100,6 +100,6 @@ Azure Preview 포털에서 감사를 설정합니다. 이때 Azure SQL 데이터
   [4]: ./media/sql-database-auditing-get-started/sql-database-get-started-connectionstring.png
   [Azure 저장소 탐색기]: http://azurestorageexplorer.codeplex.com/
   [다운로드 가능 Excel 스프레드시트]: http://go.microsoft.com/fwlink/?LinkId=403540
-  [여기]: http://www.microsoft.com/en-us/download/details.aspx?id=39379
+  [여기]: http://www.microsoft.com/ko--kr/download/details.aspx?id=39379
   [방법(doc 다운로드)]: http://go.microsoft.com/fwlink/?LinkId=506731
   [5]: ./media/sql-database-auditing-get-started/sql-database-auditing-dashboard.png

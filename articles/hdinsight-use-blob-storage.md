@@ -13,22 +13,22 @@ Azure HDInsight는 데이터 저장에 HDFS(Hadoop Distributed Files System)와 
 > [WACOM.NOTE]
 > **ls**, **copyFromLocal**, **mkdir** 등과 같은 대부분의 HDFS 명령은 여전히 예상대로 작동합니다. **fschk**와 **dfsadmin** 등 기본 HDFS 구현(DFS라고 함)과 관련된 명령만 Azure Blob 저장소에서 다르게 동작합니다.
 
-HDInsight 클러스터 프로비전에 대한 자세한 내용은 [HDInsight 시작][] 또는 [HDInsight 클러스터 프로비전][]을 참조하세요.
+HDInsight 클러스터 프로비전에 대한 자세한 내용은 [HDInsight 시작][HDInsight 시작] 또는 [HDInsight 클러스터 프로비전][HDInsight 클러스터 프로비전]을 참조하세요.
 
 ## 이 문서에서는 다음을 수행합니다.
 
--   [HDInsight 저장소 아키텍처][]
--   [Azure Blob 저장소의 이점][]
--   [Blob 저장소용 컨테이너 준비][]
--   [Blob 저장소에서 파일 주소 지정][]
--   [PowerShell을 사용하여 Blob에 액세스][]
--   [다음 단계][]
+-   [HDInsight 저장소 아키텍처][HDInsight 저장소 아키텍처]
+-   [Azure Blob 저장소의 이점][Azure Blob 저장소의 이점]
+-   [Blob 저장소용 컨테이너 준비][Blob 저장소용 컨테이너 준비]
+-   [Blob 저장소에서 파일 주소 지정][Blob 저장소에서 파일 주소 지정]
+-   [PowerShell을 사용하여 Blob에 액세스][PowerShell을 사용하여 Blob에 액세스]
+-   [다음 단계][다음 단계]
 
 ## <span id="architecture"></span></a>HDInsight 저장소 아키텍처
 
 다음 다이어그램은 HDInsight 저장소 아키텍처의 추상 보기를 제공합니다.
 
-![HDI.ASVArch][]
+![HDI.ASVArch][HDI.ASVArch]
 
 HDInsight는 컴퓨터 노드에 로컬로 연결된 분산 파일 시스템에 대한 액세스를 제공합니다. 정규화된 URI를 사용하여 이 파일 시스템에 액세스할 수 있습니다. 예를 들면 다음과 같습니다.
 
@@ -40,19 +40,19 @@ HDInsight는 컴퓨터 노드에 로컬로 연결된 분산 파일 시스템에 
 
 Hadoop은 기본 파일 시스템의 개념을 지원합니다. 기본 파일 시스템은 기본 체계와 권한을 의미하며, 상대 경로를 확인하는 데 사용할 수도 있습니다. HDInsight 프로비전 프로세스 중에 Azure 저장소 계정 및 이 계정에서 오는 특정 Blob 저장소 컨테이너가 기본 파일 시스템으로 지정됩니다.
 
-프로비전 프로세스 중에 이 저장소 계정 외에도 동일한 Azure 구독 또는 다른 Azure 구독에서 저장소 계정을 추가할 수 있습니다. 저장소 계정 추가에 대한 지침은 [HDInsight 클러스터 프로비전][]을 참조하세요.
+프로비전 프로세스 중에 이 저장소 계정 외에도 동일한 Azure 구독 또는 다른 Azure 구독에서 저장소 계정을 추가할 수 있습니다. 저장소 계정 추가에 대한 지침은 [HDInsight 클러스터 프로비전][HDInsight 클러스터 프로비전]을 참조하세요.
 
 -   **클러스터에 연결된 저장소 계정의 컨테이너:** 계정 이름과 키는 *core-site.xml*에 저장되어 있으므로 사용자는 이러한 컨테이너의 Blob에 대한 모든 권한을 보유합니다.
 -   **클러스터에 연결되지 않은 저장소 계정의 공용 컨테이너 또는 공용 Blob:** 사용자는 컨테이너의 Blob에 대한 읽기 전용 권한을 보유합니다.
 
     > [WACOM.NOTE]
-    >  \> 공용 컨테이너를 사용하면 해당 컨테이너에서 사용할 수 있는 모든 Blob 목록 및 컨테이너 메타데이터를 가져올 수 있습니다. 공용 Blob을 사용하면 정확한 URL을 아는 경우에만 Blob에 액세스할 수 있습니다. 자세한 내용은 [컨테이너 및 Blob에 대한 액세스 제한][]을 참조하세요.
+    >  \> 공용 컨테이너를 사용하면 해당 컨테이너에서 사용할 수 있는 모든 Blob 목록 및 컨테이너 메타데이터를 가져올 수 있습니다. 공용 Blob을 사용하면 정확한 URL을 아는 경우에만 Blob에 액세스할 수 있습니다. 자세한 내용은 [컨테이너 및 Blob에 대한 액세스 제한][컨테이너 및 Blob에 대한 액세스 제한]을 참조하세요.
 
 -   **클러스터에 연결되지 않은 저장소 계정의 개인 컨테이너:** WebHCat 작업을 제출할 때 저장소 계정을 정의하지 않으면 컨테이너의 Blob에 액세스할 수 없습니다. 이 내용은 문서 뒷부분에 설명되어 있습니다.
 
 프로비전 프로세스에 정의된 저장소 계정과 해당 키는 %HADOOP\_HOME%/conf/core-site.xml에 저장됩니다. HDInsight는 기본적으로 core-site.xml 파일에 정의된 저장소 계정을 사용합니다. 클러스터 헤드 노드(마스터)는 언제든지 재이미징(re-imaging)되거나 마이그레이션될 수 있으며 해당 파일의 변경 내용은 손실되므로 core-site.xml 파일은 편집하지 않는 것이 좋습니다.
 
-Hive, MapReduce, Hadoop 스트리밍 및 Pig를 비롯한 여러 WebHCat 작업은 저장소 계정 및 메타데이터 설명을 포함할 수 있습니다(현재 메타데이터가 아닌 저장소 계정이 있는 Pig에 작동). 이 문서의 [PowerShell을 사용하여 Blob 액세스][PowerShell을 사용하여 Blob에 액세스] 섹션에는 이 기능의 샘플이 포함되어 있습니다. 자세한 내용은 [대체 저장소 계정 및 메타스토어와 HDInsight 클러스터 사용][]을 참조하세요.
+Hive, MapReduce, Hadoop 스트리밍 및 Pig를 비롯한 여러 WebHCat 작업은 저장소 계정 및 메타데이터 설명을 포함할 수 있습니다(현재 메타데이터가 아닌 저장소 계정이 있는 Pig에 작동). 이 문서의 [PowerShell을 사용하여 Blob 액세스][PowerShell을 사용하여 Blob에 액세스] 섹션에는 이 기능의 샘플이 포함되어 있습니다. 자세한 내용은 [대체 저장소 계정 및 메타스토어와 HDInsight 클러스터 사용][대체 저장소 계정 및 메타스토어와 HDInsight 클러스터 사용]을 참조하세요.
 
 Blob 저장소 컨테이너는 키/값 쌍으로 데이터를 저장하며, 디렉터리 계층 구조는 없습니다. 그러나 파일이 디렉터리 구조 내에 저장된 것처럼 보이도록 키 이름에 "/" 문자를 사용할 수 있습니다. 예를 들어 Blob의 키 이름을 *input/log1.txt*로 지정할 수 있습니다. 실제로 *input* 디렉터리는 없지만 키 이름에 "/" 문자가 있으므로 파일 경로처럼 보입니다.
 
@@ -62,7 +62,7 @@ Blob 저장소 컨테이너는 키/값 쌍으로 데이터를 저장하며, 디�
 
 HDFS 대신 Blob 저장소에 데이터를 저장할 경우 몇 가지 이점이 있습니다.
 
--   **데이터 다시 사용 및 공유:** HDFS의 데이터는 계산 클러스터 내에 있습니다. 계산 클러스터에 액세스할 수 있는 응용 프로그램만 HDFS API를 통해 데이터를 사용할 수 있습니다. Blob 저장소의 데이터는 HDFS API 또는 [Blob 저장소 REST API][]를 통해 액세스할 수 있습니다. 따라서 데이터의 생성과 소비에 더 많은 응용 프로그램(기타 HDInsight 클러스터 포함)과 도구를 사용할 수 있습니다.
+-   **데이터 다시 사용 및 공유:** HDFS의 데이터는 계산 클러스터 내에 있습니다. 계산 클러스터에 액세스할 수 있는 응용 프로그램만 HDFS API를 통해 데이터를 사용할 수 있습니다. Blob 저장소의 데이터는 HDFS API 또는 [Blob 저장소 REST API][Blob 저장소 REST API]를 통해 액세스할 수 있습니다. 따라서 데이터의 생성과 소비에 더 많은 응용 프로그램(기타 HDInsight 클러스터 포함)과 도구를 사용할 수 있습니다.
 -   **데이터 보관:** Blob 저장소에 데이터를 저장하면 계산에 사용된 HDInsight 클러스터를 사용자 데이터 손실 없이 안전하게 삭제할 수 있습니다.
 -   **데이터 저장소 비용:** 데이터를 장기간 저장하는 경우 DFS에 저장하는 것이 Blob 저장소에 저장하는 것보다 비용이 많이 드는데, 이는 계산 클러스터의 비용이 Blob 저장소 컨테이너의 비용보다 비싸기 때문입니다. 또한 계산 클러스터를 생성할 때마다 데이터를 다시 로드할 필요가 없기 때문에 데이터 로드 비용도 절약됩니다.
 -   **탄력적인 확장:** HDFS는 확장된 파일 시스템을 제공하지만, 확장은 클러스터에 대해 프로비전하는 노드의 수에 의해 결정됩니다. 규모를 변경하는 것이 자동으로 수행되는 Blob 저장소의 탄력적인 확장 기능에 의존하는 것보다 더 복잡한 프로세스가 될 수 있습니다.
@@ -72,7 +72,7 @@ HDFS 대신 Blob 저장소에 데이터를 저장할 경우 몇 가지 이점이
 
 ## <span id="preparingblobstorage"></span></a>Blob 저장소용 컨테이너 준비
 
-Blob을 사용하려면 먼저 [Azure 저장소 계정][]을 만들어야 합니다. 이 작업의 일부로, 이 계정을 사용하여 만드는 개체를 저장할 Azure 데이터 센터를 지정합니다. 클러스터와 저장소 계정 모두 동일한 데이터 센터에 호스트해야 합니다(Hive 메타스토어 SQL 데이터베이스와 Oozie 메타스토어 SQL 데이터베이스 모두 동일한 데이터 센터에 두어야 합니다). 어디에 있든, 만들어진 각 Blob은 저장소 계정의 일부 컨테이너에 속합니다. 이 컨테이너는 HDInsight 외부에 생성된 기존 Blob 저장소 컨테이너일 수도 있고 HDInsight 클러스터용으로 생성된 컨테이너일 수도 있습니다.
+Blob을 사용하려면 먼저 [Azure 저장소 계정][Azure 저장소 계정]을 만들어야 합니다. 이 작업의 일부로, 이 계정을 사용하여 만드는 개체를 저장할 Azure 데이터 센터를 지정합니다. 클러스터와 저장소 계정 모두 동일한 데이터 센터에 호스트해야 합니다(Hive 메타스토어 SQL 데이터베이스와 Oozie 메타스토어 SQL 데이터베이스 모두 동일한 데이터 센터에 두어야 합니다). 어디에 있든, 만들어진 각 Blob은 저장소 계정의 일부 컨테이너에 속합니다. 이 컨테이너는 HDInsight 외부에 생성된 기존 Blob 저장소 컨테이너일 수도 있고 HDInsight 클러스터용으로 생성된 컨테이너일 수도 있습니다.
 
 ### 관리 포털을 사용하여 HDInsight용 Blob 컨테이너 만들기
 
@@ -80,7 +80,7 @@ Azure 관리 포털에서 HDInsight 클러스터를 프로비전할 경우 *빠�
 
 빠른 생성 옵션을 사용하는 경우 기존 저장소 계정을 선택할 수 있습니다. 프로비전 프로세스에서 HDInsight 클러스터 이름과 동일한 이름의 새 컨테이너가 생성됩니다. 같은 이름의 컨테이너가 이미 있으면 <clustername>-<x>이 사용됩니다. 예를 들어 myHDIcluster-1과 같이 사용할 수 있습니다. 이 컨테이너는 기본 파일 시스템으로 사용됩니다.
 
-![HDI.QuickCreate][]
+![HDI.QuickCreate][HDI.QuickCreate]
 
 사용자 지정 만들기를 사용할 경우 기본 저장소 계정에 대해 다음 옵션 중 하나를 사용할 수 있습니다.
 
@@ -90,11 +90,11 @@ Azure 관리 포털에서 HDInsight 클러스터를 프로비전할 경우 *빠�
 
 자체 Blob 컨테이너를 만들거나 기존 컨테이너를 사용할 수 있는 옵션도 제공됩니다.
 
-![HDI.CustomCreateStorageAccount][]
+![HDI.CustomCreateStorageAccount][HDI.CustomCreateStorageAccount]
 
 ### Azure PowerShell을 사용하여 컨테이너 만들기
 
-[Azure PowerShell][]을 사용하여 Blob 컨테이너를 만들 수 있습니다. 다음은 샘플 PowerShell 스크립트입니다.
+[Azure PowerShell][Azure PowerShell]을 사용하여 Blob 컨테이너를 만들 수 있습니다. 다음은 샘플 PowerShell 스크립트입니다.
 
     $subscriptionName = "<SubscriptionName>"    # Azure subscription name
     $storageAccountName = "<AzureStorageAccountName>" # The storage account that you will create
@@ -117,7 +117,7 @@ Blob 저장소의 파일에 액세스하기 위한 URI 체계는 다음과 같�
 
     wasb[s]://<BlobStorageContainerName>@<StorageAccountName>.blob.core.windows.net/<path>
 
-> [WACOM.NOTE] 저장소 에뮬레이터(HDInsight 에뮬레이터에서 실행됨)에서 파일의 주소를 지정하기 위한 구문은 *wasb:[//\<ContainerName\>@storageemulator][]*입니다.
+> [WACOM.NOTE] 저장소 에뮬레이터(HDInsight 에뮬레이터에서 실행됨)에서 파일의 주소를 지정하기 위한 구문은 *wasb:[//\<ContainerName\>@storageemulator][//\<ContainerName\>@storageemulator]*입니다.
 
 URI 체계는 *wasb:* 접두사를 사용한 암호화되지 않은 액세스와 *wasbs*를 사용한 SSL 암호화된 액세스를 둘 다 제공합니다. 동일한 Azure 데이터 센터에 있는 데이터에 액세스하는 경우에도 가능하면 *wasbs*를 사용하는 것이 좋습니다.
 
@@ -144,11 +144,11 @@ URI 체계는 *wasb:* 접두사를 사용한 암호화되지 않은 액세스와
 
     Get-Command *blob*
 
-![Blob.PowerShell.cmdlets][]
+![Blob.PowerShell.cmdlets][Blob.PowerShell.cmdlets]
 
 **파일 업로드를 위한 PowerShell 샘플**
 
-[HDInsight에 데이터 업로드][]를 참조하세요.
+[HDInsight에 데이터 업로드][HDInsight에 데이터 업로드]를 참조하세요.
 
 **파일 다운로드를 위한 PowerShell 샘플**
 
@@ -242,9 +242,9 @@ URI 체계는 *wasb:* 접두사를 사용한 암호화되지 않은 액세스와
 자세한 내용은 다음 문서를 참조하세요.
 
 -   [Azure HDInsight 시작][HDInsight 시작]
--   [HDInsight에 데이터 업로드][]
--   [HDInsight에서 Hive 사용][]
--   [HDInsight에서 Pig 사용][]
+-   [HDInsight에 데이터 업로드][HDInsight에 데이터 업로드]
+-   [HDInsight에서 Hive 사용][HDInsight에서 Hive 사용]
+-   [HDInsight에서 Pig 사용][HDInsight에서 Pig 사용]
 
   [HDInsight 시작]: ../hdinsight-get-started/
   [HDInsight 클러스터 프로비전]: ../hdinsight-provision-clusters/
@@ -255,9 +255,9 @@ URI 체계는 *wasb:* 접두사를 사용한 암호화되지 않은 액세스와
   [PowerShell을 사용하여 Blob에 액세스]: #powershell
   [다음 단계]: #nextsteps
   [HDI.ASVArch]: ./media/hdinsight-use-blob-storage/HDI.ASVArch.png "HDInsight 저장소 아키텍처"
-  [컨테이너 및 Blob에 대한 액세스 제한]: http://msdn.microsoft.com/en-us/library/windowsazure/dd179354.aspx
+  [컨테이너 및 Blob에 대한 액세스 제한]: http://msdn.microsoft.com/ko-kr/library/windowsazure/dd179354.aspx
   [대체 저장소 계정 및 메타스토어와 HDInsight 클러스터 사용]: http://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx
-  [Blob 저장소 REST API]: http://msdn.microsoft.com/en-us/library/windowsazure/dd135733.aspx
+  [Blob 저장소 REST API]: http://msdn.microsoft.com/ko-kr/library/windowsazure/dd135733.aspx
   [Azure 저장소 계정]: ../storage-create-storage-account/
   [HDI.QuickCreate]: ./media/hdinsight-use-blob-storage/HDI.QuickCreateCluster.png
   [HDI.CustomCreateStorageAccount]: ./media/hdinsight-use-blob-storage/HDI.CustomCreateStorageAccount.png

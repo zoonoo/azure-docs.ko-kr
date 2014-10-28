@@ -4,7 +4,7 @@
 
 # DocumentDB 계정 시작
 
-이 가이드에서는 **Azure DocumentDB(미리 보기)**를 사용하는 방법에 대해 설명합니다. 샘플은 C\# 코드로 작성되었고 DocumentDB .NET SDK를 사용합니다. 여기서 다룬 시나리오에는 DocumentDB 계정 생성 및 구성, 데이터베이스 생성, 컬렉션 생성 및 계정에 JSON 문서 저장이 포함됩니다. Azure DocumentDB 사용에 대한 자세한 내용은 다음 단계 섹션을 참조하세요.
+이 가이드에서는 **Azure DocumentDB(미리 보기)**를 사용하는 방법에 대해 설명합니다. 샘플은 C# 코드로 작성되었고 DocumentDB .NET SDK를 사용합니다. 여기서 다룬 시나리오에는 DocumentDB 계정 생성 및 구성, 데이터베이스 생성, 컬렉션 생성 및 계정에 JSON 문서 저장이 포함됩니다. Azure DocumentDB 사용에 대한 자세한 내용은 다음 단계 섹션을 참조하세요.
 
 이 시작 가이드를 사용하려면 DocumentDB 계정 및 계정의 액세스 키(기본 또는 보조)가 있어야 합니다. 자세한 내용은 다음을 참조하세요.
 
@@ -21,9 +21,9 @@
 
 ## <span id="Connect"></span></a>DocumentDB 계정에 연결
 
-DocumentDB에 대해 프로그래밍상으로 작업할 수 있는 다양한 SDK 및 API가 있습니다. 아래의 샘플은 C\# 코드로 작성된 것이며 DocumentDB .NET SDK를 사용합니다.
+DocumentDB에 대해 프로그래밍상으로 작업할 수 있는 다양한 SDK 및 API가 있습니다. 아래의 샘플은 C# 코드로 작성된 것이며 DocumentDB .NET SDK를 사용합니다.
 
-DocumentDB 계정에 대한 연결을 설정하기 위해 먼저 DocumentClient를 만듭니다. C\# 응용 프로그램에는 다음과 같은 참조가 필요합니다.
+DocumentDB 계정에 대한 연결을 설정하기 위해 먼저 DocumentClient를 만듭니다. C# 응용 프로그램에는 다음과 같은 참조가 필요합니다.
 
     using Microsoft.Azure.Documents.Client;
     using Microsoft.Azure.Documents.Linq;

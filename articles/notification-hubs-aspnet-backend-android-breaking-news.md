@@ -5,8 +5,8 @@
 # 알림 허브를 사용하여 속보 보내기
 
 <div class="dev-center-tutorial-selector sublanding">       
-    <a href="/ko-kr/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/" title="Windows 범용" >Windows 범용</a><a href="/ko-kr/documentation/articles/notification-hubs-windows-phone-send-breaking-news/" title="Windows Phone">Windows Phone</a><a href="/ko-kr/documentation/articles/notification-hubs-ios-send-breaking-news/" title="iOS">iOS</a>
-    <a href="/ko-kr/documentation/articles/notification-hubs-aspnet-backend-android-breaking-news/" title="Android" class="current">Android</a>
+    <a href="/ko--kr/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/" title="Windows 범용" >Windows 범용</a><a href="/ko--kr/documentation/articles/notification-hubs-windows-phone-send-breaking-news/" title="Windows Phone">Windows Phone</a><a href="/ko--kr/documentation/articles/notification-hubs-ios-send-breaking-news/" title="iOS">iOS</a>
+    <a href="/ko--kr/documentation/articles/notification-hubs-aspnet-backend-android-breaking-news/" title="Android" class="current">Android</a>
 </div>
 
 이 항목에서는 Azure 알림 허브를 사용하여 Android 앱에 속보 알림을 브로드캐스트하는 방법을 보여 줍니다. 완료하면, 관심이 있는 속보 범주를 등록하고 해당 범주의 푸시 알림만 받을 수 있습니다. 이 시나리오는 RSS 수집기, 음악 애호가를 위한 앱 등 이전에 관심을 보인 사용자 그룹에 알림을 보내야 하는 많은 앱에 공통된 패턴입니다.
@@ -296,17 +296,17 @@
 <!-- Images. --> 
 <!-- URLs.-->
 
-  [Windows 범용]: /ko-kr/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/ "Windows 범용"
-  [Windows Phone]: /ko-kr/documentation/articles/notification-hubs-windows-phone-send-breaking-news/ "Windows Phone"
-  [iOS]: /ko-kr/documentation/articles/notification-hubs-ios-send-breaking-news/ "iOS"
-  [Android]: /ko-kr/documentation/articles/notification-hubs-aspnet-backend-android-breaking-news/ "Android"
-  [알림 허브 지침]: http://msdn.microsoft.com/en-us/library/jj927170.aspx
+  [Windows 범용]: /ko--kr/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/ "Windows 범용"
+  [Windows Phone]: /ko--kr/documentation/articles/notification-hubs-windows-phone-send-breaking-news/ "Windows Phone"
+  [iOS]: /ko--kr/documentation/articles/notification-hubs-ios-send-breaking-news/ "iOS"
+  [Android]: /ko--kr/documentation/articles/notification-hubs-aspnet-backend-android-breaking-news/ "Android"
+  [알림 허브 지침]: http://msdn.microsoft.com/ko--kr/library/jj927170.aspx
   [앱에 범주 선택 추가]: #adding-categories
   [알림 등록]: #register
   [백 엔드에서 알림 보내기]: #send
   [앱 실행 및 알림 생성]: #test-app
-  [알림 허브 시작]: /ko-kr/documentation/articles/notification-hubs-android-get-started/
+  [알림 허브 시작]: /ko--kr/documentation/articles/notification-hubs-android-get-started/
   []: ./media/notification-hubs-aspnet-backend-android-breaking-news/android-breaking-news1.PNG
   [notification-hubs-back-end]: ../includes/notification-hubs-back-end.md
-  [알림 허브를 사용하여 지역화된 속보 브로드캐스트]: /en-us/manage/services/notification-hubs/breaking-news-localized-dotnet/
-  [알림 허브를 통해 사용자에게 알림]: /en-us/manage/services/notification-hubs/notify-users
+  [알림 허브를 사용하여 지역화된 속보 브로드캐스트]: /ko--kr/manage/services/notification-hubs/breaking-news-localized-dotnet/
+  [알림 허브를 통해 사용자에게 알림]: /ko--kr/manage/services/notification-hubs/notify-users

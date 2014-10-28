@@ -115,7 +115,7 @@ Umbraco CMS는 소규모 응용 프로그램에서 복잡한 응용 프로그램
   [게시된 웹 사이트 페이지]: ./media/web-sites-gallery-umbraco/17MyPage.PNG
   [Umbraco 설명서(영문)]: http://our.umbraco.org/documentation
   [Umbraco 비디오 자습서(영문)]: https://umbraco.com/help-and-support/video-tutorials.aspx
-  [Microsoft Azure 미리 보기 포털 개요]: http://azure.microsoft.com/en-us/overview/preview-portal/
-  [Microsoft Azure 미리 보기 포털 설명서]: http://azure.microsoft.com/ko-kr/documentation/preview-portal/
+  [Microsoft Azure 미리 보기 포털 개요]: http://azure.microsoft.com/ko--kr/overview/preview-portal/
+  [Microsoft Azure 미리 보기 포털 설명서]: http://azure.microsoft.com/ko--kr/documentation/preview-portal/
   [Azure 미리 보기 포털(채널 9)(영문)]: http://channel9.msdn.com/Blogs/Windows-Azure/Azure-Preview-portal
-  [Microsoft Azure 웹 사이트 설명서]: http://azure.microsoft.com/ko-kr/documentation/services/web-sites/
+  [Microsoft Azure 웹 사이트 설명서]: http://azure.microsoft.com/ko--kr/documentation/services/web-sites/

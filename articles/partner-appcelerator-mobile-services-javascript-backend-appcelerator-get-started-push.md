@@ -5,13 +5,13 @@
 # 모바일 서비스에서 푸시 알림 시작(레거시 푸시)
 
 <div class="dev-center-tutorial-selector sublanding">
-    <a href="/ko-kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-push" title="Windows 스토어 C#">Windows 스토어 C#</a>
-    <a href="/ko-kr/documentation/articles/mobile-services-windows-store-javascript-get-started-push" title="Windows 스토어 JavaScript">Windows 스토어 JavaScript</a>
-    <a href="/ko-kr/documentation/articles/mobile-services-windows-phone-get-started-push" title="Windows Phone">Windows Phone</a>
-    <a href="/ko-kr/documentation/articles/mobile-services-ios-get-started-push" title="iOS">iOS</a>
-    <a href="/ko-kr/documentation/articles/mobile-services-android-get-started-push" title="Android">Android</a>
-<!--    <a href="/ko-kr/documentation/articles/partner-xamarin-mobile-services-ios-get-started-push" title="Xamarin.iOS">Xamarin.iOS</a>     <a href="/ko-kr/documentation/articles/partner-xamarin-mobile-services-android-get-started-push" title="Xamarin.Android">Xamarin.Android</a> -->
-    <a href="/ko-kr/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push" title="Appcelerator" class="current">Appcelerator</a>
+    <a href="/ko--kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-push" title="Windows 스토어 C#">Windows 스토어 C#</a>
+    <a href="/ko--kr/documentation/articles/mobile-services-windows-store-javascript-get-started-push" title="Windows 스토어 JavaScript">Windows 스토어 JavaScript</a>
+    <a href="/ko--kr/documentation/articles/mobile-services-windows-phone-get-started-push" title="Windows Phone">Windows Phone</a>
+    <a href="/ko--kr/documentation/articles/mobile-services-ios-get-started-push" title="iOS">iOS</a>
+    <a href="/ko--kr/documentation/articles/mobile-services-android-get-started-push" title="Android">Android</a>
+<!--    <a href="/ko--kr/documentation/articles/partner-xamarin-mobile-services-ios-get-started-push" title="Xamarin.iOS">Xamarin.iOS</a>     <a href="/ko--kr/documentation/articles/partner-xamarin-mobile-services-android-get-started-push" title="Xamarin.Android">Xamarin.Android</a> -->
+    <a href="/ko--kr/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push" title="Appcelerator" class="current">Appcelerator</a>
 </div>
 
 이 항목에서는 Microsoft Azure 모바일 서비스를 사용하여 Appcelerator Titanium Studio를 통해 개발된 iOS 및 Android 앱에 푸시 알림을 보내는 방법을 보여 줍니다. 이 자습서에서는 APNS(Apple Push Notification Service) 및 Google Cloud Messaging을 사용하여 quickstart 프로젝트에 푸시 알림을 추가합니다. 이 작업을 완료하면 레코드가 삽입될 때마다 모바일 서비스에서 푸시 알림을 전송합니다.
@@ -444,12 +444,12 @@ Android NDK를 설치해야 합니다. [][]<http://developer.android.com/sdk/ndk
 
 
 
-  [Windows 스토어 C\#]: /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-push "Windows 스토어 C#"
-  [Windows 스토어 JavaScript]: /ko-kr/documentation/articles/mobile-services-windows-store-javascript-get-started-push "Windows 스토어 JavaScript"
-  [Windows Phone]: /ko-kr/documentation/articles/mobile-services-windows-phone-get-started-push "Windows Phone"
-  [iOS]: /ko-kr/documentation/articles/mobile-services-ios-get-started-push "iOS"
-  [Android]: /ko-kr/documentation/articles/mobile-services-android-get-started-push "Android"
-  [Appcelerator]: /ko-kr/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push "Appcelerator"
+  [Windows 스토어 C#]: /ko--kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-push "Windows 스토어 C#"
+  [Windows 스토어 JavaScript]: /ko--kr/documentation/articles/mobile-services-windows-store-javascript-get-started-push "Windows 스토어 JavaScript"
+  [Windows Phone]: /ko--kr/documentation/articles/mobile-services-windows-phone-get-started-push "Windows Phone"
+  [iOS]: /ko--kr/documentation/articles/mobile-services-ios-get-started-push "iOS"
+  [Android]: /ko--kr/documentation/articles/mobile-services-android-get-started-push "Android"
+  [Appcelerator]: /ko--kr/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push "Appcelerator"
   [인증서 서명 요청 생성]: #certificates
   [앱을 등록하고 푸시 알림을 사용하도록 설정]: #register
   [앱용 프로비저닝 프로필 만들기]: #profile
@@ -459,7 +459,7 @@ Android NDK를 설치해야 합니다. [][]<http://developer.android.com/sdk/ndk
   [앱에 푸시 알림 추가]: #add-push
   [푸시 알림을 전송하도록 스크립트 업데이트]: #update-scripts
   [알림을 받기 위한 데이터 삽입]: #test
-  [모바일 서비스 시작하기]: /ko-kr/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started
+  [모바일 서비스 시작하기]: /ko--kr/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started
   [Apple 푸시 알림 설정]: ../includes/enable-apple-push-notifications.md
   [accounts.google.com]: http://go.microsoft.com/fwlink/p/?LinkId=268302
   [GCM 사용]: ../includes/mobile-services-enable-Google-cloud-messaging.md

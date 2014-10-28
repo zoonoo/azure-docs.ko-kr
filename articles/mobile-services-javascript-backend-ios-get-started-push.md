@@ -1,12 +1,12 @@
-<properties linkid="develop-mobile-tutorials-get-started-with-push-ios" urlDisplayName="Get Started with Push (iOS)" pageTitle="Get started with push notifications (iOS) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to send push notifications to your iOS app." metaCanonical="http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-push-dotnet/" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" solutions="" manager="dwrede" editor="" authors="krisragh" />
+<properties linkid="develop-mobile-tutorials-get-started-with-push-ios" urlDisplayName="Get Started with Push (iOS)" pageTitle="Get started with push notifications (iOS) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to send push notifications to your iOS app." metaCanonical="http://www.windowsazure.com/ko--kr/develop/mobile/tutorials/get-started-with-push-dotnet/" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" solutions="" manager="dwrede" editor="" authors="krisragh" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh"></tags>
 
 # 모바일 서비스에서 푸시 알림 시작
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/ko-kr/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push" title="Windows 스토어 C#">Windows 스토어 C#</a><a href="/ko-kr/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push" title="Windows 스토어 JavaScript">Windows 스토어 JavaScript</a><a href="/ko-kr/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push" title="Windows Phone">Windows Phone</a><a href="/ko-kr/documentation/articles/mobile-services-javascript-backend-ios-get-started-push" title="iOS" class="current">iOS</a><a href="/ko-kr/documentation/articles/mobile-services-javascript-backend-android-get-started-push" title="Android">Android</a><!---<a href="/en-us/develop/mobile/tutorials/get-started-with-push-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-xamarin-android" title="Xamarin.Android">Xamarin.Android</a>--></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/ko--kr/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push" title="Windows 스토어 C#">Windows 스토어 C#</a><a href="/ko--kr/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push" title="Windows 스토어 JavaScript">Windows 스토어 JavaScript</a><a href="/ko--kr/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push" title="Windows Phone">Windows Phone</a><a href="/ko--kr/documentation/articles/mobile-services-javascript-backend-ios-get-started-push" title="iOS" class="current">iOS</a><a href="/ko--kr/documentation/articles/mobile-services-javascript-backend-android-get-started-push" title="Android">Android</a><!---<a href="/ko--kr/develop/mobile/tutorials/get-started-with-push-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/ko--kr/develop/mobile/tutorials/get-started-with-push-xamarin-android" title="Xamarin.Android">Xamarin.Android</a>--></div>
 
-<div class="dev-center-tutorial-subselector"><a href="/ko-kr/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push/" title=".NET 백 엔드" >.NET 백 엔드</a> | <a href="/ko-kr/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push/" title="JavaScript 백 엔드" class="current">JavaScript 백 엔드</a></div>
+<div class="dev-center-tutorial-subselector"><a href="/ko--kr/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push/" title=".NET 백 엔드" >.NET 백 엔드</a> | <a href="/ko--kr/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push/" title="JavaScript 백 엔드" class="current">JavaScript 백 엔드</a></div>
 
 이 항목에서는 Azure 모바일 서비스를 사용하여 iOS 앱에 푸시 알림을 보내는 방법에 대해 설명합니다. 이 자습서에서는 APNS(Apple Push Notification Service)를 사용하여 quickstart 프로젝트에 푸시 알림을 추가합니다. 이 작업을 완료하면 레코드가 삽입될 때마다 모바일 서비스에서 푸시 알림을 전송합니다.
 
@@ -189,14 +189,14 @@
 
 
 
-  [Windows 스토어 C\#]: /ko-kr/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push "Windows 스토어 C#"
-  [Windows 스토어 JavaScript]: /ko-kr/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push "Windows 스토어 JavaScript"
-  [Windows Phone]: /ko-kr/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push "Windows Phone"
-  [iOS]: /ko-kr/documentation/articles/mobile-services-javascript-backend-ios-get-started-push "iOS"
-  [Android]: /ko-kr/documentation/articles/mobile-services-javascript-backend-android-get-started-push "Android"
-  [.NET 백 엔드]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push/ ".NET 백 엔드"
-  [JavaScript 백 엔드]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push/ "JavaScript 백 엔드"
-  [푸시 알림 시작(레거시)]: /ko-kr/documentation/articles/mobile-services-ios-get-started-push/
+  [Windows 스토어 C#]: /ko--kr/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push "Windows 스토어 C#"
+  [Windows 스토어 JavaScript]: /ko--kr/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push "Windows 스토어 JavaScript"
+  [Windows Phone]: /ko--kr/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push "Windows Phone"
+  [iOS]: /ko--kr/documentation/articles/mobile-services-javascript-backend-ios-get-started-push "iOS"
+  [Android]: /ko--kr/documentation/articles/mobile-services-javascript-backend-android-get-started-push "Android"
+  [.NET 백 엔드]: /ko--kr/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push/ ".NET 백 엔드"
+  [JavaScript 백 엔드]: /ko--kr/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push/ "JavaScript 백 엔드"
+  [푸시 알림 시작(레거시)]: /ko--kr/documentation/articles/mobile-services-ios-get-started-push/
   [인증서 서명 요청 생성]: #certificates
   [앱을 등록하고 푸시 알림을 사용하도록 설정]: #register
   [앱용 프로비저닝 프로필 만들기]: #profile
@@ -206,7 +206,7 @@
   [알림을 받기 위한 데이터 삽입]: #test
   [모바일 서비스 iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
   [XCode 4.5]: https://go.microsoft.com/fwLink/p/?LinkID=266532
-  [모바일 서비스 시작하기]: /ko-kr/documentation/articles/mobile-services-ios-get-started
+  [모바일 서비스 시작하기]: /ko--kr/documentation/articles/mobile-services-ios-get-started
   [Apple 푸시 알림 설정]: ../includes/enable-apple-push-notifications.md
   [mobile-services-apns-configure-push]: ../includes/mobile-services-apns-configure-push.md
   []: ./media/mobile-services-ios-get-started-push/mobile-portal-data-tables.png
@@ -216,10 +216,10 @@
   [3]: ./media/mobile-services-ios-get-started-push/mobile-quickstart-push2-ios.png
   [4]: ./media/mobile-services-ios-get-started-push/mobile-quickstart-push3-ios.png
   [5]: ./media/mobile-services-ios-get-started-push/mobile-quickstart-push4-ios.png
-  [인증된 사용자에게 푸시 알림 보내기]: /ko-kr/documentation/articles/mobile-services-javascript-backend-ios-push-notifications-app-users/
-  [구독자에게 브로드캐스트 알림 보내기]: /ko-kr/documentation/articles/notification-hubs-ios-send-breaking-news/
-  [데이터 시작하기]: /ko-kr/documentation/articles/mobile-services-ios-get-started-data
-  [인증 시작]: /ko-kr/documentation/articles/mobile-services-ios-get-started-users
-  [알림 허브 정의]: /ko-kr/documentation/articles/notification-hubs-overview/
-  [모바일 서비스 Objective-C 방법 개념 참조]: /ko-kr/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library
+  [인증된 사용자에게 푸시 알림 보내기]: /ko--kr/documentation/articles/mobile-services-javascript-backend-ios-push-notifications-app-users/
+  [구독자에게 브로드캐스트 알림 보내기]: /ko--kr/documentation/articles/notification-hubs-ios-send-breaking-news/
+  [데이터 시작하기]: /ko--kr/documentation/articles/mobile-services-ios-get-started-data
+  [인증 시작]: /ko--kr/documentation/articles/mobile-services-ios-get-started-users
+  [알림 허브 정의]: /ko--kr/documentation/articles/notification-hubs-overview/
+  [모바일 서비스 Objective-C 방법 개념 참조]: /ko--kr/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library
   [모바일 서비스 서버 스크립트 참조]: http://go.microsoft.com/fwlink/?LinkId=262293

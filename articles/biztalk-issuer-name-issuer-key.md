@@ -36,7 +36,7 @@ Azure BizTalk 서비스는 서비스 버스 발급자 이름 및 발급자 키�
 
 ### 액세스 제어 발급자 이름 및 발급자 키를 검색하려면
 
-1.  [Azure 관리 포털][]에 로그인합니다.
+1.  [Azure 관리 포털][Azure 관리 포털]에 로그인합니다.
 2.  왼쪽 탐색 창에서 **BizTalk 서비스**를 선택합니다.
 3.  BizTalk 서비스를 선택합니다.
 4.  작업 표시줄에서 **연결 정보**를 선택합니다. 액세스 제어 네임스페이스, 기본 발급자(발급자 이름) 및 기본 키(발급자 키)가 나열되며 이러한 항목은 복사하여 붙여 넣을 수 있습니다.<br/><br/>
@@ -46,7 +46,7 @@ Azure BizTalk 서비스는 서비스 버스 발급자 이름 및 발급자 키�
 
 **ACS 관리 포털 열기**를 클릭하여 액세스 제어 값을 검색할 수도 있습니다.
 
-1.  [Azure 관리 포털][]에 로그인합니다.
+1.  [Azure 관리 포털][Azure 관리 포털]에 로그인합니다.
 2.  왼쪽 탐색 창에서 **BizTalk 서비스**를 선택합니다.
 3.  BizTalk 서비스를 선택합니다.
 4.  연결 정보 단추를 선택하고 **ACS 관리 포털 열기**를 선택합니다.
@@ -70,7 +70,7 @@ Azure BizTalk 서비스는 서비스 버스 발급자 이름 및 발급자 키�
 
 ### 서비스 버스 발급자 이름 및 발급자 키를 검색하려면
 
-1.  [Azure 관리 포털][]에 로그인합니다.
+1.  [Azure 관리 포털][Azure 관리 포털]에 로그인합니다.
 2.  왼쪽 탐색 창에서 **Service Bus**를 클릭합니다.
 3.  네임스페이스를 클릭합니다. 작업 표시줄에서 **연결 정보**를 클릭합니다. 그러면 **기본 발급자**(발급자 이름) 및 **기본 키**(발급자 키)가 표시됩니다. 이러한 값을 복사할 수 있습니다.
     요약하면 다음과 같습니다.
@@ -81,20 +81,20 @@ Azure BizTalk 서비스는 서비스 버스 발급자 이름 및 발급자 키�
 
 추가 Azure BizTalk 서비스 항목:
 
--   [Azure BizTalk 서비스 SDK 설치][]
--   [자습서: Azure BizTalk 서비스][]
--   [Azure BizTalk 서비스 SDK로 시작하는 방법][]
--   [Azure BizTalk 서비스][]
+-   [Azure BizTalk 서비스 SDK 설치][Azure BizTalk 서비스 SDK 설치]
+-   [자습서: Azure BizTalk 서비스][자습서: Azure BizTalk 서비스]
+-   [Azure BizTalk 서비스 SDK로 시작하는 방법][Azure BizTalk 서비스 SDK로 시작하는 방법]
+-   [Azure BizTalk 서비스][Azure BizTalk 서비스]
 
 ## 참고 항목
 
--   [방법: ACS 관리 서비스를 사용하여 서비스 ID 구성][]
--   [BizTalk 서비스: Developer, Basic, Standard 및 Premium Editions 차트][]
--   [BizTalk 서비스: Azure 관리 포털을 사용하여 프로비전][]
--   [BizTalk 서비스: 상태 차트 프로비전][]
--   [BizTalk 서비스: 대시보드, 모니터 및 크기 조정 탭][]
--   [BizTalk 서비스: 백업 및 복원][]
--   [BizTalk 서비스: 제한][]
+-   [방법: ACS 관리 서비스를 사용하여 서비스 ID 구성][방법: ACS 관리 서비스를 사용하여 서비스 ID 구성]
+-   [BizTalk 서비스: Developer, Basic, Standard 및 Premium Editions 차트][BizTalk 서비스: Developer, Basic, Standard 및 Premium Editions 차트]
+-   [BizTalk 서비스: Azure 관리 포털을 사용하여 프로비전][BizTalk 서비스: Azure 관리 포털을 사용하여 프로비전]
+-   [BizTalk 서비스: 상태 차트 프로비전][BizTalk 서비스: 상태 차트 프로비전]
+-   [BizTalk 서비스: 대시보드, 모니터 및 크기 조정 탭][BizTalk 서비스: 대시보드, 모니터 및 크기 조정 탭]
+-   [BizTalk 서비스: 백업 및 복원][BizTalk 서비스: 백업 및 복원]
+-   [BizTalk 서비스: 제한][BizTalk 서비스: 제한]
 
   [Azure 관리 포털]: http://go.microsoft.com/fwlink/p/?LinkID=213885
   [방법: ACS 관리 서비스를 사용하여 서비스 ID 구성]: http://go.microsoft.com/fwlink/p/?LinkID=303942

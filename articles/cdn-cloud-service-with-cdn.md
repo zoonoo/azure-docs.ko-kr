@@ -41,8 +41,8 @@ Azure CDN은 클라우드 서비스와 통합되어 클라우드 서비스 CDN �
   <span class="wa-icon-bulb"></span>
   <h5><a name="note"></a>이 자습서를 완료하려면 Azure 계정이 있어야 합니다.</h5>
   <ul>
-    <li><a href="http://azure.microsoft.com/en-us/pricing/free-trial/?WT.mc_id=A261C142F">Azure 계정을 무료로 개설</a>할 수 있음 - 유료 Azure 서비스를 사용해볼 수 있는 크레딧을 받게 되며 크레딧을 모두 사용한 후에도 계정을 유지하고 무료 Azure 서비스(예: 웹 서비스)를 사용할 수 있습니다.</li>
-    <li><a href="http://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F">MSDN 구독자 혜택을 활성화</a>할 수 있음 - MSDN 구독은 유료 Azure 서비스에 사용할 수 있는 크레딧을 매달 제공합니다.</li>
+    <li><a href="http://azure.microsoft.com/ko--kr/pricing/free-trial/?WT.mc_id=A261C142F">Azure 계정을 무료로 개설</a>할 수 있음 - 유료 Azure 서비스를 사용해볼 수 있는 크레딧을 받게 되며 크레딧을 모두 사용한 후에도 계정을 유지하고 무료 Azure 서비스(예: 웹 서비스)를 사용할 수 있습니다.</li>
+    <li><a href="http://azure.microsoft.com/ko--kr/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F">MSDN 구독자 혜택을 활성화</a>할 수 있음 - MSDN 구독은 유료 Azure 서비스에 사용할 수 있는 크레딧을 매달 제공합니다.</li>
   <ul>
 </div>
 
@@ -635,10 +635,10 @@ ASP.NET 묶음 및 축소를 CDN 끝점과 통합하려면 다음 단계를 따�
   [Azure CDN을 통해 컨트롤러 작업의 콘텐츠 제공]: #controller
   [Visual Studio의 스크립트 디버깅 환경은 유지하면서 Azure CDN을 통해 묶이고 축소된 콘텐츠 제공]: #bundling
   [Azure CDN이 오프라인인 경우 스크립트 및 CSS 대체 구성]: #fallback
-  [Microsoft Azure 계정]: http://azure.microsoft.com/en-us/account/
+  [Microsoft Azure 계정]: http://azure.microsoft.com/ko--kr/account/
   [Azure SDK]: http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409
-  [Azure 계정을 무료로 개설]: http://azure.microsoft.com/en-us/pricing/free-trial/?WT.mc_id=A261C142F
-  [MSDN 구독자 혜택을 활성화]: http://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
+  [Azure 계정을 무료로 개설]: http://azure.microsoft.com/ko--kr/pricing/free-trial/?WT.mc_id=A261C142F
+  [MSDN 구독자 혜택을 활성화]: http://azure.microsoft.com/ko--kr/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
   []: media/cdn-cloud-service-with-cdn/cdn-cs-1-new-project.PNG
   [1]: media/cdn-cloud-service-with-cdn/cdn-cs-2-select-role.PNG
   [2]: media/cdn-cloud-service-with-cdn/cdn-cs-3-mvc-template.PNG
@@ -647,7 +647,7 @@ ASP.NET 묶음 및 축소를 CDN 끝점과 통합하려면 다음 단계를 따�
   [5]: media/cdn-cloud-service-with-cdn/cdn-cs-6-publish-signedin.png
   [6]: media/cdn-cloud-service-with-cdn/cdn-cs-7-publish-createserviceandstorage.png
   [7]: media/cdn-cloud-service-with-cdn/cdn-cs-8-publish-finalize.png
-  [Azure Tools를 사용하여 클라우드 서비스 게시]: http://msdn.microsoft.com/en-us/library/ff683672.aspx
+  [Azure Tools를 사용하여 클라우드 서비스 게시]: http://msdn.microsoft.com/ko--kr/library/ff683672.aspx
   [Azure 관리 포털]: http://manage.windowsazure.com/
   [8]: media/cdn-cloud-service-with-cdn/cdn-cs-10-createcdn.png
   [9]: media/cdn-cloud-service-with-cdn/cdn-cs-11-disablequerya.png
@@ -663,14 +663,14 @@ ASP.NET 묶음 및 축소를 CDN 끝점과 통합하려면 다음 단계를 따�
   [15]: media/cdn-cloud-service-with-cdn/cdn-6-addview.PNG
   [16]: media/cdn-cloud-service-with-cdn/cdn-7-configureview.PNG
   [TODO]: #integrate
-  [Bundle 생성자]: http://msdn.microsoft.com/en-us/library/jj646464.aspx
-  [Bundle]: http://msdn.microsoft.com/en-us/library/system.web.optimization.bundle.aspx
-  [CdnFallbackExpression]: http://msdn.microsoft.com/en-us/library/system.web.optimization.bundle.cdnfallbackexpression.aspx
+  [Bundle 생성자]: http://msdn.microsoft.com/ko--kr/library/jj646464.aspx
+  [Bundle]: http://msdn.microsoft.com/ko--kr/library/system.web.optimization.bundle.aspx
+  [CdnFallbackExpression]: http://msdn.microsoft.com/ko--kr/library/system.web.optimization.bundle.cdnfallbackexpression.aspx
   [System.Web.Optimization에 버그]: https://aspnetoptimization.codeplex.com/workitem/104
   [Ember 컨설팅 그룹]: https://github.com/EmberConsultingGroup
   [스타일 번들 대체]: https://github.com/EmberConsultingGroup/StyleBundleFallback
   [GitHub의 코드]: https://github.com/EmberConsultingGroup/StyleBundleFallback/blob/master/Website/App_Start/StyleBundleExtensions.cs
   [Azure CDN(콘텐츠 배달 네트워크) 개요]: http://msdn.microsoft.com/library/azure/ff919703.aspx
-  [웹 응용 프로그램에서 Azure CDN의 콘텐츠 제공]: http://azure.microsoft.com/ko-kr/documentation/Articles/cdn-serve-content-from-cdn-in-your-web-application/
+  [웹 응용 프로그램에서 Azure CDN의 콘텐츠 제공]: http://azure.microsoft.com/ko--kr/Documentation/Articles/cdn-serve-content-from-cdn-in-your-web-application/
   [ASP.NET 묶음 및 축소]: http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification
-  [Azure에 CDN 사용]: http://azure.microsoft.com/ko-kr/documentation/articles/cdn-how-to-use/
+  [Azure에 CDN 사용]: http://azure.microsoft.com/ko--kr/documentation/articles/cdn-how-to-use/

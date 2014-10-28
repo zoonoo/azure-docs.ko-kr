@@ -5,12 +5,12 @@
 # Azure Active Directory 그래프 정보 액세스
 
 <div class="dev-center-tutorial-selector sublanding">
-    <a href="/ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-aad-graph-info/" title="Windows 스토어 C#" class="current">Windows 스토어 C#</a>
+    <a href="/ko--kr/documentation/articles/mobile-services-dotnet-backend-windows-store-aad-graph-info/" title="Windows 스토어 C#" class="current">Windows 스토어 C#</a>
 </div>
 
 <div class="dev-center-tutorial-subselector">
-    <a href="/ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-aad-graph-info/" title=".NET 백 엔드" class="current">.NET 백 엔드</a> |
-    <a href="/ko-kr/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-aad-graph-info/" title="JavaScript 백 엔드">JavaScript 백 엔드</a>
+    <a href="/ko--kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-aad-graph-info/" title=".NET 백 엔드" class="current">.NET 백 엔드</a> |
+    <a href="/ko--kr/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-aad-graph-info/" title="JavaScript 백 엔드">JavaScript 백 엔드</a>
 </div>
 
 
@@ -173,19 +173,19 @@
 <!-- URLs. -->
 
 
-[Windows 스토어 C\#]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-aad-graph-info/ "Windows 스토어 C#"
-[.NET 백 엔드]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-aad-graph-info/ ".NET 백 엔드"
-[JavaScript 백 엔드]: /ko-kr/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-aad-graph-info/ "JavaScript 백 엔드"
+[Windows 스토어 C#]: /ko--kr/documentation/articles/mobile-services-dotnet-backend-windows-store-aad-graph-info/ "Windows 스토어 C#"
+[.NET 백 엔드]: /ko--kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-aad-graph-info/ ".NET 백 엔드"
+[JavaScript 백 엔드]: /ko--kr/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-aad-graph-info/ "JavaScript 백 엔드"
 [그래프 클라이언트 라이브러리]: http://go.microsoft.com/fwlink/?LinkId=510536
-[인증 시작]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users/
+[인증 시작]: /ko--kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users/
 [AAD에서 앱 등록을 위한 액세스 키 생성]: #generate-key
 [GetUserInfo 사용자 지정 API 만들기]: #create-api
 [사용자 지정 API를 사용하도록 앱 업데이트]: #update-app
 [앱 테스트]: #test-app
-[사용자 지정 API 자습서]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-call-custom-api/
-[Azure Active Directory 로그인 사용 등록]: /ko-kr/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
+[사용자 지정 API 자습서]: /ko--kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-call-custom-api/
+[Azure Active Directory 로그인 사용 등록]: /ko--kr/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
 [mobile-services-generate-aad-app-registration-access-key]: ../includes/mobile-services-generate-aad-app-registration-access-key.md
 [Azure 관리 포털]: https://manage.windowsazure.com/
 [mobile-services-aad-graph-info-update-app]: ../includes/mobile-services-aad-graph-info-update-app.md
 [mobile-services-aad-graph-info-test-app]: ../includes/mobile-services-aad-graph-info-test-app.md
-[모바일 서비스의 AAD에서 역할 기반 액세스 제어]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac/
+[모바일 서비스의 AAD에서 역할 기반 액세스 제어]: /ko--kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac/
