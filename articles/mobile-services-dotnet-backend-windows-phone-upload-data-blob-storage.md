@@ -1,9 +1,12 @@
-<properties pageTitle="Use Mobile Services to upload images to blob storage (Windows Phone) | Mobile Services" metaKeywords="" description="Learn how to use Mobile Services to upload images to Azure Blob Storage." metaCanonical="" disqusComments="0" umbracoNaviHide="1" documentationCenter="Mobile" title="Upload images to Azure Storage by using Mobile Services" authors="glenga" writer="glenga" />
+<properties linkId="mobile-services-dotnet-backend-windows-phone-upload-data-blob-storage" pageTitle="Use Mobile Services to upload images to blob storage (Windows Phone) | Mobile Services" metaKeywords="" description="Learn how to use Mobile Services to upload images to Azure Blob Storage." metaCanonical="" disqusComments="0" umbracoNaviHide="1" documentationCenter="Mobile" title="Upload images to Azure Storage by using Mobile Services" authors="glenga" writer="glenga" services="mobile-services, storage" />
 
-모바일 서비스를 사용하여 Azure 저장소에 이미지 업로드
-=====================================================
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
 
-> [AZURE.SELECTOR-LIST (Platform | Backend )] - [(Windows 스토어 C\# | .NET)](mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage.md) - [(Windows 스토어 C\# | JavaScript)](mobile-services-windows-store-dotnet-upload-data-blob-storage.md) - [(Windows Phone | .NET)](mobile-services-dotnet-backend-windows-phone-upload-data-blob-storage.md) - [(Windows Phone | JavaScript)](mobile-services-windows-phone-upload-data-blob-storage.md)
+# 모바일 서비스를 사용하여 Azure 저장소에 이미지 업로드
+
+<div class="dev-center-tutorial-selector sublanding"><a href="/ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage" title="Windows 스토어 C#">Windows 스토어 C#</a><a href="/ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-phone-upload-data-blob-storage" title="Windows Phone" class="current">Windows Phone</a></div>
+
+<div class="dev-center-tutorial-subselector"><a href="/ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-phone-upload-data-blob-storage" title=".NET 백 엔드" class="current">.NET 백 엔드</a> | <a href="/ko-kr/documentation/articles/mobile-services-windows-phone-upload-data-blob-storage"  title="JavaScript 백 엔드">JavaScript 백 엔드</a></div>
 
 이 항목에서는 Azure 모바일 서비스를 사용하여, 사용자가 만든 이미지를 앱에서 Azure 저장소에 업로드하고 저장하는 방법에 대해 설명합니다. 모바일 서비스에서는 SQL 데이터베이스를 사용하여 데이터를 저장합니다. 그러나 Azure Blob 저장소 서비스에는 BLOB(Binary Large Object) 데이터를 저장하는 것이 좀 더 효율적입니다.
 
@@ -11,55 +14,55 @@
 
 이 자습서에서는 모바일 서비스에서 생성한 SAS를 사용하여 사진을 찍고 이미지를 Azure에 업로드하는 기능을 모바일 서비스 퀵 스타트 앱에 추가합니다. 이를 위해 모바일 서비스 퀵 스타트를 업데이트하여 Blob 저장소 서비스에 이미지를 업로드하는 다음과 같은 기본 단계를 안내합니다.
 
-1.  [저장소 클라이언트 라이브러리 설치](#install-storage-client)
-2.  [테이블 컨트롤러를 업데이트하여 SAS 생성](#update-scripts)
-3.  [클라이언트 앱을 업데이트하여 이미지 캡처](#add-select-images)
-4.  [이미지를 업로드하여 앱 테스트](#test)
+1.  [저장소 클라이언트 라이브러리 설치][저장소 클라이언트 라이브러리 설치]
+2.  [클라이언트 앱을 업데이트하여 이미지 캡처][클라이언트 앱을 업데이트하여 이미지 캡처]
+3.  [모바일 서비스 프로젝트에 저장소 클라이언트 설치][모바일 서비스 프로젝트에 저장소 클라이언트 설치]
+4.  [데이터 모델에서 TodoItem 정의 업데이트][데이터 모델에서 TodoItem 정의 업데이트]
+5.  [테이블 컨트롤러를 업데이트하여 SAS 생성][테이블 컨트롤러를 업데이트하여 SAS 생성]
+6.  [이미지를 업로드하여 앱 테스트][이미지를 업로드하여 앱 테스트]
 
 이 자습서를 사용하려면 다음이 필요합니다.
 
--   Windows 8용 Microsoft Visual Studio 2012 Express 이상
--   [Windows Phone SDK 8.0](http://www.microsoft.com/en-us/download/details.aspx?id=35471) 이상
+-   Microsoft Visual Studio 2013 또는 이상 버전
+-   [Windows Phone SDK 8.0][Windows Phone SDK 8.0] 이상
 -   Microsoft Visual Studio용 Nuget 패키지 관리자 설치
--   [Azure 저장소 계정](/en-us/manage/services/storage/how-to-create-a-storage-account)
+-   [Azure 저장소 계정][Azure 저장소 계정]
 
-이 자습서는 모바일 서비스 퀵 스타트를 기반으로 합니다. 이 자습서를 시작하기 전에 먼저 [모바일 서비스 시작하기](/ko-kr/documentation/articles/mobile-services-windows-phone-get-started)를 완료해야 합니다.
+이 자습서는 모바일 서비스 퀵 스타트를 기반으로 합니다. 이 자습서를 시작하기 전에 먼저 [모바일 서비스 시작하기][모바일 서비스 시작하기]를 완료해야 합니다.
 
-Windows 스토어 앱용 저장소 클라이언트 설치
-------------------------------------------
+[WACOM.INCLUDE [mobile-services-dotnet-backend-configure-blob-storage][mobile-services-dotnet-backend-configure-blob-storage]]
 
-SAS를 사용하여 Blob 저장소에 이미지를 업로드하려면 먼저 Windows 스토어 앱용 저장소 클라이언트 라이브러리를 설치하는 NuGet 패키지를 추가해야 합니다.
+## <a name="install-storage-client"></a>Windows 스토어 앱용 저장소 클라이언트 설치
 
-1.  Visual Studio의 **솔루션 탐색기**에서 프로젝트 이름을 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 선택합니다.
+SAS를 사용하여 앱에서 Blob 저장소에 이미지를 업로드하려면 먼저 Windows 스토어 앱용 저장소 클라이언트 라이브러리를 설치하는 NuGet 패키지를 추가해야 합니다.
+
+1.  Visual Studio의 **솔루션 탐색기**에서 클라이언트 앱 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 선택합니다.
 
 2.  왼쪽 창에서 **온라인** 범주를 선택하고, **Include Prerelease**를 선택하고 **WindowsAzure.Storage-Preview**를 검색한 후 **Azure 저장소** 패키지에서 **설치**를 클릭한 다음, 사용권 계약에 동의합니다.
 
-![](./media/mobile-services-windows-phone-upload-data-blob-storage/mobile-add-storage-nuget-package-dotnet.png) Azure 저장소 서비스용 클라이언트 라이브러리가 프로젝트에 추가됩니다.
+    ![][]
 
-다음 단계에서는 이미지를 캡처하고 업로드하도록 퀵 스타트 앱을 업데이트합니다.
+    Azure 저장소 서비스용 클라이언트 라이브러리가 프로젝트에 추가됩니다.
 
-TodoItem 컨트롤러를 업데이트하여 공유 액세스 서명 생성
-------------------------------------------------------
+[WACOM.INCLUDE [mobile-services-windows-phone-upload-to-blob-storage][mobile-services-windows-phone-upload-to-blob-storage]]
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-configure-blob-storage](../includes/mobile-services-configure-blob-storage.md)]
+<!-- Anchors. --> 
+<!-- Images. --> 
+<!-- URLs. -->
 
-[WACOM.INCLUDE [mobile-services-windows-phone-upload-to-blob-storage](../includes/mobile-services-windows-phone-upload-to-blob-storage.md)]
-
-다음 단계
----------
-
-이제 모바일 서비스를 Blob 서비스와 통합하여 이미지를 안전하게 업로드할 수 있게 되었으므로 몇 가지 기타 백 엔드 서비스 및 통합 항목을 확인해보십시오.
-
--   [SendGrid로 모바일 서비스에서 전자 메일 보내기](/en-us/develop/mobile/tutorials/send-email-with-sendgrid/)
-
-    SendGrid 전자 메일 서비스를 사용해 모바일 서비스에 전자 메일 기능을 추가하는 방법에 대해 알아보십시오. 이 항목에서는 SendGrid를 사용해 전자 메일을 보내기 위해 서버 쪽 스크립트를 추가하는 방법에 대해 설명합니다.
-
--   [모바일 서비스에서 백 엔드 작업 예약](/ko-kr/documentation/articles/mobile-services-dotnet-backend-schedule-recurring-tasks)
-
-    모바일 서비스 작업 스케줄러 기능을 사용하여, 예약된 시간에 실행되는 서버 스크립트 코드를 정의하는 방법에 대해 알아보십시오.
-
--   [모바일 서비스 .NET 방법 개념 참조](/en-us/develop/mobile/how-to-guides/work-with-net-client-library)
-
-    모바일 서비스를 .NET과 함께 사용하는 방법에 대해 알아보십시오.
-
-
+  [Windows 스토어 C#]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage "Windows 스토어 C#"
+  [Windows Phone]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-phone-upload-data-blob-storage "Windows Phone"
+  [.NET 백 엔드]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-phone-upload-data-blob-storage ".NET 백 엔드"
+  [JavaScript 백 엔드]: /ko-kr/documentation/articles/mobile-services-windows-phone-upload-data-blob-storage "JavaScript 백 엔드"
+  [저장소 클라이언트 라이브러리 설치]: #install-storage-client
+  [클라이언트 앱을 업데이트하여 이미지 캡처]: #add-select-images
+  [모바일 서비스 프로젝트에 저장소 클라이언트 설치]: #storage-client-server
+  [데이터 모델에서 TodoItem 정의 업데이트]: #update-data-model
+  [테이블 컨트롤러를 업데이트하여 SAS 생성]: #update-scripts
+  [이미지를 업로드하여 앱 테스트]: #test
+  [Windows Phone SDK 8.0]: http://www.microsoft.com/ko-kr/download/details.aspx?id=35471
+  [Azure 저장소 계정]: /ko-kr/documentation/articles/storage-create-storage-account/
+  [모바일 서비스 시작하기]: /ko-kr/documentation/articles/mobile-services-windows-phone-get-started
+  [mobile-services-dotnet-backend-configure-blob-storage]: ../includes/mobile-services-dotnet-backend-configure-blob-storage.md
+  []: ./media/mobile-services-dotnet-backend-windows-phone-upload-data-blob-storage/mobile-add-storage-nuget-package-dotnet.png
+  [mobile-services-windows-phone-upload-to-blob-storage]: ../includes/mobile-services-windows-phone-upload-to-blob-storage.md

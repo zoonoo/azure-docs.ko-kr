@@ -1,27 +1,48 @@
 <properties pageTitle="Service-side authorization (Windows Store) | Mobile Dev Center" metaKeywords="" description="Learn how to authorize users in the JavaScript backend of Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="Service-side authorization of Mobile Services users" authors="glenga" solutions="" manager="" editor="" />
 
-모바일 서비스 사용자의 서비스 쪽 권한 부여
-==========================================
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
 
-[Windows 스토어 C\#](/ko-kr/documentation/articles/mobile-services-windows-store-dotnet-authorize-users-in-scripts "Windows 스토어 C#")[Windows 스토어 JavaScript](/ko-kr/documentation/articles/mobile-services-windows-store-javascript-authorize-users-in-scripts "Windows 스토어 JavaScript")[Windows Phone](/ko-kr/documentation/articles/mobile-services-windows-phone-authorize-users-in-scripts "Windows Phone")[iOS](/ko-kr/documentation/articles/mobile-services-ios-authorize-users-in-scripts "iOS")[Android](/ko-kr/documentation/articles/mobile-services-android-authorize-users-in-scripts "Android")[HTML](/ko-kr/documentation/articles/mobile-services-html-authorize-users-in-scripts "HTML")[Xamarin.iOS](/ko-kr/documentation/articles/partner-xamarin-mobile-services-ios-authorize-users-in-scripts "Xamarin.iOS")[Xamarin.Android](/ko-kr/documentation/articles/partner-xamarin-mobile-services-android-authorize-users-in-scripts "Xamarin.Android")
-[.NET 백 엔드](/ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-authorize-users-in-scripts/ ".NET 백 엔드") | [JavaScript 백 엔드](/ko-kr/documentation/articles/mobile-services-windows-store-dotnet-authorize-users-in-scripts/ "JavaScript 백 엔드")
+# 모바일 서비스 사용자의 서비스 쪽 권한 부여
+
+<div class="dev-center-tutorial-selector sublanding">
+
+[Windows 스토어 C#][Windows 스토어 C#][Windows 스토어 JavaScript][Windows 스토어 JavaScript][Windows Phone][Windows Phone][iOS][iOS][Android][Android][HTML][HTML][Xamarin.iOS][Xamarin.iOS][Xamarin.Android][Xamarin.Android]
+
+</div>
+
+<div class="dev-center-tutorial-subselector">
+
+[.NET 백 엔드][.NET 백 엔드] | [JavaScript 백 엔드][JavaScript 백 엔드]
+
+</div>
+
+<div class="dev-onpage-video-clear clearfix">
+
+<div class="dev-onpage-left-content">
 
 이 항목에서는 인증된 사용자에게 Windows 스토어 앱에서 Azure 모바일 서비스의 데이터에 액세스할 수 있는 권한을 부여하는 방법을 보여 줍니다. 이 자습서에서는 모바일 서비스에 스크립트를 등록하여 인증된 사용자의 userId를 기반으로 쿼리를 필터링함으로써 각 사용자가 자신의 고유 데이터만 볼 수 있도록 만듭니다.
 
 오른쪽에 있는 클립을 클릭하여 이 자습서의 동영상 버전을 볼 수 있습니다.
 
-[자습서 보기](http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Windows-Store-app-Authenticate-and-Authorize-users-with-Server-Scripts-in-Windows-Azure-Mobile-Servi) [동영상 재생](http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Windows-Store-app-Authenticate-and-Authorize-users-with-Server-Scripts-in-Windows-Azure-Mobile-Servi) 13:52
+</div>
 
-이 자습서는 모바일 서비스 빠른 시작을 기반으로 하며 이전 자습서인 [인증 시작](/en-us/develop/mobile/tutorials/get-started-with-users-dotnet)에 내용을 추가했습니다. 이 자습서를 시작하기 전에 먼저 [인증 시작](/en-us/develop/mobile/tutorials/get-started-with-users-dotnet)을 완료해야 합니다.
+<div class="dev-onpage-video-wrapper">
 
-스크립트 등록
--------------
+[자습서 보기][자습서 보기] [<span class="icon">동영상 재생</span>][자습서 보기] <span class="time">오후 1:52:00</span>
+
+</div>
+
+</div>
+
+이 자습서는 모바일 서비스 퀵 스타트를 기반으로 하며 이전 자습서인 [인증 시작][인증 시작]에 내용을 추가했습니다. 이 자습서를 시작하기 전에 먼저 [인증 시작][인증 시작]을 완료해야 합니다.
+
+## <a name="register-scripts"></a>스크립트 등록
 
 빠른 시작 앱은 데이터를 읽고 삽입하기 때문에 TodoItem 테이블에 대해 이 작업을 수행하는 스크립트를 등록해야 합니다.
 
-1.  [Azure 관리 포털](https://manage.windowsazure.com/)에 로그온하여 **모바일 서비스**를 클릭한 후 앱을 클릭합니다.
+1.  [Azure 관리 포털][Azure 관리 포털]에 로그온하여 **모바일 서비스**를 클릭한 후 앱을 클릭합니다.
 
-    ![][0]
+    ![][]
 
 2.  **데이터** 탭을 클릭한 후 **TodoItem** 테이블을 클릭합니다.
 
@@ -31,32 +52,34 @@
 
     ![][2]
 
-4.  기존 스크립트를 다음 함수로 바꾼 후 **Save**를 클릭합니다.
+4.  기존 스크립트를 다음 함수로 바꾼 후 **저장**을 클릭합니다.
 
-         function insert(item, user, request) {
-           item.userId = user.userId;    
-           request.execute();
-         }
+        function insert(item, user, request) {
+          item.userId = user.userId;    
+          request.execute();
+        }
 
     이 스크립트는 항목에 userId 값을 추가합니다. 이 값은 TodoItem 테이블에 삽입되기 전의 인증된 사용자의 사용자 ID입니다.
 
-    **참고**
+    <div class="dev-callout">
 
+    **참고**
     이 삽입 스크립트를 처음 실행할 때는 동적 스키마를 사용하도록 설정해야 합니다. 동적 스키마를 사용하도록 설정하면 첫 번째 실행 시 모바일 서비스가 **userId** 열을 **TodoItem** 테이블에 자동으로 추가합니다. 동적 스키마는 기본적으로 새 모바일 서비스에 대해 사용하도록 설정되어 있으며 Windows 스토어에 앱을 게시하기 전에 이 스키마를 사용하지 않도록 설정해야 합니다.
+
+    </div>
 
 5.  3단계와 4단계를 반복하여 기존 **Read** 작업을 다음 함수로 바꿉니다.
 
         function read(query, user, request) {
-            query.where({ userId: user.userId});    
-            request.execute();
-         }
+           query.where({ userId: user.userId });    
+           request.execute();
+        }
 
     이 스크립트는 반환된 TodoItem 개체를 필터링하여 각 사용자가 자신이 삽입한 항목만 수신하도록 합니다.
 
-앱 테스트
----------
+## 앱 테스트
 
-1.  Visual Studio 2012 Express for Windows 8에서 [인증 시작](/en-us/develop/mobile/tutorials/get-started-with-users-dotnet) 자습서를 완료할 때 수정한 프로젝트를 엽니다.
+1.  Visual Studio 2012 Express for Windows 8에서 [인증 시작][인증 시작] 자습서를 완료할 때 수정한 프로젝트를 엽니다.
 
 2.  F5 키를 눌러 앱을 실행한 후 선택한 ID 공급자로 앱에 로그온합니다.
 
@@ -68,47 +91,46 @@
 
     모바일 서비스에서 TodoItem 테이블의 텍스트 및 userId가 모두 삽입됩니다. 새 항목에 올바른 userId 값이 있기 때문에 값이 모바일 서비스에서 반환되어 두 번째 열에 표시됩니다.
 
-4.  [관리 포털](https://manage.windowsazure.com/)로 돌아와 **todoitem** 테이블에서 **찾아보기**를 클릭하고 새로 추가된 각 항목에 이제 관련 userId 값이 있는지 확인합니다.
+4.  [관리 포털][Azure 관리 포털]로 돌아와 **todoitem** 테이블에서 **찾아보기**를 클릭하고 새로 추가된 각 항목에 이제 관련 userId 값이 있는지 확인합니다.
 
 5.  (옵션) 추가 로그인 계정이 있는 경우 앱을 닫았다가(Alt+F4) 다시 실행하여 사용자가 자신의 고유 데이터만 볼 수 있는지 여부를 확인할 수 있습니다. 로그인 자격 증명 대화 상자가 표시되면 다른 로그인을 입력한 후 이전 계정으로 입력한 항목이 표시되지 않는지 확인합니다.
 
-다음 단계
----------
+## 다음 단계
 
 이제 인증 관련 작업의 기본 사항을 설명하는 자습서를 마쳤습니다. 다음의 모바일 서비스 항목에 대해서도 자세히 알아보십시오.
 
--   [데이터 시작하기](/ko-kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-data/)
-    <br/>모바일 서비스를 사용하여 데이터를 저장 및 쿼리하는 방법에 대해 자세히 알아보십시오.
+-   [데이터 시작하기][데이터 시작하기]
+    모바일 서비스를 사용하여 데이터를 저장 및 쿼리하는 방법에 대해 자세히 알아보세요.
 
--   [푸시 알림 시작](/en-us/develop/mobile/tutorials/get-started-with-push-dotnet)
-    <br/>기본적인 푸시 알림을 앱에 보내는 방법을 알아봅니다.
+-   [푸시 알림 시작][푸시 알림 시작]
+    기본적인 푸시 알림을 앱에 보내는 방법을 알아봅니다.
 
--   [모바일 서비스 서버 스크립트 참조](http://go.microsoft.com/fwlink/?LinkId=262293)
-    <br/>서버 스크립트의 등록 및 사용에 대해 자세히 알아보십시오.
+-   [모바일 서비스 서버 스크립트 참조][모바일 서비스 서버 스크립트 참조]
+    서버 스크립트의 등록 및 사용에 대해 자세히 알아보십시오.
 
--   [모바일 서비스 .NET 방법 개념 참조](/en-us/develop/mobile/how-to-guides/work-with-net-client-library)
-    <br/>.NET과 함께 모바일 서비스를 사용하는 방법에 대해 자세히 알아보십시오.
+-   [모바일 서비스 .NET 방법 개념 참조][모바일 서비스 .NET 방법 개념 참조]
+    .NET과 함께 모바일 서비스를 사용하는 방법에 대해 자세히 알아보세요.
 
+<!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
 
-<!-- Anchors. -->
-[Register server scripts]: #register-scripts
-[Next Steps]:#next-steps
-
-<!-- Images. -->
-[0]: ./media/mobile-services-windows-store-dotnet-authorize-users-in-scripts/mobile-services-selection.png
-[1]: ./media/mobile-services-windows-store-dotnet-authorize-users-in-scripts/mobile-portal-data-tables.png
-[2]: ./media/mobile-services-windows-store-dotnet-authorize-users-in-scripts/mobile-insert-script-users.png
-[3]: ./media/mobile-services-windows-store-dotnet-authorize-users-in-scripts/mobile-quickstart-startup.png
-
-<!-- URLs. -->
-[Windows Push Notifications & Live Connect]: http://go.microsoft.com/fwlink/?LinkID=257677
-[Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
-[My Apps dashboard]: http://go.microsoft.com/fwlink/?LinkId=262039
-[Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started/#create-new-service
-[Get started with data]: /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-data/
-[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet
-[Get started with push notifications]: /en-us/develop/mobile/tutorials/get-started-with-push-dotnet
-[JavaScript and HTML]: mobile-services-win8-javascript/
-
-[Azure Management Portal]: https://manage.windowsazure.com/
-[Mobile Services .NET How-to Conceptual Reference]: /en-us/develop/mobile/how-to-guides/work-with-net-client-library
+  [Windows 스토어 C#]: /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-authorize-users-in-scripts "Windows 스토어 C#"
+  [Windows 스토어 JavaScript]: /ko-kr/documentation/articles/mobile-services-windows-store-javascript-authorize-users-in-scripts "Windows 스토어 JavaScript"
+  [Windows Phone]: /ko-kr/documentation/articles/mobile-services-windows-phone-authorize-users-in-scripts "Windows Phone"
+  [iOS]: /ko-kr/documentation/articles/mobile-services-ios-authorize-users-in-scripts "iOS"
+  [Android]: /ko-kr/documentation/articles/mobile-services-android-authorize-users-in-scripts "Android"
+  [HTML]: /ko-kr/documentation/articles/mobile-services-html-authorize-users-in-scripts "HTML"
+  [Xamarin.iOS]: /ko-kr/documentation/articles/partner-xamarin-mobile-services-ios-authorize-users-in-scripts "Xamarin.iOS"
+  [Xamarin.Android]: /ko-kr/documentation/articles/partner-xamarin-mobile-services-android-authorize-users-in-scripts "Xamarin.Android"
+  [.NET 백 엔드]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-authorize-users-in-scripts/ ".NET 백 엔드"
+  [JavaScript 백 엔드]: /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-authorize-users-in-scripts/ "JavaScript 백 엔드"
+  [자습서 보기]: http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Windows-Store-app-Authenticate-and-Authorize-users-with-Server-Scripts-in-Windows-Azure-Mobile-Servi
+  [인증 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-users-dotnet
+  [Azure 관리 포털]: https://manage.windowsazure.com/
+  []: ./media/mobile-services-windows-store-dotnet-authorize-users-in-scripts/mobile-services-selection.png
+  [1]: ./media/mobile-services-windows-store-dotnet-authorize-users-in-scripts/mobile-portal-data-tables.png
+  [2]: ./media/mobile-services-windows-store-dotnet-authorize-users-in-scripts/mobile-insert-script-users.png
+  [3]: ./media/mobile-services-windows-store-dotnet-authorize-users-in-scripts/mobile-quickstart-startup.png
+  [데이터 시작하기]: /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-data/
+  [푸시 알림 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-push-dotnet
+  [모바일 서비스 서버 스크립트 참조]: http://go.microsoft.com/fwlink/?LinkId=262293
+  [모바일 서비스 .NET 방법 개념 참조]: /ko-kr/develop/mobile/how-to-guides/work-with-net-client-library

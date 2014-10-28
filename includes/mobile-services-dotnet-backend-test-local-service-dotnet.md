@@ -1,5 +1,3 @@
-
-
 다운로드하는 모바일 서비스 프로젝트를 통해 로컬 컴퓨터 또는 가상 컴퓨터에서 새 모바일 서비스를 실행할 수 있습니다. 이렇게 하면 Azure에 게시하기 전이더라도 서비스 코드를 쉽게 디버그할 수 있습니다.
 
 이 섹션에서는 로컬로 실행 중인 모바일 서비스에 대해 새 앱을 테스트합니다.
@@ -8,7 +6,7 @@
 
 2.  **F5** 키를 눌러 프로젝트를 다시 빌드하고 모바일 서비스를 로컬로 시작합니다.
 
-    ![](./media/mobile-services-dotnet-backend-test-local-service-dotnet/mobile-service-startup.png)
+    ![][]
 
     모바일 서비스가 성공적으로 시작된 후에 웹 페이지가 표시됩니다.
 
@@ -20,4 +18,4 @@
 
     이렇게 하면 POST 요청이 로컬 모바일 서비스에 전송됩니다. 요청에서 데이터가 TodoItem 테이블에 삽입됩니다. 테이블에 저장된 항목이 모바일 서비스에서 반환되고 그 데이터가 앱의 두 번째 열에 표시됩니다.
 
-
+  []: ./media/mobile-services-dotnet-backend-test-local-service-dotnet/mobile-service-startup.png

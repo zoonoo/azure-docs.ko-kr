@@ -1,34 +1,33 @@
 <properties linkid="manage-services-how-to-configure-a-cloud-service" urlDisplayName="How to configure" pageTitle="How to configure a cloud service - Azure" metaKeywords="Configuring cloud services" description="Learn how to configure cloud services in Azure. Learn to update the cloud service configuration and configure remote access to role instances." metaCanonical="" services="cloud-services" documentationCenter="" title="How to Configure Cloud Services" authors="davidmu" solutions="" manager="" editor="" />
 
-클라우드 서비스를 구성하는 방법
-===============================
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="davidmu"></tags>
 
-[WACOM.INCLUDE [disclaimer](../includes/disclaimer.md)]
+# <span id="configurecloudservice"></span></a>클라우드 서비스를 구성하는 방법
+
+[WACOM.INCLUDE [disclaimer][disclaimer]]
 
 Azure 관리 포털에서 클라우드 서비스에 가장 일반적으로 사용되는 설정을 구성할 수 있습니다. 또는 구성 파일을 직접 업데이트하려는 경우 업데이트할 서비스 구성 파일을 다운로드한 후 업데이트된 파일을 업로드하고 구성 변경 내용으로 클라우드 서비스를 업데이트합니다. 어느 방법이든 모든 역할 인스턴스에 구성 업데이트를 적용합니다.
 
 클라우드 서비스에서 실행 중인 하나 또는 모든 역할에 원격 데스크톱 연결을 사용할 수도 있습니다. 원격 데스크톱을 사용하면 응용 프로그램이 실행 중일 때 해당 데스크톱에 액세스하여 문제를 진단하고 해결할 수 있습니다. 응용 프로그램 개발 과정에서 원격 데스크톱의 서비스 정의 파일(.csdef)을 구성하지 않았더라도 역할에 원격 데스크톱 연결을 사용할 수 있습니다. 원격 데스크톱 연결을 사용하기 위해 응용 프로그램을 다시 배포할 필요가 없습니다.
 
-Azure는 각 역할에 둘 이상의 역할 인스턴스(가상 컴퓨터)가 있는 경우에만 구성 업데이트 중 99.95%의 서비스 가용성을 보장할 수 있습니다. 이에 따라, 가상 컴퓨터 하나는 클라이언트 요청을 처리하고 다른 하나는 업데이트를 진행할 수 있습니다. 자세한 내용은 [서비스 수준 계약](https://www.windowsazure.com/en-us/support/legal/sla/)을 참조하십시오.
+Azure는 각 역할에 둘 이상의 역할 인스턴스(가상 컴퓨터)가 있는 경우에만 구성 업데이트 중 99.95%의 서비스 가용성을 보장할 수 있습니다. 이에 따라, 가상 컴퓨터 하나는 클라이언트 요청을 처리하고 다른 하나는 업데이트를 진행할 수 있습니다. 자세한 내용은 [서비스 수준 계약][서비스 수준 계약]을 참조하십시오.
 
-목차
-----
+## 목차
 
--   [방법: 클라우드 서비스 구성 업데이트](#update)
--   [방법: 역할 인스턴스에 대한 원격 액세스 구성](#remoteaccess)
+-   [방법: 클라우드 서비스 구성 업데이트][방법: 클라우드 서비스 구성 업데이트]
+-   [방법: 역할 인스턴스에 대한 원격 액세스 구성][방법: 역할 인스턴스에 대한 원격 액세스 구성]
 
-방법: 클라우드 서비스 구성 업데이트
------------------------------------
+## <span id="update"></span></a>방법: 클라우드 서비스 구성 업데이트
 
-1.  [Azure 관리 포털](http://manage.windowsazure.com/)에서 **클라우드 서비스**를 클릭합니다. 그런 다음 클라우드 서비스의 이름을 클릭하여 대시보드를 엽니다.
+1.  [Azure 관리 포털][Azure 관리 포털]에서 **클라우드 서비스**를 클릭합니다. 그런 다음 클라우드 서비스의 이름을 클릭하여 대시보드를 엽니다.
 
 2.  **구성**을 클릭합니다.
 
     **구성** 페이지에서 모니터링을 구성하고, 역할 설정을 업데이트하고, 게스트 운영 체제 및 역할 인스턴스 패밀리(가상 컴퓨터)를 선택할 수 있습니다.
 
-    ![구성 페이지](./media/cloud-services-how-to-configure/CloudServices_ConfigurePage1.png)
+    ![구성 페이지][구성 페이지]
 
-3.  모니터링 설정에서 모니터링 수준을 Verbose 또는 Minimal로 설정하고 자세한 모니터링에 필요한 진단 연결 문자열을 구성합니다. 지침을 보려면 [클라우드 서비스를 모니터링하는 방법](../how-to-monitor-a-cloud-service/)을 참조하십시오.
+3.  모니터링 설정에서 모니터링 수준을 Verbose 또는 Minimal로 설정하고 자세한 모니터링에 필요한 진단 연결 문자열을 구성합니다. 지침을 보려면 [클라우드 서비스를 모니터링하는 방법][클라우드 서비스를 모니터링하는 방법]을 참조하십시오.
 
 4.  역할을 기준으로 그룹화된 서비스 역할의 경우 다음 설정을 업데이트할 수 있습니다.
 
@@ -44,7 +43,7 @@ Azure는 각 역할에 둘 이상의 역할 인스턴스(가상 컴퓨터)가 �
 
     앱과 최신 운영 체제 버전 사이의 호환성 문제를 모두 해결하면 해당 운영 체제 버전을 **자동**으로 설정하여 자동 운영 체제 업데이트를 다시 시작할 수 있습니다.
 
-    ![OS 설정](./media/cloud-services-how-to-configure/CloudServices_ConfigurePage_OSSettings.png)
+    ![OS 설정][OS 설정]
 
 6.  구성 설정을 저장하려면 역할 인스턴스에 적용하고 **저장**을 클릭합니다. 변경 내용을 취소하려면 **Discard**를 클릭합니다. **저장** 및 **취소**는 설정 변경 후 명령 모음에 추가됩니다.
 
@@ -58,44 +57,46 @@ Azure는 각 역할에 둘 이상의 역할 인스턴스(가상 컴퓨터)가 �
 
     **새 구성 파일 업로드**가 열립니다.
 
-    ![구성 업로드](./media/cloud-services-how-to-configure/CloudServices_UploadConfigFile.png)
+    ![구성 업로드][구성 업로드]
 
     b. **구성 파일**에서 **찾아보기**를 사용하여 업데이트된 .cscfg 파일을 선택합니다.
 
     c. 클라우드 서비스에 인스턴스가 하나뿐인 역할이 포함된 경우 **Apply configuration even if one or more roles contain a single instance** 확인란을 선택하여 역할의 구성 업데이트를 진행하도록 설정합니다.
 
-    모든 역할에 대해 두 개 이상의 인스턴스를 정의하지 않는 경우 Azure는 서비스 구성 업데이트 과정에서 최소 99.95%의 클라우드 서비스 가용성을 보장할 수 없습니다. 자세한 내용은 [서비스 수준 계약](http://www.windowsazure.com/ko-kr/support/legal/sla/)을 참조하십시오.
+    모든 역할에 대해 두 개 이상의 인스턴스를 정의하지 않는 경우 Azure는 서비스 구성 업데이트 과정에서 최소 99.95%의 클라우드 서비스 가용성을 보장할 수 없습니다. 자세한 내용은 [서비스 수준 계약][1]을 참조하십시오.
 
     d. 확인(확인 표시)을 클릭합니다.
 
-방법: 역할 인스턴스에 대한 원격 액세스 구성
--------------------------------------------
+## <span id="remoteaccess"></span></a>방법: 역할 인스턴스에 대한 원격 액세스 구성
 
 원격 데스크톱을 사용하면 Azure에서 실행 중인 역할의 데스크톱에 액세스할 수 있습니다. 원격 데스크톱 연결을 사용하여 응용 프로그램 실행 중에 응용 프로그램 문제를 진단하고 해결할 수 있습니다. 응용 프로그램 디자인 도중이나 응용 프로그램을 Azure에 배포한 후(역할 실행 중)에 역할에서 원격 데스크톱 연결을 사용할 수 있습니다. 관리 포털을 통해 실행 중인 역할의 원격 데스크톱 연결을 사용하도록 설정하는 데는 응용 프로그램을 다시 배포할 필요가 없습니다. 원격 데스크톱 연결을 인증하려면 이전에 업로드한 인증서를 사용하거나 새 인증서를 만들 수 있습니다.
 
 클라우드 서비스의 **구성** 페이지에서 원격 데스크톱을 사용하도록 설정하거나 가상 컴퓨터에 연결하는 데 사용되는 로컬 관리자 계정이나 암호, 인증에 사용되는 인증서, 만료 날짜 등을 변경할 수 있습니다.
 
-**참고**
-
-Windows Server 기반 가상 컴퓨터가 두 대 이상 연결되어 구성된 클라우드 서비스의 경우 이 가상 컴퓨터가 원격 데스크톱용으로 자동 구성되기 때문에 원격 액세스를 구성할 필요가 없습니다.
+<div class="dev-callout"> 
+<b>참고</b> 
+<p>Windows Server 기반 가상 컴퓨터가 두 대 이상 연결되어 구성된 클라우드 서비스의 경우 이 가상 컴퓨터가 원격 데스크톱용으로 자동 구성되기 때문에 원격 액세스를 구성할 필요가 없습니다.</p> 
+</div>
 
 ### 서비스 정의 파일에서 원격 액세스를 구성하려면
 
-서비스 정의 파일(.csdef)에 **가져오기** 요소를 추가하여 RemoteAccess 및 RemoteForwarder 모듈을 서비스 모델로 가져옵니다. 이 모듈이 이미 있는 경우 Azure는 원격 데스크톱의 구성 설정을 서비스 구성 파일에 추가합니다. 원격 데스크톱 구성을 완료하려면 인증서를 Azure에 가져오고 서비스 구성 파일에서 인증서를 지정해야 합니다. 자세한 내용은 [Azure에서 역할에 대한 원격 데스크톱 연결 설정](http://msdn.microsoft.com/ko-kr/library/windowsazure/hh124107.aspx)을 참조하십시오.
+서비스 정의 파일(.csdef)에 **가져오기** 요소를 추가하여 RemoteAccess 및 RemoteForwarder 모듈을 서비스 모델로 가져옵니다. 이 모듈이 이미 있는 경우 Azure는 원격 데스크톱의 구성 설정을 서비스 구성 파일에 추가합니다. 원격 데스크톱 구성을 완료하려면 인증서를 Azure에 가져오고 서비스 구성 파일에서 인증서를 지정해야 합니다. 자세한 내용은 [Azure에서 역할에 대한 원격 데스크톱 연결 설정][Azure에서 역할에 대한 원격 데스크톱 연결 설정]을 참조하십시오.
 
 ### 관리 포털에서 역할 인스턴스의 원격 액세스를 사용하도록 설정하거나 수정하려면
 
-1.  [관리 포털](http://manage.windowsazure.com/)에 로그인하여 **클라우드 서비스**를 클릭합니다. 그런 다음 클라우드 서비스의 이름을 클릭하여 대시보드를 엽니다.
+1.  [관리 포털][Azure 관리 포털]에 로그인하여 **클라우드 서비스**를 클릭합니다. 그런 다음 클라우드 서비스의 이름을 클릭하여 대시보드를 엽니다.
 
 2.  클라우드 서비스의 **구성** 페이지에서 **원격**을 클릭합니다.
 
     클라우드 서비스가 배포될 때 서비스 구성 파일에 추가된 설정(있는 경우)이 **Configure Remote Desktop**에 다음과 같이 표시됩니다.
 
-    ![클라우드 서비스 원격](./media/cloud-services-how-to-configure/CloudServices_Remote.png)
+    ![클라우드 서비스 원격][클라우드 서비스 원격]
 
-> [WACOM.NOTE] **경고:** 처음으로 원격 데스크톱을 사용하도록 설정한 후 확인(확인 표시)을 클릭하면 모든 역할 인스턴스가 다시 시작됩니다. 다시 부팅되지 않도록 하려면 암호를 암호화하는 데 사용되는 인증서가 역할에 설치되어 있어야 합니다. 인증서가 설치되어 있지 않은 경우 다음 옵션이 표시됩니다. ![CloudServices\_CreateNewCertDropDown](./media/cloud-services-how-to-configure/CloudServices_CreateNewCertDropDown.png)
+> [WACOM.NOTE]
+> **경고:** 처음으로 원격 데스크톱을 사용하도록 설정한 후 확인(확인 표시)을 클릭하면 모든 역할 인스턴스가 다시 시작됩니다. 다시 부팅되지 않도록 하려면 암호를 암호화하는 데 사용되는 인증서가 역할에 설치되어 있어야 합니다. 인증서가 설치되어 있지 않은 경우 다음 옵션이 표시됩니다.
+> ![CloudServices\_CreateNewCertDropDown][CloudServices\_CreateNewCertDropDown]
 
-    To prevent a restart, install a certificate and then return to this dialog (see [Using Remote Desktop with Azure Roles][] for more information). If you choose an existing certificate, then a configuration update will be sent to all the instances in the role.
+    To prevent a restart, install a certificate and then return to this dialog (see [Using Remote Desktop with Azure Roles][Using Remote Desktop with Azure Roles] for more information). If you choose an existing certificate, then a configuration update will be sent to all the instances in the role.
 
 1.  **역할**에서 업데이트할 서비스 역할을 선택하거나 모든 역할을 원하면 **모두**를 선택합니다.
 
@@ -125,7 +126,7 @@ Windows Server 기반 가상 컴퓨터가 두 대 이상 연결되어 구성된 
 
 ### 관리 포털에서 역할 인스턴스의 원격 액세스를 사용하지 않도록 설정하려면
 
-1.  [관리 포털](http://manage.windowsazure.com/)에 로그인하여 **클라우드 서비스**를 클릭합니다. 그런 다음 클라우드 서비스의 이름을 클릭하여 대시보드를 엽니다.
+1.  [관리 포털][Azure 관리 포털]에 로그인하여 **클라우드 서비스**를 클릭합니다. 그런 다음 클라우드 서비스의 이름을 클릭하여 대시보드를 엽니다.
 
 2.  클라우드 서비스의 **구성** 페이지에서 **원격**을 클릭합니다.
 
@@ -135,4 +136,16 @@ Windows Server 기반 가상 컴퓨터가 두 대 이상 연결되어 구성된 
 
 5.  확인(확인 표시)을 클릭합니다.
 
-
+  [disclaimer]: ../includes/disclaimer.md
+  [서비스 수준 계약]: https://www.windowsazure.com/ko-kr/support/legal/sla/
+  [방법: 클라우드 서비스 구성 업데이트]: #update
+  [방법: 역할 인스턴스에 대한 원격 액세스 구성]: #remoteaccess
+  [Azure 관리 포털]: http://manage.windowsazure.com/
+  [구성 페이지]: ./media/cloud-services-how-to-configure/CloudServices_ConfigurePage1.png
+  [클라우드 서비스를 모니터링하는 방법]: ../how-to-monitor-a-cloud-service/
+  [OS 설정]: ./media/cloud-services-how-to-configure/CloudServices_ConfigurePage_OSSettings.png
+  [구성 업로드]: ./media/cloud-services-how-to-configure/CloudServices_UploadConfigFile.png
+  [1]: http://www.windowsazure.com/ko-kr/support/legal/sla/
+  [Azure에서 역할에 대한 원격 데스크톱 연결 설정]: http://msdn.microsoft.com/ko-kr/library/windowsazure/hh124107.aspx
+  [클라우드 서비스 원격]: ./media/cloud-services-how-to-configure/CloudServices_Remote.png
+  [CloudServices\_CreateNewCertDropDown]: ./media/cloud-services-how-to-configure/CloudServices_CreateNewCertDropDown.png

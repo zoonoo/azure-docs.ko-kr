@@ -1,43 +1,42 @@
-<properties linkid="dev-net-how-to-sql-azure" urlDisplayName="SQL Database" pageTitle="How to use SQL Database (.NET) - Azure feature guide" metaKeywords="Get started SQL Azure, Getting started SQL Azure, SQL Azure database connection, SQL Azure ADO.NET, SQL Azure ODBC, SQL Azure EntityClient" description="Get started with SQL Database. Learn how to create a SQL Database instance and connect to it using ADO.NET, ODBC, and EntityClient Provider." metaCanonical="" services="sql-database" documentationCenter=".NET" title="How to use Azure SQL Database in .NET applications" authors="" solutions="" manager="" editor="" />
+<properties linkid="dev-net-how-to-sql-azure" urlDisplayName="SQL Database" pageTitle="How to use SQL Database (.NET) - Azure feature guide" metaKeywords="Get started SQL Azure, Getting started SQL Azure, SQL Azure database connection, SQL Azure ADO.NET, SQL Azure ODBC, SQL Azure EntityClient" description="Get started with SQL Database. Learn how to create a SQL Database instance and connect to it using ADO.NET, ODBC, and EntityClient Provider." metaCanonical="" services="sql-database" documentationCenter=".NET" title="How to use Azure SQL Database in .NET applications" authors="jeffreyg" solutions="" manager="" editor="" />
 
-.NET 응용 프로그램에서 Azure SQL 데이터베이스를 사용하는 방법
-=============================================================
+<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jeffreyg"></tags>
 
-이 가이드에서는 ADO.NET, ODBC, EntityClient 공급자 등의 .NET Framework 데이터 공급자 기술을 사용하여 Azure SQL 데이터베이스에서 논리 서버 및 데이터베이스 인스턴스를 만들고 다음 데이터베이스에 연결하는 방법을 보여 줍니다.
+# .NET 응용 프로그램에서 Azure SQL 데이터베이스를 사용하는 방법
 
-SQL 데이터베이스 정의
----------------------
+이 가이드에서는 ADO.NET, ODBC, EntityClient 공급자 등의 .NET Framework 데이터 공급자 기술을 사용하여
+Azure SQL 데이터베이스에서 논리 서버 및 데이터베이스 인스턴스를 만들고
+데이터베이스에 연결하는 방법을 설명합니다.
+
+## <a name="Whatis"></a>SQL 데이터베이스 정의
 
 SQL 데이터베이스는 Azure에 관계형 데이터베이스 관리 시스템을 제공하며 SQL Server 기술을 기반으로 합니다. SQL 데이터베이스 인스턴스를 사용하여 쉽게 클라우드에 관계형 데이터베이스 솔루션을 프로비전하고 배포할 수 있으며 데이터 보호와 자동 복구가 기본 제공되는 혜택을 갖춘 엔터프라이즈급 가용성, 확장성, 보안을 제공하는 분산 데이터 센터를 활용할 수 있습니다.
 
-목차
-----
+## 목차
 
--   [Azure에 로그인](#PreReq1)
--   [SQL 데이터베이스 만들기 및 구성](#PreReq2)
--   [SQL 데이터베이스에 연결](#connect-db)
--   [ADO.NET을 사용하여 연결](#using-sql-server)
--   [ODBC를 사용하여 연결](#using-ODBC)
--   [EntityClient 공급자를 사용하여 연결](#using-entity)
--   [다음 단계](#next-steps)
+-   [Azure에 로그인][Azure에 로그인]
+-   [SQL 데이터베이스 만들기 및 구성][SQL 데이터베이스 만들기 및 구성]
+-   [SQL 데이터베이스에 연결][SQL 데이터베이스에 연결]
+-   [ADO.NET을 사용하여 연결][ADO.NET을 사용하여 연결]
+-   [ODBC를 사용하여 연결][ODBC를 사용하여 연결]
+-   [EntityClient 공급자를 사용하여 연결][EntityClient 공급자를 사용하여 연결]
+-   [다음 단계][다음 단계]
 
-Azure에 로그인
---------------
+## <a name="PreReq1"></a>Azure에 로그인
 
 SQL 데이터베이스를 통해 Azure에서 관계형 데이터 저장소, 액세스 및 관리 서비스를 사용할 수 있습니다. 그러려면 Azure 구독이 필요합니다.
 
-1.  웹 브라우저를 열고 <http://www.windowsazure.com>으로 이동합니다. 무료 계정으로 시작하려면 오른쪽 위에 있는 무료 평가판을 클릭하고 안내되는 단계를 따르십시오.
+1.  웹 브라우저를 열고 [][]<http://www.windowsazure.com></a>으로 이동합니다. 무료 계정으로 시작하려면 오른쪽 위에 있는 무료 평가판을 클릭하고 안내되는 단계를 따르십시오.
 
 2.  이제 계정이 만들어집니다. 시작할 준비가 되었습니다.
 
-SQL 데이터베이스 만들기 및 구성
--------------------------------
+## <a name="PreReq2"></a><span class="short-header">SQL 데이터베이스 만들기 및 구성</span>
 
 다음으로, 데이터베이스 및 서버를 만들고 구성합니다. Azure 관리 포털에서 수정된 워크플로를 통해 데이터베이스를 처음 만든 후에 서버를 프로비전합니다.
 
 ### 데이터베이스 인스턴스 및 논리 서버 만들기
 
-1.  [Azure 관리 포털](http://manage.windowsazure.com)에 로그인합니다.
+1.  [Azure 관리 포털][Azure 관리 포털]에 로그인합니다.
 
 2.  페이지 아래쪽에서 **+새로 만들기**를 클릭합니다.
 
@@ -53,9 +52,15 @@ SQL 데이터베이스 만들기 및 구성
 
     SQL 데이터베이스에는 두 가지의 데이터베이스 버전이 있습니다. Web Edition은 5GB 크기까지 증가합니다. Business Edition은 50GB 크기까지 증가합니다.
 
-    MAXSIZE는 데이터베이스를 처음 만들 때 지정되며 나중에 ALTER DATABASE를 사용하여 변경할 수 있습니다. MAXSIZE를 통해 데이터베이스 크기를 제한할 수 있습니다.
+    MAXSIZE는 데이터베이스를 처음 만들 때 지정되며 나중에 ALTER DATABASE를
+    사용하여 변경할 수 있습니다. MAXSIZE를 통해 데이터베이스
+    크기를 제한할 수 있습니다.
 
-    Azure에서 만들어진 SQL 데이터베이스별로 해당 데이터베이스의 복제본이 실제로 3개가 있습니다. 이 복제본은 고가용성을 보장하기 위한 것입니다. 장애 조치(Failover)가 투명하며 서비스의 일부로 제공됩니다. [서비스 수준 계약]({localLink:1132} "SLA")은 SQL 데이터베이스의 99.9% 가동 시간을 제공합니다.
+    Azure에서 만들어진 SQL 데이터베이스별로 해당 데이터베이스의
+    복제본이 실제로 3개가 있습니다. 이 복제본은 고가용성을 보장하기 위한 것입니다.
+    장애 조치(Failover)가 투명하며 서비스의 일부로 제공됩니다. [서비스 수준
+    계약][서비스 수준
+    계약]은 SQL 데이터베이스의 99.9% 가동 시간을 제공합니다.
 
 8.  서버에서 **새 SQL 데이터베이스 서버**를 선택합니다.
 
@@ -79,7 +84,7 @@ SQL 데이터베이스 만들기 및 구성
 
 데이터베이스가 만들어진 후에는 데이터베이스를 클릭하여 대시보드를 엽니다. 대시보드에는 복사하여 응용 프로그램 코드에서 사용할 수 있는 연결 문자열이 나옵니다. 또한 Management Studio 또는 기타 관리 도구에서 데이터베이스에 연결하는 경우 지정해야 하는 관리 URL도 표시됩니다.
 
-![이미지](./media/sql-database-dotnet-how-to-use/SQLDbDashboard.PNG)
+![이미지][이미지]
 
 다음 단계에서는 네트워크에서 실행 중인 응용 프로그램의 연결이 허용된 액세스가 되도록 방화벽을 구성합니다.
 
@@ -87,7 +92,7 @@ SQL 데이터베이스 만들기 및 구성
 
 1.  **SQL 데이터베이스**를 클릭하고 페이지 위쪽에서 **서버**를 클릭한 후 방금 만든 서버를 클릭합니다.
 
-    ![Image2](./media/sql-database-dotnet-how-to-use/SQLDBFirewall.PNG)
+    ![Image2][Image2]
 
 2.  **구성**을 클릭합니다.
 
@@ -101,24 +106,32 @@ SQL 데이터베이스 만들기 및 구성
 
 6.  규칙 옆에 있는 확인 표시를 클릭하여 규칙을 저장합니다.
 
-    ![Image3](./media/sql-database-dotnet-how-to-use/SQLDBIPRange.PNG)
+    ![Image3][Image3]
 
 7.  페이지 아래쪽에서 **저장**을 클릭하여 단계를 완료합니다. **저장** 단추가 나타나지 않으면 브라우저 페이지를 새로 고칩니다.
 
 이제 데이터베이스 인스턴스, 논리 서버, IP 주소의 인바운드 연결을 허용하는 방화벽 규칙 및 관리자 로그인이 있습니다. 이제 프로그래밍 방식으로 데이터베이스에 연결할 준비가 되었습니다.
 
-SQL 데이터베이스에 연결
------------------------
+## <a name="Connect-DB"></a><span class="short-header">SQL 데이터베이스에 연결</span>
 
-이 섹션에서는 다양한 .NET Framework 데이터 공급자를 사용하여 SQL 데이터베이스 인스턴스에 연결하는 방법을 보여 줍니다.
+이 섹션에서는 다양한 .NET Framework 데이터 공급자를 사용하여 SQL
+데이터베이스 인스턴스에 연결하는 방법을 보여 줍니다.
 
-Visual Studio를 사용하려고 하며 구성에 Azure 웹 응용 프로그램이 프런트 엔드로 포함되어 있지 않은 경우 개발 컴퓨터에 추가 도구 또는 SDK를 설치할 필요가 없습니다. 응용 프로그램 개발을 시작하면 됩니다.
+Visual Studio를 사용하려고 하며 구성에 Azure 웹 응용 프로그램이
+프런트 엔드로 포함되어 있지 않은 경우 개발 컴퓨터에 추가
+도구 또는 SDK를 설치할 필요가 없습니다.
+ 응용 프로그램 개발을 시작하면 됩니다.
 
-SQL Server 작업 시 사용할 수 있는 것과 동일한 Visual Studio의 모든 디자이너 도구를 사용하여 SQL 데이터베이스 작업을 할 수 있습니다. 서버 탐색기를 통해 데이터베이스 개체를 볼 수 있습니다(편집할 수 없음). Visual Studio 엔터티 데이터 모델 디자이너가 제대로 작동하며, 이를 사용하여 Entity Framework 작업을 위해 SQL 데이터베이스에 대한 모델을 만들 수 있습니다.
+SQL Server 작업 시 사용할 수 있는 것과 동일한 Visual Studio의 모든
+디자이너 도구를 사용하여 SQL 데이터베이스 작업을 할 수 있습니다. 서버 탐색기를 통해 데이터베이스
+개체를 볼 수 있습니다(편집할 수 없음). Visual Studio 엔터티 데이터
+모델 디자이너가 제대로 작동하며, 이를 사용하여 Entity Framework
+작업을 위해 SQL 데이터베이스에 대한 모델을 만들 수 있습니다.
 
-### .NET Framework Data Provider for SQL Server 사용
+### <a name="using-sql-server"></a>.NET Framework Data Provider for SQL Server 사용
 
-**System.Data.SqlClient** 네임스페이스는 .NET Framework Data Provider for SQL Server입니다.
+**System.Data.SqlClient** 네임스페이스는 .NET Framework Data Provider
+for SQL Server입니다.
 
 표준 연결 문자열은 다음과 같습니다.
 
@@ -129,7 +142,8 @@ SQL Server 작업 시 사용할 수 있는 것과 동일한 Visual Studio의 모
     Trusted_Connection=False;
     Encrypt=True;
 
-다음 코드 샘플에서 볼 수 있는 것처럼 **SQLConnectionStringBuilder** 클래스를 사용하여 연결 문자열을 작성할 수 있습니다.
+다음 코드 샘플에서 볼 수 있는 것처럼 **SQLConnectionStringBuilder**
+클래스를 사용하여 연결 문자열을 작성할 수 있습니다.
 
     SqlConnectionStringBuilder csBuilder;
     csBuilder = new SqlConnectionStringBuilder();
@@ -140,14 +154,17 @@ SQL Server 작업 시 사용할 수 있는 것과 동일한 Visual Studio의 모
     csBuilder.UserID = MyAdmin;
     csBuilder.Password = pass@word1;
 
-연결 문자열의 요소가 사전에 알려진 경우 요소를 구성 파일에 저장했다가 런타임에 검색하여 연결 문자열을 생성할 수 있습니다. 다음은 구성 파일의 샘플 연결 문자열입니다.
+연결 문자열의 요소가 사전에 알려진 경우 요소를 구성 파일에 저장했다가
+런타임에 검색하여 연결 문자열을 생성할 수 있습니다.
+ 다음은 구성 파일의 샘플 연결 문자열입니다.
 
     <connectionStrings>
       <add name="ConnectionString" 
            connectionString ="Server=tcp:xxxxxxxxxx.database.windows.net;Database=testDB;User ID=MyAdmin@xxxxxxxxxx;Password=pass@word1;Trusted_Connection=False;Encrypt=True;" />
     </connectionStrings>
 
-구성 파일에서 연결 문자열을 검색하려면 **ConfigurationManager** 클래스를 사용합니다.
+구성 파일에서 연결 문자열을 검색하려면
+**ConfigurationManager** 클래스를 사용합니다.
 
     SqlConnectionStringBuilder csBuilder;
     csBuilder = new SqlConnectionStringBuilder(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
@@ -155,9 +172,10 @@ SQL Server 작업 시 사용할 수 있는 것과 동일한 Visual Studio의 모
     SqlConnection conn = new SqlConnection(csBuilder.ToString());
     conn.Open();
 
-### .NET Framework Data Provider for ODBC 사용
+### <a name="using-ODBC"></a>.NET Framework Data Provider for ODBC 사용
 
-**System.Data.Odbc** 네임스페이스는 .NET Framework Data Provider for ODBC입니다. 다음은 샘플 ODBC 연결 문자열입니다.
+**System.Data.Odbc** 네임스페이스는 .NET Framework Data Provider for
+ODBC입니다. 다음은 샘플 ODBC 연결 문자열입니다.
 
     Driver={SQL Server Native Client 10.0};
     Server=tcp:.database.windows.net;
@@ -166,7 +184,8 @@ SQL Server 작업 시 사용할 수 있는 것과 동일한 Visual Studio의 모
     Pwd=;
     Encrypt=yes;
 
-**OdbcConnection** 클래스는 데이터 원본에 대한 열려 있는 연결을 나타냅니다. 다음은 연결을 여는 방법에 대한 코드 샘플입니다.
+**OdbcConnection** 클래스는 데이터 원본에 대한 열려 있는 연결을
+나타냅니다. 다음은 연결을 여는 방법에 대한 코드 샘플입니다.
 
     string cs = "Driver={SQL Server Native Client 10.0};" +
                 "Server=tcp:xxxxxxxxxx.database.windows.net;" +
@@ -178,27 +197,58 @@ SQL Server 작업 시 사용할 수 있는 것과 동일한 Visual Studio의 모
     OdbcConnection conn = new OdbcConnection(cs);
     conn.Open();
 
-런타임에 연결 문자열을 작성하려는 경우 **OdbcConnectionStringBuilder** 클래스를 사용할 수 있습니다.
+런타임에 연결 문자열을 작성하려는 경우 **OdbcConnectionStringBuilder**
+클래스를 사용할 수 있습니다.
 
-### EntityClient 공급자 사용
+### <a name="using-entity"></a>EntityClient 공급자 사용
 
-**System.Data.EntityClient** 네임스페이스는 Entity Framework용 .NET Framework 데이터 공급자입니다.
+**System.Data.EntityClient** 네임스페이스는 Entity Framework용 .NET
+Framework 데이터 공급자입니다.
 
-Entity Framework를 통해 개발자는 관계형 저장소 스키마에 대해 직접 프로그래밍하는 대신 개념적 응용 프로그램 모델에 대해 프로그래밍하여 데이터 액세스 응용 프로그램을 만들 수 있습니다. Entity Framework는 기본 데이터 공급자 및 관계형 데이터베이스에 **EntityConnection**을 제공하여 저장소별 ADO.NET 데이터 공급자를 기반으로 구축됩니다.
+Entity Framework를 통해 개발자는 관계형 저장소 스키마에 대해
+직접 프로그래밍하는 대신 개념적 응용 프로그램 모델에 대해
+프로그래밍하여 데이터 액세스 응용 프로그램을 만들 수 있습니다. Entity
+Framework는 기본 데이터 공급자 및 관계형 데이터베이스에
+**EntityConnection**을 제공하여 저장소별 ADO.NET 데이터 공급자를
+기반으로 구축됩니다.
 
-**EntityConnection** 개체를 생성하려면 필요한 모델 및 매핑이 포함된 메타데이터 집합뿐 아니라 저장소별 데이터 공급자 이름 및 연결 문자열도 참조해야 합니다. **EntityConnection**가 생성된 후에는 개념적 모델에서 생성된 클래스를 통해 엔터티에 액세스할 수 있습니다.
+**EntityConnection** 개체를 생성하려면 필요한 모델 및 매핑이 포함된
+메타데이터 집합뿐 아니라 저장소별 데이터 공급자 이름 및 연결 문자열도
+참조해야 합니다.
+**EntityConnection**가 생성된 후에는 개념적 모델에서 생성된 클래스를 통해
+ 엔터티에 액세스할 수 있습니다.
 
 다음은 연결 문자열 샘플입니다.
 
     metadata=res://*/SchoolModel.csdl|res://*/SchoolModel.ssdl|res://*/SchoolModel.msl;provider=System.Data.SqlClient;provider connection string="Data Source=xxxxxxxxxx.database.windows.net;Initial Catalog=School;Persist Security Info=True;User ID=MyAdmin;Password=***********"
 
-자세한 내용은 [Entity Framework용 EntityClient 공급자](http://msdn.microsoft.com/ko-kr/library/bb738561.aspx)(영문)를 참조하십시오.
+자세한 내용은 [Entity Framework용 EntityClient
+공급자][Entity Framework용 EntityClient
+공급자](영문)를 참조하십시오.
 
-다음 단계
----------
+## <a name="next-steps"></a>다음 단계
 
-SQL 데이터베이스 연결의 기본 사항을 알아봤습니다. 이제 다음 리소스에서 SQL 데이터베이스에 대해 자세히 알아봅니다.
+SQL 데이터베이스 연결의 기본 사항을 알아봤습니다. 이제 다음 리소스에서 SQL
+데이터베이스에 대해 자세히 알아봅니다.
 
--   [개발: 방법 항목(SQL 데이터베이스)](http://msdn.microsoft.com/ko-kr/library/windowsazure/ee621787.aspx)
--   [SQL 데이터베이스](http://msdn.microsoft.com/ko-kr/library/windowsazure/ee336279.aspx)
+-   [개발: 방법 항목(SQL 데이터베이스)][개발: 방법 항목(SQL 데이터베이스)]
+-   [SQL 데이터베이스][SQL 데이터베이스]
 
+  [Azure에 로그인]: #PreReq1
+  [SQL 데이터베이스 만들기 및 구성]: #PreReq2
+  [SQL 데이터베이스에 연결]: #connect-db
+  [ADO.NET을 사용하여 연결]: #using-sql-server
+  [ODBC를 사용하여 연결]: #using-ODBC
+  [EntityClient 공급자를 사용하여 연결]: #using-entity
+  [다음 단계]: #next-steps
+  []: http://www.windowsazure.com
+  [Azure 관리 포털]: http://manage.windowsazure.com
+  [서비스 수준
+  계약]: {localLink:1132} "SLA"
+  [이미지]: ./media/sql-database-dotnet-how-to-use/SQLDbDashboard.PNG
+  [Image2]: ./media/sql-database-dotnet-how-to-use/SQLDBFirewall.PNG
+  [Image3]: ./media/sql-database-dotnet-how-to-use/SQLDBIPRange.PNG
+  [Entity Framework용 EntityClient
+  공급자]: http://msdn.microsoft.com/ko-kr/library/bb738561.aspx
+  [개발: 방법 항목(SQL 데이터베이스)]: http://msdn.microsoft.com/ko-kr/library/windowsazure/ee621787.aspx
+  [SQL 데이터베이스]: http://msdn.microsoft.com/ko-kr/library/windowsazure/ee336279.aspx

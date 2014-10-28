@@ -1,585 +1,782 @@
-<properties linkid="develop-dotnet-aspnet-mvc-4-mobile-website" urlDisplayName="ASP.NET MVC 4 mobile website" pageTitle=".NET ASP.NET MVC 4 mobile web site - Azure tutorials" metaKeywords="Azure tutorial, Azure web app tutorial, Azure mobile app, Azure ASP.NET MVC 4,,ASP.NET MVC" description="A tutorial that teaches you how to deploy a web application to an Azure web site using mobile features in ASP.NET MVC 4 web application." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Deploy an ASP.NET MVC Mobile Web Application on Azure Web Sites" authors="tdykstra" solutions="" manager="" editor="" />
+<properties linkid="develop-dotnet-aspnet-mvc-4-mobile-website" urlDisplayName="ASP.NET MVC 5 mobile website" pageTitle=".NET ASP.NET MVC 5 mobile website - Azure tutorials" metaKeywords="Azure tutorial, Azure web app tutorial, Azure mobile app, Azure ASP.NET MVC 5,,ASP.NET MVC" description="A tutorial that teaches you how to deploy a web application to an Azure website using mobile features in ASP.NET MVC 5 web application." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Deploy an ASP.NET MVC Mobile Web Application on Azure Websites" authors="cephalin,riande" solutions="" manager="wpickett" editor="mollybos" />
 
-Azure 웹 사이트에 ASP.NET MVC 모바일 웹 응용 프로그램 배포
-==========================================================
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="08/19/2014" ms.author="cephalin,riande"></tags>
 
-***저자 [Rick Anderson](https://twitter.com/RickAndMSFT), 업데이트 날짜: 2013년 6월 26일***
+# Azure 웹 사이트에 ASP.NET MVC 5 모바일 웹 응용 프로그램 배포
 
-이 자습서에서는 Azure 웹 사이트에 웹 응용 프로그램을 배포하는 기본적인 방법을 설명합니다. 이 자습서의 목적을 위해 ASP.NET MVC 4 웹 응용 프로그램에서 모바일 기능을 사용할 것입니다. 이 자습서의 단계를 수행하기 위해 Microsoft Visual Studio 2012를 사용할 수 있습니다. Microsoft Visual Studio의 무료 버전인 [Visual Studio Express 2012](http://www.microsoft.com/visualstudio/eng/products/visual-studio-express-products)도 사용할 수 있습니다.
+이 자습서에서는 모바일 친화적인 ASP.NET MVC 5 웹 응용 프로그램을
+만들고 Windows Azure에 배포하는 방법에 대한 기초적인 내용을 알려 줍니다. 이 자습서를 사용하려면
+[Visual Studio Express 2013 for Web][Visual Studio Express 2013 for Web]
+또는 이미 보유하고 있는 Visual Studio의 Professional 버전이
+필요합니다.
 
-다음 내용을 배웁니다.
----------------------
+[WACOM.INCLUDE [create-account-and-websites-note][create-account-and-websites-note]]
 
--   모바일 장치의 화면을 향상시키기 위해 ASP.NET MVC 4 템플릿에서 HTML5 뷰포트 특성 및 적응 렌더링을 사용하는 방법
--   모바일 전용 뷰를 만드는 방법
--   응용 프로그램의 모바일 뷰와 데스크톱 뷰를 전환할 수 있는 뷰 전환기를 만드는 방법
--   웹 응용 프로그램을 Azure에 배포하는 방법
+### 만들 내용
 
-이 자습서에서는 시작 프로젝트에 제공된 간단한 회의 목록 응용 프로그램에 모바일 기능을 추가합니다. 다음 스크린샷은 Windows 7 Phone Emulator에 표시된 것처럼, 완성된 응용 프로그램의 기본 페이지를 보여 줍니다.
+이 자습서에서는 [시작 프로젝트][시작 프로젝트]에 제공된 간단한
+회의 목록 응용 프로그램에 모바일 기능을 추가합니다. 다음 스크린샷은 완료된 응용 프로그램에서의 ASP.NET 세션을 보여 줍니다.
+Internet Explorer 11 F12 개발자 도구에 있는 브라우저 에뮬레이터에서
+이러한 세션을 볼 수 있습니다.
 
-![MVC4 회의 응용 프로그램 기본 페이지](./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/FinishedAPPMainScreen.png)
+![][]
 
-[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
+Internet Explorer 11 F12 개발자 도구 및 [Fiddler
+도구][Fiddler
+도구]를 사용하여 응용 프로그램을
+디버깅할 수 있습니다. 
 
-개발 환경 설정
---------------
+### 학습할 기술
+
+다음 내용을 학습하게 됩니다.
+
+-   Visual Studio 2013을 사용하여 웹 응용 프로그램을 Windows Azure 웹 사이트에 직접 게시하는 방법
+-   모바일 장치의 화면을 향상시키기 위해 ASP.NET MVC 5 템플릿에서
+    CSS Bootstrap 프레임워크를 사용하는 방법
+-   iPhone 및 Android 등 특정 모바일 브라우저를 대상으로
+    모바일 전용 뷰를 만드는 방법
+-   반응형 뷰(장치 간의 서로 다른 브라우저에 반응하는 뷰)를
+    만드는 방법
+
+## 개발 환경 설정
 
 Azure SDK for the .NET Framework를 설치하여 개발 환경을 설정합니다.
 
-1.  Azure SDK for .NET을 설치하려면 아래 링크를 클릭합니다. Visual Studio 2012가 아직 설치되어 있지 않은 경우 링크를 통해 설치됩니다. 이 자습서는 Visual Studio 2012가 필요합니다. [Azure SDK for Visual Studio 2012](http://go.microsoft.com/fwlink/?LinkId=254364)
-2.  실행 가능한 설치 프로그램을 실행할지 또는 저장할지 묻는 메시지가 표시되면 **실행**을 클릭합니다.
-3.  웹 플랫폼 설치 관리자 창에서 **설치**를 클릭하여 설치를 계속합니다.
+1.  Azure SDK for .NET을 설치하려면 아래 링크를 클릭합니다. Visual Studio 2013가 아직 설치되어 있지 않은 경우 링크를 통해 설치됩니다. 이 자습서는 Visual Studio 2013가 필요합니다. [Azure SDK for Visual Studio 2013][Azure SDK for Visual Studio 2013]
+2.  웹 플랫폼 설치 관리자 창에서 **설치**를 클릭하여 설치를 계속합니다.
 
-![웹 플랫폼 설치 관리자 - Azure SDK for .NET](./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/WebPIAzureSdk20NetVS12.png)
+    ![웹 플랫폼 설치 관리자 - Azure SDK for .NET][웹 플랫폼 설치 관리자 - Azure SDK for .NET]
 
-모바일 브라우저 에뮬레이터도 필요합니다. 다음을 사용할 수 있습니다.
+모바일 브라우저 에뮬레이터도 필요합니다. 다음을 사용할 수
+있습니다.
 
--   [Windows 7 Phone Emulator](http://msdn.microsoft.com/ko-kr/library/ff402530(VS.92).aspx) (이 자습서에서 대부분의 스크린샷에 사용된 에뮬레이터입니다.)
--   iPhone을 에뮬레이트하려면 사용자 에이전트 문자열을 변경하십시오. How-To Geek의 [이 블로그 항목](http://www.howtogeek.com/113439/how-to-change-your-browsers-user-agent-without-installing-any-extensions/)(영문)을 참조하십시오.
--   [Opera Mobile Emulator](http://www.opera.com/developer/tools/mobile/)
--   [Apple Safari](http://www.apple.com/safari/download/)(사용자 에이전트를 iPhone으로 설정). Safari에서 사용자 에이전트를 "iPhone"으로 설정하는 방법에 대한 지침은 David Alison의 블로그에서 [Safari를 IE로 사용하는 방법](http://www.davidalison.com/2008/05/how-to-let-safari-pretend-its-ie.html)(영문)을 참조하십시오.
--   [FireFox User Agent Switcher](https://addons.mozilla.org/en-US/firefox/addon/user-agent-switcher/)와 함께 [FireFox](http://www.bing.com/search?q=firefox+download)
+-   [Internet Explorer 11 F12 개발자 도구][Internet Explorer 11 F12 개발자 도구]의 브라우저 에뮬레이터(모바일 브라우저
+    스크린샷에 사용됨). Windows Phone 8, Windows Phone 7 및 Apple iPad를 위한 사용자 에이전트 문자열 기본 설정이 있습니다.
+-   [Google Chrome DevTools][Google Chrome DevTools]의 브라우저 에뮬레이터. Apple iPhone, Apple iPad, Amazon Kindle Fire 등 여러 Android 장치에 대한 기본 설정이 포함되어 있습니다. 터치 이벤트도 에뮬레이트합니다.
+-   [Opera Mobile Emulator][Opera Mobile Emulator]
 
-이 자습서는 C\#의 코드를 보여 줍니다. 그러나 시작 프로젝트 및 완성된 프로젝트는 Visual Basic에서 사용할 수 있습니다. Visual Basic 및 C\# 소스 코드를 사용하는 Visual Studio 프로젝트를 이 항목과 함께 사용할 수 있습니다.
+C# 소스 코드를 사용하는 Visual Studio 프로젝트를 이 항목과 함께
+사용할 수 있습니다.
 
--   [시작 프로젝트 다운로드(영문)](http://go.microsoft.com/fwlink/?LinkId=228307)
--   [완성된 프로젝트 다운로드(영문)](http://go.microsoft.com/fwlink/?LinkId=228306)
+-   [시작 프로젝트 다운로드(영문)][시작 프로젝트]
+-   [완성된 프로젝트 다운로드(영문)][완성된 프로젝트 다운로드(영문)]
 
-이 자습서의 단계
-----------------
+## 이 자습서의 단계
 
--   [Azure 웹 사이트 만들기](#bkmk_CreateWebSite)
--   [시작 프로젝트 설정](#bkmk_setupstarterproject)
--   [뷰, 레이아웃 및 부분 뷰 재정의](#bkmk_overrideviews)
--   [jQuery Mobile을 사용하여 모바일 브라우저 인터페이스 정의](#bkmk_usejquerymobile)
--   [발표자 목록 개선](#bkmk_Improvespeakerslis)
--   [모바일 발표자 뷰 만들기](#bkmk_mobilespeakersview)
--   [태그 목록 개선](#bkmk_improvetags)
--   [날짜 목록 개선](#bkmk_improvedates)
--   [SessionsTable 뷰 개선](#bkmk_improvesessionstable)
--   [SessionByCode 뷰 개선](#bkmk_improvesessionbycode)
--   [Azure 웹 사이트에 응용 프로그램 배포](#bkmk_deployapplciation)
+-   [Windows Azure 웹 사이트에 시작 프로젝트 배포][Windows Azure 웹 사이트에 시작 프로젝트 배포]
+-   [Bootstrap CSS 프레임워크][Bootstrap CSS 프레임워크]
+-   [뷰, 레이아웃 및 부분 뷰 재정의][뷰, 레이아웃 및 부분 뷰 재정의]
+-   [발표자 목록 개선][발표자 목록 개선]
+-   [태그 목록 개선][태그 목록 개선]
+-   [날짜 목록 개선][날짜 목록 개선]
+-   [SessionsTable 뷰 개선][SessionsTable 뷰 개선]
+-   [SessionByCode 뷰 개선][SessionByCode 뷰 개선]
 
-### Azure에서 웹 사이트 만들기
+### <a name="bkmk_DeployStarterProject"></a>Windows Azure 웹 사이트에 시작 프로젝트 배포
 
-Azure 웹 사이트는 공유 호스팅 환경에서 실행되므로 다른 Azure 클라이언트와 공유되는 VM(가상 컴퓨터)에서 실행됩니다. 공유 호스팅 환경은 클라우드를 시작하는 저비용 방법입니다. 나중에 웹 트래픽이 증가하면 응용 프로그램이 전용 VM에서 실행되어 요구에 맞게 확장될 수 있습니다. 더 복잡한 아키텍처가 필요한 경우 Azure 클라우드 서비스로 마이그레이션할 수 있습니다. 클라우드 서비스는 요구에 따라 구성할 수 있는 전용 VM에서 실행됩니다.
+1.  회의 목록 응용 프로그램 [시작 프로젝트][시작 프로젝트](영문)를 다운로드합니다.
 
-1.  [Azure 관리 포털](https://manage.windowsazure.com)에 로그온합니다. 관리 포털에서 **새로 만들기**를 클릭합니다.
+2.  그런 다음 Windows 탐색기에서 Mvc5Mobile.zip 파일을 마우스 오른쪽 단추로 클릭하고 *속성*을 선택합니다.
 
-    ![](./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/depoly_mobile_new_website_1.png)
+3.  **Mvc5Mobile.zip 속성** 대화 상자에서
+    **차단 해제** 단추를 선택합니다. (차단 해제는 웹에서 다운로드한
+    *.zip* 파일을 사용하려고 할 때 발생하는 보안 경고를
+    막습니다.)
 
-2.  **웹 사이트**를 클릭한 후 **빠른 생성**을 클릭합니다.
+4.  *Mvc5Mobile.zip* 파일을 마우스 오른쪽 단추로 클릭하고 **압축 풀기**를 선택하여
+    파일의 압축을 풉니다.
 
-    ![](./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/depoly_mobile_new_website_2.png)
+5.  Visual Studio에서 *Mvc5Mobile.sln* 파일을 엽니다.
 
-3.  **새 웹 사이트 만들기**에서 응용 프로그램의 고유 URL로 사용할 문자열을 **URL** 상자에 입력합니다.
+6.  솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 클릭합니다.
 
-    ![](./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/depoly_mobile_new_website_3.png)
+    ![][1]
 
-    전체 URL은 여기에 입력한 문자열과 텍스트 상자 아래에 표시되는 접미사로 구성됩니다. 그림에는 "MyMobileMVC4WebSite"가 표시되지만 누군가 이 URL을 이미 사용하고 있는 경우 다른 URL을 선택해야 합니다. 현재 위치하고 있는 **지역**을 선택합니다.
+7.  웹 게시에서 **Windows Azure 웹 사이트**를 클릭합니다.
 
-4.  상자 아래쪽에 있는 확인 표시를 클릭하여 마쳤음을 표시합니다.
+    ![][2]
 
-관리 포털이 웹 사이트 페이지로 돌아가고 상태 열에 사이트를 만드는 중이라고 표시됩니다. 잠시(일반적으로 1분 미만) 후에 상태 열에 사이트를 만들었다고 표시됩니다. 왼쪽의 탐색 모음에서 계정에 보유한 사이트 수가 웹 사이트 아이콘에 표시되고 데이터베이스 수가 SQL 데이터베이스 아이콘에 표시됩니다.
+8.  **로그인**을 클릭합니다.
 
-![](./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/depoly_mobile_new_website_4.png)
+    ![][3]
 
-### 시작 프로젝트 설정
+9.  Windows Azure 사용자 이름을 입력하고 **계속**을 클릭합니다.
 
-1.  [회의 목록 응용 프로그램 시작 프로젝트](http://go.microsoft.com/fwlink/?LinkId=228307)(영문)를 다운로드합니다.
+    ![][4]
 
-2.  그런 다음 Windows 탐색기에서 MvcMobileStarterBeta.zip 파일을 마우스 오른쪽 단추로 클릭하고 *속성*을 선택합니다.
+10. 암호를 입력하고 **로그인**을 클릭합니다.
 
-3.  MvcMobileRTMStarter.zip 속성 대화 상자에서 차단 해제 단추를 선택합니다. (차단 해제는 웹에서 다운로드한 .zip 파일을 사용하려고 할 때 발생하는 보안 경고를 막습니다.)
+    ![][5]
 
-    ![속성 대화 상자](./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/propertiespopup.png)
+11. 이제 기본 웹 사이트 선택 대화 상자에서 로그인된 것으로 표시됩니다. **새로 만들기**를 클릭합니다.
 
-4.  MvcMobile.zip 파일을 마우스 오른쪽 단추로 클릭하고 압축 풀기를 선택하여 파일의 압축을 풉니다.
+    ![][6]
 
-5.  Visual Studio에서 MvcMobile.sln 파일을 엽니다.
+12. **사이트 이름** 필드에서 고유한 사이트 이름 접두사를 지정합니다. 정규화된 사이트 이름은 *\<prefix\>*.azurewebsites.net이 됩니다. 또한 **영역** 필드에서 영역을 선택합니다. 그런 다음에 **만들기**를 클릭합니다.
 
-### 시작 프로젝트 실행
+    ![][7]
 
-1.  CTRL+F5를 눌러 응용 프로그램을 실행하면 데스크톱 브라우저에 표시됩니다.
-2.  모바일 브라우저 에뮬레이터를 시작하고 회의 응용 프로그램의 URL을 에뮬레이터에 복사한 다음 Browse by tag 링크를 클릭합니다.
+13. 웹 게시 대화 상자에 새 웹 사이트의 사이트 설정이 채워집니다. **게시**를 클릭합니다.
 
-    -   Windows Phone Emulator를 사용하는 경우 URL 표시줄을 클릭하고 일시 중지 키를 눌러 키보드 액세스 권한을 얻습니다. 아래 이미지는 AllTags 뷰(Browse by tag에서 선택)를 보여 줍니다.
+    ![][8]
 
-    ![Browse by tag 페이지](./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/BrowseByTagWithCallout.png)
+    Visual Studio에서 시작 프로젝트를 Windows Azure 웹 사이트에 게시하는 것이 완료된 후에는 데스크톱 브라우저가 열려서 라이브 웹 사이트를 표시합니다.
 
-이 화면은 모바일 장치에서 가독성이 뛰어납니다. ASP.NET 링크를 선택합니다.
+14. 모바일 브라우저 에뮬레이터를 시작하고
+    회의 응용 프로그램(*<prefix>*.azurewebsites.net)의 URL을 에뮬레이터에 복사한 다음
+    오른쪽 위에 있는 단추를 클릭하고 **태그로 찾아보기** 링크를 클릭합니다. Internet
+    Explorer 11을 기본 브라우저로 사용 중인 경우에는 `F12` 및
+    `Ctrl+8`을 입력한 후에 브라우저 프로필을 **Windows Phone**으로 변경하면 됩니다. 아래
+    이미지는 *AllTags* 뷰를 세로 모드로 보여 줍니다(**태그로 찾아보기**
+    선택 시).
 
-![ASP.NET으로 태그가 지정된 세션 탐색](./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/ASPNetPage.png)
+    ![][9]
 
-ASP.NET 태그 뷰는 매우 어수선합니다. 예를 들어 Date 열은 읽기가 매우 힘듭니다. 이 자습서의 뒷부분에서 모바일 브라우저 전용으로 화면 가독성을 뛰어나게 만드는 AllTags 뷰 버전을 만들 것입니다.
+> [WACOM.NOTE] Visual Studio 내에서 MVC 5 응용 프로그램을 디버깅할 수도 있고, 웹 사이트를 Windows Azure에 다시 게시하여 모바일 브라우저나 브라우저 에뮬레이터에서 라이브 사이트를 직접 확인할 수도 있습니다.
 
-뷰, 레이아웃 및 부분 뷰 재정의
-------------------------------
+이 화면은 모바일 장치에서 가독성이 뛰어납니다. Bootstrap CSS에 의해
+적용된 몇 가지 시각적 효과도 미리 볼 수 있습니다.
+**ASP.NET** 링크를 클릭합니다.
+
+![][10]
+
+ASP.NET 태그 뷰는 화면에 맞게 크기가 조정되어 있습니다. 크기 조정은
+Bootstrap에서 자동으로 수행합니다. 하지만 모바일 브라우저에 더 알맞게 이 뷰를
+향상시킬 수 있습니다. 예를 들어 **Date** 열은 읽기가
+힘듭니다. 이 자습서 뒷부분에서 *AllTags* 뷰를 모바일 친화적으로
+변경해 볼 것입니다.
+
+## <a name="bkmk_bootstrap"></a>Bootstrap CSS 프레임워크
+
+MVC 5 템플릿의 새로운 점은 기본 제공 Bootstrap 지원입니다. 이것이
+응용 프로그램에서 여러 가지 뷰를 즉시 향상시키는 것을 이미
+확인한 바 있습니다. 예를 들어 맨 위에 있는 탐색 표시줄은 브라우저 너비가
+좁아질 때 자동으로 축소될 수 있습니다. 데스크톱 브라우저에서
+브라우저 창의 크기를 조정하여 탐색 표시줄의 모양과 느낌이 어떻게
+변하는지 확인해 보십시오. 이것이 Bootstrap에 기본 제공되는 반응형
+웹 디자인입니다.
+
+Bootstrap을 사용하지 않을 때 웹 앱이 어떻게 보이는지를 확인하려면
+*App\_Start\\BundleConfig.cs*를 열고 *bootstrap.js* 및
+*bootstrap.css*가 들어 있는 줄을 주석으로 처리하십시오. 다음 코드는 변경한 후
+`RegisterBundles` 메서드의 마지막 두 문을 보여 줍니다.
+
+     bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
+              //"~/Scripts/bootstrap.js",
+              "~/Scripts/respond.js"));
+
+    bundles.Add(new StyleBundle("~/Content/css").Include(
+              //"~/Content/bootstrap.css",
+              "~/Content/site.css"));
+
+`Ctrl+F5`를 눌러 응용 프로그램을 실행합니다.
+
+축소 가능한 탐색 표시줄이 이제 일반적인 순서 없는 목록일
+뿐인 것을 볼 수 있습니다. **태그로 찾아보기**를 다시 클릭한 후에 **ASP.NET**을 클릭합니다.
+모바일 에뮬레이터 뷰에서 이제 더 이상 화면에 맞게
+크기가 조정되지 않는 것을 볼 수 있으며, 표의 오른쪽을 보려면
+옆쪽으로 스크롤해야 합니다.
+
+![][11]
+
+변경 사항을 취소하고 모바일 브라우저를 새로 고쳐서
+모바일 친화적인 디스플레이가 복원되었는지 확인하십시오.
+
+Bootstrap은 ASP.NET MVC 5 전용이 아니므로 어떤 웹 응용 프로그램에서나
+이 기능을 활용할 수 있습니다. 하지만 이제는 ASP.NET MVC 5
+프로젝트 템플릿에 기본 제공되므로 MVC 5 웹 응용 프로그램은 Bootstrap을
+기본적으로 활용할 수 있습니다.
+
+Bootstrap에 대한 자세한 내용을 보려면
+[Bootstrap][Bootstrap] 사이트로 이동하십시오.
+
+다음 섹션에서는 모바일 브라우저 전용 뷰를 제공하는 방법을
+설명합니다.
+
+## <a name="bkmk_overrideviews"></a>뷰, 레이아웃 및 부분 뷰 재정의
+
+일반적인 모바일 브라우저, 개별 모바일 브라우저 또는
+특정 브라우저용 뷰(레이아웃 및 부분 뷰 포함)를 재정의할 수
+있습니다. 모바일 전용 뷰를 제공하기 위해 뷰 파일을 복사하여
+파일 이름에 *.Mobile*을 추가할 수 있습니다. 예를 들어 모바일
+*Index* 뷰를 만들려면 *Views\\Home\\Index.cshtml*을
+*Views\\Home\\Index.Mobile.cshtml*로 복사합니다.
 
 이 섹션에서는 모바일 전용 레이아웃 파일을 만듭니다.
 
-ASP.NET MVC 4의 중요한 새 기능은 일반적인 모바일 브라우저, 개별 모바일 브라우저 또는 특정 브라우저용 뷰(레이아웃 및 부분 뷰 포함)를 재정의할 수 있는 간단한 메커니즘입니다. 모바일 전용 뷰를 제공하기 위해 뷰 파일을 복사하여 파일 이름에 .Mobile을 추가할 수 있습니다. 예를 들어 모바일 인덱스 뷰를 만들려면 *Views\\Home\\Index.cshtml*을 *Views\\Home\\Index.Mobile.cshtml*로 복사합니다.
+시작하려면 *Views\\Shared\\\_Layout.cshtml*을
+*Views\\Shared\\\_Layout.Mobile.cshtml*로 복사합니다. *\_Layout.Mobile.cshtml*
+을 열고 제목을 **MVC5 Application**에서 **MVC5 Application
+(Mobile)**로 변경합니다.
 
-시작하려면 *Views\\Shared\\\_Layout.cshtml*을 *Views\\Shared\\\_Layout.Mobile.cshtml*로 복사합니다. *\_Layout.Mobile.cshtml*을 열고 제목을 **MVC4 Conference**에서 **Conference (Mobile)**로 변경합니다.
+각 `Html.ActionLink` 호출에서 각 링크 *ActionLink*에서 "Browse by"를
+제거합니다. 다음 코드는 모바일 레이아웃 파일의 완성된 `<ul class="nav navbar-nav">` 태그를 보여 줍니다.
 
-각 **Html.ActionLink** 호출에서 각 링크 ActionLink에서 "Browse by"를 제거합니다. 다음 코드는 모바일 레이아웃 파일의 완성된 본문 섹션을 보여 줍니다.
+    <ul class="nav navbar-nav">
+        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+        <li>@Html.ActionLink("Date", "AllDates", "Home")</li>
+        <li>@Html.ActionLink("Speaker", "AllSpeakers", "Home")</li>
+        <li>@Html.ActionLink("Tag", "AllTags", "Home")</li>
+    </ul>
 
-     <body>
-        <div class="page">
-            <div id="header">
-                <div id="logindisplay"></div>
-                <div id="title">
-                    <h1> Conference (Mobile)</h1>
-                </div>
-                <div id="menucontainer">
-                    <ul id="menu">
-                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                        <li>@Html.ActionLink("Date", "AllDates", "Home")</li>
-                        <li>@Html.ActionLink("Speaker", "AllSpeakers", "Home")</li>
-                        <li>@Html.ActionLink("Tag", "AllTags", "Home")</li>
-                    </ul>
-                </div>
-            </div>
-            <div id="main">
-                @RenderBody()
-            </div>
-            <div id="footer">
-            </div>
-        </div>
-    </body>
+*Views\\Home\\AllTags.cshtml* 파일을
+*Views\\Home\\AllTags.Mobile.cshtml*로 복사합니다. 새 파일을 열고
+`<h2>` 요소를 "Tags"에서 "Tags (M)"으로 변경합니다.
 
-*Views\\Home\\AllTags.cshtml* 파일을 *Views\\Home\\AllTags.Mobile.cshtml*로 복사합니다. 새 파일을 열고 &lt;h2\> 요소를 "Tags"에서 "Tags (M)"으로 변경합니다.
+    <h2>Tags (M)</h2>
 
-     <h2>Tags (M)</h2>
+데스크톱 브라우저와 모바일 브라우저 에뮬레이터를 사용하여 태그 페이지로
+이동합니다. 모바일 브라우저 에뮬레이터에 두 가지 변경 내용이
+표시됩니다(*\_Layout.Mobile.cshtml*에서 변경된 제목과
+*AllTags.Mobile.cshtml*에서 변경된 제목).
 
-데스크톱 브라우저와 모바일 브라우저 에뮬레이터를 사용하여 태그 페이지로 이동합니다. 모바일 브라우저 에뮬레이터에 두 가지 변경 내용이 표시됩니다.
+![][12]
 
-![태그 페이지 변경 내용 표시](./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/windows-live-writer_asp_net-mvc-4-mobile-features_d2ff_p2m_layouttags_mobile_thumb.png)
+반대로 데스크톱 화면은 변경되지 않았습니다(*\_Layout.cshtml* 및
+*AllTags.cshtml*의 제목 그대로).
 
-반대로 데스크톱 화면은 변경되지 않았습니다.
+![][13]
 
-![데스크톱 태그 뷰 표시](./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/Windows-Live-Writer_ASP_NET-MVC-4-Mobile-Features_D2FF_p2_layoutTagsDesktop_thumb.png)
+## <a name="bkmk_browserviews"></a>브라우저 전용 뷰 만들기
 
-jQuery Mobile을 사용하여 모바일 브라우저 인터페이스 정의
---------------------------------------------------------
+모바일 전용 및 데스크톱 전용 뷰 외에도 개별 브라우저를 위한
+뷰를 만들 수 있습니다. 예를 들어 iPhone 또는 Android
+브라우저 전용의 뷰를 만들 수 있습니다. 이 섹션에서는
+iPhone 브라우저를 위한 레이아웃과 iPhone 버전의 *AllTags* 뷰를
+만들어 봅니다.
 
-이 섹션에서는 jQuery Mobile 및 뷰 전환기 위젯을 설치하는 jQuery.Mobile.MVC NuGet 패키지를 설치합니다.
+*Global.asax* 파일을 열고 `Application_Start` 메서드의 맨 아래에
+다음 코드를 추가합니다.
 
-[jQuery Mobile](http://jquerymobile.com/demos/1.0b3/#/demos/1.0b3/docs/about/intro.html) 라이브러리는 모든 주요 모바일 브라우저에서 작동하는 사용자 인터페이스 프레임워크를 제공합니다. jQuery Mobile은 CSS 및 JavaScript를 지원하는 모바일 브라우저에 혁신적인 향상을 제공합니다. 혁신적인 향상을 통해 모든 브라우저는 웹 페이지의 기본 콘텐츠를 표시할 수 있으며, 더욱 강력한 브라우저 및 장치는 더욱 다채로운 화면을 표시할 수 있습니다. jQuery Mobile에 포함되는 JavaScript 및 CSS 파일은 태그를 변경하지 않고 모바일 브라우저에 맞는 여러 요소를 디자인합니다.
+    DisplayModeProvider.Instance.Modes.Insert(0, new DefaultDisplayMode("iPhone")
+    {
+        ContextCondition = (context => context.GetOverriddenUserAgent().IndexOf
+            ("iPhone", StringComparison.OrdinalIgnoreCase) >= 0)
+    });
 
-1.  이전에 만든 *Shared\\\_Layout.Mobile.cshtml* 파일을 삭제합니다.
+이 코드는 각 수신 요청에 맞출 "iPhone"이라는 새로운 디스플레이 모드를
+정의합니다. 수신 요청이 정의된 조건과 일치하는
+경우(즉, 사용자 에이전트가 "iPhone" 문자열을 포함하는 경우)
+ ASP.NET MVC는 이름에 "iPhone" 접미사가 들어 있는 뷰를
+찾습니다.
 
-2.  *Views\\Home\\AllTags.Mobile.cshtml*의 이름을 *Views\\Home\\AllTags.Mobile.cshtml.hide*로 변경합니다(이 파일을 나중에 다시 사용할 것임). 파일에 .cshtml 확장명이 더는 없기 때문에, *AllTags* 뷰를 렌더링하기 ASP.NET MVC 런타임에서 사용하지 않습니다.
+> [WACOM.NOTE] iPhone 및 Android와 같은 브라우저 전용 디스플레이 모드를 추가할 때는 브라우저 전용 모드가 모바일 템플릿(\*.Mobile.cshtml)보다 우선적으로 적용되도록 첫 번째 인수를 `0`으로 설정하십시오(목록 맨 위에 삽입). 반대로 모바일 템플릿이 목록의 맨 위에 있으면 의도한 디스플레이 모드가 아니라 해당 모바일 템플릿이 선택됩니다(첫 번째 일치 항목이 적용되는데 모바일 템플릿은 모든 모바일 브라우저와 일치함).
 
-3.  다음과 같이 하여 jQuery.Mobile.MVC NuGet 패키지를 설치합니다.
+코드에서 `DefaultDisplayMode`를 마우스 오른쪽 단추로 클릭하고 **확인**을
+선택한 후에 `using System.Web.WebPages;`를 선택합니다. 그러면 `System.Web.WebPages`
+네임스페이스에 참조가 추가되고, 여기에서
+`DisplayModeProvider` 및 `DefaultDisplayMode` 유형이 정의됩니다.
 
-    a. **도구** 메뉴에서 **패키지 관리자** 콘솔을 선택한 다음 **라이브러리 패키지 관리자**를 선택합니다.
+![][14]
 
-  ![Library package manager][jquery1]
+또는 파일의 `using` 섹션에 다음 줄을 직접
+ 추가할 수 있습니다.
 
-    b. **패키지 관리자 콘솔**에서 *Install-Package jQuery.Mobile.MVC -version 1.0.0*을 입력합니다.
+    using System.Web.WebPages;
 
-  ![Package manager console][jquery2]
+변경 내용을 저장합니다.
+*Views\\Shared\\\_Layout.Mobile.cshtml* 파일을
+*Views\\Shared\\\_Layout.iPhone.cshtml*로 복사합니다. 새 파일을 연 후에
+제목을 `MVC5 Application (Mobile)`에서
+`MVC5 Application (iPhone)`으로 변경합니다.
 
-jQuery.Mobile.MVC NuGet 패키지는 다음을 설치합니다.
+*Views\\Home\\AllTags.Mobile.cshtml* 파일을
+*Views\\Home\\AllTags.iPhone.cshtml*로 복사합니다. 새 파일에서
+`<h2>` 요소를 "Tags (M)"에서 "Tags (iPhone)"로 변경합니다.
 
--   *App\_Start\\BundleMobileConfig.cs* 파일, 추가한 jQuery JavaScript 및 CSS 파일을 참조할 때 필요합니다. 아래 지침을 따르고 이 파일에 정의된 모바일 번들을 참조해야 합니다.
--   jQuery Mobile CSS 파일
--   뷰 전환기 콘트롤러 위젯(*Controllers\\ViewSwitcherController.cs)*
--   jQuery Mobile JavaScript 파일
--   jQuery Mobile에서 디자인한 레이아웃 파일(*Views\\Shared\_Layout.Mobile.cshtml*)
--   데스크톱 뷰와 모바일 뷰 간을 전환하기 위해 각 페이지의 맨 위에 링크를 제공하는 뷰 전환기 부분 뷰(*MvcMobile\\Views\\Shared\_ViewSwitcher.cshtml*)
--   Content\\images 폴더의 여러 .png 및 .gif 이미지 파일
+응용 프로그램을 실행합니다. 모바일 브라우저 에뮬레이터를 실행하고, 사용자
+에이전트가 "iPhone"으로 설정되었는지 확인하고, *AllTags* 뷰로 이동합니다. Internet
+Explorer 11 F12 개발자 도구에서 에뮬레이터를 사용 중인 경우
+에뮬레이션을 다음과 같이 구성합니다.
 
-*Global.asax* 파일을 열고 Application\_Start 메서드의 마지막 줄로 다음 코드를 추가합니다.
+-   브라우저 프로필 = **Windows Phone**
+-   사용자 에이전트 문자열 = **Custom**
+-   사용자 지정 문자열 = **Apple-iPhone5C1/1001.525**
 
- 	BundleMobileConfig.RegisterBundles(BundleTable.Bundles);
+다음 스크린샷은 Internet Explorer 11 F12 개발자 도구에서 에뮬레이터에
+렌더링된 *AllTags* 뷰와 사용자 지정 사용자 에이전트 문자열(iPhone 5C 사용자 에이전트 문자열임)을 보여 줍니다.
 
-다음 코드는 전체 Global.asax 파일을 보여 줍니다.
+![][15]
 
-    using System; 
-    using System.Web.Http; 
-    using System.Web.Mvc; 
-    using System.Web.Optimization; 
-    using System.Web.Routing; 
-    using System.Web.WebPages; 
-     
-    namespace MvcMobile 
-    { 
-     
-        public class MvcApplication : System.Web.HttpApplication 
-        { 
-            protected void Application_Start() 
-            { 
-                DisplayModeProvider.Instance.Modes.Insert(0, new DefaultDisplayMode("iPhone") 
-                { 
-                    ContextCondition = (context => context.GetOverriddenUserAgent().IndexOf 
-                        ("iPhone", StringComparison.OrdinalIgnoreCase) >= 0) 
-                }); 
-                AreaRegistration.RegisterAllAreas(); 
-     
-                WebApiConfig.Register(GlobalConfiguration.Configuration); 
-                FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters); 
-                RouteConfig.RegisterRoutes(RouteTable.Routes); 
-                BundleConfig.RegisterBundles(BundleTable.Bundles); 
-                BundleMobileConfig.RegisterBundles(BundleTable.Bundles); 
-            } 
-        } 
-    }
+모바일 브라우저에서 **Speakers** 링크를 선택합니다. 모바일
+뷰(*AllSpeakers.Mobile.cshtml*)가 없기 때문에 모바일 레이아웃 뷰(*AllSpeakers.cshtml*)를
+사용하여 기본 발표자 화면(*\_Layout.Mobile.cshtml*)이
+렌더링됩니다. 아래와 같이 **MVC5 Application
+(Mobile)**이라는 제목이 *\_Layout.Mobile.cshtml*에서 정의됩니다.
 
-*MvcMobile\\Views\\Shared\\\_Layout.Mobile.cshtml* 파일을 열고 *Html.Partial* 호출 바로 뒤에 다음 태그를 추가합니다.
+![][16]
 
-    <div data-role="header" align="center">
-        @Html.ActionLink("Home", "Index", "Home")
-        @Html.ActionLink("Date", "AllDates")
-        @Html.ActionLink("Speaker", "AllSpeakers")
-        @Html.ActionLink("Tag", "AllTags")
-    </div>
-
-전체 본문 섹션은 다음과 같습니다.
-
-    <body>
-        <div data-role="page" data-theme="a">
-            @Html.Partial("_ViewSwitcher")
-            <div data-role="header" align="center">
-                @Html.ActionLink("Home", "Index", "Home")
-                @Html.ActionLink("Date", "AllDates")
-                @Html.ActionLink("Speaker", "AllSpeakers")
-                @Html.ActionLink("Tag", "AllTags")
-            </div>
-            <div data-role="header">
-                <h1>@ViewBag.Title</h1>
-            </div>
-            <div data-role="content">
-                @RenderSection("featured", false)
-                @RenderBody()
-            </div>
-        </div>
-    </body>
-
-응용 프로그램을 빌드하고 모바일 브라우저 에뮬레이터에서 AllTags 뷰를 탐색합니다. 다음이 표시됩니다.
-
-![nuget을 통해 jquery 설치 후](./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/windows-live-writer_asp_net-mvc-4-mobile-features_d2ff_p3_afternuget_thumb.png)
-
-**참고**
-
-IE 또는 Chrome에 대해 사용자 에이전트 문자열을 iPhone으로 설정한 다음 F-12 개발자 도구를 사용하여 모바일 전용 코드를 디버그할 수 있습니다. 모바일 브라우저에 **Home**, **Speaker**, **Tag** 및 **Date** 링크가 단추로 표시되지 않는 경우 jQuery Mobile 스크립트 및 CSS 파일에 대한 참조가 올바르지 않을 수 있습니다.
-
-스타일 변경과 함께, **Displaying mobile view** 및 모바일 뷰에서 데스크톱 뷰로 전환할 수 있는 링크가 표시됩니다. **Desktop view** 링크를 선택하면 데스크톱 뷰가 표시됩니다.
-
-데스크톱 뷰에는 모바일 뷰로 다시 돌아가는 방법이 없습니다. 지금 이 문제를 수정하겠습니다. *Views\\Shared\\\_Layout.cshtml* 파일을 엽니다. &lt;body\> 요소 바로 아래에 뷰 전환기 위젯을 렌더링하는 다음 코드를 추가합니다.
-
-    @Html.Partial("_ViewSwitcher")
-
-완성된 코드는 다음과 같습니다.
-
-    <body>
-        @Html.Partial("_ViewSwitcher")
-
-        <div id="title">
-            <h1> MVC4 Conference </h1>
-        </div>
-
-        @*Items removed for clarity.*@
-    </body>
-
-모바일 브라우저에서 **AllTags** 뷰를 새로 고칩니다. 이제 데스크톱 뷰와 모바일 뷰 간을 전환할 수 있습니다.
-
-![모바일 뷰로 이동](./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/windows-live-writer_asp_net-mvc-4-mobile-features_d2ff_p3_desktopviewwithmobilelink_thumb.png)
-
-**참고**
-
-사용자 에이전트 문자열이 모바일 장치로 설정된 브라우저를 사용할 때 다음 코드를 Views\\Shared\\\_ViewSwitcher.cshtml의 끝에 추가하여 뷰를 디버그할 수 있습니다.
-
-``` {}
-    else 
-    { 
-         @:Not Mobile/Get 
-    } 
-```
-
-그리고 다음 제목을 Views\\Shared\\\_Layout.cshtml 파일에 추가합니다.
-
-``` {}
-    <h1>Non Mobile Layout MVC4 Conference</h1>
-```
-
-데스크톱 브라우저에서 AllTags 페이지로 이동합니다. 뷰 전환기 위젯은 모바일 레이아웃 페이지에만 추가되었기 때문에 데스크톱 브라우저에 표시되지 않습니다. 이 자습서의 뒷부분에 데스크톱 뷰에 뷰 전환기 위젯을 추가하는 방법이 나와 있습니다.
-
-![데스크톱 환경 보기](./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/Windows-Live-Writer_ASP_NET-MVC-4-Mobile-Features_D2FF_p3_desktopBrowser_thumb.png)
-
-발표자 목록 개선
-----------------
-
-모바일 브라우저에서 **Speakers** 링크를 선택합니다. 모바일 뷰(*AllSpeakers.Mobile.cshtml*)가 없기 때문에 모바일 레이아웃 뷰(*\_Layout.Mobile.cshtml*)를 사용하여 기본 발표자 화면(*AllSpeakers.cshtml*)이 렌더링됩니다.
-
-![모바일 발표자 목록 표시](./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/windows-live-writer_asp_net-mvc-4-mobile-features_d2ff_p3_speakersdesktop_thumb.png)
-
-다음과 같이 *Views\_ViewStart.cshtml* 파일에서 RequireConsistentDisplayMode를 true로 설정하여 모바일 레이아웃 내에서 기본(모바일 아님) 뷰가 렌더링되지 않도록 전체적으로 비활성화할 수 있습니다.
-
-![](./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/windows-live-writer_asp_net-mvc-4-mobile-features_d2ff_p3_speakersconsistent_thumb.png)
+다음과 같이 *Views\\\_ViewStart.cshtml* 파일에서
+`RequireConsistentDisplayMode`를 `true`로 설정하여
+모바일 레이아웃 내에서 기본(모바일 아님) 뷰가 렌더링되지 않도록 전체적으로 비활성화할 수 있습니다.
 
     @{
         Layout = "~/Views/Shared/_Layout.cshtml";
-        DisplayModes.RequireConsistentDisplayMode = true;
+        DisplayModeProvider.Instance.RequireConsistentDisplayMode = true;
     }
 
-*RequireConsistentDisplayMode*가 true로 설정되면 모바일 레이아웃(*\_Layout.Mobile.cshtml*)은 모바일 뷰에서만 사용됩니다. (즉 뷰 파일은 ViewName.Mobile.cshtml 형식입니다.) 모바일 레이아웃이 비모바일 뷰와 잘 작동하지 않는 경우 *RequireConsistentDisplayMode*를 true로 설정할 수 있습니다. 아래 스크린샷은 *RequireConsistentDisplayMode*가 true로 설정되었을 때 발표자 페이지가 어떻게 렌더링되는지 보여 줍니다.
+`RequireConsistentDisplayMode`가 `true`로 설정되면 모바일
+레이아웃(*\_Layout.Mobile.cshtml*)이 모바일 뷰에 대해서만 사용됩니다(즉, 뷰 파일이
+***ViewName**.Mobile.cshtml* 형식일 때). 모바일 뷰가 아닌
+뷰에서 모바일 레이아웃이 제대로 작동하지 않을 때 `RequireConsistentDisplayMode`를
+`true`로 설정할 수도 있습니다. 아래의 스크린샷은
+`RequireConsistentDisplayMode`가 `true`로 설정되어 있을 때 *Speakers* 페이지가
+어떻게 렌더링되는지를 보여 줍니다(맨 위의 탐색 표시줄에 "(Mobile)" 문자열이 없음).
 
-![](./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/windows-live-writer_asp_net-mvc-4-mobile-features_d2ff_ps_data_filter_thumb.png)
+![][17]
 
-뷰 파일에서 *RequireConsistentDisplayMode*를 false로 설정하여 뷰의 일관된 디스플레이 모드를 비활성화할 수 있습니다. *Views\\Home\\AllSpeakers.cshtml* 파일의 다음 태그는 *RequireConsistentDisplayMode*를 false로 설정합니다.
+뷰 파일에서 `RequireConsistentDisplayMode`를 `false`로 설정하여
+특정 뷰의 일관된 디스플레이 모드를 비활성화할 수 있습니다.
+*Views\\Home\\AllSpeakers.cshtml* 파일의 다음 캐드는
+`RequireConsistentDisplayMode`를 `false`로 설정합니다.
 
     @model IEnumerable<string>
+
     @{
         ViewBag.Title = "All speakers";
-        DisplayModes.RequireConsistentDisplayMode = false;
+        DisplayModeProvider.Instance.RequireConsistentDisplayMode = false;
     }
 
-모바일 발표자 뷰 만들기
------------------------
+이 섹션에서는 모바일 레이아웃 및 뷰를 만드는 방법과
+iPhone 등 특정 장치에 대한 레이아웃 및 뷰를 만드는 방법을 살펴보았습니다.
+하지만 Bootstrap CSS 프레임워크의 가장 큰 이점은 단일 스타일시트를
+여러 데스크톱, 휴대폰 및 태블릿 브라우저에
+적용함으로써 일관된 모양과 느낌을 만들 수 있게 해주는 반응형
+레이아웃입니다. 다음 섹션에서는 Bootstrap을 활용하여 모바일 친화적인 뷰를
+만드는 방법을 설명합니다.
 
-방금 본 것처럼 발표자 뷰는 가독성은 있지만 링크가 작고 모바일 장치에서 누르기 어렵습니다. 이 섹션에서는 현대식 모바일 응용 프로그램처럼 보이는 모바일 전용 발표자 뷰를 만듭니다. 크고 누르기 쉬운 링크를 표시하고 발표자를 빨리 찾을 수 있는 검색 상자가 포함됩니다.
+## <a name="bkmk_Improvespeakerslist"></a> 발표자 목록 개선
 
-1.  *AllSpeakers.cshtml*을 *AllSpeakers.Mobile.cshtml*로 복사합니다. *AllSpeakers.Mobile.cshtml* 파일을 열고 &lt;h2\>제목 요소를 제거합니다.
-2.  **&lt;ul\>** 태그에서 data-role 특성을 추가하고 값을 *listview*로 설정합니다. *data-** attributes, *data-role="listview"*는 큰 목록 항목을 쉽게 누를 수 있도록 만듭니다. 완성된 태그는 다음과 같습니다.
+방금 본 것처럼 *Speakers* 뷰는 가독성은 있지만 링크가 작고
+모바일 장치에서 누르기 어렵습니다. 이 섹션에서는
+*AllSpeakers* 뷰를 모바일 친화적으로 만듭니다.
+크고 누르기 쉬운 링크를 표시하고 발표자를 빨리 찾을 수 있는 검색 상자가
+포함됩니다.
 
-         @model IEnumerable<string>
-         @{
-             ViewBag.Title = "All speakers";
-         }
-         <ul data-role="listview">
-             @foreach(var speaker in Model) {
-                 <li>@Html.ActionLink(speaker, "SessionsBySpeaker", new { speaker })</li>
-             }
-         </ul>
+Bootstrap [연결된 목록 그룹][연결된 목록 그룹] 스타일을 사용하여
+*Speakers* 뷰를 개선할 수 있습니다. *Views\\Home\\AllSpeakers.cshtml*에서
+Razor 파일의 내용을 아래의 코드로 바꿉니다.
 
-3.  모바일 브라우저를 새로 고칩니다. 업데이트된 뷰는 다음과 같이 표시됩니다.
+     @model IEnumerable<string>
 
-    ![](./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/windows-live-writer_asp_net-mvc-4-mobile-features_d2ff_p3_updatedspeakerview1_thumb.png)
+    @{
+        ViewBag.Title = "All Speakers";
+    }
 
-4.  **&lt;ul\>** 태그에서 data-filter 특성을 추가하고 true로 설정합니다. 아래 코드는 ul 태그를 보여 줍니다.
+    <h2>Speakers</h2>
 
-        <ul data-role="listview" data-filter="true">
+    <div class="list-group">
+        @foreach (var speaker in Model)
+        {
+            @Html.ActionLink(speaker, "SessionsBySpeaker", new { speaker }, new { @class = "list-group-item" })
+        }
+    </div>
 
-다음 이미지는 data-filter 특성의 결과로 생긴 페이지 상단의 검색 필터를 보여 줍니다.
+`<div>` 태그에 있는 `class="list-group"` 속성은 각 링크에
+Bootstrap 목록 스타일을 적용하고, `class="input-group-item"` 속성은
+Bootstrap 목록 항목 스타일을 적용합니다.
 
-![](./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/windows-live-writer_asp_net-mvc-4-mobile-features_d2ff_ps_data_filter_thumb.png)
+모바일 브라우저를 새로 고칩니다. 업데이트된 뷰는 다음과 같이 표시됩니다.
 
-검색 상자에 각 문자를 입력하면 jQuery Mobile이 아래 이미지에 표시된 것처럼 표시된 목록을 필터링합니다.
+![][18]
 
-![](./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/windows-live-writer_asp_net-mvc-4-mobile-features_d2ff_ps_data_filter_sc_thumb.png)
+Bootstrap [연결된 목록 그룹][연결된 목록 그룹] 스타일은 각 링크의 전체 상자를
+클릭 가능한 상태로 만들어서 사용자 환경을 훨씬 개선합니다. 데스크톱 뷰로
+전환해도 일관된 모양과 느낌이 유지됩니다.
 
-태그 목록 개선
---------------
+![][19]
 
-기본 발표자 뷰처럼 태그 뷰도 가독성은 있지만 링크가 작고 모바일 장치에서 누르기 어렵습니다. 이 섹션에서는 발표자 뷰를 수정한 것과 같은 방법으로 태그 뷰를 수정합니다.
+모바일 브라우저 뷰가 개선되기는 했지만 긴 발표자 목록을
+탐색하기가 힘듭니다. Bootstrap은 바로 사용 가능한
+검색 필터 기능을 제공하지 않지만, 코드 몇 줄을 사용하여
+추가할 수 있습니다. 먼저 검색 상자를 뷰에 추가한 후에
+JavaScript 코드를 연결하여 필터 기능을 만듭니다.
+*Views\\Home\\AllSpeakers.cshtml*에서 아래와 같이 \\<form\> 태그를 \\<h2\> 태그 바로 뒤에 추가합니다.
 
-1.  *Views\\Home\\AllTags.Mobile.cshtml.hide* 파일의 이름을 *Views\\Home\\AllTags.Mobile.cshtml*로 변경합니다. 이름을 변경한 파일을 열고 **&lt;h2\>** 요소를 제거합니다.
+    @model IEnumerable<string>
 
-2.  다음과 같이 data-role 및 data-filter 특성을 **&lt;ul\>** 태그에 추가합니다.
+    @{
+        ViewBag.Title = "All Speakers";
+    }
 
-         <ul data-role="listview" data-filter="true">
+    <h2>Speakers</h2>
 
-    아래 이미지는 J 문자의 태그 페이지 필터링을 보여 줍니다.
+    <form class="input-group">
+        <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
+        <input type="text" class="form-control" placeholder="Search speaker">
+    </form>
+    <br />
+    <div class="list-group">
+        @foreach (var speaker in Model)
+        {
+            @Html.ActionLink(speaker, 
+                             "SessionsBySpeaker", 
+                             new { speaker }, 
+                             new { @class = "list-group-item" })
+        }
+    </div>
 
-![](./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/windows-live-writer_asp_net-mvc-4-mobile-features_d2ff_p3_tags_j_thumb.png)
+`<form>` 및 `<input>` 태그 모두에 Bootstrap 스타일이
+적용되어 있습니다. `<span>` 요소는 Bootstrap
+[glyphicon][glyphicon]을 검색 상자에
+추가합니다.
 
-날짜 목록 개선
---------------
+*Scripts* 폴더에서 *filter.js*라는 JavaScript 파일을 추가합니다. 파일을
+열고 다음 코드를 붙여 넣습니다.
 
-**Speakers** 및 **Tags** 뷰를 개선한 것처럼 모바일 장치에서 사용하기 편하도록 Dates 뷰도 개선할 수 있습니다.
+    $(function () {
 
-1.  *Views\\Home\\AllDates.Mobile.cshtml* 파일을 *Views\\Home\\AllDates.Mobile.cshtml*로 복사합니다.
-2.  새 파일을 열고 **&lt;h2\>** 요소를 제거합니다.
-3.  다음과 같이 *data-role="listview"*를 &lt;ul\> 태그에 추가합니다.
+        // reset the search form when the page loads
+        $("form").each(function () {
+            this.reset();
+        });
 
-         <ul data-role="listview">
+        // wire up the events to the <input> element for search/filter
+        $("input").bind("keyup change", function () {
+            var searchtxt = this.value.toLowerCase();
+            var items = $(".list-group-item");
 
-아래 이미지는 data-role 특성을 추가한 **Date** 페이지의 모습입니다.
+            // show all speakers that begin with the typed text and hide others
+            for (var i = 0; i < items.length; i++) {
+                var val = items[i].text.toLowerCase();
+                val = val.substring(0, searchtxt.length);
+                if (val == searchtxt) {
+                    $(items[i]).show();
+                }
+                else {
+                    $(items[i]).hide();
+                }
+            }
+        });
+    });
 
-![](./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/windows-live-writer_asp_net-mvc-4-mobile-features_d2ff_p3_dates1_thumb.png)
+또한 등록된 번들에 filter.js를 포함해야 합니다.
+*App\_Start\\BundleConfig.cs*를 열고 첫 번째 번들을 변경합니다. 다음과 같이
+첫 번째 `bundles.Add` 문(**jquery** 번들용)을 *Scripts\\filter.js*가
+포함되도록 변경합니다.
 
-*Views\\Home\\AllDates.Mobile.cshtml* 파일의 내용을 다음 코드를 사용하여 바꿉니다.
+     bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
+                "~/Scripts/jquery-{version}.js",
+                "~/Scripts/filter.js"));
+
+**jquery** 번들은 이미 기본 *\_Layout* 뷰에 렌더링되어
+있습니다. 나중에 같은 JavaScript 코드를 활용하여 필터 기능을
+다른 목록 뷰에 적용할 수 있습니다.
+
+모바일 브라우저를 새로 고치고 *AllSpeakers* 뷰로 이동합니다. 검색
+상자에 "sc"를 입력합니다. 이제 검색 문자열에 따라 발표자 목록을
+필터링할 수 있습니다.
+
+![][20]
+
+## <a name="bkmk_improvetags"></a> 태그 목록 개선
+
+*Speakers* 뷰처럼 *Tags* 뷰도 가독성은 있지만 링크가 작고
+모바일 장치에서 누르기 어렵습니다. *Speakers* 뷰를 수정한 것과 같은 방법으로 *Tags* 뷰를 수정할 수 있습니다. 앞에서 설명한 대로 코드를 변경하되 *Views\\Home\\AllTags.cshtml*에서 다음 `Html.ActionLink` 메서드 구문을 사용하면 됩니다.
+
+    @Html.ActionLink(tag, 
+                     "SessionsByTag", 
+                     new { tag }, 
+                     new { @class = "list-group-item" })
+
+새로 고친 데스크톱 브라우저는 다음과 같이 표시됩니다.
+
+![][21]
+
+그리고 새로 고친 모바일 브라우저는 다음과 같이 표시됩니다.
+
+![][22]
+
+> [WACOM.NOTE] 모바일 브라우저에서 원래의 목록 형식이 그대로 있고, 보기 좋았던 Bootstrap 스타일이 사라진 것이 눈에 띌 것입니다. 이것은 앞서 모바일 전용 뷰를 만들었기 때문입니다. 하지만 이제는 Bootstrap CSS 프레임워크를 사용하여 반응형 웹 디자인을 만드는 것이기 때문에 모바일 전용 뷰와 모바일 전용 레이아웃 뷰를 제거하십시오. 그러면 새로 고친 모바일 브라우저에 Bootstrap 스타일이 표시될 것입니다.
+
+## <a name="bkmk_improvedates"></a> 날짜 목록 개선
+
+*Speakers* 및 *Tags* 뷰를 개선한 것과 같은 방법으로
+*Dates* 뷰를 개선할 수 있습니다. 앞에서 설명한 대로 코드를 변경하되 *Views\\Home\\AllDates.cshtml*에서 다음 `Html.ActionLink` 메서드 구문을 사용하면 됩니다.
+
+    @Html.ActionLink(date.ToString("ddd, MMM dd, h:mm tt"), 
+                     "SessionsByDate", 
+                     new { date }, 
+                     new { @class = "list-group-item" })
+
+새로 고친 모바일 브라우저 뷰는 다음과 같이 표시됩니다.
+
+![][23]
+
+날짜-시간 값을 날짜별로 정리함으로써 *Dates* 뷰를 더욱
+개선할 수 있습니다. 이때는 Bootstrap
+[패널][패널] 스타일을 사용하면 됩니다. *Views\\Home\\AllDates.cshtml*
+파일의 내용을 다음 코드를 사용하여
+바꿉니다.
 
     @model IEnumerable<DateTime>
+
     @{
-        ViewBag.Title = "All dates";
-        DateTime lastDay = default(DateTime);
+        ViewBag.Title = "All Dates";
     }
-    <ul data-role="listview">
-        @foreach(var date in Model) {
-            if (date.Date != lastDay) {
-                lastDay = date.Date;
-                <li data-role="list-divider">@date.Date.ToString("ddd, MMM dd")</li>
+
+    <h2>Dates</h2>
+
+    @foreach (var dategroup in Model.GroupBy(x=>x.Date))
+    {
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                @dategroup.Key.ToString("ddd, MMM dd")
+            </div>
+            <div class="panel-body list-group">
+                @foreach (var date in dategroup)
+                {
+                    @Html.ActionLink(date.ToString("h:mm tt"), 
+                                     "SessionsByDate", 
+                                     new { date }, 
+                                     new { @class = "list-group-item" })
+                }
+            </div>
+        </div>
+    }
+
+이 코드는 목록에 있는 각 개별 날짜에 대해 별도의
+`<div class="panel panel-primary">` 태그를 만들고 앞서와 마찬가지로 해당 링크에
+[연결된 목록 그룹][연결된 목록 그룹]을 사용합니다. 이 코드를 실행하면 모바일 브라우저가
+다음과 같이 표시됩니다.
+
+![][24]
+
+데스크톱 브라우저로 전환합니다. 이번에도 일관된 모양을 확인할 수 있습니다.
+
+![][25]
+
+## <a name="bkmk_improvesessionstable"></a> SessionsTable 뷰 개선
+
+이 섹션에서는 *SessionsTable* 뷰를 보다 모바일 친화적으로
+만듭니다. 앞서의 경우보다 변화의 폭이 더 큽니다.
+
+모바일 브라우저에서 **Tag** 단추를 누르고 검색 상자에 `asp`를
+입력합니다.
+
+![][26]
+
+**ASP.NET** 링크를 누릅니다.
+
+![][27]
+
+보시다시피 표 형태로 표시됩니다. 현재는 데스크톱 브라우저에서
+보도록 디자인된 것입니다. 하지만 모바일 브라우저에서는
+읽기가 약간 힘듭니다. 이를 수정하기 위해
+*Views\\Home\\SessionsTable.cshtml*을 열고 파일의 내용을
+다음 코드로 바꿉니다.
+
+    @model IEnumerable<Mvc5Mobile.Models.Session>
+
+    <h2>@ViewBag.Title</h2>
+
+    <div class="container">
+        <div class="row">
+            @foreach (var session in Model)
+            {
+                <div class="col-md-4">
+                    <div class="list-group">
+                        @Html.ActionLink(session.Title, 
+                                         "SessionByCode", 
+                                         new { session.Code }, 
+                                         new { @class="list-group-item active" })
+                        <div class="list-group-item">
+                            <div class="list-group-item-text">
+                                @Html.Partial("_SpeakersLinks", session)
+                            </div>
+                            <div class="list-group-item-info">
+                                @session.DateText
+                            </div>
+                            <div class="list-group-item-info small hidden-xs">
+                                @Html.Partial("_TagsLinks", session)
+                            </div>
+                        </div>
+                    </div>
+                </div>
             }
-            <li>@Html.ActionLink(date.ToString("h:mm tt"), "SessionsByDate", new { date })</li>
-        }
-    </ul>
+        </div>
+    </div>
 
-이 코드는 모든 세션을 날짜별로 그룹화합니다. 이 코드는 각 날짜에 대해 목록 구분선을 만들고 구분선 아래에 각 날짜에 해당하는 세션을 모두 나열합니다. 이 코드를 실행하면 다음과 같이 표시됩니다.
+이 코드는 세 가지 작업을 수행합니다.
 
-![](./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/windows-live-writer_asp_net-mvc-4-mobile-features_d2ff_p3_dates2_thumb.png)
+-   Bootstrap [사용자 지정 연결된 목록 그룹][사용자 지정 연결된 목록 그룹]을
+    사용하여 세션 정보를 세로 형태로 정리하여 이 모든 정보를
+    모바일 브라우저에서 읽을 수 있게 만듭니다(list-group-item-text 등의 클래스 사용).
+-   레이아웃에 [그리드 시스템][그리드 시스템]을 적용하여
+    세션 항목이 데스크톱 브라우저에서는 가로로 그리고
+    모바일 브라우저에서는 세로로 흘러가도록 합니다(col-md-4 클래스 사용).
+-   [반응형 유틸리티][반응형 유틸리티]를 사용하여
+    모바일 브라우저에서 볼 때 세션 태그를 숨깁니다(hidden-xs 클래스 사용).
 
-SessionsTable 뷰 개선
----------------------
+제목 링크를 눌러 해당 세션으로 이동할 수도 있습니다. 아래 이미지는
+코드 변경 내용이 반영된 화면입니다.
 
-이 섹션에서는 모바일 전용 세션 뷰를 만듭니다. 다른 뷰보다 변경 사항이 더 많습니다.
+![][]
 
-모바일 브라우저에서 **Speaker** 단추를 누르고 검색 상자에 Sc를 입력합니다.
+자동으로 적용한 Bootstrap 그리드 시스템은 모바일 브라우저에서
+세션을 세로로 정렬합니다. 또한 태그가 표시되지
+않습니다. 데스크톱 브라우저로 전환합니다.
 
-![](./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/windows-live-writer_asp_net-mvc-4-mobile-features_d2ff_ps_data_filter_sc_thumb_1.png)
+![][28]
 
-**Scott Hanselman** 링크를 누릅니다.
+데스크톱 브라우저에서는 태그가 표시됩니다. 또한 적용한 Bootstrap 그리드 시스템이 세션 항목을
+두 개의 열로 정렬합니다. 브라우저를 확대하면
+세 개의 열로 정렬되는 것을 볼 수 있습니다.
 
-![](./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/windows-live-writer_asp_net-mvc-4-mobile-features_d2ff_p3_scottha_thumb.png)
+## <a name="bkmk_improvesessionbycode"></a> SessionByCode 뷰 개선
 
-화면이 모바일 브라우저에서 읽기 어렵습니다. 날짜 열은 읽기 힘들며 태그 열은 뷰 범위를 벗어났습니다. 이를 수정하기 위해 Views\*Home\\SessionsTable.cshtml\*을 *Views\\Home\\SessionsTable.Mobile.cshtml*로 복사한 후 다음 코드를 사용하여 파일의 내용을 바꿉니다.
+마지막으로, *SessionByCode* 뷰를 모바일 친화적으로 수정해 봅니다.
 
-    @using MvcMobile.Models
-    @model IEnumerable<Session>
+모바일 브라우저에서 **Tag** 단추를 누르고 검색 상자에 `asp`를
+입력합니다.
 
-    <ul data-role="listview">
-        @foreach(var session in Model) {
-            <li>
-                <a href="@Url.Action("SessionByCode", new { session.Code })">
-                    <h3>@session.Title</h3>
-                    <p><strong>@string.Join(", ", session.Speakers)</strong></p>
-                    <p>@session.DateText</p>
-                </a>
-            </li>
-        }
-    </ul>
+![][26]
 
-이 코드는 회의실 및 태그 열을 제거하고 제목, 발표자, 날짜 형식을 세로로 만들어 모바일 브라우저에서 이 모든 정보를 읽을 수 있도록 만듭니다. 아래 이미지는 코드 변경 내용이 반영된 화면입니다.
+**ASP.NET** 링크를 누릅니다. ASP.NET 태그의 세션이 표시됩니다.
 
-![](./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/windows-live-writer_asp_net-mvc-4-mobile-features_d2ff_ps_sessionsbyscottha_thumb.png)
+![][]
 
-SessionByCode 뷰 개선
----------------------
+**ASP.NET 및 AngularJS로 단일 페이지 응용 프로그램 만들기**
+링크를 선택합니다.
 
-마지막으로 **SessionByCode** 뷰의 모바일 전용 뷰를 만듭니다. 모바일 브라우저에서 **Speaker** 단추를 누르고 검색 상자에 Sc를 입력합니다.
+![][29]
 
-![](./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/windows-live-writer_asp_net-mvc-4-mobile-features_d2ff_ps_data_filter_sc_thumb_2.png)
+기본 데스크톱 뷰도 좋지만 몇 가지 Bootstrap GUI 구성 요소를 사용하여 이 뷰를 쉽게 개선할 수 있습니다.
 
-**Scott Hanselman** 링크를 누릅니다. Scott Hanselman의 세션이 표시됩니다.
+*Views\\Home\\SessionByCode.cshtml*을 열고 내용을 다음 태그로
+바꿉니다.
 
-![](./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/windows-live-writer_asp_net-mvc-4-mobile-features_d2ff_p3_scottha_thumb.png)
-
-**An Overview of the MS Web Stack of Love** 링크를 선택합니다.
-
-![](./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/windows-live-writer_asp_net-mvc-4-mobile-features_d2ff_ps_love_thumb.png)
-
-기본 데스크톱 뷰도 좋지만 이 뷰를 향상할 수 있습니다.
-
-*Views\\Home\\SessionByCode.cshtml*을 *Views\\Home\\SessionByCode.Mobile.cshtml*로 복사하고 다음 태그를 사용하여 *Views\\Home\\SessionByCode.Mobile.cshtml* 파일의 내용을 바꿉니다.
-
-    @model MvcMobile.Models.Session
+    @model Mvc5Mobile.Models.Session
 
     @{
         ViewBag.Title = "Session details";
     }
-    <h2>@Model.Title</h2>
+    <h3>@Model.Title (@Model.Code)</h3>
     <p>
         <strong>@Model.DateText</strong> in <strong>@Model.Room</strong>
     </p>
 
-    <ul data-role="listview" data-inset="true">
-        <li data-role="list-divider">Speakers</li>
-        @foreach (var speaker in Model.Speakers) {
-            <li>@Html.ActionLink(speaker, "SessionsBySpeaker", new { speaker })</li>
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            Speakers
+        </div>
+        @foreach (var speaker in Model.Speakers)
+        {
+            @Html.ActionLink(speaker, 
+                             "SessionsBySpeaker", 
+                             new { speaker }, 
+                             new { @class="panel-body" })
         }
-    </ul>
+    </div>
 
-    <p>@Model.Description</p>
-    <h4>Code: @Model.Code</h4>
+    <p>@Model.Abstract</p>
 
-    <ul data-role="listview" data-inset="true">
-        <li data-role="list-divider">Tags</li>
-        @foreach (var tag in Model.Tags) {
-            <li>@Html.ActionLink(tag, "SessionsByTag", new { tag })</li>
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            Tags
+        </div>
+        @foreach (var tag in Model.Tags)
+        {
+            @Html.ActionLink(tag, 
+                             "SessionsByTag", 
+                             new { tag }, 
+                             new { @class = "panel-body" })
         }
-    </ul>
+    </div>
 
-새 태그는 **data-role** 특성을 사용하여 뷰의 레이아웃을 향상합니다.
+새 태그는 Bootstrap 패널 스타일을 사용하여 모바일 뷰를 개선합니다.
 
-모바일 브라우저를 새로 고칩니다. 다음 이미지는 방금 변경한 코드가 반영된 화면입니다.
+모바일 브라우저를 새로 고칩니다. 다음 이미지는 방금 변경한 코드가
+반영된 화면입니다.
 
-![](./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/windows-live-writer_asp_net-mvc-4-mobile-features_d2ff_p3_love2_thumb.png)
+![][30]
 
-Azure 웹 사이트에 응용 프로그램 배포
-------------------------------------
+## 요약 및 검토
 
-1.  Visual Studio의 **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 상황에 맞는 메뉴에서 **게시**를 선택합니다.
+이 자습서에서는 ASP.NET MVC 5를 사용하여 모바일 친화적인
+웹 응용 프로그램을 개발하는 방법을 보여 줬습니다. 내용은 다음과 같습니다.
 
-    ![프로젝트 상황에 맞는 메뉴의 게시](./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/PublishVSSolution.png)
+-   Azure 웹 사이트에 ASP.NET MVC 5 응용 프로그램 배포
+-   MVC 5 응용 프로그램에서 Bootstrap을 사용하여 반응형 웹 레이아웃
+    만들기
+-   모든 뷰에 대해 그리고 개별 뷰에 대해 레이아웃, 뷰 및 부분 뷰
+    재정의
+-   `RequireConsistentDisplayMode` 속성을 사용하여
+    레이아웃 및 부분 재정의 작업 제어
+-   iPhone 브라우저 등 특정 브라우저를 대상으로 하는
+    뷰 만들기
+-   Razor 코드에서 Boostrap 스타일 적용
 
-    **웹 게시** 마법사가 열립니다.
+## 참고 항목
 
-2.  **웹 게시** 마법사의 **프로필** 탭에서 **가져오기**를 클릭합니다.
+-   [Bootstrap][Bootstrap] 사이트
+-   [공식 Bootstrap 블로그][공식 Bootstrap 블로그]
+-   [Tutorial Republic의 Twitter Bootstrap 자습서][Tutorial Republic의 Twitter Bootstrap 자습서]
+-   [Bootstrap 놀이터][Bootstrap 놀이터]
+-   [W3C에서 권장하는 모바일 웹 응용 프로그램 모범 사례][W3C에서 권장하는 모바일 웹 응용 프로그램 모범 사례]
+-   [미디어 쿼리에 대한 W3C 권장 사항][미디어 쿼리에 대한 W3C 권장 사항]
 
-    ![게시 설정 가져오기](./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/ImportPublishSettings.png)
+<!-- Internal Links --> <!-- External Links --> <!-- Images -->
 
-    **게시 프로필 가져오기** 대화 상자가 나타납니다.
-
-3.  이전에 Visual Studio에 Azure 구독을 추가하지 않은 경우 다음 단계를 수행하십시오. 이들 단계에서 구독을 추가하여 **Azure 웹 사이트에서 가져오기** 아래의 드롭다운 목록에 웹 사이트를 포함합니다.
-
-    1.  **Import Publish Profile** 대화 상자에서 **Add Azure subscription**을 클릭합니다.
-
-    ![win az 구독 추가](./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/rzAddWAsub.png)
-
-    1.  **Import Azure Subscriptions** 대화 상자에서 **구독 파일 다운로드**를 클릭합니다.
-
-    ![구독 다운로드](./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/rzDownLoad.png)
-
-    1.  브라우저 창에서 *.publishsettings* 파일을 저장합니다.
-
-    ![게시 파일 다운로드](./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/rzDown2.png)
-
-	[WACOM.INCLUDE [publishsettingsfilewarningchunk](../includes/publishsettingsfilewarningchunk.md)]
-</br>
-
-    1.  **Import Azure Subscriptions** 대화 상자에서 **찾아보기**를 클릭하고 *.publishsettings* 파일로 이동합니다.
-
-    ![구독 다운로드](./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/rzDownLoad.png)
-
-    1.  **가져오기**를 클릭합니다.
-
-    ![가져오기](./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/rzImp.png)
-
-    1.  **게시 프로필 가져오기** 대화 상자에서 **Azure 웹 사이트에서 가져오기**를 선택하고 드롭다운 목록에서 웹 사이트를 선택한 후 **확인**을 클릭합니다.
-
-    ![게시 프로필 가져오기](./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/ImportPublishProfile.png)
-
-    1.  **연결** 탭에서 **연결 유효성 검사**를 클릭하여 설정이 올바른지 확인합니다.
-
-    ![연결 유효성 검사](./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/ValidateConnection.png)
-
-    1.  연결 유효성이 검사되면 **연결 유효성 검사** 단추 옆에 녹색 확인 표시가 나타납니다. 
-    ![연결 성공 아이콘 및 연결 탭의 다음 단추](./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/dntutmobile-deploy1-publish-005.png)
-
-    2.  이 페이지의 기본 설정을 모두 적용할 수 있습니다. 릴리스 빌드 구성을 배포 중이며 대상 서버의 파일을 삭제할 필요가 없습니다. **데이터베이스** 아래의 **UsersContext (DefaultConnection)** 항목은 DefaultConnection 문자열을 사용하는 *UsersContext:DbContext* 클래스에서 나옵니다. **다음**을 클릭합니다.
-
-    ![연결 탭의 연결 성공 아이콘 및 다음 단추](./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/rxPWS.png)
-
-    1.  **미리 보기** 탭에서 **미리 보기 시작**을 클릭합니다. 이 탭에는 서버로 복사될 파일 목록이 표시됩니다. 미리 보기 표시는 응용 프로그램을 게시하는 데 필요하지 않지만 알아 두면 유용한 기능입니다. 따라서 표시된 파일 목록에 어떤 작업도 수행할 필요가 없습니다. 다음번에 게시할 때 변경된 파일만 미리 보기 목록에 나타납니다.
-
-    ![미리 보기 탭의 미리 보기 시작 단추](./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/dntutmobile-deploy1-publish-007.png)
-
-    1.  **게시**를 클릭합니다.
-
-    Visual Studio에서 Azure 서버로 파일을 복사하는 프로세스를 시작합니다. **출력** 창에 수행된 배포 작업이 표시되고 성공적인 배포 완료가 보고됩니다.
-
-    1.  배포된 사이트의 URL이 기본 브라우저에서 자동으로 열립니다. 만든 응용 프로그램이 이제 클라우드에서 실행되고 있습니다.
-
-    ![](./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/depoly_mobile_new_website_15.png)
-
-모바일 브라우저에서 사이트 URL을 탐색하여 Phone Emulator를 사용하여 라이브 웹 사이트를 테스트할 수 있습니다.
-
-<!-- Images -->
-[jquery1]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/deploy-mobile-open-packagmanager.png
-[jquery2]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/deploy-mobile-open-install-jquey.png
-[jquery3]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/windows-live-writer_asp_net-mvc-4-mobile-features_d2ff_p3_afternuget_thumb.png
-[jquery4]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/windows-live-writer_asp_net-mvc-4-mobile-features_d2ff_p3_desktopviewwithmobilelink_thumb.png
-[jquery5]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/windows-live-writer_asp_net-mvc-4-mobile-features_d2ff_p3_desktopviewwithmobilelink_thumb.png
-[jquery6]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/Windows-Live-Writer_ASP_NET-MVC-4-Mobile-Features_D2FF_p3_desktopBrowser_thumb.png
+  [Visual Studio Express 2013 for Web]: http://www.visualstudio.com/downloads/download-visual-studio-vs#d-express-web
+  [create-account-and-websites-note]: ../includes/create-account-and-websites-note.md
+  [시작 프로젝트]: http://go.microsoft.com/fwlink/?LinkID=398780&clcid=0x409
+  []: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/SessionsByTag-ASP.NET-Fixed.png
+  [Fiddler
+  도구]: http://www.fiddler2.com/fiddler2/
+  [Azure SDK for Visual Studio 2013]: http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409
+  [웹 플랫폼 설치 관리자 - Azure SDK for .NET]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/WebPIAzureSdk23NetVS13.png
+  [Internet Explorer 11 F12 개발자 도구]: http://msdn.microsoft.com/ko-kr/library/ie/dn255001.aspx
+  [Google Chrome DevTools]: https://developers.google.com/chrome-developer-tools/docs/mobile-emulation
+  [Opera Mobile Emulator]: http://www.opera.com/developer/tools/mobile/
+  [완성된 프로젝트 다운로드(영문)]: http://go.microsoft.com/fwlink/?LinkID=398781&clcid=0x409
+  [Windows Azure 웹 사이트에 시작 프로젝트 배포]: #bkmk_DeployStarterProject
+  [Bootstrap CSS 프레임워크]: #bkmk_bootstrap
+  [뷰, 레이아웃 및 부분 뷰 재정의]: #bkmk_overrideviews
+  [발표자 목록 개선]: #bkmk_Improvespeakerslist
+  [태그 목록 개선]: #bkmk_improvetags
+  [날짜 목록 개선]: #bkmk_improvedates
+  [SessionsTable 뷰 개선]: #bkmk_improvesessionstable
+  [SessionByCode 뷰 개선]: #bkmk_improvesessionbycode
+  [1]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/deploy-to-azure-website-1.png
+  [2]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/deploy-to-azure-website-2.png
+  [3]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/deploy-to-azure-website-3.png
+  [4]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/deploy-to-azure-website-4.png
+  [5]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/deploy-to-azure-website-5.png
+  [6]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/deploy-to-azure-website-6.png
+  [7]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/deploy-to-azure-website-7.png
+  [8]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/deploy-to-azure-website-8.png
+  [9]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/AllTags.png
+  [10]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/SessionsByTag-ASP.NET.png
+  [11]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/SessionsByTag-ASP.NET-NoBootstrap.png
+  [Bootstrap]: http://getbootstrap.com/
+  [12]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/AllTagsMobile-_LayoutMobile.png
+  [13]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/AllTagsMobile-_LayoutMobile-Desktop.png
+  [14]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/Resolve-DefaultDisplayMode.png
+  [15]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/AllTagsIPhone-_LayoutIPhone.png
+  [16]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/AllSpeakers-_LayoutMobile.png
+  [17]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/AllSpeakers-_LayoutMobile-Overridden.png
+  [연결된 목록 그룹]: http://getbootstrap.com/components/#list-group-linked
+  [18]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/AllSpeakers-Fixed.png
+  [19]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/AllSpeakers-Fixed-Desktop.png
+  [glyphicon]: http://getbootstrap.com/components/#glyphicons
+  [20]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/AllSpeakers-Fixed-SearchBySC.png
+  [21]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/AllTags-Fixed-Desktop.png
+  [22]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/AllTags-Fixed.png
+  [23]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/AllDates-Fixed.png
+  [패널]: http://getbootstrap.com/components/#panels
+  [24]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/AllDates-Fixed2.png
+  [25]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/AllDates-Fixed2-Desktop.png
+  [26]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/AllTags-Fixed-SearchByASP.png
+  [27]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/SessionsTable-Tag-ASP.NET.png
+  [사용자 지정 연결된 목록 그룹]: http://getbootstrap.com/components/#list-group-custom-content
+  [그리드 시스템]: http://getbootstrap.com/css/#grid
+  [반응형 유틸리티]: http://getbootstrap.com/css/#responsive-utilities
+  [28]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/SessionsTable-Fixed-Tag-ASP.NET-Desktop.png
+  [29]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/SessionByCode-3-644.png
+  [30]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/SessionByCode-Fixed-3-644.png
+  [공식 Bootstrap 블로그]: http://blog.getbootstrap.com/
+  [Tutorial Republic의 Twitter Bootstrap 자습서]: http://www.tutorialrepublic.com/twitter-bootstrap-tutorial/
+  [Bootstrap 놀이터]: http://www.bootply.com/
+  [W3C에서 권장하는 모바일 웹 응용 프로그램 모범 사례]: http://www.w3.org/TR/mwabp/
+  [미디어 쿼리에 대한 W3C 권장 사항]: http://www.w3.org/TR/css3-mediaqueries/

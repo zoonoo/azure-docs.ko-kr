@@ -1,25 +1,24 @@
-<properties linkid="manage-services-how-to-monitor-websites" urlDisplayName="How to monitor" pageTitle="How to monitor web sites - Azure service management" metaKeywords="Azure monitoring web sites, Azure Management Portal Monitor, Azure monitoring" description="Learn how to monitor Azure web sites by using the Monitor page in the Management Portal." metaCanonical="" services="web-sites" documentationCenter="" title="How to Monitor Web Sites" authors="" solutions="" manager="" editor="" />
+<properties linkid="manage-services-how-to-monitor-websites" urlDisplayName="How to monitor" pageTitle="How to monitor websites - Azure service management" metaKeywords="Azure monitoring web sites, Azure Management Portal Monitor, Azure monitoring" description="Learn how to monitor Azure websites by using the Monitor page in the Management Portal." metaCanonical="" services="web-sites" documentationCenter="" title="How to Monitor Websites" authors="cephalin" solutions="" manager="wpickett" editor="mollybos" />
 
-웹 사이트를 모니터링하는 방법
-=============================
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin"></tags>
+
+# <a name="howtomonitor"></a>웹 사이트를 모니터링하는 방법
 
 웹 사이트는 모니터 관리 페이지를 통해 모니터링 기능을 제공합니다. 모니터 관리 페이지는 아래에 설명된 대로 웹 사이트에 대한 성능 통계를 제공합니다.
 
-목차
-----
+## 목차
 
--   [방법: 웹 사이트 메트릭 추가](#websitemetrics)
--   [방법: 웹 사이트 메트릭의 경고 받기](#howtoreceivealerts)
--   [방법: 웹 사이트의 사용 할당량 보기](#howtoviewusage)
--   [방법: 리소스 사용량 감소](#resourceusage)
--   [리소스 사용 할당량이 초과되는 경우](#exceeded)
--   [방법: 진단 구성 및 웹 사이트의 로그 다운로드](#howtoconfigdiagnostics)
--   [방법: 웹 끝점 상태 모니터링](#webendpointstatus)
+-   [방법: 웹 사이트 메트릭 추가][방법: 웹 사이트 메트릭 추가]
+-   [방법: 웹 사이트 메트릭의 경고 받기][방법: 웹 사이트 메트릭의 경고 받기]
+-   [방법: 웹 사이트의 사용 할당량 보기][방법: 웹 사이트의 사용 할당량 보기]
+-   [방법: 리소스 사용량 감소][방법: 리소스 사용량 감소]
+-   [리소스 사용 할당량이 초과되는 경우][리소스 사용 할당량이 초과되는 경우]
+-   [방법: 진단 구성 및 웹 사이트의 로그 다운로드][방법: 진단 구성 및 웹 사이트의 로그 다운로드]
+-   [방법: 웹 끝점 상태 모니터링][방법: 웹 끝점 상태 모니터링]
 
-방법: 웹 사이트 메트릭 추가
----------------------------
+## <a name="websitemetrics"></a>방법: 웹 사이트 메트릭 추가
 
-1.  [Azure 관리 포털](http://manage.windowsazure.com/)의 웹 사이트 관리 페이지에서, **모니터** 탭을 클릭하여 **모니터** 관리 페이지를 표시합니다. 기본적으로 **모니터** 페이지의 차트는 **대시보드** 페이지의 차트와 동일한 메트릭을 표시합니다.
+1.  [Azure 관리 포털][Azure 관리 포털]의 웹 사이트 관리 페이지에서, **모니터** 탭을 클릭하여 **모니터** 관리 페이지를 표시합니다. 기본적으로 **모니터** 페이지의 차트는 **대시보드** 페이지의 차트와 동일한 메트릭을 표시합니다.
 
 2.  웹 사이트의 추가 메트릭을 보려면 페이지 맨 아래에 있는 **메트릭 추가**를 클릭하여 **메트릭 선택** 대화 상자를 표시합니다.
 
@@ -46,18 +45,16 @@
 -   **Http 404 오류** - 전송된 Http "404 찾을 수 없음" 메시지의 수입니다.
 -   **Http 406 오류** - 전송된 Http "406 승인 금지" 메시지의 수입니다.
 
-방법: 웹 사이트 메트릭의 경고 받기
-----------------------------------
+## <a name="howtoreceivealerts"></a>방법: 웹 사이트 메트릭의 경고 받기
 
-**표준** 웹 사이트 모드에서는 웹 사이트 모니터링 메트릭을 기반으로 경고를 받을 수 있습니다. 이 경고 기능을 사용하려면 먼저 모니터링할 웹 끝점을 구성해야 합니다. 웹 끝점은 **구성** 페이지의 **모니터링** 섹션에서 구성할 수 있습니다. Azure 관리 포털의 **설정** 페이지에서 선택한 메트릭이 지정한 값에 도달하는 경우 경고를 트리거하는 규칙을 만들 수 있습니다. 또한 경고가 트리거되면 전자 메일을 보내도록 선택할 수 있습니다. 자세한 내용은 [방법: Azure에서 경고 알림 받기 및 경고 규칙 관리](http://go.microsoft.com/fwlink/?LinkId=309356)(영문)를 참조하십시오.
+**표준** 웹 사이트 모드에서는 웹 사이트 모니터링 메트릭을 기반으로 경고를 받을 수 있습니다. 이 경고 기능을 사용하려면 먼저 모니터링할 웹 끝점을 구성해야 합니다. 웹 끝점은 **구성** 페이지의 **모니터링** 섹션에서 구성할 수 있습니다. Azure 관리 포털의 **설정** 페이지에서 선택한 메트릭이 지정한 값에 도달하는 경우 경고를 트리거하는 규칙을 만들 수 있습니다. 또한 경고가 트리거되면 전자 메일을 보내도록 선택할 수 있습니다. 자세한 내용은 [방법: Azure에서 경고 알림 받기 및 경고 규칙 관리][방법: Azure에서 경고 알림 받기 및 경고 규칙 관리](영문)를 참조하십시오.
 
-방법: 웹 사이트의 사용 할당량 보기
-----------------------------------
+## <a name="howtoviewusage"></a>방법: 웹 사이트의 사용 할당량 보기
 
 웹 사이트의 **크기 조정** 관리 페이지에서 웹 사이트가 **공유** 또는 **표준** 웹 사이트 모드에서 실행되도록 구성할 수 있습니다. 각 Azure 구독은 **공유** 웹 사이트 모드에서 지역당 최대 100개의 웹 사이트를 실행하도록 제공된 리소스 풀에 액세스할 수 있습니다. 이런 목적으로 각 웹 사이트 구독에서 사용할 수 있는 리소스 풀은 동일한 지역에 있으며 **공유** 모드로 실행되도록 구성된 다른 웹 사이트에서 공유됩니다. 이러한 리소스가 다른 웹 사이트에서도 사용할 수 있도록 공유되기 때문에 모든 구독은 이러한 리소스 사용과 관련하여 제한을 받습니다. 이러한 리소스의 구독 사용에 적용된 제한은 각 웹 사이트의 **대시보드** 관리 페이지에 있는 사용 개요 섹션 아래에 나열된 사용 할당량으로 표시됩니다.
 
-**참고**  
- 웹 사이트가 **표준** 모드에서 실행되도록 구성된 경우 [Azure를 위한 가상 컴퓨터 및 클라우드 서비스 크기](http://go.microsoft.com/fwlink/?LinkID=309169)의 표에 있는 **소형**(기본값), **중형** 또는 **대형** 가상 컴퓨터 크기와 동일한 전용 리소스가 할당됩니다. 구독이 **표준** 모드에서 실행 중인 웹 사이트에 사용할 수 있는 리소스에는 제한이 없습니다. 그러나 지역당 만들 수 있는 **표준** 모드 웹 사이트의 수는 500개입니다.
+**참고**
+ 웹 사이트가 **표준** 모드에서 실행되도록 구성된 경우 [Azure를 위한 가상 컴퓨터 및 클라우드 서비스 크기][Azure를 위한 가상 컴퓨터 및 클라우드 서비스 크기]의 표에 있는 **소형**(기본값), **중형** 또는 **대형** 가상 컴퓨터 크기와 동일한 전용 리소스가 할당됩니다. 구독이 **표준** 모드에서 실행 중인 웹 사이트에 사용할 수 있는 리소스에는 제한이 없습니다. 그러나 지역당 만들 수 있는 **표준** 모드 웹 사이트의 수는 500개입니다.
 
 ### 공유 웹 사이트 모드용으로 구성된 웹 사이트의 사용 할당량 보기
 
@@ -74,16 +71,16 @@
 
 구독의 사용 할당량이 초과되면 Azure가 리소스의 과용을 중지하는 작업을 수행합니다. 그에 따라 어떤 구독이든 리소스를 남용하여 다른 구독자에게 손해를 입히지 않도록 합니다.
 
-방법: 리소스 사용량 감소
-------------------------
+## <a name="resourceusage"></a>방법: 리소스 사용량 감소
 
 Azure가 24시간 할당 간격 동안 구독자의 공유 모드 웹 사이트에 사용되는 리소스를 측정하여 리소스 사용 할당량을 계산하므로, 다음 사항을 고려하십시오.
 
--   공유 모드에서 실행되도록 구성된 웹 사이트 수가 늘어나면서 공유 모드 리소스 사용 할당량을 초과할 수 있습니다. 리소스 사용 할당량이 초과되는 경우 공유 모드에서 실행되도록 구성된 웹 사이트 수를 감소하는 것이 좋습니다.
--   유사하게, 공유 모드에서 실행 중인 웹 사이트 인스턴스 수가 늘어나면서 공유 모드 리소스 사용 할당량을 초과할 수 있습니다. 리소스 사용 할당량이 초과되면 공유 모드 웹 사이트의 추가 인스턴스 크기를 다시 조정하는 것이 좋습니다.
+-   공유 모드에서 실행되도록 구성된 웹 사이트 수가 늘어나면서 공유 모드 리소스 사용 할당량을 초과할 수 있습니다.
+    리소스 사용 할당량이 초과되는 경우 공유 모드에서 실행되도록 구성된 웹 사이트 수를 감소하는 것이 좋습니다.
+-   마찬가지로, 공유 모드에서 실행 중인 웹 사이트 인스턴스 수가 늘어나면서 공유 모드 리소스 사용 할당량을 초과할 수 있습니다.
+    리소스 사용 할당량이 초과되면 공유 모드 웹 사이트의 추가 인스턴스 크기를 다시 조정하는 것이 좋습니다.
 
-리소스 사용 할당량이 초과되는 경우
-----------------------------------
+## <a name="exceeded"></a>리소스 사용 할당량이 초과되는 경우
 
 할당 간격(24시간) 중 구독의 리소스 사용 할당량이 초과되면 Azure에서 다음 작업을 수행합니다.
 
@@ -93,8 +90,7 @@ Azure가 24시간 할당 간격 동안 구독자의 공유 모드 웹 사이트�
 
 -   **파일 시스템 저장소** - 배포로 인해 파일 시스템 저장소 사용 할당량이 초과되는 경우 Azure는 공유 모드에서 실행되도록 구성된 구독의 모든 웹 사이트 배포를 방지합니다. 파일 시스템 저장소 리소스가 할당량에서 허용하는 최대 크기까지 증가하는 경우, 읽기 작업을 위해서는 여전히 파일 시스템 저장소에 액세스할 수 있지만 일반적인 웹 사이트 작업에 필요한 모든 쓰기 작업은 차단됩니다. 이런 경우 공유 웹 사이트 모드에서 실행되고 있는 웹 사이트 중 하나 이상을 공유 웹 사이트 모드에서 실행되도록 구성하거나 파일 시스템 저장소의 사용량을 파일 시스템 저장소 사용 할당량 미만으로 감소시킵니다.
 
-방법: 진단 구성 및 웹 사이트의 로그 다운로드
---------------------------------------------
+## <a name="howtoconfigdiagnostics"></a>방법: 진단 구성 및 웹 사이트의 로그 다운로드
 
 진단은 웹 사이트의 **구성** 관리 페이지에서 사용하도록 설정합니다. 진단 유형은 두 가지로, **응용 프로그램 진단**과 **사이트 진단**입니다.
 
@@ -118,30 +114,44 @@ Azure가 24시간 할당 간격 동안 구독자의 공유 모드 웹 사이트�
 
     Azure 저장소 계정 및 Blob을 지정하려면 **설정**, **로깅 수준**, **Blob 저장소 관리**를 차례로 선택합니다. 저장소 계정, Blob 컨테이너 및 사용할 Blob 이름을 지정하거나 새 컨테이너 및 Blob을 만드십시오.
 
-Azure 저장소 계정에 대한 자세한 내용은 [저장소 계정을 관리하는 방법](https://www.windowsazure.com/en-us/manage/services/storage/how-to-manage-a-storage-account/)(영문)을 참조하십시오.
-**참고**
+Azure 저장소 계정에 대한 자세한 내용은 [저장소 계정을 관리하는 방법][저장소 계정을 관리하는 방법](영문)을 참조하십시오.
 
+<div class="dev-callout">
+
+**참고**
 테이블 또는 Blob 저장소에 대한 응용 프로그램 로깅은 .NET 응용 프로그램에서만 지원됩니다.
+
+</div>
 
 저장소에 대한 응용 프로그램 로깅의 경우 저장소 클라이언트를 사용하여 로그 데이터를 봐야 하므로, Azure 테이블 또는 Blob 저장소에서 데이터를 직접 읽고 처리하는 방법을 인식하는 서비스 또는 응용 프로그램 사용을 계획할 때 이런 점에 유의해야 합니다. 파일 시스템에 로깅하면 FTP 또는 이 섹션의 뒷부분에서 설명하는 기타 유틸리티를 사용하여 로컬 컴퓨터에 다운로드할 수 있는 파일이 생성됩니다.
-**참고**
 
+<div class="dev-callout">
+
+**참고**
 **응용 프로그램 진단(파일 시스템)**, **응용 프로그램 진단(테이블 저장소)** 및 **응용 프로그램 진단(Blob 저장소)**을 동시에 사용하도록 설정할 수 있으며 각 진단은 개별 로그 수준 구성을 포함합니다. 예를 들어 문제를 해결하기 위해 응용 프로그램 코드를 계측한 후 세부 정보 표시 수준의 파일 시스템 로깅을 사용하면서 오류 및 경고를 장기 로깅 솔루션으로 저장소에 로깅할 수 있습니다.
 
-**참고**
+</div>
 
+<div class="dev-callout">
+
+**참고**
 Azure PowerShell에서 **Set-AzureWebsite** cmdlet을 사용해서도 진단을 사용하도록 설정할 수 있습니다.
 
-Azure PowerShell을 설치하지 않았거나 Azure 구독을 사용하도록 이를 구성하지 않은 경우 [Azure PowerShell을 사용하는 방법](http://www.windowsazure.com/ko-kr/develop/nodejs/how-to-guides/powershell-cmdlets/)(영문)을 참조하십시오.
+Azure PowerShell을 설치하지 않았거나 Azure 구독을 사용하도록 Azure PowerShell을 구성하지 않은 경우 [Azure PowerShell 사용 방법][Azure PowerShell 사용 방법](영문)을 참조하십시오.
+
+</div>
+
+<div class="dev-callout">
 
 **참고**
-
 응용 프로그램 로깅은 응용 프로그램에서 생성되는 로그 정보를 사용합니다. 로그 정보뿐 아니라 정보의 형식을 생성하는 데 사용되는 메서드는 응용 프로그램을 작성한 언어에 따라 달라집니다. 응용 프로그램 로깅 사용에 대한 언어별 정보에 대해서는 다음 문서를 참조하십시오.
 
--   **.NET** - [Azure 웹 사이트의 진단 로깅 사용](/en-us/develop/net/common-tasks/diagnostics-logging-and-instrumentation/)
--   **Node.js** - [Azure 웹 사이트에서 Node.js 응용 프로그램 디버그 방법](/en-us/develop/nodejs/how-to-guides/Debug-Website/)
+-   **.NET** - [Azure 웹 사이트의 진단 로깅 사용][Azure 웹 사이트의 진단 로깅 사용]
+-   **Node.js** - [Azure 웹 사이트에서 Node.js 응용 프로그램 디버그 방법][Azure 웹 사이트에서 Node.js 응용 프로그램 디버그 방법]
 
 테이블 또는 Blob 저장소에 대한 응용 프로그램 로깅은 .NET 응용 프로그램에서만 지원됩니다.
+
+</div>
 
 #### 사이트 진단
 
@@ -149,20 +159,24 @@ Azure PowerShell을 설치하지 않았거나 Azure 구독을 사용하도록 �
 
 -   **웹 서버 로깅** - W3C 확장 로그 파일 형식을 사용하여 웹 사이트 로그를 저장하려면 웹 서버 로깅을 설정합니다. 웹 서버 로깅은 웹 사이트로 들어오는 모든 요청에 대한 레코드를 생성하며, 이 레코드에는 클라이언트 IP 주소, 요청된 URI, 응답의 HTTP 상태 코드, 클라이언트의 사용자 에이전트 문자열 등의 정보를 포함합니다. Azure 저장소 계정 또는 파일 시스템에 로그를 저장할 수 있습니다.
 
- Azure 저장소 계정에 웹 서버 로그를 저장하려면 **저장소**를 선택한 후 **저장소 관리**를 선택하여 로그를 저장할 저장소 계정 및 Azure Blob 컨테이너를 지정하십시오. Azure 저장소 계정에 대한 자세한 내용은 [저장소 계정을 관리하는 방법](https://www.windowsazure.com/en-us/manage/services/storage/how-to-manage-a-storage-account/)(영문)을 참조하십시오.
+Azure 저장소 계정에 웹 서버 로그를 저장하려면 **저장소**를 선택한 후 **저장소 관리**를 선택하여 로그를 저장할 저장소 계정 및 Azure Blob 컨테이너를 지정하십시오. Azure 저장소 계정에 대한 자세한 내용은 [저장소 계정을 관리하는 방법][저장소 계정을 관리하는 방법](영문)을 참조하십시오.
 
-   파일 시스템에 웹 서버 로그를 저장하려면 **파일 시스템**을 선택하십시오. 그러면 로그 파일의 최대 디스크 공간 양을 설정할 수 있는 **할당량** 상자가 사용되도록 설정됩니다. 최소 크기는 25MB이고 최대 크기는 100MB입니다. 기본 크기는 35MB입니다.
+파일 시스템에 웹 서버 로그를 저장하려면 **파일 시스템**을 선택하십시오. 그러면 로그 파일의 최대 디스크 공간 양을 설정할 수 있는 **할당량** 상자가 사용되도록 설정됩니다. 최소 크기는 25MB이고 최대 크기는 100MB입니다. 기본 크기는 35MB입니다.
 
- 기본적으로 웹 서버 로그는 절대로 삭제되지 않습니다. 로그가 자동으로 삭제되는 경과 시간을 지정하려면 **보존 설정**을 선택하고 **보존 기간** 상자에 로그를 보존할 일수를 입력합니다. 이 설정은 Azure 저장소 및 파일 시스템 옵션 모두에 사용할 수 있습니다.
+기본적으로 웹 서버 로그는 절대로 삭제되지 않습니다. 일정 기간 후 로그가 자동으로 삭제되도록 지정하려면 **Set Retention**을 선택하고 **보존 기간** 상자에 로그를 보관할 기간(일)을 입력합니다. 이 설정은 Azure 저장소 및 파일 시스템 옵션 모두에 사용할 수 있습니다.
 
 -   **자세한 오류 메시지** - HTTP 오류에 대한 추가 정보를 로깅하려면 자세한 오류 로깅을 설정합니다(400이 넘는 상태 코드).
 
 -   **실패한 요청 추적** - 실패한 클라이언트 요청(예: 400 시리즈 HTTP 상태 코드)에 대한 정보를 캡처하려면 실패한 요청 추적을 설정합니다. 실패한 요청 추적 기능은 IIS를 통해 전달된 요청, 모듈에서 반환된 세부 정보 및 모듈이 호출된 시간을 모듈화하는 추적이 포함된 XML 문서를 생성합니다. 이 정보는 실패가 발생한 구성 요소를 격리하는 데 사용할 수 있습니다.
 
 웹 사이트에 대한 진단을 사용하도록 설정한 후 **구성** 관리 페이지의 맨 아래 있는 **저장** 아이콘을 클릭하여 설정된 옵션을 적용합니다.
-**중요**
 
+<div class="dev-callout">
+
+**중요**
 로깅 및 추적은 웹 사이트 리소스를 상당히 요구합니다. 해결 중인 문제를 재현한 후에는 로깅 및 추적을 해제하는 것이 좋습니다.
+
+</div>
 
 ### 고급 구성
 
@@ -194,26 +208,29 @@ Azure PowerShell을 설치하지 않았거나 Azure 구독을 사용하도록 �
 
 1.  웹 사이트의 **대시보드** 관리 페이지를 열고 **진단 로그**에 나열된 FTP 사이트 및 **배포 사용자**에 나열된 계정을 기록합니다. FTP 사이트는 로그 파일이 있는 위치이며 배포 사용자 아래에 나열된 계정은 FTP 사이트에 인증하는 데 사용됩니다.
 2.  배포 자격 증명을 아직 만들지 않은 경우 **배포 사용자**에 아래 계정이 **설정 안 함**으로 나열됩니다. 이 경우 로그 파일이 저장되는 FTP 사이트에 인증하는 데 배포 자격 증명이 필요하므로, 대시보드의 게시 프로필 자격 증명 다시 설정 섹션에 설명된 대로 배포 자격 증명을 만들어야 합니다. Azure에서는 Live ID 자격 증명을 사용하여 이 FTP 사이트에 인증할 수 없습니다.
-3.  [FileZilla](http://go.microsoft.com/fwlink/?LinkId=247914)와 같은 FTP 클라이언트를 사용하여 FTP 사이트에 연결하는 것이 좋습니다. FTP 클라이언트를 사용하면 자격 증명을 지정하고 FTP 사이트의 폴더를 보는 작업이 브라우저보다 더 간편합니다.
+3.  [FileZilla][FileZilla]와 같은 FTP 클라이언트를 사용하여 FTP 사이트에 연결하는 것이 좋습니다. FTP 클라이언트를 사용하면 자격 증명을 지정하고 FTP 사이트의 폴더를 보는 작업이 브라우저보다 더 간편합니다.
 4.  FTP 사이트에서 로컬 컴퓨터로 로그 파일을 복사합니다.
 
 **Azure PowerShell**
 
 1.  **시작 화면** 또는 **시작 메뉴**에서 **Azure PowerShell**을 검색합니다. **Azure PowerShell**을 마우스 오른쪽 단추로 클릭하고 **관리자 권한으로 실행**을 선택합니다.
 
-    **참고**
+    <div class="dev-callout">
 
-    **Azure PowerShell**이 아직 설치되지 않은 경우 설치 및 구성 정보에 대해서는 [Azure PowerShell Cmdlet 시작](http://msdn.microsoft.com/ko-kr/library/windowsazure/jj554332.aspx)을 참조하십시오.
+    **참고**
+    **Azure PowerShell**이 아직 설치되지 않은 경우 설치 및 구성 정보에 대해서는 [Azure PowerShell Cmdlet 시작][Azure PowerShell Cmdlet 시작]을 참조하십시오.
+
+    </div>
 
 2.  Azure PowerShell 프롬프트에서 다음 명령을 사용하여 로그 파일을 다운로드합니다.
 
-         Save-AzureWebSiteLog -Name websitename
+        Save-AzureWebSiteLog -Name websitename
 
     **websitename**으로 지정된 웹 사이트의 로그 파일이 다운로드되어 현재 디렉터리에 **log.zip** 파일로 저장됩니다.
 
     또한 다음 명령을 사용하여 로그 이벤트의 실시간 스트림을 볼 수도 있습니다.
 
-         Get-AzureWebSiteLog -Name websitename -Tail
+        Get-AzureWebSiteLog -Name websitename -Tail
 
     로그가 생성되는 대로 Azure PowerShell 프롬프트에 로그 정보가 표시됩니다.
 
@@ -230,9 +247,13 @@ Azure PowerShell을 설치하지 않았거나 Azure 구독을 사용하도록 �
     azure site log tail websitename
 
 명령이 실행된 명령 프롬프트, PowerShell, bash 또는 터미널 세션에 로그 정보가 표시됩니다.
-**참고**
 
-**azure** 명령이 설치되지 않은 경우 설치 및 구성 정보에 대해서는 [Azure 명령줄 도구를 사용하는 방법](http://www.windowsazure.com/ko-kr/develop/nodejs/how-to-guides/command-line-tools/)(영문)을 참조하십시오.
+<div class="dev-callout">
+
+**참고**
+**azure** 명령이 설치되지 않은 경우 설치 및 구성 정보에 대해서는 [Azure 명령줄 도구를 사용하는 방법][Azure 명령줄 도구를 사용하는 방법](영문)을 참조하십시오.
+
+</div>
 
 ### 로그 파일 읽기
 
@@ -240,19 +261,19 @@ Azure PowerShell을 설치하지 않았거나 Azure 구독을 사용하도록 �
 
 **로그 파일 형식: 응용 프로그램 로깅**
 
--   위치: /LogFiles/Application/. 이 폴더에는 응용 프로그램 로깅으로 생성되는 정보를 포함하는 텍스트 파일이 하나 이상 들어 있습니다. 로깅되는 정보에는 날짜 및 시간, 응용 프로그램의 PID(프로세스 ID) 및 응용 프로그램 계측으로 생성되는 값이 포함됩니다.
+-   위치: /LogFiles/Application/. 이 폴더에는 응용 프로그램 로깅으로 생성된 정보가 포함된 하나 이상의 텍스트 파일이 포함됩니다. 로깅되는 정보에는 날짜 및 시간, 응용 프로그램의 PID(프로세스 ID) 및 응용 프로그램 계측으로 생성되는 값이 포함됩니다.
 
 -   파일을 읽는 방법: 응용 프로그램에서 생성하는 값을 인식하는 텍스트 편집기 또는 파서 사용
 
 **로그 파일 형식: 실패한 요청 추적**
 
--   위치: /LogFiles/W3SVC########\#/. 이 폴더에는 XSL 파일 및 하나 이상의 XML 파일이 들어 있습니다. Internet Explorer에서 볼 때 XSL 파일에서 XML 파일의 콘텐츠를 서식 지정하고 필터링하는 기능을 제공하므로 XSL 파일을 XML 파일과 동일한 디렉터리에 다운로드했는지 확인하십시오.
+-   Location : /LogFiles/W3SVC#\#\#\#\#\#\#\#\#/. 이 폴더에는 하나의 XSL 파일 및 하나 이상의 XML 파일이 포함되어 있습니다. XSL 파일은 XML 파일을 Internet Explorer에서 볼 때 XML 파일의 내용에 서식을 지정하고 필터링하는 기능을 제공하므로 XSL 파일은 XML 파일과 동일한 디렉터리에 다운로드해야 합니다.
 
 -   파일을 읽는 방법: Internet Explorer 사용
 
 **로그 파일 형식: 자세한 오류 로깅**
 
--   위치: /LogFiles/DetailedErrors/. /LogFiles/DetailedErrors/ 폴더에는 발생한 HTTP 오류에 대한 광범위한 정보를 제공하는 .htm 파일이 하나 이상 들어 있습니다.
+-   Location : /LogFiles/DetailedErrors/. /LogFiles/DetailedErrors/ 폴더에는 발생한 HTTP 오류에 대한 광범위한 정보를 제공하는 .htm 파일이 하나 이상 들어 있습니다.
 
 -   파일을 읽는 방법: 웹 브라우저 사용
 
@@ -268,12 +289,11 @@ Azure PowerShell을 설치하지 않았거나 Azure 구독을 사용하도록 �
 
 **로그 파일 형식: 웹 서버 로깅**
 
--   위치: /LogFiles/http/RawLogs. 파일에 저장되는 정보는 [W3C 확장 로그 형식](http://go.microsoft.com/fwlink/?LinkID=90561)(영문)을 사용하여 서식 지정됩니다. s-computername, s-ip 및 cs-version 필드는 Azure 웹 사이트에 사용되지 않습니다.
+-   Location : /LogFiles/http/RawLogs. 파일에 저장되는 정보는 [W3C 확장 로그 형식][W3C 확장 로그 형식](영문)을 사용하여 서식 지정됩니다. s-computername, s-ip 및 cs-version 필드는 Azure 웹 사이트에 사용되지 않습니다.
 
 -   파일을 읽는 방법: 로그 파서 사용. 로그 파서는 IIS 로그 파일을 구문 분석하고 쿼리하는 데 사용됩니다. Log Parser 2.2는 <http://go.microsoft.com/fwlink/?LinkId=246619>의 Microsoft 다운로드 센터에서 다운로드할 수 있습니다.
 
-방법: 웹 끝점 상태 모니터링
----------------------------
+## <a name="webendpointstatus"></a>방법: 웹 끝점 상태 모니터링
 
 **표준** 모드에서 사용 가능한 이 기능을 통해 최대 3개 지역에서 최대 2개의 끝점을 모니터링할 수 있습니다.
 
@@ -289,15 +309,35 @@ Azure PowerShell을 설치하지 않았거나 Azure 구독을 사용하도록 �
 2.  **구성** 탭을 클릭합니다.
 3.  **모니터링** 섹션으로 이동하여 끝점 설정을 입력합니다.
 4.  끝점의 이름을 입력합니다.
-5.  모니터링할 서비스의 URL을 입력합니다. 예를 들어 <http://contoso.cloudapp.net>을 입력합니다.
+5.  모니터링할 서비스의 URL을 입력합니다. 예를 들어 [][]<http://contoso.cloudapp.net></a>을 입력합니다.
 6.  목록에서 지리적 위치를 하나 이상 선택합니다.
 7.  선택적으로, 앞의 단계를 반복하여 두 번째 끝점을 만듭니다.
 8.  **저장**을 클릭합니다. 웹 끝점 모니터링 데이터가 **대시보드** 및 **모니터** 탭에서 사용 가능해질 때까지 어느 정도 시간이 걸릴 수 있습니다.
 
 웹 사이트 끝점 모니터링에 대한 자세한 내용은 다음 비디오를 참조하십시오.
 
--   [스캇 거트리(Scott Guthrie)의 Azure 웹 사이트 소개 및 끝점 모니터링 설정(영문)](http://www.windowsazure.com/ko-kr/documentation/videos/websites-and-endpoint-monitoring-scottgu/)
+-   [스캇 거트리(Scott Guthrie)의 Azure 웹 사이트 소개 및 끝점 모니터링 설정(영문)][스캇 거트리(Scott Guthrie)의 Azure 웹 사이트 소개 및 끝점 모니터링 설정(영문)]
 
--   [Azure 웹 사이트 가동 및 끝점 모니터링 - 스테판 스차코우(Stefan Schackow)(영문)](http://www.windowsazure.com/ko-kr/documentation/videos/azure-web-sites-endpoint-monitoring-and-staying-up/)
+-   [Azure 웹 사이트 가동 및 끝점 모니터링 - 스테판 스차코우(Stefan Schackow)(영문)][Azure 웹 사이트 가동 및 끝점 모니터링 - 스테판 스차코우(Stefan Schackow)(영문)]
 
-
+  [방법: 웹 사이트 메트릭 추가]: #websitemetrics
+  [방법: 웹 사이트 메트릭의 경고 받기]: #howtoreceivealerts
+  [방법: 웹 사이트의 사용 할당량 보기]: #howtoviewusage
+  [방법: 리소스 사용량 감소]: #resourceusage
+  [리소스 사용 할당량이 초과되는 경우]: #exceeded
+  [방법: 진단 구성 및 웹 사이트의 로그 다운로드]: #howtoconfigdiagnostics
+  [방법: 웹 끝점 상태 모니터링]: #webendpointstatus
+  [Azure 관리 포털]: http://manage.windowsazure.com/
+  [방법: Azure에서 경고 알림 받기 및 경고 규칙 관리]: http://go.microsoft.com/fwlink/?LinkId=309356
+  [Azure를 위한 가상 컴퓨터 및 클라우드 서비스 크기]: http://go.microsoft.com/fwlink/?LinkID=309169
+  [저장소 계정을 관리하는 방법]: https://www.windowsazure.com/ko-kr/manage/services/storage/how-to-manage-a-storage-account/
+  [Azure PowerShell 사용 방법]: http://www.windowsazure.com/ko-kr/develop/nodejs/how-to-guides/powershell-cmdlets/
+  [Azure 웹 사이트의 진단 로깅 사용]: /ko-kr/develop/net/common-tasks/diagnostics-logging-and-instrumentation/
+  [Azure 웹 사이트에서 Node.js 응용 프로그램 디버그 방법]: /ko-kr/develop/nodejs/how-to-guides/Debug-Website/
+  [FileZilla]: http://go.microsoft.com/fwlink/?LinkId=247914
+  [Azure PowerShell Cmdlet 시작]: http://msdn.microsoft.com/ko-kr/library/windowsazure/jj554332.aspx
+  [Azure 명령줄 도구를 사용하는 방법]: http://www.windowsazure.com/ko-kr/develop/nodejs/how-to-guides/command-line-tools/
+  [W3C 확장 로그 형식]: http://go.microsoft.com/fwlink/?LinkID=90561
+  []: http://contoso.cloudapp.net
+  [스캇 거트리(Scott Guthrie)의 Azure 웹 사이트 소개 및 끝점 모니터링 설정(영문)]: http://www.windowsazure.com/ko-kr/documentation/videos/websites-and-endpoint-monitoring-scottgu/
+  [Azure 웹 사이트 가동 및 끝점 모니터링 - 스테판 스차코우(Stefan Schackow)(영문)]: http://www.windowsazure.com/ko-kr/documentation/videos/azure-web-sites-endpoint-monitoring-and-staying-up/

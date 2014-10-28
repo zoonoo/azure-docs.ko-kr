@@ -1,7 +1,8 @@
-<properties linkid="manage-linux-common-tasks-user-root-privileges" urlDisplayName="Use root privileges" pageTitle="Use root privileges on Linux virtual machines in Azure" metaKeywords="" description="Learn how to use root privileges on a Linux virtual machine in Azure." metaCanonical="" services="virtual-machines" documentationCenter="" title="Using root privileges on Linux virtual machines in Azure" authors="" solutions="" manager="" editor="" />
+<properties linkid="manage-linux-common-tasks-user-root-privileges" urlDisplayName="Use root privileges" pageTitle="Use root privileges on Linux virtual machines in Azure" metaKeywords="" description="Learn how to use root privileges on a Linux virtual machine in Azure." metaCanonical="" services="virtual-machines" documentationCenter="" title="Using root privileges on Linux virtual machines in Azure" authors="timlt" solutions="" manager="timlt" editor="" />
 
-Azure의 Linux 가상 컴퓨터에서 루트 권한 사용
-============================================
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="timlt"></tags>
+
+# Azure의 Linux 가상 컴퓨터에서 루트 권한 사용
 
 사용자는 Linux 가상 컴퓨터에서 `sudo` 명령을 사용하여 상승된 권한으로 명령을 실행할 수 있습니다. 그러나 환경은 시스템이 프로비전된 방법에 따라 다릅니다.
 
@@ -9,8 +10,7 @@ Azure의 Linux 가상 컴퓨터에서 루트 권한 사용
 
 2.  **SSH 키만** - 가상 컴퓨터가 암호 없이 인증서(`.cer` 또는 `.pem` 파일)만 사용하여 프로비전되었습니다. 이 경우 `sudo`에서 명령을 실행하기 전에 사용자 암호를 묻는 메시지를 **표시하지 않습니다**.
 
-SSH 키 및 암호 또는 암호만
---------------------------
+## SSH 키 및 암호 또는 암호만
 
 SSH 키 또는 암호 인증을 사용하여 Linux 가상 컴퓨터에 로그인한 후 `sudo`를 사용하여 명령을 실행합니다. 예를 들면 다음과 같습니다.
 
@@ -19,8 +19,7 @@ SSH 키 또는 암호 인증을 사용하여 Linux 가상 컴퓨터에 로그인
 
 이 경우에는 사용자에게 암호를 묻는 메시지가 표시됩니다. 암호가 입력되면 `sudo`에서 `root` 권한으로 명령을 실행합니다.
 
-SSH 키만
---------
+## SSH 키만
 
 SSH 키 인증을 사용하여 Linux 가상 컴퓨터에 로그인한 후 `sudo`를 사용하여 명령을 실행합니다. 예를 들면 다음과 같습니다.
 

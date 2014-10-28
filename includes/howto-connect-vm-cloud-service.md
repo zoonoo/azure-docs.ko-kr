@@ -1,30 +1,27 @@
-<properties  authors="kathydav" editor="tysonn" manager="donaldg" />
+<properties authors="kathydav" editor="tysonn" manager="donaldg" />
 
 # 클라우드 서비스에서 가상 컴퓨터를 연결하는 방법
 
 가상 컴퓨터를 만들면 컴퓨터를 포함할 클라우드 서비스가 자동으로 만들어집니다. 동일한 클라우드 서비스에 여러 가상 컴퓨터를 만들어 가상 컴퓨터가 서로 통신할 수 있게 하고, 가상 컴퓨터 간에 부하를 분산하며, 컴퓨터의 고가용성을 유지할 수 있습니다.
 
-가상 컴퓨터 부하 분산에 대한 자세한 내용은 [가상 컴퓨터 부하 분산](../load-balancing-vms/)을 참조하십시오. 응용 프로그램의 가용성 관리에 대한 자세한 내용은 [가상 컴퓨터의 가용성 관리](../manage-vm-availability/)를 참조하십시오.
+가상 컴퓨터 부하 분산에 대한 자세한 내용은 [가상 컴퓨터 부하 분산][가상 컴퓨터 부하 분산]을 참조하십시오. 응용 프로그램의 가용성 관리에 대한 자세한 내용은 [가상 컴퓨터의 가용성 관리][가상 컴퓨터의 가용성 관리]를 참조하십시오.
 
-먼저 새 클라우드 서비스로 가상 컴퓨터를 만든 후 동일한 클라우드 서비스의 첫 번째 가상 컴퓨터에 추가 가상 컴퓨터를 연결할 수
-있습니다.
+먼저 새 클라우드 서비스로 가상 컴퓨터를 만든 후 동일한 클라우드 서비스의 첫 번째 가상 컴퓨터에 추가 가상 컴퓨터를 연결할 수 있습니다.
 
-1.  [사용자 지정 가상 컴퓨터를 만드는 방법](../howto-custom-create-vm/)의 단계에 따라 가상 컴퓨터를
-    만듭니다.
+1.  [사용자 지정 가상 컴퓨터를 만드는 방법][사용자 지정 가상 컴퓨터를 만드는 방법]의 단계에 따라 가상 컴퓨터를 만듭니다.
 
-2.  첫 번째 사용자 지정 가상 컴퓨터를 만든 후 [관리 포털][1] 명령 모음에서 **New**를 클릭합니다.
-    
-    ![새 가상 컴퓨터 만들기](./media/howto-connect-vm-cloud-service/Create.png)
+2.  첫 번째 사용자 지정 가상 컴퓨터를 만든 후 [관리 포털][관리 포털] 명령 모음에서 **New**를 클릭합니다.
+
+    ![새 가상 컴퓨터 만들기][새 가상 컴퓨터 만들기]
 
 3.  **Virtual Machine**을 클릭한 후 **From Gallery**를 클릭합니다.
-    
-    ![사용자 지정 가상 컴퓨터
-    만들기](./media/howto-connect-vm-cloud-service/CreateNew.png)
-    
+
+    ![사용자 지정 가상 컴퓨터 만들기][사용자 지정 가상 컴퓨터 만들기]
+
     **Select the virtual machine operating system** 대화 상자가 나타납니다.
 
 4.  **이미지 선택** 페이지에서 이미지를 선택하고 화살표를 클릭하여 계속합니다.
-    
+
     첫 번째 **가상 컴퓨터 구성** 페이지가 나타납니다.
 
 5.  **Virtual Machine Name**에서 가상 컴퓨터에 사용할 이름을 입력합니다.
@@ -47,6 +44,9 @@
 
 14. 확인 표시를 클릭하여 연결된 가상 컴퓨터를 만듭니다.
 
-
-
-[1]: http://manage.windowsazure.com
+  [가상 컴퓨터 부하 분산]: ../../articles/load-balance-virtual-machines/
+  [가상 컴퓨터의 가용성 관리]: ../../articles/manage-availability-virtual-machines/
+  [사용자 지정 가상 컴퓨터를 만드는 방법]: ../../articles/virtual-machines-create-custom/
+  [관리 포털]: http://manage.windowsazure.com
+  [새 가상 컴퓨터 만들기]: ./media/howto-connect-vm-cloud-service/Create.png
+  [사용자 지정 가상 컴퓨터 만들기]: ./media/howto-connect-vm-cloud-service/CreateNew.png

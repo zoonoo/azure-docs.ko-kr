@@ -1,34 +1,32 @@
 <properties linkid="manage-services-identity-multi-factor-authentication" urlDisplayName="What is Azure Multi-Factor Authentication?" pageTitle="What is Azure Multi-Factor Authentication?" metaKeywords="" description="Learn more about Azure Multi-Factor Authentication, a method of authentication that requires the use of more than one verification method and adds a critical second layer of security to user sign-ins and transactions." metaCanonical="" services="active-directory,multi-factor-authentication" documentationCenter="" title="How to Manage Azure Virtual Machines using Ruby" authors="larryfr" solutions="" manager="" editor="" />
 
-Ruby를 사용하여 Azure 가상 컴퓨터를 관리하는 방법
-=================================================
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"></tags>
+
+# Ruby를 사용하여 Azure 가상 컴퓨터를 관리하는 방법
 
 이 가이드에서는 Azure 가상 컴퓨터와 관련하여 VM 만들기와 구성 및 데이터 디스크 추가와 같은 일반적인 관리 작업을 프로그래밍 방식으로 구성하는 방법을 보여 줍니다. Azure SDK for Ruby를 통해 Azure 가상 컴퓨터를 포함하여 다양한 Azure 서비스의 서비스 관리 기능에 액세스할 수 있습니다.
 
-목차
-----
+## 목차
 
--   [서비스 관리](#what-is)
--   [개념](#concepts)
--   [관리 인증서 만들기](#setup-certificate)
--   [Ruby 응용 프로그램 만들기](#create-app)
--   [SDK를 사용하도록 응용 프로그램 구성](#configure-access)
--   [Azure 관리 연결 설정](#setup-connection)
--   [방법: 가상 컴퓨터 작업](#virtual-machine)
--   [방법: 이미지 및 디스크 작업](#vm-images)
--   [방법: 클라우드 서비스 작업](#cloud-services)
--   [방법: 저장소 서비스 작업](#storage-services)
--   [다음 단계](#next-steps)
+-   [서비스 관리][서비스 관리]
+-   [개념][개념]
+-   [관리 인증서 만들기][관리 인증서 만들기]
+-   [Ruby 응용 프로그램 만들기][Ruby 응용 프로그램 만들기]
+-   [SDK를 사용하도록 응용 프로그램 구성][SDK를 사용하도록 응용 프로그램 구성]
+-   [Azure 관리 연결 설정][Azure 관리 연결 설정]
+-   [방법: 가상 컴퓨터 작업][방법: 가상 컴퓨터 작업]
+-   [방법: 이미지 및 디스크 작업][방법: 이미지 및 디스크 작업]
+-   [방법: 클라우드 서비스 작업][방법: 클라우드 서비스 작업]
+-   [방법: 저장소 서비스 작업][방법: 저장소 서비스 작업]
+-   [다음 단계][다음 단계]
 
-서비스 관리
------------
+## <a name="what-is"> </a>서비스 관리
 
-Azure에서는 Azure 가상 컴퓨터 관리를 포함하여 [서비스 관리 작업용 REST API](http://msdn.microsoft.com/en-us/library/windowsazure/ee460799.aspx)를 사용할 수 있습니다. Azure SDK for Ruby는 **Azure::VirtualMachineSerivce** 클래스를 통해 가상 컴퓨터의 관리 작업을 노출합니다. [Azure 관리 포털](https://manage.windowsazure.com)을 통해 사용할 수 있는 가상 컴퓨터 관리 기능 중 다수는 이 클래스를 사용해 액세스할 수 있습니다.
+Azure에서는 Azure 가상 컴퓨터 관리를 포함하여 [서비스 관리 작업용 REST API][서비스 관리 작업용 REST API]를 사용할 수 있습니다. Azure SDK for Ruby는 **Azure::VirtualMachineSerivce** 클래스를 통해 가상 컴퓨터의 관리 작업을 노출합니다. [Azure 관리 포털][Azure 관리 포털]을 통해 사용할 수 있는 가상 컴퓨터 관리 기능 중 다수는 이 클래스를 사용해 액세스할 수 있습니다.
 
 서비스 관리 API를 사용하면 Azure에서 호스트되는 다양한 서비스를 관리할 수 있지만, 이 문서에서는 Azure 가상 컴퓨터 관리에 대해서만 자세히 설명합니다.
 
-개념
-----
+## <a name="concepts"> </a>개념
 
 Azure 가상 컴퓨터는 클라우드 서비스 내에서 '역할'로 구현됩니다. 각 클라우드 서비스에는 다수의 배포로 논리적으로 그룹화된 하나 이상의 역할이 포함될 수 있습니다. 역할은 가용 메모리 양, CPU 코어 수 등과 같이 VM의 전반적인 물리적 특징을 정의합니다.
 
@@ -36,34 +34,31 @@ Azure 가상 컴퓨터는 클라우드 서비스 내에서 '역할'로 구현됩
 
 대부분의 이미지는 Microsoft 또는 파트너에서 제공되지만, 고유한 이미지를 만들거나 Azure에서 호스트되는 VM에서 이미지를 만들 수 있습니다.
 
-Azure 관리 인증서 만들기
-------------------------
+## <a name="setup-certificate"> </a>Azure 관리 인증서 만들기
 
 **Azure::VirtualMachineService** 클래스를 통해 노출된 작업과 같은 서비스 관리 작업을 수행할 때는 Azure 구독 ID 및 구독의 관리 인증서가 포함된 파일을 제공해야 합니다. 두 가지 모두 Azure REST API로 인증할 때 SDK에서 사용됩니다.
 
-Azure 플랫폼 간 명령줄 인터페이스(xplat-cli)를 사용하여 구독 ID 및 관리 인증서를 구해야 합니다. xplat-cli 설치 및 구성에 대한 자세한 내용은 [Azure 플랫폼 간 명령줄 인터페이스 설치 및 구성](http://www.windowsazure.com/en-us/manage/install-and-configure-cli/)을 참조하십시오.
+Azure 플랫폼 간 명령줄 인터페이스(xplat-cli)를 사용하여 구독 ID 및 관리 인증서를 구해야 합니다. xplat-cli 설치 및 구성에 대한 자세한 내용은 [Azure 플랫폼 간 명령줄 인터페이스 설치 및 구성][Azure 플랫폼 간 명령줄 인터페이스 설치 및 구성]을 참조하십시오.
 
 xplat-cli를 구성하고 나면 다음 단계를 수행하여 Azure 구독 ID를 검색하고 관리 인증서를 내보낼 수 있습니다.
 
 1.  구독 ID를 검색하려면 다음을 사용합니다.
 
-         azure account list
+        azure account list
 
 2.  관리 인증서를 내보내려면 다음 명령을 사용합니다.
 
-         azure account cert export
+        azure account cert export
 
-    명령이 완료된 후에는 증명서가 이름이 &lt;azure-subscription-name\>.pem인 파일로 내보내집니다. 예를 들어 구독의 이름이 **mygreatsubscription**으로 지정된 경우 만들어지는 파일에는 **mygreatsubscription.pem**이라는 이름이 지정됩니다.
+    명령이 완료된 후에는 증명서가 이름이 \<azure-subscription-name\>.pem인 파일로 내보내집니다. 예를 들어 구독의 이름이 **mygreatsubscription**으로 지정된 경우 만들어지는 파일에는 **mygreatsubscription.pem**이라는 이름이 지정됩니다.
 
 구독 ID 및 내보낸 인증서가 포함된 PEM 파일의 위치를 기록해 둡니다. 이 정보는 이 문서 뒷부분에서 사용됩니다.
 
-Ruby 응용 프로그램 만들기
--------------------------
+## <a name="create-app"></a>Ruby 응용 프로그램 만들기
 
 새 Ruby 응용 프로그램을 만듭니다. 이 문서에서 사용하는 예는 단일 **.rb** 파일에서 구현할 수 있습니다.
 
-응용 프로그램 구성
-------------------
+## <a name="configure-access"></a>응용 프로그램 구성
 
 Azure 서비스를 관리하려면 Azure SDK for Ruby가 포함된 Azure gem을 다운로드하여 사용해야 합니다.
 
@@ -73,30 +68,32 @@ Azure 서비스를 관리하려면 Azure SDK for Ruby가 포함된 Azure gem을 
 
 2.  다음 코드를 사용하여 Azure gem을 설치합니다.
 
-         gem install azure
+        gem install azure
 
     다음과 비슷한 결과가 나타나야 합니다.
 
-         Fetching: mini_portile-0.5.1.gem (100%)
-         Fetching: nokogiri-1.6.0-x86-mingw32.gem (100%)
-         Fetching: mime-types-1.25.gem (100%)
-         Fetching: systemu-2.5.2.gem (100%)
-         Fetching: macaddr-1.6.1.gem (100%)
-         Fetching: uuid-2.3.7.gem (100%)
-         Fetching: azure-0.5.0.gem (100%)
-         Successfully installed mini_portile-0.5.1
-         Successfully installed nokogiri-1.6.0-x86-mingw32
-         Successfully installed mime-types-1.25
-         Successfully installed systemu-2.5.2
-         Successfully installed macaddr-1.6.1
-         Successfully installed uuid-2.3.7
-         Successfully installed azure-0.5.0
-         7 gems installed
+        Fetching: mini_portile-0.5.1.gem (100%)
+        Fetching: nokogiri-1.6.0-x86-mingw32.gem (100%)
+        Fetching: mime-types-1.25.gem (100%)
+        Fetching: systemu-2.5.2.gem (100%)
+        Fetching: macaddr-1.6.1.gem (100%)
+        Fetching: uuid-2.3.7.gem (100%)
+        Fetching: azure-0.5.0.gem (100%)
+        Successfully installed mini_portile-0.5.1
+        Successfully installed nokogiri-1.6.0-x86-mingw32
+        Successfully installed mime-types-1.25
+        Successfully installed systemu-2.5.2
+        Successfully installed macaddr-1.6.1
+        Successfully installed uuid-2.3.7
+        Successfully installed azure-0.5.0
+        7 gems installed
 
     <div class="dev-callout">
-	<b>참고</b>
-	<p>권한 관련 오류가 나타나는 경우에는 대신 <code>sudo gem install azure</code> 를 사용하십시오.</p>
-	</div>
+
+    **참고**
+    사용 권한 관련 오류가 나타나는 경우 대신 `sudo gem install azure`를 사용하십시오.
+
+    </div>
 
 ### gem 요구
 
@@ -104,10 +101,9 @@ Azure 서비스를 관리하려면 Azure SDK for Ruby가 포함된 Azure gem을 
 
     require 'azure'
 
-방법: 서비스 관리에 연결
-------------------------
+## <a name="setup-connection"> </a>방법: 서비스 관리에 연결
 
-Azure에서 서비스 관리 작업을 수행하려면 구독 ID 및 [Azure 관리 인증서 만들기](#setup-certificate) 섹션에서 구한 인증서를 지정해야 합니다. 이렇게 하는 가장 쉬운 방법은 다음 환경 변수를 사용하여 ID 및 인증서 파일 경로를 지정하는 것입니다.
+Azure에서 서비스 관리 작업을 수행하려면 구독 ID 및 [Azure 관리 인증서 만들기][관리 인증서 만들기] 섹션에서 구한 인증서를 지정해야 합니다. 이렇게 하는 가장 쉬운 방법은 다음 환경 변수를 사용하여 ID 및 인증서 파일 경로를 지정하는 것입니다.
 
 -   AZURE\_MANAGEMENT\_CERTIFICATE - 관리 인증서가 포함된 .PEM 파일의 경로
 
@@ -120,8 +116,7 @@ Azure에서 서비스 관리 작업을 수행하려면 구독 ID 및 [Azure 관�
       config.subscription_id = 'subscription ID'
     end
 
-방법: 가상 컴퓨터 작업
-----------------------
+## <a name="virtual-machine"> </a>방법: 가상 컴퓨터 작업
 
 Azure 가상 컴퓨터에 대한 관리 작업은 **Azure::VirtualMachineService** 클래스를 사용하여 수행합니다.
 
@@ -147,7 +142,7 @@ Azure 가상 컴퓨터에 대한 관리 작업은 **Azure::VirtualMachineService
       :vm_name => 'mygreatvm',
       :vm_user => 'myuser',
       :password => 'mypassword',
-      :image => 'b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-13_04-amd64-server-20130824-en-us-30GB',
+      :image => 'b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-13_04-amd64-server-20130824-ko-kr-30GB',
       :location = 'East US'
     }
 
@@ -181,7 +176,7 @@ VM 생성의 기본 동작을 다시 정의(예: 새로 만드는 대신 기존 
 
 -   **:ssh\_port** - SSH 통신에 사용할 공용 포트. 생략되는 경우 SSH 포트는 기본적으로 22로 설정됩니다.
 
--   **:vm\_size** - VM의 크기. 이 값에 따라 VM의 메모리 크기, 코어 수, 대역폭, 기타 물리적 특징이 결정됩니다. 사용할 수 있는 크기 및 물리적 특징에 대한 자세한 내용은 [Azure를 위한 가상 컴퓨터 및 클라우드 서비스 크기](http://msdn.microsoft.com/en-us/library/windowsazure/dn197896.aspx)를 참조하십시오.
+-   **:vm\_size** - VM의 크기. 이 값에 따라 VM의 메모리 크기, 코어 수, 대역폭, 기타 물리적 특징이 결정됩니다. 사용할 수 있는 크기 및 물리적 특징에 대한 자세한 내용은 [Azure를 위한 가상 컴퓨터 및 클라우드 서비스 크기][Azure를 위한 가상 컴퓨터 및 클라우드 서비스 크기]를 참조하십시오.
 
 -   **:winrm\_transport** - WinRM에서 사용할 수 있는 전송 배열. 유효한 전송은 'http' 및 'https'입니다. 전송으로 'https'가 지정된 경우에는 **:ssh\_private\_key\_file** 및 **:ssh\_certificate\_file**을 사용하여 HTTPS 통신 보안을 유지하는 데 사용되는 인증서도 지정해야 합니다.
 
@@ -191,7 +186,7 @@ VM 생성의 기본 동작을 다시 정의(예: 새로 만드는 대신 기존 
       :vm_name => 'myvm',
       :vm_user => 'myuser',
       :password => 'mypassword',
-      :image => 'b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-13_04-amd64-server-20130824-en-us-30GB',
+      :image => 'b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-13_04-amd64-server-20130824-ko-kr-30GB',
       :location = 'East US'
     }
 
@@ -227,8 +222,10 @@ Azure 구독의 기존 가상 컴퓨터를 나열하려면 **list\_virtual\_mach
     vm = vm_mgr.delete_virtual_machine('myvm', 'mycloudservice')
 
 <div class="dev-callout">
-<b>경고</b>
-<p><b>delete_virtual_machine</b> 메서드는 클라우드 서비스 및 해당 가상 컴퓨터와 연결된 디스크를 삭제합니다.</p>
+
+**경고**
+**delete\_virtual\_machine** 메서드는 클라우드 서비스 및 해당 가상 컴퓨터와 연결된 디스크를 삭제합니다.
+
 </div>
 
 ### 방법: 가상 컴퓨터 종료
@@ -245,8 +242,7 @@ Azure 구독의 기존 가상 컴퓨터를 나열하려면 **list\_virtual\_mach
     vm_mgr = Azure::VirtualMachineService.new
     vm = vm_mgr.start_virtual_machine('myvm', 'mycloudservice')
 
-방법: 가상 컴퓨터 이미지 및 디스크 작업
----------------------------------------
+## <a name="vm-images"> </a>방법: 가상 컴퓨터 이미지 및 디스크 작업
 
 가상 컴퓨터 이미지에 대한 작업은 **Azure::VirtualMachineImageService** 클래스를 사용하여 수행됩니다. 디스크에 대한 작업은 **Azure::VirtualMachineImageManagement::VirtualMachineDiskManagementService** 클래스를 사용하여 수행됩니다.
 
@@ -271,8 +267,7 @@ Azure 구독의 디스크를 나열하려면 **list\_virtual\_machine\_disks** �
     disk_mgr = Azure::VirtualMachineImageManagement::VirtualMachineDiskManagementService.new
     disk_mgr.delete_virtual_machine_disk
 
-방법: 클라우드 서비스 작업
---------------------------
+## <a name="cloud-services"> </a>방법: 클라우드 서비스 작업
 
 Azure 클라우드 서비스에 대한 관리 작업은 **Azure::CloudService** 클래스를 사용하여 수행합니다.
 
@@ -317,8 +312,7 @@ Azure 구독의 클라우드 서비스를 나열하려면 **list\_cloud\_service
     cs_mgr = Azure::CloudService.new
     cs_mgr.delete_cloud_service_deployment('mycloudservice')
 
-방법: 저장소 서비스 작업
-------------------------
+## <a name="storage-services"> </a>방법: 저장소 서비스 작업
 
 Azure 클라우드 서비스에 대한 관리 작업은 **Azure::StorageService** 클래스를 사용하여 수행합니다.
 
@@ -356,12 +350,29 @@ Azure 구독의 저장소 계정 목록을 가져오려면 **list\_storage\_acco
     storage_mgr = Azure::StorageService.new
     storage_mgr.delete_storage_account('mystorage')
 
-다음 단계
----------
+## <a name="next-steps"> </a>다음 단계
 
 이제 프로그래밍 방식으로 Azure 가상 컴퓨터 만들기의 기본 사항을 배웠으므로 다음 링크를 따라 더 많은 VM 작업을 수행하는 방법을 알아보십시오.
 
--   [가상 컴퓨터](http://www.windowsazure.com/ko-kr/documentation/services/virtual-machines/)(영문) 기능 페이지를 방문하십시오.
--   다음 MSDN 참조를 확인하십시오. [가상 컴퓨터](http://msdn.microsoft.com/en-us/library/windowsazure/jj156003.aspx)
--   [가상 컴퓨터에서 Ruby on Rails 응용 프로그램](http://www.windowsazure.com/en-us/develop/ruby/tutorials/web-app-with-linux-vm/)을 호스트하는 방법을 알아보십시오.
+-   [가상 컴퓨터][가상 컴퓨터](영문) 기능 페이지를 방문하십시오.
+-   다음 MSDN 참조를 확인하세요. [가상 컴퓨터][1]
+-   [가상 컴퓨터에서 Ruby on Rails 응용 프로그램][가상 컴퓨터에서 Ruby on Rails 응용 프로그램]을 호스트하는 방법을 알아보십시오.
 
+  [서비스 관리]: #what-is
+  [개념]: #concepts
+  [관리 인증서 만들기]: #setup-certificate
+  [Ruby 응용 프로그램 만들기]: #create-app
+  [SDK를 사용하도록 응용 프로그램 구성]: #configure-access
+  [Azure 관리 연결 설정]: #setup-connection
+  [방법: 가상 컴퓨터 작업]: #virtual-machine
+  [방법: 이미지 및 디스크 작업]: #vm-images
+  [방법: 클라우드 서비스 작업]: #cloud-services
+  [방법: 저장소 서비스 작업]: #storage-services
+  [다음 단계]: #next-steps
+  [서비스 관리 작업용 REST API]: http://msdn.microsoft.com/ko-kr/library/windowsazure/ee460799.aspx
+  [Azure 관리 포털]: https://manage.windowsazure.com
+  [Azure 플랫폼 간 명령줄 인터페이스 설치 및 구성]: http://www.windowsazure.com/ko-kr/manage/install-and-configure-cli/
+  [Azure를 위한 가상 컴퓨터 및 클라우드 서비스 크기]: http://msdn.microsoft.com/ko-kr/library/windowsazure/dn197896.aspx
+  [가상 컴퓨터]: http://www.windowsazure.com/ko-kr/documentation/services/virtual-machines/
+  [1]: http://msdn.microsoft.com/ko-kr/library/windowsazure/jj156003.aspx
+  [가상 컴퓨터에서 Ruby on Rails 응용 프로그램]: http://www.windowsazure.com/ko-kr/develop/ruby/tutorials/web-app-with-linux-vm/

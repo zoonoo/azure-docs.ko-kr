@@ -1,7 +1,8 @@
-<properties linkid="manage-linux-common-tasks-lampstack" urlDisplayName="Install LAMP stack" pageTitle="Install the LAMP stack on a Linux virtual machine" metaKeywords="" description="Learn how to install the LAMP stack on a Linux virtual machine (VM) in Azure. You can install on Ubuntu or CentOS." metaCanonical="" services="virtual-machines" documentationCenter="" title="Install the LAMP Stack on a Linux virtual machine in Azure" authors="" solutions="" manager="" editor="" />
+<properties linkid="manage-linux-common-tasks-lampstack" urlDisplayName="Install LAMP stack" pageTitle="Install the LAMP stack on a Linux virtual machine" metaKeywords="" description="Learn how to install the LAMP stack on a Linux virtual machine (VM) in Azure. You can install on Ubuntu or CentOS." metaCanonical="" services="virtual-machines" documentationCenter="" title="Install the LAMP Stack on a Linux virtual machine in Azure" authors="szark" solutions="" manager="timlt" editor="" />
 
-Azure에서 Linux 가상 컴퓨터에 LAMP 스택 설치
-============================================
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="szark"></tags>
+
+# Azure에서 Linux 가상 컴퓨터에 LAMP 스택 설치
 
 LAMP 스택은 다음과 같은 여러 요소로 구성됩니다.
 
@@ -10,8 +11,7 @@ LAMP 스택은 다음과 같은 여러 요소로 구성됩니다.
 -   **M**ySQL - 데이터베이스 서버
 -   **P**HP - 프로그래밍 언어
 
-Ubuntu에 설치
--------------
+## Ubuntu에 설치
 
 다음 패키지를 설치해야 합니다.
 
@@ -19,18 +19,19 @@ Ubuntu에 설치
 -   `mysql-server`
 -   `php5`
 -   `php5-mysql`
--   `libapache2-mod-auth-mysql`
--   `libapache2-mod-php5`
--   `php5-xsl`
--   `php5-gd`
--   `php-pear`
 
-이 스택 설치를 다음과 같은 단일 `apt-get install` 명령으로 실행할 수 있습니다.
+`apt-get update`를 실행하여 로컬 패키지 목록을 업데이트한 후에는 단일 `apt-get install` 명령을 사용하여 이러한 패키지를 설치할 수 있습니다.
 
-    apt-get install apache2 mysql-server php5 php5-mysql libapache2-mod-auth-mysql libapache2-mod-php5 php5-xsl php5-gd php-pear
+    # sudo apt-get update
+    # sudo apt-get install apache2 mysql-server php5 php5-mysql
 
-CentOS에 설치
--------------
+위의 명령을 실행하고 나면 이러한 패키지와 그 밖의 많은 종속성을 설치할 것인지를 묻는 메시지가 표시됩니다. 'y'를 누른 후 'Enter' 키를 눌러 계속 진행하고 화면에 표시되는 메시지에 따라 MySQL에 대한 관리 암호를 설정합니다.
+
+이렇게 하면 PHP와 MySQL을 함께 사용하는 데 필요한 최소한의 PHP 확장이 설치됩니다. 다음 명령을 실행하여 패키지로 사용 가능한 다른 PHP 확장을 살펴봅니다.
+
+    # apt-cache search php5
+
+## CentOS 및 Oracle Linux에 설치
 
 다음 패키지를 설치해야 합니다.
 
@@ -40,43 +41,66 @@ CentOS에 설치
 -   `php`
 -   `php-mysql`
 
-이 스택 설치를 다음과 같은 단일 `yum install` 명령으로 실행할 수 있습니다.
+이러한 패키지는 단일 `yum install` 명령을 사용하여 설치할 수 있습니다.
 
-    yum install httpd mysql mysql-server php-php-mysql
+    # sudo yum install httpd mysql mysql-server php php-mysql
 
-설치
-----
+위의 명령을 실행하고 나면 이러한 패키지와 그 밖의 많은 종속성을 설치할 것인지를 묻는 메시지가 표시됩니다. 'y'를 누른 후 'Enter' 키를 눌러 계속 진행합니다.
 
-1.  **Apache**를 설치합니다.
+이렇게 하면 PHP와 MySQL을 함께 사용하는 데 필요한 최소한의 PHP 확장이 설치됩니다. 다음 명령을 실행하여 패키지로 사용 가능한 다른 PHP 확장을 살펴봅니다.
 
-    1.  Apache 웹 서버를 다시 시작해야 합니다. 다음 명령을 실행합니다.
+    # yum search php
 
-             sudo /etc/init.d/apache2 restart
+## SUSE Linux Enterprise Server에 설치
 
-    2.  설치가 실행되고 있는지 확인합니다. 브라우저에서 <http://localhost>로 이동합니다. "It works!"라는 메시지가 표시됩니다.
+다음 패키지를 설치해야 합니다.
 
-2.  **MySQL**을 설치합니다.
-    1.  다음 명령을 실행하여 mysql의 루트 암호를 설정합니다.
+-   apache2
+-   mysql
+-   apache2-mod\_php53
+-   php53-mysql
 
-             mysqladmin -u root -p password yourpassword
+이러한 패키지는 단일 `zypper install` 명령을 사용하여 설치할 수 있습니다.
 
-    2.  `mysql` 또는 다양한 MySQL 클라이언트를 사용하여 콘솔에 로그인합니다.
+    # sudo zypper install apache2 mysql apache2-mod_php53 php53-mysql
 
-3.  **PHP**를 설치합니다.
+위의 명령을 실행하고 나면 이러한 패키지와 그 밖의 많은 종속성을 설치할 것인지를 묻는 메시지가 표시됩니다. 'y'를 누른 후 'Enter' 키를 눌러 계속 진행합니다.
 
-    1.  다음 명령을 실행하여 Apache PHP 모듈을 사용하도록 설정합니다.
+이렇게 하면 PHP와 MySQL을 함께 사용하는 데 필요한 최소한의 PHP 확장이 설치됩니다. 다음 명령을 실행하여 패키지로 사용 가능한 다른 PHP 확장을 살펴봅니다.
 
-             sudo a2enmod php5
+    # zypper search php
 
-    2.  다음 명령을 실행하여 Apache를 다시 시작합니다.
+## 설치
 
-             sudo service apache2 restart
+1.  **Apache** 설치
 
-추가 참고 자료
---------------
+    -   다음 명령을 실행하여 Apache 웹 서버를 시작합니다.
+
+        -   Ubuntu 및 SLES: `sudo service apache2 restart`
+
+        -   CentOS 및 Oracle: `sudo service httpd restart`
+
+    -   Apache는 기본적으로 포트 80에서 수신 대기합니다. Apache 서버에 원격으로 액세스하려면 끝점을 열어야 할 수도 있습니다. 자세한 지침은 [끝점 구성][끝점 구성]을 참조하십시오.
+
+    -   이제 Apache가 실행 중이며 콘텐츠를 제공하고 있는지 확인할 수 있습니다. 브라우저를 `http://[MYSERVICE].cloudapp.net`으로 전환합니다. 여기서 **[MYSERVICE]**는 가상 컴퓨터가 상주하는 클라우드 서비스의 이름입니다. 일부 배포의 경우 "It works!"라고만 표시된 기본 웹 페이지가 나타날 수도 있습니다. 다른 배포의 경우 Apache 서버의 구성을 위한 추가 설명서 및 콘텐츠 링크가 포함된 좀 더 완전한 웹 페이지가 나타날 수 있습니다.
+
+2.  **MySQL** 설치
+
+    -   이 단계는 Ubuntu에서는 수행할 필요가 없으며 mysql-server 패키지를 설치할 때 사용한 MySQL `root` 암호를 묻는 메시지가 표시됩니다.
+
+    -   다른 배포의 경우 다음 명령을 실행하여 MySQL의 루트 암호를 설정합니다.
+
+            # mysqladmin -u root -p password yourpassword
+
+    -   그런 다음 `mysql` 또는 `mysqladmin` 유틸리티를 사용하여 MySQL을 관리할 수 있습니다.
+
+## 추가 참고 자료
 
 Ubuntu에 LAMP 스택을 설치하는 데 도움이 되는 여러 리소스가 있습니다.
 
--   <https://help.ubuntu.com/community/ApacheMySQLPHP>
--   <http://fedorasolved.org/server-solutions/lamp-stack>
+-   [][]<https://help.ubuntu.com/community/ApacheMySQLPHP></a>
+-   [][1]<http://fedorasolved.org/server-solutions/lamp-stack></a>
 
+  [끝점 구성]: http://azure.microsoft.com/ko-kr/documentation/articles/virtual-machines-set-up-endpoints/
+  []: https://help.ubuntu.com/community/ApacheMySQLPHP
+  [1]: http://fedorasolved.org/server-solutions/lamp-stack
