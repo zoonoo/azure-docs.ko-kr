@@ -2,7 +2,7 @@
 
     ![][]
 
-    > [WACOM.NOTE] 앱에서 푸시 알림을 명시적으로 수락해야 합니다. This request only occurs the first time that the app runs.
+    > [WACOM.NOTE] 앱에서 푸시 알림을 명시적으로 수락해야 합니다. 이 요청은 앱이 처음 실행될 때만 발생합니다.
 
 2.  앱에서 *새 모바일 서비스 작업*과 같은 의미 있는 텍스트를 입력하고 (**+**) 아이콘을 클릭합니다.
 

@@ -2,6 +2,7 @@
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal"></tags>
 
+
 # 모바일 서비스에서 푸시 알림 시작(기존 푸시)
 
 <div class="dev-center-tutorial-selector sublanding">
@@ -39,7 +40,7 @@
 
 ## <span id="register"></span></a>Google Cloud Messaging 사용
 
-[WACOM.INCLUDE [GCM 사용][GCM 사용]]
+[WACOM.INCLUDE [GCM 사용](../includes/mobile-services-enable-Google-cloud-messaging.md)]
 
 다음에는 이 API 키를 사용하여 모바일 서비스에서 GCM에 인증하고 앱 대신 푸시 알림을 보낼 수 있게 합니다.
 
@@ -47,7 +48,7 @@
 
 1.  [Azure 관리 포털][Azure 관리 포털]에 로그온하여 **모바일 서비스**를 클릭한 후 앱을 클릭합니다.
 
-    ![][]
+    ![][0]
 
 2.  **푸시** 탭을 클릭하고 이전 절차에서 GCM으로부터 받은 **API 키** 값을 입력한 후 **저장**을 클릭합니다.
 
@@ -59,7 +60,7 @@
 
 ### 프로젝트에 Google Play Services 추가
 
-[WACOM.INCLUDE [Play Services 추가][Play Services 추가]]
+[WACOM.INCLUDE [Play Services 추가](../includes/mobile-services-add-Google-play-services.md)]
 
 ### 코드 추가
 
@@ -110,14 +111,14 @@
     이 코드는 등록 ID를 포함하는 새 속성을 만듭니다.
 
     <div class="dev-callout"><b>참고</b>
-<p>모바일 서비스에서 동적 스키마가 사용하도록 설정된 경우 이 속성이 포함된 새 항목이 삽입되면 <strong>handle</strong> 열이 <strong>TodoItem</strong> 테이블에 자동으로 추가됩니다.</p>
-</div>
+	<p>모바일 서비스에서 동적 스키마가 사용하도록 설정된 경우 이 속성이 포함된 새 항목이 삽입되면 <strong>handle</strong> 열이 <strong>TodoItem</strong> 테이블에 자동으로 추가됩니다.</p>
+    </div>
 
 8.  [모바일 서비스 Android SDK][모바일 서비스 Android SDK]를 다운로드하여 압축을 풀고 **notifications** 폴더를 연 후 **notifications-1.0.1.jar** 파일을 Eclipse 프로젝트의 *libs* 폴더로 복사하고 *libs* 폴더를 새로 고칩니다.
 
     <div class="dev-callout"><b>참고</b>
-<p>후속 SDK 릴리스에서는 파일 이름 끝에 있는 숫자가 변경될 수도 있습니다.</p>
-</div>
+	<p>후속 SDK 릴리스에서는 파일 이름 끝에 있는 숫자가 변경될 수도 있습니다.</p>
+    </div>
 
 9.  *ToDoItemActivity.java* 파일을 열고 다음 import 문을 추가합니다.
 
@@ -268,7 +269,7 @@
   [모바일 서비스 시작하기]: /ko-kr/develop/mobile/tutorials/get-started-android
   [GCM 사용]: ../includes/mobile-services-enable-Google-cloud-messaging.md
   [Azure 관리 포털]: https://manage.windowsazure.com/
-  []: ./media/mobile-services-android-get-started-push/mobile-services-selection.png
+  [0]: ./media/mobile-services-android-get-started-push/mobile-services-selection.png
   [1]: ./media/mobile-services-android-get-started-push/mobile-push-tab-android.png
   [Play Services 추가]: ../includes/mobile-services-add-Google-play-services.md
   [Google Play Services SDK 설정]: http://go.microsoft.com/fwlink/?LinkId=389801

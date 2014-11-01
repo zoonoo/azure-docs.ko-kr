@@ -6,6 +6,8 @@
 
 워크플로 및 코디네이터를 정의하는 방법, 시간을 기준으로 코디네이터 작업을 트리거하는 방법을 알아봅니다. 이 문서를 시작하기 전에 [HDInsight에서 Oozie 사용][HDInsight에서 Oozie 사용]을 확인하는 것이 도움이 됩니다.
 
+
+
 **예상 완료 시간:** 40분
 
 ## 이 문서에서는 다음을 수행합니다.
@@ -27,33 +29,34 @@ Apache Oozie는 Hadoop 작업을 관리하는 워크플로/조정 시스템입�
 
 1.  Hive 작업이 HiveQL 스크립트를 실행하여 log4j 로그 파일에서 각 로그 수준 유형이 나타나는 횟수를 계산합니다. 각 log4j 로그는 유형과 심각도를 표시하는 [LOG LEVEL] 필드가 포함된 필드의 줄로 구성되어 있습니다. 예를 들면 다음과 같습니다.
 
-        2012-02-03 18:35:34 SampleClass6 [INFO] everything normal for id 577725851
-        2012-02-03 18:35:34 SampleClass4 [FATAL] system problem at id 1991281254
-        2012-02-03 18:35:34 SampleClass3 [DEBUG] detail for id 1304807656
-        ...
+		2012-02-03 18:35:34 SampleClass6 [INFO] everything normal for id 577725851
+		2012-02-03 18:35:34 SampleClass4 [FATAL] system problem at id 1991281254
+		2012-02-03 18:35:34 SampleClass3 [DEBUG] detail for id 1304807656
+		...
 
-    Hive 스크립트 출력은 다음과 같습니다.
+	Hive 스크립트 출력은 다음과 같습니다.
+	
+		[DEBUG] 434
+		[ERROR] 3
+		[FATAL] 1
+		[INFO]  96
+		[TRACE] 816
+		[WARN]  4
 
-        [DEBUG] 434
-        [ERROR] 3
-        [FATAL] 1
-        [INFO]  96
-        [TRACE] 816
-        [WARN]  4
-
-    Hive에 대한 자세한 내용은 [HDInsight에서 Hive 사용][HDInsight에서 Hive 사용]을 참조하세요.
-
+	Hive에 대한 자세한 내용은 [HDInsight에서 Hive 사용][HDInsight에서 Hive 사용]을 참조하세요.
+	
 2.  HiveQL 작업 출력을 Azure SQL 데이터베이스의 테이블에 내보내는 Sqoop 작업입니다. Sqoop에 대한 자세한 내용은 [HDInsight에서 Sqoop 사용][HDInsight에서 Sqoop 사용]을 참조하세요.
 
 > [WACOM.NOTE] HDInsight 클러스터에서 지원되는 Oozie 버전에 대해서는 [HDInsight에서 제공하는 클러스터 버전의 새로운 기능][HDInsight에서 제공하는 클러스터 버전의 새로운 기능]을 참조하세요.
 
 > [WACOM.NOTE] 이 자습서는 HDInsight 클러스터 버전 2.1 및 3.0에 적용됩니다. 이 문서는 HDInsight 에뮬레이터에 대해 테스트되었습니다.
 
+
 ## <span id="prerequisites"></span></a>필수 조건
 
 이 자습서를 시작하기 전에 다음이 있어야 합니다.
 
--   Azure PowerShell이 설치 및 구성된 **워크스테이션**. 자세한 내용은 [Azure PowerShell 설치 및 구성][Azure PowerShell 설치 및 구성]을 참조하세요. PowerShell 스크립트를 실행하려면 관리자로 Azure PowerShell을 실행하고 실행 정책을 *RemoteSigned*로 설정해야 합니다. [Windows PowerShell 스크립트 실행][Windows PowerShell 스크립트 실행](영문)을 참조하세요.
+- Azure PowerShell이 설치 및 구성된 **워크스테이션**. 자세한 내용은 [Azure PowerShell 설치 및 구성][Azure PowerShell 설치 및 구성]을 참조하세요. PowerShell 스크립트를 실행하려면 관리자로 Azure PowerShell을 실행하고 실행 정책을 *RemoteSigned*로 설정해야 합니다. [Windows PowerShell 스크립트 실행][Windows PowerShell 스크립트 실행](영문)을 참조하세요.
 -   **HDInsight 클러스터**. HDInsight 클러스터 만들기에 대한 자세한 내용은 [HDInsight 클러스터 프로비전][HDInsight 클러스터 프로비전] 또는 [HDInsight 시작][HDInsight 시작]을 참조하세요. 자습서를 완료하려면 다음 데이터가 필요합니다.
 
     <table>
@@ -248,23 +251,26 @@ Oozie 워크플로 정의는 hPDL(XML Process Definition Language)로 작성됩�
 
     RunHiveScript에는 몇 가지 변수가 있습니다. Azure PowerShell을 사용하여 워크스테이션에서 Oozie 작업을 제출하면 해당 값이 전달됩니다.
 
-    | 워크플로 변수 | 설명                                                                                                                                                                  |
-    |---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    | ${jobTracker} | Hadoop 작업 추적기의 URL을 지정합니다. HDInsight 클러스터 버전 2.0 및 3.0에는 **jobtrackerhost:9010**을 사용합니다.                                                   |
-    | ${nameNode}   | Hadoop namenode의 URL을 지정합니다. 기본 파일 시스템 WASB 주소를 사용합니다. 예를 들어 *wasb://\<containerName\>@\<storageAccountName\>.blob.core.windows.net*입니다. |
-    | ${queueName}  | 작업을 제출할 queuename을 지정합니다. **기본값**을 사용합니다.                                                                                                        |
+	<table border = "1">
+	<tr><th>워크플로 변수</th><th>설명</th></tr>
+	<tr><td>${jobTracker}</td><td>Hadoop 작업 추적기의 URL을 지정합니다. HDInsight 클러스터 버전 2.0 및 3.0에는 <strong>jobtrackerhost:9010</strong>을 사용합니다.</td></tr>
+	<tr><td>${nameNode}</td><td>Hadoop namenode의 URL을 지정합니다. 기본 파일 시스템 WASB 주소를 사용합니다. 예를 들어 <i>wasb://&lt;<containerName&gt;@&lt;storageAccountName&gt;.blob.core.windows.net</i>입니다.</td></tr>
+	<tr><td>${queueName}</td><td>작업을 제출할 queuename을 지정합니다. <strong>기본값<strong>을 사용합니다.</td></tr>
+	</table>
 
-    | Hive 작업 변수      | 설명                                                   |
-    |---------------------|--------------------------------------------------------|
-    | ${hiveDataFolder}   | Hive Create Table 명령의 소스 디렉터리입니다.          |
-    | ${hiveOutputFolder} | INSERT OVERWRITE 문의 출력 폴더입니다.                 |
-    | ${hiveTableName}    | log4j 데이터 파일을 참조하는 Hive 테이블의 이름입니다. |
+	<table border = "1">
+	<tr><th>Hive 작업 변수</th><th>설명</th></tr>
+	<tr><td>${hiveDataFolder}</td><td>Hive Create Table 명령의 소스 디렉터리입니다.</td></tr>
+	<tr><td>${hiveOutputFolder}</td><td>INSERT OVERWRITE 문의 출력 폴더입니다.</td></tr>
+	<tr><td>${hiveTableName}</td><td>log4j 데이터 파일을 참조하는 Hive 테이블의 이름입니다.</td></tr>
+	</table>
 
-    | Sqoop 작업 변수                | 설명                                                                                              |
-    |--------------------------------|---------------------------------------------------------------------------------------------------|
-    | ${sqlDatabaseConnectionString} | SQL 데이터베이스 연결 문자열입니다.                                                               |
-    | ${sqlDatabaseTableName}        | 내보내는 데이터를 넣을 SQL 데이터베이스 테이블입니다.                                             |
-    | ${hiveOutputFolder}            | Hive INSERT OVERWRITE 문의 출력 폴더입니다. Sqoop 내보내기 export-dir용 폴더와 동일한 폴더입니다. |
+	<table border = "1">
+	<tr><th>Sqoop 작업 변수</th><th>설명</th></tr>
+	<tr><td>${sqlDatabaseConnectionString}</td><td>SQL 데이터베이스 연결 문자열입니다.</td></tr>
+	<tr><td>${sqlDatabaseTableName}</td><td>내보내는 데이터를 넣을 SQL 데이터베이스 테이블입니다.</td></tr>
+	<tr><td>${hiveOutputFolder}</td><td>Hive INSERT OVERWRITE 문의 출력 폴더입니다. Sqoop 내보내기 export-dir용 폴더와 동일한 폴더입니다.</td></tr>
+	</table>
 
     Oozie 워크플로 및 워크플로 동작 사용에 대한 자세한 내용은 HDInsight 클러스터 버전 3.0의 경우 [Apache Oozie 4.0 설명서][Apache Oozie 4.0 설명서](영문) 또는 HDInsight 클러스터 버전 2.1의 경우 [Apache Oozie 3.3.2 설명서][Apache Oozie 3.3.2 설명서](영문)를 참조하세요.
 

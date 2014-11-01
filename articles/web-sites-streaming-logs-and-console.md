@@ -30,7 +30,7 @@ Trace.TraceWarning("My warning statement");
 Trace.TraceError("My error statement");
 `````````````````````````
 
-The Trace class lives in the System.Diagnostics namespace.
+Trace 클래스는 System.Diagnostics 네임스페이스에 상주합니다.
 
 node.js 앱에서는 다음 코드를 쓰면 동일한 결과를 얻을 수 있습니다.
 

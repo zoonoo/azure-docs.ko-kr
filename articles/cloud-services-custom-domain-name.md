@@ -2,6 +2,6 @@
 
 <tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="timlt"></tags>
 
-[WACOM.INCLUDE [custom-dns][custom-dns]]
+[WACOM.INCLUDE [custom-dns](../includes/custom-dns.md)]
 
   [custom-dns]: ../includes/custom-dns.md

@@ -37,7 +37,7 @@ ASP.NET MVC 5에서 빌드되고 데이터베이스 액세스에 ADO.NET Entity 
 -   [Azure에 앱 배포][Azure에 앱 배포]
 -   [다음 단계][다음 단계]
 
-[WACOM.INCLUDE [install-sdk-2013-only][install-sdk-2013-only]]
+[WACOM.INCLUDE [install-sdk-2013-only](../includes/install-sdk-2013-only.md)]
 
 localhost에 새 SSL 인증서를 사용하려면 [Visual Studio 2013 Update 2 RC][Visual Studio 2013 Update 2 RC] 이상을 설치해야 합니다.
 
@@ -97,7 +97,7 @@ Azure 웹 사이트를 만들었지만 아직 콘텐츠가 없습니다. 다음 
 
     ![파일 메뉴의 새 프로젝트][파일 메뉴의 새 프로젝트]
 
-1.  **새 프로젝트** 대화 상자에서 **C\#**을 확장하고 **설치된 템플릿** 아래의 **웹**을 선택한 다음 **ASP.NET 웹 응용 프로그램**을 선택합니다.
+1.  **새 프로젝트** 대화 상자에서 **C#**을 확장하고 **설치된 템플릿** 아래의 **웹**을 선택한 다음 **ASP.NET 웹 응용 프로그램**을 선택합니다.
 
 2.  응용 프로그램 이름을 **ContactManager**로 지정하고 **확인**을 클릭합니다.
 
@@ -683,12 +683,12 @@ ASP.NET MVC에 대한 자세한 내용은 [ASP.NET MVC 5 시작][ASP.NET MVC 5 �
 <!-- bookmarks -->
 <!-- images-->
 
-  [이전 자습서]: /en-us/develop/net/tutorials/web-site-with-sql-database-vs2012/
+  [이전 자습서]: /ko-kr/develop/net/tutorials/web-site-with-sql-database-vs2012/
   [OAuth]: http://oauth.net/ "http://oauth.net/"
   [OpenID]: http://openid.net/
   [로그인 페이지]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rxb.png
-  [MSDN 구독자 혜택을 활성화]: /en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
-  [무료 체험을 등록]: /en-us/pricing/free-trial/?WT.mc_id=A261C142F
+  [MSDN 구독자 혜택을 활성화]: /ko-kr/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
+  [무료 체험을 등록]: /ko-kr/pricing/free-trial/?WT.mc_id=A261C142F
   [개발 환경 설정]: #setupdevenv
   [Azure 환경 설정]: #bkmk_setupwindowsazure
   [ASP.NET MVC 5 응용 프로그램 만들기]: #bkmk_createmvc4app
@@ -734,10 +734,10 @@ ASP.NET MVC에 대한 자세한 내용은 [ASP.NET MVC 5 시작][ASP.NET MVC 5 �
   [등록]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss8.PNG
   [코드 이미지]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss24.PNG
   [ASP.NET ID 리소스 페이지]: http://curah.microsoft.com/55636/aspnet-identity
-  [WSAT]: http://msdn.microsoft.com/en-us/library/ms228053.aspx
+  [WSAT]: http://msdn.microsoft.com/ko-kr/library/ms228053.aspx
   [코드]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss9.PNG
-  [Authorize]: http://msdn.microsoft.com/en-us/library/system.web.mvc.authorizeattribute.aspx
-  [RequireHttps]: http://msdn.microsoft.com/en-us/library/system.web.mvc.requirehttpsattribute.aspx
+  [Authorize]: http://msdn.microsoft.com/ko-kr/library/system.web.mvc.authorizeattribute.aspx
+  [RequireHttps]: http://msdn.microsoft.com/ko-kr/library/system.web.mvc.requirehttpsattribute.aspx
   [ASP.NET MVC 앱 및 새 AllowAnonymous 특성 보안 유지]: http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx
   [3]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss10.PNG
   [4]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss11.PNG

@@ -1,25 +1,21 @@
-###### 큐 만들기
+##### 큐 만들기
 
 **CloudQueueClient** 개체를 통해 큐에 대한 참조 개체를 가져올 수 있습니다. 다음 코드는 **CloudQueueClient** 개체를 만듭니다. 이 항목의 모든 코드는 Azure 응용 프로그램의 서비스 구성에 저장된 저장소 연결 문자열을 사용합니다. **CloudStorageAccount** 개체를 만드는 다른 방법도 있습니다. 자세한 내용은 [CloudStorageAccount][CloudStorageAccount] 설명서를 참조하세요.
-
-    // Get the storage account from its connection string.
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-      CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
     // Create the queue client.
     CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 
-**queueClient** 개체를 사용하여 사용할 큐에 대한 참조를 가져올 수 있습니다. 큐가 없는 경우 새로 만들 수 있습니다.
+**queueClient** 개체를 사용하여 사용할 큐에 대한 참조를 가져올 수 있습니다. 코드가 “myqueue”라는 이름의 큐를 참조하려고 합니다. 이 이름의 큐를 찾을 수 없으면 새로 만듭니다.
 
     // Get a reference to a queue named “myqueue”.
     CloudQueue queue = queueClient.GetQueueReference("myqueue");
 
     // If the queue isn’t already there, then create it.
-    queue.CreateIfNotExist();
+    queue.CreateIfNotExists();
 
 **참고:** 이 코드 블록을 다음 섹션에서 코드 앞에 사용하세요.
 
-###### 큐에 메시지 삽입
+##### 큐에 메시지 삽입
 
 기존 큐에 메시지를 삽입하려면 먼저 새 **CloudQueueMessage** 개체를 만듭니다. 그런 다음, AddMessage() 메서드를 호출합니다. **CloudQueueMessage** 개체는 문자열(UTF-8 형식) 또는 바이트 배열에서 만들 수 있습니다. 다음은 큐가 없는 경우 새로 만들고 'Hello, World' 메시지를 삽입하는 코드입니다.
 
@@ -27,7 +23,7 @@
     CloudQueueMessage message = new CloudQueueMessage("Hello, World");
     queue.AddMessage(message);
 
-###### 다음 메시지 보기
+##### 다음 메시지 보기
 
 큐에서 메시지를 제거하지 않고도 PeekMessage() 메서드를 호출하여 큐의 맨 앞에서 원하는 메시지를 볼 수 있습니다.
 
@@ -37,7 +33,7 @@
     // Display the message.
     Console.WriteLine(peekedMessage.AsString);
 
-###### 다음 메시지 제거
+##### 다음 메시지 제거
 
 이 코드에서는 2단계를 거쳐 큐에서 메시지를 제거할 수 있습니다.
 
@@ -52,4 +48,9 @@
     // Process the message in less than 30 seconds, and then delete the message.
     queue.DeleteMessage(retrievedMessage);
 
-  [CloudStorageAccount]: http://msdn.microsoft.com/en-us/library/microsoft.windowsazure.cloudstorageaccount_methods.aspx "CloudStorageAccount"
+[Azure 저장소에 대한 자세한 정보][Azure 저장소에 대한 자세한 정보]
+[서버 탐색기에서 저장소 리소스 탐색][서버 탐색기에서 저장소 리소스 탐색]도 참조하세요.
+
+  [CloudStorageAccount]: http://msdn.microsoft.com/ko-kr/library/microsoft.windowsazure.cloudstorageaccount_methods.aspx "CloudStorageAccount"
+  [Azure 저장소에 대한 자세한 정보]: http://azure.microsoft.com/documentation/services/storage/
+  [서버 탐색기에서 저장소 리소스 탐색]: http://msdn.microsoft.com/ko-kr/library/azure/ff683677.aspx

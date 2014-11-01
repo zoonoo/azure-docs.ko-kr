@@ -14,7 +14,7 @@
 
     ![][]
 
-    This registers the application with Live Connect.
+    이를 통해 응용 프로그램이 Live Connect에 등록됩니다.
 
 3.  **API 설정**을 클릭하고 **리디렉션 URL**에 `https://<mobile_service>.azure-mobile.net/login/microsoftaccount` 값을 제공하고 **저장**을 클릭합니다.
 

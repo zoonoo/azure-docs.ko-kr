@@ -35,16 +35,16 @@
 5.  (옵션) 추가 로그인 계정이 있는 경우 앱을 닫았다가 다시 실행하여 사용자가 자신의 고유 데이터만 볼 수 있는지 여부를 확인할 수 있습니다. 로그인 자격 증명 대화 상자가 표시되면 다른 로그인을 입력한 후 이전 계정으로 입력한 항목이 표시되지 않는지 확인합니다.
 
 
-## Next steps
-This concludes the tutorials that demonstrate the basics of working with authentication. Consider finding out more about the following Mobile Services topics:
-* [Get started with data]   
-  <br/>Learn more about storing and querying data using Mobile Services.  
+## 다음 단계
+이는 인증 작업의 기본 사항을 보여 주는 자습서를 마무리하는 내용입니다. 다음 모바일 서비스 항목에 대해 자세히 알아보십시오.
+* [데이터 시작] 
+  <br/>모바일 서비스를 사용한 데이터 정렬 및 쿼리 방법에 대해 자세히 알아보십시오.  
 
-* [Get started with push notifications]  
-  <br/>Learn how to send a very basic push notification to your app.  
+* [푸시 알림 시작] 
+  <br/>앱에 매우 기본적인 푸시 알림을 보내는 방법을 알아보십시오.  
 
-* [Mobile Services .NET How-to Conceptual Reference] 
-  <br/>Learn more about how to use Mobile Services with .NET.
+* [모바일 서비스 .NET 방법 개념 참조] 
+  <br/>모바일 서비스와 .NET을 함께 사용하는 방법에 대해 자세히 알아보십시오.
 
 
 <!-- Anchors. --> 

@@ -43,7 +43,7 @@
 
     ![][1]
 
-    This displays the three easy steps to create an Android app connected to your mobile service.
+    이렇게 하면 모바일 서비스에 연결된 Android 앱을 만들기 위한 간단한 세 가지 단계가 표시됩니다.
 
     ![][2]
 

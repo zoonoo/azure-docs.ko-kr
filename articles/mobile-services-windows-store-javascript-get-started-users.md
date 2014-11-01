@@ -38,7 +38,7 @@
 
 ## <a name="register"></a>인증을 위해 앱 등록 및 모바일 서비스 구성
 
-[WACOM.INCLUDE [mobile-services-register-authentication][mobile-services-register-authentication]]
+[WACOM.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)]
 
 1.  (옵션) [Microsoft 인증을 위해 Windows 스토어 앱 패키지 등록][Microsoft 인증을 위해 Windows 스토어 앱 패키지 등록]의 단계를 완료합니다.
 
@@ -53,7 +53,7 @@
 
 ## <a name="permissions"></a>사용 권한을 인증된 사용자로 제한
 
-[WACOM.INCLUDE [mobile-services-restrict-permissions-javascript-backend][mobile-services-restrict-permissions-javascript-backend]]
+[WACOM.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)]
 
 1.  Visual Studio 2012 Express for Windows 8에서 [모바일 서비스 시작][1] 자습서를 완료할 때 만든 프로젝트를 엽니다.
 
@@ -65,11 +65,11 @@
 
 ## <a name="add-authentication"></a>앱에 인증 추가
 
-[WACOM.INCLUDE [mobile-services-windows-store-javascript-authenticate-app][mobile-services-windows-store-javascript-authenticate-app]]
+[WACOM.INCLUDE [mobile-services-windows-store-javascript-authenticate-app](../includes/mobile-services-windows-store-javascript-authenticate-app.md)]
 
 ## <a name="tokens"></a>클라이언트에 권한 부여 토큰 저장
 
-[WACOM.INCLUDE [mobile-services-windows-store-javascript-authenticate-app-with-token][mobile-services-windows-store-javascript-authenticate-app-with-token]]
+[WACOM.INCLUDE [mobile-services-windows-store-javascript-authenticate-app-with-token](../includes/mobile-services-windows-store-javascript-authenticate-app-with-token.md)]
 
 ## <a name="next-steps"> </a>다음 단계
 

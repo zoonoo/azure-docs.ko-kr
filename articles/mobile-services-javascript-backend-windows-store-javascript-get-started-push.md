@@ -4,7 +4,7 @@
 
 # 모바일 서비스에서 푸시 알림 시작
 
-[WACOM.INCLUDE [mobile-services-selector-get-started-push-legacy][mobile-services-selector-get-started-push-legacy]]
+[WACOM.INCLUDE [mobile-services-selector-get-started-push-legacy](../includes/mobile-services-selector-get-started-push-legacy.md)]
 
 이 항목에서는 Azure 모바일 서비스를 사용하여 Windows 스토어 앱에 푸시 알림을 보내는 방법을 보여 줍니다.
 이 자습서에서는 빠른 시작 프로젝트에 대한 Azure 알림 허브를 사용하여 푸시 알림을 사용하도록 설정합니다. 이 작업을 완료하면 레코드가 삽입될 때마다 모바일 서비스에서 알림 허브를 사용하여 푸시 알림을 전송합니다. 모바일 서비스를 통해 무료로 만드는 알림 허브는 모바일 서비스와 별도로 관리할 수 있으며, 다른 응용 프로그램과 서비스에서도 사용 가능합니다.
@@ -22,7 +22,7 @@
 
 ## <span id="register"></span></a> WNS로 앱 등록 및 모바일 서비스 구성
 
-[WACOM.INCLUDE [mobile-services-notification-hubs-register-windows-store-app][mobile-services-notification-hubs-register-windows-store-app]]
+[WACOM.INCLUDE [mobile-services-notification-hubs-register-windows-store-app](../includes/mobile-services-notification-hubs-register-windows-store-app.md)]
 
 이제 모바일 서비스와 앱이 둘 다 WNS와 알림 허브를 사용하도록 구성되었습니다. 다음에는 알림 등록을 위해 Windows 스토어 앱을 업데이트합니다.
 
@@ -47,17 +47,17 @@
 
 3.  Package.appxmanifest 파일을 열고 **Application UI** 탭에서 **Toast capable**이 **Yes**로 설정되어 있는지 확인합니다.
 
-    ![][]
+    ![][0]
 
-    이제 앱에서 알림 메시지를 표시할 수 있습니다.
+   	이제 앱에서 알림 메시지를 표시할 수 있습니다.
 
 ## <span id="update-scripts"></span></a> 푸시 알림을 전송하도록 스크립트 업데이트
 
-[WACOM.INCLUDE [mobile-services-javascript-update-script-notification-hubs][mobile-services-javascript-update-script-notification-hubs]]
+[WACOM.INCLUDE [mobile-services-javascript-update-script-notification-hubs](../includes/mobile-services-javascript-update-script-notification-hubs.md)]
 
 ## <span id="test"></span></a>앱에서 푸시 알림 테스트
 
-[WACOM.INCLUDE [mobile-services-windows-store-test-push][mobile-services-windows-store-test-push]]
+[WACOM.INCLUDE [mobile-services-windows-store-test-push](../includes/mobile-services-windows-store-test-push.md)]
 
 ## <a name="next-steps"> </a>다음 단계
 
@@ -82,7 +82,9 @@
 -   [모바일 서비스 서버 스크립트 참조][모바일 서비스 서버 스크립트 참조]
     모바일 서비스에서 비즈니스 논리를 구현하는 방법에 대해 자세히 알아봅니다.
 
-<!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
+<!-- Anchors. -->
+<!-- Images. -->
+<!-- URLs. -->
 
   [mobile-services-selector-get-started-push-legacy]: ../includes/mobile-services-selector-get-started-push-legacy.md
   [범용 Windows 앱 버전]: /ko-kr/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push
@@ -93,7 +95,7 @@
   [모바일 서비스 시작하기]: /ko-kr/documentation/articles/mobile-services-windows-store-get-started
   [데이터 시작하기]: /ko-kr/documentation/articles/mobile-services-windows-store-javascript-get-started-data
   [mobile-services-notification-hubs-register-windows-store-app]: ../includes/mobile-services-notification-hubs-register-windows-store-app.md
-  []: ./media/mobile-services-windows-store-javascript-get-started-push-vs2012/mobile-app-enable-toast-win8.png
+  [0]: ./media/mobile-services-windows-store-javascript-get-started-push-vs2012/mobile-app-enable-toast-win8.png
   [mobile-services-javascript-update-script-notification-hubs]: ../includes/mobile-services-javascript-update-script-notification-hubs.md
   [mobile-services-windows-store-test-push]: ../includes/mobile-services-windows-store-test-push.md
   [인증된 사용자에게 푸시 알림 보내기]: /ko-kr/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-push-notifications-app-users/

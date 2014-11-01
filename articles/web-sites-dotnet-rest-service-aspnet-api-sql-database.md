@@ -37,7 +37,7 @@ ASP.NET MVC 5에서 빌드되고 데이터베이스 액세스에 ADO.NET Entity 
 
 <a name="bkmk_setupdevenv"></a>
 <!-- the next line produces the "Set up the development environment" section as see at http://www.windowsazure.com/ko-kr/documentation/articles/web-sites-dotnet-get-started/ -->
- [WACOM.INCLUDE [create-account-and-websites-note][create-account-and-websites-note]]
+ [WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 ## <a name="bkmk_setupwindowsazure"></a>Azure 환경 설정
 
@@ -100,7 +100,7 @@ Azure 웹 사이트를 만들었지만 아직 콘텐츠가 없습니다. 다음 
 1.  Visual Studio 2013를 시작합니다.
 2.  **파일** 메뉴에서 **새 프로젝트**를 클릭합니다.
 3.  **새 프로젝트** 대화 상자에서 **Visual C#**을 확장하고 **웹**을 선택한 다음 **ASP.NET MVC 5 웹 응용 프로그램**을 선택합니다. 기본값인 **.NET Framework 4.5**를 그대로 유지합니다. 응용 프로그램 **ContactManager** 이름을 입력하고 **확인**을 클릭합니다.
-    ![새 프로젝트 대화 상자][새 프로젝트 대화 상자]]
+    ![새 프로젝트 대화 상자][새 프로젝트 대화 상자]
 4.  **새 ASP.NET 프로젝트** 대화 상자에서 **MVC** 템플릿을 선택하고 **Web API**를 선택한 후 **인증 변경**을 클릭합니다.
 
     ![새 ASP.NET 프로젝트 대화 상자][새 ASP.NET 프로젝트 대화 상자]
@@ -279,7 +279,7 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 
 4.  **스캐폴드 추가** 대화 상자에서 **MVC 컨트롤러(뷰 포함), Entity Framework 사용**을 선택하고 **추가**를 클릭합니다.
 
-![컨트롤러 추가][컨트롤러 추가]
+    ![컨트롤러 추가][컨트롤러 추가]
 
 1.  컨트롤러 이름을 **HomeController**로 설정합니다. 모델 클래스로 **Contact**를 선택합니다. **새 데이터 컨텍스트** 단추를 클릭하고 **새 데이터 컨텍스트 형식**으로 기본값인 "ContactManager.Models.ContactManagerContext"를 수락합니다. **추가**를 클릭합니다.
 
@@ -810,7 +810,9 @@ Azure 응용 프로그램에 데이터를 저장하는 또 다른 방법은 Azur
 
 자습서 자체뿐 아니라 설명된 제품과 관련해서 좋아한 사항이나 바라는 개선 사항에 대한 의견을 남겨주세요. 사용자 의견은 개선 사항의 우선 순위를 지정하는 데 도움이 됩니다. 특히 멤버 자격 데이터베이스를 구성하고 배포하는 프로세스 자동화에 대한 사용자의 관심도가 어느 정도인지 파악하는 데 유용합니다.
 
-<!-- bookmarks --> <!-- links --> <!-- images-->
+<!-- bookmarks -->
+<!-- links -->
+<!-- images-->
 
   [Rick Anderson]: https://twitter.com/RickAndMSFT
   [이 자습서의 이전 버전]: /ko-kr/develop/net/tutorials/get-started-vs2012/

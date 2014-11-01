@@ -89,7 +89,7 @@ HTTP 요청에는 페이지, 데이터 및 이미지에 대한 모든 GET 또는
 
 ![](./media/appinsights/appinsights-46failed.png)
 
-catch되지 않은 예외를 throw한 요청의 수입니다.
+catch되지 않은 예외가 발생한 요청의 수입니다.
 
 타일을 클릭하면 특정 오류의 세부 정보를 확인할 수 있으며 개별 요청을 선택하면 해당 세부 정보를 볼 수 있습니다.
 

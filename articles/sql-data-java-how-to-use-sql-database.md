@@ -123,13 +123,13 @@ Java 코드에서 Azure SQL 데이터베이스를 사용하기 전에 Azure SQL 
 
     Eclipse를 사용하는 경우:
 
-    1. Within Eclipse's Project Explorer, right-click the **HelloSQLAzure** project and click **Properties**.
-    2. In the left-hand pane of the **Properties** dialog, click **Java Build Path**.
-    3. Click the **Libraries** tab, and then click **Add Library**.
-    4. In the **Add Library** dialog, select **Microsoft JDBC Driver 4.0 for SQL Server**, click **Next**, and then click **Finish**.
-    5. Click **OK** to close the **Properties** dialog.
+    1. Eclipse의 Project Explorer에 **HelloSQLAzure** 프로젝트를 오른쪽 마우스 클릭하고 **Properties** 를 클릭합니다. 
+    2. **Properties** 대화 상자의 왼쪽 창에서 **Java Build Path** 를 클릭합니다.
+    3. **Libraries** 탭을 클릭한 다음 **Add Library** 를 클릭합니다.
+    4. **Add Library** 대화 상자에서 **Microsoft JDBC Driver 4.0 for SQL Server**를 선택하고 **Next**를 클릭한 다음 **Finish**를 클릭합니다.
+    5. **OK** 를 클릭하여 **Properties** 대화 상자를 닫습니다.
 
-    If you are not using Eclipse, add the Microsoft JDBC Driver 4.0 for SQL Server JAR to your class path. For related information, see [Using the JDBC Driver](http://msdn.microsoft.com/ko-KR/library/ms378526.aspx).
+    Eclipse를 사용하지 않는다면 Microsoft JDBC Driver 4.0 for SQL Server JAR을 클래스 경로에 추가합니다. 관련 내용은 [JDBC 드라이버 사용을](http://msdn.microsoft.com/ko-KR/library/ms378526.aspx)참조하세요.
 
 4.  **HelloSQLAzure.java** 코드 내에서 다음과 같이 `import` 문을 추가합니다.
 
@@ -742,3 +742,4 @@ Microsoft JDBC Driver for SQL Server에 대한 자세한 내용은 [JDBC 드라�
   [Eclipse용 Azure 플러그 인(Java 포함)(Microsoft Open Technologies 제공)을 사용하여 Hello World 응용 프로그램 만들기]: http://msdn.microsoft.com/ko-KR/library/windowsazure/hh690944.aspx
   [JDBC 드라이버 개요]: http://msdn.microsoft.com/ko-KR/library/ms378749.aspx
   [SQL 데이터베이스 개요]: http://msdn.microsoft.com/ko-KR/library/windowsazure/ee336241.aspx
+  [JDBC 드라이버 사용을]: http://msdn.microsoft.com/ko-KR/library/ms378526.aspx

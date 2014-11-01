@@ -10,7 +10,7 @@
 또는 이미 보유하고 있는 Visual Studio의 Professional 버전이
 필요합니다.
 
-[WACOM.INCLUDE [create-account-and-websites-note][create-account-and-websites-note]]
+[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 ### 만들 내용
 
@@ -19,11 +19,9 @@
 Internet Explorer 11 F12 개발자 도구에 있는 브라우저 에뮬레이터에서
 이러한 세션을 볼 수 있습니다.
 
-![][]
+![][0]
 
-Internet Explorer 11 F12 개발자 도구 및 [Fiddler
-도구][Fiddler
-도구]를 사용하여 응용 프로그램을
+Internet Explorer 11 F12 개발자 도구 및 [Fiddler도구][Fiddler도구]를 사용하여 응용 프로그램을
 디버깅할 수 있습니다. 
 
 ### 학습할 기술
@@ -611,7 +609,7 @@ JavaScript 코드를 연결하여 필터 기능을 만듭니다.
 제목 링크를 눌러 해당 세션으로 이동할 수도 있습니다. 아래 이미지는
 코드 변경 내용이 반영된 화면입니다.
 
-![][]
+![][0]
 
 자동으로 적용한 Bootstrap 그리드 시스템은 모바일 브라우저에서
 세션을 세로로 정렬합니다. 또한 태그가 표시되지
@@ -634,7 +632,7 @@ JavaScript 코드를 연결하여 필터 기능을 만듭니다.
 
 **ASP.NET** 링크를 누릅니다. ASP.NET 태그의 세션이 표시됩니다.
 
-![][]
+![][0]
 
 **ASP.NET 및 AngularJS로 단일 페이지 응용 프로그램 만들기**
 링크를 선택합니다.
@@ -716,14 +714,15 @@ JavaScript 코드를 연결하여 필터 기능을 만듭니다.
 -   [W3C에서 권장하는 모바일 웹 응용 프로그램 모범 사례][W3C에서 권장하는 모바일 웹 응용 프로그램 모범 사례]
 -   [미디어 쿼리에 대한 W3C 권장 사항][미디어 쿼리에 대한 W3C 권장 사항]
 
-<!-- Internal Links --> <!-- External Links --> <!-- Images -->
+<!-- Internal Links -->
+<!-- External Links -->
+<!-- Images -->
 
   [Visual Studio Express 2013 for Web]: http://www.visualstudio.com/downloads/download-visual-studio-vs#d-express-web
   [create-account-and-websites-note]: ../includes/create-account-and-websites-note.md
   [시작 프로젝트]: http://go.microsoft.com/fwlink/?LinkID=398780&clcid=0x409
-  []: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/SessionsByTag-ASP.NET-Fixed.png
-  [Fiddler
-  도구]: http://www.fiddler2.com/fiddler2/
+  [0]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/SessionsByTag-ASP.NET-Fixed.png
+  [Fiddler도구]: http://www.fiddler2.com/fiddler2/
   [Azure SDK for Visual Studio 2013]: http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409
   [웹 플랫폼 설치 관리자 - Azure SDK for .NET]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/WebPIAzureSdk23NetVS13.png
   [Internet Explorer 11 F12 개발자 도구]: http://msdn.microsoft.com/ko-kr/library/ie/dn255001.aspx

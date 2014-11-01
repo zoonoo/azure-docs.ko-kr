@@ -29,7 +29,7 @@ Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플랫폼 및
 3.  푸시 알림을 보내기 위해 앱 백 엔드가 핸들을 사용하여 PNS에 연결하는 방식으로 특정 클라이언트 앱 인스턴스를 대상으로 합니다.
 4.  PNS가 핸들에 의해 지정된 장치로 알림을 전달합니다.
 
-![][]
+![][0]
 
 ## <span class="short-header">푸시 알림의 문제</span>푸시 알림의 문제
 
@@ -62,18 +62,18 @@ Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플랫폼 및
 
 다음 항목에서 알림 허브에 대한 자세한 내용을 확인할 수 있습니다.
 
--   **[고객이 알림 허브를 사용하는 방법][]**
+-   **[고객이 알림 허브를 사용하는 방법][고객이 알림 허브를 사용하는 방법]**
 
--   **[알림 허브 자습서 및 가이드][]**
+-   **[알림 허브 자습서 및 가이드][알림 허브 자습서 및 가이드]**
 
--   **알림 허브 시작 자습서**([iOS][], [Android][], [Windows 범용][], [Windows Phone][], [Kindle][], [Xamarin.iOS][], [Xamarin.Android][])
+-   **알림 허브 시작 자습서**([iOS][iOS], [Android][Android], [Windows 범용][Windows 범용], [Windows Phone][Windows Phone], [Kindle][Kindle], [Xamarin.iOS][Xamarin.iOS], [Xamarin.Android][Xamarin.Android])
 
 푸시 알림에 대한 관련 .NET의 관리되는 API 참조는 다음 항목을 참조하세요.
 
--   [Microsoft.WindowsAzure.Messaging.NotificationHub][]
--   [Microsoft.ServiceBus.Notifications][]
+-   [Microsoft.WindowsAzure.Messaging.NotificationHub][Microsoft.WindowsAzure.Messaging.NotificationHub]
+-   [Microsoft.ServiceBus.Notifications][Microsoft.ServiceBus.Notifications]
 
-  []: ./media/notification-hubs-overview/SBPushNotifications1.gif
+  [0]: ./media/notification-hubs-overview/SBPushNotifications1.gif
   [1]: ./media/notification-hubs-overview/SBPushNotifications2.gif
   [고객이 알림 허브를 사용하는 방법]: http://azure.microsoft.com/ko-KR/services/notification-hubs
   [알림 허브 자습서 및 가이드]: http://azure.microsoft.com/ko-KR/documentation/services/notification-hubs

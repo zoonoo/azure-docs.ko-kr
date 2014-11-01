@@ -6,24 +6,24 @@
 
 <div class="dev-center-tutorial-selector sublanding"><a href="/ko-KR/documentation/articles/notification-hubs-windows-store-dotnet-get-started/" title="Windows 범용">Windows 범용</a><a href="/ko-KR/documentation/articles/notification-hubs-windows-phone-get-started/" title="Windows Phone">Windows Phone</a><a href="/ko-KR/documentation/articles/notification-hubs-ios-get-started/" title="iOS">iOS</a><a href="/ko-KR/documentation/articles/notification-hubs-android-get-started/" title="Android">Android</a><a href="/ko-KR/documentation/articles/notification-hubs-kindle-get-started/" title="Kindle">Kindle</a><a href="/ko-KR/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/" title="Xamarin.iOS" class="current">Xamarin.iOS</a><a href="/ko-KR/documentation/articles/partner-xamarin-notification-hubs-android-get-started/" title="Xamarin.Android">Xamarin.Android</a></div>
 
-이 항목에서는 Azure 알림 허브를 사용하여 iOS 응용 프로그램에 푸시 알림을 보내는 방법을 보여 줍니다. 이 자습서에서는 APN(Apple 푸시 알림) 서비스를 사용하여 푸시 알림을 받는 빈 Xamarin.iOS 앱을 만듭니다. 완료하면 알림 허브를 사용하여 앱을 실행하는 모든 장치로 푸시 알림을 브로드캐스트할 수 있습니다. 완성된 코드는 [NotificationHubs 앱][] 샘플에서 확인할 수 있습니다.
+이 항목에서는 Azure 알림 허브를 사용하여 iOS 응용 프로그램에 푸시 알림을 보내는 방법을 보여 줍니다. 이 자습서에서는 APN(Apple 푸시 알림) 서비스를 사용하여 푸시 알림을 받는 빈 Xamarin.iOS 앱을 만듭니다. 완료하면 알림 허브를 사용하여 앱을 실행하는 모든 장치로 푸시 알림을 브로드캐스트할 수 있습니다. 완성된 코드는 [NotificationHubs 앱][NotificationHubs 앱] 샘플에서 확인할 수 있습니다.
 
 이 자습서에서는 푸시 알림을 사용하도록 설정하는 다음 기본 단계를 단계별로 안내합니다.
 
-1.  [인증서 서명 요청 생성][]
-2.  [앱을 등록하고 푸시 알림을 사용하도록 설정][]
-3.  [앱용 프로비저닝 프로필 만들기][]
-4.  [알림 허브 구성][]
-5.  [알림 허브에 앱 연결][]
-6.  [백 엔드에서 알림 보내기][]
+1.  [인증서 서명 요청 생성][인증서 서명 요청 생성]
+2.  [앱을 등록하고 푸시 알림을 사용하도록 설정][앱을 등록하고 푸시 알림을 사용하도록 설정]
+3.  [앱용 프로비저닝 프로필 만들기][앱용 프로비저닝 프로필 만들기]
+4.  [알림 허브 구성][알림 허브 구성]
+5.  [알림 허브에 앱 연결][알림 허브에 앱 연결]
+6.  [백 엔드에서 알림 보내기][백 엔드에서 알림 보내기]
 
 이 자습서에서는 알림 허브를 사용하는 간단한 브로드캐스트 시나리오를 보여 줍니다. 이 자습서를 사용하려면 다음 필수 조건이 필요합니다.
 
-+   [XCode 5.0][]
++   [XCode 5.0][XCode 5.0]
 +   iOS 5.0(이상) 지원 장치
 +   iOS 개발자 프로그램 멤버 자격
 +   [Xamarin.iOS][1]
-+   [Azure 모바일 서비스 구성 요소(영문)][]
++   [Azure 모바일 서비스 구성 요소(영문)][Azure 모바일 서비스 구성 요소(영문)]
 
    <div class="dev-callout"><b>참고</b>
    <p>푸시 알림 구성 요구 사항 때문에 시뮬레이터 대신 iOS 지원 장치(iPhone 또는 iPad)에서 푸시 알림을 배포 및 테스트해야 합니다.</p>
@@ -33,7 +33,7 @@
 
 <div class="dev-callout"><strong>참고</strong> <p>이 자습서를 완료하려면 활성 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://www.windowsazure.com/ko-KR/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fko-KR%2Fmanage%2Fservices%2Fnotification-hubs%2Fgetting-started-xamarin-ios%2F" target="_blank">Azure 무료 평가판</a>을 참조하세요.</p></div>
 
-APNS(Apple Push Notification Service)는 인증서를 사용하여 모바일 서비스를 인증합니다. 필요한 인증서를 만들어 모바일 서비스에 업로드하려면 해당 지침을 따르세요. 공식 APNS 기능 설명서는 [Apple Push Notification Service][](영문)를 참조하세요.
+APNS(Apple Push Notification Service)는 인증서를 사용하여 모바일 서비스를 인증합니다. 필요한 인증서를 만들어 모바일 서비스에 업로드하려면 해당 지침을 따르세요. 공식 APNS 기능 설명서는 [Apple Push Notification Service][Apple Push Notification Service](영문)를 참조하세요.
 
 ## <a name="certificates"></a><span class="short-header">CSR 파일 생성</span>인증서 서명 요청 파일 생성
 
@@ -43,7 +43,7 @@ APNS(Apple Push Notification Service)는 인증서를 사용하여 모바일 서
 
 2.  **Keychain Access**를 클릭하고 **Certificate Assistant**를 확장한 다음 **Request a Certificate from a Certificate Authority...**를 클릭합니다.
 
-    ![][]
+    ![][0]
 
 3.  **User Email Address**을 선택하고 **Common Name** 및 **CA Email Address** 값을 입력한 후 **Saved to disk**가 선택되어 있는지 확인하고 **Continue**를 클릭합니다.
 
@@ -61,7 +61,7 @@ APNS(Apple Push Notification Service)는 인증서를 사용하여 모바일 서
 
 모바일 서비스에서 iOS 앱으로 푸시 알림을 보내려면 Apple에 앱을 등록하고 푸시 알림도 등록해야 합니다.
 
-1.  아직 앱을 등록하지 않은 경우 Apple Developer Center의 [iOS Provisioning Portal][]로 이동하여 Apple ID로 로그온하고 **Identifiers**와 **App IDs**를 클릭한 다음에 **+** 기호를 클릭하여 새 앱을 등록합니다.
+1.  아직 앱을 등록하지 않은 경우 Apple Developer Center의 [iOS Provisioning Portal][iOS Provisioning Portal]로 이동하여 Apple ID로 로그온하고 **Identifiers**와 **App IDs**를 클릭한 다음에 **+** 기호를 클릭하여 새 앱을 등록합니다.
 
     ![][4]
 
@@ -138,7 +138,7 @@ APNS(Apple Push Notification Service)는 인증서를 사용하여 모바일 서
 
 ## <a name="profile"></a><span class="short-header">앱 프로비전</span>앱용 프로비저닝 프로필 만들기
 
-1.  [iOS Provisioning Portal][]로 돌아가, **Provisioning Profiles**와 **All**을 차례로 선택하고 **+** 단추를 클릭하여 새 프로필을 만듭니다. **Add iOS Provisioning Profile** 마법사가 표시됩니다.
+1.  [iOS Provisioning Portal][iOS Provisioning Portal]로 돌아가, **Provisioning Profiles**와 **All**을 차례로 선택하고 **+** 단추를 클릭하여 새 프로필을 만듭니다. **Add iOS Provisioning Profile** 마법사가 표시됩니다.
 
     ![][20]
 
@@ -180,7 +180,7 @@ APNS(Apple Push Notification Service)는 인증서를 사용하여 모바일 서
 
 ## <a name="configure-hub"></a><span class="short-header">알림 허브 구성</span>알림 허브 구성
 
-1.  [Azure 관리 포털][]에 로그온하고 화면 맨 아래에 있는 **+새로 만들기**를 클릭합니다.
+1.  [Azure 관리 포털][Azure 관리 포털]에 로그온하고 화면 맨 아래에 있는 **+새로 만들기**를 클릭합니다.
 
 2.  **앱 서비스**, **Service Bus**, **알림 허브**, **빠른 생성**을 차례로 클릭합니다.
 
@@ -214,7 +214,7 @@ APNS(Apple Push Notification Service)는 인증서를 사용하여 모바일 서
 
 이 어셈블리는 Azure 알림 허브에 등록하는 간편한 방법을 제공합니다. 아래의 지침을 사용하여 다운로드하거나 [샘플 다운로드][NotificationHubs 앱]에서 찾을 수 있습니다.
 
-1.  GitHub에서 [WindowsAzure.Messaging][]의 소스를 다운로드합니다.
+1.  GitHub에서 [WindowsAzure.Messaging][WindowsAzure.Messaging]의 소스를 다운로드합니다.
 
 2.  프로젝트를 컴파일하고 출력 어셈블리 **WindowsAzure.Messaging.dll**을 찾습니다. 이는 아래에서 Xamarin.iOS 응용 프로그램을 설정할 때 필요합니다.
 
@@ -230,8 +230,8 @@ APNS(Apple Push Notification Service)는 인증서를 사용하여 모바일 서
 
 4.  **AppDelegate.cs**에서 다음 using 문을 추가합니다.
 
-        using Microsoft.WindowsAzure.MobileServices;
-    	using WindowsAzure.Messaging;
+		using Microsoft.WindowsAzure.MobileServices;
+    using WindowsAzure.Messaging;
 
 5.  **SBNotificationHub** 인스턴스를 선언합니다.
 
@@ -326,7 +326,7 @@ APNS(Apple Push Notification Service)는 인증서를 사용하여 모바일 서
 
 ## <a name="send"></a><span class="short-header">알림 보내기</span>백 엔드에서 알림 보내기
 
-[REST 인터페이스][]를 사용하여 모든 백 엔드에서 알림 허브를 사용하여 알림을 보낼 수 있습니다. 이 자습서에서는 .NET 콘솔 앱 및 노드 스크립트를 사용하는 모바일 서비스를 통해 알림을 보냅니다.
+[REST 인터페이스][REST 인터페이스]를 사용하여 모든 백 엔드에서 알림 허브를 사용하여 알림을 보낼 수 있습니다. 이 자습서에서는 .NET 콘솔 앱 및 노드 스크립트를 사용하는 모바일 서비스를 통해 알림을 보냅니다.
 
 .NET 앱을 사용하여 알림을 보내려면
 
@@ -334,7 +334,7 @@ APNS(Apple Push Notification Service)는 인증서를 사용하여 모바일 서
 
     ![][35]
 
-2.  [WindowsAzure.ServiceBus NuGet 패키지][]를 사용하여 Azure 서비스 버스 SDK에 대한 참조를 추가합니다. Visual Studio 주 메뉴에서 **도구**, **라이브러리 패키지 관리자**, **패키지 관리자 콘솔**을 차례로 클릭합니다. 그런 다음 콘솔 창에서 다음을 입력하고
+2.  [WindowsAzure.ServiceBus NuGet 패키지][WindowsAzure.ServiceBus NuGet 패키지]를 사용하여 Azure 서비스 버스 SDK에 대한 참조를 추가합니다. Visual Studio 주 메뉴에서 **도구**, **라이브러리 패키지 관리자**, **패키지 관리자 콘솔**을 차례로 클릭합니다. 그런 다음 콘솔 창에서 다음을 입력하고
 
         Install-Package WindowsAzure.ServiceBus and press Enter.
 
@@ -358,11 +358,11 @@ APNS(Apple Push Notification Service)는 인증서를 사용하여 모바일 서
 
 6.  F5 키를 눌러 앱을 실행합니다. 장치에 대한 경고를 받게 됩니다. Wi-Fi를 사용하는 경우 연결에 문제가 없는지 확인하십시오.
 
-[Apple Local and Push Notification Programming Guide][] 에서 가능한 모든 페이로드를 찾아볼 수 있습니다.
+[Apple Local and Push Notification Programming Guide][Apple Local and Push Notification Programming Guide] 에서 가능한 모든 페이로드를 찾아볼 수 있습니다.
 
-모바일 서비스를 사용하여 알림을 보내려면 [모바일 서비스 시작][](영문)을 따른 후 다음을 수행하십시오.
+모바일 서비스를 사용하여 알림을 보내려면 [모바일 서비스 시작][모바일 서비스 시작](영문)을 따른 후 다음을 수행하십시오.
 
-1.  [Azure 관리 포털][]에 로그온하고 모바일 서비스를 선택합니다.
+1.  [Azure 관리 포털][Azure 관리 포털]에 로그온하고 모바일 서비스를 선택합니다.
 
 2.  맨 위에 있는 **스케줄러** 탭을 선택합니다.
 
@@ -397,7 +397,7 @@ APNS(Apple Push Notification Service)는 인증서를 사용하여 모바일 서
 
 ## <a name="next-steps"> </a>다음 단계
 
-이 간단한 예제에서는 모든 iOS 장치로 알림을 브로드캐스트합니다. 특정 사용자에게만 알림을 보내려면 [알림 허브를 사용하여 사용자에게 알림 푸시][] 자습서를 참조하십시오. 사용자를 관심 그룹별로 분할하려면 [알림 허브를 사용하여 뉴스 속보 보내기][]를 참조하십시오. 알림 허브 사용 방법에 대해 자세히 알아보려면 [알림 허브 지침][] 및 [iOS용 알림 허브 방법][]을 참조하십시오.
+이 간단한 예제에서는 모든 iOS 장치로 알림을 브로드캐스트합니다. 특정 사용자에게만 알림을 보내려면 [알림 허브를 사용하여 사용자에게 알림 푸시][알림 허브를 사용하여 사용자에게 알림 푸시] 자습서를 참조하십시오. 사용자를 관심 그룹별로 분할하려면 [알림 허브를 사용하여 뉴스 속보 보내기][알림 허브를 사용하여 뉴스 속보 보내기]를 참조하십시오. 알림 허브 사용 방법에 대해 자세히 알아보려면 [알림 허브 지침][알림 허브 지침] 및 [iOS용 알림 허브 방법][iOS용 알림 허브 방법]을 참조하십시오.
 
 <!-- Anchors. --> 
 <!-- Images. --> 
@@ -422,7 +422,7 @@ APNS(Apple Push Notification Service)는 인증서를 사용하여 모바일 서
   [Azure 모바일 서비스 구성 요소(영문)]: http://components.xamarin.com/view/azure-mobile-services/
   [Azure 무료 평가판]: http://www.windowsazure.com/ko-KR/pricing/free-trial/?WT.mc_id=A643EE910&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fko-KR%2Fmanage%2Fservices%2Fnotification-hubs%2Fgetting-started-xamarin-ios%2F
   [Apple Push Notification Service]: http://go.microsoft.com/fwlink/p/?LinkId=272584
-  []: ./media/partner-xamarin-notification-hubs-ios-get-started/mobile-services-ios-push-step5.png
+  [0]: ./media/partner-xamarin-notification-hubs-ios-get-started/mobile-services-ios-push-step5.png
   [2]: ./media/partner-xamarin-notification-hubs-ios-get-started/mobile-services-ios-push-step6.png
   [3]: ./media/partner-xamarin-notification-hubs-ios-get-started/mobile-services-ios-push-step7.png
   [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
