@@ -1,6 +1,6 @@
 <properties linkid="manage-windows-common-tasks-install-mysql" urlDisplayName="Install MySQL" pageTitle="Create a virtual machine running MySQL in Azure " metaKeywords="Azure virtual machines, Azure Windows Server, Azure installing MySQL, Azure configuring MySQL, Azure databases" description="Create an Azure virtual machine running Windows Server 2008 R2, and then install and configure a MySQL database on the virtual machine." metaCanonical="" services="virtual-machines" documentationCenter="" title="Install MySQL on a virtual machine running Windows Server 2008 R2 in Azure" authors="kathydav" solutions="" manager="timlt" editor="tysonn" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="12/15/2013" ms.author="kathydav"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="12/15/2013" ms.author="kathydav" />
 
 # Azure에서 Windows Server 2008 R2를 실행하는 가상 컴퓨터에 MySQL 설치
 
@@ -14,11 +14,11 @@
 
 ## Windows Server 2008 R2를 실행하는 가상 컴퓨터 만들기
 
-[WACOM.INCLUDE [create-and-configure-windows-server-2008-vm-in-portal][create-and-configure-windows-server-2008-vm-in-portal]]
+[WACOM.INCLUDE [create-and-configure-windows-server-2008-vm-in-portal](../includes/create-and-configure-windows-server-2008-vm-in-portal.md)]
 
 ## 데이터 디스크 연결
 
-[WACOM.INCLUDE [attach-data-disk-windows-server-2008-vm-in-portal][attach-data-disk-windows-server-2008-vm-in-portal]]
+[WACOM.INCLUDE [attach-data-disk-windows-server-2008-vm-in-portal](../includes/attach-data-disk-windows-server-2008-vm-in-portal.md)]
 
 ## 가상 컴퓨터에서 MySQL Community Server 설치 및 실행
 
@@ -26,7 +26,7 @@ MySQL Community Server를 설치, 구성 및 실행하려면 다음 단계를 �
 
 1.  원격 데스크톱을 사용하여 가상 컴퓨터에 연결한 후 **시작** 메뉴에서 **Internet Explorer**를 엽니다.
 
-2.  오른쪽 위에 있는 **도구** 단추를 선택합니다. **인터넷 옵션**에서 **보안** 탭을 선택한 후 **신뢰할 수 있는 사이트** 아이콘을 선택하고 마지막으로 **사이트** 단추를 클릭합니다. 신뢰할 수 있는 사이트 목록에 *<http://>\*.mysql.com*을 추가합니다.
+2.  오른쪽 위에 있는 **도구** 단추를 선택합니다. **인터넷 옵션**에서 **보안** 탭을 선택한 후 **신뢰할 수 있는 사이트** 아이콘을 선택하고 마지막으로 **사이트** 단추를 클릭합니다. 신뢰할 수 있는 사이트 목록에 *http://\*.mysql.com*을 추가합니다.
 
 3.  [MySQL Community Server 다운로드][MySQL Community Server 다운로드](영문)로 이동합니다.
 
@@ -155,8 +155,6 @@ MySQL Community Server를 설치, 구성 및 실행하려면 다음 단계를 �
 
   [MySQL]: http://www.mysql.com
   [Azure 관리 포털]: http://manage.windowsazure.com
-  [create-and-configure-windows-server-2008-vm-in-portal]: ../includes/create-and-configure-windows-server-2008-vm-in-portal.md
-  [attach-data-disk-windows-server-2008-vm-in-portal]: ../includes/attach-data-disk-windows-server-2008-vm-in-portal.md
   [MySQL Community Server 다운로드]: http://www.mysql.com/downloads/mysql/
   [MySQL 설치]: ./media/virtual-machines-mysql-windows-server-2008r2/MySQLInstall1.png
   [1]: ./media/virtual-machines-mysql-windows-server-2008r2/MySQLInstall2.png

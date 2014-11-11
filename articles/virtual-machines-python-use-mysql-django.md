@@ -18,9 +18,9 @@ Azure VM에 호스트되는 MySQL 데이터베이스를 활용하여 [Django Hel
 
 이 자습서의 프로젝트 파일은 **C:\\django\\helloworld**에 저장되며 완료된 응용 프로그램은 다음과 유사하게 보입니다.
 
-![][]
+![][0]
 
-[WACOM.INCLUDE [create-account-and-vms-note][create-account-and-vms-note]]
+[WACOM.INCLUDE [create-account-and-vms-note](../includes/create-account-and-vms-note.md)]
 
 ## MySQL 및 Django를 호스트하도록 가상 컴퓨터 설정
 
@@ -222,9 +222,9 @@ Django에서 위의 마지막 명령에 대한 출력을 보고하지 않으면 
         Development server is running at http://123.34.56.78:80
         Quit the server with CTRL-BREAK.
 
-2.  로컬 웹 브라우저에서 \*\*[http://\*Vm이름][http://\*Vm이름]\*.cloudapp.net\*\*을 엽니다. 여기서 *Vm이름*은 가상 컴퓨터 만들기 단계에서 사용한 이름입니다. 아래 스크린샷과 같이 "Hello ... !" 가 표시됩니다. 이 메시지가 표시되면 Django가 가상 컴퓨터에서 실행 중이며 제대로 작동하고 있는 것입니다.
+2.  로컬 웹 브라우저에서 **http://_Vm이름_.cloudapp.net**을 엽니다. 여기서 *Vm이름*은 가상 컴퓨터 만들기 단계에서 사용한 이름입니다. 아래 스크린샷과 같이 "Hello ... !" 가 표시됩니다. 이 메시지가 표시되면 Django가 가상 컴퓨터에서 실행 중이며 제대로 작동하고 있는 것입니다.
 
-    ![][]
+    ![][0]
 
 웹 브라우저를 몇 번 새로 고치면 *"Hello **\<국가 abc\>**"*가 *"Hello **\<다른 국가 이름\>**"*으로 변경됩니다.
 
@@ -237,7 +237,7 @@ Django에서 위의 마지막 명령에 대한 출력을 보고하지 않으면 
   [Django Hello World]: http://windowsazure.com/ko-kr/documentation/articles/virtual-machines-python-django-web-app-windows-server
   [MySQL 웹 사이트]: http://dev.mysql.com/doc/
   [MySQL 드라이버]: http://pypi.python.org/pypi/MySQL-python/1.2.3
-  []: ./media/virtual-machines-python-use-mysql-django/mysql_tutorial01.png
+  [0]: ./media/virtual-machines-python-use-mysql-django/mysql_tutorial01.png
   [create-account-and-vms-note]: ../includes/create-account-and-vms-note.md
   [여기]: /ko-kr/manage/windows/tutorials/virtual-machine-from-gallery/
   [MySQL Community Server]: http://dev.mysql.com/downloads/mysql/

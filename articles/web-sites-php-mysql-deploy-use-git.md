@@ -185,7 +185,7 @@ Azure 웹 사이트를 만들었으므로 로컬에서 응용 프로그램을 �
         </body>
         </html>
 
-이제 **<http://localhost/registration/index.php>**로 이동하여 응용 프로그램을 테스트할 수 있습니다.
+이제 **http://localhost/registration/index.php**로 이동하여 응용 프로그램을 테스트할 수 있습니다.
 
 ## 응용 프로그램 게시
 
@@ -210,7 +210,7 @@ Azure 웹 사이트를 만들었으므로 로컬에서 응용 프로그램을 �
 
     ![Git를 통해 최초로 Azure에 푸시][Git를 통해 최초로 Azure에 푸시]
 
-3.  **[http://[사이트][http://[사이트] 이름].azurewebsites.net/index.php**로 이동하여 응용 프로그램의 사용을 시작합니다(이 정보는 계정 대시보드에 저장됨).
+3.  **http://[사이트 이름].azurewebsites.net/index.php**로 이동하여 응용 프로그램의 사용을 시작합니다(이 정보는 계정 대시보드에 저장됨).
 
     ![Azure PHP 웹 사이트][Azure PHP 웹 사이트]
 
@@ -231,7 +231,7 @@ Azure 웹 사이트를 만들었으므로 로컬에서 응용 프로그램을 �
 
     ![Git를 통해 사이트 변경 내용을 Azure에 푸시][Git를 통해 사이트 변경 내용을 Azure에 푸시]
 
-3.  **[http://[사이트][http://[사이트] 이름].azurewebsites.net/index.php**로 이동하여 응용 프로그램과 변경한 내용을 확인합니다.
+3.  **http://[사이트 이름].azurewebsites.net/index.php**로 이동하여 응용 프로그램과 변경한 내용을 확인합니다.
 
     ![Azure PHP 웹 사이트][Azure PHP 웹 사이트]
 
@@ -256,6 +256,5 @@ Azure 웹 사이트를 만들었으므로 로컬에서 응용 프로그램을 �
   [데이터베이스 연결 정보 가져오기]: ./media/web-sites-php-mysql-deploy-use-git/connection_string_info.png
   [PDO Extension for MySQL]: http://www.php.net/manual/en/ref.pdo-mysql.php
   [Git를 통해 최초로 Azure에 푸시]: ./media/web-sites-php-mysql-deploy-use-git/php-git-initial-push.png
-  [http://[사이트]: http://[site
   [Git를 통해 사이트 변경 내용을 Azure에 푸시]: ./media/web-sites-php-mysql-deploy-use-git/php-git-change-push.png
   [웹 사이트 배포 목록]: ./media/web-sites-php-mysql-deploy-use-git/php-deployments-list.png

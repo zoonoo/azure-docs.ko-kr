@@ -1,6 +1,6 @@
 <properties linkid="manage-services-how-to-create-a-storage-account" urlDisplayName="How to create" pageTitle="How to create a storage account | Azure" metaKeywords="" description="Learn how to create a storage account in the Azure management portal." metaCanonical="" services="storage" documentationCenter="" title="How To Create a Storage Account" solutions="" authors="tamram" manager="mbaldwin" editor="cgronlun" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="tamram"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
 # <span id="createstorageaccount"></span></a>저장소 계정을 만드는 방법
 
@@ -23,7 +23,7 @@ Azure에서 Blob, 테이블, 큐 및 파일 서비스에 파일과 데이터를 
 
     ![NewStorageAccount][NewStorageAccount]
 
-3.  **URL**에서 저장소 계정의 URL에 사용할 하위 도메인 이름을 입력합니다. 저장소의 개체에 액세스하려면 끝점에 개체 위치를 추가합니다. 예를 들어, Blob에 액세스하는 URL은 <http://*myaccount>*.blob.core.windows.net/*mycontainer*/*myblob\*이 될 수 있습니다.
+3.  **URL**에서 저장소 계정의 URL에 사용할 하위 도메인 이름을 입력합니다. 저장소의 개체에 액세스하려면 끝점에 개체 위치를 추가합니다. 예를 들어, Blob에 액세스하는 URL은 http://*myaccount*.blob.core.windows.net/*mycontainer*/*myblob\*이 될 수 있습니다.
 
 4.  **지역/선호도 그룹**에서 저장소의 지역 또는 선호도 그룹을 선택합니다. 사용 중인 다른 Azure 서비스와 동일한 데이터 센터에 저장소 서비스가 있도록 하려면 지역 대신 선호도 그룹을 선택합니다. 이렇게 하면 성능이 향상될 수 있고 송신 요금이 발생하지 않습니다.
 

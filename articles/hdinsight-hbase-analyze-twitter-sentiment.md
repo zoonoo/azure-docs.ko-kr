@@ -1,6 +1,7 @@
 <properties linkid="manage-services-hdinsight-howto-social-data" urlDisplayName="Analyze realt-time Twitter sentiment with Hbase in HDInsight" pageTitle="Analyze real-time Twitter sentiment with HBase in HDInsight | Azure" metaKeywords="" description="Learn how to do real-time analysis of big data using HBase in an HDInsight (Hadoop) cluster." metaCanonical="" services="hdinsight" documentationCenter="" title="Analyze real-time Twitter sentiment with HBase in HDInsight" authors="jgao" solutions="big-data" manager="paulettm" editor="cgronlun" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/21/2014" ms.author="jgao"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/21/2014" ms.author="jgao" />
+
 
 # HDInsight에서 HBase를 사용하여 Twitter 데이터 실시간 분석
 
@@ -577,7 +578,7 @@ OAuth를 사용하는 첫 단계는 Twitter 개발자 사이트에서 새 응용
 
 5.  **HBaseReader** 클래스 내에서 상수 값을 변경합니다.
 
-    -   **CLUSTERNAME**: HBase 클러스터 이름. 예를 들어 *<https://><hbaseclustername>.azurehdinsight.net/*과 같이 변경합니다.
+    -   **CLUSTERNAME**: HBase 클러스터 이름. 예를 들어 *https://<hbaseclustername>.azurehdinsight.net/*과 같이 변경합니다.
     -   **HADOOPUSERNAME**: HBase 클러스터 Hadoop 사용자의 사용자 이름. 기본 이름은 *admin*입니다.
     -   **HADOOPUSERPASSWORD**: HBase 클러스터 Hadoop 사용자의 암호
     -   **HBASETABLENAME** = "tweets\_by\_words";
@@ -624,28 +625,28 @@ OAuth를 사용하는 첫 단계는 Twitter 개발자 사이트에서 새 응용
 4.  다음 코드를 복사하여 파일에 붙여 넣습니다. 이 코드는 Alastair Aitchison이 작성한 것입니다. 자세한 내용은 [http://alastaira.wordpress.com/2011/04/15/bing-maps-ajax-v7-heatmap-library/](http://alastaira.wordpress.com/2011/04/15/bing-maps-ajax-v7-heatmap-library/)를 참조하세요.
 
         /*******************************************************************************
-        * Author: Alastair Aitchison
-        * Website: http://alastaira.wordpress.com
-        * Date: 15th April 2011
-        * 
-        * Description: 
-        * This JavaScript file provides an algorithm that can be used to add a heatmap
-        * overlay on a Bing Maps v7 control. The intensity and temperature palette
-        * of the heatmap are designed to be easily customisable.
+		* Author: Alastair Aitchison
+		* Website: http://alastaira.wordpress.com
+		* Date: 15th April 2011
+		* 
+		* Description: 
+		* This JavaScript file provides an algorithm that can be used to add a heatmap
+		* overlay on a Bing Maps v7 control. The intensity and temperature palette
+		* of the heatmap are designed to be easily customisable.
         *
-        * Requirements:
-        * The heatmap layer itself is created dynamically on the client-side using
-        * the HTML5 <canvas> element, and therefore requires a browser that supports
-        * this element. It has been tested on IE9, Firefox 3.6/4 and 
-        * Chrome 10 browsers. If you can confirm whether it works on other browsers or
-        * not, I'd love to hear from you!
+		* Requirements:
+		* The heatmap layer itself is created dynamically on the client-side using
+		* the HTML5 <canvas> element, and therefore requires a browser that supports
+		* this element. It has been tested on IE9, Firefox 3.6/4 and 
+		* Chrome 10 browsers. If you can confirm whether it works on other browsers or
+		* not, I'd love to hear from you!
 
-        * Usage:
-        * The HeatMapLayer constructor requires:
-        * - A reference to a map object
-        * - An array or Microsoft.Maps.Location items
-        * - Optional parameters to customise the appearance of the layer
-        *  (Radius,, Unit, Intensity, and ColourGradient), and a callback function
+		* Usage:
+		* The HeatMapLayer constructor requires:
+		* - A reference to a map object
+		* - An array or Microsoft.Maps.Location items
+		* - Optional parameters to customise the appearance of the layer
+		*  (Radius,, Unit, Intensity, and ColourGradient), and a callback function
         *
         */
 

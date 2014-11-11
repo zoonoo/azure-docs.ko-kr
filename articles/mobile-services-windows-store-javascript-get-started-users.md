@@ -5,23 +5,22 @@
 # 모바일 서비스에서 인증 시작
 
 > [AZURE.SELECTOR-LIST (Platform | Backend )]
-
--   [(iOS | .NET)][(iOS | .NET)]
--   [(iOS | JavaScript)][(iOS | JavaScript)]
--   [(Windows C# | .NET)][(Windows C# | .NET)]
--   [(Windows C# | Javascript)][(Windows C# | Javascript)]
--   [(Windows JavaScript | .NET)][(Windows JavaScript | .NET)]
--   [(Windows JavaScript | Javascript)][(Windows JavaScript | Javascript)]
--   [(Windows Phone | .NET)][(Windows Phone | .NET)]
--   [(Windows Phone | Javascript)][(Windows Phone | Javascript)]
--   [(Android | .NET)][(Android | .NET)]
--   [(Android | Javascript)][(Android | Javascript)]
--   [(Xamarin iOS | .NET)][(Xamarin iOS | .NET)]
--   [(Xamarin iOS | Javascript)][(Xamarin iOS | Javascript)]
--   [(HTML | Javascript)][(HTML | Javascript)]
--   [(Xamarin Android | .NET)][(Xamarin Android | .NET)]
--   [(Xamarin Android | Javascript)][(Xamarin Android | Javascript)]
--   [(Appcelerator | Javascript)][(Appcelerator | Javascript)]
+- [(iOS | .NET)](/ko-kr/documentation/articles/mobile-services-dotnet-backend-ios-get-started-users/)
+- [(iOS | JavaScript)](/ko-kr/documentation/articles/mobile-services-ios-get-started-users/)
+- [(Windows C# | .NET)](/ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users/)
+- [(Windows C# | Javascript)](/ko-kr/documentation/articles/mobile-services-javascript-backend-windows-universal-dotnet-get-started-users/)
+- [(Windows JavaScript | .NET)](/ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-users/)
+- [(Windows JavaScript | Javascript)](/ko-kr/documentation/articles/mobile-services-windows-store-javascript-get-started-users/)
+- [(Windows Phone | .NET)](/ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-users/)
+- [(Windows Phone | Javascript)](/ko-kr/documentation/articles/mobile-services-windows-phone-get-started-users/)
+- [(Android | .NET)](/ko-kr/documentation/articles/mobile-services-dotnet-backend-android-get-started-users/)
+- [(Android | Javascript)](/ko-kr/documentation/articles/mobile-services-android-get-started-users/)
+- [(Xamarin iOS | .NET)](/ko-kr/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-get-started-users/)
+- [(Xamarin iOS | Javascript)](/ko-kr/documentation/articles/partner-xamarin-mobile-services-ios-get-started-users/)
+- [(HTML | Javascript)](/ko-kr/documentation/articles/mobile-services-html-get-started-users/)
+- [(Xamarin Android | .NET)](/ko-kr/documentation/articles/mobile-services-dotnet-backend-xamarin-android-get-started-users/)
+- [(Xamarin Android | Javascript)](/ko-kr/documentation/articles/partner-xamarin-mobile-services-android-get-started-users/)
+- [(Appcelerator | Javascript)](/ko-kr/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-users/)
 
 이 항목은 앱에서 Azure 모바일 서비스의 사용자를 인증하는 방법을 보여 줍니다. 이 자습서에서는 모바일 서비스가 지원하는 ID 공급자를 사용하여 퀵 스타트 프로젝트에 인증을 추가합니다. 모바일 서비스에서 인증되고 권한이 부여된 후 사용자 ID 값이 표시됩니다.
 
@@ -40,14 +39,14 @@
 
 [WACOM.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)]
 
-1.  (옵션) [Microsoft 인증을 위해 Windows 스토어 앱 패키지 등록][Microsoft 인증을 위해 Windows 스토어 앱 패키지 등록]의 단계를 완료합니다.
+<ol start="5">
+<li><p>(옵션) <a href="/ko-kr/documentation/articles/mobile-services-how-to-register-store-app-package-microsoft-authentication/">Microsoft 인증을 위해 Windows 스토어 앱 패키지 등록</a>의 단계를 완료합니다.</p>
 
-    <div class="dev-callout">
-
-    **참고**
-    이 단계는 Microsoft 계정 로그인 공급자에만 적용되기 때문에 선택 사항입니다. 모바일 서비스에 Windows 스토어 앱 패키지 정보를 등록하는 경우 클라이언트에서 Single Sign-On 환경을 위해 Microsoft 계정 로그인 자격 증명을 다시 사용할 수 있습니다. 그렇지 않으면 로그인 메서드가 호출될 때마다 Microsoft 계정 로그인 사용자에게 로그인 프롬프트가 표시됩니다. Microsoft 계정 ID 공급자를 사용하려는 경우 이 단계를 완료합니다.
-
+    <div class="dev-callout"><b>참고</b>
+	<p>이 단계는 Microsoft 계정 로그인 공급자에만 적용되기 때문에 선택 사항입니다. 모바일 서비스에 Windows 스토어 앱 패키지 정보를 등록하는 경우 클라이언트에서 Single Sign-On 환경을 위해 Microsoft 계정 로그인 자격 증명을 다시 사용할 수 있습니다. 그렇지 않으면 로그인 메서드가 호출될 때마다 Microsoft 계정 로그인 사용자에게 로그인 프롬프트가 표시됩니다. Microsoft 계정 ID 공급자를 사용하려는 경우 이 단계를 완료합니다.</p>
     </div>
+</li>
+</ol>
 
 이제 모바일 서비스와 앱이 선택한 인증 공급자를 사용하도록 둘 다 구성되었습니다.
 
@@ -55,11 +54,12 @@
 
 [WACOM.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)]
 
-1.  Visual Studio 2012 Express for Windows 8에서 [모바일 서비스 시작][1] 자습서를 완료할 때 만든 프로젝트를 엽니다.
-
-2.  F5 키를 눌러 이 빠른 시작 기반 앱을 실행합니다. 앱이 시작된 후 상태 코드 401(인증되지 않음)의 처리되지 않은 예외가 발생하는지 확인합니다.
-
-    이는 앱이 인증되지 않은 사용자로 모바일 서비스에 액세스하려고 시도하지만 *TodoItem* 테이블에서 이제 인증을 요구하기 때문에 발생합니다.
+<ol start="3">
+<li><p>Visual Studio 2012 Express for Windows 8에서 <a href="/ko-kr/develop/mobile/tutorials/get-started/">모바일 서비스 시작</a> 자습서를 완료할 때 만든 프로젝트를 엽니다.</p></li> 
+<li><p>F5 키를 눌러 이 빠른 시작 기반 앱을 실행합니다. 앱이 시작된 후 상태 코드 401(인증되지 않음)의 처리되지 않은 예외가 발생하는지 확인합니다.</p>
+   
+   	<p>이는 앱이 인증되지 않은 사용자로 모바일 서비스에 액세스하려고 시도하지만 <em>TodoItem</em> 테이블에서 이제 인증을 요구하기 때문에 발생합니다.</p></li>
+</ol>
 
 다음에는 모바일 서비스의 리소스를 요청하기 전에 사용자를 인증하도록 앱을 업데이트합니다.
 
@@ -77,22 +77,6 @@
 
 <!-- Anchors. --> <!-- URLs. -->
 
-  [(iOS | .NET)]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-ios-get-started-users/
-  [(iOS | JavaScript)]: /ko-kr/documentation/articles/mobile-services-ios-get-started-users/
-  [(Windows C# | .NET)]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users/
-  [(Windows C# | Javascript)]: /ko-kr/documentation/articles/mobile-services-javascript-backend-windows-universal-dotnet-get-started-users/
-  [(Windows JavaScript | .NET)]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-users/
-  [(Windows JavaScript | Javascript)]: /ko-kr/documentation/articles/mobile-services-windows-store-javascript-get-started-users/
-  [(Windows Phone | .NET)]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-users/
-  [(Windows Phone | Javascript)]: /ko-kr/documentation/articles/mobile-services-windows-phone-get-started-users/
-  [(Android | .NET)]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-android-get-started-users/
-  [(Android | Javascript)]: /ko-kr/documentation/articles/mobile-services-android-get-started-users/
-  [(Xamarin iOS | .NET)]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-get-started-users/
-  [(Xamarin iOS | Javascript)]: /ko-kr/documentation/articles/partner-xamarin-mobile-services-ios-get-started-users/
-  [(HTML | Javascript)]: /ko-kr/documentation/articles/mobile-services-html-get-started-users/
-  [(Xamarin Android | .NET)]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-xamarin-android-get-started-users/
-  [(Xamarin Android | Javascript)]: /ko-kr/documentation/articles/partner-xamarin-mobile-services-android-get-started-users/
-  [(Appcelerator | Javascript)]: /ko-kr/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-users/
   [인증을 위해 앱 등록 및 모바일 서비스 구성]: #register
   [테이블 사용 권한을 인증된 사용자로 제한]: #permissions
   [앱에 인증 추가]: #add-authentication
@@ -101,7 +85,6 @@
   [Live Connect를 사용한 Windows 스토어 앱의 Single Sign-On]: /ko-kr/documentation/articles/mobile-services-windows-store-javascript-single-sign-on
   [이 게시물]: http://go.microsoft.com/fwlink/p/?LinkId=506605
   [mobile-services-register-authentication]: ../includes/mobile-services-register-authentication.md
-  [Microsoft 인증을 위해 Windows 스토어 앱 패키지 등록]: /ko-kr/documentation/articles/mobile-services-how-to-register-store-app-package-microsoft-authentication/
   [mobile-services-restrict-permissions-javascript-backend]: ../includes/mobile-services-restrict-permissions-javascript-backend.md
   [1]: /ko-kr/develop/mobile/tutorials/get-started/
   [mobile-services-windows-store-javascript-authenticate-app]: ../includes/mobile-services-windows-store-javascript-authenticate-app.md

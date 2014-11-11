@@ -1,10 +1,10 @@
 <properties linkid="manage-services-storage-custom-dns-storage" urlDisplayName="custom dns storage" pageTitle="Configure a domain name for blob data in a storage account | Microsoft Azure" metaKeywords="" description="Learn how to configure a custom domain for accessing blob data in an Azure storage account." metaCanonical="" services="storage" documentationCenter="" title="Configure a custom domain name for blob data in a storage account" solutions="" authors="tamram" manager="mbaldwin" editor="cgronlun" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="tamram"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
 # Azure 저장소 계정에서 Blob 데이터의 사용자 지정 도메인 이름 구성
 
-Azure 저장소 계정에서 Blob 데이터에 액세스할 수 있도록 사용자 지정 도메인을 구성할 수 있습니다. Blob 서비스의 기본 끝점은 <https://>\<*mystorageaccount*\>.blob.core.windows.net입니다. **www.contoso.com**과 같은 사용자 지정 도메인 및 하위 도메인을 저장소 계정의 Blob 끝점에 매핑하면 사용자도 해당 도메인을 사용하여 저장소 계정의 Blob 데이터에 액세스할 수 있습니다.
+Azure 저장소 계정에서 Blob 데이터에 액세스할 수 있도록 사용자 지정 도메인을 구성할 수 있습니다. Blob 서비스의 기본 끝점은 https://\<*mystorageaccount*\>.blob.core.windows.net입니다. **www.contoso.com**과 같은 사용자 지정 도메인 및 하위 도메인을 저장소 계정의 Blob 끝점에 매핑하면 사용자도 해당 도메인을 사용하여 저장소 계정의 Blob 데이터에 액세스할 수 있습니다.
 
 <div class="dev-callout"> 
 <b>참고</b> 
@@ -144,8 +144,6 @@ asverify 하위 도메인은 Azure에서 인식하는 특수한 하위 도메인
 
 -   [CDN 콘텐츠를 사용자 지정 도메인에 매핑하는 방법][CDN 콘텐츠를 사용자 지정 도메인에 매핑하는 방법]
 
-  [Azure 클라우드 서비스의 사용자 지정 도메인 이름 구성]: /ko-kr/develop/net/common-tasks/custom-dns/
-  [Azure 웹 사이트의 사용자 지정 도메인 이름 구성]: /ko-kr/develop/net/common-tasks/custom-dns-web-site/
   [저장소 계정의 사용자 지정 도메인 등록]: #register-domain
   [중간 asverify 하위 도메인을 사용하여 저장소 계정의 사용자 지정 도메인 등록]: #register-asverify
   [CDN 콘텐츠를 사용자 지정 도메인에 매핑하는 방법]: http://msdn.microsoft.com/ko-kr/library/windowsazure/gg680307.aspx

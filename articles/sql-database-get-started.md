@@ -24,7 +24,7 @@ Excel을 사용하여 Azure 플랫폼의 샘플 데이터베이스와 쿼리 시
 
 ## 1단계: Microsoft Azure 계정 만들기
 
-1.  웹 브라우저를 열고 [][]<http://azure.microsoft.com></a>으로 이동합니다.
+1.  웹 브라우저를 열고 [http://azure.microsoft.com](http://azure.microsoft.com)으로 이동합니다.
     무료 계정으로 시작하려면 오른쪽 위에 있는 무료 체험을 클릭하고 단계를 따르십시오.
 
 2.  이제 계정이 만들어집니다. 시작할 준비가 되었습니다.
@@ -548,7 +548,7 @@ Microsoft Excel이 컴퓨터에 설치되어 있는 경우 다음 단계에 따�
 
 2.  데이터 연결 마법사에서 SQL 데이터베이스 서버의 정규화된 도메인 이름과 데이터베이스에 대한 액세스 권한이 있는 SQL Server 인증 로그인을 차례로 입력합니다.
 
-서버 이름은 Azure 관리 포털, SQL 데이터베이스, 서버 페이지, 대시보드의 **URL 관리**에서 확인할 수 있습니다. 서버 이름은 일련의 문자 및 숫자와 그 뒤에 오는 '.database.windows.net'으로 구성됩니다. 데이터베이스 연결 마법사에서 이 이름을 지정합니다. 이름을 지정할 때 <http://> 또는 <https://> 접두사를 포함하지 마십시오.
+서버 이름은 Azure 관리 포털, SQL 데이터베이스, 서버 페이지, 대시보드의 **URL 관리**에서 확인할 수 있습니다. 서버 이름은 일련의 문자 및 숫자와 그 뒤에 오는 '.database.windows.net'으로 구성됩니다. 데이터베이스 연결 마법사에서 이 이름을 지정합니다. 이름을 지정할 때 http:// 또는 https:// 접두사를 포함하지 마십시오.
 
 SQL Server 인증 로그인을 입력합니다. 테스트를 위해서는 서버를 설정할 때 만든 관리자 로그인을 사용할 수 있습니다. 일반적인 데이터 액세스를 위해서는 방금 만든 것과 유사한 데이터베이스 사용자 로그인을 사용하십시오.
 
@@ -586,7 +586,6 @@ SQL 데이터베이스 및 관리 포털에 익숙해졌으므로, SQL Server �
   [7단계: 관리 포털의 SQL 데이터베이스용 쿼리 샘플 및 시스템 데이터]: #QueryDBSysData
   [8단계: 데이터베이스 로그인 만들기 및 권한 할당]: #DBLogin
   [9단계: 다른 응용 프로그램에서 연결]: #ClientConnection
-  []: http://azure.microsoft.com
   [관리 포털]: http://manage.windowsazure.com
   [탐색 창]: ./media/sql-database-get-started/1NavPaneDBSelected_SQLTut.png
   [1]: ./media/sql-database-get-started/2MainPageCustomCreateDB_SQLTut.png

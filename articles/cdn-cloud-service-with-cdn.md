@@ -1,6 +1,6 @@
 <properties linkid="cdn-cloud-service-with-cdn" urlDisplayName="Integrate a cloud service with Azure CDN" pageTitle="Integrate a cloud service with Azure CDN" metaKeywords="Azure tutorial, Azure web app tutorial, ASP.NET, CDN, MVC, cloud service" description="A tutorial that teaches you how to deploy a cloud service that serves content from an integrated Azure CDN endpoint" metaCanonical="" services="cdn,cloud-services" documentationCenter=".NET" title="Integrate a cloud service with Azure CDN" authors="cephalin" solutions="" manager="wpickett" editor="tysonn" />
 
-<tags ms.service="cdn" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin"></tags>
+<tags ms.service="cdn" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin" />
 
 <a name="intro"></a>
 
@@ -41,8 +41,8 @@ Azure CDN은 클라우드 서비스와 통합되어 클라우드 서비스 CDN �
   <span class="wa-icon-bulb"></span>
   <h5><a name="note"></a>이 자습서를 완료하려면 Azure 계정이 있어야 합니다.</h5>
   <ul>
-    <li><a href="http://azure.microsoft.com/ko--kr/pricing/free-trial/?WT.mc_id=A261C142F">Azure 계정을 무료로 개설</a>할 수 있음 - 유료 Azure 서비스를 사용해볼 수 있는 크레딧을 받게 되며 크레딧을 모두 사용한 후에도 계정을 유지하고 무료 Azure 서비스(예: 웹 서비스)를 사용할 수 있습니다.</li>
-    <li><a href="http://azure.microsoft.com/ko--kr/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F">MSDN 구독자 혜택을 활성화</a>할 수 있음 - MSDN 구독은 유료 Azure 서비스에 사용할 수 있는 크레딧을 매달 제공합니다.</li>
+    <li><a href="http://azure.microsoft.com/ko-kr/pricing/free-trial/?WT.mc_id=A261C142F">Azure 계정을 무료로 개설</a>할 수 있음 - 유료 Azure 서비스를 사용해볼 수 있는 크레딧을 받게 되며 크레딧을 모두 사용한 후에도 계정을 유지하고 무료 Azure 서비스(예: 웹 서비스)를 사용할 수 있습니다.</li>
+    <li><a href="http://azure.microsoft.com/ko-kr/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F">MSDN 구독자 혜택을 활성화</a>할 수 있음 - MSDN 구독은 유료 Azure 서비스에 사용할 수 있는 크레딧을 매달 제공합니다.</li>
   <ul>
 </div>
 
@@ -54,7 +54,7 @@ Azure CDN은 클라우드 서비스와 통합되어 클라우드 서비스 CDN �
 
 1.  Visual Studio 2013의 메뉴 모음에서 **파일 \> 새로 만들기 \> 프로젝트 \> 클라우드 \> Microsoft Azure 클라우드 서비스**로 이동하여 새 Azure 클라우드 서비스를 만듭니다. 해당 서비스의 이름을 지정하고 **확인**을 클릭합니다.
 
-    ![][]
+    ![][0]
 
 2.  **ASP.NET 웹 역할**을 선택하고 **\>** 단추를 클릭합니다. 확인을 클릭합니다.
 
@@ -92,7 +92,7 @@ Azure CDN은 클라우드 서비스와 통합되어 클라우드 서비스 CDN �
     **Microsoft Azure 활동 로그**에서 게시 상태가 **완료**로 표시된 경우 이 클라우드 서비스와 통합된 CDN 끝점을 만들 수 있습니다.
 
 10. CDN 끝점을 만들려면 [Azure 관리 포털][Azure 관리 포털]에 로그인합니다.
-11. **새로 만들기** \> **앱 서비스** \> **CDN** \> **빠른 생성**을 클릭합니다. **<http://>*\<서비스이름\>*.cloudapp.net/cdn/**을 선택하고 **만들기**를 클릭합니다.
+11. **새로 만들기** \> **앱 서비스** \> **CDN** \> **빠른 생성**을 클릭합니다. **http://<*서비스이름*>.cloudapp.net/cdn/**을 선택하고 **만들기**를 클릭합니다.
 
     ![][8]
 
@@ -116,16 +116,25 @@ Azure CDN은 클라우드 서비스와 통합되어 클라우드 서비스 CDN �
 
 15. Visual Studio 2013으로 돌아가 **WebRole1** 프로젝트에서 **Web.config**를 열고 다음 코드를 `<system.webServer>` 태그에 추가합니다.
 
-    ``` prettyprint
-    <system.webServer> <rewrite> <rules> <rule name="RewriteIncomingCdnRequest" stopProcessing="true"> <match url="^cdn/(.*)$"/> <action type="Rewrite" url="{R:1}"/> </rule> </rules> </rewrite> ...</system.webServer>
-    ```
+	<pre class="prettyprint">
+	&lt;system.webServer&gt;
+	  <mark>&lt;rewrite&gt;
+	    &lt;rules&gt;
+	      &lt;rule name=&quot;RewriteIncomingCdnRequest&quot; stopProcessing=&quot;true&quot;&gt;
+	        &lt;match url=&quot;^cdn/(.*)$&quot;/&gt;
+	        &lt;action type=&quot;Rewrite&quot; url=&quot;{R:1}&quot;/&gt;
+	      &lt;/rule&gt;
+	    &lt;/rules&gt;
+	  &lt;/rewrite&gt;</mark>
+      ...
+	&lt;/system.webServer&gt;
+	</pre>
 
-    </p>
 16. 클라우드 서비스를 다시 게시합니다. 클라우드 서비스 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다.
 
     ![][3]
 
-17. 게시 상태가 **완료**인 경우 브라우저 창을 열고 **<http://>*\<cdn이름\>*.vo.msecnd.net/Content/bootstrap.css**로 이동합니다. 이 자습서 설정에서 이 URL은 다음과 같습니다.
+17. 게시 상태가 **완료**인 경우 브라우저 창을 열고 **http://<*cdn이름*>.vo.msecnd.net/Content/bootstrap.css**로 이동합니다. 이 자습서 설정에서 이 URL은 다음과 같습니다.
 
         http://az632148.vo.msecnd.net/Content/bootstrap.css
 
@@ -137,25 +146,25 @@ Azure CDN은 클라우드 서비스와 통합되어 클라우드 서비스 CDN �
 
         http://cephalinservice.cloudapp.net/Content/bootstrap.css
 
-    **<http://>*\<cdn이름\>*.vo.msecnd.net/Content/bootstrap.css**로 이동한 경우 게시한 웹앱에서 들어오는 bootstrap.css를 다운로드하라는 메시지가 표시됩니다.
+    **http://<*cdn이름*>.vo.msecnd.net/Content/bootstrap.css**로 이동한 경우 게시한 웹앱에서 들어오는 bootstrap.css를 다운로드하라는 메시지가 표시됩니다.
 
     ![][12]
 
-마찬가지로 CDN 끝점에서 **<http://>*\<서비스이름\>*.cloudapp.net/**의 공개적으로 액세스 가능한 URL에 바로 액세스할 수 있습니다. 예를 들면 다음과 같습니다.
+마찬가지로 CDN 끝점에서 **http://<*서비스이름*>.cloudapp.net/**의 공개적으로 액세스 가능한 URL에 바로 액세스할 수 있습니다. 예를 들면 다음과 같습니다.
 
 -   /Script 경로의 .js 파일
 -   /Content 경로의 모든 콘텐츠 파일
 -   모든 controller/action
 -   CDN 끝점에서 쿼리 문자열을 사용하도록 설정한 경우 쿼리 문자열이 포함된 모든 URL
 
-실제로 위의 구성으로 **<http://>*\<cdn이름\>*.vo.msecnd.net/**에서 전체 클라우드 서비스를 호스트할 수 있습니다. **<http://az632148.vo.msecnd.net/>**으로 이동한 경우 Home/Index에서 작업 결과를 가져옵니다.
+실제로 위의 구성으로 **http://<*cdn이름*>.vo.msecnd.net/**에서 전체 클라우드 서비스를 호스트할 수 있습니다. **http://az632148.vo.msecnd.net/**으로 이동한 경우 Home/Index에서 작업 결과를 가져옵니다.
 
 ![][13]
 
 그러나 그렇다고 Azure CDN을 통해 전체 클라우드 서비스를 제공하는 것이 항상 좋다(또는 일반적으로 좋다)는 의미는 아닙니다. 다음 사항을 주의해야 합니다.
 
 -   Azure CDN이 개인 콘텐츠를 제공할 수 없으므로 이 접근 방식에서는 전체 사이트가 공용이어야 합니다.
--   예정된 유지 관리 또는 사용자 오류든, 어떤 이유로 CDN 끝점이 오프라인 상태가 된 경우 고객이 원본 URL인 **<http://>*\<서비스이름\>*.cloudapp.net/**으로 리디렉션되지 않은 한 전체 클라우드 서비스가 오프라인 상태가 됩니다.
+-   예정된 유지 관리 또는 사용자 오류든, 어떤 이유로 CDN 끝점이 오프라인 상태가 된 경우 고객이 원본 URL인 **http://<*서비스이름*>.cloudapp.net/**으로 리디렉션되지 않은 한 전체 클라우드 서비스가 오프라인 상태가 됩니다.
 -   사용자 지정 캐시 컨트롤 설정([클라우드 서비스의 정적 파일에 대한 캐싱 옵션 구성][클라우드 서비스의 정적 콘텐츠에 대한 캐시 설정 구성] 참조)이 있는 경우에도 CDN 끝점이 높은 수준의 동적 콘텐츠의 성능을 개선하지는 않습니다. 위와 같이 CDN 끝점에서 홈페이지를 로드하려는 경우 상당히 단순한 페이지인 기본 홈페이지를 처음 로드하는 데도 5초 이상이 걸립니다. 이 페이지에 매분 업데이트되어야 하는 동적 콘텐츠가 포함되어 있다면 클라이언트 환경이 어떨지 상상해 보세요. CDN 끝점에서 동적 콘텐츠를 제공하려면 캐시 만료가 짧아야 하며 이는 CDN 끝점에서 빈번한 캐시 누락이 발생함을 의미합니다. 그러면 성능 또는 클라우드 서비스가 저하되며 CDN의 목적이 무산됩니다.
 
 대안은 클라우드 서비스의 사례별로 Azure CDN에서 제공할 콘텐츠를 판단하는 것입니다. 이를 위해 CDN 끝점에서 개별 콘텐츠 파일에 액세스하는 방법을 이미 알아보았습니다. [Azure CDN을 통해 컨트롤러 작업의 콘텐츠 제공][Azure CDN을 통해 컨트롤러 작업의 콘텐츠 제공]에서는 CDN 끝점을 통해 특정 컨트롤러 작업을 제공하는 방법을 설명하겠습니다.
@@ -163,10 +172,12 @@ Azure CDN은 클라우드 서비스와 통합되어 클라우드 서비스 CDN �
 더욱 제한적인 URL 다시 쓰기 규칙을 지정하면 CDN 끝점을 통해 액세스 가능한 콘텐츠를 제한할 수 있습니다. 예를 들어 URL 다시 쓰기를 *\\Scripts* 폴더로 제한하려면 위의 다시 쓰기 규칙을 다음과 같이 변경하세요.
 
 <pre class="prettyprint">
-&lt;rule name=&quot;RewriteIncomingCdnRequest&quot; stopProcessing=&quot;true&quot;&gt; &lt;match url=&quot;^cdn/Scripts/(.*)$&quot;/&gt; &lt;action type=&quot;Rewrite&quot; url=&quot;Scripts/{R:1}&quot;/&gt;&lt;/rule&gt;
+&lt;rule name=&quot;RewriteIncomingCdnRequest&quot; stopProcessing=&quot;true&quot;&gt;
+  &lt;match url=&quot;^cdn/<mark>Scripts/</mark>(.*)$&quot;/&gt;
+  &lt;action type=&quot;Rewrite&quot; url=&quot;<mark>Scripts/</mark>{R:1}&quot;/&gt;
+&lt;/rule&gt;
 </pre>
 
-</p>
 <a name="caching"></a>
 
 ## 클라우드 서비스의 정적 파일에 대한 캐싱 옵션 구성
@@ -174,10 +185,14 @@ Azure CDN은 클라우드 서비스와 통합되어 클라우드 서비스 CDN �
 클라우드 서비스의 Azure CDN 통합으로 정적 콘텐츠를 CDN 끝점에서 캐시하는 방법을 지정할 수 있습니다. 이를 수행하려면 웹 역할 프로젝트(예: WebRole1)에서 *Web.config*를 열고 `<staticContent>` 요소를 `<system.webServer>`에 추가합니다. 아래 XML은 캐시가 3일 이내에 만료되도록 구성합니다.
 
 <pre class="prettyprint">
-&lt;system.webServer&gt; &lt;staticContent&gt; &lt;clientCache cacheControlMode=&quot;UseMaxAge&quot; cacheControlMaxAge=&quot;3.00:00:00&quot;/&gt; &lt;/staticContent&gt; ...&lt;/system.webServer&gt;
+&lt;system.webServer&gt;
+  <mark>&lt;staticContent&gt;
+    &lt;clientCache cacheControlMode=&quot;UseMaxAge&quot; cacheControlMaxAge=&quot;3.00:00:00&quot;/&gt;
+  &lt;/staticContent&gt;</mark>
+  ...
+&lt;/system.webServer&gt;
 </pre>
 
-</p>
 이렇게 구성하면 클라우드 서비스의 모든 정적 파일이 CDN 캐시에서 동일한 규칙을 준수합니다. 캐싱 설정을 더 세밀하게 제어하려면 *Web.config* 파일을 폴더에 추가하고 이 파일에 해당 설정을 추가합니다. 예를 들어 *Web.config* 파일을 *\\Content* 폴더에 추가하고 다음 XML로 내용을 바꿉니다.
 
     <?xml version="1.0"?>
@@ -191,7 +206,7 @@ Azure CDN은 클라우드 서비스와 통합되어 클라우드 서비스 CDN �
 
 이 설정을 통해 *\\Content* 폴더의 모든 정적 파일은 15일 동안 캐시됩니다.
 
-`<clientCache>` 요소를 구성하는 방법에 대한 자세한 내용은 [클라이언트 캐시 \<clientCache\>][클라이언트 캐시 \<clientCache\>](영문)를 참조하세요.
+`<clientCache>` 요소를 구성하는 방법에 대한 자세한 내용은 [클라이언트 캐시 \<clientCache\>](http://www.iis.net/configreference/system.webserver/staticcontent/clientcache) (영문)를 참조하세요.
 
 [Azure CDN을 통해 컨트롤러 작업의 콘텐츠 제공][Azure CDN을 통해 컨트롤러 작업의 콘텐츠 제공]에서는 CDN 캐시의 컨트롤러 작업 결과에 대해 캐시 설정을 구성하는 방법에 관해서도 설명합니다.
 
@@ -211,105 +226,103 @@ Azure CDN은 클라우드 서비스와 통합되어 클라우드 서비스 CDN �
 
 1.  *\\Controllers* 폴더에서 *MemeGeneratorController.cs*라는 새로운 .cs 파일을 만들고 내용을 다음 코드로 바꿉니다. 또한 강조 표시된 부분은 사용 중인 CDN 이름으로 바꿉니다.
 
-	<pre class="prettyprint">
-	using System;
-	using System.Collections.Generic;
-	using System.Diagnostics;
-	using System.Drawing;
-	using System.IO;
-	using System.Net;
-	using System.Web.Hosting;
-	using System.Web.Mvc;
-	using System.Web.UI;
-	
-	namespace WebRole1.Controllers
-	{
-	    public class MemeGeneratorController : Controller
-	    {
-	        static readonly Dictionary<string, Tuple<string ,string>> Memes = new Dictionary<string, Tuple<string, string>>();
+    ``` prettyprint
+    using System;
+    using System.Collections.Generic;
+    using System.Diagnostics;
+    using System.Drawing;
+    using System.IO;
+    using System.Net;
+    using System.Web.Hosting;
+    using System.Web.Mvc;
+    using System.Web.UI;
 
-	        public ActionResult Index()
-	        {
-	            return View();
-	        }
-	
-	        [HttpPost, ActionName(&quot;Index&quot;)]
-        	public ActionResult Index_Post(string top, string bottom)
-	        {
-	            var identifier = Guid.NewGuid().ToString();
-	            if (!Memes.ContainsKey(identifier))
-	            {
-	                Memes.Add(identifier, new Tuple&lt;string, string&gt;(top, bottom));
-	            }
-	
-	            return Content(&quot;&lt;a href=\&quot;&quot; + Url.Action(&quot;Show&quot;, new {id = identifier}) + &quot;\&quot;&gt;here&#39;s your meme&lt;/a&gt;&quot;);
-	        }
+    namespace WebRole1.Controllers
+    {
+        public class MemeGeneratorController : Controller
+    {
+      static readonly Dictionary> Memes = new Dictionary>();
+        public ActionResult Index()
+        {
+            return View();
+        }
+
+        [HttpPost, ActionName(&quot;Index&quot;)]
+        public ActionResult Index_Post(string top, string bottom)
+        {
+            var identifier = Guid.NewGuid().ToString();
+            if (!Memes.ContainsKey(identifier))
+            {
+                Memes.Add(identifier, new Tuple&lt;string, string&gt;(top, bottom));
+            }
+
+            return Content(&quot;&lt;a href=\&quot;&quot; + Url.Action(&quot;Show&quot;, new {id = identifier}) + &quot;\&quot;&gt;here&#39;s your meme&lt;/a&gt;&quot;);
+        }
 
 
-	        [OutputCache(VaryByParam = &quot;*&quot;, Duration = 1, Location = OutputCacheLocation.Downstream)]
-	        public ActionResult Show(string id)
-	        {
-	            Tuple<string, string> data = null;
-	            if (!Memes.TryGetValue(id, out data))
-	            {
-	                return new HttpStatusCodeResult(HttpStatusCode.NotFound);
-	            }
-	
-	            if (Debugger.IsAttached) // Preserve the debug experience
-	            {
-	                return Redirect(string.Format(&quot;/MemeGenerator/Generate?top={0}&bottom={1}&quot;, data.Item1, data.Item2));
-	            }
-	            else // Get content from Azure CDN
-	            {
-	                return Redirect(string.Format(&quot;http://<mark>&lt;cdnName&gt;</mark>.vo.msecnd.net/MemeGenerator/Generate?top={0}&amp;bottom={1}&quot;, data.Item1, data.Item2));
-	            }
-	        }
+        [OutputCache(VaryByParam = &quot;*&quot;, Duration = 1, Location = OutputCacheLocation.Downstream)]
+        public ActionResult Show(string id)
+        {
+            Tuple<string, string> data = null;
+            if (!Memes.TryGetValue(id, out data))
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.NotFound);
+            }
 
-	        [OutputCache(VaryByParam = "*", Duration = 3600, Location = OutputCacheLocation.Downstream)]
-	        public ActionResult Generate(string top, string bottom)
-	        {
-	            string imageFilePath = HostingEnvironment.MapPath(&quot;~/Content/chuck.bmp&quot;);
-	            Bitmap bitmap = (Bitmap)Image.FromFile(imageFilePath);
-	
-	            using (Graphics graphics = Graphics.FromImage(bitmap))
-	            {
-	                SizeF size = new SizeF();
-	                using (Font arialFont = FindBestFitFont(bitmap, graphics, top.ToUpperInvariant(), new Font("Arial Narrow", 100), out size))
-	                {
-	                    graphics.DrawString(top.ToUpperInvariant(), arialFont, Brushes.White, new PointF(((bitmap.Width - size.Width) / 2), 10f));
-	                }
-	                using (Font arialFont = FindBestFitFont(bitmap, graphics, bottom.ToUpperInvariant(), new Font("Arial Narrow", 100), out size))
-	                {
-	                    graphics.DrawString(bottom.ToUpperInvariant(), arialFont, Brushes.White, new PointF(((bitmap.Width - size.Width) / 2), bitmap.Height - 10f - arialFont.Height));
-	                }
-	            }
-	
-	            MemoryStream ms = new MemoryStream();
-	            bitmap.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
-	            return File(ms.ToArray(), &quot;image/png&quot;);
-	        }
-	
-	        private Font FindBestFitFont(Image i, Graphics g, String text, Font font, out SizeF size)
-	        {
-	            // Compute actual size, shrink if needed
-	            while (true)
-	            {
-	                size = g.MeasureString(text, font);
-	
-	                // It fits, back out
-	                if (size.Height < i.Height &&
-	                     size.Width < i.Width) { return font; }
-	
-	                // Try a smaller font (90% of old size)
-	                Font oldFont = font;
-	                font = new Font(font.Name, (float)(font.Size * .9), font.Style);
-	                oldFont.Dispose();
-	            }
-	        }
-		}
-	}
-	</pre>
-    </p>
+            if (Debugger.IsAttached) // Preserve the debug experience
+            {
+                return Redirect(string.Format(&quot;/MemeGenerator/Generate?top={0}&bottom={1}&quot;, data.Item1, data.Item2));
+            }
+            else // Get content from Azure CDN
+            {
+                return Redirect(string.Format(&quot;http://<mark>&lt;cdnName&gt;</mark>.vo.msecnd.net/MemeGenerator/Generate?top={0}&amp;bottom={1}&quot;, data.Item1, data.Item2));
+            }
+        }
+
+        [OutputCache(VaryByParam = "*", Duration = 3600, Location = OutputCacheLocation.Downstream)]
+        public ActionResult Generate(string top, string bottom)
+        {
+            string imageFilePath = HostingEnvironment.MapPath(&quot;~/Content/chuck.bmp&quot;);
+            Bitmap bitmap = (Bitmap)Image.FromFile(imageFilePath);
+
+            using (Graphics graphics = Graphics.FromImage(bitmap))
+            {
+                SizeF size = new SizeF();
+                using (Font arialFont = FindBestFitFont(bitmap, graphics, top.ToUpperInvariant(), new Font("Arial Narrow", 100), out size))
+                {
+                    graphics.DrawString(top.ToUpperInvariant(), arialFont, Brushes.White, new PointF(((bitmap.Width - size.Width) / 2), 10f));
+                }
+                using (Font arialFont = FindBestFitFont(bitmap, graphics, bottom.ToUpperInvariant(), new Font("Arial Narrow", 100), out size))
+                {
+                    graphics.DrawString(bottom.ToUpperInvariant(), arialFont, Brushes.White, new PointF(((bitmap.Width - size.Width) / 2), bitmap.Height - 10f - arialFont.Height));
+                }
+            }
+
+            MemoryStream ms = new MemoryStream();
+            bitmap.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+            return File(ms.ToArray(), &quot;image/png&quot;);
+        }
+
+        private Font FindBestFitFont(Image i, Graphics g, String text, Font font, out SizeF size)
+        {
+            // Compute actual size, shrink if needed
+            while (true)
+            {
+                size = g.MeasureString(text, font);
+
+                // It fits, back out
+                if (size.Height < i.Height &&
+                     size.Width < i.Width) { return font; }
+
+                // Try a smaller font (90% of old size)
+                Font oldFont = font;
+                font = new Font(font.Name, (float)(font.Size * .9), font.Style);
+                oldFont.Dispose();
+             }
+           }
+         }
+       }
+    ```
 2.  기본 `Index()` 작업에서 마우스 오른쪽 단추로 클릭하고 **뷰 추가**를 선택합니다.
 
     ![][15]
@@ -330,7 +343,7 @@ Azure CDN은 클라우드 서비스와 통합되어 클라우드 서비스 CDN �
             <input class="btn" type="submit" value="Generate meme" />
         </form>
 
-5.  클라우드 서비스를 다시 게시하고 브라우저에서 **<http://>*\<서비스이름\>*.cloudapp.net/MemeGenerator/Index**로 이동합니다.
+5.  클라우드 서비스를 다시 게시하고 브라우저에서 **http://<*서비스이름*>.cloudapp.net/MemeGenerator/Index**로 이동합니다.
 
 양식 값을 `/MemeGenerator/Index`로 제출할 경우 `Index_Post` 동작 메서드가 각각의 입력 식별자와 함께 `Show` 동작 메서드에 대한 링크를 반환합니다. 링크를 클릭하면 다음 코드로 이동합니다.
 
@@ -625,7 +638,7 @@ ASP.NET 묶음 및 축소를 CDN 끝점과 통합하려면 다음 단계를 따�
 
 # 추가 정보
 
--   [Azure CDN(콘텐츠 배달 네트워크) 개요][Azure CDN(콘텐츠 배달 네트워크) 개요]
+-   [Azure CDN(콘텐츠 배달 네트워크) 개요](http://msdn.microsoft.com/library/azure/ff919703.aspx)
 -   [웹 응용 프로그램에서 Azure CDN의 콘텐츠 제공][웹 응용 프로그램에서 Azure CDN의 콘텐츠 제공]
 -   [ASP.NET 묶음 및 축소][ASP.NET 묶음 및 축소]
 -   [Azure에 CDN 사용][Azure에 CDN 사용]
@@ -635,11 +648,9 @@ ASP.NET 묶음 및 축소를 CDN 끝점과 통합하려면 다음 단계를 따�
   [Azure CDN을 통해 컨트롤러 작업의 콘텐츠 제공]: #controller
   [Visual Studio의 스크립트 디버깅 환경은 유지하면서 Azure CDN을 통해 묶이고 축소된 콘텐츠 제공]: #bundling
   [Azure CDN이 오프라인인 경우 스크립트 및 CSS 대체 구성]: #fallback
-  [Microsoft Azure 계정]: http://azure.microsoft.com/ko--kr/account/
+  [Microsoft Azure 계정]: http://azure.microsoft.com/ko-kr/account/
   [Azure SDK]: http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409
-  [Azure 계정을 무료로 개설]: http://azure.microsoft.com/ko--kr/pricing/free-trial/?WT.mc_id=A261C142F
-  [MSDN 구독자 혜택을 활성화]: http://azure.microsoft.com/ko--kr/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
-  []: media/cdn-cloud-service-with-cdn/cdn-cs-1-new-project.PNG
+  [0]: media/cdn-cloud-service-with-cdn/cdn-cs-1-new-project.PNG
   [1]: media/cdn-cloud-service-with-cdn/cdn-cs-2-select-role.PNG
   [2]: media/cdn-cloud-service-with-cdn/cdn-cs-3-mvc-template.PNG
   [3]: media/cdn-cloud-service-with-cdn/cdn-cs-4-publish-a.png
@@ -647,7 +658,7 @@ ASP.NET 묶음 및 축소를 CDN 끝점과 통합하려면 다음 단계를 따�
   [5]: media/cdn-cloud-service-with-cdn/cdn-cs-6-publish-signedin.png
   [6]: media/cdn-cloud-service-with-cdn/cdn-cs-7-publish-createserviceandstorage.png
   [7]: media/cdn-cloud-service-with-cdn/cdn-cs-8-publish-finalize.png
-  [Azure Tools를 사용하여 클라우드 서비스 게시]: http://msdn.microsoft.com/ko--kr/library/ff683672.aspx
+  [Azure Tools를 사용하여 클라우드 서비스 게시]: http://msdn.microsoft.com/ko-kr/library/ff683672.aspx
   [Azure 관리 포털]: http://manage.windowsazure.com/
   [8]: media/cdn-cloud-service-with-cdn/cdn-cs-10-createcdn.png
   [9]: media/cdn-cloud-service-with-cdn/cdn-cs-11-disablequerya.png
@@ -655,7 +666,6 @@ ASP.NET 묶음 및 축소를 CDN 끝점과 통합하려면 다음 단계를 따�
   [11]: media/cdn-cloud-service-with-cdn/cdn-cs-13-testcdn.png
   [12]: media/cdn-cloud-service-with-cdn/cdn-1-browser-access.PNG
   [13]: media/cdn-cloud-service-with-cdn/cdn-2-home-page.PNG
-  [클라이언트 캐시 \<clientCache\>]: http://www.iis.net/configreference/system.webserver/staticcontent/clientcache
   [Maarten Balliauw]: https://twitter.com/maartenballiauw
   [Microsoft Azure CDN으로 웹 대기 시간 줄이기]: http://channel9.msdn.com/events/TechDays/Techdays-2014-the-Netherlands/Reducing-latency-on-the-web-with-the-Windows-Azure-CDN
   [Alan Light]: http://www.flickr.com/photos/alan-light/218493788/
@@ -663,14 +673,13 @@ ASP.NET 묶음 및 축소를 CDN 끝점과 통합하려면 다음 단계를 따�
   [15]: media/cdn-cloud-service-with-cdn/cdn-6-addview.PNG
   [16]: media/cdn-cloud-service-with-cdn/cdn-7-configureview.PNG
   [TODO]: #integrate
-  [Bundle 생성자]: http://msdn.microsoft.com/ko--kr/library/jj646464.aspx
-  [Bundle]: http://msdn.microsoft.com/ko--kr/library/system.web.optimization.bundle.aspx
-  [CdnFallbackExpression]: http://msdn.microsoft.com/ko--kr/library/system.web.optimization.bundle.cdnfallbackexpression.aspx
+  [Bundle 생성자]: http://msdn.microsoft.com/ko-kr/library/jj646464.aspx
+  [Bundle]: http://msdn.microsoft.com/ko-kr/library/system.web.optimization.bundle.aspx
+  [CdnFallbackExpression]: http://msdn.microsoft.com/ko-kr/library/system.web.optimization.bundle.cdnfallbackexpression.aspx
   [System.Web.Optimization에 버그]: https://aspnetoptimization.codeplex.com/workitem/104
   [Ember 컨설팅 그룹]: https://github.com/EmberConsultingGroup
   [스타일 번들 대체]: https://github.com/EmberConsultingGroup/StyleBundleFallback
   [GitHub의 코드]: https://github.com/EmberConsultingGroup/StyleBundleFallback/blob/master/Website/App_Start/StyleBundleExtensions.cs
-  [Azure CDN(콘텐츠 배달 네트워크) 개요]: http://msdn.microsoft.com/library/azure/ff919703.aspx
-  [웹 응용 프로그램에서 Azure CDN의 콘텐츠 제공]: http://azure.microsoft.com/ko--kr/Documentation/Articles/cdn-serve-content-from-cdn-in-your-web-application/
+  [웹 응용 프로그램에서 Azure CDN의 콘텐츠 제공]: http://azure.microsoft.com/ko-kr/Documentation/Articles/cdn-serve-content-from-cdn-in-your-web-application/
   [ASP.NET 묶음 및 축소]: http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification
-  [Azure에 CDN 사용]: http://azure.microsoft.com/ko--kr/documentation/articles/cdn-how-to-use/
+  [Azure에 CDN 사용]: http://azure.microsoft.com/ko-kr/documentation/articles/cdn-how-to-use/

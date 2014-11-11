@@ -1,6 +1,6 @@
 <properties pageTitle="Get started with Azure API Management" metaKeywords="" description="Learn how to create APIs, operations, and get started with API Management." metaCanonical="" services="" documentationCenter="API Management" title="Get started with Azure API Management" authors="sdanie" solutions="" manager="" editor="" />
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie"></tags>
+<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
 
 # Azure API 관리 시작
 
@@ -37,9 +37,9 @@ API 관리 작업의 첫 번째 단계는 서비스 인스턴스를 만드는 �
 
 확인란을 클릭하여 서비스 인스턴스를 만듭니다.
 
-![새 API 관리 서비스][새 API 관리 서비스]
+![새 API 관리 서비스][1]
 
-![새 API 관리 서비스][새 API 관리 서비스]
+![새 API 관리 서비스][2]
 
 서비스 인스턴스를 만든 후 다음 단계는 API를 만드는 것입니다.
 
@@ -49,7 +49,7 @@ API는 클라이언트 응용 프로그램에서 호출할 수 있는 작업 집
 
 각 API 관리 서비스 인스턴스는 전송받은 입력을 다시 반환하는 샘플 Echo API가 미리 구성되어 제공됩니다. 이 API를 사용하려면 HTTP 동사를 호출하면 됩니다. 반환 값은 보낸 헤더 및 본문과 같습니다.
 
-이 자습서에서는 <http://echoapi.cloudapp.net/api> 웹 서비스를 사용하여 API 관리에서 이름이 **My Echo Service**인 API를 만듭니다.
+이 자습서에서는 http://echoapi.cloudapp.net/api 웹 서비스를 사용하여 API 관리에서 이름이 **My Echo Service**인 API를 만듭니다.
 
 API는 API 관리 콘솔에서 생성 및 구성되며, 이 콘솔에는 Azure 관리 포털을 통해 액세스합니다. API 관리 콘솔에 액세스하려면 Azure 포털에서 API 관리 서비스의 **관리 콘솔**을 클릭합니다.
 
@@ -57,14 +57,14 @@ API는 API 관리 콘솔에서 생성 및 구성되며, 이 콘솔에는 Azure �
 
 **My Echo API**를 만들려면 왼쪽의 **API 관리** 메뉴에서 **API**를 클릭한 다음 **API 추가**를 클릭합니다.
 
-![API 만들기][API 만들기]
+![Create API][3]
 
 ![새 API 추가][새 API 추가]
 
 새 API를 구성하는 데 다음 세 개의 필드가 사용됩니다.
 
 -   **Web API 제목** 텍스트 상자에 **My Echo API**를 입력합니다. **Web API 제목**은 API를 설명하는 고유한 이름을 제공합니다. 개발자 및 관리 포털에 표시됩니다.
--   **웹 서비스 URL**에 **<http://echoapi.cloudapp.net/api>**를 입력합니다. **웹 서비스 URL**은 API를 구현하는 HTTP 서비스를 참조합니다. API 관리는 이 주소로 요청을 전달합니다.
+-   **웹 서비스 URL**에 **http://echoapi.cloudapp.net/api**를 입력합니다. **웹 서비스 URL**은 API를 구현하는 HTTP 서비스를 참조합니다. API 관리는 이 주소로 요청을 전달합니다.
 -   **Web API URL 접미사**에 **myecho**를 입력합니다. **Web API URL 접미사**는 API 관리 서비스의 기준 URL에 추가됩니다. API는 기준 URL을 공유하며 기준 URL 뒤에 추가되는 고유 접미사에 의해 구분됩니다.
 
 **저장**을 클릭하여 API를 만듭니다. 새 API가 만들어지면 API에 대한 요약 페이지가 관리 포털에 표시됩니다.
@@ -118,7 +118,7 @@ API를 만들고 설정을 구성한 후 다음 단계는 API에 작업을 추�
 
 **200 OK**를 선택하면 새 응답 코드가 작업에 추가되고 응답 창이 표시됩니다. **설명** 텍스트 상자에 **Returned in all cases.**를 입력합니다.
 
-![응답 추가][응답 추가]
+![응답 추가][4]
 
 > **표시 추가**는 여러 표시로 응답을 구성하는 데 사용됩니다. 자세한 내용은 [응답][응답]을 참조하세요.
 
@@ -143,7 +143,7 @@ API를 만들고 설정을 구성한 후 다음 단계는 API에 작업을 추�
 
 **제품에 API 추가**를 클릭합니다.
 
-![API 추가][API 추가]
+![API 추가][5]
 
 **My Echo API**에 해당하는 상자를 선택하고 **저장**을 클릭합니다.
 
@@ -169,7 +169,7 @@ API를 호출하려면 개발자는 먼저 API 액세스가 제공되는 제품�
 
 **구독 추가**를 클릭합니다.
 
-![구독 추가][구독 추가]
+![구독 추가][6]
 
 **Starter**의 상자를 선택하고 **구독**을 클릭합니다.
 
@@ -185,7 +185,7 @@ API를 호출하려면 개발자는 먼저 API 액세스가 제공되는 제품�
 
 맨 위 메뉴에서 **API**를 클릭하고 **My Echo API**를 클릭하여 사용 가능한 작업을 확인합니다.
 
-![개발자 포털][개발자 포털]
+![개발자 포털][7]
 
 작업을 만들 때 추가한 설명 및 매개 변수가 표시되어 이 작업을 사용할 개발자에게 안내합니다.
 
@@ -199,7 +199,7 @@ API를 호출하려면 개발자는 먼저 API 액세스가 제공되는 제품�
 
 작업 호출 후에는 개발자 포털에 백 엔드 서비스의 **요청된 URL** 및 **응답 상태**, **응답 헤더**, **응답 콘텐츠**가 표시됩니다.
 
-![응답][응답]
+![응답][8]
 
 ## <a name="view-analytics"> </a>분석 보기
 
@@ -244,7 +244,7 @@ My Echo API에 대한 차트 위로 마우스를 가져가서 주어진 기간�
   [개발자 포털에서 작업 호출]: #call-operation
   [분석 보기]: #view-analytics
   [다음 단계]: #next-steps
-  [Azure 무료 평가판]: http://azure.microsoft.com/en-us/pricing/free-trial/?WT.mc_id=api_management_hero_a
+  [Azure 무료 평가판]: http://azure.microsoft.com/ko-kr/pricing/free-trial/?WT.mc_id=api_management_hero_a
   [관리 포털]: https://manage.windowsazure.com/
   [API 관리 새 인스턴스]: ./media/api-management-get-started/api-management-create-instance-menu.png
   [새 API 관리 서비스]: ./media/api-management-get-started/api-management-create-instance-step1.png

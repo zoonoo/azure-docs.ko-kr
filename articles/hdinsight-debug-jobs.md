@@ -1,6 +1,6 @@
 <properties linkid="manage-services-hdinsight-debug-error-messages" urlDisplayName="Debug HDInsight Hadoop Errors" pageTitle="Debug Hadoop in HDInsight: Error messages | Azure" metaKeywords="hdinsight, hdinsight service, hdinsight azure, debug, error messages, errors" description="Learn about the error messages you might receive when administering HDInsight using PowerShell, and steps you can take to recover." services="hdinsight" title="Debug Hadoop in HDInsight: Error messages" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" authors="bradsev" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="bradsev"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="bradsev" />
 
 # HDInsight의 Hadoop 디버그: 오류 메시지
 
@@ -119,10 +119,10 @@ Azure PowerShell 또는 Azure 포털에서 사용자에게 표시될 수 있는 
 - **설명**: 서비스 구성 오류입니다. 필수 DNS 매핑 정보를 찾지 못했습니다.
 - **완화**: 클러스터를 삭제하고 새 클러스터를 만드세요.
 
-<h3><a id="DuplicateClusterContainerRequest"></a>DuplicateClusterContainerRequest</h3>
+<h3><a id="DuplicateClusterContainerRequest"></a>DuplicateClusterContainerRequest</h3> 
 - **설명**: 클러스터 컨테이너 만들기 시도가 중복되었습니다. *컨테이너이름*의 레코드가 존재하지만 Etags가 일치하지 않습니다.
 - **완화**: 컨테이너에 고유한 이름을 지정한 후 만들기 작업을 다시 시도하세요.
-- 
+
 <h3><a id="DuplicateClusterInHostedService"></a>DuplicateClusterInHostedService</h3>
 - **설명**: 호스티드 서비스인 *호스티드서비스이름*에 클러스터가 이미 포함되어 있습니다. 호스티드 서비스에는 여러 클러스터를 포함할 수 없습니다.
 - **완화**: 클러스터를 다른 호스티드 서비스에서 호스트하세요.
@@ -227,13 +227,13 @@ Azure PowerShell 또는 Azure 포털에서 사용자에게 표시될 수 있는 
 - **설명**: 구독 ID인 *구독Id*을(를) 찾을 수 없습니다.
 - **완화**: 구독 ID가 올바른지 확인한 후 작업을 다시 시도하세요.
 
-<h3><a id="UnableToResolveDNS"></a>UnableToResolveDNS</h3
+<h3><a id="UnableToResolveDNS"></a>UnableToResolveDNS</h3>
 - **설명**: *DnsUrl* DNS를 확인할 수 없습니다. Blob 끝점에 정규화된 URL을 지정했는지 확인하세요.
-- **완화**: 올바른 Blob URL을 제공하세요. URL은 전체가 유효해야 하며, *<http://>*로 시작하고 *[.com][.com]*으로 끝나야 합니다. 정규화된 URL은 일반적으로 manage.windowsazure.com 포털의 저장소 탭에서 찾아볼 수 있습니다.
+- **완화**: 올바른 Blob URL을 제공하세요. URL은 전체가 유효해야 하며, *http://*로 시작하고 *.com*으로 끝나야 합니다. 정규화된 URL은 일반적으로 manage.windowsazure.com 포털의 저장소 탭에서 찾아볼 수 있습니다.
 
 <h3><a id="UnableToVerifyLocationOfResource"></a>UnableToVerifyLocationOfResource</h3>
 - **설명**: *DnsUrl* 리소스의 위치를 확인할 수 없습니다. Blob 끝점에 정규화된 URL을 지정했는지 확인하세요.
-- **완화**: 올바른 Blob URL을 제공하세요. URL은 전체가 유효해야 하며, *<http://>*로 시작하고 *[.com][.com]*으로 끝나야 합니다. 정규화된 URL은 일반적으로 manage.windowsazure.com 포털의 저장소 탭에서 찾아볼 수 있습니다.
+- **완화**: 올바른 Blob URL을 제공하세요. URL은 전체가 유효해야 하며, *http://*로 시작하고 *.com*으로 끝나야 합니다. 정규화된 URL은 일반적으로 manage.windowsazure.com 포털의 저장소 탭에서 찾아볼 수 있습니다.
 
 <h3><a id="VersionCapabilityNotAvailable"></a>VersionCapabilityNotAvailable</h3>
 - **설명**: *지정된버전* 버전 및 구독 ID인 *구독Id*에서 사용할 수 없는 버전 정보 값입니다.
