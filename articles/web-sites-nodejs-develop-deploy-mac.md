@@ -1,6 +1,6 @@
 <properties linkid="develop-node-create-a-website-mac" urlDisplayName="Website" pageTitle="Create a Node.js website on Mac - Azure tutorials" metaKeywords="Azure create website Node, Azure deploy website Node, website Node.js, Node website" description="Learn how to build and deploy a Node.js website in Azure. Sample code is written in Java." metaCanonical="" services="web-sites" documentationCenter="nodejs" title="Build and deploy a Node.js website to Azure" authors="larryfr" solutions="" manager="" editor="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # Node.js 웹 사이트 빌드 및 Azure에 배포
 
@@ -165,7 +165,6 @@ Azure에 제공되는 Node.js 버전에 대한 정보 및 응용 프로그램에
   ['Hello World' 메시지를 표시하는 브라우저]: ./media/web-sites-nodejs-develop-deploy-mac/helloazure.png
   [Azure 무료 평가판]: http://www.windowsazure.com/ko-kr/pricing/free-trial/?WT.mc_id=A7171371E
   [Azure 관리 포털]: http://manage.windowsazure.com
-  [+ 새로 만들기 링크가 강조 표시된 Azure 포털]: ./media/web-sites-nodejs-develop-deploy-mac/plus-new.png
   [빠른 생성 대화 상자]: ./media/web-sites-nodejs-develop-deploy-mac/create-quick-website.png
   [웹 사이트 대시보드 열기]: ./media/web-sites-nodejs-develop-deploy-mac/go_to_dashboard.png
   [Git 게시 설정]: ./media/web-sites-nodejs-develop-deploy-mac/setup_git_publishing.png

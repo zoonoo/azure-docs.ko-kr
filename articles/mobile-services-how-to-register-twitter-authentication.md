@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-how-to-guides-register-for-twitter-authentication" urlDisplayName="Register for Twitter Authentication" pageTitle="Register for Twitter authentication - Mobile Services" metaKeywords="Azure registering application, Azure Twitter authentication, application authenticate, authenticate mobile services, Mobile Services Twitter" description="Learn how to use Twitter authentication with your Azure Mobile Services application." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Register your apps for Twitter login with Mobile Services" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # 모바일 서비스에 Twitter 로그인을 사용하기 위해 앱 등록
 
@@ -15,7 +15,7 @@
 
 1.  Navigate to the [Twitter Developers][Twitter Developers] website, sign-in with your Twitter account credentials, and click **Create a new application**.
 
-    ![][]
+    ![][0]
 
 2.  Type the **Name**, **Description**, and **Website** values for your app, then type the URL of your mobile service appended with the path */login/twitter* in **Callback URL**.
 
@@ -46,11 +46,11 @@
 
 이제 모바일 서비스에 소비자 키 및 소비자 암호 값을 제공하여 앱에서 Twitter 로그인을 인증에 사용할 준비가 되었습니다.
 
-<!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
+
 
   [twitter.com]: http://go.microsoft.com/fwlink/p/?LinkID=268287
   [Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
-  []: ./media/mobile-services-how-to-register-twitter-authentication/mobile-services-twitter-developers.png
+  [0]: ./media/mobile-services-how-to-register-twitter-authentication/mobile-services-twitter-developers.png
   [1]: ./media/mobile-services-how-to-register-twitter-authentication/mobile-services-twitter-register-app1.png
   [2]: ./media/mobile-services-how-to-register-twitter-authentication/mobile-services-twitter-register-app2.png
   [3]: ./media/mobile-services-how-to-register-twitter-authentication/mobile-services-twitter-app-details.png

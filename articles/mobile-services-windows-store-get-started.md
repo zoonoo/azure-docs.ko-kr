@@ -1,6 +1,6 @@
 <properties pageTitle="Get Started with Mobile Services for Windows Store apps | Mobile Dev Center" metaKeywords="" description="Follow this tutorial to get started using Azure Mobile Services for Windows Store development in C# or JavaScript. " metaCanonical="" services="" documentationCenter="Mobile" title="Get started with Mobile Services" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="hero-article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="hero-article" ms.date="01/01/1900" ms.author="glenga" />
 
 # <a name="getting-started"> </a>모바일 서비스 시작
 
@@ -36,7 +36,7 @@
 
 완성된 앱의 스크린샷은 다음과 같습니다.
 
-![][]
+![][0]
 
 이 자습서를 완료해야 다른 모든 Windows 스토어 앱용 모바일 서비스 자습서를 진행할 수 있습니다.
 
@@ -46,7 +46,7 @@
 
 ## 새 모바일 서비스 만들기
 
-[WACOM.INCLUDE [mobile-services-create-new-service][mobile-services-create-new-service]]
+[WACOM.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
 
 ## 새 Windows 스토어 앱 만들기
 
@@ -109,22 +109,9 @@
 -   **푸시 알림 시작**([C#][8]/[JavaScript][9])
     기본적인 푸시 알림을 앱에 보내는 방법을 알아봅니다.
 
-<!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
 
-  [Windows 스토어]: /ko-kr/documentation/articles/mobile-services-windows-store-get-started "Windows 스토어"
-  [Windows Phone]: /ko-kr/documentation/articles/mobile-services-windows-phone-get-started "Windows Phone"
-  [iOS]: /ko-kr/documentation/articles/mobile-services-ios-get-started "iOS"
-  [Android]: /ko-kr/documentation/articles/mobile-services-android-get-started "Android"
-  [HTML]: /ko-kr/documentation/articles/mobile-services-html-get-started "HTML"
-  [Xamarin.iOS]: /ko-kr/documentation/articles/partner-xamarin-mobile-services-ios-get-started "Xamarin.iOS"
-  [Xamarin.Android]: /ko-kr/documentation/articles/partner-xamarin-mobile-services-android-get-started "Xamarin.Android"
-  [Sencha]: /ko-kr/documentation/articles/partner-sencha-mobile-services-get-started/ "Sencha"
-  [PhoneGap]: /ko-kr/documentation/articles/mobile-services-javascript-backend-phonegap-get-started/ "PhoneGap"
-  [Appcelerator]: /ko-kr/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started "Appcelerator"
-  [.NET 백 엔드]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/ ".NET 백 엔드"
-  [JavaScript 백 엔드]: /ko-kr/documentation/articles/mobile-services-windows-store-get-started/ "JavaScript 백 엔드"
-  [자습서 보기]: http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Introduction-to-Windows-Azure-Mobile-Services
-  []: ./media/mobile-services-windows-store-get-started/mobile-quickstart-completed.png
+
+  [0]: ./media/mobile-services-windows-store-get-started/mobile-quickstart-completed.png
   [Azure 무료 평가판]: http://www.windowsazure.com/ko-kr/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fko-kr%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F
   [Visual Studio 2012를 사용하여 모바일 서비스에서 데이터 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-data-dotnet-vs2012/
   [mobile-services-create-new-service]: ../includes/mobile-services-create-new-service.md

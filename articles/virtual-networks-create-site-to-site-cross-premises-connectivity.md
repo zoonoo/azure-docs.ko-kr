@@ -1,6 +1,6 @@
 <properties linkid="manage-services-cross-premises-connectivity" urlDisplayName="Tutorial: Create a Cross-Premises Virtual Network for Site-to-Site Connectivity" pageTitle="Tutorial: Create a Cross-Premises Virtual Network for Site-to-Site Connectivity" metaKeywords="" description="Learn how to create an Azure Virtual Network with cross-premises connectivity in this tutorial." metaCanonical="" services="virtual-network" documentationCenter="" title="Create a Virtual Network for Site-to-Site Cross-Premises Connectivity" authors="cherylmc" solutions="" manager="adinah" editor="" />
 
-<tags ms.service="virtual-network" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/23/2014" ms.author="cherylmc"></tags>
+<tags ms.service="virtual-network" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/23/2014" ms.author="cherylmc" />
 
 # 자습서: 사이트 간 연결용 프레미스 간 가상 네트워크 만들기
 
@@ -65,7 +65,7 @@ Azure 가상 컴퓨터에 AD DS를 배포하는 방법에 대한 지침은 [Azur
 
 2.  화면의 왼쪽 아래에서 **새로 만들기**를 클릭합니다. 탐색 창에서 **네트워크**를 클릭한 다음 **가상 네트워크**를 클릭합니다. **사용자 지정 만들기**를 클릭하여 구성 마법사를 시작합니다.
 
-    ![][]
+    ![][0]
 
 3.  **가상 네트워크 세부 정보** 페이지에서 다음 정보를 입력한 후 오른쪽 아래에서 다음 화살표를 클릭합니다. 정보 페이지의 설정에 대한 자세한 내용은 [관리 포털의 가상 네트워크 구성 정보][관리 포털의 가상 네트워크 구성 정보]의 **가상 네트워크 정보** 섹션을 참조하십시오.
 
@@ -239,7 +239,7 @@ Azure 가상 네트워크를 만든 후 사이트 간 VPN을 만들려면 다음
   [게이트웨이 시작 및 네트워크 관리자에 대한 정보 수집]: #StartGateway
   [VPN 장치 구성]: #ConfigVPN
   [Azure 관리 포털]: http://manage.windowsazure.com/
-  []: ./media/virtual-networks-create-site-to-site-cross-premises-connectivity/CreateCrossVnet_01_OpenVirtualNetworkWizard.png
+  [0]: ./media/virtual-networks-create-site-to-site-cross-premises-connectivity/CreateCrossVnet_01_OpenVirtualNetworkWizard.png
   [관리 포털의 가상 네트워크 구성 정보]: http://go.microsoft.com/fwlink/?LinkID=248092
   [1]: ./media/virtual-networks-create-site-to-site-cross-premises-connectivity/CreateCrossVNet_03_DNSServersandVPNConnectivity.png
   [2]: http://msdn.microsoft.com/ko-kr/library/windowsazure/jj156075.aspx

@@ -1,6 +1,6 @@
 <properties linkid="dev-nodejs-how-to-table-services" urlDisplayName="Table Service" pageTitle="How to use table storage (Node.js) | Microsoft Azure" metaKeywords="Azure table storage service, Azure table service Node.js, table storage Node.js" description="Learn how to use the table storage service in Azure. Code samples are written using the Node.js API." metaCanonical="" services="storage" documentationCenter="Node.js" title="How to Use the Table Service from Node.js" authors="larryfr" solutions="" manager="" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr" />
 
 # Node.js에서 테이블 서비스를 사용하는 방법
 
@@ -8,36 +8,36 @@
 수행하는 방법을 보여 줍니다. 샘플은 Node.js API를 사용하여
 작성되었습니다. **테이블 만들기 및 삭제, 테이블에서 엔터티 삽입 및
 쿼리** 등의 시나리오를 다룹니다. 테이블에
-대한 자세한 내용은 [다음 단계][] 섹션을 참조하세요.
+대한 자세한 내용은 [다음 단계][다음 단계] 섹션을 참조하세요.
 
 ## 목차
 
--   [테이블 서비스 정의][]
--   [개념][]
--   [Azure 저장소 계정 만들기][]
--   [Node.js 응용 프로그램 만들기][]
--   [저장소에 액세스하도록 응용 프로그램 구성][]
--   [Azure 저장소 연결 설정][]
--   [방법: 테이블 만들기][]
--   [방법: 테이블에 엔터티 추가][]
--   [방법: 엔터티 업데이트][]
--   [방법: 엔터티 그룹 작업][]
--   [방법: 항목 검색][]
--   [방법: 엔터티 집합 쿼리][]
--   [방법: 엔터티 삭제][]
--   [방법: 테이블 삭제][]
--   [방법: 공유 액세스 서명 작업][]
--   [다음 단계][]
+-   [테이블 서비스 정의][테이블 서비스 정의]
+-   [개념][개념]
+-   [Azure 저장소 계정 만들기][Azure 저장소 계정 만들기]
+-   [Node.js 응용 프로그램 만들기][Node.js 응용 프로그램 만들기]
+-   [저장소에 액세스하도록 응용 프로그램 구성][저장소에 액세스하도록 응용 프로그램 구성]
+-   [Azure 저장소 연결 설정][Azure 저장소 연결 설정]
+-   [방법: 테이블 만들기][방법: 테이블 만들기]
+-   [방법: 테이블에 엔터티 추가][방법: 테이블에 엔터티 추가]
+-   [방법: 엔터티 업데이트][방법: 엔터티 업데이트]
+-   [방법: 엔터티 그룹 작업][방법: 엔터티 그룹 작업]
+-   [방법: 항목 검색][방법: 항목 검색]
+-   [방법: 엔터티 집합 쿼리][방법: 엔터티 집합 쿼리]
+-   [방법: 엔터티 삭제][방법: 엔터티 삭제]
+-   [방법: 테이블 삭제][방법: 테이블 삭제]
+-   [방법: 공유 액세스 서명 작업][방법: 공유 액세스 서명 작업]
+-   [다음 단계][다음 단계]
 
-[WACOM.INCLUDE [howto-table-storage][]]
+[WACOM.INCLUDE [howto-table-storage](../includes/howto-table-storage.md)]
 
 ## <a name="create-account"></a>Azure 저장소 계정 만들기
 
-[WACOM.INCLUDE [create-storage-account][]]
+[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ## <a name="create-app"> </a>Node.js 응용 프로그램 만들기
 
-빈 Node.js 응용 프로그램을 만듭니다. Node.js 응용 프로그램을 만드는 방법에 대한 지침은 [Node.js 응용 프로그램을 만들어 Azure 웹 사이트에 배포하기][], [Node.js 클라우드 서비스][](Windows PowerShell 사용) 또는 [WebMatrix를 사용하는 웹 사이트][]를 참조하세요.
+빈 Node.js 응용 프로그램을 만듭니다. Node.js 응용 프로그램을 만드는 방법에 대한 지침은 [Node.js 응용 프로그램을 만들어 Azure 웹 사이트에 배포하기][Node.js 응용 프로그램을 만들어 Azure 웹 사이트에 배포하기], [Node.js 클라우드 서비스][Node.js 클라우드 서비스](Windows PowerShell 사용) 또는 [WebMatrix를 사용하는 웹 사이트][WebMatrix를 사용하는 웹 사이트]를 참조하세요.
 
 ## <a name="configure-access"> </a>저장소에 액세스하도록 응용 프로그램 구성
 
@@ -76,7 +76,7 @@ Azure Storage SDK가 필요합니다.
 
 Azure 모듈은 AZURE\_STORAGE\_ACCOUNT 및 AZURE\_STORAGE\_ACCESS\_KEY, 또는 AZURE\_STORAGE\_CONNECTION\_STRING 환경 변수를 읽고 Azure 저장소 계정에 연결하는 데 필요한 정보를 확인합니다. 이러한 환경 변수가 설정되어 있지 않은 경우 **TableService**를 호출할 때 계정 정보를 지정해야 합니다.
 
-Azure 웹 사이트의 관리 포털에서 환경 변수를 설정하는 방법에 대한 예는 [Node.js 웹 응용 프로그램 및 저장소][]를 참조하세요.
+Azure 웹 사이트의 관리 포털에서 환경 변수를 설정하는 방법에 대한 예는 [Node.js 웹 응용 프로그램 및 저장소][Node.js 웹 응용 프로그램 및 저장소]를 참조하세요.
 
 ## <a name="create-table"> </a>테이블을 만드는 방법
 
@@ -122,7 +122,7 @@ Azure SDK for Node.js에는 재시도 논리를 구현하는 두 필터 **Expone
 
 -   **RowKey** - 파티션에 있는 엔터티를 고유하게 식별합니다.
 
-**PartitionKey**와 **RowKey**는 모두 문자열 값이어야 합니다. 자세한 내용은 [테이블 서비스 데이터 모델 이해][]를 참조하세요.
+**PartitionKey**와 **RowKey**는 모두 문자열 값이어야 합니다. 자세한 내용은 [테이블 서비스 데이터 모델 이해][테이블 서비스 데이터 모델 이해]를 참조하세요.
 
 다음은 엔터티를 정의하는 경우의 예입니다. **dueDate**는 **Edm.DateTime** 유형으로 정의됩니다. 유형 지정은 선택적이며 지정하지 않을 경우 유형이 유추됩니다.
 
@@ -154,7 +154,7 @@ Azure SDK for Node.js에는 재시도 논리를 구현하는 두 필터 **Expone
         }
     });
 
-작업에 성공할 경우 `result` 값에는 삽입한 레코드의 [ETag][]가 포함되고 `response` 값에는 작업에 대한 정보가 포함됩니다.
+작업에 성공할 경우 `result` 값에는 삽입한 레코드의 [ETag][ETag]가 포함되고 `response` 값에는 작업에 대한 정보가 포함됩니다.
 
 > [WACOM.NOTE] 기본적으로 **insertEntity**는 삽입된 엔터티를 `response` 정보의 일부로 반환하지 않습니다. 이 엔터티에서 다른 작업을 수행할 계획이거나 정보를 캐시하고 싶은 경우에는 `result` 값의 일부로 반환하면 유용합니다. 다음과 같이 **echoContent**를 사용하도록 설정하면 됩니다.
 >
@@ -313,7 +313,7 @@ Azure SDK for Node.js에는 재시도 논리를 구현하는 두 필터 **Expone
       }
     });
 
-> [WACOM.NOTE] 항목을 삭제할 때 항목이 다른 프로세스에서 수정되지 않았는지 확인할 수 있도록 ETag를 사용하는 것이 좋을 수 있습니다. ETag 사용에 대한 자세한 내용은 [방법: 엔터티 업데이트][]를 참조하세요.
+> [WACOM.NOTE] 항목을 삭제할 때 항목이 다른 프로세스에서 수정되지 않았는지 확인할 수 있도록 ETag를 사용하는 것이 좋을 수 있습니다. ETag 사용에 대한 자세한 내용은 [방법: 엔터티 업데이트][방법: 엔터티 업데이트]를 참조하세요.
 
 ## <a name="delete-table"> </a>테이블을 삭제하는 방법
 
@@ -415,9 +415,9 @@ ACL이 설정되고 나면 정책의 ID를 기반으로 SAS를 만들 수 있습
 이제 테이블 저장소의 기본 사항을 배웠으므로 다음 링크를 따라 좀 더 복잡한 저장소
 작업을 수행하는 방법을 알아보세요.
 
--   다음 MSDN 참조를 확인하세요. [Azure에 데이터 저장 및 액세스][]
--   [Azure 저장소 팀 블로그][](영문)를 방문하세요.
--   GitHub에서 [Azure Storage SDK for Node][] 리포지토리를 방문하세요.
+-   다음 MSDN 참조를 확인하세요. [Azure에 데이터 저장 및 액세스][Azure에 데이터 저장 및 액세스]
+-   [Azure 저장소 팀 블로그][Azure 저장소 팀 블로그](영문)를 방문하세요.
+-   GitHub에서 [Azure Storage SDK for Node][Azure Storage SDK for Node] 리포지토리를 방문하세요.
 
   [다음 단계]: #next-steps
   [테이블 서비스 정의]: #what-is
@@ -443,6 +443,6 @@ ACL이 설정되고 나면 정책의 ID를 기반으로 SAS를 만들 수 있습
   [Node.js 웹 응용 프로그램 및 저장소]: /ko-kr/documentation/articles/storage-nodejs-use-table-storage-web-site/
   [테이블 서비스 데이터 모델 이해]: http://msdn.microsoft.com/library/azure/dd179338.aspx
   [ETag]: http://en.wikipedia.org/wiki/HTTP_ETag
-  [Azure에 데이터 저장 및 액세스]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
+  [Azure에 데이터 저장 및 액세스]: http://msdn.microsoft.com/ko-kr/library/windowsazure/gg433040.aspx
   [Azure 저장소 팀 블로그]: http://blogs.msdn.com/b/windowsazurestorage/
   [Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node

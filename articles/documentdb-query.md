@@ -1,6 +1,6 @@
 <properties title="Query with Azure DocumentDB" pageTitle="Query with DocumentDB | Azure" description="DocumentDB's SQL query language supports a subset of ANSI SQL grammar and adds document-oriented support. Queries are served through up-to-date indexes that don't require index management."  metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, account" services="documentdb"  solutions="data-management" documentationCenter=""  authors="bradsev" manager="jhubbard" editor="cgronlun" videoId="" scriptId="" />
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="bradsev"></tags>
+<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="bradsev" />
 
 # Azure DocumentDB 쿼리
 
@@ -358,7 +358,7 @@ Eventual 일관성이 필요한 응용 프로그램의 경우 선택적으로 �
 
 다음 철로 다이어그램은 DocumentDB 쿼리 언어용 공식 SQL 문법을 보여 줍니다.
 
-![][]
+![][0]
 
 ![][1]
 
@@ -392,7 +392,7 @@ Eventual 일관성이 필요한 응용 프로그램의 경우 선택적으로 �
 
 ![][16]
 
-  []: ./media/documentdb-query/query1.png
+  [0]: ./media/documentdb-query/query1.png
   [1]: ./media/documentdb-query/query2.png
   [2]: ./media/documentdb-query/query3.png
   [3]: ./media/documentdb-query/query4.png

@@ -1,6 +1,6 @@
 <properties linkid="develop-net-tutorials-push-notifications-to-users-wp8" urlDisplayName="Push Notifications to Users (WP8)" pageTitle="Push notifications to users (Windows Phone) | Mobile Dev Center" metaKeywords="" description="Learn how to use Mobile Services to push notifications to users of your Windows Phone app." metaCanonical="" services="" documentationCenter="" title="Push notifications to users by using Mobile Services" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # 모바일 서비스를 사용하여 사용자에게 푸시 알림
 
@@ -23,7 +23,7 @@
 
 1.  [Azure 관리 포털][Azure 관리 포털]에 로그인하여 **모바일 서비스**를 클릭한 후 앱을 클릭합니다.
 
-    ![][]
+    ![][0]
 
 2.  **데이터** 탭을 클릭한 후 **만들기**를 클릭합니다.
 
@@ -195,16 +195,13 @@
 
 <!-- anchors --> <!-- Images. --> <!-- URLs. -->
 
-  [Windows Phone]: /ko-kr/develop/mobile/tutorials/push-notifications-to-users-wp8 "Windows Phone"
-  [iOS]: /ko-kr/develop/mobile/tutorials/push-notifications-to-users-ios "iOS"
-  [Android]: /ko-kr/develop/mobile/tutorials/push-notifications-to-users-android "Android"
   [이전의 푸시 알림 자습서]: /ko-kr/develop/mobile/tutorials/get-started-with-push-wp8
   [Channel 테이블 만들기]: #create-table
   [앱 업데이트]: #update-app
   [서버 스크립트 업데이트]: #update-scripts
   [푸시 알림 동작 확인]: #test-app
   [Azure 관리 포털]: https://manage.windowsazure.com/
-  []: ./media/mobile-services-windows-phone-push-notifications-app-users/mobile-services-selection.png
+  [0]: ./media/mobile-services-windows-phone-push-notifications-app-users/mobile-services-selection.png
   [1]: ./media/mobile-services-windows-phone-push-notifications-app-users/mobile-create-table.png
   [2]: ./media/mobile-services-windows-phone-push-notifications-app-users/mobile-create-channel-table.png
   [3]: ./media/mobile-services-windows-phone-push-notifications-app-users/mobile-portal-data-tables-channel.png

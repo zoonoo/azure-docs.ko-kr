@@ -1,6 +1,6 @@
 <properties title="Monitor your app's health and usage with Application Insights" pageTitle="Monitor your app's health and usage with Application Insights" description="Get started with Application Insights. Analyze usage, availability and performance of your on-premises or Microsoft Azure applications." metaKeywords="analytics monitoring application insights" authors="awills"  />
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="awills"></tags>
+<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="awills" />
 
 # 응용 프로그램의 상태 및 사용량 모니터
 
@@ -47,7 +47,7 @@ F5를 사용하여 응용 프로그램을 실행하고 사용해 보세요. 여�
 
 Visual Studio에서, 수신된 이벤트 수를 볼 수 있습니다.
 
-![][]
+![][0]
 
 ## <a name="monitor"></a> 3. 모니터 데이터 보기
 
@@ -103,7 +103,7 @@ Application 상태 및 사용 현황 분석 타일에서 데이터를 찾습니�
 [서버에 에이전트를 설치]: ../app-insights-monitor-performance-live-website-now/
 [ASP.NET 프로젝트 만들기]: ./media/appinsights/appinsights-01-vsnewp1.png
 [Application Insights 추가 선택]: ./media/appinsights/appinsights-03-addExisting.png
-[]: ./media/appinsights/appinsights-09eventcount.png
+[0]: ./media/appinsights/appinsights-09eventcount.png
 [프로젝트를 마우스 오른쪽 단추로 클릭하고 Azure 포털을 엽니다.]: ./media/appinsights/appinsights-04-openPortal.png
 [클릭해 가면서 더 많은 데이터 보기]: ./media/appinsights/appinsights-05-usageTiles.png
 [타일 및 보고서에 대해 자세히 알아보세요.]: ../app-insights-explore-metrics/

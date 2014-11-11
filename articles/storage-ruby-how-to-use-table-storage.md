@@ -1,6 +1,6 @@
 <properties linkid="dev-ruby-how-to-table-services" urlDisplayName="Table Service" pageTitle="How to use table storage (Ruby) | Microsoft Azure" metaKeywords="Azure table storage service, Azure table service Ruby, table storage Ruby" description="Learn how to use the table storage service in Azure. Code samples are written using the Ruby API." metaCanonical="" services="storage" documentationCenter="Ruby" title="How to Use the Table Service from Ruby" authors="guayan" solutions="" manager="" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="01/01/1900" ms.author="guayan"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="01/01/1900" ms.author="guayan" />
 
 # Ruby에서 테이블 서비스를 사용하는 방법
 
@@ -8,37 +8,37 @@
 수행하는 방법을 보여 줍니다. 샘플은 Ruby API를 사용하여
 작성되었습니다. **테이블 만들기 및 삭제, 테이블에서 엔터티 삽입 및
 쿼리** 등의 시나리오를 다룹니다. 테이블에
-대한 자세한 내용은 [다음 단계][] 섹션을 참조하세요.
+대한 자세한 내용은 [다음 단계][다음 단계] 섹션을 참조하세요.
 
 ## 목차
 
--   [테이블 서비스 정의][]
--   [개념][]
--   [Azure 저장소 계정 만들기][]
--   [Ruby 응용 프로그램 만들기][]
--   [저장소에 액세스하도록 응용 프로그램 구성][]
--   [Azure 저장소 연결 설정][]
--   [방법: 테이블 만들기][]
--   [방법: 테이블에 엔터티 추가][]
--   [방법: 엔터티 업데이트][]
--   [방법: 엔터티 그룹 작업][]
--   [방법: 엔터티 쿼리][]
--   [방법: 엔터티 집합 쿼리][]
--   [방법: 엔터티 속성 하위 집합 쿼리][]
--   [방법: 엔터티 삭제][]
--   [방법: 테이블 삭제][]
--   [다음 단계][]
+-   [테이블 서비스 정의][테이블 서비스 정의]
+-   [개념][개념]
+-   [Azure 저장소 계정 만들기][Azure 저장소 계정 만들기]
+-   [Ruby 응용 프로그램 만들기][Ruby 응용 프로그램 만들기]
+-   [저장소에 액세스하도록 응용 프로그램 구성][저장소에 액세스하도록 응용 프로그램 구성]
+-   [Azure 저장소 연결 설정][Azure 저장소 연결 설정]
+-   [방법: 테이블 만들기][방법: 테이블 만들기]
+-   [방법: 테이블에 엔터티 추가][방법: 테이블에 엔터티 추가]
+-   [방법: 엔터티 업데이트][방법: 엔터티 업데이트]
+-   [방법: 엔터티 그룹 작업][방법: 엔터티 그룹 작업]
+-   [방법: 엔터티 쿼리][방법: 엔터티 쿼리]
+-   [방법: 엔터티 집합 쿼리][방법: 엔터티 집합 쿼리]
+-   [방법: 엔터티 속성 하위 집합 쿼리][방법: 엔터티 속성 하위 집합 쿼리]
+-   [방법: 엔터티 삭제][방법: 엔터티 삭제]
+-   [방법: 테이블 삭제][방법: 테이블 삭제]
+-   [다음 단계][다음 단계]
 
-[WACOM.INCLUDE [howto-table-storage][]]
+[WACOM.INCLUDE [howto-table-storage](../includes/howto-table-storage.md)]
 
 ## <span id="create-a-windows-azure-storage-account"></span></a>Azure 저장소 계정 만들기
 
-[WACOM.INCLUDE [create-storage-account][]]
+[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ## <span id="create-a-ruby-application"></span></a>Ruby 응용 프로그램 만들기
 
 Ruby 응용 프로그램을 만듭니다. 자세한 내용은
-[Azure에서 Ruby 응용 프로그램 만들기][](영문)를 참조하세요.
+[Azure에서 Ruby 응용 프로그램 만들기][Azure에서 Ruby 응용 프로그램 만들기](영문)를 참조하세요.
 
 ## <span id="configure-your-application-to-access-storage"></span></a>저장소에 액세스하도록 응용 프로그램 구성
 
@@ -67,7 +67,7 @@ Azure 모듈은 **AZURE\_STORAGE\_ACCOUNT** 및 **AZURE\_STORAGE\_ACCESS\_KEY**
 
 이러한 값을 얻으려면
 
-1.  [Azure 관리 포털][]에 로그인합니다.
+1.  [Azure 관리 포털][Azure 관리 포털]에 로그인합니다.
 
 2.  사용하려는 저장소 계정으로 이동합니다.
 
@@ -163,9 +163,9 @@ Azure 모듈은 **AZURE\_STORAGE\_ACCOUNT** 및 **AZURE\_STORAGE\_ACCESS\_KEY**
 
 이제 테이블 저장소의 기본 사항을 배웠으므로 다음 링크를 따라 좀 더 복잡한 저장소 작업을 수행하는 방법을 알아보세요.
 
--   다음 MSDN 참조를 확인하세요. [Azure에서 데이터 저장 및 액세스][]
--   [Azure 저장소 팀 블로그][](영문)를 방문하세요.
--   GitHub에서 [Azure SDK for Ruby][](영문) 리포지토리를 방문하세요.
+-   다음 MSDN 참조를 확인하세요. [Azure에서 데이터 저장 및 액세스][Azure에서 데이터 저장 및 액세스]
+-   [Azure 저장소 팀 블로그][Azure 저장소 팀 블로그](영문)를 방문하세요.
+-   GitHub에서 [Azure SDK for Ruby][Azure SDK for Ruby](영문) 리포지토리를 방문하세요.
 
   [다음 단계]: #next-steps
   [테이블 서비스 정의]: #what-is
@@ -185,8 +185,8 @@ Azure 모듈은 **AZURE\_STORAGE\_ACCOUNT** 및 **AZURE\_STORAGE\_ACCESS\_KEY**
   [방법: 테이블 삭제]: #how-to-delete-a-table
   [howto-table-storage]: ../includes/howto-table-storage.md
   [create-storage-account]: ../includes/create-storage-account.md
-  [Azure에서 Ruby 응용 프로그램 만들기]: /en-us/develop/ruby/tutorials/web-app-with-linux-vm/
+  [Azure에서 Ruby 응용 프로그램 만들기]: /ko-kr/develop/ruby/tutorials/web-app-with-linux-vm/
   [Azure 관리 포털]: https://manage.windowsazure.com/
-  [Azure에서 데이터 저장 및 액세스]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
+  [Azure에서 데이터 저장 및 액세스]: http://msdn.microsoft.com/ko-kr/library/windowsazure/gg433040.aspx
   [Azure 저장소 팀 블로그]: http://blogs.msdn.com/b/windowsazurestorage/
   [Azure SDK for Ruby]: http://github.com/WindowsAzure/azure-sdk-for-ruby

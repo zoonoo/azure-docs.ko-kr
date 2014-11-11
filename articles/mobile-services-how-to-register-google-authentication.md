@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-how-to-guides-register-for-google-authentication" urlDisplayName="Register for Google Authentication" pageTitle="Register for Google authentication - Mobile Services" metaKeywords="Azure registering application, Azure authentication, Google application authenticate, authenticate mobile services" description="Learn how to register your apps to use Google to authenticate with Azure Mobile Services." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Register your apps for Google login with Mobile Services" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # 모바일 서비스에 Google 로그인을 사용하기 위해 앱 등록
 
@@ -15,7 +15,7 @@
 
 1.  Navigate to the [Google apis][Google apis] website, sign-in with your Google account credentials, click **Create Project**, provide a **Project name**, then click **Create**.
 
-    ![][]
+    ![][0]
 
 2.  Click **API & Auth**, click **Credentials**, then click **Create new Client ID**.
 
@@ -40,11 +40,11 @@
 
 이제 모바일 서비스에 클라이언트 ID 및 클라이언트 암호 값을 제공하여 앱에서 Google 로그인을 인증에 사용할 준비가 되었습니다.
 
-<!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
+
 
   [accounts.google.com]: http://go.microsoft.com/fwlink/p/?LinkId=268302
   [Google apis]: http://go.microsoft.com/fwlink/p/?LinkId=268303
-  []: ./media/mobile-services-how-to-register-google-authentication/mobile-services-google-new-project.png
+  [0]: ./media/mobile-services-how-to-register-google-authentication/mobile-services-google-new-project.png
   [1]: ./media/mobile-services-how-to-register-google-authentication/mobile-services-google-create-client.png
   [2]: ./media/mobile-services-how-to-register-google-authentication/mobile-services-google-create-client2.png
   [3]: ./media/mobile-services-how-to-register-google-authentication/mobile-services-google-create-client3.png

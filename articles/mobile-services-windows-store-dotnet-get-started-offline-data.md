@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-get-started-offline-data-dotnet" urlDisplayName="Getting Started with Offline Data" pageTitle="Get started with offline data in Mobile Services (Windows Store) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to cache and sync offline data in your Windows Store application" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Get started with offline data sync in Mobile Services" authors="wesmc" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc" />
 
 # 모바일 서비스에서 오프라인 데이터 동기화 시작
 
@@ -60,7 +60,7 @@ Azure 모바일 서비스의 오프라인 기능을 사용하면 오프라인에
 
 2.  Visual Studio에서 [모바일 서비스 시작][모바일 서비스 시작] 또는 [데이터 시작][데이터 시작] 자습서에서 완료한 프로젝트를 엽니다. 솔루션 탐색기의 프로젝트에서 **참조**를 마우스 오른쪽 단추로 클릭하고 **Windows** \> **확장**에서 **Windows 런타임용 SQLite**에 대한 참조를 추가합니다.
 
-    ![][]
+    ![][0]
 
 3.  SQLite 런타임을 사용하려면 빌드 중인 프로젝트의 프로세서 아키텍처를 **x86**, **x64** 또는 **ARM**으로 변경해야 합니다. **임의 CPU**는 지원되지 않습니다. 프로세서 아키텍처를 테스트하려는 지원되는 설정 중 하나로 변경합니다.
 
@@ -260,12 +260,6 @@ Azure 모바일 서비스의 오프라인 기능을 사용하면 오프라인에
 
 <!-- Anchors. --> <!-- Images --> <!-- URLs. -->
 
-  [Windows 스토어 C#]: /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data "Windows 스토어 C#"
-  [Windows Phone]: /ko-kr/documentation/articles/mobile-services-windows-phone-get-started-offline-data "Windows Phone"
-  [iOS]: /ko-kr/documentation/articles/mobile-services-ios-get-started-offline-data "iOS"
-  [Xamarin.iOS]: /ko-kr/documentation/articles/mobile-services-xamarin-ios-get-started-offline-data "Xamarin.iOS"
-  [Xamarin.Android]: /ko-kr/documentation/articles/mobile-services-xamarin-android-get-started-offline-data "Xamarin.Android"
-  [자습서 보기]: http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Build-offline-apps-Azure-Mobile-Services
   [모바일 서비스 시작]: /ko-kr/documentation/articles/mobile-services-windows-store-get-started/
   [데이터 시작]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/
   [Azure 무료 평가판]: http://www.windowsazure.com/ko-kr/pricing/free-trial/?WT.mc_id=AE564AB28
@@ -273,11 +267,9 @@ Azure 모바일 서비스의 오프라인 기능을 사용하면 오프라인에
   [오프라인 시나리오에서 앱 테스트]: #test-offline-app
   [모바일 서비스를 다시 연결하도록 앱 업데이트]: #update-online-app
   [모바일 서비스에 연결된 앱 테스트]: #test-online-app
-  [Azure 모바일 서비스 SDK 버전 1.3.0-beta2(이상)]: http://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.0-beta2
-  [Azure 모바일 서비스 SQLite 저장소 버전 1.0.0-beta2(이상)]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0-beta2
   [시작 오프라인 샘플]: http://go.microsoft.com/fwlink/?LinkId=394777
   [SQLite for Windows 8.1]: http://go.microsoft.com/fwlink/?LinkId=394776
-  []: ./media/mobile-services-windows-store-dotnet-get-started-offline-data/mobile-services-add-reference-sqlite-dialog.png
+  [0]: ./media/mobile-services-windows-store-dotnet-get-started-offline-data/mobile-services-add-reference-sqlite-dialog.png
   [1]: ./media/mobile-services-windows-store-dotnet-get-started-offline-data/mobile-services-sqlitestore-nuget.png
   [2]: ./media/mobile-services-windows-store-dotnet-get-started-offline-data/mobile-services-offline-app-run1.png
   [3]: ./media/mobile-services-windows-store-dotnet-get-started-offline-data/mobile-services-online-app-run1.png

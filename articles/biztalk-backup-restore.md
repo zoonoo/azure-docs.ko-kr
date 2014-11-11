@@ -1,6 +1,6 @@
 <properties linkid="biztalk-backup-restore" urlDisplayName="BizTalk Services: Backup and Restore" pageTitle="BizTalk Services: Backup and Restore | Azure" metaKeywords="" description="BizTalk Services includes Backup and Restore capabilities. When creating a Backup, a snapshot of the BizTalk Services configuration is taken." metaCanonical="" services="" documentationCenter="" title="BizTalk Services: Backup and Restore" authors="mandia"  solutions="" writer="mandia" manager="dwrede" editor="cgronlun"  />
 
-<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia"></tags>
+<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia" />
 
 # BizTalk 서비스: 백업 및 복원
 
@@ -58,7 +58,7 @@ Azure BizTalk 서비스에는 백업 및 복원 기능이 포함되어 있습니
 2.  **백업 상태**를 **자동**으로 설정합니다.
 3.  백업을 저장할 **저장소 계정**을 선택하고 백업을 만들 **빈도** 및 백업을 유지할 기간(**보존 기간(일)**)를 입력합니다.
 
-    ![][]
+    ![][0]
 
     **참고 사항**
  
@@ -225,7 +225,7 @@ Azure 관리 포털에서 Azure BizTalk 서비스를 만들려면 [BizTalk 서�
   [BizTalk 서비스: Edition 차트]: http://azure.microsoft.com/ko-KR/documentation/articles/biztalk-editions-feature-chart/
   [주문형 백업]: #backupnow
   [백업 예약]: #backupschedule
-  []: ./media/biztalk-backup-restore/AutomaticBU.png
+  [0]: ./media/biztalk-backup-restore/AutomaticBU.png
   [마지막으로 예약된 백업 상태]: ./media/biztalk-backup-restore/status-last-backup.png
   [BizTalk 서비스: 작업 로그를 사용한 문제 해결]: http://go.microsoft.com/fwlink/?LinkId=391211
   [BizTalk 서비스 REST API 복원]: http://go.microsoft.com/fwlink/p/?LinkID=325582

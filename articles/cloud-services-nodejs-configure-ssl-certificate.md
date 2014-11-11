@@ -1,6 +1,6 @@
 <properties linkid="dev-nodejs-enablessl" urlDisplayName="Enable SSL" pageTitle="Configure SSL for a cloud service (Node.js) - Azure" metaKeywords="Node.js Azure SSL, Node.js Azure HTTPS" description="Learn how to specify an HTTPS endpoint for a Node.js web role and how to upload an SSL certificate to secure your application." metaCanonical="" services="cloud-services" documentationCenter="nodejs" title="Configuring SSL for a Node.js Application in an Azure Web Role" authors="larryfr" solutions="" manager="" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"></tags>
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # Azure 웹 역할에서 Node.js 응용 프로그램에 대한 SSL 구성
 
@@ -30,7 +30,7 @@ Node.js 응용 프로그램을 Azure 웹 역할에 배포할 때 서버 인증�
 
 1.  **New-AzureServiceProject** cmdlet을 사용하여 새 서비스 프로젝트를 만듭니다.
 
-    ![][]
+    ![][0]
 
 2.  다음과 같이 **Add-AzureNodeWebRole** cmdlet을 사용하여 서비스에 웹 역할을 추가합니다.
 
@@ -161,7 +161,6 @@ SSL 인증서를 가져오려면 다음 단계를 따르십시오.
 
 [HTTPS 끝점에 SSL 인증서 구성][HTTPS 끝점에 SSL 인증서 구성]
 
-  [Azure 웹 사이트에 대한 SSL 인증서 구성]: ../web-sites-configure-ssl-certificate/
   [1단계: Node.js 서비스 만들기 및 클라우드에 서비스 게시]: #step1
   [2단계: SSL 인증서 다운로드]: #step2
   [3단계: SSL 인증서 가져오기]: #step3
@@ -169,10 +168,9 @@ SSL 인증서를 가져오려면 다음 단계를 따르십시오.
   [5단계: HTTPS를 사용하여 역할 인스턴스에 연결]: #step5
   [Azure PowerShell 아이콘]: ./media/cloud-services-nodejs-configure-ssl-certificate/azure-powershell-start.png
   [install-dev-tools]: ../includes/install-dev-tools.md
-  []: ./media/cloud-services-nodejs-configure-ssl-certificate/enable-ssl-01.png
+  [0]: ./media/cloud-services-nodejs-configure-ssl-certificate/enable-ssl-01.png
   [1]: ./media/cloud-services-nodejs-configure-ssl-certificate/enable-ssl-02.png
   [2]: ./media/cloud-services-nodejs-configure-ssl-certificate/enable-ssl-03.png
-  [Node.js에 Azure PowerShell을 사용하는 방법]: https://www.windowsazure.com/ko-KR/develop/nodejs/how-to-guides/powershell-cmdlets/#ImportPubSettings
   [인증서 마법사]: ./media/cloud-services-nodejs-configure-ssl-certificate/certificateimport.png
   [개인 키 보호]: ./media/cloud-services-nodejs-configure-ssl-certificate/exportable.png
   [인증서를 서비스와 연결하는 방법]: http://msdn.microsoft.com/ko-KR/library/windowsazure/gg465718.aspx

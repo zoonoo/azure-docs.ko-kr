@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-how-to-guides-import-publish-settings" urlDisplayName="Import your subscription publish settings file in Visual Studio 2013" pageTitle="Import your publish settings file in Visual Studio 2013 | Mobile Services" metaKeywords="Azure import publishsettings, mobile services" description="Learn how to import a subscription publish settings file for your Azure Mobile Services application in Visual Studio 2013." title="Import your subscription publish settings file in Visual Studio 2013" documentationCenter="Mobile" services="" solutions="" manager="" editor="" videoId="" scriptId="" authors="glenga" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # Visual Studio 2013에서 구독 게시 설정 파일 가져오기
 
@@ -38,7 +38,7 @@
 
     </div>
 
-<!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
+
 
   [연결된 서비스 추가]: ./media/mobile-services-create-new-service-vs2013/mobile-add-connected-service.png
   [VS 2013에서 새 모바일 서비스 만들기]: ./media/mobile-services-create-new-service-vs2013/mobile-create-service-from-vs2013.png

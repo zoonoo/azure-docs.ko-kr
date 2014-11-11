@@ -1,6 +1,6 @@
 <properties linkid="manage-linux-other-resources-endorsed-distributions" urlDisplayName="Endorsed distributions" pageTitle="Endorsed distributions of Linux in Azure" metaKeywords="" description="Learn about Linux on Azure-endorsed distributions, including guidelines for Ubuntu, OpenLogic, and SUSE." metaCanonical="" services="virtual-machines" documentationCenter="" title="Linux on Azure-Endorsed Distributions" authors="kathydav" solutions="" manager="jeffreyg" editor="tysonn" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="kathydav"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="kathydav" />
 
 # Azure 인증 배포의 Linux
 
@@ -185,8 +185,3 @@ OpenSUSE 13.1 이상
   [여기]: http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409
   [Github]: https://github.com/azure/walinuxagent
   [Linux 커널 호환성 패치]: http://go.microsoft.com/fwlink/?LinkID=403027&clcid=0x409
-  [12.04 또는 12.04.01에만 필요함]: http://go.microsoft.com/fwlink/?LinkID=275152&clcid=0x409
-  [GitHub]: http://go.microsoft.com/fwlink/p/?LinkID=250998
-  [6.3에만 필요함]: http://go.microsoft.com/fwlink/?LinkID=275153&clcid=0x409
-  [Open Logic 패키지 리포지토리]: http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/
-  [Cloud:Tools]: https://build.opensuse.org/project/show/Cloud:Tools

@@ -1,6 +1,6 @@
 <properties linkid="hdinsight-emulator-release-notes" urlDisplayName="HDInsight Emulator release notes" pageTitle="Release notes: Microsoft HDInsight Emulator for Azure | Azure" metaKeywords="hdinsight, Azure hdinsight, hdinsight azure, get started hdinsight, emulator, hdinsight emulator" description="Get late-breaking information about the most recent releases of the HDInsight Hadoop Emulator." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" title="Release notes: Microsoft HDInsight Emulator for Azure" authors="cgronlun" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="cgronlun"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="cgronlun" />
 
 
 
@@ -68,7 +68,7 @@
 
 * Azure HDInsight 서비스를 사용하여 원격으로 실행 중인 클러스터 및 로컬 설치 등 여러 클러스터에 연결합니다.
 
-* HDInsight 서비스에 대한 자세한 내용은 [][][http://azure.microsoft.com/ko-kr/documentation/services/hdinsight/][]</a>를 참조하세요.
+* HDInsight 서비스에 대한 자세한 내용은 [][][http://azure.microsoft.com/ko-kr/documentation/services/hdinsight/][http://azure.microsoft.com/ko-kr/documentation/services/hdinsight/]</a>를 참조하세요.
 
 * 로컬 클러스터에 WASB를 구성합니다.
 
@@ -140,7 +140,7 @@
 
             %HADOOP_NODE%\stop-onebox.cmd && %HADOOP_NODE%\start-onebox.cmd
 
-    3. 전체 URI인 asv:[//{container}@{account}/{path][]}(또는 HTTPS를 사용하여 데이터를 액세스하는 경우 asvs://)를 사용하여 해당 계정의 파일을 액세스합니다. 예제:
+    3. 전체 URI인 asv:[//{container}@{account}/{path][//{container}@{account}/{path]}(또는 HTTPS를 사용하여 데이터를 액세스하는 경우 asvs://)를 사용하여 해당 계정의 파일을 액세스합니다. 예제:
 
 	 		hadoop fs -lsr 
 			asvs://MyHadoopOnAzureContainerName@MyHadoopOnAzureAccountName/example/data/
@@ -256,7 +256,7 @@
 
 ## <a name="nextsteps"></a> 다음 단계
 
-- [HDInsight Emulator 시작][]
+- [HDInsight Emulator 시작][HDInsight Emulator 시작]
 
   []: http://azure.microsoft.com/ko-kr/documentation/services/hdinsight/
   [//{container}@{account}/{path]: mailto://{container}@{account}/{path

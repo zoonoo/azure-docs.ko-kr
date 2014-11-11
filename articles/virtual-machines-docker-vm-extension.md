@@ -1,6 +1,6 @@
 <properties title="Using the Docker Virtual Machines Extension for Linux on Azure" pageTitle="Using the Docker VM Extension for Linux on Azure" description="Describes Docker and the Azure Virtual Machines extensions, and shows how to programmatically create Virtual Machines on Azure that are docker hosts from the command line using the azure-cli command interface." metaKeywords="linux, virtual machines, vm, azure, docker, linux containers,  lxc, virtualization" services="virtual-machines" solutions="dev-test" documentationCenter="virtual-machines" authors="rasquill" videoId="" scriptId="" />
 
-<tags ms.service="virtual-machines" ms.devlang="multiple" ms.topic="article" ms.tgt_pltfrm="vm-linux" ms.workload="infrastructure-services" ms.date="08/21/2014" ms.author="ralph.squillace@microsoft.com"></tags>
+<tags ms.service="virtual-machines" ms.devlang="multiple" ms.topic="article" ms.tgt_pltfrm="vm-linux" ms.workload="infrastructure-services" ms.date="08/21/2014" ms.author="ralph.squillace@microsoft.com" />
 
 # Azure에서 Linux용 Docker 가상 컴퓨터 확장을 사용하는 방법
 
@@ -150,12 +150,10 @@ Azure용 Docker VM 확장은 특수 동작을 제공하는 여러 VM 확장 중 
   [azure-cli]: https://github.com/Azure/azure-sdk-tools-xplat
   [Boot2Docker]: https://docs.docker.com/installation/windows/
   [여기]: http://azure.microsoft.com/ko-kr/documentation/articles/xplat-cli/#install
-  [노드 패키지 관리자(npm)]: http://en.wikipedia.org/wiki/Npm_%28software%29
   [1]: https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-an-ubuntu-14-04-server
   [Mac installer]: http://go.microsoft.com/fwlink/?linkid=252249&clcid=0x409
   [Azure 구독에 연결하는 방법]: http://azure.microsoft.com/ko-kr/documentation/articles/xplat-cli/#configure
   [Docker 설치 지침]: https://docs.docker.com/installation/#installation
-  [!@\#$%^&+=]: mailto:!@#$%^&+=
   [0]: ./media/virtual-machines-docker/dockercreateresults.png
   [2]: ./media/virtual-machines-docker/connectingtodockerhost.png
   [Docker 사용자 가이드]: https://docs.docker.com/userguide/

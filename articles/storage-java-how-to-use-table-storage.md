@@ -1,46 +1,46 @@
 <properties linkid="dev-java-how-to-use-table-storage" urlDisplayName="Table Service" pageTitle="How to use table storage (Java) | Microsoft Azure" metaKeywords="Azure table storage service, Azure table service Java, table storage Java" description="Learn how to use the table storage service in Azure. Code samples are written in Java code." metaCanonical="" services="storage" documentationCenter="Java" title="How to use the Table storage service from Java" authors="" solutions="" manager="" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="" />
 
 # Java에서 테이블 저장소를 사용하는 방법
 
-이 가이드에서는 Azure 테이블 저장소 서비스를 사용하여 일반 시나리오를 수행하는 방법을 보여 줍니다. 샘플은 Java로 작성되었으며 [Java용 Azure Storage SDK][](영문)를 사용합니다. 여기에서 다루는 시나리오에는 **creating**, **listing**, **deleting** 테이블과 테이블의 **inserting**, **querying**, **modifying**, **deleting** 엔터티가 포함됩니다. 테이블에 대한 자세한 내용은 [다음 단계][] 섹션을 참조하세요.
+이 가이드에서는 Azure 테이블 저장소 서비스를 사용하여 일반 시나리오를 수행하는 방법을 보여 줍니다. 샘플은 Java로 작성되었으며 [Java용 Azure Storage SDK][Java용 Azure Storage SDK](영문)를 사용합니다. 여기에서 다루는 시나리오에는 **creating**, **listing**, **deleting** 테이블과 테이블의 **inserting**, **querying**, **modifying**, **deleting** 엔터티가 포함됩니다. 테이블에 대한 자세한 내용은 [다음 단계][다음 단계] 섹션을 참조하세요.
 
-참고: SDK는 Android 장치에서 Azure 저장소를 사용하는 개발자에게 제공됩니다. 자세한 내용은 [Android용 Azure Storage SDK][]를 참조하세요.
+참고: SDK는 Android 장치에서 Azure 저장소를 사용하는 개발자에게 제공됩니다. 자세한 내용은 [Android용 Azure Storage SDK][Android용 Azure Storage SDK]를 참조하세요.
 
 ## <a name="Contents"> </a>목차
 
--   [테이블 저장소 정의][]
--   [개념][]
--   [Azure 저장소 계정 만들기][]
--   [Java 응용 프로그램 만들기][]
--   [테이블 저장소에 액세스하도록 응용 프로그램 구성][]
--   [Azure 저장소 연결 문자열 설정][]
--   [방법: 테이블 만들기][]
--   [방법: 테이블 나열][]
--   [방법: 테이블에 엔터티 추가][]
--   [방법: 엔터티 일괄 삽입][]
--   [방법: 파티션의 모든 엔터티 검색][]
--   [방법: 파티션의 엔터티 범위 검색][]
--   [방법: 단일 엔터티 검색][]
--   [방법: 엔터티 수정][]
--   [방법: 엔터티 속성 하위 집합 쿼리][]
--   [방법: 엔터티 삽입 또는 바꾸기][]
--   [방법: 엔터티 삭제][]
--   [방법: 테이블 삭제][]
--   [다음 단계][]
+-   [테이블 저장소 정의][테이블 저장소 정의]
+-   [개념][개념]
+-   [Azure 저장소 계정 만들기][Azure 저장소 계정 만들기]
+-   [Java 응용 프로그램 만들기][Java 응용 프로그램 만들기]
+-   [테이블 저장소에 액세스하도록 응용 프로그램 구성][테이블 저장소에 액세스하도록 응용 프로그램 구성]
+-   [Azure 저장소 연결 문자열 설정][Azure 저장소 연결 문자열 설정]
+-   [방법: 테이블 만들기][방법: 테이블 만들기]
+-   [방법: 테이블 나열][방법: 테이블 나열]
+-   [방법: 테이블에 엔터티 추가][방법: 테이블에 엔터티 추가]
+-   [방법: 엔터티 일괄 삽입][방법: 엔터티 일괄 삽입]
+-   [방법: 파티션의 모든 엔터티 검색][방법: 파티션의 모든 엔터티 검색]
+-   [방법: 파티션의 엔터티 범위 검색][방법: 파티션의 엔터티 범위 검색]
+-   [방법: 단일 엔터티 검색][방법: 단일 엔터티 검색]
+-   [방법: 엔터티 수정][방법: 엔터티 수정]
+-   [방법: 엔터티 속성 하위 집합 쿼리][방법: 엔터티 속성 하위 집합 쿼리]
+-   [방법: 엔터티 삽입 또는 바꾸기][방법: 엔터티 삽입 또는 바꾸기]
+-   [방법: 엔터티 삭제][방법: 엔터티 삭제]
+-   [방법: 테이블 삭제][방법: 테이블 삭제]
+-   [다음 단계][다음 단계]
 
-[WACOM.INCLUDE [howto-table-storage][]]
+[WACOM.INCLUDE [howto-table-storage](../includes/howto-table-storage.md)]
 
 ## <a name="CreateAccount"></a>Azure 저장소 계정 만들기
 
-[WACOM.INCLUDE [create-storage-account][]]
+[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ## <a name="CreateApplication"></a>Java 응용 프로그램 만들기
 
 이 가이드에서는 Java 응용 프로그램 내에서 로컬로 또는 Azure의 웹 역할 또는 작업자 역할 내에서 실행되는 코드에서 실행할 수 있는 저장소 기능을 사용합니다.
 
-그러려면 JDK(Java Development Kit)를 설치하고 Azure 구독에서 Azure 저장소 계정을 만들어야 합니다. 그러고 나면 개발 시스템에서 GitHub의 [Java용 Azure Storage SDK][] 리포지토리에 있는 최소 요구 사항과 종속성을 충족하는지 확인해야 합니다. 시스템에서 해당 요구 사항을 충족하는 경우에는 리포지토리에서 시스템의 Java용 Azure Storage Library를 다운로드 및 설치하기 위한 지침을 따를 수 있습니다. 작업을 완료하고 나면 이 문서의 예를 사용하는 Java 응용 프로그램을 만들 수 있습니다.
+그러려면 JDK(Java Development Kit)를 설치하고 Azure 구독에서 Azure 저장소 계정을 만들어야 합니다. 그러고 나면 개발 시스템에서 GitHub의 [Java용 Azure Storage SDK][Java용 Azure Storage SDK] 리포지토리에 있는 최소 요구 사항과 종속성을 충족하는지 확인해야 합니다. 시스템에서 해당 요구 사항을 충족하는 경우에는 리포지토리에서 시스템의 Java용 Azure Storage Library를 다운로드 및 설치하기 위한 지침을 따를 수 있습니다. 작업을 완료하고 나면 이 문서의 예를 사용하는 Java 응용 프로그램을 만들 수 있습니다.
 
 ## <a name="ConfigureStorage"> </a>테이블 저장소에 액세스하도록 응용 프로그램 구성
 
@@ -73,7 +73,7 @@ Microsoft Azure의 역할 내에서 실행되는 응용 프로그램에서는 �
 
 **CloudTableClient** 개체를 사용하면 테이블 및 엔터티에 대한 참조
 개체를 가져올 수 있습니다. 다음 코드에서는 **CloudTableClient** 개체를 만들고
-그 개체를 사용하여 'people'이라는 테이블을 나타내는 새 **CloudTable** 개체를 만듭니다. 참고: **CloudStorageAccount** 개체를 만들 수 있는 방법이 더 있습니다. 자세한 내용은 [Azure Storage Client SDK 참조][]에 있는 **CloudStorageAccount**를 참조하세요.)
+그 개체를 사용하여 'people'이라는 테이블을 나타내는 새 **CloudTable** 개체를 만듭니다. 참고: **CloudStorageAccount** 개체를 만들 수 있는 방법이 더 있습니다. 자세한 내용은 [Azure Storage Client SDK 참조][Azure Storage Client SDK 참조]에 있는 **CloudStorageAccount**를 참조하세요.)
 
     try
     {
@@ -420,7 +420,7 @@ Microsoft Azure의 역할 내에서 실행되는 응용 프로그램에서는 �
 
 ## <a name="QueryProperties"> </a>방법: 엔터티 속성 하위 집합 쿼리
 
-테이블 쿼리에서는 엔터티에서 일부 속성만 검색할 수 있습니다. 프로젝션이라고 하는 이 기술은 특히 대역폭을 줄이며 큰 엔터티에 대한 쿼리 성능을 향상할 수 있습니다. 다음 코드의 쿼리는 **select** 메서드를 사용하여 테이블에 있는 엔터티의 전자 메일 주소만 반환합니다. 이 결과는 서버에서 반환된 엔터티에 대해 형식 변환을 수행하는 **EntityResolver**를 통해 **String** 컬렉션에 프로젝트됩니다. 이 [블로그 게시글][]에서 프로젝션에 대해 자세히 알아볼 수 있습니다. 로컬 저장소 에뮬레이터에서는 프로젝션이 지원되지 않으므로 이 코드는 테이블 서비스의 계정을 사용하는 경우에만 실행됩니다.
+테이블 쿼리에서는 엔터티에서 일부 속성만 검색할 수 있습니다. 프로젝션이라고 하는 이 기술은 특히 대역폭을 줄이며 큰 엔터티에 대한 쿼리 성능을 향상할 수 있습니다. 다음 코드의 쿼리는 **select** 메서드를 사용하여 테이블에 있는 엔터티의 전자 메일 주소만 반환합니다. 이 결과는 서버에서 반환된 엔터티에 대해 형식 변환을 수행하는 **EntityResolver**를 통해 **String** 컬렉션에 프로젝트됩니다. 이 [블로그 게시글][블로그 게시글]에서 프로젝션에 대해 자세히 알아볼 수 있습니다. 로컬 저장소 에뮬레이터에서는 프로젝션이 지원되지 않으므로 이 코드는 테이블 서비스의 계정을 사용하는 경우에만 실행됩니다.
 
     try
     {
@@ -554,10 +554,10 @@ Microsoft Azure의 역할 내에서 실행되는 응용 프로그램에서는 �
 
 이제 테이블 저장소의 기본 사항을 배웠으므로 다음 링크를 따라 좀 더 복잡한 저장소 작업을 수행하는 방법을 알아보세요.
 
--   [Java용 Azure Storage SDK][]
--   [Azure Storage Client SDK 참조][]
--   [Azure 저장소 REST API][]
--   [Azure 저장소 팀 블로그][]
+-   [Java용 Azure Storage SDK][Java용 Azure Storage SDK]
+-   [Azure Storage Client SDK 참조][Azure Storage Client SDK 참조]
+-   [Azure 저장소 REST API][Azure 저장소 REST API]
+-   [Azure 저장소 팀 블로그][Azure 저장소 팀 블로그]
 
   [Java용 Azure Storage SDK]: https://github.com/azure/azure-storage-java
   [다음 단계]: #NextSteps
@@ -584,5 +584,5 @@ Microsoft Azure의 역할 내에서 실행되는 응용 프로그램에서는 �
   [create-storage-account]: ../includes/create-storage-account.md
   [Azure Storage Client SDK 참조]: http://dl.windowsazure.com/storage/javadoc/
   [블로그 게시글]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
-  [Azure 저장소 REST API]: http://msdn.microsoft.com/en-us/library/azure/gg433040.aspx
+  [Azure 저장소 REST API]: http://msdn.microsoft.com/ko-kr/library/azure/gg433040.aspx
   [Azure 저장소 팀 블로그]: http://blogs.msdn.com/b/windowsazurestorage/

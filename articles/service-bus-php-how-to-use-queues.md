@@ -1,6 +1,6 @@
 <properties linkid="develop-php-how-to-guides-service-bus-queues" urlDisplayName="Service Bus Queues" pageTitle="How to use Service Bus queues (PHP) - Azure" metaKeywords="Azure Service Bus queues, Azure queues, Azure messaging, Azure queues PHP" description="Learn how to use Service Bus queues in Azure. Code samples written in PHP." metaCanonical="" services="service-bus" documentationCenter="PHP" title="How to Use Service Bus Queues" authors="" solutions="" manager="" editor="" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author></tags>
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="" />
 
 # 서비스 버스 큐를 사용하는 방법
 
@@ -20,7 +20,7 @@
 -   [방법: 응용 프로그램 크래시 및 읽을 수 없는 메시지 처리][방법: 응용 프로그램 크래시 및 읽을 수 없는 메시지 처리]
 -   [다음 단계][다음 단계]
 
-[WACOM.INCLUDE [howto-service-bus-queues][howto-service-bus-queues]]
+[WACOM.INCLUDE [howto-service-bus-queues](../includes/howto-service-bus-queues.md)]
 
 ## <span id="CreateApplication"></span></a>PHP 응용 프로그램 만들기
 
@@ -33,7 +33,7 @@ Azure Blob 서비스에 액세스하는 PHP 응용 프로그램을 만드는 데
 
 ## <span id="GetClientLibrary"></span></a>Azure 클라이언트 라이브러리 가져오기
 
-[WACOM.INCLUDE [get-client-libraries][get-client-libraries]]
+[WACOM.INCLUDE [get-client-libraries](../includes/get-client-libraries.md)]
 
 ## <span id="ConfigureApp"></span></a>서비스 버스를 사용하도록 응용 프로그램 구성
 
@@ -102,7 +102,7 @@ Azure 서비스 클라이언트를 만들려면 **ServicesBuilder** 클래스를
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/ko--kr/library/windowsazure/dd179357
+        // http://msdn.microsoft.com/ko-kr/library/windowsazure/dd179357
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -135,7 +135,7 @@ Azure 서비스 클라이언트를 만들려면 **ServicesBuilder** 클래스를
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/ko--kr/library/windowsazure/hh780775
+        // http://msdn.microsoft.com/ko-kr/library/windowsazure/hh780775
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -185,7 +185,7 @@ Azure 서비스 클라이언트를 만들려면 **ServicesBuilder** 클래스를
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here:
-        // http://msdn.microsoft.com/ko--kr/library/windowsazure/hh780735
+        // http://msdn.microsoft.com/ko-kr/library/windowsazure/hh780735
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -218,5 +218,4 @@ Azure 서비스 클라이언트를 만들려면 **ServicesBuilder** 클래스를
   [howto-service-bus-queues]: ../includes/howto-service-bus-queues.md
   [OpenSSL 확장]: http://php.net/openssl
   [get-client-libraries]: ../includes/get-client-libraries.md
-  [require\_once]: http://php.net/require_once
-  [큐, 토픽 및 구독]: http://msdn.microsoft.com/ko--kr/library/windowsazure/hh367516.aspx
+  [큐, 토픽 및 구독]: http://msdn.microsoft.com/ko-kr/library/windowsazure/hh367516.aspx

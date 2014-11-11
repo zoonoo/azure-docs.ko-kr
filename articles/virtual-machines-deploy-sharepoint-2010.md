@@ -1,6 +1,6 @@
 <properties linkid="manage-windows-other-resource-sharepoint-wp" urlDisplayName="SharePoint on Azure" pageTitle="SharePoint 2010 Deployment on Azure Virtual Machines" metaKeywords="" description="Understand the supported scenarios for using SharePoint 2010 on Azure virtual machines." metaCanonical="" services="virtual-machines" documentationCenter="" title="SharePoint Deployment on Azure Virtual Machines" authors="josephd" solutions="" manager="timlt" editor="" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="josephd"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="josephd" />
 
 # Azure 가상 컴퓨터에 SharePoint 배포
 
@@ -417,7 +417,6 @@ Azure 가상 컴퓨터에서 SharePoint Server를 성공적으로 배포하려�
   [SysPrep을 사용하여 SQL Server 2012 설치]: http://msdn.microsoft.com/ko-kr/library/ee210664.aspx
   [명령 프롬프트에서 SQL Server 2012 설치]: http://msdn.microsoft.com/ko-kr/library/ms144259.aspx#SysPrep
   [Microsoft SharePoint Server 팜 만들기]: http://technet.microsoft.com/ko-kr/library/ee805948.aspx#CreateConfigure
-  [팜(SharePoint Server 2010)에 웹 서버 또는 응용 프로그램 서버 추가]: http://technet.microsoft.com/ko-kr/library/cc261752.aspx
   [기존 팜에 데이터베이스 서버 추가]: http://technet.microsoft.com/ko-kr/library/cc262781
   [SharePoint Server 2010 서비스 팩 1]: http://www.microsoft.com/ko-kr/download/details.aspx?id=26623
   [SQL Server 2012 비즈니스 인텔리전스 기능 설치]: http://technet.microsoft.com/ko-kr/library/hh231681(v=sql.110).aspx
@@ -427,7 +426,6 @@ Azure 가상 컴퓨터에서 SharePoint Server를 성공적으로 배포하려�
   [가상 하드 디스크 만들기]: http://technet.microsoft.com/ko-kr/library/cc742509
   [SysPrep의 사용법: 소개]: http://technet.microsoft.com/ko-kr/library/bb457073.aspx
   [azure-sharepoint-wp-11]: ./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-11.png
-  [Azure 가상 네트워크(디자인 고려 사항 및 보안 연결 시나리오)]: http://msdn.microsoft.com/ko-kr/library/windowsazure/jj156007.aspx
   [SharePoint 2010 간편 설치 스크립트]: http://www.microsoft.com/ko-kr/download/details.aspx?id=23415
   [Visual Studio 설치]: http://msdn.microsoft.com/ko-kr/library/e2h7fzkw.aspx
   [Azure에서 SharePoint에 대해 SQL Server 2012 구성]: https://github.com/WindowsAzure-TrainingKit/HOL-DeployingSQLServerForSharePoint
@@ -436,7 +434,6 @@ Azure 가상 컴퓨터에서 SharePoint Server를 성공적으로 배포하려�
   [azure-sharepoint-wp-12]: ./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-12.png
   [Azure 가상 컴퓨터에 Active Directory를 배포하기 위한 지침]: http://msdn.microsoft.com/ko-kr/library/windowsazure/jj156090
   [가상 네트워킹 구성]: https://github.com/WindowsAzure-TrainingKit/HOL-DeployingActiveDirectory/blob/master/HOL.md
-  [Azure에서 Active Directory 배포(Windows PowerShell)]: https://github.com/WindowsAzure-TrainingKit/HOL-DeployingActiveDirectoryPS
   [Azure에서 새 Active Directory 포리스트 설치]: /ko-kr/manage/services/networking/active-directory-forest/
   [Azure 보안 센터]: /ko-kr/support/trust-center/compliance/
   [azure-sharepoint-wp-13]: ./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-13.png

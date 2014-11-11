@@ -1,6 +1,6 @@
 <properties linkid="automation-create-runbook-from-samples" urlDisplayName="Get Started with Azure Automation" pageTitle="Get Started with Azure Automation" metaKeywords="" description="Learn how to import and run an automation job in Azure." metaCanonical="" services="automation" documentationCenter="" title="Get Started with Azure Automation" authors="bwren" solutions="" manager="stevenka" editor="" />
 
-<tags ms.service="automation" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="bwren"></tags>
+<tags ms.service="automation" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="bwren" />
 
 # Azure 자동화 시작
 
@@ -26,7 +26,7 @@ Azure 자동화 팀은 자동화를 시작하는 데 도움을 주는 다수의 
 
 **피드백 보내기** 자동화 Runbook 솔루션 또는 통합 모듈을 찾고 있는 경우 스크립트 센터에 스크립트 요청을 게시하십시오. 자동화의 새로운 기능에 대한 아이디어가 있으면 [User Voice][User Voice](영문)에 게시해 주십시오.
 
-[WACOM.INCLUDE [create-account-note][create-account-note]]
+[WACOM.INCLUDE [create-account-note](../includes/create-account-note.md)]
 
 ## 이 자습서의 대략적인 단계
 
@@ -149,6 +149,3 @@ Azure 자동화 팀은 자동화를 시작하는 데 도움을 주는 다수의 
   [Runbook 매개 변수]: ./media/automation/automation_11_RunbookParams.png
   [Runbook 상태]: ./media/automation/automation_12_RunbookStatus.png
   [Runbook 요약]: ./media/automation/automation_13_RunbookSummary_callouts.png
-  [자동화 개요(영문)]: http://go.microsoft.com/fwlink/p/?LinkId=392860
-  [Runbook 작성 가이드(영문)]: http://go.microsoft.com/fwlink/p/?LinkID=301740
-  [자동화 포럼(영문)]: http://go.microsoft.com/fwlink/p/?LinkId=390561

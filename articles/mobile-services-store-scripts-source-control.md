@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-store-scripts-in-source-control" urlDisplayName="Store server scripts in source control" pageTitle="Store server scripts in source control - Azure Mobile Services" metaKeywords="" description="Learn how to store your server script files and modules in a local Git repo on your computer." metaCanonical="" services="" documentationCenter="Mobile" title="Store server scripts in source control" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # 원본 제어에 서버 스크립트 저장
 
@@ -19,7 +19,7 @@
 
 1.  [Azure 관리 포털][Azure 관리 포털]에 로그온하여 **모바일 서비스**를 클릭한 후 해당 모바일 서비스를 클릭합니다.
 
-    ![][]
+    ![][0]
 
 2.  **대시보드** 탭을 클릭하고 **간략 상태** 아래에 있는 **소스 제어 설정**을 클릭한 후 **예**를 클릭하여 확인합니다.
 
@@ -165,7 +165,7 @@
 -   [풀 알림을 지원하는 사용자 지정 API 정의][풀 알림을 지원하는 사용자 지정 API 정의]
      사용자 지정 API를 사용하여 Windows 스토어 앱에서 라이브 타일을 업데이트하는 정기 알림을 지원하는 방법을 알아봅니다.
 
-<!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
+
 
   [모바일 서비스에서 원본 제어를 사용하도록 설정]: #enable-source-control
   [Git을 설치하고 로컬 리포지토리를 만듭니다]: #clone-repo
@@ -174,7 +174,7 @@
   [모바일 서비스 시작]: /ko-kr/develop/mobile/tutorials/get-started
   [데이터 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-data-dotnet
   [Azure 관리 포털]: https://manage.windowsazure.com/
-  []: ./media/mobile-services-store-scripts-source-control/mobile-services-selection.png
+  [0]: ./media/mobile-services-store-scripts-source-control/mobile-services-selection.png
   [1]: ./media/mobile-services-store-scripts-source-control/mobile-setup-source-control.png
   [2]: ./media/mobile-services-store-scripts-source-control/mobile-source-control-credentials.png
   [3]: ./media/mobile-services-store-scripts-source-control/mobile-source-control-configure.png

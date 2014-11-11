@@ -1,6 +1,6 @@
 <properties linkid="dev-net-how-to-access-control" urlDisplayName="Access Control" pageTitle="How to use Access Control (.NET) - Azure feature guide" metaKeywords="Azure Access Control Service authentication C#" description="Learn how to use Access Control Service (ACS) in your Azure application to authenticate users when they try to gain access to a web app." metaCanonical="" services="active-directory" documentationCenter=".NET" title="How to Authenticate Web Users with Azure Active Directory Access Control" authors="mbaldwin, juneb" solutions="" manager="mbaldwin" editor="" />
 
-<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="mbaldwin, juneb"></tags>
+<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="mbaldwin, juneb" />
 
 # Azure Active Directory 액세스 제어를 사용하여 웹 사용자를 인증하는 방법
 
@@ -58,7 +58,7 @@ ACS는 온-프레미스 또는 클라우드에서 실행되는 응용 프로그�
 
 다음 그림은 웹 응용 프로그램에서 ACS 인증이 작동하는 방식을 보여 줍니다.
 
-![][]
+![][0]
 
 1.  클라이언트(이 경우 브라우저)가 RP의 페이지를 요청합니다.
 2.  요청이 아직 인증되지 않았으므로 RP가 사용자를 신뢰하는 기관,
@@ -371,7 +371,7 @@ ACS 기능을 자세히 살펴보고 추가 시나리오를 실험하려면 [액
   [ID 공급자 추가]: #add-IP
   [다음 작업]: #whats-next
   [액세스 제어 서비스 2.0]: http://go.microsoft.com/fwlink/?LinkID=212360
-  []: ./media/active-directory-dotnet-how-to-use-access-control/acs-01.png
+  [0]: ./media/active-directory-dotnet-how-to-use-access-control/acs-01.png
   [ID 및 액세스 도구]: http://go.microsoft.com/fwlink/?LinkID=245849
   [Azure 관리 포털]: http://manage.WindowsAzure.com
   [1]: ./media/active-directory-dotnet-how-to-use-access-control/acsCreateNamespace.png

@@ -1,6 +1,6 @@
 <properties linkid="manage-services-hdinsight-get-started-hdinsight-hadoop" urlDisplayName="Get Started" pageTitle="Get started using Hadoop in HDInsight | Azure" metaKeywords="" description="Get started using Hadoop in HDInsight, a big data solution. Learn how to provision clusters, run hive jobs, and output data to Excel for analysis." metaCanonical="" services="hdinsight" documentationCenter="" title="Get started using Hadoop in HDInsight" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao" />
 
 # HDInsight에서 Hadoop 1.2 사용 시작
 
@@ -201,15 +201,12 @@ Excel의 파워 쿼리 추가 기능을 사용하여 HDInsight의 출력을 Exce
 -   [HDInsight용 C# Hadoop 스트리밍 프로그램 개발][HDInsight용 C# Hadoop 스트리밍 프로그램 개발]
 -   [HDInsight용 Java MapReduce 프로그램 개발][HDInsight용 Java MapReduce 프로그램 개발]
 
-  [Hadoop 2.2]: ../hdinsight-get-started "HDInsight에서 Hadoop 2.2 사용 시작"
-  [Hadoop 2.4]: ../hdinsight-get-started-31 "HDInsight에서 Hadoop 2.4 사용 시작"
-  [Hadoop 1.2]: ../hdinsight-get-started-21 "HDInsight에서 Hadoop 1.2 사용 시작"
   [Apache Hadoop]: http://hadoop.apache.org/
   [HDInsight에서 제공하는 클러스터 버전의 새로운 기능]: ../hdinsight-component-versioning/
   [HDInsight Emulator 시작]: ../hdinsight-get-started-emulator/
-  [구매 옵션]: http://azure.microsoft.com/ko--kr/pricing/purchase-options/
-  [구성원 제공 항목]: http://azure.microsoft.com/ko--kr/pricing/member-offers/
-  [무료 평가판]: http://azure.microsoft.com/ko--kr/pricing/free-trial/
+  [구매 옵션]: http://azure.microsoft.com/ko-kr/pricing/purchase-options/
+  [구성원 제공 항목]: http://azure.microsoft.com/ko-kr/pricing/member-offers/
+  [무료 평가판]: http://azure.microsoft.com/ko-kr/pricing/free-trial/
   [HDInsight 클러스터 프로비전]: #provision
   [Hive 작업 실행]: #sample
   [Microsoft 비즈니스 인텔리전스 도구에 연결]: #powerquery
@@ -224,7 +221,7 @@ Excel의 파워 쿼리 추가 기능을 사용하여 HDInsight의 출력을 Exce
   [hdi.dashboard]: ./media/hdinsight-get-started/HDI.dashboard.png
   [hdi.dashboard.query.select]: ./media/hdinsight-get-started/HDI.dashboard.query.select.png
   [hdi.dashboard.query.select.result]: ./media/hdinsight-get-started/HDI.dashboard.query.select.result.png
-  [Microsoft 다운로드 센터]: http://www.microsoft.com/ko--kr/download/details.aspx?id=39379
+  [Microsoft 다운로드 센터]: http://www.microsoft.com/ko-kr/download/details.aspx?id=39379
   [HDI.GettingStarted.PowerQuery.ImportData]: ./media/hdinsight-get-started/HDI.GettingStarted.PowerQuery.ImportData.png
   [HDI.GettingStarted.PowerQuery.ImportData2]: ./media/hdinsight-get-started/HDI.GettingStarted.PowerQuery.ImportData2.png
   [PowerShell을 사용하여 HDInsight 관리]: ../hdinsight-administer-use-powershell/

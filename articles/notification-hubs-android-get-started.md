@@ -1,6 +1,6 @@
 <properties linkid="develop-notificationhubs-tutorials-get-started-android" urlDisplayName="Get Started" pageTitle="Get Started with Azure Notification Hubs" metaKeywords="" description="Learn how to use Azure Notification Hubs to push notifications." metaCanonical="" services="notification-hubs" documentationCenter="Mobile" title="Get started with Notification Hubs" authors="ricksal" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal"></tags>
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal" />
 
 # 알림 허브 시작
 
@@ -11,18 +11,18 @@
 
 이 자습서에서는 푸시 알림을 사용하도록 설정하는 다음 기본 단계를 차례로 안내합니다.
 
--   [Google Cloud Messaging 사용][]
--   [알림 허브 구성][]
--   [알림 허브에 앱 연결][]
--   [앱에 알림을 보내는 방법][]
--   [앱 테스트][]
+-   [Google Cloud Messaging 사용][Google Cloud Messaging 사용]
+-   [알림 허브 구성][알림 허브 구성]
+-   [알림 허브에 앱 연결][알림 허브에 앱 연결]
+-   [앱에 알림을 보내는 방법][앱에 알림을 보내는 방법]
+-   [앱 테스트][앱 테스트]
 
 이 자습서에서는 알림 허브를 사용하는 간단한 브로드캐스트 시나리오를 보여 줍니다. 알림 허브를 사용하여 장치의 특정 사용자 및 그룹을 처리하는 방법을 알아보려면 다음 자습서도 함께 완료해야 합니다.
 
 이 자습서를 사용하려면 다음이 필요합니다.
 
--   Android SDK(Eclipse를 사용하는 것으로 가정) - [여기][]에서 다운로드 가능
--   [모바일 서비스 Android SDK][]
+-   Android SDK(Eclipse를 사용하는 것으로 가정) - [여기][여기]에서 다운로드 가능
+-   [모바일 서비스 Android SDK][모바일 서비스 Android SDK]
 
 이 자습서를 완료해야 다른 모든 Android 앱용 알림 허브 자습서를 진행할 수 있습니다.
 
@@ -30,17 +30,17 @@
 
 ## <span id="register"></span></a>Google Cloud Messaging 사용
 
-[WACOM.INCLUDE [GCM 사용][]]
+[WACOM.INCLUDE [GCM 사용](../includes/mobile-services-enable-Google-cloud-messaging.md)]
 
 다음에는 이 API 키 값을 사용하여 알림 허브에서 GCM의 인증을 받고 응용 프로그램 대신 푸시 알림을 보낼 수 있게 합니다.
 
 ## <span id="configure-hub"></span></a>알림 허브 구성
 
-1.  [Azure 관리 포털][]에 로그온하고 화면 맨 아래에 있는 **+새로 만들기**를 클릭합니다.
+1.  [Azure 관리 포털][Azure 관리 포털]에 로그온하고 화면 맨 아래에 있는 **+새로 만들기**를 클릭합니다.
 
 2.  **앱 서비스**, **Service Bus**, **알림 허브**, **빠른 생성**을 차례로 클릭합니다.
 
-    ![][]
+    ![][0]
 
 3.  알림 허브의 이름을 입력하고 원하는 지역을 선택한 후 **새 알림 허브 만들기**를 클릭합니다.
 
@@ -76,13 +76,13 @@
 
 ### 프로젝트에 Google Play Services 추가
 
-[WACOM.INCLUDE [Play Services 추가][]]
+[WACOM.INCLUDE [Play Services 추가](../includes/mobile-services-add-Google-play-services.md)]
 
 ### 코드 추가
 
 1.  알림 허브 Android SDK를 [여기][모바일 서비스 Android SDK]에서 다운로드합니다. .zip 파일의 압축을 풀고 Package Explorer에서 notificationhubs\\notification-hubs-0.1.jar 파일을 프로젝트의 \\libs 디렉터리로 복사합니다.
 
-2.  [모바일 서비스 Android SDK][]를 다운로드하여 압축을 풀고 **notifications** 폴더를 연 후 **notifications-1.0.1.jar** 파일을 Eclipse 프로젝트의 *libs* 폴더로 복사하고 *libs* 폴더를 새로 고칩니다.
+2.  [모바일 서비스 Android SDK][모바일 서비스 Android SDK]를 다운로드하여 압축을 풀고 **notifications** 폴더를 연 후 **notifications-1.0.1.jar** 파일을 Eclipse 프로젝트의 *libs* 폴더로 복사하고 *libs* 폴더를 새로 고칩니다.
 
     <div class="dev-callout"><b>참고</b>
 <p>후속 SDK 릴리스에서는 파일 이름 끝에 있는 숫자가 변경될 수도 있습니다.</p>
@@ -214,7 +214,7 @@
 
 ## <a name="send"></a>앱에 알림을 보내는 방법
 
-[REST 인터페이스][]를 사용하는 모든 백 엔드에서 알림 허브를 사용하여 알림을 보낼 수 있습니다. 이 자습서에서는 .NET 콘솔 응용 프로그램을 사용하여 알림을 보냅니다. 알림 허브와 통합된 Azure 모바일 서비스 백 엔드에서 알림을 보내는 방법에 대한 예는 **모바일 서비스에서 푸시 알림 시작**([.NET 백 엔드][] | [JavaScript 백 엔드][.NET 백 엔드])을 참조하세요. REST API를 사용하여 알림을 보내는 방법에 대한 예는 **Java/PHP에서 알림 허브를 사용하는 방법**([Java][] | [PHP][])을 참조하세요.
+[REST 인터페이스][REST 인터페이스]를 사용하는 모든 백 엔드에서 알림 허브를 사용하여 알림을 보낼 수 있습니다. 이 자습서에서는 .NET 콘솔 응용 프로그램을 사용하여 알림을 보냅니다. 알림 허브와 통합된 Azure 모바일 서비스 백 엔드에서 알림을 보내는 방법에 대한 예는 **모바일 서비스에서 푸시 알림 시작**([.NET 백 엔드][.NET 백 엔드] | [JavaScript 백 엔드][.NET 백 엔드])을 참조하세요. REST API를 사용하여 알림을 보내는 방법에 대한 예는 **Java/PHP에서 알림 허브를 사용하는 방법**([Java][Java] | [PHP][PHP])을 참조하세요.
 
 1.  Visual Studio의 **파일** 메뉴에서 **새로 만들기**, **프로젝트...**를 차례로 선택하고 **Visual C#** 아래에서 **Windows**, **콘솔 응용 프로그램**, **확인**을 차례로 클릭합니다.
 
@@ -230,7 +230,7 @@
 
         Install-Package WindowsAzure.ServiceBus
 
-    이 명령은 [WindowsAzure.ServiceBus NuGet 패키지][]를 사용하여 Azure 서비스 버스 SDK에 대한 참조를 추가합니다.
+    이 명령은 [WindowsAzure.ServiceBus NuGet 패키지][WindowsAzure.ServiceBus NuGet 패키지]를 사용하여 Azure 서비스 버스 SDK에 대한 참조를 추가합니다.
 
 4.  Program.cs 파일을 열고 다음 `using` 문을 추가합니다.
 
@@ -285,17 +285,10 @@
 
 ## <a name="next-steps"> </a>다음 단계
 
-이 간단한 예제에서는 모든 Android 장치로 알림을 브로드캐스트합니다. 특정 사용자에게만 알림을 보내려면 [알림 허브를 사용하여 사용자에게 알림 푸시][] 자습서를 참조하십시오. 사용자를 관심 그룹별로 분할하려면 [알림 허브를 사용하여 뉴스 속보 보내기][]를 참조하십시오. [알림 허브 지침][]에서 알림 허브 사용 방법을 자세히 알아보십시오.
+이 간단한 예제에서는 모든 Android 장치로 알림을 브로드캐스트합니다. 특정 사용자에게만 알림을 보내려면 [알림 허브를 사용하여 사용자에게 알림 푸시][알림 허브를 사용하여 사용자에게 알림 푸시] 자습서를 참조하십시오. 사용자를 관심 그룹별로 분할하려면 [알림 허브를 사용하여 뉴스 속보 보내기][알림 허브를 사용하여 뉴스 속보 보내기]를 참조하십시오. [알림 허브 지침][알림 허브 지침]에서 알림 허브 사용 방법을 자세히 알아보십시오.
 
 
 
-  [Windows 범용]: /ko-KR/documentation/articles/notification-hubs-windows-store-dotnet-get-started/ "Windows 범용"
-  [Windows Phone]: /ko-KR/documentation/articles/notification-hubs-windows-phone-get-started/ "Windows Phone"
-  [iOS]: /ko-KR/documentation/articles/notification-hubs-ios-get-started/ "iOS"
-  [Android]: /ko-KR/documentation/articles/notification-hubs-android-get-started/ "Android"
-  [Kindle]: /ko-KR/documentation/articles/notification-hubs-kindle-get-started/ "Kindle"
-  [Xamarin.iOS]: /ko-KR/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/ "Xamarin.iOS"
-  [Xamarin.Android]: /ko-KR/documentation/articles/partner-xamarin-notification-hubs-android-get-started/ "Xamarin.Android"
   [Google Cloud Messaging 사용]: #register
   [알림 허브 구성]: #configure-hub
   [알림 허브에 앱 연결]: #connecting-app
@@ -303,10 +296,9 @@
   [앱 테스트]: #run-app
   [여기]: http://go.microsoft.com/fwlink/?LinkId=389797
   [모바일 서비스 Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
-  [Azure 무료 평가판]: http://www.windowsazure.com/ko-KR/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fko-KR%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F
   [GCM 사용]: ../includes/mobile-services-enable-Google-cloud-messaging.md
   [Azure 관리 포털]: https://manage.windowsazure.com/
-  []: ./media/notification-hubs-android-get-started/notification-hub-create-from-portal.png
+  [0]: ./media/notification-hubs-android-get-started/notification-hub-create-from-portal.png
   [1]: ./media/notification-hubs-android-get-started/notification-hub-create-from-portal2.png
   [2]: ./media/notification-hubs-android-get-started/notification-hub-select-from-portal.png
   [3]: ./media/notification-hubs-android-get-started/notification-hub-select-from-portal2.png

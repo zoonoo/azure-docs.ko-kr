@@ -1,6 +1,6 @@
 <properties linkid="manage-services-hdinsight-howto-social-data" urlDisplayName="Analyze Twitter data with HDInsight Hadoop" pageTitle="Analyze Twitter data with Hadoop in HDInsight | Azure" metaKeywords="" description="Learn how to use Hive to analyze Twitter data on Hadoop in HDInsight to find the usage frequency of a particular word." metaCanonical="" services="HDInsight" documentationCenter="" title="Analyze Twitter data with Hadoop in HDInsight" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao" />
 
 # HDInsight의 Hadoop에서 Twitter 데이터 분석
 
@@ -12,17 +12,17 @@ HDInsight에서 Hive를 사용하여 Hadoop으로 Twitter 데이터를 분석하
 
 ##이 문서에서는 다음을 수행합니다.
 
-- [필수 조건][]
-- [Twitter 피드 가져오기][]
-- [HiveQL 스크립트 만들기][]
-- [Hive를 사용하여 데이터 처리][]
-- [자습서 정리][]
-- [다음 단계][]
+- [필수 조건][필수 조건]
+- [Twitter 피드 가져오기][Twitter 피드 가져오기]
+- [HiveQL 스크립트 만들기][HiveQL 스크립트 만들기]
+- [Hive를 사용하여 데이터 처리][Hive를 사용하여 데이터 처리]
+- [자습서 정리][자습서 정리]
+- [다음 단계][다음 단계]
 
 ##<a id="prerequisites"></a>필수 조건
 이 자습서를 시작하기 전에 다음이 있어야 합니다.
 
-- Azure PowerShell이 설치 및 구성된 **워크스테이션**. 자세한 내용은 [Azure PowerShell 설치 및 구성][]을 참조하세요. PowerShell 스크립트를 실행하려면 관리자로 Azure PowerShell을 실행하고 실행 정책을 *RemoteSigned*로 설정해야 합니다. [Windows PowerShell 스크립트 실행][](영문)을 참조하세요.
+- Azure PowerShell이 설치 및 구성된 **워크스테이션**. 자세한 내용은 [Azure PowerShell 설치 및 구성][Azure PowerShell 설치 및 구성]을 참조하세요. PowerShell 스크립트를 실행하려면 관리자로 Azure PowerShell을 실행하고 실행 정책을 *RemoteSigned*로 설정해야 합니다. [Windows PowerShell 스크립트 실행][Windows PowerShell 스크립트 실행](영문)을 참조하세요.
 
     PowerShell 스크립트를 실행하기 전에 cmdlet을 사용하여 Azure 구독에 연결되어 있는지 확인합니다.
 
@@ -34,7 +34,7 @@ HDInsight에서 Hive를 사용하여 Hadoop으로 Twitter 데이터를 분석하
 
 
 
-- **Azure HDInsight 클러스터**. 클러스터 프로비전에 대한 자세한 내용은 [HDInsight 사용 시작][] 또는 [HDInsight 클러스터 프로비전][]을 참조하세요. 자습서를 완료하려면 다음 데이터가 필요합니다.
+- **Azure HDInsight 클러스터**. 클러스터 프로비전에 대한 자세한 내용은 [HDInsight 사용 시작][HDInsight 사용 시작] 또는 [HDInsight 클러스터 프로비전][HDInsight 클러스터 프로비전]을 참조하세요. 자습서를 완료하려면 다음 데이터가 필요합니다.
 
 	<table border="1">
 	<tr><th>클러스터 속성</th><th>PowerShell variable name</th><th>값</th><th>설명</th></tr>
@@ -45,9 +45,9 @@ HDInsight에서 Hive를 사용하여 Hadoop으로 Twitter 데이터를 분석하
 
 **HDInsight 저장소 이해**
 
-HDInsight는 데이터 저장소로 Azure Blob 저장소를 사용합니다. 이를 *WASB* 또는 *Azure 저장소 - Blob*이라고 합니다. WASB는 Azure Blob 저장소에 구현한 Microsoft의 HDFS입니다. 자세한 내용은 [HDInsight에서 Azure Blob 저장소 사용][]을 참조하세요.
+HDInsight는 데이터 저장소로 Azure Blob 저장소를 사용합니다. 이를 *WASB* 또는 *Azure 저장소 - Blob*이라고 합니다. WASB는 Azure Blob 저장소에 구현한 Microsoft의 HDFS입니다. 자세한 내용은 [HDInsight에서 Azure Blob 저장소 사용][HDInsight에서 Azure Blob 저장소 사용]을 참조하세요.
 
-HDInsight 클러스터를 프로비전하면 HDFS의 경우처럼 Blob 저장소 컨테이너가 기본 파일로 지정됩니다. 프로비전 프로세스 중에 이 컨테이너 외에도 동일한 Azure 저장소 계정 또는 다른 Azure 저장소 계정에서 컨테이너를 추가할 수 있습니다. 저장소 계정 추가에 대한 지침은 [HDInsight 클러스터 프로비전][]을 참조하세요.
+HDInsight 클러스터를 프로비전하면 HDFS의 경우처럼 Blob 저장소 컨테이너가 기본 파일로 지정됩니다. 프로비전 프로세스 중에 이 컨테이너 외에도 동일한 Azure 저장소 계정 또는 다른 Azure 저장소 계정에서 컨테이너를 추가할 수 있습니다. 저장소 계정 추가에 대한 지침은 [HDInsight 클러스터 프로비전][HDInsight 클러스터 프로비전]을 참조하세요.
 
 이 자습서에서 사용되는 PowerShell 스크립트를 간소화하기 위해 모든 파일이 */tutorials/twitter*에 위치한 기본 파일 시스템 컨테이너에 저장됩니다. 기본적으로 이 컨테이너 이름은 HDInsight 클러스터 이름과 동일합니다.
 
@@ -57,7 +57,7 @@ WASB 구문은 다음과 같습니다.
 
 > [WACOM.NOTE] HDInsight 클러스터 버전 3.0에서는 *wasb://* 구문만 지원됩니다. 이전 *asv://* 구문은 HDInsight 2.1 및 1.6 클러스터에서 지원되지만 HDInsight 3.0 클러스터에서는 지원되지 않으며 이후 버전에서도 지원되지 않을 것입니다.
 
-> WASB 경로는 가상 경로입니다. 자세한 내용은 [HDInsight에서 Azure Blob 저장소 사용][]을 참조하세요.
+> WASB 경로는 가상 경로입니다. 자세한 내용은 [HDInsight에서 Azure Blob 저장소 사용][HDInsight에서 Azure Blob 저장소 사용]을 참조하세요.
 
 기본 파일 시스템 컨테이너에 저장된 파일의 경우 HDInsight에서 다음 URI를 사용하여 이 파일에 액세스할 수 있습니다(tweets.txt를 예로 사용함).
 
@@ -81,11 +81,11 @@ WASB 구문은 다음과 같습니다.
 
 ## <a id="feed"></a>Twitter 피드 가져오기
 
-이 자습서에는 [Twitter 스트리밍 API][](영문)를 사용합니다. 사용할 특정 Twitter 스트리밍 API는 [상태/필터][](영문)입니다.
+이 자습서에는 [Twitter 스트리밍 API][Twitter 스트리밍 API](영문)를 사용합니다. 사용할 특정 Twitter 스트리밍 API는 [상태/필터][상태/필터](영문)입니다.
 
-[트윗 데이터][](영문)는 복잡한 중첩 구조를 포함하는 JSon 형식으로 저장됩니다. 기존의 프로그래밍 언어를 사용하여 여러 줄의 코드를 작성하는 대신, 이 중첩 구조를 Hive 테이블로 변환하여 HiveQL이라고 하는 SQL 같은 언어로 쿼리할 수 있습니다.
+[트윗 데이터][트윗 데이터](영문)는 복잡한 중첩 구조를 포함하는 JSon 형식으로 저장됩니다. 기존의 프로그래밍 언어를 사용하여 여러 줄의 코드를 작성하는 대신, 이 중첩 구조를 Hive 테이블로 변환하여 HiveQL이라고 하는 SQL 같은 언어로 쿼리할 수 있습니다.
 
-Twitter는 OAuth를 사용하여 API에 대한 권한 있는 액세스를 제공합니다. OAuth은 사용자가 암호를 공유하지 않아도 사용자를 대신하여 응용 프로그램 작동을 승인할 수 있게 하는 인증 프로토콜입니다. 자세한 내용은 [oauth.net][](영문) 또는 Hueniverse가 제공하는 유용한 [OAuth 초보자 가이드][](영문)를 참조하세요.
+Twitter는 OAuth를 사용하여 API에 대한 권한 있는 액세스를 제공합니다. OAuth은 사용자가 암호를 공유하지 않아도 사용자를 대신하여 응용 프로그램 작동을 승인할 수 있게 하는 인증 프로토콜입니다. 자세한 내용은 [oauth.net][oauth.net](영문) 또는 Hueniverse가 제공하는 유용한 [OAuth 초보자 가이드][OAuth 초보자 가이드](영문)를 참조하세요.
 
 OAuth를 사용하는 첫 단계는 Twitter 개발자 사이트에서 새 응용 프로그램을 만드는 것입니다.
 
@@ -108,13 +108,13 @@ OAuth를 사용하는 첫 단계는 Twitter 개발자 사이트에서 새 응용
 8. 페이지의 오른쪽 위 모서리에서 **Test OAuth**를 클릭합니다.
 9. **consumer key**, **Consumer secret**, **Access token** 및 **Access token secret**을 기록해 둡니다. 이 값은 자습서의 뒷부분에서 필요합니다.
 
-이 자습서에서는 PowerShell을 사용하여 웹 서비스를 호출합니다. 웹 서비스 호출에 많이 사용되는 다른 도구는 [*Curl*][]입니다. Curl은 [여기][](영문)에서 다운로드할 수 있습니다.
+이 자습서에서는 PowerShell을 사용하여 웹 서비스를 호출합니다. 웹 서비스 호출에 많이 사용되는 다른 도구는 [*Curl*][*Curl*]입니다. Curl은 [여기][여기](영문)에서 다운로드할 수 있습니다.
 
 > [WACOM.NOTE] Windows에서 curl 명령을 사용할 때는 옵션 값에 작은따옴표 대신 큰따옴표를 사용합니다.
 
 **트윗을 가져오려면**
 
-1. Windows PowerShell ISE를 엽니다. Windows 8 시작 화면에서 **PowerShell\_ISE**를 입력한 후 **Windows PowerShell ISE**를 클릭하면 됩니다. [Windows 8 및 Windows에서 Windows PowerShell 시작][](영문)을 참조하세요.
+1. Windows PowerShell ISE를 엽니다. Windows 8 시작 화면에서 **PowerShell\_ISE**를 입력한 후 **Windows PowerShell ISE**를 클릭하면 됩니다. [Windows 8 및 Windows에서 Windows PowerShell 시작][Windows 8 및 Windows에서 Windows PowerShell 시작](영문)을 참조하세요.
 
 2. 스크립트 창에서 다음 스크립트를 복사합니다.
 
@@ -240,7 +240,7 @@ OAuth를 사용하는 첫 단계는 Twitter 개발자 사이트에서 새 응용
 4. **F5** 키를 눌러 스크립트를 실행합니다. 문제가 발생하는 경우 해결하려면 모든 줄을 선택하고 **F8** 키를 누릅니다.
 5. 출력 끝부분에 "Complete!"가 표시됩니다. 오류 메시지는 빨간색으로 표시됩니다.
 
-유효성 검사 절차로, Azure 저장소 탐색기 또는 Azure PowerShell을 사용하여 Azure Blob 저장소에서 출력 파일 **/tutorials/twitter/data/tweets.txt**를 확인할 수 있습니다. 파일을 나열하는 샘플 PowerShell 스크립트를 보려면 [HDInsight에서 Blob 저장소 사용][]을 참조하세요.
+유효성 검사 절차로, Azure 저장소 탐색기 또는 Azure PowerShell을 사용하여 Azure Blob 저장소에서 출력 파일 **/tutorials/twitter/data/tweets.txt**를 확인할 수 있습니다. 파일을 나열하는 샘플 PowerShell 스크립트를 보려면 [HDInsight에서 Blob 저장소 사용][HDInsight에서 Blob 저장소 사용]을 참조하세요.
 
 
 
@@ -251,7 +251,7 @@ Azure PowerShell을 사용하여 여러 HiveQL 문을 한 번에 하나씩 실�
 HiveQL 스크립트는 다음을 수행합니다.
 
 1. 이미 있는 경우 **tweets_raw 테이블을 삭제**합니다.
-2. **tweets_raw Hive 테이블을 만듭니다**. 이 임시 Hive 구조적 테이블에는 추가 ETL 처리를 위한 데이터가 저장됩니다. 파티션에 대한 자세한 내용은 [Hive 자습서][](영문)을 참조하세요.
+2. **tweets_raw Hive 테이블을 만듭니다**. 이 임시 Hive 구조적 테이블에는 추가 ETL 처리를 위한 데이터가 저장됩니다. 파티션에 대한 자세한 내용은 [Hive 자습서][Hive 자습서](영문)을 참조하세요.
 3. 원본 폴더인 /tutorials/twitter/data에서 **데이터를 로드**합니다. 이제 중첩 JSon 형식의 대량 트윗 데이터 집합이 임시 Hive 테이블 구조로 변환되었습니다.
 4. 이미 있는 경우 **tweets 테이블을 삭제**합니다.
 5. **tweets 테이블을 만듭니다**. Hive를 사용하여 트윗 데이터 집합에 대해 쿼리하려면 먼저, 다른 ETL 프로세스를 실행해야 합니다. 이 ETL 프로세스는 "twitter\_raw" 테이블에 저장한 데이터에 대해 더욱 자세한 테이블 스키마를 정의합니다.
@@ -427,7 +427,7 @@ HiveQL 스크립트는 다음을 수행합니다.
 4. **F5** 키를 눌러 스크립트를 실행합니다. 문제가 발생하는 경우 해결하려면 모든 줄을 선택하고 **F8** 키를 누릅니다.
 5. 출력 끝부분에 "Complete!"가 표시됩니다. 오류 메시지는 빨간색으로 표시됩니다.
 
-유효성 검사 절차로, Azure 저장소 탐색기 또는 Azure PowerShell을 사용하여 Azure Blob 저장소에서 출력 파일 **/tutorials/twitter/twitter.hql**을 확인할 수 있습니다. 파일을 나열하는 샘플 PowerShell 스크립트를 보려면 [HDInsight에서 Blob 저장소 사용][]을 참조하세요.
+유효성 검사 절차로, Azure 저장소 탐색기 또는 Azure PowerShell을 사용하여 Azure Blob 저장소에서 출력 파일 **/tutorials/twitter/twitter.hql**을 확인할 수 있습니다. 파일을 나열하는 샘플 PowerShell 스크립트를 보려면 [HDInsight에서 Blob 저장소 사용][HDInsight에서 Blob 저장소 사용]을 참조하세요.
 
 
 ## <a name="process"></a> Hive를 사용하여 Twitter 데이터 처리
@@ -473,24 +473,24 @@ HiveQL 스크립트는 다음을 수행합니다.
 
 > [WACOM.NOTE] Hive 테이블은 필드 구분 기호로 \\001을 사용합니다. 구분 기호는 출력에서 보이지 않습니다.
 
-분석 결과가 WASB에 배치된 후에는 데이터를 Azure SQL 데이터베이스/SQL Server로 내보내거나, Power Query를 사용하여 데이터를 Excel로 내보내거나, Hive ODBC 드라이버를 사용하여 응용 프로그램을 데이터에 연결할 수 있습니다. 자세한 내용은 [HDInsight에서 Sqoop 사용][], [HDInsight를 사용하여 비행 지연 데이터 분석][], [HDInsight에 파워 쿼리로 Excel 연결][] 및 [HDInsight에 Microsoft Hive ODBC 드라이버로 Excel 연결][]을 참조하세요.
+분석 결과가 WASB에 배치된 후에는 데이터를 Azure SQL 데이터베이스/SQL Server로 내보내거나, Power Query를 사용하여 데이터를 Excel로 내보내거나, Hive ODBC 드라이버를 사용하여 응용 프로그램을 데이터에 연결할 수 있습니다. 자세한 내용은 [HDInsight에서 Sqoop 사용][HDInsight에서 Sqoop 사용], [HDInsight를 사용하여 비행 지연 데이터 분석][HDInsight를 사용하여 비행 지연 데이터 분석], [HDInsight에 파워 쿼리로 Excel 연결][HDInsight에 파워 쿼리로 Excel 연결] 및 [HDInsight에 Microsoft Hive ODBC 드라이버로 Excel 연결][HDInsight에 Microsoft Hive ODBC 드라이버로 Excel 연결]을 참조하세요.
 
 
 ## <a id="cleanup"></a>자습서 정리
 
 자습서를 다시 실행하려는 경우 다음 항목이 필요합니다.
 
-- **트윗 데이터 파일을 다시 만듭니다**. 원본 트윗 데이터 파일이 Hive 작업에 의해 제거되었습니다. 새로 생성해야 합니다. 파일 이름은 **tutorials/twitter/data/tweets.txt**입니다. [Twitter 피드 가져오기][]를 참조하세요.
+- **트윗 데이터 파일을 다시 만듭니다**. 원본 트윗 데이터 파일이 Hive 작업에 의해 제거되었습니다. 새로 생성해야 합니다. 파일 이름은 **tutorials/twitter/data/tweets.txt**입니다. [Twitter 피드 가져오기][Twitter 피드 가져오기]를 참조하세요.
 
 ## <a id="nextsteps"></a>다음 단계
 
 이 자습서에서는 비구조적 Json 데이터 집합을 구조적 Hive 테이블로 변환해서 Azure의 HDInsight를 사용하여 Twitter 데이터를 쿼리하고 탐색하고 분석하는 방법에 대해 살펴보았습니다. 자세한 내용은 다음을 참조하세요.
 
 - [HDInsight 시작][HDInsight 사용 시작]
-- [HDInsight를 사용하여 비행 지연 데이터 분석][]
-- [HDInsight에 파워 쿼리로 Excel 연결][]
-- [HDInsight에 Microsoft Hive ODBC 드라이버로 Excel 연결][]
-- [HDInsight에서 Sqoop 사용][]
+- [HDInsight를 사용하여 비행 지연 데이터 분석][HDInsight를 사용하여 비행 지연 데이터 분석]
+- [HDInsight에 파워 쿼리로 Excel 연결][HDInsight에 파워 쿼리로 Excel 연결]
+- [HDInsight에 Microsoft Hive ODBC 드라이버로 Excel 연결][HDInsight에 Microsoft Hive ODBC 드라이버로 Excel 연결]
+- [HDInsight에서 Sqoop 사용][HDInsight에서 Sqoop 사용]
 
   [필수 조건]: #prerequisites
   [Twitter 피드 가져오기]: #feed
@@ -499,7 +499,7 @@ HiveQL 스크립트는 다음을 수행합니다.
   [자습서 정리]: #cleanup
   [다음 단계]: #nextsteps
   [Azure PowerShell 설치 및 구성]: ../install-configure-powershell
-  [Windows PowerShell 스크립트 실행]: http://technet.microsoft.com/en-us/library/ee176949.aspx
+  [Windows PowerShell 스크립트 실행]: http://technet.microsoft.com/ko-kr/library/ee176949.aspx
   [HDInsight 사용 시작]: ../hdinsight-get-started/
   [HDInsight 클러스터 프로비전]: ../hdinsight-provision-clusters/
   [HDInsight에서 Azure Blob 저장소 사용]: ../hdinsight-use-blob-storage/
@@ -509,9 +509,8 @@ HiveQL 스크립트는 다음을 수행합니다.
   [oauth.net]: http://oauth.net/
   [OAuth 초보자 가이드]: http://hueniverse.com/oauth/
   []: https://apps.twitter.com/
-  [*Curl*]: http://curl.haxx.se
   [여기]: http://curl.haxx.se/download.html
-  [Windows 8 및 Windows에서 Windows PowerShell 시작]: http://technet.microsoft.com/en-us/library/hh847889.aspx
+  [Windows 8 및 Windows에서 Windows PowerShell 시작]: http://technet.microsoft.com/ko-kr/library/hh847889.aspx
   [HDInsight에서 Blob 저장소 사용]: ../hdinsight-use-blob-storage/#powershell
   [Hive 자습서]: https://cwiki.apache.org/confluence/display/Hive/Tutorial
   [HDInsight에서 Sqoop 사용]: ../hdinsight-use-sqoop/

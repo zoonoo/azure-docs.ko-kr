@@ -1,6 +1,6 @@
 <properties linkid="develop-net-how-to-guides-blitline-image-processing-service" urlDisplayName="Blitline Image Processing Service" pageTitle="How to use Blitline for image processing - Azure feature guide " metaKeywords="" description="Learn how to use the Blitline service to process images within an Azure application." metaCanonical="" services="" documentationCenter=".NET" title="How to use Blitline with Azure and Azure Storage" authors="pennij" solutions="" manager="" editor="" />
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="pennij"></tags>
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="pennij" />
 
 # Azure 및 Azure 저장소로 Blitline을 사용하는 방법
 
@@ -37,7 +37,7 @@ Blitline은 직접 빌드하는 비용보다 훨씬 저렴한 가격으로 엔�
 
 ## <span id="createaccount"></span></a>Blitline 계정 만들기
 
-[WACOM.INCLUDE [blitline-signup][blitline-signup]]
+[WACOM.INCLUDE [blitline-signup](../includes/blitline-signup.md)]
 
 ## <span id="createjob"></span></a>Blitline 작업을 만드는 방법
 
@@ -133,5 +133,4 @@ Blitline의 Azure 저장소 문서의 최신 버전을 [여기][여기]에서 �
   [다음 단계]: #nextsteps
   []: http://www.blitline.com
   [blitline-signup]: ../includes/blitline-signup.md
-  [https://s3.amazonaws.com/dev.blitline/2011110722/YOUR\\\_APP\\\_ID/CK3f0xBF\_2bV6wf7gEZE8w.jpg]: https://s3.amazonaws.com/dev.blitline/2011110722/YOUR\_APP\_ID/CK3f0xBF_2bV6wf7gEZE8w.jpg
   [여기]: http://www.blitline.com/docs/azure_storage

@@ -1,25 +1,25 @@
 <properties linkid="develop-java-how-to-twilio-sms-service" urlDisplayName="Twilio Voice/SMS Service" pageTitle="How to Use Twilio for Voice and SMS (Java) - Azure" metaKeywords="Twilio, Twilio API, phone calls, SMS message, TwiML responses, Azure Twilio Java" description="Learn how to make a phone call and send a SMS message with the Twilio API service on Azure. Code samples written in Java." metaCanonical="" services="" videoId="" scriptId="" documentationCenter="Java" title="How to Use Twilio for Voice and SMS Capabilities in Java" authors="MicrosoftHelp@twilio.com; robmcm" solutions="" manager="wpickett" editor="mollybos" />
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="MicrosoftHelp@twilio.com; robmcm"></tags>
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="MicrosoftHelp@twilio.com; robmcm" />
 
 # Java에서 음성 및 SMS 기능을 위해 Twilio를 사용하는 방법(영문)
 
-이 가이드에서는 Azure에서 Twilio API 서비스로 일반 프로그래밍 작업을 수행하는 방법을 보여 줍니다. 이 문서의 시나리오에서는 전화 통화를 걸고 SMS(Short Message Service) 메시지를 보냅니다. 응용 프로그램에서 음성 및 SMS 사용 방법과 Twilio에 대한 자세한 내용은 [다음 단계][] 섹션을 참조하십시오.
+이 가이드에서는 Azure에서 Twilio API 서비스로 일반 프로그래밍 작업을 수행하는 방법을 보여 줍니다. 이 문서의 시나리오에서는 전화 통화를 걸고 SMS(Short Message Service) 메시지를 보냅니다. 응용 프로그램에서 음성 및 SMS 사용 방법과 Twilio에 대한 자세한 내용은 [다음 단계][다음 단계] 섹션을 참조하십시오.
 
 ## 목차
 
--   [Twilio 정의][]
--   [Twilio 가격 책정][]
--   [개념][]
--   [Twilio 계정 만들기][]
--   [전화 번호 확인][]
--   [Java 응용 프로그램 만들기][]
--   [Twilio 라이브러리를 사용하도록 응용 프로그램 구성][]
--   [방법: 발신 전화 걸기][]
--   [방법: SMS 메시지 보내기][]
--   [방법: 고유한 웹 사이트에서 TwiML 응답 제공][]
--   [방법: 추가 Twilio 서비스 사용][]
--   [다음 단계][]
+-   [Twilio 정의][Twilio 정의]
+-   [Twilio 가격 책정][Twilio 가격 책정]
+-   [개념][개념]
+-   [Twilio 계정 만들기][Twilio 계정 만들기]
+-   [전화 번호 확인][전화 번호 확인]
+-   [Java 응용 프로그램 만들기][Java 응용 프로그램 만들기]
+-   [Twilio 라이브러리를 사용하도록 응용 프로그램 구성][Twilio 라이브러리를 사용하도록 응용 프로그램 구성]
+-   [방법: 발신 전화 걸기][방법: 발신 전화 걸기]
+-   [방법: SMS 메시지 보내기][방법: SMS 메시지 보내기]
+-   [방법: 고유한 웹 사이트에서 TwiML 응답 제공][방법: 고유한 웹 사이트에서 TwiML 응답 제공]
+-   [방법: 추가 Twilio 서비스 사용][방법: 추가 Twilio 서비스 사용]
+-   [다음 단계][다음 단계]
 
 ## <span id="WhatIs"></span></a>Twilio 정의
 
@@ -29,11 +29,11 @@ Twilio는 기존 웹 언어와 기술을 사용하여 음성 및 SMS 응용 프�
 
 ## <span id="Pricing"></span></a>Twilio 가격 책정 및 특별 제공
 
-Twilio 가격 책정 정보는 [Twilio 가격 책정][1]에서 확인할 수 있습니다. Azure 고객은 문자 1000개 또는 인바운드 1000분의 무료 크레딧을 제공하는 [특가 제공][]을 받을 수 있습니다. 이 제공에 등록하거나 추가 정보를 얻으려면 [][특가 제공]<http://ahoy.twilio.com/azure></a>를 방문하십시오.
+Twilio 가격 책정 정보는 [Twilio 가격 책정][1]에서 확인할 수 있습니다. Azure 고객은 문자 1000개 또는 인바운드 1000분의 무료 크레딧을 제공하는 [특가 제공][특가 제공]을 받을 수 있습니다. 이 제공에 등록하거나 추가 정보를 얻으려면 [][특가 제공]<http://ahoy.twilio.com/azure></a>를 방문하십시오.
 
 ## <span id="Concepts"></span></a>개념
 
-Twilio API는 응용 프로그램에 대한 음성 및 SMS 기능을 제공하는 RESTful API입니다. 클라이언트 라이브러리는 다양한 언어로 사용할 수 있습니다. 목록에 대해서는 [Twilio API 라이브러리][](영문)를 참조하세요.
+Twilio API는 응용 프로그램에 대한 음성 및 SMS 기능을 제공하는 RESTful API입니다. 클라이언트 라이브러리는 다양한 언어로 사용할 수 있습니다. 목록에 대해서는 [Twilio API 라이브러리][Twilio API 라이브러리](영문)를 참조하세요.
 
 Twilio API의 핵심 요소는 Twilio 동사와 TwiML(Twilio Markup Language)입니다.
 
@@ -67,26 +67,26 @@ TwiML은 Twilio에 통화 또는 SMS 처리 방법을 알려 주는 Twilio 동�
 
 응용 프로그램에서 Twilio API를 호출할 때 API 매개 변수 중 하나는 TwiML 응답을 반환하는 URL입니다. 개발을 위해서 Twilio 제공 URL을 사용하여 응용 프로그램에 사용되는 TwiML 응답을 제공할 수 있습니다. 또한 TwiML 응답을 생성하는 고유한 URL을 호스트할 수도 있고, **TwiMLResponse** 개체를 사용할 수도 있습니다.
 
-Twilio 동사, 특성 및 TwiML에 대한 자세한 내용은 [TwiML][](영문)을 참조하세요. Twilio API에 대한 자세한 내용은 [Twilio API][](영문)를 참조하세요.
+Twilio 동사, 특성 및 TwiML에 대한 자세한 내용은 [TwiML][TwiML](영문)을 참조하세요. Twilio API에 대한 자세한 내용은 [Twilio API][Twilio API](영문)를 참조하세요.
 
 ## <span id="CreateAccount"></span></a>Twilio 계정 만들기
 
-Twilio 계정을 사용할 준비가 되었다면 [Twilio 체험][](영문)에서 등록하세요. 무료 계정으로 시작했다가 나중에 계정을 업그레이드할 수 있습니다.
+Twilio 계정을 사용할 준비가 되었다면 [Twilio 체험][Twilio 체험](영문)에서 등록하세요. 무료 계정으로 시작했다가 나중에 계정을 업그레이드할 수 있습니다.
 
-Twilio 계정을 등록하면 계정 ID 및 인증 토큰을 받게 됩니다. 둘 다 Twilio API 통화를 하는 데 필요합니다. 계정에 대한 무단 액세스를 방지하려면 인증 토큰을 안전하게 유지하세요. 계정 ID 및 인증 토큰은 [Twilio 계정 페이지][](영문)의 **ACCOUNT SID** 및 **AUTH TOKEN**에서 각기 확인할 수 있습니다.
+Twilio 계정을 등록하면 계정 ID 및 인증 토큰을 받게 됩니다. 둘 다 Twilio API 통화를 하는 데 필요합니다. 계정에 대한 무단 액세스를 방지하려면 인증 토큰을 안전하게 유지하세요. 계정 ID 및 인증 토큰은 [Twilio 계정 페이지][Twilio 계정 페이지](영문)의 **ACCOUNT SID** 및 **AUTH TOKEN**에서 각기 확인할 수 있습니다.
 
 ## <span id="VerifyPhoneNumbers"></span></a>전화 번호 확인
 
-Twilio에서 계정에 대한 여러 전화 번호를 인증해야 합니다. 예를 들어 아웃바운드 통화를 하려는 경우 Twilio에서 전화 번호를 아웃바운드 발신자 번호로 확인해야 합니다. 마찬가지로, SMS 메시지를 받을 전화 번호를 원하는 경우 Twilio에서 수신 전화 번호를 확인해야 합니다. 전화 번호를 확인하는 방법에 대한 자세한 내용은 [번호 관리][](영문)를 참조하십시오. 아래 코드 중 일부는 Twilio에서 확인해야 하는 전화 번호를 사용합니다.
+Twilio에서 계정에 대한 여러 전화 번호를 인증해야 합니다. 예를 들어 아웃바운드 통화를 하려는 경우 Twilio에서 전화 번호를 아웃바운드 발신자 번호로 확인해야 합니다. 마찬가지로, SMS 메시지를 받을 전화 번호를 원하는 경우 Twilio에서 수신 전화 번호를 확인해야 합니다. 전화 번호를 확인하는 방법에 대한 자세한 내용은 [번호 관리][번호 관리](영문)를 참조하십시오. 아래 코드 중 일부는 Twilio에서 확인해야 하는 전화 번호를 사용합니다.
 
-응용 프로그램의 기존 번호를 사용하지 않고 Twilio 전화 번호를 구매할 수도 있습니다. Twilio 전화 번호를 구매하는 방법에 대해서는 [Twilio 전화 번호 도움말][](영문)을 참조하세요.
+응용 프로그램의 기존 번호를 사용하지 않고 Twilio 전화 번호를 구매할 수도 있습니다. Twilio 전화 번호를 구매하는 방법에 대해서는 [Twilio 전화 번호 도움말][Twilio 전화 번호 도움말](영문)을 참조하세요.
 
 ## <span id="create_app"></span></a>Java 응용 프로그램 만들기
 
 1.  Twilio JAR을 다운로드하여 Java 빌드 경로 및 WAR 배포 어셈블리에 추가합니다. [][]<https://github.com/twilio/twilio-java></a>(영문)에서 GitHub 원본을 다운로드한 후 고유한 JAR을 만들거나 종속성 포함 여부에 관계없이 미리 빌드된 JAR을 다운로드할 수 있습니다.
-2.  JDK의 **cacerts** keystore에 MD5 지문이 67:CB:9D:C0:13:24:8A:82:9B:B2:17:1E:D1:1B:EC:D4인 Equifax Secure Certificate Authority 인증서가 포함되어 있는지 확인합니다(일련 번호는 35:DE:F4:CF이고 SHA1 지문은 D2:32:09:AD:23:D3:14:23:21:74:E4:0D:7F:9D:62:13:97:86:63:3A임). 이 인증서는 Twilio API를 사용할 때 호출되는 [][2]<https://api.twilio.com></a>(영문) 서비스에 대한 CA(인증 기관) 인증서입니다. JDK의 **cacerts** keystore에 올바른 CA 인증서가 포함되어 있는지 확인하는 방법에 대한 자세한 내용은 [Java CA 인증서 저장소에 인증서 추가][]를 참조하십시오.
+2.  JDK의 **cacerts** keystore에 MD5 지문이 67:CB:9D:C0:13:24:8A:82:9B:B2:17:1E:D1:1B:EC:D4인 Equifax Secure Certificate Authority 인증서가 포함되어 있는지 확인합니다(일련 번호는 35:DE:F4:CF이고 SHA1 지문은 D2:32:09:AD:23:D3:14:23:21:74:E4:0D:7F:9D:62:13:97:86:63:3A임). 이 인증서는 Twilio API를 사용할 때 호출되는 [][2]<https://api.twilio.com></a>(영문) 서비스에 대한 CA(인증 기관) 인증서입니다. JDK의 **cacerts** keystore에 올바른 CA 인증서가 포함되어 있는지 확인하는 방법에 대한 자세한 내용은 [Java CA 인증서 저장소에 인증서 추가][Java CA 인증서 저장소에 인증서 추가]를 참조하십시오.
 
-Java용 Twilio 클라이언트 라이브러리 사용에 대한 자세한 지침은 [Azure의 Java 응용 프로그램에서 Twilio를 사용하여 전화를 거는 방법][]을 참조하십시오.
+Java용 Twilio 클라이언트 라이브러리 사용에 대한 자세한 지침은 [Azure의 Java 응용 프로그램에서 Twilio를 사용하여 전화를 거는 방법][Azure의 Java 응용 프로그램에서 Twilio를 사용하여 전화를 거는 방법]을 참조하십시오.
 
 ## <span id="configure_app"></span></a>Twilio 라이브러리를 사용하도록 응용 프로그램 구성
 
@@ -201,7 +201,7 @@ Twilio 제공 URL을 사용하지 않고 HTTP 응답을 반환하는 고유한 U
         <Say>Good bye.</Say>
     </Response>
 
-**ApiVersion** 매개 변수는 Twilio 음성 요청(SMS 요청 아님)에 사용할 수 있습니다. Twilio 음성 및 SMS 요청에 사용 가능한 요청 매개 변수를 보려면 각각 <https://www.twilio.com/docs/api/twiml/twilio_request> 및 <https://www.twilio.com/docs/api/twiml/sms/twilio_request>를 참조하세요. **RoleName** 환경 변수는 Azure 배포의 일부로 사용할 수 있습니다. **System.getenv**에서 선택될 수 있도록 사용자 지정 환경 변수를 추가하려면 [기타 역할 구성 설정][]의 환경 변수 섹션을 참조하십시오.
+**ApiVersion** 매개 변수는 Twilio 음성 요청(SMS 요청 아님)에 사용할 수 있습니다. Twilio 음성 및 SMS 요청에 사용 가능한 요청 매개 변수를 보려면 각각 <https://www.twilio.com/docs/api/twiml/twilio_request> 및 <https://www.twilio.com/docs/api/twiml/sms/twilio_request>를 참조하세요. **RoleName** 환경 변수는 Azure 배포의 일부로 사용할 수 있습니다. **System.getenv**에서 선택될 수 있도록 사용자 지정 환경 변수를 추가하려면 [기타 역할 구성 설정][기타 역할 구성 설정]의 환경 변수 섹션을 참조하십시오.
 
 JSP 페이지가 TwiML 응답을 제공하도록 설정된 경우 **CallFactory.create** 메서드에 전달되는 URL로 JSP 페이지의 URL을 사용합니다. 예를 들어 MyTwiML이라는 웹 응용 프로그램이 Azure 호스팅 서비스에 배포되어 있고 JSP 페이지의 이름이 mytwiml.jsp인 경우 다음과 같이 URL을 **CallFactory.create**에 전달할 수 있습니다.
 
@@ -226,11 +226,11 @@ Azure에서 Java와 함께 Twilio를 사용하는 방법에 대한 자세한 내
 
 Twilio 서비스에 관한 기본적인 사항들을 익혔으며 자세한 내용을 보려면 다음 링크를 따라가세요.
 
--   [Twilio 보안 지침(영문)][]
--   [Twilio 방법 및 예제 코드(영문)][]
--   [Twilio 빠른 시작 자습서(영문)][]
--   [Twilio on GitHub(영문)][]
--   [Twilio 지원 문의(영문)][]
+-   [Twilio 보안 지침(영문)][Twilio 보안 지침(영문)]
+-   [Twilio 방법 및 예제 코드(영문)][Twilio 방법 및 예제 코드(영문)]
+-   [Twilio 빠른 시작 자습서(영문)][Twilio 빠른 시작 자습서(영문)]
+-   [Twilio on GitHub(영문)][Twilio on GitHub(영문)]
+-   [Twilio 지원 문의(영문)][Twilio 지원 문의(영문)]
 
   [다음 단계]: #NextSteps
   [Twilio 정의]: #WhatIs
@@ -262,8 +262,3 @@ Twilio 서비스에 관한 기본적인 사항들을 익혔으며 자세한 내�
   [5]: http://twimlets.com/message
   [6]: http://twimlets.com/message?Message%5B0%5D=Hello%20World
   [기타 역할 구성 설정]: http://msdn.microsoft.com/ko-KR/library/windowsazure/hh690945.aspx
-  [Twilio 보안 지침(영문)]: http://www.twilio.com/docs/security
-  [Twilio 방법 및 예제 코드(영문)]: http://www.twilio.com/docs/howto
-  [Twilio 빠른 시작 자습서(영문)]: http://www.twilio.com/docs/quickstart
-  [Twilio on GitHub(영문)]: https://github.com/twilio
-  [Twilio 지원 문의(영문)]: http://www.twilio.com/help/contact

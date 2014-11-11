@@ -1,28 +1,28 @@
 <properties linkid="manage-services-notification-hubs-getting-started-xamarin-android" urlDisplayName="" pageTitle="Get started with Notification Hubs for Xamarin.Android apps" metaKeywords="" description="Learn how to use Azure Notification Hubs to send push notifications to a Xamarin Android application." metaCanonical="" authors="donnam" solutions="" manager="dwrede" editor="" services="mobile-services,notification-hubs" documentationCenter="" title="Get started with Notification Hubs" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-android" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="donnam"></tags>
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-android" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="donnam" />
 
 # 알림 허브 시작
 
 <div class="dev-center-tutorial-selector sublanding"><a href="/ko-KR/documentation/articles/notification-hubs-windows-store-dotnet-get-started/" title="Windows 범용">Windows 범용</a><a href="/ko-KR/documentation/articles/notification-hubs-windows-phone-get-started/" title="Windows Phone">Windows Phone</a><a href="/ko-KR/documentation/articles/notification-hubs-ios-get-started/" title="iOS">iOS</a><a href="/ko-KR/documentation/articles/notification-hubs-android-get-started/" title="Android">Android</a><a href="/ko-KR/documentation/articles/notification-hubs-kindle-get-started/" title="Kindle">Kindle</a><a href="/ko-KR/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/" title="Xamarin.iOS">Xamarin.iOS</a><a href="/ko-KR/documentation/articles/partner-xamarin-notification-hubs-android-get-started/" title="Xamarin.Android" class="current">Xamarin.Android</a></div>
 
 이 항목에서는 Azure 알림 허브를 사용하여 Xamarin.Android 응용 프로그램에 푸시 알림을 보내는 방법을 보여 줍니다.
-이 자습서에서는 GCM(Google Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Xamarin.Android 앱을 만듭니다. 완료하면 알림 허브를 사용하여 앱을 실행하는 모든 장치로 푸시 알림을 브로드캐스트할 수 있습니다. 완성된 코드는 [NotificationHubs 앱][] 샘플에서 확인할 수 있습니다.
+이 자습서에서는 GCM(Google Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Xamarin.Android 앱을 만듭니다. 완료하면 알림 허브를 사용하여 앱을 실행하는 모든 장치로 푸시 알림을 브로드캐스트할 수 있습니다. 완성된 코드는 [NotificationHubs 앱][NotificationHubs 앱] 샘플에서 확인할 수 있습니다.
 
 이 자습서에서는 푸시 알림을 사용하도록 설정하는 다음 기본 단계를 차례로 안내합니다.
 
-1.  [Google Cloud Messaging 사용][]
-2.  [알림 허브 구성][]
-3.  [알림 허브에 앱 연결][]
-4.  [에뮬레이터를 사용하여 앱 실행][]
-5.  [백 엔드에서 알림 보내기][]
+1.  [Google Cloud Messaging 사용][Google Cloud Messaging 사용]
+2.  [알림 허브 구성][알림 허브 구성]
+3.  [알림 허브에 앱 연결][알림 허브에 앱 연결]
+4.  [에뮬레이터를 사용하여 앱 실행][에뮬레이터를 사용하여 앱 실행]
+5.  [백 엔드에서 알림 보내기][백 엔드에서 알림 보내기]
 
 이 자습서에서는 알림 허브를 사용하는 간단한 브로드캐스트 시나리오를 보여 줍니다. 이 자습서를 사용하려면 다음이 필요합니다.
 
 -   [Xamarin.Android][1]
 -   활성 Google 계정
--   [Azure 모바일 서비스 구성 요소(영문)][]
--   [Google Cloud Messaging 구성 요소][]
+-   [Azure 모바일 서비스 구성 요소(영문)][Azure 모바일 서비스 구성 요소(영문)]
+-   [Google Cloud Messaging 구성 요소][Google Cloud Messaging 구성 요소]
 
 이 자습서를 완료해야 다른 모든 Xamarin.Android 앱용 알림 허브 자습서를 진행할 수 있습니다.
 
@@ -34,9 +34,9 @@
 <p>이 항목의 절차를 완료하려면 검증된 전자 메일 주소가 포함된 Google 계정이 있어야 합니다. 새 Google 계정을 만들려면 <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>으로 이동하십시오.</p>
 </div>
 
-1.  [Google apis][] 웹 사이트로 이동하여 Google 계정 자격 증명으로 로그인한 후 **Create project...**를 클릭합니다.
+1.  [Google apis][Google apis] 웹 사이트로 이동하여 Google 계정 자격 증명으로 로그인한 후 **Create project...**를 클릭합니다.
 
-   	![][]
+   	![][0]
 
     <div class="dev-callout"><b>참고</b>
 	<p>기존 프로젝트가 이미 있는 경우 로그인하면 <strong>Dashboard</strong> 페이지로 이동됩니다. Dashboard에서 새 프로젝트를 만들려면 <strong>API Project</strong>를 확장하고 <strong>Other projects</strong> 아래의 <strong>Create...</strong>를 클릭한 후 프로젝트 이름을 입력하고 <strong>Create project</strong>를 클릭합니다.</p>
@@ -46,7 +46,7 @@
 
     이 자습서 뒷부분에서 이 값을 클라이언트의 PROJECT\_ID 변수로 설정합니다.
 
-3.  [Google apis][] 페이지에서 **Services**를 클릭한 후 토글을 클릭하여 **Google Cloud Messaging for Android**를 사용하도록 설정하고 서비스 약관에 동의합니다.
+3.  [Google apis][Google apis] 페이지에서 **Services**를 클릭한 후 토글을 클릭하여 **Google Cloud Messaging for Android**를 사용하도록 설정하고 서비스 약관에 동의합니다.
 
 4.  **API Access**를 클릭한 후 **Create new Server key...**를 클릭합니다.
 
@@ -64,7 +64,7 @@
 
 ## <a name="configure-hub"></a><span class="short-header">알림 허브 구성</span>알림 허브 구성
 
-1.  [Azure 관리 포털][]에 로그온하고 화면 맨 아래에 있는 **+새로 만들기**를 클릭합니다.
+1.  [Azure 관리 포털][Azure 관리 포털]에 로그온하고 화면 맨 아래에 있는 **+새로 만들기**를 클릭합니다.
 
 2.  **앱 서비스**, **Service Bus**, **알림 허브**, **빠른 생성**을 차례로 클릭합니다.
 
@@ -129,7 +129,7 @@ Xamarin Component Store에서 제공되는 Google Cloud Messaging 클라이언�
 
 이 어셈블리는 Azure 알림 허브에 등록하는 간편한 방법을 제공합니다. 아래의 지침을 사용하여 다운로드하거나 [샘플 다운로드][NotificationHubs 앱]에서 찾을 수 있습니다.
 
-1.  [Xamarin.NotificationHub Github 페이지][](영문)를 방문하여 원본 폴더를 다운로드하고 빌드합니다.
+1.  [Xamarin.NotificationHub Github 페이지][Xamarin.NotificationHub Github 페이지](영문)를 방문하여 원본 폴더를 다운로드하고 빌드합니다.
 
 2.  Xamarin.Android 프로젝트 폴더에 **_external** 폴더를 만든 후 컴파일된 **ByteSmith.WindowsAzure.Messaging.Android.dll**을 복사합니다.
 
@@ -328,7 +328,7 @@ Xamarin Component Store에서 제공되는 Google Cloud Messaging 클라이언�
 
 ## <a name="send"></a><span class="short-header">알림 보내기</span>백 엔드에서 알림 보내기
 
-[REST 인터페이스][]를 사용하는 모든 백 엔드에서 알림 허브를 사용하여 알림을 보낼 수 있습니다. 이 자습서에서는 .NET 콘솔 앱 및 노드 스크립트를 사용하는 모바일 서비스를 통해 알림을 보냅니다.
+[REST 인터페이스][REST 인터페이스]를 사용하는 모든 백 엔드에서 알림 허브를 사용하여 알림을 보낼 수 있습니다. 이 자습서에서는 .NET 콘솔 앱 및 노드 스크립트를 사용하는 모바일 서비스를 통해 알림을 보냅니다.
 
 .NET 앱을 사용하여 알림을 보내려면
 
@@ -336,7 +336,7 @@ Xamarin Component Store에서 제공되는 Google Cloud Messaging 클라이언�
 
     ![][16]
 
-2.  [WindowsAzure.ServiceBus NuGet 패키지][]를 사용하여 Azure 서비스 버스 SDK에 대한 참조를 추가합니다. Visual Studio 주 메뉴에서 **도구**, **라이브러리 패키지 관리자**, **패키지 관리자 콘솔**을 차례로 클릭합니다. 그런 다음 콘솔 창에서 다음을 입력하고
+2.  [WindowsAzure.ServiceBus NuGet 패키지][WindowsAzure.ServiceBus NuGet 패키지]를 사용하여 Azure 서비스 버스 SDK에 대한 참조를 추가합니다. Visual Studio 주 메뉴에서 **도구**, **라이브러리 패키지 관리자**, **패키지 관리자 콘솔**을 차례로 클릭합니다. 그런 다음 콘솔 창에서 다음을 입력하고
 
         Install-Package WindowsAzure.ServiceBus
 
@@ -363,9 +363,9 @@ Xamarin Component Store에서 제공되는 Google Cloud Messaging 클라이언�
 
     ![][17]
 
-모바일 서비스를 사용하여 알림을 보내려면 [모바일 서비스 시작][](영문)을 따른 후 다음을 수행하십시오.
+모바일 서비스를 사용하여 알림을 보내려면 [모바일 서비스 시작][모바일 서비스 시작](영문)을 따른 후 다음을 수행하십시오.
 
-1.  [Azure 관리 포털][]에 로그온하고 모바일 서비스를 선택합니다.
+1.  [Azure 관리 포털][Azure 관리 포털]에 로그온하고 모바일 서비스를 선택합니다.
 
 2.  맨 위에 있는 **스케줄러** 탭을 선택합니다.
 
@@ -398,18 +398,12 @@ Xamarin Component Store에서 제공되는 Google Cloud Messaging 클라이언�
 
 ## <a name="next-steps"> </a>다음 단계
 
-이 간단한 예제에서는 모든 Android 장치로 알림을 브로드캐스트합니다. 특정 사용자에게만 알림을 보내려면 [알림 허브를 사용하여 사용자에게 알림 푸시][] 자습서를 참조하십시오. 사용자를 관심 그룹별로 분할하려면 [알림 허브를 사용하여 뉴스 속보 보내기][]를 참조하십시오. 알림 허브 사용 방법에 대해 자세히 알아보려면 [알림 허브 지침][] 및 [Android용 알림 허브 방법][]을 참조하십시오.
+이 간단한 예제에서는 모든 Android 장치로 알림을 브로드캐스트합니다. 특정 사용자에게만 알림을 보내려면 [알림 허브를 사용하여 사용자에게 알림 푸시][알림 허브를 사용하여 사용자에게 알림 푸시] 자습서를 참조하십시오. 사용자를 관심 그룹별로 분할하려면 [알림 허브를 사용하여 뉴스 속보 보내기][알림 허브를 사용하여 뉴스 속보 보내기]를 참조하십시오. 알림 허브 사용 방법에 대해 자세히 알아보려면 [알림 허브 지침][알림 허브 지침] 및 [Android용 알림 허브 방법][Android용 알림 허브 방법]을 참조하십시오.
 
 <!-- Anchors. --> 
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [Windows 범용]: /ko-KR/documentation/articles/notification-hubs-windows-store-dotnet-get-started/ "Windows 범용"
-  [Windows Phone]: /ko-KR/documentation/articles/notification-hubs-windows-phone-get-started/ "Windows Phone"
-  [iOS]: /ko-KR/documentation/articles/notification-hubs-ios-get-started/ "iOS"
-  [Android]: /ko-KR/documentation/articles/notification-hubs-android-get-started/ "Android"
-  [Kindle]: /ko-KR/documentation/articles/notification-hubs-kindle-get-started/ "Kindle"
-  [Xamarin.iOS]: /ko-KR/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/ "Xamarin.iOS"
   [Xamarin.Android]: /ko-KR/documentation/articles/partner-xamarin-notification-hubs-android-get-started/ "Xamarin.Android"
   [NotificationHubs 앱]: http://go.microsoft.com/fwlink/p/?LinkId=331329
   [Google Cloud Messaging 사용]: #register
@@ -418,12 +412,9 @@ Xamarin Component Store에서 제공되는 Google Cloud Messaging 클라이언�
   [에뮬레이터를 사용하여 앱 실행]: #run-app
   [백 엔드에서 알림 보내기]: #send
   [1]: http://xamarin.com/download/
-  [Azure 모바일 서비스 구성 요소(영문)]: http://components.xamarin.com/view/azure-mobile-services/
   [Google Cloud Messaging 구성 요소]: http://components.xamarin.com/view/GCMClient/
-  [Azure 무료 평가판]: http://www.windowsazure.com/ko-KR/pricing/free-trial/?WT.mc_id=A9C9624B5&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fko-KR%2Fmanage%2Fservices%2Fnotification-hubs%2Fgetting-started-xamarin-android%2F
-  [accounts.google.com]: http://go.microsoft.com/fwlink/p/?LinkId=268302
   [Google apis]: http://go.microsoft.com/fwlink/p/?LinkId=268303
-  []: ./media/partner-xamarin-notification-hubs-android-get-started/mobile-services-google-developers.png
+  [0]: ./media/partner-xamarin-notification-hubs-android-get-started/mobile-services-google-developers.png
   [2]: ./media/partner-xamarin-notification-hubs-android-get-started/mobile-services-google-create-server.png
   [3]: ./media/partner-xamarin-notification-hubs-android-get-started/mobile-services-google-create-server2.png
   [4]: ./media/partner-xamarin-notification-hubs-android-get-started/mobile-services-google-create-server3.png

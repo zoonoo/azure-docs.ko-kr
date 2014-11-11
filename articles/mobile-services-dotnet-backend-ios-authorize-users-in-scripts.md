@@ -1,6 +1,6 @@
 <properties pageTitle="Service-side authorization (iOS) | Mobile Dev Center" metaKeywords="" description="Learn how to authorize users in the .NET backend of Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="Service-side authorization of Mobile Services users" authors="krisragh" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh" />
 
 # 모바일 서비스 사용자의 서비스 쪽 권한 부여
 
@@ -14,7 +14,7 @@
 
 ## <a name="register-scripts"></a>데이터 액세스 방법 수정
 
-[WACOM.INCLUDE [mobile-services-filter-user-results-dotnet-backend][mobile-services-filter-user-results-dotnet-backend]]
+[WACOM.INCLUDE [mobile-services-filter-user-results-dotnet-backend](../includes/mobile-services-filter-user-results-dotnet-backend.md)]
 
 ## 앱 테스트
 
@@ -26,7 +26,7 @@
 
 3.  앱에서 **Insert a TodoItem**에 텍스트를 입력하고 **저장**을 클릭합니다.
 
-    ![][]
+    ![][0]
 
     모바일 서비스에서 TodoItem 테이블의 텍스트 및 userId가 모두 삽입됩니다. 새 항목에 올바른 userId 값이 있기 때문에 값이 모바일 서비스에서 반환되어 두 번째 열에 표시됩니다.
 
@@ -51,15 +51,6 @@
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [Windows 스토어 C#]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-authorize-users-in-scripts "Windows 스토어 C#"
-  [Windows 스토어 JavaScript]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-authorize-users-in-scripts "Windows 스토어 JavaScript"
-  [Windows Phone]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-phone-authorize-users-in-scripts "Windows Phone"
-  [iOS]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-ios-authorize-users-in-scripts "iOS"
-  [.NET 백 엔드]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-ios-authorize-users-in-scripts/ ".NET 백 엔드"
-  [JavaScript 백 엔드]: /ko-kr/documentation/articles/mobile-services-ios-authorize-users-in-scripts/ "JavaScript 백 엔드"
   [인증 시작]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-ios-get-started-users
   [mobile-services-filter-user-results-dotnet-backend]: ../includes/mobile-services-filter-user-results-dotnet-backend.md
-  []: ./media/mobile-services-dotnet-backend-ios-authorize-users-in-scripts/mobile-quickstart-startup-ios.png
-  [Get started with push notifications]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push
-  [Get started with data]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-ios-get-started-data
-  [Mobile Services .NET How-to Conceptual Reference]: /ko-kr/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library/
+  [0]: ./media/mobile-services-dotnet-backend-ios-authorize-users-in-scripts/mobile-quickstart-startup-ios.png

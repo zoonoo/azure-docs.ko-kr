@@ -1,6 +1,6 @@
 <properties linkid="dev-net-commons-tasks-diagnostics" urlDisplayName="Diagnostics" pageTitle="How to use diagnostics (.NET) - Azure feature guide" metaKeywords="Azure diagnostics monitoring,logs crash dumps C#" description="Learn how to use diagnostic data in Azure for debugging, measuring performance, monitoring, traffic analysis, and more." metaCanonical="" services="cloud-services" documentationCenter=".NET" title="Enabling Diagnostics in Azure" authors="ryanwi" solutions="" manager="timlt" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="ryanwi"></tags>
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="ryanwi" />
 
 # Azure 클라우드 서비스 및 가상 컴퓨터에서 진단 사용
 
@@ -762,12 +762,7 @@ Visual Studio **서버 탐색기**에서 wadexample 저장소 계정으로 이�
   [EventSource 클래스]: http://msdn.microsoft.com/ko-kr/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx
   [무료 평가판]: http://azure.microsoft.com/ko-kr/pricing/free-trial/
   [Azure PowerShell 버전 0.8.7 이상을 설치 및 구성]: http://azure.microsoft.com/ko-kr/documentation/articles/install-configure-powershell/
-  [CloudServices\_diag\_add\_xml]: ./media/cloud-services-dotnet-diagnostics/AddXmlFile.png
-  [CloudServices\_diag\_tables]: ./media/cloud-services-dotnet-diagnostics/WadExampleTables.png
-  [CloudServices\_diag\_new\_project]: ./media/cloud-services-dotnet-diagnostics/NewProject.png
-  [CloudServices\_diag\_wadexamplevm\_tables]: ./media/cloud-services-dotnet-diagnostics/WadExampleVMTables.png
   [Azure 진단 1.2 구성 스키마]: http://msdn.microsoft.com/ko-kr/library/azure/dn782207.aspx
-  [디코딩]: http://www.bing.com/search?q=base64+decoder
   [Azure 진단을 사용하여 로깅 데이터 수집]: http://msdn.microsoft.com/ko-kr/library/windowsazure/gg433048.aspx
   [Azure 응용 프로그램 디버깅]: http://msdn.microsoft.com/ko-kr/library/windowsazure/ee405479.aspx
   [Azure 진단 구성]: http://msdn.microsoft.com/ko-kr/library/windowsazure/dn186185.aspx

@@ -1,6 +1,6 @@
 <properties pageTitle="Work with a JavaScript backend mobile service" metaKeywords="server scripts, mobile devices, Azure, scheduler" description="Provides examples on how to define, register, and use server scripts in Azure Mobile Services." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Work with server scripts in Mobile Services" authors="ricksal" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal" />
 
 # JavaScript 백 엔드 모바일 서비스 작업
 
@@ -874,8 +874,6 @@ npm(Node.js 패키지 관리자)과 함께 소스 제어를 사용하여 모바�
 
 <!-- Anchors. --> <!-- URLs. -->
 
-  [.NET 백 엔드]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-how-to-use/ ".NET 백 엔드"
-  [JavaScript 백 엔드]: /ko-kr/documentation/articles/mobile-services-how-to-use-server-scripts/ "JavaScript 백 엔드"
   [소개]: #intro
   [테이블 작업]: #table-scripts
   [방법: 테이블 작업 등록]: #register-table-scripts
@@ -953,6 +951,5 @@ npm(Node.js 패키지 관리자)과 함께 소스 제어를 사용하여 모바�
   [방법: 정적 쿼리 실행]: #static-query
   [방법: 동적 쿼리 실행]: #dynamic-query
   [방법: 관계형 테이블 조인]: #joins
-  [방법: *원시* 결과를 반환하는 쿼리 실행]: #raw
   [방법: 데이터베이스 연결 액세스]: #connection
   [console 개체]: http://msdn.microsoft.com/ko-kr/library/windowsazure/jj554209.aspx

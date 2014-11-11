@@ -1,6 +1,6 @@
 <properties linkid="develop-net-tutorials-multi-tier-web-site-5-worker-role-b" pageTitle="Azure Cloud Service Tutorial: Worker Role with Azure Storage Tables, Queues, and Blobs" metaKeywords="Azure tutorial, Azure storage tutorial, Azure multi-tier tutorial, Azure worker role tutorial, Azure blobs tutorial, Azure tables tutorial, Azure queues tutorial" description="Learn how to create a multi-tier app using ASP.NET MVC and Azure. The app runs in a cloud service, with web role and worker roles, and uses Azure storage tables, queues, and blobs." metaCanonical="" services="cloud-services,storage" documentationCenter=".NET" title="Azure Cloud Service Tutorial: ASP.NET MVC Web Role, Worker Role, Azure Storage Tables, Queues, and Blobs" authors="tdykstra,riande" solutions="" manager="wpickett" editor="mollybos" />
 
-<tags ms.service="cloud-services" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tdykstra,riande"></tags>
+<tags ms.service="cloud-services" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tdykstra,riande" />
 
 # Azure 전자 메일 서비스 응용 프로그램에 대한 작업자 역할 B(전자 메일 보낸 사람) 구축 - 5/5.
 
@@ -604,13 +604,10 @@ Azure 클라우드 서비스 역할 자동 크기 조정에 대한 자세한 내
   [.NET에서 테이블 저장소 서비스를 사용하는 방법]: http://www.windowsazure.com/ko-kr/develop/net/how-to-guides/table-services/
   [Azure Storage Client Library 2.0 테이블 자세히 알아보기]: http://blogs.msdn.com/b/windowsazurestorage/archive/2012/11/06/windows-azure-storage-client-library-2-0-tables-deep-dive.aspx
   [실제 사용: Azure 테이블 저장소에 대한 확장 가능한 분할 전략 설계]: http://msdn.microsoft.com/ko-kr/library/windowsazure/hh508997.aspx
-  [큐 중심 작업 패턴(Azure에서 실제 클라우드 앱 빌드)(영문)]: http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern
   [Azure 큐 및 Azure 서비스 버스 큐 - 비교 및 대조]: http://msdn.microsoft.com/ko-kr/library/windowsazure/hh767287.aspx
   [.NET에서 큐 저장소 서비스를 사용하는 방법]: /ko-kr/develop/net/how-to-guides/queue-service/
-  [구조화되지 않은 Blob 저장소(Azure에서 실제 클라우드 앱 빌드)(영문)]: http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage
   [.NET에서 Azure Blob 저장소 서비스를 사용하는 방법]: /ko-kr/develop/net/how-to-guides/blob-storage/
   [자동 크기 조정 응용 프로그램 블록을 사용하는 방법]: /ko-kr/develop/net/how-to-guides/autoscaling/
-  [자동 크기 조정 및 Azure(영문)]: http://msdn.microsoft.com/ko-kr/library/hh680945(v=PandP.50).aspx
   [Azure에서 탄력적이고 크기를 자동으로 조정할 수 있는 솔루션 빌드]: http://channel9.msdn.com/Events/WindowsAzureConf/2012/B04
   [Rick Anderson]: http://blogs.msdn.com/b/rickandy/
   [@blowdart]: https://twitter.com/blowdart

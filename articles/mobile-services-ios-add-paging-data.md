@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-add-paging-to-data-ios" urlDisplayName="Add paging to data" pageTitle="Add paging to data (iOS) | Mobile Dev Center" metaKeywords="" description="Learn how to use paging to manage the amount of data returned to your iOS app from Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="Refine Mobile Services queries with paging" authors="krisragh" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh" />
 
 # 페이징을 사용하여 모바일 서비스 쿼리 구체화
 
@@ -89,7 +89,7 @@
 -   [인증 시작하기][인증 시작하기]
     Windows 계정으로 앱의 사용자를 인증하는 방법에 대해 알아보십시오.
 
-<!-- * [Get started with push notifications]    <br/>Learn how to send a very basic push notification to your app. --> <!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
+<!-- * [Get started with push notifications]    <br/>Learn how to send a very basic push notification to your app. --> 
 
   [Windows 스토어 C#]: /ko-kr/develop/mobile/tutorials/add-paging-to-data-dotnet "Windows 스토어 C#"
   [Windows 스토어 JavaScript]: /ko-kr/develop/mobile/tutorials/add-paging-to-data-js "Windows 스토어 JavaScript"

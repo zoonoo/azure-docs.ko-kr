@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-get-started-with-push-js-vs2013" urlDisplayName="Get Started with Push (JS)" pageTitle="Get started with push notifications (Android JavaScript) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to send push notifications to your Android JavaScript app." metaCanonical="http://www.windowsazure.com/ko-kr/develop/mobile/tutorials/get-started-with-push-dotnet/" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="ricksal"  solutions="" writer="ricksal" manager="" editor=""   />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal" />
 
 # <a name="getting-started-with-push"> </a>모바일 서비스에서 푸시 알림 시작
 
@@ -34,7 +34,7 @@
 
 > [WACOM.NOTE]이 절차를 완료하려면 검증된 전자 메일 주소가 포함된 Google 계정이 있어야 합니다. 새 Google 계정을 만들려면 [accounts.google.com][accounts.google.com]으로 이동하십시오.
 
-[WACOM.INCLUDE [GCM 사용][GCM 사용]]
+[WACOM.INCLUDE [GCM 사용](../includes/mobile-services-enable-Google-cloud-messaging.md)]
 
 다음에는 이 API 키를 사용하여 모바일 서비스에서 GCM에 인증하고 앱 대신 푸시 알림을 보낼 수 있게 합니다.
 
@@ -42,7 +42,7 @@
 
 1.  [Azure 관리 포털][Azure 관리 포털]에 로그온하여 **모바일 서비스**를 클릭한 후 앱을 클릭합니다.
 
-    ![][]
+    ![][0]
 
 2.  **푸시** 탭을 클릭하고 이전 절차에서 GCM으로부터 받은 **API 키** 값을 입력한 후 **저장**을 클릭합니다.
 
@@ -63,7 +63,7 @@
 
 ### Android SDK 버전 확인
 
-[WACOM.INCLUDE [Verify SDK][Verify SDK]]
+[WACOM.INCLUDE [Verify SDK](../includes/mobile-services-verify-android-sdk-version.md)]
 
 다음 단계에서는 Google Play Services를 설치합니다. Google Cloud Messaging에는 매니페스트의 **minSdkVersion** 속성이 준수해야 하는 개발 및 테스트에 대한 최소 API 수준 요구 사항이 있습니다.
 
@@ -71,11 +71,11 @@
 
 ### 프로젝트에 Google Play Services 추가
 
-[WACOM.INCLUDE [Play Services 추가][Play Services 추가]]
+[WACOM.INCLUDE [Play Services 추가](../includes/mobile-services-add-Google-play-services.md)]
 
 ### 코드 추가
 
-[WACOM.INCLUDE [mobile-services-android-getting-started-with-push][mobile-services-android-getting-started-with-push]]
+[WACOM.INCLUDE [mobile-services-android-getting-started-with-push](../includes/mobile-services-android-getting-started-with-push.md)]
 
 ## <span id="update-scripts"></span></a>관리 포털에서 등록된 삽입 스크립트 업데이트
 
@@ -176,7 +176,7 @@ USB 케이블로 Android 휴대폰을 직접 연결하거나 에뮬레이터에�
 -   [모바일 서비스 서버 스크립트 참조][모바일 서비스 서버 스크립트 참조]
     모바일 서비스에서 비즈니스 논리를 구현하는 방법에 대해 자세히 알아봅니다.
 
-<!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
+
 
   [Windows 스토어 C#]: /ko-kr/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push "Windows 스토어 C#"
   [Windows 스토어 JavaScript]: /ko-kr/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push "Windows 스토어 JavaScript"
@@ -185,7 +185,6 @@ USB 케이블로 Android 휴대폰을 직접 연결하거나 에뮬레이터에�
   [Android]: /ko-kr/documentation/articles/mobile-services-javascript-backend-android-get-started-push "Android"
   [.NET 백 엔드]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-android-get-started-push/ ".NET 백 엔드"
   [JavaScript 백 엔드]: /ko-kr/documentation/articles/mobile-services-javascript-backend-android-get-started-push/ "JavaScript 백 엔드"
-  [푸시 알림 시작(기존)]: /ko-kr/documentation/articles/mobile-services-android-get-started-push/
   [Google Cloud Messaging 사용]: #register
   [모바일 서비스 구성]: #configure
   [앱에 푸시 알림 추가]: #add-push
@@ -196,7 +195,7 @@ USB 케이블로 Android 휴대폰을 직접 연결하거나 에뮬레이터에�
   [accounts.google.com]: http://go.microsoft.com/fwlink/p/?LinkId=268302
   [GCM 사용]: ../includes/mobile-services-enable-Google-cloud-messaging.md
   [Azure 관리 포털]: https://manage.windowsazure.com/
-  []: ./media/mobile-services-android-get-started-push/mobile-services-selection.png
+  [0]: ./media/mobile-services-android-get-started-push/mobile-services-selection.png
   [이 지침]: http://go.microsoft.com/fwlink/p/?LinkId=391951
   [1]: ./media/mobile-services-android-get-started-push/mobile-push-tab-android.png
   [Verify SDK]: ../includes/mobile-services-verify-android-sdk-version.md

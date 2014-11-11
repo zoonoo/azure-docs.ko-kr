@@ -1,6 +1,6 @@
 <properties urlDisplayName=".NET Client Library" pageTitle="Creating a Leaderboard App with Azure Mobile Services .NET Backend" metaKeywords="Azure Mobile Services, Mobile Service .NET client, .NET client" description="Learn how to build a Windows Store app using Azure Mobile Services with a .NET backend." documentationCenter="Mobile" title="Creating a Leaderboard App with Azure Mobile Services .NET Backend" authors="mwasson" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="mwasson"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="mwasson" />
 
 # Azure Mobile Services .NET 백 엔드로 Leaderboard 앱 만들기
 
@@ -44,7 +44,7 @@ Web API는 .NET 개발자가 REST API를 생성하기 위한 최상의 방법을
 
 *leaderboard*는 각 플레이어의 점수 및 순위와 함께 게임의 플레이어 목록을 보여 줍니다. leaderboard는 더 큰 게임의 일부이거나 별도의 앱일 수 있습니다. leaderboard는 실제 응용 프로그램이지만 자습서로 사용할 수 있을 정도로 충분히 간단합니다. 이 앱의 스크린샷은 다음과 같습니다.
 
-![][]
+![][0]
 
 앱을 간단한 상태로 유지하기 위해 실제 게임은 존재하지 않습니다. 대신 플레이어를 추가하고 각 플레이어에 대한 점수를 제출할 수 있습니다. 점수를 제출하면 모바일 서비스가 새로운 순위를 계산합니다. 백 엔드에서는 모바일 서비스가 2개의 테이블이 포함된 데이터베이스를 만듭니다.
 
@@ -738,19 +738,19 @@ App.xaml.cs 파일을 열고 **MobileServiceClient** 인스턴스를 `App` 클�
 [모바일 서비스 게시]: #publish-your-mobile-service
 [다음 단계]: #next-steps
 [Visual Studio 2013 업데이트 2]: http://go.microsoft.com/fwlink/p/?LinkID=390465
-[]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/01leaderboard.png
+[0]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/01leaderboard.png
 [1]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/02leaderboard.png
 [여기]: http://code.msdn.microsoft.com/Leaderboard-App-with-Azure-9acf63af
 [2]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/03leaderboard.png
 [3]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/04leaderboard.png
 [4]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/05leaderboard.png
-[EF Code First]: http://msdn.microsoft.com/en-US/data/ee712907#codefirst
-[데이터베이스 쓰기 충돌 해결]: http://azure.microsoft.com/ko--kr/documentation/articles/mobile-services-windows-store-dotnet-handle-database-conflicts/
-[탐색 속성]: http://msdn.microsoft.com/ko--kr/data/jj713564.aspx
+[EF Code First]: http://msdn.microsoft.com/ko-kr/data/ee712907#codefirst
+[데이터베이스 쓰기 충돌 해결]: http://azure.microsoft.com/ko-kr/documentation/articles/mobile-services-windows-store-dotnet-handle-database-conflicts/
+[탐색 속성]: http://msdn.microsoft.com/ko-kr/data/jj713564.aspx
 [5]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/06leaderboard.png
 [6]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/07leaderboard.png
 [7]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/08leaderboard.png
-[REST API]: http://msdn.microsoft.com/ko--kr/library/azure/jj710104.aspx
+[REST API]: http://msdn.microsoft.com/ko-kr/library/azure/jj710104.aspx
 [.NET 백 엔드에서 AutoMapper를 사용하여 데이터베이스 유형과 클라이언트 유형 간 매핑]: http://blogs.msdn.com/b/azuremobile/archive/2014/05/19/mapping-between-database-types-and-client-type-in-the-net-backend-using-automapper.aspx
 [Web API에서 특성 라우팅]: http://www.asp.net/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2
 [8]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/10leaderboard.png
@@ -761,7 +761,7 @@ App.xaml.cs 파일을 열고 **MobileServiceClient** 인스턴스를 `App` 클�
 [13]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/15leaderboard.png
 [14]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/16leaderboard.png
 [15]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/17leaderboard.png
-[Azure 모바일 서비스에 대해 자세히 알아보기]: /ko--kr/develop/mobile/resources/
-[데이터베이스 쓰기 충돌 처리]: /ko--kr/documentation/articles/mobile-services-windows-store-dotnet-handle-database-conflicts/
-[푸시 알림 추가]: /ko--kr/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
-[인증 시작]: /ko--kr/develop/mobile/tutorials/get-started-with-users-dotnet
+[Azure 모바일 서비스에 대해 자세히 알아보기]: /ko-kr/develop/mobile/resources/
+[데이터베이스 쓰기 충돌 처리]: /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-handle-database-conflicts/
+[푸시 알림 추가]: /ko-kr/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
+[인증 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-users-dotnet

@@ -1,6 +1,6 @@
 <properties pageTitle="Use Mobile Services to upload images to blob storage (Windows Store) | Mobile Services" metaKeywords="" description="Learn how to use Mobile Services to upload images to Azure Blob Storage and access the images from your Windows Store app." metaCanonical="" services="mobile-services,storage" documentationCenter="Mobile" title="Upload images to Azure Storage by using Mobile Services" authors="glenga" solutions="mobile" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # 모바일 서비스를 사용하여 Azure 저장소에 이미지 업로드
 
@@ -35,7 +35,7 @@ SAS를 사용하여 Blob 저장소에 이미지를 업로드하려면 먼저 Win
 
 2.  왼쪽 창에서 **온라인** 범주를 선택하고 `WindowsAzure.Storage`를 검색하고 **Azure 저장소** 패키지에서 **설치**를 클릭한 다음 사용권 계약에 동의합니다.
 
-    ![][]
+    ![][0]
 
     Azure 저장소 서비스용 클라이언트 라이브러리가 프로젝트에 추가됩니다.
 
@@ -43,9 +43,9 @@ SAS를 사용하여 Blob 저장소에 이미지를 업로드하려면 먼저 Win
 
 ## <a name="update-scripts"></a>관리 포털에서 등록된 삽입 스크립트 업데이트
 
-[WACOM.INCLUDE [mobile-services-configure-blob-storage][mobile-services-configure-blob-storage]]
+[WACOM.INCLUDE [mobile-services-configure-blob-storage](../includes/mobile-services-configure-blob-storage.md)]
 
-[WACOM.INCLUDE [mobile-services-windows-store-dotnet-upload-to-blob-storage][mobile-services-windows-store-dotnet-upload-to-blob-storage]]
+[WACOM.INCLUDE [mobile-services-windows-store-dotnet-upload-to-blob-storage](../includes/mobile-services-windows-store-dotnet-upload-to-blob-storage.md)]
 
 ## <a name="next-steps"> </a>다음 단계
 
@@ -67,19 +67,15 @@ SendGrid 전자 메일 서비스를 사용해 모바일 서비스에 전자 메�
 
 모바일 서비스를 .NET과 함께 사용하는 방법에 대해 알아보십시오.
 
-<!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
 
-  [Windows 스토어 C#]: /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-upload-data-blob-storage "Windows 스토어 C#"
-  [Windows Phone]: /ko-kr/documentation/articles/mobile-services-windows-phone-upload-data-blob-storage "Windows Phone"
-  [.NET 백 엔드]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage ".NET 백 엔드"
-  [JavaScript 백 엔드]: /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-upload-data-blob-storage "JavaScript 백 엔드"
+
   [저장소 클라이언트 라이브러리 설치]: #install-storage-client
   [삽입 스크립트를 업데이트하여 SAS 생성]: #update-scripts
   [클라이언트 앱을 업데이트하여 이미지 캡처]: #add-select-images
   [이미지를 업로드하여 앱 테스트]: #test
   [Azure 저장소 계정]: /ko-kr/manage/services/storage/how-to-create-a-storage-account
   [모바일 서비스 시작하기]: /ko-kr/documentation/articles/mobile-services-windows-store-get-started
-  []: ./media/mobile-services-windows-store-dotnet-upload-data-blob-storage/mobile-add-storage-nuget-package-dotnet.png
+  [0]: ./media/mobile-services-windows-store-dotnet-upload-data-blob-storage/mobile-add-storage-nuget-package-dotnet.png
   [mobile-services-configure-blob-storage]: ../includes/mobile-services-configure-blob-storage.md
   [mobile-services-windows-store-dotnet-upload-to-blob-storage]: ../includes/mobile-services-windows-store-dotnet-upload-to-blob-storage.md
   [SendGrid로 모바일 서비스에서 전자 메일 보내기]: /ko-kr/develop/mobile/tutorials/send-email-with-sendgrid/

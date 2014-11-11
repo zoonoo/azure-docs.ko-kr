@@ -1,6 +1,6 @@
 <properties linkid="dev-net-how-to-autoscaling" urlDisplayName="Autoscaling" pageTitle="Use the autoscaling application block (.NET) - Azure" metaKeywords="Azure autoscaling, Azure autoscaling C#, Azure autoscaling .NET" description="Learn how to use the Autoscaling Application for Azure. Code samples are written in C# and use the .NET API." metaCanonical="" services="cloud-services" documentationCenter=".NET" title="How to Use the Autoscaling Application Block" authors="timlt" solutions="" manager="timlt" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="timlt"></tags>
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="timlt" />
 
 # 자동 크기 조정 응용 프로그램 블록을 사용하는 방법
 
@@ -367,7 +367,6 @@ Visual Studio에서 규칙 파일이 출력 폴더에 복사되었는지 확인�
 
   [Azure용 Microsoft Enterprise Library 5.0 통합 팩]: http://go.microsoft.com/fwlink/?LinkID=235134
   [다음 단계]: #NextSteps
-  [자동 크기 조정 응용 프로그램 블록이란?]: #WhatIs
   [개념]: #Concepts
   [대상 Azure 응용 프로그램에서 성능 카운터 데이터 수집]: #PerfCounter
   [자동 크기 조정 응용 프로그램 블록의 호스트 응용 프로그램 설정]: #CreateHost

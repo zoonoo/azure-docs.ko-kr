@@ -1,6 +1,6 @@
 <properties linkid="dev-net-how-to-service-bus-queues" urlDisplayName="Service Bus Queues" pageTitle="How to use Service Bus queues (.NET) - Azure" metaKeywords="Azure Service Bus queues, Azure queues, Azure messaging, Azure queues C#, Azure queues .NET" description="Learn how to use Service Bus queues in Azure. Code samples written in C# using the .NET API." metaCanonical="" services="service-bus" documentationCenter=".NET" title="How to Use Service Bus Queues" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="sethm"></tags>
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
 
 # 서비스 버스 큐를 사용하는 방법
 
@@ -9,9 +9,9 @@ C#으로 작성되었으며 .NET API를 사용합니다. 여기서 다루는 시
 **큐 만들기, 메시지 보내기 및 받기**, **큐 삭제**
 등이 포함됩니다. 큐에 대한 자세한 내용은 [다음 단계][다음 단계] 섹션을 참조하세요. </span>
 
-[WACOM.INCLUDE [create-account-note][create-account-note]]
+[WACOM.INCLUDE [create-account-note](../includes/create-account-note.md)]
 
-[WACOM.INCLUDE [howto-service-bus-queues][howto-service-bus-queues]]
+[WACOM.INCLUDE [howto-service-bus-queues](../includes/howto-service-bus-queues.md)]
 
 ## <span class="short-header">응용 프로그램 구성</span>서비스 버스를 사용하도록 응용 프로그램 구성
 
@@ -35,7 +35,7 @@ Studio 및 Visual Studio Express 2012 for Web에서 라이브러리와
      항목을 선택합니다. **설치**를 클릭하여 설치를 완료한 후 이
     대화 상자를 닫습니다.
 
-    ![][]
+    ![][0]
 
 이제 서비스 버스에 대한 코드를 작성할 준비가 되었습니다.
 
@@ -290,7 +290,5 @@ Studio 및 Visual Studio Express 2012 for Web에서 라이브러리와
   [다음 단계]: #next-steps
   [create-account-note]: ../includes/create-account-note.md
   [howto-service-bus-queues]: ../includes/howto-service-bus-queues.md
-  []: ./media/service-bus-dotnet-how-to-use-queues/getting-started-multi-tier-13.png
+  [0]: ./media/service-bus-dotnet-how-to-use-queues/getting-started-multi-tier-13.png
   [큐, 토픽 및 구독]: http://msdn.microsoft.com/ko-kr/library/windowsazure/hh367516.aspx
-  [서비스 버스 조정된 메시징 .NET
-  자습서]: http://msdn.microsoft.com/ko-kr/library/windowsazure/hh367512.aspx

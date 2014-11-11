@@ -1,6 +1,6 @@
 <properties umbracoNaviHide="0" pageTitle="How to Manage SQL Database" metaKeywords="Azure SQL database, SQL database, manage sql database, add logins, connect to sql database" description="Learn how to manage Azure SQL database." linkid="devnav-manage-services-cloud-services" urlDisplayName="Cloud Services" headerExpose="" footerExpose="" disqusComments="1" title="How to Manage SQL Database" authors="jeffreyg" manager="jeffreyg" />
 
-<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jeffreyg"></tags>
+<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jeffreyg" />
 
 # <span id="swap"></span></a>SQL 데이터베이스를 관리하는 방법
 
@@ -8,8 +8,8 @@
 
 ## 목차
 
--   [방법: Management Studio를 사용하여 Azure의 SQL 데이터베이스에 연결][]
--   [방법: Azure에서 SQL 데이터베이스에 로그인 및 사용자 추가][]
+-   [방법: Management Studio를 사용하여 Azure의 SQL 데이터베이스에 연결][방법: Management Studio를 사용하여 Azure의 SQL 데이터베이스에 연결]
+-   [방법: Azure에서 SQL 데이터베이스에 로그인 및 사용자 추가][방법: Azure에서 SQL 데이터베이스에 로그인 및 사용자 추가]
 
 ## <span id="connect"></span></a>방법: Management Studio를 사용하여 Azure의 SQL 데이터베이스에 연결
 
@@ -17,7 +17,7 @@ Management Studio는 단일 작업 영역에서 여러 SQL Server 인스턴스 �
 
 Management Studio에는 구문 검사기, 다시 사용하기 위해 스크립트 및 명명된 쿼리를 저장하는 기능과 같이 현재 관리 포털에서 사용할 수 없는 기능이 포함되어 있습니다. SQL 데이터베이스는 단순히 TDS(Tabular Data Stream) 끝점입니다. Management Studio를 비롯하여 TDS를 사용하여 작업하는 도구는 SQL 데이터베이스 작업에 사용할 수 있습니다. 온-프레미스 서버용으로 개발하는 스크립트는 SQL 데이터베이스 논리 서버에서 실행됩니다.
 
-다음 단계에서는 Management Studio를 사용하여 Azure의 논리 서버에 연결합니다. 이 단계를 수행하려면 SQL Server Management Studio 2008 R2 또는 2012 버전이 있어야 합니다. Management Studio를 다운로드하거나 연결하는 데 도움말이 필요한 경우 이 사이트의 [Management Studio를 사용하여 SQL 데이터베이스 관리][](영문)를 참조하십시오.
+다음 단계에서는 Management Studio를 사용하여 Azure의 논리 서버에 연결합니다. 이 단계를 수행하려면 SQL Server Management Studio 2008 R2 또는 2012 버전이 있어야 합니다. Management Studio를 다운로드하거나 연결하는 데 도움말이 필요한 경우 이 사이트의 [Management Studio를 사용하여 SQL 데이터베이스 관리][Management Studio를 사용하여 SQL 데이터베이스 관리](영문)를 참조하십시오.
 
 연결하려면 먼저 로컬 시스템에서 포트 1433에 대한 아웃바운드 요청을 허용하는 방화벽 예외를 만들어야 하는 경우가 있습니다. 기본적으로 안전한 컴퓨터의 경우 일반적으로 포트 1433이 열려 있지 않습니다.
 
@@ -117,7 +117,7 @@ Management Studio에는 구문 검사기, 다시 사용하기 위해 스크립�
 
 6.  두 번째 쿼리 창을 열고 연결 컨텍스트를 *sqlwriter*로 변경합니다. 동일한 쿼리가 이제 성공적으로 실행됩니다.
 
-이제 몇 가지 로그인을 만들고 테스트했습니다. 자세한 내용은 [SQL 데이터베이스에서 데이터베이스 및 로그인 관리][] 및 [동적 관리 뷰를 사용하여 SQL 데이터베이스 모니터링][]을 참조하십시오.
+이제 몇 가지 로그인을 만들고 테스트했습니다. 자세한 내용은 [SQL 데이터베이스에서 데이터베이스 및 로그인 관리][SQL 데이터베이스에서 데이터베이스 및 로그인 관리] 및 [동적 관리 뷰를 사용하여 SQL 데이터베이스 모니터링][동적 관리 뷰를 사용하여 SQL 데이터베이스 모니터링]을 참조하십시오.
 
   [방법: Management Studio를 사용하여 Azure의 SQL 데이터베이스에 연결]: #connect
   [방법: Azure에서 SQL 데이터베이스에 로그인 및 사용자 추가]: #addlogins

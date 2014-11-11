@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-authorize-users-in-scripts-xamarin-ios" urlDisplayName="Authorize Users in Scripts (Xamarin.iOS)" pageTitle="Authorize users in scripts (Xamarin.iOS) - Azure Mobile Services" metaKeywords="Azure authorizing user, Xamarin.iOS scripts authorization, authorize mobile services" description="Learn how to authorize users with scripts in your Azure Mobile Services app for Xamarin.iOS." metaCanonical="" disqusComments="1" umbracoNaviHide="1" title="Use scripts to authorize users in Mobile Services" documentationCenter="Mobile" authors="donnam" manager="dwrede" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="donnam"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="donnam" />
 
 # 스크립트를 사용하여 모바일 서비스에서 사용자 권한 부여
 
@@ -20,7 +20,7 @@
 
 1.  [Azure 관리 포털][Azure 관리 포털]에 로그온하여 **모바일 서비스**를 클릭한 후 앱을 클릭합니다.
 
-    ![][]
+    ![][0]
 
 2.  **데이터** 탭을 클릭한 후 **TodoItem** 테이블을 클릭합니다.
 
@@ -86,7 +86,7 @@
 -   [모바일 서비스 서버 스크립트 참조][모바일 서비스 서버 스크립트 참조]
     서버 스크립트의 등록 및 사용에 대해 자세히 알아보십시오.
 
-<!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
+
 
   [Windows 스토어 C#]: /ko-kr/develop/mobile/tutorials/authorize-users-in-scripts-dotnet "Windows 스토어 C#"
   [Windows 스토어 JavaScript]: /ko-kr/develop/mobile/tutorials/authorize-users-in-scripts-js "Windows 스토어 JavaScript"
@@ -98,7 +98,7 @@
   [Android C#]: /ko-kr/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-android "Xamarin.Android"
   [인증 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-users-xamarin-ios
   [Azure 관리 포털]: https://manage.windowsazure.com/
-  []: ./media/partner-xamarin-mobile-services-ios-authorize-users-in-scripts/mobile-services-selection.png
+  [0]: ./media/partner-xamarin-mobile-services-ios-authorize-users-in-scripts/mobile-services-selection.png
   [1]: ./media/partner-xamarin-mobile-services-ios-authorize-users-in-scripts/mobile-portal-data-tables.png
   [2]: ./media/partner-xamarin-mobile-services-ios-authorize-users-in-scripts/mobile-insert-script-users.png
   [3]: ./media/partner-xamarin-mobile-services-ios-authorize-users-in-scripts/mobile-quickstart-startup-ios.png

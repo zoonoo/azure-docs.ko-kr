@@ -1,12 +1,12 @@
 <properties linkid="dev-nodejs-how-to-debug-website" urlDisplayName="Debug Websites (Node)" pageTitle="How to Debug Azure Websites in Node.js" metaKeywords="debug website azure, debugging azure, troubleshooting azure web site, troubleshoot azure website node" description="Learn how to debug an Azure website in Node.js." metaCanonical="" services="web-sites" documentationCenter="nodejs" title="How to debug a Node.js application in Azure Websites" authors="larryfr" solutions="" manager="paulettm" editor="mollybos" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # Azure 웹 사이트에서 Node.js 응용 프로그램을 디버그하는 방법
 
 Azure는 Azure 웹 사이트에서 호스트되는 Node.js 응용 프로그램을 디버그하는 데 도움이 되는 기본 제공 진단 로그를 제공합니다. 이 문서에서는 stdout 및 stderr의 로깅을 사용하고, 브라우저에서 오류 정보를 표시하고, 로그 파일을 다운로드하여 보는 방법에 대해 알아봅니다.
 
-Azure에서 호스트되는 Node.js 응용 프로그램에 대한 진단은 [IISNode][]에서 제공합니다. 이 문서에서 진단 정보 수집에 대한 가장 일반적인 설정을 논의하긴 하지만 IISNode 작업을 모두 다루지는 않습니다. IISNode 작업에 대한 자세한 내용은 GitHub의 [IISNode 추가 정보][](영문)를 참조하십시오.
+Azure에서 호스트되는 Node.js 응용 프로그램에 대한 진단은 [IISNode][IISNode]에서 제공합니다. 이 문서에서 진단 정보 수집에 대한 가장 일반적인 설정을 논의하긴 하지만 IISNode 작업을 모두 다루지는 않습니다. IISNode 작업에 대한 자세한 내용은 GitHub의 [IISNode 추가 정보][IISNode 추가 정보](영문)를 참조하십시오.
 
 ## <span id="enablelogging"></span></a>로깅 사용
 
@@ -36,9 +36,9 @@ stdout 및 stderr 스트림에 대한 로깅을 사용하려면 Node.js 응용 �
 <p>Azure 명령줄 도구 또는 Azure PowerShell Cmdlet을 사용하여 웹 사이트를 만든 경우 기본 <strong>IISNode.yml</strong> 파일이 자동으로 만들어집니다.</p>
 </div>
 
-[Azure 관리 포털][]에서 사이트를 선택한 후 **다시 시작** 단추를 선택하여 웹 사이트를 다시 시작할 수 있습니다.
+[Azure 관리 포털][Azure 관리 포털]에서 사이트를 선택한 후 **다시 시작** 단추를 선택하여 웹 사이트를 다시 시작할 수 있습니다.
 
-![다시 시작 단추][]
+![다시 시작 단추][다시 시작 단추]
 
 Azure 명령줄 도구가 개발 환경에 설치되어 있는 경우 다음 명령을 사용하여 웹 사이트를 다시 시작할 수 있습니다.
 
@@ -55,7 +55,7 @@ Azure 명령줄 도구가 개발 환경에 설치되어 있는 경우 다음 명
 
     npm install azure-cli -g
 
-설치한 도구에는 'azure' 명령을 사용하여 액세스할 수 있습니다. 먼저 Azure 구독을 사용하도록 명령줄 도구를 구성해야 합니다. 이 작업을 수행하는 방법에 대한 자세한 내용은 [Azure 명령줄 도구를 사용하는 방법][] 문서의 **게시 설정을 다운로드하여 가져오는 방법** 섹션을 참조하세요.
+설치한 도구에는 'azure' 명령을 사용하여 액세스할 수 있습니다. 먼저 Azure 구독을 사용하도록 명령줄 도구를 구성해야 합니다. 이 작업을 수행하는 방법에 대한 자세한 내용은 [Azure 명령줄 도구를 사용하는 방법][Azure 명령줄 도구를 사용하는 방법] 문서의 **게시 설정을 다운로드하여 가져오는 방법** 섹션을 참조하세요.
 
 ### FTP
 
@@ -100,15 +100,14 @@ FTP를 통해 진단 정보에 액세스하려면 [Azure 포털]을 방문하고
 
 이 문서에서는 Azure에 대한 진단 정보를 사용하고 액세스하는 방법을 알아보았습니다. 이 정보는 응용 프로그램에서 발생하는 문제를 이해하는 데 유용하며, 사용 중인 모듈의 문제를 나타내거나 Azure 웹 사이트에 사용된 Node.js 버전이 배포 환경에 사용된 버전과 다르다는 점을 나타낼 수 있습니다.
 
-Azure에서 모듈 작업에 대한 자세한 내용은 [Azure 응용 프로그램에 Node.js 모듈 사용][]을 참조하십시오.
+Azure에서 모듈 작업에 대한 자세한 내용은 [Azure 응용 프로그램에 Node.js 모듈 사용][Azure 응용 프로그램에 Node.js 모듈 사용]을 참조하십시오.
 
-Node.js 버전의 응용 프로그램 지정에 대한 자세한 내용은 [Azure 응용 프로그램에서 Node.js 버전 지정][]을 참조하십시오.
+Node.js 버전의 응용 프로그램 지정에 대한 자세한 내용은 [Azure 응용 프로그램에서 Node.js 버전 지정][Azure 응용 프로그램에서 Node.js 버전 지정]을 참조하십시오.
 
   [IISNode]: https://github.com/tjanczuk/iisnode
   [IISNode 추가 정보]: https://github.com/tjanczuk/iisnode#readme
   [Azure 관리 포털]: https://manage.windowsazure.com/
   [다시 시작 단추]: ./media/web-sites-nodejs-debug/restartbutton.png
-  [iisnode\_schema.xml]: https://github.com/tjanczuk/iisnode/blob/master/src/config/iisnode_schema.xml
   [Azure 명령줄 도구를 사용하는 방법]: /ko-KR/documentation/articles/xplat-cli/
   [Azure 응용 프로그램에 Node.js 모듈 사용]: /ko-KR/documentation/articles/nodejs-use-node-modules-azure-apps/
   [Azure 응용 프로그램에서 Node.js 버전 지정]: /ko-KR/documentation/articles/nodejs-specify-node-version-azure-apps/

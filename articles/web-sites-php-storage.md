@@ -1,10 +1,10 @@
 <properties linkid="develop-php-website-with-storage" urlDisplayName="Web w/ Storage" pageTitle="PHP website with table storage - Azure tutorial" metaKeywords="Azure table storage PHP, Azure PHP website, Azure PHP web site, Azure PHP tutorial, Azure PHP example" description="This tutorial shows you how to create a PHP website and use the Azure Tables storage service in the back-end." metaCanonical="" services="web-sites,storage" documentationCenter="PHP" title="Create a PHP Website using Azure Storage" authors="cephalin" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin" />
 
 # Azure 저장소를 사용하여 PHP 웹 사이트 만들기
 
-이 자습서에서는 PHP 웹 사이트를 만들고 백 엔드에서 Azure 테이블 저장소 서비스를 사용하는 방법을 설명합니다. 이 자습서의 내용은 컴퓨터에 [PHP][] 및 웹 서버가 설치되어 있다는 것을 전제로 합니다. 이 자습서의 지침은 Windows, Mac 및 Linux를 포함하여 모든 운영 체제에 적용될 수 있습니다. 이 가이드를 완료하면 Azure에서 실행하고 테이블 저장소 서비스에 액세스하는 PHP 웹 사이트가 완성됩니다.
+이 자습서에서는 PHP 웹 사이트를 만들고 백 엔드에서 Azure 테이블 저장소 서비스를 사용하는 방법을 설명합니다. 이 자습서의 내용은 컴퓨터에 [PHP][PHP] 및 웹 서버가 설치되어 있다는 것을 전제로 합니다. 이 자습서의 지침은 Windows, Mac 및 Linux를 포함하여 모든 운영 체제에 적용될 수 있습니다. 이 가이드를 완료하면 Azure에서 실행하고 테이블 저장소 서비스에 액세스하는 PHP 웹 사이트가 완성됩니다.
 
 다음 내용을 배웁니다.
 
@@ -15,15 +15,15 @@
 
 PHP에서 간단한 작업 목록 응용 프로그램을 빌드할 것입니다. 아래에는 완성된 응용 프로그램의 스크린샷이 표시되어 있습니다.
 
-![Azure PHP 웹 사이트][]
+![Azure PHP 웹 사이트][Azure PHP 웹 사이트]
 
-[WACOM.INCLUDE [create-account-and-websites-note][]]
+[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 ## Azure 클라이언트 라이브러리 설치
 
 작성기를 통해 Azure용 PHP 클라이언트 라이브러리를 설치하려면 다음 단계를 따르십시오.
 
-1.  [Git 설치][]
+1.  [Git 설치][Git 설치]
 
     > [WACOM.NOTE]
     > Windows에서는 PATH 환경 변수에도 Git 실행 파일을 추가해야 합니다.
@@ -43,7 +43,7 @@ PHP에서 간단한 작업 목록 응용 프로그램을 빌드할 것입니다.
             "minimum-stability": "dev"
         }
 
-3.  프로젝트 루트에 **[composer.phar][]**을 다운로드합니다.
+3.  프로젝트 루트에 **[composer.phar][composer.phar]**을 다운로드합니다.
 
 4.  명령 프롬프트를 열고 프로젝트 루트에서 이 파일을 실행합니다.
 
@@ -264,7 +264,7 @@ PHP에서 간단한 작업 목록 응용 프로그램을 빌드할 것입니다.
         $entities = $result->getEntities();     
         $entity = $entities[0];
 
-    표시된 것처럼, 쿼리 필터에 전달된 형식은 `Key eq 'Value'`입니다. 쿼리 구문에 대한 전체 설명은 [여기][]에서 볼 수 있습니다.
+    표시된 것처럼, 쿼리 필터에 전달된 형식은 `Key eq 'Value'`입니다. 쿼리 구문에 대한 전체 설명은 [여기][여기]에서 볼 수 있습니다.
 
 -   그런 다음 속성을 변경할 수 있습니다.
 
@@ -302,19 +302,19 @@ PHP에서 간단한 작업 목록 응용 프로그램을 빌드할 것입니다.
 
 응용 프로그램에서 데이터를 클라우드에 저장하도록 만들려면 먼저 Azure에 저장소 계정을 만든 다음 적절한 인증 정보를 *Configuration* 클래스에 전달해야 합니다.
 
-1.  [Azure 관리 포털][]에 로그인합니다.
+1.  [Azure 관리 포털][Azure 관리 포털]에 로그인합니다.
 
 2.  포털의 왼쪽 아래에서 **+ 새로 만들기** 아이콘을 클릭합니다.
 
-    ![새 Azure 웹 사이트 만들기][]
+    ![새 Azure 웹 사이트 만들기][새 Azure 웹 사이트 만들기]
 
 3.  **데이터 서비스**, **저장소**, **빠른 생성**을 차례로 클릭합니다.
 
-    ![새 웹 사이트 사용자 지정 만들기][]
+    ![새 웹 사이트 사용자 지정 만들기][새 웹 사이트 사용자 지정 만들기]
 
     **URL**에 값을 입력하고 **지역** 드롭다운에서 웹 사이트의 데이터 센터를 선택합니다. 대화 상자 하단에 있는 **저장소 계정 만들기** 단추를 클릭합니다.
 
-    ![웹 사이트 세부 정보 채우기][]
+    ![웹 사이트 세부 정보 채우기][웹 사이트 세부 정보 채우기]
 
     저장소 계정이 만들어지면 **Creation of Storage Account '[NAME]' completed successfully** 텍스트가 표시됩니다.
 
@@ -322,7 +322,7 @@ PHP에서 간단한 작업 목록 응용 프로그램을 빌드할 것입니다.
 
 5.  하단 앱 바에서 **키 관리**를 클릭합니다.
 
-    ![키 관리 선택][]
+    ![키 관리 선택][키 관리 선택]
 
 6.  만든 저장소 계정 및 기본 키의 이름을 메모합니다.
 
@@ -334,10 +334,10 @@ PHP에서 간단한 작업 목록 응용 프로그램을 빌드할 것입니다.
 
 다음 단계에 따라 Azure 웹 사이트를 만듭니다.
 
-1.  [Azure 관리 포털][]에 로그인합니다.
+1.  [Azure 관리 포털][Azure 관리 포털]에 로그인합니다.
 2.  포털의 왼쪽 아래에서 **+ 새로 만들기** 아이콘을 클릭합니다.
 
-    ![새 Azure 웹 사이트 만들기][]
+    ![새 Azure 웹 사이트 만들기][새 Azure 웹 사이트 만들기]
 
 3.  **계산**, **웹 사이트**, **빠른 생성**을 차례로 클릭합니다.
 
@@ -351,25 +351,25 @@ PHP에서 간단한 작업 목록 응용 프로그램을 빌드할 것입니다.
 
 4.  웹 사이트 목록에 표시된 웹 사이트 이름을 클릭하여 웹 사이트의 **빠른 시작** 대시보드를 엽니다.
 
-    ![웹 사이트 대시보드 열기][]
+    ![웹 사이트 대시보드 열기][웹 사이트 대시보드 열기]
 
 5.  빠른 시작 페이지의 오른쪽 아래에서 **Set up a deployment from source control**을 선택합니다.
 
-    ![Git 게시 설정][]
+    ![Git 게시 설정][Git 게시 설정]
 
 6.  "소스 코드 위치?" 질문이 나타나면 **Local Git repository**를 선택한 후 화살표를 클릭합니다.
 
-    ![소스 코드 위치][]
+    ![소스 코드 위치][소스 코드 위치]
 
 7.  Git 게시를 사용하도록 설정하려면 사용자 이름 및 암호를 지정해야 합니다. 만든 사용자 이름 및 암호를 기록해 둡니다. 이전에 Git 리포지토리를 설정한 경우 이 단계를 건너뜁니다.
 
-    ![게시 자격 증명 만들기][]
+    ![게시 자격 증명 만들기][게시 자격 증명 만들기]
 
     리포지토리를 설정하는 데 몇 초 정도 걸립니다.
 
 8.  Git 리포지토리가 준비되면 로컬 리포지토리를 설정하고 파일을 Azure에 푸시하는 데 사용할 수 있는 Git 명령 관련 지침이 제공됩니다.
 
-    ![웹 사이트용 리포지토리 생성 후 반환된 Git 배포 지침][]
+    ![웹 사이트용 리포지토리 생성 후 반환된 Git 배포 지침][웹 사이트용 리포지토리 생성 후 반환된 Git 배포 지침]
 
     다음 섹션에서 응용 프로그램을 게시할 때에도 사용되므로 위 지침을 메모하십시오.
 
@@ -435,4 +435,3 @@ Git를 사용하여 응용 프로그램을 게시하려면 아래 단계를 따�
   [소스 코드 위치]: ./media/web-sites-php-storage/where_is_code.png
   [게시 자격 증명 만들기]: ./media/web-sites-php-storage/git-deployment-credentials.png
   [웹 사이트용 리포지토리 생성 후 반환된 Git 배포 지침]: ./media/web-sites-php-storage/git-instructions.png
-  [http://[]: http://[your

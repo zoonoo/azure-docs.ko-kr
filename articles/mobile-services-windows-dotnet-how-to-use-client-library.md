@@ -1,6 +1,6 @@
 <properties linkid="obile-services-how-to-dotnet-client" urlDisplayName=".NET Client Library" pageTitle="Working with the Mobile Services .NET Client Library" metaKeywords="Azure Mobile Services, Mobile Service .NET client, .NET client" description="Learn how to use an .NET client for Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="How to use a .NET client for Azure Mobile Services" authors="krisragh" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh" />
 
 # Azure 모바일 서비스용 .NET 클라이언트를 사용하는 방법
 
@@ -40,7 +40,7 @@
     -   [serialization 사용자 지정][serialization 사용자 지정]
 -   [다음 단계][다음 단계]
 
-[WACOM.INCLUDE [mobile-services-concepts][mobile-services-concepts]]
+[WACOM.INCLUDE [mobile-services-concepts](../includes/mobile-services-concepts.md)]
 
 ## <a name="setup"></a><span class="short-header">설정</span>설정 및 필수 조건
 
@@ -660,13 +660,8 @@ Windows Phone 앱의 경우 [ProtectedData][ProtectedData] 클래스를 사용�
 -   [스크립트를 통해 사용자 권한 부여][스크립트를 통해 사용자 권한 부여]
     인증된 사용자를 기준으로 모바일 서비스에서 제공한 사용자 ID 값을 가져와 모바일 서비스에서 반환된 데이터를 필터링하는 방법을 알아봅니다.
 
-<!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
 
-  [.NET Framework]: /ko-kr/develop/mobile/how-to-guides/work-with-net-client-library/ ".NET Framework"
-  [HTML/JavaScript]: /ko-kr/develop/mobile/how-to-guides/work-with-html-js-client/ "HTML/JavaScript"
-  [iOS]: /ko-kr/develop/mobile/how-to-guides/work-with-ios-client-library/ "iOS"
-  [Android]: /ko-kr/develop/mobile/how-to-guides/work-with-android-client-library/ "Android"
-  [Xamarin]: /ko-kr/develop/mobile/how-to-guides/work-with-xamarin-client-library/ "Xamarin"
+
   [Windows 스토어 빠른 시작 자습서]: http://www.windowsazure.com/ko-kr/develop/mobile/tutorials/get-started/
   [Windows Phone 빠른 시작 자습서]: http://www.windowsazure.com/ko-kr/develop/mobile/tutorials/get-started-wp8/
   [Windows 스토어 데이터 자습서]: http://www.windowsazure.com/ko-kr/develop/mobile/tutorials/get-started-with-data-dotnet/
@@ -719,8 +714,6 @@ Windows Phone 앱의 경우 [ProtectedData][ProtectedData] 클래스를 사용�
   [userId]: http://msdn.microsoft.com/ko-kr/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid.aspx
   [MobileServiceAuthenticationToken]: http://msdn.microsoft.com/ko-kr/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.mobileserviceauthenticationtoken.aspx
   [인증 토큰 캐시]: #caching
-  [Microsoft 인증을 위해 Windows 스토어 앱 패키지 등록]: /ko-kr/develop/mobile/how-to-guides/register-windows-store-app-package/
-  [LoginAsync]: http://go.microsoft.com/fwlink/p/?LinkId=311594
   [1]: /ko-kr/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/
   [2]: /ko-kr/develop/mobile/tutorials/single-sign-on-wp8/
   [PasswordVault]: http://msdn.microsoft.com/ko-kr/library/windows/apps/windows.security.credentials.passwordvault.aspx

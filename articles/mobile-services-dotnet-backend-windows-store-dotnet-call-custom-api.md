@@ -1,6 +1,6 @@
 <properties pageTitle="Call a custom API from a Windows Store client - Mobile Services" metaKeywords="" description="Learn how to define a custom API and then call it from a Windows Store app that use Windows Azure Mobile Services." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Call a custom API from the client" authors="glenga"  solutions="" writer="glenga" manager="" editor=""  />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # 클라이언트에서 사용자 지정 API 호출
 
@@ -23,11 +23,11 @@
 
 ## <a name="define-custom-api"></a>사용자 지정 API 정의
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-create-custom-api][mobile-services-dotnet-backend-create-custom-api]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-create-custom-api](../includes/mobile-services-dotnet-backend-create-custom-api.md)]
 
 ## <a name="update-app"></a>사용자 지정 API를 호출하도록 앱 업데이트
 
-[WACOM.INCLUDE [mobile-services-windows-store-dotnet-call-custom-api][mobile-services-windows-store-dotnet-call-custom-api]]
+[WACOM.INCLUDE [mobile-services-windows-store-dotnet-call-custom-api](../includes/mobile-services-windows-store-dotnet-call-custom-api.md)]
 
 ## 다음 단계
 
@@ -46,13 +46,6 @@
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [Windows 스토어 C#]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-call-custom-api "Windows 스토어 C#"
-  [Windows 스토어 JavaScript]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-call-custom-api "Windows 스토어 JavaScript"
-  [Windows Phone]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-phone-call-custom-api "Windows Phone"
-  [iOS]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-ios-call-custom-api "iOS"
-  [Android]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-android-call-custom-api "Android"
-  [.NET 백 엔드]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-call-custom-api ".NET 백 엔드"
-  [JavaScript 백 엔드]: /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-call-custom-api "JavaScript 백 엔드"
   [모바일 서비스 시작]: /ko-kr/documentation/articles/mobile-services-windows-store-get-started/
   [데이터 시작]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/
   [사용자 지정 API 정의]: #define-custom-api

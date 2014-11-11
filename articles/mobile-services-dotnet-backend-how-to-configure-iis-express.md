@@ -1,6 +1,6 @@
 <properties pageTitle="Configure IIS Express for local testing of Mobile Service" metaKeywords="Azure Mobile Services, .NET Backend, IIS Express" description="Learn how to configure IIS Express to allow connections to a local mobile service project for testing." authors="glenga" title="Configure the local web server to allow connections to a local mobile service" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # 로컬 모바일 서비스에 연결할 수 있도록 로컬 웹 서버 구성
 
@@ -8,6 +8,6 @@ Azure 모바일 서비스에서는 지원되는 .NET 언어 중 하나를 사용
 
 에뮬레이터, 가상 컴퓨터 또는 별도의 워크스테이션에서 클라이언트를 실행하여 모바일 서비스를 로컬에서 테스트할 수 있으려면 워크스테이션의 IP 주소 및 포트에 연결할 수 있도록 로컬 웹 서버와 호스트 컴퓨터를 구성해야 합니다. 이 항목에서는 로컬에서 호스트한 모바일 서비스에 연결할 수 있도록 IIS Express를 구성하는 방법을 보여 줍니다.
 
-[WACOM.INCLUDE [mobile-services-how-to-configure-iis-express][mobile-services-how-to-configure-iis-express]]
+[WACOM.INCLUDE [mobile-services-how-to-configure-iis-express](../includes/mobile-services-how-to-configure-iis-express.md)]
 
   [mobile-services-how-to-configure-iis-express]: ../includes/mobile-services-how-to-configure-iis-express.md

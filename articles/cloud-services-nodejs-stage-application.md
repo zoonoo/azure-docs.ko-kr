@@ -1,6 +1,6 @@
 <properties linkid="dev-nodejs-enablestaging" urlDisplayName="Staging Deployment" pageTitle="Stage a cloud service deployment (Node.js) - Azure" metaKeywords="Azure staging, Azure application staging, Azure test environment, Azure staging environment, Azure Virtual IP swap, Azure VIP swap" description="Learn how to deploy your Azure application to a staging environment, then deploy to a production environment using Virtual IP (VIP) swap." metaCanonical=" " services="cloud-services" documentationCenter="nodejs" title="Staging an Application in Azure" authors="larryfr" solutions="" manager="" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"></tags>
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # Azure에서 응용 프로그램 준비
 
@@ -13,8 +13,8 @@
 
 이 작업에는 다음 단계가 포함됩니다.
 
--   [1단계: 응용 프로그램 준비][]
--   [2단계: VIP를 교환하여 프로덕션에 응용 프로그램 배포][]
+-   [1단계: 응용 프로그램 준비][1단계: 응용 프로그램 준비]
+-   [2단계: VIP를 교환하여 프로덕션에 응용 프로그램 배포][2단계: VIP를 교환하여 프로덕션에 응용 프로그램 배포]
 
 <h2><a id="step1"></a>1단계: 응용 프로그램 준비</h2>
 
@@ -26,17 +26,17 @@
 
     **Publish-AzureServiceProject -Slot staging**
 
-2.  [Azure 관리 포털][]에 로그온하고 **클라우드 서비스**를 선택합니다. 클라우드 서비스가 만들어지고 **스테이징** 열 상태가 **실행 중**으로 업데이트된 후 서비스 이름을 클릭합니다.
+2.  [Azure 관리 포털][Azure 관리 포털]에 로그온하고 **클라우드 서비스**를 선택합니다. 클라우드 서비스가 만들어지고 **스테이징** 열 상태가 **실행 중**으로 업데이트된 후 서비스 이름을 클릭합니다.
 
-    ![실행 중인 서비스가 표시된 포털][]
+    ![실행 중인 서비스가 표시된 포털][실행 중인 서비스가 표시된 포털]
 
 3.  **대시보드**를 선택한 후 **스테이징**을 선택합니다.
 
-    ![클라우드 서비스 대시보드][]
+    ![클라우드 서비스 대시보드][클라우드 서비스 대시보드]
 
 4.  오른쪽에 있는 **사이트 URL** 항목의 값을 기록합니다. DNS 이름은 Azure에서 생성한 임시 내부 ID입니다.
 
-    ![사이트 URL][]
+    ![사이트 URL][사이트 URL]
 
 이제 응용 프로그램이 스테이징 사이트 URL을 사용하여 스테이징 환경에서 올바르게 작동하고 있는 것을 확인할 수 있습니다.
 
@@ -56,11 +56,11 @@
 가정합니다.</p>
 </div>
 
-1.  [Azure 관리 포털][]에 로그인하여 **클라우드 서비스**를 클릭한 후 서비스 이름을 선택합니다.
+1.  [Azure 관리 포털][Azure 관리 포털]에 로그인하여 **클라우드 서비스**를 클릭한 후 서비스 이름을 선택합니다.
 
 2.  **대시보드**에서 **스테이징**을 선택한 후 페이지 맨 아래에 있는 **교환**을 클릭합니다. 그러면 VIP 교환 대화 상자가 열립니다.
 
-    ![VIP 교환 대화 상자][]
+    ![VIP 교환 대화 상자][VIP 교환 대화 상자]
 
 3.  정보를 검토한 후 **확인**을 클릭합니다. 스테이징 배포가 프로덕션으로, 프로덕션 배포가 스테이징으로 전환되면서 두 배포가 업데이트를 시작합니다.
 
@@ -68,8 +68,8 @@
 
 ## 추가 리소스
 
--   [Azure에서 VIP를 교환하여 프로덕션에 서비스 업그레이드를 배포하는 방법][]
--   [Azure의 배포 관리 개요][]
+-   [Azure에서 VIP를 교환하여 프로덕션에 서비스 업그레이드를 배포하는 방법][Azure에서 VIP를 교환하여 프로덕션에 서비스 업그레이드를 배포하는 방법]
+-   [Azure의 배포 관리 개요][Azure의 배포 관리 개요]
 
   [1단계: 응용 프로그램 준비]: #step1
   [2단계: VIP를 교환하여 프로덕션에 응용 프로그램 배포]: #step2

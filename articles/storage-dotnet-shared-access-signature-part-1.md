@@ -1,10 +1,10 @@
 <properties linkid="manage-services-storage-net-shared-access-signature-part-1" urlDisplayName="" pageTitle="Shared access signatures: Understanding the SAS Model | Microsoft Azure" metaKeywords="Azure blob, Azure table, Azure queue, shared access signatures" description="Learn about delegating access to blob, queue, and table resources with shared access signatures" metaCanonical="" services="storage" documentationCenter="" title="Part 1: Understanding the SAS Model" solutions="" authors="tamram" manager="mbaldwin" editor="cgronlun" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tamram"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
 # 공유 액세스 서명, 1부: SAS 모델 이해
 
-SAS(공유 액세스 서명)를 사용하면 계정 키를 노출하지 않고 다른 클라이언트에게 저장소 계정의 Blob, 테이블 및 큐에 대한 제한된 액세스 권한을 확실히 부여할 수 있습니다. 공유 액세스 서명에 관한 이 자습서의 1부에서는 SAS 모델의 개요를 제공하고 SAS 모범 사례를 검토합니다. 자습서의 [2부][]에서는 Blob 서비스를 통해 공유 액세스 서명을 만드는 프로세스를 안내합니다.
+SAS(공유 액세스 서명)를 사용하면 계정 키를 노출하지 않고 다른 클라이언트에게 저장소 계정의 Blob, 테이블 및 큐에 대한 제한된 액세스 권한을 확실히 부여할 수 있습니다. 공유 액세스 서명에 관한 이 자습서의 1부에서는 SAS 모델의 개요를 제공하고 SAS 모범 사례를 검토합니다. 자습서의 [2부][2부]에서는 Blob 서비스를 통해 공유 액세스 서명을 만드는 프로세스를 안내합니다.
 
 ## 공유 액세스 서명 정의
 
@@ -118,7 +118,7 @@ SAS가 유용한 일반적인 시나리오로는 다른 사용자가 저장소 �
 7.  **SAS 사용 작업을 포함한 모든 사용량에 대한 요금이 계정에 청구됩니다.** Blob에 쓰기 권한을 제공한 경우 사용자가 200GB Blob을 업로드하도록 선택할 수 있습니다. 사용자에게 읽기 권한도 제공한 경우 사용자가 이 Blob을 10번 다운로드하도록 선택하여 2TB의 발신 비용이 청구될 수 있습니다. 또한 제한된 권한을 제공하여 악의적인 사용자의 공격 가능성을 낮추세요. 단기 실행 SAS를 사용하여 이 위협을 줄이세요. 이때 종료 시간의 클럭 오차에 유의하세요.
 8.  **SAS를 사용하여 작성된 데이터의 유효성을 검사하세요.** 클라이언트 응용 프로그램이 저장소 계정에 데이터를 쓸 경우 해당 데이터에 문제가 존재할 수 있습니다. 데이터를 사용할 준비가 되기 이전에 응용 프로그램에서 데이터의 유효성을 검사하거나 권한을 부여해야 하는 경우 데이터를 작성한 이후 응용 프로그램에서 데이터를 사용하기 이전에 유효성 검사를 수행해야 합니다. 그러면 SAS를 적절한 방법으로 습득한 사용자나 누설된 SAS를 악용하는 사용자로 인해 계정이 손상되거나 데이터에 악의적인 데이터가 기록되는 것을 방지할 수 있습니다.
 9.  **경우에 따라 SAS를 사용하지 마세요.** 저장소 계정에 대한 특정 작업 관련 위험이 SAS의 이점을 능가하는 경우도 있습니다. 그런 작업에 대해서는 비즈니스 규칙 유효성 검사, 인증 및 감사를 수행한 이후에 저장소 계정에 쓰는 중간 계층 서비스를 만듭니다. 또한 다른 방법으로 액세스를 관리하는 것이 더 간단한 경우도 있습니다. 예를 들어 컨테이너의 모든 Blob을 공개적으로 읽기 가능하도록 설정하려면 모든 클라이언트가 액세스하도록 SAS를 제공하는 대신에 컨테이너를 공용으로 설정할 수 있습니다.
-10. **저장소 분석을 사용하여 응용 프로그램을 모니터링합니다.** 로깅 및 메트릭을 사용하여 SAS 공급자 서비스의 가동 중단이나 저장된 액세스 정책의 잘못된 제거로 인한 인증 오류의 급격한 증가를 관찰할 수 있습니다. 자세한 내용은 [Azure 저장소 팀 블로그][](영문)를 참조하세요.
+10. **저장소 분석을 사용하여 응용 프로그램을 모니터링합니다.** 로깅 및 메트릭을 사용하여 SAS 공급자 서비스의 가동 중단이나 저장된 액세스 정책의 잘못된 제거로 인한 인증 오류의 급격한 증가를 관찰할 수 있습니다. 자세한 내용은 [Azure 저장소 팀 블로그][Azure 저장소 팀 블로그](영문)를 참조하세요.
 
 ## 결론
 
@@ -128,16 +128,15 @@ SAS가 유용한 일반적인 시나리오로는 다른 사용자가 저장소 �
 
 [공유 액세스 서명, 2부: Blob 서비스를 통해 SAS 만들기 및 사용][2부]
 
-[Azure 저장소 리소스에 대한 액세스 관리][]
+[Azure 저장소 리소스에 대한 액세스 관리][Azure 저장소 리소스에 대한 액세스 관리]
 
-[공유 액세스 서명을 사용하여 액세스 위임(REST API)][]
+[공유 액세스 서명을 사용하여 액세스 위임(REST API)][공유 액세스 서명을 사용하여 액세스 위임(REST API)]
 
-[테이블 및 큐 SAS 소개][]
+[테이블 및 큐 SAS 소개][테이블 및 큐 SAS 소개]
  [sas-storage-fe-proxy-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png
 [sas-storage-provider-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png
 
   [2부]: ../storage-dotnet-shared-access-signature-part-2/
   [Azure 저장소 팀 블로그]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/08/03/windows-azure-storage-logging-using-logs-to-track-storage-requests.aspx
-  [Azure 저장소 리소스에 대한 액세스 관리]: http://msdn.microsoft.com/en-us/library/windowsazure/ee393343.aspx
-  [공유 액세스 서명을 사용하여 액세스 위임(REST API)]: http://msdn.microsoft.com/en-us/library/windowsazure/ee395415.aspx
+  [Azure 저장소 리소스에 대한 액세스 관리]: http://msdn.microsoft.com/ko-kr/library/windowsazure/ee393343.aspx
   [테이블 및 큐 SAS 소개]: http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx

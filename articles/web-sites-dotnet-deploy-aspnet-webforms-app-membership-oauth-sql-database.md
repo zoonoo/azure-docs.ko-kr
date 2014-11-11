@@ -1,6 +1,6 @@
 <properties linkid="Deploy_a_Secure_ASP.NET_Web_Forms_App_with_Membership_OAuth_and_SQL_Database_to_an_Azure_Web_Site" pageTitle="Deploy a Secure ASP.NET Web Forms App with Membership, OAuth, and SQL Database to an Azure Website" metaKeywords="Azure WebForms Hello World Tutorial, Azure Getting Started with WebForms Tutorial, Azure C# WebForms Hello World Tutorial, SQL Azure C# WebForms Tutorial" description="This tutorial shows you how to build a secure ASP.NET 4.5 Web Forms web app that incorporates a SQL Database and deploy the application to Azure." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Deploy a secure ASP.NET 4.5 Web Forms app to an Azure Website" authors="erikre"  solutions="" manager="wpickett" editor="mollybos"  />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="erikre"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="erikre" />
 
 # Azure 웹 사이트에 멤버 자격, OAuth 및 SQL 데이터베이스를 포함한 보안 ASP.NET Web Forms 앱 배포
 
@@ -760,7 +760,6 @@ ASP.NET Web Forms에 대해 자세한 내용은 ASP.NET 웹 사이트의 [ASP.NE
   [스캐폴드 추가 대화 상자]: ./media/web-sites-dotnet-web-forms-secure/SecureWebForms13a.png
   [Web Forms 페이지 추가 대화 상자]: ./media/web-sites-dotnet-web-forms-secure/SecureWebForms13b.png
   [5]: ./media/web-sites-dotnet-web-forms-secure/SecureWebForms13c.png
-  [EF(Entity Framework) DB 시드 및 디버그]: http://blogs.msdn.com/b/rickandy/archive/2013/02/12/seeding-and-debugging-entity-framework-ef-dbs.aspx
   [패키지 관리자 콘솔]: ./media/web-sites-dotnet-web-forms-secure/SecureWebForms13d.png
   [Contacts List 페이지]: ./media/web-sites-dotnet-web-forms-secure/SecureWebForms17.png
   [프로젝트 속성]: ./media/web-sites-dotnet-web-forms-secure/SecureWebForms18.png

@@ -1,6 +1,6 @@
 <properties linkid="develop-php-how-to-twilio-sms-service" urlDisplayName="Twilio Voice/SMS Service" pageTitle="How to Use Twilio for Voice and SMS (PHP) - Azure" metaKeywords="Azure PHP Twilio, Azure phone calls, Azure phone calls, Azure twilio, Azure SMS, Azure SMS, Azure voice calls, azure voice calls, Azure text messages, Azure text messages" description="Learn how to make a phone call and send a SMS message with the Twilio API service on Azure. Code samples written in PHP." metaCanonical="" services="" documentationCenter="" title="How to Use Twilio for Voice and SMS Capabilities in PHP" authors="MicrosoftHelp@twilio.com" solutions="" manager="" editor="" />
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="MicrosoftHelp@twilio.com"></tags>
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="MicrosoftHelp@twilio.com" />
 
 # PHP에서 음성 및 SMS 기능을 위해 Twilio를 사용하는 방법
 
@@ -283,8 +283,3 @@ Twilio 서비스의 기본 사항을 배웠으며 자세한 내용을 보려면 
   [4]: http://twimlets.com/message
   [5]: http://twimlets.com/message?Message%5B0%5D=Hello%20World
   [6]: https://www.twilio.com/docs/api/twiml
-  [Twilio 보안 지침(영문)]: http://www.twilio.com/docs/security
-  [Twilio 방법 가이드 및 예제 코드(영문)]: http://www.twilio.com/docs/howto
-  [Twilio 빠른 시작 자습서(영문)]: http://www.twilio.com/docs/quickstart
-  [Twilio on GitHub(영문)]: https://github.com/twilio
-  [Twilio 지원 문의(영문)]: http://www.twilio.com/help/contact

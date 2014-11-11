@@ -1,6 +1,6 @@
 <properties linkid="mobile-services-monitor-new-relic" urlDisplayName="Use New Relic to monitor Mobile Services" pageTitle="Store server scripts in source control - Azure Mobile Services" metaKeywords="" description="Learn how to use the New Relic add-on to monitor your mobile service." metaCanonical="" disqusComments="1" umbracoNaviHide="0" documentationCenter="Mobile" title="Use New Relic to monitor Mobile Services" authors="new relic" manager="dwrede" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="new relic"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="new="" relic" />
 
 # New Relic을 사용하여 모바일 서비스 모니터링
 
@@ -68,7 +68,7 @@ New Relic 서비스에 등록한 후에는 모바일 서비스에 New Relic Node
 
 1.  [관리 포털][관리 포털]에서 모바일 서비스를 선택한 다음 **구성** 탭을 클릭합니다.
 
-    ![][]
+    ![][0]
 
 2.  **개발자 분석**까지 아래로 스크롤하고 New Relic 구독을 구입한 방법에 따라 다음 중 하나를 수행합니다.
 
@@ -111,7 +111,7 @@ New Relic 서비스에 등록한 후에는 모바일 서비스에 New Relic Node
 -   가격 책정 정보는 [Azure 스토어의 New Relic 페이지][Azure 스토어의 New Relic 페이지](영문)를 참조하십시오.
 -   New Relic을 사용하는 방법에 대한 자세한 내용은 New Relic 설명서의 [응용 프로그램 개요][응용 프로그램 개요]를 참조하십시오.
 
-<!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
+
 
   [Azure 스토어를 사용하여 New Relic에 등록]: #sign-up
   [New Relic 모듈 설치]: #install-module
@@ -121,10 +121,9 @@ New Relic 서비스에 등록한 후에는 모바일 서비스에 New Relic Node
   [데이터 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-data-dotnet
   [Azure 관리 포털]: https://manage.windowsazure.com
   [소스 제어의 스토어 서버 스크립트]: /ko-kr/develop/mobile/tutorials/store-scripts-in-source-control/
-  [NPM(Node Package Manager)]: http://nodejs.org/
   [New Relic 모듈]: https://npmjs.org/package/newrelic
   [관리 포털]: https://manage.windowsazure.com/
-  []: ./media/store-new-relic-mobile-services-monitor/mobile-configure-tab.png
+  [0]: ./media/store-new-relic-mobile-services-monitor/mobile-configure-tab.png
   [1]: ./media/store-new-relic-mobile-services-monitor/mobile-configure-new-relic-monitoring.png
   [2]: ./media/store-new-relic-mobile-services-monitor/mobile-configure-new-relic-monitoring-custom.png
   [3]: ./media/store-new-relic-mobile-services-monitor/mobile-configure-new-relic-monitoring-complete.png

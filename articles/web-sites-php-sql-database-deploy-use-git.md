@@ -1,13 +1,13 @@
 <properties linkid="develop-php-website-with-sql-database-and-git" urlDisplayName="Web w/ SQL + Git" pageTitle="PHP website with SQL Database and Git - Azure tutorial" metaKeywords="" description="A tutorial that demonstrates how to create a PHP website that stores data in SQL Database and use Git deployment to Azure." metaCanonical="" services="web-sites,sql-database" documentationCenter="PHP" title="Create a PHP website with a SQL Database and deploy using Git" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
 
 # SQL 데이터베이스를 사용하여 PHP 웹 사이트 만들기 및 Git를 사용하여 배포
 
-이 자습서에서는 Azure SQL 데이터베이스를 사용하여 PHP Azure 웹 사이트를 만들고 Git를 사용하여 배포하는 방법을 설명합니다. 이 자습서는 컴퓨터에 [PHP][], [SQL Server Express][], [PHP용 SQL Server를 위한 Microsoft 드라이버][](영문), 웹 서버 및 [Git][]가 설치되어 있다고 가정합니다. 이 가이드를 완료하면 Azure에서 실행하는 PHP-SQL 데이터베이스 웹 사이트가 완성됩니다.
+이 자습서에서는 Azure SQL 데이터베이스를 사용하여 PHP Azure 웹 사이트를 만들고 Git를 사용하여 배포하는 방법을 설명합니다. 이 자습서는 컴퓨터에 [PHP][PHP], [SQL Server Express][SQL Server Express], [PHP용 SQL Server를 위한 Microsoft 드라이버][PHP용 SQL Server를 위한 Microsoft 드라이버](영문), 웹 서버 및 [Git][Git]가 설치되어 있다고 가정합니다. 이 가이드를 완료하면 Azure에서 실행하는 PHP-SQL 데이터베이스 웹 사이트가 완성됩니다.
 
 > [WACOM.NOTE]
-> PHP, SQL Server Express, PHP용 SQL Server를 위한 Microsoft 드라이버 및 IIS(인터넷 정보 서비스)는 [Microsoft 웹 플랫폼 설치 관리자][]를 사용하여 설치하고 구성할 수 있습니다.
+> PHP, SQL Server Express, PHP용 SQL Server를 위한 Microsoft 드라이버 및 IIS(인터넷 정보 서비스)는 [Microsoft 웹 플랫폼 설치 관리자][Microsoft 웹 플랫폼 설치 관리자]를 사용하여 설치하고 구성할 수 있습니다.
 
 다음 내용을 배웁니다.
 
@@ -16,57 +16,57 @@
 
 이 자습서의 지침에 따라 PHP에서 간단한 등록 웹 응용 프로그램을 빌드할 수 있습니다. 응용 프로그램은 Azure 웹 사이트에 호스트됩니다. 아래에는 완성된 응용 프로그램의 스크린샷이 표시되어 있습니다.
 
-![Azure PHP 웹 사이트][]
+![Azure PHP 웹 사이트][Azure PHP 웹 사이트]
 
-[WACOM.INCLUDE [create-account-and-websites-note][]]
+[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 ## Azure 웹 사이트 만들기 및 Git 게시 설정
 
 Azure 웹 사이트 및 SQL 데이터베이스를 만들려면 다음 단계를 따르세요.
 
-1.  [Azure 관리 포털][]에 로그인합니다.
+1.  [Azure 관리 포털][Azure 관리 포털]에 로그인합니다.
 2.  포털의 왼쪽 아래에서 **새로 만들기** 아이콘을 클릭합니다.
-    ![새 Azure 웹 사이트 만들기][]
+    ![새 Azure 웹 사이트 만들기][새 Azure 웹 사이트 만들기]
 
 3.  **웹 사이트**를 클릭한 후 **사용자 지정 만들기**를 클릭합니다.
 
-    ![새 웹 사이트 사용자 지정 만들기][]
+    ![새 웹 사이트 사용자 지정 만들기][새 웹 사이트 사용자 지정 만들기]
 
     **URL**에 대한 값을 입력하고 **데이터베이스** 드롭다운에서 **새 SQL 데이터베이스 만들기**를 선택한 후 **지역** 드롭다운에서 웹 사이트에 대한 데이터 센터를 선택합니다. 대화 상자 아래쪽의 화살표를 클릭합니다.
 
-    ![웹 사이트 세부 정보 채우기][]
+    ![웹 사이트 세부 정보 채우기][웹 사이트 세부 정보 채우기]
 
-4.  데이터베이스 **이름**에 값을 입력하고 **버전**[(WEB 또는 BUSINESS)][], 데이터베이스의 **최대 크기**, **정렬** 및 **새 SQL 데이터베이스 서버**를 선택합니다. 대화 상자 아래쪽의 화살표를 클릭합니다.
+4.  데이터베이스 **이름**에 값을 입력하고 **버전**[(WEB 또는 BUSINESS)][(WEB 또는 BUSINESS)], 데이터베이스의 **최대 크기**, **정렬** 및 **새 SQL 데이터베이스 서버**를 선택합니다. 대화 상자 아래쪽의 화살표를 클릭합니다.
 
-    ![SQL 데이터베이스 설정 입력][]
+    ![SQL 데이터베이스 설정 입력][SQL 데이터베이스 설정 입력]
 
 5.  관리자 이름 및 암호를 입력하고, 암호를 확인하고, 새 SQL 데이터베이스 서버를 만들 지역을 선택하고, `Allow Azure Services to access the server` 상자를 선택합니다.
 
-    ![새 SQL 데이터베이스 서버 만들기][]
+    ![새 SQL 데이터베이스 서버 만들기][새 SQL 데이터베이스 서버 만들기]
 
     웹 사이트가 만들어지면 **''[SITENAME]'' 웹 사이트 만들기가 완료되었습니다.**라는 텍스트가 표시됩니다. 이제 Git 게시를 사용하도록 설정할 수 있습니다.
 
 6.  웹 사이트 목록에 표시된 웹 사이트 이름을 클릭하여 웹 사이트의 빠른 시작 대시보드를 엽니다.
 
-    ![웹 사이트 대시보드 열기][]
+    ![웹 사이트 대시보드 열기][웹 사이트 대시보드 열기]
 
 7.  빠른 시작 페이지 맨 아래에 있는 **소스 제어에서 배포 설정**을 클릭합니다.
 
-    ![Git 게시 설정][]
+    ![Git 게시 설정][Git 게시 설정]
 
 8.  "소스 코드 위치?" 질문이 나타나면 **Local Git repository**를 선택한 후 화살표를 클릭합니다.
 
-    ![소스 코드 위치][]
+    ![소스 코드 위치][소스 코드 위치]
 
 9.  Git 게시를 사용하도록 설정하려면 사용자 이름 및 암호를 지정해야 합니다. 만든 사용자 이름 및 암호를 기록해 둡니다. 이전에 Git 리포지토리를 설정한 경우 이 단계를 건너뜁니다.
 
-    ![게시 자격 증명 만들기][]
+    ![게시 자격 증명 만들기][게시 자격 증명 만들기]
 
     리포지토리를 설정하는 데 몇 초 정도 걸립니다.
 
 10. 리포지토리가 준비되면 응용 프로그램 파일을 리포지토리에 푸시하는 지침이 표시됩니다. 이러한 지침은 나중에 필요하므로 기록해 둡니다.
 
-    ![Git 지침][]
+    ![Git 지침][Git 지침]
 
 ## SQL 데이터베이스 연결 정보 가져오기
 
@@ -74,11 +74,11 @@ Azure 웹 사이트에서 실행되는 SQL 데이터베이스 인스턴스에 �
 
 1.  Azure 관리 포털에서 **연결된 리소스**를 클릭한 후 데이터베이스 이름을 클릭합니다.
 
-    ![연결된 리소스][]
+    ![연결된 리소스][연결된 리소스]
 
 2.  **연결 문자열 보기**를 클릭합니다.
 
-    ![연결 문자열][]
+    ![연결 문자열][연결 문자열]
 
 3.  나타나는 대화 상자의 **PHP** 섹션에서 `SERVER`, `DATABASE` 및 `USERNAME`의 값을 기록해 놓습니다.
 
@@ -89,7 +89,7 @@ Azure 웹 사이트에서 실행되는 SQL 데이터베이스 인스턴스에 �
 -   **index.php**: 등록 양식 및 등록자 정보가 포함된 테이블을 표시합니다.
 -   **createtable.php**: 응용 프로그램용 SQL 데이터베이스 테이블을 만듭니다. 이 파일은 한 번만 사용됩니다.
 
-응용 프로그램을 로컬에서 실행하려면 아래 단계를 따릅니다. 이러한 단계는 로컬 컴퓨터에 PHP, SQL Server Express 및 웹 서버가 설정되어 있으며 [SQL Server용 PDO 확장][](영문)이 사용하도록 설정되어 있다는 것을 전제로 합니다.
+응용 프로그램을 로컬에서 실행하려면 아래 단계를 따릅니다. 이러한 단계는 로컬 컴퓨터에 PHP, SQL Server Express 및 웹 서버가 설정되어 있으며 [SQL Server용 PDO 확장][SQL Server용 PDO 확장](영문)이 사용하도록 설정되어 있다는 것을 전제로 합니다.
 
 1.  `registration`이라는 SQL Server 데이터베이스를 만듭니다. 이는 `sqlcmd` 명령 프롬프트에서 다음 명령으로 수행할 수 있습니다.
 
@@ -283,7 +283,6 @@ Azure 웹 사이트에서 실행되는 SQL 데이터베이스 인스턴스에 �
   [새 Azure 웹 사이트 만들기]: ./media/web-sites-php-sql-database-deploy-use-git/new_website.jpg
   [새 웹 사이트 사용자 지정 만들기]: ./media/web-sites-php-sql-database-deploy-use-git/custom_create.png
   [웹 사이트 세부 정보 채우기]: ./media/web-sites-php-sql-database-deploy-use-git/website_details_sqlazure.jpg
-  [(WEB 또는 BUSINESS)]: http://msdn.microsoft.com/ko-KR/library/windowsazure/ee621788.aspx
   [SQL 데이터베이스 설정 입력]: ./media/web-sites-php-sql-database-deploy-use-git/database_settings.jpg
   [새 SQL 데이터베이스 서버 만들기]: ./media/web-sites-php-sql-database-deploy-use-git/create_server.jpg
   [웹 사이트 대시보드 열기]: ./media/web-sites-php-sql-database-deploy-use-git/go_to_dashboard.png
@@ -294,4 +293,3 @@ Azure 웹 사이트에서 실행되는 SQL 데이터베이스 인스턴스에 �
   [연결된 리소스]: ./media/web-sites-php-sql-database-deploy-use-git/linked_resources.jpg
   [연결 문자열]: ./media/web-sites-php-sql-database-deploy-use-git/connection_string.jpg
   [SQL Server용 PDO 확장]: http://php.net/pdo_sqlsrv
-  [http://[사이트]: http://[site

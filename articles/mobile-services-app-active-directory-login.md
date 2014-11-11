@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-how-to-guides-register-for-microsoft-waad-authentication" urlDisplayName="Register for Azure Active Directory Authentication" pageTitle="Register for Azure Active Directory authentication - Mobile Services" metaKeywords="Azure registering application, Azure Active Directory authentication, application authenticate, authenticate mobile services" description="Learn how to register for Azure Active Directory authentication in your Azure Mobile Services application." metaCanonical="" disqusComments="0" umbracoNaviHide="1" title="Register your apps to use an Azure Active Directory Account login" authors="dwrede" manager="dwrede" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="dwrede"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="dwrede" />
 
 # Azure Active Directory 계정 로그인 사용을 위한 앱 등록
 
@@ -14,7 +14,7 @@
 
 2.  관리 포털에서 **Active Directory**로 이동한 다음 디렉터리를 클릭합니다.
 
-  ![][]
+  ![][0]
 
 1.  **응용 프로그램** 탭을 클릭한 후 **앱 추가**를 클릭합니다.
 
@@ -30,7 +30,6 @@
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [Windows Live Connect 인증을 위해 Windows 스토어 앱 등록]: /ko-kr/develop/mobile/how-to-guides/register-for-single-sign-on
   [Azure 관리 포털]: https://manage.windowsazure.com/
-  []: ./media/mobile-services-app-active-directory-login/mobile-services-live-connect-add-app.png
+  [0]: ./media/mobile-services-app-active-directory-login/mobile-services-live-connect-add-app.png
   [1]: ./media/mobile-services-app-active-directory-login/mobile-live-connect-app-api-settings.png

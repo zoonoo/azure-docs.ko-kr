@@ -1,20 +1,20 @@
 <properties linkid="develop-net-how-to-twilio-phone-call" urlDisplayName="Twilio Phone Call" pageTitle="How to make a phone call from Twilio (.NET) - Azure" metaKeywords="Azure .NET Twilio, Azure Twilio, Azure phone calls, Azure twilio, Azure SMS, Azure SMS, Azure voice calls, azure voice calls, Azure text messages, Azure text messages, ASP.NET twilio Azure" description="Learn how to make a phone call and send a SMS message with the Twilio API service on Azure. Code samples written in .NET." metaCanonical="" services="" documentationCenter=".NET" title="How to make a phone call using Twilio in a web role on Azure" authors="MicrosoftHelp@twilio.com; larryf" solutions="" manager="" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="MicrosoftHelp@twilio.com; larryf"></tags>
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="MicrosoftHelp@twilio.com; larryf" />
 
 # Azure의 웹 역할에서 Twilio를 사용하여 전화를 거는 방법
 
 이 가이드에서는 Azure에 호스트된 웹 페이지에서 Twilio를 사용하여 전화를 거는 방법을 설명합니다. 다음 스크린샷에 표시된 것처럼 응용 프로그램에서 사용자에게 전화 통화 값을 묻습니다.
 
-![Twilio 및 ASP.NET을 사용하는 Azure 통화 양식][]
+![Twilio 및 ASP.NET을 사용하는 Azure 통화 양식][Twilio 및 ASP.NET을 사용하는 Azure 통화 양식]
 
 ## 목차
 
--   [필수 조건][]
--   [방법: 전화 걸기 웹 양식 만들기][]
--   [방법: 코드를 만들어 전화 걸기][]
--   [다음 단계][]
--   [참고 항목][]
+-   [필수 조건][필수 조건]
+-   [방법: 전화 걸기 웹 양식 만들기][방법: 전화 걸기 웹 양식 만들기]
+-   [방법: 코드를 만들어 전화 걸기][방법: 코드를 만들어 전화 걸기]
+-   [다음 단계][다음 단계]
+-   [참고 항목][참고 항목]
 
 ## <a name="twilio-prereqs"></a>필수 조건
 
@@ -147,7 +147,7 @@ Azure에서 기본적인 웹 역할 만들기에 익숙해져야 합니다.
 
 전화가 걸리고 Twilio 끝점, API 버전 및 통화 상태가 표시됩니다. 다음 스크린샷은 샘플 실행의 결과를 보여 줍니다.
 
-![Twilio 및 ASP.NET을 사용하는 Azure 통화 응답][]
+![Twilio 및 ASP.NET을 사용하는 Azure 통화 응답][Twilio 및 ASP.NET을 사용하는 Azure 통화 응답]
 
 TwiML에 대한 자세한 내용은 [][4]<http://www.twilio.com/docs/api/twiml></a>(영문)에서 찾을 수 있습니다. \<Say\> 및 기타 Twilio 동사에 대한 정보는 [][5]<http://www.twilio.com/docs/api/twiml/say></a>(영문)에서 찾을 수 있습니다.
 
@@ -155,14 +155,14 @@ TwiML에 대한 자세한 내용은 [][4]<http://www.twilio.com/docs/api/twiml><
 
 이 코드는 Azure에서 ASP.NET 웹 역할의 Twilio를 사용하는 기본 기능을 보여 줍니다. Azure를 프로덕션에 배포하기 전에 더 많은 오류 처리 또는 기타 기능을 추가할 수 있습니다. 예를 들면 다음과 같습니다.
 
--   웹 양식을 사용하는 대신, Azure Blob 저장소 또는 Azure SQL 데이터베이스 인스턴스를 사용하여 전화 번호 및 통화 텍스트를 저장할 수 있습니다. Azure에서 Blob 사용에 대한 자세한 내용은 [.NET에서 Azure Blob 저장소 서비스를 사용하는 방법][](영문)을 참조하십시오. SQL 데이터베이스 사용에 대한 자세한 내용은 [.NET 응용 프로그램에서 Azure SQL 데이터베이스를 사용하는 방법][](영문)을 참조하십시오.
--   양식에서 값을 하드 코딩하는 대신, RoleEnvironment.getConfigurationSettings를 사용하여 배포 구성 설정에서 Twilio 계정 ID 및 인증 토큰을 검색할 수 있습니다. RoleEnvironment 클래스에 대한 자세한 내용은 [Microsoft.WindowsAzure.ServiceRuntime 네임스페이스][](영문)를 참조하십시오.
+-   웹 양식을 사용하는 대신, Azure Blob 저장소 또는 Azure SQL 데이터베이스 인스턴스를 사용하여 전화 번호 및 통화 텍스트를 저장할 수 있습니다. Azure에서 Blob 사용에 대한 자세한 내용은 [.NET에서 Azure Blob 저장소 서비스를 사용하는 방법][.NET에서 Azure Blob 저장소 서비스를 사용하는 방법](영문)을 참조하십시오. SQL 데이터베이스 사용에 대한 자세한 내용은 [.NET 응용 프로그램에서 Azure SQL 데이터베이스를 사용하는 방법][.NET 응용 프로그램에서 Azure SQL 데이터베이스를 사용하는 방법](영문)을 참조하십시오.
+-   양식에서 값을 하드 코딩하는 대신, RoleEnvironment.getConfigurationSettings를 사용하여 배포 구성 설정에서 Twilio 계정 ID 및 인증 토큰을 검색할 수 있습니다. RoleEnvironment 클래스에 대한 자세한 내용은 [Microsoft.WindowsAzure.ServiceRuntime 네임스페이스][Microsoft.WindowsAzure.ServiceRuntime 네임스페이스](영문)를 참조하십시오.
 -   [][6]<https://www.twilio.com/docs/security></a>(영문)에서 Twilio 보안 지침을 읽으십시오.
 -   [][7]<https://www.twilio.com/docs></a>(영문)에서 Twilio에 대해 자세히 알아보십시오.
 
 ## <a name="seealso"></a>참고 항목
 
--   [Azure에서 음성 및 SMS 기능을 위해 Twilio를 사용하는 방법][]
+-   [Azure에서 음성 및 SMS 기능을 위해 Twilio를 사용하는 방법][Azure에서 음성 및 SMS 기능을 위해 Twilio를 사용하는 방법]
 
   [Twilio 및 ASP.NET을 사용하는 Azure 통화 양식]: ./media/partner-twilio-cloud-services-dotnet-phone-call-web-role/WA_twilio_dotnet_basic_form.png
   [필수 조건]: #twilio-prereqs

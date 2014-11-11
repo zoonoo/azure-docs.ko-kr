@@ -1,6 +1,6 @@
 <properties linkid="dev-net-common-tasks-publishing-with-vso" urlDisplayName="Publishing with Visual Studio Online" pageTitle="Continuous delivery with Visual Studio Online in Azure" metaKeywords="" description="Learn how to configure your Visual Studio Online team projects to automatically build and deploy to Azure websites or cloud services." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Continuous delivery to Azure using Visual Studio Online" authors="ghogen" solutions="" manager="douge" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="ghogen"></tags>
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="ghogen" />
 
 # Visual Studio Online을 사용하여 Azure에 지속적으로 전송
 
@@ -40,7 +40,7 @@ Visual Studio Online을 사용하여 Azure에 자동으로 빌드 및 배포하�
 
 2.  솔루션의 상황에 맞는 메뉴를 열고 **소스 제어에 솔루션 추가**를 선택합니다.
 
-    ![][]
+    ![][0]
 
 3.  기본값을 그대로 사용하거나 변경한 후 **확인** 단추를 선택합니다. 프로세스가 완료되면 소스 제어 아이콘이 솔루션 탐색기에 표시됩니다.
 
@@ -333,18 +333,14 @@ Visual Studio Online의 단위 테스트에 대한 자세한 내용은 [빌드�
   [Azure 클라우드 서비스의 지속적인 전송]: ../cloud-services-dotnet-continuous-delivery
   [www.visualstudio.com]: http://www.visualstudio.com
   [여기]: http://go.microsoft.com/fwlink/?LinkId=239540
-  [Visual Studio Online 계정은 무료로 개설]: http://go.microsoft.com/fwlink/p/?LinkId=512979
   [1단계: 팀 프로젝트 만들기]: #step1
   [2단계: 소스 제어에 프로젝트 체크 인]: #step2
   [3단계: Azure에 프로젝트 연결]: #step3
   [4단계: 변경한 후 다시 빌드 및 다시 배포 트리거]: #step4
-  [5단계: 초기 빌드 다시 배포(옵션)]: #step5
-  [6단계: 프로덕션 배포 변경(클라우드 서비스만)]: #step6
-  [7단계: 단위 테스트 실행(옵션)]: #step7
   [1]: http://go.microsoft.com/fwlink/?LinkId=512980
   [이 연습의 Git 버전]: http://go.microsoft.com/fwlink/p/?LinkId=397358
   [Azure 및 ASP.NET 시작]: http://www.windowsazure.com/ko-kr/documentation/articles/web-sites-dotnet-get-started/
-  []: ./media/cloud-services-continuous-delivery-use-vso/tfs5.png
+  [0]: ./media/cloud-services-continuous-delivery-use-vso/tfs5.png
   [2]: ./media/cloud-services-continuous-delivery-use-vso/tfs6.png
   [3]: ./media/cloud-services-continuous-delivery-use-vso/tfs7.png
   [4]: ./media/cloud-services-continuous-delivery-use-vso/tfs8.png

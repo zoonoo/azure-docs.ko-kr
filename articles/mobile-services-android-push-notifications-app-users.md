@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-push-notifications-to-users-android" urlDisplayName="" pageTitle="Push notifications to users (Android ) | Mobile Dev Center" metaKeywords="" description="Learn how to use Mobile Services to push notifications to users of your Android app." metaCanonical="" services="" documentationCenter="Mobile" title="Push notifications to users by using Mobile Services" authors="ricksal" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal" />
 
 # 모바일 서비스를 사용하여 사용자에게 푸시 알림
 
@@ -25,7 +25,7 @@
 
 1.  [Azure 관리 포털][Azure 관리 포털]에 로그인하여 **모바일 서비스**를 클릭한 후 앱을 클릭합니다.
 
-    ![][]
+    ![][0]
 
 2.  **데이터** 탭을 클릭한 후 **만들기**를 클릭합니다.
 
@@ -241,16 +241,13 @@
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [Windows Phone]: /ko-kr/develop/mobile/tutorials/push-notifications-to-users-wp8 "Windows Phone"
-  [iOS]: /ko-kr/develop/mobile/tutorials/push-notifications-to-users-ios "iOS"
-  [Android]: /ko-kr/develop/mobile/tutorials/push-notifications-to-users-android "Android"
   [이전 푸시 알림 자습서]: /ko-kr/develop/mobile/tutorials/get-started-with-push-android
   [Registration 테이블 만들기]: #create-table
   [앱 업데이트]: #update-app
   [서버 스크립트 업데이트]: #update-scripts
   [푸시 알림 동작 확인]: #test-app
   [Azure 관리 포털]: https://manage.windowsazure.com/
-  []: ./media/mobile-services-android-push-notifications-app-users/mobile-services-selection.png
+  [0]: ./media/mobile-services-android-push-notifications-app-users/mobile-services-selection.png
   [1]: ./media/mobile-services-android-push-notifications-app-users/mobile-create-table.png
   [2]: ./media/mobile-services-android-push-notifications-app-users/mobile-create-registration-table.png
   [3]: ./media/mobile-services-android-push-notifications-app-users/mobile-create-registration-class.png

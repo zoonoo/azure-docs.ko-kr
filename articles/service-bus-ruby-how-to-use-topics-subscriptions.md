@@ -1,32 +1,32 @@
 <properties linkid="dev-ruby-how-to-service-bus-topics" urlDisplayName="Service Bus Topics" pageTitle="How to use Service Bus topics (Ruby) - Azure" metaKeywords="Get started Azure Service Bus topics, Get Started Service Bus topics, Azure publish subscribe messaging, Azure messaging topics and subscriptions, Service Bus topic ruby" description="Learn how to use Service Bus topics and subscriptions in Azure. Code samples are written for Ruby applications." metaCanonical="" services="service-bus" documentationCenter="Ruby" title="How to Use Service Bus Topics/Subscriptions" authors="guayan" solutions="" manager="" editor="" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="01/01/1900" ms.author="guayan"></tags>
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="01/01/1900" ms.author="guayan" />
 
 # 서비스 버스 토픽/구독을 사용하는 방법
 
-이 가이드에서는 Ruby 응용 프로그램에서 서비스 버스 토픽과 구독을 사용하는 방법을 보여 줍니다. 여기서 다루는 시나리오에는 **토픽 및 구독 만들기, 구독 필터 만들기, 토픽에 메시지 보내기,** **구독에서 메시지 받기,** **토픽 및 구독 삭제** 등이 포함됩니다. 토픽 및 구독에 대한 자세한 내용은 [다음 단계][] 섹션을 참조하십시오.
+이 가이드에서는 Ruby 응용 프로그램에서 서비스 버스 토픽과 구독을 사용하는 방법을 보여 줍니다. 여기서 다루는 시나리오에는 **토픽 및 구독 만들기, 구독 필터 만들기, 토픽에 메시지 보내기,** **구독에서 메시지 받기,** **토픽 및 구독 삭제** 등이 포함됩니다. 토픽 및 구독에 대한 자세한 내용은 [다음 단계][다음 단계] 섹션을 참조하십시오.
 
 ## 목차
 
--   [서비스 버스 토픽 및 구독 정의][]
--   [서비스 네임스페이스 만들기][]
--   [네임스페이스에 대한 기본 관리 자격 증명 얻기][]
--   [Ruby 응용 프로그램 만들기][]
--   [서비스 버스를 사용하도록 응용 프로그램 구성][]
--   [Azure 서비스 버스 연결 설정][]
--   [토픽을 만드는 방법][]
--   [구독을 만드는 방법][]
--   [토픽에 메시지를 보내는 방법][]
--   [구독에서 메시지를 받는 방법][]
--   [응용 프로그램 크래시 및 읽을 수 없는 메시지를 처리하는 방법][]
--   [토픽과 구독을 삭제하는 방법][]
--   [다음 단계][]
+-   [서비스 버스 토픽 및 구독 정의][서비스 버스 토픽 및 구독 정의]
+-   [서비스 네임스페이스 만들기][서비스 네임스페이스 만들기]
+-   [네임스페이스에 대한 기본 관리 자격 증명 얻기][네임스페이스에 대한 기본 관리 자격 증명 얻기]
+-   [Ruby 응용 프로그램 만들기][Ruby 응용 프로그램 만들기]
+-   [서비스 버스를 사용하도록 응용 프로그램 구성][서비스 버스를 사용하도록 응용 프로그램 구성]
+-   [Azure 서비스 버스 연결 설정][Azure 서비스 버스 연결 설정]
+-   [토픽을 만드는 방법][토픽을 만드는 방법]
+-   [구독을 만드는 방법][구독을 만드는 방법]
+-   [토픽에 메시지를 보내는 방법][토픽에 메시지를 보내는 방법]
+-   [구독에서 메시지를 받는 방법][구독에서 메시지를 받는 방법]
+-   [응용 프로그램 크래시 및 읽을 수 없는 메시지를 처리하는 방법][응용 프로그램 크래시 및 읽을 수 없는 메시지를 처리하는 방법]
+-   [토픽과 구독을 삭제하는 방법][토픽과 구독을 삭제하는 방법]
+-   [다음 단계][다음 단계]
 
-[WACOM.INCLUDE [howto-service-bus-topics][]]
+[WACOM.INCLUDE [howto-service-bus-topics](../includes/howto-service-bus-topics.md)]
 
 ## <span id="create-a-ruby-application"></span></a>Ruby 응용 프로그램 만들기
 
-Ruby 응용 프로그램을 만듭니다. 자세한 내용은 [Azure에서 Ruby 응용 프로그램 만들기][](영문)를 참조하십시오.
+Ruby 응용 프로그램을 만듭니다. 자세한 내용은 [Azure에서 Ruby 응용 프로그램 만들기][Azure에서 Ruby 응용 프로그램 만들기](영문)를 참조하십시오.
 
 ## <span id="configure-your-application-to-use-service-bus"></span></a> 서비스 버스를 사용하도록 응용 프로그램 구성
 
@@ -88,7 +88,7 @@ Azure 모듈은 **AZURE\_SERVICEBUS\_NAMESPACE** 및 **AZURE\_SERVICEBUS\_ACCESS
 
 토픽에 전송된 메시지 중 특정 토픽 구독 내에 나타나야 하는 메시지의 범위를 지정하는 필터를 설정할 수도 있습니다.
 
-구독에서 지원하는 가장 유연한 유형의 필터는 SQL92 하위 집합을 구현하는 **Azure::ServiceBus::SqlFilter**입니다. SQL 필터는 토픽에 게시된 메시지의 속성에 적용됩니다. SQL 필터와 함께 사용할 수 있는 식에 대한 자세한 내용은 [SqlFilter.SqlExpression][] 구문을 참조하십시오.
+구독에서 지원하는 가장 유연한 유형의 필터는 SQL92 하위 집합을 구현하는 **Azure::ServiceBus::SqlFilter**입니다. SQL 필터는 토픽에 게시된 메시지의 속성에 적용됩니다. SQL 필터와 함께 사용할 수 있는 식에 대한 자세한 내용은 [SqlFilter.SqlExpression][SqlFilter.SqlExpression] 구문을 참조하십시오.
 
 **Azure::ServiceBusService** 개체의 **create\_rule()** 메서드를 사용하여 구독에 필터를 추가할 수 있습니다. 이 메서드를 사용하면 기존 구독에 새 필터를 추가할 수 있습니다.
 
@@ -165,7 +165,7 @@ Azure 모듈은 **AZURE\_SERVICEBUS\_NAMESPACE** 및 **AZURE\_SERVICEBUS\_ACCESS
 
 ## <span id="how-to-delete-topics-and-subscriptions"></span></a> 토픽과 구독을 삭제하는 방법
 
-토픽과 구독은 영구적이므로, [Azure 관리 포털][] 또는 프로그래밍 방식을 통해 명시적으로 삭제해야 합니다. 아래 예제에서는 "test-topic"이라는 토픽을 삭제하는 방법을 보여 줍니다.
+토픽과 구독은 영구적이므로, [Azure 관리 포털][Azure 관리 포털] 또는 프로그래밍 방식을 통해 명시적으로 삭제해야 합니다. 아래 예제에서는 "test-topic"이라는 토픽을 삭제하는 방법을 보여 줍니다.
 
     azure_service_bus_service.delete_topic("test-topic")
 
@@ -177,9 +177,9 @@ Azure 모듈은 **AZURE\_SERVICEBUS\_NAMESPACE** 및 **AZURE\_SERVICEBUS\_ACCESS
 
 이제 서비스 버스 토픽의 기본 사항을 익혔으므로 다음 링크를 따라 자세히 알아보십시오.
 
--   다음 MSDN 참조를 확인하세요. [큐, 토픽 및 구독][]
--   [SqlFilter][]에 대한 API 참조
--   GitHub에서 [Azure SDK for Ruby][](영문) 리포지토리를 방문하세요.
+-   다음 MSDN 참조를 확인하세요. [큐, 토픽 및 구독][큐, 토픽 및 구독]
+-   [SqlFilter][SqlFilter]에 대한 API 참조
+-   GitHub에서 [Azure SDK for Ruby][Azure SDK for Ruby](영문) 리포지토리를 방문하세요.
 
   [다음 단계]: #NextSteps
   [서비스 버스 토픽 및 구독 정의]: #what-are-service-bus-topics

@@ -1,6 +1,6 @@
 <properties linkid="dev-nodejs-enablesslworker" urlDisplayName="Enable SSL worker role" pageTitle="Configure SSL for a cloud service (Node.js) worker role" metaKeywords="Node.js Azure SSL, Node.js Azure, SSL worker role" description="" metaCanonical="" services="cloud-services" documentationCenter="nodejs" title="Configuring SSL for a Node.js Application in an Azure Worker Role" authors="larryfr" solutions="" manager="" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"></tags>
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # Azure 작업자 역할에서 Node.js 응용 프로그램에 대한 SSL 구성
 
@@ -135,34 +135,16 @@ Node.js 응용 프로그램을 작업자 역할에 배포할 경우 Node.exe에�
 
 [HTTPS 끝점에 SSL 인증서 구성][HTTPS 끝점에 SSL 인증서 구성]
 
-  [1단계: Node.js 서비스 만들기 및 클라우드에 서비스 게시]: #step1
-  [2단계: SSL 인증서 다운로드]: #step2
-  [3단계: SSL 인증서를 사용하도록 응용 프로그램 수정]: #step3
-  [4단계: 서비스 정의 파일 수정]: #step4
-  [5단계: HTTPS를 사용하여 역할 인스턴스에 연결]: #step5
-  [Azure PowerShell 아이콘]: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/azure-powershell-start.png
   []: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/enable-ssl-01.png
-  [1]: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/enable-ssl-02-worker.png
-  [2]: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/enable-ssl-03-worker.png
-  [Node.js에 Azure PowerShell을 사용하는 방법]: https://www.windowsazure.com/ko-KR/develop/nodejs/how-to-guides/powershell-cmdlets/#ImportPubSettings
   [사이트 URL]: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/site-url.png
   [3]: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/enable-ssl-08.png
   [인증서를 서비스와 연결하는 방법]: http://msdn.microsoft.com/ko-KR/library/windowsazure/gg465718.aspx
   [Azure 웹 역할에서 Node.js 응용 프로그램에 대한 SSL 구성]: /ko-KR/develop/nodejs/common-tasks/enable-ssl/
   [HTTPS 끝점에 SSL 인증서 구성]: http://msdn.microsoft.com/ko-KR/library/windowsazure/ff795779.aspx
-  [1]: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/enable-ssl-01.png
-  [2]: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/enable-ssl-02-worker.png
   [3]: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/enable-ssl-03-worker.png
-  [Azure Management Portal]: http://manage.windowsazure.com
   
   
-  [How to Associate a Certificate with a Service]: http://msdn.microsoft.com/ko-KR/library/windowsazure/gg465718.aspx
-  
-  [site-url]: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/site-url.png
-  [8]: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/enable-ssl-08.png
-  [How to Configure an SSL Certificate on an HTTPS Endpoint]: http://msdn.microsoft.com/ko-KR/library/windowsazure/ff795779.aspx
-  [powershell-menu]: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/azure-powershell-start.png
   
   
-  [Configuring SSL for a Node.js Application in an Azure Web Role]: /ko-KR/develop/nodejs/common-tasks/enable-ssl/
+  
   

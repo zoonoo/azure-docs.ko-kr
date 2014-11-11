@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-handle-conflcits-offline-data-dotnet" urlDisplayName="Handle Conflicts with Offline Data" pageTitle="Handle Conflicts with offline data in Mobile Services (Windows Store) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services handle conflicts when syncing offline data in your Windows Store application" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Handling conflicts with offline data in Mobile Services" authors="wesmc" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc" />
 
 # 모바일 서비스에서 오프라인 데이터 동기화를 사용하여 충돌 처리
 
@@ -38,7 +38,7 @@
 
 ## <a name="download-app"></a>샘플 프로젝트 다운로드
 
-![][]
+![][0]
 
 이 자습서는 Visual Studio 2013용 Windows 스토어 앱 프로젝트인 [충돌 처리 코드 샘플][충돌 처리 코드 샘플]을 기반으로 합니다. 이 앱의 UI는 각 TodoItem에 대해 새 날짜 열이 있다는 점을 제외하고 [오프라인 데이터 시작][오프라인 데이터 시작] 자습서의 앱과 비슷합니다.
 
@@ -118,7 +118,7 @@ JavaScript 백 엔드 모바일 서비스에 대해 **TodoWithDate**라는 새 �
 
 4.  앞에서 한 것처럼 텍스트 상자에 텍스트를 입력한 후 **저장**을 클릭합니다. 데이터가 로컬 동기화 테이블에 저장되고, 서버에는 저장되지 않습니다.
 
-    ![][]
+    ![][0]
 
 5.  데이터베이스의 현재 상태를 보려면 [Azure 관리 포털][Azure 관리 포털]에 로그인하고 **모바일 서비스**를 클릭한 다음 해당 모바일 서비스를 클릭합니다.
 
@@ -196,9 +196,6 @@ JavaScript 백 엔드 모바일 서비스에 대해 **TodoWithDate**라는 새 �
 
 <!-- Anchors. --> <!-- Images --> <!-- URLs -->
 
-  [Windows 스토어 C#]: /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-handling-conflicts-offline-data "Windows 스토어 C#"
-  [Windows Phone]: /ko-kr/documentation/articles/mobile-services-windows-phone-handling-conflicts-offline-data "Windows Phone"
-  [자습서 보기]: http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Build-offline-apps-Azure-Mobile-Services
   [오프라인 데이터 시작]: /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data
   [Windows 스토어 앱 프로젝트 다운로드]: #download-app
   [데이터베이스에 대한 기한 열 추가]: #add-column
@@ -206,7 +203,7 @@ JavaScript 백 엔드 모바일 서비스에 대해 **TodoWithDate**라는 새 �
   [JavaScript 모바일 서비스에 대한 데이터베이스 업데이트]: #javascript-backend
   [모바일 서비스에 대해 앱 테스트]: #test-app
   [백 엔드에서 데이터를 수동으로 업데이트하여 충돌 생성]: #handle-conflict
-  []: ./media/mobile-services-windows-store-dotnet-handling-conflicts-offline-data/mobile-services-handling-conflicts-app-run1.png
+  [0]: ./media/mobile-services-windows-store-dotnet-handling-conflicts-offline-data/mobile-services-handling-conflicts-app-run1.png
   [충돌 처리 코드 샘플]: http://go.microsoft.com/fwlink/?LinkId=394787
   [SQLite for Windows 8.1]: http://go.microsoft.com/fwlink/?LinkId=394776
   [Code First 마이그레이션을 사용하여 데이터 모델을 업데이트하는 방법]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations

@@ -1,10 +1,10 @@
 <properties linkid="manage-services-how-to-scale-a-cloud-service" urlDisplayName="How to scale" pageTitle="How to scale a cloud service - Azure" metaKeywords="Azure link resource, scaling cloud service" description="Learn how to scale a cloud service and linked resources in Azure." metaCanonical="" services="cloud-services" documentationCenter="" title="How to Scale an Application" authors="davidmu" solutions="" manager="jeffreyg" editor="mattshel" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="davidmu"></tags>
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="davidmu" />
 
 # 응용 프로그램의 크기를 조정하는 방법
 
-[WACOM.INCLUDE [disclaimer][disclaimer]]
+[WACOM.INCLUDE [disclaimer](../includes/disclaimer.md)]
 
 Azure 관리 포털의 크기 조정 페이지에서 응용 프로그램의 크기를 수동으로 조정하거나, 매개 변수를 설정하여 응용 프로그램의 크기를 자동으로 조정할 수 있습니다. 웹 역할, 작업자 역할 또는 가상 컴퓨터를 실행 중인 응용 프로그램의 크기를 조정할 수 있습니다. 웹 역할 또는 작업자 역할의 인스턴스를 실행 중인 응용 프로그램의 크기를 조정하려면 작업에 맞게 역할 인스턴스를 추가하거나 제거할 수 있습니다.
 

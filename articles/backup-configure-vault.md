@@ -1,6 +1,6 @@
 <properties linkid="manage-services-recovery-configure-backup-vault" urlDisplayName="Configure a Backup Vault" pageTitle="Configure Azure Recovery Services to quickly and easily back-up Windows Server" metaKeywords="disaster recovery" description="Use this tutorial to learn how to use the Backup service in Microsoft's Azure cloud offering to back up Windows Server to the cloud." metaCanonical="" services="recovery-services" documentationCenter="" title="Configure Azure Backup to quickly and easily back-up Windows Server" authors="raynew" solutions="" manager="johndaw" editor="tysonn" />
 
-<tags ms.service="site-recovery" ms.workload="backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="raynew"></tags>
+<tags ms.service="site-recovery" ms.workload="backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="raynew" />
 
 # <span id="configure-a-backup-vault-tutorial"></span></a>Windows Server를 빠르고 쉽게 백업하도록 Azure 백업 구성
 
@@ -90,7 +90,6 @@ Windows Server의 파일과 데이터를 Azure에 백업하려면 데이터를 �
 
 -   [Azure 백업 포럼][Azure 백업 포럼]을 방문하십시오.
 
-  [Azure 무료 평가판]: /ko-kr/pricing/free-trial/
   [관리 포털]: https://manage.windowsazure.com
   [새 백업 저장소]: http://i.imgur.com/506c7ch.png
   [백업 저장소 만들기]: http://i.imgur.com/grtLcKM.png

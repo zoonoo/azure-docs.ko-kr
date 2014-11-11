@@ -1,10 +1,10 @@
 <properties linkid="develop-java-tutorials-jenkins-continuous-integration" urlDisplayName="Jenkins Continuous Integration" pageTitle="Using Azure Storage with a Jenkins Continuous Integration Solution | Microsoft Azure" metaKeywords="" description="This tutorial show how to use the Azure blob service as a repository for build artifacts created by a Jenkins continuous integration solution." metaCanonical="" services="storage" documentationCenter="Java" title="Using Azure Storage with a Jenkins Continuous Integration solution" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
 
 # Jenkins 연속 통합 솔루션과 함께 Azure 저장소 사용
 
-*[Microsoft Open Technologies Inc.][] 제공*
+*[Microsoft Open Technologies Inc.][Microsoft Open Technologies Inc.] 제공*
 
 다음 정보에서는 Azure Blob 서비스를 Jenkins CI(Continuous Integration) 솔루션에서 만든 빌드 아티팩트의 리포지토리로 사용하거나 빌드 프로세스에 사용할 다운로드 가능 파일의 원본으로 사용하는 방법을 보여 줍니다. 이는 민첩한 개발 환경(Java 또는 다른 언어 사용)에서 코딩하고 빌드가 연속 통합을 기반으로 실행 중이며, 다른 조직 구성원이나 고객과 빌드 아티팩트를 공유하거나 보관 파일을 유지 관리할 수 있도록 빌드 아티팩트의 리포지토리가 필요한 경우와 같은 시나리오에서 유용합니다. 다른 시나리오는 빌드 작업 자체에 종속성 등의 다른 파일이 빌드 입력의 다운로드로 필요한 경우입니다.
 
@@ -12,21 +12,21 @@
 
 ## 목차
 
--   [Jenkins 개요][]
--   [Blob 서비스를 사용할 경우의 이점][]
--   [필수 조건][]
--   [Blob 서비스를 Jenkins CI와 함께 사용하는 방법][]
--   [Azure 저장소 플러그 인을 설치하는 방법][]
--   [저장소 계정을 사용하도록 Azure 저장소 플러그 인을 구성하는 방법][]
--   [저장소 계정에 빌드 아티팩트를 업로드하는 빌드 후 작업을 만드는 방법][]
--   [Azure Blob 저장소에서 다운로드하는 빌드 단계를 만드는 방법][]
--   [Blob 서비스에 사용되는 구성 요소][]
+-   [Jenkins 개요][Jenkins 개요]
+-   [Blob 서비스를 사용할 경우의 이점][Blob 서비스를 사용할 경우의 이점]
+-   [필수 조건][필수 조건]
+-   [Blob 서비스를 Jenkins CI와 함께 사용하는 방법][Blob 서비스를 Jenkins CI와 함께 사용하는 방법]
+-   [Azure 저장소 플러그 인을 설치하는 방법][Azure 저장소 플러그 인을 설치하는 방법]
+-   [저장소 계정을 사용하도록 Azure 저장소 플러그 인을 구성하는 방법][저장소 계정을 사용하도록 Azure 저장소 플러그 인을 구성하는 방법]
+-   [저장소 계정에 빌드 아티팩트를 업로드하는 빌드 후 작업을 만드는 방법][저장소 계정에 빌드 아티팩트를 업로드하는 빌드 후 작업을 만드는 방법]
+-   [Azure Blob 저장소에서 다운로드하는 빌드 단계를 만드는 방법][Azure Blob 저장소에서 다운로드하는 빌드 단계를 만드는 방법]
+-   [Blob 서비스에 사용되는 구성 요소][Blob 서비스에 사용되는 구성 요소]
 
 ## <a name="overview"></a><span class="short header">개요</span>Jenkins 개요
 
 Jenkins는 개발자가 손쉽게 코드 변경 사항을 통합하고 빌드를 자동으로 자주 생성할 수 있게 하여 소프트웨어 프로젝트의 연속 통합을 가능케 함으로써 개발자의 생산성을 높여 줍니다. 빌드는 버전이 있으며 빌드 아티팩트는 다양한 저장소에 업로드할 수 있습니다. 이 항목에서는 Azure Blob 저장소를 빌드 아티팩트의 리포지토리로 사용하는 방법을 보여 줍니다. Azure Blob 저장소에서 종속성을 다운로드하는 방법도 보여 줍니다.
 
-Jenkins에 대한 자세한 내용은 [Meet Jenkins][]에서 찾을 수 있습니다.
+Jenkins에 대한 자세한 내용은 [Meet Jenkins][Meet Jenkins]에서 찾을 수 있습니다.
 
 ## <a name="benefits"></a><span class="short header">이점</span>Blob 서비스를 사용할 경우의 이점
 
@@ -56,7 +56,7 @@ Blob 서비스를 Jenkins CI 솔루션과 함께 사용하려면 다음 항목�
 
 -   Azure 계정. <http://www.windowsazure.com>에서 Azure 계정을 등록할 수 있습니다.
 
--   Azure 저장소 계정. 저장소 계정이 없으면 [저장소 계정을 만드는 방법][]에 나온 단계를 통해 계정을 만들 수 있습니다.
+-   Azure 저장소 계정. 저장소 계정이 없으면 [저장소 계정을 만드는 방법][저장소 계정을 만드는 방법]에 나온 단계를 통해 계정을 만들 수 있습니다.
 
 -   Jenkins CI 솔루션에 익숙하면 좋지만 반드시 그러해야 하는 것은 아닙니다. 아래에서는 Jenkins CI 빌드 아티팩트를 위한 리포지토리로 Blob 서비스를 사용할 때 필요한 단계를 보여 주기 위해 기본적인 예를 사용합니다.
 
@@ -109,7 +109,7 @@ Blob 서비스를 Jenkins와 함께 사용하려면 Azure 저장소 플러그인
 
     **Execute Windows batch command**에 대해 스크립트를 입력한 **명령** 섹션 아래에는 Jenkins에 의해 인식되는 환경 변수에 대한 링크가 있습니다. 환경 변수 이름과 설명을 알아보려면 이 링크를 클릭합니다. **BUILD\_URL** 환경 변수와 같은 특수 문자가 포함된 환경 변수는 컨테이너 이름이나 일반 가상 경로로 사용할 수 없습니다.
 
-8.  이 예의 경우 **Make new container public by default**를 클릭합니다. (개인 컨테이너를 사용하려는 경우 액세스를 허용하려면 공유 액세스 서명을 만들어야 합니다. 이 내용은 이 항목에서는 다루지 않습니다. [공유 액세스 서명 만들기][]에서 공유 액세스 서명에 대한 자세한 내용을 알아볼 수 있습니다.)
+8.  이 예의 경우 **Make new container public by default**를 클릭합니다. (개인 컨테이너를 사용하려는 경우 액세스를 허용하려면 공유 액세스 서명을 만들어야 합니다. 이 내용은 이 항목에서는 다루지 않습니다. [공유 액세스 서명 만들기][공유 액세스 서명 만들기]에서 공유 액세스 서명에 대한 자세한 내용을 알아볼 수 있습니다.)
 9.  [옵션] 빌드 아티팩트를 업로드하기 전에 컨테이너에서 내용을 지우려면 **Clean container before uploading**을 클릭합니다. 컨테이너의 내용을 지우지 않으려면 선택 취소한 상태로 둡니다.
 10. **List of Artifacts to upload**에는 \*\*text/\*.txt\*\*를 입력합니다.
 11. **Common virtual path for uploaded artifacts**에는 이 자습서에서 사용할 **${BUILD\_ID}/${BUILD\_NUMBER}**를 입력합니다.
@@ -145,7 +145,7 @@ Azure Blob 저장소에서 다운로드할 추가 항목이 있는 경우에는 
 
 -   **저장소 계정**: Azure 저장소에 대한 모든 액세스는 저장소 계정을 통해 수행됩니다. 이는 Blob 액세스를 위한 가장 높은 수준의 네임스페이스입니다. 전체 크기가 100TB를 초과하지 않을 경우 한 계정에 포함될 수 있는 컨테이너 수는 제한이 없습니다.
 -   **컨테이너**: 컨테이너는 Blob 집합 그룹화를 제공합니다. 모든 Blob은 컨테이너에 있어야 합니다. 한 계정에 포함될 수 있는 컨테이너 수에는 제한이 없습니다. 한 컨테이너에 저장될 수 있는 Blob 수에도 제한이 없습니다.
--   **Blob**: 임의 형식 및 크기의 파일입니다. Azure 저장소에 저장할 수 있는 Blob 유형에는 블록 Blob과 페이지 Blob의 두 가지가 있습니다. 대부분의 파일은 블록 Blob입니다. 단일 블록 Blob의 크기는 최대 200GB일 수 있습니다. 이 자습서에서는 블록 Blob을 사용합니다. 다른 Blob 유형인 페이지 Blob의 크기는 최대 1TB일 수 있으며, 파일의 바이트 범위가 자주 수정되는 경우 더 효율적입니다. Blob에 대한 자세한 내용은 [블록 Blob 및 페이지 Blob 이해][]를 참조하세요.
+-   **Blob**: 임의 형식 및 크기의 파일입니다. Azure 저장소에 저장할 수 있는 Blob 유형에는 블록 Blob과 페이지 Blob의 두 가지가 있습니다. 대부분의 파일은 블록 Blob입니다. 단일 블록 Blob의 크기는 최대 200GB일 수 있습니다. 이 자습서에서는 블록 Blob을 사용합니다. 다른 Blob 유형인 페이지 Blob의 크기는 최대 1TB일 수 있으며, 파일의 바이트 범위가 자주 수정되는 경우 더 효율적입니다. Blob에 대한 자세한 내용은 [블록 Blob 및 페이지 Blob 이해][블록 Blob 및 페이지 Blob 이해]를 참조하세요.
 -   **URL 형식**: 다음 URL 형식을 사용하여 Blob에 주소를 지정할 수 있습니다.
 
     `http://storageaccount.blob.core.windows.net/container_name/blob_name`
@@ -169,4 +169,4 @@ Azure Blob 저장소에서 다운로드할 추가 항목이 있는 경우에는 
   [Meet Jenkins]: https://wiki.jenkins-ci.org/display/JENKINS/Meet+Jenkins
   [저장소 계정을 만드는 방법]: http://go.microsoft.com/fwlink/?LinkId=279823
   [공유 액세스 서명 만들기]: http://go.microsoft.com/fwlink/?LinkId=279889
-  [블록 Blob 및 페이지 Blob 이해]: http://msdn.microsoft.com/en-us/library/windowsazure/ee691964.aspx
+  [블록 Blob 및 페이지 Blob 이해]: http://msdn.microsoft.com/ko-kr/library/windowsazure/ee691964.aspx

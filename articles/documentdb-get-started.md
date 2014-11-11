@@ -1,6 +1,6 @@
 <properties title="Get started with a DocumentDB account" pageTitle="Get started with a DocumentDB account | Azure" description="Learn how to create and configure an Azure DocumentDB account, create databases, create collections, and store JSON documents within the account." metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, getting started"   services="documentdb" solutions="data-management" documentationCenter=""  authors="bradsev" manager="paulettm" editor="cgronlun" scriptId="" />
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="bradsev"></tags>
+<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="bradsev" />
 
 # DocumentDB 계정 시작
 
@@ -33,7 +33,7 @@ DocumentDB 계정 끝점 및 계정과 연결된 기본 또는 보조 액세스 
 
 DocumentDB 계정 끝점 및 키는 Azure 관리 미리 보기 포털에서 사용 중인 DocumentDB 계정에 대한 블레이드에서 가져올 수 있습니다.
 
-![][]
+![][0]
 
 > 키 블레이드에서 사용 가능한 DocumentDB 액세스 키는 DocumentDB 계정 및 해당 계정의 리소스에 대한 관리 액세스 권한을 부여합니다. 또한 DocumentDB는 클라이언트가 계정 키 없이 부여된 사용 권한에 따라 DocumentDB 계정의 리소스를 읽고, 쓰고, 삭제할 수 있는 리소스 키 사용을 지원합니다.
 
@@ -195,7 +195,7 @@ DocumentDB는 각 컬렉션에 저장된 JSON 문서에 대해 다양한 쿼리�
   [문서 만들기]: #CreateDoc
   [DocumentDB 리소스 쿼리]: #Query
   [다음 단계]: #NextSteps
-  []: ./media/documentdb-get-started/gs1.png
+  [0]: ./media/documentdb-get-started/gs1.png
   [Microsoft Azure 웹 사이트: 응용 프로그램 설정 및 연결 문자열 작동 방식]: http://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/
   [DocumentDB 계정 모니터링]: http://go.microsoft.com/fwlink/p/?LinkId=402378
   [DocumentDB 설명서 페이지]: http://go.microsoft.com/fwlink/p/?LinkID=402319

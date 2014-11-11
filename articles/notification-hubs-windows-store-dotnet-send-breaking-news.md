@@ -2,7 +2,7 @@
 
 <properties linkid="notification-hubs-windows-store-dotnet-send-breaking-news" pagetitle="Use Notification Hubs to send breaking news (Windows Phone)" metakeywords description="Use  Azure Notification Hubs to use tag in registrations to send breaking news to a Windows Phone app." metacanonical services="notification-hubs" documentationcenter="Mobile" title="Use Notification Hubs to send breaking news" authors="glenga" solutions manager="dwrede" editor></properties>
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal"></tags>
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal" />
 
 # 알림 허브를 사용하여 속보 보내기
 
@@ -13,16 +13,16 @@
 
 이 항목에서는 Azure 알림 허브를 사용하여 Windows 스토어 또는 Windows Phone 8.1(비 Silverlight) 앱에 속보 알림을 브로드캐스트하는 방법을 보여 줍니다. Windows Phone 8.1 Silverlight를 대상으로 하는 경우 [Windows Phone][1] 버전을 참조하세요. 완료하면, 관심이 있는 속보 범주를 등록하고 해당 범주의 푸시 알림만 받을 수 있습니다. 이 시나리오는 RSS 수집기, 음악 애호가를 위한 앱 등 이전에 관심을 보인 사용자 그룹에 알림을 보내야 하는 많은 앱에 공통된 패턴입니다.
 
-브로드캐스트 시나리오를 사용하려면 알림 허브에서 등록을 만들 때 하나 이상의 *태그*를 포함하면 됩니다. 태그에 알림이 전송되면 태그에 대해 등록된 모든 장치에서 알림을 받게 됩니다. 태그는 단순히 문자열이므로 사전에 프로비전해야 할 필요가 없습니다. 태그에 대한 자세한 내용은 [알림 허브 지침][]을 참조하십시오.
+브로드캐스트 시나리오를 사용하려면 알림 허브에서 등록을 만들 때 하나 이상의 *태그*를 포함하면 됩니다. 태그에 알림이 전송되면 태그에 대해 등록된 모든 장치에서 알림을 받게 됩니다. 태그는 단순히 문자열이므로 사전에 프로비전해야 할 필요가 없습니다. 태그에 대한 자세한 내용은 [알림 허브 지침][알림 허브 지침]을 참조하십시오.
 
 이 자습서에서는 이 시나리오를 사용하기 위한 다음 기본 단계를 차례로 안내합니다.
 
-1.  [앱에 범주 선택 추가][]
-2.  [알림 등록][]
-3.  [백 엔드에서 알림 보내기][]
-4.  [앱 실행 및 알림 생성][]
+1.  [앱에 범주 선택 추가][앱에 범주 선택 추가]
+2.  [알림 등록][알림 등록]
+3.  [백 엔드에서 알림 보내기][백 엔드에서 알림 보내기]
+4.  [앱 실행 및 알림 생성][앱 실행 및 알림 생성]
 
-이 항목은 [알림 허브 시작][]에서 만든 앱을 기반으로 합니다. 이 자습서를 시작하기 전에 먼저 [알림 허브 시작][]을 완료해야 합니다.
+이 항목은 [알림 허브 시작][알림 허브 시작]에서 만든 앱을 기반으로 합니다. 이 자습서를 시작하기 전에 먼저 [알림 허브 시작][알림 허브 시작]을 완료해야 합니다.
 
 ## <a name="adding-categories"></a>앱에 범주 선택 추가
 
@@ -144,7 +144,7 @@
 
         await notifications.SubscribeToCategories(notifications.RetrieveCategories());
 
-    이제 앱이 시작될 때마다 로컬 저장소에서 범주를 검색하고, 이러한 범주에 대한 등록을 요청하게 됩니다. [알림 허브 시작][] 자습서에서 **InitNotificationsAsync** 메서드를 만들었지만 이 항목에서는 필요하지 않습니다.
+    이제 앱이 시작될 때마다 로컬 저장소에서 범주를 검색하고, 이러한 범주에 대한 등록을 요청하게 됩니다. [알림 허브 시작][알림 허브 시작] 자습서에서 **InitNotificationsAsync** 메서드를 만들었지만 이 항목에서는 필요하지 않습니다.
 
 4.  MainPage.xaml.cs 프로젝트 파일의 *OnNavigatedTo* 메서드에 다음 코드를 추가합니다.
 
@@ -163,13 +163,13 @@
 
 ## <a name="send"></a><span class="short-header">알림 보내기</span>백 엔드에서 알림 보내기
 
-[WACOM.INCLUDE [notification-hubs-back-end][]]
+[WACOM.INCLUDE [notification-hubs-back-end](../includes/notification-hubs-back-end.md)]
 
 ## <a name="test-app"></a>앱 실행 및 알림 생성
 
 1.  Visual Studio에서 F5 키를 눌러 앱을 컴파일 및 시작합니다.
 
-    ![][]
+    ![][0]
 
     앱 UI는 구독할 범주를 선택하도록 하는 토글 집합을 제공합니다.
 
@@ -193,11 +193,11 @@
 
 이 자습서에서는 범주별로 속보를 브로드캐스트하는 방법에 대해 알아보았습니다. 이제 기타 고급 알림 허브 시나리오를 다루는 다음 자습서 중 하나를 완료해 보십시오.
 
--   [알림 허브를 사용하여 지역화된 속보 브로드캐스트][]
+-   [알림 허브를 사용하여 지역화된 속보 브로드캐스트][알림 허브를 사용하여 지역화된 속보 브로드캐스트]
 
     지역화된 알림을 보낼 수 있도록 속보 앱을 확장하는 방법에 대해 알아보십시오.
 
--   [알림 허브를 통해 사용자에게 알림][]
+-   [알림 허브를 통해 사용자에게 알림][알림 허브를 통해 사용자에게 알림]
 
     인증된 특정 사용자에게 알림을 푸시하는 방법에 대해 알아보십시오. 이 방법은 특정 사용자에게만 알림을 보내기 위한 훌륭한 솔루션입니다.
 
@@ -205,10 +205,7 @@
 <!-- Images. --> 
 <!-- URLs.-->
 
-  [Windows 범용]: /ko-KR/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/ "Windows 범용"
   [Windows Phone]: /ko-KR/documentation/articles/notification-hubs-windows-phone-send-breaking-news/ "Windows Phone"
-  [iOS]: /ko-KR/documentation/articles/notification-hubs-ios-send-breaking-news/ "iOS"
-  [Android]: /ko-KR/documentation/articles/notification-hubs-aspnet-backend-android-breaking-news/ "Android"
   [1]: /ko-KR/documentation/articles/notification-hubs-ios-send-breaking-news
   [알림 허브 지침]: http://msdn.microsoft.com/ko-KR/library/jj927170.aspx
   [앱에 범주 선택 추가]: #adding-categories
@@ -217,7 +214,7 @@
   [앱 실행 및 알림 생성]: #test-app
   [알림 허브 시작]: /ko-KR/manage/services/notification-hubs/getting-started-windows-dotnet/
   [notification-hubs-back-end]: ../includes/notification-hubs-back-end.md
-  []: ./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-breakingnews-win1.png
+  [0]: ./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-breakingnews-win1.png
   [2]: ./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-windows-reg-2.png
   [3]: ./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-windows-toast-2.png
   [알림 허브를 사용하여 지역화된 속보 브로드캐스트]: /ko-KR/manage/services/notification-hubs/breaking-news-localized-dotnet/

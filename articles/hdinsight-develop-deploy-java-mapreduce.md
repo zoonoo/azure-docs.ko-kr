@@ -1,6 +1,6 @@
 <properties linkid="manage-services-hdinsight-develop-Java-MapReduce-programs-for-HDInsight-Hadoop" urlDisplayName="HDInsight Tutorials" pageTitle="Develop Java MapReduce programs for Hadoop in HDInsight | Azure" metaKeywords="hdinsight, hdinsight development, hadoop development, hdinsight deployment, development, deployment, tutorial, MapReduce, Java" description="Learn how to develop Java MapReduce programs on HDInsight emulator, how to deploy them to HDInsight." services="hdinsight" title="Develop Java MapReduce programs for Hadoop in HDInsight" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" authors="jgao" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="jgao"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="jgao" />
 
 # HDInsight의 Hadoop용 Java MapReduce 프로그램 개발
 이 자습서에서는 HDInsight Emulator에서 Java로 단어 계산 Hadoop MapReduce 작업을 개발하고 테스트한 다음 Azure HDInsight에서 배포 및 실행하기 위한 전체 시나리오를 단계별로 안내합니다.
@@ -9,18 +9,18 @@
 
 이 자습서를 시작하기 전에 다음이 있어야 합니다.
 
-- Azure HDInsight Emulator 설치. 자세한 내용은 [HDInsight Emulator 사용 시작][]을 참조하세요.
-- 에뮬레이터 컴퓨터에 Azure PowerShell 설치. 자세한 내용은 [Azure PowerShell 설치 및 구성][]을 참조하세요.
-- Azure 구독. 자세한 내용은 [구매 옵션][], [회원 제안][] 또는 [무료 평가판][]을 참조하세요.
+- Azure HDInsight Emulator 설치. 자세한 내용은 [HDInsight Emulator 사용 시작][HDInsight Emulator 사용 시작]을 참조하세요.
+- 에뮬레이터 컴퓨터에 Azure PowerShell 설치. 자세한 내용은 [Azure PowerShell 설치 및 구성][Azure PowerShell 설치 및 구성]을 참조하세요.
+- Azure 구독. 자세한 내용은 [구매 옵션][구매 옵션], [회원 제안][회원 제안] 또는 [무료 평가판][무료 평가판]을 참조하세요.
 
 ## 이 문서에서는 다음을 수행합니다.
 
-- [Java로 단어 계산 MapReduce 프로그램 개발][]
-- [에뮬레이터에서 프로그램 테스트][]
-- [Azure Blob 저장소로 데이터 파일 및 응용 프로그램 업로드][]
-- [Azure HDInsight에서 MapReduce 프로그램 실행][]
-- [MapReduce 결과 검색][]
-- [다음 단계][]
+- [Java로 단어 계산 MapReduce 프로그램 개발][Java로 단어 계산 MapReduce 프로그램 개발]
+- [에뮬레이터에서 프로그램 테스트][에뮬레이터에서 프로그램 테스트]
+- [Azure Blob 저장소로 데이터 파일 및 응용 프로그램 업로드][Azure Blob 저장소로 데이터 파일 및 응용 프로그램 업로드]
+- [Azure HDInsight에서 MapReduce 프로그램 실행][Azure HDInsight에서 MapReduce 프로그램 실행]
+- [MapReduce 결과 검색][MapReduce 결과 검색]
+- [다음 단계][다음 단계]
 
 ## <a name="develop"></a>Java로 단어 계산 MapReduce 프로그램 개발
 
@@ -127,7 +127,7 @@ HDInsight Emulator는 *javac* 컴파일러와 함께 제공됩니다.
 
     이 명령은 현재 폴더에 WordCount.jar 파일을 만듭니다.
 
-    ![HDI.EMulator.WordCount.컴파일][]
+    ![HDI.EMulator.WordCount.컴파일][HDI.EMulator.WordCount.컴파일]
 
 
 
@@ -169,9 +169,9 @@ HDInsight Emulator는 *javac* 컴파일러와 함께 제공됩니다.
 3. 작업 상태 확인
 4. 작업 결과 검색
 
-기본적으로 HDInsight Emulator는 HDFS를 기본 파일 시스템으로 사용합니다. 선택적으로 Azure Blob 저장소를 사용하도록 HDInsight Emulator를 구성할 수 있습니다. 자세한 내용은 [HDInsight Emulator 시작][]을 참조하세요.
+기본적으로 HDInsight Emulator는 HDFS를 기본 파일 시스템으로 사용합니다. 선택적으로 Azure Blob 저장소를 사용하도록 HDInsight Emulator를 구성할 수 있습니다. 자세한 내용은 [HDInsight Emulator 시작][HDInsight Emulator 시작]을 참조하세요.
 
-이 자습서에서는 HDFS *copyFromLocal* 명령을 사용하여 데이터 파일을 HDFS에 업로드합니다. 다음 섹션에서는 Azure PowerShell을 사용하여 Azure Blob 저장소에 파일을 업로드하는 방법을 보여 줍니다. Azure Blob 저장소에 파일을 업로드하는 다른 방법에 대해서는 [HDInsight에 데이터 업로드][]를 참조하세요.
+이 자습서에서는 HDFS *copyFromLocal* 명령을 사용하여 데이터 파일을 HDFS에 업로드합니다. 다음 섹션에서는 Azure PowerShell을 사용하여 Azure Blob 저장소에 파일을 업로드하는 방법을 보여 줍니다. Azure Blob 저장소에 파일을 업로드하는 다른 방법에 대해서는 [HDInsight에 데이터 업로드][HDInsight에 데이터 업로드]를 참조하세요.
 
 이 자습서에서는 다음 HDFS 폴더 구조를 사용합니다.
 
@@ -225,7 +225,7 @@ HDInsight Emulator는 *javac* 컴파일러와 함께 제공됩니다.
 
 	작업이 완료되면 다음 스크린샷과 유사한 결과가 표시됩니다.
 
-    ![HDI.EMulator.WordCount.실행][]
+    ![HDI.EMulator.WordCount.실행][HDI.EMulator.WordCount.실행]
 
 	스크린샷에서 100% 완료된 map과 reduce를 모두 확인할 수 있습니다. 또한 스크린샷에서는 작업 ID, job\_201312092021\_0002도 나열합니다. 바탕 화면에서 **Hadoop MapReduce Status** 바로 가기를 열어 작업 ID를 찾아보면 동일한 보고서를 검색할 수 있습니다.
 
@@ -297,7 +297,7 @@ Azure HDInsight는 데이터 저장소에 Azure Blob 저장소를 사용합니�
 		$containerName_Data = "<ContainerName>"
 		$location = "<MicrosoftDataCenter>"  # For example, "East US"
 
-	**$subscripionName**은 Azure 구독과 연결됩니다. **$storageAccountName_Data** 및 **$containerName_Data**를 명명해야 합니다. 명명 제한에 대해서는 [컨테이너와 Blob, 메타데이터의 명명 및 참조][]를 참조하세요. 
+	**$subscripionName**은 Azure 구독과 연결됩니다. **$storageAccountName_Data** 및 **$containerName_Data**를 명명해야 합니다. 명명 제한에 대해서는 [컨테이너와 Blob, 메타데이터의 명명 및 참조][컨테이너와 Blob, 메타데이터의 명명 및 참조]를 참조하세요. 
 
 3. 다음 명령을 실행하여 저장소 계정 및 계정의 Blob 저장소 컨테이너를 만듭니다.
 
@@ -512,11 +512,11 @@ Azure HDInsight는 데이터 저장소에 Azure Blob 저장소를 사용합니�
 
 		PowerShell -File <FileName> -ExecutionPolicy RemoteSigned
 
-8. 메시지가 표시되면 HDInsight 클러스터의 사용자 이름 및 암호를 입력합니다. 스크립트의 끝 부분에서 클러스터를 삭제하여 사용자 이름 및 암호가 더 이상 필요하지 않게 되므로 사용자 이름 및 암호로 어떤 문자열이든 사용할 수 있습니다. 자격 증명을 묻는 메시지를 표시하지 않으려면 [Windows PowerShell에서 암호, 보안 문자열 및 자격 증명 작업][](영문)을 참조하세요.
+8. 메시지가 표시되면 HDInsight 클러스터의 사용자 이름 및 암호를 입력합니다. 스크립트의 끝 부분에서 클러스터를 삭제하여 사용자 이름 및 암호가 더 이상 필요하지 않게 되므로 사용자 이름 및 암호로 어떤 문자열이든 사용할 수 있습니다. 자격 증명을 묻는 메시지를 표시하지 않으려면 [Windows PowerShell에서 암호, 보안 문자열 및 자격 증명 작업][Windows PowerShell에서 암호, 보안 문자열 및 자격 증명 작업](영문)을 참조하세요.
 
 
 ## <a name="retrieve"></a>MapReduce 작업 출력 검색
-이 섹션에서는 출력을 다운로드하고 표시하는 방법을 보여 줍니다. Excel에서 결과를 표시하는 방법에 대한 자세한 내용은 [HDInsight에 Microsoft Hive ODBC 드라이버로 Excel 연결][] 및 [HDInsight에 파워 쿼리로 Excel 연결][]을 참조하세요.
+이 섹션에서는 출력을 다운로드하고 표시하는 방법을 보여 줍니다. Excel에서 결과를 표시하는 방법에 대한 자세한 내용은 [HDInsight에 Microsoft Hive ODBC 드라이버로 Excel 연결][HDInsight에 Microsoft Hive ODBC 드라이버로 Excel 연결] 및 [HDInsight에 파워 쿼리로 Excel 연결][HDInsight에 파워 쿼리로 Excel 연결]을 참조하세요.
 
 
 **출력을 검색하려면**
@@ -541,28 +541,28 @@ Azure HDInsight는 데이터 저장소에 Azure Blob 저장소를 사용합니�
 		Get-AzureStorageBlobContent -Container $containerName_Data -Blob $blobName -Context $storageContext -Force
 		cat "./$blobName" | findstr "there"
 
-작업이 완료되면 [Sqoop][]을 사용하여 데이터를 SQL Server 또는 Azure SQL 데이터베이스로 내보내는 옵션 또는 데이터를 Excel로 내보내는 옵션이 제공됩니다.
+작업이 완료되면 [Sqoop][Sqoop]을 사용하여 데이터를 SQL Server 또는 Azure SQL 데이터베이스로 내보내는 옵션 또는 데이터를 Excel로 내보내는 옵션이 제공됩니다.
 
 ## <a id="nextsteps"></a>다음 단계
 
 이 자습서에서는 Java MapReduce 작업을 개발하는 방법, HDInsight Emulator에서 응용 프로그램을 테스트하는 방법 및 HDInsight 클러스터를 프로비전하고 클러스터에서 MapReduce를 실행하도록 PowerShell 스크립트를 작성하는 방법에 대해 알아보았습니다. 자세한 내용은 다음 문서를 참조하세요.
 
-- [HDInsight용 C# Hadoop 스트리밍 MapReduce 프로그램 개발][]
-- [Azure HDInsight 시작][]
+- [HDInsight용 C# Hadoop 스트리밍 MapReduce 프로그램 개발][HDInsight용 C# Hadoop 스트리밍 MapReduce 프로그램 개발]
+- [Azure HDInsight 시작][Azure HDInsight 시작]
 - [HDInsight Emulator 시작][HDInsight Emulator 사용 시작]
-- [HDInsight에서 Azure Blob 저장소 사용][]
-- [PowerShell을 사용하여 HDInsight 관리][]
-- [HDInsight에 데이터 업로드][]
-- [HDInsight에서 Hive 사용][]
-- [HDInsight에서 Pig 사용][]
-- [HDInsight에 파워 쿼리로 Excel 연결][]
-- [HDInsight에 Microsoft Hive ODBC 드라이버로 Excel 연결][]
+- [HDInsight에서 Azure Blob 저장소 사용][HDInsight에서 Azure Blob 저장소 사용]
+- [PowerShell을 사용하여 HDInsight 관리][PowerShell을 사용하여 HDInsight 관리]
+- [HDInsight에 데이터 업로드][HDInsight에 데이터 업로드]
+- [HDInsight에서 Hive 사용][HDInsight에서 Hive 사용]
+- [HDInsight에서 Pig 사용][HDInsight에서 Pig 사용]
+- [HDInsight에 파워 쿼리로 Excel 연결][HDInsight에 파워 쿼리로 Excel 연결]
+- [HDInsight에 Microsoft Hive ODBC 드라이버로 Excel 연결][HDInsight에 Microsoft Hive ODBC 드라이버로 Excel 연결]
 
   [HDInsight Emulator 사용 시작]: ../hdinsight-get-started-emulator/
   [Azure PowerShell 설치 및 구성]: ../install-configure-powershell/
-  [구매 옵션]: http://azure.microsoft.com/en-us/pricing/purchase-options/
-  [회원 제안]: http://azure.microsoft.com/en-us/pricing/member-offers/
-  [무료 평가판]: http://azure.microsoft.com/en-us/pricing/free-trial/
+  [구매 옵션]: http://azure.microsoft.com/ko-kr/pricing/purchase-options/
+  [회원 제안]: http://azure.microsoft.com/ko-kr/pricing/member-offers/
+  [무료 평가판]: http://azure.microsoft.com/ko-kr/pricing/free-trial/
   [Java로 단어 계산 MapReduce 프로그램 개발]: #develop
   [에뮬레이터에서 프로그램 테스트]: #test
   [Azure Blob 저장소로 데이터 파일 및 응용 프로그램 업로드]: #upload
@@ -573,7 +573,7 @@ Azure HDInsight는 데이터 저장소에 Azure Blob 저장소를 사용합니�
   [HDInsight Emulator 시작]: ../hdinsight-get-started-emulator/#blobstorage
   [HDInsight에 데이터 업로드]: ../hdinsight-upload-data/
   [HDI.EMulator.WordCount.실행]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Run-Java-MapReduce.png
-  [컨테이너와 Blob, 메타데이터의 명명 및 참조]: http://msdn.microsoft.com/en-us/library/windowsazure/dd135715.aspx
+  [컨테이너와 Blob, 메타데이터의 명명 및 참조]: http://msdn.microsoft.com/ko-kr/library/windowsazure/dd135715.aspx
   [Windows PowerShell에서 암호, 보안 문자열 및 자격 증명 작업]: http://social.technet.microsoft.com/wiki/contents/articles/4546.working-with-passwords-secure-strings-and-credentials-in-windows-powershell.aspx
   [HDInsight에 Microsoft Hive ODBC 드라이버로 Excel 연결]: ../hdinsight-connect-excel-hive-ODBC-driver/
   [HDInsight에 파워 쿼리로 Excel 연결]: ../hdinsight-connect-excel-power-query/

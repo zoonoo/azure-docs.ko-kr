@@ -1,6 +1,6 @@
 <properties pageTitle="Get started with push notifications (Windows Store) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure .Net Runtime Mobile Services and Notification Hubs to send push notifications to your Windows Store JavaScript app." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="wesmc" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc" />
 
 # 모바일 서비스에서 푸시 알림 시작
 
@@ -51,7 +51,7 @@
 
     ![][0]
 
-   	이제 앱에서 알림 메시지를 표시할 수 있습니다. 이러한 알림은 다운로드한 빠른 시작 프로젝트에서 이미 사용되고 있습니다.
+    이제 앱에서 알림 메시지를 표시할 수 있습니다. 이러한 알림은 다운로드한 빠른 시작 프로젝트에서 이미 사용되고 있습니다.
 
 ## <span id="update-server"></span></a> 푸시 알림을 전송하도록 서버 업데이트
 

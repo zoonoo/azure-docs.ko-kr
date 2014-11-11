@@ -1,6 +1,6 @@
 <properties linkid="develop-php-how-to-guides-service-management" urlDisplayName="Service Management" pageTitle="How to use Azure service management APIs (PHP)" metaKeywords="" description="Learn how to use the Azure PHP Service Management APIs to manage cloud services and other Azure applications." metaCanonical="" services="" documentationCenter="PHP" title="How to use Service Management from PHP" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm"></tags>
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
 
 # PHP에서 서비스 관리를 사용하는 방법
 
@@ -564,7 +564,6 @@ Azure에서는 두 가지 배포 환경(스테이징 및 프로덕션)을 제공
   [서비스 패키지]: http://msdn.microsoft.com/ko-KR/library/windowsazure/gg433093
   [Azure PowerShell cmdlet]: ../install-configure-powershell/
   [cspack 명령줄 도구]: http://msdn.microsoft.com/ko-KR/library/windowsazure/gg432988.aspx
-  [Azure 서비스 구성 스키마(.cscfg)]: http://msdn.microsoft.com/ko-KR/library/windowsazure/ee758710.aspx
   [Azure의 배포 관리 개요]: http://msdn.microsoft.com/ko-KR/library/windowsazure/hh386336.aspx
   [저장소 서비스]: ../storage-whatis-account/
   [Blob]: ../storage-php-how-to-use-blobs/

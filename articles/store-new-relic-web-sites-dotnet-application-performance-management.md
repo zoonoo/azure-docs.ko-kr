@@ -1,6 +1,6 @@
 <properties linkid="develop-net-how-to-guides-new-relic-app" urlDisplayName="New Relic App Performance Management" pageTitle="New Relic App Performance Management on Azure" metaKeywords="new relic Azure, performance azure" description="Learn how to use New Relic's performance monitoring on Azure." metaCanonical="" services="web-sites" documentationCenter=".NET" title="New Relic Application Performance Management on Azure Websites" authors="new relic" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="new relic"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="new="" relic" />
 
 # Azuren 웹 사이트에서 New Relic 응용 프로그램 성능 관리
 
@@ -302,10 +302,6 @@ Applications Overview 대시보드에는 [표준 New Relic UI][표준 New Relic 
   [표준 New Relic UI]: https://newrelic.com/docs/site/the-new-relic-ui#functions
   [대시보드 드릴다운]: https://newrelic.com/docs/site/the-new-relic-ui#drilldown
   [Apdex]: https://newrelic.com/docs/site/apdex
-  [Geography]: https://newrelic.com/docs/site/geography
-  [Web Transactions]: https://docs.newrelic.com/docs/applications-menu/transactions-dashboard
-  [Key Transactions]: https://newrelic.com/docs/site/key-transactions
-  [Errors]: https://newrelic.com/docs/site/errors
   [1]: ./media/store-new-relic-web-sites-dotnet-application-performce-management/NewRelic_app_browser.png
   [Azure 웹 사이트를 위해 .NET 에이전트 설치]: https://newrelic.com/docs/dotnet/azure-web-sites-beta#manual_install
   [New Relic 사용자 인터페이스]: https://newrelic.com/docs/site/the-new-relic-ui

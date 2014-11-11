@@ -1,6 +1,6 @@
 <properties title="Security offerings for Azure Virtual Machines" pageTitle="Security offerings for Azure Virtual Machines" description="Quick overview of key security features for Azure VMs and links to details" metaKeywords="" services="virtual machines" solutions="" documentationCenter="" authors="kathydav" videoId="" scriptId="" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-multiple" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="kathydav"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-multiple" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="kathydav" />
 
 # Azure 가상 컴퓨터에 대한 보안 서비스
 
@@ -24,5 +24,3 @@ Azure는 바이러스 백신/맬웨어 방지 솔루션에 대한 몇 가지 옵
 
   [Azure VM에서 Symantec Endpoint Protection을 설치하고 구성하는 방법]: http://go.microsoft.com/fwlink/p/?LinkId=404207
   [Azure VM에 Trend Micro Deep Security as a Service를 설치하고 구성하는 방법]: http://go.microsoft.com/fwlink/p/?LinkId=404206
-  [Azure 가상 컴퓨터에 맬웨어 방지 솔루션 배포(영문)]: http://azure.microsoft.com/blog/2014/05/13/deploying-antimalware-solutions-on-azure-virtual-machines/
-  [네트워크 ACL(액세스 제어 목록) 정보]: http://go.microsoft.com/fwlink/?LinkId=506655

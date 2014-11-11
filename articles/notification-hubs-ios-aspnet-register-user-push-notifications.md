@@ -1,6 +1,6 @@
 <properties linkid="notification-hubs-how-to-guides-howto-register-user-with-aspnet-webapi-ios" urlDisplayName="Notify iOS app users by using Web API" pageTitle="Register the current user for push notifications by using Web API - Notification Hubs" metaKeywords="Azure registering application, Notification Hubs, Azure push notifications, push notification iOS app" description="Learn how to request push notification registration in an iOS app with Azure Notification Hubs when registeration is performed by ASP.NET Web API." metaCanonical="" services="notification-hubs" documentationCenter="" title="Register the current user for push notifications by using ASP.NET" authors="krisragh" solutions="" manager="" editor="" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh"></tags>
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh" />
 
 # ASP.NET을 사용하여 푸시 알림에 현재 사용자 등록
 
@@ -8,7 +8,7 @@
     <a href="/ko-KR/documentation/articles/notification-hubs-windows-store-aspnet-register-user-push-notifications/" title="Windows 스토어 C#">Windows 스토어 C#</a><a href="/ko-KR/documentation/articles/notification-hubs-ios-aspnet-register-user-push-notifications/" title="iOS" class="current">iOS</a>
 </div>
 
-이 항목에서는 ASP.NET Web API에서 등록을 수행할 때 Azure 알림 허브를 통해 푸시 알림 등록을 요청하는 방법을 보여 줍니다. 이 항목은 [알림 허브를 통해 사용자에게 알림][] 자습서를 확장합니다. 이미 해당 자습서의 필수 단계를 완료하여 인증된 모바일 서비스를 만든 상태여야 합니다. 사용자 알림 시나리오에 대한 자세한 내용은 [알림 허브를 통해 사용자에게 알림][]을 참조하십시오.
+이 항목에서는 ASP.NET Web API에서 등록을 수행할 때 Azure 알림 허브를 통해 푸시 알림 등록을 요청하는 방법을 보여 줍니다. 이 항목은 [알림 허브를 통해 사용자에게 알림][알림 허브를 통해 사용자에게 알림] 자습서를 확장합니다. 이미 해당 자습서의 필수 단계를 완료하여 인증된 모바일 서비스를 만든 상태여야 합니다. 사용자 알림 시나리오에 대한 자세한 내용은 [알림 허브를 통해 사용자에게 알림][알림 허브를 통해 사용자에게 알림]을 참조하십시오.
 
 1.  MainStoryboard\_iPhone.storyboard의 개체 라이브러리에서 다음 구성 요소를 추가합니다.
 
@@ -22,7 +22,7 @@
 
     이때 스토리보드가 다음과 같이 표시됩니다.
 
-    ![][]
+    ![][0]
 
 2.  단말기 편집기에서 모든 전환된 컨트롤에 대한 콘센트를 만든 다음 호출하고, 텍스트 필드를 뷰 컨트롤러(대리자)에 연결하고, **로그인** 단추에 대한 **동작**을 만듭니다.
 
@@ -83,7 +83,7 @@
 
         [[UIApplication sharedApplication] registerForRemoteNotificationTypes: UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
 
-    첫 번째 행은 **DeviceInfo** 단일 항목을 초기화합니다. 두 번째 행은 푸시 알림 등록을 시작합니다. 이미 언급한 것처럼 [알림 허브 시작][] 자습서를 이미 완료했습니다.
+    첫 번째 행은 **DeviceInfo** 단일 항목을 초기화합니다. 두 번째 행은 푸시 알림 등록을 시작합니다. 이미 언급한 것처럼 [알림 허브 시작][알림 허브 시작] 자습서를 이미 완료했습니다.
 
 7.  PushToUserAppDelegate.m의 AppDelegate에서 **didRegisterForRemoteNotificationsWithDeviceToken** 메서드를 구현하고 다음 코드를 추가합니다.
 
@@ -203,18 +203,16 @@
                 }
             }];
 
-    이 메서드는 푸시 알림에 대한 설치 ID와 채널을 모두 가져온 다음, 알림 허브에서 등록을 만드는 인증된 웹 API 메서드에 장치 유형과 함께 보냅니다. 이 웹 API는 [알림 허브를 통해 사용자에게 알림][]에서 정의했습니다.
+    이 메서드는 푸시 알림에 대한 설치 ID와 채널을 모두 가져온 다음, 알림 허브에서 등록을 만드는 인증된 웹 API 메서드에 장치 유형과 함께 보냅니다. 이 웹 API는 [알림 허브를 통해 사용자에게 알림][알림 허브를 통해 사용자에게 알림]에서 정의했습니다.
 
-클라이언트 앱이 업데이트되었으므로 [알림 허브를 통해 사용자에게 알림][]으로 돌아가서 알림 허브를 사용하여 알림을 보내도록 모바일 서비스를 업데이트합니다.
+클라이언트 앱이 업데이트되었으므로 [알림 허브를 통해 사용자에게 알림][알림 허브를 통해 사용자에게 알림]으로 돌아가서 알림 허브를 사용하여 알림을 보내도록 모바일 서비스를 업데이트합니다.
 
 <!-- Anchors. --> 
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [Windows 스토어 C#]: /ko-KR/documentation/articles/notification-hubs-windows-store-aspnet-register-user-push-notifications/ "Windows 스토어 C#"
-  [iOS]: /ko-KR/documentation/articles/notification-hubs-ios-aspnet-register-user-push-notifications/ "iOS"
   [알림 허브를 통해 사용자에게 알림]: /ko-KR/manage/services/notification-hubs/notify-users-aspnet
-  []: ./media/notification-hubs-ios-aspnet-register-user-push-notifications/notification-hub-user-aspnet-ios1.png
+  [0]: ./media/notification-hubs-ios-aspnet-register-user-push-notifications/notification-hub-user-aspnet-ios1.png
   [1]: ./media/notification-hubs-ios-aspnet-register-user-push-notifications/notification-hub-user-aspnet-ios2.png
   [알림 허브 시작]: /ko-KR/manage/services/notification-hubs/get-started-notification-hubs-ios
   [2]: /ko-KR/manage/services/notification-hubs/get-started-notification-hubs-ios/

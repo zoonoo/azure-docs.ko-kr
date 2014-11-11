@@ -1,6 +1,6 @@
 <properties linkid="manage-services-sql-databases-datasync" urlDisplayName="How to sync data" pageTitle="Getting started with SQL Databases Data Sync" metaKeywords="" description="" metaCanonical="" services="sql-database" documentationCenter="" title="Getting Started with Azure SQL Data Sync" authors="spelleru" solutions="" manager="" editor="" />
 
-<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="spelleru"></tags>
+<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="spelleru" />
 
 # Azure SQL 데이터 동기화 시작
 
@@ -182,7 +182,6 @@ SQL 데이터베이스와 SQL 데이터 동기화에 대한 자세한 내용은 
 -   [SQL Server 데이터베이스 수명 주기][SQL Server 데이터베이스 수명 주기]
 
   [1단계: Azure SQL 데이터베이스에 연결]: #Connect
-  [2단계: 클라이언트 에이전트 () 추가]: #AddAgent
   [3단계: 클라이언트 에이전트에 SQL Server 데이터베이스 등록]: #RegisterSSDB
   [4단계: 동기화 그룹 만들기]: #CreateSG
   [5단계: 동기화할 데이터 정의]: #SyncRules
@@ -191,7 +190,6 @@ SQL 데이터베이스와 SQL 데이터 동기화에 대한 자세한 내용은 
   [Image1]: ./media/sql-database-get-started-data-sync/SQLDatabaseScreen-Figure1.PNG
   [여기]: http://go.microsoft.com/fwlink/?linkid=205836
   [1]: http://www.microsoft.com/download/en/details.aspx?id=26728
-  [클라이언트 에이전트 설치(SQL 데이터 동기화)]: http://msdn.microsoft.com/ko-kr/library/jj823137.aspx
   [클라이언트 에이전트에 SQL Server 데이터베이스 등록]: http://msdn.microsoft.com/ko-kr/library/jj823138.aspx
   [Image2]: ./media/sql-database-get-started-data-sync/NewSyncGroup-Figure2.png
   [Image3]: ./media/sql-database-get-started-data-sync/NewSyncGroupName-Figure3.PNG
@@ -199,6 +197,5 @@ SQL 데이터베이스와 SQL 데이터 동기화에 대한 자세한 내용은 
   [Image5]: ./media/sql-database-get-started-data-sync/NewSyncGroupReference-Figure5.PNG
   [Image6]: ./media/sql-database-get-started-data-sync/NewSyncGroupSyncRules-Figure6.PNG
   [Image7]: ./media/sql-database-get-started-data-sync/NewSyncGroupConfigure-Figure7.PNG
-  [SQL 데이터 동기화(WA 포털)]: http://msdn.microsoft.com/ko-kr/library/windowsazure/jj856263.aspx
   [Azure SQL 데이터베이스 시작]: ../getting-started-w-sql-databases/
   [SQL Server 데이터베이스 수명 주기]: http://go.microsoft.com/fwlink/?LinkId=275193

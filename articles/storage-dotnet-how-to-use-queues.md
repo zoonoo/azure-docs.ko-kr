@@ -1,6 +1,6 @@
 <properties linkid="dev-net-how-to-queue-service" urlDisplayName="Queue Service" pageTitle="How to use queue storage from .NET | Microsoft Azure" metaKeywords="Get started Azure queue   Azure asynchronous processing   Azure queue   Azure queue storage   Azure queue .NET   Azure queue storage .NET   Azure queue C#   Azure queue storage C#" description="Learn how to use Microsoft Azure Queue storage to create and delete queues and insert, peek, get, and delete queue messages." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="storage" documentationCenter=".NET" title="How to use Microsoft Azure Queue Storage" authors="tamram" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tamram"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
 # .NET에서 큐 저장소를 사용하는 방법
 
@@ -11,42 +11,42 @@ Azure Storage Client for .NET을 사용합니다. 여기서 다루는 시나리�
 **가져오기** 및
 **삭제**와
 **큐 만들기 및 삭제**가 포함됩니다. 큐에 대한 자세한 내용은
-[다음 단계][] 섹션을 참조하세요.
+[다음 단계][다음 단계] 섹션을 참조하세요.
 
-> [WACOM.NOTE] 이 가이드는 Azure .NET Storage Client Library 2.x 이상을 대상으로 합니다. 권장되는 버전은 [NuGet][]을 통해 또는 [Azure SDK for .NET][]의 일부로 사용할 수 있는 Storage Client Library 4.x입니다. 저장소 클라이언트 라이브러리를 구하는 방법은 아래의 [방법: 프로그래밍 방식으로 큐 저장소 액세스][]를 참조하세요.
+> [WACOM.NOTE] 이 가이드는 Azure .NET Storage Client Library 2.x 이상을 대상으로 합니다. 권장되는 버전은 [NuGet][NuGet]을 통해 또는 [Azure SDK for .NET][Azure SDK for .NET]의 일부로 사용할 수 있는 Storage Client Library 4.x입니다. 저장소 클라이언트 라이브러리를 구하는 방법은 아래의 [방법: 프로그래밍 방식으로 큐 저장소 액세스][방법: 프로그래밍 방식으로 큐 저장소 액세스]를 참조하세요.
 
 ## 목차
 
--   [큐 저장소 정의][]
--   [개념][]
--   [Azure 저장소 계정 만들기][]
--   [Azure 저장소 연결 문자열 설정][]
--   [방법: 프로그래밍 방식으로 큐 저장소 액세스][]
--   [방법: 큐 만들기][]
--   [방법: 큐에 메시지 삽입][]
--   [방법: 다음 메시지 보기][]
--   [방법: 대기 중인 메시지의 콘텐츠 변경][]
--   [방법: 큐에서 다음 메시지 제거][]
--   [방법: 큐에서 메시지를 제거하는 추가 옵션 활용][]
--   [방법: 큐 길이 가져오기][]
--   [방법: 큐 삭제][]
--   [다음 단계][]
+-   [큐 저장소 정의][큐 저장소 정의]
+-   [개념][개념]
+-   [Azure 저장소 계정 만들기][Azure 저장소 계정 만들기]
+-   [Azure 저장소 연결 문자열 설정][Azure 저장소 연결 문자열 설정]
+-   [방법: 프로그래밍 방식으로 큐 저장소 액세스][방법: 프로그래밍 방식으로 큐 저장소 액세스]
+-   [방법: 큐 만들기][방법: 큐 만들기]
+-   [방법: 큐에 메시지 삽입][방법: 큐에 메시지 삽입]
+-   [방법: 다음 메시지 보기][방법: 다음 메시지 보기]
+-   [방법: 대기 중인 메시지의 콘텐츠 변경][방법: 대기 중인 메시지의 콘텐츠 변경]
+-   [방법: 큐에서 다음 메시지 제거][방법: 큐에서 다음 메시지 제거]
+-   [방법: 큐에서 메시지를 제거하는 추가 옵션 활용][방법: 큐에서 메시지를 제거하는 추가 옵션 활용]
+-   [방법: 큐 길이 가져오기][방법: 큐 길이 가져오기]
+-   [방법: 큐 삭제][방법: 큐 삭제]
+-   [다음 단계][다음 단계]
 
-[WACOM.INCLUDE [howto-queue-storage][]]
+[WACOM.INCLUDE [howto-queue-storage](../includes/howto-queue-storage.md)]
 
 ## 
 
 ## <a name="create-account"></a><span class="short-header">계정 만들기</span>Azure 저장소 계정 만들기
 
 </h2>
-[WACOM.INCLUDE [create-storage-account][]]
+[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ## 
 
 ## <a name="setup-connection-string"></a><span class="short-header">연결 문자열 설정</span>Azure 저장소 연결 문자열 설정
 
 </h2>
-[WACOM.INCLUDE [storage-configure-connection-string][]]
+[WACOM.INCLUDE [storage-configure-connection-string](../includes/storage-configure-connection-string.md)]
 
 ## <a name="configure-access"> </a><span class="short-header">프로그래밍 방식으로 액세스</span>방법: 프로그래밍 방식으로 큐 저장소 액세스
 
@@ -54,7 +54,7 @@ Azure Storage Client for .NET을 사용합니다. 여기서 다루는 시나리�
 
 NuGet을 사용하여 `Microsoft.WindowsAzure.Storage.dll` 어셈블리를 가져올 수 있습니다. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 선택합니다. 온라인에서 "WindowsAzure.Storage"를 검색하고 **설치**를 클릭하여 Azure 저장소 패키지와 종속성을 설치합니다.
 
-`Microsoft.WindowsAzure.Storage.dll`은 [.NET 개발자 센터][](영문)에서 다운로드할 수 있는 Azure SDK for .NET에도 포함되어 있습니다. 이 어셈블리는 `%Program Files%\Microsoft SDKs\Windows Azure\.NET SDK%Program Files%\Microsoft SDKs\Windows Azure\.NET SDK\<sdk-version>\ref\`lt;sdk-version\>\\ref\\</code> 디렉터리에 설치됩니다.
+`Microsoft.WindowsAzure.Storage.dll`은 [.NET 개발자 센터][.NET 개발자 센터](영문)에서 다운로드할 수 있는 Azure SDK for .NET에도 포함되어 있습니다. 이 어셈블리는 `%Program Files%\Microsoft SDKs\Windows Azure\.NET SDK%Program Files%\Microsoft SDKs\Windows Azure\.NET SDK\<sdk-version>\ref\`lt;sdk-version\>\\ref\\</code> 디렉터리에 설치됩니다.
 
 ### 네임스페이스 선언
 
@@ -89,7 +89,7 @@ Microsoft.WindowsAzure.CloudConfigurationManager에 대한 참조 없이 응용 
 
 ### ODataLib 종속성
 
-Storage Client Library for .NET의 ODataLib 종속성은 WCF 데이터 서비스가 아니라 NuGet을 통해 사용 가능한 ODataLib(버전 5.0.2) 패키지를 통해 확인됩니다. ODataLib 라이브러리를 직접 다운로드하거나 NuGet을 통해 코드 프로젝트에서 참조할 수 있습니다. 특정 ODataLib 패키지는 [OData][], [Edm][] 및 [Spatial][]입니다.
+Storage Client Library for .NET의 ODataLib 종속성은 WCF 데이터 서비스가 아니라 NuGet을 통해 사용 가능한 ODataLib(버전 5.0.2) 패키지를 통해 확인됩니다. ODataLib 라이브러리를 직접 다운로드하거나 NuGet을 통해 코드 프로젝트에서 참조할 수 있습니다. 특정 ODataLib 패키지는 [OData][OData], [Edm][Edm] 및 [Spatial][Spatial]입니다.
 
 ## <a name="create-queue"></a><span class="short-header">큐 만들기</span>방법: 큐 만들기
 
@@ -97,7 +97,7 @@ Storage Client Library for .NET의 ODataLib 종속성은 WCF 데이터 서비스
 다음 코드는 **CloudQueueClient** 개체를 만듭니다. 이 가이드의
 모든 코드는 Azure 응용 프로그램의 서비스 구성에 저장된 저장소
 연결 문자열을 사용합니다. **CloudStorageAccount** 개체를
-만드는 다른 방법도 있습니다. 자세한 내용은 [CloudStorageAccount][]
+만드는 다른 방법도 있습니다. 자세한 내용은 [CloudStorageAccount][CloudStorageAccount]
  설명서를 참조하세요.
 
     // Retrieve storage account from connection string
@@ -304,18 +304,18 @@ Storage Client Library for .NET의 ODataLib 종속성은 WCF 데이터 서비스
 작업을 수행하는 방법을 알아보세요.
 
 -   사용 가능한 API에 대한 자세한 내용은 큐 서비스 참조 설명서를 참조하세요.
-    -   [Storage Client Library for .NET 참조][]
-    -   [REST API 참조][]
--   Azure 저장소를 사용하여 수행할 수 있는 고급 작업에 대한 자세한 내용은 [Azure에 데이터 저장 및 액세스][]를 참조하세요.
--   [Azure WebJobs SDK 시작][](영문)에서 Azure 웹 사이트에 대한 백 엔드 프로세스에서 Azure 저장소를 사용하는 방법을 알아보세요.
+    -   [Storage Client Library for .NET 참조][Storage Client Library for .NET 참조]
+    -   [REST API 참조][REST API 참조]
+-   Azure 저장소를 사용하여 수행할 수 있는 고급 작업에 대한 자세한 내용은 [Azure에 데이터 저장 및 액세스][Azure에 데이터 저장 및 액세스]를 참조하세요.
+-   [Azure WebJobs SDK 시작][Azure WebJobs SDK 시작](영문)에서 Azure 웹 사이트에 대한 백 엔드 프로세스에서 Azure 저장소를 사용하는 방법을 알아보세요.
 -   Azure에 데이터를 저장하기 위한 추가 옵션에 대한 자세한 내용은 추가 기능 가이드를 참조하세요.
-    -   [테이블 저장소][]를 사용하여 구조화된 데이터를 저장합니다.
-    -   [Blob 저장소][]를 사용하여 구조화되지 않은 데이터를 저장합니다.
-    -   [SQL 데이터베이스][]를 사용하여 관계형 데이터를 저장합니다.
+    -   [테이블 저장소][테이블 저장소]를 사용하여 구조화된 데이터를 저장합니다.
+    -   [Blob 저장소][Blob 저장소]를 사용하여 구조화되지 않은 데이터를 저장합니다.
+    -   [SQL 데이터베이스][SQL 데이터베이스]를 사용하여 관계형 데이터를 저장합니다.
 
   [다음 단계]: #next-steps
   [NuGet]: https://www.nuget.org/packages/WindowsAzure.Storage/
-  [Azure SDK for .NET]: /en-us/downloads/
+  [Azure SDK for .NET]: /ko-kr/downloads/
   [방법: 프로그래밍 방식으로 큐 저장소 액세스]: #configure-access
   [큐 저장소 정의]: #what-is
   [개념]: #concepts
@@ -332,14 +332,14 @@ Storage Client Library for .NET의 ODataLib 종속성은 WCF 데이터 서비스
   [howto-queue-storage]: ../includes/howto-queue-storage.md
   [create-storage-account]: ../includes/create-storage-account.md
   [storage-configure-connection-string]: ../includes/storage-configure-connection-string.md
-  [.NET 개발자 센터]: http://www.windowsazure.com/en-us/develop/net/#
+  [.NET 개발자 센터]: http://www.windowsazure.com/ko-kr/develop/net/#
   [OData]: http://nuget.org/packages/Microsoft.Data.OData/5.0.2
   [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
-  [CloudStorageAccount]: http://msdn.microsoft.com/en-us/library/microsoft.windowsazure.cloudstorageaccount_methods.aspx
+  [CloudStorageAccount]: http://msdn.microsoft.com/ko-kr/library/microsoft.windowsazure.cloudstorageaccount_methods.aspx
   [Storage Client Library for .NET 참조]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
-  [REST API 참조]: http://msdn.microsoft.com/en-us/library/windowsazure/dd179355
-  [Azure에 데이터 저장 및 액세스]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
+  [REST API 참조]: http://msdn.microsoft.com/ko-kr/library/windowsazure/dd179355
+  [Azure에 데이터 저장 및 액세스]: http://msdn.microsoft.com/ko-kr/library/windowsazure/gg433040.aspx
   [Azure WebJobs SDK 시작]: /ko-kr/documentation/articles/websites-dotnet-webjobs-sdk-get-started/
   [테이블 저장소]: /ko-kr/documentation/articles/storage-dotnet-how-to-use-tables/
   [Blob 저장소]: /ko-kr/documentation/articles/storage-dotnet-how-to-use-blobs/

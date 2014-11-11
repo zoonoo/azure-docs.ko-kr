@@ -1,6 +1,6 @@
 <properties linkid="dev-nodejs-how-to-blob-storage" urlDisplayName="Blob Service" pageTitle="How to use blob storage (Node.js) | Microsoft Azure" metaKeywords="Get started Azure blob, Azure unstructured data, Azure unstructured storage, Azure blob, Azure blob storage, Azure blob Node.js" description="Learn how to use the Azure blob service to upload, download, list, and delete blob content. Samples written in Node.js." metaCanonical="" services="storage" documentationCenter="Node.js" title="How to Use the Blob Service from Node.js" authors="larryfr" solutions="" manager="" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr" />
 
 # Node.js에서 Blob 서비스를 사용하는 방법
 
@@ -9,34 +9,34 @@
 작성되었습니다. Blob **업로드**, **나열**,
 **다운로드** 및
 **삭제** 시나리오를 다룹니다. Blob에 대한 자세한 내용은
-[다음 단계][] 섹션을 참조하세요.
+[다음 단계][다음 단계] 섹션을 참조하세요.
 
 ## 목차
 
--   [Blob 서비스 정의][]
--   [개념][]
--   [Azure 저장소 계정 만들기][]
--   [Node.js 응용 프로그램 만들기][]
--   [저장소에 액세스하도록 응용 프로그램 구성][]
--   [Azure 저장소 연결 문자열 설정][]
--   [방법: 컨테이너 만들기][]
--   [방법: 컨테이너에 Blob 업로드][]
--   [방법: 컨테이너의 Blob 나열][]
--   [방법: Blob 다운로드][]
--   [방법: Blob 삭제][]
--   [방법: 동시 액세스][]
--   [방법: 공유 액세스 서명 작업][]
--   [다음 단계][]
+-   [Blob 서비스 정의][Blob 서비스 정의]
+-   [개념][개념]
+-   [Azure 저장소 계정 만들기][Azure 저장소 계정 만들기]
+-   [Node.js 응용 프로그램 만들기][Node.js 응용 프로그램 만들기]
+-   [저장소에 액세스하도록 응용 프로그램 구성][저장소에 액세스하도록 응용 프로그램 구성]
+-   [Azure 저장소 연결 문자열 설정][Azure 저장소 연결 문자열 설정]
+-   [방법: 컨테이너 만들기][방법: 컨테이너 만들기]
+-   [방법: 컨테이너에 Blob 업로드][방법: 컨테이너에 Blob 업로드]
+-   [방법: 컨테이너의 Blob 나열][방법: 컨테이너의 Blob 나열]
+-   [방법: Blob 다운로드][방법: Blob 다운로드]
+-   [방법: Blob 삭제][방법: Blob 삭제]
+-   [방법: 동시 액세스][방법: 동시 액세스]
+-   [방법: 공유 액세스 서명 작업][방법: 공유 액세스 서명 작업]
+-   [다음 단계][다음 단계]
 
-[WACOM.INCLUDE [howto-blob-storage][]]
+[WACOM.INCLUDE [howto-blob-storage](../includes/howto-blob-storage.md)]
 
 ## <a name="create-account"></a>Azure 저장소 계정 만들기
 
-[WACOM.INCLUDE [create-storage-account][]]
+[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ## <a name="create-app"> </a>Node.js 응용 프로그램 만들기
 
-빈 Node.js 응용 프로그램을 만듭니다. Node.js 응용 프로그램을 만드는 방법에 대한 지침은 [Node.js 응용 프로그램을 만들어 Azure 웹 사이트에 배포하기][], [Node.js 클라우드 서비스][](Windows PowerShell 사용) 또는 [WebMatrix를 사용하는 웹 사이트][]를 참조하세요.
+빈 Node.js 응용 프로그램을 만듭니다. Node.js 응용 프로그램을 만드는 방법에 대한 지침은 [Node.js 응용 프로그램을 만들어 Azure 웹 사이트에 배포하기][Node.js 응용 프로그램을 만들어 Azure 웹 사이트에 배포하기], [Node.js 클라우드 서비스][Node.js 클라우드 서비스](Windows PowerShell 사용) 또는 [WebMatrix를 사용하는 웹 사이트][WebMatrix를 사용하는 웹 사이트]를 참조하세요.
 
 ## <a name="configure-access"> </a>저장소에 액세스하도록 응용 프로그램 구성
 
@@ -76,7 +76,7 @@ Azure Storage SDK가 필요합니다.
 
 Azure 모듈은 AZURE\_STORAGE\_ACCOUNT 및 AZURE\_STORAGE\_ACCESS\_KEY, 또는 AZURE\_STORAGE\_CONNECTION\_STRING 환경 변수를 읽고 Azure 저장소 계정에 연결하는 데 필요한 정보를 확인합니다. 이러한 환경 변수가 설정되어 있지 않은 경우 **createBlobService**를 호출할 때 계정 정보를 지정해야 합니다.
 
-Azure 웹 사이트의 관리 포털에서 환경 변수를 설정하는 방법에 대한 예는 [Node.js 웹 응용 프로그램 및 저장소][]를 참조하세요.
+Azure 웹 사이트의 관리 포털에서 환경 변수를 설정하는 방법에 대한 예는 [Node.js 웹 응용 프로그램 및 저장소][Node.js 웹 응용 프로그램 및 저장소]를 참조하세요.
 
 ## <a name="create-container"> </a>방법: 컨테이너 만들기
 
@@ -98,7 +98,7 @@ Azure 웹 사이트의 관리 포털에서 환경 변수를 설정하는 방법�
       }
     });
 
-컨테이너가 만들어질 경우 `result` 값은 true가 됩니다. 컨테이너가 이미 있을 경우 `result` 값은 false가 됩니다.`response`에는 컨테이너의 [ETag][] 정보와 같은 작업 관련 정보가 포함됩니다.
+컨테이너가 만들어질 경우 `result` 값은 true가 됩니다. 컨테이너가 이미 있을 경우 `result` 값은 false가 됩니다.`response`에는 컨테이너의 [ETag][ETag] 정보와 같은 작업 관련 정보가 포함됩니다.
 
 ### 컨테이너 보안
 
@@ -145,7 +145,7 @@ Azure SDK for Node.js에는 재시도 논리를 구현하는 두 필터 **Expone
 
 ## <a name="upload-blob"> </a>방법: 컨테이너에 Blob 업로드
 
-Blob은 블록 기반 또는 페이지 기반일 수 있습니다. 블록 Blob을 사용하면 큰 데이터를 더 효율적으로 업로드할 수 있고, 페이지 Blob은 읽기/쓰기 작업용으로 최적화되어 있습니다. 자세한 내용은 [블록 Blob 및 페이지 Blob 이해][]를 참조하세요.
+Blob은 블록 기반 또는 페이지 기반일 수 있습니다. 블록 Blob을 사용하면 큰 데이터를 더 효율적으로 업로드할 수 있고, 페이지 Blob은 읽기/쓰기 작업용으로 최적화되어 있습니다. 자세한 내용은 [블록 Blob 및 페이지 Blob 이해][블록 Blob 및 페이지 Blob 이해]를 참조하세요.
 
 ### 블록 Blob
 
@@ -369,9 +369,9 @@ ACL이 설정되고 나면 정책의 ID를 기반으로 SAS를 만들 수 있습
 이제 Blob 저장소의 기본 사항을 배웠으므로 다음 링크를 따라 좀 더
 복잡한 저장소 작업을 수행하는 방법을 알아보세요.
 
--   다음 MSDN 참조를 확인하세요. [Azure에 데이터 저장 및 액세스][]
--   [Azure 저장소 팀 블로그][](영문)를 방문하세요.
--   GitHub에서 [Azure Storage SDK for Node][] 리포지토리를 방문하세요.
+-   다음 MSDN 참조를 확인하세요. [Azure에 데이터 저장 및 액세스][Azure에 데이터 저장 및 액세스]
+-   [Azure 저장소 팀 블로그][Azure 저장소 팀 블로그](영문)를 방문하세요.
+-   GitHub에서 [Azure Storage SDK for Node][Azure Storage SDK for Node] 리포지토리를 방문하세요.
 
   [다음 단계]: #next-steps
   [Blob 서비스 정의]: #what-is
@@ -389,12 +389,12 @@ ACL이 설정되고 나면 정책의 ID를 기반으로 SAS를 만들 수 있습
   [방법: 공유 액세스 서명 작업]: #sas
   [howto-blob-storage]: ../includes/howto-blob-storage.md
   [create-storage-account]: ../includes/create-storage-account.md
-  [Node.js 응용 프로그램을 만들어 Azure 웹 사이트에 배포하기]: /en-us/develop/nodejs/tutorials/create-a-website-(mac)/
+  [Node.js 응용 프로그램을 만들어 Azure 웹 사이트에 배포하기]: /ko-kr/develop/nodejs/tutorials/create-a-website-(mac)/
   [Node.js 클라우드 서비스]: /ko-kr/documentation/articles/cloud-services-nodejs-develop-deploy-app/
   [WebMatrix를 사용하는 웹 사이트]: /ko-kr/documentation/articles/web-sites-nodejs-use-webmatrix/
   [Node.js 웹 응용 프로그램 및 저장소]: /ko-kr/documentation/articles/storage-nodejs-use-table-storage-web-site/
   [ETag]: http://en.wikipedia.org/wiki/HTTP_ETag
-  [블록 Blob 및 페이지 Blob 이해]: http://msdn.microsoft.com/en-us/library/azure/ee691964.aspx
-  [Azure에 데이터 저장 및 액세스]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
+  [블록 Blob 및 페이지 Blob 이해]: http://msdn.microsoft.com/ko-kr/library/azure/ee691964.aspx
+  [Azure에 데이터 저장 및 액세스]: http://msdn.microsoft.com/ko-kr/library/windowsazure/gg433040.aspx
   [Azure 저장소 팀 블로그]: http://blogs.msdn.com/b/windowsazurestorage/
   [Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node

@@ -1,6 +1,6 @@
 <properties pageTitle="Call a custom API from an iOS app | Mobile Services" metaKeywords="" description="Learn how to define a custom API and then call it from an iOS app that uses Windows Azure Mobile Services." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Call a custom API from the client" authors="krisragh"  solutions="" writer="krisragh" manager="" editor=""  />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh" />
 
 # 클라이언트에서 사용자 지정 API 호출
 
@@ -23,9 +23,9 @@
 
 ## <a name="define-custom-api"></a>사용자 지정 API 정의
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-create-custom-api][mobile-services-dotnet-backend-create-custom-api]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-create-custom-api](../includes/mobile-services-dotnet-backend-create-custom-api.md)]
 
-[WACOM.INCLUDE [mobile-services-ios-call-custom-api][mobile-services-ios-call-custom-api]]
+[WACOM.INCLUDE [mobile-services-ios-call-custom-api](../includes/mobile-services-ios-call-custom-api.md)]
 
 ## 다음 단계
 
@@ -41,13 +41,6 @@
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [Windows 스토어 C#]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-call-custom-api "Windows 스토어 C#"
-  [Windows 스토어 JavaScript]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-call-custom-api "Windows 스토어 JavaScript"
-  [Windows Phone]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-phone-call-custom-api "Windows Phone"
-  [iOS]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-ios-call-custom-api "iOS"
-  [Android]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-android-call-custom-api "Android"
-  [.NET 백 엔드]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-ios-call-custom-api ".NET 백 엔드"
-  [JavaScript 백 엔드]: /ko-kr/documentation/articles/mobile-services-ios-call-custom-api "JavaScript 백 엔드"
   [모바일 서비스 시작]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-ios-get-started/
   [데이터 시작]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-ios-get-started-data/
   [사용자 지정 API 정의]: #define-custom-api

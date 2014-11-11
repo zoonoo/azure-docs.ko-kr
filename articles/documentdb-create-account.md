@@ -1,6 +1,6 @@
 <properties title="How to Create a DocumentDB Account" pageTitle="How to create a DocumentDB account | Azure" description="Find out how to create a DocumentDB account and choose account settings in the Azure Preview portal."  metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, account" services="documentdb"  solutions="data-management" documentationCenter=""  authors="bradsev" manager="jhubbard" editor="cgronlun" videoId="" scriptId="" />
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="bradsev"></tags>
+<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="bradsev" />
 
 # DocumentDB 계정을 만드는 방법
 
@@ -15,7 +15,7 @@ DocumentDB를 사용하려면 사용 가능한 지리적 영역에 DocumentDB �
 
 1.  [Azure 관리 미리 보기 포털][Azure 관리 미리 보기 포털]에 로그인합니다.
 2.  새로 만들기 -\> DocumentDB 계정을 클릭합니다.
-    ![][]
+    ![][0]
 
     또는 Azure 갤러리를 찾아보고 "데이터, 저장소, + 백업" 범주를 선택하고 **DocumentDB**를 선택한 다음 **만들기**를 클릭합니다.
 
@@ -73,12 +73,12 @@ DocumentDB를 사용하려면 사용 가능한 지리적 영역에 DocumentDB �
   [방법: DocumentDB 계정 만들기]: #Howto
   [다음 단계]: #NextSteps
   [Azure 관리 미리 보기 포털]: https://portal.azure.com/
-  []: ./media/documentdb-create-account/ca1.png
+  [0]: ./media/documentdb-create-account/ca1.png
   [1]: ./media/documentdb-create-account/ca2.png
   [2]: ./media/documentdb-create-account/ca3.png
   [DocumentDB 가격 정보]: http://go.microsoft.com/fwlink/p/?LinkID=402317&clcid=0x409
   [DocumentDB 용량 및 성능 관리]: ../documentdb-manage/
-  [리소스 그룹을 사용하여 Azure 리소스 관리]: http://azure.microsoft.com/ko--kr/documentation/articles/azure-preview-portal-using-resource-groups/
+  [리소스 그룹을 사용하여 Azure 리소스 관리]: http://azure.microsoft.com/ko-kr/documentation/articles/azure-preview-portal-using-resource-groups/
   [3]: ./media/documentdb-create-account/ca4.png
   [4]: ./media/documentdb-create-account/ca5.png
   [5]: ./media/documentdb-create-account/ca6.png

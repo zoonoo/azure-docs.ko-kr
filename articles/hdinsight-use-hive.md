@@ -1,25 +1,25 @@
 <properties linkid="manage-services-hdinsight-howto-hive" urlDisplayName="Use Hadoop Hive in HDInsight" pageTitle="Use Hadoop Hive in HDInsight | Azure" metaKeywords="" description="Learn how to use Hive with HDInsight. You'll use a log file as input into an HDInsight table, and use HiveQL to query the data and report basic statistics." metaCanonical="" services="hdinsight" documentationCenter="" title="Use Hadoop Hive in HDInsight" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao" />
 
 # HDInsight에서 Hadoop과 Hive 사용
 
-[Apache Hive][]는 대규모 데이터의 요약, 쿼리 및 분석에 적용할 수 있는 SQL 같은 스크립팅 언어인 *HiveQL*을 통해 MapReduce 작업을 실행하는 수단을 제공합니다. 이 문서에서는 HiveQL을 사용하여 Apache log4j 로그 파일의 데이터를 쿼리하고 기본 통계를 보고합니다.
+[Apache Hive][Apache Hive]는 대규모 데이터의 요약, 쿼리 및 분석에 적용할 수 있는 SQL 같은 스크립팅 언어인 *HiveQL*을 통해 MapReduce 작업을 실행하는 수단을 제공합니다. 이 문서에서는 HiveQL을 사용하여 Apache log4j 로그 파일의 데이터를 쿼리하고 기본 통계를 보고합니다.
 
 **필수 조건:**
 
--   **HDInsight 클러스터**를 미리 프로비전해야 합니다. Azure 포털에서 프로비전하는 방법을 자세히 알아보려면 [HDInsight 시작][]을 참조하세요. HDInsight 클러스터를 만드는 기타 여러 방법에 대한 지침은 [HDInsight 클러스터 프로비전][]을 참조하세요.
+-   **HDInsight 클러스터**를 미리 프로비전해야 합니다. Azure 포털에서 프로비전하는 방법을 자세히 알아보려면 [HDInsight 시작][HDInsight 시작]을 참조하세요. HDInsight 클러스터를 만드는 기타 여러 방법에 대한 지침은 [HDInsight 클러스터 프로비전][HDInsight 클러스터 프로비전]을 참조하세요.
 
--   워크스테이션에 **Azure PowerShell**을 미리 설치해두어야 합니다. 설치 및 구성 방법에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성][]을 참조하세요.
+-   워크스테이션에 **Azure PowerShell**을 미리 설치해두어야 합니다. 설치 및 구성 방법에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성][Azure PowerShell 설치 및 구성]을 참조하세요.
 
 **예상 완료 시간:** 30분
 
 ## 이 문서에서는 다음을 수행합니다.
 
--   [Hive 사용 사례][]
--   [Azure Blob 저장소에 데이터 파일 업로드][]
--   [PowerShell을 사용하여 Hive 쿼리 실행][]
--   [다음 단계][]
+-   [Hive 사용 사례][Hive 사용 사례]
+-   [Azure Blob 저장소에 데이터 파일 업로드][Azure Blob 저장소에 데이터 파일 업로드]
+-   [PowerShell을 사용하여 Hive 쿼리 실행][PowerShell을 사용하여 Hive 쿼리 실행]
+-   [다음 단계][다음 단계]
 
 ## <span id="usage"></span></a>Hive 사용 사례
 
@@ -39,7 +39,7 @@ Hive는 변경할 수 없는 대량의 데이터(예: 웹 로그)를 일괄 처�
 
 ## <span id="uploaddata"></span></a>Blob 저장소에 데이터 파일 업로드
 
-HDInsight는 Azure Blob 저장소 컨테이너를 기본 파일 시스템으로 사용합니다. 자세한 내용은 [HDInsight에서 Azure Blob 저장소 사용][]을 참조하세요.
+HDInsight는 Azure Blob 저장소 컨테이너를 기본 파일 시스템으로 사용합니다. 자세한 내용은 [HDInsight에서 Azure Blob 저장소 사용][HDInsight에서 Azure Blob 저장소 사용]을 참조하세요.
 
 이 문서에서는 HDInsight 클러스터로 배포한 log4j 샘플 파일(*\\example\\data\\sample.log*에 저장됨)을 사용합니다. 파일 내부의 각 로그는 유형과 심각도를 표시하는 `[LOG LEVEL]` 필드가 포함된 필드의 줄로 구성되어 있습니다. 예를 들면 다음과 같습니다.
 
@@ -60,7 +60,7 @@ HDInsight는 Azure Blob 저장소 컨테이너를 기본 파일 시스템으로 
     wasb:///example/data/sample.log
     /example/data/sample.log
 
-자신의 log4j 파일을 생성하려면 [Apache Log4j][] 로깅 유틸리티를 사용하세요. Azure Blob 저장소에 데이터를 업로드하는 방법에 대한 자세한 내용은 [HDInsight에 데이터 업로드][]를 참조하세요.
+자신의 log4j 파일을 생성하려면 [Apache Log4j][Apache Log4j] 로깅 유틸리티를 사용하세요. Azure Blob 저장소에 데이터를 업로드하는 방법에 대한 자세한 내용은 [HDInsight에 데이터 업로드][HDInsight에 데이터 업로드]를 참조하세요.
 
 ## <span id="runhivequeries"></span></a> PowerShell을 사용하여 Hive 쿼리 실행
 
@@ -72,7 +72,7 @@ Hive 쿼리는 **Start-AzureHDInsightJob** cmdlet 또는 **Invoke-Hive** cmdlet�
 
 **Start-AzureHDInsightJob을 사용하여 Hive 쿼리를 실행하려면**
 
-1.  Azure PowerShell 콘솔 창을 엽니다. 지침은 [Azure PowerShell 설치 및 구성][]에서 찾아볼 수 있습니다.
+1.  Azure PowerShell 콘솔 창을 엽니다. 지침은 [Azure PowerShell 설치 및 구성][Azure PowerShell 설치 및 구성]에서 찾아볼 수 있습니다.
 2.  다음 명령을 실행하여 Azure 구독에 연결합니다.
 
         Add-AzureAccount
@@ -131,7 +131,7 @@ Hive 쿼리는 **Start-AzureHDInsightJob** cmdlet 또는 **Invoke-Hive** cmdlet�
 9.  # Print the standard error and the standard output of the Hive job.
         Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $hiveJob.JobId -StandardOutput
 
-    ![HDI.HIVE.PowerShell][]
+    ![HDI.HIVE.PowerShell][HDI.HIVE.PowerShell]
 
     결과는 다음과 같습니다.
 
@@ -163,25 +163,25 @@ Hive 쿼리는 **Start-AzureHDInsightJob** cmdlet 또는 **Invoke-Hive** cmdlet�
 
     출력은 다음과 같습니다.
 
-    ![PowerShell Invoke-Hive output][]
+    ![PowerShell Invoke-Hive output][PowerShell Invoke-Hive output]
 
     더 긴 HiveQL 쿼리에는 PowerShell Here-Strings 또는 HiveQL 스크립트 파일을 사용하는 것이 좋습니다. 다음 샘플은 Invoke-Hive cmdlet을 사용하여 HiveQL 스크립트 파일을 실행하는 방법을 보여 줍니다. HiveQL 스크립트 파일은 WASB에 업로드해야 합니다.
 
         Invoke-Hive -File "wasb://<ContainerName>@<StorageAccountName>/<Path>/query.hql"
 
-    Here-Strings에 대한 자세한 내용은 [Windows PowerShell Here-Strings 사용][]을 참조하세요.
+    Here-Strings에 대한 자세한 내용은 [Windows PowerShell Here-Strings 사용][Windows PowerShell Here-Strings 사용]을 참조하세요.
 
 ## <span id="nextsteps"></span></a>다음 단계
 
 Hive를 사용하면 SQL과 유사한 쿼리 언어로 손쉽게 데이터를 쿼리할 수 있으며, HDInsight에서 사용할 수 있는 기타 구성 요소는 데이터 이동과 변형 등의 보완 기능을 제공합니다. 자세한 내용은 다음 문서를 참조하세요.
 
 -   [Azure HDInsight 시작][HDInsight 시작]
--   [HDInsight를 사용하여 비행 지연 데이터 분석][]
--   [HDInsight에서 Oozie 사용][]
--   [프로그래밍 방식으로 Hadoop 작업 제출][]
--   [HDInsight에 데이터 업로드][]
--   [HDInsight와 함께 Pig 사용][]
--   [Azure HDInsight SDK 문서][]
+-   [HDInsight를 사용하여 비행 지연 데이터 분석][HDInsight를 사용하여 비행 지연 데이터 분석]
+-   [HDInsight에서 Oozie 사용][HDInsight에서 Oozie 사용]
+-   [프로그래밍 방식으로 Hadoop 작업 제출][프로그래밍 방식으로 Hadoop 작업 제출]
+-   [HDInsight에 데이터 업로드][HDInsight에 데이터 업로드]
+-   [HDInsight와 함께 Pig 사용][HDInsight와 함께 Pig 사용]
+-   [Azure HDInsight SDK 문서][Azure HDInsight SDK 문서]
 
   [Apache Hive]: http://hive.apache.org/
   [HDInsight 시작]: ../hdinsight-get-started/
@@ -196,9 +196,9 @@ Hive를 사용하면 SQL과 유사한 쿼리 언어로 손쉽게 데이터를 �
   [HDInsight에 데이터 업로드]: ../hdinsight-upload-data/
   [HDI.HIVE.PowerShell]: ./media/hdinsight-use-hive/HDI.HIVE.PowerShell.png
   [PowerShell Invoke-Hive output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
-  [Windows PowerShell Here-Strings 사용]: http://technet.microsoft.com/en-us/library/ee692792.aspx
+  [Windows PowerShell Here-Strings 사용]: http://technet.microsoft.com/ko-kr/library/ee692792.aspx
   [HDInsight를 사용하여 비행 지연 데이터 분석]: ../hdinsight-analyze-flight-delay-data/
   [HDInsight에서 Oozie 사용]: ../hdinsight-use-oozie/
   [프로그래밍 방식으로 Hadoop 작업 제출]: ../hdinsight-submit-hadoop-jobs-programmatically/
   [HDInsight와 함께 Pig 사용]: ../hdinsight-use-pig/
-  [Azure HDInsight SDK 문서]: http://msdnstage.redmond.corp.microsoft.com/en-us/library/dn479185.aspx
+  [Azure HDInsight SDK 문서]: http://msdnstage.redmond.corp.microsoft.com/ko-kr/library/dn479185.aspx

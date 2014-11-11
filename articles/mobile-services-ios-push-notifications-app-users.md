@@ -1,6 +1,6 @@
 <properties linkid="develop-net-tutorials-push-notifications-to-users-ios" urlDisplayName="Push Notifications to Users (iOS)" pageTitle="Push notifications to users (iOS) | Mobile Dev Center" metaKeywords="" description="Learn how to use Mobile Services to push notifications to users of your iOS app." metaCanonical="" services="" documentationCenter="Mobile" title="Push notifications to users by using Mobile Services" authors="krisragh" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh" />
 
 # 모바일 서비스를 사용하여 사용자에게 푸시 알림
 
@@ -26,7 +26,7 @@
 </h2>
 1.  [Azure 관리 포털][Azure 관리 포털]에 로그인하여 **모바일 서비스**를 클릭한 후 앱을 클릭합니다.
 
-    ![][]
+    ![][0]
 
 2.  **데이터** 탭을 클릭한 후 **만들기**를 클릭합니다.
 
@@ -215,18 +215,15 @@
 -   [모바일 서비스 서버 스크립트 참조][모바일 서비스 서버 스크립트 참조]
     서버 스크립트의 등록 및 사용에 대해 자세히 알아보십시오.
 
-<!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
 
-  [Windows Phone]: /ko-kr/develop/mobile/tutorials/push-notifications-to-users-wp8 "Windows Phone"
-  [iOS]: /ko-kr/develop/mobile/tutorials/push-notifications-to-users-ios "iOS"
-  [Android]: /ko-kr/develop/mobile/tutorials/push-notifications-to-users-android "Android"
+
   [이전의 푸시 알림 자습서]: /ko-kr/develop/mobile/tutorials/get-started-with-push-ios
   [Device 테이블 만들기]: #create-table
   [앱 업데이트]: #update-app
   [서버 스크립트 업데이트]: #update-scripts
   [푸시 알림 동작 확인]: #test-app
   [Azure 관리 포털]: https://manage.windowsazure.com/
-  []: ./media/mobile-services-ios-push-notifications-app-users/mobile-services-selection.png
+  [0]: ./media/mobile-services-ios-push-notifications-app-users/mobile-services-selection.png
   [1]: ./media/mobile-services-ios-push-notifications-app-users/mobile-create-table.png
   [2]: ./media/mobile-services-ios-push-notifications-app-users/mobile-create-devices-table.png
   [3]: ./media/mobile-services-ios-push-notifications-app-users/mobile-portal-data-tables-devices.png

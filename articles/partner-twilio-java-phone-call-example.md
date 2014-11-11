@@ -1,6 +1,6 @@
 <properties linkid="develop-java-how-to-twilio-phone-call" urlDisplayName="How to Make a Phone Call from Twilio in Java" pageTitle="How to Make a phone call from Twilio (Java) - Azure" metaKeywords="Azure Twilio call, Twilio call website, Azure Twilio Java" description="Learn how to make a phone call from a web page using Twilio in a Java application on Azure." metaCanonical="" services="" documentationCenter="Java" title="How to Make a Phone Call Using Twilio in a Java Application on Azure" authors="MicrosoftHelp@twilio.com; robmcm" videoId="" scriptId="" solutions="" manager="wpickett" editor="mollybos" />
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="MicrosoftHelp@twilio.com; robmcm"></tags>
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="MicrosoftHelp@twilio.com; robmcm" />
 
 # Azure의 Java 응용 프로그램에서 Twilio를 사용하여 전화를 거는 방법
 
@@ -189,7 +189,6 @@ Twilio에 대한 자세한 내용은 [][11]<https://www.twilio.com/docs></a>(영
   [4]: http://github.com/twilio/twilio-java
   [5]: http://api.twilio.com
   [Java CA 인증서 저장소에 인증서 추가]: ../java-add-certificate-ca-store
-  [Eclipse용 Azure 플러그 인(Java 포함)(Microsoft Open Technologies 제공)을 사용하여 Hello World 응용 프로그램 만들기]: http://msdn.microsoft.com/ko-KR/library/windowsazure/hh690944.aspx
   [Twilio 및 Java를 사용하는 Azure 통화 응답]: ./media/partner-twilio-java-phone-call-example/WA_TwilioJavaMakeCall.jpg
   [Java에서 Blob 저장소 서비스를 사용하는 방법]: http://www.windowsazure.com/ko-KR/develop/java/how-to-guides/blob-storage/
   [Java에서 SQL 데이터베이스 사용]: http://msdn.microsoft.com/ko-KR/library/windowsazure/hh749029.aspx

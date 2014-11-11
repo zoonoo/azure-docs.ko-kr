@@ -1,6 +1,6 @@
 <properties linkid="storage-introduction" urlDisplayName="Introduction to Azure Storage" pageTitle="Introduction to Storage | Microsoft Azure" metaKeywords="Get started  Azure storage introduction  Azure storage overview  Azure blob   Azure unstructured data   Azure unstructured storage   Azure blob   Azure blob storage  Azure queue   Azure asynchronous processing   Azure queue   Azure queue storage Azure table   Azure nosql   Azure large structured data store   Azure table   Azure table storage  Azure file storage  Azure file  Azure file share  Azure " description="An overview of Microsoft Azure Storage." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="storage" documentationCenter="" title="Introduction to Microsoft Azure Storage" authors="tamram" manager="mbaldwin" editor="cgronlun" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="tamram"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
 # Microsoft Azure 저장소 소개
 
@@ -35,17 +35,17 @@ Azure 저장소 서비스는 Blob 저장소, 테이블 저장소, 큐 저장소 
 -   **큐 저장소**는 워크플로 처리 및 클라우드 서비스 구성 요소 사이의 통신을 위한 안정적인 메시징을 제공합니다.
 -   **파일 저장소**는 표준 SMB 2.1 프로토콜을 사용하여 레거시 응용 프로그램을 위한 공유 저장소를 제공합니다. Azure 가상 컴퓨터 및 클라우드 서비스는 탑재된 공유를 통해 여러 응용 프로그램 구성 요소에서 파일 데이터를 공유할 수 있으며 온-프레미스 응용 프로그램은 파일 서비스 REST API를 통해 공유의 파일 데이터에 액세스할 수 있습니다.
 
-Blob, 테이블 및 큐 저장소는 모든 저장소 계정에 포함되어 있지만 파일 저장소는 [Azure 미리 보기 페이지][](영문)에서 요청이 있을 때 사용할 수 있습니다.
+Blob, 테이블 및 큐 저장소는 모든 저장소 계정에 포함되어 있지만 파일 저장소는 [Azure 미리 보기 페이지][Azure 미리 보기 페이지](영문)에서 요청이 있을 때 사용할 수 있습니다.
 
-저장소 계정은 Azure 저장소에 대한 액세스 권한을 제공하는 고유 네임스페이스입니다. 각 저장소 계정은 Blob, 큐, 테이블 및 파일 데이터를 합해서 최대 500TB까지 포함할 수 있습니다. Azure 저장소 계정 용량에 대한 자세한 내용은 [Azure 저장소 확장성 및 성능 목표][](영문)를 참조하세요.
+저장소 계정은 Azure 저장소에 대한 액세스 권한을 제공하는 고유 네임스페이스입니다. 각 저장소 계정은 Blob, 큐, 테이블 및 파일 데이터를 합해서 최대 500TB까지 포함할 수 있습니다. Azure 저장소 계정 용량에 대한 자세한 내용은 [Azure 저장소 확장성 및 성능 목표][Azure 저장소 확장성 및 성능 목표](영문)를 참조하세요.
 
 아래 그림은 Azure 저장소 리소스 간의 관계를 보여 줍니다.
 
-![Azure 저장소 리소스][]
+![Azure 저장소 리소스][Azure 저장소 리소스]
 
 저장소 계정을 만들려면 먼저 다양한 Azure 서비스에 대한 액세스 권한을 제공하는 계획인 Azure 구독이 있어야 합니다. 단일 구독으로 고유하게 명명된 저장소 계정을 20개까지 만들 수 있습니다.
 
-[무료 평가판][]으로 Azure를 시작할 수 있습니다. 계획을 구입하기로 결정하는 경우 다양한 [구입 옵션][] 중에서 선택할 수 있습니다. [MSDN 구독자][]는 Azure 저장소를 포함한 Azure 서비스에 사용할 수 있는 무료 월별 크레딧을 받습니다.
+[무료 평가판][무료 평가판]으로 Azure를 시작할 수 있습니다. 계획을 구입하기로 결정하는 경우 다양한 [구입 옵션][구입 옵션] 중에서 선택할 수 있습니다. [MSDN 구독자][MSDN 구독자]는 Azure 저장소를 포함한 Azure 서비스에 사용할 수 있는 무료 월별 크레딧을 받습니다.
 
 ## Blob 저장소
 
@@ -62,7 +62,7 @@ Blob, 테이블 및 큐 저장소는 모든 저장소 계정에 포함되어 있
 
 Blob 저장소에는 2가지 유형의 Blob, 즉 블록 Blob 및 페이지 Blob(디스크)이 있습니다. 블록 Blob은 클라우드 개체 스트리밍 및 저장을 위해 최적화되며 문서, 미디어 파일, 백업 등을 저장하는 데 적합합니다. 블록 Blob은 크기가 최대 200GB일 수 있습니다. 페이지 Blob은 IaaS 디스크를 나타내고 임의 쓰기를 지원하기 위해 최적화되며 크기가 최대 1TB일 수 있습니다. Azure 가상 컴퓨터 네트워크에 추가된 IaaS 디스크는 페이지 Blob으로 저장된 VHD입니다.
 
-네트워크 제약 조건으로 인해 네트워크를 통해 Blob 저장소를 대상으로 데이터를 업로드하거나 다운로드하는 것이 불가능한 대규모 데이터 집합의 경우, 하드 드라이브를 Microsoft로 운송하여 [Azure 가져오기/내보내기 서비스][](영문)를 사용해 데이터 센터에서 바로 데이터를 가져오거나 내보내도록 요청할 수 있습니다. 저장소 계정 내에서 또는 여러 저장소 계정에서 Blob 데이터를 복사할 수도 있습니다.
+네트워크 제약 조건으로 인해 네트워크를 통해 Blob 저장소를 대상으로 데이터를 업로드하거나 다운로드하는 것이 불가능한 대규모 데이터 집합의 경우, 하드 드라이브를 Microsoft로 운송하여 [Azure 가져오기/내보내기 서비스][Azure 가져오기/내보내기 서비스](영문)를 사용해 데이터 센터에서 바로 데이터를 가져오거나 내보내도록 요청할 수 있습니다. 저장소 계정 내에서 또는 여러 저장소 계정에서 Blob 데이터를 복사할 수도 있습니다.
 
 ## 테이블 저장소
 
@@ -100,13 +100,13 @@ Azure 가상 컴퓨터나 클라우드 서비스에서 실행되는 응용 프�
 
 생성 시 저장소 계정에 인증을 위해 사용되는 2개의 개인 액세스 키가 할당됩니다. 2개의 키는 일반 보안 키 관리 방법의 일환으로 키를 정기적으로 다시 생성할 때 응용 프로그램을 계속 사용할 수 있도록 합니다.
 
-저장소 리소스에 대한 제어된 액세스를 사용자에게 허용할 필요가 없는 경우 [공유 액세스 서명][]을 만들 수 있습니다. 공유 액세스 서명은 컨테이너, Blob, 테이블 또는 큐에 대한 위임된 액세스를 허용하는 URL에 추가할 수 있는 토큰입니다. 토큰을 소유한 사람은 토큰 유효 기간 동안 토큰이 가리키는 리소스에 토큰이 지정하는 권한으로 액세스할 수 있습니다. 현재 Azure 파일 저장소에서는 공유 액세스 서명을 지원하지 않습니다.
+저장소 리소스에 대한 제어된 액세스를 사용자에게 허용할 필요가 없는 경우 [공유 액세스 서명][공유 액세스 서명]을 만들 수 있습니다. 공유 액세스 서명은 컨테이너, Blob, 테이블 또는 큐에 대한 위임된 액세스를 허용하는 URL에 추가할 수 있는 토큰입니다. 토큰을 소유한 사람은 토큰 유효 기간 동안 토큰이 가리키는 리소스에 토큰이 지정하는 권한으로 액세스할 수 있습니다. 현재 Azure 파일 저장소에서는 공유 액세스 서명을 지원하지 않습니다.
 
 마지막으로, 컨테이너 및 해당 Blob 또는 특정 Blob을 공개적으로 액세스할 수 있게 지정할 수 있습니다. 컨테이너 또는 Blob을 공개로 지정하면 모든 사용자가 이 컨테이너 또는 Blob를 익명으로 읽을 수 있으며 인증이 필요 없습니다. 공용 컨테이너 및 Blob은 웹 사이트에서 호스트되는 미디어 및 문서와 같은 리소스를 노출하는 데 유용합니다. 전 세계의 대상을 위한 네트워크 대기 시간을 줄이려면 Azure CDN으로 웹 사이트에서 사용되는 Blob 데이터를 캐시할 수 있습니다.
 
 ## 내구성 및 고가용성을 위한 복제
 
-[WACOM.INCLUDE [storage-replication-options][]]
+[WACOM.INCLUDE [storage-replication-options](../includes/storage-replication-options.md)]
 
 ## 가격
 
@@ -114,84 +114,84 @@ Azure 가상 컴퓨터나 클라우드 서비스에서 실행되는 응용 프�
 
 저장소 용량은 데이터를 저장하는 데 사용하는 저장소 계정 서비스 단위가 어느 정도인지를 나타냅니다. 단순히 데이터를 저장하는 비용은 저장하는 데이터의 양과 복제 방법에 따라 결정됩니다. Azure 저장소에 대한 모든 읽기 및 쓰기 작업은 Azure 서비스에 대해 요청을 생성합니다. 데이터 송신은 Microsoft Azure 지역 외부에서 전송되는 데이터를 나타냅니다. 저장소 계정의 데이터에 동일한 지역에서 실행되지 않는 응용 프로그램이 액세스하는 경우 해당 응용 프로그램이 클라우드 서비스인지 다른 유형의 응용 프로그램인지 여부에 상관없이 데이터 송신 요금이 부과됩니다. Azure 서비스의 경우 프로세스 및 데이터 송신 요금을 줄이거나 제거하기 위해 동일한 데이터 센터의 데이터와 서비스를 그룹화하는 조치를 취할 수 있습니다.
 
-[저장소 가격 정보][] 페이지에서는 저장소 용량, 복제 및 트랜잭션에 대한 자세한 가격 정보를 제공합니다. [데이터 전송 가격 정보][]에서는 데이터 송신에 대한 자세한 가격 정보를 제공합니다. [Azure 저장소 가격 계산기][]를 사용하여 비용을 예측할 수 있습니다.
+[저장소 가격 정보][저장소 가격 정보] 페이지에서는 저장소 용량, 복제 및 트랜잭션에 대한 자세한 가격 정보를 제공합니다. [데이터 전송 가격 정보][데이터 전송 가격 정보]에서는 데이터 송신에 대한 자세한 가격 정보를 제공합니다. [Azure 저장소 가격 계산기][Azure 저장소 가격 계산기]를 사용하여 비용을 예측할 수 있습니다.
 
 ## 저장소에 대한 개발
 
-Azure 저장소는 HTTP/HTTPS 요청을 수행할 수 있는 임의의 언어로 호출할 수 있는 [REST API][]를 통해 저장소 리소스를 노출합니다. 또한 Azure 저장소는 많이 사용되는 몇 가지 언어를 위한 프로그래밍 라이브러리를 제공합니다. 이 라이브러리는 동기/비동기 호출, 작업 일괄 처리, 예외 관리, 자동 재시도, 작업자 동작 등과 같은 세부 사항을 처리하여 Azure 저장소 작업의 많은 측면을 간소화합니다. 현재 이 라이브러리는 파이프라인의 다른 라이브러리와 함께 다음 언어 및 플랫폼에 대해 사용할 수 있습니다.
+Azure 저장소는 HTTP/HTTPS 요청을 수행할 수 있는 임의의 언어로 호출할 수 있는 [REST API][REST API]를 통해 저장소 리소스를 노출합니다. 또한 Azure 저장소는 많이 사용되는 몇 가지 언어를 위한 프로그래밍 라이브러리를 제공합니다. 이 라이브러리는 동기/비동기 호출, 작업 일괄 처리, 예외 관리, 자동 재시도, 작업자 동작 등과 같은 세부 사항을 처리하여 Azure 저장소 작업의 많은 측면을 간소화합니다. 현재 이 라이브러리는 파이프라인의 다른 라이브러리와 함께 다음 언어 및 플랫폼에 대해 사용할 수 있습니다.
 
--   [.NET][]
--   [네이티브 코드][]
--   [Java/Android][]
--   [Node.js][]
--   [PHP][]
--   [Ruby][]
--   [Python][]
--   [PowerShell][]
+-   [.NET][.NET]
+-   [네이티브 코드][네이티브 코드]
+-   [Java/Android][Java/Android]
+-   [Node.js][Node.js]
+-   [PHP][PHP]
+-   [Ruby][Ruby]
+-   [Python][Python]
+-   [PowerShell][PowerShell]
 
 ## 다음 단계
 
 Azure 저장소를 시작하려면 다음 리소스를 탐색하세요.
 
--   [Azure 저장소 설명서][]
--   [Azure 저장소 확장성 및 성능 목표][]
+-   [Azure 저장소 설명서][Azure 저장소 설명서]
+-   [Azure 저장소 확장성 및 성능 목표][Azure 저장소 확장성 및 성능 목표]
 
 ### .NET 개발자
 
--   [.NET에서 Blob 저장소를 사용하는 방법][]
--   [.NET에서 테이블 저장소를 사용하는 방법][]
--   [.NET에서 큐 저장소를 사용하는 방법][]
+-   [.NET에서 Blob 저장소를 사용하는 방법][.NET에서 Blob 저장소를 사용하는 방법]
+-   [.NET에서 테이블 저장소를 사용하는 방법][.NET에서 테이블 저장소를 사용하는 방법]
+-   [.NET에서 큐 저장소를 사용하는 방법][.NET에서 큐 저장소를 사용하는 방법]
 
 ### Java/Android 개발자
 
--   [Java/Android에서 Blob 저장소를 사용하는 방법][]
--   [Java/Android에서 테이블 저장소를 사용하는 방법][]
--   [Java/Android에서 큐 저장소를 사용하는 방법][]
+-   [Java/Android에서 Blob 저장소를 사용하는 방법][Java/Android에서 Blob 저장소를 사용하는 방법]
+-   [Java/Android에서 테이블 저장소를 사용하는 방법][Java/Android에서 테이블 저장소를 사용하는 방법]
+-   [Java/Android에서 큐 저장소를 사용하는 방법][Java/Android에서 큐 저장소를 사용하는 방법]
 
 ### Node.js 개발자
 
--   [Node.js에서 Blob 저장소를 사용하는 방법][]
--   [Node.js에서 테이블 저장소를 사용하는 방법][]
--   [Node.js에서 큐 저장소를 사용하는 방법][]
+-   [Node.js에서 Blob 저장소를 사용하는 방법][Node.js에서 Blob 저장소를 사용하는 방법]
+-   [Node.js에서 테이블 저장소를 사용하는 방법][Node.js에서 테이블 저장소를 사용하는 방법]
+-   [Node.js에서 큐 저장소를 사용하는 방법][Node.js에서 큐 저장소를 사용하는 방법]
 
 ### PHP 개발자
 
--   [PHP에서 Blob 저장소를 사용하는 방법][]
--   [PHP에서 테이블 저장소를 사용하는 방법][]
--   [PHP에서 큐 저장소를 사용하는 방법][]
+-   [PHP에서 Blob 저장소를 사용하는 방법][PHP에서 Blob 저장소를 사용하는 방법]
+-   [PHP에서 테이블 저장소를 사용하는 방법][PHP에서 테이블 저장소를 사용하는 방법]
+-   [PHP에서 큐 저장소를 사용하는 방법][PHP에서 큐 저장소를 사용하는 방법]
 
 ### Ruby 개발자
 
--   [Ruby에서 Blob 저장소를 사용하는 방법][]
--   [Ruby에서 테이블 저장소를 사용하는 방법][]
--   [Ruby에서 큐 저장소를 사용하는 방법][]
+-   [Ruby에서 Blob 저장소를 사용하는 방법][Ruby에서 Blob 저장소를 사용하는 방법]
+-   [Ruby에서 테이블 저장소를 사용하는 방법][Ruby에서 테이블 저장소를 사용하는 방법]
+-   [Ruby에서 큐 저장소를 사용하는 방법][Ruby에서 큐 저장소를 사용하는 방법]
 
 ### Python 개발자
 
--   [Python에서 Blob 저장소를 사용하는 방법][]
--   [Python에서 테이블 저장소를 사용하는 방법][]
--   [Python에서 큐 저장소를 사용하는 방법][]
+-   [Python에서 Blob 저장소를 사용하는 방법][Python에서 Blob 저장소를 사용하는 방법]
+-   [Python에서 테이블 저장소를 사용하는 방법][Python에서 테이블 저장소를 사용하는 방법]
+-   [Python에서 큐 저장소를 사용하는 방법][Python에서 큐 저장소를 사용하는 방법]
 
-  [Azure 미리 보기 페이지]: /en-us/services/preview/
+  [Azure 미리 보기 페이지]: /ko-kr/services/preview/
   [Azure 저장소 확장성 및 성능 목표]: http://msdn.microsoft.com/library/windowsazure/dn249410.aspx
   [Azure 저장소 리소스]: ./media/storage-introduction/storage-concepts.png
-  [무료 평가판]: /en-us/pricing/free-trial/
-  [구입 옵션]: /en-us/pricing/purchase-options/
-  [MSDN 구독자]: /en-us/pricing/member-offers/msdn-benefits-details/
+  [무료 평가판]: /ko-kr/pricing/free-trial/
+  [구입 옵션]: /ko-kr/pricing/purchase-options/
+  [MSDN 구독자]: /ko-kr/pricing/member-offers/msdn-benefits-details/
   [Azure 가져오기/내보내기 서비스]: http://azure.microsoft.com/ko-kr/documentation/articles/storage-import-export-service/
   [공유 액세스 서명]: ../storage-dotnet-shared-access-signature-part-1/
   [storage-replication-options]: ../includes/storage-replication-options.md
-  [저장소 가격 정보]: /en-us/pricing/details/storage/
-  [데이터 전송 가격 정보]: /en-us/pricing/details/data-transfers/
-  [Azure 저장소 가격 계산기]: /en-us/pricing/calculator/?scenario=data-management
+  [저장소 가격 정보]: /ko-kr/pricing/details/storage/
+  [데이터 전송 가격 정보]: /ko-kr/pricing/details/data-transfers/
+  [Azure 저장소 가격 계산기]: /ko-kr/pricing/calculator/?scenario=data-management
   [REST API]: http://msdn.microsoft.com/library/windowsazure/dd179355.aspx
   [.NET]: http://msdn.microsoft.com/library/dn495001.aspx
   [네이티브 코드]: http://msdn.microsoft.com/library/dn495438.aspx
-  [Java/Android]: /en-us/develop/java/
-  [Node.js]: /en-us/develop/nodejs/
-  [PHP]: /en-us/develop/php/
-  [Ruby]: /en-us/develop/ruby/
-  [Python]: /en-us/develop/python/
+  [Java/Android]: /ko-kr/develop/java/
+  [Node.js]: /ko-kr/develop/nodejs/
+  [PHP]: /ko-kr/develop/php/
+  [Ruby]: /ko-kr/develop/ruby/
+  [Python]: /ko-kr/develop/python/
   [PowerShell]: http://msdn.microsoft.com/library/dn495240.aspx
   [Azure 저장소 설명서]: /ko-kr/documentation/services/storage/
   [.NET에서 Blob 저장소를 사용하는 방법]: ../storage-dotnet-how-to-use-blobs/

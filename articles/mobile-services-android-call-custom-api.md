@@ -1,6 +1,6 @@
 <properties writer="ricksal" pageTitle="Call a custom API from an Android client | Mobile Dev Center" metaKeywords="" description="Learn how to define a custom API and then call it from an Android app that uses Azure Mobile Services." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="mobile-services" documentationCenter="Mobile" title="Call a custom API from the client" authors="glenga"  />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # 클라이언트에서 사용자 지정 API 호출
 
@@ -22,9 +22,9 @@
 
 ## <a name="define-custom-api"></a>사용자 지정 API 정의
 
-[WACOM.INCLUDE [mobile-services-create-custom-api][mobile-services-create-custom-api]]
+[WACOM.INCLUDE [mobile-services-create-custom-api](../includes/mobile-services-create-custom-api.md)]
 
-[WACOM.INCLUDE [mobile-services-android-call-custom-api][mobile-services-android-call-custom-api]]
+[WACOM.INCLUDE [mobile-services-android-call-custom-api](../includes/mobile-services-android-call-custom-api.md)]
 
 ## 다음 단계
 
@@ -39,14 +39,6 @@
 <!-- Anchors. --> 
 <!-- URLs. -->
 
-  [Windows 스토어 C#]: /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-call-custom-api "Windows 스토어 C#"
-  [Windows 스토어 JavaScript]: /ko-kr/documentation/articles/mobile-services-windows-store-javascript-call-custom-api "Windows 스토어 JavaScript"
-  [Windows Phone]: /ko-kr/documentation/articles/mobile-services-windows-phone-call-custom-api "Windows Phone"
-  [iOS]: /ko-kr/documentation/articles/mobile-services-ios-call-custom-api "iOS"
-  [Android]: /ko-kr/documentation/articles/mobile-services-android-call-custom-api "Android"
-  [HTML]: /ko-kr/documentation/articles/mobile-services-html-call-custom-api "HTML"
-  [.NET 백 엔드]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-android-call-custom-api ".NET 백 엔드"
-  [JavaScript 백 엔드]: /ko-kr/documentation/articles/mobile-services-android-call-custom-api "JavaScript 백 엔드"
   [모바일 서비스 시작]: /ko-kr/documentation/articles/mobile-services-android-get-started/
   [데이터 시작]: /ko-kr/documentation/articles/mobile-services-android-get-started-data/
   [사용자 지정 API 정의]: #define-custom-api

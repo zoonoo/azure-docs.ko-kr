@@ -1,6 +1,6 @@
 <properties linkid="manage-services-create-a-virtual-network" urlDisplayName="Tutorial: Create a cloud-only virtual network" pageTitle="Tutorial: Create a cloud-only virtual network" metaKeywords="" description="Learn how to create an example cloud-only Azure Virtual Network in this tutorial." metaCanonical="" services="virtual-machines,virtual-network" documentationCenter="" title="Tutorial: Create a Clound-only Virtual Network in Azure" authors="cherylmc" solutions="" manager="adinah" editor="" />
 
-<tags ms.service="virtual-network" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/29/2014" ms.author="cherylmc"></tags>
+<tags ms.service="virtual-network" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/29/2014" ms.author="cherylmc" />
 
 # 자습서: Azure에서 클라우드 전용 가상 네트워크 만들기
 
@@ -92,15 +92,11 @@
   [createvnet]: ./media/create-virtual-network/createVNet_06_VNetExample.png
   [관리 포털에서 클라우드 전용 가상 네트워크 구성]: http://msdn.microsoft.com/library/azure/dn631643.aspx
   [Azure 가상 네트워크 개요]: http://msdn.microsoft.com/library/windowsazure/jj156007.aspx
-  [자습서: 사이트 간 연결용 크로스-프레미스 가상 네트워크 만들기]: /ko-KR/manage/services/networking/cross-premises-connectivity/
   [Azure 평가판 사용]: http://www.windowsazure.com/pricing/free-trial/
   [Microsoft Azure 특별 가격: MSDN, MPN 및 Bizspark 혜택]: http://azure.microsoft.com/ko-KR/pricing/member-offers/msdn-benefits-details/
   [Azure 관리 포털]: http://manage.windowsazure.com/
   []: ./media/create-virtual-network/createVNet_01_OpenVirtualNetworkWizard.png
-  [1]: ./media/create-virtual-network/createVNet_02_VirtualNetworkDetails.png
   [관리 포털의 가상 네트워크 구성 정보]: http://go.microsoft.com/fwlink/?linkid=248092&clcid=0x409
-  [2]: ./media/create-virtual-network/createVNet_04_VirtualNetworkAddressSpaces.png
-  [3]: ./media/create-virtual-network/createVNet_05_VirtualNetworkCreatedStatus.png
   [사용자 지정 가상 컴퓨터를 만드는 방법]: http://www.windowsazure.com/ko-KR/manage/windows/how-to-guides/custom-create-a-vm/
   [Azure 가상 컴퓨터]: http://www.windowsazure.com/ko-KR/manage/windows/
   [Azure 가상 네트워크에 새 Active Directory 포리스트 설치]: http://www.windowsazure.com/ko-KR/manage/services/networking/active-directory-forest/

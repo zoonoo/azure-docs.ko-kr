@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-get-started-with-data-dotnet" urlDisplayName="Get Started with Data" pageTitle="Get started with data - Azure Mobile Services" metaKeywords="" description="Learn how to get started using data with Azure Mobile Services." metaCanonical="" disqusComments="1" umbracoNaviHide="1" title="Get started with data in Mobile Services using Visual Studio 2012" documentationCenter="Mobile" authors="glenga" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # Visual Studio 2012를 사용하여 모바일 서비스에서 데이터 시작
 
@@ -36,7 +36,7 @@
 
 1.  [개발자 코드 샘플 사이트][GetStartedWithData 앱](영문)에서 GetStartedWithData 샘플 앱의 C# 버전을 다운로드합니다.
 
-    ![][]
+    ![][0]
 
 2.  Visual Studio 2012 Express for Windows 8에서 다운로드한 프로젝트를 열고 MainPage.xaml.cs 파일을 검사합니다.
 
@@ -52,11 +52,11 @@
 
 ## <a name="create-service"></a><span class="short-header">모바일 서비스 만들기</span>관리 포털에서 새 모바일 서비스 만들기
 
-[WACOM.INCLUDE [mobile-services-create-new-service-data][mobile-services-create-new-service-data]]
+[WACOM.INCLUDE [mobile-services-create-new-service-data](../includes/mobile-services-create-new-service-data.md)]
 
 ## <a name="add-table"></a><span class="short-header">새 테이블 추가</span>모바일 서비스에 새 테이블 추가
 
-[WACOM.INCLUDE [mobile-services-create-new-service-data-2][mobile-services-create-new-service-data-2]]
+[WACOM.INCLUDE [mobile-services-create-new-service-data-2](../includes/mobile-services-create-new-service-data-2.md)]
 
 ## <a name="update-app"></a><span class="short-header">앱 업데이트</span>데이터 액세스에 모바일 서비스를 사용하도록 앱 업데이트
 
@@ -196,26 +196,15 @@
 -   [모바일 서비스 .NET 방법 개념 참조][모바일 서비스 .NET 방법 개념 참조]
     .NET과 함께 모바일 서비스를 사용하는 방법에 대해 자세히 알아보세요.
 
-<!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
 
-  [Windows 스토어 C#]: /ko-kr/develop/mobile/tutorials/get-started-with-data-dotnet-vs2012 "Windows 스토어 C#"
-  [Windows 스토어 JavaScript]: /ko-kr/develop/mobile/tutorials/get-started-with-data-js-vs2012 "Windows 스토어 JavaScript"
-  [Windows Phone]: /ko-kr/develop/mobile/tutorials/get-started-with-data-wp8 "Windows Phone"
-  [iOS]: /ko-kr/develop/mobile/tutorials/get-started-with-data-ios "iOS"
-  [Android]: /ko-kr/develop/mobile/tutorials/get-started-with-data-android "Android"
-  [HTML]: /ko-kr/develop/mobile/tutorials/get-started-with-data-html "HTML"
-  [Xamarin.iOS]: /ko-kr/develop/mobile/tutorials/get-started-with-data-xamarin-ios "Xamarin.iOS"
-  [Xamarin.Android]: /ko-kr/develop/mobile/tutorials/get-started-with-data-xamarin-android "Xamarin.Android"
-  [자습서 보기]: http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Windows-Store-app-Getting-Started-with-Data-Connecting-your-app-to-Windows-Azure-Mobile-Services
-  [모바일 서비스의 데이터 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-data-dotnet/
+
   [Windows 스토어 앱 프로젝트 다운로드]: #download-app
   [모바일 서비스 만들기]: #create-service
   [저장소로 사용할 데이터 테이블 추가]: #add-table
   [모바일 서비스를 사용하도록 앱 업데이트]: #update-app
   [모바일 서비스에 대해 앱 테스트]: #test-app
-  [Azure 무료 평가판]: http://www.windowsazure.com/ko-kr/pricing/free-trial/?WT.mc_id=AE564AB28
   [GetStartedWithData 앱]: http://go.microsoft.com/fwlink/?LinkId=262308
-  []: ./media/mobile-services-windows-store-dotnet-get-started-data-vs2012/mobile-data-sample-download-dotnet.png
+  [0]: ./media/mobile-services-windows-store-dotnet-get-started-data-vs2012/mobile-data-sample-download-dotnet.png
   [1]: ./media/mobile-services-windows-store-dotnet-get-started-data-vs2012/mobile-quickstart-startup.png
   [mobile-services-create-new-service-data]: ../includes/mobile-services-create-new-service-data.md
   [mobile-services-create-new-service-data-2]: ../includes/mobile-services-create-new-service-data-2.md

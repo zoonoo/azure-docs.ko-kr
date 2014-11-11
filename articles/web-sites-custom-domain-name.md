@@ -1,6 +1,6 @@
 <properties title="Learn how to configure an Azure website to use a custom domain name" pageTitle="Configure a custom domain name for an Azure website" metaKeywords="Azure, Azure Web Sites, domain name" description="" services="web-sites" documentationCenter="" authors="larryfr, jroth" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr, jroth, mwasson"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr, jroth, mwasson" />
 
 # Azure 웹 사이트에 대한 사용자 지정 도메인 이름 구성
 
@@ -8,7 +8,7 @@
 
 <div class="dev-center-tutorial-subselector"><a href="/ko-kr/documentation/articles/web-sites-custom-domain-name/" title="웹 사이트" class="current">웹 사이트</a> | <a href="/ko-kr/documentation/articles/web-sites-traffic-manager-custom-domain-name/" title="트래픽 관리자를 사용하는 웹 사이트">트래픽 관리자를 사용하는 웹 사이트</a></div>
 
-[WACOM.INCLUDE [websites-cloud-services-css-guided-walkthrough][websites-cloud-services-css-guided-walkthrough]]
+[WACOM.INCLUDE [websites-cloud-services-css-guided-walkthrough](../includes/websites-cloud-services-css-guided-walkthrough.md)]
 
 웹 사이트를 만들면 Azure에서 azurewebsites.net의 하위 도메인에 할당됩니다. 예를 들어 웹 사이트의 이름이 **contoso**인 경우 URL은 **contoso.azurewebsites.net**입니다. Azure는 가상 IP 주소도 할당합니다.
 
@@ -16,7 +16,7 @@
 
 프로덕션 웹 사이트의 경우 사용자에게 사용자 지정 도메인 이름을 표시하고자 할 것입니다. 이 문서에서는 Azure 웹 사이트에서 사용자 지정 도메인을 구성하는 방법을 설명합니다. (이 문서는 도메인 등록 기관을 위한 일반적인 지침을 제공합니다. 이 문서의 맨 위에 있늩 탭은 특정 등록 기관의 일부 문서로 연결됩니다.)
 
-[WACOM.INCLUDE [introfooter][introfooter]]
+[WACOM.INCLUDE [introfooter](../includes/custom-dns-web-site-intro-notes.md)]
 
 이 문서의 내용
 
@@ -41,7 +41,7 @@
 -   하위 도메인을 매핑합니다. 예를 들어 **blogs.contoso.com**입니다. 서로 다른 하위 도메인을 서로 다른 웹 사이트에 매핑할 수 있습니다.
 -   와일드카드를 매핑합니다. 예를 들어 \***.contoso.com**입니다. 와일드카드 항목은 도메인의 모든 하위 도메인에 적용됩니다.
 
-[WACOM.INCLUDE [modes][modes]]
+[WACOM.INCLUDE [modes](../includes/custom-dns-web-site-modes.md)]
 
 ## DNS 레코드 유형
 
@@ -62,7 +62,7 @@ CNAME 레코드를 만들 경우에는 이 단계를 건너뛰십시오. A 레�
 2.  **웹 사이트** 탭에서 사이트의 이름을 클릭하고 **대시보드**를 선택합니다.
 3.  페이지 아래쪽에서 **도메인 관리**를 선택합니다. (이 옵션이 해제된 경우에는 공유, 기본 또는 표준 모드를 사용 중인지 확인하십시오. 자세한 내용은 [웹 사이트 크기를 조정하는 방법][웹 사이트 크기를 조정하는 방법](영문)을 참조하십시오.)
 
-    ![][]
+    ![][0]
 
 4.  IP 주소가 대화 상자 맨 아래에 나열됩니다.
 
@@ -106,17 +106,6 @@ A 레코드를 만들면 Azure 웹 사이트에서 특수 CNAME 레코드도 필
 
 <!-- Anchors. --> <!-- Images -->
 
-  [사용자 지정 도메인]: /ko-kr/documentation/articles/web-sites-custom-domain-name "사용자 지정 도메인"
-  [GoDaddy]: /ko-kr/documentation/articles/web-sites-godaddy-custom-domain-name "GoDaddy"
-  [Network Solutions]: /ko-kr/documentation/articles/web-sites-network-solutions-custom-domain-name "Network Solutions"
-  [Register.com]: /ko-kr/documentation/articles/web-sites-registerdotcom-custom-domain-name "Register.com"
-  [Enom]: /ko-kr/documentation/articles/web-sites-enom-custom-domain-name "Enom"
-  [Moniker]: /ko-kr/documentation/articles/web-sites-moniker-custom-domain-name "Moniker"
-  [Dotster]: /ko-kr/documentation/articles/web-sites-dotster-custom-domain-name "Dotster"
-  [DomainDiscover]: /ko-kr/documentation/articles/web-sites-domaindiscover-custom-domain-name "DomainDiscover"
-  [Directnic]: /ko-kr/documentation/articles/web-sites-directnic-custom-domain-name "Directnic"
-  [웹 사이트]: /ko-kr/documentation/articles/web-sites-custom-domain-name/ "웹 사이트"
-  [트래픽 관리자를 사용하는 웹 사이트]: /ko-kr/documentation/articles/web-sites-traffic-manager-custom-domain-name/ "트래픽 관리자를 사용하는 웹 사이트"
   [websites-cloud-services-css-guided-walkthrough]: ../includes/websites-cloud-services-css-guided-walkthrough.md
   [contoso.azurewebsites.net subdomain]: media/web-sites-custom-domain-name/azurewebsites-subdomain.png
   [introfooter]: ../includes/custom-dns-web-site-intro-notes.md
@@ -124,11 +113,10 @@ A 레코드를 만들면 Azure 웹 사이트에서 특수 CNAME 레코드도 필
   [DNS 레코드 유형]: #dns-record-types
   [가상 IP 주소 찾기]: #find-the-virtual-ip-address
   [DNS 레코드 만들기]: #create-the-dns-records
-  [“awverify” 레코드 만들기(A 레코드 전용)]: #awverify
   [웹 사이트에서 도메인 이름 사용]: #enable-the-domain-name-on-your-website
   [modes]: ../includes/custom-dns-web-site-modes.md
   [Azure 관리 포털]: https://manage.windowsazure.com
   [웹 사이트 크기를 조정하는 방법]: http://www.windowsazure.com/ko-kr/documentation/articles/web-sites-scale/
-  []: media/web-sites-custom-domain-name/dncmntask-cname-6.png
+  [0]: media/web-sites-custom-domain-name/dncmntask-cname-6.png
   [1]: media/web-sites-custom-domain-name/ipaddress.png
   [2]: ../includes/custom-dns-web-site-enable-on-web-site.md

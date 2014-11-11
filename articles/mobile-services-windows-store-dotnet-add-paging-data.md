@@ -1,6 +1,6 @@
 <properties pageTitle="Refine Mobile Services queries with paging (Windows Store) | Mobile Dev Center" metaKeywords="" description="Learn how to use paging to manage the amount of data returned to your Windows Store app from Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="Refine Mobile Services queries with paging" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # 페이징을 사용하여 모바일 서비스 쿼리 구체화
 
@@ -15,7 +15,7 @@
 
 이 자습서는 이전 자습서인 [데이터 시작][데이터 시작]의 단계 및 샘플 앱을 기반으로 합니다. 이 자습서를 시작하기 전에 적어도 데이터 계열 작업에 대한 첫 번째 자습서인 [데이터 시작][데이터 시작] 자습서를 완료해야 합니다.
 
-[WACOM.INCLUDE [mobile-services-windows-dotnet-paging][mobile-services-windows-dotnet-paging]]
+[WACOM.INCLUDE [mobile-services-windows-dotnet-paging](../includes/mobile-services-windows-dotnet-paging.md)]
 
 ## <a name="next-steps"> </a>다음 단계
 
@@ -30,18 +30,8 @@
 -   [모바일 서비스 .NET 방법 개념 참조][모바일 서비스 .NET 방법 개념 참조]
     .NET과 함께 모바일 서비스를 사용하는 방법에 대해 자세히 알아보세요.
 
-<!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
 
-  [Windows 스토어 C#]: /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-add-paging-data "Windows 스토어 C#"
-  [Windows 스토어 JavaScript]: /ko-kr/documentation/articles/mobile-services-windows-store-javascript-add-paging-data "Windows 스토어 JavaScript"
-  [Windows Phone]: /ko-kr/documentation/articles/mobile-services-windows-phone-add-paging-data "Windows Phone"
-  [iOS]: /ko-kr/documentation/articles/mobile-services-ios-add-paging-data "iOS"
-  [Android]: /ko-kr/documentation/articles/mobile-services-android-add-paging-data "Android"
-  [HTML]: /ko-kr/documentation/articles/mobile-services-html-add-paging-data "HTML"
-  [Xamarin.iOS]: /ko-kr/documentation/articles/partner-xamarin-mobile-services-ios-add-paging-data "Xamarin.iOS"
-  [Xamarin.Android]: /ko-kr/documentation/articles/partner-xamarin-mobile-services-android-add-paging-data "Xamarin.Android"
-  [.NET 백 엔드]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-add-paging-data ".NET 백 엔드"
-  [JavaScript 백 엔드]: /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-add-paging-data "JavaScript 백 엔드"
+
   [데이터 시작]: /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-data/
   [mobile-services-windows-dotnet-paging]: ../includes/mobile-services-windows-dotnet-paging.md
   [인증 시작하기]: /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-users/

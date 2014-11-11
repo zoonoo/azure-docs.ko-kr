@@ -1,6 +1,6 @@
 <properties linkid="mobile-services-dotnet-backend-get-started-custom-authentication" urlDisplayName="Get started with custom authentication" pageTitle="Get started with custom authentication | Mobile Dev Center" metaKeywords="" description="Learn how to authenticate users with a username and password." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Get started with custom authentication" authors="mahender" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="mahender"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="mahender" />
 
 # 사용자 지정 인증 시작
 
@@ -256,7 +256,7 @@
 
 ## <a name="require-authentication"></a> 인증을 요구하도록 모바일 서비스 구성
 
-[WACOM.INCLUDE [mobile-services-restrict-permissions-dotnet-backend][mobile-services-restrict-permissions-dotnet-backend]]
+[WACOM.INCLUDE [mobile-services-restrict-permissions-dotnet-backend](../includes/mobile-services-restrict-permissions-dotnet-backend.md)]
 
 
 ## <a name="test-login"></a> 테스트 클라이언트를 사용하여 로그인 흐름 테스트
@@ -267,7 +267,7 @@
 
 1. Visual Studio에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **디버그-\>새 인스턴스 시작**을 선택하여 모바일 서비스 백 엔드 프로젝트에 대한 새로운 디버깅 인스턴스를 시작합니다.
 
-    ![][]
+    ![][0]
 
 2. **try it out(사용해 보기)**를 클릭합니다.
 
@@ -289,16 +289,16 @@
 <!-- Images. --> 
 <!-- URLs. -->
 
-[사용자 시작]: /ko--kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users
+[사용자 시작]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users
 [계정 테이블 설정]: #table-setup
 [등록 끝점 만들기]: #register-endpoint
 [LoginProvider 만들기]: #login-provider
 [로그인 끝점 만들기]: #login-endpoint
 [인증을 요구하도록 모바일 서비스 구성]: #require-authentication
 [테스트 클라이언트를 사용하여 로그인 흐름 테스트]: #test-login
-[모바일 서비스 시작]: /ko--kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started
+[모바일 서비스 시작]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started
 [mobile-services-restrict-permissions-dotnet-backend]: ../includes/mobile-services-restrict-permissions-dotnet-backend.md
-[]: ./media/mobile-services-dotnet-backend-get-started-custom-authentication/mobile-services-dotnet-backend-debug-start.png
+[0]: ./media/mobile-services-dotnet-backend-get-started-custom-authentication/mobile-services-dotnet-backend-debug-start.png
 [1]: ./media/mobile-services-dotnet-backend-get-started-custom-authentication/mobile-services-dotnet-backend-try-out.png
 [2]: ./media/mobile-services-dotnet-backend-get-started-custom-authentication/mobile-services-dotnet-backend-custom-auth-test-client.png
 [3]: ./media/mobile-services-dotnet-backend-get-started-custom-authentication/mobile-services-dotnet-backend-custom-auth-send-register.png

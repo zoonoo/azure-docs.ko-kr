@@ -1,15 +1,15 @@
 <properties linkid="develop-mobile-tutorials-get-started-offline-data-android" urlDisplayName="Getting Started with Offline Data" pageTitle="Get started with offline data in Mobile Services (Xamarin Android) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to cache and sync offline data in your Xamarin Android application" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Get started with offline data in Mobile Services" authors="donnam,wesmc" editor="wesmc" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-android" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="donnam,wesmc"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-android" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="donnam,wesmc" />
 
 # 모바일 서비스에서 오프라인 데이터 동기화 시작
 
 <div class="dev-center-tutorial-selector sublanding">
-<a href="/ko--kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data" title="Windows 스토어 C#">Windows 스토어 C#</a>
-<a href="/ko--kr/documentation/articles/mobile-services-windows-phone-get-started-offline-data" title="Windows Phone">Windows Phone</a>
-<a href="/ko--kr/documentation/articles/mobile-services-ios-get-started-offline-data" title="iOS">iOS</a>
-<a href="/ko--kr/documentation/articles/mobile-services-xamarin-ios-get-started-offline-data" title="Xamarin.iOS">Xamarin.iOS</a>
-<a href="/ko--kr/documentation/articles/mobile-services-xamarin-android-get-started-offline-data" title="Xamarin.Android" class="current">Xamarin.Android</a>
+<a href="/ko-kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data" title="Windows 스토어 C#">Windows 스토어 C#</a>
+<a href="/ko-kr/documentation/articles/mobile-services-windows-phone-get-started-offline-data" title="Windows Phone">Windows Phone</a>
+<a href="/ko-kr/documentation/articles/mobile-services-ios-get-started-offline-data" title="iOS">iOS</a>
+<a href="/ko-kr/documentation/articles/mobile-services-xamarin-ios-get-started-offline-data" title="Xamarin.iOS">Xamarin.iOS</a>
+<a href="/ko-kr/documentation/articles/mobile-services-xamarin-android-get-started-offline-data" title="Xamarin.Android" class="current">Xamarin.Android</a>
 </div>
 
 이 항목에서는 Azure 모바일 서비스의 오프라인 기능을 사용하는 방법을 보여 줍니다. 이러한 기능을 사용하면 모바일 서비스의 오프라인 시나리오의 경우 로컬 데이터베이스를 조작할 수 있습니다. 온라인으로 다시 전환되면 오프라인 기능을 사용하여 로컬 변경을 모바일 서비스와 동기화할 수 있습니다.
@@ -116,7 +116,7 @@ Azure 모바일 서비스의 오프라인 기능을 사용하면 오프라인에
 
 3.  ToDo 목록에 항목 추가
 
-    ![][]
+    ![][0]
 
 4.  Microsoft Azure 관리 포털에 로그인하고 데이터베이스에서 모바일 서비스를 찾습니다. 서비스에서 모바일 서비스에 대해 JavaScript 백 엔드를 사용하는 경우 모바일 서비스의 **데이터** 탭에서 데이터를 찾아볼 수 있습니다. 모바일 서비스에 대해 .NET 백 엔드를 사용 중인 경우 SQL Azure 확장 프로그램에서 데이터베이스의 **관리** 단추를 클릭하여 테이블에 대한 쿼리를 실행할 수 있습니다.
 
@@ -160,14 +160,9 @@ Azure 모바일 서비스의 오프라인 기능을 사용하면 오프라인에
 <!-- Images -->
 <!-- URLs. -->
 
-  [Windows 스토어 C#]: /ko--kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data "Windows 스토어 C#"
-  [Windows Phone]: /ko--kr/documentation/articles/mobile-services-windows-phone-get-started-offline-data "Windows Phone"
-  [iOS]: /ko--kr/documentation/articles/mobile-services-ios-get-started-offline-data "iOS"
-  [Xamarin.iOS]: /ko--kr/documentation/articles/mobile-services-xamarin-ios-get-started-offline-data "Xamarin.iOS"
-  [Xamarin.Android]: /ko--kr/documentation/articles/mobile-services-xamarin-android-get-started-offline-data "Xamarin.Android"
-  [모바일 서비스 시작]: /ko--kr/documentation/articles/partner-xamarin-mobile-services-android-get-started/
-  [데이터 시작]: /ko--kr/documentation/articles/partner-xamarin-mobile-services-android-get-started-data/
-  [Azure 무료 평가판]: http://www.windowsazure.com/ko--kr/pricing/free-trial/?WT.mc_id=AE564AB28
+  [모바일 서비스 시작]: /ko-kr/documentation/articles/partner-xamarin-mobile-services-android-get-started/
+  [데이터 시작]: /ko-kr/documentation/articles/partner-xamarin-mobile-services-android-get-started-data/
+  [Azure 무료 평가판]: http://www.windowsazure.com/ko-kr/pricing/free-trial/?WT.mc_id=AE564AB28
   [오프라인 기능을 지원하도록 앱 업데이트]: #enable-offline-app
   [모바일 서비스에 연결된 앱 테스트]: #test-online-app
   [Xamarin 확장]: http://xamarin.com/visual-studio
@@ -175,7 +170,7 @@ Azure 모바일 서비스의 오프라인 기능을 사용하면 오프라인에
   [Azure 모바일 서비스 SDK 버전 1.3.0-alpha3]: http://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.0-alpha3
   [Azure 모바일 서비스 SQLite 저장소 버전 1.0.0-alpha2]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0-alpha2
   [Xamarin용 NuGet 추가 기능]: https://github.com/mrward/monodevelop-nuget-addin
-  []: ./media/mobile-services-xamarin-android-get-started-offline-data/mobile-quickstart-startup-android.png
+  [0]: ./media/mobile-services-xamarin-android-get-started-offline-data/mobile-quickstart-startup-android.png
   [1]: ./media/mobile-services-xamarin-android-get-started-offline-data/mobile-quickstart-completed-android.png
   [2]: ./media/mobile-services-xamarin-android-get-started-offline-data/mobile-data-browse.png
-  [Azure 모바일 서비스용 Xamarin Component 클라이언트를 사용하는 방법]: /ko--kr/documentation/articles/partner-xamarin-mobile-services-how-to-use-client-library/
+  [Azure 모바일 서비스용 Xamarin Component 클라이언트를 사용하는 방법]: /ko-kr/documentation/articles/partner-xamarin-mobile-services-how-to-use-client-library/

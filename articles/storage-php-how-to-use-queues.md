@@ -1,34 +1,34 @@
 <properties title="How to use the queue service (PHP) - Azure feature guide" pageTitle="How to use the queue service (PHP) | Microsoft Azure" metaKeywords="Azure Queue Service messaging PHP" description="Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in PHP." documentationCenter="PHP" services="storage" authors="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="" />
 
 # PHP에서 큐 서비스를 사용하는 방법
 
-이 가이드에서는 Azure 큐 서비스를 사용하여 일반 시나리오를 수행하는 방법을 보여 줍니다. 샘플은 PHP용 Windows SDK의 클래스를 사용하여 작성되었습니다. 여기서 다루는 시나리오에는 큐 메시지 **삽입**, **보기**, **가져오기** 및 **삭제**와 **큐 만들기 및 삭제**가 포함됩니다. 큐에 대한 자세한 내용은 [다음 단계][] 섹션을 참조하세요.
+이 가이드에서는 Azure 큐 서비스를 사용하여 일반 시나리오를 수행하는 방법을 보여 줍니다. 샘플은 PHP용 Windows SDK의 클래스를 사용하여 작성되었습니다. 여기서 다루는 시나리오에는 큐 메시지 **삽입**, **보기**, **가져오기** 및 **삭제**와 **큐 만들기 및 삭제**가 포함됩니다. 큐에 대한 자세한 내용은 [다음 단계][다음 단계] 섹션을 참조하세요.
 
 ## 목차
 
--   [큐 저장소 정의][]
--   [개념][]
--   [Azure 저장소 계정 만들기][]
--   [PHP 응용 프로그램 만들기][]
--   [응용 프로그램에서 큐 서비스에 액세스하도록 구성][]
--   [Azure 저장소 연결 설정][]
--   [방법: 큐 만들기][]
--   [방법: 큐에 메시지 추가][]
--   [방법: 다음 메시지 보기][]
--   [방법: 큐에서 다음 메시지 제거][]
--   [방법: 대기 중인 메시지의 콘텐츠 변경][]
--   [큐에서 메시지를 제거하기 위한 추가적인 옵션][]
--   [방법: 큐 길이 가져오기][]
--   [방법: 큐 삭제][]
+-   [큐 저장소 정의][큐 저장소 정의]
+-   [개념][개념]
+-   [Azure 저장소 계정 만들기][Azure 저장소 계정 만들기]
+-   [PHP 응용 프로그램 만들기][PHP 응용 프로그램 만들기]
+-   [응용 프로그램에서 큐 서비스에 액세스하도록 구성][응용 프로그램에서 큐 서비스에 액세스하도록 구성]
+-   [Azure 저장소 연결 설정][Azure 저장소 연결 설정]
+-   [방법: 큐 만들기][방법: 큐 만들기]
+-   [방법: 큐에 메시지 추가][방법: 큐에 메시지 추가]
+-   [방법: 다음 메시지 보기][방법: 다음 메시지 보기]
+-   [방법: 큐에서 다음 메시지 제거][방법: 큐에서 다음 메시지 제거]
+-   [방법: 대기 중인 메시지의 콘텐츠 변경][방법: 대기 중인 메시지의 콘텐츠 변경]
+-   [큐에서 메시지를 제거하기 위한 추가적인 옵션][큐에서 메시지를 제거하기 위한 추가적인 옵션]
+-   [방법: 큐 길이 가져오기][방법: 큐 길이 가져오기]
+-   [방법: 큐 삭제][방법: 큐 삭제]
 -   [다음 단계][1]
 
-[WACOM.INCLUDE [howto-queue-storage][]]
+[WACOM.INCLUDE [howto-queue-storage](../includes/howto-queue-storage.md)]
 
 ## <span id="create-account"></span></a>Azure 저장소 계정 만들기
 
-[WACOM.INCLUDE [create-storage-account][]]
+[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ## <span id="create-app"></span></a>PHP 응용 프로그램 만들기
 
@@ -38,13 +38,13 @@ Azure 큐 서비스에 액세스하는 PHP 응용 프로그램을 만들 때 충
 
 ## <span id="GetClientLibrary"></span></a>Azure 클라이언트 라이브러리 가져오기
 
-[WACOM.INCLUDE [get-client-libraries][]]
+[WACOM.INCLUDE [get-client-libraries](../includes/get-client-libraries.md)]
 
 ## <span id="configure-app"></span></a>응용 프로그램에서 큐 서비스에 액세스하도록 구성
 
 Azure 큐 서비스 API를 사용하려면 다음을 수행해야 합니다.
 
-1.  [require\_once][] 문을 사용하여 자동 로더 파일 참조
+1.  [require\_once][require\_once] 문을 사용하여 자동 로더 파일 참조
 2.  사용할 수 있는 모든 클래스 참조
 
 다음 예제에서는 자동 로더 파일을 포함하고 **ServicesBuilder** 클래스를 참조하는 방법을 보여 줍니다.
@@ -110,7 +110,7 @@ Azure 서비스 클라이언트를 만들려면 **ServicesBuilder** 클래스를
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179446.aspx
+        // http://msdn.microsoft.com/ko-kr/library/windowsazure/dd179446.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -140,7 +140,7 @@ Azure 서비스 클라이언트를 만들려면 **ServicesBuilder** 클래스를
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179446.aspx
+        // http://msdn.microsoft.com/ko-kr/library/windowsazure/dd179446.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -169,7 +169,7 @@ Azure 서비스 클라이언트를 만들려면 **ServicesBuilder** 클래스를
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179446.aspx
+        // http://msdn.microsoft.com/ko-kr/library/windowsazure/dd179446.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -223,7 +223,7 @@ Azure 서비스 클라이언트를 만들려면 **ServicesBuilder** 클래스를
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179446.aspx
+        // http://msdn.microsoft.com/ko-kr/library/windowsazure/dd179446.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -265,7 +265,7 @@ Azure 서비스 클라이언트를 만들려면 **ServicesBuilder** 클래스를
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179446.aspx
+        // http://msdn.microsoft.com/ko-kr/library/windowsazure/dd179446.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -312,7 +312,7 @@ Azure 서비스 클라이언트를 만들려면 **ServicesBuilder** 클래스를
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179446.aspx
+        // http://msdn.microsoft.com/ko-kr/library/windowsazure/dd179446.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -338,7 +338,7 @@ Azure 서비스 클라이언트를 만들려면 **ServicesBuilder** 클래스를
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179446.aspx
+        // http://msdn.microsoft.com/ko-kr/library/windowsazure/dd179446.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -365,7 +365,7 @@ Azure 서비스 클라이언트를 만들려면 **ServicesBuilder** 클래스를
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179446.aspx
+        // http://msdn.microsoft.com/ko-kr/library/windowsazure/dd179446.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -375,7 +375,7 @@ Azure 서비스 클라이언트를 만들려면 **ServicesBuilder** 클래스를
 
 이제 Azure 큐 서비스의 기본 사항을 배웠으므로 다음 링크를 따라 좀 더 복잡한 저장소 작업을 수행하는 방법을 알아보세요.
 
--   다음 MSDN 참조를 확인하세요. [Azure에서 데이터 저장 및 액세스][]
+-   다음 MSDN 참조를 확인하세요. [Azure에서 데이터 저장 및 액세스][Azure에서 데이터 저장 및 액세스]
 -   다음 Azure 저장소 팀 블로그(영문)를 방문하세요. <http://blogs.msdn.com/b/windowsazurestorage/>
 
   [다음 단계]: #NextSteps
@@ -397,5 +397,4 @@ Azure 서비스 클라이언트를 만들려면 **ServicesBuilder** 클래스를
   [howto-queue-storage]: ../includes/howto-queue-storage.md
   [create-storage-account]: ../includes/create-storage-account.md
   [get-client-libraries]: ../includes/get-client-libraries.md
-  [require\_once]: http://www.php.net/manual/en/function.require-once.php
-  [Azure에서 데이터 저장 및 액세스]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
+  [Azure에서 데이터 저장 및 액세스]: http://msdn.microsoft.com/ko-kr/library/windowsazure/gg433040.aspx

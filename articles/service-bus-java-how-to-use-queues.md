@@ -1,25 +1,25 @@
 <properties linkid="dev-java-how-to-service-bus-queues" urlDisplayName="Service Bus Queues" pageTitle="How to use Service Bus queues (Java) - Azure" metaKeywords="Azure Service Bus queues, Azure queues, Azure messaging, Azure queues Java" description="Learn how to use Service Bus queues in Azure. Code samples written in Java." metaCanonical="" services="service-bus" documentationCenter="Java" title="How to Use Service Bus Queues" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm"></tags>
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
 
 # 서비스 버스 큐를 사용하는 방법
 
-이 가이드에서는 서비스 버스 큐를 사용하는 방법을 보여 줍니다. 샘플은 Java로 작성되었으며 [Java용 Azure SDK][]를 사용합니다. 여기서 다루는 시나리오에는 **큐 만들기**, **메시지 보내기 및 받기**, **큐 삭제** 등이 포함됩니다.
+이 가이드에서는 서비스 버스 큐를 사용하는 방법을 보여 줍니다. 샘플은 Java로 작성되었으며 [Java용 Azure SDK][Java용 Azure SDK]를 사용합니다. 여기서 다루는 시나리오에는 **큐 만들기**, **메시지 보내기 및 받기**, **큐 삭제** 등이 포함됩니다.
 
 ## 목차
 
--   [서비스 버스 큐 정의][]
--   [서비스 네임스페이스 만들기][]
--   [네임스페이스에 대한 기본 관리 자격 증명 얻기][]
--   [서비스 버스를 사용하도록 응용 프로그램 구성][]
--   [방법: 보안 토큰 공급자 만들기][]
+-   [서비스 버스 큐 정의][서비스 버스 큐 정의]
+-   [서비스 네임스페이스 만들기][서비스 네임스페이스 만들기]
+-   [네임스페이스에 대한 기본 관리 자격 증명 얻기][네임스페이스에 대한 기본 관리 자격 증명 얻기]
+-   [서비스 버스를 사용하도록 응용 프로그램 구성][서비스 버스를 사용하도록 응용 프로그램 구성]
+-   [방법: 보안 토큰 공급자 만들기][방법: 보안 토큰 공급자 만들기]
 -   [방법: 큐 만들기][방법: 보안 토큰 공급자 만들기]
--   [방법: 큐에 메시지 보내기][]
--   [방법: 큐에서 메시지 받기][]
--   [방법: 응용 프로그램 크래시 및 읽을 수 없는 메시지 처리][]
--   [다음 단계][]
+-   [방법: 큐에 메시지 보내기][방법: 큐에 메시지 보내기]
+-   [방법: 큐에서 메시지 받기][방법: 큐에서 메시지 받기]
+-   [방법: 응용 프로그램 크래시 및 읽을 수 없는 메시지 처리][방법: 응용 프로그램 크래시 및 읽을 수 없는 메시지 처리]
+-   [다음 단계][다음 단계]
 
-[WACOM.INCLUDE [howto-service-bus-queues][]]
+[WACOM.INCLUDE [howto-service-bus-queues](../includes/howto-service-bus-queues.md)]
 
 ## <a name="bkmk_ConfigApp"> </a> 서비스 버스를 사용하도록 응용 프로그램 구성
 
@@ -171,7 +171,7 @@ Java 파일 맨 위에 다음 import 문을 추가합니다.
 
 ## <a name="bkmk_NextSteps"> </a>다음 단계
 
-지금까지 서비스 버스 큐의 기본 사항에 대해 알아보았습니다. 자세한 내용은 MSDN 항목 [큐, 토픽 및 구독][]을 참조하세요.
+지금까지 서비스 버스 큐의 기본 사항에 대해 알아보았습니다. 자세한 내용은 MSDN 항목 [큐, 토픽 및 구독][큐, 토픽 및 구독]을 참조하세요.
 
   [Java용 Azure SDK]: http://azure.microsoft.com/ko-KR/develop/java/
   [서비스 버스 큐 정의]: #what-are-service-bus-queues

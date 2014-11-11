@@ -1,6 +1,6 @@
 <properties linkid="develop-python-queue-service" urlDisplayName="Queue Service" pageTitle="How to use the queue service (Python) | Microsoft Azure" metaKeywords="Azure Queue Service messaging Python" description="Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in Python." metaCanonical="" services="storage" documentationCenter="Python" title="How to Use the Queue Storage Service from Python" authors="huvalo" solutions="" manager="" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo" />
 
 # Python에서 큐 저장소 서비스를 사용하는 방법
 
@@ -8,30 +8,30 @@
 수행하는 방법을 보여 줍니다. 샘플은 Python API를 사용하여
 작성되었습니다. 여기서 다루는 시나리오에는 큐 메시지 **삽입**, **보기**,
 **가져오기** 및 **삭제**와 **큐 만들기 및 삭제**가
-포함됩니다. 큐에 대한 자세한 내용은 [다음 단계][] 섹션을 참조하세요.
+포함됩니다. 큐에 대한 자세한 내용은 [다음 단계][다음 단계] 섹션을 참조하세요.
 
 ## 목차
 
-[큐 저장소 정의][]
- [개념][]
- [Azure 저장소 계정 만들기][]
- [방법: 큐 만들기][]
- [방법: 큐에 메시지 삽입][]
- [방법: 다음 메시지 보기][]
- [방법: 큐에서 다음 메시지 제거][]
- [방법: 대기 중인 메시지의 콘텐츠 변경][]
- [방법: 큐에서 메시지를 제거하는 추가 옵션][]
- [방법: 큐 길이 가져오기][]
- [방법: 큐 삭제][]
- [다음 단계][]
+[큐 저장소 정의][큐 저장소 정의]
+ [개념][개념]
+ [Azure 저장소 계정 만들기][Azure 저장소 계정 만들기]
+ [방법: 큐 만들기][방법: 큐 만들기]
+ [방법: 큐에 메시지 삽입][방법: 큐에 메시지 삽입]
+ [방법: 다음 메시지 보기][방법: 다음 메시지 보기]
+ [방법: 큐에서 다음 메시지 제거][방법: 큐에서 다음 메시지 제거]
+ [방법: 대기 중인 메시지의 콘텐츠 변경][방법: 대기 중인 메시지의 콘텐츠 변경]
+ [방법: 큐에서 메시지를 제거하는 추가 옵션][방법: 큐에서 메시지를 제거하는 추가 옵션]
+ [방법: 큐 길이 가져오기][방법: 큐 길이 가져오기]
+ [방법: 큐 삭제][방법: 큐 삭제]
+ [다음 단계][다음 단계]
 
-[WACOM.INCLUDE [howto-queue-storage][]]
+[WACOM.INCLUDE [howto-queue-storage](../includes/howto-queue-storage.md)]
 
 ## <a name="create-account"> </a>Azure 저장소 계정 만들기
 
-[WACOM.INCLUDE [create-storage-account][]]
+[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
-**참고:** Python 또는 클라이언트 라이브러리를 설치해야 하는 경우 [Python 설치 가이드][](영문)를 참조하세요.
+**참고:** Python 또는 클라이언트 라이브러리를 설치해야 하는 경우 [Python 설치 가이드][Python 설치 가이드](영문)를 참조하세요.
 
 ## <a name="create-queue"> </a>방법: 큐 만들기
 
@@ -129,8 +129,8 @@
 이제 큐 저장소의 기본 사항을 배웠으므로 다음 링크를 따라 좀 더 복잡한 저장소
 작업을 수행하는 방법을 알아보세요.
 
--   다음 MSDN 참조를 확인하세요. [Azure에서 데이터 저장 및 액세스][]
--   [Azure 저장소 팀 블로그][](영문)를 방문하세요.
+-   다음 MSDN 참조를 확인하세요. [Azure에서 데이터 저장 및 액세스][Azure에서 데이터 저장 및 액세스]
+-   [Azure 저장소 팀 블로그][Azure 저장소 팀 블로그](영문)를 방문하세요.
 
   [다음 단계]: #next-steps
   [큐 저장소 정의]: #what-is
@@ -147,5 +147,5 @@
   [howto-queue-storage]: ../includes/howto-queue-storage.md
   [create-storage-account]: ../includes/create-storage-account.md
   [Python 설치 가이드]: ../python-how-to-install/
-  [Azure에서 데이터 저장 및 액세스]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
+  [Azure에서 데이터 저장 및 액세스]: http://msdn.microsoft.com/ko-kr/library/windowsazure/gg433040.aspx
   [Azure 저장소 팀 블로그]: http://blogs.msdn.com/b/windowsazurestorage/

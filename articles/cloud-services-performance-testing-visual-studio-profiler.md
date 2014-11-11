@@ -1,10 +1,10 @@
 <properties linkid="dev-net-common-tasks-profiling-in-compute-emulator" urldisplayname="Team Foundation Service" headerexpose="" pageTitle="Profiling a Cloud Service Locally in the Compute Emulator" metakeywords="" footerexpose="" description="" umbraconavihide="0" disquscomments="1" title="Testing the Performance of a Cloud Service Locally in the Azure Compute Emulator Using the Visual Studio Profiler" authors="ghogen" manager="douge" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="ghogen"></tags>
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="ghogen" />
 
 # Visual Studio 프로파일러를 사용하여 Azure 계산 에뮬레이터에서 로컬로 클라우드 서비스의 성능 테스트
 
-다양한 도구와 기법을 사용하여 클라우드 서비스의 성능을 테스트할 수 있습니다. 클라우드 서비스를 Azure에 게시할 때 [Azure 응용 프로그램 프로파일링][]에 설명된 대로 Visual Studio에서 프로파일링 데이터를 수집하고 로컬에서 분석하게 할 수 있습니다. [Azure에서 성능 카운터 사용][]에 설명된 대로 진단을 사용하여 다양한 성능 카운터를 추적할 수도 있습니다. 또한 클라우드에 배포하기 전에 계산 에뮬레이터에서 로컬로 응용 프로그램을 프로파일링할 수 있습니다.
+다양한 도구와 기법을 사용하여 클라우드 서비스의 성능을 테스트할 수 있습니다. 클라우드 서비스를 Azure에 게시할 때 [Azure 응용 프로그램 프로파일링][Azure 응용 프로그램 프로파일링]에 설명된 대로 Visual Studio에서 프로파일링 데이터를 수집하고 로컬에서 분석하게 할 수 있습니다. [Azure에서 성능 카운터 사용][Azure에서 성능 카운터 사용]에 설명된 대로 진단을 사용하여 다양한 성능 카운터를 추적할 수도 있습니다. 또한 클라우드에 배포하기 전에 계산 에뮬레이터에서 로컬로 응용 프로그램을 프로파일링할 수 있습니다.
 
 이 문서에서는 에뮬레이터를 통해 로컬로 수행할 수 있는 CPU 샘플링 프로파일링 방법을 다룹니다. CPU 샘플링은 주입식이 아닌 프로파일링 방법입니다. 지정된 샘플링 간격마다 프로파일러가 호출 스택의 스냅숏을 만듭니다. 정해진 기간 동안 데이터가 수집되어 보고서에 표시됩니다. 이 프로파일링 방법은 계산이 많은 응용 프로그램에서 대부분의 CPU 작업이 수행되는 위치를 나타냅니다. 이 정보를 통해 응용 프로그램이 대부분의 시간을 보내는 "실행 부하 과다 경로"에 집중할 수 있습니다.
 
@@ -14,23 +14,23 @@ Visual Studio Premium 또는 Visual Studio Ultimate가 있는 경우에만 로�
 
 ## 이 문서의 내용
 
--   [1단계: 프로파일링을 위해 Visual Studio 구성][]
+-   [1단계: 프로파일링을 위해 Visual Studio 구성][1단계: 프로파일링을 위해 Visual Studio 구성]
 
--   [2단계: 프로세스에 연결][]
+-   [2단계: 프로세스에 연결][2단계: 프로세스에 연결]
 
--   [3단계: 프로파일링 보고서 보기][]
+-   [3단계: 프로파일링 보고서 보기][3단계: 프로파일링 보고서 보기]
 
--   [4단계: 변경 및 성능 비교][]
+-   [4단계: 변경 및 성능 비교][4단계: 변경 및 성능 비교]
 
--   [문제 해결][]
+-   [문제 해결][문제 해결]
 
--   [다음 단계][]
+-   [다음 단계][다음 단계]
 
 ## <a name="step1"> </a>1단계: 프로파일링을 위해 Visual Studio 구성
 
 먼저 프로파일링 시 유용할 수 있는 몇 가지 Visual Studio 구성 옵션이 있습니다. 프로파일링 보고서를 이해하려면 응용 프로그램용 기호(.pdb 파일) 및 시스템 라이브러리용 기호가 필요합니다. 사용 가능한 기호 서버를 참조하는 것이 좋습니다. Visual Studio의 **도구** 메뉴에서 **옵션**, **디버깅**, **기호**를 차례로 선택하면 됩니다. Microsoft 기호 서버가 **기호 파일(.pdb) 위치** 아래에 표시되는지 확인합니다. 추가 기호 파일이 있는 <http://referencesource.microsoft.com/symbols>를 참조할 수도 있습니다.
 
-![][]
+![][0]
 
 원하는 경우 내 코드만을 설정하여 프로파일러가 생성하는 보고서를 간소화할 수 있습니다. 내 코드만을 사용하도록 설정하면 함수 호출 스택이 간소화되므로 라이브러리 및 .NET Framework 내부에 제한된 호출은 보고서에서 숨겨집니다. **도구** 메뉴에서 **옵션**을 선택합니다. **성능 도구** 노드를 확장하고 **일반**을 선택합니다. **프로파일러 보고서에 [내 코드만] 사용** 확인란을 선택합니다.
 
@@ -161,7 +161,7 @@ Concatenate 메서드와 String.Concat가 실행 시간의 대부분을 사용�
 
 ## <a name="nextSteps"> </a>다음 단계
 
-에뮬레이터를 통한 Azure 이진 계측은 Visual Studio 2010 프로파일러에서 지원되지 않지만 메모리 할당을 테스트하려는 경우 프로파일링 시 해당 옵션을 선택할 수 있습니다. 스레드가 잠금 경쟁에 시간을 낭비하는지 확인하는 데 유용한 동시성 프로파일링이나 응용 프로그램 계층 간, 특히 데이터 계층과 작업자 역할 간 상호 작용 시의 성능 문제를 추적하는 데 유용한 계층 상호 작용 프로파일링을 선택할 수도 있습니다. 앱에서 생성하는 데이터베이스 쿼리를 보고 프로파일링 데이터를 사용하여 데이터베이스 사용을 개선할 수 있습니다. 계층 상호 작용 프로파일링에 대한 자세한 내용은 [연습: Visual Studio Team System 2010에서 계층 상호 작용 프로파일러 사용][](영문)을 참조하십시오.
+에뮬레이터를 통한 Azure 이진 계측은 Visual Studio 2010 프로파일러에서 지원되지 않지만 메모리 할당을 테스트하려는 경우 프로파일링 시 해당 옵션을 선택할 수 있습니다. 스레드가 잠금 경쟁에 시간을 낭비하는지 확인하는 데 유용한 동시성 프로파일링이나 응용 프로그램 계층 간, 특히 데이터 계층과 작업자 역할 간 상호 작용 시의 성능 문제를 추적하는 데 유용한 계층 상호 작용 프로파일링을 선택할 수도 있습니다. 앱에서 생성하는 데이터베이스 쿼리를 보고 프로파일링 데이터를 사용하여 데이터베이스 사용을 개선할 수 있습니다. 계층 상호 작용 프로파일링에 대한 자세한 내용은 [연습: Visual Studio Team System 2010에서 계층 상호 작용 프로파일러 사용][연습: Visual Studio Team System 2010에서 계층 상호 작용 프로파일러 사용](영문)을 참조하십시오.
 
   [Azure 응용 프로그램 프로파일링]: http://msdn.microsoft.com/ko-KR/library/windowsazure/hh369930.aspx
   [Azure에서 성능 카운터 사용]: http://www.windowsazure.com/ko-KR/develop/net/common-tasks/performance-profiling
@@ -171,7 +171,7 @@ Concatenate 메서드와 String.Concat가 실행 시간의 대부분을 사용�
   [4단계: 변경 및 성능 비교]: #step4
   [문제 해결]: #troubleshooting
   [다음 단계]: #nextSteps
-  []: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally09.png
+  [0]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally09.png
   [1]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally08.png
   [2]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally10.png
   [3]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally02.png

@@ -1,16 +1,16 @@
 <properties linkid="develop-mobile-tutorials-dotnet-rbac-with-aad" urlDisplayName="Role Based Access Control with Azure Active Directory" pageTitle="Role Based Access Control in Mobile Services and Azure Active Directory (Windows Store) | Mobile Dev Center" metaKeywords="" description="Learn how to control access based on Azure Active Directory roles in your Windows Store application." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Role Based Access Control in Mobile Services and Azure Active Directory" authors="wesmc" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="08/21/2014" ms.author="wesmc"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="08/21/2014" ms.author="wesmc" />
 
 # 모바일 서비스 및 Azure Active Directory의 역할 기반 액세스 제어
 
 <div class="dev-center-tutorial-selector sublanding">
-    <a href="/ko--kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac/" title="Windows 스토어 C#" class="current">Windows 스토어 C#</a>
+    <a href="/ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac/" title="Windows 스토어 C#" class="current">Windows 스토어 C#</a>
 </div>
 
 <div class="dev-center-tutorial-subselector">
-    <a href="/ko--kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac/" title=".NET 백 엔드" class="current">.NET 백 엔드</a> | 
-    <a href="/ko--kr/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/" title="JavaScript 백 엔드">JavaScript 백 엔드</a>
+    <a href="/ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac/" title=".NET 백 엔드" class="current">.NET 백 엔드</a> | 
+    <a href="/ko-kr/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/" title="JavaScript 백 엔드">JavaScript 백 엔드</a>
 </div>
 
 
@@ -39,7 +39,7 @@ RBAC(역할 기반 액세스 제어)는 사용자가 가질 수 있는 역할에
 
 ## <a name="create-group"></a> 멤버 자격이 포함된 Sales 그룹 만들기
 
-[WACOM.INCLUDE [mobile-services-aad-rbac-create-sales-group][mobile-services-aad-rbac-create-sales-group]]
+[WACOM.INCLUDE [mobile-services-aad-rbac-create-sales-group](../includes/mobile-services-aad-rbac-create-sales-group.md)]
 
 
 ## <a name="generate-key"></a> 통합 응용 프로그램에 대한 키 생성
@@ -47,7 +47,7 @@ RBAC(역할 기반 액세스 제어)는 사용자가 가질 수 있는 역할에
 
 [인증 시작][인증 시작] 자습서에서는 [Azure Active Directory 로그인 사용 등록][Azure Active Directory 로그인 사용 등록] 단계를 완료할 때 통합 응용 프로그램에 대한 등록을 만들었습니다. 이 섹션에서는 해당 통합 응용 프로그램의 클라이언트 ID로 디렉터리 정보를 읽을 때 사용할 키를 생성합니다.
 
-[WACOM.INCLUDE [mobile-services-generate-aad-app-registration-access-key][mobile-services-generate-aad-app-registration-access-key]]
+[WACOM.INCLUDE [mobile-services-generate-aad-app-registration-access-key](../includes/mobile-services-generate-aad-app-registration-access-key.md)]
 
 
 
@@ -66,7 +66,7 @@ RBAC(역할 기반 액세스 제어)는 사용자가 가질 수 있는 역할에
 
 5. Visual Studio에서 새로운 **Utilities** 폴더를 마우스 오른쪽 단추로 클릭하고, **AuthorizeAadRole.cs**라는 새 클래스 파일을 추가합니다.
 
-    ![][]
+    ![][0]
 
 6.  AuthorizeAadRole.cs 파일에서 파일 맨 위에 다음 `using` 문을 추가합니다.
 
@@ -283,7 +283,7 @@ RBAC(역할 기반 액세스 제어)는 사용자가 가질 수 있는 역할에
 
 ## <a name="test-client"></a> 클라이언트의 액세스 테스트
 
-[WACOM.INCLUDE [mobile-services-aad-rbac-test-app][mobile-services-aad-rbac-test-app]]
+[WACOM.INCLUDE [mobile-services-aad-rbac-test-app](../includes/mobile-services-aad-rbac-test-app.md)]
 
 
 
@@ -292,19 +292,19 @@ RBAC(역할 기반 액세스 제어)는 사용자가 가질 수 있는 역할에
 <!-- Images --> 
 <!-- URLs. -->
 
-[Windows 스토어 C#]: /ko--kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac/ "Windows 스토어 C#"
-[.NET 백 엔드]: /ko--kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac/ ".NET 백 엔드"
-[JavaScript 백 엔드]: /ko--kr/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/ "JavaScript 백 엔드"
+[Windows 스토어 C#]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac/ "Windows 스토어 C#"
+[.NET 백 엔드]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac/ ".NET 백 엔드"
+[JavaScript 백 엔드]: /ko-kr/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/ "JavaScript 백 엔드"
 [그래프 클라이언트 라이브러리]: http://go.microsoft.com/fwlink/?LinkId=510536
-[인증 시작]: /ko--kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-users/
+[인증 시작]: /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-users/
 [멤버 자격이 포함된 Sales 그룹 만들기]: #create-group
 [통합 응용 프로그램에 대한 키 생성]: #generate-key
 [사용자 지정 권한 부여 특성 만들기]: #create-custom-authorization-attribute
 [역할 기반 액세스 확인을 데이터베이스 작업에 추가]: #add-access-checking
 [클라이언트 액세스 테스트]: #test-client
-[서버 스크립트 저장]: /ko--kr/documentation/articles/mobile-services-store-scripts-source-control/
+[서버 스크립트 저장]: /ko-kr/documentation/articles/mobile-services-store-scripts-source-control/
 [mobile-services-aad-rbac-create-sales-group]: ../includes/mobile-services-aad-rbac-create-sales-group.md
-[Azure Active Directory 로그인 사용 등록]: /ko--kr/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
+[Azure Active Directory 로그인 사용 등록]: /ko-kr/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
 [mobile-services-generate-aad-app-registration-access-key]: ../includes/mobile-services-generate-aad-app-registration-access-key.md
-[]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac/add-authorize-aad-role-class.png
+[0]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac/add-authorize-aad-role-class.png
 [mobile-services-aad-rbac-test-app]: ../includes/mobile-services-aad-rbac-test-app.md

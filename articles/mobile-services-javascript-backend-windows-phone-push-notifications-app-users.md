@@ -1,18 +1,18 @@
 <properties linkid="/documentation/articles/mobile-services-javascript-backend-windows-phone-push-notifications-app-users" pageTitle="Send push notifications to authenticated users" metaKeywords="push notifications, authentication, users, Notification Hubs, Mobile Services" description="Learn how to send push notifications to specific " metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="glenga" solutions="Mobile" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # 인증된 사용자에게 푸시 알림 보내기
 
 <div class="dev-center-tutorial-selector sublanding">
-<a href="/ko--kr/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users" title="Windows 스토어 C#">Windows 스토어 C#</a>
-<a href="/ko--kr/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-push-notifications-app-users" title="Windows 스토어 JavaScript">Windows 스토어 JavaScript</a>
-<a href="/ko--kr/documentation/articles/mobile-services-javascript-backend-windows-phone-push-notifications-app-users" title="Windows Phone" class="current">Windows Phone</a>
-<a href="/ko--kr/documentation/articles/mobile-services-javascript-backend-ios-push-notifications-app-users" title="iOS">iOS</a>
-<a href="/ko--kr/documentation/articles/mobile-services-javascript-backend-android-push-notifications-app-users" title="Android">Android</a>
+<a href="/ko-kr/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users" title="Windows 스토어 C#">Windows 스토어 C#</a>
+<a href="/ko-kr/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-push-notifications-app-users" title="Windows 스토어 JavaScript">Windows 스토어 JavaScript</a>
+<a href="/ko-kr/documentation/articles/mobile-services-javascript-backend-windows-phone-push-notifications-app-users" title="Windows Phone" class="current">Windows Phone</a>
+<a href="/ko-kr/documentation/articles/mobile-services-javascript-backend-ios-push-notifications-app-users" title="iOS">iOS</a>
+<a href="/ko-kr/documentation/articles/mobile-services-javascript-backend-android-push-notifications-app-users" title="Android">Android</a>
 </div>
 
-<div class="dev-center-tutorial-subselector"><a href="/ko--kr/documentation/articles/mobile-services-dotnet-backend-windows-phone-push-notifications-app-users/" title=".NET 백 엔드">.NET 백 엔드</a> | <a href="/ko--kr/documentation/articles/mobile-services-javascript-backend-windows-phone-push-notifications-app-users/"  title="JavaScript 백 엔드" class="current">JavaScript 백 엔드</a></div>
+<div class="dev-center-tutorial-subselector"><a href="/ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-phone-push-notifications-app-users/" title=".NET 백 엔드">.NET 백 엔드</a> | <a href="/ko-kr/documentation/articles/mobile-services-javascript-backend-windows-phone-push-notifications-app-users/"  title="JavaScript 백 엔드" class="current">JavaScript 백 엔드</a></div>
 
 이 항목에서는 등록된 모든 장치에서 인증된 사용자에게 푸시 알림을 보내는 방법을 보여 줍니다. 이전의 [푸시 알림][푸시 알림] 자습서와 달리, 이 자습서에서는 먼저 사용자가 인증된 후에야 클라이언트가 푸시 알림을 받기 위해 알림 허브에 등록할 수 있도록 모바일 서비스를 변경합니다. 또한 할당된 사용자 ID를 기반으로 태그를 추가하도록 등록이 수정됩니다. 마지막에는 모든 등록 대신 인증된 사용자에게만 알림을 보내도록 서버 스크립트가 업데이트됩니다.
 
@@ -38,7 +38,7 @@
 
 ## <a name="register"></a>등록에 인증이 필요하도록 서비스 업데이트
 
-[WACOM.INCLUDE [mobile-services-javascript-backend-push-notifications-app-users][mobile-services-javascript-backend-push-notifications-app-users]]
+[WACOM.INCLUDE [mobile-services-javascript-backend-push-notifications-app-users](../includes/mobile-services-javascript-backend-push-notifications-app-users.md)]
 
 1.  삽입 함수를 다음의 코드로 바꾼 후 **저장**을 클릭합니다.
 
@@ -73,11 +73,11 @@
 
 ## <a name="update-app"></a>등록 전에 로그인하도록 앱 업데이트
 
-[WACOM.INCLUDE [mobile-services-windows-phone-push-notifications-app-users][mobile-services-windows-phone-push-notifications-app-users]]
+[WACOM.INCLUDE [mobile-services-windows-phone-push-notifications-app-users](../includes/mobile-services-windows-phone-push-notifications-app-users.md)]
 
 ## <a name="test"></a>앱 테스트
 
-[WACOM.INCLUDE [mobile-services-windows-test-push-users][mobile-services-windows-test-push-users]]
+[WACOM.INCLUDE [mobile-services-windows-test-push-users](../includes/mobile-services-windows-test-push-users.md)]
 
 <!---## <a name="next-steps"> </a>Next steps
 In the next tutorial, [Service-side authorization of Mobile Services users][Authorize users with scripts], you will take the user ID value provided by Mobile Services based on an authenticated user and use it to filter the data returned by Mobile Services. Learn more about how to use Mobile Services with .NET in [Mobile Services .NET How-to Conceptual Reference]--> 
@@ -85,19 +85,12 @@ In the next tutorial, [Service-side authorization of Mobile Services users][Auth
 <!-- Anchors. -->
 <!-- URLs. -->
 
-  [Windows 스토어 C#]: /ko--kr/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users "Windows 스토어 C#"
-  [Windows 스토어 JavaScript]: /ko--kr/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-push-notifications-app-users "Windows 스토어 JavaScript"
-  [Windows Phone]: /ko--kr/documentation/articles/mobile-services-javascript-backend-windows-phone-push-notifications-app-users "Windows Phone"
-  [iOS]: /ko--kr/documentation/articles/mobile-services-javascript-backend-ios-push-notifications-app-users "iOS"
-  [Android]: /ko--kr/documentation/articles/mobile-services-javascript-backend-android-push-notifications-app-users "Android"
-  [.NET 백 엔드]: /ko--kr/documentation/articles/mobile-services-dotnet-backend-windows-phone-push-notifications-app-users/ ".NET 백 엔드"
-  [JavaScript 백 엔드]: /ko--kr/documentation/articles/mobile-services-javascript-backend-windows-phone-push-notifications-app-users/ "JavaScript 백 엔드"
-  [푸시 알림]: /ko--kr/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push/
+  [푸시 알림]: /ko-kr/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push/
   [등록에 인증이 필요하도록 서비스 업데이트]: #register
   [등록 전에 로그인하도록 앱 업데이트]: #update-app
   [앱 테스트]: #test
-  [이 항목의 Windows 스토어 버전]: /ko--kr/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users
-  [인증 시작]: /ko--kr/documentation/articles/mobile-services-windows-phone-get-started-users/
+  [이 항목의 Windows 스토어 버전]: /ko-kr/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users
+  [인증 시작]: /ko-kr/documentation/articles/mobile-services-windows-phone-get-started-users/
   [mobile-services-javascript-backend-push-notifications-app-users]: ../includes/mobile-services-javascript-backend-push-notifications-app-users.md
   [mobile-services-windows-phone-push-notifications-app-users]: ../includes/mobile-services-windows-phone-push-notifications-app-users.md
   [mobile-services-windows-test-push-users]: ../includes/mobile-services-windows-test-push-users.md

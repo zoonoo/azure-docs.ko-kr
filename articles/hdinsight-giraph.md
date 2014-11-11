@@ -1,6 +1,6 @@
 <properties title="How to use Giraph with HDInsight" pageTitle="How to use Apache Giraph with Azure HDInsight" description="Learn how to use Apache Giraph to perform graph processing with Azure HDInsight" metaKeywords="Azure HDInsight Apache Giraph, hdinsight giraph, hdinsight graph, hadoop giraph, azure hadoop, hadoop graph" services="hdinsight" solutions="big-data" documentationCenter="" authors="larryfr" videoId="" scriptId="" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/14/2014" ms.author="larryfr"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/14/2014" ms.author="larryfr" />
 
 ## Azure HDInsight(Hadoop)에서 Apache Giraph를 사용하는 방법 알아보기
 
@@ -205,16 +205,15 @@ HDInsight에서 Giraph를 사용하는 방법에 대해 알아보았으므로 �
   [Maven]: http://maven.apache.org/
   [Giraph 리포지토리]: https://github.com/apache/giraph
   [GIRAPH-930]: https://issues.apache.org/jira/browse/GIRAPH-930
-  [Azure PowerShell]: http://azure.microsoft.com/ko--kr/documentation/articles/install-configure-powershell/
+  [Azure PowerShell]: http://azure.microsoft.com/ko-kr/documentation/articles/install-configure-powershell/
   [HDInsight-Tools]: https://github.com/Blackmist/hdinsight-tools
-  [HDInsight에서 Hadoop 작업용 데이터 업로드]: http://azure.microsoft.com/ko--kr/documentation/articles/hdinsight-upload-data/
+  [HDInsight에서 Hadoop 작업용 데이터 업로드]: http://azure.microsoft.com/ko-kr/documentation/articles/hdinsight-upload-data/
   [Pregel]: http://people.apache.org/~edwardyoon/documents/pregel.pdf
   [release-1.1 branch]: https://github.com/apache/giraph/tree/release-1.1
   [유향 그래프]: http://en.wikipedia.org/wiki/Directed_graph
-  [원과 거리가 다른 선으로 그린 tiny\_graph.txt]: .\media\hdinsight-giraph\giraph-graph.png
   [가장 짧은 경로와 함께 원으로 그린 개체]: .\media\hdinsight-giraph\giraph-graph-out.png
   [Azure 관리 포털]: https://manage.windowsazure.com
-  [HDInsight 클러스터 버전의 새로운 기능]: http://azure.microsoft.com/ko--kr/documentation/articles/hdinsight-component-versioning/
+  [HDInsight 클러스터 버전의 새로운 기능]: http://azure.microsoft.com/ko-kr/documentation/articles/hdinsight-component-versioning/
   [Hadoop 명령줄]: #cmd
-  [Pig]: http://azure.microsoft.com/ko--kr/documentation/articles/hdinsight-use-pig/
-  [Hive]: http://azure.microsoft.com/ko--kr/documentation/articles/hdinsight-use-hive/
+  [Pig]: http://azure.microsoft.com/ko-kr/documentation/articles/hdinsight-use-pig/
+  [Hive]: http://azure.microsoft.com/ko-kr/documentation/articles/hdinsight-use-hive/

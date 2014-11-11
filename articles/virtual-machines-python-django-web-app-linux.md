@@ -1,6 +1,6 @@
 <properties linkid="develop-python-web-app-with-django-mac" urlDisplayName="Web with Django" pageTitle="Python web app with Django on Mac - Azure tutorial" metaKeywords="" description="A tutorial that shows how to host a Django-based website on Azure using a Linux virtual machine." metaCanonical="" services="virtual-machines" documentationCenter="Python" title="Django Hello World Web Application (mac-linux)" authors="huvalo" solutions="" manager="" editor="" />
 
-<tags ms.service="virtual-machines" ms.workload="web" ms.tgt_pltfrm="vm-linux" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo"></tags>
+<tags ms.service="virtual-machines" ms.workload="web" ms.tgt_pltfrm="vm-linux" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo" />
 
 # Django Hello World 웹 응용 프로그램(mac-linux)
 
@@ -21,7 +21,7 @@
 
 ![Azure의 hello world 페이지를 표시하는 브라우저 창][Azure의 hello world 페이지를 표시하는 브라우저 창]
 
-[WACOM.INCLUDE [create-account-and-vms-note][create-account-and-vms-note]]
+[WACOM.INCLUDE [create-account-and-vms-note](../includes/create-account-and-vms-note.md)]
 
 ## Django를 호스트하기 위해 Azure 가상 컴퓨터 만들기 및 구성
 
@@ -114,8 +114,6 @@ Ubuntu Linux VM에는 Python 2.7이 사전 설치되어 있지만, Apache 또는
 
 이 자습서를 완료했으므로 새로 만든 Azure 가상 컴퓨터를 종료하거나 종료한 후 제거하여 다른 자습서에 사용할 리소스를 늘리고 Azure 사용량에 따른 요금 부과를 방지하십시오.
 
-  [Windows]: /ko-kr/develop/python/tutorials/web-app-with-django/ "Windows"
-  [Mac/Linux]: /ko-kr/develop/python/tutorials/django-hello-world-(maclinux)/ "Mac/Linux"
   [Azure의 hello world 페이지를 표시하는 브라우저 창]: ./media/virtual-machines-python-django-web-app-linux/mac-linux-django-helloworld-browser.png
   [create-account-and-vms-note]: ../includes/create-account-and-vms-note.md
   [여기]: /ko-kr/manage/linux/tutorials/virtual-machine-from-gallery/

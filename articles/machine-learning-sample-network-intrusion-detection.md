@@ -1,6 +1,6 @@
 <properties title="Azure Machine Learning Sample: Network intrusion detection" pageTitle="Machine Learning Sample: Network intrusion detection | Azure" description="A sample Azure Machine Learning experiment that uses a classification model to determine which network activities are a part of network intrusion." metaKeywords="" services="" solutions="" documentationCenter="" authors="garye" videoId="" scriptId="" />
 
-<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="garye"></tags>
+<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="garye" />
 
 # Azure 기계 학습 샘플: 네트워크 침입 검색
 
@@ -27,7 +27,7 @@
 
 1.  비선형 분류자(향상된 의사 결정 트리)가 선형 분류자(로지스틱 회귀 분석)보다 성능이 약간 더 우수합니다.
 
-![][]
+![][0]
 
 이제 기능 선택을 사용하여 향상된 의사결정 트리에 비교하려고 합니다. 분류 성능은 매우 비슷하지만 모든 기능에서 향상된 의사 결정 트리가 약간 더 우수하므로 점수 매기기 워크플로에 사용됩니다. 이 데이터 집합의 경우 이 높은 분류 AUC가 일반적입니다.
 
@@ -35,5 +35,5 @@
 
 <!-- Removed until this part is fixed ## Operationalization ##   We wanted to see our model in action, to do this we wanted a request-response service around the model we just learned. Doing this is straightforward and can be achieved in few simple clicks in studio:   1. First step is to save the learned model (by right clicking on the classifier module output)  1. Now create a new experiment and search for saved model and drop it in the panel for new experiment  1. Then we need to replicate the steps we did for pre-process, again we can just select the modules from experiment we need and copy and paste to the new experiment  1. The last step is to plug in the test data and run the experiment, once the run is finished we can define the input and output points for the service  1. Again, using one click we can publish the service end points that is deployed right away and can be tested using a friendly user interface - all within studio    -->
 
-  []: ./media/machine-learning-sample-network-intrusion-detection/network-intrusion-detection-1.png
+  [0]: ./media/machine-learning-sample-network-intrusion-detection/network-intrusion-detection-1.png
   [1]: ./media/machine-learning-sample-network-intrusion-detection/network-intrusion-detection-2.png

@@ -1,43 +1,43 @@
 <properties linkid="dev-net-how-to-use-queue-storage-service-java" urlDisplayName="Queue Service" pageTitle="How to use the queue service (Java) | Microsoft Azure" metaKeywords="Azure Queue Service, Azure Queue storage service, queues peeking, queues insert messages, queues get messages, queues delete messages, create queues, delete queues, Queue service Java" description="Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in Java." metaCanonical="" services="storage" documentationCenter="Java" title="How to use the Queue storage service from Java" authors="" solutions="" manager="" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="" />
 
 # Java에서 큐 저장소를 사용하는 방법
 
-이 가이드에서는 Azure 큐 저장소 서비스를 사용하여 일반 시나리오를 수행하는 방법을 보여 줍니다. 샘플은 Java로 작성되었으며 [Java용 Azure Storage SDK][](영문)를 사용합니다. 여기서 다루는 시나리오에는 큐 메시지 **삽입**, **보기**, **가져오기** 및 **삭제**와 **큐 만들기** 및 **삭제**가 포함됩니다. 큐에 대한 자세한 내용은 [다음 단계][] 섹션을 참조하세요.
+이 가이드에서는 Azure 큐 저장소 서비스를 사용하여 일반 시나리오를 수행하는 방법을 보여 줍니다. 샘플은 Java로 작성되었으며 [Java용 Azure Storage SDK][Java용 Azure Storage SDK](영문)를 사용합니다. 여기서 다루는 시나리오에는 큐 메시지 **삽입**, **보기**, **가져오기** 및 **삭제**와 **큐 만들기** 및 **삭제**가 포함됩니다. 큐에 대한 자세한 내용은 [다음 단계][다음 단계] 섹션을 참조하세요.
 
-참고: SDK는 Android 장치에서 Azure 저장소를 사용하는 개발자에게 제공됩니다. 자세한 내용은 [Android용 Azure Storage SDK][]를 참조하세요.
+참고: SDK는 Android 장치에서 Azure 저장소를 사용하는 개발자에게 제공됩니다. 자세한 내용은 [Android용 Azure Storage SDK][Android용 Azure Storage SDK]를 참조하세요.
 
 ## <a name="Contents"> </a>목차
 
--   [큐 저장소 정의][]
--   [개념][]
--   [Azure 저장소 계정 만들기][]
--   [Java 응용 프로그램 만들기][]
--   [큐 저장소에 액세스하도록 응용 프로그램 구성][]
--   [Azure 저장소 연결 문자열 설정][]
--   [방법: 큐 만들기][]
--   [방법: 큐에 메시지 추가][]
--   [방법: 다음 메시지 보기][]
--   [방법: 대기 중인 메시지의 콘텐츠 변경][]
--   [방법: 큐 길이 가져오기][]
--   [방법: 큐에서 다음 메시지 제거][]
--   [큐에서 메시지를 제거하는 추가 옵션][]
--   [방법: 큐 나열][]
--   [방법: 큐 삭제][]
--   [다음 단계][]
+-   [큐 저장소 정의][큐 저장소 정의]
+-   [개념][개념]
+-   [Azure 저장소 계정 만들기][Azure 저장소 계정 만들기]
+-   [Java 응용 프로그램 만들기][Java 응용 프로그램 만들기]
+-   [큐 저장소에 액세스하도록 응용 프로그램 구성][큐 저장소에 액세스하도록 응용 프로그램 구성]
+-   [Azure 저장소 연결 문자열 설정][Azure 저장소 연결 문자열 설정]
+-   [방법: 큐 만들기][방법: 큐 만들기]
+-   [방법: 큐에 메시지 추가][방법: 큐에 메시지 추가]
+-   [방법: 다음 메시지 보기][방법: 다음 메시지 보기]
+-   [방법: 대기 중인 메시지의 콘텐츠 변경][방법: 대기 중인 메시지의 콘텐츠 변경]
+-   [방법: 큐 길이 가져오기][방법: 큐 길이 가져오기]
+-   [방법: 큐에서 다음 메시지 제거][방법: 큐에서 다음 메시지 제거]
+-   [큐에서 메시지를 제거하는 추가 옵션][큐에서 메시지를 제거하는 추가 옵션]
+-   [방법: 큐 나열][방법: 큐 나열]
+-   [방법: 큐 삭제][방법: 큐 삭제]
+-   [다음 단계][다음 단계]
 
-[WACOM.INCLUDE [howto-queue-storage][]]
+[WACOM.INCLUDE [howto-queue-storage](../includes/howto-queue-storage.md)]
 
 ## <span id="CreateAccount"></span></a>Azure 저장소 계정 만들기
 
-[WACOM.INCLUDE [create-storage-account][]]
+[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ## <a name="CreateApplication"> </a>Java 응용 프로그램 만들기
 
 이 가이드에서는 Java 응용 프로그램 내에서 로컬로 또는 Azure의 웹 역할 또는 작업자 역할 내에서 실행되는 코드에서 실행할 수 있는 저장소 기능을 사용합니다.
 
-그러려면 JDK(Java Development Kit)를 설치하고 Azure 구독에서 Azure 저장소 계정을 만들어야 합니다. 그러고 나면 개발 시스템에서 GitHub의 [Java용 Azure Storage SDK][] 리포지토리에 있는 최소 요구 사항과 종속성을 충족하는지 확인해야 합니다. 시스템에서 해당 요구 사항을 충족하는 경우에는 리포지토리에서 시스템의 Java용 Azure Storage Library를 다운로드 및 설치하기 위한 지침을 따를 수 있습니다. 작업을 완료하고 나면 이 문서의 예를 사용하는 Java 응용 프로그램을 만들 수 있습니다.
+그러려면 JDK(Java Development Kit)를 설치하고 Azure 구독에서 Azure 저장소 계정을 만들어야 합니다. 그러고 나면 개발 시스템에서 GitHub의 [Java용 Azure Storage SDK][Java용 Azure Storage SDK] 리포지토리에 있는 최소 요구 사항과 종속성을 충족하는지 확인해야 합니다. 시스템에서 해당 요구 사항을 충족하는 경우에는 리포지토리에서 시스템의 Java용 Azure Storage Library를 다운로드 및 설치하기 위한 지침을 따를 수 있습니다. 작업을 완료하고 나면 이 문서의 예를 사용하는 Java 응용 프로그램을 만들 수 있습니다.
 
 ## <a name="ConfigureStorage"> </a>큐 저장소에 액세스하도록 응용 프로그램 구성
 
@@ -67,7 +67,7 @@ Microsoft Azure의 역할 내에서 실행되는 응용 프로그램에서는 �
 
 ## <a name="create-queue"> </a>방법: 큐 만들기
 
-**CloudQueueClient** 개체를 통해 큐에 대한 참조 개체를 가져올 수 있습니다. 다음 코드는 **CloudQueueClient** 개체를 만듭니다. 참고: **CloudStorageAccount** 개체를 만들 수 있는 방법이 더 있습니다. 자세한 내용은 [Azure Storage Client SDK 참조][]에 있는 **CloudStorageAccount**를 참조하세요.)
+**CloudQueueClient** 개체를 통해 큐에 대한 참조 개체를 가져올 수 있습니다. 다음 코드는 **CloudQueueClient** 개체를 만듭니다. 참고: **CloudStorageAccount** 개체를 만들 수 있는 방법이 더 있습니다. 자세한 내용은 [Azure Storage Client SDK 참조][Azure Storage Client SDK 참조]에 있는 **CloudStorageAccount**를 참조하세요.)
 
 **CloudQueueClient** 개체를 사용하여 사용할 큐에 대한 참조를 가져올 수 있습니다. 큐가 없는 경우 새로 만들 수 있습니다.
 
@@ -381,10 +381,10 @@ Microsoft Azure의 역할 내에서 실행되는 응용 프로그램에서는 �
 
 이제 큐 저장소의 기본 사항을 배웠으므로 다음 링크를 따라 좀 더 복잡한 저장소 작업을 수행하는 방법을 알아보세요.
 
--   [Java용 Azure Storage SDK][]
--   [Azure Storage Client SDK 참조][]
--   [Azure 저장소 REST API][]
--   [Azure 저장소 팀 블로그][]
+-   [Java용 Azure Storage SDK][Java용 Azure Storage SDK]
+-   [Azure Storage Client SDK 참조][Azure Storage Client SDK 참조]
+-   [Azure 저장소 REST API][Azure 저장소 REST API]
+-   [Azure 저장소 팀 블로그][Azure 저장소 팀 블로그]
 
   [Java용 Azure Storage SDK]: https://github.com/azure/azure-storage-java
   [다음 단계]: #NextSteps
@@ -407,5 +407,5 @@ Microsoft Azure의 역할 내에서 실행되는 응용 프로그램에서는 �
   [howto-queue-storage]: ../includes/howto-queue-storage.md
   [create-storage-account]: ../includes/create-storage-account.md
   [Azure Storage Client SDK 참조]: http://dl.windowsazure.com/storage/javadoc/
-  [Azure 저장소 REST API]: http://msdn.microsoft.com/en-us/library/azure/gg433040.aspx
+  [Azure 저장소 REST API]: http://msdn.microsoft.com/ko-kr/library/azure/gg433040.aspx
   [Azure 저장소 팀 블로그]: http://blogs.msdn.com/b/windowsazurestorage/

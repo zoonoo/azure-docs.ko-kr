@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-get-started-with-push-js-vs2013" urlDisplayName="Get Started with Push (JS)" pageTitle="Get started with push notifications (legacy push) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to send push notifications to your Windows Store JavaScript app (legacy push)." metaCanonical="http://www.windowsazure.com/ko-kr/develop/mobile/tutorials/get-started-with-push-dotnet/" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # 모바일 서비스에서 푸시 알림 시작(기존 푸시)
 
@@ -32,7 +32,7 @@
 
 ## <a name="register"></a><span class="short-header">앱 등록</span>앱에서 푸시 알림 추가 및 구성
 
-[WACOM.INCLUDE [mobile-services-create-new-push-vs2013][mobile-services-create-new-push-vs2013]]
+[WACOM.INCLUDE [mobile-services-create-new-push-vs2013](../includes/mobile-services-create-new-push-vs2013.md)]
 
 1.  생성된 push.register.js 코드 파일을 열고 장치의 설치 ID 및 채널을 가져오는 코드를 검사한 후 새 **channels** 테이블에 이 데이터를 삽입합니다.
 
@@ -57,7 +57,7 @@
 
 ## <a name="update-scripts"></a><span class="short-header">코드 업데이트</span>생성된 푸시 알림 코드 업데이트
 
-[WACOM.INCLUDE [mobile-services-create-new-push-vs2013-2][mobile-services-create-new-push-vs2013-2]]
+[WACOM.INCLUDE [mobile-services-create-new-push-vs2013-2](../includes/mobile-services-create-new-push-vs2013-2.md)]
 
 ## <a name="test"></a><span class="short-header">앱 테스트</span>앱에서 푸시 알림 테스트
 
@@ -65,7 +65,7 @@
 
 2.  앱에서 **Insert a TodoItem**에 텍스트를 입력하고 **Save**를 클릭합니다.
 
-    ![][]
+    ![][0]
 
     삽입 작업이 완료되면 앱이 WNS에서 푸시 알림을 받습니다.
 
@@ -101,7 +101,7 @@
 -   [모바일 서비스 HTML/JavaScript 방법 개념 참조][모바일 서비스 HTML/JavaScript 방법 개념 참조]
     HTML 및 JavaScript와 함께 모바일 서비스를 사용하는 방법을 자세히 알아봅니다.
 
-<!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
+
 
   [Windows 스토어 C#]: /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-push "Windows 스토어 C#"
   [Windows 스토어 JavaScript]: /ko-kr/documentation/articles/mobile-services-windows-store-javascript-get-started-push "Windows 스토어 JavaScript"
@@ -120,7 +120,7 @@
   [mobile-services-create-new-push-vs2013]: ../includes/mobile-services-create-new-push-vs2013.md
   [모바일 서비스에서 서버 스크립트 작업]: http://go.microsoft.com/fwlink/p/?LinkID=287178
   [mobile-services-create-new-push-vs2013-2]: ../includes/mobile-services-create-new-push-vs2013-2.md
-  []: ./media/mobile-services-windows-store-javascript-get-started-push/mobile-quickstart-push1.png
+  [0]: ./media/mobile-services-windows-store-javascript-get-started-push/mobile-quickstart-push1.png
   [1]: ./media/mobile-services-windows-store-javascript-get-started-push/mobile-quickstart-push2.png
   [알림 허브 시작하기]: /ko-kr/manage/services/notification-hubs/getting-started-windows-dotnet/
   [구독자에게 알림 보내기]: /ko-kr/manage/services/notification-hubs/breaking-news-dotnet/

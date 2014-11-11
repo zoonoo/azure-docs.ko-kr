@@ -1,21 +1,22 @@
-<properties linkid="manage-services-how-to-configure-a-sqldb" urlDisplayName="How to configure" pageTitle="How to configure a SQL Database - Azure" metaKeywords="Azure creating SQL Server, Azure configuring SQL Server" description="Learn how to create and configure a logical server using SQL Server in Azure." metaCanonical="" services="sql-database" documentationCenter="" title="How to Create and Configure SQL Database" authors="Lori Clark," solutions="" manager="" editor="" />
+<properties linkid="manage-services-how-to-configure-a-sqldb" urlDisplayName="How to configure" pageTitle="How to configure a SQL Database - Azure" metaKeywords="Azure creating SQL Server, Azure configuring SQL Server" description="Learn how to create and configure a logical server using SQL Server in Azure." metaCanonical="" services="sql-database" documentationCenter="" title="How to Create and Configure SQL Database" authors="" solutions="" manager="" editor="" />
 
-<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="Lori Clark,"></tags>
-
-# <span id="configLogical"></span></a>SQL 데이터베이스를 만들고 구성하는 방법
+SQL 데이터베이스를 만들고 구성하는 방법
+=======================================
 
 이 항목에서는 논리 서버 만들기 및 구성을 단계별로 안내합니다. 새 Azure(미리 보기) 관리 포털에서 수정된 워크플로를 통해 먼저 데이터베이스를 만든 후 서버를 만들 수 있습니다.
 
 그러나 이 항목에서는 서버를 먼저 만듭니다. 업로드할 기존 SQL Server 데이터베이스가 있는 경우 이 접근 방법을 선호할 수 있습니다.
 
-## 목차
+목차
+----
 
--   [방법: 논리 서버 만들기][]
--   [방법: 논리 서버용 방화벽 구성][]
+-   [방법: 논리 서버 만들기](#createLogical)
+-   [방법: 논리 서버용 방화벽 구성](#configFWLogical)
 
-## <span id="createLogical"></span></a>방법: 논리 서버 만들기
+방법: 논리 서버 만들기
+----------------------
 
-1.  [관리 포털][]에 로그인합니다.
+1.  [관리 포털](http://manage.windowsazure.com)에 로그인합니다.
 
 2.  SQL 데이터베이스 홈페이지에서 **SQL 데이터베이스**를 클릭한 후 **서버**를 클릭합니다.
 
@@ -39,9 +40,10 @@
 
 다음 단계에서는 네트워크에서 실행 중인 응용 프로그램의 연결이 허용된 액세스가 되도록 방화벽을 구성합니다.
 
-## <span id="configFWLogical"></span></a>방법: 논리 서버용 방화벽 구성
+방법: 논리 서버용 방화벽 구성
+-----------------------------
 
-1.  [관리 포털][]에서 **SQL 데이터베이스**를 클릭하고 **서버**를 클릭한 후 방금 만든 서버를 클릭합니다.
+1.  [관리 포털](http://manage.windowsazure.com)에서 **SQL 데이터베이스**를 클릭하고 **서버**를 클릭한 후 방금 만든 서버를 클릭합니다.
 
 2.  **구성**을 클릭합니다.
 
@@ -61,6 +63,3 @@
 
 **참고:** 방금 만든 논리 서버는 일시적이며 데이터 센터의 물리적 서버에서 동적으로 호스트됩니다. 이 서버를 삭제하는 경우 이러한 삭제 작업은 복구할 수 없는 작업임을 미리 알고 있어야 합니다. 이후에 서버에 업로드할 모든 데이터베이스를 백업해야 합니다.
 
-  [방법: 논리 서버 만들기]: #createLogical
-  [방법: 논리 서버용 방화벽 구성]: #configFWLogical
-  [관리 포털]: http://manage.windowsazure.com

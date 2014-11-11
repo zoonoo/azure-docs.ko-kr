@@ -1,6 +1,6 @@
 <properties linkid="develop-python-tutorials-web-sites-configuration" urlDisplayName="Configuring Python with Azure Websites" pageTitle="Configuring Python with Azure Websites" metaKeywords="" description="This tutorial describes options for authoring and configuring a basic Web server Gateway Interface (WSGI) compliant Python application on Azure Websites." metaCanonical="" services="web-sites" documentationCenter="Python" title="Configuring Python with Azure Websites" authors="huvalo" solutions="" manager="" editor="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo" />
 
 # Azure 웹 사이트를 사용하여 Python 구성
 
@@ -13,7 +13,7 @@ Azure 웹 사이트에서의 Django 프레임워크 구성에 대한 자세한 �
 
 ## WSGI 지원
 
-WSGI는 웹 서버와 Python 간 인터페이스를 정의하는 [PEP 3333][](영문)에 설명된 Python 표준입니다. WSGI는 Python을 사용하여 다양한 웹 응용 프로그램 및 프레임워크 쓰기에 대해 표준화된 인터페이스를 제공합니다. 오늘날 인기 있는 Python 웹 프레임워크는 WSGI를 사용합니다. Azure 웹 사이트는 그러한 프레임워크에 대한 지원을 제공하며, 고급 사용자는 사용자 지정 처리기가 WSGI 사양 지침을 따르는 경우 고유한 프레임워크를 제작할 수도 있습니다.
+WSGI는 웹 서버와 Python 간 인터페이스를 정의하는 [PEP 3333][PEP 3333](영문)에 설명된 Python 표준입니다. WSGI는 Python을 사용하여 다양한 웹 응용 프로그램 및 프레임워크 쓰기에 대해 표준화된 인터페이스를 제공합니다. 오늘날 인기 있는 Python 웹 프레임워크는 WSGI를 사용합니다. Azure 웹 사이트는 그러한 프레임워크에 대한 지원을 제공하며, 고급 사용자는 사용자 지정 처리기가 WSGI 사양 지침을 따르는 경우 고유한 프레임워크를 제작할 수도 있습니다.
 
 ## 웹 사이트 만들기
 
@@ -21,7 +21,7 @@ WSGI는 웹 서버와 Python 간 인터페이스를 정의하는 [PEP 3333][](�
 
 요컨대 기존 웹 사이트가 없는 경우 Azure 관리 포털에서 웹 사이트를 만들 수 있습니다. 웹 사이트 기능을 선택하고 빠른 생성 옵션을 사용하여 웹 사이트에 대한 URL을 지정합니다.
 
-![][]
+![][0]
 
 ## Git 게시
 
@@ -35,7 +35,7 @@ Git 게시가 설정되면 Git 리포지토리가 생성되고 웹 사이트와 
 
 Azure 웹 사이트에서 Python 지원을 활용하는 데 필요한 최소한의 작업량을 설명하는 기본 WSGI 처리기와 함께 기본 Python 응용 프로그램을 예로 사용합니다. 이 기본적인 Python 응용 프로그램은 아래 예에서 모든 기능을 갖춘 웹 프레임워크까지 다양한 솔루션 제작을 시작하는 데 사용할 수 있습니다.
 
-다음은 기본 WSGI 처리기에 대한 코드입니다. 이 코드는 WSGI 규격 응용 프로그램의 시작 지점으로서 [PEP 3333][] 사양에 제시된 코드와 비슷합니다. 웹 사이트 루트 아래에 ConfigurePython 폴더에 생성한 ConfigurePython.py라는 파일에 이 콘텐츠를 저장했습니다.
+다음은 기본 WSGI 처리기에 대한 코드입니다. 이 코드는 WSGI 규격 응용 프로그램의 시작 지점으로서 [PEP 3333][PEP 3333] 사양에 제시된 코드와 비슷합니다. 웹 사이트 루트 아래에 ConfigurePython 폴더에 생성한 ConfigurePython.py라는 파일에 이 콘텐츠를 저장했습니다.
 
     def application(environ, start_response):
         status = '200 OK'
@@ -131,10 +131,10 @@ Azure 웹 사이트와 함께 Python 응용 프로그램을 구성하는 데에�
 
 ![][5]
 
-  []: http://www.windowsazure.com/ko-KR/develop/python/tutorials/web-sites-with-django
+  [0]: http://www.windowsazure.com/ko-KR/develop/python/tutorials/web-sites-with-django
   [PEP 3333]: http://www.python.org/dev/peps/pep-3333/
   [1]: http://www.windowsazure.com/ko-KR/manage/services/web-sites/how-to-create-websites
-  []: ./media/web-sites-python-configure/configure-python-create-website.png
+  [0]: ./media/web-sites-python-configure/configure-python-create-website.png
   [2]: ./media/web-sites-python-configure/configure-python-git.png
   [3]: ./media/web-sites-python-configure/configure-python-handler-mapping.png
   [4]: ./media/web-sites-python-configure/configure-python-app-settings.png

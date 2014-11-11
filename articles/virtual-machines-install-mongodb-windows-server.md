@@ -1,6 +1,6 @@
 <properties linkid="manage-windows-common-task-mongodb-vm" urlDisplayName="Install MongoDB" pageTitle="Install MongoDB on a Windows Server virtual machine" metaKeywords="Azure vm, Azure MongoDB, Azure remote desktop" description="Learn how to install MongoDB on an Azure VM running Windows Server." metaCanonical="" services="virtual-machines" documentationCenter="" title="Install MongoDB on a virtual machine running Windows Server in Azure" authors="kathydav" solutions="" manager="dongill" editor="tysonn" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="kathydav"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="kathydav" />
 
 # Windows Server를 실행하는 가상 컴퓨터에 MongoDB 설치
 
@@ -21,19 +21,19 @@
 -   프로토콜로 **TCP** 사용
 -   공용 및 개인 포트를 둘 다 **27017**로 설정
 
-[WACOM.INCLUDE [virtual-machines-create-WindowsVM][virtual-machines-create-WindowsVM]]
+[WACOM.INCLUDE [virtual-machines-create-WindowsVM](../includes/virtual-machines-create-WindowsVM.md)]
 
 ## 데이터 디스크 연결
 
 가상 컴퓨터에 대한 저장소를 제공하려면 데이터 디스크를 연결한 다음 Windows에서 사용할 수 있게 초기화합니다. 기존 디스크에 사용할 데이터가 아직 들어 있으면 기존 디스크를 사용할 수도 있고 빈 디스크를 연결할 수도 있습니다.
 
-[WACOM.INCLUDE [howto-attach-disk-windows-linux][howto-attach-disk-windows-linux]]
+[WACOM.INCLUDE [howto-attach-disk-windows-linux](../includes/howto-attach-disk-windows-linux.md)]
 
 디스크 초기화 지침에 대해서는 [Windows 가상 컴퓨터에 데이터 디스크를 연결하는 방법][Windows 가상 컴퓨터에 데이터 디스크를 연결하는 방법]의 "방법: Windows Server에서 새 데이터 디스크 초기화"를 참조하세요.
 
 ## 가상 컴퓨터에서 MongoDB 설치 및 실행
 
-[WACOM.INCLUDE [install-and-run-mongo-on-win2k8-vm][install-and-run-mongo-on-win2k8-vm]]
+[WACOM.INCLUDE [install-and-run-mongo-on-win2k8-vm](../includes/install-and-run-mongo-on-win2k8-vm.md)]
 
 ## 요약
 
@@ -43,6 +43,6 @@
   [Azure 관리 포털]: http://manage.windowsazure.com
   [virtual-machines-create-WindowsVM]: ../includes/virtual-machines-create-WindowsVM.md
   [howto-attach-disk-windows-linux]: ../includes/howto-attach-disk-windows-linux.md
-  [Windows 가상 컴퓨터에 데이터 디스크를 연결하는 방법]: http://azure.microsoft.com/ko--kr/documentation/articles/storage-windows-attach-disk/
+  [Windows 가상 컴퓨터에 데이터 디스크를 연결하는 방법]: http://azure.microsoft.com/ko-kr/documentation/articles/storage-windows-attach-disk/
   [install-and-run-mongo-on-win2k8-vm]: ../includes/install-and-run-mongo-on-win2k8-vm.md
   [MongoDB 설명서]: http://www.mongodb.org/display/DOCS/Home

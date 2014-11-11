@@ -1,7 +1,6 @@
 <properties linkid="develop-mobile-tutorials-get-started-with-push-android" urlDisplayName="Get Started with Push (Android)" pageTitle="Get started with push notifications (Android) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to send push notifications to your Android app." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="ricksal" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal"></tags>
-
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal" />
 
 # 모바일 서비스에서 푸시 알림 시작(기존 푸시)
 
@@ -111,14 +110,14 @@
     이 코드는 등록 ID를 포함하는 새 속성을 만듭니다.
 
     <div class="dev-callout"><b>참고</b>
-	<p>모바일 서비스에서 동적 스키마가 사용하도록 설정된 경우 이 속성이 포함된 새 항목이 삽입되면 <strong>handle</strong> 열이 <strong>TodoItem</strong> 테이블에 자동으로 추가됩니다.</p>
-    </div>
+<p>모바일 서비스에서 동적 스키마가 사용하도록 설정된 경우 이 속성이 포함된 새 항목이 삽입되면 <strong>handle</strong> 열이 <strong>TodoItem</strong> 테이블에 자동으로 추가됩니다.</p>
+</div>
 
 8.  [모바일 서비스 Android SDK][모바일 서비스 Android SDK]를 다운로드하여 압축을 풀고 **notifications** 폴더를 연 후 **notifications-1.0.1.jar** 파일을 Eclipse 프로젝트의 *libs* 폴더로 복사하고 *libs* 폴더를 새로 고칩니다.
 
     <div class="dev-callout"><b>참고</b>
-	<p>후속 SDK 릴리스에서는 파일 이름 끝에 있는 숫자가 변경될 수도 있습니다.</p>
-    </div>
+<p>후속 SDK 릴리스에서는 파일 이름 끝에 있는 숫자가 변경될 수도 있습니다.</p>
+</div>
 
 9.  *ToDoItemActivity.java* 파일을 열고 다음 import 문을 추가합니다.
 
@@ -251,14 +250,6 @@
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [Windows 스토어 C#]: /ko-kr/develop/mobile/tutorials/get-started-with-push-dotnet "Windows 스토어 C#"
-  [Windows 스토어 JavaScript]: /ko-kr/develop/mobile/tutorials/get-started-with-push-js "Windows 스토어 JavaScript"
-  [Windows Phone]: /ko-kr/develop/mobile/tutorials/get-started-with-push-wp8 "Windows Phone"
-  [iOS]: /ko-kr/develop/mobile/tutorials/get-started-with-push-ios "iOS"
-  [Android]: /ko-kr/develop/mobile/tutorials/get-started-with-push-android "Android"
-  [Appcelerator]: /ko-kr/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push "Appcelerator"
-  [.NET 백 엔드]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-android-get-started-push/ ".NET 백 엔드"
-  [JavaScript 백 엔드]: /ko-kr/documentation/articles/mobile-services-android-get-started-push/ "JavaScript 백 엔드"
   [푸시 알림 시작]: /ko-kr/documentation/articles/mobile-services-javascript-backend-android-get-started-push/
   [Google Cloud Messaging 사용]: #register
   [모바일 서비스 구성]: #configure

@@ -1,12 +1,13 @@
 <properties linkid="dev-nodejs-basic-web-app-with-storage" urlDisplayName="Web App with Storage" pageTitle="Web app with table storage (Node.js) | Microsoft Azure" metaKeywords="Azure Node.js hello world tutorial, Azure Node.js hello world, Azure Node.js Getting Started tutorial, Azure Node.js tutorial, Azure Node.js Express tutorial" description="A tutorial that builds on the Web App with Express tutorial by adding Azure Storage services and the Azure module." metaCanonical="" services="cloud-services,storage" documentationCenter="Node.js" title="Node.js Web Application using Storage" authors="larryfr" solutions="" manager="" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr" />
 
 # 저장소를 사용하는 Node.js 웹 응용 프로그램
 
 이 자습서에서는 Node.js용 Azure 클라이언트 라이브러리를
 사용하여 데이터 관리 서비스로 작업하여 [Express를 사용하는 Node.js
-웹 응용 프로그램][] 자습서에서 만든 응용 프로그램을 확장합니다. Azure에
+웹 응용 프로그램][Express를 사용하는 Node.js
+웹 응용 프로그램] 자습서에서 만든 응용 프로그램을 확장합니다. Azure에
 배포할 수 있는 웹 기반 작업 목록 응용 프로그램을 만들도록 응용
 프로그램을 확장합니다. 작업 목록을 통해 사용자는 작업을
 가져오고 새 작업을 추가하고 작업을 완료로 표시할 수 있습니다.
@@ -16,9 +17,9 @@
 저장소를 제공합니다. Azure 저장소에는 데이터를 저장하고 액세스할
 수 있는 일부 데이터 구조가 포함되며, Node.js용 Azure SDK에 포함된
 API 또는 REST API를 통해 저장소 서비스를 활용할 수
-있습니다. 자세한 내용은 [Azure에 데이터 저장 및 액세스][]를 참조하세요.
+있습니다. 자세한 내용은 [Azure에 데이터 저장 및 액세스][Azure에 데이터 저장 및 액세스]를 참조하세요.
 
-이 자습서는 [Node.js 웹 응용 프로그램][] 및 [Express로
+이 자습서는 [Node.js 웹 응용 프로그램][Node.js 웹 응용 프로그램] 및 [Express로
 Node.js 빌드][Express를 사용하는 Node.js
 웹 응용 프로그램] 자습서를 완료했다고 가정합니다.
 
@@ -29,7 +30,7 @@ Node.js 빌드][Express를 사용하는 Node.js
 
 아래에는 완성된 응용 프로그램의 스크린샷이 표시되어 있습니다.
 
-![Internet Explorer의 완료된 웹 페이지][]
+![Internet Explorer의 완료된 웹 페이지][Internet Explorer의 완료된 웹 페이지]
 
 ## Web.Config에서 저장소 자격 증명 설정
 
@@ -72,7 +73,7 @@ web.config 설정에 추가합니다.
         <Variable name="AZURE_STORAGE_ACCOUNT" value="{STORAGE ACCOUNT}" />
         <Variable name="AZURE_STORAGE_ACCESS_KEY" value="{STORAGE ACCESS KEY}" />
 
-    ![web.cloud.config 파일 콘텐츠][]
+    ![web.cloud.config 파일 콘텐츠][web.cloud.config 파일 콘텐츠]
 
 6.  파일을 저장하고 메모장을 닫습니다.
 
@@ -322,7 +323,7 @@ web.config 설정에 추가합니다.
 
 ### 전역 레이아웃 수정
 
-**views** 디렉터리의 **layout.jade** 파일은 다른 **.jade** 파일에 대한 전역 템플릿으로 사용됩니다. 이 단계에서는 멋진 모습의 웹 사이트를 쉽게 디자인할 수 있게 해주는 도구 키트인 [Twitter Bootstrap][]을 사용하도록 이 파일을 수정합니다.
+**views** 디렉터리의 **layout.jade** 파일은 다른 **.jade** 파일에 대한 전역 템플릿으로 사용됩니다. 이 단계에서는 멋진 모습의 웹 사이트를 쉽게 디자인할 수 있게 해주는 도구 키트인 [Twitter Bootstrap][Twitter Bootstrap]을 사용하도록 이 파일을 수정합니다.
 
 1.  [Twitter Bootstrap][1]용 파일을 다운로드하여 추출합니다. **bootstrap\\dist\\css** 폴더의 **bootstrap.min.css** 파일을 tasklist 응용 프로그램의 **public\\stylesheets** 디렉터리에 복사합니다.
 
@@ -350,7 +351,7 @@ web.config 설정에 추가합니다.
 
 브라우저가 열리며 다음 페이지를 표시합니다.
 
-![작업 및 새 작업을 추가할 필드를 포함하는 테이블이 있는 내 작업 목록 웹 페이지][]
+![작업 및 새 작업을 추가할 필드를 포함하는 테이블이 있는 내 작업 목록 웹 페이지][작업 및 새 작업을 추가할 필드를 포함하는 테이블이 있는 내 작업 목록 웹 페이지]
 
 양식을 사용하여 항목을 추가하거나 기존 항목을 완료됨으로 표시하여 제거합니다.
 
@@ -408,9 +409,8 @@ Azure는 사용된 서버 시간을 기준으로 웹 역할 인스턴스에 청�
 
     서비스를 삭제하려면 몇 분 정도 걸릴 수 있습니다. 서비스가 삭제되면 서비스가 삭제되었다는 메시지가 표시됩니다.
 
-  [Express를 사용하는 Node.js 웹 응용 프로그램]: http://www.windowsazure.com/en-us/develop/nodejs/tutorials/web-app-with-express/
-  [Azure에 데이터 저장 및 액세스]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
-  [Node.js 웹 응용 프로그램]: http://www.windowsazure.com/en-us/develop/nodejs/tutorials/getting-started/
+  [Azure에 데이터 저장 및 액세스]: http://msdn.microsoft.com/ko-kr/library/windowsazure/gg433040.aspx
+  [Node.js 웹 응용 프로그램]: http://www.windowsazure.com/ko-kr/develop/nodejs/tutorials/getting-started/
   [Internet Explorer의 완료된 웹 페이지]: ./media/storage-nodejs-use-table-storage-cloud-service-app/getting-started-1.png
   [web.cloud.config 파일 콘텐츠]: ./media/storage-nodejs-use-table-storage-cloud-service-app/node37.png
   [Twitter Bootstrap]: https://github.com/twbs/bootstrap

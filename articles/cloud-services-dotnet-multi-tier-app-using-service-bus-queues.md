@@ -1,6 +1,6 @@
 <properties linkid="dev-net-e2e-multi-tier" urlDisplayName="Multi-Tier Application" pageTitle=".NET Multi-Tier Application - Azure Tutorial" metaKeywords="Azure Service Bus queue tutorial, Azure queue tutorial, Azure worker role tutorial, Azure .NET queue tutorial, Azure C# queue tutorial, Azure C# worker role tutorial" description="A tutorial that helps you develop a multi-tier app in Azure that uses Service Bus queues to communicate between tiers. Samples in .NET." metaCanonical="" services="cloud-services,service-bus" documentationCenter=".NET" title=".NET Multi-Tier Application Using Service Bus Queues" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/15/2014" ms.author="sethm"></tags>
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/15/2014" ms.author="sethm" />
 
 # 서비스 버스 큐를 사용하는 .NET 다중 계층 응용 프로그램
 
@@ -15,13 +15,13 @@ Visual Studio 2013 및 무료로 제공되는 Azure SDK for .NET을사용하면 
     프로그램을 만드는 방법
 -   서비스 버스 큐를 사용하여 계층 간에 통신하는 방법
 
-[WACOM.INCLUDE [create-account-note][create-account-note]]
+[WACOM.INCLUDE [create-account-note](../includes/create-account-note.md)]
 
 이 자습서에서는 Azure 클라우드 서비스에서 다중 계층 응용 프로그램을 빌드하고 실행합니다. 프런트 엔드는 ASP.NET MVC 웹 역할이고 백 엔드는 작업자 역할입니다. 클라우드 서비스가 아닌 Azure 웹 사이트에 배포되는 웹 프로젝트와 동일한 다중 계층 응용 프로그램(프런트 엔드 포함)을 만들 수 있습니다. Azure 웹 사이트 프런트 엔드를 다르게 수행할 작업에 대한 지침은 [다음 단계][다음 단계] 섹션을 참조하십시오.
 
 아래에는 완성된 응용 프로그램의 스크린샷이 표시되어 있습니다.
 
-![][]
+![][0]
 
 **참고** Azure는 저장소 큐 기능도 제공합니다. Azure 저장소 큐 및 서비스 버스 큐에 대한 자세한 내용은 [Azure 큐 및 Azure 서비스 버스 큐 - 비교 및 대조][Azure 큐 및 Azure 서비스 버스 큐 - 비교 및 대조]를 참조하십시오.
 
@@ -380,7 +380,7 @@ Visual Studio 서버 탐색기를 사용하여 네임스페이스 및 서비스 
 
 ## <span class="short-header">구성 관리자</span>클라우드 구성 관리자
 
-Azure는 Microsoft 클라우드 서비스 전체에서 Azure 서비스 클라이언트(예: 서비스 버스)의 새 인스턴스를 만드는 일관된 방법을 제공하는 관리되는 API 집합을 지원합니다. 이러한 API를 사용하면 온-프레미스, Microsoft 클라우드 서비스, 웹 사이트, 영구적 VM 역할 등 응용 프로그램이 호스트되는 위치에 관계없이 이러한 클라이언트(예: **CloudBlobClient**, **QueueClient**, **TopicClient**)를 인스턴스화할 수 있습니다. 또한 이러한 API를 사용하면 이러한 클라이언트를 인스턴스화하는 데 필요한 구성 정보를 검색하고, 호출 응용 프로그램을 다시 배포하지 않고도 구성을 변경할 수 있습니다. API는 [Microsoft.WindowsAzure.Configuration.CloudConfigurationManager][] 클래스에 있습니다. 클라이언트 쪽에도 API가 있습니다.
+Azure는 Microsoft 클라우드 서비스 전체에서 Azure 서비스 클라이언트(예: 서비스 버스)의 새 인스턴스를 만드는 일관된 방법을 제공하는 관리되는 API 집합을 지원합니다. 이러한 API를 사용하면 온-프레미스, Microsoft 클라우드 서비스, 웹 사이트, 영구적 VM 역할 등 응용 프로그램이 호스트되는 위치에 관계없이 이러한 클라이언트(예: **CloudBlobClient**, **QueueClient**, **TopicClient**)를 인스턴스화할 수 있습니다. 또한 이러한 API를 사용하면 이러한 클라이언트를 인스턴스화하는 데 필요한 구성 정보를 검색하고, 호출 응용 프로그램을 다시 배포하지 않고도 구성을 변경할 수 있습니다. API는 [Microsoft.WindowsAzure.Configuration.CloudConfigurationManager][Microsoft.WindowsAzure.Configuration.CloudConfigurationManager] 클래스에 있습니다. 클라이언트 쪽에도 API가 있습니다.
 
 ### 연결 문자열
 
@@ -502,11 +502,10 @@ Azure 웹 사이트에 프런트 엔드를 배포하는 방법에 대한 자세�
 
   [create-account-note]: ../includes/create-account-note.md
   [다음 단계]: #nextsteps
-  []: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-01.png
+  [0]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-01.png
   [Azure 큐 및 Azure 서비스 버스 큐 - 비교 및 대조]: http://msdn.microsoft.com/ko-kr/library/windowsazure/hh767287.aspx
   [1]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-100.png
   [2]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-101.png
-  [도구 및 SDK 얻기(영문)]: http://go.microsoft.com/fwlink/?LinkId=271920
   [3]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-41.png
   [4]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-3.png
   [5]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-4-2-WebPI.png

@@ -1,6 +1,6 @@
 <properties linkid="manage-services-mediaservices-create-a-media-services-account" urlDisplayName="How to create" pageTitle="Create a Media Services Account - Azure" metaKeywords="" description="Describes how to create a new Media Services account in Azure." metaCanonical="" services="media-services" documentationCenter="" title="How to Create a Media Services Account" authors="migree" solutions="" manager="" editor="" />
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="migree"></tags>
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="migree" />
 
 # 미디어 서비스 계정을 만드는 방법
 
@@ -10,8 +10,8 @@ Azure 관리 포털은 Azure 미디어 서비스 계정을 빨리 만드는 방�
 
 ## 목차
 
--   [개념][]
--   [방법: 빠른 생성을 사용하여 미디어 서비스 계정 만들기][]
+-   [개념][개념]
+-   [방법: 빠른 생성을 사용하여 미디어 서비스 계정 만들기][방법: 빠른 생성을 사용하여 미디어 서비스 계정 만들기]
 
 ## <span id="concepts"></span></a>개념
 
@@ -24,9 +24,9 @@ Azure 관리 포털은 Azure 미디어 서비스 계정을 빨리 만드는 방�
 
 ## <span id="quick"></span></a>방법: 빠른 생성을 사용하여 미디어 서비스 계정 만들기
 
-1.  [관리 포털][]에서 **새로 만들기**, **미디어 서비스**, **빠른 생성**을 차례로 클릭합니다.
+1.  [관리 포털][관리 포털]에서 **새로 만들기**, **미디어 서비스**, **빠른 생성**을 차례로 클릭합니다.
 
-    ![미디어 서비스 빠른 생성][]
+    ![미디어 서비스 빠른 생성][미디어 서비스 빠른 생성]
 
 2.  **이름**에 새 계정의 이름을 입력합니다. 미디어 서비스 계정 이름은 공백 없이 모두 소문자로 이루어진 3-24자의 숫자 또는 문자입니다.
 
@@ -42,7 +42,7 @@ Azure 관리 포털은 Azure 미디어 서비스 계정을 빨리 만드는 방�
 
     **미디어 서비스** 페이지가 열리고 새 계정이 표시됩니다. 상태가 활성으로 변경된 경우 계정이 생성된 것입니다.
 
-    ![미디어 서비스 페이지][]
+    ![미디어 서비스 페이지][미디어 서비스 페이지]
 
     계정 이름을 두 번 클릭하면 기본적으로 빠른 시작 페이지가 표시됩니다. 이 페이지를 통해 포털의 다른 페이지에서도 사용할 수 있는 몇 가지 관리 작업을 수행할 수 있습니다. 예를 들어 이 페이지에서 비디오 파일을 업로드하거나 콘텐츠 페이지에서 업로드할 수 있습니다.
 

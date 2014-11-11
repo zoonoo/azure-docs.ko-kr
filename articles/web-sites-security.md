@@ -1,6 +1,6 @@
 <properties title="Securing an Azure Website" pageTitle="Securing an Azure Website." description="Learn how to secure an Azure Website." metaKeywords="Azure web site security, azure web site https, azure web site ftps, azure web site ssl, azure web site ssl rewrite" services="web-sites" solutions="" documentationCenter="web" authors="larryfr" videoId="" scriptId="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr" />
 
 ## Azure 웹 사이트에서 웹 응용 프로그램 보안 유지
 
@@ -133,21 +133,20 @@ Azure 웹 사이트의 **web.config** 또는 **applicationhost.config** 파일�
 
 공격을 감지하는 데 유용할 수 있는 Azure 웹 사이트의 로깅 정보에 대한 자세한 내용은 [진단 로깅 사용][진단 로깅 사용]을 참조하세요.
 
-  [OWASP(Open Web Application Security Project)]: https://www.owasp.org/index.php/Main_Page
   [상위 10대 프로젝트]: https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project
   [보안 통신]: #https
   [보안 개발]: #develop
   [다음 단계]: #next
-  [사용자 지정 도메인 이름]: http://azure.microsoft.com/ko--kr/documentation/articles/web-sites-custom-domain-name/
-  [Azure 웹 사이트에 HTTPS 사용]: /ko--kr/documentation/articles/web-sites-configure-ssl-certificate/
-  [RequireHttps]: http://msdn.microsoft.com/ko--kr/library/system.web.mvc.requirehttpsattribute.aspx
-  [Azure 웹 사이트에 보안 ASP.NET MVC 5 앱 배포]: /ko--kr/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/
+  [사용자 지정 도메인 이름]: http://azure.microsoft.com/ko-kr/documentation/articles/web-sites-custom-domain-name/
+  [Azure 웹 사이트에 HTTPS 사용]: /ko-kr/documentation/articles/web-sites-configure-ssl-certificate/
+  [RequireHttps]: http://msdn.microsoft.com/ko-kr/library/system.web.mvc.requirehttpsattribute.aspx
+  [Azure 웹 사이트에 보안 ASP.NET MVC 5 앱 배포]: /ko-kr/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/
   [example]: #example
   [FTP를 통해 파일 업로드/다운로드 및 진단 로그 수집]: http://blogs.msdn.com/b/avkashchauhan/archive/2012/06/19/windows-azure-website-uploading-downloading-files-over-ftp-and-collecting-diagnostics-logs.aspx
   [URL 다시 쓰기]: http://www.iis.net/downloads/microsoft/url-rewrite
-  [웹 사이트 구성]: /ko--kr/documentation/articles/web-sites-configure/
+  [웹 사이트 구성]: /ko-kr/documentation/articles/web-sites-configure/
   [Azure 관리 포털]: https://manage.windowsazure.com
   [File Transfer Protocol]: http://en.wikipedia.org/wiki/File_Transfer_Protocol
-  [Microsoft Azure 보안 센터]: /ko--kr/support/trust-center/security/
+  [Microsoft Azure 보안 센터]: /ko-kr/support/trust-center/security/
   [Azure 웹 사이트에서 잠금 해제된 구성 옵션]: http://azure.microsoft.com/blog/2014/01/28/more-to-explore-configuration-options-unlocked-in-windows-azure-web-sites/
-  [진단 로깅 사용]: /ko--kr/documentation/articles/web-sites-enable-diagnostic-log/
+  [진단 로깅 사용]: /ko-kr/documentation/articles/web-sites-enable-diagnostic-log/

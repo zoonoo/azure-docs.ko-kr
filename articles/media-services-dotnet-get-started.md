@@ -1,31 +1,31 @@
 <properties linkid="develop-media-services-tutorials-get-started" urlDisplayName="Get Started with Media Services" pageTitle="Get Started with Media Services - Azure" metaKeywords="Azure media services" description="An introduction to using Media Services with Azure." metaCanonical="" services="media-services" documentationCenter="" title="Get started with Media Services" authors="" solutions="" manager="" editor="" />
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author></tags>
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="" />
 
 # <a name="getting-started"></a>미디어 서비스 시작
 
 이 자습서에서는 Azure 미디어 서비스를 사용하여 개발을 시작하는 방법을 설명합니다. 기본적인 미디어 서비스 워크플로와 미디어 서비스 개발에 필요한 가장 일반적인 프로그래밍 개체 및 작업을 소개합니다. 자습서를 마치면 업로드하고 인코딩하고 다운로드한 샘플 미디어 파일을 재생할 수 있습니다. 또는 서버에서 인코딩된 자산을 찾아 재생할 수 있습니다.
 
-이 자습서의 코드가 들어 있는 C# Visual Studio 프로젝트를 [다운로드][]할 수 있습니다.
+이 자습서의 코드가 들어 있는 C# Visual Studio 프로젝트를 [다운로드][다운로드]할 수 있습니다.
 
 이 자습서에서는 다음 기본 단계를 단계별로 안내합니다.
 
--   [프로젝트 설정][]
--   [미디어 서비스 서버 컨텍스트 가져오기][]
--   [자산 생성 및 자산과 연결된 파일을 미디어 서비스로 업로드][]
--   [자산 인코딩 및 출력 자산 다운로드][]
+-   [프로젝트 설정][프로젝트 설정]
+-   [미디어 서비스 서버 컨텍스트 가져오기][미디어 서비스 서버 컨텍스트 가져오기]
+-   [자산 생성 및 자산과 연결된 파일을 미디어 서비스로 업로드][자산 생성 및 자산과 연결된 파일을 미디어 서비스로 업로드]
+-   [자산 인코딩 및 출력 자산 다운로드][자산 인코딩 및 출력 자산 다운로드]
 
 ## 필수 조건
 
 Azure Media Services SDK를 기반으로 하는 연습 및 개발에는 다음 필수 조건이 필요합니다.
 
--   신규 또는 기존 Azure 구독의 미디어 서비스 계정. 자세한 내용은 [미디어 서비스 계정을 만드는 방법][](영문)을 참조하세요.
+-   신규 또는 기존 Azure 구독의 미디어 서비스 계정. 자세한 내용은 [미디어 서비스 계정을 만드는 방법][미디어 서비스 계정을 만드는 방법](영문)을 참조하세요.
 -   운영 체제: Windows 7, Windows 2008 R2 또는 Windows 8
 -   .NET Framework 4.5 또는 .NET Framework 4
 -   Visual Studio 2012 또는 Visual Studio 2010 SP1(Professional, Premium, Ultimate 또는 Express)
--   **Azure SDK for .NET.**, **Azure Media Services SDK for .NET** 및 **WCF Data Services 5.0 for OData V3 라이브러리**를 설치하고 [windowsazure.mediaservices Nuget][] 패키지를 사용하여 프로젝트에 참조를 추가합니다. 다음 섹션에서는 이러한 참조를 설치하고 추가하는 방법을 설명합니다.
+-   **Azure SDK for .NET.**, **Azure Media Services SDK for .NET** 및 **WCF Data Services 5.0 for OData V3 라이브러리**를 설치하고 [windowsazure.mediaservices Nuget][windowsazure.mediaservices Nuget] 패키지를 사용하여 프로젝트에 참조를 추가합니다. 다음 섹션에서는 이러한 참조를 설치하고 추가하는 방법을 설명합니다.
 
-<div class="dev-callout"><strong>참고</strong> <p>이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Azure 무료 평가판</a>을 참조하세요.</p></div>
+<div class="dev-callout"><strong>참고</strong> <p>이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://www.windowsazure.com/ko-kr/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Azure 무료 평가판</a>을 참조하세요.</p></div>
 
 ## <span id="Step1"></span></a>프로젝트 설정
 
@@ -35,7 +35,7 @@ Azure Media Services SDK를 기반으로 하는 연습 및 개발에는 다음 �
 
     **참조 관리** 대화 상자를 사용하여 참조를 추가하려면 다음과 같이 합니다. **솔루션 탐색기**에서 **참조** 노드를 마우스 오른쪽 단추로 클릭하고 **참조 추가**를 선택합니다. **참조 관리** 대화 상자에서 해당 어셈블리(이 경우 System.Configuration)를 선택합니다.
 
-3.  아직 참조를 추가하지 않은 경우 [windowsazure.mediaservices Nuget][] 패키지를 사용하여 **Azure SDK for .NET**(Microsoft.WindowsAzure.StorageClient.dll), **Azure Media Services SDK for .NET**(Microsoft.WindowsAzure.MediaServices.Client.dll) 및 **WCF Data Services 5.0 for OData V3**(Microsoft.Data.OData.dll) 라이브러리에 참조를 추가합니다.
+3.  아직 참조를 추가하지 않은 경우 [windowsazure.mediaservices Nuget][windowsazure.mediaservices Nuget] 패키지를 사용하여 **Azure SDK for .NET**(Microsoft.WindowsAzure.StorageClient.dll), **Azure Media Services SDK for .NET**(Microsoft.WindowsAzure.MediaServices.Client.dll) 및 **WCF Data Services 5.0 for OData V3**(Microsoft.Data.OData.dll) 라이브러리에 참조를 추가합니다.
 
     Nuget을 사용하여 참조를 추가하려면 다음과 같이 합니다. Visual Studio 주 메뉴에서 도구 -\> 라이브러리 패키지 관리자 -\> 패키지 관리자 콘솔을 선택합니다. 콘솔 창에 *Install-Package [패키지 이름]*을 입력하고 Enter 키를 누릅니다(이 경우 *Install-Package windowsazure.mediaservices* 명령 사용).
 
@@ -167,7 +167,7 @@ Main 메서드에서 \*\*\_context = new CloudMediaContext(\_accountName, \_acco
 
 ## <span id="Step4"></span></a>서버의 자산 인코딩 및 출력 자산 다운로드
 
-미디어 서비스에서 인코딩, 암호화, 형식 변환 등 여러 가지 방법으로 미디어 콘텐츠를 처리하는 작업을 생성할 수 있습니다. 미디어 서비스 작업에는 작업 처리에 대한 세부 정보를 지정하는 태스크가 항상 하나 이상 포함됩니다. 이 섹션에서는 기본적인 인코딩 태스크를 생성한 다음 Azure Media Encoder를 사용하여 수행하는 작업을 실행합니다. 태스크는 기본 설정 문자열을 사용하여 수행하는 인코딩의 유형을 지정합니다. 사용 가능한 기본 설정 인코딩 값을 보려면 [Azure Media Encoder용 태스크 기본 설정 문자열][]을 참조하세요. 미디어 서비스는 Microsoft Expression Encoder와 같은 미디어 파일 입력 및 출력 형식을 지원합니다. 지원되는 형식 목록은 [미디어 서비스에 대해 지원되는 파일 형식][]을 참조하세요.
+미디어 서비스에서 인코딩, 암호화, 형식 변환 등 여러 가지 방법으로 미디어 콘텐츠를 처리하는 작업을 생성할 수 있습니다. 미디어 서비스 작업에는 작업 처리에 대한 세부 정보를 지정하는 태스크가 항상 하나 이상 포함됩니다. 이 섹션에서는 기본적인 인코딩 태스크를 생성한 다음 Azure Media Encoder를 사용하여 수행하는 작업을 실행합니다. 태스크는 기본 설정 문자열을 사용하여 수행하는 인코딩의 유형을 지정합니다. 사용 가능한 기본 설정 인코딩 값을 보려면 [Azure Media Encoder용 태스크 기본 설정 문자열][Azure Media Encoder용 태스크 기본 설정 문자열]을 참조하세요. 미디어 서비스는 Microsoft Expression Encoder와 같은 미디어 파일 입력 및 출력 형식을 지원합니다. 지원되는 형식 목록은 [미디어 서비스에 대해 지원되는 파일 형식][미디어 서비스에 대해 지원되는 파일 형식]을 참조하세요.
 
 1.  클래스에 다음과 같은 **CreateEncodingJob** 메서드 정의를 추가합니다. 이 메서드는 인코딩 작업에 대해 필요한 여러 태스크를 수행하는 방법을 설명합니다.
 
@@ -618,8 +618,8 @@ Main 메서드에서 \*\*\_context = new CloudMediaContext(\_accountName, \_acco
 
 이 연습에서는 간단한 미디어 서비스 응용 프로그램을 빌드하기 위한 일련의 프로그래밍 작업을 설명했습니다. 서버 컨텍스트 가져오기, 자산 생성, 자산 인코딩, 서버의 자산 다운로드 또는 액세스를 비롯하여 기본적인 미디어 서비스 프로그래밍 작업에 대해 배웠습니다. 다음 단계 및 고급 개발 작업에 대해서는 다음을 참조하세요.
 
--   [미디어 서비스 사용 방법][]
--   [Media Services REST API를 사용하여 응용 프로그램 작성][]
+-   [미디어 서비스 사용 방법][미디어 서비스 사용 방법]
+-   [Media Services REST API를 사용하여 응용 프로그램 작성][Media Services REST API를 사용하여 응용 프로그램 작성]
 
 <!-- Anchors. -->
 
@@ -630,9 +630,8 @@ Main 메서드에서 \*\*\_context = new CloudMediaContext(\_accountName, \_acco
   [자산 인코딩 및 출력 자산 다운로드]: #Step4
   [미디어 서비스 계정을 만드는 방법]: http://go.microsoft.com/fwlink/?LinkId=256662
   [windowsazure.mediaservices Nuget]: http://nuget.org/packages/windowsazure.mediaservices
-  [Azure 무료 평가판]: http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A8A8397B5
-  [Azure Media Encoder용 태스크 기본 설정 문자열]: http://msdn.microsoft.com/en-us/library/windowsazure/jj129582.aspx
-  [미디어 서비스에 대해 지원되는 파일 형식]: http://msdn.microsoft.com/en-us/library/windowsazure/hh973634.aspx
+  [Azure Media Encoder용 태스크 기본 설정 문자열]: http://msdn.microsoft.com/ko-kr/library/windowsazure/jj129582.aspx
+  [미디어 서비스에 대해 지원되는 파일 형식]: http://msdn.microsoft.com/ko-kr/library/windowsazure/hh973634.aspx
   [1]: http://msdn.microsoft.com/library/windowsazure/jj129582.aspx
-  [미디어 서비스 사용 방법]: http://www.windowsazure.com/en-us/develop/net/how-to-guides/media-services/
-  [Media Services REST API를 사용하여 응용 프로그램 작성]: http://msdn.microsoft.com/en-us/library/windowsazure/hh973618.aspx
+  [미디어 서비스 사용 방법]: http://www.windowsazure.com/ko-kr/develop/net/how-to-guides/media-services/
+  [Media Services REST API를 사용하여 응용 프로그램 작성]: http://msdn.microsoft.com/ko-kr/library/windowsazure/hh973618.aspx

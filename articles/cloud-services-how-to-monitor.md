@@ -1,10 +1,10 @@
 <properties linkid="manage-services-how-to-monitor-a-cloud-service" urlDisplayName="How to monitor" pageTitle="How to monitor a cloud service - Azure" metaKeywords="Azure monitoring cloud services, Azure Management Portal cloud services" description="Learn how to monitor cloud services by using the Azure Management Portal." metaCanonical="" services="cloud-services" documentationCenter="" title="How to Monitor Cloud Services" authors="ryanwi" solutions="" manager="timlt" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="ryanwi"></tags>
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="ryanwi" />
 
 # 클라우드 서비스를 모니터링하는 방법
 
-[WACOM.INCLUDE [disclaimer][disclaimer]]
+[WACOM.INCLUDE [disclaimer](../includes/disclaimer.md)]
 
 Azure 관리 포털에서 클라우드 서비스의 주요 성능 메트릭을 모니터링할 수 있습니다. 각 서비스 역할에 대해 모니터링 수준을 최소 및 자세히로 설정하고 모니터링 표시를 사용자 지정할 수 있습니다. 자세한 모니터링 데이터는 저장소 계정에 저장되며, 포털 외부에서 액세스할 수 있습니다.
 

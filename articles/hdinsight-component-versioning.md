@@ -1,12 +1,12 @@
 <properties linkid="manage-services-hdinsight-version" urlDisplayName="HDInsight Hadoop Version" pageTitle="What's new in Hadoop cluster versions of HDInsight? | Azure" metaKeywords="hdinsight, hadoop, hdinsight hadoop, hadoop azure" description="HDInsight supports multiple Hadoop cluster versions deployable at any time. See the Hadoop and HortonWorks Data Platform (HDP) distribution versions supported." services="HDInsight" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" title="What's new in the cluster versions provided by HDInsight?" authors="bradsev" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="bradsev"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="bradsev" />
 
 # HDInsight에서 제공하는 Hadoop 클러스터 버전의 새로운 기능
 
 ## HDInsight 버전
 
-HDInsight는 언제든 배포할 수 있는 여러 Hadoop 클러스터 버전을 지원합니다. 각 버전을 선택하면 특정 버전의 HDP(Hortonworks Data Platform) 배포 및 배포에 포함된 구성 요소 집합이 프로비전됩니다. 각 HDInsight 클러스터 버전과 연결된 구성 요소 버전은 다음 표에 항목별로 구분되어 있습니다. [Azure HDInsight][](영문)에서 사용하는 기본 클러스터 버전은 현재 HDP 2.1을 기반으로 하는 3.1입니다.
+HDInsight는 언제든 배포할 수 있는 여러 Hadoop 클러스터 버전을 지원합니다. 각 버전을 선택하면 특정 버전의 HDP(Hortonworks Data Platform) 배포 및 배포에 포함된 구성 요소 집합이 프로비전됩니다. 각 HDInsight 클러스터 버전과 연결된 구성 요소 버전은 다음 표에 항목별로 구분되어 있습니다. [Azure HDInsight][Azure HDInsight](영문)에서 사용하는 기본 클러스터 버전은 현재 HDP 2.1을 기반으로 하는 3.1입니다.
 
 
 <table border="1">
@@ -29,11 +29,11 @@ HDInsight는 언제든 배포할 수 있는 여러 Hadoop 클러스터 버전을
 
 **현재 구성 요소 버전 정보 가져오기**
 
-HDInsight 클러스터 버전과 연결된 구성 요소 버전은 HDInsight에 대한 향후 업데이트에서 변경될 수 있습니다. 사용 가능한 구성 요소를 알아보고 사용 중인 버전을 확인하는 방법은 클러스터에서 Ambari REST API를 사용하는 것입니다. 또한 **GetComponentInformation** 명령을 사용하여 서비스 구성 요소에 대한 정보를 검색할 수도 있습니다. 자세한 내용은 [Ambari 설명서][](영문)를 참조하세요. 이 정보를 가져오는 다른 방법은 원격 데스크톱을 사용하여 클러스터에 로그인하고 "C:\\apps\\dist" 디렉터리의 콘텐츠를 직접 검토하는 것입니다.
+HDInsight 클러스터 버전과 연결된 구성 요소 버전은 HDInsight에 대한 향후 업데이트에서 변경될 수 있습니다. 사용 가능한 구성 요소를 알아보고 사용 중인 버전을 확인하는 방법은 클러스터에서 Ambari REST API를 사용하는 것입니다. 또한 **GetComponentInformation** 명령을 사용하여 서비스 구성 요소에 대한 정보를 검색할 수도 있습니다. 자세한 내용은 [Ambari 설명서][Ambari 설명서](영문)를 참조하세요. 이 정보를 가져오는 다른 방법은 원격 데스크톱을 사용하여 클러스터에 로그인하고 "C:\\apps\\dist" 디렉터리의 콘텐츠를 직접 검토하는 것입니다.
 
 **릴리스 정보**
 
-최신 HDInsight 버전과 관련된 추가 릴리스 정보에 대해서는 [HDInsight 릴리스 정보][]를 참조하세요.
+최신 HDInsight 버전과 관련된 추가 릴리스 정보에 대해서는 [HDInsight 릴리스 정보][HDInsight 릴리스 정보]를 참조하세요.
 
 ### HDInsight 클러스터를 프로비전할 경우 버전 선택
 
@@ -68,7 +68,7 @@ HDInsight PowerShell Cmdlet 또는 HDInsight .NET SDK를 통해 클러스터를 
 다음 표는 현재 사용 가능한 HDInsight 버전, 버전에서 사용하는 해당 HDP(Hortonworks Data Platform) 버전 및 릴리스 날짜를 나열합니다. 알려진 경우 지원 만료 날짜와 사용이 중단된 날짜도 나와 있습니다. 다음 사항에 유의하세요.
 
 * 헤드 노드가 2개 있는 고가용성 클러스터는 기본적으로 HDInsight 2.1, 3.0 및 3.1 클러스터에 대해 배포됩니다. HDInsight 1.6 클러스터에서는 사용할 수 없습니다.
-* 특정 버전에 대한 지원이 만료되면 Azure 관리 포털을 통해 사용할 수 없게 됩니다. 다음 표에는 Azure 관리 포털에서 사용할 수 있는 버전이 나와 있습니다. 클러스터 버전은 사용이 중단될 때까지 PowerShell [New-AzureHDInsightCluster][] 명령의 `Version` 매개 변수 및 .NET SDK를 사용하여 계속 사용할 수 있습니다.
+* 특정 버전에 대한 지원이 만료되면 Azure 관리 포털을 통해 사용할 수 없게 됩니다. 다음 표에는 Azure 관리 포털에서 사용할 수 있는 버전이 나와 있습니다. 클러스터 버전은 사용이 중단될 때까지 PowerShell [New-AzureHDInsightCluster][New-AzureHDInsightCluster] 명령의 `Version` 매개 변수 및 .NET SDK를 사용하여 계속 사용할 수 있습니다.
 
 <table border="1">
 <tr><th>HDInsight 버전</th><th>HDP 버전</th><th>고가용성</th></th><th>릴리스 날짜</th><th>Azure 관리 포털에서 사용 가능 여부</th><th>지원 만료 날짜</th><th>사용 중단 날짜</th></tr>
@@ -90,23 +90,23 @@ SLA는 "지원 기간" 면에서 정의됩니다. 지원 기간은 Microsoft 고
 
 **사용 중단 날짜**는 HDInsight에서 해당 클러스터 버전을 만들 수 없게 되는 날짜입니다.
 
-> [WACOM.NOTE] HDInsight 2.1 및 3.0 클러스터는 모두 64비트 버전의 Windows Server 2012 R2를 사용하고 .NET Framework 4.0, 4.5 및 4.5.1을 지원하는 Azure Guest OS [Family 4][](영문)에서 실행됩니다.
+> [WACOM.NOTE] HDInsight 2.1 및 3.0 클러스터는 모두 64비트 버전의 Windows Server 2012 R2를 사용하고 .NET Framework 4.0, 4.5 및 4.5.1을 지원하는 Azure Guest OS [Family 4][Family 4](영문)에서 실행됩니다.
 
 ## HDInsight 버전과 관련된 Hortonworks 릴리스 정보
 
-* HDInsight 클러스터 버전 3.1에서는 [Hortonworks Data Platform 2.1][]을 기반으로 하는 Hadoop 배포를 사용합니다. 이는 Azure HDInsight 포털을 사용할 때 만든 기본 Hadoop 클러스터입니다.
+* HDInsight 클러스터 버전 3.1에서는 [Hortonworks Data Platform 2.1][Hortonworks Data Platform 2.1]을 기반으로 하는 Hadoop 배포를 사용합니다. 이는 Azure HDInsight 포털을 사용할 때 만든 기본 Hadoop 클러스터입니다.
 
-* HDInsight 클러스터 버전 3.0에서는 [Hortonworks Data Platform 2.0][](영문)을 기반으로 하는 Hadoop 배포를 사용합니다.
+* HDInsight 클러스터 버전 3.0에서는 [Hortonworks Data Platform 2.0][Hortonworks Data Platform 2.0](영문)을 기반으로 하는 Hadoop 배포를 사용합니다.
 
-* HDInsight 클러스터 버전 2.1에서는 [Hortonworks Data Platform 1.3][](영문)을 기반으로 하는 Hadoop 배포를 사용합니다.
+* HDInsight 클러스터 버전 2.1에서는 [Hortonworks Data Platform 1.3][Hortonworks Data Platform 1.3](영문)을 기반으로 하는 Hadoop 배포를 사용합니다.
 
-* HDInsight 클러스터 버전 1.6에서는 [Hortonworks Data Platform 1.1][](영문)을 기반으로 하는 Hadoop 배포를 사용합니다.
+* HDInsight 클러스터 버전 1.6에서는 [Hortonworks Data Platform 1.1][Hortonworks Data Platform 1.1](영문)을 기반으로 하는 Hadoop 배포를 사용합니다.
 
   [Azure HDInsight]: http://go.microsoft.com/fwlink/?LinkID=285601
   [Ambari 설명서]: https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md
   [HDInsight 릴리스 정보]: http://azure.microsoft.com/ko-kr/documentation/articles/hdinsight-release-notes/
-  [New-AzureHDInsightCluster]: http://msdn.microsoft.com/en-us/library/dn593744.aspx
-  [Family 4]: http://msdn.microsoft.com/en-us/library/azure/ee924680.aspx#explanation
+  [New-AzureHDInsightCluster]: http://msdn.microsoft.com/ko-kr/library/dn593744.aspx
+  [Family 4]: http://msdn.microsoft.com/ko-kr/library/azure/ee924680.aspx#explanation
   [Hortonworks Data Platform 2.1]: http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.1.1/bk_releasenotes_hdp_2.1/content/ch_relnotes-hdp-2.1.1.html
   [Hortonworks Data Platform 2.0]: http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.0.8.0/bk_releasenotes_hdp_2.0/content/ch_relnotes-hdp2.0.8.0.html
   [Hortonworks Data Platform 1.3]: http://docs.hortonworks.com/HDPDocuments/HDP1/HDP-1.3.0/bk_releasenotes_hdp_1.x/content/ch_relnotes-hdp1.3.0_1.html

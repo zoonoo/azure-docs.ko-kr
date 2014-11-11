@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-build-realtime-apps-with-pusher-ios" urlDisplayName="Build Realtime Apps with Pusher" pageTitle="Build Realtime Apps with Pusher (iOS) - Mobile Services" metaKeywords="" description="Learn how to use Pusher to send notifications to your Azure Media Services app on iOS." metaCanonical="" services="" documentationCenter="Mobile" title="Build Real-time Apps with Mobile Services and Pusher" authors="krisragh" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh" />
 
 # 모바일 서비스 및 Pusher를 사용하여 실시간 앱 빌드
 
@@ -25,7 +25,7 @@ Pusher는 모바일 서비스처럼 실시간 앱을 쉽게 빌드할 수 있게
 
 ## <a name="sign-up"></a>새 Pusher 계정 만들기
 
-[WACOM.INCLUDE [pusher-sign-up][pusher-sign-up]]
+[WACOM.INCLUDE [pusher-sign-up](../includes/pusher-sign-up.md)]
 
 ## <a name="update-app"></a>앱 업데이트
 
@@ -43,7 +43,7 @@ Pusher는 모바일 서비스처럼 실시간 앱을 쉽게 빌드할 수 있게
 
 4.  **Copy items into destination group's folder**를 선택하고 **Finish**를 클릭합니다.
 
-    ![][]
+    ![][0]
 
 libPusher 파일이 프로젝트에 복사됩니다.
 
@@ -377,11 +377,10 @@ libPusher 파일이 프로젝트에 복사됩니다.
 
 서버 스크립트 등록 및 사용에 대한 자세한 내용은 [모바일 서비스 서버 스크립트 참조][모바일 서비스 서버 스크립트 참조](영문)를 참조하십시오.
 
-<!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
 
-  [iOS]:  "iOS"
+
   [사용자에게 푸시 알림]: /ko-kr/develop/mobile/tutorials/push-notifications-to-users-ios
-  []: http://pusher.com
+  [0]: http://pusher.com
   [Pusher 계정 만들기]: #sign-up
   [앱 업데이트]: #update-app
   [서버 스크립트 설치]: #install-scripts
@@ -390,7 +389,7 @@ libPusher 파일이 프로젝트에 복사됩니다.
   [pusher-sign-up]: ../includes/pusher-sign-up.md
   [libPusher]: http://go.microsoft.com/fwlink/p?LinkId=276999
   [여기]: http://go.microsoft.com/fwlink/p/?LinkId=276998
-  []: ./media/mobile-services-ios-build-realtime-apps-pusher/pusher-ios-add-files-to-group.png
+  [0]: ./media/mobile-services-ios-build-realtime-apps-pusher/pusher-ios-add-files-to-group.png
   [1]: ./media/mobile-services-ios-build-realtime-apps-pusher/pusher-ios-add-build-phase.png
   [2]: ./media/mobile-services-ios-build-realtime-apps-pusher/pusher-ios-add-linker-flag.png
   [Azure 관리 포털]: https://manage.windowsazure.com/

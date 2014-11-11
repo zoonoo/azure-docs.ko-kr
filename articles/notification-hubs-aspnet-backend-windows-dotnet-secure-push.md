@@ -1,12 +1,12 @@
 <properties title="Azure Notification Hubs Secure Push" pageTitle="Azure Notification Hubs Secure Push" metaKeywords="Azure push notifications, Azure notification hubs, Azure messaging, secure push" description="Learn how to send secure push notifications in Azure. Code samples written in C# using the .NET API." documentationCenter="Mobile" metaCanonical="" disqusComments="1" umbracoNaviHide="0" authors="sethm" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="sethm"></tags>
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="sethm" />
 
 # Azure 알림 허브 보안 푸시
 
 <div class="dev-center-tutorial-selector sublanding"> 
-        <a href="/ko--kr/documentation/articles/notification-hubs-windows-dotnet-secure-push/" title="Windows 범용" class="current">Windows 범용</a><a href="/ko--kr/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/" title="iOS">iOS</a>
-        <a href="/ko--kr/documentation/articles/notification-hubs-aspnet-backend-android-secure-push/" title="Android">Android</a>
+        <a href="/ko-kr/documentation/articles/notification-hubs-windows-dotnet-secure-push/" title="Windows 범용" class="current">Windows 범용</a><a href="/ko-kr/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/" title="iOS">iOS</a>
+        <a href="/ko-kr/documentation/articles/notification-hubs-aspnet-backend-android-secure-push/" title="Android">Android</a>
 </div>
 
 Microsoft Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플랫폼 및 규모 확장 푸시 인프라에 액세스할 수 있어, 모바일 플랫폼용 소비자 응용 프로그램 및 엔터프라이즈 응용 프로그램 모두에 대한 푸시 알림을 매우 간단하게 구현할 수 있습니다.
@@ -32,7 +32,7 @@ Microsoft Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플
 > [AZURE.NOTE] 이 자습서에서는 [알림 허브 시작(Windows 스토어)][알림 허브 시작(Windows 스토어)]에 설명된 대로 알림을 만들고 구성했다고 가정합니다.
 > 또한 Windows Phone 8.1에는 Windows(Windows Phone이 아님) 자격 증명이 필요하고 백그라운드 작업은 Windows Phone 8.0 또는 Silverlight 8.1에서 작동하지 않습니다. Windows 스토어 응용 프로그램은 앱에서 잠금 화면이 사용되는 경우(Appmanifest에서 확인란 클릭)에만 백그라운드 작업을 통해 알림을 받을 수 있습니다.
 
-[WACOM.INCLUDE [notification-hubs-aspnet-backend-securepush][notification-hubs-aspnet-backend-securepush]]
+[WACOM.INCLUDE [notification-hubs-aspnet-backend-securepush](../includes/notification-hubs-aspnet-backend-securepush.md)]
 
 ## Windows Phone 프로젝트 수정
 
@@ -71,7 +71,7 @@ Microsoft Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플
 
 2.  **스토어 앱**을 확장하고 **Windows Phone 앱**, **Windows 런타임 구성 요소(Windows Phone)**를 차례로 클릭합니다. 프로젝트 이름을 **PushBackgroundComponent**로 지정하고 **확인**을 클릭하여 프로젝트를 만듭니다.
 
-    ![][]
+    ![][0]
 
 3.  솔루션 탐색기에서 **PushBackgroundComponent (Windows Phone 8.1)** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가**, **클래스**를 차례로 클릭합니다. 새 클래스 이름을 **PushBackgroundTask.cs**로 지정합니다. **추가**를 클릭하여 클래스를 생성합니다.
 
@@ -169,11 +169,7 @@ Microsoft Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플
 
 4.  **NotifyUserWindowsPhone** 앱 UI에서 **로그인 및 등록**을 클릭합니다. 그리고 나서 **푸시 보내기**를 클릭합니다.
 
-  [Windows 범용]: /ko--kr/documentation/articles/notification-hubs-windows-dotnet-secure-push/ "Windows 범용"
-  [iOS]: /ko--kr/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/ "iOS"
-  [Android]: /ko--kr/documentation/articles/notification-hubs-aspnet-backend-android-secure-push/ "Android"
-  [알림 허브 시작(Windows 스토어)]: http://azure.microsoft.com/ko--kr/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
   [notification-hubs-aspnet-backend-securepush]: ../includes/notification-hubs-aspnet-backend-securepush.md
-  []: ./media/notification-hubs-aspnet-backend-windows-dotnet-secure-push/notification-hubs-secure-push12.png
+  [0]: ./media/notification-hubs-aspnet-backend-windows-dotnet-secure-push/notification-hubs-secure-push12.png
   [1]: ./media/notification-hubs-aspnet-backend-windows-dotnet-secure-push/notification-hubs-secure-push3.png
   [2]: ./media/notification-hubs-aspnet-backend-windows-dotnet-secure-push/notification-hubs-secure-push13.png

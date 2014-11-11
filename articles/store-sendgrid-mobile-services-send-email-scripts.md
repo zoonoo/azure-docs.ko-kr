@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-send-email-with-sendgrid" urlDisplayName="Send Email Using SendGrid" pageTitle="Send email using SendGrid - Azure Mobile Services" metaKeywords="Azure SendGrid, SendGrid service, Azure emailing, mobile services email" description="Learn how to use the SendGrid service to send email from your Azure Mobile Services app." metaCanonical="" services="" documentationCenter="Mobile" title="Send email from Mobile Services with SendGrid" authors="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork" />
 
 # SendGrid로 모바일 서비스에서 전자 메일 보내기
 
@@ -18,7 +18,7 @@ SendGrid는 사용자 지정 통합을 쉽게 만드는 유연한 API와 함께 
 
 ## <a name="sign-up"></a><span class="short-header">새 계정 만들기</span>새 SendGrid 계정 만들기
 
-[WACOM.INCLUDE [sendgrid-sign-up][sendgrid-sign-up]]
+[WACOM.INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
 
 ## <a name="add-script"></a><span class="short-header">스크립트 등록</span>전자 메일을 보내는 새 스크립트 등록
 
@@ -26,7 +26,7 @@ SendGrid는 사용자 지정 통합을 쉽게 만드는 유연한 API와 함께 
 
 2.  관리 포털에서 **데이터** 탭을 클릭한 후 **TodoItem** 테이블을 클릭합니다.
 
-    ![][]
+    ![][0]
 
 3.  **TodoItem**에서 **스크립트** 탭을 클릭하고 **삽입**을 선택합니다.
 
@@ -109,7 +109,7 @@ SendGrid에 대해 자세히 알아보려면 다음 링크를 참조하십시오
 -   Azure 고객을 위한 SendGrid 특가 제공:
     <http://sendgrid.com/azure.html>
 
-<!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
+
 
   [트랜잭션 전자 메일 배달]: http://sendgrid.com/transactional-email
   [클라우드 기반 전자 메일 서비스]: http://sendgrid.com/solutions
@@ -119,7 +119,7 @@ SendGrid에 대해 자세히 알아보려면 다음 링크를 참조하십시오
   [모바일 서비스 시작하기]: /ko-kr/develop/mobile/tutorials/get-started
   [sendgrid-sign-up]: ../includes/sendgrid-sign-up.md
   [Azure 관리 포털]: https://manage.windowsazure.com/
-  []: ./media/store-sendgird-mobile-services-send-email-scripts/mobile-portal-data-tables.png
+  [0]: ./media/store-sendgird-mobile-services-send-email-scripts/mobile-portal-data-tables.png
   [1]: ./media/store-sendgird-mobile-services-send-email-scripts/mobile-insert-script-push2.png
   [2]: ./media/store-sendgird-mobile-services-send-email-scripts/mobile-quickstart-push1.png
   [3]: ./media/store-sendgird-mobile-services-send-email-scripts/mobile-receive-email.png

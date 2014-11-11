@@ -1,12 +1,12 @@
 <properties linkid="develop-mobile-tutorials-get-started-with-data-dotnet-vs2013" urlDisplayName="Get Started with Data" pageTitle="Get started with data (Windows Store) | Mobile Dev Center" metaKeywords="" description="Learn how to get started using Mobile Services to leverage data in your Windows Store app." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with data in Mobile Services (universal Windows apps)" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # 모바일 서비스에서 데이터 시작(범용 Windows 앱)
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/ko--kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-data/" title="Windows 스토어 C#">Windows 스토어 C#</a><a href="/ko--kr/documentation/articles/mobile-services-windows-store-javascript-get-started-data/" title="Windows 스토어 JavaScript">Windows 스토어 JavaScript</a><a href="/ko--kr/documentation/articles/mobile-services-windows-phone-get-started-data/" title="Windows Phone">Windows Phone</a><a href="/ko--kr/documentation/articles/mobile-services-ios-get-started-data/" title="iOS">iOS</a><a href="/ko--kr/documentation/articles/mobile-services-android-get-started-data/" title="Android">Android</a><a href="/ko--kr/documentation/articles/mobile-services-html-get-started-data/" title="HTML">HTML</a><a href="/ko--kr/documentation/articles/partner-xamarin-mobile-services-ios-get-started-data/" title="Xamarin.iOS">Xamarin.iOS</a><a href="/ko--kr/documentation/articles/partner-xamarin-mobile-services-android-get-started-data/" title="Xamarin.Android">Xamarin.Android</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/ko-kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-data/" title="Windows 스토어 C#">Windows 스토어 C#</a><a href="/ko-kr/documentation/articles/mobile-services-windows-store-javascript-get-started-data/" title="Windows 스토어 JavaScript">Windows 스토어 JavaScript</a><a href="/ko-kr/documentation/articles/mobile-services-windows-phone-get-started-data/" title="Windows Phone">Windows Phone</a><a href="/ko-kr/documentation/articles/mobile-services-ios-get-started-data/" title="iOS">iOS</a><a href="/ko-kr/documentation/articles/mobile-services-android-get-started-data/" title="Android">Android</a><a href="/ko-kr/documentation/articles/mobile-services-html-get-started-data/" title="HTML">HTML</a><a href="/ko-kr/documentation/articles/partner-xamarin-mobile-services-ios-get-started-data/" title="Xamarin.iOS">Xamarin.iOS</a><a href="/ko-kr/documentation/articles/partner-xamarin-mobile-services-android-get-started-data/" title="Xamarin.Android">Xamarin.Android</a></div>
 
-<!---<div class="dev-center-tutorial-subselector"><a href="/ko--kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/" title=".NET backend">.NET backend</a> | <a href="/ko--kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-data/"  title="JavaScript backend" class="current">JavaScript backend</a></div>-->
+<!---<div class="dev-center-tutorial-subselector"><a href="/ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/" title=".NET backend">.NET backend</a> | <a href="/ko-kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-data/"  title="JavaScript backend" class="current">JavaScript backend</a></div>-->
 
 이 항목에서는 Azure 모바일 서비스를 사용하여 범용 Windows 8.1 앱에서 데이터를 활용하는 방법을 보여 줍니다. 이 자습서에서는 데이터를 메모리에 저장하는 범용 Windows 앱용 Visual Studio 프로젝트를 다운로드하여 새 모바일 서비스를 만들고 모바일 서비스를 앱과 통합한 후 Azure 관리 포털에 로그인하여 앱을 실행할 때 수행된 데이터 변경 내용을 확인합니다.
 
@@ -27,7 +27,7 @@
 
 1.  [개발자 코드 샘플 사이트][GetStartedWithMobileServices 앱](영문)에서 GetStartedWithMobileServices 샘플 앱의 C# 버전을 다운로드합니다.
 
-    ![][]
+    ![][0]
 
 2.  Visual Studio 2013에서 다운로드한 프로젝트를 열고 MainPage.xaml.cs 파일을 검사합니다.
 
@@ -43,7 +43,7 @@
 
 ## <a name="create-service"></a><span class="short-header">모바일 서비스 만들기</span>Visual Studio에서 새 모바일 서비스 만들기
 
-[WACOM.INCLUDE [mobile-services-create-new-service-vs2013][mobile-services-create-new-service-vs2013]]
+[WACOM.INCLUDE [mobile-services-create-new-service-vs2013](../includes/mobile-services-create-new-service-vs2013.md)]
 
 1.  솔루션 탐색기에서 App.xaml.cs 코드 파일을 열고 \*\*App\*\* 클래스에 추가된 새 정적 필드를 확인합니다. 다음 예제와 같이 표시됩니다.
 
@@ -57,7 +57,7 @@
 
 ## <a name="add-table"></a><span class="short-header">새 테이블 추가</span>모바일 서비스에 새 테이블 추가 및 앱 업데이트
 
-[WACOM.INCLUDE [mobile-services-create-new-table-vs2013][mobile-services-create-new-table-vs2013]]
+[WACOM.INCLUDE [mobile-services-create-new-table-vs2013](../includes/mobile-services-create-new-table-vs2013.md)]
 
 1.  MainPage.xaml.cs 파일에서 다음 using 문을 추가하거나 주석 처리를 제거합니다.
 
@@ -93,7 +93,7 @@
 
     이 코드는 테이블에 새 항목을 삽입합니다.
 
-    <div class="dev-callout"><strong>참고</strong><p>새 테이블은 Id, __createdAt, __updatedAt 및 __version 열을 사용하여 만들어집니다. 동적 스키마가 사용하도록 설정된 경우 모바일 서비스에서 삽입 또는 업데이트 요청의 JSON 개체를 기준으로 새 열을 자동으로 생성합니다. 자세한 내용은 <a href="http://msdn.microsoft.com/ko--kr/library/windowsazure/jj193175.aspx">동적 스키마</a>를 참조하세요.</p></div>
+    <div class="dev-callout"><strong>참고</strong><p>새 테이블은 Id, __createdAt, __updatedAt 및 __version 열을 사용하여 만들어집니다. 동적 스키마가 사용하도록 설정된 경우 모바일 서비스에서 삽입 또는 업데이트 요청의 JSON 개체를 기준으로 새 열을 자동으로 생성합니다. 자세한 내용은 <a href="http://msdn.microsoft.com/ko-kr/library/windowsazure/jj193175.aspx">동적 스키마</a>를 참조하세요.</p></div>
 
 5.  **RefreshTodoItems** 메서드에서 **async** 한정자를 메서드에 추가한 후 다음 코드 줄의 주석 처리를 제거합니다.
 
@@ -172,30 +172,21 @@
 <!-- Images. -->
 <!-- URLs. -->
 
-  [Windows 스토어 C#]: /ko--kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-data/ "Windows 스토어 C#"
-  [Windows 스토어 JavaScript]: /ko--kr/documentation/articles/mobile-services-windows-store-javascript-get-started-data/ "Windows 스토어 JavaScript"
-  [Windows Phone]: /ko--kr/documentation/articles/mobile-services-windows-phone-get-started-data/ "Windows Phone"
-  [iOS]: /ko--kr/documentation/articles/mobile-services-ios-get-started-data/ "iOS"
-  [Android]: /ko--kr/documentation/articles/mobile-services-android-get-started-data/ "Android"
-  [HTML]: /ko--kr/documentation/articles/mobile-services-html-get-started-data/ "HTML"
-  [Xamarin.iOS]: /ko--kr/documentation/articles/partner-xamarin-mobile-services-ios-get-started-data/ "Xamarin.iOS"
-  [Xamarin.Android]: /ko--kr/documentation/articles/partner-xamarin-mobile-services-android-get-started-data/ "Xamarin.Android"
   [Windows 스토어 앱 프로젝트 다운로드]: #download-app
   [Visual Studio에서 모바일 서비스 만들기]: #create-service
   [저장소로 사용할 데이터 테이블 추가 및 앱 업데이트]: #add-table
   [모바일 서비스에 대해 앱 테스트]: #test-app
-  [Azure 무료 평가판]: http://www.windowsazure.com/ko--kr/pricing/free-trial/?WT.mc_id=AE564AB28
+  [Azure 무료 평가판]: http://www.windowsazure.com/ko-kr/pricing/free-trial/?WT.mc_id=AE564AB28
   [GetStartedWithMobileServices 앱]: http://go.microsoft.com/fwlink/p/?LinkId=328660
-  []: ./media/mobile-services-windows-store-dotnet-get-started-data-vs2013/mobile-data-sample-download-dotnet-vs12.png
+  [0]: ./media/mobile-services-windows-store-dotnet-get-started-data-vs2013/mobile-data-sample-download-dotnet-vs12.png
   [1]: ./media/mobile-services-windows-store-dotnet-get-started-data-vs2013/mobile-quickstart-startup.png
   [mobile-services-create-new-service-vs2013]: ../includes/mobile-services-create-new-service-vs2013.md
   [MobileServiceClient 클래스]: http://go.microsoft.com/fwlink/p/?LinkId=302030
   [mobile-services-create-new-table-vs2013]: ../includes/mobile-services-create-new-table-vs2013.md
-  [동적 스키마]: http://msdn.microsoft.com/ko--kr/library/windowsazure/jj193175.aspx
   [관리 포털]: https://manage.windowsazure.com/
   [2]: ./media/mobile-services-windows-store-dotnet-get-started-data-vs2013/mobile-todoitem-data-browse.png
-  [스크립트를 사용하여 데이터 유효성 검사 및 수정]: /ko--kr/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
-  [페이징을 사용하여 쿼리 구체화]: /ko--kr/develop/mobile/tutorials/add-paging-to-data-dotnet
-  [인증 시작]: /ko--kr/develop/mobile/tutorials/get-started-with-users-dotnet
+  [스크립트를 사용하여 데이터 유효성 검사 및 수정]: /ko-kr/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
+  [페이징을 사용하여 쿼리 구체화]: /ko-kr/develop/mobile/tutorials/add-paging-to-data-dotnet
+  [인증 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-users-dotnet
   [푸시 알림 시작]: ../mobile-services-windows-store-dotnet-get-started-push/
-  [모바일 서비스 .NET 방법 개념 참조]: /ko--kr/develop/mobile/how-to-guides/work-with-net-client-library
+  [모바일 서비스 .NET 방법 개념 참조]: /ko-kr/develop/mobile/how-to-guides/work-with-net-client-library

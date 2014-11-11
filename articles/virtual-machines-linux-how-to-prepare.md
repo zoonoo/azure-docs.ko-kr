@@ -1,6 +1,6 @@
 <properties linkid="manage-linux-howto-linux-agent" urlDisplayName="Prepare a distribution" pageTitle="Prepare a distribution of Linux in Azure" metaKeywords="Azure Git CodePlex, Azure website CodePlex, Azure website Git" description="Learn how to use Git to publish to an Azure website, as well as enable continuous deployment from GitHub and CodePlex." metaCanonical="" services="virtual-machines" documentationCenter="" title="Prepare a Linux Virtual Machine for Azure" authors="kathydav" solutions="" manager="timlt" editor="tysonn" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="kathydav"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="kathydav" />
 
 # Azure용 Linux 가상 컴퓨터 준비
 
@@ -620,8 +620,6 @@ Azure Linux 에이전트를 사용하려면 python-pyasn1 패키지가 설치되
   [Hyper-V 설정 열기]: ./media/virtual-machines-linux-how-to-prepare/settings.png
   [DVD 드라이브와 설치 미디어 추가]: ./media/virtual-machines-linux-how-to-prepare/installiso.png
   [SUSE Studio]: http://www.susestudio.com
-  [SUSE Studio Gallery의 Azure용 SLES 11 SP2(영문)]: http://susestudio.com/a/02kbT4/sles-11-sp2-for-windows-azure
-  [SUSE Studio Gallery의 Azure용 SLES 11 SP3(영문)]: http://susestudio.com/a/02kbT4/sles-11-sp3-for-windows-azure
   [SLES 설명서]: https://www.suse.com/documentation/sles11/
   [SUSE Studio Gallery의 Azure용 openSUSE 12.3]: http://susestudio.com/a/02kbT4/opensuse-12-3-for-windows-azure
   [저장소 계정 만들기]: ./media/virtual-machines-linux-how-to-prepare/create.png

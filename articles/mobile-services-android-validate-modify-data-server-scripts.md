@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-validate-modify-and-augment-data-android" urlDisplayName="Validate Data - Android" pageTitle="Use server scripts to validate and modify data (Android) | Mobile Dev Center" metaKeywords="" description="Learn how to validate and modify data sent using server scripts from your Android app." metaCanonical="" services="" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using server scripts" authors="ricksal" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal" />
 
 # 모바일 서비스에서 서버 스크립트를 사용하여 데이터 유효성 검사 및 수정
 
@@ -25,7 +25,7 @@
 
 1.  [Azure 관리 포털][Azure 관리 포털]에 로그인하여 **모바일 서비스**를 클릭한 후 앱을 클릭합니다.
 
-    ![][]
+    ![][0]
 
 2.  **데이터** 탭을 클릭한 후 **TodoItem** 테이블을 클릭합니다.
 
@@ -215,21 +215,13 @@
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [Windows 스토어 C#]: /ko-kr/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet "Windows 스토어 C#"
-  [Windows 스토어 JavaScript]: /ko-kr/develop/mobile/tutorials/validate-modify-and-augment-data-js "Windows 스토어 JavaScript"
-  [Windows Phone]: /ko-kr/develop/mobile/tutorials/validate-modify-and-augment-data-wp8 "Windows Phone"
-  [iOS]: /ko-kr/develop/mobile/tutorials/validate-modify-and-augment-data-ios "iOS"
-  [Android]: /ko-kr/develop/mobile/tutorials/validate-modify-and-augment-data-android "Android"
-  [HTML]: /ko-kr/develop/mobile/tutorials/validate-modify-and-augment-data-html "HTML"
-  [Xamarin.iOS]: /ko-kr/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-ios "Xamarin.iOS"
-  [Xamarin.Android]: /ko-kr/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-android "Xamarin.Android"
   [문자열 길이 유효성 검사 추가]: #string-length-validation
   [유효성 검사를 지원하도록 클라이언트 업데이트]: #update-client-validation
   [삽입 시 타임스탬프 추가]: #add-timestamp
   [타임스탬프를 표시하도록 클라이언트 업데이트]: #update-client-timestamp
   [데이터 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-data-android
   [Azure 관리 포털]: https://manage.windowsazure.com/
-  []: ./media/mobile-services-android-validate-modify-data-server-scripts/mobile-services-selection.png
+  [0]: ./media/mobile-services-android-validate-modify-data-server-scripts/mobile-services-selection.png
   [1]: ./media/mobile-services-android-validate-modify-data-server-scripts/mobile-portal-data-tables.png
   [2]: ./media/mobile-services-android-validate-modify-data-server-scripts/mobile-insert-script-users.png
   [페이징을 사용하여 쿼리 구체화]: /ko-kr/develop/mobile/tutorials/add-paging-to-data-android

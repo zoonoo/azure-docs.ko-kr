@@ -1,6 +1,6 @@
 <properties title="Troubleshooting Azure Websites in Visual Studio" pageTitle="Troubleshooting Azure Websites in Visual Studio" metaKeywords="troubleshoot debug azure web site tracing logging" description="Learn how to troubleshoot an Azure Website by using remote debugging, tracing, and logging tools that are built in to Visual Studio 2013." metaCanonical="" services="web-sites" documentationCenter=".NET" authors="tdykstra" manager="wpickett" solutions="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="tdykstra"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="tdykstra" />
 
 # Visual Studio에서 Azure 웹 사이트 문제 해결
 
@@ -746,7 +746,6 @@ Microsoft TechNet 웹 사이트에 포함된 [실패한 요청 추적 사용][9]
   [다운로드한 파일]: ./media/web-sites-dotnet-troubleshoot-visual-studio/tws-downloadedfile.png
   [6]: ./media/web-sites-dotnet-troubleshoot-visual-studio/tws-logfilefolders.png
   [Log Parser]: http://www.microsoft.com/ko-kr/download/details.aspx?displaylang=en&id=24659
-  [데이터 저장소 옵션(Azure에서 실제 클라우드 앱 빌드)]: http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/data-storage-options
   [저장소 계정 만들기]: ./media/web-sites-dotnet-troubleshoot-visual-studio/tws-createstorage.png
   [URL 입력]: ./media/web-sites-dotnet-troubleshoot-visual-studio/tws-storageurl.png
   [7]: ./media/web-sites-dotnet-troubleshoot-visual-studio/tws-configlogging.png
@@ -780,14 +779,12 @@ Microsoft TechNet 웹 사이트에 포함된 [실패한 요청 추적 사용][9]
   [Azure 웹 사이트의 원격 디버깅 소개 2부 - 원격 디버깅 세부 정보]: /blog/2014/05/07/introduction-to-remote-debugging-azure-web-sites-part-2-inside-remote-debugging/
   [Azure 웹 사이트의 원격 디버깅 소개 3부 - 다중 인스턴스 환경 및 GIT]: /blog/2014/05/08/introduction-to-remote-debugging-on-azure-web-sites-part-3-multi-instance-environment-and-git/
   [Visual Studio에서 .NET 백 엔드 디버깅]: http://blogs.msdn.com/b/azuremobile/archive/2014/03/14/debugging-net-backend-in-visual-studio.aspx
-  [모니터링 및 원격 분석(Azure에서 실제 클라우드 앱 빌드)]: http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry
   [ASP.NET 추적]: http://msdn.microsoft.com/ko-kr/library/ms972204.aspx
   [추적 수신기]: http://msdn.microsoft.com/ko-kr/library/4y5y10s7.aspx
   [WebPageTraceListener]: http://msdn.microsoft.com/ko-kr/library/system.web.webpagetracelistener.aspx
   [연습: ASP.NET 추적을 System.Diagnostics 추적과 통합]: http://msdn.microsoft.com/ko-kr/library/b0ectfxd.aspx
   [ASP.NET MVC Razor 뷰에서 추적]: http://blogs.msdn.com/b/webdev/archive/2013/07/16/tracing-in-asp-net-mvc-razor-views.aspx
   [오류 처리기의 전체 예제]: http://msdn.microsoft.com/ko-kr/library/bb397417.aspx
-  [Azure 명령줄에서 진단 추적 로깅 스트리밍(Glimpse 포함)]: http://www.hanselman.com/blog/StreamingDiagnosticsTraceLoggingFromTheAzureCommandLinePlusGlimpse.aspx
   [Glimpse]: http://www.hanselman.com/blog/IfYoureNotUsingGlimpseWithASPNETForDebuggingAndProfilingYoureMissingOut.aspx
   [David Ebbo와 함께 하는 Azure 웹 사이트 로깅 및 진단]: http://www.windowsazure.com/ko-kr/documentation/videos/azure-web-site-logging-and-diagnostics/
   [David Ebbo와 함께 하는 Azure 웹 사이트에서 로그 스트리밍]: http://www.windowsazure.com/ko-kr/documentation/videos/log-streaming-with-azure-web-sites/
@@ -795,7 +792,6 @@ Microsoft TechNet 웹 사이트에 포함된 [실패한 요청 추적 사용][9]
   [Scott Hanselman의 ELMAH 관련 블로그 게시물]: http://www.hanselman.com/blog/NuGetPackageOfTheWeek7ELMAHErrorLoggingModulesAndHandlersWithSQLServerCompact.aspx
   [LogParser]: http://www.microsoft.com/ko-kr/download/details.aspx?id=24659
   [LogParser를 사용하여 IIS 성능 문제 또는 응용 프로그램 오류 문제 해결]: http://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser
-  [Robert McMurray의 LogParser 사용 관련 블로그 게시물(영문)]: http://blogs.msdn.com/b/robert_mcmurray/archive/tags/logparser/
   [IIS 7.0, IIS 7.5 및 IIS 8.0의 HTTP 상태 코드]: http://support.microsoft.com/kb/943891
   [9]: http://www.iis.net/learn/troubleshoot/using-failed-request-tracing
   [클라우드 서비스 디버깅]: http://msdnstage.redmond.corp.microsoft.com/ko-kr/library/windowsazure/ee405479.aspx

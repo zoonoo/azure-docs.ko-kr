@@ -1,10 +1,10 @@
 <properties linkid="develop-nodejs-tutorials-web-site-with-sql-database" urlDisplayName="Website with SQL Database" pageTitle="Node.js website with SQL Database - Azure tutorial" metaKeywords="" description="Learn how to create a Node.js website that accesses a SQL Database and is deployed to Azure" metaCanonical="" services="web-sites,sql-database" documentationCenter="nodejs" title="Node.js Web Application using the Azure SQL Database" authors="larryfr" solutions="" manager="" editor="" />
 
-<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr"></tags>
+<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr" />
 
 # Azure SQL 데이터베이스를 사용하는 Node.js 웹 응용 프로그램
 
-이 자습서에서는 Azure 데이터 관리에서 제공하는 SQL 데이터베이스를 사용하여 Azure에서 호스트되는 [node][] 응용 프로그램에서 데이터를 저장하고 액세스하는 방법을 보여 줍니다. 이 자습서에서는 이전에 node 및 [Git][]를 사용한 경험이 있다고 가정합니다.
+이 자습서에서는 Azure 데이터 관리에서 제공하는 SQL 데이터베이스를 사용하여 Azure에서 호스트되는 [node][node] 응용 프로그램에서 데이터를 저장하고 액세스하는 방법을 보여 줍니다. 이 자습서에서는 이전에 node 및 [Git][Git]를 사용한 경험이 있다고 가정합니다.
 
 다음 내용을 배웁니다.
 
@@ -20,7 +20,7 @@
 
 이 자습서의 프로젝트 파일은 **tasklist**라는 디렉터리에 저장되며 완료된 응용 프로그램은 다음과 유사하게 보입니다.
 
-![빈 tasklist가 표시된 웹 페이지][]
+![빈 tasklist가 표시된 웹 페이지][빈 tasklist가 표시된 웹 페이지]
 
 <div class="dev-callout">
 <b>참고</b>
@@ -41,11 +41,11 @@
 
 이 문서의 지침을 따르기 전에 다음이 설치되어 있는지 확인해야 합니다.
 
--   [node][] 버전 0.6.14 이상
+-   [node][node] 버전 0.6.14 이상
 
--   [Git][]
+-   [Git][Git]
 
--   Microsoft SQL Server Native Client 라이브러리 - [Microsoft SQL Server 2012 기능 팩][]의 일부로 제공됨
+-   Microsoft SQL Server Native Client 라이브러리 - [Microsoft SQL Server 2012 기능 팩][Microsoft SQL Server 2012 기능 팩]의 일부로 제공됨
 
 -   텍스트 편집기
 
@@ -57,47 +57,47 @@
 
 Azure 웹 사이트 및 SQL 데이터베이스를 만들려면 다음 단계를 따르세요.
 
-1.  [Azure 관리 포털][]에 로그인합니다.
+1.  [Azure 관리 포털][Azure 관리 포털]에 로그인합니다.
 
 2.  포털의 왼쪽 아래에서 **+ 새로 만들기** 아이콘을 클릭합니다.
 
-    ![새 Azure 웹 사이트 만들기][]
+    ![새 Azure 웹 사이트 만들기][새 Azure 웹 사이트 만들기]
 
 3.  **웹 사이트**를 클릭한 후 **사용자 지정 만들기**를 클릭합니다.
 
-    ![새 웹 사이트 사용자 지정 만들기][]
+    ![새 웹 사이트 사용자 지정 만들기][새 웹 사이트 사용자 지정 만들기]
 
     **URL**에 대한 값을 입력하고 **데이터베이스** 드롭다운에서 **새 SQL 데이터베이스 만들기**를 선택한 후 **지역** 드롭다운에서 웹 사이트에 대한 데이터 센터를 선택합니다. 대화 상자 아래쪽의 화살표를 클릭합니다.
 
-    ![웹 사이트 세부 정보 입력][]
+    ![웹 사이트 세부 정보 입력][웹 사이트 세부 정보 입력]
 
-4.  데이터베이스 **이름**에 값을 입력하고 **버전**[(WEB 또는 BUSINESS)][], 데이터베이스의 **최대 크기**, **데이터 정렬** 및 **새 SQL 데이터베이스 서버**를 선택합니다. 대화 상자 아래쪽의 화살표를 클릭합니다.
+4.  데이터베이스 **이름**에 값을 입력하고 **버전**[(WEB 또는 BUSINESS)][(WEB 또는 BUSINESS)], 데이터베이스의 **최대 크기**, **데이터 정렬** 및 **새 SQL 데이터베이스 서버**를 선택합니다. 대화 상자 아래쪽의 화살표를 클릭합니다.
 
-    ![SQL 데이터베이스 설정 입력][]
+    ![SQL 데이터베이스 설정 입력][SQL 데이터베이스 설정 입력]
 
 5.  관리자 이름 및 암호를 입력하고, 암호를 확인하고, 새 SQL 데이터베이스 서버를 만들 지역을 선택하고, **Azure 서비스가 서버에 액세스할 수 있도록 허용합니다.** 상자를 선택합니다.
 
-    ![새 SQL 데이터베이스 서버 만들기][]
+    ![새 SQL 데이터베이스 서버 만들기][새 SQL 데이터베이스 서버 만들기]
 
     웹 사이트가 만들어지면 **'[SITENAME]' 웹 사이트 만들기가 완료되었습니다.**라는 텍스트가 표시됩니다. 이제 Git 게시를 사용하도록 설정할 수 있습니다.
 
 6.  웹 사이트 목록에 표시된 웹 사이트 이름을 클릭하여 웹 사이트의 빠른 시작 대시보드를 엽니다.
 
-    ![웹 사이트 대시보드 열기][]
+    ![웹 사이트 대시보드 열기][웹 사이트 대시보드 열기]
 
 7.  빠른 시작 페이지 맨 아래에 있는 **Git 게시 설정**을 클릭합니다.
 
-    ![Git 게시 설정][]
+    ![Git 게시 설정][Git 게시 설정]
 
 8.  Git 게시를 사용하도록 설정하려면 사용자 이름 및 암호를 지정해야 합니다. 만든 사용자 이름 및 암호를 기록해 둡니다. 이전에 Git 리포지토리를 설정한 경우 이 단계를 건너뜁니다.
 
-    ![게시 자격 증명 만들기][]
+    ![게시 자격 증명 만들기][게시 자격 증명 만들기]
 
     리포지토리를 설정하는 데 몇 초 정도 걸립니다.
 
 9.  리포지토리가 준비되면 응용 프로그램 파일을 리포지토리에 푸시하는 지침이 표시됩니다. 이러한 지침은 나중에 필요하므로 기록해 둡니다.
 
-    ![Git 지침][]
+    ![Git 지침][Git 지침]
 
 ## SQL 데이터베이스 연결 정보 가져오기
 
@@ -105,11 +105,11 @@ Azure 웹 사이트에서 실행되는 SQL 데이터베이스 인스턴스에 �
 
 1.  Azure 관리 포털에서 **연결된 리소스**를 클릭한 후 데이터베이스 이름을 클릭합니다.
 
-    ![연결된 리소스][]
+    ![연결된 리소스][연결된 리소스]
 
 2.  **연결 문자열 보기**를 클릭합니다.
 
-    ![연결 문자열][]
+    ![연결 문자열][연결 문자열]
 
 3.  이에 따라 표시되는 대화 상자의 **ODBC** 섹션에 있는 연결 문자열이 나중에 사용될 것이므로 기록해 둡니다.
 
@@ -119,29 +119,29 @@ tasklist 응용 프로그램에 대한 항목을 저장하는 데 사용할 데�
 
 1.  Azure 관리 포털에서 SQL 데이터베이스를 선택한 후 페이지 맨 아래에서 **관리**를 클릭합니다. 현재 IP가 방화벽 규칙에 속하지 않는다는 메시지가 표시되면 **확인**을 선택하여 IP 주소를 추가합니다.
 
-    ![관리 단추][]
+    ![관리 단추][관리 단추]
 
 2.  앞에서 데이터베이스 서버를 만들 때 선택한 로그인 이름 및 암호를 사용하여 로그인합니다.
 
-    ![데이터베이스 관리 로그인][]
+    ![데이터베이스 관리 로그인][데이터베이스 관리 로그인]
 
 3.  페이지 왼쪽 아래에서 **디자인**을 선택한 후 **새 테이블**을 선택합니다.
 
-    ![새 테이블][]
+    ![새 테이블][새 테이블]
 
 4.  **테이블 이름**으로 'tasks'를 입력하고 **ID**에 대해 **Is Identity?**를 선택합니다.
 
-    ![테이블 이름이 tasks로 설정되고 ID 여부가 선택된 모습][]
+    ![테이블 이름이 tasks로 설정되고 ID 여부가 선택된 모습][테이블 이름이 tasks로 설정되고 ID 여부가 선택된 모습]
 
 5.  **Column1**을 **name**으로 변경하고 **Column2**를 **category**로 변경합니다. **열 추가** 단추를 클릭하여 새 열을 두 개 추가합니다. 첫 번째 새 열의 이름은 **created**이고 형식은 **date**여야 합니다. 두 번째 새 열의 이름은 **completed**이고 형식은 **bit**여야 합니다. 두 새 열을 모두 **Is Required?**로 표시해야 합니다.
 
-    ![completed table design][]
+    ![completed table design][completed table design]
 
 6.  **저장** 단추를 클릭하여 변경 내용을 테이블에 저장합니다. 이제 SQL 데이터베이스 관리 페이지를 닫을 수 있습니다.
 
 ## 모듈 설치 및 스캐폴딩 생성
 
-이 섹션에서는 새로운 Node 응용 프로그램을 만들고 npm을 사용하여 모듈 패키지를 추가합니다. 작업 목록 응용 프로그램의 경우 [express][] 및 [node-sqlserver][] 모듈을 사용합니다. Express 모듈은 node에 대한 모델 보기 컨트롤러 프레임워크를 제공하며, node-sqlserver 모듈은 Azure SQL 데이터베이스에 대한 연결을 제공합니다.
+이 섹션에서는 새로운 Node 응용 프로그램을 만들고 npm을 사용하여 모듈 패키지를 추가합니다. 작업 목록 응용 프로그램의 경우 [express][express] 및 [node-sqlserver][node-sqlserver] 모듈을 사용합니다. Express 모듈은 node에 대한 모델 보기 컨트롤러 프레임워크를 제공하며, node-sqlserver 모듈은 Azure SQL 데이터베이스에 대한 연결을 제공합니다.
 
 ### express 설치 및 스캐폴딩 생성
 
@@ -217,7 +217,7 @@ tasklist 응용 프로그램에 대한 항목을 저장하는 데 사용할 데�
 
 		npm install nconf -save
 
-3.  이제 [다운로드 센터][]에서 Microsoft Driver for Node.JS for SQL Server의 이진 버전을 다운로드합니다.
+3.  이제 [다운로드 센터][다운로드 센터]에서 Microsoft Driver for Node.JS for SQL Server의 이진 버전을 다운로드합니다.
 
 4.  **tasklist\\node\_modules** 디렉터리에 보관 파일을 추출합니다.
 
@@ -336,7 +336,7 @@ tasklist 응용 프로그램에 대한 항목을 저장하는 데 사용할 데�
 
 ### 전역 레이아웃 수정
 
-**views** 디렉터리의 **layout.jade** 파일은 다른 **.jade** 파일에 대한 전역 템플릿으로 사용됩니다. 이 단계에서는 멋진 모습의 웹 사이트를 쉽게 디자인할 수 있게 해주는 도구 키트인 [Twitter Bootstrap][]을 사용하도록 이 파일을 수정합니다.
+**views** 디렉터리의 **layout.jade** 파일은 다른 **.jade** 파일에 대한 전역 템플릿으로 사용됩니다. 이 단계에서는 멋진 모습의 웹 사이트를 쉽게 디자인할 수 있게 해주는 도구 키트인 [Twitter Bootstrap][Twitter Bootstrap]을 사용하도록 이 파일을 수정합니다.
 
 1.  [Twitter Bootstrap][1]용 파일을 다운로드하여 추출합니다. **bootstrap\\css** 폴더의 **bootstrap.min.css** 파일을 tasklist 응용 프로그램의 **public\\stylesheets** 디렉터리에 복사합니다.
 
@@ -386,13 +386,13 @@ tasklist 응용 프로그램에 대한 항목을 저장하는 데 사용할 데�
 
 3.  웹 브라우저를 열고 <http://127.0.0.1:3000>으로 이동합니다. 그러면 다음과 비슷한 웹 페이지가 표시됩니다.
 
-    ![빈 tasklist가 표시된 웹 페이지 ][]
+    ![빈 tasklist가 표시된 웹 페이지 ][빈 tasklist가 표시된 웹 페이지 ]
 
 4.  **항목 이름** 및 **항목 범주**에 대해 제공된 필드를 사용하여 정보를 입력한 후 **항목 추가**를 클릭합니다.
 
 5.  페이지가 업데이트되어 ToDo List의 항목을 표시해야 합니다.
 
-    ![작업 목록의 새 항목 이미지][]
+    ![작업 목록의 새 항목 이미지][작업 목록의 새 항목 이미지]
 
 6.  작업을 완료하려면 완료 열의 확인란을 선택한 후 **작업 업데이트**를 클릭하면 됩니다.
 
@@ -419,7 +419,7 @@ tasklist 응용 프로그램에 대한 항목을 저장하는 데 사용할 데�
         To https://username@tabletasklist.azurewebsites.net/TableTasklist.git
          * [new branch]      master -> master
 
-3.  푸시 작업이 완료되면 **[http://[사이트][] 이름].azurewebsites.net/**으로 이동하여 응용 프로그램을 봅니다.
+3.  푸시 작업이 완료되면 **[http://[사이트][http://[사이트] 이름].azurewebsites.net/**으로 이동하여 응용 프로그램을 봅니다.
 
 ### 환경 변수로 전환
 
@@ -427,19 +427,19 @@ tasklist 응용 프로그램에 대한 항목을 저장하는 데 사용할 데�
 
 1.  Azure 관리 포털에서 **웹 사이트**를 클릭한 후 웹 사이트를 선택합니다.
 
-    ![웹 사이트 대시보드 열기][]
+    ![웹 사이트 대시보드 열기][웹 사이트 대시보드 열기]
 
 2.  **구성**을 클릭한 후 페이지의 **앱 설정** 섹션을 찾습니다.
 
-    ![구성 링크][]
+    ![구성 링크][구성 링크]
 
 3.  **앱 설정** 섹션에서 **키** 필드에 **SQL\_CONN**을 입력하고 **값** 필드에 ODBC 연결 문자열을 입력합니다. 마지막으로 확인 표시를 클릭합니다.
 
-    ![앱 설정][]
+    ![앱 설정][앱 설정]
 
 4.  마지막으로 페이지 맨 아래에 있는 **저장** 아이콘을 클릭하여 이 변경 내용을 런타임 환경에 커밋합니다.
 
-    ![앱 설정 저장][]
+    ![앱 설정 저장][앱 설정 저장]
 
 5.  명령줄에서 디렉터리를 **tasklist** 디렉터리로 변경하고 다음 명령을 입력하여 **config.json** 파일을 제거합니다.
 
@@ -454,7 +454,7 @@ tasklist 응용 프로그램에 대한 항목을 저장하는 데 사용할 데�
 
 ## 다음 단계
 
--   [MongoDB를 사용한 Node.js 웹 응용 프로그램][]
+-   [MongoDB를 사용한 Node.js 웹 응용 프로그램][MongoDB를 사용한 Node.js 웹 응용 프로그램]
 
 -   [테이블 저장소를 사용한 Node.js 웹 응용 프로그램]
 
@@ -475,7 +475,6 @@ tasklist 응용 프로그램에 대한 항목을 저장하는 데 사용할 데�
   [새 Azure 웹 사이트 만들기]: ./media/sql-database-nodejs-use-web-site/new_website.jpg
   [새 웹 사이트 사용자 지정 만들기]: ./media/sql-database-nodejs-use-web-site/custom_create.png
   [웹 사이트 세부 정보 입력]: ./media/sql-database-nodejs-use-web-site/website_details_sqlazure.jpg
-  [(WEB 또는 BUSINESS)]: http://msdn.microsoft.com/ko-KR/library/windowsazure/ee621788.aspx
   [SQL 데이터베이스 설정 입력]: ./media/sql-database-nodejs-use-web-site/database_settings.jpg
   [새 SQL 데이터베이스 서버 만들기]: ./media/sql-database-nodejs-use-web-site/create_server.jpg
   [웹 사이트 대시보드 열기]: ./media/sql-database-nodejs-use-web-site/go_to_dashboard.png
@@ -495,11 +494,9 @@ tasklist 응용 프로그램에 대한 항목을 저장하는 데 사용할 데�
   [Twitter Bootstrap]: https://github.com/twbs/bootstrap
   [1]: http://getbootstrap.com/
   [빈 tasklist가 표시된 웹 페이지 ]: ./media/sql-database-nodejs-use-web-site/sql_todo_empty.png
-  [작업 목록의 새 항목 이미지]: ./media/sql-database-nodejs-use-web-site/sql_todo_list.png
-  [http://[사이트]: http://[site
+  [작업 목록의 새 항목 이미지]: ./media/sql-database-nodejs-use-web-site/sql_todo_list.pn
   [구성 링크]: ./media/sql-database-nodejs-use-web-site/sql-task-configure.png
   [앱 설정]: ./media/sql-database-nodejs-use-web-site/appsettings.png
   [앱 설정 저장]: ./media/sql-database-nodejs-use-web-site/savebutton.png
   [MongoDB를 사용한 Node.js 웹 응용 프로그램]: ../store-mongolab-web-sites-nodejs-store-data-mongodb/
-  [Git를 사용하여 Azure 웹 사이트에 게시]: ../CommonTasks/publishing-with-git
   [Mac 및 Linux용 Azure 명령줄 도구]: /ko-KR/develop/nodejs/how-to-guides/command-line-tools/

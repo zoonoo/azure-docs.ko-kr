@@ -1,6 +1,6 @@
 <properties urlDisplayName="" pageTitle="Using Resource groups to manage your Azure resources" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Using Resource groups to manage your Azure resources" authors="Nafisa Bhojawala"  solutions="" writer="" manager="" editor=""  />
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="Nafisa Bhojawala"></tags>
+<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="Nafisa="" Bhojawala" />
 
 # 리소스 그룹을 사용하여 Azure 리소스 사용
 
@@ -16,7 +16,7 @@
 
 Preview 포털에서 리소스가 만들어질 때는 항상 리소스가 리소스 그룹 내에 만들어집니다. 새 리소스 그룹을 만들거나 만들기 흐름에서 기존 리소스 그룹을 사용하도록 선택할 수 있습니다.
 
-![][]
+![][0]
 
 함께 작동하는 몇 가지 리소스(예: 웹 사이트 + 데이터베이스)로 구성된 응용 프로그램을 만들면 항상 이 응용 프로그램은 고유한 리소스 그룹에 만들어지므로, 리소스 그룹을 사용하여 모든 관련 자산의 수명 주기를 관리할 수 있습니다. 응용 프로그램이 발전함에 따라 리소스 그룹에서 더 많은 리소스를 추가하거나 제거할 수 있습니다.
 
@@ -51,7 +51,7 @@ Preview 포털에서 리소스가 만들어질 때는 항상 리소스가 리소
 
 ![][6]
 
-  []: http://i.imgur.com/USKkQdW.png
+  [0]: http://i.imgur.com/USKkQdW.png
   [1]: http://i.imgur.com/Me0jbio.png
   [2]: http://i.imgur.com/PhJeLZQ.png
   [3]: http://i.imgur.com/5Wqv2XR.png

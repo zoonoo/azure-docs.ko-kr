@@ -1,6 +1,6 @@
 <properties linkid="manage-services-how-to-deploy-a-sqldb" urlDisplayName="How to deploy" pageTitle="How to deploy a SQL Database - Azure" metaKeywords="" description="Learn how to deploy a SQL Server database to Azure. You will use the Deploy Database to SQL Database wizard to upload a sample database." metaCanonical="" services="sql-database" documentationCenter="" title="How to Deploy a Database to Azure" authors="Lori Clark" solutions="" manager="" editor="" />
 
-<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="Lori Clark"></tags>
+<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="Lori="" Clark" />
 
 # <span id="howtodeploySQLdb"></span></a>Azure에 데이터베이스를 배포하는 방법
 
@@ -12,13 +12,13 @@ School 샘플 데이터베이스는 편의상 단순합니다. 모든 해당 개
 
 ## 목차
 
--   [방법: 온-프레미스 서버에서 school 데이터베이스 만들기][]
--   [방법: SQL 데이터베이스에 배포][]
--   [방법: 데이터베이스 배포 확인][]
+-   [방법: 온-프레미스 서버에서 school 데이터베이스 만들기][방법: 온-프레미스 서버에서 school 데이터베이스 만들기]
+-   [방법: SQL 데이터베이스에 배포][방법: SQL 데이터베이스에 배포]
+-   [방법: 데이터베이스 배포 확인][방법: 데이터베이스 배포 확인]
 
 ## <span id="schooldb"></span></a>방법: 온-프레미스 서버에서 school 데이터베이스 만들기
 
-이 데이터베이스를 만드는 스크립트는 [SQL 데이터베이스 관리 시작][](영문)에서 찾을 수 있습니다. 이 가이드에서는 Management Studio에서 이러한 스크립트를 실행하여 school 데이터베이스의 온-프레미스 버전을 만듭니다.
+이 데이터베이스를 만드는 스크립트는 [SQL 데이터베이스 관리 시작][SQL 데이터베이스 관리 시작](영문)에서 찾을 수 있습니다. 이 가이드에서는 Management Studio에서 이러한 스크립트를 실행하여 school 데이터베이스의 온-프레미스 버전을 만듭니다.
 
 1.  Management Studio에서 온-프레미스 서버에 연결합니다. **데이터베이스**를 마우스 오른쪽 단추로 클릭하고 **새 데이터베이스**를 클릭한 후 *school*을 입력합니다.
 

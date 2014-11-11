@@ -1,6 +1,6 @@
 <properties linkid="manage-services-import-export" urlDisplayName="Azure Import/Export Service" pageTitle="Using import/export to transfer data to Blob Storage | Microsoft Azure" metaKeywords="" description="Learn how to create import and export jobs in the Azure Management Portal to transfer data to blob storage." metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="Using the Azure Import/Export Service to Transfer Data to Blob Storage" authors="tamram" manager="mbaldwin" editor="cgronlun" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="tamram"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
 # Microsoft Azure 가져오기/내보내기 서비스를 사용하여 Blob 저장소로 데이터 전송
 
@@ -13,7 +13,7 @@
 -   Azure 관리 포털 사용
 -   서비스에 대한 REST 인터페이스 사용
 
-이 문서에서는 가져오기/내보내기 서비스에 대한 개요를 제공하고 관리 포털에서 가져오기/내보내기 서비스를 사용하는 방법에 대해 설명합니다. REST API에 대한 자세한 내용은 [Azure 가져오기/내보내기 서비스 REST API 참조][]를 확인하세요.
+이 문서에서는 가져오기/내보내기 서비스에 대한 개요를 제공하고 관리 포털에서 가져오기/내보내기 서비스를 사용하는 방법에 대해 설명합니다. REST API에 대한 자세한 내용은 [Azure 가져오기/내보내기 서비스 REST API 참조][Azure 가져오기/내보내기 서비스 REST API 참조]를 확인하세요.
 
 ## 가져오기/내보내기 서비스 개요
 
@@ -35,7 +35,7 @@ Blob 저장소에서 가져오기 또는 내보내기 프로세스를 시작하�
 
 ### 요구 사항 및 범위
 
-1.  **구독 및 저장소 계정:** 가져오기/내보내기 서비스를 사용하려면 기존 Azure 구독과 하나 이상의 저장소 계정이 있어야 합니다. 각 작업은 하나의 저장소 계정에서만 데이터 전송에 사용될 수 있습니다. 다시 말해, 하나의 작업이 여러 저장소 계정에서 사용될 수 없습니다. 새 저장소 계정 만들기에 대한 자세한 내용은 [저장소 계정을 만드는 방법][](영문)을 참조하세요.
+1.  **구독 및 저장소 계정:** 가져오기/내보내기 서비스를 사용하려면 기존 Azure 구독과 하나 이상의 저장소 계정이 있어야 합니다. 각 작업은 하나의 저장소 계정에서만 데이터 전송에 사용될 수 있습니다. 다시 말해, 하나의 작업이 여러 저장소 계정에서 사용될 수 없습니다. 새 저장소 계정 만들기에 대한 자세한 내용은 [저장소 계정을 만드는 방법][저장소 계정을 만드는 방법](영문)을 참조하세요.
 2.  **하드 드라이브:** 3.5인치 SATA II/III 하드 드라이브만 가져오기/내보내기 서비스에서 사용하도록 지원됩니다. 4TB보다 큰 하드 드라이브는 지원되지 않습니다. 가져오기 작업의 경우 드라이브의 첫 번째 데이터 볼륨만 처리됩니다. 데이터 볼륨은 NTFS로 포맷되어 있어야 합니다. SATA II/III USB 어댑터를 사용하여 외부에서 대부분의 컴퓨터에 SATA II/III 디스크를 연결할 수 있습니다.
 3.  **BitLocker 암호화:** 하드 드라이브에 저장된 모든 데이터는 숫자 암호로 보호되는 암호화 키가 포함된 BitLocker를 사용하여 암호화되어야 합니다.
 4.  **Blob 저장소 목표:** 데이터는 블록 Blob 및 페이지 Blob에서 업로드되거나 다운로드될 수 있습니다.
@@ -48,7 +48,7 @@ Blob 저장소에서 가져오기 또는 내보내기 프로세스를 시작하�
 
 ### 드라이브 준비
 
-가져오기 작업을 만들기 전에 Microsoft Azure 가져오기/내보내기 도구로 드라이브를 준비합니다. Microsoft Azure 가져오기/내보내기 도구 사용에 대한 자세한 내용은 [Microsoft Azure 가져오기/내보내기 도구 참조][](영문)를 참조하세요. [Microsoft Azure 가져오기/내보내기 도구][](영문)를 독립 실행형 패키지로 다운로드할 수 있습니다.
+가져오기 작업을 만들기 전에 Microsoft Azure 가져오기/내보내기 도구로 드라이브를 준비합니다. Microsoft Azure 가져오기/내보내기 도구 사용에 대한 자세한 내용은 [Microsoft Azure 가져오기/내보내기 도구 참조][Microsoft Azure 가져오기/내보내기 도구 참조](영문)를 참조하세요. [Microsoft Azure 가져오기/내보내기 도구][Microsoft Azure 가져오기/내보내기 도구](영문)를 독립 실행형 패키지로 다운로드할 수 있습니다.
 
 드라이브를 준비하려면 다음 세 단계를 따르세요.
 
@@ -68,7 +68,7 @@ Microsoft Azure 가져오기/내보내기 도구는 각 드라이브가 준비�
 
 4.  3단계에서는 드라이브 준비 단계 중 얻은 드라이브 저널 파일을 업로드합니다. 준비한 각 드라이브에 파일을 하나씩 업로드해야 합니다.
 
-    ![가져오기 작업 만들기 - 3단계][]
+    ![가져오기 작업 만들기 - 3단계][가져오기 작업 만들기 - 3단계]
 
 5.  4단계에서는 가져오기 작업의 설명 이름을 입력합니다. 입력하는 이름에는 소문자, 숫자, 하이픈 및 밑줄만 포함될 수 있으며 문자로 시작해야 하고 공백이 포함될 수 없습니다. 작업이 진행 중인 동안 그리고 작업이 완료되면 선택한 이름을 사용하여 작업을 추적합니다.
 
@@ -94,7 +94,7 @@ Microsoft Azure 가져오기/내보내기 도구는 각 드라이브가 준비�
 
 3.  3단계에서는 저장소 계정에서 하나 이상의 빈 드라이브로 내보낼 Blob 데이터를 지정합니다. 저장소 계정의 모든 Blob 데이터를 내보내도록 선택하거나 내보낼 Blob 또는 Blob 집합을 지정할 수 있습니다.
 
-    ![내보내기 작업 만들기 - 3단계][]
+    ![내보내기 작업 만들기 - 3단계][내보내기 작업 만들기 - 3단계]
 
     -   내보낼 Blob을 지정하려면 **같음** 선택기를 사용하여 컨테이너 이름으로 시작하는 Blob의 상대 경로를 지정합니다. 루트 컨테이너를 지정하려면 *$root*를 사용합니다.
     -   특정 접두사로 시작하는 Blob을 모두 지정하려면 **시작 단어** 선택기를 사용하고 슬래시 '/'로 시작하는 접두사를 지정합니다. 접두사는 컨테이너 이름의 접두사, 완전한 컨테이너 이름 또는 Blob 이름 접두사가 뒤에 오는 완전한 컨테이너 이름일 수 있습니다.
@@ -199,7 +199,7 @@ Microsoft Azure 가져오기/내보내기 도구는 각 드라이브가 준비�
 
 내보내기 작업의 경우 서비스에서 해당 드라이브용으로 생성한 BitLocker 키를 보고 복사하여 Azure 데이터 센터에서 드라이브를 받으면 내보낸 데이터를 암호 해독할 수 있습니다. 관리 포털에서 저장소 계정으로 이동하여 **가져오기/내보내기** 탭을 클릭합니다. 목록에서 내보내기 작업을 선택하고 **키 보기** 단추를 클릭합니다. BitLocker 키가 다음과 같이 표시됩니다.
 
-![내보내기 작업의 BitLocker 키 보기][]
+![내보내기 작업의 BitLocker 키 보기][내보내기 작업의 BitLocker 키 보기]
 
 ## 질문과 대답
 
@@ -207,7 +207,7 @@ Microsoft Azure 가져오기/내보내기 도구는 각 드라이브가 준비�
 
 **가져오기/내보내기 서비스 가격은 얼마입니까?**
 
--   가격 정보는 [가격 정보 페이지][]를 참조하세요.
+-   가격 정보는 [가격 정보 페이지][가격 정보 페이지]를 참조하세요.
 
 **데이터를 가져오거나 내보내는 데 소요되는 시간은 얼마입니까?**
 
@@ -257,9 +257,9 @@ Microsoft Azure 가져오기/내보내기 도구는 각 드라이브가 준비�
 
 **어떤 택배 서비스가 지원됩니까?**
 
--   미국 및 유럽 지역에서는 [Federal Express][](FedEx)만 지원됩니다. 모든 패키지는 FedEx Ground 또는 FedEx International Economy를 통해 반송됩니다.
+-   미국 및 유럽 지역에서는 [Federal Express][Federal Express](FedEx)만 지원됩니다. 모든 패키지는 FedEx Ground 또는 FedEx International Economy를 통해 반송됩니다.
 
--   아시아 지역에서는 [DHL][]만 지원됩니다. 모든 패키지는 DHL Express Worldwide를 통해 반환됩니다.
+-   아시아 지역에서는 [DHL][DHL]만 지원됩니다. 모든 패키지는 DHL Express Worldwide를 통해 반환됩니다.
 
     <div class="dev-callout">
 <strong>중요</strong>
@@ -268,7 +268,7 @@ Microsoft Azure 가져오기/내보내기 도구는 각 드라이브가 준비�
 
 **반환 발송과 관련된 비용이 있습니까?**
 
--   Microsoft는 작업 완료 시 사용자가 제공한 택배사 계정 번호를 사용하여 데이터 센터에서 사용자의 반품 주소로 드라이브를 배송합니다. 데이터 센터 지역의 지원되는 택배사의 택배사 계정 번호를 제공해야 합니다. 계정 번호가 없으면 [FedEx][Federal Express](미국 및 유럽) 또는 [DHL][](아시아) 택배사 계정을 만들 수 있습니다.
+-   Microsoft는 작업 완료 시 사용자가 제공한 택배사 계정 번호를 사용하여 데이터 센터에서 사용자의 반품 주소로 드라이브를 배송합니다. 데이터 센터 지역의 지원되는 택배사의 택배사 계정 번호를 제공해야 합니다. 계정 번호가 없으면 [FedEx][Federal Express](미국 및 유럽) 또는 [DHL][DHL](아시아) 택배사 계정을 만들 수 있습니다.
 
 -   반송료는 택배사 계정에 부과되며 택배사에 따라 다릅니다.
 
@@ -291,7 +291,7 @@ Microsoft Azure 가져오기/내보내기 도구는 각 드라이브가 준비�
 <p>배송하는 실제 미디어는 국경을 지나야 할 수 있습니다. 실제 미디어와 데이터를 관련 법률에 따라 가져오거나 내보내도록 해야 합니다. 실제 미디어를 배송하기 전에 관리자에게 미디어 및 데이터를 확인된 데이터 센터에 합법적으로 배송할 수 있는지 확인하세요. 이렇게 하면 해당 품목이 시기 적절하게 Microsoft에 도착될 수 있습니다.</p>
 </div>
 
--   패키지를 배송할 때는 [Microsoft Azure 서비스 조건][]의 조항을 따라야 합니다.
+-   패키지를 배송할 때는 [Microsoft Azure 서비스 조건][Microsoft Azure 서비스 조건]의 조항을 따라야 합니다.
 
 **가져오기/내보내기 작업에 사용할 드라이브를 Microsoft에서 구입할 수 있습니까?**
 
@@ -311,4 +311,4 @@ Microsoft Azure 가져오기/내보내기 도구는 각 드라이브가 준비�
   [가격 정보 페이지]: http://go.microsoft.com/fwlink/?LinkId=329033
   [Federal Express]: http://www.fedex.com/us/oadr/
   [DHL]: http://www.dhl-welcome.com/Tutorial/
-  [Microsoft Azure 서비스 조건]: http://azure.microsoft.com/en-us/support/legal/services-terms/
+  [Microsoft Azure 서비스 조건]: http://azure.microsoft.com/ko-kr/support/legal/services-terms/

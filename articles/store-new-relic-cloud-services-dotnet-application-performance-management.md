@@ -1,6 +1,6 @@
 <properties linkid="develop-net-how-to-guides-new-relic" urlDisplayName="New Relic" pageTitle="Using New Relic with Azure - Azure feature guides" metaKeywords="" description="Learn how to use the New Relic service to manage and monitor your Azure application." metaCanonical="" services="" documentationCenter=".NET" title="New Relic Application Performance Management on Azure" authors="" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="new relic"></tags>
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="new="" relic" />
 
 # Azure에서 New Relic 응용 프로그램 성능 관리
 
@@ -202,10 +202,6 @@ Applications Overview 대시보드에는 [표준 New Relic UI][표준 New Relic 
   [표준 New Relic UI]: https://newrelic.com/docs/site/the-new-relic-ui#functions
   [대시보드 드릴다운]: https://newrelic.com/docs/site/the-new-relic-ui#drilldown
   [Apdex]: https://newrelic.com/docs/site/apdex
-  [Geography]: https://docs.newrelic.com/docs/new-relic-browser/geography-dashboard
-  [Web Transactions]: https://newrelic.com/docs/applications-dashboards/web-transactions
-  [Key Transactions]: https://newrelic.com/docs/site/key-transactions
-  [Errors]: https://newrelic.com/docs/site/errors
   [1]: ./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelic_app_browser.png
   [Azure에서 .NET 에이전트 설치]: https://newrelic.com/docs/dotnet/installing-the-net-agent-on-azure
   [New Relic 사용자 인터페이스]: https://newrelic.com/docs/site/the-new-relic-ui

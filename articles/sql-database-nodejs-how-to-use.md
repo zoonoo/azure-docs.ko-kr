@@ -1,20 +1,20 @@
 <properties linkid="develop-node-how-to-sql-database" urlDisplayName="SQL Database" pageTitle="How to use SQL Database (Node.js) - Azure feature guide" metaKeywords="" description="Learn how to use Azure SQL Database from Node.js." metaCanonical="" services="sql-database" documentationCenter="nodejs" title="How to Access Azure SQL Database from Node.js" authors="larryfr" solutions="" manager="" editor="" />
 
-<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr"></tags>
+<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr" />
 
 # Node.js에서 Azure SQL 데이터베이스에 액세스하는 방법
 
-이 가이드에서는 Microsoft Driver for Node.JS for SQL Server를 사용하는 Azure SQL 데이터베이스 액세스의 기본 사항을 보여 줍니다. **SQL 데이터베이스 만들기** 및 **SQL 데이터베이스에 연결** 시나리오를 다룹니다. 이 가이드에서는 [Azure 관리 포털][]에서 SQL 데이터베이스를 만듭니다.
+이 가이드에서는 Microsoft Driver for Node.JS for SQL Server를 사용하는 Azure SQL 데이터베이스 액세스의 기본 사항을 보여 줍니다. **SQL 데이터베이스 만들기** 및 **SQL 데이터베이스에 연결** 시나리오를 다룹니다. 이 가이드에서는 [Azure 관리 포털][Azure 관리 포털]에서 SQL 데이터베이스를 만듭니다.
 
 ## 목차
 
--   [개념][]
--   [방법: 환경 설정][]
--   [방법: SQL 데이터베이스 만들기][]
--   [방법: SQL 데이터베이스 연결 정보 가져오기][]
--   [방법: SQL 데이터베이스 인스턴스에 연결][]
--   [Azure 배포 고려 사항][]
--   [다음 단계][]
+-   [개념][개념]
+-   [방법: 환경 설정][방법: 환경 설정]
+-   [방법: SQL 데이터베이스 만들기][방법: SQL 데이터베이스 만들기]
+-   [방법: SQL 데이터베이스 연결 정보 가져오기][방법: SQL 데이터베이스 연결 정보 가져오기]
+-   [방법: SQL 데이터베이스 인스턴스에 연결][방법: SQL 데이터베이스 인스턴스에 연결]
+-   [Azure 배포 고려 사항][Azure 배포 고려 사항]
+-   [다음 단계][다음 단계]
 
 ## <span id="Concepts"></span></a>개념
 
@@ -24,7 +24,7 @@ Azure SQL 데이터베이스는 Azure에 관계형 데이터베이스 관리 시
 
 ## Microsoft Driver for Node.JS for SQL Server 정의
 
-Microsoft Driver for Node.JS for SQL Server에서는 개발자가 Node.js 응용 프로그램에서 Microsoft SQL Server 또는 Azure SQL 데이터베이스에 저장된 데이터에 액세스할 수 있습니다. 이 드라이버는 현재 미리 보기 릴리스로만 제공됩니다. 추가 기능이 완료되면 프로젝트로 통합될 것입니다. 드라이버에 대한 자세한 내용은 Microsoft Driver for Node.JS for SQL Server 프로젝트의 [Github 페이지][]와 관련 [Wiki][]를 참조하십시오.
+Microsoft Driver for Node.JS for SQL Server에서는 개발자가 Node.js 응용 프로그램에서 Microsoft SQL Server 또는 Azure SQL 데이터베이스에 저장된 데이터에 액세스할 수 있습니다. 이 드라이버는 현재 미리 보기 릴리스로만 제공됩니다. 추가 기능이 완료되면 프로젝트로 통합될 것입니다. 드라이버에 대한 자세한 내용은 Microsoft Driver for Node.JS for SQL Server 프로젝트의 [Github 페이지][Github 페이지]와 관련 [Wiki][Wiki]를 참조하십시오.
 
 <div class="dev-callout">
 <b>참고</b>
@@ -35,7 +35,7 @@ Microsoft Driver for Node.JS for SQL Server에서는 개발자가 Node.js 응용
 
 ### SQL Server Native Client 설치
 
-Microsoft SQL Server Driver for Node.js는 SQL Server Native Client를 기반으로 합니다. 네이티브 클라이언트는 Azure에 응용 프로그램이 배포되면 자동으로 사용할 수 있으나 로컬 개발 환경에 표시되지 않을 수 있습니다. SQL Server Native Client는 [Microsoft SQL Server 2012 기능 팩][] 다운로드 페이지에서 설치할 수 있습니다.
+Microsoft SQL Server Driver for Node.js는 SQL Server Native Client를 기반으로 합니다. 네이티브 클라이언트는 Azure에 응용 프로그램이 배포되면 자동으로 사용할 수 있으나 로컬 개발 환경에 표시되지 않을 수 있습니다. SQL Server Native Client는 [Microsoft SQL Server 2012 기능 팩][Microsoft SQL Server 2012 기능 팩] 다운로드 페이지에서 설치할 수 있습니다.
 
 <div class="dev-callout">
 <b>참고</b>
@@ -53,33 +53,33 @@ Node.js는 [][]<http://nodejs.org/#download></a>에서 설치할 수 있습니�
 1.  [관리 포털][Azure 관리 포털]에 로그인합니다.
 2.  포털의 왼쪽 아래에서 **+ 새로 만들기** 아이콘을 클릭합니다.
 
-    ![새 Azure 웹 사이트 만들기][]
+    ![새 Azure 웹 사이트 만들기][새 Azure 웹 사이트 만들기]
 
 3.  **SQL 데이터베이스**를 클릭하고 **사용자 지정 만들기**를 클릭합니다.
 
-    ![새 SQL 데이터베이스 사용자 지정 만들기][]
+    ![새 SQL 데이터베이스 사용자 지정 만들기][새 SQL 데이터베이스 사용자 지정 만들기]
 
 4.  데이터베이스 **이름**에 값을 입력하고 **버전**(WEB 또는 BUSINESS), 데이터베이스의 **최대 크기**, **정렬** 및 **새 SQL 데이터베이스 서버**를 선택합니다. 대화 상자 아래쪽의 화살표를 클릭합니다. 이전에 SQL 데이터베이스를 만든 경우 **서버 선택** 드롭다운에서 기존 서버를 선택할 수 있습니다.
 
-    ![SQL 데이터베이스 설정 입력][]
+    ![SQL 데이터베이스 설정 입력][SQL 데이터베이스 설정 입력]
 
 5.  관리자 이름 및 암호를 입력하고 암호를 확인한 후 새 SQL 데이터베이스를 만들 지역을 선택하고 `Allow Azure Services to access the server` 상자를 선택합니다.
 
-    ![새 SQL 데이터베이스 서버 만들기][]
+    ![새 SQL 데이터베이스 서버 만들기][새 SQL 데이터베이스 서버 만들기]
 
 서버 및 데이터베이스 정보를 보려면 Azure 관리 포털에서 **SQL 데이터베이스**를 클릭합니다. 그런 다음 **데이터베이스** 또는 **서버**를 클릭하여 관련 정보를 볼 수 있습니다.
 
-![서버 및 데이터베이스 정보 보기][]
+![서버 및 데이터베이스 정보 보기][서버 및 데이터베이스 정보 보기]
 
 ## <span id="ConnectionInfo"></span></a>방법: SQL 데이터베이스 연결 정보 가져오기
 
 SQL 데이터베이스 연결 정보를 가져오려면 포털에서 **SQL 데이터베이스**를 클릭하고 데이터베이스 이름을 클릭합니다.
 
-![데이터베이스 정보 보기][]
+![데이터베이스 정보 보기][데이터베이스 정보 보기]
 
 그런 다음 **연결 문자열 표시**를 클릭합니다.
 
-![연결 문자열 표시][]
+![연결 문자열 표시][연결 문자열 표시]
 
 결과 창의 ODBC 섹션에서 연결 문자열 값을 기록해 둡니다. 이 값은 노드 응용 프로그램에서 SQL 데이터베이스에 연결할 때 사용할 연결 문자열입니다. 암호는 SQL 데이터베이스를 만들 때 사용한 암호입니다.
 
@@ -87,7 +87,7 @@ SQL 데이터베이스 연결 정보를 가져오려면 포털에서 **SQL 데�
 
 ### node-sqlserver 설치
 
-Microsoft Driver for Node.JS for SQL Server는 node-sqlserver 네이티브 모듈로 사용할 수 있습니다. 이 모듈의 이진 버전은 [다운로드 센터][]에서 제공합니다. 이진 버전을 사용하려면 다음 단계를 수행하십시오.
+Microsoft Driver for Node.JS for SQL Server는 node-sqlserver 네이티브 모듈로 사용할 수 있습니다. 이 모듈의 이진 버전은 [다운로드 센터][다운로드 센터]에서 제공합니다. 이진 버전을 사용하려면 다음 단계를 수행하십시오.
 
 1.  응용 프로그램의 **node\_modules** 디렉터리로 이진 보관 파일을 추출합니다.
 2.  보관 파일에서 추출된 **node-sqlserver-install.cmd** 파일을 실행합니다. **node\_modules**에 **node-sqlserver** 하위 디렉터리가 만들어지고 드라이버 파일이 새 디렉터리 구조로 이동됩니다.
@@ -100,7 +100,7 @@ Microsoft Driver for Node.JS for SQL Server는 node-sqlserver 네이티브 모�
 
 ### 연결 문자열 지정
 
-node-sqlserver를 사용하려면 응용 프로그램에서 요청하고 연결 문자열을 지정해야 합니다. 연결 문자열은 이 문서의 [방법: SQL 데이터베이스 연결 정보 가져오기][] 섹션에 반환된 ODBC 값이어야 합니다. 코드는 다음과 유사합니다.
+node-sqlserver를 사용하려면 응용 프로그램에서 요청하고 연결 문자열을 지정해야 합니다. 연결 문자열은 이 문서의 [방법: SQL 데이터베이스 연결 정보 가져오기][방법: SQL 데이터베이스 연결 정보 가져오기] 섹션에 반환된 ODBC 값이어야 합니다. 코드는 다음과 유사합니다.
 
     var sql = require('node-sqlserver');
     var conn_str = "Driver={SQL Server Native Client 10.0};Server=tcp:{dbservername}.database.windows.net,1433;Database={database};Uid={username};Pwd={password};Encrypt=yes;Connection Timeout=30;";
@@ -152,11 +152,11 @@ Azure는 런타임 시 node-sqlserver 모듈을 동적으로 설치하지 않으
 
 **node-sqlserver** 디렉터리에는 **package.json** 파일이 있어야 합니다. **lib** 디렉터리에는 node-sqlserver 모듈의 컴파일 형식인 **sql.js** 및 **sqlserver.node** 파일이 있어야 합니다.
 
-Azure에 Node.js 응용 프로그램을 배포하는 작업에 대한 자세한 내용은 [Node.js 응용 프로그램을 만들어 Azure 웹 사이트에 배포][](영문) 및 [Node.js 클라우드 서비스][](영문)를 참조하십시오.
+Azure에 Node.js 응용 프로그램을 배포하는 작업에 대한 자세한 내용은 [Node.js 응용 프로그램을 만들어 Azure 웹 사이트에 배포][Node.js 응용 프로그램을 만들어 Azure 웹 사이트에 배포](영문) 및 [Node.js 클라우드 서비스][Node.js 클라우드 서비스](영문)를 참조하십시오.
 
 ## <span id="NextSteps"></span></a>다음 단계
 
--   [Microsoft Driver for Node.JS for SQL Server 소개(영문)][]
+-   [Microsoft Driver for Node.JS for SQL Server 소개(영문)][Microsoft Driver for Node.JS for SQL Server 소개(영문)]
 -   [Github.com의 Microsoft Driver for Node.js for SQL Server(영문)][Github 페이지]
 
   [Azure 관리 포털]: https://manage.windowsazure.com
@@ -181,4 +181,3 @@ Azure에 Node.js 응용 프로그램을 배포하는 작업에 대한 자세한 
   [다운로드 센터]: http://www.microsoft.com/ko-KR/download/details.aspx?id=29995
   [Node.js 응용 프로그램을 만들어 Azure 웹 사이트에 배포]: /ko-KR/develop/nodejs/tutorials/create-a-website-(mac)/
   [Node.js 클라우드 서비스]: /ko-KR/develop/nodejs/tutorials/getting-started/
-  [Microsoft Driver for Node.JS for SQL Server 소개(영문)]: http://blogs.msdn.com/b/sqlphp/archive/2012/06/08/introducing-the-microsoft-driver-for-node-js-for-sql-server.aspx

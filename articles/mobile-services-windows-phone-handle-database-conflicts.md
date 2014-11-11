@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-optimistic-concurrent-data-wp8" urlDisplayName="Optimistic concurrency" pageTitle="Handle database write conflicts with optimistic concurrency (Windows Store) | Mobile Dev Center" metaKeywords="" description="Learn how to handle database write conflicts on both the server and in your Windows Store application." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Handling database write conlicts" authors="wesmc" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc" />
 
 # 데이터베이스 쓰기 충돌 처리
 
@@ -29,7 +29,7 @@
 
     1.  Visual Studio에서 프로젝트를 열고 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **Nuget 패키지 관리**를 클릭합니다.
 
-        ![][]
+        ![][0]
 
     2.  **온라인**을 확장하고 **Microsoft 및 .NET**을 클릭합니다. 검색 텍스트 상자에 **Azure 모바일 서비스**를 입력합니다. **Azure 모바일 서비스** NuGet 패키지에서 **설치**를 클릭합니다.
 
@@ -291,7 +291,7 @@
 -   [푸시 알림 시작][푸시 알림 시작]
     모바일 서비스를 사용하여 기본적인 푸시 알림을 앱에 보내는 방법을 알아봅니다.
 
-<!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
+
 
   [Windows 스토어 C#]: /ko-kr/develop/mobile/tutorials/handle-database-write-conflicts-dotnet/ "Windows 스토어 C#"
   [Windows 스토어 JavaScript]: /ko-kr/documentation/articles/mobile-services-windows-store-javascript-handle-database-conflicts/ "Windows 스토어 JavaScript"
@@ -303,7 +303,7 @@
   [Windows Phone 8 SDK]: http://go.microsoft.com/fwlink/p/?LinkID=268374
   [Azure 계정]: http://www.windowsazure.com/ko-kr/pricing/free-trial/
   [모바일 서비스 시작하기]: /ko-kr/develop/mobile/tutorials/get-started-wp8
-  []: ./media/mobile-services-windows-phone-handle-database-conflicts/mobile-manage-nuget-packages-VS.png
+  [0]: ./media/mobile-services-windows-phone-handle-database-conflicts/mobile-manage-nuget-packages-VS.png
   [1]: ./media/mobile-services-windows-phone-handle-database-conflicts/mobile-manage-nuget-packages-dialog.png
   [낙관적 동시성 제어]: http://go.microsoft.com/fwlink/?LinkId=330935
   [시스템 속성]: http://go.microsoft.com/fwlink/?LinkId=331143

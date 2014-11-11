@@ -1,6 +1,6 @@
 <properties  pageTitle="Schedule Backend Tasks with Scheduler - Mobile Services" metaKeywords="" description="Use the Windows Azure Mobile Services Scheduler to schedule jobs for your mobile app." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Schedule recurring jobs in Mobile Services" authors="glenga"  solutions="mobile" writer="" manager="" editor=""  />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # 모바일 서비스에서 되풀이 작업 예약
 
@@ -27,7 +27,7 @@
 
 ## <a name="get-oauth-credentials"></a>Twitter v1.1 API 액세스 및 저장 자격 증명 등록
 
-[WACOM.INCLUDE [mobile-services-register-twitter-access][mobile-services-register-twitter-access]]
+[WACOM.INCLUDE [mobile-services-register-twitter-access](../includes/mobile-services-register-twitter-access.md)]
 
 1.  Visual Studio의 솔루션 탐색기에서 모바일 서비스 프로젝트에 대한 web.config 파일을 열고, **MS\_TwitterConsumerKey** 및 **MS\_TwitterConsumerSecret** 앱 설정을 찾은 다음 이 키 값을 포털에서 설정한 Twitter consumer key 및 consumer secret 값으로 바꿉니다.
 
@@ -44,7 +44,7 @@
 
 2.  왼쪽 창에서 **온라인** 범주를 선택하고, `linq2twitter`를 검색하고, **linqtotwitter** 패키지에서 **설치**를 클릭한 다음 라이선스 계약을 읽고 동의합니다.
 
-    ![][]
+    ![][0]
 
     Linq to Twitter 라이브러리가 모바일 서비스 프로젝트에 추가됩니다.
 
@@ -275,8 +275,6 @@ Azure에 게시하고 포털에 등록하기 전에 로컬에서 작업 예약�
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [.NET 백 엔드]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-schedule-recurring-tasks/ ".NET 백 엔드"
-  [JavaScript 백 엔드]: /ko-kr/documentation/articles/mobile-services-schedule-recurring-tasks/ "JavaScript 백 엔드"
   [Twitter 액세스 및 저장 자격 증명 등록]: #get-oauth-credentials
   [LINQ to Twitter 라이브러리 다운로드 및 설치]: #install-linq2twitter
   [새 Updates 테이블 만들기]: #create-table
@@ -285,7 +283,7 @@ Azure에 게시하고 포털에 등록하기 전에 로컬에서 작업 예약�
   [서비스 게시 및 작업 등록]: #register-job
   [LINQ to Twitter CodePlex 프로젝트]: http://linqtotwitter.codeplex.com/
   [mobile-services-register-twitter-access]: ../includes/mobile-services-register-twitter-access.md
-  []: ./media/mobile-services-dotnet-backend-schedule-recurring-tasks/add-linq2twitter-nuget-package.png
+  [0]: ./media/mobile-services-dotnet-backend-schedule-recurring-tasks/add-linq2twitter-nuget-package.png
   [1]: ./media/mobile-services-dotnet-backend-schedule-recurring-tasks/add-component-model-reference.png
   [Code First 마이그레이션을 사용하여 데이터 모델을 업데이트하는 방법]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-use-code-first-migrations
   [2]: ./media/mobile-services-dotnet-backend-schedule-recurring-tasks/mobile-service-start-page.png

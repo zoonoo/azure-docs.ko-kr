@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-schedule-backend-tasks" urlDisplayName="Schedule Backend Tasks" pageTitle="Schedule Backend Tasks with Scheduler - Mobile Services" metaKeywords="" description="Use the Azure Mobile Services Scheduler to schedule jobs for your mobile app." metaCanonical="" services="" documentationCenter="Mobile" title="Schedule recurring jobs in Mobile Services" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # 모바일 서비스에서 되풀이 작업 예약
 
@@ -26,7 +26,7 @@
 
 ## <a name="get-oauth-credentials"></a>Twitter v1.1 API 액세스 및 저장 자격 증명 등록
 
-[WACOM.INCLUDE [mobile-services-register-twitter-access][mobile-services-register-twitter-access]]
+[WACOM.INCLUDE [mobile-services-register-twitter-access](../includes/mobile-services-register-twitter-access.md)]
 
 ## <a name="create-table"></a>새 Updates 테이블 만들기
 
@@ -34,7 +34,7 @@
 
 1.  관리 포털에서 모바일 서비스의 **데이터** 탭을 클릭한 후 **+만들기**를 클릭합니다.
 
-    ![][]
+    ![][0]
 
     **Create new table** 대화 상자가 표시됩니다.
 
@@ -166,7 +166,7 @@
 -   [모바일 서비스 서버 스크립트 참조][모바일 서비스 서버 스크립트 참조]
     서버 스크립트의 등록 및 사용에 대해 자세히 알아보십시오.
 
-<!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
+
 
   [.NET 백 엔드]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-schedule-recurring-tasks/ ".NET 백 엔드"
   [JavaScript 백 엔드]: /ko-kr/documentation/articles/mobile-services-schedule-recurring-tasks/ "JavaScript 백 엔드"
@@ -174,7 +174,7 @@
   [새 Updates 테이블 만들기]: #create-table
   [새 예약된 작업 만들기]: #add-job
   [mobile-services-register-twitter-access]: ../includes/mobile-services-register-twitter-access.md
-  []: ./media/mobile-services-schedule-recurring-tasks/mobile-data-tab-empty-cli.png
+  [0]: ./media/mobile-services-schedule-recurring-tasks/mobile-data-tab-empty-cli.png
   [1]: ./media/mobile-services-schedule-recurring-tasks/mobile-create-updates-table.png
   [2]: ./media/mobile-services-schedule-recurring-tasks/mobile-schedule-new-job-cli.png
   [3]: ./media/mobile-services-schedule-recurring-tasks/mobile-create-job-dialog.png

@@ -1,10 +1,10 @@
 <properties linkid="manage-services-how-to-manage-a-cloud-service" urlDisplayName="How to manage" pageTitle="How to manage a cloud service - Azure" metaKeywords="Azure manage cloud services, Azure Management Portal cloud services" description="Learn how to manage cloud services in the Azure Management Portal." metaCanonical="" services="cloud-services" documentationCenter="" title="How to Manage Cloud Services" authors="ryanwi" solutions="" manager="timlt" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="ryanwi"></tags>
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="ryanwi" />
 
 # 클라우드 서비스를 관리하는 방법
 
-[WACOM.INCLUDE [disclaimer][disclaimer]]
+[WACOM.INCLUDE [disclaimer](../includes/disclaimer.md)]
 
 Azure 관리 포털 **클라우드 서비스** 영역에서 서비스 역할 또는 배포를 업데이트하고, 스테이징된 배포의 수준을 프로덕션으로 올리고, 리소스 종속성을 표시하고 리소스를 확장할 수 있도록 클라우드 서비스에 리소스를 연결하고, 클라우드 서비스 또는 배포를 삭제할 수 있습니다.
 

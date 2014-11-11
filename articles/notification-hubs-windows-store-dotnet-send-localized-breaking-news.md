@@ -1,6 +1,6 @@
 <properties linkid="develop-notificationhubs-tutorials-send-localized-breaking-news-windowsdotnet" urlDisplayName="Localized Breaking News" pageTitle="Notification Hubs Localized Breaking News Tutorial" metaKeywords="" description="Learn how to use Azure Service Bus Notification Hubs to send localized breaking news notifications." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="" title="Use Notification Hubs to send localized breaking news" authors="ricksal" solutions="" manager="" editor="" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal"></tags>
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal" />
 
 # 알림 허브를 사용하여 지역화된 속보 보내기
 
@@ -8,14 +8,14 @@
         <a href="/ko-KR/documentation/articles/notification-hubs-windows-store-dotnet-send-localized-breaking-news/" title="Windows 스토어 C#" class="current">Windows 스토어 C#</a><a href="/ko-KR/documentation/articles/notification-hubs-ios-send-localized-breaking-news/" title="iOS">iOS</a>
 </div>
 
-이 항목에서는 Azure 알림 허브의 **템플릿** 기능을 사용하여 언어 및 장치별로 지역화된 속보 알림을 브로드캐스트하는 방법을 보여 줍니다. 이 자습서에서는 [알림 허브를 사용하여 속보 보내기][]에서 만든 Windows 스토어 앱으로 시작합니다. 이 자습서를 완료하면 관심 있는 범주를 등록하고, 알림을 받을 언어를 지정하고, 선택한 범주에 대한 푸시 알림만 해당 언어로 받을 수 있습니다.
+이 항목에서는 Azure 알림 허브의 **템플릿** 기능을 사용하여 언어 및 장치별로 지역화된 속보 알림을 브로드캐스트하는 방법을 보여 줍니다. 이 자습서에서는 [알림 허브를 사용하여 속보 보내기][알림 허브를 사용하여 속보 보내기]에서 만든 Windows 스토어 앱으로 시작합니다. 이 자습서를 완료하면 관심 있는 범주를 등록하고, 알림을 받을 언어를 지정하고, 선택한 범주에 대한 푸시 알림만 해당 언어로 받을 수 있습니다.
 
 이 자습서에서는 이 시나리오를 사용하기 위한 다음 기본 단계를 차례로 안내합니다.
 
-1.  [템플릿 개념][]
-2.  [앱 사용자 인터페이스][]
-3.  [Windows 스토어 클라이언트 앱 빌드][]
-4.  [백 엔드에서 알림 보내기][]
+1.  [템플릿 개념][템플릿 개념]
+2.  [앱 사용자 인터페이스][앱 사용자 인터페이스]
+3.  [Windows 스토어 클라이언트 앱 빌드][Windows 스토어 클라이언트 앱 빌드]
+4.  [백 엔드에서 알림 보내기][백 엔드에서 알림 보내기]
 
 이 시나리오는 다음과 같은 두 부분으로 구성되어 있습니다.
 
@@ -25,13 +25,13 @@
 
 ## 필수 조건
 
-이미 [알림 허브를 사용하여 속보 보내기][] 자습서를 완료한 상태여야 하며 사용 가능한 코드가 있어야 합니다. 이 자습서에서는 해당 코드를 기반으로 직접 빌드하기 때문입니다.
+이미 [알림 허브를 사용하여 속보 보내기][알림 허브를 사용하여 속보 보내기] 자습서를 완료한 상태여야 하며 사용 가능한 코드가 있어야 합니다. 이 자습서에서는 해당 코드를 기반으로 직접 빌드하기 때문입니다.
 
 Visual Studio 2012도 필요합니다.
 
 ## <a name="concepts"></a><span class="short-header">개념</span>템플릿 개념
 
-[알림 허브를 사용하여 속보 보내기][]에서 **태그**를 사용하여 다른 뉴스 범주에 대한 알림을 구독하는 앱을 빌드했습니다.
+[알림 허브를 사용하여 속보 보내기][알림 허브를 사용하여 속보 보내기]에서 **태그**를 사용하여 다른 뉴스 범주에 대한 알림을 구독하는 앱을 빌드했습니다.
 그러나 많은 앱은 여러 시장을 대상으로 하고 지역화를 필요로 합니다. 즉, 알림 자체의 내용을 지역화해서 올바른 장치 집합으로 전달해야 합니다.
 이 항목에서는 알림 허브의 **템플릿** 기능을 사용하여 지역화된 속보 알림을 쉽게 전달하는 방법을 보여 줍니다.
 
@@ -55,11 +55,11 @@ Visual Studio 2012도 필요합니다.
       </visual>
     </toast>
 
-템플릿은 [알림 허브 지침][] 문서에서 자세한 내용을 알아볼 수 있는 매우 강력한 기능입니다. 템플릿 표현 언어에 대한 참조는 [Windows 스토어용 알림 허브 방법][]을 참조하십시오.
+템플릿은 [알림 허브 지침][알림 허브 지침] 문서에서 자세한 내용을 알아볼 수 있는 매우 강력한 기능입니다. 템플릿 표현 언어에 대한 참조는 [Windows 스토어용 알림 허브 방법][Windows 스토어용 알림 허브 방법]을 참조하십시오.
 
 ## <a name="ui"></a><span class="short-header">앱 UI</span>앱 사용자 인터페이스
 
-이제 [알림 허브를 사용하여 속보 보내기][] 항목에서 만든 속보 앱을 수정하고 템플릿을 사용하여 지역화된 속보를 보냅니다.
+이제 [알림 허브를 사용하여 속보 보내기][알림 허브를 사용하여 속보 보내기] 항목에서 만든 속보 앱을 수정하고 템플릿을 사용하여 지역화된 속보를 보냅니다.
 
 지역화된 메시지를 받도록 클라이언트 앱을 조정하려면 *네이티브* 등록(즉, 템플릿을 지정하는 등록)을 템플릿 등록으로 바꿔야 합니다.
 
@@ -152,18 +152,16 @@ Windows 스토어 앱에서
 
 ## <a name="send"></a><span class="short-header">지역화된 알림 보내기</span>백 엔드에서 지역화된 알림 보내기
 
-[WACOM.INCLUDE [notification-hubs-localized-back-end][]]
+[WACOM.INCLUDE [notification-hubs-localized-back-end](../includes/notification-hubs-localized-back-end.md)]
 
 ## 다음 단계
 
-템플릿 사용에 대한 자세한 내용은 [알림 허브를 통해 사용자에게 알림: ASP.NET][], [알림 허브를 통해 사용자에게 알림: 모바일 서비스][] 및 [알림 허브 지침][]을 참조하십시오. 템플릿 표현 언어에 대한 자세한 내용은 [Windows 스토어용 알림 허브 방법][]을 참조하십시오.
+템플릿 사용에 대한 자세한 내용은 [알림 허브를 통해 사용자에게 알림: ASP.NET][알림 허브를 통해 사용자에게 알림: ASP.NET], [알림 허브를 통해 사용자에게 알림: 모바일 서비스][알림 허브를 통해 사용자에게 알림: 모바일 서비스] 및 [알림 허브 지침][알림 허브 지침]을 참조하십시오. 템플릿 표현 언어에 대한 자세한 내용은 [Windows 스토어용 알림 허브 방법][Windows 스토어용 알림 허브 방법]을 참조하십시오.
 
 <!-- Anchors. --> 
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [Windows 스토어 C#]: /ko-KR/documentation/articles/notification-hubs-windows-store-dotnet-send-localized-breaking-news/ "Windows 스토어 C#"
-  [iOS]: /ko-KR/documentation/articles/notification-hubs-ios-send-localized-breaking-news/ "iOS"
   [알림 허브를 사용하여 속보 보내기]: /ko-KR/manage/services/notification-hubs/breaking-news-dotnet
   [템플릿 개념]: #concepts
   [앱 사용자 인터페이스]: #ui

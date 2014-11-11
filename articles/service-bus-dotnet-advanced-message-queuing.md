@@ -1,6 +1,6 @@
 <properties linkid="develop-net-how-to-guides-service-bus-amqp" urlDisplayName="Service Bus AMQP" pageTitle="How to use AMQP 1.0 with the .NET Service Bus API - Azure" metaKeywords="" description="Learn how to use Advanced Message Queuing Protodol (AMQP) 1.0 with the Azure .NET Service Bus API." metaCanonical="" services="service-bus" documentationCenter=".NET" title="How to use AMQP 1.0 with the Service Bus .NET API" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="sethm"></tags>
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
 
 # 서비스 버스 .NET API와 함께 AMQP 1.0을 사용하는 방법
 
@@ -14,7 +14,7 @@ AMQP(Advanced Message Queuing Protocol) 1.0은 효율성과 안정성이 뛰어�
 
 ## <span class="short-header">시작하기</span>서비스 버스 시작
 
-이 가이드에서는 사용자가 "queue1"이라는 큐가 포함된 서비스 버스 네임스페이스를 이미 가지고 있다고 가정합니다. 가지고 있지 않은 사용자는 [Azure 관리 포털][]을 사용하여 네임스페이스와 큐를 만들 수 있습니다. 서비스 버스 네임스페이스와 큐를 만드는 방법에 대한 자세한 내용은 "[서비스 버스 큐를 사용하는 방법][]"이라는 제목의 방법 가이드를 참조하십시오.
+이 가이드에서는 사용자가 "queue1"이라는 큐가 포함된 서비스 버스 네임스페이스를 이미 가지고 있다고 가정합니다. 가지고 있지 않은 사용자는 [Azure 관리 포털][Azure 관리 포털]을 사용하여 네임스페이스와 큐를 만들 수 있습니다. 서비스 버스 네임스페이스와 큐를 만드는 방법에 대한 자세한 내용은 "[서비스 버스 큐를 사용하는 방법][서비스 버스 큐를 사용하는 방법]"이라는 제목의 방법 가이드를 참조하십시오.
 
 ## <span class="short-header">SDK 다운로드</span>서비스 버스 SDK 다운로드
 
@@ -24,7 +24,7 @@ AMQP(Advanced Message Queuing Protocol) 1.0은 효율성과 안정성이 뛰어�
 
 기본적으로 서비스 버스 .NET 클라이언트 라이브러리는 전용 SOAP 기반 프로토콜을 사용하여 서비스 버스 서비스와 통신합니다. 기본 프로토콜 대신 AMQP 1.0을 사용하려면 다음 섹션에서 설명한 대로 서비스 버스 연결 문자열에서 이를 명시적으로 구성해야 합니다. AMQP 1.0을 사용하는 경우 이러한 변경 사항 외에는 응용 프로그램 코드가 기본적으로 변경되지 않습니다.
 
-현재 릴리스에는 AMQP 사용 시 지원되지 않는 몇 가지 API 기능이 있습니다. 지원되지 않는 이러한 기능은 뒤에 나오는 "지원되지 않는 기능 및 제한" 섹션에 나열되어 있습니다. AMQP를 사용하는 경우 몇 가지 고급 구성 설정도 다른 의미를 가집니다. 이 짧은 방법 가이드에서는 이러한 설정이 사용되지 않지만, 자세한 내용은 [서비스 버스 AMQP 1.0 개발자 가이드][]에서 알아볼 수 있습니다.
+현재 릴리스에는 AMQP 사용 시 지원되지 않는 몇 가지 API 기능이 있습니다. 지원되지 않는 이러한 기능은 뒤에 나오는 "지원되지 않는 기능 및 제한" 섹션에 나열되어 있습니다. AMQP를 사용하는 경우 몇 가지 고급 구성 설정도 다른 의미를 가집니다. 이 짧은 방법 가이드에서는 이러한 설정이 사용되지 않지만, 자세한 내용은 [서비스 버스 AMQP 1.0 개발자 가이드][서비스 버스 AMQP 1.0 개발자 가이드]에서 알아볼 수 있습니다.
 
 ### App.config를 통한 구성
 
@@ -206,7 +206,7 @@ AMQP를 사용하면 연결 문자열이 ";TransportType=Amqp"로 추가됩니�
 
 이 가이드에서는 .NET을 사용하여 서비스 버스로 메시지를 보내는 방법 및 .NET을 사용하여 이러한 메시지를 받는 방법에 대해 설명했습니다. 그러나 AMQP 1.0의 주요 이점 중 하나는 다른 언어로 작성된 구성 요소로 응용 프로그램을 빌드하여 안정적이며 완전히 신뢰할 수 있는 상태로 메시지를 교환할 수 있다는 것입니다.
 
-위에서 설명한 샘플 .NET 응용 프로그램 및 동반 가이드([서비스 버스 및 AMQP 1.0과 함께 JMS(Java Message Service) API를 사용하는 방법][])에서 제공하는 유사한 Java 응용 프로그램을 사용하면 .NET과 Java 간에 메시지를 교환할 수 있습니다.
+위에서 설명한 샘플 .NET 응용 프로그램 및 동반 가이드([서비스 버스 및 AMQP 1.0과 함께 JMS(Java Message Service) API를 사용하는 방법][서비스 버스 및 AMQP 1.0과 함께 JMS(Java Message Service) API를 사용하는 방법])에서 제공하는 유사한 Java 응용 프로그램을 사용하면 .NET과 Java 간에 메시지를 교환할 수 있습니다.
 
 서비스 버스 및 AMQP 1.0을 사용하는 크로스 플랫폼 메시징에 대한 자세한 내용은 [Service Bus AMQP 1.0 개발자 가이드][서비스 버스 AMQP 1.0 개발자 가이드]를 참조하십시오.
 
@@ -279,18 +279,18 @@ JMS에서 .NET으로의 메시징을 시연하려면:
 -   세션 잠금 갱신
 -   몇 가지 사소한 동작의 차이
 
-자세한 내용은 [서비스 버스 AMQP 1.0 개발자 가이드][]를 참조하십시오. 이 항목에는 지원되지 않는 API의 자세한 목록이 포함되어 있습니다.
+자세한 내용은 [서비스 버스 AMQP 1.0 개발자 가이드][서비스 버스 AMQP 1.0 개발자 가이드]를 참조하십시오. 이 항목에는 지원되지 않는 API의 자세한 목록이 포함되어 있습니다.
 
 ## <span class="short-header">요약</span>요약
 
 이 방법 가이드에서는 AMQP 1.0과 서비스 버스 .NET API를 사용하여 .NET 응용 프로그램에서 서비스 버스 조정된 메시징 기능(큐 및 게시/구독 항목)에 액세스하는 방법에 대해 설명했습니다.
 
-Java, C, Python, PHP 등의 다른 언어에서도 서비스 버스 AMQP 1.0을 사용할 수 있습니다. 이러한 언어를 사용하여 빌드한 구성 요소는 서비스 버스의 AMQP 1.0을 사용하여 안정적이며 완전히 신뢰할 수 있는 상태로 메시지를 교환할 수 있습니다. 자세한 내용은 [서비스 버스 AMQP 1.0 개발자 가이드][]를 참조하십시오.
+Java, C, Python, PHP 등의 다른 언어에서도 서비스 버스 AMQP 1.0을 사용할 수 있습니다. 이러한 언어를 사용하여 빌드한 구성 요소는 서비스 버스의 AMQP 1.0을 사용하여 안정적이며 완전히 신뢰할 수 있는 상태로 메시지를 교환할 수 있습니다. 자세한 내용은 [서비스 버스 AMQP 1.0 개발자 가이드][서비스 버스 AMQP 1.0 개발자 가이드]를 참조하십시오.
 
 ## <span class="short-header">추가 정보</span>추가 정보
 
--   [Azure 서비스 버스의 AMQP 1.0 지원][]
--   [서비스 버스 및 AMQP 1.0과 함께 JMS(Java Message Service) API를 사용하는 방법][]
+-   [Azure 서비스 버스의 AMQP 1.0 지원][Azure 서비스 버스의 AMQP 1.0 지원]
+-   [서비스 버스 및 AMQP 1.0과 함께 JMS(Java Message Service) API를 사용하는 방법][서비스 버스 및 AMQP 1.0과 함께 JMS(Java Message Service) API를 사용하는 방법]
 -   [Service Bus AMQP 1.0 개발자 가이드][서비스 버스 AMQP 1.0 개발자 가이드]
 -   [서비스 버스 큐를 사용하는 방법][1]
 
@@ -299,5 +299,4 @@ Java, C, Python, PHP 등의 다른 언어에서도 서비스 버스 AMQP 1.0을 
   []: http://nuget.org/packages/WindowsAzure.ServiceBus/
   [서비스 버스 AMQP 1.0 개발자 가이드]: http://msdn.microsoft.com/ko-KR/library/windowsazure/jj841071.aspx
   [1]: http://www.windowsazure.com/ko-KR/develop/net/how-to-guides/service-bus-queues/
-  [서비스 버스 및 AMQP 1.0과 함께 JMS(Java Message Service) API를 사용하는 방법]: http://aka.ms/ll1fm3
   [Azure 서비스 버스의 AMQP 1.0 지원]: http://aka.ms/pgr3dp

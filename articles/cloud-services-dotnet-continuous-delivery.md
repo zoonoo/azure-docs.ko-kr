@@ -1,6 +1,6 @@
 <properties linkid="dev-net-common-tasks-continuous-delivery" urlDisplayName="Continuous Delivery" pageTitle="Continuous delivery for cloud services with TFS in Azure" metaKeywords="Azure continuous delivery, continuous delivery sample code, continuous delivery PowerShell" description="Learn how to set up continuous delivery for Azure cloud apps. Code samples for MSBuild command-line statements and PowerShell scripts." metaCanonical="" services="" documentationCenter="" title="Continuous Delivery for Cloud Services in Azure" authors="ghogen" solutions="" manager="" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="ghogen"></tags>
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="ghogen" />
 
 # Azure 클라우드 서비스의 지속적인 전송
 
@@ -84,7 +84,7 @@ Azure 패키지를 빌드하도록 TFS를 구성하려면 다음 단계를수행
 
 1.  개발 컴퓨터의 Visual Studio 보기 메뉴에서 **팀 탐색기**를 선택하거나 Ctrl+\\, Ctrl+M을 선택합니다. 팀 탐색기 창에서 **빌드** 노드를 확장하고 **모든 빌드 정의**를 마우스 오른쪽 단추로 클릭한 다음 **새 빌드 정의**를 클릭합니다.
 
-    ![][]
+    ![][0]
 
 2.  **프로세스** 탭을 클릭합니다. 프로세스 탭에서 기본 템플릿을 선택하고 빌드할 항목에서 프로젝트를 선택한 다음 그리드에서 **고급** 섹션을 확장합니다.
 
@@ -169,7 +169,7 @@ Azure 패키지를 빌드하도록 TFS를 구성하려면 다음 단계를수행
         Add-AzureCertificate -serviceName 'mytestcloudservice' -certToDeploy (get-item cert:\CurrentUser\MY\C33B6C432C25581601B84C80F86EC2809DC224E8
 
     또는 개인 키로 인증서 파일 PFX를 내보내고 Azure 관리 포털을 사용하여 각 대상 클라우드 서비스에 인증서를 업로드할 수
-    있습니다. 자세한 내용은 [<http://msdn.microsoft.com/ko-kr/library/windowsazure/gg443832.aspx>][]에서 확인할 수 있습니다.
+    있습니다. 자세한 내용은 [<http://msdn.microsoft.com/ko-kr/library/windowsazure/gg443832.aspx>][<http://msdn.microsoft.com/ko-kr/library/windowsazure/gg443832.aspx>]에서 확인할 수 있습니다.
 
     **배포 업그레이드 및 배포 삭제 -\> 새 배포**
 
@@ -583,9 +583,7 @@ Azure 패키지를 빌드하도록 TFS를 구성하려면 다음 단계를수행
   [Visual Studio Online을 사용하여 Azure에 지속적으로 전송]: ../cloud-services-continuous-delivery-use-vso/
   [1단계: 빌드 서버 구성]: #step1
   [2단계: MSBuild 명령을 사용하여 패키지 빌드]: #step2
-  [3단계: TFS 팀 빌드를 사용하여 패키지 빌드(옵션)]: #step3
   [4단계: PowerShell 스크립트를 사용하여 패키지 게시]: #step4
-  [5단계: TFS 팀 빌드를 사용하여 패키지 게시(옵션)]: #step5
   [Team Foundation Build Service]: http://go.microsoft.com/fwlink/p/?LinkId=239963
   [.NET Framework 4]: http://go.microsoft.com/fwlink/?LinkId=239538
   [.NET Framework 4.5]: http://go.microsoft.com/fwlink/?LinkId=245484
@@ -595,7 +593,7 @@ Azure 패키지를 빌드하도록 TFS를 구성하려면 다음 단계를수행
   [MSBuild 명령줄 참조]: http://go.microsoft.com/fwlink/p/?LinkId=239966
   [Team Foundation 빌드 시스템 이해]: http://go.microsoft.com/fwlink/?LinkId=238798
   [빌드 컴퓨터 구성]: http://go.microsoft.com/fwlink/?LinkId=238799
-  []: ./media/cloud-services-dotnet-continuous-delivery/tfs-01.png
+  [0]: ./media/cloud-services-dotnet-continuous-delivery/tfs-01.png
   [1]: ./media/cloud-services-dotnet-continuous-delivery/tfs-02.png
   [Azure PowerShell cmdlet]: http://go.microsoft.com/fwlink/?LinkId=256262
   [이 문서의 끝]: #script

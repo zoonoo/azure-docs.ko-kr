@@ -1,6 +1,6 @@
 <properties linkid="dev-nodejs-getting-started" urlDisplayName="Cloud Service" pageTitle="Node.js Getting Started Guide - Azure Tutorial" metaKeywords="Azure node.js getting started, Azure Node.js tutorial, Azure Node.js tutorial" description="An end-to-end tutorial that helps you develop a simple Node.js web application and deploy it to Azure." metaCanonical="" services="cloud-services" documentationCenter="nodejs" title="Build and deploy a Node.js application to an Azure Cloud Service" authors="larryfr" solutions="" manager="" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"></tags>
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # Azure 클라우드 서비스에서 Node.js 응용 프로그램 빌드 및 배포
 
@@ -26,11 +26,11 @@
 
     ![Azure PowerShell 아이콘][Azure PowerShell 아이콘]
 
-    [WACOM.INCLUDE [install-dev-tools][install-dev-tools]]
+    [WACOM.INCLUDE [install-dev-tools](../includes/install-dev-tools.md)]
 
 2.  C 드라이브에 새 **node** 디렉터리를 만들고 c:\\node 디렉터리로 변경합니다.
 
-    !['mkdir c:\\node' 및 'cd node' 명령을 표시하는 명령 프롬프트][]
+    !['mkdir c:\node' 및 'cd node' 명령을 표시하는 명령 프롬프트]['mkdir c:\node' 및 'cd node' 명령을 표시하는 명령 프롬프트]
 
 
 3.  다음 cmdlet을 입력하여 새 솔루션을 만듭니다.
@@ -189,7 +189,6 @@ Azure 계산 에뮬레이터는 Azure SDK를 통해 설치되는 도구중 하�
 </div>
 
   [Azure 웹 사이트, 클라우드 서비스 및 가상 컴퓨터 비교]: http://azure.microsoft.com/ko-kr/documentation/articles/choose-web-site-cloud-service-vm/
-  [간단한 Azure 웹 사이트를 사용]: /ko-kr/documentation/articles/web-sites-nodejs-develop-deploy-mac/
   [hello world 페이지를 표시하는 브라우저 창입니다. URL은 페이지가 Azure에서 호스트됨을 나타냅니다.]: https://wacomdpsstablestorage.blob.core.windows.net/articlesmedia/demo-ppe.windowsazure.com/ko-kr/documentation/articles/cloud-services-nodejs-develop-deploy-app/20140107035927/node21.png
   [Azure PowerShell 아이콘]: ./media/cloud-services-nodejs-develop-deploy-app/azure-powershell-start.png
   [install-dev-tools]: ../includes/install-dev-tools.md
@@ -204,4 +203,3 @@ Azure 계산 에뮬레이터는 Azure SDK를 통해 설치되는 도구중 하�
   [1]: ./media/cloud-services-nodejs-develop-deploy-app/node21.png
   [Stop-AzureService 명령의 상태]: ./media/cloud-services-nodejs-develop-deploy-app/node48.png
   [Remove-AzureService 명령의 상태]: ./media/cloud-services-nodejs-develop-deploy-app/node49.png
-  [Azure 구독에서 저장소 계정을 삭제하는 방법]: http://msdn.microsoft.com/ko-kr/library/windowsazure/hh531562.aspx

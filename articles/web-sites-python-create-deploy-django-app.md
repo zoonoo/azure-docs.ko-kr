@@ -1,6 +1,6 @@
 <properties linkid="develop-python-web-site-with-django" urlDisplayName="Websites with Django" pageTitle="Python Websites with Django - Azure tutorial" metaKeywords="Azure django, django website" description="A tutorial that introduces you to running a Python website on Azure." metaCanonical="" services="web-sites" documentationCenter="Python" title="Creating Websites with Django" authors="huvalo" solutions="" manager="" editor="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo" />
 
 # Django를 사용하여 웹 사이트 만들기
 
@@ -8,7 +8,7 @@
 
 이 자습서에서는 Django 웹 프레임워크를 사용하여 빌드된 응용 프로그램을 배포하는 방법을 보여 줍니다. 이 자습서는 Django를 포함하여 응용 프로그램 및 필수 라이브러리를 배포하는 단계를 안내해 줍니다. Git 리포지토리에 모든 항목을 넣으면 빠르고 간편하게 웹 사이트에 업데이트를 푸시할 수 있습니다. 마지막으로 Python 응용 프로그램을 실행하도록 Azure를 통해 새로 만든 사이트를 구성합니다.
 
-[WACOM.INCLUDE [create-account-and-websites-note][create-account-and-websites-note]]
+[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 이 자습서에서는 Python 2.7 및 Django 1.4를 사용합니다. 이러한 프로그램을 직접 구할 수도 있고, [][]<http://www.windowsazure.com/ko-kr/develop/python/></a>에서 Windows Installer 링크를 사용하여 빠르고 쉽게 설치할 수도 있습니다.
 
@@ -26,7 +26,7 @@ Python, Django 및 Git를 설치하면 필요한 모든 구성 요소를 충족�
 
 앱을 만드는 첫 번째 단계는 Azure 관리 포털을 통해 웹 사이트를 만드는 것입니다. 그렇게 하려면 포털에 로그인하여 왼쪽 아래 모서리에서 새로 만들기 단추를 클릭해야 합니다. 창이 나타납니다. **빠른 생성**을 클릭하고 URL을 입력하고 **웹 사이트 만들기**를 선택합니다.
 
-![][]
+![][0]
 
 사이트가 빠르게 설정됩니다. 그런 다음 Git를 통해 게시를 손쉽게 진행합니다. **소스 제어에서 배포 설정**을 선택하면 됩니다.
 
@@ -133,9 +133,9 @@ Django 응용 프로그램을 설정하려면 환경 변수를 3개 만들어야
 이제 DjangoApplication 디렉터리로 이동할 수 있으며, 일반적으로 새 응용 프로그램을 Django 프로젝트에 추가할 때 manage.py를 사용할 수 있습니다.
 
   [create-account-and-websites-note]: ../includes/create-account-and-websites-note.md
-  []: http://www.windowsazure.com/ko-kr/develop/python/
+  [0]: http://www.windowsazure.com/ko-kr/develop/python/
   [msysgit]: http://code.google.com/p/msysgit/
-  []: ./media/web-sites-python-create-deploy-django-app/django-ws-003.png
+  [0]: ./media/web-sites-python-create-deploy-django-app/django-ws-003.png
   [1]: ./media/web-sites-python-create-deploy-django-app/django-ws-004.png
   [2]: ./media/web-sites-python-create-deploy-django-app/django-ws-005.png
   [3]: ./media/web-sites-python-create-deploy-django-app/django-ws-006.png

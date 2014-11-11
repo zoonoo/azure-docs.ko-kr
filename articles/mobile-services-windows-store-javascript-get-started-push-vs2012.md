@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-get-started-with-push-js" urlDisplayName="Get Started with Push (JS)" pageTitle="Get started with push notifications (JavaScript)" metaKeywords="" description="Learn how to use push notifications in your Windows Store app with Azure Mobile Services." metaCanonical="http://www.windowsazure.com/ko-kr/develop/mobile/tutorials/get-started-with-push-dotnet/" disqusComments="1" umbracoNaviHide="1" title="Get started with push notifications in Mobile Services using Visual Studio 2012" documentationCenter="Mobile" authors="glenga" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # Visual Studio 2012를 사용하여 모바일 서비스에서 푸시 알림 시작하기
 
@@ -34,13 +34,13 @@
 
 모바일 서비스에서 Windows 스토어 앱으로 푸시 알림을 보내려면 앱을 Windows 스토어에 제출해야 합니다. 그런 다음 WNS와 통합되도록 모바일 서비스를 구성해야 합니다.
 
-[WACOM.INCLUDE [mobile-services-register-windows-store-app][mobile-services-register-windows-store-app]]
+[WACOM.INCLUDE [mobile-services-register-windows-store-app](../includes/mobile-services-register-windows-store-app.md)]
 
 이제 모바일 서비스와 앱이 WNS를 사용하도록 둘 다 구성되었습니다. 이제 등록을 저장할 새 테이블을 만듭니다.
 
 ## <a name="create-table"></a>새 테이블 만들기
 
-[WACOM.INCLUDE [mobile-services-create-new-push-table][mobile-services-create-new-push-table]]
+[WACOM.INCLUDE [mobile-services-create-new-push-table](../includes/mobile-services-create-new-push-table.md)]
 
 ## <a name="add-push"></a><span class="short-header">푸시 알림 추가</span>앱에 푸시 알림 추가
 
@@ -67,13 +67,13 @@
 
 3.  Package.appxmanifest 파일을 열고 **Application UI** 탭에서 **Toast capable**이 **Yes**로 설정되어 있는지 확인합니다.
 
-    ![][]
+    ![][0]
 
     이제 앱에서 알림 메시지를 표시할 수 있습니다.
 
 ## <a name="update-scripts"></a><span class="short-header">삽입 스크립트 업데이트</span>관리 포털에서 등록된 삽입 스크립트 업데이트
 
-[WACOM.INCLUDE [mobile-services-update-registrations-script][mobile-services-update-registrations-script]]
+[WACOM.INCLUDE [mobile-services-update-registrations-script](../includes/mobile-services-update-registrations-script.md)]
 
 1.  **TodoItem**을 클릭하고 **스크립트**를 클릭한 후 **삽입**을 선택합니다.
 
@@ -151,16 +151,8 @@
 -   [모바일 서비스 HTML/JavaScript 방법 개념 참조][모바일 서비스 HTML/JavaScript 방법 개념 참조]
     HTML 및 JavaScript와 함께 모바일 서비스를 사용하는 방법을 자세히 알아봅니다.
 
-<!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
 
-  [Windows 스토어 C#]: /ko-kr/develop/mobile/tutorials/get-started-with-push-dotnet-vs2012 "Windows 스토어 C#"
-  [Windows 스토어 JavaScript]: /ko-kr/develop/mobile/tutorials/get-started-with-push-js-vs2012 "Windows 스토어 JavaScript"
-  [Windows Phone]: /ko-kr/develop/mobile/tutorials/get-started-with-push-wp8 "Windows Phone"
-  [iOS]: /ko-kr/develop/mobile/tutorials/get-started-with-push-ios "iOS"
-  [Android]: /ko-kr/develop/mobile/tutorials/get-started-with-push-android "Android"
-  [Xamarin.iOS]: /ko-kr/develop/mobile/tutorials/get-started-with-push-xamarin-ios "Xamarin.iOS"
-  [Xamarin.Android]: /ko-kr/develop/mobile/tutorials/get-started-with-push-xamarin-android "Xamarin.Android"
-  [푸시 알림 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-push-js
+
   [푸시 알림을 위한 앱 등록 및 모바일 서비스 구성]: #register
   [Registrations 테이블 만들기]: #create-table
   [앱에 푸시 알림 추가]: #add-push
@@ -169,7 +161,7 @@
   [데이터 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-data-js
   [mobile-services-register-windows-store-app]: ../includes/mobile-services-register-windows-store-app.md
   [mobile-services-create-new-push-table]: ../includes/mobile-services-create-new-push-table.md
-  []: ./media/mobile-services-windows-store-javascript-get-started-push-vs2012/mobile-app-enable-toast-win8.png
+  [0]: ./media/mobile-services-windows-store-javascript-get-started-push-vs2012/mobile-app-enable-toast-win8.png
   [mobile-services-update-registrations-script]: ../includes/mobile-services-update-registrations-script.md
   [1]: ./media/mobile-services-windows-store-javascript-get-started-push-vs2012/mobile-insert-script-push2.png
   [2]: ./media/mobile-services-windows-store-javascript-get-started-push-vs2012/mobile-quickstart-push1.png

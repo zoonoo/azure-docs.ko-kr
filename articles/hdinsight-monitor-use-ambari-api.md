@@ -1,6 +1,6 @@
 <properties linkid="manage-services-hdinsight-use-Ambari" urlDisplayName="Monitor Hadoop clusters  in HDInsight using the Ambari API" pageTitle="Monitor Hadoop clusters in HDInsight using the Ambari API | Azure" metaKeywords="" description="Use the Apache Ambari APIs for provisioning, managing, and monitoring Hadoop clusters. Ambari's intuitive operator tools and APIs hide the complexity of Hadoop." services="hdinsight" documentationCenter="" title="Monitor Hadoop clusters in HDInsight using the Ambari API" umbracoNaviHide="0" disqusComments="1" authors="jgao" editor="cgronlun" manager="paulettm" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao" />
 
 # Ambari API를 사용하여 HDInsight에서 Hadoop 클러스터 모니터링
 
@@ -11,16 +11,16 @@ Ambari API를 사용하여 HDInsight 클러스터 버전 2.1을 모니터링하�
 
 ## 이 문서에서는 다음을 수행합니다.
 
-- [Ambari 정의][]
-- [필수 조건][]
-- [신속한 시작][]
-- [Ambari 모니터링 API][]
-- [다음 단계][]
+- [Ambari 정의][Ambari 정의]
+- [필수 조건][필수 조건]
+- [신속한 시작][신속한 시작]
+- [Ambari 모니터링 API][Ambari 모니터링 API]
+- [다음 단계][다음 단계]
 
 
 ## <a id="whatisambari"></a> Ambari 정의
 
-[Apache Ambari][](영문)는 Apache Hadoop 클러스터를 프로비전하고 관리 및 모니터링합니다. Hadoop의 복잡성을 숨기고 클러스터 작업을 단순화하는 직관적인 연산자 도구 모음 및 강력한 API 집합이 포함되어 있습니다. API에 대한 자세한 내용은 [Ambari API 참조][](영문)를 참조하세요.
+[Apache Ambari][Apache Ambari](영문)는 Apache Hadoop 클러스터를 프로비전하고 관리 및 모니터링합니다. Hadoop의 복잡성을 숨기고 클러스터 작업을 단순화하는 직관적인 연산자 도구 모음 및 강력한 API 집합이 포함되어 있습니다. API에 대한 자세한 내용은 [Ambari API 참조][Ambari API 참조](영문)를 참조하세요.
 
 
 HDInsight는 현재 Ambari 모니터링 기능만 지원합니다. Ambari API v1.0은 HDInsight 클러스터 버전 2.1 및 3.0에서 지원됩니다. 이 문서에서는 HDInsight 클러스터 버전 2.1에서 Ambari API 실행에 대해서만 다룹니다.
@@ -30,13 +30,13 @@ HDInsight는 현재 Ambari 모니터링 기능만 지원합니다. Ambari API v1
 
 이 자습서를 시작하기 전에 다음이 있어야 합니다.
 
-- Azure PowerShell이 설치 및 구성된 **워크스테이션**. 자세한 내용은 [Azure PowerShell 설치 및 구성][]을 참조하세요. PowerShell 스크립트를 실행하려면 관리자로 Azure PowerShell을 실행하고 실행 정책을 *RemoteSigned*로 설정해야 합니다. [Windows PowerShell 스크립트 실행][](영문)을 참조하세요.
+- Azure PowerShell이 설치 및 구성된 **워크스테이션**. 자세한 내용은 [Azure PowerShell 설치 및 구성][Azure PowerShell 설치 및 구성]을 참조하세요. PowerShell 스크립트를 실행하려면 관리자로 Azure PowerShell을 실행하고 실행 정책을 *RemoteSigned*로 설정해야 합니다. [Windows PowerShell 스크립트 실행][Windows PowerShell 스크립트 실행](영문)을 참조하세요.
 
 	[Curl][curl] is optional. It can be installed from [here][curl-download].
 
     > [WACOM.NOTE] Windows에서 curl 명령을 사용할 때는 옵션 값에 작은따옴표 대신 큰따옴표를 사용합니다.
 
-- **Azure HDInsight 클러스터**. 클러스터 프로비전에 대한 자세한 내용은 [HDInsight 사용 시작][] 또는 [HDInsight 클러스터 프로비전][]을 참조하세요. 자습서를 완료하려면 다음 데이터가 필요합니다.
+- **Azure HDInsight 클러스터**. 클러스터 프로비전에 대한 자세한 내용은 [HDInsight 사용 시작][HDInsight 사용 시작] 또는 [HDInsight 클러스터 프로비전][HDInsight 클러스터 프로비전]을 참조하세요. 자습서를 완료하려면 다음 데이터가 필요합니다.
 
 	<table border="1">
 	<tr><th>클러스터 속성</th><th>PowerShell 변수 이름</th><th>값</th><th>설명</th></tr>
@@ -73,7 +73,7 @@ Ambari를 사용하여 HDInsight 클러스터를 모니터링하는 몇 가지 �
 
 출력은 다음과 같습니다.
 
-![Jobtracker 출력][]
+![Jobtracker 출력][Jobtracker 출력]
 
 **curl 사용**
 
@@ -101,7 +101,7 @@ Ambari를 사용하여 HDInsight 클러스터를 모니터링하는 몇 가지 �
 
 ## <a id="monitor"></a>Ambari 모니터링 API
 
-다음 테이블은 가장 일반적으로 사용되는 Ambari 모니터링 API 호출을 나열합니다. API에 대한 자세한 내용은 [Ambari API 참조][](영문)를 참조하세요.
+다음 테이블은 가장 일반적으로 사용되는 Ambari 모니터링 API 호출을 나열합니다. API에 대한 자세한 내용은 [Ambari API 참조][Ambari API 참조](영문)를 참조하세요.
 
 <table border="1">
 <tr><th>모니터링 API 호출</th><th>URI</th><th>설명</th></tr>
@@ -129,10 +129,10 @@ Ambari를 사용하여 HDInsight 클러스터를 모니터링하는 몇 가지 �
 
 Ambari 모니터링 API 호출을 사용하는 방법을 알아보았습니다. 자세한 내용은 다음을 참조하세요.
 
-- [관리 포털을 사용하여 HDInsight 클러스터 관리][]
-- [Azure PowerShell을 사용하여 HDInsight 클러스터 관리][]
-- [명령줄 인터페이스를 사용하여 HDInsight 클러스터 관리][]
-- [HDInsight 설명서][]
+- [관리 포털을 사용하여 HDInsight 클러스터 관리][관리 포털을 사용하여 HDInsight 클러스터 관리]
+- [Azure PowerShell을 사용하여 HDInsight 클러스터 관리][Azure PowerShell을 사용하여 HDInsight 클러스터 관리]
+- [명령줄 인터페이스를 사용하여 HDInsight 클러스터 관리][명령줄 인터페이스를 사용하여 HDInsight 클러스터 관리]
+- [HDInsight 설명서][HDInsight 설명서]
 - [HDInsight 시작][HDInsight 사용 시작]
 
   [Ambari 정의]: #whatisambari
@@ -143,9 +143,8 @@ Ambari 모니터링 API 호출을 사용하는 방법을 알아보았습니다. 
   [Apache Ambari]: http://ambari.apache.org/
   [Ambari API 참조]: https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md
   [Azure PowerShell 설치 및 구성]: ../install-configure-powershell/
-  [Windows PowerShell 스크립트 실행]: http://technet.microsoft.com/en-us/library/ee176949.aspx
+  [Windows PowerShell 스크립트 실행]: http://technet.microsoft.com/ko-kr/library/ee176949.aspx
   [Curl]: http://curl.haxx.se
-  [여기]: http://curl.haxx.se/download.html
   [HDInsight 사용 시작]: ../hdinsight-get-started/
   [HDInsight 클러스터 프로비전]: ../hdinsight-provision-clusters/
   [Jobtracker 출력]: ./media/hdinsight-monitor-use-ambari-api/hdi.ambari.monitor.jobtracker.output.png

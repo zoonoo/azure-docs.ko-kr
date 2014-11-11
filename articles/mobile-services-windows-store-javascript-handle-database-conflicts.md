@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-optimistic-concurrent-data-javascript" urlDisplayName="Optimistic concurrency" pageTitle="Handle database write conflicts with optimistic concurrency (Windows Store) | Mobile Dev Center" metaKeywords="" writer="wesmc" description="Learn how to handle database write conflicts on both the server and in your Windows Store application." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Handling database write conflicts" authors="wesmc" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc" />
 
 # 데이터베이스 쓰기 충돌 처리
 
@@ -29,7 +29,7 @@
 
     2.  **온라인**을 확장하고 **Microsoft 및 .NET**을 클릭합니다. 검색 텍스트 상자에 **WindowsAzure.MobileServices.WinJS**를 입력합니다. **WinJS용 Azure 모바일 서비스** NuGet 패키지에서 **설치**를 클릭합니다.
 
-        ![][]
+        ![][0]
 
 ## <a name="uiupdate"></a><span class="short-header">UI 업데이트</span>업데이트를 허용하도록 응용 프로그램 업데이트
 
@@ -269,18 +269,15 @@ Azure 모바일 서비스는 각 테이블에 추가되는 `__version` 시스템
 -   [푸시 알림 시작][푸시 알림 시작]
     모바일 서비스를 사용하여 기본적인 푸시 알림을 앱에 보내는 방법을 알아봅니다.
 
-<!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
 
-  [Windows 스토어 C#]: /ko-kr/develop/mobile/tutorials/handle-database-write-conflicts-dotnet/ "Windows 스토어 C#"
-  [Windows 스토어 JavaScript]: /ko-kr/documentation/articles/mobile-services-windows-store-javascript-handle-database-conflicts/ "Windows 스토어 JavaScript"
-  [Windows Phone]: /ko-kr/develop/mobile/tutorials/handle-database-write-conflicts-wp8/ "Windows Phone"
+
   [업데이트를 허용하도록 응용 프로그램 업데이트]: #uiupdate
   [응용 프로그램에서 충돌 검색 사용]: #enableOC
   [응용 프로그램에서 데이터베이스 쓰기 충돌 테스트]: #test-app
   [서버 스크립트에서 자동으로 충돌 해결 처리]: #scriptsexample
   [모바일 서비스 시작]: /ko-kr/develop/mobile/tutorials/get-started
   [Azure 계정]: http://www.windowsazure.com/ko-kr/pricing/free-trial/
-  []: ./media/mobile-services-windows-store-javascript-handle-database-conflicts/mobile-manage-nuget-packages-dialog.png
+  [0]: ./media/mobile-services-windows-store-javascript-handle-database-conflicts/mobile-manage-nuget-packages-dialog.png
   [시스템 속성]: http://go.microsoft.com/fwlink/?LinkId=331143
   [1]: ./media/mobile-services-windows-store-javascript-handle-database-conflicts/Mobile-oc-store-create-app-package1.png
   [2]: ./media/mobile-services-windows-store-javascript-handle-database-conflicts/Mobile-oc-store-create-app-package2.png

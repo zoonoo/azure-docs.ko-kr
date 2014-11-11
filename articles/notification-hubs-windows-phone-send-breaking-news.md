@@ -1,6 +1,6 @@
 <properties linkid="notification-hubs-windows-phone-send-breaking-news" pageTitle="Use Notification Hubs to send breaking news (Windows Phone)" metaKeywords="" description="Use  Azure Notification Hubs to use tag in registrations to send breaking news to a Windows Phone app." metaCanonical="" services="notification-hubs" documentationCenter="Mobile" title="Use Notification Hubs to send breaking news" authors="glenga" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # 알림 허브를 사용하여 속보 보내기
 
@@ -189,7 +189,7 @@
 
 1.  Visual Studio에서 F5 키를 눌러 앱을 컴파일 및 시작합니다.
 
-    ![][]
+    ![][0]
 
     앱 UI는 구독할 범주를 선택하도록 하는 토글 집합을 제공합니다.
 
@@ -227,9 +227,6 @@ In this tutorial we learned how to broadcast breaking news by category. Consider
 <!-- URLs.-->
 
   [Windows 범용]: /ko-KR/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/ "Windows 범용"
-  [Windows Phone]: /ko-KR/documentation/articles/notification-hubs-windows-phone-send-breaking-news/ "Windows Phone"
-  [iOS]: /ko-KR/documentation/articles/notification-hubs-ios-send-breaking-news/ "iOS"
-  [Android]: /ko-KR/documentation/articles/notification-hubs-aspnet-backend-android-breaking-news/ "Android"
   [1]: /ko-KR/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/
   [알림 허브 지침]: http://msdn.microsoft.com/ko-KR/library/jj927170.aspx
   [앱에 범주 선택 추가]: #adding-categories
@@ -238,6 +235,6 @@ In this tutorial we learned how to broadcast breaking news by category. Consider
   [앱 실행 및 알림 생성]: #test-app
   [알림 허브 시작]: /ko-KR/manage/services/notification-hubs/get-started-notification-hubs-wp8/
   [notification-hubs-back-end]: ../includes/notification-hubs-back-end.md
-  []: ./media/notification-hubs-windows-phone-send-breaking-news/notification-hub-breakingnews.png
+  [0]: ./media/notification-hubs-windows-phone-send-breaking-news/notification-hub-breakingnews.png
   [2]: ./media/notification-hubs-windows-phone-send-breaking-news/notification-hub-registration.png
   [3]: ./media/notification-hubs-windows-phone-send-breaking-news/notification-hub-toast.png

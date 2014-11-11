@@ -1,6 +1,6 @@
 <properties linkid="manage-services-hdinsight-sample-wordcount" urlDisplayName="Hadoop Samples in HDInsight" pageTitle="The WordCount Hadoop sample in HDInsight | Azure" metaKeywords="hdinsight, hdinsight sample, hadoop, mapreduce" description="Learn how to run a simple MapReduce sample on HDInsight." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" title="The WordCount Hadoop sample in HDInsight" authors="bradsev" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="bradsev"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="bradsev" />
 
 # HDInsight의 WordCount Hadoop 샘플
 
@@ -15,26 +15,26 @@ Hadoop MapReduce 프로그램은 텍스트 파일을 읽고 각 단어가 나오
 
 **필수 조건**:
 
--   Azure 계정이 있어야 합니다. 계정 등록 옵션은 [Azure 평가판 사용][] 페이지를 참조하세요.
+-   Azure 계정이 있어야 합니다. 계정 등록 옵션은 [Azure 평가판 사용][Azure 평가판 사용] 페이지를 참조하세요.
 
--   HDInsight 클러스터를 미리 프로비전해야 합니다. 이 클러스터를 만드는 여러 방법에 대한 자세한 내용은 [Azure HDInsight 시작][] 또는 [HDInsight 클러스터 프로비전][]을 참조하세요.
+-   HDInsight 클러스터를 미리 프로비전해야 합니다. 이 클러스터를 만드는 여러 방법에 대한 자세한 내용은 [Azure HDInsight 시작][Azure HDInsight 시작] 또는 [HDInsight 클러스터 프로비전][HDInsight 클러스터 프로비전]을 참조하세요.
 
--   Azure PowerShell을 설치하고 계정과 함께 사용하도록 구성해야 합니다. 설치 및 구성 방법에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성][]을 참조하세요.
+-   Azure PowerShell을 설치하고 계정과 함께 사용하도록 구성해야 합니다. 설치 및 구성 방법에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성][Azure PowerShell 설치 및 구성]을 참조하세요.
 
 ## 이 문서에서는 다음을 수행합니다.
 
 이 항목에서는 샘플의 실행 방법을 보여 주고, MapReduce 프로그램의 Java 코드를 제공하며, 배운 내용을 요약하고, 다음 몇 단계에 대해 설명합니다. 이 항목에는 다음 섹션이 있습니다.
 
-1.  [Azure PowerShell을 사용하여 샘플 실행][]
-2.  [WordCount MapReduce 프로그램의 Java 코드][]
-3.  [요약][]
-4.  [다음 단계][]
+1.  [Azure PowerShell을 사용하여 샘플 실행][Azure PowerShell을 사용하여 샘플 실행]
+2.  [WordCount MapReduce 프로그램의 Java 코드][WordCount MapReduce 프로그램의 Java 코드]
+3.  [요약][요약]
+4.  [다음 단계][다음 단계]
 
 ## <span id="run-sample"></span></a>Azure PowerShell을 사용하여 샘플 실행
 
 **MapReduce 작업을 제출하려면**
 
-1.  **Azure PowerShell**을 엽니다. Azure PowerShell 콘솔 창을 여는 방법에 대한 지침은 [Azure PowerShell 설치 및 구성][]을 참조하세요.
+1.  **Azure PowerShell**을 엽니다. Azure PowerShell 콘솔 창을 여는 방법에 대한 지침은 [Azure PowerShell 설치 및 구성][Azure PowerShell 설치 및 구성]을 참조하세요.
 
 2.  다음 명령에서 변수 2개를 설정한 후 실행합니다.
 
@@ -101,7 +101,7 @@ Hadoop MapReduce 프로그램은 텍스트 파일을 읽고 각 단어가 나오
 
 WordCount 스크립트의 출력은 다음과 같이 cmd 창에 표시됩니다.
 
-![HDI.샘플.WordCount.출력][]
+![HDI.샘플.WordCount.출력][HDI.샘플.WordCount.출력]
 
 MapReduce 작업의 출력 파일은 변경할 수 없습니다. 따라서 이 샘플을 다시 실행할 경우 출력 파일의 이름을 변경해야 합니다.
 
@@ -183,15 +183,15 @@ MapReduce 작업의 출력 파일은 변경할 수 없습니다. 따라서 이 �
 
 Azure PowerShell을 사용하여 Azure HDInsight에서 Pig, Hive 및 MapReduce 작업을 사용하는 지침을 제공하고 다른 샘플을 실행하는 자습서에 대해서는 다음 항목을 참조하세요.
 
--   [Azure HDInsight 시작][]
--   [샘플: 10GB GraySort][]
--   [샘플: 파이 추정][]
--   [샘플: C# 스트리밍][]
--   [HDInsight에서 Pig 사용][]
--   [HDInsight에서 Hive 사용][]
--   [Azure HDInsight SDK 문서][]
+-   [Azure HDInsight 시작][Azure HDInsight 시작]
+-   [샘플: 10GB GraySort][샘플: 10GB GraySort]
+-   [샘플: 파이 추정][샘플: 파이 추정]
+-   [샘플: C# 스트리밍][샘플: C# 스트리밍]
+-   [HDInsight에서 Pig 사용][HDInsight에서 Pig 사용]
+-   [HDInsight에서 Hive 사용][HDInsight에서 Hive 사용]
+-   [Azure HDInsight SDK 문서][Azure HDInsight SDK 문서]
 
-  [Azure 평가판 사용]: http://azure.microsoft.com/en-us/pricing/free-trial/
+  [Azure 평가판 사용]: http://azure.microsoft.com/ko-kr/pricing/free-trial/
   [Azure HDInsight 시작]: ../hdinsight-get-started/
   [HDInsight 클러스터 프로비전]: ../hdinsight-provision-clusters/
   [Azure PowerShell 설치 및 구성]: ../install-configure-powershell/
@@ -205,4 +205,4 @@ Azure PowerShell을 사용하여 Azure HDInsight에서 Pig, Hive 및 MapReduce �
   [샘플: C# 스트리밍]: ../hdinsight-sample-csharp-streaming/
   [HDInsight에서 Pig 사용]: ../hdinsight-use-pig/
   [HDInsight에서 Hive 사용]: ../hdinsight-use-hive/
-  [Azure HDInsight SDK 문서]: http://msdnstage.redmond.corp.microsoft.com/en-us/library/dn479185.aspx
+  [Azure HDInsight SDK 문서]: http://msdnstage.redmond.corp.microsoft.com/ko-kr/library/dn479185.aspx

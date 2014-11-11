@@ -1,6 +1,6 @@
 <properties linkid="dev-net-tutorials-hybrid-solution" urlDisplayName="Hybrid Application" pageTitle="Hybrid On-Premises/ Cloud Application (.NET) - Azure" metaKeywords="Azure Service Bus tutorial,hybrid .NET" description="Learn how to create a .NET On-Premises/Cloud Hybrid Application Using the Azure Service Bus Relay." metaCanonical="" services="service-bus" documentationCenter=".NET" title=".NET On-Premises/Cloud Hybrid Application Using Service Bus Relay" authors="sethm" solutions="" manager="dwrede" editor="mattshel" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="sethm"></tags>
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="sethm" />
 
 # 서비스 버스 릴레이를 사용하는 .NET 온-프레미스/클라우드 하이브리드 응용 프로그램
 
@@ -19,7 +19,7 @@ Azure로 하이브리드 클라우드 응용 프로그램을 개발하는 일이
 -   Azure 서비스 버스 릴레이를 사용하여 Azure 응용 프로그램과 다른
     위치에서 호스트되는 웹 서비스 사이에 데이터를 공유하는 방법
 
-[WACOM.INCLUDE [create-account-note][create-account-note]]
+[WACOM.INCLUDE [create-account-note](../includes/create-account-note.md)]
 
 ### 하이브리드 솔루션에 유용한 서비스 버스 릴레이
 
@@ -51,7 +51,7 @@ Azure Active Directory 액세스 제어를 사용하여 무단 액세스로부�
 이 자습서에서는 제품 재고 페이지에 제품 목록을 표시할 수 있는
 ASP.NET MVC 4 웹 사이트를 만듭니다.
 
-![][]
+![][0]
 
 이 자습서는 기존 온-프레미스 시스템에 제품 정보가 있으며
 해당 시스템에 도달하는 데 서비스 버스 릴레이를 사용하는 개발자를
@@ -75,7 +75,7 @@ Azure 응용 프로그램 개발을 시작하려면 먼저 도구를 가져오�
 
 1.  Azure SDK for .NET을 설치하려면 아래 단추를 클릭합니다.
 
-    [도구 및 SDK 얻기(영문)][도구 및 SDK 얻기(영문)]
+    [도구 및 SDK 얻기][도구 및 SDK 얻기]
 
 2.  **SDK 설치**를 클릭합니다.
 
@@ -734,9 +734,8 @@ Azure는 사용된 서버 시간의 시간당 웹 역할 인스턴스
 -   [서비스 버스 큐를 사용하는 방법][서비스 버스 큐를 사용하는 방법]
 
   [create-account-note]: ../includes/create-account-note.md
-  []: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hybrid.png
+  [0]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hybrid.png
   [1]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/App2.png
-  [도구 및 SDK 얻기(영문)]: http://go.microsoft.com/fwlink/?LinkId=271920
   [2]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-41.png
   [3]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-3.png
   [4]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-4-2-WebPI.png
@@ -746,7 +745,7 @@ Azure는 사용된 서버 시간의 시간당 웹 역할 인스턴스
   [7]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-multi-tier-27.png
   [8]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/sb-queues-09.png
   [9]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/sb-queues-06.png
-  [여기]: http://http://msdn.microsoft.com/en-us/library/windowsazure/ff687127.aspx
+  [여기]: http://http://msdn.microsoft.com/ko-kr/library/windowsazure/ff687127.aspx
   [10]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/VSProperties.png
   [NuGet 서비스 버스 패키지 사용]: http://go.microsoft.com/fwlink/?LinkId=234589
   [11]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hy-web-1.png
@@ -763,8 +762,8 @@ Azure는 사용된 서버 시간의 시간당 웹 역할 인스턴스
   [20]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-multi-tier-40.png
   [21]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hy-web-11.png
   [22]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/App1.png
-  [Azure 실행 모델]: http://www.windowsazure.com/en-us/develop/net/fundamentals/compute/
-  [Azure 웹 사이트에 ASP.NET 웹 응용 프로그램 배포]: http://www.windowsazure.com/en-us/develop/net/tutorials/get-started/
+  [Azure 실행 모델]: http://www.windowsazure.com/ko-kr/develop/net/fundamentals/compute/
+  [Azure 웹 사이트에 ASP.NET 웹 응용 프로그램 배포]: http://www.windowsazure.com/ko-kr/develop/net/tutorials/get-started/
   [23]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-21.png
   [24]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-22.png
   [25]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hy-web-12.png
@@ -777,6 +776,7 @@ Azure는 사용된 서버 시간의 시간당 웹 역할 인스턴스
   [32]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-41.png
   [33]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hy-service1.png
   [34]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-43.png
-  [Azure 서비스 버스]: http://msdn.microsoft.com/en-us/library/windowsazure/ee732537.aspx
+  [Azure 서비스 버스]: http://msdn.microsoft.com/ko-kr/library/windowsazure/ee732537.aspx
   [서비스 버스 사용 방법]: /ko-kr/documentation/services/service-bus/
-  [서비스 버스 큐를 사용하는 방법]: /en-us/develop/net/how-to-guides/service-bus-queues/
+  [서비스 버스 큐를 사용하는 방법]: /ko-kr/develop/net/how-to-guides/service-bus-queues/
+  [도구 및 SDK 얻기]: http://go.microsoft.com/fwlink/?LinkId=271920

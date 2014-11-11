@@ -1,10 +1,10 @@
 <properties linkid="dev-nodejs-tutorials-web-site-with-storage" urlDisplayName="Website with Storage" pageTitle="Node.js website with table storage | Microsoft Azure" metaKeywords="Azure table storage Node.js, Azure Node.js application, Azure Node.js tutorial, Azure Node.js example" description="A tutorial that teaches you how to use the Azure Table service to store data from a Node application hosted on an Azure website." metaCanonical="" services="web-sites,storage" documentationCenter="Node.js" title="Node.js Web Application using the Azure Table Service" authors="larryfr" solutions="" manager="" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr" />
 
 # Azure 테이블 서비스를 사용하는 Node.js 웹 응용 프로그램
 
-이 자습서에서는 Azure 데이터 관리에서 제공하는 테이블 서비스를 사용하여 Azure에서 호스트되는 [node][] 응용 프로그램에서 데이터를 저장하고 액세스하는 방법을 보여 줍니다. 이 자습서에서는 이전에 node 및 [Git][]를 사용한 경험이 있다고 가정합니다.
+이 자습서에서는 Azure 데이터 관리에서 제공하는 테이블 서비스를 사용하여 Azure에서 호스트되는 [node][node] 응용 프로그램에서 데이터를 저장하고 액세스하는 방법을 보여 줍니다. 이 자습서에서는 이전에 node 및 [Git][Git]를 사용한 경험이 있다고 가정합니다.
 
 다음 내용을 배웁니다.
 
@@ -18,7 +18,7 @@
 
 이 자습서의 프로젝트 파일은 **tasklist**라는 디렉터리에 저장되며 완료된 응용 프로그램은 다음과 유사하게 보입니다.
 
-![빈 tasklist가 표시된 웹 페이지][]
+![빈 tasklist가 표시된 웹 페이지][빈 tasklist가 표시된 웹 페이지]
 
 > [WACOM.NOTE] 이 자습서에서는 **tasklist** 폴더를 사용합니다. 운영 체제마다 경로 의미 체계가 다르므로, 폴더의 전체 경로는 생략되었습니다. 로컬 파일 시스템에 쉽게 액세스할 수 있는 위치에 이 폴더를 만들어야 합니다(예: **~/node/tasklist** 또는 **c:\\node\\tasklist**).
 
@@ -28,41 +28,41 @@
 
 이 문서의 지침을 따르기 전에 다음이 설치되어 있는지 확인해야 합니다.
 
--   [node][] 버전 0.10.24 이상
+-   [node][node] 버전 0.10.24 이상
 
--   [Git][]
+-   [Git][Git]
 
 -   텍스트 편집기
 
 -   웹 브라우저
 
-[WACOM.INCLUDE [create-account-and-websites-note][]]
+[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 ## 저장소 계정 만들기
 
 저장소 계정을 만들려면 다음 단계를 수행합니다. 이 계정은 이 자습서 뒷부분의 지침에서 사용합니다.
 
-1.  웹 브라우저를 열고 [Azure 포털][]로 이동합니다. 메시지가 나타나면 Azure 구독 정보로 로그인합니다.
+1.  웹 브라우저를 열고 [Azure 포털][Azure 포털]로 이동합니다. 메시지가 나타나면 Azure 구독 정보로 로그인합니다.
 
 2.  포털의 맨 아래에서 **+ 새로 만들기**를 클릭한 후 **저장소 계정**을 선택합니다.
 
-    ![+새로 만들기][]
+    ![+새로 만들기][+새로 만들기]
 
-    ![저장소 계정][]
+    ![저장소 계정][저장소 계정]
 
 3.  **빠른 생성**을 선택한 후 이 저장소 계정의 URL 및 위치/선호도 그룹을 입력합니다. 이 자습에서는 전역으로 복제할 필요가 없으므로 **지역에서 복제 사용**의 선택을 취소합니다. 마지막으로 "저장소 계정 만들기"를 클릭합니다.
 
-    ![빠른 생성][]
+    ![빠른 생성][빠른 생성]
 
     입력한 URL은 뒷부분의 단계에서 계정 이름으로 참조되므로 기록해 둡니다.
 
 4.  저장소 계정을 만든 후 페이지 맨 아래에서 **액세스 키 관리**를 클릭합니다. 그러면 이 저장소 계정의 기본 및 보조 액세스 키가 표시됩니다. 기본 액세스 키를 복사하여 저장한 후 확인 표시를 클릭합니다.
 
-    ![액세스 키][]
+    ![액세스 키][액세스 키]
 
 ## 모듈 설치 및 스캐폴딩 생성
 
-이 섹션에서는 새로운 Node 응용 프로그램을 만들고 npm을 사용하여 모듈 패키지를 추가합니다. 작업 목록 응용 프로그램의 경우 [Express][] 및 [Azure][] 모듈을 사용합니다. Express 모듈은 node에 모델 보기 컨트롤러 프레임워크를 제공하지만 Azure 모듈은 테이블 서비스에 대한 연결을 제공합니다.
+이 섹션에서는 새로운 Node 응용 프로그램을 만들고 npm을 사용하여 모듈 패키지를 추가합니다. 작업 목록 응용 프로그램의 경우 [Express][Express] 및 [Azure][Azure] 모듈을 사용합니다. Express 모듈은 node에 모델 보기 컨트롤러 프레임워크를 제공하지만 Azure 모듈은 테이블 서비스에 대한 연결을 제공합니다.
 
 ### express 설치 및 스캐폴딩 생성
 
@@ -421,7 +421,7 @@
 
 ### 전역 레이아웃 수정
 
-**views** 디렉터리의 **layout.jade** 파일은 다른 **.jade** 파일에 대한 전역 템플릿으로 사용됩니다. 이 단계에서는 멋진 모습의 웹 사이트를 쉽게 디자인할 수 있게 해주는 도구 키트인 [Twitter Bootstrap][]을 사용하도록 이 파일을 수정합니다.
+**views** 디렉터리의 **layout.jade** 파일은 다른 **.jade** 파일에 대한 전역 템플릿으로 사용됩니다. 이 단계에서는 멋진 모습의 웹 사이트를 쉽게 디자인할 수 있게 해주는 도구 키트인 [Twitter Bootstrap][Twitter Bootstrap]을 사용하도록 이 파일을 수정합니다.
 
 1.  [Twitter Bootstrap][1]용 파일을 다운로드하여 추출합니다. **bootstrap\\dist\\css** 폴더의 **bootstrap.min.css** 파일을 tasklist 응용 프로그램의 **public\\stylesheets** 디렉터리에 복사합니다.
 
@@ -478,7 +478,7 @@
 
 5.  페이지가 업데이트되어 ToDo List 테이블의 항목을 표시합니다.
 
-    ![작업 목록의 새 항목 이미지][]
+    ![작업 목록의 새 항목 이미지][작업 목록의 새 항목 이미지]
 
 6.  작업을 완료하려면 완료 열의 확인란을 선택한 후 **작업 업데이트**를 클릭하면 됩니다.
 
@@ -488,7 +488,7 @@
 
 이 섹션의 단계에서는 Azure 명령줄 도구를 사용하여 새 Azure 웹 사이트를 만든 후 Git를 사용하여 응용 프로그램을 배포합니다. 이러한 단계를 수행하려면 Azure 구독이 있어야 합니다.
 
-> [WACOM.NOTE] 이러한 단계는 Azure 포털을 사용하여 수행할 수도 있습니다. Azure 포털을 사용하여 Node.js 응용 프로그램을 배포하는 단계에 대해서는 [Node.js 응용 프로그램을 만들어 Azure 웹 사이트에 배포][]를 참조하세요.
+> [WACOM.NOTE] 이러한 단계는 Azure 포털을 사용하여 수행할 수도 있습니다. Azure 포털을 사용하여 Node.js 응용 프로그램을 배포하는 단계에 대해서는 [Node.js 응용 프로그램을 만들어 Azure 웹 사이트에 배포][Node.js 응용 프로그램을 만들어 Azure 웹 사이트에 배포]를 참조하세요.
 
 > [WACOM.NOTE] 처음으로 Azure 웹 사이트를 만든 경우 Azure 포털을 사용하여 이 응용 프로그램을 배포해야 합니다.
 
@@ -496,7 +496,7 @@
 
 아직 Azure 구독이 없는 경우 [무료 평가판][Azure 포털]에 등록할 수 있습니다. 등록한 후 다음 단계에 따라 이 자습서를 계속합니다.
 
-[WACOM.INCLUDE [antares-iaas-signup][]]
+[WACOM.INCLUDE [antares-iaas-signup](../includes/antares-iaas-signup.md)]
 
 ### Mac 및 Linux용 Azure 명령줄 도구 설치
 
@@ -504,7 +504,7 @@
 
     npm install azure-cli -g
 
-> [WACOM.NOTE] 자세한 내용은 [Azure 플랫폼 간 명령줄 인터페이스 설치 및 구성][]을 참조하세요.
+> [WACOM.NOTE] 자세한 내용은 [Azure 플랫폼 간 명령줄 인터페이스 설치 및 구성][Azure 플랫폼 간 명령줄 인터페이스 설치 및 구성]을 참조하세요.
 
 > [WACOM.NOTE] 명령줄 도구는 주로 Mac 및 Linux 사용자를 위해 만들어졌으나 Node.js를 기반으로 하며 Node를 실행할 수 있는 모든 시스템에서 작동해야 합니다.
 
@@ -518,7 +518,7 @@ Azure에 명령줄 도구를 사용하려면 먼저 구독에 대한 정보가 �
 
         azure account download
 
-    ![다운로드 페이지][]
+    ![다운로드 페이지][다운로드 페이지]
 
     파일 다운로드가 자동으로 시작됩니다. 그렇지 않은 경우 페이지 처음 부분에서 링크를 클릭하여 수동으로 파일을 다운로드할 수 있습니다.
 
@@ -550,7 +550,7 @@ Azure에 명령줄 도구를 사용하려면 먼저 구독에 대한 정보가 �
 
     웹 사이트 이름 및 데이터 센터의 위치에 대한 메시지가 표시됩니다. 고유한 이름을 지정하고 현재 위치와 지리적으로 가까운 데이터 센터를 선택합니다.
 
-    `--git` 매개 변수는 Azure에 이 웹 사이트에 대한 Git 리포지토리를 만듭니다. 또한 Git 리포지토리가 없는 경우 현재 디렉터리에서 Git 리포지토리를 초기화합니다. 또한 Azure에 응용 프로그램을 게시하는 데 사용되는 'azure'라는 [Git remote][](영문)를 만듭니다. 마지막으로 Azure에서 노드 응용 프로그램을 호스트하는 데 사용한 설정이 포함된 **web.config** 파일을 만듭니다.
+    `--git` 매개 변수는 Azure에 이 웹 사이트에 대한 Git 리포지토리를 만듭니다. 또한 Git 리포지토리가 없는 경우 현재 디렉터리에서 Git 리포지토리를 초기화합니다. 또한 Azure에 응용 프로그램을 게시하는 데 사용되는 'azure'라는 [Git remote][Git remote](영문)를 만듭니다. 마지막으로 Azure에서 노드 응용 프로그램을 호스트하는 데 사용한 설정이 포함된 **web.config** 파일을 만듭니다.
 
     > [WACOM.NOTE] 이미 Git 리포지토리를 포함하는 디렉터리에서 이 명령을 실행한 경우 디렉터리가 다시 초기화되지는 않습니다.
 
@@ -599,11 +599,11 @@ Azure에 명령줄 도구를 사용하려면 먼저 구독에 대한 정보가 �
 
 1.  관리 포털에서 **웹 사이트**를 클릭한 다음 웹 사이트를 선택합니다.
 
-    ![웹 사이트 대시보드 열기][]
+    ![웹 사이트 대시보드 열기][웹 사이트 대시보드 열기]
 
 2.  **구성**을 클릭한 후 페이지의 **앱 설정** 섹션을 찾습니다.
 
-    ![구성 링크][]
+    ![구성 링크][구성 링크]
 
 3.  **앱 설정** 섹션에서 **키** 필드에 **STORAGE\_NAME**을 입력하고 **값** 필드에 저장소 계정의 이름을 입력합니다. 확인 표시를 클릭하여 다음 필드로 이동합니다. 다음 키와 값에 대해 이 과정을 반복합니다.
 
@@ -613,11 +613,11 @@ Azure에 명령줄 도구를 사용하려면 먼저 구독에 대한 정보가 �
 
     -   **TABLE\_NAME** - 'tasks'
 
-    ![앱 설정][]
+    ![앱 설정][앱 설정]
 
 4.  마지막으로 페이지 맨 아래에 있는 **저장** 아이콘을 클릭하여 이 변경 내용을 런타임 환경에 커밋합니다.
 
-    ![앱 설정 저장][]
+    ![앱 설정 저장][앱 설정 저장]
 
 5.  명령줄에서 디렉터리를 **tasklist** 디렉터리로 변경하고 다음 명령을 입력하여 **config.json** 파일을 제거합니다.
 
@@ -632,20 +632,19 @@ Azure에 명령줄 도구를 사용하려면 먼저 구독에 대한 정보가 �
 
 ## 다음 단계
 
-이 문서의 단계에서는 테이블 서비스를 사용하여 정보를 저장하는 방법에 대해 설명하지만 MongoDB도 사용할 수 있습니다. 자세한 내용은 [MongoDB가 있는 Node.js 웹 응용 프로그램][](영문)을 참조하세요.
+이 문서의 단계에서는 테이블 서비스를 사용하여 정보를 저장하는 방법에 대해 설명하지만 MongoDB도 사용할 수 있습니다. 자세한 내용은 [MongoDB가 있는 Node.js 웹 응용 프로그램][MongoDB가 있는 Node.js 웹 응용 프로그램](영문)을 참조하세요.
 
 ## 추가 리소스
 
 [Mac 및 Linux용 Azure 명령줄 도구] 
-[Git를 사용하여 Azure 웹 사이트에 게시][](영문):
-[Azure 개발자 센터]: /en-us/develop/nodejs/
+[Git를 사용하여 Azure 웹 사이트에 게시][Git를 사용하여 Azure 웹 사이트에 게시](영문):
+[Azure 개발자 센터]: /ko-kr/develop/nodejs/
 
   [node]: http://nodejs.org
   [Git]: http://git-scm.com
   [빈 tasklist가 표시된 웹 페이지]: ./media/storage-nodejs-use-table-storage-web-site/table_todo_empty.png
   [create-account-and-websites-note]: ../includes/create-account-and-websites-note.md
   [Azure 포털]: http://windowsazure.com
-  [+새로 만들기]: ./media/storage-nodejs-use-table-storage-web-site/plus-new.png
   [저장소 계정]: ./media/storage-nodejs-use-table-storage-web-site/new-storage.png
   [빠른 생성]: ./media/storage-nodejs-use-table-storage-web-site/quick-storage.png
   [액세스 키]: ./media/storage-nodejs-use-table-storage-web-site/manage-access-keys.png

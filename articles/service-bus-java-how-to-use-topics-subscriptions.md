@@ -1,6 +1,6 @@
 <properties linkid="dev-java-how-to-service-bus-topics" urlDisplayName="Service Bus Topics" pageTitle="How to use Service Bus topics (Java) - Azure" metaKeywords="Get started Azure Service Bus topics, Get Started Service Bus topics, Azure publish subscribe messaging, Azure messaging topics and subscriptions, Service Bus topic Java" description="Learn how to use Service Bus topics and subscriptions in Azure. Code samples are written for Java applications." metaCanonical="" services="service-bus" documentationCenter="Java" title="How to Use Service Bus Topics/Subscriptions" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm"></tags>
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
 
 # 서비스 버스 토픽/구독을 사용하는 방법
 
@@ -20,7 +20,7 @@
 -   [방법: 토픽 및 구독 삭제][방법: 토픽 및 구독 삭제]
 -   [다음 단계][다음 단계]
 
-[WACOM.INCLUDE [howto-service-bus-topics][howto-service-bus-topics]]
+[WACOM.INCLUDE [howto-service-bus-topics](../includes/howto-service-bus-topics.md)]
 
 ## <a name="bkmk_ConfigYourApp"> </a> 서비스 버스를 사용하도록 응용 프로그램 구성
 
@@ -222,7 +222,7 @@ Java용 Azure 라이브러리를 빌드 경로에 추가하고 프로젝트 배�
 
 지금까지 서비스 버스 큐의 기본 사항에 대해 알아보았습니다. 자세한 내용은MSDN 항목 [서비스 버스 큐, 토픽 및 구독][서비스 버스 큐, 토픽 및 구독](영문)을 참조하세요.
 
-  [Java용 Azure SDK]: http://www.windowsazure.com/ko--kr/develop/java/
+  [Java용 Azure SDK]: http://www.windowsazure.com/ko-kr/develop/java/
   [서비스 버스 토픽 및 구독 정의]: #what-are-service-bus-topics
   [서비스 네임스페이스 만들기]: #create-a-service-namespace
   [네임스페이스에 대한 기본 관리 자격 증명 얻기]: #obtain-default-credentials

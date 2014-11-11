@@ -1,6 +1,6 @@
 <properties pageTitle="Using Windows PowerShell with Resource Manager" metaKeywords="ResourceManager, PowerShell, Azure PowerShell" description="Use Windows PowerShell to create a resource group" metaCanonical="" services="" documentationCenter="" title="Using Windows PowerShell with Resource Manager" authors="stevenka; juneb" solutions="" manager="stevenka" editor="mollybos" />
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="powershell" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="stevenka; juneb"></tags>
+<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="powershell" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="stevenka; juneb" />
 
 # 리소스 관리자에서 Windows PowerShell 사용
 
@@ -16,11 +16,11 @@
 
 리소스 관리자에서 Windows PowerShell을 사용하려면 다음이 있어야 합니다.
 
--   Windows PowerShell, 버전 3.0 또는 4.0. Windows PowerShell 버전을 확인하려면 `$PSVersionTable`을 입력하고 `PSVersion` 값이 3.0 또는 4.0인지 확인합니다. 호환되는 버전을 설치하려면 [Windows Management Framework 3.0][] 또는 [Windows Management Framework 4.0][]을 참조하세요.
+-   Windows PowerShell, 버전 3.0 또는 4.0. Windows PowerShell 버전을 확인하려면 `$PSVersionTable`을 입력하고 `PSVersion` 값이 3.0 또는 4.0인지 확인합니다. 호환되는 버전을 설치하려면 [Windows Management Framework 3.0][Windows Management Framework 3.0] 또는 [Windows Management Framework 4.0][Windows Management Framework 4.0]을 참조하세요.
 
--   Azure PowerShell 버전 0.8.0 이상. 최신 버전을 설치하여 Azure 구독에 연결하려면 [Azure PowerShell 설치 및 구성 방법][](영문)을 참조하십시오.
+-   Azure PowerShell 버전 0.8.0 이상. 최신 버전을 설치하여 Azure 구독에 연결하려면 [Azure PowerShell 설치 및 구성 방법][Azure PowerShell 설치 및 구성 방법](영문)을 참조하십시오.
 
-이 자습서는 Windows PowerShell 초보자용으로 설계되었지만, 모듈, cmdlet, 세션 등과 같은 기본 개념을 잘 알고 있다고 가정합니다. Windows PowerShell에 대한 자세한 내용은 [Windows PowerShell 시작][](영문)을 참조하십시오.
+이 자습서는 Windows PowerShell 초보자용으로 설계되었지만, 모듈, cmdlet, 세션 등과 같은 기본 개념을 잘 알고 있다고 가정합니다. Windows PowerShell에 대한 자세한 내용은 [Windows PowerShell 시작][Windows PowerShell 시작](영문)을 참조하십시오.
 
 이 설명서에 나오는 cmdlet에 대한 자세한 도움말을 보려면 Get-Help cmdlet을 사용합니다.
 
@@ -32,21 +32,21 @@
 
 ## 자습서 내용
 
--   [Azure Powershell 모듈 정보][]
--   [리소스 그룹 만들기][]
--   [리소스 그룹 관리][]
--   [리소스 그룹 문제 해결][]
--   [다음 단계][]
+-   [Azure Powershell 모듈 정보][Azure Powershell 모듈 정보]
+-   [리소스 그룹 만들기][리소스 그룹 만들기]
+-   [리소스 그룹 관리][리소스 그룹 관리]
+-   [리소스 그룹 문제 해결][리소스 그룹 문제 해결]
+-   [다음 단계][다음 단계]
 
 ## <span id="about"></span></a>Azure PowerShell 모듈 정보
 
 Azure PowerShell 버전 0.8.0 이상을 설치하면 다음과 같은 세 가지 Windows PowerShell 모듈이 포함되어 있습니다.
 
--   **Azure**: 저장소 계정, 웹 사이트, 데이터베이스, 가상 컴퓨터, 미디어 서비스와 같은 개별 리소스 관리를 위한 기존 cmdlet을 포함합니다. 자세한 내용은 [ACS 서비스 관리 Cmdlet][](영문)을 참조하십시오.
+-   **Azure**: 저장소 계정, 웹 사이트, 데이터베이스, 가상 컴퓨터, 미디어 서비스와 같은 개별 리소스 관리를 위한 기존 cmdlet을 포함합니다. 자세한 내용은 [ACS 서비스 관리 Cmdlet][ACS 서비스 관리 Cmdlet](영문)을 참조하십시오.
 
--   **AzureResourceManager**: 리소스 그룹에 대한 Azure 리소스를 작성, 관리 및 배포하는 cmdlet을 포함합니다. 자세한 내용은 [Azure 리소스 관리자 Cmdlet][](영문)을 참조하십시오.
+-   **AzureResourceManager**: 리소스 그룹에 대한 Azure 리소스를 작성, 관리 및 배포하는 cmdlet을 포함합니다. 자세한 내용은 [Azure 리소스 관리자 Cmdlet][Azure 리소스 관리자 Cmdlet](영문)을 참조하십시오.
 
--   **AzureProfile**: Add-AzureAccount, Get-AzureSubscription, Switch-AzureMode 등과 같이 두 모듈에 공통인 cmdlet을 포함합니다. 자세한 내용은 [Azure 프로필 Cmdlet][](영문)을 참조하십시오.
+-   **AzureProfile**: Add-AzureAccount, Get-AzureSubscription, Switch-AzureMode 등과 같이 두 모듈에 공통인 cmdlet을 포함합니다. 자세한 내용은 [Azure 프로필 Cmdlet][Azure 프로필 Cmdlet](영문)을 참조하십시오.
 
 > [ WACOM.NOTE] Azure 리소스 관리자 모듈은 현재 Preview 상태입니다. 이 모듈은 Azure 모듈과 동일한 관리 기능을 제공하지 않을 수도 있습니다.
 
@@ -64,7 +64,7 @@ Azure 모듈로 전환하려면 다음을 입력합니다.
 
 기본적으로 Switch-AzureMode는 현재 세션에만 영향을 줍니다. 스위치를 모든 Windows PowerShell 세션에서 유효하도록 만들려면 Switch-AzureMode의 **전역** 매개 변수를 사용합니다.
 
-Switch-AzureMode cmdlet에 대한 도움말을 보려면 `Get-Help Switch-AzureMode`를 입력하거나 [Switch-AzureMode][]를 참조하세요.
+Switch-AzureMode cmdlet에 대한 도움말을 보려면 `Get-Help Switch-AzureMode`를 입력하거나 [Switch-AzureMode][Switch-AzureMode]를 참조하세요.
 
 AzureResourceManager 모듈의 cmdlet 목록을 도움말 개요와 함께 가져오려면 다음을 입력합니다.
 
@@ -464,14 +464,12 @@ AzureResourceManager 모듈에는 오류를 방지하는 데 유용한 cmdlet이
 리소스 관리자에서 Windows PowerShell을 사용하는 방법에 대한 자세한 내용은 다음을 참조하십시오.
 
 -   [Azure 리소스 관리자 Cmdlet][1](영문): AzureResourceManager 모듈에서 cmdlet을 사용하는 방법을 알아보세요.
--   [리소스 그룹을 사용하여 Azure 리소스 관리][]: Azure 관리 포털에서 리소스 그룹을 만들고 관리하는 방법을 알아봅니다.
--   [리소스 관리자와 함께 Azure 플랫폼 간 명령줄 인터페이스 사용][](영문): 다양한 운영 체제 플랫폼에서 작동하는 명령줄 도구를 사용하여 리소스 그룹을 만들고 관리하는 방법을 알아봅니다.
--   [Azure 블로그][](영문): Azure의 새로운 기능에 대해 알아보십시오.
--   [Windows PowerShell 블로그][]: Windows PowerShell의 새로운 기능에 대해 알아보십시오.
--   ["Hey, Scripting Guy!" 블로그][](영문): Windows PowerShell 커뮤니티에서 실제 팁과 요령을 확인합니다.
+-   [리소스 그룹을 사용하여 Azure 리소스 관리][리소스 그룹을 사용하여 Azure 리소스 관리]: Azure 관리 포털에서 리소스 그룹을 만들고 관리하는 방법을 알아봅니다.
+-   [리소스 관리자와 함께 Azure 플랫폼 간 명령줄 인터페이스 사용][리소스 관리자와 함께 Azure 플랫폼 간 명령줄 인터페이스 사용](영문): 다양한 운영 체제 플랫폼에서 작동하는 명령줄 도구를 사용하여 리소스 그룹을 만들고 관리하는 방법을 알아봅니다.
+-   [Azure 블로그][Azure 블로그](영문): Azure의 새로운 기능에 대해 알아보십시오.
+-   [Windows PowerShell 블로그][Windows PowerShell 블로그]: Windows PowerShell의 새로운 기능에 대해 알아보십시오.
+-   ["Hey, Scripting Guy!" 블로그]["Hey, Scripting Guy!" 블로그](영문): Windows PowerShell 커뮤니티에서 실제 팁과 요령을 확인합니다.
 
-  [Windows PowerShell]: /ko-KR/documentation/articles/powershell-azure-resource-manager.md "Windows PowerShell"
-  [크로스 플랫폼 CLI]: /ko-KR/documentation/articles/xplat-cli-azure-resource-manager.md "크로스 플랫폼 CLI"
   [Windows Management Framework 3.0]: http://www.microsoft.com/ko-KR/download/details.aspx?id=34595
   [Windows Management Framework 4.0]: http://www.microsoft.com/ko-KR/download/details.aspx?id=40855
   [Azure PowerShell 설치 및 구성 방법]: http://www.windowsazure.com/ko-KR/documentation/articles/install-configure-powershell/

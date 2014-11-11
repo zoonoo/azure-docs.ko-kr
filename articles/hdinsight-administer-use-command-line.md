@@ -8,24 +8,24 @@
 
 명령줄 도구는 오픈 소스입니다. 소스 코드는 GitHub(<https://github.com/WindowsAzure/azure-sdk-tools-xplat>)에서 관리합니다.
 
-이 문서에서는 Windows에서 명령줄 인터페이스를 사용하는 방법만 다룹니다. 명령줄 인터페이스 사용 방법에 대한 일반적인 설명은 [Mac 및 Linux에서 Azure 명령줄 도구를 사용하는 방법][]을 참조하세요. 포괄적인 참조 설명서는 [Mac 및 Linux용 Azure 명령줄 도구][]를 참조하세요.
+이 문서에서는 Windows에서 명령줄 인터페이스를 사용하는 방법만 다룹니다. 명령줄 인터페이스 사용 방법에 대한 일반적인 설명은 [Mac 및 Linux에서 Azure 명령줄 도구를 사용하는 방법][Mac 및 Linux에서 Azure 명령줄 도구를 사용하는 방법]을 참조하세요. 포괄적인 참조 설명서는 [Mac 및 Linux용 Azure 명령줄 도구][Mac 및 Linux용 Azure 명령줄 도구]를 참조하세요.
 
 
 **필수 조건:**
 
 이 문서를 시작하기 전에 다음이 있어야 합니다.
 
-- **Azure 구독**. Azure는 구독 기반 플랫폼입니다. 구독을 얻는 방법에 대한 자세한 내용은 [구매 옵션][], [구성원 제공 항목][] 또는 [무료 평가판][]을 참조하세요.
+- **Azure 구독**. Azure는 구독 기반 플랫폼입니다. 구독을 얻는 방법에 대한 자세한 내용은 [구매 옵션][구매 옵션], [구성원 제공 항목][구성원 제공 항목] 또는 [무료 평가판][무료 평가판]을 참조하세요.
 
 ## 이 문서에서는 다음을 수행합니다.
 
-* [설치][]
-* [Azure 계정 publishsettings 다운로드 및 가져오기][]
-* [클러스터 프로비전][]
-* [구성 파일을 사용하여 클러스터 프로비전][]
-* [클러스터 나열 및 표시][]
-* [클러스터 삭제][]
-* [다음 단계][]
+* [설치][설치]
+* [Azure 계정 publishsettings 다운로드 및 가져오기][Azure 계정 publishsettings 다운로드 및 가져오기]
+* [클러스터 프로비전][클러스터 프로비전]
+* [구성 파일을 사용하여 클러스터 프로비전][구성 파일을 사용하여 클러스터 프로비전]
+* [클러스터 나열 및 표시][클러스터 나열 및 표시]
+* [클러스터 삭제][클러스터 삭제]
+* [다음 단계][다음 단계]
 
 ## <a id="installation"></a> 설치
 명령줄 인터페이스는 *NPM(Node.js 패키지 관리자)* 또는 Windows Installer를 사용하여 설치할 수 있습니다.
@@ -55,7 +55,7 @@
 
 **Windows Installer를 사용하여 명령줄 인터페이스를 설치하려면**
 
-1.  **[http://azure.microsoft.com/ko-kr/downloads/][]**로 이동합니다.
+1.  **[http://azure.microsoft.com/ko-kr/downloads/][http://azure.microsoft.com/ko-kr/downloads/]**로 이동합니다.
 2.  **명령줄 도구** 섹션으로 스크롤하여 **플랫폼 간 명령줄 인터페이스**를 클릭하고 웹 플랫폼 설치 관리자 마법사를 따릅니다.
 
 ## <a id=importsettings"></a> Azure 계정 publishsettings 다운로드 및 가져오기
@@ -71,7 +71,7 @@
 
         azure account download
 
-    ![HDI.CLIAccountDownloadImport][]
+    ![HDI.CLIAccountDownloadImport][HDI.CLIAccountDownloadImport]
 
     이 명령은 URL을 비롯하여 파일 다운로드 지침을 보여 줍니다.
 
@@ -104,7 +104,7 @@ publishsettings 파일을 가져온 후 다음 명령을 사용하여 저장소 
 </ul>
 
 
-Azure 관리 포털을 사용하여 Azure 저장소 계정을 만드는 방법에 대한 자세한 내용은 [저장소 계정을 만드는 방법][]을 참조하세요.
+Azure 관리 포털을 사용하여 Azure 저장소 계정을 만드는 방법에 대한 자세한 내용은 [저장소 계정을 만드는 방법][저장소 계정을 만드는 방법]을 참조하세요.
 
 저장소 계정이 이미 있지만 계정 이름과 계정 키를 모르는 경우 다음 명령을 사용하여 정보를 검색할 수 있습니다.
 
@@ -115,7 +115,7 @@ Azure 관리 포털을 사용하여 Azure 저장소 계정을 만드는 방법�
     -- Lists the keys for a storage account
     azure account storage keys list <StorageAccountName>
 
-관리 포털을 사용하여 정보를 가져오는 방법에 대한 자세한 내용은 *방법: 저장소 액세스 키 보기, 복사 및 다시 생성* 섹션([저장소 계정을 관리하는 방법][])을 참조하세요.
+관리 포털을 사용하여 정보를 가져오는 방법에 대한 자세한 내용은 *방법: 저장소 액세스 키 보기, 복사 및 다시 생성* 섹션([저장소 계정을 관리하는 방법][저장소 계정을 관리하는 방법])을 참조하세요.
 
 
 *azure hdinsight cluster create* 명령은 컨테이너가 없는 경우 컨테이너를 만듭니다. 미리 컨테이너를 만들도록 선택하는 경우 다음 명령을 사용할 수 있습니다.
@@ -126,7 +126,7 @@ Azure 관리 포털을 사용하여 Azure 저장소 계정을 만드는 방법�
 
     azure hdinsight cluster create --clusterName <ClusterName> --storageAccountName <StorageAccountName> --storageAccountKey <storageAccountKey> --storageContainer <StorageContainer> --nodes <NumberOfNodes> --location <DataCenterLocation> --username <HDInsightClusterUsername> --clusterPassword <HDInsightClusterPassword>
 
-![HDI.CLIClusterCreation][]
+![HDI.CLIClusterCreation][HDI.CLIClusterCreation]
 
 
 
@@ -164,7 +164,7 @@ Azure 관리 포털을 사용하여 Azure 저장소 계정을 만드는 방법�
        
   
 
-![HDI.CLIClusterCreationConfig][]
+![HDI.CLIClusterCreationConfig][HDI.CLIClusterCreationConfig]
 
 
 ## <a id="listshow"></a> 클러스터 세부 정보 나열 및 표시
@@ -173,7 +173,7 @@ Azure 관리 포털을 사용하여 Azure 저장소 계정을 만드는 방법�
     azure hdinsight cluster list
     azure hdinsight cluster show <ClusterName>
 
-![HDI.CLIListCluster][]
+![HDI.CLIListCluster][HDI.CLIListCluster]
 
 
 ## <a id="delete"></a> 클러스터 삭제
@@ -187,17 +187,17 @@ Azure 관리 포털을 사용하여 Azure 저장소 계정을 만드는 방법�
 ## <a id="nextsteps"></a>다음 단계
 이 문서에서는 HDInsight 클러스터 관리 작업을 수행하는 여러 방법에 대해 알아보았습니다. 자세한 내용은 다음 문서를 참조하세요.
 
-* [관리 포털을 사용하여 HDInsight 관리][]
-* [PowerShell을 사용하여 HDInsight 관리][]
-* [Azure HDInsight 시작][]
-* [Mac 및 Linux에서 Azure 명령줄 도구를 사용하는 방법][]
-* [Mac 및 Linux용 Azure 명령줄 도구][]
+* [관리 포털을 사용하여 HDInsight 관리][관리 포털을 사용하여 HDInsight 관리]
+* [PowerShell을 사용하여 HDInsight 관리][PowerShell을 사용하여 HDInsight 관리]
+* [Azure HDInsight 시작][Azure HDInsight 시작]
+* [Mac 및 Linux에서 Azure 명령줄 도구를 사용하는 방법][Mac 및 Linux에서 Azure 명령줄 도구를 사용하는 방법]
+* [Mac 및 Linux용 Azure 명령줄 도구][Mac 및 Linux용 Azure 명령줄 도구]
 
   [Mac 및 Linux에서 Azure 명령줄 도구를 사용하는 방법]: ../xplat-cli/
   [Mac 및 Linux용 Azure 명령줄 도구]: ../command-line-tools/
-  [구매 옵션]: http://azure.microsoft.com/en-us/pricing/purchase-options/
-  [구성원 제공 항목]: http://azure.microsoft.com/en-us/pricing/member-offers/
-  [무료 평가판]: http://azure.microsoft.com/en-us/pricing/free-trial/
+  [구매 옵션]: http://azure.microsoft.com/ko-kr/pricing/purchase-options/
+  [구성원 제공 항목]: http://azure.microsoft.com/ko-kr/pricing/member-offers/
+  [무료 평가판]: http://azure.microsoft.com/ko-kr/pricing/free-trial/
   [설치]: #installation
   [Azure 계정 publishsettings 다운로드 및 가져오기]: #importsettings
   [클러스터 프로비전]: #provision
@@ -205,7 +205,7 @@ Azure 관리 포털을 사용하여 Azure 저장소 계정을 만드는 방법�
   [클러스터 나열 및 표시]: #listshow
   [클러스터 삭제]: #delete
   [다음 단계]: #nextsteps
-  [http://azure.microsoft.com/ko-kr/downloads/]: http://azure.microsoft.com/en-us/downloads/
+  [http://azure.microsoft.com/ko-kr/downloads/]: http://azure.microsoft.com/ko-kr/downloads/
   [HDI.CLIAccountDownloadImport]: ./media/hdinsight-administer-use-command-line/HDI.CLIAccountDownloadImport.png
   [저장소 계정을 만드는 방법]: ../storage-create-storage-account/
   [저장소 계정을 관리하는 방법]: ../storage-manage-storage-account/

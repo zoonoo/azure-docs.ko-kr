@@ -1,6 +1,6 @@
 <properties linkid="develop-php-website-with-mysql-and-ftp" urlDisplayName="Web w/ MySQL + FTP" pageTitle="PHP website with MySQL and FTP - Azure tutorial" metaKeywords="" description="A tutorial that demonstrates how to create a PHP website that stores data in MySQL and use FTP deployment to Azure." metaCanonical="" services="web-sites" documentationCenter="PHP" title="Create a PHP-MySQL Azure Website and Deploy Using FTP" authors="cephalin" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin" />
 
 # PHP-MySQL Azure 웹 사이트 만들기 및 FTP를 사용하여 배포
 
@@ -259,4 +259,3 @@ Azure 웹 사이트에서 실행되는 MySQL 데이터베이스에 연결하려�
   [1]: http://localhost/tasklist/index.php
   [데이터베이스 연결 정보 가져오기]: ./media/web-sites-php-web-site-mysql-deploy-use-ftp/connection_string_info.png
   [게시 프로필 다운로드]: ./media/web-sites-php-web-site-mysql-deploy-use-ftp/download_publish_profile_2.png
-  [http://[사이트]: http://[site

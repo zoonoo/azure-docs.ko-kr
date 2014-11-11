@@ -1,6 +1,6 @@
 <properties linkid="develop-python-web-app-with-django" urlDisplayName="Web with Django (Windows)" pageTitle="Python web app with Django - Azure tutorial" metaKeywords="Azure Django web app, Azure Django virtual machine" description="A tutorial that teaches you how to host a Django-based website on Azure using a Windows Server 2008 R2 virtual machine." metaCanonical="" services="virtual-machines" documentationCenter="Python" title="Django Hello World Web Application" authors="huvalo" solutions="" manager="" editor="" />
 
-<tags ms.service="virtual-machines" ms.workload="web" ms.tgt_pltfrm="vm-windows" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo"></tags>
+<tags ms.service="virtual-machines" ms.workload="web" ms.tgt_pltfrm="vm-windows" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo" />
 
 # Django Hello World 웹 응용 프로그램
 
@@ -21,7 +21,7 @@
 
 ![Azure의 hello world 페이지를 표시하는 브라우저 창][Azure의 hello world 페이지를 표시하는 브라우저 창]
 
-[WACOM.INCLUDE [create-account-and-vms-note][create-account-and-vms-note]]
+[WACOM.INCLUDE [create-account-and-vms-note](../includes/create-account-and-vms-note.md)]
 
 ## Django를 호스트하기 위해 Azure 가상 컴퓨터 만들기 및 구성
 
@@ -34,7 +34,7 @@
     ![끝점 추가][끝점 추가]
 
 -   *TCP* 프로토콜의 *공용 포트 80*을 *개인 포트 80*으로 엽니다.
-    ![][]
+    ![][0]
 
 1.  Windows *원격 데스크톱*을 사용하여 새로 만든 Azure 가상 컴퓨터에 원격으로 로그인합니다.
 
@@ -121,13 +121,11 @@ Python 및 Django 환경을 설정하려면 [설치 가이드][설치 가이드]
 
 이 자습서를 완료했으므로 새로 만든 Azure 가상 컴퓨터를 종료하거나 종료한 후 제거하여 다른 자습서에 사용할 리소스를 늘리고 Azure 사용량에 따른 요금 부과를 방지하십시오.
 
-  [Windows]: /ko-kr/develop/python/tutorials/web-app-with-django/ "Windows"
-  [Mac/Linux]: /ko-kr/develop/python/tutorials/django-hello-world-(maclinux)/ "MacLinux"
   [Azure의 hello world 페이지를 표시하는 브라우저 창]: ./media/virtual-machines-python-django-web-app-windows-server/django-helloworld-browser-azure.png
   [create-account-and-vms-note]: ../includes/create-account-and-vms-note.md
   [여기]: /ko-kr/manage/windows/tutorials/virtual-machine-from-gallery/
   [끝점 추가]: ./media/virtual-machines-python-django-web-app-windows-server/django-helloworld-addendpoint.png
-  []: ./media/virtual-machines-python-django-web-app-windows-server/django-helloworld-port80.png
+  [0]: ./media/virtual-machines-python-django-web-app-windows-server/django-helloworld-port80.png
   [설치 가이드]: ../python-how-to-install/
   [IIS config1]: ./media/virtual-machines-python-django-web-app-windows-server/django-helloworld-iis1.png
   [codeplex]: http://go.microsoft.com/fwlink/?LinkID=316392&clcid=0x409

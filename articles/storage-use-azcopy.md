@@ -1,6 +1,6 @@
 <properties linkid="storage-use-azcopy" urlDisplayName="AzCopy" pageTitle="How to use AzCopy with Microsoft Azure Storage" metaKeywords="Get started Azure AzCopy   Azure unstructured data   Azure unstructured storage   Azure blob   Azure blob storage   Azure file   Azure file storage   Azure file share   AzCopy" description="Learn how to use the AzCopy utility to upload, download, and copy blob and file content." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="storage" documentationCenter="" title="How to use AzCopy with Microsoft Azure Storage" authors="tamram" manager="mbaldwin" editor="cgronlun" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/06/2014" ms.author="tamram"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/06/2014" ms.author="tamram" />
 
 # AzCopy 명령줄 유틸리티 시작
 
@@ -664,10 +664,7 @@ Azure 저장소 및 AzCopy에 대한 자세한 내용은 다음 리소스를 참
   [다음 단계]: #next-steps
   [최신 버전의 AzCopy]: http://aka.ms/downloadazcopy
   [비동기 크로스 계정 Blob 복사 소개]: http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx
-  [Azure 저장소 소개]: http://azure.microsoft.com/ko--kr/documentation/articles/storage-introduction/
-  [Blob 저장소에 파일 저장(영문)]: http://azure.microsoft.com/ko--kr/documentation/articles/storage-dotnet-how-to-use-blobs/
-  [파일 저장소를 사용하여 Azure에서 SMB 파일 공유 만들기(영문)]: http://azure.microsoft.com/ko--kr/documentation/articles/storage-dotnet-how-to-use-files/
-  [Microsoft Azure 파일 서비스 소개(영문)]: http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx
+  [Azure 저장소 소개]: http://azure.microsoft.com/ko-kr/documentation/articles/storage-introduction/
   [AzCopy 2.5: 대량 복사 시나리오에 맞게 최적화]: http://go.microsoft.com/fwlink/?LinkId=507682
   [AzCopy: 읽기 액세스 지역 중복 저장소 지원]: http://blogs.msdn.com/b/windowsazurestorage/archive/2014/04/07/azcopy-support-for-read-access-geo-redundant-account.aspx
   [AzCopy: 다시 시작 가능 모드 및 SAS 토큰으로 데이터 전송]: http://blogs.msdn.com/b/windowsazurestorage/archive/2013/09/07/azcopy-transfer-data-with-re-startable-mode-and-sas-token.aspx

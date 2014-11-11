@@ -1,6 +1,6 @@
 <properties title="Build an HBase application using Maven" pageTitle="Build an HBase application using Maven" description="Learn how to use Apache Maven to build a Java-based Apache HBase application, then deploy it to Azure HDInsight" metaKeywords="Maven hbase hadoop, hbase hadoop, maven java hbase, maven java hbase hadoop, maven java hadoop, hbase hdinsight, hbase java hdinsight, maven hdinsight, maven java hdinsight, hadoop database, hdinsight database" services="hdinsight" solutions="big-data" documentationCenter="" authors="larryfr" videoId="" scriptId="" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/21/2014" ms.author="larryfr"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/21/2014" ms.author="larryfr" />
 
 ## Maven을 통해 HDInsight(Hadoop)와 함께 HBase를 사용하는 Java 응용 프로그램 작성
 
@@ -456,7 +456,7 @@ Apache Maven을 사용하여 Java로 [Apache HBase][Apache HBase] 응용 프로�
             # Is the Azure module installed?
             if (-not(Get-Module -ListAvailable Azure))
             {
-                throw "Windows Azure PowerShell not found! For help, see http://www.windowsazure.com/ko--kr/documentation/articles/install-configure-powershell/"
+                throw "Windows Azure PowerShell not found! For help, see http://www.windowsazure.com/ko-kr/documentation/articles/install-configure-powershell/"
             }
 
             # Is there an active Azure subscription?
@@ -564,10 +564,10 @@ Apache Maven을 사용하여 Java로 [Apache HBase][Apache HBase] 응용 프로�
   [Apache HBase]: http://hbase.apache.org/
   [Maven]: http://maven.apache.org/
   [Java 플랫폼 JDK]: http://www.oracle.com/technetwork/java/javase/downloads/index.html
-  [Azure HDInsight 클러스터 및 HBase]: /ko--kr/documentation/articles/hdinsight-hbase-get-started/#create-hbase-cluster
+  [Azure HDInsight 클러스터 및 HBase]: /ko-kr/documentation/articles/hdinsight-hbase-get-started/#create-hbase-cluster
   [POM]: http://maven.apache.org/guides/introduction/introduction-to-the-pom.html
   [Maven 리포지토리 검색]: http://search.maven.org/#artifactdetails%7Corg.apache.hbase%7Chbase-client%7C0.98.4-hadoop2%7Cjar
   [maven-shade-plugin]: http://maven.apache.org/plugins/maven-shade-plugin/
-  [HDInsight 클러스터에 대한 원격 데스크톱]: http://azure.microsoft.com/ko--kr/documentation/articles/hdinsight-administer-use-management-portal/#rdp
-  [HDInsight에서 Hadoop 작업용 데이터 업로드]: /ko--kr/documentation/articles/hdinsight-upload-data/
-  [Azure PowerShell]: /ko--kr/documentation/articles/install-configure-powershell/
+  [HDInsight 클러스터에 대한 원격 데스크톱]: http://azure.microsoft.com/ko-kr/documentation/articles/hdinsight-administer-use-management-portal/#rdp
+  [HDInsight에서 Hadoop 작업용 데이터 업로드]: /ko-kr/documentation/articles/hdinsight-upload-data/
+  [Azure PowerShell]: /ko-kr/documentation/articles/install-configure-powershell/

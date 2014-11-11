@@ -1,6 +1,6 @@
 <properties linkid="dev-java-vm-application-server" urlDisplayName="Tomcat on Virtual Machine" pageTitle="Tomcat on a virtual machine - Azure tutorial" metaKeywords="Azure vm, creating vm Tomcat, configuring vm Tomcat" description="Learn how to create a Windows Virtual machine and configure the machine to run a Apache Tomcat application server." metaCanonical="" services="virtual-machines" documentationCenter="Java" title="How to run a Java application server on a virtual machine" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
 
-<tags ms.service="virtual-machines" ms.workload="web" ms.tgt_pltfrm="vm-windows" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm"></tags>
+<tags ms.service="virtual-machines" ms.workload="web" ms.tgt_pltfrm="vm-windows" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
 
 # 가상 컴퓨터에서 Java 응용 프로그램 서버를 실행하는 방법
 
@@ -18,7 +18,7 @@ Azure에서 가상 컴퓨터를 사용하여 서버 기능을 제공할 수 있�
 
 ![Apache Tomcat을 실행하는 가상 컴퓨터][Apache Tomcat을 실행하는 가상 컴퓨터]
 
-[WACOM.INCLUDE [create-account-and-vms-note][create-account-and-vms-note]]
+[WACOM.INCLUDE [create-account-and-vms-note](../includes/create-account-and-vms-note.md)]
 
 ## 가상 컴퓨터를 만드는 방법
 
@@ -146,5 +146,4 @@ Tomcat이 외부 컴퓨터에서 실행되는 것을 보려면 끝점을 만들�
   [새 인바운드 규칙 동작]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleAction.png
   [새 인바운드 규칙 프로필]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleProfile.png
   [새 인바운드 규칙 이름]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleName.png
-  [http://\*DNS\\\_이름]: http://*your\_DNS\_name
   [서비스가 자동으로 시작되도록 설정]: ./media/virtual-machines-java-run-tomcat-application-server/WA_TomcatServiceAutomaticStart.png

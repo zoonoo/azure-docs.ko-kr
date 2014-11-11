@@ -1,6 +1,6 @@
 <properties pageTitle="How to use Code First Migrations .NET backend (Mobile Services)" metaKeywords="" description="" metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Considerations for supporting multiple clients from a single mobile service" authors="glenga" solutions="mobile" writer="glenga" manager="dwrede" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # .NET 백 엔드 모바일 서비스에 대한 데이터 모델 변경 방법
 
@@ -80,7 +80,7 @@ Code First 마이그레이션에서는 스냅숏 방법을 사용하여 데이�
 
 11. (옵션) [Azure 관리 포털][Azure 관리 포털]에서 모바일 서비스를 선택한 다음 **구성** 탭을 클릭하고, **SQL 데이터베이스** 링크를 클릭합니다.
 
-    ![][]
+    ![][0]
 
     모바일 서비스의 데이터베이스에 대한 SQL 데이터베이스 페이지로 이동합니다.
 
@@ -129,7 +129,7 @@ Code First 마이그레이션에서는 스냅숏 방법을 사용하여 데이�
   [DbContext]: http://msdn.microsoft.com/ko-kr/library/system.data.entity.dbcontext(v=vs.113).aspx
   [Azure 관리 포털]: https://manage.windowsazure.com/
   [마이그레이션에서 데이터 시드]: #seeding
-  []: ./media/mobile-services-dotnet-backend-how-to-use-code-first-migrations/navagate-to-sql-database.png
+  [0]: ./media/mobile-services-dotnet-backend-how-to-use-code-first-migrations/navagate-to-sql-database.png
   [1]: ./media/mobile-services-dotnet-backend-how-to-use-code-first-migrations/manage-sql-database.png
   [Seed]: http://msdn.microsoft.com/ko-kr/library/hh829453(v=vs.113).aspx
   [AddOrUpdate]: http://msdn.microsoft.com/ko-kr/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx

@@ -1,12 +1,12 @@
 <properties title="Azure Notification Hubs Notify Users" pageTitle="Azure Notification Hubs Notify Users" metaKeywords="Azure push notifications, Azure notification hubs" description="Learn how to send secure push notifications in Azure. Code samples written in C# using the .NET API." documentationCenter="Mobile" metaCanonical="" disqusComments="1" umbracoNaviHide="0" authors="sethm" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="sethm"></tags>
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="sethm" />
 
 # Azure 알림 허브 사용자에게 알림
 
 <div class="dev-center-tutorial-selector sublanding"> 
-        <a href="/ko--kr/documentation/articles/notification-hubs-windows-dotnet-notify-users/" title="Windows 범용" class="current">Windows 범용</a><a href="/ko--kr/documentation/articles/notification-hubs-aspnet-backend-ios-notify-users/" title="iOS">iOS</a>
-        <a href="/ko--kr/documentation/articles/notification-hubs-aspnet-backend-android-notify-users/" title="Android">Android</a>
+        <a href="/ko-kr/documentation/articles/notification-hubs-windows-dotnet-notify-users/" title="Windows 범용" class="current">Windows 범용</a><a href="/ko-kr/documentation/articles/notification-hubs-aspnet-backend-ios-notify-users/" title="iOS">iOS</a>
+        <a href="/ko-kr/documentation/articles/notification-hubs-aspnet-backend-android-notify-users/" title="Android">Android</a>
 </div>
 
 Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플랫폼 및 규모 확장 푸시 인프라에 액세스할 수 있어, 모바일 플랫폼용 소비자 응용 프로그램 및 엔터프라이즈 응용 프로그램 모두에 대한 푸시 알림을 매우 간단하게 구현할 수 있습니다. 이 자습서에서는 Azure 알림 허브를 사용하여 특정 장치에서 특정 앱 사용자에게 푸시 알림을 보내는 방법을 보여 줍니다. 지침 항목 [앱 백 엔드에서 등록][앱 백 엔드에서 등록]에 나와 있는 대로 ASP.NET WebAPI 백 엔드는 클라이언트를 인증하고 알림을 생성하는 데 사용됩니다. 이 자습서는 **알림 허브 시작** 자습서에서 만든 알림 허브를 기반으로 합니다.
@@ -20,7 +20,7 @@ Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플랫폼 및
 
 이 자습서를 시작하기 전에 응용 프로그램 이름을 예약하고 Azure 알림 허브를 만들고 나서 해당 응용 프로그램에 연결해야 합니다. [알림 허브 시작(Windows 스토어)][알림 허브 시작(Windows 스토어)], 특히 [Windows 스토어에 앱 등록][Windows 스토어에 앱 등록] 및 [알림 허브 구성][알림 허브 구성] 섹션의 단계를 수행하세요. 특히 알림 허브의 **구성** 탭에서 포털의 **패키지 SID** 및 **클라이언트 암호** 값을 입력했어야 합니다. 이 구성 절차는 [알림 허브 구성][알림 허브 구성] 섹션에서 설명합니다. 이는 중요한 단계입니다. 포털의 자격 증명이 선택한 앱 이름에 대해 지정된 자격 증명과 일치하지 않으면 푸시 알림이 실패합니다.
 
-[WACOM.INCLUDE [notification-hubs-aspnet-backend-notifyusers][notification-hubs-aspnet-backend-notifyusers]]
+[WACOM.INCLUDE [notification-hubs-aspnet-backend-notifyusers](../includes/notification-hubs-aspnet-backend-notifyusers.md)]
 
 ## Windows Phone 프로젝트 만들기
 
@@ -30,7 +30,7 @@ Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플랫폼 및
 
 2.  **스토어 앱**을 확장하고 **Windows Phone 앱**, **빈 앱(Windows Phone)**을 차례로 클릭합니다.
 
-    ![][]
+    ![][0]
 
 3.  **이름** 상자에 **NotifyUserWindowsPhone**을 입력하고 **확인**을 클릭하여 프로젝트를 생성합니다.
 
@@ -236,15 +236,11 @@ Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플랫폼 및
 
 4.  **NotifyUserWindowsPhone** 앱 UI에서 **로그인 및 등록**을 클릭합니다. 그리고 나서 **푸시 보내기**를 클릭합니다.
 
-  [Windows 범용]: /ko--kr/documentation/articles/notification-hubs-windows-dotnet-notify-users/ "Windows 범용"
-  [iOS]: /ko--kr/documentation/articles/notification-hubs-aspnet-backend-ios-notify-users/ "iOS"
-  [Android]: /ko--kr/documentation/articles/notification-hubs-aspnet-backend-android-notify-users/ "Android"
-  [앱 백 엔드에서 등록]: http://msdn.microsoft.com/ko--kr/library/dn743807.aspx
-  [알림 허브 시작(Windows 스토어)]: http://azure.microsoft.com/ko--kr/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
-  [Windows 스토어에 앱 등록]: http://azure.microsoft.com/ko--kr/documentation/articles/notification-hubs-windows-store-dotnet-get-started/#register
-  [알림 허브 구성]: http://azure.microsoft.com/ko--kr/documentation/articles/notification-hubs-windows-store-dotnet-get-started/#configure-hub
+  [앱 백 엔드에서 등록]: http://msdn.microsoft.com/ko-kr/library/dn743807.aspx
+  [Windows 스토어에 앱 등록]: http://azure.microsoft.com/ko-kr/documentation/articles/notification-hubs-windows-store-dotnet-get-started/#register
+  [알림 허브 구성]: http://azure.microsoft.com/ko-kr/documentation/articles/notification-hubs-windows-store-dotnet-get-started/#configure-hub
   [notification-hubs-aspnet-backend-notifyusers]: ../includes/notification-hubs-aspnet-backend-notifyusers.md
-  []: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-secure-push9.png
+  [0]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-secure-push9.png
   [1]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-secure-push10.png
   [2]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-secure-push11.png
   [Windows 개발자 센터]: http://go.microsoft.com/fwlink/p/?linkid=266582&clcid=0x409

@@ -1,27 +1,27 @@
 <properties linkid="develop-python-service-bus-topics" urlDisplayName="Service Bus Topics" pageTitle="How to use Service Bus topics (Python) - Azure" metaKeywords="Get started Azure Service Bus topics publising subscribe messaging Python" description="Learn how to use Service Bus topics and subscriptions in Azure. Code samples are written for Python applications." metaCanonical="" services="service-bus" documentationCenter="Python" title="How to Use Service Bus Topics/Subscriptions" authors="huvalo" solutions="" manager="" editor="" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo"></tags>
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo" />
 
 # 서비스 버스 토픽/구독을 사용하는 방법
 
-이 가이드에서는 Python 응용 프로그램에서 서비스 버스 토픽과 구독을 사용하는 방법을 보여 줍니다. 여기서 다루는 시나리오에는 **토픽 및 구독 만들기, 구독 필터 만들기, 토픽에 메시지 보내기**, **구독에서 메시지 받기**, **토픽 및 구독 삭제** 등이 포함됩니다. 토픽 및 구독에 대한 자세한 내용은 [다음 단계][] 섹션을 참조하세요.
+이 가이드에서는 Python 응용 프로그램에서 서비스 버스 토픽과 구독을 사용하는 방법을 보여 줍니다. 여기서 다루는 시나리오에는 **토픽 및 구독 만들기, 구독 필터 만들기, 토픽에 메시지 보내기**, **구독에서 메시지 받기**, **토픽 및 구독 삭제** 등이 포함됩니다. 토픽 및 구독에 대한 자세한 내용은 [다음 단계][다음 단계] 섹션을 참조하세요.
 
 ## 목차
 
--   [서비스 버스 토픽 및 구독 정의][]
--   [서비스 네임스페이스 만들기][]
--   [네임스페이스에 대한 기본 관리 자격 증명 얻기][]
--   [방법: 토픽 만들기][]
--   [방법: 구독 만들기][]
--   [방법: 토픽에 메시지 보내기][]
--   [방법: 구독에서 메시지 받기][]
--   [방법: 응용 프로그램 크래시 및 읽을 수 없는 메시지 처리][]
--   [방법: 토픽 및 구독 삭제][]
--   [다음 단계][]
+-   [서비스 버스 토픽 및 구독 정의][서비스 버스 토픽 및 구독 정의]
+-   [서비스 네임스페이스 만들기][서비스 네임스페이스 만들기]
+-   [네임스페이스에 대한 기본 관리 자격 증명 얻기][네임스페이스에 대한 기본 관리 자격 증명 얻기]
+-   [방법: 토픽 만들기][방법: 토픽 만들기]
+-   [방법: 구독 만들기][방법: 구독 만들기]
+-   [방법: 토픽에 메시지 보내기][방법: 토픽에 메시지 보내기]
+-   [방법: 구독에서 메시지 받기][방법: 구독에서 메시지 받기]
+-   [방법: 응용 프로그램 크래시 및 읽을 수 없는 메시지 처리][방법: 응용 프로그램 크래시 및 읽을 수 없는 메시지 처리]
+-   [방법: 토픽 및 구독 삭제][방법: 토픽 및 구독 삭제]
+-   [다음 단계][다음 단계]
 
-[WACOM.INCLUDE [howto-service-bus-topics][]]
+[WACOM.INCLUDE [howto-service-bus-topics](../includes/howto-service-bus-topics.md)]
 
-**참고:** Python 또는 클라이언트 라이브러리를 설치해야 하는 경우 [Python 설치 가이드][](영문)를 참조하세요.
+**참고:** Python 또는 클라이언트 라이브러리를 설치해야 하는 경우 [Python 설치 가이드][Python 설치 가이드](영문)를 참조하세요.
 
 ## <a name="How_to_Create_a_Topic"></a> 토픽을 만드는 방법
 
@@ -64,7 +64,7 @@ SAS 키 이름 및 값에 대한 값은 Azure 포털 연결 정보 또는 Visual
 
 토픽에 전송된 메시지 중 특정 토픽 구독 내에 나타나야 하는 메시지의 범위를 지정하는 필터를 설정할 수도 있습니다.
 
-구독에서 지원하는 가장 유연한 유형의 필터는 SQL92 하위 집합을 구현하는 **SqlFilter**입니다. SQL 필터는 토픽에 게시된 메시지의 속성에 적용됩니다. SQL 필터와 함께 사용할 수 있는 식에 대한 자세한 내용은 [SqlFilter.SqlExpression][] 구문을 참조하세요.
+구독에서 지원하는 가장 유연한 유형의 필터는 SQL92 하위 집합을 구현하는 **SqlFilter**입니다. SQL 필터는 토픽에 게시된 메시지의 속성에 적용됩니다. SQL 필터와 함께 사용할 수 있는 식에 대한 자세한 내용은 [SqlFilter.SqlExpression][SqlFilter.SqlExpression] 구문을 참조하세요.
 
 **ServiceBusService** 개체의 **create\_rule** 메서드를 사용하여 구독에 필터를 추가할 수 있습니다. 이 메서드를 사용하면 기존 구독에 새 필터를 추가할 수 있습니다.
 
@@ -146,8 +146,8 @@ SAS 키 이름 및 값에 대한 값은 Azure 포털 연결 정보 또는 Visual
 
 이제 서비스 버스 토픽의 기본 사항을 익혔으므로 다음 링크를 따라 자세히 알아보세요.
 
--   다음 MSDN 참조를 확인하세요. [큐, 토픽 및 구독][]
--   [SqlFilter][]에 대한 API 참조
+-   다음 MSDN 참조를 확인하세요. [큐, 토픽 및 구독][큐, 토픽 및 구독]
+-   [SqlFilter][SqlFilter]에 대한 API 참조
 
   [다음 단계]: #Next_Steps
   [서비스 버스 토픽 및 구독 정의]: #what-are-service-bus-topics

@@ -1,12 +1,12 @@
 <properties urlDisplayName="" pageTitle="" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Integrating Multi-Tenant Cloud Applications with Azure Active Directory" authors="terrylan" solutions="" manager="terrylan" editor="" />
 
-<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="terrylan"></tags>
+<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="terrylan" />
 
 # Azure Active Directory와 다중 테넌트 클라우드 응용 프로그램 통합
 
 ## <a name="introduction"></a>소개
 
-Azure AD(Azure Active Directory)는 클라우드 응용 프로그램과 관련하여 ID를 관리하고 액세스를 제어할 수 있도록 지원하는 최신 REST 기반 서비스입니다. Azure AD는 클라우드 서비스뿐 아니라 Azure, Microsoft Office 365, Dynamics CRM Online 및 Windows Intune과도 쉽게 통합됩니다. 또한 기존 온-프레미스 Active Directory 배포는 Azure AD를 완벽하게 활용할 수 있습니다. 자세한 내용은 [windowsazure.com][]의 [ID 페이지][]를 참조하십시오.
+Azure AD(Azure Active Directory)는 클라우드 응용 프로그램과 관련하여 ID를 관리하고 액세스를 제어할 수 있도록 지원하는 최신 REST 기반 서비스입니다. Azure AD는 클라우드 서비스뿐 아니라 Azure, Microsoft Office 365, Dynamics CRM Online 및 Windows Intune과도 쉽게 통합됩니다. 또한 기존 온-프레미스 Active Directory 배포는 Azure AD를 완벽하게 활용할 수 있습니다. 자세한 내용은 [windowsazure.com][windowsazure.com]의 [ID 페이지][ID 페이지]를 참조하십시오.
 
 이 자습서는 Azure AD와 다중 테넌트를 통합하려는 .NET 개발자를 대상으로 합니다. 다음 방법에 대해 알아봅니다.
 
@@ -14,7 +14,7 @@ Azure AD(Azure Active Directory)는 클라우드 응용 프로그램과 관련�
 -   Azure AD에서 SSO(Single Sign-On) 사용
 -   Azure AD Graph API를 사용하여 고객의 디렉터리 데이터 쿼리
 
-이 자습서의 공유 샘플 응용 프로그램은 [여기서 다운로드][]할 수 있습니다. 샘플은 변경 없이 그대로 실행할 수 있지만 https를 사용하도록 [Visual Studio의 포트 할당][]을 변경해야 할 수도 있습니다. 이 링크의 지침을 따르지만 ApplicationHost.config 파일의 바인딩 섹션에서 바인딩 프로토콜을 "https"로 설정하십시오. 아래 단계의 모든 코드 조각은 샘플에서 가져온 것입니다.
+이 자습서의 공유 샘플 응용 프로그램은 [여기서 다운로드][여기서 다운로드]할 수 있습니다. 샘플은 변경 없이 그대로 실행할 수 있지만 https를 사용하도록 [Visual Studio의 포트 할당][Visual Studio의 포트 할당]을 변경해야 할 수도 있습니다. 이 링크의 지침을 따르지만 ApplicationHost.config 파일의 바인딩 섹션에서 바인딩 프로토콜을 "https"로 설정하십시오. 아래 단계의 모든 코드 조각은 샘플에서 가져온 것입니다.
 
 > [WACOM.NOTE]
 > 다중 테넌트 디렉터리 앱 샘플은 예시용으로만 제공된 것입니다. 프로덕션 환경에서는 이 샘플(도우미 라이브러리 클래스 포함)을 사용하지 마십시오.
@@ -23,18 +23,18 @@ Azure AD(Azure Active Directory)는 클라우드 응용 프로그램과 관련�
 
 이 연습에는 다음과 같은 개발자 필수 조건이 필요합니다.
 
--   [Visual Studio 2012][]
--   [WCF Data Services for OData][]
+-   [Visual Studio 2012][Visual Studio 2012]
+-   [WCF Data Services for OData][WCF Data Services for OData]
 
 ### 목차
 
--   [소개][]
--   [1부: Azure AD 액세스를 위해 클라이언트 ID 가져오기][]
--   [2부: 고객이 Azure AD를 사용하여 등록할 수 있도록 설정][]
--   [3부: Single Sign-On 사용][]
--   [4부: Access Azure AD Graph][]
--   [5부: 응용 프로그램 게시][]
--   [요약][]
+-   [소개][소개]
+-   [1부: Azure AD 액세스를 위해 클라이언트 ID 가져오기][1부: Azure AD 액세스를 위해 클라이언트 ID 가져오기]
+-   [2부: 고객이 Azure AD를 사용하여 등록할 수 있도록 설정][2부: 고객이 Azure AD를 사용하여 등록할 수 있도록 설정]
+-   [3부: Single Sign-On 사용][3부: Single Sign-On 사용]
+-   [4부: Access Azure AD Graph][4부: Access Azure AD Graph]
+-   [5부: 응용 프로그램 게시][5부: 응용 프로그램 게시]
+-   [요약][요약]
 
 ## <a name="getclientid"></a>1부: Azure AD 액세스를 위해 클라이언트 ID 가져오기
 
@@ -42,13 +42,13 @@ Azure AD(Azure Active Directory)는 클라우드 응용 프로그램과 관련�
 
 ### 1단계: Microsoft 판매자 대시보드의 계정 만들기
 
-Azure AD와 통합할 응용 프로그램을 개발하고 게시하려면 [Microsoft 판매자 대시보드][] 계정에 등록해야 합니다. [계정 프로필을 회사 또는 개인으로 만들][]라는 메시지가 표시됩니다. 이 프로필은 Azure 마켓플레이스 또는 기타 마켓플레이스에 응용 프로그램을 게시하는 데 사용되며, 클라이언트 ID 및 클라이언트 암호를 생성하는 데 필요합니다.
+Azure AD와 통합할 응용 프로그램을 개발하고 게시하려면 [Microsoft 판매자 대시보드][Microsoft 판매자 대시보드] 계정에 등록해야 합니다. [계정 프로필을 회사 또는 개인으로 만들][계정 프로필을 회사 또는 개인으로 만들]라는 메시지가 표시됩니다. 이 프로필은 Azure 마켓플레이스 또는 기타 마켓플레이스에 응용 프로그램을 게시하는 데 사용되며, 클라이언트 ID 및 클라이언트 암호를 생성하는 데 필요합니다.
 
 새로운 계정은 "승인 보류 중인 계정" 상태가 됩니다. 이 상태라고 해서 개발을 시작하지 못하는 것은 아닙니다. 클라이언트 ID와 초안 앱 목록은 계속 만들 수 있습니다. 그러나 계정 자체가 승인된 후에만 승인을 위해 앱 목록을 제출할 수 있습니다. 제출된 앱 목록은 승인된 후에만 Azure 마켓플레이스의 고객에게 표시됩니다.
 
 ### 2단계: 응용 프로그램의 클라이언트 ID 가져오기
 
-Azure AD와 응용 프로그램을 통합하려면 클라이언트 ID 및 클라이언트 암호가 필요합니다. 클라이언트 ID는 응용 프로그램의 고유한 ID이며 기본적으로 Single Sign-On 또는 Azure AD Graph에 대한 호출 인증을 위해 응용 프로그램을 식별하는 데 사용됩니다. 클라이언트 ID 및 클라이언트 암호를 가져오는 방법에 대한 자세한 내용은 [Microsoft 판매자 대시보드에서 클라이언트 ID 및 암호 만들기][]를 참조하십시오.
+Azure AD와 응용 프로그램을 통합하려면 클라이언트 ID 및 클라이언트 암호가 필요합니다. 클라이언트 ID는 응용 프로그램의 고유한 ID이며 기본적으로 Single Sign-On 또는 Azure AD Graph에 대한 호출 인증을 위해 응용 프로그램을 식별하는 데 사용됩니다. 클라이언트 ID 및 클라이언트 암호를 가져오는 방법에 대한 자세한 내용은 [Microsoft 판매자 대시보드에서 클라이언트 ID 및 암호 만들기][Microsoft 판매자 대시보드에서 클라이언트 ID 및 암호 만들기]를 참조하십시오.
 
 > [WACOM.NOTE]
 > 이 자습서의 뒷부분에서 클라이언트 ID 및 클라이언트 암호가 필요하므로, 기록해 두세요.
@@ -118,7 +118,7 @@ Azure AD와 응용 프로그램을 통합하려면 클라이언트 ID 및 클라
 
 샘플 응용 프로그램에서 "등록" 링크에는 아래와 유사한 동의 요청용 URL이 포함됩니다.
 
-![로그인][]
+![로그인][로그인]
 
 > [WACOM.NOTE]
 > 게시 취소된 응용 프로그램을 테스트할 때 고객과 유사한 동의 환경을 진행하게 됩니다. 그러나 게시 취소된 응용 프로그램의 권한 부여 페이지는 게시된 응용 프로그램의 권한 부여 페이지와 다르게 표시됩니다. 게시된 응용 프로그램은 앱 이름, 로고 및 게시자 세부 정보를 표시하지만 게시 취소된 응용 프로그램은 이러한 세부 정보를 표시하지 않습니다.
@@ -162,7 +162,7 @@ Azure AD 권한 부여 페이지에 전송된 요청이 응답과 연결되도�
 
 ### 3단계: Azure AD 테넌트를 가져와서 응용 프로그램 테스트
 
-Azure AD와 통합되는 응용 프로그램의 기능을 테스트하려면 Azure AD 테넌트가 필요합니다. 다른 응용 프로그램을 테스트하는 데 사용하는 테넌트가 이미 있는 경우 이를 다시 사용할 수 있습니다. 다중 테넌트에서 앱을 테스트하고 사용할 수 있도록 테넌트를 두 개 이상 가져오는 것이 좋습니다. 이를 위해서 프로덕션 테넌트를 사용하지 않는 것이 좋습니다. [Azure AD 테넌트를 가져][]오십시오.
+Azure AD와 통합되는 응용 프로그램의 기능을 테스트하려면 Azure AD 테넌트가 필요합니다. 다른 응용 프로그램을 테스트하는 데 사용하는 테넌트가 이미 있는 경우 이를 다시 사용할 수 있습니다. 다중 테넌트에서 앱을 테스트하고 사용할 수 있도록 테넌트를 두 개 이상 가져오는 것이 좋습니다. 이를 위해서 프로덕션 테넌트를 사용하지 않는 것이 좋습니다. [Azure AD 테넌트를 가져][Azure AD 테넌트를 가져]오십시오.
 
 Azure AD 테넌트를 가져온 후 **F5**를 눌러 응용 프로그램을 빌드하고 실행할 수 있습니다. 또한 새 테넌트를 사용하여 응용 프로그램에 등록해 볼 수도 있습니다.
 
@@ -174,10 +174,10 @@ Azure AD 테넌트를 가져온 후 **F5**를 눌러 응용 프로그램을 빌�
 
 로그인 요청은 디렉터리 테넌트와 관련되어 있으며 TenantID를 포함해야 합니다. Azure AD 디렉터리 테넌트의 도메인 이름에서 TenantID를 확인할 수 있습니다. 최종 사용자가 로그인할 때 해당 사용자의 이 도메인 이름을 가져오는 일반적인 방법은 다음과 같이 두 가지입니다.
 
--   응용 프로그램의 URL이 *<https://contoso.myapp.com>* 또는 *<https://myapp.com/contoso.com>*인 경우 *[contoso][]* 및 *[contoso.com][contoso]*은 Azure AD 도메인 이름을 나타내며 *[myapp.com][contoso]*은 응용 프로그램의 URL을 나타냅니다.
+-   응용 프로그램의 URL이 *<https://contoso.myapp.com>* 또는 *<https://myapp.com/contoso.com>*인 경우 *[contoso][contoso]* 및 *[contoso.com][contoso]*은 Azure AD 도메인 이름을 나타내며 *[myapp.com][contoso]*은 응용 프로그램의 URL을 나타냅니다.
 -   응용 프로그램에서 사용자에게 전자 메일 주소 또는 Azure AD 도메인 이름을 묻는 메시지를 표시할 수 있습니다. 이 방법은 샘플 응용 프로그램에 사용되며, 사용자는 아래와 같이 Azure AD 도메인 이름을 입력해야 합니다.
 
-![로그인][]
+![로그인][로그인]
 
 ### 1단계: 테넌트 ID 찾기
 
@@ -199,7 +199,7 @@ Azure AD 테넌트를 가져온 후 **F5**를 눌러 응용 프로그램을 빌�
 
 고객이 로그인 단추를 클릭하는 등의 방법으로 응용 프로그램에 로그인할 때 고객의 테넌트 ID 및 응용 프로그램의 클라이언트 ID를 사용하여 로그인 요청을 생성해야 합니다. 샘플 응용 프로그램에서 이 요청은 *Microsoft.IdentityModel.WAAD.Preview.WebSSO.URLUtils* 클래스의 *GenerateSignInMessage* 메서드로 생성됩니다. 이 메서드는 고객의 TenantID가 응용 프로그램에 권한을 부여한 조직을 나타내는지 확인하고 아래와 같은 로그인 단추의 대상 URL을 생성합니다.
 
-![로그인][]
+![로그인][로그인]
 
 이 단추를 클릭하면 사용자의 브라우저에서 Azure AD의 로그인 페이지로 이동합니다. 로그인하면 Azure AD에서 응용 프로그램으로 로그인 응답을 반환합니다.
 
@@ -234,7 +234,7 @@ Azure AD 테넌트를 가져온 후 **F5**를 눌러 응용 프로그램을 빌�
 
 ## <a name="accessgraph"></a>4부: Access Azure AD Graph
 
-이 섹션에서는 액세스 토큰을 가져오고 Azure AD Graph API를 호출하여 테넌트의 디렉터리 데이터에 액세스하는 방법을 설명합니다. 예를 들어 로그인 중 가져온 토큰에 사용자 정보(예: 이름 및 전자 메일 주소)가 포함되어 있지만 응용 프로그램에서 그룹 구성원이나 사용자 관리자의 이름과 같은 정보를 요구할 수 있습니다. Graph API를 사용하여 테넌트의 디렉터리에서 이 정보를 가져올 수 있습니다. Graph API에 대한 자세한 내용은 [이 항목][]을 참조하십시오.
+이 섹션에서는 액세스 토큰을 가져오고 Azure AD Graph API를 호출하여 테넌트의 디렉터리 데이터에 액세스하는 방법을 설명합니다. 예를 들어 로그인 중 가져온 토큰에 사용자 정보(예: 이름 및 전자 메일 주소)가 포함되어 있지만 응용 프로그램에서 그룹 구성원이나 사용자 관리자의 이름과 같은 정보를 요구할 수 있습니다. Graph API를 사용하여 테넌트의 디렉터리에서 이 정보를 가져올 수 있습니다. Graph API에 대한 자세한 내용은 [이 항목][이 항목]을 참조하십시오.
 
 응용 프로그램에서 Azure AD Graph를 호출하려면 먼저 해당 응용 프로그램이 직접 자신을 인증하고 액세스 토큰을 가져와야 합니다. 액세스 토큰은 클라이언트 ID 및 클라이언트 암호로 응용 프로그램을 인증하여 가져옵니다. 다음 단계에서는 아래 방법을 보여 줍니다.
 
@@ -380,7 +380,7 @@ Azure AD 테넌트를 가져온 후 **F5**를 눌러 응용 프로그램을 빌�
 
 옵션인 *Reason* 요소를 통해 (여러 문화권에서) 필요한 권한 수준의 근거를 지정할 수 있습니다. 이 텍스트는 고객이 응용 프로그램을 승인하거나 거부할 때 고객을 돕기 위해 동의 페이지에 표시됩니다.
 
-새로운 클라이언트 ID 및 응용 프로그램 매니페스트를 사용하여 [Microsoft 판매자 대시보드에서 앱 추가][]의 지침에 따라 응용 프로그램 목록을 만들 수 있습니다. 응용 프로그램 목록을 만들 때 Azure AD 응용 프로그램 유형을 선택해야 합니다. 응용 프로그램 목록을 만든 후에는 "제출"을 클릭하여 Azure 마켓플레이스에 응용 프로그램을 게시합니다. 응용 프로그램이 승인될 때까지 기다려야 게시가 완료됩니다.
+새로운 클라이언트 ID 및 응용 프로그램 매니페스트를 사용하여 [Microsoft 판매자 대시보드에서 앱 추가][Microsoft 판매자 대시보드에서 앱 추가]의 지침에 따라 응용 프로그램 목록을 만들 수 있습니다. 응용 프로그램 목록을 만들 때 Azure AD 응용 프로그램 유형을 선택해야 합니다. 응용 프로그램 목록을 만든 후에는 "제출"을 클릭하여 Azure 마켓플레이스에 응용 프로그램을 게시합니다. 응용 프로그램이 승인될 때까지 기다려야 게시가 완료됩니다.
 
 <div class="dev-callout"><strong>참고</strong><p>&quot;세금 및 지급액 정보를 추가&quot;하라는 메시지가 표시되는 경우 Microsoft를 통해서가 아니라 고객에게 직접 응용 프로그램을 판매하고 있으므로 이 단계를 건너뛸 수 있습니다.</p></div>
 

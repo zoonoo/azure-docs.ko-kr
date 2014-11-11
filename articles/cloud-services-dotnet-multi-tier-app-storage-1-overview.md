@@ -1,6 +1,6 @@
 <properties linkid="develop-net-tutorials-multi-tier-web-site-1-overview" pageTitle="Azure Cloud Service Tutorial: ASP.NET MVC Web Role, Worker Role, Azure Storage Tables, Queues, and Blobs" metaKeywords="Azure tutorial, Azure storage tutorial, Azure multi-tier tutorial, MVC Web Role tutorial, Azure worker role tutorial, Azure blobs tutorial, Azure tables tutorial, Azure queues tutorial" description="Learn how to create a multi-tier app using ASP.NET MVC and Azure. The app runs in a cloud service, with web role and worker roles, and uses Azure storage tables, queues, and blobs." metaCanonical="" services="cloud-services,storage" documentationCenter=".NET" title="Azure Cloud Service Tutorial: ASP.NET MVC Web Role, Worker Role, Azure Storage Tables, Queues, and Blobs" authors="tdykstra,riande" solutions="" manager="wpickett" editor="mollybos" />
 
-<tags ms.service="cloud-services" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tdykstra,riande"></tags>
+<tags ms.service="cloud-services" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tdykstra,riande" />
 
 # Azure Cloud Service Tutorial: ASP.NET MVC Web Role, Worker Role, and Azure Storage Tables, Queues, and Blobs - 1 of 5
 
@@ -1045,8 +1045,6 @@ Azure 저장소 테이블, 큐 및 Blob 작업 관련 추가 리소스에 대한
   [Get Started with the Azure WebJobs SDK]: /ko-kr/documentation/articles/websites-dotnet-webjobs-sdk-get-started/
   [Azure 전자 메일 서비스 응용 프로그램 구성 및 배포]: /ko-kr/develop/net/tutorials/multi-tier-web-site/2-download-and-run/
   [Azure 전자 메일 서비스 응용 프로그램에 대한 웹 역할 구축]: /ko-kr/develop/net/tutorials/multi-tier-web-site/3-web-role/
-  [Azure 전자 메일 서비스 응용 프로그램에 대한 작업자 역할 A(전자 메일 스케줄러) 구축]: /ko-kr/develop/net/tutorials/multi-tier-web-site/4-worker-role-a/
-  [Azure 전자 메일 서비스 응용 프로그램에 대한 작업자 역할 B(전자 메일 보낸 사람) 구축]: /ko-kr/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/
   [필수 조건]: #prerequisites
   [Front-end overview]: #frontend
   [Back-end overview]: #backend
@@ -1077,7 +1075,6 @@ Azure 저장소 테이블, 큐 및 Blob 작업 관련 추가 리소스에 대한
   [다른 응용 프로그램 아키텍처]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-overview/mtas-alternative-architecture.png
   [Azure 가격 계산기]: http://www.windowsazure.com/ko-kr/pricing/calculator/
   [SendGrid Azure]: http://sendgrid.com/windowsazure.html
-  [Azure 클라우드 서비스 99.95% SLA(서비스 수준 계약)]: https://www.windowsazure.com/ko-kr/support/legal/sla/ "SLA"
   [OS 업그레이드로 인해 역할 인스턴스 다시 시작]: http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx
   [CloudFx]: http://nuget.org/packages/Microsoft.Experience.CloudFx "CloudFX"
   [WorkerRole.cs 샘플]: http://code.msdn.microsoft.com/windowsazure/CloudFx-Samples-60c3a852/sourcecode?fileId=57087&pathId=528472169

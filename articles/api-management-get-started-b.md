@@ -149,7 +149,7 @@ API는 API 관리 콘솔에서 생성 및 구성되며, 이 콘솔에는 Azure �
 - 개발자 포털 사용자 지정
 - API 검사기를 사용하여 호출 추적
 
-[Azure 무료 평가판]: http://www.windowsazure.com/ko--kr/pricing/free-trial/
+[Azure 무료 평가판]: http://www.windowsazure.com/ko-kr/pricing/free-trial/
 [관리 포털]: https://manage.windowsazure.com/
 [API 관리 새 인스턴스]: ./media/api-management-get-started/api-management-create-instance-menu.png
 [새 API 관리 서비스]: ./media/api-management-get-started/api-management-create-instance-step1.png

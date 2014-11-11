@@ -1,20 +1,20 @@
 <properties linkid="dev-net-transform-extend-site" urlDisplayName="Service Bus Topics" pageTitle="Transform and extend your site" metaKeywords="none" description="TBD" metaCanonical="" disqusComments="1" umbracoNaviHide="0" authors="cephalin" writer="cephalin" editor="mollybos" manager="wpickett" title="Transform and extend your site"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin" />
 
 # 사이트 변환 및 확장
 
-XDT([XML 문서 변환][]) 선언을 사용하여 Windows Azure 웹 사이트의 [ApplicationHost.config][] 파일을 변환할 수 있습니다. XDT 선언을 사용하여 사용자 지정 사이트 관리 작업을 가능하게 하는 개인 사이트 확장을 추가할 수도 있습니다. 이 문서에는 웹 인터페이스를 통해 PHP 설정을 관리할 수 있는 샘플 PHP Manager 사이트 확장이 포함되어 있습니다.
+XDT([XML 문서 변환][XML 문서 변환]) 선언을 사용하여 Windows Azure 웹 사이트의 [ApplicationHost.config][ApplicationHost.config] 파일을 변환할 수 있습니다. XDT 선언을 사용하여 사용자 지정 사이트 관리 작업을 가능하게 하는 개인 사이트 확장을 추가할 수도 있습니다. 이 문서에는 웹 인터페이스를 통해 PHP 설정을 관리할 수 있는 샘플 PHP Manager 사이트 확장이 포함되어 있습니다.
 
 <!-- MINI TOC -->
 
--   [ApplicationHost.config에서 사이트 구성 변환][]
--   [사이트 확장][]
-    -   [개인 사이트 확장 개요][]
-    -   [사이트 확장 예: PHP Manager][]
-        -   [PHP Manager 웹 앱][]
-        -   [applicationHost.xdt 파일][]
-    -   [사이트 확장 배포][]
+-   [ApplicationHost.config에서 사이트 구성 변환][ApplicationHost.config에서 사이트 구성 변환]
+-   [사이트 확장][사이트 확장]
+    -   [개인 사이트 확장 개요][개인 사이트 확장 개요]
+    -   [사이트 확장 예: PHP Manager][사이트 확장 예: PHP Manager]
+        -   [PHP Manager 웹 앱][PHP Manager 웹 앱]
+        -   [applicationHost.xdt 파일][applicationHost.xdt 파일]
+    -   [사이트 확장 배포][사이트 확장 배포]
 
 ## <span id="transform"></span></a>ApplicationHost.config에서 사이트 구성 변환
 
@@ -68,13 +68,13 @@ PHP Manager는 사이트 관리자가 PHP .ini 파일을 직접 수정할 필요
 
 다음은 PHP Manager 웹 사이트의 홈페이지입니다.
 
-![TransformSitePHPUI][]
+![TransformSitePHPUI][TransformSitePHPUI]
 
 사이트 확장은 사이트의 루트 폴더에 있는 추가 ApplicationHost.xdt 파일 외에는 일반적인 웹 응용 프로그램과 같습니다. ApplicationHost.xdt 파일에 대한 자세한 내용은 이 문서의 다음 섹션에서 확인할 수 있습니다.
 
 PHP Manager 확장은 Visual Studio ASP.NET MVC 4 웹 응용 프로그램 템플릿을 사용하여 만들어졌습니다. 다음은 솔루션 탐색기의 보기로, PHP Manager 사이트 확장의 구조를 보여 줍니다.
 
-![TransformSiteSolEx][]
+![TransformSiteSolEx][TransformSiteSolEx]
 
 파일 I/O에 필요한 유일한 특수 논리는 사이트의 wwwroot 디렉터리가 있는 위치를 나타내는 것입니다. 다음 코드 예제에서 환경 변수 "HOME"은 사이트 루트 경로를 나타내며 wwwroot 경로는 "site\\wwwroot"를 추가하여 구성할 수 있음을 알 수 있습니다.
 
@@ -157,11 +157,11 @@ applicationHost.config 파일에 사이트 확장을 등록하려면 확장 루�
 
 다음으로, Windows Azure 웹 사이트 포털에서 확장이 있는 웹 사이트의 **구성** 탭으로 이동합니다. **앱 설정** 섹션에서 키 `WEBSITE_PRIVATE_EXTENSIONS`를 추가하고 `1` 값을 지정합니다.
 
-![TransformSiteappSettings][]
+![TransformSiteappSettings][TransformSiteappSettings]
 
 마지막으로, Windows Azure 포털에서 웹 사이트를 다시 시작하여 확장을 사용하도록 설정합니다.
 
-![TransformSiteRestart][]
+![TransformSiteRestart][TransformSiteRestart]
 
 다음 주소에서 사이트 확장을 볼 수 있습니다.
 

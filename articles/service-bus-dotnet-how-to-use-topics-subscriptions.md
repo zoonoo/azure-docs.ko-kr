@@ -1,6 +1,6 @@
 <properties linkid="dev-net-how-to-service-bus-topics" urlDisplayName="Service Bus Topics" pageTitle="How to use Service Bus topics (.NET) - Azure" metaKeywords="Get started Azure Service Bus topics, Azure publish subscribe messaging, Azure messaging topics and subscriptions C# " description="Learn how to use Service Bus topics and subscriptions in Azure. Code samples are written for .NET applications. " metaCanonical="" services="service-bus" documentationCenter=".NET" title="How to Use Service Bus Topics/Subscriptions" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="sethm"></tags>
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
 
 # 서비스 버스 토픽/구독을 사용하는 방법
 
@@ -12,9 +12,9 @@
  토픽 및 구독에 대한 자세한 내용은
 [다음 단계][다음 단계] 섹션을 참조하십시오. </span>
 
-[WACOM.INCLUDE [create-account-note][create-account-note]]
+[WACOM.INCLUDE [create-account-note](../includes/create-account-note.md)]
 
-[WACOM.INCLUDE [howto-service-bus-topics][howto-service-bus-topics]]
+[WACOM.INCLUDE [howto-service-bus-topics](../includes/howto-service-bus-topics.md)]
 
 ## <span class="short-header">응용 프로그램 구성</span>서비스 버스를 사용하도록 응용 프로그램 구성
 
@@ -39,7 +39,7 @@ Studio 및 Visual Studio Express 2012 for Web에서 라이브러리와
      항목을 선택합니다. **설치**를 클릭하여 설치를 완료한 후 이
     대화 상자를 닫습니다.
 
-    ![][]
+    ![][0]
 
 이제 서비스 버스에 대한 코드를 작성할 준비가 되었습니다.
 
@@ -388,8 +388,6 @@ path*\>/subscriptions/\<*subscription name*\>" 형식으로 제공됩니다.
   [다음 단계]: #nextsteps
   [create-account-note]: ../includes/create-account-note.md
   [howto-service-bus-topics]: ../includes/howto-service-bus-topics.md
-  []: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/getting-started-multi-tier-13.png
+  [0]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/getting-started-multi-tier-13.png
   [큐, 토픽 및 구독]: http://msdn.microsoft.com/ko-kr/library/hh367516.aspx
   [SqlFilter]: http://msdn.microsoft.com/ko-kr/library/microsoft.servicebus.messaging.sqlfilter.aspx
-  [서비스 버스 조정된 메시징 .NET
-  자습서]: http://msdn.microsoft.com/ko-kr/library/hh367512.aspx

@@ -1,6 +1,6 @@
 <properties linkid="dev-net-common-tasks-publishing-with-vso" urlDisplayName="Publishing with TFS" pageTitle="Continuous delivery with Visual Studio Online in Azure" metaKeywords="" description="Learn how to configure your Visual Studio Online team projects to automatically build and deploy to Azure websites or cloud services." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Continuous delivery to Azure using Visual Studio Online and Git" authors="ghogen" solutions="" manager="" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="ghogen"></tags>
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="ghogen" />
 
 # Visual Studio Online 및 Git을 사용하여 Azure에 지속적으로 전송
 
@@ -29,7 +29,7 @@ Visual Studio Online을 사용하여 Azure에 자동으로 빌드 및 배포하�
 1.  Visual Studio Online 계정이 없는 경우 [여기][1] 지침을 따릅니다. 팀 프로젝트를 만들 때 소스 제어 시스템으로 Git을 선택합니다. 지침을 따라 Visual Studio를 팀 프로젝트에 연결합니다.
 
 2.  팀 탐색기에서 **이 리포지토리 복제** 링크를 선택합니다.
-    ![][]
+    ![][0]
 
 3.  로컬 복사본의 위치를 지정하고 **복제** 단추를 클릭합니다.
 
@@ -243,13 +243,12 @@ Git을 사용할 경우 보통 작업 분기에서 변경한 다음 개발이 �
   [2단계: 프로젝트를 만들어 Git 리포지토리로 푸시]: #step2
   [3단계: Azure에 프로젝트 연결]: #step3
   [4단계: 변경한 후 다시 빌드 및 다시 배포 트리거]: #step4
-  [5단계: 초기 빌드 다시 배포(옵션)]: #step5
   [6단계: 프로덕션 배포 변경]: #step6
   [7단계: 작업 분기에서 배포]: #step7
   [1]: http://go.microsoft.com/fwlink/?LinkId=397665
-  []: ./media/cloud-services-continuous-delivery-use-vso-git/CloneThisRepository.PNG
+  [0]: ./media/cloud-services-continuous-delivery-use-vso-git/CloneThisRepository.PNG
   [2]: ./media/cloud-services-continuous-delivery-use-vso-git/CreateNewSolutionInClonedRepo.PNG
-  [Azure 및 ASP.NET 시작]: http://www.windowsazure.com/ko--kr/documentation/articles/web-sites-dotnet-get-started/
+  [Azure 및 ASP.NET 시작]: http://www.windowsazure.com/ko-kr/documentation/articles/web-sites-dotnet-get-started/
   [3]: ./media/cloud-services-continuous-delivery-use-vso-git/CommitMenuItem.PNG
   [4]: ./media/cloud-services-continuous-delivery-use-vso-git/CommitAChange2.PNG
   [Azure 포털]: http://manage.windowsazure.com
@@ -284,4 +283,4 @@ Git을 사용할 경우 보통 작업 분기에서 변경한 다음 개발이 �
   [33]: ./media/cloud-services-continuous-delivery-use-vso-git/IncludeWorkingBranch.PNG
   [Visual Studio Online]: http://go.microsoft.com/fwlink/?LinkId=253861
   [Git에서 코드 공유]: http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx
-  [소스 제어에서 Azure 웹 사이트로 게시]: http://www.windowsazure.com/ko--kr/documentation/articles/web-sites-publish-source-control
+  [소스 제어에서 Azure 웹 사이트로 게시]: http://www.windowsazure.com/ko-kr/documentation/articles/web-sites-publish-source-control

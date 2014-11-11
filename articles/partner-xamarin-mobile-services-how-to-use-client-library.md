@@ -1,6 +1,6 @@
 <properties linkid="mobile-services-how-to-xamarin-client" urlDisplayName="Xamarin" pageTitle="How to use the Xamarin Component client - Azure Mobile Services feature guide" metaKeywords="Azure Mobile Services, Xamarin, iOS, Android, .NET client" description="Learn how to use the Xamarin Component client for Azure Mobile Services." metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="How to use the Xamarin Component client for Azure Mobile Services" authors="donnam" manager="dwrede" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="donnam"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="donnam" />
 
 # Azure 모바일 서비스용 Xamarin Component 클라이언트를 사용하는 방법
 
@@ -33,7 +33,7 @@
 -   [방법: 설계 단위 테스트][방법: 설계 단위 테스트]
 -   [다음 단계][다음 단계]
 
-[WACOM.INCLUDE [mobile-services-concepts][mobile-services-concepts]]
+[WACOM.INCLUDE [mobile-services-concepts](../includes/mobile-services-concepts.md)]
 
 ## <a name="setup"></a><span class="short-header">설정</span>설정 및 필수 조건
 
@@ -436,10 +436,6 @@ Xamarin Component 클라이언트는 강력한 형식의 시나리오에 맞게 
 
 <!-- Anchors. --> <!-- URLs. -->
 
-  [.NET Framework]: /ko-kr/develop/mobile/how-to-guides/work-with-net-client-library/ ".NET Framework"
-  [HTML/JavaScript]: /ko-kr/develop/mobile/how-to-guides/work-with-html-js-client/ "HTML/JavaScript"
-  [iOS]: /ko-kr/develop/mobile/how-to-guides/work-with-ios-client-library/ "iOS"
-  [Android]: /ko-kr/develop/mobile/how-to-guides/work-with-android-client-library/ "Android"
   [Xamarin]: /ko-kr/develop/mobile/how-to-guides/work-with-xamarin-client-library/ "Xamarin"
   [Xamarin.iOS]: /ko-kr/develop/mobile/tutorials/get-started-xamarin-ios/
   [Xamarin.Android]: /ko-kr/develop/mobile/tutorials/get-started-xamarin-android/

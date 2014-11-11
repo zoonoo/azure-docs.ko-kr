@@ -1,6 +1,6 @@
 <properties pageTitle="Service-side authorization (Android) | Mobile Dev Center" metaKeywords="" description="Learn how to authorize users in the JavaScript backend of Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="Service-side authorization of Mobile Services users" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # 모바일 서비스 사용자의 서비스 쪽 권한 부여
 
@@ -18,7 +18,7 @@
 
 1.  [Azure 관리 포털][Azure 관리 포털]에 로그온하여 **모바일 서비스**를 클릭한 후 앱을 클릭합니다.
 
-    ![][]
+    ![][0]
 
 2.  **데이터** 탭을 클릭한 후 **TodoItem** 테이블을 클릭합니다.
 
@@ -83,18 +83,9 @@
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [Windows 스토어 C#]: /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-authorize-users-in-scripts "Windows 스토어 C#"
-  [Windows 스토어 JavaScript]: /ko-kr/documentation/articles/mobile-services-windows-store-javascript-authorize-users-in-scripts "Windows 스토어 JavaScript"
-  [Windows Phone]: /ko-kr/documentation/articles/mobile-services-windows-phone-authorize-users-in-scripts "Windows Phone"
-  [iOS]: /ko-kr/documentation/articles/mobile-services-ios-authorize-users-in-scripts "iOS"
-  [Android]: /ko-kr/documentation/articles/mobile-services-android-authorize-users-in-scripts "Android"
-  [HTML]: /ko-kr/documentation/articles/mobile-services-html-authorize-users-in-scripts "HTML"
-  [Xamarin.iOS]: /ko-kr/documentation/articles/partner-xamarin-mobile-services-ios-authorize-users-in-scripts "Xamarin.iOS"
-  [Xamarin.Android]: /ko-kr/documentation/articles/partner-xamarin-mobile-services-android-authorize-users-in-scripts "Xamarin.Android"
-  [JavaScript 백 엔드]: /ko-kr/documentation/articles/mobile-services-android-authorize-users-in-scripts/ "JavaScript 백 엔드"
   [인증 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-users-android
   [Azure 관리 포털]: https://manage.windowsazure.com/
-  []: ./media/mobile-services-android-authorize-users-in-scripts/mobile-services-selection.png
+  [0]: ./media/mobile-services-android-authorize-users-in-scripts/mobile-services-selection.png
   [1]: ./media/mobile-services-android-authorize-users-in-scripts/mobile-portal-data-tables.png
   [2]: ./media/mobile-services-android-authorize-users-in-scripts/mobile-insert-script-users.png
   [데이터 시작하기]: /ko-kr/develop/mobile/tutorials/get-started-with-data-android

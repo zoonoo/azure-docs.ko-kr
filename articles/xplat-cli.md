@@ -1,6 +1,6 @@
 <properties linkid="script-xplat-intro" urlDisplayName="Azure Cross-Platform Command-Line Interface" pageTitle="The Azure Cross-Platform Command-Line Interface" title="The Azure Cross-Platform Command-Line Interface" metaKeywords="Azure cross-platform command-line interface, Azure command-line, azure command-line, azure cli" description="Install and configure the Azure Cross-Platform Command-Line Interface to manage Azure Services" metaCanonical="http://www.windowsazure.com/ko-kr/script/xplat-cli-intro" umbracoNaviHide="0" disqusComments="1" editor="mollybos" manager="paulettm" documentationCenter="" solutions="" authors="carolz" services="" />
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="carolz"></tags>
+<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="carolz" />
 
 # Azure 플랫폼 간 명령줄 인터페이스 설치 및 구성
 
@@ -384,8 +384,6 @@ xplat-cli는 오류 정보를 STDERR에 기록하지만 스크립트가 실행�
 
 -   Azure에 대한 자세한 내용은 [][2]<http://azure.microsoft.com/></a>을 참조하십시오.
 
-  [PowerShell]: /ko-kr/manage/install-and-configure-windows-powershell/ "PowerShell"
-  [플랫폼 간 CLI]: /ko-kr/manage/install-and-configure-cli/ "플랫폼 간 CLI"
   []: https://github.com/WindowsAzure/azure-sdk-tools-xplat
   [Azure 플랫폼 간 명령줄 인터페이스를 설치하는 방법]: #install
   [Azure 구독에 연결하는 방법]: #configure
@@ -405,5 +403,5 @@ xplat-cli는 오류 정보를 STDERR에 기록하지만 스크립트가 실행�
   [명령줄 참조 A-Z]: http://technet.microsoft.com/ko-kr/library/bb490890.aspx
   [jsawk]: https://github.com/micha/jsawk
   [jq]: http://stedolan.github.io/jq/
-  [Azure 포럼]: http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home
+  [Azure 포럼]: http://social.msdn.microsoft.com/Forums/windowsazure/ko-kr/home
   [2]: http://azure.microsoft.com

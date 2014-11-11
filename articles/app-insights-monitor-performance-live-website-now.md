@@ -1,6 +1,6 @@
 <properties title="Diagnose performance issues on a running website" pageTitle="Diagnose performance issues on a running website" description="Monitor a website's performance without re-deploying it." metaKeywords="analytics monitoring application insights" authors="awills"  />
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="awills"></tags>
+<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="awills" />
 
 <!-- Required end of Sprint 69 - AUX48 -->
 
@@ -36,7 +36,7 @@
 2. 버전 5.0 이상의 [웹 플랫폼 설치 관리자][웹 플랫폼 설치 관리자]가 있는지 확인합니다.
 3. 웹 플랫폼 설치 관리자를 사용하여 Application Insights 에이전트를 설치합니다.
 
-    ![][]
+    ![][0]
 4. 설치 마법사에서 Microsoft Azure에 로그인합니다.
 
     ![][1]
@@ -107,7 +107,7 @@ Azure에서 계정을 열고 Application Insights를 찾아보고 생성된 리�
 
 [Microsoft Azure 계정]: http://azure.com
 [웹 플랫폼 설치 관리자]: http://www.microsoft.com/web/downloads/platform.aspx
-[]: ./media/appinsights/appinsights-031-wpi.png
+[0]: ./media/appinsights/appinsights-031-wpi.png
 [1]: ./media/appinsights/appinsights-035-signin.png
 [2]: ./media/appinsights/appinsights-036-configAIC.png
 [웹 테스트]: ../app-insights-monitor-web-app-availability/

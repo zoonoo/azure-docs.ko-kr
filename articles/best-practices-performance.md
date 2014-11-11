@@ -1,6 +1,6 @@
 <properties linkid="develop-dotnet-performance" urlDisplayName="Performance" pageTitle="Performance best practices - Azure" metaKeywords="Azure optimization, Azure best practice performance" description="Learn about best practices for performance in Azure." metaCanonical="" services="cloud-services,sql-database,storage,service-bus,virtual-network" documentationCenter=".NET" title="" authors="robb" solutions="" manager="johndaw" editor="" />
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="robb"></tags>
+<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="robb" />
 
 # Azure 응용 프로그램의 성능 모범 사례
 
@@ -333,30 +333,18 @@ Azure 성능 분석에 Microsoft 이외의 여러 타사 도구를 사용할 수
 
   [투입한 시간과 리소스에 대비하여 "달성하는 유용한 작업량"]: http://go.microsoft.com/fwlink/?LinkId=252650
   [Azure에서 Visual Studio 부하 테스트 개요]: http://www.visualstudio.com/get-started/load-test-your-app-vs
-  [데이터베이스 설계 및 모델링 기본 사항(영문)]: http://go.microsoft.com/fwlink/?LinkId=252675
-  [데이터베이스 설계 단계별 설명(영문)]: http://go.microsoft.com/fwlink/?LinkId=252676
-  [데이터베이스 설계(영문)]: http://go.microsoft.com/fwlink/?LinkId=252677
   [Azure 테이블 저장소 및 Azure SQL 데이터베이스 - 비교 및 대조]: http://msdn.microsoft.com/ko-KR/library/jj553018.aspx
-  [Azure 테이블 저장소 성능 고려 사항(영문)]: http://go.microsoft.com/fwlink/?LinkId=252663
-  [SQL 데이터베이스 및 Azure 테이블 저장소(영문)]: http://go.microsoft.com/fwlink/?LinkId=252664
-  [Azure 테이블 저장소 삽입 일괄 처리로 성능 향상(영문)]: http://go.microsoft.com/fwlink/?LinkID=252665
-  [SQL 데이터베이스 성과 및 탄력성 가이드(영문)]: http://go.microsoft.com/fwlink/?LinkId=221876
   [SQL 데이터베이스의 페더레이션]: http://go.microsoft.com/fwlink/?LinkId=252668
   [페더레이션을 이용한 데이터베이스 설계의 확장 우선 접근 방식: 1부 - 페더레이션 선택 및 페더레이션 키 선택]: http://go.microsoft.com/fwlink/?LinkId=252671
   [페더레이션을 이용한 데이터베이스 설계의 확장 우선 접근 방식: 2부 - 페더레이션용 스키마 주석 달기 및 배포]: http://go.microsoft.com/fwlink/?LinkId=252672
   [2부]: http://go.microsoft.com/fwlink/?LinkId=252673
   [SQL 데이터베이스 분할 방법]: http://go.microsoft.com/fwlink/?LinkId=252678
-  [SQL Server 및 SQL 분할된 데이터베이스 라이브러리(영문)]: http://go.microsoft.com/fwlink/?LinkId=252679
   [Azure 캐싱 서비스 소개]: http://go.microsoft.com/fwlink/?LinkId=252680
-  [Windows \#Azure 캐싱 성능 고려 사항]: http://go.microsoft.com/fwlink/?LinkId=252681
   [Azure 큐 및 Azure 서비스 버스 큐 - 비교 및 대조]: http://go.microsoft.com/fwlink/?LinkId=252682
   [Service Bus 조정된 메시징을 사용한 성능 개선 모범 사례]: http://go.microsoft.com/fwlink/?LinkID=252683
   [빅데이터]: /ko-KR/solutions/big-data/
   [Azure HDInsight Service]: /ko-KR/documentation/services/hdinsight/
   [Azure HDInsight Service 시작]: /ko-KR/documentation/articles/hdinsight-get-started/
-  [Azure에서 NoSQL에 익숙해지기(영문)]: http://go.microsoft.com/fwlink/?LinkId=252729
-  [AggregateOrientedDatabase(영문)]: http://go.microsoft.com/fwlink/?LinkID=252731
-  [PolyglotPersistence(영문)]: http://go.microsoft.com/fwlink/?LinkId=252732
   [ACS 성능 가이드라인]: http://go.microsoft.com/fwlink/?LinkId=252747
   [Azure 웹 응용 프로그램 및 직렬화]: http://go.microsoft.com/fwlink/?LinkId=252749
   []: http://go.microsoft.com/fwlink/?LinkId=252775
@@ -369,11 +357,9 @@ Azure 성능 분석에 Microsoft 이외의 여러 타사 도구를 사용할 수
   [SQL 데이터베이스에 대한 성능 정보 얻기]: http://go.microsoft.com/fwlink/?LinkId=252877
   [SQL 데이터베이스와 SQL Server 온-프레미스 간 성능 분석]: http://go.microsoft.com/fwlink/?LinkId=252878
   [동적 관리 뷰를 사용하여 SQL 데이터베이스 모니터링]: http://go.microsoft.com/fwlink/?LinkId=236195
-  [SQL 프로파일러가 없는 경우 SQL 데이터베이스 분석에 유용한 DMV(영문)]: http://go.microsoft.com/fwlink/?LinkId=252879
   [Cerebrata]: http://go.microsoft.com/fwlink/?LinkId=252880
   [SQL Server 및 SQL 데이터베이스 성능 테스트: Enzo SQL 기본]: http://enzosqlbaseline.codeplex.com/
   [SQL 데이터베이스]: http://go.microsoft.com/fwlink/?LinkId=246930
   [저장소]: http://go.microsoft.com/fwlink/?LinkId=246933
   [네트워킹]: http://go.microsoft.com/fwlink/?LinkId=252882
   [서비스 버스]: http://go.microsoft.com/fwlink/?LinkId=246934
-  [Azure 계획 - 환경에 Azure를 통합하기 위한 사후 결정 가이드(영문)]: http://go.microsoft.com/fwlink/?LinkId=252884

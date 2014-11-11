@@ -1,25 +1,25 @@
 <properties linkid="manage-services-how-to-create-websites" urlDisplayName="How to create" pageTitle="How to create websites - Azure service management" metaKeywords="Azure creating website, Azure deleting website" description="Learn how to create a website using the Azure Management Portal." metaCanonical="" services="web-sites" documentationCenter="" title="How to Create and Deploy a Website" authors="cephalin" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin" />
 
 # 웹 사이트를 만드는 방법
 
 이 항목에서는 갤러리에서 또는 관리 포털을 사용하여 웹 사이트를 만드는 방법을 보여 줍니다.
 
-만든 Azure 웹 사이트에 콘텐츠를 배포하는 방법에 대한 자세한 내용은 [Azure 웹 사이트][]의 **배포** 섹션을 참조하세요.
+만든 Azure 웹 사이트에 콘텐츠를 배포하는 방법에 대한 자세한 내용은 [Azure 웹 사이트][Azure 웹 사이트]의 **배포** 섹션을 참조하세요.
 
 ## 목차
 
--   [방법: 관리 포털을 사용하여 웹 사이트 만들기][]
--   [방법: 갤러리에서 웹 사이트 만들기][]
--   [방법: 웹 사이트 삭제][]
--   [다음 단계][]
+-   [방법: 관리 포털을 사용하여 웹 사이트 만들기][방법: 관리 포털을 사용하여 웹 사이트 만들기]
+-   [방법: 갤러리에서 웹 사이트 만들기][방법: 갤러리에서 웹 사이트 만들기]
+-   [방법: 웹 사이트 삭제][방법: 웹 사이트 삭제]
+-   [다음 단계][다음 단계]
 
 ## <a name="createawebsiteportal"></a>방법: 관리 포털을 사용하여 웹 사이트 만들기
 
 Azure에서 웹 사이트를 만들려면 다음 단계를 따르세요.
 
-1.  [Azure 관리 포털][]에 로그인합니다.
+1.  [Azure 관리 포털][Azure 관리 포털]에 로그인합니다.
 
 2.  관리 포털의 왼쪽 아래에서 **Create New** 아이콘을 클릭합니다.
 
@@ -59,7 +59,7 @@ Azure에서 웹 사이트를 만들려면 다음 단계를 따르세요.
 
 ## <a name="howtocreatefromgallery"></a>방법: 갤러리에서 웹 사이트 만들기
 
-[WACOM.INCLUDE [website-from-gallery][]]
+[WACOM.INCLUDE [website-from-gallery](../includes/website-from-gallery.md)]
 
 ## <a name="deleteawebsite"></a>방법: 웹 사이트 삭제
 
@@ -67,7 +67,7 @@ Azure에서 웹 사이트를 만들려면 다음 단계를 따르세요.
 
 ## <a name="nextsteps"></a>다음 단계
 
-자세한 내용은 [Azure 웹 사이트][]를 참조하십시오.
+자세한 내용은 [Azure 웹 사이트][Azure 웹 사이트]를 참조하십시오.
 
   [Azure 웹 사이트]: /ko-KR/documentation/services/web-sites/
   [방법: 관리 포털을 사용하여 웹 사이트 만들기]: #createawebsiteportal

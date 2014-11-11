@@ -1,6 +1,6 @@
 <properties linkid="dev-net-how-to-table-services" urlDisplayName="Table Service" pageTitle="How to use table storage  from .NET | Microsoft Azure" metaKeywords="Get started Azure table   Azure nosql   Azure large structured data store   Azure table   Azure table storage   Azure table .NET   Azure table storage .NET   Azure table C#   Azure table storage C#" description="Learn how to use Microsoft Azure Table storage to create and delete tables and insert and query entities in a table." services="storage" documentationCenter=".NET" metaCanonical="" disqusComments="1" umbracoNaviHide="1" title="How to use Microsoft Azure Table storage" authors="tamram" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tamram"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
 # .NET에서 테이블 저장소를 사용하는 방법
 
@@ -8,45 +8,45 @@
 수행하는 방법을 보여 줍니다. 샘플은 C# 코드로 작성되었으며 Azure
 Storage Client Library for .NET을 사용합니다. **테이블 만들기 및 삭제**,
 **테이블 엔터티 작업** 등의 시나리오를 다룹니다. 테이블에
-대한 자세한 내용은 [다음 단계][] 섹션을 참조하세요.
+대한 자세한 내용은 [다음 단계][다음 단계] 섹션을 참조하세요.
 
-> [WACOM.NOTE] 이 가이드는 Azure .NET Storage Client Library 2.x 이상을 대상으로 합니다. 권장되는 버전은 [NuGet][]을 통해 또는 [Azure SDK for .NET][]의 일부로 사용할 수 있는 Storage Client Library 4.x입니다. 저장소 클라이언트 라이브러리를 구하는 방법은 아래의 [방법: 프로그래밍 방식으로 테이블 저장소 액세스][]를 참조하세요.
+> [WACOM.NOTE] 이 가이드는 Azure .NET Storage Client Library 2.x 이상을 대상으로 합니다. 권장되는 버전은 [NuGet][NuGet]을 통해 또는 [Azure SDK for .NET][Azure SDK for .NET]의 일부로 사용할 수 있는 Storage Client Library 4.x입니다. 저장소 클라이언트 라이브러리를 구하는 방법은 아래의 [방법: 프로그래밍 방식으로 테이블 저장소 액세스][방법: 프로그래밍 방식으로 테이블 저장소 액세스]를 참조하세요.
 
 ## 목차
 
--   [테이블 서비스 정의][]
--   [개념][]
--   [Azure 저장소 계정 만들기][]
--   [저장소 연결 문자열 설정][]
--   [방법: 프로그래밍 방식으로 테이블 저장소 액세스][]
--   [방법: 테이블 만들기][]
--   [방법: 테이블에 엔터티 추가][]
--   [방법: 엔터티 일괄 삽입][]
--   [방법: 파티션의 모든 엔터티 검색][]
--   [방법: 파티션의 엔터티 범위 검색][]
--   [방법: 단일 엔터티 검색][]
--   [방법: 엔터티 바꾸기][]
--   [방법: 엔터티 삽입 또는 바꾸기][]
--   [방법: 엔터티 속성 하위 집합 쿼리][]
--   [방법: 엔터티 삭제][]
--   [방법: 테이블 삭제][]
--   [다음 단계][]
+-   [테이블 서비스 정의][테이블 서비스 정의]
+-   [개념][개념]
+-   [Azure 저장소 계정 만들기][Azure 저장소 계정 만들기]
+-   [저장소 연결 문자열 설정][저장소 연결 문자열 설정]
+-   [방법: 프로그래밍 방식으로 테이블 저장소 액세스][방법: 프로그래밍 방식으로 테이블 저장소 액세스]
+-   [방법: 테이블 만들기][방법: 테이블 만들기]
+-   [방법: 테이블에 엔터티 추가][방법: 테이블에 엔터티 추가]
+-   [방법: 엔터티 일괄 삽입][방법: 엔터티 일괄 삽입]
+-   [방법: 파티션의 모든 엔터티 검색][방법: 파티션의 모든 엔터티 검색]
+-   [방법: 파티션의 엔터티 범위 검색][방법: 파티션의 엔터티 범위 검색]
+-   [방법: 단일 엔터티 검색][방법: 단일 엔터티 검색]
+-   [방법: 엔터티 바꾸기][방법: 엔터티 바꾸기]
+-   [방법: 엔터티 삽입 또는 바꾸기][방법: 엔터티 삽입 또는 바꾸기]
+-   [방법: 엔터티 속성 하위 집합 쿼리][방법: 엔터티 속성 하위 집합 쿼리]
+-   [방법: 엔터티 삭제][방법: 엔터티 삭제]
+-   [방법: 테이블 삭제][방법: 테이블 삭제]
+-   [다음 단계][다음 단계]
 
-[WACOM.INCLUDE [howto-table-storage][]]
+[WACOM.INCLUDE [howto-table-storage](../includes/howto-table-storage.md)]
 
 ## 
 
 ## <a name="create-account"></a><span class="short-header">계정 만들기</span>Azure 저장소 계정 만들기
 
 </h2>
-[WACOM.INCLUDE [create-storage-account][]]
+[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ## 
 
 ## <a name="setup-connection-string"></a><span class="short-header">연결 문자열 설정</span>저장소 연결 문자열 설정
 
 </h2>
-[WACOM.INCLUDE [storage-configure-connection-string][]]
+[WACOM.INCLUDE [storage-configure-connection-string](../includes/storage-configure-connection-string.md)]
 
 ## 
 
@@ -57,7 +57,7 @@ Storage Client Library for .NET을 사용합니다. **테이블 만들기 및 �
 
 NuGet을 사용하여 `Microsoft.WindowsAzure.Storage.dll` 어셈블리를 가져올 수 있습니다. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 선택합니다. 온라인에서 "WindowsAzure.Storage"를 검색하고 **설치**를 클릭하여 Azure 저장소 패키지와 종속성을 설치합니다.
 
-`Microsoft.WindowsAzure.Storage.dll`은 [.NET 개발자 센터][](영문)에서 다운로드할 수 있는 Azure SDK for .NET에도 포함되어 있습니다. 이 어셈블리는 `%Program Files%\Microsoft SDKs\Windows Azure\.NET SDK%Program Files%\Microsoft SDKs\Windows Azure\.NET SDK\<sdk-version>\ref\` 디렉터리에 설치됩니다.
+`Microsoft.WindowsAzure.Storage.dll`은 [.NET 개발자 센터][.NET 개발자 센터](영문)에서 다운로드할 수 있는 Azure SDK for .NET에도 포함되어 있습니다. 이 어셈블리는 `%Program Files%\Microsoft SDKs\Windows Azure\.NET SDK%Program Files%\Microsoft SDKs\Windows Azure\.NET SDK\<sdk-version>\ref\` 디렉터리에 설치됩니다.
 
 ### 네임스페이스 선언
 
@@ -92,7 +92,7 @@ Microsoft.WindowsAzure.CloudConfigurationManager에 대한 참조 없이 응용 
 
 ### ODataLib 종속성
 
-Storage Client Library for .NET의 ODataLib 종속성은 WCF 데이터 서비스가 아니라 NuGet을 통해 사용 가능한 ODataLib(버전 5.0.2) 패키지를 통해 확인됩니다. ODataLib 라이브러리를 직접 다운로드하거나 NuGet을 통해 코드 프로젝트에서 참조할 수 있습니다. 특정 ODataLib 패키지는 [OData][], [Edm][] 및 [Spatial][]입니다.
+Storage Client Library for .NET의 ODataLib 종속성은 WCF 데이터 서비스가 아니라 NuGet을 통해 사용 가능한 ODataLib(버전 5.0.2) 패키지를 통해 확인됩니다. ODataLib 라이브러리를 직접 다운로드하거나 NuGet을 통해 코드 프로젝트에서 참조할 수 있습니다. 특정 ODataLib 패키지는 [OData][OData], [Edm][Edm] 및 [Spatial][Spatial]입니다.
 
 ## <a name="create-table"></a><span class="short-header">테이블 만들기</span>방법: 테이블 만들기
 
@@ -410,7 +410,7 @@ Storage Client Library for .NET의 ODataLib 종속성은 WCF 데이터 서비스
 테이블 쿼리는 모든 엔터티 속성 대신 엔터티에서 몇 개의 속성만 검색할 수 있습니다. 프로젝션이라고 하는 이 기술은 특히 대역폭을 줄이며 큰 엔터티에 대한 쿼리 성능을 향상할 수 있습니다. 다음 코드의 쿼리는
 테이블에 있는 엔터티의 전자 메일 주소만
 반환합니다. 이 작업을 위해 **DynamicTableEntity**의 쿼리와
-**EntityResolver**를 사용합니다. 이 [블로그 게시글][]에서 프로젝션에 대해 자세히 알아볼 수 있습니다. 로컬 저장소 에뮬레이터에서는 프로젝션이 지원되지 않으므로 이 코드는 테이블 서비스의 계정을 사용하는 경우에만 실행됩니다.
+**EntityResolver**를 사용합니다. 이 [블로그 게시글][블로그 게시글]에서 프로젝션에 대해 자세히 알아볼 수 있습니다. 로컬 저장소 에뮬레이터에서는 프로젝션이 지원되지 않으므로 이 코드는 테이블 서비스의 계정을 사용하는 경우에만 실행됩니다.
 
     // Retrieve storage account from connection string
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -497,18 +497,18 @@ Storage Client Library for .NET의 ODataLib 종속성은 WCF 데이터 서비스
 작업을 수행하는 방법을 알아보세요.
 
 -   사용 가능한 API에 대한 자세한 내용은 테이블 서비스 참조 설명서를 참조하세요.
-    -   [Storage Client Library for .NET 참조][]
-    -   [REST API 참조][]
--   Azure 저장소를 사용하여 수행할 수 있는 고급 작업에 대한 자세한 내용은 [Azure에 데이터 저장 및 액세스][]를 참조하세요.
--   [Azure WebJobs SDK 시작][](영문)에서 Azure 웹 사이트에 대한 백 엔드 프로세스에서 Azure 저장소를 사용하는 방법을 알아보세요.
+    -   [Storage Client Library for .NET 참조][Storage Client Library for .NET 참조]
+    -   [REST API 참조][REST API 참조]
+-   Azure 저장소를 사용하여 수행할 수 있는 고급 작업에 대한 자세한 내용은 [Azure에 데이터 저장 및 액세스][Azure에 데이터 저장 및 액세스]를 참조하세요.
+-   [Azure WebJobs SDK 시작][Azure WebJobs SDK 시작](영문)에서 Azure 웹 사이트에 대한 백 엔드 프로세스에서 Azure 저장소를 사용하는 방법을 알아보세요.
 -   Azure에 데이터를 저장하기 위한 추가 옵션에 대한 자세한 내용은 추가 기능 가이드를 참조하세요.
-    -   [Blob 저장소][]를 사용하여 구조화되지 않은 데이터를 저장합니다.
-    -   [큐 저장소][]를 사용하여 구조화된 데이터를 저장합니다.
-    -   [SQL 데이터베이스][]를 사용하여 관계형 데이터를 저장합니다.
+    -   [Blob 저장소][Blob 저장소]를 사용하여 구조화되지 않은 데이터를 저장합니다.
+    -   [큐 저장소][큐 저장소]를 사용하여 구조화된 데이터를 저장합니다.
+    -   [SQL 데이터베이스][SQL 데이터베이스]를 사용하여 관계형 데이터를 저장합니다.
 
   [다음 단계]: #next-steps
   [NuGet]: https://www.nuget.org/packages/WindowsAzure.Storage/
-  [Azure SDK for .NET]: /en-us/downloads/
+  [Azure SDK for .NET]: /ko-kr/downloads/
   [방법: 프로그래밍 방식으로 테이블 저장소 액세스]: #configure-access
   [테이블 서비스 정의]: #what-is
   [개념]: #concepts
@@ -528,14 +528,14 @@ Storage Client Library for .NET의 ODataLib 종속성은 WCF 데이터 서비스
   [howto-table-storage]: ../includes/howto-table-storage.md
   [create-storage-account]: ../includes/create-storage-account.md
   [storage-configure-connection-string]: ../includes/storage-configure-connection-string.md
-  [.NET 개발자 센터]: http://www.windowsazure.com/en-us/develop/net/#
+  [.NET 개발자 센터]: http://www.windowsazure.com/ko-kr/develop/net/#
   [OData]: http://nuget.org/packages/Microsoft.Data.OData/5.0.2
   [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
   [블로그 게시글]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
   [Storage Client Library for .NET 참조]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
-  [REST API 참조]: http://msdn.microsoft.com/en-us/library/windowsazure/dd179355
-  [Azure에 데이터 저장 및 액세스]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
+  [REST API 참조]: http://msdn.microsoft.com/ko-kr/library/windowsazure/dd179355
+  [Azure에 데이터 저장 및 액세스]: http://msdn.microsoft.com/ko-kr/library/windowsazure/gg433040.aspx
   [Azure WebJobs SDK 시작]: /ko-kr/documentation/articles/websites-dotnet-webjobs-sdk-get-started/
   [Blob 저장소]: /ko-kr/documentation/articles/storage-dotnet-how-to-use-blobs/
   [큐 저장소]: /ko-kr/documentation/articles/storage-dotnet-how-to-use-queues/

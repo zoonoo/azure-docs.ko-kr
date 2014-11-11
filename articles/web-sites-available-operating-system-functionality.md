@@ -1,35 +1,34 @@
-<properties title="Operating System Functionality Available to Applications on Azure Websites" pageTitle="Operating System Functionality Available to Applications on Azure Websites" description="Learn about the OS functionality available to web applications on Azure Websites" metaKeywords="Azure,Web Sites,web applications,operating system functionality" services="web-sites" solutions="web" documentationCenter="" authors="cephalin" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
+<properties linkid="manage-services-storage-net-shared-access-signature-part-2" urlDisplayName="Shared Access Signature Part 2" pageTitle="Shared Access Signatures, Part 2: Create and Use a SAS with the Blob Service" metaKeywords="" description="Learn how to generate and then use shared access signatures with the Azure Blob service. The examples are written in C# and use the Azure Storage Client Library for .NET." metaCanonical="" services="storage" documentationCenter=".NET" title="Operating System Functionality Available to Applications on Azure Web Sites" authors="timamm" solutions="" writer="timamm" manager="" editor="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin"></tags>
-
-# Azure 웹 사이트의 응용 프로그램에서 사용할 수 있는 운영 체제 기능
+Azure 웹 사이트의 응용 프로그램에서 사용할 수 있는 운영 체제 기능
+=================================================================
 
 이 문서에서는 Azure 웹 사이트에서 실행되는 모든 응용 프로그램에서 사용할 수 있는 일반적인 기준 운영 체제 기능을 설명합니다. 이 기능에는 파일, 네트워크, 레지스트리 액세스, 진단 로그 및 이벤트가 포함됩니다.
 
-## 목차
+목차
+----
 
--   [웹 사이트 모드][]
--   [개발 프레임워크][]
--   [파일 액세스][]
--   [로컬 드라이브][]
--   [여러 인스턴스의 파일][]
--   [웹 응용 프로그램에 부여되는 파일 액세스 형식][]
--   [네트워크 액세스][]
--   [코드 실행, 프로세스 및 메모리][]
--   [진단 로그 및 이벤트][]
--   [레지스트리 액세스][]
+-   [웹 사이트 모드](#websitemodes)
+-   [개발 프레임워크](#developmentframeworks)
+-   [파일 액세스](#FileAccess)
+    -   [로컬 드라이브](#LocalDrives)
+    -   [네트워크 드라이브(일명 UNC 공유)](#NetworkDrives)
+    -   [여러 인스턴스의 파일](#multipleinstances)
+    -   [웹 응용 프로그램에 부여되는 파일 액세스 형식](#TypesOfFileAccess)
+-   [네트워크 액세스](#NetworkAccess)
+-   [코드 실행, 프로세스 및 메모리](#Code)
+-   [진단 로그 및 이벤트](#Diagnostics)
+-   [레지스트리 액세스](#RegistryAccess)
 
-<span id="websitemodes"></span></a>
-
-## 웹 사이트 모드
+웹 사이트 모드
+--------------
 
 Azure 웹 사이트는 다중 테넌트 호스팅 환경에서 고객 웹 사이트를 실행합니다. 무료 및 공유 웹 사이트 크기 조정 모드로 배포된 웹 사이트는 공유 가상 컴퓨터에서 작업자 프로세스로 실행되고, 표준 웹 사이트 크기 조정 모드로 배포된 웹 사이트는 단일 고객과 연관 있는 웹 사이트 전용 가상 컴퓨터에서 실행됩니다.
 
 Azure 웹 사이트는 서로 다른 모드 간의 원활한 크기 조정 환경을 지원하기 때문에, 웹 사이트에 적용되는 보안 구성이 동일하게 유지됩니다. 따라서 웹 사이트가 서로 다른 웹 사이트 모드 간에 전환될 때 웹 응용 프로그램이 갑자기 다르게 작동하여 예기치 못한 방식으로 장애가 발생하는 일이 없습니다.
 
-<span id="developmentframeworks"></span></a>
-
-## 개발 프레임워크
+개발 프레임워크
+---------------
 
 웹 사이트 모드는 웹 사이트에서 사용할 수 있는 계산 리소스(CPU, 디스크 저장소, 메모리, 네트워크 송신)의 양을 제어합니다. 하지만 응용 프로그램에서 사용할 수 있는 프레임워크 기능의 범위는 웹 사이트 모드에 관계없이 동일하게 유지됩니다.
 
@@ -37,19 +36,14 @@ Azure 웹 사이트는 ASP.NET, 클래식 ASP, node.js, PHP, Python을 포함하
 
 다음 섹션에서는 Azure에서 웹 사이트에 사용할 수 있는 일반적인 종류의 운영 체제 기능이 요약되어 있습니다.
 
-<span id="FileAccess"></span></a>
-
-## 파일 액세스
+파일 액세스
+-----------
 
 Azure 웹 사이트에는 로컬 드라이브와 네트워크 드라이브를 포함한 다양한 드라이브가 있습니다.
-
-<span id="LocalDrives"></span></a>
 
 ### 로컬 드라이브
 
 근본적으로 Azure 웹 사이트는 Azure PaaS(Platform as a Service) 인프라에서 실행되는 서비스입니다. 따라서 가상 컴퓨터에 "부착된" 로컬 드라이브는 Azure에서 실행되는 모든 작업자 역할에서 사용할 수 있는 것과 동일한 드라이브 종류입니다. 여기에는 운영 체제 드라이브(D:\\ 드라이브), Azure 웹 사이트에서만 사용되며 고객에게는 액세스 권한이 없는 Azure 패키지 cspkg 파일이 포함된 응용 프로그램 드라이브, VM 크기에 따라 크기가 다양한 "사용자" 드라이브(C:\\ 드라이브) 등이 포함됩니다.
-
-<span id="NetworkDrives"></span></a>
 
 ### 네트워크 드라이브(일명 UNC 공유)
 
@@ -59,8 +53,6 @@ Azure 웹 사이트 내에는 각 데이터 센터에서 만들어진 다수의 
 
 클라우드 서비스가 작동하는 방식으로 인해 UNC 공유를 호스트하는 특정 가상 컴퓨터는 시간이 지남에 따라 변경됩니다. 가상 컴퓨터는 일반적인 클라우드 작동 과정에서 채택되거나 채택되지 않으면서, UNC 공유는 다양한 가상 컴퓨터에 탑재될 것이 확실합니다. 이 때문에 웹 응용 프로그램은 UNC 파일 경로의 컴퓨터 정보가 시간이 지남에 따라 안정성을 유지할 것으로 강력하게 가정해서는 안 됩니다. 대신, Azure 웹 사이트가 제공하는 간편한 *가짜* 절대 경로인 **D:\\home\\site**를 사용해야 합니다. 이 가짜 절대 경로를 사용하면 사이트 및 사용자를 알 수 없는 이동식 방법으로 고유 사이트를 참조할 수 있습니다. **D:\\home\\site**를 사용하여 전송별로 새로운 절대 경로를 구성하지 않고 사이트 간에 공유 파일을 전송할 수 있습니다.
 
-<span id="TypesOfFileAccess"></span></a>
-
 ### 웹 응용 프로그램에 부여되는 파일 액세스 형식
 
 각 고객의 구독에는 데이터 센터 내의 특정 UNC 공유에 예약된 디렉터리 구조가 있습니다. 고객에게는 특정 데이터 센터 내에서 만든 여러 개의 웹 사이트가 있을 수 있으므로, 단일 고객 구독에 속한 모든 디렉터리는 동일한 UNC 공유에 만들어집니다. 이 공유는 콘텐츠, 오류 및 진단 로그, 소스 제어에서 만들어진 이전 버전 웹 사이트 등에 해당하는 디렉터리를 포함할 수 있습니다. 예상대로 고객의 웹 사이트 디렉터리는 웹 사이트의 응용 프로그램 코드가 런타임에 읽고 쓸 수 있습니다.
@@ -69,17 +61,14 @@ Azure 웹 사이트 내에는 각 데이터 센터에서 만들어진 다수의 
 
 Azure 웹 사이트가 임시 로컬 저장소를 사용하는 방법을 예로 들면 임시 ASP.NET 파일용 디렉터리와 IIS 압축 파일용 디렉터리 등입니다. ASP.NET 컴파일 시스템은 임시 컴파일 캐시 위치로 "Temporary ASP.NET Files" 디렉터리를 사용합니다. IIS는 압축된 응답 출력을 저장하는 데 "IIS Temporary Compressed Files" 디렉터리를 사용합니다. 이 두 가지 파일 사용법은(다른 사용법도 포함) 모두 Azure 웹 사이트에서 웹 사이트별 임시 로컬 저장소로 다시 매핑됩니다. 이렇게 다시 매핑되면 해당 기능이 예상대로 지속됩니다.
 
-Azure 웹 사이트의 각 웹 사이트는 "응용 프로그램 풀 ID"라는 권한이 낮은 임의의 고유 작업자 프로세스 ID로 실행됩니다. 이 ID에 대한 자세한 내용은 다음을 참조하십시오. [][]<http://www.iis.net/learn/manage/configuring-security/application-pool-identities></a>(영문). 응용 프로그램 코드는 운영 체제 드라이브(D:\\ 드라이브)에 대한 기본적인 읽기 전용 액세스에 이 ID를 사용합니다. 따라서 응용 프로그램 코드는 일반적인 디렉터리 구조를 나열하고 운영 체제 드라이브에 있는 일반 파일을 읽을 수 있습니다. 이는 다소 광범위한 수준의 액세스 권한으로 보일 수도 있지만, Azure 호스팅 서비스에서 작업자 역할을 프로비전하고 드라이브 콘텐츠를 읽을 때 동일한 디렉터리 및 파일에 액세스할 수 있습니다.
+Azure 웹 사이트의 각 웹 사이트는 "응용 프로그램 풀 ID"라는 권한이 낮은 임의의 고유 작업자 프로세스 ID로 실행됩니다. 이 ID에 대한 자세한 내용은 다음을 참조하십시오. <http://www.iis.net/learn/manage/configuring-security/application-pool-identities>(영문). 응용 프로그램 코드는 운영 체제 드라이브(D:\\ 드라이브)에 대한 기본적인 읽기 전용 액세스에 이 ID를 사용합니다. 따라서 응용 프로그램 코드는 일반적인 디렉터리 구조를 나열하고 운영 체제 드라이브에 있는 일반 파일을 읽을 수 있습니다. 이는 다소 광범위한 수준의 액세스 권한으로 보일 수도 있지만, Azure 호스티드 서비스에서 작업자 역할을 프로비전하고 드라이브 콘텐츠를 읽을 때 동일한 디렉터리 및 파일에 액세스할 수 있습니다.
 
-<a name="multipleinstances"></a>
-
-### 여러 인스턴스의 파일 액세스
+##\# 여러 인스턴스의 파일 액세스
 
 홈 디렉터리에는 사이트의 콘텐츠가 포함되어 있고, 웹 응용 프로그램은 홈 디렉터리에 쓸 수 있습니다. 웹 사이트가 여러 인스턴스에서 실행되는 경우 모든 인스턴스에 동일한 디렉터리가 표시되도록 홈 디렉터리가 모든 인스턴스 간에 공유됩니다. 예를 들어 업로드된 파일을 홈 디렉터리에 저장하는 웹 사이트의 경우, 모든 인스턴스에서 해당 파일을 즉시 사용할 수 있습니다.
 
-<span id="NetworkAccess"></span></a>
-
-## 네트워크 액세스
+네트워크 액세스
+---------------
 
 응용 프로그램 코드는 외부 서비스를 노출하는 인터넷 액세스 끝점에 아웃바운드 네트워크를 연결하는 데 TCP/IP 및 UDP 기반 프로토콜을 사용할 수 있습니다. 응용 프로그램은 이 프로토콜을 사용하여 Azure 내의 서비스에 연결할 수 있습니다. 예를 들어 SQL Azure에 대한 HTTPS 연결을 설정하면 됩니다.
 
@@ -87,9 +76,8 @@ Azure 웹 사이트의 각 웹 사이트는 "응용 프로그램 풀 ID"라는 �
 
 전체적으로 웹 사이트를 실행하는 다양한 프로세스 사이의 IPC(프로세스 간 통신) 메커니즘으로 명명된 파이프도 지원됩니다. 예를 들어 IIS FastCGI 모듈은 PHP 페이지를 실행하는 개별 프로세스를 조정하는 데 명명된 파이프를 사용합니다.
 
-<span id="Code"></span></a>
-
-## 코드 실행, 프로세스 및 메모리
+코드 실행, 프로세스 및 메모리
+-----------------------------
 
 앞에서 설명했듯이, 웹 사이트는 임의의 응용 프로그램 풀 ID를 사용하여 권한이 낮은 작업자 프로세스 내부에서 실행됩니다. 응용 프로그램 코드는 작업자 프로세스 및 CGI 프로세스나 다른 응용 프로그램에 의해 생성될 수 있는 하위 프로세스와 연결된 메모리 공간에 액세스할 수 있습니다. 하지만 특정 웹 사이트의 응용 프로그램이 동일한 가상 컴퓨터에 있더라도 다른 고객 웹 사이트의 메모리나 데이터에 액세스할 수는 없습니다.
 
@@ -97,9 +85,8 @@ Azure 웹 사이트의 각 웹 사이트는 "응용 프로그램 풀 ID"라는 �
 
 웹 응용 프로그램은 임의의 코드를 생성하고 실행할 수 있습니다. 웹 응용 프로그램이 명령 셸 생성이나 PowerShell 스크립트 실행과 같은 작업을 수행하는 것도 가능합니다. 하지만 웹 응용 프로그램에서 임의의 코드 및 프로세스를 생성할 수 있지만 실행 프로그램 및 스크립트는 여전히 상위 응용 프로그램 풀에 부여된 권한으로 제한됩니다. 예를 들어 웹 사이트는 아웃바운드 HTTP 호출을 수행하는 실행 파일을 생성할 수 있지만, 이 실행 파일은 가상 컴퓨터 IP 주소를 NIC에서 바인딩 해제할 수 없습니다. 아웃바운드 네트워크 호출은 권한이 낮은 코드에 허용되지만 가상 컴퓨터에서 네트워크 설정을 다시 구성하려면 관리자 권한이 필요합니다.
 
-<span id="Diagnostics"></span></a>
-
-## 진단 로그 및 이벤트
+진단 로그 및 이벤트
+-------------------
 
 로그 정보는 일부 웹 응용 프로그램이 액세스하는 또 하나의 데이터 집합입니다. Azure 웹 사이트에서 실행되는 코드에 사용할 수 있는 로그 정보의 종류에는 웹 사이트에서 생성된 진단 및 로그 정보(웹 사이트에서 쉽게 액세스할 수 있음)가 포함됩니다.
 
@@ -109,23 +96,10 @@ Azure 웹 사이트의 각 웹 사이트는 "응용 프로그램 풀 ID"라는 �
 
 Azure의 웹 응용 프로그램에서 사용할 수 없는 진단 로깅 및 추적의 영역은 Windows ETW 이벤트 및 일반적인 Windows 이벤트 로그(예: 시스템, 응용 프로그램 및 보안 이벤트 로그)입니다. ETW 추적 정보는 잠재적으로 시스템 전체에서 볼 수 있으므로(올바른 ACL 사용) ETW 이벤트에 대한 읽기 및 쓰기 액세스는 차단됩니다. 개발자는 읽기/쓰기 ETW 이벤트 및 일반적인 Windows 이벤트 로그에 대한 API 호출이 작동하는 것처럼 보이지만 이는 Azure 웹 사이트가 성공한 것처럼 보이도록 호출을 "가장"하기 때문이라는 것을 알아챌 수 있습니다. 실제로 웹 사이트 응용 프로그램 코드는 이 이벤트 데이터에 액세스할 수 없습니다.
 
-<span id="RegistryAccess"></span></a>
-
-## 레지스트리 액세스
+레지스트리 액세스
+-----------------
 
 응용 프로그램은 실행 가상 컴퓨터의 레지스트리의 상당 부분(전체는 아님)에 읽기 전용으로 액세스할 수 있습니다. 즉, 웹 응용 프로그램이 로컬 사용자 그룹에 대한 읽기 전용 액세스를 허용하는 레지스트리 키에 액세스할 수 없음을 의미합니다. 현재 읽기 또는 쓰기 액세스가 지원되지 않는 레지스트리의 하나의 영역은 HKEY\_CURRENT\_USER 하이브입니다.
 
 사용자별 레지스트리 키 액세스를 포함하여 레지스트리에 대한 쓰기 액세스는 차단됩니다. 응용 프로그램의 관점에서 보면, 클라우드 환경에서는 여러 가상 컴퓨터에서 응용 프로그램을 마이그레이션할 수 있고 마이그레이션하므로 레지스트리에 대한 쓰기 액세스에 의존해서는 안 됩니다. 웹 응용 프로그램이 사용할 수 있는 유일한 쓰기 가능한 영구 저장소는 Azure 웹 사이트 UNC 공유에 저장된 웹 사이트별 콘텐츠 디렉터리 구조입니다.
 
-  [웹 사이트 모드]: #websitemodes
-  [개발 프레임워크]: #developmentframeworks
-  [파일 액세스]: #FileAccess
-  [로컬 드라이브]: #LocalDrives
-  [네트워크 드라이브(일명 UNC 공유)]: #NetworkDrives
-  [여러 인스턴스의 파일]: #multipleinstances
-  [웹 응용 프로그램에 부여되는 파일 액세스 형식]: #TypesOfFileAccess
-  [네트워크 액세스]: #NetworkAccess
-  [코드 실행, 프로세스 및 메모리]: #Code
-  [진단 로그 및 이벤트]: #Diagnostics
-  [레지스트리 액세스]: #RegistryAccess
-  []: http://www.iis.net/learn/manage/configuring-security/application-pool-identities

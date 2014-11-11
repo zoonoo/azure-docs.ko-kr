@@ -1,6 +1,6 @@
 <properties linkid="manage-services-networking-replica-domain-controller" urlDisplayName="Replica domain controller" pageTitle="Install a replica domain controller in Azure" metaKeywords="" description="A tutorial that teaches you how to install a domain controller from your Corp Active Directory forest on your Azure virtual machine." metaCanonical="" services="virtual-network" documentationCenter="" title="Install a Replica Active Directory Domain Controller in Azure Virtual Networks" authors="Justinha" solutions="" writer="Justinha" manager="TerryLan" editor="LisaToft" />
 
-<tags ms.service="virtual-network" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="Justinha"></tags>
+<tags ms.service="virtual-network" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="Justinha" />
 
 # Azure 가상 네트워크에서 복제 Active Directory 도메인 컨트롤러 설치
 
@@ -298,8 +298,6 @@ Windows PowerShell 사용에 대한 자세한 내용은 [Azure PowerShell 시작
   [관리 포털에서 사이트 간 VPN 구성]: http://msdn.microsoft.com/ko-kr/library/dn133795.aspx
   [가상 네트워크에 가상 컴퓨터 추가]: http://azure.microsoft.com/ko-kr/documentation/articles/virtual-networks-add-virtual-machine/
   [영역 위임 만들기]: http://technet.microsoft.com/library/cc753500.aspx
-  [Azure에 새 Active Directory 포리스트 설치]: /ko-kr/manage/services/networking/active-directory-forest/
-  [도메인에서 도메인 컨트롤러 제거]: http://technet.microsoft.com/ko-kr/library/cc771844(v=WS.10).aspx
   [VerifystaticIPaddressyourPrimaryDC1]: ./media/virtual-networks-install-replica-active-directory-domain-controller/VerifystaticIP.png
   [InstallCorpForest1]: ./media/virtual-networks-install-replica-active-directory-domain-controller/InstallCorpForest1.png
   [InstallCorpForest2]: ./media/virtual-networks-install-replica-active-directory-domain-controller/InstallCorpForest2.png
@@ -337,5 +335,3 @@ Windows PowerShell 사용에 대한 자세한 내용은 [Azure PowerShell 시작
   [Azure PowerShell 시작]: http://msdn.microsoft.com/ko-kr/library/windowsazure/jj156055.aspx
   [Azure 관리 Cmdlet]: http://msdn.microsoft.com/ko-kr/library/windowsazure/jj152841
   [BackupDC]: ./media/virtual-networks-install-replica-active-directory-domain-controller/BackupDC.png
-  [Windows Azure IT Pro IaaS: (01) 가상 컴퓨터 기본 사항]: http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/01
-  [Windows Azure IT Pro IaaS: (05) 가상 네트워크 및 프레미스 간 연결 만들기]: http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/05

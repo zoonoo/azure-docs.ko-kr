@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-how-to-guides-register-windows-store-app-server-auth" urlDisplayName="Shared Access Signature Part 1" pageTitle="Register your Windows Store app package for Microsoft authentication" metaKeywords="" description="Learn how to register your Windows Store app for Microsoft authentication in your Azure Mobile Services application" metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Register your Windows Store app package for Microsoft authentication" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # Microsoft 인증을 위해 Windows 스토어 앱 패키지 등록
 
@@ -12,7 +12,7 @@ Azure 모바일 서비스에서는 클라이언트 기반 인증과 서버 기�
 
 > [WACOM.NOTE]Live Connect를 사용한 클라이언트 관리 인증은 아직 .NET 백 엔드 모바일 서비스에서 지원되지 않습니다.
 
-[WACOM.INCLUDE [mobile-services-register-windows-store-app][mobile-services-register-windows-store-app]]
+[WACOM.INCLUDE [mobile-services-register-windows-store-app](../includes/mobile-services-register-windows-store-app.md)]
 
 앱 패키지를 등록한 후 [LoginAsync][LoginAsync] 메서드를 호출할 때 *useSingleSignOn*에 대해 **true** 값을 제공해야 합니다. 그러면 사용자가 Microsoft 계정을 사용할 때 향상된 로그인 환경이 제공됩니다.
 

@@ -1,6 +1,6 @@
 <properties linkid="manage-services-hdinsight-recommendation-engine-using-mahout" urlDisplayName="Hadoop Recommendation Engine" pageTitle="Hadoop recommendation engine (.NET) | Azure" metaKeywords="Azure Apache Mahout, Azure recommendation example, Azure recommendation tutorial, Azure recommendation engine" description="A tutorial that teaches how to use the Apache Mahout recommendation engine with Azure to create song suggestions based on listening habits." disqusComments="1" umbracoNaviHide="1" title="Simple recommendation engine using Apache Mahout" authors="jgao" manager="paulettm" editor="cgronlun" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/21/2014" ms.author="jgao"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/21/2014" ms.author="jgao" />
 
 
 
@@ -10,7 +10,7 @@ Apache Mahout™은 확장 가능한 컴퓨터 학습 응용 프로그램에서 
 
 Apache Mahout는 항목 기반 공동 작업 필터링을 위해 기본 제공 구현을 제공합니다. 이 방법은 추천 데이터 마이닝을 수행하는 데 널리 사용됩니다. 항목 기반 공동 작업 필터링은 Amazon.com에서 개발되었습니다. 여기서 아이디어는 항목 선호 간의 상관관계를 보여 주는 사용자 선호 데이터를 사용하여 유사 그룹의 미래 사용자 취향을 유추할 수 있다는 것입니다.
 
-이 자습서에서는 [Million Song Dataset][] 사이트를 사용하고 [데이터 집합][]을 다운로드하여 과거 청취 습관을 기준으로 사용자에 대한 음악 추천을 만듭니다.
+이 자습서에서는 [Million Song Dataset][Million Song Dataset] 사이트를 사용하고 [데이터 집합][데이터 집합]을 다운로드하여 과거 청취 습관을 기준으로 사용자에 대한 음악 추천을 만듭니다.
 
 
 
@@ -20,20 +20,20 @@ Apache Mahout는 항목 기반 공동 작업 필터링을 위해 기본 제공 �
 
 이 자습서는 다음과 같이 구성되어 있습니다.
 
-1. [설정 및 구성][]
-2. [데이터 검사 및 형식 지정][]
-3. [Mahout 설치][]
-4. [Mahout 작업 실행][]
+1. [설정 및 구성][설정 및 구성]
+2. [데이터 검사 및 형식 지정][데이터 검사 및 형식 지정]
+3. [Mahout 설치][Mahout 설치]
+4. [Mahout 작업 실행][Mahout 작업 실행]
 
 ## <a name="setup"></a>설정 및 구성
 
-이 자습서에서는 Azure 및 HDinsight 미리 보기로 설정했으며 샘플을 실행할 수 있는 HDInsight 클러스터를 만들었다고 가정합니다. 아직 완료하지 않은 경우 [Azure HDInsight 시작][] 자습서에서 이러한 필수 조건을 충족하는 방법에 대한 지침을 확인하세요.
+이 자습서에서는 Azure 및 HDinsight 미리 보기로 설정했으며 샘플을 실행할 수 있는 HDInsight 클러스터를 만들었다고 가정합니다. 아직 완료하지 않은 경우 [Azure HDInsight 시작][Azure HDInsight 시작] 자습서에서 이러한 필수 조건을 충족하는 방법에 대한 지침을 확인하세요.
 
 ## <a name="segment1"></a>데이터 검사 및 형식 지정
 
 이 예제는 사용자가 특정 음악에 대한 선호를 표현하는 방법을 다룹니다. 사용자가 음악을 청취한 횟수를 통해 해당 음악에 대한 사용자 선호를 측정할 수 있다고 가정합니다. 선호 데이터에서 검색된 패턴을 사용하여 표현된 음악 선호에 따라 미래 사용자 선호를 예측할 수 있습니다. [Echo Nest Taste Profile Subset][Million Song Dataset] 웹 페이지의 **설명** 섹션에서 이 데이터 집합의 샘플을 볼 수 있습니다.
 
-![Echo Nest Taste Profile Subset][]
+![Echo Nest Taste Profile Subset][Echo Nest Taste Profile Subset]
 
 ### Million Song Dataset의 샘플 데이터
 
@@ -46,7 +46,7 @@ Visual Studio 2010이 설치되지 않은 경우 이 단계를 건너뛰고 Maho
 
 먼저 Visual Studio 2010을 시작합니다. Visual Studio에서 **파일 -> 새로 만들기 -> 프로젝트**를 선택합니다. **설치된 템플릿** 창의 **Visual C#** 노드 내에서 **창** 범주를 선택한 후 목록에서 **콘솔 응용 프로그램**을 선택합니다. 프로젝트 이름을 "ConvertToMahoutInput"으로 이정하고 **확인** 단추를 클릭합니다.
 
-![콘솔 응용 프로그램 만들기][]
+![콘솔 응용 프로그램 만들기][콘솔 응용 프로그램 만들기]
 
 ### 콘솔 응용 프로그램 만들기
 
@@ -139,7 +139,7 @@ Visual Studio 2010이 설치되지 않은 경우 이 단계를 건너뛰고 Maho
 
     유틸리티를 실행하는 경우 **train\_triplets.txt**의 위치와 함께 명령줄 인수를 포함합니다. **솔루션 탐색기**에서 **ConvertToMahoutInput** 프로젝트 노드를 마우스 오른쪽 단추로 클릭하고 **속성**을 선택하면 됩니다. 프로젝트 속성 페이지의 왼쪽에서 **디버그** 탭을 선택하고 **명령줄 인수** 텍스트 상자에 \<localpath\>train\_triplets.txt의 경로를 추가합니다.
 
-    ![명령줄 인수 설정][]
+    ![명령줄 인수 설정][명령줄 인수 설정]
 
 ### 명령줄 인수 설정
 
@@ -149,17 +149,17 @@ Visual Studio 2010이 설치되지 않은 경우 이 단계를 건너뛰고 Maho
 
 - HDInsight 클러스터 포털을 열고 **원격 데스크톱** 아이콘을 클릭합니다.
 
-    ![클러스터 관리 아이콘][]
+    ![클러스터 관리 아이콘][클러스터 관리 아이콘]
 
 ### 원격 데스크톱 아이콘
 
-HDInsight에는 Mahout가 기본적으로 포함되어 있지 않습니다. 그러나 Hadoop 에코시스템에 포함되기 때문에 [Mahout][] 웹 사이트에서 다운로드할 수 있습니다. 최신 버전은 0.7이지만 이 지침 집합은 버전 0.5 또는 0.7에서 호환됩니다.
+HDInsight에는 Mahout가 기본적으로 포함되어 있지 않습니다. 그러나 Hadoop 에코시스템에 포함되기 때문에 [Mahout][Mahout] 웹 사이트에서 다운로드할 수 있습니다. 최신 버전은 0.7이지만 이 지침 집합은 버전 0.5 또는 0.7에서 호환됩니다.
 
-1. 먼저 [Mahout 버전 0.7][]을 로컬 컴퓨터로 다운로드합니다.
+1. 먼저 [Mahout 버전 0.7][Mahout 버전 0.7]을 로컬 컴퓨터로 다운로드합니다.
 
 2. 로컬 zip 파일을 선택하고 ctrl-v를 눌러 복사한 후 Hadoop 클러스터에 붙여넣어 클러스터에 복사합니다.
 
-    ![Mahout 업데이트][]
+    ![Mahout 업데이트][Mahout 업데이트]
 
 ### 헤드 노트에 Mahout 복사
 
@@ -182,7 +182,7 @@ HDInsight에는 Mahout가 기본적으로 포함되어 있지 않습니다. 그�
 
 이때 Hadoop 터미널 창을 열고 users.txt 및 mInput.txt가 포함된 폴더로 이동해야 합니다.
 
-![Mahout 명령 창][]
+![Mahout 명령 창][Mahout 명령 창]
 
 ### Hadoop 명령 창
 
@@ -232,7 +232,7 @@ HDInsight에는 Mahout가 기본적으로 포함되어 있지 않습니다. 그�
   [데이터 검사 및 형식 지정]: #segment1
   [Mahout 설치]: #Segment2
   [Mahout 작업 실행]: #segment2
-  [Azure HDInsight 시작]: /en-us/manage/services/hdinsight/get-started-hdinsight/
+  [Azure HDInsight 시작]: /ko-kr/manage/services/hdinsight/get-started-hdinsight/
   [Echo Nest Taste Profile Subset]: ./media/hdinsight-hadoop-recommendation-engine/the-echo-nest-taste-profile-subset.png
   [콘솔 응용 프로그램 만들기]: ./media/hdinsight-hadoop-recommendation-engine/creating-a-console-application.png
   [명령줄 인수 설정]: ./media/hdinsight-hadoop-recommendation-engine/setting-command-line-arguments.png
@@ -240,7 +240,5 @@ HDInsight에는 Mahout가 기본적으로 포함되어 있지 않습니다. 그�
   [Mahout]: http://mahout.apache.org/
   [Mahout 버전 0.7]: http://www.apache.org/dyn/closer.cgi/mahout/
   [Mahout 업데이트]: ./media/hdinsight-hadoop-recommendation-engine/uploading-mahout.PNG
-  [리포지토리]: https://github.com/wenming/BigDataSamples/tree/master/mahout
-  [zip 파일]: https://github.com/wenming/BigDataSamples/archive/master.zip
   [Mahout 명령 창]: ./media/hdinsight-hadoop-recommendation-engine/mahout-commandwindow.PNG
  

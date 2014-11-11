@@ -1,6 +1,6 @@
 <properties linkid="mobile-services-how-to-html-client" urlDisplayName="HTML Client" pageTitle="How to use an HTML client - Azure Mobile Services" metaKeywords="Azure Mobile Services, Mobile Service HTML client, HTML client" description="Learn how to use an HTML client for Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="How to use an HTML/JavaScript client for Azure Mobile Services" authors="krisragh" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh" />
 
 # Azure 모바일 서비스용 HTML/JavaScript 클라이언트를 사용하는 방법
 
@@ -34,7 +34,7 @@
 -   [방법: Cross Origin Resource Sharing 사용][방법: Cross Origin Resource Sharing 사용]
 -   [다음 단계][다음 단계]
 
-[WACOM.INCLUDE [mobile-services-concepts][mobile-services-concepts]]
+[WACOM.INCLUDE [mobile-services-concepts](../includes/mobile-services-concepts.md)]
 
 ## <a name="create-client"></a>방법: 모바일 서비스 클라이언트 만들기
 
@@ -584,11 +584,6 @@ Promise는 완료할 작업을 아직 계산되지 않은 값으로 예약하는
 
 <!-- Anchors. --> <!-- URLs. -->
 
-  [.NET Framework]: /ko-kr/develop/mobile/how-to-guides/work-with-net-client-library/ ".NET Framework"
-  [HTML/JavaScript]: /ko-kr/develop/mobile/how-to-guides/work-with-html-js-client/ "HTML/JavaScript"
-  [iOS]: /ko-kr/develop/mobile/how-to-guides/work-with-ios-client-library/ "iOS"
-  [Android]: /ko-kr/develop/mobile/how-to-guides/work-with-android-client-library/ "Android"
-  [Xamarin]: /ko-kr/develop/mobile/how-to-guides/work-with-xamarin-client-library/ "Xamarin"
   [Windows 스토어 JavaScript 빠른 시작]: http://www.windowsazure.com/ko-kr/develop/mobile/tutorials/get-started
   [HTML 빠른 시작]: http://www.windowsazure.com/ko-kr/develop/mobile/tutorials/get-started-html
   [모바일 서비스 정의]: #what-is
@@ -618,12 +613,9 @@ Promise는 완료할 작업을 아직 계산되지 않은 값으로 예약하는
   [ASCII 제어 코드 C0 및 C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
   [모바일 서비스 테이블 관리 CLI]: http://www.windowsazure.com/ko-kr/manage/linux/other-resources/command-line-tools/#Mobile_Tables
   [ListView]: http://msdn.microsoft.com/ko-kr/library/windows/apps/br211837.aspx
-  [데이터 바인딩(JavaScript 및 HTML을 사용한 Windows 스토어 앱)]: http://msdn.microsoft.com/ko-kr/library/windows/apps/hh758311.aspx
   [인증 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-users-html
   [Windows 스토어]: /ko-kr/develop/mobile/tutorials/get-started-with-users-js
   [login]: http://msdn.microsoft.com/ko-kr/library/windowsazure/jj554236.aspx
-  [Microsoft 인증을 위해 Windows 스토어 앱 패키지 등록]: /ko-kr/develop/mobile/how-to-guides/register-windows-store-app-package/
-  [1]: http://go.microsoft.com/fwlink/p/?LinkId=322050
   [단일 로그인으로 앱 인증]: /ko-kr/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/
   [sessionStorage]: http://msdn.microsoft.com/ko-kr/library/cc197062(v=vs.85).aspx
   [done]: http://msdn.microsoft.com/ko-kr/library/windows/apps/hh701079.aspx

@@ -1,6 +1,6 @@
 <properties linkid="dev-ruby-web-app-with-linux-vm" urlDisplayName="Ruby on Rails Web App on Azure using Linux VM" pageTitle="Ruby on Rails Web App on Azure using Linux VM" metaKeywords="Azure Ruby web application, Azure Ruby application, Ruby app Azure, Ruby azure vm, ruby virthal machine, ruby linux vm" description="Host a Ruby on Rails-based website on Azure using a Linux virtual machine. " metaCanonical="" services="virtual-machines" documentationCenter="Ruby" title="Ruby on Rails Web application on an Azure VM" authors="larryfr" solutions="" manager="" editor="" />
 
-<tags ms.service="virtual-machines" ms.workload="web" ms.tgt_pltfrm="vm-linux" ms.devlang="ruby" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"></tags>
+<tags ms.service="virtual-machines" ms.workload="web" ms.tgt_pltfrm="vm-linux" ms.devlang="ruby" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # Azure VM의 Ruby on Rails 웹 응용 프로그램
 
@@ -313,8 +313,6 @@ Azure SDK for Ruby를 사용하여 Ruby 응용 프로그램에서 Azure 서비�
   [끝점 페이지]: ./media/virtual-machines-ruby-rails-web-app-linux/endpoints.png
   [새 끝점 대화 상자]: ./media/virtual-machines-ruby-rails-web-app-linux/newendpoint.png
   [2]: ./media/virtual-machines-ruby-rails-web-app-linux/basicrailscloud.png
-  [Unicorn+NginX+Capistrano 및 Azure 가상 컴퓨터]: /ko-kr/documentation/articles/virtual-machines-ruby-deploy-capistrano-host-nginx-unicorn/
   [Ruby on Rails 가이드]: http://guides.rubyonrails.org/
   [Blob을 사용하여 데이터 저장]: /ko-kr/documentation/articles/storage-ruby-how-to-use-blob-storage
-  [테이블을 사용하여 키/값 쌍 저장(영문)]: /ko-kr/develop/ruby/how-to-guides/table-service/
   [콘텐츠 배달 네트워크로 높은 대역폭 콘텐츠 제공]: /ko-kr/develop/ruby/app-services/

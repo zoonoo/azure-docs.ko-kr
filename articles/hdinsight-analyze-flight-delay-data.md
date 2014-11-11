@@ -4,27 +4,27 @@
 
 #HDInsight의 Hadoop을 사용하여 비행 지연 데이터 분석
 
-Hive에서는 대규모 데이터의 요약, 쿼리, 분석에 적용할 수 있는 SQL 같은 스크립트 언어인 *[HiveQL][]*(영문)을 통해 Hadoop MapReduce 작업을 실행할 수 있습니다. 이 자습서에서는 Hive를 사용하여 공항의 평균 지연 시간을 계산하는 방법 및 Sqoop을 사용하여 계산 결과를 SQL 데이터베이스로 내보내는 방법을 보여 줍니다.
+Hive에서는 대규모 데이터의 요약, 쿼리, 분석에 적용할 수 있는 SQL 같은 스크립트 언어인 *[HiveQL][HiveQL]*(영문)을 통해 Hadoop MapReduce 작업을 실행할 수 있습니다. 이 자습서에서는 Hive를 사용하여 공항의 평균 지연 시간을 계산하는 방법 및 Sqoop을 사용하여 계산 결과를 SQL 데이터베이스로 내보내는 방법을 보여 줍니다.
 
 **필수 조건:**
 
 이 자습서를 시작하기 전에 다음이 있어야 합니다.
 
-* Azure HDInsight 클러스터. HDInsight 클러스터 프로비전에 대한 자세한 내용은 [HDInsight 시작][] 또는 [HDInsight 클러스터 프로비전][]을 참조하세요.
-* Azure PowerShell이 설치 및 구성된 워크스테이션. 자세한 내용은 [Azure PowerShell 설치 및 구성][]을 참조하세요.
+* Azure HDInsight 클러스터. HDInsight 클러스터 프로비전에 대한 자세한 내용은 [HDInsight 시작][HDInsight 시작] 또는 [HDInsight 클러스터 프로비전][HDInsight 클러스터 프로비전]을 참조하세요.
+* Azure PowerShell이 설치 및 구성된 워크스테이션. 자세한 내용은 [Azure PowerShell 설치 및 구성][Azure PowerShell 설치 및 구성]을 참조하세요.
 
 **예상 완료 시간:** 30분
 
 ## 자습서 내용
 
-* [자습서 준비][]
-* [HiveQL 스크립트 만들기 및 업로드][]
-* [HiveQL 스크립트 실행][]
-* [Azure SQL 데이터베이스로 출력 내보내기][]
-* [다음 단계][]
+* [자습서 준비][자습서 준비]
+* [HiveQL 스크립트 만들기 및 업로드][HiveQL 스크립트 만들기 및 업로드]
+* [HiveQL 스크립트 실행][HiveQL 스크립트 실행]
+* [Azure SQL 데이터베이스로 출력 내보내기][Azure SQL 데이터베이스로 출력 내보내기]
+* [다음 단계][다음 단계]
 
 ## <a id="prepare"></a>자습서 준비
-이 자습서에서는 워크스테이션에 [Research and Innovative Technology Administration, Bureau of Transportation Statistics][](RITA)(영문)의 항공사 비행 데이터 운항정시성을 사용합니다. 다음을 수행합니다.
+이 자습서에서는 워크스테이션에 [Research and Innovative Technology Administration, Bureau of Transportation Statistics][Research and Innovative Technology Administration, Bureau of Transportation Statistics](RITA)(영문)의 항공사 비행 데이터 운항정시성을 사용합니다. 다음을 수행합니다.
 
 1. 웹 브라우저를 사용하여 워크스테이션에 RITA의 운항정시성 데이터 다운로드
 2. Azure PowerShell을 사용하여 HDInsight에 데이터 업로드
@@ -32,9 +32,9 @@ Hive에서는 대규모 데이터의 요약, 쿼리, 분석에 적용할 수 있
 
 **HDInsight 저장소 이해**
 
-HDInsight는 데이터 저장소로 Azure Blob 저장소를 사용합니다. 이를 *WASB* 또는 *Azure 저장소 - Blob*이라고 합니다. WASB는 Azure Blob 저장소에 구현한 Microsoft의 HDFS입니다. 자세한 내용은 [HDInsight에서 Azure Blob 저장소 사용][]을 참조하세요.
+HDInsight는 데이터 저장소로 Azure Blob 저장소를 사용합니다. 이를 *WASB* 또는 *Azure 저장소 - Blob*이라고 합니다. WASB는 Azure Blob 저장소에 구현한 Microsoft의 HDFS입니다. 자세한 내용은 [HDInsight에서 Azure Blob 저장소 사용][HDInsight에서 Azure Blob 저장소 사용]을 참조하세요.
 
-HDInsight 클러스터를 프로비전하면 HDFS의 경우처럼 Blob 저장소 컨테이너가 기본 파일로 지정됩니다. 프로비전 프로세스 중에 이 컨테이너 외에도 동일한 Azure 저장소 계정 또는 다른 Azure 저장소 계정에서 컨테이너를 추가할 수 있습니다. 저장소 계정 추가에 대한 지침은 [HDInsight 클러스터 프로비전][]을 참조하세요.
+HDInsight 클러스터를 프로비전하면 HDFS의 경우처럼 Blob 저장소 컨테이너가 기본 파일로 지정됩니다. 프로비전 프로세스 중에 이 컨테이너 외에도 동일한 Azure 저장소 계정 또는 다른 Azure 저장소 계정에서 컨테이너를 추가할 수 있습니다. 저장소 계정 추가에 대한 지침은 [HDInsight 클러스터 프로비전][HDInsight 클러스터 프로비전]을 참조하세요.
 
 이 자습서에 사용된 PowerShell 스크립트를 간소화하려면 모든 파일이 */tutorials/flightdelays*에 있는 기본 파일 시스템 컨테이너에 저장되어야 합니다. 기본적으로 이 컨테이너 이름은 HDInsight 클러스터 이름과 동일합니다.
 
@@ -83,7 +83,7 @@ Hive 내부 테이블 및 외부 테이블에 대해 알아야 할 몇 가지 �
 
 **비행 데이터를 다운로드하려면**
 
-1. [Research and Innovative Technology Administration, Bureau of Transportation Statistics][](RITA)(영문)로 이동합니다.
+1. [Research and Innovative Technology Administration, Bureau of Transportation Statistics][Research and Innovative Technology Administration, Bureau of Transportation Statistics](RITA)(영문)로 이동합니다.
 2. 페이지에서 다음 값을 선택합니다.
 
 	<table border="1">
@@ -100,7 +100,7 @@ Hive 내부 테이블 및 외부 테이블에 대해 알아야 할 몇 가지 �
 
 **Azure Blob 저장소에 비행 지연 데이터를 업로드하려면**
 
-1. Azure PowerShell을 엽니다. 자세한 내용은 [Azure PowerShell 설치 및 구성][]을 참조하세요.
+1. Azure PowerShell을 엽니다. 자세한 내용은 [Azure PowerShell 설치 및 구성][Azure PowerShell 설치 및 구성]을 참조하세요.
 2. 다음 명령을 실행하여 Azure 구독에 연결합니다.
 
         Add-AzureAccount
@@ -420,9 +420,9 @@ HiveQL 명령의 전체 목록을 보려면 [Hive 데이터 정의 언어][HiveQ
 
 ## <a id="executehqlscript"></a>HiveQL 스크립트 실행
 
-Hive를 실행하는 데 사용할 수 있는 몇 가지 Azure PowerShell cmdlet이 있습니다. 이 자습서에서는 Invoke-Hive를 사용합니다. 다른 방법에 대해서는 [HDInsight에서 Hive 사용][]을 참조하세요. Invoke-Hive를 사용하여 HiveQL 문이나 HiveQL 스크립트 중 하나를 실행할 수 있습니다. 만들어서 Azure Blob 저장소에 업로드한 HiveQL 스크립트를 사용합니다.
+Hive를 실행하는 데 사용할 수 있는 몇 가지 Azure PowerShell cmdlet이 있습니다. 이 자습서에서는 Invoke-Hive를 사용합니다. 다른 방법에 대해서는 [HDInsight에서 Hive 사용][HDInsight에서 Hive 사용]을 참조하세요. Invoke-Hive를 사용하여 HiveQL 문이나 HiveQL 스크립트 중 하나를 실행할 수 있습니다. 만들어서 Azure Blob 저장소에 업로드한 HiveQL 스크립트를 사용합니다.
 
-알려진 Hive 경로 문제가 있습니다. 이 문제를 해결하기 위한 지침은 [TechNet Wiki][](영문)에서 확인할 수 있습니다.
+알려진 Hive 경로 문제가 있습니다. 이 문제를 해결하기 위한 지침은 [TechNet Wiki][TechNet Wiki](영문)에서 확인할 수 있습니다.
 
 **PowerShell을 사용하여 Hive 쿼리를 실행하려면**
 
@@ -538,20 +538,20 @@ Hive를 실행하는 데 사용할 수 있는 몇 가지 Azure PowerShell cmdlet
 
 5. SQL 데이터베이스에 연결하고 *AvgDelays* 테이블에서 도시별 평균 비행 지연을 확인합니다.
 
-    ![HDI.FlightDelays.AvgDelays.Dataset][]
+    ![HDI.FlightDelays.AvgDelays.Dataset][HDI.FlightDelays.AvgDelays.Dataset]
 
 
 ## <a id="nextsteps"></a> 다음 단계
 
 이제 파일을 Blob 저장소로 업로드하는 방법, Blob 저장소의 데이터를 사용하여 Hive 테이블을 채우는 방법, Hive 쿼리를 실행하는 방법, Sqoop을 사용하여 HDFS의 데이터를 Azure SQL 데이터베이스로 내보내는 방법을 익혔습니다. 자세한 내용은 다음 문서를 참조하세요.
 
-* [HDInsight 시작][]
-* [HDInsight에서 Hive 사용][]
-* [HDInsight에서 Oozie 사용][]
-* [HDInsight에서 Sqoop 사용][]
-* [HDInsight에서 Pig 사용][]
-* [HDInsight용 Java MapReduce 프로그램 개발][]
-* [HDInsight용 C# Hadoop 스트리밍 프로그램 개발][]
+* [HDInsight 시작][HDInsight 시작]
+* [HDInsight에서 Hive 사용][HDInsight에서 Hive 사용]
+* [HDInsight에서 Oozie 사용][HDInsight에서 Oozie 사용]
+* [HDInsight에서 Sqoop 사용][HDInsight에서 Sqoop 사용]
+* [HDInsight에서 Pig 사용][HDInsight에서 Pig 사용]
+* [HDInsight용 Java MapReduce 프로그램 개발][HDInsight용 Java MapReduce 프로그램 개발]
+* [HDInsight용 C# Hadoop 스트리밍 프로그램 개발][HDInsight용 C# Hadoop 스트리밍 프로그램 개발]
 
   [HiveQL]: https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL
   [HDInsight 시작]: ../hdinsight-get-started/
@@ -566,7 +566,6 @@ Hive를 실행하는 데 사용할 수 있는 몇 가지 Azure PowerShell cmdlet
   [HDInsight에서 Azure Blob 저장소 사용]: ../hdinsight-use-blob-storage/
   [HDInsight에서 Hive 사용]: ../hdinsight-use-hive/
   [TechNet Wiki]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
-  [Create and upload HiveQL 스크립트 만들기 및 업로드]: #createScript
   [HDI.FlightDelays.AvgDelays.Dataset]: ./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.AvgDelays.DataSet.png
   [HDInsight에서 Oozie 사용]: ../hdinsight-use-oozie/
   [HDInsight에서 Sqoop 사용]: ../hdinsight-use-sqoop/

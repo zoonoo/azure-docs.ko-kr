@@ -1,6 +1,6 @@
 <properties linkid="dev-net-how-to-sql-azure" urlDisplayName="SQL Database" pageTitle="How to use SQL Database (.NET) - Azure feature guide" metaKeywords="Get started SQL Azure, Getting started SQL Azure, SQL Azure database connection, SQL Azure ADO.NET, SQL Azure ODBC, SQL Azure EntityClient" description="Get started with SQL Database. Learn how to create a SQL Database instance and connect to it using ADO.NET, ODBC, and EntityClient Provider." metaCanonical="" services="sql-database" documentationCenter=".NET" title="How to use Azure SQL Database in .NET applications" authors="jeffreyg" solutions="" manager="" editor="" />
 
-<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jeffreyg"></tags>
+<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jeffreyg" />
 
 # .NET 응용 프로그램에서 Azure SQL 데이터베이스를 사용하는 방법
 
@@ -243,12 +243,7 @@ SQL 데이터베이스 연결의 기본 사항을 알아봤습니다. 이제 다
   [다음 단계]: #next-steps
   []: http://www.windowsazure.com
   [Azure 관리 포털]: http://manage.windowsazure.com
-  [서비스 수준
-  계약]: {localLink:1132} "SLA"
   [이미지]: ./media/sql-database-dotnet-how-to-use/SQLDbDashboard.PNG
   [Image2]: ./media/sql-database-dotnet-how-to-use/SQLDBFirewall.PNG
   [Image3]: ./media/sql-database-dotnet-how-to-use/SQLDBIPRange.PNG
-  [Entity Framework용 EntityClient
-  공급자]: http://msdn.microsoft.com/ko-kr/library/bb738561.aspx
-  [개발: 방법 항목(SQL 데이터베이스)]: http://msdn.microsoft.com/ko-kr/library/windowsazure/ee621787.aspx
   [SQL 데이터베이스]: http://msdn.microsoft.com/ko-kr/library/windowsazure/ee336279.aspx
