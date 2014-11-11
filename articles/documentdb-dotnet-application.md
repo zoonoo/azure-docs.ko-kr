@@ -33,7 +33,7 @@ Azure에 호스트된 ASP.NET MVC 웹 응용 프로그램에서 데이터를 저
 작성합니다. 작업은 Azure DocumentDB에 JSON 문서로
 저장됩니다.
 
-![대체 텍스트][]
+![Alt text](./media/documentdb-dotnet-application/image1.png)
 
 # <a name="_Toc395637760">필수 조건</a>
 
