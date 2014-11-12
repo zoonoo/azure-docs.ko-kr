@@ -2,27 +2,27 @@
 
 # Azure 미리 보기 포털에서 검색 구성
 
-[WACOM.INCLUDE [이 문서에서는 Azure 미리 보기 포털을 사용합니다.][]]
+[WACOM.INCLUDE [이 문서에서는 Azure 미리 보기 포털을 사용합니다.](../includes/preview-portal-note.md)]
 
 Microsoft Azure 검색(공개 미리 보기)은 새 미리 보기 포털에서 사용할 수 있습니다. 관리자는 공유 서비스를 선택할 때 무료로 또는 전용 리소스를 옵트인(opt in)할 때 할인 요금으로 검색 서비스를 기존 구독에 추가할 수 있습니다. 이 문서에는 다음 섹션이 있습니다.
 
 <!--Table of contents -->
 
--   [무료 서비스로 시작][]
--   [표준 검색으로 업그레이드][]
--   [서비스 작동 테스트][]
--   [검색 서비스 구성 페이지 탐색][]
--   [체험][]
+-   [무료 서비스로 시작][무료 서비스로 시작]
+-   [표준 검색으로 업그레이드][표준 검색으로 업그레이드]
+-   [서비스 작동 테스트][서비스 작동 테스트]
+-   [검색 서비스 구성 페이지 탐색][검색 서비스 구성 페이지 탐색]
+-   [체험][체험]
 
 ## 무료 서비스로 시작
 
 구독자는 학습 목적, 개념 증명 테스트 또는 소규모 개발 검색 프로젝트에 사용할 수 있는 공유 다중 테넌트 검색 서비스에 무료로 자동 액세스할 수 있습니다. 다음 단계에 따라 무료 버전을 등록하세요.
 
-1.  기존 구독을 사용하여 [Azure 미리 보기 포털][]에 로그인합니다. 이 URL을 클릭하면 미리 보기 포털로 이동됩니다.
+1.  기존 구독을 사용하여 [Azure 미리 보기 포털][Azure 미리 보기 포털]에 로그인합니다. 이 URL을 클릭하면 미리 보기 포털로 이동됩니다.
 
 2.  페이지 아래쪽에서 **새로 만들기**를 클릭합니다.
 
-    ![][]
+    ![][0]
 
 3.  페이지 맨 위에서 **모두**를 클릭합니다.
 
@@ -74,7 +74,7 @@ Microsoft Azure 검색(공개 미리 보기)은 새 미리 보기 포털에서 �
 
 **사용**은 문서 수, 사용 가능한 리소스 및 저장소 한도를 보여 줍니다.
 
-이러한 값을 사용하여 서비스에 연결하는 방법에 대한 지침은 [서비스 작동 테스트][]를 참조하세요.
+이러한 값을 사용하여 서비스에 연결하는 방법에 대한 지침은 [서비스 작동 테스트][서비스 작동 테스트]를 참조하세요.
 
 ## 표준 검색으로 업그레이드
 
@@ -88,7 +88,7 @@ Microsoft Azure 검색(공개 미리 보기)은 새 미리 보기 포털에서 �
 
 **1단계 - 가격 계층을 표준으로 설정하여 새 서비스 만들기**
 
-1.  기존 구독을 사용하여 [Azure 미리 보기 포털][]에 로그인합니다.
+1.  기존 구독을 사용하여 [Azure 미리 보기 포털][Azure 미리 보기 포털]에 로그인합니다.
 
 2.  페이지 아래쪽에서 **새로 만들기**를 클릭합니다.
 
@@ -116,13 +116,13 @@ Microsoft Azure 검색(공개 미리 보기)은 새 미리 보기 포털에서 �
 
 2.  슬라이더를 사용하여 복제본, 파티션 또는 둘 다를 추가합니다.
 
-추가 복제본과 파티션은 검색 단위로 청구됩니다. 리소스를 추가할 때 특정 리소스 구성을 지원하는 데 필요한 총 검색 단위가 페이지에 표시됩니다. [가격 정보][]에서 단위당 청구 정보를 확인할 수 있습니다.
+추가 복제본과 파티션은 검색 단위로 청구됩니다. 리소스를 추가할 때 특정 리소스 구성을 지원하는 데 필요한 총 검색 단위가 페이지에 표시됩니다. [가격 정보][가격 정보]에서 단위당 청구 정보를 확인할 수 있습니다.
 
 ![][10]
 
 ## 서비스 작동 테스트
 
-서비스가 작동하고 클라이언트 응용 프로그램에서 액세스 가능한지 확인하는 것이 검색 구성의 최종 단계입니다. 이 절차에서는 [Telerik에서 무료 다운로드][]로 제공되는 Fiddler를 사용하여 HTTP 요청을 실행하고 응답을 확인합니다. Fiddler를 사용하면 코드를 작성하지 않고 API를 즉시 테스트할 수 있습니다.
+서비스가 작동하고 클라이언트 응용 프로그램에서 액세스 가능한지 확인하는 것이 검색 구성의 최종 단계입니다. 이 절차에서는 [Telerik에서 무료 다운로드][Telerik에서 무료 다운로드]로 제공되는 Fiddler를 사용하여 HTTP 요청을 실행하고 응답을 확인합니다. Fiddler를 사용하면 코드를 작성하지 않고 API를 즉시 테스트할 수 있습니다.
 
 다음 절차는 공유 및 표준 검색 둘 다에서 작동합니다. 아래 단계에서는 인덱스를 만들고 문서를 업로드한 다음 인덱스를 쿼리하고 시스템에 서비스 정보를 쿼리합니다.
 
@@ -136,9 +136,9 @@ Microsoft Azure 검색(공개 미리 보기)은 새 미리 보기 포털에서 �
 
 3.  서비스 URL(Properties 페이지에서 확인할 수 있음)을 지정하는 URL, 요청 특성 및 api-version을 입력합니다. 다음 몇 가지 사항에 주의하세요.
 
--   HTTPS를 접두사로 사용합니다.
--   요청 특성은 "/indexes/hotels"입니다. 그러면 검색에서 'hotels'라는 인덱스를 만듭니다.
--   api-version은 소문자이며 "?api-version=2014-07-31-preview"로 지정됩니다. Azure 검색은 주기적으로 업데이트를 배포하므로 API 버전이 중요합니다. 드물긴 하지만 서비스 업데이트에서 새로운 API 변경 사항을 소개할 수도 있습니다. API 버전을 사용하면 기존 버전을 계속 사용하고 편리한 시간에 최신 버전으로 업그레이드할 수 있습니다.
+   + HTTPS를 접두사로 사용합니다.
+   + 요청 특성은 "/indexes/hotels"입니다. 그러면 검색에서 'hotels'라는 인덱스를 만듭니다.
+   + api-version은 소문자이며 "?api-version=2014-07-31-preview"로 지정됩니다. Azure 검색은 주기적으로 업데이트를 배포하므로 API 버전이 중요합니다. 드물긴 하지만 서비스 업데이트에서 새로운 API 변경 사항을 소개할 수도 있습니다. API 버전을 사용하면 기존 버전을 계속 사용하고 편리한 시간에 최신 버전으로 업그레이드할 수 있습니다.
 
     다음 예제와 같은 전체 URL이 표시됩니다.
 
@@ -287,7 +287,7 @@ Composer 탭에서 문서 게시 요청은 다음과 같이 표시됩니다. 요
 
 ![][14]
 
-다음 예제 쿼리는 MSDN의 [검색 인덱스 작업(Azure 검색 API)][]에서 가져온 것입니다. 이 항목의 많은 예제 쿼리에는 공백이 포함되어 있으며, 공백은 Fiddler에서 허용되지 않습니다. Fiddler에서 쿼리를 시도하기에 앞서, 쿼리 문자열을 붙여 넣기 전에 각 공백을 + 문자로 바꾸세요.
+다음 예제 쿼리는 MSDN의 [검색 인덱스 작업(Azure 검색 API)][검색 인덱스 작업(Azure 검색 API)]에서 가져온 것입니다. 이 항목의 많은 예제 쿼리에는 공백이 포함되어 있으며, 공백은 Fiddler에서 허용되지 않습니다. Fiddler에서 쿼리를 시도하기에 앞서, 쿼리 문자열을 붙여 넣기 전에 각 공백을 + 문자로 바꾸세요.
 
 **공백을 바꾸기 전:**
 
@@ -328,7 +328,7 @@ Composer 탭에서 문서 게시 요청은 다음과 같이 표시됩니다. 요
 
 구성 페이지를 찾을 위치에 리프레셔가 필요한 경우 다음 단계에 따라 서비스 대시보드를 찾으세요.
 
-1.  기존 구독을 사용하여 [Azure 미리 보기 포털][]에 로그인합니다.
+1.  기존 구독을 사용하여 [Azure 미리 보기 포털][Azure 미리 보기 포털]에 로그인합니다.
 2.  **찾아보기** | **모두**를 클릭합니다.
 
     ![][17]
@@ -347,13 +347,13 @@ Composer 탭에서 문서 게시 요청은 다음과 같이 표시됩니다. 요
 
 다음 단계를 시작할 준비가 되었나요? 다음 링크를 통해 Azure 검색을 사용하는 검색 응용 프로그램을 작성 및 관리하는 방법을 보여 주는 추가 자료로 이동할 수 있습니다.
 
-[첫 Azure 검색 솔루션 만들기][]
+[첫 Azure 검색 솔루션 만들기][첫 Azure 검색 솔루션 만들기]
 
-[Microsoft Azure에서 검색 솔루션 관리][]
+[Microsoft Azure에서 검색 솔루션 관리][Microsoft Azure에서 검색 솔루션 관리]
 
-[Azure 검색 기술 개요][]
+[Azure 검색 기술 개요][Azure 검색 기술 개요]
 
-[Azure 검색 REST API][]
+[Azure 검색 REST API][Azure 검색 REST API]
 
 
 <!--Anchors--> 
@@ -366,7 +366,7 @@ Composer 탭에서 문서 게시 요청은 다음과 같이 표시됩니다. 요
   [Azure 미리 보기 포털]: https://portal.azure.com
  
 <!--Image references-->
-  []: ./media/search-configure/AzureSearch_Configure1_1_New.PNG
+  [0]: ./media/search-configure/AzureSearch_Configure1_1_New.PNG
   [1]: ./media/search-configure/AzureSearch_Configure1_2_Everything.PNG
   [2]: ./media/search-configure/Azuresearch_Configure1_3_Gallery.PNG
   [3]: ./media/search-configure/AzureSearch_Configure1_4_GallerySeeAll.PNG
@@ -383,7 +383,6 @@ Composer 탭에서 문서 게시 요청은 다음과 같이 표시됩니다. 요
   [12]: ./media/search-configure/AzureSearch_Configure1_12_POSTDocs.PNG
   [13]: ./media/search-configure/AzureSearch_Configure1_13_GETQuery.PNG
   [14]: ./media/search-configure/AzureSearch_Configure1_14_GETQueryResponse.PNG
-  [검색 인덱스 작업(Azure 검색 API)]: http://msdn.microsoft.com/en-us/library/dn798927.aspx
   [15]: ./media/search-configure/AzureSearch_Configure1_15_Stats.PNG
   [16]: ./media/search-configure/AzureSearch_Configure1_16_StatsResponse.PNG
   [17]: ./media/search-configure/AzureSearch_Configure1_17_BrowseEverything.PNG
@@ -391,5 +390,5 @@ Composer 탭에서 문서 게시 요청은 다음과 같이 표시됩니다. 요
 <!--Link references-->
   [첫 Azure 검색 솔루션 만들기]: ../search-create-first-solution/
   [Microsoft Azure에서 검색 솔루션 관리]: ../search-manage/
-  [Azure 검색 기술 개요]: http://msdn.microsoft.com/en-us/library/dn798933.aspx
-  [Azure 검색 REST API]: http://msdn.microsoft.com/en-us/library/dn798935.aspx
+  [Azure 검색 기술 개요]: http://msdn.microsoft.com/ko-kr/library/dn798933.aspx
+  [Azure 검색 REST API]: http://msdn.microsoft.com/ko-kr/library/dn798935.aspx
