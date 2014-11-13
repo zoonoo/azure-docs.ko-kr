@@ -1,4 +1,4 @@
-<properties linkid="hdinsight-use-time-based-oozie-coordinator-with-hdinsight" urlDisplayName="Use time-based Hadoop Oozie Coordinator in HDInsight" pageTitle="Use time-based Hadoop Oozie Coordinator in HDInsight | Azure" metaKeywords="" description="Use time-based Hadoop Oozie Coordinator in HDInsight, a big data solution. Learn how to define Oozie workflows and coordinators, and submit coordinator jobs." metaCanonical="" services="hdinsight" documentationCenter="" title="Use time-based Hadoop Oozie Coordinator in HDInsight" authors="jgao" solutions="big-data" manager="paulettm" editor="cgronlun" />
+<properties urlDisplayName="Use time-based Hadoop Oozie Coordinator in HDInsight" pageTitle="HDInsight에서 시간 기준 Hadoop Oozie 코디네이터 사용 | Azure" metaKeywords="" description="빅 데이터 솔루션인 HDInsight에서 시간 기준 Hadoop Oozie 코디네이터를 사용하는 방법에 대해 알아봅니다. 또한 Oozie 워크플로와 코디네이터를 정의하고 코디네이터 작업을 제출하는 방법에 대해서도 살펴봅니다." metaCanonical="" services="hdinsight" documentationCenter="" title="HDInsight에서 시간 기준 Hadoop Oozie 코디네이터 사용" authors="jgao" solutions="big-data" manager="paulettm" editor="cgronlun" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao" />
 
@@ -692,7 +692,7 @@ Azure PowerShell은 현재 Oozie 작업 정의용 cmdlet을 제공하지 않습�
 
     추가 함수를 실행하려는 경우 \# 기호를 제거합니다.
 
-9.  HDinsight 클러스터 버전이 2.1인 경우 "https://$clusterName.azurehdinsight.net:443/oozie/v2/"를 "https://$clusterName.azurehdinsight.net:443/oozie/v1/"으로 바꿉니다. HDInsight 클러스터 버전 2.1은 웹 서비스 버전 2를 지원하지 않습니다.
+9.  HDinsight 클러스터 버전이 2.1인 경우 "https://$clusterName.azurehdinsight.net:443/oozie/v2/"를 "https://$clusterName.azurehdinsight.net:443/oozie/v1/"로 바꿉니다. HDInsight 클러스터 버전 2.1은 웹 서비스 버전 2를 지원하지 않습니다.
 
 10. **스크립트 실행**을 클릭하거나 **F5** 키를 눌러 스크립트를 실행합니다. 다음과 유사하게 출력됩니다.
 

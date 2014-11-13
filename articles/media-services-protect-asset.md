@@ -1,16 +1,16 @@
-<properties linkid="develop-media-services-how-to-guides-encrypt-assets" urlDisplayName="Encrypt Assets in Media Services" pageTitle="How to Encrypt Assets in Media Services - Azure" metaKeywords="" description="Learn how to use Microsoft PlayReady Protection to encrypt an asset in Media Services. Code samples are written in C# and use the Media Services SDK for .NET. Code samples are written in C# and use the Media Services SDK for .NET." metaCanonical="" services="media-services" documentationCenter="" title="How to: Protect an Asset with PlayReady Protection" authors="migree" solutions="" manager="" editor="" />
+<properties urlDisplayName="Encrypt Assets in Media Services" pageTitle="미디어 서비스에서 자산을 암호화하는 방법 - Azure" metaKeywords="" description="Microsoft PlayReady Protection을 사용하여 미디어 서비스에서 자산을 암호화하는 방법에 대해 알아봅니다. 코드 샘플은 C#으로 작성되었으며 Media Services SDK for .NET을 사용합니다. 코드 샘플은 C#으로 작성되었으며 Media Services SDK for .NET을 사용합니다." metaCanonical="" services="media-services" documentationCenter="" title="방법: PlayReady Protection을 사용하여 자산 보호" authors="juliako" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="migree"></tags>
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="juliako" />
 
 # <a name="playready"></a>방법: PlayReady Protection을 사용하여 자산 보호
 
-이 문서는 Azure 미디어 서비스 프로그래밍을 소개하는 시리즈 중 하나입니다. 이전 항목은 [방법: 작업 진행 상태 확인][]입니다.
+이 문서는 Azure 미디어 서비스 프로그래밍을 소개하는 시리즈 중 하나입니다. 이전 항목은 [방법: 작업 진행 상태 확인][방법: 작업 진행 상태 확인]입니다.
 
 Azure 미디어 서비스에서 Microsoft PlayReady Protection과 통합되어 자산을 암호화하는 작업을 제출할 수 있습니다. 이 섹션의 코드는 입력 폴더의 여러 스트리밍 파일을 사용하고 작업을 만든 후 PlayReady Protection을 사용하여 암호화합니다.
 
 다음 예제에서는 PlayReady Protection을 제공하는 간단한 작업을 만드는 방법을 보여 줍니다.
 
-1.  구성 데이터를 검색합니다. [Azure 미디어 암호기에 대한 작업 기본 설정][] 항목에서 예제 구성 파일을 가져올 수 있습니다.
+1.  구성 데이터를 검색합니다. [Azure 미디어 암호기에 대한 작업 기본 설정][Azure 미디어 암호기에 대한 작업 기본 설정] 항목에서 예제 구성 파일을 가져올 수 있습니다.
 2.  MP4 입력 파일을 업로드합니다.
 3.  MP4 파일을 부드러운 스트리밍 자산으로 변환합니다.
 4.  PlayReady를 사용하여 자산을 암호화합니다.
@@ -32,7 +32,7 @@ Azure 미디어 서비스에서 Microsoft PlayReady Protection과 통합되어 �
         string configMp4ToSmooth = File.ReadAllText(Path.GetFullPath(configFilePath + @"\MediaPackager_MP4ToSmooth.xml"));
 
         // Get a media processor instance
-        IMediaProcessor processor = GetLatestMediaProcessorByName("Azure Media Packager");
+        IMediaProcessor processor = GetLatestMediaProcessorByName("Windows Azure Media Packager");
 
         // Create a task with the conversion details, using the configuration data 
         ITask task = job.Tasks.AddNew("My Mp4 to Smooth Task",
@@ -55,7 +55,7 @@ Azure 미디어 서비스에서 Microsoft PlayReady Protection과 통합되어 �
         string configPlayReady = File.ReadAllText(Path.GetFullPath(configFilePath + @"\MediaEncryptor_PlayReadyProtection.xml"));
 
         // Get a media processor instance
-        IMediaProcessor playreadyProcessor = GetLatestMediaProcessorByName("Azure Media Encryptor");
+        IMediaProcessor playreadyProcessor = GetLatestMediaProcessorByName("Windows Azure Media Encryptor");
 
         // Create a second task, specifying a task name, the media processor, and configuration
         ITask playreadyTask = job.Tasks.AddNew("My PlayReady Task",
@@ -103,16 +103,16 @@ Azure 미디어 서비스에서 Microsoft PlayReady Protection과 통합되어 �
 
 PlayReady Protection에 대한 자세한 내용은 다음을 참조하세요.
 
--   [Microsoft PlayReady를 사용하여 자산 보호][]
--   [Microsoft PlayReady][]
+-   [Microsoft PlayReady를 사용하여 자산 보호][Microsoft PlayReady를 사용하여 자산 보호]
+-   [Microsoft PlayReady][Microsoft PlayReady]
 
 </p>
 ## 다음 단계
 
-이제 미디어 서비스를 사용하여 자산을 보호하는 방법을 배웠으므로 [자산 관리 방법][] 항목으로 이동하세요.
+이제 미디어 서비스를 사용하여 자산을 보호하는 방법을 배웠으므로 [자산 관리 방법][자산 관리 방법] 항목으로 이동하세요.
 
-  [방법: 작업 진행 상태 확인]: http://go.microsoft.com/fwlink/?LinkID=301737&clcid=0x409
-  [Azure 미디어 암호기에 대한 작업 기본 설정]: http://msdn.microsoft.com/en-us/library/hh973610.aspx
-  [Microsoft PlayReady를 사용하여 자산 보호]: http://msdn.microsoft.com/en-us/library/dn189154.aspx
+  [방법: 작업 진행 상태 확인]: ../media-services-check-job-progress/
+  [Azure 미디어 암호기에 대한 작업 기본 설정]: http://msdn.microsoft.com/ko-kr/library/hh973610.aspx
+  [Microsoft PlayReady를 사용하여 자산 보호]: http://msdn.microsoft.com/ko-kr/library/dn189154.aspx
   [Microsoft PlayReady]: http://www.microsoft.com/PlayReady/
-  [자산 관리 방법]: http://go.microsoft.com/fwlink/?LinkID=301943&clcid=0x409
+  [자산 관리 방법]: ../media-services-manage-assets/

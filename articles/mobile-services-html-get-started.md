@@ -1,4 +1,4 @@
-<properties pageTitle="Get Started with Azure Mobile Services for HTML 5 apps" metaKeywords="" description="Follow this tutorial to get started using Azure Mobile Services for HTML development. " metaCanonical="" services="" documentationCenter="Mobile" title="Get started with Mobile Services" authors="glenga" solutions="" manager="" editor="" />
+<properties pageTitle="HTML 5 앱에 대해 Azure 모바일 서비스 시작" metaKeywords="" description="이 자습서에 따라 HTML 개발을 위해 Azure 모바일 서비스 사용을 시작할 수 있습니다. " metaCanonical="" services="" documentationCenter="Mobile" title="모바일 서비스 시작" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="hero-article" ms.date="01/01/1900" ms.author="glenga" />
 
@@ -83,7 +83,7 @@
     <div class="dev-callout">
 
     **참고**
-    localhost 이외의 웹 서버에 빠른 시작 앱을 배포하는 경우, 웹 서버 호스트 이름을 **호스트 이름의 요청 허용** 목록에 추가해야 합니다. 자세한 내용은 [크로스-원본 자원 공유(CORS)][크로스-원본 자원 공유(CORS)]를 참조하십시오.
+    localhost 이외의 웹 서버에 빠른 시작 앱을 배포하는 경우, 웹 서버 호스트 이름을 **호스트 이름의 요청 허용** 목록에 추가해야 합니다. 자세한 내용은 [크로스-원본 자원 공유(CORS)][크로스-원본 자원 공유(CORS)]를 참조하세요.
 
     </div>
 
@@ -100,7 +100,7 @@
     <div class="dev-callout">
 
     **참고**
-    Windows 컴퓨터의 경우 PowerShell에서 스크립트를 실행할 것인지 물으면 'R'을 입력하십시오. 인터넷에서 다운로드한 스크립트이므로 웹 브라우저에서 스크립트를 실행하지 말라는 경고가 나타날 수 있습니다. 이 경우 브라우저에서 스크립트 로드를 계속 진행하도록 요청해야 합니다.
+    Windows 컴퓨터의 경우 PowerShell에서 스크립트를 실행할 것인지 물으면 'R'을 입력하세요. 인터넷에서 다운로드한 스크립트이므로 웹 브라우저에서 스크립트를 실행하지 말라는 경고가 나타날 수 있습니다. 이 경우 브라우저에서 스크립트 로드를 계속 진행하도록 요청해야 합니다.
 
     </div>
 
@@ -137,26 +137,25 @@
     모바일 서비스를 사용하여 데이터를 저장 및 쿼리하는 방법에 대해 자세히 알아보세요.
 
 -   **[HTML 응용 프로그램에서 사용자 지정 API 호출][HTML 응용 프로그램에서 사용자 지정 API 호출]**
-    HTML 응용 프로그램을 모바일 서비스에서 호스트되는 사용자 지정 API와 연결하십시오.
+    HTML 응용 프로그램을 모바일 서비스에서 호스트되는 사용자 지정 API와 연결하세요.
 
 -   **[인증 시작][인증 시작]**
     ID 공급자를 사용하여 앱 사용자를 인증하는 방법을 알아봅니다.
 
 -   **[모바일 서비스 HTML/JavaScript 방법 개념 참조][모바일 서비스 HTML/JavaScript 방법 개념 참조]**
-    HTML/JavaScript와 함께 모바일 서비스를 사용하는 방법에 대해 자세히 알아보십시오.
+    HTML/JavaScript와 함께 모바일 서비스를 사용하는 방법에 대해 자세히 알아보세요.
 
+<!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
 
-
-  [mobile-services-selector-get-started]: ../includes/mobile-services-selector-get-started.md
   [자습서 보기]: http://go.microsoft.com/fwlink/?LinkId=287040
   [0]: ./media/mobile-services-html-get-started/mobile-quickstart-completed-html.png
   [Azure 무료 평가판]: http://www.windowsazure.com/ko-kr/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fko-kr%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-html%2F
   [Microsoft 웹 플랫폼 설치 관리자]: http://go.microsoft.com/fwlink/p/?LinkId=286333
   [Python의 최신 버전]: http://go.microsoft.com/fwlink/p/?LinkId=286342
-  [mobile-services-create-new-service]: ../includes/mobile-services-create-new-service.md
   [1]: ./media/mobile-services-html-get-started/mobile-portal-quickstart-html.png
   [2]: ./media/mobile-services-html-get-started/mobile-quickstart-steps-html.png
   [3]: ./media/mobile-services-html-get-started/mobile-services-set-cors-localhost.png
+  [크로스-원본 자원 공유(CORS)]: http://msdn.microsoft.com/ko-kr/library/windowsazure/dn155871.aspx
   [4]: ./media/mobile-services-html-get-started/mobile-quickstart-startup-html.png
   [5]: ./media/mobile-services-html-get-started/mobile-data-tab.png
   [6]: ./media/mobile-services-html-get-started/mobile-data-browse.png

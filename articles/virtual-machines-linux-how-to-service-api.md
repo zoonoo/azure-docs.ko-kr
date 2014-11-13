@@ -1,4 +1,4 @@
-<properties linkid="manage-linux-howto-service-management-api" urlDisplayName="Service Management API" pageTitle="How to use the service management API for VMs - Azure" metaKeywords="" description="Learn how to use the Azure Service Management API for a Linux virtual machine." metaCanonical="" services="virtual-machines" documentationCenter="" title="How to Use the Service Management API" authors="timlt" solutions="" manager="timlt" editor="" />
+<properties urlDisplayName="Service Management API" pageTitle="VM에 대해 서비스 관리 API를 사용하는 방법 - Azure" metaKeywords="" description="Linux 가상 컴퓨터에 대해 Azure 서비스 관리 API를 사용하는 방법에 대해 알아봅니다." metaCanonical="" services="virtual-machines" documentationCenter="" title="서비스 관리 API를 사용하는 방법" authors="timlt" solutions="" manager="timlt" editor="" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="timlt" />
 
@@ -273,7 +273,7 @@ API는 배포, 역할 또는 디스크를 만들거나 수정할 때 입력으�
 -   LUN - 숫자(0-15)
 -   LogicalDiskSizeInGB - 숫자
 -   SourceMediaLink - 문자열
--   만들기 과정에서 디스크를 지정하는 3가지 방법, 즉 이름 기준, 미디어 기준, 크기 기준이 있습니다. 지정 옵션에 따라 작동 방식이 결정됩니다. 자세한 내용은 RDFE API 문서를 참조하십시오.
+-   만들기 과정에서 디스크를 지정하는 3가지 방법, 즉 이름 기준, 미디어 기준, 크기 기준이 있습니다. 지정 옵션에 따라 작동 방식이 결정됩니다. 자세한 내용은 RDFE API 문서를 참조하세요.
 
 **ProvisioningConfiguration**
 

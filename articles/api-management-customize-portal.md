@@ -1,10 +1,10 @@
-<properties pageTitle="Customizing the developer portal in Azure API Management" metaKeywords="" description="Customizing the developer portal in Azure API Management." metaCanonical="" services="" documentationCenter="API Management" title="Customizing the developer portal in Azure API Management" authors="sdanie" solutions="" manager="" editor="" />
+<properties pageTitle="Azure API 관리에서 개발자 포털 사용자 지정" metaKeywords="" description="Azure API 관리에서 개발자 포털을 사용자 지정하는 방법에 대해 알아봅니다." metaCanonical="" services="api-management" documentationCenter="API Management" title="Azure API 관리에서 개발자 포털 사용자 지정" authors="sdanie" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie"></tags>
+<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
 
 # Azure API 관리에서 개발자 포털 사용자 지정
 
-이 가이드에서는 브랜드와 일관성을 유지하기 위해 API 관리(미리 보기)에서 개발자 포털의 모양을 수정하는 방법을 보여 줍니다.
+이 가이드에서는 브랜드와 일관성을 유지하기 위해 API 관리에서 개발자 포털의 모양을 수정하는 방법을 보여 줍니다.
 
 ## 항목 내용
 
@@ -47,7 +47,7 @@
 
 > [부트스트랩][부트스트랩](영문)에 익숙한 경우, 이 규칙은 실제로 개발자 포털에서 사용되는 부트스트랩 테마 내의 [LESS 변수][LESS 변수](영문)입니다.
 
-이제 제목 텍스트의 색을 변경하겠습니다. <**@headings-color*>\* 필드에서 항목을 선택하고\#000000을 입력합니다. 이 값은 검정색의 16진 코드입니다. 이 과정에서 텍스트 상자 끝부분에 사각형 색 표시기가 나타나는 것이 확인됩니다. 이 표시기를 클릭하면 색 선택을 통해 색을 선택할 수 있습니다.
+이제 제목 텍스트의 색을 변경하겠습니다. **@headings-color** 필드에서 항목을 선택하고\#000000을 입력합니다. 이 값은 검정색의 16진 코드입니다. 이 과정에서 텍스트 상자 끝부분에 사각형 색 표시기가 나타나는 것이 확인됩니다. 이 표시기를 클릭하면 색 선택을 통해 색을 선택할 수 있습니다.
 
 ![색 선택][색 선택]
 

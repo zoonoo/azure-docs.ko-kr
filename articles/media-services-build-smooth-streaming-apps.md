@@ -1,6 +1,6 @@
-<properties linkid="develop-media-services-tutorials-smooth-streaming-windows-store-app" urlDisplayName="Smooth Streaming Windows Store App" pageTitle="Smooth Streaming Windows Store App - Azure .NET tutorials" metaKeywords="" description="Learn how to use Azure Media Services to create a C# Windows Store application with a XML MediaElement control to playback Smooth Stream content." metaCanonical="" services="media-services" documentationCenter="" title="How to Build a Smooth Streaming Windows Store Application" authors="Michael Greenn" solutions="" manager="" editor="" />
+<properties urlDisplayName="Smooth Streaming Windows Store App" pageTitle="부드러운 스트리밍 Windows 스토어 앱 - Azure .NET 자습서" metaKeywords="" description="Azure 미디어 서비스를 사용하여 부드러운 스트림 콘텐츠를 재생하기 위해 XML MediaElement 컨트롤이 포함된 C# Windows 스토어 응용 프로그램을 만드는 방법에 대해 알아봅니다." metaCanonical="" services="media-services" documentationCenter="" title="부드러운 스트리밍 Windows 스토어 응용 프로그램을 빌드하는 방법" authors="juliako" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="Michael="" Greenn" />
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="juliako" />
 
 # 부드러운 스트리밍 Windows 스토어 응용 프로그램을 빌드하는 방법
 
@@ -39,7 +39,7 @@ Windows 스토어 응용 프로그램 개발에 대한 자세한 내용은 [유�
 
 **Windows 스토어 프로젝트를 만들려면**
 
-1.  Visual Studio 2012를 실행합니다.
+1.  Visual Studio 2012 이상을 실행합니다.
 2.  **파일** 메뉴에서 **새로 만들기**와 **프로젝트**를 차례로 클릭합니다.
 3.  새 프로젝트 대화 상자에서 다음 값을 입력하거나 선택합니다.
 

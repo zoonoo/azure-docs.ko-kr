@@ -1,6 +1,6 @@
-<properties linkid="develop-python-blob-service" urlDisplayName="Blob Service" pageTitle="How to use blob storage (Python) | Microsoft Azure" metaKeywords="Azure blob service Python, Azure blobs Python" description="Learn how to use the Azure Blob service to upload, list, download, and delete blobs." metaCanonical="" disqusComments="1" umbracoNaviHide="0" services="storage" documentationCenter="Python" title="How to use the Blob service from Python" authors="huvalo" videoId="" scriptId="" />
+<properties urlDisplayName="Blob Service" pageTitle="Blob 저장소 사용 방법(Python) | Microsoft Azure" metaKeywords="Azure blob service Python, Azure blobs Python" description="Azure Blob 서비스를 사용하여 Blob를 업로드, 나열, 다운로드 및 삭제하는 방법에 대해 알아봅니다." metaCanonical="" disqusComments="1" umbracoNaviHide="0" services="storage" documentationCenter="Python" title="Python에서 Blob 서비스를 사용하는 방법" authors="huvalo" videoId="" scriptId="" manager="wpickett" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo" />
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="09/19/2014" ms.author="huvalo" />
 
 # Python에서 Blob 저장소 서비스를 사용하는 방법
 
@@ -38,7 +38,7 @@
 코드는 **BlobService** 개체를 만듭니다. 프로그래밍 방식으로
 Azure 저장소에 액세스하려는 Python 파일의 맨 위쪽에 다음을 추가합니다.
 
-    from azure.storage import *
+    from azure.storage import BlobService
 
 다음 코드는 저장소 계정 이름 및 계정 키를 사용하는 **BlobService** 개체를 만듭니다. 'myaccount' 및 'mykey'를 실제 계정 및 키로 바꾸세요.
 
@@ -97,8 +97,8 @@ Blob에서 데이터를 다운로드하려면 **get\_blob\_to\_path**, **get\_bl
 
 ## <a name="next-steps"> </a>다음 단계
 
-이제 Blob 저장소의 기본 사항을 배웠으므로 다음 링크를 따라 좀 더
-복잡한 저장소 작업을 수행하는 방법을 알아보세요.
+이제 Blob 저장소의 기본 사항을 배웠으므로 다음 링크를 따라
+좀 더 복잡한 저장소 작업을 수행하는 방법을 알아보세요.
 
 -   다음 MSDN 참조를 확인하세요. [Azure에서 데이터 저장 및 액세스][Azure에서 데이터 저장 및 액세스]
 -   [Azure 저장소 팀 블로그][Azure 저장소 팀 블로그](영문)를 방문하세요.
@@ -113,8 +113,6 @@ Blob에서 데이터를 다운로드하려면 **get\_blob\_to\_path**, **get\_bl
   [방법: Blob 다운로드]: #download-blobs
   [방법: Blob 삭제]: #delete-blobs
   [방법: 대규모 Blob 업로드 및 다운로드]: #large-blobs
-  [howto-blob-storage]: ../includes/howto-blob-storage.md
-  [create-storage-account]: ../includes/create-storage-account.md
   [Python 설치 가이드]: ../python-how-to-install/
   [Azure에서 데이터 저장 및 액세스]: http://msdn.microsoft.com/ko-kr/library/windowsazure/gg433040.aspx
   [Azure 저장소 팀 블로그]: http://blogs.msdn.com/b/windowsazurestorage/

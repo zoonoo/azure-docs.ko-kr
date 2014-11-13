@@ -1,14 +1,14 @@
-<properties title="Generate movie recommendations using Mahout" pageTitle="Generate movie recommendations using Mahout with Microsoft Azure HDInsight (Hadoop)" description="Learn how to use the Apache Mahout machine learning library to generate movie recommendations with HDInsight (Hadoop)" metaKeywords="Azure hdinsight mahout, Azure hdinsight machine learning, azure hadoop mahout, azure hadoop machine learning" services="hdinsight" solutions="" documentationCenter="big-data" authors="larryfr" videoId="" scriptId="" />
+<properties title="Mahout을 사용하여 영화 추천 생성" pageTitle="Microsoft Azure HDInsight(Hadoop)와 함께 Mahout을 사용하여 영화 추천 생성" description="Apache Mahout 기계 학습 라이브러리를 사용하여 HDInsight(Hadoop)에서 영화 추천을 생성하는 방법에 대해 알아봅니다." metaKeywords="Azure hdinsight mahout, Azure hdinsight machine learning, azure hadoop mahout, azure hadoop machine learning" services="hdinsight" solutions="" documentationCenter="big-data" authors="larryfr" videoId="" scriptId="" manager="paulettm" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # HDInsight(Hadoop)와 함께 Apache Mahout을 사용하여 영화 추천 생성
 
 [Apache Mahout][Apache Mahout] 기계 학습 라이브러리를 사용하여 Microsoft Azure HDInsight(Hadoop)에서 영화 추천을 생성하는 방법을 알아봅니다.
 
 > [WACOM.NOTE] 이 문서의 정보를 사용하려면 HDInsight 클러스터가 있어야 합니다. HDInsight 클러스터 만들기에 대해서는 [HDInsight에서 Hadoop을 사용하여 시작][HDInsight에서 Hadoop을 사용하여 시작]을 참조하세요.
-
-> [WACOM.NOTE] Mahout은 HDInsight 3.1 클러스터와 함께 제공됩니다. 이전 버전의 HDInsight를 사용하는 경우 계속하기 전에 [Mahout 설치][Mahout 설치]를 참조하세요.
+>
+> Mahout은 HDInsight 3.1 클러스터와 함께 제공됩니다. 이전 버전의 HDInsight를 사용하는 경우 계속하기 전에 [Mahout 설치][Mahout 설치]를 참조하세요.
 
 ## <a name="learn"></a>알아볼 내용
 
@@ -70,7 +70,7 @@ Mahout에서 제공하는 기능 중 하나가 추천 엔진입니다. 이 엔�
     $clusterName = "the cluster name"
 
     # The location of the Mahout jar file.
-    $jarFile = "C:\apps\dist\mahout-0.9.0.2.1.3.0-1887\examples\target\mahout-examples-0.9.0.2.1.3.0-1887-job.jar"
+    $jarFile = "file:///c:/apps/dist/mahout-0.9.0.2.1.3.0-1887/examples/target/mahout-examples-0.9.0.2.1.3.0-1887-job.jar"
     # NOTE: The version number portion of the file path
     # may change in future versions of HDInsight.
     # Use the following to find the location and name
@@ -260,13 +260,13 @@ Mahout에서 사용 가능한 분류 방법 중 하나는 [랜덤 포리스트][
 
 현재 Mahout 구현은 UCI(이반, 캘리포니아 대학) 리포지토리 형식과 호환됩니다. [why does this matter, what is this format]
 
-1.  [][]<http://nsl.cs.unb.ca/NSL-KDD/></a>(영문)에서 다음 파일을 다운로드합니다.
+1.  <http://nsl.cs.unb.ca/NSL-KDD/>(영문)에서 다음 파일을 다운로드합니다.
 
-  * [KDDTrain+.ARFF][KDDTrain+.ARFF] - 학습 파일
+-   [KDDTrain+.ARFF][KDDTrain+.ARFF] - 학습 파일
 
-  * [KDDTest+.ARFF][KDDTest+.ARFF] - 테스트 데이터
+-   [KDDTest+.ARFF][KDDTest+.ARFF] - 테스트 데이터
 
-1.  각 파일을 열어 상단에서 <'@'>로 시작하는 줄을 제거한 후 파일을 저장합니다. 이러한 줄을 제거하지 않으면 Mahout에 이 데이터를 사용할 때 오류가 발생합니다.
+1.  각 파일을 열어 상단에서 '@'로 시작하는 줄을 제거한 후 파일을 저장합니다. 이러한 줄을 제거하지 않으면 Mahout에 이 데이터를 사용할 때 오류가 발생합니다.
 
 2.  **example/data**에 이 파일을 업로드합니다. [HDInsight-Tools][HDInsight-Tools] PowerShell 모듈에서 `Add-HDInsightFile` 함수를 사용하여 그렇게 할 수 있습니다.
 
@@ -328,7 +328,7 @@ Mahout에서 사용 가능한 분류 방법 중 하나는 [랜덤 포리스트][
         Reliability                                53.4921%
         Reliability (standard deviation)            0.4933
 
-   이 작업은 **wasb:///example/data/predictions/KDDTest+.arff.out**에 파일을 생성하지만, 이 파일은 사용자가 읽을 수 없습니다.
+이 작업은 **wasb:///example/data/predictions/KDDTest+.arff.out**에 파일을 생성하지만, 이 파일은 사용자가 읽을 수 없습니다.
 
 > [WACOM.NOTE] Mahout 작업은 파일을 덮어쓰지 않습니다. 이러한 작업을 다시 실행하려는 경우 이전 작업에서 생성된 파일을 삭제해야 합니다.
 
@@ -340,11 +340,11 @@ Mahout은 HDInsight 3.1 클러스터에 설치되며, 다음 단계를 사용하
 
 1.  사용할 Mahout 버전은 사용 중인 클러스터의 HDInsight 버전에 따라 다릅니다. [Azure PowerShell][Azure PowerShell]에서 다음을 사용하여 클러스터 버전을 찾을 수 있습니다.
 
-        PS C:\> Get-AzureHDInsightCluster -Name YourClusterName | Select versiongt
+        PS C:PS C:\> Get-AzureHDInsightCluster -Name YourClusterName | Select versiongt; Get-AzureHDInsightCluster -Name YourClusterName | Select version
 
-  * **HDInsight 2.1의 경우** [Mahout 0.9][Mahout 0.9]를 포함하는 jar 파일을 다운로드할 수 있습니다.
+-   **HDInsight 2.1의 경우** [Mahout 0.9][Mahout 0.9]를 포함하는 jar 파일을 다운로드할 수 있습니다.
 
-  * **HDInsight 3.0의 경우** [소스에서 Mahout을 빌드하고][소스에서 Mahout을 빌드하고], HDInsight에서 제공하는 Hadoop 버전을 지정해야 합니다. 빌드 페이지에 나열된 필수 구성 요소를 설치하고, 소스를 다운로드한 후 다음 명령을 사용하여 Mahout jar 파일을 만듭니다.
+-   **HDInsight 3.0의 경우** [소스에서 Mahout을 빌드하고][소스에서 Mahout을 빌드하고], HDInsight에서 제공하는 Hadoop 버전을 지정해야 합니다. 빌드 페이지에 나열된 필수 구성 요소를 설치하고, 소스를 다운로드한 후 다음 명령을 사용하여 Mahout jar 파일을 만듭니다.
 
             mvn -Dhadoop2.version=2.2.0 -DskipTests clean package
 
@@ -354,7 +354,7 @@ Mahout은 HDInsight 3.1 클러스터에 설치되며, 다음 단계를 사용하
 
 1.  클러스터용 기본 저장소의 **example/jars**에 jar 파일을 업로드합니다. 다음 예제에서는 [send-hdinsight][sendhdinsight] 스크립트를 사용하여 파일을 업로드합니다.
 
-    	PS C:\> .\Send-HDInsight -LocalPath "path\to\mahout-core-0.9-job.jar" -DestinationPath "example/jars/mahout-core-0.9-job.jar" -ClusterName "your cluster name"
+        PS C:PS C:\> .\Send-HDInsight -LocalPath "path\to\mahout-core-0.9-job.jar" -DestinationPath "example/jars/mahout-core-0.9-job.jar" -ClusterName "your cluster name"gt; .\Send-HDInsight -LocalPath "path\to\mahout-core-0.9-job.jar" -DestinationPath "example/jars/mahout-core-0.9-job.jar" -ClusterName "your cluster name"
 
 ### 파일을 덮어쓸 수 없음
 
@@ -393,7 +393,7 @@ PowerShell에서 사용하는 경우 다음 클래스를 사용하는 Mahout 작
 이러한 클래스를 사용하는 작업을 실행하려면 HDInsight 클러스터에 연결하여 Hadoop 명령줄을 사용하는 작업을 실행하세요. 예제에 대해서는 [Hadoop 명령줄을 사용하여 데이터 분류][Hadoop 명령줄을 사용하여 데이터 분류]를 참조하세요.
 
   [Apache Mahout]: http://mahout.apache.org
-  [HDInsight에서 Hadoop을 사용하여 시작]: http://azure.microsoft.com/ko--kr/documentation/articles/hdinsight-get-started/
+  [HDInsight에서 Hadoop을 사용하여 시작]: http://azure.microsoft.com/ko-kr/documentation/articles/hdinsight-get-started/
   [Mahout 설치]: #install
   [기계 학습]: http://en.wikipedia.org/wiki/Machine_learning
   [PowerShell을 사용하여 추천 생성]: #recommendations
@@ -401,11 +401,10 @@ PowerShell에서 사용하는 경우 다음 클래스를 사용하는 Mahout 작
   [문제 해결]: #troubleshooting
   [영화에 대한 평가 데이터]: http://grouplens.org/datasets/movielens/
   [MovieLens 100k]: http://files.grouplens.org/datasets/movielens/ml-100k.zip
-  [Azure PowerShell]: http://azure.microsoft.com/ko--kr/documentation/articles/install-configure-powershell/
+  [Azure PowerShell]: http://azure.microsoft.com/ko-kr/documentation/articles/install-configure-powershell/
   [HDInsight-Tools]: https://github.com/Blackmist/hdinsight-tools
-  [HDInsight에 Hadoop 작업용 데이터 업로드]: http://azure.microsoft.com/ko--kr/documentation/articles/hdinsight-upload-data/
+  [HDInsight에 Hadoop 작업용 데이터 업로드]: http://azure.microsoft.com/ko-kr/documentation/articles/hdinsight-upload-data/
   [랜덤 포리스트]: http://en.wikipedia.org/wiki/Random_forest
-  []: http://nsl.cs.unb.ca/NSL-KDD/
   [KDDTrain+.ARFF]: http://nsl.cs.unb.ca/NSL-KDD/KDDTrain+.arff
   [KDDTest+.ARFF]: http://nsl.cs.unb.ca/NSL-KDD/KDDTest+.arff
   [Azure 관리 포털]: https://manage.windowsazure.com/

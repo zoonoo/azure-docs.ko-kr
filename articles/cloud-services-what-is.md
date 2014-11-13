@@ -1,12 +1,12 @@
-<properties linkid="manage-services-what-is-a-cloud-service" urlDisplayName="What is a Cloud Service" pageTitle="What is a cloud service - Azure service management" metaKeywords="Azure cloud services intro, cloud services overview, cloud services basics" description="An introduction to the cloud service in Azure." metaCanonical="" services="cloud-services" documentationCenter="" title="What is a cloud service?" authors="ryanwi" solutions="" manager="timlt" editor="" />
+<properties urlDisplayName="What is a Cloud Service" pageTitle="클라우드 서비스란 - Azure 서비스 관리" metaKeywords="Azure cloud services intro, cloud services overview, cloud services basics" description="Azure의 클라우드 서비스에 대해 소개합니다." metaCanonical="" services="cloud-services" documentationCenter="" title="클라우드 서비스란?" authors="ryanwi" solutions="" manager="timlt" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="ryanwi"></tags>
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/23/2014" ms.author="ryanwi" />
 
 # 클라우드 서비스란?
 
 응용 프로그램을 만들어 Azure에서 실행하면 코드와 구성은 모두 Azure 클라우드 서비스(이전 Azure 릴리스에서는 *호스티드 서비스*라 함)라고 합니다.
 
-클라우드 서비스를 만들어 Azure에 다중 계층 웹 응용 프로그램을 배포하고, 여러 역할을 정의하여 처리를 분산하고 응용 프로그램을 유연하게 확장할 수 있습니다. 클라우드 서비스는 각기 고유한 응용 프로그램 파일 및 구성을 포함하는 하나 이상의 웹 역할 및/또는 작업자 역할로 구성됩니다. Azure 웹 사이트와 가상 컴퓨터를 활용하면 Azure에서 웹 응용 프로그램을 사용할 수도 있습니다. 클라우드 서비스의 주요 장점은 더 복잡한 다중 계층 아키텍처를 지원할 수 있다는 것입니다. 자세한 비교 정보는 [Azure 웹 사이트, 클라우드 서비스 및 가상 컴퓨터 비교][Azure 웹 사이트, 클라우드 서비스 및 가상 컴퓨터 비교]를 참조하십시오.
+클라우드 서비스를 만들어 Azure에 다중 계층 웹 응용 프로그램을 배포하고, 여러 역할을 정의하여 처리를 분산하고 응용 프로그램을 유연하게 확장할 수 있습니다. 클라우드 서비스는 각기 고유한 응용 프로그램 파일 및 구성을 포함하는 하나 이상의 웹 역할 및/또는 작업자 역할로 구성됩니다. Azure 웹 사이트와 가상 컴퓨터를 활용하면 Azure에서 웹 응용 프로그램을 사용할 수도 있습니다. 클라우드 서비스의 주요 장점은 더 복잡한 다중 계층 아키텍처를 지원할 수 있다는 것입니다. 자세한 비교 정보는 [Azure 웹 사이트, 클라우드 서비스 및 가상 컴퓨터 비교][Azure 웹 사이트, 클라우드 서비스 및 가상 컴퓨터 비교]를 참조하세요.
 
 Azure에서는 클라우드 서비스를 위한 인프라를 자동으로 유지 관리합니다. 즉, 정기 유지 관리를 수행하고 운영 체제를 패치하고 서비스 및 하드웨어 오류의 복구를 시도합니다. 모든 역할의 인스턴스를 두 개 이상 정의한 경우 고유한 서비스 업그레이드뿐만 아니라 대부분의 유지 관리를 서비스 중단 없이 수행할 수 있습니다. Azure 서비스 수준 계약을 충족하려면 클라우드 서비스에서 모든 역할의 인스턴스가 두 개 이상 있어야 하며, 이는 99.95% 이상의 시간 동안 인터넷 연결 역할에 대한 외부 연결을 보증합니다.
 
@@ -38,15 +38,15 @@ Azure에서는 클라우드 서비스를 위한 인프라를 자동으로 유지
 
 -   **배포 교환:** Azure 스테이징 환경의 배포의 수준을 프로덕션 환경으로 올리기 위해 두 배포에 액세스하는 데 사용하는 VIP 주소를 전환하여 배포를 "교환"할 수 있습니다. 배포 후 클라우드 서비스의 DNS 이름은 스테이징 환경에서 수행된 배포를 가리킵니다.
 
--   **최소 모니터링 대 세부 정보 표시 모니터링:** *최소 모니터링*은 클라우드 서비스에서 기본적으로 구성되며, 역할 인스턴스(가상 컴퓨터)의 호스트 운영 체제에서 수집한 성능 카운터를 사용합니다. *세부 정보 표시 모니터링*에서는 역할 인스턴스 내 성능 데이터를 기반으로 추가 메트릭을 수집하여 응용 프로그램 처리 중 발생하는 문제를 보다 자세히 분석할 수 있습니다. 자세한 내용은 [클라우드 서비스를 모니터링하는 방법][클라우드 서비스를 모니터링하는 방법](영문)을 참조하십시오.
+-   **최소 모니터링 대 세부 정보 표시 모니터링:** *최소 모니터링*은 클라우드 서비스에서 기본적으로 구성되며, 역할 인스턴스(가상 컴퓨터)의 호스트 운영 체제에서 수집한 성능 카운터를 사용합니다. *세부 정보 표시 모니터링*에서는 역할 인스턴스 내 성능 데이터를 기반으로 추가 메트릭을 수집하여 응용 프로그램 처리 중 발생하는 문제를 보다 자세히 분석할 수 있습니다. 자세한 내용은 [클라우드 서비스를 모니터링하는 방법][클라우드 서비스를 모니터링하는 방법](영문)을 참조하세요.
 
--   **Azure 진단:** Azure 진단은 Azure에서 실행하는 응용 프로그램에서 진단 데이터를 수집할 수 있는 API입니다. 세부 정보 표시 모니터링을 사용하려면 클라우드 서비스 역할에 대해 Azure 진단을 사용하도록 설정해야 합니다. 자세한 내용은 [Azure에서 진단 사용][Azure에서 진단 사용]을 참조하십시오.
+-   **Azure 진단:** Azure 진단은 Azure에서 실행하는 응용 프로그램에서 진단 데이터를 수집할 수 있는 API입니다. 세부 정보 표시 모니터링을 사용하려면 클라우드 서비스 역할에 대해 Azure 진단을 사용하도록 설정해야 합니다. 자세한 내용은 [Azure에서 진단 사용][Azure에서 진단 사용]을 참조하세요.
 
 -   **리소스 연결:** Azure SQL 데이터베이스 인스턴스와 같은 다른 리소스에 대한 클라우드 서비스의 종속성을 표시하기 위해 해당 리소스를 클라우드 서비스에 "연결"할 수 있습니다. Preview 관리 포털에서는 **연결된 리소스** 페이지에서 연결된 리소스를 확인하고, 대시보드에서 해당 리소스의 상태를 확인하고, **크기 조정** 페이지에서 서비스 역할과 함께 연결된 SQL 데이터베이스 인스턴스의 크기를 조정할 수 있습니다. 여기에서 리소스 연결은 리소스를 응용 프로그램에 연결하는 것을 의미하지 않습니다. 즉, 응용 프로그램 코드에서 연결을 구성해야 합니다.
 
 -   **클라우드 서비스 크기 조정:** 클라우드 서비스는 역할에 대해 배포된 역할 인스턴스(가상 컴퓨터)의 수를 늘려 확장합니다. 또한 역할 인스턴스를 줄여 축소합니다. 또한 Preview 관리 포털에서 서비스 역할의 크기를 조정할 때 SQL 데이터베이스 버전 및 데이터베이스 최대 크기를 변경하여 연결된 SQL 데이터베이스 인스턴스의 크기를 조정할 수도 있습니다.
 
--   **Azure SLA(서비스 수준 계약):** 모든 역할에 대해 두 개 이상의 역할 인스턴스를 배포한 경우 Azure 계산 SLA 보증에 따라 99.95% 이상의 시간 동안 클라우드 서비스에 대한 액세스가 유지 관리됩니다. 또한 역할 인스턴스의 프로세스가 실행되지 않는 99.9%의 시간에는 검색 및 수정 작업이 시작됩니다. 자세한 내용은 [서비스 수준 계약][서비스 수준 계약]을 참조하십시오.
+-   **Azure SLA(서비스 수준 계약):** 모든 역할에 대해 두 개 이상의 역할 인스턴스를 배포한 경우 Azure 계산 SLA 보증에 따라 99.95% 이상의 시간 동안 클라우드 서비스에 대한 액세스가 유지 관리됩니다. 또한 역할 인스턴스의 프로세스가 실행되지 않는 99.9%의 시간에는 검색 및 수정 작업이 시작됩니다. 자세한 내용은 [서비스 수준 계약][서비스 수준 계약]을 참조하세요.
 
   [Azure 웹 사이트, 클라우드 서비스 및 가상 컴퓨터 비교]: http://azure.microsoft.com/ko-kr/documentation/articles/choose-web-site-cloud-service-vm/
   [클라우드 서비스를 모니터링하는 방법]: http://azure.microsoft.com/ko-kr/manage/services/cloud-services/how-to-monitor-a-cloud-service/

@@ -1,6 +1,6 @@
-<properties title="virtual-machines-how-to-inject-custom-data" pageTitle="Injecting Custom Data into Azure Virtual Machines" description="This topic describes how to inject custom data into an Azure Virtual Machine when the instance is created and how to locate the custom data on either Windows or Linux." metaKeywords="Azure linux vm, linux vm, userdata vm, user data vm, custom data vm, windows custom data" services="virtual-machines" solutions="" documentationCenter="" authors="rasquill" manager="dongill" editor="tysonn" videoId="" scriptId="" />
+<properties title="virtual-machines-how-to-inject-custom-data" pageTitle="Azure 가상 컴퓨터에 사용자 지정 데이터 삽입" description="이 항목에서는 인스턴스를 만들 때 Azure 가상 컴퓨터에 사용자 지정 데이터를 삽입하는 방법과 Windows 또는 Linux에서 사용자 지정 데이터를 찾는 방법에 대해 설명합니다." metaKeywords="Azure linux vm, linux vm, userdata vm, user data vm, custom data vm, windows custom data" services="virtual-machines" solutions="" documentationCenter="" authors="rasquill" manager="timlt" editor="tysonn" videoId="" scriptId="" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="rasquill"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="rasquill" />
 
 # Azure 가상 컴퓨터에 사용자 지정 데이터 삽입
 
@@ -38,7 +38,7 @@
 
 -   Azure 가상 컴퓨터가 Windows 가상 컴퓨터인 경우 사용자 지정 데이터 파일은 `%SYSTEMDRIVE%\AzureData\CustomData.bin`에 저장되며, 로컬 컴퓨터에서 새 가상 컴퓨터로 전송되기 위해 base64로 인코딩되었더라도 자동으로 디코딩되므로 즉시 열거나 사용할 수 있습니다.
 
-  > [WACOM.NOTE] 이 파일이 있으면 덮어쓰여집니다. 디렉터리에 대한 보안은 **시스템:모든 권한** 및 **관리자:모든 권한**으로 설정됩니다.
+> [WACOM.NOTE] 이 파일이 있으면 덮어쓰여집니다. 디렉터리에 대한 보안은 **시스템:모든 권한** 및 **관리자:모든 권한**으로 설정됩니다.
 
 -   Azure 가상 컴퓨터가 Linux 가상 컴퓨터이면 사용자 지정 데이터 파일은 다음 두 위치에 있지만 데이터가 base64로 인코딩되므로 데이터를 먼저 디코딩해야 합니다.
 

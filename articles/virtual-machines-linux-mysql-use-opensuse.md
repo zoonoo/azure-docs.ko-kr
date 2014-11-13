@@ -1,4 +1,4 @@
-<properties linkid="virtual-machines-linux-mysql-use-opensuse" urlDisplayName="Install MongoDB" pageTitle="nstall MongoDB on a virtual machine running CentOS Linux in Azure" metaKeywords="Azure, MongoDB" description="Learn how to install Mongo DB on a virtual machine in Azure." metaCanonical="" services="" documentationCenter="" title="Install MongoDB on a virtual machine running CentOS Linux in Azure" authors="timlt" solutions="" manager="timlt" editor="" />
+<properties urlDisplayName="Install MongoDB" pageTitle="Azure에서 CentOS Linux를 실행하는 가상 컴퓨터에 MongoDB 설치" metaKeywords="Azure, MongoDB" description="Azure에서 가상 컴퓨터에 MongoDB를 설치하는 방법에 대해 알아봅니다." metaCanonical="" services="" documentationCenter="" title="Azure에서 CentOS Linux를 실행하는 가상 컴퓨터에 MongoDB 설치" authors="timlt" solutions="" manager="timlt" editor="" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="timlt" />
 
@@ -33,7 +33,4 @@
   [MySQL]: http://www.mysql.com
   [Azure 관리 포털]: http://manage.windowsazure.com
   [무료 평가판]: http://azure.microsoft.com
-  [antares-iaas-signup-iaas]: ../includes/antares-iaas-signup-iaas.md
-  [create-and-configure-opensuse-vm-in-portal]: ../includes/create-and-configure-opensuse-vm-in-portal.md
-  [install-and-run-mysql-on-opensuse-vm]: ../includes/install-and-run-mysql-on-opensuse-vm.md
   [MySQL 설명서]: http://dev.mysql.com/doc/

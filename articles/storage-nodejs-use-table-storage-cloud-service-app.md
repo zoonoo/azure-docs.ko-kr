@@ -1,6 +1,6 @@
-<properties linkid="dev-nodejs-basic-web-app-with-storage" urlDisplayName="Web App with Storage" pageTitle="Web app with table storage (Node.js) | Microsoft Azure" metaKeywords="Azure Node.js hello world tutorial, Azure Node.js hello world, Azure Node.js Getting Started tutorial, Azure Node.js tutorial, Azure Node.js Express tutorial" description="A tutorial that builds on the Web App with Express tutorial by adding Azure Storage services and the Azure module." metaCanonical="" services="cloud-services,storage" documentationCenter="Node.js" title="Node.js Web Application using Storage" authors="larryfr" solutions="" manager="" editor="" />
+<properties urlDisplayName="Web App with Storage" pageTitle="테이블 저장소를 사용하는 웹 앱(Node.js) | Microsoft Azure" metaKeywords="Azure Node.js hello world tutorial, Azure Node.js hello world, Azure Node.js Getting Started tutorial, Azure Node.js tutorial, Azure Node.js Express tutorial" description="Azure 저장소 서비스 및 Azure 모듈을 추가해 Express를 사용하여 웹 앱 빌드 자습서를 기반으로 응용 프로그램을 빌드하는 자습서입니다." metaCanonical="" services="cloud-services,storage" documentationCenter="nodejs" title="저장소를 사용하는 Node.js 웹 응용 프로그램" authors="larryfr" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr" />
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # 저장소를 사용하는 Node.js 웹 응용 프로그램
 
@@ -40,10 +40,10 @@ Azure 저장소에 액세스하려면 저장소 자격 증명을
 Azure SDK에서 읽습니다.
 
 <div class="dev-callout">
-<strong>참고</strong>
-<p>저장소 자격 증명은 응용 프로그램이 Azure에 배포될 경우에만
-사용됩니다. 에뮬레이터에서 실행할 경우에는 응용 프로그램에서
-저장소 에뮬레이터를 사용합니다.</p>
+
+**참고**
+저장소 자격 증명은 응용 프로그램이 Azure에 배포될 경우에만 사용됩니다. 에뮬레이터에서 실행할 경우에는 응용 프로그램에서 저장소 에뮬레이터를 사용합니다.
+
 </div>
 
 다음 단계에 따라 저장소 계정 자격 증명을 가져와
@@ -60,9 +60,11 @@ web.config 설정에 추가합니다.
     이는 호스티드 서비스와 연결된 저장소 계정 및 계정 키 목록을 가져옵니다.
 
     <div class="dev-callout">
-<strong>참고</strong>
-<p>서비스를 배포할 때 Azure SDK가 저장소 계정을 만들기 때문에 저장소 계정은 이전 가이드에서 응용 프로그램을 배포해서 이미 있어야 합니다.</p>
-</div>
+
+    **참고**
+    서비스를 배포할 때 Azure SDK가 저장소 계정을 만들기 때문에 저장소 계정은 이전 가이드에서 응용 프로그램을 배포해서 이미 있어야 합니다.
+
+    </div>
 
 4.  응용 프로그램이 Azure에 배포될 때 사용하는 환경 설정이 포함된 **ServiceDefinition.csdef** 파일을 엽니다.
 

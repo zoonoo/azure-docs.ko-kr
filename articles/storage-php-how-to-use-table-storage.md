@@ -1,6 +1,6 @@
-<properties linkid="develop-php-table-service" urlDisplayName="Table Service" pageTitle="How to use table storage (PHP) | Microsoft Azure" metaKeywords="Azure Table service PHP, Azure creating table, Azure deleting table, Azure insert table, Azure query table" description="Learn how to use the Table service from PHP to create and delete a table, and insert, delete, and query the table." metaCanonical="" services="storage" documentationCenter="PHP" title="How to use the Table service from PHP" authors="" solutions="" manager="" editor="" />
+<properties urlDisplayName="Table Service" pageTitle="테이블 저장소 사용 방법(PHP) | Microsoft Azure" metaKeywords="Azure Table service PHP, Azure creating table, Azure deleting table, Azure insert table, Azure query table" description="PHP의 테이블 서비스를 사용하여 테이블을 작성 및 삭제하고 테이블을 삽입하고 삭제하고 쿼리하는 방법에 대해 알아봅니다." metaCanonical="" services="storage" documentationCenter="PHP" title="PHP에서 테이블 서비스를 사용하는 방법" authors="tamram" solutions="" manager="adinah" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="" />
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
 # PHP에서 테이블 서비스를 사용하는 방법
 
@@ -487,9 +487,7 @@ Azure 서비스 클라이언트를 만들려면 **ServicesBuilder** 클래스를
   [방법: 엔터티 업데이트]: #UpdateEntity
   [방법: 테이블 일괄 작업]: #BatchOperations
   [방법: 테이블 삭제]: #DeleteTable
-  [howto-table-storage]: ../includes/howto-table-storage.md
-  [create-storage-account]: ../includes/create-storage-account.md
-  [get-client-libraries]: ../includes/get-client-libraries.md
+  [require\_once]: http://php.net/require_once
   [테이블 서비스 작업의 제한 시간 설정]: http://msdn.microsoft.com/ko-kr/library/windowsazure/dd894042.aspx
   [테이블 서비스 데이터 모델 이해]: http://msdn.microsoft.com/ko-kr/library/windowsazure/dd179338.aspx
   [테이블 및 엔터티 쿼리]: http://msdn.microsoft.com/ko-kr/library/windowsazure/dd894031.aspx

@@ -1,4 +1,4 @@
-<properties linkid="storage-introduction" urlDisplayName="Introduction to Azure Storage" pageTitle="Introduction to Storage | Microsoft Azure" metaKeywords="Get started  Azure storage introduction  Azure storage overview  Azure blob   Azure unstructured data   Azure unstructured storage   Azure blob   Azure blob storage  Azure queue   Azure asynchronous processing   Azure queue   Azure queue storage Azure table   Azure nosql   Azure large structured data store   Azure table   Azure table storage  Azure file storage  Azure file  Azure file share  Azure " description="An overview of Microsoft Azure Storage." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="storage" documentationCenter="" title="Introduction to Microsoft Azure Storage" authors="tamram" manager="mbaldwin" editor="cgronlun" />
+<properties urlDisplayName="Introduction to Azure Storage" pageTitle="저장소 소개 | Microsoft Azure" metaKeywords="Get started  Azure storage introduction  Azure storage overview  Azure blob   Azure unstructured data   Azure unstructured storage   Azure blob   Azure blob storage  Azure queue   Azure asynchronous processing   Azure queue   Azure queue storage Azure table   Azure nosql   Azure large structured data store   Azure table   Azure table storage  Azure file storage  Azure file  Azure file share  Azure " description="Microsoft Azure 저장소에 대해 간략하게 소개합니다." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="storage" documentationCenter="" title="Microsoft Azure 저장소 소개" authors="tamram" manager="adinah" editor="cgronlun" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
@@ -43,7 +43,7 @@ Blob, 테이블 및 큐 저장소는 모든 저장소 계정에 포함되어 있
 
 ![Azure 저장소 리소스][Azure 저장소 리소스]
 
-저장소 계정을 만들려면 먼저 다양한 Azure 서비스에 대한 액세스 권한을 제공하는 계획인 Azure 구독이 있어야 합니다. 단일 구독으로 고유하게 명명된 저장소 계정을 20개까지 만들 수 있습니다.
+저장소 계정을 만들려면 먼저 다양한 Azure 서비스에 대한 액세스 권한을 제공하는 계획인 Azure 구독이 있어야 합니다. 단일 구독으로 고유하게 명명된 저장소 계정을 100개까지 만들 수 있습니다. 볼륨 가격에 대한 자세한 내용은 [저장소 가격 정보][저장소 가격 정보]를 참조하세요.
 
 [무료 평가판][무료 평가판]으로 Azure를 시작할 수 있습니다. 계획을 구입하기로 결정하는 경우 다양한 [구입 옵션][구입 옵션] 중에서 선택할 수 있습니다. [MSDN 구독자][MSDN 구독자]는 Azure 저장소를 포함한 Azure 서비스에 사용할 수 있는 무료 월별 크레딧을 받습니다.
 
@@ -70,7 +70,7 @@ Blob 저장소에는 2가지 유형의 Blob, 즉 블록 Blob 및 페이지 Blob(
 
 테이블 저장소는 키-특성 저장소입니다. 다시 말해서, 테이블의 모든 값이 입력된 속성 이름을 사용하여 저장됩니다. 이 속성 이름은 선택 조건을 필터링하고 지정하는 데 사용할 수 있습니다. 속성 모음과 해당 값은 함께 엔터티를 구성합니다. 테이블 저장소에 스키마가 없기 때문에 동일한 테이블의 두 엔터티에 다양한 속성 모음이 포함될 수 있으며, 이 속성은 그 유형이 서로 다를 수 있습니다.
 
-테이블 저장소를 사용하여 웹 응용 프로그램의 사용자 데이터, 주소록, 장치 정보 및 서비스에 필요한 다른 유형의 메타데이터와 같은 유연한 데이터 집합을 저장할 수 있습니다. 테이블에 저장할 수 있는 엔터티 수에는 제한이 없으며, 저장소 계정에 포함할 수 있는 테이블의 수에는 저장소 계정의 최대 200TB 용량 한도까지 제한이 없습니다.
+테이블 저장소를 사용하여 웹 응용 프로그램의 사용자 데이터, 주소록, 장치 정보 및 서비스에 필요한 다른 유형의 메타데이터와 같은 유연한 데이터 집합을 저장할 수 있습니다. 테이블에 저장할 수 있는 엔터티 수에는 제한이 없으며, 저장소 계정에 포함할 수 있는 테이블의 수에는 저장소 계정의 최대 용량 한도까지 제한이 없습니다.
 
 Blob 및 큐와 같이, 개발자는 표준 REST 프로토콜을 사용하여 테이블 저장소를 관리 및 액세스할 수 있습니다. 하지만 테이블 저장소는 OData 프로토콜 하위 집합도 지원하여 고급 쿼리 기능을 간소화하고 JSON 및 AtomPub(XML 기반) 형식을 사용할 수 있게 합니다.
 
@@ -80,7 +80,7 @@ Blob 및 큐와 같이, 개발자는 표준 REST 프로토콜을 사용하여 �
 
 규모를 고려하여 응용 프로그램을 디자인할 때는 응용 프로그램 구성 요소를 개별적으로 확장할 수 있도록 각 구성 요소를 분리하는 경우가 많습니다. 큐 저장소는 클라우드, 데스크톱, 온-프레미스 서버 또는 모바일 장치에서 실행 중인 응용 프로그램 구성 요소 사이의 비동기 통신을 위한 안정적인 메시징 솔루션을 제공합니다. 큐 저장소는 또한 비동기 작업 관리와 프로세스 워크플로 작성을 지원합니다.
 
-저장소 계정에 포함할 수 있는 큐의 수에는 제한이 없습니다. 큐에 포함할 수 있는 메시지 수에는 저장소 계정의 최대 200TB 용량 한도까지 제한이 없습니다. 개별 메시지는 크기가 최대 64KB일 수 있습니다.
+저장소 계정에 포함할 수 있는 큐의 수에는 제한이 없습니다. 큐에 포함할 수 있는 메시지 수에는 저장소 계정의 최대 용량 한도까지 제한이 없습니다. 개별 메시지는 크기가 최대 64KB일 수 있습니다.
 
 ## 파일 저장소
 
@@ -114,7 +114,7 @@ Azure 가상 컴퓨터나 클라우드 서비스에서 실행되는 응용 프�
 
 저장소 용량은 데이터를 저장하는 데 사용하는 저장소 계정 서비스 단위가 어느 정도인지를 나타냅니다. 단순히 데이터를 저장하는 비용은 저장하는 데이터의 양과 복제 방법에 따라 결정됩니다. Azure 저장소에 대한 모든 읽기 및 쓰기 작업은 Azure 서비스에 대해 요청을 생성합니다. 데이터 송신은 Microsoft Azure 지역 외부에서 전송되는 데이터를 나타냅니다. 저장소 계정의 데이터에 동일한 지역에서 실행되지 않는 응용 프로그램이 액세스하는 경우 해당 응용 프로그램이 클라우드 서비스인지 다른 유형의 응용 프로그램인지 여부에 상관없이 데이터 송신 요금이 부과됩니다. Azure 서비스의 경우 프로세스 및 데이터 송신 요금을 줄이거나 제거하기 위해 동일한 데이터 센터의 데이터와 서비스를 그룹화하는 조치를 취할 수 있습니다.
 
-[저장소 가격 정보][저장소 가격 정보] 페이지에서는 저장소 용량, 복제 및 트랜잭션에 대한 자세한 가격 정보를 제공합니다. [데이터 전송 가격 정보][데이터 전송 가격 정보]에서는 데이터 송신에 대한 자세한 가격 정보를 제공합니다. [Azure 저장소 가격 계산기][Azure 저장소 가격 계산기]를 사용하여 비용을 예측할 수 있습니다.
+[저장소 가격 정보][1] 페이지에서는 저장소 용량, 복제 및 트랜잭션에 대한 자세한 가격 정보를 제공합니다. [데이터 전송 가격 정보][데이터 전송 가격 정보]에서는 데이터 송신에 대한 자세한 가격 정보를 제공합니다. [Azure 저장소 가격 계산기][Azure 저장소 가격 계산기]를 사용하여 비용을 예측할 수 있습니다.
 
 ## 저장소에 대한 개발
 
@@ -175,17 +175,17 @@ Azure 저장소를 시작하려면 다음 리소스를 탐색하세요.
   [Azure 미리 보기 페이지]: /ko-kr/services/preview/
   [Azure 저장소 확장성 및 성능 목표]: http://msdn.microsoft.com/library/windowsazure/dn249410.aspx
   [Azure 저장소 리소스]: ./media/storage-introduction/storage-concepts.png
+  [저장소 가격 정보]: http://www.windowsazure.com/ko-kr/pricing/details/storage/
   [무료 평가판]: /ko-kr/pricing/free-trial/
   [구입 옵션]: /ko-kr/pricing/purchase-options/
   [MSDN 구독자]: /ko-kr/pricing/member-offers/msdn-benefits-details/
   [Azure 가져오기/내보내기 서비스]: http://azure.microsoft.com/ko-kr/documentation/articles/storage-import-export-service/
   [공유 액세스 서명]: ../storage-dotnet-shared-access-signature-part-1/
-  [storage-replication-options]: ../includes/storage-replication-options.md
-  [저장소 가격 정보]: /ko-kr/pricing/details/storage/
+  [1]: /ko-kr/pricing/details/storage/
   [데이터 전송 가격 정보]: /ko-kr/pricing/details/data-transfers/
   [Azure 저장소 가격 계산기]: /ko-kr/pricing/calculator/?scenario=data-management
   [REST API]: http://msdn.microsoft.com/library/windowsazure/dd179355.aspx
-  [.NET]: http://msdn.microsoft.com/library/dn495001.aspx
+  [.NET]: http://go.microsoft.com/fwlink/?LinkID=390731
   [네이티브 코드]: http://msdn.microsoft.com/library/dn495438.aspx
   [Java/Android]: /ko-kr/develop/java/
   [Node.js]: /ko-kr/develop/nodejs/

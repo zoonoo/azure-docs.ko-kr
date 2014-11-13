@@ -1,6 +1,6 @@
-<properties linkid="develop-media-services-how-to-guides-ios-media-player-framework" urlDisplayName="iOS Media Player Framework" pageTitle="Use the iOS Media Player Framework with Azure Media Services" metaKeywords="" description="Learn how to use the Media Services iOS Media Player Framework library to create rich, dynamic apps.," metaCanonical="" services="media-services" documentationCenter="" title="How to use the Azure Media Services iOS Media Player Framework" authors="migree" solutions="" manager="" editor="" />
+<properties urlDisplayName="iOS Media Player Framework" pageTitle="Azure 미디어 서비스와 함께 iOS 미디어 플레이어 프레임워크 사용" metaKeywords="" description="미디어 서비스 iOS 미디어 플레이어 프레임워크 라이브러리를 사용하여 다양한 기능을 제공하는 동적 앱을 만드는 방법에 대해 알아봅니다." metaCanonical="" services="media-services" documentationCenter="" title="Azure 미디어 서비스 iOS 미디어 플레이어 프레임워크를 사용하는 방법" authors="juliako" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="mobile-ios" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="migree"></tags>
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="mobile-ios" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="juliako" />
 
 # Azure 미디어 서비스 iOS 미디어 플레이어 프레임워크를 사용하는 방법
 
@@ -31,7 +31,7 @@ SDK에는 이러한 기능을 사용하여 즉석에서 콘텐츠 스트림을 �
 
 3.  샘플 플레이어의 구조는 다음과 같습니다.
 
- ![HLS 샘플 코드 구조][]
+![HLS 샘플 코드 구조][HLS 샘플 코드 구조]
 
 1.  iPad 폴더 아래에는 두 개의 .xib 파일 **SeekbarViewController** 및 **SamplePlayerViewController**가 있습니다. 두 파일은 iPad 응용 프로그램 UI 레이아웃을 만듭니다. 마찬가지로, iPhone 폴더 아래에는 검색 표시줄과 컨트롤러를 정의하는 두 개의 .xib 파일이 있습니다.
 
@@ -43,7 +43,7 @@ SDK에는 이러한 기능을 사용하여 즉석에서 콘텐츠 스트림을 �
 
 ### SamplePlayerViewController\_iPad.xib
 
-![샘플 플레이어 주소 표시줄][]
+![샘플 플레이어 주소 표시줄][샘플 플레이어 주소 표시줄]
 
 -   **미디어 URL**은 미디어 스트림을 로드하는 데 사용되는 URL입니다. 응용 프로그램에는 URL 선택 단추를 통해 사용할 수 있는 미리 채워진 미디어 URL 목록이 있습니다. 또는 고유한 HLS(HTTP 라이브 스트리밍) 콘텐츠 URL을 입력할 수 있습니다. 이 미디어 콘텐츠는 첫 번째 주요 콘텐츠로 사용됩니다.
     **참고: 이 URL을 비워 두지 마세요.**
@@ -52,7 +52,7 @@ SDK에는 이러한 기능을 사용하여 즉석에서 콘텐츠 스트림을 �
 
 ### SeekbarViewController\_iPad.xib
 
-![검색 표시줄 컨트롤러][]
+![검색 표시줄 컨트롤러][검색 표시줄 컨트롤러]
 
 -   **재생 단추**를 사용하여 미디어 재생을 재생 및 일시 중지합니다.
 
@@ -215,7 +215,7 @@ SDK에는 이러한 기능을 사용하여 즉석에서 콘텐츠 스트림을 �
 
 이전 코드 예제와 같이 **deleteAfterPlay**를 **YES**로 설정하면 이 광고가 한 번만 재생됩니다. **deleteAfterPlay**를 **NO**로 설정하면 이 광고가 계속 재생되며 "고정 광고"라고 합니다.
 
-### 자세한 내용은 [Azure 미디어 플레이어 프레임워크 위키][](영문)를 참조하세요.
+### 자세한 내용은 [Azure 미디어 플레이어 프레임워크 위키][Azure 미디어 플레이어 프레임워크 위키](영문)를 참조하세요.
 
   [HLS 샘플 코드 구조]: http://mingfeiy.com/wp-content/uploads/2013/01/HLS-Structure.png
   [샘플 플레이어 주소 표시줄]: http://mingfeiy.com/wp-content/uploads/2013/01/addressbar.png

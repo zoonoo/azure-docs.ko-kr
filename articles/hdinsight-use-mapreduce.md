@@ -1,6 +1,6 @@
-<properties linkid="manage-services-hdinsight-howto-mapreduce" urlDisplayName="MapReduce with Hadoop in HDInsight" pageTitle="Use Hadoop MapReduce in HDInsight | Azure" metaKeywords="" description="Learn how to use HDInsight to execute a simple Hadoop MapReduce job." metaCanonical="" services="hdinsight" documentationCenter="" title="Use Hadoop MapReduce in HDInsight" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
+<properties urlDisplayName="MapReduce with Hadoop in HDInsight" pageTitle="HDInsight에서 Hadoop MapReduce 사용 | Azure" metaKeywords="" description="HDInsight를 사용하여 간단한 Hadoop MapReduce 작업을 실행하는 방법에 대해 알아봅니다." metaCanonical="" services="hdinsight" documentationCenter="" title="HDInsight에서 Hadoop MapReduce 사용" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao" />
 
 # HDInsight에서 Hadoop MapReduce 사용
 
@@ -10,24 +10,24 @@ Hadoop MapReduce는 방대한 양의 데이터를 처리하는 응용 프로그�
 
 이 자습서를 시작하기 전에 다음이 있어야 합니다.
 
--   HDInsight 클러스터. 이 클러스터를 만드는 여러 방법에 대한 자세한 내용은 [HDInsight 클러스터 프로비전][](영문)을 참조하세요.
+-   HDInsight 클러스터. 이 클러스터를 만드는 여러 방법에 대한 자세한 내용은 [HDInsight 클러스터 프로비전][HDInsight 클러스터 프로비전](영문)을 참조하세요.
 
--   Azure PowerShell이 설치 및 구성된 워크스테이션. 자세한 내용은 [Azure PowerShell 설치 및 구성][]을 참조하세요.
+-   Azure PowerShell이 설치 및 구성된 워크스테이션. 자세한 내용은 [Azure PowerShell 설치 및 구성][Azure PowerShell 설치 및 구성]을 참조하세요.
 
 **예상 완료 시간:** 30분
 
 ## 자습서 내용
 
-1.  [시나리오 이해][]
-2.  [Azure PowerShell로 샘플 실행][]
-3.  [단어 수 계산 MapReduce 프로그램의 Java 코드][]
-4.  [다음 단계][]
+1.  [시나리오 이해][시나리오 이해]
+2.  [Azure PowerShell로 샘플 실행][Azure PowerShell로 샘플 실행]
+3.  [단어 수 계산 MapReduce 프로그램의 Java 코드][단어 수 계산 MapReduce 프로그램의 Java 코드]
+4.  [다음 단계][다음 단계]
 
 ## <span id="scenario"></span></a>시나리오 이해
 
 다음 다이어그램은 단어 수 시나리오에서 MapReduce가 작동하는 방식을 보여 줍니다.
 
-![HDI.WordCountDiagram][]
+![HDI.WordCountDiagram][HDI.WordCountDiagram]
 
 MapReduce 작업의 출력은 키-값 쌍 집합입니다. 키는 단어를 지정하는 문자열이고 값은 텍스트에서 해당 단어의 총 발생 수를 지정하는 정수입니다. 이 작업은 다음 두 단계로 수행됩니다.
 
@@ -37,13 +37,13 @@ MapReduce 작업의 출력은 키-값 쌍 집합입니다. 키는 단어를 지�
 
 MapReduce 작업을 실행하려면 다음 요소가 필요합니다.
 
--   MapReduce 프로그램. 이 자습서에서는 직접 작성할 필요가 없도록 HDInsight 클러스터와 함께 제공된 단어 수 계산 샘플을 사용합니다. 이 샘플은 */example/jars/hadoop-examples.jar*에 있습니다. 버전 3.0 HDInsight 클러스터에서는 파일 이름이 *hadoop-mapreduce-examples.jar*입니다. 고유한 MapReduce 작업을 작성하는 방법에 대한 지침은 [HDInsight용 Java MapReduce 프로그램 개발][]을 참조하세요.
--   입력 파일. */example/data/gutenberg/davinci.txt*를 입력 파일로 사용합니다. 파일 업로드에 대한 자세한 내용은 [HDInsight에 데이터 업로드][]를 참조하세요.
+-   MapReduce 프로그램. 이 자습서에서는 직접 작성할 필요가 없도록 HDInsight 클러스터와 함께 제공된 단어 수 계산 샘플을 사용합니다. 이 샘플은 */example/jars/hadoop-examples.jar*에 있습니다. 버전 3.0 HDInsight 클러스터에서는 파일 이름이 *hadoop-mapreduce-examples.jar*입니다. 고유한 MapReduce 작업을 작성하는 방법에 대한 지침은 [HDInsight용 Java MapReduce 프로그램 개발][HDInsight용 Java MapReduce 프로그램 개발]을 참조하세요.
+-   입력 파일. */example/data/gutenberg/davinci.txt*를 입력 파일로 사용합니다. 파일 업로드에 대한 자세한 내용은 [HDInsight에 데이터 업로드][HDInsight에 데이터 업로드]를 참조하세요.
 -   출력 파일 폴더. */example/data/WordCountOutput*을 출력 파일 폴더로 사용합니다. 폴더가 없는 경우 시스템에서 새로 만듭니다. 해당 폴더가 있으면 MapReduce 작업이 실패합니다. MapReduce 작업을 두 번째 실행하려면 출력 폴더를 삭제하거나 다른 출력 폴더를 지정해야 합니다.
 
 ## <span id="run-sample"></span></a>Azure PowerShell로 샘플 실행
 
-1.  **Azure PowerShell**을 엽니다. Azure PowerShell 콘솔 창을 여는 방법에 대한 지침은 [Azure PowerShell 설치 및 구성][]을 참조하세요.
+1.  **Azure PowerShell**을 엽니다. Azure PowerShell 콘솔 창을 여는 방법에 대한 지침은 [Azure PowerShell 설치 및 구성][Azure PowerShell 설치 및 구성]을 참조하세요.
 
 2.  다음 명령에서 변수 2개를 설정한 후 실행합니다.
 
@@ -202,12 +202,12 @@ MapReduce 작업의 출력 파일은 변경할 수 없습니다. 따라서 이 �
 
 MapReduce는 강력한 진단 기능을 제공하는 반면 익히기 어려울 수 있습니다. Pig, Hive 등의 기타 언어를 사용하면 HDInsight에 저장된 데이터로 더 쉽게 작업할 수 있습니다. 자세한 내용은 다음 문서를 참조하세요.
 
--   [Azure HDInsight 시작][]
--   [HDInsight용 Java MapReduce 프로그램 개발][]
--   [HDInsight용 C# Hadoop 스트리밍 MapReduce 프로그램 개발][]
--   [HDInsight에서 Hive 사용][]
--   [HDInsight에서 Pig 사용][]
--   [HDInsight 샘플 실행][]
+-   [Azure HDInsight 시작][Azure HDInsight 시작]
+-   [HDInsight용 Java MapReduce 프로그램 개발][HDInsight용 Java MapReduce 프로그램 개발]
+-   [HDInsight용 C# Hadoop 스트리밍 MapReduce 프로그램 개발][HDInsight용 C# Hadoop 스트리밍 MapReduce 프로그램 개발]
+-   [HDInsight에서 Hive 사용][HDInsight에서 Hive 사용]
+-   [HDInsight에서 Pig 사용][HDInsight에서 Pig 사용]
+-   [HDInsight 샘플 실행][HDInsight 샘플 실행]
 
   [HDInsight 클러스터 프로비전]: ../hdinsight-provision-clusters/
   [Azure PowerShell 설치 및 구성]: ../install-and-configure-powershell/

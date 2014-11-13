@@ -1,4 +1,4 @@
-<properties linkid="dev-ruby-how-to-service-bus-queues" urlDisplayName="Queue Service" pageTitle="How to use the queue service (Ruby) | Microsoft Azure" metaKeywords="Azure Queue Service get messages Ruby" description="Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in Ruby." metaCanonical="" services="storage" documentationCenter="Ruby" title="How to Use the Queue Storage Service from Ruby" authors="guayan" solutions="" manager="" editor="" />
+<properties urlDisplayName="Queue Service" pageTitle="큐 서비스 사용 방법(Ruby) | Microsoft Azure" metaKeywords="Azure Queue Service get messages Ruby" description="Azure 큐 서비스를 사용하여 큐를 작성 및 삭제하고 메시지를 삽입하고 가져오고 삭제하는 방법에 대해 알아봅니다. 샘플은 Ruby로 작성되었습니다." metaCanonical="" services="storage" documentationCenter="Ruby" title="Ruby에서 큐 저장소 서비스를 사용하는 방법" authors="guayan" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="01/01/1900" ms.author="guayan" />
 
@@ -176,8 +176,6 @@ Azure 모듈은 **AZURE\_STORAGE\_ACCOUNT** 및 **AZURE\_STORAGE\_ACCESS\_KEY**
   [방법: 큐에서 메시지를 제거하는 추가 옵션]: #how-to-additional-options-for-dequeuing-messages
   [방법: 큐 길이 가져오기]: #how-to-get-the-queue-length
   [방법: 큐 삭제]: #how-to-delete-a-queue
-  [howto-queue-storage]: ../includes/howto-queue-storage.md
-  [create-storage-account]: ../includes/create-storage-account.md
   [Azure에서 Ruby 응용 프로그램 만들기]: /ko-kr/develop/ruby/tutorials/web-app-with-linux-vm/
   [Azure 관리 포털]: https://manage.windowsazure.com/
   [Azure에서 데이터 저장 및 액세스]: http://msdn.microsoft.com/ko-kr/library/windowsazure/gg433040.aspx

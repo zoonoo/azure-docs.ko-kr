@@ -1,6 +1,6 @@
-<properties linkid="dev-java-how-to-use-table-storage" urlDisplayName="Table Service" pageTitle="How to use table storage (Java) | Microsoft Azure" metaKeywords="Azure table storage service, Azure table service Java, table storage Java" description="Learn how to use the table storage service in Azure. Code samples are written in Java code." metaCanonical="" services="storage" documentationCenter="Java" title="How to use the Table storage service from Java" authors="" solutions="" manager="" editor="" />
+<properties urlDisplayName="Table Service" pageTitle="테이블 저장소 사용 방법(Java) | Microsoft Azure" metaKeywords="Azure table storage service, Azure table service Java, table storage Java" description="Azure에서 테이블 저장소 서비스를 사용하는 방법에 대해 알아봅니다. 코드 샘플은 Java 코드로 작성되었습니다." metaCanonical="" services="storage" documentationCenter="Java" title="Java에서 테이블 저장소 서비스를 사용하는 방법" authors="tamram" solutions="" manager="adinah" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="" />
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
 # Java에서 테이블 저장소를 사용하는 방법
 
@@ -580,8 +580,6 @@ Microsoft Azure의 역할 내에서 실행되는 응용 프로그램에서는 �
   [방법: 엔터티 삽입 또는 바꾸기]: #InsertOrReplace
   [방법: 엔터티 삭제]: #DeleteEntity
   [방법: 테이블 삭제]: #DeleteTable
-  [howto-table-storage]: ../includes/howto-table-storage.md
-  [create-storage-account]: ../includes/create-storage-account.md
   [Azure Storage Client SDK 참조]: http://dl.windowsazure.com/storage/javadoc/
   [블로그 게시글]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
   [Azure 저장소 REST API]: http://msdn.microsoft.com/ko-kr/library/azure/gg433040.aspx

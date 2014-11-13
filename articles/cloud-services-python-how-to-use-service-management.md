@@ -1,6 +1,6 @@
-<properties linkid="develop-python-service-management" urlDisplayName="Service Management" pageTitle="How to use the service management API (Python) - feature guide" metaKeywords="" description="Learn how to programmatically perform common service management tasks from Python." metaCanonical="" services="cloud-services" documentationCenter="Python" title="How to use Service Management from Python" authors="huvalo" solutions="" manager="" editor="" />
+<properties urlDisplayName="Service Management" pageTitle="서비스 관리 API를 사용하는 방법(Python) - 기능 가이드" metaKeywords="" description="Python에서 프로그래밍 방식으로 일반 서비스 관리 작업을 수행하는 방법에 대해 알아봅니다." metaCanonical="" services="cloud-services" documentationCenter="Python" title="Python에서 서비스 관리를 사용하는 방법" authors="huvalo" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo"></tags>
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="09/25/2014" ms.author="huvalo" />
 
 # Python에서 서비스 관리를 사용하는 방법
 
@@ -51,7 +51,7 @@ Python용 Azure SDK는 REST API인 [Azure 서비스 관리 API][Azure 서비스 
 
     makecert -sky exchange -r -n "CN=AzureCertificate" -pe -a sha1 -len 2048 -ss My "AzureCertificate.cer"
 
-이 명령은 `.cer` 파일을 만들고 만든 파일을 **개인** 인증서 저장소에 설치합니다. 자세한 내용은 [Azure용 관리 인증서 만들기 및 업로드][Azure용 관리 인증서 만들기 및 업로드]를 참조하십시오.
+이 명령은 `.cer` 파일을 만들고 만든 파일을 **개인** 인증서 저장소에 설치합니다. 자세한 내용은 [Azure용 관리 인증서 만들기 및 업로드][Azure용 관리 인증서 만들기 및 업로드]를 참조하세요.
 
 인증서를 만든 후에는 [관리 포털][관리 포털]에서 "설정" 탭의 "업로드" 동작을 통해 `.cer` 파일을 Azure에 업로드해야 합니다.
 
@@ -77,7 +77,7 @@ Python용 Azure SDK는 REST API인 [Azure 서비스 관리 API][Azure 서비스 
 
     `openssl x509 -inform pem -in mycert.pem -outform der -out mycert.cer`
 
-Azure 인증서에 대한 자세한 내용은 [Azure에서 인증서 관리][Azure에서 인증서 관리]를 참조하십시오. OpenSSL 매개 변수에 대한 자세한 설명은 [][]<http://www.openssl.org/docs/apps/openssl.html></a>(영문)의 자료를 참조하십시오.
+Azure 인증서에 대한 자세한 내용은 [Azure에서 인증서 관리][Azure에서 인증서 관리]를 참조하세요. OpenSSL 매개 변수에 대한 자세한 설명은 <http://www.openssl.org/docs/apps/openssl.html>(영문)의 자료를 참조하세요.
 
 이러한 파일을 만든 후에는 [관리 포털][관리 포털]에서 "설정" 탭의 "업로드" 동작을 통해 `.cer` 파일을 Azure에 업로드해야 하고, `.pem` 파일을 저장한 위치를 기록해 두어야 합니다.
 
@@ -216,7 +216,7 @@ Azure 인증서에 대한 자세한 내용은 [Azure에서 인증서 관리][Azu
 
 **change\_deployment\_configuration** 메서드 또는 **update\_deployment\_status** 메서드를 사용하여 배포를 업데이트할 수 있습니다.
 
-**change\_deployment\_configuration** 메서드를 통해 새 서비스 구성(`.cscfg`) 파일을 업로드할 수 있으며 이로 인해 일부 서비스 설정(배포의 인스턴스 수 포함)이 변경됩니다. 자세한 내용은 [Azure 서비스 구성 스키마(.cscfg)][Azure 서비스 구성 스키마(.cscfg)]를 참조하십시오. 다음 예제는 새 서비스 구성 파일을 업로드하는 방법을 보여 줍니다.
+**change\_deployment\_configuration** 메서드를 통해 새 서비스 구성(`.cscfg`) 파일을 업로드할 수 있으며 이로 인해 일부 서비스 설정(배포의 인스턴스 수 포함)이 변경됩니다. 자세한 내용은 [Azure 서비스 구성 스키마(.cscfg)][Azure 서비스 구성 스키마(.cscfg)]를 참조하세요. 다음 예제는 새 서비스 구성 파일을 업로드하는 방법을 보여 줍니다.
 
     from azure import *
     from azure.servicemanagement import *
@@ -249,7 +249,7 @@ Azure 인증서에 대한 자세한 내용은 [Azure에서 인증서 관리][Azu
 
 ## <a name="MoveDeployments"> </a>방법: 스테이징과 프로덕션 간의 배포 이동
 
-Azure에서는 두 가지 배포 환경(스테이징 및 프로덕션)을 제공합니다. 일반적으로 서비스는 스테이징 환경에 배포되어 서비스를 프로덕션 환경에 배포하기 전에 테스트합니다. 서비스를 스테이징 환경에서 프로덕션 환경으로 수준을 올릴 때 해당 서비스를 다시 배포하지 않고 수준을 올릴 수 있습니다. 배포를 교환하여 수준을 올릴 수 있습니다. 배포 교환에 대한 자세한 내용은 [Azure 서비스 배포][Azure 서비스 배포]를 참조하십시오.
+Azure에서는 두 가지 배포 환경(스테이징 및 프로덕션)을 제공합니다. 일반적으로 서비스는 스테이징 환경에 배포되어 서비스를 프로덕션 환경에 배포하기 전에 테스트합니다. 서비스를 스테이징 환경에서 프로덕션 환경으로 수준을 올릴 때 해당 서비스를 다시 배포하지 않고 수준을 올릴 수 있습니다. 배포를 교환하여 수준을 올릴 수 있습니다. 배포 교환에 대한 자세한 내용은 [Azure 서비스 배포][Azure 서비스 배포]를 참조하세요.
 
 다음 예제는 **swap\_deployment** 메서드를 사용하여 두 배포(이름이 `v1`과 `v2`인 배포)를 교환하는 방법을 보여 줍니다. 예제에서는 **swap\_deployment**를 호출하기 전 배포 `v1`은 프로덕션 슬롯에 있고 배포 `v2`는 스테이징 슬롯에 있습니다. **swap\_deployment**를 호출한 후 `v2`는 프로덕션에 있고 `v1`은 스테이징에 있습니다.
 
@@ -452,7 +452,7 @@ Azure에서는 두 가지 배포 환경(스테이징 및 프로덕션)을 제공
         location=location)
 
     # Name of an os image as returned by list_os_images
-    image_name = 'OpenLogic__OpenLogic-CentOS-62-20120531-ko-KR-30GB.vhd'
+    image_name = 'OpenLogic__OpenLogic-CentOS-62-20120531-ko-kr-30GB.vhd'
 
     # Destination storage account container/blob where the VM disk
     # will be created
@@ -491,12 +491,12 @@ Azure에서는 두 가지 배포 환경(스테이징 및 프로덕션)을 제공
 
 ## <a name="NextSteps"> </a>다음 단계
 
-이제 서비스 관리의 기본 사항을 배웠으므로 좀 더 복잡한 작업을 수행하려면 다음 링크를 따라가십시오.
+이제 서비스 관리의 기본 사항을 배웠으므로 좀 더 복잡한 작업을 수행하려면 다음 링크를 따라가세요.
 
 -   다음 MSDN 참조를 확인하세요. [클라우드 서비스][서비스 패키지]
 -   다음 MSDN 참조를 확인하세요. [가상 컴퓨터][가상 컴퓨터]
 
-  [Python용 Azure SDK]: https://www.windowsazure.com/ko-KR/develop/python/common-tasks/install-python/
+  [Python용 Azure SDK]: https://www.windowsazure.com/ko-kr/develop/python/common-tasks/install-python/
   [관리 포털]: https://manage.windowsazure.com/
   [서비스 관리]: #WhatIs
   [개념]: #Concepts
@@ -518,20 +518,19 @@ Azure에서는 두 가지 배포 환경(스테이징 및 프로덕션)을 제공
   [방법: 가상 컴퓨터 만들기]: #CreateVM
   [방법: 가상 컴퓨터 삭제]: #DeleteVM
   [다음 단계]: #NextSteps
-  [Azure 계정을 만들어야]: http://www.windowsazure.com/ko-KR/pricing/free-trial/
-  [Azure 서비스 관리 API]: http://msdn.microsoft.com/ko-KR/library/windowsazure/ee460799.aspx
-  [Azure용 관리 인증서 만들기 및 업로드]: http://msdn.microsoft.com/ko-KR/library/windowsazure/gg551722.aspx
+  [Azure 계정을 만들어야]: http://www.windowsazure.com/ko-kr/pricing/free-trial/
+  [Azure 서비스 관리 API]: http://msdn.microsoft.com/ko-kr/library/windowsazure/ee460799.aspx
+  [Azure용 관리 인증서 만들기 및 업로드]: http://msdn.microsoft.com/ko-kr/library/windowsazure/gg551722.aspx
   [OpenSSL]: http://www.openssl.org/
-  [Azure에서 인증서 관리]: http://msdn.microsoft.com/ko-KR/library/windowsazure/gg981929.aspx
-  []: http://www.openssl.org/docs/apps/openssl.html
-  [클라우드 서비스]: http://windowsazure.com/ko-KR/documentation/articles/cloud-services-what-is
-  [서비스 패키지]: http://msdn.microsoft.com/ko-KR/library/windowsazure/jj155995.aspx
-  [Azure PowerShell cmdlet]: https://www.windowsazure.com/ko-KR/develop/php/how-to-guides/powershell-cmdlets/
-  [cspack 명령줄 도구]: http://msdn.microsoft.com/ko-KR/library/windowsazure/gg432988.aspx
-  [Azure 서비스 구성 스키마(.cscfg)]: http://msdn.microsoft.com/ko-KR/library/windowsazure/ee758710.aspx
-  [Azure 서비스 배포]: http://msdn.microsoft.com/ko-KR/library/windowsazure/gg433027.aspx
-  [저장소 서비스]: https://www.windowsazure.com/ko-KR/manage/services/storage/what-is-a-storage-account/
-  [Blob]: https://www.windowsazure.com/ko-KR/develop/python/how-to-guides/blob-service/
-  [테이블]: https://www.windowsazure.com/ko-KR/develop/python/how-to-guides/table-service/
-  [큐]: https://www.windowsazure.com/ko-KR/develop/python/how-to-guides/queue-service/
-  [가상 컴퓨터]: http://msdn.microsoft.com/ko-KR/library/windowsazure/jj156003.aspx
+  [Azure에서 인증서 관리]: http://msdn.microsoft.com/ko-kr/library/windowsazure/gg981929.aspx
+  [클라우드 서비스]: http://windowsazure.com/ko-kr/documentation/articles/cloud-services-what-is
+  [서비스 패키지]: http://msdn.microsoft.com/ko-kr/library/windowsazure/jj155995.aspx
+  [Azure PowerShell cmdlet]: https://www.windowsazure.com/ko-kr/develop/php/how-to-guides/powershell-cmdlets/
+  [cspack 명령줄 도구]: http://msdn.microsoft.com/ko-kr/library/windowsazure/gg432988.aspx
+  [Azure 서비스 구성 스키마(.cscfg)]: http://msdn.microsoft.com/ko-kr/library/windowsazure/ee758710.aspx
+  [Azure 서비스 배포]: http://msdn.microsoft.com/ko-kr/library/windowsazure/gg433027.aspx
+  [저장소 서비스]: https://www.windowsazure.com/ko-kr/manage/services/storage/what-is-a-storage-account/
+  [Blob]: https://www.windowsazure.com/ko-kr/develop/python/how-to-guides/blob-service/
+  [테이블]: https://www.windowsazure.com/ko-kr/develop/python/how-to-guides/table-service/
+  [큐]: https://www.windowsazure.com/ko-kr/develop/python/how-to-guides/queue-service/
+  [가상 컴퓨터]: http://msdn.microsoft.com/ko-kr/library/windowsazure/jj156003.aspx

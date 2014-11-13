@@ -1,4 +1,4 @@
-<properties linkid="develop-net-tutorials-compute-intensive-task-on-a-virtual-machine" urlDisplayName="Compute Intensive .NET Task" pageTitle="Compute intensive .NET task on a virtual machine - Azure" metaKeywords="deploying compute .NET application, vm .NET application, Service Bus queue monitoring, remote monitoring" description="Learn how to deploy and run a compute-intensive .NET app on an Azure virtual machine and use Service Bus queues to monitor progress remotely." metaCanonical="" services="virtual-machines" documentationCenter=".NET" title="How to run a compute-intensive task in .NET on an Azure virtual machine" authors="wpickett" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
+<properties urlDisplayName="Compute Intensive .NET Task" pageTitle="가상 컴퓨터의 계산 집약적 .NET 작업 - Azure" metaKeywords="deploying compute .NET application, vm .NET application, Service Bus queue monitoring, remote monitoring" description="Azure 가상 컴퓨터에서 계산 집약적인 .NET 앱을 배포 및 실행하고 서비스 버스 큐를 사용하여 진행률을 원격으로 모니터링하는 방법에 대해 알아봅니다." metaCanonical="" services="virtual-machines" documentationCenter=".NET" title="Azure 가상 컴퓨터에서 .NET으로 계산 집약적인 작업을 실행하는 방법" authors="wpickett" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="wpickett" />
 
@@ -47,7 +47,7 @@ Azure에서는 가상 컴퓨터를 사용하여 계산 집약적인 작업을 �
 2.  **가상 컴퓨터**를 클릭합니다.
 3.  로그인할 가상 컴퓨터의 이름을 클릭합니다.
 4.  **연결**을 클릭합니다.
-5.  가상 컴퓨터에 연결해야 한다는 메시지에 응답합니다. 관리자 이름 및 암호를 묻는 메시지가 표시되면 가상 컴퓨터를 만들 때 제공한 값을 사용하십시오.
+5.  가상 컴퓨터에 연결해야 한다는 메시지에 응답합니다. 관리자 이름 및 암호를 묻는 메시지가 표시되면 가상 컴퓨터를 만들 때 제공한 값을 사용하세요.
 
 ## 서비스 버스 네임스페이스를 만드는 방법
 
@@ -80,7 +80,7 @@ Azure에서 서비스 버스 큐 사용을 시작하려면 먼저 서비스
 
     ![만들기 클릭 스크린샷][만들기 클릭 스크린샷]
 
-만든 네임스페이스가 관리 포털에 표시되며, 활성화되는 데 약간의 시간이 걸립니다. 다음 단계를 계속하기 전에 **활성** 상태가 될 때까지 기다리십시오.
+만든 네임스페이스가 관리 포털에 표시되며, 활성화되는 데 약간의 시간이 걸립니다. 다음 단계를 계속하기 전에 **활성** 상태가 될 때까지 기다리세요.
 
 ## 네임스페이스에 대한 기본 관리 자격 증명 얻기
 
@@ -549,7 +549,6 @@ TSPSolver를 사용하여 큐를 만들거나 제거하는 대신 [Azure 관리 
 
   [순회 외판원 문제 해 찾기]: ./media/virtual-machines-dotnet-run-compute-intensive-task/WA_dotNetTSPSolver.png
   [순회 외판원 문제 클라이언트]: ./media/virtual-machines-dotnet-run-compute-intensive-task/WA_dotNetTSPClient.png
-  [create-account-and-vms-note]: ../includes/create-account-and-vms-note.md
   [Azure 관리 포털]: https://manage.windowsazure.com
   [새 서비스 버스 만들기]: ./media/virtual-machines-dotnet-run-compute-intensive-task/ServiceBusCreateNew.png
   [네임스페이스 만들기 대화 상자]: ./media/virtual-machines-dotnet-run-compute-intensive-task/CreateNameSpaceDialog.png

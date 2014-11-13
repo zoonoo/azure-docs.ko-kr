@@ -1,6 +1,6 @@
-<properties title="Microsoft Azure Machine Learning Frequently Asked Questions (FAQ)" pageTitle="Azure Machine Learning FAQ | Azure" description="Frequently asked questions about Microsoft Azure Machine Learning" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="pamehta" videoId="" scriptId="" />
+<properties title="Microsoft Azure 기계 학습 FAQ(질문과 대답)" pageTitle="Azure 기계 학습 FAQ | Azure" description="Microsoft Azure 기계 학습 관련 질문과 대답을 소개합니다." metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="pamehta" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
 
-<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="pamehta"></tags>
+<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/06/2014" ms.author="pamehta" />
 
 # Microsoft Azure 기계 학습 FAQ(질문과 대답)
 
@@ -18,11 +18,11 @@ Azure 기계 학습 스튜디오는 웹 브라우저를 통해 액세스할 수 
 
 기계 학습 API 서비스를 통해 기계 학습 스튜디오에 기본 제공되는 예측 모델을 확장 가능한 내결함성 웹 서비스로 배포할 수 있습니다. 기계 학습 API 서비스를 통해 만든 웹 서비스는, 외부 응용 프로그램과 예측 분석 모델 간의 통신용 인터페이스를 제공하는 REST API입니다. 웹 서비스는 예측 모델과 실시간으로 통신하여 예측 결과를 받고 외부 클라이언트 응용 프로그램에 결과를 통합할 수 있는 방법을 제공합니다. 기계 학습 API 서비스는 Azure 기계 학습 REST API의 배포, 호스팅 및 관리에 Microsoft Azure를 활용합니다. 두 가지 유형의 서비스가 Azure 기계 학습 API 서비스를 사용하여 생성되는데, 비동기적인 일괄 액세스를 위한 일괄 처리 실행 서비스와 대기 시간이 짧은 동기 응답을 위한 요청 응답 서비스입니다.
 
-예측 모델은 작업 영역 내 스테이징에서 활용할 수 있습니다. 또한 기계 학습 API 서비스는 웹 서비스용 도움말 페이지도 생성합니다. 웹 서비스 도움말 페이지는 C\#, R 및 Python으로 웹 서비스를 호출하는 코드 샘플을 제공합니다. 서비스에 대한 대화형 호출을 하여 웹 서비스를 테스트할 수 있습니다. 그런 다음 몇 번의 클릭만으로 스테이징된 웹 서비스를 프로덕션 상태로 전환할 수 있습니다. 프로덕션 환경에서는 배포된 서비스를 모니터할 수 있을 뿐 아니라 Azure 포털의 사용량 및 오류를 추적할 수 있습니다. 웹 서비스를 업데이트하는 작업은 기계 학습 스튜디오에서 모델을 업데이트하고 변경 내용을 스테이징 서비스에 적용하는 작업만큼 간단합니다.
+예측 모델은 작업 영역 내 스테이징에서 활용할 수 있습니다. 또한 기계 학습 API 서비스는 웹 서비스용 도움말 페이지도 생성합니다. 웹 서비스 도움말 페이지는 C#, R 및 Python으로 웹 서비스를 호출하는 코드 샘플을 제공합니다. 서비스에 대한 대화형 호출을 하여 웹 서비스를 테스트할 수 있습니다. 그런 다음 몇 번의 클릭만으로 스테이징된 웹 서비스를 프로덕션 상태로 전환할 수 있습니다. 프로덕션 환경에서는 배포된 서비스를 모니터할 수 있을 뿐 아니라 Azure 포털의 사용량 및 오류를 추적할 수 있습니다. 웹 서비스를 업데이트하는 작업은 기계 학습 스튜디오에서 모델을 업데이트하고 변경 내용을 스테이징 서비스에 적용하는 작업만큼 간단합니다.
 
 **4. Microsoft Azure 기계 학습에는 어떻게 액세스합니까?**
 
-Azure 기계 학습을 시작하려면 [시작하기 페이지][]를 방문하세요. [Azure 기계 학습 센터][]에서 서비스에 대한 업데이트를 받고, 기계 학습 팀 블로그의 최신 내용을 보고, 포럼을 통해 기계 학습 커뮤니티에 참여하고, 제품 도움말에 액세스하고, 모델 갤러리를 보고, 제품 로드맵을 형성하는 데 활용하도록 서비스에 대한 피드백을 제공할 수 있습니다.
+Azure 기계 학습을 시작하려면 [시작하기 페이지][시작하기 페이지]를 방문하세요. [Azure 기계 학습 센터][Azure 기계 학습 센터]에서 서비스에 대한 업데이트를 받고, 기계 학습 팀 블로그의 최신 내용을 보고, 포럼을 통해 기계 학습 커뮤니티에 참여하고, 제품 도움말에 액세스하고, 모델 갤러리를 보고, 제품 로드맵을 형성하는 데 활용하도록 서비스에 대한 피드백을 제공할 수 있습니다.
 
 ### 결제
 
@@ -36,11 +36,11 @@ Azure 기계 학습 스튜디오 서비스 요금은 활성 실험의 계산 시
 -   API 서비스 예측 시간 - 이 측정기는 프로덕션에서 실행하는 웹 서비스로 발생된 계산 요금을 포함합니다.
 -   API 서비스 예측(1000개 단위) - 이 측정기는 프로덕션 웹 서비스에 대한 호출당 발생하는 요금을 포함합니다.
 
-가격 정보에 대해서는 가격 정보 페이지([http://azure.microsoft.com/ko-kr/pricing/details/machine-learning/][])를 참조하세요.
+가격 정보에 대해서는 가격 정보 페이지([http://azure.microsoft.com/ko-kr/pricing/details/machine-learning/][http://azure.microsoft.com/ko-kr/pricing/details/machine-learning/])를 참조하세요.
 
 **6. Azure 기계 학습의 무료 평가판이 있습니까?**
 
-Azure 기계 학습은 Azure 무료 평가판의 일부입니다. Azure 무료 평가판에 등록하면 한 달 동안 모든 Azure 서비스를 사용해볼 수 있습니다. Azure 무료 평가판에 대한 자세한 내용은 [http://azure.microsoft.com/ko-kr/pricing/free-trial-faq/][]를 참조하세요.
+Azure 기계 학습은 Azure 무료 평가판의 일부입니다. Azure 무료 평가판에 등록하면 한 달 동안 모든 Azure 서비스를 사용해볼 수 있습니다. Azure 무료 평가판에 대한 자세한 내용은 [http://azure.microsoft.com/ko-kr/pricing/free-trial-faq/][http://azure.microsoft.com/ko-kr/pricing/free-trial-faq/]를 참조하세요.
 
 ### 기계 학습 스튜디오
 
@@ -62,7 +62,7 @@ Azure 기계 학습은 Azure 무료 평가판의 일부입니다. Azure 무료 �
 
 **10. 원하는 기계 학습 알고리즘, 데이터 소스, 데이터 형식, 데이터 변환 작업이 Azure 기계 학습 스튜디오에 없는 경우 어떻게 해야 합니까?**
 
-[사용자 피드백 포럼][]을 방문하면 Microsoft에서 추적 중인 기능 요청을 확인할 수 있습니다. 원하는 기능이 이미 요청된 경우 해당 요청에 투표할 수 있습니다. 원하는 기능이 없는 경우 새로운 요청을 만드세요. 이 포럼에서 요청의 상태를 확인할 수도 있습니다. Microsoft는 이 목록을 긴밀하게 추적하여 기능의 사용 가능성 상태를 자주 업데이트합니다.
+[사용자 피드백 포럼][사용자 피드백 포럼]을 방문하면 Microsoft에서 추적 중인 기능 요청을 확인할 수 있습니다. 원하는 기능이 이미 요청된 경우 해당 요청에 투표할 수 있습니다. 원하는 기능이 없는 경우 새로운 요청을 만드세요. 이 포럼에서 요청의 상태를 확인할 수도 있습니다. Microsoft는 이 목록을 긴밀하게 추적하여 기능의 사용 가능성 상태를 자주 업데이트합니다.
 
 **11. 기존 코드를 기계 학습 스튜디오에 가져올 수 있습니까?**
 
@@ -70,7 +70,7 @@ Azure 기계 학습은 Azure 무료 평가판의 일부입니다. Azure 무료 �
 
 **12. 기계 학습 스튜디오에서 사용 가능한 R 패키지는 무엇입니까?**
 
-기계 학습 스튜디오는 현재 350개 이상의 R 패키지를 지원하며 이 목록은 지속적으로 늘어나고 있습니다. 지원되는 R 패키지의 목록을 얻는 방법에 대해서는 기계 학습 스튜디오 도움말 항목인 **R을 사용한 확장성**을 참조하세요. 원하는 패키지가 이 목록에 없는 경우 [사용자 피드백 포럼][]에서 패키지 이름을 제공해 주세요.
+기계 학습 스튜디오는 현재 350개 이상의 R 패키지를 지원하며 이 목록은 지속적으로 늘어나고 있습니다. 지원되는 R 패키지의 목록을 얻는 방법에 대해서는 기계 학습 스튜디오 도움말 항목인 **R을 사용한 확장성**을 참조하세요. 원하는 패키지가 이 목록에 없는 경우 [사용자 피드백 포럼][사용자 피드백 포럼]에서 패키지 이름을 제공해 주세요.
 
 ### 기계 학습 API 서비스
 
@@ -100,23 +100,23 @@ RRS(요청-응답 서비스)는 대기 시간이 짧고, 확장성이 높은 웹
 
 **17. Azure 기계 학습에 대한 교육은 어디에서 받을 수 있습니까?**
 
-[Azure 기계 학습 센터][]에서 비디오 자습서와 방법 가이드를 호스트합니다. 이러한 단계별 가이드에서는 서비스를 소개하고, 데이터 가져오기, 데이터 정리, 예측 모델 구성, Azure 기계 학습에서 프로덕션으로 전환의 데이터 과학 수명 주기 전체를 안내해 줍니다.
+[Azure 기계 학습 센터][Azure 기계 학습 센터]에서 비디오 자습서와 방법 가이드를 호스트합니다. 이러한 단계별 가이드에서는 서비스를 소개하고, 데이터 가져오기, 데이터 정리, 예측 모델 구성, Azure 기계 학습에서 프로덕션으로 전환의 데이터 과학 수명 주기 전체를 안내해 줍니다.
 
-비디오 자습서에서는 기계 학습 스튜디오와 기계 학습 API 서비스를 둘러볼 수 있습니다. 비디오 자습서는 광범위한 서비스, 가장 많이 사용되는 데이터 가져오기, 모듈 정리 및 처리, 예측 모델 빌드, 예측 모델 배포를 시연합니다. 또한 비디오 자습서에서는 작업 영역 프로비저닝, 프로덕션에 스테이징된 모델 배포 등과 같은 작업도 다룹니다.
+비디오 자습서에서는 기계 학습 스튜디오와 기계 학습 API 서비스를 둘러볼 수 있습니다. 비디오 자습서는 광범위한 서비스, 가장 많이 사용되는 데이터 가져오기, 모듈 정리 및 처리, 예측 모델 빌드, 예측 모델 배포를 시연합니다. 또한 비디오 자습서에서는 작업 영역 프로비전, 프로덕션에 스테이징된 모델 배포 등과 같은 작업도 다룹니다.
 
 Microsoft는 기계 학습 센터에 새로운 자료를 계속 추가할 예정입니다. [사용자 피드백 포럼][1]에서 기계 학습 센터의 추가 학습 자료를 제출할 수 있습니다.
 
 **18. Azure 기계 학습에 대한 지원은 어떻게 받습니까?**
 
-Azure 기계 학습은 Azure 지원 제공물의 일부로 지원됩니다. Azure 기계 학습에 대한 기술 지원을 받으려면 '기계 학습'을 서비스로 선택하세요. 그러면 지원 티켓을 제출할 수 있는 항목의 범주가 제공됩니다. Azure 지원 제공물에 대한 자세한 내용은 [http://azure.microsoft.com/ko-kr/support/options/][]를 참조하세요.
+Azure 기계 학습은 Azure 지원 제공물의 일부로 지원됩니다. Azure 기계 학습에 대한 기술 지원을 받으려면 '기계 학습'을 서비스로 선택하세요. 그러면 지원 티켓을 제출할 수 있는 항목의 범주가 제공됩니다. Azure 지원 제공물에 대한 자세한 내용은 [http://azure.microsoft.com/ko-kr/support/options/][http://azure.microsoft.com/ko-kr/support/options/]를 참조하세요.
 
-또한 Azure 기계 학습은 MSDN에 커뮤니티 포럼을 갖고 있으며, 여기에서 Azure 기계 학습 관련 질문을 할 수 있습니다. 이 포럼은 Azure 기계 학습 팀에서 모니터합니다. [Azure 포럼][]을 방문해보세요.
+또한 Azure 기계 학습은 MSDN에 커뮤니티 포럼을 갖고 있으며, 여기에서 Azure 기계 학습 관련 질문을 할 수 있습니다. 이 포럼은 Azure 기계 학습 팀에서 모니터합니다. [Azure 포럼][Azure 포럼]을 방문해보세요.
 
   [시작하기 페이지]: http://go.microsoft.com/fwlink/?LinkId=404226
   [Azure 기계 학습 센터]: http://azure.microsoft.com/ko-kr/documentation/services/machine-learning/
-  [http://azure.microsoft.com/ko-kr/pricing/details/machine-learning/]: http://azure.microsoft.com/en-us/pricing/details/machine-learning/
-  [http://azure.microsoft.com/ko-kr/pricing/free-trial-faq/]: http://azure.microsoft.com/en-us/pricing/free-trial-faq/
+  [http://azure.microsoft.com/ko-kr/pricing/details/machine-learning/]: http://azure.microsoft.com/ko-kr/pricing/details/machine-learning/
+  [http://azure.microsoft.com/ko-kr/pricing/free-trial-faq/]: http://azure.microsoft.com/ko-kr/pricing/free-trial-faq/
   [사용자 피드백 포럼]: http://go.microsoft.com/fwlink/?LinkId=404231
   [1]: https://windowsazure.uservoice.com/forums/257792-machine-learning
-  [http://azure.microsoft.com/ko-kr/support/options/]: http://azure.microsoft.com/en-us/support/options/
+  [http://azure.microsoft.com/ko-kr/support/options/]: http://azure.microsoft.com/ko-kr/support/options/
   [Azure 포럼]: http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=MachineLearning

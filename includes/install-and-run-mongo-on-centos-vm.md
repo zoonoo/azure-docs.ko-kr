@@ -1,4 +1,4 @@
-다음 단계에 따라 CentOS Linux에서 실행 중인 가상 컴퓨터에 MongoDB를 설치하고 실행하십시오.
+다음 단계에 따라 CentOS Linux에서 실행 중인 가상 컴퓨터에 MongoDB를 설치하고 실행하세요.
 
 <div class="dev-callout">
 <b>경고</b>
@@ -23,12 +23,12 @@
 
     MongoDB가 다운로드되어 설치될 때까지 기다립니다.
 
-4.  데이터 디렉터리를 만듭니다. 기본적으로 MongoDB는 */data/db* 디렉터리에 데이터를 보관하지만 디렉터리는 사용자가 만들어야 합니다. 디렉터리를 만들려면 다음을 실행하십시오.
+4.  데이터 디렉터리를 만듭니다. 기본적으로 MongoDB는 */data/db* 디렉터리에 데이터를 보관하지만 디렉터리는 사용자가 만들어야 합니다. 디렉터리를 만들려면 다음을 실행하세요.
 
         $ sudo mkdir -p /srv/datadrive/data
         $ sudo chown `id -u` /srv/datadrive/data
 
-    Linux에 MongoDB를 설치하는 방법에 대한 자세한 정보는 [Quickstart Unix][Quickstart Unix](영문)를 참조하십시오.
+    Linux에 MongoDB를 설치하는 방법에 대한 자세한 정보는 [Quickstart Unix][Quickstart Unix](영문)를 참조하세요.
 
 5.  데이터베이스를 시작하려면 다음을 실행합니다.
 
@@ -62,7 +62,6 @@
 
     ![끝점][2]
 
-  [보안 및 인증]: http://www.mongodb.org/display/DOCS/Security+and+Authentication
   [Quickstart Unix]: http://www.mongodb.org/display/DOCS/Quickstart+Unix
   [끝점]: ./media/install-and-run-mongo-on-centos-vm/LinuxVmAddEndpoint.png
   [1]: ./media/install-and-run-mongo-on-centos-vm/LinuxVmAddEndpoint2.png

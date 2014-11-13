@@ -1,4 +1,4 @@
-<properties linkid="dev-ruby-web-app-with-linux-vm" urlDisplayName="Ruby on Rails Web App on Azure using Linux VM" pageTitle="Ruby on Rails Web App on Azure using Linux VM" metaKeywords="Azure Ruby web application, Azure Ruby application, Ruby app Azure, Ruby azure vm, ruby virthal machine, ruby linux vm" description="Host a Ruby on Rails-based website on Azure using a Linux virtual machine. " metaCanonical="" services="virtual-machines" documentationCenter="Ruby" title="Ruby on Rails Web application on an Azure VM" authors="larryfr" solutions="" manager="" editor="" />
+<properties urlDisplayName="Ruby on Rails Web App on Azure using Linux VM" pageTitle="Azure에서 Linux VM을 사용하여 Ruby on Rails 웹 앱 호스트" metaKeywords="Azure Ruby web application, Azure Ruby application, Ruby app Azure, Ruby azure vm, ruby virthal machine, ruby linux vm" description="Azure에서 Linux 가상 컴퓨터를 사용하여 Ruby on Rails 기반 웹 사이트를 호스트하는 방법에 대해 알아봅니다. " metaCanonical="" services="virtual-machines" documentationCenter="Ruby" title="Azure VM의 Ruby on Rails 웹 응용 프로그램" authors="larryfr" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="virtual-machines" ms.workload="web" ms.tgt_pltfrm="vm-linux" ms.devlang="ruby" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
@@ -40,7 +40,7 @@
 
 1.  개발 환경에 Ruby를 설치합니다. 운영 체제에 따라 아래 단계는 달라질 수 있습니다.
 
-    -   **Apple OS X** - OS X용 Ruby 배포가 몇 가지 있습니다. OS X에 대한 이 자습서 내용은 [Homebrew][Homebrew]를 사용하여 **rbenv** 및 **ruby-build**를 설치함으로써 유효성이 검사되었습니다. 설치 정보는 [][]<https://github.com/sstephenson/rbenv/></a>(영문)에서 볼 수 있습니다.
+    -   **Apple OS X** - OS X용 Ruby 배포가 몇 가지 있습니다. OS X에 대한 이 자습서 내용은 [Homebrew][Homebrew]를 사용하여 **rbenv** 및 **ruby-build**를 설치함으로써 유효성이 검사되었습니다. 설치 정보는 <https://github.com/sstephenson/rbenv/>(영문)에서 볼 수 있습니다.
 
     -   **Linux** - 배포 패키지 관리 시스템을 사용합니다. Ubuntu 12.10에 대한 이 자습서 내용은 ruby1.9.1 및 ruby1.9.1-dev 패키지를 사용하여 유효성이 검사되었습니다.
 
@@ -53,7 +53,7 @@
     <div class="dev-callout">
 
     **참고**
-    일부 운영 체제에서 이 명령을 사용하려면 관리자 또는 루트 권한이 필요할 수 있습니다. 이 명령을 실행하는 동안 오류가 발생한 경우 다음과 같이 'sudo'를 사용해 보십시오.
+    일부 운영 체제에서 이 명령을 사용하려면 관리자 또는 루트 권한이 필요할 수 있습니다. 이 명령을 실행하는 동안 오류가 발생한 경우 다음과 같이 'sudo'를 사용해 보세요.
 
     ``` prettyprint
     sudo gem install rails
@@ -68,7 +68,7 @@
 
     </div>
 
-3.  또한 JavaScript 인터프리터를 설치해야 합니다. Rails에서 Rails 응용 프로그램에 사용되는 CoffeeScript 자산을 컴파일하는 데 이 인터프리터를 사용합니다. 지원되는 인터프리터의 목록은 [][1]<https://github.com/sstephenson/execjs#readme></a>(영문)에서 확인할 수 있습니다.
+3.  또한 JavaScript 인터프리터를 설치해야 합니다. Rails에서 Rails 응용 프로그램에 사용되는 CoffeeScript 자산을 컴파일하는 데 이 인터프리터를 사용합니다. 지원되는 인터프리터의 목록은 <https://github.com/sstephenson/execjs#readme>(영문)에서 확인할 수 있습니다.
 
     [Node.js][Node.js](영문)는 OS X, Linux 및 Windows 운영 체제에 사용할 수 있으므로, 이 자습서 내용의 유효성 검사 중 사용되었습니다.
 
@@ -101,7 +101,7 @@
 
 ## <span id="test"></span></a>응용 프로그램 테스트
 
-개발 환경에서 Rails 서버를 시작하려면 다음 단계를 수행하십시오.
+개발 환경에서 Rails 서버를 시작하려면 다음 단계를 수행하세요.
 
 1.  명령줄 또는 터미널 세션에서 다음 명령을 사용하여 Rails 서버를 시작합니다.
 
@@ -117,11 +117,11 @@
         [2013-03-12 19:11:31] INFO  ruby 1.9.3 (2012-04-20) [x86_64-linux]
         [2013-03-12 19:11:31] INFO  WEBrick::HTTPServer#start: pid=9789 port=3000
 
-2.  브라우저를 열고 <http://localhost:3000/>으로 이동합니다. 다음과 유사한 결과가 표시됩니다.
+2.  브라우저를 열고 http://localhost:3000/으로 이동합니다. 다음과 유사한 결과가 표시됩니다.
 
     ![기본 Rails 페이지][기본 Rails 페이지]
 
-    이 페이지는 정적인 시작 페이지입니다. 스캐폴딩 명령으로 생성되는 양식을 보려면 <http://localhost:3000/posts>로 이동합니다. 다음과 유사한 결과가 표시됩니다.
+    이 페이지는 정적인 시작 페이지입니다. 스캐폴딩 명령으로 생성되는 양식을 보려면 http://localhost:3000/posts로 이동합니다. 다음과 유사한 결과가 표시됩니다.
 
     ![게시물을 나열하는 페이지][게시물을 나열하는 페이지]
 
@@ -141,17 +141,17 @@
 <div class="dev-callout">
 
 **참고**
-**단지** 가상 컴퓨터만 만들면 됩니다. SSH를 사용하여 가상 컴퓨터에 연결하는 방법을 알아본 후 중지하십시오.
+**단지** 가상 컴퓨터만 만들면 됩니다. SSH를 사용하여 가상 컴퓨터에 연결하는 방법을 알아본 후 중지하세요.
 
 </div>
 
-Azure 가상 컴퓨터를 만든 후 다음 단계를 수행하여 가상 컴퓨터에 Ruby 및 Rails를 설치하십시오.
+Azure 가상 컴퓨터를 만든 후 다음 단계를 수행하여 가상 컴퓨터에 Ruby 및 Rails를 설치하세요.
 
 1.  명령줄 또는 터미널 세션에서 다음 명령으로 SSH를 사용하여 가상 컴퓨터에 연결합니다.
 
         ssh username@vmdns -p port
 
-    VM, VM의 DNS 주소 및 SSH 끝점의 포트를 만드는 동안 지정한 사용자 이름으로 바꾸십시오. 예를 들면 다음과 같습니다.
+    VM, VM의 DNS 주소 및 SSH 끝점의 포트를 만드는 동안 지정한 사용자 이름으로 바꾸세요. 예를 들면 다음과 같습니다.
 
         ssh railsdev@railsvm.cloudapp.net -p 61830
 
@@ -207,7 +207,7 @@ Windows를 개발 환경으로 사용하는 경우 scp용 **pscp** 기능과 같
 
 -   **directory-to-copy**: 복사할 로컬 디렉터리입니다.
 
--   <**user@vmdns**>: 파일을 복사할 컴퓨터의 주소와 로그인하는 데 사용하는 사용자 계정입니다.
+-   **user@vmdns**: 파일을 복사할 컴퓨터의 주소와 로그인하는 데 사용하는 사용자 계정입니다.
 
 복사 작업 후 **blog\_app** 디렉터리는 사용자 홈 디렉터리에 있습니다. 가상 컴퓨터의 SSH 세션에서 다음 명령을 사용하여 복사된 파일을 봅니다.
 
@@ -266,7 +266,7 @@ Windows를 개발 환경으로 사용하는 경우 scp용 **pscp** 기능과 같
 
 8.  **업데이트 진행 중**이라는 메시지가 나타납니다. 이 메시지가 사라지면 끝점이 활성 상태가 됩니다. 이제 가상 컴퓨터의 DNS 이름으로 이동하여 응용 프로그램을 테스트할 수 있습니다. 웹 사이트는 다음과 유사합니다.
 
-    ![기본 Rails 페이지][2]
+    ![기본 Rails 페이지][1]
 
     URL에 **/posts**를 추가하면 스캐폴딩 명령으로 생성된 페이지가 표시됩니다.
 
@@ -276,7 +276,7 @@ Windows를 개발 환경으로 사용하는 경우 scp용 **pscp** 기능과 같
 
 이 문서에서는 기본 양식 기반 Rails 응용 프로그램을 만들어 Azure 가상 컴퓨터에 게시하는 방법을 알아보았습니다. 지금까지 대부분의 작업을 수동으로 처리했지만 프로덕션 환경에서는 자동화하는 것이 좋습니다. 또한 대부분의 프로덕션 환경은 Rails 응용 프로그램을 다른 서버 프로세스(예: Apache 또는 NginX)와 함께 호스트하며 이러한 서버 프로세스는 Rails 응용 프로그램의 여러 인스턴스로 라우팅하여 정적 리소스를 제공하는 요청을 처리합니다.
 
-Rails 응용 프로그램의 자동 배포와 Unicorn 웹 서버 및 NginX 사용에 대한 자세한 내용은 [Unicorn+NginX+Capistrano 및 Azure 가상 컴퓨터][Unicorn+NginX+Capistrano 및 Azure 가상 컴퓨터]를 참조하십시오.
+Rails 응용 프로그램의 자동 배포와 Unicorn 웹 서버 및 NginX 사용에 대한 자세한 내용은 [Unicorn+NginX+Capistrano 및 Azure 가상 컴퓨터][Unicorn+NginX+Capistrano 및 Azure 가상 컴퓨터]를 참조하세요.
 
 Ruby on Rails에 대해 자세히 알아보려면 [Ruby on Rails 가이드][Ruby on Rails 가이드](영문)를 참조하세요.
 
@@ -299,9 +299,7 @@ Azure SDK for Ruby를 사용하여 Ruby 응용 프로그램에서 Azure 서비�
   [gem 설치 및 응용 프로그램 시작]: #start
   [다음 단계]: #next
   [Homebrew]: http://brew.sh/
-  []: https://github.com/sstephenson/rbenv/
   [RailsInstaller]: http://railsinstaller.org/
-  [1]: https://github.com/sstephenson/execjs#readme
   [Node.js]: http://nodejs.org/
   [SQLite3 Database]: http://www.sqlite.org/
   [기본 Rails 페이지]: ./media/virtual-machines-ruby-rails-web-app-linux/basicrailslocal.png
@@ -312,7 +310,9 @@ Azure SDK for Ruby를 사용하여 Ruby 응용 프로그램에서 Azure 서비�
   [가상 컴퓨터 목록]: ./media/virtual-machines-ruby-rails-web-app-linux/vmlist.png
   [끝점 페이지]: ./media/virtual-machines-ruby-rails-web-app-linux/endpoints.png
   [새 끝점 대화 상자]: ./media/virtual-machines-ruby-rails-web-app-linux/newendpoint.png
-  [2]: ./media/virtual-machines-ruby-rails-web-app-linux/basicrailscloud.png
+  [1]: ./media/virtual-machines-ruby-rails-web-app-linux/basicrailscloud.png
+  [Unicorn+NginX+Capistrano 및 Azure 가상 컴퓨터]: /ko-kr/documentation/articles/virtual-machines-ruby-deploy-capistrano-host-nginx-unicorn/
   [Ruby on Rails 가이드]: http://guides.rubyonrails.org/
   [Blob을 사용하여 데이터 저장]: /ko-kr/documentation/articles/storage-ruby-how-to-use-blob-storage
+  [테이블을 사용하여 키/값 쌍 저장(영문)]: /ko-kr/develop/ruby/how-to-guides/table-service/
   [콘텐츠 배달 네트워크로 높은 대역폭 콘텐츠 제공]: /ko-kr/develop/ruby/app-services/

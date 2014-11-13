@@ -1,4 +1,4 @@
-<properties linkid="develop-python-web-app-with-blob-storage" urlDisplayName="Web App with Blob Storage" pageTitle="Python web app with table storage | Microsoft Azure" metaKeywords="Azure table storage Python, Azure Python application, Azure Python tutorial, Azure Python example" description="A tutorial that teaches you how to create a Python web application using the Azure Client Libraries. Django is used as the web framework." metaCanonical="" services="storage" documentationCenter="Python" title="Python Web Application using Table Storage" authors="huvalo" solutions="" videoId="" scriptId="" manager="" editor="mollybos" />
+<properties urlDisplayName="Web App with Blob Storage" pageTitle="테이블 저장소를 사용하는 Python 웹 앱 | Microsoft Azure" metaKeywords="Azure table storage Python, Azure Python application, Azure Python tutorial, Azure Python example" description="Azure 클라이언트 라이브러리를 사용하여 Python 웹 응용 프로그램을 만드는 방법을 설명하는 자습서입니다. 웹 프레임워크로는 Django가 사용됩니다." metaCanonical="" services="storage" documentationCenter="Python" title="테이블 저장소를 사용하는 Python 웹 응용 프로그램" authors="huvalo" solutions="" videoId="" scriptId="" manager="wpickett" editor="mollybos" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo" />
 
@@ -178,6 +178,4 @@ windowsazure를 가져온 직후 다음 코드를 **views.py**에 추가하고 '
   [Django Hello World 웹 응용 프로그램]: http://windowsazure.com/ko-kr/documentation/articles/virtual-machines-python-django-web-app-windows-server
   [Azure에 데이터 저장 및 액세스]: http://msdn.microsoft.com/ko-kr/library/windowsazure/gg433040.aspx
   [0]: ./media/storage-python-use-table-storage-web-app/web-app-with-storage-Finaloutput-mac.png
-  [create-account-note]: ../includes/create-account-note.md
   [Python 설치 가이드]: http://windowsazure.com/ko-kr/documentation/articles/python-how-to-install
-  [create-storage-account]: ../includes/create-storage-account.md

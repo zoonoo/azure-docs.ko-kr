@@ -1,4 +1,4 @@
-<properties linkid="services-linux-cassandra-with-linux" urlDisplayName="Cassandra with Linux" pageTitle="Run Cassandra with Linux on Azure" metaKeywords="" description="Explains how to run a Cassandra cluster on Linux in Azure Virtual Machines." metaCanonical="" services="virtual-machines" documentationCenter="nodejs" title="Running Cassandra with Linux on Azure and Accessing it from Node.js" authors="hanuk" solutions="" manager="timlt" editor="" />
+<properties urlDisplayName="Cassandra with Linux" pageTitle="Azure에서 Linux 환경의 Cassandra 실행" metaKeywords="" description="Azure 가상 컴퓨터의 Linux에서 Cassandra 클러스터를 실행하는 방법에 대해 알아봅니다." metaCanonical="" services="virtual-machines" documentationCenter="nodejs" title="Azure에서 Linux 환경의 Cassandra 실행 및 Node.js에서 Cassandra에 액세스" authors="hanuk" solutions="" manager="timlt" editor="" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="hanuk" />
 
@@ -47,11 +47,11 @@ Cassandra 응용 프로그램 환경에 적합한 배포 모델로 자체 포함
 
 **1단계: SSH 키 쌍 생성**
 
-Azure는 프로비전 시간에 PEM 또는 DER 인코딩된 X509 공개 키를 필요로 합니다. [Azure에서 Linux 환경의 SSH를 사용하는 방법][Azure에서 Linux 환경의 SSH를 사용하는 방법](영문)에 설명된 지침에 따라 공개/개인 키 쌍을 생성합니다. Windows 또는 Linux에서 putty.exe를 SSH 클라이언트로 사용할 계획이면 PEM 인코딩된 RSA 개인 키를 puttygen.exe를 사용하여 PPK 형식으로 변환해야 합니다. 이에 대한 지침은 [Windows Azure에서의 Linux VM 배포를 위한 SSH 키 쌍 생성][Windows Azure에서의 Linux VM 배포를 위한 SSH 키 쌍 생성]을 참조하십시오.
+Azure는 프로비전 시간에 PEM 또는 DER 인코딩된 X509 공개 키를 필요로 합니다. [Azure에서 Linux 환경의 SSH를 사용하는 방법][Azure에서 Linux 환경의 SSH를 사용하는 방법](영문)에 설명된 지침에 따라 공개/개인 키 쌍을 생성합니다. Windows 또는 Linux에서 putty.exe를 SSH 클라이언트로 사용할 계획이면 PEM 인코딩된 RSA 개인 키를 puttygen.exe를 사용하여 PPK 형식으로 변환해야 합니다. 이에 대한 지침은 [Windows Azure에서의 Linux VM 배포를 위한 SSH 키 쌍 생성][Windows Azure에서의 Linux VM 배포를 위한 SSH 키 쌍 생성]을 참조하세요.
 
 **2단계: Ubuntu VM 만들기**
 
-첫 번째 Ubuntu VM을 만들려면 Azure 미리 보기 포털에 로그인하고 **새로 만들기**, **가상 컴퓨터**, **갤러리에서**, **Unbuntu Server 12.xx**를 차례로 클릭한 후, 오른쪽 화살표를 클릭합니다. Linux VM을 만드는 방법을 설명하는 자습서는 [Linux를 실행하는 가상 컴퓨터 만들기][Linux를 실행하는 가상 컴퓨터 만들기](영문)를 참조하십시오.
+첫 번째 Ubuntu VM을 만들려면 Azure 미리 보기 포털에 로그인하고 **새로 만들기**, **가상 컴퓨터**, **갤러리에서**, **Unbuntu Server 12.xx**를 차례로 클릭한 후, 오른쪽 화살표를 클릭합니다. Linux VM을 만드는 방법을 설명하는 자습서는 [Linux를 실행하는 가상 컴퓨터 만들기][Linux를 실행하는 가상 컴퓨터 만들기](영문)를 참조하세요.
 
 그런 다음, VM 구성 화면에서 다음 정보를 입력합니다.
 
@@ -235,7 +235,7 @@ e. 이제 두 번째 VM을 선택하고 위의 프로세스를 반복하여 끝�
 
 VM이 준비되었으므로 이제는 각 VM에서 Cassandra를 설정할 차례입니다. Cassandra가 여러 Linux 배포판에서 표준 구성 요소가 아니기 때문에 수동 배포 프로세스를 따르도록 하겠습니다.
 
-[수동으로 각 VM에 소프트웨어를 설치한다는 점에 유의하십시오. 완전하게 작동하는 Cassandra VM을 설정하고 이 VM을 기본 이미지로 캡처한 후 이 이미지로부터 추가적인 인스턴스를 만드는 방법으로 프로세스의 처리 속도가 향상될 수는 있습니다. Linux 이미지 캡처에 대한 지침은 [Linux를 실행하는 가상 컴퓨터의 이미지를 캡처하는 방법][수동으로 각 VM에 소프트웨어를 설치한다는 점에 유의하십시오. 완전하게 작동하는 Cassandra VM을 설정하고 이 VM을 기본 이미지로 캡처한 후 이 이미지로부터 추가적인 인스턴스를 만드는 방법으로 프로세스의 처리 속도가 향상될 수는 있습니다. Linux 이미지 캡처에 대한 지침은 [Linux를 실행하는 가상 컴퓨터의 이미지를 캡처하는 방법](영문)에 나와 있습니다.]
+[수동으로 각 VM에 소프트웨어를 설치한다는 점에 유의하세요. 완전하게 작동하는 Cassandra VM을 설정하고 이 VM을 기본 이미지로 캡처한 후 이 이미지로부터 추가적인 인스턴스를 만드는 방법으로 프로세스의 처리 속도가 향상될 수는 있습니다. Linux 이미지 캡처에 대한 지침은 [Linux를 실행하는 가상 컴퓨터의 이미지를 캡처하는 방법][수동으로 각 VM에 소프트웨어를 설치한다는 점에 유의하세요. 완전하게 작동하는 Cassandra VM을 설정하고 이 VM을 기본 이미지로 캡처한 후 이 이미지로부터 추가적인 인스턴스를 만드는 방법으로 프로세스의 처리 속도가 향상될 수는 있습니다. Linux 이미지 캡처에 대한 지침은 [Linux를 실행하는 가상 컴퓨터의 이미지를 캡처하는 방법](영문)에 나와 있습니다.]
 
 ## <span id="task2"></span> </a>작업 2: 각 가상 컴퓨터에서 Cassandra 설정
 
@@ -251,7 +251,7 @@ Cassandra는 Java Virtual Machine을 필요로 하기 때문에 Ubuntu를 비롯
 
 1.  SSH를 사용하여 Linux(Ubuntu) VM 인스턴스에 로그인합니다.
 
-2.  wget을 사용하여 Cassandra 비트를 apache-cassandra-bin.tar.gz로 미러 사이트(<http://cassandra.apache.org/download/>)[<http://cassandra.apache.org/download/>]에서 "~/downloads" 디렉터리로 다운로드합니다. 버전을 알 수 없도록 하기 위해 다운로드한 파일에 버전 번호가 포함되어 있지 않습니다.
+2.  wget을 사용하여 Cassandra 비트를 apache-cassandra-bin.tar.gz로 미러 사이트((http://cassandra.apache.org/download/)[http://cassandra.apache.org/download/]에서 추천한 사이트)에서 "~/downloads" 디렉터리로 다운로드합니다. 버전을 알 수 없도록 하기 위해 다운로드한 파일에 버전 번호가 포함되어 있지 않습니다.
 
 3.  다음 명령을 실행하여 tar ball을 기본 로그인 디렉터리에 압축 해제합니다.
 
@@ -302,7 +302,7 @@ thrift 클라이언트를 사용하여 연결하기 위해 Cassandra의 bin 디�
 
 클러스터의 모든 노드에 대해 1단계부터 5단계까지 반복합니다.
 
-모든 개별 VM이 준비되고 필수적인 소프트웨어도 함께 준비되었으므로 이제는 시드 구성을 통해 노드 간 통신을 설정할 차례입니다. 다중 노드 클러스터 구성에 대한 자세한 내용은 [][]<http://wiki.apache.org/cassandra/MultinodeCluster></a>에서 제공하는 정보를 참조하십시오.
+모든 개별 VM이 준비되고 필수적인 소프트웨어도 함께 준비되었으므로 이제는 시드 구성을 통해 노드 간 통신을 설정할 차례입니다. 다중 노드 클러스터 구성에 대한 자세한 내용은 <http://wiki.apache.org/cassandra/MultinodeCluster>에서 제공하는 정보를 참조하세요.
 
 **6단계: 다중 노드 클러스터 설정**
 
@@ -317,7 +317,7 @@ cassandra.yaml을 편집하여 모든 VM에서 다음 속성을 변경합니다.
 여기에서 지정한 IP 주소는 링 토폴로지를 파악하기 위해 새 노드에 사용됩니다. 가장 신뢰할 수 있는 노드를 쉼표로 구분된 형식, 즉 "*host1*,*host2*" 형식을 사용하여 시드로 설정합니다. 예를 들어, "hk-ub1,hk-ub2"와 같이 설정합니다.
 
 시드 서버가 제공하는 기본 토큰은 본 실습에서 중요한 부분이 아니기 때문에 제공된 그대로 사용할 것입니다. 최적의 토큰 생성에 대해서는
-[][1]<http://wiki.apache.org/cassandra/GettingStarted></a>에서 Python 스크립트를 참조하십시오.
+<http://wiki.apache.org/cassandra/GettingStarted>에서 Python 스크립트를 참조하세요.
 
 모든 노드에서 Cassandra를 다시 시작하여 위의 변경 내용을 적용합니다.
 
@@ -435,7 +435,7 @@ Cassandra 저장소는 RDBMS 용어의 데이터베이스 및 테이블 구조�
 
 ![행 및 열][행 및 열]
 
-위의 데이터 구조를 만들고 쿼리하는 node.js 액세스의 예를 보여 주기 위해 이전에 배포한 Cassandra 클러스터를 사용할 것입니다. 고객 데이터 저장을 위해 클러스터를 준비하는 기본적인 작업을 수행하는 간단한 node.js 스크립트를 만듭니다. 이 스크립트에 나와 있는 기법은 node.js 웹 응용 프로그램 또는 웹 서비스에서 쉽게 사용될 수 있습니다. 아래의 코드 조각은 작동 방식을 보여 주기 위한 것일 뿐이며 실제 솔루션에 사용할 경우에는 개선의 여지(예: 보안, 로깅, 확장성)가 매우 많다는 점에 유의하십시오.
+위의 데이터 구조를 만들고 쿼리하는 node.js 액세스의 예를 보여 주기 위해 이전에 배포한 Cassandra 클러스터를 사용할 것입니다. 고객 데이터 저장을 위해 클러스터를 준비하는 기본적인 작업을 수행하는 간단한 node.js 스크립트를 만듭니다. 이 스크립트에 나와 있는 기법은 node.js 웹 응용 프로그램 또는 웹 서비스에서 쉽게 사용될 수 있습니다. 아래의 코드 조각은 작동 방식을 보여 주기 위한 것일 뿐이며 실제 솔루션에 사용할 경우에는 개선의 여지(예: 보안, 로깅, 확장성)가 매우 많다는 점에 유의하세요.
 
 필요한 변수를 스크립트 범위에서 정의하여 cassandra-client 모듈의 PooledConnection 및 자주 사용되는 keyspace 이름과 keyspace 연결 매개 변수를 포함하겠습니다.
 
@@ -585,7 +585,6 @@ Azure 가상 컴퓨터에는 Linux(Microsoft 파트너가 제공한 이미지) �
   [Windows Azure에서의 Linux VM 배포를 위한 SSH 키 쌍 생성]: http://blogs.msdn.com/b/hanuk/archive/2012/06/07/generating-ssh-key-pair-for-linux-vm-deployment-on-windows-azure.aspx
   [Linux를 실행하는 가상 컴퓨터 만들기]: http://www.windowsazure.com/ko-kr/manage/linux/tutorials/virtual-machine-from-gallery/
   [Linux를 실행하는 가상 컴퓨터의 이미지를 캡처하는 방법]: https://www.windowsazure.com/ko-kr/manage/linux/how-to-guides/capture-an-image/
-  []: http://wiki.apache.org/cassandra/MultinodeCluster
-  [1]: http://wiki.apache.org/cassandra/GettingStarted
   [cassandra-client]: https://github.com/racker/node-cassandra-client
   [행 및 열]: ./media/virtual-machines-linux-nodejs-running-cassandra/cassandra-linux3.png
+  [CQL(Cassandra 쿼리 언어)]: http://cassandra.apache.org/doc/cql/CQL.html

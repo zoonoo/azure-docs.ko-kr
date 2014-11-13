@@ -1,6 +1,6 @@
 데이터 디스크를 연결하려면 다음 단계를 따르세요.
 
-1.  [Azure 관리 포털][]에서 **Virtual Machines**를 클릭하고 방금 만든 가상 컴퓨터(**testwinvm**)를 선택합니다.
+1.  [Azure 관리 포털][Azure 관리 포털]에서 **Virtual Machines**를 클릭하고 방금 만든 가상 컴퓨터(**testwinvm**)를 선택합니다.
 
 2.  명령 모음에서 **Attach**를 클릭한 후 **Attach Empty Disk**를 클릭합니다.
 
@@ -8,7 +8,7 @@
 
 3.  **Virtual Machine Name**, **Storage Location** 및 **File Name**은 이미 정의되어 있습니다. 원하는 디스크 크기만 입력하면 됩니다. **Size** 필드에 **5**를 입력합니다.
 
-    ![빈 디스크 연결][]
+    ![빈 디스크 연결][빈 디스크 연결]
 
     **참고:** 모든 디스크는 Azure 저장소의 VHD 파일에서 만들어집니다. 저장소에 추가되는 VHD 파일의 이름은 지정할 수 있지만 디스크 이름은 Azure에서 자동으로 생성합니다.
 
@@ -32,19 +32,19 @@
 
 4.  가상 컴퓨터에 로그온한 후 **Server Manager**를 엽니다. 왼쪽 창에서 **Storage**를 확장하고 **Disk Management**를 클릭합니다.
 
-    ![서버 관리자][]
+    ![서버 관리자][서버 관리자]
 
 5.  **Initalize Disk** 창이 나타납니다. **확인**을 클릭합니다.
 
-    ![디스크 초기화][]
+    ![디스크 초기화][디스크 초기화]
 
 6.  디스크 2에 대한 공간 할당 영역을 마우스 오른쪽 단추로 클릭하고 **New Simple Volume**을 클릭한 다음 기본값을 사용하여 마법사를 완료합니다.
 
-    ![새 단순 볼륨][]
+    ![새 단순 볼륨][새 단순 볼륨]
 
     이제 디스크가 온라인 상태이며 새 드라이브 문자로 사용할 수 있습니다.
 
-    ![초기화 성공][]
+    ![초기화 성공][초기화 성공]
 
   [Azure 관리 포털]: http://manage.windowsazure.com
   [빈 디스크 연결]: ./media/attach-data-disk-windows-server-2008-vm-in-portal/AttachDataDiskWinVM2.png

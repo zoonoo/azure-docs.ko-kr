@@ -1,15 +1,18 @@
 # Azure 클라우드 서비스에 대한 사용자 지정 도메인 이름 구성
 
-Azure에서 응용 프로그램을 만드는 경우 Azure에서 cloudapp.net 도메인의 하위 도메인을 제공하므로 사용자가 [http://\<\*myapp][]\*\>.cloudapp.net 등의 URL에서 응용 프로그램에 액세스할 수 있습니다. 그러나 contoso.com 등의 고유한 도메인 이름에 응용 프로그램을 표시할 수도 있습니다.
+> [WACOM.NOTE]
+> 새로운 Azure의 [안내 방식 연습][안내 방식 연습]을 사용하면 작업을 보다 빠르게 수행할 수 있습니다. 이 연습을 통해 사용자 지정 도메인 이름을 연결하고 SSL을 사용하여 Azure 클라우드 서비스 또는 Azure 웹 사이트와의 통신을 보호하는 등의 작업을 매우 쉽게 완료할 수 있습니다.
+
+Azure에서 응용 프로그램을 만드는 경우 Azure에서 cloudapp.net 도메인의 하위 도메인을 제공하므로 사용자가 http://\<*myapp*\>.cloudapp.net 등의 URL에서 응용 프로그램에 액세스할 수 있습니다. 그러나 contoso.com 등의 고유한 도메인 이름에 응용 프로그램을 표시할 수도 있습니다.
 
 > [WACOM.NOTE]
-> 이 작업의 절차는 Azure 클라우드 서비스에 적용됩니다. 저장소 계정의 경우 [Azure 저장소 계정에 대한 사용자 지정 도메인 이름 구성][]을 참조하세요. 웹 사이트의 경우 [Azure 웹 사이트에 대한 사용자 지정 도메인 이름 구성][]을 참조하세요.
+> 이 작업의 절차는 Azure 클라우드 서비스에 적용됩니다. 저장소 계정의 경우 [Azure 저장소 계정에 대한 사용자 지정 도메인 이름 구성][Azure 저장소 계정에 대한 사용자 지정 도메인 이름 구성]을 참조하세요. 웹 사이트의 경우 [Azure 웹 사이트에 대한 사용자 지정 도메인 이름 구성][Azure 웹 사이트에 대한 사용자 지정 도메인 이름 구성]을 참조하세요.
 
 이 문서의 내용
 
--   [CNAME 및 A 레코드 이해][]
--   [사용자 지정 도메인에 대한 CNAME 레코드 추가][]
--   [사용자 지정 도메인에 대한 A 레코드 추가][]
+-   [CNAME 및 A 레코드 이해][CNAME 및 A 레코드 이해]
+-   [사용자 지정 도메인에 대한 CNAME 레코드 추가][사용자 지정 도메인에 대한 CNAME 레코드 추가]
+-   [사용자 지정 도메인에 대한 A 레코드 추가][사용자 지정 도메인에 대한 A 레코드 추가]
 
 ## <a name="access-app"></a>CNAME 및 A 레코드 이해
 
@@ -20,7 +23,7 @@ CNAME(또는 별칭 레코드) 및 A 레코드는 둘 다 도메인 이름을 �
 CNAME 레코드는 **contoso.com**, **www.contoso.com** 등의 *특정* 도메인을 정식 도메인 이름에 매핑합니다. 이 경우 정식 도메인 이름은 Azure 호스티드 응용 프로그램의 **\<myapp\>.cloudapp.net** 도메인 이름입니다. CNAME을 만들면 **\<myapp\>.cloudapp.net**에 대한 별칭이 만들어집니다. CNAME 항목은 **\<myapp\>.cloudapp.net** 서비스의 IP 주소로 자동으로 확인되므로 클라우드 서비스의 IP 주소가 변경될 경우 특별한 조치를 수행할 필요가 없습니다.
 
 > [WACOM.NOTE]
-> 일부 도메인 등록 기관에서는 contoso.com 등의 루트 이름이 아니라 www.contoso.com 등의 CNAME 레코드를 사용할 때 하이 도메인 매핑만 허용합니다. CNAME 레코드에 대한 자세한 내용은 등록 기관에서 제공한 설명서, [CNAME 레코드에 대한 Wikipedia 항목][] 또는 [IETF 도메인 이름 - 구현 및 사양][] 문서를 참조하세요.
+> 일부 도메인 등록 기관에서는 contoso.com 등의 루트 이름이 아니라 www.contoso.com 등의 CNAME 레코드를 사용할 때 하이 도메인 매핑만 허용합니다. CNAME 레코드에 대한 자세한 내용은 등록 기관에서 제공한 설명서, [CNAME 레코드에 대한 Wikipedia 항목][CNAME 레코드에 대한 Wikipedia 항목] 또는 [IETF 도메인 이름 - 구현 및 사양][IETF 도메인 이름 - 구현 및 사양] 문서를 참조하세요.
 
 ### A 레코드
 
@@ -29,7 +32,7 @@ A 레코드는 **contoso.com**, **www.contoso.com** 등의 도메인이나 **\*.
 > [WACOM.NOTE]
 > A 레코드는 고정 IP 주소에 매핑되므로 변경 내용을 클라우드 서비스의 IP 주소로 자동으로 확인할 수 없습니다. 빈 슬롯(프로덕션 또는 스테이징)에 처음 배포할 때 클라우드 서비스에서 사용되는 IP 주소가 할당됩니다. 슬롯에 대한 배포를 삭제하면 Azure에서 IP 주소를 해제하며, 나중에 슬롯에 배포할 때 새 IP 주소가 지정될 수 있습니다.
 >
-> 편의상, 스테이징 배포와 프로덕션 배포 간에 전환하거나 기존 배포의 바로 업그레이드를 수행하는 경우 주어진 배포 슬롯(프로덕션 또는 스테이징)의 IP 주소가 지속됩니다. 이러한 작업을 수행하는 방법에 대한 자세한 내용은 [클라우드 서비스를 관리하는 방법][]을 참조하세요.
+> 편의상, 스테이징 배포와 프로덕션 배포 간에 전환하거나 기존 배포의 바로 업그레이드를 수행하는 경우 주어진 배포 슬롯(프로덕션 또는 스테이징)의 IP 주소가 지속됩니다. 이러한 작업을 수행하는 방법에 대한 자세한 내용은 [클라우드 서비스를 관리하는 방법][클라우드 서비스를 관리하는 방법]을 참조하세요.
 
 ## <a name="add-cname"></a>사용자 지정 도메인에 대한 CNAME 레코드 추가
 
@@ -37,11 +40,11 @@ CNAME 레코드를 만들려면 등록 기관에서 제공한 도구를 사용�
 
 1.  이러한 방법 중 하나를 사용하여 클라우드 서비스에 할당된 **.cloudapp.net** 도메인 이름을 찾습니다.
 
--   [Azure 관리 포털][]에 로그인하고 클라우드 서비스를 선택한 다음 **대시보드**를 선택하고 **quick glance** 섹션에서 **Site URL** 항목을 찾습니다.
+-   [Azure 관리 포털][Azure 관리 포털]에 로그인하고 클라우드 서비스를 선택한 다음 **대시보드**를 선택하고 **quick glance** 섹션에서 **Site URL** 항목을 찾습니다.
 
           ![quick glance section showing the site URL][csurl]
 
--   [Azure Powershell][]을 설치 및 구성하고 다음 명령을 사용합니다.
+-   [Azure Powershell][Azure Powershell]을 설치 및 구성하고 다음 명령을 사용합니다.
 
     Get-AzureDeployment -ServiceName yourservicename | Select Url
 
@@ -51,7 +54,7 @@ CNAME 레코드를 만들 때 필요하므로 두 방법 중 하나에서 반환
 
 2.  이제 CNAME을 선택하거나 입력할 수 있는 위치를 찾습니다. 드롭다운에서 레코드 유형을 선택하거나 고급 설정 페이지로 이동해야 할 수도 있습니다. **CNAME**, **별칭** 또는 **하위 도메인**과 같은 단어를 찾아야 합니다.
 
-3.  **www.customdomain.com**에 대한 별칭을 만들려는 경우 **www**와 같은 CNAME에 대한 도메인 또는 하위 도메인 별칭도 제공해야 합니다. 루트 도메인에 대한 별칭을 만들려는 경우 등록 기관의 DNS 도구에서 '<'**@**>' 기호로 표시될 수도 있습니다.
+3.  **www.customdomain.com**에 대한 별칭을 만들려는 경우 **www**와 같은 CNAME에 대한 도메인 또는 하위 도메인 별칭도 제공해야 합니다. 루트 도메인에 대한 별칭을 만들려는 경우 등록 기관의 DNS 도구에서 '**@**' 기호로 표시될 수도 있습니다.
 
 4.  정식 호스트 이름을 제공해야 합니다. 이 경우에는 응용 프로그램의 **cloudapp.net** 도메인입니다.
 
@@ -74,11 +77,11 @@ A 레코드를 만들려면 먼저 클라우드 서비스의 가상 IP 주소를
 
 1.  다음 방법 중 하나를 사용하여 클라우드 서비스의 IP 주소를 가져옵니다.
 
--   [Azure 관리 포털][]에 로그인하고 클라우드 서비스를 선택한 다음 **대시보드**를 선택하고 **quick glance** 섹션에서 **Public Virtual IP (VIP) address** 항목을 찾습니다.
+-   [Azure 관리 포털][Azure 관리 포털]에 로그인하고 클라우드 서비스를 선택한 다음 **대시보드**를 선택하고 **quick glance** 섹션에서 **Public Virtual IP (VIP) address** 항목을 찾습니다.
 
          ![quick glance section showing the VIP][vip]
 
--   [Azure Powershell][]을 설치 및 구성하고 다음 명령을 사용합니다.
+-   [Azure Powershell][Azure Powershell]을 설치 및 구성하고 다음 명령을 사용합니다.
 
     get-azurevm -servicename yourservicename | get-azureendpoint -VM {$\_.VM} | select Vip
 
@@ -92,7 +95,7 @@ A 레코드를 만들 때 필요하므로 IP 주소를 저장합니다.
 
 3.  이 A 레코드를 사용할 도메인 또는 하위 도메인을 선택하거나 입력합니다. 예를 들어 **www.customdomain.com**에 대한 별칭을 만들려는 경우 **www**를 선택합니다. 모든 하위 도메인에 대한 와일드카드 항목을 만들려면 '\_\_\*\_\_'를 입력합니다. 그러면 **mail.customdomain.com**, **login.customdomain.com**, **www.customdomain.com** 등의 모든 하위 도메인이 포함됩니다.
 
-루트 도메인에 대한 A 레코드를 만들려는 경우 등록 기관의 DNS 도구에서 '<'**@**>' 기호로 표시될 수도 있습니다.
+루트 도메인에 대한 A 레코드를 만들려는 경우 등록 기관의 DNS 도구에서 '**@**' 기호로 표시될 수도 있습니다.
 
 1.  제공된 필드에 클라우드 서비스의 IP 주소를 입력합니다. 그러면 A 레코드에 사용된 도메인 항목이 클라우드 서비스 배포의 IP 주소와 연결됩니다.
 
@@ -106,10 +109,10 @@ A 레코드를 만들 때 필요하므로 IP 주소를 저장합니다.
 
 ## 다음 단계
 
--   [클라우드 서비스를 관리하는 방법][]
--   [CDN 콘텐츠를 사용자 지정 도메인에 매핑하는 방법][]
+-   [클라우드 서비스를 관리하는 방법][클라우드 서비스를 관리하는 방법]
+-   [CDN 콘텐츠를 사용자 지정 도메인에 매핑하는 방법][CDN 콘텐츠를 사용자 지정 도메인에 매핑하는 방법]
 
-  [http://\<\*myapp]: http://<*myapp
+  [안내 방식 연습]: http://support.microsoft.com/kb/2990804
   [Azure 저장소 계정에 대한 사용자 지정 도메인 이름 구성]: ../storage-custom-domain-name/
   [Azure 웹 사이트에 대한 사용자 지정 도메인 이름 구성]: ../web-sites-custom-domain-name/
   [CNAME 및 A 레코드 이해]: #access-app
@@ -120,4 +123,4 @@ A 레코드를 만들 때 필요하므로 IP 주소를 저장합니다.
   [클라우드 서비스를 관리하는 방법]: ../cloud-services-how-to-manage/
   [Azure 관리 포털]: https://manage.windowsazure.com
   [Azure Powershell]: ../install-configure-powershell/
-  [CDN 콘텐츠를 사용자 지정 도메인에 매핑하는 방법]: http://msdn.microsoft.com/en-us/library/windowsazure/gg680307.aspx
+  [CDN 콘텐츠를 사용자 지정 도메인에 매핑하는 방법]: http://msdn.microsoft.com/ko-kr/library/windowsazure/gg680307.aspx

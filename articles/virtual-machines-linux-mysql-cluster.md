@@ -1,6 +1,6 @@
-<properties title="Using load-balanced sets to clusterize MySQL on Linux" pageTitle="Using load-balanced sets to clusterize MySQL on Linux" description="An article that illustrates patterns to setup a load-balanced, high availability Linux cluster on Azure using MySQL as an example" metaKeywords="mysql, linux, cluster, azure, ha, high availability, corosync, pacemaker, drbd, heartbeat" services="virtual-machines" solutions="" documentationCenter="" authors="jparrel" videoId="" scriptId="" />
+<properties title="부하 분산 집합을 사용하여 Linux에서 MySQL 클러스터화" pageTitle="부하 분산 집합을 사용하여 Linux에서 MySQL 클러스터화" description="MySQL을 예로 사용하여 Azure에서 부하 분산된 고가용성 Linux 클러스터를 설정하는 패턴을 보여 주는 문서입니다." metaKeywords="mysql, linux, cluster, azure, ha, high availability, corosync, pacemaker, drbd, heartbeat" services="virtual-machines" solutions="" documentationCenter="" authors="jparrel" videoId="" scriptId="" manager="timlt" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jparrel"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jparrel" />
 
 # 부하 분산 집합을 사용하여 Linux에서 MySQL 클러스터화
 
@@ -32,9 +32,9 @@ NBD Cluster, Percona 및 Galera를 비롯하여 MySQL에 대해 사용 가능한
 ### 테스트된 환경
 
 -   Ubuntu 13.10
-  -   DRBD
-  -   MySQL Server
-  -   Corosync 및 Pacemaker
+-   DRBD
+-   MySQL Server
+-   Corosync 및 Pacemaker
 
 ### 선호도 그룹
 
@@ -327,8 +327,8 @@ Pacemaker를 처음 설치할 때는 구성이 다음과 같이 단순합니다.
 다음 제한 사항이 적용됩니다.
 
 -   Pacemaker에서 DRBD를 리소스로 관리하는 linbit DRBD 리소스 스크립트는 노드가 대기 상태일 때도 노드를 종료할 때 `drbdadm down`을 사용합니다. 슬레이브는 마스터가 쓰기를 받는 동안 DRBD 리소스를 동기화하지 않게 되므로 이러한 방식은 이상적이지 않습니다. 다행히 마스터가 실패하지 않으면 슬레이브는 이전 파일 시스템 상태를 인계 받을 수 있습니다. 이러한 문제를 해결할 수 있는 방법에는 다음 두 가지가 있습니다.
-  -   로컬(클러스터화되지 않은) Watchdog를 통해 모든 클러스터 노드에서 `drbdadm up r0` 적용 또는
-  -   linbit DRBD 스크립트를 편집하여 `/usr/lib/ocf/resource.d/linbit/drbd`에서 `down`이 호출되지 않도록 설정
+-   로컬(클러스터화되지 않은) Watchdog를 통해 모든 클러스터 노드에서 `drbdadm up r0` 적용 또는
+-   linbit DRBD 스크립트를 편집하여 `/usr/lib/ocf/resource.d/linbit/drbd`에서 `down`이 호출되지 않도록 설정
 -   부하 분산 장치가 응답하는 데 5초 이상 필요하므로 응용 프로그램은 클러스터를 인식할 수 있어야 하고 시간 제한을 좀 더 허용해야 합니다. 앱 내 큐, 쿼리 미들웨어 등의 다른 아키텍처도 도움이 될 수 있습니다.
 -   동일한 간격으로 쓰기가 수행되고 캐시가 메모리 손실을 최소화할만큼 자주 디스크에 플러시되도록 하기 위해 MySQL 튜닝이 필요합니다.
 -   쓰기 성능은 DRBD가 장치 복제에 사용하는 메커니즘인 가상 스위치의 VM 상호 연결에 따라 좌우됩니다.

@@ -1,6 +1,6 @@
-<properties title="Develop a predictive solution with Azure Machine Learning" pageTitle="Develop a predictive solution with Machine Learning | Azure" description="Walkthrough of how to create a predictive analytics experiment in Azure Machine Learning Studio" metaKeywords="" services="" solutions="" documentationCenter="" authors="garye" videoId="" scriptId="" />
+<properties title="Azure 기계 학습으로 예측 솔루션 개발" pageTitle="기계 학습으로 예측 솔루션 개발 | Azure" description="Azure 기계 학습 스튜디오에서 예측 분석 실험을 만드는 방법의 연습을 소개합니다." metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
 
-<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="garye"></tags>
+<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/06/2014" ms.author="garye" />
 
 # Azure 기계 학습으로 예측 솔루션 개발
 
@@ -12,15 +12,15 @@
 
 다음 단계를 따릅니다.
 
-1.  [기계 학습 작업 영역 만들기][]
-2.  [기존 데이터 업로드][]
-3.  [새로운 실험 만들기][]
-4.  [모델 학습 및 평가][]
-5.  [웹 서비스 게시][]
-6.  [웹 서비스 액세스][]
+1.  [기계 학습 작업 영역 만들기][기계 학습 작업 영역 만들기]
+2.  [기존 데이터 업로드][기존 데이터 업로드]
+3.  [새로운 실험 만들기][새로운 실험 만들기]
+4.  [모델 학습 및 평가][모델 학습 및 평가]
+5.  [웹 서비스 게시][웹 서비스 게시]
+6.  [웹 서비스 액세스][웹 서비스 액세스]
 
 이 연습은 기계 학습 스튜디오에 포함된
-[신용 위험 예측 샘플 실험][]의 간소화된 버전을 기반으로 합니다.
+[신용 위험 예측 샘플 실험][신용 위험 예측 샘플 실험]의 간소화된 버전을 기반으로 합니다.
 
   [기계 학습 작업 영역 만들기]: ../machine-learning-walkthrough-1-create-ml-workspace/
   [기존 데이터 업로드]: ../machine-learning-walkthrough-2-upload-data/

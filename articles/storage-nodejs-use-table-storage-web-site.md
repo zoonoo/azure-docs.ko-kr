@@ -1,6 +1,6 @@
-<properties linkid="dev-nodejs-tutorials-web-site-with-storage" urlDisplayName="Website with Storage" pageTitle="Node.js website with table storage | Microsoft Azure" metaKeywords="Azure table storage Node.js, Azure Node.js application, Azure Node.js tutorial, Azure Node.js example" description="A tutorial that teaches you how to use the Azure Table service to store data from a Node application hosted on an Azure website." metaCanonical="" services="web-sites,storage" documentationCenter="Node.js" title="Node.js Web Application using the Azure Table Service" authors="larryfr" solutions="" manager="" editor="" />
+<properties urlDisplayName="Website with Storage" pageTitle="테이블 저장소를 사용하는 Node.js 웹 사이트 | Microsoft Azure" metaKeywords="Azure table storage Node.js, Azure Node.js application, Azure Node.js tutorial, Azure Node.js example" description="Azure 테이블 서비스를 사용하여 Azure 웹 사이트에서 호스트되는 Node 응용 프로그램의 데이터를 저장하는 방법을 설명하는 자습서입니다." metaCanonical="" services="web-sites,storage" documentationCenter="nodejs" title="Azure 테이블 서비스를 사용하는 Node.js 웹 응용 프로그램" authors="larryfr" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr" />
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # Azure 테이블 서비스를 사용하는 Node.js 웹 응용 프로그램
 
@@ -470,7 +470,7 @@
 
         npm start
 
-3.  웹 브라우저를 열고 <http://127.0.0.1:3000>으로 이동합니다. 그러면 다음과 비슷한 웹 페이지가 표시됩니다.
+3.  웹 브라우저를 열고 http://127.0.0.1:3000으로 이동합니다. 그러면 다음과 유사한 웹 페이지가 표시됩니다.
 
     ![빈 tasklist가 표시된 웹 페이지 ][빈 tasklist가 표시된 웹 페이지]
 
@@ -636,15 +636,15 @@ Azure에 명령줄 도구를 사용하려면 먼저 구독에 대한 정보가 �
 
 ## 추가 리소스
 
-[Mac 및 Linux용 Azure 명령줄 도구] 
-[Git를 사용하여 Azure 웹 사이트에 게시][Git를 사용하여 Azure 웹 사이트에 게시](영문):
+[Mac 및 Linux용 Azure 명령줄 도구] [Node.js 응용 프로그램을 만들어 Azure 웹 사이트에 배포]: /ko-kr/documentation/articles/web-sites-nodejs-develop-deploy-mac/
+[Git를 사용하여 Azure 웹 사이트에 게시][Git를 사용하여 Azure 웹 사이트에 게시](영문): /ko-kr/documentation/articles/web-sites-publish-source-control/
 [Azure 개발자 센터]: /ko-kr/develop/nodejs/
 
   [node]: http://nodejs.org
   [Git]: http://git-scm.com
   [빈 tasklist가 표시된 웹 페이지]: ./media/storage-nodejs-use-table-storage-web-site/table_todo_empty.png
-  [create-account-and-websites-note]: ../includes/create-account-and-websites-note.md
   [Azure 포털]: http://windowsazure.com
+  [+새로 만들기]: ./media/storage-nodejs-use-table-storage-web-site/plus-new.png
   [저장소 계정]: ./media/storage-nodejs-use-table-storage-web-site/new-storage.png
   [빠른 생성]: ./media/storage-nodejs-use-table-storage-web-site/quick-storage.png
   [액세스 키]: ./media/storage-nodejs-use-table-storage-web-site/manage-access-keys.png
@@ -654,7 +654,6 @@ Azure에 명령줄 도구를 사용하려면 먼저 구독에 대한 정보가 �
   [1]: http://getbootstrap.com/
   [작업 목록의 새 항목 이미지]: ./media/storage-nodejs-use-table-storage-web-site/table_todo_list.png
   [Node.js 응용 프로그램을 만들어 Azure 웹 사이트에 배포]: /ko-kr/documentation/articles/web-sites-nodejs-develop-deploy-mac/
-  [antares-iaas-signup]: ../includes/antares-iaas-signup.md
   [Azure 플랫폼 간 명령줄 인터페이스 설치 및 구성]: /ko-kr/documentation/articles/xplat-cli/
   [다운로드 페이지]: ./media/storage-nodejs-use-table-storage-web-site/azure-account-download-cli.png
   [Git remote]: http://git-scm.com/docs/git-remote
@@ -664,4 +663,3 @@ Azure에 명령줄 도구를 사용하려면 먼저 구독에 대한 정보가 �
   [앱 설정 저장]: ./media/storage-nodejs-use-table-storage-web-site/savebutton.png
   [MongoDB가 있는 Node.js 웹 응용 프로그램]: /ko-kr/documentation/articles/web-sites-nodejs-store-data-mongodb/
   [Git를 사용하여 Azure 웹 사이트에 게시]: /ko-kr/documentation/articles/web-sites-publish-source-control/
-  [Node.js 응용 프로그램을 만들어 Azure 웹 사이트에 배포]: /ko-kr/documentation/articles/web-sites-nodejs-develop-deploy-mac/

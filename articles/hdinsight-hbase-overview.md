@@ -1,6 +1,6 @@
-<properties linkid="manage-services-hdinsight-hbase-overview" urlDisplayName="HDInsight HBase overview" pageTitle="An overview of HBase in HDInsight | Azure" metaKeywords="" description="An introduction to HBase in HDInsight, use-cases and a comparison with other database solutions ." metaCanonical="" services="hdinsight" documentationCenter="" title="HDInsight HBase overview" authors="bradsev" solutions="big-data" manager="paulettm" editor="cgronlun" />
+<properties urlDisplayName="HDInsight HBase overview" pageTitle="HDInsight의 HBase 개요 | Azure" metaKeywords="" description="HDInsight의 HBase와 사용 사례를 소개하고 HBase를 기타 데이터베이스와 비교합니다." metaCanonical="" services="hdinsight" documentationCenter="" title="HDInsight HBase 개요" authors="bradsev" solutions="big-data" manager="paulettm" editor="cgronlun" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/21/2014" ms.author="bradsev"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/21/2014" ms.author="bradsev" />
 
 # HDInsight HBase 개요
 
@@ -12,11 +12,11 @@ HBase는 구조화되지 않은/반구조화된 대량 데이터에 대해 임�
 
 HDInsight HBase는 Azure 환경에 통합된 관리되는 클러스터로 제공됩니다. 이 클러스터는 Azure Blob 저장소에 직접 데이터를 저장하도록 구성되며, 그러면 대기 시간이 짧고 성능/비용 선택 시 탄력성이 높습니다. 따라서 고객은 대규모 데이터 집합으로 작업하는 대화형 웹 사이트를 구축하고, 수백만 개의 끝점에서 발생하는 센서 및 원격 분석 데이터를 저장하는 서비스를 구축하고, Hadoop 작업을 사용해 이 데이터를 분석할 수 있습니다. HBase 및 Hadoop는 Azure의 빅데이터 프로젝트에 유용한 시작점이며, 특히 실시간 응용 프로그램이 대형 데이터 세트로 작동하도록 할 수 있습니다.
 
-HDInsight 구현은 HBase의 규모 확장 아키텍처를 활용하여 테이블 자동 분할, 읽기 및 쓰기에 대한 강력한 일관성 및 자동 장애 조치(Failover)를 제공합니다. 읽기의 메모리 내 캐싱과 높은 처리량 스트리밍 쓰기를 통해 성능이 향상됩니다. HDInsight HBase에 가상 네트워크 프로비저닝을 사용할 수도 있습니다. 자세한 내용은 [Azure 가상 네트워크에 HDInsight 클러스터 프로비전][]을 참조하세요.
+HDInsight 구현은 HBase의 규모 확장 아키텍처를 활용하여 테이블 자동 분할, 읽기 및 쓰기에 대한 강력한 일관성 및 자동 장애 조치(Failover)를 제공합니다. 읽기의 메모리 내 캐싱과 높은 처리량 스트리밍 쓰기를 통해 성능이 향상됩니다. HDInsight HBase에 가상 네트워크 프로비전을 사용할 수도 있습니다. 자세한 내용은 [Azure 가상 네트워크에 HDInsight 클러스터 프로비전][Azure 가상 네트워크에 HDInsight 클러스터 프로비전]을 참조하세요.
 
 ## HDInsight HBase의 데이터를 관리하는 방법
 
-HBase의 HBase 셸에서 `create` `get`, `put`, `scan` 명령을 사용하여 데이터를 관리할 수 있습니다. 데이터는 `put`을 사용하여 데이터베이스에 기록되고 `get` 명령을 사용하여 읽습니다. `scan` 명령은 테이블의 여러 행에서 데이터를 가져오는 데 사용됩니다. HBase REST API에서 클라이언트 라이브러리를 제공하는 HBase C# API를 사용하여 데이터를 관리할 수도 있습니다. 또한 Hive를 사용하여 HBase 데이터베이스를 쿼리할 수 있습니다. 이러한 프로그래밍 모델 소개는 [HDInsight에서 Hadoop와 함께 HBase를 사용하여 시작][]을 참조하세요. 데이터베이스를 호스트하는 노드에서 데이터를 처리할 수 있도록 하는 보조 프로세서를 사용할 수도 있습니다.
+HBase의 HBase 셸에서 `create` `get`, `put`, `scan` 명령을 사용하여 데이터를 관리할 수 있습니다. 데이터는 `put`을 사용하여 데이터베이스에 기록되고 `get` 명령을 사용하여 읽습니다. `scan` 명령은 테이블의 여러 행에서 데이터를 가져오는 데 사용됩니다. HBase REST API에서 클라이언트 라이브러리를 제공하는 HBase C# API를 사용하여 데이터를 관리할 수도 있습니다. 또한 Hive를 사용하여 HBase 데이터베이스를 쿼리할 수 있습니다. 이러한 프로그래밍 모델 소개는 [HDInsight에서 Hadoop와 함께 HBase를 사용하여 시작][HDInsight에서 Hadoop와 함께 HBase를 사용하여 시작]을 참조하세요. 데이터베이스를 호스트하는 노드에서 데이터를 처리할 수 있도록 하는 보조 프로세서를 사용할 수도 있습니다.
 
 ## 시나리오: HBase의 사용 사례
 
@@ -33,7 +33,7 @@ Hase는 다양한 소스에서 증분 방식으로 수집된 데이터를 캡처
 
 ### 사용 사례 \#3: 실시간 쿼리
 
-[Phoenix][]는 Apache HBase용 SQL 쿼리 엔진입니다. JDBC 드라이버로 액세스되며 SQL을 사용하여 HBase 테이블을 쿼리하고 관리할 수 있도록 합니다.
+[Phoenix][Phoenix]는 Apache HBase용 SQL 쿼리 엔진입니다. JDBC 드라이버로 액세스되며 SQL을 사용하여 HBase 테이블을 쿼리하고 관리할 수 있도록 합니다.
 
 ### 사용 사례 \#4: HBase를 플랫폼으로 사용
 
@@ -43,19 +43,19 @@ HBase를 데이터 저장소로 사용하여 HBase 위에서 응용 프로그램
 
 [HDInsight에서 Hadoop과 함께 HBase를 사용하여 시작][HDInsight에서 Hadoop와 함께 HBase를 사용하여 시작]
 
-[Azure 가상 네트워크에 HDInsight 클러스터 프로비전][]
+[Azure 가상 네트워크에 HDInsight 클러스터 프로비전][Azure 가상 네트워크에 HDInsight 클러스터 프로비전]
 
-[HDInsight에서 HBase를 사용하여 Twitter 데이터 분석][]
+[HDInsight에서 HBase를 사용하여 Twitter 데이터 분석][HDInsight에서 HBase를 사용하여 Twitter 데이터 분석]
 
-[Maven을 통해 HDInsight(Hadoop)와 함께 HBase를 사용하는 Java 응용 프로그램 작성][]
+[Maven을 통해 HDInsight(Hadoop)와 함께 HBase를 사용하는 Java 응용 프로그램 작성][Maven을 통해 HDInsight(Hadoop)와 함께 HBase를 사용하는 Java 응용 프로그램 작성]
 
-[C# HBase SDK][]
+[C# HBase SDK][C# HBase SDK]
 
 ## <a name="see-also"></a>참고 항목
 
-[Apache HBase][]
+[Apache HBase][Apache HBase]
 
-[Bigtable: 구조화된 데이터의 분산 저장소 시스템][]
+[Bigtable: 구조화된 데이터의 분산 저장소 시스템][Bigtable: 구조화된 데이터의 분산 저장소 시스템]
 
   [Azure 가상 네트워크에 HDInsight 클러스터 프로비전]: ../hdinsight-hbase-provision-vnet/
   [HDInsight에서 Hadoop와 함께 HBase를 사용하여 시작]: http://azure.microsoft.com/ko-kr/documentation/articles/hdinsight-hbase-get-started/

@@ -1,6 +1,6 @@
-<properties linkid="dev-net-how-to-file-storage" urlDisplayName="File Service" pageTitle="How to use Azure File storage | Microsoft Azure" metaKeywords="Get started Azure file  Azure file share  Azure file shares  Azure file   Azure file storage   Azure file .NET   Azure file C#   Azure file PowerShell" description="Learn how to use Microsoft Azure File storage to create file shares and manage file content. Samples are written in PowerShell and C#." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="storage" documentationCenter=".NET" title="How to use Microsoft Azure File storage in .NET" authors="tamram" manager="mbaldwin" editor="cgronlun" />
+<properties urlDisplayName="File Service" pageTitle="Azure 파일 저장소 사용 방법 | Microsoft Azure" metaKeywords="Get started Azure file  Azure file share  Azure file shares  Azure file   Azure file storage   Azure file .NET   Azure file C#   Azure file PowerShell" description="Microsoft Azure 파일 저장소를 사용하여 파일 공유를 만들고 파일 콘텐츠를 관리하는 방법에 대해 알아봅니다. 샘플은 PowerShell 및 C#으로 작성되었습니다." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="storage" documentationCenter=".NET" title=".NET에서 Microsoft Azure 파일 저장소를 사용하는 방법" authors="tamram" manager="adinah" editor="cgronlun" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tamram"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
 # Azure 파일 저장소 사용 방법
 
@@ -41,18 +41,24 @@ Azure 가상 컴퓨터나 클라우드 서비스에서 실행되는 응용 프�
 
 ![files-concepts][files-concepts]
 
--   **저장소 계정:** Azure 저장소에 대한 모든 액세스는 저장소계정을 통해 수행됩니다. 저장소 계정 용량에 대한 자세한 내용은 [Azure 저장소 확장성 및 성능 목표][Azure 저장소 확장성 및 성능 목표](영문)를 참조하세요.
+-   **저장소 계정:** Azure 저장소에 대한 모든 액세스는 저장소
+    계정을 통해 수행됩니다. 저장소 계정 용량에 대한 자세한 내용은 [Azure 저장소 확장성 및 성능 목표][Azure 저장소 확장성 및 성능 목표](영문)를 참조하세요.
 
--   **공유:** 파일 저장소 공유는 Azure의 SMB 2.1 파일 공유입니다.모든 디렉터리와 파일이 상위 공유에서 만들어져야 합니다. 하나의 계정에는 제한 없는 수의공유가 포함될 수 있고 하나의 공유에는 저장소 계정의 용량 제한한도에서 제한 없는 수의 파일이 포함될 수 있습니다.
+-   **공유:** 파일 저장소 공유는 Azure의 SMB 2.1 파일 공유입니다.
+    모든 디렉터리와 파일이 상위 공유에서 만들어져야 합니다. 하나의 계정에는 제한 없는 수의
+    공유가 포함될 수 있고 하나의 공유에는 저장소 계정의 용량 제한
+    한도에서 제한 없는 수의 파일이 포함될 수 있습니다.
 
 -   **Directory:** 선택적인 디렉터리 계층 구조입니다.
 
 -   **파일:** 공유의 파일입니다. 파일 1개의 크기는 최대 1TB일 수 있습니다.
 
--   **URL 형식:** 다음 URL 형식을 사용하여 파일에 주소를 지정할 수있습니다.
+-   **URL 형식:** 다음 URL 형식을 사용하여 파일에 주소를 지정할 수
+    있습니다.
     https://`<storage account>`.file.core.windows.net/`<share>`/`<directory/directories>`/`<file>`
 
-    다음 예제 URL을 사용하여 위 다이어그램에 있는 파일 중 하나의 주소를지정할 수 있습니다.
+    다음 예제 URL을 사용하여 위 다이어그램에 있는 파일 중 하나의 주소를
+    지정할 수 있습니다.
     `http://acmecorp.file.core.windows.net/cloudfiles/diagnostics/log.txt`
 
 공유, 디렉터리 및 파일 이름 지정 방법에 대한 자세한 내용은 [공유, 디렉터리, 파일 및 메타데이터 이름 지정 및 참조][공유, 디렉터리, 파일 및 메타데이터 이름 지정 및 참조](영문)를 참조하세요.
@@ -63,7 +69,7 @@ Azure 파일 저장소는 현재 미리 보기에 있습니다. 미리 보기에
 
 > [WACOM.NOTE] 파일 저장소는 현재 새 저장소 계정에 대해서만 사용할 수 있습니다. 사용자 구독에 파일 저장소에 대한 액세스 권한이 부여되면 이 설명서를 진행하면서 사용할 새 저장소 계정을 만듭니다.
 
-[WACOM.INCLUDE [create-storage-account][create-storage-account]]
+[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ## <a name="use-cmdlets"></a><span class="short-header">PowerShell을 사용하여 파일 공유 만들기</span>PowerShell을 사용하여 파일 공유 만들기
 
@@ -132,11 +138,11 @@ Azure 파일 공유를 마운트하는 방법을 보여 주기 위해 Azure 가�
 
 가상 컴퓨터에 원격으로 연결되면 `net use` 명령의 다음 구문을 사용하여 파일 공유를 마운트할 수 있습니다. `<storage-account>`를 저장소 계정의 이름으로 바꾸고 `<share-name>`을 파일 저장소 공유의 이름으로 바꿉니다.
 
-    net use z: \\<storage-account>.file.core.windows.net\<share-name>
+    net use z: \<storage-account>.file.core.windows.netnet use z: \\<storage-account>.file.core.windows.net\<share-name>lt;share-name>
 
 > [WACOM.NOTE] 이전 단계의 저장소 계정 자격 증명을 유지했으므로 `net use` 명령에 이러한 자격 증명을 제공할 필요가 없습니다. 자격 증명을 유지하지 않았으면 `net use` 명령에 제공되는 매개 변수로 포함해야 합니다. `<storage-account>`를 저장소 계정의 이름으로 바꾸고 `<share-name>`을 파일 저장소 공유의 이름으로 바꾸고 `<account-key>`를 저장소 계정 키로 바꿉니다.
 
-    net use z: \\<storage-account>.file.core.windows.net\<share-name> /u:<storage-account> <account-key>
+    net use z: \<storage-account>.file.core.windows.netnet use z: \\<storage-account>.file.core.windows.net\<share-name> /u:<storage-account> <account-key>lt;share-name> /u:<storage-account> <account-key>
 
 이제 다른 드라이브의 경우처럼 가상 컴퓨터 내에서 파일 저장소 공유를 사용할 수 있습니다. 명령 프롬프트에서 표준 파일 명령을 실행하거나 파일 탐색기에서 마운트된 공유 및 해당 내용을 확인할 수 있습니다. .NET Framework의 [System.IO 네임스페이스][System.IO 네임스페이스]에서 제공하는 것과 같은 표준 Windows 파일 I/O API를 사용하여 파일 공유에 액세스하는 가상 컴퓨터 내에서 코드를 실행할 수도 있습니다.
 
@@ -225,7 +231,8 @@ Visual Studio에서 새 콘솔 응용 프로그램을 만들고 Azure 저장소 
 
 ## <a name="next-steps"></a><span class="short-header">다음 단계</span>다음 단계
 
-이제 파일 저장소의 기본 사항을 익혔으므로 다음 링크를 따라자세히 알아보세요.
+이제 파일 저장소의 기본 사항을 익혔으므로 다음 링크를 따라
+자세히 알아보세요.
 
 -   사용 가능한 API에 대한 자세한 내용은 파일 서비스 참조 설명서를 참조하세요.
     -   [Storage Client Library for .NET 참조][Azure .NET 저장소 클라이언트 라이브러리]
@@ -252,19 +259,18 @@ Visual Studio에서 새 콘솔 응용 프로그램을 만들고 Azure 저장소 
   [온-프레미스 응용 프로그램을 만들어 파일 저장소 액세스]: #create-console-app
   [다음 단계]: #next-steps
   [files-concepts]: ./media/storage-dotnet-how-to-use-files/files-concepts.png
-  [Azure 저장소 확장성 및 성능 목표]: http://msdn.microsoft.com/ko--kr/library/dn249410.aspx
-  [공유, 디렉터리, 파일 및 메타데이터 이름 지정 및 참조]: http://msdn.microsoft.com/ko--kr/library/azure/dn167011.aspx
-  [Microsoft Azure 미리 보기 페이지]: /ko--kr/services/preview/
-  [create-storage-account]: ../includes/create-storage-account.md
-  [Azure PowerShell 설치 및 구성 방법]: /ko--kr/documentation/articles/install-configure-powershell/
-  [Windows Server를 실행하는 가상 컴퓨터 만들기]: /ko--kr/documentation/articles/virtual-machines-windows-tutorial/
-  [Windows Server를 실행하는 가상 컴퓨터에 로그온하는 방법]: /ko--kr/documentation/articles/virtual-machines-log-on-windows-server/
-  [System.IO 네임스페이스]: http://msdn.microsoft.com/ko--kr/library/gg145019(v=vs.110).aspx
+  [Azure 저장소 확장성 및 성능 목표]: http://msdn.microsoft.com/ko-kr/library/dn249410.aspx
+  [공유, 디렉터리, 파일 및 메타데이터 이름 지정 및 참조]: http://msdn.microsoft.com/ko-kr/library/azure/dn167011.aspx
+  [Microsoft Azure 미리 보기 페이지]: /ko-kr/services/preview/
+  [Azure PowerShell 설치 및 구성 방법]: /ko-kr/documentation/articles/install-configure-powershell/
+  [Windows Server를 실행하는 가상 컴퓨터 만들기]: /ko-kr/documentation/articles/virtual-machines-windows-tutorial/
+  [Windows Server를 실행하는 가상 컴퓨터에 로그온하는 방법]: /ko-kr/documentation/articles/virtual-machines-log-on-windows-server/
+  [System.IO 네임스페이스]: http://msdn.microsoft.com/ko-kr/library/gg145019(v=vs.110).aspx
   [Azure .NET 저장소 클라이언트 라이브러리]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
-  [파일 서비스 REST API 참조(영문)]: http://msdn.microsoft.com/ko--kr/library/azure/dn167006.aspx
+  [파일 서비스 REST API 참조(영문)]: http://msdn.microsoft.com/ko-kr/library/azure/dn167006.aspx
   [Microsoft Azure 파일 서비스 소개(영문)]: http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx
   [Microsoft Azure 파일에 대한 연결 유지(영문)]: http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx
-  [Blob 저장소]: /ko--kr/documentation/articles/storage-dotnet-how-to-use-blobs/
-  [테이블 저장소]: /ko--kr/documentation/articles/storage-dotnet-how-to-use-tables/
-  [큐 저장소]: /ko--kr/documentation/articles/storage-dotnet-how-to-use-queues/
-  [SQL 데이터베이스]: /ko--kr/documentation/articles/sql-database-dotnet-how-to-use/
+  [Blob 저장소]: /ko-kr/documentation/articles/storage-dotnet-how-to-use-blobs/
+  [테이블 저장소]: /ko-kr/documentation/articles/storage-dotnet-how-to-use-tables/
+  [큐 저장소]: /ko-kr/documentation/articles/storage-dotnet-how-to-use-queues/
+  [SQL 데이터베이스]: /ko-kr/documentation/articles/sql-database-dotnet-how-to-use/

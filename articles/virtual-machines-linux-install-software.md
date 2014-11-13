@@ -1,6 +1,6 @@
-<properties linkid="manage-linux-commontasks-install-software" urlDisplayName="Install software on VM" pageTitle="Install software on a Linux virtual machine - Azure" metaKeywords="" description="Learn how to install software on your Linux virtual machine in Azure by using CentOS/Red Hat or Ubuntu." metaCanonical="" services="virtual-machines" documentationCenter="" title="Install software on your Linux virtual machine in Azure" authors="timlt" solutions="" manager="timlt" editor="" />
+<properties urlDisplayName="Install software on VM" pageTitle="Linux 가상 컴퓨터에 소프트웨어 설치 - Azure" metaKeywords="" description="CentOS/Red Hat 또는 Ubuntu를 사용하여 Azure에서 Linux 가상 컴퓨터에 소프트웨어를 설치하는 방법에 대해 알아봅니다." metaCanonical="" services="virtual-machines" documentationCenter="" title="Azure에서 Linux 가상 컴퓨터에 소프트웨어 설치" authors="timlt" solutions="" manager="timlt" editor="" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="timlt"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="timlt" />
 
 # Azure에서 Linux 가상 컴퓨터에 소프트웨어 설치
 
@@ -12,7 +12,7 @@ Linux 분산은 소프트웨어를 설치하는 데 소프트웨어 "패키지"�
 
 ## CentOS/Red Hat
 
-CentOS에는 패키지 관리용 `yum`이 제공됩니다. 이 도구를 사용하면 패키지를 설치, 제거, 업데이트하고 설치된 패키지를 나열할 수 있습니다. 이 명령에 사용되는 구문은 아래를 참조하십시오.
+CentOS에는 패키지 관리용 `yum`이 제공됩니다. 이 도구를 사용하면 패키지를 설치, 제거, 업데이트하고 설치된 패키지를 나열할 수 있습니다. 이 명령에 사용되는 구문은 아래를 참조하세요.
 
 ### 설치
 
@@ -40,7 +40,7 @@ CentOS에는 패키지 관리용 `yum`이 제공됩니다. 이 도구를 사용�
 
 ## Ubuntu
 
-Ubuntu에는 패키지 관리용으로 `apt`(Advanced Packaging Tool)가 제공됩니다. 이 도구를 사용하면 패키지를 설치, 제거, 업데이트하고 설치된 패키지를 나열할 수 있습니다. 이 명령에 사용되는 구문은 아래를 참조하십시오.
+Ubuntu에는 패키지 관리용으로 `apt`(Advanced Packaging Tool)가 제공됩니다. 이 도구를 사용하면 패키지를 설치, 제거, 업데이트하고 설치된 패키지를 나열할 수 있습니다. 이 명령에 사용되는 구문은 아래를 참조하세요.
 
 ### 설치
 

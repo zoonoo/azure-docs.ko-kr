@@ -1,25 +1,27 @@
 <properties writer="kathydav" editor="tysonn" manager="jeffreyg" />
 
 **참고**: 이 문서에서는 가상 네트워크에 연결되지 않은 가상 컴퓨터를 만듭니다. 가상 컴퓨터에서 가상 네트워크를 사용하여 호스트 이름으로 가상 컴퓨터에 직접 연결하거나 프레미스 간 연결을 설정할 수 있게 하려는 경우
-**갤러리에서** 방법을 대신 사용하고, 가상 컴퓨터를 만들 때 가상 네트워크를 지정합니다. 가상 네트워크에 대한 자세한 내용은 [Azure 가상 네트워크 개요][]를 참조하세요.
+**갤러리에서** 방법을 대신 사용하고, 가상 컴퓨터를 만들 때 가상 네트워크를 지정합니다. 가상 네트워크에 대한 자세한 내용은 [Azure 가상 네트워크 개요][Azure 가상 네트워크 개요]를 참조하세요.
 
 1.  Azure 계정을 사용하여 Azure 관리 포털에 로그인합니다.
 2.  관리 포털에서 웹 페이지 왼쪽 아래에 있는 **+New**를 클릭한 후 **Virtual Machine**, **From Gallery**를 차례로 클릭합니다.
 
-    ![새 가상 컴퓨터 만들기][]
+    ![새 가상 컴퓨터 만들기][새 가상 컴퓨터 만들기]
 
 3.  **Platform Images**에서 CentOS 가상 컴퓨터 이미지를 선택하고 페이지 오른쪽 아래에 있는 다음 화살표를 클릭합니다.
 
 4.  **Virtual machine configuration** 페이지에서 다음 정보를 제공합니다.
+
     -   **Virtual Machine Name**(예: "testlinuxvm")을 제공합니다.
     -   Sudoers 목록 파일에 추가될 **New User Name**(예: "newuser")을 지정합니다.
-    -   **New Password** 상자에 [강력한 암호][]를 입력합니다.
+    -   **New Password** 상자에 [강력한 암호][강력한 암호]를 입력합니다.
     -   **Confirm Password** 상자에 암호를 다시 입력합니다.
     -   드롭다운 목록에서 해당 **Size**를 선택합니다.
 
     다음 화살표를 클릭하여 계속합니다.
 
 5.  **가상 컴퓨터 모드** 페이지에서 다음 정보를 제공합니다.
+
     -   **독립 실행형 가상 컴퓨터**를 선택합니다.
     -   **DNS Name** 상자에 유효한 DNS 주소를 입력합니다. 예를 들어 "testlinuxvm"입니다.
     -   **Storage Account** 상자에서 **Use an automatically generated storage account**를 선택합니다.
@@ -55,12 +57,12 @@ Linux를 사용하는 경우 SSH를 사용하여 가상 컴퓨터에 연결합�
 
 ### PuTTY를 사용하여 연결
 
-Windows 컴퓨터를 사용하는 경우 PuTTY를 사용하여 VM에 연결합니다. PuTTY는 [PuTTY 다운로드 페이지][]에서 다운로드할 수 있습니다.
+Windows 컴퓨터를 사용하는 경우 PuTTY를 사용하여 VM에 연결합니다. PuTTY는 [PuTTY 다운로드 페이지][PuTTY 다운로드 페이지]에서 다운로드할 수 있습니다.
 
 1.  **putty.exe**를 다운로드하고 컴퓨터의 디렉터리에 저장합니다. 명령 프롬프트에서 해당 폴더로 이동한 다음 **putty.exe**를 실행합니다.
 
 2.  **호스트 이름**에 "testlinuxvm.cloudapp.net"을 입력하고 **포트**에 "22"를 입력합니다.
-    ![PuTTY 화면][]
+    ![PuTTY 화면][PuTTY 화면]
 
 ## 가상 컴퓨터 업데이트(옵션)
 
@@ -72,6 +74,6 @@ Windows 컴퓨터를 사용하는 경우 PuTTY를 사용하여 VM에 연결합�
 
   [Azure 가상 네트워크 개요]: http://go.microsoft.com/fwlink/p/?LinkID=294063
   [새 가상 컴퓨터 만들기]: ./media/create-and-configure-centos-vm-in-portal/CreateVM.png
-  [강력한 암호]: http://msdn.microsoft.com/en-us/library/ms161962.aspx
+  [강력한 암호]: http://msdn.microsoft.com/ko-kr/library/ms161962.aspx
   [PuTTY 다운로드 페이지]: http://www.puttyssh.org/download.html
   [PuTTY 화면]: ./media/create-and-configure-centos-vm-in-portal/putty.png

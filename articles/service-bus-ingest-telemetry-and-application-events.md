@@ -1,6 +1,6 @@
-<properties pageTitle="Ingest Telemetry and Application Events at Scale" metaKeywords="Service Bus, telemetry, events" description="Learn how to ingest telemetry and application events at scale across your business solutions." services="service-bus" documentationCenter=".NET" title="Ingest Telemetry and Application Events at Scale" authors="sethm" solutions="" manager="dwrede" editor="dwrede" />
+<properties pageTitle="원격 분석 및 응용 프로그램 이벤트 규모 수집" metaKeywords="Service Bus, telemetry, events" description="여러 비즈니스 응용 프로그램에서 원격 분석 및 응용 프로그램 이벤트 규모를 수집하는 방법에 대해 알아봅니다." services="service-bus" documentationCenter=".NET" title="원격 분석 및 응용 프로그램 이벤트 규모 수집" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="sethm"></tags>
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
 
 # 원격 분석 및 응용 프로그램 이벤트 규모 수집
 
@@ -20,12 +20,12 @@
 ## 관련 서비스
 
 -   [저장소][저장소]
--   [HDInsight][HDInsight]
+-   [Oozie 코디네이터 사용][Oozie 코디네이터 사용]
 
-  [이벤트 허브(영문)]: http://msdn.microsoft.com/ko--kr/library/dn789973.aspx
-  [이벤트 허브 가격 정보]: http://azure.microsoft.com/ko--kr/pricing/details/event-hubs/
-  [이벤트 소싱 패턴(영문)]: http://msdn.microsoft.com/ko--kr/library/dn589792.aspx
+  [이벤트 허브(영문)]: http://msdn.microsoft.com/ko-kr/library/dn789973.aspx
+  [이벤트 허브 가격 정보]: http://azure.microsoft.com/ko-kr/pricing/details/event-hubs/
+  [이벤트 소싱 패턴(영문)]: http://msdn.microsoft.com/ko-kr/library/dn589792.aspx
   [이벤트 허브 REST API 참조(영문)]: http://go.microsoft.com/fwlink/?LinkId=403977
   [이벤트 허브 코드 샘플(영문)]: http://go.microsoft.com/fwlink/?LinkID=402449
-  [저장소]: http://azure.microsoft.com/ko--kr/documentation/services/storage/
-  [HDInsight]: http://azure.microsoft.com/ko--kr/documentation/services/hdinsight/
+  [저장소]: http://azure.microsoft.com/ko-kr/documentation/services/storage/
+  [Oozie 코디네이터 사용]: http://azure.microsoft.com/ko-kr/documentation/services/hdinsight/

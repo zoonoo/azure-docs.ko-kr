@@ -1,6 +1,6 @@
-<properties linkid="develop-media-services-tutorials-get-started" urlDisplayName="Get Started with Media Services" pageTitle="Get Started with Media Services - Azure" metaKeywords="Azure media services" description="An introduction to using Media Services with Azure." metaCanonical="" services="media-services" documentationCenter="" title="Get started with Media Services" authors="" solutions="" manager="" editor="" />
+<properties urlDisplayName="Get Started with Media Services" pageTitle="미디어 서비스 시작 - Azure" metaKeywords="Azure media services" description="Azure에서 미디어 서비스를 사용하는 방법을 소개합니다." metaCanonical="" services="media-services" documentationCenter="" title="미디어 서비스 시작" authors="juliako" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="" />
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="juliako" />
 
 # <a name="getting-started"></a>미디어 서비스 시작
 
@@ -20,12 +20,13 @@
 Azure Media Services SDK를 기반으로 하는 연습 및 개발에는 다음 필수 조건이 필요합니다.
 
 -   신규 또는 기존 Azure 구독의 미디어 서비스 계정. 자세한 내용은 [미디어 서비스 계정을 만드는 방법][미디어 서비스 계정을 만드는 방법](영문)을 참조하세요.
--   운영 체제: Windows 7, Windows 2008 R2 또는 Windows 8
+-   운영 체제: Windows 7, Windows 2008 R2, Windows 8 이상
 -   .NET Framework 4.5 또는 .NET Framework 4
--   Visual Studio 2012 또는 Visual Studio 2010 SP1(Professional, Premium, Ultimate 또는 Express)
+-   Visual Studio 2012, Visual Studio 2010 SP1(Professional, Premium, Ultimate, Express) 이상
 -   **Azure SDK for .NET.**, **Azure Media Services SDK for .NET** 및 **WCF Data Services 5.0 for OData V3 라이브러리**를 설치하고 [windowsazure.mediaservices Nuget][windowsazure.mediaservices Nuget] 패키지를 사용하여 프로젝트에 참조를 추가합니다. 다음 섹션에서는 이러한 참조를 설치하고 추가하는 방법을 설명합니다.
 
-<div class="dev-callout"><strong>참고</strong> <p>이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://www.windowsazure.com/ko-kr/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Azure 무료 평가판</a>을 참조하세요.</p></div>
+> [WACOM.NOTE]
+> 이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판][Azure 무료 평가판]을 참조하세요.
 
 ## <span id="Step1"></span></a>프로젝트 설정
 
@@ -112,10 +113,12 @@ Program.cs 파일에서 **Main** 메서드의 첫 번째 항목으로 다음 코
     -   **AssetCreationOptions.CommonEncryptionProtected**: CENC(Common Encryption Protected) 파일의 경우. 예: PlayReady로 이미 암호화된 파일 집합
     -   **AssetCreationOptions.StorageEncrypted**: 저장소 암호화. Azure 저장소로 업로드하기 전에 암호화되지 않은 입력 파일을 암호화합니다.
 
-        <div class="dev-callout"> 
-<strong>참고</strong> 
-<p>미디어 서비스는 DRM(Digital Rights Manager)처럼 네트워크상이 아니라 디스크에 있는 저장소 암호화를 제공합니다.</p> 
-</div>
+        <div class="dev-callout">
+
+        **참고**
+        미디어 서비스는 DRM(Digital Rights Manager)처럼 네트워크상이 아니라 디스크에 있는 저장소 암호화를 제공합니다.
+
+        </div>
 
 2.  자산과 연결하려는 AssetFile 인스턴스를 생성합니다.
 3.  자산에 대한 액세스 권한과 기간을 정의하는 AccessPolicy 인스턴스를 생성합니다.
@@ -288,15 +291,15 @@ Main 메서드에서 \*\*\_context = new CloudMediaContext(\_accountName, \_acco
         CreateEncodingJob(asset, _singleInputFilePath, _outputFilesFolder);
 
 3.  클래스에 다음과 같은 도우미 메서드를 추가합니다. 도우미 메서드는 **CreateEncodingJob** 메서드를 지원하는 데 필요합니다. 다음은 도우미 메서드에 대한 요약입니다.
-    -   **GetLatestMediaProcessorByName** 메서드는 인코딩, 암호화 또는 기타 관련 처리 태스크를 다루는 적절한 미디어 프로세서를 반환합니다. 생성하려는 프로세스의 적절한 문자열 이름을 사용하여 미디어 프로세서를 생성합니다. mediaProcessor 매개 변수에 대해 메서드에 전달될 수 있는 가능한 문자열은 **Azure Media Encoder**, **Azure Media Packager**, **Azure Media Encryptor**, **Storage Decryption**입니다.
+    -   **GetLatestMediaProcessorByName** 메서드는 인코딩, 암호화 또는 기타 관련 처리 태스크를 다루는 적절한 미디어 프로세서를 반환합니다. 생성하려는 프로세스의 적절한 문자열 이름을 사용하여 미디어 프로세서를 생성합니다. mediaProcessor 매개 변수에 대해 메서드에 전달될 수 있는 가능한 문자열은 **Azure Media Encoder**, **Microsoft Azure Media Packager**, **Microsoft Azure Media Encryptor**, **Storage Decryption**입니다.
 
             private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
             {
                 // The possible strings that can be passed into the 
                 // method for the mediaProcessor parameter:
                 //   Azure Media Encoder
-                //   Azure Media Packager
-                //   Azure Media Encryptor
+                //   Windows Azure Media Packager
+                //   Windows Azure Media Encryptor
                 //   Storage Decryption
 
                 var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
@@ -609,10 +612,8 @@ Main 메서드에서 \*\*\_context = new CloudMediaContext(\_accountName, \_acco
 
 5.  .mp4 미디어 파일 및 \_metadata.xml 파일이 outputFiles 폴더에 다운로드됩니다.
 
-<div class="dev-callout"> 
-<strong>참고</strong> 
-<p>미디어 서비스 개체 모델에서 자산은 많은 파일에 대해 하나를 대표하는 미디어 서비스 콘텐츠 컬렉션 개체입니다. 로케이터 경로는 Azure 저장소에서 이 자산에 대한 기본 경로인 Azure Blob URL을 제공합니다. 자산 내에서 특정 파일에 액세스하려면 기본 로케이터 경로에 파일 이름을 추가합니다.</p> 
-</div>
+> [WACOM.NOTE]
+> 미디어 서비스 개체 모델에서 자산은 많은 파일에 대해 하나를 대표하는 미디어 서비스 콘텐츠 컬렉션 개체입니다. 로케이터 경로는 Azure 저장소에서 이 자산에 대한 기본 경로인 Azure Blob URL을 제공합니다. 자산 내에서 특정 파일에 액세스하려면 기본 로케이터 경로에 파일 이름을 추가합니다.
 
 ## 다음 단계
 
@@ -630,8 +631,9 @@ Main 메서드에서 \*\*\_context = new CloudMediaContext(\_accountName, \_acco
   [자산 인코딩 및 출력 자산 다운로드]: #Step4
   [미디어 서비스 계정을 만드는 방법]: http://go.microsoft.com/fwlink/?LinkId=256662
   [windowsazure.mediaservices Nuget]: http://nuget.org/packages/windowsazure.mediaservices
+  [Azure 무료 평가판]: http://www.windowsazure.com/ko-kr/pricing/free-trial/?WT.mc_id=A8A8397B5
   [Azure Media Encoder용 태스크 기본 설정 문자열]: http://msdn.microsoft.com/ko-kr/library/windowsazure/jj129582.aspx
   [미디어 서비스에 대해 지원되는 파일 형식]: http://msdn.microsoft.com/ko-kr/library/windowsazure/hh973634.aspx
   [1]: http://msdn.microsoft.com/library/windowsazure/jj129582.aspx
-  [미디어 서비스 사용 방법]: http://www.windowsazure.com/ko-kr/develop/net/how-to-guides/media-services/
+  [미디어 서비스 사용 방법]: http://azure.microsoft.com/ko-kr/develop/media-services/resources/
   [Media Services REST API를 사용하여 응용 프로그램 작성]: http://msdn.microsoft.com/ko-kr/library/windowsazure/hh973618.aspx

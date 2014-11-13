@@ -1,36 +1,34 @@
-<properties linkid="manage-services-mediaservices-scale-media-service" urlDisplayName="How to scale" pageTitle="How to Scale a media service | Azure Documentation" metaKeywords="" description="Learn how to scale Media Services by specifying the number of On-Demand Streaming Reserved Units and Encoding Reserved Units that you would like your account to be provisioned with." metaCanonical="" services="media-services" documentationCenter="" title="How to Scale a Media Service" authors="migree" solutions="" manager="" editor="" />
+<properties urlDisplayName="How to scale" pageTitle="미디어 서비스를 확장하는 방법 | Azure 설명서" metaKeywords="" description="계정에서 프로비전할 주문형 스트리밍 예약 단위 및 인코딩 예약 단위의 수를 지정하여 미디어 서비스를 확장하는 방법에 대해 알아봅니다." metaCanonical="" services="media-services" documentationCenter="" title="미디어 서비스를 확장하는 방법" authors="juliako" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="migree"></tags>
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/26/2014" ms.author="juliako" />
 
 # 미디어 서비스를 확장하는 방법
 
-[WACOM.INCLUDE [disclaimer][]]
+[WACOM.INCLUDE [disclaimer](../includes/disclaimer.md)]
 
 계정에서 프로비전할 **주문형 스트리밍 예약 단위** 및 **인코딩 예약 단위**의 수를 지정하여 미디어 서비스를 확장할 수 있습니다.
 
 ## 주문형 스트리밍 예약 단위
 
-주문형 스트리밍 예약 단위는 200Mbps의 증분으로 구입할 수 있는 전용 송신 용량 및 [동적 패키징 기능][](영문)이 현재 포함된 추가 기능을 제공합니다. 기본적으로 주문형 스트리밍은 다른 모든 사용자와 서버 리소스(예: 계산, 송신 기능 등)가 공유되는 공유 인스턴스 모델로 구성되어 있습니다. 주문형 스트리밍 처리량을 개선하려면 주문형 스트리밍 예약 단위를 구입하는 것이 좋습니다.
+주문형 스트리밍 예약 단위는 200Mbps의 증분으로 구입할 수 있는 전용 송신 용량 및 [동적 패키징 기능][동적 패키징 기능](영문)이 현재 포함된 추가 기능을 제공합니다. 기본적으로 주문형 스트리밍은 다른 모든 사용자와 서버 리소스(예: 계산, 송신 기능 등)가 공유되는 공유 인스턴스 모델로 구성되어 있습니다. 주문형 스트리밍 처리량을 개선하려면 주문형 스트리밍 예약 단위를 구입하는 것이 좋습니다.
 
 주문형 스트리밍 예약 단위의 수를 변경하려면 다음을 수행합니다.
 
-1.  [관리 포털][]에서 **미디어 서비스**를 클릭합니다. 그런 다음 미디어 서비스의 이름을 클릭합니다.
+1.  [관리 포털][관리 포털]에서 **미디어 서비스**를 클릭합니다. 그런 다음 미디어 서비스의 이름을 클릭합니다.
 
-2.  ORIGINS 페이지를 선택합니다. 그런 다음, 수정할 원본을 클릭합니다.
+2.  스트리밍 끝점 페이지를 선택합니다. 그리고 수정할 스트리밍 끝점을 클릭합니다.
 
-    ![원본 페이지][]
+3.  스크리밍 단위 수를 지정하려면 크기 조정 탭을 선택하고 **예약된 용량** 슬라이더를 움직입니다.
 
-3.  예약 단위 수를 지정하려면 크기 조정 탭을 선택하고 **reserved capacity** 슬라이더를 움직입니다.
-
-    ![크기 조정 페이지][]
+    ![크기 조정 페이지][크기 조정 페이지]
 
 4.  저장 단추를 눌러 변경 내용을 저장합니다.
 
     새 주문형 스트리밍 단위를 할당하는 작업은 완료하는 데 20분 정도 걸립니다.
 
-    **참고:** 현재, 주문형 스트리밍 단위의 양수 값을 0으로 변경하면 최대 1시간 동안 주문형 스트리밍을 사용하지 않을 수 있습니다.
+    > [Azure.Note] 현재, 주문형 스트리밍 단위의 양수 값을 0으로 변경하면 최대 1시간 동안 주문형 스트리밍을 사용하지 않을 수 있습니다.
 
-    **참고:** 24시간 동안 가장 많은 단위 수가 비용 계산에 사용됩니다. 가격 정보에 대한 자세한 내용은 [미디어 서비스 가격 정보][]를 참조하세요.
+    > [Azure.Note] 24시간 동안 지정된 가장 많은 단위 수가 비용 계산에 사용됩니다. 가격 정보에 대한 자세한 내용은 [미디어 서비스 가격 정보][미디어 서비스 가격 정보]를 참조하세요.
 
 ## 인코딩 예약 단위
 
@@ -38,17 +36,25 @@
 
 인코딩 예약 단위의 수를 변경하려면 다음을 수행합니다.
 
-1.  [관리 포털][]에서 **미디어 서비스**를 클릭합니다. 그런 다음 미디어 서비스의 이름을 클릭합니다.
+1.  [관리 포털][관리 포털]에서 **미디어 서비스**를 클릭합니다. 그런 다음 미디어 서비스의 이름을 클릭합니다.
 
-2.  프로세서 페이지를 선택합니다.
+2.  인코딩 페이지를 선택합니다.
 
-    ![프로세서 페이지][]
+    인코딩 페이지에서는 아래에 나와 있는 것처럼 세 가지 유형의 인코딩 예약 단위인 기본, 표준 및 프리미엄 중에서 선택할 수 있습니다.
+
+    ![프로세서 페이지][프로세서 페이지]
+
+    인코딩 슬라이더를 사용하여 선택한 예약 단위 유형의 예약 단위 수를 변경할 수 있습니다.
+
+    예약 단위 유형 간의 기본적인 차이는 속도입니다. 예를 들어 표준 예약 단위 유형을 사용하는 경우 기본 유형에 비해 동일한 인코딩 작업이 더 빠르게 실행됩니다. 자세한 내용은 [Milan Gada][Milan Gada]가 작성한 블로그인 "인코딩 예약 단위 유형"을 참조하세요.
+
+    > [Azure.Note] 싱가포르, 홍콩, 오사카, 베이징, 상하이 데이터 센터에서는 프리미엄 예약 단위 유형을 제공하지 않습니다.
 
 3.  저장 단추를 눌러 변경 내용을 저장합니다.
 
-    새 인코딩 예약 단위가 거의 즉시 할당됩니다.
+    저장을 누르는 즉시 새 인코딩 예약 단위가 할당됩니다.
 
-    **참고:** 24시간 동안 가장 많은 단위 수가 비용 계산에 사용됩니다.
+    > [Azure.Note] 24시간 동안 지정된 가장 많은 단위 수가 비용 계산에 사용됩니다.
 
 ## 지원 티켓 열기
 
@@ -57,7 +63,7 @@
 지원 티켓을 열려면 다음을 수행합니다.
 
 1.  [관리 포털][1]에서 Azure 계정으로 로그인합니다.
-2.  [지원][]으로 이동합니다.
+2.  [지원][지원]으로 이동합니다.
 3.  "지원 받기"를 클릭합니다.
 4.  사용 중인 구독을 선택합니다.
 5.  지원 유형으로 "기술적"을 선택합니다.
@@ -68,12 +74,11 @@
 10. 다음 페이지의 지침을 따르고 필요한 인코딩 예약 단위 또는 주문형 스트리밍 예약 단위 수를 자세히 입력하세요.
 11. 제출을 클릭하여 티켓을 엽니다.
 
-  [disclaimer]: ../includes/disclaimer.md
   [동적 패키징 기능]: http://go.microsoft.com/fwlink/?LinkId=276874
   [관리 포털]: https://manage.windowsazure.com/
-  [원본 페이지]: ./media/media-services-how-to-scale/media-services-origin-page.png
   [크기 조정 페이지]: ./media/media-services-how-to-scale/media-services-origin-scale.png
   [미디어 서비스 가격 정보]: http://go.microsoft.com/fwlink/?LinkId=275107
   [프로세서 페이지]: ./media/media-services-how-to-scale/media-services-encoding-scale.png
+  [Milan Gada]: http://azure.microsoft.com/blog/author/milanga/
   [1]: http://manage.windowsazure.com
-  [지원]: http://www.windowsazure.com/en-us/support/contact/
+  [지원]: http://www.windowsazure.com/ko-kr/support/contact/

@@ -1,6 +1,6 @@
-<properties linkid="dotnet-visualstudio-create-virtual-machine" urlDisplayName="Create a virtual machine for a website" pageTitle="Creating a virtual machine for a web project using Visual Studio" metaKeywords="Visual Studio, ASP.NET, web project, virtual machine" description="Create a virtual machine for a website" metaCanonical="" services="" documentationCenter="" title="Creating a virtual machine for a website with Visual Studio" authors="ghogen" solutions="" manager="" editor="" />
+<properties urlDisplayName="Create a virtual machine for a website" pageTitle="Visual Studio를 사용하여 웹 프로젝트용 가상 컴퓨터 만들기" metaKeywords="Visual Studio, ASP.NET, web project, virtual machine" description="웹 사이트용 가상 컴퓨터를 만드는 방법에 대해 알아봅니다." metaCanonical="" services="" documentationCenter="" title="Visual Studio에서 웹 사이트용 가상 컴퓨터 만들기" authors="ghogen" solutions="" manager="douge" editor="" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-multiple" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="ghogen"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-multiple" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="ghogen" />
 
 # Visual Studio에서 웹 사이트용 가상 컴퓨터 만들기
 
@@ -11,7 +11,7 @@ Azure 웹 사이트용 웹 프로젝트를 만들면 Azure에서 가상 컴퓨�
 1.  Visual Studio에서 **파일**, **새 프로젝트**, **웹** 및 **ASP.NET 웹 응용 프로그램**을 차례로 선택합니다.
 2.  **새 ASP.NET 프로젝트** 대화 상자에서 원하는 웹 응용 프로그램 유형을 선택하고 대화 상자의 Azure 섹션(오른쪽 아래 구석)에서 **Host in the cloud(클라우드의 호스트)** 확인란을 선택합니다(이 확인란의 경우 일부 설치에서 **Create remote resources(원격 리소스 만들기)**로 표시됨).
 
-    ![][]
+    ![][0]
 
 3.  **가상 컴퓨터**를 선택하고 **확인** 단추를 선택합니다.
 4.  Azure에 로그인하라는 메시지가 표시되면 로그인합니다. 가상 컴퓨터 만들기 대화 상자가 나타납니다.
@@ -44,7 +44,7 @@ Azure 웹 사이트용 웹 프로젝트를 만들면 Azure에서 가상 컴퓨�
 
 만든 게시 스크립트를 사용자 지정하려면 [여기][여기]에서 자세한 내용은 참조하세요.
 
-  []: ./media/dotnet-visual-studio-create-virtual-machine/CreateVM_NewProject.PNG
+  [0]: ./media/dotnet-visual-studio-create-virtual-machine/CreateVM_NewProject.PNG
   [1]: ./media/dotnet-visual-studio-create-virtual-machine/CreateVM_CreateVM.PNG
   [2]: ./media/dotnet-visual-studio-create-virtual-machine/CreateVM_Provisioning.png
   [3]: ./media/dotnet-visual-studio-create-virtual-machine/CreateVM_SolutionExplorer.png

@@ -1,6 +1,6 @@
-<properties linkid="manage-hdinsight-understand-nosql" urlDisplayName="Understand NoSQL technologies" pageTitle="Understanding NoSQL Technologies on Azure | Azure" metaKeywords="" description="Learn how NoSQL technologies on HDInsight can help you manage data not suited to relational databases, such as big data sets and JSON documents or graphs." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="storage,hdinsight" documentationCenter="" title="Data management: Understanding NoSQL technologies on Azure" authors="dchappell" />
+<properties urlDisplayName="Understand NoSQL technologies" pageTitle="Azure의 NoSQL 기술 이해 | Azure" metaKeywords="" description="HDInsight의 NoSQL 기술을 통해 빅 데이터 집합 및 JSON 문서나 그래프와 같이 관계형 데이터베이스에 적합하지 않은 데이터를 관리하는 방법에 대해 알아봅니다." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="storage,hdinsight" documentationCenter="" title="데이터 관리: Azure의 NoSQL 기술 이해" authors="dchappell" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="dchappell"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="dchappell" />
 
 # 데이터 관리: Azure의 NoSQL 기술 이해
 
@@ -21,7 +21,7 @@
 -   Azure NoSQL 기술: 분석 데이터
 
     -   Hadoop MapReduce
-    -   HDInsight
+    -   Oozie 코디네이터 사용
 
 **작성자:** David Chappell, Chappell & Associates의 교장
 
@@ -29,6 +29,6 @@
 
 **수정 버전:** 1.0
 
-**다운로드:** [Azure의 NoSQL 기술 이해 PDF 파일(영문)][]
+**다운로드:** [Azure의 NoSQL 기술 이해 PDF 파일(영문)][Azure의 NoSQL 기술 이해 PDF 파일(영문)]
 
   [Azure의 NoSQL 기술 이해 PDF 파일(영문)]: http://go.microsoft.com/fwlink/p/?LinkId=330292

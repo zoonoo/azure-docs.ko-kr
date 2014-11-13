@@ -1,12 +1,12 @@
-<properties linkid="manage-windows-tutorial-virtual-machine-gallery" urlDisplayName="Create a virtual machine" pageTitle="Create a virtual machine running Windows Server in Azure" metaKeywords="Azure capture image vm, capturing vm" description="Learn how to capture an image of an Azure virtual machine (VM) running Windows Server. " metaCanonical="" services="virtual-machines" documentationCenter="" title="" authors="kathydav" solutions="" manager="dongill" editor="tysonn" />
+<properties urlDisplayName="Create a virtual machine" pageTitle="Azure에서 Windows를 실행하는 가상 컴퓨터 만들기" metaKeywords="Azure capture image vm, capturing vm" description="Azure에서 Windows VM(가상 컴퓨터)을 만든 다음 로그온하고 데이터 디스크를 연결하는 방법에 대해 알아봅니다." metaCanonical="" services="virtual-machines" documentationCenter="" title="" authors="kathydav, rasquill" solutions="" manager="timlt" editor="tysonn" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="kathydav"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="09/12/2014" ms.author="kathydav" />
 
-# Windows Server를 실행하는 가상 컴퓨터 만들기
+# Windows를 실행하는 가상 컴퓨터 만들기
 
 <div class="dev-center-tutorial-selector sublanding"><a href="/ko-kr/documentation/articles/virtual-machines-windows-tutorial/" title="Azure 포털" class="current">Azure 포털</a><a href="/ko-kr/documentation/articles/virtual-machines-windows-tutorial-azure-preview/" title="Azure 미리 보기 포털">Azure 미리 보기 포털</a></div>
 
-이 자습서에서는 Azure 관리 포털의 이미지 갤러리를 사용하여 Windows Server를 실행하는 Azure VM(가상 컴퓨터)를 쉽게 만드는 방법을 보여 줍니다. 이미지 갤러리는 Windows 운영 체제, Linux 기반 운영 체제, 응용 프로그램 이미지 등 다양한 이미지를 제공합니다.
+이 자습서에서는 Azure 관리 포털의 이미지 갤러리에서 Windows Server 이미지를 예로 사용하여 Windows를 실행하는 Azure VM(가상 컴퓨터)를 쉽게 만드는 방법을 보여 줍니다. 이미지 갤러리는 Windows 운영 체제, Linux 기반 운영 체제, 응용 프로그램 이미지 등 다양한 이미지를 제공합니다.
 
 > [WACOM.NOTE] 이전에 Azure VM을 사용한 경험이 없어도 이 자습서를 완료할 수 있습니다. 그러나 Azure 계정은 필요합니다. 몇 분 만에 무료 체험 계정을 만들 수 있습니다. 자세한 내용은 [Azure 계정 만들기][Azure 계정 만들기](영문)를 참조하세요.
 
@@ -22,15 +22,17 @@
 
 이 섹션에서는 관리 포털의 **갤러리에서** 방법을 사용하여 가상 컴퓨터를 만드는 방법을 보여 줍니다. 이 옵션은 **빠른 생성** 옵션보다 많은 구성 선택 항목을 제공합니다. 예를 들어 가상 컴퓨터를 가상 네트워크에 가입하려는 경우 **갤러리에서** 옵션을 사용해야 합니다.
 
-> [WACOM.NOTE] 또한 보다 다양하며 사용자 지정 가능한 [Azure 미리 보기 포털][1]에서 가상 컴퓨터를 만들고, 여러 컴퓨터 응용 프로그램 템플릿의 배포를 자동화하고, 고급 VM 모니터링 및 진단 기능을 사용해 볼 수 있습니다. 두 포털에서 사용 가능한 VM 구성 옵션은 상당히 중복되지만 동일하지는 않습니다.
+> [WACOM.NOTE] 갤러리에서 사용 가능한 이미지의 수와 종류는 보유 중인 구독의 유형에 따라 달라집니다. 이 자습서에서는 Windows Server 이미지를 사용하지만 MSDN 구독에는 데스크톱 이미지와 같은 추가 이미지가 제공될 수도 있습니다.
 
-[WACOM.INCLUDE [virtual-machines-create-WindowsVM][virtual-machines-create-WindowsVM]]
+> 또한 보다 다양하며 사용자 지정 가능한 [Azure 미리 보기 포털][1]에서 가상 컴퓨터를 만들고, 여러 컴퓨터 응용 프로그램 템플릿의 배포를 자동화하고, 고급 VM 모니터링 및 진단 기능을 사용해 볼 수 있습니다. 두 포털에서 사용 가능한 VM 구성 옵션은 상당히 중복되지만 동일하지는 않습니다.
+
+[WACOM.INCLUDE [virtual-machines-create-WindowsVM](../includes/virtual-machines-create-WindowsVM.md)]
 
 ## <span id="logon"></span> </a>가상 컴퓨터를 만든 후 로그온하는 방법
 
 이 섹션에서는 가상 컴퓨터에서 실행되는 설정 및 응용 프로그램을 관리할 수 있도록 가상 컴퓨터에 로그인하는 방법을 보여 줍니다.
 
-[WACOM.INCLUDE [virtual-machines-log-on-win-server][virtual-machines-log-on-win-server]]
+[WACOM.INCLUDE [virtual-machines-log-on-win-server](../includes/virtual-machines-log-on-win-server.md)]
 
 ## <span id="attachdisk"></span> </a>새 가상 컴퓨터에 데이터 디스크를 연결하는 방법
 
@@ -51,6 +53,8 @@
     ![명령 모음에서 연결 선택][명령 모음에서 연결 선택]
 
 5.  **Virtual Machine Name**, **Storage Location**, **File Name** 및 **Host Cache Preference**는 이미 정의되어 있습니다. 원하는 디스크 크기만 입력하면 됩니다. **Size** 필드에 **5**를 입력합니다. 확인 표시를 클릭하여 가상 컴퓨터에 빈 디스크를 연결합니다.
+
+    > [WACOM.NOTE] Azure의 디스크 이미지는 Azure 저장소에 페이지 Blob로 저장됩니다. Azure 외부에서 가상 하드 디스크는 VHD 또는 VHDX 형식을 사용할 수 있습니다. 또한 고정, 동적 확장 또는 차이점 보관용 디스크일 수도 있습니다. Azure는 VHD 형식의 고정 디스크를 지원합니다. 고정 형식은 디스크 오프셋 X가 blob 오프셋 X에 저장되도록 파일 내에 선형적으로 논리적 디스크를 배치합니다. blob 끝의 작은 바닥글에서는 VHD의 속성을 설명합니다. 고정 형식은 대부분의 디스크에서 사용되지 않는 공간 범위가 크기 때문에 공간이 낭비되는 경우가 많습니다. 하지만 Azure에서는 .vhd 파일을 스파스 형식으로 저장하기 때문에 고정 및 동적 디스크의 장점을 동시에 얻을 수 있습니다. 여기에 대한 자세한 내용은 [Azure의 VHD 정보][Azure의 VHD 정보]에서 확인할 수 있습니다.
 
     ![빈 디스크의 크기 지정][빈 디스크의 크기 지정]
 
@@ -98,25 +102,35 @@ Azure에서 Windows 가상 컴퓨터를 구성하는 방법에 대한 자세한 
 
 [Windows Server 운영 체제를 포함하는 가상 하드 디스크를 만들고 업로드하는 방법][Windows Server 운영 체제를 포함하는 가상 하드 디스크를 만들고 업로드하는 방법]
 
-[가상 컴퓨터에 데이터 디스크 연결][데이터 디스크 연결 자습서]
-
 [가상 컴퓨터의 가용성 관리][가상 컴퓨터의 가용성 관리]
 
-  [Azure 포털]: /ko-kr/documentation/articles/virtual-machines-windows-tutorial/ "Azure 포털"
+[Azure VM 구성 설정 정보][Azure VM 구성 설정 정보]
+
+[비디오: VHD 시작 - 백그라운드 작업][비디오: VHD 시작 - 백그라운드 작업]
+
+[비디오: Mark Russinovich의 FAQ 소개 - Microsoft Azure에서 Windows 실행][비디오: Mark Russinovich의 FAQ 소개 - Microsoft Azure에서 Windows 실행]
+
+[비디오: 다시 사용할 수 있는 이미지를 만들어 웹 팜에 새 가상 컴퓨터 추가][비디오: 다시 사용할 수 있는 이미지를 만들어 웹 팜에 새 가상 컴퓨터 추가]
+
+[비디오: 가상 하드 드라이브와 저장소 계정을 추가하고 가상 컴퓨터 크기 조정][비디오: 가상 하드 드라이브와 저장소 계정을 추가하고 가상 컴퓨터 크기 조정]
+
+[비디오: Scott Guthrie의 가상 컴퓨터 소개][비디오: Scott Guthrie의 가상 컴퓨터 소개]
+
+[비디오: Azure 가상 컴퓨터의 저장소 및 디스크 기본 사항][비디오: Azure 가상 컴퓨터의 저장소 및 디스크 기본 사항]
+
   [Azure 미리 보기 포털]: /ko-kr/documentation/articles/virtual-machines-windows-tutorial-azure-preview/ "Azure 미리 보기 포털"
-  [Azure 계정 만들기]: http://www.windowsazure.com/en-us/develop/php/tutorials/create-a-windows-azure-account/
+  [Azure 계정 만들기]: http://www.windowsazure.com/ko-kr/develop/php/tutorials/create-a-windows-azure-account/
   [가상 컴퓨터를 만드는 방법]: #createvirtualmachine
   [가상 컴퓨터를 만든 후 로그온하는 방법]: #logon
   [새 가상 컴퓨터에 데이터 디스크를 연결하는 방법]: #attachdisk
   [가상 컴퓨터]: http://go.microsoft.com/fwlink/p/?LinkID=271224
   [1]: https://portal.azure.com
-  [virtual-machines-create-WindowsVM]: ../includes/virtual-machines-create-WindowsVM.md
-  [virtual-machines-log-on-win-server]: ../includes/virtual-machines-log-on-win-server.md
   [데이터 디스크 연결 자습서]: http://www.windowsazure.com/ko-kr/documentation/articles/storage-windows-attach-disk/
   [Azure 관리 포털]: http://manage.windowsazure.com
   [MyTestVM 선택]: ./media/virtual-machines-windows-tutorial/selectvm.png
   [대시보드 선택]: ./media/virtual-machines-windows-tutorial/dashboard.png
   [명령 모음에서 연결 선택]: ./media/virtual-machines-windows-tutorial/commandbarattach.png
+  [Azure의 VHD 정보]: http://msdn.microsoft.com/ko-kr/library/azure/dn790344.aspx
   [빈 디스크의 크기 지정]: ./media/virtual-machines-windows-tutorial/emptydisksize.png
   [빈 디스크 연결]: ./media/virtual-machines-windows-tutorial/disklistwithdatadisk.png
   [서버 관리자에서 파일 및 저장소 서비스 확장]: ./media/virtual-machines-windows-tutorial/fileandstorageservices.png
@@ -128,3 +142,10 @@ Azure에서 Windows 가상 컴퓨터를 구성하는 방법에 대한 자세한 
   [클라우드 서비스에서 가상 컴퓨터를 연결하는 방법]: http://www.windowsazure.com/ko-kr/documentation/articles/cloud-services-connect-virtual-machine/
   [Windows Server 운영 체제를 포함하는 가상 하드 디스크를 만들고 업로드하는 방법]: http://www.windowsazure.com/ko-kr/documentation/articles/virtual-machines-create-upload-vhd-windows-server/
   [가상 컴퓨터의 가용성 관리]: http://www.windowsazure.com/ko-kr/documentation/articles/manage-availability-virtual-machines/
+  [Azure VM 구성 설정 정보]: http://msdn.microsoft.com/library/azure/dn763935.aspx
+  [비디오: VHD 시작 - 백그라운드 작업]: http://azure.microsoft.com/ko-kr/documentation/videos/getting-started-with-azure-virtual-machines
+  [비디오: Mark Russinovich의 FAQ 소개 - Microsoft Azure에서 Windows 실행]: http://azure.microsoft.com/ko-kr/documentation/videos/mark-russinovich-windows-on-azure
+  [비디오: 다시 사용할 수 있는 이미지를 만들어 웹 팜에 새 가상 컴퓨터 추가]: http://azure.microsoft.com/ko-kr/documentation/videos/adding-virtual-machines-web-farm
+  [비디오: 가상 하드 드라이브와 저장소 계정을 추가하고 가상 컴퓨터 크기 조정]: http://azure.microsoft.com/ko-kr/documentation/videos/adding-drives-scaling-virtual-machines
+  [비디오: Scott Guthrie의 가상 컴퓨터 소개]: http://azure.microsoft.com/ko-kr/documentation/videos/virtual-machines-scottgu
+  [비디오: Azure 가상 컴퓨터의 저장소 및 디스크 기본 사항]: http://azure.microsoft.com/ko-kr/documentation/videos/storage-and-disks-virtual-machines

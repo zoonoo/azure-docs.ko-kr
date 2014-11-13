@@ -12,17 +12,17 @@
 
 ## 목차
 
--   [VM에서 Windows Server Active Directory 실행][]
+-   [VM에서 Windows Server Active Directory 실행][VM에서 Windows Server Active Directory 실행]
 
--   [Azure Active Directory 사용][]
+-   [Azure Active Directory 사용][Azure Active Directory 사용]
 
--   [Azure Active Directory 액세스 제어 사용][]
+-   [Azure Active Directory 액세스 제어 사용][Azure Active Directory 액세스 제어 사용]
 
 ## <a name="adinvm"></a>VM에서 Windows Server Active Directory 실행
 
-Azure VM에서 Windows Server AD를 실행하는 것은 온-프레미스에서 실행하는 것과 비슷합니다. [그림 1][]은 일반적인 실행 예시를 보여 줍니다.
+Azure VM에서 Windows Server AD를 실행하는 것은 온-프레미스에서 실행하는 것과 비슷합니다. [그림 1][그림 1]은 일반적인 실행 예시를 보여 줍니다.
 
-![가상 컴퓨터 내의 Azure Active Directory][]
+![가상 컴퓨터 내의 Azure Active Directory][가상 컴퓨터 내의 Azure Active Directory]
 
 <a name="Fig1"></a>그림 1: Windows Server Active Directory는 Azure 가상 네트워크를 사용하여 조직의 온-프레미스 데이터 센터에 연결된 Azure VM에서 실행할 수 있습니다.
 
@@ -46,7 +46,7 @@ Azure VM에서 Windows Server AD를 실행하는 것은 온-프레미스에서 �
 
 -   재난 복구용으로 Azure를 사용하는 조직은 클라우드에 도메인 컨트롤러를 포함하여 소규모로 활성화된 VM 세트를 관리할 수도 있습니다. 이렇게 하면 다른 곳에 오류가 발생했을 때 필요에 따라 이 사이트를 다른 곳으로 확장하도록 준비해둘 수 있습니다.
 
-다른 경우도 있습니다. 예를 들어 클라우드에 있는 Windows Server AD를 온-프레미스 데이터 센터에 연결할 필요가 없습니다. 예를 들어 모든 사용자가 클라우드 기반 ID를 가지고 로그인하는 특정 사용자 그룹을 지원하는 SharePoint 팜을 실행하는 경우 Azure에서 독립형 포리스트를 만들 수 있습니다. 원하는 바에 따라 다양하게 기술을 활용할 수 있습니다. Azure에서 Windows Server AD를 사용하는 방법에 대한 자세한 지침을 보려면 [여기를 참조하세요][].
+다른 경우도 있습니다. 예를 들어 클라우드에 있는 Windows Server AD를 온-프레미스 데이터 센터에 연결할 필요가 없습니다. 예를 들어 모든 사용자가 클라우드 기반 ID를 가지고 로그인하는 특정 사용자 그룹을 지원하는 SharePoint 팜을 실행하는 경우 Azure에서 독립형 포리스트를 만들 수 있습니다. 원하는 바에 따라 다양하게 기술을 활용할 수 있습니다. Azure에서 Windows Server AD를 사용하는 방법에 대한 자세한 지침을 보려면 [여기를 참조하세요][여기를 참조하세요].
 
 ## <a name="ad"></a>Azure Active Directory 사용
 
@@ -58,7 +58,7 @@ SaaS 응용 프로그램이 점차 일반화되면서 당연한 질문이 제기
 
 -   Windows Server Active Directory를 사용하는 조직이 온-프레미스 디렉터리를 Azure Active Directory에 연결하고 나면, 이를 사용자가 SaaS 응용 프로그램에 Single Sign-On을 하는 데 사용합니다.
 
-[그림 2][]는 이 두 가지 중에 첫 번째 옵션을 보여 줍니다. 이 옵션에는 Azure Active Directory만 필요합니다.
+[그림 2][그림 2]는 이 두 가지 중에 첫 번째 옵션을 보여 줍니다. 이 옵션에는 Azure Active Directory만 필요합니다.
 
 ![가상 컴퓨터 내의 Azure Active Directory][1]
 
@@ -74,16 +74,16 @@ SaaS 응용 프로그램이 점차 일반화되면서 당연한 질문이 제기
 
 토큰에 포함된 정보보다 더 많은 사용자 관련 정보가 필요한 경우 응용 프로그램에서 Azure AD Graph API를 사용하여 Azure AD에서 직접 관련 정보를 요청할 수 있습니다(6단계). Azure AD의 초기 버전에서는 디렉터리 스키마에 단순하게 사용자와 그룹, 그리고 둘 사이의 관계만 포함되었습니다. 응용 프로그램은 이 정보를 사용하여 사용자 간의 연결 관계를 알 수 있습니다. 예를 들어 응용 프로그램이 사용자가 어느 부분의 데이터에 액세스할 수 있을지 결정하기 위해 사용자의 관리자가 누구인지 알아야 한다고 가정합시다. 이 정보는 Graph API를 통해 Azure AD에 쿼리하여 알 수 있습니다.
 
-Graph API는 일상적인 RESTful 프로토콜을 사용하며, 이 프로토콜은 휴대용 장치를 포함한 대부분 클라이언트에서 간단하게 사용할 수 있습니다. 또한 클라이언트가 OData에서 정의한 확장을 지원하여 클라이언트에서 더욱 유용한 방법으로 데이터에 액세스하도록 돕는 쿼리 언어 등을 추가합니다. OData에 대한 자세한 정보는 [Introducing OData][]를 참조하세요. Graph API를 사용하면 사용자 간의 관계를 알 수 있기 때문에 응용 프로그램에서 특정 조직용 Azure AD 스키마에 포함된 소셜 그래프를 이해할 수 있습니다. 이러한 이유로 Graph API라고 합니다. Graph API 요청에 대해 Azure AD에 인증받기 위해 응용 프로그램은 OAuth 2.0을 사용합니다.
+Graph API는 일상적인 RESTful 프로토콜을 사용하며, 이 프로토콜은 휴대용 장치를 포함한 대부분 클라이언트에서 간단하게 사용할 수 있습니다. 또한 클라이언트가 OData에서 정의한 확장을 지원하여 클라이언트에서 더욱 유용한 방법으로 데이터에 액세스하도록 돕는 쿼리 언어 등을 추가합니다. OData에 대한 자세한 정보는 [Introducing OData][Introducing OData]를 참조하세요. Graph API를 사용하면 사용자 간의 관계를 알 수 있기 때문에 응용 프로그램에서 특정 조직용 Azure AD 스키마에 포함된 소셜 그래프를 이해할 수 있습니다. 이러한 이유로 Graph API라고 합니다. Graph API 요청에 대해 Azure AD에 인증받기 위해 응용 프로그램은 OAuth 2.0을 사용합니다.
 
-조직에서 Windows Server Active Directory를 사용하지 않고(온-프레미스 서버나 도메인이 없는 경우) Azure AD를 사용하는 클라우드 응용 프로그램에 전적으로 의지하는 경우, 이 클라우드 디렉터리를 사용하면 조직의 사용자가 모든 응용 프로그램에 Single Sign-On을 할 수 있게 됩니다. 이러한 시나리오가 많이 일반화되기는 했지만, 아직은 대부분 조직이 여전히 Windows Server Active Directory로 만들어진 온-프레미스 도메인을 사용합니다. [그림 3][]과 같이 Azure AD는 여기에서도 유용한 역할을 합니다.
+조직에서 Windows Server Active Directory를 사용하지 않고(온-프레미스 서버나 도메인이 없는 경우) Azure AD를 사용하는 클라우드 응용 프로그램에 전적으로 의지하는 경우, 이 클라우드 디렉터리를 사용하면 조직의 사용자가 모든 응용 프로그램에 Single Sign-On을 할 수 있게 됩니다. 이러한 시나리오가 많이 일반화되기는 했지만, 아직은 대부분 조직이 여전히 Windows Server Active Directory로 만들어진 온-프레미스 도메인을 사용합니다. [그림 3][그림 3]과 같이 Azure AD는 여기에서도 유용한 역할을 합니다.
 
 ![가상 컴퓨터 내의 Azure Active Directory][2]
 <span id="fig3"></span></a>그림 3: 조직에서는 Windows Server Active Directory와 Azure Active Directory를 페더레이션하여 조직의 사용자가 SaaS 응용 프로그램에 Single Sign-On하도록 할 수 있습니다.
 
 이 시나리오에서는 조직 B에 있는 사용자가 SaaS 응용 프로그램에 액세스하려고 합니다. 그림에서와 같이 사용자가 액세스하기 전에 조직의 디렉터리 관리자는 AD FS를 사용하여 Azure AD와의 페더레이션 관계를 확립해야 합니다. 이러한 관리자는 또한 조직의 온-프레미스 Windows Server AD와 Azure AD 간의 데이터 동기화를 구성해야 합니다. 이는 자동으로 사용자와 그룹 정보를 온-프레미스 디렉터리에서 Azure AD로 복사합니다. 이를 통해 무엇이 가능해질까요? 사실상 조직이 온-프레미스 디렉터리를 클라우드로 확장하고 있습니다. 이 방법으로 Windows Server AD와 Azure AD를 결합하면 조직에서 디렉터리 서비스가 단일 엔터티로 관리되면서 계속 온-프레미스와 클라우드에도 저장됩니다.
 
-Azure AD를 사용하려면 본인의 온-프레미스 Active Directory 도메인에 평상시처럼 로그인합니다(1단계). 사용자가 SaaS 응용 프로그램에 액세스하려고 하면(2단계) 페더레이션 프로세스를 통해 Azure AD가 이 응용 프로그램을 위한 사용자의 토큰을 발행하게 됩니다(3단계). 페더레이션이 어떻게 작동하는지에 대한 자세한 정보는 [Claims-Based Identity for Windows: Technologies and Scenarios][]를 참조하세요. 앞서와 같이 이 토큰은 사용자를 확인하는 정보와 Azure AD의 디지털 서명을 포함합니다. 이 토큰이 SaaS 응용 프로그램으로 전송되고(4단계) 해당 응용 프로그램이 토큰의 서명을 확인하고 그 내용을 사용합니다(5단계). 그리고 이전 시나리오와 마찬가지로 필요한 경우 SaaS 응용 프로그램에서 이 사용자를 더 자세히 알기 위해 Graph API를 사용할 수 있습니다(6단계).
+Azure AD를 사용하려면 본인의 온-프레미스 Active Directory 도메인에 평상시처럼 로그인합니다(1단계). 사용자가 SaaS 응용 프로그램에 액세스하려고 하면(2단계) 페더레이션 프로세스를 통해 Azure AD가 이 응용 프로그램을 위한 사용자의 토큰을 발행하게 됩니다(3단계). 페더레이션이 어떻게 작동하는지에 대한 자세한 정보는 [Claims-Based Identity for Windows: Technologies and Scenarios][Claims-Based Identity for Windows: Technologies and Scenarios]를 참조하세요. 앞서와 같이 이 토큰은 사용자를 확인하는 정보와 Azure AD의 디지털 서명을 포함합니다. 이 토큰이 SaaS 응용 프로그램으로 전송되고(4단계) 해당 응용 프로그램이 토큰의 서명을 확인하고 그 내용을 사용합니다(5단계). 그리고 이전 시나리오와 마찬가지로 필요한 경우 SaaS 응용 프로그램에서 이 사용자를 더 자세히 알기 위해 Graph API를 사용할 수 있습니다(6단계).
 
 오늘날 Azure AD가 온-프레미스 Windows Server AD의 완전한 대안은 아닙니다. 이미 언급한 것과 같이 클라우드 디렉터리는 무척 단순한 스키마를 가지고 있고 그룹 정책, 컴퓨터에 관한 정보 저장 기능, LDAP 지원 등을 제공하지 않습니다. (사실상 Windows 컴퓨터는 사용자가 Azure AD만으로 로그인하도록 구성할 수 없으므로 이는 지원되지 않는 시나리오입니다.) Azure AD의 초기 목표는 엔터프라이즈 사용자가 클라우드에 있는 응용 프로그램에 별도 로그인을 관리하지 않고도 액세스할 수 있도록 하여 온-프레미스 디렉터리 관리자가 직접 온-프레미스 디렉터리를 조직 사용자가 사용하는 모든 SaaS 응용 프로그램에 동기화하는 작업에 매여있지 않도록 하는 데 있었습니다. 시간이 흐르면서 이 클라우드 디렉터리 서비스에 기대되는 시나리오 영역이 더욱 넓어진 것입니다.
 
@@ -95,7 +95,7 @@ Azure AD를 사용하려면 본인의 온-프레미스 Active Directory 도메�
 
 그러나 ID 공급자는 모두 토큰을 발행하지만 표준을 따르는 것이 아니라 각 IdP마다 자체 형식이 있습니다. 토큰 정보 역시 마찬가지입니다. Facebook, Google, Microsoft 등에서 발행한 토큰을 사용하려는 응용 프로그램은 다른 형식을 처리하기 위해 고유의 코드를 작성해야 하는 문제에 직면합니다.
 
-그렇지만 꼭 고유 코드를 일일이 작성해야 할까요? ID 정보를 공통으로 표시하는 공동 단일 토큰 형식을 작성하는 매개자를 생성하면 응용 프로그램을 만드는 개발자도 한 종류의 토큰만 처리하면 되므로 더욱 편안하게 개발할 수 있을 것입니다. 이것이 바로 Azure Active Directory 액세스 제어가 클라우드에서 다양한 형식의 토큰을 처리해 주는 방식입니다. [그림 4][]에서 작동 과정을 확인하세요.
+그렇지만 꼭 고유 코드를 일일이 작성해야 할까요? ID 정보를 공통으로 표시하는 공동 단일 토큰 형식을 작성하는 매개자를 생성하면 응용 프로그램을 만드는 개발자도 한 종류의 토큰만 처리하면 되므로 더욱 편안하게 개발할 수 있을 것입니다. 이것이 바로 Azure Active Directory 액세스 제어가 클라우드에서 다양한 형식의 토큰을 처리해 주는 방식입니다. [그림 4][그림 4]에서 작동 과정을 확인하세요.
 
 ![가상 컴퓨터 내의 Azure Active Directory][3]
 <span id="fig4"></span></a>그림 4: Azure Active Directory 액세스 제어를 사용하면 응용 프로그램이 다른 ID 공급자의 ID 토큰 사용이 쉬워집니다.
@@ -116,14 +116,14 @@ ID 관련 작업은 대부분의 응용 프로그램에서 중요한 부분을 �
 
 ## 저자 정보
 
-David Chappell은 미국 캘리포니아주 샌프란시스코에 있는 Chappell & Associates([www.davidchappell.com][])의 대표이며 강연, 집필, 컨설팅 등에 힘쓰고 있습니다.
+David Chappell은 미국 캘리포니아주 샌프란시스코에 있는 Chappell & Associates([www.davidchappell.com][www.davidchappell.com])의 대표이며 강연, 집필, 컨설팅 등에 힘쓰고 있습니다.
 
   [VM에서 Windows Server Active Directory 실행]: #adinvm
   [Azure Active Directory 사용]: #ad
   [Azure Active Directory 액세스 제어 사용]: #ac
   [그림 1]: #fig1
   [가상 컴퓨터 내의 Azure Active Directory]: ./media/identity/identity_01_ADinVM.png
-  [여기를 참조하세요]: http://msdn.microsoft.com/en-us/library/windowsazure/jj156090.aspx
+  [여기를 참조하세요]: http://msdn.microsoft.com/ko-kr/library/windowsazure/jj156090.aspx
   [그림 2]: #fig2
   [1]: ./media/identity/identity_02_AD.png
   [Introducing OData]: http://download.microsoft.com/download/E/5/A/E5A59052-EE48-4D64-897B-5F7C608165B8/IntroducingOData.pdf

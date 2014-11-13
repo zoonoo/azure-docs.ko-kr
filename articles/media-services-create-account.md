@@ -1,6 +1,6 @@
-<properties linkid="manage-services-mediaservices-create-a-media-services-account" urlDisplayName="How to create" pageTitle="Create a Media Services Account - Azure" metaKeywords="" description="Describes how to create a new Media Services account in Azure." metaCanonical="" services="media-services" documentationCenter="" title="How to Create a Media Services Account" authors="migree" solutions="" manager="" editor="" />
+<properties urlDisplayName="How to create" pageTitle="미디어 서비스 계정 만들기 - Azure" metaKeywords="" description="Azure에서 새 미디어 서비스 계정을 만드는 방법에 대해 알아봅니다." metaCanonical="" services="media-services" documentationCenter="" title="미디어 서비스 계정을 만드는 방법" authors="juliako" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="migree" />
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="juliako" />
 
 # 미디어 서비스 계정을 만드는 방법
 
@@ -19,7 +19,9 @@ Azure 관리 포털은 Azure 미디어 서비스 계정을 빨리 만드는 방�
 
 -   **미디어 서비스 계정**. 계정을 통해 Azure에서 사용할 수 있는 클라우드 기반 미디어 서비스 집합에 액세스할 수 있습니다. 미디어 서비스 계정은 실제 미디어 콘텐츠를 저장하지 않습니다. 대신, 미디어 콘텐츠 및 미디어 처리 작업에 대한 메타데이터를 계정에 저장합니다. 계정을 만들 때 사용 가능한 미디어 서비스 영역을 선택합니다. 선택한 영역은 계정에 대한 메타데이터 레코드를 저장하는 데이터 센터입니다.
 
-    -   **참고** 사용 가능한 미디어 서비스 지역에는 다음이 포함됩니다. **서유럽**, **동남아시아**, **동아시아**, **북유럽**, **미국 서부**, **미국 동부**. 미디어 서비스는 선호도 그룹을 사용하지 않습니다.
+    > [WACOM.NOTE]
+    > 사용 가능한 미디어 서비스 지역에는 다음이 포함됩니다. **서유럽**, **동남아시아**, **동아시아**, **북유럽**, **미국 서부**, **미국 동부**. 미디어 서비스는 선호도 그룹을 사용하지 않습니다.
+
 -   **관련 저장소 계정**. 저장소 계정은 미디어 서비스 계정과 관련된 Azure 저장소 계정입니다. 저장소 계정은 미디어 파일에 대한 Blob 저장소를 제공하며, 미디어 서비스 계정과 동일한 지역에 있어야 합니다. 미디어 서비스 계정을 만들 때 동일한 지역의 기존 저장소 계정을 선택하거나 동일한 지역에 새 저장소 계정을 만들 수 있습니다. 미디어 서비스 계정을 삭제하는 경우 관련 저장소 계정의 Blob은 삭제되지 않습니다.
 
 ## <span id="quick"></span></a>방법: 빠른 생성을 사용하여 미디어 서비스 계정 만들기
@@ -48,9 +50,7 @@ Azure 관리 포털은 Azure 미디어 서비스 계정을 빨리 만드는 방�
 
     뿐만 아니라 Azure 미디어 서비스 SDK를 사용하는 코드를 보고 비디오 업로드, 인코딩, 게시 등의 작업을 수행할 수 있습니다. 코드 작성 섹션 아래의 링크 중 하나를 클릭하고 코드를 복사한 후 응용 프로그램에서 사용할 수 있습니다.
 
-<!-- Reusable paths. -->
-<!-- Anchors. -->
-<!-- URLs. -->
+<!-- Reusable paths. --> <!-- Anchors. --> <!-- URLs. -->
 
   [개념]: #concepts
   [방법: 빠른 생성을 사용하여 미디어 서비스 계정 만들기]: #quick

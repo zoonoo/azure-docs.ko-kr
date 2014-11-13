@@ -1,6 +1,6 @@
-<properties linkid="manage-services-hdinsight-hbase-get-started-hdinsight-hadoop" urlDisplayName="Get Started" pageTitle="Get started using HBase with Hadoop in HDInsight | Azure" metaKeywords="" description="Get started using HBase with Hadoop in HDInsight. learn how to created HBase tables and query them with Hive." metaCanonical="" services="hdinsight" documentationCenter="" title="Get started using HBase with Hadoop in HDInsight" authors="bradsev" solutions="big-data" manager="paulettm" editor="cgronlun" />
+<properties urlDisplayName="Get Started" pageTitle="HDInsight에서 Hadoop과 함께 HBase 사용 시작 | Azure" metaKeywords="" description="HDInsight에서 Hadoop과 함께 HBase 사용을 시작하고, HBase 테이블을 만든 다음 Hive를 통해 쿼리하는 방법에 대해 알아봅니다." metaCanonical="" services="hdinsight" documentationCenter="" title="HDInsight에서 Hadoop과 함께 HBase를 사용하여 시작" authors="bradsev" solutions="big-data" manager="paulettm" editor="cgronlun" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/21/2014" ms.author="bradsev"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/21/2014" ms.author="bradsev" />
 
 # HDInsight에서 Hadoop과 함께 HBase를 사용하여 시작
 
@@ -13,39 +13,40 @@ HBase는 빅데이터를 온라인으로 트랜잭션 처리할 수 있게 하�
 -   기존 HBase 테이블에 매핑되는 Hive 테이블을 만들고 HiveQL을 사용하여 HBase 테이블의 데이터를 쿼리하는 방법
 -   .NET SDK를 사용하여 새 HBase 테이블을 만들고 계정의 HBase 테이블을 나열하는 방법 및 테이블에서 행을 추가하고 검색하는 방법
 
-> [WACOM.NOTE] HBase는 현재 HDInsight에서 HDInsight 3.0 클러스터에 사용하도록 미리 보기로만 제공됩니다(Hadoop 2.2.0 기반). 버전 정보는 [HDInsight에서 제공하는 Hadoop 클러스터 버전의 새로운 기능][](영문)을 참조하세요.
-
-미기 보기 기간 동안에는 HBase 클러스터에서 사용되는 원본 버전 데이터의 백업 복사본을 이 클러스터 외부에 저장하는 것이 좋습니다. 데이터베이스 파일의 형식이 향후 버전에서 바뀔 수 있으며 미리 보기 버전에서 사용되는 현재 데이터 파일 형식이 지원되지 않거나 후속 버전으로 업그레이드할 수 없을 수도 있기 때문입니다.
+> [WACOM.NOTE] HBase(버전 0.98.0)는 HDInsight의 HDInsight 3.1 클러스터에서만 사용할 수 있습니다(Apache Hadoop 및 YARN 2.4.0 기준). 버전 정보는 [HDInsight에서 제공하는 Hadoop 클러스터 버전의 새로운 기능][HDInsight에서 제공하는 Hadoop 클러스터 버전의 새로운 기능](영문)을 참조하세요.
 
 **필수 조건:**
 
 이 자습서를 시작하기 전에 다음이 있어야 합니다.
 
--   Azure 구독. 구독을 얻는 방법에 대한 자세한 내용은 [구매 옵션][], [구성원 제공 항목][] 또는 [무료 평가판][]을 참조하세요.
--   Azure 저장소 계정. 자세한 내용은 [저장소 계정을 만드는 방법][]을 참조하세요.
+-   Azure 구독. 구독을 얻는 방법에 대한 자세한 내용은 [구매 옵션][구매 옵션], [구성원 제공 항목][구성원 제공 항목] 또는 [무료 평가판][무료 평가판]을 참조하세요.
+-   Azure 저장소 계정. 자세한 내용은 [저장소 계정을 만드는 방법][저장소 계정을 만드는 방법]을 참조하세요.
 -   Visual Studio의 복사본.
 
 **예상 완료 시간:** 30분
 
 ## 자습서 내용
 
--   [Azure 포털에서 HBase 클러스터 프로비전][]
--   [HBase 셸에서 HBase 샘플 테이블 만들기][]
--   [Hive를 사용하여 HBase 테이블 쿼리][]
--   [HBase C# API를 사용하여 HBase 테이블 만들기 및 테이블에서 데이터 검색][]
--   [요약][]
+-   [Azure 포털에서 HBase 클러스터 프로비전][Azure 포털에서 HBase 클러스터 프로비전]
+-   [HBase 셸에서 HBase 샘플 테이블 만들기][HBase 셸에서 HBase 샘플 테이블 만들기]
+-   [Hive를 사용하여 HBase 테이블 쿼리][Hive를 사용하여 HBase 테이블 쿼리]
+-   [HBase C# API를 사용하여 HBase 테이블 만들기 및 테이블에서 데이터 검색][HBase C# API를 사용하여 HBase 테이블 만들기 및 테이블에서 데이터 검색]
+-   [요약][요약]
+-   [다음 작업][다음 작업]
 
 ## <a name="create-hbase-cluster"></a>Azure 포털에서 HBase 클러스터 프로비전
 
 이 섹션에서는 Azure 포털을 사용하여 HBase 클러스터를 프로비전하는 방법을 설명합니다.
 
+[WACOM.INCLUDE [provisioningnote](../includes/hdinsight-provisioning.md)]
+
 **Azure 포털에서 HDInsight 클러스터를 프로비전하려면**
 
-1.  [Azure 관리 포털][]에 로그인합니다.
+1.  [Azure 관리 포털][Azure 관리 포털]에 로그인합니다.
 
 2.  왼쪽에 있는 **HDInsight**를 클릭하여 계정에 있는 클러스터의 상태를 나열한 다음 왼쪽 아래에서 **+새로 만들기** 아이콘을 클릭합니다.
 
-    ![][]
+    ![][0]
 
 3.  왼쪽에서 두 번째 열에서 HDInsight 아이콘을 클릭한 다음 그 다음 열에서 HBase 옵션을 선택합니다. CLUSTERNAME 및 CLUSTER SIZE의 값, 저장소 계정의 이름 및 새 HBase 클러스터의 암호를 지정합니다.
 
@@ -97,7 +98,7 @@ HBase 클러스터를 프로비전했고 테이블을 만들었으며, 이제 Hi
 
 **클러스터 대시보드를 열려면**
 
-1.  [Azure 관리 포털][]에 로그인합니다.
+1.  [Azure 관리 포털][Azure 관리 포털]에 로그인합니다.
 2.  왼쪽 창에서 **HDINSIGHT**를 클릭합니다. 지난 섹션에서 만든 클러스터를 포함하여 생성된 클러스터의 목록이 표시됩니다.
 3.  Hive 작업을 실행할 클러스터의 이름을 클릭합니다.
 4.  페이지 아래에서 **클러스터 관리**를 클릭하여 클러스터 대시보드를 엽니다. 다른 브라우저 탭에서 웹 페이지가 열립니다.
@@ -109,7 +110,6 @@ HBase 클러스터를 프로비전했고 테이블을 만들었으며, 이제 Hi
 
 1.  HBase 테이블에 매핑되는 Hive 테이블을 만들려면 다음 HiveQL 스크립트를 Hive 콘솔 창에 입력하고 **전송** 단추를 클릭합니다. 다음 문을 실행하기 전에 HBase 셸을 사용하여 HBase에서 참조되는 샘플 테이블을 만들었는지 확인합니다.
 
-        SET hbase.zookeeper.quorum=zookeepernode0,zookeepernode1,zookeepernode2;  
         CREATE EXTERNAL TABLE hbasesampletable(rowkey STRING, col1 STRING, col2 STRING)
         STORED BY 'org.apache.hadoop.hive.hbase.HBaseStorageHandler'
         WITH SERDEPROPERTIES ('hbase.columns.mapping' = ':key,cf1:col1,cf1:col2')
@@ -117,8 +117,6 @@ HBase 클러스터를 프로비전했고 테이블을 만들었으며, 이제 Hi
 
 2.  HBase 테이블의 데이터에 대해 Hive 쿼리를 실행하려면 다음 HiveQL 스크립트를 Hive 콘솔 창에 입력하고 **전송** 단추를 클릭합니다.
 
-        SET hbase.zookeeper.quorum=zookeepernode0,zookeepernode1,zookeepernode2;
-        SET hive.aux.jars.path=file:///C:/Apps/dist/hive-0.12.0.2.0.9.0-1677/lib/hive-hbase-handler-0.12.0.2.0.9.0-1677.jar,file:///C:/Apps/dist/hive-0.12.0.2.0.9.0-1677/lib/hbase-server-0.96.0.2.0.9.0-1677-hadoop2.jar,file:///C:/Apps/dist/hive-0.12.0.2.0.9.0-1677/lib/hbase-protocol-0.96.0.2.0.9.0-1677-hadoop2.jar,file:///C:/Apps/dist/hive-0.12.0.2.0.9.0-1677/lib/htrace-core-2.01.jar,file:///C:/Apps/dist/hive-0.12.0.2.0.9.0-1677/lib/hbase-client-0.96.0.2.0.9.0-1677-hadoop2.jar,file:///C:/Apps/dist/hive-0.12.0.2.0.9.0-1677/lib/guava-12.0.1.jar;
         SELECT count(*) FROM hbasesampletable;
 
 3.  Hive 쿼리의 결과를 검색하려면 작업 실행이 완료되면 **작업 세션** 창에서 **자세히 보기** 링크를 클릭합니다.
@@ -136,7 +134,7 @@ HBase 클러스터를 프로비전했고 테이블을 만들었으며, 이제 Hi
 
 Marlin은 REST API 위의 얇은 레이어로, C#에서 ProtoBuf를 사용하여 HBase를 조작하는 작업을 처리합니다. Marlin 프로젝트는 github에서 다운로드해야 하며 HBase .NET SDK를 사용하도록 구축한 프로젝트입니다.
 
-1.  [Marlin 프로젝트 페이지][](영문)의 Marlin 프로젝트 다운로드에서 설명하는 빌드 단계를 따르세요. 압축을 풀어 로컬 디렉터리에 넣습니다.
+1.  [Marlin 프로젝트 페이지][Marlin 프로젝트 페이지](영문)의 Marlin 프로젝트 다운로드에서 설명하는 빌드 단계를 따르세요. 압축을 풀어 로컬 디렉터리에 넣습니다.
 
 2.  Visual Studio에서 프로젝트를 엽니다. **도구** 메뉴 -\> **라이브러리 패키지 관리자**로 이동하여 NuGet 패키지 관리자 관리 마법사를 열고 **솔루션에 대한 NuGet 패키지 관리...**를 선택합니다.
 
@@ -194,19 +192,30 @@ Marlin은 REST API 위의 얇은 레이어로, C#에서 ProtoBuf를 사용하여
 
 이 자습서에서는 HBase 클러스터를 프로비전하는 방법, 테이블을 만들고 HBase 셸에서 가져온 데이터를 이 테이블에서 보는 방법을 알아보았습니다. 또한 Hive를 사용하여 HBase 테이블의 데이터를 쿼리하는 방법 및 HBase C# API를 사용하여 HBase 테이블을 만들고 이 테이블에서 데이터를 검색하는 방법도 알아보았습니다.
 
+## <a name="next"></a>다음 작업
+
+[HDInsight HBase 개요][HDInsight HBase 개요]:
+HBase는 비구조적/반구조적 대량 데이터에 대해 임의 액세스 및 강력한 일관성을 제공하는 Hadoop 기반의 Apache 오픈 소스 NoSQL 데이터베이스입니다.
+
+[Azure 가상 네트워크에서 HBase 클러스터 프로비전][Azure 가상 네트워크에서 HBase 클러스터 프로비전]:
+가상 네트워크 통합을 사용하면 응용 프로그램이 HBase와 직접 통신할 수 있도록 응용 프로그램과 동일한 가상 네트워크에 HBase 클러스터를 배포할 수 있습니다.
+
   [HDInsight에서 제공하는 Hadoop 클러스터 버전의 새로운 기능]: ../hdinsight-component-versioning/
-  [구매 옵션]: http://azure.microsoft.com/en-us/pricing/purchase-options/
-  [구성원 제공 항목]: http://azure.microsoft.com/en-us/pricing/member-offers/
-  [무료 평가판]: http://azure.microsoft.com/en-us/pricing/free-trial/
+  [구매 옵션]: http://azure.microsoft.com/ko-kr/pricing/purchase-options/
+  [구성원 제공 항목]: http://azure.microsoft.com/ko-kr/pricing/member-offers/
+  [무료 평가판]: http://azure.microsoft.com/ko-kr/pricing/free-trial/
   [저장소 계정을 만드는 방법]: http://azure.microsoft.com/ko-kr/documentation/articles/storage-create-storage-account/
   [Azure 포털에서 HBase 클러스터 프로비전]: #create-hbase-cluster
   [HBase 셸에서 HBase 샘플 테이블 만들기]: #create-sample-table
   [Hive를 사용하여 HBase 테이블 쿼리]: #hive-query
   [HBase C# API를 사용하여 HBase 테이블 만들기 및 테이블에서 데이터 검색]: #hbase-powershell
   [요약]: #summary
+  [다음 작업]: #next
   [Azure 관리 포털]: https://manage.windowsazure.com/
-  []: http://i.imgur.com/PmGynKZ.jpg
+  [0]: http://i.imgur.com/PmGynKZ.jpg
   [1]: http://i.imgur.com/ecxbB9K.jpg
   [2]: http://i.imgur.com/tMwXlj9.jpg
   [Marlin 프로젝트 페이지]: https://github.com/thomasjungblut/marlin
   [3]: http://i.imgur.com/hUNoJDJ.jpg
+  [HDInsight HBase 개요]: ../hdinsight-hbase-overview/
+  [Azure 가상 네트워크에서 HBase 클러스터 프로비전]: ../hdinsight-hbase-provision-vnet

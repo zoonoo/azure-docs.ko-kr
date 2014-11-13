@@ -1,6 +1,6 @@
-<properties linkid="dev-java-how-to-on-premise-application-with-blob-storage" urlDisplayName="Image Gallery w/ Storage" pageTitle="On-premises application with blob storage (Java) | Microsoft Azure" metaKeywords="Azure blob storage, Azure blob Java, Azure blob example, Azure blob tutorial" description="Learn how to create a console application that uploads an image to Azure, and then displays the image in your browser. Code samples in Java." metaCanonical="" services="storage" documentationCenter="Java" title="On-Premises Application with Blob Storage" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
+<properties urlDisplayName="Image Gallery w/ Storage" pageTitle="Blob 저장소를 사용하는 온-프레미스 응용 프로그램(Java) | Microsoft Azure" metaKeywords="Azure blob storage, Azure blob Java, Azure blob example, Azure blob tutorial" description="Azure에 이미지를 업로드한 다음 브라우저에 해당 이미지를 표시하는 콘솔 응용 프로그램을 만드는 방법에 대해 알아봅니다. 코드 샘플은 Java로 작성되었습니다." metaCanonical="" services="storage" documentationCenter="Java" title="Blob 저장소를 사용하는 온-프레미스 응용 프로그램" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
 
 # Blob 저장소를 사용하는 온-프레미스 응용 프로그램
 
@@ -11,9 +11,9 @@
 
 ## 목차
 
--   [필수 조건][]
--   [Azure Blob 저장소를 사용하여 파일을 업로드하려면][]
--   [컨테이너를 삭제하려면][]
+-   [필수 조건][필수 조건]
+-   [Azure Blob 저장소를 사용하여 파일을 업로드하려면][Azure Blob 저장소를 사용하여 파일을 업로드하려면]
+-   [컨테이너를 삭제하려면][컨테이너를 삭제하려면]
 
 ## <a name="bkmk_prerequisites"> </a>필수 조건
 
@@ -22,18 +22,19 @@
 3.  Java용 Azure 라이브러리를 위한 JAR 및 해당하는 종속성
     JAR이 설치되어 있어야 하며 Java 컴파일러가 사용하는 빌드 경로에
     있어야 합니다. Java용 Azure 라이브러리 설치에 대한 자세한 내용은 [Java용 Azure SDK
-    다운로드][]를 참조하세요.
+    다운로드][Java용 Azure SDK
+    다운로드]를 참조하세요.
 4.  Azure 저장소 계정이 설정되어 있어야 합니다. 아래 코드에서
     저장소 계정의 계정 이름 및 계정 키를 사용해야
-    합니다. 저장소 계정 만들기에 대한 내용은 [저장소 계정을 만드는 방법][]을, 계정 키 검색에 대한
-    내용은 [저장소 계정을 관리하는 방법][]을
+    합니다. 저장소 계정 만들기에 대한 내용은 [저장소 계정을 만드는 방법][저장소 계정을 만드는 방법]을, 계정 키 검색에 대한
+    내용은 [저장소 계정을 관리하는 방법][저장소 계정을 관리하는 방법]을
     참조하세요.
 5.  이름을 지정한 로컬 이미지 파일을 만들어
     c:\\myimages\\image1.jpg 경로에 저장해야 합니다. 또는 이 예에서
     **FileInputStream** 생성자를 수정하여 다른 이미지 경로 및 파일 이름을
     사용합니다.
 
-[WACOM.INCLUDE [create-account-note][]]
+[WACOM.INCLUDE [create-account-note](../includes/create-account-note.md)]
 
 ## <a name="bkmk_uploadfile"> </a>Azure Blob 저장소를 사용하여 파일을 업로드하려면
 
@@ -153,7 +154,7 @@ HTML 페이지를 만듭니다.
     System.out.println("Processing complete.");
     System.out.println("Open index.html to see the images stored in your storage account.");
 
-다음 닫는 중괄호(**}**)를 삽입하여 **try** 블록을 닫습니다.
+다음 닫는 중괄호를 삽입하여 **try** 블록을 닫습니다. **}**
 
 다음 예외를 처리합니다.
 
@@ -193,7 +194,7 @@ HTML 페이지를 만듭니다.
         System.exit(-1);
     }
 
-다음 닫는 중괄호(**}**)를 삽입하여 **main**을 닫습니다.
+다음 닫는 중괄호를 삽입하여 **main**을 닫습니다. **}**
 
 이름이 **MakeHTMLPage**인 메서드를 만들어 기본 HTML 페이지를 만듭니다. 이
 메서드는 업로드된 Blob 목록에서 반복하는 데 사용될 **CloudBlobContainer**
@@ -243,9 +244,9 @@ HTML 페이지를 만듭니다.
 
     stream.close();
 
-다음 닫는 중괄호(**}**)를 삽입하여 **MakeHTMLPage**를 닫습니다.
+다음 닫는 중괄호를 삽입하여 **MakeHTMLPage**를 닫습니다. **}**
 
-다음 닫는 중괄호(**}**)를 삽입하여 **StorageSample**을 닫습니다.
+다음 닫는 중괄호를 삽입하여 **StorageSample**을 닫습니다. **}**
 
 다음은 이 예제의 완성 코드입니다. 계정 이름 및 계정 키를
 사용하도록 **your\_account\_name** 및
@@ -419,15 +420,11 @@ namedindex.html 로컬 파일도 만듭니다.
     }
 
 다른 Blob 저장소 클래스 및 메서드 개요는 [Java에서 Blob 저장소
-서비스를 사용하는 방법][]을 참조하세요.
+서비스를 사용하는 방법][Java에서 Blob 저장소
+서비스를 사용하는 방법]을 참조하세요.
 
   [필수 조건]: #bkmk_prerequisites
   [Azure Blob 저장소를 사용하여 파일을 업로드하려면]: #bkmk_uploadfile
   [컨테이너를 삭제하려면]: #bkmk_deletecontainer
-  [Java용 Azure SDK
-  다운로드]: http://www.windowsazure.com/en-us/develop/java/
-  [저장소 계정을 만드는 방법]: http://www.windowsazure.com/en-us/manage/services/storage/how-to-create-a-storage-account/
-  [저장소 계정을 관리하는 방법]: http://www.windowsazure.com/en-us/manage/services/storage/how-to-manage-a-storage-account/
-  [create-account-note]: ../includes/create-account-note.md
-  [Java에서 Blob 저장소
-  서비스를 사용하는 방법]: http://www.windowsazure.com/en-us/develop/java/how-to-guides/blob-storage/
+  [저장소 계정을 만드는 방법]: http://www.windowsazure.com/ko-kr/manage/services/storage/how-to-create-a-storage-account/
+  [저장소 계정을 관리하는 방법]: http://www.windowsazure.com/ko-kr/manage/services/storage/how-to-manage-a-storage-account/

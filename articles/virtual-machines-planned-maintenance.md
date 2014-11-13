@@ -1,4 +1,4 @@
-<properties title="Planned maintenance for Azure virtual machines" pageTitle="Planned maintenance for Azure virtual machines" description="Understand what Azure planned maintenance is and how it affects your virtual machines running in Azure." metaKeywords="" services="virtual-machines" solutions="" documentationCenter="" authors="kenazk" videoId="" scriptId="" />
+<properties title="Azure 가상 컴퓨터에 대한 계획된 유지 관리" pageTitle="Azure 가상 컴퓨터에 대한 계획된 유지 관리" description="Azure 계획된 유지 관리의 정의와 계획된 유지 관리가 Azure를 실행하는 가상 컴퓨터에 주는 영향에 대해 알아봅니다." metaKeywords="" services="virtual-machines" solutions="" documentationCenter="" authors="kenazk" videoId="" scriptId="" manager="timlt" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-multiple" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="kenazk" />
 
@@ -47,8 +47,7 @@ Microsoft Azure는 계획된 유지 관리 이벤트로 인해 두 개의 다른
 
 ![][1]
 
-<!--Anchors--> 
-<!--Link references-->
+<!--Anchors--> <!--Link references-->
 
   [계획된 유지 관리 및 계획되지 않은 유지 관리 이해]: ../virtual-machines-manage-availability/#Understand-planned-versus-unplanned-maintenance/
   [가상 컴퓨터 구성]: #virtual-machine-configurations

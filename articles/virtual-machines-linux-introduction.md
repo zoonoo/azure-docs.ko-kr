@@ -1,6 +1,6 @@
-<properties linkid="manage-linux-fundamentals-intro-to-linux" urlDisplayName="Intro to Linux" pageTitle="Introduction to Linux in Azure - Azure Tutorial" metaKeywords="Azure Linux vm, Linux vm" description="Learn about using Linux virtual machines on Azure." metaCanonical="" services="virtual-machines" documentationCenter="Python" title="Introduction to Linux on Azure" authors="szark" solutions="" manager="" editor="" />
+<properties urlDisplayName="Intro to Linux" pageTitle="Azure의 Linux 소개 - Azure 자습서" metaKeywords="Azure Linux vm, Linux vm" description="Azure에서 Linux 가상 컴퓨터를 사용하는 방법에 대해 알아봅니다." metaCanonical="" services="virtual-machines" documentationCenter="Python" title="Azure의 Linux 소개" authors="szark" solutions="" manager="timlt" editor="" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="szark"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="szark" />
 
 # Azure의 Linux 소개
 
@@ -36,11 +36,11 @@ Azure 관리 포털에서 Linux 가상 컴퓨터를 만들 경우 사용자 이�
 
         chmod 600 myPrivateKey.key
 
-3.  myCert.pem을 myCert.cer(DER 인코딩된 X509 인증서)로 변환합니다.
+3.  `myCert.pem`을 `myCert.cer`(DER 인코딩된 X509 인증서)로 변환합니다.
 
         openssl  x509 -outform der -in myCert.pem -out myCert.cer
 
-4.  Linux 가상 컴퓨터를 만드는 동안 myCert.cer을 업로드합니다. 프로비저닝 프로세스에서 가상 컴퓨터의 지정된 사용자에 대한 authorized\_keys 파일에 이 인증서의 공개 키를 자동으로 설치합니다.
+4.  Linux 가상 컴퓨터를 만드는 동안 `myCert.cer`을 업로드합니다. 프로비전 프로세스에서 가상 컴퓨터의 지정된 사용자에 대한 `~/.ssh/authorized_keys` 파일에 이 인증서의 공개 키를 자동으로 설치합니다.
 
 5.  ssh를 사용하여 Linux 가상 컴퓨터에 연결합니다.
 
@@ -48,7 +48,11 @@ Azure 관리 포털에서 Linux 가상 컴퓨터를 만들 경우 사용자 이�
 
     처음 로그인할 때 호스트의 공개 키 지문을 허용하라는 메시지가 표시됩니다.
 
-6.  선택적으로 myPrivateKey.key를 ~/.ssh/id\_rsa로 복사할 수 있습니다. 그러면 -i 옵션을 사용하지 않아도 openssh 클라이언트가 이 파일을 자동으로 선택할 수 있습니다.
+6.  필요한 경우 `myPrivateKey.key`를 `~/.ssh/id_rsa`로 복사할 수 있습니다. 그러면 -i 옵션을 사용하지 않아도 openssh 클라이언트가 이 파일을 자동으로 선택할 수 있습니다.
+     가상 컴퓨터의 섹션을 포함하도록 `~/.ssh/config`를 수정할 수도 있습니다.
+
+        Host servicename.cloudapp.net
+          IdentityFile %d/.ssh/myPrivateKey.key
 
 ### 기존 OpenSSH 호환 키에서 키 생성
 
@@ -60,7 +64,7 @@ OpenSSH 개인 키는 `openssl` 유틸리티를 통해 직접 읽을 수 있습�
 
 **myCert.pem** 파일은 Azure에 Linux 가상 컴퓨터를 프로비전하는 데 사용할 수 있는 공개 키입니다. 프로비전하는 동안 `.pem` 파일이 `openssh` 호환 공개 키로 변환되고 `~/.ssh/authorized_keys`에 저장됩니다.
 
-## <span id="superuserprivileges"></span></a>`sudo`를 사용하여 Superuser 권한 얻기
+## <span id="superuserprivileges"></span></a>다음 코드를 사용하여 Superuser 권한 얻기: `sudo`
 
 Azure에서 가상 컴퓨터 인스턴스를 배포하는 동안 지정한 사용자 계정이 권한 있는 계정입니다. Azure Linux 에이전트에서 `sudo` 유틸리티를 사용하여 루트(superuser 계정)로 권한을 상승하도록 이 계정을 구성할 수 있습니다. 이 사용자 계정을 사용하여 로그인한 후 다음 명령 구문을 사용하여 루트로 명령을 실행할 수 있습니다.
 

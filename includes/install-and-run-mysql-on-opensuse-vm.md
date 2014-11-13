@@ -59,9 +59,9 @@
 
         quit
 
-11. MySQL이 설치되면 MySQL에 원격으로 액세스할 수 있도록 끝점을 구성해야 합니다. [Azure 관리 포털][]에 로그인합니다. Azure 포털에서 **Virtual Machines**를 클릭한 후 새로운 VM 이름과 **끝점**을 차례로 클릭합니다.
+11. MySQL이 설치되면 MySQL에 원격으로 액세스할 수 있도록 끝점을 구성해야 합니다. [Azure 관리 포털][Azure 관리 포털]에 로그인합니다. Azure 포털에서 **Virtual Machines**를 클릭한 후 새로운 VM 이름과 **끝점**을 차례로 클릭합니다.
 
-    ![끝점][]
+    ![끝점][끝점]
 
 12. 페이지 맨 아래에 있는 **끝점 추가**를 클릭합니다.
     ![끝점][1]
@@ -77,7 +77,7 @@
 
         mysql -u mysqluser -p -h testlinuxvm.cloudapp.net
 
-15. 이제 성공적으로 MySQL을 구성하고 데이터베이스와 새 사용자를 만들었습니다. MySQL에 대한 자세한 내용은 [MySQL 설명서][](영문)를 참조하세요.
+15. 이제 성공적으로 MySQL을 구성하고 데이터베이스와 새 사용자를 만들었습니다. MySQL에 대한 자세한 내용은 [MySQL 설명서][MySQL 설명서](영문)를 참조하세요.
 
   [Azure 관리 포털]: http://manage.windowsazure.com
   [끝점]: ./media/install-and-run-mysql-on-opensuse-vm/LinuxVmAddEndpoint.png

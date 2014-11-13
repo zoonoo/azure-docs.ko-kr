@@ -1,6 +1,6 @@
-<properties linkid="manage-linux-howto-linux-agent" urlDisplayName="Linux Agent guide" pageTitle="Linux Agent User Guide for Azure" metaKeywords="" description="Learn how to install and configure Linux Agent (waagent) to manage your virtual machine's interaction with Azure Fabric Controller." metaCanonical="" services="virtual-machines" documentationCenter="" title="Azure Linux Agent User Guide" authors="" solutions="" manager="" editor="" />
+<properties urlDisplayName="Linux Agent guide" pageTitle="Azure용 Linux 에이전트 사용자 가이드" metaKeywords="" description="Linux 에이전트(waagent)를 설치 및 구성하여 가상 컴퓨터와 Azure 패브릭 컨트롤러의 상호 작용을 관리하는 방법에 대해 알아봅니다." metaCanonical="" services="virtual-machines" documentationCenter="" title="Azure Linux 에이전트 사용자 가이드" authors="timlt" solutions="" manager="timlt" editor="" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="timlt" />
 
 # Azure Linux 에이전트 사용자 가이드
 
@@ -42,11 +42,12 @@ Azure Linux 에이전트(waagent)는 가상 컴퓨터의 Azure 패브릭 컨트�
 
 최신 Linux 에이전트는 다음에서 직접 가져올 수 있습니다.
 
--   [Azure에서 Linux를 인증하는 다른 배포 공급자][]
--   또는 [Azure Linux 에이전트의 Github 오픈 소스 리포지토리][](영문)에서
+-   [Azure에서 Linux를 인증하는 다른 배포 공급자][Azure에서 Linux를 인증하는 다른 배포 공급자]
+-   또는 [Azure Linux 에이전트의 Github 오픈 소스 리포지토리][Azure Linux 에이전트의 Github 오픈 소스 리포지토리](영문)에서
 
 ### 지원되는 Linux 배포
 
+-   CoreOS
 -   CentOS 6.2 이상
 -   Debian 7.0 이상
 -   Ubuntu 12.04 이상
@@ -195,7 +196,7 @@ Waagent는 다음과 같은 일부 시스템 패키지가 있어야 제대로 �
 형식: 부울
  기본값: y
 
-이 옵션을 통해 사용자가 에이전트의 프로비전 기능을 사용하거나 사용하지 않도록 설정할 수 있습니다. 유효한 값은 "y" 또는 "n"입니다. 프로비전을 사용하지 않도록 설정한 경우 이미지의 SSH 호스트 및 사용자 키는 유지되며 Azure 프로비저닝 API에서 지정한 모든 구성은 무시됩니다.
+이 옵션을 통해 사용자가 에이전트의 프로비전 기능을 사용하거나 사용하지 않도록 설정할 수 있습니다. 유효한 값은 "y" 또는 "n"입니다. 프로비전을 사용하지 않도록 설정한 경우 이미지의 SSH 호스트 및 사용자 키는 유지되며 Azure 프로비전 API에서 지정한 모든 구성은 무시됩니다.
 
 **Provisioning.DeleteRootPassword:**
 

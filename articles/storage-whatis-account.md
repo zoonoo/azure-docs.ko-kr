@@ -1,4 +1,4 @@
-<properties linkid="manage-services-what-is-a-storage-account" urlDisplayName="What is a Storage Account" pageTitle="What is a storage account? | Microsoft Azure" metaKeywords="" description="Learn about the different types of storage accounts available in Azure, and get definitions for key storage terms." metaCanonical="" services="storage" documentationCenter="" title="What is a Storage Account?" authors="tamram" solutions="" manager="mbaldwin" editor="cgronlun" />
+<properties urlDisplayName="What is a Storage Account" pageTitle="저장소 계정 정의 | Microsoft Azure" metaKeywords="" description="Azure에서 사용 가능한 여러 저장소 계정 유형과 주요 저장소 관련 용어의 정의에 대해 알아봅니다." metaCanonical="" services="storage" documentationCenter="" title="저장소 계정 정의" authors="tamram" solutions="" manager="adinah" editor="cgronlun" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
@@ -32,7 +32,7 @@ Azure 저장소에는 세 가지 서비스 Blob 저장소, 테이블 저장소, 
 
 -   파일 서비스: http://*mystorageaccount*.file.core.windows.net
 
-저장소 계정의 개체에 액세스하기 위한 URL은 저장소 계정의 개체 위치를 끝점에 추가하여 작성됩니다. 예를 들어, Blob 주소의 형식은 다음과 같습니다. http://*mystorageaccount*.blob.core.windows.net/*mycontainer*/*myblob\*.
+저장소 계정의 개체에 액세스하기 위한 URL은 저장소 계정의 개체 위치를 끝점에 추가하여 작성됩니다. 예를 들어, Blob 주소의 형식은 다음과 같습니다. http://*mystorageaccount*.blob.core.windows.net/*mycontainer*/*myblob*.
 
 ### 저장소 계정 보안
 
@@ -55,7 +55,6 @@ Azure 저장소에는 세 가지 서비스 Blob 저장소, 테이블 저장소, 
   [Azure 저장소 확장성 및 성능 목표]: http://msdn.microsoft.com/ko-kr/library/dn249410.aspx
   [저장소 가격 정보]: http://www.windowsazure.com/ko-kr/pricing/details/#storage
   [데이터 전송 가격 정보]: http://www.windowsazure.com/ko-kr/pricing/details/data-transfers/
-  [storage-replication-options]: ../includes/storage-replication-options.md
   [공유 액세스 서명 자습서]: ../storage-dotnet-shared-access-signature-part-1/
   [저장소 분석 메트릭 테이블 스키마]: http://msdn.microsoft.com/ko-kr/library/windowsazure/hh343264.aspx
   [저장소 분석 메트릭 정보]: http://msdn.microsoft.com/ko-kr/library/windowsazure/hh343258.aspx

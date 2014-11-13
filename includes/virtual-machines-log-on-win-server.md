@@ -1,4 +1,4 @@
-<properties linkid="manage-windows-howto-logon" urlDisplayName="Log on to a VM" pageTitle="Log on to a virtual machine running Windows Server" metaKeywords="Azure logging on vm, vm portal" description="Learn how to log on to a virtual machine running Windows Server 2008 R2 by using the Azure Management Portal." metaCanonical="" services="virtual-machines" documentationCenter="" title="How to Log on to a Virtual Machine Running Windows Server" authors="kathydav" solutions="" manager="dongill" editor="tysonn" />
+<properties linkid="manage-windows-howto-logon" urlDisplayName="Log on to a VM" pageTitle="Windows Server를 실행하는 가상 컴퓨터에 로그온" metaKeywords="Azure logging on vm, vm portal" description="Azure 관리 포털을 사용하여 Windows Server 2008 R2를 실행하는 가상 컴퓨터에 로그온하는 방법을 알아보세요." metaCanonical="" services="virtual-machines" documentationCenter="" title="Windows Server를 실행하는 가상 컴퓨터에 로그온하는 방법" authors="kathydav" solutions="" manager="dongill" editor="tysonn" />
 
 > [WACOM.NOTE] 요구 사항 및 문제 해결 팁에 대해서는 [RDP 또는 SSH를 사용하여 Azure 가상 컴퓨터에 연결][RDP 또는 SSH를 사용하여 Azure 가상 컴퓨터에 연결](영문)을 참조하세요.
 

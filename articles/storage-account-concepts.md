@@ -1,6 +1,6 @@
-<properties umbracoNaviHide="0" pageTitle="Storage Account Concepts | Azure" metaKeywords="Azure storage, storage service, service, storage account, account, create storage account, create account" description="Learn about storage account concepts." linkid="manage-windows-how-to-guide-storage-accounts" urlDisplayName="How to: storage accounts" headerExpose="" footerExpose="" disqusComments="1" title="Storage Account Concepts" services="storage" authors="tamram" manager="mbaldwin" editor="cgronlun" />
+<properties umbracoNaviHide="0" pageTitle="저장소 계정 개념 | Azure" metaKeywords="Azure storage, storage service, service, storage account, account, create storage account, create account" description="저장소 계정의 개념에 대해 알아봅니다." urlDisplayName="How to: storage accounts" headerExpose="" footerExpose="" disqusComments="1" title="저장소 계정 개념" services="storage" authors="tamram" manager="adinah" editor="cgronlun" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="tamram"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
 # 저장소 계정 개념
 
@@ -20,7 +20,7 @@
 
 -   파일 서비스: http://*mystorageaccount*.file.core.windows.net
 
-저장소 계정의 개체에 액세스하기 위한 URL은 저장소 계정의 개체 위치를 끝점에 추가하여 작성됩니다. 예를 들어, Blob 주소의 형식은 다음과 같습니다. http://mystorageaccount*.blob.core.windows.net/*mycontainer*/*myblob*.
+저장소 계정의 개체에 액세스하기 위한 URL은 저장소 계정의 개체 위치를 끝점에 추가하여 작성됩니다. 예를 들어, Blob 주소의 형식은 다음과 같습니다. http://*mystorageaccount*.blob.core.windows.net/*mycontainer*/*myblob*.
 
 ## 저장소 계정 보안
 
@@ -40,7 +40,6 @@
 
 *선호도 그룹*은 Azure 저장소 계정을 사용하여 Azure 서비스와 VM을 지리적으로 그룹화한 것을 말합니다. 선호도 그룹은 동일한 데이터 센터 또는 대상 사용자 그룹 인근의 컴퓨터 작업을 찾아 서비스 성능을 향상시킬 수 있습니다. 또한 같은 선호도 그룹에 속한 다른 서비스에서 저장소 계정의 데이터에 액세스할 경우 송신 요금이 청구되지 않습니다.
 
-  [storage-replication-options]: ../includes/storage-replication-options.md
   [공유 액세스 서명 자습서]: ../storage-dotnet-shared-access-signature-part-1/
   [저장소 분석 메트릭 테이블 스키마]: http://msdn.microsoft.com/ko-kr/library/windowsazure/hh343264.aspx
   [저장소 분석 메트릭 정보]: http://msdn.microsoft.com/ko-kr/library/windowsazure/hh343258.aspx

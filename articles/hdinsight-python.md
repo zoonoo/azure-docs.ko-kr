@@ -1,12 +1,12 @@
-<properties linkid="python-hdinsight" urlDisplayName="Python with HDInsight" pageTitle="Use Python with Hive and Pig in Azure HDInsight" metaKeywords="" description="Learn how to use Python User Defined Functions (UDF) from Hive and Pig in Azure HDInsight." metaCanonical="" services="hdinsight" documentationCenter="" title="Use Python with Hive and Pig in HDInsight" authors="larryfr" solutions="" manager="paulettm" editor="cgronlun" />
+<properties urlDisplayName="Python with HDInsight" pageTitle="Azure HDInsight에서 Hive 및 Pig와 함께 Python 사용" metaKeywords="" description="Azure HDInsight의 Hive 및 Pig에서 Python UDF(사용자 정의 함수)를 사용하는 방법에 대해 알아봅니다." metaCanonical="" services="hdinsight" documentationCenter="" title="HDInsight에서 Hive 및 Pig와 함께 Python 사용" authors="larryfr" solutions="" manager="paulettm" editor="cgronlun" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # HDInsight에서 Hive 및 Pig와 함께 Python 사용
 
 Hive 및 Pig는 HDInsight의 데이터 작업에 적합하지만 보다 일반적인 언어가 필요한 경우도 있습니다. Hive 및 Pig를 통해 다양한 프로그래밍 언어를 사용하여 UDF(사용자 정의 함수)를 만들 수 있습니다. 이 문서에서는 Hive 및 Pig에서 Python UDF를 사용하는 방법을 알아봅니다.
 
-> [WACOM.NOTE] 이 문서의 단계는 HDInsight 클러스터 버전 2.1, 3.0 및 3.1 미리 보기에 적용됩니다.
+> [WACOM.NOTE] 이 문서의 단계는 HDInsight 클러스터 버전 2.1, 3.0 및 3.1에 적용됩니다.
 
 ## 목차
 
@@ -159,7 +159,7 @@ HDInsight 클러스터에서 이 예제를 실행하는 방법에 대해서는 [
 
 ### Hive 대시보드 사용(Hive 예제만)
 
-1.  파일을 업로드한 후 브라우저를 열고 <https://YourClusterName.azurehdinsight.net/>으로 이동합니다. 자격 증명을 묻는 메시지가 표시되면 클러스터 관리자의 사용자 이름 및 암호를 입력합니다.
+1.  파일을 업로드한 후 브라우저를 열고 https://YourClusterName.azurehdinsight.net/으로 이동합니다. 자격 증명을 묻는 메시지가 표시되면 클러스터 관리자의 사용자 이름 및 암호를 입력합니다.
 
     > [WACOM.NOTE] 또한 Azure 관리 포털의 HDInsight **대시보드** 하단에 있는 **클러스터 관리** 링크를 사용하여 Hive 대시보드를 시작할 수 있습니다.
 
@@ -289,9 +289,9 @@ PowerShell을 사용하지 않고 HDInsight에서 작업을 원격으로 실행�
   [예제 실행]: #running
   [문제 해결]: #troubleshooting
   [다음 단계]: #next
-  [Azure PowerShell을 설치 및 구성하는 방법]: http://azure.microsoft.com/ko--kr/documentation/articles/install-configure-powershell/
+  [Azure PowerShell을 설치 및 구성하는 방법]: http://azure.microsoft.com/ko-kr/documentation/articles/install-configure-powershell/
   [streaming.py]: #streamingpy
   [jython.py]: #jythonpy
-  [HDInsight에서 Hadoop 작업용 데이터 업로드]: /ko--kr/documentation/articles/hdinsight-upload-data/
+  [HDInsight에서 Hadoop 작업용 데이터 업로드]: /ko-kr/documentation/articles/hdinsight-upload-data/
   [Azure HDInsight에 모듈을 배포하는 방법]: http://blogs.msdn.com/b/benjguin/archive/2014/03/03/how-to-deploy-a-python-module-to-windows-azure-hdinsight.aspx
   [Linux에서 Azure HDInsight를 사용하는 방법]: http://blogs.msdn.com/b/benjguin/archive/2014/02/18/how-to-use-hdinsight-from-linux.aspx

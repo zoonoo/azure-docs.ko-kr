@@ -1,6 +1,6 @@
-<properties linkid="manage-services-mediaservices-monitor-a-media-services-account" urlDisplayName="How to monitor" pageTitle="Monitor a Media Services Account - Azure" metaKeywords="" description="Describes how to configure monitoring for your Media Services account in Azure." metaCanonical="" services="media-services" documentationCenter="" title="How to Monitor a Media Services Account" authors="migree" solutions="" manager="" editor="" />
+<properties urlDisplayName="How to monitor" pageTitle="미디어 서비스 계정 모니터링 - Azure" metaKeywords="" description="Azure에서 미디어 서비스 계정에 대해 모니터링을 구성하는 방법에 대해 알아봅니다." metaCanonical="" services="media-services" documentationCenter="" title="미디어 서비스 계정을 모니터링하는 방법" authors="juliako" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="migree" />
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="juliako" />
 
 # <span id="monitormediaservicesaccount"></span></a>미디어 서비스 계정을 모니터링하는 방법
 
@@ -8,7 +8,7 @@ Azure 미디어 서비스 대시보드는 사용량 메트릭 및 미디어 서�
 
 인코더의 입력 및 출력 데이터가 표시하는 대기 중인 인코딩 작업, 실패한 인코딩 작업, 활성 인코딩 작업의 수 및 미디어 서비스 계정과 관련된 Blob 저장소 사용량을 모니터링할 수 있습니다. 또한 고객에게 콘텐츠를 스트리밍하는 경우 다양한 스트리밍 메트릭을 검색할 수도 있습니다. 최근 6시간, 24시간 또는 7일 동안의 데이터를 모니터링하도록 선택할 수 있습니다.
 
-**참고** Azure 관리 포털에서 저장소 데이터를 모니터링하면 추가 비용이 발생할 수 있습니다. 자세한 내용은 [저장소 분석 및 청구][저장소 분석 및 청구]를 참조하세요.
+> [WACOM.NOTE] Azure 관리 포털에서 저장소 데이터를 모니터링하면 추가 비용이 발생할 수 있습니다. 자세한 내용은 [저장소 분석 및 청구][저장소 분석 및 청구]를 참조하세요.
 
 ## <span id="configuremonitoring"></span></a>방법: 미디어 서비스 계정 모니터링
 
@@ -23,7 +23,7 @@ Azure 미디어 서비스 대시보드는 사용량 메트릭 및 미디어 서�
 1.  **간략 상태** 섹션에서 **저장소 계정** 이름을 클릭합니다.
 2.  저장소 계정 페이지에서 **configure page** 링크를 클릭하고 아래와 같이 Blob, 테이블 및 큐 서비스의 **모니터링** 설정까지 아래로 스크롤합니다.
 
-    **참고** Blob은 미디어 서비스에서 유일하게 지원되는 저장소 유형입니다.
+    > [WACOM.NOTE] 미디어 서비스에서 지원되는 저장소 유형은 Blob뿐입니다.
 
     ![StorageOptions][StorageOptions]
 
@@ -47,5 +47,6 @@ Azure 미디어 서비스 대시보드는 사용량 메트릭 및 미디어 서�
 
   [저장소 분석 및 청구]: http://go.microsoft.com/fwlink/?LinkId=256667
   [관리 포털]: http://go.microsoft.com/fwlink/?LinkID=256666
+  [MediaServices\_Dashboard]: ./media/media-services-monitor-services-account/media-services-dashboard.png
   [StorageOptions]: ./media/media-services-monitor-services-account/storagemonitoringoptions_scoped.png
   [저장소 분석 메트릭]: http://go.microsoft.com/fwlink/?LinkId=256668

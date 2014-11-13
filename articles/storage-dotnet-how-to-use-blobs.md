@@ -1,4 +1,4 @@
-<properties linkid="dev-net-how-to-blob-storage" urlDisplayName="Blob Service" pageTitle="How to use blob storage from .NET | Azure" metaKeywords="Get started Azure blob   Azure unstructured data   Azure unstructured storage   Azure blob   Azure blob storage   Azure blob .NET   Azure blob C#   Azure blob C#" description="Learn how to use Microsoft Azure Blob storage to upload,  download, list, and delete blob content. Samples are written in C#." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="storage" documentationCenter=".NET" title="How to use Microsoft Azure Blob storage in .NET" authors="tamram" manager="mbaldwin" editor="cgronlun" />
+<properties urlDisplayName="Blob Service" pageTitle=".NET에서 Blob 저장소를 사용하는 방법 | Azure" metaKeywords="Get started Azure blob   Azure unstructured data   Azure unstructured storage   Azure blob   Azure blob storage   Azure blob .NET   Azure blob C#   Azure blob C#" description="Microsoft Azure Blob 저장소를 사용하여 Blob 콘텐츠를 업로드, 다운로드, 나열 및 삭제하는 방법에 대해 알아봅니다. 샘플은 C#으로 작성되었습니다." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="storage" documentationCenter=".NET" title=".NET에서 Microsoft Azure Blob 저장소를 사용하는 방법" authors="tamram" manager="adinah" editor="cgronlun" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
@@ -27,25 +27,26 @@ Azure Storage Client Library for .NET을 사용합니다. Blob
 -   [방법: 컨테이너의 Blob 나열][방법: 컨테이너의 Blob 나열]
 -   [방법: Blob 다운로드][방법: Blob 다운로드]
 -   [방법: Blob 삭제][방법: Blob 삭제]
+-   [방법: 여러 페이지에서 비동기식으로 Blob 나열][방법: 여러 페이지에서 비동기식으로 Blob 나열]
 -   [다음 단계][다음 단계]
 
 [WACOM.INCLUDE [howto-blob-storage](../includes/howto-blob-storage.md)]
 
-## <a name="create-account"></a><span class="short-header">계정 만들기</span>Azure 저장소 계정 만들기
+## <a name="create-account"></a><span class="short-header">Azure 저장소 계정 만들기</span>
 
 [WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
-## <a name="setup-connection-string"></a><span class="short-header">연결 문자열 설정</span>저장소 연결 문자열 설정
+## <a name="setup-connection-string"></a><span class="short-header">저장소 연결 문자열 설정</span>
 
 [WACOM.INCLUDE [storage-configure-connection-string](../includes/storage-configure-connection-string.md)]
 
-## <a name="configure-access"> </a><span class="short-header">프로그래밍 방식으로 액세스</span>방법: 프로그래밍 방식으로 Blob 저장소 액세스
+## <a name="configure-access"> </a><span class="short-header">방법: 프로그래밍 방식으로 Blob 저장소 액세스</span>
 
 ### 어셈블리 가져오기
 
-NuGet을 사용하여 `Microsoft.WindowsAzure.Storage.dll` 어셈블리를 가져올 수 있습니다. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 선택합니다. 온라인에서 "WindowsAzure.Storage"를 검색하고 **설치**를 클릭하여 Azure 저장소 패키지와 종속성을 설치합니다.
+NuGet을 사용하여 `Microsoft.WindowsAzure.Storage.dll` 어셈블리를 가져오는 것이 좋습니다. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 선택합니다. 온라인에서 "WindowsAzure.Storage"를 검색하고 **설치**를 클릭하여 Azure 저장소 패키지와 종속성을 설치합니다.
 
-`Microsoft.WindowsAzure.Storage.dll`은 [.NET 개발자 센터][.NET 개발자 센터](영문)에서 다운로드할 수 있는 Azure SDK for .NET에도 포함되어 있습니다. 이 어셈블리는 `%Program Files%\Microsoft SDKs\Windows Azure\.NET SDK%Program Files%\Microsoft SDKs\Windows Azure\.NET SDK\<sdk-version>\ref\` 디렉터리에 설치됩니다.
+`Microsoft.WindowsAzure.Storage.dll`은 [.NET 개발자 센터][.NET 개발자 센터](영문)에서 다운로드할 수 있는 Azure SDK for .NET에도 포함되어 있습니다. 이 어셈블리는 `%Program Files%\Microsoft SDKs\Windows Azure\.NET SDK%Program Files%\Microsoft SDKs\Windows Azure\.NET SDK\<sdk-version>\ref\`lt;sdk-version\>\\ref\\</code> 디렉터리에 설치됩니다.
 
 ### 네임스페이스 선언
 
@@ -89,11 +90,9 @@ Blob과 컨테이너를 나타내는 개체를 검색할 수 있습니다. 다�
 
 Storage Client Library for .NET의 ODataLib 종속성은 WCF 데이터 서비스가 아니라 NuGet을 통해 사용 가능한 ODataLib(버전 5.0.2) 패키지를 통해 확인됩니다. ODataLib 라이브러리를 직접 다운로드하거나 NuGet을 통해 코드 프로젝트에서 참조할 수 있습니다. 특정 ODataLib 패키지는 [OData][OData], [Edm][Edm] 및 [Spatial][Spatial]입니다.
 
-## <a name="create-container"> </a><span class="short-header">컨테이너 만들기</span>방법: 컨테이너 만들기
+## <a name="create-container"> </a><span class="short-header">방법: 컨테이너 만들기</span>
 
-모든 저장소 Blob은 컨테이너에 있습니다.
-**CloudBlobClient** 개체를 사용하여 사용할 컨테이너에 대한 참조를 가져올
-수 있습니다. 컨테이너가 없는 경우 새로 만들 수 있습니다.
+Azure 저장소의 모든 Blob는 컨테이너에 있어야 합니다. 이 예제에서는 컨테이너가 없는 경우 만드는 방법을 보여 줍니다.
 
     // Retrieve storage account from connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -121,7 +120,7 @@ Storage Client Library for .NET의 ODataLib 종속성은 WCF 데이터 서비스
 인터넷상의 누구든지 공용 컨테이너의 Blob을 볼 수 있지만 해당 액세스 키가
 있는 경우에만 수정하거나 삭제할 수 있습니다.
 
-## <a name="upload-blob"> </a><span class="short-header">컨테이너에 업로드</span>방법: 컨테이너에 Blob 업로드
+## <a name="upload-blob"> </a><span class="short-header">방법: 컨테이너에 Blob 업로드</span>
 
 Azure Blob 저장소는 블록 Blob 및 페이지 Blob을 지원합니다. 대부분의 경우 블록 Blob을 사용하는 것이 좋습니다.
 
@@ -149,7 +148,7 @@ Azure Blob 저장소는 블록 Blob 및 페이지 Blob을 지원합니다. 대�
         blockBlob.UploadFromStream(fileStream);
     } 
 
-## <a name="list-blob"> </a><span class="short-header">컨테이너의 Blob 나열</span>방법: 컨테이너의 Blob 나열
+## <a name="list-blob"> </a><span class="short-header">방법: 컨테이너의 Blob 나열</span>
 
 컨테이너의 Blob을 나열하려면 먼저 컨테이너 참조를 가져옵니다. 컨테이너의
 **ListBlobs** 메서드를 사용하여 컨테이너 내의 Blob 및/또는 디렉터리를
@@ -240,7 +239,7 @@ URI를 검색하고 출력하는 방법을 보여 줍니다.
 
 자세한 내용은 [CloudBlobContainer.ListBlobs][CloudBlobContainer.ListBlobs]를 참조하세요.
 
-## <a name="download-blobs"> </a><span class="short-header">Blob 다운로드</span>방법: Blob 다운로드
+## <a name="download-blobs"> </a><span class="short-header">방법: Blob 다운로드</span>
 
 Blob을 다운로드하려면 먼저 Blob 참조를 검색한 다음 **DownloadToStream** 메서드를 호출합니다. 다음 예제에서는
 **DownloadToStream** 메서드를 사용하여 Blob 콘텐츠를 스트림 개체로
@@ -287,7 +286,7 @@ Blob을 다운로드하려면 먼저 Blob 참조를 검색한 다음 **DownloadT
         text = System.Text.Encoding.UTF8.GetString(memoryStream.ToArray());
     }
 
-## <a name="delete-blobs"> </a><span class="short-header">Blob 삭제</span>방법: Blob 삭제
+## <a name="delete-blobs"> </a><span class="short-header">방법: Blob 삭제</span>
 
 Blob을 삭제하려면 먼저 Blob 참조를 가져온 다음
 **Delete** 메서드를 호출합니다.
@@ -308,7 +307,67 @@ Blob을 삭제하려면 먼저 Blob 참조를 가져온 다음
     // Delete the blob.
     blockBlob.Delete(); 
 
-## <a name="next-steps"></a><span class="short-header">다음 단계</span>다음 단계
+## <a name="list-blobs-async"> </a><span class="short-header">방법: 여러 페이지에서 비동기식으로 Blob 나열</span>
+
+많은 수의 Blob를 나열하거나 한 번의 나열 작업에서 반환되는 결과 수를 제어하려는 경우에는 여러 결과 페이지에 Blob를 나열할 수 있습니다. 이 예제에서는 여러 페이지에서 비동기식으로 결과를 반환하는 방법을 보여 주므로 큰 결과 집합이 반환되도록 기다리는 동안 실행이 차단되지 않습니다.
+
+이 예제에서는 플랫 Blob 나열을 보여 주지만 **ListBlobsSegmentedAsync** 메서드의 `useFlatBlobListing` 매개 변수를 `false`로 설정하여 계층적 나열을 수행할 수도 있습니다.
+
+샘플 메서드는 비동기 메서드를 호출하므로 앞에 `async` 키워드를 추가해야 하며 **Task** 개체를 반환해야 합니다. **ListBlobsSegmentedAsync** 메서드에 대해 지정된 await 키워드는 나열 작업이 완료될 때까지 샘플 메서드의 실행을 일시 중단합니다.
+
+    async public static Task ListBlobsSegmentedInFlatListing()
+    {
+        // Retrieve storage account from connection string.
+        CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+            CloudConfigurationManager.GetSetting("StorageConnectionString"));
+
+        // Create the blob client.
+        CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+
+        // Retrieve reference to a previously created container.
+        CloudBlobContainer container = blobClient.GetContainerReference("myblobs");
+
+        //List blobs in pages.
+        Console.WriteLine("List blobs in pages:");
+
+        //List blobs with a paging size of 10, for the purposes of the example. 
+        //The first call does not include the continuation token.
+        BlobResultSegment resultSegment = await container.ListBlobsSegmentedAsync(
+                "", true, BlobListingDetails.All, 10, null, null, null);
+
+        //Enumerate the result segment returned.
+        int i = 0;
+        if (resultSegment.Results.Count<IListBlobItem>() > 0) { Console.WriteLine("Page {0}:", ++i); }
+        foreach (var blobItem in resultSegment.Results)
+        {
+            Console.WriteLine("\t{0}", blobItem.StorageUri.PrimaryUri);
+        }
+        Console.WriteLine();
+
+        //Get the continuation token, if there are additional pages of results.
+        BlobContinuationToken continuationToken = resultSegment.ContinuationToken;
+
+        //Check whether there are more results and list them in pages of 10 while a continuation token is returned.
+        while (continuationToken != null)
+        {
+            //This overload allows control of the page size. 
+            //You can return all remaining results by passing null for the maxResults parameter, 
+            //or by calling a different overload.
+            resultSegment = await container.ListBlobsSegmentedAsync(
+                    "", true, BlobListingDetails.All, 10, continuationToken, null, null);
+            if (resultSegment.Results.Count<IListBlobItem>() > 0) { Console.WriteLine("Page {0}:", ++i); }
+            foreach (var blobItem in resultSegment.Results)
+            {
+                Console.WriteLine("\t{0}", blobItem.StorageUri.PrimaryUri);
+            }
+            Console.WriteLine();
+
+            //Get the next continuation token.
+            continuationToken = resultSegment.ContinuationToken;
+        }
+    }
+
+## <a name="next-steps"></a><span class="short-header">다음 단계</span>
 
 이제 Blob 저장소의 기본 사항을 배웠으므로 다음 링크를 따라
 좀 더 복잡한 저장소 작업을 수행하는 방법을 알아보세요.
@@ -339,9 +398,7 @@ Blob을 삭제하려면 먼저 Blob 참조를 가져온 다음
   [방법: 컨테이너의 Blob 나열]: #list-blob
   [방법: Blob 다운로드]: #download-blobs
   [방법: Blob 삭제]: #delete-blobs
-  [howto-blob-storage]: ../includes/howto-blob-storage.md
-  [create-storage-account]: ../includes/create-storage-account.md
-  [storage-configure-connection-string]: ../includes/storage-configure-connection-string.md
+  [방법: 여러 페이지에서 비동기식으로 Blob 나열]: #list-blobs-async
   [.NET 개발자 센터]: http://www.windowsazure.com/ko-kr/develop/net/#
   [OData]: http://nuget.org/packages/Microsoft.Data.OData/5.0.2
   [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2

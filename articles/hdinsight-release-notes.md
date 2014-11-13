@@ -1,8 +1,47 @@
-<properties title="HDInsight Release Notes" pageTitle="HDInsight Release Notes | Azure" description="HDInsight release notes." metaKeywords="hdinsight, hadoop, hdinsight hadoop, hadoop azure, release notes" services="HDInsight" solutions="" documentationCenter="" editor="cgronlun" manager="paulettm"  authors="bradsev" />
+<properties title="HDInsight 릴리스 정보" pageTitle="HDInsight 릴리스 정보 | Azure" description="HDInsight 릴리스 정보" metaKeywords="hdinsight, hadoop, hdinsight hadoop, hadoop azure, release notes" services="HDInsight" solutions="" documentationCenter="" editor="cgronlun" manager="paulettm"  authors="bradsev" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="bradsev" />
 
 # Microsoft HDInsight 릴리스 정보
+
+## 2014/10/15 릴리스 정보
+
+이 핫픽스 릴리스에서는 Templeton을 많이 사용하는 사용자에게 영향을 주는 Templeton의 메모리 누수 현상이 해결되었습니다. 요청을 실행하기 위한 메모리가 부족하여 Templeton을 많이 사용하는 사용자에게 500 오류 코드가 표시되는 경우가 있었습니다. 이 문제를 해결하려면 Templeton 서비스를 다시 시작해야 했습니다. 이 릴리스에서는 해당 문제가 해결되었습니다.
+
+## 2014/10/7 릴리스 정보
+
+-   이제 Ambari 끝점 "https://{clusterDns}.azurehdinsight.net/ambari/api/v1/clusters/{clusterDns}.azurehdinsight.net/services/{servicename}/components/{componentname}"을 사용할 때 *host\_name* 필드가 호스트 이름만이 아닌 노드의 FQDN(정규화된 도메인 이름)을 반환합니다. 예를 들어 "**headnode0**"가 반환되는 대신 FQDN인 "**headnode0.{ClusterDNS}.azurehdinsight.net**"이 반환됩니다. 이 변경은 HBase, Hadoop 등의 여러 클러스터 유형을 VNET(가상 네트워크) 하나에 배포할 수 있는 시나리오를 원활하게 수행하기 위해 필요한 작업이었습니다. 예를 들어 Hadoop의 백 엔드 플랫폼으로 HBase를 사용하는 등의 경우 이 변경이 적용됩니다.
+
+-   HDInsight 클러스터의 기본 배포에 대해 새 메모리 설정이 제공됩니다. 이전의 기본 메모리 설정에서는 배포 중인 CPU 코어 수에 대한 지침을 적절하게 고려하지 않았습니다. 아래 표에는 기본 4개 CPU 코어(8개 컨테이너) HDInsight 클러스터에서 사용되는 새 메모리 설정이 개별 항목으로 나와 있습니다. 이번 릴리스 이전에 사용되었던 값도 괄호 안에 나와 있습니다.
+
+| 구성 요소                         | 메모리 할당                       |
+|-----------------------------------|-----------------------------------|
+| yarn.scheduler.minimum-allocation | 768MB(이전에는 512MB)             |
+| yarn.scheduler.maximum-allocation | 6,144MB(변경되지 않음)            |
+| yarn.nodemanager.resource.memory  | 6,144MB(변경되지 않음)            |
+| mapreduce.map.memory              | 768MB(이전에는 512MB)             |
+| mapreduce.map.java.opts           | opts=-Xmx512m(이전에는 -Xmx410m)  |
+| mapreduce.reduce.memory           | 1536MB(이전에는 1024MB)           |
+| mapreduce.reduce.java.opts        | opts=-Xmx1024m(이전에는 -Xmx819m) |
+| yarn.app.mapreduce.am.resource    | 768MB(이전에는 1024MB)            |
+| yarn.app.mapreduce.am.command     | opts=-Xmx512m(이전에는 -Xmx819m)  |
+| mapreduce.task.io.sort            | 256MB(이전에는 200MB)             |
+| tez.am.resource.memory            | 1536MB(변경되지 않음)             |
+
+HDInsight에서 사용하는 Hortonworks Data Platform에서 YARN 및 MapReduce에 사용되는 메모리 구성 설정에 대한 자세한 내용은 [HDP 메모리 구성 설정 확인][HDP 메모리 구성 설정 확인]을 참조하세요. Hortonworks에서는 적절한 메모리 설정을 계산하는 도구도 제공합니다.
+
+HDInsight PowerShell/SDK 오류: "*클러스터가 Http 서비스 액세스를 위해 구성되어 있지 않습니다.*":
+
+-   이 오류는 SDK/PowerShell 버전과 클러스터의 버전 차이로 인해 발생할 수 있는 알려진 [호환성 문제][호환성 문제]입니다. 8/15 또는 그 이후에 만든 클러스터는 가상 네트워크에 대한 새로운 프로비전 기능을 지원합니다. 그러나 이전 버전의 SDK/PowerShell에서는 이 기능이 올바르게 해석되지 않습니다. 따라서 일부 작업 제출 작업이 실패합니다. SDK API 또는 PowerShell cmdlet을 사용하여 작업을 제출하는 경우(**Use-AzureHDInsightCluster**, **Invoke-Hive**) 해당 작업이 실패하고 *<clustername> 클러스터가 Http 서비스 액세스를 위해 구성되어 있지 않습니다.*" 오류 메시지가 표시되거나 작업에 따라 "*클러스터에 연결할 수 없습니다.*" 등의 다른 오류 메시지가 표시될 수 있습니다.
+
+-   HDInsight SDK 및 Azure PowerShell의 최신 버전에서는 이러한 호환성 문제가 해결되었습니다. HDInsight SDK는 버전 1.3.1.6 이상으로, Azure PowerShell 도구는 버전 0.8.8 이상으로 업데이트하는 것이 좋습니다. 최신 HDInsight SDK는 [NuGet][NuGet]에서, Azure PowerShell 도구는 [Azure PowerShell을 설치 및 구성하는 방법][Azure PowerShell을 설치 및 구성하는 방법]에서 얻을 수 있습니다.
+
+-   클러스터 버전이 동일하게 유지되면 SDK와 PowerShell은 클러스터에 대한 새 업데이트에서도 계속 작동합니다. 예를 들어 클러스터 버전 3.1은 SDK/PowerShell의 최신 버전인 1.3.1.6 및 0.8.8과 항상 호환됩니다.
+
+## HDinsight 3.1의 2014/9/12 릴리스 정보
+
+-   이 릴리스는 HDP(Hortonworks Data Platform) 2.1.5를 기반으로 합니다. 이 릴리스에서 수정된 버그 목록은 Hortonworks 사이트의 [이 릴리스에서 수정된 버그][이 릴리스에서 수정된 버그] 페이지를 참조하세요.
+-   pig 라이브러리 폴더의 "avro-mapred-1.7.4.jar" 파일이 avro-mapred-1.7.4-hadoop2.jar로 변경되었습니다. 이 파일의 내용에는 사소한 버그 수정(줄 바꿈 하지 않음)이 포함되어 있습니다. 고객은 파일 이름을 바꿀 때 줄 바꿈을 방지할 수 있도록 JAR 파일 자체의 이름에 대한 직접 종속성을 사용하지 않는 것이 좋습니다.
 
 ## 2014/8/21 릴리스 정보
 
@@ -20,6 +59,14 @@
     -   zookeeper1
     -   zookeeper2
 -   HBase 버전 지원 매트릭스가 업데이트됩니다. 프로덕션 HBase 작업에는 버전 HDInsight 3.1(HBase 버전 0.98)만 지원됩니다. 미리 보기에 사용 가능한 버전 3.0은 앞으로 지원되지 않습니다. 전환 기간 중 고객은 계속 3.0 버전의 클러스터를 만들 수 있습니다.
+
+## 2014/8/15 이전에 만든 클러스터 관련 참고 사항
+
+SDK/PowerShell과 클러스터 간의 버전 차이로 인해 HDInsight PowerShell/SDK 오류가 발생하고 "<clustername> 클러스터가 Http 서비스 액세스를 위해 구성되어 있지 않습니다." 메시지 또는 작업에 따라 "클러스터에 연결할 수 없습니다."와 같은 기타 오류 메시지가 표시될 수 있습니다. 8/15 또는 그 이후에 만든 클러스터는 가상 네트워크에 대한 새로운 프로비전 기능을 지원합니다. 그러나 이전 버전의 SDK/PowerShell에서는 이 기능이 올바르게 해석되지 않아 작업을 제출하는 작업이 실패합니다. SDK API 또는 PowerShell cmdlet(예: Use-AzureHDInsightCluster 또는 Invoke-AzureHDInsightHiveJob)을 사용하여 작업을 제출하는 경우 해당 작업이 실패하고 위에서 설명한 오류 메시지 중 하나가 표시될 수 있습니다.
+
+SDK 및 Azure PowerShell의 최신 버전에서는 이러한 호환성 문제가 해결되었습니다. HDInsight SDK는 버전 1.3.1.6 이상으로, Azure PowerShell 도구는 버전 0.8.8 이상으로 업데이트하는 것이 좋습니다. 최신 HDInsight SDK는 [NuGet][1]에서, Azure PowerShell 도구는 [Microsoft 웹 플랫폼 설치 관리자][Microsoft 웹 플랫폼 설치 관리자]를 사용하여 얻을 수 있습니다.
+
+클러스터 버전이 동일하게 유지되면 SDK와 PowerShell은 클러스터에 대한 새 업데이트에서도 계속 작동합니다. 예를 들어 클러스터 버전 3.1은 SDK/PowerShell의 최신 버전인 1.3.1.6 및 0.8.8과 항상 호환됩니다.
 
 ## 2014/7/28 릴리스 정보
 
@@ -73,6 +120,15 @@ Tez와 함께 Hive 사용에 대한 자세한 내용은 [Tez의 Hive 위키 페�
 ### 전 세계 이용 가능 여부
 
 Hadoop 2.2의 Azure HDInsight 릴리스부터 모든 주요 Azure 지역에서 HDInsight를 사용할 수 있게 되었습니다. 특별히 서유럽과 동남아시아 데이터 센터를 온라인으로 전환했습니다. 따라서 고객은 준수 요구 사항이 비슷한 영역에 있는, 가까운 데이터 센터에서 클러스터를 찾을 수 있습니다.
+
+### 클러스터 버전 간에 수행할 수 있는 작업과 수행할 수 없는 작업
+
+**HDInsight 3.1 클러스터에 사용되는 Oozie 메타 저장소가 이전 버전인 HDInsight 2.1 클러스터와 호환되지 않으므로 해당 이전 버전에서는 사용할 수 없음**
+
+HDInsight 3.1 클러스터와 함께 배포한 사용자 지정 Oozie 메타 저장소 데이터베이스는 HDInsight 2.1 클러스터와 함께 다시 사용할 수 없습니다. 해당 메타 저장소를 원래 2.1 클러스터에서 만든 경우에도 마찬가지입니다. 메타 저장소를 3.1 클러스터와 함께 사용하면 메타 저장소 스키마가 업그레이드되어 2.1 클러스터에 필요한 메타 저장소와는 더 이상 호환되지 않으므로 이 시나리오는 지원되지 않습니다. HDInsight 3.1 클러스터와 함께 사용했던 Oozie 메타 저장소를 다시 사용하려고 하면 2.1 클러스터를 사용할 수 없게 됩니다.
+
+**Oozie 메타 저장소는 클러스터 간에 공유할 수 없음**
+일반적이고 직접적으로 설명하자면 Oozie 메타 저장소는 특정 클러스터에 연결되며 클러스터 간에 공유할 수 없습니다.
 
 ### 주요 변경 내용
 
@@ -425,6 +481,13 @@ HDInsight 클러스터의 버전에 사용되는 HDP에 대한 릴리스 정보�
 
 -   HDInsight 클러스터 버전 1.6에서는 [Hortonworks Data Platform 1.1][Hortonworks Data Platform 1.1](영문)을 기반으로 하는 Hadoop 배포를 사용합니다.
 
+  [HDP 메모리 구성 설정 확인]: http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.1-latest/bk_installing_manually_book/content/rpm-chap1-11.html
+  [호환성 문제]: https://social.msdn.microsoft.com/Forums/azure/en-US/a7de016d-8de1-4385-b89e-d2e7a1a9d927/hdinsight-powershellsdk-error-cluster-is-not-configured-for-http-services-access?forum=hdinsight
+  [NuGet]: http://nuget.codeplex.com/wikipage?title=Getting%20Started
+  [Azure PowerShell을 설치 및 구성하는 방법]: http://azure.microsoft.com/ko-kr/documentation/articles/install-configure-powershell/
+  [이 릴리스에서 수정된 버그]: http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.1.5/bk_releasenotes_hdp_2.1/content/ch_relnotes-hdp-2.1.5-fixed.html
+  [1]: https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.HDInsight/
+  [Microsoft 웹 플랫폼 설치 관리자]: http://go.microsoft.com/?linkid=9811175&clcid=0x409
   [New-AzureHDInsightCluster]: http://msdn.microsoft.com/ko-kr/library/dn593744.aspx
   [HDInsight SDK]: http://msdn.microsoft.com/ko-kr/library/azure/dn469975.aspx
   [HDInsight 구성 요소 버전]: http://azure.microsoft.com/ko-kr/documentation/articles/hdinsight-component-versioning/

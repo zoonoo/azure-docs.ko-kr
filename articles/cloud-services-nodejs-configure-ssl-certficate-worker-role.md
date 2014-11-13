@@ -1,51 +1,68 @@
-<properties linkid="dev-nodejs-enablesslworker" urlDisplayName="Enable SSL worker role" pageTitle="Configure SSL for a cloud service (Node.js) worker role" metaKeywords="Node.js Azure SSL, Node.js Azure, SSL worker role" description="" metaCanonical="" services="cloud-services" documentationCenter="nodejs" title="Configuring SSL for a Node.js Application in an Azure Worker Role" authors="larryfr" solutions="" manager="" editor="" />
+<properties urlDisplayName="Enable SSL worker role" pageTitle="클라우드 서비스(Node.js) 작업자 역할에 대해 SSL 구성" metaKeywords="Node.js Azure SSL, Node.js Azure, SSL worker role" description="" metaCanonical="" services="cloud-services" documentationCenter="nodejs" title="Azure 작업자 역할에서 Node.js 응용 프로그램에 대한 SSL 구성" authors="larryfr" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="wpickett" />
 
 # Azure 작업자 역할에서 Node.js 응용 프로그램에 대한 SSL 구성
 
-SSL(Secure Socket Layer) 암호화는 인터넷을 통해 전송되는 데이터 보호에 가장 일반적으로 사용되는 방법입니다. 이 일반 작업에서는 작업자 역할에서 Azure 클라우드 서비스로 호스트되는 Node.js 응용 프로그램의 HTTPS 끝점을 지정하는 방법에 대해 설명합니다.
+SSL(Secure Socket Layer) 암호화는 인터넷을 통해 전송되는 데이터 보호에
+가장 일반적으로 사용되는 방법입니다. 이 일반 작업에서는 작업자 역할에서
+Azure 클라우드 서비스로 호스트되는 Node.js 응용 프로그램의 HTTPS 끝점을 지정하는 방법에 대해 설명합니다.
 
 <div class="dev-callout">
-    <b>참고</b>
-    <p>이 문서의 단계는 작업자 역할에서 Azure 클라우드 서비스로 호스트되는 노드 응용 프로그램에만 적용됩니다.</p>
-    </div>
+
+**참고**
+이 문서의 단계는 작업자 역할에서 Azure 클라우드 서비스로 호스트되는 노드 응용 프로그램에만 적용됩니다.
+
+</div>
 
 이 작업에는 다음 단계가 포함됩니다.
 
-<ul>
-<li><a href="#step1">1단계: Node.js 서비스 만들기 및 클라우드에 서비스 게시</a></li>
-<li><a href="#step2">2단계: SSL 인증서 다운로드</a></li>
-<li><a href="#step3">3단계: SSL 인증서를 사용하도록 응용 프로그램 수정</a></li>
-<li><a href="#step4">4단계: 서비스 정의 파일 수정</a></li>
-<li><a href="#step5">5단계: HTTPS를 사용하여 역할 인스턴스에 연결</a></li>
-</ul>
+-   [1단계: Node.js 서비스 만들기 및 클라우드에 서비스 게시][1단계: Node.js 서비스 만들기 및 클라우드에 서비스 게시]
+-   [2단계: SSL 인증서 다운로드][2단계: SSL 인증서 다운로드]
+-   [3단계: SSL 인증서를 사용하도록 응용 프로그램 수정][3단계: SSL 인증서를 사용하도록 응용 프로그램 수정]
+-   [4단계: 서비스 정의 파일 수정][4단계: 서비스 정의 파일 수정]
+-   [5단계: HTTPS를 사용하여 역할 인스턴스에 연결][5단계: HTTPS를 사용하여 역할 인스턴스에 연결]
 
-<h2 id="step-1-create-a-node.js-service-and-publish-the-service-to-the-cloud"><a name="step1"> </a>1단계: Node.js 서비스 만들기 및 클라우드에 서비스 게시</h2>
-<p>다음 단계에 따라 Azure PowerShell을 사용하여 간단한 Node.js 'hello world' 서비스를 만들 수 있습니다.</p>
-<ol>
-<li><p><strong>시작 메뉴</strong> 또는 <strong>시작 화면</strong>에서 <strong>Azure PowerShell</strong>을 검색합니다. 마지막으로, <strong>Azure PowerShell</strong>을 마우스 오른쪽 단추로 클릭하고 <strong>관리자 권한으로 실행</strong>을 선택합니다.</p>
-<p><img src="./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/azure-powershell-start.png" alt="Azure PowerShell 아이콘" /></p></li>
-<li><p><strong>New-AzureServiceProject</strong> cmdlet을 사용하여 새 서비스를 만듭니다.</p>
-<p><img src="./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/enable-ssl-01.png" /></p></li>
-<li><p>다음과 같이 <strong>Add-AzureNodeWorkerRole</strong> cmdlet을 사용하여 서비스에 작업자 역할을 추가합니다.</p>
-<p><img src="./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/enable-ssl-02-worker.png" /></p></li>
-<li><p>다음과 같이 <strong>Publish-AzureServiceProject</strong> cmdlet을 사용하여 클라우드에 서비스를 게시합니다.</p>
-<p><img src="./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/enable-ssl-03-worker.png" /></p>
-<div class="dev-callout">
-<strong>참고</strong>
-<p>이전에 Azure 구독의 게시 설정을 가져오지 않은 경우 게시를 시도할 때 오류가 발생합니다. 구독의 게시 설정 다운로드 및 가져오기에 대한 자세한 내용은 <a href="https://www.windowsazure.com/ko-KR/develop/nodejs/how-to-guides/powershell-cmdlets/#ImportPubSettings">Node.js에 Azure PowerShell을 사용하는 방법</a>(영문)을 참조하십시오.</p>
-</div></li>
-</ol>
-</div>
+## <a name="step1"> </a>1단계: Node.js 서비스 만들기 및 클라우드에 서비스 게시
+
+다음 단계에 따라 Azure PowerShell을 사용하여
+간단한 Node.js 'hello world' 서비스를 만들 수 있습니다.
+
+1.  **시작 메뉴** 또는 **시작 화면**에서 **Azure PowerShell**을 검색합니다. 마지막으로, **Azure PowerShell**을 마우스 오른쪽 단추로 클릭하고 **관리자 권한으로 실행**을 선택합니다.
+
+    ![Azure PowerShell 아이콘][Azure PowerShell 아이콘]
+
+2.  **New-AzureServiceProject** cmdlet을 사용하여 새 서비스를 만듭니다.
+
+    ![][0]
+
+3.  다음과 같이 **Add-AzureNodeWorkerRole** cmdlet을 사용하여 서비스에 작업자 역할을 추가합니다.
+
+    ![][1]
+
+4.  다음과 같이 **Publish-AzureServiceProject** cmdlet을 사용하여 클라우드에 서비스를 게시합니다.
+
+    ![][2]
+
+    <div class="dev-callout">
+
+    **참고**
+    이전에 Azure 구독의 게시 설정을 가져오지 않은 경우 게시를 시도할 때 오류가 발생합니다. 구독의 게시 설정 다운로드 및 가져오기에 대한 자세한 내용은 [Node.js에 Azure PowerShell을 사용하는 방법][Node.js에 Azure PowerShell을 사용하는 방법](영문)을 참조하세요.
+
+    </div>
 
 **Publish-AzureServiceProject** cmdlet에서 반환한 **Created Website URL** 값에는 호스팅 응용 프로그램의 정규화된 도메인 이름이 포함되어 있습니다. 이와 같은 특정 정규화된 도메인 이름의 SSL 인증서를 가져와서 Azure에 배포해야 합니다.
 
 ## <a name="step2"> </a>2단계: SSL 인증서 다운로드
 
-응용 프로그램에 대해 SSL을 구성하려면 먼저 이 목적으로 인증서를 발급하는 신뢰할 수 있는 타사 CA(인증 기관)에서 서명한 SSL 인증서를 가져와야 합니다. 아직 없는 경우 SSL 인증서를 판매하는 회사에서 구입해야 합니다.
+응용 프로그램에 대해 SSL을 구성하려면 먼저 이 목적으로
+인증서를 발급하는 신뢰할 수 있는 타사 CA(인증 기관)에서 서명한 SSL 인증서를
+가져와야 합니다. 아직 없는 경우
+SSL 인증서를 판매하는 회사에서
+구입해야 합니다.
 
-인증서는 Azure의 SSL 인증서에 대한 다음 요구 사항을 충족해야 합니다.
+인증서는 Azure의 SSL 인증서에 대한 다음 요구 사항을
+충족해야 합니다.
 
 -   인증서에 개인 키가 포함되어 있어야 합니다.
 -   인증서를 키 교환용으로 만들어야 합니다(**.pfx** 파일).
@@ -79,9 +96,11 @@ Node.js 응용 프로그램을 작업자 역할에 배포할 경우 Node.exe에�
         }).listen(port);
 
     <div class="dev-callout">
-<strong>참고</strong>
-<p>'certificate.pfx'를 인증서 파일 이름으로 바꾸고, &quot;password&quot;를 인증서 파일의 암호(있는 경우)로 바꿔야 합니다.</p>
-</div>
+
+    **참고**
+    'certificate.pfx'를 인증서 파일 이름으로 바꾸고, "password"를 인증서 파일의 암호(있는 경우)로 바꿔야 합니다.
+
+    </div>
 
 3.  **server.js** 파일을 저장합니다.
 
@@ -91,7 +110,8 @@ Node.js 응용 프로그램을 작업자 역할에 배포할 경우 Node.exe에�
 
 이제 응용 프로그램에서 포트 443을 통해 수신 대기하므로 이 포트를 통해 통신하도록 서비스 정의도 수정해야 합니다.
 
-1.  서비스 디렉터리에서 서비스 정의 파일(**ServiceDefinition.csdef**)을 열고, 포트 443을 통해 통신할 수 있도록 다음과 같이 **끝점** 섹션에 있는 http **InputEndpoint** 요소를 업데이트합니다.
+1.  서비스 디렉터리에서 서비스 정의 파일(**ServiceDefinition.csdef**)을 열고,
+    포트 443을 통해 통신할 수 있도록 다음과 같이 **끝점** 섹션에 있는 http **InputEndpoint** 요소를 업데이트합니다.
 
         <WorkerRole name="WorkerRole1" vmsize="Small">
         ...
@@ -104,11 +124,14 @@ Node.js 응용 프로그램을 작업자 역할에 배포할 경우 Node.exe에�
 
     이렇게 변경한 후 **ServiceDefinition.csdef** 파일을 저장합니다.
 
-2.  서비스를 다시 게시하여 클라우드에서 업데이트한 구성을 새로 고칩니다. Azure PowerShell 프롬프트에서 서비스 디렉터리로 이동하여 **Publish-AzureServiceProject**를 입력합니다.
+2.  서비스를 다시 게시하여 클라우드에서 업데이트한 구성을
+    새로 고칩니다. Azure PowerShell 프롬프트에서
+    서비스 디렉터리로 이동하여 **Publish-AzureServiceProject**를 입력합니다.
 
 ## <a name="step5"> </a>5단계: HTTPS를 사용하여 역할 인스턴스에 연결
 
-이제 Azure에서 배포가 실행되고 있으므로 HTTPS를 사용하여 연결할 수 있습니다.
+이제 Azure에서 배포가 실행되고 있으므로 HTTPS를 사용하여
+연결할 수 있습니다.
 
 1.  관리 포털에서 클라우드 서비스를 선택한 후 **대시보드**를 클릭합니다.
 
@@ -117,13 +140,17 @@ Node.js 응용 프로그램을 작업자 역할에 배포할 경우 Node.exe에�
     ![사이트 URL][사이트 URL]
 
     <div class="dev-callout">
-<strong>참고</strong>
-<p>포털에 표시된 사이트 URL에서 HTTPS를 지정하지 않은 경우에는 브라우저에서 HTTP 대신 HTTPS를 사용하여 수동으로 URL을 입력해야 합니다.</p>
-</div>
+
+    **참고**
+    포털에 표시된 사이트 URL에서 HTTPS를 지정하지 않은 경우에는 브라우저에서 HTTP 대신 HTTPS를 사용하여 수동으로 URL을 입력해야 합니다.
+
+    </div>
 
 3.  새 브라우저가 열리고 웹 사이트를 표시합니다.
 
-    브라우저에서 HTTPS 연결을 사용하고 있음을 나타내는 잠금 아이콘이 표시됩니다. 또한 이러한 잠금 아이콘은 응용 프로그램이 SSL에 대해 올바르게 구성되었다는 것도 의미합니다.
+    브라우저에서 HTTPS 연결을 사용하고 있음을 나타내는
+    잠금 아이콘이 표시됩니다. 또한 이러한 잠금 아이콘은
+    응용 프로그램이 SSL에 대해 올바르게 구성되었다는 것도 의미합니다.
 
     ![][3]
 
@@ -135,16 +162,18 @@ Node.js 응용 프로그램을 작업자 역할에 배포할 경우 Node.exe에�
 
 [HTTPS 끝점에 SSL 인증서 구성][HTTPS 끝점에 SSL 인증서 구성]
 
-  []: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/enable-ssl-01.png
+  [1단계: Node.js 서비스 만들기 및 클라우드에 서비스 게시]: #step1
+  [2단계: SSL 인증서 다운로드]: #step2
+  [3단계: SSL 인증서를 사용하도록 응용 프로그램 수정]: #step3
+  [4단계: 서비스 정의 파일 수정]: #step4
+  [5단계: HTTPS를 사용하여 역할 인스턴스에 연결]: #step5
+  [Azure PowerShell 아이콘]: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/azure-powershell-start.png
+  [0]: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/enable-ssl-01.png
+  [1]: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/enable-ssl-02-worker.png
+  [2]: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/enable-ssl-03-worker.png
+  [Node.js에 Azure PowerShell을 사용하는 방법]: https://www.windowsazure.com/ko-kr/develop/nodejs/how-to-guides/powershell-cmdlets/#ImportPubSettings
   [사이트 URL]: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/site-url.png
   [3]: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/enable-ssl-08.png
-  [인증서를 서비스와 연결하는 방법]: http://msdn.microsoft.com/ko-KR/library/windowsazure/gg465718.aspx
-  [Azure 웹 역할에서 Node.js 응용 프로그램에 대한 SSL 구성]: /ko-KR/develop/nodejs/common-tasks/enable-ssl/
-  [HTTPS 끝점에 SSL 인증서 구성]: http://msdn.microsoft.com/ko-KR/library/windowsazure/ff795779.aspx
-  [3]: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/enable-ssl-03-worker.png
-  
-  
-  
-  
-  
-  
+  [인증서를 서비스와 연결하는 방법]: http://msdn.microsoft.com/ko-kr/library/windowsazure/gg465718.aspx
+  [Azure 웹 역할에서 Node.js 응용 프로그램에 대한 SSL 구성]: /ko-kr/develop/nodejs/common-tasks/enable-ssl/
+  [HTTPS 끝점에 SSL 인증서 구성]: http://msdn.microsoft.com/ko-kr/library/windowsazure/ff795779.aspx

@@ -1,4 +1,4 @@
-<properties linkid="dev-ruby-how-to-blob-storage" urlDisplayName="Blob Service" pageTitle="How to use blob storage (Ruby) | Microsoft Azure" metaKeywords="Get started Azure blob, Azure unstructured data, Azure unstructured storage, Azure blob, Azure blob storage, Azure blob Ruby" description="Learn how to use the Azure blob service to upload, download, list, and delete blob content. Samples written in Ruby." metaCanonical="" services="storage" documentationCenter="Ruby" title="How to Use the Blob Service from Ruby" authors="guayan" solutions="" manager="" editor="" />
+<properties urlDisplayName="Blob Service" pageTitle="Blob 저장소 사용 방법(Ruby) | Microsoft Azure" metaKeywords="Get started Azure blob, Azure unstructured data, Azure unstructured storage, Azure blob, Azure blob storage, Azure blob Ruby" description="Azure Blob 서비스를 사용하여 Blob 콘텐츠를 업로드, 다운로드, 나열 및 삭제하는 방법에 대해 알아봅니다. 샘플은 Ruby로 작성되었습니다." metaCanonical="" services="storage" documentationCenter="Ruby" title="Ruby에서 Blob 서비스를 사용하는 방법" authors="guayan" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="01/01/1900" ms.author="guayan" />
 
@@ -160,8 +160,6 @@ Blob을 다운로드하려면 **get\_blob()** 메서드를 사용하여 콘텐�
   [방법: Blob 다운로드]: #DownloadBlobs
   [방법: Blob 삭제]: #DeleteBlob
   [1]: #NextSteps
-  [howto-blob-storage]: ../includes/howto-blob-storage.md
-  [create-storage-account]: ../includes/create-storage-account.md
   [Azure에서 Ruby 응용 프로그램 만들기]: /ko-kr/develop/ruby/tutorials/web-app-with-linux-vm/
   [Azure 관리 포털]: https://manage.windowsazure.com/
   [Azure에서 데이터 저장 및 액세스]: http://msdn.microsoft.com/ko-kr/library/windowsazure/gg433040.aspx

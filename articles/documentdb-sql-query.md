@@ -1,6 +1,6 @@
-<properties title="Query with DocumentDB SQL" pageTitle="Query with DocumentDB SQL | Azure" description="DocumentDB supports querying of documents using SQL-like grammar over hierarchical JSON documents without requiring explicit schema or creation of secondary indexes." metaKeywords="" services="documentdb"  documentationCenter="" solutions="data-management" authors="bradsev" manager="jhubbard" editor="cgronlun" videoId="" scriptId="" />
+<properties title="DocumentDB SQL을 사용한 쿼리" pageTitle="DocumentDB SQL을 사용한 쿼리 | Azure" description="DocumentDB에서는 명시적 스키마를 사용하거나 보조 인덱스를 만들지 않고도 계층적 JSON 문서에 대해 SQL 스타일 문법을 사용하여 문서를 쿼리할 수 있습니다." metaKeywords="" services="documentdb"  documentationCenter="" solutions="data-management" authors="bradsev" manager="jhubbard" editor="cgronlun" videoId="" scriptId="" />
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="bradsev"></tags>
+<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="spelluru" />
 
 # DocumentDB 쿼리
 
@@ -38,7 +38,7 @@ DocumentDB SQL 작동 방식을 살펴보기 위해 몇 개의 간단한 JSON �
         "isRegistered": true
     }
 
-다음은 한 가지 미묘한 차이점이 있는 두 번째 문서입니다. `givenName` and `familyName` 이 다음 매개 변수 대신 사용되었습니다. `firstName` and `lastName`.
+다음은 한 가지 미묘한 차이점이 있는 두 번째 문서입니다. `givenName`, `familyName`은 `firstName`, `lastName` 대신에 사용되었습니다.
 
 **문서**
 
@@ -68,9 +68,9 @@ DocumentDB SQL 작동 방식을 살펴보기 위해 몇 개의 간단한 JSON �
         "isRegistered": false
     }
 
-이제 DocumentDB SQL의 몇 가지 주요 측면을 이해하기 위해 이 데이터에 대해 몇 개의 쿼리를 시도해 보겠습니다. 예를 들어 다음 쿼리는 id 필드가 일치하는 문서를 반환합니다. `AndersenFamily`. 쿼리가 `SELECT *`이므로 쿼리 출력은 전체 JSON 문서입니다.
+이제 DocumentDB SQL의 몇 가지 주요 측면을 이해하기 위해 이 데이터에 대해 몇 개의 쿼리를 시도해 보겠습니다. 예를 들어 다음 쿼리는 id 필드가 `AndersenFamily`와 일치하는 문서를 반환합니다. 쿼리가 `SELECT *`이므로 쿼리 출력은 전체 JSON 문서입니다.
 
-**쿼리**
+**연결**
 
     SELECT * 
     FROM Families f 
@@ -97,7 +97,7 @@ DocumentDB SQL 작동 방식을 살펴보기 위해 몇 개의 간단한 JSON �
 
 이제 JSON 출력을 다른 형식으로 변경해야 하는 경우를 고려해 보겠습니다. 이 쿼리는 주소의 구/군/시 이름이 시/도와 같은 경우 두 개의 선택한 필드인 이름 및 구/군/시와 함께 새 JSON 개체를 프로젝션합니다. 이 경우 "NY, NY"가 일치합니다.
 
-**쿼리**
+**연결**
 
     SELECT {"Name":f.id, "City":f.address.city} AS Family 
     FROM Families f 
@@ -112,9 +112,9 @@ DocumentDB SQL 작동 방식을 살펴보기 위해 몇 개의 간단한 JSON �
         }
     }]
 
-다음 쿼리는 ID가 일치하는 가족의 자녀 이름을 모두 반환합니다. `WakefieldFamily`.
+다음 쿼리는 ID가 `WakefieldFamily`와 일치하는 가족의 자녀 이름을 모두 반환합니다.
 
-**쿼리**
+**연결**
 
     SELECT c.givenName 
     FROM Families f 
@@ -130,9 +130,9 @@ DocumentDB SQL 작동 방식을 살펴보기 위해 몇 개의 간단한 JSON �
 
 지금까지 확인한 예제를 통해 DocumentDB 쿼리 언어의 몇 가지 중요한 측면을 살펴보겠습니다.
 
--   DocumentDB SQL은 JSON 값에 대해 작동하므로 행과 열 대신 트리 모양의 엔터티를 다룹니다. 따라서 이 언어를 사용하면 임의 깊이의 트리 노드를 참조할 수 있습니다(예: `Node1.Node2.Node3…..Nodem`). 이는 다음과 같이 두 부분을 참조하는 관계형 SQL과 유사합니다. `<table>.<column>`.
+-   DocumentDB SQL은 JSON 값에 대해 작동하므로 행과 열 대신 트리 모양의 엔터티를 다룹니다. 따라서 이 언어를 사용하면 임의 깊이의 트리 노드를 참조할 수 있습니다(예: `Node1.Node2.Node3…..Nodem`). 이는 `<table>.<column>`의 두 부분을 참조하는 관계형 SQL과 유사합니다.
 -   이 언어는 스키마 없는 데이터로 작업합니다. 따라서 형식 시스템을 동적으로 바인딩해야 합니다. 문서에 따라 동일한 식이 다른 형식을 생성할 수 있습니다. 쿼리 결과는 유효한 JSON 값이지만 고정 스키마가 아닐 수 있습니다.
--   DocumentDB는 엄격한 JSON 문서만 지원합니다. 즉, 형식 시스템과 식이 JSON 형식만 처리하도록 제한됩니다. 자세한 내용은 [JSON 사양](<http://www.json.org/>)을 참조하세요.
+-   DocumentDB는 엄격한 JSON 문서만 지원합니다. 즉, 형식 시스템과 식이 JSON 형식만 처리하도록 제한됩니다. 자세한 내용은 [JSON 사양](http://www.json.org/)을 참조하세요.
 -   DocumentDB 컬렉션은 JSON 문서의 스키마 없는 컨테이너입니다. 컬렉션의 문서 내 및 문서 간 데이터 엔터티의 관계는 PK-FK 관계가 아니라 포함을 통해 암시적으로 캡처됩니다. 이것은 이 문서의 뒷부분에서 설명하는 문서 내 조인과 관련해서 주의할 중요한 측면입니다.
 
 # DocumentDB 인덱싱
@@ -153,7 +153,7 @@ DocumentDB SQL 언어를 시작하기 전에 DocumentDB의 인덱싱 설계를 �
 
 -   효율적인 저장소: 비용 효율성을 위해 인덱스의 디스크에 있는 저장소 오버헤드가 제한되고 예측 가능합니다. 이 목표는 DocumentDB를 사용할 경우 개발자가 인덱스 오버헤드와 쿼리 성능 간의 비용 기반 절충을 수행할 수 있기 때문에 중요합니다.
 
-컬렉션에 대한 인덱싱 정책을 구성하는 방법은 MSDN에서 [DocumentDB 샘플](<http://code.msdn.microsoft.com/Azure-DocumentDB-NET-Code-6b3da8af#content>)을 참조하세요. 이제 DocumentDB SQL 언어의 세부 정보를 살펴보겠습니다.
+컬렉션에 대한 인덱싱 정책을 구성하는 방법은 MSDN에서 [DocumentDB 샘플](http://code.msdn.microsoft.com/Azure-DocumentDB-NET-Code-6b3da8af\#content)을 참조하세요. 이제 DocumentDB SQL 언어의 세부 정보를 살펴보겠습니다.
 
 # DocumentDB 쿼리의 기본 사항
 
@@ -167,20 +167,20 @@ ANSI-SQL 표준에 따라 모든 쿼리는 **SELECT** 절과 선택적 **FROM** 
 
 쿼리의 뒷부분에서 소스를 필터링/프로젝션하지 않을 경우 `FROM <from_specification>` 절은 선택 사항입니다. 이 절의 목적은 쿼리가 작동해야 하는 데이터 소스를 지정하는 것입니다. 일반적으로 전체 컬렉션이 소스이지만 컬렉션의 하위 집합을 대신 지정할 수 있습니다.
 
-쿼리가 `SELECT * FROM Families` 와 유사한 경우 전체 Families 컬렉션이 열거할 소스입니다. 컬렉션 이름을 사용하는 대신 특수 식별자 **ROOT**를 사용하여 컬렉션을 나타낼 수 있습니다.
+`SELECT * FROM Families`와 유사한 경우 전체 Families 컬렉션이 열거할 소스입니다. 컬렉션 이름을 사용하는 대신 특수 식별자 **ROOT**를 사용하여 컬렉션을 나타낼 수 있습니다.
 다음은 쿼리 단위로 적용되는 바인딩 규칙입니다.
 
--   컬렉션을 별칭으로 지정할 수 있습니다. 예: `SELECT f.id FROM Families AS f` 또는 `SELECT f.id FROM Families f`. 여기서 `f` 는 다음과 동등합니다. `Families`. `AS` 는 식별자를 별칭으로 지정하는 선택적 키워드입니다.
+-   컬렉션을 별칭으로 `SELECT f.id FROM Families AS f` 또는 간단히 `SELECT f.id FROM Families f`(으)로 지정할 수 있습니다. 여기서 `f`는 `Families`와 동등합니다. `AS`는 식별자를 별칭으로 지정하는 선택적 키워드입니다.
 
--   별칭으로 지정한 후에는 원본 소스를 바인딩할 수 없습니다. 예를 들면 다음과 같습니다. `SELECT Familes.id FROM Families f` 는 "Families" 식별자를 더 이상 예약할 수 없으므로 구문이 잘못되었습니다.
+-   별칭으로 지정한 후에는 원본 소스를 바인딩할 수 없습니다. 예를 들면 `SELECT Familes.id FROM Families f`는 "Families" 식별자를 더 이상 예약할 수 없으므로 구문이 잘못되었습니다.
 
--   참조해야 하는 모든 속성을 **정규화**해야 합니다. 엄격한 스키마 준수가 없을 경우 모호한 바인딩을 방지하기 위해 적용됩니다. 따라서 `SELECT id FROM Families f` 는 속성이 `id` 바인딩되지 않았으므로 구문이 잘못되었습니다.
+-   참조해야 하는 모든 속성을 **정규화**해야 합니다. 엄격한 스키마 준수가 없을 경우 모호한 바인딩을 방지하기 위해 적용됩니다. 따라서 `SELECT id FROM Families f`는 `id` 속성이 바인딩되지 않았으므로 구문이 잘못되었습니다.
 
 ## 하위 문서
 
 소스를 더 작은 하위 집합으로 줄일 수도 있습니다. 예를 들어, 각 문서에서 하위 트리만을 열거하려는 경우 다음 예제에서처럼 하위 루트가 소스가 될 수 있습니다.
 
-**쿼리**
+**연결**
 
     SELECT * 
     FROM Families.children
@@ -218,7 +218,7 @@ ANSI-SQL 표준에 따라 모든 쿼리는 **SELECT** 절과 선택적 **FROM** 
 
 위 예제에서는 배열을 소스로 사용했지만 다음 예제와 같이 개체를 소스로 사용할 수도 있습니다. 소스에 있는 유효한 모든 JSON 값(Undefined 제외)이 쿼리 결과에 포함되기 위해 고려됩니다. 일부 가족에 `address.state` 값이 없는 경우 쿼리 결과에서 제외됩니다.
 
-**쿼리**
+**연결**
 
     SELECT * 
     FROM Families.address.state
@@ -234,9 +234,9 @@ ANSI-SQL 표준에 따라 모든 쿼리는 **SELECT** 절과 선택적 **FROM** 
 
 WHERE 절(**`WHERE <filter_condition>`**)은 선택 사항입니다. 소스에서 제공하는 JSON 문서가 결과의 일부로 포함되기 위해 충족해야 하는 조건을 지정합니다. JSON 문서가 결과에 고려되려면 지정된 조건이 "true"여야 합니다. WHERE 절은 결과에 포함될 수 있는 소스 문서의 가장 작은 절대 하위 집합을 결정하기 위해 인덱스 계층에서 사용됩니다.
 
-다음 쿼리는 이름 속성을 포함하고 속성 값이 다음과 같은 문서를 요청합니다. `AndersenFamily`. 이름 속성이 없거나 값이 `AndersenFamily` 와 일치하지 않는 다른 문서는 모두 제외됩니다.
+다음 쿼리는 이름 속성을 포함하고 속성 값이 `AndersenFamily`인 문서를 요청합니다. 이름 속성이 없거나 값이 `AndersenFamily`와 일치하지 않는 다른 문서는 모두 제외됩니다.
 
-**쿼리**
+**연결**
 
     SELECT f.address
     FROM Families f 
@@ -354,7 +354,7 @@ String
     FROM Families.children[0] c
     WHERE (-c.grade = -5)  -- matching grades == 5
 
-이항 및 단항 연산자뿐 아니라 속성 참조도 허용됩니다. 예를 들면 다음과 같습니다. `SELECT * FROM Families f WHERE f.isRegistered` 는 `isRegistered` 속성을 포함하고 속성 값이 JSON `true` 값과 같은 JSON 문서를 반환합니다. 다른 값(false, null, Undefined, <number>, <string>, <object>, <array> 등)이면 소스 문서가 결과에서 제외됩니다.
+이항 및 단항 연산자뿐 아니라 속성 참조도 허용됩니다. 예를 들면 `SELECT * FROM Families f WHERE f.isRegistered`는 `isRegistered` 속성을 포함하고 속성 값이 JSON `true` 값과 같은 JSON 문서를 반환합니다. 다른 값(false, null, Undefined, <number>, <string>, <object>, <array> 등)이면 소스 문서가 결과에서 제외됩니다.
 
 ## 같음 및 비교 연산자
 
@@ -832,7 +832,7 @@ SELECT 절(**`SELECT <select_list>`**)은 필수이며 ANSI-SQL과 같이 쿼리
 
 아래 예제에서는 일반적인 SELECT 쿼리를 보여 줍니다.
 
-**쿼리**
+**연결**
 
     SELECT f.address
     FROM Families f 
@@ -850,9 +850,9 @@ SELECT 절(**`SELECT <select_list>`**)은 필수이며 ANSI-SQL과 같이 쿼리
 
 ## 중첩 속성
 
-다음 예제에서는 두 개의 중첩 속성을 프로젝션합니다. `f.address.state` and `f.address.city`:
+다음 예제에서는 두 개의 중첩 속성(`f.address.state`, `f.address.city`)을 프로젝션합니다.
 
-**쿼리**
+**연결**
 
     SELECT f.address.state, f.address.city
     FROM Families f 
@@ -867,7 +867,7 @@ SELECT 절(**`SELECT <select_list>`**)은 필수이며 ANSI-SQL과 같이 쿼리
 
 다음 예제와 같이 프로젝션은 JSON 식도 지원합니다.
 
-**쿼리**
+**연결**
 
     SELECT { "state": f.address.state, "city": f.address.city, "name": f.id }
     FROM Families f 
@@ -883,9 +883,9 @@ SELECT 절(**`SELECT <select_list>`**)은 필수이며 ANSI-SQL과 같이 쿼리
       }
     }]
 
-여기서 `$1` 의 역할을 살펴보겠습니다. `SELECT` 절이 JSON 개체를 만들어야 하고, 키가 제공되지 않았으므로 `$1`. 로 시작하는 암시적 인수 변수 이름을 사용합니다. 예를 들어 이 쿼리는 다음 레이블이 지정된 두 개의 암시적 인수 변수를 반환합니다. `$1` and `$2`.
+여기서 `$1`의 역할을 살펴보겠습니다. `SELECT` 절이 JSON 개체를 만들어야 하고, 키가 제공되지 않았으므로 `$1`로 시작하는 암시적 인수 변수 이름을 사용합니다. 예를 들어 이 쿼리는 `$1`, `$2` 레이블이 지정된 두 개의 암시적 인수 변수를 반환합니다.
 
-**쿼리**
+**연결**
 
     SELECT { "state": f.address.state, "city": f.address.city }, 
            { "name": f.id }
@@ -906,11 +906,11 @@ SELECT 절(**`SELECT <select_list>`**)은 필수이며 ANSI-SQL과 같이 쿼리
 
 ## 별칭 지정
 
-이제 값의 별칭을 명시적으로 지정하여 위 예제를 확장하겠습니다. **AS**는 별칭 지정에 사용되는 키워드입니다. 두 번째 값을 다음으로 프로젝션하는 동안 표시되므로 선택 사항입니다. `NameInfo`.
+이제 값의 별칭을 명시적으로 지정하여 위 예제를 확장하겠습니다. **AS**는 별칭 지정에 사용되는 키워드입니다. 두 번째 값을 `NameInfo`로 프로젝션하는 동안 표시되므로 선택 사항입니다.
 
 쿼리에 동일한 이름을 가진 두 개의 속성이 있을 경우 프로젝션된 결과에서 구분되도록 별칭 지정을 사용하여 속성 중 하나 또는 둘 다의 이름을 바꾸어야 합니다.
 
-**쿼리**
+**연결**
 
     SELECT 
            { "state": f.address.state, "city": f.address.city } AS AddressInfo, 
@@ -934,7 +934,7 @@ SELECT 절(**`SELECT <select_list>`**)은 필수이며 ANSI-SQL과 같이 쿼리
 
 속성 참조뿐 아니라 **SELECT** 절은 상수, 산술 식, 논리 식 등의 스칼라 식도 지원합니다. 예를 들어 다음은 단순한 "Hello World" 쿼리입니다.
 
-**쿼리**
+**연결**
 
     SELECT "Hello World"
 
@@ -946,7 +946,7 @@ SELECT 절(**`SELECT <select_list>`**)은 필수이며 ANSI-SQL과 같이 쿼리
 
 다음은 스칼라 식을 사용하는 보다 복잡한 예제입니다.
 
-**쿼리**
+**연결**
 
     SELECT ((2 + 11 % 7)-2)/3   
 
@@ -958,7 +958,7 @@ SELECT 절(**`SELECT <select_list>`**)은 필수이며 ANSI-SQL과 같이 쿼리
 
 다음 예제에서 스칼라 식의 결과는 부울입니다.
 
-**쿼리**
+**연결**
 
     SELECT f.address.city = f.address.state AS AreFromSameCityState
     FROM Families f 
@@ -978,7 +978,7 @@ SELECT 절(**`SELECT <select_list>`**)은 필수이며 ANSI-SQL과 같이 쿼리
 
 DocumentDB SQL의 다른 주요 기능은 배열/개체 만들기입니다. 앞의 예제에서는 새 JSON 개체를 만들었습니다. 마찬가지로, 아래 표시된 대로 배열을 생성할 수도 있습니다.
 
-**쿼리**
+**연결**
 
     SELECT [f.address.city, f.address.state] AS CityState 
     FROM Families f 
@@ -1002,9 +1002,9 @@ DocumentDB SQL의 다른 주요 기능은 배열/개체 만들기입니다. 앞�
 
 ## VALUE 키워드
 
-**VALUE** 키워드는 JSON 값을 반환하는 방법을 제공합니다. 예를 들어 아래 표시된 쿼리는 다음 값 대신 스칼라 `"Hello World"` 를 반환합니다. `{$1: "Hello World"}`.
+**VALUE** 키워드는 JSON 값을 반환하는 방법을 제공합니다. 예를 들어 아래 표시된 쿼리는 `{$1: "Hello World"}` 대신에 스칼라 `"Hello World"`를 반환합니다.
 
-**쿼리**
+**연결**
 
     SELECT VALUE "Hello World"
 
@@ -1016,7 +1016,7 @@ DocumentDB SQL의 다른 주요 기능은 배열/개체 만들기입니다. 앞�
 
 다음 쿼리는 `"address"` 레이블이 없는 JSON 값을 결과에 반환합니다.
 
-**쿼리**
+**연결**
 
     SELECT VALUE f.address
     FROM Families f 
@@ -1038,7 +1038,7 @@ DocumentDB SQL의 다른 주요 기능은 배열/개체 만들기입니다. 앞�
 
 다음 예제에서는 이 코드를 확장하여 JSON 트리 리프 수준의 JSON 기본 값을 반환하는 방법을 보여 줍니다.
 
-**쿼리**
+**연결**
 
     SELECT VALUE f.address.state
     FROM Families f 
@@ -1052,9 +1052,9 @@ DocumentDB SQL의 다른 주요 기능은 배열/개체 만들기입니다. 앞�
 
 ## \* 연산자
 
-문서를 있는 그대로 프로젝션하는 특수 연산자(\*)를 지원합니다. 사용할 경우 프로젝션되는 유일한 필드여야 합니다. `SELECT * FROM Families f` 와 같은 쿼리는 유효하지만 `SELECT VALUE * FROM Families f` and `SELECT *, f.id FROM Families f` 와 같은 쿼리는 유효하지 않습니다.
+문서를 있는 그대로 프로젝션하는 특수 연산자(\*)를 지원합니다. 사용할 경우 프로젝션되는 유일한 필드여야 `SELECT * FROM Families f`와 같은 쿼리는 유효하지만, `SELECT VALUE * FROM Families f`, `SELECT *, f.id FROM Families f`와 같은 쿼리는 유효하지 않습니다.
 
-**쿼리**
+**연결**
 
     SELECT * 
     FROM Families f 
@@ -1085,7 +1085,7 @@ DocumentDB SQL의 다른 주요 기능은 배열/개체 만들기입니다. 앞�
 
 JSON 배열 반복을 지원하기 위해 DocumentDB SQL의 **IN** 키워드를 통해 새 구문을 추가했습니다. FROM 소스에서 반복 지원을 제공합니다. 다음 예제로 시작하겠습니다.
 
-**쿼리**
+**연결**
 
     SELECT * 
     FROM Families.children
@@ -1117,9 +1117,9 @@ JSON 배열 반복을 지원하기 위해 DocumentDB SQL의 **IN** 키워드를 
       ]
     ]
 
-이제 컬렉션의 자식을 반복하는 다른 쿼리를 살펴보겠습니다. 출력 배열의 차이점을 확인합니다. 이 예제에서는 `children` 을 분할하고 결과를 단일 배열로 평면화합니다.
+이제 컬렉션의 자식을 반복하는 다른 쿼리를 살펴보겠습니다. 출력 배열의 차이점을 확인합니다. 이 예제에서는 `children`을 분할하고 결과를 단일 배열로 평면화합니다.
 
-**쿼리**
+**연결**
 
     SELECT * 
     FROM c IN Families.children
@@ -1149,7 +1149,7 @@ JSON 배열 반복을 지원하기 위해 DocumentDB SQL의 **IN** 키워드를 
 
 이 예제를 사용하여 다음 예제와 같이 배열의 각 개별 항목을 필터링할 수도 있습니다.
 
-**쿼리**
+**연결**
 
     SELECT c.givenName
     FROM c IN Families.children
@@ -1169,7 +1169,7 @@ JSON 배열 반복을 지원하기 위해 DocumentDB SQL의 **IN** 키워드를 
 
 다음 예제는 JOIN의 작동 방식을 보여 줍니다. 아래 예제에서는 소스의 각 문서와 빈 집합의 교차곱이 비어 있으므로 결과가 비어 있습니다.
 
-**쿼리**
+**연결**
 
     SELECT f.id
     FROM Families f
@@ -1182,7 +1182,7 @@ JSON 배열 반복을 지원하기 위해 DocumentDB SQL의 **IN** 키워드를 
 
 다음 예제에서는 문서 루트와 `children` 하위 루트 간의 조인이 수행됩니다. 두 JSON 개체 간의 교차곱입니다. 자식 배열인 단일 루트를 다루기 때문에 자식이 배열이라는 사실은 JOIN에 적용되지 않습니다. 따라서 각 문서와 배열의 교차곱에서 정확히 한 개의 문서만 생성하므로 결과에 두 개의 결과만 포함됩니다.
 
-**쿼리**
+**연결**
 
     SELECT f.id
     FROM Families f
@@ -1201,7 +1201,7 @@ JSON 배열 반복을 지원하기 위해 DocumentDB SQL의 **IN** 키워드를 
 
 다음 예제는 보다 기본적인 조인입니다.
 
-**쿼리**
+**연결**
 
     SELECT f.id
     FROM Families f
@@ -1221,17 +1221,17 @@ JSON 배열 반복을 지원하기 위해 DocumentDB SQL의 **IN** 키워드를 
       }
     ]
 
-여기서 확인할 첫 번째 사항은 **JOIN**의 `from_source` 가 반복기라는 것입니다. 따라서 이 경우의 흐름은 다음과 같습니다.
+여기서 확인할 첫 번째 사항은 **JOIN**의 `from_source`가 반복기라는 것입니다. 따라서 이 경우의 흐름은 다음과 같습니다.
 
 -   배열의 각 자식 요소 **c**를 확장합니다.
 -   문서 루트 **f**와 첫 번째 단계에서 평면화된 각 자식 요소 **c**의 교차곱을 적용합니다.
 -   마지막으로, 루트 개체 **f**의 이름 속성만 프로젝션합니다.
 
-첫 번째 문서(`AndersenFamily`)에는 하나의 자식 요소만 포함되어 있으므로 이 문서에 해당하는 단일 개체만 결과 집합에 포함됩니다. 두 번째 문서(`WakefieldFamily`)에는 두 개의 자식이 포함되어 있습니다. 따라서 교차곱을 통해 각 자식에 대한 개별 개체가 생성되므로 이 문서에 해당하는 각 자식에 하나씩, 두 개의 개체가 생성됩니다. 교차곱에서 예상한 대로 두 문서의 루트 필드는 동일합니다.
+첫 번째 문서(`AndersenFamily`)에는 하나의 자식 요소만 포함되어 있으므로 이 문서에 해당하는 단일 개체만 결과 집합에 포함됩니다. 두 번째 문서(`WakefieldFamily`에는 두 개의 자식이 포함되어 있습니다. 따라서 교차곱을 통해 각 자식에 대한 개별 개체가 생성되므로 이 문서에 해당하는 각 자식에 하나씩, 두 개의 개체가 생성됩니다. 교차곱에서 예상한 대로 두 문서의 루트 필드는 동일합니다.
 
 JOIN의 진정한 유용성은 다른 방식으로 프로젝션하기 어려운 모양의 교차곱에서 튜플을 형성할 수 있다는 것입니다. 또한 아래 예제와 같이 사용자가 전체 튜플에서 충족되는 조건을 선택할 수 있도록 튜플 조합을 필터링할 수 있습니다.
 
-**쿼리**
+**연결**
 
     SELECT 
         f.id AS familyName,
@@ -1278,11 +1278,11 @@ JOIN의 진정한 유용성은 다른 방식으로 프로젝션하기 어려운 
         }
     }
 
-`AndersenFamily` 의 한 자녀가 애완 동물 한 마리를 키우고 있습니다. 따라서 이 가족의 교차곱은 하나의 행(1*1*1)을 생성합니다. 그러나 WakefieldFamily에는 자녀 두 명이 있지만 그중에 "Jesse"만 애완 동물을 두 마리 키우고 있습니다. 따라서 이 가족의 교차곱은 1*1*2 = 2개의 행을 생성합니다.
+`AndersenFamily`의 한 자녀가 애완 동물 한 마리를 키우고 있습니다. 따라서 이 가족의 교차곱은 하나의 행(1*1*1)을 생성합니다. 그러나 WakefieldFamily에는 자녀 두 명이 있지만 그중에 "Jesse"만 애완 동물을 두 마리 키우고 있습니다. 따라서 이 가족의 교차곱은 1*1*2 = 2개의 행을 생성합니다.
 
-다음 예제에서는 `pet`. 에 대한 추가 필터가 있습니다. 이 필터는 애완 동물 이름이 "Shadow"가 아닌 튜플을 모두 제외합니다. 배열에서 튜플을 작성하고, 튜플 요소를 필터링한 다음 요소 조합을 프로젝션할 수 있습니다.
+다음 예제에서는 `pet`에 대한 추가 필터가 있습니다. 이 필터는 애완 동물 이름이 "Shadow"가 아닌 튜플을 모두 제외합니다. 배열에서 튜플을 작성하고, 튜플 요소를 필터링한 다음 요소 조합을 프로젝션할 수 있습니다.
 
-**쿼리**
+**연결**
 
     SELECT 
         f.id AS familyName,
@@ -1321,7 +1321,7 @@ DocumentDB는 저장 프로시저 및 트리거 측면에서 컬렉션에 대해
 
        UserDefinedFunction sqrtUdf = new UserDefinedFunction
        {
-           Name = "SQRT",
+           Id = "SQRT",
            Body = @"function(number) { 
                        return Math.sqrt(number);
                    };",
@@ -1331,11 +1331,11 @@ DocumentDB는 저장 프로시저 및 트리거 측면에서 컬렉션에 대해
            sqrtUdf).Result;  
                                                                              
 
-위 예제에서는 이름이 `SQRT`. 인 UDF를 만듭니다. 단일 JSON 값 `number` 를 수락하고 수학 라이브러리를 사용하여 숫자의 제곱근을 계산합니다.
+위 예제에서는 이름이 `SQRT`인 UDF를 만듭니다. 단일 JSON 값 `number`를 수락하고 수학 라이브러리를 사용하여 숫자의 제곱근을 계산합니다.
 
 이제 이 UDF를 프로젝트의 쿼리에 사용할 수 있습니다.
 
-**쿼리**
+**연결**
 
     SELECT SQRT(c.grade)
     FROM c IN Families.children
@@ -1356,7 +1356,7 @@ DocumentDB는 저장 프로시저 및 트리거 측면에서 컬렉션에 대해
 
 아래 예제와 같이 필터 내부에 UDF를 사용할 수도 있습니다.
 
-**쿼리**
+**연결**
 
     SELECT c.grade
     FROM c IN Familes.children
@@ -1374,7 +1374,7 @@ UDF 기능을 확장하기 위해 조건부 논리가 포함된 다른 예제를
 
        UserDefinedFunction seaLevelUdf = new UserDefinedFunction()
        {
-           Name = "SEALEVEL",
+           Id = "SEALEVEL",
            Body = @"function(city) {
                 switch (city) {
                     case 'seattle':
@@ -1392,7 +1392,7 @@ UDF 기능을 확장하기 위해 조건부 논리가 포함된 다른 예제를
 
 다음은 UDF를 실행하는 예제입니다.
 
-**쿼리**
+**연결**
 
     SELECT f.address.city, SEALEVEL(f.address.city) AS seaLevel
     FROM Families f 
@@ -1422,7 +1422,7 @@ DocumentDB는 JSON 데이터베이스이므로 JavaScript 연산자 및 평가 �
 
 DocumentDB SQL 쿼리 언어에서는 기존 SQL과 달리 실제로 데이터베이스에서 값이 검색될 때까지 값의 형식을 알 수 없는 경우가 많습니다. 쿼리를 효율적으로 실행하기 위해 대부분의 연산자에 강력한 형식 요구 사항이 있습니다.
 
-DocumentDB SQL은 JavaScript와 달리 암시적 변환을 수행하지 않습니다. 예를 들어 `SELECT * FROM Person p WHERE p.Age = 21` 과 같은 쿼리는 Age 속성을 포함하고 값이 21인 문서를 일치시킵니다. Age 속성이 문자열 "21" 또는
+DocumentDB SQL은 JavaScript와 달리 암시적 변환을 수행하지 않습니다. 예를 들어 `SELECT * FROM Person p WHERE p.Age = 21`과 같은 쿼리는 Age 속성을 포함하고 값이 21인 문서를 일치시킵니다. Age 속성이 문자열 "21" 또는
 "021", "21.0", "0021", "00021" 등의 다른 무한 변형과 일치하는 다른 문서는 일치되지 않습니다.
 이는 문자열 값이 암시적으로 숫자로 캐스팅되는 JavaScript와 대조됩니다(연산자 기준, 예: ==). 이 선택 항목은 DocumentDB SQL의 효율적인 인덱스 매핑에 중요합니다.
 
@@ -1432,7 +1432,7 @@ LINQ는 개체 스트림에 대한 쿼리로 계산을 표현하는 .NET 프로�
 
 아래 그림은 DocumentDB를 사용한 LINQ 쿼리를 지원하는 아키텍처를 보여 줍니다. 개발자는 DocumentDB 클라이언트를 사용하여 쿼리를 DocumentDB 쿼리 공급자로 보내는 **IQueryable** 개체를 만들 수 있습니다. 쿼리 공급자가 LINQ 쿼리를 DocumentDB 쿼리로 변환합니다. 그런 다음 JSON 형식으로 결과 집합을 검색하기 위해 쿼리가 DocumentDB 서버로 전달됩니다. 반환된 결과는 클라이언트 쪽에서 .NET 개체 스트림으로 역직렬화됩니다.
 
-![][]
+![][0]
 
 ## .NET 및 JSON 매핑
 
@@ -1551,7 +1551,7 @@ DocumentDB 쿼리 공급자는 LINQ 쿼리에서 DocumentDB SQL 쿼리로 매핑
 
 ### Select 연산자
 
-구문은 `input.Select(x => f(x))`입니다. 여기서 `f` 는 스칼라 식입니다.
+구문은 `input.Select(x => f(x))`입니다. 여기서 `f`는 스칼라 식입니다.
 
 **LINQ 람다 식**
 
@@ -1587,7 +1587,7 @@ DocumentDB 쿼리 공급자는 LINQ 쿼리에서 DocumentDB SQL 쿼리로 매핑
 
 ### SelectMany 연산자
 
-구문은 `input.SelectMany(x => f(x))`입니다. 여기서 `f` 는 컬렉션 형식을 반환하는 스칼라 식입니다.
+구문은 `input.SelectMany(x => f(x))`입니다. 여기서 `f`는 컬렉션 형식을 반환하는 스칼라 식입니다.
 
 **LINQ 람다 식**
 
@@ -1600,7 +1600,7 @@ DocumentDB 쿼리 공급자는 LINQ 쿼리에서 DocumentDB SQL 쿼리로 매핑
 
 ### Where 연산자
 
-구문은 `input.Where(x => f(x))`입니다. 여기서 `f` 는 부울 값을 반환하는 스칼라 식입니다.
+구문은 `input.Where(x => f(x))`입니다. 여기서 `f`는 부울 값을 반환하는 스칼라 식입니다.
 
 **LINQ 람다 식**
 
@@ -1631,7 +1631,7 @@ DocumentDB 쿼리 공급자는 LINQ 쿼리에서 DocumentDB SQL 쿼리로 매핑
 
 ### 연결
 
-구문은 `input(.|.SelectMany())(.Select()|.Where())*`. 입니다. 연결된 쿼리는 선택적 `SelectMany` 쿼리로 시작하며 그 뒤에 여러 `Select` 또는 `Where` 연산자가 올 수 있습니다.
+구문은 `input(.|.SelectMany())(.Select()|.Where())*`입니다. 연결된 쿼리는 선택적 `SelectMany` 쿼리로 시작하며 그 뒤에 여러 `Select` 또는 `Where` 연산자가 올 수 있습니다.
 
 **LINQ 람다 식**
 
@@ -1680,7 +1680,7 @@ DocumentDB 쿼리 공급자는 LINQ 쿼리에서 DocumentDB SQL 쿼리로 매핑
 
 ### 중첩
 
-구문은 `input.SelectMany(x=>x.Q())` 입니다. 여기서 Q는 `Select`, `SelectMany`또는 `Where` 연산자입니다.
+구문은 `input.SelectMany(x=>x.Q())`입니다. 여기서 Q는 `Select`, `SelectMany` 또는 `Where` 연산자입니다.
 
 중첩 쿼리에서는 외부 컬렉션의 각 요소에 내부 쿼리가 적용됩니다. 한 가지 중요한 기능은 자체 조인처럼 내부 쿼리가 외부 컬렉션의 요소 필드를 참조할 수 있다는 것입니다.
 
@@ -1844,11 +1844,11 @@ DocumentDB는 HTTP를 통해 개방형 RESTful 프로그래밍 모델을 제공�
 
 쿼리 결과가 단일 결과 페이지에 모두 들어가지 않는 경우 REST API에서 `x-ms-continuation-token` 응답 헤더를 통해 연속 토큰을 반환합니다. 클라이언트는 후속 결과에 헤더를 포함하여 결과에 페이지를 매길 수 있습니다. `x-ms-max-item-count` 숫자 헤더를 통해 페이지당 결과 수를 제어할 수도 있습니다.
 
-쿼리에 대한 데이터 일관성 정책을 관리하려면 모든 REST API 요청과 마찬가지로 `x-ms-consistency-level` 헤더를 사용합니다. 세션 일관성을 사용하려면 쿼리 요청에 최신 `x-ms-session-token` 쿠키 헤더도 에코해야 합니다. 쿼리된 컬렉션의 인덱싱 정책이 쿼리 결과의 일관성에 영향을 줄 수도 있습니다. 컬렉션에 기본 인덱싱 정책 설정을 사용할 경우 인덱스가 항상 문서 콘텐츠로 최신 상태를 유지하며 쿼리 결과가 데이터에 대해 선택한 일관성과 일치합니다. 인덱싱 정책을 지연으로 완화하면 쿼리에서 오래된 결과가 반환될 수 있습니다. 자세한 내용은 [DocumentDB 일관성 수준][]을 참조하세요.
+쿼리에 대한 데이터 일관성 정책을 관리하려면 모든 REST API 요청과 마찬가지로 `x-ms-consistency-level` 헤더를 사용합니다. 세션 일관성을 사용하려면 쿼리 요청에 최신 `x-ms-session-token` 쿠키 헤더도 에코해야 합니다. 쿼리된 컬렉션의 인덱싱 정책이 쿼리 결과의 일관성에 영향을 줄 수도 있습니다. 컬렉션에 기본 인덱싱 정책 설정을 사용할 경우 인덱스가 항상 문서 콘텐츠로 최신 상태를 유지하며 쿼리 결과가 데이터에 대해 선택한 일관성과 일치합니다. 인덱싱 정책을 지연으로 완화하면 쿼리에서 오래된 결과가 반환될 수 있습니다. 자세한 내용은 [DocumentDB 일관성 수준][DocumentDB 일관성 수준]을 참조하세요.
 
 컬렉션에 구성된 인덱싱 정책이 지정된 쿼리를 지원할 수 없는 경우 DocumentDB 서버에서 400 "잘못된 요청"이 반환됩니다. 해시(같음) 조회에 구성된 경로 및 인덱싱에서 명시적으로 제외된 경로의 범위 쿼리에 대해 반환됩니다. 인덱스를 사용할 수 없는 경우 쿼리에서 스캔을 수행할 수 있도록 `x-ms-documentdb-query-enable-scan` 헤더를 지정할 수 있습니다.
 
-## C\#(.NET) SDK
+## C#(.NET) SDK
 
 .NET SDK는 LINQ 및 SQL 쿼리를 둘 다 지원합니다. 다음 예제에서는 이 문서의 앞부분에서 소개한 단순한 필터 쿼리를 수행하는 방법을 보여 줍니다.
 
@@ -1921,11 +1921,11 @@ DocumentDB는 HTTP를 통해 개방형 RESTful 프로그래밍 모델을 제공�
         Console.WriteLine("\tRead {0} from LINQ lambda", pet);
     }
 
-.NET 클라이언트는 위에 표시된 대로 foreach 블록에서 쿼리 결과의 모든 페이지를 자동으로 반복합니다. REST API 섹션에서 소개한 쿼리 옵션은 CreateDocumentQuery 메서드의 `FeedOptions` and `FeedResponse` 클래스를 통해 .NET SDK에서도 사용할 수 있습니다. 페이지 수는 `MaxItemCount` 설정을 사용하여 제어할 수 있습니다.
+.NET 클라이언트는 위에 표시된 대로 foreach 블록에서 쿼리 결과의 모든 페이지를 자동으로 반복합니다. REST API 섹션에서 소개한 쿼리 옵션은 CreateDocumentQuery 메서드의 `FeedOptions`, `FeedResponse` 클래스를 통해 .NET SDK에서도 사용할 수 있습니다. 페이지 수는 `MaxItemCount` 설정을 사용하여 제어할 수 있습니다.
 
-개발자는 `IDocumentQueryable` 을 만든 다음( `IQueryable` 개체 사용)`ResponseContinuationToken` 값을 읽고 `RequestContinuationToken` 으로 다음에 전달하여 페이징을 명시적으로 제어할 수도 있습니다. `FeedOptions`. `EnableScanInQuery` 를 설정하여 구성된 인덱싱 정책이 쿼리를 지원할 수 없는 경우 스캔을 사용하도록 할 수 있습니다.
+개발자는 `IQueryable` 개체를 사용하여 `IDocumentQueryable`을 만든 다음 `ResponseContinuationToken`값을 읽고 `FeedOptions`의 `RequestContinuationToken`에 전달하여 페이징을 명시적으로 제어할 수도 있습니다. `EnableScanInQuery`를 설정하여 구성된 인덱싱 정책이 쿼리를 지원할 수 없는 경우 스캔을 사용하도록 할 수 있습니다.
 
-쿼리에 대한 추가 샘플은 [DocumentDB .NET 샘플](<http://code.msdn.microsoft.com/Azure-DocumentDB-NET-Code-6b3da8af#content>)을 참조하세요.
+쿼리에 대한 추가 샘플은 [DocumentDB .NET 샘플](http://code.msdn.microsoft.com/Azure-DocumentDB-NET-Code-6b3da8af\#content)을 참조하세요.
 
 ## JavaScript 서버 쪽 API
 
@@ -1965,25 +1965,20 @@ DocumentDB는 저장 프로시저 및 트리거를 사용하여 컬렉션에 대
 
 # 참조
 
-1.  [Azure DocumentDB 소개][]
-2.  [DocumentDB SQL 언어 사양](<http://go.microsoft.com/fwlink/p/?LinkID=510612>)
-3.  [DocumentDB .NET 샘플](<http://code.msdn.microsoft.com/Azure-DocumentDB-NET-Code-6b3da8af#content>)
-4.  [DocumentDB 일관성 수준][]
-5.  ANSI SQL 2011 - [][]<http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681></a>
-6.  JSON [][1]<http://json.org/></a>
-7.  Javascript 사양 [][2]<http://www.ecma-international.org/publications/standards/Ecma-262.htm></a>
-8.  LINQ [][3]<http://msdn.microsoft.com/en-us/library/bb308959.aspx></a>
-9.  대형 데이터베이스에 대한 쿼리 평가 기술 [][4]<http://dl.acm.org/citation.cfm?id=152611></a>
+1.  [Azure DocumentDB 소개][Azure DocumentDB 소개]
+2.  [DocumentDB SQL 언어 사양](http://go.microsoft.com/fwlink/p/?LinkID=510612)
+3.  [DocumentDB .NET 샘플](http://code.msdn.microsoft.com/Azure-DocumentDB-NET-Code-6b3da8af\#content)
+4.  [DocumentDB 일관성 수준][DocumentDB 일관성 수준]
+5.  ANSI SQL 2011 - <http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681>
+6.  JSON <http://json.org/>
+7.  Javascript 사양 <http://www.ecma-international.org/publications/standards/Ecma-262.htm>
+8.  LINQ <http://msdn.microsoft.com/ko-kr/library/bb308959.aspx>
+9.  대형 데이터베이스에 대한 쿼리 평가 기술 <http://dl.acm.org/citation.cfm?id=152611>
 10. Query Processing in Parallel Relational Database Systems, IEEE Computer Society Press, 1994
 11. Lu, Ooi, Tan, Query Processing in Parallel Relational Database Systems, IEEE Computer Society Press, 1994.
 12. Christopher Olston, Benjamin Reed, Utkarsh Srivastava, Ravi Kumar, Andrew Tomkins: Pig Latin: A Not-So-Foreign Language for Data Processing, SIGMOD 2008.
 13. G. Graefe. The Cascades framework for query optimization. IEEE Data Eng. Bull., 18(3): 1995.
 
-  []: ./media/documentdb-sql-query/sql-query1.png
+  [0]: ./media/documentdb-sql-query/sql-query1.png
   [DocumentDB 일관성 수준]: ../documentdb-consistency-levels
   [Azure DocumentDB 소개]: ../documentdb-introduction
-  []: http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681
-  [1]: http://json.org/
-  [2]: http://www.ecma-international.org/publications/standards/Ecma-262.htm
-  [3]: http://msdn.microsoft.com/en-us/library/bb308959.aspx
-  [4]: http://dl.acm.org/citation.cfm?id=152611

@@ -1,4 +1,4 @@
-<properties linkid="manage-services-import-export" urlDisplayName="Azure Import/Export Service" pageTitle="Using import/export to transfer data to Blob Storage | Microsoft Azure" metaKeywords="" description="Learn how to create import and export jobs in the Azure Management Portal to transfer data to blob storage." metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="Using the Azure Import/Export Service to Transfer Data to Blob Storage" authors="tamram" manager="mbaldwin" editor="cgronlun" />
+<properties urlDisplayName="Azure Import/Export Service" pageTitle="가져오기/내보내기를 사용하여 Blob 저장소로 데이터 전송| Microsoft Azure" metaKeywords="" description="Blob 저장소로 데이터를 내보내기 위해 Azure 관리 포털에서 가져오기 및 내보내기 작업을 만드는 방법에 대해 알아봅니다." metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="Azure 가져오기/내보내기 서비스를 사용하여 Blob 저장소로 데이터 전송" authors="tamram" manager="adinah" editor="cgronlun" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
@@ -27,8 +27,10 @@ Blob 저장소에서 가져오기 또는 내보내기 프로세스를 시작하�
 가져오기 작업을 위해 드라이브 발송 준비를 하려면 **Microsoft Azure 가져오기/내보내기** 도구를 실행합니다. 이 도구를 사용하면 아래에 설명된 대로 원활하게 드라이브로 데이터를 복사하고, BitLocker로 드라이브의 데이터를 암호화하고, 드라이브 저널 파일을 생성할 수 있습니다.
 
 <div class="dev-callout">
-<strong>참고</strong>
-<p>드라이브의 데이터는 BitLocker 드라이브 암호화를 사용하여 암호화되어야 합니다. 이렇게 하면 전송 중 데이터가 보호됩니다. 내보내기 작업의 경우 사용자에게 드라이브를 다시 발송하기 전에 가져오기/내보내기 서비스에서 데이터를 암호화합니다.</p>
+
+**참고**
+드라이브의 데이터는 BitLocker 드라이브 암호화를 사용하여 암호화되어야 합니다. 이렇게 하면 전송 중 데이터가 보호됩니다. 내보내기 작업의 경우 사용자에게 드라이브를 다시 발송하기 전에 가져오기/내보내기 서비스에서 데이터를 암호화합니다.
+
 </div>
 
 가져오기 작업 또는 내보내기 작업을 만드는 경우 드라이브 제조업체에서 특정 하드 디스크에 할당하는 일련 번호인 *드라이브 ID*도 필요합니다. 드라이브 ID는 드라이브 외부에 표시되어 있습니다.
@@ -101,50 +103,15 @@ Microsoft Azure 가져오기/내보내기 도구는 각 드라이브가 준비�
 
     표에는 유효한 Blob 경로의 예가 있습니다.
 
-	<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
-		<tbody>
-			<tr>
-				<td><strong>선택기</strong></td>
-				<td><strong>Blob 경로</strong></td>
-				<td><strong>설명</strong></td>
-			</tr>
-			<tr>
-				<td>시작</td>
-				<td>/</td>
-				<td>저장소 계정의 모든 Blob을 내보냄</td>
-			</tr>
-			<tr>
-				<td>시작</td>
-				<td>/$root/</td>
-				<td>루트 컨테이너의 모든 Blob을 내보냄</td>
-			</tr>
-			<tr>
-				<td>시작</td>
-				<td>/book</td>
-				<td>접두사 <strong>book</strong>으로 시작하는 모든 컨테이너의 Blob을 모두 내보냄</td>
-			</tr>
-			<tr>
-				<td>시작</td>
-				<td>/music/</td>
-				<td>컨테이너 <strong>music</strong>의 모든 Blob을 내보냄</td>
-			</tr>
-			<tr>
-				<td>시작</td>
-				<td>/music/love</td>
-				<td>접두사 <strong>love</strong>로 시작하는 컨테이너 <strong>music</strong>의 모든 Blob을 내보냄</td>
-			</tr>
-			<tr>
-				<td>같음</td>
-				<td>$root/logo.bmp</td>
-				<td>루트 컨테이너의 Blob <strong>logo.bmp</strong>를 내보냄</td>
-			</tr>
-			<tr>
-				<td>같음</td>
-				<td>videos/story.mp4</td>
-				<td>컨테이너 <strong>videos</strong>의 Blob <strong>story.mp4</strong>를 내보냄</td>
-			</tr>
-		</tbody>
-	</table>
+    |------------|------------------|--------------------------------------------------------------------|
+    | **선택기** | **Blob 경로**    | **설명**                                                           |
+    | 시작       | /                | 저장소 계정의 모든 Blob을 내보냄                                   |
+    | 시작       | /$root/          | 루트 컨테이너의 모든 Blob을 내보냄                                 |
+    | 시작       | /book            | 접두사 **book**으로 시작하는 모든 컨테이너의 Blob을 모두 내보냄    |
+    | 시작       | /music/          | 컨테이너 **music**의 모든 Blob을 내보냄                            |
+    | 시작       | /music/love      | 접두사 **love**로 시작하는 컨테이너 **music**의 모든 Blob을 내보냄 |
+    | 같음       | $root/logo.bmp   | 루트 컨테이너의 Blob **logo.bmp**를 내보냄                         |
+    | 같음       | videos/story.mp4 | 컨테이너 **videos**의 Blob **story.mp4**를 내보냄                  |
 
 4.  4단계에서는 내보내기 작업의 설명 이름을 입력합니다. 입력하는 이름에는 소문자, 숫자, 하이픈 및 밑줄만 포함될 수 있으며 문자로 시작해야 하고 공백이 포함될 수 없습니다.
 
@@ -166,34 +133,13 @@ Microsoft Azure 가져오기/내보내기 도구는 각 드라이브가 준비�
 
 표에는 각 작업 상태 지정의 의미가 설명되어 있습니다.
 
-<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
-	<tbody>
-		<tr>
-			<td><strong>작업 상태</strong></td>
-			<td><strong>설명</strong></td>
-		</tr>
-		<tr>
-			<td>만드는 중</td>
-			<td>작업이 만들어졌으나 발송 정보가 아직 입력되지 않았습니다.</td>
-		</tr>
-		<tr>
-			<td>발송</td>
-			<td>작업이 만들어졌고 발송 정보가 입력되었습니다.</td>
-		</tr>
-		<tr>
-			<td>전송 중</td>
-			<td>데이터가 하드 드라이브에서(가져오기 작업의 경우) 또는 하드 드라이브로(내보내기 작업의 경우) 전송되고 있습니다.</td>
-		</tr>
-		<tr>
-			<td>포장 중</td>
-			<td>데이터 전송이 완료되었고 하드 드라이브를 사용자에게 발송하기 위해 준비하는 중입니다.</td>
-		</tr>
-		<tr>
-			<td>완료</td>
-			<td>하드 드라이브를 사용자에게 발송했습니다.</td>
-		</tr>
-	</tbody>
-</table>
+|---------------|----------------------------------------------------------------------------------------------------------------|
+| **작업 상태** | **설명**                                                                                                       |
+| 만드는 중     | 작업이 만들어졌으나 발송 정보가 아직 입력되지 않았습니다.                                                      |
+| 발송          | 작업이 만들어졌고 발송 정보가 입력되었습니다.                                                                  |
+| 전송 중       | 데이터가 하드 드라이브에서(가져오기 작업의 경우) 또는 하드 드라이브로(내보내기 작업의 경우) 전송되고 있습니다. |
+| 포장 중       | 데이터 전송이 완료되었고 하드 드라이브를 사용자에게 발송하기 위해 준비하는 중입니다.                           |
+| 완료          | 하드 드라이브를 사용자에게 발송했습니다.                                                                       |
 
 ## 내보내기 작업의 BitLocker 키 보기
 
@@ -262,9 +208,11 @@ Microsoft Azure 가져오기/내보내기 도구는 각 드라이브가 준비�
 -   아시아 지역에서는 [DHL][DHL]만 지원됩니다. 모든 패키지는 DHL Express Worldwide를 통해 반환됩니다.
 
     <div class="dev-callout">
-<strong>중요</strong>
-<p>Azure 가져오기/내보내기 서비스에 추적 번호를 제공해야 합니다. 그렇지 않으면 작업을 처리할 수 없습니다.</p>
-</div>
+
+    **중요**
+    Azure 가져오기/내보내기 서비스에 추적 번호를 제공해야 합니다. 그렇지 않으면 작업을 처리할 수 없습니다.
+
+    </div>
 
 **반환 발송과 관련된 비용이 있습니까?**
 
@@ -287,9 +235,11 @@ Microsoft Azure 가져오기/내보내기 도구는 각 드라이브가 준비�
 -   저장소 계정이 있는 지역의 배송지 주소가 제공됩니다. 예를 들어 미국에 거주하며 저장소 계정이 서유럽 데이터 센터에 있는 경우 드라이브 전송을 위해 유럽의 배송지 주소가 제공됩니다.
 
     <div class="dev-callout">
-<strong>중요</strong>
-<p>배송하는 실제 미디어는 국경을 지나야 할 수 있습니다. 실제 미디어와 데이터를 관련 법률에 따라 가져오거나 내보내도록 해야 합니다. 실제 미디어를 배송하기 전에 관리자에게 미디어 및 데이터를 확인된 데이터 센터에 합법적으로 배송할 수 있는지 확인하세요. 이렇게 하면 해당 품목이 시기 적절하게 Microsoft에 도착될 수 있습니다.</p>
-</div>
+
+    **중요**
+    배송하는 실제 미디어는 국경을 지나야 할 수 있습니다. 실제 미디어와 데이터를 관련 법률에 따라 가져오거나 내보내도록 해야 합니다. 실제 미디어를 배송하기 전에 관리자에게 미디어 및 데이터를 확인된 데이터 센터에 합법적으로 배송할 수 있는지 확인하세요. 이렇게 하면 해당 품목이 시기 적절하게 Microsoft에 도착될 수 있습니다.
+
+    </div>
 
 -   패키지를 배송할 때는 [Microsoft Azure 서비스 조건][Microsoft Azure 서비스 조건]의 조항을 따라야 합니다.
 

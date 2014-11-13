@@ -1,6 +1,6 @@
-<properties linkid="develop-media-services-tutorials-smooth-streaming-plugin-for-open-source-media-framework" urlDisplayName="Smooth Streaming Plugin" pageTitle="Smooth Streaming Plugin for the Open Source Media Framework" metaKeywords="" description="Learn how to use the Azure Media Services Smooth Streaming plugin for the Adobe Open Source Media Framework." metaCanonical="" services="media-services" documentationCenter="" title="How to Use the Microsoft Smooth Streaming Plugin for the Adobe Open Source Media Framework" authors="" solutions="" manager="" editor="" />
+<properties urlDisplayName="Smooth Streaming Plugin" pageTitle="오픈 소스 미디어 프레임워크용 부드러운 스트리밍 플러그 인" metaKeywords="" description="Adobe 오픈 소스 미디어 프레임워크용 Azure 미디어 서비스 부드러운 스트리밍 플러그 인을 사용하는 방법에 대해 알아봅니다." metaCanonical="" services="media-services" documentationCenter="" title="Adobe 오픈 소스 미디어 프레임워크용 Microsoft 부드러운 스트리밍 플러그 인을 사용하는 방법" authors="juliako" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="" />
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="juliako" />
 
 # Adobe 오픈 소스 미디어 프레임워크용 Microsoft 부드러운 스트리밍 플러그 인을 사용하는 방법
 
@@ -329,7 +329,7 @@ OSMF 플러그 인은 정적으로(컴파일 시간에) 또는 동적으로(런�
 OSMF용 부드러운 스트리밍 동적 플러그 인은 [SMP(Strobe Media Playback)][SMP(Strobe Media Playback)](영문)와 호환됩니다. SS for OSMF 플러그 인을 사용하여 SMP에 부드러운 스트리밍 콘텐츠 재생을 추가할 수 있습니다. 이렇게 하려면 다음 단계에 따라 "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf"를 HTTP 로드용 웹 서버 아래에 복사합니다.
 
 1.  [Strobe Media Playback 설정 페이지][Strobe Media Playback 설정 페이지](영문)로 이동합니다.
-2.  src를 부드러운 스트리밍 원본(예: <http://devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest>)으로 설정합니다.
+2.  src를 부드러운 스트리밍 원본(예: http://devplatem.vo.msecnd.net/Sintel/Sintel\_H264.ism/manifest)으로 설정합니다.
 3.  원하는 대로 구성을 변경하고 Preview and Update를 클릭합니다.
 
     **참고** 콘텐츠 웹 서버에는 유효한 crossdomain.xml이 필요합니다.
@@ -387,5 +387,6 @@ OSMF용 부드러운 스트리밍 동적 플러그 인은 [SMP(Strobe Media Play
   [Flash Player 사용]: http://forums.adobe.com/message/4483498#4483498
   [Adobe Flash Player 11.3 - 버그 3210964]: https://bugbase.adobe.com/index.cfm?event=bug&id=3210964
   [OSMF 플러그 인 페이지]: http://osmf.org/dev/osmf/OtherPDFs/osmf_plugin_dev_guide.pdf
+  [SMP(Strobe Media Playback)]: http://osmf.org/strobe_mediaplayback.html
   [Strobe Media Playback 설정 페이지]: http://osmf.org/dev/2.0gm/setup.html
   [OSMF 개발 페이지]: http://osmf.org/resources.html

@@ -6,8 +6,8 @@
 </div>
 
 1.  원격 데스크톱을 사용하여 가상 컴퓨터에 연결한 후 **시작** 메뉴에서 Internet Explorer를 엽니다.
-2.  오른쪽 위에 있는 **도구** 단추를 선택합니다. **인터넷 옵션**에서 **보안** 탭을 선택한 후 **신뢰할 수 있는 사이트** 아이콘을 선택하고 마지막으로 **사이트** 단추를 클릭합니다. 신뢰할 수 있는 사이트 목록에 *<http://>\*.mongodb.org*를 추가합니다.
-3.  [Downloads- MongoDB][](영문)로 이동합니다.
+2.  오른쪽 위에 있는 **도구** 단추를 선택합니다. **인터넷 옵션**에서 **보안** 탭을 선택한 후 **신뢰할 수 있는 사이트** 아이콘을 선택하고 마지막으로 **사이트** 단추를 클릭합니다. 신뢰할 수 있는 사이트 목록에 *http://\*.mongodb.org*를 추가합니다.
+3.  [Downloads- MongoDB][Downloads- MongoDB](영문)로 이동합니다.
 4.  **프로덕션 릴리스(권장)** 섹션에서 최신 릴리스를 찾아 Windows 64비트 열에 있는 \***2008+** 링크를 클릭합니다. **다른 이름으로 저장**을 클릭하여 압축 파일을 데스크톱에 저장합니다.
 5.  Zip 파일을 마우스 오른쪽 단추로 클릭하고 **압축 풀기...**를 선택합니다. "C:"를 지정하고 **압축 풀기**를 클릭합니다. 파일의 압축을 푼 후 설치 폴더 이름을 보다 간단하게 바꿀 수 있습니다. 예를 들어 "MongoDB"
 6.  위 단계에서 만든 데이터 디스크(예: **F:** 드라이브)에 MongoDB 데이터 및 로그 디렉터리를 만듭니다. **시작** 메뉴에서 **명령 프롬프트** 메뉴를 선택하여 명령 프롬프트 창을 엽니다. 형식:
@@ -45,13 +45,13 @@
 
         C:\mongodb\bin>mongod --logpath "c:\mongodb\logs\logfile.log" --logappend --dbpath "c:\data" --install 
 
-    이렇게 하면 이름이 "Mongo DB"인 서비스가 생성되고 "Mongo DB"에 대한 설명이 지정됩니다. 실행 중인 서비스는 명령 창에 결과가 표시되지 않으므로 **--logpath** 옵션으로 로그 파일을 지정해야 합니다. **--logpath** 옵션은 서비스를 다시 시작할 때 기존 로그 파일에 출력을 추가하도록 지정합니다. **--dbpath** 옵션은 데이터 디렉터리 위치를 지정합니다. 서비스 관련 명령줄 옵션에 대한 자세한 내용은 [Service-related command line options][](영문)를 참조하세요.
+    이렇게 하면 이름이 "Mongo DB"인 서비스가 생성되고 "Mongo DB"에 대한 설명이 지정됩니다. 실행 중인 서비스는 명령 창에 결과가 표시되지 않으므로 **--logpath** 옵션으로 로그 파일을 지정해야 합니다. **--logpath** 옵션은 서비스를 다시 시작할 때 기존 로그 파일에 출력을 추가하도록 지정합니다. **--dbpath** 옵션은 데이터 디렉터리 위치를 지정합니다. 서비스 관련 명령줄 옵션에 대한 자세한 내용은 [Service-related command line options][Service-related command line options](영문)를 참조하세요.
 
 10. 이제 MongoDB가 설치되고 실행됩니다. 원격으로 MongoDB에 연결하려면 Windows 방화벽에 있는 포트를 열어야 합니다. **시작** 메뉴에서 **관리자 도구**를 선택한 후 **고급 보안이 포함된 Windows 방화벽**을 선택합니다.
 
 11. 왼쪽 창에서 **인바운드 규칙**을 선택합니다. 오른쪽에 있는 **작업** 창에서 **새 규칙...**을 선택합니다.
 
-    ![Windows 방화벽][]
+    ![Windows 방화벽][Windows 방화벽]
 
     **새 인바운드 규칙 마법사**에서 **포트**를 선택한 후 **다음**을 클릭합니다.
 
@@ -75,7 +75,7 @@
 
 12. 가상 컴퓨터를 만들 때 MongoDB에 대한 끝점을 구성하지 않은 경우 지금 구성할 수 있습니다. 원격으로 MongoDB에 연결하려면 방화벽 규칙 및 끝점이 있어야 합니다. 관리 포털에서 **가상 컴퓨터**를 클릭하고 새 가상 컴퓨터의 이름을 클릭한 다음 **끝점**을 클릭합니다.
 
-    ![끝점][]
+    ![끝점][끝점]
 
 13. 페이지 맨 아래에 있는 **Add Endpoint**를 클릭합니다. **Add Endpoint**를 선택하고 **Next**를 클릭합니다.
 
@@ -85,7 +85,6 @@
 
     ![끝점][7]
 
-  [보안 및 인증]: http://www.mongodb.org/display/DOCS/Security+and+Authentication
   [Downloads- MongoDB]: http://www.mongodb.org/downloads
   [Service-related command line options]: http://www.mongodb.org/display/DOCS/Windows+Service
   [Windows 방화벽]: ./media/install-and-run-mongo-on-win2k8-vm/WinFirewall1.png

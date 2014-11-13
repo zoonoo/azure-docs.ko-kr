@@ -1,6 +1,6 @@
-<properties linkid="develop-media-services-how-to-guides-media-services-java" urlDisplayName="Media Services" pageTitle="How to use Media Services (Java) - Azure feature guide" metaKeywords="Azure Media Services, Azure media, Azure streaming, azure media, azure streaming, azure encoding" description="Describes how to use Azure Media Services to perform common tasks including encoding, encrypting, and streaming resources." metaCanonical="" services="media-services" documentationCenter="Java" title="How to Use Media Services" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
+<properties urlDisplayName="Media Services" pageTitle="미디어 서비스 사용 방법(.NET) - Azure 기능 가이드" metaKeywords="Azure Media Services, Azure media, Azure streaming, azure media, azure streaming, azure encoding" description="Azure 미디어 서비스를 사용하여 리소스 인코딩, 암호화, 스트리밍 등의 일반적인 작업을 수행하는 방법에 대해 설명합니다." metaCanonical="" services="media-services" documentationCenter="Java" title="미디어 서비스 사용 방법" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm"></tags>
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
 
 # 미디어 서비스 사용 방법
 
@@ -28,10 +28,10 @@ Azure 미디어 서비스는 Microsoft Media Platform 및 타사 미디어 구�
 
 -   **수집**. 수집 작업은 자산을 업로드하고 Azure 저장소에 저장되기 전에 암호화하여 자산을 시스템으로 가져옵니다. 미디어 서비스는 RTM 릴리스에서 파트너 구성 요소와 통합되어 빠른 UDP(User Datagram Protocol) 업로드 솔루션을 제공할 예정입니다.
 -   **인코딩**. 인코딩 작업에는 미디어 자산 인코딩, 변형 및 변환이 포함됩니다. 미디어 서비스에 포함되어 있는 미디어 인코더를 사용하여 클라우드에서 인코딩 작업을 실행할 수 있습니다. 인코딩 옵션은 다음과 같습니다.
-   - Azure 미디어 인코더를 사용하고 업계 최고의 IIS 부드러운 스트리밍, MP4, Apple HTTP 라이브 스트리밍으로 변환 등의 다양한 표준 코덱 및 형식으로 작업
-   - 입력과 출력을 총체적으로 제어하여 전체 라이브러리 또는 개별 파일 변환
-   - 지원되는 다양한 파일 형식, 형식 및 코덱 집합([미디어 서비스에 대해 지원되는 파일 형식] 참조)
-   - 지원되는 형식 변환. 미디어 서비스를 통해 ISO MP4(.mp4)를 부드러운 스트리밍 파일 형식(PIFF 1.3)(.ismv; .isma)으로 변환할 수 있습니다. 부드러운 스트리밍 파일 형식(PIFF)을 Apple HTTP 라이브 스트리밍(.msu8, .ts)으로 변환할 수도 있습니다.
+-   Azure 미디어 인코더를 사용하고 업계 최고의 IIS 부드러운 스트리밍, MP4, Apple HTTP 라이브 스트리밍으로 변환 등의 다양한 표준 코덱 및 형식으로 작업
+-   입력과 출력을 총체적으로 제어하여 전체 라이브러리 또는 개별 파일 변환
+-   지원되는 다양한 파일 형식, 형식 및 코덱 집합([미디어 서비스에 대해 지원되는 파일 형식] 참조)
+-   지원되는 형식 변환. 미디어 서비스를 통해 ISO MP4(.mp4)를 부드러운 스트리밍 파일 형식(PIFF 1.3)(.ismv; .isma)으로 변환할 수 있습니다. 부드러운 스트리밍 파일 형식(PIFF)을 Apple HTTP 라이브 스트리밍(.msu8, .ts)으로 변환할 수도 있습니다.
 -   **보호**. 콘텐츠 보호는 보안 전송, 저장소 및 전달을 위해 라이브 스트리밍 또는 주문형 콘텐츠를 암호화하는 작업입니다. 미디어 서비스는 콘텐츠 보호를 위해 DRM 기술을 알 수 없는 솔루션을 제공합니다. 현재 지원되는 DRM 기술은 Microsoft PlayReady Protection 및 MPEG Common Encryption입니다. 추가 DRM 기술도 지원될 예정입니다.
 -   **스트림**. 콘텐츠 스트리밍은 라이브 또는 주문형으로 콘텐츠를 클라이언트에 보내는 작업입니다. 또는 클라우드에서 특정 미디어 파일을 가져오거나 다운로드할 수 있습니다. 미디어 서비스는 콘텐츠 스트리밍을 위해 형식을 알 수 없는 솔루션을 제공합니다. 미디어 서비스는 스트리밍과 관련해서 부드러운 스트리밍, Apple HTTP 라이브 스트리밍 및 MP4 형식을 지원합니다. 추가 형식도 지원될 예정입니다. 수백만 명의 사용자로 확장하는 옵션을 지원하는 Azure CDN 또는 타사 CDN을 사용하여 스트리밍 콘텐츠를 매끄럽게 제공할 수도 있습니다.
 

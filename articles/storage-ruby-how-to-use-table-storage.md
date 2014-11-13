@@ -1,4 +1,4 @@
-<properties linkid="dev-ruby-how-to-table-services" urlDisplayName="Table Service" pageTitle="How to use table storage (Ruby) | Microsoft Azure" metaKeywords="Azure table storage service, Azure table service Ruby, table storage Ruby" description="Learn how to use the table storage service in Azure. Code samples are written using the Ruby API." metaCanonical="" services="storage" documentationCenter="Ruby" title="How to Use the Table Service from Ruby" authors="guayan" solutions="" manager="" editor="" />
+<properties urlDisplayName="Table Service" pageTitle="테이블 저장소 사용 방법(Ruby) | Microsoft Azure" metaKeywords="Azure table storage service, Azure table service Ruby, table storage Ruby" description="Azure에서 테이블 저장소 서비스를 사용하는 방법에 대해 알아봅니다. 코드 샘플은 Ruby API를 사용하여 작성되었습니다." metaCanonical="" services="storage" documentationCenter="Ruby" title="Ruby에서 테이블 서비스를 사용하는 방법" authors="guayan" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="01/01/1900" ms.author="guayan" />
 
@@ -183,8 +183,6 @@ Azure 모듈은 **AZURE\_STORAGE\_ACCOUNT** 및 **AZURE\_STORAGE\_ACCESS\_KEY**
   [방법: 엔터티 속성 하위 집합 쿼리]: #how-to-query-a-subset-of-entity-properties
   [방법: 엔터티 삭제]: #how-to-delete-an-entity
   [방법: 테이블 삭제]: #how-to-delete-a-table
-  [howto-table-storage]: ../includes/howto-table-storage.md
-  [create-storage-account]: ../includes/create-storage-account.md
   [Azure에서 Ruby 응용 프로그램 만들기]: /ko-kr/develop/ruby/tutorials/web-app-with-linux-vm/
   [Azure 관리 포털]: https://manage.windowsazure.com/
   [Azure에서 데이터 저장 및 액세스]: http://msdn.microsoft.com/ko-kr/library/windowsazure/gg433040.aspx

@@ -1,4 +1,4 @@
-<properties umbracoNaviHide="0" pageTitle="Application Model" metaKeywords="Azure, Azure, application model, Azure application model, development model, Azure development model, hosted service, Azure hosted service, web role, worker role" description="Learn about the Azure hosted service application model. Understand core concepts, design considerations, defining and configuring your application, and scaling." linkid="dev-net-fundamentals-application-model" urlDisplayName="Application Model" headerExpose="" footerExpose="" disqusComments="1" title="Application Model" authors="robb" manager="johndaw" />
+<properties umbracoNaviHide="0" pageTitle="응용 프로그램 모델" metaKeywords="Azure, Azure, application model, Azure application model, development model, Azure development model, hosted service, Azure hosted service, web role, worker role" description="Azure에서 호스트하는 서비스 응용 프로그램 모델에 대해 알아봅니다. 또한 핵심 개념, 디자인 고려 사항, 응용 프로그램 정의/구성 및 크기 조정에 대해 설명합니다." urlDisplayName="Application Model" headerExpose="" footerExpose="" disqusComments="1" title="응용 프로그램 모델" authors="robb" manager="johndaw" />
 
 <tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="robb" />
 
@@ -65,7 +65,7 @@ OS 디스크 외에도 VM에는 데이터 디스크가 하나 이상 있습니�
 다양한 방법으로 Azure 가상 컴퓨터를 사용할 수 있습니다. Microsoft에서 목표로 삼는 기본 시나리오에는 다음이 포함됩니다.
 
 -   **개발 및 테스트용 VM.** 개발 그룹에는 일반적으로 응용 프로그램을 만들기 위해 특정 구성을 가진 VM이 필요합니다. Azure 가상 컴퓨터는 이러한 VM을 만들고 사용한 다음 더 이상 필요 없을 때 제거하기 위해 간단하고 경제적인 방법을 제공합니다.
--   **클라우드에서 응용 프로그램 실행.** 일부 응용 프로그램의 경우 공용 클라우드에서 실행하면 경제적입니다. 예를 들어 요구가 급증하는 응용 프로그램에 대해 생각해 보십시오. 이 응용 프로그램을 실행하기 위해 사용자 데이터 센터용으로 언제든지 충분히 컴퓨터를 구입할 수 있지만 이러한 컴퓨터의 대부분은 오랫동안 사용되지 않은 상태로 유지될 가능성이 높습니다. Azure에서 이 응용 프로그램을 실행하면 추가 VM이 필요할 때만 사용 요금을 지불할 수 있으며 요구 급증이 끝나면 VM을 종료할 수 있습니다. 또는 주문형 컴퓨팅 리소스가 무약정으로 급히 필요한 신규업체라고 가정합니다. Azure는 올바른 선택이 될 수 있습니다.
+-   **클라우드에서 응용 프로그램 실행.** 일부 응용 프로그램의 경우 공용 클라우드에서 실행하면 경제적입니다. 예를 들어 요구가 급증하는 응용 프로그램에 대해 생각해 보세요. 이 응용 프로그램을 실행하기 위해 사용자 데이터 센터용으로 언제든지 충분히 컴퓨터를 구입할 수 있지만 이러한 컴퓨터의 대부분은 오랫동안 사용되지 않은 상태로 유지될 가능성이 높습니다. Azure에서 이 응용 프로그램을 실행하면 추가 VM이 필요할 때만 사용 요금을 지불할 수 있으며 요구 급증이 끝나면 VM을 종료할 수 있습니다. 또는 주문형 컴퓨팅 리소스가 무약정으로 급히 필요한 신규업체라고 가정합니다. Azure는 올바른 선택이 될 수 있습니다.
 -   **공용 클라우드로 데이터 센터 확장.** Azure 가상 네트워크를 통해 조직에서는 자신의 온-프레미스 네트워크의 일부로 나타나는 Azure VM을 그룹화하는 VNET(가상 네트워크)을 만들 수 있습니다. 이렇게 하면 Azure에서 SharePoint 등과 같은 응용 프로그램을 실행할 수 있으며, 이 방법은 자신의 데이터 센터에서 실행하는 것보다 좀더 쉽게 배포하고 더 저렴합니다.
 -   **재해 복구.** 거의 사용되지 않는 백업 데이터 센터에 대해 지속적으로 지불하는 것보다 IaaS 기반 재해 복구를 사용하면 필요한 경우에만 필요한 컴퓨팅 리소스에 대해 지불할 수 있습니다. 예를 들어 기본 데이터 센터가 작동 중단되면 Azure에서 실행되는 VM을 만들어 필수 응용 프로그램을 실행한 다음 더 이상 필요 없을 때 종료할 수 있습니다.
 
@@ -73,7 +73,7 @@ OS 디스크 외에도 VM에는 데이터 디스크가 하나 이상 있습니�
 
 ### VM 그룹화: 클라우드 서비스
 
-Azure 가상 컴퓨터로 새 VM을 만드는 경우 독립 실행형으로 실행되도록 선택하거나 *클라우드 서비스(cloud service)*에서 함께 실행되는 VM 그룹 중 일부로 만들 수 있습니다. (유사한 이름에도 불구하고 이 개념을 Azure의 PaaS 기술 이름인 클라우드 서비스(Cloud Services)와 혼동하지 마십시오. 두 가지는 서로 다릅니다.) 각 독립 실행형 VM은 고유한 공용 IP 주소에 할당되지만 동일한 클라우드 서비스의 모든 VM은 하나의 공용 IP 주소를 통해 액세스됩니다. [그림 2][그림 2]에서는 표시되는 모양을 보여 줍니다.
+Azure 가상 컴퓨터로 새 VM을 만드는 경우 독립 실행형으로 실행되도록 선택하거나 *클라우드 서비스(cloud service)*에서 함께 실행되는 VM 그룹 중 일부로 만들 수 있습니다. (유사한 이름에도 불구하고 이 개념을 Azure의 PaaS 기술 이름인 클라우드 서비스(Cloud Services)와 혼동하지 마세요. 두 가지는 서로 다릅니다.) 각 독립 실행형 VM은 고유한 공용 IP 주소에 할당되지만 동일한 클라우드 서비스의 모든 VM은 하나의 공용 IP 주소를 통해 액세스됩니다. [그림 2][그림 2]에서는 표시되는 모양을 보여 줍니다.
 
 <a name="Fig2"></a>![02\_CloudServices][02\_CloudServices]
 
@@ -83,7 +83,7 @@ Azure 가상 컴퓨터로 새 VM을 만드는 경우 독립 실행형으로 실�
 
 클라우드 서비스로 VM을 그룹화하면 다른 옵션도 사용할 수 있습니다. Azure는 동일한 클라우드 서비스에서 여러 VM의 부하를 분산하여 사용자 요청을 VM 간에 분배합니다. 이렇게 연결된 VM은 Azure 데이터 센터 내에 있는 로컬 네트워크를 통해 서로 직접 통신할 수도 있습니다.
 
-동일한 클라우드 서비스의 VM은 하나 이상의 *가용성 집합*으로 그룹화될 수도 있습니다. 그 중요성을 이해하려면 프런트 엔드 VM을 여러 개 실행하는 웹 응응 프로그램을 생각해 보십시오. 이러한 VM이 모두 동일한 물리적 컴퓨터 또는 동일한 컴퓨터 랙에 배포되면 단 하나의 하드웨어 오류가 발생해도 모두 액세스할 수 없게 됩니다. 하지만 이러한 VM이 가용성 집합으로 그룹화되면 Azure에서는 데이터 센터를 통해 배포하여 모든 VM이 오류를 공유하지 않습니다.
+동일한 클라우드 서비스의 VM은 하나 이상의 *가용성 집합*으로 그룹화될 수도 있습니다. 그 중요성을 이해하려면 프런트 엔드 VM을 여러 개 실행하는 웹 응응 프로그램을 생각해 보세요. 이러한 VM이 모두 동일한 물리적 컴퓨터 또는 동일한 컴퓨터 랙에 배포되면 단 하나의 하드웨어 오류가 발생해도 모두 액세스할 수 없게 됩니다. 하지만 이러한 VM이 가용성 집합으로 그룹화되면 Azure에서는 데이터 센터를 통해 배포하여 모든 VM이 오류를 공유하지 않습니다.
 
 ### 시나리오: SQL Server 응용 프로그램 실행
 
@@ -141,7 +141,7 @@ Azure 가상 컴퓨터는 IaaS를 제공하고, Azure 웹 사이트는 웹 호�
 
 그림에서 보듯이 단일 응용 프로그램의 모든 VM은 앞서 Azure 가상 컴퓨터에서 설명한 것처럼 동일한 클라우드 서비스에서 실행됩니다. 그렇기 때문에 사용자는 응용 프로그램 VM의 자동 부하 분산 요청으로 하나의 공용 IP 주소를 통해 응용 프로그램에 액세스합니다. Azure 가상 컴퓨터를 사용하여 만들어진 클라우드 서비스와 마찬가지로 플랫폼은 하드웨어 오류를 방지하는 방식으로 클라우드 서비스 응용 프로그램에 VM을 배포합니다.
 
-응용 프로그램이 가상 컴퓨터에서 실행된다 해도 클라우드 서비스가 IaaS가 아닌 PaaS를 제공한다는 사실을 이해하는 것이 중요합니다. 다음 방법에 대해 생각해 보십시오. Azure 가상 컴퓨터처럼 IaaS로 응용 프로그램이 실행될 환경을 우선 만들고 구성한 후 응용 프로그램을 이 환경에 배포합니다. 각 VM에 운영 체제의 새 패치 버전을 배포하는 것과 같은 작업을 수행하며 많은 작업에 대해 관리해야 합니다. 그와 반대로 PaaS에서는 환경이 이미 존재하는 것과 같아 응용 프로그램을 배포하기만 하면 됩니다. 응용 프로그램이 실행되는 플랫폼을 관리합니다(운영 체제의 새 버전 배포 포함).
+응용 프로그램이 가상 컴퓨터에서 실행된다 해도 클라우드 서비스가 IaaS가 아닌 PaaS를 제공한다는 사실을 이해하는 것이 중요합니다. 다음 방법에 대해 생각해 보세요. Azure 가상 컴퓨터처럼 IaaS로 응용 프로그램이 실행될 환경을 우선 만들고 구성한 후 응용 프로그램을 이 환경에 배포합니다. 각 VM에 운영 체제의 새 패치 버전을 배포하는 것과 같은 작업을 수행하며 많은 작업에 대해 관리해야 합니다. 그와 반대로 PaaS에서는 환경이 이미 존재하는 것과 같아 응용 프로그램을 배포하기만 하면 됩니다. 응용 프로그램이 실행되는 플랫폼을 관리합니다(운영 체제의 새 버전 배포 포함).
 
 클라우드 서비스로 가상 컴퓨터를 만들지 않습니다. 대신 웹 역할 인스턴스 세 개 및 작업자 역할 인스턴스 두 개와 같이 원하는 개수를 Azure에게 알려 주는 구성 파일을 제공하고 플랫폼에서는 이를 만듭니다. VM의 크기를 선택하지만(옵션은 Azure VM과 동일함) 명시적으로 직접 만들지는 않습니다. 응용 프로그램이 더 큰 부하를 처리해야 하면 더 많은 VM을 요구할 수 있으며 Azure가 그러한 인스턴스를 만듭니다. 부하가 감소하면 이러한 인스턴스를 종료하여 지불을 중지할 수 있습니다.
 
@@ -186,11 +186,18 @@ Azure에서 제공한 초기 실행 모델이었던 클라우드 서비스는 �
   [클라우드 서비스]: #CloudServices
   [사용해야 하는 모델 선택]: #WhatShouldIUse
   [그림 1]: #Fig1
+  [01\_CreatingVMs]: ./media/fundamentals-application-models/ExecModels_01_CreatingVMs.png
   [VMDepot]: http://vmdepot.msopentech.com/
   [Azure 라이브러리]: http://msdn.microsoft.com/ko-kr/library/windowsazure/dn197896.aspx
   [그림 2]: #Fig2
+  [02\_CloudServices]: ./media/fundamentals-application-models/ExecModels_02_CloudServices.png
   [그림 3]: #Fig3
+  [03\_AppUsingSQLServer]: ./media/fundamentals-application-models/ExecModels_03_AppUsingSQLServer.png
   [그림 4]: #Fig4
+  [04\_SharePointFarm]: ./media/fundamentals-application-models/ExecModels_04_SharePointFarm.png
+  [05\_Websites]: ./media/fundamentals-application-models/ExecModels_05_Websites.png
   [그림 5]: #Fig5
   [그림 6]: #Fig6
+  [06\_CloudServices2]: ./media/fundamentals-application-models/ExecModels_06_CloudServices2.png
   [그림 7]: #Fig7
+  [07\_CombineTechnologies]: ./media/fundamentals-application-models/ExecModels_07_CombineTechnologies.png

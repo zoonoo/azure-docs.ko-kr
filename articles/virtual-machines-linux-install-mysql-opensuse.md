@@ -1,4 +1,4 @@
-<properties linkid="manage-linux-common-task-mysql-virtual-machine" urlDisplayName="Install MySQL" pageTitle="Install MySQL on a Linux virtual machine in Azure" metaKeywords="Azure vm OpenSUSE, Linux vm" description="Learn how to create an Azure virtual machine with OpenSUSE Linux, and then use SSH or PuTTY to install MySQL." metaCanonical="" services="virtual-machines" documentationCenter="" title="Install MySQL on a virtual machine running OpenSUSE Linux in Azure" authors="timlt" solutions="" manager="timlt" editor="" />
+<properties urlDisplayName="Install MySQL" pageTitle="Azure에서 Linux 가상 컴퓨터에 MySQL 설치" metaKeywords="Azure vm OpenSUSE, Linux vm" description="OpenSUSE Linux가 설치된 Azure 가상 컴퓨터를 만든 다음 SSH 또는 PuTTY를 사용하여 MySQL을 설치하는 방법에 대해 알아봅니다." metaCanonical="" services="virtual-machines" documentationCenter="" title="Azure에서 OpenSUSE Linux를 실행하는 가상 컴퓨터에 MySQL 설치" authors="timlt" solutions="" manager="timlt" editor="" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="timlt" />
 
@@ -28,6 +28,4 @@
 
   [MySQL]: http://www.mysql.com
   [Azure 관리 포털]: http://manage.windowsazure.com
-  [create-and-configure-opensuse-vm-in-portal]: ../includes/create-and-configure-opensuse-vm-in-portal.md
-  [install-and-run-mysql-on-opensuse-vm]: ../includes/install-and-run-mysql-on-opensuse-vm.md
   [MySQL 설명서]: http://dev.mysql.com/doc/

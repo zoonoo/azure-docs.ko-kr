@@ -1,4 +1,4 @@
-<properties linkid="manage-services-storage-custom-dns-storage" urlDisplayName="custom dns storage" pageTitle="Configure a domain name for blob data in a storage account | Microsoft Azure" metaKeywords="" description="Learn how to configure a custom domain for accessing blob data in an Azure storage account." metaCanonical="" services="storage" documentationCenter="" title="Configure a custom domain name for blob data in a storage account" solutions="" authors="tamram" manager="mbaldwin" editor="cgronlun" />
+<properties urlDisplayName="custom dns storage" pageTitle="저장소 계정에서 Blob 데이터의 도메인 이름 구성 | Microsoft Azure" metaKeywords="" description="Azure 저장소 계정에서 Blob 데이터에 액세스할 수 있도록 사용자 지정 도메인을 구성하는 방법에 대해 알아봅니다." metaCanonical="" services="storage" documentationCenter="" title="저장소 계정에서 Blob 데이터의 사용자 지정 도메인 이름 구성" solutions="" authors="tamram" manager="adinah" editor="cgronlun" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
@@ -17,33 +17,18 @@ Azure 저장소 계정에서 Blob 데이터에 액세스할 수 있도록 사용
 
 다음 표는 이름이 **mystorageaccount**인 저장소 계정의 Blob 데이터에 액세스하기 위한 샘플 URL을 보여 줍니다. 저장소 계정에 등록된 사용자 지정 도메인은 **www.contoso.com**입니다.
 
-<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
-	<tbody>
-		<tr>
-			<td style="width: 100px;"><strong>리소스 종류</strong></td>
-			<td><strong>URL 형식</strong></td>
-		</tr>
-		<tr>
-			<td>저장소 계정</td>
-			<td><strong>기본 URL:</strong> http://mystorageaccount.blob.core.windows.net<br />
-			<strong>사용자 지정 도메인 URL:</strong> http://www.contoso.com</td>
-		</tr>
-		<tr>
-			<td>Blob</td>
-			<td><strong>기본 URL:</strong> http://mystorageaccount.blob.core.windows.net/mycontainer/myblob<br /><strong>사용자 지정 도메인 URL:</strong>
-			http://www.contoso.com/mycontainer/myblob</td>
-		</tr>
-		<tr>
-			<td>루트 컨테이너</td>
-			<td><strong>기본 URL:</strong> http://mystorageaccount.blob.core.windows.net/myblob 
-			<br/>또는<br />
-			http://mystorageaccount.blob.core.windows.net/$root/myblob<br />
-			<strong>사용자 지정 도메인 URL:</strong> http://www.contoso.com/myblob
-			<br/>또는<br />
-			http://www.contoso.com/$root/myblob</td>
-		</tr>
-	</tbody>
-</table>
+|-----------------|--------------------------------------------------------------------------------|
+| **리소스 종류** | **URL 형식**                                                                   |
+| 저장소 계정     | **기본 URL:** http://mystorageaccount.blob.core.windows.net                    
+                    **사용자 지정 도메인 URL:** http://www.contoso.com                             |
+| Blob            | **기본 URL:** http://mystorageaccount.blob.core.windows.net/mycontainer/myblob 
+                   **사용자 지정 도메인 URL:** http://www.contoso.com/mycontainer/myblob           |
+| 루트 컨테이너   | **기본 URL:** http://mystorageaccount.blob.core.windows.net/myblob             
+                   또는                                                                            
+                    http://mystorageaccount.blob.core.windows.net/$root/myblob                     
+                    **사용자 지정 도메인 URL:** http://www.contoso.com/myblob                      
+                   또는                                                                            
+                    http://www.contoso.com/$root/myblob                                            |
 
 이 작업은 다음에 대한 방법을 보여 줍니다.
 
@@ -132,13 +117,13 @@ asverify 하위 도메인은 Azure에서 인식하는 특수한 하위 도메인
 
 사용자 지정 도메인이 Blob 서비스 끝점에 실제로 매핑되었는지 확인하려면 저장소 계정 내의 공용 컨테이너에 Blob을 만듭니다. 그런 다음 웹 브라우저에서 다음 형식의 URI를 사용하여 Blob에 액세스합니다.
 
--   http://<*subdomain.customdomain*>/<*mycontainer*>/<*myblob*>
+-   http://\<*subdomain.customdomain*\>/\<*mycontainer*\>/\<*myblob*\>
 
 예를 들어 다음 URI를 사용하여
 **myforms** 컨테이너의 Blob에 매핑하는
 **photos.contoso.com** 사용자 지정 하위 도메인을 통해 웹 양식에 액세스할 수 있습니다.
 
--   <http://photos.contoso.com/myforms/applicationform.htm>
+-   http://photos.contoso.com/myforms/applicationform.htm
 
 ## 추가 리소스
 

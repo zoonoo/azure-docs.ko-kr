@@ -1,12 +1,12 @@
-<properties linkid="manage-windows-howto-logon" urlDisplayName="Log on to a VM" pageTitle="Log on to a virtual machine running Windows Server" metaKeywords="Azure logging on vm, vm portal" description="Learn to use the Azure Management Portal to log on to a virtual machine running Windows Server." metaCanonical="" services="virtual-machines" documentationCenter="" title="How to Log on to a Virtual Machine Running Windows Server" authors="kathydav" solutions="" manager="timlt" editor="tysonn" />
+<properties urlDisplayName="Log on to a VM" pageTitle="Windows Server를 실행하는 가상 컴퓨터에 로그온" metaKeywords="Azure logging on vm, vm portal" description="Azure 관리 포털을 사용하여 Windows Server를 실행하는 가상 컴퓨터에 로그온하는 방법에 대해 알아봅니다." metaCanonical="" services="virtual-machines" documentationCenter="" title="Windows Server를 실행하는 가상 컴퓨터에 로그온하는 방법" authors="kathydav" solutions="" manager="timlt" editor="tysonn" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="08/05/2014" ms.author="kathydav"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="08/05/2014" ms.author="kathydav" />
 
 # Windows Server를 실행하는 가상 컴퓨터에 로그온하는 방법
 
 Windows Server 운영 체제를 실행하는 가상 컴퓨터의 경우 관리 포털에서 연결 단추를 사용하여 원격 데스크톱 연결을 시작할 수 있습니다.
 
-> [WACOM.NOTE] 사용자 이름 또는 암호를 재설정해야 하거나 가상 컴퓨터에서 RDP를 사용하도록 설정해야 하는 경우 [VMAccess][VMAccess] 확장을 사용하여 이러한 작업을 수행할 수 있습니다. 자세한 요구 사항 및 문제 해결 팁은 [RDP 또는 SSH를 사용하여 Azure 가상 컴퓨터에 연결][RDP 또는 SSH를 사용하여 Azure 가상 컴퓨터에 연결]을 참조하십시오.
+> [WACOM.NOTE] 사용자 이름 또는 암호를 재설정해야 하거나 가상 컴퓨터에서 RDP를 사용하도록 설정해야 하는 경우 [VMAccess][VMAccess] 확장을 사용하여 이러한 작업을 수행할 수 있습니다. 자세한 요구 사항 및 문제 해결 팁은 [RDP 또는 SSH를 사용하여 Azure 가상 컴퓨터에 연결][RDP 또는 SSH를 사용하여 Azure 가상 컴퓨터에 연결]을 참조하세요.
 
 1.  아직 로그인하지 않은 경우 [Azure 관리 포털][Azure 관리 포털]에 로그인합니다.
 

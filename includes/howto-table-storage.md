@@ -22,17 +22,17 @@ Azure 테이블 저장소 서비스는 다량의 구조화된 데이터를
 
 테이블 서비스에는 다음 구성 요소가 포함됩니다.
 
-![Table1][]
+![Table1][Table1]
 
 -   **URL 형식:** 코드에서 다음 주소 형식을 사용하여 계정의 테이블
     주소를 지정합니다.
     http://`<storage account>`.table.core.windows.net/`<table>`
 
     OData 프로토콜과 함께 이 주소를 사용하여 Azure 테이블 주소를 직접
-    지정할 수 있습니다. 자세한 내용은 [OData.org][]를 참조하세요.
+    지정할 수 있습니다. 자세한 내용은 [OData.org][OData.org]를 참조하세요.
 
 -   **저장소 계정:** Azure 저장소에 대한 모든 액세스는 저장소
-    계정을 통해 수행됩니다. 저장소 계정 용량에 대한 자세한 내용은 [Azure 저장소 확장성 및 성능 목표][](영문)를 참조하세요.
+    계정을 통해 수행됩니다. 저장소 계정 용량에 대한 자세한 내용은 [Azure 저장소 확장성 및 성능 목표][Azure 저장소 확장성 및 성능 목표](영문)를 참조하세요.
 
 -   **테이블**: 테이블은 엔터티 컬렉션입니다. 테이블은 엔터티에
     스키마를 적용하지 않으므로 단일 테이블에 각기 다른 속성 집합을
@@ -52,4 +52,4 @@ Azure 테이블 저장소 서비스는 다량의 구조화된 데이터를
 
   [Table1]: ./media/storage-java-how-to-use-table-storage/table1.png
   [OData.org]: http://www.odata.org/
-  [Azure 저장소 확장성 및 성능 목표]: http://msdn.microsoft.com/en-us/library/dn249410.aspx
+  [Azure 저장소 확장성 및 성능 목표]: http://msdn.microsoft.com/ko-kr/library/dn249410.aspx

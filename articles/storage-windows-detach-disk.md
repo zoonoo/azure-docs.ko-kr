@@ -1,7 +1,6 @@
-<properties linkid="manage-windows-how-to-guides-detach-a-disk" urlDisplayName="Detach a Disk" pageTitle="Detach a disk from a Windows Virtual Machine | Azure" metaKeywords="" description="Learn how to detach a disk from a Windows Virtual Machine in Azure." metaCanonical="" services="virtual-machines,storage" documentationCenter="" title="How to Detach a Data Disk from a Virtual Machine" authors="" solutions="" manager="" editor="" />
+<properties urlDisplayName="Detach a Disk" pageTitle="Windows 가상 컴퓨터에서 디스크 분리 | Azure" metaKeywords="" description="Azure의 가상 컴퓨터에서 디스크를 분리하는 방법에 대해 알아봅니다." metaCanonical="" services="virtual-machines,storage" documentationCenter="" title="가상 컴퓨터에서 데이터 디스크를 분리하는 방법" authors="kathydav" solutions="" manager="timlt" editor="" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="10/22/2014" ms.author="kathydav" />
 
-[WACOM.INCLUDE [howto-detach-disk-windows-linux][]]
+[WACOM.INCLUDE [howto-detach-disk-windows-linux](../includes/howto-detach-disk-windows-linux.md)]
 
-  [howto-detach-disk-windows-linux]: ../includes/howto-detach-disk-windows-linux.md

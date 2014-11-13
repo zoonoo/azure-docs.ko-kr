@@ -1,6 +1,6 @@
-<properties linkid="manage-services-hdinsight-howto-blob-store" urlDisplayName="Blob Storage with  Hadoop in HDInsight" pageTitle="Use Blob storage with Hadoop in HDInsight | Azure" metaKeywords="" description="Learn how HDInsight uses Blob storage as the underlying data store for HDFS and how you can query data from the store." metaCanonical="" services="storage,hdinsight" documentationCenter="" title="Use Azure Blob storage with Hadoop in HDInsight" authors="jgao" solutions="" manager="paulettm" editor="mollybos" />
+<properties urlDisplayName="Blob Storage with  Hadoop in HDInsight" pageTitle="HDInsight에서 Hadoop과 Blob 저장소 사용 | Azure" metaKeywords="" description="HDInsight에서 Blob 저장소를 HDFS의 기본 데이터 저장소로 사용하는 방법과 저장소에서 데이터를 쿼리하는 방법에 대해 알아봅니다." metaCanonical="" services="storage,hdinsight" documentationCenter="" title="HDInsight에서 Hadoop과 Azure Blob 저장소 사용" authors="jgao" solutions="" manager="paulettm" editor="mollybos" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao" />
 
 # HDInsight에서 Hadoop과 Azure Blob 저장소 사용
 
@@ -117,7 +117,7 @@ Blob 저장소의 파일에 액세스하기 위한 URI 체계는 다음과 같�
 
     wasb[s]://<BlobStorageContainerName>@<StorageAccountName>.blob.core.windows.net/<path>
 
-> [WACOM.NOTE] 저장소 에뮬레이터(HDInsight 에뮬레이터에서 실행됨)에서 파일의 주소를 지정하기 위한 구문은 <i>wasb://&lt;ContainerName&gt;@storageemulator</i>입니다.
+> [WACOM.NOTE] 저장소 에뮬레이터(HDInsight 에뮬레이터에서 실행됨)에서 파일의 주소를 지정하기 위한 구문은 *wasb://\<ContainerName\>@storageemulator*입니다.
 
 URI 체계는 *wasb:* 접두사를 사용한 암호화되지 않은 액세스와 *wasbs*를 사용한 SSL 암호화된 액세스를 둘 다 제공합니다. 동일한 Azure 데이터 센터에 있는 데이터에 액세스하는 경우에도 가능하면 *wasbs*를 사용하는 것이 좋습니다.
 

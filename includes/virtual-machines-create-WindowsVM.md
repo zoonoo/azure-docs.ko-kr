@@ -41,14 +41,14 @@
     ![가상 컴퓨터의 VM 에이전트 및 끝점 구성][가상 컴퓨터의 VM 에이전트 및 끝점 구성]
 
   [Azure 관리 포털]: http://manage.windowsazure.com
-  [무료 평가판]: http://www.windowsazure.com/ko--kr/pricing/free-trial/
+  [무료 평가판]: http://www.windowsazure.com/ko-kr/pricing/free-trial/
   [명령 모음의 갤러리에서로 이동]: ./media/virtual-machines-create-WindowsVM/fromgallery.png
   [이미지 선택]: ./media/virtual-machines-create-WindowsVM/chooseimage.png
   [Azure를 위한 가상 컴퓨터 및 클라우드 서비스 크기]: http://go.microsoft.com/fwlink/p/?LinkId=466520
   [가상 컴퓨터의 속성 구성]: ./media/virtual-machines-create-WindowsVM/vmconfiguration.png
-  [여러 가상 컴퓨터]: http://www.windowsazure.com/ko--kr/documentation/articles/cloud-services-connect-virtual-machine/
+  [여러 가상 컴퓨터]: http://www.windowsazure.com/ko-kr/documentation/articles/cloud-services-connect-virtual-machine/
   [Azure 가상 네트워크 개요]: http://go.microsoft.com/fwlink/p/?LinkID=294063
-  [가상 컴퓨터로 끝점을 설정하는 방법]: http://www.windowsazure.com/ko--kr/documentation/articles/virtual-machines-set-up-endpoints/
+  [가상 컴퓨터로 끝점을 설정하는 방법]: http://www.windowsazure.com/ko-kr/documentation/articles/virtual-machines-set-up-endpoints/
   [가상 컴퓨터의 연결된 리소스 구성]: ./media/virtual-machines-create-WindowsVM/resourceconfiguration.png
   [가상 컴퓨터에 대해 VM 에이전트 및 확장 구성]: ./media/virtual-machines-create-WindowsVM/agent-and-extensions.png
   [확장 사용]: http://go.microsoft.com/FWLink/p/?LinkID=390493

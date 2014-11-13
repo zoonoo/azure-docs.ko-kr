@@ -1,12 +1,12 @@
-<properties linkid="cloud-services-virtual-machines-dotnet-continuous-delivery-remote-debugging" urlDisplayName="Enable remote debugging with continuous delivery" pageTitle="Enable remote debugging with continuous delivery" metaKeywords="" description="Learn how to enable remote debugging when using continuous delivery to deploy to Azure." metaCanonical="" services="cloud-services,virtual machines" documentationCenter=".NET" title="Enable remote debugging when using continuous delivery to publish to Azure" authors="ghogen" solutions="" manager="" editor="" />
+<properties urlDisplayName="Enable remote debugging with continuous delivery" pageTitle="연속 배달을 통해 원격 디버깅 사용" metaKeywords="" description="연속 배달을 사용하여 Azure에 배포할 경우 원격 디버깅을 사용하도록 설정하는 방법에 대해 알아봅니다." metaCanonical="" services="cloud-services,virtual machines" documentationCenter=".NET" title="연속 배달을 사용하여 Azure에 게시할 경우 원격 디버깅 사용" authors="kempb" solutions="" manager="douge" editor="" />
 
-<tags ms.service="multiple" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-multiple" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="ghogen"></tags>
+<tags ms.service="multiple" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-multiple" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="kempb" />
 
 # 연속 배달을 사용하여 Azure에 게시할 경우 원격 디버깅 사용
 
 다음 단계를 따라 [연속 배달][연속 배달]을 사용하여 Azure에 게시할 경우 Azure에서 원격 디버깅을 사용할 수 있습니다.
 
-항목 내용:
+항목 내용
 
 [클라우드 서비스에 원격 디버깅 사용][클라우드 서비스에 원격 디버깅 사용]
 
@@ -77,14 +77,14 @@
 
 6.  Visual Studio 및 Azure SDK for .NET 2.4와 설치한 컴퓨터로 인증서(.pfx)를 가져옵니다.
 
-  [연속 배달]: http://azure.microsoft.com/ko--kr/documentation/articles/cloud-services-dotnet-continuous-delivery/
+  [연속 배달]: http://azure.microsoft.com/ko-kr/documentation/articles/cloud-services-dotnet-continuous-delivery/
   [클라우드 서비스에 원격 디버깅 사용]: #cloudservice
   [가상 컴퓨터에 원격 디버깅 사용]: #virtualmachine
-  [Azure에 대한 명령줄 빌드]: http://msdn.microsoft.com/ko--kr/library/hh535755.aspx
-  [Visual Studio 2013용 원격 도구]: http://www.microsoft.com/ko--kr/download/details.aspx?id=40781
-  [Visual Studio 2012 업데이트 4용 원격 도구]: http://www.microsoft.com/ko--kr/download/details.aspx?id=38184
+  [Azure에 대한 명령줄 빌드]: http://msdn.microsoft.com/ko-kr/library/hh535755.aspx
+  [Visual Studio 2013용 원격 도구]: http://www.microsoft.com/ko-kr/download/details.aspx?id=40781
+  [Visual Studio 2012 업데이트 4용 원격 도구]: http://www.microsoft.com/ko-kr/download/details.aspx?id=38184
   [Azure용 서비스 인증서 만들기]: http://msdn.microsoft.com/library/azure/gg432987.aspx
-  [Windows Server를 실행하는 가상 컴퓨터 만들기]: http://azure.microsoft.com/ko--kr/documentation/articles/virtual-machines-windows-tutorial/
-  [Visual Studio에서 Azure 가상 컴퓨터 만들기]: http://msdn.microsoft.com/ko--kr/library/azure/dn569263.aspx
+  [Windows Server를 실행하는 가상 컴퓨터 만들기]: http://azure.microsoft.com/ko-kr/documentation/articles/virtual-machines-windows-tutorial/
+  [Visual Studio에서 Azure 가상 컴퓨터 만들기]: http://msdn.microsoft.com/ko-kr/library/azure/dn569263.aspx
   [Azure 포털 페이지]: http://go.microsoft.com/fwlink/p/?LinkID=269851
   [Azure Powershell]: http://go.microsoft.com/?linkid=9811175&clcid=0x409

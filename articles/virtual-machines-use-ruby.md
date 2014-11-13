@@ -1,6 +1,6 @@
-<properties linkid="manage-services-identity-multi-factor-authentication" urlDisplayName="What is Azure Multi-Factor Authentication?" pageTitle="What is Azure Multi-Factor Authentication?" metaKeywords="" description="Learn more about Azure Multi-Factor Authentication, a method of authentication that requires the use of more than one verification method and adds a critical second layer of security to user sign-ins and transactions." metaCanonical="" services="active-directory,multi-factor-authentication" documentationCenter="" title="How to Manage Azure Virtual Machines using Ruby" authors="larryfr" solutions="" manager="" editor="" />
+<properties urlDisplayName="What is Azure Multi-Factor Authentication?" pageTitle="Azure Multi-Factor Authentication 정의" metaKeywords="" description="두 개 이상의 확인 방법을 사용해야 하며 사용자 로그인 및 트랜잭션에 중요한 제2의 보안 계층을 추가하는 인증 방법인 Azure Multi-Factor Authentication에 대해 자세히 알아봅니다." metaCanonical="" services="active-directory,multi-factor-authentication" documentationCenter="" title="Ruby를 사용하여 Azure 가상 컴퓨터를 관리하는 방법" authors="larryfr" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # Ruby를 사용하여 Azure 가상 컴퓨터를 관리하는 방법
 
@@ -38,7 +38,7 @@ Azure 가상 컴퓨터는 클라우드 서비스 내에서 '역할'로 구현됩
 
 **Azure::VirtualMachineService** 클래스를 통해 노출된 작업과 같은 서비스 관리 작업을 수행할 때는 Azure 구독 ID 및 구독의 관리 인증서가 포함된 파일을 제공해야 합니다. 두 가지 모두 Azure REST API로 인증할 때 SDK에서 사용됩니다.
 
-Azure 플랫폼 간 명령줄 인터페이스(xplat-cli)를 사용하여 구독 ID 및 관리 인증서를 구해야 합니다. xplat-cli 설치 및 구성에 대한 자세한 내용은 [Azure 플랫폼 간 명령줄 인터페이스 설치 및 구성][Azure 플랫폼 간 명령줄 인터페이스 설치 및 구성]을 참조하십시오.
+Azure 플랫폼 간 명령줄 인터페이스(xplat-cli)를 사용하여 구독 ID 및 관리 인증서를 구해야 합니다. xplat-cli 설치 및 구성에 대한 자세한 내용은 [Azure 플랫폼 간 명령줄 인터페이스 설치 및 구성][Azure 플랫폼 간 명령줄 인터페이스 설치 및 구성]을 참조하세요.
 
 xplat-cli를 구성하고 나면 다음 단계를 수행하여 Azure 구독 ID를 검색하고 관리 인증서를 내보낼 수 있습니다.
 
@@ -91,7 +91,7 @@ Azure 서비스를 관리하려면 Azure SDK for Ruby가 포함된 Azure gem을 
     <div class="dev-callout">
 
     **참고**
-    사용 권한 관련 오류가 나타나는 경우 대신 `sudo gem install azure`를 사용하십시오.
+    사용 권한 관련 오류가 나타나는 경우 대신 `sudo gem install azure`를 사용하세요.
 
     </div>
 
@@ -176,7 +176,7 @@ VM 생성의 기본 동작을 다시 정의(예: 새로 만드는 대신 기존 
 
 -   **:ssh\_port** - SSH 통신에 사용할 공용 포트. 생략되는 경우 SSH 포트는 기본적으로 22로 설정됩니다.
 
--   **:vm\_size** - VM의 크기. 이 값에 따라 VM의 메모리 크기, 코어 수, 대역폭, 기타 물리적 특징이 결정됩니다. 사용할 수 있는 크기 및 물리적 특징에 대한 자세한 내용은 [Azure를 위한 가상 컴퓨터 및 클라우드 서비스 크기][Azure를 위한 가상 컴퓨터 및 클라우드 서비스 크기]를 참조하십시오.
+-   **:vm\_size** - VM의 크기. 이 값에 따라 VM의 메모리 크기, 코어 수, 대역폭, 기타 물리적 특징이 결정됩니다. 사용할 수 있는 크기 및 물리적 특징에 대한 자세한 내용은 [Azure를 위한 가상 컴퓨터 및 클라우드 서비스 크기][Azure를 위한 가상 컴퓨터 및 클라우드 서비스 크기]를 참조하세요.
 
 -   **:winrm\_transport** - WinRM에서 사용할 수 있는 전송 배열. 유효한 전송은 'http' 및 'https'입니다. 전송으로 'https'가 지정된 경우에는 **:ssh\_private\_key\_file** 및 **:ssh\_certificate\_file**을 사용하여 HTTPS 통신 보안을 유지하는 데 사용되는 인증서도 지정해야 합니다.
 
@@ -352,11 +352,11 @@ Azure 구독의 저장소 계정 목록을 가져오려면 **list\_storage\_acco
 
 ## <a name="next-steps"> </a>다음 단계
 
-이제 프로그래밍 방식으로 Azure 가상 컴퓨터 만들기의 기본 사항을 배웠으므로 다음 링크를 따라 더 많은 VM 작업을 수행하는 방법을 알아보십시오.
+이제 프로그래밍 방식으로 Azure 가상 컴퓨터 만들기의 기본 사항을 배웠으므로 다음 링크를 따라 더 많은 VM 작업을 수행하는 방법을 알아보세요.
 
--   [가상 컴퓨터][가상 컴퓨터](영문) 기능 페이지를 방문하십시오.
+-   [가상 컴퓨터][가상 컴퓨터](영문) 기능 페이지를 방문하세요.
 -   다음 MSDN 참조를 확인하세요. [가상 컴퓨터][1]
--   [가상 컴퓨터에서 Ruby on Rails 응용 프로그램][가상 컴퓨터에서 Ruby on Rails 응용 프로그램]을 호스트하는 방법을 알아보십시오.
+-   [가상 컴퓨터에서 Ruby on Rails 응용 프로그램][가상 컴퓨터에서 Ruby on Rails 응용 프로그램]을 호스트하는 방법을 알아보세요.
 
   [서비스 관리]: #what-is
   [개념]: #concepts

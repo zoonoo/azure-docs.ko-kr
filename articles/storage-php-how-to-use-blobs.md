@@ -1,4 +1,4 @@
-<properties title="How to use blob storage (PHP) - Azure feature guide" pageTitle="How to use blob storage (PHP) | Microsoft Azure" metaKeywords="Azure blob service PHP, Azure blobs PHP" description="Learn how to use the Azure Blob service to upload, list, download, and delete blobs. Code samples are written in PHP." documentationCenter="PHP" services="storage" videoId="" scriptId="" solutions="" authors="robmcm" manager="wpickett" editor="mollybos" />
+<properties title="Blob 저장소 사용 방법(PHP) - Azure 기능 가이드" pageTitle="Blob 저장소 사용 방법(PHP) | Microsoft Azure" metaKeywords="Azure blob service PHP, Azure blobs PHP" description="Azure Blob 서비스를 사용하여 Blob를 업로드, 나열, 다운로드 및 삭제하는 방법에 대해 알아봅니다. 코드 샘플은 PHP로 작성되었습니다." documentationCenter="PHP" services="storage" videoId="" scriptId="" solutions="" authors="robmcm" manager="adinah" editor="mollybos" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
 
@@ -306,9 +306,10 @@ Blob을 삭제하려면 컨테이너 이름 및 Blob 이름을 **BlobRestProxy-\
   [방법: Blob 다운로드]: #DownloadBlob
   [방법: Blob 삭제]: #DeleteBlob
   [방법: Blob 컨테이너 삭제]: #DeleteContainer
-  [howto-blob-storage]: ../includes/howto-blob-storage.md
-  [create-storage-account]: ../includes/create-storage-account.md
-  [get-client-libraries]: ../includes/get-client-libraries.md
+  [require\_once]: http://php.net/require_once
+  [컨테이너 ACL 설정(REST API)]: http://msdn.microsoft.com/ko-kr/library/windowsazure/dd179391.aspx
   [Blob 서비스 오류 코드]: http://msdn.microsoft.com/ko-kr/library/windowsazure/dd179439.aspx
   [fopen]: http://www.php.net/fopen
+  [file\_get\_contents]: http://php.net/file_get_contents
+  [stream\_get\_contents]: http://www.php.net/stream_get_contents
   [Azure에서 데이터 저장 및 액세스]: http://msdn.microsoft.com/ko-kr/library/windowsazure/gg433040.aspx

@@ -1,6 +1,6 @@
-<properties linkid="develop-python-table-service" urlDisplayName="Table Service" pageTitle="How to use table storage (Python) | Microsoft Azure" metaKeywords="Azure table Python, creating table Azure, deleting table Azure, inserting table Azure, querying table Azure" description="Learn how to use the Table service from Python to create and delete a table, and insert, delete, and query the table." metaCanonical="" services="storage" documentationCenter="Python" title="How to Use the Table Storage Service from Python" authors="huvalo" solutions="" manager="" editor="" />
+<properties urlDisplayName="Table Service" pageTitle="테이블 저장소 사용 방법(Python) | Microsoft Azure" metaKeywords="Azure table Python, creating table Azure, deleting table Azure, inserting table Azure, querying table Azure" description="Python의 테이블 서비스를 사용하여 테이블을 작성 및 삭제하고 테이블을 삽입하고 삭제하고 쿼리하는 방법에 대해 알아봅니다." metaCanonical="" services="storage" documentationCenter="Python" title="Python에서 테이블 저장소 서비스를 사용하는 방법" authors="huvalo" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="09/19/2014" ms.author="huvalo" />
 
 # Python에서 테이블 저장소 서비스를 사용하는 방법
 
@@ -8,31 +8,31 @@
 수행하는 방법을 보여 줍니다. 샘플은 Python API를 사용하여
 작성되었습니다. **테이블 만들기 및 삭제, 테이블에서 엔터티 삽입 및
 쿼리** 등의 시나리오를 다룹니다. 테이블에
-대한 자세한 내용은 [다음 단계][] 섹션을 참조하세요.
+대한 자세한 내용은 [다음 단계][다음 단계] 섹션을 참조하세요.
 
 ## 목차
 
-[테이블 서비스 정의][]
- [개념][]
- [Azure 저장소 계정 만들기][]
- [방법: 테이블 만들기][]
- [방법: 테이블에 엔터티 추가][]
- [방법: 엔터티 업데이트][]
- [방법: 엔터티 그룹 변경][]
- [방법: 엔터티 쿼리][]
- [방법: 엔터티 집합 쿼리][]
- [방법: 엔터티 속성 하위 집합 쿼리][]
- [방법: 엔터티 삭제][]
- [방법: 테이블 삭제][]
- [다음 단계][]
+[테이블 서비스 정의][테이블 서비스 정의]
+ [개념][개념]
+ [Azure 저장소 계정 만들기][Azure 저장소 계정 만들기]
+ [방법: 테이블 만들기][방법: 테이블 만들기]
+ [방법: 테이블에 엔터티 추가][방법: 테이블에 엔터티 추가]
+ [방법: 엔터티 업데이트][방법: 엔터티 업데이트]
+ [방법: 엔터티 그룹 변경][방법: 엔터티 그룹 변경]
+ [방법: 엔터티 쿼리][방법: 엔터티 쿼리]
+ [방법: 엔터티 집합 쿼리][방법: 엔터티 집합 쿼리]
+ [방법: 엔터티 속성 하위 집합 쿼리][방법: 엔터티 속성 하위 집합 쿼리]
+ [방법: 엔터티 삭제][방법: 엔터티 삭제]
+ [방법: 테이블 삭제][방법: 테이블 삭제]
+ [다음 단계][다음 단계]
 
-[WACOM.INCLUDE [howto-table-storage][]]
+[WACOM.INCLUDE [howto-table-storage](../includes/howto-table-storage.md)]
 
 ## <a name="create-account"> </a>Azure 저장소 계정 만들기
 
-[WACOM.INCLUDE [create-storage-account][]]
+[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
-**참고:** Python 또는 클라이언트 라이브러리를 설치해야 하는 경우 [Python 설치 가이드][](영문)를 참조하세요.
+**참고:** Python 또는 클라이언트 라이브러리를 설치해야 하는 경우 [Python 설치 가이드][Python 설치 가이드](영문)를 참조하세요.
 
 ## <a name="create-table"> </a>테이블을 만드는 방법
 
@@ -40,7 +40,7 @@
 코드는 **TableService** 개체를 만듭니다. 프로그래밍 방식으로
 Azure 저장소에 액세스하려는 Python 파일의 맨 위쪽에 다음을 추가합니다.
 
-    from azure.storage import *
+    from azure.storage import TableService, Entity
 
 다음 코드는 저장소 계정 이름 및 계정 키를 사용하여 **TableService** 개체를 만듭니다. 'myaccount' 및 'mykey'를 실제 계정 및 키로 바꾸세요.
 
@@ -163,8 +163,8 @@ Azure 저장소에 액세스하려는 Python 파일의 맨 위쪽에 다음을 �
 이제 테이블 저장소의 기본 사항을 배웠으므로 다음 링크를 따라 좀 더 복잡한 저장소
 작업을 수행하는 방법을 알아보세요.
 
--   다음 MSDN 참조를 확인하세요. [Azure에서 데이터 저장 및 액세스][]
--   [Azure 저장소 팀 블로그(영문)를 방문하세요.][]
+-   다음 MSDN 참조를 확인하세요. [Azure에서 데이터 저장 및 액세스][Azure에서 데이터 저장 및 액세스]
+-   [Azure 저장소 팀 블로그(영문)를 방문하세요.][Azure 저장소 팀 블로그(영문)를 방문하세요.]
 
   [다음 단계]: #next-steps
   [테이블 서비스 정의]: #what-is
@@ -179,8 +179,6 @@ Azure 저장소에 액세스하려는 Python 파일의 맨 위쪽에 다음을 �
   [방법: 엔터티 속성 하위 집합 쿼리]: #query-entity-properties
   [방법: 엔터티 삭제]: #delete-entity
   [방법: 테이블 삭제]: #delete-table
-  [howto-table-storage]: ../includes/howto-table-storage.md
-  [create-storage-account]: ../includes/create-storage-account.md
   [Python 설치 가이드]: ../python-how-to-install/
-  [Azure에서 데이터 저장 및 액세스]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
+  [Azure에서 데이터 저장 및 액세스]: http://msdn.microsoft.com/ko-kr/library/windowsazure/gg433040.aspx
   [Azure 저장소 팀 블로그(영문)를 방문하세요.]: http://blogs.msdn.com/b/windowsazurestorage/

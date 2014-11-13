@@ -1,6 +1,6 @@
-<properties linkid="dev-nodejs-how-to-blob-storage" urlDisplayName="Blob Service" pageTitle="How to use blob storage (Node.js) | Microsoft Azure" metaKeywords="Get started Azure blob, Azure unstructured data, Azure unstructured storage, Azure blob, Azure blob storage, Azure blob Node.js" description="Learn how to use the Azure blob service to upload, download, list, and delete blob content. Samples written in Node.js." metaCanonical="" services="storage" documentationCenter="Node.js" title="How to Use the Blob Service from Node.js" authors="larryfr" solutions="" manager="" editor="" />
+<properties urlDisplayName="Blob Service" pageTitle="Blob 저장소 사용 방법(Node.js) | Microsoft Azure" metaKeywords="Get started Azure blob, Azure unstructured data, Azure unstructured storage, Azure blob, Azure blob storage, Azure blob Node.js" description="Azure Blob 서비스를 사용하여 Blob 콘텐츠를 업로드, 다운로드, 나열 및 삭제하는 방법에 대해 알아봅니다. 샘플은 Node.js로 작성되었습니다." metaCanonical="" services="storage" documentationCenter="nodejs" title="Node.js에서 Blob 서비스를 사용하는 방법" authors="larryfr" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr" />
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # Node.js에서 Blob 서비스를 사용하는 방법
 
@@ -175,7 +175,7 @@ Blob은 블록 기반 또는 페이지 기반일 수 있습니다. 블록 Blob�
 
 -   **createPageBlob** - 특정 길이의 새 페이지 Blob을 만듭니다.
 
--   **createPageBlobFromFile** - 새 페이지 Blob을 만들고 파일 내용을 업로드합니다.
+-   **createPageBlobFromLocalFile** - 새 페이지 Blob을 만들고 파일 내용을 업로드합니다.
 
 -   **createPageBlobFromStream** - 새 페이지 Blob을 만들고 스트림의 내용을 업로드합니다.
 
@@ -185,7 +185,7 @@ Blob은 블록 기반 또는 페이지 기반일 수 있습니다. 블록 Blob�
 
 다음 예에서는 **test.txt** 파일의 내용을 **mypageblob**에 업로드합니다.
 
-    blobSvc.createPageBlobFromFile('mycontainer', 'mypageblob', 'test.txt', function(error, result, response){
+    blobSvc.createPageBlobFromLocalFile('mycontainer', 'mypageblob', 'test.txt', function(error, result, response){
       if(!error){
         // file uploaded
       }
@@ -387,8 +387,6 @@ ACL이 설정되고 나면 정책의 ID를 기반으로 SAS를 만들 수 있습
   [방법: Blob 삭제]: #delete-blobs
   [방법: 동시 액세스]: #concurrent-access
   [방법: 공유 액세스 서명 작업]: #sas
-  [howto-blob-storage]: ../includes/howto-blob-storage.md
-  [create-storage-account]: ../includes/create-storage-account.md
   [Node.js 응용 프로그램을 만들어 Azure 웹 사이트에 배포하기]: /ko-kr/develop/nodejs/tutorials/create-a-website-(mac)/
   [Node.js 클라우드 서비스]: /ko-kr/documentation/articles/cloud-services-nodejs-develop-deploy-app/
   [WebMatrix를 사용하는 웹 사이트]: /ko-kr/documentation/articles/web-sites-nodejs-use-webmatrix/

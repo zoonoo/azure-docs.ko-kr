@@ -1,10 +1,10 @@
-<properties linkid="develop-media-services-how-to-guides-deliver-streaming-content" urlDisplayName="Deliver Streaming Content from Media Services" pageTitle="How to Deliver Streaming Content from Media Services – Azure" metaKeywords="" description="Learn how to deliver streaming content from Media Services using a direct URL. Code samples are written in C# and use the Media Services SDK for .NET." metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="How to: Deliver streaming content" authors="" />
+<properties urlDisplayName="Deliver Streaming Content from Media Services" pageTitle="미디어 서비스에서 스트리밍 콘텐츠를 제공하는 방법 - Azure" metaKeywords="" description="직접 URL을 사용하여 미디어 서비스에서 스트리밍 콘텐츠를 제공하는 방법에 대해 알아봅니다. 코드 샘플은 C#으로 작성되었으며 Media Services SDK for .NET을 사용합니다." metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="방법: 스트리밍 콘텐츠 제공" authors="juliako" manager="dwrede" />
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author></tags>
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="juliako" />
 
 # 방법: 스트리밍 콘텐츠 제공
 
-이 문서는 Azure 미디어 서비스 프로그래밍을 소개하는 시리즈 중 하나입니다. 이전 항목은 [방법: 다운로드를 통해 자산 제공][](영문)이었습니다.
+이 문서는 Azure 미디어 서비스 프로그래밍을 소개하는 시리즈 중 하나입니다. 이전 항목은 [방법: 다운로드를 통해 자산 제공][방법: 다운로드를 통해 자산 제공](영문)이었습니다.
 
 미디어 서비스에서 미디어 콘텐츠를 다운로드하는 것뿐만 아니라 적응 비트 전송률 스트리밍을 사용하여 콘텐츠를 제공할 수 있습니다. 예를 들어 미디어 서비스 원본 서버의 스트리밍 콘텐츠에 대해 로케이터라고 하는 직접 URL을 만들 수 있습니다. Microsoft Silverlight 같은 클라이언트 응용 프로그램은 로케이터에서 바로 스트리밍 콘텐츠를 재생할 수 있습니다.
 
@@ -18,9 +18,8 @@
 4.  매니페스트 파일에 대한 URL을 작성합니다.
 
 다음 코드는 단계를 실행하는 방법을 보여 줍니다.
-<pre><code>
-    private static ILocator GetStreamingOriginLocator( string targetAssetID)
-    { // Get a reference to the asset you want to stream. IAsset assetToStream = GetAsset(targetAssetID);
+
+    private static ILocator GetStreamingOriginLocator( string targetAssetID){ // Get a reference to the asset you want to stream. IAsset assetToStream = GetAsset(targetAssetID);
     // Get a reference to the streaming manifest file from the  
     // collection of files in the asset. 
     var theManifest =
@@ -63,20 +62,23 @@
     // Return the locator. 
     return originLocator;
 
+<p>
 }
-</code></pre>
+</code>
 
+</pre>
+</p>
 자산 제공에 대한 자세한 내용은 다음을 참조하세요.
 
--   [Media Services for .NET을 사용하여 자산 제공(영문)][]
--   [Media Services REST API를 사용하여 자산 제공(영문)][]
+-   [Media Services for .NET을 사용하여 자산 제공(영문)][Media Services for .NET을 사용하여 자산 제공(영문)]
+-   [Media Services REST API를 사용하여 자산 제공(영문)][Media Services REST API를 사용하여 자산 제공(영문)]
 
 </p>
 ## 다음 단계
 
-지금까지 부드러운 스트리밍을 사용하여 Azure 저장소에서 다운로드하여 미디어를 제공하는 방법을 살펴봤습니다. 다음 항목인 [HLS 콘텐츠를 제공하는 방법][](영문)에서는 Apple HLS(HTTP 라이브 스트리밍)를 사용하여 스트리밍 콘텐츠를 제공하는 방법을 살펴보겠습니다.
+지금까지 부드러운 스트리밍을 사용하여 Azure 저장소에서 다운로드하여 미디어를 제공하는 방법을 살펴봤습니다. 다음 항목인 [HLS 콘텐츠를 제공하는 방법][HLS 콘텐츠를 제공하는 방법](영문)에서는 Apple HLS(HTTP 라이브 스트리밍)를 사용하여 스트리밍 콘텐츠를 제공하는 방법을 살펴보겠습니다.
 
-  [방법: 다운로드를 통해 자산 제공]: http://go.microsoft.com/fwlink/?LinkID=301734&clcid=0x409
-  [Media Services for .NET을 사용하여 자산 제공(영문)]: http://msdn.microsoft.com/en-us/library/jj129575.aspx
-  [Media Services REST API를 사용하여 자산 제공(영문)]: http://msdn.microsoft.com/en-us/library/jj129578.aspx
-  [HLS 콘텐츠를 제공하는 방법]: http://go.microsoft.com/fwlink/?LinkId=301817
+  [방법: 다운로드를 통해 자산 제공]: ../media-services-deliver-asset-download/
+  [Media Services for .NET을 사용하여 자산 제공(영문)]: http://msdn.microsoft.com/ko-kr/library/jj129575.aspx
+  [Media Services REST API를 사용하여 자산 제공(영문)]: http://msdn.microsoft.com/ko-kr/library/jj129578.aspx
+  [HLS 콘텐츠를 제공하는 방법]: ../media-services-deliver-http-live-streaming-content/

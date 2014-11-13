@@ -1,6 +1,6 @@
-<properties linkid="manage-services-getting-started-with-sqldbs" urlDisplayName="How to create and provision" pageTitle="Getting started with SQL Database - Azure" metaKeywords="" description="Get started creating and managing SQL Databases in Azure." metaCanonical="" services="sql-database" documentationCenter="" title="Getting Started with Azure SQL Database" authors="loclar"  solutions="" writer="" manager="jeffreyg" editor="tysonn"  />
+<properties urlDisplayName="How to create and provision" pageTitle="Azure SQL 데이터베이스 시작 - Azure" metaKeywords="" description="Azure에서 SQL 데이터베이스 만들기와 관리를 시작하는 방법에 대해 알아봅니다." metaCanonical="" services="sql-database" documentationCenter="" title="Azure SQL 데이터베이스 시작" authors="loclar"  solutions="" writer="" manager="jeffreyg" editor="tysonn"  />
 
-<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="loclar"></tags>
+<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="loclar" />
 
 # Microsoft Azure SQL 데이터베이스 시작
 
@@ -24,8 +24,8 @@ Excel을 사용하여 Azure 플랫폼의 샘플 데이터베이스와 쿼리 시
 
 ## 1단계: Microsoft Azure 계정 만들기
 
-1.  웹 브라우저를 열고 [http://azure.microsoft.com](http://azure.microsoft.com)으로 이동합니다.
-    무료 계정으로 시작하려면 오른쪽 위에 있는 무료 체험을 클릭하고 단계를 따르십시오.
+1.  웹 브라우저를 열고 <http://azure.microsoft.com>으로 이동합니다.
+    무료 계정으로 시작하려면 오른쪽 위에 있는 무료 체험을 클릭하고 단계를 따르세요.
 
 2.  이제 계정이 만들어집니다. 시작할 준비가 되었습니다.
 
@@ -65,13 +65,13 @@ Excel을 사용하여 Azure 플랫폼의 샘플 데이터베이스와 쿼리 시
 
 -   대문자 및 소문자 값과 숫자 또는 기호를 조합하여 8자 이상의 강력한 암호를 입력합니다. 암호 복잡성에 대한 자세한 내용을 보려면 도움말 풍선을 사용합니다.
 
--   지역을 선택합니다. 지역은 서버의 지리적 위치를 결정합니다. 지역은 쉽게 바꿀 수 없으므로 이 서버에 맞는 지역을 선택하십시오. 사용자에게 가장 가까운 위치를 선택합니다. Azure 응용 프로그램 및 데이터베이스를 동일한 지역에 유지하면 발신용 대역폭 비용과 데이터 대기 시간이 절약됩니다.
+-   지역을 선택합니다. 지역은 서버의 지리적 위치를 결정합니다. 지역은 쉽게 바꿀 수 없으므로 이 서버에 맞는 지역을 선택하세요. 사용자에게 가장 가까운 위치를 선택합니다. Azure 응용 프로그램 및 데이터베이스를 동일한 지역에 유지하면 발신용 대역폭 비용과 데이터 대기 시간이 절약됩니다.
 
 -   SQL 데이터베이스용 관리 포털, Office 365의 Excel 또는 Azure SQL 보고를 사용하여 이 데이터베이스에 연결할 수 있도록 **Azure 서비스가 서버에 액세스할 수 있도록 허용합니다.** 확인란을 선택한 상태를 유지해야 합니다.
 
 -   완료하면 페이지 맨 아래에 있는 확인 표시를 클릭합니다.
 
-서버 이름을 지정하지 않았다는 점에 유의하십시오. 전 세계에서 SQL 데이터베이스 서버에 액세스할 수 있어야 하므로, SQL 데이터베이스는 서버가 만들어질 때 적절한 DNS 항목을 구성합니다. 이 이름은 다른 DNS 항목과의 이름 충돌이 발생하지 않도록 생성됩니다. SQL 데이터베이스 서버의 이름은 변경할 수 없습니다.
+서버 이름을 지정하지 않았다는 점에 유의하세요. 전 세계에서 SQL 데이터베이스 서버에 액세스할 수 있어야 하므로, SQL 데이터베이스는 서버가 만들어질 때 적절한 DNS 항목을 구성합니다. 이 이름은 다른 DNS 항목과의 이름 충돌이 발생하지 않도록 생성됩니다. SQL 데이터베이스 서버의 이름은 변경할 수 없습니다.
 
 방금 만든 **School** 데이터베이스를 호스트하는 서버의 이름을 보려면 왼쪽 탐색 창에서 **SQL 데이터베이스**를 클릭한 후에 **SQL 데이터베이스** 목록 보기에서 **School** 데이터베이스를 클릭합니다. **빠른 시작** 페이지에서 아래로 스크롤하여 서버 이름을 봅니다.
 
@@ -81,7 +81,7 @@ Excel을 사용하여 Azure 플랫폼의 샘플 데이터베이스와 쿼리 시
 
 연결이 허용되도록 방화벽을 구성하려면 서버 페이지에 정보를 입력합니다.
 
-**참고:** SQL 데이터베이스 서비스는 TDS 프로토콜에 사용되는 TCP 포트 1433에서만 사용 가능하므로 네트워크 및 로컬 컴퓨터의 방화벽에서 포트 1433의 나가는 TCP 통신을 허용하는지 확인하십시오. 자세한 내용은 [SQL 데이터베이스 방화벽][SQL 데이터베이스 방화벽]을 참조하십시오.
+**참고:** SQL 데이터베이스 서비스는 TDS 프로토콜에 사용되는 TCP 포트 1433에서만 사용 가능하므로 네트워크 및 로컬 컴퓨터의 방화벽에서 포트 1433의 나가는 TCP 통신을 허용하는지 확인하세요. 자세한 내용은 [SQL 데이터베이스 방화벽][SQL 데이터베이스 방화벽]을 참조하세요.
 
 1.  왼쪽의 탐색 창에서 **SQL 데이터베이스**를 클릭합니다.
 
@@ -477,7 +477,7 @@ person 테이블에서 PersonID, LastName, FirstName, HireDate, EnrollmentDate �
 
     EXEC SP_help
 
-**School** 데이터베이스에 대한 포털 연결을 닫지 마십시오. 잠시 뒤에 다시 포털 연결이 필요합니다.
+**School** 데이터베이스에 대한 포털 연결을 닫지 마세요. 잠시 뒤에 다시 포털 연결이 필요합니다.
 
 ## 8단계: 데이터베이스 로그인 만들기 및 권한 할당
 
@@ -548,9 +548,9 @@ Microsoft Excel이 컴퓨터에 설치되어 있는 경우 다음 단계에 따�
 
 2.  데이터 연결 마법사에서 SQL 데이터베이스 서버의 정규화된 도메인 이름과 데이터베이스에 대한 액세스 권한이 있는 SQL Server 인증 로그인을 차례로 입력합니다.
 
-서버 이름은 Azure 관리 포털, SQL 데이터베이스, 서버 페이지, 대시보드의 **URL 관리**에서 확인할 수 있습니다. 서버 이름은 일련의 문자 및 숫자와 그 뒤에 오는 '.database.windows.net'으로 구성됩니다. 데이터베이스 연결 마법사에서 이 이름을 지정합니다. 이름을 지정할 때 http:// 또는 https:// 접두사를 포함하지 마십시오.
+서버 이름은 Azure 관리 포털, SQL 데이터베이스, 서버 페이지, 대시보드의 **URL 관리**에서 확인할 수 있습니다. 서버 이름은 일련의 문자 및 숫자와 그 뒤에 오는 '.database.windows.net'으로 구성됩니다. 데이터베이스 연결 마법사에서 이 이름을 지정합니다. 이름을 지정할 때 http:// 또는 https:// 접두사를 포함하지 마세요.
 
-SQL Server 인증 로그인을 입력합니다. 테스트를 위해서는 서버를 설정할 때 만든 관리자 로그인을 사용할 수 있습니다. 일반적인 데이터 액세스를 위해서는 방금 만든 것과 유사한 데이터베이스 사용자 로그인을 사용하십시오.
+SQL Server 인증 로그인을 입력합니다. 테스트를 위해서는 서버를 설정할 때 만든 관리자 로그인을 사용할 수 있습니다. 일반적인 데이터 액세스를 위해서는 방금 만든 것과 유사한 데이터베이스 사용자 로그인을 사용하세요.
 
 ![탐색 창][8]
 
@@ -568,11 +568,11 @@ Excel을 사용할 경우 테이블을 한 번에 하나만 가져올 수 있습
 
 SQL 데이터베이스 및 관리 포털에 익숙해졌으므로, SQL Server 데이터베이스 관리자가 사용하는 기타 도구 및 기술을 시도해 볼 수 있습니다.
 
-새 데이터베이스를 적극적으로 관리하기 위해 SQL Server Management Studio를 설치하여 사용해 볼 수 있습니다. Management Studio는 Azure에서 실행되는 데이터베이스를 포함하여 SQL Server 데이터베이스를 관리할 수 있는 주 데이터베이스 관리 도구입니다. Management Studio를 사용하여 쿼리를 나중에 사용하도록 저장하고, 새 테이블 및 저장 프로시저를 추가하고, 구문 검사기, IntelliSense 및 템플릿을 포함하는 다양한 스크립팅 환경에서 Transact-SQL 기술을 익힐 수 있습니다. 시작하려면 [SQL Server Management Studio를 사용하여 SQL 데이터베이스 관리][SQL Server Management Studio를 사용하여 SQL 데이터베이스 관리](영문)의 지침을 따르십시오.
+새 데이터베이스를 적극적으로 관리하기 위해 SQL Server Management Studio를 설치하여 사용해 볼 수 있습니다. Management Studio는 Azure에서 실행되는 데이터베이스를 포함하여 SQL Server 데이터베이스를 관리할 수 있는 주 데이터베이스 관리 도구입니다. Management Studio를 사용하여 쿼리를 나중에 사용하도록 저장하고, 새 테이블 및 저장 프로시저를 추가하고, 구문 검사기, IntelliSense 및 템플릿을 포함하는 다양한 스크립팅 환경에서 Transact-SQL 기술을 익힐 수 있습니다. 시작하려면 [SQL Server Management Studio를 사용하여 SQL 데이터베이스 관리][SQL Server Management Studio를 사용하여 SQL 데이터베이스 관리](영문)의 지침을 따르세요.
 
-데이터베이스 관리자는 Transact-SQL 쿼리 및 데이터 정의 언어에 능숙해야 합니다. Transact-SQL을 처음 사용한다면 [자습서: Transact-SQL 문 쓰기][자습서: Transact-SQL 문 쓰기]를 시작하여 기본 기술을 더 익혀 보십시오.
+데이터베이스 관리자는 Transact-SQL 쿼리 및 데이터 정의 언어에 능숙해야 합니다. Transact-SQL을 처음 사용한다면 [자습서: Transact-SQL 문 쓰기][자습서: Transact-SQL 문 쓰기]를 시작하여 기본 기술을 더 익혀 보세요.
 
-다른 방법으로도 SQL 데이터베이스로 온-프레미스 데이터베이스를 이동할 수 있습니다. 기존 데이터베이스가 있거나 샘플 데이터베이스를 다운로드하여 연습하는 경우 다음과 같은 다른 방법을 시도해 보십시오.
+다른 방법으로도 SQL 데이터베이스로 온-프레미스 데이터베이스를 이동할 수 있습니다. 기존 데이터베이스가 있거나 샘플 데이터베이스를 다운로드하여 연습하는 경우 다음과 같은 다른 방법을 시도해 보세요.
 
 -   [SQL 데이터베이스로 데이터베이스 마이그레이션][SQL 데이터베이스로 데이터베이스 마이그레이션]
 -   [SQL 데이터베이스에서 데이터베이스 복사][SQL 데이터베이스에서 데이터베이스 복사]

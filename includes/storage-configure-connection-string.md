@@ -14,19 +14,16 @@ Azure 서비스 구성에서 연결 문자열을 구성하려면
 1.  Visual Studio의 솔루션 탐색기 내에서 Azure 배포 프로젝트의
     **Roles** 폴더에 있는 해당 웹 역할이나 작업자
     역할을 마우스 오른쪽 단추로 클릭하고 **속성**을 클릭합니다.
-
-    ![Visual Studio에서 클라우드 서비스 역할에 대한 속성 선택 ][]
+    ![Visual Studio에서 클라우드 서비스 역할에 대한 속성 선택 ][Visual Studio에서 클라우드 서비스 역할에 대한 속성 선택 ]
 
 2.  **설정** 탭을 클릭하고 **설정 추가** 단추를 누릅니다.
-
-    ![Visual Studio에서 클라우드 서비스 설정 추가][]
+    ![Visual Studio에서 클라우드 서비스 설정 추가][Visual Studio에서 클라우드 서비스 설정 추가]
 
     새로운 **Setting1** 항목이 설정 그리드에 표시됩니다.
 
 3.  새로운 **Setting1** 항목의 **유형** 드롭다운에서
     **연결 문자열**을 선택합니다.
-
-    ![연결 문자열 유형 설정][]
+    ![연결 문자열 유형 설정][연결 문자열 유형 설정]
 
 4.  **Setting1** 항목의 오른쪽에 있는 **...** 단추를 클릭합니다.
     **저장소 계정 연결 문자열** 대화 상자가 열립니다.
@@ -40,13 +37,12 @@ Azure 서비스 구성에서 연결 문자열을 구성하려면
 
     > [WACOM.NOTE] Windows Azure 저장소와 연결하여 비용이 초래되지 않도록 저장소 에뮬레이터를 대상으로 할 수 있습니다. 그러나 클라우드에서 Azure 저장소 계정을 대상으로 하도록 선택하는 경우 이 자습서를 수행하는 비용은 무시됩니다.
 
-    ![대상 환경 선택][]
+    ![대상 환경 선택][대상 환경 선택]
 
 6.  **이름** 항목을 **Setting1**에서
     **StorageConnectionString** 등의 친근한 이름으로 변경합니다. 이 가이드의
     코드 뒷부분에서 이 연결 문자열을 참조합니다.
-
-    ![연결 문자열 이름 변경][]
+    ![연결 문자열 이름 변경][연결 문자열 이름 변경]
 
 ### .NET 구성을 사용하여 연결 문자열 구성
 
@@ -66,7 +62,7 @@ Azure 클라우드 서비스가 아닌 응용 프로그램을 작성하는 경�
         </appSettings>
     </configuration>
 
-저장소 연결 문자열에 대한 자세한 내용은 [연결 문자열 구성][]을 참조하세요.
+저장소 연결 문자열에 대한 자세한 내용은 [연결 문자열 구성][연결 문자열 구성]을 참조하세요.
 
 이제 이 가이드의 방법 작업을 수행할 준비가 되었습니다.
 
@@ -75,4 +71,4 @@ Azure 클라우드 서비스가 아닌 응용 프로그램을 작성하는 경�
   [연결 문자열 유형 설정]: ./media/storage-configure-connection-string/connection-string3.png
   [대상 환경 선택]: ./media/storage-configure-connection-string/connection-string4.png
   [연결 문자열 이름 변경]: ./media/storage-configure-connection-string/connection-string5.png
-  [연결 문자열 구성]: http://msdn.microsoft.com/en-us/library/windowsazure/ee758697.aspx
+  [연결 문자열 구성]: http://msdn.microsoft.com/ko-kr/library/windowsazure/ee758697.aspx

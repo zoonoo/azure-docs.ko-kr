@@ -1,10 +1,8 @@
-<properties linkid="develop-net-tutorials-get-started-vs2013" pageTitle="Get started with Azure Websites for ASP.NET" metaKeywords="" description="This tutorial shows you how to create an ASP.NET web project in Visual Studio 2013 and deploy it to an Azure Website. In less than 15 minutes you'll have an app up and running in the cloud." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Get started with Azure Websites and ASP.NET" authors="tdykstra"  solutions="" manager="wpickett" editor="mollybos"  />
+<properties pageTitle="ASP.NET용 Azure 웹 사이트 시작" metaKeywords="" description="이 자습서에서는 Visual Studio 2013에서 ASP.NET 웹 프로젝트를 만들어 Azure 웹 사이트에 배포하는 방법에 대해 알아봅니다. 15분 이내에 클라우드에서 앱을 작동 및 실행할 수 있습니다." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Azure 웹 사이트 및 ASP.NET 시작" authors="tdykstra"  solutions="" manager="wpickett" editor="mollybos"  />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="hero-article" ms.date="01/01/1900" ms.author="tdykstra"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="hero-article" ms.date="09/24/2014" ms.author="tdykstra" />
 
 # Azure 웹 사이트 및 ASP.NET 시작
-
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/develop/net/tutorials/get-started/" title="Visual Studio 2013" class="current">Visual Studio 2013</a><a href="/en-us/develop/net/tutorials/get-started-vs2012/" title="Visual Studio 2012">Visual Studio 2012</a></div>
 
 이 자습서에서는 Visual Studio 2013 또는 Web Express용 Visual Studio 2013을 사용하여 ASP.NET 웹 응용 프로그램을 만들고 Azure 웹 사이트에 배포하는 방법을 보여 줍니다. 이 자습서에서는 이전에 Azure 또는 ASP.NET을 사용한 경험이 없다고 가정합니다. 이 자습서를 완료하면 클라우드에서 간단한 웹 응용 프로그램을 실행할 수 있습니다.
 
@@ -25,8 +23,8 @@ Azure 계정은 무료로 개설할 수 있으며, Visual Studio 2013이 아직 
   <span class="wa-icon-bulb"></span>
   <h5><a name="note"></a>이 자습서를 완료하려면 Azure 계정이 있어야 합니다.</h5>
   <ul>
-    <li><a href="/en-us/pricing/free-trial/?WT.mc_id=A261C142F">Azure 계정을 무료로 개설</a>할 수 있음 - 유료 Azure 서비스를 사용해볼 수 있는 크레딧을 받게 되며 크레딧을 모두 사용한 후에도 계정을 유지하고 무료 Azure 서비스(예: 웹 서비스)를 사용할 수 있습니다.</li>
-    <li><a href="/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F">MSDN 구독자 혜택을 활성화</a>할 수 있음 - MSDN 구독은 유료 Azure 서비스에 사용할 수 있는 크레딧을 매달 제공합니다.</li>
+    <li><a href="/ko-kr/pricing/free-trial/?WT.mc_id=A261C142F">Azure 계정을 무료로 개설</a>할 수 있음 - 유료 Azure 서비스를 사용해볼 수 있는 크레딧을 받게 되며 크레딧을 모두 사용한 후에도 계정을 유지하고 무료 Azure 서비스(예: 웹 서비스)를 사용할 수 있습니다.</li>
+    <li><a href="/ko-kr/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F">MSDN 구독자 혜택을 활성화</a>할 수 있음 - MSDN 구독은 유료 Azure 서비스에 사용할 수 있는 크레딧을 매달 제공합니다.</li>
   <ul>
 </div>
 
@@ -39,7 +37,7 @@ Azure 계정은 무료로 개설할 수 있으며, Visual Studio 2013이 아직 
 -   [관리 포털에서 사이트 모니터 및 관리][관리 포털에서 사이트 모니터 및 관리]
 -   [다음 단계][다음 단계]
 
-[WACOM.INCLUDE [install-sdk-2013-only][install-sdk-2013-only]]
+[WACOM.INCLUDE [install-sdk-2013-only](../includes/install-sdk-2013-only.md)]
 
 ## ASP.NET 웹 응용 프로그램 만들기
 
@@ -51,7 +49,7 @@ Azure 계정은 무료로 개설할 수 있으며, Visual Studio 2013이 아직 
 
 2.  **파일** 메뉴에서 **새 프로젝트**를 클릭합니다.
 
-3.  **새 프로젝트** 대화 상자에서 **C\#** \> **웹** \> **ASP.NET 웹 응용 프로그램**을 클릭합니다. 원하는 경우 **Visual Basic**을 선택할 수 있습니다.
+3.  **새 프로젝트** 대화 상자에서 **C#** \> **웹** \> **ASP.NET 웹 응용 프로그램**을 클릭합니다. 원하는 경우 **Visual Basic**을 선택할 수 있습니다.
 
 4.  **.NET Framework 4.5**가 대상 프레임워크로 선택되었는지 확인합니다.
 
@@ -224,7 +222,7 @@ Azure 계정은 무료로 개설할 수 있으며, Visual Studio 2013이 아직 
 
 [Azure 관리 포털][Azure 관리 포털]은 Azure 서비스(예: 방금 만든 웹 사이트)를 관리하고 모니터하는 데 사용할 수 있는 웹 인터페이스입니다. 자습서의 이 섹션에서는 포털에서 수행할 수 있는 작업 중 일부를 살펴봅니다.
 
-1.  브라우저에서 http://manage.windowsazure.com 으로 이동하고 Azure 자격 증명으로 로그인합니다.
+1.  브라우저에서 [http://manage.windowsazure.com][http://manage.windowsazure.com]으로 이동하고 Azure 자격 증명으로 로그인합니다.
 
     포털에 Azure 서비스 목록이 표시됩니다.
 
@@ -298,18 +296,13 @@ Azure 계정은 무료로 개설할 수 있으며, Visual Studio 2013이 아직 
 
     Azure에서는 웹 응용 프로그램을 웹 사이트(이 자습서에 설명됨), 클라우드 서비스 또는 가상 컴퓨터에서 실행할 수 있습니다. 자세한 내용은 [Azure 실행 모델][Azure 실행 모델](영문) 및 [Azure 웹 사이트, 클라우드 서비스 및 VM: 각 항목을 사용해야 하는 경우][Azure 웹 사이트, 클라우드 서비스 및 VM: 각 항목을 사용해야 하는 경우](영문)를 참조하세요.
 
-  [Visual Studio 2013]: /en-us/develop/net/tutorials/get-started/ "Visual Studio 2013"
-  [Visual Studio 2012]: /en-us/develop/net/tutorials/get-started-vs2012/ "Visual Studio 2012"
   [웹 사이트 홈페이지]: ./media/web-sites-dotnet-get-started-vs2013/deployedandazure.png
-  [Azure 계정을 무료로 개설]: /en-us/pricing/free-trial/?WT.mc_id=A261C142F
-  [MSDN 구독자 혜택을 활성화]: /en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
   [개발 환경 설정]: #set-up-the-development-environment
   [Visual Studio에서 ASP.NET 웹 응용 프로그램 만들기]: #create-an-aspnet-web-application
   [Azure에 응용 프로그램 배포]: #deploy-the-application-to-azure
   [변경 및 다시 배포]: #make-a-change-and-redeploy
   [관리 포털에서 사이트 모니터 및 관리]: #monitor-and-manage-the-site-in-the-management-portal
   [다음 단계]: #next-steps
-  [install-sdk-2013-only]: ../includes/install-sdk-2013-only.md
   [프로젝트 만들기 및 배포 단계를 보여 주는 다이어그램]: ./media/web-sites-dotnet-get-started-vs2013/createdeploydiagram.png
   [새 프로젝트 대화 상자]: ./media/web-sites-dotnet-get-started-vs2013/GS13newprojdb.png
   [MVC 및 Web Forms]: http://www.asp.net/get-started/websites
@@ -336,7 +329,8 @@ Azure 계정은 무료로 개설할 수 있으며, Visual Studio 2013이 아직 
   [게시 선택]: ./media/web-sites-dotnet-get-started-vs2013/choosepublish.png
   [게시 클릭]: ./media/web-sites-dotnet-get-started-vs2013/clickpublish.png
   [한 번 클릭으로 웹 게시 도구 모음]: ./media/web-sites-dotnet-get-started-vs2013/weboneclickpublish.png
-  [Azure 관리 포털]: /en-us/services/management-portal/
+  [Azure 관리 포털]: /ko-kr/services/management-portal/
+  [http://manage.windowsazure.com]: 
   [새 웹 사이트가 호출된 포털 홈페이지]: ./media/web-sites-dotnet-get-started-vs2013/portalhome.png
   [포털 웹 사이트 대시보드 탭]: ./media/web-sites-dotnet-get-started-vs2013/portaldashboard.png
   [구성]: /ko-kr/documentation/articles/web-sites-configure//
@@ -346,17 +340,17 @@ Azure 계정은 무료로 개설할 수 있으며, Visual Studio 2013이 아직 
   [포털 웹 사이트 구성 탭]: ./media/web-sites-dotnet-get-started-vs2013/portalconfigure.png
   [크기 조정]: /ko-kr/documentation/articles/web-sites-scale/
   [포털 웹 사이트 크기 조정 탭]: ./media/web-sites-dotnet-get-started-vs2013/portalscale.png
-  [Azure 미리 보기 포털]: /en-us/overview/preview-portal/
+  [Azure 미리 보기 포털]: /ko-kr/overview/preview-portal/
   [소스 제어 시스템]: http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control
   [배포를 자동화]: http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery
   [Azure 웹 사이트를 배포하는 방법]: /ko-kr/documentation/articles/web-sites-deploy/"
   [자동화(Azure에서 실제 클라우드 앱 빌드)]: http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything
-  [Visual Studio에서 Azure 웹 사이트 문제 해결]: /en-us/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/
-  [Azure 웹 사이트에 멤버 자격, OAuth 및 SQL 데이터베이스가 포함된 보안 ASP.NET MVC 앱 배포]: /en-us/develop/net/tutorials/web-site-with-sql-database/
+  [Visual Studio에서 Azure 웹 사이트 문제 해결]: /ko-kr/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/
+  [Azure 웹 사이트에 멤버 자격, OAuth 및 SQL 데이터베이스가 포함된 보안 ASP.NET MVC 앱 배포]: /ko-kr/develop/net/tutorials/web-site-with-sql-database/
   [Azure 웹 사이트에 대한 사용자 지정 도메인 이름 구성]: /ko-kr/documentation/articles/web-sites-custom-domain-name/
   [Azure 웹 사이트에 HTTPS 사용]: http://azure.microsoft.com/ko-kr/documentation/articles/web-sites-configure-ssl-certificate/
   [웹 사이트를 구성하는 방법]: http://azure.microsoft.com/ko-kr/documentation/articles/web-sites-configure/
   [ASP.NET SignalR]: http://www.asp.net/signalr
   [Windows Azure 웹 사이트에서 SignalR 사용]: http://www.asp.net/signalr/overview/signalr-20/getting-started-with-signalr-20/using-signalr-with-windows-azure-web-sites
-  [Azure 실행 모델]: /en-us/develop/net/fundamentals/compute/
-  [Azure 웹 사이트, 클라우드 서비스 및 VM: 각 항목을 사용해야 하는 경우]: /en-us/manage/services/web-sites/choose-web-app-service/
+  [Azure 실행 모델]: /ko-kr/develop/net/fundamentals/compute/
+  [Azure 웹 사이트, 클라우드 서비스 및 VM: 각 항목을 사용해야 하는 경우]: /ko-kr/manage/services/web-sites/choose-web-app-service/

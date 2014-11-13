@@ -1,6 +1,6 @@
-<properties linkid="develop-python-ipython-notebook" urlDisplayName="IPython Notebook" pageTitle="IPython Notebook - Azure tutorial" metaKeywords="" description="A tutorial that shows how to deploy the IPython Notebook on Azure, using Linux or Windows virtual machines (VMs)." metaCanonical="" services="virtual-machines" documentationCenter="Python" title="IPython Notebook on Azure" authors="huvalo" solutions="" manager="" editor="" />
+<properties urlDisplayName="IPython Notebook" pageTitle="IPython Notebook - Azure 자습서" metaKeywords="" description="Linux 또는 Windows VM(가상 컴퓨터)을 사용하여 Azure에 IPython Notebook를 배포하는 방법을 보여 주는 자습서입니다." metaCanonical="" services="virtual-machines" documentationCenter="Python" title="Azure의 IPython Notebook" authors="huvalo" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-multiple" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-multiple" ms.devlang="python" ms.topic="article" ms.date="09/25/2014" ms.author="huvalo" />
 
 # Azure의 IPython Notebook
 
@@ -21,7 +21,7 @@ Python을 처음 접하며 재미있는 대화형 환경에서 이를 배우려�
 
 ![스크린샷][스크린샷]
 
-이 문서에서는 Linux 또는 Windows VM(가상 컴퓨터)을 사용하여 Azure에
+이 문서에서는 Linux 또는 Windows VM(가상 컴퓨터)을 사용하여 Microsoft Azure에
  IPython Notebook를 배포하는 방법을 보여 줍니다. Azure에서 IPython Notebook을
  사용하면 Python과 많은 라이브러리를 완벽하게 활용할 수 있는,
  확장 가능한 컴퓨팅 리소스에 대한 웹 기반 인터페이스를 쉽게 제공할 수
@@ -29,7 +29,7 @@ Python을 처음 접하며 재미있는 대화형 환경에서 이를 배우려�
  있다면 로컬에서 어떤 구성도 수행하지 않고 이러한 리소스에 액세스할 수
  있습니다.
 
-[WACOM.INCLUDE [create-account-and-vms-note][create-account-and-vms-note]]
+[WACOM.INCLUDE [create-account-and-vms-note](../includes/create-account-and-vms-note.md)]
 
 ## Azure에서 VM 만들기 및 구성
 
@@ -40,11 +40,11 @@ Python을 처음 접하며 재미있는 대화형 환경에서 이를 배우려�
 
 ### Linux VM
 
-[여기][여기]에 나와 있는 지침을 따라서 *OpenSUSE* 또는 *Ubuntu* 배포의 가상 컴퓨터를 만드십시오. 이 자습서에서는 OpenSUSE 12.3 및 Ubuntu Server 13.04를 사용합니다. 기본 사용자 이름은 *azureuser*라고 가정합니다.
+[여기][여기]에 나와 있는 지침을 따라서 *OpenSUSE* 또는 *Ubuntu* 배포의 가상 컴퓨터를 만드세요. 이 자습서에서는 OpenSUSE 13.1 및 Ubuntu Server 14.04 LTS를 사용합니다. 기본 사용자 이름은 *azureuser*라고 가정합니다.
 
 ### Windows VM
 
-[여기][1]에 나와 있는 지침을 따라서 *Windows Server 2012 Datacenter* 배포의 가상 컴퓨터를 만드십시오. 이 자습서에서는 사용자 이름이 *azureuser*라고 가정합니다.
+[여기][1]에 나와 있는 지침에 따라 *Windows Server 2012 R2 Datacenter* 배포의 가상 컴퓨터를 만듭니다. 이 자습서에서는 사용자 이름이 *azureuser*라고 가정합니다.
 
 ## IPython Notebook의 끝점 만들기
 
@@ -78,6 +78,7 @@ IPython 및 종속성을 설치하려면 Linux VM에 SSH를 설정하고 다음�
 
     sudo zypper install python-matplotlib
     sudo zypper install python-tornado
+    sudo zypper install python-jinja2
     sudo zypper install ipython
 
 ### Linux(Ubuntu)
@@ -95,43 +96,48 @@ IPython 및 종속성을 설치하려면 Linux VM에 SSH를 설정하고 다음�
 ### Windows
 
 Windows VM에 IPython 및 종속성을 설치하려면 원격 데스크톱을 사용하여 VM에 연결합니다. 그런 다음 Windows PowerShell에서
- 명령줄 작업을 실행하여 다음 단계를 수행하십시오.
+ 명령줄 작업을 실행하여 다음 단계를 수행하세요.
 
 **참고**: Internet Explorer를 사용하여 다운로드하려면 몇 가지 보안 설정을 변경해야 합니다. **서버 관리자**에서 **로컬 서버**와 **IE 보안 강화 구성**을 차례로 클릭한 후 관리자를 대신하여 해당 설정을 해제합니다. IPython 설치를 완료한 후 다시 사용하도록 설정할 수 있습니다.
 
-1.  [python.org][python.org](영문)에서 Python 2.7.5(32비트)를 설치합니다.
+1.  [python.org][python.org]에서 Python 2.7.8(32비트)을 설치합니다.
     또한 `C:\Python27` 및 `C:\Python27\Scripts`를 `PATH`
     환경 변수에 추가해야 합니다.
 
-2.  [python-distribute.org][python-distribute.org](영문)에서 **distribute\_setup.py**
-     파일을 다운로드한 후 다음 명령을 실행하여 배포를 설치합니다.
+2.  <https://pip.pypa.io/en/latest/installing.html>에서
+    **get-pip.py** 파일을 다운로드한 후 다음 명령을 실행하여
+    pip 및 setuptools를 설치합니다.
 
-        python distribute_setup.py
+        python get-pip.py
 
-3.  다음 명령을 실행하여 [Tornado][Tornado](영문) 및 [PyZMQ][PyZMQ](영문)를 설치합니다.
+3.  다음을 수행하여 [Tornado][Tornado] 및 [PyZMQ][PyZMQ]와 기타 IPython의 종속성을 설치합니다.
 
         easy_install tornado
         easy_install pyzmq
+        easy_install jinja2
+        easy_install six
+        easy_install python-dateutil
+        easy_install pyparsing
 
 4.  웹 사이트에서 사용 가능한 `.exe` 이진 설치 관리자를 사용하여
-     [NumPy][NumPy](영문)를 다운로드해서 설치합니다. 이 문서의 작성 시간을 기준으로 최신 버전은 **numpy-1.7.1-win32-superpack-python2.7.exe**입니다.
+     [NumPy][NumPy](영문)를 다운로드해서 설치합니다. 이 문서의 작성 시간을 기준으로 최신 버전은 **numpy-1.90.0-win32-superpack-python2.7.exe**입니다.
 
 5.  웹 사이트에서 사용 가능한 `.exe` 이진 설치 관리자를 사용하여
-     [Matplotlib][Matplotlib](영문)를 다운로드해서 설치합니다. 이 문서의 작성 시간을 기준으로 최신 버전은 **matplotlib-1.2.1.win32-py2.7.exe**입니다.
+     [Matplotlib][Matplotlib](영문)를 다운로드해서 설치합니다. 이 문서의 작성 시간을 기준으로 최신 버전은 **matplotlib-1.40.0.win32-py2.7.exe**입니다.
 
-6.  OpenSSL을 다운로드하여 설치합니다. [][]<http://slproweb.com/products/Win32OpenSSL.html></a>(영문)에서 Windows 버전의 OpenSSL을 찾아볼 수 있습니다.
+6.  OpenSSL을 다운로드하여 설치합니다. <http://slproweb.com/products/Win32OpenSSL.html>(영문)에서 Windows 버전의 OpenSSL을 찾아볼 수 있습니다.
 
     -   **Light** 버전을 설치하는 경우 **Visual C++ 2008 재배포 가능**(이 페이지에서도 다운로드 가능)을 설치해야 합니다.
 
     -   `C:\OpenSSL-Win32\bin`을 `PATH` 환경 변수에 추가해야 합니다.
 
-    > [WACOM.NOTE] OpenSSL을 설치할 경우 1.0.1g 이상 버전을 사용하십시오. 이 버전에 하트블리드(Heartbleed) 보안 취약성에 대한 픽스가 포함되어 있습니다.
+    > [WACOM.NOTE] OpenSSL을 설치할 경우 1.0.1g 이상 버전을 사용하세요. 이 버전에 하트블리드(Heartbleed) 보안 취약성에 대한 픽스가 포함되어 있습니다.
 
 7.  다음 명령을 사용하여 IPython을 설치합니다.
 
         easy_install ipython
 
-8.  Windows 방화벽의 포트를 엽니다. Windows Server 2012에서는 방화벽이 들어오는 연결을 기본적으로 차단합니다. 포트 9999를 열려면 다음 단계를 따르십시오.
+8.  Windows 방화벽의 포트를 엽니다. Windows Server 2012에서는 방화벽이 들어오는 연결을 기본적으로 차단합니다. 포트 9999를 열려면 다음 단계를 따르세요.
 
     -   시작 화면에서 **고급 보안이 포함된 Windows 방화벽**을 시작합니다.
 
@@ -180,7 +186,7 @@ Windows에서
 인증서를 사용할 뿐만 아니라, 권한이 없는 사용자로부터 노트북을 보호하기
  위해 암호도 제공해야 합니다. 보안상의 이유로 IPython은 구성
  파일에서 암호화된 암호를 사용하므로, 먼저 암호를 암호화해야 합니다.
- IPython에서 암호화할 수 있는 유틸리티를 제공하므로 명령 프롬프트에서 다음을 실행하십시오.
+ IPython에서 암호화할 수 있는 유틸리티를 제공하므로 명령 프롬프트에서 다음을 실행하세요.
 
     python -c "import IPython;print IPython.lib.passwd()"
 
@@ -190,9 +196,9 @@ Windows에서
     Verify password: 
     sha1:b86e933199ad:a02e9592e59723da722.. (elided the rest for security)
 
-이제 현재 프로필 디렉터리에서
-`ipython_notebook_config.py` 파일인 프로필 구성 파일을 편집합니다. 이 파일에는 몇 개의 필드가
- 있으며 기본적으로 모두 주석으로 처리되어 있습니다. 원하는 텍스트
+이제 현재 프로필 디렉터리에서 프로필 구성 파일인
+`ipython_notebook_config.py` 파일을 편집합니다. 이 파일은 없을 수도 있으며, 이 경우에는 만들면 됩니다. 이
+파일에는 여러 필드가 포함되어 있으며 기본적으로 모든 필드는 주석 처리되어 있습니다. 원하는 텍스트
  편집기로 이 파일을 열 수 있으며, 다음과 같은 내용이 있는지 확인해야
  합니다.
 
@@ -328,10 +334,7 @@ IPython Notebook은 Azure에서 Python 에코시스템의 기능에 대화형으
 플러그 인으로, IntelliSense, 디버깅, 프로파일링, 병렬 컴퓨팅 통합 등 고급 편집기
  기능을 포함하는 고급 Python 개발 환경으로 Visual Studio를 전환해 줍니다.
 
-  [IPython 프로젝트]: http://ipython.org
-  [자습서 보기]: http://go.microsoft.com/fwlink/?LinkID=254535&clcid=0x409
   [스크린샷]: ./media/virtual-machines-python-ipython-notebook/ipy-notebook-spectral.png
-  [create-account-and-vms-note]: ../includes/create-account-and-vms-note.md
   [여기]: /ko-kr/manage/linux/tutorials/virtual-machine-from-gallery/
   [1]: /ko-kr/manage/windows/tutorials/virtual-machine-from-gallery/
   [2]: ./media/virtual-machines-python-ipython-notebook/ipy-azure-linux-005.png
@@ -340,9 +343,7 @@ IPython Notebook은 Azure에서 Python 에코시스템의 기능에 대화형으
   [Matplotlib]: http://matplotlib.sourceforge.net/ "Matplotlib"
   [Tornado]: http://www.tornadoweb.org/ "Tornado"
   [python.org]: http://www.python.org/download
-  [python-distribute.org]: http://python-distribute.org/
   [PyZMQ]: https://github.com/zeromq/pyzmq "PyZMQ"
-  []: http://slproweb.com/products/Win32OpenSSL.html
   [4]: ./media/virtual-machines-python-ipython-notebook/ipy-notebook-001.png
   [5]: ./media/virtual-machines-python-ipython-notebook/ipy-notebook-002.png
   [6]: ./media/virtual-machines-python-ipython-notebook/ipy-notebook-003.png
@@ -351,6 +352,4 @@ IPython Notebook은 Azure에서 Python 에코시스템의 기능에 대화형으
   [9]: ./media/virtual-machines-python-ipython-notebook/ipy-notebook-006.png
   [10]: ./media/virtual-machines-python-ipython-notebook/ipy-notebook-007.png
   [11]: ./media/virtual-machines-python-ipython-notebook/ipy-notebook-008.png
-  [노트북
-  예제]: https://github.com/ipython/ipython/tree/master/examples/notebooks
   [Python Tools for Visual Studio]: http://pytools.codeplex.com

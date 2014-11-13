@@ -1,4 +1,4 @@
-<properties linkid="manage-services-recovery-configure-backup-vault" urlDisplayName="Configure a Backup Vault" pageTitle="Configure Azure Recovery Services to quickly and easily back-up Windows Server" metaKeywords="disaster recovery" description="Use this tutorial to learn how to use the Backup service in Microsoft's Azure cloud offering to back up Windows Server to the cloud." metaCanonical="" services="recovery-services" documentationCenter="" title="Configure Azure Backup to quickly and easily back-up Windows Server" authors="raynew" solutions="" manager="johndaw" editor="tysonn" />
+<properties urlDisplayName="Configure a Backup Vault" pageTitle="Windows Server를 빠르고 쉽게 백업하도록 Azure 복구 서비스 구성" metaKeywords="disaster recovery" description="이 자습서를 통해 Microsoft Azure 클라우드 제품 내 백업 서비스를 사용하여 Windows Server를 클라우드에 백업하는 방법을 알아볼 수 있습니다." metaCanonical="" services="recovery-services" documentationCenter="" title="Windows Server를 빠르고 쉽게 백업하도록 Azure 백업 구성" authors="raynew" solutions="" manager="johndaw" editor="tysonn" />
 
 <tags ms.service="site-recovery" ms.workload="backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="raynew" />
 
@@ -55,7 +55,7 @@ Windows Server의 파일과 데이터를 Azure에 백업하려면 데이터를 �
 
 2.  **복구 서비스**를 클릭한 후 백업 저장소를 선택하여 해당 빠른 시작 페이지를 표시합니다.
 
-3.  빠른 시작 페이지에서 다운로드하려는 에이전트의 유형을 선택합니다. **Azure Backup Agent 다운로드**, **Windows Server 및 System Center Data Protection Manager** 또는 **Windows Server Essentials**를 선택할 수 있습니다. 자세한 내용은 다음을 참조하십시오.
+3.  빠른 시작 페이지에서 다운로드하려는 에이전트의 유형을 선택합니다. **Azure Backup Agent 다운로드**, **Windows Server 및 System Center Data Protection Manager** 또는 **Windows Server Essentials**를 선택할 수 있습니다. 자세한 내용은 다음을 참조하세요.
 
     -   [Windows Server 2012 및 System Center 2012 SP1 - Data Protection Manager용 Azure 백업 에이전트 설치][Windows Server 2012 및 System Center 2012 SP1 - Data Protection Manager용 Azure 백업 에이전트 설치]
     -   [Windows Server 2012 Essentials용 Azure 백업 에이전트 설치][Windows Server 2012 Essentials용 Azure 백업 에이전트 설치]
@@ -86,9 +86,9 @@ Windows Server의 파일과 데이터를 Azure에 백업하려면 데이터를 �
 
 ## <span id="next"></span></a>다음 단계
 
--   Azure 백업에 대한 자세한 내용은 [Azure 백업 개요][Azure 백업 개요]를 참조하십시오.
+-   Azure 백업에 대한 자세한 내용은 [Azure 백업 개요][Azure 백업 개요]를 참조하세요.
 
--   [Azure 백업 포럼][Azure 백업 포럼]을 방문하십시오.
+-   [Azure 백업 포럼][Azure 백업 포럼]을 방문하세요.
 
   [관리 포털]: https://manage.windowsazure.com
   [새 백업 저장소]: http://i.imgur.com/506c7ch.png

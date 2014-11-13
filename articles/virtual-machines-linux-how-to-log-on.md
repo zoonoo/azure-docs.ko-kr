@@ -1,6 +1,6 @@
-<properties linkid="manage-linux-howto-logon-linux-vm" urlDisplayName="Log on to a VM" pageTitle="Log on to a virtual machine running Linux in Azure" metaKeywords="Azure Linux vm, Linux SSH" description="Learn how to log on to an Azure virtual machine running Linux by using a Secure Shell (SSH) client." metaCanonical="" services="virtual-machines" documentationCenter="" title="How to Log on to a Virtual Machine Running Linux" authors="kathydav" solutions="" manager="timlt" editor="" />
+<properties urlDisplayName="Log on to a VM" pageTitle="Azure에서 Linux를 실행하는 가상 컴퓨터에 로그온" metaKeywords="Azure Linux vm, Linux SSH" description="SSH(Secure Shell) 클라이언트를 사용하여 Linux를 실행하는 Azure 가상 컴퓨터에 로그온하는 방법에 대해 알아봅니다." metaCanonical="" services="virtual-machines" documentationCenter="" title="Linux를 실행하는 가상 컴퓨터에 로그온하는 방법" authors="kathydav" solutions="" manager="timlt" editor="" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="kathydav"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="kathydav" />
 
 # Linux를 실행하는 가상 컴퓨터에 로그온하는 방법
 
@@ -8,10 +8,10 @@ Linux 운영 체제를 실행하는 가상 컴퓨터의 경우 SSH(보안 셸) �
 
 가상 컴퓨터에 로그온하는 데 사용할 컴퓨터에 SSH 클라이언트를 설치해야 합니다. 선택할 수 있는 많은 SSH 클라이언트 프로그램이 있습니다. 가능한 선택 항목은 다음과 같습니다.
 
--   Windows 운영 체제를 실행하는 컴퓨터를 사용하는 경우 PuTTY 등의 SSH 클라이언트를 사용하는 것이 좋습니다. 자세한 내용은 [PuTTY 다운로드 페이지][PuTTY 다운로드 페이지]를 참조하십시오.
+-   Windows 운영 체제를 실행하는 컴퓨터를 사용하는 경우 PuTTY 등의 SSH 클라이언트를 사용하는 것이 좋습니다. 자세한 내용은 [PuTTY 다운로드 페이지][PuTTY 다운로드 페이지]를 참조하세요.
 -   Linux 운영 체제를 실행하는 컴퓨터를 사용하는 경우 OpenSSH 등의 SSH 클라이언트를 사용하는 것이 좋습니다. 자세한 내용은 [OpenSSH][OpenSSH]를 참조하세요.
 
-> [WACOM.NOTE] 자세한 요구 사항 및 문제 해결 팁은 [RDP 또는 SSH를 사용하여 Azure 가상 컴퓨터에 연결][RDP 또는 SSH를 사용하여 Azure 가상 컴퓨터에 연결]을 참조하십시오.
+> [WACOM.NOTE] 자세한 요구 사항 및 문제 해결 팁은 [RDP 또는 SSH를 사용하여 Azure 가상 컴퓨터에 연결][RDP 또는 SSH를 사용하여 Azure 가상 컴퓨터에 연결]을 참조하세요.
 
 다음 절차는 PuTTY 프로그램을 사용하여 가상 컴퓨터에 액세스하는 방법을 보여 줍니다.
 
@@ -29,7 +29,7 @@ Linux 운영 체제를 실행하는 가상 컴퓨터의 경우 SSH(보안 셸) �
 
     ![가상 컴퓨터에 로그온][가상 컴퓨터에 로그온]
 
-> [WACOM.NOTE] VMAccess 확장은 SSH 키 또는 암호를 잊어버린 경우 이를 재설정하는 데 도움이 될 수 있습니다. 사용자 이름을 잊어버린 경우 이 확장을 사용하여 sudo 인증 기관을 통해 새로 만들 수 있습니다. 자세한 지침은 [VMAccess 확장을 사용하여 Linux VM의 로그인 자격 증명 재설정][VMAccess 확장을 사용하여 Linux VM의 로그인 자격 증명 재설정]을 참조하십시오.
+> [WACOM.NOTE] VMAccess 확장은 SSH 키 또는 암호를 잊어버린 경우 이를 재설정하는 데 도움이 될 수 있습니다. 사용자 이름을 잊어버린 경우 이 확장을 사용하여 sudo 인증 기관을 통해 새로 만들 수 있습니다. 자세한 지침은 [VMAccess 확장을 사용하여 Linux VM의 로그인 자격 증명 재설정][VMAccess 확장을 사용하여 Linux VM의 로그인 자격 증명 재설정]을 참조하세요.
 
 이제 다른 서버처럼 가상 컴퓨터에서 작업할 수 있습니다.
 
