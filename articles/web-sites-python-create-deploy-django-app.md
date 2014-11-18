@@ -10,7 +10,7 @@
 
 [WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
-이 자습서에서는 Python 2.7 및 Django 1.4를 사용합니다. 이러한 프로그램을 직접 구할 수도 있고, [][]<http://www.windowsazure.com/ko-kr/develop/python/></a>에서 Windows Installer 링크를 사용하여 빠르고 쉽게 설치할 수도 있습니다.
+이 자습서에서는 Python 2.7 및 Django 1.4를 사용합니다. 이러한 프로그램을 직접 구할 수도 있고, [http://www.windowsazure.com/ko-kr/develop/python/](http://www.windowsazure.com/ko-kr/develop/python/) 에서 Windows Installer 링크를 사용하여 빠르고 쉽게 설치할 수도 있습니다.
 
 **참고**: 이제 Azure 웹 사이트에는 Python(2.7.3 또는 3.4.0 중에서 선택) 및 wfastcgi 처리기가 미리 설치되어 있습니다. 그러나 Django와 같은 웹 프레임워크는 포함되어 있지 않습니다. 원하는 경우 다른 Python 인터프리터도 계속 사용할 수 있습니다. Git 리포지토리에 원하는 인터프리터를 포함하고 이미 설치된 Python 2.7 인터프리터 대신 해당 인터프리터를 사용하도록 웹 사이트를 구성하면 됩니다.
 
@@ -122,7 +122,7 @@ Django 응용 프로그램을 설정하려면 환경 변수를 3개 만들어야
 
 여기에서 기존 도구를 사용하여 Django 응용 프로그램의 개발을 계속할 수 있습니다. 개발에 [Python Tools for Visual Studio][Python Tools for Visual Studio](영문)를 사용하는 경우 [VisualGit][VisualGit]를 설치하여 Visual Studio에서 소스 제어 통합을 가져올 수 있습니다.
 
-앱이 사용하는 언어가 Python 및 Django 외의 언어일 수도 있습니다. [][]<http://www.windowsazure.com/ko-kr/develop/python/></a>(영문)에서 설치 관리자를 사용하여 Python을 설치한 경우 PIP가 이미 설치되어 있습니다. PIP를 사용하여 새로운 종속성을 빠르게 추가할 수 있습니다. 예를 들어 자연어 툴킷 및 모든 종속성을 설치하려면 다음을 입력하십시오.
+앱이 사용하는 언어가 Python 및 Django 외의 언어일 수도 있습니다. [http://www.windowsazure.com/ko-kr/develop/python/](http://www.windowsazure.com/ko-kr/develop/python/) (영문)에서 설치 관리자를 사용하여 Python을 설치한 경우 PIP가 이미 설치되어 있습니다. PIP를 사용하여 새로운 종속성을 빠르게 추가할 수 있습니다. 예를 들어 자연어 툴킷 및 모든 종속성을 설치하려면 다음을 입력하십시오.
 
     pip install nltk
 

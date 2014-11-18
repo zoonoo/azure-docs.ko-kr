@@ -9,7 +9,7 @@
 > [WACOM.NOTE] 웹 사이트의 구성 탭을 열고 **Python 버전** 설정을 변경하여 Azure 웹 사이트 포털에서 사용할 Python 버전을 선택할 수 있습니다.
 
 Azure 웹 사이트에서의 Django 프레임워크 구성에 대한 자세한 예는 다음 자습서를 참조하세요.
-[][]http://www.windowsazure.com/ko-kr/develop/python/tutorials/web-sites-with-django</a>
+[http://www.windowsazure.com/ko-kr/develop/python/tutorials/web-sites-with-django](http://www.windowsazure.com/ko-kr/develop/python/tutorials/web-sites-with-django)
 
 ## WSGI 지원
 

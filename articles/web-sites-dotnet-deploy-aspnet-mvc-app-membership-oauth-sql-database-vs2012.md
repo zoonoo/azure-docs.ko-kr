@@ -6,9 +6,9 @@
 
 ***2013년 10월 15일 업데이트됨***
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/develop/net/tutorials/web-site-with-sql-database/" title="Visual Studio 2013">Visual Studio 2013</a><a href="/en-us/develop/net/tutorials/web-site-with-sql-database-vs2012/" title="Visual Studio 2012" class="current">Visual Studio 2012</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/ko-kr/develop/net/tutorials/web-site-with-sql-database/" title="Visual Studio 2013">Visual Studio 2013</a><a href="/ko-kr/develop/net/tutorials/web-site-with-sql-database-vs2012/" title="Visual Studio 2012" class="current">Visual Studio 2012</a></div>
 
-<div class="dev-callout"><strong>참고</strong><p><a href="/en-us/develop/net/tutorials/web-site-with-sql-database/">이 자습서의 최신 버전</a>을 사용할 수 있습니다. Visual Studio 2012를 사용하는 경우 이 버전의 내용을 계속 따를 수 있지만 최신 버전이 훨씬 더 쉽습니다.</p></div>
+<div class="dev-callout"><strong>참고</strong><p><a href="/ko-kr/develop/net/tutorials/web-site-with-sql-database/">이 자습서의 최신 버전</a>을 사용할 수 있습니다. Visual Studio 2012를 사용하는 경우 이 버전의 내용을 계속 따를 수 있지만 최신 버전이 훨씬 더 쉽습니다.</p></div>
 
 이 자습서는 사용자가 Facebook, Yahoo 및 Google 자격 증명을 사용하여 로그인할 수 있는 보안 ASP.NET MVC 4 웹앱을 빌드하는 방법을 보여 줍니다. 또한 Azure에 응용 프로그램을 배포합니다.
 
@@ -593,7 +593,7 @@ SQL Server 설치 센터의 첫 페이지에서 **새 SQL Server 독립 실행�
     ![sql 추가][sql 추가]
 
 5.  **게시**를 클릭합니다.
-6.  [][]<https://developers.facebook.com/apps></a> 페이지로 이동한 다음 **App Domains** 및 **Site URL** 설정을 Azure URL로 변경합니다.
+6.  [][0]<https://developers.facebook.com/apps></a> 페이지로 이동한 다음 **App Domains** 및 **Site URL** 설정을 Azure URL로 변경합니다.
 7.  응용 프로그램을 테스트합니다. *canEdit* 역할의 사용자만 데이터를 변경할 수 있는지 확인합니다. 익명 사용자는 홈페이지만 볼 수 있는지 확인합니다. 인증된 사용자가 데이터를 변경하지 않은 모든 링크로 이동할 수 있는지 확인합니다.
 8.  다음에 응용 프로그램을 배포할 때에는 **DefaultConnectionDeploy** 아래의 **데이터베이스 업데이트**를 선택 취소합니다.
 
@@ -698,11 +698,11 @@ Entity Framework 및 Code First 마이그레이션에 대한 자세한 내용은
 -   [MVC를 사용하여 Entity Framework 시작(영문)][MVC를 사용하여 Entity Framework 시작(영문)]
 -   [Code First 마이그레이션(영문)][Code First 마이그레이션(영문)]
 
-<!-- bookmarks --> <!-- links --> <!-- links from Tom's hopefully no collisions --> <!-- images-->
 
-  [Visual Studio 2013]: /en-us/develop/net/tutorials/web-site-with-sql-database/ "Visual Studio 2013"
-  [Visual Studio 2012]: /en-us/develop/net/tutorials/web-site-with-sql-database-vs2012/ "Visual Studio 2012"
-  [이 자습서의 최신 버전]: /en-us/develop/net/tutorials/web-site-with-sql-database/
+
+  [Visual Studio 2013]: /ko-kr/develop/net/tutorials/web-site-with-sql-database/ "Visual Studio 2013"
+  [Visual Studio 2012]: /ko-kr/develop/net/tutorials/web-site-with-sql-database-vs2012/ "Visual Studio 2012"
+  [이 자습서의 최신 버전]: /ko-kr/develop/net/tutorials/web-site-with-sql-database/
   [로그인 페이지]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxb.png
   [create-account-and-websites-note]: ../includes/create-account-and-websites-note.md
   [개발 환경 설정]: #bkmk_setupdevenv
@@ -750,7 +750,7 @@ Entity Framework 및 Code First 마이그레이션에 대한 자세한 내용은
   [Code First 마이그레이션]: http://msdn.microsoft.com/library/hh770484.aspx
   [도구 메뉴의 패키지 관리자 콘솔]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/dntutmobile-migrations-package-manager-menu.png
   [enable-migrations]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxE.png
-  [DbContext]: http://msdn.microsoft.com/en-us/library/system.data.entity.dbcontext(v=VS.103).aspx
+  [DbContext]: http://msdn.microsoft.com/ko-kr/library/system.data.entity.dbcontext(v=VS.103).aspx
   [EF(Entity Framework) DB 시드 및 디버그]: http://blogs.msdn.com/b/rickandy/archive/2013/02/12/seeding-and-debugging-entity-framework-ef-dbs.aspx
   [패키지 관리자 콘솔 명령]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/dntutmobile-migrations-package-manager-console.png
   [MVC 데이터 뷰]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rx2.png
@@ -758,7 +758,7 @@ Entity Framework 및 Code First 마이그레이션에 대한 자세한 내용은
   [Facebook]: http://developers.facebook.com/
   [Microsoft]: http://go.microsoft.com/fwlink/?LinkID=144070
   [Twitter]: http://dev.twitter.com/
-  []: https://developers.facebook.com/apps/
+  [0]: https://developers.facebook.com/apps/
   [새 FB 앱 만들기]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxFBapp.png
   [새 FB 앱]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxFB.png
   [FB 테스터]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxFBt.png
@@ -766,16 +766,16 @@ Entity Framework 및 Code First 마이그레이션에 대한 자세한 내용은
   [사용자 ID]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxUid.png
   [roleID]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxRoleID.png
   [사용자 역할 ID tbl]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxUR.png
-  [Authorize]: http://msdn.microsoft.com/en-us/library/system.web.mvc.authorizeattribute(v=vs.100).aspx
-  [RequireHttps]: http://msdn.microsoft.com/en-us/library/system.web.mvc.requirehttpsattribute(v=vs.108).aspx
+  [Authorize]: http://msdn.microsoft.com/ko-kr/library/system.web.mvc.authorizeattribute(v=vs.100).aspx
+  [RequireHttps]: http://msdn.microsoft.com/ko-kr/library/system.web.mvc.requirehttpsattribute(v=vs.108).aspx
   [ASP.NET MVC 4 앱 및 새 AllowAnonymous 특성 보안 유지]: http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx
   [CAPTCHA]: http://www.asp.net/web-pages/tutorials/security/16-adding-security-and-membership
   [SSL 사용]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxSSL.png
   [5]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxS2.png
   [인증서 경고]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxNOT.png
   [6]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxNOT2.png
-  [dbDacFx]: http://msdn.microsoft.com/en-us/library/dd394698.aspx
-  [Microsoft SQL Server 2012 Express 다운로드 센터]: http://www.microsoft.com/en-us/download/details.aspx?id=29062
+  [dbDacFx]: http://msdn.microsoft.com/ko-kr/library/dd394698.aspx
+  [Microsoft SQL Server 2012 Express 다운로드 센터]: http://www.microsoft.com/ko-kr/download/details.aspx?id=29062
   [ENU\\x64\\SQLManagementStudio\_x64\_ENU.exe]: http://download.microsoft.com/download/8/D/D/8DD7BDBA-CEF7-4D8E-8C16-D9F69527F909/ENU/x64/SQLManagementStudio_x64_ENU.exe
   [ENU\\x86\\SQLManagementStudio\_x86\_ENU.exe]: http://download.microsoft.com/download/8/D/D/8DD7BDBA-CEF7-4D8E-8C16-D9F69527F909/ENU/x86/SQLManagementStudio_x86_ENU.exe
   [SQL 설치]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxSS.png
@@ -803,15 +803,15 @@ Entity Framework 및 Code First 마이그레이션에 대한 자세한 내용은
   [@blowdart]: https://twitter.com/blowdart
   [ASP.NET MVC 4에서 외부 로그인 단추 사용자 지정]: http://www.beabigrockstar.com/customizing-external-login-buttons-in-asp-net-mvc-4/
   [Azure 인증(영문)]: http://www.asp.net/vnext/overview/fall-2012-update/windows-azure-authentication
-  [ASP.NET MVC를 사용하여 인트라넷 사이트를 만드는 방법(영문)]: http://msdn.microsoft.com/en-us/library/gg703322(v=vs.98).aspx
-  [저장소 테이블, 큐 및 Blob을 사용하는 .NET 다중 계층 응용 프로그램]: http://www.windowsazure.com/en-us/develop/net/tutorials/multi-tier-web-site/1-overview/
+  [ASP.NET MVC를 사용하여 인트라넷 사이트를 만드는 방법(영문)]: http://msdn.microsoft.com/ko-kr/library/gg703322(v=vs.98).aspx
+  [저장소 테이블, 큐 및 Blob을 사용하는 .NET 다중 계층 응용 프로그램]: http://www.windowsazure.com/ko-kr/develop/net/tutorials/multi-tier-web-site/1-overview/
   [ASP.NET MVC 4 소개(영문)]: http://www.asp.net/mvc/tutorials/mvc-4/getting-started-with-aspnet-mvc4/intro-to-aspnet-mvc-4
   [MVC를 사용하여 Entity Framework 시작(영문)]: http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application
   [OAuth 2.0 및 로그인(영문)]: http://blogs.msdn.com/b/vbertocci/archive/2013/01/02/oauth-2-0-and-sign-in.aspx
-  [일반 작업]: http://www.windowsazure.com/en-us/develop/net/common-tasks/
-  [Visual Studio에서 Azure 웹 사이트 문제 해결]: /en-us/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/
-  [이 자습서의 클라우드 서비스 버전]: http://www.windowsazure.com/en-us/develop/net/tutorials/cloud-service-with-sql-database/
-  [Azure를 사용하여 웹 응용 프로그램 개발]: http://msdn.microsoft.com/en-us/library/Hh674484
+  [일반 작업]: http://www.windowsazure.com/ko-kr/develop/net/common-tasks/
+  [Visual Studio에서 Azure 웹 사이트 문제 해결]: /ko-kr/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/
+  [이 자습서의 클라우드 서비스 버전]: http://www.windowsazure.com/ko-kr/develop/net/tutorials/cloud-service-with-sql-database/
+  [Azure를 사용하여 웹 응용 프로그램 개발]: http://msdn.microsoft.com/ko-kr/library/Hh674484
   [Azure에서 데이터 저장소 제공]: http://social.technet.microsoft.com/wiki/contents/articles/data-storage-offerings-on-the-windows-azure-platform.aspx
   [ASP.NET 데이터 액세스 콘텐츠 맵에서 Azure SQL 데이터베이스 사용]: http://go.microsoft.com/fwlink/p/?LinkId=282414#ssdb
-  [Code First 마이그레이션(영문)]: http://msdn.microsoft.com/en-us/library/hh770484
+  [Code First 마이그레이션(영문)]: http://msdn.microsoft.com/ko-kr/library/hh770484

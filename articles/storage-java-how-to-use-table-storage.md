@@ -1,38 +1,38 @@
-<properties urlDisplayName="Table Service" pageTitle="테이블 저장소 사용 방법(Java) | Microsoft Azure" metaKeywords="Azure table storage service, Azure table service Java, table storage Java" description="Azure에서 테이블 저장소 서비스를 사용하는 방법에 대해 알아봅니다. 코드 샘플은 Java 코드로 작성되었습니다." metaCanonical="" services="storage" documentationCenter="Java" title="Java에서 테이블 저장소 서비스를 사용하는 방법" authors="tamram" solutions="" manager="adinah" editor="" />
+﻿<properties urlDisplayName="Table Service" pageTitle="테이블 저장소 사용 방법(Java) | Microsoft Azure" metaKeywords="Azure table storage service, Azure table service Java, table storage Java" description="Learn how to use the table storage service in Azure. Code samples are written in Java code." metaCanonical="" services="storage" documentationCenter="Java" title="How to use the Table storage service from Java" authors="tamram" solutions="" manager="adinah" editor="" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
 # Java에서 테이블 저장소를 사용하는 방법
 
-이 가이드에서는 Azure 테이블 저장소 서비스를 사용하여 일반 시나리오를 수행하는 방법을 보여 줍니다. 샘플은 Java로 작성되었으며 [Java용 Azure Storage SDK][Java용 Azure Storage SDK](영문)를 사용합니다. 여기에서 다루는 시나리오에는 **creating**, **listing**, **deleting** 테이블과 테이블의 **inserting**, **querying**, **modifying**, **deleting** 엔터티가 포함됩니다. 테이블에 대한 자세한 내용은 [다음 단계][다음 단계] 섹션을 참조하세요.
+이 가이드에서는 Azure 테이블 저장소 서비스를 사용하여 일반 시나리오를 수행하는 방법을 보여 줍니다. 샘플은 Java로 작성되었으며 [Java용 Azure Storage SDK][](영문)를 사용합니다. 여기에서 다루는 시나리오에는 **creating**, **listing**, **deleting** 테이블과 테이블의 **inserting**, **querying**, **modifying**, **deleting** 엔터티가 포함됩니다. 테이블에 대한 자세한 내용은 [다음 단계](#NextSteps) 섹션을 참조하세요.
 
-참고: SDK는 Android 장치에서 Azure 저장소를 사용하는 개발자에게 제공됩니다. 자세한 내용은 [Android용 Azure Storage SDK][Android용 Azure Storage SDK]를 참조하세요.
+참고: SDK는 Android 장치에서 Azure 저장소를 사용하는 개발자에게 제공됩니다. 자세한 내용은 [Android용 Azure Storage SDK][]를 참조하세요. 
 
 ## <a name="Contents"> </a>목차
 
--   [테이블 저장소 정의][테이블 저장소 정의]
--   [개념][개념]
--   [Azure 저장소 계정 만들기][Azure 저장소 계정 만들기]
--   [Java 응용 프로그램 만들기][Java 응용 프로그램 만들기]
--   [테이블 저장소에 액세스하도록 응용 프로그램 구성][테이블 저장소에 액세스하도록 응용 프로그램 구성]
--   [Azure 저장소 연결 문자열 설정][Azure 저장소 연결 문자열 설정]
--   [방법: 테이블 만들기][방법: 테이블 만들기]
--   [방법: 테이블 나열][방법: 테이블 나열]
--   [방법: 테이블에 엔터티 추가][방법: 테이블에 엔터티 추가]
--   [방법: 엔터티 일괄 삽입][방법: 엔터티 일괄 삽입]
--   [방법: 파티션의 모든 엔터티 검색][방법: 파티션의 모든 엔터티 검색]
--   [방법: 파티션의 엔터티 범위 검색][방법: 파티션의 엔터티 범위 검색]
--   [방법: 단일 엔터티 검색][방법: 단일 엔터티 검색]
--   [방법: 엔터티 수정][방법: 엔터티 수정]
--   [방법: 엔터티 속성 하위 집합 쿼리][방법: 엔터티 속성 하위 집합 쿼리]
--   [방법: 엔터티 삽입 또는 바꾸기][방법: 엔터티 삽입 또는 바꾸기]
--   [방법: 엔터티 삭제][방법: 엔터티 삭제]
--   [방법: 테이블 삭제][방법: 테이블 삭제]
--   [다음 단계][다음 단계]
+* [테이블 저장소 정의](#what-is)
+* [개념](#Concepts)
+* [Azure 저장소 계정 만들기](#CreateAccount)
+* [Java 응용 프로그램 만들기](#CreateApplication)
+* [테이블 저장소에 액세스하도록 응용 프로그램 구성](#ConfigureStorage)
+* [Azure 저장소 연결 문자열 설정](#ConnectionString)
+* [방법: 테이블 만들기](#CreateTable)
+* [방법: 테이블 나열](#ListTables)
+* [방법: 테이블에 엔터티 추가](#AddEntity)
+* [방법: 엔터티 일괄 삽입](#InsertBatch)
+* [방법: 파티션의 모든 엔터티 검색](#RetrieveEntities)
+* [방법: 파티션의 엔터티 범위 검색](#RetrieveRange)
+* [방법: 단일 엔터티 검색](#RetriveSingle)
+* [방법: 엔터티 수정](#ModifyEntity)
+* [방법: 엔터티 속성 하위 집합 쿼리](#QueryProperties)
+* [방법: 엔터티 삽입 또는 바꾸기](#InsertOrReplace)
+* [방법: 엔터티 삭제](#DeleteEntity)
+* [방법: 테이블 삭제](#DeleteTable)
+* [다음 단계](#NextSteps)
 
 [WACOM.INCLUDE [howto-table-storage](../includes/howto-table-storage.md)]
 
-## <a name="CreateAccount"></a>Azure 저장소 계정 만들기
+##<a name="CreateAccount"></a>Azure 저장소 계정 만들기
 
 [WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
@@ -40,7 +40,7 @@
 
 이 가이드에서는 Java 응용 프로그램 내에서 로컬로 또는 Azure의 웹 역할 또는 작업자 역할 내에서 실행되는 코드에서 실행할 수 있는 저장소 기능을 사용합니다.
 
-그러려면 JDK(Java Development Kit)를 설치하고 Azure 구독에서 Azure 저장소 계정을 만들어야 합니다. 그러고 나면 개발 시스템에서 GitHub의 [Java용 Azure Storage SDK][Java용 Azure Storage SDK] 리포지토리에 있는 최소 요구 사항과 종속성을 충족하는지 확인해야 합니다. 시스템에서 해당 요구 사항을 충족하는 경우에는 리포지토리에서 시스템의 Java용 Azure Storage Library를 다운로드 및 설치하기 위한 지침을 따를 수 있습니다. 작업을 완료하고 나면 이 문서의 예를 사용하는 Java 응용 프로그램을 만들 수 있습니다.
+그러려면 JDK(Java Development Kit)를 설치하고 Azure 구독에서 Azure 저장소 계정을 만들어야 합니다. 그러고 나면 개발 시스템에서 GitHub의 [Java용 Azure Storage SDK][] 리포지토리에 있는 최소 요구 사항과 종속성을 충족하는지 확인해야 합니다. 시스템에서 해당 요구 사항을 충족하는 경우에는 리포지토리에서 시스템의 Java용 Azure Storage Library를 다운로드 및 설치하기 위한 지침을 따를 수 있습니다. 작업을 완료하고 나면 이 문서의 예를 사용하는 Java 응용 프로그램을 만들 수 있습니다.
 
 ## <a name="ConfigureStorage"> </a>테이블 저장소에 액세스하도록 응용 프로그램 구성
 
@@ -53,7 +53,7 @@
 
 ## <a name="ConnectionString"> </a>Azure 저장소 연결 문자열 설정
 
-Azure 저장소 클라이언트는 저장소 연결 문자열을 사용하여 데이터 관리 서비스에 액세스하기 위한 끝점 및 자격 증명을 저장합니다. 클라이언트 응용 프로그램에서 실행 중인 경우 관리 포털에 나열된 저장소 계정의 이름 및 저장소 계정의 기본 액세스 키를 *AccountName* 및 *AccountKey* 값에 사용하여 저장소 연결 문자열을 다음 형식으로 지정해야 합니다. 이 예제는 정적 필드가 연결 문자열을 포함할 수 있도록 선언하는 방법을 보여 줍니다.
+Azure 저장소 클라이언트는 저장소 연결 문자열을 사용하여 데이터 관리 서비스에 액세스하기 위한 끝점 및 자격 증명을 저장합니다. 클라이언트 응용 프로그램에서 실행 중인 경우 관리 포털에 나열된 저장소 계정의 이름 및 저장소 계정의 기본 액세스 키를 *AccountName* 및 *AccountKey* 값에 사용하여 저장소 연결 문자열을 다음 형식으로 지정해야 합니다. 이 예제에서는 정적 필드가 연결 문자열을 포함할 수 있도록 선언하는 방법을 보여 줍니다.
 
     // Define the connection-string with your values.
     public static final String storageConnectionString = 
@@ -71,23 +71,23 @@ Microsoft Azure의 역할 내에서 실행되는 응용 프로그램에서는 �
 
 ## <a name="CreateTable"> </a>방법: 테이블 만들기
 
-**CloudTableClient** 개체를 사용하면 테이블 및 엔터티에 대한 참조
-개체를 가져올 수 있습니다. 다음 코드에서는 **CloudTableClient** 개체를 만들고
-그 개체를 사용하여 'people'이라는 테이블을 나타내는 새 **CloudTable** 개체를 만듭니다. 참고: **CloudStorageAccount** 개체를 만들 수 있는 방법이 더 있습니다. 자세한 내용은 [Azure Storage Client SDK 참조][Azure Storage Client SDK 참조]에 있는 **CloudStorageAccount**를 참조하세요.)
+**CloudTableClient** 개체를 통해 테이블 및 엔터티에 대한 참조 개체를 가져올 수
+있습니다. 다음 코드는 **CloudTableClient** 개체를 만든 다음
+이 개체를 사용하여 'people'이라는 테이블을 나타내는 새 **CloudTable** 개체를 만듭니다. 참고: **CloudStorageAccount** 개체를 만들 수 있는 방법이 더 있습니다. 자세한 내용은 [Azure Storage Client SDK 참조]에 있는 **CloudStorageAccount**를 참조하세요.)
 
     try
     {
-        // Retrieve storage account from connection-string.
-        CloudStorageAccount storageAccount =
-           CloudStorageAccount.parse(storageConnectionString);
+    	// Retrieve storage account from connection-string.
+    	CloudStorageAccount storageAccount =
+	       CloudStorageAccount.parse(storageConnectionString);
 
-       // Create the table client.
-       CloudTableClient tableClient = storageAccount.createCloudTableClient();
+	   // Create the table client.
+	   CloudTableClient tableClient = storageAccount.createCloudTableClient();
 
-       // Create the table if it doesn't exist.
-       String tableName = "people";
-       CloudTable cloudTable = new CloudTable(tableName,tableClient);
-       cloudTable.createIfNotExists();
+	   // Create the table if it doesn't exist.
+	   String tableName = "people";
+	   CloudTable cloudTable = new CloudTable(tableName,tableClient);
+	   cloudTable.createIfNotExists();
     }
     catch (Exception e)
     {
@@ -101,19 +101,19 @@ Microsoft Azure의 역할 내에서 실행되는 응용 프로그램에서는 �
 
     try
     {
-        // Retrieve storage account from connection-string.
-        CloudStorageAccount storageAccount =
-           CloudStorageAccount.parse(storageConnectionString);
+    	// Retrieve storage account from connection-string.
+    	CloudStorageAccount storageAccount =
+	       CloudStorageAccount.parse(storageConnectionString);
 
-        // Create the table client.
-        CloudTableClient tableClient = storageAccount.createCloudTableClient();
+    	// Create the table client.
+    	CloudTableClient tableClient = storageAccount.createCloudTableClient();
 
-        // Loop through the collection of table names.
-        for (String table : tableClient.listTables())
-        {
-          // Output each table name.
-          System.out.println(table);
-       }
+    	// Loop through the collection of table names.
+    	for (String table : tableClient.listTables())
+    	{
+		  // Output each table name.
+		  System.out.println(table);
+	   }
     }
     catch (Exception e)
     {
@@ -157,26 +157,26 @@ Microsoft Azure의 역할 내에서 실행되는 응용 프로그램에서는 �
 
     try
     {
-        // Retrieve storage account from connection-string.
-        CloudStorageAccount storageAccount =
-           CloudStorageAccount.parse(storageConnectionString);
+    	// Retrieve storage account from connection-string.
+    	CloudStorageAccount storageAccount =
+	       CloudStorageAccount.parse(storageConnectionString);
 
-        // Create the table client.
-        CloudTableClient tableClient = storageAccount.createCloudTableClient();
-            
-        // Create a cloud table object for the table.
-        CloudTable cloudTable = tableClient.getTableReference("people");
-            
-        // Create a new customer entity.
-        CustomerEntity customer1 = new CustomerEntity("Harp", "Walter");
-        customer1.setEmail("Walter@contoso.com");
-        customer1.setPhoneNumber("425-555-0101");
-            
-        // Create an operation to add the new customer to the people table.
-        TableOperation insertCustomer1 = TableOperation.insertOrReplace(customer1);
+    	// Create the table client.
+    	CloudTableClient tableClient = storageAccount.createCloudTableClient();
+			
+    	// Create a cloud table object for the table.
+    	CloudTable cloudTable = tableClient.getTableReference("people");
+			
+    	// Create a new customer entity.
+    	CustomerEntity customer1 = new CustomerEntity("Harp", "Walter");
+    	customer1.setEmail("Walter@contoso.com");
+    	customer1.setPhoneNumber("425-555-0101");
+			
+    	// Create an operation to add the new customer to the people table.
+    	TableOperation insertCustomer1 = TableOperation.insertOrReplace(customer1);
 
-        // Submit the operation to the table service.
-        cloudTable.execute(insertCustomer1);
+    	// Submit the operation to the table service.
+    	cloudTable.execute(insertCustomer1);
     }
     catch (Exception e)
     {
@@ -190,39 +190,39 @@ Microsoft Azure의 역할 내에서 실행되는 응용 프로그램에서는 �
 
     try
     {
-        // Retrieve storage account from connection-string.
-        CloudStorageAccount storageAccount =
-           CloudStorageAccount.parse(storageConnectionString);
+    	// Retrieve storage account from connection-string.
+    	CloudStorageAccount storageAccount =
+	       CloudStorageAccount.parse(storageConnectionString);
 
-        // Create the table client.
-        CloudTableClient tableClient = storageAccount.createCloudTableClient();
+    	// Create the table client.
+    	CloudTableClient tableClient = storageAccount.createCloudTableClient();
 
-        // Define a batch operation.
-        TableBatchOperation batchOperation = new TableBatchOperation();
+    	// Define a batch operation.
+    	TableBatchOperation batchOperation = new TableBatchOperation();
 
-        // Create a cloud table object for the table.
-        CloudTable cloudTable = tableClient.getTableReference("people");
+    	// Create a cloud table object for the table.
+    	CloudTable cloudTable = tableClient.getTableReference("people");
 
-        // Create a customer entity to add to the table.
-        CustomerEntity customer = new CustomerEntity("Smith", "Jeff");
-        customer.setEmail("Jeff@contoso.com");
-        customer.setPhoneNumber("425-555-0104");
-        batchOperation.insertOrReplace(customer);
+    	// Create a customer entity to add to the table.
+    	CustomerEntity customer = new CustomerEntity("Smith", "Jeff");
+    	customer.setEmail("Jeff@contoso.com");
+    	customer.setPhoneNumber("425-555-0104");
+    	batchOperation.insertOrReplace(customer);
 
-       // Create another customer entity to add to the table.
-       CustomerEntity customer2 = new CustomerEntity("Smith", "Ben");
-       customer2.setEmail("Ben@contoso.com");
-       customer2.setPhoneNumber("425-555-0102");
-       batchOperation.insertOrReplace(customer2);
+	   // Create another customer entity to add to the table.
+	   CustomerEntity customer2 = new CustomerEntity("Smith", "Ben");
+	   customer2.setEmail("Ben@contoso.com");
+	   customer2.setPhoneNumber("425-555-0102");
+	   batchOperation.insertOrReplace(customer2);
 
-       // Create a third customer entity to add to the table.
-       CustomerEntity customer3 = new CustomerEntity("Smith", "Denise");
-       customer3.setEmail("Denise@contoso.com");
-       customer3.setPhoneNumber("425-555-0103");
-       batchOperation.insertOrReplace(customer3);
+	   // Create a third customer entity to add to the table.
+	   CustomerEntity customer3 = new CustomerEntity("Smith", "Denise");
+	   customer3.setEmail("Denise@contoso.com");
+	   customer3.setPhoneNumber("425-555-0103");
+	   batchOperation.insertOrReplace(customer3);
 
-       // Execute the batch of operations on the "people" table.
-       cloudTable.execute(batchOperation);
+	   // Execute the batch of operations on the "people" table.
+	   cloudTable.execute(batchOperation);
     }
     catch (Exception e)
     {
@@ -232,10 +232,10 @@ Microsoft Azure의 역할 내에서 실행되는 응용 프로그램에서는 �
 
 일괄 작업에 대해 유의할 사항은 다음과 같습니다.
 
--   최대 100개의 삽입, 삭제, 병합, 바꾸기, 삽입 또는 병합 및 삽입 또는 바꾸기 작업을 임의로 조합하여 단일 일괄 작업으로 수행할 수 있습니다.
--   검색 작업이 일괄 작업의 유일한 작업이면 일괄 작업에 검색 작업이 포함될 수 있습니다.
--   단일 일괄 작업의 모든 엔터티에 동일한 파티션 키가 있어야 합니다.
--   일괄 작업은 4MB 데이터 페이로드로 제한됩니다.
+- 최대 100개의 삽입, 삭제, 병합, 바꾸기, 삽입 또는 병합 및 삽입 또는 바꾸기 작업을 임의로 조합하여 단일 일괄 작업으로 수행할 수 있습니다.
+- 검색 작업이 일괄 작업의 유일한 작업이면 일괄 작업에 검색 작업이 포함될 수 있습니다.
+- 단일 일괄 작업의 모든 엔터티에 동일한 파티션 키가 있어야 합니다.
+- 일괄 작업은 4MB 데이터 페이로드로 제한됩니다.
 
 ## <a name="RetrieveEntities"> </a>방법: 파티션의 모든 엔터티 검색
 
@@ -243,31 +243,31 @@ Microsoft Azure의 역할 내에서 실행되는 응용 프로그램에서는 �
 
     try
     {
-        // Define constants for filters.
-        final String PARTITION_KEY = "PartitionKey";
-        final String ROW_KEY = "RowKey";
-        final String TIMESTAMP = "Timestamp";
+    	// Define constants for filters.
+    	final String PARTITION_KEY = "PartitionKey";
+    	final String ROW_KEY = "RowKey";
+    	final String TIMESTAMP = "Timestamp";
 
-        // Retrieve storage account from connection-string.
-        CloudStorageAccount storageAccount =
-           CloudStorageAccount.parse(storageConnectionString);
+    	// Retrieve storage account from connection-string.
+    	CloudStorageAccount storageAccount =
+	       CloudStorageAccount.parse(storageConnectionString);
 
-        // Create the table client.
-        CloudTableClient tableClient = storageAccount.createCloudTableClient();
-            
-       // Create a cloud table object for the table.
-       CloudTable cloudTable = tableClient.getTableReference("people");
+    	// Create the table client.
+    	CloudTableClient tableClient = storageAccount.createCloudTableClient();
+			
+	   // Create a cloud table object for the table.
+	   CloudTable cloudTable = tableClient.getTableReference("people");
 
-        // Create a filter condition where the partition key is "Smith".
-        String partitionFilter = TableQuery.generateFilterCondition(
-           PARTITION_KEY, 
-           QueryComparisons.EQUAL,
-           "Smith");
+    	// Create a filter condition where the partition key is "Smith".
+    	String partitionFilter = TableQuery.generateFilterCondition(
+	       PARTITION_KEY, 
+	       QueryComparisons.EQUAL,
+	       "Smith");
 
-       // Specify a partition query, using "Smith" as the partition key filter.
-       TableQuery<CustomerEntity> partitionQuery =
-           TableQuery.from(CustomerEntity.class)
-           .where(partitionFilter);
+	   // Specify a partition query, using "Smith" as the partition key filter.
+	   TableQuery<CustomerEntity> partitionQuery =
+	       TableQuery.from(CustomerEntity.class)
+	       .where(partitionFilter);
 
         // Loop through the results, displaying information about the entity.
         for (CustomerEntity entity : cloudTable.execute(partitionQuery)) {
@@ -275,7 +275,7 @@ Microsoft Azure의 역할 내에서 실행되는 응용 프로그램에서는 �
                 " " + entity.getRowKey() + 
                 "\t" + entity.getEmail() +
                 "\t" + entity.getPhoneNumber());
-       }
+	   }
     }
     catch (Exception e)
     {
@@ -289,44 +289,44 @@ Microsoft Azure의 역할 내에서 실행되는 응용 프로그램에서는 �
 
     try
     {
-        // Define constants for filters.
-        final String PARTITION_KEY = "PartitionKey";
-        final String ROW_KEY = "RowKey";
-        final String TIMESTAMP = "Timestamp";
-            
-        // Retrieve storage account from connection-string.
-        CloudStorageAccount storageAccount =
-           CloudStorageAccount.parse(storageConnectionString);
+    	// Define constants for filters.
+    	final String PARTITION_KEY = "PartitionKey";
+    	final String ROW_KEY = "RowKey";
+    	final String TIMESTAMP = "Timestamp";
+			
+    	// Retrieve storage account from connection-string.
+    	CloudStorageAccount storageAccount =
+	       CloudStorageAccount.parse(storageConnectionString);
 
-       // Create the table client.
-       CloudTableClient tableClient = storageAccount.createCloudTableClient();
+	   // Create the table client.
+	   CloudTableClient tableClient = storageAccount.createCloudTableClient();
 
-       // Create a cloud table object for the table.
-       CloudTable cloudTable = tableClient.getTableReference("people");
+	   // Create a cloud table object for the table.
+	   CloudTable cloudTable = tableClient.getTableReference("people");
 
-        // Create a filter condition where the partition key is "Smith".
-        String partitionFilter = TableQuery.generateFilterCondition(
-           PARTITION_KEY, 
-           QueryComparisons.EQUAL,
-           "Smith");
+    	// Create a filter condition where the partition key is "Smith".
+    	String partitionFilter = TableQuery.generateFilterCondition(
+	       PARTITION_KEY, 
+	       QueryComparisons.EQUAL,
+	       "Smith");
 
-        // Create a filter condition where the row key is less than the letter "E".
-        String rowFilter = TableQuery.generateFilterCondition(
-           ROW_KEY, 
-           QueryComparisons.LESS_THAN,
-           "E");
+    	// Create a filter condition where the row key is less than the letter "E".
+    	String rowFilter = TableQuery.generateFilterCondition(
+	       ROW_KEY, 
+	       QueryComparisons.LESS_THAN,
+	       "E");
 
-        // Combine the two conditions into a filter expression.
-        String combinedFilter = TableQuery.combineFilters(partitionFilter, 
-            Operators.AND, rowFilter);
+    	// Combine the two conditions into a filter expression.
+    	String combinedFilter = TableQuery.combineFilters(partitionFilter, 
+	        Operators.AND, rowFilter);
 
-        // Specify a range query, using "Smith" as the partition key,
-        // with the row key being up to the letter "E".
-        TableQuery<CustomerEntity> rangeQuery =
-           TableQuery.from(CustomerEntity.class)
-           .where(combinedFilter);
+    	// Specify a range query, using "Smith" as the partition key,
+    	// with the row key being up to the letter "E".
+    	TableQuery<CustomerEntity> rangeQuery =
+	       TableQuery.from(CustomerEntity.class)
+	       .where(combinedFilter);
 
-        // Loop through the results, displaying information about the entity
+    	// Loop through the results, displaying information about the entity
         for (CustomerEntity entity : cloudTable.execute(rangeQuery)) {
             System.out.println(entity.getPartitionKey() +
                 " " + entity.getRowKey() +
@@ -346,32 +346,32 @@ Microsoft Azure의 역할 내에서 실행되는 응용 프로그램에서는 �
 
     try
     {
-        // Retrieve storage account from connection-string.
-        CloudStorageAccount storageAccount =
-           CloudStorageAccount.parse(storageConnectionString);
+    	// Retrieve storage account from connection-string.
+    	CloudStorageAccount storageAccount =
+	       CloudStorageAccount.parse(storageConnectionString);
 
-        // Create the table client.
-        CloudTableClient tableClient = storageAccount.createCloudTableClient();
+    	// Create the table client.
+    	CloudTableClient tableClient = storageAccount.createCloudTableClient();
 
-        // Create a cloud table object for the table.
-        CloudTable cloudTable = tableClient.getTableReference("people");
+    	// Create a cloud table object for the table.
+    	CloudTable cloudTable = tableClient.getTableReference("people");
 
-        // Retrieve the entity with partition key of "Smith" and row key of "Jeff"
-        TableOperation retrieveSmithJeff = 
-           TableOperation.retrieve("Smith", "Jeff", CustomerEntity.class);
+    	// Retrieve the entity with partition key of "Smith" and row key of "Jeff"
+    	TableOperation retrieveSmithJeff = 
+	       TableOperation.retrieve("Smith", "Jeff", CustomerEntity.class);
 
-       // Submit the operation to the table service and get the specific entity.
-       CustomerEntity specificEntity =
-            cloudTable.execute(retrieveSmithJeff).getResultAsType();
-            
-        // Output the entity.
-        if (specificEntity != null)
-        {
+	   // Submit the operation to the table service and get the specific entity.
+	   CustomerEntity specificEntity =
+    		cloudTable.execute(retrieveSmithJeff).getResultAsType();
+			
+    	// Output the entity.
+    	if (specificEntity != null)
+    	{
             System.out.println(specificEntity.getPartitionKey() +
                 " " + specificEntity.getRowKey() +
                 "\t" + specificEntity.getEmail() +
                 "\t" + specificEntity.getPhoneNumber());
-       }
+	   }
     }
     catch (Exception e)
     {
@@ -385,32 +385,32 @@ Microsoft Azure의 역할 내에서 실행되는 응용 프로그램에서는 �
 
     try
     {
-        // Retrieve storage account from connection-string.
-        CloudStorageAccount storageAccount =
-           CloudStorageAccount.parse(storageConnectionString);
+    	// Retrieve storage account from connection-string.
+    	CloudStorageAccount storageAccount =
+	       CloudStorageAccount.parse(storageConnectionString);
 
-        // Create the table client.
-        CloudTableClient tableClient = storageAccount.createCloudTableClient();
+    	// Create the table client.
+    	CloudTableClient tableClient = storageAccount.createCloudTableClient();
 
-        // Create a cloud table object for the table.
-        CloudTable cloudTable = tableClient.getTableReference("people");
+    	// Create a cloud table object for the table.
+    	CloudTable cloudTable = tableClient.getTableReference("people");
 
-        // Retrieve the entity with partition key of "Smith" and row key of "Jeff".
-        TableOperation retrieveSmithJeff = 
-           TableOperation.retrieve("Smith", "Jeff", CustomerEntity.class);
+    	// Retrieve the entity with partition key of "Smith" and row key of "Jeff".
+    	TableOperation retrieveSmithJeff = 
+	       TableOperation.retrieve("Smith", "Jeff", CustomerEntity.class);
 
-        // Submit the operation to the table service and get the specific entity.
-        CustomerEntity specificEntity =
-          cloudTable.execute(retrieveSmithJeff).getResultAsType();
+    	// Submit the operation to the table service and get the specific entity.
+    	CustomerEntity specificEntity =
+		  cloudTable.execute(retrieveSmithJeff).getResultAsType();
 
-        // Specify a new phone number.
-        specificEntity.setPhoneNumber("425-555-0105");
+    	// Specify a new phone number.
+    	specificEntity.setPhoneNumber("425-555-0105");
 
-        // Create an operation to replace the entity.
-        TableOperation replaceEntity = TableOperation.replace(specificEntity);
+    	// Create an operation to replace the entity.
+    	TableOperation replaceEntity = TableOperation.replace(specificEntity);
 
-        // Submit the operation to the table service.
-        cloudTable.execute(replaceEntity);
+    	// Submit the operation to the table service.
+    	cloudTable.execute(replaceEntity);
     }
     catch (Exception e)
     {
@@ -420,7 +420,7 @@ Microsoft Azure의 역할 내에서 실행되는 응용 프로그램에서는 �
 
 ## <a name="QueryProperties"> </a>방법: 엔터티 속성 하위 집합 쿼리
 
-테이블 쿼리에서는 엔터티에서 일부 속성만 검색할 수 있습니다. 프로젝션이라고 하는 이 기술은 특히 대역폭을 줄이며 큰 엔터티에 대한 쿼리 성능을 향상할 수 있습니다. 다음 코드의 쿼리는 **select** 메서드를 사용하여 테이블에 있는 엔터티의 전자 메일 주소만 반환합니다. 이 결과는 서버에서 반환된 엔터티에 대해 형식 변환을 수행하는 **EntityResolver**를 통해 **String** 컬렉션에 프로젝트됩니다. 이 [블로그 게시글][블로그 게시글]에서 프로젝션에 대해 자세히 알아볼 수 있습니다. 로컬 저장소 에뮬레이터에서는 프로젝션이 지원되지 않으므로 이 코드는 테이블 서비스의 계정을 사용하는 경우에만 실행됩니다.
+테이블 쿼리에서는 엔터티에서 일부 속성만 검색할 수 있습니다. 프로젝션이라고 하는 이 기술은 특히 대역폭을 줄이며 큰 엔터티에 대한 쿼리 성능을 향상할 수 있습니다. 다음 코드의 쿼리는 **select** 메서드를 사용하여 테이블에 있는 엔터티의 전자 메일 주소만 반환합니다. 이 결과는 서버에서 반환된 엔터티에 대해 형식 변환을 수행하는 **EntityResolver**를 통해 **String** 컬렉션에 프로젝트됩니다. 이 [블로그 게시글][]에서 프로젝션에 대해 자세히 알아볼 수 있습니다. 로컬 저장소 에뮬레이터에서는 프로젝션이 지원되지 않으므로 이 코드는 테이블 서비스의 계정을 사용하는 경우에만 실행됩니다.
 
     try
     {
@@ -428,19 +428,19 @@ Microsoft Azure의 역할 내에서 실행되는 응용 프로그램에서는 �
         CloudStorageAccount storageAccount =
             CloudStorageAccount.parse(storageConnectionString);
 
-        // Create the table client.
-        CloudTableClient tableClient = storageAccount.createCloudTableClient();
+    	// Create the table client.
+    	CloudTableClient tableClient = storageAccount.createCloudTableClient();
 
-        // Create a cloud table object for the table.
-        CloudTable cloudTable = tableClient.getTableReference("people");
+    	// Create a cloud table object for the table.
+    	CloudTable cloudTable = tableClient.getTableReference("people");
 
-        // Define a projection query that retrieves only the Email property
-        TableQuery<CustomerEntity> projectionQuery = 
-           TableQuery.from(CustomerEntity.class)
-           .select(new String[] {"Email"});
+    	// Define a projection query that retrieves only the Email property
+    	TableQuery<CustomerEntity> projectionQuery = 
+	       TableQuery.from(CustomerEntity.class)
+	       .select(new String[] {"Email"});
 
-        // Define a Entity resolver to project the entity to the Email value.
-        EntityResolver<String> emailResolver = new EntityResolver<String>() {
+    	// Define a Entity resolver to project the entity to the Email value.
+    	EntityResolver<String> emailResolver = new EntityResolver<String>() {
             @Override
             public String resolve(String PartitionKey, String RowKey, Date timeStamp, HashMap<String, EntityProperty> properties, String etag) {
                 return properties.get("Email").getValueAsString();
@@ -461,7 +461,7 @@ Microsoft Azure의 역할 내에서 실행되는 응용 프로그램에서는 �
 
 ## <a name="InsertOrReplace"> </a>방법: 엔터티 삽입 또는 바꾸기
 
-엔터티가 테이블에 이미 있는지 모르는 상태에서 테이블에 엔터티를 추가할 수 있습니다. 이 경우 삽입 또는 바꾸기 작업을 사용하여 엔터티가 없는 경우 엔터티를 삽입하고 엔터티가 있는 경우 기존 엔터티를 바꾸도록 하는 단일 요청을 생성할 수 있습니다. 이전의 예를 기반으로 하는 다음 코드에서는 'Walter Harp'에 대한 엔터티를 삽입하거나 바꿉니다. 이 코드에서는 새 엔터티를 만든 후 **TableOperation.insertOrReplace** 메서드를 호출합니다. 그런 다음, 이 코드는 테이블 및 테이블 삽입 또는 바꾸기 작업을 매개 변수로 하여 **CloudTable** 개체에 대해 **execute**를 호출합니다. 엔터티의 일부만 업데이트하려면 **TableOperation.insertOrMerge** 메서드를 대신 사용할 수 있습니다. 로컬 저장소 에뮬레이터에서는 삽입 또는 바꾸기가 지원되지 않으므로 이 코드는 테이블 서비스의 계정을 사용하는 경우에만 실행됩니다. 이 [블로그 게시물][블로그 게시글]에서 삽입 또는 바꾸기 및 삽입 또는 병합에 대해 자세히 알아볼 수 있습니다.
+엔터티가 테이블에 이미 있는지 모르는 상태에서 테이블에 엔터티를 추가할 수 있습니다. 이 경우 삽입 또는 바꾸기 작업을 사용하여 엔터티가 없는 경우 엔터티를 삽입하고 엔터티가 있는 경우 기존 엔터티를 바꾸도록 하는 단일 요청을 생성할 수 있습니다. 이전의 예를 기반으로 하는 다음 코드에서는 'Walter Harp'에 대한 엔터티를 삽입하거나 바꿉니다. 이 코드에서는 새 엔터티를 만든 후 **TableOperation.insertOrReplace** 메서드를 호출합니다. 그런 다음, 이 코드는 테이블 및 테이블 삽입 또는 바꾸기 작업을 매개 변수로 하여 **CloudTable** 개체에 대해 **execute**를 호출합니다. 엔터티의 일부만 업데이트하려면 **TableOperation.insertOrMerge** 메서드를 대신 사용할 수 있습니다. 로컬 저장소 에뮬레이터에서는 삽입 또는 바꾸기가 지원되지 않으므로 이 코드는 테이블 서비스의 계정을 사용하는 경우에만 실행됩니다. 이 [블로그 게시물][]에서 삽입 또는 바꾸기 및 삽입 또는 병합에 대해 자세히 알아볼 수 있습니다.
 
     try
     {
@@ -494,7 +494,7 @@ Microsoft Azure의 역할 내에서 실행되는 응용 프로그램에서는 �
 
 ## <a name="DeleteEntity"> </a>방법: 엔터티 삭제
 
-엔터티를 검색한 다음 쉽게 삭제할 수 있습니다. 엔터티를 검색한 후, 삭제할 엔터티와 함께 **TableOperation.delete**를 호출하세요. 그런 다음 **CloudTable** 개체에 대해 **execute**를 호출합니다. 다음 코드에서는 고객 엔터티를 검색하고 삭제합니다.
+엔터티를 검색한 다음 쉽게 삭제할 수 있습니다. 엔터티를 검색한 후, 삭제할 엔터티와 함께 **TableOperation.delete**를 호출하세요. 그런 다음 **CloudTable** 개체에 대해 **execute**를 호출합니다. 다음 코드는 고객 엔터티를 검색하고 삭제합니다.
 
     try
     {
@@ -554,33 +554,15 @@ Microsoft Azure의 역할 내에서 실행되는 응용 프로그램에서는 �
 
 이제 테이블 저장소의 기본 사항을 배웠으므로 다음 링크를 따라 좀 더 복잡한 저장소 작업을 수행하는 방법을 알아보세요.
 
--   [Java용 Azure Storage SDK][Java용 Azure Storage SDK]
--   [Azure Storage Client SDK 참조][Azure Storage Client SDK 참조]
--   [Azure 저장소 REST API][Azure 저장소 REST API]
--   [Azure 저장소 팀 블로그][Azure 저장소 팀 블로그]
+- [Java용 Azure Storage SDK]
+- [Azure Storage Client SDK 참조]
+- [Azure 저장소 REST API]
+- [Azure 저장소 팀 블로그]
 
-  [Java용 Azure Storage SDK]: https://github.com/azure/azure-storage-java
-  [다음 단계]: #NextSteps
-  [Android용 Azure Storage SDK]: https://github.com/azure/azure-storage-android
-  [테이블 저장소 정의]: #what-is
-  [개념]: #Concepts
-  [Azure 저장소 계정 만들기]: #CreateAccount
-  [Java 응용 프로그램 만들기]: #CreateApplication
-  [테이블 저장소에 액세스하도록 응용 프로그램 구성]: #ConfigureStorage
-  [Azure 저장소 연결 문자열 설정]: #ConnectionString
-  [방법: 테이블 만들기]: #CreateTable
-  [방법: 테이블 나열]: #ListTables
-  [방법: 테이블에 엔터티 추가]: #AddEntity
-  [방법: 엔터티 일괄 삽입]: #InsertBatch
-  [방법: 파티션의 모든 엔터티 검색]: #RetrieveEntities
-  [방법: 파티션의 엔터티 범위 검색]: #RetrieveRange
-  [방법: 단일 엔터티 검색]: #RetriveSingle
-  [방법: 엔터티 수정]: #ModifyEntity
-  [방법: 엔터티 속성 하위 집합 쿼리]: #QueryProperties
-  [방법: 엔터티 삽입 또는 바꾸기]: #InsertOrReplace
-  [방법: 엔터티 삭제]: #DeleteEntity
-  [방법: 테이블 삭제]: #DeleteTable
-  [Azure Storage Client SDK 참조]: http://dl.windowsazure.com/storage/javadoc/
-  [블로그 게시글]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
-  [Azure 저장소 REST API]: http://msdn.microsoft.com/ko-kr/library/azure/gg433040.aspx
-  [Azure 저장소 팀 블로그]: http://blogs.msdn.com/b/windowsazurestorage/
+[Java용 Azure SDK]: http://www.windowsazure.com/ko-kr/develop/java/
+[Java용 Azure Storage SDK]: https://github.com/azure/azure-storage-java
+[Android용 Azure Storage SDK]: https://github.com/azure/azure-storage-android
+[Azure Storage Client SDK 참조]: http://dl.windowsazure.com/storage/javadoc/
+[Azure 저장소 REST API]: http://msdn.microsoft.com/ko-kr/library/azure/gg433040.aspx
+[Azure 저장소 팀 블로그]: http://blogs.msdn.com/b/windowsazurestorage/
+[블로그 게시물]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
