@@ -1,6 +1,6 @@
 <properties linkid="biztalk-troubleshoot-using-ops-logs" urlDisplayName="BizTalk Services: Troubleshoot using operation logs" pageTitle="BizTalk Services: Troubleshoot using ops logs | Azure" metaKeywords="" description="BizTalk Services: Troubleshoot using ops logs" metaCanonical="" services="" documentationCenter="" title="BizTalk Services: Troubleshoot using ops logs" authors="mandia"  solutions="" writer="nitinme" manager="dwrede" editor="cgronlun"  />
 
-<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia"></tags>
+<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia" />
 
 # BizTalk 서비스: 작업 로그를 사용한 문제 해결
 
@@ -100,9 +100,6 @@
 -   [BizTalk 서비스: 발급자 이름 및 발급자 키][BizTalk 서비스: 발급자 이름 및 발급자 키]
 -   [Azure BizTalk 서비스 SDK로 시작하는 방법][Azure BizTalk 서비스 SDK로 시작하는 방법]
 
-  [BizTalk 서비스 REST API]: http://msdn.microsoft.com/ko-KR/library/windowsazure/dn232347.aspx
-  [Azure 관리 서비스를 사용하여 추적된 작업]: #bizops
-  [메시지 추적]: http://msdn.microsoft.com/library/windowsazure/hh949805.aspx
   [작업 로그 보기]: ./media/biztalk-troubleshoot-using-ops-logs/Operation-Logs.png
   [BizTalk 서비스 백업]: http://go.microsoft.com/fwlink/p/?LinkID=325584
   [백업에서 BizTalk 서비스 복원]: http://go.microsoft.com/fwlink/p/?LinkID=325582

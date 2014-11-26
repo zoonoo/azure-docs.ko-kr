@@ -234,5 +234,4 @@ Java용 Azure 라이브러리를 빌드 경로에 추가하고 프로젝트 배�
   [방법: 응용 프로그램 크래시 및 읽을 수 없는 메시지 처리]: #bkmk_HowToHandleAppCrash
   [방법: 토픽 및 구독 삭제]: #bkmk_HowToDeleteTopics
   [다음 단계]: #bkmk_NextSteps
-  [howto-service-bus-topics]: ../includes/howto-service-bus-topics.md
   [서비스 버스 큐, 토픽 및 구독]: http://msdn.microsoft.com/library/windowsazure/hh367516.aspx

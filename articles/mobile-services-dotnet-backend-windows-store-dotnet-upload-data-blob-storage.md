@@ -1,6 +1,6 @@
 <properties pageTitle="Use Mobile Services to upload images to blob storage (Windows Store) | Mobile Services" metaKeywords="" description="Learn how to use Mobile Services to upload images to Azure Blob Storage." metaCanonical="" disqusComments="0" umbracoNaviHide="1" documentationCenter="Mobile" title="Upload images to Azure Storage by using Mobile Services" authors="glenga" writer="glenga" services="mobile-services, storage" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # 모바일 서비스를 사용하여 Azure 저장소에 이미지 업로드
 
@@ -29,7 +29,7 @@
 
 이 자습서는 모바일 서비스 퀵 스타트를 기반으로 합니다. 이 자습서를 시작하기 전에 먼저 [모바일 서비스 시작하기][모바일 서비스 시작하기]를 완료해야 합니다.
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-configure-blob-storage][mobile-services-dotnet-backend-configure-blob-storage]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-configure-blob-storage](../includes/mobile-services-dotnet-backend-configure-blob-storage.md)]
 
 ## <a name="install-storage-client"></a>Windows 스토어 앱용 저장소 클라이언트 설치
 
@@ -39,24 +39,20 @@ SAS를 사용하여 앱에서 Blob 저장소에 이미지를 업로드하려면 
 
 2.  왼쪽 창에서 **온라인** 범주를 선택하고, **Include Prerelease**를 선택하고 **WindowsAzure.Storage-Preview**를 검색한 후 **Azure 저장소** 패키지에서 **설치**를 클릭한 다음, 사용권 계약에 동의합니다.
 
-    ![][]
+    ![][0]
 
     Azure 저장소 서비스용 클라이언트 라이브러리가 프로젝트에 추가됩니다.
 
 다음 단계에서는 이미지를 캡처하고 업로드하도록 퀵 스타트 앱을 업데이트합니다.
 
-[WACOM.INCLUDE [mobile-services-windows-store-dotnet-upload-to-blob-storage][mobile-services-windows-store-dotnet-upload-to-blob-storage]]
+[WACOM.INCLUDE [mobile-services-windows-store-dotnet-upload-to-blob-storage](../includes/mobile-services-windows-store-dotnet-upload-to-blob-storage.md)]
 
-<!-- Anchors. --> 
+ 
 
-<!-- Images. --> 
+ 
 
-<!-- URLs. -->
 
-  [Windows 스토어 C\#]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage "Windows 스토어 C#"
-  [Windows Phone]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-phone-upload-data-blob-storage "Windows Phone"
-  [.NET 백 엔드]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage ".NET 백 엔드"
-  [JavaScript 백 엔드]: /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-upload-data-blob-storage "JavaScript 백 엔드"
+
   [저장소 클라이언트 라이브러리 설치]: #install-storage-client
   [클라이언트 앱을 업데이트하여 이미지 캡처]: #add-select-images
   [모바일 서비스 프로젝트에 저장소 클라이언트 설치]: #storage-client-server
@@ -65,6 +61,4 @@ SAS를 사용하여 앱에서 Blob 저장소에 이미지를 업로드하려면 
   [이미지를 업로드하여 앱 테스트]: #test
   [Azure 저장소 계정]: /ko-kr/documentation/articles/storage-create-storage-account/
   [모바일 서비스 시작하기]: /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-get-started
-  [mobile-services-dotnet-backend-configure-blob-storage]: ../includes/mobile-services-dotnet-backend-configure-blob-storage.md
-  []: ./media/mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage/mobile-add-storage-nuget-package-dotnet.png
-  [mobile-services-windows-store-dotnet-upload-to-blob-storage]: ../includes/mobile-services-windows-store-dotnet-upload-to-blob-storage.md
+  [0]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage/mobile-add-storage-nuget-package-dotnet.png

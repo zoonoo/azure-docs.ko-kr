@@ -72,6 +72,6 @@ WCF 데이터 서비스 NuGet 패키지를 참조한 경우 단추의 **Click** 
   [Windows 스토어 앱용 WCF 데이터 서비스 도구]: http://www.microsoft.com/ko-kr/download/details.aspx?id=30714
   [store-apps-storage-vs-project]: ./media/storage-use-store-apps/store-apps-storage-vs-project.png
   [store-apps-storage-choose-library]: ./media/storage-use-store-apps/store-apps-storage-choose-library.png
-  [비동기 키워드]: http://msdn.microsoft.com/en-US/library/vstudio/hh156513.aspx
+  [비동기 키워드]: http://msdn.microsoft.com/ko-kr/library/vstudio/hh156513.aspx
   [store-apps-storage-package-manager]: ./media/storage-use-store-apps/store-apps-storage-package-manager.png
   [대화 상자를 사용하여 NuGet 패키지 관리]: http://docs.nuget.org/docs/start-here/Managing-NuGet-Packages-Using-The-Dialog

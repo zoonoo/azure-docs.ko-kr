@@ -1,6 +1,6 @@
 <properties linkid="develop-notificationhubs-tutorials-get-started-nokia-x" urlDisplayName="Get Started" pageTitle="Get Started with Azure Notification Hubs" metaKeywords="" description="Learn how to use Azure Notification Hubs to push notifications." metaCanonical="" services="notification-hubs" documentationCenter="Mobile" title="Get started with Notification Hubs" authors="piyushjo" solutions="" manager="kirillg" editor="" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-nokia-x" ms.devlang="java" ms.topic="article" ms.date="01/01/1900" ms.author="piyushjo"></tags>
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-nokia-x" ms.devlang="java" ms.topic="article" ms.date="01/01/1900" ms.author="piyushjo" />
 
 # 알림 허브 시작
 
@@ -31,7 +31,7 @@
 
 2.  **Create services** 탭으로 이동하고 **Sender ID** 및 **Service description**을 제공하여 새 서비스를 만듭니다.
 
-    ![][]
+    ![][0]
 
 3.  서비스가 성공적으로 만들어지면 **Sender ID** 및 **Authorization Key**를 기록해 둡니다.
 
@@ -343,29 +343,20 @@ Android 앱이 알림 허브에 등록될 수 없으면 'Eclipse Logcat' 로그�
 
 4.  .Net 콘솔 응용 프로그램을 사용할 때 테스트 알림을 보내려면 Visual Studio에서 F5 키를 눌러 응용 프로그램을 실행합니다. 그러면 장치나 에뮬레이터의 위쪽 알림 영역에 나타날 알림이 전송됩니다.
 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
 
-  [Windows 범용]: /ko--kr/documentation/articles/notification-hubs-windows-store-dotnet-get-started/ "Windows 범용"
-  [Windows Phone]: /ko--kr/documentation/articles/notification-hubs-windows-phone-get-started/ "Windows Phone"
-  [iOS]: /ko--kr/documentation/articles/notification-hubs-ios-get-started/ "iOS"
-  [Android]: /ko--kr/documentation/articles/notification-hubs-android-get-started/ "Android"
-  [Kindle]: /ko--kr/documentation/articles/notification-hubs-kindle-get-started/ "Kindle"
-  [Nokia X]: /ko--kr/documentation/articles/notification-hubs-nokia-x-get-started/ "Nokia X"
-  [Xamarin.iOS]: /ko--kr/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/ "Xamarin.iOS"
-  [Xamarin.Android]: /ko--kr/documentation/articles/partner-xamarin-notification-hubs-android-get-started/ "Xamarin.Android"
+
   [Nokia 알림 서비스 구성]: #register
   [알림 허브 구성]: #configure-hub
   [알림 허브에 앱 연결]: #connect-hub
   [앱에 알림을 보내는 방법]: #send
   [앱 테스트]: #test-app
-  [Azure 무료 평가판]: http://www.windowsazure.com/ko--kr/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fko--kr%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F
   [여기]: http://developer.nokia.com/resources/library/nokia-x/getting-started/environment-setup.html
   [1]: http://developer.nokia.com/resources/library/nokia-x/getting-started/device-setup.html
   [2]: http://go.microsoft.com/fwlink/?linkid=389797&clcid=0x409
   [3]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
   [Nokia Notifications API Developer Console]: https://console.push.nokia.com/ncm/Web/index.jsp
-  []: ./media/notification-hubs-nokia-x-get-started/NokiaConsole.png
+  [0]: ./media/notification-hubs-nokia-x-get-started/NokiaConsole.png
   [4]: ./media/notification-hubs-nokia-x-get-started/NokiaConsoleService.png
   [링크]: http://developer.nokia.com/resources/library/nokia-x/nokia-notifications/nokia-notifications-developer-guide.html
   [Azure 관리 포털]: https://manage.windowsazure.com/

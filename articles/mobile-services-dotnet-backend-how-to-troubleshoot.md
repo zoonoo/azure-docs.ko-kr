@@ -1,6 +1,6 @@
 <properties linkid="mobile-services-dotnet-backend-how-to-troubleshoot" urlDisplayName="Troubleshoot the Mobile Services .NET Backend" pageTitle="Troubleshoot the Mobile Services .NET Backend - Azure Mobile Services" metaKeywords="" description="Learn how to diagnose and fix issues with your mobile services using the .NET backend" metaCanonical="" services="" documentationCenter="Mobile" title="Troubleshoot the Mobile Services .NET Backend" authors="yavorg" solutions="" manager="" editor="mollybos" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="yavorg"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="yavorg" />
 # 모바일 서비스 .NET 백 엔드 문제 해결
 
 모바일 서비스를 사용한 개발 작업은 일반적으로 쉽고 간편하지만 경우에 따라 문제가 발생할 수도 있습니다. 이 자습서에서는 모바일 서비스 .NET 백 엔드에서 발생할 수 있는 공통적인 문제를 해결할 수 있는 몇 가지 기법에 대해 설명합니다.

@@ -3,8 +3,8 @@
 # .NET에서 Azure Blob 저장소 서비스를 사용하는 방법
 
 <div  class="dev-center-tutorial-selector">
-<a href="/en-us/develop/net/how-to-guides/blob-storage-v17/" title="버전 1.7" class="current">버전 1.7</a>
-<a href="/en-us/develop/net/how-to-guides/blob-storage/" title="버전 2.0">버전 2.0</a> 
+<a href="/ko-kr/develop/net/how-to-guides/blob-storage-v17/" title="버전 1.7" class="current">버전 1.7</a>
+<a href="/ko-kr/develop/net/how-to-guides/blob-storage/" title="버전 2.0">버전 2.0</a> 
 </div>
 
 이 가이드에서는 Azure Blob 저장소 서비스를 사용하여 일반 시나리오를 수행하는 방법을 보여 줍니다. 샘플은 C#으로 작성되었으며 .NET API를 사용합니다. Blob **업로드**, **나열**, **다운로드** 및 **삭제** 시나리오를 다룹니다. Blob에 대한 자세한 내용은 [다음 단계](#next-steps) 섹션을 참조하십시오.
@@ -172,7 +172,7 @@ Blob에 파일을 업로드하려면 컨테이너 참조를 가져온 다음 이
         Console.WriteLine(blobItem.Uri);
     } 
 
-Blob 서비스에도 컨테이너 내의 디렉터리 개념이 있습니다. 따라서 폴더와 유사한 구조로 Blob을 구성할 수 있습니다. 예를 들어 'photos'라는 컨테이너가 있고 이 컨테이너에서 'rootphoto1', '2010/photo1', '2010/photo2' 및 '2011/photo1' Blob을 업로드할 수 있습니다. 그러면 'photos' 컨테이너 내에 '2010' 및 '2011' 디렉터리가 실제로 만들어집니다. 'photos' 컨테이너에서 **ListBlobs**를 호출하면 반환된 컬렉션에 디렉터리를 나타내는 **CloudBlobDirectory** 및 **CloudBlob** 개체와 최상위 수준의 Blob이 포함됩니다. 이 경우 '2010' 및 '2011' 디렉터리와 'rootphoto1' 사진이 반환됩니다. 선택적으로 **UseFlatBlobListing**을 **true**로 설정하여 새 **BlobRequestOptions** 클래스에서 전달할 수 있습니다. 이 경우 디렉터리에 관계없이 모든 Blob이 반환됩니다. 자세한 내용은 [CloudBlobContainer.ListBlobs][]를 참조하십시오.
+Blob 서비스에도 컨테이너 내의 디렉터리 개념이 있습니다. 따라서 폴더와 유사한 구조로 Blob을 구성할 수 있습니다. 예를 들어 'photos'라는 컨테이너가 있고 이 컨테이너에서 'rootphoto1', '2010/photo1', '2010/photo2' 및 '2011/photo1' Blob을 업로드할 수 있습니다. 그러면 'photos' 컨테이너 내에 '2010' 및 '2011' 디렉터리가 실제로 만들어집니다. 'photos' 컨테이너에서 **ListBlobs**를 호출하면 반환된 컬렉션에 디렉터리를 나타내는 **CloudBlobDirectory** 및 **CloudBlob** 개체와 최상위 수준의 Blob이 포함됩니다. 이 경우 '2010' 및 '2011' 디렉터리와 'rootphoto1' 사진이 반환됩니다. 선택적으로 **UseFlatBlobListing**을 **true**로 설정하여 새 **BlobRequestOptions** 클래스에서 전달할 수 있습니다. 이 경우 디렉터리에 관계없이 모든 Blob이 반환됩니다. 자세한 내용은 [CloudBlobContainer.ListBlobs][CloudBlobContainer.ListBlobs]를 참조하십시오.
 
 <h2> <a name="download-blobs"> </a><span  class="short-header">Blob 다운로드</span>방법: Blob 다운로드</h2>
 
@@ -231,8 +231,8 @@ Blob을 다운로드하려면 먼저 Blob 참조를 검색합니다. 다음 예�
 
 *  Azure 저장소를 사용하여 수행할 수 있는 고급 작업에 대한 자세한 내용은 [Azure에 데이터 저장 및 액세스][4]를 참조하십시오.
 *  Azure에 데이터를 저장하기 위한 추가 옵션에 대한 자세한 내용은 추가 기능 가이드를 참조하십시오.
-  *  [테이블 저장소](/en-us/develop/net/how-to-guides/table-services/)를 사용하여 구조화된 데이터를 저장합니다.
-  *  [SQL 데이터베이스](/en-us/develop/net/how-to-guides/sql-database/)를 사용하여 관계형 데이터를 저장합니다.
+  *  [테이블 저장소](/ko-kr/develop/net/how-to-guides/table-services/)를 사용하여 구조화된 데이터를 저장합니다.
+  *  [SQL 데이터베이스](/ko-kr/develop/net/how-to-guides/sql-database/)를 사용하여 관계형 데이터를 저장합니다.
   
 
 

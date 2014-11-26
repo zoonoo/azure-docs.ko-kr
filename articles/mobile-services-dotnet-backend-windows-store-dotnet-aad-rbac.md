@@ -288,9 +288,9 @@ RBAC(역할 기반 액세스 제어)는 사용자가 가질 수 있는 역할에
 
 
 
-<!-- Anchors. --> 
+ 
 <!-- Images --> 
-<!-- URLs. -->
+
 
 [Windows 스토어 C#]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac/ "Windows 스토어 C#"
 [.NET 백 엔드]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac/ ".NET 백 엔드"

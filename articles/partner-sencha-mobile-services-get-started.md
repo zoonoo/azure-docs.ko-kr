@@ -1,10 +1,10 @@
 <properties linkid="develop-mobile-tutorials-get-started-sencha" urlDisplayName="Get Started" pageTitle="Get Started with Azure Mobile Services and Sencha" metaKeywords="" description="Follow this tutorial to get started developing with Mobile Services and the Sencha HTML5 mobile app framework. " metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="" documentationCenter="Mobile" title="Get started with Mobile Services and Sencha Touch" authors="sencha" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-sencha" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="sencha"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-sencha" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="sencha" />
 
 # <a name="getting-started"> </a>모바일 서비스 및 Sencha Touch 시작
 
-[WACOM.INCLUDE [mobile-services-selector-get-started][mobile-services-selector-get-started]]
+[WACOM.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
 
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
@@ -18,7 +18,7 @@
 
 완성된 앱의 스크린샷은 다음과 같습니다.
 
-![][]
+![][0]
 
 ## 요구 사항
 
@@ -30,7 +30,7 @@
 
 ## <a name="create-new-service"> </a>새 모바일 서비스 만들기
 
-[WACOM.INCLUDE [mobile-services-create-new-service][mobile-services-create-new-service]]
+[WACOM.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
 
 ## TodoItems 테이블 만들기
 
@@ -693,12 +693,9 @@ Sencha Touch 시작에 대한 자세한 내용을 보려면 전체 [가이드][�
 
 <!-- images -->
 
-  [mobile-services-selector-get-started]: ../includes/mobile-services-selector-get-started.md
-  [자습서 보기]: http://go.microsoft.com/fwlink/?LinkId=392574
-  []: ./media/partner-sencha-mobile-services-get-started/finished-app.png
+  [0]: ./media/partner-sencha-mobile-services-get-started/finished-app.png
   [Sencha Touch]: http://wwww.sencha.com/products/touch/download
   [Sencha Cmd 도구]: http://www.sencha.com/products/sencha-cmd/download
-  [mobile-services-create-new-service]: ../includes/mobile-services-create-new-service.md
   [모바일 빠른 시작 html]: ./media/partner-sencha-mobile-services-get-started/mobile-portal-quickstart-html.png
   [1]: ./media/partner-sencha-mobile-services-get-started/mobile-quickstart-steps-html.png
   [앱 키]: ./media/partner-sencha-mobile-services-get-started/mobile-app-key-portal.png

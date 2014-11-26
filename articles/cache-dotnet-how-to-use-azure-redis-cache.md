@@ -1,6 +1,6 @@
 <properties pageTitle="How to Use Azure Redis Cache" metaKeywords="" description="Learn how to create a use a cache in Azure Redis Cache" metaCanonical="" services="" documentationCenter="API Management" title="How to Use Azure Redis Cache" authors="sdanie" solutions="" manager="" editor="" />
 
-<tags ms.service="cache" ms.workload="tbd" ms.tgt_pltfrm="cache-redis" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie"></tags>
+<tags ms.service="cache" ms.workload="tbd" ms.tgt_pltfrm="cache-redis" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
 
 # Azure Redis 캐시 사용 방법
 
@@ -296,7 +296,7 @@ Azure Redis 세션 상태 공급자를 구성하고 사용하는 방법에 대�
   [캐시에서 개체 추가 및 검색]: #add-object
   [캐시에서 개체의 만료 지정]: #specify-expiration
   [캐시에 ASP.NET 세션 상태 저장]: #store-session
-  [캐시 가격 정보]: http://www.windowsazure.com/en-us/pricing/details/cache/
+  [캐시 가격 정보]: http://www.windowsazure.com/ko-kr/pricing/details/cache/
   [Azure Redis 캐시 개요]: http://go.microsoft.com/fwlink/?LinkId=320830
   [캐시 구성]: #enable-caching
   [새 캐시]: ./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-new-cache-menu.png
@@ -313,7 +313,7 @@ Azure Redis 세션 상태 공급자를 구성하고 사용하는 방법에 대�
   [StackExchange.Redis 구성 모델]: http://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Configuration.md
   [캐시 속성]: ./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-properties.png
   [키 관리]: ./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-manage-keys.png
-  [캐시의 .NET 개체 작업]: http://msdn.microsoft.com/en-us/library/dn690521.aspx#Objects
+  [캐시의 .NET 개체 작업]: http://msdn.microsoft.com/ko-kr/library/dn690521.aspx#Objects
   [Redis 캐시 세션 상태 NuGet 패키지]: ./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-session-state-provider.png
   [Azure Redis 세션 상태 공급자]: http://go.microsoft.com/fwlink/?LinkId=398249
   [redis]: http://redis.io/documentation

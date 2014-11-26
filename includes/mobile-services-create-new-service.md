@@ -39,7 +39,7 @@
 
 이제 모바일 앱에 사용할 수 있는 새 모바일 서비스를 만들었습니다.
 
-<!-- URLs. -->
+
 
   [관리 포털]: https://manage.windowsazure.com/
   [0]: ./media/mobile-services-create-new-service/plus-new.png

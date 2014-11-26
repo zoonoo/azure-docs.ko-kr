@@ -73,7 +73,6 @@ Azure에서 빌드 및 배포 작업을 시작합니다. 웹 사이트를 만들
   [Orchard]: http://www.orchardproject.net/
   [추가 모듈 및 테마를 다운로드하여]: http://gallery.orchardproject.net/
   [Orchard 블로그]: ./media/web-sites-dotnet-orchard-cms-gallery/orchardgallery-08.png
-  [create-account-and-websites-note]: ../includes/create-account-and-websites-note.md
   [새로 만들기]: ./media/web-sites-dotnet-orchard-cms-gallery/orchardgallery-01.png
   [갤러리에서 만들기]: ./media/web-sites-dotnet-orchard-cms-gallery/orchardgallery-02.png
   [목록의 Orchard]: ./media/web-sites-dotnet-orchard-cms-gallery/orchardgallery-03.png

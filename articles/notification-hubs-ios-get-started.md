@@ -170,9 +170,9 @@ Apple [Local and Push Notification Programming Guide][Local and Push Notificatio
 
 이 간단한 예제에서는 모든 iOS 장치로 알림을 브로드캐스트합니다. 특정 사용자에게만 알림을 보내려면 [알림 허브를 사용하여 사용자에게 알림 푸시][알림 허브를 사용하여 사용자에게 알림 푸시] 자습서를 참조하십시오. 사용자를 관심 그룹별로 분할하려면 [알림 허브를 사용하여 뉴스 속보 보내기][알림 허브를 사용하여 뉴스 속보 보내기]를 참조하십시오. [알림 허브 지침][알림 허브 지침]에서 알림 허브 사용 방법을 자세히 알아보십시오.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [인증서 서명 요청 생성]: #certificates
   [앱을 등록하고 푸시 알림을 사용하도록 설정]: #register
@@ -182,7 +182,6 @@ Apple [Local and Push Notification Programming Guide][Local and Push Notificatio
   [백 엔드에서 알림 보내기]: #send
   [모바일 서비스 iOS SDK]: http://go.microsoft.com/fwLink/?LinkID=266533
   [XCode 4.5]: https://go.microsoft.com/fwLink/p/?LinkID=266532
-  [Apple 푸시 알림 사용]: ../includes/enable-apple-push-notifications.md
   [0]: ./media/notification-hubs-ios-get-started/mobile-services-ios-push-27.png
   [Azure 관리 포털]: https://manage.windowsazure.com/
   [1]: ./media/notification-hubs-ios-get-started/notification-hub-create-from-portal.png

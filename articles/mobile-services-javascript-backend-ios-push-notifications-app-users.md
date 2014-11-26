@@ -67,8 +67,8 @@
 
 [WACOM.INCLUDE [mobile-services-ios-push-notifications-app-users-test-app](../includes/mobile-services-ios-push-notifications-app-users-test-app.md)]
 
-<!-- Anchors. -->
-<!-- URLs. -->
+
+
 
   [푸시 알림]: /ko-kr/documentation/articles/mobile-services-javascript-backend-ios-get-started-push/
   [등록에 인증이 필요하도록 서비스 업데이트]: #register
@@ -76,6 +76,3 @@
   [앱 테스트]: #test
   [이 항목의 Windows 스토어 버전]: /ko-kr/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users
   [인증 시작]: /ko-kr/documentation/articles/mobile-services-ios-get-started-users/
-  [mobile-services-javascript-backend-push-notifications-app-users]: ../includes/mobile-services-javascript-backend-push-notifications-app-users.md
-  [mobile-services-ios-push-notifications-app-users-login]: ../includes/mobile-services-ios-push-notifications-app-users-login.md
-  [mobile-services-ios-push-notifications-app-users-test-app]: ../includes/mobile-services-ios-push-notifications-app-users-test-app.md

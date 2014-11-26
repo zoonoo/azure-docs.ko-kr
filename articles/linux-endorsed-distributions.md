@@ -38,7 +38,7 @@ SUSE Linux Enterprise Server on Azure는 클라우드 컴퓨팅에 대해 우수
 지원되는 버전
 -------------
 
-다음 표에서는 다른 배포 버전인 LIS(Linux Integration Services) 드라이버와 Azure에서 작동을 테스트한 Azure Linux 에이전트 버전을 보여 줍니다. LIS 드라이버는 [http://www.microsoft.com/ko-KR/download/details.aspx?id=34603](http://www.microsoft.com/en-us/download/details.aspx?id=34603)에서 사용할 수 있습니다. Linux 에이전트 버전은 <https://github.com/windowsazure/walinuxagent>(영문)에서 사용할 수 있습니다.
+다음 표에서는 다른 배포 버전인 LIS(Linux Integration Services) 드라이버와 Azure에서 작동을 테스트한 Azure Linux 에이전트 버전을 보여 줍니다. LIS 드라이버는 [http://www.microsoft.com/ko-KR/download/details.aspx?id=34603](http://www.microsoft.com/ko-kr/download/details.aspx?id=34603)에서 사용할 수 있습니다. Linux 에이전트 버전은 <https://github.com/windowsazure/walinuxagent>(영문)에서 사용할 수 있습니다.
 
 이 표에는 Azure에서 최적으로 작동하기 위해 일부 배포 버전에 필요한 커널 호환성 패치에 대한 링크도 포함되어 있습니다.
 

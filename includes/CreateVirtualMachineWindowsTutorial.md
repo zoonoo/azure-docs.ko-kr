@@ -18,7 +18,7 @@
 
 이 섹션에서는 관리 포털의 **갤러리에서** 방법을 사용하여 가상 컴퓨터를 만드는 방법을 보여 줍니다. 이 옵션은 **빠른 생성** 옵션보다 많은 구성 선택 항목을 제공합니다. 예를 들어 가상 컴퓨터를 가상 네트워크에 가입하려는 경우 **갤러리에서** 옵션을 사용해야 합니다.
 
-[WACOM.INCLUDE [virtual-machines-create-WindowsVM][virtual-machines-create-WindowsVM]]
+[WACOM.INCLUDE [virtual-machines-create-WindowsVM](../includes/virtual-machines-create-WindowsVM.md)]
 
 ## <span id="logon"></span> </a>가상 컴퓨터를 만든 후 로그온하는 방법
 
@@ -125,7 +125,6 @@ Azure에서 Windows 가상 컴퓨터를 구성하는 방법에 대한 자세한 
   [가상 컴퓨터를 만든 후 로그온하는 방법]: #logon
   [새 가상 컴퓨터에 데이터 디스크를 연결하는 방법]: #attachdisk
   [가상 컴퓨터]: http://go.microsoft.com/fwlink/p/?LinkID=271224
-  [virtual-machines-create-WindowsVM]: ../includes/virtual-machines-create-WindowsVM.md
   [Azure 관리 포털]: http://manage.windowsazure.com
   [MyTestVM 선택]: ./media/CreateVirtualMachineWindowsTutorial/selectvm.png
   [MyTestVM에 연결]: ./media/CreateVirtualMachineWindowsTutorial/commandbarconnect.png

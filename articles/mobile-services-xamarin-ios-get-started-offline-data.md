@@ -198,9 +198,9 @@ SQLite 로컬 저장소에서 모바일 서비스 오프라인 기능을 사용�
 
 -   [Azure 모바일 서비스용 Xamarin Component 클라이언트를 사용하는 방법][Azure 모바일 서비스용 Xamarin Component 클라이언트를 사용하는 방법]
 
-<!-- Anchors. -->
+
 <!-- Images -->
-<!-- URLs. -->
+
 
   [모바일 서비스 시작]: /ko-kr/documentation/articles/partner-xamarin-mobile-services-ios-get-started/
   [데이터 시작]: /ko-kr/documentation/articles/partner-xamarin-mobile-services-ios-get-started-data/

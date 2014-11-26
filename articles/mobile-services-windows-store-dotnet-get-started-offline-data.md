@@ -258,7 +258,7 @@ Azure 모바일 서비스의 오프라인 기능을 사용하면 오프라인에
 
 -   [모바일 서비스에 대한 오프라인 지원을 통해 충돌 처리][모바일 서비스에 대한 오프라인 지원을 통해 충돌 처리]
 
-<!-- Anchors. --> <!-- Images --> <!-- URLs. -->
+ <!-- Images --> 
 
   [모바일 서비스 시작]: /ko-kr/documentation/articles/mobile-services-windows-store-get-started/
   [데이터 시작]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/

@@ -46,15 +46,15 @@
 * [모바일 서비스 Android 방법 개념 참조]
   <br/>Android와 함께 모바일 서비스를 사용하는 방법을 자세히 알아봅니다.
 
-<!-- Anchors. -->
+
 [서버 스크립트 등록]: #register-scripts
 [다음 단계]:#next-steps
 
-<!-- Images. -->
+
 
 [3]: ./media/mobile-services-dotnet-backend-android-authorize-users-in-scripts/mobile-quickstart-startup-android.png
 
-<!-- URLs. -->
+
 [모바일 서비스 시작]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-android-get-started
 [데이터 시작]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-android-get-started-data
 [인증 시작]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-android-get-started-users

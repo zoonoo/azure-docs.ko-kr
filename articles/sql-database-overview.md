@@ -807,5 +807,5 @@ Azure는 테이블 저장소 및 Blob 저장소를 비롯한 여러 형식의 �
 이제 SQL 데이터베이스 관리의 기본 사항을 배웠으므로 다음 링크를 따라 좀 더 복잡한 관리 작업을 수행하는 방법을 알아보십시오.
 
 -   MSDN에서 [SQL 데이터베이스](http://msdn.microsoft.com/ko-kr/library/windowsazure/gg619386) 참조
--   [SQL 데이터베이스 TechNet WIKI](http://social.technet.microsoft.com/wiki/contents/articles/2267.sql-azure-technet-wiki-articles-index-en-us.aspx)(영문) 방문
+-   [SQL 데이터베이스 TechNet WIKI](http://social.technet.microsoft.com/wiki/contents/articles/2267.sql-azure-technet-wiki-articles-index-ko-kr.aspx)(영문) 방문
 

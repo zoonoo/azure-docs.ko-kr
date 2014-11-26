@@ -159,7 +159,6 @@ SAS 키 이름 및 값에 대한 값은 Azure 포털 연결 정보 또는 Visual
   [방법: 구독에서 메시지 받기]: #How_to_Receive_Messages_from_a_Subscription
   [방법: 응용 프로그램 크래시 및 읽을 수 없는 메시지 처리]: #How_to_Handle_Application_Crashes_and_Unreadable_Messages
   [방법: 토픽 및 구독 삭제]: #How_to_Delete_Topics_and_Subscriptions
-  [howto-service-bus-topics]: ../includes/howto-service-bus-topics.md
   [Python 설치 가이드]: ../python-how-to-install/
   [큐, 토픽 및 구독]: http://msdn.microsoft.com/ko-KR/library/hh367516.aspx
   [SqlFilter]: http://msdn.microsoft.com/ko-KR/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx

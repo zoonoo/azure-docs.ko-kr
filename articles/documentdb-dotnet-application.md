@@ -1,6 +1,6 @@
 <properties title="Build a web application with ASP.NET MVC using DocumentDB" pageTitle="Build a web application with ASP.NET MVC using DocumentDB | Azure" description="Learn how to use DocumentDB to build a To Do List web application. You'll store and access data from an ASP.NET MVC web application hosted on Azure."  metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, account" services="documentdb"  solutions="data-management" documentationCenter=""  authors="hawong" manager="jhubbard" editor="cgronlun" videoId="" scriptId="" />
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="08/19/2014" ms.author="hawong"></tags>
+<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="08/19/2014" ms.author="hawong" />
 
 # <a name="_Toc395809351">DocumentDB를 사용하여 ASP.NET MVC로 웹 응용 프로그램 작성</a>
 
@@ -33,7 +33,7 @@ Azure에 호스트된 ASP.NET MVC 웹 응용 프로그램에서 데이터를 저
 작성합니다. 작업은 Azure DocumentDB에 JSON 문서로
 저장됩니다.
 
-![Alt text](./media/documentdb-dotnet-application/image1.png)
+![대체 텍스트][대체 텍스트]
 
 # <a name="_Toc395637760">필수 조건</a>
 
@@ -42,11 +42,11 @@ Azure에 호스트된 ASP.NET MVC 웹 응용 프로그램에서 데이터를 저
 
 Git for Windows <http://www.git-scm.com/downloads>
 
-Visual Studio 2013(또는 [Visual Studio Express][]
+Visual Studio 2013(또는 [Visual Studio Express][Visual Studio Express]
 (무료 버전))
 
 Azure SDK for .NET 버전 2.3 이상
-([Microsoft 웹 플랫폼 설치 관리자][]를 통해 사용 가능)
+([Microsoft 웹 플랫폼 설치 관리자][Microsoft 웹 플랫폼 설치 관리자]를 통해 사용 가능)
 
 이 문서의 모든 스크린샷은 Visual Studio 2013 업데이트 3
 및 Azure SDK for .NET 버전 2.4를 사용하여
@@ -654,7 +654,7 @@ Azure 웹 사이트에 배포하겠습니다.
 [여기](<http://go.microsoft.com/fwlink/?LinkID=509838&clcid=0x409>)
 
   [대체 텍스트]: ./media/documentdb-dotnet-application/image1.png
-  [Visual Studio Express]: http://www.visualstudio.com/en-us/products/visual-studio-express-vs.aspx
+  [Visual Studio Express]: http://www.visualstudio.com/ko-kr/products/visual-studio-express-vs.aspx
   [Microsoft 웹 플랫폼 설치 관리자]: http://www.microsoft.com/web/downloads/platform.aspx
   [1]: ./media/documentdb-dotnet-application/image2.png
   [2]: ./media/documentdb-dotnet-application/image3.png

@@ -209,8 +209,8 @@
 
 
 <!-- Anchors.  --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+
 
 [Windows 스토어 C#]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push/ "Windows 스토어 C#"
 [Windows 스토어 JavaScript]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push/ "Windows 스토어 JavaScript"

@@ -94,7 +94,6 @@
 
 
 
-  [mobile-services-selector-get-started-push]: ../includes/mobile-services-selector-get-started-push.md
   [이 버전]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push
   [푸시 알림에 대해 앱 등록]: #register
   [푸시 알림을 전송하도록 서비스 업데이트]: #update-service
@@ -102,11 +101,7 @@
   [앱에서 푸시 알림 테스트]: #test
   [Microsoft 스토어 계정]: http://go.microsoft.com/fwlink/p/?LinkId=280045
   [Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=391934
-  [mobile-services-create-new-push-vs2013]: ../includes/mobile-services-create-new-push-vs2013.md
-  [mobile-services-dotnet-backend-update-server-push]: ../includes/mobile-services-dotnet-backend-update-server-push.md
-  [mobile-services-dotnet-backend-configure-local-push-vs2013]: ../includes/mobile-services-dotnet-backend-configure-local-push-vs2013.md
   [MobileServiceClient 개체]: http://msdn.microsoft.com/ko-kr/library/azure/jj554219.aspx
-  [mobile-services-dotnet-backend-windows-universal-test-push]: ../includes/mobile-services-dotnet-backend-windows-universal-test-push.md
   [인증된 사용자에게 푸시 알림 보내기]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-push-notifications-app-users/
   [데이터 시작하기]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-universal-javascript-get-started-data
   [인증 시작]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-universal-javascript-get-started-users

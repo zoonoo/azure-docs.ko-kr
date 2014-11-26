@@ -479,8 +479,8 @@ System.Configuration.dll에 대한 참조를 프로젝트에 추가하고 다른
   *  [REST API 참조][8]
 *  Azure 저장소를 사용하여 수행할 수 있는 고급 작업에 대한 자세한 내용은 [Azure에 데이터 저장 및 액세스][9]를 참조하십시오.
 *  Azure에 데이터를 저장하기 위한 추가 옵션에 대한 자세한 내용은 추가 기능 가이드를 참조하십시오.
-  *  [Blob 저장소](/en-us/develop/net/how-to-guides/blob-storage/)를 사용하여 구조화되지 않은 데이터를 저장합니다.
-  *  [SQL 데이터베이스](/en-us/develop/net/how-to-guides/sql-database/)를 사용하여 관계형 데이터를 저장합니다.
+  *  [Blob 저장소](/ko-kr/develop/net/how-to-guides/blob-storage/)를 사용하여 구조화되지 않은 데이터를 저장합니다.
+  *  [SQL 데이터베이스](/ko-kr/develop/net/how-to-guides/sql-database/)를 사용하여 관계형 데이터를 저장합니다.
  </appsettings>
 
 

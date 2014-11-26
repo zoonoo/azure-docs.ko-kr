@@ -6,7 +6,7 @@
 통신하지 않고 중간자 역할을 하는 토픽을 통해
 메시지를 교환합니다.
 
-![TopicConcepts][]
+![TopicConcepts][TopicConcepts]
 
 각 메시지가 단일 소비자에 의해 처리되는 서비스 버스 큐와 반대로,
 토픽과 구독은 게시/구독 패턴을 사용하여 **일 대 다**
@@ -34,13 +34,13 @@ Azure에서 서비스 버스 토픽 및 구독 사용을 시작하려면 먼저
 
 서비스 네임스페이스를 만들려면
 
-1.  [Azure 관리 포털][]에 로그온합니다.
+1.  [Azure 관리 포털][Azure 관리 포털]에 로그온합니다.
 
 2.  관리 포털의 왼쪽 탐색 창에서
     **Service Bus**를 클릭합니다.
 
 3.  관리 포털의 아래쪽 창에서 **만들기**를 클릭합니다.
-    ![][]
+    ![][0]
 
 4.  **새 네임스페이스 추가** 대화 상자에서 네임스페이스 이름을 입력합니다.
     시스템이 해당 이름을 사용할 수 있는지 여부를 즉시 확인합니다.
@@ -69,7 +69,7 @@ Azure에서 서비스 버스 토픽 및 구독 사용을 시작하려면 먼저
 
 1.  왼쪽 탐색 창에서 **서비스 버스** 노드를
     클릭하여 사용 가능한 네임스페이스 목록을 표시합니다.
-    ![][]
+    ![][0]
 
 2.  표시된 목록에서 방금 만든 네임스페이스를 선택합니다.
     ![][3]
@@ -81,7 +81,7 @@ Azure에서 서비스 버스 토픽 및 구독 사용을 시작하려면 먼저
 
 ### 서버 탐색기에서 관리 자격 증명을 가져오려면
 
-관리 포털 대신 Visual Studio를 사용하여 연결 정보를 가져오려면 [여기][] 나오는 **Visual Studio에서 Azure에 연결하려면** 섹션에서 설명하는 절차를 따르세요. Azure에 로그인하면 서버 탐색기의 **Microsoft Azure** 트리 아래에 있는 **Service Bus** 노드에 이미 만들어진 네임스페이스가 자동으로 채워집니다. 네임스페이스를 마우스 오른쪽 단추로 클릭한 후 **속성**을 클릭하여 연결 문자열 및 Visual Studio **속성** 창에 이 네임스페이스와 관련하여 표시되는 다른 메타데이터를 표시합니다.
+관리 포털 대신 Visual Studio를 사용하여 연결 정보를 가져오려면 [여기][여기] 나오는 **Visual Studio에서 Azure에 연결하려면** 섹션에서 설명하는 절차를 따르세요. Azure에 로그인하면 서버 탐색기의 **Microsoft Azure** 트리 아래에 있는 **Service Bus** 노드에 이미 만들어진 네임스페이스가 자동으로 채워집니다. 네임스페이스를 마우스 오른쪽 단추로 클릭한 후 **속성**을 클릭하여 연결 문자열 및 Visual Studio **속성** 창에 이 네임스페이스와 관련하여 표시되는 다른 메타데이터를 표시합니다.
 
 **SharedAccessKey** 값을 적어 두거나 클립보드에 복사해 둡니다.
 
@@ -89,10 +89,10 @@ Azure에서 서비스 버스 토픽 및 구독 사용을 시작하려면 먼저
 
   [TopicConcepts]: ./media/howto-service-bus-topics/sb-topics-01.png
   [Azure 관리 포털]: http://manage.windowsazure.com
-  []: ./media/howto-service-bus-topics/sb-queues-13.png
+  [0]: ./media/howto-service-bus-topics/sb-queues-13.png
   [1]: ./media/howto-service-bus-topics/sb-queues-04.png
   [2]: ./media/howto-service-bus-topics/getting-started-multi-tier-27.png
   [3]: ./media/howto-service-bus-topics/sb-queues-09.png
   [4]: ./media/howto-service-bus-topics/sb-queues-06.png
-  [여기]: http://http://msdn.microsoft.com/en-us/library/windowsazure/ff687127.aspx
+  [여기]: http://http://msdn.microsoft.com/ko-kr/library/windowsazure/ff687127.aspx
   [5]: ./media/howto-service-bus-topics/VSProperties.png

@@ -271,9 +271,9 @@ Azure에 게시하고 포털에 등록하기 전에 로컬에서 작업 예약�
 
 이제 모바일 서비스에서 새로운 예약된 작업을 만들었습니다. 이 작업은 사용하지 않도록 설정하거나 수정할 때까지는 예약된 대로 실행됩니다.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [Twitter 액세스 및 저장 자격 증명 등록]: #get-oauth-credentials
   [LINQ to Twitter 라이브러리 다운로드 및 설치]: #install-linq2twitter
@@ -282,7 +282,6 @@ Azure에 게시하고 포털에 등록하기 전에 로컬에서 작업 예약�
   [로컬에서 예약된 작업 테스트]: #run-job-locally
   [서비스 게시 및 작업 등록]: #register-job
   [LINQ to Twitter CodePlex 프로젝트]: http://linqtotwitter.codeplex.com/
-  [mobile-services-register-twitter-access]: ../includes/mobile-services-register-twitter-access.md
   [0]: ./media/mobile-services-dotnet-backend-schedule-recurring-tasks/add-linq2twitter-nuget-package.png
   [1]: ./media/mobile-services-dotnet-backend-schedule-recurring-tasks/add-component-model-reference.png
   [Code First 마이그레이션을 사용하여 데이터 모델을 업데이트하는 방법]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-use-code-first-migrations

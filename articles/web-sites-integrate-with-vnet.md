@@ -1,6 +1,6 @@
 <properties title="Integrate your Azure Website with an Azure Virtual Network" pageTitle="Integrate Azure Website with Azure VNet" description="Shows you how to connect an Azure Website to a new or existing Azure virtual network" metaKeywords="" services="web-sites,virtual-network" solutions="web,integration,infrastructure" documentationCenter="" authors="cephalin" videoId="" scriptId="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/24/2014" ms.author="cephalin"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/24/2014" ms.author="cephalin" />
 
 # Azure 가상 네트워크에 Azure 웹 사이트 통합
 
@@ -94,11 +94,3 @@ Azure 웹 사이트에서는 가상 네트워크 통합과 다소 비슷한 하�
 또한 현재 두 기능의 가격 책정 계층도 서로 다릅니다. 그 이유는 최저가형 수준에서는 하이브리드 연결 기능이 개발/테스트 시나리오에 사용할 때 매우 유용하며 소수의 끝점에 대한 액세스 권한만 제공되기 때문입니다. 반면 가상 네트워크 기능은 VNET 내부의 모든 항목 또는 VNET에 연결된 모든 항목에 대한 액세스 권한을 제공합니다.
 
   []: ./media/web-sites-integrate-with-vnet/upgrade-to-standard.png
-  [1]: ./media/web-sites-integrate-with-vnet/how-it-works.png
-  [2]: ./media/web-sites-integrate-with-vnet/connect-to-existing-vnet.png
-  [3]: ./media/web-sites-integrate-with-vnet/create-new-vnet.png
-  [4]: ./media/web-sites-integrate-with-vnet/new-vnet-progress.png
-  [5]: ./media/web-sites-integrate-with-vnet/vnet-status-portal.png
-  [6]: ./media/web-sites-integrate-with-vnet/vpn-to-onpremise.png
-  [7]: ./media/web-sites-integrate-with-vnet/vpn-to-onpremise-certificate.png
-  [8]: ./media/web-sites-integrate-with-vnet/vnet-sync-connection.png

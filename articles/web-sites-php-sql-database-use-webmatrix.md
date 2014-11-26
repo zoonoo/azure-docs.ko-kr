@@ -176,7 +176,6 @@ WebMatrix에서 웹 사이트를 만들어 Azure에 배포하는 방법을 학�
 
   [SQL Server Express]: http://www.microsoft.com/ko-KR/download/details.aspx?id=29062
   [Azure PHP 웹 사이트]: ./media/web-sites-php-sql-database-use-webmatrix/tasklist_app_windows.png
-  [create-account-and-websites-note]: ../includes/create-account-and-websites-note.md
   [다운로드]: http://go.microsoft.com/fwlink/?LinkId=252504
   [관리 포털]: https://manage.windowsazure.com
   [새 Azure 웹 사이트 만들기]: ./media/web-sites-php-sql-database-use-webmatrix/NewWebSite1.jpg
@@ -194,7 +193,6 @@ WebMatrix에서 웹 사이트를 만들어 Azure에 배포하는 방법을 학�
   [WebMatrix - 브라우저에서 createtable.php 시작]: ./media/web-sites-php-sql-database-use-webmatrix/edit_run.png
   [Azure 웹 사이트 및 SQL 데이터베이스 만들기]: #CreateWebsite
   [WebMatrix - 게시]: ./media/web-sites-php-sql-database-use-webmatrix/edit_publish.png
-  [http://[]: http://[your
   [WebMatrix - 원격 뷰 열기]: ./media/web-sites-php-sql-database-use-webmatrix/OpenRemoteView.png
   [WebMatrix - 인덱스 파일 열기]: ./media/web-sites-php-sql-database-use-webmatrix/Remote_editIndex.png
   [WebMatrix - 원격으로 사이트 실행]: ./media/web-sites-php-sql-database-use-webmatrix/Remote_run.png

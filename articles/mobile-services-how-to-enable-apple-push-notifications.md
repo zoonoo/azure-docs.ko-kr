@@ -14,4 +14,3 @@
 
   [Azure 관리 포털]: https://manage.windowsazure.com/
   [푸시 알림 시작]: /ko-kr/documentation/articles/mobile-services-javascript-backend-ios-get-started-push/
-  [Apple 푸시 알림 설정]: ../includes/enable-apple-push-notifications.md

@@ -100,7 +100,9 @@ Docker VM을 만드는 것뿐 아니라 `azure vm docker create` 명령은 Docke
 
 이제 [Docker 사용자 가이드][Docker 사용자 가이드]로 이동하여 Docker VM을 사용할 수 있습니다. 새 포털에서 Docker 사용 가능 VM을 만들려면 [포털에서 Docker VM 확장을 사용하는 방법][포털에서 Docker VM 확장을 사용하는 방법]을 참조하세요.
 
-<!--Anchors--> <!--Image references--> <!--Link references-->
+<!--Anchors-->
+<!--Image references-->
+<!--Link references-->
 
   [Docker]: https://www.docker.com/
   [Linux 컨테이너]: http://en.wikipedia.org/wiki/LXC

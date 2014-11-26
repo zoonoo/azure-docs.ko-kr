@@ -158,9 +158,9 @@ Windows 스토어 앱에서
 
 템플릿 사용에 대한 자세한 내용은 [알림 허브를 통해 사용자에게 알림: ASP.NET][알림 허브를 통해 사용자에게 알림: ASP.NET], [알림 허브를 통해 사용자에게 알림: 모바일 서비스][알림 허브를 통해 사용자에게 알림: 모바일 서비스] 및 [알림 허브 지침][알림 허브 지침]을 참조하십시오. 템플릿 표현 언어에 대한 자세한 내용은 [Windows 스토어용 알림 허브 방법][Windows 스토어용 알림 허브 방법]을 참조하십시오.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [알림 허브를 사용하여 속보 보내기]: /ko-KR/manage/services/notification-hubs/breaking-news-dotnet
   [템플릿 개념]: #concepts
@@ -169,6 +169,5 @@ Windows 스토어 앱에서
   [백 엔드에서 알림 보내기]: #send
   [알림 허브 지침]: http://msdn.microsoft.com/ko-KR/library/jj927170.aspx
   [Windows 스토어용 알림 허브 방법]: http://msdn.microsoft.com/ko-KR/library/jj927172.aspx
-  [notification-hubs-localized-back-end]: ../includes/notification-hubs-localized-back-end.md
   [알림 허브를 통해 사용자에게 알림: ASP.NET]: /ko-KR/manage/services/notification-hubs/notify-users-aspnet
   [알림 허브를 통해 사용자에게 알림: 모바일 서비스]: /ko-KR/manage/services/notification-hubs/notify-users

@@ -1,6 +1,6 @@
 <properties linkid="develop-python-tutorials-django-with-python-tools-for-visual-studio" urlDisplayName="Django with Python Tools for Visual Studio 2.0" pageTitle="Creating Django applications with Python Tools for Visual Studio 2.0" metaKeywords="" description="Learn how to use the Python Tools for Visual Studio to create a Django application that stores data in a SQL Database or MySQL database instance and can be deployed to a website or cloud service." metaCanonical="" services="web-sites,cloud-services" documentationCenter="Python" title="Creating Django applications with Python Tools 2.0 for Visual Studio" authors="huvalo" solutions="" manager="" editor="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo" />
 
 # Python Tools 2.0 for Visual Studio를 사용하여 Django 응용 프로그램 만들기
 
@@ -16,14 +16,14 @@
 
 이 자습서는 Python Tools for Visual Studio 및 Azure를 중점적으로 다룹니다. Django 및 이 자습서에서 빌드한 설문 조사 응용 프로그램에 대한 자세한 내용은 [][]<https://www.djangoproject.com/></a>(영문)을 참조하십시오.
 
-[WACOM.INCLUDE [create-account-and-websites-note][]]
+[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 ## 요구 사항
 
 자습서를 완료하려면 다음이 필요합니다.
 
--   [Python Tools 2.0 for Visual Studio][]
--   [Python 2.7(32비트)][]
+-   [Python Tools 2.0 for Visual Studio][Python Tools 2.0 for Visual Studio]
+-   [Python 2.7(32비트)][Python 2.7(32비트)]
 -   Visual Studio 및 Azure SDK:
   - VS 2010 Pro 이상 및 Azure SDK 2.1
   - VS 2012 Pro 이상 및 Azure SDK 2.1, 2.2 이상
@@ -36,14 +36,14 @@
 
 ## 기존 프로젝트 다운로드
 
-자습서를 건너뛰고 싶은 경우 [이 프로젝트의 소스 코드를 다운로드][]할 수 있습니다.
+자습서를 건너뛰고 싶은 경우 [이 프로젝트의 소스 코드를 다운로드][이 프로젝트의 소스 코드를 다운로드]할 수 있습니다.
 
 superuser에 대해 다음 자격 증명을 사용하여 sqlite3 데이터베이스가 이미 만들어져 있습니다.
 
     Username: tutorial
     Password: azure
 
-다운로드에 가상 환경은 포함되지 않습니다. [가상 환경 만들기][] 섹션의 단계에 따라 가상 환경을 만들어야 합니다. 가상 환경을 만들면 [디버그][] 섹션에 대해 프로젝트가 준비됩니다.
+다운로드에 가상 환경은 포함되지 않습니다. [가상 환경 만들기][가상 환경 만들기] 섹션의 단계에 따라 가상 환경을 만들어야 합니다. 가상 환경을 만들면 [디버그][디버그] 섹션에 대해 프로젝트가 준비됩니다.
 
 ## 프로젝트 만들기
 
@@ -51,7 +51,7 @@ Python Tools for Visual Studio는 Python 가상 환경을 지원합니다. djang
 
 1.  Visual Studio, 파일/새 프로젝트, **tutorial**이라는 이름의 Django 응용 프로그램을 엽니다.
 
-    ![새 프로젝트][]
+    ![새 프로젝트][새 프로젝트]
 
 **참고:** 솔루션 탐색기의 참조 아래에 Django 1.4에 대한 노드가 표시됩니다. 이 노드는 대상 컴퓨터에 Python 및 Django를 설치하기 위해 Azure 클라우드 서비스 배포용으로 사용됩니다. 참조 메모에서 Django 1.4에 대한 참조를 삭제하지 마십시오. 가상 환경을 사용하고 Django 패키지를 설치할 것이기 때문에 가상 환경에 설치된 Django 패키지가 사용됩니다.
 
@@ -61,17 +61,17 @@ Python Tools for Visual Studio는 Python 가상 환경을 지원합니다. djang
 
 1.  새 가상 환경을 만듭니다. 솔루션 탐색기에서 **Python Environments**를 마우스 오른쪽 단추로 클릭하고 **Add Virtual Environment**를 선택합니다.
 
-    ![가상 환경 추가][]
+    ![가상 환경 추가][가상 환경 추가]
 
 2.  기본 Python Interpreter로 Python 2.7을 선택하고 기본 이름 **env**를 사용합니다. pip 및/또는 virtualenv를 이미 설치하지 않은 경우 PTVS에서 이를 설치합니다.
 
 3.  **env** 및 **easy\_install**을 사용하여 **Install Python Package**: **django를 마우스 오른쪽 단추로 클릭합니다.**
 
-    ![Django 설치][]
+    ![Django 설치][Django 설치]
 
 4.  Django에는 파일이 많으므로 설치하는 데 시간이 걸립니다. 출력 창에서 진행률을 볼 수 있습니다.
 
-    ![Django 설치 출력][]
+    ![Django 설치 출력][Django 설치 출력]
 
     **참고:** 출력 창에 실패가 표시되는 경우가 드물게 발생합니다. 그런 경우 오류가 정리와 관련이 있는지 확인하십시오. 때때로 정리는 실패하지만 설치는 성공하는 경우가 있습니다(이를 확인하려면 출력 창에서 위로 스크롤). 이는 PTVS에서 새로 만든 임시 파일/폴더를 잠가서 pip 정리 단계에서 삭제하지 못하도록 하기 때문에 발생합니다.
 
@@ -81,7 +81,7 @@ Python Tools for Visual Studio는 Python 가상 환경을 지원합니다. djang
 
 1.  모두 올바르게 설치되었는지 확인해 봅시다. **F5** 또는 **Ctrl+F5**를 눌러 웹 사이트를 시작합니다. 그러면 django 개발 서버가 실행되고 웹 브라우저가 시작됩니다. 다음 페이지가 표시되어야 합니다.
 
-    ![Django 웹 브라우저][]
+    ![Django 웹 브라우저][Django 웹 브라우저]
 
 ## 설문 조사 응용 프로그램 만들기
 
@@ -91,7 +91,7 @@ Django 프로젝트에는 여러 응용 프로그램이 포함될 수 있습니�
 
 1.  **프로젝트 노드**, **추가**-\>**Django 앱**(이름: **polls**)을 선택합니다. 그러면 일반적으로 사용되는 응용 프로그램 파일에 대한 상용구 코드와 함께 응용 프로그램의 폴더가 생성됩니다.
 
-    ![Django 앱 추가][]
+    ![Django 앱 추가][Django 앱 추가]
 
 2.  **tutorial/settings.py**에서 **INSTALLED\_APPS**에 다음을 추가합니다.
 
@@ -261,7 +261,7 @@ Django 프로젝트에는 여러 응용 프로그램이 포함될 수 있습니�
 
 14. 이제 프로젝트에 다음 파일이 있어야 합니다.
 
-    ![솔루션 탐색기][]
+    ![솔루션 탐색기][솔루션 탐색기]
 
 ## 로컬에서 sqlite3 데이터베이스 만들기
 
@@ -290,31 +290,31 @@ Django 프로젝트에는 여러 응용 프로그램이 포함될 수 있습니�
 
 4.  프로젝트 노드를 마우스 오른쪽 단추로 클릭하고 **Django**-\>**Django Sync DB**를 선택합니다. Django 관리 대화형 창이 표시됩니다. 데이터베이스가 아직 존재하지 않으므로 관리자 자격 증명을 만들라는 메시지가 표시됩니다. 사용자 이름 및 암호를 입력합니다. 전자 메일은 선택 사항입니다.
 
-    ![Django 동기화 DB][]
+    ![Django 동기화 DB][Django 동기화 DB]
 
 5.  F5 또는 Ctrl-F5를 눌러 웹 사이트를 시작합니다. 그러면 django 개발 서버가 실행되고 웹 브라우저가 시작됩니다. 웹 사이트의 루트 url은 설문 조사의 인덱스를 표시하지만 데이터베이스에 아직 아무것도 없습니다.
 
-    ![웹 브라우저][]
+    ![웹 브라우저][웹 브라우저]
 
 6.  **<http://localhost>:{port}/admin**으로 이동합니다. 개발 서버 콘솔 창에서 포트 번호를 확인할 수 있습니다. 이전 단계에서 만든 자격 증명을 사용하여 로그인합니다.
 
-    ![설문 조사 추가][]
+    ![설문 조사 추가][설문 조사 추가]
 
 7.  관리 인터페이스를 사용하여 설문 조사를 하나 또는 두 개 추가합니다. 로컬 데이터베이스에 설문 조사를 추가하는 데 너무 많은 시간을 소비하지 마십시오. 나중에 클라우드 데이터베이스로 전환하고 데이터베이스를 다시 채울 것입니다.
 
-    ![설문 조사 인덱스][]
+    ![설문 조사 인덱스][설문 조사 인덱스]
 
 8.  **<http://localhost>:{port}/admin**로 이동합니다. 추가한 설문 조사의 인덱스가 표시됩니다.
 
-    ![][]
+    ![][0]
 
 9.  설문 조사를 하나 클릭하고 투표 페이지로 이동합니다.
 
-    ![설문 조사 세부 정보][]
+    ![설문 조사 세부 정보][설문 조사 세부 정보]
 
 10. 투표를 제출하면 투표 수가 증가하는 것을 볼 수 있는 결과 페이지로 리디렉션됩니다.
 
-    ![설문 조사 결과][]
+    ![설문 조사 결과][설문 조사 결과]
 
 ## 스타일시트 및 기타 정적 파일 사용
 
@@ -376,7 +376,7 @@ Python Tools for Visual Studio에는 Django 템플릿 디버그에 대해 특별
 
 다음 두 섹션에서는 SQL 데이터베이스와 MySQL 데이터베이스를 사용하는 방법을 설명합니다. 두 데이터베이스 모두 호스트된 서비스입니다.
 
-가상 컴퓨터를 만들어 데이터베이스 서버를 설치할 수도 있습니다. Azure Linux VM에서 MySQL 설정에 대한 지침은 [여기][]를 참조하십시오.
+가상 컴퓨터를 만들어 데이터베이스 서버를 설치할 수도 있습니다. Azure Linux VM에서 MySQL 설정에 대한 지침은 [여기][여기]를 참조하십시오.
 
 **참고:** Azure에서 sqlite3 데이터베이스를 사용할 수 있습니다(개발용으로만, 프로덕션에서 사용하는 것은 권장하지 않음). django 응용 프로그램과 함께 데이터베이스에 배포하려면 프로젝트에 **db.sqlite3** 파일을 추가해야 합니다.
 
@@ -466,7 +466,7 @@ Azure 스토어에서 MySQL 데이터베이스를 비롯하여 다양한 서비�
         p.choice_set.create(choice_text='Cloud Service', votes=0)
         p.choice_set.create(choice_text='Virtual Machine', votes=0)
 
-    ![Django 셸 설문 조사 추가][]
+    ![Django 셸 설문 조사 추가][Django 셸 설문 조사 추가]
 
 3.  모델에 대한 정적 분석은 전체 API에 대해 제한된 뷰를 제공합니다. 대화형 창에서는 라이브 개체에 대한 IntelliSense를 얻을 수 있으므로 API를 탐색하기에 좋은 방법입니다. 다음은 대화형 창에서 시도해볼 수 있는 몇 가지입니다.
 
@@ -482,7 +482,7 @@ Azure 스토어에서 MySQL 데이터베이스를 비롯하여 다양한 서비�
         # get object by primary key
         Poll.objects.get(pk=1)
 
-    ![Django 셸 설문 조사 쿼리][]
+    ![Django 셸 설문 조사 쿼리][Django 셸 설문 조사 쿼리]
 
 4.  웹 사이트를 시작합니다. Django 셸을 사용하여 추가한 설문 조사가 표시되어야 합니다.
 
@@ -492,9 +492,9 @@ Azure 스토어에서 MySQL 데이터베이스를 비롯하여 다양한 서비�
 
 Azure에는 Django 응용 프로그램을 호스트하는 몇 가지 방법이 있습니다.
 
--   [웹 사이트][]
--   [클라우드 서비스][]
--   [가상 컴퓨터][]
+-   [웹 사이트][웹 사이트]
+-   [클라우드 서비스][클라우드 서비스]
+-   [가상 컴퓨터][가상 컴퓨터]
 
 Python Tools for Visual Studio에는 Azure 웹 사이트 및 클라우드 서비스에 게시하는 기능이 있습니다. 다음 두 섹션에서는 이러한 기능에 대해 설명하며, 둘 중 하나를 선택하여 진행하거나 둘 다 진행할 수 있습니다.
 
@@ -508,11 +508,11 @@ Python Tools for Visual Studio에는 Azure 웹 사이트 및 클라우드 서비
 
 2.  웹 사이트를 만들었으면 웹 사이트의 게시 프로필을 다운로드합니다.
 
-    ![웹 사이트 프로필 다운로드][]
+    ![웹 사이트 프로필 다운로드][웹 사이트 프로필 다운로드]
 
 3.  Visual Studio에서 프로젝트 노드를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다.
 
-    ![웹 사이트 게시][]
+    ![웹 사이트 게시][웹 사이트 게시]
 
 4.  이전에 다운로드한 웹 사이트 게시 프로필 파일을 가져옵니다.
 
@@ -520,7 +520,7 @@ Python Tools for Visual Studio에는 Azure 웹 사이트 및 클라우드 서비
 
 6.  게시가 완료되면 웹 브라우저가 게시된 웹 사이트로 열립니다.
 
-    ![웹 사이트 브라우저][]
+    ![웹 사이트 브라우저][웹 사이트 브라우저]
 
 ### Azure 클라우드 서비스
 
@@ -536,7 +536,7 @@ Python Tools for Visual Studio에는 Azure 웹 사이트 및 클라우드 서비
 
 2.  **F5**를 눌러 디버그를 시작하면 앱이 계산 에뮬레이터에서 실행되고 배포됩니다. 관리 인터페이스가 작동하며 설문 조사에서 투표를 할 수 있는지 확인하십시오.
 
-    ![계산 에뮬레이터][]
+    ![계산 에뮬레이터][계산 에뮬레이터]
 
 3.  관리자로 계속 실행하지 않으려면 Visual Studio를 다시 시작하면 됩니다.
 
@@ -546,13 +546,13 @@ Python Tools for Visual Studio에는 Azure 웹 사이트 및 클라우드 서비
 
     **참고:** 클라우드 서비스 프로젝트에서 **게시**를 선택하십시오. 그러면 **Publish Azure Application** 대화 상자가 실행되어 Azure 클라우드 서비스에 게시할 수 있습니다. Django 프로젝트에서 **게시**를 선택하면 Azure 웹 사이트에 게시하는 데 사용되는 **웹 게시** 대화 상자가 실행됩니다.
 
-    ![클라우드 서비스 게시][]
+    ![클라우드 서비스 게시][클라우드 서비스 게시]
 
-2.  Azure 구독 파일을 가져와야 합니다. [로그인하여 자격 증명 다운로드][] 링크를 클릭하여 Azure 포털에서 다운로드합니다.
+2.  Azure 구독 파일을 가져와야 합니다. [로그인하여 자격 증명 다운로드][로그인하여 자격 증명 다운로드] 링크를 클릭하여 Azure 포털에서 다운로드합니다.
 
 3.  설정 페이지에서 클라우드 서비스 콤보 상자의 **새로 만들기**를 선택하여 새 클라우드 서비스를 만듭니다. 사용 가능한 아무 이름이나 사용할 수 있습니다.
 
-    ![클라우드 서비스 설정][]
+    ![클라우드 서비스 설정][클라우드 서비스 설정]
 
 4.  기본 설정을 적용하고 **게시**를 클릭합니다. 클라우드 서비스에 대해 VM을 프로비전해야 하기 때문에 웹 사이트에 게시하는 것보다 시간이 더 걸립니다. Azure 활동 로그 창에서 진행률을 볼 수 있습니다.
 
@@ -560,15 +560,13 @@ Python Tools for Visual Studio에는 Azure 웹 사이트 및 클라우드 서비
 
 5.  작업을 완료하면 Azure 활동 로그 창에서 웹 사이트 URL을 클릭하여 웹 브라우저를 엽니다.
 
-    ![클라우드 서비스 브라우저][]
+    ![클라우드 서비스 브라우저][클라우드 서비스 브라우저]
 
 ## 결론
 
 이 자습서에서는 [Python Tools for Visual Studio][Python Tools 2.0 for Visual Studio]를 사용하여 Django 응용 프로그램을 개발했습니다. 세 가지 다른 데이터베이스, 즉 sqlite3, SQL Server 및 MySQL 데이터베이스를 사용했습니다. 마지막으로 Azure 웹 사이트 및 클라우드 서비스에 응용 프로그램을 게시했습니다.
 
-  [자습서 보기]: http://www.youtube.com/watch?v=wkqjafvvU5w
-  []: https://www.djangoproject.com/
-  [create-account-and-websites-note]: ../includes/create-account-and-websites-note.md
+  [0]: https://www.djangoproject.com/
   [Python Tools 2.0 for Visual Studio]: http://pytools.codeplex.com
   [Python 2.7(32비트)]: http://www.python.org/download/
   [이 프로젝트의 소스 코드를 다운로드]: http://download-codeplex.sec.s-msft.com/Download?ProjectName=pytools&DownloadId=783376
@@ -585,7 +583,7 @@ Python Tools for Visual Studio에는 Azure 웹 사이트 및 클라우드 서비
   [웹 브라우저]: ./media/cloud-services-python-create-deploy-django-app/django-tutorial-008-dev-server.png
   [설문 조사 추가]: ./media/cloud-services-python-create-deploy-django-app/django-tutorial-009-admin-login.png
   [설문 조사 인덱스]: ./media/cloud-services-python-create-deploy-django-app/django-tutorial-009-admin-add-poll.png
-  []: ./media/cloud-services-python-create-deploy-django-app/django-tutorial-010-index.png
+  [0]: ./media/cloud-services-python-create-deploy-django-app/django-tutorial-010-index.png
   [설문 조사 세부 정보]: ./media/cloud-services-python-create-deploy-django-app/django-tutorial-011-detail.png
   [설문 조사 결과]: ./media/cloud-services-python-create-deploy-django-app/django-tutorial-012-results.png
   [1]: ./media/cloud-services-python-create-deploy-django-app/django-tutorial-013-solution-explorer.png

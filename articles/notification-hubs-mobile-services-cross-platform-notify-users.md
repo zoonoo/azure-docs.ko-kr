@@ -110,9 +110,9 @@
 -   **[Windows 스토어에 대한 알림 허브 방법][Windows 스토어에 대한 알림 허브 방법]**
     템플릿 표현 언어 참조가 포함되어 있습니다.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [알림 허브를 통해 사용자에게 알림]: /ko-KR/manage/services/notification-hubs/notify-users
   [Azure 알림 허브 개요]: http://go.microsoft.com/fwlink/p/?LinkId=317339

@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-command-line-administration" urlDisplayName="Command Line Administration" pageTitle="Administering a Mobile Service at the command line - Azure tutorial" metaKeywords="" description="Learn how to create, deploy, and manage your Azure Mobile Service using command-line tools." metaCanonical="" services="" documentationCenter="Mobile" title="Automate mobile services with command-line tools" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # 명령줄 도구를 사용하여 모바일 서비스 자동화
 
@@ -150,7 +150,7 @@ Azure 명령줄 도구를 사용하여 모바일 서비스를 관리하려면 Az
 
 스크립트 등록에 대한 자세한 내용은 [모바일 서비스 서버 스크립트 참조][모바일 서비스 서버 스크립트 참조](영문)를 참조하십시오.
 
-<!--<h2><a name="test-service"></a><span class="short-header">Test the service</span>Test the new mobile service</h2>  When you are automating the creation of your mobile service, you can optionally use cURL or another command-line request generator to   ## <a name="nextsteps"> </a>Next Steps Next steps here.... --> <!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
+<!--<h2><a name="test-service"></a><span class="short-header">Test the service</span>Test the new mobile service</h2>  When you are automating the creation of your mobile service, you can optionally use cURL or another command-line request generator to   ## <a name="nextsteps"> </a>Next Steps Next steps here.... -->   
 
   [새 모바일 서비스 만들기]: #create-service
   [새 테이블 만들기]: #create-table

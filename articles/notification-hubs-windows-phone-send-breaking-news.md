@@ -222,8 +222,8 @@ In this tutorial we learned how to broadcast breaking news by category. Consider
 	Learn how to push notifications to specific authenticated users. This is a good solution for sending notifications only to specific users. 
 --> 
 
-<!-- Anchors. --> 
-<!-- Images. --> 
+ 
+ 
 <!-- URLs.-->
 
   [Windows 범용]: /ko-KR/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/ "Windows 범용"
@@ -234,7 +234,6 @@ In this tutorial we learned how to broadcast breaking news by category. Consider
   [백 엔드에서 알림 보내기]: #send
   [앱 실행 및 알림 생성]: #test-app
   [알림 허브 시작]: /ko-KR/manage/services/notification-hubs/get-started-notification-hubs-wp8/
-  [notification-hubs-back-end]: ../includes/notification-hubs-back-end.md
   [0]: ./media/notification-hubs-windows-phone-send-breaking-news/notification-hub-breakingnews.png
   [2]: ./media/notification-hubs-windows-phone-send-breaking-news/notification-hub-registration.png
   [3]: ./media/notification-hubs-windows-phone-send-breaking-news/notification-hub-toast.png

@@ -215,7 +215,5 @@ Azure 서비스 클라이언트를 만들려면 **ServicesBuilder** 클래스를
   [방법: 큐에서 메시지 받기]: #ReceiveMessages
   [방법: 응용 프로그램 크래시 및 읽을 수 없는 메시지 처리]: #HandleCrashes
   [다음 단계]: #NextSteps
-  [howto-service-bus-queues]: ../includes/howto-service-bus-queues.md
   [OpenSSL 확장]: http://php.net/openssl
-  [get-client-libraries]: ../includes/get-client-libraries.md
   [큐, 토픽 및 구독]: http://msdn.microsoft.com/ko-kr/library/windowsazure/hh367516.aspx

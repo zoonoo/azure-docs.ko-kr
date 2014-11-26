@@ -54,9 +54,9 @@
 
 이제 모바일 서비스에 앱 ID 및 앱 암호 값을 제공하여 앱에서 Facebook 로그인을 인증에 사용할 준비가 되었습니다.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [Azure 모바일 서비스]: http://azure.microsoft.com/ko-kr/services/mobile-services/
   [인증 시작]: http://azure.microsoft.com/ko-kr/documentation/articles/mobile-services-ios-get-started-users/

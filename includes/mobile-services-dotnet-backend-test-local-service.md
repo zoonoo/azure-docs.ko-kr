@@ -4,8 +4,8 @@
 
 2.  **F5** 키를 눌러 프로젝트를 다시 빌드하고 모바일 서비스를 로컬로 시작합니다.
 
-    ![][]
+    ![][0]
 
     모바일 서비스가 성공적으로 시작된 후에 웹 페이지가 표시됩니다.
 
-  []: ./media/mobile-services-dotnet-backend-test-local-service/mobile-service-startup.png
+  [0]: ./media/mobile-services-dotnet-backend-test-local-service/mobile-service-startup.png

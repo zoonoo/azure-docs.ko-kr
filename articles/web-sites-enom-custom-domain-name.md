@@ -1,6 +1,6 @@
 <properties title="Learn how to configure an Azure website to use a domain name registered with eNom" pageTitle="Configure an eNom domain name for an Azure website" metaKeywords="Windows Azure, Windows Azure Web Sites, domain name" description="" services="web-sites" documentationCenter="" authors="larryfr, jroth" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr, jroth"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr, jroth" />
 
 # Azure 웹 사이트에 대한 사용자 지정 도메인 이름 구성(eNom)
 
@@ -8,28 +8,28 @@
 
 <div class="dev-center-tutorial-subselector"><a href="/ko-KR/documentation/articles/web-sites-enom-custom-domain-name/" title="웹 사이트" class="current">웹 사이트</a> | <a href="/ko-KR/documentation/articles/web-sites-enom-traffic-manager-custom-domain-name/" title="트래픽 관리자를 사용하는 웹 사이트">트래픽 관리자를 사용하는 웹 사이트</a></div>
 
-[WACOM.INCLUDE [websites-cloud-services-css-guided-walkthrough][]]
+[WACOM.INCLUDE [websites-cloud-services-css-guided-walkthrough](../includes/websites-cloud-services-css-guided-walkthrough.md)]
 
-[WACOM.INCLUDE [intro][]]
+[WACOM.INCLUDE [intro](../includes/custom-dns-web-site-intro.md)]
 
-이 문서에서는 Azure 웹 사이트 및 [eNom][]에서 구매한 사용자 지정 도메인 이름 사용에 대한 지침을 제공합니다.
+이 문서에서는 Azure 웹 사이트 및 [eNom][eNom]에서 구매한 사용자 지정 도메인 이름 사용에 대한 지침을 제공합니다.
 
-[WACOM.INCLUDE [introfooter][]]
+[WACOM.INCLUDE [introfooter](../includes/custom-dns-web-site-intro-notes.md)]
 
 이 문서의 내용
 
--   [DNS 레코드 이해][]
--   [기본, 공유 또는 표준 모드에 대한 웹 사이트 구성][]
--   [사용자 지정 도메인에 대한 DNS 레코드 추가][]
--   [웹 사이트에서 도메인 사용][]
+-   [DNS 레코드 이해][DNS 레코드 이해]
+-   [기본, 공유 또는 표준 모드에 대한 웹 사이트 구성][기본, 공유 또는 표준 모드에 대한 웹 사이트 구성]
+-   [사용자 지정 도메인에 대한 DNS 레코드 추가][사용자 지정 도메인에 대한 DNS 레코드 추가]
+-   [웹 사이트에서 도메인 사용][웹 사이트에서 도메인 사용]
 
 ## <a name="understanding-records"></a>DNS 레코드 이해
 
-[WACOM.INCLUDE [understandingdns][]]
+[WACOM.INCLUDE [understandingdns](../includes/custom-dns-web-site-understanding-dns-raw.md)]
 
 ## <a name="bkmk_configsharedmode"></a>기본, 공유 또는 표준 모드에 대한 웹 사이트 구성
 
-[WACOM.INCLUDE [modes][]]
+[WACOM.INCLUDE [modes](../includes/custom-dns-web-site-modes.md)]
 
 <a name="bkmk_configurecname"></a>
 
@@ -41,11 +41,11 @@
 
 2.  **My Domains** 페이지에서 **Manage Domain** 필드를 사용하여 **Host Records**를 선택합니다. 그러면 호스트 레코드 필드가 표시됩니다.
 
-    ![DNS Zone File 탭][]
+    ![DNS Zone File 탭][DNS Zone File 탭]
 
 3.  Host Records 편집기에서 **Record Type** 필드를 사용하여 특정 레코드 유형을 선택할 수 있습니다. Azure 웹 사이트에서 **CNAME (Alias)** 또는 **A (Address)** 선택 항목만 사용해야 합니다.
 
-    ![영역 파일 편집기][]
+    ![영역 파일 편집기][영역 파일 편집기]
 
     > [WACOM.NOTE] 영역 파일에 항목을 추가하기 전에 eNom에서 루트 도메인('@') 및 하위 도메인 와일드카드('\*')에 대한 DNS 레코드를 이미 만든 것을 볼 수 있습니다. 웹 사이트로 루트 도메인을 리디렉션하거나 와일드카드 A 레코드를 사용하려는 경우 새로 만드는 대신 이러한 항목을 수정해야 합니다.
 
@@ -69,29 +69,12 @@
 
 ## <a name="enabledomain"></a>웹 사이트에서 도메인 이름 사용
 
-[WACOM.INCLUDE [modes][1]]
+[WACOM.INCLUDE [modes](../includes/custom-dns-web-site-modes.md)]
 
-  [사용자 지정 도메인]: /ko-KR/documentation/articles/web-sites-custom-domain-name "사용자 지정 도메인"
-  [GoDaddy]: /ko-KR/documentation/articles/web-sites-godaddy-custom-domain-name "GoDaddy"
-  [Network Solutions]: /ko-KR/documentation/articles/web-sites-network-solutions-custom-domain-name "Network Solutions"
-  [Register.com]: /ko-KR/documentation/articles/web-sites-registerdotcom-custom-domain-name "Register.com"
-  [Enom]: /ko-KR/documentation/articles/web-sites-enom-custom-domain-name "Enom"
-  [Moniker]: /ko-KR/documentation/articles/web-sites-moniker-custom-domain-name "Moniker"
-  [Dotster]: /ko-KR/documentation/articles/web-sites-dotster-custom-domain-name "Dotster"
-  [DomainDiscover]: /ko-KR/documentation/articles/web-sites-domaindiscover-custom-domain-name "DomainDiscover"
-  [Directnic]: /ko-KR/documentation/articles/web-sites-directnic-custom-domain-name "Directnic"
-  [웹 사이트]: /ko-KR/documentation/articles/web-sites-enom-custom-domain-name/ "웹 사이트"
-  [트래픽 관리자를 사용하는 웹 사이트]: /ko-KR/documentation/articles/web-sites-enom-traffic-manager-custom-domain-name/ "트래픽 관리자를 사용하는 웹 사이트"
-  [websites-cloud-services-css-guided-walkthrough]: ../includes/websites-cloud-services-css-guided-walkthrough.md
-  [intro]: ../includes/custom-dns-web-site-intro.md
   [eNom]: https://enom.com
-  [introfooter]: ../includes/custom-dns-web-site-intro-notes.md
   [DNS 레코드 이해]: #understanding-records
   [기본, 공유 또는 표준 모드에 대한 웹 사이트 구성]: #bkmk_configsharedmode
   [사용자 지정 도메인에 대한 DNS 레코드 추가]: #bkmk_configurecname
   [웹 사이트에서 도메인 사용]: #enabledomain
-  [understandingdns]: ../includes/custom-dns-web-site-understanding-dns-raw.md
-  [modes]: ../includes/custom-dns-web-site-modes.md
   [DNS Zone File 탭]: ./media/web-sites-custom-domain-name/e-hostrecords.png
   [영역 파일 편집기]: ./media/web-sites-custom-domain-name/e-editrecords.png
-  [1]: ../includes/custom-dns-web-site-enable-on-web-site.md

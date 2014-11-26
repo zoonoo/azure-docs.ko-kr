@@ -357,7 +357,6 @@ Composer 탭에서 문서 게시 요청은 다음과 같이 표시됩니다. 요
 
 
 <!--Anchors--> 
-  [이 문서에서는 Azure 미리 보기 포털을 사용합니다.]: ../includes/preview-portal-note.md
   [무료 서비스로 시작]: #sub-1
   [표준 검색으로 업그레이드]: #sub-2
   [서비스 작동 테스트]: #sub-3

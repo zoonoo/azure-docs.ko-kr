@@ -194,7 +194,8 @@ JavaScript 백 엔드 모바일 서비스에 대해 **TodoWithDate**라는 새 �
 
 푸시를 취소하면 `PushAsync`에서 `MobileServicePushFailedException`을 내어 예외 속성인 `PushResult.Status`가 `MobileServicePushStatus.CancelledByOperation` 값을 포함합니다.
 
-<!-- Anchors. --> <!-- Images --> <!-- URLs -->
+ <!-- Images -->
+<!-- URLs -->
 
   [오프라인 데이터 시작]: /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data
   [Windows 스토어 앱 프로젝트 다운로드]: #download-app

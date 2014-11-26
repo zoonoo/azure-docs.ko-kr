@@ -247,8 +247,8 @@
 
 이 간단한 예제에서는 사용자가 방금 삽입한 데이터로 푸시 알림을 받습니다. 클라이언트가 요청을 통해 GCM에서 사용하는 장치 토큰을 모바일 서비스에 제공합니다. 다음 자습서인 [앱 사용자에 대한 푸시 알림][앱 사용자에 대한 푸시 알림]에서는, 장치 토큰을 저장하고 삽입이 발생할 경우 저장된 모든 채널로 푸시 알림을 보내는 별도의 Devices 테이블을 만듭니다.
 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+
 
   [푸시 알림 시작]: /ko-kr/documentation/articles/mobile-services-javascript-backend-android-get-started-push/
   [Google Cloud Messaging 사용]: #register
@@ -258,11 +258,9 @@
   [알림을 받기 위한 데이터 삽입]: #test
   [모바일 서비스 Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
   [모바일 서비스 시작하기]: /ko-kr/develop/mobile/tutorials/get-started-android
-  [GCM 사용]: ../includes/mobile-services-enable-Google-cloud-messaging.md
   [Azure 관리 포털]: https://manage.windowsazure.com/
   [0]: ./media/mobile-services-android-get-started-push/mobile-services-selection.png
   [1]: ./media/mobile-services-android-get-started-push/mobile-push-tab-android.png
-  [Play Services 추가]: ../includes/mobile-services-add-Google-play-services.md
   [Google Play Services SDK 설정]: http://go.microsoft.com/fwlink/?LinkId=389801
   [2]: ./media/mobile-services-android-get-started-push/mobile-services-android-create-class.png
   [3]: ./media/mobile-services-android-get-started-push/mobile-portal-data-tables.png

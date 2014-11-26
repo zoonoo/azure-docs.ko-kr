@@ -1,35 +1,26 @@
-<properties urlDisplayName="Cloud Service" pageTitle="Node.js 시작 가이드 - Azure 자습서" metaKeywords="Azure node.js getting started, Azure Node.js tutorial, Azure Node.js tutorial" description="간단한 Node.js 웹 응용 프로그램을 개발하여 Azure에 배포하는 전체 과정을 설명하는 자습서입니다." metaCanonical="" services="cloud-services" documentationCenter="nodejs" title="Azure 클라우드 서비스에서 Node.js 응용 프로그램 빌드 및 배포" authors="larryfr" solutions="" manager="wpickett" editor="" />
+<properties linkid="dev-nodejs-getting-started" urlDisplayName="Cloud Service" pageTitle="Node.js Getting Started Guide - Azure Tutorial" metaKeywords="Azure node.js getting started, Azure Node.js tutorial, Azure Node.js tutorial" description="An end-to-end tutorial that helps you develop a simple Node.js web application and deploy it to Azure." metaCanonical="" services="cloud-services" documentationCenter="nodejs" title="Build and deploy a Node.js application to an Azure Cloud Service" authors="larryfr" solutions="" manager="" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="wpickett" />
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # Azure 클라우드 서비스에서 Node.js 응용 프로그램 빌드 및 배포
 
-이 가이드를 완료하면 간단한 Node.js 응용 프로그램을 Azure 클라우드 서비스에서
-실행할 수 있습니다. 클라우드 서비스는 Azure에서 확장 가능한
-클라우드 응용 프로그램의 구성 요소입니다. 이 클라우드 서비스는 응용 프로그램의 프런트
-엔드 및 백 엔드 구성 요소의 구분과 독립적인 관리 및 확장을 허용합니다. 클라우드 서비스는
-각 역할을 안정적으로 호스팅할 수 있는 강력한 전용 가상 컴퓨터를 제공합니다.
+이 가이드를 완료하면 간단한 Node.js 응용 프로그램을 Azure 클라우드 서비스에서실행할 수 있습니다. 클라우드 서비스는 Azure에서 확장 가능한클라우드 응용 프로그램의 구성 요소입니다. 이 클라우드 서비스는 응용 프로그램의 프런트엔드 및 백 엔드 구성 요소의 구분과 독립적인 관리 및 확장을 허용합니다. 클라우드 서비스는각 역할을 안정적으로 호스팅할 수 있는 강력한 전용 가상 컴퓨터를 제공합니다.
 
-클라우드 서비스에 대한 자세한 내용 및 Azure 웹 사이트와 가상 컴퓨터와의 비교에 대한 자세한 내용은 [Azure 웹 사이트, 클라우드 서비스 및 가상 컴퓨터 비교][Azure 웹 사이트, 클라우드 서비스 및 가상 컴퓨터 비교]를 참조하세요.
+클라우드 서비스에 대한 자세한 내용 및 Azure 웹 사이트와 가상 컴퓨터와의 비교에 대한 자세한 내용은 [Azure 웹 사이트, 클라우드 서비스 및 가상 컴퓨터 비교][Azure 웹 사이트, 클라우드 서비스 및 가상 컴퓨터 비교]를 참조하십시오.
 
-<div class="dev-callout">
+<p />
 
-**간단한 웹 사이트를 빌드하려는 경우**
-시나리오에 간단한 웹 사이트 프런트 엔드만 포함된 경우 [간단한 Azure 웹 사이트를 사용][간단한 Azure 웹 사이트를 사용]합니다. 그러면 웹 사이트가 커지고 요구 사항이 변경될 때 클라우드 서비스로 쉽게 업그레이드할 수 있습니다.
-
+<div class="dev-callout"><strong>간단한 웹 사이트를 빌드하려는 경우</strong>
+<p>시나리오에 간단한 웹 사이트 프런트 엔드만 포함된 경우 <a href="/ko-kr/documentation/articles/web-sites-nodejs-develop-deploy-mac/">간단한 Azure 웹 사이트를 사용</a>합니다. 그러면 웹 사이트가 커지고 요구 사항이 변경될 때 클라우드 서비스로 쉽게 업그레이드할 수 있습니다.</p>
 </div>
 
-이 자습서를 수행하여 웹 역할 내에서 호스트되는 간단한 웹 응용 프로그램을 빌드합니다. 계산
-에뮬레이터를 사용하여 로컬에서 응용 프로그램을 테스트한 다음 PowerShell 명령줄 도구를
-사용하여 배포합니다.
-
-아래에는 완성된 응용 프로그램의 스크린샷이 표시되어 있습니다.
+이 자습서를 수행하여 웹 역할 내에서 호스트되는 간단한 웹 응용 프로그램을 빌드합니다. 계산에뮬레이터를 사용하여 로컬에서 응용 프로그램을 테스트한 다음 PowerShell 명령줄 도구를사용하여 배포합니다.아래에는 완성된 응용 프로그램의 스크린샷이 표시되어 있습니다.
 
 ![hello world 페이지를 표시하는 브라우저 창입니다. URL은 페이지가 Azure에서 호스트됨을 나타냅니다.][hello world 페이지를 표시하는 브라우저 창입니다. URL은 페이지가 Azure에서 호스트됨을 나타냅니다.]
 
 ## 새 노드 응용 프로그램 만들기
 
-기본 Node.js 스캐폴딩과 함께 새 Azure 클라우드 서비스 프로젝트를 만들려면 다음 작업을 수행하세요.
+기본 Node.js 스캐폴딩과 함께 새 Azure 클라우드 서비스 프로젝트를 만들려면 다음 작업을 수행하십시오.
 
 1.  **시작 메뉴** 또는 **시작 화면**에서 **Azure PowerShell**을 검색합니다. 마지막으로, **Azure PowerShell**을 마우스 오른쪽 단추로 클릭하고 **관리자 권한으로 실행**을 선택합니다.
 
@@ -40,6 +31,7 @@
 2.  C 드라이브에 새 **node** 디렉터리를 만들고 c:\\node 디렉터리로 변경합니다.
 
     !['mkdir c:\node' 및 'cd node' 명령을 표시하는 명령 프롬프트]['mkdir c:\node' 및 'cd node' 명령을 표시하는 명령 프롬프트]
+
 
 3.  다음 cmdlet을 입력하여 새 솔루션을 만듭니다.
 
@@ -57,8 +49,7 @@
         **ServiceConfiguration.Local.cscfg** 및 **ServiceDefinition.csdef**는
         응용 프로그램을 게시하는 데 필요한 Azure 관련 파일입니다.
 
-    이러한 파일에 대한 자세한 내용은
-    [Azure에 대한 호스티드 서비스 만들기 개요][Azure에 대한 호스티드 서비스 만들기 개요](영문)를 참조하세요.
+    이러한 파일에 대한 자세한 내용은 [Azure에 대한 호스티드 서비스 만들기 개요][Azure에 대한 호스티드 서비스 만들기 개요](영문)를 참조하십시오.
 
     -   **deploymentSettings.json**에는 Azure PowerShell 배포 cmdlet에
         사용되는 로컬 설정이 저장됩니다.
@@ -75,11 +66,9 @@
     **Add-AzureNodeWebRole** cmdlet은 응용 프로그램에 대한 새 디렉터리를 만들고 기본 Node.js 응용 프로그램에 대한 스캐폴딩을 생성합니다. 또한 이전 단계에서 생성된 **ServiceConfiguration.Cloud.csfg**, **ServiceConfiguration.Local.csfg** 및 **ServiceDefinition.csdef** 파일을 수정하여 새 역할에 대한 구성 항목을 추가합니다.
 
     <div class="dev-callout">
-
-    **참고**
-    기본적으로 역할 이름을 제공하지 않으면 자동으로 생성됩니다. 이름을 **Add-AzureNodeWebRole**의 첫 번째 매개 변수로 제공할 수 있습니다. 예를 들면 `Add-AzureNodeWebRole MyRole`와 같습니다.
-
-    </div>
+<b>참고</b>
+<p>기본적으로 역할 이름을 제공하지 않으면 자동으로 생성됩니다. 이름을 <b>Add-AzureNodeWebRole</b>의 첫 번째 매개 변수로 제공할 수 있습니다. 예를 들면 <code data-inline="1">Add-AzureNodeWebRole MyRole</code>과 같습니다.</p>
+</div>
 
 5.  다음 명령을 사용하여 **WebRole1** 디렉터리로 이동한 다음 메모장에서 **server.js** 파일을 엽니다.
 
@@ -96,13 +85,9 @@
 
 ## 에뮬레이터에서 로컬로 응용 프로그램 실행
 
-Azure 계산 에뮬레이터는 Azure SDK를 통해 설치되는 도구
-중 하나이며, 이 도구를 통해 응용 프로그램을 로컬에서 테스트할 수 있습니다. 계산
-에뮬레이터는 응용 프로그램이 클라우드에 배포될 때 실행될 환경을
-시뮬레이션합니다. 에뮬레이터에서 응용 프로그램을 테스트하려면 다음 단계를 수행하세요.
+Azure 계산 에뮬레이터는 Azure SDK를 통해 설치되는 도구중 하나이며, 이 도구를 통해 응용 프로그램을 로컬에서 테스트할 수 있습니다. 계산에뮬레이터는 응용 프로그램이 클라우드에 배포될 때 실행될 환경을시뮬레이션합니다. 에뮬레이터에서 응용 프로그램을 테스트하려면 다음 단계를 수행하십시오.
 
-1.  메모장을 닫고 Windows PowerShell 창으로 전환합니다.
-    다음 cmdlet을 입력하여 에뮬레이터에서 서비스를 실행합니다.
+1.  메모장을 닫고 Windows PowerShell 창으로 전환합니다. 다음 cmdlet을 입력하여 에뮬레이터에서 서비스를 실행합니다.
 
         PS C:\node\helloworld\WebRole1> Start-AzureEmulator -Launch
 
@@ -135,11 +120,9 @@ Azure 계산 에뮬레이터는 Azure SDK를 통해 설치되는 도구
         PS C:\node\helloworld\WebRole1> Import-AzurePublishSettingsFile [path to file]
 
     <div class="dev-callout">
-
-    **참고**
-    다운로드한 .publishSettings 파일에는 다른 사람이 사용자 계정에 액세스할 수 있는 정보가 포함되어 있으므로 게시 설정을 가져온 후에는 파일을 삭제하는 것이 좋습니다.
-
-    </div>
+<b>참고</b>
+<p>다운로드한 .publishSettings 파일에는 다른 사람이 사용자 계정에 액세스할 수 있는 정보가 포함되어 있으므로 게시 설정을 가져온 후에는 파일을 삭제하는 것이 좋습니다.</p>
+</div>
 
 ### 응용 프로그램 게시
 
@@ -164,7 +147,7 @@ Azure 계산 에뮬레이터는 Azure SDK를 통해 설치되는 도구
 
 3.  **저장소 계정**이 없는 경우 새로 만듭니다. Azure 저장소 계정은 배포 중 응용 프로그램 패키지를 저장하는 데 사용됩니다. 배포가 완료된 후에는 저장소 계정을 삭제해도 안전합니다.
 
-4.  **클라우드 서비스**가 아직 없는 경우 새로 만듭니다. **클라우드 서비스**는 응용 프로그램이 Azure에 배포될 때 호스트되는 컨테이너입니다. 자세한 내용은 [Azure에 대한 호스팅 서비스 만들기 개요][Azure에 대한 호스티드 서비스 만들기 개요](영문)를 참조하세요.
+4.  **클라우드 서비스**가 아직 없는 경우 새로 만듭니다. **클라우드 서비스**는 응용 프로그램이 Azure에 배포될 때 호스트되는 컨테이너입니다. 자세한 내용은 [Azure에 대한 호스티드 서비스 만들기 개요][Azure에 대한 호스티드 서비스 만들기 개요](영문)를 참조하십시오.
 
 5.  배포 패키지를 Azure에 게시합니다.
 
@@ -200,14 +183,12 @@ Azure 계산 에뮬레이터는 Azure SDK를 통해 설치되는 도구
     ![Remove-AzureService 명령의 상태][Remove-AzureService 명령의 상태]
 
     <div class="dev-callout">
-
-    **참고**
-    서비스를 삭제해도 서비스가 처음 게시될 때 만들어진 저장소 계정은 삭제되지 않으므로 사용된 저장소에 대해 계속 요금이 청구됩니다. 저장소 계정 삭제에 대한 자세한 내용은 [Azure 구독에서 저장소 계정을 삭제하는 방법][Azure 구독에서 저장소 계정을 삭제하는 방법](영문)을 참조하세요.
-
-    </div>
+<strong>참고</strong>
+<p>서비스를 삭제해도 서비스가 처음 게시될 때 만들어진 저장소 계정은 삭제되지 않으므로 사용된 저장소에 대해 계속 요금이 청구됩니다. 저장소 계정 삭제에 대한
+자세한 내용은 <a href="http://msdn.microsoft.com/ko-kr/library/windowsazure/hh531562.aspx">Azure 구독에서 저장소 계정을 삭제하는 방법</a>(영문)을 참조하십시오.</p>
+</div>
 
   [Azure 웹 사이트, 클라우드 서비스 및 가상 컴퓨터 비교]: http://azure.microsoft.com/ko-kr/documentation/articles/choose-web-site-cloud-service-vm/
-  [간단한 Azure 웹 사이트를 사용]: /ko-kr/documentation/articles/web-sites-nodejs-develop-deploy-mac/
   [hello world 페이지를 표시하는 브라우저 창입니다. URL은 페이지가 Azure에서 호스트됨을 나타냅니다.]: https://wacomdpsstablestorage.blob.core.windows.net/articlesmedia/demo-ppe.windowsazure.com/ko-kr/documentation/articles/cloud-services-nodejs-develop-deploy-app/20140107035927/node21.png
   [Azure PowerShell 아이콘]: ./media/cloud-services-nodejs-develop-deploy-app/azure-powershell-start.png
   [New-AzureService helloworld 명령의 결과]: ./media/cloud-services-nodejs-develop-deploy-app/node9.png
@@ -220,4 +201,3 @@ Azure 계산 에뮬레이터는 Azure SDK를 통해 설치되는 도구
   [1]: ./media/cloud-services-nodejs-develop-deploy-app/node21.png
   [Stop-AzureService 명령의 상태]: ./media/cloud-services-nodejs-develop-deploy-app/node48.png
   [Remove-AzureService 명령의 상태]: ./media/cloud-services-nodejs-develop-deploy-app/node49.png
-  [Azure 구독에서 저장소 계정을 삭제하는 방법]: http://msdn.microsoft.com/ko-kr/library/windowsazure/hh531562.aspx

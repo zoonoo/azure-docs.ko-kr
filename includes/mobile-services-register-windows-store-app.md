@@ -1,6 +1,6 @@
 1.  앱을 아직 등록하지 않은 경우 Windows 스토어 앱용 개발자 센터에 있는 [앱 제출 페이지][앱 제출 페이지]로 이동하여 Microsoft 계정으로 로그온한 후 **앱 이름**을 클릭합니다.
 
-    ![][]
+    ![][0]
 
 2.  **앱 이름**에 앱의 이름을 입력하고 **앱 이름 예약**을 클릭한 후 **저장**을 클릭합니다.
 
@@ -58,10 +58,10 @@
 
 이제 앱에서 인증하는 데 Microsoft 계정을 사용할 준비가 되었습니다.
 
-<!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
+  
 
   [앱 제출 페이지]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-  []: ./media/mobile-services-register-windows-store-app/mobile-services-submit-win8-app.png
+  [0]: ./media/mobile-services-register-windows-store-app/mobile-services-submit-win8-app.png
   [1]: ./media/mobile-services-register-windows-store-app/mobile-services-win8-app-name.png
   [모바일 서비스 시작]: /ko-kr/develop/mobile/tutorials/get-started/#create-new-service
   [2]: ./media/mobile-services-register-windows-store-app/mobile-services-store-association.png

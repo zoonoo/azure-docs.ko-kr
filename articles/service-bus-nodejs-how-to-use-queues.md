@@ -177,7 +177,6 @@ Azure SDK for Node.js에는 재시도 논리를 구현하는 두 필터 **Expone
   [방법: 큐에 메시지 보내기]: #send-messages
   [방법: 큐에서 메시지 받기]: #receive-messages
   [방법: 응용 프로그램 크래시 및 읽을 수 없는 메시지 처리]: #handle-crashes
-  [howto-service-bus-queues]: ../includes/howto-service-bus-queues.md
   [Node.js 응용 프로그램을 만들어 Azure 웹 사이트에 배포하기]: /ko-KR/develop/nodejs/tutorials/create-a-website-(mac)/
   [Node.js 클라우드 서비스]: /ko-KR/documentation/articles/cloud-services-nodejs-develop-deploy-app/
   [WebMatrix를 사용하는 웹 사이트]: /ko-KR/develop/nodejs/tutorials/web-site-with-webmatrix/

@@ -2,23 +2,23 @@
 
 # Azure 검색: 개발 워크플로
 
-[WACOM.INCLUDE [이 문서에서는 Azure 미리 보기 포털을 사용합니다.][]]
+[WACOM.INCLUDE [이 문서에서는 Azure 미리 보기 포털을 사용합니다.](../includes/preview-portal-note.md)]
 
 이 문서에서는 검색 서비스와 해당 인덱스를 만들고 유지 관리하기 위한 로드맵과 몇 가지 모범 사례를 제공합니다.
 
-서비스를 이미 프로비전했다고 가정합니다. 아직 수행하지 않은 경우 [Azure 미리 보기 포털에서 검색 구성][]을 참조하여 시작하세요.
+서비스를 이미 프로비전했다고 가정합니다. 아직 수행하지 않은 경우 [Azure 미리 보기 포털에서 검색 구성][Azure 미리 보기 포털에서 검색 구성]을 참조하여 시작하세요.
 
--   [1단계: 인덱스 만들기][]
--   [2단계: 문서 추가][]
--   [3단계: 인덱스 쿼리][]
--   [4단계: 인덱스 및 문서 업데이트 또는 삭제][]
--   [저장소 설계 고려 사항][]
+-   [1단계: 인덱스 만들기][1단계: 인덱스 만들기]
+-   [2단계: 문서 추가][2단계: 문서 추가]
+-   [3단계: 인덱스 쿼리][3단계: 인덱스 쿼리]
+-   [4단계: 인덱스 및 문서 업데이트 또는 삭제][4단계: 인덱스 및 문서 업데이트 또는 삭제]
+-   [저장소 설계 고려 사항][저장소 설계 고려 사항]
 
 ## 1단계: 인덱스 만들기
 
 쿼리(최소한 비시스템 쿼리)는 검색 데이터 및 특성이 포함된 검색 인덱스를 대상으로 합니다. 이 단계에서는 인덱스 스키마를 JSON 형식으로 정의하고 HTTPS PUT 요청을 실행하여 이 인덱스가 서비스에 만들어지도록 합니다.
 
-인덱스는 일반적으로 로컬 개발 환경에서 코딩됩니다. 인덱스 정의를 위한 기본 제공 도구나 편집기는 없습니다. 인덱스를 만드는 방법에 대한 자세한 내용은 MSDN에서 [인덱스 만들기(Azure 검색 API)][]를 참조하세요.
+인덱스는 일반적으로 로컬 개발 환경에서 코딩됩니다. 인덱스 정의를 위한 기본 제공 도구나 편집기는 없습니다. 인덱스를 만드는 방법에 대한 자세한 내용은 MSDN에서 [인덱스 만들기(Azure 검색 API)][인덱스 만들기(Azure 검색 API)]를 참조하세요.
 
 ## 2단계: 문서 추가
 
@@ -36,8 +36,8 @@ POST 요청에 대한 전체 상태 코드가 있습니다. 상태 코드는 HTT
 
 문서가 인덱싱된 후 검색 쿼리를 실행할 수 있습니다. OData 또는 간단한 쿼리 구문을 사용하여 한 번에 하나씩 인덱스를 쿼리할 수 있습니다.
 
--   [Azure 검색의 OData 식 구문][]
--   [Azure 검색의 간단한 쿼리 구문][]
+-   [Azure 검색의 OData 식 구문][Azure 검색의 OData 식 구문]
+-   [Azure 검색의 간단한 쿼리 구문][Azure 검색의 간단한 쿼리 구문]
 
 ## 4단계: 인덱스 및 문서 업데이트 또는 삭제
 
@@ -51,12 +51,11 @@ POST 요청에 대한 전체 상태 코드가 있습니다. 상태 코드는 HTT
 
 문서의 모든 필드가 검색 가능한 것은 아닙니다. 예를 들어 응용 프로그램이 음악 또는 동영상의 온라인 카탈로그인 경우 BLOB 또는 다른 저장소에 이진 파일을 저장하는 것이 좋습니다. 이진 파일 자체는 검색 가능하지 않으므로 Azure 검색 저장소에 저장할 필요가 없습니다. 이미지, 동영상, 오디오 파일은 다른 서비스나 위치에 저장하고 파일 위치에 대한 URL을 문서의 필드에 저장해야 합니다.
 
-인덱스 또는 문서를 만드는 방법에 대한 자세한 내용은 [Azure 검색 REST API][]를 참조하세요.
+인덱스 또는 문서를 만드는 방법에 대한 자세한 내용은 [Azure 검색 REST API][Azure 검색 REST API]를 참조하세요.
 
 <!--Image references-->
 
 <!--Anchors-->
-  [이 문서에서는 Azure 미리 보기 포털을 사용합니다.]: ../includes/preview-portal-note.md
   [Azure 미리 보기 포털에서 검색 구성]: 
   [1단계: 인덱스 만들기]: #sub-1
   [2단계: 문서 추가]: #sub-2
@@ -65,7 +64,7 @@ POST 요청에 대한 전체 상태 코드가 있습니다. 상태 코드는 HTT
   [저장소 설계 고려 사항]: #sub-5
 
 <!--Link references-->
-  [인덱스 만들기(Azure 검색 API)]: http://msdn.microsoft.com/en-us/library/dn798941.aspx
-  [Azure 검색의 OData 식 구문]: http://msdn.microsoft.com/en-us/library/dn798921.aspx
-  [Azure 검색의 간단한 쿼리 구문]: http://msdn.microsoft.com/en-us/library/dn798920.aspx
-  [Azure 검색 REST API]: http://msdn.microsoft.com/en-us/library/dn798935.aspx
+  [인덱스 만들기(Azure 검색 API)]: http://msdn.microsoft.com/ko-kr/library/dn798941.aspx
+  [Azure 검색의 OData 식 구문]: http://msdn.microsoft.com/ko-kr/library/dn798921.aspx
+  [Azure 검색의 간단한 쿼리 구문]: http://msdn.microsoft.com/ko-kr/library/dn798920.aspx
+  [Azure 검색 REST API]: http://msdn.microsoft.com/ko-kr/library/dn798935.aspx

@@ -1,6 +1,6 @@
 <properties linkid="develop-dotnet-rest-service-using-web-api" urlDisplayName="REST service using Web API" pageTitle=".NET REST service using Web API - Azure tutorial" metaKeywords="Azure tutorial web site, ASP.NET API web site, Azure VS" description="A tutorial that teaches you how to deploy an app that uses the ASP.NET Web API to an Azure website by using Visual Studio." metaCanonical="" services="web-sites" documentationCenter=".NET" title="REST service using ASP.NET Web API and SQL Database" authors="riande" solutions="" manager="" editor="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="riande"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="riande" />
 
 # ASP.NET Web API 및 SQL 데이터베이스를 사용한 REST 서비스
 
@@ -826,7 +826,6 @@ Azure 응용 프로그램에 데이터를 저장하는 또 다른 방법은 Azur
   [Web API RESTful 인터페이스 추가]: #bkmk_addwebapi
   [XSRF 보호 추가]: #xsrf
   [Azure 및 SQL 데이터베이스에 응용 프로그램 업데이트 게시]: #bkmk_deploydatabaseupdate
-  [create-account-and-websites-note]: ../includes/create-account-and-websites-note.md
   [Azure 관리 포털]: https://manage.windowsazure.com
   [관리 포털의 데이터베이스 링크를 사용하여 만들기]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr6.PNG
   [새 웹 사이트 - 데이터베이스를 사용하여 만들기 마법사의 새 웹 사이트 만들기 단계]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rrCWS.png

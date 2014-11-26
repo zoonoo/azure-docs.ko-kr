@@ -200,9 +200,9 @@ Hive 콘솔을 사용하여 Hive 테이블의 데이터 쿼리
 
 대화형 JavaScript 콘솔에서 Hadoop 작업을 실행하는 방법과 이 콘솔을 사용하여 작업에서 결과를 검사하는 방법을 알아보았습니다. 또한 대화형 Hive 콘솔을 사용하여 MapReduce 프로그램의 출력을 포함한 테이블을 만들고 쿼리함으로써 Hadoop 작업의 결과를 검사하고 처리하는 방법도 알아보았습니다. 콘솔에서 사용 중인 Pig Latin 및 Hive QL 문의 예제를 살펴보았습니다. 마지막으로 JavaScript 및 Hive 콘솔의 REPL 대화형 특성으로 Hadoop 클러스터의 사용을 간소화하는 방법도 알아보았습니다. 자세한 내용은 다음 문서를 참조하십시오.
 
--   [HDInsight와 함께 Pig 사용](/en-us/manage/services/hdinsight/using-pig-with-hdinsight/)
--   [HDInsight와 함께 Hive 사용](/en-us/manage/services/hdinsight/using-hive-with-hdinsight/)
--   [HDInsight와 함께 MapReduce 사용](/en-us/manage/services/hdinsight/using-mapreduce-with-hdinsight/)
+-   [HDInsight와 함께 Pig 사용](/ko-kr/manage/services/hdinsight/using-pig-with-hdinsight/)
+-   [HDInsight와 함께 Hive 사용](/ko-kr/manage/services/hdinsight/using-hive-with-hdinsight/)
+-   [HDInsight와 함께 MapReduce 사용](/ko-kr/manage/services/hdinsight/using-mapreduce-with-hdinsight/)
 
 [hdi-hive-showdescribetable]: ./media/hdinsight-interactive-console/HDI.Hive.ShowDescribeTable.PNG "Hive Table Confirmation")
 

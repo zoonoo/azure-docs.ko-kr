@@ -1,4 +1,4 @@
-<properties urlDisplayName="Jenkins Continuous Integration" pageTitle="Jenkins 연속 통합 솔루션과 함께 Azure 저장소 사용 | Microsoft Azure" metaKeywords="" description="이 자습서에서는 Jenkins 연속 통합 솔루션을 사용하여 만든 아티팩트용 리포지토리로 Azure Blob 서비스를 사용하는 방법을 보여 줍니다." metaCanonical="" services="storage" documentationCenter="Java" title="Jenkins 연속 통합 솔루션과 함께 Azure 저장소 사용" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
+<properties linkid="develop-java-tutorials-jenkins-continuous-integration" urlDisplayName="Jenkins Continuous Integration" pageTitle="Using Azure Storage with a Jenkins Continuous Integration Solution | Microsoft Azure" metaKeywords="" description="This tutorial show how to use the Azure blob service as a repository for build artifacts created by a Jenkins continuous integration solution." metaCanonical="" services="storage" documentationCenter="Java" title="Using Azure Storage with a Jenkins Continuous Integration solution" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
 
@@ -123,7 +123,7 @@ Blob 서비스를 Jenkins와 함께 사용하려면 Azure 저장소 플러그인
     4.  **컨테이너**를 클릭합니다.
     5.  **myjob**이라는 이름의 컨테이너를 클릭합니다. 이 이름은 Jenkins 작업을 만들 때 할당한 작업 이름의 소문자 버전입니다. 컨테이너 이름 및 Blob 이름은 Azure 저장소에서 소문자(및 대/소문자 구분)입니다. **myjob** 컨테이너의 Blob 목록에 **hello.txt**와 **date.txt**가 표시됩니다. 이 항목 중 하나의 URL을 복사하여 브라우저에서 엽니다. 빌드 아티팩트로 업로드된 텍스트 파일이 표시됩니다.
 
-아티팩트를 Azure Blob 저장소에 업로드하는 빌드 후 작업은 작업당 하나만 만들 수 있습니다. 아티팩트를 Azure Blob 저장소로 업로드하는 단일 빌드 후 작업에서는 세미콜론을 구분 기호로 사용하여 **List of Artifacts to upload**에서 다른 파일(와일드카드 포함) 및 파일 경로를 지정할 수 있습니다. 예를 들어 Jenkins 빌드에서 작업 영역의 **build** 폴더에 JAR 파일과 TXT 파일을 생성한 상태에서 두 개를 모두 Azure Blob 저장소에 업로드하려면 **List of Artifacts to upload** 값에 **build/\*.jar;build/\*.txt**를 사용합니다. 이중 콜론 구문을 사용하여 Blob 이름 내에 사용할 경로를 지정할 수도 있습니다. 예를 들어 Blob 경로에 **binaries**를 사용하여 JAR을 업로드하도록 하고 Blob 경로에 **notices**를 사용하여 TXT 파일을 업로드하도록 하려면 **List of Artifacts to upload** 값에 **build/\*.jar::binaries;build/\*.txt::notices**를 사용합니다.
+아티팩트를 Azure Blob 저장소에 업로드하는 빌드 후 작업은 작업당 하나만 만들 수 있습니다. 아티팩트를 Azure Blob 저장소로 업로드하는 단일 빌드 후 작업에서는 세미콜론을 구분 기호로 사용하여 **List of Artifacts to upload**에서 다른 파일(와일드카드 포함) 및 파일 경로를 지정할 수 있습니다. 예를 들어 Jenkins 빌드에서 작업 영역의 **build** 폴더에 JAR 파일과 TXT 파일을 생성한 상태에서 두 개를 모두 Azure Blob 저장소에 업로드하려면 **List of Artifacts to upload** 값에 **build/\*.jar;build/\*.txt**를 사용합니다. 이중 콜론 구문을 사용하여 Blob 이름 내에 사용할 경로를 지정할 수도 있습니다. 예를 들어 Blob 경로에 **binaries**를 사용하여 JAR을 업로드하도록 하고 Blob 경로에 **notices**를 사용하여 TXT 파일을 업로드하도록 하려면 **List of Artifacts to upload** 값에 **build/\*.<jar::binaries;build/>\*.txt::notices**를 사용합니다.
 
 ## <a name="howtocreatebuildstep"></a><span class="short header">빌드 단계를 만드는 방법</span>Azure Blob 저장소에서 다운로드하는 빌드 단계를 만드는 방법
 

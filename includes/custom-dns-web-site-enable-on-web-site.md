@@ -4,11 +4,11 @@
 >
 > <http://www.digwebinterface.com/> 등의 서비스를 사용하여 CNAME을 사용할 수 있는지 확인할 수 있습니다.
 
-1.  브라우저에서 [Azure 관리 포털][]을 엽니다.
+1.  브라우저에서 [Azure 관리 포털][Azure 관리 포털]을 엽니다.
 
 2.  **웹 사이트** 탭에서 사이트 이름을 클릭하고 **대시보드**를 선택한 후 페이지 맨 아래에서 **도메인 관리**를 선택합니다.
 
-    ![][]
+    ![][0]
 
 3.  **도메인 이름** 텍스트 상자에 도메인 이름을 입력하여 이 웹 사이트와 연결합니다.
 
@@ -21,5 +21,5 @@
 이때 브라우저에서 사용자 지정 도메인 이름을 입력하면 Azure 웹 사이트로 이동하는지 확인할 수 있습니다.
 
   [Azure 관리 포털]: https://manage.windowsazure.com
-  []: ./media/custom-dns-web-site/dncmntask-cname-6.png
+  [0]: ./media/custom-dns-web-site/dncmntask-cname-6.png
   [1]: ./media/custom-dns-web-site/dncmntask-cname-7.png

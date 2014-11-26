@@ -3,7 +3,7 @@
 알림 허브를 통해 사용자에게 알림
 ================================
 
-[모바일 서비스](/en-us/manage/services/notification-hubs/notify-users "모바일 서비스")[ASP.NET](/en-us/manage/services/notification-hubs/notify-users-aspnet "ASP.NET")
+[모바일 서비스](/ko-kr/manage/services/notification-hubs/notify-users "모바일 서비스")[ASP.NET](/ko-kr/manage/services/notification-hubs/notify-users-aspnet "ASP.NET")
 
 이 자습서에서는 Azure 알림 허브를 사용하여 특정 장치에서 특정 앱 사용자에게 푸시 알림을 보내는 방법을 보여 줍니다. ASP.NET Web API 백 엔드는 클라이언트를 인증하고 알림을 생성하는 데 사용됩니다. 이 자습서는 이전 **알림 허브 시작** 자습서에서 만든 알림 허브를 기반으로 합니다. 알림 등록 코드는 클라이언트에서 백 엔드 서비스로 이동되었습니다. 따라서 클라이언트가 서비스에서 인증된 후에만 등록이 완료됩니다. 또한 알림 허브 자격 증명이 클라이언트 앱에 분산되지 않습니다. 서비스는 등록 중에 요청되는 태그도 제어합니다.
 
@@ -17,11 +17,11 @@
 ---------
 
 -   Visual Studio 2012. Visual Studio Express 2012 for Web과 Visual Studio Express 2012 for Windows 8을 모두 사용하여 각각 ASP.NET 응용 프로그램 및 Windows 스토어 앱을 만들 수도 있습니다.
--   이 자습서는 **알림 허브 시작**에서 만든 앱과 알림 허브를 기반으로 합니다. 이 자습서를 시작하기 전에 먼저 **알림 허브 시작**([Windows 스토어 C\#](/en-us/manage/services/notification-hubs/getting-started-windows-dotnet)/[iOS](/en-us/manage/services/notification-hubs/get-started-notification-hubs-ios)/[Android](/en-us/manage/services/notification-hubs/get-started-notification-hubs-android)) 자습서를 완료해야 합니다.
+-   이 자습서는 **알림 허브 시작**에서 만든 앱과 알림 허브를 기반으로 합니다. 이 자습서를 시작하기 전에 먼저 **알림 허브 시작**([Windows 스토어 C\#](/ko-kr/manage/services/notification-hubs/getting-started-windows-dotnet)/[iOS](/ko-kr/manage/services/notification-hubs/get-started-notification-hubs-ios)/[Android](/ko-kr/manage/services/notification-hubs/get-started-notification-hubs-android)) 자습서를 완료해야 합니다.
 
 **참고**
 
-이 자습서에서 만드는 ASP.NET Web API 프로젝트는 로컬 컴퓨터에서 실행됩니다. ASP.NET Web API 프로젝트를 Azure에 게시할 수도 있습니다. 자세한 내용은 [ASP.NET Web API 및 SQL 데이터베이스를 사용하여 모바일 지원 REST 서비스 만들기](/en-us/develop/net/tutorials/rest-service-using-web-api/)를 참조하십시오.
+이 자습서에서 만드는 ASP.NET Web API 프로젝트는 로컬 컴퓨터에서 실행됩니다. ASP.NET Web API 프로젝트를 Azure에 게시할 수도 있습니다. 자세한 내용은 [ASP.NET Web API 및 SQL 데이터베이스를 사용하여 모바일 지원 REST 서비스 만들기](/ko-kr/develop/net/tutorials/rest-service-using-web-api/)를 참조하십시오.
 
 ASP.NET 앱 만들기인증을 통해 ASP.NET 응용 프로그램 만들기
 ---------------------------------------------------------
@@ -294,8 +294,8 @@ ASP.NET 앱 만들기인증을 통해 ASP.NET 응용 프로그램 만들기
 
 2.  클라이언트 플랫폼에 따라 다음 **ASP.NET Web API를 사용하여 푸시 알림에 현재 사용자 등록** 버전 중 하나의 단계를 따릅니다.
 
-    -   [Windows 스토어 C\# 버전](/en-us/manage/services/notification-hubs/register-users-aspnet-dotnet)
-    -   [iOS 버전](/en-us/manage/services/notification-hubs/howto-register-user-with-aspnet-ios)
+    -   [Windows 스토어 C\# 버전](/ko-kr/manage/services/notification-hubs/register-users-aspnet-dotnet)
+    -   [iOS 버전](/ko-kr/manage/services/notification-hubs/howto-register-user-with-aspnet-ios)
 
 3.  업데이트된 앱을 실행하고 사용자 이름 및 암호에 대해 동일한 문자열을 사용하여 서비스에 로그인한 후 알림에 할당된 등록 ID가 표시되는지 확인합니다.
 
@@ -303,7 +303,7 @@ ASP.NET 앱 만들기인증을 통해 ASP.NET 응용 프로그램 만들기
 
     **참고**
 
-    알림이 전송되도록 요청된 플랫폼에 대한 등록이 없는 경우 백 엔드에서 오류가 발생합니다. 이 경우 이 오류를 무시해도 됩니다. 이 상황을 방지하기 위한 템플릿 사용 방법을 보려면 [알림 허브를 통해 사용자에게 플랫폼 간 알림 보내기](/en-us/manage/services/notification-hubs/notify-users-xplat-aspnet)(영문)를 참조하십시오.
+    알림이 전송되도록 요청된 플랫폼에 대한 등록이 없는 경우 백 엔드에서 오류가 발생합니다. 이 경우 이 오류를 무시해도 됩니다. 이 상황을 방지하기 위한 템플릿 사용 방법을 보려면 [알림 허브를 통해 사용자에게 플랫폼 간 알림 보내기](/ko-kr/manage/services/notification-hubs/notify-users-xplat-aspnet)(영문)를 참조하십시오.
 
 4.  (옵션) 클라이언트 앱을 두 번째 장치에 배포한 후 앱을 실행하고 텍스트를 삽입합니다.
 
@@ -314,10 +314,10 @@ ASP.NET 앱 만들기인증을 통해 ASP.NET 응용 프로그램 만들기
 
 이제 이 자습서를 완료했으므로 다음 자습서 완료를 고려하십시오.
 
--   **알림 허브를 사용하여 뉴스 속보 보내기([Windows 스토어 C\#](/en-us/manage/services/notification-hubs/breaking-news-dotnet)(영문)/[iOS](/en-us/manage/services/notification-hubs/breaking-news-dotnet)(영문))**
+-   **알림 허브를 사용하여 뉴스 속보 보내기([Windows 스토어 C\#](/ko-kr/manage/services/notification-hubs/breaking-news-dotnet)(영문)/[iOS](/ko-kr/manage/services/notification-hubs/breaking-news-dotnet)(영문))**
     이 플랫폼별 자습서는 태그를 사용하여 사용자가 관심 있는 알림 유형을 구독할 수 있도록 하는 방법을 보여 줍니다.
 
--   **[알림 허브를 통해 사용자에게 플랫폼 간 알림 보내기](/en-us/manage/services/notification-hubs/notify-users-xplat-aspnet)(영문)**
+-   **[알림 허브를 통해 사용자에게 플랫폼 간 알림 보내기](/ko-kr/manage/services/notification-hubs/notify-users-xplat-aspnet)(영문)**
     이 자습서는 플랫폼별 템플릿을 사용하여 알림을 등록하도록 현재 **알림 허브를 통해 사용자에게 알림** 자습서를 확장합니다. 이를 통해 서버 쪽 코드의 단일 메서드에서 알림을 보낼 수 있습니다.
 
 알림 허브에 대한 자세한 내용은 [Azure 알림 허브](http://msdn.microsoft.com/ko-kr/library/windowsazure/jj927170.aspx)를 참조하십시오.

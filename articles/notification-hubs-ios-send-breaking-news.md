@@ -235,9 +235,9 @@
 
     인증된 특정 사용자에게 알림을 푸시하는 방법에 대해 알아보십시오. 이 방법은 특정 사용자에게만 알림을 보내기 위한 훌륭한 솔루션입니다.
 
-<!-- Anchors. -->
-<!-- Images. -->
-<!-- URLs. -->
+
+
+
 
   [알림 허브 지침]: http://msdn.microsoft.com/ko-KR/library/jj927170.aspx
   [앱에 범주 선택 추가]: #adding-categories
@@ -247,7 +247,6 @@
   [알림 허브 시작]: /ko-KR/manage/services/notification-hubs/get-started-notification-hubs-ios/
   [0]: ./media/notification-hubs-ios-send-breaking-news/notification-hub-breakingnews-ios2.png
   [1]: ./media/notification-hubs-ios-send-breaking-news/notification-hub-breakingnews-ios3.png
-  [notification-hubs-back-end]: ../includes/notification-hubs-back-end.md
   [2]: ./media/notification-hubs-ios-send-breaking-news/notification-hub-breakingnews-ios1.png
   [알림 허브를 사용하여 지역화된 속보 브로드캐스트]: /ko-KR/manage/services/notification-hubs/breaking-news-localized-dotnet/
   [알림 허브를 통해 사용자에게 알림]: /ko-KR/manage/services/notification-hubs/notify-users/

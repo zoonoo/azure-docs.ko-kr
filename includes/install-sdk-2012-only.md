@@ -4,7 +4,7 @@
 
 1.  해당 SDK를 설치하려면 아래 링크를 클릭하세요. 이 자습서를 사용하려면 Visual Studio 2012이 필요합니다. Visual Studio가 설치되어 있지 않은 경우 SDK를 설치할 때 Visual Studio Express for Web이 같이 설치됩니다.
 
-    -   [Azure SDK for Visual Studio 2012][]
+    -   [Azure SDK for Visual Studio 2012][Azure SDK for Visual Studio 2012]
 
     **참고:** 사용자 컴퓨터에 SDK 종속성이 얼마나 있었는지에 따라 SDK를 설치하는 시간이 몇 분에서 30분 또는 그 이상이 될 수 있습니다.
 
@@ -12,7 +12,7 @@
 
 3.  웹 플랫폼 설치 관리자 창에서 **설치**를 클릭하여 설치를 계속합니다.
 
-    ![웹 플랫폼 설치 관리자 - Azure SDK for .NET][]
+    ![웹 플랫폼 설치 관리자 - Azure SDK for .NET][웹 플랫폼 설치 관리자 - Azure SDK for .NET]
 
 설치가 완료되면 개발을 시작하는 데 필요한 내용이 모두 준비된 것입니다.
 

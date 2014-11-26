@@ -1,8 +1,10 @@
-<properties pageTitle="ASP.NET용 Azure 웹 사이트 시작" metaKeywords="" description="이 자습서에서는 Visual Studio 2013에서 ASP.NET 웹 프로젝트를 만들어 Azure 웹 사이트에 배포하는 방법에 대해 알아봅니다. 15분 이내에 클라우드에서 앱을 작동 및 실행할 수 있습니다." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Azure 웹 사이트 및 ASP.NET 시작" authors="tdykstra"  solutions="" manager="wpickett" editor="mollybos"  />
+<properties linkid="develop-net-tutorials-get-started-vs2013" pageTitle="Get started with Azure Websites for ASP.NET" metaKeywords="" description="This tutorial shows you how to create an ASP.NET web project in Visual Studio 2013 and deploy it to an Azure Website. In less than 15 minutes you'll have an app up and running in the cloud." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Get started with Azure Websites and ASP.NET" authors="tdykstra"  solutions="" manager="wpickett" editor="mollybos"  />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="hero-article" ms.date="09/24/2014" ms.author="tdykstra" />
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="hero-article" ms.date="01/01/1900" ms.author="tdykstra" />
 
 # Azure 웹 사이트 및 ASP.NET 시작
+
+<div class="dev-center-tutorial-selector sublanding"><a href="/ko-kr/develop/net/tutorials/get-started/" title="Visual Studio 2013" class="current">Visual Studio 2013</a><a href="/ko-kr/develop/net/tutorials/get-started-vs2012/" title="Visual Studio 2012">Visual Studio 2012</a></div>
 
 이 자습서에서는 Visual Studio 2013 또는 Web Express용 Visual Studio 2013을 사용하여 ASP.NET 웹 응용 프로그램을 만들고 Azure 웹 사이트에 배포하는 방법을 보여 줍니다. 이 자습서에서는 이전에 Azure 또는 ASP.NET을 사용한 경험이 없다고 가정합니다. 이 자습서를 완료하면 클라우드에서 간단한 웹 응용 프로그램을 실행할 수 있습니다.
 
@@ -49,7 +51,7 @@ Azure 계정은 무료로 개설할 수 있으며, Visual Studio 2013이 아직 
 
 2.  **파일** 메뉴에서 **새 프로젝트**를 클릭합니다.
 
-3.  **새 프로젝트** 대화 상자에서 **C#** \> **웹** \> **ASP.NET 웹 응용 프로그램**을 클릭합니다. 원하는 경우 **Visual Basic**을 선택할 수 있습니다.
+3.  **새 프로젝트** 대화 상자에서 **C\#** \> **웹** \> **ASP.NET 웹 응용 프로그램**을 클릭합니다. 원하는 경우 **Visual Basic**을 선택할 수 있습니다.
 
 4.  **.NET Framework 4.5**가 대상 프레임워크로 선택되었는지 확인합니다.
 
@@ -222,7 +224,7 @@ Azure 계정은 무료로 개설할 수 있으며, Visual Studio 2013이 아직 
 
 [Azure 관리 포털][Azure 관리 포털]은 Azure 서비스(예: 방금 만든 웹 사이트)를 관리하고 모니터하는 데 사용할 수 있는 웹 인터페이스입니다. 자습서의 이 섹션에서는 포털에서 수행할 수 있는 작업 중 일부를 살펴봅니다.
 
-1.  브라우저에서 [http://manage.windowsazure.com][http://manage.windowsazure.com]으로 이동하고 Azure 자격 증명으로 로그인합니다.
+1.  브라우저에서 [http://manage.windowsazure.com](http://manage.windowsazure.com) 으로 이동하고 Azure 자격 증명으로 로그인합니다.
 
     포털에 Azure 서비스 목록이 표시됩니다.
 
@@ -330,7 +332,6 @@ Azure 계정은 무료로 개설할 수 있으며, Visual Studio 2013이 아직 
   [게시 클릭]: ./media/web-sites-dotnet-get-started-vs2013/clickpublish.png
   [한 번 클릭으로 웹 게시 도구 모음]: ./media/web-sites-dotnet-get-started-vs2013/weboneclickpublish.png
   [Azure 관리 포털]: /ko-kr/services/management-portal/
-  [http://manage.windowsazure.com]: 
   [새 웹 사이트가 호출된 포털 홈페이지]: ./media/web-sites-dotnet-get-started-vs2013/portalhome.png
   [포털 웹 사이트 대시보드 탭]: ./media/web-sites-dotnet-get-started-vs2013/portaldashboard.png
   [구성]: /ko-kr/documentation/articles/web-sites-configure//
@@ -344,7 +345,6 @@ Azure 계정은 무료로 개설할 수 있으며, Visual Studio 2013이 아직 
   [소스 제어 시스템]: http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control
   [배포를 자동화]: http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery
   [Azure 웹 사이트를 배포하는 방법]: /ko-kr/documentation/articles/web-sites-deploy/"
-  [자동화(Azure에서 실제 클라우드 앱 빌드)]: http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything
   [Visual Studio에서 Azure 웹 사이트 문제 해결]: /ko-kr/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/
   [Azure 웹 사이트에 멤버 자격, OAuth 및 SQL 데이터베이스가 포함된 보안 ASP.NET MVC 앱 배포]: /ko-kr/develop/net/tutorials/web-site-with-sql-database/
   [Azure 웹 사이트에 대한 사용자 지정 도메인 이름 구성]: /ko-kr/documentation/articles/web-sites-custom-domain-name/

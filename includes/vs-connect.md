@@ -11,6 +11,6 @@
     <div class="dev-callout"><strong>보안 정보:</strong><br /> <p>소스 코드 디렉터리 밖의 폴더(예: 다운로드 폴더)에 구독 파일을 다운로드한 다음 일단 가져오기가 완료되면 삭제하세요. 악의적인 사용자가 구독 파일에 액세스할 경우 Azure 서비스를 편집, 생성 및 삭제할 수 있습니다.</p></div>
 
 
-    자세한 내용은 [Visual Studio에서 Azure에 연결하는 방법][]을 참조하세요.
+    자세한 내용은 [Visual Studio에서 Azure에 연결하는 방법][Visual Studio에서 Azure에 연결하는 방법]을 참조하세요.
 
   [Visual Studio에서 Azure에 연결하는 방법]: http://go.microsoft.com/fwlink/?LinkId=324796

@@ -1,4 +1,4 @@
-<properties urlDisplayName="New Relic" pageTitle="Azure에서 New Relic 사용 - Azure 기능 가이드" metaKeywords="" description="New Relic 서비스를 사용하여 Azure 응용 프로그램을 관리 및 모니터링하는 방법에 대해 알아봅니다." metaCanonical="" services="" documentationCenter=".NET" title="Azure에서 New Relic 응용 프로그램 성능 관리" authors="" solutions="" manager="dwrede" editor="" />
+<properties linkid="develop-net-how-to-guides-new-relic" urlDisplayName="New Relic" pageTitle="Using New Relic with Azure - Azure feature guides" metaKeywords="" description="Learn how to use the New Relic service to manage and monitor your Azure application." metaCanonical="" services="" documentationCenter=".NET" title="New Relic Application Performance Management on Azure" authors="" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="new="" relic" />
 
@@ -7,7 +7,7 @@
 이 가이드에서는 Azure 호스티드 응용 프로그램에 세계 최고 수준의 New
 Relic 성능 모니터링을 추가하는 방법에 대해 설명합니다. 응용 프로그램에 New Relic을
 빠르고 간단하게 추가하는 프로세스를 다루며 New Relic의 일부 기능을 소개합니다.
- New Relic을 사용하는 방법에 대한 자세한 내용은 [New Relic 사용][New Relic 사용]을 참조하세요.
+ New Relic을 사용하는 방법에 대한 자세한 내용은 [New Relic 사용][New Relic 사용]을 참조하십시오.
 
 ## New Relic 정의
 
@@ -26,11 +26,11 @@ New Relic은 서버 및 사용자 브라우저의 웹 트랜잭션에 대한 부
 New Relic Standard는 Azure 사용자에게
 무료이며, New Relic Pro는 Azure 클라우드 서비스의 인스턴스 크기에 따라 제공됩니다.
 
-가격 책정 정보는 [Azure 스토어의 New Relic 페이지][Azure 스토어의 New Relic 페이지](영문)를 참조하세요.
+가격 책정 정보는 [Azure 스토어의 New Relic 페이지][Azure 스토어의 New Relic 페이지](영문)를 참조하십시오.
 
 <div class="dev-callout"> 
 <strong>참고:</strong>
-<p>최대 10개의 계산 인스턴스에 대해서만 가격이 책정됩니다. 인스턴스가 11개 이상인 경우에는 New Relic(sales@newrelic.com)에 볼륨 가격을 문의하세요.</p>
+<p>최대 10개의 계산 인스턴스에 대해서만 가격이 책정됩니다. 인스턴스가 11개 이상인 경우에는 New Relic(sales@newrelic.com)에 볼륨 가격을 문의하십시오.</p>
 </div>
 
 Azure 고객은 New Relic 에이전트를 배포할 때 New Relic Pro에 대해 2주의 평가판 구독을 받습니다.
@@ -39,7 +39,7 @@ Azure 고객은 New Relic 에이전트를 배포할 때 New Relic Pro에 대해 
 
 New Relic은 Azure 웹 역할 및 작업자 역할과 원활하게 통합됩니다.
 
-Azure 스토어에서 직접 New Relic에 등록하려면 다음과 같이 간단한 세 단계를 수행하세요.
+Azure 스토어에서 직접 New Relic에 등록하려면 다음과 같이 간단한 세 단계를 수행하십시오.
 
 ### 1단계. Azure 스토어를 통해 등록
 
@@ -97,7 +97,7 @@ Azure 스토어에서 직접 New Relic에 등록하려면 다음과 같이 간�
     ![클라우드 프로젝트 게시][클라우드 프로젝트 게시]
 
 **참고:** Azure에 이 앱을 처음 배포하는 경우 Azure 자격 증명을 입력하라는 메시지가
-표시됩니다. 자세한 내용은 [Azure 웹 사이트에 ASP.NET 웹 응용 프로그램 배포][Azure 웹 사이트에 ASP.NET 웹 응용 프로그램 배포](영문)를 참조하세요.
+표시됩니다. 자세한 내용은 [Azure 웹 사이트에 ASP.NET 웹 응용 프로그램 배포][Azure 웹 사이트에 ASP.NET 웹 응용 프로그램 배포](영문)를 참조하십시오.
 
 ![게시 설정][게시 설정]
 
@@ -175,7 +175,7 @@ Applications Overview 대시보드에는 [표준 New Relic UI][표준 New Relic 
 
 ## 다음 단계
 
-자세한 내용은 다음 추가 리소스에서 확인하세요.
+자세한 내용은 다음 추가 리소스에서 확인하십시오.
 
 -   [Azure에서 .NET 에이전트 설치][Azure에서 .NET 에이전트 설치](영문): New Relic .NET 에이전트 설치 절차
 -   [New Relic 사용자 인터페이스][New Relic 사용자 인터페이스](영문):

@@ -86,13 +86,10 @@
 
 In the next tutorial, [Service-side authorization of Mobile Services users][Authorize users with scripts], you will take the user ID value provided by Mobile Services based on an authenticated user and use it to filter the data returned by Mobile Services.
 -->
-<!-- Anchors. --> 
-<!-- URLs. -->
+ 
+
 
   [인증을 위해 앱 등록 및 모바일 서비스 구성]: #register
   [테이블 사용 권한을 인증된 사용자로 제한]: #permissions
   [앱에 인증 추가]: #add-authentication
   [모바일 서비스 시작]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-xamarin-android-get-started/
-  [mobile-services-register-authentication]: ../includes/mobile-services-register-authentication.md
-  [mobile-services-dotnet-backend-aad-server-extension]: ../includes/mobile-services-dotnet-backend-aad-server-extension.md
-  [mobile-services-restrict-permissions-dotnet-backend]: ../includes/mobile-services-restrict-permissions-dotnet-backend.md

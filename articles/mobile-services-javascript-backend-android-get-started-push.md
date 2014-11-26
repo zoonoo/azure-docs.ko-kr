@@ -193,15 +193,11 @@ USB 케이블로 Android 휴대폰을 직접 연결하거나 에뮬레이터에�
   [모바일 서비스 시작하기]: /ko-kr/documentation/articles/mobile-services-android-get-started/
   [데이터 시작하기]: /ko-kr/documentation/articles/mobile-services-android-get-started-data/
   [accounts.google.com]: http://go.microsoft.com/fwlink/p/?LinkId=268302
-  [GCM 사용]: ../includes/mobile-services-enable-Google-cloud-messaging.md
   [Azure 관리 포털]: https://manage.windowsazure.com/
   [0]: ./media/mobile-services-android-get-started-push/mobile-services-selection.png
   [이 지침]: http://go.microsoft.com/fwlink/p/?LinkId=391951
   [1]: ./media/mobile-services-android-get-started-push/mobile-push-tab-android.png
-  [Verify SDK]: ../includes/mobile-services-verify-android-sdk-version.md
   [Google Play Services SDK 설정]: http://go.microsoft.com/fwlink/?LinkId=389801
-  [Play Services 추가]: ../includes/mobile-services-add-Google-play-services.md
-  [mobile-services-android-getting-started-with-push]: ../includes/mobile-services-android-getting-started-with-push.md
   [2]: ./media/mobile-services-android-get-started-push/mobile-portal-data-tables.png
   [3]: ./media/mobile-services-android-get-started-push/mobile-insert-script-push2.png
   [gcm 개체]: http://go.microsoft.com/fwlink/p/?LinkId=282645

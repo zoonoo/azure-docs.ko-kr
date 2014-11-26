@@ -56,9 +56,9 @@
 
 이제 앱에서 인증하는 데 Azure Active Directory를 사용할 준비가 되었습니다.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [Active Directory 인증 라이브러리 Single Sign-On으로 앱 인증]: /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication/
   [Azure 관리 포털]: https://manage.windowsazure.com/

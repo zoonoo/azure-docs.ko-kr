@@ -29,6 +29,5 @@
 
 
   [데이터 시작]: /ko-kr/documentation/articles/mobile-services-windows-phone-get-started-data/
-  [mobile-services-windows-dotnet-paging]: ../includes/mobile-services-windows-dotnet-paging.md
   [인증 시작하기]: /ko-kr/documentation/articles/mobile-services-windows-phone-get-started-users/
   [푸시 알림 시작]: /ko-kr/documentation/articles/mobile-services-windows-phone-get-started-push/

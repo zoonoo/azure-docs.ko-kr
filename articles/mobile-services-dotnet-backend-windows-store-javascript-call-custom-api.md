@@ -42,17 +42,15 @@
 -   [원본 제어에 서버 스크립트 저장][원본 제어에 서버 스크립트 저장]
      원본 제어 기능을 사용하여 더 쉽고 안전하게 사용자 지정 API 스크립트 코드를 개발하고 게시하는 방법을 알아봅니다.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [모바일 서비스 시작]: /ko-kr/documentation/articles/mobile-services-windows-store-get-started/
   [데이터 시작]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/
   [사용자 지정 API 정의]: #define-custom-api
   [사용자 지정 API를 호출하도록 앱 업데이트]: #update-app
   [앱 테스트]: #test-app
-  [mobile-services-dotnet-backend-create-custom-api]: ../includes/mobile-services-dotnet-backend-create-custom-api.md
-  [mobile-services-windows-store-javascript-call-custom-api]: ../includes/mobile-services-windows-store-javascript-call-custom-api.md
   [정기 알림을 지원하는 사용자 지정 API 정의]: /ko-kr/documentation/articles/mobile-services-windows-store-javascript-create-pull-notifications
   [모바일 서비스 서버 스크립트 참조]: http://go.microsoft.com/fwlink/?LinkId=262293
   [원본 제어에 서버 스크립트 저장]: /ko-kr/documentation/articles/mobile-services-store-scripts-source-control

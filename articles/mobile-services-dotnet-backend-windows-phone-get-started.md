@@ -97,21 +97,17 @@ Azure에서 실행 중인 모바일 서비스에 대해 새 클라이언트 앱�
 -   [모바일 서비스 .NET 백 엔드 문제 해결][모바일 서비스 .NET 백 엔드 문제 해결]
      모바일 서비스 .NET 백 엔드에서 발생할 수 있는 문제를 진단 및 해결하는 방법을 알아보십시오.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
 
-  [mobile-services-selector-get-started]: ../includes/mobile-services-selector-get-started.md
+
   [JavaScript 백 엔드 버전]: /ko-kr/documentation/articles/mobile-services-windows-phone-get-started
   [0]: ./media/mobile-services-windows-phone-get-started/mobile-quickstart-completed-wp8.png
   [Azure 무료 평가판]: http://www.windowsazure.com/ko-kr/pricing/free-trial/?WT.mc_id=A30A4DDE2&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fko-kr%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-phone-get-started%2F
   [Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=257546
-  [mobile-services-dotnet-backend-create-new-service]: ../includes/mobile-services-dotnet-backend-create-new-service.md
   [1]: ./media/mobile-services-dotnet-backend-windows-phone-get-started/mobile-portal-quickstart-wp8.png
   [2]: ./media/mobile-services-dotnet-backend-windows-phone-get-started/mobile-quickstart-steps-wp8.png
-  [mobile-services-dotnet-backend-test-local-service]: ../includes/mobile-services-dotnet-backend-test-local-service.md
   [Windows Phone 8 에뮬레이터에서 로컬 웹 서비스에 연결하는 방법]: http://go.microsoft.com/fwlink/p/?LinkId=391930
-  [mobile-services-dotnet-backend-publish-service]: ../includes/mobile-services-dotnet-backend-publish-service.md
   [MobileServiceClient]: http://msdn.microsoft.com/ko-kr/library/Windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx
   [3]: ./media/mobile-services-dotnet-backend-windows-phone-get-started/mobile-quickstart-startup-wp8.png
   [로컬 모바일 서비스에 연결할 수 있도록 로컬 웹 서버 구성]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-how-to-configure-iis-express

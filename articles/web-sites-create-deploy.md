@@ -75,4 +75,3 @@ Azure에서 웹 사이트를 만들려면 다음 단계를 따르세요.
   [방법: 웹 사이트 삭제]: #deleteawebsite
   [다음 단계]: #nextsteps
   [Azure 관리 포털]: http://manage.windowsazure.com/
-  [website-from-gallery]: ../includes/website-from-gallery.md

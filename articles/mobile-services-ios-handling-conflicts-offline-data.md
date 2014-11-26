@@ -439,7 +439,7 @@ SDK의 오프라인 동기화 기능을 사용하면 코드를 통해 이러한 
 
 그리고 사용자에게 경고를 표시하기 위한 **QSUIAlertViewWithBlock** 도우미 클래스를 추가했으며, 마지막으로 세 가지 방법 중 하나로 충돌을 조정하라는 메시지를 사용자에게 표시하기 위해 **QSTodoListViewController**에 코드를 추가했습니다.
 
-<!-- URLs. -->
+
 
   [오프라인 데이터 시작]: /ko-kr/documentation/articles/mobile-services-ios-get-started-offline-data/
   [Azure 무료 평가판]: http://www.windowsazure.com/ko-kr/pricing/free-trial/?WT.mc_id=AE564AB28

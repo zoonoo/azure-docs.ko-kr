@@ -1,8 +1,8 @@
 ## <a name="register-app-aad"></a>Azure Active Directory에 클라이언트 앱 등록
 
-1.  [관리 포털][]에서 **Active Directory**로 이동한 다음 디렉터리를 클릭합니다.
+1.  [관리 포털][관리 포털]에서 **Active Directory**로 이동한 다음 디렉터리를 클릭합니다.
 
-![][]
+![][0]
 
 1.  맨 위에 있는 **응용 프로그램** 탭을 클릭한 다음 앱을 클릭하여 **추가**합니다.
 
@@ -29,7 +29,7 @@
 이제 모바일 서비스는 AAD에서 앱의 Single Sign-On을 받도록 구성됩니다.
 
   [관리 포털]: https://manage.windowsazure.com/
-  []: ./media/mobile-services-dotnet-adal-register-client/mobile-services-select-aad.png
+  [0]: ./media/mobile-services-dotnet-adal-register-client/mobile-services-select-aad.png
   [1]: ./media/mobile-services-dotnet-adal-register-client/mobile-services-aad-applications-tab.png
   [2]: ./media/mobile-services-dotnet-adal-register-client/mobile-services-native-selection.png
   [3]: ./media/mobile-services-dotnet-adal-register-client/mobile-services-native-redirect-uri.png

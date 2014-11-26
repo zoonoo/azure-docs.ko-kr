@@ -1,6 +1,6 @@
 <properties title="Learn how to configure an Azure website to use a domain name registered with Dotster" pageTitle="Configure a Dotster domain name for an Azure website" metaKeywords="Azure, Azure Web Sites, Dotster" description="Learn how to configure an Azure website to use a domain name registered with Dotster" services="web-sites" documentationCenter="" authors="larryfr,jroth" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr,jroth"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr,jroth" />
 
 # Azure 웹 사이트에 대한 사용자 지정 도메인 이름 구성(Dotster)
 
@@ -8,28 +8,28 @@
 
 <div class="dev-center-tutorial-subselector"><a href="/ko-KR/documentation/articles/web-sites-dotster-custom-domain-name/" title="웹 사이트" class="current">웹 사이트</a> | <a href="/ko-KR/documentation/articles/web-sites-dotster-traffic-manager-custom-domain-name/" title="트래픽 관리자를 사용하는 웹 사이트">트래픽 관리자를 사용하는 웹 사이트</a></div>
 
-[WACOM.INCLUDE [websites-cloud-services-css-guided-walkthrough][]]
+[WACOM.INCLUDE [websites-cloud-services-css-guided-walkthrough](../includes/websites-cloud-services-css-guided-walkthrough.md)]
 
-[WACOM.INCLUDE [intro][]]
+[WACOM.INCLUDE [intro](../includes/custom-dns-web-site-intro.md)]
 
-이 문서에서는 Azure 웹 사이트 및 [Dotster.com][]에서 구매한 사용자 지정 도메인 이름 사용에 대한 지침을 제공합니다.
+이 문서에서는 Azure 웹 사이트 및 [Dotster.com][Dotster.com]에서 구매한 사용자 지정 도메인 이름 사용에 대한 지침을 제공합니다.
 
-[WACOM.INCLUDE [introfooter][]]
+[WACOM.INCLUDE [introfooter](../includes/custom-dns-web-site-intro-notes.md)]
 
 이 문서의 내용
 
--   [DNS 레코드 이해][]
--   [기본, 공유 또는 표준 모드에 대한 웹 사이트 구성][]
--   [사용자 지정 도메인에 대한 DNS 레코드 추가][]
--   [웹 사이트에서 도메인 사용][]
+-   [DNS 레코드 이해][DNS 레코드 이해]
+-   [기본, 공유 또는 표준 모드에 대한 웹 사이트 구성][기본, 공유 또는 표준 모드에 대한 웹 사이트 구성]
+-   [사용자 지정 도메인에 대한 DNS 레코드 추가][사용자 지정 도메인에 대한 DNS 레코드 추가]
+-   [웹 사이트에서 도메인 사용][웹 사이트에서 도메인 사용]
 
 ## <a name="understanding-records"></a>DNS 레코드 이해
 
-[WACOM.INCLUDE [understandingdns][]]
+[WACOM.INCLUDE [understandingdns](../includes/custom-dns-web-site-understanding-dns-raw.md)]
 
 ## <a name="bkmk_configsharedmode"></a>기본, 공유 또는 표준 모드에 대한 웹 사이트 구성
 
-[WACOM.INCLUDE [modes][]]
+[WACOM.INCLUDE [modes](../includes/custom-dns-web-site-modes.md)]
 
 <a name="bkmk_configurecname"></a>
 
@@ -39,11 +39,11 @@
 
 1.  사용 중인 계정으로 Dotster.com에 로그온합니다. **Domain** 메뉴에서 **DomainCentral**을 선택합니다.
 
-    ![Domain Central Dotster 메뉴][]
+    ![Domain Central Dotster 메뉴][Domain Central Dotster 메뉴]
 
 2.  도메인을 선택하여 설정 목록을 표시합니다. 그런 다음 **Nameservers** 링크를 선택합니다.
 
-    ![Dotster Domain 구성 옵션][]
+    ![Dotster Domain 구성 옵션][Dotster Domain 구성 옵션]
 
 3.  **Use different name servers**를 선택합니다. Dotster의 DNS 서비스를 활용하려면 이름 서버인 ns1.nameresolve.com, ns2.nameresolve.com, ns3.nameresolve.com 및 ns4.nameresolve.com을 지정해야 합니다.
 
@@ -75,32 +75,15 @@
 
 ## <a name="enabledomain"></a>웹 사이트에서 도메인 이름 사용
 
-[WACOM.INCLUDE [modes][4]]
+[WACOM.INCLUDE [modes](../includes/custom-dns-web-site-modes.md)]
 
-  [사용자 지정 도메인]: /ko-KR/documentation/articles/web-sites-custom-domain-name "사용자 지정 도메인"
-  [GoDaddy]: /ko-KR/documentation/articles/web-sites-godaddy-custom-domain-name "GoDaddy"
-  [Network Solutions]: /ko-KR/documentation/articles/web-sites-network-solutions-custom-domain-name "Network Solutions"
-  [Register.com]: /ko-KR/documentation/articles/web-sites-registerdotcom-custom-domain-name "Register.com"
-  [Enom]: /ko-KR/documentation/articles/web-sites-enom-custom-domain-name "Enom"
-  [Moniker]: /ko-KR/documentation/articles/web-sites-moniker-custom-domain-name "Moniker"
-  [Dotster]: /ko-KR/documentation/articles/web-sites-dotster-custom-domain-name "Dotster"
-  [DomainDiscover]: /ko-KR/documentation/articles/web-sites-domaindiscover-custom-domain-name "DomainDiscover"
-  [Directnic]: /ko-KR/documentation/articles/web-sites-directnic-custom-domain-name "Directnic"
-  [웹 사이트]: /ko-KR/documentation/articles/web-sites-dotster-custom-domain-name/ "웹 사이트"
-  [트래픽 관리자를 사용하는 웹 사이트]: /ko-KR/documentation/articles/web-sites-dotster-traffic-manager-custom-domain-name/ "트래픽 관리자를 사용하는 웹 사이트"
-  [websites-cloud-services-css-guided-walkthrough]: ../includes/websites-cloud-services-css-guided-walkthrough.md
-  [intro]: ../includes/custom-dns-web-site-intro.md
   [Dotster.com]: https://dotster.com
-  [introfooter]: ../includes/custom-dns-web-site-intro-notes.md
   [DNS 레코드 이해]: #understanding-records
   [기본, 공유 또는 표준 모드에 대한 웹 사이트 구성]: #bkmk_configsharedmode
   [사용자 지정 도메인에 대한 DNS 레코드 추가]: #bkmk_configurecname
   [웹 사이트에서 도메인 사용]: #enabledomain
-  [understandingdns]: ../includes/custom-dns-web-site-understanding-dns-raw.md
-  [modes]: ../includes/custom-dns-web-site-modes.md
   [Domain Central Dotster 메뉴]: .\media\web-sites-dotster-custom-domain-name\Dotster_DomainCentralMenu.png
   [Dotster Domain 구성 옵션]: .\media\web-sites-dotster-custom-domain-name\Dotster_DomainMenu.png
   [1]: .\media\web-sites-dotster-custom-domain-name\Dotster_Nameservers.png
   [2]: .\media\web-sites-dotster-custom-domain-name\Dotster_DNS.png
   [3]: .\media\web-sites-dotster-custom-domain-name\Dotster_DNS_CNAME.png
-  [4]: ../includes/custom-dns-web-site-enable-on-web-site.md

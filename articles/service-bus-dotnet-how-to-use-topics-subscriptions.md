@@ -386,8 +386,6 @@ path*\>/subscriptions/\<*subscription name*\>" 형식으로 제공됩니다.
     자습서]
 
   [다음 단계]: #nextsteps
-  [create-account-note]: ../includes/create-account-note.md
-  [howto-service-bus-topics]: ../includes/howto-service-bus-topics.md
   [0]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/getting-started-multi-tier-13.png
   [큐, 토픽 및 구독]: http://msdn.microsoft.com/ko-kr/library/hh367516.aspx
   [SqlFilter]: http://msdn.microsoft.com/ko-kr/library/microsoft.servicebus.messaging.sqlfilter.aspx

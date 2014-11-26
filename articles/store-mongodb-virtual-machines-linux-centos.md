@@ -1,4 +1,4 @@
-<properties urlDisplayName="Install MongoDB" pageTitle="Azure에서 CentOS Linux를 실행하는 가상 컴퓨터에 MongoDB 설치" metaKeywords="Azure, MongoDB" description="Azure에서 가상 컴퓨터에 MongoDB를 설치하는 방법에 대해 알아봅니다." metaCanonical="" services="" documentationCenter="" title="Azure에서 CentOS Linux를 실행하는 가상 컴퓨터에 MongoDB 설치" authors="bbenz, MSOpenTech" solutions="" manager="timlt" editor="" />
+<properties linkid="store-mongodb-virtual-machines-linux-centos" urlDisplayName="Install MongoDB" pageTitle="nstall MongoDB on a virtual machine running CentOS Linux in Azure" metaKeywords="Azure, MongoDB" description="Learn how to install Mongo DB on a virtual machine in Azure." metaCanonical="" services="" documentationCenter="" title="Install MongoDB on a virtual machine running CentOS Linux in Azure" authors="bbenz, MSOpenTech" solutions="" manager="timlt" editor="" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="" ms.topic="article" ms.date="01/01/1900" ms.author="bbenz, MSOpenTech" />
 
@@ -22,7 +22,7 @@
 
 ## 요약
 
-이 자습서에서는 Linux 가상 컴퓨터를 만들고 SSH 또는 PuTTY를 사용하여 가상 컴퓨터에 원격으로 연결하는 방법을 배웠습니다. 또한 MongoDB를 Linux 가상 컴퓨터에 설치하고 구성하는 방법도 배웠습니다. MongoDB에 대한 자세한 내용은 [MongoDB 설명서][MongoDB 설명서](영문)를 참조하세요.
+이 자습서에서는 Linux 가상 컴퓨터를 만들고 SSH 또는 PuTTY를 사용하여 가상 컴퓨터에 원격으로 연결하는 방법을 배웠습니다. 또한 MongoDB를 Linux 가상 컴퓨터에 설치하고 구성하는 방법도 배웠습니다. MongoDB에 대한 자세한 내용은 [MongoDB 설명서][MongoDB 설명서](영문)를 참조하십시오.
 
   [MongoDB]: http://www.mongodb.org/
   [Azure 관리 포털]: http://manage.windowsazure.com

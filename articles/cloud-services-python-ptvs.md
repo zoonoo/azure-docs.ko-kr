@@ -102,7 +102,8 @@ Azure 저장소 또는 서비스 버스를 사용하는 등 웹 및 작업자 �
 -   [서비스 버스 큐][서비스 버스 큐]
 -   [서비스 버스 토픽][서비스 버스 토픽]
 
-<!--Link references--> <!--External Link references-->
+<!--Link references-->
+<!--External Link references-->
 
   [Python Tools for Visual Studio]: http://pytools.codeplex.com
   [필수 조건]: #prerequisites

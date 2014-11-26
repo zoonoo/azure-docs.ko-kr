@@ -129,7 +129,7 @@ HTTP 요청을 통해 삭제된 레코드를 검색하려면 "\_\_includedeleted
 
 JavaScript 백 엔드 모바일 서비스의 예약된 작업에 대한 자세한 내용은 [JavaScript 백 엔드 모바일 서비스에서 반복 작업 예약][3]을 참조하세요.
 
-<!-- Anchors. --> <!-- Images --> <!-- URLs. -->
+ <!-- Images --> 
 
   [SQL 비트 유형]: http://msdn.microsoft.com/ko-kr/library/ms177603.aspx
   [REST 쿼리 작업]: http://msdn.microsoft.com/ko-kr/library/azure/jj677199.aspx

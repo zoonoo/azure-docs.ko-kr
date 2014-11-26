@@ -1,6 +1,6 @@
 <properties linkid="develop-nodejs-common-tasks-specifying-a-node-version" urlDisplayName="Specifying a Node.js Version" pageTitle="Specifying a Node.js Version" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="nodejs" title="Specifying a Node.js version in an Azure application" authors="larryfr" solutions="" manager="paulettm" editor="mollybos" />
 
-<tags ms.service="na" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"></tags>
+<tags ms.service="na" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # Azure 응용 프로그램에서 Node.js 버전 지정
 
@@ -49,7 +49,7 @@ Azure는 Node.js의 기본 버전을 여러 개 제공하지만 기본적으로 
 
     웹 사이트를 검색할 때 사용되는 Node.js 버전이 표시됩니다.
 
-2.  새로운 웹 사이트를 만들고 사이트 이름을 기록해 둡니다. 예를 들어 다음 코드는 [Azure 명령줄 도구][]를 사용하여 **mywebsite**라는 새 Azure 웹 사이트를 만든 후 웹 사이트에 Git 리포지토리를 사용하도록 설정합니다.
+2.  새로운 웹 사이트를 만들고 사이트 이름을 기록해 둡니다. 예를 들어 다음 코드는 [Azure 명령줄 도구][Azure 명령줄 도구]를 사용하여 **mywebsite**라는 새 Azure 웹 사이트를 만든 후 웹 사이트에 Git 리포지토리를 사용하도록 설정합니다.
 
         azure site create mywebsite --git
 
@@ -77,7 +77,7 @@ Azure는 Node.js의 기본 버전을 여러 개 제공하지만 기본적으로 
 
 ## 다음 단계
 
-지금까지 응용 프로그램에서 사용되는 Node.js 버전을 지정하는 방법을 배웠습니다. 이제 [모듈 작업][] 방법, [Node.js 웹 사이트 빌드 및 배포][] 방법, [Mac 및 Linux에서 Azure 명령줄 도구를 사용하는 방법][Azure 명령줄 도구]을 알아보겠습니다.
+지금까지 응용 프로그램에서 사용되는 Node.js 버전을 지정하는 방법을 배웠습니다. 이제 [모듈 작업][모듈 작업] 방법, [Node.js 웹 사이트 빌드 및 배포][Node.js 웹 사이트 빌드 및 배포] 방법, [Mac 및 Linux에서 Azure 명령줄 도구를 사용하는 방법][Azure 명령줄 도구]을 알아보겠습니다.
 
   [Azure 명령줄 도구]: /ko-KR/documentation/articles/xplat-cli/
   [모듈 작업]: /ko-KR/documentation/articles/nodejs-use-node-modules-azure-apps/

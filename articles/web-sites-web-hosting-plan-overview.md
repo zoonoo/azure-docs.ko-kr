@@ -49,7 +49,7 @@
 
 Azure에 등록하려면 [Microsoft Azure 무료 평가판][Microsoft Azure 무료 평가판]을 참조하세요.
 
-<!-- Images. -->
+
 
   [여기를 참조]: http://go.microsoft.com/fwlink/?LinkID=394421
   [웹 호스팅 계획 관리에 대해 자세히 알아보십시오]: http://go.microsoft.com/fwlink/?LinkID=394411

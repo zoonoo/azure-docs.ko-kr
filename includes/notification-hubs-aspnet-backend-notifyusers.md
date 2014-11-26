@@ -4,7 +4,7 @@
 
 > [AZURE.NOTE] **중요**: 이 자습서를 시작하기 전에 최신 버전의 NuGet 패키지 관리자를 설치했는지 확인하세요. 확인하려면 Visual Studio를 시작합니다. **도구** 메뉴에서 **확장 및 업데이트**를 클릭합니다. **Visual Studio 2013용 NuGet 패키지 관리자**를 검색하고 버전이 2.8.50313.46 이상인지 확인합니다. 그렇지 않은 경우 제거한 다음, NuGet 패키지 관리자를 다시 설치합니다.
 >
-> ![][]
+> ![][0]
 
 1.  상승된 권한으로 Visual Studio를 시작합니다(관리자로 실행).
 2.  Visual Studio 또는 Visual Studio Express에서, **파일**, **새로 만들기**, **프로젝트**를 차례로 클릭한 다음, **템플릿**과 **Visual C\#**를 차례로 확장하고, **웹**과 **ASP.NET 웹 응용 프로그램**을 차례로 클릭하고, **AppBackend** 이름을 입력한 다음, **확인**을 클릭합니다.
@@ -50,7 +50,7 @@
 
         using Microsoft.ServiceBus.Notifications;
 
-12. `Notifications()` 메서드에서 다음 코드 줄에 있는 두 개의 자리 표시자를 알림 허브에 대한 연결 문자열(모든 권한 사용) 및 허브 이름으로 바꿉니다. [Azure 관리 포털][]에서 이러한 값을 가져올 수 있습니다.
+12. `Notifications()` 메서드에서 다음 코드 줄에 있는 두 개의 자리 표시자를 알림 허브에 대한 연결 문자열(모든 권한 사용) 및 허브 이름으로 바꿉니다. [Azure 관리 포털][Azure 관리 포털]에서 이러한 값을 가져올 수 있습니다.
 
         Hub = NotificationHubClient.CreateClientFromConnectionString("{conn string with full access}", "{hub name}");
 
@@ -280,7 +280,7 @@
 
     ![][10]
 
-  []: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push4.png
+  [0]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push4.png
   [1]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push1.png
   [2]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push2.png
   [3]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push5.png

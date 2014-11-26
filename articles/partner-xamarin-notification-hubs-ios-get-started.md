@@ -1,6 +1,6 @@
 <properties linkid="develop-notificationhubs-tutorials-get-started-xamarin-ios" urlDisplayName="Get Started" pageTitle="Get Started with Notification Hubs for Xamarin iOS apps" metaKeywords="" description="Learn how to use Azure Notification Hubs to send push notifications to a Xamarin iOS application." metaCanonical="" disqusComments="0" umbracoNaviHide="1" services="mobile-services,notification-hubs" documentationCenter="" title="Get started with Notification Hubs" authors="donnam" manager="dwrede" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="donnam"></tags>
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="donnam" />
 
 # 알림 허브 시작
 
@@ -399,17 +399,11 @@ APNS(Apple Push Notification Service)는 인증서를 사용하여 모바일 서
 
 이 간단한 예제에서는 모든 iOS 장치로 알림을 브로드캐스트합니다. 특정 사용자에게만 알림을 보내려면 [알림 허브를 사용하여 사용자에게 알림 푸시][알림 허브를 사용하여 사용자에게 알림 푸시] 자습서를 참조하십시오. 사용자를 관심 그룹별로 분할하려면 [알림 허브를 사용하여 뉴스 속보 보내기][알림 허브를 사용하여 뉴스 속보 보내기]를 참조하십시오. 알림 허브 사용 방법에 대해 자세히 알아보려면 [알림 허브 지침][알림 허브 지침] 및 [iOS용 알림 허브 방법][iOS용 알림 허브 방법]을 참조하십시오.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
 
-  [Windows 범용]: /ko-KR/documentation/articles/notification-hubs-windows-store-dotnet-get-started/ "Windows 범용"
-  [Windows Phone]: /ko-KR/documentation/articles/notification-hubs-windows-phone-get-started/ "Windows Phone"
-  [iOS]: /ko-KR/documentation/articles/notification-hubs-ios-get-started/ "iOS"
-  [Android]: /ko-KR/documentation/articles/notification-hubs-android-get-started/ "Android"
-  [Kindle]: /ko-KR/documentation/articles/notification-hubs-kindle-get-started/ "Kindle"
+
   [Xamarin.iOS]: /ko-KR/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/ "Xamarin.iOS"
-  [Xamarin.Android]: /ko-KR/documentation/articles/partner-xamarin-notification-hubs-android-get-started/ "Xamarin.Android"
   [NotificationHubs 앱]: http://go.microsoft.com/fwlink/p/?LinkId=331329
   [인증서 서명 요청 생성]: #certificates
   [앱을 등록하고 푸시 알림을 사용하도록 설정]: #register
@@ -420,7 +414,6 @@ APNS(Apple Push Notification Service)는 인증서를 사용하여 모바일 서
   [XCode 5.0]: https://go.microsoft.com/fwLink/p/?LinkID=266532
   [1]: http://xamarin.com/download
   [Azure 모바일 서비스 구성 요소(영문)]: http://components.xamarin.com/view/azure-mobile-services/
-  [Azure 무료 평가판]: http://www.windowsazure.com/ko-KR/pricing/free-trial/?WT.mc_id=A643EE910&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fko-KR%2Fmanage%2Fservices%2Fnotification-hubs%2Fgetting-started-xamarin-ios%2F
   [Apple Push Notification Service]: http://go.microsoft.com/fwlink/p/?LinkId=272584
   [0]: ./media/partner-xamarin-notification-hubs-ios-get-started/mobile-services-ios-push-step5.png
   [2]: ./media/partner-xamarin-notification-hubs-ios-get-started/mobile-services-ios-push-step6.png

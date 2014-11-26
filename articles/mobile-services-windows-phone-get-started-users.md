@@ -56,15 +56,10 @@
 
 
 
-  [mobile-services-selector-get-started-users]: ../includes/mobile-services-selector-get-started-users.md
   [인증을 위해 앱 등록 및 모바일 서비스 구성]: #register
   [테이블 사용 권한을 인증된 사용자로 제한]: #permissions
   [앱에 인증 추가]: #add-authentication
   [모바일 서비스 시작]: /ko-kr/documentation/articles/mobile-services-windows-phone-get-started
   [Live Connect를 사용한 Windows Phone 앱의 Single Sign-On]: /ko-kr/documentation/articles/mobile-services-windows-phone-single-sign-on
   [이 게시물]: http://go.microsoft.com/fwlink/p/?LinkId=506605
-  [mobile-services-register-authentication]: ../includes/mobile-services-register-authentication.md
-  [mobile-services-restrict-permissions-javascript-backend]: ../includes/mobile-services-restrict-permissions-javascript-backend.md
-  [mobile-services-windows-phone-authenticate-app]: ../includes/mobile-services-windows-phone-authenticate-app.md
-  [mobile-services-windows-phone-authenticate-app-with-token]: ../includes/mobile-services-windows-phone-authenticate-app-with-token.md
   [모바일 서비스 사용자의 서비스 쪽 권한 부여]: /ko-kr/documentation/articles/mobile-services-windows-phone-authorize-users-in-scripts

@@ -2,7 +2,7 @@
 
 1.  솔루션 탐색기에서 모바일 서비스 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 클릭한 다음, **웹 게시** 대화 상자에서 **Azure 모바일 서비스**를 클릭합니다.
 
-    ![][]
+    ![][0]
 
 2.  Azure 계정 자격 증명으로 로그인하고, **기존 모바일 서비스**에서 서비스를 선택하고 **확인**을 클릭합니다.
 
@@ -18,6 +18,6 @@
 
     게시가 성공하면 이때 Azure에서 모바일 서비스가 실행 중이라는 확인 페이지가 다시 표시됩니다.
 
-  []: ./media/mobile-services-dotnet-backend-publish-service/mobile-quickstart-publish.png
+  [0]: ./media/mobile-services-dotnet-backend-publish-service/mobile-quickstart-publish.png
   [1]: ./media/mobile-services-dotnet-backend-publish-service/mobile-quickstart-publish-select-service.png
   [2]: ./media/mobile-services-dotnet-backend-publish-service/mobile-quickstart-publish-2.png

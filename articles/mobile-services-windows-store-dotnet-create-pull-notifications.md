@@ -1,28 +1,28 @@
 <properties linkid="develop-mobile-tutorials-create-pull-notifications-dotnet" urlDisplayName="Define a custom API that supports pull notifications" pageTitle="Define a custom API that supports pull notifications - Azure Mobile Services" metaKeywords="" description="Learn how to Define a custom API that supports periodic notifications in Windows Store apps that use Azure Mobile Services." metaCanonical="" services="" documentationCenter="" title="Define a custom API that supports periodic notifications" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # 정기 알림을 지원하는 사용자 지정 API 정의
 
 <div class="dev-center-tutorial-selector"> 
-    <a href="/en-us/develop/mobile/tutorials/create-pull-notifications-dotnet" title="Windows 스토어 C#" class="current">Windows 스토어 C#</a><a href="/en-us/develop/mobile/tutorials/create-pull-notifications-js" title="Windows 스토어 JavaScript">Windows 스토어 JavaScript</a>
+    <a href="/ko-kr/develop/mobile/tutorials/create-pull-notifications-dotnet" title="Windows 스토어 C#" class="current">Windows 스토어 C#</a><a href="/ko-kr/develop/mobile/tutorials/create-pull-notifications-js" title="Windows 스토어 JavaScript">Windows 스토어 JavaScript</a>
 </div>
 
-이 항목에서는 Windows 스토어 앱에서 사용자 지정 API를 사용하여 정기 알림을 지원하는 방법을 보여 줍니다. 정기 알림을 사용하면 Windows에서 주기적으로 사용자 지정 API 끝점에 액세스하고 타일 특정 형식으로 반환된 XML을 사용하여 시작 메뉴의 앱 타일을 업데이트합니다. 자세한 내용은 [정기 알림][]을 참조하세요.
+이 항목에서는 Windows 스토어 앱에서 사용자 지정 API를 사용하여 정기 알림을 지원하는 방법을 보여 줍니다. 정기 알림을 사용하면 Windows에서 주기적으로 사용자 지정 API 끝점에 액세스하고 타일 특정 형식으로 반환된 XML을 사용하여 시작 메뉴의 앱 타일을 업데이트합니다. 자세한 내용은 [정기 알림][정기 알림]을 참조하세요.
 
-[모바일 서비스 시작][] 또는 [데이터 시작][] 자습서를 마쳤을 때 만든 앱에 이 기능을 추가합니다. 그러려면 다음 단계를 완료합니다.
+[모바일 서비스 시작][모바일 서비스 시작] 또는 [데이터 시작][데이터 시작] 자습서를 마쳤을 때 만든 앱에 이 기능을 추가합니다. 그러려면 다음 단계를 완료합니다.
 
-1.  [사용자 지정 API 정의][]
-2.  [정기 알림을 켜도록 앱 업데이트][]
-3.  [앱 테스트][]
+1.  [사용자 지정 API 정의][사용자 지정 API 정의]
+2.  [정기 알림을 켜도록 앱 업데이트][정기 알림을 켜도록 앱 업데이트]
+3.  [앱 테스트][앱 테스트]
 
-이 자습서는 모바일 서비스 퀵 스타트를 기반으로 합니다. 이 자습서를 시작하기 전에 먼저 [모바일 서비스 시작][] 또는 [데이터 시작][]을 완료해야 합니다.
+이 자습서는 모바일 서비스 퀵 스타트를 기반으로 합니다. 이 자습서를 시작하기 전에 먼저 [모바일 서비스 시작][모바일 서비스 시작] 또는 [데이터 시작][데이터 시작]을 완료해야 합니다.
 
 ## <a name="define-custom-api"></a>사용자 지정 API 정의
 
-1.  [Azure 관리 포털][]에 로그인하여 **모바일 서비스**를 클릭한 후 앱을 클릭합니다.
+1.  [Azure 관리 포털][Azure 관리 포털]에 로그인하여 **모바일 서비스**를 클릭한 후 앱을 클릭합니다.
 
-    ![][]
+    ![][0]
 
 2.  **API** 탭을 클릭한 후 **사용자 지정 API 만들기**를 클릭합니다.
 
@@ -83,7 +83,7 @@
     **exports.get** 함수는 클라이언트가 타일 템플릿에 액세스하는 GET 요청을 보내기 때문에 사용됩니다.
 
     <div class="dev-callout"><b>참고</b>
-    <p>이 사용자 지정 API 스크립트는 <strong>require</strong> 함수를 사용하여 참조되는 Node.js <a href="http://go.microsoft.com/fwlink/p/?LinkId=306750">wns 모듈</a>을 사용합니다. 이 모듈은 서버 스크립트의 푸시 알림을 전송하는 데 사용되는, <a href="http://msdn.microsoft.com/en-us/library/windowsazure/jj554217.aspx">푸시 개체</a>에서 반환되는 <a href="http://go.microsoft.com/fwlink/p/?LinkId=260591">wns 개체</a>와 다릅니다.</p>
+    <p>이 사용자 지정 API 스크립트는 <strong>require</strong> 함수를 사용하여 참조되는 Node.js <a href="http://go.microsoft.com/fwlink/p/?LinkId=306750">wns 모듈</a>을 사용합니다. 이 모듈은 서버 스크립트의 푸시 알림을 전송하는 데 사용되는, <a href="http://msdn.microsoft.com/ko-kr/library/windowsazure/jj554217.aspx">푸시 개체</a>에서 반환되는 <a href="http://go.microsoft.com/fwlink/p/?LinkId=260591">wns 개체</a>와 다릅니다.</p>
 </div>
 
 다음에는 새 사용자 지정 API를 요청하여 라이브 타일을 업데이트하는 정기 알림을 시작하도록 빠른 시작 앱을 수정합니다.
@@ -121,38 +121,33 @@
 
 지금까지 정기 알림을 만들었습니다. 이제 다음 모바일 서비스 항목에 대해 자세히 알아보세요.
 
--   [푸시 알림 시작][]
+-   [푸시 알림 시작][푸시 알림 시작]
     정기 알림은 Windows에서 관리되며 미리 정의된 일정에만 발생합니다. 푸시 알림은 모바일 서비스에서 주문형으로 전송할 수 있으며 알림 메시지, 타일 알림 및 원시 알림일 수 있습니다.
 
--   [모바일 서비스 서버 스크립트 참조][]
+-   [모바일 서비스 서버 스크립트 참조][모바일 서비스 서버 스크립트 참조]
     사용자 지정 API 만들기에 대해 알아봅니다.
 
--   [모바일 서비스 .NET 방법 개념 참조][]
+-   [모바일 서비스 .NET 방법 개념 참조][모바일 서비스 .NET 방법 개념 참조]
     .NET과 함께 모바일 서비스를 사용하는 방법에 대해 자세히 알아보세요.
 
-<!-- Anchors. --> 
+ 
 
-<!-- Images. --> 
+ 
 
-<!-- URLs. -->
 
-  [Windows 스토어 C\#]: /en-us/develop/mobile/tutorials/create-pull-notifications-dotnet "Windows 스토어 C#"
-  [Windows 스토어 JavaScript]: /en-us/develop/mobile/tutorials/create-pull-notifications-js "Windows 스토어 JavaScript"
-  [정기 알림]: http://msdn.microsoft.com/en-us/library/windows/apps/jj150587.aspx
-  [모바일 서비스 시작]: /en-us/develop/mobile/tutorials/get-started/#create-new-service
-  [데이터 시작]: /en-us/develop/mobile/tutorials/get-started-with-data-dotnet
+
+  [정기 알림]: http://msdn.microsoft.com/ko-kr/library/windows/apps/jj150587.aspx
+  [모바일 서비스 시작]: /ko-kr/develop/mobile/tutorials/get-started/#create-new-service
+  [데이터 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-data-dotnet
   [사용자 지정 API 정의]: #define-custom-api
   [정기 알림을 켜도록 앱 업데이트]: #update-app
   [앱 테스트]: #test-app
   [Azure 관리 포털]: https://manage.windowsazure.com/
-  []: ./media/mobile-services-windows-store-dotnet-create-pull-notifications/mobile-services-selection.png
+  [0]: ./media/mobile-services-windows-store-dotnet-create-pull-notifications/mobile-services-selection.png
   [1]: ./media/mobile-services-windows-store-dotnet-create-pull-notifications/mobile-custom-api-create.png
   [2]: ./media/mobile-services-windows-store-dotnet-create-pull-notifications/mobile-custom-api-create-dialog.png
   [3]: ./media/mobile-services-windows-store-dotnet-create-pull-notifications/mobile-custom-api-select.png
-  [wns 모듈]: http://go.microsoft.com/fwlink/p/?LinkId=306750
-  [푸시 개체]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554217.aspx
-  [wns 개체]: http://go.microsoft.com/fwlink/p/?LinkId=260591
   [4]: ./media/mobile-services-windows-store-dotnet-create-pull-notifications/mobile-custom-api-live-tile.png
-  [푸시 알림 시작]: /en-us/develop/mobile/tutorials/get-started-with-push-dotnet
+  [푸시 알림 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-push-dotnet
   [모바일 서비스 서버 스크립트 참조]: http://go.microsoft.com/fwlink/?LinkId=262293
-  [모바일 서비스 .NET 방법 개념 참조]: /en-us/develop/mobile/how-to-guides/work-with-net-client-library
+  [모바일 서비스 .NET 방법 개념 참조]: /ko-kr/develop/mobile/how-to-guides/work-with-net-client-library

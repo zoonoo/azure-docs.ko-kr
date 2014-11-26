@@ -16,11 +16,10 @@ Azure 모바일 서비스에서는 클라이언트 기반 인증과 서버 기�
 
 앱 패키지를 등록한 후 [LoginAsync][LoginAsync] 메서드를 호출할 때 *useSingleSignOn*에 대해 **true** 값을 제공해야 합니다. 그러면 사용자가 Microsoft 계정을 사용할 때 향상된 로그인 환경이 제공됩니다.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [빠른 시작: 모바일 서비스에 대한 푸시 알림 추가]: http://go.microsoft.com/fwlink/p/?LinkId=309101
   [Live Connect Single Sign-On을 사용하여 Windows 스토어 앱 인증]: /ko-kr/develop/mobile/tutorials/single-sign-on-windows-8-dotnet
-  [mobile-services-register-windows-store-app]: ../includes/mobile-services-register-windows-store-app.md
   [LoginAsync]: http://go.microsoft.com/fwlink/p/?LinkId=311594

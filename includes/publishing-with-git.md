@@ -2,21 +2,21 @@
 
 Azure 웹 사이트는 BitBucket, CodePlex, Dropbox, Git, GitHub, Mercurial, TFS 등과 같은 소스 코드 제어 및 리포지토리 도구로부터 지속적인 배포를 지원합니다. 이러한 도구를 사용하여 웹 사이트의 콘텐츠 및 코드를 관리한 후 원할 때 쉽고 빠르게 사이트에 변경 내용을 적용할 수 있습니다.
 
-이 문서에서는 Git를 사용하여 로컬 컴퓨터에서 Azure 웹 사이트로 바로 게시하는 방법(Azure에서는 이 게시 방법을 **Local Git**라고도 함)에 대해 배우게 됩니다. 또한 BitBucket, CodePlex, Dropbox, GitHub 또는 Mercurial과 같은 리포지토리 웹 사이트에서 지속적으로 배포할 수 있도록 하는 방법에 대해서도 배우게 됩니다. TFS를 사용하여 지속적으로 배포하는 방법에 대한 내용은 [Visual Studio Online을 사용하여 Azure에 지속적으로 전송][](영문)을 참조하십시오.
+이 문서에서는 Git를 사용하여 로컬 컴퓨터에서 Azure 웹 사이트로 바로 게시하는 방법(Azure에서는 이 게시 방법을 **Local Git**라고도 함)에 대해 배우게 됩니다. 또한 BitBucket, CodePlex, Dropbox, GitHub 또는 Mercurial과 같은 리포지토리 웹 사이트에서 지속적으로 배포할 수 있도록 하는 방법에 대해서도 배우게 됩니다. TFS를 사용하여 지속적으로 배포하는 방법에 대한 내용은 [Visual Studio Online을 사용하여 Azure에 지속적으로 전송][Visual Studio Online을 사용하여 Azure에 지속적으로 전송](영문)을 참조하십시오.
 
-> [WACOM.NOTE] 이 문서에 설명되어 있는 많은 Git 명령은 [Mac 및 Linux용 Azure 명령줄 도구][]를 사용하여 웹 사이트를 만드는 경우 자동으로 수행됩니다.
+> [WACOM.NOTE] 이 문서에 설명되어 있는 많은 Git 명령은 [Mac 및 Linux용 Azure 명령줄 도구][Mac 및 Linux용 Azure 명령줄 도구]를 사용하여 웹 사이트를 만드는 경우 자동으로 수행됩니다.
 
 다음 단계가 작업에 포함되어 있습니다.
 
--   [Git 설치][]
--   [로컬 리포지토리 만들기][]
--   [웹 페이지 추가][]
--   [웹 사이트 리포지토리 사용][]
--   [프로젝트 배포][]
-    -   [Azure에 로컬 파일 푸시(로컬 Git)][]
-    -   [BitBucket, CodePlex, Dropbox, GitHub 또는 Mercurial과 같은 리포지토리 웹 사이트에서 파일 배포][]
-    -   [BitBucket, CodePlex, Dropbox, GitHub 또는 Mercurial에서 Visual Studio 솔루션 배포][]
--   [문제 해결][]
+-   [Git 설치][Git 설치]
+-   [로컬 리포지토리 만들기][로컬 리포지토리 만들기]
+-   [웹 페이지 추가][웹 페이지 추가]
+-   [웹 사이트 리포지토리 사용][웹 사이트 리포지토리 사용]
+-   [프로젝트 배포][프로젝트 배포]
+    -   [Azure에 로컬 파일 푸시(로컬 Git)][Azure에 로컬 파일 푸시(로컬 Git)]
+    -   [BitBucket, CodePlex, Dropbox, GitHub 또는 Mercurial과 같은 리포지토리 웹 사이트에서 파일 배포][BitBucket, CodePlex, Dropbox, GitHub 또는 Mercurial과 같은 리포지토리 웹 사이트에서 파일 배포]
+    -   [BitBucket, CodePlex, Dropbox, GitHub 또는 Mercurial에서 Visual Studio 솔루션 배포][BitBucket, CodePlex, Dropbox, GitHub 또는 Mercurial에서 Visual Studio 솔루션 배포]
+-   [문제 해결][문제 해결]
 
 ## <span id="Step2"></span></a>Git 설치
 
@@ -44,7 +44,7 @@ Git를 설치하는 데 필요한 단계는 운영 체제마다 다릅니다. �
 
 ## <span id="Step3"></span></a>웹 페이지 추가
 
-Azure 웹 사이트는 다양한 프로그래밍 언어로 만들어진 응용 프로그램을 지원합니다. 이 예에서는 고정 .html 파일을 사용합니다. 다른 프로그래밍 언어로 Azure에 웹 사이트를 게시하는 방법에 대한 내용은 [Azure 개발자 센터][]를 참조하세요.
+Azure 웹 사이트는 다양한 프로그래밍 언어로 만들어진 응용 프로그램을 지원합니다. 이 예에서는 고정 .html 파일을 사용합니다. 다른 프로그래밍 언어로 Azure에 웹 사이트를 게시하는 방법에 대한 내용은 [Azure 개발자 센터][Azure 개발자 센터]를 참조하세요.
 
 1.  텍스트 편집기를 사용하여 Git 리포지토리(앞서 만든 MyGitRepository 디렉터리)의 루트에 이름이 **index.html**인 파일을 새로 만듭니다.
 
@@ -72,29 +72,29 @@ Azure 웹 사이트는 다양한 프로그래밍 언어로 만들어진 응용 �
 
 Azure 포털을 사용하여 웹 사이트에서 Git 리포지토리를 사용할 수 있도록 하려면 다음 단계를 수행하세요.
 
-1.  [Azure 포털][]에 로그인합니다.
+1.  [Azure 포털][Azure 포털]에 로그인합니다.
 
 2.  새로 만들기 단추를 클릭하여 리포지토리를 사용할 새 웹 사이트를 만듭니다.
 
 3.  **웹 사이트** 보기에서 웹 사이트 만들기 프로세스가 완료될 때까지 기다린 후 웹 사이트를 선택합니다.
 
-    ![선택한 웹 사이트를 나타내는 이미지][]
+    ![선택한 웹 사이트를 나타내는 이미지][선택한 웹 사이트를 나타내는 이미지]
 
 4.  **DASHBOARD** 탭을 선택합니다.
 
 5.  **quick glance** 섹션에서 **Set up deployment from source control**을 선택합니다. 다음 **SET UP DEPLOYMENT** 대화 상자가 나타납니다.
 
-    ![git-WhereIsYourSourceCode][]
+    ![git-WhereIsYourSourceCode][git-WhereIsYourSourceCode]
 
 6.  **Local Git**를 선택한 후 **Next** 화살표를 클릭합니다.
 
 7.  Azure에서 리포지토리를 처음 설정하는 경우 로그인 자격 증명을 만들어야 합니다. 이를 사용하여 Azure 리포지토리에 로그인하고 로컬 Git 리포지토리에서 변경 내용을 푸시합니다.
 
-    ![][]
+    ![][0]
 
 8.  잠시 후에 리포지토리가 준비되었다는 메시지가 나타나야 합니다.
 
-    ![git-instructions][]
+    ![git-instructions][git-instructions]
 
 ## <span id="Step5"></span></a>프로젝트 배포
 
@@ -134,7 +134,7 @@ Azure 포털을 사용하여 웹 사이트에서 Git 리포지토리를 사용�
 
 4.  포털에서 포털 아래쪽의 **BROWSE** 링크를 클릭하여 **index.html**이 배포되었는지 확인합니다. 'Hello Git!'가 포함된 페이지가 나타납니다.
 
-    !['Hello Git!'가 포함된 웹 페이지][]
+    !['Hello Git!'가 포함된 웹 페이지]['Hello Git!'가 포함된 웹 페이지]
 
 5.  텍스트 편집기를 사용하여 'Yay!'를 포함하도록 **index.html** 파일을 변경한 후 저장합니다.
 
@@ -146,7 +146,7 @@ Azure 포털을 사용하여 웹 사이트에서 Git 리포지토리를 사용�
 
     일단 **push** 명령이 완료되면 브라우저를 새로 고치고(제대로 새로 고치기 위해 Ctrl+F5를 눌러야 할 수도 있음) 그리고 나면 페이지 콘텐츠에 최신 커밋 변경 내용이 반영됩니다.
 
-    !['Yay!'가 포함된 웹 페이지][]
+    !['Yay!'가 포함된 웹 페이지]['Yay!'가 포함된 웹 페이지]
 
 ### <span id="Step7"></span></a>BitBucket, CodePlex, Dropbox, GitHub 또는 Mercurial과 같은 리포지토리 웹 사이트에서 파일 배포
 
@@ -154,7 +154,7 @@ Azure 포털을 사용하여 웹 사이트에서 Git 리포지토리를 사용�
 
 두 가지 방법 모두 수행하면 프로젝트가 Azure 웹 사이트에 배포되지만, 한 프로젝트에 여러 명이 함께 작업하는 경우에 누가 최근에 업데이트했든 상관없이 항상 최신 버전이 게시되도록 하려는 경우 지속적인 배포 방법이 유용합니다. 또한 지속적인 배포는 위에 언급한 도구 중 하나를 응용 프로그램의 중앙 리포지토리로 사용하는 경우에 유용합니다.
 
-GitHub, CodePlex 또는 BitBucket에서 파일을 배포하려면 로컬 프로젝트를 이러한 서비스 중 하나에 게시해야 합니다. 이러한 서비스에 프로젝트를 게시하는 방법에 대한 자세한 내용은 [Create a Repo (GitHub)][], [Using Git with CodePlex][], [Create a Repo (BitBucket)][], [Using Dropbox to Share Git Repositories][] 또는 [Quick Start - Mercurial][]을 참조하십시오.
+GitHub, CodePlex 또는 BitBucket에서 파일을 배포하려면 로컬 프로젝트를 이러한 서비스 중 하나에 게시해야 합니다. 이러한 서비스에 프로젝트를 게시하는 방법에 대한 자세한 내용은 [Create a Repo (GitHub)][Create a Repo (GitHub)], [Using Git with CodePlex][Using Git with CodePlex], [Create a Repo (BitBucket)][Create a Repo (BitBucket)], [Using Dropbox to Share Git Repositories][Using Dropbox to Share Git Repositories] 또는 [Quick Start - Mercurial][Quick Start - Mercurial]을 참조하십시오.
 
 1.  먼저 지속적으로 배포하는 데 사용될 선택한 리포지토리에 웹 사이트 파일을 넣습니다.
 
@@ -166,7 +166,7 @@ GitHub, CodePlex 또는 BitBucket에서 파일을 배포하려면 로컬 프로�
 
 5.  계정에 액세스하도록 Azure에 권한을 부여하면 리포지토리 목록이 나타납니다.
 
-    ![git-ChooseARepositoryToDeploy][]
+    ![git-ChooseARepositoryToDeploy][git-ChooseARepositoryToDeploy]
 
 6.  Azure 웹 사이트에 연결할 리포지토리를 선택합니다. 계속하려면 확인 표시를 클릭합니다.
 
@@ -174,13 +174,13 @@ GitHub, CodePlex 또는 BitBucket에서 파일을 배포하려면 로컬 프로�
 
 7.  Azure는 선택한 리포지토리와 연결하고 마스터 분기에서 파일을 가져옵니다. 이 프로세스를 완료하면 **Deployments** 페이지의 **deployment history**에 다음과 같은 **Active Deployment** 메시지가 표시됩니다.
 
-    ![git-githubdeployed][]
+    ![git-githubdeployed][git-githubdeployed]
 
 8.  이때 선택한 리포지토리에서 Azure 웹 사이트로 프로젝트가 배포됩니다. 해당 사이트가 활성화되어 있는지 확인하려면 포털 아래쪽의 **Browse** 링크를 클릭하십시오. 브라우저가 웹 사이트로 이동해야 합니다.
 
 9.  지속적으로 배포되고 있는지 확인하려면 프로젝트를 변경한 다음 이 웹 사이트에 연결된 리포지토리에 업데이트를 푸시하세요. 리포지토리에 푸시한 직후 변경 내용이 반영되도록 웹 사이트가 업데이트되어야 합니다. 웹 사이트의 **배포** 페이지에서 업데이트를 가져왔는지 확인할 수 있습니다.
 
-    ![git-GitHubDeployed-Updated][]
+    ![git-GitHubDeployed-Updated][git-GitHubDeployed-Updated]
 
 ### <span id="Step75"></span></a>BitBucket, CodePlex, Dropbox, GitHub 또는 Mercurial에서 Visual Studio 솔루션 배포
 
@@ -188,7 +188,7 @@ Visual Studio 솔루션을 Azure 웹 사이트에 푸시하는 작업은 간단�
 
 솔루션과 리포지토리를 다음과 같이 구성한 경우 Visual Studio 솔루션을 Azure 웹 사이트에 푸시하는 단계는 [이전 섹션][BitBucket, CodePlex, Dropbox, GitHub 또는 Mercurial과 같은 리포지토리 웹 사이트에서 파일 배포]과 동일합니다.
 
--   리포지토리 루트에서 `.gitignore` 파일을 추가한 후 리포지토리에서 실행할 모든 파일 및 폴더(예: `Obj`, `Bin` 및 `packages` 폴더)를 지정합니다(서식 정보는 [gitignore 설명서][] 참조). 예를 들면 다음과 같습니다.
+-   리포지토리 루트에서 `.gitignore` 파일을 추가한 후 리포지토리에서 실행할 모든 파일 및 폴더(예: `Obj`, `Bin` 및 `packages` 폴더)를 지정합니다(서식 정보는 [gitignore 설명서][gitignore 설명서] 참조). 예를 들면 다음과 같습니다.
 
         [Oo]bj/
         [Bb]in/
@@ -210,7 +210,7 @@ Visual Studio 솔루션을 Azure 웹 사이트에 푸시하는 작업은 간단�
 
 -   전체 솔루션의 디렉터리 트리를 리포지토리에 추가하고 .sln 파일을 리포지토리 루트에 둡니다.
 
--   Visual Studio 솔루션에서 [NuGet 패키지 복원을 사용하도록 설정][]하여 Visual Studio에서 누락된 패키지를 자동으로 복원하도록 합니다.
+-   Visual Studio 솔루션에서 [NuGet 패키지 복원을 사용하도록 설정][NuGet 패키지 복원을 사용하도록 설정]하여 Visual Studio에서 누락된 패키지를 자동으로 복원하도록 합니다.
 
 설명된 대로 리포지토리를 설정하고, 온라인 Git 리포지토리 중 하나에서 연속 게시에 대해 Azure 웹 사이트를 구성한 후에는 Visual Studio에서 ASP.NET 응용 프로그램을 로컬로 개발하고 온라인 Git 리포지토리에 변경 내용을 푸시하여 코드를 지속적으로 배포할 수 있습니다.
 
@@ -218,11 +218,11 @@ Visual Studio 솔루션을 Azure 웹 사이트에 푸시하는 작업은 간단�
 
 사용자 사이트의 **Configure** 탭의 **deployments** 섹션에서 찾은 **DEPLOYMENT TRIGGER URL**을 제공하여 지속적인 배포가 이루어집니다.
 
-![git-DeploymentTrigger][]
+![git-DeploymentTrigger][git-DeploymentTrigger]
 
 리포지토리가 업데이트되면 POST 요청이 이 URL로 보내져 리포지토리가 업데이트되었다고 Azure 웹 사이트에 알립니다. 이때 Azure에서 업데이트를 가져와 웹 사이트에 배포합니다.
 
-Azure 웹 사이트의 Git 배포 프로세스에 사용되는 엔진에 대한 자세한 내용은 [프로젝트 Kudu][]를 참조하세요.
+Azure 웹 사이트의 Git 배포 프로세스에 사용되는 엔진에 대한 자세한 내용은 [프로젝트 Kudu][프로젝트 Kudu]를 참조하세요.
 
 #### 사용할 분기 지정
 
@@ -238,7 +238,7 @@ Azure 웹 사이트의 Git 배포 프로세스에 사용되는 엔진에 대한 
 
 Azure **Dashboard**에서 지속적인 배포를 사용하지 않도록 설정할 수 있습니다. **quick glance** 섹션에서 사용 중인 리포지토리와 연결을 끊도록 옵션을 선택하십시오.
 
-![git-DisconnectFromGitHub][]
+![git-DisconnectFromGitHub][git-DisconnectFromGitHub]
 
 확인 메시지에서 **Yes**를 누른 후 다른 소스로부터 게시를 설정하려면 **quick glance**로 돌아가 **Set up deployment from source control**을 클릭하십시오.
 
@@ -302,10 +302,10 @@ Azure **Dashboard**에서 지속적인 배포를 사용하지 않도록 설정�
 
 ## 추가 리소스
 
--   [Azure용 PowerShell 사용 방법][]
+-   [Azure용 PowerShell 사용 방법][Azure용 PowerShell 사용 방법]
 -   [Mac 및 Linux에서 Azure 명령줄 도구를 사용하는 방법][Mac 및 Linux용 Azure 명령줄 도구]
--   [Git 설명서][]
--   [프로젝트 Kudu][]
+-   [Git 설명서][Git 설명서]
+-   [프로젝트 Kudu][프로젝트 Kudu]
 
   [Visual Studio Online을 사용하여 Azure에 지속적으로 전송]: http://www.windowsazure.com/ko-KR/develop/net/common-tasks/publishing-with-tfs/
   [Mac 및 Linux용 Azure 명령줄 도구]: /ko-KR/develop/nodejs/how-to-guides/command-line-tools/
@@ -323,7 +323,7 @@ Azure **Dashboard**에서 지속적인 배포를 사용하지 않도록 설정�
   [Azure 포털]: http://manage.windowsazure.com
   [선택한 웹 사이트를 나타내는 이미지]: ./media/publishing-with-git/git-select-website.png
   [git-WhereIsYourSourceCode]: ./media/publishing-with-git/git-WhereIsYourSourceCode.png
-  []: ./media/publishing-with-git/git_credentials.png
+  [0]: ./media/publishing-with-git/git_credentials.png
   [git-instructions]: ./media/publishing-with-git/git-instructions.png
   ['Hello Git!'가 포함된 웹 페이지]: ./media/publishing-with-git/git-hello-git.png
   ['Yay!'가 포함된 웹 페이지]: ./media/publishing-with-git/git-yay.png

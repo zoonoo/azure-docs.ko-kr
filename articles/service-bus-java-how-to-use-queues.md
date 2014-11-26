@@ -183,5 +183,4 @@ Java 파일 맨 위에 다음 import 문을 추가합니다.
   [방법: 큐에서 메시지 받기]: #bkmk_HowToReceiveMsgs
   [방법: 응용 프로그램 크래시 및 읽을 수 없는 메시지 처리]: #bkmk_HowToHandleAppCrashes
   [다음 단계]: #bkmk_NextSteps
-  [howto-service-bus-queues]: ../includes/howto-service-bus-queues.md
   [큐, 토픽 및 구독]: http://msdn.microsoft.com/ko-KR/library/windowsazure/hh367516.aspx

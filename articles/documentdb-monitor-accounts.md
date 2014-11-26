@@ -1,6 +1,6 @@
 <properties title="Monitor a DocumentDB Account" pageTitle="Monitor a DocumentDB account | Azure" description="Learn how to monitor your DocumentDB account for performance metrics (such as requests and server errors) and usage metrics (such as storage consumption)." metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, monitor, accounts" services="documentdb" solutions="data-management" documentationCenter=""  authors="bradsev" manager="jhubbard" editor="cgronlun" videoId="" scriptId="" />
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="brradsev"></tags>
+<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="brradsev" />
 
 # DocumentDB 계정 모니터링
 
@@ -23,7 +23,7 @@
     -   오늘의 총 요청 수
     -   오늘의 초당 평균 요청 수
 
-    ![][]
+    ![][0]
 
 3.  **총 요청 또는 초당 평균 요청 수** 파트를 클릭하면 자세한 **메트릭** 블레이드가 열립니다.
 4.  메트릭 블레이드는 선택된 메트릭에 대한 세부 정보를 보여 줍니다. 블레이드 맨 위에는 그래프가 있고, 그 아래에 평균, 최소값, 최대값 등 선택된 메트릭의 집계를 보여 주는 테이블이 있습니다. 또한 메트릭 블레이드는 현재 메트릭 블레이드에 표시되는 메트릭으로 정의 및 필터링된 경고 목록을 보여 줍니다. 이런 방법으로, 경고가 많은 경우 여기에 표시되는 관련성 높은 경고만 볼 수 있습니다.
@@ -106,7 +106,7 @@ Azure 미리 보기 포털에서 병렬 메트릭 차트를 만들 수 있습니
   [방법: DocumentDB 계정의 사용량 메트릭 보기]: #view
   [방법: DocumentDB 계정의 성능 메트릭 경고 설정]: #setup
   [다음 단계]: #next
-  []: http://i.imgur.com/y7pigTT.png
+  [0]: http://i.imgur.com/y7pigTT.png
   [1]: http://i.imgur.com/6rBNPBL.png
   [2]: http://i.imgur.com/tRZEHk1.png
   [3]: http://i.imgur.com/G4UTi5U.png

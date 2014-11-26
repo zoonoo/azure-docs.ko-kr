@@ -166,9 +166,9 @@
 -   [모바일 서비스 .NET 방법 개념 참조][모바일 서비스 .NET 방법 개념 참조]
     .NET과 함께 모바일 서비스를 사용하는 방법에 대해 자세히 알아보세요.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [문자열 길이 유효성 검사 추가]: #string-length-validation
   [유효성 검사를 지원하도록 클라이언트 업데이트]: #update-client-validation
@@ -177,10 +177,8 @@
   [CompleteDate를 표시하도록 클라이언트 업데이트]: #update-client-timestamp
   [시작]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started/
   [데이터 시작]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/
-  [mobile-services-dotnet-backend-add-validation]: ../includes/mobile-services-dotnet-backend-add-validation.md
   [0]: ./media/mobile-services-dotnet-backend-windows-phone-validate-modify-data/mobile-services-invalid-text-length.png
   [1]: ./media/mobile-services-dotnet-backend-windows-phone-validate-modify-data/mobile-services-invalid-text-length-exception-dialog.png
-  [mobile-services-dotnet-backend-add-completedate]: ../includes/mobile-services-dotnet-backend-add-completedate.md
   [페이징을 사용하여 쿼리 구체화]: /ko-kr/develop/mobile/tutorials/add-paging-to-data-dotnet
   [사용자의 서비스 쪽 권한 부여]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-phone-authorize-users-in-scripts/
   [푸시 알림 시작]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push/

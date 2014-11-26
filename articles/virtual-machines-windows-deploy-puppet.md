@@ -1,6 +1,6 @@
-<properties title="Puppet 및 Azure 가상 컴퓨터 정보" pageTitle="Puppet 및 Azure 가상 컴퓨터 정보" description="Azure에서 VM에 Puppet을 설치 및 구성하는 방법에 대해 설명합니다." metaKeywords="" services="virtual machines" solutions="" documentationCenter="" authors="kathydav" manager="timlt" videoId="" scriptId="" />
+<properties title="About Puppet and Azure Virtual Machines" pageTitle="About Puppet and Azure Virtual Machines" description="Describes installing and configuring Puppet on a VM in Azure" metaKeywords="" services="virtual machines" solutions="" documentationCenter="" authors="kathydav" videoId="" scriptId="" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="07/29/2014" ms.author="kathydav" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="kathydav" />
 
 # Puppet 및 Azure 가상 컴퓨터 정보
 
@@ -26,7 +26,6 @@ Puppet은 클라이언트-서버 시스템입니다. Puppet Master와 Puppet Ent
 <!--Link references-->
 
   [Microsoft Windows 및 Azure]: http://puppetlabs.com/solutions/microsoft
-  [Microsoft Azure 및 Visual Studio와의 새로운 통합(영문)]: http://puppetlabs.com/blog/new-integrations-windows-azure-and-visual-studio
   [Windows Server를 실행하는 가상 컴퓨터에 로그온하는 방법]: ../virtual-machines-log-on-windows-server/
   [Linux를 실행하는 가상 컴퓨터에 로그온하는 방법]: ../virtual-machines-linux-how-to-log-on
   [확장 관리]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409

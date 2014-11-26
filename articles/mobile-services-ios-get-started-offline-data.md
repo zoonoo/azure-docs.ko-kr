@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-get-started-offline-data-ios" urlDisplayName="Getting Started with Offline Data" pageTitle="Get started with offline data in Mobile Services (iOS) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to cache and sync offline data in your iOS application" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Get started with offline data sync in Mobile Services" authors="wesmc" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="wesmc"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="wesmc" />
 
 # 모바일 서비스에서 오프라인 데이터 동기화 시작
 
@@ -31,11 +31,6 @@
 
 
 
-  [Windows 스토어 C#]: /ko--kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data "Windows 스토어 C#"
-  [Windows Phone]: /ko--kr/documentation/articles/mobile-services-windows-phone-get-started-offline-data "Windows Phone"
-  [iOS]: /ko--kr/documentation/articles/mobile-services-ios-get-started-offline-data "iOS"
-  [Xamarin.iOS]: /ko--kr/documentation/articles/mobile-services-xamarin-ios-get-started-offline-data "Xamarin.iOS"
-  [Xamarin.Android]: /ko--kr/documentation/articles/mobile-services-xamarin-android-get-started-offline-data "Xamarin.Android"
   [모바일 서비스 시작]: /ko--kr/documentation/articles/mobile-services-ios-get-started/
   [데이터 시작]: /ko--kr/documentation/articles/mobile-services-ios-get-started-data/
   [Azure 무료 평가판]: http://www.windowsazure.com/ko--kr/pricing/free-trial/?WT.mc_id=AE564AB28

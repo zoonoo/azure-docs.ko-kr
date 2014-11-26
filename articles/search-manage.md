@@ -159,7 +159,6 @@ QPS(초당 쿼리 수)를 높이거나 고가용성을 구현하려면 복제본
   [서비스 시작 또는 중지]: #sub-7
 
 <!--Link references-->
-  [이 문서에서는 Azure 미리 보기 포털을 사용합니다.]: ../includes/preview-portal-note.md
   [Azure 미리 보기 포털]: https://portal.azure.com
   [한도 및 제약 조건]: http://msdn.microsoft.com/ko-kr/library/dn798934.aspx
   [가격 정보]: http://go.microsoft.com/fwlink/p/?LinkdID=509792

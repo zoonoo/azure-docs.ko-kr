@@ -1,6 +1,6 @@
 1.  모바일 서비스가 IIS Express에서 실행 중이면 중지해야 합니다. IIS Express 트레이 아이콘을 마우스 오른쪽 단추로 클릭하고 모바일 서비스에 대해 **중지**를 클릭합니다.
 
-    ![][]
+    ![][0]
 
 2.  명령 프롬프트 창에서 **ipconfig** 명령을 실행하여 워크스테이션에 대해 유효한 로컬 IP 주소를 찾습니다.
 
@@ -32,8 +32,8 @@
 
     > [WACOM.NOTE] 서비스를 로컬로 테스트하는 작업을 완료했으면 만들었던 Windows 방화벽 규칙을 삭제해야 합니다.
 
-<!-- URLs. -->
 
-  []: ./media/mobile-services-how-to-configure-iis-express/iis-express-tray-stop-site.png
+
+  [0]: ./media/mobile-services-how-to-configure-iis-express/iis-express-tray-stop-site.png
   [1]: ./media/mobile-services-how-to-configure-iis-express/ipconfig.png
   [새 Windows 방화벽 포트 규칙을 추가하는 방법]: http://go.microsoft.com/fwlink/?LinkId=392240

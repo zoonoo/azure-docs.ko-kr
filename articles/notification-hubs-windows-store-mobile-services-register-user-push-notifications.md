@@ -107,9 +107,9 @@
 
 클라이언트 앱이 업데이트되었으므로 [알림 허브를 통해 사용자에게 알림][알림 허브를 통해 사용자에게 알림]으로 돌아가서 알림 허브를 사용하여 알림을 보내도록 모바일 서비스를 업데이트합니다.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [알림 허브를 통해 사용자에게 알림]: /ko-KR/manage/services/notification-hubs/notify-users
   [인증 시작]: /ko-KR/develop/mobile/tutorials/get-started-with-users-dotnet/

@@ -97,6 +97,5 @@ SAS 키 이름 및 값에 대한 값은 Azure 포털 연결 정보 또는 Visual
   [방법: 큐에 메시지 보내기]: #send-messages
   [방법: 큐에서 메시지 받기]: #receive-messages
   [방법: 응용 프로그램 크래시 및 읽을 수 없는 메시지 처리]: #handle-crashes
-  [howto-service-bus-queues]: ../includes/howto-service-bus-queues.md
   [Python 설치 가이드]: ../python-how-to-install/
   [큐, 토픽 및 구독]: http://msdn.microsoft.com/ko-KR/library/windowsazure/hh367516.aspx

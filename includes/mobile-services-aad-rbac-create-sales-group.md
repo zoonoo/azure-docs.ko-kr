@@ -8,7 +8,7 @@
 4.  **Dave**라는 이름의 다른 사용자를 만듭니다. 사용자에 대한 임시 암호를 기록합니다.
 5.  새 사용자는 아래와 유사하게 나타납니다.
 
-    ![][]
+    ![][0]
 
 ### 영업 그룹 만들기
 
@@ -28,7 +28,7 @@
 
     ![][3]
 
-  []: ./media/mobile-services-aad-rbac-create-sales-group/users.png
+  [0]: ./media/mobile-services-aad-rbac-create-sales-group/users.png
   [1]: ./media/mobile-services-aad-rbac-create-sales-group/sales-group.png
   [2]: ./media/mobile-services-aad-rbac-create-sales-group/group-membership.png
   [3]: ./media/mobile-services-aad-rbac-create-sales-group/sales-group-id.png

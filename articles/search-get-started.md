@@ -367,7 +367,9 @@ Composer 탭에서 문서 게시 요청은 다음과 같이 표시됩니다. 요
 
 -   [클라우드 커버 에피소드 152: Azure 검색에서 인덱스 생성][클라우드 커버 에피소드 152: Azure 검색에서 인덱스 생성]
 
-<!--Anchors--> <!--Image references--> <!--Link references-->
+<!--Anchors-->
+<!--Image references-->
+<!--Link references-->
 
   [Azure 검색 시나리오 및 기능]: http://azure.microsoft.com/blog/2014/08/28/azure-search-scenarios-and-capabilities/
   [무료 서비스로 시작]: #sub-1

@@ -434,7 +434,7 @@ Xamarin Component 클라이언트는 강력한 형식의 시나리오에 맞게 
 -   스크립트를 통해 사용자 권한 부여([Xamarin.iOS][16]/[Xamarin.Android][17])
     인증된 사용자를 기준으로 모바일 서비스에서 제공한 사용자 ID 값을 가져와 모바일 서비스에서 반환된 데이터를 필터링하는 방법을 알아봅니다.
 
-<!-- Anchors. --> <!-- URLs. -->
+ 
 
   [Xamarin]: /ko-kr/develop/mobile/how-to-guides/work-with-xamarin-client-library/ "Xamarin"
   [Xamarin.iOS]: /ko-kr/develop/mobile/tutorials/get-started-xamarin-ios/
@@ -461,7 +461,6 @@ Xamarin Component 클라이언트는 강력한 형식의 시나리오에 맞게 
   [방법: 형식화되지 않은 데이터 작업]: #untyped
   [방법: 설계 단위 테스트]: #unit-testing
   [다음 단계]: #nextsteps
-  [mobile-services-concepts]: ../includes/mobile-services-concepts.md
   [테이블 만들기]: http://go.microsoft.com/fwlink/?LinkId=298592
   [동적 스키마]: http://go.microsoft.com/fwlink/?LinkId=296271
   [GetTable]: http://msdn.microsoft.com/ko-kr/library/windowsazure/jj554275.aspx

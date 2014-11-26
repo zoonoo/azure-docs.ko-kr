@@ -60,20 +60,14 @@
 
 다음 자습서인 [스크립트를 통해 사용자 권한 부여][스크립트를 통해 사용자 권한 부여]에서는 인증된 사용자를 기준으로 모바일 서비스에서 제공한 사용자 ID 값을 가져와 모바일 서비스에서 반환된 데이터를 필터링하는 데 사용합니다.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
 
-  [mobile-services-selector-get-started-users]: ../includes/mobile-services-selector-get-started-users.md
+
   [인증을 위해 앱 등록 및 모바일 서비스 구성]: #register
   [테이블 사용 권한을 인증된 사용자로 제한]: #permissions
   [앱에 인증 추가]: #add-authentication
   [클라이언트에 인증 토큰 저장]: #cache-tokens
   [만료된 토큰 새로 고침]: #refresh-tokens
   [모바일 서비스 시작]: /ko-kr/develop/mobile/tutorials/get-started-android
-  [mobile-services-register-authentication]: ../includes/mobile-services-register-authentication.md
-  [mobile-services-restrict-permissions-javascript-backend]: ../includes/mobile-services-restrict-permissions-javascript-backend.md
-  [mobile-services-android-authenticate-app]: ../includes/mobile-services-android-authenticate-app.md
-  [mobile-services-android-authenticate-app-with-token]: ../includes/mobile-services-android-authenticate-app-with-token.md
-  [mobile-services-android-authenticate-app-refresh-token]: ../includes/mobile-services-android-authenticate-app-refresh-token.md
   [스크립트를 통해 사용자 권한 부여]: /ko-kr/develop/mobile/tutorials/authorize-users-in-scripts-android

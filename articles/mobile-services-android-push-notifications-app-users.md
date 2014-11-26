@@ -237,9 +237,9 @@
 -   [모바일 서비스에 Android 클라이언트 라이브러리를 사용하는 방법][모바일 서비스에 Android 클라이언트 라이브러리를 사용하는 방법]
     .NET과 함께 모바일 서비스를 사용하는 방법을 자세히 알아봅니다.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [이전 푸시 알림 자습서]: /ko-kr/develop/mobile/tutorials/get-started-with-push-android
   [Registration 테이블 만들기]: #create-table

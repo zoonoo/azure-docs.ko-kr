@@ -201,8 +201,8 @@
 
     인증된 특정 사용자에게 알림을 푸시하는 방법에 대해 알아보십시오. 이 방법은 특정 사용자에게만 알림을 보내기 위한 훌륭한 솔루션입니다.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
+ 
+ 
 <!-- URLs.-->
 
   [Windows Phone]: /ko-KR/documentation/articles/notification-hubs-windows-phone-send-breaking-news/ "Windows Phone"
@@ -213,7 +213,6 @@
   [백 엔드에서 알림 보내기]: #send
   [앱 실행 및 알림 생성]: #test-app
   [알림 허브 시작]: /ko-KR/manage/services/notification-hubs/getting-started-windows-dotnet/
-  [notification-hubs-back-end]: ../includes/notification-hubs-back-end.md
   [0]: ./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-breakingnews-win1.png
   [2]: ./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-windows-reg-2.png
   [3]: ./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-windows-toast-2.png

@@ -1,4 +1,4 @@
-<properties urlDisplayName="Tomcat on Virtual Machine" pageTitle="가상 컴퓨터의 Tomcat - Azure 자습서" metaKeywords="Azure vm, creating vm Tomcat, configuring vm Tomcat" description="Windows 가상 컴퓨터를 만들고 Apache Tomcat 응용 프로그램 서버를 실행하도록 구성하는 방법에 대해 알아봅니다." metaCanonical="" services="virtual-machines" documentationCenter="Java" title="가상 컴퓨터에서 Java 응용 프로그램 서버를 실행하는 방법" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
+<properties linkid="dev-java-vm-application-server" urlDisplayName="Tomcat on Virtual Machine" pageTitle="Tomcat on a virtual machine - Azure tutorial" metaKeywords="Azure vm, creating vm Tomcat, configuring vm Tomcat" description="Learn how to create a Windows Virtual machine and configure the machine to run a Apache Tomcat application server." metaCanonical="" services="virtual-machines" documentationCenter="Java" title="How to run a Java application server on a virtual machine" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
 
 <tags ms.service="virtual-machines" ms.workload="web" ms.tgt_pltfrm="vm-windows" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
 
@@ -54,9 +54,8 @@ Azure에서 가상 컴퓨터를 사용하여 서버 기능을 제공할 수 있�
 1.  [관리 포털][Azure 관리 포털]에 로그온합니다.
 2.  **가상 컴퓨터**를 클릭합니다.
 3.  로그인할 가상 컴퓨터의 이름을 클릭합니다.
-4.  가상 컴퓨터가 시작되면 페이지 아래쪽의 팝업 메뉴를 통해 연결이 가능합니다.
-5.  **연결**을 클릭합니다.
-6.  가상 컴퓨터에 연결해야 한다는 메시지에 응답합니다. 이:때 연결 세부 정보가 포함된 .rdp 파일을 열거나 저장해야 합니다. .rdp 파일의 첫 줄 끝 부분으로 url:port를 복사한 다음 원격 로그인 응용 프로그램에 붙여 넣을 수 있습니다.
+4.  **연결**을 클릭합니다.
+5.  가상 컴퓨터에 연결해야 한다는 메시지에 응답합니다. 관리자 이름 및 암호를 묻는 메시지가 표시되면 가상 컴퓨터를 만들 때 제공한 값을 사용하십시오.
 
 ## 가상 컴퓨터에 Java 응용 프로그램 서버를 설치하는 방법
 
@@ -123,7 +122,7 @@ Tomcat이 외부 컴퓨터에서 실행되는 것을 보려면 끝점을 만들�
 
 ![새 인바운드 규칙 이름][새 인바운드 규칙 이름]
 
-이제 외부 브라우저에서 **http://*DNS\_이름*.cloudapp.net** 형식의 URL을 사용하면 Tomcat 웹 사이트가 표시됩니다. 여기서 ***DNS\_이름***은 가상 컴퓨터를 만들 때 지정한 DNS 이름입니다.
+이제 외부 브라우저에서 **http://\*DNS\\_이름*.cloudapp.net **형식의 URL을 사용하면 Tomcat 웹 사이트가 표시됩니다. 여기서 ***DNS\_이름***은 가상 컴퓨터를 만들 때 지정한 DNS 이름입니다.
 
 ## 응용 프로그램 수명 주기 고려 사항
 
@@ -136,7 +135,7 @@ Tomcat이 외부 컴퓨터에서 실행되는 것을 보려면 끝점을 만들�
 
 ## 다음 단계
 
--   <http://www.windowsazure.com/ko-kr/develop/java/>에서 사용 가능한 정보를 통해 Azure 저장소, 서비스 버스, SQL 데이터베이스 등 Java 응용 프로그램과 함께 포함할 기타 서비스에 대해 자세히 알아보세요.
+-   <http://www.windowsazure.com/ko-kr/develop/java/>에서 사용 가능한 정보를 통해 Azure 저장소, 서비스 버스, SQL 데이터베이스 등 Java 응용 프로그램과 함께 포함할 기타 서비스에 대해 자세히 알아보십시오.
 
   [Apache Tomcat을 실행하는 가상 컴퓨터]: ./media/virtual-machines-java-run-tomcat-application-server/WA_VirtualMachineRunningApacheTomcat.png
   [Azure 관리 포털]: https://manage.windowsazure.com

@@ -274,7 +274,6 @@ SendGrid 전자 메일 서비스에 관한 기본적인 사항들을 익혔으�
   [트랜잭션 전자 메일 배달]: http://sendgrid.com/transactional-email
   [클라우드 기반 전자 메일 서비스]: http://sendgrid.com/solutions
   []: http://sendgrid.com
-  [sendgrid-sign-up]: ../includes/sendgrid-sign-up.md
   [sendgrid-nodejs]: https://github.com/sendgrid/sendgrid-nodejs
   [SMTP vs. Web API]: http://docs.sendgrid.com/documentation/get-started/integrate/examples/smtp-vs-rest/
   [필터 설정]: http://docs.sendgrid.com/documentation/api/smtp-api/filter-settings/

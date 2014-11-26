@@ -164,7 +164,6 @@
 
 
 
-  [mobile-services-selector-get-started-push-legacy]: ../includes/mobile-services-selector-get-started-push-legacy.md
   [알림 등록을 위해 앱 업데이트]: #update-app
   [푸시 알림을 전송하도록 서버 스크립트 업데이트]: #update-scripts
   [푸시 알림을 받기 위한 데이터 삽입]: #test

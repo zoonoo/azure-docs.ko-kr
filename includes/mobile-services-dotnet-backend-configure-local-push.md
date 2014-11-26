@@ -2,7 +2,7 @@ Azure에 게시하기 전에 선택적으로 로컬 컴퓨터 또는 VM에서 �
 
 1.  모바일 서비스의 **게시** 탭으로 돌아와 **알림 허브** 링크를 클릭합니다.
 
-    ![][]
+    ![][0]
 
     모바일 서비스에 사용되는 알림 허브로 이동합니다.
 
@@ -20,6 +20,6 @@ Azure에 게시하기 전에 선택적으로 로컬 컴퓨터 또는 VM에서 �
 
 이제 모바일 서비스 프로젝트는 로컬로 실행될 때 Azure에서 알림 허브에 연결되도록 구성됩니다. Azure에서 실행할 때 이러한 Web.config 프로젝트 설정이 포털 설정에 의해 재정의되므로 포털과 동일한 알림 허브 이름 및 연결 문자열을 사용하는 것이 중요합니다.
 
-  []: ./media/mobile-services-dotnet-backend-configure-local-push/link-to-notification-hub.png
+  [0]: ./media/mobile-services-dotnet-backend-configure-local-push/link-to-notification-hub.png
   [1]: ./media/mobile-services-dotnet-backend-configure-local-push/notification-hub-page.png
   [2]: ./media/mobile-services-dotnet-backend-configure-local-push/notification-hub-connection-string.png

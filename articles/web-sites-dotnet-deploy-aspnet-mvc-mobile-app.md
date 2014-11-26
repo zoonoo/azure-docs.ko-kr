@@ -21,10 +21,7 @@ Internet Explorer 11 F12 개발자 도구에 있는 브라우저 에뮬레이터
 
 ![][0]
 
-Internet Explorer 11 F12 개발자 도구 및 [Fiddler
-도구][Fiddler
-도구]를 사용하여 응용 프로그램을
-디버깅할 수 있습니다. 
+Internet Explorer 11 F12 개발자 도구 및 [Fiddler도구][Fiddler도구]를 사용하여 응용 프로그램을 디버깅할 수 있습니다. 
 
 ### 학습할 기술
 
@@ -716,10 +713,11 @@ JavaScript 코드를 연결하여 필터 기능을 만듭니다.
 -   [W3C에서 권장하는 모바일 웹 응용 프로그램 모범 사례][W3C에서 권장하는 모바일 웹 응용 프로그램 모범 사례]
 -   [미디어 쿼리에 대한 W3C 권장 사항][미디어 쿼리에 대한 W3C 권장 사항]
 
-<!-- Internal Links --> <!-- External Links --> <!-- Images -->
+<!-- Internal Links -->
+<!-- External Links -->
+<!-- Images -->
 
   [Visual Studio Express 2013 for Web]: http://www.visualstudio.com/downloads/download-visual-studio-vs#d-express-web
-  [create-account-and-websites-note]: ../includes/create-account-and-websites-note.md
   [시작 프로젝트]: http://go.microsoft.com/fwlink/?LinkID=398780&clcid=0x409
   [0]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/SessionsByTag-ASP.NET-Fixed.png
   [Azure SDK for Visual Studio 2013]: http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409
@@ -777,3 +775,5 @@ JavaScript 코드를 연결하여 필터 기능을 만듭니다.
   [Bootstrap 놀이터]: http://www.bootply.com/
   [W3C에서 권장하는 모바일 웹 응용 프로그램 모범 사례]: http://www.w3.org/TR/mwabp/
   [미디어 쿼리에 대한 W3C 권장 사항]: http://www.w3.org/TR/css3-mediaqueries/
+  [Fiddler도구]: http://www.fiddler2.com/fiddler2/
+  [완성된 프로젝트 다운로드(영문)]: http://go.microsoft.com/fwlink/?LinkID=398781&clcid=0x409

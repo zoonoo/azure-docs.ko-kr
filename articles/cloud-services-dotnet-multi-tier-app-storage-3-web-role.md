@@ -1,10 +1,10 @@
 <properties linkid="develop-net-tutorials-multi-tier-web-site-3-web-role" pageTitle="Azure Cloud Service Tutorial: ASP.NET Web Role with Azure Storage Tables, Queues, and Blobs" metaKeywords="Azure tutorial, Azure storage tutorial, Azure multi-tier tutorial, ASP.NET MVC tutorial, Azure web role tutorial, Azure blobs tutorial, Azure tables tutorial, Azure queues tutorial" description="Learn how to create a multi-tier app using ASP.NET MVC and Azure. The app runs in a cloud service, with web role and worker roles, and uses Azure storage tables, queues, and blobs." metaCanonical="" services="cloud-services,storage" documentationCenter=".NET" title="Azure Cloud Service Tutorial: ASP.NET MVC Web Role, Worker Role, Azure Storage Tables, Queues, and Blobs" authors="tdykstra,riande" solutions="" manager="wpickett" editor="mollybos" />
 
-<tags ms.service="cloud-services" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tdykstra,riande"></tags>
+<tags ms.service="cloud-services" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tdykstra,riande" />
 
 # Azure 전자 메일 서비스 응용 프로그램에 대한 웹 역할 구축 - 3/5
 
-Azure 전자 메일 서비스 샘플 응용 프로그램을 빌드 및 배포하는 방법을 보여 주는 5개 자습서 시리즈의 세 번째 자습서입니다. 응용 프로그램 및 자습서 시리즈에 대한 자세한 내용은 [시리즈의 첫 번째 자습서][]를 참조하세요.
+Azure 전자 메일 서비스 샘플 응용 프로그램을 빌드 및 배포하는 방법을 보여 주는 5개 자습서 시리즈의 세 번째 자습서입니다. 응용 프로그램 및 자습서 시리즈에 대한 자세한 내용은 [시리즈의 첫 번째 자습서][시리즈의 첫 번째 자습서]를 참조하세요.
 
 이 자습서에서는 다음에 대해 알아봅니다.
 
@@ -14,16 +14,16 @@ Azure 전자 메일 서비스 샘플 응용 프로그램을 빌드 및 배포하
 
 ## 이 자습서의 부분
 
--   [Visual Studio 솔루션 만들기][]
--   [저장소 클라이언트 라이브러리 NuGet 패키지 업데이트][]
--   [저장소 에뮬레이터를 사용하도록 프로젝트 구성][]
--   [추적 구성 및 다시 시작 처리][]
--   [Application\_Start 메서드에 테이블, 큐 및 Blob 컨테이너를 만드는 코드 추가][]
--   [메일 그룹 만들기 및 테스트][]
--   [구독자 컨트롤러와 뷰 만들기 및 테스트][]
--   [메시지 컨트롤러와 뷰 만들기 및 테스트][]
--   [구독 취소 컨트롤러와 뷰 만들기 및 테스트][]
--   [다음 단계][]
+-   [Visual Studio 솔루션 만들기][Visual Studio 솔루션 만들기]
+-   [저장소 클라이언트 라이브러리 NuGet 패키지 업데이트][저장소 클라이언트 라이브러리 NuGet 패키지 업데이트]
+-   [저장소 에뮬레이터를 사용하도록 프로젝트 구성][저장소 에뮬레이터를 사용하도록 프로젝트 구성]
+-   [추적 구성 및 다시 시작 처리][추적 구성 및 다시 시작 처리]
+-   [Application\_Start 메서드에 테이블, 큐 및 Blob 컨테이너를 만드는 코드 추가][Application\_Start 메서드에 테이블, 큐 및 Blob 컨테이너를 만드는 코드 추가]
+-   [메일 그룹 만들기 및 테스트][메일 그룹 만들기 및 테스트]
+-   [구독자 컨트롤러와 뷰 만들기 및 테스트][구독자 컨트롤러와 뷰 만들기 및 테스트]
+-   [메시지 컨트롤러와 뷰 만들기 및 테스트][메시지 컨트롤러와 뷰 만들기 및 테스트]
+-   [구독 취소 컨트롤러와 뷰 만들기 및 테스트][구독 취소 컨트롤러와 뷰 만들기 및 테스트]
+-   [다음 단계][다음 단계]
 
 ## <a name="cloudproject"></a>Visual Studio 솔루션 만들기
 
@@ -35,27 +35,27 @@ Azure 전자 메일 서비스 샘플 응용 프로그램을 빌드 및 배포하
 
 2.  **파일** 메뉴에서 **새 프로젝트**를 선택합니다.
 
-    ![새 프로젝트 메뉴][]
+    ![새 프로젝트 메뉴][새 프로젝트 메뉴]
 
 3.  **C\#**을 확장하고 **설치된 템플릿** 아래의 **클라우드**를 선택한 후 **Azure 클라우드 서비스**를 선택합니다.
 
 4.  응용 프로그램 이름을 **AzureEmailService**로 지정하고 **확인**을 클릭합니다.
 
-    ![새 프로젝트 대화 상자][]
+    ![새 프로젝트 대화 상자][새 프로젝트 대화 상자]
 
 5.  **새 Azure 클라우드 서비스** 대화 상자에서 **ASP.NET 웹 역할**을 선택하고 오른쪽을 가리키는 화살표를 클릭합니다.
 
-    ![새 Azure 클라우드 프로젝트 대화 상자][]
+    ![새 Azure 클라우드 프로젝트 대화 상자][새 Azure 클라우드 프로젝트 대화 상자]
 
 6.  오른쪽 열에서 **WebRole1**을 포인터로 가리킨 후 연필 아이콘을 클릭하여 웹 역할의 이름을 변경합니다.
 
 7.  MvcWebRole을 새 이름으로 입력하고 Enter 키를 누릅니다.
 
-    ![새 Azure 클라우드 프로젝트 대화 상자 - 웹 역할 이름 바꾸기][]
+    ![새 Azure 클라우드 프로젝트 대화 상자 - 웹 역할 이름 바꾸기][새 Azure 클라우드 프로젝트 대화 상자 - 웹 역할 이름 바꾸기]
 
 8.  동일한 절차에 따라 **작업자 역할**을 추가하고 이름을 WorkerRoleA로 지정한 후 **확인**을 클릭합니다.
 
-    ![새 Azure 클라우드 프로젝트 대화 상자 - 작업자 역할 추가][]
+    ![새 Azure 클라우드 프로젝트 대화 상자 - 작업자 역할 추가][새 Azure 클라우드 프로젝트 대화 상자 - 작업자 역할 추가]
 
 9.  **새 ASP.NET 프로젝트** 대화 상자에서 **MVC** 템플릿을 선택하고 **Web API** 확인란을 선택한 후 **인증 변경**을 클릭합니다.
 
@@ -63,7 +63,7 @@ Azure 전자 메일 서비스 샘플 응용 프로그램을 빌드 및 배포하
 
 10. **인증 변경** 대화 상자에서 **인증 없음**, **확인**을 차례로 클릭합니다.
 
-    ![인증 없음][]
+    ![인증 없음][인증 없음]
 
 11. **새 ASP.NET 프로젝트** 대화 상자에서 **확인**을 클릭합니다.
 
@@ -71,7 +71,7 @@ Azure 전자 메일 서비스 샘플 응용 프로그램을 빌드 및 배포하
 
 이 섹션에서는 관리자 웹 UI의 모든 페이지에 표시되는 머리글, 바닥글 및 메뉴 항목을 업데이트합니다. 응용 프로그램에는 메일 그룹, 메일 그룹 구독자 및 메시지에 대해 각각 하나씩 세 개의 관리자 웹 페이지 집합이 있습니다.
 
-1.  [완료된 솔루션][](영문)을 아직 다운로드하지 않은 경우 다음 단계로 진행하기 전에 다운로드합니다.
+1.  [완료된 솔루션][완료된 솔루션](영문)을 아직 다운로드하지 않은 경우 다음 단계로 진행하기 전에 다운로드합니다.
 
     이 자습서 나머지 부분에서 코드를 추가해야 할 때는 코드 조각을 복사하여 붙여 넣는 대신 다운로드한 프로젝트에서 새 프로젝트로 파일을 복사합니다. 자습서에서는 복사할 코드의 중요 부분을 보여 주고 설명합니다.
 
@@ -93,11 +93,11 @@ Azure 전자 메일 서비스 샘플 응용 프로그램을 빌드 및 배포하
 
     Azure 클라우드 서비스 프로젝트가 아닌 웹 프로젝트를 시작하는 데 익숙하다면 브라우저에 홈페이지가 표시되기 전에 좀 더 오래 걸린다는 것을 알 수 있을 것입니다.
 
-    ![홈페이지][]
+    ![홈페이지][홈페이지]
 
     지연되는 이유는 Visual Studio가 Azure 계산 에뮬레이터와 Azure 저장소 에뮬레이터를 시작하기 때문입니다. Windows 시스템 트레이에서 계산 에뮬레이터 아이콘을 확인할 수 있습니다.
 
-    ![시스템 트레이의 계산 에뮬레이터][]
+    ![시스템 트레이의 계산 에뮬레이터][시스템 트레이의 계산 에뮬레이터]
 
 2.  브라우저를 닫습니다.
 
@@ -107,15 +107,15 @@ Azure 저장소 테이블, 큐 및 Blob 작업에 사용하는 API 프레임워�
 
 1.  Visual Studio의 **도구** 메뉴에서 **라이브러리 패키지 관리자**를 마우스로 가리키고 **솔루션에 대한 NuGet 패키지 관리**를 클릭합니다.
 
-    ![메뉴의 솔루션에 대한 NuGet 패키지 관리][]
+    ![메뉴의 솔루션에 대한 NuGet 패키지 관리][메뉴의 솔루션에 대한 NuGet 패키지 관리]
 
 2.  **NuGet 패키지 관리** 대화 상자의 왼쪽 창에서 **업데이트**를 선택하고 **Azure 저장소** 패키지까지 아래로 스크롤한 후 **업데이트**를 클릭합니다.
 
-    ![NuGet 패키지 관리 대화 상자의 Azure 저장소 패키지][]
+    ![NuGet 패키지 관리 대화 상자의 Azure 저장소 패키지][NuGet 패키지 관리 대화 상자의 Azure 저장소 패키지]
 
 3.  **프로젝트 선택** 대화 상자에서 두 프로젝트가 모두 선택되었는지 확인한 후 **확인**을 클릭합니다.
 
-    ![프로젝트 선택 대화 상자에서 두 프로젝트 모두 선택][]
+    ![프로젝트 선택 대화 상자에서 두 프로젝트 모두 선택][프로젝트 선택 대화 상자에서 두 프로젝트 모두 선택]
 
 4.  사용 조건에 동의하여 패키지 설치를 완료한 후 **NuGet 패키지 관리** 대화 상자를 닫습니다.
 
@@ -125,7 +125,7 @@ Azure 저장소 테이블, 큐 및 Blob 작업에 사용하는 API 프레임워�
 
 1.  **솔루션 탐색기**에서 **AzureEmailService** 클라우드 프로젝트의 **역할** 아래에 있는 **MvcWebRole**을 마우스 오른쪽 단추로 클릭하고 **속성**을 선택합니다.
 
-    ![웹 역할 속성][]
+    ![웹 역할 속성][웹 역할 속성]
 
 2.  **서비스 구성** 드롭다운 목록에서 **모든 구성**이 선택되어 있는지 확인합니다.
 
@@ -137,7 +137,7 @@ Azure 저장소 테이블, 큐 및 Blob 작업에 사용하는 API 프레임워�
 
 6.  줄의 오른쪽 끝에 있는 줄임표(**...**) 단추를 클릭하여 **저장소 계정 연결 문자열** 대화 상자를 엽니다.
 
-    ![마우스 오른쪽 단추 클릭 속성][]
+    ![마우스 오른쪽 단추 클릭 속성][마우스 오른쪽 단추 클릭 속성]
 
 7.  **저장소 연결 문자열 만들기** 대화 상자에서 **Azure 저장소 에뮬레이터** 라디오 단추를 클릭한 다음 **확인**을 클릭합니다.
 
@@ -161,7 +161,7 @@ Azure 저장소 테이블, 큐 및 Blob 작업에 사용하는 API 프레임워�
 -   한 장소에서만 새 설정을 추가하면 세 개의 파일에 모두 올바른 설정 XML이 추가됩니다.
 -   세 개의 설정 파일에 맞는 XML이 생성됩니다. *ServiceDefinition.csdf* 파일은 각 *.cscfg* 구성 파일에 포함되어야 하는 설정을 정의합니다. *ServiceDefinition.csdf* 파일과 *.cscfg* 구성 파일 두 개의 설정이 일치하지 않는 경우 Visual Studio에서 다음 오류 메시지가 표시될 수 있습니다. *현재 서비스 모델이 동기화되지 않았습니다. 서비스 구성과 정의 파일이 둘 다 유효한지 확인하세요.*
 
-    ![잘못된 서비스 구성 및 정의 파일 오류][]
+    ![잘못된 서비스 구성 및 정의 파일 오류][잘못된 서비스 구성 및 정의 파일 오류]
 
 이 오류가 표시되는 경우 파일을 편집하여 수동으로 불일치 문제를 해결할 때까지 속성 편집기가 작동하지 않습니다.
 
@@ -169,9 +169,9 @@ Azure 저장소 테이블, 큐 및 Blob 작업에 사용하는 API 프레임워�
 
 1.  MvcWebRole 프로젝트에서 다운로드한 프로젝트의 *WebRole.cs* 파일을 추가합니다.
 
-로깅을 구성하는 메서드가 추가되어 웹 역할이 시작되면 실행되는 `OnStart` 메서드에서 호출됩니다. 새 `ConfigureDiagnostics` 메서드의 코드에 대해서는 [두 번째 자습서l][]에서 설명합니다.
+로깅을 구성하는 메서드가 추가되어 웹 역할이 시작되면 실행되는 `OnStart` 메서드에서 호출됩니다. 새 `ConfigureDiagnostics` 메서드의 코드에 대해서는 [두 번째 자습서l][두 번째 자습서l]에서 설명합니다.
 
-그러면 웹 역할이 종료될 예정임을 통지받으면 실행되는 코드도 추가됩니다. Azure 클라우드 서비스 응용 프로그램은 운영 체제 업데이트를 위해 대략 매달 두 번 다시 시작됩니다. OS 업데이트에 대한 자세한 내용은 [OS 업그레이드로 인해 역할 인스턴스 다시 시작][](영문)을 참조하세요. 웹 응용 프로그램을 종료하는 경우 `OnStop` 이벤트가 발생합니다. Visual Studio에서 만든 웹 역할 보일러 플레이트는 `OnStop` 메서드를 재정의하지 않으므로 종료되기 전에 응용 프로그램에서 몇 초 내에 HTTP 요청 처리를 마쳐야 합니다. 종료가 정상적으로 처리되도록 `OnStop` 메서드를 재정의하는 코드를 추가할 수 있습니다.
+그러면 웹 역할이 종료될 예정임을 통지받으면 실행되는 코드도 추가됩니다. Azure 클라우드 서비스 응용 프로그램은 운영 체제 업데이트를 위해 대략 매달 두 번 다시 시작됩니다. OS 업데이트에 대한 자세한 내용은 [OS 업그레이드로 인해 역할 인스턴스 다시 시작][OS 업그레이드로 인해 역할 인스턴스 다시 시작](영문)을 참조하세요. 웹 응용 프로그램을 종료하는 경우 `OnStop` 이벤트가 발생합니다. Visual Studio에서 만든 웹 역할 보일러 플레이트는 `OnStop` 메서드를 재정의하지 않으므로 종료되기 전에 응용 프로그램에서 몇 초 내에 HTTP 요청 처리를 마쳐야 합니다. 종료가 정상적으로 처리되도록 `OnStop` 메서드를 재정의하는 코드를 추가할 수 있습니다.
 
 방금 추가한 파일에는 `OnStop` 메서드 재정의가 포함되어 있습니다.
 
@@ -192,7 +192,7 @@ Azure가 역할을 오프라인으로 전환하면 부하 분산 장치에서 �
 
 표시된 `OnStop` 메서드 코드에서는 `Requests Current`에 대한 ASP.NET 성능 카운터가 생성됩니다. `Requests Current` 카운터 값에는 큐에 대기 중이거나, 현재 실행 중이거나, 클라이언트에 쓰기 위해 대기 중인 요청 등 현재 요청 수가 포함됩니다. `Requests Current` 값은 초 단위로 확인되며, 0까지 떨어지면 `OnStop` 메서드가 반환됩니다. `OnStop` 반환 시 역할이 종료됩니다.
 
-[주문형 전송][]을 수행하지 않고 `OnStop` 메서드에서 호출된 경우에는 추적 데이터가 저장되지 않습니다. 원격 데스크톱 연결에서 [dbgview][] 유틸리티를 사용하여 실시간으로 `OnStop` 추적 정보를 볼 수 있습니다.
+[주문형 전송][주문형 전송]을 수행하지 않고 `OnStop` 메서드에서 호출된 경우에는 추적 데이터가 저장되지 않습니다. 원격 데스크톱 연결에서 [dbgview][dbgview] 유틸리티를 사용하여 실시간으로 `OnStop` 추적 정보를 볼 수 있습니다.
 
 ## <a name="createifnotexists"></a>Application\_Start 메서드에 테이블, 큐 및 Blob 컨테이너를 만드는 코드 추가
 
@@ -268,17 +268,17 @@ Azure가 역할을 오프라인으로 전환하면 부하 분산 장치에서 �
             public string Description { get; set; }
         }
 
-    Azure 저장소 API에서는 테이블 작업을 위한 엔터티 클래스가 [TableEntity][]에서 파생되어야 합니다. `TableEntity`는 `PartitionKey`, `RowKey`, `TimeStamp`, `ETag` 필드를 정의합니다. `TimeStamp`, `ETag` 속성은 시스템에서 사용됩니다. 자습서의 뒷부분에서 `ETag` 속성이 동시성 처리에 사용되는 방법을 확인합니다.
+    Azure 저장소 API에서는 테이블 작업을 위한 엔터티 클래스가 [TableEntity][TableEntity]에서 파생되어야 합니다. `TableEntity`는 `PartitionKey`, `RowKey`, `TimeStamp`, `ETag` 필드를 정의합니다. `TimeStamp`, `ETag` 속성은 시스템에서 사용됩니다. 자습서의 뒷부분에서 `ETag` 속성이 동시성 처리에 사용되는 방법을 확인합니다.
 
-    미리 정의된 모델 클래스를 사용하는 대신 키 값 쌍의 사전 컬렉션으로 테이블 행 작업을 수행하려는 경우 사용할 [DynamicTableEntity][] 클래스도 있습니다. 자세한 내용은 [Azure 저장소 클라이언트 라이브러리 2.0 테이블 심층 검토][](영문)를 참조하세요.
+    미리 정의된 모델 클래스를 사용하는 대신 키 값 쌍의 사전 컬렉션으로 테이블 행 작업을 수행하려는 경우 사용할 [DynamicTableEntity][DynamicTableEntity] 클래스도 있습니다. 자세한 내용은 [Azure 저장소 클라이언트 라이브러리 2.0 테이블 심층 검토][Azure 저장소 클라이언트 라이브러리 2.0 테이블 심층 검토](영문)를 참조하세요.
 
     `mailinglist` 테이블 파티션 키는 메일 그룹 이름입니다. 이 엔터티 클래스에서는 `PartitionKey` 속성(`TableEntity` 클래스에 정의됨) 또는 `ListName` 속성(`MailingList` 클래스에 정의됨)을 사용하여 파티션 키 값에 액세스할 수 있습니다. `ListName` 속성은 `PartitionKey`를 지원 변수로 사용합니다. `ListName` 속성을 정의하면 코드에서 더 설명적인 변수 이름을 사용할 수 있으며, `ListName` 속성에 형식 지정 및 유효성 검사 DataAnnotations 특성을 추가할 수 있으므로 웹 UI를 더 쉽게 프로그래밍할 수 있지만 `PartitionKey` 속성에 직접 추가할 수는 없습니다.
 
     `ListName` 속성의 `RegularExpression` 특성을 사용하면 MVC에서 사용자 입력의 유효성을 검사하여 입력된 목록 이름에 영숫자 문자나 밑줄만 포함되어 있는지 확인합니다. 이 제한은 URL의 쿼리 문자열에 쉽게 사용할 수 있도록 목록 이름을 간단하게 유지하기 위해 구현되었습니다.
 
-    > [WACOM.NOTE] 목록 이름 형식을 덜 제한적으로 설정하려는 경우 쿼리 문자열에 사용될 때 다른 문자와 URL로 인코드된 목록 이름을 허용할 수 있습니다. 그러나 특정 문자는 Azure 테이블 파티션 키 또는 행 키에 허용되지 않으며 적어도 이러한 문자는 제외해야 합니다. 허용되지 않거나 파티션 키 또는 행 키 필드에서 문제를 발생시키는 문자에 대한 자세한 내용은 [테이블 서비스 데이터 모델 이해][] 및 [PartitionKey 또는 RowKey의 % 문자][]를 참조하세요.
+    > [WACOM.NOTE] 목록 이름 형식을 덜 제한적으로 설정하려는 경우 쿼리 문자열에 사용될 때 다른 문자와 URL로 인코드된 목록 이름을 허용할 수 있습니다. 그러나 특정 문자는 Azure 테이블 파티션 키 또는 행 키에 허용되지 않으며 적어도 이러한 문자는 제외해야 합니다. 허용되지 않거나 파티션 키 또는 행 키 필드에서 문제를 발생시키는 문자에 대한 자세한 내용은 [테이블 서비스 데이터 모델 이해][테이블 서비스 데이터 모델 이해] 및 [PartitionKey 또는 RowKey의 % 문자][PartitionKey 또는 RowKey의 % 문자]를 참조하세요.
 
-    `MailingList` 클래스는 이 테이블의 모든 메일 그룹 행에 해당 값이 행 키로 포함되어 있으므로 `RowKey`를 하드 코드된 문자열 "mailinglist"로 설정하는 기본 생성자를 정의합니다. 테이블 구조에 대한 설명은 [시리즈의 첫 번째 자습서][]를 참조하세요. 이 테이블의 구독자 행에 대한 행 키인 전자 메일 주소와 다르기만 하면 모든 상수 값을 이 목적으로 선택할 수 있습니다.
+    `MailingList` 클래스는 이 테이블의 모든 메일 그룹 행에 해당 값이 행 키로 포함되어 있으므로 `RowKey`를 하드 코드된 문자열 "mailinglist"로 설정하는 기본 생성자를 정의합니다. 테이블 구조에 대한 설명은 [시리즈의 첫 번째 자습서][시리즈의 첫 번째 자습서]를 참조하세요. 이 테이블의 구독자 행에 대한 행 키인 전자 메일 주소와 다르기만 하면 모든 상수 값을 이 목적으로 선택할 수 있습니다.
 
     새 `MailingList` 엔터티를 만들 때 목록 이름과 "보낸 사람" 전자 메일 주소는 항상 입력해야 하므로 `Required` 특성이 없습니다.
 
@@ -305,7 +305,7 @@ Azure가 역할을 오프라인으로 전환하면 부하 분산 장치에서 �
 
     다음은 메일 그룹 항목 편집 등을 위해 컨트롤러가 `MailingList` 테이블의 특정 메일 그룹 항목을 조회해야 할 때마다 호출되는 `FindRowAsync` 메서드입니다. 코드는 전달된 파티션 키 및 행 키 값을 사용하여 단일 `MailingList` 엔터티를 검색합니다. 이 컨트롤러에서 편집하는 행은 "MailingList"가 행 키로 포함된 행이므로 행 키에 "MailingList"가 하드 코드되었을 수 있지만 파티션 키와 행 키를 둘 다 지정하는 것이 모든 컨트롤러의 `FindRow` 메서드에 사용되는 패턴입니다.
 
-    > [WACOM.NOTE] 응용 프로그램은 서버 리소스를 효율적으로 사용하기 위해 웹 역할의 I/O 작업을 위한 ASP.NET 4.5 비동기 코드를 사용합니다. 웹 응용 프로그램의 비동기 코드에 대한 자세한 내용은 [.NET 4.5의 비동기 지원을 사용하여 호출 차단 방지][](영문)를 참조하세요.
+    > [WACOM.NOTE] 응용 프로그램은 서버 리소스를 효율적으로 사용하기 위해 웹 역할의 I/O 작업을 위한 ASP.NET 4.5 비동기 코드를 사용합니다. 웹 응용 프로그램의 비동기 코드에 대한 자세한 내용은 [.NET 4.5의 비동기 지원을 사용하여 호출 차단 방지][.NET 4.5의 비동기 지원을 사용하여 호출 차단 방지](영문)를 참조하세요.
 
         private async Task<MailingList> FindRowAsync(string partitionKey, string rowKey)
         {
@@ -319,7 +319,7 @@ Azure가 역할을 오프라인으로 전환하면 부하 분산 장치에서 �
             return mailingList;
         }
 
-    이 `FindRow` 메서드의 코드는 메일 그룹 행을 반환합니다. `Subscriber` 컨트롤러의 해당 `FindRow` 메서드의 코드는 동일한 `mailinglist` 테이블에서 구독자 행을 반환합니다. 두 메서드에 있는 코드는 [TableOperation.Retrieve][] 메서드와 함께 사용되는 모델 형식이라는 점을 제외하고는 동일합니다.
+    이 `FindRow` 메서드의 코드는 메일 그룹 행을 반환합니다. `Subscriber` 컨트롤러의 해당 `FindRow` 메서드의 코드는 동일한 `mailinglist` 테이블에서 구독자 행을 반환합니다. 두 메서드에 있는 코드는 [TableOperation.Retrieve][TableOperation.Retrieve] 메서드와 함께 사용되는 모델 형식이라는 점을 제외하고는 동일합니다.
 
         private async Task<Subscriber> FindRowAsync(string partitionKey, string rowKey)
         {
@@ -351,11 +351,11 @@ Azure가 역할을 오프라인으로 전환하면 부하 분산 장치에서 �
             token = currentSegment.ContinuationToken;
         }
 
-    `ExecuteQuerySegmentedAsync` 메서드는 대규모 결과 집합을 세그먼트로 나눕니다. 최대 1,000개의 행을 반환합니다. 1,000개가 넘는 행을 검색하는 쿼리를 실행하면 1,000개의 행과 연속 토큰이 나타납니다. 연속 토큰을 사용하여 이전 쿼리가 중단한 위치에서 시작하는 다른 쿼리를 실행할 수 있습니다. 표시된 코드는 샘플 응용 프로그램에 맞춰 단순화된 것입니다. 모든 세그먼트를 하나의 목록에 수집합니다. 프로덕션 응용 프로그램의 경우 페이징 코드를 구현합니다. 큰 결과 집합 및 연속 토큰에 대한 자세한 내용은 [Azure 테이블을 활용하는 방법][](영문) 및 [Azure 테이블: 연속 토큰 필요][](영문)를 참조하세요.
+    `ExecuteQuerySegmentedAsync` 메서드는 대규모 결과 집합을 세그먼트로 나눕니다. 최대 1,000개의 행을 반환합니다. 1,000개가 넘는 행을 검색하는 쿼리를 실행하면 1,000개의 행과 연속 토큰이 나타납니다. 연속 토큰을 사용하여 이전 쿼리가 중단한 위치에서 시작하는 다른 쿼리를 실행할 수 있습니다. 표시된 코드는 샘플 응용 프로그램에 맞춰 단순화된 것입니다. 모든 세그먼트를 하나의 목록에 수집합니다. 프로덕션 응용 프로그램의 경우 페이징 코드를 구현합니다. 큰 결과 집합 및 연속 토큰에 대한 자세한 내용은 [Azure 테이블을 활용하는 방법][Azure 테이블을 활용하는 방법](영문) 및 [Azure 테이블: 연속 토큰 필요][Azure 테이블: 연속 토큰 필요](영문)를 참조하세요.
 
-    `OperationContext` 개체를 만들 때는 Azure 저장소에서 작성되는 로그에 포함될 고유 식별자를 제공하기 위해 `ClientID` 속성 값을 설정할 수 있습니다. 저장소 서비스 활동을 발생시킨 코드에 대한 저장소 작업 로그를 추적할 때 이 식별자를 사용할 수 있습니다. Azure 저장소 로깅에 대한 자세한 내용은 [Azure 저장소 로깅: 로그를 사용하여 저장소 요청 추적][](영문)을 참조하세요.
+    `OperationContext` 개체를 만들 때는 Azure 저장소에서 작성되는 로그에 포함될 고유 식별자를 제공하기 위해 `ClientID` 속성 값을 설정할 수 있습니다. 저장소 서비스 활동을 발생시킨 코드에 대한 저장소 작업 로그를 추적할 때 이 식별자를 사용할 수 있습니다. Azure 저장소 로깅에 대한 자세한 내용은 [Azure 저장소 로깅: 로그를 사용하여 저장소 요청 추적][Azure 저장소 로깅: 로그를 사용하여 저장소 요청 추적](영문)을 참조하세요.
 
-    SCL 2.1 이상 API에서는 테이블 쿼리에 LINQ를 사용할 수도 있습니다. LINQ를 사용하는 방법을 보여 주는 코드 샘플은 [PhluffyFotos][](영문)를 참조하세요.
+    SCL 2.1 이상 API에서는 테이블 쿼리에 LINQ를 사용할 수도 있습니다. LINQ를 사용하는 방법을 보여 주는 코드 샘플은 [PhluffyFotos][PhluffyFotos](영문)를 참조하세요.
 
     재시도 정책을 지정하지 않으면 API에서 시간 초과 제한을 기하급수적으로 증가시켜 자동으로 3회 다시 시도합니다. 페이지가 나타날 때까지 사용자가 기다리는 웹 인터페이스의 경우 이로 인해 대기 시간이 너무 길어질 수 있습니다. 따라서 이 코드는 선형 다시 시도(시간 초과 제한이 매번 증가하지 않음) 및 사용자가 기다리기에 적합한 시간 초과 제한을 지정합니다. 재시도 정책은 `ExecuteQuerySegmentedAsync` 메서드에 전달된 `webUIRetryPolicy` 개체에서 지정됩니다. `webUIRetryPolicy` 개체는 컨트롤러 생성자에서 정의됩니다.
 
@@ -559,11 +559,11 @@ Azure가 역할을 오프라인으로 전환하면 부하 분산 장치에서 �
 
 1.  Ctrl+F5를 눌러 프로젝트를 실행합니다.
 
-    ![빈 MailingList 인덱스 페이지][]
+    ![빈 MailingList 인덱스 페이지][빈 MailingList 인덱스 페이지]
 
 2.  **만들기** 기능을 사용하여 일부 메일 그룹을 추가하고 **편집** 및 **삭제** 기능을 시도하여 작동하는지 확인합니다.
 
-    ![행이 있는 MailingList 인덱스 페이지][]
+    ![행이 있는 MailingList 인덱스 페이지][행이 있는 MailingList 인덱스 페이지]
 
 ## <a name="subscriber"></a><span class="short-header">구독자</span>구독자 컨트롤러와 뷰 만들기 및 테스트
 
@@ -612,7 +612,7 @@ Azure가 역할을 오프라인으로 전환하면 부하 분산 장치에서 �
             }
         
 
-`Subscriber` 행은 상수 "mailinglist" 대신 전자 메일 주소를 행 키에 사용합니다. 테이블 구조에 대한 설명은 [시리즈의 첫 번째 자습서][]를 참조하세요. 따라서 `ListName`이 `PartitionKey`를 지원 필드로 사용하는 것과 동일한 방식으로 `RowKey` 속성을 지원 필드로 사용하는 `EmailAddress` 속성이 정의됩니다. 이 경우 앞에서 설명한 대로 형식 지정 및 유효성 검사 DataAnnotations 특성을 속성에 배치할 수 있습니다.
+`Subscriber` 행은 상수 "mailinglist" 대신 전자 메일 주소를 행 키에 사용합니다. 테이블 구조에 대한 설명은 [시리즈의 첫 번째 자습서][시리즈의 첫 번째 자습서]를 참조하세요. 따라서 `ListName`이 `PartitionKey`를 지원 필드로 사용하는 것과 동일한 방식으로 `RowKey` 속성을 지원 필드로 사용하는 `EmailAddress` 속성이 정의됩니다. 이 경우 앞에서 설명한 대로 형식 지정 및 유효성 검사 DataAnnotations 특성을 속성에 배치할 수 있습니다.
 
 `SubscriberGUID` 값은 `Subscriber` 엔터티를 만들 때 생성됩니다. 권한 있는 개인만 전자 메일 주소를 구독하거나 구독 취소할 수 있도록 하기 위해 구독 및 구독 취소 링크에 사용됩니다.
 
@@ -768,11 +768,11 @@ MVC 모델 바인더가 `Edit` 메서드에 전달하는 매개 변수에는 원
 
 1.  Ctrl+F5를 눌러 프로젝트를 실행하고 **Subscribers**를 클릭합니다.
 
-    ![빈 Subscriber 인덱스 페이지][]
+    ![빈 Subscriber 인덱스 페이지][빈 Subscriber 인덱스 페이지]
 
 2.  **만들기** 기능을 사용하여 일부 메일 그룹을 추가하고 **편집** 및 **삭제** 기능을 시도하여 작동하는지 확인합니다.
 
-    ![행이 있는 Subscribers 인덱스 페이지][]
+    ![행이 있는 Subscribers 인덱스 페이지][행이 있는 Subscribers 인덱스 페이지]
 
 ## <a name="message"></a>메시지 컨트롤러와 뷰 만들기 및 테스트
 
@@ -844,7 +844,7 @@ MVC 모델 바인더가 `Edit` 메서드에 전달하는 매개 변수에는 원
 
 또한 기본 생성자는 새 `message` 행에 대해 기본 상태 Pending을 설정합니다.
 
-`Message` 테이블 구조에 대한 자세한 내용은 [시리즈의 첫 번째 자습서][]를 참조하세요.
+`Message` 테이블 구조에 대한 자세한 내용은 [시리즈의 첫 번째 자습서][시리즈의 첫 번째 자습서]를 참조하세요.
 
 ### Message MVC 컨트롤러 추가
 
@@ -1007,7 +1007,7 @@ Blob은 Blob 컨테이너에 저장됩니다. Azure 전자 메일 서비스 응�
 
 1.  Ctrl+F5를 눌러 프로젝트를 실행하고 **Messages**를 클릭합니다.
 
-    ![빈 Message 인덱스 페이지][]
+    ![빈 Message 인덱스 페이지][빈 Message 인덱스 페이지]
 
 2.  **만들기** 기능을 사용하여 일부 메일 그룹을 추가하고 **편집** 및 **삭제** 기능을 시도하여 작동하는지 확인합니다.
 
@@ -1082,7 +1082,7 @@ Blob은 Blob 컨테이너에 저장됩니다. Azure 전자 메일 서비스 응�
             return View(unsubscribeVM);
         }
 
-참고: SubscriberGUID는 파티션 키나 행 키에 없으므로 파티션 크기(메일 그룹의 전자 메일 주소 수)가 증가하면 이 쿼리의 성능이 저하됩니다. 이 쿼리를 더 확장 가능하게 만드는 대안에 대한 자세한 내용은 [시리즈의 첫 번째 자습서][]를 참조하세요.
+참고: SubscriberGUID는 파티션 키나 행 키에 없으므로 파티션 크기(메일 그룹의 전자 메일 주소 수)가 증가하면 이 쿼리의 성능이 저하됩니다. 이 쿼리를 더 확장 가능하게 만드는 대안에 대한 자세한 내용은 [시리즈의 첫 번째 자습서][시리즈의 첫 번째 자습서]를 참조하세요.
 
 `HttpPost Index` 메서드가 다시 GUID 및 목록 이름을 사용하여 구독자 정보를 가져오고 뷰 모델 속성을 채웁니다. 그런 다음 **확인** 단추가 클릭된 경우 `MailingList` 테이블에서 구독자 행을 삭제합니다. **확인** 단추를 누른 경우 `Confirm` 속성도 `true`로 설정합니다. 그렇지 않으면 `Confirm` 속성을 `false`로 설정합니다. `Confirm` 속성 값은 뷰에 확인 또는 취소된 버전의 **구독 취소** 페이지를 표시하도록 지정합니다.
 
@@ -1188,7 +1188,7 @@ Blob은 Blob 컨테이너에 저장됩니다. Azure 전자 메일 서비스 응�
 
 6.  **엔터티 편집** 대화 상자에서 `SubscriberGUID` 값을 선택하고 복사합니다.
 
-    ![Azure 저장소 탐색기][]
+    ![Azure 저장소 탐색기][Azure 저장소 탐색기]
 
 7.  브라우저 창으로 다시 전환합니다. 브라우저 주소 표시줄에서 URL의 "Subscriber"를 "unsubscribe?ID=[guidvalue]&listName=[listname]"으로 변경합니다. 여기서 [guidvalue]는 Azure 저장소 탐색기에서 복사한 GUID이고, [listname]은 메일 그룹의 이름입니다. 예를 들면 다음과 같습니다.
 
@@ -1196,17 +1196,17 @@ Blob은 Blob 컨테이너에 저장됩니다. Azure 전자 메일 서비스 응�
 
     확인을 요청하는 **구독 취소** 페이지의 버전이 표시됩니다.
 
-    ![구독 취소 페이지][]
+    ![구독 취소 페이지][구독 취소 페이지]
 
 8.  **확인**을 클릭하면 전자 메일 주소가 구독 취소되었다는 확인이 표시됩니다.
 
-    ![구독 취소 확인 페이지][]
+    ![구독 취소 확인 페이지][구독 취소 확인 페이지]
 
 9.  **Subscribers** **인덱스** 페이지로 돌아가서 구독자 행이 더 이상 없는지 확인합니다.
 
 ## <a name="nextsteps"></a>다음 단계
 
-[시리즈의 첫 번째 자습서][]에서 설명한 대로 이 자습서에서는 구독 프로세스의 구성 요소를 보여 주지 않습니다. ASP.NET Web API 서비스 메서드가 공유 비밀 보안을 구현하지 않기 때문입니다. 그러나 두 번째 자습서에서 설정한 IP 제한도 서비스 메서드를 보호하며, 다운로드한 프로젝트에서 다음 파일을 복사하여 구독 기능을 추가할 수 있습니다.
+[시리즈의 첫 번째 자습서][시리즈의 첫 번째 자습서]에서 설명한 대로 이 자습서에서는 구독 프로세스의 구성 요소를 보여 주지 않습니다. ASP.NET Web API 서비스 메서드가 공유 비밀 보안을 구현하지 않기 때문입니다. 그러나 두 번째 자습서에서 설정한 IP 제한도 서비스 메서드를 보호하며, 다운로드한 프로젝트에서 다음 파일을 복사하여 구독 기능을 추가할 수 있습니다.
 
 ASP.NET Web API 서비스 메서드의 경우
 
@@ -1218,14 +1218,14 @@ ASP.NET Web API 서비스 메서드의 경우
 -   Controllers\\SubscribeController.cs
 -   Views\\Subscribe\\Index.cshtml
 
-[다음 자습서][]에서는 전자 메일을 예약하는 작업자 역할인 작업자 역할 A를 구성 및 프로그래밍합니다.
+[다음 자습서][다음 자습서]에서는 전자 메일을 예약하는 작업자 역할인 작업자 역할 A를 구성 및 프로그래밍합니다.
 
-Azure 저장소 테이블, 큐 및 Blob 작업 관련 추가 리소스에 대한 링크는 [이 시리즈의 마지막 자습서][]를 참조하세요.
+Azure 저장소 테이블, 큐 및 Blob 작업 관련 추가 리소스에 대한 링크는 [이 시리즈의 마지막 자습서][이 시리즈의 마지막 자습서]를 참조하세요.
 
 
-<div><a href="/en-us/develop/net/tutorials/multi-tier-web-site/4-worker-role-a/" class="site-arrowboxcta download-cta">자습서 4</a></div>
+<div><a href="/ko-kr/develop/net/tutorials/multi-tier-web-site/4-worker-role-a/" class="site-arrowboxcta download-cta">자습서 4</a></div>
 
-  [시리즈의 첫 번째 자습서]: /en-us/develop/net/tutorials/multi-tier-web-site/1-overview/
+  [시리즈의 첫 번째 자습서]: /ko-kr/develop/net/tutorials/multi-tier-web-site/1-overview/
   [Visual Studio 솔루션 만들기]: #cloudproject
   [저장소 클라이언트 라이브러리 NuGet 패키지 업데이트]: #updatescl
   [저장소 에뮬레이터를 사용하도록 프로젝트 구성]: #configurestorage
@@ -1252,17 +1252,17 @@ Azure 저장소 테이블, 큐 및 Blob 작업 관련 추가 리소스에 대한
   [웹 역할 속성]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-web-role/mtas-mvcwebrole-properties-menu.png
   [마우스 오른쪽 단추 클릭 속성]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-web-role/mtas-elip.png
   [잘못된 서비스 구성 및 정의 파일 오류]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-web-role/mtas-er1.png
-  [두 번째 자습서l]: /en-us/develop/net/tutorials/multi-tier-web-site/2-download-and-run/
+  [두 번째 자습서l]: /ko-kr/develop/net/tutorials/multi-tier-web-site/2-download-and-run/
   [OS 업그레이드로 인해 역할 인스턴스 다시 시작]: http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx
-  [주문형 전송]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433075.aspx
-  [dbgview]: http://technet.microsoft.com/en-us/sysinternals/bb896647.aspx
-  [TableEntity]: http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.storage.table.tableentity.aspx
-  [DynamicTableEntity]: http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.storage.table.dynamictableentity.aspx
+  [주문형 전송]: http://msdn.microsoft.com/ko-kr/library/windowsazure/gg433075.aspx
+  [dbgview]: http://technet.microsoft.com/ko-kr/sysinternals/bb896647.aspx
+  [TableEntity]: http://msdn.microsoft.com/ko-kr/library/windowsazure/microsoft.windowsazure.storage.table.tableentity.aspx
+  [DynamicTableEntity]: http://msdn.microsoft.com/ko-kr/library/windowsazure/microsoft.windowsazure.storage.table.dynamictableentity.aspx
   [Azure 저장소 클라이언트 라이브러리 2.0 테이블 심층 검토]: http://blogs.msdn.com/b/windowsazurestorage/archive/2012/11/06/windows-azure-storage-client-library-2-0-tables-deep-dive.aspx
-  [테이블 서비스 데이터 모델 이해]: http://msdn.microsoft.com/en-us/library/windowsazure/dd179338.aspx
+  [테이블 서비스 데이터 모델 이해]: http://msdn.microsoft.com/ko-kr/library/windowsazure/dd179338.aspx
   [PartitionKey 또는 RowKey의 % 문자]: http://blogs.msdn.com/b/windowsazurestorage/archive/2012/05/28/partitionkey-or-rowkey-containing-the-percent-character-causes-some-windows-azure-tables-apis-to-fail.aspx
   [.NET 4.5의 비동기 지원을 사용하여 호출 차단 방지]: http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices#async
-  [TableOperation.Retrieve]: http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.storage.table.tableoperation.retrieve.aspx
+  [TableOperation.Retrieve]: http://msdn.microsoft.com/ko-kr/library/windowsazure/microsoft.windowsazure.storage.table.tableoperation.retrieve.aspx
   [Azure 테이블을 활용하는 방법]: http://blogs.msdn.com/b/windowsazurestorage/archive/2010/11/06/how-to-get-most-out-of-windows-azure-tables.aspx
   [Azure 테이블: 연속 토큰 필요]: http://blog.smarx.com/posts/windows-azure-tables-expect-continuation-tokens-seriously
   [Azure 저장소 로깅: 로그를 사용하여 저장소 요청 추적]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/08/03/windows-azure-storage-logging-using-logs-to-track-storage-requests.aspx
@@ -1276,5 +1276,5 @@ Azure 저장소 테이블, 큐 및 Blob 작업 관련 추가 리소스에 대한
   [Azure 저장소 탐색기]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-web-role/mtas-ase-edit-entity-unsubscribe.png
   [구독 취소 페이지]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-web-role/mtas-unsubscribe-query-page.png
   [구독 취소 확인 페이지]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-web-role/mtas-unsubscribe-confirmation-page.png
-  [다음 자습서]: /en-us/develop/net/tutorials/multi-tier-web-site/4-worker-role-a/
-  [이 시리즈의 마지막 자습서]: /en-us/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/#nextsteps
+  [다음 자습서]: /ko-kr/develop/net/tutorials/multi-tier-web-site/4-worker-role-a/
+  [이 시리즈의 마지막 자습서]: /ko-kr/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/#nextsteps

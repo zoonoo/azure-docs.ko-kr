@@ -1,6 +1,6 @@
 <properties linkid="develop-notificationhubs-tutorials-get-started-windowsphone" urlDisplayName="Get Started" pageTitle="Get Started with Azure Notification Hubs" metaKeywords="" description="Learn how to use Azure Notification Hubs to push notifications." metaCanonical="" services="notification-hubs" documentationCenter="Mobile" title="Get started with Notification Hubs" authors="glenga" solutions="" manager="dwrede" editor="dwrede" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="glenga"></tags>
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="glenga" />
 
 # 알림 허브 시작
 
@@ -9,17 +9,17 @@
 이 항목에서는 Azure 알림 허브를 사용하여 Windows Phone 8 또는 Windows Phone 8.1 Silverlight 응용 프로그램에 푸시 알림을 보내는 방법을 보여 줍니다. Windows Phone 8.1(비 Silverlight)을 대상으로 하는 경우 [Windows 범용][1] 버전을 참조하세요.
 이 자습서에서는 MPNS(Microsoft 푸시 알림 서비스)를 사용하여 푸시 알림을 받는 새 Windows Phone 8 앱을 만듭니다. 완료하면 알림 허브를 사용하여 앱을 실행하는 모든 장치로 푸시 알림을 브로드캐스트할 수 있습니다.
 
-> [AZURE.NOTE] 알림 허브 Windows Phone SDK에서는 Windows Phone 8.1 Silverlight 앱에서의 WNS 사용을 지원하지 않습니다. Windows Phone 8.1 Silverlight 앱에서 WNS(MPNS 대신)를 사용하려면 [Windows 범용에 대해 시작][1]에 표시된 대로 WNS 자격 증명을 설정해야 합니다. 그런 다음 [사용자에게 알림][] 자습서에 표시된 대로 백 엔드에서 등록하거나 [알림 허브 REST API][]를 사용할 수 있습니다.
+> [AZURE.NOTE] 알림 허브 Windows Phone SDK에서는 Windows Phone 8.1 Silverlight 앱에서의 WNS 사용을 지원하지 않습니다. Windows Phone 8.1 Silverlight 앱에서 WNS(MPNS 대신)를 사용하려면 [Windows 범용에 대해 시작][1]에 표시된 대로 WNS 자격 증명을 설정해야 합니다. 그런 다음 [사용자에게 알림][사용자에게 알림] 자습서에 표시된 대로 백 엔드에서 등록하거나 [알림 허브 REST API][알림 허브 REST API]를 사용할 수 있습니다.
 
 이 자습서에서는 푸시 알림을 사용하도록 설정하는 다음 단계를 단계별로 안내합니다.
 
-1.  [알림 허브 만들기][]
-2.  [알림 허브에 앱 연결][]
-3.  [백 엔드에서 알림 보내기][]
+1.  [알림 허브 만들기][알림 허브 만들기]
+2.  [알림 허브에 앱 연결][알림 허브에 앱 연결]
+3.  [백 엔드에서 알림 보내기][백 엔드에서 알림 보내기]
 
 이 자습서에서는 알림 허브를 사용하는 간단한 브로드캐스트 시나리오를 보여 줍니다. 알림 허브를 사용하여 장치의 특정 사용자 및 그룹을 처리하는 방법을 알아보려면 다음 자습서도 함께 완료해야 합니다. 이 자습서를 사용하려면 다음이 필요합니다.
 
--   [Visual Studio 2012 Express for Windows Phone][] 이상 버전
+-   [Visual Studio 2012 Express for Windows Phone][Visual Studio 2012 Express for Windows Phone] 이상 버전
 
 이 자습서를 완료해야 다른 모든 Windows Phone 8 앱용 알림 허브 자습서를 진행할 수 있습니다.
 
@@ -27,11 +27,11 @@
 
 ## <a name="configure-hub"></a>알림 허브 만들기
 
-1.  [Azure 관리 포털][]에 로그온하고 화면 맨 아래에 있는 **+새로 만들기**를 클릭합니다.
+1.  [Azure 관리 포털][Azure 관리 포털]에 로그온하고 화면 맨 아래에 있는 **+새로 만들기**를 클릭합니다.
 
 2.  **앱 서비스**, **서비스 버스**, **알림 허브**, **빠른 생성**을 차례로 클릭합니다.
 
-    ![][]
+    ![][0]
 
 3.  알림 허브의 이름을 입력하고 원하는 지역을 선택한 후 **Create a new Notification Hub**를 클릭합니다.
 
@@ -77,7 +77,7 @@
 
     ![][9]
 
-    그러면 [WindowsAzure.Messaging.Managed NuGet 패키지][]를 사용하여 Windows용 Azure 메시징 라이브러리에 대한 참조가 다운로드, 설치 및 추가됩니다.
+    그러면 [WindowsAzure.Messaging.Managed NuGet 패키지][WindowsAzure.Messaging.Managed NuGet 패키지]를 사용하여 Windows용 Azure 메시징 라이브러리에 대한 참조가 다운로드, 설치 및 추가됩니다.
 
 4.  App.xaml.cs 파일을 열고 다음 `using` 문을 추가합니다.
 
@@ -117,7 +117,7 @@
 
 ## <a name="send"></a>백 엔드에서 알림 보내기
 
-[REST 인터페이스][]를 사용하는 모든 백 엔드에서 알림 허브를 사용하여 알림을 보낼 수 있습니다. 이 자습서에서는 .NET 콘솔 응용 프로그램을 사용하여 알림을 보냅니다. 알림 허브와 통합된 Azure 모바일 서비스 백 엔드에서 알림을 보내는 방법에 대한 예는 **모바일 서비스에서 푸시 알림 시작**([.NET 백 엔드][] | [JavaScript 백 엔드][.NET 백 엔드])을 참조하세요. REST API를 사용하여 알림을 보내는 방법에 대한 예는 **Java/PHP에서 알림 허브를 사용하는 방법**([Java][] | [PHP][])을 참조하세요.
+[REST 인터페이스][REST 인터페이스]를 사용하는 모든 백 엔드에서 알림 허브를 사용하여 알림을 보낼 수 있습니다. 이 자습서에서는 .NET 콘솔 응용 프로그램을 사용하여 알림을 보냅니다. 알림 허브와 통합된 Azure 모바일 서비스 백 엔드에서 알림을 보내는 방법에 대한 예는 **모바일 서비스에서 푸시 알림 시작**([.NET 백 엔드][.NET 백 엔드] | [JavaScript 백 엔드][.NET 백 엔드])을 참조하세요. REST API를 사용하여 알림을 보내는 방법에 대한 예는 **Java/PHP에서 알림 허브를 사용하는 방법**([Java][Java] | [PHP][PHP])을 참조하세요.
 
 1.  솔루션을 마우스 오른쪽 단추로 클릭하고 **추가**, **새 프로젝트...**를 차례로 선택한 후 **Visual C#**에서 **Windows**, **콘솔 응용 프로그램**, **확인**을 차례로 클릭합니다.
 
@@ -133,7 +133,7 @@
 
         Install-Package WindowsAzure.ServiceBus
 
-    이 명령은 [WindowsAzure.ServiceBus NuGet 패키지][]를 사용하여 Azure 서비스 버스 SDK에 대한 참조를 추가합니다.
+    이 명령은 [WindowsAzure.ServiceBus NuGet 패키지][WindowsAzure.ServiceBus NuGet 패키지]를 사용하여 Azure 서비스 버스 SDK에 대한 참조를 추가합니다.
 
 4.  Program.cs 파일을 열고 다음 `using` 문을 추가합니다.
 
@@ -167,23 +167,17 @@
 
     알림 메시지가 수신됩니다. 알림 배너를 누르면 앱이 로드됩니다.
 
-MSDN의 [알림 카탈로그][] 및 [타일 카탈로그][] 항목에서 가능한 모든 페이로드를 찾을 수 있습니다.
+MSDN의 [알림 카탈로그][알림 카탈로그] 및 [타일 카탈로그][타일 카탈로그] 항목에서 가능한 모든 페이로드를 찾을 수 있습니다.
 
 ## <a name="next-steps"> </a>다음 단계
 
-이 간단한 예제에서는 모든 Windows Phone 8 장치로 알림을 브로드캐스트했습니다. 특정 사용자를 대상으로 하려면 [알림 허브를 사용하여 사용자에게 알림 푸시][](영문) 자습서를 참조하십시오. 사용자를 관심 그룹별로 분할하려면 [알림 허브를 사용하여 뉴스 속보 보내기][](영문)를 참조하십시오. [알림 허브 지침][]에서 알림 허브 사용 방법을 자세히 알아보십시오.
+이 간단한 예제에서는 모든 Windows Phone 8 장치로 알림을 브로드캐스트했습니다. 특정 사용자를 대상으로 하려면 [알림 허브를 사용하여 사용자에게 알림 푸시][알림 허브를 사용하여 사용자에게 알림 푸시](영문) 자습서를 참조하십시오. 사용자를 관심 그룹별로 분할하려면 [알림 허브를 사용하여 뉴스 속보 보내기][알림 허브를 사용하여 뉴스 속보 보내기](영문)를 참조하십시오. [알림 허브 지침][알림 허브 지침]에서 알림 허브 사용 방법을 자세히 알아보십시오.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [Windows 범용]: /ko-KR/documentation/articles/notification-hubs-windows-store-dotnet-get-started/ "Windows 범용"
-  [Windows Phone]: /ko-KR/documentation/articles/notification-hubs-windows-phone-get-started/ "Windows Phone"
-  [iOS]: /ko-KR/documentation/articles/notification-hubs-ios-get-started/ "iOS"
-  [Android]: /ko-KR/documentation/articles/notification-hubs-android-get-started/ "Android"
-  [Kindle]: /ko-KR/documentation/articles/notification-hubs-kindle-get-started/ "Kindle"
-  [Xamarin.iOS]: /ko-KR/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/ "Xamarin.iOS"
-  [Xamarin.Android]: /ko-KR/documentation/articles/partner-xamarin-notification-hubs-android-get-started/ "Xamarin.Android"
   [1]: /ko-KR/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
   [사용자에게 알림]: /ko-KR/documentation/articles/notification-hubs-aspnet-backend-windows-dotnet-notify-users/
   [알림 허브 REST API]: http://msdn.microsoft.com/ko-KR/library/dn223264.aspx
@@ -191,15 +185,13 @@ MSDN의 [알림 카탈로그][] 및 [타일 카탈로그][] 항목에서 가능�
   [알림 허브에 앱 연결]: #connecting-app
   [백 엔드에서 알림 보내기]: #send
   [Visual Studio 2012 Express for Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374
-  [Azure 무료 평가판]: http://www.windowsazure.com/ko-KR/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fko-KR%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F
   [Azure 관리 포털]: https://manage.windowsazure.com/
-  []: ./media/notification-hubs-windows-phone-get-started/notification-hub-create-from-portal.png
+  [0]: ./media/notification-hubs-windows-phone-get-started/notification-hub-create-from-portal.png
   [2]: ./media/notification-hubs-windows-phone-get-started/notification-hub-create-from-portal2.png
   [3]: ./media/notification-hubs-windows-phone-get-started/notification-hub-select-from-portal.png
   [4]: ./media/notification-hubs-windows-phone-get-started/notification-hub-select-from-portal2.png
   [5]: ./media/notification-hubs-windows-phone-get-started/notification-hub-connection-strings.png
   [6]: ./media/notification-hubs-windows-phone-get-started/notification-hub-pushauth.png
-  [MPNS 인증된 모드]: http://msdn.microsoft.com/ko-KR/library/windowsphone/develop/ff941099(v=vs.105).aspx
   [7]: ./media/notification-hubs-windows-phone-get-started/notification-hub-create-wp-app.png
   [8]: ./media/notification-hubs-windows-phone-get-started/notification-hub-create-wp-silverlight-app.png
   [9]: ./media/notification-hubs-windows-phone-get-started/notification-hub-windows-universal-app-install-package.png

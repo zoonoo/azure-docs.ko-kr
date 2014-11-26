@@ -132,5 +132,4 @@ Blitline의 Azure 저장소 문서의 최신 버전을 [여기][여기]에서 �
   [Azure 저장소에 이미지를 저장하는 방법]: #saveazure
   [다음 단계]: #nextsteps
   []: http://www.blitline.com
-  [blitline-signup]: ../includes/blitline-signup.md
   [여기]: http://www.blitline.com/docs/azure_storage

@@ -1,6 +1,6 @@
 <properties title="Manage an Azure website" pageTitle="Manage an Azure website" description="Links to resources for managing a Microsoft Azure website." services="web-sites" solutions="web" documentationCenter="" authors="mwasson" videoId="" scriptId="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/16/2014" ms.author="mwasson"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/16/2014" ms.author="mwasson" />
 
 # Azure 웹 사이트 관리
 
@@ -78,7 +78,7 @@ Visual Studio Online을 사용하는 경우 소스 제어에서 연속 배포를
 -   [TFVC(Team Foundation Version Control) 사용][TFVC(Team Foundation Version Control) 사용]
 -   [Git 사용][Git 사용]
 
-<!-- Anchors. -->
+
 
   [사이트를 프로덕션 환경으로 배포하기 전에 수행할 작업]: #before-you-deploy-your-site-to-production
   [웹 사이트를 실행하는 동안 수행할 작업]: #while-your-website-is-running

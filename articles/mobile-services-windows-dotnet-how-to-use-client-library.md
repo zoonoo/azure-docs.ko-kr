@@ -691,7 +691,6 @@ Windows Phone 앱의 경우 [ProtectedData][ProtectedData] 클래스를 사용�
   [요청 헤더 사용자 지정]: #headers
   [serialization 사용자 지정]: #serialization
   [다음 단계]: #nextsteps
-  [mobile-services-concepts]: ../includes/mobile-services-concepts.md
   [테이블 만들기]: http://go.microsoft.com/fwlink/?LinkId=298592
   [동적 스키마]: http://go.microsoft.com/fwlink/?LinkId=296271
   [GetTable]: http://msdn.microsoft.com/ko-kr/library/windowsazure/jj554275.aspx

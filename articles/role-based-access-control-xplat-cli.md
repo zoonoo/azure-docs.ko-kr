@@ -1,6 +1,6 @@
 <properties pageTitle="Managing Role-Based Access Control with Azure Cross-Platform Command-Line Interface" metaKeywords="ResourceManager, Azure cross-platform command-line interface, Azure command-line, azure command-line, azure cli, RBAC" description="Managing role-based access control with cross-platform command-line interface" metaCanonical="" services="" documentationCenter="" title="Managing Role-Based Access Control with Cross-Platform Command-Line Interface" authors="guayan" solutions="" manager="terrylan" editor="mollybos" />
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="guayan"></tags>
+<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="guayan" />
 
 # 플랫폼 간 명령줄 인터페이스를 사용하여 역할 기반 액세스 제어 관리
 
@@ -127,8 +127,6 @@ xplat-cli를 사용하여 역할 기반 액세스 제어를 관리하는 방법�
 -   [Windows PowerShell을 사용하여 역할 기반 액세스 제어 구성][Windows PowerShell을 사용하여 역할 기반 액세스 제어 구성]
 -   [역할 기반 액세스 제어 문제 해결][역할 기반 액세스 제어 문제 해결]
 
-  [Windows PowerShell]: /ko-kr/documentation/articles/powershell-rbac.md "Windows PowerShell"
-  [플랫폼 간 CLI]: /ko-kr/documentation/articles/xplat-cli-rbac.md "플랫폼 간 CLI"
   [Azure 플랫폼 간 명령줄 인터페이스 설치 및 구성]: http://azure.microsoft.com/ko-kr/documentation/articles/xplat-cli/
   [리소스 관리자에서 Azure 플랫폼 간 명령줄 인터페이스 사용]: http://azure.microsoft.com/ko-kr/documentation/articles/xplat-cli-azure-resource-manager/
   [구독에 연결]: #connect

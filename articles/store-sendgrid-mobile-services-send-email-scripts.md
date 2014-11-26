@@ -117,7 +117,6 @@ SendGrid에 대해 자세히 알아보려면 다음 링크를 참조하십시오
   [전자 메일을 보내기 위한 스크립트 추가]: #add-script
   [전자 메일을 받기 위한 데이터 삽입]: #insert-data
   [모바일 서비스 시작하기]: /ko-kr/develop/mobile/tutorials/get-started
-  [sendgrid-sign-up]: ../includes/sendgrid-sign-up.md
   [Azure 관리 포털]: https://manage.windowsazure.com/
   [0]: ./media/store-sendgird-mobile-services-send-email-scripts/mobile-portal-data-tables.png
   [1]: ./media/store-sendgird-mobile-services-send-email-scripts/mobile-insert-script-push2.png

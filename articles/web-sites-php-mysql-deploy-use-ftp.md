@@ -245,7 +245,6 @@ Azure 웹 사이트에서 실행되는 MySQL 데이터베이스에 연결하려�
   [PHP]: http://www.php.net/manual/en/install.php
   [MySQL]: http://dev.mysql.com/doc/refman/5.6/en/installing.html
   [Azure PHP 웹 사이트]: ./media/web-sites-php-web-site-mysql-deploy-use-ftp/running_app_2.png
-  [create-account-and-websites-note]: ../includes/create-account-and-websites-note.md
   [Azure 관리 포털]: https://manage.windowsazure.com
   [새 Azure 웹 사이트 만들기]: ./media/web-sites-php-web-site-mysql-deploy-use-ftp/new_website.jpg
   [새 웹 사이트 사용자 지정 만들기]: ./media/web-sites-php-web-site-mysql-deploy-use-ftp/custom_create.png

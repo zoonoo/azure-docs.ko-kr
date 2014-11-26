@@ -84,7 +84,6 @@
 
 
 
-  [mobile-services-selector-get-started-push-legacy]: ../includes/mobile-services-selector-get-started-push-legacy.md
   [범용 Windows 앱 버전]: /ko-kr/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push
   [WNS로 앱 등록 및 모바일 서비스 구성]: #register
   [알림 등록을 위해 앱 업데이트]: #update-app
@@ -92,10 +91,7 @@
   [푸시 알림을 받기 위한 데이터 삽입]: #test
   [모바일 서비스 시작하기]: /ko-kr/documentation/articles/mobile-services-windows-store-get-started
   [데이터 시작하기]: /ko-kr/documentation/articles/mobile-services-windows-store-javascript-get-started-data
-  [mobile-services-notification-hubs-register-windows-store-app]: ../includes/mobile-services-notification-hubs-register-windows-store-app.md
   [0]: ./media/mobile-services-windows-store-javascript-get-started-push-vs2012/mobile-app-enable-toast-win8.png
-  [mobile-services-javascript-update-script-notification-hubs]: ../includes/mobile-services-javascript-update-script-notification-hubs.md
-  [mobile-services-windows-store-test-push]: ../includes/mobile-services-windows-store-test-push.md
   [인증된 사용자에게 푸시 알림 보내기]: /ko-kr/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-push-notifications-app-users/
   [인증 시작]: /ko-kr/documentation/articles/mobile-services-windows-store-javascript-get-started-users
   [알림 허브 정의]: /ko-kr/documentation/articles/notification-hubs-overview/

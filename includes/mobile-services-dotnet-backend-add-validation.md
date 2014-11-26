@@ -4,7 +4,7 @@
 
 2.  솔루션 탐색기 창에서 todo 목록 서비스 프로젝트를 확장하고 **Contollers**를 확장합니다. 모바일 서비스 프로젝트의 일부인 TodoItemController.cs 파일을 엽니다.
 
-    ![][]
+    ![][0]
 
 3.  `PostTodoItem` 메서드를, 텍스트 문자열이 10자보다 크지 않은지 확인할 다음 메서드로 바꿉니다. 텍스트 길이가 10자보다 큰 항목의 경우 메서드에서 내용에 설명 메시지가 포함된 HTTP 상태 코드 400 잘못된 요청을 반환합니다.
 
@@ -31,10 +31,10 @@
 
     ![][2]
 
-<!-- URLs. -->
+
 
   [시작]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/
   [데이터 시작]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/
-  []: ./media/mobile-services-dotnet-backend-add-validation/mobile-services-open-todoitemcontroller.png
+  [0]: ./media/mobile-services-dotnet-backend-add-validation/mobile-services-open-todoitemcontroller.png
   [1]: ./media/mobile-services-dotnet-backend-add-validation/mobile-services-build-dotnet-service.png
   [2]: ./media/mobile-services-dotnet-backend-add-validation/mobile-services-publish-dotnet-service.png

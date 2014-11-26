@@ -1,6 +1,6 @@
 <properties linkid="develop-net-architecture-multi-tenant-web-application" urlDisplayName="Multi-Tenant Web Application Pattern" pageTitle="Multi-Tenant Web Application Pattern - Azure Architecture" metaKeywords="" description="Find architectural overviews and design patterns that describe how to implement a multi-tenant web application on Azure." metaCanonical="" services="" documentationCenter=".NET" title="Multitenant Applications in Azure" authors="" solutions="" manager="" editor="" />
 
-<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author></tags>
+<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="" />
 
 <div>
 <div class="left-nav">
@@ -56,7 +56,7 @@
 
 다시 말해서, 확장성이 뛰어난 서비스를 제공하기 위해 고려해야 할 점이 많이 있지만 다수의 다중 테넌트 응용 프로그램에 공통적인 목표와 요구 사항도 많습니다. 일부는 특정 시나리오에서 적절하지 않을 수 있으며, 개별 목표와 요구 사항의 중요성은 시나리오별로 다릅니다. 다중 테넌트 응용 프로그램 공급자에게는 테넌트의 목표와 요구 사항 충족, 수익성, 청구, 여러 서비스 수준, 프로비전, 유지 관리 모니터링, 자동화와 같은 목표와 요구 사항도 있습니다.
 
-다중 테넌트 응용 프로그램 설계와 관련된 추가 고려 사항에 대한 자세한 내용은 [Azure에서 다중 테넌트 응용 프로그램 호스트][](영문)를 참조하십시오.
+다중 테넌트 응용 프로그램 설계와 관련된 추가 고려 사항에 대한 자세한 내용은 [Azure에서 다중 테넌트 응용 프로그램 호스트][Azure에서 다중 테넌트 응용 프로그램 호스트](영문)를 참조하십시오.
 
 Azure에는 다중 테넌트 시스템을 설계할 때 발생하는 주요 문제를 해결할 수 있는 많은 기능이 있습니다.
 
@@ -107,16 +107,4 @@ Azure에는 응용 프로그램의 새 테넌트를 프로비전하는 방법이
 
 <!--links-->
 
-  [계산]: /ko-KR/develop/net/compute/
-  [데이터 서비스]: /ko-KR/develop/net/data/
-  [앱 서비스]: /ko-KR/develop/net/app-services/
-  [참조]: /ko-KR/develop/net/reference/
-  [지침]: /ko-KR/develop/net/guidance/
-  [아키텍처]: /ko-KR/develop/net/architecture/
-  [샘플]: /ko-KR/develop/net/samples/
-  [시나리오 기반 자습서]: /ko-KR/develop/net/end-to-end-Apps/
-  [포럼]: /ko-KR/support/forums/
-  [응용 프로그램 아키텍처 개요]: /ko-KR/develop/net/architecture/#overviews
-  [응용 프로그램 패턴: 부하 테스트]: /ko-KR/develop/net/architecture/load-testing-pattern/
-  [디자인 패턴]: /ko-KR/develop/net/architecture/#designpatterns
   [Azure에서 다중 테넌트 응용 프로그램 호스트]: http://msdn.microsoft.com/ko-KR/library/hh534480.aspx

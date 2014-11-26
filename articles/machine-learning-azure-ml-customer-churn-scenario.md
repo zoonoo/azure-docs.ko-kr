@@ -1,6 +1,6 @@
 <properties title="Analyzing Customer Churn using Microsoft Azure Machine Learning" pageTitle="Analyzing Customer Churn using Microsoft Machine Learning | Azure" description="Case study of developing an integrated model for analyzing and scoring customer churn" metaKeywords="" services="" solutions="" documentationCenter="" authors="barga" videoId="" scriptId="" />
 
-<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="barga"></tags>
+<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="barga" />
 
 
 # Microsoft Azure 기계 학습을 사용하여 고객 이탈 분석
@@ -22,7 +22,7 @@
 2. 개입 모델에서는 개입 수준이 이탈 가능성과 CLV(Customer Lifetime Value) 크기에 어떤 영향을 미치는지를 고려할 수 있습니다.
 3. 이 분석은 최적의 제품을 제공하기 위한 고객층을 대상으로 하는 사전 마케팅 캠페인으로 확대되는 정성 분석에 적합합니다.
 
-![][]
+![][0]
 
 이 사전 접근법은 이탈을 처리하는 가장 좋은 방법이지만 다중 모델 원형을 개발하고 모델 간에 종속성을 추적해야 하는 복잡성이 수반됩니다. 모델 간의 조작은 다음 다이어그램과 같이 캡슐화할 수 있습니다.
 
@@ -201,7 +201,7 @@ Azure 클라우드 ML에서 제공되는 또 다른 흥미로운 기능은 이�
 *그림 12 이탈 프로토타입에 대한 프레젠테이션 스냅숏*
 
 
-[]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-1.png
+[0]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-1.png
 [1]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-2.png
 [2]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-3.png
 [3]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-4.png

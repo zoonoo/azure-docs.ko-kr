@@ -1,6 +1,6 @@
 <properties linkid="notification-hubs-how-to-guides-howto-register-user-with-mobile-service-ios" urlDisplayName="Notify iOS app users by using Mobile Services" pageTitle="Register the current user for push notifications by using a mobile service - Notification Hubs" metaKeywords="Azure registering application, Notification Hubs, Azure push notifications, push notification iOS app" description="Learn how to request push notification registration in an iOS app with Azure Notification Hubs when registeration is performed by Azure Mobile Services." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="" title="Register the current user for push notifications by using a mobile service" authors="krisragh" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh" />
 
 # 모바일 서비스를 사용하여 푸시 알림에 현재 사용자 등록
 
@@ -8,9 +8,9 @@
     <a href="/ko-KR/documentation/articles/notification-hubs-windows-store-mobile-services-register-user-push-notifications/" title="Windows 스토어 C#">Windows 스토어 C#</a><a href="/ko-KR/documentation/articles/notification-hubs-ios-mobile-services-register-user-push-notifications/" title="iOS" class="current">iOS</a>
 </div>
 
-이 항목에서는 Azure 모바일 서비스에 의해 등록이 수행될 때 Azure 알림 허브를 사용하여 푸시 알림 등록을 요청하는 방법을 보여 줍니다. 이 항목은 [알림 허브를 통해 사용자에게 알림][] 자습서를 확장합니다. 이미 해당 자습서의 필수 단계를 완료하여 인증된 모바일 서비스를 만든 상태여야 합니다. 사용자 알림 시나리오에 대한 자세한 내용은 [알림 허브를 통해 사용자에게 알림][]을 참조하십시오.
+이 항목에서는 Azure 모바일 서비스에 의해 등록이 수행될 때 Azure 알림 허브를 사용하여 푸시 알림 등록을 요청하는 방법을 보여 줍니다. 이 항목은 [알림 허브를 통해 사용자에게 알림][알림 허브를 통해 사용자에게 알림] 자습서를 확장합니다. 이미 해당 자습서의 필수 단계를 완료하여 인증된 모바일 서비스를 만든 상태여야 합니다. 사용자 알림 시나리오에 대한 자세한 내용은 [알림 허브를 통해 사용자에게 알림][알림 허브를 통해 사용자에게 알림]을 참조하십시오.
 
-1.  Xcode에서, 필수 자습서 [인증 시작][]을 완료할 때 만든 프로젝트의 QSTodoService.h 파일을 열고 다음 **deviceToken** 속성을 추가합니다.
+1.  Xcode에서, 필수 자습서 [인증 시작][인증 시작]을 완료할 때 만든 프로젝트의 QSTodoService.h 파일을 열고 다음 **deviceToken** 속성을 추가합니다.
 
         @property (nonatomic) NSData* deviceToken;
 
@@ -75,7 +75,7 @@
                 }];
             }
 
-    이 메서드는 장치 토큰을 포함한 json 페이로드를 생성합니다. 그런 다음 모바일 서비스에서 사용자 지정 API를 호출하여 알림을 등록합니다. 이 메서드는 푸시 알림에 대한 장치 토큰을 만들어 장치 유형과 함께, 알림 허브에서 등록을 만드는 사용자 지정 API 메서드로 보냅니다. 이 사용자 지정 API는 [알림 허브를 통해 사용자에게 알림][]에서 정의되었습니다.
+    이 메서드는 장치 토큰을 포함한 json 페이로드를 생성합니다. 그런 다음 모바일 서비스에서 사용자 지정 API를 호출하여 알림을 등록합니다. 이 메서드는 푸시 알림에 대한 장치 토큰을 만들어 장치 유형과 함께, 알림 허브에서 등록을 만드는 사용자 지정 API 메서드로 보냅니다. 이 사용자 지정 API는 [알림 허브를 통해 사용자에게 알림][알림 허브를 통해 사용자에게 알림]에서 정의되었습니다.
 
 7.  마지막으로, **viewDidAppear** 메서드에서 다음 예제에서와 같이 사용자가 인증된 후 이 새 **registerForNotificationsWithBackEnd** 메서드에 대한 호출을 추가합니다.
 
@@ -97,14 +97,11 @@
 <p>이제 페이지가 로드될 때마다 등록이 요청됩니다. 등록 상태가 유지되도록 앱에서 주기적으로 등록할 수도 있습니다.</p>
 </div>
 
-클라이언트 앱이 업데이트되었으므로 [알림 허브를 통해 사용자에게 알림][]으로 돌아가서 알림 허브를 사용하여 알림을 보내도록 모바일 서비스를 업데이트합니다.
+클라이언트 앱이 업데이트되었으므로 [알림 허브를 통해 사용자에게 알림][알림 허브를 통해 사용자에게 알림]으로 돌아가서 알림 허브를 사용하여 알림을 보내도록 모바일 서비스를 업데이트합니다.
 
-<!-- Anchors. -->
-<!-- Images. --> 
-<!-- URLs. -->
 
-  [Windows 스토어 C#]: /ko-KR/documentation/articles/notification-hubs-windows-store-mobile-services-register-user-push-notifications/ "Windows 스토어 C#"
-  [iOS]: /ko-KR/documentation/articles/notification-hubs-ios-mobile-services-register-user-push-notifications/ "iOS"
+ 
+
+
   [알림 허브를 통해 사용자에게 알림]: /ko-KR/manage/services/notification-hubs/notify-users
   [인증 시작]: /ko-KR/develop/mobile/tutorials/get-started-with-users-ios/
-  [알림 허브 시작]: /ko-KR/manage/services/notification-hubs/get-started-notification-hubs-ios/

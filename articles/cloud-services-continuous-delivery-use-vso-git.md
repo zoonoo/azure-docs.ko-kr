@@ -1,6 +1,6 @@
-<properties urlDisplayName="Publishing with Visual Studio Online" pageTitle="Azure에서 Visual Studio Online을 사용한 지속적 전송" metaKeywords="" description="자동으로 빌드되어 Azure 웹 사이트 또는 클라우드 서비스에 배포되도록 Visual Studio Online 팀 프로젝트를 구성하는 방법에 대해 알아봅니다." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Visual Studio Online 및 Git을 사용하여 Azure에 지속적으로 전송" authors="ghogen" solutions="" manager="douge" editor="" />
+<properties linkid="dev-net-common-tasks-publishing-with-vso" urlDisplayName="Publishing with TFS" pageTitle="Continuous delivery with Visual Studio Online in Azure" metaKeywords="" description="Learn how to configure your Visual Studio Online team projects to automatically build and deploy to Azure websites or cloud services." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Continuous delivery to Azure using Visual Studio Online and Git" authors="ghogen" solutions="" manager="" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="ghogen" />
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="ghogen" />
 
 # Visual Studio Online 및 Git을 사용하여 Azure에 지속적으로 전송
 
@@ -8,15 +8,9 @@ Visual Studio Online 팀 프로젝트를 사용하여 소스 코드용 Git 리�
 
 Visual Studio 2013 및 Azure SDK가 설치되어 있어야 합니다. Visual Studio 2013을 아직 설치하지 않은 경우 [www.visualstudio.com][www.visualstudio.com]에서 **무료로 시작하기** 링크를 선택하여 다운로드하세요. Azure SDK의 경우 [여기][여기]에서 설치할 수 있습니다.
 
-<div class="wa-note">
-  <span class="wa-icon-bulb"></span>
-  <h5><a name="note"></a>이 자습서를 완료하려면 Visual Studio Online 계정이 있어야 합니다.</h5>
-<p><a href="http://go.microsoft.com/fwlink/p/?LinkId=512979">Visual Studio Online 계정은 무료로 개설</a>할 수 있습니다.</p>
-</div>
-
 Visual Studio Online을 사용하여 Azure에 자동으로 빌드 및 배포하도록 클라우드 서비스를 설정하려면 다음 단계를 따르세요.
 
--   [1단계: Git 리포지토리 만들기][1단계: Git 리포지토리 만들기]
+-   [1단계: Visual Studio Online 등록 및 Git 리포지토리 만들기][1단계: Visual Studio Online 등록 및 Git 리포지토리 만들기]
 
 -   [2단계: 프로젝트를 만들어 Git 리포지토리로 푸시][2단계: 프로젝트를 만들어 Git 리포지토리로 푸시]
 
@@ -30,7 +24,7 @@ Visual Studio Online을 사용하여 Azure에 자동으로 빌드 및 배포하�
 
 -   [7단계: 작업 분기에서 배포][7단계: 작업 분기에서 배포]
 
-## <a name="step1"></a><span class="short-header">1단계: Git 리포지토리 만들기</span>1단계: Git 리포지토리 만들기
+## <a name="step1"></a><span class="short-header">1단계: Visual Studio Online 등록 및 Git 리포지토리 만들기</span>1단계: Visual Studio Online 등록 및 Git 리포지토리 만들기
 
 1.  Visual Studio Online 계정이 없는 경우 [여기][1] 지침을 따릅니다. 팀 프로젝트를 만들 때 소스 제어 시스템으로 Git을 선택합니다. 지침을 따라 Visual Studio를 팀 프로젝트에 연결합니다.
 
@@ -109,10 +103,13 @@ Visual Studio Online을 사용하여 Azure에 자동으로 빌드 및 배포하�
 
 10. 빌드가 진행되는 동안 마법사를 사용하여 Azure에 연결할 때 생성된 빌드 정의를 살펴봅니다. 빌드 정의에 대한 바로 가기 메뉴를 열고 **빌드 정의 편집**을 선택합니다.
     ![][17]
+
     **트리거** 탭에서 빌드 정의는 기본적으로 모든 체크 인의 빌드로 설정됩니다. 클라우드 서비스의 경우 Visual Studio Online에서 마스터 분기를 자동으로 빌드하여 스테이징 환경에 배포합니다. 라이브 사이트에 배포하려면 여전히 수동 단계를 수행해야 합니다. 스테이징 환경이 없는 웹 사이트의 경우 라이브 사이트에 마스터 분기를 직접 배포합니다.
     ![][18]
+
     **프로세스** 탭에서 배포 환경이 클라우드 서비스 또는 웹 사이트의 이름으로 설정되는 것을 볼 수 있습니다.
     ![][19]
+
     기본값 외의 다른 값을 원하는 경우 속성 값을 지정합니다. Azure 게시의 속성은 배포 속성에 있으며 MSBuild 매개 변수를 설정해야 할 수 있습니다. 예를 들어 클라우드 서비스 프로젝트에서 "클라우드" 외의 서비스 구성을 지정하려면 MSbuild 매개 변수를 /p:TargetProfile=*YourProfile*로 설정합니다. 여기서 *YourProfile*은 ServiceConfiguration.*YourProfile*.cscfg와 같은 이름의 서비스 구성 파일입니다.
     다음 표는 배포 섹션의 사용 가능한 속성을 보여 줍니다.
 
@@ -120,76 +117,62 @@ Visual Studio Online을 사용하여 Azure에 자동으로 빌드 및 배포하�
 
     <tr>
     <td>
-    **속성**
-
+    <b>속성</b>
     </td>
     <td>
-    **기본값**
-
+    <b>기본값</b>
     </td>
     </tr>
     </p>
-    > <tr>
-    > <td>
-    > 신뢰할 수 없는 인증서 허용
-    >
-    > </td>
-    > <td>
-    > 거짓인 경우 SSL 인증서는 루트 인증 기관의 서명을 받아야 합니다.
-    >
-    > </td>
-    > </tr>
-    > <tr>
-    > <td>
-    > 업그레이드 허용
-    >
-    > </td>
-    > <td>
-    > 새로운 배포를 만들지 않고 기존 배포를 업데이트할 수 있습니다. IP 주소를 보존합니다.
-    >
-    > </td>
-    > </tr>
-    > <tr>
-    > <td>
-    > 삭제 안 함
-    >
-    > </td>
-    > <td>
-    > 참인 경우 기존의 관련 없는 배포를 덮어쓰지 않습니다(업그레이드가 허용됨).
-    >
-    > </td>
-    > </tr>
-    > <tr>
-    > <td>
-    > 배포 설정의 경로
-    >
-    > </td>
-    > <td>
-    > 보고서의 루트 폴더를 기준으로 웹 사이트의 .pubxml 파일 경로입니다. 클라우드 서비스의 경우 무시됩니다.
-    >
-    > </td>
-    > </tr>
-    > <tr>
-    > <td>
-    > Sharepoint 배포 환경
-    >
-    > </td>
-    > <td>
-    > 서비스 이름과 같음
-    >
-    > </td>
-    > </tr>
-    > <tr>
-    > <td>
-    > Microsoft Azure 배포 환경
-    >
-    > </td>
-    > <td>
-    > 웹 사이트 또는 클라우드 서비스 이름
-    >
-    > </td>
-    > </tr>
-    > </table>
+    <tr>
+    <td>
+    신뢰할 수 없는 인증서 허용
+    </td>
+    <td>
+    거짓인 경우 SSL 인증서는 루트 인증 기관의 서명을 받아야 합니다.
+    </td>
+    </tr>
+    <tr>
+    <td>
+    업그레이드 허용
+    </td>
+    <td>
+    새로운 배포를 만들지 않고 기존 배포를 업데이트할 수 있습니다. IP 주소를 보존합니다.
+    </td>
+    </tr>
+    <tr>
+    <td>
+    삭제 안 함
+    </td>
+    <td>
+    참인 경우 기존의 관련 없는 배포를 덮어쓰지 않습니다(업그레이드가 허용됨).
+    </td>
+    </tr>
+    <tr>
+    <td>
+    배포 설정의 경로
+    </td>
+    <td>
+    보고서의 루트 폴더를 기준으로 웹 사이트의 .pubxml 파일 경로입니다. 클라우드 서비스의 경우 무시됩니다.
+    </td>
+    </tr>
+    <tr>
+    <td>
+    Sharepoint 배포 환경
+    </td>
+    <td>
+    서비스 이름과 같음
+    </td>
+    </tr>
+    <tr>
+    <td>
+    Microsoft Azure 배포 환경
+    </td>
+    <td>
+    웹 사이트 또는 클라우드 서비스 이름
+    </td>
+    </tr>
+    </table>
 
 11. 이제 빌드가 완료됩니다.
     ![][20]
@@ -202,7 +185,9 @@ Visual Studio Online을 사용하여 Azure에 자동으로 빌드 및 배포하�
 
 14. 사용 중인 사이트의 URL로 이동합니다. 웹 사이트의 경우 포털에서 **찾아보기** 단추를 선택합니다. 클라우드 서비스의 경우 클라우드 서비스에 대한 스테이징 환경을 표시하는 **대시보드** 페이지의 **간략 상태** 섹션에서 URL을 선택합니다. 클라우드 서비스의 연속 통합에서 배포는 기본적으로 스테이징 환경에 게시됩니다. 대체 클라우드 서비스 환경 속성을 프로덕션으로 설정하여 이를 변경할 수 있습니다. 다음 스크린샷은 클라우드 서비스의 대시보드 페이지에서 사이트 URL이 어느 위치에 있는지 보여 줍니다.
     ![][23]
+
     새 브라우저 탭이 열리며 실행 중인 사이트를 표시합니다.
+
     ![][24]
 
 15. 프로젝트의 다른 내용을 변경하고 추가 빌드를 트리거하면 여러 배포가 누적됩니다. 최신 배포가 활성으로 표시됩니다.
@@ -254,11 +239,10 @@ Git을 사용할 경우 보통 작업 분기에서 변경한 다음 개발이 �
 
   [www.visualstudio.com]: http://www.visualstudio.com
   [여기]: http://go.microsoft.com/fwlink/?LinkId=239540
-  [1단계: Git 리포지토리 만들기]: #step1
+  [1단계: Visual Studio Online 등록 및 Git 리포지토리 만들기]: #step1
   [2단계: 프로젝트를 만들어 Git 리포지토리로 푸시]: #step2
   [3단계: Azure에 프로젝트 연결]: #step3
   [4단계: 변경한 후 다시 빌드 및 다시 배포 트리거]: #step4
-  [5단계: 초기 빌드 다시 배포(옵션)]: #step5
   [6단계: 프로덕션 배포 변경]: #step6
   [7단계: 작업 분기에서 배포]: #step7
   [1]: http://go.microsoft.com/fwlink/?LinkId=397665

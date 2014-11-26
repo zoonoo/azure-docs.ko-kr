@@ -14,4 +14,3 @@
 
   [Azure 관리 포털]: https://manage.windowsazure.com/
   [푸시 알림 시작]: /ko-kr/documentation/articles/mobile-services-javascript-backend-android-get-started-push/
-  [GCM 사용]: ../includes/mobile-services-enable-Google-cloud-messaging.md

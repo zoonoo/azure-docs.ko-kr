@@ -1,10 +1,10 @@
 # Azure에서 MongoDB 데이터베이스를 만드는 방법
 
-이 문서에서는 [MongoLab][]을 사용하여 [Azure 스토어][]에서 MongoDB 데이터베이스를 만드는 방법을 보여 줍니다. [MongoLab][]은 Azure 데이터 센터에서 MongoDB 데이터베이스를 실행 및 관리하고 모든 응용 프로그램에서 연결할 수 있게 해 주는 MasS(MongoDB-as-a-Service) 공급자입니다.
+이 문서에서는 [MongoLab][MongoLab]을 사용하여 [Azure 스토어][Azure 스토어]에서 MongoDB 데이터베이스를 만드는 방법을 보여 줍니다. [MongoLab][MongoLab]은 Azure 데이터 센터에서 MongoDB 데이터베이스를 실행 및 관리하고 모든 응용 프로그램에서 연결할 수 있게 해 주는 MasS(MongoDB-as-a-Service) 공급자입니다.
 
-[Azure 스토어][]에서 MongoDB 데이터베이스를 만들려면 다음을 수행합니다.
+[Azure 스토어][Azure 스토어]에서 MongoDB 데이터베이스를 만들려면 다음을 수행합니다.
 
-1.  [Azure 관리 포털][]에 로그인합니다.
+1.  [Azure 관리 포털][Azure 관리 포털]에 로그인합니다.
 2.  페이지 맨 아래에 있는 **+NEW**를 클릭하고 **STORE**를 선택합니다.
 
 	![스토어에서 추가 기능 선택](./media/create-mongolab-mongodb/select-store.png)
@@ -30,5 +30,5 @@
 	![MongoLab 연결 정보](./media/create-mongolab-mongodb/mongolab-conn-info.png) 
 
   [MongoLab]: https://mongolab.com/home
-  [Azure 스토어]: /en-us/store/overview/
+  [Azure 스토어]: /ko-kr/store/overview/
   [Azure 관리 포털]: http://windows.azure.com/

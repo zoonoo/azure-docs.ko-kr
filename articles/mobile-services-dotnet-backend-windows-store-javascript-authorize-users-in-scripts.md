@@ -45,12 +45,11 @@
 -   [Azure 모바일 서비스용 HTML/JavaScript 클라이언트를 사용하는 방법][Azure 모바일 서비스용 HTML/JavaScript 클라이언트를 사용하는 방법]
     JavaScript 및 HTML과 함께 모바일 서비스를 사용하는 방법을 자세히 알아봅니다.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [인증 시작]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-users
-  [mobile-services-filter-user-results-dotnet-backend]: ../includes/mobile-services-filter-user-results-dotnet-backend.md
   [0]: ./media/mobile-services-dotnet-backend-windows-store-javascript-authorize-users-in-scripts/mobile-quickstart-startup.png
   [데이터 시작하기]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data
   [푸시 알림 시작]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push

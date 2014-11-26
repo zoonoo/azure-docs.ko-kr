@@ -13,6 +13,5 @@
 -   [PHP-MySQL Azure 웹 사이트 만들기 및 Git를 사용하여 배포][PHP-MySQL Azure 웹 사이트 만들기 및 Git를 사용하여 배포] -- PHP 웹 사이트를 처음부터 만들고 Git를 사용하여 Azure 웹 사이트에 배포합니다.
 -   [추가 PHP 자습서][추가 PHP 자습서] - PHP 및 Azure를 사용하여 응용 프로그램의 추가 유형을 만듭니다.
 
-  [website-from-gallery]: ../includes/website-from-gallery.md
   [PHP-MySQL Azure 웹 사이트 만들기 및 Git를 사용하여 배포]: /ko-kr/develop/php/tutorials/website-w-mysql-and-git/
   [추가 PHP 자습서]: /ko-kr/develop/php/tutorials/

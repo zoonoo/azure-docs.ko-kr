@@ -10,9 +10,9 @@ Azure용 응용 프로그램을 개발할 때 ID 및 액세스 권한과 관련�
 
 클라우드로 이동하면 인프라 및 네트워킹이 세계 최고의 보안 규정, 도구, 기술을 사용하는 데이터 센터에서 관리되므로 이를 편리하게 사용할 수 있습니다. 반면, 클라우드에서는 공격자가 잠재적으로 악용할 수 있는 응용 프로그램의 노출 영역이 본질적으로 더 많습니다. 이는 많은 클라우드 기술 및 서비스가 끝점 또는 메모리 내 구성 요소로 노출되기 때문입니다. Azure 저장소, 서비스 버스, SQL 데이터베이스(이전의 SQL Azure) 및 다른 많은 서비스를 네트워크상의 끝점을 통해 액세스할 수 있습니다.
 
-클라우드 응용 프로그램에서는 공격자의 접근을 막기 위해 높은 보안 수준으로 클라우드 응용 프로그램을 설계, 개발 및 유지 관리하도록 응용 프로그램 개발자에게 더 많은 책임이 주어집니다. 다음 다이어그램(J.D. Meier의 [Azure 보안 정보 PDF][])은 클라우드 공급자(여기서는 Azure)에서 인프라 부분이 처리되는 방법을 보여 줍니다. 그 결과 응용 프로그램 개발자가 담당할 보안 작업의 수가 늘어납니다.
+클라우드 응용 프로그램에서는 공격자의 접근을 막기 위해 높은 보안 수준으로 클라우드 응용 프로그램을 설계, 개발 및 유지 관리하도록 응용 프로그램 개발자에게 더 많은 책임이 주어집니다. 다음 다이어그램(J.D. Meier의 [Azure 보안 정보 PDF][Azure 보안 정보 PDF])은 클라우드 공급자(여기서는 Azure)에서 인프라 부분이 처리되는 방법을 보여 줍니다. 그 결과 응용 프로그램 개발자가 담당할 보안 작업의 수가 늘어납니다.
 
-![응용 프로그램 보호][]
+![응용 프로그램 보호][응용 프로그램 보호]
 
 반가운 소식은 클라우드 응용 프로그램을 개발할 때 사용자가 이미 알고 있는 모든 보안 개발 사례, 원칙 및 기술이 여전히 적용된다는 점입니다. 다음은 처리해야 할 주요 영역을 설명합니다.
 
@@ -27,7 +27,7 @@ Azure용 응용 프로그램을 개발할 때 ID 및 액세스 권한과 관련�
     플랫폼에서 제공되는 입증된 메커니즘을 사용하여 인증 및 권한 부여를
     구현해야 합니다.
 
-위협, 공격, 취약성 및 대응 방법에 대한 전체 목록은 [참고 자료: 웹 응용 프로그램 보안 프레임][] 및 [응용 프로그램 인덱스의 보안 가이드][]를 참조하세요.
+위협, 공격, 취약성 및 대응 방법에 대한 전체 목록은 [참고 자료: 웹 응용 프로그램 보안 프레임][참고 자료: 웹 응용 프로그램 보안 프레임] 및 [응용 프로그램 인덱스의 보안 가이드][응용 프로그램 인덱스의 보안 가이드]를 참조하세요.
 
 클라우드에서의 인증 및 액세스 제어 메커니즘은 온-프레미스 응용 프로그램에서 사용할 수 있는 메커니즘과 매우 다릅니다. 클라우드 응용 프로그램에서는 혼란을 초래하고 결과적으로 구현 오류를 발생시킬 수 있는 더 많은 인증 및 액세스 옵션이 제공됩니다. 클라우드 응용 프로그램이 무엇인지를 정의할 때 혼란이 가중됩니다. 예를 들어 응용 프로그램을 클라우드에 배포할 수도 있지만 Active Directory에서 관련 인증 메커니즘이 제공될 수 있습니다. 다른 한편으로는, 클라우드에서 인증 메커니즘(예: 이전에 액세스 제어 서비스 또는 ACS로 알려진 Azure Active Directory 액세스 제어)을 사용하여 응용 프로그램을 온-프레미스에 배포할 수 있습니다.
 
@@ -46,7 +46,7 @@ Azure용 응용 프로그램을 개발할 때 ID 및 액세스 권한과 관련�
 
 공격은 이러한 취약성을 이용하여 응용 프로그램을 손상시킵니다. 예를 들어 Cross Site Scripting 또는 XSS는 정리되지 않은 출력을 이용하는 공격입니다. 다른 예로는 네트워크에서 암호화되지 않은 상태로 보낸 자격 증명을 수집하는 도청이 있습니다. 이러한 공격으로 인해 ID 스푸핑 위협이 발생할 수 있습니다. 간단하게 위협, 취약성 및 공격을 부적절한 상황으로 간주합니다. 다음은 Azure에 배포된 웹 응용 프로그램과 관련된 부적절한 상황을 전체적으로 설명하는 다이어그램(J.D. Meier의 [Azure 보안 정보 PDF][Azure 보안 정보 PDF])입니다.
 
-![위협, 취약성 및 공격][]
+![위협, 취약성 및 공격][위협, 취약성 및 공격]
 
 개발자인 사용자는 취약성을 제어할 수 있습니다. 취약성이 적어질수록 공격자가 이용할 수 있는 옵션도 줄어듭니다.
 
@@ -72,34 +72,34 @@ STRIDE 모델에서 ID 및 액세스 관련 취약성은 모든 위협에 노출
 
 **WIF(Windows Identity Foundation).** WIF는 .NET Framework 4.5에 포함된 .NET 런타임 라이브러리입니다(.NET 3.5/4.0에 대한 개별 다운로드로도 사용 가능). WIF는 WS-Federation, WS-Trust 같은 프로토콜 처리 및 SAML(Security Assertion Markup Language) 같은 토큰 처리를 지원하므로 응용 프로그램에서 매우 복잡한 보안 관련 코드를 작성하지 않아도 됩니다. WIF에 대한 자세한 설명은 다음 리소스를 참조하세요.
 
--   MSDN 코드 갤러리의 [Windows Identity Foundation 4.5 샘플][]
+-   MSDN 코드 갤러리의 [Windows Identity Foundation 4.5 샘플][Windows Identity Foundation 4.5 샘플]
 -   MSDN 코드 갤러리의
-    [Visual Studio 11 Beta용 Windows Identity Foundation 4.5 도구][]
--   MSDN의 [Windows Identity Foundation 런타임(.Net 3.5/4.0)][]
+    [Visual Studio 11 Beta용 Windows Identity Foundation 4.5 도구][Visual Studio 11 Beta용 Windows Identity Foundation 4.5 도구]
+-   MSDN의 [Windows Identity Foundation 런타임(.Net 3.5/4.0)][Windows Identity Foundation 런타임(.Net 3.5/4.0)]
 -   MSDN의
-    [Windows Identity Foundation 3.5/4.0 샘플 및 Visual Studio 2008/2010 템플릿][]
+    [Windows Identity Foundation 3.5/4.0 샘플 및 Visual Studio 2008/2010 템플릿][Windows Identity Foundation 3.5/4.0 샘플 및 Visual Studio 2008/2010 템플릿]
 
 **Azure AD 액세스 제어(이전의 ACS)**.
 Azure AD 액세스 제어는 STS(보안 토큰 서비스)를 제공하고 회사 Active Directory 같은 다양한 ID 공급자(IdP) 또는 Windows Live ID / Microsoft 계정, Facebook, Google, Yahoo! 및 Open ID 2.0 ID 공급자 같은 인터넷 IdP와의 페더레이션을 허용하는 클라우드 서비스입니다. Azure AD 액세스 제어에 대한 자세한 설명은 다음 리소스를 참조하세요.
 
--   [액세스 제어 서비스 2.0][]
--   [ACS를 사용하는 시나리오 및 솔루션][]
--   [ACS 사용 방법][]
--   [클레임 기반 ID 및 액세스 제어 가이드][]
--   [ID 개발자 교육 키트][]
--   [MSDN에서 주최하는 ID 개발자 교육 코스][]
+-   [액세스 제어 서비스 2.0][액세스 제어 서비스 2.0]
+-   [ACS를 사용하는 시나리오 및 솔루션][ACS를 사용하는 시나리오 및 솔루션]
+-   [ACS 사용 방법][ACS 사용 방법]
+-   [클레임 기반 ID 및 액세스 제어 가이드][클레임 기반 ID 및 액세스 제어 가이드]
+-   [ID 개발자 교육 키트][ID 개발자 교육 키트]
+-   [MSDN에서 주최하는 ID 개발자 교육 코스][MSDN에서 주최하는 ID 개발자 교육 코스]
 
 **AD FS(Active Directory Federation Services).** AD FS(Active Directory Federation Services) 2.0은 Windows Server 및 Active Directory 기술이 포함된 클레임 인식 ID 솔루션에 대한 지원을 제공합니다. AD FS 2.0은 WS-Trust, WS-Federation 및 SAML 프로토콜을 지원합니다. AD FS에 대한 자세한 설명은 다음 리소스를 참조하세요.
 
--   [AD FS 2.0 콘텐츠 맵][]
--   [웹 SSO 디자인][]
--   [페더레이션된 웹 SSO 디자인][]
+-   [AD FS 2.0 콘텐츠 맵][AD FS 2.0 콘텐츠 맵]
+-   [웹 SSO 디자인][웹 SSO 디자인]
+-   [페더레이션된 웹 SSO 디자인][페더레이션된 웹 SSO 디자인]
 
 **Azure 공유 액세스 서명.** 공유 액세스 서명을 사용하면 Blob 또는 컨테이너 리소스에 대한 액세스를 미세하게 조정할 수 있습니다. 공유 액세스 서명에 대한 자세한 설명은 다음 리소스를 참조하세요.
 
--   [Blob 및 컨테이너에 대한 액세스 관리][]
--   [새 저장소 기능: 공유 액세스 서명][]
--   [오늘날 공유 액세스 서명이 간단함][]
+-   [Blob 및 컨테이너에 대한 액세스 관리][Blob 및 컨테이너에 대한 액세스 관리]
+-   [새 저장소 기능: 공유 액세스 서명][새 저장소 기능: 공유 액세스 서명]
+-   [오늘날 공유 액세스 서명이 간단함][오늘날 공유 액세스 서명이 간단함]
 
 ## 시나리오 맵
 
@@ -159,16 +159,16 @@ Azure AD 액세스 제어는 STS(보안 토큰 서비스)를 제공하고 회사
 
 이 시나리오를 구현하려면 Azure AD 액세스 제어 및 Windows Identity Foundation을 사용합니다.
 
-![Azure Active Directory 액세스 제어][]
+![Azure Active Directory 액세스 제어][Azure Active Directory 액세스 제어]
 
 이 시나리오를 구현하려면 다음 리소스를 참조하십시오.
 
--   [방법: ACS를 사용하여 첫 번째 클레임 인식 ASP.NET 응용 프로그램 만들기][]
--   [방법: ASP.NET 웹 응용 프로그램에서 로그인 페이지 호스트][]
--   [방법: 클레임 인식 ASP.NET 응용 프로그램에서 WIF 및 ACS를 사용하여 클레임 권한 부여 구현][]
--   [방법: 클레임 인식 ASP.NET 응용 프로그램에서 WIF 및 ACS를 사용하여 RBAC(역할 기반 액세스 제어) 구현][]
--   [방법: X.509 인증서를 사용하여 ACS 및 ASP.NET 웹 응용 프로그램 간에 트러스트 구성][]
--   [코드 샘플: ASP.NET 단순 양식][]
+-   [방법: ACS를 사용하여 첫 번째 클레임 인식 ASP.NET 응용 프로그램 만들기][방법: ACS를 사용하여 첫 번째 클레임 인식 ASP.NET 응용 프로그램 만들기]
+-   [방법: ASP.NET 웹 응용 프로그램에서 로그인 페이지 호스트][방법: ASP.NET 웹 응용 프로그램에서 로그인 페이지 호스트]
+-   [방법: 클레임 인식 ASP.NET 응용 프로그램에서 WIF 및 ACS를 사용하여 클레임 권한 부여 구현][방법: 클레임 인식 ASP.NET 응용 프로그램에서 WIF 및 ACS를 사용하여 클레임 권한 부여 구현]
+-   [방법: 클레임 인식 ASP.NET 응용 프로그램에서 WIF 및 ACS를 사용하여 RBAC(역할 기반 액세스 제어) 구현][방법: 클레임 인식 ASP.NET 응용 프로그램에서 WIF 및 ACS를 사용하여 RBAC(역할 기반 액세스 제어) 구현]
+-   [방법: X.509 인증서를 사용하여 ACS 및 ASP.NET 웹 응용 프로그램 간에 트러스트 구성][방법: X.509 인증서를 사용하여 ACS 및 ASP.NET 웹 응용 프로그램 간에 트러스트 구성]
+-   [코드 샘플: ASP.NET 단순 양식][코드 샘플: ASP.NET 단순 양식]
 
 ### 서비스 ID를 사용하는 WCF(SOAP) 서비스
 
@@ -176,18 +176,21 @@ Azure AD 액세스 제어는 STS(보안 토큰 서비스)를 제공하고 회사
 
 Azure AD 액세스 제어에서 서비스 ID 기능을 사용합니다. 이는 Windows Server 및 IIS에 응용 프로그램을 배포할 때 사용하던 IIS 응용 프로그램 풀 응용 프로그램과 비슷합니다. WCF(SOAP) 서비스의 WIF에서 처리되는 SAML 토큰을 발급하도록 Azure AD 액세스 제어를 구성합니다.
 
-![WCF(SOAP) 서비스][]
+![WCF(SOAP) 서비스][WCF(SOAP) 서비스]
 
 이 시나리오를 구현하려면 다음 리소스를 참조하십시오.
 
 -   [방법: X.509 인증서, 암호 또는 대칭 키를 사용하여
-    서비스 ID 추가][]
+    서비스 ID 추가][방법: X.509 인증서, 암호 또는 대칭 키를 사용하여
+    서비스 ID 추가]
 -   [방법: 클라이언트 인증서를 사용하여 ACS로 보호된
-    WCF 서비스에 인증][]
+    WCF 서비스에 인증][방법: 클라이언트 인증서를 사용하여 ACS로 보호된
+    WCF 서비스에 인증]
 -   [방법: 사용자 이름과 암호를 사용하여 ACS로 보호된
-    WCF 서비스에 인증][]
--   [코드 샘플: WCF 인증서 인증][]
--   [코드 샘플: WCF 사용자 이름 인증][]
+    WCF 서비스에 인증][방법: 사용자 이름과 암호를 사용하여 ACS로 보호된
+    WCF 서비스에 인증]
+-   [코드 샘플: WCF 인증서 인증][코드 샘플: WCF 인증서 인증]
+-   [코드 샘플: WCF 사용자 이름 인증][코드 샘플: WCF 사용자 이름 인증]
 
 ### 페더레이션 인증(Active Directory의 ID)을 사용하는 WCF(SOAP) 서비스
 
@@ -195,16 +198,18 @@ Azure AD 액세스 제어에서 서비스 ID 기능을 사용합니다. 이는 W
 
 Windows Server AD FS와의 페더레이션을 위해 구성된 Azure AD 액세스 제어를 사용합니다. 이 경우 Azure AD 액세스 제어를 사용하여 서비스 ID를 구성하지 않아도 됩니다. WCF(SOAP) 서비스에 액세스해야 하는 에이전트는 AD FS에 자격 증명을 제공하고 성공적으로 인증되면 AD FS에서 토큰이 발급됩니다. 그런 다음 토큰이 Azure AD 액세스 제어로 제출된 후 에이전트에 다시 발급됩니다. 에이전트는 이 토큰을 사용하여 WCF(SOAP) 서비스에 요청을 제출합니다.
 
-![AD를 사용하는 WCF(SOAP) 서비스][]
+![AD를 사용하는 WCF(SOAP) 서비스][AD를 사용하는 WCF(SOAP) 서비스]
 
 이 시나리오를 구현하려면 다음 리소스를 참조하십시오.
 
 -   [방법: X.509 인증서, 암호 또는 대칭 키를 사용하여
-    서비스 ID 추가][]
--   [방법: AD FS 2.0을 ID 공급자로 구성][]
+    서비스 ID 추가][방법: X.509 인증서, 암호 또는 대칭 키를 사용하여
+    서비스 ID 추가]
+-   [방법: AD FS 2.0을 ID 공급자로 구성][방법: AD FS 2.0을 ID 공급자로 구성]
 -   [방법: 관리 서비스를 사용하여 AD FS 2.0을 엔터프라이즈
-    ID 공급자로 구성][]
--   [코드 샘플: AD FS 2.0을 사용하여 WCF 페더레이션 인증][]
+    ID 공급자로 구성][방법: 관리 서비스를 사용하여 AD FS 2.0을 엔터프라이즈
+    ID 공급자로 구성]
+-   [코드 샘플: AD FS 2.0을 사용하여 WCF 페더레이션 인증][코드 샘플: AD FS 2.0을 사용하여 WCF 페더레이션 인증]
 
 ### 서비스 ID를 사용하는 WCF(REST) 서비스
 
@@ -214,18 +219,21 @@ Azure AD 액세스 제어에서 서비스 ID 기능을 사용합니다. SWT(단�
 
 다음 다이어그램을 참조하십시오(WIF는 선택 사항임).
 
-![REST 서비스][]
+![REST 서비스][REST 서비스]
 
 이 시나리오를 구현하려면 다음 리소스를 참조하십시오.
 
 -   [방법: 대칭 키를 사용하여 ACS 및 WCF 서비스 간에
-    트러스트 구성][]
+    트러스트 구성][방법: 대칭 키를 사용하여 ACS 및 WCF 서비스 간에
+    트러스트 구성]
 -   [방법: ACS를 사용하여 Azure에 배포된
-    REST WCF 서비스에 인증][]
--   [코드 샘플: ASP.NET 웹 서비스][]
+    REST WCF 서비스에 인증][방법: ACS를 사용하여 Azure에 배포된
+    REST WCF 서비스에 인증]
+-   [코드 샘플: ASP.NET 웹 서비스][코드 샘플: ASP.NET 웹 서비스]
 -   [코드 샘플: Windows Phone 7 응용 프로그램][코드 샘플: ASP.NET 웹 서비스]
 -   [Azure ACS(액세스 제어 서비스)에서 발급된 SWT 토큰을 사용하는
-    REST WCF][]
+    REST WCF][Azure ACS(액세스 제어 서비스)에서 발급된 SWT 토큰을 사용하는
+    REST WCF]
 
 ### Live ID / Microsoft 계정, Facebook, Google, Yahoo!, Open ID를 사용하는 WCF(REST) 서비스
 
@@ -237,16 +245,16 @@ Azure AD 액세스 제어를 사용하여 SWT 토큰을 발급합니다. REST �
 
 다음 다이어그램을 참조하십시오(WIF는 선택 사항이므로 표시되지 않음).
 
-![WIF는 선택 사항임][]
+![WIF는 선택 사항임][WIF는 선택 사항임]
 
 이 시나리오를 구현하려면 다음 리소스를 참조하십시오.
 
 -   [방법: ACS를 사용하여 Azure에 배포된 REST WCF 서비스에 인증][방법: ACS를 사용하여 Azure에 배포된 REST WCF 서비스에 인증]
--   [방법: Google을 ID 공급자로 구성][]
--   [방법: Facebook을 ID 공급자로 구성][]
--   [방법: Yahoo!를 ID 공급자로 구성][]
+-   [방법: Google을 ID 공급자로 구성][방법: Google을 ID 공급자로 구성]
+-   [방법: Facebook을 ID 공급자로 구성][방법: Facebook을 ID 공급자로 구성]
+-   [방법: Yahoo!를 ID 공급자로 구성][방법: Yahoo!를 ID 공급자로 구성]
 -   [코드 샘플: Windows Phone 7 응용 프로그램][코드 샘플: ASP.NET 웹 서비스]
--   [Azure ACS(액세스 제어 서비스)에서 발급된 SWT 토큰을 사용하는 REST WCF][]
+-   [Azure ACS(액세스 제어 서비스)에서 발급된 SWT 토큰을 사용하는 REST WCF][Azure ACS(액세스 제어 서비스)에서 발급된 SWT 토큰을 사용하는 REST WCF]
 
 ### 공유 SWT 토큰을 사용하는 ASP.NET 웹 응용 프로그램 및 REST WCF 서비스
 
@@ -267,14 +275,14 @@ SWT 토큰을 발급하도록 Azure AD 액세스 제어를 구성합니다. 프�
     대신 이 경우에는 리디렉션을 처리할 필요가 없으므로 토큰을 "수동으로"
     구문 분석할 수 있습니다.
 
-![ASP.NET 웹 응용 프로그램][]
+![ASP.NET 웹 응용 프로그램][ASP.NET 웹 응용 프로그램]
 
 이 시나리오를 구현하려면 다음 리소스를 참조하십시오.
 
--   [방법: Google을 ID 공급자로 구성][]
--   [방법: Facebook을 ID 공급자로 구성][]
--   [방법: Yahoo!를 ID 공급자로 구성][]
--   [공유 SWT 토큰을 사용하여 REST WCF 서비스로 ASP.NET 웹 응용 프로그램 위임][]
+-   [방법: Google을 ID 공급자로 구성][방법: Google을 ID 공급자로 구성]
+-   [방법: Facebook을 ID 공급자로 구성][방법: Facebook을 ID 공급자로 구성]
+-   [방법: Yahoo!를 ID 공급자로 구성][방법: Yahoo!를 ID 공급자로 구성]
+-   [공유 SWT 토큰을 사용하여 REST WCF 서비스로 ASP.NET 웹 응용 프로그램 위임][공유 SWT 토큰을 사용하여 REST WCF 서비스로 ASP.NET 웹 응용 프로그램 위임]
 
 ### 클레임 인식 응용 프로그램 및 서비스의 RBAC(역할 기반 액세스 제어)
 
@@ -286,7 +294,7 @@ WIF는 모든 경우에 사용됩니다. WIF는 IPrincipal.IsInRole("MyRole") �
 
 **Azure AD 액세스 제어**. 이 구현에서는 Azure AD 액세스 제어 클레임 변환 규칙 엔진이 사용됩니다. 클레임 변환 규칙 엔진의 규칙을 사용하면 들어오는 클레임을 역할 유형 클레임으로 변환할 수 있습니다. 이를 통해 토큰이 응용 프로그램이나 서비스에 도달할 때 WIF가 이 역할 클레임을 구문 분석하여 IsInRole 메서드를 성공적으로 호출할 수 있습니다.
 
-![][]
+![][0]
 
 **WIF ClaimsAuthenticationManager**. 이 구현에서는 WIF의 확장 포인트로 ClaimsAuthenticationManager를 사용합니다. 이 방법을 사용하여 응용 프로그램에서 들어오는 임의 클레임을 역할 클레임 유형으로 변환합니다. 변환의 복잡한 정도는 사용자가 작성하는 코드로만 제한됩니다.
 
@@ -302,10 +310,10 @@ WIF는 모든 경우에 사용됩니다. WIF는 IPrincipal.IsInRole("MyRole") �
 
 이 시나리오를 구현하려면 다음 리소스를 참조하십시오.
 
--   [방법: 클레임 인식 ASP.NET 응용 프로그램에서 WIF 및 ACS를 사용하여 RBAC(역할 기반 액세스 제어) 구현][]
--   [방법: 규칙을 사용하여 토큰 변환 논리 구현][]
--   [RoleManager를 사용하여 클레임 인식(WIF) ASP.NET 웹 응용 프로그램에 대한 권한 부여][]
--   코드 샘플: [Windows Identity Foundation SDK][]에서
+-   [방법: 클레임 인식 ASP.NET 응용 프로그램에서 WIF 및 ACS를 사용하여 RBAC(역할 기반 액세스 제어) 구현][방법: 클레임 인식 ASP.NET 응용 프로그램에서 WIF 및 ACS를 사용하여 RBAC(역할 기반 액세스 제어) 구현]
+-   [방법: 규칙을 사용하여 토큰 변환 논리 구현][방법: 규칙을 사용하여 토큰 변환 논리 구현]
+-   [RoleManager를 사용하여 클레임 인식(WIF) ASP.NET 웹 응용 프로그램에 대한 권한 부여][RoleManager를 사용하여 클레임 인식(WIF) ASP.NET 웹 응용 프로그램에 대한 권한 부여]
+-   코드 샘플: [Windows Identity Foundation SDK][Windows Identity Foundation SDK]에서
     IsInRole의 클레임 사용
 
 ### 클레임 인식 응용 프로그램 및 서비스의 클레임 기반 권한 부여
@@ -318,9 +326,9 @@ WIF의 확장 포인트로 ClaimsAuthorizationManager를 사용합니다. Claims
 
 이 시나리오를 구현하려면 다음 리소스를 참조하십시오.
 
--   [방법: 규칙을 사용하여 토큰 변환 논리 구현][]
+-   [방법: 규칙을 사용하여 토큰 변환 논리 구현][방법: 규칙을 사용하여 토큰 변환 논리 구현]
 -   [방법: 클레임 인식 ASP.NET 응용 프로그램에서 WIF 및 ACS를 사용하여 클레임 권한 부여 구현][방법: 클레임 인식 ASP.NET 응용 프로그램에서 WIF 및 ACS를 사용하여 클레임 권한 부여 구현]
--   코드 샘플: [Windows Identity Foundation SDK][]의
+-   코드 샘플: [Windows Identity Foundation SDK][Windows Identity Foundation SDK]의
     클레임 기반 권한 부여
 
 ## Azure 저장소 서비스 ID 및 액세스 시나리오
@@ -335,9 +343,9 @@ WIF의 확장 포인트로 ClaimsAuthorizationManager를 사용합니다. Claims
 
 이 시나리오를 구현하려면 다음 리소스를 참조하십시오.
 
--   [Blob 및 컨테이너에 대한 액세스 관리][]
--   [새 저장소 기능: 공유 액세스 서명][]
--   [오늘날 공유 액세스 서명이 간단함][]
+-   [Blob 및 컨테이너에 대한 액세스 관리][Blob 및 컨테이너에 대한 액세스 관리]
+-   [새 저장소 기능: 공유 액세스 서명][새 저장소 기능: 공유 액세스 서명]
+-   [오늘날 공유 액세스 서명이 간단함][오늘날 공유 액세스 서명이 간단함]
 
 ## Azure SQL 데이터베이스 ID 및 액세스 시나리오
 
@@ -347,14 +355,14 @@ SQL 데이터베이스는 SQL Server 인증만 지원하며 Windows 인증(통�
 
 이 시나리오를 구현하려면 다음 리소스를 참조하십시오.
 
--   [보안 지침 및 제한 사항(SQL 데이터베이스)][]
--   [방법: sqlcmd를 사용하여 SQL 데이터베이스에 연결][]
--   [방법: ADO.NET를 사용하여 SQL 데이터베이스에 연결][]
--   [방법: ASP.NET를 통해 SQL 데이터베이스에 연결][]
--   [방법: WCF Data Services를 통해 SQL 데이터베이스에 연결][]
--   [방법: PHP를 사용하여 SQL 데이터베이스에 연결][]
--   [방법: JDBC를 사용하여 SQL 데이터베이스에 연결][]
--   [방법: ADO.NET Entity Framework를 사용하여 SQL 데이터베이스에 연결][]
+-   [보안 지침 및 제한 사항(SQL 데이터베이스)][보안 지침 및 제한 사항(SQL 데이터베이스)]
+-   [방법: sqlcmd를 사용하여 SQL 데이터베이스에 연결][방법: sqlcmd를 사용하여 SQL 데이터베이스에 연결]
+-   [방법: ADO.NET를 사용하여 SQL 데이터베이스에 연결][방법: ADO.NET를 사용하여 SQL 데이터베이스에 연결]
+-   [방법: ASP.NET를 통해 SQL 데이터베이스에 연결][방법: ASP.NET를 통해 SQL 데이터베이스에 연결]
+-   [방법: WCF Data Services를 통해 SQL 데이터베이스에 연결][방법: WCF Data Services를 통해 SQL 데이터베이스에 연결]
+-   [방법: PHP를 사용하여 SQL 데이터베이스에 연결][방법: PHP를 사용하여 SQL 데이터베이스에 연결]
+-   [방법: JDBC를 사용하여 SQL 데이터베이스에 연결][방법: JDBC를 사용하여 SQL 데이터베이스에 연결]
+-   [방법: ADO.NET Entity Framework를 사용하여 SQL 데이터베이스에 연결][방법: ADO.NET Entity Framework를 사용하여 SQL 데이터베이스에 연결]
 
 ## Azure 서비스 버스 ID 및 액세스 시나리오
 
@@ -364,10 +372,11 @@ SQL 데이터베이스는 SQL Server 인증만 지원하며 Windows 인증(통�
 
 이 시나리오를 구현하려면 다음 리소스를 참조하십시오.
 
--   [ACS로 서비스 버스 보안][](비디오)
+-   [ACS로 서비스 버스 보안][ACS로 서비스 버스 보안](비디오)
 -   [ACS로 서비스 버스 보안][8](슬라이드)
 -   [액세스 제어 서비스를 사용한 서비스 버스 인증 및
-    권한 부여][]
+    권한 부여][액세스 제어 서비스를 사용한 서비스 버스 인증 및
+    권한 부여]
 
 ## 메모리 내 캐시 ID 및 액세스 시나리오
 
@@ -377,9 +386,9 @@ SQL 데이터베이스는 SQL Server 인증만 지원하며 Windows 인증(통�
 
 이 시나리오를 구현하려면 다음 리소스를 참조하십시오.
 
--   [방법: Azure 캐싱용으로 프로그래밍 방식으로 캐시 클라이언트 구성][]
--   [방법: Azure 캐싱에 대해 응용 프로그램 구성 파일을 사용하여 캐시 클라이언트 구성][]
--   [Azure 서비스 버스 및 캐싱 샘플][](캐싱 샘플 섹션)
+-   [방법: Azure 캐싱용으로 프로그래밍 방식으로 캐시 클라이언트 구성][방법: Azure 캐싱용으로 프로그래밍 방식으로 캐시 클라이언트 구성]
+-   [방법: Azure 캐싱에 대해 응용 프로그램 구성 파일을 사용하여 캐시 클라이언트 구성][방법: Azure 캐싱에 대해 응용 프로그램 구성 파일을 사용하여 캐시 클라이언트 구성]
+-   [Azure 서비스 버스 및 캐싱 샘플][Azure 서비스 버스 및 캐싱 샘플](캐싱 샘플 섹션)
 
 ## Azure 마켓플레이스 ID 및 액세스 시나리오
 
@@ -395,7 +404,7 @@ SQL 데이터베이스는 SQL Server 인증만 지원하며 Windows 인증(통�
 
 이 시나리오를 구현하려면 다음 리소스를 참조하십시오.
 
--   [마켓플레이스 응용 프로그램에서 HTTP 기본 인증 사용][]
+-   [마켓플레이스 응용 프로그램에서 HTTP 기본 인증 사용][마켓플레이스 응용 프로그램에서 HTTP 기본 인증 사용]
 
 ### 사용자가 내 데이터 집합에 액세스
 
@@ -408,8 +417,8 @@ SQL 데이터베이스는 SQL Server 인증만 지원하며 Windows 인증(통�
 
 이 시나리오를 구현하려면 다음 리소스를 참조하십시오.
 
--   [OAuth 웹 클라이언트 예][]
--   [OAuth 리치 클라이언트 예][]
+-   [OAuth 웹 클라이언트 예][OAuth 웹 클라이언트 예]
+-   [OAuth 리치 클라이언트 예][OAuth 리치 클라이언트 예]
 
 ### 응용 프로그램이 마켓플레이스 API에 액세스
 
@@ -421,8 +430,8 @@ SQL 데이터베이스는 SQL Server 인증만 지원하며 Windows 인증(통�
 
 이 시나리오를 구현하려면 다음 리소스를 참조하십시오.
 
--   [응용 프로그램 게시 키트 다운로드][]
--   [응용 프로그램용 Azure 마켓플레이스 소개][]
+-   [응용 프로그램 게시 키트 다운로드][응용 프로그램 게시 키트 다운로드]
+-   [응용 프로그램용 Azure 마켓플레이스 소개][응용 프로그램용 Azure 마켓플레이스 소개]
 
 ## 보안 노브
 
@@ -431,7 +440,7 @@ SQL 데이터베이스는 SQL Server 인증만 지원하며 Windows 인증(통�
 
 ### Windows Identity Foundation
 
-다음은 WIF의 키 보안 노브입니다. 아래 정보는 [WIF 설계 고려 사항][] 및 [ASP.NET 웹 응용 프로그램에 대한 WIF(Windows Identity Foundation) 보안 - 위협 및 대응 방법][]을 요약한 것입니다.
+다음은 WIF의 키 보안 노브입니다. 아래 정보는 [WIF 설계 고려 사항][WIF 설계 고려 사항] 및 [ASP.NET 웹 응용 프로그램에 대한 WIF(Windows Identity Foundation) 보안 - 위협 및 대응 방법][ASP.NET 웹 응용 프로그램에 대한 WIF(Windows Identity Foundation) 보안 - 위협 및 대응 방법]을 요약한 것입니다.
 
 -   **IssuerNameRegistry**. 신뢰할 수 있는 STS(Security Token Services)를
     지정합니다. 신뢰할 수 있는 STS만 표시됩니다.
@@ -448,12 +457,12 @@ SQL 데이터베이스는 SQL Server 인증만 지원하며 Windows 인증(통�
     이를 거부합니다.
 -   **requestValidation** 및 **httpRuntime requestValidationType**.
     ASP.NET 유효성 검사 기능을 사용하거나 사용하지 않도록 설정합니다.
-    [WIF(Windows Identity Foundation): 잠재적으로 위험한 Request.Form 값이 클라이언트에서 검색되었음][]에서
+    [WIF(Windows Identity Foundation): 잠재적으로 위험한 Request.Form 값이 클라이언트에서 검색되었음][WIF(Windows Identity Foundation): 잠재적으로 위험한 Request.Form 값이 클라이언트에서 검색되었음]에서
     설명하는 지침을 참조하세요.
 
 ### Azure AD 액세스 제어
 
-Azure AD 액세스 제어 배포 시 다음 보안 노브를 고려합니다. 아래 정보는 [ACS 보안 지침][] 및 [인증서 및 키 관리 지침][]을 요약한 것입니다.
+Azure AD 액세스 제어 배포 시 다음 보안 노브를 고려합니다. 아래 정보는 [ACS 보안 지침][ACS 보안 지침] 및 [인증서 및 키 관리 지침][인증서 및 키 관리 지침]을 요약한 것입니다.
 
 -   **STS 토큰 만료**. Azure AD 액세스 제어 관리 포털을 사용하여
     토큰 만료를 적극적으로 설정합니다.
@@ -538,17 +547,17 @@ Azure AD 액세스 제어 배포 시 다음 보안 노브를 고려합니다. �
 -   [ID 개발자 교육 키트][13]
 -   [MSDN에서 주최하는 ID 개발자 교육 코스][14]
 -   [클레임 기반 ID 및 액세스 제어 가이드][15]
--   [액세스 제어 서비스][]
--   [ACS 사용 방법][]
--   [액세스 제어 서비스 버전 2.0을 사용하여 Azure 웹 역할 ASP.NET 웹 응용 프로그램 보호][]
--   [Azure AD ACS(액세스 제어 서비스) Academy 비디오][]
--   [Microsoft 보안 개발 수명 주기][]
--   [SDL Threat Modeling Tool 3.1.8][]
--   [보안 및 개인 정보 블로그][]
--   [보안 응답 센터][]
--   [보안 상황 보고서][]
+-   [액세스 제어 서비스][액세스 제어 서비스]
+-   [ACS 사용 방법][ACS 사용 방법]
+-   [액세스 제어 서비스 버전 2.0을 사용하여 Azure 웹 역할 ASP.NET 웹 응용 프로그램 보호][액세스 제어 서비스 버전 2.0을 사용하여 Azure 웹 역할 ASP.NET 웹 응용 프로그램 보호]
+-   [Azure AD ACS(액세스 제어 서비스) Academy 비디오][Azure AD ACS(액세스 제어 서비스) Academy 비디오]
+-   [Microsoft 보안 개발 수명 주기][Microsoft 보안 개발 수명 주기]
+-   [SDL Threat Modeling Tool 3.1.8][SDL Threat Modeling Tool 3.1.8]
+-   [보안 및 개인 정보 블로그][보안 및 개인 정보 블로그]
+-   [보안 응답 센터][보안 응답 센터]
+-   [보안 상황 보고서][보안 상황 보고서]
 -   [보안 개발 수명 주기][Microsoft 보안 개발 수명 주기]
--   [보안 개발자 센터(MSDN)][]
+-   [보안 개발자 센터(MSDN)][보안 개발자 센터(MSDN)]
 
   [Azure 보안 정보 PDF]: http://blogs.msdn.com/b/jmeier/archive/2010/08/03/now-available-azure-security-notes-pdf.aspx
   [응용 프로그램 보호]: ./media/SecurityRX/01_SecuringTheApplication.gif
@@ -579,17 +588,12 @@ Azure AD 액세스 제어 배포 시 다음 보안 노브를 고려합니다. �
   [방법: X.509 인증서를 사용하여 ACS 및 ASP.NET 웹 응용 프로그램 간에 트러스트 구성]: http://msdn.microsoft.com/ko-KR/library/gg185947.aspx
   [코드 샘플: ASP.NET 단순 양식]: http://msdn.microsoft.com/ko-KR/library/gg185938.aspx
   [WCF(SOAP) 서비스]: ./media/SecurityRX/04_WCF(SOAP)Service.gif
-  [방법: X.509 인증서, 암호 또는 대칭 키를 사용하여 서비스 ID 추가]: http://msdn.microsoft.com/ko-KR/library/gg185924.aspx
-  [방법: 클라이언트 인증서를 사용하여 ACS로 보호된 WCF 서비스에 인증]: http://msdn.microsoft.com/ko-KR/library/hh289316.aspx
-  [방법: 사용자 이름과 암호를 사용하여 ACS로 보호된 WCF 서비스에 인증]: http://msdn.microsoft.com/ko-KR/library/gg185954.aspx
   [코드 샘플: WCF 인증서 인증]: http://msdn.microsoft.com/ko-KR/library/gg185952.aspx
   [코드 샘플: WCF 사용자 이름 인증]: http://msdn.microsoft.com/ko-KR/library/gg185927.aspx
   [AD를 사용하는 WCF(SOAP) 서비스]: ./media/SecurityRX/05_AzureADAccessControl.gif
   [방법: AD FS 2.0을 ID 공급자로 구성]: http://msdn.microsoft.com/ko-KR/library/gg185961.aspx
-  [방법: 관리 서비스를 사용하여 AD FS 2.0을 엔터프라이즈 ID 공급자로 구성]: http://msdn.microsoft.com/ko-KR/library/gg185905.aspx
   [코드 샘플: AD FS 2.0을 사용하여 WCF 페더레이션 인증]: http://msdn.microsoft.com/ko-KR/library/hh127796.aspx
   [REST 서비스]: ./media/SecurityRX/06_RESTService.gif
-  [방법: 대칭 키를 사용하여 ACS 및 WCF 서비스 간에 트러스트 구성]: http://msdn.microsoft.com/ko-KR/library/gg185958.aspx
   [방법: ACS를 사용하여 Azure에 배포된 REST WCF 서비스에 인증]: http://msdn.microsoft.com/ko-KR/library/hh289317.aspx
   [코드 샘플: ASP.NET 웹 서비스]: http://msdn.microsoft.com/ko-KR/library/gg983271.aspx
   [Azure ACS(액세스 제어 서비스)에서 발급된 SWT 토큰을 사용하는 REST WCF]: http://code.msdn.microsoft.com/REST-WCF-With-SWT-Token-123d93c0
@@ -599,7 +603,7 @@ Azure AD 액세스 제어 배포 시 다음 보안 노브를 고려합니다. �
   [방법: Yahoo!를 ID 공급자로 구성]: http://msdn.microsoft.com/ko-KR/library/gg185977.aspx
   [ASP.NET 웹 응용 프로그램]: ./media/SecurityRX/08_ASPNETWebApptoREST.gif
   [공유 SWT 토큰을 사용하여 REST WCF 서비스로 ASP.NET 웹 응용 프로그램 위임]: http://code.msdn.microsoft.com/ASPNET-Web-App-To-REST-WCF-b2b95f82
-  []: ./media/SecurityRX/09_RBAC.gif
+  [0]: ./media/SecurityRX/09_RBAC.gif
   [1]: ./media/SecurityRX/10_WIFClaimsAuthenticationManager.gif
   [2]: ./media/SecurityRX/11_SecurityTokenRequriementmapping.gif
   [3]: ./media/SecurityRX/12_CustomRoleManager.gif
@@ -620,7 +624,6 @@ Azure AD 액세스 제어 배포 시 다음 보안 노브를 고려합니다. �
   [7]: ./media/SecurityRX/16_WindowsAzureServiceBusIdentity.gif
   [ACS로 서비스 버스 보안]: http://channel9.msdn.com/posts/Securing-Service-Bus-with-ACS
   [8]: https://skydrive.live.com/view.aspx?cid=123CCD2A7AB10107&resid=123CCD2A7AB10107%211849
-  [액세스 제어 서비스를 사용한 서비스 버스 인증 및 권한 부여]: http://msdn.microsoft.com/ko-KR/library/hh403962.aspx
   [9]: ./media/SecurityRX/17_WindowsAzureCacheIdentity.gif
   [방법: Azure 캐싱용으로 프로그래밍 방식으로 캐시 클라이언트 구성]: http://msdn.microsoft.com/ko-KR/library/windowsazure/gg618003.aspx
   [방법: Azure 캐싱에 대해 응용 프로그램 구성 파일을 사용하여 캐시 클라이언트 구성]: http://msdn.microsoft.com/ko-KR/library/windowsazure/gg278346.aspx

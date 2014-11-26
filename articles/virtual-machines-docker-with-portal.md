@@ -113,7 +113,9 @@ VM 도메인의 이름을 찾아서 복사한 다음 클라이언트 컴퓨터�
 
 이제 [Docker 사용자 가이드][Docker 사용자 가이드]로 이동하여 Docker VM을 사용할 수 있습니다. Azure에서 Docker VM을 반복적으로 빠르게 만들려면 [Azure 플랫폼 간 인터페이스(xplat-cli)에서 Docker VM 확장을 사용하는 방법][Azure 플랫폼 간 인터페이스(xplat-cli)에서 Docker VM 확장을 사용하는 방법]을 참조하세요.
 
-<!--Anchors--> <!--Image references--> <!--Link references-->
+<!--Anchors-->
+<!--Image references-->
+<!--Link references-->
 
   [Docker]: https://www.docker.com/
   [Linux 컨테이너]: http://en.wikipedia.org/wiki/LXC

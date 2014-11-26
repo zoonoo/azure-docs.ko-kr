@@ -141,9 +141,9 @@
 
 다음 자습서인 [모바일 서비스의 AAD에서 역할 기반 액세스 제어][모바일 서비스의 AAD에서 역할 기반 액세스 제어]에서는 액세스를 허용하기 전에 AAD(Azure Active Directory)에서 역할 기반 액세스 제어를 사용하여 그룹 구성원을 확인합니다.
 
-<!-- Anchors. -->
+
 <!-- Images -->
-<!-- URLs. -->
+
 
   [그래프 API]: http://msdn.microsoft.com/library/azure/hh974478.aspx
   [인증 시작]: /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-users/
@@ -153,11 +153,8 @@
   [앱 테스트]: #test-app
   [사용자 지정 API 자습서l]: /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-call-custom-api/
   [Azure Active Directory 로그인 사용 등록]: /ko-kr/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
-  [mobile-services-generate-aad-app-registration-access-key]: ../includes/mobile-services-generate-aad-app-registration-access-key.md
   [그래프 REST API]: http://msdn.microsoft.com/ko-kr/library/azure/hh974478.aspx
   [Azure 관리 포털]: https://manage.windowsazure.com/
   [0]: ./media/mobile-services-javascript-backend-windows-store-dotnet-aad-graph-info/create-getuserinfo.png
   [사용자 가져오기]: http://msdn.microsoft.com/ko-kr/library/azure/dn151678.aspx
-  [mobile-services-aad-graph-info-update-app]: ../includes/mobile-services-aad-graph-info-update-app.md
-  [mobile-services-aad-graph-info-test-app]: ../includes/mobile-services-aad-graph-info-test-app.md
   [모바일 서비스의 AAD에서 역할 기반 액세스 제어]: /ko-kr/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/

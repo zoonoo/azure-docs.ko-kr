@@ -1,6 +1,6 @@
 <properties title="Interact with DocumentDB resources" pageTitle="Interact with DocumentDB resources | Azure" description="DocumentDB manages resources--uniquely identified by logical URIs--that developers can interact with using HTTP verbs, request/response headers, and status codes." metaKeywords="" services="documentdb" solutions="data-management"  authors="bradsev" manager="jhubbard" editor="cgronlun" videoId="" scriptId="" />
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="bradsev"></tags>
+<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="bradsev" />
 
 # DocumentDB 리소스 조작
 
@@ -12,7 +12,7 @@ DocumentDB는 HTTP를 통해 단순한 개방형 RESTful 프로그래밍 모델�
 
 DocumentDB에서 관리하는 엔터티를 **리소스**라고 하며, 논리적 URI로 고유하게 식별됩니다. 개발자는 표준 HTTP 동사, 요청/응답 헤더 및 상태 코드를 사용하여 리소스를 조작할 수 있습니다. 다음 다이어그램에 표시된 대로, DocumentDB의 **리소스 모델**은 단일 데이터베이스 계정 아래에 있고 각각 논리적이고 안정적인 URI를 통해 주소 지정이 가능한 리소스 집합으로 구성됩니다. 이 문서에서는 리소스 집합을 **피드**라고 합니다.
 
-![][]
+![][0]
 
 ## 단일 데이터베이스 계정 아래의 계층적 리소스 모델
 
@@ -283,14 +283,14 @@ DocumentDB는 각 리소스에 해당 \_self 링크로 식별되는 논리적이
 -   JSON 사양 [][2]<http://-www.ietf.org/rfc/rfc4627.txt></a>
 -   HTTP 사양 [][3]<http://www.w3.org/Protocols/rfc2616/rfc2616.html></a>
 -   엔터티 태그 [][4]<http://en.wikipedia.org/wiki/HTTP_ETag></a>
--   [DocumentDB 쿼리][]
--   [DocumentDB SQL 참조][]
--   [DocumentDB 프로그래밍: 저장 프로시저, 트리거 및 UDF][]
--   [DocumentDB 참조 설명서][]
+-   [DocumentDB 쿼리][DocumentDB 쿼리]
+-   [DocumentDB SQL 참조][DocumentDB SQL 참조]
+-   [DocumentDB 프로그래밍: 저장 프로시저, 트리거 및 UDF][DocumentDB 프로그래밍: 저장 프로시저, 트리거 및 UDF]
+-   [DocumentDB 참조 설명서][DocumentDB 참조 설명서]
 
-  []: ./media/documentdb-interactions-with-resources/interactions-with-resources1.png
+  [0]: ./media/documentdb-interactions-with-resources/interactions-with-resources1.png
   [1]: ./media/documentdb-interactions-with-resources/interactions-with-resources2.png
-  []: http://en.wikipedia.org/wiki/Representational_state_transfer
+  [0]: http://en.wikipedia.org/wiki/Representational_state_transfer
   [2]: http://-www.ietf.org/rfc/rfc4627.txt
   [3]: http://www.w3.org/Protocols/rfc2616/rfc2616.html
   [4]: http://en.wikipedia.org/wiki/HTTP_ETag

@@ -40,8 +40,8 @@ Hadoop 작업 기록을 보려면 HDInsight 대시보드에 연결한 후 작업
 참고 항목
 ---------
 
--   [방법: 관리자 HDInsight](/en-us/manage/services/hdinsight/howto-administer-hdinsight/)
--   [방법: 프로그래밍 방식으로 HDInsight 클러스터 배포](/en-us/manage/services/hdinsight/howto-deploy-cluster/)
--   [방법: 프로그래밍 방식으로 HDInsight 클러스터에서 원격 작업 실행](/en-us/manage/services/hdinsight/howto-execute-jobs-programmatically/)
--   [자습서: Azure HDInsight 시작](/en-us/manage/services/hdinsight/get-started-hdinsight/)
+-   [방법: 관리자 HDInsight](/ko-kr/manage/services/hdinsight/howto-administer-hdinsight/)
+-   [방법: 프로그래밍 방식으로 HDInsight 클러스터 배포](/ko-kr/manage/services/hdinsight/howto-deploy-cluster/)
+-   [방법: 프로그래밍 방식으로 HDInsight 클러스터에서 원격 작업 실행](/ko-kr/manage/services/hdinsight/howto-execute-jobs-programmatically/)
+-   [자습서: Azure HDInsight 시작](/ko-kr/manage/services/hdinsight/get-started-hdinsight/)
 

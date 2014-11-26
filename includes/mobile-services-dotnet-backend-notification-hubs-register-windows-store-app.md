@@ -1,6 +1,6 @@
-1.  앱을 아직 등록하지 않은 경우 Windows 스토어 앱용 개발자 센터에 있는 [앱 제출 페이지][]로 이동하여 Microsoft 계정으로 로그온한 후 **앱 이름**을 클릭합니다.
+1.  앱을 아직 등록하지 않은 경우 Windows 스토어 앱용 개발자 센터에 있는 [앱 제출 페이지][앱 제출 페이지]로 이동하여 Microsoft 계정으로 로그온한 후 **앱 이름**을 클릭합니다.
 
-    ![][]
+    ![][0]
 
 2.  **앱 이름**에 앱의 이름을 입력하고 **앱 이름 예약**을 클릭한 후 **저장**을 클릭합니다.
 
@@ -42,7 +42,7 @@
 <p>클라이언트 암호와 패키지 SID는 중요한 보안 자격 증명입니다. 다른 사람과 공유하지 말고 앱과 함께 분산하지 마십시오.</p>
 </div>
 
-11. [Azure 관리 포털][]에 로그온하여 **모바일 서비스**를 클릭한 후 앱을 클릭합니다.
+11. [Azure 관리 포털][Azure 관리 포털]에 로그온하여 **모바일 서비스**를 클릭한 후 앱을 클릭합니다.
 
     ![][7]
 
@@ -52,10 +52,10 @@
 
     > [WACOM.NOTE] 포털의 **푸시** 탭에서 향상된 푸시 알림에 대한 WNS 자격 증명을 설정하는 경우 앱을 사용하여 알림 허브를 구성하기 위해 자격 증명을 알림 허브와 공유합니다.
 
-<!-- URLs. -->
+
 
   [앱 제출 페이지]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-  []: ./media/mobile-services-dotnet-backend-notification-hubs-register-windows-store-app/mobile-services-submit-win8-app.png
+  [0]: ./media/mobile-services-dotnet-backend-notification-hubs-register-windows-store-app/mobile-services-submit-win8-app.png
   [1]: ./media/mobile-services-dotnet-backend-notification-hubs-register-windows-store-app/mobile-services-win8-app-name.png
   [2]: ./media/mobile-services-dotnet-backend-notification-hubs-register-windows-store-app/mobile-services-store-association.png
   [3]: ./media/mobile-services-dotnet-backend-notification-hubs-register-windows-store-app/mobile-services-select-app-name.png

@@ -168,9 +168,9 @@ MainStoryboard\_iPhone.storyboard에서 지원되는 3가지 언어 즉 영어, 
 
 템플릿 식 언어에 대한 참조는 [iOS용 알림 허브 방법][방법: 서비스 버스 알림 허브(iOS 앱)]에 있습니다.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [알림 허브를 사용하여 속보 보내기]: /ko-KR/manage/services/notification-hubs/breaking-news-ios
   [템플릿 개념]: #concepts
@@ -180,6 +180,5 @@ MainStoryboard\_iPhone.storyboard에서 지원되는 3가지 언어 즉 영어, 
   [알림 허브 지침]: http://msdn.microsoft.com/ko-KR/library/jj927170.aspx
   [0]: ./media/notification-hubs-ios-send-localized-breaking-news/ios_localized1.png
   [1]: ./media/notification-hubs-ios-send-localized-breaking-news/ios_localized2.png
-  [notification-hubs-localized-back-end]: ../includes/notification-hubs-localized-back-end.md
   [알림 허브를 통해 사용자에게 알림: ASP.NET]: /ko-KR/manage/services/notification-hubs/notify-users-aspnet
   [알림 허브를 통해 사용자에게 알림: 모바일 서비스]: /ko-KR/manage/services/notification-hubs/notify-users

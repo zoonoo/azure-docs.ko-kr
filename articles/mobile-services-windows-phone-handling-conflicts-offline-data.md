@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-handle-conflcits-offline-data-dotnet" urlDisplayName="Handle Conflicts with Offline Data" pageTitle="Handle Conflicts with offline data in Mobile Services (Windows Phone) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services handle conflicts when syncing offline data in your Windows phone application" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Handling conflicts with offline data in Mobile Services" authors="wesmc" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="wesmc"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="wesmc" />
 
 # 모바일 서비스에서 오프라인 데이터 동기화를 사용하여 충돌 처리
 
@@ -11,30 +11,30 @@
 
 이 항목에서는 Azure 모바일 서비스의 오프라인 기능을 사용할 때 데이터를 동기화하고 충돌을 처리하는 방법을 보여 줍니다. 이 자습서에서는 오프라인 데이터와 온라인 데이터를 모두 지원하는 앱을 다운로드하고, 모바일 서비스를 앱에 통합한 다음 Azure 관리 포털에 로그인하여 앱을 실행하면서 데이터베이스를 보고 업데이트합니다.
 
-이 자습서는 이전 자습서인 [오프라인 데이터 시작][]의 단계 및 샘플 앱을 기반으로 합니다. 이 자습서를 시작하기 전에 먼저 [오프라인 데이터 시작][]을 완료해야 합니다.
+이 자습서는 이전 자습서인 [오프라인 데이터 시작][오프라인 데이터 시작]의 단계 및 샘플 앱을 기반으로 합니다. 이 자습서를 시작하기 전에 먼저 [오프라인 데이터 시작][오프라인 데이터 시작]을 완료해야 합니다.
 
 이 자습서에서는 다음 기본 단계를 단계별로 안내합니다.
 
-1.  [Windows Phone 프로젝트 다운로드][]
-2.  [데이터베이스에 대한 기한 열 추가][]
-  * [.NET 백 엔드 모바일 서비스에 대한 데이터베이스 업데이트][]
-  * [JavaScript 모바일 서비스에 대한 데이터베이스 업데이트][]
-1.  [모바일 서비스에 대해 앱 테스트][]
-2.  [백 엔드에서 데이터를 수동으로 업데이트하여 충돌 생성][]
+1.  [Windows Phone 프로젝트 다운로드][Windows Phone 프로젝트 다운로드]
+2.  [데이터베이스에 대한 기한 열 추가][데이터베이스에 대한 기한 열 추가]
+  * [.NET 백 엔드 모바일 서비스에 대한 데이터베이스 업데이트][.NET 백 엔드 모바일 서비스에 대한 데이터베이스 업데이트]
+  * [JavaScript 모바일 서비스에 대한 데이터베이스 업데이트][JavaScript 모바일 서비스에 대한 데이터베이스 업데이트]
+1.  [모바일 서비스에 대해 앱 테스트][모바일 서비스에 대해 앱 테스트]
+2.  [백 엔드에서 데이터를 수동으로 업데이트하여 충돌 생성][백 엔드에서 데이터를 수동으로 업데이트하여 충돌 생성]
 
-이 자습서를 완료하려면 Visual Studio 2012 및 [Windows Phone 8 SDK][]가 있어야 합니다.
+이 자습서를 완료하려면 Visual Studio 2012 및 [Windows Phone 8 SDK][Windows Phone 8 SDK]가 있어야 합니다.
 
 ## <a name="download-app"></a>샘플 프로젝트 다운로드
 
-이 자습서는 Visual Studio 2012의 Windows Phone 8 프로젝트인 [충돌 처리 코드 샘플][]을 기반으로 합니다.
+이 자습서는 Visual Studio 2012의 Windows Phone 8 프로젝트인 [충돌 처리 코드 샘플][충돌 처리 코드 샘플]을 기반으로 합니다.
 
-이 앱의 UI는 각 TodoItem에 대해 새 날짜 열이 있다는 점을 제외하고 [오프라인 데이터 시작][] 자습서의 앱과 비슷합니다.
+이 앱의 UI는 각 TodoItem에 대해 새 날짜 열이 있다는 점을 제외하고 [오프라인 데이터 시작][오프라인 데이터 시작] 자습서의 앱과 비슷합니다.
 
-![][]
+![][0]
 
-1.  [충돌 처리 코드 샘플][]의 Windows Phone 버전을 다운로드합니다.
+1.  [충돌 처리 코드 샘플][충돌 처리 코드 샘플]의 Windows Phone 버전을 다운로드합니다.
 
-2.  [SQLite for Windows Phone 8][]을 아직 설치하지 않은 경우 설치합니다.
+2.  [SQLite for Windows Phone 8][SQLite for Windows Phone 8]을 아직 설치하지 않은 경우 설치합니다.
 
 3.  Visual Studio 2012에서 다운로드한 프로젝트를 엽니다. **Windows Phone** \> **확장**에서 **SQLite for Windows Phone**에 대한 참조를 추가합니다.
 
@@ -72,7 +72,7 @@
 
     WebApiConfig.cs 파일에서 기본 데이터베이스 이니셜라이저 클래스는 `DropCreateDatabaseIfModelChanges` 클래스에서 파생됩니다. 즉, 모델을 변경하면 테이블이 삭제되고 새 모델을 수용하는 테이블이 다시 생성됩니다. 테이블의 데이터가 손실되고 테이블이 다시 시드됩니다. `Seed()` 초기화 함수가 새 DueDate 열을 초기화하도록 데이터베이스 이니셜라이저의 Seed 메서드를 수정합니다. WebApiConfig.cs 파일을 저장합니다.
 
-    > [WACOM.NOTE] 기본 데이터베이스 이니셜라이저를 사용할 경우 Entity Framework에서는 Code First 모델 정의에서 데이터 모델 변경이 감지될 때마다 데이터베이스를 삭제하고 다시 만듭니다. 이 데이터 모델을 변경하고 데이터베이스에서 기존 데이터를 유지하려면 Code First 마이그레이션을 사용해야 합니다. 자세한 내용은 [Code First 마이그레이션을 사용하여 데이터 모델을 업데이트하는 방법][]을 참조하세요.
+    > [WACOM.NOTE] 기본 데이터베이스 이니셜라이저를 사용할 경우 Entity Framework에서는 Code First 모델 정의에서 데이터 모델 변경이 감지될 때마다 데이터베이스를 삭제하고 다시 만듭니다. 이 데이터 모델을 변경하고 데이터베이스에서 기존 데이터를 유지하려면 Code First 마이그레이션을 사용해야 합니다. 자세한 내용은 [Code First 마이그레이션을 사용하여 데이터 모델을 업데이트하는 방법][Code First 마이그레이션을 사용하여 데이터 모델을 업데이트하는 방법]을 참조하세요.
 
         new TodoItem { Id = "1", Text = "First item", Complete = false, DueDate = DateTime.Today },
         new TodoItem { Id = "2", Text = "Second item", Complete = false, DueDate = DateTime.Today },
@@ -87,7 +87,7 @@
 
 JavaScript 백 엔드 모바일 서비스에 대해 **TodoWithDate**라는 새 테이블을 추가합니다. JavaScript 백 엔드 모바일 서비스에 대해 **TodoWithDate** 테이블을 추가하려면 다음 단계를 따르세요.
 
-1.  [Azure 관리 포털][]에 로그인합니다.
+1.  [Azure 관리 포털][Azure 관리 포털]에 로그인합니다.
 
 2.  모바일 서비스의 **데이터** 탭으로 이동합니다.
 
@@ -110,9 +110,9 @@ JavaScript 백 엔드 모바일 서비스에 대해 **TodoWithDate**라는 새 �
 
 4.  앞에서 한 것처럼 텍스트 상자에 텍스트를 입력한 후 **저장**을 클릭하여 새 todo 항목을 저장합니다. 데이터가 로컬 동기화 테이블에 저장되고, 서버에는 저장되지 않습니다.
 
-    ![][]
+    ![][0]
 
-5.  데이터베이스의 현재 상태를 보려면 [Azure 관리 포털][]에 로그인하고 **모바일 서비스**를 클릭한 다음 해당 모바일 서비스를 클릭합니다.
+5.  데이터베이스의 현재 상태를 보려면 [Azure 관리 포털][Azure 관리 포털]에 로그인하고 **모바일 서비스**를 클릭한 다음 해당 모바일 서비스를 클릭합니다.
 
   * 모바일 서비스에 대해 JavaScript 백 엔드를 사용 중인 경우 **데이터** 탭을 클릭한 후 **TodoWithDate** 테이블을 클릭합니다. 변경 내용을 앱에서 서버로 푸시하지 않았으므로 **찾아보기**를 클릭하여 테이블이 아직 비어 있는지 확인합니다.
 
@@ -191,12 +191,10 @@ JavaScript 백 엔드 모바일 서비스에 대해 **TodoWithDate**라는 새 �
 
 푸시를 취소하면 `PushAsync`에서 `MobileServicePushFailedException`을 내어 예외 속성인 `PushResult.Status`가 `MobileServicePushStatus.CancelledByOperation` 값을 포함합니다.
 
-<!-- Anchors. -->
+
 <!-- Images -->
 <!-- URLs -->
 
-  [Windows 스토어 C\#]: /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-handling-conflicts-offline-data "Windows 스토어 C#"
-  [Windows Phone]: /ko-kr/documentation/articles/mobile-services-windows-phone-handling-conflicts-offline-data "Windows Phone"
   [오프라인 데이터 시작]: /ko-kr/documentation/articles/mobile-services-windows-phone-get-started-offline-data
   [Windows Phone 프로젝트 다운로드]: #download-app
   [데이터베이스에 대한 기한 열 추가]: #add-column
@@ -206,7 +204,7 @@ JavaScript 백 엔드 모바일 서비스에 대해 **TodoWithDate**라는 새 �
   [백 엔드에서 데이터를 수동으로 업데이트하여 충돌 생성]: #handle-conflict
   [Windows Phone 8 SDK]: http://go.microsoft.com/fwlink/p/?linkid=268374
   [충돌 처리 코드 샘플]: http://go.microsoft.com/fwlink/?LinkId=398257
-  []: ./media/mobile-services-windows-phone-handling-conflicts-offline-data/mobile-services-handling-conflicts-app-run1.png
+  [0]: ./media/mobile-services-windows-phone-handling-conflicts-offline-data/mobile-services-handling-conflicts-app-run1.png
   [SQLite for Windows Phone 8]: http://go.microsoft.com/fwlink/?LinkId=397953
   [Code First 마이그레이션을 사용하여 데이터 모델을 업데이트하는 방법]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations
   [Azure 관리 포털]: https://manage.windowsazure.com/

@@ -1,4 +1,4 @@
-<properties title="Maven을 사용하여 HBase 응용 프로그램 빌드" pageTitle="Maven을 사용하여 HBase 응용 프로그램 빌드" description="Apache Maven을 사용하여 Java 기반 Apache HBase 응용 프로그램을 빌드한 다음 Azure HDInsight에 배포하는 방법에 대해 알아봅니다." metaKeywords="Maven hbase hadoop, hbase hadoop, maven java hbase, maven java hbase hadoop, maven java hadoop, hbase hdinsight, hbase java hdinsight, maven hdinsight, maven java hdinsight, hadoop database, hdinsight database" services="hdinsight" solutions="big-data" documentationCenter="" authors="larryfr" videoId="" scriptId="" manager="paulettm" />
+<properties title="Build an HBase application using Maven" pageTitle="Build an HBase application using Maven" description="Learn how to use Apache Maven to build a Java-based Apache HBase application, then deploy it to Azure HDInsight" metaKeywords="Maven hbase hadoop, hbase hadoop, maven java hbase, maven java hbase hadoop, maven java hadoop, hbase hdinsight, hbase java hdinsight, maven hdinsight, maven java hdinsight, hadoop database, hdinsight database" services="hdinsight" solutions="big-data" documentationCenter="" authors="larryfr" videoId="" scriptId="" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/21/2014" ms.author="larryfr" />
 
@@ -18,7 +18,7 @@ Apache Maven을 사용하여 Java로 [Apache HBase][Apache HBase] 응용 프로�
 
 ## 프로젝트 만들기
 
-1.  개발 환경의 명령줄에서 프로젝트를 만들 위치로 디렉터리를 변경합니다. 예를 들면 `cd code\hdinsight`와 같습니다.
+1.  개발 환경의 명령줄에서 프로젝트를 만들 위치로 디렉터리를 변경합니다. 예를 들면 `cd code\hdinsight`입니다.
 
 2.  Maven과 함께 설치되는 **mvn** 명령을 사용하여 프로젝트용 스캐폴딩을 생성합니다.
 
@@ -116,18 +116,14 @@ Apache Maven을 사용하여 Java로 [Apache HBase][Apache HBase] 응용 프로�
          */
         -->
         <configuration>
-          <property>
             <name>hbase.cluster.distributed</name>
             <value>true</value>
           </property>
           <property>
             <name>hbase.zookeeper.quorum</name>
-            <value>zookeeper0,zookeeper1,zookeeper2</value>
+            <value>zookeepernode0:2181 zookeepernode1:2181 zookeepernode2:2181</value>
           </property>
-          <property>
-            <name>hbase.zookeeper.property.clientPort</name>
-            <value>2181</value>
-          </property>
+
         </configuration>
 
     이 파일은 HDInsight 클러스터용 HBase 구성을 로드하는 데 사용됩니다.

@@ -1,6 +1,6 @@
 <properties linkid="develop-net-how-to-twilio-sms-service" urlDisplayName="Twilio Voice/SMS Service" pageTitle="How to Use Twilio for Voice and SMS (.NET) - Azure" metaKeywords="Azure Twilio, Azure phone calls, Azure phone calls, Azure twilio, Azure SMS, Azure SMS, Azure voice calls, azure voice calls, Azure text messages, Azure text messages" description="Learn how to make a phone call and send a SMS message with the Twilio API service on Azure. Code samples written in .NET." metaCanonical="" services="" documentationCenter=".NET" title="How to use Twilio for voice and SMS capabilities from Azure" authors="MicrosoftHelp@twilio.com" solutions="" manager="" editor="" />
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="MicrosoftHelp@twilio.com"></tags>
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="MicrosoftHelp@twilio.com" />
 
 # Azure에서 음성 및 SMS 기능을 위해 Twilio를 사용하는 방법
 
@@ -269,7 +269,7 @@ Twilio 클라이언트 JavaScript SDK와 함께 사용할 수 있는 기능 토�
 
 <div class="dev-callout">
 <b>참고</b>
-<p>TwiML이 웹 서비스에 사용하도록 설계되었지만 브라우저에서도 TwiML을 볼 수 있습니다. 예를 들어 [http://twimlets.com/message](twimlet_message_url)를 클릭하면 빈 &lt;Response&gt; 요소를 볼 수 있습니다. 또 다른 예로, [http://twimlets.com/message?Message%5B0%5D=Hello%20World](twimlet_message_url_hello_world)를 클릭하면 &lt;Say&gt; 요소가 포함된 &lt;Response&gt; 요소를 볼 수 있습니다.</p>
+<p>TwiML이 웹 서비스에 사용하도록 설계되었지만 브라우저에서도 TwiML을 볼 수 있습니다. 예를 들어 [http://twimlets.com/message](http://twimlets.com/message)를 클릭하면 빈 &lt;Response&gt; 요소를 볼 수 있습니다. 또 다른 예로, [http://twimlets.com/message?Message%5B0%5D=Hello%20World](http://twimlets.com/message?Message%5B0%5D=Hello%20World)를 클릭하면 &lt;Say&gt; 요소가 포함된 &lt;Response&gt; 요소를 볼 수 있습니다.</p>
 </div>
 
 Twilio 제공 URL을 사용하지 않고 HTTP 응답을 반환하는 고유한 URL 사이트를 만들 수 있습니다. HTTP 응답을 반환하는 사이트는 어떤 언어로든 만들 수 있습니다. 이 항목에서는 ASP.NET 제네릭 처리기에서 URL을 호스트한다고 가정합니다.
@@ -360,7 +360,7 @@ TwiML 응답을 제공하는 방법을 설정한 후에는 **client.InitiateOutb
 
 Azure에서 ASP.NET과 함께 Twilio 사용에 대한 자세한 내용은 [Azure의 웹 역할에서 Twilio를 사용하여 전화를 거는 방법][Azure의 웹 역할에서 Twilio를 사용하여 전화를 거는 방법]을 참조하세요.
 
-[WACOM.INCLUDE [twilio\_additional\_services\_and\_next\_steps][twilio\_additional\_services\_and\_next\_steps]]
+[WACOM.INCLUDE [twilio_additional_services_and_next_steps](../includes/twilio_additional_services_and_next_steps.md)]
 
   [다음 단계]: #NextSteps
   [Twilio 정의]: #WhatIs
@@ -384,7 +384,7 @@ Azure에서 ASP.NET과 함께 Twilio 사용에 대한 자세한 내용은 [Azure
   [Twilio 계정 페이지]: https://www.twilio.com/user/account
   [번호 관리]: https://www.twilio.com/user/account/phone-numbers/verified#
   [Twilio 전화 번호 도움말]: https://www.twilio.com/help/faq/phone-numbers
-  [Visual Studio에서 Azure 프로젝트 만들기]: http://msdn.microsoft.com/en-us/library/windowsazure/ee405487.aspx
+  [Visual Studio에서 Azure 프로젝트 만들기]: http://msdn.microsoft.com/ko-kr/library/windowsazure/ee405487.aspx
   [NuGet 패키지 관리자 확장명을 사용하여 설치]: http://www.twilio.com/docs/csharp/install
   [GitHub]: https://github.com/twilio/twilio-csharp
   []: http://nuget.org/
@@ -392,4 +392,3 @@ Azure에서 ASP.NET과 함께 Twilio 사용에 대한 자세한 내용은 [Azure
   [3]: http://twimlets.com/message
   [4]: https://www.twilio.com/docs/api/twiml
   [Azure의 웹 역할에서 Twilio를 사용하여 전화를 거는 방법]: ../partner-twilio-cloud-services-dotnet-phone-call-web-role/
-  [twilio\_additional\_services\_and\_next\_steps]: ../includes/twilio_additional_services_and_next_steps.md

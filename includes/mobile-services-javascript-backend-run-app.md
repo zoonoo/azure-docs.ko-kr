@@ -14,11 +14,11 @@
 
 5.  관리 포털로 돌아가서 **데이터** 탭을 클릭한 후 **TodoItems** 테이블을 클릭합니다.
 
-    ![][]
+    ![][0]
 
     이를 통해 앱에서 테이블로 삽입된 데이터를 찾을 수 있습니다.
 
     ![][1]
 
-  []: ./media/mobile-services-javascript-backend-run-app/mobile-data-tab.png
+  [0]: ./media/mobile-services-javascript-backend-run-app/mobile-data-tab.png
   [1]: ./media/mobile-services-javascript-backend-run-app/mobile-data-browse.png

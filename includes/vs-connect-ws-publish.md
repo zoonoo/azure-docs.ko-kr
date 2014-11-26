@@ -10,6 +10,6 @@
 
 
 
-자세한 내용은 [Visual Studio에서 Azure에 연결하는 방법][]을 참조하세요.
+자세한 내용은 [Visual Studio에서 Azure에 연결하는 방법][Visual Studio에서 Azure에 연결하는 방법]을 참조하세요.
 
   [Visual Studio에서 Azure에 연결하는 방법]: http://go.microsoft.com/fwlink/?LinkId=324796

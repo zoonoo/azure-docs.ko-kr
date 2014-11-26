@@ -500,7 +500,6 @@ Azure 클라우드 서비스가 아닌 Azure 웹 사이트에서 다중 계층 �
 
 Azure 웹 사이트에 프런트 엔드를 배포하는 방법에 대한 자세한 내용은 [Azure 웹 사이트에 ASP.NET 웹 응용 프로그램 배포][Azure 웹 사이트에 ASP.NET 웹 응용 프로그램 배포](영문)를 참조하세요. Azure 클라우드 서비스에 백 엔드를 배포하는 방법에 대한 자세한 내용은 [저장소 테이블, 큐 및 Blob을 사용하는 .NET 다중 계층 응용 프로그램][저장소 테이블, 큐 및 Blob을 사용하는 .NET 다중 계층 응용 프로그램](영문)을 참조하십시오.
 
-  [create-account-note]: ../includes/create-account-note.md
   [다음 단계]: #nextsteps
   [0]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-01.png
   [Azure 큐 및 Azure 서비스 버스 큐 - 비교 및 대조]: http://msdn.microsoft.com/ko-kr/library/windowsazure/hh767287.aspx

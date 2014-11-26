@@ -1,6 +1,6 @@
 <properties pageTitle="Managing Role-Based Access Control with Windows PowerShell" metaKeywords="ResourceManager, PowerShell, Azure PowerShell, RBAC" description="Managing role-based access control with Windows PowerShell" metaCanonical="" services="" documentationCenter="" title="Managing Role-Based Access Control with Windows PowerShell" authors="guayan" solutions="" manager="terrylan" editor="mollybos" />
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="powershell" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="guayan"></tags>
+<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="powershell" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="guayan" />
 
 # Windows PowerShell을 사용하여 역할 기반 액세스 제어 관리
 
@@ -144,8 +144,6 @@ Windows PowerShell을 사용하여 역할 기반 액세스 제어를 관리하�
 -   [XPLAT CLI를 사용하여 역할 기반 액세스 제어 구성][XPLAT CLI를 사용하여 역할 기반 액세스 제어 구성]
 -   [역할 기반 액세스 제어 문제 해결][역할 기반 액세스 제어 문제 해결]
 
-  [Windows PowerShell]: /ko-kr/documentation/articles/powershell-rbac.md "Windows PowerShell"
-  [플랫폼 간 CLI]: /ko-kr/documentation/articles/xplat-cli-rbac.md "플랫폼 간 CLI"
   [Windows Management Framework 3.0]: http://www.microsoft.com/ko-kr/download/details.aspx?id=34595
   [Windows Management Framework 4.0]: http://www.microsoft.com/ko-kr/download/details.aspx?id=40855
   [Azure PowerShell 설치 및 구성 방법]: http://www.windowsazure.com/ko-kr/documentation/articles/install-configure-powershell/

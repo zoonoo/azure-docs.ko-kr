@@ -1,6 +1,6 @@
-<properties title="RemoteApp의 클라우드 배포를 만드는 방법" pageTitle="RemoteApp의 클라우드 배포를 만드는 방법" description="Azure 클라우드에 데이터를 저장하는 RemoteApp 배포를 만드는 방법에 대해 알아봅니다." metaKeywords="" services="" solutions="" documentationCenter="" authors="elizapo" manager="kathyw" />
+<properties title="How to create a hybrid deployment of RemoteApp" pageTitle="How to create a hybrid deployment of RemoteApp" description="Learn how to create a deployment of RemoteApp that connects to your internal network." metaKeywords="" services="" solutions="" documentationCenter="" authors="elizapo"  />
 
-<tags ms.service="remoteapp" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/05/2014" ms.author="elizapo" ms.manager="kathyw" />
+<tags ms.service="remoteapp" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="elizapo" />
 
 # RemoteApp의 클라우드 배포를 만드는 방법
 
@@ -20,10 +20,9 @@
 
 서비스를 만들기 전에 다음을 수행해야 합니다.
 
--   RemoteApp의 미리 보기에 등록합니다. <http://azure.microsoft.com/ko-kr/services/remoteapp/>에서 등록할 수 있습니다.
--   액세스 권한을 부여할 사용자 및 그룹에 대한 정보를 수집합니다. 이 정보는 사용자 또는 그룹의 Microsoft 계정 정보나 Active Directory 작업 계정 정보가 될 수 있습니다.
+-   RemoteApp의 미리 보기에 등록합니다. [][]<http://azure.microsoft.com/ko-kr/services/remoteapp/></a>에서 등록할 수 있습니다.
+-   액세스 권한을 부여할 사용자 및 그룹에 대한 정보를 수집합니다. 이 정보는 사용자 또는 그룹의 Microsoft 계정 정보나 Active Directory 조직 계정 정보가 될 수 있습니다.
 -   이 프로세스에서는 구독의 일부로 제공된 템플릿 이미지를 사용할 예정이거나 사용할 템플릿 이미지를 이미 업로드했다고 가정합니다. 다른 템플릿 이미지를 업로드해야 하는 경우 템플릿 이미지 페이지에서 그렇게 할 수 있습니다. 단지 **템플릿 이미지 업로드**를 클릭하고 마법사의 단계를 따르면 됩니다.
--   사용자 지정 앱이나 LOB 프로그램을 제공하려는 경우 새로운 [사용자 지정 템플릿 이미지][사용자 지정 템플릿 이미지]를 만든 다음 클라우드 배포에서 사용합니다.
 
 ## **1단계: RemoteApp 서비스 만들기**
 
@@ -34,7 +33,7 @@
 4.  이 서비스를 만드는 데 사용할 구독을 선택합니다.
 5.  이 서비스에 사용할 템플릿을 선택합니다.
 
-    **팁:** RemoteApp의 구독은 Office 2013 프로그램, 게시된 항목(예: Word) 및 기타 게시할 항목을 포함하는 템플릿 이미지와 함께 제공됩니다. 새로운 [사용자 지정 템플릿 이미지][사용자 지정 템플릿 이미지]를 만든 다음 클라우드 배포에서 사용할 수도 있습니다.
+    **팁:** RemoteApp의 구독은 Office 2013 프로그램, 게시된 항목(예: Word) 및 기타 게시할 항목을 포함하는 템플릿 이미지와 함께 제공됩니다.
 
 6.  **RemoteApp 서비스 만들기**를 클릭합니다.
 
@@ -59,16 +58,16 @@ RemoteApp 서비스에 여러 프로그램을 게시할 수 있습니다. Remote
 RemoteApp 서비스를 만들었으므로 원격 리소스를 사용할 수 있는 사용자 및 그룹을 추가해야 합니다. Active Directory를 사용하는 경우 액세스 권한을 제공하는 사용자 또는 그룹은 이 RemoteApp 서비스를 만드는 데 사용한 구독과 연결된 Active Directory 테넌트에 있어야 합니다.
 
 1.  빠른 시작 페이지에서 **사용자 액세스 구성**을 클릭합니다.
-2.  액세스 권한을 부여할 Microsoft 계정이나 Active Directory의 작업 계정 또는 그룹 이름을 입력합니다.
+2.  액세스 권한을 부여할 Microsoft 계정이나 Active Directory의 조직 계정 또는 그룹 이름을 입력합니다.
 
-    사용자의 경우 “user@domain.com” 형식을 사용해야 합니다. 그룹의 경우 그룹 이름을 입력합니다.
+    사용자의 경우 “<user@domain.com>” 형식을 사용해야 합니다. 그룹의 경우 그룹 이름을 입력합니다.
 
 3.  사용자 또는 그룹이 확인되면 **저장**을 클릭합니다.
 
 ## 다음 단계
 
-RemoteApp 클라우드 배포를 만들고 배포했습니다. 다음 단계는 사용자가 원격 데스크톱 클라이언트를 다운로드하여 설치하도록 설정하는 것입니다. RemoteApp 빠른 시작 페이지에서 클라이언트의 URL을 찾을 수 있습니다. 그런 다음 사용자가 클라이언트에 로그인하여 게시된 RemoteApp 프로그램에 액세스하도록 합니다.
+RemoteApp 클라우드 배포를 만들고 배포했습니다. 다음 단계는 사용자가 원격 데스크톱 클라이언트를 다운로드하여 설치하도록 설정하는 것입니다. RemoteApp 빠른 시작 페이지에서 클라이언트의 URL을 찾을 수 있습니다. 그런 다음, 사용자가 Azure에 로그인하여 게시된 RemoteApp 프로그램에 액세스하도록 합니다.
 
-  [사용자 지정 템플릿 이미지]: http://azure.microsoft.com/ko-kr/documentation/articles/remoteapp-create-custom-image/
+  []: http://azure.microsoft.com/ko-kr/services/remoteapp/
   [Windows Azure 관리 포털]: http://manage.windowsazure.com
   [디렉터리 동기화 로드맵]: http://msdn.microsoft.com/ko-kr/library/azure/hh967642.aspx

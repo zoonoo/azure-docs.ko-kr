@@ -117,9 +117,7 @@
   [알림을 받기 위한 데이터 삽입]: #test
   [모바일 서비스 시작하기]: /ko-kr/develop/mobile/tutorials/get-started/
   [데이터 시작하기]: /ko-kr/develop/mobile/tutorials/get-started-with-data-dotnet/
-  [mobile-services-create-new-push-vs2013]: ../includes/mobile-services-create-new-push-vs2013.md
   [모바일 서비스에서 서버 스크립트 작업]: http://go.microsoft.com/fwlink/p/?LinkID=287178
-  [mobile-services-create-new-push-vs2013-2]: ../includes/mobile-services-create-new-push-vs2013-2.md
   [0]: ./media/mobile-services-windows-store-dotnet-get-started-push/mobile-quickstart-push1.png
   [1]: ./media/mobile-services-windows-store-dotnet-get-started-push/mobile-quickstart-push2.png
   [알림 허브 시작하기]: /ko-kr/manage/services/notification-hubs/getting-started-windows-dotnet/

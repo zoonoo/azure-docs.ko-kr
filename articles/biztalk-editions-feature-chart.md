@@ -1,6 +1,6 @@
 <properties linkid="manage-services-biztalk-services-editions-chart" urlDisplayName="Editions chart" pageTitle="Learn about features in BizTalk Services editions | Azure" metaKeywords="BizTalk Services, get started, Azure, editions" description="Compare the capabilities of the BizTalk Services editions: Free, Developer, Basic, Standard, and Premium." metaCanonical="" services="biztalk-services" documentationCenter="" title=" Basic" authors="mandia" solutions="" manager="dwrede" editor="cgronlun" />
 
-<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia"></tags>
+<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia" />
 
 # BizTalk 서비스: Edition 차트
 
@@ -234,7 +234,6 @@ Azure 관리 포털에서 Azure BizTalk 서비스를 프로비전하려면 [BizT
 -   [BizTalk 서비스: 발급자 이름 및 발급자 키][BizTalk 서비스: 발급자 이름 및 발급자 키]
 -   [Azure BizTalk 서비스 SDK로 시작하는 방법][Azure BizTalk 서비스 SDK로 시작하는 방법]
 
-  [Azure BizTalk 서비스 가격]: http://go.microsoft.com/fwlink/p/?LinkID=304011
   [BizTalk 서비스: 백업 및 복원]: http://go.microsoft.com/fwlink/p/?LinkID=329873
   [다운로드]: http://www.microsoft.com/download/details.aspx?id=39087
   [BizTalk 서비스: Azure 관리 포털을 사용하여 프로비전]: http://go.microsoft.com/fwlink/p/?LinkID=302280

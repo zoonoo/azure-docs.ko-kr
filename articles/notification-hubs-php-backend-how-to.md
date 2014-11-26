@@ -1,6 +1,6 @@
 <properties linkid="notification-hubs-php-back-end-how-to" urlDisplayName="How to use Notification Hubs with PHP" pageTitle="How to use Notification Hubs with PHP" metaKeywords="" description="Learn how to use Azure Notification Hubs from a PHP back-end." metaCanonical="" services="mobile-services,notification-hubs,push,php" documentationCenter="" title="How to use Notification Hubs with PHP" authors="elioda" solutions="" manager="" editor="" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="php" ms.topic="article" ms.date="01/01/1900" ms.author="elioda"></tags>
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="php" ms.topic="article" ms.date="01/01/1900" ms.author="elioda" />
 
 # Java/PHP에서 알림 허브를 사용하는 방법
 
@@ -247,8 +247,6 @@ iOS 기본 알림을 보내려면 다음을 수행합니다.
 -   [속보 자습서]에서 알림 허브 태그 지정 기능에 대해 계속 알아봅니다.
 -   [사용자에게 알림 자습서]에서 개별 사용자에게 알림을 게시하는 방법을 알아봅니다.
 
-  [Java]: /ko--kr/documentation/articles/notification-hubs-java-backend-how-to/ "Java"
-  [PHP]: /ko--kr/documentation/articles/notification-hubs-php-backend-how-to/ "PHP"
   [알림 허브 REST API]: http://msdn.microsoft.com/ko--kr/library/dn223264.aspx
   [시작 자습서]: http://azure.microsoft.com/ko--kr/documentation/articles/notification-hubs-ios-get-started/
   [.NET 알림 허브 SDK]: http://msdn.microsoft.com/ko--kr/library/jj933431.aspx

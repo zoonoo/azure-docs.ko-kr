@@ -1,6 +1,6 @@
 <properties linkid="develop-php-website-with-mysql-and-git" urlDisplayName="Web w/ MySQL + Git" pageTitle="PHP website with MySQL and Git - Azure tutorial" metaKeywords="" description="A tutorial that demonstrates how to create a PHP website that stores data in MySQL and use Git deployment to Azure." metaCanonical="" services="web-sites" documentationCenter="PHP" title="Create a PHP-MySQL Azure website and deploy using Git" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
 
 # PHP-MySQL Azure 웹 사이트 만들기 및 Git를 사용하여 배포
 
@@ -242,7 +242,6 @@ Azure 웹 사이트를 만들었으므로 로컬에서 응용 프로그램을 �
   [PHP]: http://www.php.net/manual/en/install.php
   [Git]: http://git-scm.com/
   [Azure PHP 웹 사이트]: ./media/web-sites-php-mysql-deploy-use-git/running_app_2.png
-  [Azure 무료 평가판]: http://www.windowsazure.com/ko-kr/pricing/free-trial/?WT.mc_id=A74E0F923
   [PHP용 Azure SDK]: http://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/azurephpsdk.appids
   [Azure 관리 포털]: https://manage.windowsazure.com
   [새 Azure 웹 사이트 만들기]: ./media/web-sites-php-mysql-deploy-use-git/new_website.jpg

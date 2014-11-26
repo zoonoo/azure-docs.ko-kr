@@ -454,9 +454,7 @@ Android NDK를 설치해야 합니다. [][]<http://developer.android.com/sdk/ndk
   [푸시 알림을 전송하도록 스크립트 업데이트]: #update-scripts
   [알림을 받기 위한 데이터 삽입]: #test
   [모바일 서비스 시작하기]: /ko-kr/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started
-  [Apple 푸시 알림 설정]: ../includes/enable-apple-push-notifications.md
   [accounts.google.com]: http://go.microsoft.com/fwlink/p/?LinkId=268302
-  [GCM 사용]: ../includes/mobile-services-enable-Google-cloud-messaging.md
   [Java 개발 도구 설치]: http://docs.appcelerator.com/titanium/latest/#!/guide/Installing_the_Java_Development_Tools
   [0]: http://developer.android.com/sdk/ndk/index.html
   [0]: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push/image0011.png
@@ -464,7 +462,6 @@ Android NDK를 설치해야 합니다. [][]<http://developer.android.com/sdk/ndk
   [2]: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push/image0041.png
   [3]: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push/image0061.png
   [Titanium 모듈 사용]: http://docs.appcelerator.com/titanium/latest/#!/guide/Using_Titanium_Modules
-  [mobile-services-apns-configure-push]: ../includes/mobile-services-apns-configure-push.md
   [4]: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push/image062.png
   [5]: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push/image064.png
   [6]: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push/image066.png

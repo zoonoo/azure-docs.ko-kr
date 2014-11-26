@@ -1,6 +1,6 @@
 <properties linkid="dev-net-tutorials-web-app-with-sql-azure" urlDisplayName="" pageTitle="" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title=" OAuth" authors="riande" solutions="" manager="wpickett" editor="mollybos" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="riande"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="riande" />
 
 # Azure 웹 사이트에 멤버 자격, OAuth 및 SQL 데이터베이스를 포함한 보안 ASP.NET MVC 앱 배포
 
@@ -29,7 +29,7 @@ ASP.NET MVC 4에서 빌드되고 데이터베이스 액세스에 ADO.NET Entity 
 
 ![로그인 페이지][로그인 페이지]
 
-[WACOM.INCLUDE [create-account-and-websites-note][create-account-and-websites-note]]
+[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 이 자습서에서는 다음을 수행합니다.
 
@@ -155,7 +155,7 @@ Azure에 배포할 응용 프로그램을 만들기 위해 지금 수행해야 �
 
     ![.publishsettings 파일 저장][.publishsettings 파일 저장]
 
-    [WACOM.INCLUDE [publishsettingsfilewarningchunk][publishsettingsfilewarningchunk]]
+    [WACOM.INCLUDE [publishsettingsfilewarningchunk](../includes/publishsettingsfilewarningchunk.md)]
 
 5.  Visual Studio의 **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 상황에 맞는 메뉴에서 **게시**를 선택합니다.
 
@@ -700,11 +700,7 @@ Entity Framework 및 Code First 마이그레이션에 대한 자세한 내용은
 
 
 
-  [Visual Studio 2013]: /ko-kr/develop/net/tutorials/web-site-with-sql-database/ "Visual Studio 2013"
-  [Visual Studio 2012]: /ko-kr/develop/net/tutorials/web-site-with-sql-database-vs2012/ "Visual Studio 2012"
-  [이 자습서의 최신 버전]: /ko-kr/develop/net/tutorials/web-site-with-sql-database/
   [로그인 페이지]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxb.png
-  [create-account-and-websites-note]: ../includes/create-account-and-websites-note.md
   [개발 환경 설정]: #bkmk_setupdevenv
   [Azure 환경 설정]: #bkmk_setupwindowsazure
   [ASP.NET MVC 4 응용 프로그램 만들기]: #bkmk_createmvc4app
@@ -732,7 +728,6 @@ Entity Framework 및 Code First 마이그레이션에 대한 자세한 내용은
   [관리 포털 웹 사이트 탭의 Contact manager 응용 프로그램]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/dntutmobile-setup-azure-site-006.png
   [빠른 시작 탭 및 게시 프로필 다운로드 단추]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/dntutmobile-deploy1-download-profile.png
   [.publishsettings 파일 저장]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/dntutmobile-deploy1-save-profile.png
-  [publishsettingsfilewarningchunk]: ../includes/publishsettingsfilewarningchunk.md
   [프로젝트 상황에 맞는 메뉴의 게시]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/PublishVSSolution.png
   [게시 설정 가져오기]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/ImportPublishSettings.png
   [win az 구독 추가]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rzAddWAsub.png
@@ -776,8 +771,6 @@ Entity Framework 및 Code First 마이그레이션에 대한 자세한 내용은
   [6]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxNOT2.png
   [dbDacFx]: http://msdn.microsoft.com/ko-kr/library/dd394698.aspx
   [Microsoft SQL Server 2012 Express 다운로드 센터]: http://www.microsoft.com/ko-kr/download/details.aspx?id=29062
-  [ENU\\x64\\SQLManagementStudio\_x64\_ENU.exe]: http://download.microsoft.com/download/8/D/D/8DD7BDBA-CEF7-4D8E-8C16-D9F69527F909/ENU/x64/SQLManagementStudio_x64_ENU.exe
-  [ENU\\x86\\SQLManagementStudio\_x86\_ENU.exe]: http://download.microsoft.com/download/8/D/D/8DD7BDBA-CEF7-4D8E-8C16-D9F69527F909/ENU/x86/SQLManagementStudio_x86_ENU.exe
   [SQL 설치]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxSS.png
   [서버에 연결 대화 상자]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxC2S.png
   [스크립트 생성]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxGenScripts.png

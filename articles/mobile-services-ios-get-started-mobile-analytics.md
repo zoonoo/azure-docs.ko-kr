@@ -76,7 +76,7 @@
 
 <http://www.capptain.com>에서 Capptain을 통해 앱에 수행할 수 있는 작업에 대해 자세히 알아보세요.
 
-<!-- Anchors. --> <!-- URLs. -->
+ 
 
   [Capptain]: http://www.capptain.com
   [Capptain SDK 초기화]: #initialize

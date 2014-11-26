@@ -63,22 +63,15 @@
 
 ## <a name="enabledomain"></a>트래픽 관리자 웹 사이트 사용
 
-[WACOM.INCLUDE [modes][2]]
+[WACOM.INCLUDE [modes](../includes/custom-dns-web-site-modes-traffic-manager.md)]
 
   [Network Solutions]: /ko-KR/documentation/articles/web-sites-network-solutions-custom-domain-name "Network Solutions"
-  [websites-cloud-services-css-guided-walkthrough]: ../includes/websites-cloud-services-css-guided-walkthrough.md
-  [intro]: ../includes/custom-dns-web-site-intro-traffic-manager.md
   [1]: https://www.networksolutions.com
-  [tmwebsitefooter]: ../includes/custom-dns-web-site-traffic-manager-notes.md
-  [introfooter]: ../includes/custom-dns-web-site-intro-notes.md
   [DNS 레코드 이해]: #understanding-records
   [표준 모드에 대해 웹 사이트 구성]: #bkmk_configsharedmode
   [사용자 지정 도메인에 대한 DNS 레코드 추가]: #bkmk_configurecname
   [웹 사이트에 트래픽 관리자 사용]: #enabledomain
-  [understandingdns]: ../includes/custom-dns-web-site-understanding-dns-traffic-manager.md
-  [modes]: ../includes/custom-dns-web-site-modes-traffic-manager.md
   [DNS 편집 페이지]: ./media/web-sites-custom-domain-name/ns-editdns.png
   [Edit Advanced DNS Records가 강조 표시되어 있는 도메인 이름 페이지]: ./media/web-sites-custom-domain-name/ns-editadvanced.png
   [고급 DNS 페이지 업데이트]: ./media/web-sites-custom-domain-name/ns-updatecnameadvanced.png
   [CNAME 양식]: ./media/web-sites-custom-domain-name/ns-cnametm.png
-  [2]: ../includes/custom-dns-web-site-enable-on-traffic-manager.md

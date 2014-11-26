@@ -1,4 +1,4 @@
-<properties urlDisplayName="Upload Data" pageTitle="HDInsight에서 Hadoop 작업용 데이터 업로드 | Azure" metaKeywords="" description="Azure 저장소 탐색기, Azure PowerShell, Hadoop 명령줄 또는 Sqoop을 사용하여 HDInsight에서 데이터를 업로드 및 액세스하는 방법에 대해 알아봅니다." metaCanonical="" services="storage,hdinsight" documentationCenter="" title="HDInsight에서 Hadoop 작업용 데이터 업로드" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
+<properties linkid="manage-services-hdinsight-upload-data-for-hadoop-jobs-in-hdinsight" urlDisplayName="Upload Data" pageTitle="Upload data for Hadoop jobs in HDInsight | Azure" metaKeywords="" description="Learn how to upload and access data in HDInsight using Azure Storage Explorer, Azure PowerShell, the Hadoop command line, or Sqoop." metaCanonical="" services="storage,hdinsight" documentationCenter="" title="Upload data for Hadoop jobs in HDInsight" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao" />
 
@@ -77,7 +77,7 @@ Azure 탐색기 도구를 사용하면 몇몇 0바이트 파일을 발견할 수
 
 ## <span id="storageexplorer"></span></a>Azure 저장소 탐색기를 사용하여 Blob 저장소에 데이터 업로드
 
-*Azure 저장소 탐색기*는 Azure 저장소의 데이터를 검사하고 변경하기 위한 유용한 도구로서 무료이며 <http://azurestorageexplorer.codeplex.com/>에서 다운로드할 수 있습니다.
+*Azure 저장소 탐색기*는 Azure 저장소의 데이터를 검사하고 변경하기 위한 유용한 도구로서 무료이며 [][]<http://azurestorageexplorer.codeplex.com/></a>에서 다운로드할 수 있습니다.
 
 이 도구를 사용하기 전에 Azure 저장소 계정 이름과 계정 키를 알아야 합니다. 이 정보를 확인하는 방법을 알아보려면 [저장소 계정 관리][저장소 계정 관리]의 "방법: 저장소 액세스 키 보기, 복사 및 다시 생성" 섹션을 참조하세요.
 
@@ -198,6 +198,7 @@ Sqoop 사용에 대한 자세한 내용은 [HDInsight와 함께 Sqoop 사용][HD
   [Sqoop을 사용하여 Azure SQL 데이터베이스에서 Blob 저장소로 데이터 가져오기]: #sqoop
   [AzCopy를 다운로드]: http://aka.ms/WaCopy
   [Azure PowerShell 설치 및 구성]: ../install-configure-powershell/
+  []: http://azurestorageexplorer.codeplex.com/ "Azure Storage Explorer"
   [저장소 계정 관리]: ../storage-manage-storage-account/
   [HDI.AzureStorageExplorer]: ./media/hdinsight-upload-data/HDI.AzureStorageExplorer.png
   [HDI.ASEAddAccount]: ./media/hdinsight-upload-data/HDI.ASEAddAccount.png

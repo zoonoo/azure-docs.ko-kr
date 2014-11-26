@@ -1,19 +1,19 @@
 다음으로는 데이터 저장소를 위한 메모리 내 목록 대신 사용할 새 모바일 서비스를 만듭니다. 다음 단계에 따라 새 모바일 서비스를 만드세요.
 
-1.  [Azure 관리 포털][]에 로그인합니다.
+1.  [Azure 관리 포털][Azure 관리 포털]에 로그인합니다.
 2.  탐색 창 맨 아래쪽에서 **+새로 만들기**를 클릭합니다.
 
-    ![plus-new][]
+    ![plus-new][plus-new]
 
 3.  **계산**, **모바일 서비스**를 확장한 후 **만들기**를 클릭합니다.
 
-    ![mobile-create][]
+    ![mobile-create][mobile-create]
 
     **새 모바일 서비스** 대화 상자가 표시됩니다.
 
 4.  **Create a mobile service** 페이지에서 **Create a free 20 MB SQL Database**를 선택한 후 **URL** 입력란에 새 모바일 서비스를 위한 하위 도메인 이름을 입력하고 이름 확인을 기다립니다. 이름 확인이 완료되면 오른쪽 화살표 단추를 클릭하여 다음 페이지로 이동합니다.
 
-    ![mobile-create-page1][]
+    ![mobile-create-page1][mobile-create-page1]
 
     **데이터베이스 설정 지정** 페이지가 표시됩니다.
 
@@ -23,7 +23,7 @@
 
 5.  **이름**에 새 데이터베이스 이름을 입력한 후 **로그인 이름**에 새 SQL 데이터베이스 서버의 관리자 로그인 이름을 입력하고, 암호를 입력한 후 확인하고, 확인 단추를 클릭하여 완료합니다.
 
-    ![mobile-create-page2][]
+    ![mobile-create-page2][mobile-create-page2]
 
     <div class="dev-callout"> 
 <b>참고</b> 

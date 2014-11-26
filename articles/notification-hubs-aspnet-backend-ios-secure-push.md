@@ -137,5 +137,4 @@ Microsoft Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플
 
 4.  iOS 앱 UI에서 **로그인**을 클릭합니다. 그리고 나서 **푸시 보내기**를 클릭합니다. 알림 센터에 보안 알림이 표시되는지 확인해야 합니다.
 
-  [notification-hubs-aspnet-backend-securepush]: ../includes/notification-hubs-aspnet-backend-securepush.md
   [0]: ./media/notification-hubs-aspnet-backend-ios-secure-push/secure-push-ios-1.png

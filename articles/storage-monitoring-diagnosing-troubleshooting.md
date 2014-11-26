@@ -805,7 +805,8 @@ Blob 저장소에서 다운로드한 저장소 로깅 데이터를 Excel로 가�
 
 이 문서를 작성한 시점에서는 Application Insights가 미리 보기 상태였습니다. 자세한 내용은 [MSDN의 Visual Studio Online용 Application Insights][MSDN의 Visual Studio Online용 Application Insights]에서 확인할 수 있습니다.
 
-<!--Anchors--> <!--Image references-->
+<!--Anchors-->
+<!--Image references-->
 
   [소개]: #introduction
   [이 가이드의 구성 방식]: #how-this-guide-is-organized

@@ -10,4 +10,3 @@ Azure 모바일 서비스에서는 지원되는 .NET 언어 중 하나를 사용
 
 [WACOM.INCLUDE [mobile-services-how-to-configure-iis-express](../includes/mobile-services-how-to-configure-iis-express.md)]
 
-  [mobile-services-how-to-configure-iis-express]: ../includes/mobile-services-how-to-configure-iis-express.md

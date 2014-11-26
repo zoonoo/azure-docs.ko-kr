@@ -2,7 +2,7 @@
 
 > [WACOM.NOTE]클라이언트 관리 인증 또는 서비스 관리 인증을 사용하는지에 관계없이 모바일 서비스에서 발급된 토큰을 캐시할 수 있습니다. 이 자습서에서는 서비스 관리 인증을 사용합니다.
 
-1.  iOS 클라이언트에서 인증 암호를 암호화하고 저장할 때는 Keychain을 사용하는 것이 좋습니다. 이렇게 하려면 KeychainWrapper 클래스를 만들어 [KeychainWrapper.m][] 및 [KeychainWrapper.h][]를 [LensRocket sample][]에서 복사합니다. 이 KeychainWrapper를 사용하는 이유는 Apple의 설명서에 정의된 KeychainWrapper는 ARC(Automatic Reference Counting)를 지원하지 않기 때문입니다.
+1.  iOS 클라이언트에서 인증 암호를 암호화하고 저장할 때는 Keychain을 사용하는 것이 좋습니다. 이렇게 하려면 KeychainWrapper 클래스를 만들어 [KeychainWrapper.m][KeychainWrapper.m] 및 [KeychainWrapper.h][KeychainWrapper.h]를 [LensRocket sample][LensRocket sample]에서 복사합니다. 이 KeychainWrapper를 사용하는 이유는 Apple의 설명서에 정의된 KeychainWrapper는 ARC(Automatic Reference Counting)를 지원하지 않기 때문입니다.
 
 2.  프로젝트 파일 **QSTodoListViewController.m**을 열고 다음 코드를 추가합니다.
 
@@ -73,7 +73,7 @@
             [self refresh];
         }
 
-5.  앱에서 모바일 서비스에 사용자가 인증되었으므로 전달되어야 하는 요청을 보낸 경우 401 응답(권한 없음 오류)이 반환되면 이는 전달한 사용자 토큰이 만료되었음을 의미합니다. 모바일 서비스와 상호 작용하는 모든 메서드에 대한 완료 처리기에서 401 응답을 확인하거나 모든 작업을 한 곳, 즉 MSFilter의 handleRequest 메서드에서 처리할 수 있습니다. 이 시나리오를 처리하는 방법에 대한 자세한 내용은 [이 블로그 게시물][]을 참조하세요.
+5.  앱에서 모바일 서비스에 사용자가 인증되었으므로 전달되어야 하는 요청을 보낸 경우 401 응답(권한 없음 오류)이 반환되면 이는 전달한 사용자 토큰이 만료되었음을 의미합니다. 모바일 서비스와 상호 작용하는 모든 메서드에 대한 완료 처리기에서 401 응답을 확인하거나 모든 작업을 한 곳, 즉 MSFilter의 handleRequest 메서드에서 처리할 수 있습니다. 이 시나리오를 처리하는 방법에 대한 자세한 내용은 [이 블로그 게시물][이 블로그 게시물]을 참조하세요.
 
   [KeychainWrapper.m]: https://github.com/WindowsAzure-Samples/iOS-LensRocket/blob/master/source/client/LensRocket/Misc/KeychainWrapper.m
   [KeychainWrapper.h]: https://github.com/WindowsAzure-Samples/iOS-LensRocket/blob/master/source/client/LensRocket/Misc/KeychainWrapper.h

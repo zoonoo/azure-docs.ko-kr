@@ -52,7 +52,8 @@
 
 푸셔 시작에 대한 자세한 내용은 [푸셔 이해][푸셔 이해](영문)를 참조하십시오.
 
-<!--images--> <!--Links-->
+<!--images-->
+<!--Links-->
 
   [Azure 관리 포털]: https://manage.windowsazure.com
   [command-bar-new]: ./media/pusher-sign-up/1-command-bar-new.png

@@ -82,6 +82,6 @@ Apple HLS 스트리밍 콘텐츠에 대한 로케이터를 빌드하려면
   [Media Services SDK for .NET 시작]: http://go.microsoft.com/fwlink/?linkid=252966
   [Media Services SDK for .NET을 사용하여 응용 프로그램 빌드]: http://go.microsoft.com/fwlink/?linkid=247821
   [Azure Media Services REST API를 사용하여 응용 프로그램 빌드]: http://go.microsoft.com/fwlink/?linkid=252967
-  [미디어 서비스 포럼]: http://social.msdn.microsoft.com/Forums/en-US/MediaServices/threads
+  [미디어 서비스 포럼]: http://social.msdn.microsoft.com/Forums/ko-kr/MediaServices/threads
   [미디어 서비스 계정을 모니터링하는 방법]: ../media-services-monitor-services-account/
   [미디어 서비스에서 콘텐츠를 관리하는 방법]: ../media-services-manage-content/

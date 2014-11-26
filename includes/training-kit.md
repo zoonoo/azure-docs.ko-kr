@@ -4,4 +4,3 @@
 <p><a href="http://go.microsoft.com/fwlink/p/?LinkId=331133" class="solution-cta-link light-font arrowbtn green">다운로드</a></p>
 </div>
 
-  [다운로드]: http://go.microsoft.com/fwlink/p/?LinkId=331133

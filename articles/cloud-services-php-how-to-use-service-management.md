@@ -1,4 +1,4 @@
-<properties urlDisplayName="Service Management" pageTitle="Azure 서비스 관리 API 사용 방법(PHP)" metaKeywords="" description="Azure PHP 서비스 관리 API를 사용하여 클라우드 서비스 및 기타 Azure 응용 프로그램을 관리하는 방법에 대해 알아봅니다." metaCanonical="" services="" documentationCenter="PHP" title="PHP에서 서비스 관리를 사용하는 방법" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
+<properties linkid="develop-php-how-to-guides-service-management" urlDisplayName="Service Management" pageTitle="How to use Azure service management APIs (PHP)" metaKeywords="" description="Learn how to use the Azure PHP Service Management APIs to manage cloud services and other Azure applications." metaCanonical="" services="" documentationCenter="PHP" title="How to use Service Management from PHP" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
 
 <tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
 
@@ -57,7 +57,7 @@ Azure 서비스 관리를 사용하는 PHP 응용 프로그램을 만드는 데 
 
     `openssl x509 -inform pem -in mycert.pem -outform der -out mycert.cer`
 
-Azure 인증서에 대한 자세한 내용은 [Azure의 인증서 개요][Azure의 인증서 개요]를 참조하세요. OpenSSL 매개 변수에 대한 자세한 설명은 <http://www.openssl.org/docs/apps/openssl.html>(영문)의 자료를 참조하세요.
+Azure 인증서에 대한 자세한 내용은 [Azure의 인증서 개요][Azure의 인증서 개요]를 참조하십시오. OpenSSL 매개 변수에 대한 자세한 설명은 [][]<http://www.openssl.org/docs/apps/openssl.html></a>(영문)의 자료를 참조하십시오.
 
 [Azure 명령줄 도구][Azure 명령줄 도구]를 사용하여 게시 설정 파일을 다운로드하고 가져온 경우 고유한 파일을 만드는 대신 도구에서 만든 `.pem` 파일을 사용할 수 있습니다. 도구에서 자동으로 `.cer`을 만들고 Azure에 업로드하며, 컴퓨터의 사용자 디렉터리에 있는 `.azure` 디렉터리에 해당 `.pem` 파일을 저장합니다.
 
@@ -98,7 +98,7 @@ Azure 인증서에 대한 자세한 내용은 [Azure의 인증서 개요][Azure�
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/ko-kr/library/windowsazure/ee460801
+        // http://msdn.microsoft.com/ko-KR/library/windowsazure/ee460801
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -125,33 +125,33 @@ Azure 인증서에 대한 자세한 내용은 [Azure의 인증서 개요][Azure�
 
 응용 프로그램을 만들어 Azure에서 실행하면 코드와 구성은 모두 Azure [클라우드 서비스][클라우드 서비스](이전 Azure 릴리스에서는 *호스팅 서비스*라 함)라고 합니다. **createHostedServices** 메서드를 통해 호스팅 서비스 이름(Azure에서 고유해야 함), 레이블(base64로 인코딩된 호스팅 서비스 이름) 및 **CreateServiceOptions** 개체를 제공하여 새 호스팅 서비스를 만들 수 있습니다. [CreateServiceOptions][CreateServiceOptions] 개체를 사용하여 위치 *또는* 서비스의 선호도 그룹을 설정할 수 있습니다.
 
-    require_once 'vendor\autoload.php';
+	require_once 'vendor\autoload.php';
 
-    use WindowsAzure\Common\ServicesBuilder;
-    use WindowsAzure\ServiceManagement\Models\CreateServiceOptions;
-    use WindowsAzure\Common\ServiceException;
+	use WindowsAzure\Common\ServicesBuilder;
+	use WindowsAzure\ServiceManagement\Models\CreateServiceOptions;
+	use WindowsAzure\Common\ServiceException;
 
-    try{
-        // Create REST proxy.
-        $serviceManagementRestProxy = ServicesBuilder::getInstance()->createServiceManagementService($conn_string);
-        
+	try{
+		// Create REST proxy.
+		$serviceManagementRestProxy = ServicesBuilder::getInstance()->createServiceManagementService($conn_string);
+		
         $name = "myhostedservice";
         $label = base64_encode($name);
         $options = new CreateServiceOptions();
         $options->setLocation('West US');
-        // Instead of setLocation, you can use setAffinityGroup
-        // to set an affinity group.
+		// Instead of setLocation, you can use setAffinityGroup
+		// to set an affinity group.
 
         $result = $serviceManagementRestProxy->createHostedService($name, $label, $options);
-    }
-    catch(ServiceException $e){
-        // Handle exception based on error codes and messages.
-        // Error codes and messages are here: 
-        // http://msdn.microsoft.com/ko-kr/library/windowsazure/ee460801
-        $code = $e->getCode();
-        $error_message = $e->getMessage();
-        echo $code.": ".$error_message."<br />";
-    }
+	}
+	catch(ServiceException $e){
+		// Handle exception based on error codes and messages.
+		// Error codes and messages are here: 
+		// http://msdn.microsoft.com/ko-KR/library/windowsazure/ee460801
+		$code = $e->getCode();
+		$error_message = $e->getMessage();
+		echo $code.": ".$error_message."<br />";
+	}
 
 [ListHostedServicesResult][ListHostedServicesResult] 개체를 반환하는 **listHostedServices** 메서드로 구독의 모든 호스팅 서비스를 나열할 수 있습니다. 그런 다음 **getHostedServices** 메서드를 호출하여 [HostedServices] 개체 배열을 반복하고 서비스 속성을 검색할 수 있습니다.
 
@@ -231,7 +231,7 @@ Azure 인증서에 대한 자세한 내용은 [Azure의 인증서 개요][Azure�
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/ko-kr/library/windowsazure/ee460801
+        // http://msdn.microsoft.com/ko-KR/library/windowsazure/ee460801
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -263,7 +263,7 @@ Azure 인증서에 대한 자세한 내용은 [Azure의 인증서 개요][Azure�
 
 **changeDeploymentConfiguration** 메서드 또는 **updateDeploymentStatus** 메서드를 사용하여 배포를 업데이트할 수 있습니다.
 
-**changeDeploymentConfiguration** 메서드를 통해 새 서비스 구성(`.cscfg`) 파일을 업로드할 수 있으며 이로 인해 일부 서비스 설정(배포의 인스턴스 수 포함)이 변경됩니다. 자세한 내용은 [Azure 서비스 구성 스키마(.cscfg)][Azure 서비스 구성 스키마(.cscfg)]를 참조하세요. 다음 예제는 새 서비스 구성 파일을 업로드하는 방법을 보여 줍니다.
+**changeDeploymentConfiguration** 메서드를 통해 새 서비스 구성(`.cscfg`) 파일을 업로드할 수 있으며 이로 인해 일부 서비스 설정(배포의 인스턴스 수 포함)이 변경됩니다. 자세한 내용은 [Azure 서비스 구성 스키마(.cscfg)][Azure 서비스 구성 스키마(.cscfg)]를 참조하십시오. 다음 예제는 새 서비스 구성 파일을 업로드하는 방법을 보여 줍니다.
 
     require_once 'vendor\autoload.php';
 
@@ -289,7 +289,7 @@ Azure 인증서에 대한 자세한 내용은 [Azure의 인증서 개요][Azure�
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/ko-kr/library/windowsazure/ee460801
+        // http://msdn.microsoft.com/ko-KR/library/windowsazure/ee460801
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -319,7 +319,7 @@ Azure 인증서에 대한 자세한 내용은 [Azure의 인증서 개요][Azure�
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/ko-kr/library/windowsazure/ee460801
+        // http://msdn.microsoft.com/ko-KR/library/windowsazure/ee460801
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -327,7 +327,7 @@ Azure 인증서에 대한 자세한 내용은 [Azure의 인증서 개요][Azure�
 
 ## <span id="MoveDeployments"></span></a>방법: 스테이징과 프로덕션 간의 배포 이동
 
-Azure에서는 두 가지 배포 환경(스테이징 및 프로덕션)을 제공합니다. 일반적으로 서비스는 스테이징 환경에 배포되어 서비스를 프로덕션 환경에 배포하기 전에 테스트합니다. 서비스를 스테이징 환경에서 프로덕션 환경으로 수준을 올릴 때 해당 서비스를 다시 배포하지 않고 수준을 올릴 수 있습니다. 배포를 교환하여 수준을 올릴 수 있습니다. 배포 교환에 대한 자세한 내용은 [Azure의 배포 관리 개요][Azure의 배포 관리 개요]를 참조하세요.
+Azure에서는 두 가지 배포 환경(스테이징 및 프로덕션)을 제공합니다. 일반적으로 서비스는 스테이징 환경에 배포되어 서비스를 프로덕션 환경에 배포하기 전에 테스트합니다. 서비스를 스테이징 환경에서 프로덕션 환경으로 수준을 올릴 때 해당 서비스를 다시 배포하지 않고 수준을 올릴 수 있습니다. 배포를 교환하여 수준을 올릴 수 있습니다. 배포 교환에 대한 자세한 내용은 [Azure의 배포 관리 개요][Azure의 배포 관리 개요]를 참조하십시오.
 
 다음 예제는 **swapDeployment** 메서드를 사용하여 두 배포(이름이 `v1`과 `v2`인 배포)를 교환하는 방법을 보여 줍니다. 예제에서는 **swapDeployment**를 호출하기 전 배포 `v1`은 프로덕션 슬롯에 있고 배포 `v2`는 스테이징 슬롯에 있습니다. **swapDeployment**를 호출한 후 `v2`는 프로덕션에 있고 `v1`은 스테이징에 있습니다.
 
@@ -345,7 +345,7 @@ Azure에서는 두 가지 배포 환경(스테이징 및 프로덕션)을 제공
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/ko-kr/library/windowsazure/ee460801
+        // http://msdn.microsoft.com/ko-KR/library/windowsazure/ee460801
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -374,7 +374,7 @@ Azure에서는 두 가지 배포 환경(스테이징 및 프로덕션)을 제공
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/ko-kr/library/windowsazure/ee460801
+        // http://msdn.microsoft.com/ko-KR/library/windowsazure/ee460801
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -409,7 +409,7 @@ Azure에서는 두 가지 배포 환경(스테이징 및 프로덕션)을 제공
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/ko-kr/library/windowsazure/ee460801
+        // http://msdn.microsoft.com/ko-KR/library/windowsazure/ee460801
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -450,7 +450,7 @@ Azure에서는 두 가지 배포 환경(스테이징 및 프로덕션)을 제공
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/ko-kr/library/windowsazure/ee460801
+        // http://msdn.microsoft.com/ko-KR/library/windowsazure/ee460801
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -484,7 +484,7 @@ Azure에서는 두 가지 배포 환경(스테이징 및 프로덕션)을 제공
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/ko-kr/library/windowsazure/ee460801
+        // http://msdn.microsoft.com/ko-KR/library/windowsazure/ee460801
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -525,7 +525,7 @@ Azure에서는 두 가지 배포 환경(스테이징 및 프로덕션)을 제공
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/ko-kr/library/windowsazure/ee460801
+        // http://msdn.microsoft.com/ko-KR/library/windowsazure/ee460801
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -550,20 +550,20 @@ Azure에서는 두 가지 배포 환경(스테이징 및 프로덕션)을 제공
   [방법: 저장소 서비스 삭제]: #DeleteStorageService
   [방법: 선호도 그룹 만들기]: #CreateAffinityGroup
   [방법: 선호도 그룹 삭제]: #DeleteAffinityGroup
-  [Azure 계정을 만들어야]: /ko-kr/pricing/free-trial/
-  [Azure 서비스 관리 API]: http://msdn.microsoft.com/ko-kr/library/windowsazure/ee460799.aspx
+  [Azure 계정을 만들어야]: /ko-KR/pricing/free-trial/
+  [Azure 서비스 관리 API]: http://msdn.microsoft.com/ko-KR/library/windowsazure/ee460799.aspx
   [Windows용으로 다운로드]: http://www.openssl.org/related/binaries.html
   [OpenSSL]: http://www.openssl.org/
-  [Azure의 인증서 개요]: http://msdn.microsoft.com/ko-kr/library/windowsazure/gg981935.aspx
+  [Azure의 인증서 개요]: http://msdn.microsoft.com/ko-KR/library/windowsazure/gg981935.aspx
+  []: http://www.openssl.org/docs/apps/openssl.html
   [Azure 명령줄 도구]: ../command-line-tools/
   [클라우드 서비스]: ../cloud-services-what-is/
   [CreateServiceOptions]: https://github.com/WindowsAzure/azure-sdk-for-php/blob/master/WindowsAzure/ServiceManagement/Models/CreateServiceOptions.php
   [ListHostedServicesResult]: https://github.com/WindowsAzure/azure-sdk-for-php/blob/master/WindowsAzure/ServiceManagement/Models/GetDeploymentOptions.php
-  [서비스 패키지]: http://msdn.microsoft.com/ko-kr/library/windowsazure/gg433093
+  [서비스 패키지]: http://msdn.microsoft.com/ko-KR/library/windowsazure/gg433093
   [Azure PowerShell cmdlet]: ../install-configure-powershell/
-  [cspack 명령줄 도구]: http://msdn.microsoft.com/ko-kr/library/windowsazure/gg432988.aspx
-  [Azure 서비스 구성 스키마(.cscfg)]: http://msdn.microsoft.com/ko-kr/library/windowsazure/ee758710.aspx
-  [Azure의 배포 관리 개요]: http://msdn.microsoft.com/ko-kr/library/windowsazure/hh386336.aspx
+  [cspack 명령줄 도구]: http://msdn.microsoft.com/ko-KR/library/windowsazure/gg432988.aspx
+  [Azure의 배포 관리 개요]: http://msdn.microsoft.com/ko-KR/library/windowsazure/hh386336.aspx
   [저장소 서비스]: ../storage-whatis-account/
   [Blob]: ../storage-php-how-to-use-blobs/
   [테이블]: ../storage-php-how-to-use-table-storage/

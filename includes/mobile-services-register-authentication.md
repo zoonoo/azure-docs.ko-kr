@@ -1,8 +1,8 @@
 사용자를 인증할 수 있으려면 ID 공급자에 앱을 등록해야 합니다. 그런 다음 공급자가 생성한 클라이언트 암호를 모바일 서비스에 등록해야 합니다.
 
-1.  [Azure 관리 포털][]에 로그온하여 **모바일 서비스**를 클릭한 후 해당 모바일 서비스를 클릭합니다.
+1.  [Azure 관리 포털][Azure 관리 포털]에 로그온하여 **모바일 서비스**를 클릭한 후 해당 모바일 서비스를 클릭합니다.
 
-    ![][]
+    ![][0]
 
 2.  **대시보드** 탭을 클릭하고 **모바일 서비스 URL** 값을 기록해 둡니다.
 
@@ -31,14 +31,9 @@
 
     이제 모바일 서비스와 앱이 선택한 인증 공급자를 사용하도록 둘 다 구성되었습니다.
 
-<!-- URLs. -->
+
 
   [Azure 관리 포털]: https://manage.windowsazure.com/
-  []: ./media/mobile-services-register-authentication/mobile-services-selection.png
+  [0]: ./media/mobile-services-register-authentication/mobile-services-selection.png
   [1]: ./media/mobile-services-register-authentication/mobile-service-uri.png
-  [Microsoft 계정]: /ko-KR/documentation/articles/mobile-services-how-to-register-microsoft-authentication/
-  [Facebook 로그인]: /ko-KR/documentation/articles/mobile-services-how-to-register-facebook-authentication/
-  [Twitter 로그인]: /ko-KR/documentation/articles/mobile-services-how-to-register-twitter-authentication/
-  [Google 로그인]: /ko-KR/documentation/articles/mobile-services-how-to-register-google-authentication/
-  [Azure Active Directory]: /ko-KR/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
   [2]: ./media/mobile-services-register-authentication/mobile-identity-tab.png

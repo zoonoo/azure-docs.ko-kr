@@ -285,9 +285,9 @@
 
     ![][4]
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
 [사용자 시작]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users
 [계정 테이블 설정]: #table-setup

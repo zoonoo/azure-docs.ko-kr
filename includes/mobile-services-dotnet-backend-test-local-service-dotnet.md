@@ -6,7 +6,7 @@
 
 2.  **F5** 키를 눌러 프로젝트를 다시 빌드하고 모바일 서비스를 로컬로 시작합니다.
 
-    ![][]
+    ![][0]
 
     모바일 서비스가 성공적으로 시작된 후에 웹 페이지가 표시됩니다.
 
@@ -18,4 +18,4 @@
 
     이렇게 하면 POST 요청이 로컬 모바일 서비스에 전송됩니다. 요청에서 데이터가 TodoItem 테이블에 삽입됩니다. 테이블에 저장된 항목이 모바일 서비스에서 반환되고 그 데이터가 앱의 두 번째 열에 표시됩니다.
 
-  []: ./media/mobile-services-dotnet-backend-test-local-service-dotnet/mobile-service-startup.png
+  [0]: ./media/mobile-services-dotnet-backend-test-local-service-dotnet/mobile-service-startup.png

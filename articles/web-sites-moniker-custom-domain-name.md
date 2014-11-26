@@ -1,6 +1,6 @@
 <properties title="Learn how to configure an Azure website to use a domain name registered with Moniker" pageTitle="Configure a Moniker domain name for an Azure website" metaKeywords="Azure, Azure Web Sites, domain name" description="Learn how to configure an Azure website to use a domain name registered with Moniker" services="web-sites" documentationCenter="" authors="larryfr,jroth" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr,jroth"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr,jroth" />
 
 # Azure 웹 사이트에 대한 사용자 지정 도메인 이름 구성(Moniker)
 
@@ -8,28 +8,28 @@
 
 <div class="dev-center-tutorial-subselector"><a href="/ko-KR/documentation/articles/web-sites-moniker-custom-domain-name/" title="웹 사이트" class="current">웹 사이트</a> | <a href="/ko-KR/documentation/articles/web-sites-moniker-traffic-manager-custom-domain-name/" title="트래픽 관리자를 사용하는 웹 사이트">트래픽 관리자를 사용하는 웹 사이트</a></div>
 
-[WACOM.INCLUDE [websites-cloud-services-css-guided-walkthrough][]]
+[WACOM.INCLUDE [websites-cloud-services-css-guided-walkthrough](../includes/websites-cloud-services-css-guided-walkthrough.md)]
 
-[WACOM.INCLUDE [intro][]]
+[WACOM.INCLUDE [intro](../includes/custom-dns-web-site-intro.md)]
 
-이 문서에서는 Azure 웹 사이트 및 [Moniker.com][]에서 구매한 사용자 지정 도메인 이름 사용에 대한 지침을 제공합니다.
+이 문서에서는 Azure 웹 사이트 및 [Moniker.com][Moniker.com]에서 구매한 사용자 지정 도메인 이름 사용에 대한 지침을 제공합니다.
 
-[WACOM.INCLUDE [introfooter][]]
+[WACOM.INCLUDE [introfooter](../includes/custom-dns-web-site-intro-notes.md)]
 
 이 문서의 내용
 
--   [DNS 레코드 이해][]
--   [기본, 공유 또는 표준 모드에 대한 웹 사이트 구성][]
--   [사용자 지정 도메인에 대한 DNS 레코드 추가][]
--   [웹 사이트에서 도메인 사용][]
+-   [DNS 레코드 이해][DNS 레코드 이해]
+-   [기본, 공유 또는 표준 모드에 대한 웹 사이트 구성][기본, 공유 또는 표준 모드에 대한 웹 사이트 구성]
+-   [사용자 지정 도메인에 대한 DNS 레코드 추가][사용자 지정 도메인에 대한 DNS 레코드 추가]
+-   [웹 사이트에서 도메인 사용][웹 사이트에서 도메인 사용]
 
 ## <a name="understanding-records"></a>DNS 레코드 이해
 
-[WACOM.INCLUDE [understandingdns][]]
+[WACOM.INCLUDE [understandingdns](../includes/custom-dns-web-site-understanding-dns-raw.md)]
 
 ## <a name="bkmk_configsharedmode"></a>기본, 공유 또는 표준 모드에 대한 웹 사이트 구성
 
-[WACOM.INCLUDE [modes][]]
+[WACOM.INCLUDE [modes](../includes/custom-dns-web-site-modes.md)]
 
 <a name="bkmk_configurecname"></a>
 
@@ -39,17 +39,17 @@
 
 1.  사용 중인 계정으로 Moniker.com에 로그인하고 **My Domains**를 클릭한 후 **Manage Templates**를 클릭합니다.
 
-    ![Moniker의 My Domains 페이지][]
+    ![Moniker의 My Domains 페이지][Moniker의 My Domains 페이지]
 
 2.  **Zone Template Management** 페이지에서 **Create New Template**을 선택합니다.
 
-    ![Moniker Zone Template Management][]
+    ![Moniker Zone Template Management][Moniker Zone Template Management]
 
 3.  **Template Name**을 입력합니다.
 
 4.  그런 다음 **Record Type**을 먼저 선택하여 DNS 레코드를 만듭니다. 그런 다음 **Hostname** 및 **Address**를 입력합니다.
 
-    ![Moniker Create Zone Template][]
+    ![Moniker Create Zone Template][Moniker Create Zone Template]
 
     -   CNAME 레코드를 추가할 때 **Hostname** 필드를, 사용할 하위 도메인으로 설정해야 합니다. 예를 들면 **www**로 설정해야 합니다. **Address** 필드는 Azure 웹 사이트의 **.azurewebsites.net** 도메인 이름으로 설정해야 합니다. 예를 들면 **contoso.azurwebsites.net**으로 설정해야 합니다.
 
@@ -79,31 +79,14 @@
 
 ## <a name="enabledomain"></a>웹 사이트에서 도메인 이름 사용
 
-[WACOM.INCLUDE [modes][2]]
+[WACOM.INCLUDE [modes](../includes/custom-dns-web-site-modes.md)]
 
-  [사용자 지정 도메인]: /ko-KR/documentation/articles/web-sites-custom-domain-name "사용자 지정 도메인"
-  [GoDaddy]: /ko-KR/documentation/articles/web-sites-godaddy-custom-domain-name "GoDaddy"
-  [Network Solutions]: /ko-KR/documentation/articles/web-sites-network-solutions-custom-domain-name "Network Solutions"
-  [Register.com]: /ko-KR/documentation/articles/web-sites-registerdotcom-custom-domain-name "Register.com"
-  [Enom]: /ko-KR/documentation/articles/web-sites-enom-custom-domain-name "Enom"
-  [Moniker]: /ko-KR/documentation/articles/web-sites-moniker-custom-domain-name "Moniker"
-  [Dotster]: /ko-KR/documentation/articles/web-sites-dotster-custom-domain-name "Dotster"
-  [DomainDiscover]: /ko-KR/documentation/articles/web-sites-domaindiscover-custom-domain-name "DomainDiscover"
-  [Directnic]: /ko-KR/documentation/articles/web-sites-directnic-custom-domain-name "Directnic"
-  [웹 사이트]: /ko-KR/documentation/articles/web-sites-moniker-custom-domain-name/ "웹 사이트"
-  [트래픽 관리자를 사용하는 웹 사이트]: /ko-KR/documentation/articles/web-sites-moniker-traffic-manager-custom-domain-name/ "트래픽 관리자를 사용하는 웹 사이트"
-  [websites-cloud-services-css-guided-walkthrough]: ../includes/websites-cloud-services-css-guided-walkthrough.md
-  [intro]: ../includes/custom-dns-web-site-intro.md
   [Moniker.com]: https://moniker.com
-  [introfooter]: ../includes/custom-dns-web-site-intro-notes.md
   [DNS 레코드 이해]: #understanding-records
   [기본, 공유 또는 표준 모드에 대한 웹 사이트 구성]: #bkmk_configsharedmode
   [사용자 지정 도메인에 대한 DNS 레코드 추가]: #bkmk_configurecname
   [웹 사이트에서 도메인 사용]: #enabledomain
-  [understandingdns]: ../includes/custom-dns-web-site-understanding-dns-raw.md
-  [modes]: ../includes/custom-dns-web-site-modes.md
   [Moniker의 My Domains 페이지]: .\media\web-sites-moniker-custom-domain-name\Moniker_MyDomains.png
   [Moniker Zone Template Management]: .\media\web-sites-moniker-custom-domain-name\Moniker_ZoneManager.png
   [Moniker Create Zone Template]: .\media\web-sites-moniker-custom-domain-name\Moniker_CreateZoneTemplate.png
   [1]: .\media\web-sites-moniker-custom-domain-name\Moniker_ZoneAssignment.png
-  [2]: ../includes/custom-dns-web-site-enable-on-web-site.md

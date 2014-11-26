@@ -112,19 +112,15 @@
 -   [모바일 서비스 .NET 백 엔드 문제 해결][모바일 서비스 .NET 백 엔드 문제 해결]
      모바일 서비스 .NET 백 엔드에서 발생할 수 있는 문제를 진단 및 해결하는 방법을 알아보십시오.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
 
-  [mobile-services-selector-get-started]: ../includes/mobile-services-selector-get-started.md
+
   [JavaScript 백 엔드 버전]: /ko-kr/documentation/articles/mobile-services-android-get-started/
   [0]: ./media/mobile-services-dotnet-backend-android-get-started/mobile-quickstart-completed-android.png
   [Android 개발자 도구]: https://go.microsoft.com/fwLink/p/?LinkID=280125
-  [mobile-services-dotnet-backend-create-new-service]: ../includes/mobile-services-dotnet-backend-create-new-service.md
   [1]: ./media/mobile-services-dotnet-backend-android-get-started/mobile-quickstart-steps-vs.png
   [Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=391934
-  [mobile-services-dotnet-backend-test-local-service]: ../includes/mobile-services-dotnet-backend-test-local-service.md
-  [mobile-services-dotnet-backend-publish-service]: ../includes/mobile-services-dotnet-backend-publish-service.md
   [관리 포털]: https://manage.windowsazure.com/
   [2]: ./media/mobile-services-dotnet-backend-android-get-started/mobile-quickstart-steps-android.png
   [3]: ./media/mobile-services-dotnet-backend-android-get-started/mobile-services-import-android-workspace.png

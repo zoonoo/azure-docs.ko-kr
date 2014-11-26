@@ -214,9 +214,8 @@
 -   [푸시 알림 시작][푸시 알림 시작]
     모바일 서비스를 사용하여 기본적인 푸시 알림을 앱에 보내는 방법을 알아봅니다.
 
-<!-- Anchors. --> <!-- Images. --> <!-- URLs. TODO:: update download link, github link, and completed example project with new Xamarin.iOs projects -->
+  <!-- URLs. TODO:: update download link, github link, and completed example project with new Xamarin.iOs projects -->
 
-  [mobile-services-selector-get-started]: ../includes/mobile-services-selector-get-started-data.md
   [모바일 서비스 시작]: /ko-kr/develop/mobile/tutorials/get-started-xamarin-ios
   [Xamarin.iOS 앱 프로젝트 다운로드]: http://go.microsoft.com/fwlink/p/?LinkId=331302
   [모바일 서비스 만들기]: #create-service
@@ -227,7 +226,6 @@
   [XCode 5.0]: https://go.microsoft.com/fwLink/p/?LinkID=266532
   [Azure 무료 평가판]: http://www.windowsazure.com/ko-kr/pricing/free-trial/?WT.mc_id=A643EE910&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fko-kr%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-xamarin-ios%2F
   [0]: ./media/partner-xamarin-mobile-services-ios-get-started-data/mobile-quickstart-startup-ios.png
-  [mobile-services-create-new-service-data]: ../includes/mobile-services-create-new-service-data.md
   [1]: ./media/partner-xamarin-mobile-services-ios-get-started-data/mobile-data-tab-empty.png
   [2]: ./media/partner-xamarin-mobile-services-ios-get-started-data/mobile-create-todoitem-table.png
   [3]: ./media/partner-xamarin-mobile-services-ios-get-started-data/mobile-dashboard-tab.png

@@ -139,8 +139,6 @@
   [앱에 인증 추가]: #add-authentication
   [Windows용 Live SDK]: http://go.microsoft.com/fwlink/p/?LinkId=262253
   [모바일 서비스 시작]: /ko-kr/develop/mobile/tutorials/get-started
-  [mobile-services-register-windows-store-app]: ../includes/mobile-services-register-windows-store-app.md
-  [mobile-services-restrict-permissions-javascript-backend]: ../includes/mobile-services-restrict-permissions-javascript-backend.md
   [1]: /ko-kr/documentation/articles/mobile-services-windows-store-get-started
   [0]: ./media/mobile-services-windows-store-dotnet-single-sign-on/mobile-add-reference-live-dotnet.png
   [2]: /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-users/#tokens

@@ -1,6 +1,6 @@
 <properties linkid="Install-Config-Windows-Azure-PowerShell" urlDisplayName="Azure PowerShell" pageTitle="How to install and configure Azure PowerShell" description="Learn how to install and configure Azure PowerShell." umbracoNaviHide="0" disqusComments="1" editor="tysonn" manager="stevenka" documentationCenter="" services="" solutions="" authors="stevenka" title="How to install and configure Azure PowerShell" />
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="powershell" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="stevenka;juneb"></tags>
+<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="powershell" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="stevenka;juneb" />
 
 # Azure PowerShell을 설치 및 구성하는 방법(영문)
 
@@ -265,8 +265,6 @@ Azure 및 Windows PowerShell을 사용하는 방법을 알아볼 수 있는 몇 
 
 -   Azure AD용 cmdlet에 대한 자세한 내용은 [Windows PowerShell을 사용하여 Azure AD 관리][Windows PowerShell을 사용하여 Azure AD 관리]를 참조하십시오.
 
-  [PowerShell]: /ko-kr/manage/install-and-configure-windows-powershell/ "PowerShell"
-  [플랫폼 간 CLI]: /ko-kr/manage/install-and-configure-cli/ "플랫폼 간 CLI"
   [Azure PowerShell 코드 리포지토리]: https://github.com/WindowsAzure/azure-sdk-tools
   [Azure PowerShell 사용을 위한 필수 구성 요소]: #Prereq
   [방법: Azure PowerShell 설치]: #Install
@@ -280,9 +278,6 @@ Azure 및 Windows PowerShell을 사용하는 방법을 알아볼 수 있는 몇 
   [계정, 구독 및 관리 역할 관리]: http://go.microsoft.com/fwlink/?LinkId=324796
   [Azure 관리 포털]: https://manage.windowsazure.com
   [조직으로 Microsoft Azure에 등록]: http://azure.microsoft.com/ko-kr/documentation/articles/sign-up-organization/
-  [Azure 리소스 관리자 Cmdlet]: http://go.microsoft.com/fwlink/?LinkID=394765
-  [1]: http://manage.windowsazure.com/
-  [Microsoft Online Services 고객 포털]: http://go.microsoft.com/fwlink/p/?LinkId=324875
   [2]: http://manage.windowsazure.com
   [Azure 구독에 대한 공동 관리자 추가 및 제거]: http://msdn.microsoft.com/ko-kr/library/windowsazure/gg456328.aspx
   [Azure Cmdlet 참조]: http://msdn.microsoft.com/ko-kr/library/windowsazure/jj554330.aspx

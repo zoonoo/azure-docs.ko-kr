@@ -1,12 +1,12 @@
-1.  [Azure 관리 포털][]에서 새 모바일 서비스 또는 해당 클라우드 아이콘 탭을 클릭하여 개요 페이지로 이동합니다.
+1.  [Azure 관리 포털][Azure 관리 포털]에서 새 모바일 서비스 또는 해당 클라우드 아이콘 탭을 클릭하여 개요 페이지로 이동합니다.
 
-    ![][]
+    ![][0]
 
 2.  **Android** 플랫폼을 클릭합니다. **시작** 섹션에서 **새 Android 앱 만들기**를 확장합니다.
 
     ![][1]
 
-3.  아직 하지 않은 경우 [Visual Studio Professional 2013][] 이상 버전을 다운로드하여 설치합니다.
+3.  아직 하지 않은 경우 [Visual Studio Professional 2013][Visual Studio Professional 2013] 이상 버전을 다운로드하여 설치합니다.
 
 4.  **서비스를 다운로드하고 클라우드에 게시** 아래의 **다운로드**를 클릭합니다.
 
@@ -18,10 +18,10 @@
 
     ![][2]
 
-<!-- URLs. -->
+
 
   [Azure 관리 포털]: https://manage.windowsazure.com/
-  []: ./media/mobile-services-dotnet-backend-android-get-started-data/mobile-portal-quickstart-android.png
+  [0]: ./media/mobile-services-dotnet-backend-android-get-started-data/mobile-portal-quickstart-android.png
   [1]: ./media/mobile-services-dotnet-backend-android-get-started-data/download-service-project.png
   [Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=391934
   [2]: ./media/mobile-services-dotnet-backend-android-get-started-data/download-publish-profile.png

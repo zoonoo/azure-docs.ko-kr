@@ -47,10 +47,9 @@
   <br/>모바일 서비스와 .NET을 함께 사용하는 방법에 대해 자세히 알아보십시오.
 
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [인증 시작]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-ios-get-started-users
-  [mobile-services-filter-user-results-dotnet-backend]: ../includes/mobile-services-filter-user-results-dotnet-backend.md
   [0]: ./media/mobile-services-dotnet-backend-ios-authorize-users-in-scripts/mobile-quickstart-startup-ios.png

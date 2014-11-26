@@ -1,6 +1,6 @@
-<properties title="Azure VM에서 Symantec Endpoint Protection을 설치하고 구성하는 방법" pageTitle="Azure VM에서 Symantec Endpoint Protection을 설치하고 구성하는 방법" description="Azure에서 VM에 Symantec Endpoint Protection을 설치 및 구성하는 방법에 대해 설명합니다." metaKeywords="" services="virtual machines" solutions="" documentationCenter="" authors="kathydav" manager="timlt" videoId="" scriptId="" />
+<properties title="How to install and configure Symantec Endpoint Protection on an Azure VM" pageTitle="How to install and configure Symantec Endpoint Protection on an Azure VM" description="Describes installing and configuring Symantec Endpoint Protection on a VM in Azure" metaKeywords="" services="virtual machines" solutions="" documentationCenter="" authors="kathydav" videoId="" scriptId="" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-multiple" ms.devlang="na" ms.topic="article" ms.date="7/16/2014" ms.author="kathydav" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-multiple" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="kathydav" />
 
 # Azure VM에서 Symantec Endpoint Protection을 설치하고 구성하는 방법
 
@@ -8,7 +8,7 @@
 
 이 클라이언트는 VM 에이전트를 사용하여 보안 확장 프로그램으로 설치됩니다. 새 가상 컴퓨터에서 끝점 클라이언트와 함께 이 에이전트를 설치합니다. 이 에이전트가 없는 기존 가상 컴퓨터에서는 에이전트를 먼저 다운로드하여 설치해야 합니다. 이 문서에서는 두 상황을 모두 다룹니다.
 
-온-프레미스 솔루션에 대해 Symantec에 기존 구독이 있는 경우 이를 사용하여 Azure 가상 컴퓨터를 보호할 수 있습니다. 아직 고객이 아닌 경우에는 평가판 구독에 등록할 수 있습니다. 이 솔루션에 대한 자세한 내용은 [Microsoft Azure 플랫폼의 Symantec Endpoint Protection][Microsoft Azure 플랫폼의 Symantec Endpoint Protection](영문)을 참조하세요. 이 페이지에는 Symantec 고객을 위한 라이선스 정보 및 이 클라이언트를 설치하는 다른 방법에 대한 링크도 제공되어 있습니다.
+온-프레미스 솔루션에 대한 Symantec의 기존 구독이 있는 경우 이를 사용하여 Azure 가상 컴퓨터를 보호할 수 있습니다.<for an on-premises solution, you can use it to protect your azure virtual machines> 아직 고객이 아닌 경우에는 평가판 구독에 등록할 수 있습니다. 이 솔루션에 대한 자세한 내용은 [Microsoft Azure 플랫폼의 Symantec Endpoint Protection][Microsoft Azure 플랫폼의 Symantec Endpoint Protection](영문)을 참조하세요. 이 페이지에는 Symantec 고객을 위한 라이선스 정보 및 이 클라이언트를 설치하는 다른 방법에 대한 링크도 제공되어 있습니다.
 
 ## 새 가상 컴퓨터에 Symantec Endpoint Protection 설치
 

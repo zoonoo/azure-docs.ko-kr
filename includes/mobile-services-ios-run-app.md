@@ -2,7 +2,7 @@
 
 1.  압축된 프로젝트 파일을 저장한 위치로 이동한 후 컴퓨터에서 파일 압축을 풀고 Xcode를 사용하여 프로젝트 파일을 엽니다.
 
-    ![][]
+    ![][0]
 
 2.  **실행** 단추를 눌러 프로젝트를 빌드하고 이 프로젝트의 기본값인 iPhone 에뮬레이터에서 앱을 시작합니다.
 
@@ -17,5 +17,5 @@
     > </div>
     > </p>
 
-  []: ./media/mobile-services-ios-run-app/mobile-xcode-project.png
+  [0]: ./media/mobile-services-ios-run-app/mobile-xcode-project.png
   [1]: ./media/mobile-services-ios-run-app/mobile-quickstart-startup-ios.png

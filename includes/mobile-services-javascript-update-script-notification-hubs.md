@@ -2,7 +2,7 @@
 
 1.  **TodoItem**을 클릭하고 **스크립트**를 클릭한 후 **삽입**을 선택합니다.
 
-    ![][]
+    ![][0]
 
 2.  삽입 함수를 다음의 코드로 바꾼 후 **저장**을 클릭합니다.
 
@@ -31,4 +31,4 @@
 
     이 삽입 스크립트는 성공적으로 삽입한 후 모든 Windows 스토어 앱 등록에 삽입된 항목의 텍스트가 포함된 푸시 알림을 보냅니다.
 
-  []: ./media/mobile-services-javascript-update-script-notification-hubs/mobile-insert-script-push2.png
+  [0]: ./media/mobile-services-javascript-update-script-notification-hubs/mobile-insert-script-push2.png

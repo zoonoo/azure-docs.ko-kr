@@ -19,7 +19,7 @@ Azure HDInsight에서는 Sqoop을 HDFS 클러스터 헤드 노드의 Hadoop 명�
 
 **필수 조건**: 
 
-Azure 계정이 있어야 하며, 구독에서 HDInsight Service를 사용할 수 있어야 합니다. Azure PowerShell 및 Azure HDInsight용 Powershell 도구를 설치하고 계정에서 사용할 수 있도록 구성해야 합니다. 이를 수행하는 방법에 대한 자세한 내용은 [Azure HDInsight 시작](/en-us/manage/services/hdinsight/get-started-hdinsight/)을 참조하십시오.
+Azure 계정이 있어야 하며, 구독에서 HDInsight Service를 사용할 수 있어야 합니다. Azure PowerShell 및 Azure HDInsight용 Powershell 도구를 설치하고 계정에서 사용할 수 있도록 구성해야 합니다. 이를 수행하는 방법에 대한 자세한 내용은 [Azure HDInsight 시작](/ko-kr/manage/services/hdinsight/get-started-hdinsight/)을 참조하십시오.
 
 또한 SQL 데이터베이스에서 방화벽을 구성할 경우 현재 위치의 외부 연결 IP 주소도 있어야 합니다. 해당 주소를 확인하려면 [WhatIsMyIP](http://www.whatismyip.com/)(영문) 사이트에 방문하여 주소를 기록합니다. 또한 이 절차의 뒷부분에서 Hadoop 클러스터의 헤드에도 외부 연결 IP 주소가 필요합니다. 같은 방식으로 이 IP 주소를 확인할 수 있습니다.
 
@@ -124,12 +124,12 @@ Sqoop을 사용하여 HDInsigh에서 클러스터로 데이터 가져오기
 
 Azure PowerShell을 사용하여 Azure HDInsight에서 Pig, Hive 및 MapReduce 작업 사용에 대한 지침을 제공하고 다른 샘플을 실행하는 자습서는 다음 항목을 참조하십시오.
 
--   [샘플: 파이 추정](/en-us/manage/services/hdinsight/howto-run-samples/sample-pi-estimator/)
--   [샘플: WordCount](/en-us/manage/services/hdinsight/howto-run-samples/sample-wordcount/)
--   [샘플: C\# 스트리밍](/en-us/manage/services/hdinsight/howto-run-samples/sample-csharp-streaming/)
--   [샘플: 10GB GraySort](/en-us/manage/services/hdinsight/howto-run-samples/sample-10gb-graysort/)
--   [자습서: Pig 사용](/en-us/manage/services/hdinsight/using-pig-with-hdinsight/)
--   [자습서: Hive 사용](/en-us/manage/services/hdinsight/using-hive-with-hdinsight/)
--   [자습서: MapReduce 사용](/en-us/manage/services/hdinsight/using-mapreduce-with-hdinsight/)
--   [Azure HDInsight SDK 문서](http://msdnstage.redmond.corp.microsoft.com/en-us/library/dn479185.aspx)
+-   [샘플: 파이 추정](/ko-kr/manage/services/hdinsight/howto-run-samples/sample-pi-estimator/)
+-   [샘플: WordCount](/ko-kr/manage/services/hdinsight/howto-run-samples/sample-wordcount/)
+-   [샘플: C\# 스트리밍](/ko-kr/manage/services/hdinsight/howto-run-samples/sample-csharp-streaming/)
+-   [샘플: 10GB GraySort](/ko-kr/manage/services/hdinsight/howto-run-samples/sample-10gb-graysort/)
+-   [자습서: Pig 사용](/ko-kr/manage/services/hdinsight/using-pig-with-hdinsight/)
+-   [자습서: Hive 사용](/ko-kr/manage/services/hdinsight/using-hive-with-hdinsight/)
+-   [자습서: MapReduce 사용](/ko-kr/manage/services/hdinsight/using-mapreduce-with-hdinsight/)
+-   [Azure HDInsight SDK 문서](http://msdnstage.redmond.corp.microsoft.com/ko-kr/library/dn479185.aspx)
 

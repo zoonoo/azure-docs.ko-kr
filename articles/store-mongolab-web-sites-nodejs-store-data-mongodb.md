@@ -446,13 +446,11 @@ Azure에서는 매우 쉽게 웹 사이트를 만들 수 있습니다. 첫 번�
   [데이터베이스 관리]: #manage
   [Node.js]: http://nodejs.org
   [Git]: http://git-scm.com
-  [create-account-and-websites-note]: ../includes/create-account-and-websites-note.md
   [Store]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/button-store.png
   [1]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/entry-mongolab.png
   [ConnectionInfoButton]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/button-connectioninfo.png
   [ConnectionInfoScreen]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/dialog-mongolab_connectioninfo.png
   [WebSiteConnectionStrings]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/focus-mongolab-websiteconnectionstring.png
-  [howto-provision-mongolab]: ../includes/howto-provision-mongolab.md
   [Express]: http://expressjs.com
   [Mongoose]: http://mongoosejs.com
   [Azure 개발자 센터]: /ko-kr/develop/nodejs/
@@ -463,7 +461,4 @@ Azure에서는 매우 쉽게 웹 사이트를 만들 수 있습니다. 첫 번�
   [WebSiteDashboard]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/screen-mongolab-websitedashboard.png
   [Git remote]: http://git-scm.com/docs/git-remote
   [iisnode.yml]: https://github.com/WindowsAzure/iisnode/blob/master/src/samples/configuration/iisnode.yml
-  [howto-get-connectioninfo-mongolab]: ../includes/howto-get-connectioninfo-mongolab.md
-  [howto-save-connectioninfo-mongolab]: ../includes/howto-save-connectioninfo-mongolab.md
   [빈 tasklist가 표시된 웹 페이지 ]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/todo_list_noframe.png
-  [howto-access-mongolab-ui]: ../includes/howto-access-mongolab-ui.md

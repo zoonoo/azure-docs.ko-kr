@@ -1,6 +1,6 @@
 <properties title="Build a Node.js web application using DocumentDB" pageTitle="Build a Node.js web application using DocumentDB | Azure" description="Learn how to use Azure DocumentDB to store and access data from a Node.js application hosted on Azure." metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, getting started"   services="documentdb" solutions="data-management" documentationCenter=""  authors="ryancraw" manager="jhubbard" editor="cgronlun" scriptId="" />
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="ryancraw"></tags>
+<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="ryancraw" />
 
 # <a name="_Toc395783175">DocumentDB를 사용하여 Node.js 응용 프로그램 작성</a>
 
@@ -31,23 +31,23 @@ Node.js Express 응용 프로그램에서 데이터를 저장하고 액세스하
 이 문서의 지침을 따르기 전에 다음이 설치되어 있는지
 확인해야 합니다.
 
-[Node.js][] 버전 v0.10.29 이상
+[Node.js][Node.js] 버전 v0.10.29 이상
 
-[Git][]
+[Git][Git]
 
-[Visual Studio 2013][] 업데이트 3
+[Visual Studio 2013][Visual Studio 2013] 업데이트 3
 
-[Visual Studio용 Node.js 도구][]
+[Visual Studio용 Node.js 도구][Visual Studio용 Node.js 도구]
 
 **참고:** 이 자습서에서 Visual Studio를 사용하여 Node.js 프로젝트를 작성,
 디버그 및 배포하는 동안 원하는 편집기를 사용하여 Node.js
 프로젝트를 실행하는 일반적인 방식으로 선택한 플랫폼에서
-직접 Node.js를 실행할 수 있습니다. 그런 다음 [Azure CLI][] 도구를 사용하여
+직접 Node.js를 실행할 수 있습니다. 그런 다음 [Azure CLI][Azure CLI] 도구를 사용하여
 Azure 웹 사이트에 응용 프로그램을 배포할 수 있습니다.
 
 # <a name="_Toc395637761">DocumentDB 데이터베이스 계정 만들기</a>
 
-Azure에서 DocumentDB 데이터베이스 계정을 프로비전하려면 [Azure관리 포털][]을 열고
+Azure에서 DocumentDB 데이터베이스 계정을 프로비전하려면 [Azure관리 포털][Azure관리 포털]을 열고
 홈페이지에서 Azure 갤러리 타일을 클릭하거나 화면 왼쪽 아래에 있는 "+"를 클릭합니다.
 
 ![대체 텍스트][1]
@@ -500,14 +500,14 @@ Visual Studio용 Node.js 도구가 설치되어 있으면 몇 개의 단계만 �
 축하합니다. 지금까지 Azure DocumentDB를 사용하여 첫 Node.js Express
 웹 응용 프로그램을 작성하고 Azure 웹 사이트에 게시했습니다.
 
-[여기][]서 전체 참조 응용 프로그램의 소스 코드를 다운로드할 수 있습니다.
+[여기][여기]서 전체 참조 응용 프로그램의 소스 코드를 다운로드할 수 있습니다.
 
 </h1>
 
   [0]: ./media/documentdb-nodejs-application/image1.png
   [Node.js]: http://nodejs.org/
   [Git]: http://git-scm.com/
-  [Visual Studio 2013]: http://msdn.microsoft.com/en-us/vstudio/cc136611.aspx
+  [Visual Studio 2013]: http://msdn.microsoft.com/ko-kr/vstudio/cc136611.aspx
   [Visual Studio용 Node.js 도구]: https://nodejstools.codeplex.com/
   [Azure CLI]: http://azure.microsoft.com/ko-kr/documentation/articles/xplat-cli/
   [Azure관리 포털]: http://portal.azure.com

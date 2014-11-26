@@ -1,6 +1,6 @@
 # Mac 및 Linux에서 Azure 명령줄 도구를 사용하는 방법
 
-이 가이드에서는 Mac 및 Linux에 Azure 명령줄 도구를 사용하여 Azure에 서비스를 만들고 관리하는 방법을 설명합니다. **도구 설치**, **게시 설정 가져오기**, **Azure 웹 사이트 만들기 및 관리**, **Azure 가상 컴퓨터 만들기 및 관리** 등의 시나리오를 다룹니다. 포괄적인 참조 설명서는 [Mac 및 Linux용 Azure 명령줄 도구 설명서][](영문)를 참조하세요.
+이 가이드에서는 Mac 및 Linux에 Azure 명령줄 도구를 사용하여 Azure에 서비스를 만들고 관리하는 방법을 설명합니다. **도구 설치**, **게시 설정 가져오기**, **Azure 웹 사이트 만들기 및 관리**, **Azure 가상 컴퓨터 만들기 및 관리** 등의 시나리오를 다룹니다. 포괄적인 참조 설명서는 [Mac 및 Linux용 Azure 명령줄 도구 설명서][Mac 및 Linux용 Azure 명령줄 도구 설명서](영문)를 참조하세요.
 
 ## 목차
 
@@ -27,9 +27,9 @@ Mac 및 Linux용 Azure 명령줄 도구는 Azure 서비스를 배포 및 관리�
 
 다음 목록에는 운영 체제에 따른 명령줄 도구 설치 정보가 포함되어 있습니다.
 
--   **Mac**: [Azure SDK 설치 관리자][]를 다운로드합니다. 다운로드한 .pkg 파일을 열고 메시지가 표시되면 설치 단계를 완료합니다.
+-   **Mac**: [Azure SDK 설치 관리자][Azure SDK 설치 관리자]를 다운로드합니다. 다운로드한 .pkg 파일을 열고 메시지가 표시되면 설치 단계를 완료합니다.
 
--   **Linux**: 최신 버전의 [Node.js][]를 설치한 후([패키지 관리자를 통해 Node.js 설치][](영문) 참조) 다음 명령을 실행합니다.
+-   **Linux**: 최신 버전의 [Node.js][Node.js]를 설치한 후([패키지 관리자를 통해 Node.js 설치][패키지 관리자를 통해 Node.js 설치](영문) 참조) 다음 명령을 실행합니다.
 
         npm install azure-cli -g
 
@@ -37,7 +37,7 @@ Mac 및 Linux용 Azure 명령줄 도구는 Azure 서비스를 배포 및 관리�
 
         sudo npm install azure-cli -g
 
--   **Windows**: Windows 설치 관리자(.msi 파일)를 실행합니다. 이 파일은 [Azure 명령줄 도구][]에서 사용할 수 있습니다.
+-   **Windows**: Windows 설치 관리자(.msi 파일)를 실행합니다. 이 파일은 [Azure 명령줄 도구][Azure 명령줄 도구]에서 사용할 수 있습니다.
 
 설치를 테스트하려면 명령 프롬프트에 `azure`를 입력합니다. 설치에 성공하면 사용 가능한 모든 `azure` 명령 목록이 표시됩니다.
 
@@ -47,7 +47,7 @@ Mac 및 Linux용 Azure 명령줄 도구를 사용하려면 Azure 계정이 필�
 
 웹 브라우저를 열고 [][]<http://www.windowsazure.com></a>으로 이동한 후 오른쪽 위에 있는 **무료 체험**을 클릭합니다.
 
-![Azure 웹 사이트][]
+![Azure 웹 사이트][Azure 웹 사이트]
 
 계정을 만들기 위한 지침을 따르세요.
 
@@ -176,7 +176,7 @@ Azure 가상 컴퓨터는 사용자가 제공하거나 이미지 갤러리에서
 
 사용 가능한 이미지 중 하나에서 가상 컴퓨터를 프로비전 및 시작하려면 `vm create` 명령을 사용합니다. 다음 예제에서는 이미지 갤러리(CentOS 6.2)의 이미지에서 Linux 가상 컴퓨터(`myVM`)를 만드는 방법을 보여 줍니다. 가상 컴퓨터의 루트 사용자 이름과 암호는 각각 `myusername`, `Mypassw0rd`입니다. `--location` 매개 변수는 가상 컴퓨터가 만들어지는 데이터 센터를 지정합니다. `--location` 매개 변수를 생략하면 위치를 선택하라는 메시지가 표시됩니다.
 
-    azure vm create myVM OpenLogic__OpenLogic-CentOS-62-20120509-en-us-30GB.vhd myusername --location "West US"
+    azure vm create myVM OpenLogic__OpenLogic-CentOS-62-20120509-ko-kr-30GB.vhd myusername --location "West US"
 
 새로 만든 가상 컴퓨터에 대한 원격 연결을 사용하도록 설정하려면 `--ssh` 플래그(Linux) 또는 `--rdp` 플래그(Windows)를 `vm create`에 전달하는 것이 좋습니다.
 

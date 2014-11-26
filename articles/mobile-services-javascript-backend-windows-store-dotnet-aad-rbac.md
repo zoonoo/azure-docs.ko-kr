@@ -239,9 +239,9 @@ Git를 사용하여 모바일 서비스에 스크립트를 배포하는 데 익�
 
 [WACOM.INCLUDE [mobile-services-aad-rbac-test-app](../includes/mobile-services-aad-rbac-test-app.md)]
 
-<!-- Anchors. -->
+
 <!-- Images -->
-<!-- URLs. -->
+
 
   [그래프 API]: http://msdn.microsoft.com/library/azure/hh974478.aspx
   [인증 시작]: /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-users/
@@ -251,12 +251,9 @@ Git를 사용하여 모바일 서비스에 스크립트를 배포하는 데 익�
   [역할 기반 액세스 확인을 데이터베이스 작업에 추가]: #add-access-checking
   [클라이언트 액세스 테스트]: #test-client
   [서버 스크립트 저장]: /ko-kr/documentation/articles/mobile-services-store-scripts-source-control/
-  [mobile-services-aad-rbac-create-sales-group]: ../includes/mobile-services-aad-rbac-create-sales-group.md
   [Azure Active Directory 로그인 사용 등록]: /ko-kr/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
-  [mobile-services-generate-aad-app-registration-access-key]: ../includes/mobile-services-generate-aad-app-registration-access-key.md
   [그래프 API 오류 참조]: http://msdn.microsoft.com/ko-kr/library/azure/hh974480.aspx
   [IsMemberOf]: http://msdn.microsoft.com/ko-kr/library/azure/dn151601.aspx
   [0]: ./media/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/table-perms.png
   [Azure 관리 포털]: https://manage.windowsazure.com/
   [1]: ./media/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/insert-table-op-view.png
-  [mobile-services-aad-rbac-test-app]: ../includes/mobile-services-aad-rbac-test-app.md

@@ -1,4 +1,4 @@
-<properties urlDisplayName="TSP on Virtual Machine" pageTitle="VM의 계산 집약적인 Java 응용 프로그램 - Azure" metaKeywords="Azure virtual machine Java, Azure Java app, Azure Java application" description="다른 Java 응용 프로그램에 의해 모니터링될 수 있는 계산 집약적인 Java 응용 프로그램을 실행하는 가상 컴퓨터를 만드는 방법에 대해 알아봅니다." metaCanonical="" services="virtual-machines" documentationCenter="Java" title="가상 컴퓨터에서 Java로 계산 집약적인 작업을 실행하는 방법" authors="robmcm" videoId="" scriptId="" solutions="" manager="wpickett" editor="mollybos" />
+<properties linkid="dev-java-compute-load" urlDisplayName="TSP on Virtual Machine" pageTitle="Compute-intensive Java application on a VM - Azure" metaKeywords="Azure virtual machine Java, Azure Java app, Azure Java application" description="Learn how to create an Azure virtual machine that runs a compute-intensive Java application that can be monitored by another Java application." metaCanonical="" services="virtual-machines" documentationCenter="Java" title="How to run a compute-intensive task in Java on a virtual machine" authors="robmcm" videoId="" scriptId="" solutions="" manager="wpickett" editor="mollybos" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
 
@@ -63,9 +63,9 @@ Azure에서 가상 컴퓨터를 사용하여 계산 집약적인 작업을 처�
 2.  **가상 컴퓨터**를 클릭합니다.
 3.  로그인할 가상 컴퓨터의 이름을 클릭합니다.
 4.  **연결**을 클릭합니다.
-5.  가상 컴퓨터에 연결해야 한다는 메시지에 응답합니다. 관리자 이름 및 암호를 묻는 메시지가 표시되면 가상 컴퓨터를 만들 때 제공한 값을 사용하세요.
+5.  가상 컴퓨터에 연결해야 한다는 메시지에 응답합니다. 관리자 이름 및 암호를 묻는 메시지가 표시되면 가상 컴퓨터를 만들 때 제공한 값을 사용하십시오.
 
-Azure 서비스 버스 기능을 사용하려면 Baltimore CyberTrust 루트 인증서가 JRE의 **cacerts** 저장소의 일부로 설치되어야 합니다. 이 인증서는 본 자습서에서 사용하는 JRE에 자동으로 포함되어 있습니다. 이 인증서가 JRE **cacerts** 저장소에 없는 경우, [Java CA 인증서 저장소에 인증서 추가][Java CA 인증서 저장소에 인증서 추가]에서 인증서 추가에 대한 내용 및 cacerts 저장소의 인증서 보기에 대한 정보를 참조하세요.
+Azure 서비스 버스 기능을 사용하려면 Baltimore CyberTrust 루트 인증서가 JRE의 **cacerts** 저장소의 일부로 설치되어야 합니다. 이 인증서는 본 자습서에서 사용하는 JRE에 자동으로 포함되어 있습니다. 이 인증서가 JRE **cacerts** 저장소에 없는 경우, [Java CA 인증서 저장소에 인증서 추가][Java CA 인증서 저장소에 인증서 추가]에서 인증서 추가에 대한 내용 및 cacerts 저장소의 인증서 보기에 대한 정보를 참조하십시오.
 
 ## 서비스 버스 네임스페이스를 만드는 방법
 
@@ -88,7 +88,7 @@ Azure에서 서비스 버스 큐 사용을 시작하려면 먼저 서비스
     호스트할 국가 또는 지역을 선택한 다음 **Create Namespace** 단추를 클릭합니다.
 
     만든 네임스페이스가 관리 포털에 표시되며, 활성화되는 데 약간의 시간이
-    걸립니다. 다음 단계를 계속하기 전에 **활성** 상태가 될 때까지 기다리세요.
+    걸립니다. 다음 단계를 계속하기 전에 **활성** 상태가 될 때까지 기다리십시오.
 
 ## 네임스페이스에 대한 기본 관리 자격 증명 얻기
 

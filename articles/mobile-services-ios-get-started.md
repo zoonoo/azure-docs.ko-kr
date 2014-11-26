@@ -90,14 +90,11 @@
 
 
 
-  [mobile-services-selector-get-started]: ../includes/mobile-services-selector-get-started.md
   [.NET 백 엔드 버전]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-ios-get-started
   [0]: ./media/mobile-services-ios-get-started/mobile-quickstart-completed-ios.png
-  [mobile-services-create-new-service]: ../includes/mobile-services-create-new-service.md
   [1]: ./media/mobile-services-ios-get-started/mobile-portal-quickstart-ios.png
   [2]: ./media/mobile-services-ios-get-started/mobile-quickstart-steps-ios.png
   [Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
-  [mobile-services-ios-run-app]: ../includes/mobile-services-ios-run-app.md
   [3]: ./media/mobile-services-ios-get-started/mobile-data-tab.png
   [4]: ./media/mobile-services-ios-get-started/mobile-data-browse.png
   [데이터 시작하기]: /ko-kr/documentation/articles/mobile-services-ios-get-started-data/

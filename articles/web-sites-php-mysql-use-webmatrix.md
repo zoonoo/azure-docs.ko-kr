@@ -1,6 +1,6 @@
 <properties linkid="develop-php-website-with-mysql-and-webmatrix" urlDisplayName="Web w/ WebMatrix" pageTitle="PHP website with MySQL and WebMatrix - Azure tutorial" metaKeywords="" description="A tutorial that demonstrates how to use the free WebMatrix IDE to create and deploy a PHP website that stores data in MySQL." metaCanonical="" services="web-sites" documentationCenter="PHP" title="Create and deploy a PHP-MySQL Azure Website using WebMatrix" authors="" solutions="" manager="" editor="mollybos" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="" />
 
 # PHP-MySQL Azure 웹 사이트 만들기 및 WebMatrix를 사용하여 배포
 
@@ -20,7 +20,7 @@
 
 ![Azure PHP 웹 사이트][Azure PHP 웹 사이트]
 
-[WACOM.INCLUDE [create-account-and-websites-note][create-account-and-websites-note]]
+[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 ## 필수 조건
 
@@ -175,7 +175,6 @@ WebMatrix에서 웹 사이트를 만들어 Azure에 배포하는 방법을 학�
 
   [MySQL]: http://dev.mysql.com/doc/refman/5.6/en/installing.html
   [Azure PHP 웹 사이트]: ./media/web-sites-php-mysql-use-webmatrix/tasklist_app_windows.png
-  [create-account-and-websites-note]: ../includes/create-account-and-websites-note.md
   [다운로드]: http://go.microsoft.com/fwlink/?LinkId=252506
   [관리 포털]: https://manage.windowsazure.com
   [새 Azure 웹 사이트 만들기]: ./media/web-sites-php-mysql-use-webmatrix/NewWebSite1.jpg
@@ -194,9 +193,7 @@ WebMatrix에서 웹 사이트를 만들어 Azure에 배포하는 방법을 학�
   [WebMatrix - 브라우저에서 createtable.php 시작]: ./media/web-sites-php-mysql-use-webmatrix/edit_run.png
   [Azure 웹 사이트 및 MySQL 데이터베이스 만들기]: #CreateWebsite
   [WebMatrix - 게시]: ./media/web-sites-php-mysql-use-webmatrix/edit_publish.png
-  [http://[]: http://[your
   [WebMatrix - 원격 뷰 열기]: ./media/web-sites-php-mysql-use-webmatrix/OpenRemoteView.png
   [WebMatrix - 인덱스 파일 열기]: ./media/web-sites-php-mysql-use-webmatrix/Remote_editIndex.png
   [WebMatrix - 원격으로 사이트 실행]: ./media/web-sites-php-mysql-use-webmatrix/Remote_run.png
-  [Azure용 WebMatrix(영문)]: http://go.microsoft.com/fwlink/?LinkID=253622&clcid=0x409
   [WebMatrix 웹 사이트]: http://www.microsoft.com/click/services/Redirect2.ashx?CR_CC=200106398

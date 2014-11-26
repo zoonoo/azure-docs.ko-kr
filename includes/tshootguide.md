@@ -11,7 +11,7 @@ Azure 가상 컴퓨터에서 실행하는 응용 프로그램을 빌드하는 �
 Azure에서 실행하는 응용 프로그램은 디버그하기 어려울 수 있는 폭넓게 분산되는 다중 인스턴스 응용 프로그램입니다. 이러한 종류의 응용 프로그램은 문제 해결에 보다 많은 표준 도구 및 접근 방법이 필요합니다. 이 항목은 일부 검증된 문제 해결 사례에 대해 논의하고 설명한 사례의 자세한 정보에 대한 링크가 포함되어 있습니다.
 
 **참고**: 이 항목은 사용자가 응용 프로그램을 디자인하거나 Azure 응용 프로그램을 성공적으로 배포했으나 예기치 않은 문제가 발생한다고 가정합니다. Azure에 응용 프로그램을 배포하는 방법은 설명하지 않습니다. Azure 응용 프로그램 개발 및 배포에 대한 자세한 내용은
-[https://www.windowsazure.com/en-us/develop/overview/][1](영문)를 참조하십시오.
+[https://www.windowsazure.com/ko-kr/develop/overview/][1](영문)를 참조하십시오.
 
 이 항목에서는 문제가 발생할 경우 효과적으로 문제를 해결할 수 있도록 우선 응용 프로그램을 설계하는 데 도움이 되는 일부 모범 사례에 대해 설명합니다. 코드 흐름을 따를 수 있도록 사전에 응용 프로그램을 설계하지 않으면 문제가 발생할 때 문제를 찾기 아주 어려울 수 있습니다. 이러한 모범 사례는 사용된 응용 프로그램 모델이나 언어와 상관없이 Azure에서 실행되는 모든 종류의 응용 프로그램에 적합합니다.
 
@@ -195,7 +195,7 @@ Azure 웹 사이트는 다음 진단 옵션의 구성을 사용할 수 있습니
 * 자세한 오류 메시지
 * 실패한 요청 추적
 
-이러한 항목에 대한 자세한 내용은 [Azure 웹 사이트 문제 해결](/en-us/develop/net/best-practices/troubleshooting-web-sites/)을 참조하십시오.
+이러한 항목에 대한 자세한 내용은 [Azure 웹 사이트 문제 해결](/ko-kr/develop/net/best-practices/troubleshooting-web-sites/)을 참조하십시오.
 
 Azure 웹 사이트에 대해 웹 서버 로그를 사용하도록 설정되어 있으면 해당 웹 사이트는 [W3C 확장 로그 파일 형식][26]을 사용하여 모든 HTTP 트랜잭션을 로그 파일에 기록합니다. 그런 다음 [Log Parser][27]를 사용하여 로그 파일을 쿼리할 수 있습니다. 일부 로그 파서 쿼리 예는 [Log Parser Plus][28](영문) 및 [TechNet Log Parser 예제][29](영문)에서 사용할 수 있습니다. Office 2007/2010을 실행하는 컴퓨터에서 CHART 출력 유형을 생성하려면 [Log Parser Plus][30]의 안내에 따라 [Office 2003 Web Components][31]를 설치하십시오.
 
@@ -392,12 +392,12 @@ Azure 캐싱은 두 가지 형태인 Azure 공유 캐싱과 역할 기반 Azure 
 
 
 
-[1]: https://www.windowsazure.com/en-us/develop/overview/
+[1]: https://www.windowsazure.com/ko-kr/develop/overview/
 [2]: http://msdn.microsoft.com/ko-kr/library/hh680918%28v=pandp.50%29.aspx
 [3]: http://nuget.org/packages/Microsoft.Experience.CloudFx
 [4]: http://msdn.microsoft.com/ko-kr/magazine/ff714589.aspx
 [5]: http://www.microsoft.com/download/en/details.aspx?id=11324
-[6]: http://www.microsoft.com/en-us/server-cloud/system-center/operations-manager.aspx
+[6]: http://www.microsoft.com/ko-kr/server-cloud/system-center/operations-manager.aspx
 [7]: http://wapmmc.codeplex.com/
 [8]: http://cerebrata.com/Products/AzureDiagnosticsManager/
 [9]: http://cerebrata.com/Products/CloudStorageStudio/
@@ -408,7 +408,7 @@ Azure 캐싱은 두 가지 형태인 Azure 공유 캐싱과 역할 기반 Azure 
 [14]: http://pingdom.com/
 [15]: http://www.alertbot.com/products/website-monitoring/default.aspx
 [16]: http://www.apicasystem.com/integration-partners/
-[17]: http://www.microsoft.com/en-us/server-cloud/system-center/avicode.aspx
+[17]: http://www.microsoft.com/ko-kr/server-cloud/system-center/avicode.aspx
 [18]: http://msdn.microsoft.com/ko-kr/library/windowsazure/hh369930.aspx
 [19]: http://azurevmassist.codeplex.com/
 [20]: https://github.com/dannycoates/node-inspector
@@ -420,11 +420,11 @@ Azure 캐싱은 두 가지 형태인 Azure 공유 캐싱과 역할 기반 Azure 
 [26]: http://go.microsoft.com/fwlink/?LinkID=90561
 [27]: http://go.microsoft.com/fwlink/?LinkId=246619
 [28]: http://logparserplus.com/Examples
-[29]: http://technet.microsoft.com/en-us/library/ee692659.aspx
+[29]: http://technet.microsoft.com/ko-kr/library/ee692659.aspx
 [30]: http://logparserplus.com/article/2
 [31]: http://www.microsoft.com/downloads/en/details.aspx?familyid=7287252C-402E-4F72-97A5-E0FD290D4B76&displaylang=enBlockquote
 [32]: http://msdn.microsoft.com/ko-kr/library/7a50syb3%28v=vs.90%29.aspx
-[33]: http://technet.microsoft.com/en-us/edge/Video/hh867800
+[33]: http://technet.microsoft.com/ko-kr/edge/Video/hh867800
 [34]: https://www.suse.com/documentation/
 [35]: https://help.ubuntu.com/
 [36]: http://centos.org/
@@ -452,7 +452,7 @@ Azure 캐싱은 두 가지 형태인 Azure 공유 캐싱과 역할 기반 Azure 
 [58]: http://social.technet.microsoft.com/wiki/contents/articles/1104.troubleshoot-and-optimize-queries-with-sql-azure.aspx
 [59]: http://channel9.msdn.com/Events/TechEd/NorthAmerica/2011/DBI314
 [60]: http://blogs.msdn.com/b/sqlazure/archive/2010/07/27/10043069.aspx?PageIndex=2#comments
-[61]: http://www.microsoft.com/en-us/download/details.aspx?id=10631
+[61]: http://www.microsoft.com/ko-kr/download/details.aspx?id=10631
 [62]: http://go.microsoft.com/fwlink/p/?LinkId=166622
 [63]: http://social.technet.microsoft.com/wiki/contents/articles/4235.retry-logic-for-transient-failures-in-sql-azure.aspx
 [64]: http://code.msdn.microsoft.com/windowsazure/SQL-Azure-Retry-Logic-2d0a8401

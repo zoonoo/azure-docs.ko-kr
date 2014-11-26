@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-get-started-offline-data-wp8" urlDisplayName="Getting Started with Offline Data" pageTitle="Get started with offline data in Mobile Services (Windows Phone) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to cache and sync offline data in your Windows Phone application" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Get started with offline data sync in Mobile Services" authors="wesmc" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="wesmc"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="wesmc" />
 
 # 모바일 서비스에서 오프라인 데이터 동기화 시작
 
@@ -14,27 +14,27 @@
 
 이 항목에서는 Azure 모바일 서비스의 오프라인 기능을 사용하는 방법을 보여 줍니다. Azure 모바일 서비스의 오프라인 기능을 사용하면 오프라인에서 모바일 서비스를 사용하여 로컬 데이터베이스를 조작할 수 있습니다. 온라인으로 다시 전환되면 오프라인 기능을 사용하여 로컬 변경을 모바일 서비스와 동기화할 수 있습니다.
 
-이 자습서에서는 [모바일 서비스 시작][] 또는 [데이터 시작][] 자습서에서 작성한 앱을 업데이트하여 Azure 모바일 서비스의 오프라인 기능을 지원합니다. 그다음 연결이 끊긴 오프라인 시나리오에서 데이터를 추가하고, 해당 항목을 온라인 데이터베이스와 동기화한 후 Azure 관리 포털에 로그인하여 앱을 실행할 때 수행된 데이터 변경 사항을 확인합니다.
+이 자습서에서는 [모바일 서비스 시작][모바일 서비스 시작] 또는 [데이터 시작][데이터 시작] 자습서에서 작성한 앱을 업데이트하여 Azure 모바일 서비스의 오프라인 기능을 지원합니다. 그다음 연결이 끊긴 오프라인 시나리오에서 데이터를 추가하고, 해당 항목을 온라인 데이터베이스와 동기화한 후 Azure 관리 포털에 로그인하여 앱을 실행할 때 수행된 데이터 변경 사항을 확인합니다.
 
-> [WACOM.NOTE] 이 자습서는 Windows Phone 앱에서 모바일 서비스를 통해 Azure를 사용하여 데이터를 저장하고 검색할 수 있는 방법을 더욱 잘 이해할 수 있도록 돕기 위한 것입니다. 모바일 서비스를 처음 사용하는 경우 먼저 [모바일 서비스 시작][] 자습서를 완료하는 것이 좋습니다.
+> [WACOM.NOTE] 이 자습서는 Windows Phone 앱에서 모바일 서비스를 통해 Azure를 사용하여 데이터를 저장하고 검색할 수 있는 방법을 더욱 잘 이해할 수 있도록 돕기 위한 것입니다. 모바일 서비스를 처음 사용하는 경우 먼저 [모바일 서비스 시작][모바일 서비스 시작] 자습서를 완료하는 것이 좋습니다.
 
 이 자습서에서는 다음 기본 단계를 단계별로 안내합니다.
 
-1.  [오프라인 기능을 지원하도록 앱 업데이트][]
-2.  [오프라인 시나리오에서 앱 테스트][]
-3.  [모바일 서비스를 다시 연결하도록 앱 업데이트][]
-4.  [모바일 서비스에 연결된 앱 테스트][]
+1.  [오프라인 기능을 지원하도록 앱 업데이트][오프라인 기능을 지원하도록 앱 업데이트]
+2.  [오프라인 시나리오에서 앱 테스트][오프라인 시나리오에서 앱 테스트]
+3.  [모바일 서비스를 다시 연결하도록 앱 업데이트][모바일 서비스를 다시 연결하도록 앱 업데이트]
+4.  [모바일 서비스에 연결된 앱 테스트][모바일 서비스에 연결된 앱 테스트]
 
 이 자습서를 사용하려면 다음이 필요합니다.
 
 -   Visual Studio 2012
--   [Windows Phone 8 SDK][]
--   [모바일 서비스 시작][] 또는 [데이터 시작][] 자습서 완료
--   [Azure 모바일 서비스 SDK 버전 1.3.0-alpha4(이상)][]
--   [Azure 모바일 서비스 SQLite 저장소 버전 1.0.0-alpha4(이상)][]
--   [SQLite for Windows Phone 8][]
+-   [Windows Phone 8 SDK][Windows Phone 8 SDK]
+-   [모바일 서비스 시작][모바일 서비스 시작] 또는 [데이터 시작][데이터 시작] 자습서 완료
+-   [Azure 모바일 서비스 SDK 버전 1.3.0-alpha4(이상)][Azure 모바일 서비스 SDK 버전 1.3.0-alpha4(이상)]
+-   [Azure 모바일 서비스 SQLite 저장소 버전 1.0.0-alpha4(이상)][Azure 모바일 서비스 SQLite 저장소 버전 1.0.0-alpha4(이상)]
+-   [SQLite for Windows Phone 8][SQLite for Windows Phone 8]
 
-> [WACOM.NOTE] 이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판][]을 참조하세요.
+> [WACOM.NOTE] 이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판][Azure 무료 평가판]을 참조하세요.
 
 ## <a name="enable-offline-app"></a>오프라인 기능을 지원하도록 앱 업데이트
 
@@ -42,15 +42,15 @@ Azure 모바일 서비스의 오프라인 기능을 사용하면 오프라인에
 
 이 섹션에서는 SQLite를 오프라인 기능에 대한 로컬 저장소로 사용합니다.
 
-> [WACOM.NOTE] 이 섹션을 건너뛰고 오프라인 지원을 이미 제공하는 시작 프로젝트 버전을 바로 다운로드할 수 있습니다. 오프라인 지원이 설정된 프로젝트를 다운로드하려면 [Windows Phone용 시작 오프라인 샘플][]을 참조하세요.
+> [WACOM.NOTE] 이 섹션을 건너뛰고 오프라인 지원을 이미 제공하는 시작 프로젝트 버전을 바로 다운로드할 수 있습니다. 오프라인 지원이 설정된 프로젝트를 다운로드하려면 [Windows Phone용 시작 오프라인 샘플][Windows Phone용 시작 오프라인 샘플]을 참조하세요.
 
-1.  SQLite for Windows Phone 8 프로젝트를 설치합니다. [SQLite for Windows Phone 8][] 링크에서 SQLite를 설치할 수 있습니다.
+1.  SQLite for Windows Phone 8 프로젝트를 설치합니다. [SQLite for Windows Phone 8][SQLite for Windows Phone 8] 링크에서 SQLite를 설치할 수 있습니다.
 
     > [WACOM.NOTE] Internet Explorer를 사용하는 경우 SQLite를 설치하기 위해 링크를 클릭하면 .vsix를 .zip 파일로 다운로드할지를 묻는 메시지가 표시될 수 있습니다. 파일을 하드 드라이브의 원하는 위치에 .zip 대신 .vsix 확장명으로 저장합니다. Windows 탐색기에서 .vsix 파일을 두 번 클릭하여 설치를 실행합니다.
 
-2.  Visual Studio에서 [모바일 서비스 시작][] 또는 [데이터 시작][] 자습서에서 완료한 프로젝트를 엽니다. 솔루션 탐색기의 프로젝트에서 **참조**를 마우스 오른쪽 단추로 클릭하고 **Windows Phone**\>**확장**에서 **SQLite for Windows Phone**에 대한 참조를 추가합니다.
+2.  Visual Studio에서 [모바일 서비스 시작][모바일 서비스 시작] 또는 [데이터 시작][데이터 시작] 자습서에서 완료한 프로젝트를 엽니다. 솔루션 탐색기의 프로젝트에서 **참조**를 마우스 오른쪽 단추로 클릭하고 **Windows Phone**\>**확장**에서 **SQLite for Windows Phone**에 대한 참조를 추가합니다.
 
-    ![][]
+    ![][0]
 
 3.  SQLite 런타임을 사용하려면 빌드 중인 프로젝트의 프로세서 아키텍처를 **x86**, **x64** 또는 **ARM**으로 변경해야 합니다. **임의 CPU**는 지원되지 않습니다. 프로세서 아키텍처를 테스트하려는 지원되는 설정 중 하나로 변경합니다.
 
@@ -235,21 +235,16 @@ Azure 모바일 서비스의 오프라인 기능을 사용하면 오프라인에
 
     또한 쿼리를 지정하도록 허용하는 **PullAsync()** 오버로드가 있습니다. 모바일 서비스에 대한 오프라인 지원 미리 보기 릴리스에서 **PullAsync**는 해당 테이블 또는 쿼리에서 모든 행을 읽습니다. 예를 들어 마지막 동기화보다 최신 상태인 행만 읽으려고 시도하지 않습니다. 행이 로컬 동기화 테이블에 이미 있는 경우 해당 행은 변경되지 않습니다.
 
--   오프라인 지원이 설정된 프로젝트를 다운로드하려면 [Windows Phone용 시작 오프라인 샘플][]을 참조하세요.
+-   오프라인 지원이 설정된 프로젝트를 다운로드하려면 [Windows Phone용 시작 오프라인 샘플][Windows Phone용 시작 오프라인 샘플]을 참조하세요.
 
 ## 다음 단계
 
--   [모바일 서비스에 대한 오프라인 지원을 통해 충돌 처리][]
+-   [모바일 서비스에 대한 오프라인 지원을 통해 충돌 처리][모바일 서비스에 대한 오프라인 지원을 통해 충돌 처리]
 
-<!-- Anchors. -->
+
 <!-- Images -->
-<!-- URLs. -->
 
-  [Windows 스토어 C\#]: /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data "Windows 스토어 C#"
-  [Windows Phone]: /ko-kr/documentation/articles/mobile-services-windows-phone-get-started-offline-data "Windows Phone"
-  [iOS]: /ko-kr/documentation/articles/mobile-services-ios-get-started-offline-data "iOS"
-  [Xamarin.iOS]: /ko-kr/documentation/articles/mobile-services-xamarin-ios-get-started-offline-data "Xamarin.iOS"
-  [Xamarin.Android]: /ko-kr/documentation/articles/mobile-services-xamarin-android-get-started-offline-data "Xamarin.Android"
+
   [모바일 서비스 시작]: /ko-kr/documentation/articles/mobile-services-windows-phone-get-started/
   [데이터 시작]: /ko-kr/documentation/articles/mobile-services-windows-phone-get-started-data/
   [오프라인 기능을 지원하도록 앱 업데이트]: #enable-offline-app
@@ -260,9 +255,9 @@ Azure 모바일 서비스의 오프라인 기능을 사용하면 오프라인에
   [Azure 모바일 서비스 SDK 버전 1.3.0-alpha4(이상)]: http://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.0-alpha4
   [Azure 모바일 서비스 SQLite 저장소 버전 1.0.0-alpha4(이상)]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0-alpha4
   [SQLite for Windows Phone 8]: http://go.microsoft.com/fwlink/?LinkId=397953
-  [Azure 무료 평가판]: http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28
+  [Azure 무료 평가판]: http://www.windowsazure.com/ko-kr/pricing/free-trial/?WT.mc_id=AE564AB28
   [Windows Phone용 시작 오프라인 샘플]: http://go.microsoft.com/fwlink/?LinkId=397952
-  []: ./media/mobile-services-windows-phone-get-started-offline-data/mobile-services-add-reference-sqlite-dialog.png
+  [0]: ./media/mobile-services-windows-phone-get-started-offline-data/mobile-services-add-reference-sqlite-dialog.png
   [1]: ./media/mobile-services-windows-phone-get-started-offline-data/vs-select-processor-architecture.png
   [2]: ./media/mobile-services-windows-phone-get-started-offline-data/mobile-services-sqlitestore-nuget.png
   [3]: ./media/mobile-services-windows-phone-get-started-offline-data/ui-screenshot.png

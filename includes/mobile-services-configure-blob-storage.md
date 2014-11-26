@@ -4,7 +4,7 @@
 
 2.  관리 포털에서 **저장소**를 클릭하고 저장소 계정을 클릭한 후 **키 관리**를 클릭합니다.
 
-    ![][]
+    ![][0]
 
 3.  **저장소 계정 이름**과 **액세스 키**를 적어 두세요.
 
@@ -90,10 +90,10 @@
 
 다음 과정에서는 삽입 시 생성된 SAS를 사용하여 이미지 업로드 기능을 추가하는 퀵 스타트 앱을 업데이트합니다.
 
-<!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
+  
 
   [저장소 계정을 만드는 방법]: /ko-kr/manage/services/storage/how-to-create-a-storage-account
-  []: ./media/mobile-services-configure-blob-storage/mobile-blob-storage-account.png
+  [0]: ./media/mobile-services-configure-blob-storage/mobile-blob-storage-account.png
   [1]: ./media/mobile-services-configure-blob-storage/mobile-blob-storage-account-keys.png
   [2]: ./media/mobile-services-configure-blob-storage/mobile-blob-storage-app-settings.png
   [앱 설정]: http://msdn.microsoft.com/ko-kr/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7

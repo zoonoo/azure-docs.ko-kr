@@ -8,4 +8,3 @@
 
 > [WACOM.NOTE]모바일 서비스로 푸시 알림을 약간 변경했습니다. Xamarin iOS에 대한 업데이트된 자습서를 살펴보세요!
 
-  [mobile-services-selector-get-started-push-xamarin]: ../includes/mobile-services-selector-get-started-push-xamarin.md

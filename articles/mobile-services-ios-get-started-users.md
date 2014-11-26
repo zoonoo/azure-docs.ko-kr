@@ -49,15 +49,10 @@
 
 
 
-  [mobile-services-selector-get-started-users]: ../includes/mobile-services-selector-get-started-users.md
   [인증을 위해 앱 등록 및 모바일 서비스 구성]: #register
   [테이블 사용 권한을 인증된 사용자로 제한]: #permissions
   [앱에 인증 추가]: #add-authentication
   [앱에 인증 토큰 저장]: #store-authentication
   [모바일 서비스 시작]: /ko-kr/develop/mobile/tutorials/get-started-ios
-  [mobile-services-register-authentication]: ../includes/mobile-services-register-authentication.md
-  [mobile-services-restrict-permissions-javascript-backend]: ../includes/mobile-services-restrict-permissions-javascript-backend.md
   [1]: /ko-kr/documentation/articles/mobile-services-ios-get-started
-  [mobile-services-ios-authenticate-app]: ../includes/mobile-services-ios-authenticate-app.md
-  [mobile-services-ios-authenticate-app-with-token]: ../includes/mobile-services-ios-authenticate-app-with-token.md
   [모바일 서비스 사용자의 서비스 쪽 권한 부여]: /ko-kr/develop/mobile/tutorials/authorize-users-in-scripts-ios

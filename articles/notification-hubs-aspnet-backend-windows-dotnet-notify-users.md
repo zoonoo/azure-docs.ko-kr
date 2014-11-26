@@ -239,7 +239,6 @@ Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플랫폼 및
   [앱 백 엔드에서 등록]: http://msdn.microsoft.com/ko-kr/library/dn743807.aspx
   [Windows 스토어에 앱 등록]: http://azure.microsoft.com/ko-kr/documentation/articles/notification-hubs-windows-store-dotnet-get-started/#register
   [알림 허브 구성]: http://azure.microsoft.com/ko-kr/documentation/articles/notification-hubs-windows-store-dotnet-get-started/#configure-hub
-  [notification-hubs-aspnet-backend-notifyusers]: ../includes/notification-hubs-aspnet-backend-notifyusers.md
   [0]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-secure-push9.png
   [1]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-secure-push10.png
   [2]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-secure-push11.png

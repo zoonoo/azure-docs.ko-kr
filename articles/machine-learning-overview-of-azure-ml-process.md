@@ -1,6 +1,6 @@
 <properties title="Azure Machine Learning API service operations" pageTitle="Machine Learning API service operations | Azure" description="Creating and managing Azure Machine Learning web services" metaKeywords="" services="" solutions="" documentationCenter="" authors="derrickv" videoId="" scriptId="" />
 
-<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="derrickv"></tags>
+<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="derrickv" />
 
 # Azure 기계 학습 API 서비스 작업
 
@@ -28,7 +28,7 @@ Azure 기계 학습에서는 Azure 기계 학습 스튜디오(기계 학습 스�
 
 다음 다이어그램에서는 단계를 개략적으로 두 부분으로 보여 줍니다. 먼저 모델을 빌드하고 두 번째로 모델을 웹 서비스로 게시합니다. 이 문서에서는 그림 1 다이어그램 - 점수 매기기 웹 서비스 게시의 오른쪽에 초점을 맞추고 해당 프로세스에 포함된 개념을 설명합니다.
 
-![][]
+![][0]
 
 그림 1: 점수 매기기 웹 서비스 프로비전, 빌드 및 게시
 
@@ -218,7 +218,7 @@ RRS 웹 서비스는 REST 끝점이고 다양한 프로그래밍 언어를 사�
 
 
 
-  []: ./media/machine-learning-overview-of-azure-ml-process/oamlp1.png
+  [0]: ./media/machine-learning-overview-of-azure-ml-process/oamlp1.png
   [1]: ./media/machine-learning-overview-of-azure-ml-process/oamlp2.png
   [2]: ./media/machine-learning-overview-of-azure-ml-process/oamlp3.png
   [3]: ./media/machine-learning-overview-of-azure-ml-process/oamlp4.png

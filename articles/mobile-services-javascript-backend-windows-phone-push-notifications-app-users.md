@@ -82,8 +82,8 @@
 <!---## <a name="next-steps"> </a>Next steps
 In the next tutorial, [Service-side authorization of Mobile Services users][Authorize users with scripts], you will take the user ID value provided by Mobile Services based on an authenticated user and use it to filter the data returned by Mobile Services. Learn more about how to use Mobile Services with .NET in [Mobile Services .NET How-to Conceptual Reference]--> 
 
-<!-- Anchors. -->
-<!-- URLs. -->
+
+
 
   [푸시 알림]: /ko-kr/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push/
   [등록에 인증이 필요하도록 서비스 업데이트]: #register
@@ -91,6 +91,3 @@ In the next tutorial, [Service-side authorization of Mobile Services users][Auth
   [앱 테스트]: #test
   [이 항목의 Windows 스토어 버전]: /ko-kr/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users
   [인증 시작]: /ko-kr/documentation/articles/mobile-services-windows-phone-get-started-users/
-  [mobile-services-javascript-backend-push-notifications-app-users]: ../includes/mobile-services-javascript-backend-push-notifications-app-users.md
-  [mobile-services-windows-phone-push-notifications-app-users]: ../includes/mobile-services-windows-phone-push-notifications-app-users.md
-  [mobile-services-windows-test-push-users]: ../includes/mobile-services-windows-test-push-users.md

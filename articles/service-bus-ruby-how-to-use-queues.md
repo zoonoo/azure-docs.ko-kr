@@ -123,7 +123,6 @@ Azure 모듈은 **AZURE\_SERVICEBUS\_NAMESPACE** 및 **AZURE\_SERVICEBUS\_ACCESS
   [큐에 메시지를 보내는 방법]: #how-to-send-messages-to-a-queue
   [큐에서 메시지를 받는 방법]: #how-to-receive-messages-from-a-queue
   [응용 프로그램 크래시 및 읽을 수 없는 메시지를 처리하는 방법]: #how-to-handle-application-crashes-and-unreadable-messages
-  [howto-service-bus-queues]: ../includes/howto-service-bus-queues.md
   [Azure에서 Ruby 응용 프로그램 만들기]: /ko-KR/develop/ruby/tutorials/web-app-with-linux-vm/
   [큐, 토픽 및 구독]: http://msdn.microsoft.com/ko-KR/library/windowsazure/hh367516.aspx
   [Azure SDK for Ruby]: https://github.com/WindowsAzure/azure-sdk-for-ruby

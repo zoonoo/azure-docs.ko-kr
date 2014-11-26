@@ -28,11 +28,10 @@
 -   [푸시 알림 시작][푸시 알림 시작]
     기본적인 푸시 알림을 앱에 보내는 방법을 알아봅니다.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [데이터 시작]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/
-  [mobile-services-windows-dotnet-paging]: ../includes/mobile-services-windows-dotnet-paging.md
   [인증 시작하기]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-users/
   [푸시 알림 시작]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push/

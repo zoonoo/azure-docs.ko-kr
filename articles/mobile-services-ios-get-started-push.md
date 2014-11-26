@@ -120,9 +120,9 @@
             @"deviceToken" : delegate.deviceToken
         };
 
-    This adds a reference to the **QSAppDelegate** to obtain the device token and then modifies the request payload to include that device token.
+   그러면 장치 토큰을 가져오도록 **QSAppDelegate**에 대한 참조가 추가된 후 이 장치 토큰을 포함하도록 요청 페이로드가 수정됩니다.
 
-    > [WACOM.NOTE] You must add this code before to the call to the <strong>addItem</strong> method.
+   > [WACOM.NOTE] 이 코드를 <strong>addItem</strong> 메서드 호출 앞에 추가해야 합니다.
 
 이제 푸시 알림을 지원하도록 앱이 업데이트됩니다.
 
@@ -164,7 +164,7 @@
 
     ![][2]
 
-    > [WACOM.NOTE] 앱에서 명시적으로 푸시 알림을 허용해야 합니다. This request only occurs the first time that the app runs.
+    > [WACOM.NOTE] 앱에서 명시적으로 푸시 알림을 허용해야 합니다. 이 요청은 앱이 처음 실행될 때만 발생합니다.
 
 2.  앱에서 *새 모바일 서비스 작업*과 같은 의미 있는 텍스트를 입력하고 (**+**) 아이콘을 클릭합니다.
 
@@ -197,8 +197,6 @@
   [모바일 서비스 iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
   [Xcode 4.5]: https://go.microsoft.com/fwLink/p/?LinkID=266532
   [모바일 서비스 시작하기]: /ko-kr/develop/mobile/tutorials/get-started-ios
-  [Apple Push Notification 사용]: ../includes/enable-apple-push-notifications.md
-  [mobile-services-apns-configure-push]: ../includes/mobile-services-apns-configure-push.md
   [0]: ./media/mobile-services-ios-get-started-push/mobile-portal-data-tables.png
   [1]: ./media/mobile-services-ios-get-started-push/mobile-insert-script-push2.png
   [apns 개체]: http://go.microsoft.com/fwlink/p/?LinkId=272333

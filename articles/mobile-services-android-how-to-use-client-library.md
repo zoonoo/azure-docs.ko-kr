@@ -781,9 +781,9 @@ Java 클라이언트 코드에서 *ToDoItem* 개체 속성에 다음과 같이 �
 
 Android 클라이언트 API에 대한 Javadoc 참조는 [][]<http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/mobileservices/package-summary.html></a>(영문)에서 제공됩니다.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [모바일 서비스 빠른 시작]: /ko-kr/develop/mobile/tutorials/get-started-android/
   [모바일 서비스 SDK]: http://go.microsoft.com/fwlink/p/?linkid=280126
@@ -816,7 +816,6 @@ Android 클라이언트 API에 대한 Javadoc 참조는 [][]<http://dl.windowsaz
   [요청 헤더 사용자 지정]: #headers
   [serialization 사용자 지정]: #serialization
   [다음 단계]: #next-steps
-  [mobile-services-concepts]: ../includes/mobile-services-concepts.md
   [테이블 만들기]: http://go.microsoft.com/fwlink/p/?LinkId=298592
   [동적 스키마]: http://go.microsoft.com/fwlink/p/?LinkId=296271
   [MobileServiceClient]: http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/mobileservices/MobileServiceClient.html

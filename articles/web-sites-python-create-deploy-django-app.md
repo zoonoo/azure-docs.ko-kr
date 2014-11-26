@@ -132,7 +132,6 @@ Django 응용 프로그램을 설정하려면 환경 변수를 3개 만들어야
 
 이제 DjangoApplication 디렉터리로 이동할 수 있으며, 일반적으로 새 응용 프로그램을 Django 프로젝트에 추가할 때 manage.py를 사용할 수 있습니다.
 
-  [create-account-and-websites-note]: ../includes/create-account-and-websites-note.md
   [0]: http://www.windowsazure.com/ko-kr/develop/python/
   [msysgit]: http://code.google.com/p/msysgit/
   [0]: ./media/web-sites-python-create-deploy-django-app/django-ws-003.png

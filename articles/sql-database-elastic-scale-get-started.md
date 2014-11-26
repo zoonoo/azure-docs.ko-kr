@@ -94,7 +94,8 @@ Azure SQL 데이터베이스 탄력적인 확장(현재 미리 보기 상태)에
 -   Channel 9: [탄력적인 확장 개요][1]
 -   토론 포럼: [Azure SQL 데이터베이스 포럼][Azure SQL 데이터베이스 포럼]
 
-<!--Anchors--> <!--Image references-->
+<!--Anchors-->
+<!--Image references-->
 
   [탄력적인 확장 개요]: http://go.microsoft.com/?linkid=9862592
   [탄력적인 확장 설명서 맵]: ./sql-database-elastic-scale-documentation-map.md
@@ -118,4 +119,4 @@ Azure SQL 데이터베이스 탄력적인 확장(현재 미리 보기 상태)에
   [스크립트 센터의 분할 탄력성]: http://go.microsoft.com/?linkid=9862617
   [탄력적인 확장 발표]: http://go.microsoft.com/?linkid=9862608
   [1]: http://go.microsoft.com/?linkid=9862609
-  [Azure SQL 데이터베이스 포럼]: http://social.msdn.microsoft.com/forums/azure/en-US/home?forum=ssdsgetstarted
+  [Azure SQL 데이터베이스 포럼]: http://social.msdn.microsoft.com/forums/azure/ko-kr/home?forum=ssdsgetstarted

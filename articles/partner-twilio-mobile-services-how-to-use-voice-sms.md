@@ -225,4 +225,3 @@ TwiML 응답을 제공하는 방법을 설정한 후에는 다음 코드 샘플�
   []: http://www.twilio.com/docs/api/rest/making-calls
   [방법: 고유한 웹 사이트에서 TwiML 응답 제공]: #howto_provide_twiml_responses
   [1]: https://www.twilio.com/docs/api/twiml
-  [twilio_additional_services_and_next_steps]: ../includes/twilio_additional_services_and_next_steps.md

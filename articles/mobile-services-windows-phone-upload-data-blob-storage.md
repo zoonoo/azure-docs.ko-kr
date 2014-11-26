@@ -80,8 +80,6 @@ SendGrid 전자 메일 서비스를 사용해 모바일 서비스에 전자 메�
   [Azure 저장소 계정]: /ko-kr/manage/services/storage/how-to-create-a-storage-account
   [모바일 서비스 시작하기]: /ko-kr/documentation/articles/mobile-services-windows-phone-get-started
   [0]: ./media/mobile-services-windows-phone-upload-data-blob-storage/mobile-add-storage-nuget-package-dotnet.png
-  [mobile-services-configure-blob-storage]: ../includes/mobile-services-configure-blob-storage.md
-  [mobile-services-windows-phone-upload-to-blob-storage]: ../includes/mobile-services-windows-phone-upload-to-blob-storage.md
   [SendGrid로 모바일 서비스에서 전자 메일 보내기]: /ko-kr/develop/mobile/tutorials/send-email-with-sendgrid/
   [모바일 서비스에서 백 엔드 작업 예약]: /ko-kr/develop/mobile/tutorials/schedule-backend-tasks/
   [모바일 서비스 서버 스크립트 참조]: http://go.microsoft.com/fwlink/p/?LinkId=262293

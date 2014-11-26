@@ -46,9 +46,9 @@ SAS를 사용하여 앱에서 Blob 저장소에 이미지를 업로드하려면 
 
 [WACOM.INCLUDE [mobile-services-windows-phone-upload-to-blob-storage](../includes/mobile-services-windows-phone-upload-to-blob-storage.md)]
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [저장소 클라이언트 라이브러리 설치]: #install-storage-client
   [클라이언트 앱을 업데이트하여 이미지 캡처]: #add-select-images
@@ -59,6 +59,4 @@ SAS를 사용하여 앱에서 Blob 저장소에 이미지를 업로드하려면 
   [Windows Phone SDK 8.0]: http://www.microsoft.com/ko-kr/download/details.aspx?id=35471
   [Azure 저장소 계정]: /ko-kr/documentation/articles/storage-create-storage-account/
   [모바일 서비스 시작하기]: /ko-kr/documentation/articles/mobile-services-windows-phone-get-started
-  [mobile-services-dotnet-backend-configure-blob-storage]: ../includes/mobile-services-dotnet-backend-configure-blob-storage.md
   [0]: ./media/mobile-services-dotnet-backend-windows-phone-upload-data-blob-storage/mobile-add-storage-nuget-package-dotnet.png
-  [mobile-services-windows-phone-upload-to-blob-storage]: ../includes/mobile-services-windows-phone-upload-to-blob-storage.md

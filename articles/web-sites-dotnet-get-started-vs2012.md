@@ -1,12 +1,12 @@
 <properties urlDisplayName="" pageTitle="" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Get started with Azure Websites and ASP.NET" authors="tdykstra" solutions="" manager="wpickett" editor="mollybos" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tdykstra"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tdykstra" />
 
 # Azure 웹 사이트 및 ASP.NET 시작
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/develop/net/tutorials/get-started/" title="Visual Studio 2013">Visual Studio 2013</a><a href="/en-us/develop/net/tutorials/get-started-vs2012/" title="Visual Studio 2012" class="current">Visual Studio 2012</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/ko-kr/develop/net/tutorials/get-started/" title="Visual Studio 2013">Visual Studio 2013</a><a href="/ko-kr/develop/net/tutorials/get-started-vs2012/" title="Visual Studio 2012" class="current">Visual Studio 2012</a></div>
 
-<div class="dev-callout"><strong>참고</strong><p><a href="/en-us/develop/net/tutorials/get-started/">이 자습서의 최신 버전</a>을 사용할 수 있습니다. Visual Studio 2012를 사용하려면 이 버전의 내용을 계속 따를 수 있지만 본 자습서에는 최신 Azure SDK 기능이 일부 표시되지 않습니다.</p></div>
+<div class="dev-callout"><strong>참고</strong><p><a href="/ko-kr/develop/net/tutorials/get-started/">이 자습서의 최신 버전</a>을 사용할 수 있습니다. Visual Studio 2012를 사용하려면 이 버전의 내용을 계속 따를 수 있지만 본 자습서에는 최신 Azure SDK 기능이 일부 표시되지 않습니다.</p></div>
 
 이 자습서에서는 Visual Studio 2012 또는 Visual Studio 2012 Express for Web의 웹 게시 마법사를 사용하여 ASP.NET 웹 응용 프로그램을 Azure 웹 사이트에 배포하는 방법을 보여 줍니다. 원하는 경우 Visual Studio 2010 또는 Visual Web Developer Express 2010을 사용하여 자습서 단계를 따를 수 있습니다.
 
@@ -23,7 +23,7 @@ Azure 계정은 무료로 개설할 수 있으며, Visual Studio 2012이 아직 
 
 ![웹 사이트 예][웹 사이트 예]
 
-<div class="dev-callout"><p><strong>참고</strong> 이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 <a href="/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F" target="_blank">MSDN 구독자 혜택을 활성화</a>하거나 <a href="/en-us/pricing/free-trial/?WT.mc_id=A261C142F" target="_blank">무료 평가판을 등록</a>할 수 있습니다. </p></div>
+<div class="dev-callout"><p><strong>참고</strong> 이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 <a href="/ko-kr/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F" target="_blank">MSDN 구독자 혜택을 활성화</a>하거나 <a href="/ko-kr/pricing/free-trial/?WT.mc_id=A261C142F" target="_blank">무료 평가판을 등록</a>할 수 있습니다. </p></div>
 
 ### 자습서 세그먼트
 
@@ -33,7 +33,7 @@ Azure 계정은 무료로 개설할 수 있으며, Visual Studio 2012이 아직 
 4.  [Azure에 응용 프로그램 배포][Azure에 응용 프로그램 배포]
 5.  [다음 단계][다음 단계]
 
-[WACOM.INCLUDE [install-sdk-2012-only][install-sdk-2012-only]]
+[WACOM.INCLUDE [install-sdk-2012-only](../includes/install-sdk-2012-only.md)]
 
 ## <a name="setupwindowsazure"></a><span class="short-header">사이트 만들기</span>웹 사이트 만들기
 
@@ -209,18 +209,12 @@ Azure 웹 사이트를 만들었지만 아직 콘텐츠가 없습니다. 다음 
 
 Azure 웹 사이트 대신 Azure 클라우드 서비스에서 응용 프로그램을 실행하려는 경우도 있습니다. 자세한 내용은 [Azure 실행 모델][Azure 실행 모델](영문) 및 [Azure 웹 사이트, 클라우드 서비스 및 가상 컴퓨터 비교][Azure 웹 사이트, 클라우드 서비스 및 가상 컴퓨터 비교](영문)를 참조하세요. 다중 계층 ASP.NET 웹 응용 프로그램을 만들고 클라우드 서비스에 배포하는 방법을 보여 주는 자습서 시리즈는 [저장소 테이블, 큐 및 Blob을 사용한 .NET 다중 계층 응용 프로그램][저장소 테이블, 큐 및 Blob을 사용한 .NET 다중 계층 응용 프로그램]을 참조하세요.
 
-  [Visual Studio 2013]: /en-us/develop/net/tutorials/get-started/ "Visual Studio 2013"
-  [Visual Studio 2012]: /en-us/develop/net/tutorials/get-started-vs2012/ "Visual Studio 2012"
-  [이 자습서의 최신 버전]: /en-us/develop/net/tutorials/get-started/
   [웹 사이트 예]: ./media/web-sites-dotnet-get-started-vs2012/DeployedWebSite.png
-  [MSDN 구독자 혜택을 활성화]: /en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
-  [무료 평가판을 등록]: /en-us/pricing/free-trial/?WT.mc_id=A261C142F
   [개발 환경 설정]: #setupdevenv
   [Azure에서 웹 사이트 만들기]: #setupwindowsazure
   [ASP.NET MVC 4 응용 프로그램 만들기]: #createmvc4app
   [Azure에 응용 프로그램 배포]: #deploytowindowsazure
   [다음 단계]: #nextsteps
-  [install-sdk-2012-only]: ../includes/install-sdk-2012-only.md
   [Azure 관리 포털]: http://manage.windowsazure.com
   [새 웹 사이트]: ./media/web-sites-dotnet-get-started-vs2012/WebSiteNew.png
   [빠른 생성]: ./media/web-sites-dotnet-get-started-vs2012/ClickQuickCreate.png
@@ -247,12 +241,12 @@ Azure 웹 사이트 대신 Azure 클라우드 서비스에서 응용 프로그�
   [서버 탐색기의 Azure 웹 사이트]: ./media/web-sites-dotnet-get-started-vs2012/ServerExplorerWSSettings.png
   [Visual Studio의 웹 사이트 구성]: ./media/web-sites-dotnet-get-started-vs2012/WSConfigurationInVS.png
   [관리 포털 대시보드 탭]: ./media/web-sites-dotnet-get-started-vs2012/MPStopStartDelete.png
-  [웹 사이트를 관리하는 방법]: /en-us/manage/services/web-sites/how-to-manage-websites/
+  [웹 사이트를 관리하는 방법]: /ko-kr/manage/services/web-sites/how-to-manage-websites/
   [관리 포털 크기 조정 탭]: ./media/web-sites-dotnet-get-started-vs2012/MPScale.png
-  [웹 사이트 크기를 조정하는 방법]: /en-us/manage/services/web-sites/how-to-scale-websites/
+  [웹 사이트 크기를 조정하는 방법]: /ko-kr/manage/services/web-sites/how-to-scale-websites/
   [Visual Studio의 로그]: ./media/web-sites-dotnet-get-started-vs2012/LogsInVS.png
-  [Visual Studio에서 Azure 웹 사이트 문제 해결]: /en-us/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/
-  [Azure 웹 사이트에 멤버 자격, OAuth 및 SQL 데이터베이스가 포함된 보안 ASP.NET MVC 앱 배포]: /en-us/develop/net/tutorials/web-site-with-sql-database/
-  [Azure 실행 모델]: /en-us/develop/net/fundamentals/compute/
+  [Visual Studio에서 Azure 웹 사이트 문제 해결]: /ko-kr/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/
+  [Azure 웹 사이트에 멤버 자격, OAuth 및 SQL 데이터베이스가 포함된 보안 ASP.NET MVC 앱 배포]: /ko-kr/develop/net/tutorials/web-site-with-sql-database/
+  [Azure 실행 모델]: /ko-kr/develop/net/fundamentals/compute/
   [Azure 웹 사이트, 클라우드 서비스 및 가상 컴퓨터 비교]: http://azure.microsoft.com/ko-kr/documentation/articles/choose-web-site-cloud-service-vm/
-  [저장소 테이블, 큐 및 Blob을 사용한 .NET 다중 계층 응용 프로그램]: /en-us/develop/net/tutorials/multi-tier-web-site/1-overview/
+  [저장소 테이블, 큐 및 Blob을 사용한 .NET 다중 계층 응용 프로그램]: /ko-kr/develop/net/tutorials/multi-tier-web-site/1-overview/

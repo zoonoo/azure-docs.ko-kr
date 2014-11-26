@@ -1,6 +1,6 @@
 <properties linkid="develop-notificationhubs-tutorials-get-started-kindle" urlDisplayName="Get Started" pageTitle="Get Started with Azure Notification Hubs" metaKeywords="" description="Learn how to use Azure Notification Hubs to send push notifications." metaCanonical="" services="notification-hubs" documentationCenter="Mobile" title="Get started with Notification Hubs" authors="sethm" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-kindle" ms.devlang="Java" ms.topic="article" ms.date="09/24/2014" ms.author="sethm"></tags>
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-kindle" ms.devlang="Java" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
 
 # 알림 허브 시작
 
@@ -11,14 +11,14 @@
 
 이 자습서를 사용하려면 다음이 필요합니다.
 
--   Android SDK(Eclipse를 사용하는 것으로 가정) - [여기][]에서 다운로드 가능
--   [이][] 단계에 따라 Kindle에 대한 개발 환경을 설정합니다.
+-   Android SDK(Eclipse를 사용하는 것으로 가정) - [여기][여기]에서 다운로드 가능
+-   [이][이] 단계에 따라 Kindle에 대한 개발 환경을 설정합니다.
 
 ## 개발자 포털에 새 앱 추가
 
-1.  먼저 [개발자 포털][]에서 앱을 만듭니다.
+1.  먼저 [개발자 포털][개발자 포털]에서 앱을 만듭니다.
 
-    ![][]
+    ![][0]
 
 2.  **응용 프로그램 키**를 복사합니다.
 
@@ -63,7 +63,7 @@
 
 Eclipse 프로젝트에 ADM 라이브러리를 추가합니다.
 
-1.  ADM 라이브러리를 가져오려면 [SDK를 다운로드합니다][]. SDK zip 파일의 압축을 풉니다.
+1.  ADM 라이브러리를 가져오려면 [SDK를 다운로드합니다][SDK를 다운로드합니다]. SDK zip 파일의 압축을 풉니다.
 2.  Eclipse에서 프로젝트를 마우스 오른쪽 단추로 클릭한 후 **Properties**를 클릭합니다. 왼쪽에서 **Java Build Path**를 선택한 후 맨 위에 있는 **Libraries** 탭을 선택합니다. **Add External Jar**을 클릭하고, Amazon SDK의 압축을 푼 디렉터리에서 `\SDK\Android\DeviceMessaging\lib\amazon-device-messaging-*.jar` 파일을 선택합니다.
 3.  NotificationHubs Android SDK(링크)를 다운로드합니다.
 4.  패키지의 압축을 푼 후 `notification-hubs-sdk.jar` 파일을 Eclipse의 `libs` 폴더로 끌어옵니다.
@@ -254,19 +254,12 @@ ADM을 지원하도록 앱 매니페스트를 편집합니다.
 
 ![][7]
 
-<!-- URLs. -->
 
-  [Windows 범용]: /ko-KR/documentation/articles/notification-hubs-windows-store-dotnet-get-started/ "Windows 범용"
-  [Windows Phone]: /ko-KR/documentation/articles/notification-hubs-windows-phone-get-started/ "Windows Phone"
-  [iOS]: /ko-KR/documentation/articles/notification-hubs-ios-get-started/ "iOS"
-  [Android]: /ko-KR/documentation/articles/notification-hubs-android-get-started/ "Android"
-  [Kindle]: /ko-KR/documentation/articles/notification-hubs-kindle-get-started/ "Kindle"
-  [Xamarin.iOS]: /ko-KR/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/ "Xamarin.iOS"
-  [Xamarin.Android]: /ko-KR/documentation/articles/partner-xamarin-notification-hubs-android-get-started/ "Xamarin.Android"
+
   [여기]: http://go.microsoft.com/fwlink/?LinkId=389797
   [이]: https://developer.amazon.com/appsandservices/resources/development-tools/ide-tools/tech-docs/01-setting-up-your-development-environment
   [개발자 포털]: https://developer.amazon.com/home.html
-  []: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-portal1.png
+  [0]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-portal1.png
   [1]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-portal2.png
   [2]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-portal3.png
   [3]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-portal4.png

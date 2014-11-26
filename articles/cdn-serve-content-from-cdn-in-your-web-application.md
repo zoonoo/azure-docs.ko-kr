@@ -1,6 +1,6 @@
 <properties linkid="cdn-serve-content-from-cdn-in-your-web-application" urlDisplayName="Use Content from a CDN in Your Web Application" pageTitle="Use Content from a CDN in Your Web Application" metaKeywords="Azure tutorial, Azure web app tutorial, ASP.NET, CDN" description="A tutorial that teaches you how to use content from a CDN to improve the performance of your Web application." metaCanonical="" services="cdn" documentationCenter=".NET" title="Use Content from a CDN in Your Web Application" authors="cephalin" solutions="" manager="wpickett" editor="tysonn" />
 
-<tags ms.service="cdn" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin"></tags>
+<tags ms.service="cdn" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin" />
 
 # 웹 응용 프로그램에서 Azure CDN의 콘텐츠 제공
 
@@ -58,7 +58,7 @@
 1.  CDN 끝점을 만들려면 [Azure 관리 포털][Azure 관리 포털]에 로그인합니다.
 2.  **새로 만들기 \> 데이터 서비스 \> 저장소 \> 빠른 생성**을 클릭하여 저장소 계정을 만듭니다. URL 및 위치를 지정하고 **저장소 계정 만들기**를 클릭합니다.
 
-    ![][]
+    ![][0]
 
     > [WACOM.NOTE] 여기서는 지역으로 동아시아를 사용합니다. 나중에 CDN을 테스트할 북아메리카로부터 충분히 멀리 떨어져 있기 때문입니다.
 
@@ -272,10 +272,8 @@ Azure CDN을 Azure 클라우드 서비스와 통합하는 방법에 대한 자�
   [Microsoft Azure 계정]: http://azure.microsoft.com/ko--kr/account/
   [Azure SDK]: http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409
   [Azure PowerShell]: http://go.microsoft.com/?linkid=9811175&clcid=0x409
-  [Azure 계정을 무료로 개설]: http://azure.microsoft.com/ko--kr/pricing/free-trial/?WT.mc_id=A261C142F
-  [MSDN 구독자 혜택을 활성화]: http://azure.microsoft.com/ko--kr/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
   [Azure 관리 포털]: http://manage.windowsazure.com/
-  []: media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-1.PNG
+  [0]: media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-1.PNG
   [1]: media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-2.PNG
   [2]: media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-3-fail.PNG
   [3]: media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-3-succeed.PNG

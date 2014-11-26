@@ -1,6 +1,6 @@
 1.  [Azure 관리 포털]에 로그온하여 **모바일 서비스**를 클릭한 후 해당 모바일 서비스를 클릭합니다.
 
-    ![][]
+    ![][0]
 
 2.  **푸시** 탭을 클릭하고 **사용 권한**에서 **인증된 사용자만**을 선택한 후 **스크립트 편집**을 클릭합니다.
 
@@ -45,5 +45,5 @@
 
 4.  뒤로 화살표를 클릭하고 **데이터** 탭, **TodoItem**, **스크립트**를 차례로 클릭한 후 **삽입**을 선택합니다.
 
-  []: ./media/mobile-services-javascript-backend-push-notifications-app-users/mobile-services-selection.png
+  [0]: ./media/mobile-services-javascript-backend-push-notifications-app-users/mobile-services-selection.png
   [1]: ./media/mobile-services-javascript-backend-push-notifications-app-users/mobile-services-push-registration-endpoint.png

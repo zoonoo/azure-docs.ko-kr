@@ -1,6 +1,6 @@
-<properties title="Chef 및 Azure 가상 컴퓨터 정보" pageTitle="Chef 및 Azure 가상 컴퓨터 정보" description="Azure에서 VM에 Chef를 설치 및 구성하는 방법에 대해 설명합니다." metaKeywords="" services="virtual machines" solutions="" documentationCenter="" authors="kathydav" manager="timlt" videoId="" scriptId="" />
+<properties title="About Chef and Azure Virtual Machines" pageTitle="About Chef and Azure Virtual Machines" description="Describes installing and configuring Chef on a VM in Azure" metaKeywords="" services="virtual machines" solutions="" documentationCenter="" authors="kathydav" videoId="" scriptId="" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="07/29/2014" ms.author="kathydav" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="kathydav" />
 
 # Chef 및 Azure 가상 컴퓨터 정보
 
@@ -28,7 +28,6 @@ Chef는 클라이언트-서버 시스템입니다. Chef 서버 사용을 위한 
   [Microsoft Azure 포털]: http://docs.opscode.com/azure_portal.html
   [스크립트]: https://gist.github.com/kaustubh-d/cea1aa75baebd3615609
   [knife-azure]: http://docs.getchef.com/plugin_knife_azure.html
-  [Chef 및 Microsoft Azure(영문)]: http://www.getchef.com/solutions/azure/
   [Windows Server를 실행하는 가상 컴퓨터에 로그온하는 방법]: ../virtual-machines-log-on-windows-server/
   [Linux를 실행하는 가상 컴퓨터에 로그온하는 방법]: ../virtual-machines-linux-how-to-log-on
   [확장 관리]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409

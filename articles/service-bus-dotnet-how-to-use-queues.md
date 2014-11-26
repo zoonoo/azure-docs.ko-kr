@@ -288,7 +288,5 @@ Studio 및 Visual Studio Express 2012 for Web에서 라이브러리와
     자습서]
 
   [다음 단계]: #next-steps
-  [create-account-note]: ../includes/create-account-note.md
-  [howto-service-bus-queues]: ../includes/howto-service-bus-queues.md
   [0]: ./media/service-bus-dotnet-how-to-use-queues/getting-started-multi-tier-13.png
   [큐, 토픽 및 구독]: http://msdn.microsoft.com/ko-kr/library/windowsazure/hh367516.aspx

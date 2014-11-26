@@ -1,6 +1,6 @@
-1.  [Google 클라우드 콘솔][](영문) 웹 사이트로 이동하고 Google 계정 자격 증명을 사용하여 로그인한 후 **CREATE PROJECT**를 클릭합니다.
+1.  [Google 클라우드 콘솔][Google 클라우드 콘솔](영문) 웹 사이트로 이동하고 Google 계정 자격 증명을 사용하여 로그인한 후 **CREATE PROJECT**를 클릭합니다.
 
-    ![][]
+    ![][0]
 
     > [WACOM.NOTE] 이미 기존 프로젝트가 있는 경우에는 로그인하면 **프로젝트** 페이지로 연결됩니다. Dashboard에서 새 프로젝트를 만들려면 **API Project**를 확장하고 **Other projects** 아래의 **Create...**를 클릭한 후 프로젝트 이름을 입력하고 **Create project**를 클릭합니다.
 
@@ -29,7 +29,7 @@
     이 API 키를 사용하여 모바일 서비스에서 GCM에 인증하고 앱 대신 푸시 알림을 보낼 수 있게 합니다.
 
   [Google 클라우드 콘솔]: http://cloud.google.com/console
-  []: ./media/notification-hubs-android-get-started/mobile-services-google-new-project.png
+  [0]: ./media/notification-hubs-android-get-started/mobile-services-google-new-project.png
   [1]: ./media/notification-hubs-android-get-started/mobile-services-google-enable-GCM.png
   [2]: ./media/notification-hubs-android-get-started/mobile-services-google-create-server-key.png
   [3]: ./media/notification-hubs-android-get-started/mobile-services-google-create-server-key2.png

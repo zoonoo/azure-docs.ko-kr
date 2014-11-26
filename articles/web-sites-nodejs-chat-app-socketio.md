@@ -1,18 +1,18 @@
 <properties linkid="dev-nodejs-website-with-socketio" urlDisplayName="Website Using Socket.IO" pageTitle="Node.js Website using Socket.io - Azure tutorial" metaKeywords="Azure Node.js socket.io tutorial, Azure Node.js socket.io, Azure Node.js tutorial" description="A tutorial that demonstrates using socket.io in a node.js website hosted on Azure." metaCanonical="" services="web-sites" documentationCenter="nodejs" title="Build a Node.js Chat Application with Socket.IO on an Azure Website" authors="larryfr" solutions="" videoId="" scriptId="" manager="paulettm" editor="mollybos" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # Azure 웹 사이트에서 Socket.IO를 사용하여 Node.js 채팅 응용 프로그램 빌드
 
 Socket.IO는 WebSocket을 사용하여 node.js 서버와 클라이언트 간의 실시간 통신을 제공합니다. 또한 이전 브라우저에서 작동하는 다른 전송(예: 긴 폴링)으로의 대체를 지원합니다. 이 자습서는 Azure 웹 사이트에서 Socket.IO를 기반으로 하는 채팅 응용 프로그램 호스팅에 대해 안내합니다. Socket.IO에 대한 자세한 내용은 [][]<http://socket.io/></a>(영문)를 참조하십시오.
 
-> [WACOM.NOTE] 이 작업의 절차는 Azure 웹 사이트에 적용됩니다. 클라우드 서비스에 대해서는 [Azure 클라우드 서비스에서 Socket.IO를 사용하여 Node.js 채팅 응용 프로그램 빌드][]를 참조하세요.
+> [WACOM.NOTE] 이 작업의 절차는 Azure 웹 사이트에 적용됩니다. 클라우드 서비스에 대해서는 [Azure 클라우드 서비스에서 Socket.IO를 사용하여 Node.js 채팅 응용 프로그램 빌드][Azure 클라우드 서비스에서 Socket.IO를 사용하여 Node.js 채팅 응용 프로그램 빌드]를 참조하세요.
 
 ## <span id="Download"></span></a>채팅 예제 다운로드
 
-이 프로젝트에서는 [Socket.IO GitHub 리포지토리][]의 채팅 예제를 사용합니다. 다음 단계에 따라 예제를 다운로드하여 이전에 만든 프로젝트에 추가하세요.
+이 프로젝트에서는 [Socket.IO GitHub 리포지토리][Socket.IO GitHub 리포지토리]의 채팅 예제를 사용합니다. 다음 단계에 따라 예제를 다운로드하여 이전에 만든 프로젝트에 추가하세요.
 
-1.  Socket.IO 프로젝트의 [ZIP 또는 GZ 보관 릴리스][]를 다운로드합니다(이 문서에서는 버전 1.0.6 사용).
+1.  Socket.IO 프로젝트의 [ZIP 또는 GZ 보관 릴리스][ZIP 또는 GZ 보관 릴리스]를 다운로드합니다(이 문서에서는 버전 1.0.6 사용).
 
 2.  보관 파일을 추출하고 **examples\\chat** 디렉터리를 새 위치(예: **\\node\\chat**)에 복사합니다.
 
@@ -65,7 +65,7 @@ app.js의 변경 내용을 저장한 후 다음 단계에 따라 필요한 모�
 
 다음 단계에 따라 Azure 웹 사이트를 만들고, Git 게시를 사용하도록 설정한 다음, 웹 사이트에 대한 WebSocket 지원을 사용하도록 설정합니다.
 
-> [WACOM.NOTE] 이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판][]을 참조하세요.
+> [WACOM.NOTE] 이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판][Azure 무료 평가판]을 참조하세요.
 
 1.  명령줄에서 **\\node\\chat**로 디렉터리를 변경하고 다음 명령을 사용하여 새 Azure 웹 사이트를 만들고 해당 웹 사이트 및 로컬 디렉터리에 대해 Git 리포지토리를 사용하도록 설정합니다. 그렇게 하면 'azure'라는 Git 원격이 만들어집니다.
 
@@ -95,9 +95,9 @@ app.js의 변경 내용을 저장한 후 다음 단계에 따라 필요한 모�
     > [WACOM.NOTE]
     > 'azure site set -w' 명령은 버전 0.7.4 이상의 Azure 크로스 플랫폼 명령줄 인터페이스에서만 작동합니다. 또한 Azure 관리 포털에서 WebSocket 지원을 사용하도록 설정할 수도 있습니다.
     >
-    > [Azure 관리 포털][]에서 WebSocket을 사용하도록 설정하려면 웹 사이트의 구성 페이지를 선택하고, WebSocket 항목에 대해 '설정'을 선택한 후 저장을 클릭합니다.
+    > [Azure 관리 포털][Azure 관리 포털]에서 WebSocket을 사용하도록 설정하려면 웹 사이트의 구성 페이지를 선택하고, WebSocket 항목에 대해 '설정'을 선택한 후 저장을 클릭합니다.
     >
-    > ![WebSocket][]
+    > ![WebSocket][WebSocket]
 
 5.  Azure에서 웹 사이트를 보려면 다음 명령을 사용하여 웹 브라우저를 시작하고 호스트되는 웹 사이트로 이동합니다.
 
@@ -105,17 +105,17 @@ app.js의 변경 내용을 저장한 후 다음 단계에 따라 필요한 모�
 
 현재 응용 프로그램이 Azure에서 실행되고 있으며 Socket.IO를 사용하여다른 클라이언트 간에 채팅 메시지를 릴레이할 수 있습니다.
 
-> [WACOM.NOTE] 간단히 하기 위해 샘플은 같은 인스턴스에 연결된 사용자 간 채팅으로 제한됩니다. 즉 클라우드 서비스에서 작업자 역할 인스턴스를 두 개 만드는 경우 사용자는 같은 작업자 역할 인스턴스에 연결된 사람들과만 채팅할 수 있습니다. 응용 프로그램을 여러 역할 인스턴스와 작업하도록 조정하려면 서비스 버스 같은 기술을 사용하여 인스턴스 간에 Socket.IO 저장소 상태를 공유할 수 있습니다. 예를 들어, [Node.js에 대한 Azure SDK GitHub 리포지토리][](영문)의 서비스 버스 큐 및 토픽 사용 샘플을 참조하십시오.
+> [WACOM.NOTE] 간단히 하기 위해 샘플은 같은 인스턴스에 연결된 사용자 간 채팅으로 제한됩니다. 즉 클라우드 서비스에서 작업자 역할 인스턴스를 두 개 만드는 경우 사용자는 같은 작업자 역할 인스턴스에 연결된 사람들과만 채팅할 수 있습니다. 응용 프로그램을 여러 역할 인스턴스와 작업하도록 조정하려면 서비스 버스 같은 기술을 사용하여 인스턴스 간에 Socket.IO 저장소 상태를 공유할 수 있습니다. 예를 들어, [Node.js에 대한 Azure SDK GitHub 리포지토리][Node.js에 대한 Azure SDK GitHub 리포지토리](영문)의 서비스 버스 큐 및 토픽 사용 샘플을 참조하십시오.
 
 ## 확장
 
-**어댑터**를 사용하여 여러 응용 프로그램 인스턴스 간에 메시지 및 이벤트를 배포하는 방식으로 Socket.IO 응용 프로그램을 확장할 수 있습니다. 사용 가능한 여러 어댑터가 있지만 Azure Redis 캐시 기능에 사용하기 편리한 어댑터는 [socket.io-redis][] 어댑터입니다.
+**어댑터**를 사용하여 여러 응용 프로그램 인스턴스 간에 메시지 및 이벤트를 배포하는 방식으로 Socket.IO 응용 프로그램을 확장할 수 있습니다. 사용 가능한 여러 어댑터가 있지만 Azure Redis 캐시 기능에 사용하기 편리한 어댑터는 [socket.io-redis][socket.io-redis] 어댑터입니다.
 
-> [WACOM.NOTE] Socket.IO 솔루션 확장에 대한 추가 요구 사항은 고정 세션의 지원입니다. 고정 세션은 Azure 요청 라우팅을 통해 Azure 웹 사이트에서 기본적으로 사용하도록 설정됩니다. 자세한 내용은 [Azure 웹 사이트의 인스턴스 선호도][]를 참조하세요.
+> [WACOM.NOTE] Socket.IO 솔루션 확장에 대한 추가 요구 사항은 고정 세션의 지원입니다. 고정 세션은 Azure 요청 라우팅을 통해 Azure 웹 사이트에서 기본적으로 사용하도록 설정됩니다. 자세한 내용은 [Azure 웹 사이트의 인스턴스 선호도][Azure 웹 사이트의 인스턴스 선호도]를 참조하세요.
 
 ### Redis 캐시 만들기
 
-[Azure Redis 캐시에서 캐시 만들기][]의 단계를 수행하여 새 캐시를 만듭니다.
+[Azure Redis 캐시에서 캐시 만들기][Azure Redis 캐시에서 캐시 만들기]의 단계를 수행하여 새 캐시를 만듭니다.
 
 > [WACOM.NOTE] 캐시의 **호스트 이름** 및 **기본 키**를 저장합니다. 이러한 정보는 다음 단계에서 필요합니다.
 
@@ -165,7 +165,7 @@ app.js의 변경 내용을 저장한 후 다음 단계에 따라 필요한 모�
 
 ### 연결 제한
 
-Azure 웹 사이트는 여러 SKU에서 사용할 수 있으며, 이러한 SKU에 따라 사이트에 사용 가능한 리소스가 결정됩니다. 여기에는 허용되는 WebSocket 연결 수가 포함됩니다. 자세한 내용은 [웹 사이트 가격 책정 페이지][]을 참조하세요.
+Azure 웹 사이트는 여러 SKU에서 사용할 수 있으며, 이러한 SKU에 따라 사이트에 사용 가능한 리소스가 결정됩니다. 여기에는 허용되는 WebSocket 연결 수가 포함됩니다. 자세한 내용은 [웹 사이트 가격 책정 페이지][웹 사이트 가격 책정 페이지]을 참조하세요.
 
 ### 메시지가 WebSocket을 사용하여 전송되지 않음
 

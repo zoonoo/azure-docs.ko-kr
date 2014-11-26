@@ -719,9 +719,9 @@ App.xaml.cs 파일을 열고 **MobileServiceClient** 인스턴스를 `App` 클�
 
 
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
 [ASP.NET Web API]: http://asp.net/web-api
 [개요]: #overview

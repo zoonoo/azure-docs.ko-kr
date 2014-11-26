@@ -1,6 +1,6 @@
 1.  Package Explorer에서 **GetStartedWithData**, **src** 및 **.com.example.GetStartedWithData**의 압축을 푼 다음 ToDoActivity.java 파일을 검사합니다.
 
-    ![][]
+    ![][0]
 
     이 앱이 모바일 서비스와 작동하도록 설정하기 위해 취해야 하는 단계를 지정하는 `//TODO` 주석이 있습니다.
 
@@ -14,5 +14,5 @@
 
     메모리 내 컬렉션에 저장된 텍스트가 저장되고 아래 목록에 표시됩니다.
 
-  []: ./media/download-android-sample-code/mobile-eclipse-project.png
+  [0]: ./media/download-android-sample-code/mobile-eclipse-project.png
   [1]: ./media/download-android-sample-code/mobile-quickstart-startup-android.png

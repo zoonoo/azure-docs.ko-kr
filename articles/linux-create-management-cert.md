@@ -59,7 +59,7 @@ ManagementCertificate 다음에 나오는 따옴표 사이에 있는 Base 64 인
 
  	openssl.exe pkcs12 -in publicAndprivate.pfx -nocerts -out privateKey.pem
 
-Windows에서 PowerShell 또는 [http://www.fourmilab.ch/webtools/base64/base64.zip]()(영문)과 같은 무료 Windows Base 64 디코더를 사용하여 명령을 실행함으로써 PFX 파일을 디코드하고 추출할 수 있습니다.
+Windows에서 PowerShell 또는 [http://www.fourmilab.ch/webtools/base64/base64.zip](http://www.fourmilab.ch/webtools/base64/base64.zip)(영문)과 같은 무료 Windows Base 64 디코더를 사용하여 명령을 실행함으로써 PFX 파일을 디코드하고 추출할 수 있습니다.
 
     base64 -d key.txt ->key.pfx
 

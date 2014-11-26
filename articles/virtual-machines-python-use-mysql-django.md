@@ -1,6 +1,6 @@
 <properties linkid="develop-python-web-app-with-django-and-mysql" urlDisplayName="Web with Django + MySQL" pageTitle="Python web app with Django and MySQL - Azure tutorial" metaKeywords="Azure django web app, Azure Django MySQL, Azure django Python" description="A tutorial that teaches you how to use MySQL in with Django on an Azure virtual machine. Code samples written in Python." metaCanonical="" services="virtual-machines" documentationCenter="Python" title="Django Hello World - MySQL Windows Edition" authors="huvalo" solutions="" manager="" editor="" />
 
-<tags ms.service="virtual-machines" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo"></tags>
+<tags ms.service="virtual-machines" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo" />
 
 # Django Hello World - MySQL Windows Edition
 
@@ -238,7 +238,6 @@ Django에서 위의 마지막 명령에 대한 출력을 보고하지 않으면 
   [MySQL 웹 사이트]: http://dev.mysql.com/doc/
   [MySQL 드라이버]: http://pypi.python.org/pypi/MySQL-python/1.2.3
   [0]: ./media/virtual-machines-python-use-mysql-django/mysql_tutorial01.png
-  [create-account-and-vms-note]: ../includes/create-account-and-vms-note.md
   [여기]: /ko-kr/manage/windows/tutorials/virtual-machine-from-gallery/
   [MySQL Community Server]: http://dev.mysql.com/downloads/mysql/
   ["world" 데이터베이스]: http://dev.mysql.com/doc/index-other.html
@@ -247,4 +246,3 @@ Django에서 위의 마지막 명령에 대한 출력을 보고하지 않으면 
   [웹 플랫폼 설치 관리자]: http://www.microsoft.com/web/downloads/platform.aspx
   [이 링크에서]: http://code.google.com/p/soemin/downloads/detail?name=MySQL-python-1.2.3.win32-py2.7.exe&can=2&q=
   [2]: ./media/virtual-machines-python-use-mysql-django/mysql_tutorial01-1.png
-  [http://\*Vm이름]: http://*yourVmName

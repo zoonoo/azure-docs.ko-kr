@@ -177,7 +177,6 @@
 
 
 
-  [mobile-services-selector-get-started-data-legacy]: ../includes/mobile-services-selector-get-started-data-legacy.md
   [Windows Phone 8 앱 프로젝트 다운로드]: #download-app
   [모바일 서비스 만들기]: #create-service
   [저장소로 사용할 데이터 테이블 추가]: #add-table
@@ -188,8 +187,6 @@
   [GetStartedWithData 앱]: http://go.microsoft.com/fwlink/p/?LinkId=271146
   [Windows Phone 스토어 앱 버전]: http://go.microsoft.com/fwlink/p/?LinkId=397372
   [0]: ./media/mobile-services-windows-phone-get-started-data/mobile-quickstart-startup-wp8.png
-  [mobile-services-create-new-service-data]: ../includes/mobile-services-create-new-service-data.md
-  [mobile-services-create-new-service-data-2]: ../includes/mobile-services-create-new-service-data-2.md
   [1]: ./media/mobile-services-windows-phone-get-started-data/mobile-add-nuget-package-wp.png
   [2]: ./media/mobile-services-windows-phone-get-started-data/mobile-dashboard-tab.png
   [관리 포털]: https://manage.windowsazure.com/

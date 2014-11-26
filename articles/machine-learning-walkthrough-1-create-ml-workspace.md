@@ -1,6 +1,6 @@
 <properties title="Step 1: Create an Azure Machine Learning workspace" pageTitle="Step 1: Create a Machine Learning workspace | Azure" description="Step 1: Create a new Azure Machine Learning Studio workspace" metaKeywords="" services="" solutions="" documentationCenter="" authors="garye" videoId="" scriptId="" />
 
-<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="garye"></tags>
+<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="garye" />
 
 [Azure 기계 학습을 사용한 예측 솔루션 개발][Azure 기계 학습을 사용한 예측 솔루션 개발] 자습서의 첫 번째 단계입니다.
 

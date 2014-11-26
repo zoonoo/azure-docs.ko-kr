@@ -194,7 +194,6 @@ Azure 모듈은 **AZURE\_SERVICEBUS\_NAMESPACE** 및 **AZURE\_SERVICEBUS\_ACCESS
   [구독에서 메시지를 받는 방법]: #how-to-receive-messages-from-a-subscription
   [응용 프로그램 크래시 및 읽을 수 없는 메시지를 처리하는 방법]: #how-to-handle-application-crashes-and-unreadable-messages
   [토픽과 구독을 삭제하는 방법]: #how-to-delete-topics-and-subscriptions
-  [howto-service-bus-topics]: ../includes/howto-service-bus-topics.md
   [Azure에서 Ruby 응용 프로그램 만들기]: /ko-KR/develop/ruby/tutorials/web-app-with-linux-vm/
   [SqlFilter.SqlExpression]: http://msdn.microsoft.com/ko-KR/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
   [Azure 관리 포털]: https://manage.windowsazure.com

@@ -1,6 +1,6 @@
 이제 모바일 서비스를 사용할 수 있으므로 로컬 컬렉션 대신 모바일 서비스에 항목을 저장하도록 앱을 업데이트할 수 있습니다.
 
-1.  [모바일 서비스 Android SDK][]가 아직 없는 경우 지금 다운로드하고 압축 파일의 압축을 풉니다.
+1.  [모바일 서비스 Android SDK][모바일 서비스 Android SDK]가 아직 없는 경우 지금 다운로드하고 압축 파일의 압축을 풉니다.
 
 2.  `.jar` 파일(SDK의 `mobileservices` 폴더)을 GetStartedWithData 프로젝트의 `libs` 폴더로 복사합니다.
 
@@ -43,7 +43,7 @@
 
 11. **대시보드** 탭을 클릭하여 **사이트 URL**을 기록해 두고 **키 관리**를 클릭하여 **응용 프로그램 키**를 기록해 둡니다.
 
-    ![][]
+    ![][0]
 
     앱 코드에서 모바일 서비스에 액세스할 때 이 값이 필요합니다.
 
@@ -124,7 +124,7 @@
 
     그러면 모바일 서비스를 쿼리하여 완료로 표시되지 않은 모든 항목을 반환합니다. 바인딩을 위해 항목이 어댑터에 추가됩니다.
 
-<!-- URLs. -->
+
 
   [모바일 서비스 Android SDK]: http://go.microsoft.com/fwlink/p/?LinkID=280126
-  []: ./media/download-android-sample-code/mobile-dashboard-tab.png
+  [0]: ./media/download-android-sample-code/mobile-dashboard-tab.png

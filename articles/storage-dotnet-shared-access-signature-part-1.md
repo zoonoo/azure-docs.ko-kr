@@ -1,4 +1,4 @@
-<properties urlDisplayName="" pageTitle="공유 액세스 서명: SAS 모델 이해 | Microsoft Azure" metaKeywords="Azure blob, Azure table, Azure queue, shared access signatures" description="공유 액세스 서명을 사용하여 Blob, 큐 및 테이블 리소스 액세스 권한을 위임하는 방법에 대해 알아봅니다." metaCanonical="" services="storage" documentationCenter="" title="1부: SAS 모델 이해" solutions="" authors="tamram" manager="adinah" editor="cgronlun" />
+<properties linkid="manage-services-storage-net-shared-access-signature-part-1" urlDisplayName="" pageTitle="Shared access signatures: Understanding the SAS Model | Microsoft Azure" metaKeywords="Azure blob, Azure table, Azure queue, shared access signatures" description="Learn about delegating access to blob, queue, and table resources with shared access signatures" metaCanonical="" services="storage" documentationCenter="" title="Part 1: Understanding the SAS Model" solutions="" authors="tamram" manager="mbaldwin" editor="cgronlun" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
@@ -18,11 +18,11 @@ SAS가 유용한 일반적인 시나리오로는 다른 사용자가 저장소 �
 
 1. 클라이언트는 인증을 수행하는 프런트 엔드 프록시 서비스를 통해 데이터를 업로드하고 다운로드합니다. 프런트 엔드 프록시 서비스는 비즈니스 규칙의 유효성을 검사할 수 있다는 장점이 있지만, 데이터의 양이 많거나 트랜잭션 볼륨이 높은 경우 수요에 맞게 확장 가능한 서비스를 구축하려면 많은 비용이 필요하거나 어려움이 따를 수 있습니다.
 
-[sas-storage-fe-proxy-service][sas-storage-fe-proxy-service]
+ ![sas-storage-fe-proxy-service][sas-storage-fe-proxy-service]
 
 2. 간단한 서비스에서 필요에 따라 클라이언트를 인증한 다음 SAS를 생성합니다. 클라이언트는 SAS를 수신한 후 SAS에 정의된 권한을 사용하여 SAS에 허용된 간격으로 저장소 계정 리소스에 직접 액세스할 수 있습니다. SAS를 사용하면 프런트 엔드 프록시 서비스를 통해 모든 데이터를 라우팅할 필요성이 감소됩니다.
 
-[sas-storage-provider-service][sas-storage-provider-service]
+ ![sas-storage-provider-service][sas-storage-provider-service]
 
 대부분의 실제 서비스에서는 포함된 시나리오에 따라 두 가지 방법을 혼합하여 사용할 수 있습니다. 즉, 일부 데이터는 프런트 엔드 프록시를 통해 처리 및 확인하고 일부 데이터는 SAS를 사용하여 직접 저장하거나 읽습니다.
 
@@ -39,7 +39,7 @@ SAS가 유용한 일반적인 시나리오로는 다른 사용자가 저장소 �
 
 다음은 Blob에 대한 읽기 및 쓰기 권한을 제공하는 SAS URI의 예입니다. 테이블에서는 URI의 각 부분이 SAS에서 어떤 역할을 하는지를 이해할 수 있도록 세분화했습니다.
 
-https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2012-02-12&st=2013-04-29T22%3A18%3A26Z&se=2013-04-30T02%3A23%3A26Z&sr=b&sp=rw&sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D
+<https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2012-02-12&st=2013-04-29T22%3A18%3A26Z&se=2013-04-30T02%3A23%3A26Z&sr=b&sp=rw&sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D>
 
 <table>
 <colgroup>
@@ -139,5 +139,4 @@ https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2012-02-12&s
   [2부]: ../storage-dotnet-shared-access-signature-part-2/
   [Azure 저장소 팀 블로그]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/08/03/windows-azure-storage-logging-using-logs-to-track-storage-requests.aspx
   [Azure 저장소 리소스에 대한 액세스 관리]: http://msdn.microsoft.com/ko-kr/library/windowsazure/ee393343.aspx
-  [공유 액세스 서명을 사용하여 액세스 위임(REST API)]: http://msdn.microsoft.com/ko-kr/library/windowsazure/ee395415.aspx
   [테이블 및 큐 SAS 소개]: http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx

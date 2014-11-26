@@ -212,9 +212,7 @@
   [Visual Studio 2012 Express for Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374
   [모바일 서비스 시작하기]: /ko-kr/develop/mobile/tutorials/get-started-wp8
   [알림 허브 시작하기]: /ko-kr/manage/services/notification-hubs/getting-started-windows-dotnet/
-  [mobile-services-create-new-push-table]: ../includes/mobile-services-create-new-push-table.md
   [0]: ./media/mobile-services-windows-phone-get-started-push/mobile-app-enable-push-wp8.png
-  [mobile-services-update-registrations-script]: ../includes/mobile-services-update-registrations-script.md
   [1]: ./media/mobile-services-windows-phone-get-started-push/mobile-insert-script-push2.png
   [2]: ./media/mobile-services-windows-phone-get-started-push/mobile-quickstart-push1-wp8.png
   [3]: ./media/mobile-services-windows-phone-get-started-push/mobile-quickstart-push2-wp8.png

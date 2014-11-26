@@ -113,12 +113,9 @@
 
 
 
-  [mobile-services-selector-get-started-users]: ../includes/mobile-services-selector-get-started-users.md
   [인증을 위해 앱 등록 및 모바일 서비스 구성]: #register
   [테이블 사용 권한을 인증된 사용자로 제한]: #permissions
   [앱에 인증 추가]: #add-authentication
   [모바일 서비스 시작]: /ko-kr/documentation/articles/mobile-services-html-get-started
-  [mobile-services-register-authentication]: ../includes/mobile-services-register-authentication.md
-  [mobile-services-restrict-permissions-javascript-backend]: ../includes/mobile-services-restrict-permissions-javascript-backend.md
   [스크립트를 통해 사용자 권한 부여]: /ko-kr/documentation/articles/mobile-services-html-authorize-users-in-scripts
   [모바일 서비스 HTML/JavaScript 방법 개념 참조]: /ko-kr/documentation/articles/mobile-services-html-how-to-use-client-library

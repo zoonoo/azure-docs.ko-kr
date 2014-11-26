@@ -13,6 +13,6 @@
 
 Chris Risner의 자습서인 [iOS 및 Android에서 Azure Active Directory를 통해 보호되는 리소스 액세스][iOS 및 Android에서 Azure Active Directory를 통해 보호되는 리소스 액세스]의 내용을 참조하여 Active Directory를 사용해 앱을 인증하고 리소스에 액세스하는 방법에 대해 알아봅니다.
 
-<!-- URLs. -->
+
 
   [iOS 및 Android에서 Azure Active Directory를 통해 보호되는 리소스 액세스]: http://chrisrisner.com/Accessing-Resources-Secured-by-Azure-Active-Directory-with-iOS-and-Android

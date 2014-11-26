@@ -1,4 +1,4 @@
-APNS(Apple Push Notification Service)는 인증서를 사용하여 모바일 서비스를 인증합니다. 필요한 인증서를 만들어 모바일 서비스에 업로드하려면 해당 지침을 따르세요. 공식 APNS 기능 설명서는 [Apple Push Notification Service][](영문)를 참조하세요.
+APNS(Apple Push Notification Service)는 인증서를 사용하여 모바일 서비스를 인증합니다. 필요한 인증서를 만들어 모바일 서비스에 업로드하려면 해당 지침을 따르세요. 공식 APNS 기능 설명서는 [Apple Push Notification Service][Apple Push Notification Service](영문)를 참조하세요.
 
 ## 인증서 서명 요청 파일 생성
 
@@ -8,7 +8,7 @@ APNS(Apple Push Notification Service)는 인증서를 사용하여 모바일 서
 
 2.  **Keychain Access**를 클릭하고 **Certificate Assistant**를 확장한 다음 **Request a Certificate from a Certificate Authority...**를 클릭합니다.
 
-    ![][]
+    ![][0]
 
 3.  **User Email Address**와 **Common Name**을 선택하고, **Saved to disk**가 선택되어 있는지 확인한 후 **Continue**를 클릭합니다. **CA Email Address** 필드는 필요하지 않으므로 비워둡니다.
 
@@ -26,7 +26,7 @@ APNS(Apple Push Notification Service)는 인증서를 사용하여 모바일 서
 
 모바일 서비스에서 iOS 앱으로 푸시 알림을 보내려면 Apple에 앱을 등록하고 푸시 알림도 등록해야 합니다.
 
-1.  아직 앱을 등록하지 않은 경우 Apple Developer Center의 [iOS Provisioning Portal][]로 이동하여 Apple ID로 로그온하고 **Identifiers**와 **App IDs**를 클릭한 다음에 **+** 기호를 클릭하여 새 앱을 등록합니다.
+1.  아직 앱을 등록하지 않은 경우 Apple Developer Center의 [iOS Provisioning Portal][iOS Provisioning Portal]로 이동하여 Apple ID로 로그온하고 **Identifiers**와 **App IDs**를 클릭한 다음에 **+** 기호를 클릭하여 새 앱을 등록합니다.
 
     ![][3]
 
@@ -86,7 +86,7 @@ APNS(Apple Push Notification Service)는 인증서를 사용하여 모바일 서
 
 ## 앱용 프로비저닝 프로필 만들기
 
-1.  [iOS Provisioning Portal][]로 돌아가, **Provisioning Profiles**와 **All**을 차례로 선택하고 **+** 단추를 클릭하여 새 프로필을 만듭니다. **Add iOS Provisioning Profile** 마법사가 실행됩니다.
+1.  [iOS Provisioning Portal][iOS Provisioning Portal]로 돌아가, **Provisioning Profiles**와 **All**을 차례로 선택하고 **+** 단추를 클릭하여 새 프로필을 만듭니다. **Add iOS Provisioning Profile** 마법사가 실행됩니다.
 
     ![][14]
 
@@ -123,7 +123,7 @@ APNS(Apple Push Notification Service)는 인증서를 사용하여 모바일 서
 이제 Xcode 프로젝트에서 코드 서명에 새 프로필을 사용하게 됩니다. 다음 단계에서는 인증서를 Azure에 업로드해야 합니다.
 
   [Apple Push Notification Service]: http://go.microsoft.com/fwlink/p/?LinkId=272584
-  []: ./media/enable-apple-push-notifications/mobile-services-ios-push-step5.png
+  [0]: ./media/enable-apple-push-notifications/mobile-services-ios-push-step5.png
   [1]: ./media/enable-apple-push-notifications/mobile-services-ios-push-step6.png
   [2]: ./media/enable-apple-push-notifications/mobile-services-ios-push-step7.png
   [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456

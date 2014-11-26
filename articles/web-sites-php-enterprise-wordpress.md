@@ -347,14 +347,6 @@ WordPress 사이트가 만들어지거나 마이그레이션되면 다음 정보
   [Azure Store]: http://azure.microsoft.com/ko--kr/gallery/store/
   [Azure 웹 사이트, 다중 지역에 호스트, MySQL용 CDBR 고가용성 라우터 사용, 관리되는 캐시, Blob 저장소 및 CDN 포함]: ./media/web-sites-enterprise-wordpress/performance-diagram.png
   [CDN(Content Distribution Network)]: http://azure.microsoft.com/ko--kr/documentation/articles/cdn-how-to-use/
-  [Blob 저장소 사용을 위한 WordPress 플러그 인]: https://wordpress.org/plugins/windows-azure-storage/
-  [SendGrid]: http://azure.microsoft.com/ko--kr/gallery/store/sendgrid/sendgrid-azure/
-  [SendGrid 사용을 위한 WordPress 플러그 인]: http://wordpress.org/plugins/sendgrid-email-delivery-simplified/
-  [Azure 웹 사이트를 포함하는 사용자 지정 도메인 이름]: http://azure.microsoft.com/ko--kr/documentation/articles/web-sites-custom-domain-name/
-  [Azure 웹 사이트의 HTTPS 지원]: http://azure.microsoft.com/ko--kr/documentation/articles/web-sites-configure-ssl-certificate/
-  [Azure 웹 사이트에 대한 스테이징된 게시 지원]: http://azure.microsoft.com/ko--kr/documentation/articles/web-sites-staged-publishing/
-  [Azure 웹 사이트의 진단 로깅]: http://azure.microsoft.com/ko--kr/documentation/articles/web-sites-enable-diagnostic-log/
-  [Azure 웹 사이트 모니터링]: http://azure.microsoft.com/ko--kr/documentation/articles/web-sites-monitor/
   [Azure 웹 사이트 배포]: http://azure.microsoft.com/ko--kr/documentation/articles/web-sites-deploy/
   [Azure 웹 사이트 백업]: http://azure.microsoft.com/ko--kr/documentation/articles/web-sites-backup/
   [Azure 웹 사이트 복원]: http://azure.microsoft.com/ko--kr/documentation/articles/web-sites-restore/
@@ -371,12 +363,6 @@ WordPress 사이트가 만들어지거나 마이그레이션되면 다음 정보
   [Velvet Blues Update URL 플러그 인]: https://wordpress.org/plugins/velvet-blues-update-urls/
   [MySQL 워크벤치]: http://www.mysql.com/products/workbench/
   [WordPress 데이터베이스 스크립트 검색 및 바꾸기]: http://interconnectit.com/124/search-and-replace-for-wordpress-databases/
-  [WebJob 소개]: http://www.hanselman.com/blog/IntroducingWindowsAzureWebJobs.aspx
-  [ARR 쿠키 사용 안 함]: http://blogs.msdn.com/b/windowsazure/archive/2013/11/18/disabling-arr-s-instance-affinity-in-windows-azure-web-sites.aspx
-  [Redis 개체 캐시 WordPress 플러그 인]: https://wordpress.org/plugins/redis-object-cache/
-  [Wincache로 WordPress를 더 빠르게 만드는 방법]: http://ruslany.net/2010/03/make-wordpress-faster-on-iis-with-wincache-1-1/
-  [Azure 저장소 계정 만들기]: http://azure.microsoft.com/ko--kr/documentation/articles/storage-create-storage-account/
-  [사용자 가이드]: http://plugins.svn.wordpress.org/windows-azure-storage/trunk/UserGuide.docx
   []: resources
   [WordPress 최적화(영문)]: http://codex.wordpress.org/WordPress_Optimization
   [WordPress 사이트를 멀티 사이트로 변환(영문)]: http://azure.microsoft.com/ko--kr/documentation/articles/web-sites-php-convert-wordpress-multisite/

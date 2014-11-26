@@ -1,6 +1,6 @@
 이제 모바일 서비스를 사용할 수 있으므로 로컬 컬렉션 대신 모바일 서비스에 항목을 저장하도록 앱을 업데이트할 수 있습니다.
 
-1.  [모바일 서비스 iOS SDK][]를 아직 설치하지 않은 경우 지금 설치합니다.
+1.  [모바일 서비스 iOS SDK][모바일 서비스 iOS SDK]를 아직 설치하지 않은 경우 지금 설치합니다.
 
 2.  Xcode의 Project Navigator에서 Quickstart 폴더에 있는 TodoService.m 및 TodoService.h 파일을 모두 열고 다음과 같은 import 문을 추가합니다.
 
@@ -30,7 +30,7 @@
 
 6.  **대시보드** 탭을 클릭하여 **사이트 URL**을 기록해 두고 **키 관리**를 클릭하여 **응용 프로그램 키**를 기록해 둡니다.
 
-    ![][]
+    ![][0]
 
     앱 코드에서 모바일 서비스에 액세스할 때 이 값이 필요합니다.
 
@@ -112,4 +112,4 @@
 이제 앱이 백 엔드 저장소에 모바일 서비스를 사용하도록 업데이트되었으므로 모바일 서비스에 대해 앱을 테스트해야 합니다.
 
   [모바일 서비스 iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
-  []: ./media/mobile-services-ios-enable-mobile-service-access/mobile-dashboard-tab.png
+  [0]: ./media/mobile-services-ios-enable-mobile-service-access/mobile-dashboard-tab.png

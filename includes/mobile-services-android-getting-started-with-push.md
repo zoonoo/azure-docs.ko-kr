@@ -19,7 +19,7 @@
             </intent-filter>
         </receiver>
 
-4.  [모바일 서비스 Android SDK][]를 다운로드하여 압축을 풀고 **notifications** 폴더를 연 후 **notifications-1.0.1.jar** 파일을 Eclipse 프로젝트의 *libs* 폴더로 복사하고 *libs* 폴더를 새로 고칩니다.
+4.  [모바일 서비스 Android SDK][모바일 서비스 Android SDK]를 다운로드하여 압축을 풀고 **notifications** 폴더를 연 후 **notifications-1.0.1.jar** 파일을 Eclipse 프로젝트의 *libs* 폴더로 복사하고 *libs* 폴더를 새로 고칩니다.
 
     <div class="dev-callout"><b>참고</b>
 <p>후속 SDK 릴리스에서는 파일 이름 끝에 있는 숫자가 변경될 수도 있습니다.</p>
@@ -43,7 +43,7 @@
 
 9.  **Name**에서 `MyHandler`를 입력하고, **Superclass**에서 `com.microsoft.windowsazure.notifications.NotificationsHandler`를 입력한 다음 **Finish**를 클릭합니다.
 
-    ![][]
+    ![][0]
 
     새 MyHandler 클래스가 만들어집니다.
 
@@ -113,7 +113,7 @@
 
 이제 푸시 알림을 지원하도록 앱이 업데이트됩니다.
 
-<!-- URLs. -->
+
 
   [모바일 서비스 Android SDK]: http://go.microsoft.com/fwlink/p/?LinkID=280126
-  []: ./media/mobile-services-android-get-started-push/mobile-services-android-create-class.png
+  [0]: ./media/mobile-services-android-get-started-push/mobile-services-android-create-class.png

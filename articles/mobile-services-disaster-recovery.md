@@ -1,6 +1,6 @@
 <properties linkid="mobile-services-recovery-disaster" urlDisplayName="Recover your mobile service in the event of a disaster" pageTitle="Recover your mobile service in the event of a disaster - Azure Mobile Services" metaKeywords="" description="Learn how to recover your mobile service in the event of a disaster." metaCanonical="" services="" documentationCenter="Mobile" title="Recover your mobile service in the event of a disaster" authors="yavorg" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="yavorg"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="yavorg" />
 
 # 재해가 발생한 경우 모바일 서비스 복구
 
@@ -73,9 +73,9 @@ Azure 모바일 서비스를 사용하여 앱을 배포하는 경우 서버 오�
 
 이제 모바일 서비스가 새 Azure 지역으로 복구되어 원래 URL을 사용하여 저장소 앱의 트래픽을 허용하는 상태가 되었습니다.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [SQL 데이터베이스 비즈니스 연속성 지침]: http://msdn.microsoft.com/ko-kr/library/windowsazure/hh852669.aspx
   [Team Foundation Service]: http://tfs.visualstudio.com/

@@ -122,8 +122,8 @@
 
    ![][0]
 
-<!-- Anchors. --> 
-<!-- URLs. -->
+ 
+
 
   [모바일 서비스 시작]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-get-started/
   [Azure Active Directory에 모바일 서비스 등록]: #register-mobile-service-aad
@@ -135,9 +135,6 @@
   [Xamarin Studio]: http://xamarin.com/download
   [데이터 시작]: /ko-kr/documentation/articles/partner-xamarin-mobile-services-ios-get-started-data/
   [iOS용 Active Directory 인증 라이브러리를 위한 Xamarin 바인딩]: https://github.com/AzureADSamples/NativeClient-Xamarin-iOS
-  [mobile-services-dotnet-adal-register-service]: ../includes/mobile-services-dotnet-adal-register-service.md
-  [mobile-services-dotnet-adal-register-client]: ../includes/mobile-services-dotnet-adal-register-client.md
-  [mobile-services-restrict-permissions-dotnet-backend]: ../includes/mobile-services-restrict-permissions-dotnet-backend.md
   [Azure 관리 포털]: https://manage.windowsazure.com/
   [Azure Active Directory에 등록하는 방법]: /ko-kr/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
   [0]: ./media/mobile-services-dotnet-backend-xamarin-ios-adal-sso-authentication/mobile-services-app-run.png

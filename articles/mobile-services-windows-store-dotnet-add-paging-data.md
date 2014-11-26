@@ -33,7 +33,6 @@
 
 
   [데이터 시작]: /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-data/
-  [mobile-services-windows-dotnet-paging]: ../includes/mobile-services-windows-dotnet-paging.md
   [인증 시작하기]: /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-users/
   [푸시 알림 시작]: /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-push/
   [모바일 서비스 .NET 방법 개념 참조]: /ko-kr/develop/mobile/how-to-guides/work-with-net-client-library

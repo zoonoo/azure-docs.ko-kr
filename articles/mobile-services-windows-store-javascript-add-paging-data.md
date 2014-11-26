@@ -30,6 +30,5 @@
 
 
   [데이터 시작]: /ko-kr/documentation/articles/mobile-services-windows-store-javascript-get-started-data/
-  [mobile-services-javascript-paging]: ../includes/mobile-services-javascript-paging.md
   [인증 시작하기]: /ko-kr/documentation/articles/mobile-services-windows-store-javascript-get-started-users/
   [푸시 알림 시작]: /ko-kr/documentation/articles/mobile-services-windows-store-javascript-get-started-push/

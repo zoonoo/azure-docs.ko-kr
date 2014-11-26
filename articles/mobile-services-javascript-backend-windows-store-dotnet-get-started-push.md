@@ -106,7 +106,6 @@
 
 
 
-  [mobile-services-selector-get-started-push-legacy]: ../includes/mobile-services-selector-get-started-push-legacy.md
   [범용 Windows 앱 버전]: /ko-kr/documentation/articles/mobile-services-javascript-backend-windows-universal-dotnet-get-started-data
   [WNS로 앱 등록 및 모바일 서비스 구성]: #register
   [알림 등록을 위해 앱 업데이트]: #update-app
@@ -115,10 +114,7 @@
   [모바일 서비스 시작하기]: /ko-kr/documentation/articles/mobile-services-windows-store-get-started
   [데이터 시작하기]: /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-data
   [모바일 서비스에서 푸시 알림 시작]: /ko-kr/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push
-  [mobile-services-notification-hubs-register-windows-store-app]: ../includes/mobile-services-notification-hubs-register-windows-store-app.md
   [0]: ./media/mobile-services-windows-store-dotnet-get-started-push-vs2012/mobile-app-enable-toast-win8.png
-  [mobile-services-javascript-update-script-notification-hubs]: ../includes/mobile-services-javascript-update-script-notification-hubs.md
-  [mobile-services-windows-store-test-push]: ../includes/mobile-services-windows-store-test-push.md
   [인증된 사용자에게 푸시 알림 보내기]: /ko-kr/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users/
   [구독자에게 브로드캐스트 알림 보내기]: /ko-kr/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/
   [구독자에게 템플릿 기반 알림 보내기]: /ko-kr/documentation/articles/notification-hubs-windows-store-dotnet-send-localized-breaking-news/

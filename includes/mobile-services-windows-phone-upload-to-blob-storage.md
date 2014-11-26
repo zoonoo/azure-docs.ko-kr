@@ -4,7 +4,7 @@
 
 1.  Visual Studio의 솔루션 탐색기에서 프로젝트의 **속성**을 확장합니다. WMAppManifest.xml 파일이 열리면 **기능** 탭에서 **ID\_CAP\_ISV\_CAMERA**를 클릭하여 카메라를 사용하도록 설정합니다. 파일을 닫아 변경 내용을 저장합니다.
 
-    ![][]
+    ![][0]
 
     이제 앱에서 컴퓨터에 연결된 카메라를 사용할 수 있습니다. 앱을 처음으로 실행하면 카메라 액세스를 허용하라는 메시지가 표시됩니다.
 
@@ -177,7 +177,7 @@
   [모바일 서비스 시작]: /ko-kr/documentation/articles/mobile-services-windows-phone-get-started
   [CameraCaptureTask]: http://msdn.microsoft.com/ko-kr/library/windowsphone/develop/microsoft.phone.tasks.cameracapturetask(v=vs.105).aspx
   [PhotoCamera]: http://msdn.microsoft.com/ko-kr/library/windowsphone/develop/microsoft.devices.photocamera(v=vs.105).aspx
-  []: ./media/mobile-services-windows-phone-upload-to-blob-storage/mobile-upload-blob-app-WMAppmanifest-wp8.png
+  [0]: ./media/mobile-services-windows-phone-upload-to-blob-storage/mobile-upload-blob-app-WMAppmanifest-wp8.png
   [1]: ./media/mobile-services-windows-phone-upload-to-blob-storage/mobile-upload-blob-app-view-wp8.png
   [2]: ./media/mobile-services-windows-phone-upload-to-blob-storage/mobile-upload-blob-app-view-camera-wp8.png
   [3]: ./media/mobile-services-windows-phone-upload-to-blob-storage/mobile-upload-blob-app-view-camera-accept-wp8.png

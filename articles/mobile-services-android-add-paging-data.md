@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-add-paging-to-data-android" urlDisplayName="Add paging to data" pageTitle="Add paging to data (Android) | Mobile Dev Center" metaKeywords="" description="Learn how to use paging to manage the amount of data returned to your Android app from Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="Refine Mobile Services queries with paging" authors="ricksal" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal" />
 
 # 페이징을 사용하여 모바일 서비스 쿼리 구체화
 
@@ -97,18 +97,10 @@
 -   [푸시 알림 시작][푸시 알림 시작]
     기본적인 푸시 알림을 앱에 보내는 방법을 알아봅니다.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
 
-  [Windows 스토어 C#]: /ko-kr/develop/mobile/tutorials/add-paging-to-data-dotnet "Windows 스토어 C#"
-  [Windows 스토어 JavaScript]: /ko-kr/develop/mobile/tutorials/add-paging-to-data-js "Windows 스토어 JavaScript"
-  [Windows Phone]: /ko-kr/develop/mobile/tutorials/add-paging-to-data-wp8 "Windows Phone"
-  [iOS]: /ko-kr/develop/mobile/tutorials/add-paging-to-data-ios "iOS"
-  [Android]: /ko-kr/develop/mobile/tutorials/add-paging-to-data-android "Android"
-  [HTML]: /ko-kr/develop/mobile/tutorials/add-paging-to-data-html "HTML"
-  [Xamarin.iOS]: /ko-kr/develop/mobile/tutorials/add-paging-to-data-xamarin-ios "Xamarin.iOS"
-  [Xamarin.Android]: /ko-kr/develop/mobile/tutorials/add-paging-to-data-xamarin-android "Xamarin.Android"
+
   [데이터 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-data-android
   [인증 시작하기]: /ko-kr/develop/mobile/tutorials/get-started-with-users-android
   [푸시 알림 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-push-android

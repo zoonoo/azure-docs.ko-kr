@@ -36,7 +36,7 @@ MSDN 코드 갤러리에서 [Visual Studio 프로젝트를 다운로드][Visual 
 
 위 제품 중 하나도 없는 경우에는 Azure SDK를 설치하면 Visual Studio 2013 Express for Web이 자동으로 설치됩니다.
 
-[WACOM.INCLUDE [free-trial-note][free-trial-note]]
+[WACOM.INCLUDE [free-trial-note](../includes/free-trial-note.md)]
 
 ## <span id="learn"></span></a>학습할 내용
 
@@ -137,7 +137,7 @@ WebJob은 웹 사이트의 컨텍스트에서 실행되며 별도로 확장 가�
 
 이 자습서에서는 프런트 엔드를 웹 사이트에서 실행하고, 백 엔드를 동일한 웹 사이트의 WebJob으로 실행하는 방법을 보여 줍니다. 시나리오에 가장 적합한 환경을 선택하는 방법에 대한 자세한 내용은 [Azure 웹 사이트, 클라우드 서비스 및 가상 컴퓨터 비교][Azure 웹 사이트, 클라우드 서비스 및 가상 컴퓨터 비교](영문)를 참조하세요.
 
-[WACOM.INCLUDE [install-sdk-2013-only][install-sdk-2013-only]]
+[WACOM.INCLUDE [install-sdk-2013-only](../includes/install-sdk-2013-only.md)]
 
 ## <span id="storage"></span></a>Azure 저장소 계정 만들기
 
@@ -883,13 +883,11 @@ WebJob이 웹 사이트에서 실행될 경우 웹 사이트에 대해 수행할
   [다음 단계]: #next-steps
   [ASP.NET MVC]: http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started
   [웹 양식]: http://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview
-  [free-trial-note]: ../includes/free-trial-note.md
   [WebJob]: /ko--kr/documentation/articles/web-sites-create-web-jobs/
   [AlwaysOn]: http://weblogs.asp.net/scottgu/archive/2014/01/16/windows-azure-staging-publishing-support-for-web-sites-monitoring-improvements-hyper-v-recovery-manager-ga-and-pci-compliance.aspx
   [광고 테이블]: ./media/websites-dotnet-webjobs-sdk-get-started/adtable.png
   [Contoso Ads 아키텍처]: ./media/websites-dotnet-webjobs-sdk-get-started/apparchitecture.png
   [Azure 웹 사이트, 클라우드 서비스 및 가상 컴퓨터 비교]: /ko--kr/documentation/articles/choose-web-site-cloud-service-vm/
-  [install-sdk-2013-only]: ../includes/install-sdk-2013-only.md
   [Azure 관리 포털]: http://manage.windowsazure.com
   [저장소 계정을 관리하는 방법]: /ko--kr/documentation/articles/storage-manage-storage-account/
   [새 저장소 계정]: ./media/websites-dotnet-webjobs-sdk-get-started/newstorage.png
@@ -930,7 +928,6 @@ WebJob이 웹 사이트에서 실행될 경우 웹 사이트에 대해 수행할
   [HttpPostedFileBase]: http://msdn.microsoft.com/ko--kr/library/system.web.httppostedfilebase.aspx
   [WebJob SDK 0.3.0 베타 알림]: http://azure.microsoft.com/blog/2014/06/18/announcing-the-0-3-0-beta-preview-of-microsoft-azure-webjobs-sdk/http://azure.microsoft.com/blog/2014/06/18/announcing-the-0-3-0-beta-preview-of-microsoft-azure-webjobs-sdk/
   [클라우드 서비스 버전의 응용 프로그램]: /ko--kr/documentation/articles/cloud-services-dotnet-get-started/
-  [https://{websitename}.scm.azurewebsites.net/azurejobs/\#/functions]: https://{websitename}.scm.azurewebsites.net/azurejobs/#/functions
   [WebJob SDK를 사용한 로컬 개발을 위해 대시보드 가져오기]: http://blogs.msdn.com/b/jmstall/archive/2014/01/27/getting-a-dashboard-for-local-development-with-the-webjobs-sdk.aspx
   [종속성 주입]: http://www.asp.net/mvc/tutorials/hands-on-labs/aspnet-mvc-4-dependency-injection
   [리포지토리 및 작업 단위 패턴]: http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/advanced-entity-framework-scenarios-for-an-mvc-web-application#repo

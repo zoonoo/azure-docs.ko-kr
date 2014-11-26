@@ -396,9 +396,9 @@ Azure 미디어 서비스 .NET SDK Extensions는 코드를 단순화하고 Azure
 
     모든 메서드에 비동기 지원이 추가되었습니다.
 
-<!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
+  
 
-  [Azure 미디어 서비스 MSDN 포럼]: http://social.msdn.microsoft.com/forums/azure/en-US/home?forum=MediaServices
+  [Azure 미디어 서비스 MSDN 포럼]: http://social.msdn.microsoft.com/forums/azure/ko-kr/home?forum=MediaServices
   [현재 알려진 문제]: #issues
   [REST API 버전 기록]: #rest_version_history
   [2014년 10월 릴리스]: #october_changes_14

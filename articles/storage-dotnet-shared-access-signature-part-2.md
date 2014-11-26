@@ -1,4 +1,4 @@
-<properties urlDisplayName="" pageTitle="Blob 서비스를 통해 SAS 만들기 및 사용 | Microsoft Azure" metaKeywords="Azure blob, shared access signatures, stored access policy" description="Blob 서비스를 통해 공유 액세스 서명을 생성하고 사용하는 방법에 대해 알아봅니다." metaCanonical="" services="storage" documentationCenter="" title="2부: Blob 서비스를 통해 SAS 만들기 및 사용" solutions="" authors="tamram" manager="adinah" editor="cgronlun" />
+<properties linkid="manage-services-storage-net-shared-access-signature-part-2" urlDisplayName="" pageTitle="Create and use a SAS with the Blob Service | Microsoft Azure" metaKeywords="Azure blob, shared access signatures, stored access policy" description="Explore generating and using shared access signatures with the Blob service" metaCanonical="" services="storage" documentationCenter="" title="Part 2: Create and Use a SAS with the Blob Service" solutions="" authors="tamram" manager="mbaldwin" editor="cgronlun" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
@@ -91,7 +91,7 @@ Program.cs 파일의 맨 위에 다음 **using** 문을 추가합니다.
 
 새 컨테이너에 대한 공유 액세스 서명 URI를 출력하도록 컴파일 및 실행합니다. URI는 다음과 비슷합니다.
 
-https://storageaccount.blob.core.windows.net/sascontainer?sv=2012-02-12&se=2013-04-13T00%3A12%3A08Z&sr=c&sp=wl&sig=t%2BbzU9%2B7ry4okULN9S0wst%2F8MCUhTjrHyV9rDNLSe8g%3D
+<https://storageaccount.blob.core.windows.net/sascontainer?sv=2012-02-12&se=2013-04-13T00%3A12%3A08Z&sr=c&sp=wl&sig=t%2BbzU9%2B7ry4okULN9S0wst%2F8MCUhTjrHyV9rDNLSe8g%3D>
 
 코드를 실행하면 컨테이너에서 만든 공유 액세스 서명이 다음 4시간 동안 유효해집니다. 서명은 클라이언트에게 컨테이너에 있는 Blob을 나열하고 컨테이너에 새 Blob을 쓸 수 있는 권한을 부여합니다.
 
@@ -139,7 +139,7 @@ https://storageaccount.blob.core.windows.net/sascontainer?sv=2012-02-12&se=2013-
 
 새 Blob에 대한 공유 액세스 서명 URI를 출력하도록 컴파일 및 실행합니다. URI는 다음과 비슷합니다.
 
-https://storageaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2012-02-12&st=2013-04-12T23%3A37%3A08Z&se=2013-04-13T00%3A12%3A08Z&sr=b&sp=rw&sig=dF2064yHtc8RusQLvkQFPItYdeOz3zR8zHsDMBi4S30%3D
+<https://storageaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2012-02-12&st=2013-04-12T23%3A37%3A08Z&se=2013-04-13T00%3A12%3A08Z&sr=b&sp=rw&sig=dF2064yHtc8RusQLvkQFPItYdeOz3zR8zHsDMBi4S30%3D>
 
 ## 컨테이너에 대한 저장된 액세스 정책 만들기
 
@@ -527,5 +527,4 @@ Blob에서 만든 공유 액세스 서명을 모두 사용하여 **UseBlobSAS()*
   [sas-console-output-1]: ./media/storage-dotnet-shared-access-signature-part-2/sas-console-output-1.PNG
   [sas-console-output-2]: ./media/storage-dotnet-shared-access-signature-part-2/sas-console-output-2.PNG
   [Azure 저장소 리소스에 대한 액세스 관리]: http://msdn.microsoft.com/ko-kr/library/windowsazure/ee393343.aspx
-  [공유 액세스 서명을 사용하여 액세스 위임(REST API)]: http://msdn.microsoft.com/ko-kr/library/windowsazure/ee395415.aspx
   [테이블 및 큐 SAS 소개]: http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx

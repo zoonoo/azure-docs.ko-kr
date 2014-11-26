@@ -11,7 +11,7 @@
 <tr>
 
 <td style="width: 200px;">
- [Azure 응용 프로그램 개발에 대한 유용한 보안 정보(영문)][]
+ [Azure 응용 프로그램 개발에 대한 유용한 보안 정보(영문)][Azure 응용 프로그램 개발에 대한 유용한 보안 정보(영문)]
 
 </td>
 
@@ -25,7 +25,7 @@
 <tr>
 
 <td style="width: 200px;">
- [Azure 보안 개요(영문)][]
+ [Azure 보안 개요(영문)][Azure 보안 개요(영문)]
 
 </td>
 
@@ -39,7 +39,7 @@
 <tr>
 
 <td style="width: 200px;">
- [Active Directory에서 Azure 응용 프로그램 백서에 이르는 Single Sign-On(영문)][]
+ [Active Directory에서 Azure 응용 프로그램 백서에 이르는 Single Sign-On(영문)][Active Directory에서 Azure 응용 프로그램 백서에 이르는 Single Sign-On(영문)]
 
 </td>
 
@@ -53,7 +53,7 @@
 <tr>
 
 <td style="width: 200px;">
- [Azure 테이블 - 테이블 저장소 프로그래밍(영문)][]
+ [Azure 테이블 - 테이블 저장소 프로그래밍(영문)][Azure 테이블 - 테이블 저장소 프로그래밍(영문)]
 
 </td>
 
@@ -67,7 +67,7 @@
 <tr>
 
 <td style="width: 200px;">
- [Azure AppFabric용 서비스 버스에 대한 개발자 가이드(영문)][]
+ [Azure AppFabric용 서비스 버스에 대한 개발자 가이드(영문)][Azure AppFabric용 서비스 버스에 대한 개발자 가이드(영문)]
 
 </td>
 
@@ -81,7 +81,7 @@
 <tr>
 
 <td style="width: 200px;">
- [Azure 큐 - 큐 저장소 프로그래밍(영문)][]
+ [Azure 큐 - 큐 저장소 프로그래밍(영문)][Azure 큐 - 큐 저장소 프로그래밍(영문)]
 
 </td>
 
@@ -95,7 +95,7 @@
 <tr>
 
 <td style="width: 200px;">
- [Azure 드라이브 백서 - NTFS 클라우드 응용 프로그램에 영구적 드라이브 사용(영문)][]
+ [Azure 드라이브 백서 - NTFS 클라우드 응용 프로그램에 영구적 드라이브 사용(영문)][Azure 드라이브 백서 - NTFS 클라우드 응용 프로그램에 영구적 드라이브 사용(영문)]
 
 </td>
 
@@ -109,7 +109,7 @@
 <tr>
 
 <td style="width: 200px;">
- [Azure 소개(영문)][]
+ [Azure 소개(영문)][Azure 소개(영문)]
 
 </td>
 
@@ -123,7 +123,7 @@
 <tr>
 
 <td style="width: 200px;">
- [Azure Blob - Blob 저장소 프로그래밍(영문)][]
+ [Azure Blob - Blob 저장소 프로그래밍(영문)][Azure Blob - Blob 저장소 프로그래밍(영문)]
 
 </td>
 
@@ -137,7 +137,7 @@
 <tr>
 
 <td style="width: 200px;">
- [Azure 프로그래밍 모델(영문)][]
+ [Azure 프로그래밍 모델(영문)][Azure 프로그래밍 모델(영문)]
 
 </td>
 
@@ -151,7 +151,7 @@
 <tr>
 
 <td style="width: 200px;">
- [Windows HPC Server 및 Azure(영문)][]
+ [Windows HPC Server 및 Azure(영문)][Windows HPC Server 및 Azure(영문)]
 
 </td>
 
@@ -165,7 +165,7 @@
 <tr>
 
 <td style="width: 200px;">
- [유사점 및 차이점 - SQL Azure 대 SQL Server(영문)][]
+ [유사점 및 차이점 - SQL Azure 대 SQL Server(영문)][유사점 및 차이점 - SQL Azure 대 SQL Server(영문)]
 
 </td>
 
@@ -179,7 +179,7 @@
 <tr>
 
 <td style="width: 200px;">
- [IT as a Service(영문)][]
+ [IT as a Service(영문)][IT as a Service(영문)]
 
 </td>
 
@@ -193,7 +193,7 @@
 <tr>
 
 <td style="width: 200px;">
- [SQL Azure용 보안 지침(영문)][]
+ [SQL Azure용 보안 지침(영문)][SQL Azure용 보안 지침(영문)]
 
 </td>
 
@@ -207,7 +207,7 @@
 <tr>
 
 <td style="width: 200px;">
- [개발자용 Azure AppFabric 소개(영문)][]
+ [개발자용 Azure AppFabric 소개(영문)][개발자용 Azure AppFabric 소개(영문)]
 
 </td>
 
@@ -221,7 +221,7 @@
 <tr>
 
 <td style="width: 200px;">
- [Azure 및 ISV - 의사 결정자용 가이드(영문)][]
+ [Azure 및 ISV - 의사 결정자용 가이드(영문)][Azure 및 ISV - 의사 결정자용 가이드(영문)]
 
 </td>
 
@@ -235,7 +235,7 @@
 <tr>
 
 <td style="width: 200px;">
- [클라우드 최적화 - 클라우드 컴퓨팅에 대한 비즈니스 의사 결정을 위한 프레임워크(영문)][]
+ [클라우드 최적화 - 클라우드 컴퓨팅에 대한 비즈니스 의사 결정을 위한 프레임워크(영문)][클라우드 최적화 - 클라우드 컴퓨팅에 대한 비즈니스 의사 결정을 위한 프레임워크(영문)]
 
 </td>
 
@@ -249,7 +249,7 @@
 <tr>
 
 <td style="width: 200px;">
- [Azure AppFabric 개요(영문)][]
+ [Azure AppFabric 개요(영문)][Azure AppFabric 개요(영문)]
 
 </td>
 
@@ -263,7 +263,7 @@
 <tr>
 
 <td style="width: 200px;">
- [클라우드 경제성(영문)][]
+ [클라우드 경제성(영문)][클라우드 경제성(영문)]
 
 </td>
 
@@ -277,7 +277,7 @@
 <tr>
 
 <td style="width: 200px;">
- [시스템 통합자 백서(영문)][]
+ [시스템 통합자 백서(영문)][시스템 통합자 백서(영문)]
 
 </td>
 
@@ -291,7 +291,7 @@
 <tr>
 
 <td style="width: 200px;">
- [비즈니스 리더용 클라우드 플랫폼(영문)][]
+ [비즈니스 리더용 클라우드 플랫폼(영문)][비즈니스 리더용 클라우드 플랫폼(영문)]
 
 </td>
 
@@ -305,7 +305,7 @@
 <tr>
 
 <td style="width: 200px;">
- [Azure AppFabric 캐싱을 사용하도록 응용 프로그램 구성(영문)][]
+ [Azure AppFabric 캐싱을 사용하도록 응용 프로그램 구성(영문)][Azure AppFabric 캐싱을 사용하도록 응용 프로그램 구성(영문)]
 
 </td>
 
@@ -319,7 +319,7 @@
 <tr>
 
 <td style="width: 200px;">
- [Microsoft SQL Azure 개요(영문)][]
+ [Microsoft SQL Azure 개요(영문)][Microsoft SQL Azure 개요(영문)]
 
 </td>
 
@@ -333,7 +333,7 @@
 <tr>
 
 <td style="width: 200px;">
- [사용자 지정 IIS 웹/Microsoft SQL Server 응용 프로그램 마이그레이션 시나리오(영문)][]
+ [사용자 지정 IIS 웹/Microsoft SQL Server 응용 프로그램 마이그레이션 시나리오(영문)][사용자 지정 IIS 웹/Microsoft SQL Server 응용 프로그램 마이그레이션 시나리오(영문)]
 
 </td>
 
@@ -347,7 +347,7 @@
 <tr>
 
 <td style="width: 200px;">
- [사용자 지정 웹(신속한 확장 가능에 중점) 응용 프로그램 마이그레이션 시나리오(영문)][]
+ [사용자 지정 웹(신속한 확장 가능에 중점) 응용 프로그램 마이그레이션 시나리오(영문)][사용자 지정 웹(신속한 확장 가능에 중점) 응용 프로그램 마이그레이션 시나리오(영문)]
 
 </td>
 
@@ -361,7 +361,7 @@
 <tr>
 
 <td style="width: 200px;">
- [사용자 지정 전자 상거래(탄력성에 중점) 응용 프로그램 마이그레이션 시나리오(영문)][]
+ [사용자 지정 전자 상거래(탄력성에 중점) 응용 프로그램 마이그레이션 시나리오(영문)][사용자 지정 전자 상거래(탄력성에 중점) 응용 프로그램 마이그레이션 시나리오(영문)]
 
 </td>
 
@@ -375,7 +375,7 @@
 <tr>
 
 <td style="width: 200px;">
- [SQL Azure로 개발 및 배포(영문)][]
+ [SQL Azure로 개발 및 배포(영문)][SQL Azure로 개발 및 배포(영문)]
 
 </td>
 

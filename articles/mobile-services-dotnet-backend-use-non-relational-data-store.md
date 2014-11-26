@@ -1,6 +1,6 @@
 <properties linkid="mobile-services-dotnet-backend-use-non-relational-data-store" urlDisplayName="Build a Service Using a Non-Relational Data Store" pageTitle="Build a Service Using a Non-Relational Data Store - Azure Mobile Services" metaKeywords="" description="Learn how to use a non-relational data store such as MongoDB or Azure Table Storage with your .NET based mobile service" metaCanonical="" services="" documentationCenter="Mobile" title="Build a Service Using a Non-Relational Data Store" authors="yavorg, mahender" solutions="" manager="" editor="mollybos" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="yavorg, mahender"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="yavorg, mahender" />
 
 # .NET 백 엔드에서 데이터 저장소로 MongoDB를 사용하여 서비스 구축
 
@@ -20,7 +20,7 @@
 
 2. **MongoLab** 추가 기능을 선택하고 마법사에 따라 계정을 등록합니다. MongoLab에 대한 자세한 내용은 [MongoLab 추가 기능 페이지][MongoLab 추가 기능 페이지]를 참조하세요.
 
-    ![][]
+    ![][0]
 
 3. 계정이 설정된 다음에는 **연결 정보**를 선택하고 연결 문자열을 복사합니다.
 
@@ -89,9 +89,9 @@
 3. 새 항목을 만듭니다. 앱이 이전과 같이 작동하지만 이제는 데이터가 비관계형 저장소로 이동됩니다.
 
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
 [비관계형 저장소 만들기]: #create-store
 [데이터 및 컨트롤러 수정]: #modify-service
@@ -100,5 +100,5 @@
 [데이터 시작]: /ko--kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data
 [Azure 관리 포털]: https://manage.windowsazure.com/
 [MongoLab 추가 기능 페이지]: /ko--kr/gallery/store/mongolab/mongolab
-[]: ./media/mobile-services-dotnet-backend-use-non-relational-data-store/create-mongo-lab.png
+[0]: ./media/mobile-services-dotnet-backend-use-non-relational-data-store/create-mongo-lab.png
 [1]: ./media/mobile-services-dotnet-backend-use-non-relational-data-store/mongo-connection-string.png

@@ -2,7 +2,7 @@
 
 1.  Visual Studio 2012에서 Package.appxmanifest 파일을 열고 **기능** 탭에서 **웹캠** 및 **마이크** 기능을 사용하도록 설정합니다.
 
-    ![][]
+    ![][0]
 
     이제 앱에서 컴퓨터에 연결된 카메라를 사용할 수 있습니다. 앱을 처음으로 실행하면 카메라 액세스를 허용하라는 메시지가 표시됩니다.
 
@@ -142,7 +142,7 @@
 
     > [WACOM.NOTE]이미지는 새 항목의 `imageUri` 속성이 **이미지** 컨트롤에 연결될 때 Blob 저장소 서비스에서 자동으로 다운로드됩니다.
 
-  []: ./media/mobile-services-windows-store-dotnet-upload-to-blob-storage/mobile-app-manifest-camera.png
+  [0]: ./media/mobile-services-windows-store-dotnet-upload-to-blob-storage/mobile-app-manifest-camera.png
   [1]: ./media/mobile-services-windows-store-dotnet-upload-to-blob-storage/mobile-quickstart-blob-appbar.png
   [2]: ./media/mobile-services-windows-store-dotnet-upload-to-blob-storage/mobile-quickstart-blob-camera.png
   [3]: ./media/mobile-services-windows-store-dotnet-upload-to-blob-storage/mobile-quickstart-blob-appbar2.png

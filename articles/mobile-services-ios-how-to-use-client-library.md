@@ -1,11 +1,11 @@
 <properties linkid="mobile-services-how-to-ios-client" urlDisplayName="iOS Client Library" pageTitle="How to use the iOS client library - Azure Mobile Services" metaKeywords="Azure Mobile Services, Mobile Service iOS client library, iOS client library" description="Learn how to use the iOS client library for Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="How to use the iOS client library for Mobile Services" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # 모바일 서비스용 iOS 클라이언트 라이브러리를 사용하는 방법
 
 <div class="dev-center-tutorial-selector sublanding"> 
-  <a href="/en-us/develop/mobile/how-to-guides/work-with-net-client-library/" title=".NET Framework">.NET Framework</a><a href="/en-us/develop/mobile/how-to-guides/work-with-html-js-client/" title="HTML/JavaScript">HTML/JavaScript</a><a href="/en-us/develop/mobile/how-to-guides/work-with-ios-client-library/" title="iOS" class="current">iOS</a><a href="/en-us/develop/mobile/how-to-guides/work-with-android-client-library/" title="Android" class="current">Android</a><a href="/en-us/develop/mobile/how-to-guides/work-with-xamarin-client-library/" title="Xamarin" class="current">Xamarin</a>
+  <a href="/ko-kr/develop/mobile/how-to-guides/work-with-net-client-library/" title=".NET Framework">.NET Framework</a><a href="/ko-kr/develop/mobile/how-to-guides/work-with-html-js-client/" title="HTML/JavaScript">HTML/JavaScript</a><a href="/ko-kr/develop/mobile/how-to-guides/work-with-ios-client-library/" title="iOS" class="current">iOS</a><a href="/ko-kr/develop/mobile/how-to-guides/work-with-android-client-library/" title="Android" class="current">Android</a><a href="/ko-kr/develop/mobile/how-to-guides/work-with-xamarin-client-library/" title="Xamarin" class="current">Xamarin</a>
 </div>
 
 이 가이드에서는 Azure 모바일 서비스용 iOS 클라이언트를 사용하여 일반적인 시나리오를 수행하는 방법을 보여 줍니다. 샘플은 Objective-C로 작성되었으며 [모바일 서비스 SDK][모바일 서비스 SDK]가 필요합니다. 이 자습서에는 [iOS SDK][iOS SDK](영문)도 필요합니다. 여기서 다루는 시나리오에는 데이터 쿼리, 삽입, 업데이트, 삭제 및 사용자 인증과 오류 처리가 포함됩니다. 모바일 서비스를 처음 접하는 경우 먼저 [모바일 서비스 빠른 시작][모바일 서비스 빠른 시작]을 완료하는 것이 좋습니다. 빠른 시작 자습서를 참조하여 계정을 구성하고 첫 모바일 서비스를 만들 수 있습니다.
@@ -29,7 +29,7 @@
 
 <!--- [How to: Design unit tests] - [How to: Customize the client]     - [Customize request headers]     - [Customize data type serialization] - [Next steps][Next steps]-->
 
-[WACOM.INCLUDE [mobile-services-concepts][mobile-services-concepts]]
+[WACOM.INCLUDE [mobile-services-concepts](../includes/mobile-services-concepts.md)]
 
 ## <a name="Setup"></a>설정 및 필수 조건
 
@@ -438,17 +438,12 @@ MSLoginController에 대한 참조를 가져와서 다음을 사용하여 직접
 <h2><a name="#unit-testing"></a><span class="short-header">Designing tests</span>How to: Design unit tests</h2>  _(Optional) This section shows how to write unit test when using the client library (info from Yavor)._  <h2><a name="#customizing"></a><span class="short-header">Customizing the client</span>How to: Customize the client</h2>  _(Optional) This section shows how to send customize client behaviors._  ###<a name="custom-headers"></a>How to: Customize request headers  _(Optional) This section shows how to send custom request headers._  For more information see, New topic about processing headers in the server-side.  ###<a name="custom-serialization"></a>How to: Customize serialization  _(Optional) This section shows how to use attributes to customize how data types are serialized._  For more information see, New topic about processing headers in the server-side.  ## <a name="next-steps"></a>Next steps
 -->
 
-<!-- Anchors. -->
-<!-- Images. -->
-<!-- URLs. -->
-  [.NET Framework]: /en-us/develop/mobile/how-to-guides/work-with-net-client-library/ ".NET Framework"
-  [HTML/JavaScript]: /en-us/develop/mobile/how-to-guides/work-with-html-js-client/ "HTML/JavaScript"
-  [iOS]: /en-us/develop/mobile/how-to-guides/work-with-ios-client-library/ "iOS"
-  [Android]: /en-us/develop/mobile/how-to-guides/work-with-android-client-library/ "Android"
-  [Xamarin]: /en-us/develop/mobile/how-to-guides/work-with-xamarin-client-library/ "Xamarin"
+
+
+
   [모바일 서비스 SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
   [iOS SDK]: https://developer.apple.com/xcode
-  [모바일 서비스 빠른 시작]: /en-us/develop/mobile/tutorials/get-started-ios
+  [모바일 서비스 빠른 시작]: /ko-kr/develop/mobile/tutorials/get-started-ios
   [모바일 서비스 정의]: #what-is
   [개념]: #concepts
   [설정 및 필수 조건]: #Setup
@@ -463,18 +458,17 @@ MSLoginController에 대한 참조를 가져와서 다음을 사용하여 직접
   [방법: 사용자 인터페이스에 데이터 바인딩]: #binding
   [방법: 사용자 인증]: #authentication
   [방법: 오류 처리]: #errors
-  [mobile-services-concepts]: ../includes/mobile-services-concepts.md
-  [테이블 만들기]: http://msdn.microsoft.com/en-us/library/windowsazure/jj193162.aspx
+  [테이블 만들기]: http://msdn.microsoft.com/ko-kr/library/windowsazure/jj193162.aspx
   [**이진과 라이브러리 연결**]: https://developer.apple.com/library/ios/recipes/xcode_help-project_editor/Articles/AddingaLibrarytoaTarget.html
   [페이지에서 데이터 반환]: #paging
-  [방법: 사용자 지정 매개 변수 액세스]: /en-us/develop/mobile/how-to-guides/work-with-server-scripts#access-headers
+  [방법: 사용자 지정 매개 변수 액세스]: /ko-kr/develop/mobile/how-to-guides/work-with-server-scripts#access-headers
   [NSDictionary 개체]: http://go.microsoft.com/fwlink/p/?LinkId=301965
   [ASCII 제어 코드 C0 및 C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
-  [모바일 서비스 테이블 관리 CLI]: http://www.windowsazure.com/en-us/manage/linux/other-resources/command-line-tools/#Mobile_Tables
+  [모바일 서비스 테이블 관리 CLI]: http://www.windowsazure.com/ko-kr/manage/linux/other-resources/command-line-tools/#Mobile_Tables
   [동적 스키마]: http://go.microsoft.com/fwlink/p/?LinkId=296271
-  [인증 시작]: /en-us/develop/mobile/tutorials/get-started-with-users-ios
-  [스크립트를 사용하여 사용자 권한 부여]: /en-us/develop/mobile/tutorials/authorize-users-in-scripts-ios
-  [사용 권한]: http://msdn.microsoft.com/en-us/library/windowsazure/jj193161.aspx
+  [인증 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-users-ios
+  [스크립트를 사용하여 사용자 권한 부여]: /ko-kr/develop/mobile/tutorials/authorize-users-in-scripts-ios
+  [사용 권한]: http://msdn.microsoft.com/ko-kr/library/windowsazure/jj193161.aspx
   [Live Connect SDK]: http://go.microsoft.com/fwlink/p/?LinkId=301960
   [만료된 토큰 처리]: http://go.microsoft.com/fwlink/p/?LinkId=301955
-  [모바일 서비스에서 서버 스크립트를 사용하여 데이터 유효성 검사 및 수정]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-ios
+  [모바일 서비스에서 서버 스크립트를 사용하여 데이터 유효성 검사 및 수정]: /ko-kr/develop/mobile/tutorials/validate-modify-and-augment-data-ios

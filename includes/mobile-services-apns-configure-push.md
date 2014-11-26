@@ -2,13 +2,13 @@ APNS에 앱을 등록하고 프로젝트를 구성했으면 APNS와 통합되도
 
 1.  Keychain Access에서 새 인증서를 마우스 오른쪽 단추로 클릭하여 **Export**를 클릭하고, QuickstartPusher 파일의 이름을 지정하고, **.p12** 형식을 선택하고, **Save**를 클릭합니다.
 
-    ![][]
+    ![][0]
 
 내보낸 인증서의 파일 이름과 위치를 적어둡니다.
 
 > [WACOM.NOTE] 이 자습서는 QuickstartPusher.p12 파일을 만듭니다. Your file name and location might be different.
 
-1.  [Azure 관리 포털][]에 로그온하여 **모바일 서비스**를 클릭한 후 앱을 클릭합니다.
+1.  [Azure 관리 포털][Azure 관리 포털]에 로그온하여 **모바일 서비스**를 클릭한 후 앱을 클릭합니다.
 
     ![][1]
 
@@ -26,9 +26,9 @@ APNS에 앱을 등록하고 프로젝트를 구성했으면 APNS와 통합되도
 
 모바일 서비스가 이제 APNS와 작동하도록 구성됩니다.
 
-<!-- URLs. -->
 
-  []: ./media/mobile-services-apns-configure-push/mobile-services-ios-push-step18.png
+
+  [0]: ./media/mobile-services-apns-configure-push/mobile-services-ios-push-step18.png
   [Azure 관리 포털]: https://manage.windowsazure.com/
   [1]: ./media/mobile-services-apns-configure-push/mobile-services-selection.png
   [2]: ./media/mobile-services-apns-configure-push/mobile-push-tab-ios.png

@@ -1,35 +1,35 @@
-﻿<properties urlDisplayName="Queue Service" pageTitle="큐 서비스 사용 방법(Java) | Microsoft Azure" metaKeywords="Azure Queue Service, Azure Queue storage service, queues peeking, queues insert messages, queues get messages, queues delete messages, create queues, delete queues, Queue service Java" description="Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in Java." metaCanonical="" services="storage" documentationCenter="Java" title="How to use the Queue storage service from Java" authors="tamram" solutions="" manager="adinah" editor="" />
+<properties linkid="dev-net-how-to-use-queue-storage-service-java" urlDisplayName="Queue Service" pageTitle="How to use the queue service (Java) | Microsoft Azure" metaKeywords="Azure Queue Service, Azure Queue storage service, queues peeking, queues insert messages, queues get messages, queues delete messages, create queues, delete queues, Queue service Java" description="Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in Java." metaCanonical="" services="storage" documentationCenter="Java" title="How to use the Queue storage service from Java" authors="" solutions="" manager="" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="" />
 
 # Java에서 큐 저장소를 사용하는 방법
 
-이 가이드에서는 Azure 큐 저장소 서비스를 사용하여 일반 시나리오를 수행하는 방법을 보여 줍니다. 샘플은 Java로 작성되었으며 [Java용 Azure Storage SDK][](영문)를 사용합니다. 여기서 다루는 시나리오에는 큐 메시지 **삽입**, **보기**, **가져오기** 및 **삭제**와 **큐 만들기** 및 **삭제**가 포함됩니다. 큐에 대한 자세한 내용은 [다음 단계](#NextSteps) 섹션을 참조하세요.
+이 가이드에서는 Azure 큐 저장소 서비스를 사용하여 일반 시나리오를 수행하는 방법을 보여 줍니다. 샘플은 Java로 작성되었으며 [Java용 Azure Storage SDK][Java용 Azure Storage SDK](영문)를 사용합니다. 여기서 다루는 시나리오에는 큐 메시지 **삽입**, **보기**, **가져오기** 및 **삭제**와 **큐 만들기** 및 **삭제**가 포함됩니다. 큐에 대한 자세한 내용은 [다음 단계][다음 단계] 섹션을 참조하세요.
 
-참고: SDK는 Android 장치에서 Azure 저장소를 사용하는 개발자에게 제공됩니다. 자세한 내용은 [Android용 Azure Storage SDK][]를 참조하세요. 
+참고: SDK는 Android 장치에서 Azure 저장소를 사용하는 개발자에게 제공됩니다. 자세한 내용은 [Android용 Azure Storage SDK][Android용 Azure Storage SDK]를 참조하세요.
 
 ## <a name="Contents"> </a>목차
 
-* [큐 저장소 정의](#what-is)
-* [개념](#Concepts)
-* [Azure 저장소 계정 만들기](#CreateAccount)
-* [Java 응용 프로그램 만들기](#CreateApplication)
-* [큐 저장소에 액세스하도록 응용 프로그램 구성](#ConfigureStorage)
-* [Azure 저장소 연결 문자열 설정](#ConnectionString)
-* [방법: 큐 만들기](#create-queue)
-* [방법: 큐에 메시지 추가](#add-message)
-* [방법: 다음 메시지 보기](#peek-message)
-* [방법: 대기 중인 메시지의 콘텐츠 변경](#change-message)
-* [방법: 큐 길이 가져오기](#get-queue-length)
-* [방법: 큐에서 다음 메시지 제거](#dequeue-message)
-* [큐에서 메시지를 제거하는 추가 옵션](#additional-options)
-* [방법: 큐 나열](#list-queues)
-* [방법: 큐 삭제](#delete-queue)
-* [다음 단계](#NextSteps)
+-   [큐 저장소 정의][큐 저장소 정의]
+-   [개념][개념]
+-   [Azure 저장소 계정 만들기][Azure 저장소 계정 만들기]
+-   [Java 응용 프로그램 만들기][Java 응용 프로그램 만들기]
+-   [큐 저장소에 액세스하도록 응용 프로그램 구성][큐 저장소에 액세스하도록 응용 프로그램 구성]
+-   [Azure 저장소 연결 문자열 설정][Azure 저장소 연결 문자열 설정]
+-   [방법: 큐 만들기][방법: 큐 만들기]
+-   [방법: 큐에 메시지 추가][방법: 큐에 메시지 추가]
+-   [방법: 다음 메시지 보기][방법: 다음 메시지 보기]
+-   [방법: 대기 중인 메시지의 콘텐츠 변경][방법: 대기 중인 메시지의 콘텐츠 변경]
+-   [방법: 큐 길이 가져오기][방법: 큐 길이 가져오기]
+-   [방법: 큐에서 다음 메시지 제거][방법: 큐에서 다음 메시지 제거]
+-   [큐에서 메시지를 제거하는 추가 옵션][큐에서 메시지를 제거하는 추가 옵션]
+-   [방법: 큐 나열][방법: 큐 나열]
+-   [방법: 큐 삭제][방법: 큐 삭제]
+-   [다음 단계][다음 단계]
 
 [WACOM.INCLUDE [howto-queue-storage](../includes/howto-queue-storage.md)]
 
-<h2><a id="CreateAccount"></a>Azure 저장소 계정 만들기</h2>
+## <span id="CreateAccount"></span></a>Azure 저장소 계정 만들기
 
 [WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
@@ -37,7 +37,7 @@
 
 이 가이드에서는 Java 응용 프로그램 내에서 로컬로 또는 Azure의 웹 역할 또는 작업자 역할 내에서 실행되는 코드에서 실행할 수 있는 저장소 기능을 사용합니다.
 
-그러려면 JDK(Java Development Kit)를 설치하고 Azure 구독에서 Azure 저장소 계정을 만들어야 합니다. 그러고 나면 개발 시스템에서 GitHub의 [Java용 Azure Storage SDK][] 리포지토리에 있는 최소 요구 사항과 종속성을 충족하는지 확인해야 합니다. 시스템에서 해당 요구 사항을 충족하는 경우에는 리포지토리에서 시스템의 Java용 Azure Storage Library를 다운로드 및 설치하기 위한 지침을 따를 수 있습니다. 작업을 완료하고 나면 이 문서의 예를 사용하는 Java 응용 프로그램을 만들 수 있습니다.
+그러려면 JDK(Java Development Kit)를 설치하고 Azure 구독에서 Azure 저장소 계정을 만들어야 합니다. 그러고 나면 개발 시스템에서 GitHub의 [Java용 Azure Storage SDK][Java용 Azure Storage SDK] 리포지토리에 있는 최소 요구 사항과 종속성을 충족하는지 확인해야 합니다. 시스템에서 해당 요구 사항을 충족하는 경우에는 리포지토리에서 시스템의 Java용 Azure Storage Library를 다운로드 및 설치하기 위한 지침을 따를 수 있습니다. 작업을 완료하고 나면 이 문서의 예를 사용하는 Java 응용 프로그램을 만들 수 있습니다.
 
 ## <a name="ConfigureStorage"> </a>큐 저장소에 액세스하도록 응용 프로그램 구성
 
@@ -49,7 +49,7 @@ Azure 저장소 API를 사용하여 큐에 액세스하려는 Java 파일의 맨
 
 ## <a name="ConnectionString"> </a>Azure 저장소 연결 문자열 설정
 
-Azure 저장소 클라이언트는 저장소 연결 문자열을 사용하여 데이터 관리 서비스에 액세스하기 위한 끝점 및 자격 증명을 저장합니다. 클라이언트 응용 프로그램에서 실행 중인 경우 관리 포털에 나열된 저장소 계정의 이름 및 저장소 계정의 기본 액세스 키를 *AccountName* 및 *AccountKey* 값에 사용하여 저장소 연결 문자열을 다음 형식으로 지정해야 합니다. 이 예제에서는 정적 필드가 연결 문자열을 포함할 수 있도록 선언하는 방법을 보여 줍니다.
+Azure 저장소 클라이언트는 저장소 연결 문자열을 사용하여 데이터 관리 서비스에 액세스하기 위한 끝점 및 자격 증명을 저장합니다. 클라이언트 응용 프로그램에서 실행 중인 경우 관리 포털에 나열된 저장소 계정의 이름 및 저장소 계정의 기본 액세스 키를 *AccountName* 및 *AccountKey* 값에 사용하여 저장소 연결 문자열을 다음 형식으로 지정해야 합니다. 이 예제는 정적 필드가 연결 문자열을 포함할 수 있도록 선언하는 방법을 보여 줍니다.
 
     // Define the connection-string with your values.
     public static final String storageConnectionString = 
@@ -67,24 +67,24 @@ Microsoft Azure의 역할 내에서 실행되는 응용 프로그램에서는 �
 
 ## <a name="create-queue"> </a>방법: 큐 만들기
 
-**CloudQueueClient** 개체를 통해 큐에 대한 참조 개체를 가져올 수 있습니다. 다음 코드는 **CloudQueueClient** 개체를 만듭니다. 참고: **CloudStorageAccount** 개체를 만들 수 있는 방법이 더 있습니다. 자세한 내용은 [Azure Storage Client SDK 참조]에 있는 **CloudStorageAccount**를 참조하세요.)
+**CloudQueueClient** 개체를 통해 큐에 대한 참조 개체를 가져올 수 있습니다. 다음 코드는 **CloudQueueClient** 개체를 만듭니다. 참고: **CloudStorageAccount** 개체를 만들 수 있는 방법이 더 있습니다. 자세한 내용은 [Azure Storage Client SDK 참조][Azure Storage Client SDK 참조]에 있는 **CloudStorageAccount**를 참조하세요.)
 
 **CloudQueueClient** 개체를 사용하여 사용할 큐에 대한 참조를 가져올 수 있습니다. 큐가 없는 경우 새로 만들 수 있습니다.
 
     try
     {
-    	// Retrieve storage account from connection-string.
-    	CloudStorageAccount storageAccount = 
-	       CloudStorageAccount.parse(storageConnectionString);
+        // Retrieve storage account from connection-string.
+        CloudStorageAccount storageAccount = 
+           CloudStorageAccount.parse(storageConnectionString);
 
-	   // Create the queue client.
-	   CloudQueueClient queueClient = storageAccount.createCloudQueueClient();
+       // Create the queue client.
+       CloudQueueClient queueClient = storageAccount.createCloudQueueClient();
 
-	   // Retrieve a reference to a queue.
-	   CloudQueue queue = queueClient.getQueueReference("myqueue");
+       // Retrieve a reference to a queue.
+       CloudQueue queue = queueClient.getQueueReference("myqueue");
 
-	   // Create the queue if it doesn't already exist.
-	   queue.createIfNotExists();
+       // Create the queue if it doesn't already exist.
+       queue.createIfNotExists();
     }
     catch (Exception e)
     {
@@ -98,22 +98,22 @@ Microsoft Azure의 역할 내에서 실행되는 응용 프로그램에서는 �
 
     try
     {
-    	// Retrieve storage account from connection-string.
-    	CloudStorageAccount storageAccount = 
-	       CloudStorageAccount.parse(storageConnectionString);
+        // Retrieve storage account from connection-string.
+        CloudStorageAccount storageAccount = 
+           CloudStorageAccount.parse(storageConnectionString);
 
-    	// Create the queue client.
-    	CloudQueueClient queueClient = storageAccount.createCloudQueueClient();
+        // Create the queue client.
+        CloudQueueClient queueClient = storageAccount.createCloudQueueClient();
 
-    	// Retrieve a reference to a queue.
-    	CloudQueue queue = queueClient.getQueueReference("myqueue");
+        // Retrieve a reference to a queue.
+        CloudQueue queue = queueClient.getQueueReference("myqueue");
 
-    	// Create the queue if it doesn't already exist.
-    	queue.createIfNotExists();
+        // Create the queue if it doesn't already exist.
+        queue.createIfNotExists();
 
-    	// Create a message and add it to the queue.
-    	CloudQueueMessage message = new CloudQueueMessage("Hello, World");
-    	queue.addMessage(message);
+        // Create a message and add it to the queue.
+        CloudQueueMessage message = new CloudQueueMessage("Hello, World");
+        queue.addMessage(message);
     }
     catch (Exception e)
     {
@@ -127,24 +127,24 @@ Microsoft Azure의 역할 내에서 실행되는 응용 프로그램에서는 �
 
     try
     {
-    	// Retrieve storage account from connection-string.
-    	CloudStorageAccount storageAccount = 
-	       CloudStorageAccount.parse(storageConnectionString);
+        // Retrieve storage account from connection-string.
+        CloudStorageAccount storageAccount = 
+           CloudStorageAccount.parse(storageConnectionString);
 
-    	// Create the queue client.
-    	CloudQueueClient queueClient = storageAccount.createCloudQueueClient();
+        // Create the queue client.
+        CloudQueueClient queueClient = storageAccount.createCloudQueueClient();
 
-    	// Retrieve a reference to a queue.
-    	CloudQueue queue = queueClient.getQueueReference("myqueue");
-			
-    	// Peek at the next message.
-    	CloudQueueMessage peekedMessage = queue.peekMessage();
-			
-    	// Output the message value.
-    	if (peekedMessage != null)
-    	{
-		  System.out.println(peekedMessage.getMessageContentAsString());
-	   }
+        // Retrieve a reference to a queue.
+        CloudQueue queue = queueClient.getQueueReference("myqueue");
+            
+        // Peek at the next message.
+        CloudQueueMessage peekedMessage = queue.peekMessage();
+            
+        // Output the message value.
+        if (peekedMessage != null)
+        {
+          System.out.println(peekedMessage.getMessageContentAsString());
+       }
     }
     catch (Exception e)
     {
@@ -156,7 +156,7 @@ Microsoft Azure의 역할 내에서 실행되는 응용 프로그램에서는 �
 
 큐에 있는 메시지의 콘텐츠를 변경할 수 있습니다. 메시지가 작업을 나타내는 경우 이 기능을 사용하여 작업의 상태를 업데이트할 수 있습니다. 다음 코드는 큐 메시지를 새로운 콘텐츠로 업데이트하고 표시 제한 시간이 60초 더 늘어나도록 설정합니다. 그러면 메시지와 연결된 작업의 상태가 저장되고 클라이언트에서 메시지에 대한 작업을 계속할 수 있는 시간이 1분 더 허용됩니다. 이 기술을 사용하여 처리 단계가 하드웨어 또는 소프트웨어 오류로 인해 실패하는 경우 처음부터 시작하지 않고도 큐 메시지에 대한 여러 단계의 워크플로를 추적할 수 있습니다. 일반적으로, 다시 시도 수도 유지하므로, 메시지가 *n*번 넘게 다시 시도된 경우 메시지를 지울 수도 있습니다. 이 기능은 처리될 때마다 응용 프로그램 오류를 트리거하는 메시지를 차단하여 보호해 줍니다.
 
-다음 코드 샘플에서는 메시지 큐를 검색하여 내용에서 "Hello, World"와 일치하는 최초의 메시지를 찾고 메시지 내용을 수정한 후 종료합니다. 
+다음 코드 샘플에서는 메시지 큐를 검색하여 내용에서 "Hello, World"와 일치하는 최초의 메시지를 찾고 메시지 내용을 수정한 후 종료합니다.
 
     try
     {
@@ -164,11 +164,11 @@ Microsoft Azure의 역할 내에서 실행되는 응용 프로그램에서는 �
         CloudStorageAccount storageAccount = 
             CloudStorageAccount.parse(storageConnectionString);
 
-    	// Create the queue client.
-    	CloudQueueClient queueClient = storageAccount.createCloudQueueClient();
+        // Create the queue client.
+        CloudQueueClient queueClient = storageAccount.createCloudQueueClient();
 
-    	// Retrieve a reference to a queue.
-    	CloudQueue queue = queueClient.getQueueReference("myqueue");
+        // Retrieve a reference to a queue.
+        CloudQueue queue = queueClient.getQueueReference("myqueue");
 
         // The maximum number of messages that can be retrieved is 32. 
         final int MAX_NUMBER_OF_MESSAGES_TO_PEEK = 32;
@@ -201,21 +201,21 @@ Microsoft Azure의 역할 내에서 실행되는 응용 프로그램에서는 �
 
     try
     {
-    	// Retrieve storage account from connection-string.
-    	CloudStorageAccount storageAccount = 
-	       CloudStorageAccount.parse(storageConnectionString);
+        // Retrieve storage account from connection-string.
+        CloudStorageAccount storageAccount = 
+           CloudStorageAccount.parse(storageConnectionString);
 
-    	// Create the queue client.
-    	CloudQueueClient queueClient = storageAccount.createCloudQueueClient();
+        // Create the queue client.
+        CloudQueueClient queueClient = storageAccount.createCloudQueueClient();
 
-    	// Retrieve a reference to a queue.
-    	CloudQueue queue = queueClient.getQueueReference("myqueue");
+        // Retrieve a reference to a queue.
+        CloudQueue queue = queueClient.getQueueReference("myqueue");
 
-    	// Retrieve the first visible message in the queue.
-    	CloudQueueMessage message = queue.retrieveMessage();
-			
-    	if (message != null)
-    	{
+        // Retrieve the first visible message in the queue.
+        CloudQueueMessage message = queue.retrieveMessage();
+            
+        if (message != null)
+        {
             // Modify the message content.
             message.setMessageContent("Updated contents.");
             // Set it to be visible in 60 seconds.
@@ -224,7 +224,7 @@ Microsoft Azure의 역할 내에서 실행되는 응용 프로그램에서는 �
                 MessageUpdateFields.VISIBILITY);
             // Update the message.
             queue.updateMessage(message, 60, updateFields, null, null);
-    	}
+        }
     }
     catch (Exception e)
     {
@@ -238,24 +238,24 @@ Microsoft Azure의 역할 내에서 실행되는 응용 프로그램에서는 �
 
     try
     {
-    	// Retrieve storage account from connection-string.
-    	CloudStorageAccount storageAccount = 
-	       CloudStorageAccount.parse(storageConnectionString);
+        // Retrieve storage account from connection-string.
+        CloudStorageAccount storageAccount = 
+           CloudStorageAccount.parse(storageConnectionString);
 
-    	// Create the queue client.
-    	CloudQueueClient queueClient = storageAccount.createCloudQueueClient();
+        // Create the queue client.
+        CloudQueueClient queueClient = storageAccount.createCloudQueueClient();
 
-    	// Retrieve a reference to a queue.
-    	CloudQueue queue = queueClient.getQueueReference("myqueue");
+        // Retrieve a reference to a queue.
+        CloudQueue queue = queueClient.getQueueReference("myqueue");
 
-	   // Download the approximate message count from the server.
-    	queue.downloadAttributes();
+       // Download the approximate message count from the server.
+        queue.downloadAttributes();
 
-    	// Retrieve the newly cached approximate message count.
-    	long cachedMessageCount = queue.getApproximateMessageCount();
-			
-    	// Display the queue length.
-    	System.out.println(String.format("Queue length: %d", cachedMessageCount));
+        // Retrieve the newly cached approximate message count.
+        long cachedMessageCount = queue.getApproximateMessageCount();
+            
+        // Display the queue length.
+        System.out.println(String.format("Queue length: %d", cachedMessageCount));
     }
     catch (Exception e)
     {
@@ -269,24 +269,24 @@ Microsoft Azure의 역할 내에서 실행되는 응용 프로그램에서는 �
 
     try
     {
-    	// Retrieve storage account from connection-string.
-    	CloudStorageAccount storageAccount = 
-    	    CloudStorageAccount.parse(storageConnectionString);
+        // Retrieve storage account from connection-string.
+        CloudStorageAccount storageAccount = 
+            CloudStorageAccount.parse(storageConnectionString);
 
-    	// Create the queue client.
-    	CloudQueueClient queueClient = storageAccount.createCloudQueueClient();
+        // Create the queue client.
+        CloudQueueClient queueClient = storageAccount.createCloudQueueClient();
 
-    	// Retrieve a reference to a queue.
-    	CloudQueue queue = queueClient.getQueueReference("myqueue");
+        // Retrieve a reference to a queue.
+        CloudQueue queue = queueClient.getQueueReference("myqueue");
 
-    	// Retrieve the first visible message in the queue.
-    	CloudQueueMessage retrievedMessage = queue.retrieveMessage();
-			
-    	if (retrievedMessage != null)
-    	{
-    		// Process the message in less than 30 seconds, and then delete the message.
-    		queue.deleteMessage(retrievedMessage);
-    	}
+        // Retrieve the first visible message in the queue.
+        CloudQueueMessage retrievedMessage = queue.retrieveMessage();
+            
+        if (retrievedMessage != null)
+        {
+            // Process the message in less than 30 seconds, and then delete the message.
+            queue.deleteMessage(retrievedMessage);
+        }
     }
     catch (Exception e)
     {
@@ -294,12 +294,11 @@ Microsoft Azure의 역할 내에서 실행되는 응용 프로그램에서는 �
         e.printStackTrace();
     }
 
-
 ## <a name="additional-options"> </a>큐에서 메시지를 제거하는 추가 옵션
 
 큐에서 메시지 검색을 사용자 지정할 수 있는 방법으로는 두 가지가 있습니다. 먼저, 메시지의 배치(최대 32개)를 가져올 수 있습니다. 두 번째로, 표시하지 않는 제한 시간을 더 길거나 더 짧게 설정하여 코드에서 각 메시지를 완전히 처리하는 시간을 늘리거나 줄일 수 있습니다.
 
-다음 코드 예제에서는 **retrieveMessages** 메서드를 사용하여 한 번 호출에 20개의 메시지를 가져옵니다. 그런 다음에 **for** 루프를 사용하여 각 메시지를 처리합니다. 또한 각 메시지에 대해 표시하지 않는 제한 시간을 5분(300초)으로 설정합니다. 5분은 모든 메시지에 대해 동시에 시작되므로, **retrieveMessages**에 대한 호출 이후로 5분이 지나고 나면 삭제되지 않은 모든 메시지가 다시 표시됩니다.
+다음 코드 예제는 **retrieveMessages** 메서드를 사용하여 한 번 호출에 20개의 메시지를 가져옵니다. 그런 다음에 **for** 루프를 사용하여 각 메시지를 처리합니다. 또한 각 메시지에 대해 표시하지 않는 제한 시간을 5분(300초)으로 설정합니다. 5분은 모든 메시지에 대해 동시에 시작되므로, **retrieveMessages**에 대한 호출 이후로 5분이 지나고 나면 삭제되지 않은 모든 메시지가 다시 표시됩니다.
 
     try
     {
@@ -328,7 +327,7 @@ Microsoft Azure의 역할 내에서 실행되는 응용 프로그램에서는 �
 
 ## <a name="list-queues"> </a>방법: 큐 나열
 
-현재 큐의 목록을 가져오려면 **CloudQueue** 개체의 컬렉션을 반환하는 **CloudQueueClient.listQueues()** 메서드를 호출합니다. 
+현재 큐의 목록을 가져오려면 **CloudQueue** 개체의 컬렉션을 반환하는 **CloudQueueClient.listQueues()** 메서드를 호출합니다.
 
     try
     {
@@ -382,14 +381,29 @@ Microsoft Azure의 역할 내에서 실행되는 응용 프로그램에서는 �
 
 이제 큐 저장소의 기본 사항을 배웠으므로 다음 링크를 따라 좀 더 복잡한 저장소 작업을 수행하는 방법을 알아보세요.
 
-- [Java용 Azure Storage SDK]
-- [Azure Storage Client SDK 참조]
-- [Azure 저장소 REST API]
-- [Azure 저장소 팀 블로그]
+-   [Java용 Azure Storage SDK][Java용 Azure Storage SDK]
+-   [Azure Storage Client SDK 참조][Azure Storage Client SDK 참조]
+-   [Azure 저장소 REST API][Azure 저장소 REST API]
+-   [Azure 저장소 팀 블로그][Azure 저장소 팀 블로그]
 
-[Java용 Azure SDK]: http://www.windowsazure.com/ko-kr/develop/java/
-[Java용 Azure Storage SDK]: https://github.com/azure/azure-storage-java
-[Android용 Azure Storage SDK]: https://github.com/azure/azure-storage-android
-[Azure Storage Client SDK 참조]: http://dl.windowsazure.com/storage/javadoc/
-[Azure 저장소 REST API]: http://msdn.microsoft.com/ko-kr/library/azure/gg433040.aspx
-[Azure 저장소 팀 블로그]: http://blogs.msdn.com/b/windowsazurestorage/
+  [Java용 Azure Storage SDK]: https://github.com/azure/azure-storage-java
+  [다음 단계]: #NextSteps
+  [Android용 Azure Storage SDK]: https://github.com/azure/azure-storage-android
+  [큐 저장소 정의]: #what-is
+  [개념]: #Concepts
+  [Azure 저장소 계정 만들기]: #CreateAccount
+  [Java 응용 프로그램 만들기]: #CreateApplication
+  [큐 저장소에 액세스하도록 응용 프로그램 구성]: #ConfigureStorage
+  [Azure 저장소 연결 문자열 설정]: #ConnectionString
+  [방법: 큐 만들기]: #create-queue
+  [방법: 큐에 메시지 추가]: #add-message
+  [방법: 다음 메시지 보기]: #peek-message
+  [방법: 대기 중인 메시지의 콘텐츠 변경]: #change-message
+  [방법: 큐 길이 가져오기]: #get-queue-length
+  [방법: 큐에서 다음 메시지 제거]: #dequeue-message
+  [큐에서 메시지를 제거하는 추가 옵션]: #additional-options
+  [방법: 큐 나열]: #list-queues
+  [방법: 큐 삭제]: #delete-queue
+  [Azure Storage Client SDK 참조]: http://dl.windowsazure.com/storage/javadoc/
+  [Azure 저장소 REST API]: http://msdn.microsoft.com/ko-kr/library/azure/gg433040.aspx
+  [Azure 저장소 팀 블로그]: http://blogs.msdn.com/b/windowsazurestorage/

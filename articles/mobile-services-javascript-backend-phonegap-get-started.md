@@ -149,14 +149,12 @@ PhoneGap은 다중 플랫폼용 개발을 지원합니다. PhoneGap 도구 자�
 -   [인증 시작][인증 시작]
     ID 공급자를 사용하여 앱 사용자를 인증하는 방법을 알아봅니다.
 
-<!-- Images. --> <!-- URLs. -->
+ 
 
-  [mobile-services-selector-get-started]: ../includes/mobile-services-selector-get-started.md
   [0]: ./media/mobile-services-javascript-backend-phonegap-get-started/mobile-portal-quickstart-ios.png
   [Visual Studio 2012 Express for Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374
   [Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
   [Android Developer Tools]: https://go.microsoft.com/fwLink/p/?LinkID=280125
-  [mobile-services-create-new-service]: ../includes/mobile-services-create-new-service.md
   [1]: ./media/mobile-services-javascript-backend-phonegap-get-started/portal-screenshot1.png
   [2]: ./media/mobile-services-javascript-backend-phonegap-get-started/portal-screenshot2.png
   [3]: ./media/mobile-services-javascript-backend-phonegap-get-started/mobile-portal-quickstart-wp8.png

@@ -119,4 +119,4 @@ Azure 기계 학습은 Azure 지원 제공물의 일부로 지원됩니다. Azur
   [사용자 피드백 포럼]: http://go.microsoft.com/fwlink/?LinkId=404231
   [1]: https://windowsazure.uservoice.com/forums/257792-machine-learning
   [http://azure.microsoft.com/ko-kr/support/options/]: http://azure.microsoft.com/ko-kr/support/options/
-  [Azure 포럼]: http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=MachineLearning
+  [Azure 포럼]: http://social.msdn.microsoft.com/Forums/windowsazure/ko-kr/home?forum=MachineLearning

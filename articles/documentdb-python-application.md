@@ -1,6 +1,6 @@
 <properties title="Build a web application with Python and Flask (MVC) using DocumentDB" pageTitle="Build a web app with Python and Flask using DocumentDB | Azure" description="Learn how to use DocumentDB to store and access data from an Python and Flask (MVC) web application hosted on Azure."  metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, account" services="documentdb"  solutions="data-management" documentationCenter=""  authors="hawong" manager="jhubbard" editor="cgronlun" videoId="" scriptId="" />
 
-<tags ms.service="documentdb" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="hawong"></tags>
+<tags ms.service="documentdb" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="hawong" />
 
 # <a name="_Toc395888515"></a><a name="_Toc395809324">DocumentDB를 사용하여 Python 및 Flask(MVC)로 웹 응용 프로그램 작성</a>
 
@@ -33,23 +33,24 @@ Azure에 호스트된 Python 웹 응용 프로그램에서 데이터를 저장�
 이 연습을 따라 설문 조사에 투표할 수 있는 간단한
 투표 응용 프로그램을 작성합니다.
 
-![대체 텍스트][]
+![대체 텍스트][대체 텍스트]
 
 <a name="_Toc395888520"></a><a name="_Toc395809329">필수 조건</a>
 
 이 문서의 지침을 따르기 전에 다음이 설치되어 있는지
 확인해야 합니다.
 
-Visual Studio 2013(또는 [Visual Studio Express][]
+Visual Studio 2013(또는 [Visual Studio Express][Visual Studio Express]
 (무료 버전))
 
-Python Tools for Visual Studio([여기][]서 사용 가능)
+Python Tools for Visual Studio([여기][여기]서 사용 가능)
 
 Azure SDK for Visual Studio 2013 버전 2.4 이상(
 [여기][1]서 사용 가능)
 
 Azure Cross-platform Command Line Tools([Microsoft
-웹 플랫폼 설치 관리자를 통해 사용 가능][])
+웹 플랫폼 설치 관리자를 통해 사용 가능][Microsoft
+웹 플랫폼 설치 관리자를 통해 사용 가능])
 
 # <a name="_Toc395888519"></a><a name="_Toc395809328">DocumentDB 데이터베이스 계정 만들기</a>
 
@@ -110,7 +111,7 @@ Flask 웹 프로젝트를 엽니다. 외부 패키지를 설치할지 여부를
 환경이 설정됩니다.
 
 Flask를 처음 사용하는 경우 Flask는 Python에서 웹 응용 프로그램을
-더 빨리 작성하는 데 도움이 되는 웹 프레임워크입니다. [Flask 자습서에 액세스하려면 여기를 클릭하세요][].
+더 빨리 작성하는 데 도움이 되는 웹 프레임워크입니다. [Flask 자습서에 액세스하려면 여기를 클릭하세요][Flask 자습서에 액세스하려면 여기를 클릭하세요].
 
 ![대체 텍스트][10]
 
@@ -440,17 +441,16 @@ Azure 웹 사이트를 구성합니다.
 축하합니다. 지금까지 Azure DocumentDB를 사용하여 첫 Python 응용 프로그램을
 작성하고 Azure 웹 사이트에 게시했습니다.
 
-전체 솔루션을 보려면 [여기를 클릭][]하세요. 참고: 위에서 언급한 대로
+전체 솔루션을 보려면 [여기를 클릭][여기를 클릭]하세요. 참고: 위에서 언급한 대로
 가상 환경을 추가하고 python 도구 및
 패키지를 설치해야 합니다.
 
 </h1>
 
   [대체 텍스트]: ./media/documentdb-python-application/image1.png
-  [Visual Studio Express]: http://www.visualstudio.com/en-us/products/visual-studio-express-vs.aspx
+  [Visual Studio Express]: http://www.visualstudio.com/ko-kr/products/visual-studio-express-vs.aspx
   [여기]: https://pytools.codeplex.com/releases/view/123624
   [1]: http://go.microsoft.com/fwlink/?linkid=254281&clcid=0x409
-  [Microsoft 웹 플랫폼 설치 관리자를 통해 사용 가능]: http://www.microsoft.com/web/downloads/platform.aspx
   [2]: ./media/documentdb-python-application/image2.png
   [3]: ./media/documentdb-python-application/image3.png
   [4]: ./media/documentdb-python-application/image4.png

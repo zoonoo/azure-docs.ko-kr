@@ -26,7 +26,7 @@
 
     > [WACOM.NOTE]푸시 알림 추가 마법사를 통해 범용 Windows 앱 솔루션에 추가되는 코드는 플랫폼에 따라 다릅니다. 이 섹션의 뒷부분에서는 범용 앱을 보다 손쉽게 관리할 수 있도록 모바일 서비스 클라이언트 코드를 공유하여 이러한 중복성을 없앱니다.
 
-<!-- URLs. -->
+
 
   [Visual Studio 2013의 푸시 알림 추가 마법사]: ../includes/media/mobile-services-create-new-push-vs2013/mobile-add-push-notifications-vs2013.png
   [푸시 알림 추가 마법사에서 앱 이름 선택]: ../includes/media/mobile-services-create-new-push-vs2013/mobile-add-push-notifications-vs2013-2.png

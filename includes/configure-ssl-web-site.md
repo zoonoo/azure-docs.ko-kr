@@ -2,7 +2,7 @@
 
 HTTPS를 사용하여 웹 사이트를 방문하면 SSL(Secure Socket Layer) 암호화를 사용하여 웹 사이트와 브라우저 간의 통신 보안이 설정됩니다. 이는 인터넷을 통해 전송되는 데이터의 보안을 설정하는 가장 일반적인 방법으로, 방문자에게 사이트와의 트랜잭션이 안전함을 보장합니다. 이 문서에서는 Azure 웹 사이트에 HTTPS를 사용하도록 설정하는 방법을 설명합니다.
 
-> [WACOM.NOTE] 사용자 지정 도메인 이름에 HTTPS를 사용하도록 설정하려면 표준 모드로 웹 사이트를 구성해야 합니다. 현재 무료 또는 공유 모드를 사용 중이면 추가 비용이 발생할 수도 있습니다. 공유 및 표준 모드 가격 책정에 대한 자세한 내용은 [가격 책정 세부 정보][]를 참조하세요. Azure에 등록하려면 [Microsoft Azure 무료 평가판][]을 참조하세요.
+> [WACOM.NOTE] 사용자 지정 도메인 이름에 HTTPS를 사용하도록 설정하려면 표준 모드로 웹 사이트를 구성해야 합니다. 현재 무료 또는 공유 모드를 사용 중이면 추가 비용이 발생할 수도 있습니다. 공유 및 표준 모드 가격 책정에 대한 자세한 내용은 [가격 책정 세부 정보][가격 책정 세부 정보]를 참조하세요. Azure에 등록하려면 [Microsoft Azure 무료 평가판][Microsoft Azure 무료 평가판]을 참조하세요.
 
 [][]
 
@@ -18,7 +18,7 @@ HTTPS를 사용하여 웹 사이트를 방문하면 SSL(Secure Socket Layer) 암
 ## 사용자 지정 도메인 이름
 
 </p>
-**contoso.com** 등의 사용자 지정 도메인 이름에 HTTPS를 사용하도록 설정하려면 도메인 이름 등록 기관에 사용자 지정 도메인 이름을 등록해야 합니다. Azure 웹 사이트의 도메인 이름을 구성하는 방법에 대한 자세한 내용은 [Azure 웹 사이트에 대한 사용자 지정 도메인 이름 구성][]을 참조하세요. 사용자 지정 도메인 이름을 등록하고 사용자 지정 이름에 응답하도록 웹 사이트를 구성한 후에는 도메인에 대한 SSL 인증서를 요청해야 합니다.
+**contoso.com** 등의 사용자 지정 도메인 이름에 HTTPS를 사용하도록 설정하려면 도메인 이름 등록 기관에 사용자 지정 도메인 이름을 등록해야 합니다. Azure 웹 사이트의 도메인 이름을 구성하는 방법에 대한 자세한 내용은 [Azure 웹 사이트에 대한 사용자 지정 도메인 이름 구성][Azure 웹 사이트에 대한 사용자 지정 도메인 이름 구성]을 참조하세요. 사용자 지정 도메인 이름을 등록하고 사용자 지정 이름에 응답하도록 웹 사이트를 구성한 후에는 도메인에 대한 SSL 인증서를 요청해야 합니다.
 
 도메인 이름을 등록하면 **www.contoso.com**, **mail.contoso.com** 등의 하위 도메인도 만들 수 있습니다. SSL 인증서를 요청하기 전에 먼저 인증서로 보안을 설정할 도메인 이름을 결정해야 합니다. 이렇게 하면 받아야 하는 인증서 유형이 결정됩니다. **contoso.com** 또는 **www.contoso.com**과 같은 단일 도메인 이름의 보안을 설정해야 하는 경우 기본 인증서로 충분합니다. **contoso.com**, **www.contoso.com**, **mail.contoso.com** 등 여러 도메인 이름의 보안을 설정해야 하는 경우 와일드카드 인증서 또는 주체 대체 이름(subjectAltName, SAN)이 포함된 인증서가 필요합니다.
 
@@ -39,7 +39,7 @@ HTTPS를 사용하여 웹 사이트를 방문하면 SSL(Secure Socket Layer) 암
 ## 인증서 얻기
 
 </p>
-Azure 웹 사이트에 사용되는 SSL 인증서는 이 목적으로 인증서를 발급하는 신뢰할 수 있는 타사 CA(인증 기관)에서 서명되어야 합니다. 아직 없는 경우 SSL 인증서를 판매하는 회사에서 구입해야 합니다. 인증 기관 목록은 Microsoft TechNet Wiki의 [Windows 및 Windows Phone 8 SSL 루트 인증서 프로그램(멤버 CA)][]을 참조하세요.
+Azure 웹 사이트에 사용되는 SSL 인증서는 이 목적으로 인증서를 발급하는 신뢰할 수 있는 타사 CA(인증 기관)에서 서명되어야 합니다. 아직 없는 경우 SSL 인증서를 판매하는 회사에서 구입해야 합니다. 인증 기관 목록은 Microsoft TechNet Wiki의 [Windows 및 Windows Phone 8 SSL 루트 인증서 프로그램(멤버 CA)][Windows 및 Windows Phone 8 SSL 루트 인증서 프로그램(멤버 CA)]을 참조하세요.
 
 인증서는 Azure의 SSL 인증서에 대한 다음 요구 사항을 충족해야 합니다.
 
@@ -49,7 +49,7 @@ Azure 웹 사이트에 사용되는 SSL 인증서는 이 목적으로 인증서�
 
 -   인증서의 주체 이름은 웹 사이트 액세스에 사용되는 도메인과 일치해야 합니다. 이 인증서로 여러 도메인을 처리해야 하는 경우 와일드카드 값을 사용하거나 앞에서 설명한 대로 subjectAltName 값을 지정해야 합니다.
 
-    -   Azure 웹 사이트에 대한 사용자 지정 도메인 이름을 구성하는 방법에 대한 자세한 내용은 [Azure 웹 사이트에 대한 사용자 지정 도메인 이름 구성][]을 참조하세요.
+    -   Azure 웹 사이트에 대한 사용자 지정 도메인 이름을 구성하는 방법에 대한 자세한 내용은 [Azure 웹 사이트에 대한 사용자 지정 도메인 이름 구성][Azure 웹 사이트에 대한 사용자 지정 도메인 이름 구성]을 참조하세요.
 
     > [WACOM.NOTE] azurewebsites.net 도메인에 대한 인증서를 받거나 생성하지 마세요.
 
@@ -57,7 +57,7 @@ Azure 웹 사이트에 사용되는 SSL 인증서는 이 목적으로 인증서�
 
 > [WACOM.NOTE] 개인 CA에서 발급된 인증서는 Azure 웹 사이트에서 지원되지 않습니다.
 
-인증 기관에서 SSL 인증서를 가져오려면 CA로 전송되는 CSR(인증서 서명 요청)을 생성해야 합니다. 그러면 CA에서 CSR을 완료하는 데 사용되는 인증서를 반환합니다. CSR을 생성하는 두 가지 일반적인 방법은 certmgr.exe 또는 [OpenSSL][] 응용 프로그램을 사용하는 것입니다. Certmgr.exe는 Windows에서만 사용할 수 있고 OpenSSL은 대부분의 플랫폼에 사용할 수 있습니다. 두 가지 유틸리티를 사용하는 단계는 다음과 같습니다.
+인증 기관에서 SSL 인증서를 가져오려면 CA로 전송되는 CSR(인증서 서명 요청)을 생성해야 합니다. 그러면 CA에서 CSR을 완료하는 데 사용되는 인증서를 반환합니다. CSR을 생성하는 두 가지 일반적인 방법은 certmgr.exe 또는 [OpenSSL][OpenSSL] 응용 프로그램을 사용하는 것입니다. Certmgr.exe는 Windows에서만 사용할 수 있고 OpenSSL은 대부분의 플랫폼에 사용할 수 있습니다. 두 가지 유틸리티를 사용하는 단계는 다음과 같습니다.
 
 > [WACOM.NOTE] ECC(타원 곡선 암호화) 인증서는 Azure 웹 사이트에서 지원되지만 상대적으로 새로운 인증서이며 CSR을 만드는 것과 정확히 동일한 단계로 CA에 대해 작업해야 합니다. ECC 인증서를 얻은 후에는 아래 단계에서 설명된 웹 사이트에 업로드할 수 있습니다.
 
@@ -65,17 +65,17 @@ CA에서 사용되는 경우 **중간 인증서**(체인 인증서라고도 함)
 
 > [WACOM.NOTE] 일련의 단계 중 하나를 따를 경우 **일반 이름**을 입력하라는 메시지가 표시됩니다. 여러 도메인(www.contoso.com, sales.contoso.com)에 사용할 와일드카드 인증서를 받으려는 경우 이 값은 \*.domainname(예: \*.contoso.com)이어야 합니다. 단일 도메인 이름에 대한 인증서를 받으려는 경우 이 값은 사용자가 웹 사이트를 방문하기 위해 브라우저에 입력하는 값과 같아야 합니다. 예를 들어 www.contoso.com입니다.
 >
-> \*.contoso.com 등의 와일드카드 이름과 contoso.com 등의 루트 도메인 이름을 둘 다 지원해야 하는 경우 와일드카드 SAN(주체 대체 이름) 인증서를 사용할 수 있습니다. SubjectAltName 확장을 사용하는 인증서 요청을 만드는 방법의 예는 [SubjectAltName 인증서][]를 참조하세요.
+> \*.contoso.com 등의 와일드카드 이름과 contoso.com 등의 루트 도메인 이름을 둘 다 지원해야 하는 경우 와일드카드 SAN(주체 대체 이름) 인증서를 사용할 수 있습니다. SubjectAltName 확장을 사용하는 인증서 요청을 만드는 방법의 예는 [SubjectAltName 인증서][SubjectAltName 인증서]를 참조하세요.
 >
-> Azure 웹 사이트의 도메인 이름을 구성하는 방법에 대한 자세한 내용은 [Azure 웹 사이트에 대한 사용자 지정 도메인 이름 구성][]을 참조하세요.
+> Azure 웹 사이트의 도메인 이름을 구성하는 방법에 대한 자세한 내용은 [Azure 웹 사이트에 대한 사용자 지정 도메인 이름 구성][Azure 웹 사이트에 대한 사용자 지정 도메인 이름 구성]을 참조하세요.
 
 ### Certreq.exe를 사용하여 인증서 받기(Windows에만 해당)
 
 Certreq.exe는 인증서 요청을 만들기 위한 Windows 유틸리티입니다. 이 유틸리티는 Windows XP/Windows Server 2000 이후 기본 Windows 설치의 일부였으므로 최근 Windows 시스템에서 사용할 수 있습니다. certreq.exe를 사용하여 SSL 인증서를 받으려면 다음 단계를 따르세요.
 
-테스트를 위해 자체 서명된 인증서를 만들려는 경우 이 문서의 [자체 서명된 인증서][] 섹션을 참조하세요.
+테스트를 위해 자체 서명된 인증서를 만들려는 경우 이 문서의 [자체 서명된 인증서][자체 서명된 인증서] 섹션을 참조하세요.
 
-IIS 관리자를 사용하여 인증서 요청을 만들려는 경우 [IIS 관리자를 사용하여 인증서 받기][] 섹션을 참조하세요.
+IIS 관리자를 사용하여 인증서 요청을 만들려는 경우 [IIS 관리자를 사용하여 인증서 받기][IIS 관리자를 사용하여 인증서 받기] 섹션을 참조하세요.
 
 1.  **메모장**을 열고 다음이 포함된 새 문서를 만듭니다. 제목 줄의 **mysite.com**을 웹 사이트의 사용자 지정 도메인 이름으로 바꿉니다. 예를 들어 Subject = "CN=www.contoso.com"입니다.
 
@@ -93,7 +93,7 @@ IIS 관리자를 사용하여 인증서 요청을 만들려는 경우 [IIS 관�
         [EnhancedKeyUsageExtension]
         OID=1.3.6.1.5.5.7.3.1
 
-    위에서 지정된 옵션 및 사용 가능한 기타 옵션에 대한 자세한 내용은 [Certreq 참조 설명서][]를 참조하세요.
+    위에서 지정된 옵션 및 사용 가능한 기타 옵션에 대한 자세한 내용은 [Certreq 참조 설명서][Certreq 참조 설명서]를 참조하세요.
 
 2.  텍스트 파일을 **myrequest.txt**로 저장합니다.
 
@@ -107,7 +107,7 @@ IIS 관리자를 사용하여 인증서 요청을 만들려는 경우 [IIS 관�
 
 5.  인증 기관에 **myrequest.csr**을 제출하여 SSL 인증서를 받습니다. 이 경우 파일을 업로드하거나 메모장에서 파일을 열고 파일 내용을 웹 양식에 직접 붙여 넣어야 합니다.
 
-    인증 기관 목록은 Microsoft TechNet Wiki의 [Windows 및 Windows Phone 8 SSL 루트 인증서 프로그램(멤버 CA)][]을 참조하세요.
+    인증 기관 목록은 Microsoft TechNet Wiki의 [Windows 및 Windows Phone 8 SSL 루트 인증서 프로그램(멤버 CA)][Windows 및 Windows Phone 8 SSL 루트 인증서 프로그램(멤버 CA)]을 참조하세요.
 
 6.  인증 기관에서 인증서(.CER) 파일을 제공하면 요청을 생성하는 데 사용되는 컴퓨터에 이 파일을 저장한 후 다음 명령을 사용하여 요청을 수락하고 인증서 생성 프로세스를 완료합니다.
 
@@ -121,23 +121,23 @@ IIS 관리자를 사용하여 인증서 요청을 만들려는 경우 [IIS 관�
 
 8.  인증서 저장소에서 인증서를 내보내려면 **시작 화면** 또는 **시작 메뉴**에서 **certmgr.msc**를 실행합니다. **인증서 관리자**가 나타나면 **개인** 폴더를 확장하고 **인증서**를 선택합니다. **발급 대상** 필드에서 인증서를 요청한 사용자 지정 도메인 이름을 가진 항목을 찾습니다. **발급자** 필드에 이 인증서에 사용한 인증 기관에 표시되어야 합니다.
 
-    ![여기에 인증서 관리자 이미지 삽입][]
+    ![여기에 인증서 관리자 이미지 삽입][여기에 인증서 관리자 이미지 삽입]
 
 9.  인증서를 마우스 오른쪽 단추로 클릭하고 **모든 작업**을 선택한 후 **내보내기**를 선택합니다. **인증서 내보내기 마법사**에서 **다음**을 클릭하고 **예, 개인 키를 내보냅니다.**를 선택합니다. **다음**을 클릭합니다.
 
-    ![개인 키 내보내기][]
+    ![개인 키 내보내기][개인 키 내보내기]
 
 10. **개인 정보 교환 - PKCS \#12**, **Include all certificates in the certificate chain** 및 **확장된 속성 모두 내보내기**를 선택합니다. **다음**을 클릭합니다.
 
-    ![모든 인증서 및 확장 속성 포함][]
+    ![모든 인증서 및 확장 속성 포함][모든 인증서 및 확장 속성 포함]
 
 11. **암호**를 선택한 후 암호를 입력하고 확인합니다. **다음**을 클릭합니다.
 
-    ![암호 지정][]
+    ![암호 지정][암호 지정]
 
 12. 내보낸 인증서가 포함될 경로와 파일 이름을 제공합니다. 파일 이름은 확장명이 **.pfx**여야 합니다. **다음**을 클릭하여 프로세스를 완료합니다.
 
-    ![파일 경로 제공][]
+    ![파일 경로 제공][파일 경로 제공]
 
 이제 내보낸 PFX 파일을 Azure 웹 사이트에 업로드할 수 있습니다.
 
@@ -163,7 +163,7 @@ IIS 관리자를 사용하여 인증서 요청을 만들려는 경우 [IIS 관�
 
     이 프로세스를 완료하면 두 개의 파일인 **myserver.key** 및 **server.csr**이 만들어집니다. **server.csr**에는 인증서 서명 요청이 포함되어 있습니다.
 
-3.  인증 기관에 CSR을 제출하여 SSL 인증서를 받습니다. 인증 기관 목록은 Microsoft TechNet Wiki의 [Windows 및 Windows Phone 8 SSL 루트 인증서 프로그램(멤버 CA)][]을 참조하세요.
+3.  인증 기관에 CSR을 제출하여 SSL 인증서를 받습니다. 인증 기관 목록은 Microsoft TechNet Wiki의 [Windows 및 Windows Phone 8 SSL 루트 인증서 프로그램(멤버 CA)][Windows 및 Windows Phone 8 SSL 루트 인증서 프로그램(멤버 CA)]을 참조하세요.
 
 4.  CA에서 인증서를 받은 후 **myserver.crt**라는 파일에 저장합니다. CA에서 인증서를 텍스트 형식으로 제공한 경우 인증서 텍스트를 **myserver.crt** 파일에 붙여 넣습니다. 텍스트 편집기에서 볼 때 파일 내용은 다음과 유사해야 합니다.
 
@@ -213,54 +213,54 @@ openssl pkcs12 -export -out myserver.pfx -inkey myserver.key -in myserver.crt -c
 </p>
 사용자 지정 도메인에 HTTPS를 사용하도록 설정하는 기능은 Azure 웹 사이트의 표준 모드에만 사용할 수 있습니다. 표준 모드로 전환하려면 다음 단계를 따르세요.
 
-> [WACOM.NOTE] 무료 웹 사이트 모드에서 표준 웹 사이트 모드로 웹 사이트를 전환하기 전에 웹 사이트 구독에 대한 지출 한도를 제거해야 합니다. 그렇지 않으면 대금 청구 기간이 끝나기 전에 한도에 도달할 경우 사이트를 사용할 수 없게 됩니다. 공유 및 표준 모드 가격 책정에 대한 자세한 내용은 [가격 책정 세부 정보][]를 참조하세요.
+> [WACOM.NOTE] 무료 웹 사이트 모드에서 표준 웹 사이트 모드로 웹 사이트를 전환하기 전에 웹 사이트 구독에 대한 지출 한도를 제거해야 합니다. 그렇지 않으면 대금 청구 기간이 끝나기 전에 한도에 도달할 경우 사이트를 사용할 수 없게 됩니다. 공유 및 표준 모드 가격 책정에 대한 자세한 내용은 [가격 책정 세부 정보][가격 책정 세부 정보]를 참조하세요.
 
-1.  브라우저에서 [관리 포털][]을 엽니다.
+1.  브라우저에서 [관리 포털][관리 포털]을 엽니다.
 
 2.  **웹 사이트** 탭에서 웹 사이트 이름을 클릭합니다.
 
-    ![웹 사이트 선택][]
+    ![웹 사이트 선택][웹 사이트 선택]
 
 3.  **크기 조정** 탭을 클릭합니다.
 
-    ![크기 조정 탭][]
+    ![크기 조정 탭][크기 조정 탭]
 
 4.  **일반** 섹션에서 **표준**을 클릭하여 웹 사이트 모드를 설정합니다.
 
-    ![표준 모드 선택됨][]
+    ![표준 모드 선택됨][표준 모드 선택됨]
 
 5.  **저장**을 클릭합니다. 메시지가 표시되면 **Yes**를 클릭합니다.
 
-    > [WACOM.NOTE] "'\<사이트 이름\>' 웹 사이트에 대한 규모 구성 실패" 오류가 표시되는 경우 자세히 단추를 사용하여 추가 정보를 확인할 수 있습니다. "사용 가능한 표준 인스턴스 서버가 부족하여 이 요청을 충족할 수 없습니다." 오류가 표시될 수도 있습니다. 이 오류가 표시되면 [Azure 지원][]으로 문의하세요.
+    > [WACOM.NOTE] "'\<사이트 이름\>' 웹 사이트에 대한 규모 구성 실패" 오류가 표시되는 경우 자세히 단추를 사용하여 추가 정보를 확인할 수 있습니다. "사용 가능한 표준 인스턴스 서버가 부족하여 이 요청을 충족할 수 없습니다." 오류가 표시될 수도 있습니다. 이 오류가 표시되면 [Azure 지원][Azure 지원]으로 문의하세요.
 
 [][4]
 
 ## SSL 구성
 
 </p>
-이 섹션의 단계를 수행하기 전에 사용자 지정 도메인 이름을 Azure 웹 사이트와 연결한 상태여야 합니다. 자세한 내용은 [Azure 웹 사이트에 대한 사용자 지정 도메인 이름 구성][]을 참조하세요.
+이 섹션의 단계를 수행하기 전에 사용자 지정 도메인 이름을 Azure 웹 사이트와 연결한 상태여야 합니다. 자세한 내용은 [Azure 웹 사이트에 대한 사용자 지정 도메인 이름 구성][Azure 웹 사이트에 대한 사용자 지정 도메인 이름 구성]을 참조하세요.
 
 1.  브라우저에서 [Azure 관리 포털][관리 포털]을 엽니다.
 
 2.  **웹 사이트** 탭에서 사이트 이름을 클릭하고 **구성** 탭을 선택합니다.
 
-    ![구성 탭][]
+    ![구성 탭][구성 탭]
 
 3.  **certificates** 섹션에서 **upload a certificate**를 클릭합니다.
 
-    ![인증서 업로드][]
+    ![인증서 업로드][인증서 업로드]
 
 4.  **Upload a certificate** 대화 상자에서 IIS 관리자 또는 OpenSSL을 사용하여 앞에서 만든 .pfx 인증서 파일을 선택합니다. .pfx 파일의 보안을 설정하는 데 사용된 암호(있는 경우)를 지정합니다. 마지막으로, **check**를 클릭하여 인증서를 업로드합니다.
 
-    ![인증서 업로드 대화 상자][]
+    ![인증서 업로드 대화 상자][인증서 업로드 대화 상자]
 
-5.  **CONFIGURE** 탭의 **ssl bindings** 섹션에서 드롭다운을 사용하여 SSL로 보안을 설정할 도메인 이름과 사용할 인증서를 선택합니다. SNI([서버 이름 표시][])를 사용할지 또는 IP 기반 SSL을 사용할지 선택할 수도 있습니다.
+5.  **CONFIGURE** 탭의 **ssl bindings** 섹션에서 드롭다운을 사용하여 SSL로 보안을 설정할 도메인 이름과 사용할 인증서를 선택합니다. SNI([서버 이름 표시][서버 이름 표시])를 사용할지 또는 IP 기반 SSL을 사용할지 선택할 수도 있습니다.
 
-    ![SSL 바인딩][]
+    ![SSL 바인딩][SSL 바인딩]
 
     -   IP 기반 SSL은 서버의 전용 공용 IP 주소를 도메인 이름에 매핑하여 인증서를 도메인 이름과 연결합니다. 이렇게 하려면 서비스와 연결된 각 도메인 이름(contoso.com, fabricam.com 등)에 전용 IP 주소가 있어야 합니다. 이 방법은 SSL 인증서를 웹 서버와 연결하는 일반적인 방법입니다.
 
-    -   SNI 기반 SSL은 SSL 및 TLS([전송 계층 보안][])에 대한 확장으로, 각 도메인에 별도의 보안 인증서를 사용하여 여러 도메인이 동일한 IP 주소를 공유할 수 있게 해 줍니다. 대부분의 최신 브라우저(Internet Explorer, Chrome, Firefox 및 Opera 포함)는 SNI를 지원하지만 이전 브라우저는 SNI를 지원하지 않을 수도 있습니다. SNI에 대한 자세한 내용은 Wikipedia의 [서버 이름 표시][] 문서를 참조하세요.
+    -   SNI 기반 SSL은 SSL 및 TLS([전송 계층 보안][전송 계층 보안])에 대한 확장으로, 각 도메인에 별도의 보안 인증서를 사용하여 여러 도메인이 동일한 IP 주소를 공유할 수 있게 해 줍니다. 대부분의 최신 브라우저(Internet Explorer, Chrome, Firefox 및 Opera 포함)는 SNI를 지원하지만 이전 브라우저는 SNI를 지원하지 않을 수도 있습니다. SNI에 대한 자세한 내용은 Wikipedia의 [서버 이름 표시][서버 이름 표시] 문서를 참조하세요.
 
 6.  **Save**를 클릭하여 변경 내용을 저장하고 SSL을 사용하도록 설정합니다.
 
@@ -268,7 +268,7 @@ openssl pkcs12 -export -out myserver.pfx -inkey myserver.key -in myserver.crt -c
 >
 > 1.  IP 기반 SSL 바인딩을 구성하면 웹 사이트에 전용 IP 주소가 할당됩니다. 이 IP 주소는 웹 사이트의 **Dashboard** 페이지에 있는 **quick glance** 섹션에서 확인할 수 있습니다. **Virtual IP Address**로 나열됩니다.
 >
->     ![가상 IP 주소][]
+>     ![가상 IP 주소][가상 IP 주소]
 >
 >     이 IP 주소는 이전에 도메인에 대한 A 레코드를 구성하는 데 사용된 가상 IP 주소와 다릅니다. SNI 기반 SSL을 사용하도록 구성되었거나 SSL을 사용하도록 구성되지 않은 경우에는 이 항목에 대한 주소가 표시되지 않습니다.
 >
@@ -333,7 +333,7 @@ OpenSSL을 사용하면 SubjectAltName 확장을 사용하여 단일 인증서�
 
     이 프로세스를 완료하면 두 개의 파일인 **myserver.key** 및 **server.csr**이 만들어집니다. **server.csr**에는 인증서 서명 요청이 포함되어 있습니다.
 
-5.  인증 기관에 CSR을 제출하여 SSL 인증서를 받습니다. 인증 기관 목록은 Microsoft TechNet Wiki의 [Windows 및 Windows Phone 8 SSL 루트 인증서 프로그램(멤버 CA)][]을 참조하세요.
+5.  인증 기관에 CSR을 제출하여 SSL 인증서를 받습니다. 인증 기관 목록은 Microsoft TechNet Wiki의 [Windows 및 Windows Phone 8 SSL 루트 인증서 프로그램(멤버 CA)][Windows 및 Windows Phone 8 SSL 루트 인증서 프로그램(멤버 CA)]을 참조하세요.
 
 6.  CA에서 인증서를 받은 후 **myserver.crt**라는 파일에 저장합니다. CA에서 인증서를 텍스트 형식으로 제공한 경우 인증서 텍스트를 **myserver.crt** 파일에 붙여 넣습니다. 텍스트 편집기에서 볼 때 파일 내용은 다음과 유사해야 합니다.
 
@@ -380,17 +380,17 @@ openssl pkcs12 -export -out myserver.pfx -inkey myserver.key -in myserver.crt -c
 
 IIS 관리자에 익숙한 경우 IIS 관리자를 통해 Azure 웹 사이트에 사용할 수 있는 인증서를 생성할 수 있습니다.
 
-1.  IIS 관리자를 사용하여 인증 기관에 전송할 CSR(인증서 서명 요청)을 생성합니다. CSR 생성에 대한 자세한 내용은 [인터넷 서버 인증서 요청(IIS 7)][]을 참조하세요.
+1.  IIS 관리자를 사용하여 인증 기관에 전송할 CSR(인증서 서명 요청)을 생성합니다. CSR 생성에 대한 자세한 내용은 [인터넷 서버 인증서 요청(IIS 7)][인터넷 서버 인증서 요청(IIS 7)]을 참조하세요.
 
-2.  인증 기관에 CSR을 제출하여 SSL 인증서를 받습니다. 인증 기관 목록은 Microsoft TechNet Wiki의 [Windows 및 Windows Phone 8 SSL 루트 인증서 프로그램(멤버 CA)][]을 참조하세요.
+2.  인증 기관에 CSR을 제출하여 SSL 인증서를 받습니다. 인증 기관 목록은 Microsoft TechNet Wiki의 [Windows 및 Windows Phone 8 SSL 루트 인증서 프로그램(멤버 CA)][Windows 및 Windows Phone 8 SSL 루트 인증서 프로그램(멤버 CA)]을 참조하세요.
 
-3.  인증 기관 공급업체에서 제공한 인증서를 사용하여 CSR을 완료합니다. CSR 완료에 대한 자세한 내용은 [인터넷 서버 인증서 설치(IIS 7)][]를 참조하세요.
+3.  인증 기관 공급업체에서 제공한 인증서를 사용하여 CSR을 완료합니다. CSR 완료에 대한 자세한 내용은 [인터넷 서버 인증서 설치(IIS 7)][인터넷 서버 인증서 설치(IIS 7)]를 참조하세요.
 
 4.  CA에서 중간 인증서를 사용하는 경우 다음 단계에서 인증서를 내보내기 전에 이러한 인증서를 설치해야 합니다. 일반적으로 이 인증서는 CA에서 개별 다운로드로 제공되며, 각 웹 서버 유형에 따라 여러 형식으로 제공됩니다. Microsoft IIS용으로 제공된 버전을 선택합니다.
 
     인증서를 다운로드한 후 탐색기에서 인증서를 마우스 오른쪽 단추로 클릭하고 **인증서 설치**를 선택합니다. **인증서 가져오기 마법사**에서 기본값을 사용하고 가져오기가 완료될 때까지 **다음**을 계속 선택합니다.
 
-5.  IIS 관리자에서 인증서를 내보냅니다. 인증서 내보내기에 대한 자세한 내용은 [서버 인증서 내보내기(IIS 7)][]를 참조하세요. 내보낸 파일은 Azure 웹 사이트에 사용하기 위해 다음 단계에서 Azure로 업로드됩니다.
+5.  IIS 관리자에서 인증서를 내보냅니다. 인증서 내보내기에 대한 자세한 내용은 [서버 인증서 내보내기(IIS 7)][서버 인증서 내보내기(IIS 7)]를 참조하세요. 내보낸 파일은 Azure 웹 사이트에 사용하기 위해 다음 단계에서 Azure로 업로드됩니다.
 
     <div class="dev-callout"> 
 <b>참고</b>
@@ -486,11 +486,11 @@ IIS 관리자에 익숙한 경우 IIS 관리자를 통해 Azure 웹 사이트에
 
     이 명령으로 생성된 **myserver.pfx**를 사용하여 테스트를 위해 Azure 웹 사이트의 보안을 설정할 수 있습니다.
 
-  [가격 책정 세부 정보]: https://www.windowsazure.com/en-us/pricing/details/
-  [Microsoft Azure 무료 평가판]: http://azure.microsoft.com/en-us/pricing/free-trial/
+  [가격 책정 세부 정보]: https://www.windowsazure.com/ko-kr/pricing/details/
+  [Microsoft Azure 무료 평가판]: http://azure.microsoft.com/ko-kr/pricing/free-trial/
   []: bkmk_azurewebsites
   [1]: bkmk_domainname
-  [Azure 웹 사이트에 대한 사용자 지정 도메인 이름 구성]: /en-us/develop/net/common-tasks/custom-dns-web-site/
+  [Azure 웹 사이트에 대한 사용자 지정 도메인 이름 구성]: /ko-kr/develop/net/common-tasks/custom-dns-web-site/
   [2]: bkmk_getcert
   [Windows 및 Windows Phone 8 SSL 루트 인증서 프로그램(멤버 CA)]: http://go.microsoft.com/fwlink/?LinkID=269988
   [OpenSSL]: http://www.openssl.org/
@@ -508,7 +508,7 @@ IIS 관리자에 익숙한 경우 IIS 관리자를 통해 Azure 웹 사이트에
   [웹 사이트 선택]: ./media/configure-ssl-web-site/sslwebsite.png
   [크기 조정 탭]: ./media/configure-ssl-web-site/sslscale.png
   [표준 모드 선택됨]: ./media/configure-ssl-web-site/sslreserved.png
-  [Azure 지원]: http://www.windowsazure.com/en-us/support/options/
+  [Azure 지원]: http://www.windowsazure.com/ko-kr/support/options/
   [4]: bkmk_configuressl
   [구성 탭]: ./media/configure-ssl-web-site/sslconfig.png
   [인증서 업로드]: ./media/configure-ssl-web-site/ssluploadcert.png
@@ -518,7 +518,7 @@ IIS 관리자에 익숙한 경우 IIS 관리자를 통해 Azure 웹 사이트에
   [전송 계층 보안]: http://en.wikipedia.org/wiki/Transport_Layer_Security
   [가상 IP 주소]: ./media/configure-ssl-web-site/staticip.png
   [5]: bkmk_subjectaltname
-  [인터넷 서버 인증서 요청(IIS 7)]: http://technet.microsoft.com/en-us/library/cc732906(WS.10).aspx
-  [인터넷 서버 인증서 설치(IIS 7)]: http://technet.microsoft.com/en-us/library/cc771816(WS.10).aspx
-  [서버 인증서 내보내기(IIS 7)]: http://technet.microsoft.com/en-us/library/cc731386(WS.10).aspx
+  [인터넷 서버 인증서 요청(IIS 7)]: http://technet.microsoft.com/ko-kr/library/cc732906(WS.10).aspx
+  [인터넷 서버 인증서 설치(IIS 7)]: http://technet.microsoft.com/ko-kr/library/cc771816(WS.10).aspx
+  [서버 인증서 내보내기(IIS 7)]: http://technet.microsoft.com/ko-kr/library/cc731386(WS.10).aspx
   [6]: bkmk_selfsigned

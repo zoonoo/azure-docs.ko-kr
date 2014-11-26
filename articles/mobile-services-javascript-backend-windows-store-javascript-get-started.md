@@ -1,25 +1,25 @@
 <properties pageTitle="Get Started with Mobile Services for Windows Store apps | Mobile Dev Center" metaKeywords="" description="Follow this tutorial to get started using Azure Mobile Services for Windows Store development in C# or JavaScript. " metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with Mobile Services" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="hero-article" ms.date="08/18/2014" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="hero-article" ms.date="08/18/2014" ms.author="glenga" />
 
 # <a name="getting-started"> </a>모바일 서비스 시작
 
-[WACOM.INCLUDE [mobile-services-selector-get-started][]]
+[WACOM.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
 
 이 자습서에서는 Azure 모바일 서비스를 사용하여 범용 Windows 앱에 클라우드 기반 백 엔드 서비스를 추가하는 방법을 보여 줍니다.
 
 이 자습서에서는 새 모바일 서비스와 새 모바일 서비스에 앱 데이터를 저장하는 간단한 *할 일 모음* 앱을 둘 다 만듭니다. 만드는 모바일 서비스는 서버 쪽 비즈니스 논리에 JavaScript를 사용합니다. Visual Studio를 사용하여 지원되는 .NET 언어로 서버 쪽 비즈니스 논리를 작성할 수 있게 해 주는 모바일 서비스를 만들려면 이 토픽의 .NET 백 엔드 버전을 참조하세요.
 
-[WACOM.INCLUDE [mobile-services-windows-universal-get-started][]]
+[WACOM.INCLUDE [mobile-services-windows-universal-get-started](../includes/mobile-services-windows-universal-get-started.md)]
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
--   활성 Azure 계정. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판][]을 참조하세요.
--   [Visual Studio 2013 Express for Windows][]
+-   활성 Azure 계정. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판][Azure 무료 평가판]을 참조하세요.
+-   [Visual Studio 2013 Express for Windows][Visual Studio 2013 Express for Windows]
 
 ## 새 모바일 서비스 만들기
 
-[WACOM.INCLUDE [mobile-services-create-new-service][]]
+[WACOM.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
 
 ## 새 범용 Windows 앱 만들기
 
@@ -47,7 +47,7 @@
 
 ## Windows 앱 실행
 
-[WACOM.INCLUDE [mobile-services-javascript-backend-run-app][]]
+[WACOM.INCLUDE [mobile-services-javascript-backend-run-app](../includes/mobile-services-javascript-backend-run-app.md)]
 
 > [WACOM.NOTE]모바일 서비스에 액세스하여 데이터를 쿼리 및 삽입하는 코드를 검토할 수 있습니다. 이 코드는 default.js 파일에 있습니다.
 
@@ -55,27 +55,23 @@
 
 이제 빠른 시작을 완료했으며 모바일 서비스에서 중요한 추가 작업을 수행하는 방법을 알아보겠습니다.
 
--   [데이터 시작하기][]
+-   [데이터 시작하기][데이터 시작하기]
     모바일 서비스를 사용하여 데이터를 저장 및 쿼리하는 방법에 대해 자세히 알아보세요.
 
--   [인증 시작][]
+-   [인증 시작][인증 시작]
     ID 공급자를 사용하여 앱 사용자를 인증하는 방법을 알아봅니다.
 
--   [푸시 알림 시작][]
+-   [푸시 알림 시작][푸시 알림 시작]
     기본적인 푸시 알림을 앱에 보내는 방법을 알아봅니다.
 
-범용 Windows 앱에 대한 자세한 내용은 [단일 모바일 서비스에서 여러 장치 플랫폼 지원][]을 참조하세요.
+범용 Windows 앱에 대한 자세한 내용은 [단일 모바일 서비스에서 여러 장치 플랫폼 지원][단일 모바일 서비스에서 여러 장치 플랫폼 지원]을 참조하세요.
 
 
 
-  [mobile-services-selector-get-started]: ../includes/mobile-services-selector-get-started.md
-  [mobile-services-windows-universal-get-started]: ../includes/mobile-services-windows-universal-get-started.md
   [Azure 무료 평가판]: http://www.windowsazure.com/ko-kr/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fazure.microsoft.com%2Fko-kr%2Fdocumentation%2Farticles%2Fmobile-services-javascript-backend-windows-store-javascript-get-started%2F
   [Visual Studio 2013 Express for Windows]: http://go.microsoft.com/fwlink/?LinkId=257546
-  [mobile-services-create-new-service]: ../includes/mobile-services-create-new-service.md
   [0]: ./media/mobile-services-javascript-backend-windows-store-javascript-get-started/mobile-portal-quickstart.png
   [1]: ./media/mobile-services-javascript-backend-windows-store-javascript-get-started/mobile-quickstart-steps.png
-  [mobile-services-javascript-backend-run-app]: ../includes/mobile-services-javascript-backend-run-app.md
   [데이터 시작하기]: /ko-kr/documentation/articles/mobile-services-windows-store-javascript-get-started-data
   [인증 시작]: /ko-kr/documentation/articles/mobile-services-windows-store-javascript-get-started-users
   [푸시 알림 시작]: /ko-kr/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push

@@ -287,13 +287,11 @@ Azure SDK for Ruby를 사용하여 Ruby 응용 프로그램에서 Azure 서비�
   [다음 단계]: #next
   [Homebrew]: http://brew.sh/
   [RailsInstaller]: http://railsinstaller.org/
-  [1]: https://github.com/sstephenson/execjs#readme
   [Node.js]: http://nodejs.org/
   [SQLite3 Database]: http://www.sqlite.org/
   [기본 Rails 페이지]: ./media/virtual-machines-ruby-rails-web-app-linux/basicrailslocal.png
   [게시물을 나열하는 페이지]: ./media/virtual-machines-ruby-rails-web-app-linux/blograilslocal.png
   [여기]: /ko-kr/documentation/articles/virtual-machines-linux-tutorial
-  [PuTTY 다운로드 페이지]: http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
   [Azure 관리 포털]: https://manage.windowsazure.com/
   [가상 컴퓨터 목록]: ./media/virtual-machines-ruby-rails-web-app-linux/vmlist.png
   [끝점 페이지]: ./media/virtual-machines-ruby-rails-web-app-linux/endpoints.png

@@ -315,7 +315,6 @@ Azure SDK for Node.js에는 재시도 논리를 구현하는 두 필터 **Expone
   [방법: 응용 프로그램 크래시 및 읽을 수 없는 메시지 처리]: #handle-crashes
   [방법: 토픽 및 구독 삭제]: #delete
   [1]: #next-steps
-  [howto-service-bus-topics]: ../includes/howto-service-bus-topics.md
   [Node.js 응용 프로그램을 만들어 Azure 웹 사이트에 배포하기]: /ko-KR/develop/nodejs/tutorials/create-a-website-(mac)/
   [Node.js 클라우드 서비스]: /ko-KR/documentation/articles/cloud-services-nodejs-develop-deploy-app/
   [WebMatrix를 사용하는 웹 사이트]: /ko-KR/develop/nodejs/tutorials/web-site-with-webmatrix/

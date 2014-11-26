@@ -417,7 +417,6 @@ Git를 사용하여 응용 프로그램을 게시하려면 아래 단계를 따�
 
   [PHP]: http://www.php.net/manual/en/install.php
   [Azure PHP 웹 사이트]: ./media/web-sites-php-storage/ws-storage-app.png
-  [create-account-and-websites-note]: ../includes/create-account-and-websites-note.md
   [Git 설치]: http://git-scm.com/book/en/Getting-Started-Installing-Git
   [composer.phar]: http://getcomposer.org/composer.phar
   []: http://msdn.microsoft.com/ko-KR/library/windowsazure/dd179438.aspx

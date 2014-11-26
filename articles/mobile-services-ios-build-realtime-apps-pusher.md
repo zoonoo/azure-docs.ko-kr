@@ -386,7 +386,6 @@ libPusher 파일이 프로젝트에 복사됩니다.
   [서버 스크립트 설치]: #install-scripts
   [앱 테스트]: #test-app
   [모바일 서비스 시작하기]: /ko-kr/develop/mobile/tutorials/get-started
-  [pusher-sign-up]: ../includes/pusher-sign-up.md
   [libPusher]: http://go.microsoft.com/fwlink/p?LinkId=276999
   [여기]: http://go.microsoft.com/fwlink/p/?LinkId=276998
   [0]: ./media/mobile-services-ios-build-realtime-apps-pusher/pusher-ios-add-files-to-group.png

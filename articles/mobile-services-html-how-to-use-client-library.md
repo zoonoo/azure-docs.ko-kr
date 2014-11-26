@@ -582,7 +582,7 @@ Promise는 완료할 작업을 아직 계산되지 않은 값으로 예약하는
 -   [스크립트를 통해 사용자 권한 부여][스크립트를 통해 사용자 권한 부여]
     인증된 사용자를 기준으로 모바일 서비스에서 제공한 사용자 ID 값을 가져와 모바일 서비스에서 반환된 데이터를 필터링하는 방법을 알아봅니다.
 
-<!-- Anchors. --> <!-- URLs. -->
+ 
 
   [Windows 스토어 JavaScript 빠른 시작]: http://www.windowsazure.com/ko-kr/develop/mobile/tutorials/get-started
   [HTML 빠른 시작]: http://www.windowsazure.com/ko-kr/develop/mobile/tutorials/get-started-html
@@ -606,7 +606,6 @@ Promise는 완료할 작업을 아직 계산되지 않은 값으로 예약하는
   [방법: 요청 헤더 사용자 지정]: #customizing
   [방법: Cross Origin Resource Sharing 사용]: #hostnames
   [다음 단계]: #nextsteps
-  [mobile-services-concepts]: ../includes/mobile-services-concepts.md
   [Windows 스토어 JavaScript에서 데이터 시작]: http://www.windowsazure.com/ko-kr/develop/mobile/tutorials/get-started-with-data-js
   [HTML/JavaScript에서 데이터 시작]: http://www.windowsazure.com/ko-kr/develop/mobile/tutorials/get-started-with-data-html/
   [OData 시스템 쿼리 옵션 참조]: http://go.microsoft.com/fwlink/p/?LinkId=444502

@@ -283,7 +283,6 @@
 
 
 
-  [mobile-services-selector-get-started]: ../includes/mobile-services-selector-get-started-data.md
   [모바일 서비스 시작]: /ko-kr/develop/mobile/tutorials/get-started-html
   [HTML 앱 프로젝트 다운로드]: #download-app
   [모바일 서비스 만들기]: #create-service
@@ -293,7 +292,6 @@
   [Azure 무료 평가판]: http://www.windowsazure.com/ko-kr/pricing/free-trial/?WT.mc_id=A756A2826&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fko-kr%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-html%2F
   [GetStartedWithData 앱]: http://go.microsoft.com/fwlink/?LinkID=286345
   [0]: ./media/mobile-services-html-get-started-data/mobile-quickstart-startup-html.png
-  [mobile-services-create-new-service-data]: ../includes/mobile-services-create-new-service-data.md
   [1]: ./media/mobile-services-html-get-started-data/mobile-data-tab-empty.png
   [2]: ./media/mobile-services-html-get-started-data/mobile-create-todoitem-table.png
   [3]: ./media/mobile-services-html-get-started-data/mobile-services-set-cors-localhost.png

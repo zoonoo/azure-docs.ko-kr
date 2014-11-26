@@ -278,7 +278,6 @@ Azure 웹 사이트에서 실행되는 SQL 데이터베이스 인스턴스에 �
   [Git]: http://git-scm.com/
   [Microsoft 웹 플랫폼 설치 관리자]: http://www.microsoft.com/web/downloads/platform.aspx
   [Azure PHP 웹 사이트]: ./media/web-sites-php-sql-database-deploy-use-git/running_app_3.png
-  [create-account-and-websites-note]: ../includes/create-account-and-websites-note.md
   [Azure 관리 포털]: https://manage.windowsazure.com/
   [새 Azure 웹 사이트 만들기]: ./media/web-sites-php-sql-database-deploy-use-git/new_website.jpg
   [새 웹 사이트 사용자 지정 만들기]: ./media/web-sites-php-sql-database-deploy-use-git/custom_create.png

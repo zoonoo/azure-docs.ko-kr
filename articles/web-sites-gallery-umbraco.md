@@ -1,6 +1,6 @@
 <properties title="Create an Umbraco website from the gallery in Microsoft Azure" pageTitle="Create an Umbraco website from the gallery in Microsoft Azure" description="required" metaKeywords="Azure, gallery, Umbraco, web site, website" services="web-sites" solutions="web" documentationCenter="" authors="timamm" manager="paulettm" editor="mollybos" videoId="" scriptId="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="timamm"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="timamm" />
 
 # Microsoft Azure의 갤러리에서 Umbraco 웹 사이트 만들기
 
@@ -43,7 +43,7 @@ Umbraco CMS는 소규모 응용 프로그램에서 복잡한 응용 프로그램
 
 배포가 완료되면 포털의 시작 보드에 Umbraco CMS용 리소스 그룹(이 경우는 **UmbracoCMSgroup**)이 만들어졌다는 정보가 표시됩니다. **요약** 섹션에서 웹 사이트 이름(이 경우는 **umbracocmsgroup**)을 클릭하여 웹 사이트의 속성을 확인합니다. 또한 **요약** 섹션에서 데이터베이스 리소스를 선택하여 연결된 데이터베이스의 속성을 확인할 수 있습니다.
 
-![][]
+![][0]
 
 ## Umbraco CMS 웹 사이트 시작 및 구성
 
@@ -104,7 +104,7 @@ Umbraco CMS는 소규모 응용 프로그램에서 복잡한 응용 프로그램
   [리소스 구성]: ./media/web-sites-gallery-umbraco/04AppSettings.PNG
   [Azure에서 SQL Server 만들기]: ./media/web-sites-gallery-umbraco/05NewServer.PNG
   [1]: ./media/web-sites-gallery-umbraco/06UmbracoCMSGroup.PNG
-  []: ./media/web-sites-gallery-umbraco/07UmbracoCMSGroupBlade.PNG
+  [0]: ./media/web-sites-gallery-umbraco/07UmbracoCMSGroupBlade.PNG
   [사이트 찾아보기]: ./media/web-sites-gallery-umbraco/08UmbracoCMSGroupRunning.PNG
   [Umbraco 설치 마법사]: ./media/web-sites-gallery-umbraco/09InstallUmbraco7.png
   [데이터베이스 구성]: ./media/web-sites-gallery-umbraco/10ConfigureYourDatabase.png

@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-dotnet-backend-get-started-with-push-android" urlDisplayName="Get Started with Push" pageTitle="Get started with push (Android) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to send push notifications to your Android .Net app." metaCanonical="" services="" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="ricksal" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal" />
 
 # 모바일 서비스에서 푸시 알림 시작
 
@@ -158,17 +158,10 @@ Google API를 지원하는 AVD(Android Virtual Device)를 사용해야 합니다
 -   [모바일 서비스에 Android 클라이언트 라이브러리를 사용하는 방법][모바일 서비스에 Android 클라이언트 라이브러리를 사용하는 방법]
     <br/>Android와 함께 모바일 서비스를 사용하는 방법을 자세히 알아봅니다.
 
-<!-- Anchors. -->
-<!-- Images. -->
-<!-- URLs. -->
 
-  [Windows 스토어 C#]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push/ "Windows 스토어 C#"
-  [Windows 스토어 JavaScript]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push/ "Windows 스토어 JavaScript"
-  [Windows Phone]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push/ "Windows Phone"
-  [iOS]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push/ "iOS"
-  [Android]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-android-get-started-push/ "Android"
-  [.NET 백 엔드]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-android-get-started-push/ ".NET 백 엔드"
-  [JavaScript 백 엔드]: /ko-kr/documentation/articles/mobile-services-javascript-backend-android-get-started-push/ "JavaScript 백 엔드"
+
+
+
   [Google Cloud Messaging 사용]: #register
   [푸시 요청을 전송하도록 모바일 서비스 구성]: #configure
   [푸시 알림을 전송하도록 서버 업데이트]: #update-server
@@ -178,19 +171,11 @@ Google API를 지원하는 AVD(Android Virtual Device)를 사용해야 합니다
   [모바일 서비스 시작하기]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-android-get-started
   [데이터 시작하기]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-android-get-started-data
   [Azure 무료 평가판]: http://www.windowsazure.com/ko-kr/pricing/free-trial/?WT.mc_id=AE564AB28&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fko-kr%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started-data%2F
-  [GCM 사용]: ../includes/mobile-services-enable-Google-cloud-messaging.md
   [Azure 관리 포털]: https://manage.windowsazure.com/
   [0]: ./media/mobile-services-android-get-started-push/mobile-services-selection.png
   [1]: ./media/mobile-services-android-get-started-push/mobile-push-tab-android.png
-  [mobile-services-download-service-locally]: ../includes/mobile-services-download-service-locally.md
-  [mobile-services-dotnet-backend-test-local-service]: ../includes/mobile-services-dotnet-backend-test-local-service.md
-  [mobile-services-dotnet-backend-publish-service]: ../includes/mobile-services-dotnet-backend-publish-service.md
-  [mobile-services-verify-android-sdk-version]: ../includes/mobile-services-verify-android-sdk-version.md
-  [Play Services 추가]: ../includes/mobile-services-add-Google-play-services.md
-  [mobile-services-android-getting-started-with-push]: ../includes/mobile-services-android-getting-started-with-push.md
   [2]: ./media/mobile-services-android-get-started-push/mobile-services-android-virtual-device-manager.png
   [3]: ./media/mobile-services-android-get-started-push/mobile-services-android-virtual-device-manager-edit.png
-  [mobile-services-dotnet-backend-configure-local-push]: ../includes/mobile-services-dotnet-backend-configure-local-push.md
   [4]: ./media/mobile-services-android-get-started-push/mobile-quickstart-push1-android.png
   [인증 시작]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-android-get-started-users
   [알림 허브 정의]: /ko-kr/documentation/articles/notification-hubs-overview/

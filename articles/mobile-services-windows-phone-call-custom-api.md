@@ -43,7 +43,5 @@
   [사용자 지정 API 정의]: #define-custom-api
   [사용자 지정 API를 호출하도록 앱 업데이트]: #update-app
   [앱 테스트]: #test-app
-  [mobile-services-create-custom-api]: ../includes/mobile-services-create-custom-api.md
-  [mobile-services-windows-phone-call-custom-api]: ../includes/mobile-services-windows-phone-call-custom-api.md
   [모바일 서비스 서버 스크립트 참조]: http://go.microsoft.com/fwlink/?LinkId=262293
   [원본 제어에 서버 스크립트 저장]: /ko-kr/documentation/articles/mobile-services-store-scripts-source-control

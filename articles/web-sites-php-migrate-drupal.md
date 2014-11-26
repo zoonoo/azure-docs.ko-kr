@@ -1,31 +1,31 @@
 <properties linkid="migrating-drupal-to-azure-websites" urlDisplayName="Migrating Drupal to Azure Websites" pageTitle="Migrating Drupal to Azure Websites" metaKeywords="Drupal, PHP, Web Sites" description="Migrate a Drupal PHP site to Azure Websites." metaCanonical="" services="web-sites" documentationCenter="PHP" title="Migrating Drupal to Azure Websites" authors="cephalin; jroth" solutions="" manager="wpickett" editor="mollybos" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin; jroth"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin; jroth" />
 
 # Azure 웹 사이트로 Drupal 마이그레이션
 
 Azure 웹 사이트는 PHP와 MySQL을 모두 지원하기 때문에 Drupal 사이트를 Azure 웹 사이트로 마이그레이션하는 일은 비교적 간단합니다. 또한 Drupal 및 PHP는 모든 플랫폼에서 실행되므로, 현재 플랫폼에 관계없이 Drupal을 Azure 웹 사이트로 이동하는 프로세스가 원활하게 작동합니다. 따라서 Drupal 설치는 매우 다양할 수 있으며 다음 자료에서 다루지 않는 고유한 마이그레이션 단계가 있을 수 있습니다. Drush 도구는 Azure 웹 사이트에서 지원되지 않기 때문에 사용하지 않습니다.
 
 > [WACOM.NOTE]
-> 대규모의 복잡한 Drupal 응용 프로그램을 이동하는 경우 또 다른 옵션은 Azure 클라우드 서비스를 사용하는 것입니다. 웹 사이트와 클라우드 서비스의 차이에 대한 자세한 내용은 [Azure 웹 사이트, 클라우드 서비스 및 VM: 각 항목을 사용해야 하는 경우(영문)][]를 참조하세요. Drupal을 클라우드 서비스로 이동할 때 도움말을 보려면 [LAMP에서 Windows Azure로 Drupal 사이트 마이그레이션(영문)][]을 참조하십시오.
+> 대규모의 복잡한 Drupal 응용 프로그램을 이동하는 경우 또 다른 옵션은 Azure 클라우드 서비스를 사용하는 것입니다. 웹 사이트와 클라우드 서비스의 차이에 대한 자세한 내용은 [Azure 웹 사이트, 클라우드 서비스 및 VM: 각 항목을 사용해야 하는 경우(영문)][Azure 웹 사이트, 클라우드 서비스 및 VM: 각 항목을 사용해야 하는 경우(영문)]를 참조하세요. Drupal을 클라우드 서비스로 이동할 때 도움말을 보려면 [LAMP에서 Windows Azure로 Drupal 사이트 마이그레이션(영문)][LAMP에서 Windows Azure로 Drupal 사이트 마이그레이션(영문)]을 참조하십시오.
 
 ## 목차
 
--   [Azure 웹 사이트 만들기][]
--   [데이터베이스 복사][]
--   [Settings.php 수정][]
--   [Drupal 코드 배포][]
--   [관련 정보][]
+-   [Azure 웹 사이트 만들기][Azure 웹 사이트 만들기]
+-   [데이터베이스 복사][데이터베이스 복사]
+-   [Settings.php 수정][Settings.php 수정]
+-   [Drupal 코드 배포][Drupal 코드 배포]
+-   [관련 정보][관련 정보]
 
 ## <a name="create-siteanddb"></a><span class="short-header">Azure 웹 사이트 및 MySQL 데이터베이스 만들기</span>1. Azure 웹 사이트 및 MySQL 데이터베이스 만들기
 
-먼저, MySQL을 사용하여 새 웹 사이트를 만드는 방법을 익힙니다. 단계별 자습서인 [PHP-MySQL Azure 웹 사이트 만들기 및 Git를 사용하여 배포][]를 참조하면 됩니다. Drupal 사이트를 게시하는 데 Git을 사용하려면 Git 리포지토리를 구성하는 방법을 설명하는 자습서의 단계를 따릅니다. 나중에 해당 정보가 필요하므로 **원격 MySQL 연결 정보 가져오기** 섹션의 지침을 따라야 합니다. Drupal 사이트를 배포하려는 경우에는 자습서의 나머지 부분을 무시해도 됩니다. 하지만 Azure 웹 사이트(및 Git)를 처음으로 접하는 경우에는 나머지 내용을 확인하는 것이 유용합니다.
+먼저, MySQL을 사용하여 새 웹 사이트를 만드는 방법을 익힙니다. 단계별 자습서인 [PHP-MySQL Azure 웹 사이트 만들기 및 Git를 사용하여 배포][PHP-MySQL Azure 웹 사이트 만들기 및 Git를 사용하여 배포]를 참조하면 됩니다. Drupal 사이트를 게시하는 데 Git을 사용하려면 Git 리포지토리를 구성하는 방법을 설명하는 자습서의 단계를 따릅니다. 나중에 해당 정보가 필요하므로 **원격 MySQL 연결 정보 가져오기** 섹션의 지침을 따라야 합니다. Drupal 사이트를 배포하려는 경우에는 자습서의 나머지 부분을 무시해도 됩니다. 하지만 Azure 웹 사이트(및 Git)를 처음으로 접하는 경우에는 나머지 내용을 확인하는 것이 유용합니다.
 
 MySQL 데이터베이스를 사용하여 새 웹 사이트를 설정하고 나면 MySQL 데이터베이스 연결 정보 및 (선택적으로) Git 리포지토리를 얻게 됩니다. 다음 단계는 Azure 웹 사이트에서 데이터베이스를 MySQL로 복사하는 것입니다.
 
 ## <a name="copy-database"></a><span class="short-header">Azure 웹 사이트에서 MySQL로 데이터베이스 복사</span>2. Azure 웹 사이트에서 MySQL로 데이터베이스 복사
 
-Azure로 데이터베이스를 마이그레이션하는 많은 방법이 있습니다. MySQL 데이터베이스에 효율적은 방법은 [MySqlDump][] 도구를 사용하는 것입니다. 다음 명령은 로컬 컴퓨터에서 Azure 웹 사이트로 복사하는 방법을 예로 보여 줍니다.
+Azure로 데이터베이스를 마이그레이션하는 많은 방법이 있습니다. MySQL 데이터베이스에 효율적은 방법은 [MySqlDump][MySqlDump] 도구를 사용하는 것입니다. 다음 명령은 로컬 컴퓨터에서 Azure 웹 사이트로 복사하는 방법을 예로 보여 줍니다.
 
     mysqldump -u local_username --password=local_password  drupal | mysql -h remote_host -u remote_username --password=remote_password remote_db_name
 
@@ -76,11 +76,11 @@ Drupal을 Azure 웹 사이트에 배포한 후에는 Git 또는 FTP를 통해 �
 
 자세한 내용은 다음 게시물 및 항목을 참조하십시오.
 
--   [Azure 웹 사이트, PHP Perspective(영문)][]
--   [Azure 웹 사이트, 클라우드 서비스 및 VM: 각 항목을 사용해야 하는 경우(영문)][]
--   [Azure 웹 사이트에서 .user.ini 파일을 사용하여 PHP 구성(영문)][]
--   [Azure 통합 모듈(영문)][]
--   [Azure Blob 저장소 모듈(영문)][]
+-   [Azure 웹 사이트, PHP Perspective(영문)][Azure 웹 사이트, PHP Perspective(영문)]
+-   [Azure 웹 사이트, 클라우드 서비스 및 VM: 각 항목을 사용해야 하는 경우(영문)][Azure 웹 사이트, 클라우드 서비스 및 VM: 각 항목을 사용해야 하는 경우(영문)]
+-   [Azure 웹 사이트에서 .user.ini 파일을 사용하여 PHP 구성(영문)][Azure 웹 사이트에서 .user.ini 파일을 사용하여 PHP 구성(영문)]
+-   [Azure 통합 모듈(영문)][Azure 통합 모듈(영문)]
+-   [Azure Blob 저장소 모듈(영문)][Azure Blob 저장소 모듈(영문)]
 
   [Azure 웹 사이트, 클라우드 서비스 및 VM: 각 항목을 사용해야 하는 경우(영문)]: http://go.microsoft.com/fwlink/?LinkId=310123
   [LAMP에서 Windows Azure로 Drupal 사이트 마이그레이션(영문)]: http://blogs.msdn.com/b/brian_swan/archive/2012/03/19/azure-real-world-migrating-drupal-from-lamp-to-windows-azure.aspx

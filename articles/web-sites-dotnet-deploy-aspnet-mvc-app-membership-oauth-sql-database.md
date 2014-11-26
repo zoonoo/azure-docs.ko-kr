@@ -327,24 +327,23 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 1.  내 자습서 [Facebook 및 Google OAuth2 및 OpenID Sign-On으로 ASP.NET MVC 5 앱 만들기][Facebook과 Google OAuth2 및 OpenID 로그온을 사용하여 ASP.NET MVC 5 앱 만들기](영문)에서 **OAuth 2용 Google 앱을 만들어 OAuth2용 Google 앱 설정**의 지침을 따릅니다.
 2.  *App\_Start\\Startup.Auth.cs* 파일을 엽니다. *app.UseGoogleAuthentication()* 메서드에서 주석 문자를 제거하고 **clientId** 및 **clientSecret**을 입력합니다.
 
-<!-- -->
+<pre>
+         public void ConfigureAuth(IAppBuilder app)
+         {
+            // Enable the application to use a cookie to store information for the signed in user
+            app.UseCookieAuthentication(new CookieAuthenticationOptions
+            {
+               AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
+               LoginPath = new PathString("/Account/Login")
+            });
+            // Use a cookie to temporarily store information about a user logging in with a third party login provider
+            app.UseExternalSignInCookie(DefaultAuthenticationTypes.ExternalCookie);
 
-             public void ConfigureAuth(IAppBuilder app)
-             {
-                // Enable the application to use a cookie to store information for the signed in user
-                app.UseCookieAuthentication(new CookieAuthenticationOptions
-                {
-                   AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
-                   LoginPath = new PathString("/Account/Login")
-                });
-                // Use a cookie to temporarily store information about a user logging in with a third party login provider
-                app.UseExternalSignInCookie(DefaultAuthenticationTypes.ExternalCookie);
-
-                app.UseGoogleAuthentication(
-                   clientId: "000-000.apps.googleusercontent.com",
-                   clientSecret: "00000000000");
-             } 
-
+            <mark>app.UseGoogleAuthentication(
+               clientId: "000-000.apps.googleusercontent.com",
+               clientSecret: "00000000000");</mark>
+         } 
+</pre>
 1.  응용 프로그램을 실행하고 **Log In** 링크를 클릭합니다.
 2.  **Use another service to log in**에서 **Google** 단추를 클릭합니다.
 
@@ -388,13 +387,18 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
          }
 
 3.  **Seed** 메서드에서 새 메서드를 호출합니다.
+	<pre>
+        protected override void Seed(ContactManager.Models.ApplicationDbContext context)
+        {
+            <mark>AddUserAndRole(context);</mark>
+            context.Contacts.AddOrUpdate(p => p.Name,
+                // Code removed for brevity
+        }
+	</pre>  
+<span></span>
+	다음 이미지에서는 *Seed* 메서드 변경을 보여 줍니다.
 
-         protected override void Seed(ContactManager.Models.ApplicationDbContext context) { AddUserAndRole(context); context.Contacts.AddOrUpdate(p => p.Name, // Code removed for brevity }
-
-    <span></span>
-    다음 이미지에서는 *Seed* 메서드 변경을 보여 줍니다.
-
-    ![코드 이미지][코드 이미지]
+	![코드 이미지][코드 이미지]
 
     이 코드는 *canEdit*라는 새 역할을 만들고, 새 로컬 사용자 *user1@contoso.com*을 만든 다음 *canEdit* 역할에 *user1@contoso.com*을 추가합니다. 자세한 내용은 [ASP.NET ID 리소스 페이지][ASP.NET ID 리소스 페이지](영문)를 참조하세요.
 
@@ -415,7 +419,7 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 
 **패키지 관리자 콘솔** 창에서 위쪽 화살표 키를 눌러 다음 명령을 표시합니다.
 
-        Update-Database
+		Update-Database
 
 **Update-Database** 명령을 실행합니다. 이 명령은 **Seed** 메서드를 실행하고, 이 메서드가 방금 추가한 **AddUserAndRole**을 실행합니다. **AddUserAndRole**은 사용자 *user1@contoso.com*을 만들고 *canEdit* 역할에 추가합니다.
 
@@ -424,12 +428,17 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 이 섹션에서는 [Authorize][Authorize] 특성을 적용하여 작업 메서드에 대한 액세스를 제한합니다. 익명 사용자는 home 컨트롤러의 **인덱스** 작업 메서드만 볼 수 있습니다. 등록된 사용자는 연락처 데이터(Cm 컨트롤러의 **인덱스** 및 **세부 정보** 페이지), 정보 및 연락처 페이지를 볼 수 있습니다. *canEdit* 역할의 사용자만 데이터를 변경하는 작업 메서드에 액세스할 수 있습니다.
 
 1.  응용 프로그램에 [Authorize][Authorize] 필터와 [RequireHttps][RequireHttps] 필터를 추가합니다. 또 다른 방법은 각 컨트롤러에 [Authorize][Authorize] 특성과 [RequireHttps][RequireHttps] 특성을 추가하는 것이지만 전체 응용 프로그램에 적용하는 것이 보안상 더 좋은 모범 사례입니다. 전체적으로 추가하면 새로 추가된 모든 컨트롤러와 작업 메서드가 자동으로 보호되므로 따로 적용할 필요가 없습니다. 자세한 내용은 [ASP.NET MVC 앱 및 새 AllowAnonymous 특성 보안 유지][ASP.NET MVC 앱 및 새 AllowAnonymous 특성 보안 유지](영문)를 참조하세요. *App\_Start\\FilterConfig.cs* 파일을 열고 *RegisterGlobalFilters* 메서드를 다음 내용(두 개의 필터 추가)으로 바꿉니다.
+		<pre>
+        public static void
+        RegisterGlobalFilters(GlobalFilterCollection filters)
+        {
+            filters.Add(new HandleErrorAttribute());
+            <mark>filters.Add(new System.Web.Mvc.AuthorizeAttribute());
+            filters.Add(new RequireHttpsAttribute());</mark>
+        }
+		</pre>
+<span></span>
 
-         public static void RegisterGlobalFilters(GlobalFilterCollection filters) { filters.Add(new HandleErrorAttribute()); filters.Add(new System.Web.Mvc.AuthorizeAttribute()); filters.Add(new RequireHttpsAttribute()); } 
-
-    <span></span>
-
-    </p>
     다음 이미지에서는 변경된 코드를 보여 줍니다.
 
     ![코드 이미지][3]
@@ -495,7 +504,7 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 
     해당 계정과 암호를 사용하여 로그인할 수 없는 경우 소스 코드에서 암호를 복사하여 붙여 넣습니다. 그래도 로그인할 수 없으면 **AspNetUsers** 테이블의 **UserName** 열을 검사하여 *user1@contoso.com*이 추가되었는지 확인합니다.
 
-1.  데이터를 변경할 수 있는지 확인합니다.
+데이터를 변경할 수 있는지 확인합니다.
 
 ## <a name="bkmk_deploytowindowsazure11"></a>Azure에 앱 배포
 
@@ -698,7 +707,6 @@ ASP.NET MVC에 대한 자세한 내용은 [ASP.NET MVC 5 시작][ASP.NET MVC 5 �
   [멤버 자격 API 사용]: #mbrDB
   [Azure에 앱 배포]: #bkmk_deploytowindowsazure11
   [다음 단계]: #nextsteps
-  [install-sdk-2013-only]: ../includes/install-sdk-2013-only.md
   [Visual Studio 2013 Update 2 RC]: http://go.microsoft.com/fwlink/?LinkId=390521
   [Azure 관리 포털]: https://manage.windowsazure.com
   [관리 포털의 New 단추]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rxWSnew2.png
@@ -778,3 +786,4 @@ ASP.NET MVC에 대한 자세한 내용은 [ASP.NET MVC 5 시작][ASP.NET MVC 5 �
   [@RickAndMSFT]: https://twitter.com/RickAndMSFT
   [@blowdart]: https://twitter.com/blowdart
   [코드 사용 방법 보기]: http://aspnet.uservoice.com/forums/228522-show-me-how-with-code
+  [솔루션 탐색기의 \_Layout.cshtml]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/dntutmobile-createapp-004.png

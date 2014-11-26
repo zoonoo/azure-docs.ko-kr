@@ -29,17 +29,17 @@
 * 다음 자습서 중 하나를 완료합니다.
   
   * [Azure에서 가상 네트워크
-    만들기](/en-us/manage/services/networking/create-a-virtual-network/)
+    만들기](/ko-kr/manage/services/networking/create-a-virtual-network/)
     
     또는
   
   * [프레미스 간 연결을 위해 가상 네트워크
-    만들기](/en-us/manage/services/networking/cross-premises-connectivity/)
+    만들기](/ko-kr/manage/services/networking/cross-premises-connectivity/)
 
 * 진행 중인 유효한 구독이 하나 이상 있는 Windows Live 계정
 
-* [Azure에서 가상 네트워크 만들기](/en-us/manage/services/networking/create-a-virtual-network/) 또는
-  [프레미스 간 연결을 위해 가상 네트워크 만들기](/en-us/manage/services/networking/cross-premises-connectivity/)에서   지정한 다음 항목의 이름
+* [Azure에서 가상 네트워크 만들기](/ko-kr/manage/services/networking/create-a-virtual-network/) 또는
+  [프레미스 간 연결을 위해 가상 네트워크 만들기](/ko-kr/manage/services/networking/cross-premises-connectivity/)에서   지정한 다음 항목의 이름
   
   * 가상 네트워크에 할당한 선호도 그룹
   
@@ -142,7 +142,7 @@
 
 ## 다음 단계
 
-방금 만든 VM에 온-프레미스 Active Directory 도메인에 사용할 추가 도메인 컨트롤러를 설치하려면 [Azure 가상 네트워크에서 복제 Active Directory 도메인 컨트롤러 설치](/en-us/manage/services/networking/replica-domain-controller/)를 참조하십시오.
+방금 만든 VM에 온-프레미스 Active Directory 도메인에 사용할 추가 도메인 컨트롤러를 설치하려면 [Azure 가상 네트워크에서 복제 Active Directory 도메인 컨트롤러 설치](/ko-kr/manage/services/networking/replica-domain-controller/)를 참조하십시오.
 
 ## 참고 항목
 

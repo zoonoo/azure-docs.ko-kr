@@ -277,5 +277,4 @@ Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플랫폼 및
 4.  Android 앱 UI에서 **로그인**을 클릭합니다. 그리고 나서 **푸시 보내기**를 클릭합니다.
 
   [앱 백 엔드에서 등록]: http://msdn.microsoft.com/ko-kr/library/dn743807.aspx
-  [notification-hubs-aspnet-backend-notifyusers]: ../includes/notification-hubs-aspnet-backend-notifyusers.md
   [0]: ./media/notification-hubs-aspnet-backend-android-notify-users/android-notify-users1.PNG

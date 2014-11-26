@@ -26,7 +26,6 @@ Active Directory가 온-프레미스 디렉터리 관리를 위해 Windows Serve
 
 조직에서 온-프레미스 Active Directory를 이미 사용하는 경우 Azure AD의 디렉터리 통합 기능(예: 디렉터리 동기화 및 Single Sign-On)을 사용하여 기존 온-프레미스 ID 범위를 클라우드로 확장함으로써 관리자 및 최종 사용자 환경을 개선할 수 있습니다. [자세한 정보][3]
 
-  [disclaimer]: ../includes/disclaimer.md
   [자세한 정보]: http://windows.microsoft.com/ko-kr/windows-live/sign-in-what-is-microsoft-account
   [1]: http://technet.microsoft.com/ko-KR/library/jj573650
   [2]: http://technet.microsoft.com/ko-KR/library/hh967619

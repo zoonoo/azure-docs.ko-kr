@@ -1,6 +1,6 @@
 <properties title="Azure 저장소 시작" pageTitle="Azure 저장소 시작" metaKeywords="Azure, Getting Started, Storage" description="" services="storage" documentationCenter="" authors="ghogen, kempb" />
 
-<tags ms.service="storage" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/10/2014" ms.author="ghogen, kempb"></tags>
+<tags ms.service="storage" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/10/2014" ms.author="ghogen, kempb" />
 
 > [AZURE.SELECTOR]
 >
@@ -37,4 +37,3 @@ Azure 큐 저장소는 HTTP 또는 HTTPS를 사용하여 인증된 호출을 통
   [Blob]: /documentation/articles/vs-storage-cloud-services-getting-started-blobs
   [테이블]: /documentation/articles/vs-storage-cloud-services-getting-started-tables/
   [.NET에서 큐 저장소를 사용하는 방법]: http://azure.microsoft.com/ko-kr/documentation/articles/storage-dotnet-how-to-use-queues/ ".NET에서 큐 저장소를 사용하는 방법"
-  [vs-storage-getting-started-queues-include]: ../includes/vs-storage-getting-started-queues-include.md

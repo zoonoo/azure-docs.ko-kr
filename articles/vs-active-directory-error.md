@@ -1,6 +1,6 @@
 <properties title="인증 검색 중 오류 발생" pageTitle="인증 검색 중 오류 발생" metaKeywords="" description="" services="active-directory" documentationCenter="" authors="ghogen, kempb" />
 
-<tags ms.service="active-directory" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/8/2014" ms.author="ghogen, kempb"></tags>
+<tags ms.service="active-directory" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/8/2014" ms.author="ghogen, kempb" />
 
 ### 인증 검색 중 오류 발생
 

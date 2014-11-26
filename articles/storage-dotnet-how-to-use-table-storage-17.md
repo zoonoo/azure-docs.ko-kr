@@ -3,7 +3,7 @@
 테이블 저장소 서비스를 사용하는 방법
 ====================================
 
-[버전 1.7](/en-us/develop/net/how-to-guides/table-services-v17/ "버전 1.7") [버전 2.0](/en-us/develop/net/how-to-guides/table-services/ "버전 2.0")
+[버전 1.7](/ko-kr/develop/net/how-to-guides/table-services-v17/ "버전 1.7") [버전 2.0](/ko-kr/develop/net/how-to-guides/table-services/ "버전 2.0")
 
 이 가이드에서는 Azure 테이블 저장소 서비스를 사용하여 일반 시나리오를 수행하는 방법을 보여 줍니다. 샘플은 C\# 코드로 작성되었고 .NET API를 사용합니다. **테이블 만들기 및 삭제, 테이블에서 엔터티 삽입 및 쿼리** 등의 시나리오를 다룹니다. 테이블에 대한 자세한 내용은 [다음 단계](#next-steps) 섹션을 참조하십시오.
 
@@ -418,6 +418,6 @@ Azure 서비스 구성에서 연결 문자열을 구성하려면
     -   [REST API 참조](http://msdn.microsoft.com/ko-kr/library/windowsazure/dd179355)
 -   Azure 저장소를 사용하여 수행할 수 있는 고급 작업에 대한 자세한 내용은 [Azure에 데이터 저장 및 액세스](http://msdn.microsoft.com/ko-kr/library/windowsazure/gg433040.aspx)를 참조하십시오.
 -   Azure에 데이터를 저장하기 위한 추가 옵션에 대한 자세한 내용은 추가 기능 가이드를 참조하십시오.
-    -   [Blob 저장소](/en-us/develop/net/how-to-guides/blob-storage/)를 사용하여 구조화되지 않은 데이터를 저장합니다.
-    -   [SQL 데이터베이스](/en-us/develop/net/how-to-guides/sql-database/)를 사용하여 관계형 데이터를 저장합니다.
+    -   [Blob 저장소](/ko-kr/develop/net/how-to-guides/blob-storage/)를 사용하여 구조화되지 않은 데이터를 저장합니다.
+    -   [SQL 데이터베이스](/ko-kr/develop/net/how-to-guides/sql-database/)를 사용하여 관계형 데이터를 저장합니다.
 

@@ -79,9 +79,9 @@
 -   [모바일 서비스 서버 스크립트 참조][모바일 서비스 서버 스크립트 참조]
     서버 스크립트의 등록 및 사용에 대해 자세히 알아보십시오.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [인증 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-users-android
   [Azure 관리 포털]: https://manage.windowsazure.com/

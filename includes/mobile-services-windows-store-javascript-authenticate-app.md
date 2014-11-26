@@ -34,7 +34,7 @@
 
     현재 사용자를 저장하기 위한 멤버 변수와 인증 프로세스를 처리할 메서드가 만들어집니다. 사용자는 Facebook 로그인을 사용하여 인증됩니다. Facebook 이외의 ID 공급자를 사용하는 경우 위의 **login** 메서드에 전달된 값을 다음 중 하나로 변경합니다. *microsoftaccount*, *twitter*, *google* 또는 *windowsazureactivedirectory*
 
-    > [WACOM.NOTE]모바일 서비스에 Windows 스토어 앱 패키지 정보를 등록한 경우 *useSingleSignOn* 매개 변수에 **true** 값을 제공하여 [login][] 메서드를 호출해야 합니다. 그렇지 않으면 로그인 메서드가 호출될 때마다 사용자에게 로그인 프롬프트가 표시됩니다.
+    > [WACOM.NOTE]모바일 서비스에 Windows 스토어 앱 패키지 정보를 등록한 경우 *useSingleSignOn* 매개 변수에 **true** 값을 제공하여 [login][login] 메서드를 호출해야 합니다. 그렇지 않으면 로그인 메서드가 호출될 때마다 사용자에게 로그인 프롬프트가 표시됩니다.
 
 2.  F5 키를 눌러 앱을 실행하고 선택한 ID 공급자로 앱에 로그인합니다.
 

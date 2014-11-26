@@ -42,13 +42,13 @@ Hadoop .NET SDK 다운로드 및 설치
 자습서 준비
 -----------
 
-자습서를 진행하려면 먼저 [Azure 구독](http://www.windowsazure.com/ko-kr/pricing/free-trial/) 및 [Azure 저장소 계정](http://www.windowsazure.com/ko-kr/manage/services/storage/how-to-create-a-storage-account/)이 있어야 합니다. 또한 Azure 저장소 계정 이름 및 계정 키도 알아야 합니다. 이러한 정보를 얻는 방법에 대한 자세한 내용은 *방법: 저장소 액세스 키 보기, 복사 및 다시 생성* 섹션([저장소 계정을 관리하는 방법](/en-us/manage/services/storage/how-to-manage-a-storage-account/))을 참조하십시오.
+자습서를 진행하려면 먼저 [Azure 구독](http://www.windowsazure.com/ko-kr/pricing/free-trial/) 및 [Azure 저장소 계정](http://www.windowsazure.com/ko-kr/manage/services/storage/how-to-create-a-storage-account/)이 있어야 합니다. 또한 Azure 저장소 계정 이름 및 계정 키도 알아야 합니다. 이러한 정보를 얻는 방법에 대한 자세한 내용은 *방법: 저장소 액세스 키 보기, 복사 및 다시 생성* 섹션([저장소 계정을 관리하는 방법](/ko-kr/manage/services/storage/how-to-manage-a-storage-account/))을 참조하십시오.
 
 또한 이 자습서에서 사용할 Actors.txt 파일도 다운로드해야 합니다. 다음 단계를 수행하여 이 파일을 개발 환경에 다운로드합니다.
 
 1.  로컬 컴퓨터에 C:\\Tutorials 폴더를 만듭니다.
 
-2.  [Actors.txt](http://www.microsoft.com/en-us/download/details.aspx?id=37003)(영문)를 다운로드하여 C:\\Tutorials 폴더에 저장합니다.
+2.  [Actors.txt](http://www.microsoft.com/ko-kr/download/details.aspx?id=37003)(영문)를 다운로드하여 C:\\Tutorials 폴더에 저장합니다.
 
 응용 프로그램 만들기
 --------------------
@@ -155,7 +155,7 @@ Hadoop .NET SDK 다운로드 및 설치
          Console.WriteLine("\nPress any key to continue.");
          Console.ReadKey();
 
-10. 응용 프로그램에서 상수를 업데이트합니다. Azure HDInsight Service는 Azure Blob 저장소를 기본 파일 시스템으로 사용합니다. HDInsight 프로비전 프로세스 중 Blob이 기본 파일 시스템으로 지정됩니다. 기본 파일 시스템 컨테이너를 사용하거나 다른 Blob 저장소의 컨테이너를 사용하는 옵션이 제공됩니다. 자세한 내용은 [HDInsight와 함께 Azure Blob 저장소 사용](/en-us/manage/services/hdinsight/howto-blob-store/)을 참조하십시오.
+10. 응용 프로그램에서 상수를 업데이트합니다. Azure HDInsight Service는 Azure Blob 저장소를 기본 파일 시스템으로 사용합니다. HDInsight 프로비전 프로세스 중 Blob이 기본 파일 시스템으로 지정됩니다. 기본 파일 시스템 컨테이너를 사용하거나 다른 Blob 저장소의 컨테이너를 사용하는 옵션이 제공됩니다. 자세한 내용은 [HDInsight와 함께 Azure Blob 저장소 사용](/ko-kr/manage/services/hdinsight/howto-blob-store/)을 참조하십시오.
 
     기본 파일 시스템 컨테이너를 사용하도록 선택한 경우 클러스터에 원격으로 액세스하여 *c:\\apps\\dist\\hadoop-1.1.0-SNAPSHOT\\conf\>core-site.xml* 구성 파일에서 저장소 계정 이름, 저장소 키 및 컨테이너 이름을 검색할 수 있습니다. 기본 파일 시스템으로 사용된 컨테이너는 *fs.default.name*을 검색하여 찾을 수 있으며, 저장소 계정 이름 및 계정 키는 *fs.azure.account.key*를 검색하여 찾을 수 있습니다.
 
@@ -181,8 +181,8 @@ LOAD DATA INPATH 작업은 Actors.txt 데이터를 Hive 제어 파일 시스템 
 
 이제 Hadoop .NET SDK를 사용하여 .NET 응용 프로그램을 만드는 방법을 이해할 수 있습니다. 자세한 내용은 다음 문서를 참조하십시오.
 
--   [Azure HDInsight 시작](/en-us/manage/services/hdinsight/get-started-hdinsight/)
--   [HDInsight와 함께 Pig 사용](/en-us/manage/services/hdinsight/using-pig-with-hdinsight/)
--   [HDInsight와 함께 MapReduce 사용](/en-us/manage/services/hdinsight/using-mapreduce-with-hdinsight/)
--   [HDInsight와 함께 Hive 사용](/en-us/manage/services/hdinsight/using-hive-with-hdinsight/)
+-   [Azure HDInsight 시작](/ko-kr/manage/services/hdinsight/get-started-hdinsight/)
+-   [HDInsight와 함께 Pig 사용](/ko-kr/manage/services/hdinsight/using-pig-with-hdinsight/)
+-   [HDInsight와 함께 MapReduce 사용](/ko-kr/manage/services/hdinsight/using-mapreduce-with-hdinsight/)
+-   [HDInsight와 함께 Hive 사용](/ko-kr/manage/services/hdinsight/using-hive-with-hdinsight/)
 

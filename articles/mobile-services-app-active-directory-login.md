@@ -26,9 +26,9 @@
 
 이제 모바일 서비스에 클라이언트 ID 및 클라이언트 암호 값을 제공하여 앱에서 Azure Active Directory를 인증에 사용할 준비가 되었습니다.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [Azure 관리 포털]: https://manage.windowsazure.com/
   [0]: ./media/mobile-services-app-active-directory-login/mobile-services-live-connect-add-app.png

@@ -8,27 +8,27 @@
 
 기본 템플릿을 사용하는 WordPress 블로그를 만들게 됩니다. 다음 그림에서는 완료된 응용 프로그램을 보여 줍니다.
 
-![Wordpress 블로그][]
+![Wordpress 블로그][Wordpress 블로그]
 
 <div class="dev-callout"><strong>참고</strong>
-<p>이 자습서를 완료하려면 Azure 계정이 필요합니다. 몇 분 만에 무료 체험 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://www.windowsazure.com/en-us/develop/php/tutorials/create-a-windows-azure-account/" target="_blank">Azure 계정 만들기</a>(영문)를 참조하세요.</p>
+<p>이 자습서를 완료하려면 Azure 계정이 필요합니다. 몇 분 만에 무료 체험 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://www.windowsazure.com/ko-kr/develop/php/tutorials/create-a-windows-azure-account/" target="_blank">Azure 계정 만들기</a>(영문)를 참조하세요.</p>
 </div>
 
 ## 포털에서 웹 사이트 만들기
 
-1.  [Azure 관리 포털][]에 로그인합니다.
+1.  [Azure 관리 포털][Azure 관리 포털]에 로그인합니다.
 
 2.  대시보드의 왼쪽 아래에서 **New** 아이콘을 클릭합니다.
 
-    ![새로 만들기][]
+    ![새로 만들기][새로 만들기]
 
 3.  **웹 사이트** 아이콘을 클릭하고 **갤러리에서**를 클릭합니다.
 
-    ![갤러리에서 만들기][]
+    ![갤러리에서 만들기][갤러리에서 만들기]
 
 4.  목록에서 WordPress 아이콘을 찾아 클릭한 후 **Next**를 클릭합니다.
 
-    ![목록에서 WordPress][]
+    ![목록에서 WordPress][목록에서 WordPress]
 
 5.  **앱 구성** 페이지에서 모든 필드에 대해 값을 입력하거나 선택합니다.
 
@@ -36,13 +36,13 @@
 -   **Database** 필드에서 **Create a new MySQL database**를 선택한 채로 둡니다.
 -   가장 가까운 지역을 선택합니다.
 
-    ![앱 구성][]
+    ![앱 구성][앱 구성]
 
 1.  그런 후 **다음**을 클릭합니다.
 
 2.  **Create New Database** 페이지에서 새 MySQL 데이터베이스에 이름을 지정하거나 기본 이름을 사용할 수 있습니다. 가장 가까운 지역을 호스팅 위치로 선택합니다. 호스트된 MySQL 데이터베이스에 대한 ClearDB의 사용 약관에 동의하려면 화면 아래쪽의 상자를 선택합니다. 그런 다음 확인 표시를 클릭하여 사이트 만들기를 완료합니다.
 
-    ![데이터베이스 만들기][]
+    ![데이터베이스 만들기][데이터베이스 만들기]
 
 **Complete**를 클릭하면 Azure는 빌드 및 배포 작업을 시작합니다. 웹 사이트를 만들고 배포하는 동안 작업 상태가 웹 사이트 페이지의 아래쪽에 표시됩니다. 모든 작업을 수행한 후 사이트가 성공적으로 배포되면 마지막 상태 메시지가 표시됩니다.
 
@@ -50,15 +50,15 @@
 
 1.  **웹 사이트** 페이지에서 새 사이트를 클릭하여 그 사이트의 대시보드를 엽니다.
 
-    ![대시보드 시작][]
+    ![대시보드 시작][대시보드 시작]
 
 2.  **Dashboard** 관리 페이지에서 아래로 스크롤하고 **Site Url** 아래의 왼쪽에 있는 링크를 클릭하여 사이트의 시작 페이지를 엽니다.
 
-    ![사이트 URL][]
+    ![사이트 URL][사이트 URL]
 
 3.  WordPress에 필요한 해당 구성 정보를 입력하고, **WordPress 설치**를 클릭하여 구성을 마무리하고 웹 사이트의 로그인 페이지를 엽니다.
 
-    ![WordPress에 로그인][]
+    ![WordPress에 로그인][WordPress에 로그인]
 
 4.  **환영합니다.** 페이지에서 지정한 사용자 이름과 암호를 입력하여 새 WordPress 웹 사이트에 로그인합니다.
 
@@ -67,7 +67,6 @@
     ![사용자 WordPress 사이트][Wordpress 블로그]
 
   [Wordpress 블로그]: ./media/website-from-gallery/wordpressgallery-09.png
-  [Azure 계정 만들기]: http://www.windowsazure.com/en-us/develop/php/tutorials/create-a-windows-azure-account/
   [Azure 관리 포털]: http://manage.windowsazure.com
   [새로 만들기]: ./media/website-from-gallery/wordpressgallery-01.png
   [갤러리에서 만들기]: ./media/website-from-gallery/wordpressgallery-02.png

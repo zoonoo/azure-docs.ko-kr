@@ -326,7 +326,6 @@ App.config 파일을 사용하여 클라이언트를 구성할 수도 있습니�
 -   서비스 버스 샘플: [Azure 샘플][Azure 샘플](영문)에서 다운로드
 
   [다음 단계]: #next_steps
-  [create-account-note]: ../includes/create-account-note.md
   [릴레이 개념]: ./media/service-bus-dotnet-how-to-use-relay/sb-relay-01.png
   [Azure 관리 포털]: http://manage.windowsazure.com
   [0]: ./media/service-bus-dotnet-how-to-use-relay/sb-queues-13.png

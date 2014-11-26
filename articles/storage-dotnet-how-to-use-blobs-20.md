@@ -238,7 +238,7 @@ Azure 클라우드 서비스가 아닌 응용 프로그램을 작성하는 경�
     Block blob of length 399751: https://<a ccountname>.blob.core.windows.net/photos/2011/photo7.jpg
     Block blob of length 505623: https://<a ccountname>.blob.core.windows.net/photos/photo1.jpg
 
- 자세한 내용은 [CloudBlobContainer.ListBlobs][]를 참조하십시오.
+ 자세한 내용은 [CloudBlobContainer.ListBlobs][CloudBlobContainer.ListBlobs]를 참조하십시오.
 
 ## <a name="download-blobs"> </a><span  class="short-header">Blob 다운로드</span>방법: Blob 다운로드
 
@@ -314,8 +314,8 @@ Azure 클라우드 서비스가 아닌 응용 프로그램을 작성하는 경�
    *  [REST API 참조][7]
 *  Azure 저장소를 사용하여 수행할 수 있는 고급 작업에 대한 자세한 내용은 [Azure에 데이터 저장 및 액세스][8]를 참조하십시오.
 *  Azure에 데이터를 저장하기 위한 추가 옵션에 대한 자세한 내용은 추가 기능 가이드를 참조하십시오.
-   *  [테이블 저장소](/en-us/develop/net/how-to-guides/table-services/)를 사용하여 구조화된 데이터를 저장합니다.
-   *  [SQL 데이터베이스](/en-us/develop/net/how-to-guides/sql-database/)를 사용하여 관계형 데이터를 저장합니다.
+   *  [테이블 저장소](/ko-kr/develop/net/how-to-guides/table-services/)를 사용하여 구조화된 데이터를 저장합니다.
+   *  [SQL 데이터베이스](/ko-kr/develop/net/how-to-guides/sql-database/)를 사용하여 관계형 데이터를 저장합니다.
  </appsettings>
 
 

@@ -486,7 +486,6 @@ MongoDB 연결 문자열에 대한 자세한 내용은 [연결][연결](영문)�
 <!-- TOC BOOKMARKS -->
 
   [MongoDB]: http://www.mongodb.org
-  [create-account-and-websites-and-vms-note]: ../includes/create-account-and-websites-and-vms-note.md
   [가상 컴퓨터 만들기 및 MongoDB 설치]: #virtualmachine
   [개발 컴퓨터에서 My Task List ASP.NET 응용 프로그램 만들기 및 실행]: #createapp
   [Azure 웹 사이트 만들기]: #createwebsite

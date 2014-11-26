@@ -1,6 +1,6 @@
 <properties linkid="mobile-services-html-call-custom-api" urlDisplayName="Call a custom API from the client" pageTitle="Call a custom API from an HTML client - Mobile Services" metaKeywords="" description="Learn how to define a custom API and then call it from an HTML app that uses Windows Azure Mobile Services." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Call a custom API from the client" authors="glenga"  solutions="" writer="jparrel" manager="" editor=""  />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # HTML 응용 프로그램에서 사용자 지정 API 호출
 
@@ -20,7 +20,7 @@
 
 ## <a name="define-custom-api"></a>사용자 지정 API 정의
 
-[WACOM.INCLUDE [mobile-services-create-custom-api][mobile-services-create-custom-api]]
+[WACOM.INCLUDE [mobile-services-create-custom-api](../includes/mobile-services-create-custom-api.md)]
 
 ## <a name="update-app"></a><span class="short-header">앱 업데이트 </span>사용자 지정 API를 호출하도록 앱 업데이트
 
@@ -69,19 +69,12 @@
 -   [모바일 서비스 서버 스크립트 참조][모바일 서비스 서버 스크립트 참조]
     <br/>사용자 지정 API 만들기에 대해 알아봅니다.
 
-<!-- Anchors. -->
-<!-- URLs. -->
 
-  [Windows 스토어 C\#]: /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-call-custom-api "Windows 스토어 C#"
-  [Windows 스토어 JavaScript]: /ko-kr/documentation/articles/mobile-services-windows-store-javascript-call-custom-api "Windows 스토어 JavaScript"
-  [Windows Phone]: /ko-kr/documentation/articles/mobile-services-windows-phone-call-custom-api "Windows Phone"
-  [iOS]: /ko-kr/documentation/articles/mobile-services-ios-call-custom-api "iOS"
-  [Android]: /ko-kr/documentation/articles/mobile-services-android-call-custom-api "Android"
-  [HTML]: /ko-kr/documentation/articles/mobile-services-html-call-custom-api "HTML"
+
+
   [모바일 서비스 시작]: /ko-kr/documentation/articles/mobile-services-html-get-started
   [데이터 시작]: /ko-kr/documentation/articles/mobile-services-html-get-started-data
   [사용자 지정 API 정의]: #define-custom-api
   [사용자 지정 API를 호출하도록 앱 업데이트]: #update-app
   [앱 테스트]: #test-app
-  [mobile-services-create-custom-api]: ../includes/mobile-services-create-custom-api.md
   [모바일 서비스 서버 스크립트 참조]: http://go.microsoft.com/fwlink/?LinkId=262293

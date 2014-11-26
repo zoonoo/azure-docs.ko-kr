@@ -156,9 +156,9 @@ Azure 모바일 서비스의 오프라인 기능을 사용하면 오프라인에
 
 -   [Azure 모바일 서비스용 Xamarin Component 클라이언트를 사용하는 방법][Azure 모바일 서비스용 Xamarin Component 클라이언트를 사용하는 방법]
 
-<!-- Anchors. -->
+
 <!-- Images -->
-<!-- URLs. -->
+
 
   [모바일 서비스 시작]: /ko-kr/documentation/articles/partner-xamarin-mobile-services-android-get-started/
   [데이터 시작]: /ko-kr/documentation/articles/partner-xamarin-mobile-services-android-get-started-data/

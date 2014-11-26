@@ -24,7 +24,7 @@ A 레코드가 CNAME 레코드보다 나은 주요 장점은 다음과 같습니
 
 CNAME 레코드는 **mail.contoso.com** 또는 **www.contoso.com**과 같은 *특정* DNS 이름을 다른(정식) 도메인 이름으로 매핑합니다. Azure 웹 사이트의 경우 정식 도메인 이름은 웹 사이트의 도메인 이름인 **\<yoursitename\>.azurewebsites.net**입니다. CNAME을 만들면 **\<yoursitename\>.azurewebsites.net** 도메인 이름에 대한 별칭이 생성됩니다. CNAME 항목은 **\<yoursitename\>.azurewebsites.net** 도메인 이름의 IP 주소로 자동으로 확인되므로 웹 사이트의 IP 주소가 변경될 경우에도 어떤 조치도 취할 필요가 없습니다.
 
-> [WACOM.NOTE] **contoso.com**과 같은 루트 이름이 아닌 **www.contoso.com**과 같은 CNAME 레코드를 사용할 경우 일부 도메인 등록 기관에서만 하위 도메인을 매핑할 수 있습니다. CNAME 레코드에 대한 자세한 내용은 등록 기관에서 제공하는 설명서인 [CNAME 레코드에 대한 Wikipedia 항목][](영문) 또는 [IETF 도메인 이름 - 구현 및 사양][](영문) 문서를 참조하세요.
+> [WACOM.NOTE] **contoso.com**과 같은 루트 이름이 아닌 **www.contoso.com**과 같은 CNAME 레코드를 사용할 경우 일부 도메인 등록 기관에서만 하위 도메인을 매핑할 수 있습니다. CNAME 레코드에 대한 자세한 내용은 등록 기관에서 제공하는 설명서인 [CNAME 레코드에 대한 Wikipedia 항목][CNAME 레코드에 대한 Wikipedia 항목](영문) 또는 [IETF 도메인 이름 - 구현 및 사양][IETF 도메인 이름 - 구현 및 사양](영문) 문서를 참조하세요.
 
 ### Azure 웹 사이트 DNS 형식
 
@@ -38,13 +38,13 @@ Azure 웹 사이트에서 A 레코드를 사용하려면 먼저 다음 CNAME 레
 
 다음 단계를 수행하면 웹 사이트의 IP 주소뿐만 아니라 **awverify** 이름 및 **.azurewebsites.net** 이름도 찾을 수 있습니다.
 
-1.  브라우저에서 [Azure 관리 포털][]을 엽니다.
+1.  브라우저에서 [Azure 관리 포털][Azure 관리 포털]을 엽니다.
 
 2.  **웹 사이트** 탭에서 사이트 이름을 클릭하고 **대시보드**를 선택한 후 페이지 맨 아래에서 **도메인 관리**를 선택합니다.
 
-    ![][]
+    ![][0]
 
-    > [WACOM.NOTE] **도메인 관리**를 사용하지 않도록 설정하면 무료 웹 사이트를 사용하는 것입니다. 무료 웹 사이트에는 사용자 지정 도메인 이름을 사용할 수 없으며 공유, 기본 또는 표준 모드로 업그레이드해야 합니다. 사이트의 모드를 변경하는 방법을 비롯한 웹 사이트 모드에 대한 자세한 내용은 [웹 사이트 크기를 조정하는 방법][](영문)을 참조하세요.
+    > [WACOM.NOTE] **도메인 관리**를 사용하지 않도록 설정하면 무료 웹 사이트를 사용하는 것입니다. 무료 웹 사이트에는 사용자 지정 도메인 이름을 사용할 수 없으며 공유, 기본 또는 표준 모드로 업그레이드해야 합니다. 사이트의 모드를 변경하는 방법을 비롯한 웹 사이트 모드에 대한 자세한 내용은 [웹 사이트 크기를 조정하는 방법][웹 사이트 크기를 조정하는 방법](영문)을 참조하세요.
 
 3.  **사용자 지정 도메인 관리** 대화 상자에서 **awverify** 정보, 현재 할당된 **.azurewebsites.net** 도메인 이름 및 가상 IP 주소를 확인할 수 있습니다. 이 정보는 DNS 레코드를 만들 때 사용되므로 저장합니다.
 
@@ -53,6 +53,6 @@ Azure 웹 사이트에서 A 레코드를 사용하려면 먼저 다음 CNAME 레
   [CNAME 레코드에 대한 Wikipedia 항목]: http://en.wikipedia.org/wiki/CNAME_record
   [IETF 도메인 이름 - 구현 및 사양]: http://tools.ietf.org/html/rfc1035
   [Azure 관리 포털]: https://manage.windowsazure.com
-  []: ./media/custom-dns-web-site/dncmntask-cname-6.png
+  [0]: ./media/custom-dns-web-site/dncmntask-cname-6.png
   [웹 사이트 크기를 조정하는 방법]: http://www.windowsazure.com/ko-kr/documentation/articles/web-sites-scale/
   [1]: ./media/custom-dns-web-site/managecustomdomains.png

@@ -1,4 +1,4 @@
-<properties urlDisplayName="How to manage" pageTitle="저장소 계정을 관리하는 방법 | Microsoft Azure" metaKeywords="Azure manage storage accounts, storage account management portal, storage account geo-replication, Azure geo-replication, Azure access keys" description="관리 포털을 사용하여 Azure에서 저장소 계정을 관리하는 방법에 대해 알아봅니다." metaCanonical="" services="storage" documentationCenter="" title="저장소 계정을 관리하는 방법" authors="tamram" solutions="" manager="adinah" editor="cgronlun" />
+<properties linkid="manage-services-how-to-manage-a-storage-account" urlDisplayName="How to manage" pageTitle="How to manage storage accounts | Microsoft Azure" metaKeywords="Azure manage storage accounts, storage account management portal, storage account geo-replication, Azure geo-replication, Azure access keys" description="Learn how to manage storage accounts in Azure by using the Management Portal." metaCanonical="" services="storage" documentationCenter="" title="How To Manage Storage Accounts" authors="tamram" solutions="" manager="mbaldwin" editor="cgronlun" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
@@ -52,7 +52,7 @@
     <b>경고</b> 
     <p>액세스 키를 다시 생성하면 가상 컴퓨터, 미디어 서비스 및 저장소 계정에 종속된 모든 응용 프로그램에 영향을 줍니다. 액세스 키를 사용하여 저장소 계정에 액세스하는 모든 클라이언트에서 새 키를 사용하도록 업데이트해야 합니다.
     </p> 
-    </div>
+</div>
 
 **가상 컴퓨터** - 실행 중인 가상 컴퓨터가 저장소 계정에 포함된 경우 액세스 키를 다시 생성한 후 모든 가상 컴퓨터를 다시 배포해야 합니다. 다시 배포하지 않으려면 액세스 키를 다시 생성하기 전에 가상 컴퓨터를 종료합니다.
 

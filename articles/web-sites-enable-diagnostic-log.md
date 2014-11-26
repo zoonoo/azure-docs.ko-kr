@@ -1,21 +1,21 @@
 <properties linkid="develop-net-common-tasks-diagnostics-logging-and-instrumentation" urlDisplayName="Enable diagnostic logging" pageTitle="Enable diagnostic logging - Azure Websites" metaKeywords="Azure diagnostics web sites, Azure Management Portal diagnostics, Azure diagnostics, web site diagnostics, web site debug" description="Learn how to enable diagnostic logging and add instrumentation to your application, as well as how to access the information logged by Azure." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Enable diagnostic logging for Azure Websites" authors="larryfr" solutions="" manager="" editor="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # Azure 웹 사이트에 진단 로그 사용
 
 Azure는 Azure 웹 사이트에 호스팅된 응용 프로그램을 디버그하는 데 도움이 되는 기본 제공 진단 로그를 제공합니다. 이 문서에서는 진단 로그를 사용하도록 설정하는 방법, 응용 프로그램에 계측을 추가하는 방법 및 Azure에서 기록된 정보에 액세스하는 방법을 설명합니다.
 
-> [WACOM.NOTE] 이 문서에서는 Azure 관리 포털, Azure PowerShell 및 Azure 플랫폼 간 명령줄 인터페이스를 사용하여 진단 로그로 작업하는 방법을 설명합니다. Visual Studio를 사용하여 진단 로그로 작업하는 방법에 대한 자세한 내용은 [Visual Studio에서 Azure 웹 사이트 문제 해결][]을 참조하십시오.
+> [WACOM.NOTE] 이 문서에서는 Azure 관리 포털, Azure PowerShell 및 Azure 플랫폼 간 명령줄 인터페이스를 사용하여 진단 로그로 작업하는 방법을 설명합니다. Visual Studio를 사용하여 진단 로그로 작업하는 방법에 대한 자세한 내용은 [Visual Studio에서 Azure 웹 사이트 문제 해결][Visual Studio에서 Azure 웹 사이트 문제 해결]을 참조하십시오.
 
 ## 목차
 
--   [정의: 웹 사이트 진단이란?][]
--   [방법: 진단 사용][]
--   [방법: 로그 다운로드][]
--   [방법: 스트림 로그][]
--   [방법: 진단 로그 이해][]
--   [다음 단계][]
+-   [정의: 웹 사이트 진단이란?][정의: 웹 사이트 진단이란?]
+-   [방법: 진단 사용][방법: 진단 사용]
+-   [방법: 로그 다운로드][방법: 로그 다운로드]
+-   [방법: 스트림 로그][방법: 스트림 로그]
+-   [방법: 진단 로그 이해][방법: 진단 로그 이해]
+-   [다음 단계][다음 단계]
 
 <a name="whatisdiag"></a>
 
@@ -29,11 +29,11 @@ Azure 웹 사이트는 웹 서버 및 웹 응용 프로그램 모두의 정보�
 
 -   **Detailed Error Logging** - 오류를 나타내는 HTTP 상태 코드(상태 코드 400 이상)의 자세한 오류 정보를 로깅합니다. 여기에는 서버에서 오류 코드를 반환한 이유를 확인하는 데 도움이 되는 정보가 포함될 수 있습니다.
 -   **실패한 요청 추적** - 요청을 처리하는 데 사용된 IIS 구성 요소 추적 및 각 구성 요소에 소요된 시간을 포함하여 실패한 요청에 대해 자세한 정보를 로깅합니다. 이는 사이트 성능을 개선하거나 반환된 특정 HTTP 오류를 유발한 항목을 격리하려는 경우에 유용합니다.
--   **웹 서버 로깅** - [W3C 확장 로그 파일 형식][]을 사용하여 웹 사이트에 대한 모든 HTTP 트랜잭션을 로깅합니다. 이 보고서는 처리된 요청 수, 특정 IP 주소에서 들어온 요청 수 등의 전체 사이트 메트릭을 확인하는 경우에 유용합니다.
+-   **웹 서버 로깅** - [W3C 확장 로그 파일 형식][W3C 확장 로그 파일 형식]을 사용하여 웹 사이트에 대한 모든 HTTP 트랜잭션을 로깅합니다. 이 보고서는 처리된 요청 수, 특정 IP 주소에서 들어온 요청 수 등의 전체 사이트 메트릭을 확인하는 경우에 유용합니다.
 
 ### 응용 프로그램 진단
 
-응용 프로그램 진단을 통해 웹 응용 프로그램에서 생성된 정보를 캡처할 수 있습니다. ASP.NET 응용 프로그램은 [System.Diagnostics.Trace][] 클래스를 사용하여 응용 프로그램 진단 로그에 정보를 로깅할 수 있습니다. 예를 들면 다음과 같습니다.
+응용 프로그램 진단을 통해 웹 응용 프로그램에서 생성된 정보를 캡처할 수 있습니다. ASP.NET 응용 프로그램은 [System.Diagnostics.Trace][System.Diagnostics.Trace] 클래스를 사용하여 응용 프로그램 진단 로그에 정보를 로깅할 수 있습니다. 예를 들면 다음과 같습니다.
 
     System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
 
@@ -49,13 +49,13 @@ Visual Studio를 사용하여 응용 프로그램 진단으로 작업하는 방�
 
 ## 방법: 진단 사용
 
-[Azure 관리 포털][]에서 Azure 웹 사이트의 **구성** 페이지를 방문하여 진단을 사용하도록 설정할 수 있습니다. **구성** 페이지에서 **응용 프로그램 진단** 및 **사이트 진단** 섹션을 사용하여 로깅을 사용하도록 설정합니다.
+[Azure 관리 포털][Azure 관리 포털]에서 Azure 웹 사이트의 **구성** 페이지를 방문하여 진단을 사용하도록 설정할 수 있습니다. **구성** 페이지에서 **응용 프로그램 진단** 및 **사이트 진단** 섹션을 사용하여 로깅을 사용하도록 설정합니다.
 
 **응용 프로그램 진단**을 사용하도록 설정하는 경우 **로깅 수준**을 선택해야 하고 **파일 시스템**, **테이블 저장소** 또는 **Blob 저장소**에 로깅을 사용하도록 설정할지 여부를 선택해야 합니다. 세 저장소 위치 모두는 로깅된 이벤트에 대해 동일한 기본 정보를 제공하는 반면 **테이블 저장소** 및 **Blob 저장소**는 **파일 시스템**에 기록하는 것보다 인스턴스 ID, 스레드 ID 및 좀 더 세부적인 타임스탬프(눈금 형식) 등 추가 정보를 로깅합니다.
 
 **사이트 진단**을 사용하도록 설정하는 경우 **웹 서버 로깅**에 대해 **저장소** 또는 **파일 시스템**을 선택해야 합니다. **저장소**를 선택하면 저장소 계정을 선택하고 로그를 기록할 Blob 컨테이너를 선택할 수 있습니다. **사이트 진단**에 대한 기타 모든 로그는 파일 시스템에만 기록됩니다.
 
-> [WACOM.NOTE] **테이블 저장소** 또는 **Blob 저장소**에 저장된 정보는 이러한 저장소 시스템에서 바로 작업할 수 있는 저장소 클라이언트 또는 응용 프로그램을 사용해서만 액세스할 수 있습니다. 예를 들어 Visual Studio 2013에는 테이블 또는 Blob 저장소를 탐색하는 데 사용할 수 있는 저장소 탐색기를 포함하고 있으며, HDInsight는 Blob 저장소에 저장된 데이터에 액세스하는 데 사용될 수 있습니다. 또한 [Azure SDK][] 중 하나를 사용하여 Azure 저장소에 액세스하는 응용 프로그램을 작성할 수도 있습니다.
+> [WACOM.NOTE] **테이블 저장소** 또는 **Blob 저장소**에 저장된 정보는 이러한 저장소 시스템에서 바로 작업할 수 있는 저장소 클라이언트 또는 응용 프로그램을 사용해서만 액세스할 수 있습니다. 예를 들어 Visual Studio 2013에는 테이블 또는 Blob 저장소를 탐색하는 데 사용할 수 있는 저장소 탐색기를 포함하고 있으며, HDInsight는 Blob 저장소에 저장된 데이터에 액세스하는 데 사용될 수 있습니다. 또한 [Azure SDK][Azure SDK] 중 하나를 사용하여 Azure 저장소에 액세스하는 응용 프로그램을 작성할 수도 있습니다.
 
 다음은 **응용 프로그램 진단**을 사용하도록 설정한 경우에 사용할 수 있는 설정입니다.
 
@@ -67,7 +67,7 @@ Visual Studio를 사용하여 응용 프로그램 진단으로 작업하는 방�
 
 > [WACOM.NOTE] 파일 시스템, 테이블 저장소 또는 Blob 저장소를 원하는 방식으로 결합하여 동시에 사용하도록 설정할 수 있으며 로그 수준은 개별적으로 구성할 수 있습니다. 예를 들어 장기적인 로깅 솔루션으로 Blob 저장소에 오류 및 경고를 기록하면서 파일 시스템 로깅은 세부 정보 표시 수준으로 사용할 수 있습니다.
 
-> [WACOM.NOTE] 진단은 Azure PowerShell에서 **Set-AzureWebsite** cmdlet을 통해 사용하도록 설정할 수도 있습니다. Azure PowerShell을 설치하지 않았거나 Azure 구독을 사용하도록 Azure PowerShell을 구성하지 않은 경우 [Azure PowerShell 사용 방법][](영문)을 참조하십시오.
+> [WACOM.NOTE] 진단은 Azure PowerShell에서 **Set-AzureWebsite** cmdlet을 통해 사용하도록 설정할 수도 있습니다. Azure PowerShell을 설치하지 않았거나 Azure 구독을 사용하도록 Azure PowerShell을 구성하지 않은 경우 [Azure PowerShell 사용 방법][Azure PowerShell 사용 방법](영문)을 참조하십시오.
 
 <a name="download"></a>
 
@@ -83,7 +83,7 @@ Visual Studio를 사용하여 응용 프로그램 진단으로 작업하는 방�
 
 -   **Detailed Error Logs** - /LogFiles/DetailedErrors/입니다. 이 폴더에는 발생한 HTTP 오류에 대해 방대한 정보를 제공하는 하나 이상의 .htm 파일이 포함되어 있습니다.
 
--   **웹 서버 로그** - /LogFiles/http/RawLogs입니다. 이 폴더에는 [W3C 확장 로그 파일 형식][]을 사용하여 서식이 지정된 하나 이상의 텍스트 파일이 포함되어 있습니다.
+-   **웹 서버 로그** - /LogFiles/http/RawLogs입니다. 이 폴더에는 [W3C 확장 로그 파일 형식][W3C 확장 로그 파일 형식]을 사용하여 서식이 지정된 하나 이상의 텍스트 파일이 포함되어 있습니다.
 
 -   **Deployment logs** - /LogFiles/Git입니다. 이 폴더에는 Azure 웹 사이트에서 사용된 내부 배포 프로세스에서 생성된 로그와 Git 배포용 로그가 포함되어 있습니다.
 
@@ -101,7 +101,7 @@ FTP를 사용하여 진단 정보에 액세스하려면 Azure 관리 포털에�
 
 이 명령을 실행하면 **-Name** 매개 변수로 지정된 웹 사이트의 로그가 현재 디렉터리의 **logs.zip**이라는 파일에 저장됩니다.
 
-> [WACOM.NOTE] Azure PowerShell을 설치하지 않았거나 Azure 구독을 사용하도록 Azure PowerShell을 구성하지 않은 경우 [Azure PowerShell 사용 방법][](영문)을 참조하십시오.
+> [WACOM.NOTE] Azure PowerShell을 설치하지 않았거나 Azure 구독을 사용하도록 Azure PowerShell을 구성하지 않은 경우 [Azure PowerShell 사용 방법][Azure PowerShell 사용 방법](영문)을 참조하십시오.
 
 ### Azure 명령줄 도구로 다운로드
 
@@ -111,7 +111,7 @@ Azure 명령줄 도구를 사용하여 로그 파일을 다운로드하려면 �
 
 이 명령을 실행하면 'websitename'이라는 웹 사이트의 로그가 현재 디렉터리의 **diagnostics.zip**이라는 파일에 저장됩니다.
 
-> [WACOM.NOTE] Azure 명령줄 도구를 설치하지 않았거나 Azure 구독을 사용하도록 Azure 명령줄 도구를 구성하지 않은 경우 [Azure 명령줄 도구 사용 방법][](영문)을 참조하십시오.
+> [WACOM.NOTE] Azure 명령줄 도구를 설치하지 않았거나 Azure 구독을 사용하도록 Azure 명령줄 도구를 구성하지 않은 경우 [Azure 명령줄 도구 사용 방법][Azure 명령줄 도구 사용 방법](영문)을 참조하십시오.
 
 <a name="streamlogs"></a>
 
@@ -141,7 +141,7 @@ HTTP와 같은 특정 로그 유형을 필터링하려면 **-Path** 매개 변�
 
 사용 가능한 경로 목록을 보려면 -ListPath 매개 변수를 사용합니다.
 
-> [WACOM.NOTE] Azure PowerShell을 설치하지 않았거나 Azure 구독을 사용하도록 Azure PowerShell을 구성하지 않은 경우 [Azure PowerShell 사용 방법][](영문)을 참조하십시오.
+> [WACOM.NOTE] Azure PowerShell을 설치하지 않았거나 Azure 구독을 사용하도록 Azure PowerShell을 구성하지 않은 경우 [Azure PowerShell 사용 방법][Azure PowerShell 사용 방법](영문)을 참조하십시오.
 
 ### Azure 명령줄 도구로 스트리밍
 
@@ -159,7 +159,7 @@ HTTP와 같은 특정 로그 유형을 필터링하려면 **-Path** 매개 변�
 
     azure site log tail websitename --path http
 
-> [WACOM.NOTE] Azure 명령줄 도구를 설치하지 않았거나 Azure 구독을 사용하도록 Azure 명령줄 도구를 구성하지 않은 경우 [Azure 명령줄 도구 사용 방법][](영문)을 참조하십시오.
+> [WACOM.NOTE] Azure 명령줄 도구를 설치하지 않았거나 Azure 구독을 사용하도록 Azure 명령줄 도구를 구성하지 않은 경우 [Azure 명령줄 도구 사용 방법][Azure 명령줄 도구 사용 방법](영문)을 참조하십시오.
 
 <a name="understandlogs"></a>
 
@@ -367,7 +367,7 @@ Blob에 저장된 데이터는 다음과 비슷합니다.
 
 실패한 요청 추적은 **fr\#\#\#\#\#\#.xml**이라는 XML 파일에 저장됩니다. 로깅된 정보를 더 쉽게 볼 수 있도록 **freb.xsl**라는 XSL 스타일시트가 XML 파일과 동일한 디렉터리에 제공됩니다. Internet Explorer에서 XML 파일 중 하나를 열면 XSL 스타일시트를 사용하여 추적 정보에 서식이 지정되어 표시됩니다. 이는 다음과 비슷하게 나타납니다.
 
-![브라우저에 표시된 실패한 요청][]
+![브라우저에 표시된 실패한 요청][브라우저에 표시된 실패한 요청]
 
 ### 자세한 오류 로그
 
@@ -375,7 +375,7 @@ Blob에 저장된 데이터는 다음과 비슷합니다.
 
 ### 웹 서버 로그
 
-웹 서버 로그는 [W3C 확장 로그 파일 형식][]을 사용하여 서식이 지정됩니다. 이 정보는 텍스트 편집기를 사용하여 읽거나 [Log Parser][]와 같은 유틸리티를 사용하여 구문 분석할 수 있습니다.
+웹 서버 로그는 [W3C 확장 로그 파일 형식][W3C 확장 로그 파일 형식]을 사용하여 서식이 지정됩니다. 이 정보는 텍스트 편집기를 사용하여 읽거나 [Log Parser][Log Parser]와 같은 유틸리티를 사용하여 구문 분석할 수 있습니다.
 
 > [WACOM.NOTE] Azure 웹 사이트에서 생성된 로그는 **s-computername**, **s-ip** 또는 **cs-version** 필드를 지원하지 않습니다.
 
@@ -384,10 +384,10 @@ Blob에 저장된 데이터는 다음과 비슷합니다.
 ## 다음 단계
 
 </p>
--   [웹 사이트를 모니터링하는 방법(영문)][]
--   [자습서 - 웹 사이트 문제 해결][]
--   [Visual Studio에서 Azure 웹 사이트 문제 해결][]
--   [HDInsight에서 웹 사이트 로그 분석][]
+-   [웹 사이트를 모니터링하는 방법(영문)][웹 사이트를 모니터링하는 방법(영문)]
+-   [자습서 - 웹 사이트 문제 해결][자습서 - 웹 사이트 문제 해결]
+-   [Visual Studio에서 Azure 웹 사이트 문제 해결][Visual Studio에서 Azure 웹 사이트 문제 해결]
+-   [HDInsight에서 웹 사이트 로그 분석][HDInsight에서 웹 사이트 로그 분석]
 
   [Visual Studio에서 Azure 웹 사이트 문제 해결]: /ko-KR/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/
   [정의: 웹 사이트 진단이란?]: #whatisdiag

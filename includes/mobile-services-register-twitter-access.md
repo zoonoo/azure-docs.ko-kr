@@ -6,7 +6,7 @@
 
 2.  [Twitter 개발자][Twitter 개발자](영문) 웹 사이트로 이동하고 Twitter 계정 자격 증명을 사용하여 로그인한 후 **My Applications**로 이동하여 사용 중인 Twitter 앱을 선택합니다.
 
-    ![][]
+    ![][0]
 
 3.  앱의 **Details** 탭에서 다음 값을 기록해 둡니다.
 
@@ -32,11 +32,11 @@
 
     그러면 앱 설정에 Twitter 액세스 토큰이 저장됩니다. **ID** 탭의 소비자 자격 증명과 같이 액세스 자격 증명도 앱 설정에 암호화되어 저장되며, 스크립트 파일에서 해당 자격 증명을 하드 코드하지 않고도 서버 스크립트에서 액세스할 수 있습니다. 자세한 내용은 [앱 설정][앱 설정]을 참조하세요.
 
-<!-- URLs. -->
+
 
   [모바일 서비스에 Twitter 로그인을 사용하기 위해 앱 등록]: /ko-kr/documentation/articles/mobile-services-how-to-register-twitter-authentication/
   [Twitter 개발자]: http://go.microsoft.com/fwlink/p/?LinkId=268300
-  []: ./media/mobile-services-register-twitter-access/mobile-twitter-my-apps.png
+  [0]: ./media/mobile-services-register-twitter-access/mobile-twitter-my-apps.png
   [1]: ./media/mobile-services-register-twitter-access/mobile-twitter-app-secrets.png
   [Azure 관리 포털]: https://manage.windowsazure.com/
   [2]: ./media/mobile-services-register-twitter-access/mobile-identity-tab-twitter-only.png

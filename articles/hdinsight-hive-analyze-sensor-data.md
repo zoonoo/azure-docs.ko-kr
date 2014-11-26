@@ -39,5 +39,5 @@ HDInsight(Hadoop)에서 Hive를 사용하여 센서 데이터를 분석한 다�
 
   [솔루션 아키텍처 다이어그램]: ./media/hdinsight-use-hive-sensor-data-analysis/hvac-architecture.png
   [HDInsight에서 Hadoop 클러스터 프로비전]: /ko-kr/documentation/articles/hdinsight-provision-clusters/
-  [Power View]: https://support.office.com/en-US/Article/Power-View-Explore-visualize-and-present-your-data-98268d31-97e2-42aa-a52b-a68cf460472e?ui=en-US&rs=en-US&ad=US
+  [Power View]: https://support.office.com/ko-kr/Article/Power-View-Explore-visualize-and-present-your-data-98268d31-97e2-42aa-a52b-a68cf460472e?ui=ko-kr&rs=ko-kr&ad=US
   [Microsoft Hive ODBC 드라이버]: http://www.microsoft.com/ko-kr/download/details.aspx?id=40886

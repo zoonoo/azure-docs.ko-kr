@@ -1,15 +1,15 @@
 <properties title="Step 2: Upload existing data into an Azure Machine Learning experiment" pageTitle="Step 2: Upload data into a Machine Learning experiment | Azure" description="Step 2: Upload existing public data into Azure Machine Learning Studio" metaKeywords="" services="" solutions="" documentationCenter="" authors="garye" videoId="" scriptId="" />
 
-<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="garye"></tags>
+<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="garye" />
 
-[Azure 기계 학습을 사용한 예측 솔루션 개발][] 자습서의 두 번째 단계입니다.
+[Azure 기계 학습을 사용한 예측 솔루션 개발][Azure 기계 학습을 사용한 예측 솔루션 개발] 자습서의 두 번째 단계입니다.
 
-1.  [기계 학습 작업 영역 만들기][]
+1.  [기계 학습 작업 영역 만들기][기계 학습 작업 영역 만들기]
 2.  **기존 데이터 업로드**
-3.  [새로운 실험 만들기][]
-4.  [모델 학습 및 평가][]
-5.  [웹 서비스 게시][]
-6.  [웹 서비스 액세스][]
+3.  [새로운 실험 만들기][새로운 실험 만들기]
+4.  [모델 학습 및 평가][모델 학습 및 평가]
+5.  [웹 서비스 게시][웹 서비스 게시]
+6.  [웹 서비스 액세스][웹 서비스 액세스]
 
 ------------------------------------------------------------------------
 
@@ -52,7 +52,7 @@ UCI 웹 사이트는 금융 정보, 신용 기록, 취업 상태, 개인 정보�
 6.  데이터 형식의 경우 "머리글 없는 일반 CSV 파일(.nh.csv)"을 선택합니다.
 7.  원하는 경우 설명을 추가합니다.
 8.  **확인**
-    ![데이터 집합 업로드][]을 클릭합니다.
+    ![데이터 집합 업로드][데이터 집합 업로드]을 클릭합니다.
 
 그러면 데이터가 실험에 사용할 수 있는 데이터 집합 모듈에 업로드됩니다.
 

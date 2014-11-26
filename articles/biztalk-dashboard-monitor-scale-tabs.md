@@ -1,6 +1,6 @@
 <properties linkid="manage-services-biztalk-services-dashboard-monitor-scale-tabs" urlDisplayName="Dashboard, Monitor, Scale, Configure and Hybrid Connections tabs" pageTitle="Dashboard, Monitor, and Scale in BizTalk Services | Azure" metaKeywords="BizTalk Services, Azure, dashboard, monitor, scale, wabs, mabs" description="Learn about the controls on the Management Portal tabs for BizTalk Services: Dashboard, Monitor, and Scale." metaCanonical="" services="biztalk-services" documentationCenter="" title=" Monitor and Scale tabs" authors="mandia" solutions="" manager="dwrede" editor="cgronlun" />
 
-<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia"></tags>
+<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia" />
 
 # BizTalk 서비스: 대시보드, 모니터, 확장, 구성 및 하이브리드 연결 탭
 
@@ -353,12 +353,7 @@ Azure BizTalk 서비스에서 하이브리드 연결을 만들거나 관리하�
   [GrayedMetric]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_GrayedMetric.png
   [EnabledMetric]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_EnabledMetric.png
   
-  [학습 센터]: http://azure.microsoft.com/ko-KR/documentation/services/biztalk-services/
-  [BizTalk 서비스 포털에서 EDI 메시징 구성 요소 구성]: http://go.microsoft.com/fwlink/p/?LinkID=303653
-  [ACS 네임스페이스 관리]: http://go.microsoft.com/fwlink/p/?LinkID=285670
   [사용 가능한 메트릭]: #Metrics
-  [BizTalk 서비스를 만들 때는]: http://go.microsoft.com/fwlink/p/?LinkID=302280
-  [BizTalk 서비스: 서비스 상태 차트]: http://go.microsoft.com/fwlink/p/?LinkID=329870
   [메트릭 추가 선택]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_AddMetrics.png
   [회색으로 표시된 CPU 사용량 메트릭]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_GrayedMetric.png
   [활성화된 CPU 사용량 메트릭]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_EnabledMetric.png
@@ -366,7 +361,6 @@ Azure BizTalk 서비스에서 하이브리드 연결을 만들거나 관리하�
   [BizTalk 서비스: 백업 및 복원]: http://go.microsoft.com/fwlink/p/?LinkID=329873
   [하이브리드 연결: Azure 웹 사이트에서 온-프레미스 리소스에 연결]: http://go.microsoft.com/fwlink/p/?LinkId=397538
   [Azure 모바일 서비스 및 하이브리드 연결]: http://azure.microsoft.com/ko-KR/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started
-  [2]: http://go.microsoft.com/fwlink/p/?LinkID=397274
   [BizTalk 서비스: 제한]: http://go.microsoft.com/fwlink/p/?LinkID=302282
   [BizTalk 서비스: 발급자 이름 및 발급자 키]: http://go.microsoft.com/fwlink/p/?LinkID=303941
   [Azure BizTalk 서비스 SDK로 시작하는 방법]: http://go.microsoft.com/fwlink/p/?LinkID=302335

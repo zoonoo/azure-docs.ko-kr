@@ -1,6 +1,6 @@
 <properties linkid="mobile-services-dotnet-backend-calling-sharepoint-on-behalf-of-user" urlDisplayName="Access SharePoint on behalf of the user" pageTitle="Access SharePoint on behalf of the user | Mobile Dev Center" metaKeywords="" description="Learn how to make calls to SharePoint on behalf of the user" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Access SharePoint on behalf of the user" authors="mahender" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="mahender"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="mahender" />
 
 # 사용자 대신 SharePoint 액세스
 
@@ -33,7 +33,7 @@
 
 1. [Azure 관리 포털][Azure 관리 포털]의 **Active Directory** 섹션에서 테넌트를 선택합니다. 모바일 서비스용으로 만든 웹 응용 프로그램으로 이동합니다.
 
-    ![][]
+    ![][0]
 
 2. **구성** 탭에서 페이지를 다른 응용 프로그램에 대한 권한 섹션으로 스크롤합니다. **Office 365 SharePoint Online**을 선택하고 **사용자 파일 편집 또는 삭제** 위임된 권한을 부여합니다. 그런 다음 **Save**를 클릭합니다.
 
@@ -69,7 +69,7 @@ SharePoint에 액세스하려면 대상으로서 SharePoint에 대한 특별 액
 
 1. Visual Studio에서 모바일 서비스 백 엔드 프로젝트를 엽니다.
 
-[WACOM.INCLUDE [mobile-services-dotnet-adal-install-nuget][mobile-services-dotnet-adal-install-nuget]]
+[WACOM.INCLUDE [mobile-services-dotnet-adal-install-nuget](../includes/mobile-services-dotnet-adal-install-nuget.md)]
 
 1. 모바일 서비스 백 엔드 프로젝트에서 SharePointUploadContext라는 새로운 클래스를 만듭니다. 여기에서 다음을 추가합니다.
 
@@ -184,9 +184,9 @@ Word 문서를 만들려면 OpenXML NuGet 패키지를 사용합니다. NuGet �
 
 
 
-<!-- Images. --> 
-<!-- Anchors. --> 
-<!-- URLs. -->
+ 
+ 
+
 
 [자습서 보기]: http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Azure-Mobile-Services-AAD-O365-Authentication-identity-across-services
 [SharePoint에 대한 위임된 액세스를 위한 응용 프로그램 등록]: #configure-permissionss
@@ -197,7 +197,7 @@ Word 문서를 만들려면 OpenXML NuGet 패키지를 사용합니다. NuGet �
 [SharePoint Online]: http://office.microsoft.com/ko--kr/sharepoint/
 [Active Directory 인증 라이브러리 Single Sign-On으로 앱 인증]: http://azure.microsoft.com/ko--kr/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication/
 [Azure 관리 포털]: https://manage.windowsazure.com/
-[]: ./media/mobile-services-dotnet-backend-calling-sharepoint-on-behalf-of-user/aad-web-application.png
+[0]: ./media/mobile-services-dotnet-backend-calling-sharepoint-on-behalf-of-user/aad-web-application.png
 [1]: ./media/mobile-services-dotnet-backend-calling-sharepoint-on-behalf-of-user/aad-sharepoint-permissions.png
 [2]: ./media/mobile-services-dotnet-backend-calling-sharepoint-on-behalf-of-user/aad-manage-secret-key.png
 [3]: ./media/mobile-services-dotnet-backend-calling-sharepoint-on-behalf-of-user/mobile-services-app-settings-sharepoint.png

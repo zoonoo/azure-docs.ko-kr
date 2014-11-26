@@ -199,8 +199,6 @@
   [모바일 서비스 iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
   [XCode 4.5]: https://go.microsoft.com/fwLink/p/?LinkID=266532
   [모바일 서비스 시작하기]: /ko-kr/documentation/articles/mobile-services-ios-get-started
-  [Apple 푸시 알림 설정]: ../includes/enable-apple-push-notifications.md
-  [mobile-services-apns-configure-push]: ../includes/mobile-services-apns-configure-push.md
   [0]: ./media/mobile-services-ios-get-started-push/mobile-portal-data-tables.png
   [1]: ./media/mobile-services-ios-get-started-push/mobile-insert-script-push2.png
   [apns 개체]: http://go.microsoft.com/fwlink/p/?LinkId=272333

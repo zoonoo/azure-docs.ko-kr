@@ -1,6 +1,6 @@
-<properties urlDisplayName="Web with Django" pageTitle="Mac에서 Django를 사용하는 Python 웹 앱 - Azure 자습서" metaKeywords="" description="Azure에서 Linux 가상 컴퓨터를 사용하여 Django 기반 웹 사이트를 호스트하는 방법을 보여 주는 자습서입니다." metaCanonical="" services="virtual-machines" documentationCenter="Python" title="Django Hello World 웹 응용 프로그램(mac-linux)" authors="huvalo" solutions="" manager="wpickett" editor="" />
+<properties linkid="develop-python-web-app-with-django-mac" urlDisplayName="Web with Django" pageTitle="Python web app with Django on Mac - Azure tutorial" metaKeywords="" description="A tutorial that shows how to host a Django-based website on Azure using a Linux virtual machine." metaCanonical="" services="virtual-machines" documentationCenter="Python" title="Django Hello World Web Application (mac-linux)" authors="huvalo" solutions="" manager="" editor="" />
 
-<tags ms.service="virtual-machines" ms.workload="web" ms.tgt_pltfrm="vm-linux" ms.devlang="python" ms.topic="article" ms.date="09/25/2014" ms.author="huvalo" />
+<tags ms.service="virtual-machines" ms.workload="web" ms.tgt_pltfrm="vm-linux" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo" />
 
 # Django Hello World 웹 응용 프로그램(mac-linux)
 
@@ -25,23 +25,23 @@
 
 ## Django를 호스트하기 위해 Azure 가상 컴퓨터 만들기 및 구성
 
-1.  [여기][여기]에 나와 있는 지침에 따라 *Ubuntu Server 14.04 LTS* 배포판의 Azure 가상 컴퓨터를 만듭니다.
+1.  [여기][여기]에 나와 있는 지침에 따라 *Ubuntu Server 14.04* 배포판의 Azure 가상 컴퓨터를 만듭니다.
 
-**참고:***단지* 가상 컴퓨터만 만들면 됩니다. *가상 컴퓨터를 만든 후 로그온하는 방법* 섹션을 참조하세요.
+**참고:***단지* 가상 컴퓨터만 만들면 됩니다. *가상 컴퓨터를 만든 후 로그온하는 방법* 섹션을 참조하십시오.
 
 1.  웹을 통해 들어오는 포트 **80** 트래픽을 가상 컴퓨터의 포트 **80**으로 보내도록 Azure에 지시합니다.
 
     -   Azure 포털에서 새로 만든 가상 컴퓨터로 이동하고 *끝점* 탭을 클릭합니다.
-    -   화면 아래쪽의 *추가* 단추를 클릭합니다.
+    -   화면 맨 아래에 있는 *끝점 추가* 단추를 클릭합니다.
         ![끝점 추가][끝점 추가]
     -   *TCP* 프로토콜의 *공용 포트 80*을 *개인 포트 80*으로 엽니다.
         ![포트 80][포트 80]
 
 ## <span id="setup"></span> </a>개발 환경 설정
 
-**참고:** Python을 설치해야 하거나 클라이언트 라이브러리를 사용하고 싶으면 [Python 설치 가이드][Python 설치 가이드](영문)를 참조하세요.
+**참고:** Python을 설치해야 하거나 클라이언트 라이브러리를 사용하고 싶으면 [Python 설치 가이드][Python 설치 가이드](영문)를 참조하십시오.
 
-Ubuntu Linux VM에는 Python 2.7이 사전 설치되어 있지만, Apache 또는 django는 설치되어 있지 않습니다. 다음 단계에 따라 VM에 연결하고 Apache 및 django를 설치하세요.
+Ubuntu Linux VM에는 Python 2.7이 사전 설치되어 있지만, Apache 또는 django는 설치되어 있지 않습니다. 다음 단계에 따라 VM에 연결하고 Apache 및 django를 설치하십시오.
 
 1.  새 **터미널** 창을 시작합니다.
 
@@ -73,18 +73,19 @@ Ubuntu Linux VM에는 Python 2.7이 사전 설치되어 있지만, Apache 또는
     -   **helloworld/helloworld/settings.py**에는 응용 프로그램에 대한 Django 설정이 포함되어 있습니다.
     -   **helloworld/helloworld/urls.py**에는 각 url과 뷰 사이의 매핑 코드가 들어 있습니다.
 
-3.  **views.py**라는 새 파일을 **/var/www/helloworld/helloworld** 디렉터리에 만듭니다. 이 파일에는 "hello world" 페이지를 렌더링하는 뷰가 포함되어 있습니다. 편집기를 시작하고 다음을 입력합니다.
+3.  **urls.py**의 형제로 **views.py**라는 새 파일을 **/var/www/helloworld/helloworld** 디렉터리에 만듭니다. 이 파일에는 "hello world" 페이지를 렌더링하는 뷰가 포함되어 있습니다. 편집기를 시작하고 다음을 입력합니다.
 
         from django.http import HttpResponse
-        def home(request):
+        def hello(request):
             html = "<html><body>Hello World!</body></html>"
             return HttpResponse(html)
 
 4.  이제 **urls.py** 파일의 내용을 다음과 같이 바꿉니다.
 
-        from django.conf.urls import patterns, url
+        from django.conf.urls.defaults import patterns, include, url
+        from helloworld.views import hello
         urlpatterns = patterns('',
-            url(r'^$', 'helloworld.views.home', name='home'),
+            (r'^$',hello),
         )
 
 ## Apache 설정
@@ -111,7 +112,7 @@ Ubuntu Linux VM에는 Python 2.7이 사전 설치되어 있지만, Apache 또는
 
 ## Azure 가상 컴퓨터 종료
 
-이 자습서를 완료했으므로 새로 만든 Azure 가상 컴퓨터를 종료하거나 종료한 후 제거하여 다른 자습서에 사용할 리소스를 늘리고 Azure 사용량에 따른 요금 부과를 방지하세요.
+이 자습서를 완료했으므로 새로 만든 Azure 가상 컴퓨터를 종료하거나 종료한 후 제거하여 다른 자습서에 사용할 리소스를 늘리고 Azure 사용량에 따른 요금 부과를 방지하십시오.
 
   [Azure의 hello world 페이지를 표시하는 브라우저 창]: ./media/virtual-machines-python-django-web-app-linux/mac-linux-django-helloworld-browser.png
   [여기]: /ko-kr/manage/linux/tutorials/virtual-machine-from-gallery/

@@ -168,9 +168,9 @@
 다음 자습서인 [모바일 서비스의 AAD에서 역할 기반 액세스 제어][모바일 서비스의 AAD에서 역할 기반 액세스 제어]에서는 액세스를 허용하기 전에 AAD(Azure Active Directory)에서 역할 기반 액세스 제어를 사용해서 그룹 구성원을 확인합니다.
 
 
-<!-- Anchors. --> 
+ 
 <!-- Images --> 
-<!-- URLs. -->
+
 
 
 [Windows 스토어 C#]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-aad-graph-info/ "Windows 스토어 C#"

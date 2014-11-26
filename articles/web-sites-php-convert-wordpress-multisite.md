@@ -1,16 +1,16 @@
 <properties linkid="develop-php-tutorials-convert-wordpress-to-multisite" urlDisplayName="Convert a WordPress Site to a Multisite" pageTitle="Convert a WordPress Site to a Multisite" metaKeywords="WordPress, Multisite" description="Learn how to take an existing WordPress website created through the gallery in Azure and convert it to WordPress Multisite" metaCanonical="" services="web-sites" documentationCenter="PHP" title="Convert a WordPress Site to a Multisite" authors="cephalin" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin" />
 
 # WordPress 사이트를 멀티 사이트로 변환
 
-*[벤 로바우(Ben Lobaugh)][], [Microsoft Open Technologies Inc.][]*
+*[벤 로바우(Ben Lobaugh)][벤 로바우(Ben Lobaugh)], [Microsoft Open Technologies Inc.][Microsoft Open Technologies Inc.]*
 
 이 자습서에서는 Azure의 갤러리를 통해 만든 기존 WordPress 웹 사이트를 가져와서 WordPress 멀티 사이트 설치로 변환하는 방법을 알아봅니다. 또한 설치 내에 있는 각 하위 사이트에 사용자 지정 도메인을 할당하는 방법도 알아봅니다.
 
-여기서는 WordPress가 이미 설치되어 있다고 가정합니다. 아직 설치하지 않은 경우 [Azure의 갤러리에서 WordPress 웹 사이트 만들기][]의 지침을 따르십시오.
+여기서는 WordPress가 이미 설치되어 있다고 가정합니다. 아직 설치하지 않은 경우 [Azure의 갤러리에서 WordPress 웹 사이트 만들기][Azure의 갤러리에서 WordPress 웹 사이트 만들기]의 지침을 따르십시오.
 
-기존 WordPress 단일 사이트 설치를 멀티 사이트로 변환하는 작업은 일반적으로 매우 간단하며 여기서는 초기의 많은 단계를 [WordPress Codex][](영문)의 [네트워크 만들기][] 페이지에서 가져옵니다.
+기존 WordPress 단일 사이트 설치를 멀티 사이트로 변환하는 작업은 일반적으로 매우 간단하며 여기서는 초기의 많은 단계를 [WordPress Codex][WordPress Codex](영문)의 [네트워크 만들기][네트워크 만들기] 페이지에서 가져옵니다.
 
 그럼 시작해 보겠습니다.
 
@@ -18,9 +18,9 @@
 
 먼저 `wp-config.php` 파일에서 **WP\_ALLOW\_MULTISITE** 상수를 사용하여 멀티 사이트를 사용하도록 설정해야 합니다. 웹 사이트 파일은 두 가지 방법으로 편집할 수 있습니다. 첫 번째는 FTP를 통하는 것이고 두 번째는 Git를 통하는 것입니다. 이러한 방법을 설정하는 데 익숙지 않다면 다음 자습서를 참조하십시오.
 
--   [MySQL 및 FTP를 사용하는 PHP 웹 사이트(영문)][]
+-   [MySQL 및 FTP를 사용하는 PHP 웹 사이트(영문)][MySQL 및 FTP를 사용하는 PHP 웹 사이트(영문)]
 
--   [MySQL 및 Git를 사용하는 PHP 웹 사이트(영문)][]
+-   [MySQL 및 Git를 사용하는 PHP 웹 사이트(영문)][MySQL 및 Git를 사용하는 PHP 웹 사이트(영문)]
 
 선택한 편집기를 사용하여 `wp-config.php` 파일을 열고 `/* That's all, stop editing! Happy blogging. */` 줄 위에 다음을 추가합니다.
 
@@ -34,11 +34,11 @@
 
 웹 사이트의 *wp-admin*에 로그인하면 **도구** 메뉴에서 **네트워크 설정**이라고 하는 새 항목이 표시됩니다. **네트워크 설정**을 클릭하고 네트워크의 세부 정보를 채웁니다.
 
-![네트워크 설정 화면][]
+![네트워크 설정 화면][네트워크 설정 화면]
 
 이 자습서에서는 *Sub-directories* 사이트 스키마가 항상 적절히 작동하므로 이 스키마를 사용하며 이 자습서의 뒷부분에서 각 하위 사이트에 대한 사용자 지정 도메인을 설정합니다. 그러나 포털을 통해 도메인을 매핑하고 와일드카드 DNS를 제대로 설정하는 경우 하위 도메인 설치를 설정할 수 있습니다.
 
-하위 도메인과 하위 디렉터리 설정에 대한 자세한 내용은 WordPress Codex의 [멀티 사이트 네트워크 유형][] 문서를 참조하십시오.
+하위 도메인과 하위 디렉터리 설정에 대한 자세한 내용은 WordPress Codex의 [멀티 사이트 네트워크 유형][멀티 사이트 네트워크 유형] 문서를 참조하십시오.
 
 ## 네트워크 사용
 
@@ -52,7 +52,7 @@
 
 # 사용자 지정 도메인 추가
 
-[WordPress MU 도메인 매핑][] 플러그 인을 사용하면 네트워크에 있는 임의의 사이트에 사용자 지정 도메인을 쉽게 추가할 수 있습니다. 플러그 인의 정상적인 작동을 위해서는 포털과 도메인 등록 기관에서 추가 설정을 해야 합니다.
+[WordPress MU 도메인 매핑][WordPress MU 도메인 매핑] 플러그 인을 사용하면 네트워크에 있는 임의의 사이트에 사용자 지정 도메인을 쉽게 추가할 수 있습니다. 플러그 인의 정상적인 작동을 위해서는 포털과 도메인 등록 기관에서 추가 설정을 해야 합니다.
 
 ## 웹 사이트에 대한 도메인 매핑 사용
 
@@ -83,7 +83,7 @@ Azure 포털을 통해 웹 사이트로 돌아가서 이번에는 **구성** 탭
 
 *사용자 지정 도메인 관리* 대화 상자에서 팝업을 표시합니다. 이 팝업에서 웹 사이트에 할당할 모든 도메인을 입력합니다. 여기에 나열되지 않는 도메인은 도메인 DNS 설정 방법과 상관없이 WordPress에서 매핑에 사용할 수 없습니다.
 
-![사용자 지정 도메인 관리 대화 상자][]
+![사용자 지정 도메인 관리 대화 상자][사용자 지정 도메인 관리 대화 상자]
 
 텍스트 상자에 도메인을 입력한 후 Azure에서 앞서 만든 *awverify* CNAME 레코드를 확인합니다. DNS가 완전히 전파되지 않으면 빨간색 표시기가 나타납니다. 성공한 경우에는 녹색 확인 표시가 나타납니다.
 
@@ -99,7 +99,7 @@ Azure 웹 사이트에서 CNAME과 A 레코드를 모두 허용하지만 적절�
 
 ## 플러그 인 설치 및 설정
 
-WordPress 멀티 사이트에는 사용자 지정 도메인에 매핑하는 기본 제공 방법이 현재 없습니다. 그러나 매핑 기능을 추가해 주는 [WordPress MU 도메인 매핑][](영문)이라는 플러그 인이 있습니다. 사이트의 네트워크 관리 부분에 로그인하여 **WordPress MU 도메인 매핑** 플러그 인을 설치하십시오.
+WordPress 멀티 사이트에는 사용자 지정 도메인에 매핑하는 기본 제공 방법이 현재 없습니다. 그러나 매핑 기능을 추가해 주는 [WordPress MU 도메인 매핑][WordPress MU 도메인 매핑](영문)이라는 플러그 인이 있습니다. 사이트의 네트워크 관리 부분에 로그인하여 **WordPress MU 도메인 매핑** 플러그 인을 설치하십시오.
 
 플러그 인을 설치하고 활성화한 후 **설정** \> **도메인 매핑**으로 이동하여 플러그 인을 구성합니다. 첫 번째 텍스트 상자인 *서버 IP 주소*에서, 도메인의 A 레코드를 설정하는 데 사용한 IP 주소를 입력합니다. 원하는 임의의 *도메인 옵션*을 설정하고(대개 기본값을 그대로 사용하는 것이 좋음) **저장**을 클릭합니다.
 

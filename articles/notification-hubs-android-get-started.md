@@ -296,7 +296,6 @@
   [앱 테스트]: #run-app
   [여기]: http://go.microsoft.com/fwlink/?LinkId=389797
   [모바일 서비스 Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
-  [GCM 사용]: ../includes/mobile-services-enable-Google-cloud-messaging.md
   [Azure 관리 포털]: https://manage.windowsazure.com/
   [0]: ./media/notification-hubs-android-get-started/notification-hub-create-from-portal.png
   [1]: ./media/notification-hubs-android-get-started/notification-hub-create-from-portal2.png
@@ -305,7 +304,6 @@
   [4]: ./media/notification-hubs-android-get-started/notification-hub-configure-android.png
   [5]: ./media/notification-hubs-android-get-started/notification-hub-create-android-app.png
   [6]: ./media/notification-hubs-android-get-started/notification-hub-create-android-app2.png
-  [Play Services 추가]: ../includes/mobile-services-add-Google-play-services.md
   [7]: ./media/notification-hubs-android-get-started/notification-hub-android-new-class.png
   [REST 인터페이스]: http://msdn.microsoft.com/ko-KR/library/windowsazure/dn223264.aspx
   [.NET 백 엔드]: /ko-KR/documentation/articles/mobile-services-javascript-backend-android-get-started-push/

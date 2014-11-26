@@ -1,6 +1,6 @@
 <properties title="Interact with DocumentDB resources" pageTitle="Interact with DocumentDB resources | Azure" description="DocumentDB manages resources--uniquely identified by logical URIs--that developers can interact with using HTTP verbs, request/response headers, and status codes." metaKeywords="" services="documentdb" solutions="data-management" documentationCenter="" authors="bradsev" manager="jhubbard" editor="cgronlun" videoId="" scriptId="" />
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="bradsev"></tags>
+<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="bradsev" />
 
 # DocumentDB 리소스 모델 및 개념
 
@@ -8,7 +8,7 @@ DocumentDB는 HTTP를 통해 단순한 개방형 RESTful 프로그래밍 모델�
 
 > [AZURE.NOTE] 통신 모델이 RESTful이며 .NET 클라이언트 SDK를 통해 사용할 수 있는 효율성 높은 TCP 프로토콜도 제공합니다.
 
-![][]
+![][0]
 **단일 데이터베이스 계정 아래의 계층적 리소스 모델**
 
 DocumentDB의 고객은 먼저 Azure 구독을 사용하여 DocumentDB **데이터베이스 계정**을 프로비전합니다. 데이터베이스 계정은 각각 여러 **컬렉션**을 포함하는 **데이터베이스** 집합으로 구성될 수 있고, 각 컬렉션에는 다시 **저장 프로시저, 트리거, UDF, 문서** 및 관련 **첨부 파일**이 포함됩니다. 데이터베이스에는 각각 컬렉션, 저장 프로시저, 트리거, UDF, 문서 또는 첨부 파일에 액세스할 **권한** 집합을 가진 관련 **사용자**도 있습니다. 데이터베이스, 사용자, 사용 권한 및 컬렉션은 잘 알려진 스키마가 있는 시스템 정의 리소스인 반면 문서 및 첨부 파일에는 임의의 사용자 정의 JSON 콘텐츠가 포함됩니다.
@@ -109,7 +109,7 @@ Azure 포털([][]<http://portal.azure.com/></a>)을 통해 DocumentDB 데이터�
 </tbody>
 </table>
 
-Azure 포털에서 데이터베이스 계정을 프로비전, 구성 및 관리하는 것뿐 아니라 [Azure DocumentDB REST API][] 및 클라이언트 SDK를 통해 프로그래밍 방식으로 DocumentDB 데이터베이스 계정을 만들고 관리할 수도 있습니다.
+Azure 포털에서 데이터베이스 계정을 프로비전, 구성 및 관리하는 것뿐 아니라 [Azure DocumentDB REST API][Azure DocumentDB REST API] 및 클라이언트 SDK를 통해 프로그래밍 방식으로 DocumentDB 데이터베이스 계정을 만들고 관리할 수도 있습니다.
 
  
 
@@ -123,7 +123,7 @@ DocumentDB의 데이터베이스는 하나 이상의 컬렉션 및 사용자가 
 
 DocumentDB 데이터베이스는 사용자 컨테이너이기도 합니다. 다시 사용자는 컬렉션, 문서 및 첨부 파일에 대한 미세 조정된 권한 부여/액세스 권한을 제공하는 사용 권한 집합의 논리적 네임스페이스입니다.
 
-DocumentDB 리소스 모델의 다른 리소스와 마찬가지로, [Azure DocumentDB REST API][] 또는 클라이언트 SDK를 사용하여 데이터베이스를 쉽게 만들거나, 바꾸거나, 삭제하거나, 읽거나, 열거할 수 있습니다. DocumentDB는 데이터베이스 리소스의 메타데이터 읽기 또는 쿼리에 대해 강력한 일관성을 보장합니다. 데이터베이스를 삭제하면 자동으로 컬렉션 또는 컬렉션 내에 포함된 사용자에 액세스할 수 없게 됩니다. DocumentDB는 삭제된 데이터베이스의 일부로 프로비전된 저장소 및 처리량을 백그라운드에서 회수하지만 삭제된 데이터베이스에 프로비전된 저장소와 처리량을 즉시 사용할 수 있습니다.
+DocumentDB 리소스 모델의 다른 리소스와 마찬가지로, [Azure DocumentDB REST API][Azure DocumentDB REST API] 또는 클라이언트 SDK를 사용하여 데이터베이스를 쉽게 만들거나, 바꾸거나, 삭제하거나, 읽거나, 열거할 수 있습니다. DocumentDB는 데이터베이스 리소스의 메타데이터 읽기 또는 쿼리에 대해 강력한 일관성을 보장합니다. 데이터베이스를 삭제하면 자동으로 컬렉션 또는 컬렉션 내에 포함된 사용자에 액세스할 수 없게 됩니다. DocumentDB는 삭제된 데이터베이스의 일부로 프로비전된 저장소 및 처리량을 백그라운드에서 회수하지만 삭제된 데이터베이스에 프로비전된 저장소와 처리량을 즉시 사용할 수 있습니다.
 
 # 컬렉션
 
@@ -155,7 +155,7 @@ DocumentDB 미리 보기 릴리스에서는 컬렉션을 만드는 동안에만 
 2.  컴퍼지션, 필터, 프로젝션, 집계 및 자체 조인을 포함하는 관계형 작업 하위 집합
 3.  (1) 및 (2)로 구성된 순수 JavaScript기반 UDF
 
-DocumentDB 쿼리 모델은 기능, 효율성 및 간결성 간의 균형을 이루려고 합니다. DocumentDB의 데이터베이스 엔진은 기본적으로 SQL 쿼리 문을 컴파일하고 실행합니다. [Azure DocumentDB REST API][] 또는 클라이언트 SDK를 사용하여 컬렉션을 쿼리할 수 있습니다. .NET SDK에는 LINQ 공급자가 포함되어 있습니다. 이후 릴리스에서는 클라이언트 쪽 JavaScript SDK 및 서버 쪽 저장 프로시저와 트리거 둘 다에서 사용할 수 있는 기본 밑줄 매핑이 제공될 예정입니다.
+DocumentDB 쿼리 모델은 기능, 효율성 및 간결성 간의 균형을 이루려고 합니다. DocumentDB의 데이터베이스 엔진은 기본적으로 SQL 쿼리 문을 컴파일하고 실행합니다. [Azure DocumentDB REST API][Azure DocumentDB REST API] 또는 클라이언트 SDK를 사용하여 컬렉션을 쿼리할 수 있습니다. .NET SDK에는 LINQ 공급자가 포함되어 있습니다. 이후 릴리스에서는 클라이언트 쪽 JavaScript SDK 및 서버 쪽 저장 프로시저와 트리거 둘 다에서 사용할 수 있는 기본 밑줄 매핑이 제공될 예정입니다.
 
 ## 다중 문서 트랜잭션
 
@@ -217,7 +217,7 @@ DocumentDB 쿼리 모델은 기능, 효율성 및 간결성 간의 균형을 이
 
 저장 프로시저와 트리거는 현재 컬렉션 컨텍스트를 노출하는 잘 정의된 개체 모델을 통해 컬렉션 및 컬렉션 내 문서를 조작합니다.
 
-[Azure DocumentDB REST API][] 또는 클라이언트 SDK를 사용하여 DocumentDB의 컬렉션을 쉽게 만들거나 삭제하거나 읽거나 열거할 수 있습니다. DocumentDB는 컬렉션의 메타데이터 읽기 또는 쿼리에 대해 항상 강력한 일관성을 제공합니다. 컬렉션을 삭제하면 자동으로 컬렉션 내에 포함된 문서, 첨부 파일, 저장 프로시저, 트리거 및 UDF에 액세스할 수 없게 됩니다. DocumentDB는 삭제된 컬렉션의 일부로 프로비전된 저장소 및 처리량을 백그라운드에서 회수하지만 삭제된 컬렉션에 프로비전된 저장소와 처리량을 즉시 다시 사용할 수 있습니다.
+[Azure DocumentDB REST API][Azure DocumentDB REST API] 또는 클라이언트 SDK를 사용하여 DocumentDB의 컬렉션을 쉽게 만들거나 삭제하거나 읽거나 열거할 수 있습니다. DocumentDB는 컬렉션의 메타데이터 읽기 또는 쿼리에 대해 항상 강력한 일관성을 제공합니다. 컬렉션을 삭제하면 자동으로 컬렉션 내에 포함된 문서, 첨부 파일, 저장 프로시저, 트리거 및 UDF에 액세스할 수 없게 됩니다. DocumentDB는 삭제된 컬렉션의 일부로 프로비전된 저장소 및 처리량을 백그라운드에서 회수하지만 삭제된 컬렉션에 프로비전된 저장소와 처리량을 즉시 다시 사용할 수 있습니다.
 
  
 
@@ -417,9 +417,9 @@ DocumentDB의 사용자는 사용 권한 그룹화를 위한 논리적 네임스
 
 다른 모든 리소스와 마찬가지로, REST API 또는 클라이언트 SDK를 사용하여 DocumentDB의 사용 권한을 쉽게 만들거나, 바꾸거나, 삭제하거나, 읽거나, 열거할 수 있습니다. DocumentDB는 사용 권한의 메타데이터 읽기 또는 쿼리에 대해 항상 강력한 일관성을 제공합니다.
 
-  []: ./media/documentdb-resources/resources1.png
+  [0]: ./media/documentdb-resources/resources1.png
   [1]: ./media/documentdb-resources/resources2.png
-  []: http://portal.azure.com/
+  [0]: http://portal.azure.com/
   [Azure DocumentDB REST API]: http://go.microsoft.com/fwlink/p/?LinkID=402413
   [2]: ./media/documentdb-resources/resources3.png
   [3]: ./media/documentdb-resources/resources4.png

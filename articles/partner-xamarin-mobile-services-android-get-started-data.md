@@ -1,30 +1,30 @@
 <properties linkid="develop-mobile-tutorials-get-started-with-data-xamarin-android" urlDisplayName="Get Started with Data" pageTitle="Get started with data (Xamarin.Android) - Azure Mobile Services" metaKeywords="Azure Xamarin.Android data, Azure mobile services data" description="Learn how to store and access data from your Azure Mobile Services Xamarin.Android app." metaCanonical="" disqusComments="1" umbracoNaviHide="1" title="Get started with data in Mobile Services" documentationCenter="Mobile" authors="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-android" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-android" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="" />
 
 # 모바일 서비스에서 데이터 시작
 
 <div class="dev-center-tutorial-selector sublanding">    
-    <a href="/en-us/develop/mobile/tutorials/get-started-with-data-dotnet" title="Windows 스토어 C#">Windows 스토어 C#</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-js" title="Windows 스토어 JavaScript">Windows 스토어 JavaScript</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-android" title="Xamarin.Android" class="current">Xamarin.Android</a>
+    <a href="/ko-kr/develop/mobile/tutorials/get-started-with-data-dotnet" title="Windows 스토어 C#">Windows 스토어 C#</a><a href="/ko-kr/develop/mobile/tutorials/get-started-with-data-js" title="Windows 스토어 JavaScript">Windows 스토어 JavaScript</a><a href="/ko-kr/develop/mobile/tutorials/get-started-with-data-wp8" title="Windows Phone">Windows Phone</a><a href="/ko-kr/develop/mobile/tutorials/get-started-with-data-ios" title="iOS">iOS</a><a href="/ko-kr/develop/mobile/tutorials/get-started-with-data-android" title="Android">Android</a><a href="/ko-kr/develop/mobile/tutorials/get-started-with-data-html" title="HTML">HTML</a><a href="/ko-kr/develop/mobile/tutorials/get-started-with-data-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/ko-kr/develop/mobile/tutorials/get-started-with-data-xamarin-android" title="Xamarin.Android" class="current">Xamarin.Android</a>
 </div>
 
 이 항목에서는 Azure 모바일 서비스를 사용하여 Xamarin.Android 앱에서 데이터를 활용하는 방법을 보여 줍니다. 이 자습서에서는 데이터를 메모리에 저장하는 앱을 다운로드하여 새 모바일 서비스를 만들고 모바일 서비스를 앱과 통합한 후 Azure 관리 포털에 로그인하여 앱을 실행할 때 수행된 데이터 변경 내용을 확인합니다.
 
 <div class="dev-callout"><b>참고</b>
-<p>이 자습서는 Xamarin.Android 앱에서 모바일 서비스를 통해 Azure를 사용하여 데이터를 저장하고 검색할 수 있는 방법을 더욱 잘 이해할 수 있도록 돕기 위한 것입니다. 이 항목에서는 모바일 서비스 퀵 스타트에서 완료한 다수의 단계를 순서대로 안내합니다. 모바일 서비스를 처음 사용하는 경우 먼저 <a href="/en-us/develop/mobile/tutorials/get-started-xamarin-android">모바일 서비스 시작</a> 자습서를 완료하는 것이 좋습니다.</p>
+<p>이 자습서는 Xamarin.Android 앱에서 모바일 서비스를 통해 Azure를 사용하여 데이터를 저장하고 검색할 수 있는 방법을 더욱 잘 이해할 수 있도록 돕기 위한 것입니다. 이 항목에서는 모바일 서비스 퀵 스타트에서 완료한 다수의 단계를 순서대로 안내합니다. 모바일 서비스를 처음 사용하는 경우 먼저 <a href="/ko-kr/develop/mobile/tutorials/get-started-xamarin-android">모바일 서비스 시작</a> 자습서를 완료하는 것이 좋습니다.</p>
 </div>
 
 이 자습서에서는 다음 기본 단계를 단계별로 안내합니다.
 
-1.  [Xamarin.Android 앱 프로젝트 다운로드][]
-2.  [모바일 서비스 만들기][]
-3.  [저장소로 사용할 데이터 테이블 추가][]
-4.  [모바일 서비스를 사용하도록 앱 업데이트][]
-5.  [모바일 서비스에 대해 앱 테스트][]
+1.  [Xamarin.Android 앱 프로젝트 다운로드][Xamarin.Android 앱 프로젝트 다운로드]
+2.  [모바일 서비스 만들기][모바일 서비스 만들기]
+3.  [저장소로 사용할 데이터 테이블 추가][저장소로 사용할 데이터 테이블 추가]
+4.  [모바일 서비스를 사용하도록 앱 업데이트][모바일 서비스를 사용하도록 앱 업데이트]
+5.  [모바일 서비스에 대해 앱 테스트][모바일 서비스에 대해 앱 테스트]
 
-<div class="dev-callout"><strong>참고</strong> <p>이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A9C9624B5" target="_blank">Azure 무료 평가판</a>을 참조하세요.</p></div>
+<div class="dev-callout"><strong>참고</strong> <p>이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://www.windowsazure.com/ko-kr/pricing/free-trial/?WT.mc_id=A9C9624B5" target="_blank">Azure 무료 평가판</a>을 참조하세요.</p></div>
 
-이 자습서에는 [Azure 모바일 서비스 구성 요소][], [Xamarin.Android] 및 Android SDK 4.2 이상 버전이 필요합니다.
+이 자습서에는 [Azure 모바일 서비스 구성 요소][Azure 모바일 서비스 구성 요소], [Xamarin.Android] 및 Android SDK 4.2 이상 버전이 필요합니다.
 
 <div class="dev-callout"><b>참고</b>
 <p>다운로드한 GetStartedWithData 프로젝트는 Android 4.2 이상 버전을 대상으로 지정해야 합니다. 하지만 모바일 서비스 SDK에 필요한 Android는 2.2 이상 버전이면 됩니다.</p>
@@ -48,13 +48,13 @@
 
 5.  앱에서 *Complete the tutorial* 등의 의미 있는 텍스트를 입력하고 **Add**를 클릭합니다.
 
-    ![][]
+    ![][0]
 
     메모리 내 컬렉션에 저장된 텍스트가 저장되고 아래 목록에 표시됩니다.
 
 ## <a name="create-service"></a><span class="short-header">모바일 서비스 만들기</span>관리 포털에서 새 모바일 서비스 만들기
 
-[WACOM.INCLUDE [mobile-services-create-new-service-data][]]
+[WACOM.INCLUDE [mobile-services-create-new-service-data](../includes/mobile-services-create-new-service-data.md)]
 
 ## <a name="add-table"></a><span class="short-header">새 테이블 추가</span>모바일 서비스에 새 테이블 추가
 
@@ -209,7 +209,7 @@
 
     그러면 새 항목이 모바일 서비스에 삽입으로 전송됩니다.
 
-3.  [관리 포털][]에서 **모바일 서비스**를 클릭한 후 해당 모바일 서비스를 클릭합니다.
+3.  [관리 포털][관리 포털]에서 **모바일 서비스**를 클릭한 후 해당 모바일 서비스를 클릭합니다.
 
 4.  **데이터** 탭을 클릭한 후 **찾아보기**를 클릭합니다.
 
@@ -229,48 +229,38 @@
 
 다음에는 이 자습서에서 만든 GetStartedWithData 앱을 기반으로 하는 다음 자습서 중 하나를 완료해보세요.
 
--   [스크립트를 사용하여 데이터 유효성 검사 및 수정][]
+-   [스크립트를 사용하여 데이터 유효성 검사 및 수정][스크립트를 사용하여 데이터 유효성 검사 및 수정]
     <br/>모바일 서비스에서 서버 스크립트를 사용하여 앱에서 전송된 데이터의 유효성을 검사하고 변경하는 방법을 자세히 알아봅니다.
 
--   [페이징을 사용하여 쿼리 구체화][]
+-   [페이징을 사용하여 쿼리 구체화][페이징을 사용하여 쿼리 구체화]
     <br/>쿼리에 페이징을 사용하여 단일 요청으로 처리되는 데이터 양을 제어하는 방법을 알아봅니다.
 
 데이터 시리즈를 완료한 후에는 다른 Xamarin.Android 자습서 중 하나를 시도해 보세요.
 
--   [인증 시작][]
+-   [인증 시작][인증 시작]
     <br/>앱 사용자를 인증하는 방법을 알아봅니다.
 
--   [푸시 알림 시작][]
+-   [푸시 알림 시작][푸시 알림 시작]
     <br/>모바일 서비스를 사용하여 기본적인 푸시 알림을 앱에 보내는 방법을 알아봅니다.
 
-<!-- Anchors. -->
-<!-- Images. -->
+
+
 <!-- URLs. TODO:: update 'Download the Android app project' download link, 'GitHub', completed project, etc. -->
 
-  [Windows 스토어 C\#]: /en-us/develop/mobile/tutorials/get-started-with-data-dotnet "Windows 스토어 C#"
-  [Windows 스토어 JavaScript]: /en-us/develop/mobile/tutorials/get-started-with-data-js "Windows 스토어 JavaScript"
-  [Windows Phone]: /en-us/develop/mobile/tutorials/get-started-with-data-wp8 "Windows Phone"
-  [iOS]: /en-us/develop/mobile/tutorials/get-started-with-data-ios "iOS"
-  [Android]: /en-us/develop/mobile/tutorials/get-started-with-data-android "Android"
-  [HTML]: /en-us/develop/mobile/tutorials/get-started-with-data-html "HTML"
-  [Xamarin.iOS]: /en-us/develop/mobile/tutorials/get-started-with-data-xamarin-ios "Xamarin.iOS"
-  [Xamarin.Android]: /en-us/develop/mobile/tutorials/get-started-with-data-xamarin-android "Xamarin.Android"
-  [모바일 서비스 시작]: /en-us/develop/mobile/tutorials/get-started-xamarin-android
+  [Xamarin.Android]: /ko-kr/develop/mobile/tutorials/get-started-with-data-xamarin-android "Xamarin.Android"
   [Xamarin.Android 앱 프로젝트 다운로드]: http://go.microsoft.com/fwlink/p/?LinkId=331302
   [모바일 서비스 만들기]: #create-service
   [저장소로 사용할 데이터 테이블 추가]: #add-table
   [모바일 서비스를 사용하도록 앱 업데이트]: #update-app
   [모바일 서비스에 대해 앱 테스트]: #test-app
-  [Azure 무료 평가판]: http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A9C9624B5
   [Azure 모바일 서비스 구성 요소]: http://components.xamarin.com/view/azure-mobile-services/
-  []: ./media/partner-xamarin-mobile-services-android-get-started-data/mobile-quickstart-startup-android.png
-  [mobile-services-create-new-service-data]: ../includes/mobile-services-create-new-service-data.md
+  [0]: ./media/partner-xamarin-mobile-services-android-get-started-data/mobile-quickstart-startup-android.png
   [1]: ./media/partner-xamarin-mobile-services-android-get-started-data/mobile-data-tab-empty.png
   [2]: ./media/partner-xamarin-mobile-services-android-get-started-data/mobile-create-todoitem-table.png
   [3]: ./media/partner-xamarin-mobile-services-android-get-started-data/mobile-dashboard-tab.png
   [관리 포털]: https://manage.windowsazure.com/
   [4]: ./media/partner-xamarin-mobile-services-android-get-started-data/mobile-todoitem-data-browse.png
-  [스크립트를 사용하여 데이터 유효성 검사 및 수정]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-android
-  [페이징을 사용하여 쿼리 구체화]: /en-us/develop/mobile/tutorials/add-paging-to-data-xamarin-android
-  [인증 시작]: /en-us/develop/mobile/tutorials/get-started-with-users-xamarin-android
-  [푸시 알림 시작]: /en-us/develop/mobile/tutorials/get-started-with-push-xamarin-android
+  [스크립트를 사용하여 데이터 유효성 검사 및 수정]: /ko-kr/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-android
+  [페이징을 사용하여 쿼리 구체화]: /ko-kr/develop/mobile/tutorials/add-paging-to-data-xamarin-android
+  [인증 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-users-xamarin-android
+  [푸시 알림 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-push-xamarin-android

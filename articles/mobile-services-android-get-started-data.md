@@ -105,11 +105,10 @@
 -   [푸시 알림 시작][푸시 알림 시작]
     모바일 서비스를 사용하여 기본적인 푸시 알림을 앱에 보내는 방법을 알아봅니다.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
 
-  [mobile-services-selector-get-started]: ../includes/mobile-services-selector-get-started-data.md
+
   [Android 앱 프로젝트 다운로드]: #download-app
   [모바일 서비스 만들기]: #create-service
   [저장소로 사용할 데이터 테이블 추가]: #add-table
@@ -117,12 +116,6 @@
   [모바일 서비스에 대해 앱 테스트]: #test-app
   [모바일 서비스 Android SDK]: http://go.microsoft.com/fwlink/p/?LinkID=280126
   [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
-  [download-android-sample-code]: ../includes/download-android-sample-code.md
-  [Verify SDK]: ../includes/mobile-services-verify-android-sdk-version.md
-  [mobile-services-android-run-sample-code]: ../includes/mobile-services-android-run-sample-code.md
-  [mobile-services-create-new-service-data]: ../includes/mobile-services-create-new-service-data.md
-  [mobile-services-create-new-service-data-2]: ../includes/mobile-services-create-new-service-data-2.md
-  [mobile-services-android-getting-started-with-data]: ../includes/mobile-services-android-getting-started-with-data.md
   [관리 포털]: https://manage.windowsazure.com/
   [0]: ./media/mobile-services-android-get-started-data/mobile-todoitem-data-browse.png
   [스크립트를 사용하여 데이터 유효성 검사 및 수정]: /ko-kr/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet

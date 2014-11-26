@@ -99,7 +99,6 @@
 
 
 
-  [mobile-services-selector-get-started]: ../includes/mobile-services-selector-get-started-data.md
   [iOS 앱 프로젝트 다운로드]: #download-app
   [모바일 서비스 만들기]: #create-service
   [저장소로 사용할 데이터 테이블 추가]: #add-table
@@ -110,9 +109,6 @@
   [Azure 무료 평가판]: http://www.windowsazure.com/ko-kr/pricing/free-trial/?WT.mc_id=A756A2826&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fko-kr%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-ios%2F
   [GetStartedWithData 앱]: http://go.microsoft.com/fwlink/p/?LinkId=268622
   [0]: ./media/mobile-services-ios-get-started-data/mobile-quickstart-startup-ios.png
-  [mobile-services-create-new-service-data]: ../includes/mobile-services-create-new-service-data.md
-  [mobile-services-create-new-service-data-2]: ../includes/mobile-services-create-new-service-data-2.md
-  [mobile-services-ios-enable-mobile-service-access]: ../includes/mobile-services-ios-enable-mobile-service-access.md
   [관리 포털]: https://manage.windowsazure.com/
   [1]: ./media/mobile-services-ios-get-started-data/mobile-todoitem-data-browse.png
   [스크립트를 사용하여 데이터 유효성 검사 및 수정]: /ko-kr/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet

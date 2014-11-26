@@ -108,14 +108,12 @@
 -   [푸시 알림 시작][푸시 알림 시작]
     기본적인 푸시 알림을 앱에 보내는 방법을 알아봅니다.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
 
-  [mobile-services-selector-get-started]: ../includes/mobile-services-selector-get-started.md
+
   [0]: ./media/mobile-services-android-get-started/mobile-quickstart-completed-android.png
   [Android 개발자 도구]: https://go.microsoft.com/fwLink/p/?LinkID=280125
-  [mobile-services-create-new-service]: ../includes/mobile-services-create-new-service.md
   [1]: ./media/mobile-services-android-get-started/mobile-portal-quickstart-android.png
   [2]: ./media/mobile-services-android-get-started/mobile-quickstart-steps-android.png
   [3]: ./media/mobile-services-android-get-started/mobile-services-import-android-workspace.png

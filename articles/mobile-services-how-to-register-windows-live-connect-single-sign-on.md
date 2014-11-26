@@ -56,9 +56,9 @@
 
 -   기본 인증. 이 방법에서는 다양한 인증 공급자를 지원하며 사용자는 앱을 시작할 때마다 로그인해야 합니다. 자세한 내용은 [인증 시작][인증 시작](영문)을 참조하십시오.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [앱 제출 페이지]: http://go.microsoft.com/fwlink/p/?LinkID=266582
   [0]: ./media/mobile-services-how-to-register-windows-live-connect-single-sign-on/mobile-services-submit-win8-app.png

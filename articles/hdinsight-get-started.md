@@ -1,10 +1,14 @@
-<properties linkid="manage-services-hdinsight-get-started-hdinsight-hadoop" urlDisplayName="Get Started" pageTitle="HDInsight에서 Hadoop 사용 시작 | Azure" metaKeywords="" description="빅 데이터 솔루션인 HDInsight의 Hadoop 사용을 시작하는 방법에 대해 알아봅니다. 또한 클러스터를 프로비전하고 Hive 작업을 실행하고 분석용으로 데이터를 Excel에 내보내는 방법도 살펴봅니다." metaCanonical="" services="hdinsight" documentationCenter="" title="HDInsight에서 Hadoop 사용 시작" authors="nitinme" solutions="big-data" manager="paulettm" editor="cgronlun" />
+<properties linkid="manage-services-hdinsight-get-started-hdinsight-hadoop" urlDisplayName="Get Started" pageTitle="Get started using Hadoop in HDInsight | Azure" metaKeywords="" description="Get started using Hadoop in HDInsight, a big data solution. Learn how to provision clusters, run hive jobs, and output data to Excel for analysis." metaCanonical="" services="hdinsight" documentationCenter="" title="Get started using Hadoop in HDInsight" authors="nitinme" solutions="big-data" manager="paulettm" editor="cgronlun" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/14/2014" ms.author="nitinme" />
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="nitinme" />
 
-# HDInsight에서 Hadoop 시작
+# HDInsight에서 Hadoop 2.4 사용 시작
 
-<!--div class="dev-center-tutorial-selector sublanding"> <a href="../hdinsight-get-started" title="Get started using Hadoop 2.4 in HDInsight" class="current">Hadoop 2.4</a> <a href="../hdinsight-get-started-30" title="Get started using Hadoop 2.2 in HDInsight">Hadoop 2.2</a> <!--a href="../hdinsight-get-started-21" title="Get started using Hadoop 1.2 in HDInsight">Hadoop 1.2</a> </div-->
+<div class="dev-center-tutorial-selector sublanding">
+<a href="../hdinsight-get-started" title="HDInsight에서 Hadoop 2.4 사용 시작" class="current">Hadoop 2.4</a>
+<a href="../hdinsight-get-started-30" title="HDInsight에서 Hadoop 2.2 사용 시작">Hadoop 2.2</a>
+<!--a href="../hdinsight-get-started-21" title="Get started using Hadoop 1.2 in HDInsight">Hadoop 1.2</a-->
+</div>
 
 HDInsight를 통해 더 단순하고 확장 가능하며 비용 효과적인 Azure 환경에서 MapReduce 소프트웨어 프레임워크인 Apache Hadoop을 사용할 수 있습니다. 또한 HDInsight는 Azure Blob 저장소를 사용하여 데이터를 관리 및 저장하는 비용 효과적인 방법을 제공합니다.
 
@@ -41,8 +45,8 @@ Azure HDInsight의 일반적인 가용성과 더불어 Microsoft는 Azure용 HDI
 
 -   [Azure 저장소 계정 만들기][Azure 저장소 계정 만들기]
 -   [HDInsight 클러스터 프로비전][HDInsight 클러스터 프로비전]
--   [포털에서 샘플 실행][포털에서 샘플 실행]
 -   [Hive 작업 실행][Hive 작업 실행]
+-   [Microsoft 비즈니스 인텔리전스 도구에 연결][Microsoft 비즈니스 인텔리전스 도구에 연결]
 -   [다음 단계][다음 단계]
 
 ## <a name="storage"></a>Azure 저장소 계정 만들기
@@ -75,9 +79,7 @@ HDInsight 클러스터를 프로비전할 때 Azure 저장소 계정을 지정�
 
 ## <a name="provision"></a>HDInsight 클러스터 프로비전
 
-HDInsight 클러스터를 프로비전할 때는 Hadoop과 관련 응용 프로그램을 포함하는 Azure 계산 리소스를 프로비전합니다. 이 섹션에서는 Hadoop 버전 2.4를 기반으로 하는 HDInsight 클러스터 버전 3.1을 프로비전합니다. Azure 포털, HDInsight PowerShell cmdlet 또는 HDInsight .NET SDK를 사용하여 다른 버전용 Hadoop 클러스터를 만들 수도 있습니다. 지침에 대해서는 [사용자 지정 옵션을 사용하여 HDInsight 클러스터 프로비전][사용자 지정 옵션을 사용하여 HDInsight 클러스터 프로비전]을 참조하세요. 여러 다른 HDInsight 버전 및 해당 SLA에 대한 [HDInsight 구성 요소 버전 관리][HDInsight 구성 요소 버전 관리] 페이지를 참조하세요.
-
-[WACOM.INCLUDE [provisioningnote](../includes/hdinsight-provisioning.md)]
+HDInsight 클러스터를 프로비전할 때는 Hadoop과 관련 응용 프로그램을 포함하는 Azure 계산 리소스를 프로비전합니다. 이 섹션에서는 Hadoop 버전 2.4를 기반으로 하는 HDInsight 클러스터 버전 3.1을 프로비전합니다. Hadoop 버전 2.2를 사용하여 HDInsight 클러스터를 프로비전하려면 이 문서 맨 앞에 나오는 특정 버전 탭을 클릭하세요. HDInsight PowerShell cmdlet 또는 HDInsight .NET SDK를 사용하여 다른 버전용 Hadoop 클러스터를 만들 수도 있습니다. 지침에 대해서는 [사용자 지정 옵션을 사용하여 HDInsight 클러스터 프로비전][사용자 지정 옵션을 사용하여 HDInsight 클러스터 프로비전]을 참조하세요. 여러 다른 HDInsight 버전 및 해당 SLA에 대한 [HDInsight 구성 요소 버전 관리][HDInsight 구성 요소 버전 관리] 페이지를 참조하세요.
 
 **HDInsight 클러스터를 프로비전하려면**
 
@@ -93,13 +95,18 @@ HDInsight 클러스터를 프로비전할 때는 Hadoop과 관련 응용 프로�
 
 4.  다음 값을 입력하거나 선택합니다.
 
-    | 이름          | 값                                                                                                                                                                                                                                                                                                                                                                                |
-    |---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    | 클러스터 이름 | 클러스터의 이름입니다.                                                                                                                                                                                                                                                                                                                                                            |
-    | 클러스터 크기 | 배포하려는 데이터 노드 수입니다. 기본값은 4개입니다. 그러나 드롭다운 메뉴에서 1 또는 2개의 데이터 노드를 사용하는 옵션을 사용할 수도 있습니다. **사용자 지정 만들기** 옵션을 사용하면 클러스터 노드 수를 임의로 지정할 수 있습니다. 다양한 클러스터 크기의 청구 요금에 대한 가격 책정 정보를 사용할 수 있습니다. 드롭다운 상자 위의 **?** 기호를 클릭하고 팝업의 링크를 따르세요. |
-    | 암호          | *admin* 계정의 암호입니다. **사용자 지정 만들기** 옵션을 사용하지 않을 때는 클러스터 사용자 이름 "admin"이 지정됩니다. 이 계정은 클러스터가 프로비전되는 VM에 대한 Windows 관리자 계정이 아닙니다. 계정 이름은 **사용자 지정 만들기** 마법사를 사용하여 변경할 수 있습니다.                                                                                                       |
-    | 저장소 계정   | 드롭다운 상자에서 직접 만든 저장소 계정을 선택합니다.                                                                                                                                                                                                                                                                                                                             
-                      저장소 계정을 선택한 후에는 변경할 수 없습니다. 저장소 계정을 제거하면 더 이상 클러스터를 사용할 수 없습니다. HDInsight 클러스터는 저장소 계정이 있는 동일한 데이터 센터에 배치됩니다.                                                                                                                                                                                            |
+	<table border="1">
+	<tr><th>이름</th><th>값</th></tr>
+	<tr><td>클러스터 이름</td><td>클러스터의 이름입니다.</td></tr>
+	<tr><td>클러스터 크기</td><td>배포하려는 데이터 노드 수입니다. 기본값은 4개입니다. 그러나 드롭다운 메뉴에서 1 또는 2개의 데이터 노드를 사용하는 옵션을 사용할 수도 있습니다. <strong>사용자 지정 만들기</strong> 옵션을 사용하는 경우 데이터 노드 수를 임의로 지정할 수 있습니다. 다양한 클러스터 크기의 청구 요금에 대한 가격 책정 정보를 사용할 수 있습니다. 드롭다운 상자 위의 <strong>?</strong> 기호를 클릭하고 팝업의 링크를 따르세요.</td></tr>
+	<tr><td>암호</td><td><i>admin</i> 계정의 암호입니다. 사용자 지정 만들기 옵션을 사용하지 않을 때는 클러스터 사용자 이름 &quot;admin&quot;이 지정됩니다. 이 계정은 클러스터가 프로비전되는 VM에 대한 Windows 관리자 계정이 아닙니다. 계정 이름은 <strong>사용자 지정 만들기</strong> 마법사를 사용하여 변경할 수 있습니다.</td></tr>
+	<tr><td>저장소 계정</td><td>드롭다운 상자에서 직접 만든 저장소 계정을 선택합니다. <br/>
+	
+	저장소 계정을 선택한 후에는 변경할 수 없습니다. 저장소 계정을 제거하면 더 이상 클러스터를 사용할 수 없습니다.
+	
+	HDInsight 클러스터는 저장소 계정이 있는 동일한 데이터 센터에 배치됩니다.
+	</td></tr>
+	</table>
 
     클러스터 이름을 복사해 둡니다. 이 이름은 자습서의 뒷부분에서 필요합니다.
 
@@ -107,18 +114,7 @@ HDInsight 클러스터를 프로비전할 때는 Hadoop과 관련 응용 프로�
 
     > [WACOM.NOTE] 위의 절차에서는 HDInsight 클러스터 버전 3.1을 사용하여 클러스터를 만듭니다. 다른 클러스터 버전을 만들려면 관리 포털에서 사용자 지정 만들기 방법을 사용하거나 Azure PowerShell을 사용합니다. 각 클러스터 버전 간 차이에 대한 자세한 내용은 [HDInsight에서 제공하는 클러스터 버전의 새로운 기능][HDInsight에서 제공하는 클러스터 버전의 새로운 기능](영문)을 참조하세요. **사용자 지정 만들기** 옵션 사용에 대한 자세한 내용은 [사용자 지정 옵션을 사용하여 HDInsight 클러스터 프로비전][사용자 지정 옵션을 사용하여 HDInsight 클러스터 프로비전]을 참조하세요.
 
-## <a name="sample"></a>포털에서 샘플 실행
-
-올바르게 프로비전된 HDInsight 클러스터는 포털에서 샘플을 직접 실행하기 위한 쿼리 콘솔을 제공합니다. 샘플을 통해 몇 가지 기본 시나리오를 단계별로 수행하여 HDInsight를 사용하는 방법을 익힐 수 있습니다. 이러한 샘플에는 분석할 데이터, 데이터에 대해 실행할 쿼리 등의 필요한 구성 요소가 모두 함께 제공됩니다.
-
-**샘플을 실행하려면** Azure 관리 포털에서 샘플을 실행할 클러스터 이름을 클릭한 다음 페이지 아래쪽에서 **쿼리 콘솔**을 클릭합니다. 그러면 열리는 웹 페이지에서 **시작 갤러리** 탭을 클릭하고 **샘플** 범주에서 실행할 샘플을 클릭합니다. 그런 다음 웹 페이지의 지침에 따라 샘플을 완료합니다. 각 샘플에서 수행하는 작업에 대해 자세히 알아보려면 아래 링크를 클릭하세요.
-
-| 샘플                    | 수행하는 작업                                                                                                                                                                             |
-|-------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [센서 데이터 분석][센서 데이터 분석]    | HDInsight를 사용하여 HVAC(공기조화 냉난방) 시스템에서 생성하는 기록 데이터를 처리해 설정된 온도를 안정적으로 유지할 수 없는 시스템을 식별하는 방법에 대해 알아봅니다.                     |
-| [웹 사이트 로그 분석][웹 사이트 로그 분석] | HDInsight를 사용하여 웹 사이트 로그 파일을 분석해 외부 웹 사이트로부터의 일일 웹 사이트 방문 빈도를 파악하고 사용자에게 발생하는 웹 사이트 오류의 요약을 확인하는 방법에 대해 알아봅니다. |
-
-## <a name="hivequery"></a>포털에서 HIVE 쿼리 실행
+## <a name="sample"></a>Hive 작업 실행
 
 HDInsight 클러스터를 프로비전헀으므로 다음 단계는 Hive 작업을 실행하여 HDInsight 클러스터와 함께 제공되는 샘플 Hive 테이블인 *hivesampletable*을 쿼리하는 것입니다. 이 테이블에는 모바일 장치 제조업체, 플랫폼 및 모델에 대한 데이터가 들어 있습니다. 이 테이블을 쿼리하여 특정 제조업체별로 모바일 장치의 데이터를 검색합니다.
 
@@ -126,7 +122,7 @@ HDInsight 클러스터를 프로비전헀으므로 다음 단계는 Hive 작업�
 
 1.  [Azure 관리 포털][Azure 관리 포털]에 로그인합니다.
 2.  왼쪽 창에서 **HDINSIGHT**를 클릭합니다. 마지막 섹션에서 방금 만든 클러스터를 비롯하여 만들어진 클러스터의 목록이 표시됩니다.
-3.  Hive 작업을 실행할 클러스터 이름을 클릭하고 페이지 아래쪽에서 **쿼리 콘솔**을 클릭합니다.
+3.  Hive 작업을 실행할 클러스터 이름을 클릭하고 페이지 아래쪽에서 **클러스터 관리**를 클릭합니다.
 4.  다른 브라우저 탭에서 웹 페이지가 열립니다. Hadoop 사용자 계정과 암호를 입력합니다. 기본 사용자 이름은 **admin**이고 암호는 클러스터를 프로비전하는 동안 입력한 암호입니다. 대시보드는 다음과 유사하게 표시됩니다.
 
     ![hdi.dashboard][hdi.dashboard]
@@ -163,11 +159,11 @@ HDInsight 클러스터를 프로비전헀으므로 다음 단계는 Hive 작업�
 
 1.  클러스터 대시보드에서 맨 위에 있는 **파일 브라우저**를 클릭합니다.
 2.  저장소 계정 이름을 클릭하고 컨테이너 이름(클러스터 이름과 동일)을 클릭한 후 **사용자**를 클릭합니다.
-3.  **admin**을 클릭하고 마지막으로 수정한 시간이 앞서 기록한 작업 시작 시간보다 약간 나중인 GUID를 클릭합니다. 이 GUID를 기록해 둡니다. 다음 섹션에서 필요합니다.
+3.  admin을 클릭하고 마지막으로 수정한 시간이 앞서 기록한 작업 시작 시간보다 약간 나중인 GUID 번호를 클릭합니다. 이 GUID를 기록해 둡니다. 다음 섹션에서 필요합니다.
 
     ![hdi.dashboard.query.browse.output][hdi.dashboard.query.browse.output]
 
-### <a name="powerquery"></a>Microsoft 비즈니스 인텔리전스 도구에 연결
+## <a name="powerquery"></a>Microsoft 비즈니스 인텔리전스 도구에 연결
 
 Microsoft Excel용 파워 쿼리 추가 기능을 사용하여 HDInsight의 작업 출력을 Excel로 내보낼 수 있습니다. 그런 다음 Microsoft BI(비즈니스 인텔리전스) 도구를 사용하여 결과를 추가적으로 분석할 수 있습니다.
 
@@ -188,7 +184,7 @@ Microsoft Excel용 파워 쿼리 추가 기능을 사용하여 HDInsight의 작�
 4.  Azure Blob 저장소 계정의 **계정 키**를 입력하고 **저장**을 클릭합니다.
 5.  오른쪽의 탐색 창에서 Blob 저장소 컨테이너 이름을 두 번 클릭합니다. 기본적으로 컨테이너 이름은 클러스터 이름과 같습니다.
 
-6.  **이름** 열에서 **stdout**을 찾습니다. 해당 **폴더 경로** 열의 GUID가 이전에 적어둔 GUID와 일치하는지 확인합니다. 두 GUID가 일치하는 경우 출력 데이터가 제출한 작업에 해당하는 것입니다. **stdout** 왼쪽의 **이진**을 클릭합니다.
+6.  **이름** 열에서 **stdout**을 찾습니다. 해당 폴더 경로 열의 GUID가 이전에 적어둔 GUID와 일치하는지 확인합니다. **stdout** 왼쪽의 **이진**을 클릭합니다.
 
     ![HDI.GettingStarted.PowerQuery.ImportData2][HDI.GettingStarted.PowerQuery.ImportData2]
 
@@ -213,7 +209,7 @@ Microsoft Excel용 파워 쿼리 추가 기능을 사용하여 HDInsight의 작�
   [MapReduce]: http://go.microsoft.com/fwlink/?LinkId=510086
   [HDFS]: http://go.microsoft.com/fwlink/?LinkId=510087
   [Hive]: http://go.microsoft.com/fwlink/?LinkId=510085
-  [HDInsight의 Hadoop 소개]: ../hdinsight-hadoop-introduction/
+  [HDInsight의 Hadoop 소개]: ../hdinsight-introduction/
   [HDInsight Emulator 시작]: ../hdinsight-get-started-emulator/
   [HDInsight에서 HBase 클러스터 프로비전]: http://azure.microsoft.com/ko-kr/documentation/articles/hdinsight-hbase-get-started/
   [Hadoop와 HBase 간 차이점]: http://go.microsoft.com/fwlink/?LinkId=510237
@@ -223,8 +219,8 @@ Microsoft Excel용 파워 쿼리 추가 기능을 사용하여 HDInsight의 작�
   [무료 평가판]: http://azure.microsoft.com/ko-kr/pricing/free-trial/
   [Azure 저장소 계정 만들기]: #storage
   [HDInsight 클러스터 프로비전]: #provision
-  [포털에서 샘플 실행]: #sample
-  [Hive 작업 실행]: #hivequery
+  [Hive 작업 실행]: #sample
+  [Microsoft 비즈니스 인텔리전스 도구에 연결]: #powerquery
   [다음 단계]: #nextsteps
   [HDInsight에서 Azure Blob 저장소 사용]: ../hdinsight-use-blob-storage/
   [사용자 지정 옵션을 사용하여 HDInsight 클러스터 프로비전]: ../hdinsight-provision-clusters/
@@ -235,8 +231,6 @@ Microsoft Excel용 파워 쿼리 추가 기능을 사용하여 HDInsight의 작�
   [HDI.ClusterStatus]: ./media/hdinsight-get-started/HDI.ClusterStatus.png
   [HDI.QuickCreateCluster]: ./media/hdinsight-get-started/HDI.QuickCreateCluster.png
   [HDInsight에서 제공하는 클러스터 버전의 새로운 기능]: ../hdinsight-component-versioning/
-  [센서 데이터 분석]: ../hdinsight-hive-analyze-sensor-data/
-  [웹 사이트 로그 분석]: ../hdinsight-hive-analyze-website-log/
   [hdi.dashboard]: ./media/hdinsight-get-started/HDI.dashboard.png
   [hdi.dashboard.query.select]: ./media/hdinsight-get-started/HDI.dashboard.query.select.png
   [hdi.dashboard.query.select.result]: ./media/hdinsight-get-started/HDI.dashboard.query.select.result.png

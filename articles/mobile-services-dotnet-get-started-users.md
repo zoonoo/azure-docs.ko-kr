@@ -3,7 +3,7 @@
 모바일 서비스에서 인증 시작
 ===========================
 
-[Windows 스토어 C\#](/en-us/develop/mobile/tutorials/get-started-with-users-dotnet "Windows 스토어 C#")[Windows 스토어 JavaScript](/en-us/develop/mobile/tutorials/get-started-with-users-js "Windows 스토어 JavaScript")[Windows Phone](/en-us/develop/mobile/tutorials/get-started-with-users-wp8 "Windows Phone")[iOS](/en-us/develop/mobile/tutorials/get-started-with-users-ios "iOS")[Android](/en-us/develop/mobile/tutorials/get-started-with-users-android "Android")[HTML](/en-us/develop/mobile/tutorials/get-started-with-users-html "HTML")[Xamarin.iOS](/en-us/develop/mobile/tutorials/get-started-with-users-xamarin-ios "Xamarin.iOS")[Xamarin.Android](/en-us/develop/mobile/tutorials/get-started-with-users-xamarin-android "Xamarin.Android")
+[Windows 스토어 C\#](/ko-kr/develop/mobile/tutorials/get-started-with-users-dotnet "Windows 스토어 C#")[Windows 스토어 JavaScript](/ko-kr/develop/mobile/tutorials/get-started-with-users-js "Windows 스토어 JavaScript")[Windows Phone](/ko-kr/develop/mobile/tutorials/get-started-with-users-wp8 "Windows Phone")[iOS](/ko-kr/develop/mobile/tutorials/get-started-with-users-ios "iOS")[Android](/ko-kr/develop/mobile/tutorials/get-started-with-users-android "Android")[HTML](/ko-kr/develop/mobile/tutorials/get-started-with-users-html "HTML")[Xamarin.iOS](/ko-kr/develop/mobile/tutorials/get-started-with-users-xamarin-ios "Xamarin.iOS")[Xamarin.Android](/ko-kr/develop/mobile/tutorials/get-started-with-users-xamarin-android "Xamarin.Android")
 
 이 토픽은 앱에서 Azure 모바일 서비스의 사용자를 인증하는 방법을 보여 줍니다. 이 자습서에서는 모바일 서비스가 지원하는 ID 공급자를 사용하여 빠른 시작 프로젝트에 인증을 추가합니다. 모바일 서비스에서 인증되고 권한이 부여된 후 사용자 ID 값이 표시됩니다.
 
@@ -17,11 +17,11 @@
 2.  [테이블 사용 권한을 인증된 사용자로 제한](#permissions)
 3.  [앱에 인증 추가](#add-authentication)
 
-이 자습서는 모바일 서비스 빠른 시작을 기반으로 합니다. 먼저 [모바일 서비스 시작](/en-us/develop/mobile/tutorials/get-started) 자습서를 완료해야 합니다.
+이 자습서는 모바일 서비스 빠른 시작을 기반으로 합니다. 먼저 [모바일 서비스 시작](/ko-kr/develop/mobile/tutorials/get-started) 자습서를 완료해야 합니다.
 
 **참고**
 
-이 자습서는 다양한 ID 공급자를 통해 사용자를 인증하기 위해 모바일 서비스에서 제공하는 기본 방법을 보여 줍니다. 이 방법은 구성이 용이하며 여러 공급자를 지원합니다. 그러나 이 방법을 사용하는 경우 앱이 시작될 때마다 사용자가 로그인해야 합니다. 대신 Live Connect를 사용하여 Windows 스토어 앱에서 Single Sign-On을 제공하려면 [Live Connect를 사용한 Windows 스토어 앱의 Single Sign-On](/en-us/develop/mobile/tutorials/single-sign-on-windows-8-dotnet) 토픽을 참조하십시오.
+이 자습서는 다양한 ID 공급자를 통해 사용자를 인증하기 위해 모바일 서비스에서 제공하는 기본 방법을 보여 줍니다. 이 방법은 구성이 용이하며 여러 공급자를 지원합니다. 그러나 이 방법을 사용하는 경우 앱이 시작될 때마다 사용자가 로그인해야 합니다. 대신 Live Connect를 사용하여 Windows 스토어 앱에서 Single Sign-On을 제공하려면 [Live Connect를 사용한 Windows 스토어 앱의 Single Sign-On](/ko-kr/develop/mobile/tutorials/single-sign-on-windows-8-dotnet) 토픽을 참조하십시오.
 
 앱 등록인증을 위해 앱 등록 및 모바일 서비스 구성
 ------------------------------------------------
@@ -40,10 +40,10 @@
 
 3.  아래 목록에서 지원되는 ID 공급자를 선택하고 해당 공급자에 앱을 등록하는 단계를 따릅니다.
 
--   [Microsoft 계정](/en-us/develop/mobile/how-to-guides/register-for-microsoft-authentication/)
--   [Facebook 로그인](/en-us/develop/mobile/how-to-guides/register-for-facebook-authentication/)
--   [Twitter 로그인](/en-us/develop/mobile/how-to-guides/register-for-twitter-authentication/)
--   [Google 로그인](/en-us/develop/mobile/how-to-guides/register-for-google-authentication/)
+-   [Microsoft 계정](/ko-kr/develop/mobile/how-to-guides/register-for-microsoft-authentication/)
+-   [Facebook 로그인](/ko-kr/develop/mobile/how-to-guides/register-for-facebook-authentication/)
+-   [Twitter 로그인](/ko-kr/develop/mobile/how-to-guides/register-for-twitter-authentication/)
+-   [Google 로그인](/ko-kr/develop/mobile/how-to-guides/register-for-google-authentication/)
 -   [Azure Active Directory](/ko-kr/documentation/articles/mobile-services-how-to-register-active-directory-authentication/)
 
     공급자가 생성한 클라이언트 ID 및 암호 값을 기록해 두어야 합니다.
@@ -56,7 +56,7 @@
 
 	![][13]
 
-5.  (옵션) [Microsoft 인증을 위해 Windows 스토어 앱 패키지 등록](/en-us/develop/mobile/how-to-guides/register-windows-store-app-package)의 단계를 완료합니다.
+5.  (옵션) [Microsoft 인증을 위해 Windows 스토어 앱 패키지 등록](/ko-kr/develop/mobile/how-to-guides/register-windows-store-app-package)의 단계를 완료합니다.
 
     **참고**
 
@@ -75,7 +75,7 @@
 
 	![][15]
 
-3.  Visual Studio 2012 Express for Windows 8에서 [모바일 서비스 시작](/en-us/develop/mobile/tutorials/get-started) 자습서를 완료할 때 만든 프로젝트를 엽니다.
+3.  Visual Studio 2012 Express for Windows 8에서 [모바일 서비스 시작](/ko-kr/develop/mobile/tutorials/get-started) 자습서를 완료할 때 만든 프로젝트를 엽니다.
 
 4.  F5 키를 눌러 이 빠른 시작 기반 앱을 실행합니다. 앱이 시작된 후 상태 코드 401(인증되지 않음)의 처리되지 않은 예외가 발생하는지 확인합니다.
 
@@ -137,17 +137,17 @@
 다음 단계
 ---------
 
-다음 자습서인 [스크립트를 통해 사용자 권한 부여](/en-us/develop/mobile/tutorials/authorize-users-in-scripts-dotnet)에서는 인증된 사용자를 기준으로 모바일 서비스에서 제공한 사용자 ID 값을 가져와 모바일 서비스에서 반환된 데이터를 필터링하는 데 사용합니다. .NET과 함께 모바일 서비스를 사용하는 방법에 대한 자세한 내용은 [모바일 서비스 .NET 방법 개념 참조](/en-us/develop/mobile/how-to-guides/work-with-net-client-library)를 참조하십시오.
+다음 자습서인 [스크립트를 통해 사용자 권한 부여](/ko-kr/develop/mobile/tutorials/authorize-users-in-scripts-dotnet)에서는 인증된 사용자를 기준으로 모바일 서비스에서 제공한 사용자 ID 값을 가져와 모바일 서비스에서 반환된 데이터를 필터링하는 데 사용합니다. .NET과 함께 모바일 서비스를 사용하는 방법에 대한 자세한 내용은 [모바일 서비스 .NET 방법 개념 참조](/ko-kr/develop/mobile/how-to-guides/work-with-net-client-library)를 참조하십시오.
 
 
 
-<!-- Anchors. -->
+
 [인증을 위해 앱 등록 및 모바일 서비스 구성]: #register
 [테이블 사용 권한을 인증된 사용자로 제한]: #permissions
 [앱에 인증 추가]: #add-authentication
 [다음 단계]:#next-steps
 
-<!-- Images. -->
+
 
 
 
@@ -166,18 +166,18 @@
 [15]: ./media/mobile-services-dotnet-get-started-users/mobile-portal-change-table-perms.png
 
 
-<!-- URLs. -->
+
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 [Single sign-on for Windows Store apps by using Live Connect]: ./mobile-services-single-sign-on-win8-dotnet.md
-[Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started
-[Get started with data]: /en-us/develop/mobile/tutorials/get-started-with-data-dotnet
-[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet
-[Get started with push notifications]: /en-us/develop/mobile/tutorials/get-started-with-push-dotnet
-[Authorize users with scripts]: /en-us/develop/mobile/tutorials/authorize-users-in-scripts-dotnet
-[JavaScript and HTML]: /en-us/develop/mobile/tutorials/get-started-with-users-js
+[Get started with Mobile Services]: /ko-kr/develop/mobile/tutorials/get-started
+[Get started with data]: /ko-kr/develop/mobile/tutorials/get-started-with-data-dotnet
+[Get started with authentication]: /ko-kr/develop/mobile/tutorials/get-started-with-users-dotnet
+[Get started with push notifications]: /ko-kr/develop/mobile/tutorials/get-started-with-push-dotnet
+[Authorize users with scripts]: /ko-kr/develop/mobile/tutorials/authorize-users-in-scripts-dotnet
+[JavaScript and HTML]: /ko-kr/develop/mobile/tutorials/get-started-with-users-js
 
 [Azure Management Portal]: https://manage.windowsazure.com/
-[Mobile Services .NET How-to Conceptual Reference]: /en-us/develop/mobile/how-to-guides/work-with-net-client-library
-[Register your Windows Store app package for Microsoft authentication]: /en-us/develop/mobile/how-to-guides/register-windows-store-app-package
+[Mobile Services .NET How-to Conceptual Reference]: /ko-kr/develop/mobile/how-to-guides/work-with-net-client-library
+[Register your Windows Store app package for Microsoft authentication]: /ko-kr/develop/mobile/how-to-guides/register-windows-store-app-package

@@ -1,10 +1,10 @@
 다음 단계에 따라 새 모바일 서비스를 만드세요.
 
-1.  [관리 포털][]에 로그인합니다.
+1.  [관리 포털][관리 포털]에 로그인합니다.
 
 2.  탐색 창 맨 아래쪽에서 **+새로 만들기**를 클릭합니다.
 
-    ![][]
+    ![][0]
 
 3.  **계산**, **모바일 서비스**를 확장한 후 **만들기**를 클릭합니다.
 
@@ -33,10 +33,10 @@
 
 이제 모바일 앱에 사용할 수 있는 새 모바일 서비스를 만들었습니다.
 
-<!-- URLs. -->
+
 
   [관리 포털]: https://manage.windowsazure.com/
-  []: ./media/mobile-services-dotnet-backend-create-new-service/plus-new.png
+  [0]: ./media/mobile-services-dotnet-backend-create-new-service/plus-new.png
   [1]: ./media/mobile-services-dotnet-backend-create-new-service/mobile-create.png
   [2]: ./media/mobile-services-dotnet-backend-create-new-service/mobile-create-page1.png
   [3]: ./media/mobile-services-dotnet-backend-create-new-service/mobile-create-page2.png

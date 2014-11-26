@@ -122,12 +122,10 @@
 
 
 
-  [mobile-services-selector-get-started]: ../includes/mobile-services-selector-get-started.md
   [자습서 보기]: http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Getting-Started-with-Xamarin-and-Windows-Azure-Mobile-Services
   [0]: ./media/partner-xamarin-mobile-services-android-get-started/mobile-quickstart-completed-android.png
   [Xamarin.Android]: http://xamarin.com/download
   [Azure 무료 평가판]: http://www.windowsazure.com/ko-kr/pricing/free-trial/?WT.mc_id=A9C9624B5
-  [mobile-services-create-new-service]: ../includes/mobile-services-create-new-service.md
   [1]: ./media/partner-xamarin-mobile-services-android-get-started/mobile-portal-quickstart-xamarin-android.png
   [2]: ./media/partner-xamarin-mobile-services-android-get-started/mobile-quickstart-steps-xamarin-android.png
   [3]: ./media/partner-xamarin-mobile-services-android-get-started/mobile-xamarin-project-android-xs.png

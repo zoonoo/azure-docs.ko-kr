@@ -1,4 +1,4 @@
-<properties title="SQL 데이터베이스 감사 시작" pageTitle="SQL 데이터베이스 감사 시작 | Azure" description="SQL 데이터베이스 감사 시작" metaKeywords="" services="sql-database" solutions="data-management" documentationCenter="" authors="jeffreyg" videoId="" scriptId="" manager="jeffreyg" />
+<properties title="Get started with SQL database auditing" pageTitle="Get started with SQL database auditing | Azure" description="Get started with SQL database auditing" metaKeywords="" services="sql-database" solutions="data-management" documentationCenter="" authors="jeffreyg" videoId="" scriptId=""  />
 
 <tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jeffreyg" />
 
@@ -45,28 +45,29 @@ Azure Preview 포털에서 감사를 설정합니다. 이때 Azure SQL 데이터
 ## <span id="subheading-2"></span></a>데이터베이스에 대한 감사 설정
 
 1.  [감사 미리 보기에 등록합니다][미리 보기를 등록].
-2.  https://portal.azure.com에서 [Azure 미리 보기 포털][Azure 미리 보기 포털]을 시작합니다.
-3.  감사할 데이터베이스를 클릭하고 **감사 미리 보기**를 클릭하여 감사 미리 보기를 사용하도록 설정하고 감사 구성 블레이드를 시작합니다.
+2.  [새 서비스 계층 미리 보기에 등록][새 서비스 계층 미리 보기에 등록]하고 Basic, Standard 또는 Premium 데이터베이스도 만들어야 합니다.
+3.  <https://portal.azure.com>에서 [Azure 미리 보기 포털][Azure 미리 보기 포털]을 시작합니다.
+4.  감사할 데이터베이스를 클릭하고 **감사 미리 보기**를 클릭하여 감사 미리 보기를 사용하도록 설정하고 감사 구성 블레이드를 시작합니다.
 
     ![][0]
 
-4.  감사 구성 브레이드에서 로그가 저장될 Azure 저장소 계정을 선택합니다. **팁:** 감사되는 모든 데이터베이스에 대해 동일한 저장소 계정을 사용하여 미리 구성된 보고서 템플릿을 활용합니다.
+5.  감사 구성 브레이드에서 로그가 저장될 Azure 저장소 계정을 선택합니다. **팁:** 감사되는 모든 데이터베이스에 대해 동일한 저장소 계정을 사용하여 미리 구성된 보고서 템플릿을 활용합니다.
 
     ![][1]
 
-5.  **감사 옵션**에서 **모두**를 클릭하여 모든 이벤트를 로깅하거나 개별 이벤트 유형을 선택합니다.
+6.  **감사 옵션**에서 **모두**를 클릭하여 모든 이벤트를 로깅하거나 개별 이벤트 유형을 선택합니다.
 
     ![][2]
 
-6.  이러한 설정을 서버의 모든 향후 데이터베이스와 감사를 아직 설정하지 않은 모든 데이터베이스에 적용하려면 **Save this Configuration as Default(이 구성을 기본값으로 저장)**를 선택합니다. 나중에 다음과 동일한 단계를 수행하여 각 데이터베이스에 대한 설정을 재정의할 수 있습니다.
+7.  이러한 설정을 서버의 모든 향후 데이터베이스와 감사를 아직 설정하지 않은 모든 데이터베이스에 적용하려면 **Save this Configuration as Default(이 구성을 기본값으로 저장)**를 선택합니다. 나중에 다음과 동일한 단계를 수행하여 각 데이터베이스에 대한 설정을 재정의할 수 있습니다.
 
     ![][3]
 
-7.  **데이터베이스 연결 문자열 표시**를 클릭하고 응용 프로그램에 대한 해당 보안 지원 연결 문자열을 복사하거나 적어둡니다. 해당 활동을 감사하려는 클라이언트 응용 프로그램에 대해 이 문자열을 사용합니다.
+8.  **데이터베이스 연결 문자열 표시**를 클릭하고 응용 프로그램에 대한 해당 보안 지원 연결 문자열을 복사하거나 적어둡니다. 해당 활동을 감사하려는 클라이언트 응용 프로그램에 대해 이 문자열을 사용합니다.
 
     ![][4]
 
-8.  **확인**을 클릭합니다.
+9.  **확인**을 클릭합니다.
 
 ## <span id="subheading-3"></span>감사 로그 및 보고서 분석</a>
 
@@ -80,14 +81,16 @@ Azure Preview 포털에서 감사를 설정합니다. 이때 Azure SQL 데이터
 
 ![][5]
 
-<!--Anchors--> <!--Image references--> <!--Link references-->
+<!--Anchors--> 
+<!--Image references--> 
+<!--Link references-->
 
   [미리 보기를 등록]: http://go.microsoft.com/fwlink/?LinkId=404163
   [Azure 보안 센터]: http://azure.microsoft.com/ko-kr/support/trust-center/compliance/
   [Azure SQL 데이터베이스 감사 기본 사항]: #subheading-1
   [데이터베이스에 대한 감사 설정]: #subheading-2
   [감사 로그 및 보고서 분석]: #subheading-3
-  [감사 로그 형식 참조(doc 파일 다운로드)]: http://go.microsoft.com/fwlink/?LinkId=506733
+  [새 서비스 계층 미리 보기에 등록]: https://account.windowsazure.com/PreviewFeatures?fid=premiumdb
   [Azure 미리 보기 포털]: https://portal.azure.com
   [0]: ./media/sql-database-auditing-get-started/sql-database-get-started-auditingpreview.png
   [1]: ./media/sql-database-auditing-get-started/sql-database-get-started-storageaccount.png
@@ -97,5 +100,4 @@ Azure Preview 포털에서 감사를 설정합니다. 이때 Azure SQL 데이터
   [Azure 저장소 탐색기]: http://azurestorageexplorer.codeplex.com/
   [다운로드 가능 Excel 스프레드시트]: http://go.microsoft.com/fwlink/?LinkId=403540
   [여기]: http://www.microsoft.com/ko-kr/download/details.aspx?id=39379
-  [방법(doc 다운로드)]: http://go.microsoft.com/fwlink/?LinkId=506731
   [5]: ./media/sql-database-auditing-get-started/sql-database-auditing-dashboard.png

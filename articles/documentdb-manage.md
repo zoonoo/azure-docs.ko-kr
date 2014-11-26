@@ -1,6 +1,6 @@
 <properties title="Manage DocumentDB capacity and performance" pageTitle="Manage DocumentDB capacity and performance | Azure" description="Learn how you can elastically scale DocumentDB to meet the performance and storage needs of your application." metaKeywords="" services="documentdb" solutions="data-management"  authors="bradsev" manager="jhubbard" editor="cgronlun"  videoId="" scriptId="" />
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="bradsev"></tags>
+<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="bradsev" />
 
 # DocumentDB 용량 및 성능 관리
 
@@ -58,7 +58,7 @@ SSD 지원 문서 저장소 및 처리량의 누적형 단위를 CU(용량 단�
 
 응용 프로그램에 대한 정확한 요청 단위 수를 구하기 위해 다양한 작업에 사용된 요청 단위 계산에 요청 단위 계산기를 사용할 수 있습니다. 지정된 요청에 사용된 요청 단위 수가 포함된 x-ms-request-charge 응답 헤더를 검사할 수도 있습니다.
 
-[요청 단위 계산기][]
+[요청 단위 계산기][요청 단위 계산기]
 
 # 컬렉션 및 프로비전된 처리량
 
@@ -71,7 +71,7 @@ SSD 지원 문서 저장소 및 처리량의 누적형 단위를 CU(용량 단�
 -   세션 및 최종 일관성 수준은 대략 문서 읽기 요청 2000개와 문서 삽입/바꾸기/삭제 500개를 제공합니다.
 -   강력 및 제한된 부실 일관성 수준은 대략 문서 읽기 요청 1200개와 문서 삽입/바꾸기/삭제 500개를 제공합니다. 제한된 부실을 사용한 삽입/바꾸기/삭제는 대기 시간이 강력보다 훨씬 더 짧습니다.
 
-[요청 단위 계산기][]
+[요청 단위 계산기][요청 단위 계산기]
 
 # 프로비전된 문서 저장소 및 인덱스 오버헤드
 
@@ -79,6 +79,6 @@ SSD 지원 문서 저장소 및 처리량의 누적형 단위를 CU(용량 단�
 
 기본적으로 모든 문서가 DocumentDB에서 자동으로 인덱싱됩니다. 그러나 인덱스 오버헤드를 미세 조정하려는 경우 문서를 삽입하거나 바꿀 때 특정 문서가 인덱싱되지 않도록 제거할 수 있습니다. 컬렉션 내의 모든 문서를 인덱싱에서 제외하도록 DocumentDB 컬렉션을 구성할 수 있습니다. JSON 문서의 와일드카드가 있는 특정 속성이나 경로만 선택적으로 인덱싱하도록 DocumentDB 컬렉션을 구성할 수도 있습니다. 속성이나 문서를 제외하면 쓰기 처리량도 향상되므로 사용하는 요청 단위가 줄어듭니다.
 
-[요청 단위 계산기][]
+[요청 단위 계산기][요청 단위 계산기]
 
   [요청 단위 계산기]: http://go.microsoft.com/fwlink/?LinkID=510088

@@ -102,21 +102,17 @@ A 레코드를 만들면 Azure 웹 사이트에서 특수 CNAME 레코드도 필
 
 ## 웹 사이트에서 도메인 이름 사용
 
-[WACOM.INCLUDE [modes][2]]
+[WACOM.INCLUDE [modes](../includes/custom-dns-web-site-modes.md)]
 
-<!-- Anchors. --> <!-- Images -->
+ <!-- Images -->
 
-  [websites-cloud-services-css-guided-walkthrough]: ../includes/websites-cloud-services-css-guided-walkthrough.md
   [contoso.azurewebsites.net subdomain]: media/web-sites-custom-domain-name/azurewebsites-subdomain.png
-  [introfooter]: ../includes/custom-dns-web-site-intro-notes.md
   [개요]: #overview
   [DNS 레코드 유형]: #dns-record-types
   [가상 IP 주소 찾기]: #find-the-virtual-ip-address
   [DNS 레코드 만들기]: #create-the-dns-records
   [웹 사이트에서 도메인 이름 사용]: #enable-the-domain-name-on-your-website
-  [modes]: ../includes/custom-dns-web-site-modes.md
   [Azure 관리 포털]: https://manage.windowsazure.com
   [웹 사이트 크기를 조정하는 방법]: http://www.windowsazure.com/ko-kr/documentation/articles/web-sites-scale/
   [0]: media/web-sites-custom-domain-name/dncmntask-cname-6.png
   [1]: media/web-sites-custom-domain-name/ipaddress.png
-  [2]: ../includes/custom-dns-web-site-enable-on-web-site.md

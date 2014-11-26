@@ -1,6 +1,6 @@
 <properties title="SharePoint Server Farm" pageTitle="SharePoint Server Farm" description="Describes the new SharePoint Server Farm feature available in the Azure Preview Portal" metaKeywords="" services="virtual-machines" solutions="" documentationCenter="" authors="josephd" videoId="" scriptId="" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-sharepoint" ms.devlang="na" ms.topic="article" ms.date="08/06/2014" ms.author="josephd"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-sharepoint" ms.devlang="na" ms.topic="article" ms.date="08/06/2014" ms.author="josephd" />
 
 # SharePoint Server 팜
 
@@ -26,7 +26,7 @@ SharePoint Server 팜을 사용하여 Microsoft Azure 미리 보기 포털은 �
 2.  가상 컴퓨터의 목록에서 웹 서버 이름을 클릭합니다(SP, WEB1 또는 WEB2로 끝남).
 3.  웹 서버 가상 컴퓨터의 창에서 **속성**을 클릭합니다.
 4.  **도메인 이름**의 FQDN을 기록합니다.
-5.  인터넷 브라우저에서 URL **[http://[FQDN]][]**에 액세스합니다. 예를 들어, 도메인 이름이 spfarm1-web1-contoso.cloudpapp.net인 경우 URL은 **<http://spfarm1-web1-contoso.cloudpapp.net>**입니다.
+5.  인터넷 브라우저에서 URL **http://[FQDN]**에 액세스합니다. 예를 들어, 도메인 이름이 spfarm1-web1-contoso.cloudpapp.net인 경우 URL은 **<http://spfarm1-web1-contoso.cloudpapp.net>**입니다.
 6.  메시지가 표시되면 팜을 만들 때 지정한 사용자 계정 자격 증명을 입력합니다.
 
 중앙 관리 SharePoint 사이트에서 내 사이트, SharePoint 응용 프로그램 및 기타 기능을 구성할 수 있습니다. 자세한 내용은 [SharePoint 2013 구성][SharePoint 2013 구성]을 참조하세요. 중앙 관리 SharePoint 사이트에 액세스하려면 먼저 외부 포트 번호를 가져와야 합니다.
@@ -38,7 +38,7 @@ SharePoint Server 팜을 사용하여 Microsoft Azure 미리 보기 포털은 �
 5.  **속성** 창을 닫습니다.
 6.  가상 컴퓨터의 창에서 **끝점** 목록 아래로 스크롤합니다.
 7.  SPCentralAdmin이라는 끝점의 포트 번호를 기록합니다.
-8.  인터넷 브라우저에서 URL **[http://[FQDN]][]:[포트 번호]**에 액세스합니다. 예를 들어, 도메인 이름이 spfarm1-app1-contoso.cloudpapp.net이고 외부 포트 번호가 54398인 경우 URL은 **<http://spfarm1-app1-contoso.cloudpapp.net:54398>**입니다.
+8.  인터넷 브라우저에서 URL **http://[FQDN]:[포트 번호]**에 액세스합니다. 예를 들어, 도메인 이름이 spfarm1-app1-contoso.cloudpapp.net이고 외부 포트 번호가 54398인 경우 URL은 **<http://spfarm1-app1-contoso.cloudpapp.net:54398>**입니다.
 9.  메시지가 표시되면 팜을 만들 때 지정한 사용자 계정 자격 증명을 입력합니다.
 
 참고:
@@ -70,7 +70,6 @@ SharePoint 서버 팜은 Azure 리소스 관리자 및 스크립트를 사용하
   [sharepointfarm]: ./media/virtual-machines-sharepoint-farm-azure-preview/SPFarm_Basic.png
   [1]: ./media/virtual-machines-sharepoint-farm-azure-preview/SPFarm_HighAvail.png
   [SharePoint 서버 팜 구성 세부 정보]: ../virtual-machines-sharepoint-farm-config-azure-preview/
-  [http://[FQDN]: http://[FQDN]
   [SharePoint 2013 구성]: http://technet.microsoft.com/library/ee836142.aspx
   [Microsoft Azure 미리 보기 포털]: https://portal.azure.com/
   [리소스 관리자에서 Windows PowerShell 사용]: http://azure.microsoft.com/ko-kr/documentation/articles/powershell-azure-resource-manager/

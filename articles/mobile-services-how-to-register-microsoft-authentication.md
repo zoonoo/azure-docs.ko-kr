@@ -36,9 +36,9 @@
 
 이제 모바일 서비스에 클라이언트 ID 및 클라이언트 암호 값을 제공하여 앱에서 Microsoft 계정을 인증에 사용할 준비가 되었습니다.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [Microsoft 인증을 위해 Windows 스토어 앱 패키지 등록]: /ko-kr/documentation/articles/mobile-services-how-to-register-store-app-package-microsoft-authentication
   [내 응용 프로그램]: http://go.microsoft.com/fwlink/p/?LinkId=262039

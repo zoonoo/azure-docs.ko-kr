@@ -60,8 +60,8 @@
 
 4.  **Complete All** 단추를 탭합니다.
 
-    ![][]
+    ![][0]
 
     완료 표시된 항목 수를 나타내는 메시지 상자가 표시되고 필터링된 쿼리가 다시 실행되어 목록에서 모든 항목을 지웁니다.
 
-  []: ./media/mobile-services-windows-phone-call-custom-api/mobile-custom-api-windows-phone-completed.png
+  [0]: ./media/mobile-services-windows-phone-call-custom-api/mobile-custom-api-windows-phone-completed.png

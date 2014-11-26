@@ -329,8 +329,6 @@ Azure 서비스 클라이언트를 만들려면 **ServicesBuilder** 클래스를
   [방법: 응용 프로그램 크래시 및 읽을 수 없는 메시지 처리]: #HandleCrashes
   [방법: 토픽 및 구독 삭제]: #DeleteTopicsAndSubscriptions
   [다음 단계]: #NextSteps
-  [howto-service-bus-topics]: ../includes/howto-service-bus-topics.md
   [OpenSSL 확장]: http://php.net/openssl
-  [get-client-libraries]: ../includes/get-client-libraries.md
   [SqlFilter.SqlExpression 속성]: http://msdn.microsoft.com/ko-KR/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
   [큐, 토픽 및 구독]: http://msdn.microsoft.com/ko-KR/library/windowsazure/hh367516.aspx

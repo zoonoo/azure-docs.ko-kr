@@ -1,6 +1,6 @@
 <properties pageTitle="Streaming logs and console" description="Streaming logs and console overview" title="Streaming logs and console" authors="adamab" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="adamab"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="adamab" />
 
 ## 스트리밍 로그 및 콘솔
 
@@ -38,9 +38,9 @@ node.js 앱에서는 다음 코드를 쓰면 동일한 결과를 얻을 수 있�
 
 ### 스트리밍 로그를 사용하고 보는 방법
 
-진단은 웹 사이트별로 사용하도록 설정합니다. [포털][]의 왼쪽 메뉴 표시줄에서 **찾아보기** 단추를 클릭한 후 **웹 사이트**를 클릭하여 모든 웹 사이트 목록을 표시합니다.
+진단은 웹 사이트별로 사용하도록 설정합니다. [포털][포털]의 왼쪽 메뉴 표시줄에서 **찾아보기** 단추를 클릭한 후 **웹 사이트**를 클릭하여 모든 웹 사이트 목록을 표시합니다.
 
-![][]
+![][0]
 
 구성할 웹 사이트의 이름을 클릭합니다. 그런 다음 **진단 로그**라는 부분을 클릭하고 **응용 프로그램 로깅(파일 시스템)** 스위치를 **설정**으로 전환합니다. 그러면 **수준** 옵션이 표시되므로, 캡처할 추적의 보안 수준을 변경할 수 있습니다. **세부 정보 표시**는 모든 추적 스트리밍을 로깅하므로, 이 기능에 익숙해지고 싶으면 이 설정을 지정해야 합니다.
 
@@ -72,9 +72,9 @@ cd
 
 
 
-<!-- Images. -->
+
 
   [포털]: https://portal.azure.com
-  []: ./media/web-sites-streaming-logs-and-console/browse-sites.png
+  [0]: ./media/web-sites-streaming-logs-and-console/browse-sites.png
   [1]: ./media/web-sites-streaming-logs-and-console/streaming-logs.png
   [2]: ./media/web-sites-streaming-logs-and-console/console.png

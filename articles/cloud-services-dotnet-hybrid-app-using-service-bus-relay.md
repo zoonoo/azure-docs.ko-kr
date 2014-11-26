@@ -733,7 +733,6 @@ Azure는 사용된 서버 시간의 시간당 웹 역할 인스턴스
 -   [서비스 버스 사용 방법][서비스 버스 사용 방법]
 -   [서비스 버스 큐를 사용하는 방법][서비스 버스 큐를 사용하는 방법]
 
-  [create-account-note]: ../includes/create-account-note.md
   [0]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hybrid.png
   [1]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/App2.png
   [2]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-41.png

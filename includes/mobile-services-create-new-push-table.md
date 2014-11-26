@@ -1,6 +1,6 @@
 1.  [Azure 관리 포털][Azure 관리 포털]에 로그인하여 **모바일 서비스**를 클릭한 후 앱을 클릭합니다.
 
-    ![][]
+    ![][0]
 
 2.  **데이터** 탭을 클릭한 후 **만들기**를 클릭합니다.
 
@@ -19,6 +19,6 @@
 <!-- URLs -->
 
   [Azure 관리 포털]: https://manage.windowsazure.com/
-  []: ./media/mobile-services-create-new-push-table/mobile-services-selection.png
+  [0]: ./media/mobile-services-create-new-push-table/mobile-services-selection.png
   [1]: ./media/mobile-services-create-new-push-table/mobile-create-table.png
   [2]: ./media/mobile-services-create-new-push-table/mobile-create-registrations-table.png

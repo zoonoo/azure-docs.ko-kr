@@ -175,7 +175,8 @@ AdventureWorksWeb을 빌드할 때 "파일이나 어셈블리 'System.Web.Mvc, V
 
 MSDN에서 [Azure 검색 REST API][Azure 검색 REST API 문서]도 검토할 수 있습니다.
 
-<!--Anchors--> <!--Image references-->
+<!--Anchors-->
+<!--Image references-->
 
   [필수 조건]: #sub-1
   [Azure 검색 인덱스 만들기]: #sub-2

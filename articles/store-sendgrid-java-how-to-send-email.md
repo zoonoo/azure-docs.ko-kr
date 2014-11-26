@@ -232,7 +232,6 @@ SendGrid 전자 메일 서비스에 관한 기본적인 사항들을 익혔으�
   [방법: 추가 SendGrid 서비스 사용]: #bkmk_HowToUseAdditionalSvcs
   [트랜잭션 전자 메일 배달]: http://sendgrid.com/transactional-email
   [클라우드 기반 전자 메일 서비스]: http://sendgrid.com/solutions
-  [sendgrid-sign-up]: ../includes/sendgrid-sign-up.md
   [필터 설정]: http://sendgrid.com/docs/API_Reference/Web_API/filter_settings.html
   [SendGrid API 설명서]: http://sendgrid.com/docs/API_Reference/index.html
   [Azure 배포에서 Java의 SendGrid를 사용하여 전자 메일을 보내는 방법]: ../store-sendgrid-java-how-to-send-email-example/

@@ -45,7 +45,7 @@ AMQP 1.0이 추가됨으로써 효율적인 이진 프로토콜을 사용하여 
 
 다음 다이어그램에서는 표준 JMS(Java Message Service) API를 사용하여 작성되었으며 Linux에서 실행되는 Java 클라이언트와 Windows에서 실행되는 .NET 클라이언트가 AMQP 1.0이 사용된 서비스 버스를 통해 메시지를 교환하는 배포 예를 보여 줍니다.
 
-![][]
+![][0]
 
 **그림 1: 서비스 버스와 AMQP 1.0을 사용한 여러 플랫폼 간의 메시징을 보여 주는 배포 예 시나리오**
 
@@ -89,12 +89,12 @@ AMQP 1.0이 추가됨으로써 효율적인 이진 프로토콜을 사용하여 
 
 ## 참조
 
--   [서비스 버스 .NET API와 함께 AMQP 1.0을 사용하는 방법][]
--   [서비스 버스 및 AMQP 1.0과 함께 JMS(Java Message Service) API를 사용하는 방법][]
--   [Service Bus AMQP 1.0 개발자 가이드][]
--   [OASIS AMQP(Advanced Message Queuing Protocol) 버전 1.0 사양][]
+-   [서비스 버스 .NET API와 함께 AMQP 1.0을 사용하는 방법][서비스 버스 .NET API와 함께 AMQP 1.0을 사용하는 방법]
+-   [서비스 버스 및 AMQP 1.0과 함께 JMS(Java Message Service) API를 사용하는 방법][서비스 버스 및 AMQP 1.0과 함께 JMS(Java Message Service) API를 사용하는 방법]
+-   [Service Bus AMQP 1.0 개발자 가이드][Service Bus AMQP 1.0 개발자 가이드]
+-   [OASIS AMQP(Advanced Message Queuing Protocol) 버전 1.0 사양][OASIS AMQP(Advanced Message Queuing Protocol) 버전 1.0 사양]
 
-  []: ./media/service-bus-amqp-overview/Example1.png
+  [0]: ./media/service-bus-amqp-overview/Example1.png
   [서비스 버스 .NET API와 함께 AMQP 1.0을 사용하는 방법]: http://aka.ms/lym3vk
   [서비스 버스 및 AMQP 1.0과 함께 JMS(Java Message Service) API를 사용하는 방법]: http://aka.ms/ll1fm3
   [Service Bus AMQP 1.0 개발자 가이드]: http://msdn.microsoft.com/ko-KR/library/windowsazure/jj841071.aspx

@@ -1,6 +1,6 @@
 <properties linkid="web-sites-create-web-jobs" urlDisplayName="Use WebJobs to run background tasks in Microsoft Azure Websites" pageTitle="Use WebJobs to run background tasks in Microsoft Azure Websites" metaKeywords="Microsoft Azure Web Sites, Web Jobs, background tasks" description="Learn how to run background tasks in Microsoft Azure Websites." metaCanonical="" services="web-sites" documentationCenter="" title="Use WebJobs to run background tasks in Microsoft Azure Websites" authors="cephalin"  solutions="" writer="timamm" manager="wpickett" editor="mollybos"  />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin" />
 
 # Microsoft Azure 웹 사이트에서 WebJobs를 사용하여 백그라운드 작업 실행
 
@@ -225,7 +225,6 @@ Visual Studio 2013에는 콘솔 응용 프로그램 프로젝트를 WebJobs로 �
 
 Azure에 등록하려면 [Microsoft Azure 무료 평가판][Microsoft Azure 무료 평가판]을 참조하세요.
 
-<!-- LINKS --> <!-- IMAGES -->
 
   [스크립트에 허용 가능한 파일 형식]: #acceptablefiles
   [주문형 작업 만들기]: #CreateOnDemand

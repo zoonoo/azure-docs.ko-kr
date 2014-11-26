@@ -1,6 +1,6 @@
 <properties title="DocumentDB programming: Stored procedures, triggers, and UDFs" pageTitle="DocumentDB programming: Stored procedures, triggers, and UDFs | Azure" description="Find out how for Document DB you can write stored procedures, triggers, and user defined functions (UDFs) natively in JavaScript." metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, getting started"  services="documentdb" solutions="data-management" documentationCenter=""  authors="bradsev" manager="jhubbard" editor="cgronlun" scriptId="" />
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="hawong"></tags>
+<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="hawong" />
 
 # DocumentDB 프로그래밍: 저장 프로시저, 트리거 및 UDF
 
@@ -115,7 +115,7 @@ DocumentDB의 JavaScript 언어 통합 트랜잭션 실행을 사용하면 개�
 
 ## 런타임 지원
 
-DocumentDB JavaScript 서버 쪽 SDK는 [ECMA-262][]에서 표준화된 일반 JavaScript 언어 기능을 대부분 지원합니다.
+DocumentDB JavaScript 서버 쪽 SDK는 [ECMA-262][ECMA-262]에서 표준화된 일반 JavaScript 언어 기능을 대부분 지원합니다.
 
 ## 트랜잭션
 

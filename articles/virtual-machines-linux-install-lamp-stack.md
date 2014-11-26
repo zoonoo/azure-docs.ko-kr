@@ -1,4 +1,4 @@
-<properties urlDisplayName="Install LAMP stack" pageTitle="Linux 가상 컴퓨터에 LAMP 스택 설치" metaKeywords="" description="Azure에서 Linux VM(가상 컴퓨터)에 LAMP 스택을 설치하는 방법에 대해 알아봅니다. Ubuntu 또는 CentOS에 설치할 수 있습니다." metaCanonical="" services="virtual-machines" documentationCenter="" title="Azure에서 Linux 가상 컴퓨터에 LAMP 스택 설치" authors="szark" solutions="" manager="timlt" editor="" />
+<properties linkid="manage-linux-common-tasks-lampstack" urlDisplayName="Install LAMP stack" pageTitle="Install the LAMP stack on a Linux virtual machine" metaKeywords="" description="Learn how to install the LAMP stack on a Linux virtual machine (VM) in Azure. You can install on Ubuntu or CentOS." metaCanonical="" services="virtual-machines" documentationCenter="" title="Install the LAMP Stack on a Linux virtual machine in Azure" authors="szark" solutions="" manager="timlt" editor="" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="szark" />
 
@@ -80,7 +80,7 @@ LAMP 스택은 다음과 같은 여러 요소로 구성됩니다.
 
         -   CentOS 및 Oracle: `sudo service httpd restart`
 
-    -   Apache는 기본적으로 포트 80에서 수신 대기합니다. Apache 서버에 원격으로 액세스하려면 끝점을 열어야 할 수도 있습니다. 자세한 지침은 [끝점 구성][끝점 구성]을 참조하세요.
+    -   Apache는 기본적으로 포트 80에서 수신 대기합니다. Apache 서버에 원격으로 액세스하려면 끝점을 열어야 할 수도 있습니다. 자세한 지침은 [끝점 구성][끝점 구성]을 참조하십시오.
 
     -   이제 Apache가 실행 중이며 콘텐츠를 제공하고 있는지 확인할 수 있습니다. 브라우저를 `http://[MYSERVICE].cloudapp.net`으로 전환합니다. 여기서 **[MYSERVICE]**는 가상 컴퓨터가 상주하는 클라우드 서비스의 이름입니다. 일부 배포의 경우 "It works!"라고만 표시된 기본 웹 페이지가 나타날 수도 있습니다. 다른 배포의 경우 Apache 서버의 구성을 위한 추가 설명서 및 콘텐츠 링크가 포함된 좀 더 완전한 웹 페이지가 나타날 수 있습니다.
 
@@ -98,7 +98,9 @@ LAMP 스택은 다음과 같은 여러 요소로 구성됩니다.
 
 Ubuntu에 LAMP 스택을 설치하는 데 도움이 되는 여러 리소스가 있습니다.
 
--   <https://help.ubuntu.com/community/ApacheMySQLPHP>
--   <http://fedorasolved.org/server-solutions/lamp-stack>
+-   [][]<https://help.ubuntu.com/community/ApacheMySQLPHP></a>
+-   [][1]<http://fedorasolved.org/server-solutions/lamp-stack></a>
 
   [끝점 구성]: http://azure.microsoft.com/ko-kr/documentation/articles/virtual-machines-set-up-endpoints/
+  []: https://help.ubuntu.com/community/ApacheMySQLPHP
+  [1]: http://fedorasolved.org/server-solutions/lamp-stack

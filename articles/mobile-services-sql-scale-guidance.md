@@ -1,6 +1,6 @@
 <properties linkid="mobile-services-sql-scale-guidance" urlDisplayName="Scale mobile services backed by Azure SQL Database" pageTitle="Scale mobile services backed by Azure SQL Database - Azure Mobile Services" metaKeywords="" description="Learn how to diagnose and fix scalability issues in your mobile services backed by SQL Database" metaCanonical="" services="" documentationCenter="Mobile" title="Scale mobile services backed by Azure SQL Database" authors="yavorg" solutions="" manager="" editor="mollybos" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="yavorg"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="yavorg" />
 
 # Azure SQL 데이터베이스에서 지원되는 모바일 서비스 크기 조정
 
@@ -467,11 +467,11 @@ JavaScript 백 엔드의 경우, SQL Server Management Studio 또는 Azure SQL �
   [서비스 아키텍처]: #Architecture
   [고급 문제 해결]: #Advanced
   [Azure 관리 포털]: http://manage.windowsazure.com
-  [Web 및 Business 버전 지원 종료 FAQ]: http://msdn.microsoft.com/en-US/library/azure/dn741330.aspx
+  [Web 및 Business 버전 지원 종료 FAQ]: http://msdn.microsoft.com/ko-kr/library/azure/dn741330.aspx
   [미리 보기 기능]: https://account.windowsazure.com/previewfeatures
-  [새 서비스 계층을 사용해야 하는 이유]: http://msdn.microsoft.com/en-US/library/azure/dn369873.aspx#Reasons
+  [새 서비스 계층을 사용해야 하는 이유]: http://msdn.microsoft.com/ko-kr/library/azure/dn369873.aspx#Reasons
   [Azure 관리 포털 - SQL 데이터베이스 메트릭]: ./media/mobile-services-sql-scale-guidance/3.png
-  [리소스 사용 이해]: http://msdn.microsoft.com/en-US/library/azure/dn369873.aspx#Resource
+  [리소스 사용 이해]: http://msdn.microsoft.com/ko-kr/library/azure/dn369873.aspx#Resource
   [Azure 관리 포털 - SQL 데이터베이스 크기 조정]: ./media/mobile-services-sql-scale-guidance/4.png
   [Azure 관리 포털 - SQL 경고]: ./media/mobile-services-sql-scale-guidance/5.png
   [Azure 관리 포털 - SQL 경고 이름 및 설명]: ./media/mobile-services-sql-scale-guidance/6.png
