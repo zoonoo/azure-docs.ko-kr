@@ -8,7 +8,7 @@
 
 얼마 전까지만 해도 Microsoft 계정(Windows Live ID)을 사용해서만 새 Azure 구독에 등록할 수 있었습니다. 이제 Azure에서는 다음 두 계정 방법 중 하나를 사용하여 등록할 수 있습니다.
 
--   **Microsoft 계정**(개인 용도로 직접 생성함) - 모든 소비자 지향 Microsoft 제품 및 클라우드 서비스(예: Outlook(Hotmail), Messenger, SkyDrive, MSN, Xbox LIVE 또는 Office Live)에 액세스할 수 있습니다. Outlook에 등록하면 @Outlook.com 주소로 지정된 Microsoft 계정이 자동으로 만들어집니다. 이 Microsoft 계정을 사용하여 소비자 관련 Microsoft 클라우드 서비스 및/또는 Azure에 액세스할 수 있습니다. [자세한 정보][자세한 정보]
+-   **Microsoft 계정**(개인 용도로 직접 생성함) - 모든 소비자 지향 Microsoft 제품 및 클라우드 서비스(예: Outlook(Hotmail), Messenger, OneDrive, MSN, Xbox LIVE 또는 Office Live)에 액세스할 수 있습니다. Outlook에 등록하면 @Outlook.com 주소로 지정된 Microsoft 계정이 자동으로 만들어집니다. 이 Microsoft 계정을 사용하여 소비자 관련 Microsoft 클라우드 서비스 및/또는 Azure에 액세스할 수 있습니다. [자세한 정보][자세한 정보]
 
 -   **조직 계정**(업무/교육 기관용으로 관리자가 생성함) - 중소기업 및 엔터프라이즈 비즈니스 수준의 Microsoft 클라우드 서비스(예: Azure, Windows Intune 또는 Office 365)에 액세스할 수 있습니다. 이러한 서비스 중 하나에 조직으로 등록하면 클라우드 기반 테넌트가 자동으로 Azure Active Directory에서 프로비전되어 조직을 대표합니다. [자세한 정보][1]
 

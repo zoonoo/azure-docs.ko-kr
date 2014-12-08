@@ -1,30 +1,29 @@
-<properties title="Manage an Azure Machine Learning workspace" pageTitle="Manage a Machine Learning workspace | Azure" description="Manage access to Azure Machine Learning workspaces, and deploy and manage ML API web services" metaKeywords="" services="" solutions="" documentationCenter="" authors="derrickv" videoId="" scriptId="" />
+﻿<properties title="Manage an Azure Machine Learning workspace" pageTitle="기계 학습 작업 영역 관리 | Azure" description="Manage access to Azure Machine Learning workspaces, and deploy and manage ML API web services" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
 
-<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="derrickv" />
+<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/06/2014" ms.author="garye" />
 
-# Azure 기계 학습 작업 영역 관리
 
-Microsoft Azure 기계 학습 작업 영역을 관리하여 액세스를 관리하고, 프로덕션 웹 서비스를 배포하고, Azure 기계 학습 웹 서비스를 관리할 수 있습니다. 또한 대시보드 탭에는 작업 영역 사용 개요 및 작업 영역 정보의 간략 상태를 보여 줍니다.
+# Azure 기계 학습 작업 영역 관리 
+Microsoft Azure 기계 학습 작업 영역을 관리하여 액세스를 관리하고, 프로덕션 웹 서비스를 배포하며, Azure 기계 학습 웹 서비스를 관리할 수 있습니다. 또한 대시보드 탭은 작업 영역 사용 개요 및 작업 영역 정보의 간략 상태를 보여 줍니다.  
 
-**웹 서비스** 탭에서 Azure 기계 학습 웹 서비스를 추가, 업데이트 또는 삭제할 수 있습니다.
+**웹 서비스** 탭에서 Azure 기계 학습 웹 서비스를 추가, 업데이트 또는 삭제할 수 있습니다.  
 
-## 작업 영역 페이지를 관리하려면
+## 작업 영역 페이지를 관리하려면 ##
+1.	Microsoft Azure 계정으로 로그인합니다.
+2.	Microsoft Azure 서비스 패널에서 **기계 학습**을 클릭합니다.
+3.	**기계 학습** 목록에서 작업 영역을 클릭합니다.  
+  
+![][1]
 
-1.  Microsoft Azure 계정으로 로그인합니다.
-2.  Microsoft Azure 서비스 패널에서 **기계 학습**을 클릭합니다.
-3.  **기계 학습** 목록에서 작업 영역을 클릭합니다.
-
-![][0]
-
-## 사용자에 대한 액세스 권한을 부여하거나 일시 중단하는 방법
-
+## 사용자에 대한 액세스 권한을 부여하거나 일시 중단하는 방법 ##
 사용자 관리 방법을 알아보려면 링크를 참조하세요.
-
-## 프로덕션 웹 서비스를 배포하는 방법
-
+## 프로덕션 웹 서비스를 배포하는 방법 ##
 프로덕션 웹 서비스를 배포하는 방법을 알아보려면 링크를 참조하세요.
 
-<!--Anchors--> 
-<!--Image references-->
+<!--Anchors-->
+[작업 영역 페이지를 관리하려면]: #manageworkspace
+[사용자에 대한 액세스 권한을 부여하거나 일시 중단하는 방법]: #grantsuspendaccess
+[프로덕션 웹 서비스를 배포하는 방법]: #deployproduction
 
-  [0]: ./media/machine-learning-manage-workspace/mw1.png
+<!--Image references-->
+[1]: ./media/machine-learning-manage-workspace/mw1.png

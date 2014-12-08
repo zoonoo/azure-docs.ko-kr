@@ -1,124 +1,158 @@
-<properties title="Search diagnostic logs with Application Insights" pageTitle="Search diagnostic logs" description="Search logs generated with Trace, NLog, or Log4Net." metaKeywords="analytics web test" authors="awills"  />
+﻿<properties title="Search diagnostic logs with Application Insights" pageTitle="진단 로그 검색" description="Search logs generated with Trace, NLog, or Log4Net." metaKeywords="analytics web test" authors="awills"  manager="kamrani" />
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="awills" />
+<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-09-24" ms.author="awills" />
+ 
+# Application Insights의 진단 검색
 
-# Application Insights로 진단 로그 검색
+대부분의 일반적인 디버깅 방법 중 하나는 추적 로그를 내보내는 코드 줄을 삽입하는 것입니다. [Application Insights][start]에서는 웹 서버 로그를 캡처하고 검색 및 필터링하도록 도와줍니다. log4Net, NLog 또는 System.Diagnostics.Trace를 이미 사용하는 경우 어댑터를 통해 이러한 로그를 캡처할 수 있습니다. 또는 Application Insights SDK에 기본으로 제공되는 TrackTrace 및 TrackException 메서드를 사용할 수 있습니다.
 
-System.Diagnostics.Trace, NLog 및 Log4Net에서 진단 데이터를 캡처하고 검색할 수 있습니다. Application Insights는 응용 프로그램 상태 모니터링 기능을 보완하면서 하나 이상의 소스에서 로깅된 이벤트를 수집하고 조사하는 데 효율적이면서 쉽게 사용할 수 있는 도구를 제공합니다.
-
-모니터링하는 웹 응용 프로그램은 온-프레미스로 또는 가상 컴퓨터에 호스트하거나 Microsoft Azure 웹 사이트일 수 있습니다.
-
-1.  [로깅 어댑터 추가][로깅 어댑터 추가]
-+ [진단 컬렉션 구성][진단 컬렉션 구성]
-+ [로그 문 삽입, 구성 및 배포][로그 문 삽입, 구성 및 배포]
-+ [로그 데이터 보기][로그 데이터 보기]
-+ [데이터 검색][데이터 검색]
-+ [다음 단계][다음 단계]
+또한 검색 결과에는 작성한 [사용자 지정 TrackEvent 호출][track]과 함께 [사용 현황][usage] 및 [성능][perf] 보고서를 작성하는 데 사용되는 일반 페이지 보기 및 요청 이벤트도 포함될 수 있습니다.
 
 
-
-## <a name="add"></a> 1. 로깅 어댑터 추가
-
-1. 아직 그렇게 하지 않은 경우 Visual Studio에서 [웹 서비스 프로젝트에 Application Insights를 추가][웹 서비스 프로젝트에 Application Insights를 추가]하세요.
-
-    프로젝트에 로깅을 추가한 후 Application Insights를 추가하면 로깅 어댑터가 이미 설정 및 구성되어 있으므로 [프로젝트를 다시 배포][로그 문 삽입, 구성 및 배포]하고 [데이터를 보기][로그 데이터 보기]만 하면 됩니다.
-
-2.  솔루션 탐색기의 프로젝트에 대한 상황에 맞는 메뉴에서 **NuGet 패키지 관리**를 선택합니다.
-3.  온라인 \> 모두를 선택하고, **시험판 포함**을 선택하고, "Microsoft.ApplicationInsights"를 검색합니다.
-
-    ![적절한 어댑터의 시험판 버전 가져오기][적절한 어댑터의 시험판 버전 가져오기]
+2. [로깅 프레임워크용 어댑터 설치 여부](#capture)
++ [진단 로그 호출 삽입](#pepper)
++ [예외](#exceptions)
++ [로그 데이터 보기](#view)
++ [로그 데이터 검색](#search)
++ [문제 해결](#questions)
++ [다음 단계](#next)
 
 
-4. 다음 중 적절한 패키지의 시험판 버전을 선택합니다.
-  + Microsoft.ApplicationInsights.TraceListener
+
+## <a name="capture"></a> 로깅 프레임워크용 어댑터 설치 여부
+
+[프로젝트에 Application Insights를 아직 설치하지 않은 경우][start] 지금 수행합니다.
+
+기본 제공 Application Insights SDK Track*() 호출을 사용하는 경우 어댑터가 필요 없습니다. 따라서 [다음 섹션으로 건너뛰세요](#pepper).
+
+Log4Net, NLog 또는 System.Diagnostics.Trace로 생성된 로그를 검색하려면 해당 어댑터를 설치합니다.
+
+1. Log4Net 또는 NLog를 사용하려는 경우 프로젝트에 설치합니다. 
+2. 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 선택합니다.
+3. 온라인 > 모두를 선택하고, **시험판 포함**을 선택하고, "Microsoft.ApplicationInsights"를 검색합니다.
+
+    ![Get the prerelease version of the appropriate adapter](./media/appinsights/appinsights-36nuget.png)
+
+4. 다음 패키지 중에서 적절한 패키지를 하나 선택합니다.
+  + Microsoft.ApplicationInsights.TraceListener (to capture System.Diagnostics.Trace calls)
   + Microsoft.ApplicationInsights.NLogTarget
   + Microsoft.ApplicationInsights.Log4NetAppender
 
-## <a name="configure"></a> 2. 진단 컬렉션 구성
+NuGet 패키지는 필요한 어셈블리를 설치하고 web.config 또는 app.config를 수정합니다.
 
-### System.Diagnostics.Trace의 경우
+## <a name="pepper"></a>3. 진단 로그 호출 삽입
 
-Web.config에서 `<configuration>` 섹션에 다음 코드를 삽입합니다.
+선택한 로깅 프레임워크를 사용하여 이벤트 로깅 호출을 삽입합니다. 
 
-    <system.diagnostics>
-     <trace autoflush="true" indentsize="0">
-      <listeners>
-       <add name="myAppInsightsListener"  
-          type="Microsoft.ApplicationInsights.TraceListener.ApplicationInsightsTraceListener, 
-         Microsoft.ApplicationInsights.TraceListener" />
-      </listeners>
-     </trace>
-    </system.diagnostics> 
+예를 들어 Application Insights SDK를 사용하는 경우 다음을 삽입할 수 있습니다.
 
-### NLog의 경우
+    var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
+    telemetry.TrackTrace("Slow response - database01");
 
-Nlog.config에서 `<extensions>`, `<targets>` 및 `<rules>` 섹션에 다음 코드 조각을 병합합니다. 필요한 경우 해당 섹션을 만듭니다.
+또는 System.Diagnostics.Trace를 사용하는 경우
 
-    <extensions> 
-     <add  assembly="Microsoft.ApplicationInsights.NLogTarget" /> 
-    </extensions> 
-    
-    <targets>
-     <target xsi:type="ApplicationInsightsTarget" name="aiTarget"/>
-    </targets>
-    
-    <rules>
-     <logger name="*" minlevel="Trace" writeTo="aiTarget"/>
-    </rules>
-    
-### Log4Net의 경우
+    System.Diagnostics.Trace.TraceWarning("Slow response - database01");
 
-Web.config에서 `<configsections>` 및 `<log4net>` 섹션에 다음 코드 조각을 병합합니다.
+Log4net 또는 NLog를 원할 경우
 
-    <configSections>
-      <section name="log4net" type="log4net.Config.Log4NetConfigurationSectionHandler, log4net" />
-    </configSections>
-    
-    <log4net>
-     <root>
-      <level value="ALL" /> <appender-ref ref="aiAppender" />
-     </root>
-     <appender name="aiAppender" type="Microsoft.ApplicationInsights.Log4NetAppender.ApplicationInsightsAppender, Microsoft.ApplicationInsights.Log4NetAppender">
-      <layout type="log4net.Layout.PatternLayout">
-       <conversionPattern value="%date [%thread] %-5level %logger - %message%newline" />
-      </layout>
-     </appender>
-    </log4net>
+    logger.Warn("Slow response - database01");
+
+디버그 모드에서 응용 프로그램을 실행하거나 웹 서버에 배포합니다.
+
+### <a name="exceptions"></a>예외
+
+로그에 예외를 보내려면
+
+클라이언트의 JavaScript
+
+    try 
+    { ...
+    }
+    catch (ex)
+    {
+      appInsights.TrackException(ex, "handler loc",
+        {Game: currentGame.Name, 
+         State: currentGame.State.ToString()});
+    }
+
+서버의 C#
+
+    var telemetry = new TelemetryClient();
+    ...
+    try 
+    { ...
+    }
+    catch (Exception ex)
+    {
+       // Set up some properties:
+       var properties = new Dictionary <string, string> 
+         {{"Game", currentGame.Name}};
+
+       var measurements = new Dictionary <string, double>
+         {{"Users", currentGame.Users.Count}};
+
+       // Send the exception telemetry:
+       telemetry.TrackException(ex, properties, measurements);
+    }
+
+서버의 VB
+
+    Dim telemetry = New TelemetryClient
+    ...
+    Try
+      ...
+    Catch ex as Exception
+      ' Set up some properties:
+      Dim properties = New Dictionary (Of String, String)
+      properties.Add("Game", currentGame.Name)
+
+      Dim measurements = New Dictionary (Of String, Double)
+      measurements.Add("Users", currentGame.Users.Count)
+  
+      ' Send the exception telemetry:
+      telemetry.TrackException(ex, properties, measurements)
+    End Try
+
+속성 및 측정 매개 변수는 선택적이지만 추가 정보를 필터링 및 추가하는 데 유용합니다. 예를 들어 여러 게임을 실행할 수 있는 앱이 있는 경우 특정 게임과 관련된 모든 예외 보고서를 찾을 수 있습니다. 각 사전에 원하는 만큼 항목을 추가할 수 있습니다.
+
+## <a name="view"></a>4. 로그 데이터 보기
 
 
-## <a name="deploy"></a> 3. 로그 문 삽입, 구성 및 배포
+1. Application Insights에서 진단 검색을 엽니다.
 
-선택한 로깅 프레임워크를 사용하여 이벤트 로깅 호출을 삽입합니다. 예를 들어 Log4Net을 사용할 경우 호출은 다음과 같을 수 있습니다.
+    ![Open diagnostic search](./media/appinsights/appinsights-30openDiagnostics.png)
+   
+2. 보려는 이벤트 유형에 대한 필터를 설정합니다.
 
-    log.Warn("Slow response - database01");
+    ![Open diagnostic search](./media/appinsights/appinsights-331filterTrace.png)
 
-로깅된 이벤트는 개발 및 작동 모드 모두에서 Application Insights에 전송됩니다.
 
-## <a name="view"></a> 4. 로그 데이터 보기
+이벤트 유형은 다음과 같습니다.
 
-Application Insights에서 진단 검색을 엽니다.
+* **추적** - 웹 서버에서 캡처한 진단 로그를 검색합니다. 여기에는 log4Net, NLog, System.Diagnostic.Trace 및 ApplicationInsights TrackTrace 호출이 포함됩니다.
+* **요청** - 페이지 요청, 데이터 요청, 이미지 등을 비롯하여 웹 앱의 서버 구성 요소에 수신된 HTTP 요청을 검색합니다. 표시되는 이벤트는 Application Insights SDK 서버에서 보낸 원격 분석으로, 요청 개수 보고서를 만드는 데 사용됩니다.
+* **페이지 뷰** - 페이지 뷰 이벤트를 검색합니다. 이러한 이벤트는 웹 클라이언트에서 보내고 페이지 뷰 보고서를 만드는 데 사용됩니다. (여기에 아무 내용도 표시되지 않으면 [웹 클라이언트 모니터링][usage]을 설정합니다.)
+* **사용자 지정 이벤트** - [사용 현황][track]을 모니터링하기 위해 TrackEvent() 및 TrackMetric()에 대한 호출을 삽입하는 경우 여기서 검색할 수 있습니다.
 
-![진단 검색 열기][진단 검색 열기]
+세부 정보를 볼 로그 이벤트를 선택합니다. 
 
-세부 정보를 볼 로그 이벤트를 선택합니다.
-
-![진단 검색 열기][1]
-
-사용 가능한 필드는 로깅 프레임워크 및 호출에 사용한 매개 변수에 따라 달라집니다.
+![Open diagnostic search](./media/appinsights/appinsights-32detail.png)
 
 일반 문자열(와일드카드 없이)을 사용하여 항목 내에서 필드 데이터를 필터링할 수 있습니다.
 
+사용 가능한 필드는 로깅 프레임워크 및 호출에 사용한 매개 변수에 따라 달라집니다.
 
-## <a name="search"></a> 5. 데이터 검색
 
-시간 범위를 설정하고 용어를 검색합니다. 짧은 기간을 검색할수록 더 빨라집니다.
+## <a name="search"></a>5. 데이터 검색
 
-![진단 검색 열기][2]
+시간 범위를 설정하고 용어를 검색합니다. 짧은 기간을 검색할수록 더 빨라집니다. 
 
-문자열의 일부가 아닌 용어를 검색합니다. 용어는 '.' 및 '\_'과 같은 문장 부호를 포함하는 영숫자 문자열입니다. 예를 들면 다음과 같습니다.
+![Open diagnostic search](./media/appinsights/appinsights-311search.png)
+
+문자열의 일부가 아닌 용어를 검색합니다. 용어는 '.' 및 '_'과 같은 문장 부호를 포함하는 영숫자 문자열입니다. 예를 들면 다음과 같습니다.
 
 <table>
-  <tr><th>용어</th><th>해당 용어가 검색되지 않는 문자열</th><th>해당 용어가 검색되는 문자열</th></tr>
+  <tr><th>용어</th><th>다음과 일치하지 않음</th><th>다음과는 일치</th></tr>
   <tr><td>HomeController.About</td><td>about<br/>home</td><td>h*about<br/>home*</td></tr>
   <tr><td>IsLocal</td><td>local<br/>is<br/>*local</td><td>isl*<br/>islocal<br/>i*l</td></tr>
   <tr><td>New Delay</td><td>w d</td><td>new<br/>delay<br/>n* AND d*</td></tr>
@@ -142,7 +176,7 @@ Application Insights에서 진단 검색을 엽니다.
                         </p>
                       </td>
                       <td>
-                        <p>지정된 날짜 범위의 필드에 &quot;slow&quot; 용어가 포함된 모든 이벤트를 찾습니다.</p>
+                        <p>지정된 날짜 범위의 필드에 "slow" 용어가 포함된 모든 이벤트를 찾습니다.</p>
                       </td>
                     </tr>
                     <tr>
@@ -153,7 +187,7 @@ Application Insights에서 진단 검색을 엽니다.
                       </td>
                       <td>
                         <p>database01, databaseAB 등과 일치합니다.</p>
-                        <p>? 기호는 검색 용어의 시작 부분에 사용할 수 없습니다.</p>
+                        <p>?는 검색 용어의 시작 부분에 사용할 수 없습니다.</p>
                       </td>
                     </tr>
                      <tr>
@@ -174,7 +208,7 @@ Application Insights에서 진단 검색을 엽니다.
                         </p>
                       </td>
                       <td>
-                        <p>두 용어를 모두 포함하는 이벤트를 찾습니다. &quot;and&quot;가 아닌 대문자 &quot;AND&quot;를 사용하세요.</p>
+                        <p>두 용어를 모두 포함하는 이벤트를 찾습니다. "and"가 아닌 대문자 "AND"를 사용하세요.</p>
                       </td>
                     </tr>
                     <tr>
@@ -187,7 +221,7 @@ Application Insights에서 진단 검색을 엽니다.
                         </p>
                       </td>
                       <td>
-                        <p>둘 중 한 용어를 포함하는 이벤트를 찾습니다. &quot;or&quot;가 아닌 &quot;OR&quot;을 사용하세요.</p>
+                        <p>둘 중 한 용어를 포함하는 이벤트를 찾습니다. "or"가 아닌 "OR"을 사용하세요.</p>
                         <p>짧은 형식</p>
                       </td>
                     </tr>
@@ -217,6 +251,7 @@ Application Insights에서 진단 검색을 엽니다.
                         <p>더 짧은 형식</p>
                       </td>
                     </tr>
+       <!-- -- fielded search feature not ready yet --
                     <tr>
                       <td>
                         <p>
@@ -233,44 +268,41 @@ Application Insights에서 진단 검색을 엽니다.
                         <p>지정된 필드와 일치합니다. 기본적으로 모든 필드가 검색됩니다. 사용 가능한 필드를 보려면 세부 정보를 볼 이벤트를 선택합니다.</p>
                       </td>
                     </tr>
+ -->
 </table>
 
-## <a name="add"></a> 다음 단계
 
-* [프로젝트에 Application Insights 추가][웹 서비스 프로젝트에 Application Insights를 추가]
-* [가용성 및 응답성 테스트 설정][가용성 및 응답성 테스트 설정]
-* [문제 해결][문제 해결]
+## <a name="questions"></a>질문과 대답
+
+### <a name="emptykey"></a>"계측 키는 비워 둘 수 없습니다." 오류가 발생합니다.
+
+Application Insights를 설치하지 않고 로깅 어댑터 Nuget 패키지를 설치한 것 같습니다.
+
+솔루션 탐색기에서 `ApplicationInsights.config`를 마우스 오른쪽 단추로 클릭하고 **Application Insights 업데이트**를 선택합니다. Azure에 로그인하고 Application Insights 리소스를 만들거나 기존 리소스를 다시 사용하도록 초대하는 대화 상자가 표시됩니다. 이 경우 문제가 해결된 것입니다.
+
+### <a name="limits"></a>얼마나 많은 데이터가 보존되나요?
+
+각 응용 프로그램에서 초당 최대 500개의 이벤트가 보존됩니다. 이벤트는 7일 동안 보존됩니다.
+
+### <a name="cani"></a>수행할 수 있는 작업...
+
+- 이벤트 및 예외에 대한 경고 설정
+- 추가 분석을 위해 로그 내보내기
+- 특정 속성 검색
+
+아직은 제공되지 않지만 이러한 모든 기능이 백로그에 있습니다.
+
+## <a name="add"></a>다음 단계
+
+* [가용성 및 응답성 테스트 설정][availability]
+* [문제 해결][qna]
 
 
-## 자세한 정보
-
-* [Application Insights][Application Insights]
-* [프로젝트에 Application Insights 추가][웹 서비스 프로젝트에 Application Insights를 추가]
-* [현재 라이브 웹 서버 모니터링][현재 라이브 웹 서버 모니터링]
-* [Application Insights의 메트릭 탐색][Application Insights의 메트릭 탐색]
-* [진단 로그 검색][진단 로그 검색]
-* [웹 테스트로 가용성 추적][가용성 및 응답성 테스트 설정]
-* [이벤트 및 메트릭으로 사용량 추적][이벤트 및 메트릭으로 사용량 추적]
-* [질문 및 답변과 문제 해결][문제 해결]
 
 
-<!--Link references-->
 
-[로깅 어댑터 추가]: #add
-[진단 컬렉션 구성]: #configure
-[로그 문 삽입, 구성 및 배포]: #deploy
-[로그 데이터 보기]: #view
-[데이터 검색]: #search
-[다음 단계]: #next
-[웹 서비스 프로젝트에 Application Insights를 추가]: ../app-insights-monitor-application-health-usage/
-[적절한 어댑터의 시험판 버전 가져오기]: ./media/appinsights/appinsights-36nuget.png
-[진단 검색 열기]: ./media/appinsights/appinsights-30openDiagnostics.png
-[1]: ./media/appinsights/appinsights-32detail.png
-[2]: ./media/appinsights/appinsights-31search.png
-[가용성 및 응답성 테스트 설정]: ../app-insights-monitor-web-app-availability/
-[문제 해결]: ../app-insights-troubleshoot-faq/
-[Application Insights]: ../app-insights-get-started/
-[현재 라이브 웹 서버 모니터링]: ../app-insights-monitor-performance-live-website-now/
-[Application Insights의 메트릭 탐색]: ../app-insights-explore-metrics/
-[진단 로그 검색]: ../app-insights-search-diagnostic-logs/
-[이벤트 및 메트릭으로 사용량 추적]: ../app-insights-track-usage-custom-events-metrics/
+[AZURE.INCLUDE [app-insights-learn-more](../includes/app-insights-learn-more.md)]
+
+
+
+
