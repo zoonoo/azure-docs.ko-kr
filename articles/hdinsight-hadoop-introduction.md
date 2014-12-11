@@ -170,9 +170,9 @@ HDInsight에서 Hadoop을 사용해 보려면 [HDInsight 설명서 페이지][HD
 
 -   [Apache Hadoop][Apache Hadoop]: 전체 컴퓨터의 클러스터에 대해 큰 데이터 집합을 분산 처리할 수 있는 프레임워크인 Apache Hadoop 소프트웨어 라이브러리에 대해 자세히 알아 봅니다.
 
--   [HDFS][1]: Hadoop 응용 프로그램이 사용하는 주 저장 시스템인 HDFS(Hadoop Distributed File System)의 아키텍처 및 설계에 대해 자세히 알아 봅니다.
+-   <a target="_blank" href="http://hadoop.apache.org/docs/r0.18.1/hdfs_design.html">HDFS</a>: Hadoop 응용 프로그램이 사용하는 주 저장 시스템인 HDFS(Hadoop Distributed File System)의 아키텍처 및 설계에 대해 자세히 알아 봅니다.
 
--   [MapReduce][2]: 컴퓨터 노드의 대형 클러스터에서 엄청난 양의 데이터를 병렬로 빠르게 처리하는 Hadoop 응용 프로그램을 작성하기 위한 프로그래밍 프레임워크에 대해 자세히 알아 봅니다.
+-   <a target="_blank" href="http://mapreduce.org/">MapReduce</a>: 컴퓨터 노드의 대형 클러스터에서 엄청난 양의 데이터를 병렬로 빠르게 처리하는 Hadoop 응용 프로그램을 작성하기 위한 프로그래밍 프레임워크에 대해 자세히 알아 봅니다.
 
   [HDInsight의 Hadoop 에코시스템 개요:]: #overview
   [클라우드에서 Hadoop이 제공하는 이점:]: #advantage
