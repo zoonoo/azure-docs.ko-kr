@@ -1,3 +1,4 @@
+
 1.  MainPage.xaml.cs 파일에서 다음 using 문을 추가하거나 주석 처리를 제거합니다.
 
         using Microsoft.WindowsAzure.MobileServices;

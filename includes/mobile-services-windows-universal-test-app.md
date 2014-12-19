@@ -1,3 +1,4 @@
+
 1.  F5 키를 눌러 프로젝트를 다시 빌드하고 Windows 스토어 앱을 시작합니다.
 
 2.  앱에서 **Insert a TodoItem**에서 *Complete the tutorial* 등의 의미 있는 텍스트를 입력하고 **Save**를 클릭합니다.
