@@ -1,98 +1,97 @@
-<properties pageTitle="How to use Code First Migrations .NET backend (Mobile Services)" metaKeywords="" description="" metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Considerations for supporting multiple clients from a single mobile service" authors="glenga" solutions="mobile" writer="glenga" manager="dwrede" editor="" />
+﻿<properties pageTitle="Code First 마이그레이션 .NET 백 엔드를 사용하는 방법(모바일 서비스)" metaKeywords="" description="" metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="How to make data model changes to a .NET backend mobile service" authors="glenga" solutions="mobile" writer="glenga" manager="dwrede" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="dotnet" ms.topic="article" ms.date="09/27/2014" ms.author="glenga" />
 
 # .NET 백 엔드 모바일 서비스에 대한 데이터 모델 변경 방법
 
-이 항목에서는 Entity Framework Code First 마이그레이션을 사용하여 기존 데이터의 손실 없이 기존 Azure SQL 데이터베이스에 대한 데이터 모델을 변경하는 방법을 보여 줍니다. 이 절차에서는 Azure에 모바일 서비스 프로젝트를 이미 게시했고, 데이터베이스에 기존 데이터가 있고, 원격 데이터 모델과 로컬 데이터 모델이 동기화되어 있다고 가정합니다. 또한 이 항목에서는 개발 중에 사용되며 Azure 모바일 서비스를 통해 구현되는 기본 Code First 이니셜라이저에 대해 설명합니다. 이러한 이니셜라이저를 사용하면 기존 데이터를 유지할 필요가 없을 때 Code First 마이그레이션을 사용하지 않고 스키마를 손쉽게 변경할 수 있습니다.
+이 항목에서는 Entity Framework Code First 마이그레이션을 사용하여 기존 데이터의 손실 없이 기존 Azure SQL 데이터베이스에 대한 데이터 모델을 변경하는 방법을 보여 줍니다. 이 절차에서는 Azure에 모바일 서비스 프로젝트를 이미 게시했고, 데이터베이스에 기존 데이터가 있고, 원격 데이터 모델과 로컬 데이터 모델이 동기화되어 있다고 가정합니다. 또한 이 항목에서는 개발 중에 사용되며 Azure 모바일 서비스를 통해 구현되는 기본 Code First 이니셜라이저에 대해 설명합니다. 이러한 이니셜라이저를 사용하면 기존 데이터를 유지할 필요가 없을 때 Code First 마이그레이션을 사용하지 않고 스키마를 손쉽게 변경할 수 있습니다. 
 
 ## 데이터 모델 이니셜라이저
 
-모바일 서비스는 .NET 백 엔드 모바일 서비스 프로젝트에서 두 개의 데이터 모델 이니셜라이저 기본 클래스를 지원합니다. 이러한 이니셜라이저는 Entity Framework가 [DbContext][DbContext]에서 데이터 모델 변경을 감지할 때마다 데이터베이스에서 테이블을 삭제하고 다시 만듭니다. 또한 모바일 서비스가 로컬 컴퓨터에서 실행 중일 때는 물론 Azure에서 호스팅될 때도 작동하도록 디자인되었습니다. 두 이니셜라이저 기본 클래스 모두 모바일 서비스에서 사용되는 스키마에 있는 모든 테이블, 뷰, 함수 및 프로시저를 데이터베이스에서 삭제합니다.
+모바일 서비스는 .NET 백 엔드 모바일 서비스 프로젝트에서 두 개의 데이터 모델 이니셜라이저 기본 클래스를 지원합니다. 이러한 이니셜라이저는 Entity Framework가 [DbContext]에서 데이터 모델 변경을 감지할 때마다 데이터베이스에서 테이블을 삭제하고 다시 만듭니다. 또한 모바일 서비스가 로컬 컴퓨터에서 실행 중일 때는 물론 Azure에서 호스트될 때도 작동하도록 디자인되었습니다. 두 이니셜라이저 기본 클래스 모두 모바일 서비스에서 사용되는 스키마에 있는 모든 테이블, 뷰, 함수 및 프로시저를 데이터베이스에서 삭제합니다. 
 
--   **ClearDatabaseSchemaIfModelChanges**
-     스키마 개체는 Code First가 데이터 모델에서 변경을 감지하는 경우에만 삭제됩니다. [Azure 관리 포털][Azure 관리 포털]에서 다운로드하는 .NET 백 엔드 프로젝트의 기본 이니셜라이저는 이 기본 클래스에서 상속됩니다.
++ **ClearDatabaseSchemaIfModelChanges** <br/> 스키마 개체는 Code First가 데이터 모델에서 변경을 감지하는 경우에만 삭제됩니다. [Azure 관리 포털]에서 다운로드하는 .NET 백 엔드 프로젝트의 기본 이니셜라이저는 이 기본 클래스에서 상속됩니다.
+ 
++ **ClearDatabaseSchemaAlways**: <br/> 스키마 개체는 데이터 모델에 액세스할 때마다 삭제됩니다. 이 기본 클래스를 사용하면 데이터 모델을 변경하지 않으면서 데이터베이스를 재설정할 수 있습니다.   	 	
 
--   **ClearDatabaseSchemaAlways**:
-     스키마 개체는 데이터 모델에 액세스할 때마다 삭제됩니다. 이 기본 클래스를 사용하면 데이터 모델을 변경하지 않으면서 데이터베이스를 재설정할 수 있습니다.
+다운로드한 빠른 시작 프로젝트에서 Code First 이니셜라이저는 WebApiConfig.cs 파일에 정의되어 있습니다. **Seed** 메서드를 재정의하여 초기 데이터 행을 새 테이블에 추가합니다. 데이터 시드의 예를 확인하려면 [마이그레이션에서 데이터 시드]를 참조하세요. 로컬 컴퓨터에서 실행 중인 다른 Code First 데이터 모델 이니셜라이저를 사용할 수 있습니다. 하지만 사용자에게 데이터베이스를 삭제할 수 있는 권한이 없기 때문에 데이터베이스를 삭제하려는 이니셜라이저는 Azure에서 실패하게 됩니다. 
 
-다운로드한 빠른 시작 프로젝트에서 Code First 이니셜라이저는 WebApiConfig.cs 파일에 정의되어 있습니다. **Seed** 메서드를 재정의하여 초기 데이터 행을 새 테이블에 추가합니다. 데이터 시드의 예를 확인하려면 [마이그레이션에서 데이터 시드][마이그레이션에서 데이터 시드]를 참조하십시오. 로컬 컴퓨터에서 실행 중인 다른 Code First 데이터 모델 이니셜라이저를 사용할 수 있습니다. 하지만 사용자에게 데이터베이스를 삭제할 수 있는 권한이 없기 때문에 데이터베이스를 삭제하려는 이니셜라이저는 Azure에서 실패하게 됩니다.
+모바일 서비스 프로젝트를 로컬로 개발하는 동안에는 이니셜라이저를 계속 사용할 수 있으며, .NET 백 엔드 자습서에서는 개발자가 이니셜라이저를 사용하고 있다고 가정하고 설명합니다. 데이터 모델을 변경하고 데이터베이스에서 기존 데이터를 유지하려는 경우에는 Code First 마이그레이션을 사용해야 합니다. 
 
-모바일 서비스 프로젝트를 로컬로 개발하는 동안에는 이니셜라이저를 계속 사용할 수 있으며, .NET 백 엔드 자습서에서는 개발자가 이니셜라이저를 사용하고 있다고 가정하고 설명합니다. 데이터 모델을 변경하고 데이터베이스에서 기존 데이터를 유지하려는 경우에는 Code First 마이그레이션을 사용해야 합니다.
-
-> [WACOM.NOTE]라이브 Azure 서비스에 대한 모바일 서비스 프로젝트를 개발하여 테스트할 경우 항상 테스트 전용 모바일 서비스 인스턴스를 사용해야 합니다. 현재 프로덕션에 있거나 클라이언트 앱에서 사용 중인 모바일 서비스를 사용하여 개발하거나 테스트해서는 안 됩니다.
+>[WACOM.NOTE]라이브 Azure 서비스에 대한 모바일 서비스 프로젝트를 개발하여 테스트할 경우 항상 테스트 전용 모바일 서비스 인스턴스를 사용해야 합니다. 현재 프로덕션에 있거나 클라이언트 앱에서 사용 중인 모바일 서비스를 사용하여 개발하거나 테스트해서는 안 됩니다. 
 
 ## <a name="migrations"></a>Code First 마이그레이션 사용
 
-Code First 마이그레이션에서는 스냅숏 방법을 사용하여 데이터베이스에 대한 스키마를 변경하는 코드를 생성합니다. 마이그레이션을 사용하여 데이터 모델을 증분적으로 변경하고 데이터베이스의 기존 데이터를 유지할 수 있습니다.
+Code First 마이그레이션에서는 스냅숏 방법을 사용하여 데이터베이스에 대한 스키마를 변경하는 코드를 생성합니다. 마이그레이션을 사용하여 데이터 모델을 증분적으로 변경하고 데이터베이스의 기존 데이터를 유지할 수 있습니다. 
 
-> [WACOM.NOTE].NET 백 엔드 모바일 서비스 프로젝트를 Azure에 이미 게시했고 SQL 데이터베이스 테이블 스키마가 프로젝트의 현재 데이터 모델과 일치하지 않는 경우 Code First 마이그레이션을 사용하여 게시하기 전에 이니셜라이저를 사용하거나, 테이블을 수동으로 삭제하거나, 스키마와 데이터 모델을 동기화해야 합니다.
+>[WACOM.NOTE].NET 백 엔드 모바일 서비스 프로젝트를 Azure에 이미 게시했고 SQL 데이터베이스 테이블 스키마가 프로젝트의 현재 데이터 모델과 일치하지 않는 경우 Code First 마이그레이션을 사용하여 게시하기 전에 이니셜라이저를 사용하거나, 테이블을 수동으로 삭제하거나, 스키마와 데이터 모델을 동기화해야 합니다.
 
-다음 단계에서는 마이그레이션을 켜고 프로젝트, 로컬 데이터베이스 및 Azure에서 데이터 모델 변경을 적용합니다.
+다음 단계에서는 마이그레이션을 켜고 프로젝트, 로컬 데이터베이스 및 Azure에서 데이터 모델 변경을 적용합니다. 
 
-1.  Visual Studio의 솔루션 탐색기에서 모바일 서비스 프로젝트를 마우스 오른쪽 단추로 클릭하고 **시작 프로젝트로 설정**을 클릭합니다.
+1. Visual Studio의 솔루션 탐색기에서 모바일 서비스 프로젝트를 마우스 오른쪽 단추로 클릭하고 **시작 프로젝트로 설정**을 클릭합니다.
+ 
+2. **도구** 메뉴에서 **NuGet 패키지 관리자**를 확장한 다음 **패키지 관리자 콘솔**을 클릭합니다.
 
-2.  **도구** 메뉴에서 **NuGet 패키지 관리자**를 확장한 다음 **패키지 관리자 콘솔**을 클릭합니다.
+	Code First 마이그레이션을 관리하는 데 사용할 패키지 관리자 콘솔이 표시됩니다.
 
-    Code First 마이그레이션을 관리하는 데 사용할 패키지 관리자 콘솔이 표시됩니다.
+3. 패키지 관리자 콘솔에서 다음 명령을 입력합니다.
 
-3.  패키지 관리자 콘솔에서 다음 명령을 입력합니다.
+		PM> Enable-Migrations
 
-        PM> Enable-Migrations
+	이 명령은 프로젝트에 대한 Code First 마이그레이션을 켭니다.
 
-    이 명령은 프로젝트에 대한 Code First 마이그레이션을 켭니다.
+4. 콘솔에서 다음 명령을 입력합니다.
 
-4.  콘솔에서 다음 명령을 입력합니다.
+		PM> Add-Migration Initial
 
-        PM> Add-Migration Initial
+	이 명령은 *Initial*이라는 새 마이그레이션을 만듭니다. 마이그레이션 코드는 마이그레이션 프로젝트 폴더에 저장됩니다.
 
-    이 명령은 *Initial*이라는 새 마이그레이션을 만듭니다. 마이그레이션 코드는 마이그레이션 프로젝트 폴더에 저장됩니다.
+5. App_Start 폴더를 확장하고, WebApiConfig.cs 프로젝트 파일을 열고, 다음 **using** 문을 추가합니다.
 
-5.  App\_Start 폴더를 확장하고, WebApiConfig.cs 프로젝트 파일을 열고, 다음 **using** 문을 추가합니다.
+		using System.Data.Entity.Migrations;
+		using todolistService.Migrations;
 
-        using System.Data.Entity.Migrations;
-        using todolistService.Migrations;
-
-    위 코드에서 *todolistService* 문자열을 프로젝트의 네임스페이스로 바꾸어야 합니다. 다운로드한 퀵 스타트 프로젝트의 경우 <em>mobile&#95;service&#95;name</em>Service로 바꿉니다.
-
-6.  이 코드 파일에서 **Database.SetInitializer** 메서드에 대한 호출을 주석으로 처리하고 다음 코드를 뒤에 추가합니다.
+	위 코드에서 todolistService 문자열을 프로젝트의 네임스페이스로 바꾸어야 합니다. 다운로드한 빠른 시작 프로젝트의 경우 <em>mobile&#95;service&#95;name</em>Service로 바꿉니다.  
+ 
+6. 이 코드 파일에서 **Database.SetInitializer** 메서드에 대한 호출을 주석으로 처리하고 다음 코드를 뒤에 추가합니다.
 
         var migrator = new DbMigrator(new Configuration());
         migrator.Update();
 
-    이 코드는 데이터베이스를 삭제하고 다시 만드는 기본 Code First 데이터베이스 이니셜라이저를 사용하지 않도록 설정하고, 대신 최신 마이그레이션을 적용하라는 명시적 요청으로 바꿉니다. 이제 마이그레이션을 만들지 않은 경우 데이터 모델을 변경하면 데이터에 액세스할 때 InvalidOperationException이 발생합니다. 이후 서비스에서는 Code First 마이그레이션을 사용하여 데이터베이스에 대한 데이터 모델 변경을 마이그레이션해야 합니다.
+	이 코드는 데이터베이스를 삭제하고 다시 만드는 기본 Code First 데이터베이스 이니셜라이저를 사용하지 않도록 설정하고, 대신 최신 마이그레이션을 적용하라는 명시적 요청으로 바꿉니다. 이제 마이그레이션을 만들지 않은 경우 데이터 모델을 변경하면 데이터에 액세스할 때 InvalidOperationException이 발생합니다. 이후 서비스에서는 Code First 마이그레이션을 사용하여 데이터베이스에 대한 데이터 모델 변경을 마이그레이션해야 합니다.
 
-7.  로컬 컴퓨터에서 모바일 서비스 프로젝트를 시작하려면 F5 키를 누르십시오.
+7.  로컬 컴퓨터에서 모바일 서비스 프로젝트를 시작하려면 F5 키를 누르세요.
+ 
+	이제 데이터베이스가 데이터 모델과 동기화됩니다. 시드 데이터를 제공한 경우 **연습**, **GET 테이블/todoitem**, **연습** 및 **보내기**를 클릭하여 시드 데이터를 확인할 수 있습니다. 자세한 내용은 [마이그레이션에서 데이터 시드]를 참조하세요.
 
-    이제 데이터베이스가 데이터 모델과 동기화됩니다. 시드 데이터를 제공한 경우 **연습**, **GET 테이블/todoitem**, **연습** 및 **보내기**를 클릭하여 시드 데이터를 확인할 수 있습니다. 자세한 내용은 [마이그레이션에서 데이터 시드][마이그레이션에서 데이터 시드]를 참조하십시오.
+8.   이제 데이터 모델을 변경하고(예: TodoItem 유형에 새 UserId 속성 추가), 프로젝트를 다시 빌드한 다음 패키지 관리자에서 다음 명령을 실행합니다.
 
-8.  이제 데이터 모델을 변경하고(예: TodoItem 유형에 새 UserId 속성 추가), 프로젝트를 다시 빌드한 다음 패키지 관리자에서 다음 명령을 실행합니다.
+		PM> Add-Migration NewUserId
+                                                               
+	이 명령은 *NewUserId*라는 새 마이그레이션을 만듭니다. 이 변경을 구현하는 새 코드 파일이 마이그레이션 폴더에 추가됩니다.  
 
-        PM> Add-Migration NewUserId
+9.  로컬 컴퓨터에서 모바일 서비스 프로젝트를 다시 시작하려면 F5 키를 다시 누르세요.
 
-    이 명령은 *NewUserId*라는 새 마이그레이션을 만듭니다. 이 변경을 구현하는 새 코드 파일이 마이그레이션 폴더에 추가됩니다.
+	마이그레이션이 데이터베이스에 적용되고 데이터베이스가 데이터 모델과 다시 동기화됩니다. 시드 데이터를 제공한 경우 **연습**, **GET 테이블/todoitem**, **연습** 및 **보내기**를 클릭하여 시드 데이터를 확인할 수 있습니다. 자세한 내용은 [마이그레이션에서 데이터 시드]를 참조하세요.
 
-9.  로컬 컴퓨터에서 모바일 서비스 프로젝트를 다시 시작하려면 F5 키를 다시 누르십시오.
+10. 모바일 서비스를 Azure에 다시 게시하고, 클라이언트 앱을 실행하여 데이터에 액세스한 다음 데이터가 로드되고 오류가 발생하지 않는지 확인합니다. 
 
-    마이그레이션이 데이터베이스에 적용되고 데이터베이스가 데이터 모델과 다시 동기화됩니다. 시드 데이터를 제공한 경우 **연습**, **GET 테이블/todoitem**, **연습** 및 **보내기**를 클릭하여 시드 데이터를 확인할 수 있습니다. 자세한 내용은 [마이그레이션에서 데이터 시드][마이그레이션에서 데이터 시드]를 참조하십시오.
+13. (옵션) [Azure 관리 포털]에서 모바일 서비스를 선택한 다음 **구성** 탭을 클릭하고, **SQL 데이터베이스** 링크를 클릭합니다. 
 
-10. 모바일 서비스를 Azure에 다시 게시하고, 클라이언트 앱을 실행하여 데이터에 액세스한 다음 데이터가 로드되고 오류가 발생하지 않는지 확인합니다.
+	![][0]
 
-11. (옵션) [Azure 관리 포털][Azure 관리 포털]에서 모바일 서비스를 선택한 다음 **구성** 탭을 클릭하고, **SQL 데이터베이스** 링크를 클릭합니다.
+	모바일 서비스의 데이터베이스에 대한 SQL 데이터베이스 페이지로 이동합니다.
 
-    ![][0]
+14. (옵션) **관리**를 클릭하고, SQL 데이터베이스 서버에 로그인한 다음 **디자인**을 클릭하여 Azure에서 스키마가 변경되었는지 확인합니다. 
 
-    모바일 서비스의 데이터베이스에 대한 SQL 데이터베이스 페이지로 이동합니다.
+    ![][1] 
 
-12. (옵션) **관리**를 클릭하고, SQL 데이터베이스 서버에 로그인한 다음 **디자인**을 클릭하여 Azure에서 스키마가 변경되었는지 확인합니다.
 
-    ![][1]
+##<a name="seeding"></a>마이그레이션에서 데이터 시드
 
-## <a name="seeding"></a>마이그레이션에서 데이터 시드
+마이그레이션을 실행할 때 마이그레이션에서 데이터베이스에 시드 데이터를 추가하도록 할 수 있습니다. **Configuration** 클래스에는 데이터를 삽입 또는 업데이트하도록 재정의할 수 있는 **Seed** 메서드가 있습니다. 마이그레이션을 사용하도록 설정하면 Configuration.cs 코드 파일이 마이그레이션 폴더에 추가됩니다. 이 예에서는 **TodoItems** 테이블에 데이터를 시드하도록 [Seed] 메서드를 재정의하는 방법을 보여 줍니다. 최신 버전으로 마이그레이션한 후 [Seed] 메서드가 호출됩니다. 
 
-마이그레이션을 실행할 때 마이그레이션에서 데이터베이스에 시드 데이터를 추가하도록 할 수 있습니다. **Configuration** 클래스에는 데이터를 삽입 또는 업데이트하도록 재정의할 수 있는 **Seed** 메서드가 있습니다. 마이그레이션을 사용하도록 설정하면 Configuration.cs 코드 파일이 마이그레이션 폴더에 추가됩니다. 이 예에서는 **TodoItems** 테이블에 데이터를 시드하도록 [Seed][Seed] 메서드를 재정의하는 방법을 보여 줍니다. 최신 버전으로 마이그레이션한 후 [Seed][Seed] 메서드가 호출됩니다.
-
-### 새 테이블 시드
+###새 테이블 시드
 
 다음 코드는 **TodoItems** 테이블을 새 데이터 행으로 시드합니다.
 
@@ -108,10 +107,10 @@ Code First 마이그레이션에서는 스냅숏 방법을 사용하여 데이�
         }
         base.Seed(context);
 
-### 테이블에서 새 열 시드
+###테이블에서 새 열 시드
 
 다음 코드는 UserId 열을 시드합니다.
-
+ 		    
         context.TodoItems.AddOrUpdate(
             t => t.UserId,
                 new TodoItem { UserId = 1 },
@@ -120,16 +119,20 @@ Code First 마이그레이션에서는 스냅숏 방법을 사용하여 데이�
             );
         base.Seed(context);
 
-이 코드는 [AddOrUpdate][AddOrUpdate] 도우미 확장 메서드를 호출하여 새 UserId 열에 시드 데이터를 추가합니다. [AddOrUpdate][AddOrUpdate]를 사용하면 중복 행이 생성되지 않습니다.
+이 코드는 [AddOrUpdate] 도우미 확장 메서드를 호출하여 새 UserId 열에 시드 데이터를 추가합니다. [AddOrUpdate]를 사용하면 중복 행이 생성되지 않습니다.
 
-<!-- Anchors --> 
-<!-- Images --> 
+<!-- Anchors -->
+[마이그레이션]: #migrations
+[마이그레이션에서 데이터 시드]: #seeding
+
+<!-- Images -->
+[0]: ./media/mobile-services-dotnet-backend-how-to-use-code-first-migrations/navagate-to-sql-database.png
+[1]: ./media/mobile-services-dotnet-backend-how-to-use-code-first-migrations/manage-sql-database.png
+[2]: ./media/mobile-services-dotnet-backend-how-to-use-code-first-migrations/sql-database-drop-tables.png
+
 <!-- URLs -->
-
-  [DbContext]: http://msdn.microsoft.com/ko-kr/library/system.data.entity.dbcontext(v=vs.113).aspx
-  [Azure 관리 포털]: https://manage.windowsazure.com/
-  [마이그레이션에서 데이터 시드]: #seeding
-  [0]: ./media/mobile-services-dotnet-backend-how-to-use-code-first-migrations/navagate-to-sql-database.png
-  [1]: ./media/mobile-services-dotnet-backend-how-to-use-code-first-migrations/manage-sql-database.png
-  [Seed]: http://msdn.microsoft.com/ko-kr/library/hh829453(v=vs.113).aspx
-  [AddOrUpdate]: http://msdn.microsoft.com/ko-kr/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx
+[DropCreateDatabaseIfModelChanges]: http://msdn.microsoft.com/ko-kr/library/gg679604(v=vs.113).aspx
+[Seed]: http://msdn.microsoft.com/ko-kr/library/hh829453(v=vs.113).aspx
+[Azure Management Portal]: https://manage.windowsazure.com/
+[DbContext]: http://msdn.microsoft.com/ko-kr/library/system.data.entity.dbcontext(v=vs.113).aspx
+[AddOrUpdate]: http://msdn.microsoft.com/ko-kr/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx

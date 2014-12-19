@@ -1,114 +1,133 @@
-<properties linkid="develop-mobile-tutorials-get-started-with-users-xamarin-android" urlDisplayName="Get Started with Authentication (Xamarin.Android)" pageTitle="Get started with authentication (Xamarin.Android) - Mobile Services" metaKeywords="Azure registering application, Azure authentication, application authenticate, authenticate mobile services, Mobile Services Xamarin.Android" description="Learn how to use authentication in your Azure Mobile Services app for Xamarin.Android." metaCanonical="" disqusComments="1" umbracoNaviHide="1" title="Get started with authentication in Mobile Services" services="mobile-services" documentationCenter="Mobile" manager="dwrede" authors="donnam"/>
+﻿<properties urlDisplayName="Get Started with Authentication (Xamarin.Android)" pageTitle="인증 시작(Xamarin.Android) - 모바일 서비스" metaKeywords="Azure 응용 프로그램 등록, Azure 인증, 응용 프로그램 인증, 모바일 서비스 인증, 모바일 서비스 Xamarin.Android" description="Learn how to use authentication in your Azure Mobile Services app for Xamarin.Android." metaCanonical="" disqusComments="1" umbracoNaviHide="1" title="Get started with authentication in Mobile Services" services="mobile-services" documentationCenter="Mobile" manager="dwrede" authors="donnam"/>
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-android" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="donnam" />
 
-# 모바일 서비스에서 인증 시작
+# 모바일 서비스 앱에 인증 추가
 
 [WACOM.INCLUDE [mobile-services-selector-get-started-users](../includes/mobile-services-selector-get-started-users.md)]
 
-이 항목에서는 Xamarin.Android 앱에서 Azure 모바일 서비스의 사용자를 인증하는 방법을 보여 줍니다. 이 자습서에서는 모바일 서비스가 지원하는 ID 공급자를 사용하여 퀵 스타트 프로젝트에 인증을 추가합니다. 모바일 서비스에서 인증되고 권한이 부여된 후 사용자 ID 값이 표시됩니다.
+<p>이 항목에서는 Xamarin.Android 앱에서 Azure 모바일 서비스의 사용자를 인증하는 방법을 보여 줍니다. 이 자습서에서는 모바일 서비스가 지원하는 ID 공급자를 사용하여 빠른 시작 프로젝트에 인증을 추가합니다. 모바일 서비스에서 인증되고 권한이 부여된 후 사용자 ID 값이 표시됩니다.</p>
 
 이 자습서에서는 앱에서 인증을 사용하도록 설정하는 다음 기본 단계를 단계별로 안내합니다.
 
-1.  [인증을 위해 앱 등록 및 모바일 서비스 구성][인증을 위해 앱 등록 및 모바일 서비스 구성]
-2.  [테이블 사용 권한을 인증된 사용자로 제한][테이블 사용 권한을 인증된 사용자로 제한]
-3.  [앱에 인증 추가][앱에 인증 추가]
+1. [인증을 위해 앱 등록 및 모바일 서비스 구성]
+2. [테이블 사용 권한을 인증된 사용자로 제한]
+3. [앱에 인증 추가]
 
-이 자습서는 모바일 서비스 퀵 스타트를 기반으로 합니다. 먼저 [모바일 서비스 시작][모바일 서비스 시작] 자습서를 완료해야 합니다.
+이 자습서는 모바일 서비스 빠른 시작을 기반으로 합니다. 먼저 [모바일 서비스 시작] 자습서를 완료해야 합니다. 
 
-이 자습서를 완료하려면 Xamarin.Android 및 Android SDK 4.2 이상 버전이 필요합니다.
+이 자습서를 완료하려면 Xamarin.Android 및 Android SDK 4.2 이상 버전이 필요합니다. 
 
-## <a name="register"></a><span class="short-header">앱 등록</span>인증을 위해 앱 등록 및 모바일 서비스 구성
+<h2><a name="register"></a>인증을 위해 앱 등록 및 모바일 서비스 구성</h2>
 
-[WACOM.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)]
+[WACOM.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)] 
 
-## <a name="permissions"></a><span class="short-header">사용 권한 제한</span>사용 권한을 인증된 사용자로 제한
+<h2><a name="permissions"></a>사용 권한을 인증된 사용자로 제한</h2>
 
-[WACOM.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)]
 
-1.  Eclipse에서 [모바일 서비스 시작][모바일 서비스 시작] 자습서를 완료했을 때 생성된 프로젝트를 엽니다.
+[WACOM.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)] 
 
-2.  **Run** 메뉴에서 **Run**을 클릭하여 앱을 시작하고 앱이 시작된 후 상태 코드 401(인증되지 않음)의 처리되지 않은 예외가 발생하는지 확인합니다.
 
-    이는 앱이 인증되지 않은 사용자로 모바일 서비스에 액세스하려고 시도하지만 *TodoItem* 테이블에서 이제 인증을 요구하기 때문에 발생합니다.
+3. Eclipse에서 [모바일 서비스 시작] 자습서를 완료했을 때 생성된 프로젝트를 엽니다. 
+
+4. **Run** 메뉴에서 **실행**을 클릭하여 앱을 시작하고 앱이 시작된 후 상태 코드 401(인증되지 않음)의 처리되지 않은 예외가 발생하는지 확인합니다. 
+
+	 이러한 현상은 앱이 인증되지 않은 사용자로 모바일 서비스에 액세스하려고 하지만 _TodoItem_ 테이블이 현재 인증을 요구하기 때문에 발생합니다.
 
 다음에는 모바일 서비스의 리소스를 요청하기 전에 사용자를 인증하도록 앱을 업데이트합니다.
 
-## <a name="add-authentication"></a><span class="short-header">인증 추가</span>앱에 인증 추가
+<h2><a name="add-authentication"></a>앱에 인증 추가</h2>
 
-1.  **TodoActivity** 클래스에 다음 속성을 추가합니다.
+1. **TodoActivity** 클래스에 다음 속성을 추가합니다.
 
-            private MobileServiceUser user;
+			private MobileServiceUser user;
 
-2.  **TodoActivity** 클래스에 다음 메서드를 추가합니다.
+2. **TodoActivity** 클래스에 다음 메서드를 추가합니다. 
 
-            private async Task Authenticate()
-            {
-                try
-                {
-                    user = await client.LoginAsync(this, MobileServiceAuthenticationProvider.MicrosoftAccount);
-                    CreateAndShowDialog(string.Format("you are now logged in - {0}", user.UserId), "Logged in!");
-                }
-                catch (Exception ex)
-                {
-                    CreateAndShowDialog(ex, "Authentication failed");
-                }
-            }
+	        private async Task Authenticate()
+	        {
+	            try
+	            {
+	                user = await client.LoginAsync(this, MobileServiceAuthenticationProvider.MicrosoftAccount);
+	                CreateAndShowDialog(string.Format("you are now logged in - {0}", user.UserId), "Logged in!");
+	            }
+	            catch (Exception ex)
+	            {
+	                CreateAndShowDialog(ex, "Authentication failed");
+	            }
+	        }
 
     인증 프로세스를 처리하는 새 메서드가 만들어집니다. 사용자는 Microsoft 계정 로그인을 사용하여 인증됩니다. 인증된 사용자의 ID를 표시하는 대화 상자가 나타납니다. 양성 인증 없이는 진행할 수 없습니다.
 
-    <div class="dev-callout">
-
-    **참고**
-    Microsoft 이외의 ID 공급자를 사용하는 경우 위의 **login** 메서드에 전달된 값을 *Facebook*, *Google*, *Twitter* 또는 *WindowsAzureActiveDirectory* 중 하나로 변경합니다.
-
+    <div class="dev-callout"><b>참고</b>
+	<p>Microsoft 이외의 ID 공급자를 사용하는 경우 위의 <strong>login</strong> 메서드에 전달된 값을 <i>Facebook</i>, <i>Google</i>, <i>Twitter</i> 또는 <i>WindowsAzureActiveDirectory</i> 중 하나로 변경합니다.</p>
     </div>
 
-3.  **OnCreate** 메서드에서 `MobileServiceClient` 개체를 인스턴스화하는 코드 다음에 다음 코드 줄을 추가합니다.
+3. **OnCreate** 메서드에서 `MobileServiceClient` 개체를 인스턴스화하는 코드 다음에 다음 코드 줄을 추가합니다.
 
-        await Authenticate();
+		await Authenticate();
 
-    이 호출은 인증 프로세스를 시작하고 비동기적으로 기다립니다.
+	이 호출은 인증 프로세스를 시작하고 비동기적으로 기다립니다.
 
-4.  다음과 같이 **OnCreate** 메서드에서 `await Authenticate();` 뒤에 남은 코드를 새 **CreateTable** 메서드로 이동합니다.
+4. **OnCreate** 메서드에서 `await Authenticate();` 뒤의 나머지 코드를 새 **CreateTable** 메서드로 이동합니다. 다음과 같이 표시됩니다.
 
-            private async Task CreateTable()
-            {
-                // Get the Mobile Service Table instance to use
-                todoTable = client.GetTable<TodoItem>();
+	        private async Task CreateTable()
+	        {
+	            // Get the Mobile Service Table instance to use
+	            todoTable = client.GetTable<TodoItem>();
 
-                textNewTodo = FindViewById<EditText>(Resource.Id.textNewTodo);
+	            textNewTodo = FindViewById<EditText>(Resource.Id.textNewTodo);
 
-                // Create an adapter to bind the items with the view
-                adapter = new TodoItemAdapter(this, Resource.Layout.Row_List_To_Do);
-                var listViewTodo = FindViewById<ListView>(Resource.Id.listViewTodo);
-                listViewTodo.Adapter = adapter;
+	            // Create an adapter to bind the items with the view
+	            adapter = new TodoItemAdapter(this, Resource.Layout.Row_List_To_Do);
+	            var listViewTodo = FindViewById<ListView>(Resource.Id.listViewTodo);
+	            listViewTodo.Adapter = adapter;
 
-                // Load the items from the Mobile Service
-                await RefreshItemsFromTableAsync();
-            }
+	            // Load the items from the Mobile Service
+	            await RefreshItemsFromTableAsync();
+	        }
 
-5.  2단계에서 **Authenticate** 호출이 추가된 후 **OnCreate**에서 새 **CreateTable** 메서드를 호출합니다.
+5. 2단계에서 추가된 **Authenticate**을 호출한 후 **OnCreate**에서 새 **CreateTable** 메서드를 호출합니다.
 
-        await CreateTable();
+		await CreateTable();
 
-6.  **Run** 메뉴에서 **Run**을 클릭하여 앱을 시작하고 원하는 ID 공급자에 로그인합니다.
 
-    로그인하고 나면 앱이 오류 없이 실행되며 모바일 서비스를 쿼리하고 데이터를 업데이트할 수 있게 됩니다.
+6. **실행** 메뉴에서 **실행**을 클릭하여 앱을 시작하고 원하는 ID 공급자에 로그인합니다. 
+
+   	로그인하고 나면 앱이 오류 없이 실행되며 모바일 서비스를 쿼리하고 데이터를 업데이트할 수 있게 됩니다.
 
 ## 완성된 예 가져오기
-
-[완성된 예제 프로젝트][완성된 예제 프로젝트]를 다운로드합니다. 고유한 Azure 설정으로 **applicationURL** 및 **applicationKey** 변수를 업데이트해야 합니다.
+[완성된 예제 프로젝트]를 다운로드합니다. 고유한 Azure 설정으로 **applicationURL** 및 **applicationKey** 변수를 업데이트해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-다음 자습서인 [스크립트를 통해 사용자 권한 부여][스크립트를 통해 사용자 권한 부여]에서는 인증된 사용자를 기준으로 모바일 서비스에서 제공한 사용자 ID 값을 가져와 모바일 서비스에서 반환된 데이터를 필터링하는 데 사용합니다.
+다음 자습서인 [스크립트를 통해 사용자 권한 부여]에서는 인증된 사용자를 기준으로 모바일 서비스에서 제공한 사용자 ID 값을 가져와 모바일 서비스에서 반환된 데이터를 필터링하는 데 사용합니다. 
 
+<!-- Anchors. -->
+[인증을 위해 앱 등록 및 모바일 서비스 구성]: #register
+[테이블 사용 권한을 인증된 사용자로 제한]: #permissions
+[앱에 인증 추가]: #add-authentication
+[다음 단계]:#next-steps
 
+<!-- Images. -->
+[4]: ./media/partner-xamarin-mobile-services-android-get-started-users/mobile-services-selection.png
+[5]: ./media/partner-xamarin-mobile-services-android-get-started-users/mobile-service-uri.png
 
-  [인증을 위해 앱 등록 및 모바일 서비스 구성]: #register
-  [테이블 사용 권한을 인증된 사용자로 제한]: #permissions
-  [앱에 인증 추가]: #add-authentication
-  [모바일 서비스 시작]: /ko-kr/develop/mobile/tutorials/get-started-xamarin-android
-  [완성된 예제 프로젝트]: http://go.microsoft.com/fwlink/p/?LinkId=331328
-  [스크립트를 통해 사용자 권한 부여]: /ko-kr/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-android
+[13]: ./media/partner-xamarin-mobile-services-android-get-started-users/mobile-identity-tab.png
+[14]: ./media/partner-xamarin-mobile-services-android-get-started-users/mobile-portal-data-tables.png
+[15]: ./media/partner-xamarin-mobile-services-android-get-started-users/mobile-portal-change-table-perms.png
+
+<!-- URLs. -->
+
+[앱 제출 페이지]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[내 응용 프로그램]: http://go.microsoft.com/fwlink/p/?LinkId=262039
+[Windows용 Live SDK]: http://go.microsoft.com/fwlink/p/?LinkId=262253
+[모바일 서비스 시작]: /ko-kr/develop/mobile/tutorials/get-started-xamarin-android
+[데이터 작업 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-data-xamarin-android
+[인증 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-users-xamarin-android
+[푸시 알림 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-push-xamarin-android
+[스크립트를 통해 사용자 권한 부여]: /ko-kr/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-android
+
+[Azure 관리 포털]: https://manage.windowsazure.com/
+
+[완성된 예제 프로젝트]: http://go.microsoft.com/fwlink/p/?LinkId=331328

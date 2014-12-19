@@ -1,4 +1,4 @@
-<properties linkid="mobile-services-dotnet-backend-use-non-relational-data-store" urlDisplayName="Build a Service Using a Non-Relational Data Store" pageTitle="Build a Service Using a Non-Relational Data Store - Azure Mobile Services" metaKeywords="" description="Learn how to use a non-relational data store such as MongoDB or Azure Table Storage with your .NET based mobile service" metaCanonical="" services="" documentationCenter="Mobile" title="Build a Service Using a Non-Relational Data Store" authors="yavorg, mahender" solutions="" manager="" editor="mollybos" />
+﻿<properties urlDisplayName="Build a Service Using a Non-Relational Data Store" pageTitle="비관계형 데이터 저장소를 사용하여 서비스 구축 -Azure 모바일 서비스" metaKeywords="" description="Learn how to use a non-relational data store such as MongoDB or Azure Table Storage with your .NET based mobile service" metaCanonical="" services="" documentationCenter="Mobile" title="Build a Service Using a Non-Relational Data Store" authors="yavorg, mahender" solutions="" manager="dwrede" editor="mollybos" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="yavorg, mahender" />
 
@@ -8,29 +8,29 @@
 
 이 자습서에서는 비관계형 저장소를 설정하는 단계에 대해 설명합니다.
 
-1. [비관계형 저장소 만들기][비관계형 저장소 만들기]
-2. [데이터 및 컨트롤러 수정][데이터 및 컨트롤러 수정]
-3. [응용 프로그램 테스트][응용 프로그램 테스트]
+1. [비관계형 저장소 만들기]
+2. [데이터 및 컨트롤러 수정]
+3. [응용 프로그램 테스트]
 
-이 자습서를 수행하려면 먼저 [모바일 서비스 시작][모바일 서비스 시작] 또는 [데이터 시작][데이터 시작] 자습서를 완료해야 합니다.
+이 자습서를 수행하려면 먼저 [모바일 서비스 시작] 또는 [데이터 작업 시작] 자습서를 완료해야 합니다.
 
-## <a name="create-store"></a> 비관계형 저장소 만들기
+## <a name="create-store"></a>비관계형 저장소 만들기
 
-1. [Azure 관리 포털][Azure 관리 포털]에서 **새로 만들기**를 클릭한 후 **저장소**를 선택합니다.
+1. [Azure 관리 포털]에서 **새로 만들기**를 클릭한 후 **저장소**를 선택합니다.
 
-2. **MongoLab** 추가 기능을 선택하고 마법사에 따라 계정을 등록합니다. MongoLab에 대한 자세한 내용은 [MongoLab 추가 기능 페이지][MongoLab 추가 기능 페이지]를 참조하세요.
+2. **MongoLab** 추가 기능을 선택하고 마법사에 따라 계정을 등록합니다. MongoLab에 대한 자세한 내용은 [MongoLab 추가 기능 페이지]를 참조하세요.
 
     ![][0]
 
-3. 계정이 설정된 다음에는 **연결 정보**를 선택하고 연결 문자열을 복사합니다.
+2. 계정이 설정된 다음에는 **연결 정보**를 선택하고 연결 문자열을 복사합니다.
 
-4. 포털의 모바일 서비스 섹션으로 이동하고 **구성** 탭을 선택합니다.
+3. 포털의 모바일 서비스 섹션으로 이동하고 **구성** 탭을 선택합니다.
 
-5. **앱 설정** 아래에서 "MongoConnectionString" 키가 포함된 연결 문자열을 입력하고 **저장**을 클릭합니다.
+4. **앱 설정** 아래에서 "MongoConnectionString" 키가 포함된 연결 문자열을 입력하고 **저장**을 클릭합니다.
 
     ![][1]
 
-6. `TodoItemController`에 다음을 추가합니다.
+2. `TodoItemController`에 다음을 추가합니다.
 
         static bool connectionStringInitialized = false;
 
@@ -52,11 +52,11 @@
 
 
 
-## <a name="modify-service"></a> 데이터 및 컨트롤러 수정
+## <a name="modify-service"></a>데이터 및 컨트롤러 수정
 
 1. **WindowsAzure.MobileServices.Backend.Mongo** NuGet 패키지를 설치합니다.
 
-2. `EntityData` 대신 `DocumentData`에서 파생되도록 `TodoItem`을 수정합니다.
+2. `EntityData` 대신 `DocumentData`에서 파생하도록 `TodoItem`을 수정합니다.
 
         public class TodoItem : DocumentData
         {
@@ -80,7 +80,7 @@
 4. 위의 `Initialize` 메서드에 대한 코드에서 **YOUR-DATABASE-NAME**을 MongoLab 추가 기능을 프로비전할 때 선택한 이름으로 바꿉니다.
 
 
-## <a name="test-application"></a> 응용 프로그램 테스트
+## <a name="test-application"></a>응용 프로그램 테스트
 
 1. 모바일 서비스 백 엔드 프로젝트를 다시 게시합니다.
 
@@ -89,16 +89,20 @@
 3. 새 항목을 만듭니다. 앱이 이전과 같이 작동하지만 이제는 데이터가 비관계형 저장소로 이동됩니다.
 
 
- 
- 
-
-
+<!-- Anchors. -->
 [비관계형 저장소 만들기]: #create-store
 [데이터 및 컨트롤러 수정]: #modify-service
 [응용 프로그램 테스트]: #test-application
-[모바일 서비스 시작]: /ko--kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started
-[데이터 시작]: /ko--kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data
-[Azure 관리 포털]: https://manage.windowsazure.com/
-[MongoLab 추가 기능 페이지]: /ko--kr/gallery/store/mongolab/mongolab
+
+
+<!-- Images. -->
 [0]: ./media/mobile-services-dotnet-backend-use-non-relational-data-store/create-mongo-lab.png
 [1]: ./media/mobile-services-dotnet-backend-use-non-relational-data-store/mongo-connection-string.png
+
+
+<!-- URLs. -->
+[모바일 서비스 시작]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started
+[데이터 작업 시작]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data
+[Azure 관리 포털]: https://manage.windowsazure.com/
+[테이블 서비스 정의]: /ko-kr/documentation/articles/storage-dotnet-how-to-use-tables/#what-is
+[MongoLab 추가 기능 페이지]: /ko-kr/gallery/store/mongolab/mongolab

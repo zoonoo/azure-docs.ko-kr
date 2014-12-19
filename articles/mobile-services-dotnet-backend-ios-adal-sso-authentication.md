@@ -1,71 +1,67 @@
-<properties linkid="develop-mobile-tutorials-sso-with-adal-ios" urlDisplayName="Active Directory SSO Authentication with ADAL" pageTitle="Authenticate your app with Active Directory Authentication Library Single Sign-On (iOS) | Mobile Dev Center" metaKeywords="" description="Learn how to authentication users for single sign-on with ADAL in your iOS application." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Authenticate your app with Active Directory Authentication Library Single Sign-On" authors="wesmc,mahender" />
+﻿<properties urlDisplayName="Active Directory SSO Authentication with ADAL" pageTitle="Active Directory 인증 라이브러리 Single Sign-On으로 앱 인증(iOS) | 모바일 개발자 센터" metaKeywords="" description="Learn how to authentication users for single sign-on with ADAL in your iOS application." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Authenticate your app with Active Directory Authentication Library Single Sign-On" authors="wesmc,mahender" manager="dwrede" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="wesmc,mahender" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="wesmc,mahender" />
 
 # Active Directory 인증 라이브러리 Single Sign-On으로 앱 인증
 
-<div class="dev-center-tutorial-selector sublanding">
-<a href="/ko-kr/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication" title="Windows 스토어 C#" >Windows 스토어 C#</a>
-<a href="/ko-kr/documentation/articles/mobile-services-dotnet-backend-ios-adal-sso-authentication" title="iOS" class="current">iOS</a>
-<a href="/ko-kr/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-adal-sso-authentication" title="Xamarin.iOS">Xamarin.iOS</a>
-</div>
+[WACOM.INCLUDE [mobile-services-selector-adal-sso](../includes/mobile-services-selector-adal-sso.md)]
 
 이 자습서에서는 Active Directory 인증 라이브러리를 사용하여 빠른 시작 프로젝트에 인증을 추가합니다.
 
 사용자를 인증하려면 먼저 AAD(Azure Active Directory)에 응용 프로그램을 등록해야 합니다. 이 작업은 다음 두 단계로 수행됩니다. 먼저, 모바일 서비스를 등록하고 그에 대한 사용 권한을 표시합니다. 두 번째로 iOS 앱을 등록하여 해당 사용 권한에 대한 액세스를 부여해야 합니다.
 
 
->[WACOM.NOTE] 이 자습서는 모바일 서비스를 통해 iOS 앱에 대한 Single Sign-On Azure Active Directory 인증을 수행할 수 있는 방법을 더욱 잘 이해할 수 있도록 돕기 위한 것입니다. 모바일 서비스를 처음 사용하는 경우 [모바일 서비스 시작][모바일 서비스 시작] 자습서를 완료하는 것이 좋습니다.
+>[WACOM.NOTE] 이 자습서는 모바일 서비스를 통해 iOS 앱에 대한 Single Sign-On Azure Active Directory 인증을 수행할 수 있는 방법을 더욱 잘 이해할 수 있도록 돕기 위한 것입니다. 모바일 서비스를 처음 사용하는 경우 [모바일 서비스 시작] 자습서를 완료하는 것이 좋습니다.
 
 이 자습서에서는 다음 기본 단계를 단계별로 안내합니다.
 
-1. [Azure Active Directory에 모바일 서비스 등록][Azure Active Directory에 모바일 서비스 등록]
-2. [Azure Active Directory에 앱 등록][Azure Active Directory에 앱 등록]
-3. [인증을 요구하도록 모바일 서비스 구성][인증을 요구하도록 모바일 서비스 구성]
-4. [클라이언트 앱에 인증 코드 추가][클라이언트 앱에 인증 코드 추가]
-5. [인증을 사용하여 클라이언트 테스트][인증을 사용하여 클라이언트 테스트]
+1. [Azure Active Directory에 모바일 서비스 등록]
+2. [Azure Active Directory에 앱 등록]
+3. [인증을 요구하도록 모바일 서비스 구성]
+4. [클라이언트 앱에 인증 코드 추가]
+5. [인증을 사용하여 클라이언트 테스트]
 
 이 자습서를 사용하려면 다음이 필요합니다.
 
 * XCode 4.5 및 iOS 6.0(또는 이후 버전)
-* [모바일 서비스 시작][모바일 서비스 시작] 또는 [데이터 시작][데이터 시작] 자습서 완료
+* [모바일 서비스 시작] 또는 [데이터 작업 시작] 자습서 완료
 * Microsoft Azure 모바일 서비스 SDK
-* [iOS용 Active Directory 인증 라이브러리][iOS용 Active Directory 인증 라이브러리]
+* [iOS용 Active Directory 인증 라이브러리]
 
 [WACOM.INCLUDE [mobile-services-dotnet-adal-register-service](../includes/mobile-services-dotnet-adal-register-service.md)]
 
 [WACOM.INCLUDE [mobile-services-dotnet-adal-register-client](../includes/mobile-services-dotnet-adal-register-client.md)]
 
-## <a name="require-authentication"></a> 인증을 요구하도록 모바일 서비스 구성
+## <a name="require-authentication"></a>인증을 요구하도록 모바일 서비스 구성
 
 [WACOM.INCLUDE [mobile-services-restrict-permissions-dotnet-backend](../includes/mobile-services-restrict-permissions-dotnet-backend.md)]
 
-## <a name="add-authentication-code"></a> 클라이언트 앱에 인증 코드 추가
+## <a name="add-authentication-code"></a>클라이언트 앱에 인증 코드 추가
 
-1. [iOS용 Active Directory 인증 라이브러리][iOS용 Active Directory 인증 라이브러리]를 다운로드하고 이를 프로젝트에 포함합니다. 또한 ADAL 소스에서 스토리보드를 추가해야 합니다.
+1. [iOS용 Active Directory 인증 라이브러리]를 다운로드하고 이를 프로젝트에 포함합니다. 또한 ADAL 소스에서 스토리보드를 추가해야 합니다.
 
 2. QSTodoListViewController에서 다음에 ADAL을 포함합니다.
 
         #import "ADALiOS/ADAuthenticationContext.h"
 
-3. 그 후에 다음 메서드를 추가합니다.
+2. 그 후에 다음 메서드를 추가합니다.
 
         - (void) loginAndGetData
-        {    
+        {
             MSClient *client = self.todoService.client;
             if (client.currentUser != nil) {
                 return;
             }
-    
+
             NSString *authority = @"<INSERT-AUTHORITY-HERE>";
             NSString *resourceURI = @"<INSERT-RESOURCE-URI-HERE>";
             NSString *clientID = @"<INSERT-CLIENT-ID-HERE>";
             NSString *redirectURI = @"<INSERT-REDIRECT-URI-HERE>";
 
             ADAuthenticationError *error;
-            ADAuthenticationContext *authContext = [ADAuthenticationContext authenticationContextWithAuthority:authority error:&error];   
+            ADAuthenticationContext *authContext = [ADAuthenticationContext authenticationContextWithAuthority:authority error:&error];
             NSURL *redirectUri = [[NSURL alloc]initWithString:redirectURI];
- 
+
             [authContext acquireTokenWithResource:resourceURI clientId:clientID redirectUri:redirectUri completionBlock:^(ADAuthenticationResult *result) {
                 if (result.tokenCacheStoreItem == nil)
                 {
@@ -84,44 +80,37 @@
         }
 
 
-4. `loginAndGetData` 메서드에 대한 코드에서 응용 프로그램을 제공한 테넌트의 이름으로 **INSERT-AUTHORITY-HERE**를 바꾸고, 형식은 <https://login.windows.net/tenant-name.onmicrosoft.com>입니다. 이 값은 [Azure 관리 포털][Azure 관리 포털]에서 Azure Active Directory의 도메인 탭에서 복사할 수 있습니다.
+6. 위의 `loginAndGetData` 메서드 코드에서 **INSERT-AUTHORITY-HERE**를 응용 프로그램을 프로비전한 테넌트의 이름으로 바꿉니다. 형식은 https://login.windows.net/tenant-name.onmicrosoft.com이어야 합니다. 이 값은 [Azure 관리 포털]의 Azure Active Directory에 있는 도메인 탭에서 복사할 수 있습니다.
 
-5. 위의 `loginAndGetData` 메서드에 대한 코드에서 **INSERT-RESOURCE-URI-HERE**를 모바일 서비스에 대한 **앱 ID URI**로 바꿉니다. [Azure Active Directory에 등록하는 방법][Azure Active Directory에 등록하는 방법] 항목을 따르면 앱 ID URI가 <https://todolist.azure-mobile.net/login/aad>와 유사합니다.
+7. 위의 `loginAndGetData` 메서드에 대한 코드에서 **INSERT-RESOURCE-URI-HERE**를 모바일 서비스에 대한 **앱 ID URI**로 바꿉니다. [Azure Active Directory에 등록하는 방법] 항목을 따르면 앱 ID URI가 https://todolist.azure-mobile.net/login/aad와 유사합니다.
 
-6. 위의 `loginAndGetData` 메서드에 대한 코드에서 **INSERT-CLIENT-ID-HERE**를 네이티브 클라이언트 응용 프로그램에서 복사한 클라이언트 ID로 바꿉니다.
+8. 위의 `loginAndGetData` 메서드에 대한 코드에서 **INSERT-CLIENT-ID-HERE**를 네이티브 클라이언트 응용 프로그램에서 복사한 클라이언트 ID로 바꿉니다.
 
-7. 위의 `loginAndGetData` 메서드에 대한 코드에서 **INSERT-REDIRECT-URI-HERE**를 모바일 서비스에 대한 /login/done 끝점으로 바꿉니다. 이 항목은 <https://todolist.azure-mobile.net/login/done>과 유사합니다.
+9. 위의 `loginAndGetData` 메서드에 대한 코드에서 **INSERT-REDIRECT-URI-HERE**를 모바일 서비스에 대한 /login/done 끝점으로 바꿉니다. 이 항목은 https://todolist.azure-mobile.net/login/done과 유사합니다.
 
-8. QSTodoListViewController에서 `[self refresh]`를 다음으로 바꿔서 `ViewDidLoad`를 수정합니다.
+
+3. QSTodoListViewController에서 `[self refresh]`를 다음으로 바꾸어 `ViewDidLoad`를 수정합니다.
 
         [self loginAndGetData];
 
-## <a name="test-client"></a> 인증을 사용하여 클라이언트 테스트
+## <a name="test-client"></a>인증을 사용하여 클라이언트 테스트
 
 1. 제품 메뉴에서 실행을 클릭하여 앱을 시작합니다.
-2. Azure Active Directory에 대한 로그인 메시지가 표시됩니다.
+2. Azure Active Directory에 대한 로그인 메시지가 표시됩니다.  
 3. 앱이 인증하며 todo 항목을 반환합니다.
 
-![][0]
+   ![](./media/mobile-services-dotnet-backend-ios-adal-sso-authentication/mobile-services-app-run.png)
 
-
- 
-
-
-[Windows 스토어 C#]: /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication "Windows 스토어 C#"
-[iOS]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-ios-adal-sso-authentication "iOS"
-[Xamarin.iOS]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-adal-sso-authentication "Xamarin.iOS"
-[모바일 서비스 시작]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-ios-get-started/
+<!-- Anchors. -->
 [Azure Active Directory에 모바일 서비스 등록]: #register-mobile-service-aad
 [Azure Active Directory에 앱 등록]: #register-app-aad
 [인증을 요구하도록 모바일 서비스 구성]: #require-authentication
 [클라이언트 앱에 인증 코드 추가]: #add-authentication-code
 [인증을 사용하여 클라이언트 테스트]: #test-client
-[데이터 시작]: /ko-kr/documentation/articles/mobile-services-ios-get-started-data/
-[iOS용 Active Directory 인증 라이브러리]: https://github.com/MSOpenTech/azure-activedirectory-library-for-ios
-[mobile-services-dotnet-adal-register-service]: ../includes/mobile-services-dotnet-adal-register-service.md
-[mobile-services-dotnet-adal-register-client]: ../includes/mobile-services-dotnet-adal-register-client.md
-[mobile-services-restrict-permissions-dotnet-backend]: ../includes/mobile-services-restrict-permissions-dotnet-backend.md
-[Azure 관리 포털]: https://manage.windowsazure.com/
+
+<!-- URLs. -->
+[데이터 작업 시작]: /ko-kr/documentation/articles/mobile-services-ios-get-started-data/
+[모바일 서비스 시작]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-ios-get-started/
 [Azure Active Directory에 등록하는 방법]: /ko-kr/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
-[0]: ./media/mobile-services-dotnet-backend-ios-adal-sso-authentication/mobile-services-app-run.png
+[Azure 관리 포털]: https://manage.windowsazure.com/
+[iOS용 Active Directory 인증 라이브러리]: https://github.com/MSOpenTech/azure-activedirectory-library-for-ios

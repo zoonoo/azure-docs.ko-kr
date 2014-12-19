@@ -179,7 +179,7 @@ Azure 가상 컴퓨터를 만든 후 다음 단계를 수행하여 가상 컴퓨
 
 <div class="dev-callout">
 <strong>참고</strong>
-<p>Windows를 개발 환경으로 사용하는 경우 scp용 **pscp** 기능과 같은 유틸리티를 사용할 수 있습니다. Pscp는 <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html">PuTTY 다운로드 페이지</a>(영문)에서 다운로드할 수 있습니다.</p>
+<p>Windows를 개발 환경으로 사용하는 경우 scp용 <b>pscp</b> 기능과 같은 유틸리티를 사용할 수 있습니다. Pscp는 <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html">PuTTY 다운로드 페이지</a>(영문)에서 다운로드할 수 있습니다.</p>
 </div>
 
 이 명령에 사용되는 매개 변수의 결과는 다음과 같습니다.

@@ -1,34 +1,35 @@
-<properties title="Role Based Access Control in Azure Preview Portal" pageTitle="Role Based Access Control in Azure Preview Portal" description="Describes how role based access control works and how to set it up" metaKeywords="" services="multiple" solutions="" documentationCenter="" authors="justinha" videoId="" scriptId="" />
+﻿<properties title="Role Based Access Control in Azure Preview Portal" pageTitle="Azure 미리 보기 포털의 역할 기반 액세스 제어" description="Describes how role based access control works and how to set it up" metaKeywords="" services="multiple" solutions="" documentationCenter="" authors="justinha" videoId="" scriptId="" manager="terrylan" />
 
 <tags ms.service="multiple" ms.devlang="dotnet" ms.topic="article" ms.tgt_pltfrm="Ibiza" ms.workload="infrastructure-services" ms.date="09/12/2014" ms.author="justinha;Justinha@microsoft.com" />
 
-<!--This is a basic template that shows you how to use mark down to create a topic that includes a TOC, sections with subheadings, links to other azure.microsoft.com topics, links to other sites, bold text, italic text, numbered and bulleted lists, code snippets, and images. For fancier markdown, find a published topic and copy the markdown or HTML you want. For more details about using markdown, see http://sharepoint/sites/azurecontentguidance/wiki/Pages/Content%20Guidance%20Wiki%20Home.aspx.--> 
-<!--Properties section (above): this is required in all topics. Please fill it out!--> 
-<!--The next line, with one pound sign at the beginning, is the page title-->
+<!--This is a basic template that shows you how to use mark down to create a topic that includes a TOC, sections with subheadings, links to other azure.microsoft.com topics, links to other sites, bold text, italic text, numbered and bulleted lists, code snippets, and images. For fancier markdown, find a published topic and copy the markdown or HTML you want. For more details about using markdown, see http://sharepoint/sites/azurecontentguidance/wiki/Pages/Content%20Guidance%20Wiki%20Home.aspx.-->
 
-# Azure 미리 보기 포털의 역할 기반 액세스 제어
+<!--Properties section (above): this is required in all topics. Please fill it out!-->
 
-조직이 액세스 관리 요구 사항을 간단하면서도 정확하게 충족할 수 있도록 Azure 미리 보기 포털에는 RBAC(역할 기반 액세스 제어) 지원이 추가되었습니다. 해당 기능에 대한 간략한 소개와 기능 사용을 시작하는 방법은 이 <a href="http://go.microsoft.com/fwlink/?LinkId=511576" target="_blank">블로그 게시물</a>에서 확인할 수 있습니다. 이 항목에서는 관련 개념에 대해 자세히 설명하고 추가 사용 사례를 제공합니다.
+<!--The next line, with one pound sign at the beginning, is the page title--> 
+# Azure 미리 보기 포털의 역할 기반 액세스 제어 
+
+<p>조직이 액세스 관리 요구 사항을 간단하면서도 정확하게 충족할 수 있도록 Azure 미리 보기 포털에는 RBAC(역할 기반 액세스 제어) 지원이 추가되었습니다. 해당 기능에 대한 간략한 소개와 기능 사용을 시작하는 방법은 이 <a href="http://go.microsoft.com/fwlink/?LinkId=511576" target="_blank">블로그 게시물</a>에서 확인할 수 있습니다. 이 항목에서는 관련 개념에 대해 자세히 설명하고 추가 사용 사례를 제공합니다. 
 
 <!--Table of contents for topic, the words in brackets must match the heading wording exactly-->
 
-## 목차
+##목차##
 
--   [Azure의 RBAC](#whatisrbac) 
--   [RBAC와 구독 공동 관리자 함께 사용](#coexist)
--   [관리를 위한 권한 부여와 데이터 작업 비교](#authmgmt)
--   [액세스 권한 추가 및 제거 방법](#addremoveaccess)
--   [역할 기반 액세스 제어 사용 시의 알려진 문제](#knownissues)
--   [의견을 보내는 방법](#feedback)
--   [다음 단계](#next)
+* [Azure의 RBAC](#whatisrbac) 
+* [RBAC와 구독 공동 관리자 함께 사용](#coexist)
+* [관리를 위한 권한 부여와 데이터 작업 비교](#authmgmt)
+* [액세스 권한 추가 및 제거 방법](#addremoveaccess)
+* [역할 기반 액세스 제어 사용 시의 알려진 문제](#knownissues)
+* [의견을 보내는 방법](#feedback)
+* [다음 단계](#next)
 
-## <span id="whatisrbac"></span></a>Azure의 RBAC
-
+<h2><a id="whatisrbac"></a>Azure의 RBAC</h2>
+                                                                   
 모든 Azure 구독은 Azure Active Directory와 연결됩니다. Azure 관리 포털 또는 Azure 리소스 관리자 API를 사용하여 구독 리소스에 액세스하는 사용자와 서비스는 먼저 해당 Azure Active Directory에 인증을 해야 합니다.
 
 ![][1] 
 
-Azure 역할 기반 액세스 제어를 사용하면 구독 또는 리소스 그룹이나 개별 리소스 수준에서 Azure AD 사용자, 그룹 및 서비스에 역할을 할당하여 해당 사용자/그룹/서비스에 대해 적절한 액세스 권한을 부여할 수 있습니다. 할당된 역할은 사용자, 그룹 또는 서비스가 Azure 리소스에 대해 가지는 액세스 권한 수준을 정의합니다.
+Azure 역할 기반 액세스 제어를 사용하면 구독 또는 리소스 그룹이나 개별 리소스 수준에서 Azure AD 사용자, 그룹 및 서비스에 역할을 할당하여 해당 사용자/그룹/서비스에 대해 적절한 액세스 권한을 부여할 수 있습니다. 할당된 역할은 사용자, 그룹 또는 서비스가 Azure 리소스에 대해 가지는 액세스 권한 수준을 정의합니다. 
 
 ### 역할
 
@@ -38,83 +39,34 @@ Azure 역할 기반 액세스 제어를 사용하면 구독 또는 리소스 그
 
 첫 번째 미리 보기에서 Azure 역할 기반 액세스 제어에는 사용자, 그룹 및 서비스에 할당할 수 있는 다음 3개의 기본 제공 역할이 포함되었습니다.
 
--   **소유자**: Azure 리소스에 대한 모든 권한을 가집니다. 소유자는 액세스 관리를 비롯하여 리소스에 대한 모든 관리 작업을 수행할 수 있습니다.
--   **참여자**: 액세스 관리를 제외한 모든 관리 작업을 수행할 수 있습니다. 즉, 참여자가 다른 사용자에게 액세스 권한을 부여할 수는 없습니다.
--   **읽기 권한자**: 리소스를 볼 수만 있으며 리소스와 연결된 암호는 확인할 수 없습니다.
++ **소유자**: Azure 리소스에 대한 모든 권한을 가집니다. 소유자는 액세스 관리를 비롯하여 리소스에 대한 모든 관리 작업을 수행할 수 있습니다. 
++ **참여자**: 액세스 관리를 제외한 모든 관리 작업을 수행할 수 있습니다. 즉, 참여자가 다른 사용자에게 액세스 권한을 부여할 수는 없습니다.
++ **읽기 권한자**: 리소스를 볼 수만 있으며 리소스와 연결된 암호는 확인할 수 없습니다. 
 
-기본 제공 역할의 정의는 수정할 수 없습니다. 향후 zure RBAC 릴리스에서는 Azure 리소스에 대해 수행할 수 있는 작업 목록에서 원하는 작업 집합을 작성하여 사용자 지정 역할을 정의할 수 있도록 할 예정입니다.
+기본 제공 역할의 정의는 수정할 수 없습니다. 향후 Azure RBAC 릴리스에서는 Azure 리소스에 대해 수행할 수 있는 작업 목록에서 원하는 작업 집합을 작성하여 사용자 지정 역할을 정의할 수 있도록 할 예정입니다.
 
 #### actions 및 non-actions
 
-역할 정의의 **actions** 속성은 Azure 리소스에 대해 허용되는 작업을 지정합니다. 작업 문자열에는 와일드카드 문자를 사용할 수 있습니다. 역할 정의의 **not actions** 속성은 허용되는 작업에서 제외해야 하는 작업을 지정합니다.
+역할 정의의 **actions** 속성은 Azure 리소스에 대해 허용되는 작업을 지정합니다. 작업 문자열에는 와일드카드 문자를 사용할 수 있습니다. 역할 정의의 **not actions** 속성은 허용되는 작업에서 제외해야 하는 작업을 지정합니다. 
 
-<table>
-<thead>
-<tr class="header">
-<th align="left">
-**기본 제공 역할**
-
-</th>
-<th align="left">
-actions
-
-</th>
-<th align="left">
-not actions
-
-</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">
-소유자(모든 작업 허용)
-
-</td>
-<td align="left">
-\*
-
-</td>
-</tr>
-<tr class="even">
-<td align="left">
-참여자(역할 할당 작성/삭제를 제외한 모든 작업 허용)
-
-</td>
-<td align="left">
-\*
-
-</td>
-<td align="left">
-Microsoft.Authorization/ \* /Write, Microsoft.Authorization/ \* /Delete
-
-</td>
-</tr>
-<tr class="odd">
-<td align="left">
-읽기 권한자(모든 읽기 작업 허용)
-
-</td>
-<td align="left">
-\*/Read |
-
-</td>
-</tr>
-</tbody>
-</table>
+**기본 제공 역할**  | 작업  | 작업 안 함	
+------------- | -------------  | ------------
+소유자(모든 작업 허용)  | *  | 
+참여자(역할 할당 작성/삭제를 제외한 모든 작업 허용)  | *  | Microsoft.Authorization/ * /쓰기, Microsoft.Authorization/ * /삭제
+읽기 권한자(모든 읽기 작업 허용)  | */읽기  | 
 
 ### 역할 할당
 
-Azure 리소스에 대한 적절한 역할을 Azure AD 사용자와 서비스에 할당하여 해당 사용자와 서비스에 액세스 권한을 부여합니다.
+Azure 리소스에 대한 적절한 역할을 Azure AD 사용자와 서비스에 할당하여 해당 사용자와 서비스에 액세스 권한을 부여합니다. 
 
 #### Azure AD 보안 주체
 
 다음과 같은 유형의 Azure AD 보안 주체에 역할을 할당할 수 있습니다.
 
--   **사용자**: Azure 구독이 연결된 Azure AD 내의 조직 사용자에게 역할을 할당할 수 있습니다. 초대 작업을 통해 Azure 미리 보기 포털에서 역할에 사용자를 할당하는 방식으로 <joe@outlook.com> 등의 외부 Microsoft 계정 사용자에게 역할을 할당할 수도 있습니다. 외부 Microsoft 계정 사용자에게 역할을 할당하면 Azure AD에서 해당 사용자의 게스트 계정이 만들어집니다. 디렉터리에서 이 게스트 계정을 사용하지 않도록 설정하면 외부 사용자가 액세스 권한을 부여받은 Azure 리소스에 액세스할 수 없게 됩니다.
--   **그룹**: Azure AD 보안 그룹에 역할을 할당할 수 있습니다. 액세스 권한이 있는 그룹의 멤버가 되는 사용자에게는 리소스에 대한 액세스 권한이 자동으로 부여됩니다. 그리고 그룹에서 제거된 사용자는 리소스 액세스 권한이 자동으로 소멸됩니다. 사용자에게 역할을 직접 할당하는 대신 그룹에 역할을 할당하고 사용자를 해당 그룹에 추가하는 방식으로 그룹을 통해 액세스 권한을 관리하는 것이 가장 좋습니다. Azure RBAC에서는 메일 그룹에 역할을 할당할 수 없습니다.
-    조직에서는 그룹에 역할을 할당하는 기능을 통해 기존 액세스 제어 모델을 온-프레미스 디렉터리에서 클라우드로 확장할 수 있으므로 온-프레미스에서 액세스를 제어하기 위해 이미 설정된 보안 그룹을 다시 사용하여 Azure 미리 보기 포털에서 리소스에 대한 액세스를 제어할 수 있습니다. 온-프레미스 디렉터리에서 사용자와 그룹을 동기화하기 위한 여러 옵션에 대한 자세한 내용은 [디렉터리 통합](http://technet.microsoft.com/library/jj573653.aspx)을 참조하세요. Azure AD Premium에서는 [위임된 그룹 관리 기능](http://msdn.microsoft.com/library/azure/dn641267.aspx)도 제공합니다. 이 기능을 사용하면 Azure AD에서 관리자가 아닌 사용자에게 그룹 만들기 및 관리 기능을 위임할 수 있습니다.
--   **서비스 사용자**: 서비스 ID는 디렉터리에서 서비스 사용자로 표시되며, Azure AD에 인증하여 서로 안전하게 통신합니다. Windows PowerShell용 Azure 모듈을 통해 서비스를 나타내는 Azure AD 서비스 사용자에게 역할을 할당하여 Azure 리소스 액세스 권한을 해당 서비스에 부여할 수 있습니다.
++ **사용자**: Azure 구독이 연결된 Azure AD 내의 조직 사용자에게 역할을 할당할 수 있습니다. 초대 작업을 통해 Azure 미리 보기 포털에서 역할에 사용자를 할당하는 방식으로 joe@outlook.com 등의 외부 Microsoft 계정 사용자에게 역할을 할당할 수도 있습니다. 외부 Microsoft 계정 사용자에게 역할을 할당하면 Azure AD에서 해당 사용자의 게스트 계정이 만들어집니다. 디렉터리에서 이 게스트 계정을 사용하지 않도록 설정하면 외부 사용자가 액세스 권한을 부여받은 Azure 리소스에 액세스할 수 없게 됩니다.
++ **그룹**: Azure AD 보안 그룹에 역할을 할당할 수 있습니다. 액세스 권한이 있는 그룹의 멤버가 되는 사용자에게는 리소스에 대한 액세스 권한이 자동으로 부여됩니다. 그리고 그룹에서 제거된 사용자는 리소스 액세스 권한이 자동으로 소멸됩니다. 사용자에게 역할을 직접 할당하는 대신 그룹에 역할을 할당하고 사용자를 해당 그룹에 추가하는 방식으로 그룹을 통해 액세스 권한을 관리하는 것이 가장 좋습니다. Azure RBAC에서는 메일 그룹에 역할을 할당할 수 없습니다.
+	조직에서는 그룹에 역할을 할당하는 기능을 통해 기존 액세스 제어 모델을 온-프레미스 디렉터리에서 클라우드로 확장할 수 있으므로 온-프레미스에서 액세스를 제어하기 위해 이미 설정된 보안 그룹을 다시 사용하여 Azure 미리 보기 포털에서 리소스에 대한 액세스를 제어할 수 있습니다. 온-프레미스 디렉터리에서 사용자와 그룹을 동기화하기 위한 여러 옵션에 대한 자세한 내용은 [디렉터리 통합](http://technet.microsoft.com/library/jj573653.aspx)을 참조하세요. Azure AD Premium에서는 [위임된 그룹 관리 기능](http://msdn.microsoft.com/library/azure/dn641267.aspx)도 제공합니다. 이 기능을 사용하면 Azure AD에서 관리자가 아닌 사용자에게 그룹 만들기 및 관리 기능을 위임할 수 있습니다.
++ **서비스 사용자**: 서비스 ID는 디렉터리에서 서비스 사용자로 표시되며, Azure AD에 인증하여 서로 안전하게 통신합니다. Windows PowerShell용 Azure 모듈을 통해 서비스를 나타내는 Azure AD 서비스 사용자에게 역할을 할당하여 Azure 리소스 액세스 권한을 해당 서비스에 부여할 수 있습니다. 
 
 #### 리소스 범위
 
@@ -122,128 +74,118 @@ Azure 리소스에 대한 적절한 역할을 Azure AD 사용자와 서비스에
 
 ![][2]
 
-## <span id="coexist"></span></a>RBAC와 구독 공동 관리자 함께 사용
+<h2><a id="coexist"></a>RBAC와 구독 공동 관리자 함께 사용</h2>
 
-구독 관리자와 공동 관리자는 Azure 포털 및 관리 API에 대한 모든 권한을 계속 가집니다. RBAC 모델에서 이러한 관리자에게는 구독 수준에서 소유자 역할이 할당됩니다.
-그러나 새 RBAC 모델은 Azure 미리 보기 포털 및 Azure 리소스 관리자 API에서만 지원됩니다. 따라서 RBAC 역할이 할당된 사용자와 서비스는 Azure 관리 포털 및 서비스 관리 API에 액세스할 수 없습니다. Azure 미리 보기 포털에서 구독의 소유자 역할에 사용자를 추가해도 해당 사용자가 전체 Azure 포털의 구독 공동 관리자로 지정되지는 않습니다.
+구독 관리자와 공동 관리자는 Azure 포털 및 관리 API에 대한 모든 권한을 계속 가집니다. RBAC 모델에서는 구독 수준에서 소유자 역할이 할당됩니다.  
+하지만 새 RBAC 모델은 Azure 미리 보기 포털 및 Azure 리소스 관리자 API에서만 지원됩니다. 따라서 RBAC 역할이 할당된 사용자와 서비스는 Azure 관리 포털 및 서비스 관리 API에 액세스할 수 없습니다. Azure 미리 보기 포털에서 구독의 소유자 역할에 사용자를 추가해도 해당 사용자가 전체 Azure 포털의 구독 공동 관리자로 지정되지는 않습니다.
 
 아직 Azure 미리 보기 포털을 통해 관리할 수 없는 Azure 리소스에 대한 액세스 권한을 사용자에게 부여하려면 전체 Azure 관리 포털을 사용하여 해당 사용자를 구독 공동 관리자로 추가해야 합니다. 현재 RBAC를 사용하여 관리할 수 없는 리소스의 예로는 Service Bus, 클라우드 서비스 등이 있습니다.
 
-## <span id="authmgmt"></span></a>관리를 위한 권한 부여와 데이터 작업 비교
+<h2><a id="authmgmt"></a>관리를 위한 권한 부여와 데이터 작업 비교</h2>
 
 역할 기반 액세스 제어는 Azure 미리 보기 포털 및 Azure 리소스 관리자 API에서 수행하는 Azure 리소스 관리 작업에 대해서만 지원됩니다. RBAC를 통해 Azure 리소스의 모든 데이터 수준 작업에 대한 권한을 부여할 수 있는 것은 아닙니다. 예를 들어 저장소 계정 만들기/읽기/업데이트/삭제는 RBAC를 통해 제어할 수 있지만 저장소 계정 내 Blob 또는 테이블 만들기/읽기/업데이트/삭제는 아직은 RBAC를 통해 제어할 수 없습니다. 마찬가지로 SQL DB 만들기/읽기/업데이트/삭제는 RBAC를 통해 제어할 수 있지만 DB 내 SQL 테이블 만들기/읽기/업데이트/삭제는 아직은 RBAC를 통해 제어할 수 없습니다.
 
-## <span id="addremoveaccess"></span></a>액세스 권한 추가 및 제거 방법
+<h2><a id="addremoveaccess"></a>액세스 권한 추가 및 제거 방법</h2>
 
 조직의 리소스 소유자가 액세스 권한을 관리하는 방법의 예제를 살펴보겠습니다. 이 시나리오에서는 다수의 사용자가 Azure 리소스를 사용하여 작성된 여러 테스트 및 프로덕션 프로젝트에서 작업을 합니다. 액세스 권한을 부여하는 데 모범 사례를 따르려 합니다. 사용자에게는 필요한 모든 리소스에 대한 액세스 권한만 부여하고 추가 액세스 권한은 부여하지 않아야 합니다. 또한 온-프레미스 Active Directory에서 작성된 보안 그룹을 사용하기 위해 기존에 투자했던 모든 프로세스와 도구를 다시 사용하려고 합니다. 아래 섹션에서는 이러한 리소스에 대한 액세스 권한을 설정하는 방법에 대해 설명합니다.
 
--   [액세스 권한 추가](#add)
--   [액세스 권한 제거](#remove)
--   [외부 사용자에 대한 액세스 권한 추가 또는 제거](#addremoveext)
+* [액세스 권한 추가](#add)
+* [액세스 권한 제거](#remove)
+* [외부 사용자에 대한 액세스 권한 추가 또는 제거](#addremoveext)
 
-### 
+<h3><a id="add"></a>액세스 권한 추가</h2>
 
-<p>
-<span id="add"></span></a>액세스 권한 추가
-
-</h2>
-</p>
 아래 표에는 액세스 요구 사항 및 Azure에서 이러한 요구 사항을 설정하는 방법이 요약되어 있습니다.
 
-| 사용자/그룹                | 액세스 요구 사항                              | 액세스를 위한 역할 및 범위                                                |
-|----------------------------|-----------------------------------------------|---------------------------------------------------------------------------|
-| Jill Santos 팀의 모든 멤버 | 모든 Azure 리소스 읽기                        | Jill Santos 팀을 나타내는 AD 그룹을 Azure 구독의 읽기 권한자 역할에 추가  |
-| Jill Santos 팀의 모든 멤버 | Test 리소스 그룹의 모든 리소스 만들기 및 관리 | Jill Santos 팀을 나타내는 AD 그룹을 Test 리소스 그룹의 참여자 역할에 추가 |
-| Brock                      | Prod 리소스 그룹의 모든 리소스 만들기 및 관리 | Brock을 Prod 리소스 그룹에 대한 참여자 역할에 추가                        |
+사용자/그룹  | 액세스 요구 사항  | 역할 및 액세스 범위	
+------------- | -------------  | ------------
+Jill Santos 팀의 모두  | 모든 Azure 리소스 읽기  | Jill Santos 팀을 나타내는 AD 그룹을 Azure 구독을 위한 읽기 권한자 역할에 추가
+Jill Santos 팀의 모두  | 테스트 리소스 그룹의 모든 리소스 만들기 및 관리  | Jill Santos 팀을 나타내는 AD 그룹을 테스트 리소스 그룹에 대한 참여자 역할에 추가
+Brock  | Prod 리소스 그룹의 모든 리소스 만들기 및 관리  | Prod 리소스 그룹에 대한 참여자 역할에 Brock 추가
 
-먼저 구독의 모든 리소스에 대한 읽기 권한을 추가합니다. 이렇게 하려면 **찾아보기 \> 모두 \> 구독**을 클릭합니다.
+
+먼저 구독의 모든 리소스에 대한 읽기 권한을 추가합니다. 이렇게 하려면 **찾아보기 > 모두 > 구독**을 클릭합니다.
 
 ![][3] 
 
-*구독 이름* \*\* \> 읽기 권한자 \> 추가\*\*를 클릭하고 사용자 및 그룹 목록에서 Active Directory 그룹의 이름을 선택하거나 입력합니다.
+*구독 이름* ** > 읽기 권한자 > 추가**를 클릭하고 사용자 및 그룹 목록에서 Active Directory 그룹의 이름을 선택하거나 입력합니다.
 
 ![][4]
 
-다음으로 Test 리소스 그룹의 참여자 역할에 같은 팀을 추가합니다. 이렇게 하려면 리소스 그룹을 클릭하여 해당 속성 블레이드를 열고 **역할**에서 **참여자 \> 추가**를 클릭한 다음 팀 이름을 입력합니다.
+다음으로 Test 리소스 그룹의 참여자 역할에 같은 팀을 추가합니다. 이렇게 하려면 리소스 그룹을 클릭하여 해당 속성 블레이드를 열고 **역할**에서 **참여자 > 추가**를 클릭한 다음 팀 이름을 입력합니다.
 
 ![][5]
 
-Brock을 Prod 리소스 그룹의 참여자 역할에 추가하려면 리소스 그룹을 클릭하고 **참여자 \> 추가**를 클릭한 후에 Brock의 이름을 입력합니다.
+Brock을 Prod 리소스 그룹의 참여자 역할에 추가하려면 리소스 그룹을 클릭하고 **참여자 > 추가**를 클릭한 후에 Brock의 이름을 입력합니다. 
 
 ![][6]
 
 Windows PowerShell용 Microsoft Azure 모듈을 사용하여 역할 할당을 관리할 수도 있습니다. 아래에는 포털이 아닌 New-AzureRoleAssignment cmdlet을 사용하여 Brock의 계정을 추가하는 예제가 나와 있습니다.
 
-    PS C:PS C:\> New-AzureRoleAssignment -Mail brockh@contoso.com -RoleDefinitionName Contributor -ResourceGroupName ProdDBgt; New-AzureRoleAssignment -Mail brockh@contoso.com -RoleDefinitionName Contributor -ResourceGroupName ProdDB
+	PS C:\> New-AzureRoleAssignment -Mail brockh@contoso.com -RoleDefinitionName Contributor -ResourceGroupName ProdDB
 
-Windows PowerShell을 사용하여 액세스 권한을 추가 및 제거하는 방법에 대한 자세한 내용은 [Windows PowerShell을 사용하여 역할 기반 액세스 제어 관리](http://azure.microsoft.com/ko-kr/documentation/articles/role-based-access-control-powershell/)를 참조하세요.
+Windows PowerShell을 사용하여 액세스 권한을 추가 및 제거하는 방법에 대한 자세한 내용은 [Windows PowerShell을 사용하여 역할 기반 액세스 제어 관리](http://azure.microsoft.com/ko-kr/documentation/articles/role-based-access-control-powershell/)를 참조하세요. 
 
-### 
+<h3><a id="remove"></a>액세스 권한 제거</h2>
 
-<p>
-<span id="remove"></span></a>액세스 권한 제거
-
-</h2>
-</p>
-할당한 권한을 쉽게 제거할 수도 있습니다. Brad Adams라는 사용자를 TestDB 리소스 그룹의 읽기 권한자 역할에서 제거하려는 경우를 예로 들어 보겠습니다. 이렇게 하려면 리소스 그룹 블레이드를 열고 **읽기 권한자 \> Brad Adams \> 제거**를 클릭합니다.
+할당한 권한을 쉽게 제거할 수도 있습니다. Brad Adams라는 사용자를 TestDB 리소스 그룹의 읽기 권한자 역할에서 제거하려는 경우를 예로 들어 보겠습니다. 이렇게 하려면 리소스 그룹 블레이드를 열고 **읽기 권한자 > Brad Adams > 제거**를 클릭합니다.
 
 ![][7]
 
 아래에는 Remove-AzureRoleAssignment cmdlet을 사용하여 Brad Adams를 제거하는 방법의 예가 나와 있습니다.
 
-    PS C:PS C:\> Remove-AzureRoleAssignment -Mail badams@contoso.com -RoleDefinitionName Reader -ResourceGroupName TestDBgt; Remove-AzureRoleAssignment -Mail badams@contoso.com -RoleDefinitionName Reader -ResourceGroupName TestDB
+	PS C:\> Remove-AzureRoleAssignment -Mail badams@contoso.com -RoleDefinitionName Reader -ResourceGroupName TestDB
 
-### 
+<h3><a id="addremoveext"></a>외부 사용자에 대한 액세스 권한 추가 또는 제거</h2>
 
-<p>
-<span id="addremoveext"></span></a>외부 사용자에 대한 액세스 권한 추가 또는 제거
-
-</h2>
-</p>
-디렉터리의 **구성** 탭에는 외부 사용자의 액세스를 제어하는 옵션이 포함되어 있습니다. 디렉터리 전역 관리자가 전체 Azure 포털의 UI를 통해서만 이러한 옵션을 변경할 수 있으며 Windows PowerShell 또는 API를 사용하는 방법은 없습니다.
-전체 Azure 포털에서 **구성** 탭을 열려면 **Active Directory**를 클릭하고 디렉터리의 이름을 클릭합니다.
+디렉터리의 **구성** 탭에는 외부 사용자의 액세스를 제어하는 옵션이 포함되어 있습니다. 이러한 옵션은 디렉터리 전역 관리자가 전체 Azure 포털의 UI(Windows PowerShell 또는 API 메서드가 없음)에서만 변경할 수 있습니다. 
+전체 Azure 포털에서 **구성** 탭을 열려면 **Active Directory**를 클릭하고 디렉터리 이름을 클릭합니다.
 
 ![][10]
 
-그러면 외부 사용자의 액세스를 제어하는 옵션을 편집할 수 있습니다.
+그러면 외부 사용자의 액세스를 제어하는 옵션을 편집할 수 있습니다. 
 
 ![][8]
 
-기본적으로 게스트는 디렉터리의 내용을 열거할 수 없으므로 **구성원 목록**에서 사용자나 그룹을 확인할 수 없으며, 사용자의 전체 전자 메일 주소를 입력해 사용자를 검색한 다음 액세스 권한을 부여할 수는 있습니다. 게스트에 기본적으로 적용되는 제한 집합은 다음과 같습니다.
+기본적으로 게스트는 디렉터리의 내용을 열거할 수 없으므로 **구성원 목록**에서 사용자나 그룹을 확인할 수 없으며, 사용자의 전체 메일 주소를 입력해 사용자를 검색한 다음 액세스 권한을 부여할 수는 있습니다. 게스트에 기본적으로 적용되는 제한 집합은 다음과 같습니다.
 
--   디렉터리의 사용자와 그룹을 열거할 수 없습니다.
--   전자 메일 주소를 아는 사용자의 제한적 세부 정보를 확인할 수 있습니다.
--   이름을 아는 그룹의 제한적 세부 정보를 확인할 수 있습니다.
+- 디렉터리의 사용자와 그룹을 열거할 수 없습니다.
+- 메일 주소를 아는 사용자의 제한적 세부 정보를 확인할 수 있습니다.
+- 이름을 아는 그룹의 제한적 세부 정보를 확인할 수 있습니다.
 
-게스트는 사용자나 그룹의 제한적 세부 정보를 확인하는 기능을 통해 다른 사용자를 초대하고 공동 작업 중인 사용자의 일부 세부 정보를 확인할 수 있습니다.
+게스트는 사용자나 그룹의 제한적 세부 정보를 확인하는 기능을 통해 다른 사용자를 초대하고 공동 작업 중인 사용자의 일부 세부 정보를 확인할 수 있습니다.  
 
-그러면 외부 사용자에 대한 액세스 권한을 추가하는 프로세스를 단계별로 살펴보겠습니다. 여기서는 사용자가 오류 디버그에 참여할 수 있도록 TestDB 리소스 그룹의 동일한 읽기 권한자 역할에 외부 사용자를 추가합니다. 리소스 그룹 블레이드를 열고 **읽기 권한자 \> 추가 \> 초대**를 클릭한 다음 추가할 사용자의 전자 메일 주소를 입력합니다.
+그러면 외부 사용자에 대한 액세스 권한을 추가하는 프로세스를 단계별로 살펴보겠습니다. 여기서는 사용자가 오류 디버그에 참여할 수 있도록 TestDB 리소스 그룹의 동일한 읽기 권한자 역할에 외부 사용자를 추가합니다. 리소스 그룹 블레이드를 열고 **읽기 권한자 > 추가 > 초대**를 클릭한 다음 추가할 사용자의 메일 주소를 입력합니다.
 
 ![][9]
 
-외부 사용자를 추가하면 디렉터리에 게스트가 만들어집니다. 그리고 나면 해당 게스트를 그룹에 추가하거나 그룹에서 제거할 수 있으며 다른 디렉터리 사용자와 마찬가지로 개별적으로 역할에 추가하거나 역할에서 제거할 수 있습니다.
+외부 사용자를 추가하면 디렉터리에 게스트가 만들어집니다. 그리고 나면 해당 게스트를 그룹에 추가하거나 그룹에서 제거할 수 있으며 다른 디렉터리 사용자와 마찬가지로 개별적으로 역할에 추가하거나 역할에서 제거할 수 있습니다. 
 
-일반적인 사용자와 마찬가지로 게스트도 역할에서 제거할 수 있습니다. 리소스에 대한 역할에서 게스트를 제거해도 디렉터리에서 게스트가 제거되지는 않습니다.
-
-## <span id="knownissues"></span></a>역할 기반 액세스 제어 사용 시의 알려진 문제
+일반적인 사용자와 마찬가지로 게스트도 역할에서 제거할 수 있습니다. 리소스에 대한 역할에서 게스트를 제거해도 디렉터리에서 게스트가 제거되지는 않습니다. 
+ 
+<h2><a id="knownissues"></a>역할 기반 액세스 제어 사용 시의 알려진 문제</h2>
 
 미리 보기 상태에서 역할 기반 액세스 제어 기능을 사용할 때 문제가 발생하는 경우 [역할 기반 액세스 제어 문제 해결](http://azure.microsoft.com/ko-kr/documentation/articles/role-based-access-control-troubleshooting/)에서 문제와 관련이 있을 수 있는 알려진 문제점을 확인하세요.
 
-## <span id="feedback"></span></a>의견을 보내는 방법
 
-Azure RBAC를 사용해 보고 [의견](http://aka.ms/azurerbacfeedback)을 보내 주시기 바랍니다.
+<h2><a id="feedback"></a>의견을 보내는 방법</h2>
 
-## <span id="next"></span></a>다음 단계
+Azure RBAC를 사용해 보고 [feedback](http://aka.ms/azurerbacfeedback). 을 보내 주시기 바랍니다.
 
-아래에는 역할 기반 액세스 제어를 사용하는 데 도움이 되는 몇 가지 추가 리소스가 나와 있습니다.
 
--   [Windows PowerShell을 사용하여 역할 기반 액세스 제어 관리](http://azure.microsoft.com/ko-kr/documentation/articles/role-based-access-control-powershell/)
--   [XPLAT CLI를 사용하여 역할 기반 액세스 제어 관리](http://azure.microsoft.com/ko-kr/documentation/articles/role-based-access-control-xplat-cli/)
--   [역할 기반 액세스 제어 문제 해결](http://azure.microsoft.com/ko-kr/documentation/articles/role-based-access-control-troubleshooting/)
--   [Azure Active Directory](http://msdn.microsoft.com/library/azure/jj673460.aspx)
--   [Azure Active Directory Premium 및 Basic](http://msdn.microsoft.com/ko-kr/library/azure/dn532272.aspx)
--   [Azure 구독과 Azure AD의 연관 관계](http://msdn.microsoft.com/ko-kr/library/azure/dn629581.aspx)
--   보안 그룹용 셀프 서비스 그룹 관리 기능에 대한 소개는 [Active Directory 팀 블로그](http://blogs.technet.com/b/ad/archive/2014/02/24/more-preview-enhancements-for-windows-azure-ad-premium.aspx)를 참조하세요.
+<h2><a id="next"></a>다음 단계</h2>
+
+아래에는 역할 기반 액세스 제어를 사용하는 데 도움이 되는 몇 가지 추가 리소스가 나와 있습니다. 
+
++ [Windows PowerShell을 사용하여 역할 기반 액세스 제어 관리](http://azure.microsoft.com/ko-kr/documentation/articles/role-based-access-control-powershell/)
++ [XPLAT CLI를 사용하여 역할 기반 액세스 제어 관리](http://azure.microsoft.com/ko-kr/documentation/articles/role-based-access-control-xplat-cli/)
++ [역할 기반 액세스 제어 문제 해결](http://azure.microsoft.com/ko-kr/documentation/articles/role-based-access-control-troubleshooting/)
++ [Azure Active Directory](http://msdn.microsoft.com/library/azure/jj673460.aspx)
++ [Azure Active Directory Premium 및 Basic](http://msdn.microsoft.com/ko-kr/library/azure/dn532272.aspx)
++ [Azure 구독과 Azure AD의 연관 관계](http://msdn.microsoft.com/ko-kr/library/azure/dn629581.aspx)
++ 보안 그룹용 셀프 서비스 그룹 관리 기능에 대한 소개는 [Active Directory 팀 블로그](http://blogs.technet.com/b/ad/archive/2014/02/24/more-preview-enhancements-for-windows-azure-ad-premium.aspx)를 참조하세요.
+
+
 
 <!--Image references-->
 [1]: ./media/role-based-access-control-configure/RBACSubAuthDir.png
@@ -256,3 +198,5 @@ Azure RBAC를 사용해 보고 [의견](http://aka.ms/azurerbacfeedback)을 보�
 [8]: ./media/role-based-access-control-configure/RBACGuestAccessControls.png
 [9]: ./media/role-based-access-control-configure/RBACInviteExtUser_NEW.png
 [10]: ./media/role-based-access-control-configure/RBACDirConfigTab.png
+
+

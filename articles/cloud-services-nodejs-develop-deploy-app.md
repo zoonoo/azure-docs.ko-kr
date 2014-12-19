@@ -30,7 +30,7 @@
 
 2.  C 드라이브에 새 **node** 디렉터리를 만들고 c:\\node 디렉터리로 변경합니다.
 
-    !['mkdir c:\node' 및 'cd node' 명령을 표시하는 명령 프롬프트]['mkdir c:\node' 및 'cd node' 명령을 표시하는 명령 프롬프트]
+    !['mkdir c:\node' 및 'cd node' 명령을 표시하는 명령 프롬프트][mkdir]
 
 
 3.  다음 cmdlet을 입력하여 새 솔루션을 만듭니다.
@@ -189,7 +189,7 @@ Azure 계산 에뮬레이터는 Azure SDK를 통해 설치되는 도구중 하�
 </div>
 
   [Azure 웹 사이트, 클라우드 서비스 및 가상 컴퓨터 비교]: http://azure.microsoft.com/ko-kr/documentation/articles/choose-web-site-cloud-service-vm/
-  [hello world 페이지를 표시하는 브라우저 창입니다. URL은 페이지가 Azure에서 호스트됨을 나타냅니다.]: https://wacomdpsstablestorage.blob.core.windows.net/articlesmedia/demo-ppe.windowsazure.com/ko-kr/documentation/articles/cloud-services-nodejs-develop-deploy-app/20140107035927/node21.png
+  [hello world 페이지를 표시하는 브라우저 창입니다. URL은 페이지가 Azure에서 호스트됨을 나타냅니다.]: https://wacomdpsstablestorage.blob.core.windows.net/articlesmedia/demo-ppe.windowsazure.com/en-us/documentation/articles/cloud-services-nodejs-develop-deploy-app/20140107035927/node21.png
   [Azure PowerShell 아이콘]: ./media/cloud-services-nodejs-develop-deploy-app/azure-powershell-start.png
   [New-AzureService helloworld 명령의 결과]: ./media/cloud-services-nodejs-develop-deploy-app/node9.png
   [Azure에 대한 호스티드 서비스 만들기 개요]: http://msdn.microsoft.com/ko-kr/library/windowsazure/jj155995.aspx
@@ -201,3 +201,4 @@ Azure 계산 에뮬레이터는 Azure SDK를 통해 설치되는 도구중 하�
   [1]: ./media/cloud-services-nodejs-develop-deploy-app/node21.png
   [Stop-AzureService 명령의 상태]: ./media/cloud-services-nodejs-develop-deploy-app/node48.png
   [Remove-AzureService 명령의 상태]: ./media/cloud-services-nodejs-develop-deploy-app/node49.png
+  [mkdir]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-6.png

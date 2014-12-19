@@ -6,8 +6,7 @@
 
 이 자습서에서는 Node.js용 Azure 클라이언트 라이브러리를
 사용하여 데이터 관리 서비스로 작업하여 [Express를 사용하는 Node.js
-웹 응용 프로그램][Express를 사용하는 Node.js
-웹 응용 프로그램] 자습서에서 만든 응용 프로그램을 확장합니다. Azure에
+웹 응용 프로그램](http://www.windowsazure.com/en-us/develop/nodejs/tutorials/web-app-with-express/) 자습서에서 만든 응용 프로그램을 확장합니다. Azure에
 배포할 수 있는 웹 기반 작업 목록 응용 프로그램을 만들도록 응용
 프로그램을 확장합니다. 작업 목록을 통해 사용자는 작업을
 가져오고 새 작업을 추가하고 작업을 완료로 표시할 수 있습니다.
@@ -115,8 +114,8 @@ web.config 설정에 추가합니다.
 3.  **task.js** 파일의 시작 부분에 필수 라이브러리를 참조하는 다음 코드를 추가합니다.
 
         var azure = require('azure-storage');
-        var uuid = require('node-uuid');
-        var entityGen = azure.TableUtilities.entityGenerator;
+  		var uuid = require('node-uuid');
+		var entityGen = azure.TableUtilities.entityGenerator;
 
 4.  그런 다음, Task 개체를 정의하고 내보내는 코드를 추가합니다. 이 개체가 테이블에 연결하는 작업을 수행합니다.
 

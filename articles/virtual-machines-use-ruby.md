@@ -89,10 +89,8 @@ Azure 서비스를 관리하려면 Azure SDK for Ruby가 포함된 Azure gem을 
         7 gems installed
 
     <div class="dev-callout">
-
-    **참고**
-    사용 권한 관련 오류가 나타나는 경우 대신 `sudo gem install azure`를 사용하세요.
-
+    <strong>참고</strong>
+    <p>사용 권한 관련 오류가 나타나는 경우 대신 <code>sudo gem install azure</code> 를 사용하세요.</p>
     </div>
 
 ### gem 요구

@@ -1,13 +1,9 @@
-<properties linkid="mobile-services-dotnet-backend-xamarin-ios-get-started-push" urlDisplayName="Get started with push notifications using .NET runtime mobile services for Xamarin iOS apps" pageTitle="Get Started with Mobile Services for Xamarin iOS apps - Azure Mobile Services" metaKeywords="" description="Learn how to use Azure Mobile Services and Notification Hubs to send push notifications to your Xamarin iOS app" metaCanonical="" services="" documentationCenter="Mobile" title="Get started with push notifications using .NET runtime mobile services" authors="donnam" solutions="" manager="" editor="mollybos" />
+﻿<properties urlDisplayName="Get started with push notifications using .NET runtime mobile services for Xamarin iOS apps" pageTitle="Xamarin iOS 앱용 모바일 서비스 시작 - Azure 모바일 서비스" metaKeywords="" description="Learn how to use Azure Mobile Services and Notification Hubs to send push notifications to your Xamarin iOS app" metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications using .NET runtime mobile services" authors="donnam" solutions="" manager="dwrede" editor="mollybos" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="donnam" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="article" ms.date="09/25/2014" ms.author="donnam" />
 
-# 모바일 서비스에서 푸시 알림 시작
+# 모바일 서비스 앱에 푸시 알림 추가
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/ko--kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push" title="Windows 스토어 C#" class="current">Windows 스토어 C#</a><a href="/ko--kr/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push" title="Windows 스토어 JavaScript">Windows 스토어 JavaScript</a><a href="/ko--kr/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push" title="Windows Phone">Windows Phone</a><a href="/ko--kr/documentation/articles/mobile-services-dotnet-backend-android-get-started-push/" title="Android">Android</a><a href="/ko--kr/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push/" title="iOS">iOS</a><a href="/ko--kr/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-get-started-push" title="Xamarin.iOS" class="current">Xamarin.iOS</a><a href="/ko--kr/documentation/articles/mobile-services-dotnet-backend-xamarin-android-get-started-push" title="Xamarin.Android">Xamarin.Android</a>    
-</div>
+[WACOM.INCLUDE [mobile-services-selector-get-started-push-xamarin](../includes/mobile-services-selector-get-started-push-xamarin.md)]
 
-<div class="dev-center-tutorial-subselector">
-    <a href="/ko--kr/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-get-started-push/" title=".NET 백 엔드" class="current">.NET 백 엔드</a> | <a href="partner-xamarin-mobile-services-ios-get-started-push/"  title="JavaScript 백 엔드" >JavaScript 백 엔드</a>
-</div>
-
+[WACOM.INCLUDE [mobile-services-content-not-ready](../includes/mobile-services-content-not-ready.md)]

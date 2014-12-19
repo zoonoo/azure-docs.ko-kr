@@ -1,93 +1,87 @@
-<properties linkid="/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users" pageTitle="Send push notifications to authenticated users" metaKeywords="push notifications, authentication, users, Notification Hubs, Mobile Services" description="Learn how to send push notifications to specific " metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="glenga" solutions="Mobile" manager="" editor="" />
+﻿<properties pageTitle="인증된 사용자에게 푸시 알림 보내기" metaKeywords="push notifications, authentication, users, Notification Hubs, Mobile Services" description="Learn how to send push notifications to specific " metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="glenga" solutions="Mobile" manager="dwrede" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/29/2014" ms.author="glenga" />
 
 # 인증된 사용자에게 푸시 알림 보내기
 
-<div class="dev-center-tutorial-selector sublanding">
-<a href="/ko-kr/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users" title="Windows 스토어 C#" class="current">Windows 스토어 C#</a>
-<a href="/ko-kr/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-push-notifications-app-users" title="Windows 스토어 JavaScript">Windows 스토어 JavaScript</a>
-<a href="/ko-kr/documentation/articles/mobile-services-javascript-backend-windows-phone-push-notifications-app-users" title="Windows Phone">Windows Phone</a>
-<a href="/ko-kr/documentation/articles/mobile-services-javascript-backend-ios-push-notifications-app-users" title="iOS">iOS</a>
-<a href="/ko-kr/documentation/articles/mobile-services-javascript-backend-android-push-notifications-app-users" title="Android">Android</a>
-</div>
+[WACOM.INCLUDE [mobile-services-selector-push-users](../includes/mobile-services-selector-push-users.md)]
 
-<div class="dev-center-tutorial-subselector"><a href="/ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users/" title=".NET 백 엔드">.NET 백 엔드</a> | <a href="/ko-kr/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users/"  title="JavaScript 백 엔드" class="current">JavaScript 백 엔드</a></div>
-
-이 항목에서는 등록된 모든 장치에서 인증된 사용자에게 푸시 알림을 보내는 방법을 보여 줍니다. 이전의 [푸시 알림][푸시 알림] 자습서와 달리, 이 자습서에서는 먼저 사용자가 인증된 후에야 클라이언트가 푸시 알림을 받기 위해 알림 허브에 등록할 수 있도록 모바일 서비스를 변경합니다. 또한 할당된 사용자 ID를 기반으로 태그를 추가하도록 등록이 수정됩니다. 마지막에는 모든 등록 대신 인증된 사용자에게만 알림을 보내도록 서버 스크립트가 업데이트됩니다.
+이 항목에서는 등록된 모든 장치에서 인증된 사용자에게 푸시 알림을 보내는 방법을 보여 줍니다. 이전의 [푸시 알림][푸시 알림 시작] 자습서와 달리, 이 자습서에서는 먼저 사용자가 인증된 후에야 클라이언트가 푸시 알림을 받기 위해 알림 허브에 등록할 수 있도록 모바일 서비스를 변경합니다. 또한 할당된 사용자 ID를 기반으로 태그를 추가하도록 등록이 수정됩니다. 마지막에는 모든 등록 대신 인증된 사용자에게만 알림을 보내도록 서버 스크립트가 업데이트됩니다.
 
 이 자습서에서는 다음 프로세스를 단계별로 안내합니다.
 
--   [등록에 인증이 필요하도록 서비스 업데이트][등록에 인증이 필요하도록 서비스 업데이트]
--   [등록 전에 로그인하도록 앱 업데이트][등록 전에 로그인하도록 앱 업데이트]
--   [앱 테스트][앱 테스트]
-
++ [등록에 인증이 필요하도록 서비스 업데이트]
++ [등록 전에 로그인하도록 앱 업데이트]
++ [앱 테스트]
+ 
 이 자습서에서는 Windows 스토어 및 Windows Phone 스토어 앱이 모두 지원됩니다.
 
-## 필수 조건
+##필수 조건 
 
 이 자습서를 시작하려면 먼저 다음 모바일 서비스 자습서를 완료해야 합니다.
 
--   [인증 시작][인증 시작]
-    TodoList 샘플 앱에 로그인 요구 사항을 추가합니다.
++ [인증 시작]<br/>TodoList 샘플 앱에 로그인 요구 사항을 추가합니다.
 
--   [푸시 알림 시작][푸시 알림]
-    알림 허브를 사용하여 푸시 알림에 맞게 TodoList 샘플 앱을 구성합니다.
++ [푸시 알림 시작]<br/>알림 허브를 사용하여 푸시 알림에 맞게 TodoList 샘플 앱을 구성합니다. 
 
 두 자습서를 모두 완료한 다음에는 인증되지 않은 사용자가 모바일 서비스의 푸시 알림을 등록할 수 없도록 방지할 수 있습니다.
 
-## <a name="register"></a>등록에 인증이 필요하도록 서비스 업데이트
+##<a name="register"></a>등록에 인증이 필요하도록 서비스 업데이트
 
-[WACOM.INCLUDE [mobile-services-javascript-backend-push-notifications-app-users](../includes/mobile-services-javascript-backend-push-notifications-app-users.md)]
+[WACOM.INCLUDE [mobile-services-javascript-backend-push-notifications-app-users](../includes/mobile-services-javascript-backend-push-notifications-app-users.md)] 
 
-1.  삽입 함수를 다음의 코드로 바꾼 후 **저장**을 클릭합니다.
+<ol start="5"><li><p>삽입 함수를 다음의 코드로 바꾼 후 <strong>저장</strong>을 클릭합니다.</p>
+<pre><code>function insert(item, user, request) {
+    // Define a payload for the Windows Store toast notification.
+    var payload = '<?xml version="1.0" encoding="utf-8"?><toast><visual>' +    
+    '<binding template="ToastText01"><text id="1">' +
+    item.text + '</text></binding></visual></toast>';
 
-        function insert(item, user, request) {
-            // Define a payload for the Windows Store toast notification.
-            var payload = '<?xml version="1.0" encoding="utf-8"?><toast><visual>' +    
-            '<binding template="ToastText01"><text id="1">' +
-            item.text + '</text></binding></visual></toast>';
+    // Get the ID of the logged-in user.
+    var userId = user.userId;		
 
-            // Get the ID of the logged-in user.
-            var userId = user.userId;       
-
-            request.execute({
-                success: function() {
-                    // If the insert succeeds, send a notification to all devices 
-                    // registered to the logged-in user as a tag.
-                        push.wns.send(userId, payload, 'wns/toast', {
-                        success: function(pushResponse) {
-                            console.log("Sent push:", pushResponse);
-                            request.respond();
-                            },              
-                            error: function (pushResponse) {
-                                    console.log("Error Sending push:", pushResponse);
-                                request.respond(500, { error: pushResponse });
-                                }
-                            });
+    request.execute({
+        success: function() {
+            // If the insert succeeds, send a notification to all devices 
+	    	// registered to the logged-in user as a tag.
+            	push.wns.send(userId, payload, 'wns/toast', {
+                success: function(pushResponse) {
+                    console.log("Sent push:", pushResponse);
+	    			request.respond();
+                    },              
+                    error: function (pushResponse) {
+                            console.log("Error Sending push:", pushResponse);
+	    				request.respond(500, { error: pushResponse });
                         }
                     });
-        }
+                }
+            });
+}</code></pre>
 
-    이 삽입 스크립트는 사용자 ID 태그를 사용하여 삽입된 항목의 텍스트가 포함된 푸시 알림을 로그인된 사용자가 만든 모든 Windows 스토어 앱 등록으로 전송합니다.
+<p>이 삽입 스크립트는 사용자 ID 태그를 사용하여 삽입된 항목의 텍스트가 포함된 푸시 알림을 로그인된 사용자가 만든 모든 Windows 스토어 앱 등록으로 전송합니다.</p></li></ol>
 
-## <a name="update-app"></a>등록 전에 로그인하도록 앱 업데이트
+##<a name="update-app"></a>등록 전에 로그인하도록 앱 업데이트
 
-[WACOM.INCLUDE [mobile-services-windows-store-dotnet-push-notifications-app-users](../includes/mobile-services-windows-store-dotnet-push-notifications-app-users.md)]
+[WACOM.INCLUDE [mobile-services-windows-store-dotnet-push-notifications-app-users](../includes/mobile-services-windows-store-dotnet-push-notifications-app-users.md)] 
 
-## <a name="test"></a>앱 테스트
+##<a name="test"></a>앱 테스트
 
-[WACOM.INCLUDE [mobile-services-windows-test-push-users](../includes/mobile-services-windows-test-push-users.md)]
+[WACOM.INCLUDE [mobile-services-windows-test-push-users](../includes/mobile-services-windows-test-push-users.md)] 
 
-<!---## <a name="next-steps"> </a>Next steps
+<!---## <a name="next-steps"> </a>다음 단계
 
-In the next tutorial, [Service-side authorization of Mobile Services users][Authorize users with scripts], you will take the user ID value provided by Mobile Services based on an authenticated user and use it to filter the data returned by Mobile Services. Learn more about how to use Mobile Services with .NET in [Mobile Services .NET How-to Conceptual Reference]--> 
+다음 자습서인 [모바일 서비스 사용자의 서비스 쪽 권한 부여][스크립트를 통해 사용자 권한 부여]에서는 인증된 사용자를 기반으로 모바일 서비스에서 제공된 사용자 ID 값을 사용하여 모바일 서비스에서 반환되는 데이터를 필터링합니다. .NET과 함께 모바일 서비스를 사용하는 방법에 대한 자세한 내용은 [모바일 서비스 .NET 방법 개념 참조]를 참조하세요.
+
+<!-- Anchors. -->
+[등록에 인증이 필요하도록 서비스 업데이트]: #register
+[등록 전에 로그인하도록 앱 업데이트]: #update-app
+[앱 테스트]: #test
+[다음 단계]:#next-steps
 
 
+<!-- URLs. -->
+[인증 시작]: /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-users/
+[푸시 알림 시작]: /ko-kr/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push/
 
-
-  [푸시 알림]: /ko-kr/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push/
-  [등록에 인증이 필요하도록 서비스 업데이트]: #register
-  [등록 전에 로그인하도록 앱 업데이트]: #update-app
-  [앱 테스트]: #test
-  [인증 시작]: /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-users/
+[Azure 관리 포털]: https://manage.windowsazure.com/
+[모바일 서비스 .NET 방법 개념 참조]: /ko-kr/develop/mobile/how-to-guides/work-with-net-client-library

@@ -290,3 +290,4 @@ Cloud9은 IDE 제공에 중점을 두며, Azure에 배포된 후 응용 프로�
   [배포 대화 상자에서 Azure 관리 포털에 연결]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_portal_link.png
   [배포 삭제]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_deletedeployment.png
   [Cloud9 설명서]: http://go.microsoft.com/fwlink/?LinkId=241421&clcid=0x409
+  [Link from deploy dialog to Azure Management Portal]: (./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_portal_link.png)

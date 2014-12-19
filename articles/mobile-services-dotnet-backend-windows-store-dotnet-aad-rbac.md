@@ -1,57 +1,49 @@
-<properties linkid="develop-mobile-tutorials-dotnet-rbac-with-aad" urlDisplayName="Role Based Access Control with Azure Active Directory" pageTitle="Role Based Access Control in Mobile Services and Azure Active Directory (Windows Store) | Mobile Dev Center" metaKeywords="" description="Learn how to control access based on Azure Active Directory roles in your Windows Store application." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Role Based Access Control in Mobile Services and Azure Active Directory" authors="wesmc" />
+﻿<properties urlDisplayName="Role Based Access Control with Azure Active Directory" pageTitle="모바일 서비스 및 Azure Active Directory의 역할 기반 액세스 제어(Windows 스토어) | 모바일 개발자 센터" metaKeywords="" description="Learn how to control access based on Azure Active Directory roles in your Windows Store application." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Role Based Access Control in Mobile Services and Azure Active Directory" authors="wesmc" manager="dwrede" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="08/21/2014" ms.author="wesmc" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="10/14/2014" ms.author="wesmc" />
 
 # 모바일 서비스 및 Azure Active Directory의 역할 기반 액세스 제어
 
-<div class="dev-center-tutorial-selector sublanding">
-    <a href="/ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac/" title="Windows 스토어 C#" class="current">Windows 스토어 C#</a>
-</div>
-
-<div class="dev-center-tutorial-subselector">
-    <a href="/ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac/" title=".NET 백 엔드" class="current">.NET 백 엔드</a> | 
-    <a href="/ko-kr/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/" title="JavaScript 백 엔드">JavaScript 백 엔드</a>
-</div>
-
+[WACOM.INCLUDE [mobile-services-selector-rbac](../includes/mobile-services-selector-rbac.md)]
 
 RBAC(역할 기반 액세스 제어)는 사용자가 가질 수 있는 역할에 권한을 할당하여 사용자의 특정 클래스가 수행할 수 있는 작업과 수행할 수 없는 작업에 대한 경계를 효율적으로 정의하는 방식입니다. 이 자습서에서는 Azure 모바일 서비스에 기본 RBAC를 추가하는 방법을 안내합니다.
 
-이 자습서에서는 AAD(Azure Active Directory)에 정의된 Sales 그룹에 대한 각 사용자의 멤버 자격을 확인하면서 역할 기반 액세스 제어에 대해 설명합니다. 액세스 확인은 Azure Active Directory에 대한 [그래프 클라이언트 라이브러리][그래프 클라이언트 라이브러리]를 사용해서 .NET 모바일 서비스 백 엔드를 통해 수행됩니다. Sales 그룹에 속하는 사용자만 데이터 쿼리가 허용됩니다.
+이 자습서에서는 AAD(Azure Active Directory)에 정의된 Sales 그룹에 대한 각 사용자의 멤버 자격을 확인하면서 역할 기반 액세스 제어에 대해 설명합니다. 액세스 확인은 Azure Active Directory에 대한 [그래프 클라이언트 라이브러리]를 사용해서 .NET 모바일 서비스 백 엔드를 통해 수행됩니다. Sales 그룹에 속하는 사용자만 데이터 쿼리가 허용됩니다.
 
 
-> [WACOM.NOTE] 이 자습서에서는 권한 부여 방식을 포함하여 인증에 대한 다양한 지식 정보를 제공합니다. 이 자습서 이전에 Azure Active Directory 인증 공급자를 사용해서 [인증 시작][인증 시작] 자습서를 완료해야 합니다. 이 자습서에서는 [인증 시작][인증 시작] 자습서에서 사용된 TodoItem 응용 프로그램을 계속 업데이트합니다.
+>[AZURE.NOTE] 이 자습서에서는 권한 부여 방식을 포함하여 인증에 대한 다양한 지식 정보를 제공합니다. 이 자습서 이전에 Azure Active Directory 인증 공급자를 사용하여 [앱에 인증 추가] 자습서를 완료해야 합니다. 이 자습서에서는 [앱에 인증 추가] 자습서에서 사용된 TodoItem 응용 프로그램을 계속 업데이트합니다.
 
 이 자습서에서는 다음 단계를 단계별로 안내합니다.
 
-1. [멤버 자격이 포함된 Sales 그룹 만들기][멤버 자격이 포함된 Sales 그룹 만들기]
-2. [통합 응용 프로그램에 대한 키 생성][통합 응용 프로그램에 대한 키 생성]
-3. [사용자 지정 권한 부여 특성 만들기][사용자 지정 권한 부여 특성 만들기]
-4. [역할 기반 액세스 확인을 데이터베이스 작업에 추가][역할 기반 액세스 확인을 데이터베이스 작업에 추가]
-5. [클라이언트 액세스 테스트][클라이언트 액세스 테스트]
+1. [멤버 자격이 포함된 Sales 그룹 만들기]
+2. [통합 응용 프로그램에 대한 키 생성]
+3. [사용자 지정 권한 부여 특성 만들기] 
+4. [역할 기반 액세스 확인을 데이터베이스 작업에 추가]
+5. [클라이언트 액세스 테스트]
 
 이 자습서를 사용하려면 다음이 필요합니다.
 
 * Windows 8.1에서 실행 중인 Visual Studio 2013
-* Azure Active Directory 인증 공급자를 사용해서 [인증 시작][인증 시작] 자습서 완료
-* 서버 스크립트를 저장하기 위해 Git 저장소를 사용하는 데 익숙해지도록 [서버 스크립트 저장][서버 스크립트 저장] 자습서 완료
+* Azure Active Directory 인증 공급자를 사용하여 [앱에 인증 추가] 자습서 완료
+* 서버 스크립트를 저장하기 위해 Git 리포지토리를 사용하는 데 익숙해지도록 [서버 스크립트 저장] 자습서 완료
+ 
 
 
-
-## <a name="create-group"></a> 멤버 자격이 포함된 Sales 그룹 만들기
+## <a name="create-group"></a>멤버 자격이 포함된 Sales 그룹 만들기
 
 [WACOM.INCLUDE [mobile-services-aad-rbac-create-sales-group](../includes/mobile-services-aad-rbac-create-sales-group.md)]
 
 
-## <a name="generate-key"></a> 통합 응용 프로그램에 대한 키 생성
+## <a name="generate-key"></a>통합 응용 프로그램에 대한 키 생성
 
 
-[인증 시작][인증 시작] 자습서에서는 [Azure Active Directory 로그인 사용 등록][Azure Active Directory 로그인 사용 등록] 단계를 완료할 때 통합 응용 프로그램에 대한 등록을 만들었습니다. 이 섹션에서는 해당 통합 응용 프로그램의 클라이언트 ID로 디렉터리 정보를 읽을 때 사용할 키를 생성합니다.
+[앱에 인증 추가] 자습서에서는 [Azure Active Directory 로그인 사용 등록] 단계를 완료할 때 통합 응용 프로그램에 대한 등록을 만들었습니다. 이 섹션에서는 해당 통합 응용 프로그램의 클라이언트 ID로 디렉터리 정보를 읽을 때 사용할 키를 생성합니다. 
 
 [WACOM.INCLUDE [mobile-services-generate-aad-app-registration-access-key](../includes/mobile-services-generate-aad-app-registration-access-key.md)]
 
 
 
-## <a name="create-custom-authorization-attribute"></a> 모바일 서비스에서 사용자 지정 권한 부여 특성 만들기
+## <a name="create-custom-authorization-attribute"></a>모바일 서비스에서 사용자 지정 권한 부여 특성 만들기 
 
 이 섹션에서는 모바일 서비스 작업에서 액세스 확인을 수행하는 데 사용할 수 있는 새로운 사용자 지정 권한 부여 특성을 만듭니다. 이 특성은 여기에 전달된 역할 이름을 기준으로 Active Directory 그룹을 조회합니다. 그런 후 해당 그룹의 멤버 자격을 기준으로 액세스 확인을 수행합니다.
 
@@ -68,7 +60,7 @@ RBAC(역할 기반 액세스 제어)는 사용자가 가질 수 있는 역할에
 
     ![][0]
 
-6.  AuthorizeAadRole.cs 파일에서 파일 맨 위에 다음 `using` 문을 추가합니다.
+6. AuthorizeAadRole.cs 파일에서 파일 맨 위에 다음 `using` 문을 추가합니다. 
 
         using System.Net;
         using System.Net.Http;
@@ -82,7 +74,7 @@ RBAC(역할 기반 액세스 제어)는 사용자가 가질 수 있는 역할에
         using System.Globalization;
         using System.Linq.Expressions;
 
-7. AuthorizeAadRole.cs에서 다음 열거 유형을 Utilities 네임스페이스에 추가합니다. 이 자습서에서는 **Sales** 역할에 대해서만 다룹니다. 다른 항목은 사용 가능한 그룹 예일 뿐입니다.
+7. AuthorizeAadRole.cs에서 다음 열거 형식을 Utilities 네임스페이스에 추가합니다. 이 자습서에서는 **Sales** 역할에 대해서만 다룹니다. 다른 항목은 사용 가능한 그룹 예일 뿐입니다.
 
         public enum AadRoles
         {
@@ -111,9 +103,9 @@ RBAC(역할 기반 액세스 제어)는 사용자가 가질 수 있는 역할에
             }
         }
 
-9. AuthorizeAadRole.cs에서 다음 `GetAADToken` 메서드를 `AuthorizeAadRole` 클래스에 추가합니다.
+9. GetUserInfoController.cs에서 다음 `GetAADToken` 메서드를 `AuthorizeAadRole` 클래스에 추가합니다.
 
-    >[WACOM.NOTE] 각 액세스 확인 시 새 토큰을 만드는 대신 토큰을 캐시에 저장해야 합니다. 그런 후 [그래프 클라이언트 라이브러리][그래프 클라이언트 라이브러리]에 설명된 것처럼 토큰을 사용하려고 시도할 때 캐시를 새로 고쳐서 AccessTokenExpiredException을 throw합니다. 단순성을 위해 이에 대해서는 아래 코드에 설명되지 않지만, Active Directory에 대한 네트워크 트래픽을 추가로 줄여줍니다.
+    >[WACOM.NOTE] [WACOM.NOTE] 각 액세스 확인 시 새 토큰을 만드는 대신 토큰을 캐시에 저장해야 합니다. 그런 후 [그래프 클라이언트 라이브러리]에 설명된 것처럼 토큰을 사용하려고 시도할 때 캐시를 새로 고쳐서 AccessTokenExpiredException을 throw합니다. 단순성을 위해 이에 대해서는 아래 코드에 설명되지 않지만, Active Directory에 대한 네트워크 트래픽을 추가로 줄여줍니다.  
 
         private string GetAADToken(ApiServices services)
         {
@@ -140,7 +132,7 @@ RBAC(역할 기반 액세스 제어)는 사용자가 가질 수 있는 역할에
             ClientCredential clientCred = new ClientCredential(clientid, clientkey);
             string authority = String.Format(CultureInfo.InvariantCulture, AadInstance, tenantdomain);
             AuthenticationContext authContext = new AuthenticationContext(authority);
-            AuthenticationResult result = authContext.AcquireToken(GraphResourceId, clientCred);
+            AuthenticationResult result = await authContext.AcquireTokenAsync(GraphResourceId, clientid, clientCred);
 
             if (result != null)
                 token = result.AccessToken;
@@ -148,9 +140,9 @@ RBAC(역할 기반 액세스 제어)는 사용자가 가질 수 있는 역할에
             return token;
         }
 
-10. AuthorizeAadRole.cs에서 `AuthorizeAadRole` 클래스에 있는 `OnAuthorization` 메서드를 다음 코드로 업데이트합니다. 이 코드는 [그래프 클라이언트 라이브러리][그래프 클라이언트 라이브러리]를 사용해서 역할에 해당하는 Active Directory 그룹을 조회합니다. 그런 후 해당 그룹에서 사용자의 멤버 자격을 확인하여 사용자에게 권한을 부여합니다.
+10. 다음 코드에서 `AuthorizeAadRole` 클래스에 있는 `OnAuthorization` 메서드를 다음 코드로 업데이트합니다. 이 코드는 [그래프 클라이언트 라이브러리]를 사용해서 역할에 해당하는 Active Directory 그룹을 조회합니다. 그런 후 해당 그룹에서 사용자의 멤버 자격을 확인하여 사용자에게 권한을 부여합니다.
 
-    >[WACOM.NOTE] 이 코드는 Active Directory 그룹을 이름별로 조회합니다. 많은 경우, 그룹 ID를 모바일 서비스 앱 설정으로 저장하는 것이 더 낫습니다. 그룹 이름이 변경될 수도 있지만 ID는 동일하게 유지되기 때문입니다. 하지만 그룹 이름이 변경될 경우에는 최소한 일반적으로 역할 범위가 변경되므로 모바일 서비스 코드를 업데이트해야 할 수도 있습니다.
+    >[WACOM.NOTE] 이 코드는 Active Directory 그룹을 이름별로 조회합니다. 많은 경우, 그룹 ID를 모바일 서비스 앱 설정으로 저장하는 것이 더 낫습니다. 그룹 이름이 변경될 수도 있지만 ID는 동일하게 유지되기 때문입니다. 하지만 그룹 이름이 변경될 경우에는 최소한 일반적으로 역할 범위가 변경되므로 모바일 서비스 코드를 업데이트해야 할 수도 있습니다.  
 
         public override void OnAuthorization(HttpActionContext actionContext)
         {
@@ -237,13 +229,13 @@ RBAC(역할 기반 액세스 제어)는 사용자가 가질 수 있는 역할에
             }
         }
 
-11. 변경 사항을 AuthorizeAadRole.cs에 저장합니다.
+8. 변경 사항을 AuthorizeAadRole.cs에 저장합니다.
 
-## <a name="add-access-checking"></a> 역할 기반 액세스 확인을 데이터베이스 작업에 추가
+## <a name="add-access-checking"></a>역할 기반 액세스 확인을 데이터베이스 작업에 추가
 
-1. Visual Studio에서 모바일 서비스 프로젝트 아래의 **컨트롤러** 폴더를 확장합니다. TodoItemController.cs를 엽니다.
+1. Visual Studio에서 모바일 서비스 프로젝트 아래의 **Controllers** 폴더를 확장합니다. TodoItemController.cs를 엽니다.
 
-2. TodoItemController.cs에서 사용자 지정 권한 부여 특성을 포함하는 유틸리티 네임스페이스에 대해 `using` 문을 추가합니다.
+2. TodoItemController.cs에서 사용자 지정 권한 부여 특성을 포함하는 유틸리티 네임스페이스에 대해 `using` 문을 추가합니다. 
 
         using todolistService.Utilities;
 
@@ -281,30 +273,32 @@ RBAC(역할 기반 액세스 제어)는 사용자가 가질 수 있는 역할에
 5. 모바일 서비스를 Azure 계정에 게시합니다.
 
 
-## <a name="test-client"></a> 클라이언트의 액세스 테스트
+## <a name="test-client"></a>클라이언트의 액세스 테스트
 
 [WACOM.INCLUDE [mobile-services-aad-rbac-test-app](../includes/mobile-services-aad-rbac-test-app.md)]
 
 
 
 
- 
-<!-- Images --> 
 
-
-[Windows 스토어 C#]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac/ "Windows 스토어 C#"
-[.NET 백 엔드]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac/ ".NET 백 엔드"
-[JavaScript 백 엔드]: /ko-kr/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/ "JavaScript 백 엔드"
-[그래프 클라이언트 라이브러리]: http://go.microsoft.com/fwlink/?LinkId=510536
-[인증 시작]: /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-users/
+<!-- Anchors. -->
 [멤버 자격이 포함된 Sales 그룹 만들기]: #create-group
 [통합 응용 프로그램에 대한 키 생성]: #generate-key
 [사용자 지정 권한 부여 특성 만들기]: #create-custom-authorization-attribute
 [역할 기반 액세스 확인을 데이터베이스 작업에 추가]: #add-access-checking
 [클라이언트 액세스 테스트]: #test-client
-[서버 스크립트 저장]: /ko-kr/documentation/articles/mobile-services-store-scripts-source-control/
-[mobile-services-aad-rbac-create-sales-group]: ../includes/mobile-services-aad-rbac-create-sales-group.md
-[Azure Active Directory 로그인 사용 등록]: /ko-kr/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
-[mobile-services-generate-aad-app-registration-access-key]: ../includes/mobile-services-generate-aad-app-registration-access-key.md
+
+
+
+<!-- Images -->
 [0]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac/add-authorize-aad-role-class.png
-[mobile-services-aad-rbac-test-app]: ../includes/mobile-services-aad-rbac-test-app.md
+
+<!-- URLs. -->
+[앱에 인증 추가]: /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-users/
+[Azure Active Directory에 등록하는 방법]: /ko-kr/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
+[Azure 관리 포털]: https://manage.windowsazure.com/
+[디렉터리 동기화 시나리오]: http://msdn.microsoft.com/library/azure/jj573653.aspx
+[서버 스크립트 저장]: /ko-kr/documentation/articles/mobile-services-store-scripts-source-control/
+[등록하여 Azure Active Directory 로그인 사용]: /ko-kr/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
+[그래프 클라이언트 라이브러리]: http://go.microsoft.com/fwlink/?LinkId=510536
+[IsMemberOf]: http://msdn.microsoft.com/ko-kr/library/azure/dn151601.aspx
