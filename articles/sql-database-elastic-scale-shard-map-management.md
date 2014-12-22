@@ -1,0 +1,263 @@
+﻿<properties title="Shard Map Management" pageTitle="분할된 데이터베이스 맵 관리" description="How to use the ShardMapManager, Elastic Scale API for .NET" metaKeywords="sharding scaling, Azure SQL Database sharding, elastic scale, shardmapmanager" services="sql-database" documentationCenter="" manager="jhubbard" authors="sidneyh@microsoft.com"/>
+
+<tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/02/2014" ms.author="sidneyh" />
+
+#분할된 데이터베이스 맵 관리 
+분할된 데이터베이스 환경에서는 **분할된 데이터베이스 맵**이 **분할 키**의 값에 따라 응용 프로그램이 올바른 데이터베이스에 연결할 수 있도록 정보를 유지 관리합니다. 이러한 맵의 생성 방식을 이해하는 것은 탄력적인 확장 미리 보기에서 분할된 데이터베이스를 관리 하는 데 중요합니다.
+
+##분할된 데이터베이스 맵 및 분할된 데이터베이스 매핑 
+### 분할 키에 대해 지원되는 .Net 형식
+탄력적인 확장은 분할 키로 다음 .Net Framework 형식을 지원합니다.
+
+* 정수
+* long
+* GUID
+* 바이트[]  
+
+### 목록 및 범위 분할된 데이터베이스 맵
+분할된 데이터베이스 맵은 **개별 분할 키 값의 목록**을 사용하여 생성하거나 **분할 키 값의 범위**를 사용하여 생성할 수 있습니다. 
+
+###목록 분할된 데이터베이스 맵
+**분할된 데이터베이스**에는 **shardlet**이 포함되며, 분할된 데이터베이스 맵에 대한 shardlet 매핑은 분할된 데이터베이스 맵으로 유지 관리됩니다. **목록 분할된 데이터베이스 맵**은 shardlet을 식별하는 개별 키 값과 분할된 데이터베이스 역할을 하는 데이터베이스 간의 연결입니다.  **목록 매핑**은 명시적(예: 데이터베이스 A에 키 1 매핑)이며, 여러 키 값이 동일한 데이터베이스에 매핑될 수 있습니다(키 값 3 및 6이 모두 데이터베이스 B 참조).
+<table>
+   <tr>
+    <td>키</td>
+     <td>분할된 데이터베이스 위치</td>
+   </tr>
+   <tr>
+    <td>1</td>
+     <td>Database_A</td>
+   </tr>
+  <tr>
+    <td>3</td>
+     <td>Database_B</td>
+   </tr>
+  <tr>
+    <td>4</td>
+     <td>Database_C</td>
+   </tr>
+  <tr>
+    <td>6</td>
+     <td>Database_B</td>
+   </tr>
+  <tr>
+    <td>...</td>
+     <td>...</td>
+   </tr>
+</table> 
+
+###범위 분할된 데이터베이스 맵 
+**범위 분할된 데이터베이스 맵**에서 키 범위는 한 쌍**[낮은 값, 높은 값)**으로 기술됩니다. 여기서 *낮은 값*은 범위에서 최소 키이고 *높은 값*은 범위보다 높은 첫 번째 값입니다. 
+
+예를 들어 , **[0, 100)**에는 0보다 크거나 같고 100보다 작은 모든 정수가 포함됩니다. 여러 범위가 동일한 데이터베이스를 가리킬 수 있으며 연결되지 않은 범위가 지원됩니다(예: [100,200) 및 [400,600) 모두가 아래 예제의 데이터베이스 C를 가리킴).
+<table>
+   <tr>
+    <td><b>키 범위</b></td>
+     <td><b>분할된 데이터베이스 위치</b></td>
+   </tr>
+   <tr>
+    <td>[1, 50)</td>
+     <td>Database_A</td>
+   </tr>
+  <tr>
+    <td>[50, 100)</td>
+     <td>Database_B</td>
+   </tr>
+  <tr>
+    <td>[100, 200)</td>
+     <td>Database_C</td>
+   </tr>
+  <tr>
+    <td>[400, 600)</td>
+     <td>Database_C</td>
+   </tr>
+  <tr>
+    <td>...</td>
+     <td>...</td>
+   </tr>
+</table> 
+
+위에 표시된 각 테이블은 **ShardMap** 개체에 대한 개념적 예제입니다.  각 행은 개별 **PointMapping**(목록 분할된 데이터베이스 맵의 경우) 또는 **RangeMapping**(범위 분할된 데이터베이스 맵의 경우) 개체에 대한 단순한 예입니다.
+
+##분할된 데이터베이스 맵 관리자 
+
+탄력적인 확장 API에서 분할된 데이터베이스 맵 관리자는 분할된 데이터베이스 맵의 컬렉션입니다. **ShardMapManager** .Net 개체를 통해 관리되는 데이터는 다음 3개 위치에서 유지됩니다. 
+
+1. **GSM(전역 분할된 데이터베이스 맵)**: **ShardMapManager**를 만들 때 해당 분할된 데이터베이스 맵 및 매핑 모두에 대한 리포지토리 역할을 할 데이터베이스를 지정합니다. 정보를 관리할 특수 테이블 및 저장된 프로시저는 자동으로 생성됩니다. 일반적으로 작은 데이터베이스이며 손쉽게 액세스할 수 있지만 응용 프로그램의 다른 요구 사항에는 사용할 수 없습니다. 테이블은 **__ShardManagement**라는 특수한 스키마에 있습니다. 
+
+2. **LSM(로컬 분할된 데이터베이스 맵)**: 분할된 데이터베이스 맵 내에서 지정하는 모든 데이터베이스는 해당 분할된 데이터베이스와 관련된 분할된 데이터베이스 맵 정보를 포함하고 유지하는 여러 개의 작은 테이블 및 특수 저장 프로시저를 포함하도록 수정됩니다. 이 정보는 GSM의 정보와 중복되지만 그렇기 때문에 응용 프로그램에서 GSM에 어떤 부하도 주지 않으면서 캐시된 분할된 데이터베이스 맵 정보의 유효성을 검사할 수 있습니다. 응용 프로그램은 LSM을 사용하여 캐시된 매핑이 여전히 유효한지 여부를 확인합니다. 각 분할된 데이터베이스의 LSM에 해당하는 테이블은 **__ShardManagement** 스키마에 있습니다.
+
+3. **응용 프로그램 캐시**: **ShardMapManager** 개체에 액세스하는 각 응용 프로그램 인스턴스는 해당 매핑의 로컬 메모리 내 캐시를 유지 관리합니다. 이 캐시는 최근에 검색된 라우팅 정보를 저장합니다. 
+
+### ShardMapManager 생성
+응용 프로그램의 **ShardMapManager** 개체는 팩터리 패턴을 사용하여 인스턴스화됩니다. **ShardMapManagerFactory.GetSqlShardMapManager** 메서드는 **ConnectionString**의 형식으로 자격 증명(GSM을 유지하는 데이터베이스 이름 및 서버 이름 포함)을 가져와 **ShardMapManager** 인스턴스를 반환합니다.  
+
+**ShardMapManager**는 응용 프로그램에 대한 초기화 코드 내에서 앱 도메인 별로 한번만 인스턴스화해야 합니다. **ShardMapManager**는 개수에 관계없이 분할된 데이터베이스 맵을 포함할 수 있습니다. 많은 응용 프로그램에 대해 단일 분할된 데이터베이스 맵으로 충분할 수 있지만 서로 다른 스키마에 대해서 또는 고유성을 위해서는 서로 다른 데이터베이스 집합이 사용되며 이러한 경우 다중 분할된 데이터베이스 맵을 사용하는 것이 좋습니다. 
+
+이 코드에서는 응용 프로그램이 기존 **ShardMapManager**를 열려고 시도합니다. GSM(**ShardMapManager**)을 나타내는 개체가 아직 데이터베이스에 없는 경우 클라이언트 라이브러리에서 해당 개체를 자동으로 만듭니다.
+
+    // Try to get a reference to the Shard Map Manager via the Shard Map Manager database.  
+    // If it doesn't already exist, then create it. 
+    ShardMapManager shardMapManager; 
+    bool shardMapManagerExists = ShardMapManagerFactory.TryGetSqlShardMapManager(
+                                        connectionString, 
+                                        ShardMapManagerLoadPolicy.Lazy, 
+                                        out shardMapManager); 
+
+    if (shardMapManagerExists) 
+     { 
+        Console.WriteLine("Shard Map Manager already exists");
+    } 
+    else
+    {
+        // Create the Shard Map Manager. 
+        ShardMapManagerFactory.CreateSqlShardMapManager(connectionString);
+        Console.WriteLine("Created SqlShardMapManager"); 
+
+        shardMapManager = ShardMapManagerFactory.GetSqlShardMapManager(
+            connectionString, 
+            ShardMapManagerLoadPolicy.Lazy);
+
+        // The connectionString contains server name, database name, and admin credentials 
+        // for privileges on both the GSM and the shards themselves.
+    } 
+ 
+
+###분할된 데이터베이스 맵 관리 자격 증명
+
+일반적으로 분할된 데이터베이스 맵을 관리하고 조작하는 응용 프로그램은 분할된 데이터베이스 맵을 사용하여 연결을 라우팅하는 응용 프로그램과 다릅니다. 
+
+분할된 데이터베이스 맵(분할된 데이터베이스 추가 또는 변경, 분할된 데이터베이스 맵, 분할된 데이터베이스 매핑 등)을 관리하는 응용 프로그램의 경우 **ShardMapManager**를 인스턴스화해야 하며, 이때 **GSM 데이터베이스 및 분할된 데이터베이스 역할을 하는 각 데이터베이스 모두에 대해 읽기/쓰기 권한이 있는 자격 증명**을 사용해야 합니다. 이 자격 증명은 분할된 데이터베이스 맵 정보를 입력하거나 변경할 뿐만 아니라 새로운 분할된 데이터베이스에 LSM 테이블을 생성할 때 GSM 및 LSM에서 테이블에 쓸 수 있도록 허용해야 합니다.  
+
+### 영향을 받는 메타데이터만 
+
+**ShardMapManager** 데이터를 채우거나 변경하는 데 사용되는 메서드는 분할된 데이터베이스에 저장된 사용자 데이터를 자동으로 변경하지 않습니다. 예를 들어 **CreateShard**, **DeleteShard**, **UpdateMapping** 등의 메서드는 분할된 데이터베이스 맵 메타데이터에만 영향을 주며 분할된 데이터베이스에 포함된 사용자 데이터를 제거, 추가 또는 변경하지 않습니다. 대신, 이러한 메서드는 실제 데이터베이스를 생성 또는 제거하기 위해 수행하는 개별 작업 또는 분할된 환경을 리밸런스하기 위해 분할된 데이터베이스 간에 행을 이동하는 개별 작업과 함께 사용하도록 설계되었습니다.  탄력적인 확장 미리 보기에 포함된 **분할/병합** 서비스는 분할된 데이터베이스 간의 실제 데이터 이동의 조정하면서 이러한 API를 사용합니다. 
+
+## 분할된 데이터베이스 맵 채우기: 예제
+특정 분할된 데이터베이스 맵을 채우는 작업의 예제 시퀀스는 아래와 같습니다. 이 코드는 다음 단계를 수행합니다. 
+
+1. 새로운 분할된 데이터베이스 맵이 분할된 데이터베이스 맵 관리자 내에 생성됩니다. 
+2. 다른 두 개의 분할된 데이터베이스용 메타데이터가 분할된 데이터베이스 맵에 추가됩니다. 
+3. 다양한 키 범위 매핑이 추가되고 분할된 데이터베이스 맵의 전체 내용이 표시됩니다. 
+
+코드는 예기치 않은 오류가 발생하는 경우에도 전체 메서드가 안전하게 다시 실행될 수 있는 방법으로 다시 작성됩니다. 각 요청은 분할된 데이터베이스 또는 매핑의 생성을 시도하기 전에 해당 항목이 이미 존재하는지 여부를 테스트합니다. 아래 코드에서는 **sample_shard_0**, **sample_shard_1** 및 **sample_shard_2**이라는 데이터베이스가 **shardServer** 문자열로 참조되는 서버에 이미 생성되어 있다고 가정합니다. 
+
+    public void CreatePopulatedRangeMap(ShardMapManager smm, string mapName) 
+        {            
+            RangeShardMap<long> sm = null; 
+
+            // check if shardmap exists and if not, create it 
+            if (!smm.TryGetRangeShardMap(mapName, out sm)) 
+            { 
+                sm = smm.CreateRangeShardMap<long>(mapName); 
+            } 
+
+            Shard shard0 = null, shard1=null; 
+            // check if shard exists and if not, 
+            // create it (Idempotent / tolerant of re-execute) 
+            if (!sm.TryGetShard(new ShardLocation(shardServer, "sample_shard_0"), out shard0)) 
+            { 
+                Shard0 = sm.CreateShard(new ShardLocation(shardServer, "sample_shard_0")); 
+            } 
+
+            if (!sm.TryGetShard(new ShardLocation(shardServer, "sample_shard_1"), out shard1)) 
+            { 
+                Shard1 = sm.CreateShard(new ShardLocation(shardServer, "sample_shard_1"));  
+            } 
+
+            RangeMapping<long> rmpg=null; 
+
+            // Check if mapping exists and if not,
+            // create it (Idempotent / tolerant of re-execute) 
+            if (!sm.TryGetMappingForKey(0, out rmpg)) 
+            { 
+                sm.CreateRangeMapping(new RangeMappingCreationInfo<long> 
+                    (new Range<long>(0, 50), shard0, MappingStatus.Online)); 
+            } 
+
+            if (!sm.TryGetMappingForKey(50, out rmpg)) 
+            { 
+                sm.CreateRangeMapping(new RangeMappingCreationInfo<long> 
+                    (new Range<long>(50, 100), shard1, MappingStatus.Online)); 
+            } 
+
+            if (!sm.TryGetMappingForKey(100, out rmpg)) 
+            { 
+                sm.CreateRangeMapping(new RangeMappingCreationInfo<long> 
+                    (new Range<long>(100, 150), shard0, MappingStatus.Online)); 
+            } 
+
+            if (!sm.TryGetMappingForKey(150, out rmpg)) 
+            { 
+                sm.CreateRangeMapping(new RangeMappingCreationInfo<long> 
+                    (new Range<long>(150, 200), shard1, MappingStatus.Online)); 
+            } 
+
+            if (!sm.TryGetMappingForKey(200, out rmpg)) 
+            { 
+               sm.CreateRangeMapping(new RangeMappingCreationInfo<long> 
+                   (new Range<long>(200, 300), shard0, MappingStatus.Online)); 
+            } 
+
+            // List the shards and mappings 
+            foreach (Shard s in sm.GetShards()
+                                    .OrderBy(s => s.Location.DataSource)
+                                    .ThenBy(s => s.Location.Database))
+            { 
+               Console.WriteLine("shard: "+ s.Location); 
+            } 
+
+            foreach (RangeMapping<long> rm in sm.GetMappings()) 
+            { 
+                Console.WriteLine("range: [" + rm.Value.Low.ToString() + ":" 
+                        + rm.Value.High.ToString()+ ")  ==>" +rm.Shard.Location); 
+            } 
+        } 
+ 
+또는 PowerShell 스크립트를 사용하여 동일한 결과를 얻을 수 있습니다.     
+
+분할된 데이터베이스 맵이 채워진 후에는 해당 맵에 대한 작업을 수행하도록 데이터 액세스 응용 프로그램을 생성하거나 조정할 수 있습니다. **맵 레이아웃**을 변경해야 할 때까지는 다시 맵을 채우거나 조작할 필요가 없습니다.  
+
+##데이터 종속 라우팅 
+
+분할된 데이터베이스 맵 관리자는 대부분 앱별 작업을 수행하기 위해 데이터베이스 연결이 필요한 응용 프로그램에서 사용됩니다. 분할된 응용 프로그램에서, 이제 이러한 연결을 올바른 대상 데이터베이스와 연결해야 합니다. 이를 **데이터 종속 라우팅**이라고 합니다. 이러한 응용 프로그램의 경우 GSM 데이터베이스에 대한 읽기 전용 액세스 권한이 있는 자격 증명을 사용하여 팩터리의 분할된 데이터베이스 맵 관리자 개체를 인스턴스화합니다. 연결에 대한 개별 요청은 나중에 적절한 분할된 데이터베이스에 연결하는 데 필요한 자격 증명을 제공합니다.
+
+이러한 응용 프로그램(읽기 전용 자격 증명을 사용하여 연 **ShardMapManager**)은 맵 또는 매핑을 변경할 수 없습니다.  이러한 요구 사항을 위해, 앞서 설명한 대로 더 높은 권한의 자격 증명을 제공하는 PowerShell 스크립트 또는 관리별 응용 프로그램을 만듭니다.   
+
+자세한 내용은 [데이터 종속 라우팅](./sql-database-elastic-scale-data-dependent-routing.md)을 참조하세요. 
+
+##분할된 데이터베이스 맵 수정 
+
+분할된 데이터베이스 맵은 여러 방법으로 변경할 수 있습니다. 다음 메서드 모두가 분할된 데이터베이스 및 해당 매핑을 기술하는 메타데이터를 수정하지만 분할된 데이터베이스 내에서 데이터를 실제로 수정하지 않으며 실제 데이터베이스를 만들거나 삭제하지 않습니다. 아래에 설명된 분할된 데이터베이스 맵에 대한 작업 중 일부는, 데이터를 실제로 이동하거나 분할된 데이터베이스 역할을 하는 데이터베이스를 추가 및 제거하는 관리 작업으로 조정해야 할 수 있습니다.
+
+이러한 메서드는 분할된 데이터베이스 환경에서 데이터의 전반적인 분산을 수정하기 위해 사용할 수 있는 구성 요소로 함께 작동합니다.  
+
+* 분할된 데이터베이스를 추가 또는 제거하려면 use **CreateShard** 및 **DeleteShard**를 사용합니다. 
+    
+    이러한 작업을 실행하려면 대상 분할된 데이터베이스를 나타내는 서버 및 데이터베이스가 이미 있어야 합니다. 이러한 메서드는 데이터베이스 자체가 아닌, 분할된 데이터베이스 맵의 메타데이터에만 영향을 줍니다.
+
+* 분할된 데이터베이스에 매핑되는 지점 또는 범위를 만들거나 제거하려면 **CreateRangeMapping**, **DeleteMapping**, **CreatePointMapping**을 사용합니다. 
+    
+    여러 많은 지점 또는 범위를 동일한 분할된 데이터베이스에 매핑할 수 있습니다. 이러한 메서드는 메타데이터에만 영향을 주며, 분할된 데이터베이스에 이미 존재하는 데이터에는 영향을 주지 않습니다. 데이터 일관성을 위해 **DeleteMapping** 작업을 사용하여 데이터베이스에서 데이터를 제거해야 하는 경우 이러한 메서드를 사용하면서 해당 작업을 개별적으로 수행해야 합니다.  
+
+* 기존 범위를 둘로 분할하거나 인접한 범위를 하나로 병합하려면 use **SplitMapping** 및 **MergeMappings**를 사용합니다.  
+
+    분할 및 병합 작업은 **키 값이 매핑되는 분할된 데이터베이스는 변경하지 않습니다**. 분할은 기존 범위를 두 부분으로 나누지만 둘 다를 동일한 분할된 데이터베이스에 매핑된 상태로 둡니다. 병합은 동일한 분할된 데이터베이스에 이미 매핑되어 있는 인접한 두 범위에 대해 작동하여 단일 범위로 결합합니다.  분할된 데이터베이스 간의 지점 또는 범위의 자동적인 이동은 실제 데이터 이동과 함께 **UpdateMapping**을 사용하여 조정해야 합니다.  탄력적인 확장 미리 보기의 일부인 **Split/Merge** 서비스를 사용하여 이동이 필요할 때 데이터 이동에 맞춰 분할된 데이터베이스 맵 변경을 조정할 수 있습니다. 
+
+* 개별 지점 또는 값 범위를 여러 분할된 데이터베이스로 다시 매핑(또는 이동)하려면 **UpdateMapping**을 사용합니다.  
+
+    **UpdateMapping** 작업과의 일관성을 유지하기 위해 분할된 데이터베이스 간에 데이터를 이동해야 할 수 있으므로, 이러한 메서드를 사용하면서 이동을 개별적으로 수행해야 합니다.
+
+* 매핑을 온라인 및 오프라인으로 전환하려면 **MarkMappingOffline** 및 **MarkMappingOnline**을 사용하여 매핑의 온라인 상태를 제어합니다. 
+
+    UpdateMapping 및 DeleteMapping을 비롯하여 매핑이 "오프라인" 상태인 경우에만 분할된 데이터베이스 매핑에 대한 특정 작업이 허용됩니다. 매핑이 오프라인 상태이면 해당 매핑에 포함된 특정 키를 기반으로 하는 데이터 종속 요청이 오류를 반환합니다. 또한 범위가 먼저 오프라인으로 전환되면 변경 중인 범위에 대해 전송된 쿼리 결과가 불일치하거나 불완전해지지 않도록 영향받는 분할된 데이터베이스에 대한 모든 연결이 자동으로 중지됩니다. 
+
+##분할된 데이터베이스 추가 
+
+이미 존재하는 분할된 데이터베이스 맵의 경우 응용 프로그램은 대개 새 키 또는 키 범위에서 예상되는 데이터를 처리할 새로운 분할된 데이터베이스를 추가하기만 하면 됩니다. 예를 들어 테넌트 ID를 기준으로 분할된 응용 프로그램이 새로운 테넌트에 대한 새로운 분할된 데이터베이스를 프로비전해야 할 수 있습니다. 또는 월별로 분할된 데이터의 경우 새로운 달이 시작되기 전에 새로운 분할된 데이터베이스를 프로비전해야 할 수 있습니다. 
+
+키 값의 새로운 범위가 기존 매핑에 속하지 않으며 데이터를 이동할 필요가 없는 경우에는 단지 새로운 분할된 데이터베이스를 추가하고 새 키 또는 범위를 해당 분할된 데이터베이스에 연결하면 됩니다. 새로운 분할된 데이터베이스를 추가하는 방법에 대한 자세한 내용은 [새로운 분할된 데이터베이스 추가](./sql-database-elastic-scale-add-a-shard.md)를 참조하세요.
+
+그러나 데이터 이동이 필요한 시나리오에서는, 필요한 분할된 데이터베이스 맵 업데이트와 함께 분할된 데이터베이스 간의 데이터 이동을 조정하기 위해 분할/병합 서비스가 필요합니다. 분할/병합 서비스 사용에 대한 자세한 내용은 [분할/병합 서비스 개요](./sql-database-elastic-scale-overview-split-and-merge.md)를 참조하세요.
+
+[AZURE.INCLUDE [elastic-scale-include](../includes/elastic-scale-include.md)]
