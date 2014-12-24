@@ -1,4 +1,4 @@
-<properties urlDisplayName="Get Started with Data" pageTitle="데이터 작업 시작(Windows 스토어) | 모바일 개발자 센터" metaKeywords="" description="Learn how to get started using Mobile Services to leverage data in your Windows Store app." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="wesmc" solutions="" manager="dwrede" editor="" />
+﻿<properties urlDisplayName="Get Started with Data" pageTitle="데이터 작업 시작(Windows 스토어) | 모바일 개발자 센터" metaKeywords="" description="Learn how to get started using Mobile Services to leverage data in your Windows Store app." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="wesmc" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc" />
 
@@ -16,11 +16,11 @@
 
 1. [Windows 스토어 앱 프로젝트 다운로드]
 2. [Visual Studio에서 새 모바일 서비스 만들기]
-3. [로컬에서 모바일 서비스 프로젝트 테스트](#test-the-service-locally)
+3. [로컬에서 모바일 서비스 프로젝트 테스트]
 4. [모바일 서비스를 사용하도록 앱 업데이트]
 5. [Azure에 모바일 서비스 게시]
-6. [Azure에서 호스트되는 서비스에 대해 앱 테스트](#test-azure-hosted)
-7. [SQL 데이터베이스에 저장된 데이터 확인](#view-stored-data)
+6. [Azure에서 호스트되는 서비스에 대해 앱 테스트]
+7. [SQL 데이터베이스에 저장된 데이터 확인]
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -44,7 +44,7 @@
 	<p>이 코드는 전역 변수를 사용하여 앱에서 새 모바일 서비스에 액세스할 수 있게 합니다. 클라이언트는 새 모바일 서비스의 URI 및 응용 프로그램 키를 제공하여 만듭니다. 이 스크립트에 대한 참조가 default.html 파일에 추가되었으므로 이 페이지에서 참조된 모든 스크립트 파일도 이 변수를 사용할 수 있습니다.</p>
 </li>
 <li><p>default.html 프로젝트 파일을 열고 새 service.js 스크립트 파일에 대한 참조를 찾은 다음 참조되는 경로가 다음과 같은지 확인합니다.</p>
-<pre><code>&lt;script src="/services/mobileServices/scripts/todolist.js"&gt;</script></code></pre>
+<pre><code><script src="/services/mobileServices/scripts/todolist.js"></script></code></pre>
 <p>현재 Visual Studio에는 경로에 잘못된 폴더 이름을 생성하는 버그가 있습니다.</p></li>
 <li><p>Windows Phone 앱 프로젝트를 마우스 오른쪽 단추로 클릭하고 <strong>추가<strong>, </strong>연결된 서비스...<strong>를 차례로 클릭한 후에 방금 만든 모바일 서비스를 선택하고 </strong>확인</strong>을 클릭합니다. </p>
 <p>같은 새 코드 파일이 Windows Phone 스토어 앱 프로젝트에 추가됩니다. 여기서도 default.html 파일에 추가된 참조 경로를 수정해야 합니다.</p></li>

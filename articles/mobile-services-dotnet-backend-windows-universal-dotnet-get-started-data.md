@@ -1,4 +1,4 @@
-<properties urlDisplayName="Get Started with Data" pageTitle="데이터 작업 시작(Windows 스토어) | 모바일 개발자 센터" metaKeywords="" description="Learn how to get started using Mobile Services to leverage data in your Windows Store app." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="wesmc" solutions="" manager="dwrede" editor="" />
+﻿<properties urlDisplayName="Get Started with Data" pageTitle="데이터 작업 시작(Windows 스토어) | 모바일 개발자 센터" metaKeywords="" description="Learn how to get started using Mobile Services to leverage data in your Windows Store app." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="wesmc" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/27/2014" ms.author="wesmc" />
 
@@ -18,11 +18,11 @@
 
 1. [Windows 스토어 앱 프로젝트 다운로드]
 2. [Visual Studio에서 새 모바일 서비스 만들기]
-3. [로컬에서 모바일 서비스 프로젝트 테스트](#test-the-service-locally)
+3. [로컬에서 모바일 서비스 프로젝트 테스트]
 4. [모바일 서비스를 사용하도록 앱 업데이트]
 5. [Azure에 모바일 서비스 게시]
-6. [Azure에서 호스트되는 서비스에 대해 앱 테스트](#test-azure-hosted)
-7. [SQL 데이터베이스에 저장된 데이터 확인](#view-stored-data)
+6. [Azure에서 호스트되는 서비스에 대해 앱 테스트]
+7. [SQL 데이터베이스에 저장된 데이터 확인]
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
