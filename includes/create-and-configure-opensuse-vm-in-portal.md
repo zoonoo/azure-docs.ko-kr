@@ -1,79 +1,63 @@
-<properties writer="kathydav" editor="tysonn" manager="jeffreyg" />
+﻿<properties writer="kathydav" editor="tysonn" manager="timlt" /> 
 
-**중요**: 가상 컴퓨터에서 가상 네트워크를 사용하려는 경우 가상 컴퓨터를 만들 때 가상 네트워크를 지정해야 합니다. 가상 컴퓨터를 만드는 경우에만 가상 네트워크에 가입하도록 가상 컴퓨터를 구성할 수 있습니다. 가상 네트워크에 대한 자세한 내용은 [Azure 가상 네트워크 개요][Azure 가상 네트워크 개요]를 참조하세요.
+**중요**: 가상 컴퓨터에서 가상 네트워크를 사용하려는 경우 가상 컴퓨터를 만들 때 가상 네트워크를 지정해야 합니다. 가상 컴퓨터를 만드는 경우에만 가상 네트워크에 가입하도록 가상 컴퓨터를 구성할 수 있습니다. 가상 네트워크에 대한 자세한 내용은 [Azure 가상 네트워크 개요](http://go.microsoft.com/fwlink/p/?LinkID=294063)를 참조하세요.
 
-1.  Azure 계정을 사용하여 [Azure 관리 포털][Azure 관리 포털]에 로그인합니다.
 
-2.  관리 포털에서 웹 페이지 왼쪽 아래에 있는 **+New**를 클릭한 후 **Virtual Machine**, **From Gallery**를 차례로 클릭합니다.
+1. Azure 계정을 사용하여 [Azure 관리 포털][AzurePreviewPortal]에 로그인합니다.
 
-    ![새 가상 컴퓨터 만들기][새 가상 컴퓨터 만들기]
+2. 관리 포털에서 웹 페이지 왼쪽 아래에 있는 **+새로 만들기**를 클릭한 후 **가상 컴퓨터**, **갤러리에서**를 차례로 클릭합니다.
 
-3.  **Platform Images**에서 OpenSUSE 가상 컴퓨터 이미지를 선택하고 페이지 오른쪽 아래에 있는 다음 화살표를 클릭합니다.
+	![Create a New Virtual Machine][Image1]
 
-4.  **Virtual machine configuration** 페이지에서 다음 정보를 제공합니다.
+3. **SUSE** 그룹에서 OpenSUSE 가상 컴퓨터 이미지를 선택하고 페이지 오른쪽 아래에 있는 앞으로 화살표를 클릭합니다.
 
-    -   **Virtual Machine Name**(예: "testlinuxvm")을 제공합니다.
-    -   Sudoers 목록 파일에 추가될 **New User Name**(예: "newuser")을 지정합니다.
-    -   **New Password** 상자에 [강력한 암호][강력한 암호]를 입력합니다.
-    -   **Confirm Password** 상자에 암호를 다시 입력합니다.
-    -   드롭다운 목록에서 해당 **Size**를 선택합니다.
 
-    다음 화살표를 클릭하여 계속합니다.
+4. 첫 번째 **가상 컴퓨터 구성** 페이지에서 설정을 입력하거나 확인합니다.
 
-5.  **가상 컴퓨터 모드** 페이지에서 다음 정보를 제공합니다.
+	- **가상 컴퓨터 이름**을 입력합니다(예: "testlinuxvm").
+	- **계층**을 확인하고 **크기**를 선택합니다. 계층에 따라 선택할 수 있는 크기가 결정됩니다.
+	- Sudoers 목록 파일에 추가될 **새 사용자 이름**(예: "newuser")을 입력합니다.
+	- 사용할 **인증** 유형을 결정합니다. 일반적인 암호 지침은 [강력한 암호](http://msdn.microsoft.com/ko-kr/library/ms161962.aspx)를 참조하세요.
 
-    -   **독립 실행형 가상 컴퓨터**를 선택합니다.
-    -   **DNS Name** 상자에 유효한 DNS 주소를 입력합니다. 예를 들어 "testlinuxvm"입니다.
-    -   **Region/Affinity Group/Virtual Network** 상자에서 이 가상 이미지를 호스트할 영역을 선택합니다.
 
-다음 화살표를 클릭하여 계속합니다.
+5. 다음  **가상 컴퓨터 구성** 페이지에서 설정을 입력하거나 확인합니다.
+	- 기본 **새 클라우드 서비스 만들기**를 사용합니다.
+	- **DNS 이름** 상자에 주소 부분으로 사용할 유효한 DNS 이름을 입력합니다(예: "testlinuxvm").
+	- **지역/선호도 그룹/가상 네트워크** 상자에서 이 가상 이미지를 호스트할 영역을 선택합니다.
 
-1.  **Virtual machine options** 페이지의 **Availability Set** 상자에서 **(none)**을 선택합니다. 확인 표시를 클릭하여 계속합니다.
+6.	다음 화살표를 클릭하여 작업을 마치고 Azure가 가상 컴퓨터를 준비하고 시작하는 동안 기다립니다.
 
-2.  Azure에서 가상 컴퓨터를 준비하는 동안 기다립니다.
+##가상 컴퓨터에 연결
+컴퓨터에서 실행 중인 운영 체제에 따라 SSH 또는 PuTTY를 사용하여 가상 컴퓨터에 연결합니다.
 
-## 끝점 구성
+- VM에 연결하는 데 Linux를 사용하고 있으면 SSH를 사용하세요. 명령 프롬프트에서 다음을 실행합니다. 
 
-가상 컴퓨터가 만들어진 후 원격으로 연결하려면 끝점을 구성해야 합니다.
+	`$ ssh newuser@testlinuxvm.cloudapp.net -o ServerAliveInterval=180`
+	
+	Type the user's password.
 
-1.  관리 포털에서 **Virtual Machines**를 클릭한 후 새로운 가상 컴퓨터의 이름과 **Endpoints**를 차례로 클릭합니다.
+- VM에 연결하는 데 Windows를 사용하고 있으면 PuTTY를 사용하세요. [PuTTY 다운로드 페이지][PuTTYDownLoad](영문)에서 PuTTY를 다운로드할 수 있습니다. 
 
-2.  페이지 맨 아래에 있는 **Edit Endpoint**를 클릭하고 해당 **Public Port**가 22가 되도록 SSH 끝점을 편집합니다.
+	**putty.exe**를 다운로드하고 컴퓨터의 디렉터리에 저장합니다. 명령 프롬프트에서 해당 폴더로 이동한 다음 **putty.exe**를 실행합니다.
 
-## 가상 컴퓨터에 연결
+	호스트 이름(예: "testlinuxvm.cloudapp.net")을 입력하고 **포트**로 "22"를 입력합니다.
 
-가상 컴퓨터가 프로비전되고 끝점이 구성된 경우 SSH 또는 PuTTY를 사용하여 가상 컴퓨터에 연결할 수 있습니다.
+	![PuTTY Screen][Image6]  
 
-### SSH를 사용하여 연결
+##가상 컴퓨터 업데이트(옵션)
+1. 가상 컴퓨터에 연결한 후 선택적으로 시스템 업데이트와 패치를 설치할 수 있습니다. 업데이트를 실행하려면 다음을 입력합니다.
 
-Linux 컴퓨터를 사용하는 경우 SSH를 사용하여 VM에 연결합니다. 명령 프롬프트에서 다음을 실행합니다.
+	`$ sudo zypper update`
 
-    $ ssh newuser@testlinuxvm.cloudapp.net -o ServerAliveInterval=180
+2. **소프트웨어**, **온라인 업데이트**를 차례로 선택하여 사용 가능한 업데이트를 나열합니다. **동의**를 선택하여 설치를 시작하고 사용 가능한 새 패치를 모두 적용합니다(선택적 패치 제외). 
 
-사용자 암호를 입력합니다.
+3. 설치가 완료되면 **마침**을 선택합니다.  이제 시스템이 최신 상태입니다.
 
-### PuTTY를 사용하여 연결
+[PuTTYDownload]: http://www.puttyssh.org/download.html
+[AzurePreviewPortal]: http://manage.windowsazure.com
 
-Windows 컴퓨터를 사용하는 경우 PuTTY를 사용하여 VM에 연결합니다. PuTTY는 [PuTTY 다운로드 페이지][PuTTY 다운로드 페이지]에서 다운로드할 수 있습니다.
+[Image1]: ./media/create-and-configure-opensuse-vm-in-portal/CreateVM.png
 
-1.  **putty.exe**를 다운로드하고 컴퓨터의 디렉터리에 저장합니다. 명령 프롬프트에서 해당 폴더로 이동한 다음 **putty.exe**를 실행합니다.
+[Image6]: ./media/create-and-configure-opensuse-vm-in-portal/putty.png
 
-2.  **호스트 이름**에 "testlinuxvm.cloudapp.net"을 입력하고 **포트**에 "22"를 입력합니다.
-    ![PuTTY 화면][PuTTY 화면]
-
-## 가상 컴퓨터 업데이트(옵션)
-
-1.  가상 컴퓨터에 연결한 후 선택적으로 시스템 업데이트와 패치를 설치할 수 있습니다. 다음을 실행합니다.
-
-    `$ sudo zypper update`
-
-2.  **소프트웨어**를 선택한 후 **온라인 업데이트**를 선택합니다. 업데이트 목록이 표시됩니다. **동의함**을 선택하여 설치를 시작하고 현재 시스템에 사용 가능한 모든 새 패치(선택적 패치 제외)를 적용합니다.
-
-3.  설치가 완료된 후 **마침**을 선택합니다. 이제 시스템이 최신 상태입니다.
-
-  [Azure 가상 네트워크 개요]: http://go.microsoft.com/fwlink/p/?LinkID=294063
-  [Azure 관리 포털]: http://manage.windowsazure.com
-  [새 가상 컴퓨터 만들기]: ./media/create-and-configure-opensuse-vm-in-portal/CreateVM.png
-  [강력한 암호]: http://msdn.microsoft.com/ko-kr/library/ms161962.aspx
-  [PuTTY 다운로드 페이지]: http://www.puttyssh.org/download.html
-  [PuTTY 화면]: ./media/create-and-configure-opensuse-vm-in-portal/putty.png
+<!--HONumber=35_1-->

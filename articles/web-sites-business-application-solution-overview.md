@@ -1,12 +1,12 @@
 ﻿<properties urlDisplayName="Create a Line-of-Business Application on Azure Websites" pageTitle="Azure 웹 사이트에서 LOB(기간 업무) 응용 프로그램 만들기" metaKeywords="Web Sites" description="This guide provides a technical overview of how to use Azure Websites to create intranet, line-of-business applications. This includes authentication strategies, service bus relay, and monitoring." umbracoNaviHide="0" disqusComments="1" editor="mollybos" manager="wpickett" title="Create a Line-of-Business Application on Azure Websites" authors="jroth" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jroth" />
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/01/2014" ms.author="jroth" />
 
 
 
 # Azure 웹 사이트에서 LOB(기간 업무) 응용 프로그램 만들기
 
-이 가이드는 Azure 웹 사이트에서 LOB(기간 업무) 응용 프로그램을 만드는 방법에 대한 기술적 개요를 제공합니다. 이 문서의 목적에 따라, 이러한 응용 프로그램은 내부 비즈니스 사용을 위해 보안 기능을 갖춘 인트라넷 응용 프로그램인 것으로 가정합니다. 비즈니스 응용 프로그램에는 두 가지 고유한 특성이 있습니다. 이러한 응용 프로그램에는 대개 회사 디렉터리에 대한 인증이 필요합니다. 또한 일반적으로 온-프레미스 데이터 및 서비스에 대한 액세스 또는 통합이 필요합니다. 이 가이드는 [Azure 웹 사이트][websitesoverview]에서 비즈니스 응용 프로그램을 빌드하는 데 초점을 맞춥니다. 그러나 [Azure 클라우드 서비스][csoverview] 또는 [Azure 가상 컴퓨터][vmoverview]가 요구 사항에 더 적합한 상황도 있습니다. 이러한 옵션 간의 차이점을 검토하는 것이 중요합니다. 자세한 내용은 [Azure 웹 사이트, 클라우드 서비스 및 VM: 각 항목을 사용해야 하는 경우][chooseservice]를 참조하세요. 
+이 가이드는 Azure 웹 사이트에서 LOB(기간 업무) 응용 프로그램을 만드는 방법에 대한 기술적 개요를 제공합니다. 이 문서의 목적에 따라, 이러한 응용 프로그램은 내부 비즈니스 사용을 위해 보안 기능을 갖춘 인트라넷 응용 프로그램인 것으로 가정합니다. 비즈니스 응용 프로그램에는 두 가지 고유한 특성이 있습니다. 이러한 응용 프로그램에는 대개 회사 디렉터리에 대한 인증이 필요합니다. 또한 일반적으로 온-프레미스 데이터 및 서비스에 대한 액세스 또는 통합이 필요합니다. 이 가이드는 [Azure 웹 사이트][websitesoverview]에서 비즈니스 응용 프로그램을 빌드하는 데 초점을 맞춥니다. 그러나 [Azure 클라우드 서비스][csoverview] 또는 [Azure 가상 컴퓨터][vmoverview]가 요구 사항에 더 적합한 상황도 있습니다. 이러한 옵션 간의 차이점을 검토하는 것이 중요합니다. 자세한 내용은[Azure 웹 사이트, 클라우드 서비스 및 VM: 각 항목을 사용해야 하는 경우][chooseservice]를 참조하세요. 
 
 이 가이드에서는 다음 영역에 대해 설명합니다.
 
@@ -18,11 +18,11 @@
 
 <div class="dev-callout">
 <strong>참고</strong>
-<p>이 가이드에서는 공용 .COM 사이트 개발에 맞는 가장 일반적인 몇 가지 영역과 작업에 대해 설명합니다. 그러나 특정 구현에서 사용할 수 있는 Azure 웹 사이트의 다른 기능이 있습니다. 이러한 기능에 대해 알아보려면 <a href="http://www.windowsazure.com/ko-kr/manage/services/web-sites/global-web-presence-solution-overview/">글로벌 웹 서비스</a> 및 <a href="http://www.windowsazure.com/ko-kr/manage/services/web-sites/digital-marketing-campaign-solution-overview">디지털 마케팅 캠페인</a>에서 제공하는 다른 가이드도 참조하세요.</p>
+<p>이 가이드에서는 공용 .COM 사이트 개발에 맞는 가장 일반적인 몇 가지 영역과 작업에 대해 설명합니다. 그러나 특정 구현에서 사용할 수 있는 Azure 웹 사이트의 다른 기능이 있습니다. 이러한 기능을 검토하려면 <a href="http://www.windowsazure.com/ko-kr/manage/services/web-sites/global-web-presence-solution-overview/">글로벌 웹 서비스</a> 및 <a href="http://www.windowsazure.com/ko-kr/manage/services/web-sites/digital-marketing-campaign-solution-overview">디지털 마케팅 캠페인</a>에 대한 기타 가이드를 참조하세요.</p>
 </div>
 
 ##<a name="benefits"></a>이점 고려
-LOB(기간 업무) 응용 프로그램은 대개 회사 사용자를 대상으로 하기 때문에 클라우드 대 온-프레미스 회사 리소스 및 인프라를 사용하는 이유를 고려해야 합니다. 먼저, 작업이 동적으로 변경됨에 따라 확장 및 축소하는 기능 등 클라우드로 이전하는 데 따른 일반적인 몇 가지 이점이 있습니다.  예를 들면 연간 성과 검토를 처리하는 응용 프로그램을 생각해볼 수 있습니다. 이 유형의 응용 프로그램은 일 년 중 대부분의 기간에 트래픽이 거의 없습니다. 그러나 대기업의 경우 검토 기간에는 트래픽이 급격히 상승합니다. Azure는 일 년 중 트래픽이 높은 검토 기간에는 로드 처리를 위해 확장하고 나머지 기간에는 다시 축소하여 비용을 절약할 수 있는 확장 옵션을 제공합니다. 클라우드의 또 다른 이점은 인프라를 취득하고 관리하는 일보다 응용 프로그램에 좀 더 초점을 맞출 수 있다는 것입니다.
+LOB(기간 업무) 응용 프로그램은 대개 회사 사용자를 대상으로 하기 때문에 클라우드 대 온-프레미스 회사 리소스 및 인프라를 사용하는 이유를 고려해야 합니다. 먼저, 작업이 동적으로 변경됨에 따라 확장 및 축소하는 기능 등 클라우드로 이전하는 데 따른 일반적인 몇 가지 이점이 있습니다. 예를 들면 연간 성과 검토를 처리하는 응용 프로그램을 생각해볼 수 있습니다. 이 유형의 응용 프로그램은 일 년 중 대부분의 기간에 트래픽이 거의 없습니다. 그러나 대기업의 경우 검토 기간에는 트래픽이 급격히 상승합니다. Azure는 일 년 중 트래픽이 높은 검토 기간에는 로드 처리를 위해 확장하고 나머지 기간에는 다시 축소하여 비용을 절약할 수 있는 확장 옵션을 제공합니다. 클라우드의 또 다른 이점은 인프라를 취득하고 관리하는 일보다 응용 프로그램에 좀 더 초점을 맞출 수 있다는 것입니다.
 
 이러한 표준 장점 외에도, 비즈니스 응용 프로그램을 클라우드에 두면 직원과 파트너가 어디에서나 응용 프로그램을 사용하도록 더 잘 지원할 수 있습니다. 사용자는 응용 프로그램을 사용하기 위해 회사 네트워크에 연결할 필요가 없으며, IT 그룹은 복잡한 역방향 프록시 솔루션을 마련할 필요가 없습니다. 회사 응용 프로그램에 대한 액세스를 보호하기 위한 몇 가지 인증 옵션이 있습니다. 이 가이드의 다음 섹션에서 이러한 옵션에 대해 설명합니다.
 
@@ -45,7 +45,7 @@ Azure Active Directory를 이미 사용하는 서비스가 현재 없는 경우 
 
 ![BusinessApplicationsADUsers][BusinessApplicationsADUsers]
 
-이러한 기본 단계의 전체 안내를 보려면 [Azure AD를 사용하여 웹 응용 프로그램에 Sign-On 추가][adsso]를 참조하세요. 이 새로운 디렉터리를 독립형 리소스로 사용하는 경우 다음 단계는 디렉터리와 통합할 응용 프로그램을 개발하는 것입니다. 그러나 온-프레미스 Active Directory ID가 있는 경우 일반적으로 새로운 Azure Active Directory의 ID와 동기화하게 됩니다. 동기화 방법에 대한 자세한 내용은 [디렉터리 통합][dirintegration]을 참조하세요.
+이러한 기본 단계의 전체 안내를 보려면 [Azure AD를 사용하여 웹 응용 프로그램에 Sign-On 추가][adsso](영문)를 참조하세요. 이 새로운 디렉터리를 독립형 리소스로 사용하는 경우 다음 단계는 디렉터리와 통합할 응용 프로그램을 개발하는 것입니다. 그러나 온-프레미스 Active Directory ID가 있는 경우 일반적으로 새로운 Azure Active Directory의 ID와 동기화하게 됩니다. 동기화 방법에 대한 자세한 내용은 [디렉터리 통합][dirintegration]을 참조하세요.
 
 디렉터리가 생성되고 채워지면 인증을 요구하는 웹 응용 프로그램을 만든 다음 디렉터리와 통합해야 합니다. 다음 두 섹션에서는 이러한 단계에 대해 설명합니다.
 
@@ -58,7 +58,7 @@ Azure Active Directory를 이미 사용하는 서비스가 현재 없는 경우 
 
 이렇게 하면 Windows 인증을 지원하도록 프로젝트 설정이 변경됩니다. 특히 web.config 파일에 있는 **authentication** 요소의 **mode** 특성이 **Windows**로 설정됩니다. 다른 ASP.NET 프로젝트(예: Web Forms 프로젝트)를 만들거나 기존 프로젝트로 작업하는 경우 수동으로 이와 같이 변경해야 합니다.
 
-MVC 프로젝트에서는 프로젝트 속성 창에서 다음의 값 2개도 변경해야 합니다. **Windows Authentication**을 **Enabled**, **Anonymous Authentication**을 **Disabled**로 설정합니다.
+MVC 프로젝트에서는 프로젝트 속성 창에서 다음의 값 2개도 변경해야 합니다. **Windows 인증**을 **사용**으로 설정하고 **익명 인증**을 **사용 안 함**으로 설정합니다.
 
 ![BusinessApplicationsVSProperties][BusinessApplicationsVSProperties]
 
@@ -68,11 +68,11 @@ Azure Active Directory를 통해 인증하려면 이 응용 프로그램을 디�
 - [Azure Active Directory용 Microsoft ASP.NET 도구](#aspnettoolsforwaad)
 
 ###<a name="identityandaccessforvs"></a>Visual Studio용 ID 및 액세스 도구:
-한 가지 방법은 [ID 및 액세스 도구][identityandaccess](다운로드 및 설치 가능)를 사용하는 것입니다. 프로젝트의 상황에 맞는 메뉴에서 이 도구를 Visual Studio와 통합할 수 있습니다. 다음 지침과 스크린샷은 Visual Studio 2012로 만든 것입니다. 프로젝트를 마우스 오른쪽 단추로 클릭하고 **ID 및 액세스**를 선택합니다. 세 가지 옵션을 구성해야 합니다. **공급자** 탭에서 **STS 메타데이터 문서에 대한 경로** 및 **APP ID URI**를 제공해야 합니다(이러한 값을 얻는 방법은 [Azure Active Directory에 응용 프로그램 등록](#registerwaadapp)의 해당 섹션 참조).
+한 가지 방법은 [ID 및 액세스 도구][identityandaccess](다운로드 및 설치 가능)를 사용하는 것입니다. 프로젝트의 상황에 맞는 메뉴에서 이 도구를 Visual Studio와 통합할 수 있습니다. 다음 지침 및 스크린 샷은 Visual Studio 2012에서 가져온 것입니다. 프로젝트를 마우스 오른쪽 단추로 클릭하고 **ID 및 액세스**를 선택합니다. 세 가지 옵션을 구성해야 합니다. **공급자** 탭에서 **STS 메타데이터 문서에 대한 경로** 및 **APP ID URI**를 제공해야 합니다(이러한 값을 얻는 방법은 [Azure Active Directory에 응용 프로그램 등록](#registerwaadapp)의 해당 섹션 참조).
 
 ![BusinessApplicationsVSIdentityAndAccess][BusinessApplicationsVSIdentityAndAccess]
 
-**ID 및 액세스** 대화 상자의 **구성** 탭에서 마지막 구성 항목을 변경해야 합니다. **웹 팜 쿠키 사용** 확인란을 선택해야 합니다. 이러한 기본 단계의 자세한 안내를 보려면 [Azure AD를 사용하여 웹 응용 프로그램에 Sign-On 추가][adsso]를 참조하세요.
+**ID 및 액세스** 대화 상자의 **구성** 탭에서 마지막 구성 항목을 변경해야 합니다. **웹 팜 쿠키 사용** 확인란을 선택해야 합니다. 이러한 기본 단계의 자세한 안내를 보려면 [Azure AD를 사용하여 웹 응용 프로그램에 Sign-On 추가][adsso](영문)를 참조하세요.
 
 ####<a name="registerwaadapp"></a>Azure Active Directory에 응용 프로그램 등록:
 **공급자** 탭의 필드를 작성하려면 Azure Active Directory에 응용 프로그램을 등록해야 합니다. Azure 관리 포털의 **Active Directory** 섹션에서 해당 디렉터리를 선택하고 **응용 프로그램** 탭으로 이동합니다. 여기에서는 URL을 기준으로 Azure 웹 사이트를 추가할 수 있습니다. 이러한 단계를 진행할 때 먼저 URL을 Visual Studio에서 로컬 디버깅을 위해 제공하는 localhost 주소로 설정하게 됩니다. 나중에 배포할 때 이 주소를 웹 사이트의 실제 URL로 변경해야 합니다.
@@ -90,7 +90,7 @@ Azure Active Directory를 통해 인증하려면 이 응용 프로그램을 디�
 
 해당 Active Directory 도메인의 관리자인 사용자는 **Azure AD에서 이 응용 프로그램 프로비전** 확인란을 선택합니다. 이렇게 하면 Active Directory에 응용 프로그램이 등록됩니다. 관리자가 아닌 사용자는 확인란의 선택을 취소하고 표시되는 정보를 관리자에게 제공합니다. 관리자는 ID 및 액세스 도구에 대한 이전 단계를 사용하여 관리 포털에서 통합 응용 프로그램을 만들 수 있습니다. Azure Active Directory용 ASP.NET 도구를 사용하는 방법에 대한 자세한 내용은 [Azure 인증][azureauthtutorial](영문)을 참조하세요.
 
-LOB(기간 업무) 응용 프로그램을 관리할 때에는 배포용 소스 코드 제어 시스템 중 지원되는 것은 무엇이든 사용할 수 있습니다. 그러나 이 시나리오에서는 Visual Studio 통합의 수준이 높기 때문에 소스 제어 시스템으로 TFS(Team Foundation Service)를 선택하는 것이 좋습니다. Azure 웹 사이트는 TFS와의 통합 기능을 제공합니다. 관리 포털에서 웹 사이트의 **대시보드** 탭으로 이동합니다. **소스 제어에서 배포 설정**을 선택합니다. TFS 사용을 위한 지침을 따릅니다. 
+LOB(기간 업무) 응용 프로그램을 관리할 때에는 배포용 소스 코드 제어 시스템 중 지원되는 것은 무엇이든 사용할 수 있습니다. 그러나 이 시나리오에서는 Visual Studio 통합의 수준이 높기 때문에 소스 제어 시스템으로 TFS(Team Foundation Service)를 선택하는 것이 좋습니다. Azure 웹 사이트는 TFS와의 통합 기능을 제공합니다. 관리 포털에서 웹 사이트의 **대시보드** 탭으로 이동합니다. 그런 후 **소스 제어에서 배포 설정**을 선택합니다. TFS 사용을 위한 지침을 따릅니다. 
 
 ![BusinessApplicationsDeploy][BusinessApplicationsDeploy]
 
@@ -103,10 +103,10 @@ LOB(기간 업무) 응용 프로그램의 다수는 온-프레미스 데이터 �
 
 ![BusinessApplicationsServiceBusRelay][BusinessApplicationsServiceBusRelay]
 
-이제 서비스 버스는 클라우드 응용 프로그램을 온-프레미스 WCF 서비스에 연결합니다. 그러면 Azure와 온-프레미스에서 모두 서비스와 리소스를 사용하는 하이브리드 응용 프로그램을 만들기 위한 기본 아키텍처가 제공됩니다. 자세한 내용은 [서비스 버스 릴레이 서비스 사용 방법][sbrelayhowto] 및 [서비스 버스 릴레이된 메시징 자습서][sbrelaytutorial]를 참조하세요. 이 기술을 설명하는 샘플은 [Enterprise Pizza - 서비스 버스를 사용하여 웹 사이트를 온-프레미스에 연결][enterprisepizza](영문)을 참조하세요.
+이제 서비스 버스는 클라우드 응용 프로그램을 온-프레미스 WCF 서비스에 연결합니다. 그러면 Azure와 온-프레미스에서 모두 서비스와 리소스를 사용하는 하이브리드 응용 프로그램을 만들기 위한 기본 아키텍처가 제공됩니다. 자세한 내용은 [서비스 버스 릴레이 서비스 사용 방법][sbrelayhowto] 및 [서비스 버스 릴레이된 메시징 자습서][sbrelaytutorial](영문)를 참조하세요. 이 기술을 설명하는 샘플은 [Enterprise Pizza - 서비스 버스를 사용하여 웹 사이트를 온-프레미스에 연결][enterprisepizza](영문)을 참조하세요.
 
 ##<a name="monitor"></a>응용 프로그램 모니터링
-비즈니스 응용 프로그램은 확장과 모니터링 등 표준 웹 사이트 기능의 이점을 누릴 수 있습니다. 특정 요일이나 시간 중에 부하가 몰리는 비즈니스 응용 프로그램의 경우 자동 크기 조정(사전 검토) 기능을 통해 사이트를 확장하고 다시 되돌려 리소스를 효율적으로 사용할 수 있습니다. 모니터링 옵션에는 끝점 모니터링과 할당량 모니터링이 포함됩니다. 이 모든 시나리오는 [글로벌 웹 서비스][scenarioglobalweb] 및 [디지털 마케팅 캠페인][scenariodigitalmarketing] 시나리오에서 자세히 다루었습니다.
+비즈니스 응용 프로그램은 확장과 모니터링 등 표준 웹 사이트 기능의 이점을 누릴 수 있습니다. 특정 요일이나 시간 중에 부하가 몰리는 비즈니스 응용 프로그램의 경우 자동 크기 조정(미리 보기) 기능을 통해 사이트를 확장하고 다시 되돌려 리소스를 효율적으로 사용할 수 있습니다. 모니터링 옵션에는 끝점 모니터링과 할당량 모니터링이 포함됩니다. 이 모든 시나리오는 [글로벌 웹 서비스][scenarioglobalweb] 및 [디지털 마케팅 캠페인][scenariodigitalmarketing] 시나리오에서 자세히 다루었습니다.
 
 모니터링 요구 사항은 비즈니스의 중요도 수준이 다른 LOB(기간 업무) 응용 프로그램 간에 서로 다를 수 있습니다. 업무의 중요도가 높은 응용 프로그램에는 타사 모니터링 솔루션(예: [New Relic][newrelic])을 사용하는 방안을 고려해 보세요.
 
@@ -132,7 +132,7 @@ Azure를 사용하면 보안 인트라넷 응용 프로그램을 클라우드에
 </tr>
 <tr>
    <td valign="middle"><strong>계획</strong></td>
-   <td valign="top">- <a href="http://www.windowsazure.com/ko-kr/manage/services/web-sites/choose-web-app-service">Azure 웹 사이트, 클라우드 서비스 및 VM: 각 항목을 사용해야 하는 경우</a></td>(영문)
+   <td valign="top">- <a href="http://www.windowsazure.com/ko-kr/manage/services/web-sites/choose-web-app-service">Azure 웹 사이트, 클라우드 서비스 및 VM: 각 항목을 사용해야 하는 경우(영문)</a></td>
 </tr>
 <tr>
    <td valign="middle"><strong>만들기 및 배포</strong></td>
@@ -140,15 +140,15 @@ Azure를 사용하면 보안 인트라넷 응용 프로그램을 클라우드에
 </tr>
 <tr>
    <td valign="middle"><strong>인증</strong></td>
-   <td valign="top">- <a href ="http://www.windowsazure.com/ko-kr/manage/windows/fundamentals/identity/">Azure ID 옵션 이해</a><br/>- <a href="http://www.windowsazure.com/ko-kr/documentation/services/active-directory/">Azure Active Directory 서비스</a><br/>- <a href="http://technet.microsoft.com/ko-kr/library/jj573650.aspx">Azure AD 테넌트란?</a><br/>- <a href="http://msdn.microsoft.com/library/windowsazure/dn151790.aspx">Azure AD를 사용하여 웹 응용 프로그램에 Sign-On 추가</a><br/>- <a href="http://www.asp.net/aspnet/overview/aspnet-and-visual-studio-2012/windows-azure-authentication">Azure 인증 자습서</a></td>
+   <td valign="top">- <a href ="http://www.windowsazure.com/ko-kr/manage/windows/fundamentals/identity/">Azure ID 옵션 이해</a><br/>- <a href="http://www.windowsazure.com/ko-kr/documentation/services/active-directory/">Azure Active Directory 서비스</a><br/>- <a href="http://technet.microsoft.com/ko-kr/library/jj573650.aspx">Azure AD 테넌트란?</a><br/>- <a href="http://msdn.microsoft.com/library/windowsazure/dn151790.aspx">Azure AD를 사용하여 웹 응용 프로그램에 로그온 기능 추가</a><br/>- <a href="http://www.asp.net/aspnet/overview/aspnet-and-visual-studio-2012/windows-azure-authentication">Azure 인증 자습서(영문)</a></td>
 </tr>
 <tr>
    <td valign="middle"><strong>서비스 버스 릴레이</strong></td>
-   <td valign="top">- <a href="http://www.windowsazure.com/ko-kr/develop/net/how-to-guides/service-bus-relay/">서비스 버스 릴레이 서비스 사용 방법</a><br/>- <a href="http://msdn.microsoft.com/ko-kr/library/windowsazure/ee706736.aspx">서비스 버스 릴레이된 메시징 자습서</a></td>(영문)
+   <td valign="top">- <a href="http://www.windowsazure.com/ko-kr/develop/net/how-to-guides/service-bus-relay/">서비스 버스 릴레이 서비스를 사용하는 방법</a><br/>- <a href="http://msdn.microsoft.com/ko-kr/library/windowsazure/ee706736.aspx">서비스 버스 릴레이된 메시징 자습서</a></td>
 </tr>
 <tr>
    <td valign="middle"><strong>모니터</strong></td>
-   <td valign="top">- <a href ="http://www.windowsazure.com/ko-kr/manage/services/web-sites/how-to-monitor-websites/">웹 사이트를 모니터링하는 방법</a><br/>- <a href="http://msdn.microsoft.com/library/windowsazure/dn306638.aspx">방법: Azure에서 경고 알림 받기 및 경고 규칙 관리</a><br/>- <a href="http://www.windowsazure.com/ko-kr/manage/services/web-sites/how-to-monitor-websites/#howtoconfigdiagnostics">방법: 진단 구성 및 웹 사이트의 로그 다운로드</a><br/>- <a href="http://www.windowsazure.com/ko-kr/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/">Visual Studio에서 Azure 웹 사이트 문제 해결</a></td>
+   <td valign="top">- <a href ="http://www.windowsazure.com/ko-kr/manage/services/web-sites/how-to-monitor-websites/">웹 사이트를 모니터링하는 방법</a><br/>- <a href="http://msdn.microsoft.com/library/windowsazure/dn306638.aspx">방법: Azure에서 경고 알림 받기 및 경고 규칙 관리(영문)</a><br/>- <a href="http://www.windowsazure.com/ko-kr/manage/services/web-sites/how-to-monitor-websites/#howtoconfigdiagnostics">방법: 진단 구성 및 웹 사이트의 로그 다운로드</a><br/>- <a href="http://www.windowsazure.com/ko-kr/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/">Visual Studio에서 Azure 웹 사이트 문제 해결</a></td>
 </tr>
 </table>
 
@@ -212,3 +212,5 @@ Azure를 사용하면 보안 인트라넷 응용 프로그램을 클라우드에
 
 
 
+
+<!--HONumber=35_1-->

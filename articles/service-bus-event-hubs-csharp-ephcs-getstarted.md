@@ -1,4 +1,4 @@
-﻿<properties pageTitle="이벤트 허브 시작" metaKeywords="Azure 서비스 버스, 이벤트 허브, 이벤트 허브 시작" description="Follow this tutorial to get started using Azure Event Hubs with C# using EventProcessorHost" metaCanonical="" services="" documentationCenter="" title="Get Started with Event Hubs" authors="elioda" solutions="" manager="timlt" editor="" />
+﻿<properties pageTitle="이벤트 허브 시작" metaKeywords="Azure Service Bus, Event Hub, getting started Event Hubs" description="Follow this tutorial to get started using Azure Event Hubs with C# using EventProcessorHost" metaCanonical="" services="" documentationCenter="" title="Get Started with Event Hubs" authors="elioda" solutions="" manager="timlt" editor="" />
 
 <tags ms.service="service-bus" ms.workload="core" ms.tgt_pltfrm="csharp" ms.devlang="csharp" ms.topic="hero-article" ms.date="10/27/2014" ms.author="elioda" />
 
@@ -6,11 +6,11 @@
 
 [WACOM.INCLUDE [service-bus-selector-get-started](../includes/service-bus-selector-get-started.md)]
 
-이벤트 허브는 연결된 장치와 응용 프로그램에서 생성되는 엄청난 양의 데이터를 처리 및 분석할 수 있도록 초당 수백만 개의 이벤트를 수용할 수 있는 확장성이 뛰어난 수집 시스템입니다. 이벤트 허브로 수집된 데이터는 실시간 분석 공급자나 저장소 클러스터를 사용하여 변환하고 저장할 수 있습니다.
+이벤트 허브는 초당 수백만 개의 이벤트를 처리할 수 있는 확장성이 뛰어난 수집 시스템으로, 응용 프로그램에서 연결된 장치와 응용 프로그램이 생성하는 대량의 데이터를 처리하고 분석할 수 있도록 지원합니다. 이벤트 허브로 수집된 데이터는 실시간 분석 공급자나 저장소 클러스터를 사용하여 변환하고 저장할 수 있습니다. 이벤트 허브에 대한 자세한 내용은 [이벤트 허브 개발자 가이드]를 참조하세요. 
 
-자세한 내용은 [이벤트 허브 개요](영문)를 참조하세요.
+자세한 내용은 [이벤트 허브 개요]를 참조하세요.
 
-이 자습서에서는 C#의 콘솔 응용 프로그램을 사용하여 이벤트 허브로 메시지를 수집하고 C# [이벤트 프로세서 호스트] 라이브러리를 사용하여 메시지를 병렬로 검색하는 방법을 알아봅니다.
+이 자습서에서는 C#의 콘솔 응용 프로그램을 사용하여 메시지를 이벤트 허브로 수집하고 C# [이벤트 프로세서 호스트](영문) 라이브러리를 사용하여 메시지를 병렬로 검색하는 방법을 알아봅니다.
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -20,13 +20,13 @@
 
 ## 이벤트 허브 만들기
 
-1. [Azure 관리 포털]에 로그온하고 화면 아래쪽에서 **새로 만들기**를 클릭합니다.
+1. [Azure 관리 포털]에 로그온하고 화면 맨 아래에 있는 **새로 만들기**를 클릭합니다.
 
-2. **앱 서비스**, **서비스 버스**, **이벤트 허브**를 차례로 클릭한 다음 **빠른 생성**을 클릭합니다.
+2. **앱 서비스**, **서비스 버스**, **이벤트 허브**, **빠른 생성**을 차례로 클릭합니다.
 
    	![][1]
 
-3. 이벤트 허브의 이름을 입력하고 원하는 지역을 선택한 후 **Create a new Event Hub**를 클릭합니다.
+3. 이벤트 허브의 이름을 입력하고 원하는 지역을 선택한 후 **Create a new Event Hub**(새 이벤트 허브 만들기)를 클릭합니다.
 
    	![][2]
 
@@ -34,19 +34,19 @@
 
    	![][3]
 
-5. 페이지 맨 위에서 **이벤트 허브** 탭을 클릭한 다음 방금 만든 이벤트 허브를 클릭합니다.
+5. 페이지 맨 위에 있는 **이벤트 허브** 탭을 클릭한 후 방금 만든 이벤트 허브를 클릭합니다.
 
    	![][4]
 
-6. 페이지 맨 위에서 **구성** 탭을 클릭하고 *보내기* 권한이 있는 **SendRule**이라는 규칙을 추가하고 *관리, 보내기, 수신 대기* 권한이 있는 **ReceiveRule**이라는 다른 규칙을 추가한 다음 **저장**을 클릭합니다.
+6. 맨 위에 있는 **구성** 탭을 클릭하고 *보내기* 권한이 있는 **SendRule**이라는 규칙과 *관리, 보내기, 수신 대기* 권한이 있는 **ReceiveRule**라는 규칙을 추가한 후 **저장**을 클릭합니다.
 
    	![][5]
 
-7. 페이지 맨 위에서 **대시보드** 탭을 클릭한 다음 **연결 정보**를 클릭합니다. 두 연결 문자열을 기록해 둡니다.
+7. 페이지 맨 위에 있는 **대시보드** 탭을 클릭한 후 **연결 정보**를 클릭합니다. 두 연결 문자열을 기록해 둡니다.
 
    	![][6]
 
-이제 이벤트 허브가 만들어지고 이벤트를 보내고 받는 데 필요한 연결 문자열이 있습니다.
+이제 이벤트 허브가 만들어졌고 이벤트를 보내고 받기 위한 연결 문자열이 있습니다.
 
 [WACOM.INCLUDE [service-bus-event-hubs-get-started-send-csharp](../includes/service-bus-event-hubs-get-started-send-csharp.md)]
 
@@ -57,11 +57,11 @@
 
 이제 응용 프로그램을 실행할 준비가 되었습니다.
 
-1.	Visual Studio 내에서 **수신기** 프로젝트를 실행한 다음 모든 파티션에 대한 수신기가 시작될 때까지 기다립니다.
+1.	Visual Studio에서 **수신기** 프로젝트를 실행한 후 이 프로젝트에서 모든 파티션에 대한 수신기를 시작할 때까지 기다립니다.
 
    	![][21]
 
-2.	**발신자** 프로젝트를 실행하고 콘솔 창에서 **Enter** 키를 누르고 수신기 창에 이벤트가 표시되는지 확인합니다.
+2.	**송신기** 프로젝트를 실행하고 콘솔 창에서 **Enter** 키를 눌러 이벤트가 수신기 창에 표시되는지 확인합니다.
 
    	![][22]
 
@@ -78,5 +78,7 @@
 
 <!-- Links -->
 [Azure 관리 포털]: https://manage.windowsazure.com/
-[이벤트 프로세서 호스트]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
+[이벤트 프로세서 호스트](영문): https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
 [이벤트 허브 개요]: http://msdn.microsoft.com/ko-kr/library/azure/dn836025.aspx
+
+<!--HONumber=35_1-->

@@ -1,34 +1,31 @@
-<properties urlDisplayName="Understand NoSQL technologies" pageTitle="Azure의 NoSQL 기술 이해 | Azure" metaKeywords="" description="HDInsight의 NoSQL 기술을 통해 빅 데이터 집합 및 JSON 문서나 그래프와 같이 관계형 데이터베이스에 적합하지 않은 데이터를 관리하는 방법에 대해 알아봅니다." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="storage,hdinsight" documentationCenter="" title="데이터 관리: Azure의 NoSQL 기술 이해" authors="dchappell" />
+﻿<properties urlDisplayName="Understand NoSQL technologies" pageTitle="Azure의 NoSQL 기술 이해 | Azure" metaKeywords="" description="Learn how NoSQL technologies on HDInsight can help you manage data not suited to relational databases, such as big data sets and JSON documents or graphs." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="storage,hdinsight" documentationCenter="" title="Data management: Understanding NoSQL technologies on Azure" authors="dchappell" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="dchappell" />
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/01/2014" ms.author="dchappell" />
 
 # 데이터 관리: Azure의 NoSQL 기술 이해
 
-**요약:** Azure는 NoSQL 작업에 대한 다양한 옵션을 제공하지만 자신에게 적합한 옵션이 무엇인지 쉽게 확인하지 못할 수 있습니다. 이 문서에서는 Azure의 NoSQL 기술 및 비관계형 데이터(비구조적 데이터 집합 또는 특히 보통 "빅데이터"라고 하는 대량의 데이터 집합 포함)를 관리하는 적절한 서비스를 선택하는 방법을 설명합니다.
+**요약:**  Azure는 NoSQL 작업에 대한 다양한 옵션을 제공하지만 사용할 수 있는 모든 옵션의 차이점을 쉽게 확인하지 못할 수 있습니다. 이 문서에서는 Azure의 NoSQL 기술 및 이러한 기술이 관계형 데이터 관리 모델과 어떤 차이점이 있는지 설명합니다.
 
-관계형 기술은 오랫동안 데이터 작업을 위한 주요 방법이었습니다. 그러나 다양한 유형의 대량 데이터에 대한 작업을 수행할 경우에는 많은 서버에 걸쳐 크기를 조정하는 것이 어렵습니다. 또한 관계형 기술은 JSON 문서 또는 그래프와 같은 일부 데이터를 관리하는 데에는 적당하지 않습니다. 이 가이드에서는 옵션이 제공하는 기능과 사용 이유를 설명하면서 옵션을 차례로 소개합니다.
+관계형 기술은 오랫동안 데이터 작업을 위한 주요 방법이었습니다. 그러나 다양한 형식의 대용량 데이터를 사용할 경우 사례가 증가함에 따라 이 데이터를 관리하는 문제에 직면하게 됩니다. 관계형 기술은 이 데이터를 관리하는 데 가장 적합할 수도 있고 가장 적합하지 않을 수도 있습니다. 이 가이드에서는 옵션이 제공하는 기능과 사용 이유를 설명하면서 옵션을 차례로 소개합니다.
+
 
 **내용:**
 
--   Azure의 데이터: 큰 그림
--   Azure 관계형 기술: 간략 보기
--   Azure NoSQL 기술: 작동 데이터
+* Azure의 데이터: 큰 그림	
+* Azure 관계형 기술: 간략 검토	
+* Azure NoSQL 기술
+	* 문서 저장소: DocumentDB
+	* 키/값 저장소: 테이블
+	* 열 패밀리 저장소: 분석
+	* 빅 데이터" 응용 프로그램: Oozie 코디네이터 사용 
 
-    -   키/값 저장소
-    -   열 패밀리 저장소
-    -   문서 저장소
-    -   그래프 데이터베이스
--   Azure NoSQL 기술: 분석 데이터
-
-    -   Hadoop MapReduce
-    -   Oozie 코디네이터 사용
 
 **작성자:** David Chappell, Chappell & Associates의 교장
 
-**게시:** 2013년 11월
+**게시:** 2014년 11월
 
-**수정 버전:** 1.0
+**수정 버전:** 2.0
 
-**다운로드:** [Azure의 NoSQL 기술 이해 PDF 파일(영문)][Azure의 NoSQL 기술 이해 PDF 파일(영문)]
+**다운로드:** <a href="http://go.microsoft.com/fwlink/p/?LinkId=330292" target="_blank">"Microsoft Azure의 NoSQL 기술 이해" PDF 파일(영문)</a>
 
-  [Azure의 NoSQL 기술 이해 PDF 파일(영문)]: http://go.microsoft.com/fwlink/p/?LinkId=330292
+<!--HONumber=35_1-->

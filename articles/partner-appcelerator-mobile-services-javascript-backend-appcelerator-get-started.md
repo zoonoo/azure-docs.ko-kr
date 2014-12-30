@@ -1,6 +1,6 @@
 ﻿<properties pageTitle="Appcelerator Titanium에 대해 Azure 모바일 서비스 시작" metaKeywords="" description="Follow this tutorial to get started using Azure Mobile Services for Appcelerator development. " metaCanonical="" services="" documentationCenter="Mobile" title="Get started with Mobile Services" authors="Appcelerator team;mahender" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-appcelerator" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="Appcelerator team;mahender" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-appcelerator" ms.devlang="multiple" ms.topic="article" ms.date="11/24/2014" ms.author="Appcelerator team;mahender" />
 
 # <a name="getting-started"> </a>모바일 서비스 시작
 
@@ -12,7 +12,7 @@
 
 이 자습서를 완료하려면 [Appcelerator Titanium]이 필요합니다.
 
-iOS용으로 빌드할 경우 Xcode 5.1 및 iOS 7.1 SDK 이상 버전이 필요합니다. 
+iOS용으로 빌드할 경우 Xcode 5.1 및 iOS 7.1 SDK 이상 버전도 필요합니다. 
 
 Android용으로 빌드할 경우 Android 4.3 이상 SDK도 필요합니다.
 
@@ -26,7 +26,7 @@ Android용으로 빌드할 경우 Android 4.3 이상 SDK도 필요합니다.
 
 2. **테이블 추가**를 클릭하고 **TodoItem**이라는 새 테이블을 만듭니다.
 
-3. 새 Appcelerator [Todolist 응용 프로그램]을 다운로드하고 프로젝트의 압축을 풉니다.
+3. 새 new Appcelerator [Todolist 응용 프로그램]을 다운로드하고 프로젝트의 압축을 풉니다.
 
 4. 아직 하지 않은 경우 [Appcelerator Titanium Studio][Appcelerator Titanium] 및 SDK v3.2.1 이상을 다운로드하여 설치합니다. 프로젝트를 실행하려면 Xcode(v 5.0 +) 및/또는 Android SDK(v 4.3+)도 필요합니다.
 
@@ -50,7 +50,7 @@ Android용으로 빌드할 경우 Android 4.3 이상 SDK도 필요합니다.
 
     ![][2]
 
-4.	프로젝트 섹션에서 선택한 프로젝트가 표시됩니다. 선택적으로 &quot;Copy projects into workspace&quot; 옵션을 선택하면 다운로드된 프로젝트를 작업 영역으로 복사할 수 있습니다. 마지막으로 Finish를 클릭하여 Titanium Studio에서 프로젝트를 엽니다.
+4.	마지막으로 프로젝트 섹션에서 선택한 프로젝트를 표시합니다. 선택적으로 &quot;Copy projects into workspace&quot; 옵션을 선택하면 다운로드된 프로젝트를 작업 영역으로 복사할 수 있습니다. 마지막으로 Finish를 클릭하여 Titanium Studio에서 프로젝트를 엽니다.
 
     ![][3]
 
@@ -64,7 +64,7 @@ Android용으로 빌드할 경우 Android 4.3 이상 SDK도 필요합니다.
 
     ![][5]
 
-8.	다음 화면에서 더하기(+) 아이콘을 클릭하고 의미 있는 텍스트(예: &quot;이 자습서 완료&quot;)를 입력하고 Save 단추를 클릭합니다.<br />
+8.	다음 화면에서 더하기(+) 아이콘을 클릭하고 의미 있는 전체 텍스트(예: &quot;이 자습서 완료&quot;)를 입력하고 Save 단추를 클릭합니다.<br />
 
     ![][6]
 
@@ -77,7 +77,7 @@ Microsoft Azure에 호스트된 새 모바일 서비스에 POST 요청이 전송
 
 >[WACOM.NOTE] 모바일 서비스에 액세스하는 코드를 검토하여 데이터를 쿼리 및 삽입할 수 있습니다(TodoService.m 파일에 있음).
 
-4. 관리 포털로 돌아가서 **데이터** 탭을 클릭한 후 **TodoItem** 테이블을 클릭합니다.
+4. 관리 포털로 돌아가서 **데이터** 탭을 클릭한 후 **TodoItems** 테이블을 클릭합니다.
 
    	![][9]
 
@@ -87,13 +87,13 @@ Microsoft Azure에 호스트된 새 모바일 서비스에 POST 요청이 전송
 
 
 ## <a name="next-steps"> </a>다음 단계
-이제 빠른 시작을 완료했으며 모바일 서비스에서 중요한 추가 작업을 수행하는 방법을 알아보겠습니다. 
+이제 퀵 스타트를 완료했으며 모바일 서비스에서 중요한 추가 작업을 수행하는 방법을 알아보겠습니다. 
 
-* [인증 시작]
-  <br/>ID 공급자를 사용하여 앱 사용자를 인증하는 방법에 대해 알아봅니다.
+* [인증 시작](영문)
+  <br/>ID 공급자를 사용하여 앱 사용자를 인증하는 방법을 알아봅니다.
 
 * [푸시 알림 시작] 
-  <br/>매우 기본적인 푸시 알림을 앱에 보내는 방법을 알아봅니다.
+  <br/>기본적인 푸시 알림을 앱에 보내는 방법을 알아보세요.
 
 
 
@@ -112,6 +112,8 @@ Microsoft Azure에 호스트된 새 모바일 서비스에 POST 요청이 전송
 
 <!-- URLs. -->
 [Todolist 응용 프로그램]: http://go.microsoft.com/fwlink/p/?LinkId=506859
-[Appcelerator Titanium]: http://go.microsoft.com/fwlink/p/?LinkID=509987
-[인증 시작]: /ko-kr/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-users
+[Appcelerator Titanium](영문): http://go.microsoft.com/fwlink/p/?LinkID=509987
+[인증 시작](영문): /ko-kr/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-users
 [푸시 알림 시작]: /ko-kr/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push
+
+<!--HONumber=35_1-->

@@ -1,6 +1,6 @@
-﻿<properties urlDisplayName="How to deploy" pageTitle="SQL 데이터베이스를 배포하는 방법 - Azure" metaKeywords="" description="Learn how to deploy a SQL Server database to Azure. You will use the Deploy Database to SQL Database wizard to upload a sample database." metaCanonical="" services="sql-database" documentationCenter="" title="How to Deploy a Database to Azure" authors="Lori Clark" solutions="" manager="jeffreyg" editor="" />
+﻿<properties urlDisplayName="How to deploy" pageTitle="SQL 데이터베이스를 배포하는 방법 - Azure" metaKeywords="" description="Learn how to deploy a SQL Server database to Azure. You will use the Deploy Database to SQL Database wizard to upload a sample database." metaCanonical="" services="sql-database" documentationCenter="" title="How to Deploy a Database to Azure" authors="jeffreyg" solutions="" manager="jeffreyg" editor="" />
 
-<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="Lori Clark" />
+<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/30/2014" ms.author="jeffreyg" />
 
 
 
@@ -9,7 +9,7 @@
 
 <h1><a id="howtodeploySQLdb"></a>Azure에 데이터베이스를 배포하는 방법</h1>
 
-온-프레미스 SQL Server 데이터베이스를 Azure로 이동할 수 있는 방법에는 여러 가지가 있습니다. 이 작업에서는 Deploy Database to SQL Database 마법사를 사용하여 샘플 데이터베이스를 업로드합니다.
+온-프레미스 SQL Server 데이터베이스를 Azure로 이동할 수 있는 방법에는 여러 가지가 있습니다. 이 작업에서는 Deploy Database to SQL 데이터베이스 마법사를 사용하여 샘플 데이터베이스를 업로드합니다.
 
 School 샘플 데이터베이스는 편의상 단순합니다. 모든 해당 개체는 SQL 데이터베이스와 호환되므로 마이그레이션을 위해 데이터베이스를 수정하거나 준비할 필요가 없습니다. 새 관리자는 소유한 데이터베이스를 사용하기 전에 먼저 단순 데이터베이스를 배포해서 단계를 알아보세요. 
 
@@ -522,7 +522,7 @@ School 샘플 데이터베이스는 편의상 단순합니다. 모든 해당 개
 	GO
 </pre></div>
 
-   이제 Azure로 내보낼 수 있는 온-프레미스 데이터베이스가 있습니다. 다음 단계로 .bacpac 파일을 만들어 이 파일을 Azure에 로드하고 SQL 데이터베이스로 가져오는 마법사를 실행합니다.
+   이제 Azure로 내보낼 수 있는 온-프레미스 데이터베이스가 있습니다. 다음 단계로 .bacpacxt 파일을 만들어 이 파일을 Azure에 로드하고 SQL 데이터베이스로 가져오는 마법사를 실행합니다.
 
 
 <h2><a id="deploydb"></a>방법: SQL 데이터베이스에 배포</h2>
@@ -545,7 +545,7 @@ School 샘플 데이터베이스는 편의상 단순합니다. 모든 해당 개
 
 9. 연결 속성에서 데이터베이스에 연결에 **master**를 입력합니다.
 
-10. **연결**을 클릭합니다. 이 단계로 연결 지정이 마무리되고 마법사로 돌아갑니다.
+10. **연결**을 클릭합니다. 이 단계는 연결 사양을 끝내며 사용자는 다시 마법사로 돌아갑니다.
 
 
 11. **다음**을 클릭하고 **마침**을 클릭하여 마법사를 실행합니다.
@@ -555,9 +555,9 @@ School 샘플 데이터베이스는 편의상 단순합니다. 모든 해당 개
 
 1. Management Studio의 개체 탐색기에서 데이터베이스를 새로 고쳐 방금 만든 새 데이터베이스를 표시합니다.
 
-2. 데이터베이스 폴더를 확장합니다. 목록에 **school** 데이터베이스가 표시되어야 합니다.
+2. 데이터베이스 폴더를 확장합니다. 목록에 **school** 데이터베이스가 표시됩니다.
 
-3. School 데이터베이스를 마우스 오른쪽 단추로 클릭하고 **새 쿼리**를 클릭합니다.
+3. school 데이터베이스를 마우스 오른쪽 단추로 클릭하고 **새 쿼리**를 클릭합니다.
 
 4. 다음 쿼리를 실행하여 데이터에 액세스할 수 있는지 확인합니다.
 
@@ -583,3 +583,5 @@ School 샘플 데이터베이스는 편의상 단순합니다. 모든 해당 개
 
 [SQL 데이터베이스 관리 시작]: /ko-kr/manage/services/sql-databases/getting-started-w-sql-databases/  
 
+
+<!--HONumber=35_1-->

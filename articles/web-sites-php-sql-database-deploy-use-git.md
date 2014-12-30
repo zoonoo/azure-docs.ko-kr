@@ -1,108 +1,95 @@
-﻿<properties urlDisplayName="Web w/ SQL + Git" pageTitle="SQL 데이터베이스 및 Git를 사용하는 PHP 웹 사이트 - Azure 자습서" metaKeywords="" description="A tutorial that demonstrates how to create a PHP website that stores data in SQL Database and use Git deployment to Azure." metaCanonical="" services="web-sites,sql-database" documentationCenter="PHP" title="Create a PHP website with a SQL Database and deploy using Git" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
+﻿<properties urlDisplayName="Web w/ SQL + Git" pageTitle="SQL 데이터베이스 및 Git를 사용한 PHP 웹 사이트 - Azure 자습서" metaKeywords="" description="A tutorial that demonstrates how to create a PHP website that stores data in SQL Database and use Git deployment to Azure." metaCanonical="" services="web-sites,sql-database" documentationCenter="PHP" title="Create a PHP website with a SQL Database and deploy using Git" authors="tomfitz" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="11/18/2014" ms.author="tomfitz" />
 
 #SQL 데이터베이스를 사용하여 PHP 웹 사이트 만들기 및 Git를 사용하여 배포
 
-이 자습서에서는 Azure SQL 데이터베이스를 사용하여 PHP Azure 웹 사이트를 만들고 Git를 사용하여 배포하는 방법을 설명합니다. 이 자습서는 컴퓨터에 [PHP][install-php], [SQL Server Express][install-SQLExpress], the [PHP용 SQL Server를 위한 Microsoft 드라이버][install-drivers], 웹 서버 및 [Git][install-git]가 설치되어 있다고 가정합니다. 이 가이드를 완료하면 Azure에서 실행하는 PHP-SQL 데이터베이스 웹 사이트가 완성됩니다.
+이 자습서에서는 Azure SQL 데이터베이스를 사용하여 PHP Azure 웹 사이트를 만들고 Git를 사용하여 배포하는 방법을 설명합니다. 이 자습서에서는 컴퓨터에 [PHP][install-php], [SQL Server Express][install-SQLExpress], [Microsoft Drivers for SQL Server for PHP][install-drivers], 웹 서버 및 [Git][install-git]가 설치되어 있는 것을 전제로 합니다. 이 가이드를 완료하면 Azure에서 실행하는 PHP-SQL 데이터베이스 웹 사이트가 완성됩니다.
 
 > [WACOM.NOTE]
-> PHP, SQL Server Express, PHP용 SQL Server를 위한 Microsoft 드라이버 및 IIS(인터넷 정보 서비스)는 <a href="http://www.microsoft.com/web/downloads/platform.aspx">Microsoft Web Platform Installer</a>.
+> PHP, SQL Server Express, PHP용 SQL Server를 위한 Microsoft 드라이버 및 IIS(인터넷 정보 서비스)는 <a href="http://www.microsoft.com/web/downloads/platform.aspx">Microsoft 웹 플랫폼 설치 관리자</a>를 사용하여 설치하고 구성할 수 있습니다.
 
-You will learn:
+다음 내용을 배웁니다.
 
-* How to create an Azure Website and a SQL Database using the Azure Management Portal. Because PHP is enabled in Azure Websites by default, nothing special is required to run your PHP code.
-* How to publish and re-publish your application to Azure using Git.
+* Azure 관리 포털을 사용하여 Azure 웹 사이트 및 SQL 데이터베이스를 만드는 방법. PHP는 Azure 웹 사이트에서 기본적으로 사용하도록 설정되어 있으므로 PHP 코드를 실행하기 위해 특별한 조치를 취할 필요가 없습니다.
+* Git를 사용하여 응용 프로그램을 Azure에 게시 및 다시 게시하는 방법
  
-By following this tutorial, you will build a simple registration web application in PHP. The application will be hosted in an Azure Website. A screenshot of the completed application is below:
+이 자습서의 지침에 따라 PHP에서 간단한 등록 웹 응용 프로그램을 빌드할 수 있습니다. 응용 프로그램은 Azure 웹 사이트에 호스트됩니다. 아래에는 완성된 응용 프로그램의 스크린샷이 표시되어 있습니다.
 
 ![Azure PHP Web Site][running-app]
 
-[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
+> [WACOM.NOTE]
+> 이 자습서를 완료하려면 Azure 계정이 필요합니다. <a href="http://azure.microsoft.com/ko-kr/pricing/member-offers/msdn-benefits-details/">MSDN 구독자 혜택을 활성화</a>하거나 <a href="http://azure.microsoft.com/ko-kr/pricing/free-trial/">무료 평가판에 등록</a>할 수 있습니다.
+> 
+> 계정을 등록하기 전에 Azure 웹 사이트를 시작하려면 <a href="https://trywebsites.azurewebsites.net/?language=php">https://trywebsites.azurewebsites.net</a>으로 이동합니다. Azure 웹 사이트에서는 무료로 단기 ASP.NET 시작 사이트를 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
+##Azure 웹 사이트 만들기 및 Git 게시 설정
 
-##Create an Azure Website and set up Git publishing
+Azure 웹 사이트 및 SQL 데이터베이스를 만들려면 다음 단계를 따르세요.
 
-Follow these steps to create an Azure Website and a SQL Database:
-
-1. Login to the [Azure Management Portal][management-portal].
-2. Click the **New** icon on the bottom left of the portal.
+1. [Azure 관리 포털][management-portal]에 로그인합니다.
+2. 포털의 왼쪽 아래에서 **새로 만들기** 아이콘을 클릭합니다.
 ![Create New Azure Web Site][new-website]
 
-3. Click **Website**, then **Custom Create**.
+3. **웹 사이트**를 클릭한 후 **사용자 지정 만들기**를 클릭합니다.
 
 	![Custom Create a new Web Site][custom-create]
 
-	Enter a value for **URL**, select **Create a New SQL Database** from the **Database** dropdown,  and select the data center for your website in the **Region** dropdown. Click the arrow at the bottom of the dialog.
+	**URL** 값을 입력하고 **데이터베이스** 드롭다운에서 **새 SQL 데이터베이스 만들기**를 선택한 후 **소스 제어에서 게시**를 선택합니다. 대화 상자 아래쪽의 화살표를 클릭합니다.
 
 	![Fill in web site details][website-details-sqlazure]
 
-4. Enter a value for the **Name** of your database, select the **Edition** [(WEB or BUSINESS)][sql-database-editions], select the **Max Size** for your database, choose the **Collation**, and select **NEW SQL Database server**. Click the arrow at the bottom of the dialog.
+4. 데이터베이스의 **이름** 값을 입력하고 **새 SQL 데이터베이스 서버**를 선택한 후 로그인 자격 증명을 제공하고 지역을 선택합니다. 대화 상자 아래쪽의 화살표를 클릭합니다.
 
 	![Fill in SQL Database settings][database-settings]
 
-5. Enter an administrator name and password (and confirm the password), choose the region in which your new SQL Database server will be created, and check the `Allow Azure Services to access the server` box.
-
-	![Create new SQL Database server][create-server]
-
-	When the website has been created you will see the text **Creation of Website "[SITENAME]" completed successfully**. Now, you can enable Git publishing.
-
-6. Click the name of the website displayed in the list of websites to open the website's Quick Start dashboard.
-
-	![Open web site dashboard][go-to-dashboard]
-
-
-7. At the bottom of the Quick Start page, click **Set up deployment from source control**. 
-
-	![Set up Git publishing][setup-git-publishing]
-
-6. When asked "Where is your source code?" select **Local Git repository**, and then click the arrow.
+5. 소스 코드에 대해 **로컬 Git 리포지토리**를 선택합니다.
 
 	![where is your source code][where-is-code]
 
-8. To enable Git publishing, you must provide a user name and password. Make a note of the user name and password you create. (If you have set up a Git repository before, this step will be skipped.)
+	이전에 Git 리포지토리를 설정하지 않았으면 사용자 이름과 암호를 제공해야 합니다.
 
-	![Create publishing credentials][credentials]
+6. 웹 사이트가 만들어지면 사이트의 대시보드를 열고 **배포 보기**를 선택합니다.
 
-	It will take a few seconds to set up your repository.
+	![Web site dashboard][go-to-dashboard]
 
-9. When your repository is ready, you will see instructions for pushing your application files to the repository. Make note of these instructions - they will be needed later.
+9. 응용 프로그램 파일을 리포지토리에 푸시하는 지침이 표시됩니다. 이러한 지침은 나중에 필요하므로 기록해 둡니다.
 
 	![Git instructions][git-instructions]
 
-##Get SQL Database connection information
+##SQL 데이터베이스 연결 정보 가져오기
 
-To connect to the SQL Database instance that is running in Azure Websites, your will need the connection information. To get SQL Database connection information, follow these steps:
+Azure 웹 사이트에서 실행되는 SQL 데이터베이스 인스턴스에 연결하려면 연결 정보가 필요합니다. SQL 데이터베이스 연결 정보를 가져오려면 다음 단계를 따르세요.
 
-1. From the Azure Management Portal, click **Linked Resources**, then click the database name.
+1. Azure 관리 포털에서 **연결된 리소스**를 클릭한 후 데이터베이스 이름을 클릭합니다.
 
 	![Linked Resources][linked-resources]
 
-2. Click **View connection strings**.
+2. **연결 문자열 보기**를 클릭합니다.
 
 	![Connection string][connection-string]
 	
-3. From the **PHP** section of the resulting dialog, make note of the values for `SERVER`, `DATABASE`, and `USERNAME`.
+3. 나타나는 대화 상자의 **PHP** 섹션에서 `서버`, `데이터베이스` 및 `사용자 이름` 값을 기록해 둡니다.
 
-##Build and test your application locally
+##로컬에서 응용 프로그램 빌드 및 테스트
 
-The Registration application is a simple PHP application that allows you to register for an event by providing your name and email address. Information about previous registrants is displayed in a table. Registration information is stored in a SQL Database instance. The application consists of two files (copy/paste code available below):
+등록 응용 프로그램은 이름과 메일 주소를 지정하여 이벤트에 등록하는 데 사용할 수 있는 간단한 PHP 응용 프로그램입니다. 이전 등록자에 대한 정보가 테이블에 표시되어 있습니다. 등록 정보는 SQL 데이터베이스 인스턴스에 저장되어 있습니다. 응용 프로그램은 다음과 같은 두 파일로 구성되어 있습니다(아래에서 사용할 수 있는 코드 복사/붙여넣기).
 
-* **index.php**: Displays a form for registration and a table containing registrant information.
-* **createtable.php**: Creates the SQL Database table for the application. This file will only be used once.
+* **index.php**: 등록 양식 및 등록자 정보가 포함된 테이블을 표시합니다.
+* **createtable.php**: 응용 프로그램용 SQL 데이터베이스 테이블을 만듭니다. 이 파일은 한 번만 사용됩니다.
 
-To run the application locally, follow the steps below. Note that these steps assume you have PHP, SQL Server Express, and a web server set up on your local machine, and that you have enabled the [PDO extension for SQL Server][pdo-sqlsrv].
+응용 프로그램을 로컬에서 실행하려면 아래 단계를 따릅니다. 이러한 단계는 로컬 컴퓨터에 PHP, SQL Server Express 및 웹 서버가 설정되어 있으며 [SQL Server용 PDO 확장][pdo-sqlsrv](영문)이 사용되도록 설정되어 있다는 것을 전제로 합니다.
 
-1. Create a SQL Server database called `registration`. You can do this from the `sqlcmd` command prompt with these commands:
+1. 'registration'이라는 SQL Server 데이터베이스를 만듭니다. 이는 'sqlcmd' 명령 프롬프트에서 다음 명령으로 수행할 수 있습니다.
 
 		>sqlcmd -S localhost\sqlexpress -U <local user name> -P <local password>
 		1> create database registration
 		2> GO	
 
 
-2. In your web server's root directory, create a folder called `registration` and create two files in it - one called `createtable.php` and one called `index.php`.
+2. 웹 서버의 루트 디렉터리에서 'registration'이라는 폴더를 만들고 이 폴더 내에 'createtable.php' 및 'index.php'라는 두 파일을 만듭니다.
 
-3. Open the `createtable.php` file in a text editor or IDE and add the code below. This code will be used to create the `registration_tbl` table in the `registration` database.
+3. 텍스트 편집기 또는 IDE에서 'createtable.php' 파일을 열고 아래 코드를 추가합니다. 이 코드는 'registration' 데이터베이스에 'registration_tbl' 테이블을 만드는 데 사용됩니다.
 
 		<?php
 		// DB connection info
@@ -127,11 +114,11 @@ To run the application locally, follow the steps below. Note that these steps as
 		echo "<h3>Table created.</h3>";
 		?>
 
-	Note that you will need to update the values for <code>$user</code> and <code>$pwd</code> with your local SQL Server user name and password.
+	 <code>$user</code> 및 <code>$pwd</code> 값을 로컬 SQL Server 사용자 이름 및 암호로 업데이트해야 합니다.
 
-4. Open a web browser and browse to **http://localhost/registration/createtable.php**. This will create the `registration_tbl` table in the database.
+4. 웹 브라우저를 열고 **http://localhost/registration/createtable.php**로 이동합니다. 그러면 데이터베이스에 'registration_tbl' 테이블이 만들어집니다.
 
-5. Open the **index.php** file in a text editor or IDE and add the basic HTML and CSS code for the page (the PHP code will be added in later steps).
+5. 텍스트 편집기 또는 IDE에서 **index.php** 파일을 열고 페이지의 기본 HTML 및 CSS 코드를 추가합니다(PHP 코드는 이후 단계에서 추가 예정).
 
 		<html>
 		<head>
@@ -176,11 +163,11 @@ To run the application locally, follow the steps below. Note that these steps as
 			$conn = new PDO( "sqlsrv:Server= $host ; Database = $db ", $user, $pwd);
 			$conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
 		}
-		catch(Exception $e) {
+		catch(Exception $e){
 			die(var_dump($e));
 		}
 
-    다시 <code>$user</code> 및 <code>$pwd</code>의 값을 로컬 MySQL 사용자 이름 및 암호로 업데이트해야 합니다.
+    다시 <code>$user</code> 및 <code>$pwd</code> 값을 로컬 MySQL 사용자 이름 및 암호로 업데이트해야 합니다.
 
 7. 데이터베이스 연결 코드 다음에 등록 정보를 데이터베이스에 삽입하는 데 필요한 코드를 추가합니다.
 
@@ -229,7 +216,7 @@ To run the application locally, follow the steps below. Note that these steps as
 
 ##응용 프로그램 게시
 
-응용 프로그램을 로컬에서 테스트한 후 Git를 사용하여 Azure 웹 사이트에 게시할 수 있습니다. 하지만 먼저 응용 프로그램의 데이터베이스 연결 정보를 업데이트해야 합니다. 이전에 **SQL 데이터베이스 연결 정보 가져오기** 섹션에서 가져온 데이터베이스 연결 정보를 사용하여 'createdatabase.php' 및 'index.php' 파일 **모두**에서 다음 정보를 적합한 값으로 업데이트합니다.
+응용 프로그램을 로컬에서 테스트한 후 Git를 사용하여 Azure 웹 사이트에 게시할 수 있습니다. 하지만 먼저 응용 프로그램의 데이터베이스 연결 정보를 업데이트해야 합니다. 이전에 **SQL 데이터베이스 연결 정보 가져오기** 섹션에서 가져온 데이터베이스 연결 정보를 사용하여 `createdatabase.php` 및 `index.php` 파일 **둘 다**에서 다음 정보를 적합한 값으로 업데이트합니다.
 
 	// DB connection info
 	$host = "tcp:<value of SERVER>";
@@ -238,13 +225,13 @@ To run the application locally, follow the steps below. Note that these steps as
 	$db = "<value of DATABASE>";
 
 > [WACOM.NOTE]
-> <code>$host</code>에서 SERVER 값 앞에 <code>tcp:</code>를 추가해야 하며 <code>$user</code>의 값은 USERNAME, '@' 및 서버 ID의 연결입니다. 서버 ID는 SERVER 값의 첫 10자입니다.
+>  <code>$host</code>에서 SERVER 값 앞에 <code>tcp:</code>를 붙여야 하며 <code>$user</code> 값은 USERNAME, '@' 및 서버 ID가 연결되어 형성됩니다. 서버 ID는 SERVER 값의 처음 10개 문자입니다.
 
 
 이제 Git 게시를 설정하고 응용 프로그램을 게시할 수 있습니다.
 
 > [WACOM.NOTE]
-> 이러한 단계는 앞서 Azure 웹 사이트 만들기 및 Git 게시 설정 섹션의 끝에서 설명한 단계와 동일합니다.
+> 이러한 단계는 앞서 "Azure 웹 사이트 만들기 및 Git 게시 설정" 섹션의 끝에서 설명한 단계와 동일합니다.
 
 
 1. GitBash를 열거나 Git가 'PATH'에 있는 경우 터미널을 열고 응용 프로그램의 루트 디렉터리로 이동한 후 다음 명령을 실행합니다.
@@ -267,7 +254,7 @@ To run the application locally, follow the steps below. Note that these steps as
 응용 프로그램에 변경 내용을 게시하려면 다음 단계를 따르세요.
 
 1. 응용 프로그램을 로컬에서 변경합니다.
-2. GitBash를 열거나 `PATH`에 Git가 에 있는 경우 터미널을 열고 응용 프로그램의 루트 디렉터리로 이동한 후 다음 명령을 실행합니다.
+2. GitBash를 열거나 Git가 'PATH'에 있는 경우 터미널을 열고 응용 프로그램의 루트 디렉터리로 이동한 후 다음 명령을 실행합니다.
 
 		git add .
 		git commit -m "comment describing changes"
@@ -281,21 +268,23 @@ To run the application locally, follow the steps below. Note that these steps as
 [install-SQLExpress]: http://www.microsoft.com/ko-kr/download/details.aspx?id=29062
 [install-Drivers]: http://www.microsoft.com/ko-kr/download/details.aspx?id=20098
 [install-git]: http://git-scm.com/
-[pdo sqlsrv]: http://php.net/pdo_sqlsrv
+[pdo-sqlsrv]: http://php.net/pdo_sqlsrv
 [running-app]: ./media/web-sites-php-sql-database-deploy-use-git/running_app_3.png
 [new-website]: ./media/web-sites-php-sql-database-deploy-use-git/new_website.jpg
 [custom-create]: ./media/web-sites-php-sql-database-deploy-use-git/custom_create.png
-[website-details-sqlazure]: ./media/web-sites-php-sql-database-deploy-use-git/website_details_sqlazure.jpg
-[database-settings]: ./media/web-sites-php-sql-database-deploy-use-git/database_settings.jpg
+[website-details-sqlazure]: ./media/web-sites-php-sql-database-deploy-use-git/createphpgitsite.png
+[database-settings]: ./media/web-sites-php-sql-database-deploy-use-git/setupdb.png
 [create-server]: ./media/web-sites-php-sql-database-deploy-use-git/create_server.jpg
-[go-to-dashboard]: ./media/web-sites-php-sql-database-deploy-use-git/go_to_dashboard.png
+[go-to-dashboard]: ./media/web-sites-php-sql-database-deploy-use-git/viewdeploy.png
 [setup-git-publishing]: ./media/web-sites-php-sql-database-deploy-use-git/setup_git_publishing.png
-[자격 증명]: ./media/web-sites-php-sql-database-deploy-use-git/git-deployment-credentials.png
+[credentials]: ./media/web-sites-php-sql-database-deploy-use-git/git-deployment-credentials.png
 
 
-[git-instructions]: ./media/web-sites-php-sql-database-deploy-use-git/git-instructions.png
+[git-instructions]: ./media/web-sites-php-sql-database-deploy-use-git/gitsettings.png
 [linked-resources]: ./media/web-sites-php-sql-database-deploy-use-git/linked_resources.jpg
 [connection-string]: ./media/web-sites-php-sql-database-deploy-use-git/connection_string.jpg
 [management-portal]: https://manage.windowsazure.com/
 [sql-database-editions]: http://msdn.microsoft.com/ko-kr/library/windowsazure/ee621788.aspx
-[where-is-code]: ./media/web-sites-php-sql-database-deploy-use-git/where_is_code.png
+[where-is-code]: ./media/web-sites-php-sql-database-deploy-use-git/setupgit.png
+
+<!--HONumber=35_1-->
