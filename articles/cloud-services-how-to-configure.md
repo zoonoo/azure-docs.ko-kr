@@ -94,9 +94,9 @@ Azure는 각 역할에 둘 이상의 역할 인스턴스(가상 컴퓨터)가 �
 
 > [WACOM.NOTE]
 > **경고:** 처음으로 원격 데스크톱을 사용하도록 설정한 후 확인(확인 표시)을 클릭하면 모든 역할 인스턴스가 다시 시작됩니다. 다시 부팅되지 않도록 하려면 암호를 암호화하는 데 사용되는 인증서가 역할에 설치되어 있어야 합니다. 인증서가 설치되어 있지 않은 경우 다음 옵션이 표시됩니다.
-> ![CloudServices\_CreateNewCertDropDown][CloudServices\_CreateNewCertDropDown]
+> ![CloudServices CreateNewCertDropDown](./media/cloud-services-how-to-configure/CloudServices_CreateNewCertDropDown.png)]
 
-    To prevent a restart, install a certificate and then return to this dialog (see [Using Remote Desktop with Azure Roles][Using Remote Desktop with Azure Roles] for more information). If you choose an existing certificate, then a configuration update will be sent to all the instances in the role.
+    다시 시작을 방지하려면 인증서를 설치하고 이 대화 상자로 돌아옵니다. 자세한 내용은 ([Azure 역할과 함께 원격 데스크톱 사용] 을 참조하세요). 기존 인증서를 선택한 경우 역할의 모든 인스턴스에 구성 업데이트가 전송됩니다.
 
 1.  **역할**에서 업데이트할 서비스 역할을 선택하거나 모든 역할을 원하면 **모두**를 선택합니다.
 

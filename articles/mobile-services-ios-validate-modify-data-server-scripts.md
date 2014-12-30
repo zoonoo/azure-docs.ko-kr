@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Validate Data" pageTitle="서버 스크립트를 사용하여 데이터 유효성 검사 및 수정(iOS) | 모바일 개발자 센터" metaKeywords="" description="Learn how to validate and modify data sent using server scripts from your iOS app." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using server scripts" authors="krisragh" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Validate Data" pageTitle="서버 스크립트를 사용하여 데이터 유효성 검사 및 수정(iOS) | 모바일 개발자 센터" metaKeywords="" description="Learn how to validate and modify data sent using server scripts from your iOS app." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using server scripts" authors="krisragh" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="krisragh" />
 
@@ -16,23 +16,23 @@
 
 이 자습서는 이전 자습서인 [데이터 작업 시작]의 단계 및 샘플 앱을 기반으로 합니다. 이 자습서를 시작하기 전에 먼저 [데이터 작업 시작]을 완료해야 합니다.  
 
-## <a name="string-length-validation"></a>Add validation
+## <a name="string-length-validation"></a>유효성 검사 추가
 
-It is always a good practice to validate the length of data that is submitted by users. First, you register a script that validates the length of string data sent to the mobile service and rejects strings that are too long, in this case longer than 10 characters.
+사용자가 제출하는 데이터 길이의 유효성을 항상 검사하는 것이 좋습니다. 먼저, 모바일 서비스에 전송되는 문자열 데이터 길이의 유효성을 검사하고 너무 긴 경우(이 예제에서는 10자 초과) 문자열을 거부하는 스크립트를 등록합니다.
 
-1. Log into the [Azure Management Portal], click **Mobile Services**, and then click your app.
+1. [Azure 관리 포털][Azure 관리 포털], 에 로그인하여 **모바일 서비스**를 클릭한 후 앱을 클릭합니다.
 
    	![][0]
 
-2. Click the **Data** tab, then click the **TodoItem** table.
+2. **데이터** 탭을 클릭한 후 **TodoItem** 테이블을 클릭합니다
 
    	![][1]
 
-3. Click **Script**, then select the **Insert** operation.
+3. **스크립트**를 클릭한 후 **삽입** 작업을 선택합니다.
 
    	![][2]
 
-4. Replace the existing script with the following function, and then click **Save**.
+4. 기존 스크립트를 다음 함수로 바꾼 후 **저장**을 클릭합니다.
 
         function insert(item, user, request) {
             if (item.text.length > 10) {
@@ -42,27 +42,28 @@ It is always a good practice to validate the length of data that is submitted by
             }
         }
 
-    This script checks the length of the **text** property and sends an error response when the length exceeds 10 characters. Otherwise, the **execute** method is called to complete the insert.
+    이 스크립트는 **text** 속성의 길이를 확인하여 길이가 10자를 초과하는 경우 오류 응답을 보냅니다. 그렇지 않으면 **execute** 메서드가 호출되어 삽입이 완료됩니다.
 
     <div class="dev-callout">
-	<b>Note</b>
-	<p>You can remove a registered script on the <strong>Script</strong> tab by clicking <strong>Clear</strong> and then <strong>Save</strong>.</p></div>
+	<b>참고</b>
+	<p><strong>지우기</strong>를 클릭한 후 <strong>저장</strong>을 클릭하여 <strong>스크립트</strong> 탭에서 등록된 스크립트를 제거할 수 있습니다.</p>
+    </div>
 
-## <a name="update-client-validation"></a>Update the client
+## <a name="update-client-validation"></a>클라이언트 업데이트
 
-Now that the mobile service is validating data and sending error responses, you need to update your app to be able to handle error responses from validation.
+모바일 서비스가 데이터의 유효성 검사를 하고 오류 응답을 보내므로, 개발자는 유효성 검사의 오류 응답을 처리할 수 있도록 앱을 업데이트해야 합니다.
 
-1. In Xcode, open the project that you modified when you completed the tutorial [Get started with data].
+1. Xcode에서 [데이터 시작][데이터 시작] 자습서를 완료할 때 수정한 프로젝트를 엽니다.
 
-2. Press the **Run** button (Command + R) to build the project and start the app, then type text longer than 10 characters in the textbox and click the  plus (**+**) icon.
+2. **실행** 단추(Command + R)를 눌러 프로젝트를 빌드하고 앱을 시작한 다음 텍스트 상자에 텍스트를 10자 미만으로 입력하고 더하기(**+**) 아이콘을 클릭합니다.
 
-   	Notice that the app raises an unhandled error as a result of the 400 response (Bad Request) returned by the mobile service.
+   	앱은 모바일 서비스에서 반환된 400 응답(잘못된 요청)의 결과로 처리되지 않은 오류를 생성합니다.
 
-3. In the QSTodoService.m file, locate the following line of code in the **addItem** method:
+3. QSTodoService.m 파일의 **addItem** 메서드에서 다음 코드 줄을 찾습니다.
 
         [self logErrorIfNotNil:error];
 
-   	After this line of code, replace the remainder of the completion block with the following code:
+   	이 코드 줄 뒤에 있는 완료 블록의 나머지 부분을 다음 코드로 바꿉니다.
 
         BOOL goodRequest = !((error) && (error.code == MSErrorMessageErrorCode));
 
@@ -93,13 +94,13 @@ Now that the mobile service is validating data and sending error responses, you 
             }
         }
 
-   	This logs the error to the output window and displays it to the user.
+   	이 코드에서는 오류를 출력 창에 기록하고 사용자에게 표시합니다.
 
-4. Rebuild and start the app.
+4. 앱을 다시 빌드하고 시작합니다.
 
    	![][4]
 
-  	Notice that error is handled and the error messaged is displayed to the user.
+  	오류가 처리되고 사용자에게 오류 메시지가 표시됩니다.
 
 <!--## <a name="add-timestamp"></a>Add a timestamp
 
@@ -230,3 +231,4 @@ The Mobile Service client will ignore any data in a response that it cannot seri
 
 [관리 포털]: https://manage.windowsazure.com/
 [Azure 관리 포털]: https://manage.windowsazure.com/
+[데이터 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-data-ios
