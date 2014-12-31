@@ -1,517 +1,519 @@
-<properties linkid="develop-dotnet-website-with-mongodb-vm" urlDisplayName="Website with MongoDB VM" pageTitle=".NET website with MongoDB on a virtual machine - Azure" metaKeywords="Azure Git ASP.NET MongoDB, Git .NET, Git MongoDB, ASP.NET MongoDB, Azure MongoDB, Azure ASP.NET, Azure tutorial" description="A tutorial that teaches you how to use Git to deploy an ASP.NET app to an Azure website connected to MongoDB on a virtual machine." metaCanonical="" services="web-sites,virtual-machines" documentationCenter=".NET" title="Create an Azure website that connects to MongoDB running on a virtual machine in Azure" authors="cephalin" solutions="" manager="wpickett" editor="" />
+﻿<properties urlDisplayName="Website with MongoDB VM" pageTitle="가상 컴퓨터에서 MongoDB가 있는 .NET 웹 사이트 - Azure" metaKeywords="Azure Git ASP.NET MongoDB, Git .NET, Git MongoDB, ASP.NET MongoDB, Azure MongoDB, Azure ASP.NET, Azure tutorial" description="A tutorial that teaches you how to use Git to deploy an ASP.NET app to an Azure website connected to MongoDB on a virtual machine." metaCanonical="" services="web-sites,virtual-machines" documentationCenter=".NET" title="Create an Azure website that connects to MongoDB running on a virtual machine in Azure" authors="cephalin" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin" />
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/24/2014" ms.author="cephalin" />
+
 
 # Azure의 가상 컴퓨터에서 실행되는 MongoDB에 연결되는 Azure 웹 사이트 만들기
 
-Git을 사용하여 Azure 웹 사이트에 ASP.NET 응용 프로그램을 배포할 수 있습니다. 이 자습서에서는 Azure의 가상 컴퓨터에서 실행되는 MongoDB 데이터베이스에 연결되는 간단한 프런트 엔드 ASP.NET MVC 작업 목록 응용 프로그램을 빌드합니다. [MongoDB][MongoDB]는 대중적인 오픈 소스의 고성능 NoSQL 데이터베이스입니다. 개발 컴퓨터에서 ASP.NET 응용 프로그램을 실행하고 테스트한 후에 Git을 사용하여 Azure 웹 사이트에 응용 프로그램을 업로드합니다.
+Git을 사용하여 Azure 웹 사이트에 ASP.NET 응용 프로그램을 배포할 수 있습니다. 이 자습서에서는 Azure의 가상 컴퓨터에서 실행되는 MongoDB 데이터베이스에 연결되는 간단한 프런트 엔드 ASP.NET MVC 작업 목록 응용 프로그램을 빌드합니다.  [MongoDB][MongoDB]는 대중적인 오픈 소스의 고성능 NoSQL 데이터베이스입니다. 개발 컴퓨터에서 ASP.NET 응용 프로그램을 실행하고 테스트한 후에 Git을 사용하여 Azure 웹 사이트에 응용 프로그램을 업로드합니다.
 
 [WACOM.INCLUDE [create-account-and-websites-and-vms-note](../includes/create-account-and-websites-and-vms-note.md)]
 
-## 개요
+
+
+##개요##
 
 이 자습서에서는 다음 작업을 수행합니다.
 
--   [가상 컴퓨터 만들기 및 MongoDB 설치][가상 컴퓨터 만들기 및 MongoDB 설치]
--   [개발 컴퓨터에서 My Task List ASP.NET 응용 프로그램 만들기 및 실행][개발 컴퓨터에서 My Task List ASP.NET 응용 프로그램 만들기 및 실행]
--   [Azure 웹 사이트 만들기][Azure 웹 사이트 만들기]
--   [Git을 사용하여 웹 사이트에 ASP.NET 응용 프로그램 배포][Git을 사용하여 웹 사이트에 ASP.NET 응용 프로그램 배포]
+- [가상 컴퓨터 만들기 및 MongoDB 설치](#virtualmachine)
+- [개발 컴퓨터에서 My Task List ASP.NET 응용 프로그램 만들기 및 실행](#createapp)
+- [Azure 웹 사이트 만들기](#createwebsite)
+- [Git을 사용하여 웹 사이트에 ASP.NET 응용 프로그램 배포](#deployapp)
 
-## 배경 지식
+
+##배경 지식##
 
 다음과 관련한 지식이 있으면 이 자습서에 유용하지만 필수 사항은 아닙니다.
 
--   MongoDB의 C# 드라이버. MongoDB에 대한 C# 응용 프로그램 개발에 대한 자세한 내용은 MongoDB [CSharp 언어 센터][CSharp 언어 센터](영문)를 참조하십시오.
--   ASP .NET 웹 응용 프로그램 프레임워크. 자세한 내용은 [ASP.NET 웹 사이트][ASP.NET 웹 사이트]에서 알아볼 수 있습니다.
--   ASP .NET MVC 웹 응용 프로그램 프레임워크. 자세한 내용은 [ASP.NET MVC 웹 사이트][ASP.NET MVC 웹 사이트]에서 알아볼 수 있습니다.
--   Azure. [Azure][Azure]의 내용을 읽어 보고 시작할 수 있습니다.
+* MongoDB의 C# 드라이버. MongoDB에 대한 C# 응용 프로그램 개발에 대한 자세한 내용은 MongoDB [CSharp 언어 센터][MongoC#LangCenter](영문)를 참조하세요. 
+* ASP .NET 웹 응용 프로그램 프레임워크. 자세한 내용은 [ASP.NET 웹 사이트][ASP.NET]에서 알아볼 수 있습니다.
+* ASP .NET MVC 웹 응용 프로그램 프레임워크. 자세한 내용은 [ASP.NET MVC 웹 사이트][MVCWebSite]에서 알아볼 수 있습니다.
+* Azure. [Azure][WindowsAzure]의 내용을 읽어 보고 시작할 수 있습니다.
 
-## 준비
+
+##준비##
 
 이 섹션에서는 Azure에서 가상 컴퓨터를 만들고 MongoDB를 설치한 후 개발 환경을 설정하는 방법을 알아봅니다.
 
-<span id="virtualmachine"></span></a>
-
-### 가상 컴퓨터 만들기 및 MongoDB 설치
+<a id="virtualmachine"></a> 
+###가상 컴퓨터 만들기 및 MongoDB 설치###
 
 이 자습서는 Azure에서 가상 컴퓨터를 만든 적이 있는 개발자를 대상으로 합니다. 가상 컴퓨터를 만든 후에는 가상 컴퓨터에 MongoDB를 설치해야 합니다.
 
--   Windows 가상 컴퓨터를 만들고 MongoDB를 설치하려면 [Azure에서 Windows Server를 실행하는 가상 컴퓨터에 MongoDB 설치][Azure에서 Windows Server를 실행하는 가상 컴퓨터에 MongoDB 설치]를 참조하십시오.
--   또는 Linux 가상 컴퓨터를 만들고 MongoDB를 설치하려면 [Azure에서 CentOS Linux를 실행하는 가상 컴퓨터에 MongoDB 설치][Azure에서 CentOS Linux를 실행하는 가상 컴퓨터에 MongoDB 설치]를 참조하십시오.
+* Windows 가상 컴퓨터를 만들고 MongoDB를 설치하려면 [Azure에서 Windows Server를 실행하는 가상 컴퓨터에 MongoDB 설치][InstallMongoOnWindowsVM]를 참조하세요.
+* 또는 Linux 가상 컴퓨터를 만들고 MongoDB를 설치하려면 [Azure에서 CentOS Linux를 실행하는 가상 컴퓨터에 MongoDB 설치][InstallMongoOnCentOSLinuxVM]를 참조하세요.
 
-Azure에서 가상 컴퓨터를 만들고 MongoDB를 설치한 후에는 가상 컴퓨터의 DNS 이름(예: "testlinuxvm.cloudapp.net") 및 끝점에서 지정한 MongoDB의 외부 포트를 기억해 둬야 합니다. 이 정보는 자습서의 뒷부분에서 필요합니다.
+Azure에서 가상 컴퓨터를 만들고 MongoDB를 설치한 후에는 가상 컴퓨터의 DNS 이름(예: "testlinuxvm.cloudapp.net") 및 끝점에서 지정한 MongoDB의 외부 포트를 기억해 둬야 합니다.  이 정보는 자습서의 뒷부분에서 필요합니다.
 
-### Visual Studio 설치
+### Visual Studio 설치###
 
-[Visual Studio Express 2013 for Web][Visual Studio Express 2013 for Web] 또는 [Visual Studio 2013][Visual Studio 2013]을 설치하고 실행하여 시작합니다.
+먼저 [Visual Studio Express 2013 for Web] [VSEWeb] 또는 [Visual Studio 2013] [VSUlt]를 설치하고 실행합니다.
 
 Visual Studio는 IDE(통합 개발 환경)입니다. 문서를 작성하는 데 Microsoft Word를 사용하는 것처럼 응용 프로그램을 만드는 데 IDE를 사용합니다. 이 자습서에서는 Microsoft Visual Studio 2013을 사용하지만, 무료 버전 Microsoft Visual Studio인 Microsoft Visual Studio Express 2013을 사용해도 됩니다.
 
-<span id="createapp"></span></a>
+<a id="createapp"></a>
+##개발 컴퓨터에서 My Task List ASP.NET 응용 프로그램 만들기 및 실행##
 
-## 개발 컴퓨터에서 My Task List ASP.NET 응용 프로그램 만들기 및 실행
+이 섹션에서는 Visual Studio를 사용하여 "My Task List"라는 ASP.NET 응용 프로그램을 만듭니다.  응용 프로그램 실행은 로컬에서 하지만 Azure의 가상 컴퓨터에 연결하여 해당 위치에서 만든 MongoDB 인스턴스를 사용합니다.
 
-이 섹션에서는 Visual Studio를 사용하여 "My Task List"라는 ASP.NET 응용 프로그램을 만듭니다. 응용 프로그램 실행은 로컬에서 하지만 Azure의 가상 컴퓨터에 연결하여 해당 위치에서 만든 MongoDB 인스턴스를 사용합니다.
-
-### 응용 프로그램 만들기
-
+###응용 프로그램 만들기###
 Visual Studio에서 **새 프로젝트**를 클릭합니다.
 
-![시작 페이지 새 프로젝트][시작 페이지 새 프로젝트]
+![Start Page New Project][StartPageNewProject]
 
-**새 프로젝트** 창에서 왼쪽 창에 있는 **Visual C#**을 선택한 후 **웹**을 선택합니다. 가운데 창에서 **ASP.NET 웹 응용 프로그램**을 선택합니다. 맨 아래에서 프로젝트 이름을 "MyTaskListApp"으로 지정한 후 **확인**을 클릭합니다.
+**새 프로젝트** 창에서 왼쪽 창에 있는 **Visual C#**을 선택한 후 **웹**을 선택합니다. 가운데 창에서 **ASP.NET  웹 응용 프로그램**을 선택합니다. 맨 아래에서 프로젝트 이름을 "MyTaskListApp"으로 지정한 후 **확인**을 클릭합니다.
 
-![새 프로젝트 대화 상자][새 프로젝트 대화 상자]
+![New Project Dialog][NewProjectMyTaskListApp]
 
 **새 ASP.NET 프로젝트** 대화 상자에서 **MVC**를 선택한 후 **확인**을 클릭합니다.
 
-![MVC 템플릿 선택][MVC 템플릿 선택]
+![Select MVC Template][VS2013SelectMVCTemplate]
 
 프로젝트가 완성되고 나면 템플릿에서 만들어진 기본 페이지가 나타납니다.
 
-![기본 ASP.NET MVC 응용 프로그램][기본 ASP.NET MVC 응용 프로그램]
+![Default ASP.NET MVC Application][VS2013DefaultMVCApplication]
 
-### MongoDB C# 드라이버 설치
+###MongoDB C# 드라이버 설치
 
 MongoDB는 드라이버를 통해 C# 응용 프로그램에 대한 클라이언트 쪽 지원을 제공하며, 이 드라이버는 로컬 개발 컴퓨터에 설치해야 합니다. C# 드라이버는 NuGet을 통해 사용할 수 있습니다.
 
 MongoDB C# 드라이버를 설치하려면
 
-1.  **솔루션 탐색기**에서 **MyTaskListApp** 프로젝트 아래에 있는 **참조** 마우스 오른쪽 단추로 클릭하고 **Manage NuGetPackages**를 선택합니다.
-
-    ![NuGet 패키지 관리][NuGet 패키지 관리]
-
-2.  **Manage NuGet 패키지 관리** 창에서 왼쪽 창에 있는 **온라인**을 클릭합니다. 오른쪽의 **온라인 검색** 상자에서 "mongocsharpdriver"를 입력합니다. **설치**를 클릭하여 드라이버를 설치합니다.
-
-    ![MongoDB C# 드라이버 검색][MongoDB C# 드라이버 검색]
-
-3.  **동의함**을 클릭하여 10gen, Inc. 사용 조건에 동의합니다.
-
-4.  드라이버가 설치된 후 **닫기**를 클릭합니다.
-    ![MongoDB C# 드라이버 설치 완료][MongoDB C# 드라이버 설치 완료]
-
-이제 MongoDB C# 드라이버가 설치되었습니다. **MongoDB.Driver.dll** 및 **MongoDB.Bson.dll** 라이브러리에 대한 참조가 프로젝트에 추가되었습니다.
-
-![MongoDB C# 드라이버 참조][MongoDB C# 드라이버 참조]
-
-### 모델 추가
-
-**솔루션 탐색기**에서 *Models* 폴더를 마우스 오른쪽 단추로 클릭하고 새 **클래스**를 **추가**한 후 클래스 이름을 *TaskModel.cs*로 지정합니다. *TaskModel.cs*에서 기존 코드를 다음 코드로 바꿉니다.
-
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Web;
-    using MongoDB.Bson.Serialization.Attributes;
-    using MongoDB.Bson.Serialization.IdGenerators;
-    using MongoDB.Bson;
-
-    namespace MyTaskListApp.Models
-    {
-        public class MyTask
-        {
-            [BsonId(IdGenerator = typeof(CombGuidGenerator))]
-            public Guid Id { get; set; }
-
-            [BsonElement("Name")]
-            public string Name { get; set; }
-
-            [BsonElement("Category")]
-            public string Category { get; set; }
-
-            [BsonElement("Date")]
-            public DateTime Date { get; set; }
-
-            [BsonElement("CreatedDate")]
-            public DateTime CreatedDate { get; set; }
-
-        }
-    }
-
-### 데이터 액세스 계층 추가
-
-**솔루션 탐색기**에서 *MyTaskListApp* 프로젝트를 마우스 오른쪽 단추로 클릭하고 *DAL*이라는 **새 폴더**를 **추가**합니다. *DAL* 폴더를 마우스 오른쪽 단추로 클릭하고 새 **클래스**를 **추가**합니다. 클래스 파일 이름을 *Dal.cs*로 지정합니다. *Dal.cs*에서 기존 코드를 다음 코드로 바꿉니다.
-
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Web;
-    using MyTaskListApp.Models;
-    using MongoDB.Driver;
-    using System.Configuration;
-
-    namespace MyTaskListApp
-    {
-        public class Dal : IDisposable
-        {
-            private MongoServer mongoServer = null;
-            private bool disposed = false;
-
-            // To do: update the connection string with the DNS name
-            // or IP address of your server. 
-            //For example, "mongodb://testlinux.cloudapp.net"
-            private string connectionString = "mongodb://<vm-dns-name>";
-
-            // This sample uses a database named "Tasks" and a 
-            //collection named "TasksList".  The database and collection 
-            //will be automatically created if they don't already exist.
-            private string dbName = "Tasks";
-            private string collectionName = "TasksList";
-
-            // Default constructor.        
-            public Dal()
-            {
-            }        
-
-            // Gets all Task items from the MongoDB server.        
-            public List<MyTask> GetAllTasks()
-            {
-                try
-                {
-                    MongoCollection<MyTask> collection = GetTasksCollection();
-                    return collection.FindAll().ToList<MyTask>();
-                }
-                catch (MongoConnectionException)
-                {
-                    return new List<MyTask >();
-                }
-            }
-
-            // Creates a Task and inserts it into the collection in MongoDB.
-            public void CreateTask(MyTask task)
-            {
-                MongoCollection<MyTask> collection = GetTasksCollectionForEdit();
-                try
-                {
-                    collection.Insert(task, SafeMode.True);
-                }
-                catch (MongoCommandException ex)
-                {
-                    string msg = ex.Message;
-                }
-            }
-
-            private MongoCollection<MyTask> GetTasksCollection()
-            {
-                MongoServer server = MongoServer.Create(connectionString);
-                MongoDatabase database = server[dbName];
-                MongoCollection<MyTask> todoTaskCollection = database.GetCollection<MyTask>(collectionName);
-                return todoTaskCollection;
-            }
-
-            private MongoCollection<MyTask> GetTasksCollectionForEdit()
-            {
-                MongoServer server = MongoServer.Create(connectionString);
-                MongoDatabase database = server[dbName];
-                MongoCollection<MyTask> todoTaskCollection = database.GetCollection<MyTask>(collectionName);
-                return todoTaskCollection;
-            }
-
-            # region IDisposable
-
-            public void Dispose()
-            {
-                this.Dispose(true);
-                GC.SuppressFinalize(this);
-            }
-
-            protected virtual void Dispose(bool disposing)
-            {
-                if (!this.disposed)
-                {
-                    if (disposing)
-                    {
-                        if (mongoServer != null)
-                        {
-                            this.mongoServer.Disconnect();
-                        }
-                    }
-                }
-
-                this.disposed = true;
-            }
-
-            # endregion
-        }
-    }
-
-### 컨트롤러 추가
-
-**솔루션 탐색기**에서 *Controllers\\HomeController.cs* 파일을 열고 기존 코드를 다음으로 바꿉니다.
-
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Web;
-    using System.Web.Mvc;
-    using MyTaskListApp.Models;
-    using System.Configuration;
-
-    namespace MyTaskListApp.Controllers
-    {
-        public class HomeController : Controller, IDisposable
-        {
-            private Dal dal = new Dal();
-            private bool disposed = false;
-            //
-            // GET: /MyTask/
-
-            public ActionResult Index()
-            {
-                return View(dal.GetAllTasks());
-            }
-
-            //
-            // GET: /MyTask/Create
-
-            public ActionResult Create()
-            {
-                return View();
-            }
-
-            //
-            // POST: /MyTask/Create
-
-            [HttpPost]
-            public ActionResult Create(MyTask task)
-            {
-                try
-                {
-                    dal.CreateTask(task);
-                    return RedirectToAction("Index");
-                }
-                catch
-                {
-                    return View();
-                }
-            }
-
-            public ActionResult About()
-            {
-                return View();
-            }
-
-            # region IDisposable
-
-            new protected void Dispose()
-            {
-                this.Dispose(true);
-                GC.SuppressFinalize(this);
-            }
-
-            new protected virtual void Dispose(bool disposing)
-            {
-                if (!this.disposed)
-                {
-                    if (disposing)
-                    {
-                        this.dal.Dispose();
-                    }
-                }
-
-                this.disposed = true;
-            }
-
-            # endregion
-
-        }
-    }
-
-### 사이트 스타일 설정
-
-페이지 위쪽에 있는 제목을 변경하려면 **솔루션 탐색기**에서 \*Views\\Shared\\\_Layout.cshtml\* 파일을 열고 탐색 모음 헤더에 있는 "Application name"을 "My Task List Application"으로 바꿉니다. 다음과 같습니다.
-
-    @Html.ActionLink("My Task List Application", "Index", "Home", null, new { @class = "navbar-brand" })
-
-작업 목록 메뉴를 설정하려면 *\\Views\\Home\\Index.cshtml* 파일을 열고 기존 코드를 다음 코드로 바꿉니다.
-
-    @model IEnumerable<MyTaskListApp.Models.MyTask>
-
-    @{
-        ViewBag.Title = "My Task List";
-    }
-
-    <h2>My Task List</h2>
-
-    <table border="1">
-        <tr>
-            <th>Task</th>
-            <th>Category</th>
-            <th>Date</th>
-            
-        </tr>
-
-    @foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Category)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Date)
-            </td>
-            
-        </tr>
-    }
-
-    </table>
-    <div>  @Html.Partial("Create", new MyTaskListApp.Models.MyTask())</div>
-
-새 작업을 만드는 기능을 추가하려면 *Views\\Home\\* 폴더를 마우스 오른쪽 단추로 클릭하고 **보기**를 **추가**합니다. 보기 이름을 *Create*로 지정합니다. 코드를 다음으로 바꿉니다.
-
-    @model MyTaskListApp.Models.MyTask
-
-    <script src="@Url.Content("~/Scripts/jquery-1.10.2.min.js")" type="text/javascript"></script>
-    <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
-    <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
-
-    @using (Html.BeginForm("Create", "Home")) {
-        @Html.ValidationSummary(true)
-        <fieldset>
-            <legend>New Task</legend>
-
-            <div class="editor-label">
-                @Html.LabelFor(model => model.Name)
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.Name)
-                @Html.ValidationMessageFor(model => model.Name)
-            </div>
-
-            <div class="editor-label">
-                @Html.LabelFor(model => model.Category)
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.Category)
-                @Html.ValidationMessageFor(model => model.Category)
-            </div>
-
-            <div class="editor-label">
-                @Html.LabelFor(model => model.Date)
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.Date)
-                @Html.ValidationMessageFor(model => model.Date)
-            </div>
-
-            <p>
-                <input type="submit" value="Create" />
-            </p>
-        </fieldset>
-    }
-
-**솔루션 탐색기**가 다음과 같습니다.
-
-![솔루션 탐색기][솔루션 탐색기]
-
-### MongoDB 연결 문자열 설정
-
+1. **솔루션 탐색기**의 **MyTaskListApp** 프로젝트에서 **참조**를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 선택합니다.
+
+	![Manage NuGet Packages][VS2013ManageNuGetPackages]
+
+2. **NuGet 패키지 관리** 창에서 왼쪽 창에 있는 **온라인**을 클릭합니다. 오른쪽의 **온라인 검색** 상자에서 "mongocsharpdriver"를 입력합니다.  **설치**를 클릭하여 드라이버를 설치합니다.
+
+	![Search for MongoDB C# Driver][SearchforMongoDBCSharpDriver]
+
+3. **동의함**을 클릭하여 10gen, Inc. 사용 조건에 동의합니다.
+
+4. 드라이버가 설치된 후에는 **닫기**를 클릭합니다.
+	![MongoDB C# Driver Installed][MongoDBCsharpDriverInstalled]
+
+
+이제 MongoDB C# 드라이버가 설치되었습니다.  **MongoDB.Driver.dll** 및 **MongoDB.Bson.dll** 라이브러리에 대한 참조가 프로젝트에 추가되었습니다.
+
+![MongoDB C# Driver References][MongoDBCSharpDriverReferences]
+
+###모델 추가###
+**솔루션 탐색기**에서 *Models* 폴더를 마우스 오른쪽 단추로 클릭하고 새 **클래스**를 **추가**한 후 클래스 이름을 *TaskModel.cs*로 지정합니다.  *TaskModel.cs*에서 기존 코드를 다음 코드로 바꿉니다.
+
+	using System;
+	using System.Collections.Generic;
+	using System.Linq;
+	using System.Web;
+	using MongoDB.Bson.Serialization.Attributes;
+	using MongoDB.Bson.Serialization.IdGenerators;
+	using MongoDB.Bson;
+	
+	namespace MyTaskListApp.Models
+	{
+	    public class MyTask
+	    {
+	        [BsonId(IdGenerator = typeof(CombGuidGenerator))]
+	        public Guid Id { get; set; }
+	
+	        [BsonElement("Name")]
+	        public string Name { get; set; }
+	
+	        [BsonElement("Category")]
+	        public string Category { get; set; }
+	
+	        [BsonElement("Date")]
+	        public DateTime Date { get; set; }
+	
+	        [BsonElement("CreatedDate")]
+	        public DateTime CreatedDate { get; set; }
+	
+	    }
+	}
+
+###데이터 액세스 계층 추가###
+**솔루션 탐색기**에서 *MyTaskListApp* 프로젝트를 마우스 오른쪽 단추로 클릭하고 이름이 *DAL*인 **새 폴더**를 **추가**합니다.  *DAL* 폴더를 마우스 오른쪽 단추로 클릭하고 새 **클래스**를 **추가**합니다. 클래스 파일 이름을 *Dal.cs*로 지정합니다.  *Dal.cs*에서 기존 코드를 다음 코드로 바꿉니다.
+
+	using System;
+	using System.Collections.Generic;
+	using System.Linq;
+	using System.Web;
+	using MyTaskListApp.Models;
+	using MongoDB.Driver;
+	using System.Configuration;
+	
+	namespace MyTaskListApp
+	{
+	    public class Dal : IDisposable
+	    {
+	        private MongoServer mongoServer = null;
+	        private bool disposed = false;
+	
+	        // To do: update the connection string with the DNS name
+			// or IP address of your server. 
+			//For example, "mongodb://testlinux.cloudapp.net"
+	        private string connectionString = "mongodb://<vm-dns-name>";
+	
+	        // This sample uses a database named "Tasks" and a 
+			//collection named "TasksList".  The database and collection 
+			//will be automatically created if they don't already exist.
+	        private string dbName = "Tasks";
+	        private string collectionName = "TasksList";
+	
+	        // Default constructor.        
+	        public Dal()
+	        {
+	        }        
+	
+	        // Gets all Task items from the MongoDB server.        
+	        public List<MyTask> GetAllTasks()
+	        {
+	            try
+	            {
+	                MongoCollection<MyTask> collection = GetTasksCollection();
+	                return collection.FindAll().ToList<MyTask>();
+	            }
+	            catch (MongoConnectionException)
+	            {
+	                return new List<MyTask >();
+	            }
+	        }
+	
+	        // Creates a Task and inserts it into the collection in MongoDB.
+	        public void CreateTask(MyTask task)
+	        {
+	            MongoCollection<MyTask> collection = GetTasksCollectionForEdit();
+	            try
+	            {
+	                collection.Insert(task, SafeMode.True);
+	            }
+	            catch (MongoCommandException ex)
+	            {
+	                string msg = ex.Message;
+	            }
+	        }
+	
+	        private MongoCollection<MyTask> GetTasksCollection()
+	        {
+	            MongoServer server = MongoServer.Create(connectionString);
+	            MongoDatabase database = server[dbName];
+	            MongoCollection<MyTask> todoTaskCollection = database.GetCollection<MyTask>(collectionName);
+	            return todoTaskCollection;
+	        }
+	
+	        private MongoCollection<MyTask> GetTasksCollectionForEdit()
+	        {
+	            MongoServer server = MongoServer.Create(connectionString);
+	            MongoDatabase database = server[dbName];
+	            MongoCollection<MyTask> todoTaskCollection = database.GetCollection<MyTask>(collectionName);
+	            return todoTaskCollection;
+	        }
+	
+	        # region IDisposable
+	
+	        public void Dispose()
+	        {
+	            this.Dispose(true);
+	            GC.SuppressFinalize(this);
+	        }
+	
+	        protected virtual void Dispose(bool disposing)
+	        {
+	            if (!this.disposed)
+	            {
+	                if (disposing)
+	                {
+	                    if (mongoServer != null)
+	                    {
+	                        this.mongoServer.Disconnect();
+	                    }
+	                }
+	            }
+	
+	            this.disposed = true;
+	        }
+	
+	        # endregion
+	    }
+	}
+
+###컨트롤러 추가###
+**솔루션 탐색기**에서 *Controllers\HomeController.cs* 파일을 열고 기존 코드를 다음으로 바꿉니다.
+
+	using System;
+	using System.Collections.Generic;
+	using System.Linq;
+	using System.Web;
+	using System.Web.Mvc;
+	using MyTaskListApp.Models;
+	using System.Configuration;
+	
+	namespace MyTaskListApp.Controllers
+	{
+	    public class HomeController : Controller, IDisposable
+	    {
+	        private Dal dal = new Dal();
+	        private bool disposed = false;
+	        //
+	        // GET: /MyTask/
+	
+	        public ActionResult Index()
+	        {
+	            return View(dal.GetAllTasks());
+	        }
+	
+	        //
+	        // GET: /MyTask/Create
+	
+	        public ActionResult Create()
+	        {
+	            return View();
+	        }
+	
+	        //
+	        // POST: /MyTask/Create
+	
+	        [HttpPost]
+	        public ActionResult Create(MyTask task)
+	        {
+	            try
+	            {
+	                dal.CreateTask(task);
+	                return RedirectToAction("Index");
+	            }
+	            catch
+	            {
+	                return View();
+	            }
+	        }
+	
+	        public ActionResult About()
+	        {
+	            return View();
+	        }
+	
+	        # region IDisposable
+	
+	        new protected void Dispose()
+	        {
+	            this.Dispose(true);
+	            GC.SuppressFinalize(this);
+	        }
+	
+	        new protected virtual void Dispose(bool disposing)
+	        {
+	            if (!this.disposed)
+	            {
+	                if (disposing)
+	                {
+	                    this.dal.Dispose();
+	                }
+	            }
+	
+	            this.disposed = true;
+	        }
+	
+	        # endregion
+	
+	    }
+	}
+
+###사이트 스타일 설정###
+페이지 위쪽에 있는 제목을 변경하려면 **솔루션 탐색기**에서 *Views\Shared\_Layout.cshtml* 파일을 열고 탐색 모음 헤더에 있는 "Application name"을 "My Task List Application"으로 바꿉니다. 다음과 같습니다.
+
+ 	@Html.ActionLink("My Task List Application", "Index", "Home", null, new { @class = "navbar-brand" })
+
+작업 목록 메뉴를 설정하려면 *\Views\Home\Index.cshtml* 파일을 열고 기존 코드를 다음 코드로 바꿉니다.
+	
+	@model IEnumerable<MyTaskListApp.Models.MyTask>
+	
+	@{
+	    ViewBag.Title = "My Task List";
+	}
+	
+	<h2>My Task List</h2>
+	
+	<table border="1">
+	    <tr>
+	        <th>Task</th>
+	        <th>Category</th>
+	        <th>Date</th>
+	        
+	    </tr>
+	
+	@foreach (var item in Model) {
+	    <tr>
+	        <td>
+	            @Html.DisplayFor(modelItem => item.Name)
+	        </td>
+	        <td>
+	            @Html.DisplayFor(modelItem => item.Category)
+	        </td>
+	        <td>
+	            @Html.DisplayFor(modelItem => item.Date)
+	        </td>
+	        
+	    </tr>
+	}
+	
+	</table>
+	<div>  @Html.Partial("Create", new MyTaskListApp.Models.MyTask())</div>
+
+
+To add the ability to create a new task, right-click the *Views\Home\\* folder and **Add** a **View**.  Name the view *Create*. Replace the code with the following:
+
+	@model MyTaskListApp.Models.MyTask
+	
+	<script src="@Url.Content("~/Scripts/jquery-1.10.2.min.js")" type="text/javascript"></script>
+	<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+	<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+	
+	@using (Html.BeginForm("Create", "Home")) {
+	    @Html.ValidationSummary(true)
+	    <fieldset>
+	        <legend>New Task</legend>
+	
+	        <div class="editor-label">
+	            @Html.LabelFor(model => model.Name)
+	        </div>
+	        <div class="editor-field">
+	            @Html.EditorFor(model => model.Name)
+	            @Html.ValidationMessageFor(model => model.Name)
+	        </div>
+	
+	        <div class="editor-label">
+	            @Html.LabelFor(model => model.Category)
+	        </div>
+	        <div class="editor-field">
+	            @Html.EditorFor(model => model.Category)
+	            @Html.ValidationMessageFor(model => model.Category)
+	        </div>
+	
+	        <div class="editor-label">
+	            @Html.LabelFor(model => model.Date)
+	        </div>
+	        <div class="editor-field">
+	            @Html.EditorFor(model => model.Date)
+	            @Html.ValidationMessageFor(model => model.Date)
+	        </div>
+	
+	        <p>
+	            <input type="submit" value="Create" />
+	        </p>
+	    </fieldset>
+	}
+
+**솔루션 탐색기**는 다음과 같습니다.
+
+![Solution Explorer][SolutionExplorerMyTaskListApp]
+
+###MongoDB 연결 문자열 설정###
 **솔루션 탐색기**에서 *DAL/Dal.cs* 파일을 엽니다. 다음 코드 줄을 찾습니다.
 
-    private string connectionString = "mongodb://<vm-dns-name>";
+	private string connectionString = "mongodb://<vm-dns-name>";
 
-`<vm-dns-name>`을 이 자습서의 [가상 컴퓨터 만들기 및 MongoDB 설치][가상 컴퓨터 만들기 및 MongoDB 설치] 단계에서 만든 MongoDB를 실행하는 가상 컴퓨터의 DNS 이름으로 바꿉니다. 가상 컴퓨터의 DNS 이름을 찾으려면 Azure 관리 포털로 이동하여 **가상 컴퓨터**를 선택하고 **DNS 이름**을 찾습니다.
+`<vm-dns-name>`을 이 자습서의 [가상 컴퓨터 만들기 및 MongoDB 설치][] 단계에서 만든 MongoDB를 실행하는 가상 컴퓨터의 DNS 이름으로 바꿉니다.  가상 컴퓨터의 DNS 이름을 찾으려면 Azure 관리 포털로 이동하여 **가상 컴퓨터**를 선택하고 **DNS 이름**을 찾습니다.
 
 가상 컴퓨터의 DNS 이름이 "testlinuxvm.cloudapp.net"이고 MongoDB가 기본 포트 27017을 수신 대기하는 경우 연결 문자열 코드 줄은 다음과 같습니다.
 
-    private string connectionString = "mongodb://testlinuxvm.cloudapp.net";
+	private string connectionString = "mongodb://testlinuxvm.cloudapp.net";
 
 가상 컴퓨터 끝점이 MongoDB에 대해 다른 외부 포트를 지정하는 경우, 이 포트를 연결 문자열에서 지정할 수 있습니다.
 
-    private string connectionString = "mongodb://testlinuxvm.cloudapp.net:12345";
+ 	private string connectionString = "mongodb://testlinuxvm.cloudapp.net:12345";
 
-MongoDB 연결 문자열에 대한 자세한 내용은 [연결][연결](영문)을 참조하십시오.
+MongoDB 연결 문자열에 대한 자세한 내용은 [연결][MongoConnectionStrings](영문)을 참조하세요.
 
-### 로컬 배포 테스트
+###로컬 배포 테스트###
 
-개발 컴퓨터에서 응용 프로그램을 실행하려면 **디버그** 메뉴에서 **디버깅 시작** 선택하거나 **F5** 키를 누릅니다. IIS Express가 시작되고 브라우저가 열려 응용 프로그램의 홈페이지를 시작합니다. 새 작업을 추가할 수 있습니다. 이 작업은 Azure의 가상 컴퓨터에서 실행되는 MongoDB 데이터베이스에 추가됩니다.
+개발 컴퓨터에서 응용 프로그램을 실행하려면 **디버그** 메뉴에서 **디버깅 시작**을 선택하거나 **F5** 키를 누릅니다. IIS Express가 시작되고 브라우저가 열려 응용 프로그램의 홈페이지를 시작합니다.  새 작업을 추가할 수 있습니다. 이 작업은 Azure의 가상 컴퓨터에서 실행되는 MongoDB 데이터베이스에 추가됩니다.
 
-![My Task List 응용 프로그램][My Task List 응용 프로그램]
+![My Task List Application][TaskListAppBlank]
 
-## <span class="short-header">Azure 웹 사이트에 응용 프로그램 배포</span>Azure 웹 사이트에 ASP.NET 응용 프로그램 배포
+<h2>Azure 웹 사이트에 ASP.NET 웹 응용 프로그램 배포</h2>
 
 이 섹션에서는 웹 사이트를 만들고 Git을 사용하여 My Task List ASP.NET 응용 프로그램을 배포합니다.
 
-<span id="createwebsite"></span></a>
-
-### Azure 웹 사이트 만들기
-
+<a id="createwebsite"></a> 
+###Azure 웹 사이트 만들기###
 이 섹션에서는 Azure 웹 사이트를 만듭니다.
 
-1.  웹 브라우저를 열고 [Azure 관리 포털][Azure 관리 포털]로 이동합니다. Azure 계정으로 로그인합니다.
-2.  페이지 맨 아래에 있는 **+새로 만들기**를 클릭한 후 **웹 사이트**를 클릭하고 **빠른 생성**을 클릭합니다.
-3.  응용 프로그램의 URL에 사용할 고유한 접두사를 입력합니다.
-4.  지역을 선택합니다.
-5.  **웹 사이트 만들기**를 클릭합니다.
+1. 웹 브라우저를 열고 [Azure 관리 포털][AzurePortal]로 이동합니다. Azure 계정으로 로그인합니다. 
+2. 페이지 맨 아래에 있는 **+새로 만들기**를 클릭한 후 **웹 사이트**를 클릭하고 **빠른 생성**을 클릭합니다.
+3. 응용 프로그램의 URL에 사용할 고유한 접두사를 입력합니다.
+4. 지역을 선택합니다.
+5. **웹 사이트 만들기**를 클릭합니다.
 
-  ![새 웹 사이트 만들기][새 웹 사이트 만들기]
+![Create a new web site][WAWSCreateWebSite]
 
-1.  웹 사이트가 신속하게 만들어지고 **웹 사이트**에 나열됩니다.
+6. 웹 사이트가 신속하게 만들어지고 **웹 사이트**에 나열됩니다.
 
-  ![WAWSDashboardMyTaskListApp][WAWSDashboardMyTaskListApp]
+![WAWSDashboardMyTaskListApp][WAWSDashboardMyTaskListApp]
 
-<span id="deployapp"></span></a>
-
-### Git을 사용하여 웹 사이트에 ASP.NET 응용 프로그램 배포
-
+<a id="deployapp"></a> 
+###Git을 사용하여 웹 사이트에 ASP.NET 응용 프로그램 배포
 이 섹션에서는 Git를 사용하여 My Task List 응용 프로그램을 배포합니다.
 
-1.  **웹 사이트**에서 웹 사이트 이름을 클릭한 후 **대시보드**를 클릭합니다. 오른쪽의 간략 상태 아래에서 **소스 제어에서 배포 설정**을 클릭합니다.
-2.  **소스 코드 위치?** 페이지에서 **로컬 Git 리포지토리**를 선택하고 **다음** 화살표를 클릭합니다.
-3.  Git 리포지토리가 신속하게 만들어집니다. 결과 페이지에 나온 지침을 기록해 두십시오. 이 정보를 다음 섹션에서 사용합니다.
+1. **웹 사이트**에서 웹 사이트 이름을 클릭한 후 **대시보드**를 클릭합니다.  오른쪽의 간략 상태 아래에서 **소스 제어에서 배포 설정**을 클릭합니다.
+2. **소스 코드 위치?** 페이지에서 **로컬 Git 리포지토리**를 선택하고 **다음** 화살표를 클릭합니다. 
+3. Git 리포지토리가 신속하게 만들어집니다. 결과 페이지에 나온 지침을 기록해 두세요. 이 정보를 다음 섹션에서 사용합니다.
 
-    ![Git 리포지토리 준비됨][Git 리포지토리 준비됨]
+	![Git Repository is Ready][Image9]
 
-4.  **Azure에 로컬 파일 푸시** 아래에 Azure에 코드를 푸시하기 위한 지침이 나옵니다. 지침은 다음과 유사합니다.
+4. **Azure에 로컬 파일 푸시** 아래에 Azure에 코드를 푸시하기 위한 지침이 나옵니다. 지침은 다음과 유사합니다.
 
-    ![Azure에 로컬 파일 푸시][Azure에 로컬 파일 푸시]
+	![Push local files to Azure][Image10]
+	
+5. Git이 설치되지 않은 경우 1단계의 **Get it here** 링크를 사용하여 설치하세요.
+6. 2단계의 지침에 따라 로컬 파일을 커밋합니다.  
+7. 원격 Azure 리포지토리를 추가하고 3단계의 지침에 따라 Azure 웹 사이트에 파일을 푸시합니다.
+8. 배포가 완료되면 다음 확인 사항이 표시됩니다.
 
-5.  Git이 설치되지 않은 경우 1단계의 **Get it here** 링크를 사용하여 설치하십시오.
-6.  2단계의 지침에 따라 로컬 파일을 커밋합니다.
-7.  원격 Azure 리포지토리를 추가하고 3단계의 지침에 따라 Azure 웹 사이트에 파일을 푸시합니다.
-8.  배포가 완료되면 다음 확인 사항이 표시됩니다.
+	![Deployment Complete][Image11]
 
-    ![배포 완료][배포 완료]
+9. 이제 Azure 웹 사이트를 사용할 수 있습니다.  **대시보드** 페이지에서 사이트 및 **사이트 URL** 필드를 확인하여 사이트의 URL을 찾습니다. 이 자습서의 절차에 따르면 사이트를 다음 URL에서 사용할 수 있습니다.: http://mytasklistapp.azurewebsites.net.
 
-9.  이제 Azure 웹 사이트를 사용할 수 있습니다. **대시보드** 페이지에서 사이트 및 **사이트 URL** 필드를 확인하여 사이트의 URL을 찾습니다. 이 자습서의 절차에 따르면 사이트를 다음 URL에서 사용할 수 있습니다. <http://mytasklistapp.azurewebsites.net>
+##요약##
 
-## 요약
+이제 ASP.NET 응용 프로그램을 Azure 웹 사이트에 배포했습니다.  사이트를 보려면 **대시보드** 페이지의 **사이트 URL** 필드에서 링크를 클릭합니다. MongoDB에 대한 C# 응용 프로그램 개발에 대한 자세한 내용은 [CSharp 언어 센터][MongoC#LangCenter](영문)를 참조하세요. 
 
-이제 ASP.NET 응용 프로그램을 Azure 웹 사이트에 배포했습니다. 사이트를 보려면 **대시보드** 페이지의 **사이트 URL** 필드에서 링크를 클릭합니다. MongoDB에 대한 C# 응용 프로그램 개발에 대한 자세한 내용은 [CSharp 언어 센터][CSharp 언어 센터](영문)를 참조하십시오.
 
-<!-- HYPERLINKS --> 
-<!-- IMAGES --> 
+<!-- HYPERLINKS -->
+
+[AzurePortal]: http://manage.windowsazure.com
+[WindowsAzure]: http://www.windowsazure.com
+[MongoC#LangCenter]: http://docs.mongodb.org/ecosystem/drivers/csharp/
+[MVCWebSite]: http://www.asp.net/mvc
+[ASP.NET]: http://www.asp.net/
+[MongoConnectionStrings]: http://www.mongodb.org/display/DOCS/Connections
+[MongoDB](영문): http://www.mongodb.org
+[InstallMongoOnCentOSLinuxVM]: /ko-kr/manage/linux/common-tasks/mongodb-on-a-linux-vm/
+[InstallMongoOnWindowsVM]: /ko-kr/manage/windows/common-tasks/install-mongodb/
+[VSEWeb]: http://www.microsoft.com/visualstudio/eng/2013-downloads#d-2013-express
+[VSUlt]: http://www.microsoft.com/visualstudio/eng/2013-downloads
+
+<!-- IMAGES -->
+
+
+[StartPageNewProject]: ./media/web-sites-dotnet-store-data-mongodb-vm/NewProject.png
+[NewProjectMyTaskListApp]: ./media/web-sites-dotnet-store-data-mongodb-vm/NewProjectMyTaskListApp.png
+[VS2013SelectMVCTemplate]: ./media/web-sites-dotnet-store-data-mongodb-vm/VS2013SelectMVCTemplate.png
+[VS2013DefaultMVCApplication]: ./media/web-sites-dotnet-store-data-mongodb-vm/VS2013DefaultMVCApplication.png
+[VS2013ManageNuGetPackages]: ./media/web-sites-dotnet-store-data-mongodb-vm/VS2013ManageNuGetPackages.png
+[SearchforMongoDBCSharpDriver]: ./media/web-sites-dotnet-store-data-mongodb-vm/SearchforMongoDBCSharpDriver.png
+[MongoDBCsharpDriverInstalled]: ./media/web-sites-dotnet-store-data-mongodb-vm/MongoDBCsharpDriverInstalled.png
+[MongoDBCSharpDriverReferences]: ./media/web-sites-dotnet-store-data-mongodb-vm/MongoDBCSharpDriverReferences.png
+[SolutionExplorerMyTaskListApp]: ./media/web-sites-dotnet-store-data-mongodb-vm/SolutionExplorerMyTaskListApp.png
+[TaskListAppBlank]: ./media/web-sites-dotnet-store-data-mongodb-vm/TaskListAppBlank.png
+[WAWSCreateWebSite]: ./media/web-sites-dotnet-store-data-mongodb-vm/WAWSCreateWebSite.png
+[WAWSDashboardMyTaskListApp]: ./media/web-sites-dotnet-store-data-mongodb-vm/WAWSDashboardMyTaskListApp.png
+[Image9]: ./media/web-sites-dotnet-store-data-mongodb-vm/RepoReady.png
+[Image10]: ./media/web-sites-dotnet-store-data-mongodb-vm/GitInstructions.png
+[Image11]: ./media/web-sites-dotnet-store-data-mongodb-vm/GitDeploymentComplete.png
+
 <!-- TOC BOOKMARKS -->
+[가상 컴퓨터 만들기 및 MongoDB 설치]: #virtualmachine
+[개발 컴퓨터에서 My Task List ASP.NET 응용 프로그램 만들기 및 실행]: #createapp
+[Azure 웹 사이트 만들기]: #createwebsite
+[Git을 사용하여 웹 사이트에 ASP.NET 응용 프로그램 배포]: #deployapp
 
-  [MongoDB]: http://www.mongodb.org
-  [가상 컴퓨터 만들기 및 MongoDB 설치]: #virtualmachine
-  [개발 컴퓨터에서 My Task List ASP.NET 응용 프로그램 만들기 및 실행]: #createapp
-  [Azure 웹 사이트 만들기]: #createwebsite
-  [Git을 사용하여 웹 사이트에 ASP.NET 응용 프로그램 배포]: #deployapp
-  [CSharp 언어 센터]: http://docs.mongodb.org/ecosystem/drivers/csharp/
-  [ASP.NET 웹 사이트]: http://www.asp.net/
-  [ASP.NET MVC 웹 사이트]: http://www.asp.net/mvc
-  [Azure]: http://www.windowsazure.com
-  [Azure에서 Windows Server를 실행하는 가상 컴퓨터에 MongoDB 설치]: /ko-KR/manage/windows/common-tasks/install-mongodb/
-  [Azure에서 CentOS Linux를 실행하는 가상 컴퓨터에 MongoDB 설치]: /ko-KR/manage/linux/common-tasks/mongodb-on-a-linux-vm/
-  [Visual Studio Express 2013 for Web]: http://www.microsoft.com/visualstudio/eng/2013-downloads#d-2013-express
-  [Visual Studio 2013]: http://www.microsoft.com/visualstudio/eng/2013-downloads
-  [시작 페이지 새 프로젝트]: ./media/web-sites-dotnet-store-data-mongodb-vm/NewProject.png
-  [새 프로젝트 대화 상자]: ./media/web-sites-dotnet-store-data-mongodb-vm/NewProjectMyTaskListApp.png
-  [MVC 템플릿 선택]: ./media/web-sites-dotnet-store-data-mongodb-vm/VS2013SelectMVCTemplate.png
-  [기본 ASP.NET MVC 응용 프로그램]: ./media/web-sites-dotnet-store-data-mongodb-vm/VS2013DefaultMVCApplication.png
-  [NuGet 패키지 관리]: ./media/web-sites-dotnet-store-data-mongodb-vm/VS2013ManageNuGetPackages.png
-  [MongoDB C# 드라이버 검색]: ./media/web-sites-dotnet-store-data-mongodb-vm/SearchforMongoDBCSharpDriver.png
-  [MongoDB C# 드라이버 설치 완료]: ./media/web-sites-dotnet-store-data-mongodb-vm/MongoDBCsharpDriverInstalled.png
-  [MongoDB C# 드라이버 참조]: ./media/web-sites-dotnet-store-data-mongodb-vm/MongoDBCSharpDriverReferences.png
-  [솔루션 탐색기]: ./media/web-sites-dotnet-store-data-mongodb-vm/SolutionExplorerMyTaskListApp.png
-  [연결]: http://www.mongodb.org/display/DOCS/Connections
-  [My Task List 응용 프로그램]: ./media/web-sites-dotnet-store-data-mongodb-vm/TaskListAppBlank.png
-  [Azure 관리 포털]: http://manage.windowsazure.com
-  [새 웹 사이트 만들기]: ./media/web-sites-dotnet-store-data-mongodb-vm/WAWSCreateWebSite.png
-  [WAWSDashboardMyTaskListApp]: ./media/web-sites-dotnet-store-data-mongodb-vm/WAWSDashboardMyTaskListApp.png
-  [Git 리포지토리 준비됨]: ./media/web-sites-dotnet-store-data-mongodb-vm/RepoReady.png
-  [Azure에 로컬 파일 푸시]: ./media/web-sites-dotnet-store-data-mongodb-vm/GitInstructions.png
-  [배포 완료]: ./media/web-sites-dotnet-store-data-mongodb-vm/GitDeploymentComplete.png
+<!--HONumber=35_1-->
