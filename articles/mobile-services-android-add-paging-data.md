@@ -4,7 +4,7 @@
 
 # 페이징을 사용하여 모바일 서비스 쿼리 구체화
 
-€
+[WACOM.INCLUDE [mobile-services-selector-add-paging-data](../includes/mobile-services-selector-add-paging-data.md)]
 
 이 항목에서는 페이징을 사용하여 Azure 모바일 서비스에서 Android 앱에 반환되는 데이터의 양을 관리하는 방법을 보여 줍니다. 이 자습서에서는 클라이언트에서 **top** 및 **skip** 쿼리 메서드를 사용하여 데이터의 특정 "페이지"를 요청합니다.
 
