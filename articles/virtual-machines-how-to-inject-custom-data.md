@@ -47,8 +47,8 @@
 
 + Azure 가상 컴퓨터가 Linux 가상 컴퓨터이면 사용자 지정 데이터 파일은 다음 두 위치에 있지만 데이터가 base64로 인코딩되므로 데이터를 먼저 디코딩해야 합니다.
 
-    + At `/var/lib/waagent/ovf-env.xml`
-    + At `/var/lib/waagent/CustomData` 
+    + `/var/lib/waagent/ovf-env.xml`
+    + `/var/lib/waagent/CustomData` 
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a id="nextsteps"></a>다음 단계: cloud-init 사용
@@ -58,7 +58,7 @@ Azure 가상 컴퓨터가 Ubuntu 이미지이면 cloud-init를 사용하여 사�
 <!--Link references-->
 [Add Role 서비스 관리 REST API 참조](http://msdn.microsoft.com/library/azure/jj157186.aspx)
 
-[Microsoft Azure 플랫폼 간 명령줄 인터페이스](https://github.com/Azure/azure-sdk-tools-xplat)
+[Microsoft Azure 플랫폼 간 명령줄 인터페이스](영문)(https://github.com/Azure/azure-sdk-tools-xplat)
 
 
 <!--HONumber=35_1-->
