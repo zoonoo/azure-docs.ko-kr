@@ -53,7 +53,7 @@
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a id="nextsteps"></a>다음 단계: cloud-init 사용
 
-Azure 가상 컴퓨터가 Ubuntu 이미지이면 cloud-init를 사용하여 사용자 지정 데이터를 자동으로 사용하는 스크립트를 실행할 수 있습니다(또는 사용자 지정 데이터 파일이 스크립트인 경우 해당 스크립트 실행). 자세한 내용은 [Ubuntu에 대한 cloud-init 설명서](https://help.ubuntu.com/community/CloudInit) 를 참조하세요.
+Azure 가상 컴퓨터가 Ubuntu 이미지이면 cloud-init를 사용하여 사용자 지정 데이터를 자동으로 사용하는 스크립트를 실행할 수 있습니다(또는 사용자 지정 데이터 파일이 스크립트인 경우 해당 스크립트 실행). 자세한 내용은 [Ubuntu에 대한 cloud-init 설명서](https://help.ubuntu.com/community/CloudInit)(영문)를 참조하세요.
 
 <!--Link references-->
 [Add Role 서비스 관리 REST API 참조](http://msdn.microsoft.com/library/azure/jj157186.aspx)
