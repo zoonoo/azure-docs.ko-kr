@@ -10,7 +10,7 @@
 이 항목에서는 Azure 모바일 서비스를 사용하여 범용 Windows 앱에 푸시 알림을 보내는 방법을 보여 줍니다. 
 이 자습서에서는 퀵 스타트 프로젝트에 대한 Azure 알림 허브를 사용하여 푸시 알림을 사용하도록 설정합니다. 이 작업을 완료하면 레코드가 삽입될 때마다 모바일 서비스에서 알림 허브를 사용하여 푸시 알림을 전송합니다. 모바일 서비스를 통해 무료로 만드는 알림 허브는 모바일 서비스와 별도로 관리할 수 있으며, 다른 응용 프로그램과 서비스에서도 사용 가능합니다.
 
->[WACOM.NOTE]이 항목에서는 Windows 스토어 프로젝트에서 모바일 서비스를 통해 푸시 알림을 수동으로 구성하는 방법을 보여 줍니다. Visual Studio 2013을 사용하여 Windows 스토어 앱 프로젝트에 동일한 푸시 알림을 추가할 수 있습니다. 자세한 내용은 이 자습서의 [범용 Windows 앱 버전을](/ko-kr/documentation/articles/mobile-services-javascript-backend-windows-universal-dotnet-get-started-push/) 참조하세요. 
+>[WACOM.NOTE]이 항목에서는 Windows 스토어 프로젝트에서 모바일 서비스를 통해 푸시 알림을 수동으로 구성하는 방법을 보여 줍니다. Visual Studio 2013을 사용하여 Windows 스토어 앱 프로젝트에 동일한 푸시 알림을 추가할 수 있습니다. 자세한 내용은 이 자습서의 [범용 Windows 앱 버전]을(/ko-kr/documentation/articles/mobile-services-javascript-backend-windows-universal-dotnet-get-started-push/) 참조하세요. 
 
 이 자습서에서는 푸시 알림을 사용하도록 설정하는 다음 기본 단계를 단계별로 안내합니다.
 
