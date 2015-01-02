@@ -57,6 +57,6 @@
 	>[WACOM.NOTE]포털의 **푸시** 탭에서 향상된 푸시 알림에 대한 WNS 자격 증명을 설정하는 경우 앱에 대한 알림 허브를 구성하기 위해 자격 증명을 알림 허브와 공유합니다.
 
 <!-- URLs. -->
-[모바일 서비스 시작]w
+[모바일 서비스 시작]: /ko-kr/documentation/articles/mobile-services-windows-store-get-started/
 [앱 제출 페이지]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Azure 관리 포털]: https://manage.windowsazure.com/
