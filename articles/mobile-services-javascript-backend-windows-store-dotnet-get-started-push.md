@@ -10,7 +10,7 @@
 이 항목에서는 Azure 모바일 서비스를 사용하여 범용 Windows 앱에 푸시 알림을 보내는 방법을 보여 줍니다. 
 이 자습서에서는 퀵 스타트 프로젝트에 대한 Azure 알림 허브를 사용하여 푸시 알림을 사용하도록 설정합니다. 이 작업을 완료하면 레코드가 삽입될 때마다 모바일 서비스에서 알림 허브를 사용하여 푸시 알림을 전송합니다. 모바일 서비스를 통해 무료로 만드는 알림 허브는 모바일 서비스와 별도로 관리할 수 있으며, 다른 응용 프로그램과 서비스에서도 사용 가능합니다.
 
->[WACOM.NOTE]이 항목에서는 Windows 스토어 프로젝트에서 모바일 서비스를 통해 푸시 알림을 수동으로 구성하는 방법을 보여 줍니다. Visual Studio 2013을 사용하여 Windows 스토어 앱 프로젝트에 동일한 푸시 알림을 추가할 수 있습니다. 자세한 내용은 이 자습서의 [범용 Windows 앱 버전]을(/ko-kr/documentation/articles/mobile-services-javascript-backend-windows-universal-dotnet-get-started-push/) 참조하세요. 
+>[WACOM.NOTE]이 항목에서는 Windows 스토어 프로젝트에서 모바일 서비스를 통해 푸시 알림을 수동으로 구성하는 방법을 보여 줍니다. Visual Studio 2013을 사용하여 Windows 스토어 앱 프로젝트에 동일한 푸시 알림을 추가할 수 있습니다. 자세한 내용은 이 자습서의 [범용 Windows 앱 버전](/ko-kr/documentation/articles/mobile-services-javascript-backend-windows-universal-dotnet-get-started-push/) 을 참조하세요. 
 
 이 자습서에서는 푸시 알림을 사용하도록 설정하는 다음 기본 단계를 단계별로 안내합니다.
 
@@ -19,7 +19,7 @@
 3. [푸시 알림을 전송하도록 서버 스크립트 업데이트](#update-scripts)
 3. [푸시 알림을 받기 위한 데이터 삽입](#test)
 
-이 자습서는 모바일 서비스 퀵 스타트를 기반으로 합니다. 이 자습서를 시작하기 전에 먼저 [모바일 서비스 시작](영문) 또는 [데이터 시작](영문)을 완료하여 프로젝트를 모바일 서비스에 연결해야 합니다. 모바일 서비스가 연결되지 않은 경우 푸시 알림 추가 마법사에서 대신 연결해줍니다. 
+이 자습서는 모바일 서비스 퀵 스타트를 기반으로 합니다. 이 자습서를 시작하기 전에 먼저 [모바일 서비스 시작] 또는 [데이터 시작] 을 완료하여 프로젝트를 모바일 서비스에 연결해야 합니다. 모바일 서비스가 연결되지 않은 경우 푸시 알림 추가 마법사에서 대신 연결해줍니다. 
 
 >[WACOM.NOTE]이 항목은 Windows Phone 8.1 앱을 지원합니다. Windows Phone 8 또는 Windows Phone Silverlight 8.1 앱에 푸시 알림을 추가하려면 이 버전의 [모바일 서비스에서 푸시 알림 시작](영문)을(/ko-kr/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push)참조하세요.
 
@@ -90,10 +90,10 @@
 
 다음 항목에서 모바일 서비스 및 알림 허브에 대해 알아보세요.
 
-* [데이터 시작](영문)
+* [데이터 시작]
   <br/>모바일 서비스를 사용하여 데이터를 저장 및 쿼리하는 방법에 대해 자세히 알아보세요.
 
-* [인증 시작](영문)
+* [인증 시작]
   <br/>모바일 서비스를 사용하여 서로 다른 계정 유형의 앱 사용자를 인증하는 방법에 대해 알아봅니다.
 
 * [알림 허브 정의]
@@ -120,9 +120,9 @@
 [앱 제출 페이지]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [내 응용 프로그램]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Windows용 Live SDK]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[모바일 서비스 시작](영문): /ko-kr/documentation/articles/mobile-services-windows-store-get-started
-[데이터 시작](영문): /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-data
-[인증 시작](영문): /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-users
+[모바일 서비스 시작]: /ko-kr/documentation/articles/mobile-services-windows-store-get-started
+[데이터 시작]: /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-data
+[인증 시작]: /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-users
 
 [모바일 서비스 서버 스크립트 참조]: http://go.microsoft.com/fwlink/?LinkId=262293
 [모바일 서비스 .NET 방법 개념 참조]: /ko-kr/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library
