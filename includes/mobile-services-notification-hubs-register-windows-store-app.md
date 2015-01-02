@@ -16,7 +16,7 @@
 
   	![](./media/mobile-services-notification-hubs-register-windows-store-app/mobile-services-store-association.png)
 
-   	   	**응용 프로그램을 Windows 스토어에 연결** 마법사가 나타납니다.
+   	**응용 프로그램을 Windows 스토어에 연결** 마법사가 나타납니다.
 
 5. 마법사에서 **로그인**을 클릭한 후 Microsoft 계정에 로그인합니다.
 
