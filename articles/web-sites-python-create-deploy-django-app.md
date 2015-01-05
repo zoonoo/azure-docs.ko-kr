@@ -139,4 +139,4 @@ Django 응용 프로그램을 설정하려면 환경 변수를 3개 만들어야
 
 이제 DjangoApplication 디렉터리로 이동할 수 있으며, 일반적으로 새 응용 프로그램을 Django 프로젝트에 추가할 때 manage.py를 사용할 수 있습니다.  
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

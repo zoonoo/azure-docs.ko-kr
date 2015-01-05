@@ -99,4 +99,4 @@
 [템플릿]: http://go.microsoft.com/fwlink/p/?LinkId=317339
 [Windows 스토어에 대한 알림 허브 방법]: http://msdn.microsoft.com/ko-kr/library/windowsazure/jj927172.aspx
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

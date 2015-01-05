@@ -24,4 +24,4 @@ Azure 모바일 서비스에서는 클라이언트 기반 인증과 서버 기�
 [사용자 C# 시작](영문): /ko-kr/develop/mobile/tutorials/get-started-with-users-dotnet/
 [사용자 JavaScript 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-users-js/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

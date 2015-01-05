@@ -219,4 +219,4 @@ Azure 계산 및 저장소 에뮬레이터는 클라우드에 배포하기 전�
 [방법: 게시 설정 가져오기]: /ko-kr/develop/php/how-to-guides/powershell-cmdlets/#ImportPubSettings
 [방법: Azure에 클라우드 서비스 배포]: /ko-kr/develop/php/how-to-guides/powershell-cmdlets/#Deploy
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

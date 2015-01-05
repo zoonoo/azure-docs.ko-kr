@@ -87,4 +87,4 @@
 [Capptain](영문): http://www.capptain.com
 [모바일 서비스 표준 계층]: /ko-kr/pricing/details/mobile-services/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

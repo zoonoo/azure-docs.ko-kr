@@ -199,4 +199,4 @@ Windows Phone 8.1에서는 이전 Silverlight 기반 XAML을 사용하여 앱을
 [모든 Windows 장치용 범용 Windows 앱 빌드]: http://go.microsoft.com/fwlink/p/?LinkId=509905
 [MVVM을 사용하는 Azure 모바일 서비스의 범용 Windows 앱 프로젝트](영문): http://code.msdn.microsoft.com/Universal-Windows-app-for-db3564de
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

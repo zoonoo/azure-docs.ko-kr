@@ -143,4 +143,4 @@ iPhone, iPod 및 iPad를 비롯한 iOS 장치의 경우 Microsoft는 프리미�
 
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

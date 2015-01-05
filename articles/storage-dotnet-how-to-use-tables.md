@@ -475,4 +475,4 @@ Storage Client Library for .NET의 ODataLib 종속성은 WCF 데이터 서비스
   [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

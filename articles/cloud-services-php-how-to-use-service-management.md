@@ -561,4 +561,4 @@ Azure에서는 스테이징 및 프로덕션이라는 두 가지 환경을 제�
 
 [Azure 서비스 구성 스키마(.cscfg)]: http://msdn.microsoft.com/ko-kr/library/windowsazure/ee758710.aspx
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

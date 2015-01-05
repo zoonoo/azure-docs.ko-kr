@@ -78,4 +78,4 @@ private static ILocator GetStreamingOriginLocator( string targetAssetID)
 <h2>다음 단계</h2>
 지금까지 부드러운 스트리밍을 사용하여 Azure 저장소에서 다운로드하여 미디어를 제공하는 방법을 살펴봤습니다. 다음 항목인 [HLS 콘텐츠를 제공하는 방법](../media-services-deliver-http-live-streaming-content/) (영문)에서는 Apple HLS(HTTP 라이브 스트리밍)를 사용하여 스트리밍 콘텐츠를 제공하는 방법을 살펴보겠습니다.
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

@@ -371,4 +371,4 @@ index.html**이라는 로컬 파일을 만듭니다.**.
   [저장소 계정을 관리하는 방법]: http://www.windowsazure.com/ko-kr/manage/services/storage/how-to-manage-a-storage-account/
   [Java에서 Blob 저장소 서비스를 사용하는 방법]: http://www.windowsazure.com/ko-kr/develop/java/how-to-guides/blob-storage/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

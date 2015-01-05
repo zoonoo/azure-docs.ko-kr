@@ -130,4 +130,4 @@ Azure 웹 사이트와 함께 Python 응용 프로그램을 구성하는 데에�
 ![](./media/web-sites-python-configure/configure-python-result.png)
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

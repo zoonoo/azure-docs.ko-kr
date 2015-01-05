@@ -173,4 +173,4 @@ Ambari 모니터링 API 호출을 사용하는 방법을 알아보았습니다. 
 [img-jobtracker-output]: ./media/hdinsight-monitor-use-ambari-api/hdi.ambari.monitor.jobtracker.output.png
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

@@ -108,4 +108,4 @@ Azure PowerShell 세션을 열고 다음 명령을 실행합니다. &lt;VmCloudS
 [Azure VM 구성 설정 정보]: http://msdn.microsoft.com/ko-kr/library/azure/dn763935.aspx
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

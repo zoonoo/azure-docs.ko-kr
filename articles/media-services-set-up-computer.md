@@ -70,4 +70,4 @@
 [미디어 서비스 계정을 만드는 방법]: ../media-services-create-account/
 [암호화된 자산을 만들고 저장소에 업로드하는 방법]: ../media-services-create-encrypted-asset-upload-storage/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

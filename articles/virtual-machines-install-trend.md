@@ -72,4 +72,4 @@ Azure PowerShell 세션을 열고 다음 명령을 실행합니다. MyServiceNam
 
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

@@ -525,4 +525,4 @@ HDInsight 클러스터의 버전에 사용되는 HDP에 대한 릴리스 정보�
 
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

@@ -615,4 +615,4 @@ Azure PowerShell은 현재 Oozie 작업 정의용 cmdlet을 제공하지 않습�
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

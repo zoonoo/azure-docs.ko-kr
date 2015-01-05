@@ -236,4 +236,4 @@ Hive를 사용하면 SQL과 유사한 쿼리 언어로 손쉽게 데이터를 �
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

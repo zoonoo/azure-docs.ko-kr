@@ -116,4 +116,4 @@ PlayReady Protection에 대한 자세한 내용은 다음을 참조하세요.
 <h2>다음 단계</h2>
 이제 미디어 서비스를 사용하여 자산을 보호하는 방법을 배웠으므로 [자산 관리 방법](../media-services-manage-assets/) 항목으로 이동하세요.
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

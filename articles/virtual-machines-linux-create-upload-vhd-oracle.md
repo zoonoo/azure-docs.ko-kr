@@ -212,4 +212,4 @@ Azure용으로 Oracle Linux 7 가상 컴퓨터를 준비하는 작업은 Oracle 
 
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

@@ -343,4 +343,4 @@
 [알림 허브를 사용하여 속보 보내기]: /ko-kr/manage/services/notification-hubs/breaking-news-dotnet
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

@@ -516,4 +516,4 @@ MongoDB 연결 문자열에 대한 자세한 내용은 [연결][MongoConnectionS
 [Azure 웹 사이트 만들기]: #createwebsite
 [Git을 사용하여 웹 사이트에 ASP.NET 응용 프로그램 배포]: #deployapp
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

@@ -829,4 +829,4 @@ Azure 저장소 및 AzCopy에 대한 자세한 내용은 다음 리소스를 참
 - [AzCopy: Microsoft Azure Blob 파일 업로드/다운로드](영문)(http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

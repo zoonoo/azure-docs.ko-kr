@@ -167,4 +167,4 @@ Azure Blob 저장소에서 다운로드할 추가 항목이 있는 경우에는 
   [Meet Jenkins]: https://wiki.jenkins-ci.org/display/JENKINS/Meet+Jenkins
   [ms-open-tech]: http://msopentech.com
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

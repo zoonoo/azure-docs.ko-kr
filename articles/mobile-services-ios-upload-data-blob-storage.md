@@ -9,4 +9,4 @@ TechEd 2014에서 발표된 것처럼 개발 환경을 간소화하는 iOS 저�
 
 [iOS 및 모바일 서비스와 Microsoft Azure 저장소](영문): http://chrisrisner.com/iOS-and-Mobile-Services-and-Windows-Azure-Storage
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

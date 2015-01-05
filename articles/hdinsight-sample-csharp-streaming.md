@@ -189,4 +189,4 @@ Azure PowerShell로 Azure HDInsight에서 Pig, Hive 및 MapReduce 작업을 사�
 
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

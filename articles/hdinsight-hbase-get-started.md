@@ -280,4 +280,4 @@ HDInsight의 Hadoop에서 HBase를 사용하여 빅 데이터의 실시간 [감�
 
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

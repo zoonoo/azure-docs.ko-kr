@@ -317,4 +317,4 @@
 [Azure 관리 포털]: https://manage.windowsazure.com/
 [wns 개체]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

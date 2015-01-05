@@ -515,4 +515,4 @@ HiveQL 스크립트는 다음을 수행합니다.
 [hdinsight-hive-odbc]: ../hdinsight-connect-excel-hive-ODBC-driver/
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

@@ -523,4 +523,4 @@ Azure 가상 컴퓨터에서 SharePoint Server를 성공적으로 배포하려�
 </ul>
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

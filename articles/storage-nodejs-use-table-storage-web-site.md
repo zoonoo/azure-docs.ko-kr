@@ -678,4 +678,4 @@ Azure에 명령줄 도구를 사용하려면 먼저 구독에 대한 정보가 �
 
 [Node.js 응용 프로그램을 만들어 Azure 웹 사이트에 배포]: /ko-kr/documentation/articles/web-sites-nodejs-develop-deploy-mac/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

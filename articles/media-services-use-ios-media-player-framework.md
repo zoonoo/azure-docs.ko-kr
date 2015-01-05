@@ -205,4 +205,4 @@ SDK에는 이러한 기능을 사용하여 즉석에서 콘텐츠 스트림을 �
 이전 코드 예제와 같이 **deleteAfterPlay**를 **YES**로 설정하면 이 광고가 한 번만 재생됩니다. **deleteAfterPlay**를 **NO**로 설정하면 이 광고가 계속 재생되며 "고정 광고"라고 합니다.
 ### 자세한 내용은 [Azure 미디어 플레이어 프레임워크 위키](https://github.com/WindowsAzure/azure-media-player-framework/wiki) (영문)를 참조하세요.
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

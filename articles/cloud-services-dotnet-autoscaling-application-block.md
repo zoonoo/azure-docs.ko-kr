@@ -401,4 +401,4 @@ Visual Studio에서 규칙 파일이 출력 폴더에 복사되었는지 확인�
   [TechNet 및 MSDN 호스팅 비용과 Azure에서 자동 크기 조정으로 인한 환경적 영향 줄이기]: http://msdn.microsoft.com/ko-kr/library/jj838718(PandP.50).aspx
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

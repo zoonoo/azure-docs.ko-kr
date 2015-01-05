@@ -250,4 +250,4 @@ Git을 사용할 경우 보통 작업 분기에서 변경한 다음 개발이 �
 [47]: ./media/cloud-services-continuous-delivery-use-vso-git/SourceSettingsPage.PNG
 [48]: ./media/cloud-services-continuous-delivery-use-vso-git/IncludeWorkingBranch.PNG
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

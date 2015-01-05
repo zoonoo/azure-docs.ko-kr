@@ -81,4 +81,4 @@
 [이벤트 프로세서 호스트](영문): https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
 [이벤트 허브 개요]: http://msdn.microsoft.com/ko-kr/library/azure/dn836025.aspx
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

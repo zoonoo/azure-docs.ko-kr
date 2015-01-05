@@ -238,4 +238,4 @@
   [큐, 토픽 및 구독]: http://msdn.microsoft.com/ko-kr/library/windowsazure/hh367516.aspx
   [서비스 버스 조정된 메시징 .NET 자습서]: http://msdn.microsoft.com/ko-kr/library/windowsazure/hh367512.aspx
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

@@ -61,4 +61,4 @@ Azure 가상 컴퓨터가 Ubuntu 이미지이면 cloud-init를 사용하여 사�
 [Microsoft Azure 플랫폼 간 명령줄 인터페이스](영문)(https://github.com/Azure/azure-sdk-tools-xplat)
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

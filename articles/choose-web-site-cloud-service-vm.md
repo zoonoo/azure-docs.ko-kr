@@ -357,4 +357,4 @@ HTTP 기반 웹 서비스를 사용하면 모바일 클라이언트를 포함하
   [sqldatabase]: http://www.windowsazure.com/ko-kr/documentation/services/sql-database/
   [저장소]: http://www.windowsazure.com/ko-kr/documentation/services/storage/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

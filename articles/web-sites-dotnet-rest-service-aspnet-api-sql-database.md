@@ -889,4 +889,4 @@ Azure 응용 프로그램에 데이터를 저장하는 또 다른 방법은 Azur
 [WebPIAzureSdk20NetVS12]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/WebPIAzureSdk20NetVS12.png
 [prevent-csrf-attacks]: http://www.asp.net/web-api/overview/security/preventing-cross-site-request-forgery-(csrf)-attacks
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

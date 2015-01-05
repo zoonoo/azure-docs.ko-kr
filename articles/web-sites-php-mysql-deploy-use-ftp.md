@@ -264,4 +264,4 @@ Azure 웹 사이트에서 실행되는 MySQL 데이터베이스에 연결하려�
 [management-portal]: https://manage.windowsazure.com
 [download-publish-profile]: ./media/web-sites-php-web-site-mysql-deploy-use-ftp/download_publish_profile_2.png
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

@@ -192,4 +192,4 @@ Microsoft Azure의 웹 사이트를 정적 TCP 포트를 사용하는 온-프레
 [HCMInstallComplete]:./media/web-sites-hybrid-connection-get-started/D09HCMInstallComplete.png
 [HCStatusConnected]:./media/web-sites-hybrid-connection-get-started/D10HCStatusConnected.png
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

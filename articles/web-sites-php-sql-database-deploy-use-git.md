@@ -287,4 +287,4 @@ Azure 웹 사이트에서 실행되는 SQL 데이터베이스 인스턴스에 �
 [sql-database-editions]: http://msdn.microsoft.com/ko-kr/library/windowsazure/ee621788.aspx
 [where-is-code]: ./media/web-sites-php-sql-database-deploy-use-git/setupgit.png
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

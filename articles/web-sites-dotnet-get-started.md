@@ -303,4 +303,4 @@
 
 	Azure에서는 웹 응용 프로그램을 웹 사이트(이 자습서에 설명됨), 클라우드 서비스 또는 가상 컴퓨터에서 실행할 수 있습니다. 자세한 내용은 [Azure 실행 모드](/ko-kr/develop/net/fundamentals/compute/) 및 [Azure 웹 사이트, 클라우드 서비스 및 VM: 각 항목을 사용해야 하는 경우](/ko-kr/manage/services/web-sites/choose-web-app-service/)(영문)을 참조하세요.
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

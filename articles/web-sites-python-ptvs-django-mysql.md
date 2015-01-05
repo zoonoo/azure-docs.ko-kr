@@ -201,4 +201,4 @@ Python Tools for Visual Studio, Django 및 MySQL에 대해 자세히 알아보�
 [Django 설명서](영문): https://www.djangoproject.com/
 [MySQL]: http://www.mysql.com/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

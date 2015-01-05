@@ -100,4 +100,4 @@ Azure SQL 데이터베이스 탄력적인 확장(현재 미리 보기 상태)에
 [3]: ./media/sql-database-elastic-scale-get-started/click-CSharp.png
 [4]: ./media/sql-database-elastic-scale-get-started/output2.png
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

@@ -73,4 +73,4 @@ static void DownloadProgress(object sender, DownloadProgressChangedEventArgs e)
 <h2>다음 단계</h2>
 이 항목에서는 Azure 저장소에서 자산을 다운로드하는 방법을 설명했습니다. 자산을 제공하는 다른 방법에 대한 자세한 내용은 [스트리밍 콘텐츠를 제공하는 방법](../media-services-deliver-streaming-content/) (영문) 항목을 참조하세요.
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

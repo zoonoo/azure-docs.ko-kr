@@ -98,4 +98,4 @@
 <!-- URLs. -->
 [모바일 서비스 시작](영문): /ko-kr/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

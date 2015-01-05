@@ -270,4 +270,4 @@ WordPress 사이트가 만들어지거나 마이그레이션되면 다음 정보
 [storesendgrid]: http://azure.microsoft.com/ko-kr/gallery/store/sendgrid/sendgrid-azure/
 [cdn]: http://azure.microsoft.com/ko-kr/documentation/articles/cdn-how-to-use/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

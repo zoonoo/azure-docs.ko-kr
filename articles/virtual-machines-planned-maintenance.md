@@ -57,4 +57,4 @@ Microsoft Azure는 계획된 유지 관리 이벤트로 인해 두 개의 다른
 [가상 컴퓨터 가용성 관리]: ../virtual-machines-windows-tutorial/
 [계획된 유지 관리 및 계획되지 않은 유지 관리 이해]: ../virtual-machines-manage-availability/#Understand-planned-versus-unplanned-maintenance/ 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

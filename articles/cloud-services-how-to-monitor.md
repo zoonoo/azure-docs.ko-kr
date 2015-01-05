@@ -183,4 +183,4 @@ Azure 관리 포털에서 클라우드 서비스의 주요 성능 메트릭을 �
 	WAD8b7c4233802442b494d0cc9eb9d8dd9fPT1HRITable (hourly aggregations for role instances)
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

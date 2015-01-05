@@ -349,4 +349,4 @@ JMS에서 .NET으로의 메시징을 시연하려면:
 * [Service Bus AMQP 1.0 개발자 가이드](http://msdn.microsoft.com/ko-kr/library/windowsazure/jj841071.aspx)
 * [서비스 버스 큐를 사용하는 방법](http://www.windowsazure.com/ko-kr/develop/net/how-to-guides/service-bus-queues/)
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

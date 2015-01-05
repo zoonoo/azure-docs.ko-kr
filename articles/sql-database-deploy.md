@@ -584,4 +584,4 @@ School 샘플 데이터베이스는 편의상 단순합니다. 모든 해당 개
 [SQL 데이터베이스 관리 시작]: /ko-kr/manage/services/sql-databases/getting-started-w-sql-databases/  
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

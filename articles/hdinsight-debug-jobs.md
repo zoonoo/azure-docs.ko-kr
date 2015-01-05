@@ -264,4 +264,4 @@ Azure PowerShell 또는 Azure 포털에서 발생할 수 있는 오류는 [HDIns
 
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

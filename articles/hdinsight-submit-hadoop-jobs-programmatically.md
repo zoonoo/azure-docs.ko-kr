@@ -709,4 +709,4 @@ Visual Studio에 응용 프로그램이 열려 있을 때 **F5** 키를 눌러 �
 
 [apache-hive]: http://hive.apache.org/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

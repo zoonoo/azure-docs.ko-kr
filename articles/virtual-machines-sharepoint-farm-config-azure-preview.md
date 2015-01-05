@@ -106,4 +106,4 @@ SharePoint 서버 팜은 미리 구성된 SharePoint Server 2013 팜을 자동�
 	-	SharePoint 팜 암호: 초기 구성 중에 지정됩니다.
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

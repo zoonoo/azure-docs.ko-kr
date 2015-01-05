@@ -148,4 +148,4 @@
 [정기 알림]: http://msdn.microsoft.com/ko-kr/library/windows/apps/jj150587.aspx
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

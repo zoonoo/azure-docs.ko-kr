@@ -159,4 +159,4 @@ RAID 장치를 구성하는 데 일반적으로 두 개 이상의 빈 데이터 
 	커널 매개 변수를 올바르게 편집하는 방법에 대해서는 배포 설명서를 참조하세요. 예를 들어 CentOS, Oracle Linux, SLES 11 등 많은 배포에서 이 매개 변수를 "`/boot/grub/menu.lst`" 파일에 수동으로 추가할 수 있습니다.  Ubuntu에서는 "/etc/default/grub"의 `GRUB_CMDLINE_LINUX_DEFAULT` 변수에 이 매개 변수를 추가할 수 있습니다.
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

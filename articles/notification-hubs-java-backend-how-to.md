@@ -355,4 +355,4 @@ iOS 기본 알림을 보내려면 다음을 수행합니다.
 [Java REST 래퍼 샘플]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-java
 [시작 자습서]: http://azure.microsoft.com/ko-kr/documentation/articles/notification-hubs-ios-get-started/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

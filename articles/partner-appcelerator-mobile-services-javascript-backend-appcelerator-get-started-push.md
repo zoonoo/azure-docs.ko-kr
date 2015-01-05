@@ -469,4 +469,4 @@ Android NDK를 설치해야 합니다. [http://developer.android.com/sdk/ndk/ind
 [모바일 서비스 push 개체]: http://go.microsoft.com/fwlink/p/?linkid=272333&clcid=0x409
 [Java 개발 도구 설치(영문)]: http://docs.appcelerator.com/titanium/latest/#!/guide/Installing_the_Java_Development_Tools
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

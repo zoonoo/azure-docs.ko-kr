@@ -230,4 +230,4 @@ Azure 모듈은 **AZURE\_SERVICEBUS\_NAMESPACE** 및 **AZURE\_SERVICEBUS\_ACCESS
 -   [SqlFilter]에 대한 API 참조(http://msdn.microsoft.com/ko-kr/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx)
 -	GitHub에서 [Ruby용 Azure SDK](영문)(https://github.com/WindowsAzure/azure-sdk-for-ruby) 리포지토리를 방문하세요.
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

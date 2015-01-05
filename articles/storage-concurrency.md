@@ -267,4 +267,4 @@ Azure 저장소에 대한 자세한 내용은 다음을 참조하세요.
 - 저장소 아키텍처 - [Microsoft Azure 저장소: 일관성과 가용성이 뛰어난 클라우드 저장소 서비스](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

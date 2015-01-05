@@ -160,4 +160,4 @@ SSL(Secure Socket Layer) 암호화는 인터넷을 통해 전송되는 데이터
   [4]: ./media/cloud-services-dotnet-configure-ssl-certificate/AddCertificateComplete.png  
   [How to configure an SSL certificate on an HTTPS endpoint]: http://msdn.microsoft.com/ko-kr/library/windowsazure/ff795779.aspx
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

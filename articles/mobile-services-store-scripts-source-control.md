@@ -168,4 +168,4 @@
 [Node.js API 설명서: 모듈](영문): http://nodejs.org/api/modules.html
 [node-uuid](영문): https://npmjs.org/package/node-uuid
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

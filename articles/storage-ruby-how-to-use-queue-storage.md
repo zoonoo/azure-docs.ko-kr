@@ -161,4 +161,4 @@ Azure 모듈은 **AZURE\_STORAGE\_ACCOUNT** 및 **AZURE\_STORAGE\_ACCESS_KEY**
 
 이 문서에서 다루는 Azure 큐 서비스와 [서비스 버스 큐를 사용하는 방법](/ko-kr/develop/ruby/how-to-guides/service-bus-queues/) 문서에서 다루는 Azure 서비스 버스 큐 사이의 비교는 [Azure 큐 및 Azure 서비스 버스 큐 - 비교 및 대조]를 참조하세요.(http://msdn.microsoft.com/ko-kr/library/windowsazure/hh767287.aspx)
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

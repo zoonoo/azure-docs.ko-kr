@@ -290,4 +290,4 @@ URI 체계는 *wasb:* 접두사가 있는 암호화되지 않은 액세스와 *w
 [img-hdi-quick-create]: ./media/hdinsight-use-blob-storage/HDI.QuickCreateCluster.png
 [img-hdi-custom-create-storage-account]: ./media/hdinsight-use-blob-storage/HDI.CustomCreateStorageAccount.png  
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

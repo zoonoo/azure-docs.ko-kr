@@ -175,4 +175,4 @@ WordCountTopology 샘플은 디렉터리에 출력을 쓰지 않지만 Storm UI 
 [stormjavadocs]: https://storm.incubator.apache.org/apidocs/
 [azureportal]: https://manage.windowsazure.com/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

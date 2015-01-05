@@ -160,4 +160,4 @@ PhoneGap은 다중 플랫폼용 개발을 지원합니다. PhoneGap 도구 자�
 [Visual Studio 2012 Express for Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

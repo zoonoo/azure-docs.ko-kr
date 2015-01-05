@@ -199,4 +199,4 @@ Concatenate 메서드와 String.Concat가 실행 시간의 대부분을 사용�
 [16]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally012.png
 [17]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally08.png
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

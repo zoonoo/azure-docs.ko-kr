@@ -60,4 +60,4 @@
 
 [소스 제어에 서버 스크립트 저장]: /ko-kr/documentation/articles/mobile-services-store-scripts-source-control
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

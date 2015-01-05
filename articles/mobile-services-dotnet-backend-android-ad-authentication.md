@@ -16,4 +16,4 @@ Chris Risner의 자습서인 [iOS 및 Android에서 Azure Active Directory를 �
 <!-- URLs. -->
 [iOS 및 Android에서 Azure Active Directory를 통해 보호되는 리소스 액세스]: http://chrisrisner.com/Accessing-Resources-Secured-by-Azure-Active-Directory-with-iOS-and-Android
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

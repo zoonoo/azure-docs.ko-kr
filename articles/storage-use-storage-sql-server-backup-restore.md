@@ -73,4 +73,4 @@ SQL Server 자격 증명을 만드는 방법에 대한 단계별 지침은 [Azur
 
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

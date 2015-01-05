@@ -9,4 +9,4 @@
 
 기존 Windows 스토어 앱에 모바일 서비스를 추가하는 방법에 대한 지침은 [기존 앱에 모바일 서비스 추가](영문)를(/ko-kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-data/)참조하세요.
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

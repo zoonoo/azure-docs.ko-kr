@@ -1337,4 +1337,4 @@ HBase 셸에서 이 프롬프트를 열어 둡니다.
 
 [azure-portal]: https://manage.windowsazure.com/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

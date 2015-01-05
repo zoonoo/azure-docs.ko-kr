@@ -269,4 +269,4 @@ Azure 웹 사이트를 만들었으므로 로컬에서 응용 프로그램을 �
 [management-portal]: https://manage.windowsazure.com
 [sql-database-editions]: http://msdn.microsoft.com/ko-kr/library/windowsazure/ee621788.aspx
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

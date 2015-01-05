@@ -767,4 +767,4 @@ Visual Studio **서버 탐색기**에서 wadexample 저장소 계정으로 이�
 [Get-AzureServiceDiagnosticsExtension]: http://msdn.microsoft.com/ko-kr/library/dn495145.aspx
 [Remove-AzureServiceDiagnosticsExtension]: http://msdn.microsoft.com/ko-kr/library/dn495168.aspx
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

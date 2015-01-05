@@ -157,4 +157,4 @@
 [모바일 서비스 .NET 방법 개념 참조]: /ko-kr/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

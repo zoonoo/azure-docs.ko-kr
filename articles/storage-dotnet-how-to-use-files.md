@@ -265,4 +265,4 @@ Visual Studio에서 새 콘솔 응용 프로그램을 만들고 Azure 저장소 
 [files-concepts]: ./media/storage-dotnet-how-to-use-files/files-concepts.png
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

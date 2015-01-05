@@ -213,4 +213,4 @@ Azure PowerShell을 사용하여 Azure HDInsight에서 Pig, Hive 및 MapReduce �
 
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

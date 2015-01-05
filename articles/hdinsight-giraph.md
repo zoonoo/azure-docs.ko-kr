@@ -204,4 +204,4 @@ HDInsight에서 Giraph를 사용하는 방법에 대해 알아보았으므로 �
 [pig]: http://azure.microsoft.com/ko-kr/documentation/articles/hdinsight-use-pig/
 [hive]: http://azure.microsoft.com/ko-kr/documentation/articles/hdinsight-use-hive/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

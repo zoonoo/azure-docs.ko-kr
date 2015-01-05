@@ -345,4 +345,4 @@ HPC 팩 **clusrun** 명령을 사용하여 하나 이상의 클러스터 노드�
 [stop_node4]: ./media/set-up-hybrid-cluster-microsoft-hpc-pack-2012-sp1/stop_node4.png
 [view_instances2]: ./media/set-up-hybrid-cluster-microsoft-hpc-pack-2012-sp1/view_instances2.png
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

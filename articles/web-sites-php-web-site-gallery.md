@@ -16,4 +16,4 @@
 - [추가 PHP 자습서](/ko-kr/develop/php/tutorials/) - PHP 및 Azure를 사용하여 응용 프로그램의 추가 유형을 만듭니다.
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

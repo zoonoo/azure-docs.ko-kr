@@ -98,4 +98,4 @@ To remove a storage account that you are no longer using, use **Delete** on the 
 
 3. Click **Yes** to confirm you want to delete the storage account.
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

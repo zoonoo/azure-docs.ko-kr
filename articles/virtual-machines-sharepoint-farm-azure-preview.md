@@ -68,4 +68,4 @@ SharePoint 팜으로 SharePoint 팜을 만들려면 다음을 수행합니다.
 SharePoint 서버 팜은 Azure 리소스 관리자 및 스크립트를 사용하여 SharePoint 팜의 인프라 및 서버 구성을 자동으로 만듭니다. 자세한 내용은 [리소스 관리자에서 Windows PowerShell 사용](http://azure.microsoft.com/ko-kr/documentation/articles/powershell-azure-resource-manager/)을 참조하세요.
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

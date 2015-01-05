@@ -56,4 +56,4 @@ Azure에서는 이 템플릿이 이미지로 취급되고 **내 이미지**에 �
 [가상 컴퓨터에 데이터 디스크를 연결하는 방법]: ../storage-windows-attach-disk/
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

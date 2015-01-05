@@ -102,4 +102,4 @@ Azure 미디어 서비스 콘텐츠 보기를 사용하여 미디어 서비스 �
 [encoder]: ./media/media-services-manage-content/EncoderDialog2.png
 [branding]: ./media/branding-reporting.png
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

@@ -121,4 +121,4 @@ Azure에서 Linux 가상 컴퓨터를 올바르게 프로비전하려면 [Azure 
 
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

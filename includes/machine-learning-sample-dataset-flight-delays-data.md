@@ -5,4 +5,4 @@
 <li>우회 비행은 필터링되었습니다.</li>
 <li>다음 열이 선택되었습니다. Year, Month, DayofMonth, DayOfWeek, Carrier, OriginAirportID, DestAirportID, CRSDepTime, DepDelay, DepDel15, CRSArrTime, ArrDelay, ArrDel15, Cancelled</li></ul>
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

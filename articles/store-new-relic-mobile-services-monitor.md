@@ -139,4 +139,4 @@ New Relic 서비스에 등록한 후에는 모바일 서비스에 New Relic Node
 [New Relic 모바일]: http://newrelic.com/mobile-monitoring
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

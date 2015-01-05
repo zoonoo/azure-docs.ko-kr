@@ -77,4 +77,4 @@ Excel용 파워 쿼리 추가 기능을 사용하면 HDInsight 클러스터에�
 
 [powerquery-download]: http://go.microsoft.com/fwlink/?LinkID=286689 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

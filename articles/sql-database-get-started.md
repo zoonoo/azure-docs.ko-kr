@@ -680,4 +680,4 @@ SQL 데이터베이스 및 관리 포털에 익숙해졌으므로, SQL Server �
 [Image20]: ./media/sql-database-get-started/11ManageDatabaseLogin_SQLTut.PNG
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

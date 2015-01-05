@@ -240,4 +240,4 @@
 
 [모바일 서비스 Objective-C 방법 개념 참조]: /ko-kr/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

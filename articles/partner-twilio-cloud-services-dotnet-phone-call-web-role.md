@@ -188,4 +188,4 @@ TwiML에 대한 자세한 내용은 [http://www.twilio.com/docs/api/twiml][twiml
 
 [azure_runtime_ref_dotnet]: http://msdn.microsoft.com/ko-kr/library/windowsazure/microsoft.windowsazure.serviceruntime.aspx
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

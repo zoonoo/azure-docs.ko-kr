@@ -309,4 +309,4 @@ Microsoft Azure 가져오기/내보내기 도구는 각 드라이브가 준비�
 [export-job-03]: ./media/storage-import-export-service/export-job-03.png
 [export-job-bitlocker-keys]: ./media/storage-import-export-service/export-job-bitlocker-keys.png
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

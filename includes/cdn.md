@@ -127,4 +127,4 @@ CDN에 이미 캐시된 개체는 개체의 TTL(Time-to-Live) 기간이 만료�
 [create-new-storage-account]: ./media/cdn/CDN_CreateNewStorageAcct.png
 [이전 관리 포털]: ../../Shared/Media/previous-portal.png
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

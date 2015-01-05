@@ -212,4 +212,4 @@ Python Tools for Visual Studio, Django and SQL 및 SQL 데이터베이스에 대
 [Django 설명서](영문): https://www.djangoproject.com/
 [SQL 데이터베이스]: /ko-kr/documentation/services/sql-database/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

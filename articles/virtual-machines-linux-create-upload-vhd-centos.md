@@ -347,4 +347,4 @@ Azure용으로 CentOS 7 가상 컴퓨터를 준비하는 작업은 CentOS 6과 �
 
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

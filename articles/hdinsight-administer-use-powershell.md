@@ -284,4 +284,4 @@ Hive 사용에 대한 자세한 내용은 [HDInsight와 함께 Hive 사용][hdin
 
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

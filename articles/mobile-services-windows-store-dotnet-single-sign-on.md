@@ -157,4 +157,4 @@
 [Azure 관리 포털]: https://manage.windowsazure.com/
 [모바일 서비스 .NET 방법 개념 참조]: /ko-kr/develop/mobile/how-to-guides/work-with-net-client-library
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

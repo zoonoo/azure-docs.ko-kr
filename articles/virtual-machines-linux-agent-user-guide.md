@@ -405,4 +405,4 @@ Waagent는 다음과 같은 일부 시스템 패키지가 있어야 제대로 �
 	  </Instances>
 	</SharedConfig>
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

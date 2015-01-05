@@ -52,4 +52,4 @@ Azure에서 웹 사이트를 만들려면 다음 단계를 따르세요.
 
 자세한 내용은 [Azure 웹 사이트](/ko-kr/documentation/services/web-sites/)를 참조하세요.
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

@@ -565,4 +565,4 @@ Microsoft Azure의 역할 내에서 실행되는 응용 프로그램에서는 �
 [Azure 저장소 팀 블로그]: http://blogs.msdn.com/b/windowsazurestorage/
 [블로그 게시물]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

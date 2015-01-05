@@ -242,4 +242,4 @@ New Relic UI, 사용자 권한 및 프로필 설정, 표준 기능 및 대시보
 [add-on]: ./media/store-new-relic-web-sites-dotnet-application-performce-management/nraddon.png
 [custom]: ./media/store-new-relic-web-sites-dotnet-application-performce-management/nrcustom.png
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

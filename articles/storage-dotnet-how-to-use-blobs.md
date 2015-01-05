@@ -390,4 +390,4 @@ Blob을 삭제하려면 먼저 Blob 참조를 가져온 후
   [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

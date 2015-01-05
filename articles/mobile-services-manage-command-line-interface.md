@@ -195,4 +195,4 @@ Next steps here....
 [Mac 및 Linux에서 Azure 명령줄 도구를 설치하는 방법]: http://go.microsoft.com/fwlink/p/?LinkId=275795
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

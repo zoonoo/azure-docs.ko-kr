@@ -645,4 +645,4 @@ Promise는 완료할 작업을 아직 계산되지 않은 값으로 예약하는
 [모바일 서비스 테이블을 관리하는 CLI]: http://www.windowsazure.com/ko-kr/manage/linux/other-resources/command-line-tools/#Mobile_Tables
 [OData 시스템 쿼리 옵션 참조](영문): http://go.microsoft.com/fwlink/p/?LinkId=444502
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

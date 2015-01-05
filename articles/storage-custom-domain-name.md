@@ -135,4 +135,4 @@ asverify 하위 도메인은 Azure에서 인식하는 특수한 하위 도메인
 
 -   <a href="http://msdn.microsoft.com/ko-kr/library/windowsazure/gg680307.aspx">CDN 콘텐츠를 사용자 지정 도메인에 매핑하는 방법</a>
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

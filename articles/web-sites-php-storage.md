@@ -451,4 +451,4 @@ Git를 사용하여 응용 프로그램을 게시하려면 아래 단계를 따�
 [git-instructions]: ./media/web-sites-php-storage/git-instructions.png
 [where-is-code]: ./media/web-sites-php-storage/where_is_code.png
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

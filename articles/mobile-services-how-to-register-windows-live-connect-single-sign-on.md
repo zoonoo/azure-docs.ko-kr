@@ -81,4 +81,4 @@
 [JavaScript 및 HTML]: /ko-kr/develop/mobile/tutorials/get-started-with-users-js/
 [Azure 관리 포털]: https://manage.windowsazure.com/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

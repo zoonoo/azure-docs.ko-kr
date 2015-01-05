@@ -390,4 +390,4 @@ OSMF용 부드러운 스트리밍 동적 플러그 인은 [SMP(Strobe Media Play
 
 일반적인 OSMF 개발에 대한 자세한 내용은 [공식 OSMF 개발 페이지](http://osmf.org/resources.html)(영문)를 참조하세요.
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

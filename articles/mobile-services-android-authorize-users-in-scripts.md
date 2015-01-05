@@ -99,4 +99,4 @@
 
 [Azure 관리 포털]: https://manage.windowsazure.com/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

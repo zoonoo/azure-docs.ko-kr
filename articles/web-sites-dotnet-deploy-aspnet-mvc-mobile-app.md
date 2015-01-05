@@ -632,4 +632,4 @@ Bootstrap [연결된 목록 그룹][] 스타일은 각 링크의 전체 상자�
 [SessionByCode3-644]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/SessionByCode-3-644.png
 [SessionByCodeFixed3-644]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/SessionByCode-Fixed-3-644.png
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

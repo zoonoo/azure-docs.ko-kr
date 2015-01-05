@@ -481,4 +481,4 @@ Azure 서비스 클라이언트를 만들려면 **ServicesBuilder** 클래스를
 [filters]: http://msdn.microsoft.com/ko-kr/library/windowsazure/dd894031.aspx
 [entity-group-transactions]: http://msdn.microsoft.com/ko-kr/library/windowsazure/dd894038.aspx
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

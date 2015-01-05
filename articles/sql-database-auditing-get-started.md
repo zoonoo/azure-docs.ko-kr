@@ -159,4 +159,4 @@ REST API의 경우 <a href="http://download.microsoft.com/download/D/8/D/D8D90BA
 [다른 azure.microsoft.com 설명서 항목에 대한 링크 3]: ../storage-whatis-account/
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

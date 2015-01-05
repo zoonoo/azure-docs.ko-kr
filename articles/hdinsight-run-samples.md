@@ -75,4 +75,4 @@ Azure PowerShell을 사용하여 샘플을 실행할 수 있습니다. 실행 �
 [hdinsight-use-pig]: ../hdinsight-use-pig/
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

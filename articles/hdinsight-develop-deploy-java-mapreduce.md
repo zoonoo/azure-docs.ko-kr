@@ -601,4 +601,4 @@ Azure HDInsight는 데이터 저장소에 Azure Blob 저장소를 사용합니�
 [image-emulator-wordcount-run]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Run-Java-MapReduce.png
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

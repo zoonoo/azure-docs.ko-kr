@@ -141,4 +141,4 @@
 [사용자에게 알림 보내기]: /ko-kr/manage/services/notification-hubs/notify-users/
 [사용자에게 플랫폼 간 알림 보내기]: /ko-kr/manage/services/notification-hubs/notify-users-xplat-mobile-services/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->
