@@ -1,4 +1,4 @@
-﻿<properties title="Azure Notification Hubs Rich Push" pageTitle="Azure 알림 허브 풍부한 푸시" metaKeywords="Azure 푸시 알림, Azure 알림 허브, 풍부한 푸시" description="Learn how to send rich push notifications to an iOS app from Azure. Code samples written in Objective-C and C#." documentationCenter="Mobile" metaCanonical="" services="notification-hubs" authors="yuaxu" manager="timlt" />
+﻿<properties title="Azure Notification Hubs Rich Push" pageTitle="Azure 알림 허브 풍부한 푸시" metaKeywords="Azure 푸시 알림, Azure 알림 허브, 풍부한 푸시" description="Azure에서 iOS 앱에 다양한 푸시 알림을 보내는 방법에 대해 알아봅니다. 코드 샘플은 Objective-C 및 C#으로 작성되었습니다." documentationCenter="Mobile" metaCanonical="" services="notification-hubs" authors="yuaxu" manager="timlt" />
 
 <tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="yuaxu" />
 

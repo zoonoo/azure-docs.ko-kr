@@ -1,4 +1,4 @@
-﻿<properties title="Track custom usage events and metrics in your web app with Application Insights" pageTitle="Application Insights를 사용한 웹 앱의 사용 현황 이벤트 및 메트릭 추적" description="Insert a few lines of code to find out what users are doing with your website." metaKeywords="analytics monitoring application insights" authors="awills" manager="kamrani"  />
+﻿<properties title="Track custom usage events and metrics in your web app with Application Insights" pageTitle="Application Insights를 사용한 웹 앱의 사용 현황 이벤트 및 메트릭 추적" description="몇 줄의 코드를 삽입하여 사용자가 웹 사이트에서 수행하는 작업을 확인합니다." metaKeywords="analytics monitoring application insights" authors="awills" manager="kamrani"  />
  
 <tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-10-01" ms.author="awills" />
 

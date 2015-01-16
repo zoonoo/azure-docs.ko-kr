@@ -1,4 +1,4 @@
-﻿<properties title="Azure Notification Hubs Secure Push" pageTitle="Azure 알림 허브 보안 푸시" metaKeywords="Azure 푸시 알림, Azure 알림 허브, 보안 푸시" description="Learn how to send secure push notifications to an Android app from Azure. Code samples written in Java and C#." documentationCenter="Mobile" metaCanonical="" disqusComments="1" umbracoNaviHide="0" authors="sethm" manager="timlt" />
+﻿<properties title="Azure Notification Hubs Secure Push" pageTitle="Azure 알림 허브 보안 푸시" metaKeywords="Azure 푸시 알림, Azure 알림 허브, 보안 푸시" description="Azure에서 Android 앱에 보안 푸시 알림을 보내는 방법에 대해 알아봅니다. 코드 샘플은 Java 및 C#으로 작성되었습니다." documentationCenter="Mobile" metaCanonical="" disqusComments="1" umbracoNaviHide="0" authors="sethm" manager="timlt" />
 
 <tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-android" ms.devlang="java" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
 

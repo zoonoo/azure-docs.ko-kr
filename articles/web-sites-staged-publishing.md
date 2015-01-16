@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="How to stage sites on Microsoft Azure" pageTitle="Microsoft Azure 웹 사이트의 준비된 배포" metaKeywords="Microsoft Azure 웹 사이트, 준비된 배포, 사이트 슬롯" description="Learn how to use staged publishing on Microsoft Azure Websites." metaCanonical="" services="web-sites" documentationCenter="" title="Staged Deployment on Microsoft Azure Websites" authors="cephalin"  solutions="" writer="cephalin" manager="wpickett" editor="mollybos"  />
+﻿<properties urlDisplayName="How to stage sites on Microsoft Azure" pageTitle="Microsoft Azure 웹 사이트의 준비된 배포" metaKeywords="Microsoft Azure 웹 사이트, 준비된 배포, 사이트 슬롯" description="Microsoft Azure 웹 사이트에서 준비된 게시를 사용하는 방법에 대해 알아봅니다." metaCanonical="" services="web-sites" documentationCenter="" title="Staged Deployment on Microsoft Azure Websites" authors="cephalin"  solutions="" writer="cephalin" manager="wpickett" editor="mollybos"  />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="9/9/2014" ms.author="cephalin" />
 

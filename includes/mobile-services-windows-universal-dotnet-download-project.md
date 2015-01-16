@@ -5,7 +5,7 @@
 
 2.  Visual Studio 2013에서 다운로드한 프로젝트를 열고 GetStartedWithData.Shared 프로젝트 폴더에 있는 MainPage.xaml.cs 파일을 검사합니다.
 
-   	추가된 **TodoItem** 개체가 메모리 내 **ObservableCollection\<TodoItem\>**에 저장됩니다.
+   	추가된 **TodoItem** 개체가 메모리 내 **ObservableCollection&lt;TodoItem&gt;**에 저장됩니다.
 
 3.  **F5** 키를 눌러 프로젝트를 다시 빌드하고 앱을 시작합니다.
 

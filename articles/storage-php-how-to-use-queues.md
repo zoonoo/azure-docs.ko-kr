@@ -1,4 +1,4 @@
-﻿<properties title="How to use the queue service (PHP) - Azure feature guide" pageTitle="큐 서비스 사용 방법(PHP) | Microsoft Azure" metaKeywords="Azure Queue Service messaging PHP" description="Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in PHP." documentationCenter="PHP" services="storage" authors="tamram" manager="adinah" />
+﻿<properties title="How to use the queue service (PHP) - Azure feature guide" pageTitle="큐 서비스 사용 방법(PHP) | Microsoft Azure" metaKeywords="Azure Queue Service messaging PHP" description="Azure 큐 서비스를 사용하여 큐를 작성 및 삭제하고 메시지를 삽입하고 가져오고 삭제하는 방법에 대해 알아봅니다. 샘플은 PHP로 작성되었습니다." documentationCenter="PHP" services="storage" authors="tamram" manager="adinah" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="11/24/2014" ms.author="tomfitz" />
 

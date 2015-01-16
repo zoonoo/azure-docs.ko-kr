@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Get Started with Data" pageTitle="데이터 시작(Xamarin.Android) - Azure 모바일 서비스" metaKeywords="Azure Xamarin.Android 데이터, Azure 모바일 서비스 데이터" description="Learn how to store and access data from your Azure Mobile Services Xamarin.Android app." metaCanonical="" disqusComments="1" umbracoNaviHide="1" title="Get started with data in Mobile Services" documentationCenter="Mobile" authors="donnam" manager="dwrede" services="mobile-services" />
+﻿<properties urlDisplayName="Get Started with Data" pageTitle="데이터 시작(Xamarin.Android) - Azure 모바일 서비스" metaKeywords="Azure Xamarin.Android 데이터, Azure 모바일 서비스 데이터" description="Azure 모바일 서비스 Xamarin.Android 앱에서 데이터를 저장하고 액세스하는 방법에 대해 알아봅니다." metaCanonical="" disqusComments="1" umbracoNaviHide="1" title="Get started with data in Mobile Services" documentationCenter="Mobile" authors="donnam" manager="dwrede" services="mobile-services" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-android" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="donnam" />
 

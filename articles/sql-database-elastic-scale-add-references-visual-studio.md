@@ -1,4 +1,4 @@
-﻿<properties title="Add Azure SQL DB Elastic Scale References to a Visual Studio Project" pageTitle="Visual Studio 프로젝트에 Azure SQL DB 탄력적인 확장 참조 추가" description="How to add .NET references for Elastic Scale APIs to Visual Studio projects using Nuget." metaKeywords="Azure SQL Database, elastic scale, Nuget references" services="sql-database" documentationCenter="" manager="jhubbard" authors="sidneyh@microsoft.com"/>
+﻿<properties title="Add Azure SQL DB Elastic Scale References to a Visual Studio Project" pageTitle="Visual Studio 프로젝트에 Azure SQL DB 탄력적인 확장 참조 추가" description="Nuget을 사용하여 Visual Studio 프로젝트에 탄력적인 확장 API에 대한 .NET 참조를 추가하는 방법입니다." metaKeywords="Azure SQL Database, elastic scale, Nuget references" services="sql-database" documentationCenter="" manager="jhubbard" authors="sidneyh@microsoft.com"/>
 
 <tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/02/2014" ms.author="sidneyh" />
 

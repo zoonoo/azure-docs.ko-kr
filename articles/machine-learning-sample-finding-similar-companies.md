@@ -1,4 +1,4 @@
-﻿<properties title="Azure Machine Learning Sample: Finding similar companies" pageTitle="기계 학습 샘플: 비슷한 회사 찾기 | Azure" description="A sample Azure Machine Learning experiment that uses a clustering model to find similar companies." metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun"  videoId="" scriptId="" />
+﻿<properties title="Azure Machine Learning Sample: Finding similar companies" pageTitle="기계 학습 샘플: 비슷한 회사 찾기 | Azure" description="클러스터링 모델을 사용하여 유사한 회사를 찾는 샘플 Azure 기계 학습 실험입니다." metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun"  videoId="" scriptId="" />
 
 <tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/23/2014" ms.author="garye" />
 

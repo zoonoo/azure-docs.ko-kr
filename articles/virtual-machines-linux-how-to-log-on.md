@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Log on to a VM" pageTitle="Azure에서 Linux를 실행하는 가상 컴퓨터에 로그온" metaKeywords="Azure Linux vm, Linux SSH" description="Learn how to log on to an Azure virtual machine running Linux by using a Secure Shell (SSH) client." metaCanonical="" services="virtual-machines" documentationCenter="" title="How to Log on to a Virtual Machine Running Linux" authors="kathydav" solutions="" manager="timlt" editor="" />
+﻿<properties urlDisplayName="Log on to a VM" pageTitle="Azure에서 Linux를 실행하는 가상 컴퓨터에 로그온" metaKeywords="Azure Linux vm, Linux SSH" description="SSH(Secure Shell) 클라이언트를 사용하여 Linux를 실행하는 Azure 가상 컴퓨터에 로그온하는 방법에 대해 알아봅니다." metaCanonical="" services="virtual-machines" documentationCenter="" title="How to Log on to a Virtual Machine Running Linux" authors="kathydav" solutions="" manager="timlt" editor="" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="11/12/2014" ms.author="kathydav" />
 

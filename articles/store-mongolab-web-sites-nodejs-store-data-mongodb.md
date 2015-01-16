@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Website with MongoDB" pageTitle="MongoLab의 MongoDB를 사용하는 Node.js 웹 사이트 - Azure" metaKeywords="" description="Learn how to create a Node.js Azure Website that connects to a MongoDB instance hosted on MongoLab." metaCanonical="" services="web-sites,virtual-machines" documentationCenter="nodejs" title="Create a Node.js Application on Azure with MongoDB using the MongoLab Add-On" authors="chris@mongolab.com" solutions="" manager="mongolab; partners@mongolab.com" editor="" />
+﻿<properties urlDisplayName="Website with MongoDB" pageTitle="MongoLab의 MongoDB를 사용하는 Node.js 웹 사이트 - Azure" metaKeywords="" description="MongoLab에서 호스팅되는 MongoDB 인스턴스에 연결되는 Node.js Azure 웹 사이트를 만드는 방법에 대해 알아봅니다." metaCanonical="" services="web-sites,virtual-machines" documentationCenter="nodejs" title="Create a Node.js Application on Azure with MongoDB using the MongoLab Add-On" authors="chris@mongolab.com" solutions="" manager="mongolab; partners@mongolab.com" editor="" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="chris@mongolab.com" />
 

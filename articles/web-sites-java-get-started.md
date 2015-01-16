@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Get started with Azure" pageTitle="Java를 사용하여 Microsoft Azure 웹 사이트 시작" metaKeywords="" description="This tutorial shows you how to deploy a Java website to Microsoft Azure." metaCanonical="" services="web-sites" documentationCenter="Java" title="Get started with Azure and Java" videoId="" scriptId="" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" />
+﻿<properties urlDisplayName="Get started with Azure" pageTitle="Java를 사용하여 Microsoft Azure 웹 사이트 시작" metaKeywords="" description="이 자습서에서는 Microsoft Azure에 Java 웹 사이트를 배포하는 방법을 보여 줍니다." metaCanonical="" services="web-sites" documentationCenter="Java" title="Get started with Azure and Java" videoId="" scriptId="" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="robmcm" />
 

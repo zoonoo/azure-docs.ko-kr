@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="SQL Database" pageTitle="SQL 데이터베이스(PHP)를 사용하는 방법 -Azure 기능 가이드" metaKeywords="Azure SQL 데이터베이스 PHP, SQL 데이터베이스 PHP" description="Learn how to create and connect to an Azure SQL Database from PHP." metaCanonical="" services="sql-database" documentationCenter="PHP" title="How to Access Azure SQL Database from PHP" authors="tomfitz" solutions="" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
+﻿<properties urlDisplayName="SQL Database" pageTitle="SQL 데이터베이스(PHP)를 사용하는 방법 -Azure 기능 가이드" metaKeywords="Azure SQL 데이터베이스 PHP, SQL 데이터베이스 PHP" description="PHP에서 Azure SQL 데이터베이스를 만들고 연결하는 방법에 대해 알아봅니다." metaCanonical="" services="sql-database" documentationCenter="PHP" title="How to Access Azure SQL Database from PHP" authors="tomfitz" solutions="" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
 
 <tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="10/29/2014" ms.author="tomfitz" />
 

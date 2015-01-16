@@ -1,4 +1,4 @@
-﻿<properties pageTitle="모바일 서비스를 사용하여 Blob 저장소에 데이터 업로드(iOS) | 모바일 서비스" metaKeywords="" description="Learn how to use Mobile Services to upload data to Azure Blob Storage." metaCanonical="" disqusComments="0" umbracoNaviHide="1" documentationCenter="Mobile" title="Upload data to Azure Storage by using Mobile Services" authors="yuaxu" writer="yuaxu" manager="dwrede" services="mobile-services,storage"/>
+﻿<properties pageTitle="모바일 서비스를 사용하여 Blob 저장소에 데이터 업로드(iOS) | 모바일 서비스" metaKeywords="" description="모바일 서비스를 사용하여 Azure Blob 저장소에 데이터를 업로드하는 방법에 대해 알아봅니다." metaCanonical="" disqusComments="0" umbracoNaviHide="1" documentationCenter="Mobile" title="Upload data to Azure Storage by using Mobile Services" authors="yuaxu" writer="yuaxu" manager="dwrede" services="mobile-services,storage"/>
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.topic="article" ms.date="09/23/2014" ms.author="yuaxu"/>
 

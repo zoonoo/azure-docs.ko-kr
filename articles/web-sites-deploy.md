@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Azure 웹 사이트를 배포하는 방법" metaKeywords=" Azure 게시 웹 사이트 배포" description="Learn what methods are available for deploying content to an Azure Website." metaCanonical="" services="web-sites" documentationCenter="" title="How to Deploy an Azure Website" authors="tdykstra" solutions="" manager="wpickett" editor="mollybos" />
+﻿<properties pageTitle="Azure 웹 사이트를 배포하는 방법" metaKeywords=" Azure 게시 웹 사이트 배포" description="Azure 웹 사이트에 콘텐츠를 배포할 수 있는 방법에 대해 알아봅니다." metaCanonical="" services="web-sites" documentationCenter="" title="How to Deploy an Azure Website" authors="tdykstra" solutions="" manager="wpickett" editor="mollybos" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/02/2014" ms.author="tdykstra" />
 

@@ -1,4 +1,4 @@
-﻿<properties title="Guide to the Net# Neural Networks Specification Language for Azure ML" pageTitle="Azure 기계 학습용 Net# 신경망 사양 언어에 대한 가이드 " description="Syntax for the Net# neural networks specification language, together with examples of how to create a custom neural network model in Microsoft Azure ML using Net# " metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jeannt" manager="paulettm" editor="cgronlun"  videoId="" scriptId="" />
+﻿<properties title="Guide to the Net# Neural Networks Specification Language for Azure ML" pageTitle="Azure 기계 학습용 Net# 신경망 사양 언어에 대한 가이드 " description="Net# 신경망 사양 언어 구문(Net#을 사용하여 Microsoft Azure ML에서 사용자 지정 신경망 모델을 만드는 방법에 대한 예제 포함) " metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jeannt" manager="paulettm" editor="cgronlun"  videoId="" scriptId="" />
 
 <tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/08/2014" ms.author="jeannt" />
 

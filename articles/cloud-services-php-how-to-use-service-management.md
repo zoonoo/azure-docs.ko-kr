@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Service Management" pageTitle="Azure 서비스 관리 API 사용 방법(PHP)" metaKeywords="" description="Learn how to use the Azure PHP Service Management APIs to manage cloud services and other Azure applications." metaCanonical="" services="" documentationCenter="PHP" title="How to use Service Management from PHP" authors="tomfitz" solutions="" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
+﻿<properties urlDisplayName="Service Management" pageTitle="Azure 서비스 관리 API 사용 방법(PHP)" metaKeywords="" description="Azure PHP 서비스 관리 API를 사용하여 클라우드 서비스 및 기타 Azure 응용 프로그램을 관리하는 방법에 대해 알아봅니다." metaCanonical="" services="" documentationCenter="PHP" title="How to use Service Management from PHP" authors="tomfitz" solutions="" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
 
 <tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="11/17/2014" ms.author="tomfitz" />
 

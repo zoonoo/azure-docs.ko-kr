@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Push Notifications to Users (iOS)" pageTitle="사용자에 대한 푸시 알림(iOS) | 모바일 개발자 센터" metaKeywords="deprecated" description="Learn how to use Mobile Services to push notifications to users of your iOS app." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Push notifications to users by using Mobile Services" authors="krisragh" solutions="" manager="dwrede" editor="" />
+﻿<properties urlDisplayName="Push Notifications to Users (iOS)" pageTitle="사용자에 대한 푸시 알림(iOS) | 모바일 개발자 센터" metaKeywords="deprecated" description="모바일 서비스를 사용하여 iOS 앱 사용자에게 알림을 푸시하는 방법에 대해 알아봅니다." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Push notifications to users by using Mobile Services" authors="krisragh" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/07/2014" ms.author="krisragh" />
 

@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Service Bus Topics" pageTitle="서비스 버스 토픽을 사용하는 방법(Node.js)-Azure" metaKeywords="Azure 서비스 버스 토픽 시작, 서비스 토픽 시작, Azure 게시 구독 메시징, Azure 메시징 토픽 및 구독, 서비스 버스 토픽 Node.js" description="Learn how to use Service Bus topics and subscriptions in Azure. Code samples are written for Node.js applications." metaCanonical="" services="service-bus" documentationCenter="nodejs" title="How to Use Service Bus Topics/Subscriptions" authors="larryfr" solutions="" manager="wpickett" editor="" />
+﻿<properties urlDisplayName="Service Bus Topics" pageTitle="서비스 버스 토픽을 사용하는 방법(Node.js)-Azure" metaKeywords="Azure 서비스 버스 토픽 시작, 서비스 토픽 시작, Azure 게시 구독 메시징, Azure 메시징 토픽 및 구독, 서비스 버스 토픽 Node.js" description="Azure에서 서비스 버스 토픽 및 구독을 사용하는 방법에 대해 알아봅니다. 코드 샘플은 Node.js 응용 프로그램용으로 작성되었습니다." metaCanonical="" services="service-bus" documentationCenter="nodejs" title="How to Use Service Bus Topics/Subscriptions" authors="larryfr" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 

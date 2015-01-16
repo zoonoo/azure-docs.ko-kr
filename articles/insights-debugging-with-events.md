@@ -1,4 +1,4 @@
-﻿<properties title="How to debug with events" pageTitle="이벤트를 사용하여 디버그하는 방법" description="Learn how to see events in Azure." authors="hanikn" manager="kamrani" />
+﻿<properties title="How to debug with events" pageTitle="이벤트를 사용하여 디버그하는 방법" description="Azure에서 이벤트를 확인하는 방법에 대해 알아봅니다." authors="hanikn" manager="kamrani" />
 
 <tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="hanikn" />
 

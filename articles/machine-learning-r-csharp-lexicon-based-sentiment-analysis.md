@@ -1,4 +1,4 @@
-﻿<properties title="Lexicon Based Sentiment Analysis" pageTitle="1단계: 어휘집 기반 감정 분석 | Azure" description="Lexicon Based Sentiment Analysis" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jaymathe" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties title="Lexicon Based Sentiment Analysis" pageTitle="1단계: 어휘집 기반 감정 분석 | Azure" description="어휘집 기반 감정 분석" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jaymathe" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
 
 <tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/08/2014" ms.author="jaymathe" /> 
 

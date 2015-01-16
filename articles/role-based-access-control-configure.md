@@ -1,4 +1,4 @@
-﻿<properties title="Role Based Access Control in Azure Preview Portal" pageTitle="Azure 미리 보기 포털의 역할 기반 액세스 제어" description="Describes how role based access control works and how to set it up" metaKeywords="" services="multiple" solutions="" documentationCenter="" authors="justinha" videoId="" scriptId="" manager="terrylan" />
+﻿<properties title="Role Based Access Control in Azure Preview Portal" pageTitle="Azure 미리 보기 포털의 역할 기반 액세스 제어" description="역할 기반 액세스 제어의 작동 방식 및 설정 방법에 대해 설명합니다." metaKeywords="" services="multiple" solutions="" documentationCenter="" authors="justinha" videoId="" scriptId="" manager="terrylan" />
 
 <tags ms.service="multiple" ms.devlang="dotnet" ms.topic="article" ms.tgt_pltfrm="Ibiza" ms.workload="infrastructure-services" ms.date="09/12/2014" ms.author="justinha;Justinha@microsoft.com" />
 

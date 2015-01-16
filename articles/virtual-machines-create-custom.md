@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Create a custom VM" pageTitle=" Azure에서 사용자 지정 가상 컴퓨터 만들기" metaKeywords="Azure custom vm, creating custom vm" description="Learn how to create a custom virtual machine in Azure." metaCanonical="http://www.windowsazure.com/ko-kr/manage/windows/how-to-guides/custom-create-a-vm/" services="virtual-machines" documentationCenter="" title="" authors="kathydav" solutions="" manager="timlt" editor="tysonn" />
+﻿<properties urlDisplayName="Create a custom VM" pageTitle=" Azure에서 사용자 지정 가상 컴퓨터 만들기" metaKeywords="Azure custom vm, creating custom vm" description="Azure에서 사용자 지정 가상 컴퓨터를 만드는 방법에 대해 알아봅니다." metaCanonical="http://www.windowsazure.com/ko-kr/manage/windows/how-to-guides/custom-create-a-vm/" services="virtual-machines" documentationCenter="" title="" authors="kathydav" solutions="" manager="timlt" editor="tysonn" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/12/2014" ms.author="kathydav" />
 

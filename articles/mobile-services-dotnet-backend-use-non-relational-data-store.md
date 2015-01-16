@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Build a Service Using a Non-Relational Data Store" pageTitle="비관계형 데이터 저장소를 사용하여 서비스 구축 -Azure 모바일 서비스" metaKeywords="" description="Learn how to use a non-relational data store such as MongoDB or Azure Table Storage with your .NET based mobile service" metaCanonical="" services="" documentationCenter="Mobile" title="Build a Service Using a Non-Relational Data Store" authors="yavorg, mahender" solutions="" manager="dwrede" editor="mollybos" />
+﻿<properties urlDisplayName="Build a Service Using a Non-Relational Data Store" pageTitle="비관계형 데이터 저장소를 사용하여 서비스 구축 -Azure 모바일 서비스" metaKeywords="" description=".NET 기반 모바일 서비스에서 MongoDB 나 Azure 테이블 저장소와 같은 비관계형 데이터 저장소를 사용하는 방법에 대해 알아봅니다." metaCanonical="" services="" documentationCenter="Mobile" title="Build a Service Using a Non-Relational Data Store" authors="yavorg, mahender" solutions="" manager="dwrede" editor="mollybos" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="yavorg, mahender" />
 

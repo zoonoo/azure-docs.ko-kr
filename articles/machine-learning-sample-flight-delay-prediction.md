@@ -1,4 +1,4 @@
-﻿<properties title="Azure Machine Learning Sample: Flight delay prediction" pageTitle="기계 학습 샘플: 비행 지연 예측 | Azure" description="A sample Azure Machine Learning experiment to develop a model that predicts whether a scheduled passenger flight will be delayed by more than 15 minutes." metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun"  videoId="" scriptId="" />
+﻿<properties title="Azure Machine Learning Sample: Flight delay prediction" pageTitle="기계 학습 샘플: 비행 지연 예측 | Azure" description="예약된 항공편이 15분 넘게 지연될지 여부를 예측하는 모델을 개발할 샘플 Azure 기계 학습 실험입니다." metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun"  videoId="" scriptId="" />
 
 <tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/23/2014" ms.author="garye" />
 

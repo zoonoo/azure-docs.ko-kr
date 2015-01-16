@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Add paging to data" pageTitle="데이터에 페이징 추가(Xamarin Android) | 모바일 개발자 센터" metaKeywords="" description="Learn how to use paging to manage the amount of data returned to your Xamarin Android app from Mobile Services."  services="mobile-services" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Refine Mobile Services queries with paging" authors="donnam" manager="dwrede" />
+﻿<properties urlDisplayName="Add paging to data" pageTitle="데이터에 페이징 추가(Xamarin Android) | 모바일 개발자 센터" metaKeywords="" description="페이징을 사용하여 모바일 서비스에서 Xamarin Android 앱에 반환되는 데이터의 양을 관리하는 방법에 대해 알아봅니다."  services="mobile-services" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Refine Mobile Services queries with paging" authors="donnam" manager="dwrede" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-android" ms.devlang="dotnet" ms.topic="article" ms.date="09/25/2014" ms.author="donnam" />
 

@@ -1,4 +1,4 @@
-﻿<properties title="How to use end user analytics in Azure" pageTitle="최종 사용자 분석을 사용하는 방법" description="End user analytics for Microsoft Azure websites." authors="awills" manager="kamrani" />
+﻿<properties title="How to use end user analytics in Azure" pageTitle="최종 사용자 분석을 사용하는 방법" description="Microsoft Azure 웹 사이트에 대한 최종 사용자 분석입니다." authors="awills" manager="kamrani" />
 
 <tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-10-02" ms.author="awills" />
 

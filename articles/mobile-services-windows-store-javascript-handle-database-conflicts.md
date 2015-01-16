@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Optimistic concurrency" pageTitle="낙관적 동시성을 사용하여 데이터베이스 쓰기 충돌 처리(Windows 스토어) | 모바일 개발자 센터" metaKeywords="" writer="wesmc" description="Learn how to handle database write conflicts on both the server and in your Windows Store application." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Handling database write conflicts" authors="wesmc" manager="dwrede" />
+﻿<properties urlDisplayName="Optimistic concurrency" pageTitle="낙관적 동시성을 사용하여 데이터베이스 쓰기 충돌 처리(Windows 스토어) | 모바일 개발자 센터" metaKeywords="" writer="wesmc" description="서버와 Windows 스토어 응용 프로그램 둘 다에서 데이터베이스 쓰기 충돌을 처리하는 방법에 대해 알아봅니다." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Handling database write conflicts" authors="wesmc" manager="dwrede" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc" />
 

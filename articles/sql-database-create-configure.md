@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="How to create and configure an Azure SQL DB" pageTitle="Azure SQL 데이터베이스를 만들고 구성하는 방법 - Azure 자습서" metaKeywords="Azure SQL 데이터베이스 만들기, Azure SQL 데이터베이스 구성" description="How to create and configure an Azure SQL Database." metaCanonical="" services="sql-database" documentationCenter="" title="How to Create and Configure an Azure SQL Database" authors="sidneyh" solutions="" manager="jhubbard" editor="" />
+﻿<properties urlDisplayName="How to create and configure an Azure SQL DB" pageTitle="Azure SQL 데이터베이스를 만들고 구성하는 방법 - Azure 자습서" metaKeywords="Azure SQL 데이터베이스 만들기, Azure SQL 데이터베이스 구성" description="Azure SQL 데이터베이스를 만들고 구성하는 방법입니다." metaCanonical="" services="sql-database" documentationCenter="" title="How to Create and Configure an Azure SQL Database" authors="sidneyh" solutions="" manager="jhubbard" editor="" />
 
 <tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sidneyh" />
 

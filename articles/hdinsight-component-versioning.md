@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="HDInsight Hadoop Version" pageTitle="HDInsight의 Hadoop 클러스터 버전 내 새로운 기능 | Azure" metaKeywords="hdinsight, hadoop, hdinsight hadoop, hadoop azure" description="HDInsight supports multiple Hadoop cluster versions deployable at any time. See the Hadoop and HortonWorks Data Platform (HDP) distribution versions supported." services="hdinsight" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" title="What's new in the cluster versions provided by HDInsight?" authors="bradsev" />
+﻿<properties urlDisplayName="HDInsight Hadoop Version" pageTitle="HDInsight의 Hadoop 클러스터 버전 내 새로운 기능 | Azure" metaKeywords="hdinsight, hadoop, hdinsight hadoop, hadoop azure" description="HDInsight는 언제든 배포할 수 있는 여러 Hadoop 클러스터 버전을 지원합니다. 이 문서에서는 지원되는 Hadoop 및 HDP(HortonWorks Data Platform) 배포 버전에 대해 알아봅니다." services="hdinsight" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" title="What's new in the cluster versions provided by HDInsight?" authors="bradsev" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/14/2014" ms.author="bradsev" />
 

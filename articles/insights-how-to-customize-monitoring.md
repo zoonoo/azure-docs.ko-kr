@@ -1,4 +1,4 @@
-﻿<properties title="How to customize monitoring" pageTitle="모니터링을 사용자 지정하는 방법" description="Learn how to customize monitoring charts in Azure." authors="awills" manager="kamrani" />
+﻿<properties title="How to customize monitoring" pageTitle="모니터링을 사용자 지정하는 방법" description="Azure에서 모니터링 차트를 사용자 지정하는 방법에 대해 알아봅니다." authors="awills" manager="kamrani" />
 
 <tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-11-04" ms.author="awills" />
 

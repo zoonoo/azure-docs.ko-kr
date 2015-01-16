@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Notify Users xplat aspnet" pageTitle="알림 허브를 통해 사용자에게 크로스 플랫폼 알림 보내기(ASP.NET)" metaKeywords="" description="Learn how to use Notification Hubs templates to send, in a single request, a platform-agnostic notification that targets all platforms." metaCanonical="" services="notification-hubs" documentationCenter="" title="Send cross-platform notifications to users with Notification Hubs" authors="glenga" solutions="" manager="dwrede" editor="" />
+﻿<properties urlDisplayName="Notify Users xplat aspnet" pageTitle="알림 허브를 통해 사용자에게 크로스 플랫폼 알림 보내기(ASP.NET)" metaKeywords="" description="알림 허브 템플릿을 사용하여 모든 플랫폼을 대상으로 하는 플랫폼 중립적인 알림을 단일 요청으로 보내는 방법을 보여 줍니다." metaCanonical="" services="notification-hubs" documentationCenter="" title="Send cross-platform notifications to users with Notification Hubs" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="dotnet" ms.topic="article" ms.date="11/22/2014" ms.author="glenga" />
 # 알림 허브를 통해 사용자에게 크로스 플랫폼 알림 보내기

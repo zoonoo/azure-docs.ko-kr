@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Azure 웹 사이트, 클라우드 서비스 및 가상 컴퓨터 비교" metaKeywords="Cloud Services, Virtual Machines, Web Sites" description="Learn when to use Azure Websites, Cloud Services, and Virtual Machines for hosting web applications." metaCanonical="" services="web-sites,virtual-machines,cloud-services" documentationCenter="" title="Azure Websites, Cloud Services, and Virtual Machines comparison" authors="tdykstra" solutions="" manager="wpickett" editor="jimbe" />
+﻿<properties pageTitle="Azure 웹 사이트, 클라우드 서비스 및 가상 컴퓨터 비교" metaKeywords="Cloud Services, Virtual Machines, Web Sites" description="웹 응용 프로그램을 호스팅하는 데 Azure 웹 사이트, 클라우드 서비스 및 가상 컴퓨터를 사용하는 경우에 대해 알아봅니다." metaCanonical="" services="web-sites,virtual-machines,cloud-services" documentationCenter="" title="Azure Websites, Cloud Services, and Virtual Machines comparison" authors="tdykstra" solutions="" manager="wpickett" editor="jimbe" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/24/2014" ms.author="tdykstra" />
 

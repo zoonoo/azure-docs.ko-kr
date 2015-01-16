@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Create a Line-of-Business Application on Azure Websites" pageTitle="Azure 웹 사이트에서 LOB(기간 업무) 응용 프로그램 만들기" metaKeywords="Web Sites" description="This guide provides a technical overview of how to use Azure Websites to create intranet, line-of-business applications. This includes authentication strategies, service bus relay, and monitoring." umbracoNaviHide="0" disqusComments="1" editor="mollybos" manager="wpickett" title="Create a Line-of-Business Application on Azure Websites" authors="jroth" />
+﻿<properties urlDisplayName="Create a Line-of-Business Application on Azure Websites" pageTitle="Azure 웹 사이트에서 LOB(기간 업무) 응용 프로그램 만들기" metaKeywords="Web Sites" description="이 가이드에서는 Azure 웹 사이트를 사용하여 인트라넷 LOB(기간 업무) 응용 프로그램을 만드는 방법에 대한 기술적 개요를 제공합니다. 여기에는 인증 전략, 서비스 버스 릴레이 및 모니터링이 포함됩니다." umbracoNaviHide="0" disqusComments="1" editor="mollybos" manager="wpickett" title="Create a Line-of-Business Application on Azure Websites" authors="jroth" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/01/2014" ms.author="jroth" />
 

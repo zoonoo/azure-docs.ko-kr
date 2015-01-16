@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Use the Mobile Services .NET Backend" pageTitle="모바일 서비스 .NET 백 엔드 사용 - Azure 모바일 서비스" metaKeywords="" description="Learn the details of the .NET Backend programming model for Azure Mobile Services, including how to work with table data, APIs, authentication, and scheduled jobs" metaCanonical="" services="" documentationCenter="Mobile" title="Use the Mobile Services .NET Backend" authors="mahender" solutions="" manager="dwrede" editor="mollybos" />
+﻿<properties urlDisplayName="Use the Mobile Services .NET Backend" pageTitle="모바일 서비스 .NET 백 엔드 사용 - Azure 모바일 서비스" metaKeywords="" description="테이블 데이터, API, 인증 및 예약된 작업을 사용하는 방법을 비롯하여 Azure 모바일 서비스용 .NET 백 엔드 프로그래밍 모델에 대해 자세히 알아봅니다." metaCanonical="" services="" documentationCenter="Mobile" title="Use the Mobile Services .NET Backend" authors="mahender" solutions="" manager="dwrede" editor="mollybos" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/11/2014" ms.author="mahender" />
 # 모바일 서비스 .NET 백 엔드 사용

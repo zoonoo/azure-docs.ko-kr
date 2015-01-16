@@ -1,4 +1,4 @@
-﻿<properties title="Operating System Functionality Available to Applications on Azure Websites" pageTitle="Azure 웹 사이트의 응용 프로그램에서 사용할 수 있는 운영 체제 기능" description="Learn about the OS functionality available to web applications on Azure Websites" metaKeywords="Azure,Web Sites,web applications,operating system functionality" services="web-sites" solutions="web" documentationCenter="" authors="cephalin" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
+﻿<properties title="Operating System Functionality Available to Applications on Azure Websites" pageTitle="Azure 웹 사이트의 응용 프로그램에서 사용할 수 있는 운영 체제 기능" description="Azure 웹 사이트에서 웹 응용 프로그램에 사용할 수 있는 OS 기능에 대해 알아봅니다." metaKeywords="Azure,Web Sites,web applications,operating system functionality" services="web-sites" solutions="web" documentationCenter="" authors="cephalin" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/11/2014" ms.author="cephalin" />
 

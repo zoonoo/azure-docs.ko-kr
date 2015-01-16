@@ -1,4 +1,4 @@
-﻿<properties title="How to scale a website" pageTitle="웹 사이트를 크기 조정하는 방법" description="Learn how to scale your hosting plan in Azure." authors="stepsic" manager="kamrani" />
+﻿<properties title="How to scale a website" pageTitle="웹 사이트를 크기 조정하는 방법" description="Azure에서 호스팅 계획을 확장하는 방법에 대해 알아봅니다." authors="stepsic" manager="kamrani" />
 
 <tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-11-04" ms.author="stepsic" />
 

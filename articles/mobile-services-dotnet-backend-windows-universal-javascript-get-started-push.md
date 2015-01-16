@@ -1,4 +1,4 @@
-﻿<properties pageTitle=".NET 백 엔드 모바일 서비스를 사용하여 푸시 알림 시작" metaKeywords="" description="Learn how to use Azure Mobile Services and Notification Hubs to send push notifications to your universal Windows app." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="glenga" solutions="mobile" manager="dwrede" editor="" />
+<properties pageTitle=".NET 백 엔드 모바일 서비스를 사용하여 푸시 알림 시작" metaKeywords="" description="Azure 모바일 서비스와 알림 허브를 사용하여 범용 Windows 앱에 푸시 알림을 보내는 방법에 대해 알아봅니다." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="glenga" solutions="mobile" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/27/2014" ms.author="glenga" />
 
@@ -31,7 +31,7 @@
 <li><p><code>\services\mobileServices\scripts</code> 프로젝트 폴더로 이동하여 생성된 <<em>your_service_name</em>>.push.register.js 스크립트 파일을 공유 <code>\js</code> 폴더에 복사한 다음 개별 Windows 및 WindowsPhone 앱 프로젝트에서 모두 이 파일을 삭제합니다.</p></li> 
 <li><p>공유 <code>\js</code> 프로젝트 폴더에서 이 스크립트 파일을 열고 장치의 채널 URL을 알림 허브에 등록하는 <em>활성화된</em> 이벤트 수신기에서 코드를 찾은 다음 <strong>done</strong> promise 함수를 삭제합니다.</p>
 <p>이 자습서에서는 사용자 지정 API를 호출할 때가 아니라 새 항목을 삽입할 때 알림을 보냅니다.</p></li>
-<li><p>Windows 앱 프로젝트에서 default.html 파일을 열고 공유 <code>\js</code> 프로젝트 폴더에 대한 스크립트 파일 참조의 경로를 다음과 같이 변경합니다.</p><pre><code><script src="/js/your_service_name.push.register.js"></script></code></pre></li>
+<li><p>Windows 앱 프로젝트에서 default.html 파일을 열고 공유 <code>\js</code> 프로젝트 폴더에 대한 스크립트 파일 참조의 경로를 다음과 같이 변경합니다.</p><pre><code>&lt;script src="/js/your_service_name.push.register.js"&gt;&lt;/script&gt;</code></pre></li>
 <li><p>WindowsPhone 앱 프로젝트에 대해 이 단계를 반복합니다.</p>
 <p>이제 두 프로젝트가 모두 푸시 등록 스크립트의 공유 버전을 사용합니다.</p></li>
 </ol>
@@ -102,6 +102,6 @@ var todolistClient = new WindowsAzure.MobileServiceClient(
 
 [인증된 사용자에게 푸시 알림 보내기]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-push-notifications-app-users/
 
-[알림 허브란?]: /ko-kr/documentation/articles/notification-hubs-overview/
+[알림 허브 정의]: /ko-kr/documentation/articles/notification-hubs-overview/
 
-[Azure 모바일 서비스에 TML/JavaScript 클라이언트를 사용하는 방법]: /ko-kr/documentation/articles/mobile-services-html-how-to-use-client-library
+[Azure 모바일 서비스용 HTML/JavaScript 클라이언트를 사용하는 방법]: /ko-kr/documentation/articles/mobile-services-html-how-to-use-client-library

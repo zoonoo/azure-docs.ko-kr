@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="How to manage" pageTitle="웹 사이트를 관리하는 방법 - Microsoft Azure 서비스 관리" metaKeywords="Azure 포털 웹 사이트 관리" description="A reference for the Portal website management pages in Microsoft Azure. Details are provided for each website management page." metaCanonical="" services="web-sites" documentationCenter="" title="How to Manage Websites" authors="cephalin"  solutions="" writer="mwasson" manager="wpickett" editor=""  />
+﻿<properties urlDisplayName="How to manage" pageTitle="웹 사이트를 관리하는 방법 - Microsoft Azure 서비스 관리" metaKeywords="Azure 포털 웹 사이트 관리" description="Microsoft Azure의 포털 웹 사이트 관리 페이지에 대한 참조입니다. 각 웹 사이트 관리 페이지에 대한 자세한 정보가 제공됩니다." metaCanonical="" services="web-sites" documentationCenter="" title="How to Manage Websites" authors="cephalin"  solutions="" writer="mwasson" manager="wpickett" editor=""  />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/18/2014" ms.author="mwasson" />
 

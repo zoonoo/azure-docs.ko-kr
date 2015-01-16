@@ -1,4 +1,4 @@
-﻿<properties linkid="batch-technical-overview" urlDisplayName="" pageTitle="Azure 배치 기술 개요" metaKeywords="" description="Learn about the concepts, workflows, and scenarios of the Azure Batch service" metaCanonical="" services="batch" documentationCenter="" title="Azure Batch technical overview" authors="danlep" solutions="" manager="timlt" editor="tysonn" />
+﻿<properties linkid="batch-technical-overview" urlDisplayName="" pageTitle="Azure 배치 기술 개요" metaKeywords="" description="Azure 일괄 처리 서비스의 개념, 워크플로 및 시나리오에 대해 알아봅니다." metaCanonical="" services="batch" documentationCenter="" title="Azure Batch technical overview" authors="danlep" solutions="" manager="timlt" editor="tysonn" />
 
 <tags ms.service="batch" ms.workload="big-compute" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/27/2014" ms.author="danlep" />
 

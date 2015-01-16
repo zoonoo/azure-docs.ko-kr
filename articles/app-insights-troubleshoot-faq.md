@@ -1,4 +1,4 @@
-﻿<properties title="Troubleshooting and Q & A about Application Insights" pageTitle="Application Insights에 대한 문제 해결 및 질문과 대답" description="Tips and troubleshooting" metaKeywords="analytics monitoring" authors="awills"  manager="kamrani" />
+﻿<properties title="Troubleshooting and Q & A about Application Insights" pageTitle="Application Insights에 대한 문제 해결 및 질문과 대답" description="팁 및 문제 해결" metaKeywords="analytics monitoring" authors="awills"  manager="kamrani" />
 
 <tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-09-24" ms.author="awills" />
  

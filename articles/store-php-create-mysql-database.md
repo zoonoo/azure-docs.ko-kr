@@ -1,4 +1,4 @@
-﻿<properties title="How to create a MySQL Database in Azure" pageTitle="Azure에서 MySQL 데이터베이스를 만드는 방법" metaKeywords="MySQL Azure" description="Learn how to use ClearDB to create a MySQL database in an Azure data center." documentationCenter="PHP" services="" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
+﻿<properties title="How to create a MySQL Database in Azure" pageTitle="Azure에서 MySQL 데이터베이스를 만드는 방법" metaKeywords="MySQL Azure" description="ClearDB를 사용하여 Azure 데이터 센터에서 MySQL 데이터베이스를 만드는 방법에 대해 알아봅니다." documentationCenter="PHP" services="" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
 
 <tags ms.service="multiple" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="09/25/2014" ms.author="robmcm" />
 

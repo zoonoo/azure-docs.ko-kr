@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Service Bus Topics" pageTitle="서비스 버스 토픽을 사용하는 방법(Java)-Azure" metaKeywords="Azure 서비스 버스 토픽 시작, 서비스 토픽 시작, Azure 게시 구독 메시징, Azure 메시징 토픽 및 구독, 서비스 버스 토픽 Java" description="Learn how to use Service Bus topics and subscriptions in Azure. Code samples are written for Java applications." metaCanonical="" services="service-bus" documentationCenter="Java" title="How to Use Service Bus Topics/Subscriptions" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
+﻿<properties urlDisplayName="Service Bus Topics" pageTitle="서비스 버스 토픽을 사용하는 방법(Java)-Azure" metaKeywords="Azure 서비스 버스 토픽 시작, 서비스 토픽 시작, Azure 게시 구독 메시징, Azure 메시징 토픽 및 구독, 서비스 버스 토픽 Java" description="Azure에서 서비스 버스 토픽 및 구독을 사용하는 방법에 대해 알아봅니다. 코드 샘플은 Java 응용 프로그램용으로 작성되었습니다." metaCanonical="" services="service-bus" documentationCenter="Java" title="How to Use Service Bus Topics/Subscriptions" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
 
 <tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="robmcm" />
 

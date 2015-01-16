@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="MapReduce with Hadoop in HDInsight" pageTitle="HDInsight에서 Hadoop MapReduce 사용 | Azure" metaKeywords="" description="Learn how to use HDInsight to execute a simple Hadoop MapReduce job." metaCanonical="" services="hdinsight" documentationCenter="" title="Use Hadoop MapReduce in HDInsight" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
+﻿<properties urlDisplayName="MapReduce with Hadoop in HDInsight" pageTitle="HDInsight에서 Hadoop MapReduce 사용 | Azure" metaKeywords="" description="HDInsight를 사용하여 간단한 Hadoop MapReduce 작업을 실행하는 방법에 대해 알아봅니다." metaCanonical="" services="hdinsight" documentationCenter="" title="Use Hadoop MapReduce in HDInsight" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/12/2014" ms.author="jgao" />
 

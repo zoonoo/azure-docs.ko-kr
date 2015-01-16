@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="SharePoint on Azure" pageTitle="Azure 가상 컴퓨터에 SharePoint 2010 배포" metaKeywords="" description="Understand the supported scenarios for using SharePoint 2010 on Azure virtual machines." metaCanonical="" services="virtual-machines" documentationCenter="" title="SharePoint 2010 Deployment on Azure Virtual Machines" authors="josephd" solutions="" manager="timlt" editor="" />
+﻿<properties urlDisplayName="SharePoint on Azure" pageTitle="Azure 가상 컴퓨터에 SharePoint 2010 배포" metaKeywords="" description="Azure 가상 컴퓨터에서 SharePoint 2010을 사용할 수 있도록 지원되는 시나리오에 대해 설명합니다." metaCanonical="" services="virtual-machines" documentationCenter="" title="SharePoint 2010 Deployment on Azure Virtual Machines" authors="josephd" solutions="" manager="timlt" editor="" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/16/2014" ms.author="josephd" />
 

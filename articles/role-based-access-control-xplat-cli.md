@@ -1,4 +1,4 @@
-﻿<properties pageTitle="플랫폼 간 명령줄 인터페이스를 사용하여 역할 기반 액세스 제어 관리" metaKeywords="ResourceManager, Azure 플랫폼 간 명령줄 인터페이스, Azure 명령줄, azure 명령줄, azure cli, RBAC" description="Managing role-based access control with cross-platform command-line interface" metaCanonical="" services="" documentationCenter="" title="Managing Role-Based Access Control with Cross-Platform Command-Line Interface" authors="guayan" solutions="" manager="terrylan" editor="mollybos" />
+﻿<properties pageTitle="플랫폼 간 명령줄 인터페이스를 사용하여 역할 기반 액세스 제어 관리" metaKeywords="ResourceManager, Azure 플랫폼 간 명령줄 인터페이스, Azure 명령줄, azure 명령줄, azure cli, RBAC" description="플랫폼 간 명령줄 인터페이스를 사용하여 역할 기반 액세스 제어 관리" metaCanonical="" services="" documentationCenter="" title="Managing Role-Based Access Control with Cross-Platform Command-Line Interface" authors="guayan" solutions="" manager="terrylan" editor="mollybos" />
 
 <tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="11/03/2014" ms.author="guayan" />
 

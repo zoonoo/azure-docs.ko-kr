@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Resources" pageTitle="Azure 웹 사이트에서 디지털 마케팅 캠페인 만들기" metaKeywords="" description="This guide provides a technical overview of how to use Azure Websites to create digital marketing campaigns. This includes deployment, social media integration, scaling strategies, and monitoring." metaCanonical="" services="" documentationCenter="" title="Create a Digital Marketing Campaign on Azure Websites" authors="jroth" solutions="" manager="wpickett" editor="mollybos" />
+﻿<properties urlDisplayName="Resources" pageTitle="Azure 웹 사이트에서 디지털 마케팅 캠페인 만들기" metaKeywords="" description="이 가이드는 Azure 웹 사이트에서 디지털 마케팅 캠페인을 만드는 방법에 대한 기술적 개요를 제공합니다. 여기에는 배포, 소셜 미디어 통합, 확장 전략 및 모니터링이 포함됩니다." metaCanonical="" services="" documentationCenter="" title="Create a Digital Marketing Campaign on Azure Websites" authors="jroth" solutions="" manager="wpickett" editor="mollybos" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/01/2014" ms.author="jroth" />
 

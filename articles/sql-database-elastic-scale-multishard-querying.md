@@ -1,4 +1,4 @@
-﻿<properties title="Multi-Shard Querying" pageTitle="다중 분할된 데이터베이스 쿼리" description="Run queries across shards using Elastic Scale APIs." metaKeywords="sharding scaling, Azure SQL DB sharding, elastic scale, multi-shard, multishard, querying" services="sql-database" documentationCenter="" manager="jhubbard" authors="sidneyh@microsoft.com"/>
+﻿<properties title="Multi-Shard Querying" pageTitle="다중 분할된 데이터베이스 쿼리" description="탄력적인 확장 API를 사용하여 분할된 데이터베이스 간에 쿼리를 실행합니다." metaKeywords="sharding scaling, Azure SQL DB sharding, elastic scale, multi-shard, multishard, querying" services="sql-database" documentationCenter="" manager="jhubbard" authors="sidneyh@microsoft.com"/>
 
 <tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/02/2014" ms.author="sidneyh" />
 

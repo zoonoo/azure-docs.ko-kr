@@ -1,4 +1,4 @@
-﻿<properties title="Manage DocumentDB capacity and performance" pageTitle="DocumentDB 용량 및 성능 관리 | Azure" description="Learn how you can elastically scale DocumentDB to meet the performance and storage needs of your application." metaKeywords="" services="documentdb" solutions="data-management"  authors="bradsev" manager="jhubbard" editor="cgronlun"  videoId="" scriptId="" />
+﻿<properties title="Manage DocumentDB capacity and performance" pageTitle="DocumentDB 용량 및 성능 관리 | Azure" description="응용 프로그램의 성능 및 저장소 요구 사항을 충족하기 위해 탄력적으로 DocumentDB의 크기를 조정할 수 있는 방법에 대해 알아봅니다." metaKeywords="" services="documentdb" solutions="data-management"  authors="bradsev" manager="jhubbard" editor="cgronlun"  videoId="" scriptId="" />
 
 <tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="spelluru" />
 

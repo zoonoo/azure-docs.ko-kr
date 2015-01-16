@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Use New Relic to monitor Mobile Services" pageTitle="소스 제어에 서버 스크립트 저장 - Azure 모바일 서비스" metaKeywords="" description="Learn how to use the New Relic add-on to monitor your mobile service." metaCanonical="" disqusComments="1" umbracoNaviHide="0" documentationCenter="Mobile" title="Use New Relic to monitor Mobile Services" authors="new relic" manager="carolz" />
+﻿<properties urlDisplayName="Use New Relic to monitor Mobile Services" pageTitle="소스 제어에 서버 스크립트 저장 - Azure 모바일 서비스" metaKeywords="" description="New Relic 추가 기능을 사용하여 모바일 서비스를 모니터링하는 방법에 대해 알아봅니다." metaCanonical="" disqusComments="1" umbracoNaviHide="0" documentationCenter="Mobile" title="Use New Relic to monitor Mobile Services" authors="new relic" manager="carolz" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/25/2014" ms.author="stepsic" />
 

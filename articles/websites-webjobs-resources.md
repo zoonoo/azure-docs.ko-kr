@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Azure WebJob 권장 리소스" metaKeywords="Azure WebJob, Azure WebJobs SDK, Azure 저장소, Azure 큐, Azure 테이블, Azure 서비스 버스" description="Recommended resources for learning how to use Azure WebJobs and the Azure WebJobs SDK." metaCanonical="" services="web-sites,storage" documentationCenter=".NET" title="Azure WebJobs Recommended Resources" authors="tdykstra" solutions="" manager="wpickett" editor="jimbe" />
+﻿<properties pageTitle="Azure WebJob 권장 리소스" metaKeywords="Azure WebJob, Azure WebJobs SDK, Azure 저장소, Azure 큐, Azure 테이블, Azure 서비스 버스" description="Azure WebJobs 및 Azure WebJobs SDK를 사용하는 방법에 대해 설명하는 권장 리소스입니다." metaCanonical="" services="web-sites,storage" documentationCenter=".NET" title="Azure WebJobs Recommended Resources" authors="tdykstra" solutions="" manager="wpickett" editor="jimbe" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/27/2014" ms.author="tdykstra" />
 

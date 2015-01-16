@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="HDInsight Administration" pageTitle="HDInsight에서 Hadoop 클러스터 프로비전 | Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure" description="Learn how to provision clusters for Azure HDInsight using the management portal, PowerShell, or the command line." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" title="Provision Hadoop clusters in HDInsight" authors="jgao" />
+﻿<properties urlDisplayName="HDInsight Administration" pageTitle="HDInsight에서 Hadoop 클러스터 프로비전 | Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure" description="관리 포털, PowerShell 또는 명령줄을 사용하여 Azure HDInsight용 클러스터를 프로비전하는 방법에 대해 알아봅니다." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" title="Provision Hadoop clusters in HDInsight" authors="jgao" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/14/2014" ms.author="jgao" />
 

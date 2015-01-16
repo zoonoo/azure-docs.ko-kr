@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Get Started with Push Notifications" pageTitle="푸시 알림 시작(Xamarin.iOS) - 모바일 서비스" metaKeywords="" description="Learn how to use push notifications in Xamarin.iOS apps with Azure Mobile Services." metaCanonical="" disqusComments="0" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="yuaxu" manager="dwrede" services="mobile-services"/>
+<properties urlDisplayName="Get Started with Push Notifications" pageTitle="푸시 알림 시작(Xamarin.iOS) - 모바일 서비스" metaKeywords="" description="Azure 모바일 서비스와 함께 Xamarin.iOS 앱에서 푸시 알림을 사용하는 방법에 대해 알아봅니다." metaCanonical="" disqusComments="0" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="yuaxu" manager="dwrede" services="mobile-services"/>
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="Java" ms.topic="article" ms.date="10/20/2014" ms.author="yuaxu" />
 
@@ -70,7 +70,7 @@ APNS(Apple 푸시 알림 서비스)는 인증서를 사용하여 모바일 서�
    
     ![][104] 
    
-**Submit**를 클릭하면 아래와 같은 **Registration complete** 화면이 표시됩니다. **Done**을 클릭합니다.
+     **Submit**를 클릭하면 아래와 같은 **Registration complete** 화면이 표시됩니다. **Done**을 클릭합니다.
    
     ![][105]    
 
@@ -88,7 +88,7 @@ APNS(Apple 푸시 알림 서비스)는 인증서를 사용하여 모바일 서�
 
     "Add iOS Certificate" assistant가 표시됩니다.
    
-참고: 이 자습서에서는 개발 인증서를 사용합니다. 프로덕션 인증서를 등록할 때에도 동일한 프로세스가 사용됩니다. 모바일 서비스로 인증서를 업로드할 때 동일한 인증서 유형을 설정해야 합니다.
+    참고: 이 자습서에서는 개발 인증서를 사용합니다. 프로덕션 인증서를 등록할 때에도 동일한 프로세스가 사용됩니다. 모바일 서비스로 인증서를 업로드할 때 동일한 인증서 유형을 설정해야 합니다.
 
 5. **Choose File**을 클릭하고, 이전에 CSR 파일을 저장한 위치로 이동하고, **Generate**를 클릭합니다. 
 
@@ -102,7 +102,7 @@ APNS(Apple 푸시 알림 서비스)는 인증서를 사용하여 모바일 서�
 
     ![][9] 
 
-참고: 기본적으로 다운로드된 개발 증명서 파일은 이름이 <strong>aps_development.cer</strong>로 지정됩니다.
+    참고: 기본적으로 다운로드된 개발 증명서 파일은 이름이 <strong>aps_development.cer</strong>로 지정됩니다.
 
 7. 다운로드한 푸시 인증서 **aps_development.cer**를 두 번 클릭합니다.
 
@@ -261,7 +261,18 @@ APNS에 앱을 등록하고 프로젝트를 구성했으면 APNS와 통합되도
 
 8. **AppDelegeate**에 저장된 장치 토큰을 가져와서 추가될 **TodoItem**에 이 토큰을 저장하도록 **TodoListViewController**에서 **OnAdd** 동작을 수정합니다.
 
-€ 관리 포털
+        string deviceToken = ((AppDelegate)UIApplication.SharedApplication.Delegate).DeviceToken;
+
+        var newItem = new TodoItem() 
+        {
+            Text = itemText.Text, 
+            Complete = false,
+            DeviceToken = deviceToken
+        };
+
+이제 푸시 알림을 지원하도록 앱이 업데이트됩니다.
+
+## <a name="update-scripts"></a>관리 포털에서 등록된 삽입 스크립트 업데이트
 
 1. 관리 포털에서 **데이터** 탭을 클릭한 후 **TodoItem** 테이블을 클릭합니다. 
 

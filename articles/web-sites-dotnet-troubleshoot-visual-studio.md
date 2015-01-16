@@ -1,4 +1,4 @@
-﻿<properties title="Troubleshooting Azure Websites in Visual Studio" pageTitle="Visual Studio에서 Azure 웹 사이트 문제해결" metaKeywords="문제 해결 디버그 azure 웹 사이트 추적 로깅" description="Learn how to troubleshoot an Azure Website by using remote debugging, tracing, and logging tools that are built in to Visual Studio 2013." metaCanonical="" services="web-sites" documentationCenter=".NET" authors="tdykstra" manager="wpickett" solutions="" />
+﻿<properties title="Troubleshooting Azure Websites in Visual Studio" pageTitle="Visual Studio에서 Azure 웹 사이트 문제해결" metaKeywords="문제 해결 디버그 azure 웹 사이트 추적 로깅" description="Visual Studio 2013에서 기본 제공되는 원격 디버깅, 추적 및 로깅 도구를 사용하여 Azure 웹 사이트 문제를 해결하는 방법에 대해 알아봅니다." metaCanonical="" services="web-sites" documentationCenter=".NET" authors="tdykstra" manager="wpickett" solutions="" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/13/2014" ms.author="tdykstra" />
 

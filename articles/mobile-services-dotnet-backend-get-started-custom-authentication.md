@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Get started with custom authentication" pageTitle="사용자 지정 인증 시작(Android) | 모바일 개발자 센터" metaKeywords="" description="Learn how to authenticate users with a username and password." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Get started with custom authentication" authors="mahender" manager="dwrede" />
+﻿<properties urlDisplayName="Get started with custom authentication" pageTitle="사용자 지정 인증 시작(Android) | 모바일 개발자 센터" metaKeywords="" description="사용자 이름 및 암호를 사용하여 사용자를 인증하는 방법에 대해 알아봅니다." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Get started with custom authentication" authors="mahender" manager="dwrede" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="mahender" />
 

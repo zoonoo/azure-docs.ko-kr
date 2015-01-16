@@ -1,4 +1,4 @@
-﻿<properties title="Using Elastic Scale with Entity Framework" pageTitle="Entity Framework와 함께 탄력적인 확장 사용" description="Elastic Scale makes it easy to scale, Entity Framework is easy to use for coding databases " metaKeywords="Using Elastic Scale with Entity Framework, Azure SQL Database sharding, elastic scale, Entity Framework and Elastic Scale" services="sql-database" documentationCenter="" manager="jhubbard" authors="sidneyh@microsoft.com"/>
+﻿<properties title="Using Elastic Scale with Entity Framework" pageTitle="Entity Framework와 함께 탄력적인 확장 사용" description="탄력적인 확장은 확장을 용이하게 하고, Entity Framework는 데이터베이스를 코딩하는 데 쉽게 사용할 수 있습니다. " metaKeywords="Using Elastic Scale with Entity Framework, Azure SQL Database sharding, elastic scale, Entity Framework and Elastic Scale" services="sql-database" documentationCenter="" manager="jhubbard" authors="sidneyh@microsoft.com"/>
 
 <tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/02/2014" ms.author="sidneyh" />
 

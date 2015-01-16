@@ -1,4 +1,4 @@
-﻿<properties title="Azure Machine Learning Sample: Color quantization using K-Means clustering" pageTitle="기계 학습 샘플: K-평균 클러스터링을 사용한 색상 양자화 | Azure" description="A sample Azure Machine Learning experiment that evaluates using different K-Means clustering values for quantizing a color image." metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun"  videoId="" scriptId="" />
+﻿<properties title="Azure Machine Learning Sample: Color quantization using K-Means clustering" pageTitle="기계 학습 샘플: K-평균 클러스터링을 사용한 색상 양자화 | Azure" description="여러 가지 K-평균 클러스터링 값을 사용한 색상 이미지 양자화를 평가하는 샘플 Azure 기계 학습 실험입니다." metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun"  videoId="" scriptId="" />
 
 <tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/23/2014" ms.author="garye" />
 

@@ -1,4 +1,4 @@
-﻿<properties title="Common operations in the Machine Learning Recommendations API" pageTitle="기계 학습 권장 사항 API의 공통 작업 | Azure" description="Azure ML Recommendation Sample Application" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jaymathe" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties title="Common operations in the Machine Learning Recommendations API" pageTitle="기계 학습 권장 사항 API의 공통 작업 | Azure" description="Azure ML 권장 사항 샘플 응용 프로그램" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jaymathe" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
 
 <tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/14/2014" ms.author="jaymathe" /> 
 

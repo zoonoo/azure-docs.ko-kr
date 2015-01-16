@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Web w/ MySQL + FTP" pageTitle="MySQL 및 FTP를 사용한 PHP 웹 사이트 - Azure 자습서" metaKeywords="" description="A tutorial that demonstrates how to create a PHP website that stores data in MySQL and use FTP deployment to Azure." metaCanonical="" services="web-sites" documentationCenter="PHP" title="Create a PHP-MySQL Azure Website and Deploy Using FTP" authors="tomfitz" solutions="" manager="wpickett" editor="" />
+﻿<properties urlDisplayName="Web w/ MySQL + FTP" pageTitle="MySQL 및 FTP를 사용한 PHP 웹 사이트 - Azure 자습서" metaKeywords="" description="MySQL에 데이터를 저장하는 PHP 웹 사이트를 만들고 FTP를 사용하여 Azure에 배포하는 방법을 보여 주는 자습서입니다." metaCanonical="" services="web-sites" documentationCenter="PHP" title="Create a PHP-MySQL Azure Website and Deploy Using FTP" authors="tomfitz" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="11/14/2014" ms.author="tomfitz" />
 

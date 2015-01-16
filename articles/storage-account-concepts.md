@@ -1,4 +1,4 @@
-﻿<properties umbracoNaviHide="0" pageTitle="저장소 계정 개념 | Azure" metaKeywords="Azure storage, storage service, service, storage account, account, create storage account, create account" description="Learn about storage account concepts." urlDisplayName="How to: storage accounts" headerExpose="" footerExpose="" disqusComments="1" title="Storage Account Concepts" services="storage" authors="tamram" manager="adinah" />
+﻿<properties umbracoNaviHide="0" pageTitle="저장소 계정 개념 | Azure" metaKeywords="Azure storage, storage service, service, storage account, account, create storage account, create account" description="저장소 계정의 개념에 대해 알아봅니다." urlDisplayName="How to: storage accounts" headerExpose="" footerExpose="" disqusComments="1" title="Storage Account Concepts" services="storage" authors="tamram" manager="adinah" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="11/10/2014" ms.author="tamram" />
 

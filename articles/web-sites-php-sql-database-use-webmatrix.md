@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Web w/ SQL + WebMatrix" pageTitle="SQL 데이터베이스 및 WebMatrix를 사용한 PHP 웹 사이트 - Azure 자습서" metaKeywords="" description="A tutorial that demonstrates how to use the free WebMatrix IDE to create and deploy a PHP website that stores data in SQL Database." metaCanonical="" services="" documentationCenter="" title="Create and Deploy a PHP Website and SQL Database using WebMatrix" authors="tomfitz" solutions="" manager="wpickett" editor="mollybos" />
+﻿<properties urlDisplayName="Web w/ SQL + WebMatrix" pageTitle="SQL 데이터베이스 및 WebMatrix를 사용한 PHP 웹 사이트 - Azure 자습서" metaKeywords="" description="무료 WebMatrix IDE를 사용하여 SQL 데이터베이스에 데이터를 저장하는 PHP 웹 사이트를 만들고 배포하는 방법을 보여 주는 자습서입니다." metaCanonical="" services="" documentationCenter="" title="Create and Deploy a PHP Website and SQL Database using WebMatrix" authors="tomfitz" solutions="" manager="wpickett" editor="mollybos" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="11/17/2014" ms.author="tomfitz" />
 

@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Upload custom Java website" pageTitle="Azure에 사용자 지정 Java 웹 사이트 업로드" metaKeywords="" description="This tutorial shows you how to upload a custom Java website to Azure." metaCanonical="" services="web-sites" documentationCenter="Java" title="Upload a custom Java website to Azure" videoId="" scriptId="" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" />
+﻿<properties urlDisplayName="Upload custom Java website" pageTitle="Azure에 사용자 지정 Java 웹 사이트 업로드" metaKeywords="" description="이 자습서에서는 Azure에 사용자 지정 Java 웹 사이트를 업로드하는 방법을 보여 줍니다." metaCanonical="" services="web-sites" documentationCenter="Java" title="Upload a custom Java website to Azure" videoId="" scriptId="" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="robmcm" />
 

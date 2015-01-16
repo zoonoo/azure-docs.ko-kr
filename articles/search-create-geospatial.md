@@ -1,4 +1,4 @@
-﻿<properties title="Create a geospatial search solution using Azure Search" pageTitle="Azure 검색을 사용하여 지리 공간적 검색 앱 만들기" description="Create a geospatial search app using Bing and Azure Search" metaKeywords="" services="" solutions="" documentationCenter="" authors="Heidist" manager="mblythe" videoId="" scriptId="" />
+﻿<properties title="Create a geospatial search solution using Azure Search" pageTitle="Azure 검색을 사용하여 지리 공간적 검색 앱 만들기" description="Bing과 Azure 검색을 사용하여 지리 공간적 검색 앱 만들기" metaKeywords="" services="" solutions="" documentationCenter="" authors="Heidist" manager="mblythe" videoId="" scriptId="" />
 
 <tags ms.service="azure-search" ms.devlang="" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="" ms.date="09/23/2014" ms.author="heidist" />
 

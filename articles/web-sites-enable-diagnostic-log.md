@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Enable diagnostic logging" pageTitle="진단 로그 사용 - Azure 웹 사이트" metaKeywords="Azure 진단 웹 사이트, Azure 관리 포털 진단, Azure 진단, 웹 사이트 진단, 웹 사이트 디버그" description="Learn how to enable diagnostic logging and add instrumentation to your application, as well as how to access the information logged by Azure." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Enable diagnostic logging for Azure Websites" authors="larryfr" solutions="" manager="wpickett" editor="" />
+﻿<properties urlDisplayName="Enable diagnostic logging" pageTitle="진단 로그 사용 - Azure 웹 사이트" metaKeywords="Azure 진단 웹 사이트, Azure 관리 포털 진단, Azure 진단, 웹 사이트 진단, 웹 사이트 디버그" description="진단 로그를 사용하도록 설정하는 방법, 응용 프로그램에 계측을 추가하는 방법 및 Azure에서 기록된 정보에 액세스하는 방법에 대해 알아봅니다." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Enable diagnostic logging for Azure Websites" authors="larryfr" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 

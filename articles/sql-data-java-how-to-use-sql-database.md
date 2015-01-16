@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="SQL Database" pageTitle="SQL Azure(Java)를 사용하는 방법 - Azure 기능 가이드" metaKeywords="" description="Learn how to use the Azure SQL Database from Java code. " metaCanonical="" services="sql-database" documentationCenter="Java" title="How to Use Azure SQL Database in Java" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
+﻿<properties urlDisplayName="SQL Database" pageTitle="SQL Azure(Java)를 사용하는 방법 - Azure 기능 가이드" metaKeywords="" description="Java 코드에서 Azure SQL 데이터베이스를 사용하는 방법에 대해 알아봅니다. " metaCanonical="" services="sql-database" documentationCenter="Java" title="How to Use Azure SQL Database in Java" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
 
 <tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="robmcm" />
 

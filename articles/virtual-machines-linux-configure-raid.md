@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Configure RAID on Linux" pageTitle="Azure에서 Linux를 실행하는 가상 컴퓨터에 소프트웨어 RAID 구성" metaKeywords="raid in Azure, mdadm Azure, stripe disks in Azure" description="Learn how to use mdadm to configure RAID on Linux in Azure." metaCanonical="http://www.windowsazure.com/ko-kr/manage/linux/articles/virtual-machines-linux-configure-raid" services="virtual-machines" documentationCenter="" title="" authors="szark" solutions="" writer="szark" manager="timlt" editor=""  />
+﻿<properties urlDisplayName="Configure RAID on Linux" pageTitle="Azure에서 Linux를 실행하는 가상 컴퓨터에 소프트웨어 RAID 구성" metaKeywords="raid in Azure, mdadm Azure, stripe disks in Azure" description="mdadm을 사용하여 Azure에서 Linux에 대해 RAID를 구성하는 방법에 대해 알아봅니다." metaCanonical="http://www.windowsazure.com/ko-kr/manage/linux/articles/virtual-machines-linux-configure-raid" services="virtual-machines" documentationCenter="" title="" authors="szark" solutions="" writer="szark" manager="timlt" editor=""  />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="09/18/2014" ms.author="szark" />
 

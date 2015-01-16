@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="About Azure Storage Accounts" pageTitle="Azure 저장소 계정 정보 | Microsoft Azure" metaKeywords="" description="Learn about working with Azure storage accounts." metaCanonical="" services="storage" documentationCenter="" title="About Azure Storage Accounts" authors="tamram" solutions="" manager="adinah" />
+﻿<properties urlDisplayName="About Azure Storage Accounts" pageTitle="Azure 저장소 계정 정보 | Microsoft Azure" metaKeywords="" description="Azure 저장소 계정을 사용하는 방법에 대해 알아봅니다." metaCanonical="" services="storage" documentationCenter="" title="About Azure Storage Accounts" authors="tamram" solutions="" manager="adinah" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/17/2014" ms.author="tamram" />
 

@@ -1,4 +1,4 @@
-﻿<properties title="Use custom activities in an Azure Data Factory pipeline" pageTitle="Azure 데이터 팩터리 파이프라인에서 사용자 지정 작업 사용" description="Learn how to create custom activities and use them in an Azure Data Factory pipeline." metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
+﻿<properties title="Use custom activities in an Azure Data Factory pipeline" pageTitle="Azure 데이터 팩터리 파이프라인에서 사용자 지정 작업 사용" description="사용자 지정 작업을 만들고 Azure 데이터 팩터리 파이프라인에서 사용하는 방법에 대해 알아봅니다." metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
 
 <tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="spelluru" />
 

@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Scale mobile services backed by Azure SQL Database" pageTitle="Azure SQL 데이터베이스에서 지원되는 모바일 서비스 크기 조정 - Azure 모바일 서비스" metaKeywords="" description="Learn how to diagnose and fix scalability issues in your mobile services backed by SQL Database" metaCanonical="" services="" documentationCenter="Mobile" title="Scale mobile services backed by Azure SQL Database" authors="donnam" solutions="" manager="dwrede" editor="mollybos" />
+﻿<properties urlDisplayName="Scale mobile services backed by Azure SQL Database" pageTitle="Azure SQL 데이터베이스에서 지원되는 모바일 서비스 크기 조정 - Azure 모바일 서비스" metaKeywords="" description="SQL 데이터베이스에서 지원하는 모바일 서비스에서 확장성 문제를 진단 및 해결하는 방법에 대해 알아봅니다." metaCanonical="" services="" documentationCenter="Mobile" title="Scale mobile services backed by Azure SQL Database" authors="donnam" solutions="" manager="dwrede" editor="mollybos" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/11/2014" ms.author="donnam" />
 # Azure SQL 데이터베이스에서 지원되는 모바일 서비스 크기 조정

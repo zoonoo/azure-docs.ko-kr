@@ -1,4 +1,4 @@
-﻿<properties title="Hybrid Connection: Connect an Azure Website to an On-Premises Resource" pageTitle="하이브리드 연결: Azure 웹 사이트를 온-프레미스 리소스에 연결(영문)" description="Create a connection between an Azure website and an on-premises resource that uses a static TCP port" metaKeywords="" services="web-sites" solutions="web" documentationCenter="" authors="cephalin" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
+﻿<properties title="Hybrid Connection: Connect an Azure Website to an On-Premises Resource" pageTitle="하이브리드 연결: Azure 웹 사이트를 온-프레미스 리소스에 연결(영문)" description="Azure 웹사이트와 정적 TCP 포트를 사용하는 온-프레미스 리소스 간의 연결 만들기" metaKeywords="" services="web-sites" solutions="web" documentationCenter="" authors="cephalin" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/24/2014" ms.author="cephalin" />
 

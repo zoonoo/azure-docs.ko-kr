@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="How to create" pageTitle="저장소 계정을 만들거나, 관리하거나, 삭제하는 방법 | Azure" metaKeywords="" description="Learn how to create, manage, or delete a storage account in the Azure management portal." metaCanonical="" services="storage" documentationCenter="" title="How To Create a Storage Account" solutions="" authors="tamram" manager="adinah" />
+﻿<properties urlDisplayName="How to create" pageTitle="저장소 계정을 만들거나, 관리하거나, 삭제하는 방법 | Azure" metaKeywords="" description="Azure 관리 포털에서 저장소 계정을 만들거나, 관리하거나, 삭제하는 방법에 대해 알아봅니다." metaCanonical="" services="storage" documentationCenter="" title="How To Create a Storage Account" solutions="" authors="tamram" manager="adinah" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/17/2014" ms.author="tamram" />
 

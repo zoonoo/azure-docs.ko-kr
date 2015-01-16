@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Get Started with Data" pageTitle="데이터 작업 시작(Windows 스토어) | 모바일 개발자 센터" metaKeywords="" description="Learn how to get started using Mobile Services to leverage data in your Windows Store app." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Get Started with Data" pageTitle="데이터 작업 시작(Windows 스토어) | 모바일 개발자 센터" metaKeywords="" description="모바일 서비스를 사용하여 Windows 스토어 앱에서 데이터를 활용하는 방법에 대해 알아봅니다." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/19/2014" ms.author="glenga" />
 
@@ -135,7 +135,7 @@
   
 <!-- Anchors. -->
 
-[Windows 스토어 앱 가져오기]: #download-app
+[Get the Windows Store app]: #download-app
 [Visual Studio에서 모바일 서비스 만들기]: #create-service
 [저장소로 사용할 데이터 테이블 추가]: #add-table
 [모바일 서비스를 사용하도록 앱 업데이트]: #update-app

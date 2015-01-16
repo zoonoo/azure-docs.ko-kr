@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Authorize Users in Scripts (Xamarin.iOS)" pageTitle="스크립트로 사용자 권한 부여(Xamarin.iOS) - Azure 모바일 서비스" metaKeywords="Azure 사용자 권한 부여, Xamarin.iOS 스크립트 권한 부여, 모바일 서비스 권한 부여" description="Learn how to authorize users with scripts in your Azure Mobile Services app for Xamarin.iOS." metaCanonical="" disqusComments="1" umbracoNaviHide="1" title="Use scripts to authorize users in Mobile Services" documentationCenter="Mobile" authors="donnam" manager="dwrede" />
+﻿<properties urlDisplayName="Authorize Users in Scripts (Xamarin.iOS)" pageTitle="스크립트로 사용자 권한 부여(Xamarin.iOS) - Azure 모바일 서비스" metaKeywords="Azure 사용자 권한 부여, Xamarin.iOS 스크립트 권한 부여, 모바일 서비스 권한 부여" description="Xamarin.iOS 용 Azure 모바일 서비스 앱에서 스크립트를 통해 사용자에게 권한을 부여하는 방법에 대해 알아봅니다." metaCanonical="" disqusComments="1" umbracoNaviHide="1" title="Use scripts to authorize users in Mobile Services" documentationCenter="Mobile" authors="donnam" manager="dwrede" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="article" ms.date="11/11/2014" ms.author="donnam" />
 

@@ -1,4 +1,4 @@
-﻿<properties pageTitle="HTML 5 앱에 대해 Azure 모바일 서비스 시작" metaKeywords="" description="Follow this tutorial to get started using Azure Mobile Services for HTML development. " metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="HTML 5 앱에 대해 Azure 모바일 서비스 시작" metaKeywords="" description="이 자습서에 따라 HTML 개발을 위해 Azure 모바일 서비스 사용을 시작할 수 있습니다. " metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="hero-article" ms.date="11/21/2014" ms.author="glenga" />
 

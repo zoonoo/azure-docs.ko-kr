@@ -1,4 +1,4 @@
-﻿<properties title="Securing an Azure Website" pageTitle="Azure 웹 사이트 보안 유지" description="Learn how to secure an Azure Website." metaKeywords="Azure web site security, azure web site https, azure web site ftps, azure web site ssl, azure web site ssl rewrite" services="web-sites" solutions="" documentationCenter="web" authors="larryfr" videoId="" scriptId="" manager="wpickett" />
+﻿<properties title="Securing an Azure Website" pageTitle="Azure 웹 사이트 보안 유지" description="Azure 웹 사이트의 보안을 유지하는 방법에 대해 알아봅니다." metaKeywords="Azure web site security, azure web site https, azure web site ftps, azure web site ssl, azure web site ssl rewrite" services="web-sites" solutions="" documentationCenter="web" authors="larryfr" videoId="" scriptId="" manager="wpickett" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 

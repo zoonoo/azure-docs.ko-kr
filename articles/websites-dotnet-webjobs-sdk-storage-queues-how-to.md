@@ -1,4 +1,4 @@
-﻿<properties linkid="" pageTitle="WebJobs SDK를 사용하여 Azure 큐 저장소 작업을 하는 방법" metaKeywords="WebJobs SDK Azure 큐 저장소 .NET C#" description="Learn how to work with Azure queue storage in the WebJobs SDK. Create and delete queues; insert, peek, get, and delete queue messages, and more." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="web-sites,storage" documentationCenter=".NET" title="How to work with Azure queue storage using the WebJobs SDK" authors="tdykstra" manager="wpickett" editor="jimbe" />
+﻿<properties linkid="" pageTitle="WebJobs SDK를 사용하여 Azure 큐 저장소 작업을 하는 방법" metaKeywords="WebJobs SDK Azure 큐 저장소 .NET C#" description="WebJobs SDK를 사용하여 Azure 큐 저장소 작업을 하는 방법에 대해 알아봅니다. 큐 만들기 및 삭제, 큐 메시지 삽입, 미리 보기, 가져오기 및 삭제 등의 작업을 알아봅니다." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="web-sites,storage" documentationCenter=".NET" title="How to work with Azure queue storage using the WebJobs SDK" authors="tdykstra" manager="wpickett" editor="jimbe" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="10/13/2014" ms.author="tdykstra" />
 

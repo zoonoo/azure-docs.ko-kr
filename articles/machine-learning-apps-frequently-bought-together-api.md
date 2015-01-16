@@ -1,4 +1,4 @@
-﻿<properties title="Machine Learning example app: Frequently Bought Together" pageTitle="기계 학습 예제 앱: 자주 함께 구매됨 | Azure" description="A Machine Learning web service that performs online shopping cart analysis to produce product recommendations of items frequently bought together from historical transactions provided by the user." metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="coromt" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties title="Machine Learning example app: Frequently Bought Together" pageTitle="기계 학습 예제 앱: 자주 함께 구매됨 | Azure" description="온라인 쇼핑 카트 분석을 수행하여 사용자가 제공한 기록 트랜잭션의 자주 함께 구매한 항목에 대한 제품 추천을 생성하는 기계 학습 웹 서비스입니다." metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="coromt" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
 
 <tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/17/2014" ms.author="coromt" /> 
 

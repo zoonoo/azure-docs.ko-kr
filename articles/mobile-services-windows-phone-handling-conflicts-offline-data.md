@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Handle Conflicts with Offline Data" pageTitle="모바일 서비스에서 오프라인 데이터를 사용하여 충돌 처리(Windows Phone) | 모바일 개발자 센터" metaKeywords="" description="Learn how to use Azure Mobile Services handle conflicts when syncing offline data in your Windows phone application" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Handling conflicts with offline data in Mobile Services" authors="wesmc" manager="dwrede" />
+﻿<properties urlDisplayName="Handle Conflicts with Offline Data" pageTitle="모바일 서비스에서 오프라인 데이터를 사용하여 충돌 처리(Windows Phone) | 모바일 개발자 센터" metaKeywords="" description="Windows Phone 응용 프로그램에서 오프라인 데이터를 동기화할 때 Azure 모바일 서비스를 사용하여 충돌을 처리하는 방법에 대해 알아봅니다." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Handling conflicts with offline data in Mobile Services" authors="wesmc" manager="dwrede" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc" />
 

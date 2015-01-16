@@ -1,4 +1,4 @@
-﻿<properties title="Splitting and Merging with Elastic Scale" pageTitle="탄력적인 확장을 사용하는 분할 및 병합" description="Explains how to manipulate shards and move data via a self-hosted service using Elastic Scale APIs." metaKeywords="sharding scaling, Azure SQL Database sharding, elastic scale, splitting and merging elastic scale" services="sql-database" documentationCenter="" manager="jhubbard" authors="sidneyh@microsoft.com"/>
+﻿<properties title="Splitting and Merging with Elastic Scale" pageTitle="탄력적인 확장을 사용하는 분할 및 병합" description="탄력적인 확장 API를 사용하여 자체 호스팅되는 서비스를 통해 분할된 데이터베이스를 조작하고 데이터를 이동하는 방법에 대해 설명합니다." metaKeywords="sharding scaling, Azure SQL Database sharding, elastic scale, splitting and merging elastic scale" services="sql-database" documentationCenter="" manager="jhubbard" authors="sidneyh@microsoft.com"/>
 
 <tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/02/2014" ms.author="sidneyh" />
 

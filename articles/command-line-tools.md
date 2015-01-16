@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Command-Line Tools" pageTitle="Mac 및 Linux용 Azure 명령줄 도구" metaKeywords="Azure command-line, Azure tools Mac, Azure tools Linux" description="Learn about using the command-line tool for Mac and Linux in Azure." metaCanonical="" services="web-sites,virtual-machines,mobile-services,cloud-services" documentationCenter="" title="" authors="carolz" solutions="" manager="need to identify contact" editor="" />
+﻿<properties urlDisplayName="Command-Line Tools" pageTitle="Mac 및 Linux용 Azure 명령줄 도구" metaKeywords="Azure command-line, Azure tools Mac, Azure tools Linux" description="Azure에서 Mac 및 Linux용 명령줄 도구를 사용하는 방법에 대해 알아봅니다." metaCanonical="" services="web-sites,virtual-machines,mobile-services,cloud-services" documentationCenter="" title="" authors="carolz" solutions="" manager="need to identify contact" editor="" />
 
 <tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="carolz" />
 

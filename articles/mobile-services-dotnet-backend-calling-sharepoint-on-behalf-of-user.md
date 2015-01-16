@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Access SharePoint on behalf of the user" pageTitle="사용자 대신 SharePoint 액세스 | 모바일 개발자 센터" metaKeywords="" description="Learn how to make calls to SharePoint on behalf of the user" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Access SharePoint on behalf of the user" authors="mahender" manager="dwrede" />
+﻿<properties urlDisplayName="Access SharePoint on behalf of the user" pageTitle="사용자 대신 SharePoint 액세스 | 모바일 개발자 센터" metaKeywords="" description="사용자를 대신해 SharePoint를 호출하는 방법에 대해 알아봅니다." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Access SharePoint on behalf of the user" authors="mahender" manager="dwrede" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="mahender" />
 

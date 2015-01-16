@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Use WebJobs to run background tasks in Microsoft Azure Websites" pageTitle="WebJob을 사용하여 Microsoft Azure 웹 사이트에서 백그라운드 작업 실행" metaKeywords="Microsoft Azure 웹 사이트, WebJob, 백그라운드 작업" description="Learn how to run background tasks in Microsoft Azure Websites." metaCanonical="" services="web-sites" documentationCenter="" title="Use WebJobs to run background tasks in Microsoft Azure Websites" authors="cephalin"  solutions="" writer="timamm" manager="wpickett" editor="mollybos"  />
+﻿<properties urlDisplayName="Use WebJobs to run background tasks in Microsoft Azure Websites" pageTitle="WebJob을 사용하여 Microsoft Azure 웹 사이트에서 백그라운드 작업 실행" metaKeywords="Microsoft Azure 웹 사이트, WebJob, 백그라운드 작업" description="Microsoft Azure 웹 사이트에서 백그라운드 작업을 실행하는 방법에 대해 알아봅니다." metaCanonical="" services="web-sites" documentationCenter="" title="Use WebJobs to run background tasks in Microsoft Azure Websites" authors="cephalin"  solutions="" writer="timamm" manager="wpickett" editor="mollybos"  />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/12/2014" ms.author="cephalin" />
 

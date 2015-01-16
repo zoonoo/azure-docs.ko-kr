@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="How to create and provision" pageTitle="Azure SQL 데이터베이스 시작 - Azure" metaKeywords="" description="Get started creating and managing SQL Databases in Azure." metaCanonical="" services="sql-database" documentationCenter="" title="Getting Started with Azure SQL Database" authors="jeffryg"  solutions="" writer="" manager="jeffreyg" editor="tysonn"  />
+﻿<properties urlDisplayName="How to create and provision" pageTitle="Azure SQL 데이터베이스 시작 - Azure" metaKeywords="" description="Azure에서 SQL 데이터베이스 만들기와 관리를 시작하는 방법에 대해 알아봅니다." metaCanonical="" services="sql-database" documentationCenter="" title="Getting Started with Azure SQL Database" authors="jeffryg"  solutions="" writer="" manager="jeffreyg" editor="tysonn"  />
 
 <tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/04/2014" ms.author="jeffreyg" />
 
@@ -654,7 +654,7 @@ SQL 데이터베이스 및 관리 포털에 익숙해졌으므로, SQL Server �
 
 * [SQL 데이터베이스로 데이터베이스 마이그레이션](http://msdn.microsoft.com/ko-kr/library/windowsazure/ee730904.aspx)
 * [SQL 데이터베이스에서 데이터베이스 복사](http://msdn.microsoft.com/ko-kr/library/windowsazure/ff951624.aspx)
-* [Azure 가상 컴퓨터에 SQL Server 데이터베이스 배포](http://msdn.microsoft.com/ko-kr/library/dn195938(v=sql.120).aspx)
+* [Azure 가상 컴퓨터에 SQL Server 데이터베이스 배포](http://msdn.microsoft.com/ko-kr/library/dn195938.aspx)
 
 
 

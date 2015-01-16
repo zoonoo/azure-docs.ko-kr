@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Use root privileges" pageTitle="Azure의 Linux 가상 컴퓨터에서 루트 권한 사용" metaKeywords="" description="Learn how to use root privileges on a Linux virtual machine in Azure." metaCanonical="" services="virtual-machines" documentationCenter="" title="Using root privileges on Linux virtual machines in Azure" authors="szarkos" solutions="" manager="timlt" editor="" />
+﻿<properties urlDisplayName="Use root privileges" pageTitle="Azure의 Linux 가상 컴퓨터에서 루트 권한 사용" metaKeywords="" description="Azure의 Linux 가상 컴퓨터에서 루트 권한을 사용하는 방법에 대해 알아봅니다." metaCanonical="" services="virtual-machines" documentationCenter="" title="Using root privileges on Linux virtual machines in Azure" authors="szarkos" solutions="" manager="timlt" editor="" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="11/18/2014" ms.author="szark" />
 

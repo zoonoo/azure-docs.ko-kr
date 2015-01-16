@@ -1,4 +1,4 @@
-﻿<properties title="Consistency levels in DocumentDB" pageTitle="DocumentDB의 일관성 수준" description="DocumentDB has four consistency levels with associated performance levels to help application developers make predictable consistency-availability-latency trade-offs." metaKeywords="Optional" services="documentdb" solutions="data-management" authors="bradsev" manager="jhubbard" editor="cgronlun" videoId="Optional" scriptId="Optional" />
+﻿<properties title="Consistency levels in DocumentDB" pageTitle="DocumentDB의 일관성 수준" description="DocumentDB에는 일관성-가용성-대기 시간 간의 상충 관계를 예측하는 데 도움이 되는 네 가지 일관성 수준이 성능 수준과 연결되어 있습니다." metaKeywords="Optional" services="documentdb" solutions="data-management" authors="bradsev" manager="jhubbard" editor="cgronlun" videoId="Optional" scriptId="Optional" />
 
 <tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="spelluru" />
 

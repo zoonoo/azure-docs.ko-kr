@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="" pageTitle="공유 액세스 서명: SAS 모델 이해 | Microsoft Azure" metaKeywords="Azure blob, Azure table, Azure queue, shared access signatures" description="Learn about delegating access to blob, queue, and table resources with shared access signatures" metaCanonical="" services="storage" documentationCenter="" title="Part 1: Understanding the SAS Model" solutions="" authors="tamram" manager="adinah" />
+﻿<properties urlDisplayName="" pageTitle="공유 액세스 서명: SAS 모델 이해 | Microsoft Azure" metaKeywords="Azure blob, Azure table, Azure queue, shared access signatures" description="공유 액세스 서명을 사용하여 Blob, 큐 및 테이블 리소스 액세스 권한을 위임하는 방법에 대해 알아봅니다." metaCanonical="" services="storage" documentationCenter="" title="Part 1: Understanding the SAS Model" solutions="" authors="tamram" manager="adinah" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/10/2014" ms.author="tamram" />
 

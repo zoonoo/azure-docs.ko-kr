@@ -1,4 +1,4 @@
-﻿<properties title="Java create account" pageTitle="Java 계정 만들기" metaKeywords="" description="Create an account on Azure." documentationCenter="Java" services="" solutions="" manager="wpickett" editor="mollybos" authors="robmcm" videoId="" scriptId="" />
+﻿<properties title="Java create account" pageTitle="Java 계정 만들기" metaKeywords="" description="Azure에서 계정을 만듭니다." documentationCenter="Java" services="" solutions="" manager="wpickett" editor="mollybos" authors="robmcm" videoId="" scriptId="" />
 
 <tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="robmcm" />
 

@@ -1,4 +1,4 @@
-﻿<properties title="Search diagnostic logs with Application Insights" pageTitle="진단 로그 검색" description="Search logs generated with Trace, NLog, or Log4Net." metaKeywords="analytics web test" authors="awills"  manager="kamrani" />
+﻿<properties title="Search diagnostic logs with Application Insights" pageTitle="진단 로그 검색" description="추적, NLog 또는 Log4Net을 사용하여 생성된 로그를 검색합니다." metaKeywords="analytics web test" authors="awills"  manager="kamrani" />
 
 <tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-09-24" ms.author="awills" />
  

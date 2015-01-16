@@ -1,4 +1,4 @@
-﻿<properties pageTitle="서비스 쪽 권한 부여(iOS) | 모바일 개발자 센터" metaKeywords="" description="Learn how to authorize users in the .NET backend of Azure Mobile Services." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Service-side authorization of Mobile Services users" authors="krisragh" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="서비스 쪽 권한 부여(iOS) | 모바일 개발자 센터" metaKeywords="" description="Azure 모바일 서비스의 .NET 백 엔드에서 사용자에게 권한을 부여하는 방법에 대해 알아봅니다." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Service-side authorization of Mobile Services users" authors="krisragh" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="krisragh" />
 

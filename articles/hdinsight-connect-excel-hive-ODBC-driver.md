@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Connect Excel to HDInsight" pageTitle="Hive ODBC 드라이버로 Hadoop에 Excel 연결 | Azure" metaKeywords="" description="Learn how to set up and use the Microsoft Hive ODBC driver for Excel to query data in an HDInsight cluster." metaCanonical="" services="hdinsight" documentationCenter="" title="Connect Excel to Hadoop with the Microsoft Hive ODBC Driver" authors="bradsev" solutions="" manager="paulettm" editor="cgronlun" />
+﻿<properties urlDisplayName="Connect Excel to HDInsight" pageTitle="Hive ODBC 드라이버로 Hadoop에 Excel 연결 | Azure" metaKeywords="" description="Excel용 Microsoft Hive ODBC 드라이버를 설정하고 HDInsight 클러스터에서 데이터를 쿼리하는 데 사용하는 방법에 대해 알아봅니다." metaCanonical="" services="hdinsight" documentationCenter="" title="Connect Excel to Hadoop with the Microsoft Hive ODBC Driver" authors="bradsev" solutions="" manager="paulettm" editor="cgronlun" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/10/2014" ms.author="bradsev" />
 

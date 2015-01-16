@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Manage Assets in Media Services" pageTitle="미디어 서비스에서 자산을 관리하는 방법 - Azure" metaKeywords="" description="Learn how to manage assets on Media Services. You can also manage jobs, tasks, access policies, locators, and more. Code samples are written in C# and use the Media Services SDK for .NET." metaCanonical="" services="media-services" documentationCenter="" title="How to: Manage Assets in storage" authors="juliako" solutions="" manager="dwrede" editor="" />
+﻿<properties urlDisplayName="Manage Assets in Media Services" pageTitle="미디어 서비스에서 자산을 관리하는 방법 - Azure" metaKeywords="" description="미디어 서비스에서 자산을 관리하는 방법에 대해 알아봅니다. 또한 작업을 관리하고 정책과 로케이터에 액세스하는 방법에 대해서도 설명합니다. 코드 샘플은 C#으로 작성되었으며 Media Services SDK for .NET을 사용합니다." metaCanonical="" services="media-services" documentationCenter="" title="How to: Manage Assets in storage" authors="juliako" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako" />
 

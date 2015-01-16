@@ -1,5 +1,5 @@
 ﻿
-<properties title="API basics for Azure Batch" pageTitle="Azure 배치에 대한 API 기본 사항" description="Concepts to introduce developers to the Azure Batch APIs and Batch service" metaKeywords="" services="batch" solutions="" documentationCenter=".NET" authors="yidingz, karran.batta" videoId="" scriptId="" manager="timlt" />
+<properties title="API basics for Azure Batch" pageTitle="Azure 배치에 대한 API 기본 사항" description="개발자에게 Azure 일괄 처리 API 및 일괄 처리 서비스를 소개하는 개념" metaKeywords="" services="batch" solutions="" documentationCenter=".NET" authors="yidingz, karran.batta" videoId="" scriptId="" manager="timlt" />
 
 <tags ms.service="batch" ms.devlang="multiple" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="big-compute" ms.date="10/27/2014" ms.author="yidingz, karran.batta" />
 

@@ -1,4 +1,4 @@
-<properties linkid="dev-nodejs-enablesslworker" urlDisplayName="Enable SSL worker role" pageTitle="Configure SSL for a cloud service (Node.js) worker role" metaKeywords="Node.js Azure SSL, Node.js Azure, SSL worker role" description="" metaCanonical="" services="cloud-services" documentationCenter="nodejs" title="Configuring SSL for a Node.js Application in an Azure Worker Role" authors="larryfr" solutions="" manager="" editor="" />
+<properties linkid="dev-nodejs-enablesslworker" urlDisplayName="Enable SSL worker role" pageTitle="클라우드 서비스(Node.js) 작업자 역할에 대해 SSL 구성" metaKeywords="Node.js Azure SSL, Node.js Azure, SSL worker role" description="" metaCanonical="" services="cloud-services" documentationCenter="nodejs" title="Configuring SSL for a Node.js Application in an Azure Worker Role" authors="larryfr" solutions="" manager="" editor="" />
 
 <tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
@@ -125,7 +125,7 @@ Node.js 응용 프로그램을 작업자 역할에 배포할 경우 Node.exe에�
 
     브라우저에서 HTTPS 연결을 사용하고 있음을 나타내는 잠금 아이콘이 표시됩니다. 또한 이러한 잠금 아이콘은 응용 프로그램이 SSL에 대해 올바르게 구성되었다는 것도 의미합니다.
 
-    ![][3]
+    ![][8]
 
 ## 추가 리소스
 
@@ -135,9 +135,8 @@ Node.js 응용 프로그램을 작업자 역할에 배포할 경우 Node.exe에�
 
 [HTTPS 끝점에 SSL 인증서 구성][HTTPS 끝점에 SSL 인증서 구성]
 
-  []: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/enable-ssl-01.png
   [사이트 URL]: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/site-url.png
-  [3]: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/enable-ssl-08.png
+  [8]: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/enable-ssl-08.png
   [인증서를 서비스와 연결하는 방법]: http://msdn.microsoft.com/ko-KR/library/windowsazure/gg465718.aspx
   [Azure 웹 역할에서 Node.js 응용 프로그램에 대한 SSL 구성]: /ko-KR/develop/nodejs/common-tasks/enable-ssl/
   [HTTPS 끝점에 SSL 인증서 구성]: http://msdn.microsoft.com/ko-KR/library/windowsazure/ff795779.aspx

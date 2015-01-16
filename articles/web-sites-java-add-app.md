@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Add an application to your Java website" pageTitle="Java 웹 사이트에 응용 프로그램 추가" metaKeywords="" description="This tutorial shows you how to add a page or application to your Java website on Microsoft Azure." metaCanonical="" services="web-sites" documentationCenter="Java" title="Add an application to your Java website" videoId="" scriptId="" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" />
+﻿<properties urlDisplayName="Add an application to your Java website" pageTitle="Java 웹 사이트에 응용 프로그램 추가" metaKeywords="" description="이 자습서에서는 Microsoft Azure의 Java 웹 사이트에 페이지 또는 응용 프로그램을 추가하는 방법을 보여 줍니다." metaCanonical="" services="web-sites" documentationCenter="Java" title="Add an application to your Java website" videoId="" scriptId="" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="robmcm" />
 

@@ -1,4 +1,4 @@
-﻿<properties pageTitle="데이터에 페이징 추가(JavaScript) - Azure 모바일 서비스" metaKeywords="" description="Learn how to use paging to manage the amount of data returned to your Windows Store JavaScript app from Mobile Services." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Refine Mobile Services queries with paging" authors="glenga" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="데이터에 페이징 추가(JavaScript) - Azure 모바일 서비스" metaKeywords="" description="페이징을 사용하여 모바일 서비스에서 Windows 스토어 JavaScript 앱에 반환되는 데이터의 양을 관리하는 방법에 대해 알아봅니다." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Refine Mobile Services queries with paging" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/24/2014" ms.author="glenga" />
 

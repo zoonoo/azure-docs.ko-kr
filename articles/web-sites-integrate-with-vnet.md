@@ -1,4 +1,4 @@
-﻿<properties title="Integrate your Azure Website with an Azure Virtual Network" pageTitle="Azure VNet에 Azure 웹 사이트 통합" description="Shows you how to connect an Azure Website to a new or existing Azure virtual network" metaKeywords="" services="web-sites,virtual-network" solutions="web,integration,infrastructure" documentationCenter="" authors="cephalin" videoId="" scriptId="" manager="wpickett" />
+﻿<properties title="Integrate your Azure Website with an Azure Virtual Network" pageTitle="Azure VNet에 Azure 웹 사이트 통합" description="신규 또는 기존 Azure 가상 네트워크에 Azure 웹 사이트를 연결하는 방법을 보여 줍니다." metaKeywords="" services="web-sites,virtual-network" solutions="web,integration,infrastructure" documentationCenter="" authors="cephalin" videoId="" scriptId="" manager="wpickett" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/24/2014" ms.author="cephalin" />
 

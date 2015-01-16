@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Deploy Azure WebJobs to Azure Websites" pageTitle="Azure 웹 사이트에 Azure WebJob 배포" metaKeywords="Azure 웹 사이트, WebJob, 백그라운드 작업" description="Learn how to deploy Azure WebJobs to Azure Websites using Visual Studio." metaCanonical="" services="web-sites" documentationCenter="" title="Deploy Azure WebJobs to Azure Websites" authors="tdykstra"  solutions="" manager="wpickett" editor="mollybos" />
+﻿<properties urlDisplayName="Deploy Azure WebJobs to Azure Websites" pageTitle="Azure 웹 사이트에 Azure WebJob 배포" metaKeywords="Azure 웹 사이트, WebJob, 백그라운드 작업" description="Visual Studio를 사용하여 Azure 웹 사이트에 Azure WebJobs를 배포하는 방법에 대해 알아봅니다." metaCanonical="" services="web-sites" documentationCenter="" title="Deploy Azure WebJobs to Azure Websites" authors="tdykstra"  solutions="" manager="wpickett" editor="mollybos" />
 
 <tags ms.service="web-sites" ms.devlang="dotnet" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="web" ms.date="11/12/2014" ms.author="tdykstra" />
 

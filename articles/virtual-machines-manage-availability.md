@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Manage Availability of VMs" pageTitle="가상 컴퓨터의 가용성 관리 - Azure" metaKeywords="" description="Learn how to use multiple virtual machines to ensure high availability for your Azure application. " metaCanonical="" services="virtual-machines" documentationCenter="" title="" authors="kenazk" solutions="" manager="timlt" editor="tysonn" />
+﻿<properties urlDisplayName="Manage Availability of VMs" pageTitle="가상 컴퓨터의 가용성 관리 - Azure" metaKeywords="" description="여러 가상 컴퓨터를 사용하여 Azure 응용 프로그램의 고가용성을 유지하는 방법에 대해 알아봅니다. " metaCanonical="" services="virtual-machines" documentationCenter="" title="" authors="kenazk" solutions="" manager="timlt" editor="tysonn" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/26/2014" ms.author="kenazk" />
 

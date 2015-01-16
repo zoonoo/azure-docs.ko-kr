@@ -1,4 +1,4 @@
-﻿<properties pageTitle="인증된 사용자에게 푸시 알림 보내기" metaKeywords="push notifications, authentication, users, Notification Hubs, Mobile Services" description="Learn how to send push notifications to specific " metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="glenga" solutions="Mobile" manager="dwrede" editor="" />
+﻿<properties pageTitle="인증된 사용자에게 푸시 알림 보내기" metaKeywords="push notifications, authentication, users, Notification Hubs, Mobile Services" description="특정 사용자에게 푸시 알림을 보내는 방법에 대해 알아봅니다. " metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="glenga" solutions="Mobile" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/29/2014" ms.author="glenga" />
 

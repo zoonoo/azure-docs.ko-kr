@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Xamarin" pageTitle="Xamarin Component 클라이언트를 사용하는 방법 - Azure 모바일 서비스 기능 가이드" metaKeywords=" Azure 모바일 서비스, Xamarin, iOS, Android,.NET 클라이언트" description="Learn how to use the Xamarin Component client for Azure Mobile Services." metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="How to use the Xamarin Component client for Azure Mobile Services" authors="donnam" manager="dwrede" />
+﻿<properties urlDisplayName="Xamarin" pageTitle="Xamarin Component 클라이언트를 사용하는 방법 - Azure 모바일 서비스 기능 가이드" metaKeywords=" Azure 모바일 서비스, Xamarin, iOS, Android,.NET 클라이언트" description="Azure 모바일 서비스에 Xamarin Component 클라이언트를 사용하는 방법에 대해 알아봅니다." metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="How to use the Xamarin Component client for Azure Mobile Services" authors="donnam" manager="dwrede" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin" ms.devlang="dotnet" ms.topic="article" ms.date="11/11/2014" ms.author="donnam" />
 

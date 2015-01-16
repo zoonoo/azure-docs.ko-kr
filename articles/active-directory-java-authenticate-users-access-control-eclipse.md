@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Access Control" pageTitle="액세스 제어 사용 방법(Java) - Azure 기능 가이드" metaKeywords="" description="Learn how to develop and use Access Control with Java in Azure." metaCanonical="" services="active-directory" documentationCenter="Java" title="How to Authenticate Web Users with Azure Access Control Service Using Eclipse" videoId="" scriptId="" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" />
+﻿<properties urlDisplayName="Access Control" pageTitle="액세스 제어 사용 방법(Java) - Azure 기능 가이드" metaKeywords="" description="Azure에서 Java를 사용하여 액세스 제어를 개발하고 사용하는 방법에 대해 알아봅니다." metaCanonical="" services="active-directory" documentationCenter="Java" title="How to Authenticate Web Users with Azure Access Control Service Using Eclipse" videoId="" scriptId="" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" />
 
 <tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="robmcm" />
 

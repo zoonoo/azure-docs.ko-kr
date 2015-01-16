@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Website" pageTitle="Mac에서 Node.js 웹 사이트 만들기 - Azure 자습서" metaKeywords="Azure 웹 사이트 만들기 Node, Azure 웹 사이트 배포 Node, 웹 사이트 Node.js, Node 웹 사이트" description="Learn how to build and deploy a Node.js website in Azure. Sample code is written in Java." metaCanonical="" services="web-sites" documentationCenter="nodejs" title="Build and deploy a Node.js website to Azure" authors="larryfr" solutions="" manager="wpickett" editor="" />
+﻿<properties urlDisplayName="Website" pageTitle="Mac에서 Node.js 웹 사이트 만들기 - Azure 자습서" metaKeywords="Azure 웹 사이트 만들기 Node, Azure 웹 사이트 배포 Node, 웹 사이트 Node.js, Node 웹 사이트" description="Azure에서 Node.js 웹 사이트를 빌드 및 배포하는 방법에 대해 알아봅니다. 샘플 코드는 Java로 작성되었습니다." metaCanonical="" services="web-sites" documentationCenter="nodejs" title="Build and deploy a Node.js website to Azure" authors="larryfr" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 

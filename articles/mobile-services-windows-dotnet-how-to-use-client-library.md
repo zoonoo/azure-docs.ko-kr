@@ -1,5 +1,5 @@
 ﻿
-<properties urlDisplayName=".NET Client Library" pageTitle="모바일 서비스 .NET 클라이언트 라이브러리 작업" metaKeywords="Azure 모바일 서비스, 모바일 서비스 .NET 클라이언트, .NET 클라이언트" description="Learn how to use an .NET client for Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="How to use a .NET client for Azure Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName=".NET Client Library" pageTitle="모바일 서비스 .NET 클라이언트 라이브러리 작업" metaKeywords="Azure 모바일 서비스, 모바일 서비스 .NET 클라이언트, .NET 클라이언트" description="Azure 모바일 서비스에 .NET 클라이언트를 사용하는 방법에 대해 알아봅니다." metaCanonical="" services="" documentationCenter="Mobile" title="How to use a .NET client for Azure Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="10/10/2014" ms.author="glenga" />
 

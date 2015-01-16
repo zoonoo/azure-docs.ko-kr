@@ -1,4 +1,4 @@
-﻿<properties pageTitle="페이징을 사용하여 모바일 서비스 쿼리 구체화(Windows 스토어) | 모바일 개발자 센터" metaKeywords="" description="Learn how to use paging to manage the amount of data returned to your Windows Store app from Mobile Services." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Refine Mobile Services queries with paging" authors="glenga" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="페이징을 사용하여 모바일 서비스 쿼리 구체화(Windows 스토어) | 모바일 개발자 센터" metaKeywords="" description="페이징을 사용하여 모바일 서비스에서 Windows 스토어 앱에 반환되는 데이터의 양을 관리하는 방법에 대해 알아봅니다." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Refine Mobile Services queries with paging" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/09/2014" ms.author="glenga" />
 

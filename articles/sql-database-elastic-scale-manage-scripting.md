@@ -1,4 +1,4 @@
-﻿<properties title="Scripting Elastic Scale with Scripts" pageTitle="스크립팅 탄력적인 확장 및 스크립트" description="Script Elastic Scale tasks with PowerShell and Azure Automation Service runbooks." metaKeywords="Azure SQL Database, elastic scale, powershell scripts" services="sql-database" documentationCenter="" manager="jhubbard" authors="sidneyh@microsoft.com"/>
+﻿<properties title="Scripting Elastic Scale with Scripts" pageTitle="스크립팅 탄력적인 확장 및 스크립트" description="PowerShell 및 Azure 자동화 서비스 Runbook을 사용하여 탄력적인 확장 작업의 스크립트를 작성합니다." metaKeywords="Azure SQL Database, elastic scale, powershell scripts" services="sql-database" documentationCenter="" manager="jhubbard" authors="sidneyh@microsoft.com"/>
 
 <tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/02/2014" ms.author="sidneyh" />
 

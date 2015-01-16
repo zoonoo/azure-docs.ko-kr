@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Xamarin.Android용 모바일 서비스 시작" metaKeywords="Azure Xamarin.Android 응용 프로그램, 모바일 서비스 XamarinAndroid, Azure Xamarin.Android 시작" writer="craigd" description="Learn how to use Azure Mobile Services with your Xamarin.Android app." metaCanonical="" documentationCenter="Mobile" title="Get started with Mobile Services" authors="donnam" manager="dwrede" />
+﻿<properties pageTitle="Xamarin.Android용 모바일 서비스 시작" metaKeywords="Azure Xamarin.Android 응용 프로그램, 모바일 서비스 XamarinAndroid, Azure Xamarin.Android 시작" writer="craigd" description="Xamarin.Android 앱에서 Azure 모바일 서비스를 사용하는 방법에 대해 알아봅니다." metaCanonical="" documentationCenter="Mobile" title="Get started with Mobile Services" authors="donnam" manager="dwrede" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-android" ms.devlang="dotnet" ms.topic="hero-article" ms.date="11/11/2014" ms.author="donnam" />
 

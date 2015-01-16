@@ -1,4 +1,4 @@
-﻿<properties title="Azure Stream Analytics developer guide" pageTitle="스트림 분석 개발자 가이드 | Azure" description="Learn how to develop Azure Stream Analytics applications" metaKeywords="" services="stream analytics" solutions="" documentationCenter="" authors="jgao" videoId="" scriptId="" manager="paulettm" editor="cgronlun"/>
+﻿<properties title="Azure Stream Analytics developer guide" pageTitle="스트림 분석 개발자 가이드 | Azure" description="Azure 스트림 분석 응용 프로그램을 개발하는 방법에 대해 알아봅니다." metaKeywords="" services="stream analytics" solutions="" documentationCenter="" authors="jgao" videoId="" scriptId="" manager="paulettm" editor="cgronlun"/>
 
 <tags ms.service="stream-analytics" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="data-services" ms.date="10/28/2014" ms.author="jgao" />
 

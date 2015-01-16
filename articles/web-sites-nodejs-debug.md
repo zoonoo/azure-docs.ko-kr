@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Debug Websites (Node)" pageTitle="Node.js에서 Azure 웹 사이트를 디버그하는 방법" metaKeywords ="웹 사이트 azure 디버깅, azure 디버깅, azure 웹 사이트 문제 해결, azure 웹 사이트 노드 문제 해결" description="Learn how to debug an Azure website in Node.js." metaCanonical="" services="web-sites" documentationCenter="nodejs" title="How to debug a Node.js application in Azure Websites" authors="larryfr" solutions="" manager="wpickett" editor="mollybos" />
+﻿<properties urlDisplayName="Debug Websites (Node)" pageTitle="Node.js에서 Azure 웹 사이트를 디버그하는 방법" metaKeywords ="웹 사이트 azure 디버깅, azure 디버깅, azure 웹 사이트 문제 해결, azure 웹 사이트 노드 문제 해결" description="Node.js에서 Azure 웹 사이트를 디버깅하는 방법에 대해 알아봅니다." metaCanonical="" services="web-sites" documentationCenter="nodejs" title="How to debug a Node.js application in Azure Websites" authors="larryfr" solutions="" manager="wpickett" editor="mollybos" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 

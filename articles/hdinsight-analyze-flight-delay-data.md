@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Analyze flight delay data with Hadoop in HDInsight" pageTitle="HDInsight의 Hadoop을 사용하여 비행 지연 데이터 분석 | Azure" metaKeywords="" description="Learn how to  use one PowerShell script to provision HDInsight cluster, run Hive job, run Sqool job, and delete the cluster." metaCanonical="" services="hdinsight" documentationCenter="" title="Analyze flight delay data using Hadoop in HDInsight " authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
+﻿<properties urlDisplayName="Analyze flight delay data with Hadoop in HDInsight" pageTitle="HDInsight의 Hadoop을 사용하여 비행 지연 데이터 분석 | Azure" metaKeywords="" description="하나의 PowerShell 스크립트를 사용하여 HDInsight 클러스터를 프로비전하고, Hive 작업을 실행하고, Sqool 작업을 실행하고, 클러스터를 삭제하는 방법에 대해 알아봅니다." metaCanonical="" services="hdinsight" documentationCenter="" title="Analyze flight delay data using Hadoop in HDInsight " authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/04/2014" ms.author="jgao" />
 

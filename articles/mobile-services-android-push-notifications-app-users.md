@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="" pageTitle="사용자에 대한 푸시 알림(Android) | 모바일 개발자 센터" metaKeywords="" description="Learn how to use Mobile Services to push notifications to users of your Android app." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Push notifications to users by using Mobile Services" authors="ricksal" solutions="" manager="dwrede" editor="" />
+﻿<properties urlDisplayName="" pageTitle="사용자에 대한 푸시 알림(Android) | 모바일 개발자 센터" metaKeywords="" description="모바일 서비스를 사용하여 Android 앱 사용자에게 알림을 푸시하는 방법에 대해 알아봅니다." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Push notifications to users by using Mobile Services" authors="ricksal" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="10/07/2014" ms.author="ricksal" />
 

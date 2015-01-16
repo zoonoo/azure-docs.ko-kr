@@ -1,4 +1,4 @@
-﻿<properties title="Analyzing Customer Churn using Microsoft Azure Machine Learning" pageTitle="Microsoft 기계 학습을 사용하여 고객 이탈 분석 | Azure" description="Case study of developing an integrated model for analyzing and scoring customer churn" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="pamehta" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties title="Analyzing Customer Churn using Microsoft Azure Machine Learning" pageTitle="Microsoft 기계 학습을 사용하여 고객 이탈 분석 | Azure" description="고객 변동을 분석하고 채점하는 통합 모델 개발에 대한 사례 연구" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="pamehta" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
 
 <tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/06/2014" ms.author="barga" />
 

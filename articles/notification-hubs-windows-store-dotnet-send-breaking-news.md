@@ -1,6 +1,6 @@
-﻿<properties pageTitle="알림 허브를 사용하여 속보 보내기(Windows Universal)" metaKeywords="" description="Use  Azure Notification Hubs with tags in the registration to send breaking news to a universal Windows app." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="" title="Use Notification Hubs to send breaking news" authors="ricksal" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="알림 허브를 사용하여 속보 보내기(Windows Universal)" metaKeywords="" description="등록된 태그와 함께 Azure 알림 허브를 사용하여 범용 Windows 앱에 최신 뉴스를 보낼 수 있습니다." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="" title="Use Notification Hubs to send breaking news" authors="ricksal" solutions="" manager="dwrede" editor="" />
 
-<properties pageTitle="알림 허브를 사용하여 속보 보내기(Windows Phone)" metaKeywords="" description="Use  Azure Notification Hubs to use tag in registrations to send breaking news to a Windows Phone app." metaCanonical="" services="notification-hubs" documentationCenter="Mobile" title="Use Notification Hubs to send breaking news" authors="glenga" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="알림 허브를 사용하여 속보 보내기(Windows Phone)" metaKeywords="" description="등록된 태그와 함께 Azure 알림 허브를 사용하여 Windows Phone 앱에 최신 뉴스를 보낼 수 있습니다." metaCanonical="" services="notification-hubs" documentationCenter="Mobile" title="Use Notification Hubs to send breaking news" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="11/21/2014" ms.author="ricksal" />
 

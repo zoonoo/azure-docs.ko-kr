@@ -1,4 +1,4 @@
-﻿<properties  pageTitle="스케줄러를 사용하여 백 엔드 작업 예약 - 모바일 서비스" metaKeywords="" description="Use the Microsoft Azure Mobile Services Scheduler to schedule jobs for your mobile app." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Schedule recurring jobs in Mobile Services" authors="glenga"  solutions="mobile" writer="" manager="dwrede" editor=""  />
+﻿<properties  pageTitle="스케줄러를 사용하여 백 엔드 작업 예약 - 모바일 서비스" metaKeywords="" description="Microsoft Azure 모바일 서비스 스케줄러를 사용하여 모바일 앱에 대한 작업을 예약합니다." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Schedule recurring jobs in Mobile Services" authors="glenga"  solutions="mobile" writer="" manager="dwrede" editor=""  />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="09/26/2014" ms.author="glenga" />
 

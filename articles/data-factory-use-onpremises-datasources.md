@@ -1,4 +1,4 @@
-﻿<properties title="Enable your pipelines to work with on-premises data" pageTitle="파이프라인에서 온-프레미스 데이터를 사용할 수 있도록 설정 | Azure 데이터 팩터리" description="Learn how to register an on-premises data source with an Azure data factory and copy data to/from the data source." metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
+﻿<properties title="Enable your pipelines to work with on-premises data" pageTitle="파이프라인에서 온-프레미스 데이터를 사용할 수 있도록 설정 | Azure 데이터 팩터리" description="온-프레미스 데이터 원본을 Azure 데이터 팩터리에 등록하고 데이터 원본에 데이터를 복사하거나 데이터 원본에서 데이터를 복사하는 방법에 대해 알아봅니다." metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
 
 <tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="spelluru" />
 

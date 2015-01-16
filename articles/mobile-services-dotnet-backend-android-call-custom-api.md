@@ -1,4 +1,4 @@
-﻿<properties writer="ricksal" pageTitle="Android 클라이언트에서 사용자 지정 API 호출 | 모바일 개발자 센터" metaKeywords="" description="Learn how to define a custom API and then call it from an Android app that uses Microsoft Azure Mobile Services." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="mobile-services" documentationCenter="Mobile" title="Call a custom API from the client" authors="glenga" manager="dwrede" />
+﻿<properties writer="ricksal" pageTitle="Android 클라이언트에서 사용자 지정 API 호출 | 모바일 개발자 센터" metaKeywords="" description="사용자 지정 API를 정의한 다음 Microsoft Azure 모바일 서비스를 사용하는 Android 앱에서 이를 호출하는 방법에 대해 알아봅니다." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="mobile-services" documentationCenter="Mobile" title="Call a custom API from the client" authors="glenga" manager="dwrede" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="09/27/2014" ms.author="glenga" />
 

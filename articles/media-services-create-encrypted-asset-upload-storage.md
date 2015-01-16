@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Create Encrypted Asset and Upload to Storage" pageTitle="암호화된 자산을 만들어 Azure 저장소에 업로드" metaKeywords="" description="Learn how to get media content into Media Services by creating and uploading an encrypted asset." metaCanonical="" services="media-services" documentationCenter="" title="How to: Create an encrypted Asset and upload to storage" authors="juliako" solutions="" manager="dwrede" editor="" />
+﻿<properties urlDisplayName="Create Encrypted Asset and Upload to Storage" pageTitle="암호화된 자산을 만들어 Azure 저장소에 업로드" metaKeywords="" description="암호화된 자산을 만든 다음 업로드하여 미디어 콘텐츠를 미디어 서비스로 가져오는 방법에 대해 알아봅니다." metaCanonical="" services="media-services" documentationCenter="" title="How to: Create an encrypted Asset and upload to storage" authors="juliako" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako" />
 

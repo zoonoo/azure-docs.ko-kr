@@ -1,4 +1,4 @@
-﻿<properties title="Scale Azure Stream Analytics jobs" pageTitle="스트림 분석 작업 규모 지정 | Azure" description="Learn how to scale Stream Analytics jobs" metaKeywords="" services="stream-analytics" solutions="" documentationCenter="" authors="jgao" videoId="" scriptId="" manager="paulettm" editor="cgronlun"/>
+﻿<properties title="Scale Azure Stream Analytics jobs" pageTitle="스트림 분석 작업 규모 지정 | Azure" description="스트림 분석 작업을 확장하는 방법에 알아봅니다." metaKeywords="" services="stream-analytics" solutions="" documentationCenter="" authors="jgao" videoId="" scriptId="" manager="paulettm" editor="cgronlun"/>
 
 <tags ms.service="stream-analytics" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="data-services" ms.date="10/28/2014" ms.author="jgao" />
 

@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Windows 스토어 클라이언트에서 사용자 지정 API 호출 - 모바일 서비스" metaKeywords="" description="Learn how to define a custom API and then call it from a Windows Store app that use Microsoft Azure Mobile Services." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Call a custom API from the client" authors="glenga"  solutions="" writer="glenga" manager="dwrede" editor=""  />
+﻿<properties pageTitle="Windows 스토어 클라이언트에서 사용자 지정 API 호출 - 모바일 서비스" metaKeywords="" description="사용자 지정 API를 정의한 다음 Microsoft Azure 모바일 서비스를 사용하는 Windows 스토어 앱에서 이를 호출하는 방법에 대해 알아봅니다." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Call a custom API from the client" authors="glenga"  solutions="" writer="glenga" manager="dwrede" editor=""  />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/26/2014" ms.author="glenga" />
 

@@ -1,4 +1,4 @@
-﻿<properties umbracoNaviHide="0" pageTitle="웹 사이트란?" metaKeywords="Azure 웹 사이트, Azure 배포, Azure 구성 변경, Azure 배포 업데이트, Azure .NET 배포, Azure .NET 배포" description="Learn how to configure Websites in Azure to use a SQL or MySQL database, and learn how to configure diagnostics and download logs." urlDisplayName="How to Configure Websites" title="What are Websites" authors="cephalin" manager="wpickett" />
+﻿<properties umbracoNaviHide="0" pageTitle="웹 사이트란?" metaKeywords="Azure 웹 사이트, Azure 배포, Azure 구성 변경, Azure 배포 업데이트, Azure .NET 배포, Azure .NET 배포" description="SQL 또는 MySQL 데이터베이스를 사용하도록 Azure의 웹 사이트를 구성하는 방법 및 진단을 구성하고 로그를 다운로드하는 방법에 대해 알아봅니다." urlDisplayName="How to Configure Websites" title="What are Websites" authors="cephalin" manager="wpickett" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/11/2014" ms.author="cephalin" />
 

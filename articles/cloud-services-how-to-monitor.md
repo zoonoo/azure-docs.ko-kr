@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="How to monitor" pageTitle="클라우드 서비스를 모니터링하는 방법 - Azure" metaKeywords="Azure monitoring cloud services, Azure Management Portal cloud services" description="Learn how to monitor cloud services by using the Azure Management Portal." metaCanonical="" services="cloud-services" documentationCenter="" title="How to Monitor Cloud Services" authors="raynew" solutions="" manager="johndaw" editor="" />
+﻿<properties urlDisplayName="How to monitor" pageTitle="클라우드 서비스를 모니터링하는 방법 - Azure" metaKeywords="Azure monitoring cloud services, Azure Management Portal cloud services" description="Azure 관리 포털을 사용하여 클라우드 서비스를 모니터링하는 방법에 대해 알아봅니다." metaCanonical="" services="cloud-services" documentationCenter="" title="How to Monitor Cloud Services" authors="raynew" solutions="" manager="johndaw" editor="" />
 
 <tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/23/2014" ms.author="raynew" />
 

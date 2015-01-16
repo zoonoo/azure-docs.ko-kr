@@ -1,4 +1,4 @@
-﻿<properties pageTitle=".NET 런타임 모바일 서비스를 사용하여 푸시 알림 허브 시작" metaKeywords="" description="Learn how to use Microsoft Azure .Net runtime mobile services and Notification Hubs to send push notifications to your Windows phone app." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="wesmc"  solutions="" writer="wesmc" manager="dwrede" editor=""  />
+﻿<properties pageTitle=".NET 런타임 모바일 서비스를 사용하여 푸시 알림 허브 시작" metaKeywords="" description="Microsoft Azure .Net 런타임 모바일 서비스 및 알림 허브를 사용하여 Windows phone 앱에 푸시 알림을 보내는 방법에 대해 알아봅니다." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="wesmc"  solutions="" writer="wesmc" manager="dwrede" editor=""  />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc" />
 

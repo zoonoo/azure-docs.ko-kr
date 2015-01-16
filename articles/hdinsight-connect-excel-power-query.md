@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="HDInsight and Excel" pageTitle="파워 쿼리로 Hadoop에 Excel 연결 | Azure" metaKeywords="hdinsight, excel, data explorer, hive excel, hdinsight excel, power query" description="Learn how to take advantage of business intelligence components and use Excel to access data stored in Azure HDInsight using Power Query." metaCanonical="" services="hdinsight" documentationCenter="" title="Connect Excel to Hadoop with Power Query" authors="bradsev" solutions="" manager="paulettm" editor="cgronlun" />
+﻿<properties urlDisplayName="HDInsight and Excel" pageTitle="파워 쿼리로 Hadoop에 Excel 연결 | Azure" metaKeywords="hdinsight, excel, data explorer, hive excel, hdinsight excel, power query" description="비즈니스 인텔리전스 구성 요소를 사용하는 방법과 Excel을 통해 파워 쿼리를 사용하여 Azure HDInsight에 저장된 데이터에 액세스하는 방법에 대해 알아봅니다." metaCanonical="" services="hdinsight" documentationCenter="" title="Connect Excel to Hadoop with Power Query" authors="bradsev" solutions="" manager="paulettm" editor="cgronlun" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/10/2014" ms.author="bradsev" />
 

@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Active Directory SSO Authentication with ADAL" pageTitle="Active Directory 인증 라이브러리 Single Sign-On으로 앱 인증(iOS) | 모바일 개발자 센터" metaKeywords="" description="Learn how to authentication users for single sign-on with ADAL in your iOS application." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Authenticate your app with Active Directory Authentication Library Single Sign-On" authors="wesmc,mahender" manager="dwrede" />
+﻿<properties urlDisplayName="Active Directory SSO Authentication with ADAL" pageTitle="Active Directory 인증 라이브러리 Single Sign-On으로 앱 인증(iOS) | 모바일 개발자 센터" metaKeywords="" description="iOS 응용 프로그램에서 ADAL을 사용하여 SSO(Single Sign-On) 사용자를 인증하는 방법에 대해 알아봅니다." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Authenticate your app with Active Directory Authentication Library Single Sign-On" authors="wesmc,mahender" manager="dwrede" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="wesmc,mahender" />
 

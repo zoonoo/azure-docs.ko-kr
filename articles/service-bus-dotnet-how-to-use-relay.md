@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Service Bus Relay" pageTitle="서비스 버스 릴레이를 사용하는 방법(.NET) - Azure" metaKeywords="Azure 서비스 버스 릴레이 C# 시작 " description="Learn how to use the Azure Service Bus relay service to connect two applications hosted in different locations." metaCanonical="" services="service-bus" documentationCenter=".NET" title="How to Use the Service Bus Relay Service" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
+﻿<properties urlDisplayName="Service Bus Relay" pageTitle="서비스 버스 릴레이를 사용하는 방법(.NET) - Azure" metaKeywords="Azure 서비스 버스 릴레이 C# 시작 " description="Azure 서비스 버스 릴레이 서비스를 사용하여 서로 다른 위치에서 호스팅되는 두 응용 프로그램을 연결하는 방법에 대해 알아봅니다." metaCanonical="" services="service-bus" documentationCenter=".NET" title="How to Use the Service Bus Relay Service" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
 
 <tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
 

@@ -1,4 +1,4 @@
-﻿<properties title="DocumentDB resource model and concepts" pageTitle="DocumentDB 리소스 모델 및 개념 | Azure" description="DocumentDB nosql document database manages resources, uniquely identified by logical URIs developers can interact with using HTTP verbs, request/response headers, and status codes." metaKeywords="" services="documentdb" solutions="data-management" documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" videoId="" scriptId="" />
+﻿<properties title="DocumentDB resource model and concepts" pageTitle="DocumentDB 리소스 모델 및 개념 | Azure" description="DocumentDB nosql 문서 데이터베이스는 개발자가 HTTP 동사, 요청/응답 헤더 및 상태 코드를 사용하여 상호 작용할 수 있는 논리 URI로 고유하게 식별되는 리소스를 관리합니다." metaKeywords="" services="documentdb" solutions="data-management" documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" videoId="" scriptId="" />
 
 <tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="spelluru" />
 

@@ -1,4 +1,4 @@
-﻿<properties umbracoNaviHide="0" pageTitle="SQL 데이터베이스를 관리하는 방법" metaKeywords ="Azure SQL 데이터베이스, SQL 데이터베이스, sql 데이터베이스 관리, 로그인 추가, sql 데이터베이스에 연결" description="Learn how to manage Azure SQL database." urlDisplayName="Cloud Services" headerExpose="" footerExpose="" disqusComments="1" title="How to Manage SQL Database" authors="jeffreyg" manager="jeffreyg" />
+﻿<properties umbracoNaviHide="0" pageTitle="SQL 데이터베이스를 관리하는 방법" metaKeywords ="Azure SQL 데이터베이스, SQL 데이터베이스, sql 데이터베이스 관리, 로그인 추가, sql 데이터베이스에 연결" description="Azure SQL 데이터베이스를 관리하는 방법에 대해 알아봅니다." urlDisplayName="Cloud Services" headerExpose="" footerExpose="" disqusComments="1" title="How to Manage SQL Database" authors="jeffreyg" manager="jeffreyg" />
 
 <tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/31/2015" ms.author="jeffreyg" />
 

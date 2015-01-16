@@ -1,4 +1,4 @@
-﻿<properties title="Download the Azure SDK for PHP" pageTitle="PHP용 Azure SDK 다운로드" metaKeywords="" description="Learn how to download and install the Azure SDK for PHP." documentationCenter="PHP" services="" solutions="web" authors="tomfitz" manager="wpickett" />
+﻿<properties title="Download the Azure SDK for PHP" pageTitle="PHP용 Azure SDK 다운로드" metaKeywords="" description="Azure SDK for PHP를 다운로드하여 설치하는 방법에 대해 알아봅니다." documentationCenter="PHP" services="" solutions="web" authors="tomfitz" manager="wpickett" />
 
 <tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="10/21/2014" ms.author="tomfitz" />
 

@@ -1,4 +1,4 @@
-﻿<properties title="Create an Umbraco website from the gallery in Microsoft Azure" pageTitle="Microsoft Azure의 갤러리에서 Umbraco 웹 사이트 만들기" description="required" metaKeywords="Azure, gallery, Umbraco, web site, website" services="web-sites" solutions="web" documentationCenter="" authors="tomfitz" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
+﻿<properties title="Create an Umbraco website from the gallery in Microsoft Azure" pageTitle="Microsoft Azure의 갤러리에서 Umbraco 웹 사이트 만들기" description="필수" metaKeywords="Azure, gallery, Umbraco, web site, website" services="web-sites" solutions="web" documentationCenter="" authors="tomfitz" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="10/21/2014" ms.author="tomfitz" />
 

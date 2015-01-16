@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Deliver Streaming Content from Media Services" pageTitle="미디어 서비스에서 스트리밍 콘텐츠를 제공하는 방법 - Azure" metaKeywords="" description="Learn how to deliver streaming content from Media Services using a direct URL. Code samples are written in C# and use the Media Services SDK for .NET." metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="How to: Deliver streaming content" authors="juliako" manager="dwrede" />
+﻿<properties urlDisplayName="Deliver Streaming Content from Media Services" pageTitle="미디어 서비스에서 스트리밍 콘텐츠를 제공하는 방법 - Azure" metaKeywords="" description="직접 URL을 사용하여 미디어 서비스에서 스트리밍 콘텐츠를 제공하는 방법에 대해 알아봅니다. 코드 샘플은 C#으로 작성되었으며 Media Services SDK for .NET을 사용합니다." metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="How to: Deliver streaming content" authors="juliako" manager="dwrede" />
 
 <tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako" />
 
