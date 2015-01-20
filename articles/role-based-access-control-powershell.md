@@ -4,7 +4,7 @@
 
 # Windows PowerShell을 사용하여 역할 기반 액세스 제어 관리 #
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/ko-kr/documentation/articles/powershell-rbac.md" title="Windows PowerShell" class="current">Windows PowerShell</a><a href="/ko-kr/documentation/articles/xplat-cli-rbac.md" title="Cross-Platform CLI">플랫폼 간 CLI</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/ko-kr/documentation/articles/role-based-access-control-powershell.md" title="Windows PowerShell" class="current">Windows PowerShell</a><a href="/ko-kr/documentation/articles/role-based-access-control-xplat-cli.md" title="Cross-Platform CLI">플랫폼 간 CLI</a></div>
 
 Azure 미리 보기 포털 및 Azure 리소스 관리자 API의 RBAC(역할 기반 액세스 제어)를 사용하면 세밀한 수준에서 구독에 대한 액세스를 관리할 수 있습니다. 이 기능을 통해 특정 범위에서 Active Directory 사용자, 그룹 또는 서비스 사용자에게 일부 역할을 할당하여 액세스 권한을 부여할 수 있습니다.
 
@@ -16,9 +16,9 @@ Azure 미리 보기 포털 및 Azure 리소스 관리자 API의 RBAC(역할 기�
 
 Windows PowerShell을 사용하여 RBAC를 관리하려면 다음 항목이 필요합니다.
 
-- Windows PowerShell, 버전 3.0 또는 4.0. Windows PowerShell 버전을 확인하려면 '$PSVersionTable'을 입력하고 'PSVersion' 값이 3.0 또는 4.0인지를 확인합니다. 호환되는 버전을 설치하려면 [Windows Management Framework 3.0 ](http://www.microsoft.com/ko-kr/download/details.aspx?id=34595) 또는 [Windows Management Framework 4.0](http://www.microsoft.com/ko-kr/download/details.aspx?id=40855)을 참조하세요.
+- Windows PowerShell, 버전 3.0 또는 4.0. Windows PowerShell 버전을 확인하려면 '$PSVersionTable'을 입력하고 'PSVersion' 값이 3.0 또는 4.0인지를 확인합니다. 호환되는 버전을 설치하려면 [Windows Management Framework 3.0](http://www.microsoft.com/ko-kr/download/details.aspx?id=34595) 또는 [Windows Management Framework 4.0](http://www.microsoft.com/ko-kr/download/details.aspx?id=40855)을 참조하세요.
 
-- Azure PowerShell 버전 0.8.8 이상. 최신 버전을 설치하여 Azure 구독에 연결하려면 [Azure PowerShell 설치 및 구성 방법](http://www.windowsazure.com/ko-kr/documentation/articles/install-configure-powershell/)(영문)을 참조하세요.
+- Azure PowerShell 버전 0.8.8 이상. 최신 버전을 설치하여 Azure 구독에 연결하려면 [zure PowerShell을 설치 및 구성하는 방법](http://www.windowsazure.com/ko-kr/documentation/articles/install-configure-powershell/)을 참조하세요.
 
 이 자습서는 Windows PowerShell 초보자용으로 설계되었지만, 모듈, cmdlet, 세션 등과 같은 기본 개념을 잘 알고 있다고 가정합니다. Windows PowerShell에 대한 자세한 내용은 [Windows PowerShell 시작](http://technet.microsoft.com/ko-kr/library/hh857337.aspx)(영문)을 참조하세요.
 
@@ -32,7 +32,7 @@ Windows PowerShell을 사용하여 RBAC를 관리하려면 다음 항목이 필�
 
 Windows PowerShell에서 Azure 리소스 관리자를 설치하고 사용하는 방법을 익히려면 다음 자습서도 확인하세요.
 
-- [Azure PowerShell을 설치 및 구성하는 방법(영문)](http://azure.microsoft.com/ko-kr/documentation/articles/install-configure-powershell/)
+- [Azure PowerShell을 설치 및 구성하는 방법](http://azure.microsoft.com/ko-kr/documentation/articles/install-configure-powershell/)
 - [리소스 관리자에서 Windows PowerShell 사용](http://azure.microsoft.com/ko-kr/documentation/articles/powershell-azure-resource-manager/)
 
 ## 자습서 내용 ##
@@ -59,16 +59,16 @@ Azure 구독에 연결하려면 다음을 입력합니다.
 
 구독이 여러 개인 경우 다른 구독으로 전환하려면 다음을 입력합니다.
 
-    # 계정 아래에 구독이 표시됩니다.
+    # 이렇게 하면 계정 아래의 구독이 표시됩니다.
     PS C:\> Get-AzureSubscription
-    # 구독 이름을 사용하여 작업할 항목을 선택합니다.
+    # 구독 이름을 사용하여 작업할 구독을 선택합니다.
     PS C:\> Select-AzureSubscription -SubscriptionName <subscription name>
 
 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](http://azure.microsoft.com/ko-kr/documentation/articles/install-configure-powershell/)을 참조하세요.
 
 ## <a id="check"></a>기존 역할 할당 확인 ##
 
-구독에 이미 포함되어 있는 역할 할당을 확인해 보겠습니다. 다음을 입력합니다.
+구독에 이미 포함되어 있는 역할 할당을 확인해 보겠습니다. 형식:
 
     PS C:\> Get-AzureRoleAssignment
 
@@ -77,7 +77,7 @@ Azure 구독에 연결하려면 다음을 입력합니다.
 1. 구독 수준에서 읽기 권한이 있어야 합니다.
 2. 구독에 역할 할당이 많은 경우 모든 할당을 가져오려면 시간이 오래 걸릴 수 있습니다.
 
-특정 범위에서 특정 사용자에 대한 특정 역할 정의의 기존 역할 할당을 확인할 수도 있습니다. 다음을 입력합니다.
+특정 범위에서 특정 사용자에 대한 특정 역할 정의의 기존 역할 할당을 확인할 수도 있습니다. 형식:
 
     PS C:\> Get-AzureRoleAssignment -ResourceGroupName group1 -Mail <user email> -RoleDefinitionName Owner
 
@@ -92,7 +92,7 @@ Azure 구독에 연결하려면 다음을 입력합니다.
 
 역할 할당을 만들려면 다음 사항을 고려해야 합니다.
 
-- 역할을 할당할 대상: 다음 Azure Active Directory cmdlet을 사용하여 AD 테넌트에 포함된 사용자, 그룹 및 서비스 사용자를 확인할 수 있습니다.
+- 역할을 할당할 사람: 다음 Azure Active Directory cmdlet을 사용하여 AD 테넌트에 포함된 사용자, 그룹 및 서비스 사용자를 확인할 수 있습니다.
 
     `PS C:\> Get-AzureADUser
     PS C:\> Get-AzureADGroup
@@ -106,10 +106,10 @@ Azure 구독에 연결하려면 다음을 입력합니다.
 - 할당할 범위: 범위에는 세 가지 수준이 있습니다.
 
     - 현재 구독
-    - 리소스 그룹. 리소스 그룹 목록을 가져오려면 `PS C:\> Get-AzureResourceGroup`을 입력합니다.
-    - 리소스 그룹. 리소스 그룹 목록을 가져오려면 `PS C:\> Get-AzureResource`를 입력합니다.
+    - 리소스 그룹. 리소스 그룹 목록을 가져오려면 'PS C:\> Get-AzureResourceGroup'을 입력합니다.
+    - 리소스. 리소스 목록을 가져오려면 'PS C:\> Get-AzureResource'를 입력합니다.
 
-이제 `New-AzureRoleAssignment`를 사용하여 역할 할당을 만듭니다. 예를 들면 다음과 같습니다.
+그런 다음 'New-AzureRoleAssignment'를 사용하여 역할 할당을 만듭니다. 예를 들면 다음과 같습니다.
 
  - 아래 명령을 입력하면 사용자에 대해 읽기 권한자로 현재 구독 수준에 역할 할당이 생성됩니다.
 
@@ -133,7 +133,7 @@ Azure 구독에 연결하려면 다음을 입력합니다.
 
 이 두 cmdlet은 읽기 권한이 있는 리소스 그룹 또는 리소스만 반환하며, 사용자가 소유한 권한도 표시합니다.
 
-`New-AzureResourceGroup` 등의 다른 cmdlet을 실행할 때 권한이 없으면 액세스 거부 오류가 발생합니다.
+'New-AzureResourceGroup' 등의 다른 cmdlet을 실행할 때 권한이 없으면 액세스 거부 오류가 발생합니다.
 
 ## <a id="next"></a>다음 단계 ##
 
@@ -142,8 +142,10 @@ Windows PowerShell을 사용하여 역할 기반 액세스 제어를 관리하�
 - [Microsoft Azure의 역할 기반 액세스 제어](http://azure.microsoft.com/ko-kr/documentation/articles/role-based-access-control-configure/)
 - [Azure 리소스 관리자 Cmdlet](http://go.microsoft.com/fwlink/?LinkID=394765&clcid=0x409)(영문): AzureResourceManager 모듈에서 cmdlet을 사용하는 방법을 알아보세요.
 - [리소스 그룹을 사용하여 Azure 리소스 관리](http://azure.microsoft.com/ko-kr/documentation/articles/azure-preview-portal-using-resource-groups): Azure 관리 포털에서 리소스 그룹을 만들고 관리하는 방법을 알아봅니다.
-- [Azure 블로그](http://blogs.msdn.com/windowsazure)(영문): Azure의 새로운 기능에 대해 알아보세요.
-- [Windows PowerShell 블로그](http://blogs.msdn.com/powershell): Windows PowerShell의 새로운 기능에 대해 알아보세요.
+- [Azure 블로그](http://blogs.msdn.com/windowsazure)(영문): Azure의 새로운 기능에 대해 알아보십시오.
+- [Windows PowerShell 블로그](http://blogs.msdn.com/powershell): Windows PowerShell의 새로운 기능에 대해 알아보십시오.
 - ["Hey, Scripting Guy!" 블로그](http://blogs.technet.com/b/heyscriptingguy/)(영문): Windows PowerShell 커뮤니티에서 실제 팁과 요령을 확인합니다.
 - [XPLAT CLI를 사용하여 역할 기반 액세스 제어 구성](http://azure.microsoft.com/ko-kr/documentation/articles/role-based-access-control-xplat-cli/)
 - [역할 기반 액세스 제어 문제 해결](http://azure.microsoft.com/ko-kr/documentation/articles/role-based-access-control-troubleshooting/)
+
+<!--HONumber=35.2-->

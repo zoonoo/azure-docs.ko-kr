@@ -6,9 +6,11 @@
 
 이 자습서에서는 Azure 응용 프로그램 갤러리 또는 Azure 웹 사이트 구성 UI를 사용하여 Java를 사용하는 Microsoft Azure에서 웹 사이트를 만드는 방법을 보여 줍니다. 
 
-이러한 기술을 사용하지 않으려는 경우 예를 들어 응용 프로그램 컨테이너를 사용자 지정하려는 경우 [Azure에 사용자 지정 Java 웹 사이트 업로드](../web-sites-java-custom-upload)를 참조하세요.
+이러한 기술을 사용하지 않으려는 경우 예를 들어 응용 프로그램 컨테이너를 사용자 지정하려는 경우 [Azure에 사용자 지정 Java 웹 사이트 업로드]를 참조하세요(../web-sites-java-custom-upload).
 
-> [WACOM.NOTE] 이 자습서를 완료하려면 Microsoft Azure 계정이 필요합니다. 계정이 없는 경우 <a href="/ko-kr/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F" target="_blank">MSDN 구독자 혜택을 활성화</a>하거나 <a href="/ko-kr/pricing/free-trial/?WT.mc_id=A261C142F" target="_blank">무료 체험을 등록</a>할 수 있습니다.
+> [WACOM.NOTE] 이 자습서를 완료하려면 Microsoft Azure 계정이 필요합니다. 계정이 없는 경우 <a href="/ko-kr/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F" target="_blank">MSDN 구독자 혜택 활성화</a> 또는 <a href="/ko-kr/pricing/free-trial/?WT.mc_id=A261C142F" target="_blank">무료 평가판 등록</a>을 수행할 수 있습니다. 
+> 
+> 계정을 등록하기 전에 Azure 웹 사이트 사용을 시작하려면 <a href="https://trywebsites.azurewebsites.net/?language=java">https://trywebsites.azurewebsites.net</a>으로 이동합니다. 여기서 무료로 Azure 웹 사이트에 단기 ASP.NET 시작 사이트를 즉시 만들 수 있습니다. 신용 카드가 필요하지 않으며 약정이 없습니다.
 
 # Azure 응용 프로그램 갤러리를 사용하여 Java 웹 사이트 만들기
 
@@ -23,7 +25,7 @@
 ![Web site using Jetty](./media/web-sites-java-get-started/jetty.png)
 
 1. Microsoft Azure 관리 포털에 로그인합니다.
-2. **새로 만들기**를 클릭하고 **계산**, **웹 사이트**, **갤러리에서**를 차례로 클릭합니다.
+2. **새로 만들기**, **계산**, **웹 사이트**, **갤러리에서**를 차례로 클릭합니다.
 3. 앱 목록에서 Java 응용 프로그램 서버(예: **Apache Tomcat** 또는 **Jetty**) 중 하나를 선택합니다.
 4. **다음**을 클릭합니다.
 5. URL 이름을 지정합니다.
@@ -39,11 +41,11 @@
 이 정보는 Azure 구성 UI를 사용하여 웹 사이트의 Java 응용 프로그램 컨테이너인 Apache Tomcat 또는 Jetty를 선택하는 방법을 보여 줍니다.
 
 1. Microsoft Azure 관리 포털에 로그인합니다.
-2. **새로 만들기**를 클릭하고 **계산**, **웹 사이트**, **빠른 생성**을 차례로 클릭합니다.
+2. **새로 만들기**, **계산**, **웹 사이트**, **빠른 생성**을 차례로 클릭합니다.
 3. URL 이름을 지정합니다.
 4. 지역을 선택합니다. 예를 들면 **미국 서부**를 선택합니다.
 5. **완료**를 클릭합니다. 잠시 후 웹 사이트가 만들어집니다. 웹 사이트를 보려면 Azure 관리 포털의 **웹 사이트** 보기에서 상태가 **실행 중**으로 표시될 때까지 기다린 후 웹 사이트의 URL을 클릭합니다.
-6. 여전히 Azure 관리 포털의 **웹 사이트** 보기에서 웹 사이트 이름을 클릭하여 
+6. 여전히 Azure 관리 포털의 **웹 사이트** 보기에서 해당 웹 사이트 이름을 클릭하여 
 대시보드를 엽니다.
 7. **구성**을 클릭합니다.
 8. **일반** 섹션에서 사용 가능한 버전을 클릭하여 **Java**를 사용하도록 설정합니다.
@@ -56,4 +58,6 @@
 
 # 다음 단계
 
-이제 Azure에서 Java 웹 사이트로 실행되는 Java 응용 프로그램 서버가 생성되었습니다. 고유한 응용 프로그램 또는 웹 페이지를 추가하려면 [Java 웹 사이트에 응용 프로그램 또는 웹 페이지 추가](../web-sites-java-add-app)를 참조하세요.
+이제 Azure에서 Java 웹 사이트로 실행되는 Java 응용 프로그램 서버가 생성되었습니다. 고유한 응용 프로그램 또는 웹 페이지를 추가하려면 [Java 웹 사이트에 응용 프로그램 또는 웹 페이지 추가]를 참조하세요(../web-sites-java-add-app).
+
+<!--HONumber=35.2-->

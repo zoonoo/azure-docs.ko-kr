@@ -1,12 +1,12 @@
 ﻿<properties title="Track usage in web applications with Application Insights" pageTitle="웹 응용 프로그램에서 사용 현황 추적" description="사용자 활동을 기록합니다." metaKeywords="analytics monitoring application insights" authors="awills" manager="kamrani" />
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-09-24" ms.author="awills" />
+<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-11-21" ms.author="awills" />
  
 # 웹 응용 프로그램에서 사용 현황 추적
 
 웹 응용 프로그램이 사용되는 방식을 알아보세요. 사용 현황 분석을 설정하면 사용자들이 보는 페이지, 방문하는 사용자 수 및 사이트 방문 빈도를 확인할 수 있습니다. 몇 가지 [사용자 지정 이벤트 및 메트릭][track]을 추가하고 가장 인기 있는 기능, 가장 일반적인 실수를 자세히 분석하고 사용자와 더불어 성공적인 결과를 얻을 수 있게 앱을 조정합니다.
 
-클라이언트와 서버 모두에서 원격 분석이 수집됩니다. 클라이언트 데이터는 모든 최신 웹 브라우저에서 수집되고 서버 데이터는 사용 중인 플랫폼이 ASP.NET일 경우 수집될 수 있습니다(Azure에서 실행할 필요는 없음). 
+클라이언트와 서버 모두에서 원격 분석이 수집됩니다. 클라이언트 데이터는 모든 최신 웹 브라우저에서 수집되며, 플랫폼이 ASP.NET인 경우 서버 데이터가 수집될 수 있습니다. Azure에서 실행될 필요는 없습니다. 
 
 * [웹 사용 현황 분석 설정](#webclient)
 * [사용 현황 분석](#usage)
@@ -17,11 +17,11 @@
 
 ## <a name="webclient"></a> 웹 클라이언트 분석 설정
 
-#### Azure에는 Application Insights 리소스 가져오기
+#### Azure에서 Application Insights 리소스 가져오기
 
 **ASP.NET 앱을 개발하며** 이 작업을 아직 수행하지 않은 경우 [웹 프로젝트에 Application Insights를 추가합니다][start]. 
 
-**웹 사이트 플랫폼이 ASP.NET이 아닌 경우**[Microsoft Azure](http://azure.com)에 등록하고 [미리 보기 포털](https://portal.azure.com)로 이동한 후 Application Insights 리소스를 추가합니다.
+**웹 사이트 플랫폼이 ASP.NET이 아닌 경우:** [Microsoft Azure](http://azure.com)에 등록하고 [미리 보기 포털](https://portal.azure.com)로 이동하여 Application Insights 리소스를 추가합니다.
 
 ![](./media/appinsights/appinsights-11newApp.png)
 
@@ -35,7 +35,7 @@
 
 ![](./media/appinsights/appinsights-06webcode.png)
 
-추적하려는 모든 페이지의 </head> 태그 바로 앞의 이 스크립트를 삽입합니다. 웹 사이트에 마스터 페이지가 있는 경우 이 페이지에 스크립트를 넣을 수 있습니다. 예를 들어 ASP.NET MVC 프로젝트에서는 View\Shared\_Layout.cshtml에 추가합니다.
+추적하려는 모든 페이지의 &lt;/head&gt; 태그 바로 앞에 스크립트를 삽입합니다. 웹 사이트에 마스터 페이지가 있는 경우 이 페이지에 스크립트를 넣을 수 있습니다. 예를 들어 ASP.NET MVC 프로젝트에서는 View\Shared\_Layout.cshtml에 추가합니다.
 
 ## <a name="usage"></a>사용 현황 분석
 
@@ -45,7 +45,7 @@
 
 ![](./media/appinsights/appinsights-47usage.png)
 
-*아직 데이터가 없나요? 페이지 위쪽에서 **새로 고침**을 클릭합니다.*
+*아직 아무 데이터도 없나요? 페이지 위쪽에서 **새로 고침**을 클릭합니다.*
 
 * **브라우저별 세션**
 
@@ -57,17 +57,16 @@
 
     지난 24시간 동안의 총 페이지 보기 횟수가 표시됩니다.
 
-    페이지 보기 타일을 클릭하면 보다 자세한 기록을 볼 수 있습니다.
+    페이지 보기 타일을 클릭하면 보다 자세한 기록을 볼 수 있습니다. 더 긴 기록을 보려면 보고서의 시간 범위를 변경하면 됩니다.
 
 ![](./media/appinsights/appinsights-49usage.png)
 
-시간 범위를 클릭하면 보다 오랜 기간의 기록(최대 7일)을 볼 수 있습니다.
 
-그래프를 클릭하면 표시할 수 있는 다른 메트릭을 볼 수 있습니다.
+차트를 클릭하여 표시할 수 있는 다른 메트릭을 확인하거나 새 차트를 추가하고 표시되는 메트릭을 선택합니다.
 
 ![](./media/appinsights/appinsights-63usermetrics.png)
 
-> [AZURE.NOTE] 모든 메트릭을 사용하도록 설정하려면 *모든* 메트릭을 선택 취소합니다. 메트릭이 몇 가지 조합으로만 표시될 수 있습니다. 메트릭을 하나 선택하면 호환되지 않는 다른 메트릭을 사용할 수 없게 됩니다.
+> [AZURE.NOTE] 메트릭을 모두 사용하려면 *모든* 메트릭을 선택 취소합니다. 메트릭이 몇 가지 조합으로만 표시될 수 있습니다. 메트릭을 하나 선택하면 호환되지 않는 다른 메트릭을 사용할 수 없게 됩니다.
 
 
 
@@ -100,15 +99,15 @@
 
 사용자가 앱으로 어떤 작업을 수행하려고 하는지 확인하고 싶나요? 클라이언트 및 서버 코드에 호출을 삽입하여 사용자 고유의 원격 분석을 Application Insights로 보낼 수 있습니다. 예를 들어 주문은 작성했으나 완료하지 않은 사용자의 수, 가장 자주 발생하는 유효성 검사 오류 또는 게임의 평균 점수를 확인할 수 있습니다.
 
-[사용자 지정 이벤트 및 메트릭 API에 대해 자세히 알아보기][track].
+[사용자 지정 이벤트 및 메트릭 API에 대해 자세히 알아보기][track]
 
 ## <a name="video"></a> 비디오: 사용 현황 추적
 
 > [AZURE.VIDEO tracking-usage-with-application-insights]
 
-## <a name="next"></a>다음 단계
+## <a name="next"></a> 다음 단계
 
-[사용자 지정 이벤트 및 메트릭으로 사용량 추적][track]
+[사용자 지정 이벤트 및 메트릭으로 사용량 추적][track](영문)
 
 
 
@@ -117,3 +116,6 @@
 
 
 
+
+
+<!--HONumber=35.2-->

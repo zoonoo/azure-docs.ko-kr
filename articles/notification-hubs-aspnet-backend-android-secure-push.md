@@ -5,7 +5,7 @@
 #Azure 알림 허브 보안 푸시
 
 <div class="dev-center-tutorial-selector sublanding"> 
-    	<a href="/ko-kr/documentation/articles/notification-hubs-windows-dotnet-secure-push/" title="Windows Universal">Windows 범용</a><a href="/ko-kr/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/" title="iOS">iOS</a>
+    	<a href="/ko-kr/documentation/articles/notification-hubs-aspnet-backend-windows-dotnet-secure-push/" title="Windows Universal">Windows 범용</a><a href="/ko-kr/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/" title="iOS">iOS</a>
 		<a href="/ko-kr/documentation/articles/notification-hubs-aspnet-backend-android-secure-push/" title="Android" class="current">Android</a>
 </div>
 
@@ -22,9 +22,9 @@ Microsoft Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플
 	- 장치가 보안 페이로드를 요청하는 백 엔드에 접속합니다.
 	- 앱이 장치에서 페이로드를 알림으로 표시할 수 있습니다.
 
-앞의 흐름과 이 자습서에서는 사용자가 로그인한 후 장치가 인증 토큰을 로컬 저장소에 저장한다고 가정합니다. 이렇게 하면 장치가 이 토큰을 사용하여 알림의 보안 페이로드를 검색할 수 있으므로 완전히 매끄러운 경험이 보장됩니다. 응용 프로그램이 인증 토큰을 장치에 저장하지 않거나 이 토큰이 만료될 수 없으면 알림 수신 시 장치 앱은 사용자에게 앱을 시작할지 묻는 메시지가 포함된 일반 알림을 표시해야 합니다. 그런 다음 앱은 사용자를 인증하고 알림 페이로드를 표시합니다.
+앞의 흐름과 이 자습서에서는 사용자가 로그인한 후 장치가 인증 토큰을 로컬 저장소에 저장한다고 가정합니다. 이렇게 하면 장치가 이 토큰을 사용하여 알림의 보안 페이로드를 검색할 수 있으므로 완전히 매끄러운 경험이 보장됩니다. 응용 프로그램이 인증 토큰을 장치에 저장하지 않거나 이 토큰이 만료될 수 없으면 알림 수신 시 장치 앱은 사용자에게 앱을 시작할지 묻는 메시지가 포함된 일반 알림을 표시해야 합니다. 그리고 나서 앱은 사용자를 인증하고 알림 페이로드를 표시합니다.
 
-이 보안 푸시 자습서에서는 푸시 알림을 안전하게 보내는 방법을 보여 줍니다. 이 자습서는 **사용자에게 알림** 자습서를 기반으로 하므로 해당 자습서의 단계를 먼저 완료해야 합니다.
+이 보안 푸시 자습서에서는 푸시 알림을 안전하게 보내는 방법을 보여 줍니다. 이 자습서는 **사용자에게 알림** 자습서를 기반으로 하여 빌드되므로 해당 자습서의 단계를 먼저 완료해야 합니다.
 
 > [AZURE.NOTE] 이 자습서에서는 [알림 허브 시작(Android)](http://azure.microsoft.com/ko-kr/documentation/articles/notification-hubs-android-get-started/)에 설명된 대로 알림 허브를 만들고 구성했다고 가정합니다.
 
@@ -33,16 +33,16 @@ Microsoft Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플
 ## Android 프로젝트 수정
 
 알림의 *id*만 보내도록 앱 백 엔드를 수정했으므로 해당 알림을 처리하고 백 엔드를 콜백하여 표시할 보안 메시지를 검색하도록 Android 앱을 변경해야 합니다.
-이렇게 하기 위해서는 Android 앱이 푸시 알림을 받을 때 스스로를 백 엔드에 인증하는 방법을 알고 있는지 확인해야 합니다.
+이 목표를 달성하려면 Android 앱이 푸시 알림을 받을 때 백 엔드에 인증하는 방법을 알고 있어야 합니다.
 
-이제 앱의 공유 기본 설정에서 인증 헤더 값을 저장하기 위해 *로그인* 흐름을 수정합니다. 유사 메커니즘을 사용하여 앱에서 사용자 자격 증명 없이 사용해야 하는 인증 토큰(예: OAuth 토큰)을 저장할 수 있습니다.
+이제 앱의 공유 기본 설정에서 인증 헤더 값을 저장하기 위해 *로그인* 흐름을 수정합니다. 유사 메커니즘을 사용하여 사용자 앱에서 자격 증명 없이 사용해야 하는 인증 토큰(예: OAuth 토큰)을 저장할 수 있습니다.
 
 1. Android 앱 프로젝트에서 **MainActivity** 클래스의 맨 위에 다음 상수를 추가합니다.
 
 		public static final String NOTIFY_USERS_PROPERTIES = "NotifyUsersProperties";
 		public static final String AUTHORIZATION_HEADER_PROPERTY = "AuthorizationHeader";
 
-2. **MainActivity** 클래스에서 다음 코드를 포함하도록 `getAuthorizationHeader()` 메서드를 업데이트합니다.
+2. **MainActivity** 클래스에서 'getAuthorizationHeader()' 메서드를 업데이트하여 다음 코드를 포함합니다.
 
 		private String getAuthorizationHeader() throws UnsupportedEncodingException {
 			EditText username = (EditText) findViewById(R.id.usernameText);
@@ -56,13 +56,13 @@ Microsoft Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플
     		return basicAuthHeader;
 		}
 
-3. **MainActivity** 파일의 맨 위에 다음 `import` 문을 추가합니다.
+3. **MainActivity** 파일의 맨 위에 다음 'import' 문을 추가합니다.
 
 		import android.content.SharedPreferences;
 
 이제 알림을 받을 때 호출되는 처리기를 변경합니다.
 
-4. **MyHandler** 클래스에서 다음을 포함하도록 `OnReceive()` 메서드를 변경합니다.
+4. **MyHandler** 클래스에서 다음을 포함하도록 'OnReceive()' 메서드를 변경합니다.
 
 		public void onReceive(Context context, Bundle bundle) {
 	    	ctx = context;   
@@ -70,7 +70,7 @@ Microsoft Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플
 	    	retrieveNotification(secureMessageId);
 		}
 
-5. 그런 다음 `retrieveNotification()` 메서드를 추가하여 자리 표시자 `{back-end endpoint}`를 백 엔드를 배포하는 동안 얻은 백 엔드 끝점으로 바꿉니다.
+5. 그리고 나서 'retrieveNotification()' 메서드를 추가하고 자리 표시자 '{back-end endpoint}'를 백 엔드를 배포할 때 얻은 백 엔드 끝점으로 바꿉니다.
 
 		private void retrieveNotification(final String secureMessageId) {
 			SharedPreferences sp = ctx.getSharedPreferences(MainActivity.NOTIFY_USERS_PROPERTIES, Context.MODE_PRIVATE);
@@ -114,4 +114,6 @@ Microsoft Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플
 
 3. Android 앱 UI에서 사용자 이름과 암호를 입력합니다. 이는 임의 문자열일 수 있지만 같은 값이어야 합니다.
 
-4. Android 앱 UI에서 **로그인**을 클릭합니다. 그런 다음 **푸시 보내기**를 클릭합니다.
+4. Android 앱 UI에서 **로그인**을 클릭합니다. 그리고 나서 **푸시 보내기**를 클릭합니다.
+
+<!--HONumber=35.2-->

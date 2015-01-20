@@ -1,13 +1,20 @@
-<properties linkid="develop-net-architecture-load-testing" urlDisplayName="Load Testing Pattern" pageTitle="Load Testing Application Pattern - Azure Architecture Patterns" metaKeywords="" description="Find architectural overviews and design patterns that describe how to implement a load testing system on Azure." metaCanonical="" services="" documentationCenter=".NET" title="Load Testing in Azure" authors="robb" solutions="" manager="johndaw" editor="" />
+﻿<properties urlDisplayName="Load Testing Pattern" pageTitle="부하 테스트 응용 프로그램 패턴 - Azure 아키텍처 패턴" metaKeywords="" description="아키텍처 개요 및 Azure에서 부하 테스트 시스템을 구현 하는 방법을 설명 하는 디자인 패턴을 찾습니다." metaCanonical="" services="" documentationCenter=".NET" title="Load Testing in Azure" authors="robb" solutions="" manager="johndaw" editor="" />
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="robb" />
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/25/2014" ms.author="robb" />
 
 # Azure의 부하 테스트
 
-클라우드 기반 부하 테스트 서비스는 웹 응용 프로그램의 부하를 테스트할 수 있습니다. Visual Studio에서 부하 테스트를 만들어 웹 응용 프로그램의 용량과 성능을 확인합니다. 고유한 Azure VM을 사용할 필요가 없습니다. 대신, [클라우드 기반 부하 테스트 서비스][클라우드 기반 부하 테스트 서비스]에서 자동으로 VM을 만들도록 할 수 있습니다.
+클라우드 기반 부하 테스트 서비스는 웹 응용 프로그램의 부하를 테스트할 수 있습니다. Visual Studio에서 부하 테스트를 만들어 웹 응용 프로그램의 용량과 성능을 확인합니다. 고유한 Azure VM을 사용할 필요가 없습니다. 대신, [클라우드 기반 부하 테스트 서비스](http://tfs.visualstudio.com/ko-kr/learn/load-testing)에서 자동으로 VM을 만들도록 할 수 있습니다.
 
-<!--links--> 
+<!--links-->
 
-  [클라우드 기반 부하 테스트 서비스]: http://tfs.visualstudio.com/ko-KR/learn/load-testing
+[Azure 및 Visual Studio Ultimate]: http://www.microsoft.com/visualstudio/eng/products/visual-studio-ultimate-2012#product-edition-ultimate-details
+[혼합 환경에서 부하 테스트 실행]: http://msdn.microsoft.com/ko-kr/library/windowsazure/hh966776.aspx
+[Azure 역할에서 Visual Studio 부하 테스트 사용]: http://msdn.microsoft.com/ko-kr/library/windowsazure/hh674491.aspx
 
 <!--images-->
+
+
+ 
+
+<!--HONumber=35.2-->

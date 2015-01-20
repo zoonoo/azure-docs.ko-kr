@@ -11,13 +11,13 @@
 <div class="dev-onpage-left-content">
 
 <p>이 항목에서는 서버 스크립트를 사용하여 인증된 사용자에게 Windows Phone 8 앱에서 Azure 모바일 서비스의 데이터에 액세스할 수 있는 권한을 부여하는 방법을 보여 줍니다. 이 자습서에서는 모바일 서비스에 스크립트를 등록하여 인증된 사용자의 userId를 기반으로 쿼리를 필터링함으로써 각 사용자가 자신의 고유 데이터만 볼 수 있도록 만듭니다.</p>
-<p>이 자습서는 모바일 서비스 빠른 시작을 기반으로 하며 이전 자습서인 <a href="/ko-kr/develop/mobile/tutorials/get-started-with-users-wp8">인증 시작</a>의 내용을 보충합니다. 이 자습서를 시작하기 전에 먼저 <a href="/ko-kr/develop/mobile/tutorials/get-started-with-users-wp8">인증 시작</a>을 완료해야 합니다.</p>
+<p>이 자습서는 모바일 서비스 퀵 스타트를 기반으로 하며 이전 자습서인 <a href="/ko-kr/develop/mobile/tutorials/get-started-with-users-wp8">인증 시작</a>(영문) 자습서에 내용을 추가했습니다. 이 자습서를 시작하기 전에 먼저 <a href="/ko-kr/develop/mobile/tutorials/get-started-with-users-wp8">인증 시작</a>(영문) 자습서를 완료해야 합니다.</p>
 </div>
-<div class="dev-onpage-video-wrapper"><a href="http://go.microsoft.com/fwlink/?LinkId=298630" target="_blank" class="label">자습서 보기</a> <a style="background-image: url('/media/devcenter/mobile/videos/mobile-wp8-scripts-for-authentication-180x120.png') !important;" href="http://go.microsoft.com/fwlink/?LinkId=298630" target="_blank" class="dev-onpage-video"><span class="icon">동영상 재생</span></a> <span class="time">15:00</span></div>
+<div class="dev-onpage-video-wrapper"><a href="http://go.microsoft.com/fwlink/?LinkId=298630" target="_blank" class="label">자습서 보기</a> <a style="background-image: url('/media/devcenter/mobile/videos/mobile-wp8-scripts-for-authentication-180x120.png') !important;" href="http://go.microsoft.com/fwlink/?LinkId=298630" target="_blank" class="dev-onpage-video"><span class="icon">비디오 재생</span></a> <span class="time">15:00</span></div>
 </div> 
 
 ## <a name="register-scripts"></a>스크립트 등록
-빠른 시작 앱은 데이터를 읽고 삽입하기 때문에 TodoItem 테이블에 대해 이 작업을 수행하는 스크립트를 등록해야 합니다.
+퀵 스타트 앱은 데이터를 읽고 삽입하기 때문에 TodoItem 테이블에 대해 이 작업을 수행하는 스크립트를 등록해야 합니다.
 
 1. [Azure 관리 포털]에 로그온하여 **모바일 서비스**를 클릭한 후 앱을 클릭합니다. 
 
@@ -41,11 +41,11 @@
     이 스크립트는 항목에 userId 값을 추가합니다. 이 값은 TodoItem 테이블에 삽입되기 전의 인증된 사용자의 사용자 ID입니다. 
 
     <div class="dev-callout"><b>참고</b>
-	<p>이 삽입 스크립트를 처음 실행할 때는 동적 스키마를 사용하도록 설정해야 합니다. 동적 스키마를 사용하도록 설정하면 첫 번째 실행 시 모바일 서비스가 <strong>userId</strong> 열을 <strong>TodoItem</strong> 테이블에 자동으로 추가합니다. 동적 스키마는 기본적으로 새 모바일 서비스에 대해 사용하도록 설정되어 있으며 Windows Phone 스토어에 앱을 게시하기 전에 이 스키마를 사용하지 않도록 설정해야 합니다.</p>
+	<p>이 삽입 스크립트를 처음 실행할 때는 동적 스키마를 사용하도록 설정해야 합니다. 동적 스키마를 사용하도록 설정한 경우 모바일 서비스에서는 처음 실행 시 <strong>userId</strong> 열을 <strong>TodoItem</strong> 테이블에 자동으로 추가합니다. 동적 스키마는 기본적으로 새 모바일 서비스에 대해 사용하도록 설정되어 있으며 Windows Phone 스토어에 앱을 게시하기 전에 이 스키마를 사용하지 않도록 설정해야 합니다.</p>
     </div>
 
 
-5. 3단계와 4단계를 반복하여 기존 **Read** 작업을 다음 함수로 바꿉니다.
+5. 3단계와 4단계를 반복하여 기존 **읽기** 작업을 다음 함수로 바꿉니다.
 
         function read(query, user, request) {
            query.where({ userId: user.userId });    
@@ -56,7 +56,7 @@
 
 ## 앱 테스트
 
-1. Visual Studio 2012 Express for Windows Phone에서 [인증 시작] 자습서를 완료할 때 수정한 프로젝트를 엽니다.
+1. Visual Studio 2012 Express for Windows Phone에서 [인증 시작](영문) 자습서를 완료할 때 수정한 프로젝트를 엽니다.
 
 2. F5 키를 눌러 앱을 실행한 후 선택한 ID 공급자로 앱에 로그온합니다. 
 
@@ -68,20 +68,20 @@
 
    	모바일 서비스에서 TodoItem 테이블의 텍스트 및 userId가 모두 삽입됩니다. 새 항목에 올바른 userId 값이 있기 때문에 값이 모바일 서비스에서 반환됩니다.
 
-5. [관리 포털][Azure 관리 포털]로 돌아와 **todoitem** 테이블에서 **찾아보기**를 클릭하고 새로 추가된 각 항목에 이제 관련 userId 값이 있는지 확인합니다.
+5. [관리 포털][Azure Management Portal]의 돌아와 **todoitem** 테이블로 돌아와 **찾아보기**를 클릭하고 새로 추가된 각 항목에 이제 연결된 userId 값이 있는지 확인합니다.
 
 ## 다음 단계
 
 이제 인증 관련 작업의 기본 사항을 설명하는 자습서를 마쳤습니다. 다음의 모바일 서비스 항목에 대해서도 자세히 알아보세요.
 
-* [데이터 작업 시작]
-  <br/>모바일 서비스를 사용하여 데이터를 저장하고 쿼리하는 방법을 알아봅니다.
+* [데이터 시작](영문)
+  <br/>모바일 서비스를 사용하여 데이터를 저장 및 쿼리하는 방법에 대해 자세히 알아봅니다.
 
 * [푸시 알림 시작] 
-  <br/>매우 기본적인 푸시 알림을 앱에 보내는 방법을 알아봅니다.
+  <br/>앱에 기본적인 푸시 알림을 보내는 방법을 알아봅니다.
 
 * [모바일 서비스 서버 스크립트 참조]
-  <br/>서버 스크립트를 등록하고 사용하는 방법을 알아봅니다.
+  <br/>서버 스크립트의 등록 및 사용에 대해 자세히 알아봅니다.
 
 <!-- Anchors. -->
 [서버 스크립트 등록]: #register-scripts
@@ -95,10 +95,12 @@
 
 <!-- URLs. -->
 [모바일 서비스 서버 스크립트 참조]: http://go.microsoft.com/fwlink/?LinkId=262293
-[내 앱 대시보드]: http://go.microsoft.com/fwlink/?LinkId=262039
-[모바일 서비스 시작]: /ko-kr/develop/mobile/tutorials/get-started/#create-new-service
-[데이터 작업 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-data-wp8
-[인증 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-users-wp8
+[내 응용 프로그램 대시보드]: http://go.microsoft.com/fwlink/?LinkId=262039
+[모바일 서비스 시작](영문): /ko-kr/develop/mobile/tutorials/get-started/#create-new-service
+[데이터 시작](영문): /ko-kr/develop/mobile/tutorials/get-started-with-data-wp8
+[인증 시작](영문): /ko-kr/develop/mobile/tutorials/get-started-with-users-wp8
 [푸시 알림 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-push-wp8
 
 [Azure 관리 포털]: https://manage.windowsazure.com/
+
+<!--HONumber=35.2-->

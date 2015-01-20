@@ -1,314 +1,181 @@
-﻿<properties urlDisplayName="Replica domain controller" pageTitle="Azure에서 복제본 도메인 컨트롤러 설치" metaKeywords="" description="회사 Active Directory 포리스트에서 Azure 가상 컴퓨터에 도메인 컨트롤러를 설치하는 방법에 대해 설명하는 자습서입니다." metaCanonical="" services="virtual-network" documentationCenter="" title="Install a Replica Active Directory Domain Controller in Azure Virtual Networks" authors="Justinha" solutions="" writer="Justinha" manager="TerryLan" editor="LisaToft" />
+﻿<properties urlDisplayName="Replica domain controller" pageTitle="Azure에 복제본 도메인 컨트롤러 설치" metaKeywords="" description="Azure 가상 컴퓨터에서 온-프레미스 Active Directory 포리스트의 도메인 컨트롤러를 설치 하는 방법에 설명 하는 자습서입니다." metaCanonical="" services="virtual-network" documentationCenter="" title="Install a Replica Active Directory Domain Controller on an Azure Virtual Network" authors="Justinha" solutions="" writer="Justinha" manager="TerryLan" editor="LisaToft" />
 
-<tags ms.service="virtual-network" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="Justinha" />
-
-
+<tags ms.service="virtual-network" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/04/2014" ms.author="Justinha" />
 
 
-#Azure 가상 네트워크에서 복제 Active Directory 도메인 컨트롤러 설치
+#Azure 가상 네트워크에서 복제본 Active Directory 도메인 컨트롤러 설치
 
-이 자습서에서는 [Azure 가상 네트워크](http://msdn.microsoft.com/ko-kr/library/windowsazure/jj156007.aspx)의 VM(가상 컴퓨터)에 회사 Active Directory 포리스트의 추가 도메인 컨트롤러를 설치하는 단계를 안내합니다. 이 자습서에서 VM의 가상 네트워크는 회사의 네트워크에 연결됩니다. Azure 가상 네트워크에 AD DS(Active Directory 도메인 서비스) 설치에 대한 개념적인 지침은 [Azure 가상 컴퓨터에 Windows Server Active Directory를 배포하기 위한 지침](http://msdn.microsoft.com/ko-kr/library/windowsazure/jj156090.aspx)을 참조하세요.
+이 항목에서는 Azure 가상 네트워크의 Azure VM(가상 컴퓨터)에 온-프레미스 Active Directory 도메인에 대한 추가 도메인 컨트롤러(복제본 DC라고도 함)를 설치하는 방법을 보여 줍니다. 
+
+다음 관련 토픽을 참조할 수도 있습니다.
+
+- 선택적으로 Azure 가상 네트워크에 새 Active Directory 포리스트를 설치할 수 있습니다. 이러한 단계는 [Azure 가상 네트워크에 새 Active Directory 포리스트 설치](http://azure.microsoft.com/documentation/articles/active-directory-new-forest-virtual-machine/)를 참조하세요.
+-  Azure 가상 네트워크에 AD DS(Active Directory 도메인 서비스)를 설치하는 방법에 대한 개념 지침은 [Azure 가상 컴퓨터에 Windows Server Active Directory를 배포하기 위한  지침](http://msdn.microsoft.com/library/windowsazure/jj156090.aspx)을 참조하세요.
+-  Azure에 AD DS가 포함된 테스트 랩 환경을 만들기 위한 단계별 지침은 [테스트 랩 가이드: Azure의 기본 구성](http://www.microsoft.com/ko-kr/download/details.aspx?id=41684)을 참조하세요.
+
 
 ##목차##
 
-* [필수 조건](#Prerequisites)
-* [1단계: YourPrimaryDC의 고정 IP 주소 확인](#verifystaticip)
-* [2단계: 회사 포리스트 설치](#installforest)
-* [3단계: 서브넷 및 사이트 만들기](#subnets)
-* [4단계: CloudSite에 추가 도메인 컨트롤러 설치](#cloudsite)
-* [5단계: 설치 유효성 검사](#validate)
-* [6단계: 부팅 시 도메인에 가입되는 가상 컴퓨터 프로비전](#provisionvm)
-* [7단계: 도메인 컨트롤러 백업](#backup)
-* [8단계: 인증 및 권한 부여 테스트](#test)
-
-
-<h2><a id="Prerequisites"></a>필수 조건</h2>
-
-Azure 가상 네트워크 및 회사 네트워크 간에 구성된 -	[관리 포털에서 사이트 간 VPN 구성](http://msdn.microsoft.com/ko-kr/library/dn133795.aspx)
--	가상 네트워크에서 클라우드 서비스 만들기
--	클라우드 서비스에 가상 네트워크의 일부로 VM 두 개를 배포(VM을 배치하려는 서브넷 지정)합니다. 자세한 내용은 [가상 네트워크에 가상 컴퓨터 추가](http://azure.microsoft.com/ko-kr/documentation/articles/virtual-networks-add-virtual-machine/)를 참조하세요. VM에 두 개의 데이터 디스크를 연결하려면 VM은 L 크기 이상이어야 합니다. 데이터 디스크는 다음을 복원하는 데 필요합니다.
-	- Active Directory 데이터베이스 및 로그
-	- 시스템 상태 및 백업
--	두 개의 VM이 포함된 회사 네트워크(YourPrimaryDC 및 FileServer)
--	외부 사용자가 Active Directory에서 계정의 이름을 확인할 수 있어야 하는 경우 배포된 DNS(Domain Name System) 인프라. 이 경우 도메인 컨트롤러에 DNS 서버를 설치하거나 Active Directory 도메인 서비스 설치 마법사에서 위임을 만들도록 허용하기 전에 DNS 영역 위임을 만들어야 합니다. DNS 영역 위임 만들기에 대한 자세한 내용은 [영역 위임 만들기](http://technet.microsoft.com/library/cc753500.aspx)를 참조하세요.
--	Azure VM에 설치하는 DC에서 DNS 클라이언트 확인 프로그램 설정을 다음과 같이 구성합니다.
-	- 기본 설정 DNS 서버: 온-프레미스 DNS 서버
-	- 대체 DNS 서버: 루프백 주소 또는 가능한 경우 동일한 가상 네트워크의 DC에서 실행 중인 다른 DNS 서버
-
-<div class="dev-callout"> 
-<b>참고</b>
-<p>Azure 가상 네트워크의 AD DS를 지원하려면 고유한 DNS 인프라를 제공해야 합니다. 이 릴리스의 Azure 제공 DNS 인프라에서는 AD DS에서 필요로 하는 몇 가지 기능(예: 동적 SRV 리소스 레코드 등록)을 지원하지 않습니다. </p>
-</div>
-
-<div class="dev-callout"> 
-<b>참고</b>
-<p><a href="/ko-kr/manage/services/networking/active-directory-forest/">Azure에 새 Active Directory 포리스트 설치</a>의 단계를 이미 완료한 경우 이 자습서를 시작하기 전에 Azure 가상 네트워크의 도메인 컨트롤러에서 AD DS를 제거해야 할 수 있습니다. AD DS를 제거하는 방법에 대한 자세한 내용은 <a href="http://technet.microsoft.com/ko-kr/library/cc771844(v=WS.10).aspx">도메인에서 도메인 컨트롤러 제거</a>를 참조하세요.</p>
-</div>
-
-
-<h2><a id="verifystaticip"></a>1단계: YourPrimaryDC의 고정 IP 주소 확인</h2>
-
-1. 회사 네트워크의 YourPrimaryDC에 로그온합니다.
-
-2. 서버 관리자에서 View Network Connections를 클릭합니다.
-
-3. LAN(Local Area Network) 연결을 마우스 오른쪽 단추로 클릭하고 속성을 클릭합니다.
-
-4. 인터넷 프로토콜 버전 4(TCP/IPv4)를 클릭하고 속성을 클릭합니다.
-
-5. 서버가 고정 IP 주소에 할당되었는지 확인합니다. 
-
-	![VerifystaticIPaddressyourPrimaryDC1](./media/virtual-networks-install-replica-active-directory-domain-controller/VerifystaticIP.png)
-
-
-<h2><a id="installforest"></a>2단계: 회사 포리스트 설치</h2>
-
-1. VM의 RDP 세션에서 **시작**을 클릭하고 **dcpromo**를 입력하고 Enter 키를 누릅니다.
-
-	![InstallCorpForest1](./media/virtual-networks-install-replica-active-directory-domain-controller/InstallCorpForest1.png)
-
-
-2. Welcome 페이지에서 **다음**을 클릭합니다.
-
-	![InstallCorpForest2](./media/virtual-networks-install-replica-active-directory-domain-controller/InstallCorpForest2.png)
-
-
-
-3. Operating System Compatibility 페이지에서 **다음**을 클릭합니다.
-
-	![InstallCorpForest3](./media/virtual-networks-install-replica-active-directory-domain-controller/InstallCorpForest3.png)
-
-4. Choose a Deployment Configuration 페이지에서, **새 포리스트에 새 도메인 만들기**와 **다음**을 차례로 클릭합니다. 
-
-	![InstallCorpForest4](./media/virtual-networks-install-replica-active-directory-domain-controller/InstallCorpForest4.png)
-
-
-5. 포리스트 루트 도메인 페이지의 이름에서 포리스트 루트 도메인의 FQDN(정규화된 도메인 이름)인 **corp.contoso.com**을 입력하고 **다음**을 클릭합니다. 
-
-	![InstallCorpForest5](./media/virtual-networks-install-replica-active-directory-domain-controller/InstallCorpForest5.png)
-
-
-6. Set Forest Functional level 페이지에서 **Windows Server 2008 R2**와 **다음**을 차례로 클릭합니다.
-
-	![InstallCorpForest6](./media/virtual-networks-install-replica-active-directory-domain-controller/InstallCorpForest6.png)
-
-7. Additional Domain Controller Options 페이지에서 **DNS 서버**와 **다음**을 차례로 클릭합니다.
-
-	![InstallCorpForest7](./media/virtual-networks-install-replica-active-directory-domain-controller/InstallCorpForest7.png)
-
-8. 다음과 같은 DNS 위임 경고가 나타날 경우 **예**를 클릭합니다.
-
-	![InstallCorpForest8](./media/virtual-networks-install-replica-active-directory-domain-controller/InstallCorpForest8.png)
-
-
-9. Location for Active Directory database, log files and SYSVOL 페이지에서 파일의 위치를 입력하거나 선택하고 **다음**을 클릭합니다.
-
-	![InstallCorpForest9](./media/virtual-networks-install-replica-active-directory-domain-controller/InstallCorpForest9.png)
-
-
-10. Directory Services Restore Administrator 페이지에서 DSRM 암호를 입력하고 확인한 후 **다음**을 클릭합니다.
-
-	![InstallCorpForest10](./media/virtual-networks-install-replica-active-directory-domain-controller/InstallCorpForest10.png)
-
-
-11. 요약 페이지에서 선택한 항목을 확인하고 **다음**을 클릭합니다. 
-
-	![InstallCorpForest11](./media/virtual-networks-install-replica-active-directory-domain-controller/InstallCorpForest11.png)
-
-12. Active Directory 설치 마법사를 마친 후 **마침**과 **지금 다시 시작**을 차례로 클릭하여 설치를 완료합니다. 
-
-	![InstallCorpForest12](./media/virtual-networks-install-replica-active-directory-domain-controller/InstallCorpForest12.png)
-
-
-
-<h2><a id="subnets"></a>3단계: 서브넷 및 사이트 만들기</h2>
-
-1. YourPrimaryDC에서 시작, 관리 도구, Active Directory 사이트 및 서비스를 차례로 클릭합니다.
-2. **사이트**를 클릭하고, **서브넷**을 마우스 오른쪽 단추로 클릭한 후 **새 서브넷**을 클릭합니다.
-
-	![CreateSubnetsandSites1](./media/virtual-networks-install-replica-active-directory-domain-controller/CreateSubnetsandSites1.png)
-
-3. **Prefix::**에서 **10.1.0.0/24**를 입력하고, **Default-First-Site-Name** 사이트 개체를 선택하고 **확인**을 클릭합니다.
-
-	![CreateSubnetsandSites2](./media/virtual-networks-install-replica-active-directory-domain-controller/CreateSubnetsandSites2.png)
-
-4. **사이트**를 마우스 오른쪽 단추로 클릭하고 **새 사이트**를 클릭합니다.
-
-	![CreateSubnetsandSites3](./media/virtual-networks-install-replica-active-directory-domain-controller/CreateSubnetsandSites3.png)
-
-
-5. 이름에서 **CloudSite**를 입력하고, **DEFAULTIPSITELINK**를 선택하고 **확인**을 클릭합니다. 
-
-	![CreateSubnetsandSites4](./media/virtual-networks-install-replica-active-directory-domain-controller/CreateSubnetsandSites4.png)
-
-
-6. **확인**을 클릭하여 사이트가 만들어졌는지 확인합니다. 
-
-	![CreateSubnetsandSites5](./media/virtual-networks-install-replica-active-directory-domain-controller/CreateSubnetsandSites5.png)
-
-7. **서브넷**을 마우스 오른쪽 단추로 클릭한 후 **새 서브넷**을 클릭합니다.
-
-	![CreateSubnetsandSites6](./media/virtual-networks-install-replica-active-directory-domain-controller/CreateSubnetsandSites6.png)
-
-8. **Prefix::**에서 **10.4.2.0/24**를 입력하고 **CloudSite** 사이트 개체를 선택하고 **확인**을 클릭합니다.
-
-	![CreateSubnetsandSites7](./media/virtual-networks-install-replica-active-directory-domain-controller/CreateSubnetsandSites7.png)
-
-
-<h2><a id="cloudsite"></a>4단계: CloudSite에 추가 도메인 컨트롤러 설치</h2>
-
-1. YourVMachine에 로그온하고, **시작**을 클릭하고, **dcpromo**를 입력하고, Enter 키를 누릅니다.
-
-	![AddDC1](./media/virtual-networks-install-replica-active-directory-domain-controller/AddDC1.png)
-
-2. Welcome 페이지에서 **다음**을 클릭합니다.
-
-	![AddDC2](./media/virtual-networks-install-replica-active-directory-domain-controller/AddDC2.png)
-
-
-3. Operating System Compatibility 페이지에서 **다음**을 클릭합니다.
-
-	![AddDC3](./media/virtual-networks-install-replica-active-directory-domain-controller/AddDC3.png)
-
-4. Choose a Deployment Configuration 페이지에서 **기존 포리스트**, **기존 도메인에 도메인 컨트롤러 추가**, **다음**을 차례로 클릭합니다.
-
-	![AddDC4](./media/virtual-networks-install-replica-active-directory-domain-controller/AddDC4.png)
-
-
-5. 네트워크 자격 증명 페이지에서 **corp.contoso.com** 도메인에 도메인 컨트롤러를 설치하고 있는지 확인하고 Domain Admins 그룹 구성원의 자격 증명을 입력(또는 corp\administrator 자격 증명 사용)합니다. 
-
-	![AddDC5](./media/virtual-networks-install-replica-active-directory-domain-controller/AddDC5.png)
-
-
-6. 도메인 선택 페이지에서 **다음**을 클릭합니다. 
-
-	![AddDC6](./media/virtual-networks-install-replica-active-directory-domain-controller/AddDC6.png)
-
-
-7. 사이트 선택 페이지에서 CloudSite가 선택되었는지 확인하고 **다음**을 클릭합니다.
-
-	![AddDC7](./media/virtual-networks-install-replica-active-directory-domain-controller/AddDC7.png)
-
-8. Additional Domain Controller Options 페이지에서 **다음**을 클릭합니다. 
-
-	![AddDC8](./media/virtual-networks-install-replica-active-directory-domain-controller/AddDC8.png)
-
-
-9. 정적 IP 할당 경고에서 **예, DHCP 서버에서 자동으로 할당된 IP 주소를 사용합니다(권장되지 않음)**을 클릭합니다.
-
-	**중요** 
-
-	Azure 가상 네트워크의 IP 주소가 동적이긴 하지만 임대는 VM 기간 동안 유지됩니다. 따라서 가상 네트워크에 설치하는 도메인 컨트롤러의 고정 IP 주소를 설정할 필요가 없습니다. VM에 고정 IP 주소를 설정하면 통신 오류가 발생합니다.
-
-
-	![AddDC9](./media/virtual-networks-install-replica-active-directory-domain-controller/AddDC9.png)
-
-10. DNS 위임 경고에 대한 메시지가 표시되면 **예**를 클릭합니다.
-
-	![AddDC10](./media/virtual-networks-install-replica-active-directory-domain-controller/AddDC10.png)
-
-
-11. Location for Active Directory database, log files and SYSVOL 페이지에서 찾아보기를 클릭하고 데이터 디스크에서 Active Directory 파일의 위치를 입력하거나 선택하고 **다음**을 클릭합니다. 
-
-	![AddDC11](./media/virtual-networks-install-replica-active-directory-domain-controller/AddDC11.png)
-
-12. Directory Services Restore Administrator 페이지에서 DSRM 암호를 입력하고 확인한 후 **다음**을 클릭합니다.
-
-	![AddDC12](./media/virtual-networks-install-replica-active-directory-domain-controller/AddDC12.png)
-
-13. Summary 페이지에서 **다음**을 클릭합니다.
-
-	![AddDC13](./media/virtual-networks-install-replica-active-directory-domain-controller/AddDC13.png)
-
-14. Active Directory 설치 마법사를 마친 후 **마침**과 **지금 다시 시작**을 차례로 클릭하여 설치를 완료합니다. 
-
-	![AddDC14](./media/virtual-networks-install-replica-active-directory-domain-controller/AddDC14.png)
-
-
-<h2><a id="validate"></a>5단계: 설치 유효성 검사</h2>
-
-1. VM에 다시 연결합니다.
-
-2. **시작**을 클릭하고 **명령 프롬프트**를 마우스 오른쪽 단추로 클릭하고 **관리자 권한으로 실행**을 클릭합니다. 
-
-3. 다음 명령을 입력하고 Enter 키를 누릅니다.  'Dcdiag /c /v'
-
-4. 테스트가 실행되었는지 확인합니다. 
-
-DC가 구성된 후 다음 Windows PowerShell cmdlet을 실행하여 추가 가상 컴퓨터를 프로비전하고 프로비전되었을 때 자동으로 도메인에 가입되도록 하세요. VM을 프로비전할 때 VM에 대한 DNS 클라이언트 확인 프로그램 설정을 구성해야 합니다. 도메인, VM 이름 등을 사용자 도메인의 올바른 이름으로 대체하세요. 
+* [시나리오 다이어그램](#diagram)
+* [1단계: Azure 가상 네트워크에 대한 Active Directory 사이트 만들기](#createadsite)
+* [2단계: Azure 가상 네트워크 만들기](#createvnet)
+* [3단계: DC 역할에 대한 Azure VM 만들기](#createdcvms)
+* [4단계: Azure VM에 AD DS 설치](#installadds)
+* [5단계: 응용 프로그램 서버에 대한 VM 만들기](#createappvms)
+* [추가 리소스](#resources)
+
+<h2><a id="diagram"></a>시나리오 다이어그램</h2>
+
+이 시나리오에서는 외부 사용자가 도메인에 가입된 서버에서 실행되는 응용 프로그램에 액세스해야 합니다. 응용 프로그램 서버 및 복제본 DC를 실행하는 VM은 Azure 가상 네트워크에 설치됩니다. 다음 다이어그램과 같이 [사이트 간 VPN](http://msdn.microsoft.com/library/azure/dn133795.aspx) 연결을 통해 가상 네트워크를 온-프레미스 네트워크에 연결할 수 있거나 더 빠른 연결을 위해 [Express 경로](http://azure.microsoft.com/services/expressroute/)를 사용할 수 있습니다. 
+
+응용 프로그램 서버 및 DC는 계산 처리 분산을 위해 별개의 [클라우드 서비스](http://azure.microsoft.com/documentation/articles/cloud-services-what-is/)에 배포되고 내결함성 향상을 위해 [가용성 집합](http://azure.microsoft.com/documentation/articles/virtual-machines-manage-availability/) 내에 배포됩니다. 
+DC는 Active Directory 복제를 사용하여 온-프레미스 DC 및 서로 간에 복제됩니다. 동기화 도구가 필요하지 않습니다.
+
+![][1]
+
+<h2><a id="createadsite"></a>1단계: Azure 가상 네트워크에 대한 Active Directory 사이트 만들기</h2>
+
+가상 네트워크에 해당하는 네트워크 지역을 나타내는 사이트를 Active Directory에 만드는 것이 좋습니다. 그러면 인증, 복제 및 기타 DC 위치 작업을 최적화하는 데 도움이 됩니다. 다음 단계에서는 사이트를 만드는 방법을 설명합니다. 자세한 배경 정보는 [새 사이트 추가](http://technet.microsoft.com/library/cc781496.aspx)를 참조하세요.
+
+1. Active Directory 사이트 및 서비스를 엽니다 **(서버 관리자**, **도구**, **Active Directory 사이트 및 서비스**를 차례로 클릭).
+2. Azure 가상 네트워크를 만든 지역을 나타내는 사이트를 만듭니다(**사이트**, **작업**, **새 사이트**를 차례로 클릭하고, 새 사이트의 이름을 입력(예: Azure 미국 서부)한 후에 사이트 링크를 선택하고 **확인** 클릭).
+3. 서브넷을 만들고 새 사이트와 연결합니다(**사이트**를 두 번 클릭하고 **서브넷**을 마우스 오른쪽 단추로 클릭한 다음 **새 서브넷**을 클릭하고, 가상 네트워크의 IP 주소 범위 입력(예: 시나리오 다이어그램의 10.1.0.0/16)를 입력한 다음에 새 Azure 사이트 선택하고 **확인** 클릭).
+
+<h2><a id="createvnet"></a>2단계: Azure 가상 네트워크 만들기</h2>
+
+<ol><li><p>In the Azure Management Portal, click <b>New</b> > <b>Network Services</b> > <b>Virtual Network</b> > <b>Custom Create</b> and use the following values to complete the wizard.</p>
+
+<table style="width:100%">
+<tr>
+<td>마법사 페이지</td>
+<td>값 지정</td>
+</tr>
+<tr>
+<td><b>가상 네트워크 세부 정보</b></td>
+<td><ul><li>Name: 가상 네트워크의 이름을 입력합니다(예: WestUSVNet).</li><li>Region: 가상 네트워크를 배치할 Azure 위치입니다(예: 미국 서부). 가상 네트워크를 만든 후에는 이 위치를 변경할 수 없습니다.</li></ul>
+</td>
+</tr>
+<tr>
+<td><b>DNS 서버 및 VPN 연결</b></td>
+<td><ul><li>DNS 서버: 온-프레미스 DNS 서버 하나 이상의 이름과 IP 주소를 지정합니다.</li><li>연결: 여기서 <b>사이트 간 VPN 구성</b>을 선택합니다.</li><li>로컬 네트워크: 새 로컬 네트워크를 지정합니다.</li></ul>VPN 대신 Express 경로를 사용하는 경우 <a href="http://msdn.microsoft.com/library/azure/dn606306.aspx">Exchange 공급자를 통해 Express 경로 연결 구성</a>을 참조하세요.</td>
+</tr>
+<tr>
+<td><b>사이트 간 연결</b></td>
+<td><ul><li>Name: 온-프레미스 네트워크의 이름을 입력합니다.</li><li>VPN 장치 IP 주소: 가상 네트워크에 연결되는 장치의 공용 IP 주소를 지정합니다. VPN 장치는 NAT 뒤에 배치할 수 없습니다.</li><li>주소: 온-프레미스 네트워크에 대한 주소 범위를 지정합니다(예: 시나리오 다이어그램의 192.168.0.0/16).</li></ul></td>
+</tr>
+<tr>
+<td><b>가상 네트워크 주소 공간</b></td>
+<td><ul><li>주소 공간: Azure 가상 네트워크에서 실행할 VM에 대한 IP 주소 범위를 지정합니다(예: 시나리오 다이어그램의 10.1.0.0/16). 이 주소 범위는 온-프레미스 네트워크의 주소 범위와 겹칠 수 없습니다.</li><li>서브넷: 응용 프로그램 서버(예: 프런트 엔드, 10.1.1.0/24) 및 DC(예: 백 엔드, 10.1.2.0/24)의 서브넷에 대한 이름과 주소를 지정합니다.</li><li>그런 다음 <b>게이트웨이 서브넷 추가</b>를 클릭합니다.</li></ul></td>
+</tr>
+</table>
+</li>
+<li><p>다음에는 가상 네트워크 게이트웨이를 구성하여 안전한 사이트 간 VPN 연결을 만들겠습니다. 자세한 내용은 <a href = "http://msdn.microsoft.com/library/azure/jj156210.aspx">관리 포털에서 가상 네트워크 게이트웨이 구성</a> 을 참조하세요.</p>
+</li>
+<li><p>새 가상 네트워크와 온-프레미스 VPN 장치 간에 사이트 간 VPN 연결을 만듭니다. 자세한 내용은 <a href = "http://msdn.microsoft.com/library/azure/jj156210.aspx">관리 포털에서 가상 네트워크 게이트웨이 구성</a> 을 참조하세요.</p>
+</li>
+</ol>
+
+<h2><a id="createdcvms"></a>3단계: DC 역할에 대한 Azure VM 만들기</h2>
+
+<p>필요에 따라 다음 단계를 반복하여 DC 역할을 호스트할 VM을 만듭니다. 내결함성과 중복성을 제공하려면 가상 DC를 두 개 이상 배포해야 합니다. </p>
+
+
+<ol><li><p>In the Azure Management portal, click <b>New</b> > <b>Compute</b> > <b>Virtual Machine</b> > <b>From Gallery</b>. Use the following values to complete the wizard. Accept the default value for a setting unless another value is suggested or required.</p>
+<table style="width:100%">
+<tr>
+<td><b>마법사 페이지</b></td>
+<td><b>값 지정</b></td>
+</tr>
+<tr>
+<td><b>이미지 선택</b></td>
+<td>Windows Server 2012 R2 Datacenter</td>
+</tr>
+<tr>
+<td><b>가상 컴퓨터 구성</b></td>
+<td><ul><li>가상 컴퓨터 이름: 단일 레이블 이름(예: AzureDC2)을 입력합니다.</li><li>새 사용자 이름: 사용자 이름을 입력합니다. 이 사용자는 VM에서 로컬 관리자 그룹의 구성원이 됩니다. VM에 처음 로그인하려면 이 이름이 필요합니다. Administrator라는 기본 제공 계정은 사용할 수 없습니다.</li><li>새 암호/확인: 암호를 입력합니다.</li></ul></td>
+</tr>
+<tr>
+<td><b>가상 컴퓨터 구성</b></td>
+<td><ul><li>클라우드 서비스: 첫 번째 VM에 대해 <b>새 클라우드 서비스 만들기</b> 를 선택한 다음 DC 역할을 호스트할 추가 VM을 만들 때는 동일한 클라우드 서비스 이름을 선택합니다.</li><li>클라우드 서비스 DNS 이름: 전역적으로 고유한 이름을 지정합니다.</li><li>지역/선호도 그룹/가상 네트워크: 가상 네트워크 이름을 지정합니다(예: WestUSVNet).</li><li>저장소 계정: 첫 번째 VM에 대해 <b>자동으로 생성된 저장소 계정 사용</b> 를 선택한 다음 DC 역할을 호스트할 추가 VM을 만들 때는 동일한 저장소 계정 이름을 선택합니다.</li><li>가용성 집합: 여기서 <b>가용성 집합 만들기</b>를 선택합니다.</li><li>가용성 집합 이름: 첫 번째 VM을 만들 때 가용성 집합의 이름을 입력한 다음 추가 VM을 만들 때는 동일한 이름을 선택합니다.</li></ul></td>
+</tr>
+<tr>
+<td><b>가상 컴퓨터 구성</b></td>
+<td>여기서 <b>VM 에이전트 설치</b> 및 필요한 기타 모든 확장을 선택합니다.</td>
+</tr>
+</table>
+</li>
+<li><p>DC 서버 역할을 실행할 각 VM에 디스크를 연결합니다. AD 데이터베이스, 로그 및 SYSVOL을 저장하려면 추가 디스크가 필요합니다. 디스크의 크기를 지정하고(예: 10GB) <b>호스트 캐시 기본 설정</b> 을 <b>None</b>으로 그대로 둡니다. VM에 처음 로그인한 후 <b>서버 관리자</b> > <b>파일 및 저장소 서비스</b> 를 열어 NTFS를 사용하여 이 디스크에 볼륨을 만듭니다.</p></li>
+<li><p>DC 역할을 실행할 VM에 대해 고정 IP 주소를 예약합니다. 고정 IP 주소를 예약하려면 Microsoft 웹 플랫폼 설치 관리자를 다운로드하고 <a href = "http://azure.microsoft.com/documentation/articles/install-configure-powershell/">Azure PowerShell을 설치</a> 한 다음 <a href = "http://msdn.microsoft.com/library/azure/dn630228.aspx">Set-AzureStaticVNetIP</a> cmdlet을 실행합니다.</p></li>
+<li><p>Azure 관리 포털에서 가상 네트워크 이름을 클릭한 다음 <b>구성</b> 탭을 클릭하여 <a href = "http://msdn.microsoft.com/library/azure/dn275925.aspx">가상 네트워크에 대한 DNS 서버 IP 주소에 대해</a> 온-프레미스 DNS 서버의 IP 주소 대신 복제본 DC에 할당된 고정 IP 주소를 사용하도록 다시 구성합니다. </p>
+</li>
+<li><p>가상 네트워크의 모든 복제본 DC VM이 가상 네트워크의 DNS 서버를 사용하도록 구성되었는지 확인하려면 <b>가상 컴퓨터</b>를 클릭하고 각 VM의 상태 열을 클릭한 다음 <b>다시 시작</b>을 클릭합니다. 로그인하기 전에 VM에 <b>실행 중</b> 상태가 표시될 때까지 기다립니다. 
+</p>
+</li>
+</ol>
+
+<h2><a id="installadds"></a>4단계: Azure VM에 AD DS 설치</h2>
+
+VM에 로그인한 다음 사이트 간 VPN 또는 Express 경로 연결을 통해 온-프레미스 네트워크의 리소스에 연결되었는지 확인합니다. Azure VM에 AD DS를 설치합니다. 온-프레미스 네트워크에 추가 DC(UI, Windows PowerShell 또는 응답 파일)를 설치할 때 사용하는 것과 동일한 프로세스를 사용할 수 있습니다. AD DS를 설치할 때 AD 데이터베이스, 로그 및 SYSVOL의 위치에 대해 새 볼륨을 지정해야 합니다. AD DS 설치에 리프레셔가 필요한 경우 [Active Directory 도메인 서비스 설치(수준 100)](http://technet.microsoft.com/library/hh472162.aspx) 또는 [기존 도메인에 복제본 Windows Server 2012 도메인 컨트롤러 설치(수준 200)](http://technet.microsoft.com/library/jj574134.aspx)를 참조하세요.
+
+<h2><a id="x=createappvms"></a>5단계: 응용 프로그램 서버에 대한 VM 만들기</h2>
+
+<ol><li><p>Repeat the following steps to create VMs to run as application servers. Accept the default value for a setting unless another value is suggested or required.</p>
+
+<table style="width:100%">
+<tr>
+<td><b>마법사 페이지</b></td>
+<td><b>값 지정</b></td>
+</tr>
+<tr>
+<td><b>이미지 선택</b></td>
+<td>Windows Server 2012 R2 Datacenter</td>
+</tr>
+<tr>
+<td><b>가상 컴퓨터 구성</b></td>
+<td><ul><li>가상 컴퓨터 이름: 단일 레이블 이름(예: TreyAppServer1)을 입력합니다.</li><li>새 사용자 이름: 사용자 이름을 입력합니다. 이 사용자는 VM에서 로컬 관리자 그룹의 구성원이 됩니다. VM에 처음 로그인하려면 이 이름이 필요합니다. Administrator라는 기본 제공 계정은 사용할 수 없습니다.</li><li>새 암호/확인:  암호를 입력합니다.</li></ul></td>
+</tr>
+<tr>
+<td><b>가상 컴퓨터 구성</b></td>
+<td><ul><li>클라우드 서비스: 첫 번째 VM에 대해 새 클라우드 서비스 만들기를 선택한 다음 응용 프로그램을 호스트할 추가 VM을 만들 때는 동일한 클라우드 서비스 이름을 선택합니다.</li><li>클라우드 서비스 DNS 이름: 전역적으로 고유한 이름을 지정합니다.</li><li>지역/선호도 그룹/가상 네트워크: 가상 네트워크 이름을 지정합니다(예: WestUSVNet).</li><li>저장소 계정: 첫 번째 VM에 대해 <b>자동으로 생성된 저장소 계정 사용</b> 를 선택한 다음 DC 역할을 호스트할 추가 VM을 만들 때는 동일한 저장소 계정 이름을 선택합니다.</li><li>가용성 집합: 여기서 <b>가용성 집합 만들기</b>를 선택합니다.</li><li>가용성 집합 이름: 첫 번째 VM을 만들 때 가용성 집합의 이름을 입력한 다음 추가 VM을 만들 때는 동일한 이름을 선택합니다.</li></ul></td>
+</tr>
+<tr>
+<td><b>가상 컴퓨터 구성</b></td>
+<td>여기서 <b>VM 에이전트 설치</b> 및 필요한 기타 모든 확장을 선택합니다.</td>
+</tr>
+</table>
+
+
+</li>
+<li><p>각 VM이 프로비전된 후 로그인하고 VM을 도메인에 가입합니다. 그런 다음 <b>서버 관리자</b>에서 <b>로컬 서버</b> > <b>작업 그룹</b> > <b>...변경</b> 을 클릭하고 <b>도메인</b> 을 선택한 후 온-프레미스 도메인의 이름을 입력합니다. 도메인 사용자의 자격 증명을 제공한 다음 VM을 다시 시작하여 도메인 가입을 완료합니다.
+</p>
+</li>
+</ol>
+<p>
+관리 포털을 사용하여 VM을 프로비전하는 대신 Microsoft Azure용 Windows PowerShell을 사용할 수 있습니다. 여기서 <a href = "http://msdn.microsoft.com/library/azure/dn495159.aspx">New-AzureVMConfig</a> 및 <a href = "http://msdn.microsoft.com/library/azure/dn495299.aspx">Add-AzureProvisioningConfig</a> 를 사용하여 처음 부팅 시 VM을 도메인에 가입된 컴퓨터로 프로비전하고 <a href = "http://msdn.microsoft.com/library/azure/dn495254.aspx">New-AzureVM</a> 을 사용하여 VM 자체를 만듭니다. 
+</p>
 
 Windows PowerShell 사용에 대한 자세한 내용은 [Azure PowerShell 시작](http://msdn.microsoft.com/ko-kr/library/windowsazure/jj156055.aspx) 및 [Azure 관리 Cmdlet](http://msdn.microsoft.com/ko-kr/library/windowsazure/jj152841)(영문)을 참조하세요.
 
 
-<h2><a id="provisionvm"></a>6단계: 부팅 시 도메인에 가입되는 가상 컴퓨터 프로비전</h2>
+<h2><a id="resources"></a>추가 리소스</h2>
 
-1. 처음 부팅 시 도메인에 가입되는 추가 가상 컴퓨터를 만들려면 Azure PowerShell ISE를 열고, 다음 스크립트를 붙여넣고, 자리 표시자를 사용자의 값으로 대체하고 실행하세요. 
+-  [Azure 가상 컴퓨터에 Windows Server Active Directory를 배포하기 위한 지침](http://msdn.microsoft.com/library/azure/jj156090.aspx)
 
-	도메인 컨트롤러의 내부 IP 주소를 확인하려면 해당 도메인 컨트롤러가 실행 중인 가상 네트워크 이름을 클릭하세요. 
+-  [Azure PowerShell을 사용하여 기존 온-프레미스 Hyper-V 도메인 컨트롤러를 Azure에 업로드하는 방법](http://support.microsoft.com/kb/2904015)
 
-	다음 예에서 도메인 컨트롤러의 내부 IP 주소는 10.4.3.1입니다. 또한 Add-AzureProvisioningConfig는 a -MachineObjectOU 매개 변수를 사용합니다. 이 매개 변수는 지정된 경우 Active Directory의 완전한 고유 이름을 필요로 하며 컨테이너의 모든 가상 컴퓨터에 대한 그룹 정책 설정을 허용합니다.
+-  [Azure 가상 네트워크에 새 Active Directory 포리스트 설치](http://azure.microsoft.com/documentation/articles/active-directory-new-forest-virtual-machine/)
 
-	가상 컴퓨터를 프로비전한 후 UPN(사용자 계정 이름) 형식을 사용하는 도메인 계정(예: administrator@corp.contoso.com)을 지정하여 로그온합니다. 
+-  [Azure 가상 네트워크](http://msdn.microsoft.com/library/windowsazure/jj156007.aspx)
 
-		#Deploy a new VM and join it to the domain
-		#-------------------------------------------
-		#Specify my DC's DNS IP (10.4.3.1)
-		$myDNS = New-AzureDNS -Name 'ContosoDC13' -IPAddress '10.4.3.1'
-		
-		# OS Image to Use
-		$image = 'MSFT__Sql-Server-11EVAL-11.0.2215.0-08022012-ko-kr-30GB.vhd'
-		$service = 'myazuresvcindomainM1'
-		$AG = 'YourAffinityGroup'
-		$vnet = 'YourVirtualNetwork'
-		$pwd = 'p@$$w0rd'
-		$size = 'Small'
-		
-		#VM Configuration
-		$vmname = 'MyTestVM1'
-		$MyVM1 = New-AzureVMConfig -name $vmname -InstanceSize $size -ImageName $image |
-		    Add-AzureProvisioningConfig -WindowsDomain -Password $pwd -Domain 'corp' -DomainPassword 'p@$$w0rd' -DomainUserName 'Administrator' -JoinDomain 'corp.contoso.com'|
-		    Set-AzureSubnet -SubnetNames 'BackEnd'
-		
-		New-AzureVM -ServiceName $service -AffinityGroup $AG -VMs $MyVM1 -DnsSettings $myDNS -VNetName $vnet
-		
+-  [Microsoft Azure IT Pro IaaS: (01) 가상 컴퓨터 기본 사항](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/01)(영문)
 
-<h2><a id="backup"></a>7단계: 도메인 컨트롤러 백업</h2>
+-  [Microsoft Azure IT Pro IaaS: (05) 가상 네트워크 및 프레미스 간 연결 만들기](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/05)(영문)
 
+-  [Azure PowerShell](http://msdn.microsoft.com/library/windowsazure/jj156055.aspx)
 
-1. YourVMachine에 연결합니다.
+-  [Azure 관리 Cmdlet](http://msdn.microsoft.com/library/windowsazure/jj152841)(영문)
 
-2. **시작**, **서버 관리자**, **기능 추가**를 차례로 클릭한 후 **Windows Server 백업 기능**을 선택합니다. 지침을 따라서 Windows Server 백업을 설치합니다.
+<!--Image references-->
+[1]: ./media/virtual-networks-install-replica-active-directory-domain-controller/ReplicaDCsOnAzureVNet.png
 
-3. **시작**, **Windows Server 백업**, **한 번 백업**을 차례로 클릭합니다.
- 
-4. **다른 옵션**과 **다음**을 차례로 클릭합니다.
-
-5. **전체 서버**와 **다음**을 차례로 클릭합니다.
-
-6. **로컬 드라이브**와 **다음**을 차례로 클릭합니다.
-
-7. 운영 체제 파일 또는 Active Directory 데이터베이스를 호스트하는 대상 드라이브를 선택한 후 다음을 클릭합니다.
-
-	![BackupDC](./media/virtual-networks-install-replica-active-directory-domain-controller/BackupDC.png)
-
-
-8. 선택한 백업 설정을 확인한 후 **백업**을 클릭합니다.
-
-<h2><a id="test"></a>8단계: 인증 및 권한 부여 테스트</h2>
-
-1. 인증 및 권한 부여를 테스트하려면 Active Directory에 도메인 사용자 계정을 만듭니다. 
-각 사이트의 클라이언트 VM에 로그온하고 VM에 공유 폴더를 만듭니다.
-
-2. 다른 계정 및 그룹과 권한을 사용하여 공유 폴더에 대한 액세스를 테스트합니다. 
-
-## 참고 항목
-
--  [Azure 가상 네트워크](http://msdn.microsoft.com/ko-kr/library/windowsazure/jj156007.aspx)
-
--  [Microsoft Azure IT Pro IaaS: (01) 가상 컴퓨터 기본 사항](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/01)
-
--  [Microsoft Azure IT Pro IaaS: (05) 가상 네트워크 및 프레미스 간 연결 만들기](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/05)
-
--  [Azure PowerShell](http://msdn.microsoft.com/ko-kr/library/windowsazure/jj156055.aspx)
-
--  [Azure 관리 Cmdlet(영문)](http://msdn.microsoft.com/ko-kr/library/windowsazure/jj152841)
+<!--HONumber=35.2-->

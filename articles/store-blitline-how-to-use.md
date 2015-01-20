@@ -1,6 +1,6 @@
-﻿<properties urlDisplayName="Blitline Image Processing Service" pageTitle="이미지 처리에 Blitline을 사용하는 방법 - Azure " metaKeywords="" description="Azure 응용 프로그램 내에서 Blitline 서비스를 사용하여 이미지를 처리하는 방법에 대해 알아봅니다." metaCanonical="" services="" documentationCenter=".NET" title="How to use Blitline with Azure and Azure Storage" authors="need to identify contact" solutions="" manager="need to identify contact" editor="" />
+﻿<properties urlDisplayName="Blitline Image Processing Service" pageTitle="이미지 처리에 Blitline을 사용하는 방법 - Azure 기능 가이드" metaKeywords="" description="Azure 응용 프로그램 내에서 Blitline 서비스를 사용하여 이미지를 처리하는 방법에 대해 알아봅니다." metaCanonical="" services="" documentationCenter=".NET" title="How to use Blitline with Azure and Azure Storage" authors="jason@blitline.com" solutions="" manager="jason@blitline.com" editor="jason@blitline.com" />
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="pennij" />
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/09/2014" ms.author="support@blitline.com" />
 
 
 
@@ -32,11 +32,11 @@ Blitline은 직접 빌드하는 비용보다 훨씬 저렴한 가격으로 엔�
 
 계속 진행하기 전에 Blitline이 수행할 수 없는 작업을 확인하는 것이 Blitline이 유용한 이유를 명확하게 하는 데 더 쉽습니다.
 
-- Blitline에는 이미지를 업로드할 HTML 위젯이 없습니다. 공개적으로 사용할 수 있는 이미지나 Blitline이 접근할 수 있는 권한이 제한된 이미지가 있어야 합니다.
+- Blitline에는 이미지를 업로드할 HTML 위젯이 없습니다. 공개적으로 사용할 수 있는 이미지를 가지고 있거나 Blitline가 접근할 수 있는 제한된 권한을 가진 이미지를 가지고 있어야 합니다.
 
 - Blitline은 Aviary.com처럼 라이브로 이미지를 처리하지 않습니다.
 
-- Blitline은 이미지 업로드를 허용하지 않아 이미지를 Blitline에 직접 푸시할 수 없습니다. 이미지를 Azure 저장소나 Blitline이 지원하는 다른 위치에 푸시한 다음 Blitline에 그 위치를 알려주어야 합니다.
+- Blitline은 이미지 업로드를 허용하지 않아 이미지를 Blitline에 직접 푸시할 수 없습니다. 이미지를 Azure 저장소에 푸시하거나 Blitline이 지원하는 다른 위치에 푸시한 다음 Blitline에 그 위치를 알려주어 가져올 수 있게 해야 합니다.
 
 - Blitline은 대량 병렬식이어서 동기식 처리를 하지 않습니다. 즉, postback_url을 보내주어야 처리가 완료되는 시점을 알려줄 수 있습니다.
 
@@ -62,15 +62,15 @@ Blitline은 JSON을 사용하여 이미지에 적용할 동작을 정의합니�
 
 이 JSON에서는 "src" 이미지 "...boys.jpeg"을 사용한 다음 그 이미지 크기를 240x140으로 다시 조정합니다.
 
-응용 프로그램 ID는 Azure의 **연결 정보** 또는 **관리** 탭에서 찾을 수 있습니다. Blitline에서 작업을 실행할 수 있도록 해주는 비밀 식별자입니다.
+응용 프로그램 ID는 Azure의 **연결 정보** 또는 **관리** 탭에서 찾을 수 있는 ID입니다. Blitline에서 작업을 실행할 수 있도록 해주는 비밀 식별자입니다.
 
 "save" 매개 변수는 처리한 이미지를 저장할 위치에 대한 정보를 식별합니다. 간단한 이 경우에서는 정의하지 않았습니다. 위치를 정의하지 않으면 Blitline은 고유 클라우드 위치에 이미지를 로컬로(및 일시적으로) 저장합니다. Blitline을 만들 때 Blitline이 반환한 JSON에서 그 위치를 가져올 수 있습니다. "image" 식별자는 필수이며 저장된 이 특정 이미지를 식별할 때 반환됩니다.
 
-지원되는 *함수*에 대한 자세한 정보는 <http://www.blitline.com/docs/functions>(영문)에서 찾을 수 있습니다.
+여기서 지원하는 *함수*에 대한 자세한 정보는 다음에서 찾을 수 있습니다. <http://www.blitline.com/docs/functions>
 
-또한 작업 옵션에 대한 설명서는 <http://www.blitline.com/docs/api>(영문)에서 찾을 수 있습니다.
+또한 여기서 나온 작업 옵션에 대한 설명서는 다음에서 찾을 수 있습니다. <http://www.blitline.com/docs/api>
 
-JSON이 있으면 `http://api.blitline.com/jobs`에 **게시**하기만 하면 됩니다.
+JSON이 있는 경우 'http://api.blitline.com/jobs'에 **게시**하면 됩니다.
 
 다음과 유사한 JSON이 반환됩니다.
 
@@ -122,12 +122,12 @@ SAS에는 대상 파일의 파일 이름을 포함하여 전체 SAS URL이 포�
     http://blitline.blob.core.windows.net/sample/image.jpg?sr=b&sv=2012-02-12&st=2013-04-12T03%3A18%3A30Z&se=2013-04-12T04%3A18%3A30Z&sp=w&sig=Bte2hkkbwTT2sqlkkKLop2asByrE0sIfeesOwj7jNA5o%3D
 
 
-Blitline의 Azure 저장소 문서의 최신 버전을 [여기](http://www.blitline.com/docs/azure_storage)(영문)에서 읽을 수도 있습니다.
+Blitline의 Azure 저장소 문서의 최신 버전을 [여기서](http://www.blitline.com/docs/azure_storage) 읽을 수도 있습니다.
 
 
 ## <a id="nextsteps"></a>다음 단계
 
-다른 모든 기능에 대한 내용을 보려면 다음 blitline.com을 방문하세요.
+다른 모든 기능에 대한 내용을 보려면 다음 blitline.com을 방문하십시오.
 
 * Blitline API 끝점 문서 <http://www.blitline.com/docs/api>(영문)
 * Blitline API 함수 <http://www.blitline.com/docs/functions>(영문)
@@ -142,3 +142,5 @@ Blitline의 Azure 저장소 문서의 최신 버전을 [여기](http://www.blitl
   [Blitline 작업을 만드는 방법]: #createjob
   [Azure 저장소에 이미지를 저장하는 방법]: #saveazure
 
+
+<!--HONumber=35.2-->

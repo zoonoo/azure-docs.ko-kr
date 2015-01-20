@@ -1,4 +1,4 @@
-<properties urlDisplayName="Integrate a cloud service with Azure CDN" pageTitle="Azure CDN과 클라우드 서비스 통합" metaKeywords="Azure tutorial, Azure web app tutorial, ASP.NET, CDN, MVC, cloud service" description="통합 Azure CDN 끝점에서 콘텐츠를 제공하는 클라우드 서비스의 배포 방법에 대해 설명하는 자습서입니다." metaCanonical="" services="cdn,cloud-services" documentationCenter=".NET" title="Integrate a cloud service with Azure CDN" authors="cephalin" solutions="" manager="wpickett" editor="tysonn" />
+﻿<properties urlDisplayName="Integrate a cloud service with Azure CDN" pageTitle="Azure CDN과 클라우드 서비스 통합" metaKeywords="Azure tutorial, Azure web app tutorial, ASP.NET, CDN, MVC, cloud service" description="통합 Azure CDN 끝점에서 콘텐츠를 제공하는 클라우드 서비스의 배포 방법에 대해 설명하는 자습서입니다." metaCanonical="" services="cdn,cloud-services" documentationCenter=".NET" title="Integrate a cloud service with Azure CDN" authors="cephalin" solutions="" manager="wpickett" editor="tysonn" />
 
 <tags ms.service="cdn" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="10/02/2014" ms.author="cephalin" />
 
@@ -32,14 +32,14 @@
 이 자습서를 사용하려면 다음 필수 조건이 필요합니다.
 
 -	활성 [Microsoft Azure 계정](http://azure.microsoft.com/ko-kr/account/)
--	[Azure SDK를 설치한 Visual Studio 2013](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409)
+-	[Azure SDK]를 설치한 Visual Studio 2013http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409)
 
 <div class="wa-note">
   <span class="wa-icon-bulb"></span>
-  <h5><a name="note"></a>이 자습서를 완료하려면 Azure 계정이 있어야 합니다.</h5>
+  <h5><a name="note"></a>You need an Azure account to complete this tutorial:</h5>
   <ul>
-    <li><a href="http://azure.microsoft.com/ko-kr/pricing/free-trial/?WT.mc_id=A261C142F">Azure 계정을 무료로 개설</a>할 수 있음 - 유료 Azure 서비스를 사용해볼 수 있는 크레딧을 받게 되며 크레딧을 모두 사용한 후에도 계정을 유지하고 무료 Azure 서비스(예: 웹 서비스)를 사용할 수 있습니다.</li>
-    <li><a href="http://azure.microsoft.com/ko-kr/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F">MSDN 구독자 혜택을 활성화</a>할 수 있음 - MSDN 구독은 유료 Azure 서비스에 사용할 수 있는 크레딧을 매달 제공합니다.</li>
+    <li>You can <a href="http://azure.microsoft.com/ko-kr/pricing/free-trial/?WT.mc_id=A261C142F">open an Azure account for free</a> - You get credits you can use to try out paid Azure services, and even after they're used up you can keep the account and use free Azure services, such as Websites.</li>
+    <li>You can <a href="http://azure.microsoft.com/ko-kr/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F">activate MSDN subscriber benefits</a> - Your MSDN subscription gives you credits every month that you can use for paid Azure services.</li>
   <ul>
 </div>
 
@@ -52,7 +52,7 @@
 
 	![](media/cdn-cloud-service-with-cdn/cdn-cs-1-new-project.PNG)
 
-2. **ASP.NET 웹 역할**을 선택하고 **>** 단추를 클릭합니다. 확인을 클릭합니다.
+2. **ASP.NET 웹 역할*을 선택하고 **>** 단추를 클릭합니다. 확인을 클릭합니다.
 
 	![](media/cdn-cloud-service-with-cdn/cdn-cs-2-select-role.PNG)
 
@@ -73,7 +73,7 @@
 
 	![](media/cdn-cloud-service-with-cdn/cdn-cs-6-publish-signedin.png)
 
-8. Visual Studio에서는 클라우드 서비스 또는 저장소 계정이 생성되지 않았다고 가정하고 두 계정의 생성을 지원합니다. **클라우드 서비스 및 계정 만들기** 대화 상자에서 원하는 서비스 이름을 입력합니다. 그런 다음에 **만들기**를 클릭합니다.
+8. Visual Studio에서는 클라우드 서비스 또는 저장소 계정이 생성되지 않았다고 가정하고 두 계정의 생성을 지원합니다. **클라우드 서비스 및 계정 만들기** 대화 상자에서 원하는 서비스 이름을 입력합니다. 그런 다음 **만들기**를 클릭합니다.
 
 	![](media/cdn-cloud-service-with-cdn/cdn-cs-7-publish-createserviceandstorage.png)
 
@@ -81,12 +81,12 @@
 
 	![](media/cdn-cloud-service-with-cdn/cdn-cs-8-publish-finalize.png)
 
-	>[WACOM.NOTE] 클라우드 서비스를 게시하는 프로세스는 시간이 조금 걸립니다. "모든 웹 역할에 대해 웹 배포 사용" 옵션을 사용하면 웹 역할에 대한 신속한(하지만 임시적) 업데이트를 제공함으로써 클라우드 서비스를 훨씬 빠르게 디버깅할 수 있습니다. 이 옵션에 대한 자세한 내용은 [Azure Tools를 사용하여 클라우드 서비스 게시](http://msdn.microsoft.com/ko-kr/library/ff683672.aspx)를 참조하세요.
+	>[WACOM.NOTE] 클라우드 서비스를 게시하는 프로세스는 시간이 조금 걸립니다. 모든 웹 역할에 대해 웹 배포 사용 옵션을 사용하면 웹 역할에 대한 신속한(하지만 임시적) 업데이트를 제공함으로써 클라우드 서비스를 훨씬 빠르게 디버깅할 수 있습니다. 이 옵션에 대한 자세한 내용은 [Azure Tools를 사용하여 클라우드 서비스 게시]를 참조하세요.http://msdn.microsoft.com/ko-kr/library/ff683672.aspx).
 
-	**Windows Azure 활동 로그**에서 게시 상태가 **완료**로 표시된 경우 이 클라우드 서비스와 통합된 CDN 끝점을 만들 수 있습니다. 
+	**Microsoft Azure 활동 로그**에서 게시 상태가 **완료**로 표시된 경우 이 클라우드 서비스와 통합된 CDN 끝점을 만들 수 있습니다. 
 
 1. CDN 끝점을 만들려면 [Azure 관리 포털](http://manage.windowsazure.com/)에 로그인합니다. 
-2. **새로 만들기** > **앱 서비스** > **CDN** > **빠른 생성**을 클릭합니다. **http://*<서비스 이름>*.cloudapp.net/cdn/**을 선택하고 **만들기**를 클릭합니다.
+2. **새로 만들기** > **앱 서비스** > **CDN** > **빠른 생성**을 클릭합니다. **http://*&lt;서비스 이름>*.cloudapp.net/cdn/**를 선택하고 **만들기**를 클릭합니다.
 
 	![](media/cdn-cloud-service-with-cdn/cdn-cs-10-createcdn.png)
 
@@ -127,7 +127,7 @@
 
 	![](media/cdn-cloud-service-with-cdn/cdn-cs-4-publish-a.png)
 
-1. 게시 상태가 **완료**인 경우 브라우저 창을 열고 **http://*<cdnName>*.vo.msecnd.net/Content/bootstrap.css**로 이동합니다. 이 자습서 설정에서 이 URL은 다음과 같습니다.
+1. 게시 상태가 **완료**인 경우 브라우저 창을 열고 **http://*&lt;cdnName>*.vo.msecnd.net/Content/bootstrap.css**로 이동합니다. 이 자습서 설정에서 이 URL은 다음과 같습니다.
 
 		http://az632148.vo.msecnd.net/Content/bootstrap.css
 
@@ -139,35 +139,35 @@
 
 		http://cephalinservice.cloudapp.net/Content/bootstrap.css
 
-	**http://*<cdn이름>*.vo.msecnd.net/Content/bootstrap.css**로 이동한 경우 게시한 웹 앱에서 들어오는 bootstrap.css를 다운로드하라는 메시지가 표시됩니다. 
+	**http://*&lt;cdn이름>*.vo.msecnd.net/Content/bootstrap.css**로 이동한 경우 게시한 웹앱에서 들어오는 bootstrap.css를 다운로드하라는 메시지가 표시됩니다. 
 
 	![](media/cdn-cloud-service-with-cdn/cdn-1-browser-access.PNG)
 
-마찬가지로 CDN 끝점에서 **http://*<서비스이름>*.cloudapp.net/**의 공개적으로 액세스 가능한 URL에 바로 액세스할 수 있습니다. 예를 들면 다음과 같습니다.
+마찬가지로 CDN 끝점에서 **http://*&lt;서비스이름>*.cloudapp.net/**의 공개적으로 액세스 가능한 URL에 바로 액세스할 수 있습니다. 예를 들면 다음과 같습니다.
 
 -	/Script 경로의 .js 파일
 -	/Content 경로의 모든 콘텐츠 파일
 -	모든 controller/action 
 -	CDN 끝점에서 쿼리 문자열을 사용하도록 설정한 경우 쿼리 문자열이 포함된 모든 URL
 
-실제로 위의 구성으로 **http://*<cdn이름>*.vo.msecnd.net/**에서 전체 클라우드 서비스를 호스트할 수 있습니다. **http://az632148.vo.msecnd.net/**으로 이동한 경우 Home/Index에서 작업 결과를 가져옵니다.
+실제로 위의 구성으로 **http://*&lt;cdn 이름>*.vo.msecnd.net/**에서 전체 클라우드 서비스를 호스트할 수 있습니다. **http://az632148.vo.msecnd.net/**으로 이동한 경우 Home/Index에서 작업 결과를 가져옵니다.
 
 ![](media/cdn-cloud-service-with-cdn/cdn-2-home-page.PNG)
 
 그러나 그렇다고 Azure CDN을 통해 전체 클라우드 서비스를 제공하는 것이 항상 좋다(또는 일반적으로 좋다)는 의미는 아닙니다. 다음 사항을 주의해야 합니다.
 
 -	Azure CDN이 개인 콘텐츠를 제공할 수 없으므로 이 접근 방식에서는 전체 사이트가 공용이어야 합니다.
--	예정된 유지 관리 또는 사용자 오류든, 어떤 이유로 CDN 끝점이 오프라인 상태가 된 경우 고객이 원본 URL인 URL **http://*<서비스이름>*.cloudapp.net/**으로 리디렉션되지 않은 한 전체 클라우드 서비스가 오프라인 상태가 됩니다. 
+-	예정된 유지 관리 또는 사용자 오류든, 어떤 이유로 CDN 끝점이 오프라인 상태가 된 경우 고객이 원본 URL인 **http://*&lt;서비스 이름>*.cloudapp.net/**으로 리디렉션되지 않은 한 전체 클라우드 서비스가 오프라인 상태가 됩니다. 
 -	사용자 지정 캐시 컨트롤 설정([클라우드 서비스의 정적 파일에 대한 캐싱 옵션 구성](#caching) 참조)이 있는 경우에도 CDN 끝점이 높은 수준의 동적 콘텐츠의 성능을 개선하지는 않습니다. 위와 같이 CDN 끝점에서 홈페이지를 로드하려는 경우 상당히 단순한 페이지인 기본 홈페이지를 처음 로드하는 데도 5초 이상이 걸립니다. 이 페이지에 매분 업데이트되어야 하는 동적 콘텐츠가 포함되어 있다면 클라이언트 환경이 어떨지 상상해 보세요. CDN 끝점에서 동적 콘텐츠를 제공하려면 캐시 만료가 짧아야 하며 이는 CDN 끝점에서 빈번한 캐시 누락이 발생함을 의미합니다. 그러면 클라우드 서비스의 성능이 저하되며 CDN의 목적이 무산됩니다.
 
 대안은 클라우드 서비스의 사례별로 Azure CDN에서 제공할 콘텐츠를 판단하는 것입니다. 이를 위해 CDN 끝점에서 개별 콘텐츠 파일에 액세스하는 방법을 이미 알아보았습니다. [Azure CDN을 통해 컨트롤러 작업의 콘텐츠 제공](#controller)에서는 CDN 끝점을 통해 특정 컨트롤러 작업을 제공하는 방법을 설명하겠습니다.
 
 더욱 제한적인 URL 다시 쓰기 규칙을 지정하면 CDN 끝점을 통해 액세스 가능한 콘텐츠를 제한할 수 있습니다. 예를 들어 URL 다시 쓰기를 *\Scripts* 폴더로 제한하려면 위의 다시 쓰기 규칙을 다음과 같이 변경하세요.   
 <pre class="prettyprint">
-<rule name=&quot;RewriteIncomingCdnRequest&quot; stopProcessing=&quot;true&quot;>
-  <match url=&quot;^cdn/<mark>Scripts/</mark>(.*)$&quot;/>
-  <action type=&quot;Rewrite&quot; url=&quot;<mark>Scripts/</mark>{R:1}&quot;/>
-</rule>
+&lt;rule name=&quot;RewriteIncomingCdnRequest&quot; stopProcessing=&quot;true&quot;&gt;
+  &lt;match url=&quot;^cdn/<mark>Scripts/</mark>(.*)$&quot;/&gt;
+  &lt;action type=&quot;Rewrite&quot; url=&quot;<mark>Scripts/</mark>{R:1}&quot;/&gt;
+&lt;/rule&gt;
 </pre>
 
 <a name="caching"></a>
@@ -196,16 +196,16 @@
 
 이 설정을 통해 *\Content* 폴더의 모든 정적 파일은 15일 동안 캐시됩니다.
 
-`<clientCache>` 요소를 구성하는 방법에 대한 자세한 내용은 [클라이언트 캐시 <clientCache>](http://www.iis.net/configreference/system.webserver/staticcontent/clientcache)(영문)를 참조하세요.
+`<clientCache>` 요소를 구성하는 방법에 대한 자세한 내용은 [클라이언트 캐시 &lt;clientCache>](http://www.iis.net/configreference/system.webserver/staticcontent/clientcache)(영문)를 참조하세요.
 
 [Azure CDN을 통해 컨트롤러 작업의 콘텐츠 제공](#controller)에서는 CDN 캐시의 컨트롤러 작업 결과에 대해 캐시 설정을 구성하는 방법에 관해서도 설명합니다.
 
 <a name="controller"></a>
 ## Azure CDN을 통해 컨트롤러 작업의 콘텐츠 제공 ##
 
-클라우드 서비스 웹 역할을 Azure CDN과 통합한 경우 Azure CDN을 통해 컨트롤러 작업의 콘텐츠를 비교적 쉽게 제공할 수 있습니다. [Maarten Balliauw](https://twitter.com/maartenballiauw)는 Azure CDN을 통해 직접 클라우드 서비스를 제공(위에서 설명함)하지 않고 [Microsoft Azure CDN으로 웹 대기 시간 줄이기](http://channel9.msdn.com/events/TechDays/Techdays-2014-the-Netherlands/Reducing-latency-on-the-web-with-the-Windows-Azure-CDN)(영문)에서 재미있는 MemeGenerator 컨트롤러로 이를 수행하는 방법을 보여 줍니다. 여기서 그 방법을 간단히 재현해보겠습니다.
+클라우드 서비스 웹 역할을 Azure CDN과 통합한 경우 Azure CDN을 통해 컨트롤러 작업의 콘텐츠를 비교적 쉽게 제공할 수 있습니다. [Maarten Balliauw](https://twitter.com/maartenballiauw)(영문)는 Azure CDN을 통해 직접 클라우드 서비스를 제공(위에서 설명함)하지 않고 [Microsoft Azure CDN으로 웹 대기 시간 줄이기](http://channel9.msdn.com/events/TechDays/Techdays-2014-the-Netherlands/Reducing-latency-on-the-web-with-the-Windows-Azure-CDN)(영문)에서 재미있는 MemeGenerator 컨트롤러로 이를 수행하는 방법을 보여 줍니다. 여기서 그 방법을 간단히 재현해보겠습니다.
 
-클라우드 서비스에서 다음과 같은 젊은 척 노리스의 이미지([Alan Light](http://www.flickr.com/photos/alan-light/218493788/) 제공 사진)를 기반으로 하여 밈을 생성하려고 한다고 가정해 보세요.
+클라우드 서비스에서 다음과 같은 젊은 척 노리스의 이미지([Alan Light](http://www.flickr.com/photos/alan-light/218493788/)(영문) 제공 사진)를 기반으로 하여 밈을 생성하려고 한다고 가정해 보세요.
 
 ![](media/cdn-cloud-service-with-cdn/cdn-5-memegenerator.PNG)
 
@@ -229,7 +229,7 @@
 	{
 	    public class MemeGeneratorController : Controller
 	    {
-	        static readonly Dictionary<string, Tuple<string ,string&gt;> Memes = new Dictionary<string, Tuple<string, string&gt;>();
+	        static readonly Dictionary&lt;string, Tuple&lt;string ,string&gt;&gt; Memes = new Dictionary&lt;string, Tuple&lt;string, string&gt;&gt;();
 
 	        public ActionResult Index()
 	        {
@@ -242,17 +242,17 @@
 	            var identifier = Guid.NewGuid().ToString();
 	            if (!Memes.ContainsKey(identifier))
 	            {
-	                Memes.Add(identifier, new Tuple<string, string>(top, bottom));
+	                Memes.Add(identifier, new Tuple&lt;string, string&gt;(top, bottom));
 	            }
 	
-	            return Content(&quot;<a href=\&quot;&quot; + Url.Action(&quot;Show&quot;, new {id = identifier}) + &quot;\&quot;>here&#39;s your meme</a>&quot;);
+	            return Content(&quot;&lt;a href=\&quot;&quot; + Url.Action(&quot;Show&quot;, new {id = identifier}) + &quot;\&quot;&gt;here&#39;s your meme&lt;/a&gt;&quot;);
 	        }
 
 
 	        [OutputCache(VaryByParam = &quot;*&quot;, Duration = 1, Location = OutputCacheLocation.Downstream)]
 	        public ActionResult Show(string id)
 	        {
-	            Tuple<string, string> data = null;
+	            Tuple&lt;string, string&gt; data = null;
 	            if (!Memes.TryGetValue(id, out data))
 	            {
 	                return new HttpStatusCodeResult(HttpStatusCode.NotFound);
@@ -264,7 +264,7 @@
 	            }
 	            else // Get content from Azure CDN
 	            {
-	                return Redirect(string.Format(&quot;http://<mark><yourCdnName></mark>.vo.msecnd.net/MemeGenerator/Generate?top={0}&bottom={1}&quot;, data.Item1, data.Item2));
+	                return Redirect(string.Format(&quot;http://<mark>&lt;yourCdnName&gt;</mark>.vo.msecnd.net/MemeGenerator/Generate?top={0}&amp;bottom={1}&quot;, data.Item1, data.Item2));
 	            }
 	        }
 
@@ -300,8 +300,8 @@
 	                size = g.MeasureString(text, font);
 	
 	                // It fits, back out
-	                if (size.Height < i.Height &&
-	                     size.Width < i.Width) { return font; }
+	                if (size.Height &lt; i.Height &amp;&amp;
+	                     size.Width &lt; i.Width) { return font; }
 	
 	                // Try a smaller font (90% of old size)
 	                Font oldFont = font;
@@ -313,7 +313,7 @@
 	}
 	</pre>
 
-2. 기본 `Index()` 작업에서 마우스 오른쪽 단추로 클릭하고 **뷰 추가**를 선택합니다.
+2. 기본 'Index()' 작업을 마우스 오른쪽 단추로 클릭하고 **보기 추가**를 선택합니다.
 
 	![](media/cdn-cloud-service-with-cdn/cdn-6-addview.PNG)
 
@@ -333,14 +333,14 @@
 		    <input class="btn" type="submit" value="Generate meme" />
 		</form>
 
-5. 클라우드 서비스를 다시 게시하고 브라우저에서 **http://*<서비스이름>*.cloudapp.net/MemeGenerator/Index**로 이동합니다. 
+5. 클라우드 서비스를 다시 게시하고 브라우저에서 **http://*&lt;서비스 이름>*.cloudapp.net/MemeGenerator/Index**로 이동합니다. 
 
 양식 값을 `/MemeGenerator/Index`로 제출하면 `Index_Post` 작업 메서드는 해당 입력 식별자를 포함하는 `Show` 작업 메서드에 대한 링크를 반환합니다. 링크를 클릭하면 다음 코드로 이동합니다.  
 <pre class="prettyprint">
 [OutputCache(VaryByParam = &quot;*&quot;, Duration = 1, Location = OutputCacheLocation.Downstream)]
 public ActionResult Show(string id)
 {
-    Tuple<string, string> data = null;
+    Tuple&lt;string, string&gt; data = null;
     if (!Memes.TryGetValue(id, out data))
     {
         return new HttpStatusCodeResult(HttpStatusCode.NotFound);
@@ -352,7 +352,7 @@ public ActionResult Show(string id)
     }
     else // Get content from Azure CDN
     {
-        return Redirect(string.Format(&quot;http://<mark><cdnName></mark>.vo.msecnd.net/MemeGenerator/Generate?top={0}&bottom={1}&quot;, data.Item1, data.Item2));
+        return Redirect(string.Format(&quot;http://<mark>&lt;cdnName&gt;</mark>.vo.msecnd.net/MemeGenerator/Generate?top={0}&amp;bottom={1}&quot;, data.Item1, data.Item2));
     }
 }
 </pre>
@@ -388,7 +388,7 @@ public ActionResult Show(string id)
 -	CDN 끝점의 오류에 대비한 대체 메커니즘
 -	코드 수정의 최소화
 
-[Azure CDN 끝점을 Azure 웹 사이트와 통합하여 Azure CDN에서 웹페이지에 정적 콘텐츠 제공](#deploy)에서 만든 **WebRole1** 프로젝트에서 *App_Start\BundleConfig.cs*를 열고 `bundles.Add()` 메서드 호출을 확인합니다.
+[Azure CDN 끝점을 Azure 웹 사이트와 통합하여 Azure CDN에서 웹 페이지에 정적 콘텐츠 제공](#deploy)에서 만든 **WebRole1** 프로젝트에서 *App_Start\BundleConfig.cs*를 열고 `bundles.Add()` 메서드 호출을 확인합니다.
 
     public static void RegisterBundles(BundleCollection bundles)
     {
@@ -405,7 +405,7 @@ public ActionResult Show(string id)
 
     <script src="/bundles/jquery?v=FVs3ACwOLIVInrAl5sdzR2jrCDmVOWFbZMY6g6Q0ulE1"></script>
 
-그러나 `F5`를 눌러 코드가 Visual Studio에서 실행되면 다음과 같이 번들의 각 스크립트 파일을 개별적으로 렌더링합니다(위의 경우에는 하나의 스크립트 파일만 번들에 있음).
+그러나 `F5` 키를 눌러 코드가 Visual Studio에서 실행되면 다음과 같이 번들의 각 스크립트 파일을 개별적으로 렌더링합니다(위의 경우에는 하나의 스크립트 파일만 번들에 있음).
 
     <script src="/Scripts/jquery-1.10.2.js"></script>
 
@@ -420,7 +420,7 @@ ASP.NET 묶음 및 축소를 CDN 끝점과 통합하려면 다음 단계를 따�
 	    <mark>bundles.UseCdn = true;
 	    var version = System.Reflection.Assembly.GetAssembly(typeof(Controllers.HomeController))
 	        .GetName().Version.ToString();
-	    var cdnUrl = &quot;http://<yourCDNName>.vo.msecnd.net/{0}?v=&quot; + version;</mark>
+	    var cdnUrl = &quot;http://&lt;yourCDNName&gt;.vo.msecnd.net/{0}?v=&quot; + version;</mark>
 	
 	    bundles.Add(new ScriptBundle(&quot;~/bundles/jquery&quot;<mark>, string.Format(cdnUrl, &quot;bundles/jquery&quot;)</mark>).Include(
 	                &quot;~/Scripts/jquery-{version}.js&quot;));
@@ -443,7 +443,7 @@ ASP.NET 묶음 및 축소를 CDN 끝점과 통합하려면 다음 단계를 따�
 	}
 	</pre>
 
-	`<CDN이름>`은 사용 중인 Azure CDN 이름으로 바꾸세요.
+	`<yourCDNName>`은 사용 중인 Azure CDN 이름으로 바꾸세요.
 
 	쉽게 말하면 `bundles.UseCdn = true`를 설정하고 있으며 신중하게 만든 CDN URL을 각 번들에 추가했습니다. 예를 들어 코드의 첫 번째 생성자는 다음과 같습니다.
 
@@ -481,7 +481,7 @@ ASP.NET 묶음 및 축소를 CDN 끝점과 통합하려면 다음 단계를 따�
 
 	...</pre>
 
-5. Visual Studio로 돌아가 `F5` 키를 눌러 Visual Studio에서 클라우드 서비스를 디버깅합니다. 
+5. Visual Studio에서 `F5` 키를 눌러 Visual Studio에서 클라우드 서비스를 디버그합니다. 
 
 6. 페이지의 HTML 코드를 확인합니다. 개별적으로 렌더링된 각 스크립트 파일을 살펴볼 수 있으므로 Visual Studio의 일관된 디버그 환경을 구현할 수 있습니다.  
 	<pre class="prettyprint">
@@ -505,11 +505,72 @@ ASP.NET 묶음 및 축소를 CDN 끝점과 통합하려면 다음 단계를 따�
 <a name="fallback"></a>
 ## CDN URL의 대체 메커니즘 ##
 
-어떤 이유로 Azure CDN 끝점에 문제가 발생한 경우 JavaScript 또는 부트스트랩을 로드하는 대체 옵션으로 원본 웹 서버에 액세스할 수 있을 정도로 지능적인 웹 페이지를 원합니다. CDN을 사용할 수 없어서 웹사이트의 이미지가 손실되는 심각한 상황이 올 수도 있지만 좀 더 심각한 경우는 스크립트 및 스타일시트에서 제공하는 중요한 페이지 기능을 사용하지 못하는 게 되는 것입니다.
+어떤 이유로 Azure CDN 끝점에 문제가 발생한 경우 JavaScript 또는 부트스트랩을 로드하는 대체 옵션으로 원본 웹 서버에 액세스할 수 있을 정도로 지능적인 웹 페이지를 원합니다. CDN을 사용할 수 없어서 웹 사이트의 이미지가 손실되는 심각한 상황이 올 수도 있지만 좀 더 심각한 경우는 스크립트 및 스타일시트에서 제공하는 중요한 페이지 기능을 사용하지 못하는 게 되는 것입니다.
 
 [Bundle](http://msdn.microsoft.com/ko-kr/library/system.web.optimization.bundle.aspx) 클래스에는 CDN 오류에 대비해 대체 메커니즘을 구성할 수 있도록 [CdnFallbackExpression](http://msdn.microsoft.com/ko-kr/library/system.web.optimization.bundle.cdnfallbackexpression.aspx)이라는 속성이 포함되어 있습니다. 이 속성을 사용하려면 다음 단계를 따르세요.
 
 1. 웹 역할 프로젝트에서 각 [Bundle 생성자](http://msdn.microsoft.com/ko-kr/library/jj646464.aspx)의 CDN URL을 추가한 *App_Start\BundleConfig.cs* 파일을 열고 다음과 같이 강조 표시된 내용을 변경하여 기본 번들에 대체 메커니즘을 추가합니다.  
+	<pre class="prettyprint">
+	public static void RegisterBundles(BundleCollection bundles)
+	{
+	    var version = System.Reflection.Assembly.GetAssembly(typeof(BundleConfig))
+	        .GetName().Version.ToString();
+	    var cdnUrl = &quot;http://cdnurl.vo.msecnd.net/.../{0}?&quot; + version;
+	    bundles.UseCdn = true;
+	
+	    bundles.Add(new ScriptBundle(&quot;~/bundles/jquery&quot;, string.Format(cdnUrl, &quot;bundles/jquery&quot;)) 
+					<mark>{ CdnFallbackExpression = &quot;window.jquery&quot; }</mark>
+	                .Include(&quot;~/Scripts/jquery-{version}.js&quot;));
+	
+	    bundles.Add(new ScriptBundle(&quot;~/bundles/jqueryval&quot;, string.Format(cdnUrl, &quot;bundles/jqueryval&quot;)) 
+					<mark>{ CdnFallbackExpression = &quot;$.validator&quot; }</mark>
+	            	.Include(&quot;~/Scripts/jquery.validate*&quot;));
+	
+	    // Use the development version of Modernizr to develop with and learn from. Then, when you&#39;re
+	    // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
+	    bundles.Add(new ScriptBundle(&quot;~/bundles/modernizr&quot;, string.Format(cdnUrl, &quot;bundles/modernizer&quot;)) 
+					<mark>{ CdnFallbackExpression = &quot;window.Modernizr&quot; }</mark>
+					.Include(&quot;~/Scripts/modernizr-*&quot;));
+	
+	    bundles.Add(new ScriptBundle(&quot;~/bundles/bootstrap&quot;, string.Format(cdnUrl, &quot;bundles/bootstrap&quot;)) 	
+					<mark>{ CdnFallbackExpression = &quot;$.fn.modal&quot; }</mark>
+	        		.Include(
+		              		&quot;~/Scripts/bootstrap.js&quot;,
+		              		&quot;~/Scripts/respond.js&quot;));
+	
+	    bundles.Add(new StyleBundle(&quot;~/Content/css&quot;, string.Format(cdnUrl, &quot;Content/css&quot;)).Include(
+	                &quot;~/Content/bootstrap.css&quot;,
+	                &quot;~/Content/site.css&quot;));
+	}</pre>
+
+	'CdnFallbackExpression'이 Null이 아니면 스크립트가 HTML에 삽입되어 번들이 제대로 로드되는지 테스트하고 제대로 로드되지 않은 경우 원본 웹 서버에서 직접 번들에 액세스합니다. 이 속성은 각각의 CDN 번들이 제대로 로드되는지 테스트하는 JavaScript 식으로 설정되어야 합니다. 각 번들을 테스트하는 데 필요한 식은 콘텐츠에 따라 다릅니다. 위 기본 번들의 경우는 다음과 같습니다.
+	
+	-	`window.jquery`는 jquery-{version}.js에 정의되어 있습니다.
+	-	`$.validator`는 jquery.validate.js에 정의되어 있습니다.
+	-	`window.Modernizr`는 modernizer-{version}.js에 정의되어 있습니다.
+	-	`$.fn.modal`은 bootstrap.js에 정의되어 있습니다.
+	
+	여기서는 `~/Cointent/css` 번들에 대해 CdnFallbackExpression을 설정하지 않았습니다. 그 이유는 현재 필요한 `<link>` 태그 대신 대체 CSS의 `<script>` 태그를 삽입한 [System.Web.Optimization에 버그](https://aspnetoptimization.codeplex.com/workitem/104)(영문)가 있기 때문입니다.
+	
+	그러나 [Ember 컨설팅 그룹](https://github.com/EmberConsultingGroup)(영문)에서 제공한 우수한 [스타일 번들 대체](https://github.com/EmberConsultingGroup/StyleBundleFallback)(영문)를 사용할 수 있습니다. 
+
+2. CSS에 이 해결 방법을 사용하려면 *StyleBundleExtensions.cs*라고 하는 웹 역할 프로젝트의 *App_Start* 폴더에서 새로운 .cs 파일을 만들어 해당 내용을 [GitHub의 코드](https://github.com/EmberConsultingGroup/StyleBundleFallback/blob/master/Website/App_Start/StyleBundleExtensions.cs)(영문)로 바꿉니다. 
+
+4. *App_Start\StyleFundleExtensions.cs*에서 웹 역할 이름(예: **WebRole1**)에 대한 네임스페이스의 이름을 바꿉니다. 
+
+3. `App_Start\BundleConfig.cs`로 돌아가 다음과 같이 강조 표시된 코드가 있는 마지막 `bundles.Add` 문을 수정합니다.  
+	<pre class="prettyprint">
+	bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css"))
+	    <mark>.IncludeFallback("~/Content/css", "sr-only", "width", "1px")</mark>
+	    .Include(
+	          "~/Content/bootstrap.css",
+	          "~/Content/site.css"));
+	</pre>
+
+	이 새로운 확장 메서드는 동일한 개념을 사용하여 CSS 번들에 정의된 일치하는 클래스 이름, 규칙 이름 및 규칙 값에 대한 DOM을 확인하고 일치를 찾지 못한 경우 원본 웹 서버로 대체하는 스크립트를 HTML에 삽입합니다.
+
+4. 클라우드 서비스를 다시 게시하고 홈페이지에 액세스합니다. 
+5. 페이지의 HTML 코드를 확인합니다. 다음과 비슷한 삽입 스크립트가 표시되어야 합니다.    
 	<pre class="prettyprint">...
 	
 		&lt;link href=&quot;http://az632148.vo.msecnd.net/Content/css?v=1.0.0.25474&quot; rel=&quot;stylesheet&quot;/&gt;
@@ -546,70 +607,6 @@ ASP.NET 묶음 및 축소를 CDN 끝점과 통합하려면 다음 단계를 따�
 	...
 	</pre>
 
-	`CdnFallbackExpression`이 Null이 아니면 스크립트가 HTML에 삽입되어 번들이 제대로 로드되는지 테스트하고 제대로 로드되지 않은 경우 원본 웹 서버에서 직접 번들에 액세스합니다. 이 속성은 각각의 CDN 번들이 제대로 로드되는지 테스트하는 JavaScript 식으로 설정되어야 합니다. 각 번들을 테스트하는 데 필요한 식은 콘텐츠에 따라 다릅니다. 위 기본 번들의 경우는 다음과 같습니다.
-	
-	-	`window.jquery`는 jquery-{version}.js에 정의되어 있습니다.
-	-	`$.validator`는 jquery.validate.js에 정의되어 있습니다.
-	-	`window.Modernizr`는 modernizer-{version}.js에 정의되어 있습니다.
-	-	`$.fn.modal`은 bootstrap.js에 정의되어 있습니다.
-	
-	여기서는 `~/Cointent/css` 번들에 대해 CdnFallbackExpression을 설정하지 않았습니다. 그 이유는 현재 필요한 `<link>` 태그 대신 대체 CSS의 `<script>` 태그를 삽입한 [System.Web.Optimization에 버그](https://aspnetoptimization.codeplex.com/workitem/104)(영문)가 있기 때문입니다.
-	
-	그러나 [Ember 컨설팅 그룹](https://github.com/EmberConsultingGroup)(영문)에서 제공한 우수한 [스타일 번들 대체](https://github.com/EmberConsultingGroup/StyleBundleFallback)(영문)를 사용할 수 있습니다. 
-
-2. 이 CSS 해결 방법을 사용하려면 *StyleBundleExtensions.cs*라고 하는 웹 역할 프로젝트의 *App_Start* 폴더에서 새로운 .cs 파일을 만들어 해당 내용을 [GitHub의 코드](https://github.com/EmberConsultingGroup/StyleBundleFallback/blob/master/Website/App_Start/StyleBundleExtensions.cs)(영문)로 바꿉니다. 
-
-4. *App_Start\StyleFundleExtensions.cs*에서 웹 역할 이름(예: **WebRole1**)에 대한 네임스페이스의 이름을 바꿉니다. 
-
-3. `App_Start\BundleConfig.cs` 파일로 돌아가 다음과 같이 강조 표시된 코드가 있는 마지막 `bundles.Add` 문을 수정합니다.  
-	<pre class="prettyprint">
-	bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css"))
-	    <mark>.IncludeFallback("~/Content/css", "sr-only", "width", "1px")</mark>
-	    .Include(
-	          "~/Content/bootstrap.css",
-	          "~/Content/site.css"));
-	</pre>
-
-	이 새로운 확장 메서드는 동일한 개념을 사용하여 CSS 번들에 정의된 일치하는 클래스 이름, 규칙 이름 및 규칙 값에 대한 DOM을 확인하고 일치를 찾지 못한 경우 원본 웹 서버로 대체하는 스크립트를 HTML에 삽입합니다.
-
-4. 클라우드 서비스를 다시 게시하고 홈페이지에 액세스합니다. 
-5. 페이지의 HTML 코드를 확인합니다. 다음과 비슷한 삽입 스크립트가 표시되어야 합니다.    
-	<pre class="prettyprint">...
-	
-		&lt;link href=&quot;http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474&quot; rel=&quot;stylesheet&quot;/&gt;
-	<mark>&lt;script&gt;(function() {
-	                var loadFallback,
-	                    len = document.styleSheets.length;
-	                for (var i = 0; i &lt; len; i++) {
-	                    var sheet = document.styleSheets[i];
-	                    if (sheet.href.indexOf(&#39;http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474&#39;) !== -1) {
-	                        var meta = document.createElement(&#39;meta&#39;);
-	                        meta.className = &#39;sr-only&#39;;
-	                        document.head.appendChild(meta);
-	                        var value = window.getComputedStyle(meta).getPropertyValue(&#39;width&#39;);
-	                        document.head.removeChild(meta);
-	                        if (value !== &#39;1px&#39;) {
-	                            document.write(&#39;&lt;link href=&quot;/Content/css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot; /&gt;&#39;);
-	                        }
-	                    }
-	                }
-	                return true;
-	            }())||document.write(&#39;&lt;script src=&quot;/Content/css&quot;&gt;&lt;\/script&gt;&#39;);&lt;/script&gt;</mark>
-	
-	    &lt;script src=&quot;http://az673227.vo.msecnd.net/bundles/modernizer?v=1.0.0.25474&quot;&gt;&lt;/script&gt;
-	<mark>&lt;script&gt;(window.Modernizr)||document.write(&#39;&lt;script src=&quot;/bundles/modernizr&quot;&gt;&lt;\/script&gt;&#39;);&lt;/script&gt;</mark>
-	
-	...	
-	
-	    &lt;script src=&quot;http://az673227.vo.msecnd.net/bundles/jquery?v=1.0.0.25474&quot;&gt;&lt;/script&gt;
-	<mark>&lt;script&gt;(window.jquery)||document.write(&#39;&lt;script src=&quot;/bundles/jquery&quot;&gt;&lt;\/script&gt;&#39;);&lt;/script&gt;</mark>
-	
-	    &lt;script src=&quot;http://az673227.vo.msecnd.net/bundles/bootstrap?v=1.0.0.25474&quot;&gt;&lt;/script&gt;
-	<mark>&lt;script&gt;($.fn.modal)||document.write(&#39;&lt;script src=&quot;/bundles/bootstrap&quot;&gt;&lt;\/script&gt;&#39;);&lt;/script&gt;</mark>
-	
-	...
-	</pre>
-
 	CSS 번들의 삽입 스크립트에서 여전히 다음과 같은 줄에 `CdnFallbackExpression` 속성의 잘못된 나머지 부분이 포함되어 있습니다.
 
         }())||document.write('<script src="/Content/css"><\/script>');</script>
@@ -618,7 +615,9 @@ ASP.NET 묶음 및 축소를 CDN 끝점과 통합하려면 다음 단계를 따�
 
 # 추가 정보 #
 - [Azure CDN(콘텐츠 배달 네트워크) 개요](http://msdn.microsoft.com/library/azure/ff919703.aspx)
-- [웹 응용 프로그램에서 Azure CDN의 콘텐츠 제공](http://azure.microsoft.com/ko-kr/Documentation/Articles/cdn-serve-content-from-cdn-in-your-web-application/)
-- [Azure CDN에 Azure 웹사이트 통합](http://azure.microsoft.com/ko-kr/documentation/articles/cdn-websites-with-cdn/)
-- [ASP.NET 묶음 및 축소](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification)
-- [Azure에 CDN 사용](http://azure.microsoft.com/ko-kr/documentation/articles/cdn-how-to-use/)
+- [웹 응용 프로그램에서 Azure CDN의 콘텐츠 제공](http://azure.microsoft.com/ko-kr/Documentation/Articles/cdn-serve-content-from-cdn-in-your-web-application/)(영문)
+- [Azure CDN에 Azure 웹 사이트 통합](http://azure.microsoft.com/ko-kr/documentation/articles/cdn-websites-with-cdn/)(영문)
+- [ASP.NET 묶음 및 축소](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification)(영문)
+- [Azure에 CDN 사용](http://azure.microsoft.com/ko-kr/documentation/articles/cdn-how-to-use/)http://azure.microsoft.com/ko-kr/documentation/articles/cdn-how-to-use/)
+
+<!--HONumber=35.2-->

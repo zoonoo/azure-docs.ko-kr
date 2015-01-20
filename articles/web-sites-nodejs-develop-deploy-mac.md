@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Website" pageTitle="Mac에서 Node.js 웹 사이트 만들기 - Azure 자습서" metaKeywords="Azure 웹 사이트 만들기 Node, Azure 웹 사이트 배포 Node, 웹 사이트 Node.js, Node 웹 사이트" description="Azure에서 Node.js 웹 사이트를 빌드 및 배포하는 방법에 대해 알아봅니다. 샘플 코드는 Java로 작성되었습니다." metaCanonical="" services="web-sites" documentationCenter="nodejs" title="Build and deploy a Node.js website to Azure" authors="larryfr" solutions="" manager="wpickett" editor="" />
+﻿<properties urlDisplayName="Website" pageTitle="Mac에서 Node.js 웹 사이트 만들기 - Azure 자습서" metaKeywords="Azure 웹 사이트 Node 만들기, Azure 웹 사이트 Node 배포, 웹 사이트 Node.js, Node 웹 사이트" description="Azure에서 Node.js 웹 사이트를 빌드 및 배포하는 방법에 대해 알아봅니다. 샘플 코드는 Java로 작성되었습니다." metaCanonical="" services="web-sites" documentationCenter="nodejs" title="Build and deploy a Node.js website to Azure" authors="larryfr" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
@@ -9,9 +9,10 @@
 
 # Node.js 웹 사이트 빌드 및 Azure에 배포
 
-이 자습서에서는[Node] [nodejs.org](영문) 응용 프로그램을 만들고 [Git](영문)를 사용하여 Azure 웹 사이트에 배포하는 방법을 설명합니다. 이 자습서의 지침은 Node를 실행할 수 있는 모든 운영 체제에 적용될 수 있습니다.
+이 자습서에서는 [Node] [nodejs.org] 응용 프로그램을 만들고 [Git]를 사용하여 Azure 웹 사이트에 배포하는 방법을 설명합니다. 이 자습서의 지침은 Node를 실행할 수 있는 모든 운영 체제에 적용될 수 있습니다.
 
-비디오 시청을 선호하는 경우 이 자습서와 동일한 단계를 따르는 오른쪽의 클립을 참조하세요.
+이 자습서를 동영상으로 보려는 경우 다음 클립에서 유사한 단계를 보여 줍니다.
+[AZURE.VIDEO create-a-nodejs-site-deploy-from-github]
  
 아래에는 완성된 응용 프로그램의 스크린샷이 표시되어 있습니다.
 
@@ -19,11 +20,12 @@
 
 ##Azure 웹 사이트 만들기 및 Git 게시 사용
 
-다음 단계에 따라 Azure 웹 사이트를 만들고 해당 웹 사이트에 대해 Git 게시를 사용하도록 설정하세요.
+다음 단계에 따라 Azure 웹 사이트를 만들고 해당 웹 사이트에 대해 Git 게시를 사용하도록 설정하십시오.
 
-<div class="dev-callout"><strong>참고</strong>
-<p>이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://www.windowsazure.com/ko-kr/pricing/free-trial/?WT.mc_id=A7171371E" target="_blank">Azure 무료 평가판</a>을 참조하세요.</p>
-</div>
+> [WACOM.NOTE]
+> 이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://www.windowsazure.com/ko-kr/pricing/free-trial/?WT.mc_id=A7171371E" target="_blank">Azure 무료 평가판</a>을 참조하세요.
+> 
+> 계정을 등록하기 전에 Azure 웹 사이트 사용을 시작하려면 <a href="https://trywebsites.azurewebsites.net/?language=nodejs">https://trywebsites.azurewebsites.net</a>으로 이동합니다. 여기서 무료로 Azure 웹 사이트에 단기 ASP.NET 시작 사이트를 즉시 만들 수 있습니다. 신용 카드가 필요하지 않으며 약정이 없습니다.
 
 1. [Azure 관리 포털]에 로그인합니다.
 
@@ -35,7 +37,7 @@
 
     ![The Quick Create dialog][portal-quick-create]
 
-4. 웹 사이트 상태가 **실행**으로 변경되면 웹 사이트의 이름을 클릭하여 **대시보드**에 액세스합니다.
+4. 웹 사이트 상태가 **실행 중**으로 변경되면 웹 사이트의 이름을 클릭하여 **대시보드**에 액세스합니다.
 
 	![Open web site dashboard][go-to-dashboard]
 
@@ -43,11 +45,11 @@
 
 	![Set up Git publishing][setup-git-publishing]
 
-6. "소스 코드 위치?" 질문이 나타나면 **로컬 Git 리포지토리**를 선택한 후 화살표를 클릭합니다.
+6. "소스 코드 위치?" 질문이 나타나면 **로컬 Git 리포지토리**를 선택하고 화살표를 클릭합니다.
 
 	![where is your source code][where-is-code]
 
-7. Git 게시를 사용하도록 설정하려면 사용자 이름 및 암호를 지정해야 합니다. Azure 웹 사이트에 대해 이전에 게시를 사용하도록 설정한 경우 사용자 이름 또는 암호를 묻는 메시지가 표시되지 않습니다. 대신, 이전에 지정한 사용자 이름과 암호를 사용하여 Git 리포지토리가 만들어집니다. 사용자 이름과 암호를 기록해 두세요. 만드는 모든 Azure 웹 사이트의 Git 게시에 이 사용자 이름과 암호가 사용됩니다.
+7. Git 게시를 사용하도록 설정하려면 사용자 이름 및 암호를 지정해야 합니다. Azure 웹 사이트에 대해 이전에 게시를 사용하도록 설정한 경우 사용자 이름 또는 암호를 묻는 메시지가 표시되지 않습니다. 대신, 이전에 지정한 사용자 이름과 암호를 사용하여 Git 리포지토리가 만들어집니다. 사용자 이름과 암호를 기록해 두십시오. 만드는 모든 Azure 웹 사이트의 Git 게시에 이 사용자 이름과 암호가 사용되기 때문입니다.
 
 	![The dialog prompting for user name and password.][portal-git-username-password]
 
@@ -57,7 +59,7 @@
 
 ##로컬에서 응용 프로그램 빌드 및 테스트
 
-이 섹션에서는 [nodejs.org]의 hello world' 예가 포함된 **server.js** 파일을 만들겠습니다. 이 예는 원본 예에서 수정된 것으로, Azure 웹 사이트에서 실행되는 경우의 수신 포트로 process.env.PORT가 추가되었습니다.
+이 섹션에서는 [nodejs.org]의 'hello world' 예가 포함된 **server.js** 파일을 만들겠습니다. 이 예는 원본 예에서 수정된 것으로, Azure 웹 사이트에서 실행되는 경우의 수신 포트로 process.env.PORT가 추가되었습니다.
 
 1. 텍스트 편집기를 사용하여 **server.js**라는 새 파일을 **helloworld** 디렉터리에 만듭니다. **helloworld** 디렉터리가 없으면 디렉터리를 만듭니다.
 2. 다음을 **server.js** 파일의 내용으로 추가하고 저장합니다.
@@ -73,7 +75,7 @@
 
         node server.js
 
-4. 웹 브라우저를 열고 http://localhost:1337로 이동합니다. 아래 스크린샷에 표시된 것처럼 "Hello World"가 표시된 웹 페이지가 나타납니다.
+4. 웹 브라우저를 열고 http://localhost:1337로 이동합니다. 아래 스크린샷에서처럼 "Hello World"라는 웹 페이지가 나타납니다.
 
     ![A browser displaying the 'Hello World' message.][helloworld-localhost]
 
@@ -84,7 +86,7 @@
 		git init
 
 	<div class="dev-callout"><strong>Git 명령을 사용할 수 없는 경우</strong>
-	<p><a href="http://git-scm.com/" target="_blank">Git</a>는 Azure 웹 사이트를 배포하는 데 사용할 수 있는 분산된 버전 제어 시스템입니다. 플랫폼별 설치 지침은 <a href="http://git-scm.com/download" target="_blank">Git 다운로드 페이지</a>(영문)를 참조하세요.</p>
+	<p><a href="http://git-scm.com/" target="_blank">Git</a> 는 Azure 웹 사이트를 배포하는 데 사용할 수 있는 분산된 버전 제어 시스템입니다. 해당 플랫폼에 대한 설치 지침은 <a href="http://git-scm.com/download" target="_blank">다운로드 페이지</a>를 참조하세요.</p>
 	</div>
 
 2. 다음 명령을 사용하여 리포지토리에 파일을 추가합니다.
@@ -142,17 +144,17 @@
 
 	![A web page displaying 'Hello Azure'][helloworld-completed]
 
-4. 관리 포털 내에 있는 Azure 웹 사이트의 "배포" 탭에서 이전 배포를 선택하고 ** 다시 배포** 단추를 선택하여 이전 배포로 되돌릴 수 있습니다.
+4. 관리 포털 내에 있는 Azure 웹 사이트의 "배포" 탭에서 이전 배포를 선택하고 **다시 배포** 단추를 선택하여 이전 배포로 되돌릴 수 있습니다.
 
 ##다음 단계
 
 이 문서의 단계에 따라 Azure 포털을 사용하여 웹 사이트를 만들 수 있지만 [Mac 및 Linux용 Azure 명령줄 도구]를 사용하여 동일한 작업을 수행할 수도 있습니다.
 
-Node.js는 응용 프로그램에 사용될 수 있는 풍부한 모듈 에코시스템을 제공합니다. Azure 웹 사이트에서 모듈을 사용하는 방법에 대한 자세한 내용은 [Azure 응용 프로그램에 Node.js 모듈 사용](/ko-kr/documentation/articles/nodejs-use-node-modules-azure-apps/)을 참조하세요.
+Node.js는 응용 프로그램에 사용될 수 있는 풍부한 모듈 에코시스템을 제공합니다. Azure 웹 사이트에서 모듈을 사용하는 방법에 대한 자세한 내용은 [Azure 응용 프로그램에 Node.js 모듈 사용](영문)을 참조하세요(/ko-kr/documentation/articles/nodejs-use-node-modules-azure-apps/).
 
-Azure에 제공되는 Node.js 버전에 대한 정보 및 응용 프로그램에 사용할 버전 지정 방법에 대한 자세한 내용은 [Azure 응용 프로그램에서 Node.js 버전 지정](/ko-kr/documentation/articles/nodejs-specify-node-version-azure-apps/)을 참조하세요.
+Azure에 제공되는 Node.js 버전에 대한 정보 및 응용 프로그램에 사용할 버전 지정 방법에 대한 자세한 내용은 [Azure 응용 프로그램에서 Node.js 버전 지정](영문)을 참조하세요(/ko-kr/documentation/articles/nodejs-specify-node-version-azure-apps/).
 
-응용 프로그램을 Azure에 배포한 후 문제가 발생하는 경우 [Azure 웹 사이트에서 Node.js 응용 프로그램을 디버그하는 방법](/ko-kr/documentation/articles/web-sites-nodejs-debug/)에서 문제를 진단하는 방법에 대한 정보를 참조하세요.
+응용 프로그램을 Azure에 배포한 후 문제가 발생하는 경우 [Azure 웹 사이트에서 Node.js 응용 프로그램 디버그 방법](영문)에서(/ko-kr/documentation/articles/web-sites-nodejs-debug/) 문제를 진단하는 방법에 대한 정보를 참조하세요.
 
 
 ##추가 리소스
@@ -182,3 +184,5 @@ Azure에 제공되는 Node.js 버전에 대한 정보 및 응용 프로그램에
 [setup-git-publishing]: ./media/web-sites-nodejs-develop-deploy-mac/setup_git_publishing.png
 [go-to-dashboard]: ./media/web-sites-nodejs-develop-deploy-mac/go_to_dashboard.png
 [where-is-code]: ./media/web-sites-nodejs-develop-deploy-mac/where_is_code.png
+
+<!--HONumber=35.2-->

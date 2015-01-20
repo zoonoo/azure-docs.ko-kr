@@ -1,14 +1,14 @@
-﻿<properties urlDisplayName="Get Started with Data (HTML5)" pageTitle="데이터 작업 시작(HTML 5) | 모바일 개발자 센터" metaKeywords="" description="모바일 서비스를 사용하여 HTML 앱에서 데이터를 활용하는 방법에 대해 알아봅니다." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
+﻿<properties urlDisplayName="Get Started with Data (HTML5)" pageTitle="데이터 시작(HTML 5) | 모바일 개발자 센터" metaKeywords="" description="모바일 서비스를 사용하여 HTML 앱에서 데이터를 활용하는 방법에 대해 알아봅니다." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="article" ms.date="09/24/2014" ms.author="glenga" />
 
-# 기존 앱에 모바일 서비스 추가
+# 기존 앱에 모바일 서비스 추가(영문)
 
 [WACOM.INCLUDE [mobile-services-selector-get-started-data](../includes/mobile-services-selector-get-started-data.md)]
 
 이 항목에서는 Azure 모바일 서비스를 사용하여 HTML 앱에서 데이터를 활용하는 방법을 보여 줍니다. 이 자습서에서는 데이터를 메모리에 저장하는 앱을 다운로드하여 새 모바일 서비스를 만들고 모바일 서비스를 앱과 통합한 후 Azure 관리 포털에 로그인하여 앱을 실행할 때 수행된 데이터 변경 내용을 확인합니다.
 
->[WACOM.NOTE]이 자습서는 HTML 앱에서 모바일 서비스를 통해 Azure를 사용하여 데이터를 저장하고 검색할 수 있는 방법을 더욱 잘 이해할 수 있도록 돕기 위한 것입니다. 이 항목에서는 모바일 서비스 빠른 시작에서 완료한 다수의 단계를 순서대로 안내합니다. 모바일 서비스를 처음 사용하는 경우 먼저 <a href="/ko-kr/develop/mobile/tutorials/get-started-html">모바일 서비스 시작</a> 자습서를 완료하는 것이 좋습니다.
+>[WACOM.NOTE]이 자습서는 HTML 앱에서 모바일 서비스를 통해 Azure를 사용하여 데이터를 저장하고 검색할 수 있는 방법을 더욱 잘 이해할 수 있도록 돕기 위한 것입니다. 이 항목에서는 모바일 서비스 퀵 스타트에서 완료한 여러 단계를 순서대로 안내합니다. 모바일 서비스를 처음 사용하는 경우, 먼저 <a href="/ko-kr/develop/mobile/tutorials/get-started-html">모바일 서비스 시작</a>(영문) 자습서를 완료하는 것이 좋습니다.
 
 이 자습서에서는 다음 기본 단계를 단계별로 안내합니다.
 
@@ -18,7 +18,7 @@
 4. [모바일 서비스를 사용하도록 앱 업데이트]
 5. [모바일 서비스에 대해 앱 테스트]
 
-<div class="dev-callout"><strong>참고</strong> <p>이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://www.windowsazure.com/ko-kr/pricing/free-trial/?WT.mc_id=A756A2826&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fko-kr%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-html%2F" target="_blank">Azure 무료 평가판</a>을 참조하세요.</p></div> 
+<div class="dev-callout"><strong>참고</strong> <p>이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://www.windowsazure.com/ko-kr/pricing/free-trial/?WT.mc_id=A756A2826&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fko-kr%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-html%2F" target="_blank">Azure 무료 평가판</a>을 참조하세요.</p></div> 
 
 ###추가 요구 사항
 
@@ -36,13 +36,13 @@
 
 <h2><a name="download-app"></a>GetStartedWithData 프로젝트 다운로드</h2>
 
-이 자습서는 HTML5 앱인 [GetStartedWithData app]을 기반으로 합니다. 이 앱의 UI는 모바일 서비스 빠른 시작에서 생성된 앱과 동일합니다. 단, 추가된 항목이 로컬에서 메모리에 저장된다는 점은 예외입니다. 
+이 자습서는 HTML5 앱인 [GetStartedWithData 앱]을 기반으로 합니다. 이 앱의 UI는 모바일 서비스 퀵 스타트에서 생성된 앱과 동일합니다. 단, 추가된 항목이 로컬에서 메모리에 저장된다는 점은 예외입니다. 
 
-1. [HTML 앱 프로젝트 파일][GetStartedWithData 앱]을 다운로드합니다.
+1. [HTML 앱 프로젝트 파일을 다운로드][GetStartedWithData app]합니다.
 
 2. HTML 편집기에서 다운로드된 프로젝트를 열고 app.js 파일을 검사합니다.
 
-   	추가한 항목은 메모리 내 **Array** 개체에 저장됩니다(**staticItems**). 페이지를 새로 고치면 데이터가 사라집니다. 유지되지 않습니다.
+   	추가한 항목은 메모리 내 **Array** 개체에 저장됩니다(**staticItems**). 페이지를 새로 고치면 데이터가 사라집니다. 이 데이터는 지속되지 않습니다.
 
 3. **server** 하위 폴더에서 다음 명령 파일 중 하나를 시작합니다.
 
@@ -51,14 +51,14 @@
 	+ **launch-linux.sh**(Linux 컴퓨터)
 
 	<div class="dev-callout"><b>참고</b>
-		<p>Windows 컴퓨터의 경우 PowerShell에서 스크립트를 실행할 것인지 물으면 `R`을 입력하세요. 인터넷에서 다운로드한 스크립트이므로 웹 브라우저에서 스크립트를 실행하지 말라는 경고가 나타날 수 있습니다. 이 경우 브라우저에서 스크립트 로드를 계속 진행하도록 요청해야 합니다.</p>
+		<p>Windows 컴퓨터의 경우 PowerShell에서 스크립트를 실행할 것인지 물으면 'R'을 입력하세요. 인터넷에서 다운로드한 스크립트이므로 웹 브라우저에서 스크립트를 실행하지 말라는 경고가 나타날 수 있습니다. 이 경우 브라우저에서 스크립트 로드를 계속 진행하도록 요청해야 합니다.</p>
 	</div>
 	
 	새로운 앱을 호스트할 수 있도록 로컬 컴퓨터에서 웹 서버가 시작됩니다.
 
-4. 웹 브라우저에서 URL <a href="http://localhost:8000/" target="_blank">http://localhost:8000/</a>을 열어 앱을 시작합니다.
+4. 웹 브라우저에서 <a href="http://localhost:8000/" target="_blank">http://localhost:8000/</a> URL을 열어 앱을 시작합니다.
 
-5. 앱에서 **새 작업 입력**에 _자습서 완료_와 같은 의미 있는 텍스트를 입력하고 **추가**를 클릭합니다.
+5. **Enter new task(새 작업 입력)**에서 _자습서 완료_와 같은 의미 있는 텍스트를 입력한 후 **추가**를 클릭합니다.
 
    	![][0]  
 
@@ -84,11 +84,11 @@
 
   	![][6]
 
-  	기본 사용 권한이 설정된 새 저장소 테이블 **TodoItem**이 생성됩니다. 이는 앱과 함께 분산되는 응용 프로그램 키가 있다면 누구나 테이블의 데이터에 액세스하고 내용을 변경할 수 있다는 것을 의미합니다.
+  	기본 사용 권한이 설정된 새 저장소 테이블 **TodoItem**이 생성됩니다. 이는 앱과 함께 배포되는 응용 프로그램 키가 있다면 누구나 테이블의 데이터에 액세스하고 내용을 변경할 수 있다는 것을 의미합니다.
 
     <div class="dev-callout"> 
 	<b>참고</b> 
-	<p>모바일 서비스 빠른 시작에 같은 테이블 이름이 사용됩니다. 하지만 각 테이블은 주어진 모바일 서비스에 특정된 스키마에 생성됩니다. 이렇게 하면 여러 모바일 서비스가 같은 데이터베이스를 사용할 때 발생하는 데이터 충돌을 예방할 수 있습니다.</p> 
+	<p>동일한 테이블 이름이 모바일 서비스 퀵 스타트에서 사용됩니다. 하지만 각 테이블은 주어진 모바일 서비스에 한정된 스키마에 생성됩니다. 따라서 여러 모바일 서비스가 같은 데이터베이스를 사용할 때 발생하는 데이터 충돌이 방지됩니다.</p> 
 	</div>
 
 4. 새 **TodoItem** 테이블을 클릭하고 데이터 행이 없는 것을 확인합니다.
@@ -123,18 +123,18 @@
  	</tr> 	
  	</table> 
 
-  	이 부분이 모바일 서비스의 테이블 최소 요구 사항입니다. 
+  	이는 모바일 서비스의 테이블에 대한 최소 요구 사항입니다. 
 
     <div class="dev-callout"><b>참고</b>
-	<p>모바일 서비스에서 동적 스키마를 사용하면 삽입 또는 업데이트 작업에서 JSON 개체를 모바일 서비스에 보낼 때 새 열이 자동으로 생성됩니다.</p>
+	<p>모바일 서비스에서 동적 스키마를 사용하도록 설정하면 삽입 또는 업데이트 작업에서 JSON 개체를 모바일 서비스에 보낼 때 새 열이 자동으로 생성됩니다.</p>
     </div>
 
-6. **구성** 탭의 **크로스-원본 자원 공유(CORS)** 아래에 있는 **호스트 이름의 요청 허용** 목록에 `localhost`가 이미 나열되어 있는지 확인합니다. 그렇지 않으면 **호스트 이름** 필드에 `localhost`를 입력하고 **저장**을 클릭합니다.
+6. **구성** 탭의 **크로스-원본 자원 공유(CORS)** 아래에 있는 **호스트 이름의 요청 허용** 목록에 'localhost'가 이미 나열되어 있는지 확인합니다. 그렇지 않으면 **호스트 이름** 필드에 'localhost'를 입력하고 **저장**을 클릭합니다.
 
   	![][11]
 
 	<div class="dev-callout"><b>참고</b>
-		<p>localhost 이외의 웹 서버에 빠른 시작 앱을 배포하는 경우, 웹 서버 호스트 이름을 <strong>호스트 이름의 요청 허용</strong> 목록에 추가해야 합니다. 자세한 내용은 <a href="http://msdn.microsoft.com/ko-kr/library/windowsazure/dn155871.aspx" target="_blank">크로스-원본 자원 공유(CORS)</a>를 참조하세요.</p>
+		<p>localhost 이외의 웹 서버에 퀵 스타트 앱을 배포하는 경우, 웹 서버의 호스트 이름을 <strong>호스트 이름의 요청 허용</strong> 목록에 추가해야 합니다. 자세한 내용은 <a href="http://msdn.microsoft.com/ko-kr/library/windowsazure/dn155871.aspx" target="_blank">크로스-원본 자원 공유</a>를 참조하세요.</p>
 	</div>
 
 이제 새 모바일 서비스를 앱의 데이터 저장소로 사용할 준비가 되었습니다.
@@ -145,13 +145,13 @@
 
 3. 관리 포털에서 **모바일 서비스**를 클릭한 후 방금 만든 모바일 서비스를 클릭합니다.
 
-4. **대시보드** 탭을 클릭하여 **사이트 URL**을 기록해 두고 **키 관리**를 클릭하여 **응용 프로그램 키**를 기록해 둡니다.
+4. **대시보드** 탭을 클릭하여 **사이트 URL**을 기록한 후 **키 관리**를 클릭하여 **응용 프로그램 키**를 기록합니다.
 
    	![][8]
 
   	앱 코드에서 모바일 서비스에 액세스할 때 이 값이 필요합니다.
 
-1. 웹 편집기에서 index.html 프로젝트 파일을 열고 페이지의 스크립트 참조에 다음 코드를 추가하세요.
+1. 웹 편집기에서 index.html 프로젝트 파일을 열고 페이지의 스크립트 참조에 다음 코드를 추가합니다.
 
         <script src='http://ajax.aspnetcdn.com/ajax/mobileservices/MobileServices.Web-1.1.2.min.js'></script>
 
@@ -169,7 +169,7 @@
 
 	데이터가 메모리 내 배열이 아니라 모바일 서비스에 저장됩니다.
 
-6. 다음 코드 줄에 달린 주석을 제거합니다.
+6. 다음 코드 줄의 주석 처리를 제거합니다.
 
         todoItemTable = client.getTable('todoitem');
 
@@ -212,7 +212,7 @@
 		}
 	   
 
-   모든 항목을 반환하는 모바일 서비스에 쿼리가 전송됩니다. 결과가 반복되며, 데이터가 페이지에 표시됩니다. 
+   모든 항목을 반환하는 쿼리가 모바일 서비스에 전송됩니다. 결과가 반복되며, 데이터가 페이지에 표시됩니다. 
 
 9. **$(document.body).on('change', '.item-text')** 및 **$(document.body).on('change', '.item-complete')** 이벤트 처리기를 다음 코드로 바꿉니다.
         
@@ -235,19 +235,19 @@
 			todoItemTable.del({ id: getTodoItemId(this) }).then(refreshTodoItems);
 		});
 
-	**삭제** 단추가 클릭되면 모바일 서비스에 delete를 전송합니다.
+	**삭제** 단추가 클릭되면 모바일 서비스에 삭제가 전송됩니다.
 
 이제 앱이 백 엔드 저장소에 모바일 서비스를 사용하도록 업데이트되었으므로 모바일 서비스에 대해 앱을 테스트해야 합니다.
 
 <h2><a name="test-app"></a>새 모바일 서비스에 대해 앱 테스트</h2>
 
-4. 웹 브라우저에서 URL <a href="http://localhost:8000/" target="_blank">http://localhost:8000/</a>을 열어 앱을 다시 로드합니다.
+4. 웹 브라우저에서 <a href="http://localhost:8000/" target="_blank">http://localhost:8000/</a> URL을 다시 로드하여 앱을 시작합니다.
 
     <div class="dev-callout"><b>참고</b>
 	<p>웹 서버를 다시 시작해야 하는 경우 첫 번째 섹션의 단계를 반복합니다.</p>
     </div>
 
-2. 앞서와 같이 **새 작업 입력**에 텍스트를 입력하고 **추가**를 클릭합니다. 
+2. 앞서와 같이 **Enter new task(새 작업 입력)**에 텍스트를 입력한 후 **추가**를 클릭합니다. 
 
    	그러면 새 항목이 모바일 서비스에 삽입으로 전송됩니다.
 
@@ -257,7 +257,7 @@
 
    	![][9]
   
-   	이제 **TodoItem** 테이블에 모바일 서비스에서 생성된 ID 값을 가진 데이터가 포함되었으며 해당 열이 앱의 TodoItem 클래스와 일치하도록 테이블에 자동으로 추가되었습니다.
+   	이제 **TodoItem** 테이블에 모바일 서비스에서 생성된 id 값을 가진 데이터가 포함되었으며 해당 열이 앱의 TodoItem 클래스와 일치하도록 테이블에 자동으로 추가되었습니다.
 
 5. 앱에서 목록의 항목 중 하나를 선택하고 포털의 찾아보기 탭으로 돌아간 후 **새로 고침**을 클릭합니다. 
 
@@ -267,23 +267,23 @@
 
    		var query = todoItemTable.where({ complete: false });
 
-7. 페이지를 다시 로드하고 목록에서 다른 항목을 확인합니다.
+7. 페이지를 다시 로드하고 목록에서 다른 항목 하나를 확인합니다.
 
    	이제 선택된 항목이 목록에서 사라집니다. 각 업데이트 결과로 모바일 서비스 왕복이 발생하며, 이에 따라 필터링된 데이터가 반환됩니다.
 
-이제 **데이터 작업 시작** 자습서를 마쳤습니다.
+이제 **데이터 시작 자습서**를 마쳤습니다.
 
 ## <a name="next-steps"> </a>다음 단계
 
-이 자습서에서는 HTML 앱에서 모바일 서비스의 데이터로 작업하기 위한 기본 사항에 대해 설명했습니다. 이제 이 자습서에서 만든 GetStartedWithData 앱을 기반으로 하는 다음 자습서 중 하나를 완료하세요.
+이 자습서에서는 HTML 앱에서 모바일 서비스의 데이터로 작업하기 위한 기본 사항에 대해 설명했습니다. 다음에는 이 자습서에서 만든 GetStartedWithData 앱을 기반으로 하는 다음 자습서 중 하나를 완료해보세요.
 
 * [스크립트를 사용하여 데이터 유효성 검사 및 수정]
-  <br/>모바일 서비스에서 서버 스크립트를 사용하여 앱에서 전송된 데이터의 유효성을 검사하고 데이터를 변경하는 방법에 대해 알아봅니다.
+  <br/>모바일 서비스에서 서버 스크립트를 사용하여 앱에서 전송된 데이터의 유효성을 검사하고 변경하는 방법에 대해 자세히 알아봅니다.
 
 * [페이징을 사용하여 쿼리 구체화]
   <br/>쿼리에 페이징을 사용하여 단일 요청으로 처리되는 데이터 양을 제어하는 방법을 알아봅니다.
  
-데이터 계열을 완료했습니다. 이제 앱 사용자를 인증하는 방법을 알아보세요. [인증 시작]을 완료하여 다른 자습서도 공부해 보세요.
+데이터 계열을 완료했습니다. 이제 앱 사용자를 인증하는 방법을 알아보고, [인증 시작](영문)을 완료하여 다른 자습서도 학습해 보세요.
 
 <!-- Anchors. -->
 [HTML 앱 프로젝트 다운로드]: #download-app
@@ -310,8 +310,8 @@
 <!-- URLs. -->
 [스크립트를 사용하여 데이터 유효성 검사 및 수정]: /ko-kr/develop/mobile/tutorials/validate-modify-and-augment-data-html
 [페이징을 사용하여 쿼리 구체화]: /ko-kr/develop/mobile/tutorials/add-paging-to-data-html
-[모바일 서비스 시작]: /ko-kr/develop/mobile/tutorials/get-started
-[인증 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-users-html
+[모바일 서비스 시작](영문): /ko-kr/develop/mobile/tutorials/get-started
+[인증 시작](영문): /ko-kr/develop/mobile/tutorials/get-started-with-users-html
 
 [Azure 관리 포털]: https://manage.windowsazure.com/
 [관리 포털]: https://manage.windowsazure.com/
@@ -321,3 +321,5 @@
 
 [크로스-원본 자원 공유]: http://msdn.microsoft.com/ko-kr/library/windowsazure/dn155871.aspx
 
+
+<!--HONumber=35.2-->

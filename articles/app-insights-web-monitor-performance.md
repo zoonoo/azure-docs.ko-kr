@@ -1,6 +1,6 @@
 ﻿<properties title="Monitor your app's health and usage with Application Insights" pageTitle="Application Insights로 앱 상태 및 사용 현황 모니터링" description="Application Insights를 시작합니다. 온-프레미스 또는 Microsoft Azure 웹 응용 프로그램의 사용량, 가용성 및 성능을 분석합니다." metaKeywords="analytics monitoring application insights" authors="awills"  manager="kamrani" />
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-09-24" ms.author="awills" />
+<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-11-21" ms.author="awills" />
  
 # 웹 응용 프로그램의 성능 모니터링
 
@@ -23,7 +23,7 @@ Application Insights를 아직 프로젝트에 추가하지 않은 경우(프로
 
 * [Visual Studio의 앱 프로젝트에 Application Insights 추가][greenbrown] - 권장 방법입니다. 이 방식을 사용하면 수동 성능 모니터링을 수행할 수 있을 뿐 아니라 진단 로깅을 삽입하고 사용 현황을 추적할 수도 있습니다.
 * [라이브 웹 사이트의 성능 모니터링][redfield] - 이 방식을 사용하는 경우 응용 프로그램 프로젝트를 업데이트하거나 웹 사이트를 다시 배포하지 않아도 됩니다.
-* [Microsoft Azure 웹 사이트의 경우](../insights-how-to-customize-monitoring/)  웹 사이트의 모니터링 렌즈에서도 이미 메트릭을 볼 수 있습니다. 
+* [Microsoft Azure 웹 사이트의 경우](../insights-how-to-customize-monitoring/)  웹 사이트의 모니터링 렌즈에서 이미 메트릭을 볼 수 있습니다. 
 
 
 ## <a name="view"></a>보고서 보기
@@ -55,14 +55,14 @@ Visual Studio에 수신된 이벤트의 수가 표시됩니다.
 
 ![Click through to more data and select a time range](./media/appinsights/appinsights-48metrics.png)
 
-그래프를 클릭하여 표시할 메트릭을 선택합니다.
+차트를 클릭하여 표시되는 메트릭을 선택하거나 새 차트를 추가하고 해당 메트릭을 선택합니다.
 
 ![Click a graph to choose metrics](./media/appinsights/appinsights-61perfchoices.png)
 
-사용 가능한 전체 선택 항목을 확인하려면 > [AZURE.NOTE] **모든 메트릭의 선택을 취소**합니다. 메트릭은 그룹으로 구분되며 그룹 내의 모든 멤버를 선택하면 해당 그룹의 다른 멤버만 표시됩니다.
+> [AZURE.NOTE] 사용 가능한 전체 선택 항목을 확인하려면 **모든 메트릭의 선택을 취소**합니다. 메트릭은 그룹으로 구분되며 그룹 내의 모든 멤버를 선택하면 해당 그룹의 다른 멤버만 표시됩니다.
 
 
-## <a name="metrics"></a>성능 메트릭의 의미 -  성능 타일 및 보고서
+## <a name="metrics"></a>성능 메트릭의 의미 성능 타일 및 보고서
 
 다양한 성능 메트릭을 가져올 수 있습니다. 먼저 응용 프로그램 블레이드에 기본적으로 표시되는 메트릭부터 살펴보겠습니다.
 
@@ -112,16 +112,27 @@ catch되지 않은 예외를 throw한 요청의 수입니다.
 ![Deselect all metrics to see the whole set](./media/appinsights/appinsights-62allchoices.png)
 
 
-메트릭을 선택하면 같은 차트에 표시할 수 없는 다른 메트릭은 숨겨집니다.
+메트릭을 선택하면 같은 차트에 표시할 수 없는 다른 메트릭은 사용하지 않도록 설정됩니다.
 
+## 경고 설정
+
+메트릭의 비정상적인 값에 대한 알림을 메일로 받으려면 경고를 추가합니다. 계정 관리자나 특정 메일 주소로 메일을 보내도록 선택할 수 있습니다.
+
+![](./media/appinsights/appinsights-413setMetricAlert.png)
+
+다른 속성에 앞서 리소스를 설정합니다. 성능 또는 사용 메트릭에 대한 경고를 설정하려면 webtest 리소스를 선택하지 마세요.
+
+임계값을 입력하라는 단위에 주의하세요.
+
+*경고 추가 단추가 보이지 않습니다.* - 읽기 전용 권한이 있기 때문일 수 있습니다. 
 
 ## <a name="diagnosis"></a>문제 진단
 
 아래에는 성능 문제를 찾고 진단하기 위한 몇 가지 팁이 나와 있습니다.
 
-* 웹 사이트의 작동이 중단되거나 응답이 잘못되거나 속도가 느려지는 경우 경고를 받도록[웹 테스트][availability]를 설정합니다. 
+* 웹 사이트의 작동이 중단되거나 응답이 잘못되거나 속도가 느려지는 경우 경고를 받도록 [웹 테스트][availability]를 설정합니다. 
 * 요청 수를 다른 메트릭과 비교하여 오류 또는 느린 응답이 부하와 관련되어 있는지 확인합니다.
-코드에서 * [검사 추적 문을 삽입 및 검색][diagnostic]하여 문제를 파악합니다.
+* 코드에서 [추적 문을 삽입 및 검색][diagnostic]하여 문제를 파악합니다.
 
 ## <a name="next"></a>다음 단계
 
@@ -139,3 +150,5 @@ catch되지 않은 예외를 throw한 요청의 수입니다.
 
 
 
+
+<!--HONumber=35.2-->

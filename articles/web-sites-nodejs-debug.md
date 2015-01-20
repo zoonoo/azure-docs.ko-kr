@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Debug Websites (Node)" pageTitle="Node.js에서 Azure 웹 사이트를 디버그하는 방법" metaKeywords ="웹 사이트 azure 디버깅, azure 디버깅, azure 웹 사이트 문제 해결, azure 웹 사이트 노드 문제 해결" description="Node.js에서 Azure 웹 사이트를 디버깅하는 방법에 대해 알아봅니다." metaCanonical="" services="web-sites" documentationCenter="nodejs" title="How to debug a Node.js application in Azure Websites" authors="larryfr" solutions="" manager="wpickett" editor="mollybos" />
+<properties urlDisplayName="Debug Websites (Node)" pageTitle="Node.js에서 Azure 웹 사이트를 디버그하는 방법" metaKeywords="debug website azure, debugging azure, troubleshooting azure web site, troubleshoot azure website node" description="Node.js에서 Azure 웹 사이트를 디버깅하는 방법에 대해 알아봅니다." metaCanonical="" services="web-sites" documentationCenter="nodejs" title="How to debug a Node.js application in Azure Websites" authors="larryfr" solutions="" manager="wpickett" editor="mollybos" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
@@ -33,7 +33,7 @@ stdout 및 stderr 스트림에 대한 로깅을 사용하려면 Node.js 응용 �
 <p>devErrorsEnabled가 개발 중 문제를 진단하는 데 유용하긴 하지만 프로덕션 환경에서 이 옵션을 사용하도록 설정하면 개발 오류가 최종 사용자에게 전달될 수 있습니다.</p>
 </div>
 
-**IISNode.yml** 파일이 응용 프로그램에 아직 없는 경우에는 업데이트된 응용 프로그램을 게시한 후 웹 사이트를 다시 시작해야 합니다. 이전에 게시했던 기존 **IISNode.yml** 파일에서 설정만 변경하는 경우에는 다시 시작하지 않아도 됩니다.
+**IISNode.yml** 파일이 응용 프로그램에 아직 없는 경우에는 업데이트된 응용 프로그램을 게시한 후 웹 사이트를 다시 시작해야 합니다. 이전에 게시한 기존 **IISNode.yml** 파일에서 설정만 변경하는 경우에는 다시 시작하지 않아도 됩니다.
 
 <div class="dev-callout">
 <strong>참고</strong>
@@ -50,7 +50,7 @@ Azure 명령줄 도구가 개발 환경에 설치되어 있는 경우 다음 명
 
 <div class="dev-callout">
 <strong>참고</strong>
-<p>loggingEnabled 및 devErrorsEnabled가 진단 정보를 캡처하기 위해 가장 일반적으로 사용되는 IISNode.yml 구성 옵션이긴 하지만 IISNode.yml을 사용하여 호스팅 환경을 위한 다양한 옵션을 구성할 수 있습니다. 전체 구성 옵션 목록에 대해서는 <a href="https://github.com/tjanczuk/iisnode/blob/master/src/config/iisnode_schema.xml">iisnode_schema.xml</a>(영문) 파일을 참조하세요.</p>
+<p>loggingEnabled 및 devErrorsEnabled가 진단 정보를 캡처하기 위해 가장 일반적으로 사용되는 IISNode.yml 구성 옵션이긴 하지만 IISNode.yml을 사용하여 호스팅 환경을 위한 다양한 옵션을 구성할 수 있습니다. 전체 구성 옵션 목록에 대해서는 <a href="https://github.com/tjanczuk/iisnode/blob/master/src/config/iisnode_schema.xml">iisnode_schema.xml</a> (영문) 파일을 참조하세요.</p>
 </div>
 
 ##<a id="viewlogs"></a>로그 액세스
@@ -63,11 +63,11 @@ Azure 명령줄 도구가 개발 환경에 설치되어 있는 경우 다음 명
 
 ###FTP
 
-FTP를 통해 진단 정보에 액세스하려면 [Azure 포털]을 방문하고, 웹 사이트를 선택한 후 [Azure 포털]을 방문하고, 웹 사이트를 선택한 후 **대시보드**를 선택합니다. **빠른 연결** 섹션에서 **FTP 진단 로그** 및 **FTPS 진단 로그** 링크는 FTP 프로토콜을 사용하여 로그에 액세스할 수 있는 방법을 제공합니다.
+FTP를 통해 진단 정보에 액세스하려면 [Azure 포털]을 방문하고, 웹 사이트를 선택한 후 **대시보드**를 선택합니다. **빠른 연결** 섹션에서 **FTP 진단 로그** 및 **FTPS 진단 로그** 링크는 FTP 프로토콜을 사용하여 로그에 액세스할 수 있는 방법을 제공합니다.
 
 <div class="dev-callout">
 <strong>참고</strong>
-<p>FTP 또는 배포의 사용자 이름 및 암호를 아직 구성하지 않은 경우 <strong>배포 자격 증명 설정</strong>을 선택하여 <strong>빠른 시작</strong> 관리 페이지에서 사용자 이름 및 암호를 구성할 수 있습니다.</p>
+<p>FTP 또는 배포의 사용자 이름 및 암호를 아직 구성하지 않은 경우 <strong>빠른 시작</strong> 관리 페이지에서 <strong>배포 자격 증명 설정</strong>을 선택하여 구성할 수 있습니다.</p>
 </div>
 
 대시보드에 반환된 FTP URL은 다음 하위 디렉터리를 포함하는 **LogFiles** 디렉터리에 대한 것입니다.
@@ -78,7 +78,7 @@ FTP를 통해 진단 정보에 액세스하려면 [Azure 포털]을 방문하고
 
 ###Zip 보관 파일
 
-진단 로그의 Zip 보관 파일을 다운로드하려면 Azure 명령줄 도구에서 다음 명령을 사용하세요.
+진단 로그의 Zip 보관 파일을 다운로드하려면 Azure 명령줄 도구에서 다음 명령을 사용하십시오.
 
 	azure site log download [sitename]
 
@@ -94,7 +94,7 @@ FTP를 통해 진단 정보에 액세스하려면 [Azure 포털]을 방문하고
 
 ###라이브 스트림(비상 로그)
 
-진단 로그 정보의 라이브 스트림을 보려면 Azure 명령줄 도구에서 다음 명령을 사용하세요.
+진단 로그 정보의 라이브 스트림을 보려면 Azure 명령줄 도구에서 다음 명령을 사용하십시오.
 
 	azure site log tail [sitename]
 
@@ -116,3 +116,5 @@ Node.js 버전의 응용 프로그램 지정에 대한 자세한 내용은 [Azur
 [Azure 관리 포털]: https://manage.windowsazure.com/
 
 [restart-button]: ./media/web-sites-nodejs-debug/restartbutton.png
+
+<!--HONumber=35.2-->

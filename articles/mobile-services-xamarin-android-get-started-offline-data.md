@@ -1,20 +1,20 @@
-﻿<properties urlDisplayName="Using Offline Data" pageTitle="모바일 서비스에서 오프라인 데이터 사용(Xamarin Android) | 모바일 개발자 센터" metaKeywords="" description="Azure 모바일 서비스를 사용하여 Xamarin Android 응용 프로그램에서 오프라인 데이터를 캐시 및 동기화하는 방법에 대해 알아봅니다." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Using offline data in Mobile Services" authors="donnam" editor="wesmc" manager="dwrede"/>
+﻿<properties urlDisplayName="Using Offline Data" pageTitle="모바일 서비스에서 오프라인 데이터 사용(Xamarin Android) | 모바일 개발자 센터"metaKeywords="" description="Azure 모바일 서비스를 사용하여 Xamarin Android 응용 프로그램에서 오프라인 데이터를 캐시 및 동기화하는 방법에 대해 알아봅니다." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Using offline data in Mobile Services" authors="donnam" editor="wesmc" manager="dwrede"/>
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-android" ms.devlang="dotnet" ms.topic="article" ms.date="09/25/2014" ms.author="donnam" />
 
-# 모바일 서비스에서 오프라인 데이터 사용
+# 모바일 서비스에서 오프라인 데이터 동기화 사용
 
 [WACOM.INCLUDE [mobile-services-selector-offline](../includes/mobile-services-selector-offline.md)]
 
-이 항목에서는 Azure 모바일 서비스의 오프라인 기능을 사용하는 방법을 보여 줍니다. 이러한 기능을 사용하면 모바일 서비스의 오프라인 시나리오의 경우 로컬 데이터베이스를 조작할 수 있습니다. 온라인으로 다시 전환되면 오프라인 기능을 사용하여 로컬 변경을 모바일 서비스와 동기화할 수 있습니다. 
+이 항목에서는 Azure 모바일 서비스의 오프라인 기능을 사용하는 방법을 보여 줍니다. 이러한 기능을 사용하면 모바일 서비스의 오프라인 시나리오의 경우 로컬 데이터베이스를 조작할 수 있습니다. 온라인으로 다시 전환되면 오프라인 기능을 사용하여 로컬 변경 사항을 모바일 서비스와 동기화할 수 있습니다. 
 
-이 자습서에서는  [모바일 서비스 시작] 또는 [데이터 작업 시작] 자습서에서 작성한 앱을 업데이트하여 Azure 모바일 서비스의 오프라인 기능을 지원합니다. 그런 다음, 연결이 끊긴 오프라인 시나리오에서 데이터를 추가하고 해당 항목을 온라인 데이터베이스와 동기화한 후 Azure 관리 포털에 로그인하여 앱을 실행할 때 수행된 데이터 변경 사항을 확인합니다.
+이 자습서에서는 [모바일 서비스 시작](영문) 또는 [데이터 시작] 자습서에서 작성한 앱을 업데이트하여 Azure 모바일 서비스의 오프라인 기능을 지원합니다. 그런 다음 연결이 끊긴 오프라인 시나리오에서 데이터를 추가하고, 해당 항목을 온라인 데이터베이스와 동기화한 후 Azure 관리 포털에 로그인하여 앱을 실행할 때 수행된 데이터 변경 사항을 확인합니다.
 
->[WACOM.NOTE] 이 자습서는 Windows 스토어 앱에서 모바일 서비스를 통해 Azure를 사용하여 데이터를 저장하고 검색할 수 있는 방법을 더욱 잘 이해할 수 있도록 돕기 위한 것입니다. 이 항목에서는 모바일 서비스 빠른 시작에서 완료한 다수의 단계를 순서대로 안내합니다. 모바일 서비스를 처음 사용하는 경우 먼저 [모바일 서비스 시작] 자습서를 완료하는 것이 좋습니다.
+>[WACOM.NOTE] 이 자습서는 Windows 스토어 앱에서 모바일 서비스를 통해 Azure를 사용하여 데이터를 저장하고 검색할 수 있는 방법을 더욱 잘 이해할 수 있도록 돕기 위한 것입니다. 이 항목에서는 모바일 서비스 퀵 스타트에서 완료한 여러 단계를 순서대로 안내합니다. 모바일 서비스를 처음 사용하는 경우 먼저 [모바일 서비스 시작](영문) 자습서를 완료하는 것이 좋습니다.
 >
 > 이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 Azure 평가판을 등록하고 최대 10개의 무료 모바일 서비스를 사용할 수 있습니다. 이러한 서비스는 평가판 사용 기간이 끝난 후에도 계속 사용할 수 있습니다. 자세한 내용은 <a href="http://www.windowsazure.com/ko-kr/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Azure 무료 평가판</a>을 참조하세요. 
 
-이 자습서가 완료된 상태인 프로젝트는 [여기](https://github.com/Azure/mobile-services-samples/tree/master/TodoOffline/Xamarin.Android)(영문)서 사용할 수 있습니다.
+완료된 상태의 이 자습서를 사용하는 프로젝트는 [여기](https://github.com/Azure/mobile-services-samples/tree/master/TodoOffline/Xamarin.Android)(영문)에서 다운로드할 수 있습니다.
 
 이 자습서에서는 다음 기본 단계를 단계별로 안내합니다.
 
@@ -23,18 +23,18 @@
 
 이 자습서를 사용하려면 다음이 필요합니다.
 
-* [Xamarin 확장]**이 포함된 Visual Studio 또는** [Xamarin Studio] 
-* [모바일 서비스 시작] 또는 [데이터 작업 시작] 자습서 완료
-* [Azure 모바일 서비스 SDK 버전 1.3.0-beta2][Mobile Services SDK Nuget]
-* [Azure 모바일 서비스 SQLite 저장소 버전 1.0.0-beta2][SQLite store nuget]
+* [Xamarin 확장]이 포함된 Visual Studio **또는** [Xamarin Studio] 
+* [모바일 서비스 시작](영문) 또는 [데이터 시작](영문) 자습서 완료
+* [Azure 모바일 서비스 SDK 버전 1.3.0][Mobile Services SDK Nuget]
+* [Azure 모바일 서비스 SQLite 저장소 버전 1.0.0][SQLite store nuget]
 
->[WACOM.NOTE] 아래의 지침에서는 Xamarin 확장이 포함된 Visual Studio 2012 이상을 사용 중이라고 가정합니다. Xamarin Studio를 사용 중인 경우 기본 제공 NuGet 패키지 관리자 지원을 사용하세요.
+>[WACOM.NOTE] 아래의 지침에서는 Xamarin 확장이 포함된 Visual Studio 2012 이상을 사용 중이라고 가정합니다. Xamarin Studio 사용 중인 경우 기본 제공 NuGe패키지 관리자 지원을 사용합니다.
 
 ## <a name="enable-offline-app"></a>오프라인 기능을 지원하도록 앱 업데이트
 
-네트워크에 액세스할 수 없는 경우 최종 사용자는 Azure 모바일 서비스 오프라인 동기화를 통해 로컬 데이터베이스를 조작할 수 있습니다. 앱에서 이러한 기능을 사용하려면 로컬 저장소에서 `MobileServiceClient.SyncContext`를 초기화합니다. 그런 다음 `IMobileServiceSyncTable`  인터페이스를 통해 테이블을 참조합니다.
+Azure 모바일 서비스의 오프라인 동기화를 사용하면 최종 사용자가 네트워크에 액세스할 수 없을 때 로컬 데이터베이스를 조작할 수 있습니다. 앱에서 이러한 기능을 사용하려면 `MobileServiceClient.SyncContext`를 로컬 저장소로 초기화합니다. 그런 다음 `IMobileServiceSyncTable` 인터페이스를 통해 테이블을 참조합니다.
 
-1. Visual Studio에서 [모바일 서비스 시작] 또는 [데이터 작업 시작] 자습서에서 완료한 프로젝트를 엽니다. 솔루션 탐색기의 **구성 요소onents**에서 **Azure 모바일 서비스 SDK**에 대한 참조를 제거합니다.
+1. Visual Studio에서 [모바일 서비스 시작](영문) 또는 [데이터 시작] 자습서에서 완료한 프로젝트를 엽니다. 솔루션 탐색기의 **구성 요소**에서 **Azure 모바일 서비스 SDK**에 대한 참조를 제거합니다.
 
 2. 패키지 관리자 콘솔에서 다음 명령을 사용하여 모바일 서비스 SQLiteStore의 시험판 패키지를 설치합니다. 
     
@@ -52,9 +52,9 @@
 		using Microsoft.WindowsAzure.MobileServices.SQLiteStore;
 		using System.IO;
 
-2. `ToDoActivity.toDoTable` 멤버의 형식을 `IMobileServiceTable<>`에서 `IMobileServiceSyncTable<>`로 변경합니다.
+2. `ToDoActivity.toDoTable` 멤버 유형을 `IMobileServiceTable<>`에서 `IMobileServiceSyncTable<>`로 변경
 
-3. `OnCreate(Bundle)` 메서드에서 `client` 멤버를 초기화하는 행 뒤에 다음 코드를 추가합니다.
+3. `OnCreate(Bundle)` 메서드에서 'client' 멤버를 초기화하는 행 뒤에 다음 코드를 추가합니다.
 
 	    // existing initializer
 	    client = new MobileServiceClient (applicationURL, applicationKey, progressHandler);
@@ -72,11 +72,11 @@
 	
 	    await client.SyncContext.InitializeAsync(store, new TodoSyncHandler(this));
 
-4. 동일한 메서드에서 `toDoTable`을 초기화하는 행을 `GetTable<>` 대신 `GetSyncTable<>` 메서드를 사용하도록 변경합니다.
+4. 동일한 메서드에서 `GetTable<>` 대신 `GetSyncTable<>` 메서드를 사용하도록 `toDoTable`을 초기화하는 행을 변경합니다.
 
 		toDoTable = client.GetSyncTable <ToDoItem> ();
 
-5. `OnRefreshItemsSelected` 메서드를 수정하여 `PushAsync` 및 `PullAsync`에 대한 호출을 추가합니다.
+5. `PushAsync` 및 `PullAsync`에 대한 호출을 추가하도록 `OnRefreshItemsSelected` 메서드를 수정합니다.
 
 		async void OnRefreshItemsSelected ()
 		{
@@ -92,7 +92,7 @@
         using Microsoft.WindowsAzure.MobileServices; 
 
 
-2. 다음 멤버를 `ToDoItem` 클래스에 추가합니다.
+2. 다음 멤버를 'ToDoItem' 클래스에 추가합니다.
  
 		[Version]
 		public string Version { get; set; }
@@ -122,7 +122,7 @@
 
 5. 앱에서 **새로 고침** 단추를 누릅니다. 그러면 앱이 `MobileServiceClient.SyncContext.PushAsync`, `IMobileServiceSyncTable.PullAsync()` 및 `RefreshTodoItems`를 차례로 호출하여 로컬 저장소에 있는 항목으로 앱을 새로 고칩니다. 
 
-    푸시 작업은 모바일 서비스 데이터베이스에서 저장소의 데이터를 받습니다. 이 작업은 `IMobileServicesSyncTable` 대신 `MobileServiceClient.SyncContext`에서 실행되며 해당 동기화 컨텍스트에 연결된 모든 테이블에서 변경 내용을 푸시합니다. 그러면 테이블 간에 관계가 존재하는 시나리오가 포함됩니다.
+    푸시 작업은 모바일 서비스 데이터베이스에서 저장소의 데이터를 받습니다. 푸시 작업은 `IMobileServicesSyncTable` 대신 `MobileServiceClient.SyncContext`에서 실행되며 해당 동기화 컨텍스트에 연결된 모든 테이블에서 변경 사항을 푸시합니다. 그러면 테이블 간에 관계가 존재하는 시나리오가 포함됩니다.
     
     반대로, 끌어오기 작업은 지정된 테이블에서만 레코드를 검색합니다. 동기화 컨텍스트에서 이 테이블에 대한 보류 중인 작업이 있으면 모바일 서비스 SDK에서 `PushAsync` 작업이 암시적으로 호출됩니다.
         
@@ -137,7 +137,7 @@
 
 ##요약
 
-모바일 서비스의 오프라인 기능을 지원하기 위해 `IMobileServiceSyncTable` 인터페이스를 사용하고 로컬 저장소에서 `MobileServiceClient.SyncContext`를 초기화했습니다. 이 경우 로컬 저장소는 SQLite 데이터베이스입니다.
+모바일 서비스의 오프라인 기능을 지원하기 위해 `IMobileServiceSyncTable` 인터페이스를 사용하고 로컬 저장소에서 `MobileServiceClient.SyncContext`를 초기화했습니다. 이 경우 로컬 저장소는 SQLite 데이터베이스였습니다.
 
 모바일 서비스에 대한 일반 CRUD 작업은 앱이 계속 연결되어 있는 것처럼 작동하지만 모든 작업은 로컬 저장소에 대해 수행됩니다.
 
@@ -151,11 +151,12 @@
 
     끌어오기 작업에서는 항상 푸시 작업을 먼저 수행합니다.  
 
-    이 샘플에서는 쿼리 키와 쿼리를 지정할 수 있도록 하는 **PullAsync()**의 오버로드를 사용합니다. 쿼리 키는 증분 동기화에 사용됩니다. 모바일 서비스 SDK는 각각의 성공적인 끌어오기 작업 후 마지막으로 업데이트된 타임스탬프를 추적합니다. 다음 끌어오기 시 새 레코드만 검색됩니다. 쿼리 키를 지정하지 않은 경우 동기화 테이블에 대해 전체 동기화가 수행됩니다.
+    **PullAsync()** 메서드에는 쿼리 ID와 쿼리가 필요합니다. 쿼리 ID는 증분 동기화에 사용되며 앱에서 고유한 각 쿼리에 대해 다른 쿼리 ID를 사용해야 합니다. 모바일 서비스 SDK는 끌어오기 작업에 성공할 때마다 마지막으로 업데이트된 타임스탬프를 추적합니다. 다음 끌어오기에서는 최신 레코드만 검색합니다. 쿼리 ID로 null을 지정하면 동기화 테이블에 대한 전체 동기화가 수행됩니다.
+
 
 ## 다음 단계
 
-이 자습서의 완료된 버전은 [GitHub 샘플 리포지토리](https://github.com/Azure/mobile-services-samples/tree/master/TodoOffline/Xamarin.Android)(영문)에서 다운로드할 수 있습니다.
+[GitHub 샘플 리포지토리](https://github.com/Azure/mobile-services-samples/tree/master/TodoOffline/Xamarin.Android)(영문)에서 이 자습서의 완료된 버전을 다운로드할 수 있습니다.
 
 <!--* [Handling conflicts with offline support for Mobile Services]
 -->
@@ -175,12 +176,14 @@
 
 <!-- URLs. -->
 [모바일 서비스에 대한 오프라인 지원을 통해 충돌 처리]: /ko-kr/documentation/articles/mobile-services-xamarin-android-handling-conflicts-offline-data/ 
-[데이터 작업 시작]: /ko-kr/documentation/articles/partner-xamarin-mobile-services-android-get-started-data/
-[모바일 서비스 시작]: /ko-kr/documentation/articles/partner-xamarin-mobile-services-android-get-started/
+[데이터 시작]: /ko-kr/documentation/articles/partner-xamarin-mobile-services-android-get-started-data/
+[모바일 서비스 시작](영문): /ko-kr/documentation/articles/partner-xamarin-mobile-services-android-get-started/
 [Azure 모바일 서비스용 Xamarin Component 클라이언트를 사용하는 방법]: /ko-kr/documentation/articles/partner-xamarin-mobile-services-how-to-use-client-library/
 
-[모바일 서비스 SDK Nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.0-beta2
-[SQLite 저장소 nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0-beta2
-[Xamarin Studio]: http://xamarin.com/download
-[Xamarin 확장]: http://xamarin.com/visual-studio
-[Xamarin용 NuGet 추가 기능]: https://github.com/mrward/monodevelop-nuget-addin
+[모바일 서비스 SDK Nuget](영문): http://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.0
+[SQLite 저장소 nuget](영문): http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0
+[Xamarin Studio](영문): http://xamarin.com/download
+[Xamarin 확장](영문): http://xamarin.com/visual-studio
+[Xamarin용 NuGet 추가 기능](영문): https://github.com/mrward/monodevelop-nuget-addin
+
+<!--HONumber=35.2-->

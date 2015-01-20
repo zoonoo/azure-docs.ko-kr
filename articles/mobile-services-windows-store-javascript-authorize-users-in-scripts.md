@@ -8,10 +8,10 @@
 
 이 항목에서는 서버 스크립트를 사용하여 인증된 사용자에게 Windows 스토어 앱에서 Azure 모바일 서비스의 데이터에 액세스할 수 있는 권한을 부여하는 방법을 보여 줍니다.  이 자습서에서는 모바일 서비스에 스크립트를 등록하여 인증된 사용자의 userId를 기반으로 쿼리를 필터링함으로써 각 사용자가 자신의 고유 데이터만 볼 수 있도록 만듭니다.
 
-이 자습서는 모바일 서비스 빠른 시작을 기반으로 하며 이전 자습서인 [인증 시작]의 내용을 보충합니다. 이 자습서를 시작하기 전에 먼저 [인증 시작]을 완료해야 합니다.  
+이 자습서는 모바일 서비스 퀵 스타트를 기반으로 하며 이전 자습서인 [인증 시작](영문)에 내용을 추가했습니다. 이 자습서를 시작하기 전에 먼저 [인증 시작](영문)을 완료해야 합니다.  
 
 ## <a name="register-scripts"></a>스크립트 등록
-빠른 시작 앱은 데이터를 읽고 삽입하기 때문에 TodoItem 테이블에 대해 이 작업을 수행하는 스크립트를 등록해야 합니다.
+퀵 스타트 앱은 데이터를 읽고 삽입하기 때문에 TodoItem 테이블에 대해 이 작업을 수행하는 스크립트를 등록해야 합니다.
 
 1. [Azure 관리 포털]에 로그온하여 **모바일 서비스**를 클릭한 후 앱을 클릭합니다. 
 
@@ -21,7 +21,7 @@
 
    	![][1]
 
-3. **스크립트**를 클릭하고 **삽입** 작업을 선택합니다.
+3. **스크립트**를 클릭한 후 **삽입** 작업을 선택합니다.
 
    	![][2]
 
@@ -39,7 +39,7 @@
     </div>
 
 
-5. 3단계와 4단계를 반복하여 기존 **Read** 작업을 다음 함수로 바꿉니다.
+5. 3단계와 4단계를 반복하여 기존 **읽기** 작업을 다음 함수로 바꿉니다.
 
         function read(query, user, request) {
            query.where({ userId: user.userId });    
@@ -50,19 +50,19 @@
 
 ## 앱 테스트
 
-1. Visual Studio 2012 Express for Windows 8에서 [인증 시작] 자습서를 완료할 때 수정한 프로젝트를 엽니다.
+1. Visual Studio 2012 Express for Windows 8에서 [인증 시작](영문) 자습서를 완료할 때 수정한 프로젝트를 엽니다.
 
 2. F5 키를 눌러 앱을 실행한 후 선택한 ID 공급자로 앱에 로그온합니다. 
 
    	이전 자습서의 TodoItem 테이블에 이미 항목이 있지만, 이번에는 항목이 반환되지 않습니다. 이전 항목이 userId 열 없이 삽입되어 지금 null 값을 가지기 때문에 이런 현상이 발생합니다.
 
-3. 앱에서 **TodoItem 삽입**에 텍스트를 입력하고 **저장**을 클릭합니다.
+3. 앱에서 **Insert a TodoItem(TodoItem 삽입)**에 텍스트를 입력하고 **저장**을 클릭합니다.
 
    	![][3]
 
    	모바일 서비스에서 TodoItem 테이블의 텍스트 및 userId가 모두 삽입됩니다. 새 항목에 올바른 userId 값이 있기 때문에 값이 모바일 서비스에서 반환되어 두 번째 열에 표시됩니다.
 
-5. [관리 포털][Azure Management Portal]로 돌아와 **todoitem** 테이블에서 **찾아보기**를 클릭하고 새로 추가된 각 항목에 이제 관련 userId 값이 있는지 확인합니다.
+5. [관리 포털][Azure Management Portal] 의 **todoitem** 테이블로 돌아와 **찾아보기**를 클릭하고 새로 추가된 각 항목에 이제 연결된 userId 값이 있는지 확인합니다.
 
 6. (옵션) 추가 로그인 계정이 있는 경우 앱을 닫았다가(Alt+F4) 다시 실행하여 사용자가 자신의 고유 데이터만 볼 수 있는지 여부를 확인할 수 있습니다. 로그인 자격 증명 대화 상자가 표시되면 다른 로그인을 입력한 후 이전 계정으로 입력한 항목이 표시되지 않는지 확인합니다. 
 
@@ -70,14 +70,14 @@
 
 이제 인증 관련 작업의 기본 사항을 설명하는 자습서를 마쳤습니다. 다음의 모바일 서비스 항목에 대해서도 자세히 알아보세요.
 
-* [데이터 작업 시작]
-  <br/>모바일 서비스를 사용하여 데이터를 저장하고 쿼리하는 방법을 알아봅니다.
+* [데이터 시작]
+  <br/>모바일 서비스를 사용하여 데이터를 저장 및 쿼리하는 방법에 대해 자세히 알아보세요.
 
 * [푸시 알림 시작] 
-  <br/>매우 기본적인 푸시 알림을 앱에 보내는 방법을 알아봅니다.
+  <br/>앱에 기본적인 푸시 알림을 보내는 방법을 알아봅니다.
 
 * [모바일 서비스 서버 스크립트 참조]
-  <br/>서버 스크립트를 등록하고 사용하는 방법을 알아봅니다.
+  <br/>서버 스크립트 등록 및 사용에 대해 자세히 알아보세요.
 
 <!-- Anchors. -->
 [서버 스크립트 등록]: #register-scripts
@@ -92,11 +92,13 @@
 <!-- URLs. -->
 [Windows 푸시 알림 및 Live Connect]: http://go.microsoft.com/fwlink/p/?LinkID=257677
 [모바일 서비스 서버 스크립트 참조]: http://go.microsoft.com/fwlink/p/?LinkId=262293
-[내 앱 대시보드]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[모바일 서비스 시작]: /ko-kr/develop/mobile/tutorials/get-started/#create-new-service
-[데이터 작업 시작]: /ko-kr/documentation/articles/mobile-services-windows-store-javascript-get-started-data/
-[인증 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-users-js
+[내 응용 프로그램 대시보드]: http://go.microsoft.com/fwlink/p/?LinkId=262039
+[모바일 서비스 시작](영문): /ko-kr/develop/mobile/tutorials/get-started/#create-new-service
+[데이터 시작]: /ko-kr/documentation/articles/mobile-services-windows-store-javascript-get-started-data/
+[인증 시작](영문): /ko-kr/develop/mobile/tutorials/get-started-with-users-js
 [푸시 알림 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-push-js
 [JavaScript 및 HTML]: mobile-services-win8-javascript/
 
 [Azure 관리 포털]: https://manage.windowsazure.com/
+
+<!--HONumber=35.2-->

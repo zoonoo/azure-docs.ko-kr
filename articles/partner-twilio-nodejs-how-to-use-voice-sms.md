@@ -1,6 +1,6 @@
-﻿<properties urlDisplayName="Twilio Voice and SMS Service" pageTitle="Azure에서 음성, VoIP 및 SMS 메시징을 위해 Twilio 사용" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="nodejs" title=" VoIP" authors="MicrosoftHelp@twilio.com" solutions="" manager="twilio" editor="" />
+﻿<properties urlDisplayName="Twilio Voice and SMS Service" pageTitle="Azure에서 음성, VoIP 및 SMS 메시징을 위해 Twilio 사용" metaKeywords=""  metaCanonical="" services="" documentationCenter="nodejs" title=" VoIP" authors="MicrosoftHelp@twilio.com" solutions="" manager="twilio" editor="" />
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/01/1900" ms.author="MicrosoftHelp@twilio.com" />
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="11/25/2014" ms.author="MicrosoftHelp@twilio.com" />
 
 
 # Azure에서 음성, VoIP 및 SMS 메시징을 위해 Twilio 사용
@@ -32,7 +32,7 @@ Twilio를 통해 개발자는 전화 및 문자 메시지를 보내고 받는 �
 
 ### UI 코드(JavaScript, iOS 또는 Android)에 VoIP 기능 포함
 
-Twilio는 모든 데스크톱 웹 브라우저, iOS 앱 또는 Android 앱을 VoIP 전화로 변환할 수 있는 클라이언트 쪽 SDK를 제공합니다.  이 문서에서는 브라우저에서 VoIP 호출을 사용하는 방법을 집중적으로 설명합니다.  브라우저에서 실행되는 Twilio JavaScript SDK 외에 서버 쪽 응용 프로그램(node.js 응용 프로그램)을 사용하여 "기능 토큰"을 JavaScript 클라이언트에 발급해야 합니다.  node.js에 VoIP를 사용하는 방법에 대한 자세한 내용은 [Twilio 개발자 블로그][voipnode](영문)에서 참조할 수 있습니다.
+Twilio는 모든 데스크톱 웹 브라우저, iOS 앱 또는 Android 앱을 VoIP 전화로 변환할 수 있는 클라이언트 쪽 SDK를 제공합니다.  이 문서에서는 브라우저에서 VoIP 호출을 사용하는 방법을 집중적으로 설명합니다.  브라우저에서 실행되는 Twilio JavaScript SDK 외에 서버 쪽 응용 프로그램(node.js 응용 프로그램)을 사용하여 "기능 토큰"을 JavaScript 클라이언트에 발급해야 합니다.  node.js에 VoIP를 사용하는 방법에 대한 자세한 내용은 [Twilio 개발자 블로그][voipnode](영문)에서 확인할 수 있습니다.
 
 <a id="signup"/>
 ## Twilio 등록(Microsoft 할인)
@@ -47,7 +47,7 @@ Twilio 서비스를 사용하기 전에 먼저 [계정을 등록][signup](영문
 * Azure 계정 등록(아직 없는 경우)
 * Azure 관리 콘솔을 사용하여 새 웹 사이트 만들기
 * 소스 제어 지원 추가(git를 사용했다고 가정함)
-* 간단한 node.js 웹 응용 프로그램을 사용하여 `server.js` 파일 만들기
+* 간단한 node.js 웹 응용 프로그램을 사용하여 server.js 파일 만들기
 * 이 간단한 응용 프로그램을 Azure에 배포
 
 <a id="twiliomodule"/>
@@ -83,24 +83,24 @@ node.js 웹 사이트를 선택하고 "구성" 링크를 클릭합니다.  아�
     }
   }
 
-그러면 널리 사용되는 [express 웹 프레임워크][express](영문) 및 EJS 템플릿 엔진뿐만 아니라 종속성으로 twilio 모듈이 선언됩니다.  이제 모두 준비되었으니 코드를 작성하겠습니다!
+그러면 널리 사용되는 [express 웹 프레임워크][express](영문) 및 EJS 템플릿 엔진뿐만 아니라 종속성으로 twilio 모듈이 선언됩니다.  이제 모두 준비되었으니 코드를 작성하겠습니다.
 
 <a id="makecall"/>
 ## 아웃바운드 전화 걸기
 
 선택한 번호로 전화하는 간단한 양식을 만들어보겠습니다.  server.js를 열고 다음 코드를 입력합니다.  "CHANGE_ME"라고 표시된 곳에 Azure 웹 사이트의 이름을 배치합니다.
 
-  // Module dependencies
-  var express = require('express'), 
+    // Module dependencies
+    var express = require('express'), 
       path = require('path'), 
       http = require('http'), 
       twilio = require('twilio');
 
-  // Create Express web application
-  var app = express();
+    // Create Express web application
+    var app = express();
 
-  // Express configuration
-  app.configure(function(){
+    // Express configuration
+    app.configure(function(){
       app.set('port', process.env.PORT || 3000);
       app.set('views', __dirname + '/views');
       app.set('view engine', 'ejs');
@@ -110,18 +110,18 @@ node.js 웹 사이트를 선택하고 "구성" 링크를 클릭합니다.  아�
       app.use(express.methodOverride());
       app.use(app.router);
       app.use(express.static(path.join(__dirname, 'public')));
-  });
-  app.configure('development', function(){
+    });
+    app.configure('development', function(){
       app.use(express.errorHandler());
-  });
+    });
 
-  // Render an HTML user interface for the application's home page
-  app.get('/', function(request, response) {
+    // Render an HTML user interface for the application's home page
+    app.get('/', function(request, response) {
       response.render('index');
-  });
+    });
 
-  // Handle the form POST to place a call
-  app.post('/call', function(request, response) {
+    // Handle the form POST to place a call
+    app.post('/call', function(request, response) {
       var client = twilio();
       client.makeCall({
           // make a call to this number
@@ -138,10 +138,10 @@ node.js 웹 사이트를 선택하고 "구성" 링크를 클릭합니다.  아�
           // Go back to the home page
           response.redirect('/');
       });
-  });
+    });
 
-  // Generate TwiML to handle an outbound call
-  app.post('/outbound_call', function(request, response) {
+    // Generate TwiML to handle an outbound call
+    app.post('/outbound_call', function(request, response) {
       var twiml = new twilio.TwimlResponse();
 
       // Say a message to the call's receiver 
@@ -151,41 +151,41 @@ node.js 웹 사이트를 선택하고 "구성" 링크를 클릭합니다.  아�
 
       response.set('Content-Type', 'text/xml');
       response.send(twiml.toString());
-  });
+    });
 
-  // Start server
-  http.createServer(app).listen(app.get('port'), function(){
-    console.log("Express server listening on port " + app.get('port'));
-  });
+    // Start server
+    http.createServer(app).listen(app.get('port'), function(){
+      console.log("Express server listening on port " + app.get('port'));
+    });
 
 이제 "views"라는 디렉터리를 만들고 이 디렉터리 내에 다음 내용이 포함된 "index.ejs"라는 파일을 만듭니다.
 
-  <!DOCTYPE html>
-  <html>
-  <head>
+    <!DOCTYPE html>
+    <html>
+    <head>
       <title>Twilio Test</title>
       <style>
-      input { height:20px; width:300px; font-size:18px; margin:5px; padding:5px; }
+        input { height:20px; width:300px; font-size:18px; margin:5px; padding:5px; }
       </style>
-  </head>
-  <body>
+    </head>
+    <body>
       <h1>Twilio Test</h1>
       <form action="/call" method="POST">
           <input placeholder="Enter a phone number" name="number"/>
           <br/>
           <input type="submit" value="Call the number above"/>
       </form>
-  </body>
-  </html>
+    </body>
+    </html>
 
-이제 웹 사이트를 Azure에 배포하고 홈을 엽니다.  텍스트 필드에 전화 번호를 입력하고 Twilio 번호로부터 전화를 받을 수 있어야 합니다!
+이제 웹 사이트를 Azure에 배포하고 홈을 엽니다.  텍스트 필드에 전화 번호를 입력하고 Twilio 번호로부터 전화를 받을 수 있어야 합니다.
 
 <a id="sendmessage"/>
 ## SMS 메시지 보내기
 
 이제 사용자 인터페이스 및 양식 처리 논리를 설정하여 문자 메시지를 보내겠습니다.  "server.js"를 열고 "app.post"에 대한 마지막 호출 뒤에 다음 코드를 추가합니다.
 
-  app.post('/sms', function(request, response) {
+    app.post('/sms', function(request, response) {
       var client = twilio();
       client.sendSms({
           // send a text to this number
@@ -202,17 +202,17 @@ node.js 웹 사이트를 선택하고 "구성" 링크를 클릭합니다.  아�
           // Go back to the home page
           response.redirect('/');
       });
-  });
+    });
 
 "views/index.ejs"에서 첫 번째 양식 아래에 다른 양식을 추가하여 번호 및 문자 메시지를 제출합니다.
 
-  <form action="/sms" method="POST">
+    <form action="/sms" method="POST">
       <input placeholder="Enter a phone number" name="number"/>
       <br/>
       <input placeholder="Enter a message to send" name="message"/>
       <br/>
       <input type="submit" value="Send text to the number above"/>
-  </form>
+    </form>
 
 응용 프로그램을 Azure에 다시 배포하고 나면 이제 해당 양식을 제출하고 자신(또는 가까운 친구)에게 문자 메시지를 보낼 수 있어야 합니다!
 
@@ -243,3 +243,5 @@ Azure에서 node.js와 Twilio 해킹을 즐기시기를 바랍니다!
 
 
 
+
+<!--HONumber=35.2-->

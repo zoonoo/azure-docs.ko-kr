@@ -1,12 +1,12 @@
 ﻿<properties linkid="batch-technical-overview" urlDisplayName="" pageTitle="Azure 배치 기술 개요" metaKeywords="" description="Azure 일괄 처리 서비스의 개념, 워크플로 및 시나리오에 대해 알아봅니다." metaCanonical="" services="batch" documentationCenter="" title="Azure Batch technical overview" authors="danlep" solutions="" manager="timlt" editor="tysonn" />
 
-<tags ms.service="batch" ms.workload="big-compute" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/27/2014" ms.author="danlep" />
+<tags ms.service="batch" ms.workload="big-compute" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/08/2014" ms.author="danlep" />
 
 
 #Azure 배치 기술 개요
-Azure 배치는 계산 리소스의 작업 예약 및 자동 크기 조정을 플랫폼 서비스로 제공하여 클라우드에서 대규모 병렬 및 HPC(고성능 컴퓨팅) 응용 프로그램을 실행하도록 도와줍니다. 배치 SDK 및 배치 서비스를 사용하여 요청 시 또는 가상 컴퓨터의 관리되는 컬렉션에 대한 일정에 따라 배치 작업이 실행되도록 구성할 수 있으며 기본 플랫폼의 작업 예약 및 리소스 관리에 따른 복잡성도 걱정할 필요가 없습니다.
+Azure 배치는 계산 리소스의 작업 예약 및 자동 크기 조정을 플랫폼 서비스로 제공하여 클라우드에서 대규모 병렬 및 HPC(고성능 컴퓨팅) 응용 프로그램을 실행하도록 도와줍니다. 배치 SDK 및 배치 서비스를 사용하여 주문형 또는 가상 컴퓨터의 관리되는 컬렉션에 대한 일정에 따라 배치 작업이 실행되도록 구성할 수 있으며 기본 플랫폼의 작업 예약 및 리소스 관리에 따른 복잡성도 걱정할 필요가 없습니다.
  
->[WACOM.NOTE]배치는 미리 보기에 제공됩니다. 배치를 사용하려면 Azure 계정이 필요하고 구독에서 배치 미리 보기를 사용하도록 설정해야 합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 계정 만들기](http://www.windowsazure.com/ko-kr/develop/php/tutorials/create-a-windows-azure-account/)를 참조하세요. 
+>[WACOM.NOTE]배치는 미리 보기로 제공됩니다. 배치를 사용하려면 Azure 계정이 필요하고 구독에서 배치 미리 보기를 사용하도록 설정해야 합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 계정 만들기](http://www.windowsazure.com/ko-kr/develop/php/tutorials/create-a-windows-azure-account/)(영문)를 참조하세요. 
 
 
 이 문서에서는 다음에 대해 대략적으로 설명합니다.
@@ -24,7 +24,7 @@ Azure 배치는 계산 리소스의 작업 예약 및 자동 크기 조정을 �
  
 배치 컴퓨팅은 일정에 따라 또는 요청이 있을 때 대량의 데이터를 처리하고, 변환하고, 분석하는 조직의 일반적인 패턴입니다. 여기에는 일정에 따라 완료되어야 하는 은행의 일별 위험 보고 또는 급여와 같은 주기 끝 처리가 포함됩니다. 뿐만 아니라 일반적으로 계산 클러스터 또는 그리드의 도구 및 리소스를 필요로 하는 대규모 비즈니스, 과학 및 엔지니어링 응용 분야도 포함됩니다. 응용 분야에는 유체 역학 시뮬레이션과 같은 전통적인 HPC 응용 분야는 물론, 자동차 디자인, 석유 및 가스 탐사, 생명 과학 연구 및 디지털 콘텐츠 작성 등의 분야의 특수한 작업도 포함합니다. 
  
-배치 작업은 기본적으로 병렬("병렬 처리가 적합한") 응용 프로그램이나 작업에 적합하며 이러한 응용 프로그램이나 작업이 배치 서비스에서 관리되는 계산 VM과 같은 여러 컴퓨터에서 병렬 작업으로 실행되도록 합니다. 그림 1.  을 참조하세요.
+배치 작업은 기본적으로 병렬("병렬 처리가 적합한") 응용 프로그램이나 작업에 적합하며 이러한 응용 프로그램이나 작업이 배치 서비스에서 관리되는 계산 VM과 같은 여러 컴퓨터에서 병렬 작업으로 실행되도록 합니다. 그림 1을 참조하세요.  
 
 ![Parallel tasks][parallel]
 
@@ -91,7 +91,7 @@ REST 기반 배치 API는 배치 서비스로 배치 작업을 구성하고 실�
 
 풀의 특성은 다음과 같습니다.
 
-* TVM의 [크기](http://msdn.microsoft.com/library/azure/dn197896.aspx) 
+* TVM [크기](http://msdn.microsoft.com/library/azure/dn197896.aspx) 
 * TVM에서 실행되는 운영 체제
 * TVM의 최대 수
 * 풀에 대한 크기 조정 정책 - 태스크를 처리하는 TVM 수를 동적으로 조정하는 현재 작업 및 리소스 사용량에 따른 수식
@@ -103,12 +103,12 @@ REST 기반 배치 API는 배치 서비스로 배치 작업을 구성하고 실�
 
 풀은 풀이 생성된 배치 계정을 통해서만 사용할 수 있습니다. 하나의 배치 계정에는 둘 이상의 풀이 있을 수 있습니다.
 
-풀에 추가된 모든 TVM에는 고유 이름 및 연결된 IP 주소가 할당됩니다. TVM이 풀에서 제거되면 운영 체제에 대해 수행된 변경 내용, 해당 로컬 파일, 해당 이름 및 해당 IP 주소가 손실됩니다. TVM이 풀에서 제거되면 수명 기간이 끝납니다.
+풀에 추가된 모든 TVM에는 고유 이름 및 연결된 IP 주소가 할당됩니다. TVM이 풀에서 제거되면 운영 체제에 대해 수행된 변경 내용, 해당 로컬 파일, 해당 이름 및 해당 IP 주소가 손실됩니다. TVM이 풀에서 제거되면 수명이 끝납니다.
 
 
 <h3 id="BKMK_Workitem">작업 항목, 작업 및 태스크</h3>
 
-**작업 항목**은 응용 프로그램이 풀의 TVM에서 실행되는 방식을 지정하는 템플릿입니다. **작업**은 작업 항목의 예약된 인스턴스이며 한번 발생하거나 다시 발생할 수 있습니다. 작업은 **태스크** 컬렉션으로 구성됩니다. 그림 3은 기본 관계를 보여 줍니다.    
+**작업 항목**은 응용 프로그램이 풀의 TVM에서 실행되는 방식을 지정하는 템플릿입니다. **작업**은 작업 항목의 예약된 인스턴스이며 한 번 발생하거나 다시 발생할 수 있습니다. 작업은 **태스크** 컬렉션으로 구성됩니다. 그림 3은 기본 관계를 보여 줍니다.    
  
 ![Work item, job, and tasks][job_task]
 
@@ -149,7 +149,7 @@ REST 기반 배치 API는 배치 서비스로 배치 작업을 구성하고 실�
 
 ![Application publishing workflow][app_pub_workflow]
 
-**그림 5. 배치 앱으로 응용 프로그램을 게시하고 실행하기 위한 워크플로**
+**그림 5. 배치 앱으로 응용 프로그램을 게시하고 실행하는 워크플로**
 
 1.	기존 응용 프로그램 실행 파일과 필요한 지원 파일의 zip 파일을 나타내는 **응용 프로그램 이미지**를 준비합니다. 이러한 파일은 일반적인 서버 팜 또는 클러스터에서 실행하는 것과 동일한 실행 파일일 수 있습니다.
 2.	작업을 호출하고 배치 서비스에 디스패치하는 **클라우드 어셈블리**의 zip 파일을 만듭니다. 여기에는 SDK를 통해 사용할 수 있는 두 가지 구성 요소가 포함됩니다.
@@ -173,13 +173,16 @@ REST 기반 배치 API는 배치 서비스로 배치 작업을 구성하고 실�
 	
 <h2 id="BKMK_Resources">추가 리소스</h2>
 
-* [.NET용 Azure 배치 라이브러리 시작](http://azure.microsoft.com/ko-kr/documentation/articles/batch-dotnet-get-started/)
+* [.NET용 Azure 배치 라이브러리 시작](http://azure.microsoft.com/ko-kr/documentation/articles/batch-dotnet-get-started/)(영문)
+* [Azure 배치 개발 라이브러리 및 도구](http://azure.microsoft.com/ko-kr/documentation/articles/batch-development-libraries-tools/)
 * [Azure 배치 REST API 참조](http://go.microsoft.com/fwlink/p/?LinkId=517803)
 * [Azure 배치 앱 REST API 참조](http://go.microsoft.com/fwlink/p/?LinkId=517804)
 
-[병렬]: ./media/batch-technical-overview/parallel.png
+[parallel]: ./media/batch-technical-overview/parallel.png
 [TVM_pool]: ./media/batch-technical-overview/TVM_pool.png
 [job_task]: ./media/batch-technical-overview/job_task.png
 [account_portal]: ./media/batch-technical-overview/account_portal.png
 [work_item_workflow]: ./media/batch-technical-overview/work_item_workflow.png
 [app_pub_workflow]: ./media/batch-technical-overview/app_pub_workflow.png
+
+<!--HONumber=35.2-->

@@ -1,14 +1,14 @@
 ﻿<properties title="Azure Websites Web Hosting Plans In-Depth Overview" pageTitle="Azure 웹 사이트 웹 호스팅 계획의 포괄 개요-Microsoft Azure 기능 가이드" description="Azure 웹 사이트에 대한 웹 호스팅 계획의 작동 방식 및 이러한 계획을 통해 관리 경험을 향상시킬 수 있는 방법에 대해 알아봅니다." metaKeywords="Azure Web Sites, Azure Websites, WHP, Web Hosting Plan, Web Hosting Plans, Resource Groups" services="web-sites" solutions="web" documentationCenter="Infrastructure" authors="Byron Tardif and Yochay Kiryaty" videoId="" scriptId="" manager="wpickett" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="Byron Tardif and Yochay Kiryaty" />
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="11/17/2014" ms.author="Byron Tardif and Yochay Kiryaty" />
 </br>
-#Azure 웹 사이트 웹 호스팅 계획의 포괄 개요#
+#Azure 웹 사이트 웹 호스팅 계획의 포괄 개요
 </br>
-WHP(웹 호스팅 계획)는 웹 사이트에서 공유할 수 있는 기능 및 용량의 집합을 나타냅니다.  웹 호스팅 계획은 각 계층에 고유한 기능 및 용량이 지정된 4가지 Azure 웹 사이트 가격 계층(예: 무료, 공유, 기본 및 표준)을 지원합니다.  동일한 구독, 리소스 그룹 및 지리적 위치의 사이트는 웹 호스팅 계획을 공유할 수 있습니다. 웹 호스팅 계획을 공유하는 모든 사이트는 웹 호스팅 계획 계층에서 정의된 모든 기능 및 특징을 활용할 수 있습니다. 주어진 웹 호스팅 계획과 관련된 모든 웹 사이트는 웹 호스팅 계획에서 정의된 리소스에서 실행됩니다. 예를 들어 두 개의 "소형" 가상 컴퓨터를 사용하도록 웹 호스팅 계획이 구성된 경우 이 웹 호스팅 계획과 관련된 모든 사이트는 두 가상 컴퓨터 모두에서 실행됩니다. Azure 웹 사이트의 경우처럼 사이트가 실행되는 가상 컴퓨터는 완전히 관리되며 가용성이 뛰어납니다.
+WHP(웹 호스팅 계획)는 웹 사이트를 통해 공유할 수 있는 기능 및 용량의 집합을 나타냅니다.  웹 호스팅 계획은 각 계층에 고유한 기능 및 용량이 있는 네 개의 Azure 웹 사이트 가격 계층(예: 무료, 공유, 기본 및 표준)을 지원합니다.  동일한 구독, 리소스 그룹 및 지리적 위치에 있는 사이트는 웹 호스팅 계획을 공유할 수 있습니다. 웹 호스팅 계획을 공유하는 모든 사이트는 웹 호스팅 계획 계층에서 정의된 모든 기능 및 특징을 활용할 수 있습니다. 주어진 웹 호스팅 계획과 관련된 모든 웹 사이트는 웹 호스팅 계획에서 정의된 리소스에서 실행됩니다. 예를 들어 두 개의 "소형" 가상 컴퓨터를 사용하도록 웹 호스팅 계획이 구성된 경우 이 웹 호스팅 계획과 관련된 모든 사이트는 두 가상 컴퓨터 모두에서 실행됩니다. Azure 웹 사이트의 경우처럼 사이트가 실행되는 가상 컴퓨터는 완전히 관리되며 가용성이 뛰어납니다.
 </br>
 이 문서에서는 웹 호스팅 계획의 계층 및 크기와 웹 사이트를 관리하는 동안 웹 호스팅 계획이 진행되는 방식과 같은 주요 특징을 살펴봅니다. 
 </br>
-##웹 사이트, 웹 호스팅 계획 및 리소스 그룹##
+##웹 사이트, 웹 호스팅 계획 및 리소스 그룹
 </br>
 하나의 웹 사이트는 항상 하나의 웹 호스팅 계획에만 연결할 수 있습니다. 웹 호스팅 계획은 리소스 그룹과 연결됩니다. 리소스 그룹은 포함된 모든 리소스를 위한 수명 주기 경계 역할을 하는 새로운 Azure 개념입니다. 리소스 그룹을 사용하면 응용 프로그램의 모든 부분을 함께 관리할 수 있습니다. 
 </br>
@@ -70,7 +70,7 @@ Azure 웹 사이트에 이미 기존 웹 사이트가 있는 경우 모든 웹 �
 </br>
 **대답**: 웹 호스팅 계획은 컨테이너이며, 빈 웹 호스팅 계획을 만들 수는 없습니다. 그러나 새 웹 호스팅 계획은 명시적으로 사이트를 만드는 동안 만들어집니다.
 </br>
-UI를 사용하여 이 작업을 수행하려면 새 **Azure 포털 미리 보기**에서 **새로 만들기**를 클릭하고 **웹 사이트**를 선택하여 웹 사이트 만들기 블레이드를 엽니다. 아래에 나오는 첫 번째 이미지의 왼쪽 아래에서는 **새로 만들기** 아이콘을 볼 수 있고 두 번째 이미지에서는 **웹 사이트** 만들기 블레이드, **웹 호스팅 계획** 블레이드 및 **가격 책정 계층** 블레이드 볼 수 있습니다.
+새 **Azure 포털 미리 보기**에서 UI를 사용하여 이 작업을 수행하려면 **새로 만들기**를 클릭하고 **웹 사이트**를 선택합니다. 그러면 웹 사이트 만들기 블레이드가 열립니다. 아래 첫 번째 이미지의 왼쪽 하단에서 **새로 만들기** 아이콘을 볼 수 있으며, 두 번째 이미지에서는 **웹 사이트** 만들기 블레이드, **웹 호스팅 계획** 블레이드 및 **가격 책정 계층** 블레이드를 볼 수 있습니다.
 </br>
 </br>
 ![Create a new website](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview05.png)
@@ -79,7 +79,7 @@ UI를 사용하여 이 작업을 수행하려면 새 **Azure 포털 미리 보�
 ![Website, Web Hosting Plan and pricing tier blades](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview06.png)
 </br>
 </br>
-이 예에서는 **contosomarketing**이라는 새 웹 사이트를 만들고 **contoso**라는 새 웹 호스팅 계획에 배치하도록 선택할 것입니다. 이 웹 호스팅 계획에서 선택한 가격 계층은 **소형 표준**입니다. 웹 호스팅 계획 가격 책정 계층과 각 계층에 제공되는 기능, 가격 및 크기 옵션에 대한 자세한 내용은 [Azure 웹 사이트 웹 호스팅 계획 사양](http://go.microsoft.com/?linkid=9845586)을 참조하세요. 
+이 예에서는 **contosomarketing**이라는 새 웹 사이트를 만들고 **contoso**라는 새 웹 호스팅 계획에 배치하도록 선택할 것입니다. 이 웹 호스팅 계획에서  가격 책정 계층은 **소형 표준**입니다. 웹 호스팅 계획 가격 책정 계층과 각 계층에 제공되는 기능, 가격 및 크기 옵션에 대한 자세한 내용은 (http://go.microsoft.com/?linkid=9845586)[Azure 웹 사이트 웹 호스팅 계획 사양]을 참조하세요. 
 </br>
 또한 기존 Azure 포털에서 웹 호스팅 계획을 만들 수도 있습니다. 이 작업은 **웹 호스팅 계획** 드롭다운에서 **새 웹 호스팅 계획 만들기**를 선택하여 **빠른 생성** 마법사의 일부로 수행됩니다.
 </br>
@@ -87,11 +87,11 @@ UI를 사용하여 이 작업을 수행하려면 새 **Azure 포털 미리 보�
 ![Create new web hosting plan in the existing portal](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview07.png)
 </br>
 </br>
-이 예제에서는 **northwind**라는 새 사이트를 만들고 새 웹 호스팅 계획을 만들도록 선택할 것입니다. 이 작업의 결과로 **northwind** 웹 사이트가 포함된 **default0**라는 새 웹 호스팅 계획이 만들어집니다. 이 작업을 통해 만들어지는 모든 웹 호스팅 계획은 이 명명 규칙을 따르며, 생성된 웹 호스팅 계획은 이름을 바꿀 수 없습니다. 또한 이 프로세스를 통해 만들어진 웹 호스팅 계획은 **무료** 가격 계층으로 만들어집니다.
+이 예제에서는 **northwind**라는 새 사이트를 만들고 새 웹 호스팅 계획을 만들도록 선택할 것입니다. 이 작업의 결과로 **northwind** 웹 사이트가 포함된 **default0**이라는 새 웹 호스팅 계획이 만들어집니다. 이 작업을 통해 만들어지는 모든 웹 호스팅 계획은 이 명명 규칙을 따르며, 생성된 웹 호스팅 계획은 이름을 바꿀 수 없습니다. 또한 이 프로세스를 통해 만들어진 웹 호스팅 계획은 **무료** 가격 계층으로 만들어집니다.
 </br>
 **질문**: **웹 호스팅 계획**에 사이트를 할당하려면 어떻게 하나요?
 </br>
-**대답**: 사이트는 사이트 생성 프로세스의 일부로 웹 호스팅 계획에 할당됩니다. **새 Azure 포털 미리 보기**에서 UI를 사용하여 이 작업을 수행하려면 **새로 만들기**를 클릭하고 **웹 사이트**를 선택합니다.
+**대답**: 사이트는 사이트 생성 프로세스의 일부로 웹 호스팅 계획에 할당됩니다. 새 **Azure 포털 미리 보기**에서 UI를 사용하여 이 작업을 수행하려면 **새로 만들기**를 클릭하고 **웹 사이트**를 선택합니다.
 </br>
 </br>
 ![Create a new website](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview08.png)
@@ -113,7 +113,7 @@ UI를 사용하여 이 작업을 수행하려면 새 **Azure 포털 미리 보�
 </br>
 **대답**: Azure 미리 보기 포털을 사용하여 다른 웹 호스팅 계획으로 사이트를 이동할 수 있습니다. 동일한 리소스 그룹에 속해 있는 동일한 지리적 지역의 웹 호스팅 계획 간에는 웹 사이트를 이동할 수 있습니다.
 </br>
-사이트를 다른 계획으로 이동하려면 이동할 사이트의 웹 사이트 블레이드로 이동합니다.  그런 후 **웹 호스팅 계획**을 클릭합니다.
+사이트를 다른 계획으로 이동하려면 이동하려는 사이트의 웹 사이트 블레이드로 이동합니다.  그런 다음 **웹 호스팅 계획**을 클릭합니다.
 </br>
 </br>
 ![Choose a new or existing web hosting plan](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview22.png)
@@ -142,7 +142,7 @@ UI를 사용하여 이 작업을 수행하려면 새 **Azure 포털 미리 보�
 </br>
 위 이미지의 웹 호스팅 계획은 **표준** 가격 책정 계층을 사용하도록 구성되므로 **자동 크기 조정** 옵션을 사용할 수 있습니다. 
 </br>
-아래 그림과 같이 전체 Azure 포털에서는 **크기** 탭에서 이 작업을 수행할 수 있습니다.
+아래 그림과 같이 전체 Azure 포털에서는 **크기 조정** 탭에서 이 작업을 수행할 수 있습니다.
 </br>
 </br>
 ![Changing the instance count of a hosting plan in the existing portal](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview18.png)
@@ -186,4 +186,6 @@ UI를 사용하여 이 작업을 수행하려면 새 **Azure 포털 미리 보�
 </br>
 ##정리 및 결론##
 </br>
-웹 호스팅 계획은 웹 사이트를 통해 공유할 수 있는 기능 및 용량의 집합을 나타냅니다.  웹 호스팅 계획을 사용하면 융통성 있게 특정 리소스 집합, 즉 가상 컴퓨터에 특정 사이트를 할당하고 Azure 리소스 할당 및 웹 사이트 사용을 추가로 최적화할 수 있습니다. 
+웹 호스팅 계획은 웹 사이트를 통해 공유할 수 있는 기능 및 용량의 집합을 나타냅니다.  웹 호스팅 계획을 사용하면 융통성 있게 특정 리소스 집합, 즉 가상 컴퓨터에 특정 사이트를 할당하고 Azure 리소스 할당 및 웹 사이트 사용을 추가로 최적화할 수 있습니다.
+
+<!--HONumber=35.2-->

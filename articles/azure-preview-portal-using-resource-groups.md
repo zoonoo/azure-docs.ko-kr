@@ -1,18 +1,18 @@
-﻿<properties urlDisplayName="" pageTitle="리소스 그룹을 사용하여 Azure 리소스 사용" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Using Resource groups to manage your Azure resources" authors="Nafisa Bhojawala"  solutions="" writer="" manager="terrylan" editor=""  />
+﻿<properties urlDisplayName="" pageTitle="리소스 그룹을 사용하여 Azure 리소스 관리" metaKeywords=""  metaCanonical="" services="" documentationCenter="" title="Using Resource groups to manage your Azure resources" authors="Nafisa Bhojawala"  solutions="" writer="" manager="timlt" editor=""  />
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="Nafisa Bhojawala" />
+<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="12/02/2014" ms.author="davidmu" />
 
 
-# 리소스 그룹을 사용하여 Azure 리소스 사용
+# 리소스 그룹을 사용하여 Azure 리소스 관리
 
 ### 소개
 
-일반적으로 Microsoft Azure에서 리소스(데이터베이스 서버, 데이터베이스, 웹 사이트 등과 같이 사용자가 관리하는 엔터티)를 관리하려면 한 번에 한 리소스에 대해 작업을 수행해야 했습니다. 여러 리소스로 구성된 복잡한 응용 프로그램이 있는 경우 이 응용 프로그램을 관리하는 일은 복잡한 작업이 되었습니다. Microsoft Azure Preview 포털에서는 리소스 그룹을 만들어 응용 프로그램의 모든 리소스를 함께 관리할 수 있습니다. 리소스 그룹은 포함된 모든 리소스를 위한 수명 주기 경계 역할을 하는 새로운 Azure 개념입니다. 
+일반적으로 Microsoft Azure에서 리소스(데이터베이스 서버, 데이터베이스, 웹 사이트 등과 같이 사용자가 관리하는 엔터티)를 관리하려면 한 번에 한 리소스에 대해 작업을 수행해야 했습니다. 여러 리소스로 구성된 복잡한 응용 프로그램이 있는 경우 이 응용 프로그램을 관리하는 일은 복잡한 작업이 되었습니다. Microsoft Azure 미리 보기 포털에서는 리소스 그룹을 만들어 응용 프로그램의 모든 리소스를 함께 관리할 수 있습니다. 리소스 그룹은 포함된 모든 리소스를 위한 수명 주기 경계 역할을 하는 새로운 Azure 개념입니다. 
 <br><br />
 
 리소스 그룹을 사용하면 응용 프로그램의 모든 리소스를 함께 관리할 수 있습니다. 리소스 그룹은 새 관리 기능인 Azure 리소스 관리자에서 사용 설정됩니다. Azure 리소스 관리자에서는 포함된 모든 리소스를 위한 수명 주기 경계 역할을 하는 논리 그룹으로 여러 리소스를 그룹화할 수 있습니다. 일반적으로 그룹은 특정 응용 프로그램과 관련된 리소스를 포함합니다. 예를 들어 그룹은 공용 웹 사이트를 호스트하는 웹 사이트 리소스, 사이트에서 사용되는 관계형 데이터를 저장하는 SQL 데이터베이스, 비관계형 자산을 저장하는 저장소 계정을 포함할 수 있습니다. 
 
-다음은 Microsoft Azure Preview 포털 내에서 리소스 그룹을 사용하는 방법에 대한 간단한 개요입니다. 
+다음은 Microsoft Azure 미리 보기 포털 내에서 리소스 그룹을 사용하는 방법에 대한 간단한 개요입니다. 
 <br><br />
 
 ### 리소스 그룹 만들기
@@ -70,3 +70,5 @@
 리소스 그룹을 사용하면 포함된 모든 리소스의 수명 주기를 관리할 수 있으므로 리소스 그룹을 삭제하면 그룹 내에 포함된 모든 리소스가 삭제됩니다. 리소스 그룹 내부의 개별 리소스를 삭제할 수도 있습니다. 연결된 다른 리소스가 있을 수 있으므로 리소스 그룹을 삭제할 때는 주의해야 합니다. 리소스 그룹을 삭제할 때 연결된 리소스를 리소스 맵에서 보고 의도하지 않은 결과가 발생하지 않도록 필요한 조치를 취할 수 있습니다. 
 
 ![](http://i.imgur.com/ZTXoISb.png)
+
+<!--HONumber=35.2-->

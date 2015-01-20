@@ -15,8 +15,9 @@
 * WebMatrix에서 기본 제공 템플릿을 사용하여 사이트를 만드는 방법 
 * WebMatrix에서 Azure로 사용자 지정된 웹 사이트를 직접 배포하는 방법
 
-
-[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
+> [WACOM.NOTE]
+> 이 자습서를 완료하려면 Azure 계정이 필요합니다. 이 경우 <a href="http://azure.microsoft.com/ko-kr/pricing/member-offers/msdn-benefits-details/">MSDN 구독자 혜택 활성화</a> 또는 <a href="http://azure.microsoft.com/ko-kr/pricing/free-trial/">무료 평가판 등록</a>을 수행할 수 있습니다.
+> 계정을 등록하기 전에 Azure 웹 사이트 사용을 시작하려면 <a href="https://trywebsites.azurewebsites.net/">https://trywebsites.azurewebsites.net</a>으로 이동합니다. 여기서 무료로 Azure 웹 사이트에 단기 ASP.NET 시작 사이트를 즉시 만들 수 있습니다. 신용 카드가 필요하지 않으며 약정이 없습니다.
 
 ## Azure에 로그인
 
@@ -36,7 +37,7 @@
 
 	![New site from Template Gallery][sitefromtemplate]
 
-2. 템플릿 갤러리는 로컬로 또는 Azure에서 실행할 수 있는 사용 가능한 템플릿 목록을 보여 줍니다.  템플릿 목록에서 **제과**를 선택하고 **사이트 이름**으로 **bakerysample**을 입력하고 **다음**을 클릭합니다.
+2. 템플릿 갤러리는 로컬로 또는 Azure에서 실행할 수 있는 사용 가능한 템플릿 목록을 보여 줍니다.  템플릿 목록에서 **제과**를 선택하고 **사이트 이름**으로 **bakerysample**을 입력한 후 **다음**을 클릭합니다.
 
 	![Create Site from Template][sitefromtemplatedetails]
 
@@ -50,11 +51,11 @@
 
 ## 메일 설정
 
-제과 샘플에는 주문한 항목이 포함된 메일 메시지를 보내는 시뮬레이트된 주문 양식이 포함되어 있습니다. Azure에서 SendGrid 메일 서비스를 사용하여 사이트에서 메일을 보냅니다.
+제과 샘플에는 주문된 항목이 포함된 메일 메시지를 보내는 시뮬레이트된 주문 양식이 포함되어 있습니다. Azure의 SendGrid 메일 서비스를 사용하여 사이트에서 메일을 보냅니다.
 
-1. [Azure에서 SendGrid 계정을 사용하여 메일을 보내는 방법][sendgridexample] 자습서의 단계에 따라 SendGrid 계정을 설정하고 연결 정보를 검색합니다. 전체 자습서를 할 필요는 없고 연결 정보를 가져오는 지점까지만 필요합니다.
+1. [Azure에서 SendGrid를 사용하여 메일을 보내는 방법][sendgridexample] 자습서의 절차에 따라 SendGrid 계정을 설정하고 연결 정보를 검색하세요. 전체 자습서를 수행할 필요는 없으며 연결 정보를 가져오는 부분까지만 수행하면 됩니다.
 
-2. WebMatrix 프로젝트에 SendGrid NuGet 패키지를 추가합니다. 먼저, NuGet 단추를 클릭합니다.
+2. WebMatrix 프로젝트에 SendGrid NuGet 패키지를 추가합니다. 먼저 NuGet 단추를 클릭합니다.
 
     ![Add SendGrid][addsendgrid]
 
@@ -62,7 +63,7 @@
 
     ![Install SendGrid][installsendgrid]
 
-    패키지 설치를 마치면 SendGrid 어셈블리가 bin에 추가되었는지 확인합니다.
+    패키지 설치를 마치면 SendGrid 어셈블리가 bin에 추가되었습니다.
 
     ![SendGrid added][binsendgrid]
 
@@ -75,7 +76,7 @@
         @using SendGrid;
         @using System.Net.Mail;
 
-4. //SMTP Configuration for Hotmail이 표시된 주석을 찾고 WebMail을 사용하기 위해 모든 코드를 삭제하거나 주석 처리합니다.
+4. //SMTP Configuration for Hotmail이라는 주석을 찾아서 삭제하거나 WebMail 사용에 대한 모든 코드를 주석으로 처리합니다.
 
         /*
         //SMTP Configuration for Hotmail
@@ -101,7 +102,7 @@
         }*/
 
 
-5. WebMail 대신 메일을 보내기 위해 SendGrid를 사용하도록 코드를 추가합니다. 이전 단계에서 삭제한 코드 대신 다음 코드를 추가합니다.
+5. WebMail 대신 SendGrid를 사용하여 메일을 보내는 코드를 추가합니다. 이전 단계에서 삭제한 코드 대신 다음 코드를 추가합니다.
 
 		 if (email.IsEmpty()) {
             Response.Redirect("~/OrderSuccess?NoEmail=1");
@@ -136,7 +137,7 @@
 
 7. 제품 중 하나에 대해 **지금 주문**을 클릭하고 주문을 자신에게 보냅니다.
 
-8. 메일을 확인해서 주문 확인서를 받았는지 확인합니다. 메일을 보내는 데 문제가 있는 경우 ASP.NET 웹 페이지(Razor) 가이드의 [메일 보내기 관련 문제][sendmailissues](영문)를 참조하세요.
+8. 전자 메일을 확인해서 주문 확인을 받았는지 확인합니다. 메일을 보내는 데 문제가 있는 경우 ASP.NET 웹 페이지(Razor) 가이드의 [메일 보내기 관련 문제][sendmailissues](영문)를 참조하세요.
  
 
 ## WebMatrix에서 Azure로 사용자 지정된 웹 사이트 배포
@@ -153,7 +154,7 @@
 
 	![Bakery Sample Site][bakerysample]
 
-**웹 사이트**를 클릭하여 구독에 대한 모든 웹 사이트를 표시해서도 Azure 포털에서 웹 사이트의 URL을 찾을 수 있습니다. 각 웹 사이트의 URL은 웹 사이트 페이지의 URL 열에 표시됩니다.
+	**웹 사이트**를 클릭하여 구독에 대한 모든 웹 사이트를 표시해서도 Azure 포털에서 웹 사이트의 URL을 찾을 수 있습니다. 각 웹 사이트의 URL은 웹 사이트 페이지의 URL 열에 표시됩니다.
 
 ## 웹 사이트를 수정하고 Azure 웹 사이트에 다시 게시
 
@@ -172,7 +173,7 @@ WebMatrix를 사용하여 사이트를 수정하고 Azure 웹 사이트에 다�
 
 	![][modify5]
 
-3. 파일에서 "var shipping = Request["orderShipping"];" 줄을 찾아서 바로 뒤에 다음 코드 줄을 삽입합니다.
+3. 파일에서 "var shipping = Request["orderShipping"];" 줄을 찾아 바로 뒤에 다음 코드 줄을 삽입합니다.
 
 		var gift = Request["isGift"];
 
@@ -182,11 +183,11 @@ WebMatrix를 사용하여 사이트를 수정하고 Azure 웹 사이트에 다�
 			body += "This is a gift." + "<br/>";
 		}
 
-	*order.cshtml* 파일은 다음 이미지와 유사하게 나타납니다.
+	*order.cshtml* 파일이 다음 이미지와 유사하게 나타납니다.
 
 	![][modify6]
 
-5. 파일을 저장하고 사이트를 로컬로 실행하고 테스트 주문을 자신에게 보냅니다. 새 확인란을 테스트했는지 확인하세요.
+5. 파일을 저장하고 사이트를 로컬로 실행하고 테스트 주문을 자신에게 보냅니다. 새 확인란을 테스트했는지 확인하십시오.
 
 	![][modify7]
 
@@ -200,7 +201,7 @@ WebMatrix를 사용하여 사이트를 수정하고 Azure 웹 사이트에 다�
 
 WebMatrix에서 웹 사이트를 만들어 Azure에 배포하는 방법을 학습했습니다. WebMatrix에 대한 자세한 내용은 다음 리소스를 참조하세요.
 
-* [Azure용 WebMatrix(영문)](http://go.microsoft.com/fwlink/?LinkID=253622&clcid=0x409)
+* [Azure용 WebMatrix](http://go.microsoft.com/fwlink/?LinkID=253622&clcid=0x409)(영문)
 
 * [WebMatrix 웹 사이트](http://www.microsoft.com/click/services/Redirect2.ashx?CR_CC=200106398)
 
@@ -234,3 +235,5 @@ WebMatrix에서 웹 사이트를 만들어 Azure에 배포하는 방법을 학�
 
 [sendmailissues]: http://go.microsoft.com/fwlink/?LinkId=253001#email
 [sendgridexample]: http://azure.microsoft.com/ko-kr/documentation/articles/sendgrid-dotnet-how-to-send-email/
+
+<!--HONumber=35.2-->

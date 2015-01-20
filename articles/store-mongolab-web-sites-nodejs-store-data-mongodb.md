@@ -13,14 +13,14 @@
 
 모험심이 많은 사용자 여러분, 반갑습니다! MongoDB-as-a-Service에 오신 것을 환영합니다. 이 자습서에서는 다음 작업을 수행합니다.
 
-1. [데이터베이스 프로비전][provision] - Azure 저장소 [MongoLab](http://mongolab.com) 추가 기능은 Azure 클라우드에 호스트되고 MongoLab 클라우드 데이터베이스 플랫폼에서 관리되는 MongoDB 데이터베이스를 제공합니다.
+1. [데이터베이스 프로비전][provision]- Azure 저장소 [MongoLab](http://mongolab.com) 추가 기능은 Azure 클라우드에 호스트되고 MongoLab 클라우드 데이터베이스 플랫폼에서 관리되는 MongoDB 데이터베이스를 제공합니다.
 2. [앱 만들기][create] - 작업 목록을 유지 관리하기 위한 간단한 INode.js 앱입니다.
 3. [앱 배포][deploy] - 몇 가지 구성 후크를 연결하여 원활하게 코드를 푸시합니다.
 4. [데이터베이스 관리][manage] - 마지막으로 쉽게 데이터를 검색하고, 시각화하고, 수정할 수 있는 MongoLab의 웹 기반 데이터베이스 관리 포털을 보여 줍니다.
 
 언제든 이 자습서를 보면서 질문할 사항이 있으면 [support@mongolab.com](mailto:support@mongolab.com)으로 메일을 보내주세요.
 
-계속하기 전에 다음 제품이 설치되어 있는지 확인하세요.
+계속하기 전에 다음 제품이 설치되어 있는지 확인합니다.
 
 * [Node.js] 버전 0.10.29+
 
@@ -29,7 +29,7 @@
 [WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 ## 빠른 시작
-Azure Store에 어느 정도 익숙한 경우 이 섹션을 사용하여 빠른 시작을 수행합니다. 그렇지 않은 경우 아래의 [데이터베이스 프로비전][provision]을 계속 진행하세요.
+Azure Store에 어느 정도 익숙한 경우 이 섹션을 사용하여 빠른 시작을 수행합니다. 그렇지 않은 경우 아래의 [데이터베이스 프로비전][provision]을 계속 진행합니다.
  
 1. Azure 저장소를 엽니다.  
 ![Store][button-store]
@@ -43,9 +43,9 @@ Azure Store에 어느 정도 익숙한 경우 이 섹션을 사용하여 빠른 
 5. Azure 웹 응용 프로그램 구성 메뉴의 연결 문자열 목록에 값을 추가합니다.  
 ![WebSiteConnectionStrings][focus-website-connectinfo]
 6. **이름**에 MONGOLAB\_URI를 입력합니다.
-7. **값**에 이전 섹션에서 얻은 연결 문자열을 붙여 넣습니다.
+7. **값**에 이전 섹션에서 얻은 연결 문자열을 붙여넣습니다.
 8. 유형 드롭다운에서 기본값 **SQLAzure** 대신 **사용자 지정**을 선택합니다.
-9. `npm install mongoose`를 실행하여 MongoDB 노드 드라이버인 Mongoose를 가져옵니다.
+9. 'npm install mongoose'를 실행하여 MongoDB 노드 드라이버인 Mongoose를 가져옵니다.
 10. 코드에서 후크를 설정하여 환경 변수의 MongoLab 연결 URI를 가져와 연결합니다.
 
         var mongoose = require('mongoose');  
@@ -54,7 +54,7 @@ Azure Store에 어느 정도 익숙한 경우 이 섹션을 사용하여 빠른 
  		...
  		mongoose.connect(connectionString);
 
-참고: Azure는 **CUSTOMCONNSTR\_** 접두사를 원래 선언된 연결 문자열에 추가합니다. 이러한 이유로 코드에서 **MONGOLAB_URI** 대신 **CUSTOMCONNSTR_MONGOLAB_URI**를 참조합니다.
+참고: Azure에서 원래 선언된 연결 문자열에 **CUSTOMCONNSTR\_** 접두사를 추가하므로 코드에서 **MONGOLAB\_URI** 대신 **CUSTOMCONNSTR\_MONGOLAB\_URI.**를 참조합니다.
 
 이제, 전체 자습서에서...
 
@@ -75,7 +75,7 @@ Azure Store에 어느 정도 익숙한 경우 이 섹션을 사용하여 빠른 
 
 		npm install express -g
  
-	`-g`는 전역 모드를 나타내며 디렉터리 경로를 지정하지 않고 <strong>express</strong> 모듈을 사용할 수 있도록 하는 데 이 모드를 사용합니다. <strong>Error: EPERM, chmod '/usr/local/bin/express'</strong>를 수신하면 <strong>sudo</strong>를 사용하여 더 높은 권한 수준에서 npm을 실행합니다.
+	'-g'는 전역 모드를 나타내며, 디렉터리 경로를 지정하지 않고 <strong>express</strong> 모듈을 사용할 수 있게 합니다. 이때 <strong>오류: EPERM, chmod '/usr/local/bin/express'</strong>가 표시되는 경우 <strong>sudo</strong> 를 사용하여 더 높은 권한 수준으로 npm을 실행합니다.
 
     이 명령의 출력은 다음과 유사하게 표시됩니다.
 
@@ -108,7 +108,7 @@ Azure Store에 어느 정도 익숙한 경우 이 섹션을 사용하여 빠른 
 
     express
 
-    이 자습서에서는 Express v4.x.x를 사용합니다. 시스템에 이미 Express 3 앱 생성기가 설치된 경우 먼저 이 생성기를 제거해야 합니다.
+    이 자습서에서는 Express v4.x.x를 사용합니다. Express 3 앱 생성기가 시스템에 설치되어 있는 경우 먼저 제거해야 합니다.
 
     npm uninstall -g express
 
@@ -116,7 +116,7 @@ Azure Store에 어느 정도 익숙한 경우 이 섹션을 사용하여 빠른 
 
     npm install -g express-generator
 
-	**express** 명령을 실행하면 다음과 유사한 출력이 표시됩니다.
+	**express** 명령이 실행된 후 다음과 유사한 출력이 나타납니다.
 
 		create : .
 		create : ./package.json
@@ -234,7 +234,7 @@ Azure Store에 어느 정도 익숙한 경우 이 섹션을 사용하여 빠른 
 
 #### 모델 만들기
 
-1. **tasklist** 디렉터리에서 **models**라는 새 디렉터리를 만듭니다.
+1. **tasklist** 디렉터리에서 **models**라는 새로운 디렉터리를 만듭니다.
 
 2. **models** 디렉터리에서 **task.js**라는 새 파일을 만듭니다. 이 파일에는 응용 프로그램에서 만든 작업 모델이 포함됩니다.
 
@@ -258,7 +258,7 @@ Azure Store에 어느 정도 익숙한 경우 이 섹션을 사용하여 빠른 
 
 1. **tasklist/routes** 디렉터리에서 **tasklist.js**라는 새 파일을 만들고 텍스트 편집기에서 엽니다.
 
-2. 아래 코드를 **tasklist.js**에 추가합니다. 이렇게 하면 **task.js**에 정의된 mongoose 모듈 및 작업 모델이 로드됩니다. TaskList 함수가 **connection** 값을 기반으로 MongoDB 서버에 연결하는 데 사용되며, 메서드 **showTasks**, **addTask** 및 **completeTasks**를 제공합니다.
+2. 아래 코드를 **tasklist.js**에 추가합니다. 이렇게 하면 **task.js**에 정의된 mongoose 모듈 및 작업 모델이 로드됩니다. TaskList 함수가 **connection** 값을 기준으로 MongoDB 서버에 연결하는 데 사용되며, 메서드 **showTasks**, **addTask** 및 **completeTasks**를 제공합니다.
 
 		var mongoose = require('mongoose'), 
  		  task = require('../models/task.js');
@@ -309,7 +309,7 @@ Azure Store에 어느 정도 익숙한 경우 이 섹션을 사용하여 빠른 
 
 3. **tasklist.js** 파일을 저장합니다.
 
-#### 인덱스 뷰 수정
+#### 인덱스 보기 수정
 
 1. **views** 디렉터리로 변경하고 **index.jade** 파일을 텍스트 편집기에서 엽니다.
 
@@ -352,27 +352,27 @@ Azure Store에 어느 정도 익숙한 경우 이 섹션을 사용하여 빠른 
 #### app.js 바꾸기
 
 1. **tasklist** 디렉터리에 있는 **app.js** 파일을 텍스트 편집기에서 엽니다. 이 파일은 앞에서 **express** 명령을 실행하여 만든 파일입니다.
-2. 아래 코드를 **app.js** 파일의 시작 부분에 추가합니다. 이렇게 하면 MongoDB 서버의 연결 문자열로 **TaskList**를 초기화합니다.
+2. 아래 코드를 **app.js** 파일의 시작 부분에 추가합니다. 이렇게 하면 **TaskList**가 MongoDB 서버의 연결 문자열로 초기화됩니다.
 
 		var TaskList = require('./routes/tasklist');
 		var taskList = new TaskList(process.env.CUSTOMCONNSTR_MONGOLAB_URI);
 
- 	두 번째 줄에 유의합니다. mongo 인스턴스에 대한 연결 정보가 포함되어 있고 나중에 구성할 환경 변수에 액세스합니다. 개발을 위해 로컬 mongo 인스턴스를 실행하는 경우 일시적으로 이 값을 `process.env.CUSTOMCONNSTR_MONGOLAB_URI` 대신 "localhost"로 설정할 수 있습니다.
+ 	두 번째 줄에 유의합니다. mongo 인스턴스에 대한 연결 정보가 포함되어 있고 나중에 구성할 환경 변수에 액세스합니다. 개발을 위해 로컬 mongo 인스턴스를 실행하는 경우 일시적으로 이 값을 'process.env.CUSTOMCONNSTR_MONGOLAB_URI' 대신 "localhost"로 설정할 수 있습니다.
 
-3. 다음 줄을 찾아
+3. 다음 줄을 찾습니다.
 		
 		app.use('/', routes);
 		app.use('/users', users);
 
-	And replace them with:
+	다음으로 바꿉니다.
 
 		app.get('/', taskList.showTasks.bind(taskList));
 		app.post('/addtask', taskList.addTask.bind(taskList));
 		app.post('/completetask', taskList.completeTask.bind(taskList));
 
-	그러면 **tasklist.js**에 정의된 함수가 경로로 추가됩니다.
+	**tasklist.js**에 정의된 함수가 경로로 추가됩니다.
 
-4. 앱을 초기화하려면 **app.js** 파일의 맨 아래쪽에 다음 줄을 추가합니다.
+4. 앱을 초기화하려면 **app.js** 파일의 맨 아래로 이동하여 다음 줄을 추가합니다.
 
 		app.listen(3000); // Listen on port 3000
 		module.exports = app;
@@ -391,7 +391,7 @@ Azure Store에 어느 정도 익숙한 경우 이 섹션을 사용하여 빠른 
 	
 	npm install azure-cli -g
 
-<a href="/ko-kr/develop/nodejs/">Azure 개발자 센터</a>에서 <strong>Node.js용 Azure SDK</strong>를 이미 설치한 경우 명령줄 도구도 이미 설치되어 있어야 합니다. 자세한 내용은 <a href="/ko-kr/develop/nodejs/how-to-guides/command-line-tools/">Mac 및 Linux용 Azure 명령줄 도구</a>를 참조하세요.
+이미 <strong>Azure SDK for Node.js</strong> 를 <a href="/ko-kr/develop/nodejs/">Azure 개발자 센터</a>에서 설치한 경우 명령줄 도구도 설치되어 있습니다. 자세한 내용은 <a href="/ko-kr/develop/nodejs/how-to-guides/command-line-tools/">Mac 및 Linux용 Azure 명령줄 도구</a>를 참조하세요.
 
 Azure 명령줄 도구는 주로 Mac 및 Linux 사용자를 위해 만들어졌으나 Node.js를 기반으로 하며 Node를 실행할 수 있는 모든 시스템에서 작동해야 합니다.
 
@@ -436,17 +436,17 @@ Azure에서는 매우 쉽게 웹 사이트를 만들 수 있습니다. 첫 번�
 4. **웹 사이트 만들기**를 클릭합니다.
 5. 웹 사이트 만들기가 완료되면 웹 사이트 목록에서 웹 사이트 이름을 클릭합니다. 웹 사이트 대시보드가 표시됩니다.  
 ![WebSiteDashboard][screen-mongolab-websitedashboard]
-6. **간략 상태**에서 **소스 제어에서 배포 설정**을 클릭하고 GitHub를 선택하고 원하는 Git 사용자 이름 및 암호를 입력합니다. 웹 사이트로 푸시할 때(9단계) 이 암호를 사용합니다.  
+6. **간략 상태**에서 **소스 제어에서 배포 설정**을 클릭하고 GitHub를 선택한 다음 원하는 Git 사용자 이름 및 암호를 입력합니다. 웹 사이트로 푸시할 때(9단계) 이 암호를 사용합니다.  
 7. 위 단계를 사용하여 웹 사이트를 만든 경우 다음 명령으로 프로세스가 완료됩니다. 그러나 Azure 웹 사이트가 이미 두 개 이상 있는 경우 위 단계를 건너뛰고 동일한 명령을 사용하여 새 웹 사이트를 만들 수 있습니다. **tasklist** 프로젝트 디렉터리에서: 
 
 		azure site create myuniquesitename --git  
 	'myuniquesitename'을 웹 사이트의 고유한 사이트 이름으로 바꿉니다. 이 명령의 일부로 웹 사이트를 만들면 해당 사이트가 있을 데이터 센터에 대한 메시지가 표시됩니다. MongoLab 데이터베이스와 지리적으로 가까운 데이터 센터를 선택합니다.
 	
-	`--git` 매개 변수는 다음을 만듭니다.
-	A. 로컬 Git 리포지토리가 없는 경우 **tasklist** 폴더에 만듭니다.
-	A. 'azure'로 명명된 [Git remote]를 만듭니다. 응용 프로그램을 Azure에 게시하는 데 사용됩니다.
-	A. Azure에서 노드 응용 프로그램을 호스트하는 데 사용되는 설정이 포함된 [iisnode.yml] 파일을 만듭니다.
-	A. node-modules 폴더가 .git에 게시되지 않도록 하는 .gitignore 파일을 만듭니다.  
+	'--git' 매개 변수는 다음을 만듭니다.
+	A. **tasklist** 폴더에 로컬 git 리포지토리(없는 경우)
+	A. Azure에 응용 프로그램을 게시하는 데 사용되는 'azure'라는 [Git remote]
+	A. Azure에서 노드 응용 프로그램을 호스트하는 데 사용하는 설정이 포함된 [iisnode.yml] 파일
+	A. node-modules 폴더가 .git에 게시되지 않도록 하는 .gitignore 파일  
 	  
 	이 명령이 완료되면 다음과 유사한 출력이 표시됩니다. **Created website at**으로 시작하는 줄에 웹 사이트 URL이 있습니다.
 
@@ -489,10 +489,10 @@ Azure에서는 매우 쉽게 웹 사이트를 만들 수 있습니다. 첫 번�
 		To https://username@mongodbtasklist.azurewebsites.net/MongoDBTasklist.git
  		 * [new branch]      master -> master
  
-이제 거의 완료되었습니다.
+You're almost done!
 
 ### 환경 구성
-코드에 있는 process.env.CUSTOMCONNSTR\_MONGOLAB\_URI를 기억하고 있나요? 이 환경 변수를 MongoLab 데이터베이스 프로비전 중 Azure에 입력된 값으로 채우겠습니다.
+코드에 있던 process.env.CUSTOMCONNSTR\_MONGOLAB\_URI를 기억하세요? 이 환경 변수를 MongoLab 데이터베이스 프로비전 중 Azure에 입력된 값으로 채우겠습니다.
 
 #### MongoLab 연결 문자열 가져오기
 
@@ -502,7 +502,7 @@ Azure에서는 매우 쉽게 웹 사이트를 만들 수 있습니다. 첫 번�
 
 [WACOM.INCLUDE [howto-save-connectioninfo-mongolab](../includes/howto-save-connectioninfo-mongolab.md)]
 
-## 성공!
+## 성공했습니다.
 
 프로젝트 디렉터리에서 'azure site browse'를 실행하여 브라우저를 자동으로 열거나 브라우저를 열고 웹 사이트 URL(myuniquesite.azurewebsites.net)로 수동으로 이동합니다.
 
@@ -512,7 +512,7 @@ Azure에서는 매우 쉽게 웹 사이트를 만들 수 있습니다. 첫 번�
 
 [WACOM.INCLUDE [howto-access-mongolab-ui](../includes/howto-access-mongolab-ui.md)]
 
-축하합니다. MongoLab 호스트 MongoDB 데이터베이스의 지원을 받는 Node.js 응용 프로그램이 시작되었습니다. 이제 MongoLab 데이터베이스가 있으므로 데이터베이스에 대한 질문이나 우려 사항 또는 MongoDB나 노드 드라이버 자체에 대한 지원을 [support@mongolab.com](mailto:support@mongolab.com)에 문의할 수 있습니다. 여러분의 행운을 빕니다.
+축하합니다. MongoLab 호스트 MongoDB 데이터베이스의 지원을 받는 Node.js 응용 프로그램이 시작되었습니다. 이제 MongoLab 데이터베이스가 있으므로 데이터베이스에 대한 질문 사항이나 궁금한 사항이 있는 경우 또는 MongoDB나 노드 드라이버 자체에 대한 지원이 필요한 경우 [support@mongolab.com](mailto:support@mongolab.com)에 문의할 수 있습니다. 여러분의 행운을 빕니다.
 
 
 
@@ -533,16 +533,16 @@ Azure에서는 매우 쉽게 웹 사이트를 만들 수 있습니다. 첫 번�
 [Git]: http://git-scm.com
 [Express]: http://expressjs.com
 [Mongoose]: http://mongoosejs.com
-[for free]: /ko-kr/pricing/free-trial
+[무료]: /ko-kr/pricing/free-trial
 [Git remote]: http://git-scm.com/docs/git-remote
 [azure-sdk-for-node]: https://github.com/WindowsAzure/azure-sdk-for-node
 [iisnode.yml]: https://github.com/WindowsAzure/iisnode/blob/master/src/samples/configuration/iisnode.yml
-[Azure command-line tool for Mac and Linux]: /ko-kr/develop/nodejs/how-to-guides/command-line-tools/
-[Azure Developer Center]: /ko-kr/develop/nodejs/
-[Create and deploy a Node.js application to Azure Web Sites]: /ko-kr/develop/nodejs/tutorials/create-a-website-(mac)/
-[Publishing to Azure Web Sites with Git]: /ko-kr/develop/nodejs/common-tasks/publishing-with-git/
+[Mac 및 Linux용 Azure 명령줄 도구]: /ko-kr/develop/nodejs/how-to-guides/command-line-tools/
+[Azure 개발자 센터]: /ko-kr/develop/nodejs/
+[Node.js 응용 프로그램을 만들어 Azure 웹 사이트에 배포]: /ko-kr/develop/nodejs/tutorials/create-a-website-(mac)/
+[Git를 사용하여 Azure 웹 사이트에 게시]: /ko-kr/develop/nodejs/common-tasks/publishing-with-git/
 [MongoLab]: http://mongolab.com
-[Node.js Web Application with Storage on MongoDB (Virtual Machine)]: /ko-kr/develop/nodejs/tutorials/website-with-mongodb-(mac)/
+[MongoDB(가상 컴퓨터)에 저장소가 있는 Node.js 웹 응용 프로그램]: /ko-kr/develop/nodejs/tutorials/website-with-mongodb-(mac)/
 [node-mongo-finished]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/todo_list_noframe.png
 [node-mongo-express-results]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/express_output.png
 [download-publishing-settings]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/azure-account-download-cli.png
@@ -552,3 +552,5 @@ Azure에서는 매우 쉽게 웹 사이트를 만들 수 있습니다. 첫 번�
 
 
 
+
+<!--HONumber=35.2-->
