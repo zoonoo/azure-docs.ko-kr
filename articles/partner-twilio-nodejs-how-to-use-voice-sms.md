@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Twilio Voice and SMS Service" pageTitle="Azure에서 음성, VoIP 및 SMS 메시징을 위해 Twilio 사용" metaKeywords=""  metaCanonical="" services="" documentationCenter="nodejs" title=" VoIP" authors="MicrosoftHelp@twilio.com" solutions="" manager="twilio" editor="" />
+﻿<properties urlDisplayName="Twilio Voice and SMS Service" pageTitle="Azure에서 음성, VoIP 및 SMS 메시징을 위해 Twilio 사용" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="nodejs" title=" VoIP" authors="MicrosoftHelp@twilio.com" solutions="" manager="twilio" editor="" />
 
 <tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="11/25/2014" ms.author="MicrosoftHelp@twilio.com" />
 
