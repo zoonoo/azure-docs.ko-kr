@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Service Bus Queues" pageTitle="서비스 버스 큐를 사용하는 방법(.NET) - Azure" metaKeywords="Azure Service Bus queues, Azure queues, Azure messaging, Azure queues C#, Azure queues .NET" description="Azure에서 서비스 버스 큐를 사용하는 방법에 대해 알아봅니다. 코드 샘플은 .NET API를 사용하여 C#으로 작성되었습니다." metaCanonical="" services="service-bus" documentationCenter=".NET" title="How to Use Service Bus Queues" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
+<properties urlDisplayName="Service Bus Queues" pageTitle="서비스 버스 큐를 사용하는 방법(.NET) - Azure" metaKeywords="Azure Service Bus queues, Azure queues, Azure messaging, Azure queues C#, Azure queues .NET" description="Azure에서 서비스 버스 큐를 사용하는 방법에 대해 알아봅니다. 코드 샘플은 .NET API를 사용하여 C#으로 작성되었습니다." metaCanonical="" services="service-bus" documentationCenter=".NET" title="How to Use Service Bus Queues" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
 
 <tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
 
@@ -14,13 +14,13 @@
 
 [WACOM.INCLUDE [howto-service-bus-queues](../includes/howto-service-bus-queues.md)]
 
-##서비스 버스를 사용하도록 응용 프로그램 구성
+## 서비스 버스를 사용하도록 응용 프로그램 구성
 
 서비스 버스를 사용하는 응용 프로그램을 만드는 경우
 서비스 버스 어셈블리에 대한 참조를 추가하고 해당
 네임스페이스를 포함해야 합니다.
 
-##서비스 버스 NuGet 패키지 다운로드
+## 서비스 버스 NuGet 패키지 다운로드
 
 서비스 버스 **NuGet** 패키지는 서비스 버스 API를 가져오고 모든 서비스 버스 종속성으로 응용 프로그램을 구성하는 가장 쉬운 방법입니다. NuGet Visual Studio 확장을 사용하면 Visual Studio 및 Visual Studio Express 2012 for Web에서 라이브러리와 도구를 쉽게 설치 및 업데이트할 수 있습니다.
 
@@ -34,7 +34,7 @@
 이제 서비스 버스에 대한 코드를 작성할 준비가 되었습니다.
 
 
-##서비스 버스 연결 문자열을 설정하는 방법
+## 서비스 버스 연결 문자열을 설정하는 방법
 
 서비스 버스는 연결 문자열을 사용하여 끝점과 자격 증명을 저장합니다. 연결 문자열을 코드에 하드 코드하는 대신 구성 파일에 저장할 수 있습니다.
 
@@ -85,7 +85,7 @@
 
 이전 섹션에서 설명한 대로 관리 포털에서 검색된 발급자 및 키 값을 사용합니다.
 
-##큐를 만드는 방법
+## 큐를 만드는 방법
 
 **NamespaceManager** 클래스를 통해 서비스 버스 큐에 대한 관리 작업을 수행할 수 있습니다. **NamespaceManager** 클래스는 큐를 만들고 열거하고 삭제하는 메서드를 제공합니다. 
 
@@ -128,7 +128,7 @@
 
 **참고:** **NamespaceManager** 개체의 **QueueExists** 메서드를 사용하여 서비스 네임스페이스 내에 지정된 이름의 큐가 이미 있는지 확인할 수 있습니다.
 
-##큐에 메시지를 보내는 방법
+## 큐에 메시지를 보내는 방법
 
 서비스 버스 큐에 메시지를 보내기 위해 응용 프로그램은 연결 문자열을 사용하여 **QueueClient** 개체를 만듭니다.
 
@@ -160,7 +160,7 @@
 
 서비스 버스 큐는 256KB의 최대 메시지 크기를 지원합니다(표준 및 사용자 지정 응용 프로그램 속성이 포함된 헤더의 최대 크기는 64KB임). 한 큐에 저장되는 메시지 수에는 제한이 없지만 한 큐에 저장되는 총 메시지 크기는 제한됩니다. 이 큐 크기는 생성 시 정의되며 상한이 5GB입니다.
 
-##큐에서 메시지를 받는 방법
+## 큐에서 메시지를 받는 방법
 
 큐에서 메시지를 받는 가장 쉬운 방법은 **QueueClient** 개체를 사용하는 것입니다. 이러한 개체는 **ReceiveAndDelete** 및 **PeekLock**의 두 가지 모드로 작동할 수 있습니다.
 
@@ -197,7 +197,7 @@
        }
     } 
 
-##응용 프로그램 작동 중단 및 읽을 수 없는 메시지를 처리하는 방법
+## 응용 프로그램 작동 중단 및 읽을 수 없는 메시지를 처리하는 방법
 
 서비스 버스는 응용 프로그램 오류나 메시지 처리 문제를 정상적으로 복구하는 데 유용한 기능을 제공합니다. 어떤 이유로든 수신 응용 프로그램이 메시지를 처리할 수 없는 경우 받은 메시지에 대해 **Complete** 메서드 대신 **Abandon** 메서드를 호출할 수 있습니다. 그러면 서비스 버스에서 큐 내 메시지의 잠금을 해제하여 동일한 이용 응용 프로그램이나 다른 이용 응용 프로그램이 다시 받을 수 있게 합니다.
 
@@ -205,7 +205,7 @@
 
 응용 프로그램이 메시지를 처리한 후 **Complete** 요청이 실행되기 전에 작동이 중단되는 경우 다시 시작될 때 메시지가 응용 프로그램에 다시 배달됩니다 이를 **최소 한 번 이상 처리**라고 합니다. 즉, 각 메시지가 최소 한 번 이상 처리되지만 특정 상황에서는 동일한 메시지가 다시 배달될 수 있습니다. 중복 처리가 허용되지 않는 시나리오에서는 응용 프로그램 개발자가 중복 메시지 배달을 처리하는 논리를 응용 프로그램에 추가해야 합니다. 이 경우는 대체로 배달 시도 간에 일정하게 유지되는 메시지의 **MessageId** 속성을 사용합니다.
 
-##다음 단계
+## 다음 단계
 
 이제 서비스 버스 큐의 기본 사항을 익혔으므로 다음 링크를 따라
 자세히 알아보세요.

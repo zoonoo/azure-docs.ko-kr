@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="How to manage" pageTitle="저장소 계정을 관리하는 방법 | Microsoft Azure" metaKeywords="Azure manage storage accounts, storage account management portal, storage account geo-replication, Azure geo-replication, Azure access keys" description="관리 포털을 사용하여 Azure에서 저장소 계정을 관리하는 방법에 대해 알아봅니다." metaCanonical="" services="storage" documentationCenter="" title="How To Manage Storage Accounts" authors="tamram" solutions="" manager="adinah" editor="cgronlun" />
+<properties urlDisplayName="How to manage" pageTitle="저장소 계정을 관리하는 방법 | Microsoft Azure" metaKeywords="Azure manage storage accounts, storage account management portal, storage account geo-replication, Azure geo-replication, Azure access keys" description="관리 포털을 사용하여 Azure에서 저장소 계정을 관리하는 방법에 대해 알아봅니다." metaCanonical="" services="storage" documentationCenter="" title="How To Manage Storage Accounts" authors="tamram" solutions="" manager="adinah" editor="cgronlun" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/17/2014" ms.author="tamram" />
 
@@ -30,72 +30,72 @@
 <h2><a id="regeneratestoragekeys"></a>방법: 저장소 액세스 키 보기, 복사 및 다시 생성</h2>
 저장소 계정을 만들면 Azure에서 두 개의 512비트 저장소 액세스 키를 생성합니다. 이 키는 저장소 계정에 액세스하는 경우 인증에 사용됩니다. Azure에서는 두 개의 저장소 액세스 키를 제공하므로 저장소 서비스나 해당 서비스에 대한 액세스 중단 없이 키를 다시 생성할 수 있습니다.
 
-[관리 포털](http://manage.windowsazure.com)에서 대시보드 또는 
+[관리 포털](http://manage.windowsazure.com)에서 대시보드 또는 **저장소** 페이지의 **키 관리**를 사용하여 Blob, 테이블 및 큐 서비스에 액세스하는 데 사용되는 저장소 액세스 키를 보고, 복사하고, 다시 생성합니다. 
 
-### Copy a storage access key ###
+### 저장소 액세스 키 복사 ###
 
-You can use **Manage Keys** to copy a storage access key to use in a connection string. The connection string requires the storage account name and a key to use in authentication. For information about configuring connection strings to access Azure storage services, see [Configuring Connection Strings](http://msdn.microsoft.com/ko-kr/library/ee758697.aspx).
+**키 관리**를 사용하여 연결 문자열에 사용할 저장소 액세스 키를 복사할 수 있습니다. 연결 문자열에는 인증에 사용할 저장소 계정 이름과 키가 있어야 합니다. Azure 저장소 서비스에 액세스하기 위한 연결 문자열 구성에 대한 자세한 내용은 [연결 문자열 구성](http://msdn.microsoft.com/en-us/library/ee758697.aspx)을 참조하세요.
 
-1. In the [Management Portal](http://manage.windowsazure.com), click **Storage**, and then click the name of the storage account to open the dashboard.
+1. [관리 포털](http://manage.windowsazure.com)에서 **저장소**를 클릭한 다음 저장소 계정의 이름을 클릭하여 대시보드를 엽니다.
 
-2. Click **Manage Keys**.
+2. **키 관리**를 클릭합니다.
 
  	**Manage Access Keys** opens.
 
 	![Managekeys](./media/storage-manage-storage-account/Storage_ManageKeys.png)
 
  
-3. To copy a storage access key, select the key text. Then right-click, and click **Copy**.
+3. 저장소 액세스 키를 복사하려면 키 텍스트를 선택합니다. 그런 다음 마우스 오른쪽 단추를 클릭하고 **복사**를 클릭합니다.
 
-### Regenerate storage access keys ###
-You should change the access keys to your storage account periodically to help keep your storage connections more secure. Two access keys are assigned to enable you to maintain connections to the storage account using one access key while you regenerate the other access key. 
+### 저장소 액세스 키 다시 생성 ###
+저장소 연결을 더욱 안전하게 유지하는 데 도움이 되도록 정기적으로 저장소 계정의 액세스 키를 변경해야 합니다. 두 개의 액세스 키가 할당되므로 하나의 액세스 키를 다시 생성하는 동안 다른 액세스 키를 사용하여 저장소 계정에 대한 연결을 유지할 수 있습니다. 
 
 <div class="dev-callout"> 
-    <b>Warning</b> 
-    <p>Regenerating your access keys affects virtual machines, media services, and any applications that are dependent on the storage account. All clients that use the access key to access the storage account must be updated to use the new key.
+    <b>경고</b> 
+    <p>액세스 키를 다시 생성하면 가상 컴퓨터, 미디어 서비스 및 저장소 계정에 종속된 모든 응용 프로그램에 영향을 줍니다. 액세스 키를 사용하여 저장소 계정에 액세스하는 모든 클라이언트에서 새 키를 사용하도록 업데이트해야 합니다.
     </p> 
-    </div>
+</div>
 
-**Virtual machines** - If your storage account contains any virtual machines that are running, you will have to redeploy all virtual machines after you regenerate the access keys. To avoid redeployment, shut down the virtual machines before you regenerate the access keys.
+**가상 컴퓨터** - 실행 중인 가상 컴퓨터가 저장소 계정에 포함된 경우 액세스 키를 다시 생성한 후 모든 가상 컴퓨터를 다시 배포해야 합니다. 다시 배포하지 않으려면 액세스 키를 다시 생성하기 전에 가상 컴퓨터를 종료합니다.
  
-**Media services** - If you have media services dependent on your storage account, you must re-sync the access keys with your media service after you regenerate the keys.
+**미디어 서비스** - 저장소 계정에 종속된 미디어 서비스가 있는 경우 키를 다시 생성한 후 미디어 서비스와 액세스 키를 다시 동기화해야 합니다.
  
-**Applications** - If you have web applications or cloud services using the storage account, you will lose the connections if you regenerate keys, unless you roll your keys. Here is the process:
+**응용 프로그램** - 저장소 계정을 사용하는 웹 응용 프로그램이나 클라우드 서비스가 있는 경우 키를 롤링하지 않고 키를 다시 생성하면 연결이 끊어집니다. 프로세스는 다음과 같습니다.
 
-1. Update the connection strings in your application code to reference the secondary access key of the storage account. 
+1. 저장소 계정의 보조 액세스 키를 참조하도록 응용 프로그램 코드의 연결 문자열을 업데이트합니다. 
 
-2. Regenerate the primary access key for your storage account. In the [Management Portal](http://manage.windowsazure.com), from the dashboard or the **Configure** page, click **Manage Keys**. Click **Regenerate** under the primary access key, and then click **Yes** to confirm you want to generate a new key.
+2. 저장소 계정의 기본 액세스 키를 다시 생성합니다. [관리 포털](http://manage.windowsazure.com)의 대시보드 또는 **구성** 페이지에서 **키 관리**를 클릭합니다. 기본 액세스 키 아래에서 **다시 생성**을 클릭한 다음 **예**를 클릭하여 새 키 생성을 확인합니다.
 
-3. Update the connection strings in your code to reference the new primary access key.
+3. 새 기본 액세스 키를 참조하도록 코드의 연결 문자열을 업데이트합니다.
 
-4. Regenerate the secondary access key.
+4. 보조 액세스 키를 다시 생성합니다.
 
 
-<h2><a id="deletestorageaccount"></a>How to: Delete a storage account</h2>
+<h2><a id="deletestorageaccount"></a>방법: 저장소 계정 삭제</h2>
 
-To remove a storage account that you are no longer using, use **Delete** on the dashboard or the **Configure** page. **Delete** deletes the entire storage account, including all of the blobs, tables, and queues in the account. 
+더 이상 사용하지 않는 저장소 계정을 제거하려면 대시보드 또는 **구성** 페이지의**삭제**를 사용합니다. **삭제**는 계정의 모든 Blob, 테이블 및 큐를 포함하여 전체 저장소 계정을 삭제합니다. 
 
 <div class="dev-callout">
-	<b>Warning</b>
-	<p>There's no way to restore the content from a deleted storage account. Make 
-	sure you back up anything you want to save before you delete the account.
+	<b>경고</b>
+	<p>삭제된 저장소 계정의 내용을 복원하는 방법은 없습니다. 계정을 
+	삭제하기 전에 저장할 내용을 백업했는지 확인합니다.
 	</p>
 	<p>
-	If your storage account contains any VHD files or disks for an Azure 
-	virtual machine, then you must delete any images and disks that are using those VHD files 
-	before you can delete the storage account. First, stop the virtual machine if it is running, and then delete it. To delete disks, navigate to the Disks tab and delete any disks contained in the storage account. To delete images, navigate to the Images tab and delete any images stored in the account.
+	저장소 계정에 Azure 가상 컴퓨터의 VHD 파일이나 디스크가 포함된 
+	경우에는 저장소 계정을 삭제하기 전에 해당 VHD 파일을 사용하는 이미지와 디스크를 
+	모두 삭제해야 합니다. 먼저 가상 컴퓨터가 실행 중인 경우 중지한 다음 삭제합니다. 디스크를 삭제하려면 디스크 탭으로 이동하여 저장소 계정에 포함된 모든 디스크를 삭제합니다. 이미지를 삭제하려면 이미지 탭으로 이동하여 계정에 저장된 모든 이미지를 삭제합니다.
 	</p>
 </div>
 
 
-1. In the [Management Portal](http://manage.windowsazure.com), click **Storage**.
+1. [관리 포털](http://manage.windowsazure.com)에서 **저장소**를 클릭합니다.
 
-2. Click anywhere in the storage account entry except the name, and then click **Delete**.
+2. 저장소 계정 항목에서 이름을 제외한 임의의 항목을 클릭하고 **삭제**를 클릭합니다.
 
-	 -Or-
+	 -또는-
 
-	Click the name of the storage account to open the dashboard, and then click **Delete**.
+	저장소 계정의 이름을 클릭하여 대시보드를 연 다음 **삭제**를 클릭합니다.
 
-3. Click **Yes** to confirm you want to delete the storage account.
+3. **예**를 클릭하여 저장소 계정 삭제를 확인합니다.
 
 <!--HONumber=35.1-->

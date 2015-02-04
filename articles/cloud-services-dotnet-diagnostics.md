@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Diagnostics" pageTitle="진단 사용 방법(.NET) - Azure 기능 가이드" metaKeywords="Azure diagnostics monitoring,logs crash dumps C#" description="Azure에서 디버그, 성능 측정, 모니터링, 트래픽 분석 등에 진단 데이터를 사용하는 방법에 대해 알아봅니다." metaCanonical="" services="cloud-services" documentationCenter=".NET" title="Enabling Diagnostics in Azure" authors="raynew" solutions="" manager="johndaw" editor="" />
+<properties urlDisplayName="Diagnostics" pageTitle="진단 사용 방법(.NET) - Azure 기능 가이드" metaKeywords="Azure diagnostics monitoring,logs crash dumps C#" description="Azure에서 디버그, 성능 측정, 모니터링, 트래픽 분석 등에 진단 데이터를 사용하는 방법에 대해 알아봅니다." metaCanonical="" services="cloud-services" documentationCenter=".NET" title="Enabling Diagnostics in Azure" authors="raynew" solutions="" manager="johndaw" editor="" />
 
 <tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="10/23/2014" ms.author="raynew" />
 
@@ -6,7 +6,7 @@
 
 # Azure 클라우드 서비스 및 가상 컴퓨터에서 진단 사용
 
-Azure 진단 1.2를 사용하면 Azure에서 실행 중인 작업자 역할, 웹 역할 또는 가상 컴퓨터에서 진단 데이터를 수집할 수 있습니다. 이 가이드에서는 Azure 진단 1.2를 사용하는 방법에 대해 설명합니다. 로깅 및 추적 전략 만들기 및 진단과 기타 기술을 사용한 문제 해결에 대한 더 많은 세부 지침은 [Azure 응용 프로그램 개발 문제 해결 모범 사례][](영문)를 참조하세요.
+Azure 진단 1.2를 사용하면 Azure에서 실행 중인 작업자 역할, 웹 역할 또는 가상 컴퓨터에서 진단 데이터를 수집할 수 있습니다. 이 가이드에서는 Azure 진단 1.2를 사용하는 방법에 대해 설명합니다. 로깅 및 추적 전략 만들기 및 진단과 기타 기술을 사용한 문제 해결에 대한 더 많은 세부 지침은 [Azure 응용 프로그램 개발 문제 해결 모범 사례 (영문)][]를 참조하세요.
 
 ## 목차
 
@@ -187,7 +187,7 @@ WorkerRole.cs 내용을 다음 코드로 바꿉니다. [EventSource 클래스][]
 
 <h3>4단계: 진단 구성 파일 만들기 및 확장 설치</h3>
 1.	다음 PowerShell 명령을 실행하여 공용 구성 파일 스키마 정의를 다운로드합니다.
-2.	
+
 		(Get-AzureServiceAvailableExtension -ExtensionName 'PaaSDiagnostics' -ProviderNamespace 'Microsoft.Azure.Diagnostics').PublicConfigurationSchema | Out-File -Encoding utf8 -FilePath 'WadConfig.xsd' 
 
 2.	**WorkerRole1** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가** -> **새 항목...** -> **Visual C# 항목** -> **데이터** -> **XML 파일**을 선택하여 **WorkerRole1** 프로젝트에 XML 파일을 추가합니다. 파일 이름을 "WadExample.xml"로 지정합니다.
@@ -255,6 +255,7 @@ Visual Studio **서버 탐색기**에서 wadexample 저장소 계정으로 이�
 <h3>2단계: 응용 프로그램 만들기</h3>
 1.	개발 컴퓨터에서 Visual Studio 2013을 실행합니다.
 2.	.NET Framework 4.5를 대상으로 하는 새 Visual C# 콘솔 응용 프로그램을 만듭니다. 프로젝트 이름을 "WadExampleVM"으로 지정합니다.
+
 	![CloudServices_diag_new_project](./media/cloud-services-dotnet-diagnostics/NewProject.png)
 3.	Program.cs 내용을 다음 코드로 바꿉니다. **SampleEventSourceWriter** 클래스는 네 가지 로깅 메서드인 **SendEnums**, **MessageMethod**, **SetOther** 및 **HighFreq**를 구현합니다. WriteEvent 메서드에 대한 첫 번째 매개 변수는 각 이벤트의 ID를 저장합니다. Run 메서드는 **SampleEventSourceWriter** 클래스에 구현된 각각의 로깅 메서드를 10초마다 호출하는 무한 루프를 구현합니다.
 
@@ -739,7 +740,7 @@ Visual Studio **서버 탐색기**에서 wadexample 저장소 계정으로 이�
 
 <h2><a name="additional"></a>추가 리소스</h2>
 
-- [Azure 응용 프로그램 개발 문제 해결 모범 사례][](영문)
+- [Azure 응용 프로그램 개발 문제 해결 모범 사례 (영문)][]
 - [Azure 진단을 사용하여 로깅 데이터 수집][]
 - [Azure 응용 프로그램 디버깅][]
 - [Azure 진단 구성][]
@@ -759,7 +760,7 @@ Visual Studio **서버 탐색기**에서 wadexample 저장소 계정으로 이�
 [Azure 진단 구성]: http://msdn.microsoft.com/ko-kr/library/windowsazure/dn186185.aspx
 [Azure 응용 프로그램 디버깅]: http://msdn.microsoft.com/ko-kr/library/windowsazure/ee405479.aspx   
 [Azure 진단을 사용하여 로깅 데이터 수집]: http://msdn.microsoft.com/ko-kr/library/windowsazure/gg433048.aspx
-[Azure 응용 프로그램 개발 문제 해결 모범 사례](영문): http://msdn.microsoft.com/ko-kr/library/windowsazure/hh771389.aspx
+[Azure 응용 프로그램 개발 문제 해결 모범 사례 (영문)]: http://msdn.microsoft.com/ko-kr/library/windowsazure/hh771389.aspx
 [무료 평가판]: http://azure.microsoft.com/ko-kr/pricing/free-trial/
 [Azure PowerShell 버전 0.8.7 이상 설치 및 구성]: http://azure.microsoft.com/ko-kr/documentation/articles/install-configure-powershell/
 [Azure 진단 1.2 구성 스키마]: http://msdn.microsoft.com/ko-kr/library/azure/dn782207.aspx

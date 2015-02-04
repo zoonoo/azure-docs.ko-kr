@@ -1,8 +1,8 @@
-﻿<properties urlDisplayName="HDInsight Administration" pageTitle="HDInsight에서 Hadoop 클러스터 프로비전 | Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure" description="관리 포털, PowerShell 또는 명령줄을 사용하여 Azure HDInsight용 클러스터를 프로비전하는 방법에 대해 알아봅니다." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" title="Provision Hadoop clusters in HDInsight" authors="jgao" />
+<properties urlDisplayName="HDInsight Administration" pageTitle="HDInsight에서 Hadoop 클러스터 프로비전 | Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure" description="관리 포털, PowerShell 또는 명령줄을 사용하여 Azure HDInsight용 클러스터를 프로비전하는 방법에 대해 알아봅니다." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" title="Provision Hadoop clusters in HDInsight" authors="jgao" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/14/2014" ms.author="jgao" />
 
-#사용자 지정 옵션을 사용하여 HDInsight의 Hadoop 클러스터 프로비전
+# 사용자 지정 옵션을 사용하여 HDInsight의 Hadoop 클러스터 프로비전
 
 이 문서에서는 Hadoop cluster Azure 관리 포털, PowerShell, 명령줄 도구 또는 HDInsight .NET SDK를 사용하여 Azure HDInsight에서 사용자 지정 방식으로 Hadoop 클러스터를 프로비전하는 다양한 방법을 알아봅니다. 이 문서에서는 Hadoop 클러스터 프로비전에 대해 설명합니다. HBase 클러스터를 프로비전하는 방법에 대한 지침은 [HDInsight에서 HBase 클러스터 프로비전][hdinsight-hbase-custom-provision](영문)을 참조하세요. 어떤 항목을 선택하는 이유를 이해하려면 <a href="http://go.microsoft.com/fwlink/?LinkId=510237">Hadoop과 HBase 의 차이는?</a> 을 참조하세요.
 
@@ -22,7 +22,7 @@ HDInsight 클러스터는 Hadoop 구현 세부 정보를 추출하므로 여러 
 
 - Azure 구독. Azure는 구독 기반 플랫폼입니다. HDInsight PowerShell cmdlet은 구독을 사용하여 작업을 수행합니다. 구독을 얻는 방법에 대한 자세한 내용은 [구매 옵션][azure-purchase-options], [구성원 제공 항목][azure-member-offers] 또는 [무료 평가판][azure-free-trial]을 참조하세요.
 
-##이 문서에서는 다음을 수행합니다.
+## 이 문서에서는 다음을 수행합니다.
 
 * [구성 옵션](#configuration)
 * [Azure 관리 포털 사용](#portal)
@@ -31,15 +31,15 @@ HDInsight 클러스터는 Hadoop 구현 세부 정보를 추출하므로 여러 
 * [HDInsight .NET SDK 사용](#sdk)
 * [다음 단계](#nextsteps)
 
-##<a id="configuration"></a>구성 옵션
+## <a id="configuration"></a>구성 옵션
 
-###저장소 추가
+### 저장소 추가
 
 구성 중에는 Azure Blob 저장소 계정과 기본 컨테이너를 지정해야 합니다. 이 컨테이너는 클러스터에서 기본 저장소 위치로 사용됩니다. 필요한 경우 역시 클러스터에 연결되는 추가 Blob도 지정할 수 있습니다.
 
 보조 Blob 저장소 사용에 대한 자세한 내용은 [HDInsight에서 Azure Blob 저장소 사용](http://azure.microsoft.com/ko-kr/documentation/articles/hdinsight-use-blob-storage/)을 참조하세요.
 
-###메타 저장소
+### 메타 저장소
 
 메타 저장소는 Hive 테이블, 파티션, 스키마, 열 등에 대한 정보를 포함합니다. 이 정보는 Hive가 HDFS 또는 HDInsight용 WASB에서 데이터가 저장되는 위치를 찾는 데 사용됩니다. Hive는 기본적으로 포함된 데이터베이스를 사용하여 이 정보를 저장합니다.
 
@@ -50,7 +50,7 @@ HDInsight 클러스터를 프로비전할 때는 Hive용 메타 저장소를 포
 HDInsight 클러스터가 만들어지는 동안 추가 구성 요소를 설치하거나 클러스터 구성을 사용자 지정할 수 있습니다. 클러스터를 만드는 동안 실행되는 스크립트를 작성하여 클러스터를 사용자 지정할 수 있습니다. 해당 스크립트는 **스크립트 동작**을 통해 호출됩니다. 스크립트 동작은 HDInsight PowerShell cmdlet 또는 HDInsight .NET SDK에서 사용할 수 있는 구성 옵션입니다. 자세한 내용은 [스크립트 동작을 사용하여 HDInsight 클러스터 사용자 지정][hdinsight-customize-cluster]을 참조하세요.
 
 
-###가상 네트워킹
+### 가상 네트워킹
 
 [Azure 가상 네트워크](http://azure.microsoft.com/ko-kr/documentation/services/virtual-network/) 에서는 솔루션에 필요한 리소스를 포함하는 안전한 영구 네트워크를 만들 수 있습니다. 가상 네트워크를 통해 다음을 수행할 수 있습니다.
 
@@ -76,7 +76,7 @@ HDInsight 클러스터가 만들어지는 동안 추가 구성 요소를 설치�
 >
 > 각 클러스터에 단일 서브넷을 지정하는 것이 좋습니다.
 
-##<a id="portal"></a> Azure 관리 포털 사용
+## <a id="portal"></a> Azure 관리 포털 사용
 
 HDInsight 클러스터는 Azure Blob 저장소 컨테이너를 기본 파일 시스템으로 사용합니다. HDInsight 클러스터를 만들려면 먼저 동일한 데이터 센터에 위치한 Azure 저장소 계정이 필요합니다. 자세한 내용은 [HDInsight에서 Azure Blob 저장소 사용][hdinsight-storage]을 참조하세요. Azure 저장소 계정 만들기에 대한 자세한 내용은 [저장소 계정을 만드는 방법][azure-create-storageaccount]을 참조하세요.
 
@@ -182,7 +182,7 @@ HDInsight 클러스터는 Azure Blob 저장소 컨테이너를 기본 파일 시
 
 	> [WACOM.NOTE] HDInsight 클러스터의 Azure 저장소 계정을 선택하고 나면 계정을 삭제할 수 없으며 다른 계정으로 변경할 수도 없습니다.
 
-##<a id="powershell"></a> Azure PowerShell 사용
+## <a id="powershell"></a> Azure PowerShell 사용
 Azure PowerShell은 Azure에서 작업의 배포와 관리를 제어 및 자동화하기 위해 사용할 수 있는 강력한 스크립팅 환경입니다. 이 섹션에서는 HDInsight 클러스터를 프로비전하는 방법에 대한 지침을 제공합니다. HDInsight Powershell cmdlet을 실행하도록 워크스테이션을 구성하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성][powershell-install-configure](영문)을 참조하세요. HDInsight와 함께 PowerShell을 사용하는 방법에 대한 자세한 내용은 [PowerShell을 사용하여 HDInsight 관리][hdinsight-admin-powershell]를 참조하세요. HDInsight PowerShell cmdlet의 목록은 [HDInsight cmdlet 참조][hdinsight-powershell-reference]를 참조하세요.
 
 > [WACOM.NOTE] 이 섹션의 스크립트는 Azure 가상 네트워크에서 HDInsight 클러스터를 구성하는 데 사용할 수는 있지만 Azure 가상 네트워크를 만들지는 않습니다. Azure 가상 네트워크 만들기에 대한 자세한 내용은 [가상 네트워크 구성 작업](http://msdn.microsoft.com/ko-kr/library/azure/jj156206.aspx)을 참조하세요.
@@ -314,11 +314,11 @@ HDInsight는 Azure Blob 저장소 컨테이너를 기본 파일 시스템으로 
 		Get-AzureHDInsightCluster -Name <ClusterName>
 
 
-##<a id="cli"></a> 플랫폼 간 명령줄 사용
+## <a id="cli"></a> 플랫폼 간 명령줄 사용
 
 > [WACOM.NOTE] 2014/8/29일 현재 플랫폼 간 명령줄 인터페이스를 사용하여 클러스터를 Azure 가상 네트워크와 연결할 수는 없습니다.
 
-HDInsight 클러스터를 프로비전하는 다른 옵션은 플랫폼 간 명령줄 인터페이스입니다. 명령줄 도구는Node.js로 구현되며 Windows, Mac, Linux를 포함하여 Node.js를 지원하는 플랫폼에서 사용할 수 있습니다. 명령줄 도구는 오픈 소스입니다.  소스 코드는 GitHub( <a href= "https://github.com/Azure/azure-sdk-tools-xplat">https://github.com/Azure/azure-sdk-tools-xplat</a>)에서 관리합니다. 명령줄 인터페이스 사용 방법에 대한 일반적인 설명은 [Mac 및 Linux에서 Azure 명령줄 도구를 사용하는 방법][azure-command-line-tools]을 참조하세요. 포괄적인 참조 설명서는 [Mac 및 Linux용 Azure 명령줄 도구][azure-command-line-tool]를 참조하세요. 이 문서에서는 Windows에서 명령줄 인터페이스를 사용하는 방법만 다룹니다.
+HDInsight 클러스터를 프로비전하는 다른 옵션은 플랫폼 간 명령줄 인터페이스입니다. 명령줄 도구는Node.js로 구현되며 Windows, Mac, Linux를 포함하여 Node.js를 지원하는 플랫폼에서 사용할 수 있습니다. 명령줄 도구는 오픈 소스입니다.  소스 코드는 GitHub (<a href= "https://github.com/Azure/azure-sdk-tools-xplat">https://github.com/Azure/azure-sdk-tools-xplat</a>)에서 관리합니다. 명령줄 인터페이스 사용 방법에 대한 일반적인 설명은 [Mac 및 Linux에서 Azure 명령줄 도구를 사용하는 방법][azure-command-line-tools]을 참조하세요. 포괄적인 참조 설명서는 [Mac 및 Linux용 Azure 명령줄 도구][azure-command-line-tool]를 참조하세요. 이 문서에서는 Windows에서 명령줄 인터페이스를 사용하는 방법만 다룹니다.
 
 플랫폼 간 명령줄을 사용하여 HDInsight 클러스터를 프로비전하려면 다음 절차가 필요합니다.
 
@@ -471,7 +471,7 @@ Azure 관리 포털을 사용하여 Azure 저장소 계정을 만드는 방법�
 
 
 
-##<a id="sdk"></a> HDInsight .NET SDK 사용
+## <a id="sdk"></a> HDInsight .NET SDK 사용
 HDInsight .NET SDK는 .NET 응용 프로그램에서 HDInsight로 더 쉽게 작업하도록 지원하는 .NET 클라이언트 라이브러리를 제공합니다.
 
 SDK를 사용하여 HDInsight 클러스터를 프로비전하려면 다음 절차를 수행해야 합니다.
@@ -484,7 +484,7 @@ SDK를 사용하여 HDInsight 클러스터를 프로비전하려면 다음 절�
 
 **HDInsight .NET SDK를 설치하려면**
 
-[NuGet](영문)에서 가장 최근에 게시된 SDK 빌드를 설치할 수 있습니다(http://nuget.codeplex.com/wikipage?title=Getting%20Started). 지침은 다음 절차에서 설명합니다.
+[NuGet (영문)](http://nuget.codeplex.com/wikipage?title=Getting%20Started)에서 가장 최근에 게시된 SDK 빌드를 설치할 수 있습니다. 지침은 다음 절차에서 설명합니다.
 
 **자체 서명된 인증서를 만들려면**
 
@@ -589,7 +589,7 @@ Visual Studio에 응용 프로그램이 열려 있을 때 **F5** 키를 눌러 �
 
 
 
-##<a id="nextsteps"></a> 다음 단계
+## <a id="nextsteps"></a> 다음 단계
 이 문서에서는 HDInsight 클러스터를 프로비전하는 여러 가지 방법에 대해 알아보았습니다. 자세한 내용은 다음 문서를 참조하세요.
 
 * [Azure HDInsight 시작][hdinsight-get-started] - HDInsight 클러스터를 시작하는 방법을 알아봅니다.

@@ -1,4 +1,4 @@
-﻿<properties pageTitle="이벤트 허브 시작" metaKeywords="Azure Service Bus, Event Hub, getting started Event Hubs" description="이 자습서에 따라 EventProcessorHost를 통해 C#과 함께 Azure 이벤트 허브를 사용할 수 있습니다." metaCanonical="" services="" documentationCenter="" title="Get Started with Event Hubs" authors="elioda" solutions="" manager="timlt" editor="" />
+<properties pageTitle="이벤트 허브 시작" metaKeywords="Azure Service Bus, Event Hub, getting started Event Hubs" description="이 자습서에 따라 EventProcessorHost를 통해 C#과 함께 Azure 이벤트 허브를 사용할 수 있습니다." metaCanonical="" services="" documentationCenter="" title="Get Started with Event Hubs" authors="elioda" solutions="" manager="timlt" editor="" />
 
 <tags ms.service="service-bus" ms.workload="core" ms.tgt_pltfrm="csharp" ms.devlang="csharp" ms.topic="hero-article" ms.date="10/27/2014" ms.author="elioda" />
 
@@ -26,7 +26,7 @@
 
    	![][1]
 
-3. 이벤트 허브의 이름을 입력하고 원하는 지역을 선택한 후 **Create a new Event Hub**(새 이벤트 허브 만들기)를 클릭합니다.
+3. 이벤트 허브의 이름을 입력하고 원하는 지역을 선택한 후 **새 이벤트 허브를 만듭니다**(새 이벤트 허브 만들기)를 클릭합니다.
 
    	![][2]
 

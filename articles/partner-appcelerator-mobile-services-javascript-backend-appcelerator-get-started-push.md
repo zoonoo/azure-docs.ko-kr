@@ -1,4 +1,4 @@
-﻿<properties pageTitle="푸시 알림 시작(Appcelerator) | 모바일 개발자 센터" metaKeywords="" description="Azure 모바일 서비스를 사용하여 Appcelerator 앱에 푸시 알림을 보내는 방법에 대해 알아봅니다." metaCanonical="" services="" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="Appcelerator team;mahender" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="푸시 알림 시작(Appcelerator) | 모바일 개발자 센터" metaKeywords="" description="Azure 모바일 서비스를 사용하여 Appcelerator 앱에 푸시 알림을 보내는 방법에 대해 알아봅니다." metaCanonical="" services="" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="Appcelerator team;mahender" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-appcelerator" ms.devlang="multiple" ms.topic="article" ms.date="11/24/2014" ms.author="Appcelerator team;mahender" />
 
@@ -55,7 +55,7 @@
 
 Android 모듈을 만들려면 Appcelerator Titanium Studio 내부에 Java 지원을 설치해야 합니다. 아직 설치하지 않은 경우 간략한 단계는 Appcelerator의 [Java 개발 도구 설치](영문)를 참조하세요.
 
-Android NDK를 설치해야 합니다. [http://developer.android.com/sdk/ndk/index.html]에서 해당 .zip 파일을 다운로드하고(http://developer.android.com/sdk/ndk/index.html) 디스크의 특정 위치에 압축을 풉니다. 이 위치를 기억해두세요. 
+Android NDK를 설치해야 합니다. [http://developer.android.com/sdk/ndk/index.html](http://developer.android.com/sdk/ndk/index.html)에서 해당 .zip 파일을 다운로드하고 디스크의 특정 위치에 압축을 풉니다. 이 위치를 기억해두세요. 
 
 ### 새 모듈 만들기
 
@@ -211,7 +211,7 @@ Android NDK를 설치해야 합니다. [http://developer.android.com/sdk/ndk/ind
 ![][3]
 
 
-모든 프로젝트 또는 특정 프로젝트에 대해 모듈을 배포하도록 선택할 수 있습니다. 이 작업은 [Titanium 모듈 사용](영문)에 설명된 설치 규칙에 따라 수행됩니다. 요약하면 다음과 같습니다.
+모든 프로젝트 또는 특정 프로젝트에 대해 모듈을 배포하도록 선택할 수 있습니다. 이 작업은 [Titanium 모듈 사용(영문)]에 설명된 설치 규칙에 따라 수행됩니다. 요약하면 다음과 같습니다.
 
 - 모든 프로젝트: 모듈 .zip 파일이 Titanium SDK 설치 위치의 루트에서 삭제됩니다. 
 
@@ -358,11 +358,11 @@ Android NDK를 설치해야 합니다. [http://developer.android.com/sdk/ndk/ind
 
 5.	Android의 경우 위의 코드를 다음 코드로 바꿉니다.
 
-       var request = {
-    	'text' : alertTextField.getValue(),
-    	'complete' : false,
-    	'handle' : Alloy.Globals.tempRegId
-    }; 
+           var request = {
+    	    'text' : alertTextField.getValue(),
+    	    'complete' : false,
+    	    'handle' : Alloy.Globals.tempRegId
+            }; 
     
     
 
@@ -377,11 +377,11 @@ Android NDK를 설치해야 합니다. [http://developer.android.com/sdk/ndk/ind
 
 7.	iOS의 경우 위의 코드를 다음 코드로 바꿉니다.
 
-       var request = {
-    	'text' : alertTextField.getValue(),
-    	'complete' : false,
-    	'deviceToken' : Alloy.Globals.tempRegId
-    };
+           var request = {
+    	    'text' : alertTextField.getValue(),
+    	    'complete' : false,
+    	    'deviceToken' : Alloy.Globals.tempRegId
+        };
     
  
 이제 iOS 및 Android 플랫폼에서 푸시 알림을 지원하도록 앱이 업데이트됩니다.
@@ -464,7 +464,7 @@ Android NDK를 설치해야 합니다. [http://developer.android.com/sdk/ndk/ind
 
 <!-- URLs. -->
 [모바일 서비스 시작(영문)]: /ko-kr/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started
-[Titanium 모듈 사용]:(영문) http://docs.appcelerator.com/titanium/latest/#!/guide/Using_Titanium_Modules
+[Titanium 모듈 사용(영문)]: http://docs.appcelerator.com/titanium/latest/#!/guide/Using_Titanium_Modules
 [Microsoft Azure 관리 포털]: https://manage.windowsazure.com/
 [모바일 서비스 push 개체]: http://go.microsoft.com/fwlink/p/?linkid=272333&clcid=0x409
 [Java 개발 도구 설치(영문)]: http://docs.appcelerator.com/titanium/latest/#!/guide/Installing_the_Java_Development_Tools

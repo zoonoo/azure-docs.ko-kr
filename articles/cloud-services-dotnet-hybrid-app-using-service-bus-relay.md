@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Hybrid Application" pageTitle="하이브리드 온-프레미스/클라우드 응용 프로그램(.NET)-Azure" metaKeywords="Azure Service Bus tutorial,hybrid .NET" description="Azure 서비스 버스 릴레이를 사용하여 .NET 온-프레미스/클라우드 하이브리드 응용 프로그램을 만드는 방법에 대해 알아봅니다." metaCanonical="" services="service-bus" documentationCenter=".NET" title=".NET On-Premises/Cloud Hybrid Application Using Service Bus Relay" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
+<properties urlDisplayName="Hybrid Application" pageTitle="하이브리드 온-프레미스/클라우드 응용 프로그램(.NET)-Azure" metaKeywords="Azure Service Bus tutorial,hybrid .NET" description="Azure 서비스 버스 릴레이를 사용하여 .NET 온-프레미스/클라우드 하이브리드 응용 프로그램을 만드는 방법에 대해 알아봅니다." metaCanonical="" services="service-bus" documentationCenter=".NET" title=".NET On-Premises/Cloud Hybrid Application Using Service Bus Relay" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
 
 <tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/15/2014" ms.author="sethm" />
 
@@ -152,15 +152,12 @@ Azure에서 서비스 버스 기능을 사용하려면 먼저
 1.  주 창에서 서비스 네임스페이스의 이름을 클릭합니다.   
 
 	![][39]
-  
 
 2.  **연결 정보**를 클릭합니다.   
 
 	![][40]
 
-
 3.  **Access 연결 정보** 창에서 **기본 발급자** 및 **기본 키** 항목을 찾습니다.   
-    
 
 4.  키를 적어 두거나 클립보드에 복사해 둡니다.
 
@@ -413,8 +410,8 @@ Visual Studio 및 Visual Studio Express에서 라이브러리와 도구를 쉽�
             }
         }
 
-2.  In the HomeController.cs file in Visual Studio, replace the existing
-    namespace definition with the following code:
+2.  Visual Studio의 HomeController.cs 파일에서 기존 네임스페이스
+    정의를 다음 코드로 바꿉니다.
 
         namespace ProductsWeb.Controllers
         {

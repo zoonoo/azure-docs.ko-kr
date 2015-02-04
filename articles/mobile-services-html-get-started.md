@@ -1,4 +1,4 @@
-﻿<properties pageTitle="HTML 5 앱에 대해 Azure 모바일 서비스 시작" metaKeywords="" description="이 자습서에 따라 HTML 개발을 위해 Azure 모바일 서비스 사용을 시작할 수 있습니다. " metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="HTML 5 앱에 대해 Azure 모바일 서비스 시작" metaKeywords="" description="이 자습서에 따라 HTML 개발을 위해 Azure 모바일 서비스 사용을 시작할 수 있습니다. " metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="hero-article" ms.date="11/21/2014" ms.author="glenga" />
 
@@ -22,13 +22,13 @@
 
 <div class="dev-callout"><strong>참고</strong> <p>이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://www.windowsazure.com/ko-kr/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fko-kr%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-html%2F" target="_blank">Azure 무료 평가판</a>을 참조하세요.</p></div>
 
-###추가 요구 사항
+### 추가 요구 사항
 
 + 이 자습서를 학습하려면 로컬 컴퓨터에 다음 웹 서버 중 하나가 실행되고 있어야 합니다.
 
 	+  **Windows**: IIS Express. IIS Express는 [Microsoft 웹 플랫폼 설치 관리자]를 통해 설치됩니다.   
 	+  **MacOS X**: Python. 미리 설치되어 있습니다.
-	+  **Linux**: Python. [Python의 최신 버전](영문)을 설치해야 합니다. 
+	+  **Linux**: Python. [Python의 최신 버전(영문)]을 설치해야 합니다. 
 	
 	앱을 호스트하기 위한 웹 서버로 어떤 것이든 사용할 수 있지만, 다운로드한 스크립트는 위의 웹 서버에서만 지원됩니다.  
 
@@ -110,13 +110,13 @@
 ## <a name="next-steps"> </a>다음 단계
 이제 퀵 스타트를 완료했으며 모바일 서비스에서 중요한 추가 작업을 수행하는 방법을 알아보겠습니다. 
 
-* **[데이터 시작]**(영문)
+* **[데이터 시작(영문)]**
   <br/>모바일 서비스를 사용하여 데이터를 저장 및 쿼리하는 방법에 대해 자세히 알아보세요.
   
 * **[HTML 응용 프로그램에서 사용자 지정 API 호출]**
   <br/>HTML 응용 프로그램을 모바일 서비스에 호스트된 사용자 지정 API와 연결합니다.
 
-* **[인증 시작]**(영문)
+* **[인증 시작(영문)]**
   <br/>ID 공급자를 사용하여 앱 사용자를 인증하는 방법을 알아봅니다.
 
 * **[모바일 서비스 HTML/JavaScript 방법 개념 참조]**
@@ -145,13 +145,13 @@
 
 
 <!-- URLs. -->
-[데이터 시작](영문): /ko-kr/develop/mobile/tutorials/get-started-with-data-html
-[인증 시작](영문): /ko-kr/develop/mobile/tutorials/get-started-with-users-html
+[데이터 시작(영문)]: /ko-kr/develop/mobile/tutorials/get-started-with-data-html
+[인증 시작(영문)]: /ko-kr/develop/mobile/tutorials/get-started-with-users-html
 [HTML 응용 프로그램에서 사용자 지정 API 호출]: /ko-kr/documentation/articles/mobile-services-html-call-custom-api 
 
 [관리 포털]: https://manage.windowsazure.com/
 [Microsoft 웹 플랫폼 설치 관리자]:  http://go.microsoft.com/fwlink/p/?LinkId=286333
-[Python의 최신 버전](영문): http://go.microsoft.com/fwlink/p/?LinkId=286342
+[Python의 최신 버전(영문)]: http://go.microsoft.com/fwlink/p/?LinkId=286342
 [모바일 서비스 HTML/JavaScript 방법 개념 참조]: /ko-kr/develop/mobile/how-to-guides/work-with-html-js-client
 [크로스-원본 자원 공유]: http://msdn.microsoft.com/ko-kr/library/windowsazure/dn155871.aspx
 

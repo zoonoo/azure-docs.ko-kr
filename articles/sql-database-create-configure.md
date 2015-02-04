@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="How to create and configure an Azure SQL DB" pageTitle="Azure SQL 데이터베이스를 만들고 구성하는 방법 - Azure 자습서" metaKeywords="Azure SQL 데이터베이스 만들기, Azure SQL 데이터베이스 구성" description="Azure SQL 데이터베이스를 만들고 구성하는 방법입니다." metaCanonical="" services="sql-database" documentationCenter="" title="How to Create and Configure an Azure SQL Database" authors="sidneyh" solutions="" manager="jhubbard" editor="" />
+<properties urlDisplayName="How to create and configure an Azure SQL DB" pageTitle="Azure SQL 데이터베이스를 만들고 구성하는 방법 - Azure 자습서" metaKeywords="Create Azure SQL Database, Configure Azure SQL Database" description="Azure SQL 데이터베이스를 만들고 구성하는 방법입니다." metaCanonical="" services="sql-database" documentationCenter="" title="How to Create and Configure an Azure SQL Database" authors="sidneyh" solutions="" manager="jhubbard" editor="" />
 
 <tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sidneyh" />
 
@@ -6,7 +6,7 @@
 
 이 항목에서는 Azure 관리 포털을 사용하여 Azure SQL 데이터베이스를 만들고 구성합니다. 이 워크플로에서는 먼저 서버를 만듭니다. 업로드할 기존 SQL Server 데이터베이스가 있는 경우 이 접근 방법을 선호할 수 있습니다.
 
-##목차##
+## 목차##
 * [방법: 논리 서버 만들기](#createLogical)
 * [방법: 논리 서버용 방화벽 구성](#configFWLogical)
 
@@ -40,13 +40,13 @@
 
 9. 완료하면 페이지 맨 아래에 있는 확인 표시를 클릭합니다.
 
-###서버 이름 자동 생성
+### 서버 이름 자동 생성
 
 서버 이름을 지정하지 않았다는 점에 유의하세요. SQL 데이터베이스는 서버 이름을 자동 생성하여 중복 DNS 항목이 없도록 합니다. 서버 이름은 10자로 된 영숫자 문자열입니다. SQL 데이터베이스 서버의 이름은 변경할 수 없습니다.
 
 다음 단계에서는 네트워크에서 실행 중인 응용 프로그램의 연결이 허용된 액세스가 되도록 방화벽을 구성합니다.
 
-##방법: 논리 서버용 방화벽 구성
+## 방법: 논리 서버용 방화벽 구성
 
 1. [관리 포털](http://manage.windowsazure.com)에서 **SQL 데이터베이스**를 클릭한 다음 **서버**를 클릭합니다.
 

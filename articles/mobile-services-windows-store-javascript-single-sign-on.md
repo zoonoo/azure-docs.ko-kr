@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Authenticate with single sign-on" pageTitle="Live Connect로 앱 인증(JavaScript)" metaKeywords="Azure Live Connect, Azure SSO, SSO Live Connect, mobile services sso, Windows Store app sso, Azure JavaScript SSO" description="Windows 스토어 응용 프로그램에서 Azure 모바일 서비스의 Live Connect Single Sign-On을 사용하는 방법에 대해 알아봅니다." metaCanonical="http://www.windowsazure.com/ko-kr/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/" services="mobile-services" documentationCenter="Mobile" title="Authenticate your Windows Store app with Live Connect single sign-on" authors="glenga" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Authenticate with single sign-on" pageTitle="Live Connect로 앱 인증(JavaScript)" metaKeywords="Azure Live Connect, Azure SSO, SSO Live Connect, mobile services sso, Windows Store app sso, Azure JavaScript SSO" description="Windows 스토어 응용 프로그램에서 Azure 모바일 서비스의 Live Connect Single Sign-On을 사용하는 방법에 대해 알아봅니다." metaCanonical="http://www.windowsazure.com/ko-kr/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/" services="mobile-services" documentationCenter="Mobile" title="Authenticate your Windows Store app with Live Connect single sign-on" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="11/22/2014" ms.author="glenga" />
 
@@ -22,15 +22,15 @@
 
 + [Windows용 Live SDK]
 + Microsoft Visual Studio 2012 Express for Windows 8 RC 이상 버전
-+ 먼저 [기존 앱에 모바일 서비스 추가](영문) 자습서도 완료해야 합니다.
++ 먼저 [기존 앱에 모바일 서비스 추가 (영문)] 자습서도 완료해야 합니다.
 
-##<a name="register"></a>Windows 스토어에 앱 등록
+## <a name="register"></a>Windows 스토어에 앱 등록
 
 사용자를 인증할 수 있으려면 Windows 스토어에 앱을 제출해야 합니다. 그런 다음 Live Connect와 모바일 서비스를 통합하도록 클라이언트 암호를 등록해야 합니다.
 
 [WACOM.INCLUDE [mobile-services-register-windows-store-app](../includes/mobile-services-register-windows-store-app.md)]
 
-##<a name="permissions"></a>사용 권한을 인증된 사용자로 제한
+## <a name="permissions"></a>사용 권한을 인증된 사용자로 제한
 
 [WACOM.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)] 
 
@@ -43,7 +43,7 @@
 
 다음에는 모바일 서비스의 리소스를 요청하기 전에 사용자를 인증하도록 앱을 업데이트합니다.
 
-##<a name="add-authentication"></a>앱에 인증 추가
+## <a name="add-authentication"></a>앱에 인증 추가
 
 1. [Windows용 Live SDK]를 다운로드하여 설치합니다.
 
@@ -126,7 +126,7 @@
 
     이 코드는 Live Connect 클라이언트를 초기화하고, 로그아웃을 실행하고, Live Connect에 새 로그인 요청을 보내고, 반환된 인증 토큰을 모바일 서비스로 보낸 다음 로그인한 사용자에 대한 정보를 표시합니다. 이 코드는 가능한 경우 로그아웃을 실행하며 응용 프로그램이 실행될 때마다 사용자에게 자격 증명을 요구하는 메시지가 표시되도록 합니다. 인증이 올바르게 작동하는지 확인하기 위해 다양한 Microsoft 계정을 사용하여 응용 프로그램을 테스트하기 쉬워집니다. 이 메커니즘은 로그인한 사용자에게 연결된 Microsoft 계정이 없는 경우에만 작동합니다.
 
-	>[WACOM.NOTE]앱이 실행될 때마다 Live Connection 인증 토큰 또는 모바일 서비스 권한 부여 토큰을 요청해야 하는 것은 아닙니다. 이 방법은 비효율적일 뿐 아니라 많은 고객이 동시에 앱을 시작하려고 할 경우 사용 관련 문제가 발생할 수도 있습니다. 보다 나은 접근 방법은 토큰을 캐시하고 **LoginWithMicrosoftAccountAsync**를 호출하기 전에 캐시된 모바일 서비스를 사용해 보는 것입니다. 이 토큰을 캐시하는 방법에 대한 예제는 [인증 시작](영문)을 참조하세요.(/ko-kr/documentation/articles/mobile-services-windows-store-javascript-get-started-users/#tokens)
+	>[WACOM.NOTE]앱이 실행될 때마다 Live Connection 인증 토큰 또는 모바일 서비스 권한 부여 토큰을 요청해야 하는 것은 아닙니다. 이 방법은 비효율적일 뿐 아니라 많은 고객이 동시에 앱을 시작하려고 할 경우 사용 관련 문제가 발생할 수도 있습니다. 보다 나은 접근 방법은 토큰을 캐시하고 **LoginWithMicrosoftAccountAsync**를 호출하기 전에 캐시된 모바일 서비스를 사용해 보는 것입니다. 이 토큰을 캐시하는 방법에 대한 예제는 [인증 시작 (영문)](/ko-kr/documentation/articles/mobile-services-windows-store-javascript-get-started-users/#tokens)을 참조하세요.
 	
 7. 이전 단계의 _<< INSERT REDIRECT DOMAIN HERE >>_ 문자열을 Live Connect에서 앱을 구성할 때 **https://_service-name_.azure-mobile.net/** 형식으로 지정한 리디렉션 도메인으로 업데이트합니다.
 		
@@ -136,7 +136,7 @@
 
 ## <a name="next-steps"> </a>다음 단계
 
-다음 자습서인 [스크립트를 통해 사용자 권한 부여]에서는 인증된 사용자를 기준으로 모바일 서비스에서 제공한 사용자 ID 값을 가져와 모바일 서비스에서 반환된 데이터를 필터링하는 데 사용합니다. 인증을 위해 다른 ID 공급자를 사용하는 방법에 대한 자세한 내용은 [인증 시작](영문)을 참조하세요.
+다음 자습서인 [스크립트를 통해 사용자 권한 부여]에서는 인증된 사용자를 기준으로 모바일 서비스에서 제공한 사용자 ID 값을 가져와 모바일 서비스에서 반환된 데이터를 필터링하는 데 사용합니다. 인증을 위해 다른 ID 공급자를 사용하는 방법에 대한 자세한 내용은 [인증 시작 (영문)]을 참조하세요.
 
 <!-- Anchors. -->
 [인증을 위해 앱 등록 및 모바일 서비스 구성]: #register
@@ -167,8 +167,8 @@
 [앱 제출 페이지]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [내 응용 프로그램]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Windows용 Live SDK]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[기존 앱에 모바일 서비스 추가](영문): /ko-kr/documentation/articles/mobile-services-windows-store-javascript-get-started-data/
-[인증 시작](영문): /ko-kr/documentation/articles/mobile-services-windows-store-javascript-get-started-users
+[기존 앱에 모바일 서비스 추가 (영문)]: /ko-kr/documentation/articles/mobile-services-windows-store-javascript-get-started-data/
+[인증 시작 (영문)]: /ko-kr/documentation/articles/mobile-services-windows-store-javascript-get-started-users
 [스크립트를 통해 사용자 권한 부여]: /ko-kr/documentation/articles/mobile-services-windows-store-javascript-authorize-users-in-scripts/
 
 [Azure 관리 포털]: https://manage.windowsazure.com/

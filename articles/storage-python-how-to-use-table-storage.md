@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Table Service" pageTitle="테이블 저장소 사용 방법(Python) | Microsoft Azure" metaKeywords="Azure table Python, creating table Azure, deleting table Azure, inserting table Azure, querying table Azure" description="Python의 테이블 서비스를 사용하여 테이블을 작성 및 삭제하고 테이블을 삽입하고 삭제하고 쿼리하는 방법에 대해 알아봅니다." metaCanonical="" services="storage" documentationCenter="Python" title="How to Use the Table Storage Service from Python" authors="huvalo" solutions="" manager="wpickett" editor="" />
+<properties urlDisplayName="Table Service" pageTitle="테이블 저장소 사용 방법(Python) | Microsoft Azure" metaKeywords="Azure table Python, creating table Azure, deleting table Azure, inserting table Azure, querying table Azure" description="Python의 테이블 서비스를 사용하여 테이블을 작성 및 삭제하고 테이블을 삽입하고 삭제하고 쿼리하는 방법에 대해 알아봅니다." metaCanonical="" services="storage" documentationCenter="Python" title="How to Use the Table Storage Service from Python" authors="huvalo" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="09/19/2014" ms.author="robmcm" />
 
@@ -6,7 +6,8 @@
 
 
 
-# Python에서 테이블 저장소 서비스를 사용하는 방법 이 가이드에서는 Microsoft Azure 테이블 저장소 서비스를 사용하여 일반 시나리오를 수행하는 방법을 보여 줍니다. 샘플은 Python API를 사용하여 작성되었습니다. 여기서 다루는 시나리오에는 **테이블 만들기 및 삭제, 테이블에서 엔터티 삽입 및 쿼리**가 포함됩니다. 테이블에 대한 자세한 내용은 [다음 단계][] 섹션을 참조하세요.
+# Python에서 테이블 저장소 서비스를 사용하는 방법 
+이 가이드에서는 Microsoft Azure 테이블 저장소 서비스를 사용하여 일반 시나리오를 수행하는 방법을 보여 줍니다. 샘플은 Python API를 사용하여 작성되었습니다. 여기서 다루는 시나리오에는 **테이블 만들기 및 삭제, 테이블에서 엔터티 삽입 및 쿼리**가 포함됩니다. 테이블에 대한 자세한 내용은 [다음 단계][] 섹션을 참조하세요.
 
 ## 목차
 
@@ -46,18 +47,9 @@
 
 ## <a name="add-entity"> </a>테이블에 엔터티를 추가하는 방법
 
-엔터티를 추가하려면 먼저 엔터티 속성 이름과 값을 정의하는
-사전을 만듭니다. 모든 엔터티에 대해
-**PartitionKey** 및 **RowKey**를 지정해야 합니다. 이러한 키는
-엔터티의 고유한 식별자이며, 다른 속성보다 훨씬 더 빠르게
-쿼리할 수 있는 값입니다. 시스템에서는 **PartitionKey**를 사용하여
-테이블 엔터티를 여러 저장소 노드에 분산합니다.
-**PartitionKey**가 동일한 엔터티는 동일한 노드에 저장됩니다. 
-**RowKey**는 엔터티가 속하는 파티션 내에서 엔터티의 고유한
-ID입니다.
+엔터티를 추가하려면 먼저 엔터티 속성 이름과 값을 정의하는사전을 만듭니다. 모든 엔터티에 대해 **PartitionKey** 및 **RowKey**를 지정해야 합니다. 이러한 키는엔터티의 고유한 식별자이며, 다른 속성보다 훨씬 더 빠르게쿼리할 수 있는 값입니다. 시스템에서는 **PartitionKey**를 사용하여테이블 엔터티를 여러 저장소 노드에 분산합니다.**PartitionKey**가 동일한 엔터티는 동일한 노드에 저장됩니다. **RowKey**는 엔터티가 속하는 파티션 내에서 엔터티의 고유한ID입니다.
 
-테이블에 엔터티를 추가하려면 사전 개체를
-**insert\_entity** 메서드에 전달합니다.
+테이블에 엔터티를 추가하려면 사전 개체를**insert\_entity** 메서드에 전달합니다.
 
 	task = {'PartitionKey': 'tasksSeattle', 'RowKey': '1', 'description' : 'Take out the trash', 'priority' : 200}
 	table_service.insert_entity('tasktable', task)
@@ -73,8 +65,7 @@ ID입니다.
 
 ## <a name="update-entity"> </a>엔터티를 업데이트하는 방법
 
-이 코드는 이전 버전의 기존 엔터티를 업데이트된 버전으로
-바꾸는 방법을 보여 줍니다.
+이 코드는 이전 버전의 기존 엔터티를 업데이트된 버전으로 바꾸는 방법을 보여 줍니다.
 
 	task = {'description' : 'Take out the garbage', 'priority' : 250}
 	table_service.update_entity('tasktable', 'tasksSeattle', '1', task)

@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="" pageTitle="Blob 서비스를 통해 SAS 만들기 및 사용 | Microsoft Azure" metaKeywords="Azure blob, shared access signatures, stored access policy" description="Blob 서비스를 통해 공유 액세스 서명을 생성하고 사용하는 방법에 대해 알아봅니다." metaCanonical="" services="storage" documentationCenter="" title="Part 2: Create and Use a SAS with the Blob Service" solutions="" authors="tamram" manager="adinah" editor="cgronlun" />
+<properties urlDisplayName="" pageTitle="Blob 서비스를 통해 SAS 만들기 및 사용 | Microsoft Azure" metaKeywords="Azure blob, shared access signatures, stored access policy" description="Blob 서비스를 통해 공유 액세스 서명을 생성하고 사용하는 방법에 대해 알아봅니다." metaCanonical="" services="storage" documentationCenter="" title="Part 2: Create and Use a SAS with the Blob Service" solutions="" authors="tamram" manager="adinah" editor="cgronlun" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/10/2014" ms.author="tamram" />
 
@@ -131,26 +131,26 @@ https://storageaccount.blob.core.windows.net/sascontainer?sv=2012-02-12&se=2013-
 	    return blob.Uri + sasBlobToken;
     }
 
-**Main()** 메서드 맨 아래에서 다음 줄을 추가하여 **
+**Main()** 메서드 맨 아래에서 다음 줄을 추가하여 **Console.ReadLine()**을 호출하기 전에 **GetBlobSasUri()**를 호출하고 콘솔 창에 공유 액세스 서명 URI를 씁니다.    
     
     //Generate a SAS URI for a blob within the container, without a stored access policy.
     Console.WriteLine("Blob SAS URI: " + GetBlobSasUri(container));
     Console.WriteLine();
     
 
-Compile and run to output the shared access signature URI for the new blob. The URI will be similar to the following URI:
+새 Blob에 대한 공유 액세스 서명 URI를 출력하도록 컴파일 및 실행합니다. URI는 다음과 비슷합니다.
 
 https://storageaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2012-02-12&st=2013-04-12T23%3A37%3A08Z&se=2013-04-13T00%3A12%3A08Z&sr=b&sp=rw&sig=dF2064yHtc8RusQLvkQFPItYdeOz3zR8zHsDMBi4S30%3D
 
-## Create a Stored Access Policy on the Container ##
+## 컨테이너에 대한 저장된 액세스 정책 만들기 ##
 
-Now let's create a stored access policy on the container, which will define the constraints for any shared access signatures that are associated with it.
+이제 연결된 공유 액세스 서명에 대한 제약 조건을 정의하는 컨테이너에 대한 저장된 액세스 정책을 만들어 보겠습니다.
 
-In the previous examples, we specified the start time (implicitly or explicitly), the expiry time, and the permissions on the shared access signature URI itself. In the following examples, we will specify these on the stored access policy and not on the shared access signature. Doing so enables us to change these constraints without reissuing the shared access signature.
+이전 예제에서는 공유 액세스 서명 URI 자체에 대한 시작 시간(암시적 또는 명시적), 만료 시간 및 사용 권한을 지정했습니다. 다음 예제에서는 공유 액세스 서명이 아니라 저장된 액세스 정책에 대해 이러한 설정을 지정합니다. 그러면 공유 액세스 서명을 다시 실행하지 않고 제약 조건을 변경할 수 있습니다.
 
-Note that it's possible to have one or more of the constraints on the shared access signature and the remainder on the stored access policy. However, you can only specify the start time, expiry time, and permissions in one place or the other; for example, you can't specify permissions on the shared access signature and also specify them on the stored access policy.
+공유 액세스 서명에 대해 하나 이상의 제약 조건이 설정하고 저장된 액세스 정책에 대해 나머지 제약 조건을 설정할 수 있습니다. 하지만 시작 시간, 만료 시간 및 사용 권한을 한 곳에서만 지정할 수 있습니다. 예를 들어 사용 권한을 공유 액세스 서명에 대해 지정하고 저장된 액세스 정책에 대해서도 지정할 수는 없습니다.
 
-Add a new method that creates a new stored access policy and returns the name of the policy:
+새 저장된 액세스 정책을 만들고 정책 이름을 반환하는 새 메서드를 추가합니다.
 
     static void CreateSharedAccessPolicy(CloudBlobClient blobClient, CloudBlobContainer container, string policyName)
     {
@@ -170,18 +170,18 @@ Add a new method that creates a new stored access policy and returns the name of
 	    container.SetPermissions(permissions);
     }
 
-At the bottom of the **Main()** method, before the call to **Console.ReadLine()**, add the following lines to call the **CreateSharedAccessPolicy()** method:    
+**Main()** 메서드 맨 아래에서 **Console.ReadLine()**을 호출하기 전에 다음 줄을 추가하여 **CreateSharedAccessPolicy()** 메서드를 호출합니다.    
 
     //Create an access policy on the container, which may be optionally used to provide constraints for 
     //shared access signatures on the container and the blob.
     string sharedAccessPolicyName = "tutorialpolicy";
     CreateSharedAccessPolicy(blobClient, container, sharedAccessPolicyName);
 
-## Generate a Shared Access Signature URI on the Container That Uses an Access Policy ##
+## 액세스 정책을 사용하는 컨테이너에 대한 공유 액세스 서명 URI 생성 ##
 
-Next, we'll create another shared access signature on the container that we created earlier, but this time we'll associate the signature with the access policy that we created in the previous example.
+이제 이전에 만든 컨테이너에 대한 다른 공유 액세스 서명을 만듭니다. 이번에는 이전 예제에서 만든 액세스 정책에 서명을 연결합니다.
 
-Add a new method to generate another shared access signature on the container:
+컨테이너에 대한 다른 공유 액세스 서명을 생성하는 새 메서드를 추가합니다.
 
     static string GetContainerSasUriWithPolicy(CloudBlobContainer container, string policyName)
     {
@@ -193,17 +193,17 @@ Add a new method to generate another shared access signature on the container:
 	    return container.Uri + sasContainerToken;
     }
     
-At the bottom of the **Main()** method, before the call to **Console.ReadLine()**, add the following lines to call the **GetContainerSasUriWithPolicy** method:
+**Main()** 메서드 맨 아래에서 **Console.ReadLine()**을 호출하기 전에 다음 줄을 추가하여 **GetContainerSasUriWithPolicy** 메서드를 호출합니다.
 
     //Generate a SAS URI for the container, using a stored access policy to set constraints on the SAS.
     Console.WriteLine("Container SAS URI using stored access policy: " + GetContainerSasUriWithPolicy(container, sharedAccessPolicyName));
     Console.WriteLine();
 
-## Generate a Shared Access Signature URI on the Blob That Uses an Access Policy ##
+## 액세스 정책을 사용하는 Blob에 대한 공유 액세스 서명 URI 생성 ##
 
-Finally, we'll add a similar method to create another blob and generate a shared access signature that's associated with an access policy.
+마지막으로 다른 Blob을 만들고 액세스 정책에 연결되는 공유 액세스 서명을 생성하는 비슷한 메서드를 추가합니다.
 
-Add a new method to create a blob and generate a shared access signature:
+Blob을 만들고 공유 액세스 서명을 생성하는 새 메서드를 추가합니다.
 
     static string GetBlobSasUriWithPolicy(CloudBlobContainer container, string policyName)
     {
@@ -228,13 +228,14 @@ Add a new method to create a blob and generate a shared access signature:
 	    return blob.Uri + sasBlobToken;
     }
 
-At the bottom of the **Main()** method, before the call to **Console.ReadLine()**, add the following lines to call the **GetBlobSasUriWithPolicy** method:    
+**Main()** 메서드 맨 아래에서 **Console.ReadLine()**을 호출하기 전에 다음 줄을 추가하여 **GetBlobSasUriWithPolicy** 메서드를 호출합니다.    
 
     //Generate a SAS URI for a blob within the container, using a stored access policy to set constraints on the SAS.
     Console.WriteLine("Blob SAS URI using stored access policy: " + GetBlobSasUriWithPolicy(container, sharedAccessPolicyName));
     Console.WriteLine();
 
-The **Main()** method should now look like this in its entirety. Run it to write the shared access signature URIs to the console window, then copy and paste them into a text file for use in the second part of this tutorial.    
+**Main()** 메서드는 전체적으로 다음과 같이 표시되어야 합니다. 이 메서드를 실행하여 콘솔 창에 공유 액세스 서명 URI를 쓴 다음 URI를 복사하여 이 자습서의 2부에서 사용할 텍스트 파일에 붙여넣습니다.    
+
 
     static void Main(string[] args)
     {
@@ -272,25 +273,25 @@ The **Main()** method should now look like this in its entirety. Run it to write
 	    Console.ReadLine();
     }
 
-When you run the GenerateSharedAccessSignatures console application, you'll see output similar to the following in the console window. These are the shared access signatures that you'll use in Part 2 of the tutorial.
+GenerateSharedAccessSignatures 콘솔 응용 프로그램을 실행하면 콘솔 창에 다음과 비슷한 출력이 표시됩니다. 이는 자습서의 2부에서 사용할 공유 액세스 서명입니다.
 
 ![sas-console-output-1][sas-console-output-1]
 
-# Part 2: Create a Console Application to Test the Shared Access Signatures #
+# 2부: 공유 액세스 서명을 테스트하는 콘솔 응용 프로그램 만들기 #
 
-To test the shared access signatures created in the previous examples, we'll create a second console application that uses the signatures to perform operations on the container and on a blob.
+이전 예제에서 만든 공유 액세스 서명을 테스트하려면 서명을 사용하여 컨테이너 및 Blob에서 작업을 수행하는 두 번째 콘솔 응용 프로그램을 만듭니다.
 
-Note that if more than four hours have passed since you completed the first part of the tutorial, the signatures you generated where the expiry time was set to four hours will no longer be valid. Similarly, the signatures associated with the stored access policy expire after 10 hours. If one or both of these intervals have passed, you should run the code in the first console application to generate fresh shared access signatures for use in the second part of the tutorial.
+자습서의 1부를 완료한 후 4시간이 초과된 경우 만료 시간이 4시간으로 설정하여 생성된 서명은 더 이상 유효하지 않습니다. 마찬가지로 저장된 액세스 정책에 연결된 서명은 10시간 이후에 만료됩니다. 이 간격 중 하나 또는 모두가 경과한 경우 첫 번째 콘솔 응용 프로그램에서 코드를 실행하여 자습서의 2부에서 사용할 공유 액세스 서명을 다시 생성해야 합니다.
 
-In Visual Studio, create a new Windows console application and name it **ConsumeSharedAccessSignatures**. Add references to **Microsoft.WindowsAzure.Configuration.dll** and **Microsoft.WindowsAzure.Storage.dll**, as you did previously.
+Visual Studio에서 새 Windows 콘솔 응용 프로그램을 만들고 이름을 **ConsumeSharedAccessSignatures**로 지정합니다. 앞에서 수행한 것과 같은 방법으로 **Microsoft.WindowsAzure.Configuration.dll** 및 **Microsoft.WindowsAzure.Storage.dll**에 참조를 추가합니다.
 
-At the top of the Program.cs file, add the following **using** statements:
+Program.cs 파일 맨 위에 다음 **using** 문을 추가합니다.
 
     using System.IO;
     using Microsoft.WindowsAzure.Storage;
     using Microsoft.WindowsAzure.Storage.Blob;
     
-In the body of the **Main()** method, add the following constants, and update their values to the shared access signatures that you generated in part 1 of the tutorial.
+**Main()** 메서드의 본문에서 다음 상수를 추가하고 해당 값을 자습서의 1부에서 생성한 공유 액세스 서명으로 업데이트합니다.
 
     static void Main(string[] args)
     {
@@ -300,11 +301,11 @@ In the body of the **Main()** method, add the following constants, and update th
 	    string blobSASWithAccessPolicy = "<your blob SAS with access policy>";
     }
     
-## Add a Method to Try Container Operations Using a Shared Access Signature ##
+## 공유 액세스 서명을 사용하여 컨테이너 작업을 수행하는 메서드 추가 ##
 
-Next, we'll add a method that tests some representative container operations using a shared access signature on the container. Note that the shared access signature is used to return a reference to the container, authenticating access to the container based on the signature alone.
+이제 컨테이너에서 공유 액세스 서명을 사용하여 일부 대표적인 컨테이너 작업을 테스트하는 메서드를 추가합니다. 공유 액세스 서명은 서명만을 기반으로 하여 컨테이너에 대한 액세스를 인증하여 컨테이너에 대한 참조를 반환하는 데 사용됩니다.
 
-Add the following method to Program.cs:
+Program.cs에 다음 메서드를 추가합니다.
 
 
 	static void UseContainerSAS(string sas)
@@ -394,7 +395,7 @@ Add the following method to Program.cs:
 	}
 
 
-Update the **Main()** method to call **UseContainerSAS()** with both of the shared access signatures that you created on the container:
+컨테이너에서 만든 공유 액세스 서명을 모두 사용하여 **UseContainerSAS()** 를 호출하도록 **Main()** 메서드를 업데이트합니다. 
 
 
 	static void Main(string[] args)
@@ -416,11 +417,11 @@ Update the **Main()** method to call **UseContainerSAS()** with both of the shar
 	}
 
 
-## Add a Method to Try Blob Operations Using a Shared Access Signature ##
+## 공유 액세스 서명을 사용하여 Blob 작업을 수행하는 메서드 추가 ##
 
-Finally, we'll add a method that tests some representative blob operations using a shared access signature on the blob. In this case we use the constructor **CloudBlockBlob(String)**, passing in the shared access signature, to return a reference to the blob. No other authentication is required; it's based on the signature alone.
+마지막으로 Blob에서 공유 액세스 서명을 사용하여 일부 대표적인 Blob 작업을 테스트하는 메서드를 추가합니다. 이 경우 공유 액세스 서명을 전달하여 Blob에 대한 참조를 반환하는 생성자 **CloudBlockBlob(String)**을 사용합니다. 다른 인증은 필요하지 않으며 서명만을 기반으로 합니다.
 
-Add the following method to Program.cs:
+Program.cs에 다음 메서드를 추가합니다.
 
 
 	static void UseBlobSAS(string sas)
@@ -493,7 +494,7 @@ Add the following method to Program.cs:
 	}
 
 
-Update the **Main()** method to call **UseBlobSAS()** with both of the shared access signatures that you created on the blob:
+Blob에서 만든 공유 액세스 서명을 모두 사용하여 **UseBlobSAS()를 호출하도록 **Main()** 메서드를 ** 업데이트합니다.
 
 	static void Main(string[] args)
 	{
@@ -513,19 +514,19 @@ Update the **Main()** method to call **UseBlobSAS()** with both of the shared ac
 	    Console.ReadLine();
 	}
 
-Run the console application and observe the output to see which operations are permitted for which signatures. The output in the console window will look similar to the following:
+콘솔 응용 프로그램을 실행하고 출력을 관찰하여 서명별로 허용되는 작업을 확인합니다. 콘솔 창의 출력은 다음과 비슷합니다.
 
 ![sas-console-output-2][sas-console-output-2]
 
-# Next Steps #
+# 다음 단계 #
 
-[Shared Access Signatures, Part 1: Understanding the SAS Model](../storage-dotnet-shared-access-signature-part-1/)
+[공유 액세스 서명, 1부: SAS 모델 이해](../storage-dotnet-shared-access-signature-part-1/)
 
-[Manage Access to Azure Storage Resources](http://msdn.microsoft.com/ko-kr/library/windowsazure/ee393343.aspx)
+[Azure 저장소 리소스에 대한 액세스 관리](http://msdn.microsoft.com/en-us/library/windowsazure/ee393343.aspx)
 
-[Delegating Access with a Shared Access Signature (REST API)](http://msdn.microsoft.com/ko-kr/library/windowsazure/ee395415.aspx)
+[공유 액세스 서명을 사용하여 액세스 위임(REST API)](http://msdn.microsoft.com/en-us/library/windowsazure/ee395415.aspx)
 
-[Introducing Table and Queue SAS](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)
+[테이블 및 큐 SAS 소개](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)
 
 [sas-console-output-1]: ./media/storage-dotnet-shared-access-signature-part-2/sas-console-output-1.PNG
 [sas-console-output-2]: ./media/storage-dotnet-shared-access-signature-part-2/sas-console-output-2.PNG

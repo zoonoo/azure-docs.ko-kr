@@ -1,4 +1,4 @@
-﻿<properties writer="ricksal" pageTitle="Android 클라이언트에서 사용자 지정 API 호출 | 모바일 개발자 센터" metaKeywords="" description="사용자 지정 API를 정의한 다음 Azure 모바일 서비스를 사용하는 Android 앱에서 이를 호출하는 방법에 대해 알아봅니다." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="mobile-services" documentationCenter="Mobile" title="Call a custom API from the client" authors="ricksal,glenga" manager="dwrede" />
+<properties writer="ricksal" pageTitle="Android 클라이언트에서 사용자 지정 API 호출 | 모바일 개발자 센터" metaKeywords="" description="사용자 지정 API를 정의한 다음 Azure 모바일 서비스를 사용하는 Android 앱에서 이를 호출하는 방법에 대해 알아봅니다." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="mobile-services" documentationCenter="Mobile" title="Call a custom API from the client" authors="ricksal,glenga" manager="dwrede" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="10/16/2014" ms.author="ricksal,glenga" />
 
@@ -10,7 +10,7 @@
 
 이 항목에서 만드는 사용자 지정 API는 모바일 서비스 테이블의 모든 todo 항목에 대해 *완료* 플래그를 'true'로 설정하는 단일 POST 요청을 보내는 기능을 제공합니다. 이 사용자 정의 API가 없으면 클라이언트는 테이블의 각 todo 항목에 대해 플래그를 업데이트하도록 개별 요청을 보내야 합니다.
 
-[모바일 서비스 시작](영문) 또는 [데이터 시작](영문) 자습서를 마쳤을 때 만든 앱에 이 기능을 추가합니다. 그러려면 다음 단계를 완료합니다.
+[모바일 서비스 시작 (영문)](/ko-kr/documentation/articles/mobile-services-android-get-started/) 또는 [데이터 시작 (영문)](/ko-kr/documentation/articles/mobile-services-android-get-started-data/) 자습서를 마쳤을 때 만든 앱에 이 기능을 추가합니다. 그러려면 다음 단계를 완료합니다.
 
 1. [사용자 지정 API 정의]
 2. [사용자 지정 API를 호출하도록 앱 업데이트]
@@ -19,7 +19,7 @@
 
 >[AZURE.NOTE] 완성된 앱의 소스 코드를 보려면 <a href="https://github.com/RickSaling/mobile-services-samples/tree/futures/CallCustomApi/Android" target="_blank">여기</a>를 참조하세요.
 
-##필수 조건
+## 필수 조건
 
 [WACOM.INCLUDE [mobile-services-android-prerequisites](../includes/mobile-services-android-prerequisites.md)]
 
@@ -53,9 +53,7 @@
 [모바일 서비스 Android SDK]: http://go.microsoft.com/fwlink/p/?LinkID=280126
 [모바일 서비스 서버 스크립트 참조]: http://go.microsoft.com/fwlink/?LinkId=262293
 [내 앱 대시보드]: http://go.microsoft.com/fwlink/?LinkId=262039
-[모바일 서비스 시작](영문): /ko-kr/documentation/articles/mobile-services-android-get-started/
-[데이터 시작](영문): /ko-kr/documentation/articles/mobile-services-android-get-started-data/
-[인증 시작](영문): /ko-kr/documentation/articles/mobile-services-android-get-started-users/
+[인증 시작 (영문)]: /ko-kr/documentation/articles/mobile-services-android-get-started-users/
 [푸시 알림 시작]: /ko-kr/documentation/articles/mobile-services-android-get-started-push/
 
 [소스 제어에 서버 스크립트 저장]: /ko-kr/documentation/articles/mobile-services-store-scripts-source-control

@@ -1,9 +1,9 @@
-﻿<properties title="DocumentDB limits for the preview release" pageTitle="미리 보기 릴리스의 DocumentDB 한도 | Azure" description="미리 보기 릴리스용 DocumentDB의 한도 및 할당량 적용에 대해 알아봅니다." metaKeywords="" services="documentdb" solutions="data-management"  authors="bradsev" manager="jhubbard" editor="cgronlun"  videoId="" scriptId="" />
+<properties title="DocumentDB limits for the preview release" pageTitle="미리 보기 릴리스의 DocumentDB 한도 | Azure" description="미리 보기 릴리스용 DocumentDB의 한도 및 할당량 적용에 대해 알아봅니다." metaKeywords="" services="documentdb" solutions="data-management"  authors="bradsev" manager="jhubbard" editor="cgronlun"  videoId="" scriptId="" />
 
 <tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="spelluru" />
 
 
-#DocumentDB 미리 보기 릴리스의 한도
+# DocumentDB 미리 보기 릴리스의 한도
 다음 표에서는 DocumentDB 미리 보기 릴리스의 한도 및 할당량 적용에 대해 설명합니다. 대부분의 경우 한도는 사용자 의견을 얻기 위해 또는 현재 용량 제약 조건에 따라 적용됩니다. 한도 완화가 필요한 비즈니스 요구가 있을 경우 Microsoft로 문의하시면 일반 사용자 제공의 제약 조건 내에서 요구를 수용하기 위해 최선을 다할 것입니다.    
 
 |엔터티 |할당량(미리 보기 릴리스의 표준 제공)|

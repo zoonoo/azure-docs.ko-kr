@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Appcelerator Titanium에 대해 Azure 모바일 서비스 시작" metaKeywords="" description="이 자습서에 따라 Azure 모바일 서비스를 사용하여 Appcelerator 개발을 시작할 수 있습니다. " metaCanonical="" services="" documentationCenter="Mobile" title="Get started with Mobile Services" authors="Appcelerator team;mahender" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="Appcelerator Titanium에 대해 Azure 모바일 서비스 시작" metaKeywords="" description="이 자습서에 따라 Azure 모바일 서비스를 사용하여 Appcelerator 개발을 시작할 수 있습니다. " metaCanonical="" services="" documentationCenter="Mobile" title="Get started with Mobile Services" authors="Appcelerator team;mahender" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-appcelerator" ms.devlang="multiple" ms.topic="article" ms.date="11/24/2014" ms.author="Appcelerator team;mahender" />
 
@@ -89,7 +89,7 @@ Microsoft Azure에 호스트된 새 모바일 서비스에 POST 요청이 전송
 ## <a name="next-steps"> </a>다음 단계
 이제 퀵 스타트를 완료했으며 모바일 서비스에서 중요한 추가 작업을 수행하는 방법을 알아보겠습니다. 
 
-* [인증 시작](영문)
+* [인증 시작(영문)]
   <br/>ID 공급자를 사용하여 앱 사용자를 인증하는 방법을 알아봅니다.
 
 * [푸시 알림 시작] 
@@ -112,8 +112,8 @@ Microsoft Azure에 호스트된 새 모바일 서비스에 POST 요청이 전송
 
 <!-- URLs. -->
 [Todolist 응용 프로그램]: http://go.microsoft.com/fwlink/p/?LinkId=506859
-[Appcelerator Titanium](영문): http://go.microsoft.com/fwlink/p/?LinkID=509987
-[인증 시작](영문): /ko-kr/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-users
+[Appcelerator Titanium]: http://go.microsoft.com/fwlink/p/?LinkID=509987
+[인증 시작(영문)]: /ko-kr/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-users
 [푸시 알림 시작]: /ko-kr/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push
 
 <!--HONumber=35.1-->

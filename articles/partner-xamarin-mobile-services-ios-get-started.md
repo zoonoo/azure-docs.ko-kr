@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Xamarin iOS 앱에 대해 모바일 서비스 시작" metaKeywords="" description="이 자습서에 따라 Azure 모바일 서비스를 사용하여 Xamarin iOS 개발을 시작할 수 있습니다." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with Mobile Services" authors="craigd" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="Xamarin iOS 앱에 대해 모바일 서비스 시작" metaKeywords="" description="이 자습서에 따라 Azure 모바일 서비스를 사용하여 Xamarin iOS 개발을 시작할 수 있습니다." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with Mobile Services" authors="craigd" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="hero-article" ms.date="11/22/2014" ms.author="craig.dunn@xamarin.com" />
 
@@ -86,13 +86,13 @@
 ## <a name="next-steps"> </a>다음 단계
 이제 퀵 스타트를 완료했으며 모바일 서비스에서 중요한 추가 작업을 수행하는 방법을 알아보겠습니다. 
 
-* [데이터 시작](영문)
+* [데이터 시작(영문)]
   <br/>모바일 서비스를 사용하여 데이터를 저장 및 쿼리하는 방법에 대해 자세히 알아보세요.
 
 * [오프라인 데이터 동기화 시작]
   <br/>오프라인 데이터 동기화를 활용하여 앱의 응답성과 견고성을 향상하는 방법을 알아봅니다.
 
-* [인증 시작](영문)
+* [인증 시작(영문)]
   <br/>ID 공급자를 사용하여 앱 사용자를 인증하는 방법을 알아봅니다.
 
 * [푸시 알림 시작] 
@@ -117,12 +117,12 @@
 
 
 <!-- URLs. -->
-[데이터 시작](영문): /ko-kr/develop/mobile/tutorials/get-started-with-data-xamarin-ios
+[데이터 시작(영문)]: /ko-kr/develop/mobile/tutorials/get-started-with-data-xamarin-ios
 [오프라인 데이터 동기화 시작]: /ko-kr/develop/mobile/tutorials/mobile-services-xamarin-ios-get-started-offline-data
-[인증 시작](영문): /ko-kr/develop/mobile/tutorials/get-started-with-users-xamarin-ios
+[인증 시작(영문)]: /ko-kr/develop/mobile/tutorials/get-started-with-users-xamarin-ios
 [푸시 알림 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-push-xamarin-ios
 
-[Xamarin Studio](영문): http://xamarin.com/download
+[Xamarin Studio]: http://xamarin.com/download
 [모바일 서비스 iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 
 [관리 포털]: https://manage.windowsazure.com/

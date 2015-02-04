@@ -25,8 +25,8 @@ Azure 테이블 저장소 서비스는 다량의 구조화된 데이터를
 ![Table1][Table1]
 
 -   **URL 형식:** 코드에서 다음 주소 형식을 사용하여 계정의 테이블
-    주소를 지정합니다.
-    http://`<storage account>`.table.core.windows.net/`<table>`
+    주소를 지정합니다.   
+    http://`<storage account>`.table.core.windows.net/`<table>`  
 
     OData 프로토콜과 함께 이 주소를 사용하여 Azure 테이블 주소를 직접
     지정할 수 있습니다. 자세한 내용은 [OData.org][OData.org]를 참조하세요.

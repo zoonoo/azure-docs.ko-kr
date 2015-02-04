@@ -1,4 +1,4 @@
-﻿<properties pageTitle="PhoneGap에서 모바일 서비스 시작 | 모바일 개발자 센터" metaKeywords="" description="이 자습서에 따라 Azure 모바일 서비스를 사용하여 iOS, Android 및 Windows Phone용 PhoneGap 개발을 시작할 수 있습니다." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="PhoneGap에서 모바일 서비스 시작 | 모바일 개발자 센터" metaKeywords="" description="이 자습서에 따라 Azure 모바일 서비스를 사용하여 iOS, Android 및 Windows Phone용 PhoneGap 개발을 시작할 수 있습니다." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-phonegap" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="glenga" />
 
@@ -19,8 +19,8 @@
 PhoneGap은 다중 플랫폼용 개발을 지원합니다. PhoneGap 도구 자체 외에도 각각의 대상 플랫폼에 맞는 도구를 설치해야 합니다.
 
 - Windows Phone: [Visual Studio 2012 Express for Windows Phone] 설치(https://go.microsoft.com/fwLink/p/?LinkID=268374)
-- iOS: [Xcode](영문) 설치(v4.4+ 필요)
-- Android: [Android Developer Tools][Android SDK](영문) 설치
+- iOS: [Xcode(영문)] 설치(v4.4+ 필요)
+- Android: [Android Developer Tools(영문)][Android SDK] 설치
 	<br/>(Android용 모바일 서비스 SDK는 Android 2.2 이상용 앱을 지원합니다. 퀵 스타트 앱을 실행하려면 Android 4.2 이상이 필요합니다.)
 
 ## <a name="create-new-service"> </a>새 모바일 서비스 만들기
@@ -137,10 +137,10 @@ PhoneGap은 다중 플랫폼용 개발을 지원합니다. PhoneGap 도구 자�
 ## <a name="next-steps"> </a>다음 단계
 이제 퀵 스타트를 완료했으며 모바일 서비스에서 중요한 추가 작업을 수행하는 방법을 알아보겠습니다. 
 
-* [데이터 시작](영문)
+* [데이터 시작(영문)]
   <br/>모바일 서비스를 사용하여 데이터를 저장 및 쿼리하는 방법에 대해 자세히 알아보세요.
 
-* [인증 시작](영문)
+* [인증 시작(영문)]
   <br/>ID 공급자를 사용하여 앱 사용자를 인증하는 방법을 알아봅니다.
   
 <!-- Images. -->
@@ -151,12 +151,12 @@ PhoneGap은 다중 플랫폼용 개발을 지원합니다. PhoneGap 도구 자�
 [4]: ./media/mobile-services-javascript-backend-phonegap-get-started/mobile-portal-quickstart-android.png
 
 <!-- URLs. -->
-[데이터 시작](영문): /ko-kr/documentation/articles/mobile-services-html-get-started-data
-[인증 시작](영문): /ko-kr/documentation/articles/mobile-services-html-get-started-users
+[데이터 시작(영문)]: /ko-kr/documentation/articles/mobile-services-html-get-started-data
+[인증 시작(영문)]: /ko-kr/documentation/articles/mobile-services-html-get-started-users
 [푸시 알림 시작]: /ko-kr/develop/mobile/tutorials/mobile-services-html-get-started-push
-[Android SDK](영문): https://go.microsoft.com/fwLink/p/?LinkID=280125
+[Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
 [관리 포털]: https://manage.windowsazure.com/
-[Xcode](영문): https://go.microsoft.com/fwLink/p/?LinkID=266532
+[Xcode(영문)]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Visual Studio 2012 Express for Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374
 
 

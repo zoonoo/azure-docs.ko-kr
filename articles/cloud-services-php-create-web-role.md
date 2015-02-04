@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Create Web and Worker Roles" pageTitle="웹 및 작업자 역할 만들기" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="PHP" title="How to create PHP web and worker roles" authors="tomfitz" solutions="" manager="wpickett" editor="mollybos" />
+<properties urlDisplayName="Create Web and Worker Roles" pageTitle="웹 및 작업자 역할 만들기" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="PHP" title="How to create PHP web and worker roles" authors="tomfitz" solutions="" manager="wpickett" editor="mollybos" />
 
 <tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="10/28/2014" ms.author="tomfitz" />
 
@@ -194,7 +194,7 @@ Azure 계산 및 저장소 에뮬레이터는 클라우드에 배포하기 전�
 	Role is running at http://127.0.0.1:81
 	Started
 
-웹 브라우저를 열고 출력에 표시된 로컬 주소(위 예제 출력의 'http://127.0.0.1:81')로 이동하면 에뮬레이터에서 실행 중인 응용 프로그램을 볼 수 있습니다.
+웹 브라우저를 열고 출력에 표시된 로컬 주소(위 예제 출력의 `http://127.0.0.1:81`)로 이동하면 에뮬레이터에서 실행 중인 응용 프로그램을 볼 수 있습니다.
 
 에뮬레이터를 중지하려면 다음 명령을 실행합니다.
 

@@ -1,4 +1,4 @@
-﻿<properties title="Troubleshooting Azure Websites in Visual Studio" pageTitle="Visual Studio에서 Azure 웹 사이트 문제 해결" metaKeywords="문제 해결 디버그 azure 웹 사이트 추적 로깅" description="Visual Studio 2013에서 기본 제공되는 원격 디버깅, 추적 및 로깅 도구를 사용하여 Azure 웹 사이트 문제를 해결하는 방법에 대해 알아봅니다." metaCanonical="" services="web-sites" documentationCenter=".NET" authors="tdykstra" manager="wpickett" solutions="" />
+<properties title="Troubleshooting Azure Websites in Visual Studio" pageTitle="Visual Studio에서 Azure 웹 사이트 문제 해결" metaKeywords="문제 해결 디버그 azure 웹 사이트 추적 로깅" description="Visual Studio 2013에서 기본 제공되는 원격 디버깅, 추적 및 로깅 도구를 사용하여 Azure 웹 사이트 문제를 해결하는 방법에 대해 알아봅니다." metaCanonical="" services="web-sites" documentationCenter=".NET" authors="tdykstra" manager="wpickett" solutions="" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/13/2014" ms.author="tdykstra" />
 
@@ -54,7 +54,7 @@ Visual Studio를 사용하면 관리 포털에서 사용할 수 있는 사이트
 	계정에 액세스할 수 있게 해 주는 또 다른 방법은 관리 인증서를 설치하는 것입니다. 관리 인증서는 추가 Azure 서비스(SQL 데이터베이스 및 모바일 서비스)에 대한 액세스 권한을 **서버 탐색기**에 부여합니다. 인증서를 설치하도록 선택한 경우 **서버 탐색기**에서 **Azure** 노드를 마우스 오른쪽 단추로 클릭한 후 상황에 맞는 메뉴에서 **구독 관리**를 클릭합니다. **Azure 구독 관리** 대화 상자에서 **인증서** 탭을 클릭한 후 **가져오기**를 클릭합니다. 지침에 따라 Azure 계정에 대한 구독 파일(*.publishsettings* 파일이라고도 함)을 다운로드하고 가져옵니다.
 
 	> [WACOM.NOTE]
-	구독 파일을 다운로드한 경우 소스 코드 디렉터리 외부 폴더(예: Downloads 폴더)에 구독 파일을 저장한 다음 가져오기가 완료되면 해당 파일을 삭제해야 합니다. 악의적인 사용자가 구독 파일에 액세스할 경우 Azure 서비스를 편집, 생성 및 삭제할 수 있습니다.
+	> 구독 파일을 다운로드한 경우 소스 코드 디렉터리 외부 폴더(예: Downloads 폴더)에 구독 파일을 저장한 다음 가져오기가 완료되면 해당 파일을 삭제해야 합니다. 악의적인 사용자가 구독 파일에 액세스할 경우 Azure 서비스를 편집, 생성 및 삭제할 수 있습니다.
 
 	Visual Studio에서 Azure 리소스에 연결하는 방법에 대한 자세한 내용은 [계정, 구독 및 관리 역할 관리](http://go.microsoft.com/fwlink/?LinkId=324796#BKMK_AccountVCert)를 참조하세요.
 

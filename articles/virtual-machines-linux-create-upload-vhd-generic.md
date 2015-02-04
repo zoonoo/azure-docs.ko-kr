@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Upload a Linux VHD" pageTitle="Azure에서 Linux VHD 만들기 및 업로드" metaKeywords="Azure VHD, uploading Linux VHD" description="Linux 운영 체제가 포함된 Azure VHD(가상 하드 디스크)를 만들고 업로드하는 방법에 대해 알아봅니다." metaCanonical="" services="virtual-machines" documentationCenter="" title="Creating and Uploading a Virtual Hard Disk that Contains a Linux Operating System" authors="szarkos" solutions="" manager="timlt" editor="tysonn" />
+<properties urlDisplayName="Upload a Linux VHD" pageTitle="Azure에서 Linux VHD 만들기 및 업로드" metaKeywords="Azure VHD, uploading Linux VHD" description="Linux 운영 체제가 포함된 Azure VHD(가상 하드 디스크)를 만들고 업로드하는 방법에 대해 알아봅니다." metaCanonical="" services="virtual-machines" documentationCenter="" title="Creating and Uploading a Virtual Hard Disk that Contains a Linux Operating System" authors="szarkos" solutions="" manager="timlt" editor="tysonn" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="06/05/2014" ms.author="szarkos" />
 
@@ -22,7 +22,7 @@ Azure에서 실행되는 모든 배포가 플랫폼에서 올바르게 실행되
 이 문서의 나머지 부분에서는 Azure에서 Linux 배포를 실행하기 위한 일반 지침을 주로 제공합니다.
 
 
-##일반 Linux 설치 참고 사항##
+## 일반 Linux 설치 참고 사항##
 
 - 새 VHDX 형식은 Azure에서 지원되지 않습니다. Hyper-V 관리자 또는 convert-vhd cmdlet을 사용하여 디스크를 VHD 형식으로 변환할 수 있습니다.
 

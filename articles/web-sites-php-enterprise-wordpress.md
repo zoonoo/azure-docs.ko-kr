@@ -1,12 +1,12 @@
-﻿<properties title="Enterprise class WordPress on Azure Websites" pageTitle="Azure 웹 사이트의 엔터프라이즈급 WordPress" description="Azure 웹 사이트에 엔터프라이즈급 WordPress를 호스트하는 방법을 알아봅니다." metaKeywords="wordpress azure, wordpress website, wordpress azure website" services="web-sites" solutions="web" documentationCenter="" authors="tomfitz" manager="wpickett" videoId="" scriptId="" />
+<properties title="Enterprise class WordPress on Azure Websites" pageTitle="Azure 웹 사이트의 엔터프라이즈급 WordPress" description="Azure 웹 사이트에 엔터프라이즈급 WordPress를 호스트하는 방법을 알아봅니다." metaKeywords="wordpress azure, wordpress website, wordpress azure website" services="web-sites" solutions="web" documentationCenter="" authors="tomfitz" manager="wpickett" videoId="" scriptId="" />
 
 <tags ms.service="web-sites" ms.devlang="php" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="web" ms.date="11/11/2014" ms.author="tomfitz" />
 
-#Azure 웹 사이트의 엔터프라이즈급 WordPress
+# Azure 웹 사이트의 엔터프라이즈급 WordPress
 
 Azure 웹 사이트는 중요 업무용 대규모 [WordPress][wordpress] 사이트를 위한 확장 가능하고 안전하고 사용하기 쉬운 환경을 제공합니다. Microsoft는 자체적으로 [Office][officeblog] 및 [Bing][bingblog] 블로그와 같은 엔터프라이즈급 사이트를 운영하고 있습니다. 이 문서에서는 Azure 웹 사이트를 사용하여 대규모 방문자를 처리할 수 있는 엔터프라이즈급 클라우드 기반 WordPress 사이트를 설정하고 유지 관리하는 방법을 보여 줍니다.
 
-##이 문서에서는 다음 내용을 설명합니다. 
+## 이 문서에서는 다음 내용을 설명합니다. 
 
 * [아키텍처 및 계획](#planning) - 사이트를 만들기 전에 아키텍처, 요구 사항 및 성능 고려 사항에 대해 알아봅니다.
 
@@ -14,7 +14,7 @@ Azure 웹 사이트는 중요 업무용 대규모 [WordPress][wordpress] 사이�
 
 * [추가 리소스](#resources) - 추가 리소스 및 정보
 
-##<a id="plan"></a>아키텍처 및 계획
+## <a id="plan"></a>아키텍처 및 계획
 
 기본 WordPress 설치는 두 가지 요구 사항만 충족하면 됩니다.
 
@@ -26,7 +26,7 @@ Azure 웹 사이트는 중요 업무용 대규모 [WordPress][wordpress] 사이�
 
 	> [WACOM.NOTE] 최신 버전의 PHP에서 실행하여 최신 보안 픽스를 설치하는 것이 좋습니다.
 
-###기본 배포
+### 기본 배포
 
 기본적인 요구 사항만 사용하면 Azure 지역 내에서 기본 솔루션을 만들 수 있습니다.
 
@@ -35,7 +35,7 @@ Azure 웹 사이트는 중요 업무용 대규모 [WordPress][wordpress] 사이�
 이를 통해 웹 사이트의 여러 인스턴스를 만들어 응용 프로그램을 확장할 수 있지만 모든 항목은 특정 지리적 영역에 있는 데이터 센터 내에 호스트됩니다. 이 지역 외부의 방문자는 이 사이트를 사용할 때 느린 응답 시간을 경험할 수 있으며 이 지역의 데이터 센터가 작동 중단되면 응용 프로그램도 작동 중단됩니다.
 
 
-###다중 지역 배포
+### 다중 지역 배포
 
 Azure [트래픽 관리자][trafficmanager]를 사용하여 방문자에게 단일 URL만 제공하면서 여러 지리적 지역으로 WordPress 사이트를 확장할 수 있습니다. 모든 방문자는 트래픽 관리자를 통해 들어온 다음 부하 분산 구성에 따라 지역으로 라우팅됩니다.
 
@@ -45,7 +45,7 @@ Azure [트래픽 관리자][trafficmanager]를 사용하여 방문자에게 단�
 
 여러 MySQL 데이터베이스로의 복제 및 라우팅은 ClearDB의 [CDBR 고가용성 라우터][cleardbscale](왼쪽에 표시) 또는 [MySQL 클러스터 CGE][cge]를 사용하여 수행될 수 있습니다. 
 
-###미디어 저장소 및 캐싱을 사용한 다중 지역 배포
+### 미디어 저장소 및 캐싱을 사용한 다중 지역 배포
 
 사이트가 업로드를 허용하거나 미디어 파일을 호스트하는 경우에는 Azure Blob 저장소를 사용합니다. 캐싱이 필요한 경우 [Redis 캐시][rediscache], [Memcache 클라우드](http://azure.microsoft.com/ko-kr/gallery/store/garantiadata/memcached/), [MemCachier](http://azure.microsoft.com/ko-kr/gallery/store/memcachier/memcachier/) 또는 [Azure 스토어](http://azure.microsoft.com/ko-kr/gallery/store/)의 기타 캐싱 서비스 중 하나를 고려하세요.
 
@@ -53,11 +53,11 @@ Azure [트래픽 관리자][trafficmanager]를 사용하여 방문자에게 단�
 
 Blob 저장소는 기본적으로 여러 지역에 지리적으로 분산되어 있으므로 모든 사이트에 파일을 복제하는 문제를 걱정할 필요가 없습니다. Blob 저장소에 대해 Azure [CDN(Content Distribution Network)][cdn]을 사용하도록 설정할 수도 있습니다. 그러면 여기서 파일을 방문자에게 가까운 끝 노드로 분산합니다.
 
-###계획
+### 계획
 
-####추가 요구 사항
+#### 추가 요구 사항
 
-원하는 작업.. 사용 기능...
+원하는 작업... | 사용 기능...
 ------------------------|-----------
 **큰 파일 업로드 또는 저장** | [Blob 저장소 사용을 위한 WordPress 플러그 인][storageplugin]
 **메일 보내기** | [SendGrid][storesendgrid] 및 [SendGrid 사용을 위한 WordPress 플러그 인][sendgridplugin]
@@ -67,24 +67,24 @@ Blob 저장소는 기본적으로 여러 지역에 지리적으로 분산되어 
 **모니터링 및 문제 해결** | [Azure 웹 사이트를 사용하는 진단 로깅][log] 및 [Azure 웹 사이트 모니터링][monitor]
 **사이트 배포** | [Azure 웹 사이트 배포][deploy]
 
-####가용성 및 재해 복구
+#### 가용성 및 재해 복구
 
-원하는 작업.. 사용 기능...
+원하는 작업... | 사용 기능...
 ------------------------|-----------
 **사이트 부하 분산** 또는 **사이트 지리적으로 분산** | [Azure 트래픽 관리자를 사용한 트래픽 라우팅][trafficmanager]
 **백업 및 복원** | [Azure 웹 사이트 백업][backup] 및 [Azure 웹 사이트 복원][restore]
 
-####성능
+#### 성능
 
 클라우드의 성능은 주로 캐싱 및 확장을 통해 구현되지만 웹 사이트 호스팅의 메모리, 대역폭 및 기타 특성도 고려해야 합니다.
 
-원하는 작업.. 사용 기능...
+원하는 작업... | 사용 기능...
 ------------------------|-----------
 **웹 사이트 인스턴스 기능 이해** |  [웹 사이트 크기 및 모드 기능을 비롯한 가격 정보][websitepricing]
 **캐시 리소스** | [Redis 캐시][rediscache], [Memcache 클라우드](http://azure.microsoft.com/ko-kr/gallery/store/garantiadata/memcached/), [MemCachier](http://azure.microsoft.com/ko-kr/gallery/store/memcachier/memcachier/) 또는 [Azure 스토어](http://azure.microsoft.com/ko-kr/gallery/store/)
 **응용 프로그램 크기 조정** | [Azure 웹 사이트 크기 조정][websitescale] 및 [ClearDB 고가용성 라우팅][cleardbscale]. 자체 MySQL 설치를 호스트하고 관리하도록 선택한 경우 확장을 위해 [MySQL 클러스터 CGE][cge]를 고려하는 것이 좋습니다.
 
-####마이그레이션
+#### 마이그레이션
 
 기존 WordPress 사이트를 Azure 웹 사이트로 마이그레이션하는 방법에는 두 가지가 있습니다.
 
@@ -94,9 +94,9 @@ Blob 저장소는 기본적으로 여러 지역에 지리적으로 분산되어 
 
 * **수동 마이그레이션** - [사이트][wordpressbackup] 및 [데이터베이스를 백업][wordpressdbbackup]한 다음 Azure 웹 사이트 및 관련 MySQL 데이터베이스에 수동으로 복원하여 고가용성 사이트를 마이그레이션하고, 플러그 인, 테마 및 사용자 지정 내용을 수동으로 설치하는 번거로움을 피할 수 있습니다.
 
-##방법
+## 방법
 
-###<a id="create"></a>새 WordPress 사이트 만들기
+### <a id="create"></a>새 WordPress 사이트 만들기
 
 1. [Azure 스토어][cdbnstore]를 사용하여 사이트를 호스트할 지역에 [아키텍처 및 계획](#planning) 섹션에서 확인한 크기의 MySQL 데이터베이스를 만듭니다.
 
@@ -104,7 +104,7 @@ Blob 저장소는 기본적으로 여러 지역에 지리적으로 분산되어 
 
 기존 WordPress 사이트를 마이그레이션하는 경우 새 사이트를 만든 후에 [기존 WordPress 사이트 마이그레이션](#migrate) 을 참조하세요.
 
-###<a id="migrate"></a>기존 WordPress 사이트를 Azure로 마이그레이션
+### <a id="migrate"></a>기존 WordPress 사이트를 Azure로 마이그레이션
 
 [아키텍처 및 계획](#planning) 섹션에 언급된 것처럼 WordPress 웹 사이트를 마이그레이션하는 방법에는 두 가지가 있습니다.
 
@@ -114,7 +114,7 @@ Blob 저장소는 기본적으로 여러 지역에 지리적으로 분산되어 
 
 다음 섹션 중 하나를 사용하여 사이트를 마이그레이션합니다.
 
-####내보내기 및 가져오기 방법
+#### 내보내기 및 가져오기 방법
 
 1. [WordPress 내보내기][export]를 사용하여 기존 사이트를 내보냅니다.
 
@@ -139,7 +139,7 @@ Blob 저장소는 기본적으로 여러 지역에 지리적으로 분산되어 
 **테마** | **모양** -> **테마**로 이동한 후 필요에 따라 웹 사이트 테마 업데이트
 **메뉴** | 테마가 메뉴를 지원하는 경우 홈페이지에 대한 링크에 이전 하위 디렉터리가 포함되어 있을 수 있습니다. **모양** -> **메뉴**로 이동한 후 업데이트
 
-####백업 및 복원 방법
+#### 백업 및 복원 방법
 
 1. [WordPress 백업][wordpressbackup]의 정보를 사용하여 기존 WordPress 사이트를 백업합니다.
 
@@ -171,11 +171,11 @@ Blob 저장소는 기본적으로 여러 지역에 지리적으로 분산되어 
 
 5. WordPress 사이트가 배포되면 사이트에 대한 *.azurewebsite.net URL을 사용하여 새 사이트에 액세스할 수 있어야 합니다.
 
-###사이트 구성
+### 사이트 구성
 
 WordPress 사이트가 만들어지거나 마이그레이션되면 다음 정보를 사용하여 성능을 향상시키거나 추가 기능을 사용하도록 설정합니다.
 
-원하는 작업.. 사용 기능...
+원하는 작업... | 사용 기능...
 ------------- | -----------
 **웹 사이트 모드, 크기 및 확장 설정** | [웹 사이트를 확장하는 방법][websitescale]
 **영구 데이터베이스 연결 사용** <p>기본적으로 WordPress는 영구 데이터베이스 연결을 사용하지 않으므로 여러 번 연결된 후에 데이터베이스에 대한 연결이 조절될 수 있습니다.</p>  | <ol><li><p>Edit the <strong>wp-includes/wp-db.php</strong> file.</p></li><li><p>Find the following line.</p><code>$this->dbh = mysql_connect( $this->dbhost, $this->dbuser, $this->dbpassword, $new_link, $client_flags );</code></li><li><p>Replace the previous line with the following.</p><code>$this->dbh = mysql_pconnect( $this->dbhost, $this->dbuser, $this->dbpassword,  $client_flags ); <br/>if ( false !== $error_reporting ) { /br/>&nbsp;&nbsp;error_reporting( $error_reporting ); <br/>} </code></li><li><p>Find the following line.</p><code>$this->dbh = @mysql_connect( $this->dbhost, $this->dbuser, $this->dbpassword, $new_link, $client_flags ); </code></li><li><p>Replace the above line with the following.</p><code>$this->dbh = @mysql_pconnect( $this->dbhost, $this->dbuser, $this->dbpassword,  $client_flags ); </code></li><li><p>Save the file <strong>wp-includes/wp-db.php</strong> file and redeploy the site.</p></li></ol><div class="wa-note"><span class="wa-icon-bulb"></span><h5><a name="note"></a>참고:</h5><p>이러한 변경 내용은 WordPress가 업데이트될 때 덮어쓰여질 수 있습니다.</p><p>WordPress는 기본적으로 자동 업데이트되며, 이러한 자동 업데이트는 <strong>wp-config.php</strong> 파일을 편집하고 <code>define ( 'WP_AUTO_UPDATE_CORE', false )을 추가하여 사용하지 않도록 설정할 수 있습니다.</code></p><p>또 다른 업데이트 주소 지정 방법은 <strong>wp-db.php</strong> 파일을 모니터링하고 파일이 업데이트될 때마다 위와 같이 수정하는 WebJob을 사용하는 것입니다. 자세한 내용은 <a href="http://www.hanselman.com/blog/IntroducingWindowsAzureWebJobs.aspx">WebJob 소개</a> 를 참조하세요.</p></div>
@@ -188,43 +188,43 @@ WordPress 사이트가 만들어지거나 마이그레이션되면 다음 정보
 **자동 웹 사이트 백업 사용** | [Azure 웹 사이트 백업][backup]
 **진단 로깅 사용** | [웹 사이트에 대해 진단 로깅 사용][log]
 
-##<a href="resources"></a>추가 리소스
+## <a href="resources"></a>추가 리소스
 
-* [WordPress 최적화](영문)(http://codex.wordpress.org/WordPress_Optimization)
+* [WordPress 최적화 (영문)](http://codex.wordpress.org/WordPress_Optimization)
 
-* [WordPress 사이트를 멀티 사이트로 변환](영문)(http://azure.microsoft.com/ko-kr/documentation/articles/web-sites-php-convert-wordpress-multisite/)
+* [WordPress 사이트를 멀티 사이트로 변환 (영문)](http://azure.microsoft.com/ko-kr/documentation/articles/web-sites-php-convert-wordpress-multisite/)
 
-* [Azure용 ClearDB 업그레이드 마법사](영문)(http://www.cleardb.com/store/azure/upgrade)
+* [Azure용 ClearDB 업그레이드 마법사 (영문)](http://www.cleardb.com/store/azure/upgrade)
 
-* [Azure 웹 사이트의 하위 폴더에 WordPress 호스트](영문)(http://blogs.msdn.com/b/webapps/archive/2013/02/13/hosting-wordpress-in-a-subfolder-of-your-windows-azure-web-site.aspx)
+* [Azure 웹 사이트의 하위 폴더에 WordPress 호스트 (영문)](http://blogs.msdn.com/b/webapps/archive/2013/02/13/hosting-wordpress-in-a-subfolder-of-your-windows-azure-web-site.aspx)
 
-* [단계별 작업: Azure를 사용하여 WordPress 사이트 만들기](영문)(http://blogs.technet.com/b/blainbar/archive/2013/08/07/article-create-a-wordpress-site-using-windows-azure-read-on.aspx)
+* [단계별 작업: Azure를 사용하여 WordPress 사이트 만들기 (영문)](http://blogs.technet.com/b/blainbar/archive/2013/08/07/article-create-a-wordpress-site-using-windows-azure-read-on.aspx)
 
-* [Azure에 기존 WordPress 블로그 호스트](영문)(http://blogs.msdn.com/b/msgulfcommunity/archive/2013/08/26/migrating-a-self-hosted-wordpress-blog-to-windows-azure.aspx)
+* [Azure에 기존 WordPress 블로그 호스트 (영문)](http://blogs.msdn.com/b/msgulfcommunity/archive/2013/08/26/migrating-a-self-hosted-wordpress-blog-to-windows-azure.aspx)
 
 * [WordPress에서 멋진 permalinks 사용](영문)(http://www.iis.net/learn/extensions/url-rewrite-module/enabling-pretty-permalinks-in-wordpress)
 
-* [Azure 웹 사이트에서 WordPress 블로그를 마이그레이션 및 실행하는 방법](영문)(http://www.kefalidis.me/2012/06/how-to-migrate-and-run-your-wordpress-blog-on-windows-azure-websites/)
+* [Azure 웹 사이트에서 WordPress 블로그를 마이그레이션 및 실행하는 방법 (영문)](http://www.kefalidis.me/2012/06/how-to-migrate-and-run-your-wordpress-blog-on-windows-azure-websites/)
 
-* [Azure 웹 사이트에서 무료로 WordPress를 실행하는 방법](영문)(http://architects.dzone.com/articles/how-run-wordpress-azure)
+* [Azure 웹 사이트에서 무료로 WordPress를 실행하는 방법 (영문)](http://architects.dzone.com/articles/how-run-wordpress-azure)
 
-* [2분 이내의 Azure WordPress](영문)(http://www.sitepoint.com/wordpress-windows-azure-2-minutes-less/)
+* [2분 이내의 Azure WordPress (영문)](http://www.sitepoint.com/wordpress-windows-azure-2-minutes-less/)
 
-* [WordPress 블로그를 Azure로 이동 - 1부:(영문) Azure에 WordPress 블로그 만들기](영문)(http://www.davebost.com/2013/07/10/moving-a-wordpress-blog-to-windows-azure-part-1)
+* [WordPress 블로그를 Azure로 이동 - 1부:(영문) Azure에 WordPress 블로그 만들기 (영문)](http://www.davebost.com/2013/07/10/moving-a-wordpress-blog-to-windows-azure-part-1)
 
-* [WordPress 블로그를 Azure로 이동 - 2부:(영문) 콘텐츠 전송](영문)(http://www.davebost.com/2013/07/11/moving-a-wordpress-blog-to-windows-azure-transferring-your-content)
+* [WordPress 블로그를 Azure로 이동 - 2부:(영문) 콘텐츠 전송 (영문)](http://www.davebost.com/2013/07/11/moving-a-wordpress-blog-to-windows-azure-transferring-your-content)
 
-* [WordPress 블로그를 Azure로 이동 - 3부:(영문) 사용자 지정 도메인 설정](영문)(http://www.davebost.com/2013/07/11/moving-a-wordpress-blog-to-windows-azure-part-3-setting-up-your-custom-domain)
+* [WordPress 블로그를 Azure로 이동 - 3부:(영문) 사용자 지정 도메인 설정 (영문)](http://www.davebost.com/2013/07/11/moving-a-wordpress-blog-to-windows-azure-part-3-setting-up-your-custom-domain)
 
-* [WordPress 블로그를 Azure로 이동 - 4부:(영문) 멋진 permalinks 및 URL 다시 쓰기 규칙](영문)(http://www.davebost.com/2013/07/11/moving-a-wordpress-blog-to-windows-azure-part-4-pretty-permalinks-and-url-rewrite-rules)
+* [WordPress 블로그를 Azure로 이동 - 4부:(영문) 멋진 permalinks 및 URL 다시 쓰기 규칙 (영문)](http://www.davebost.com/2013/07/11/moving-a-wordpress-blog-to-windows-azure-part-4-pretty-permalinks-and-url-rewrite-rules)
 
-* [WordPress 블로그를 Azure로 이동 - 5부:(영문) 하위 폴더에서 루트로 이동](영문)(http://www.davebost.com/2013/07/11/moving-a-wordpress-blog-to-windows-azure-part-5-moving-from-a-subfolder-to-the-root)
+* [WordPress 블로그를 Azure로 이동 - 5부:(영문) 하위 폴더에서 루트로 이동 (영문)]((http://www.davebost.com/2013/07/11/moving-a-wordpress-blog-to-windows-azure-part-5-moving-from-a-subfolder-to-the-root)
 
-* [Azure 계정에서 WordPress 웹 사이트를 설정하는 방법](영문)(http://www.itexperience.net/2014/01/20/how-to-set-up-a-wordpress-website-in-your-windows-azure-account/)
+* [Azure 계정에서 WordPress 웹 사이트를 설정하는 방법 (영문)](http://www.itexperience.net/2014/01/20/how-to-set-up-a-wordpress-website-in-your-windows-azure-account/)
 
-* [Azure에서 WordPress 지원](영문)(http://www.johnpapa.net/wordpress-on-azure/)
+* [Azure에서 WordPress 지원 (영문)](http://www.johnpapa.net/wordpress-on-azure/)
 
-* [Azure의 WordPress 관련 팁](영문)(http://www.johnpapa.net/azurecleardbmysql/)
+* [Azure의 WordPress 관련 팁 (영문)](http://www.johnpapa.net/azurecleardbmysql/)
 
 [performance-diagram]: ./media/web-sites-enterprise-wordpress/performance-diagram.png
 [basic-diagram]: ./media/web-sites-enterprise-wordpress/basic-diagram.png

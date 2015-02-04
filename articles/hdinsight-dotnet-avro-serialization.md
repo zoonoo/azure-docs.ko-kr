@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="HDInsight Microsoft .NET Library for Serialization with Avro" pageTitle="Microsoft Avro 라이브러리로 데이터 직렬화 | Azure" metaKeywords="" description="Azure HDInsight에서 Avro를 사용하여 빅 데이터를 직렬화하는 방법에 대해 알아봅니다." metaCanonical="" services="hdinsight" documentationCenter="" title="Serialize data with the Microsoft Avro Library " authors="bradsev" solutions="" manager="paulettm" editor="cgronlun" />
+<properties urlDisplayName="HDInsight Microsoft .NET Library for Serialization with Avro" pageTitle="Microsoft Avro 라이브러리로 데이터 직렬화 | Azure" metaKeywords="" description="Azure HDInsight에서 Avro를 사용하여 빅 데이터를 직렬화하는 방법에 대해 알아봅니다." metaCanonical="" services="hdinsight" documentationCenter="" title="Serialize data with the Microsoft Avro Library " authors="bradsev" solutions="" manager="paulettm" editor="cgronlun" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/10/2014" ms.author="bradsev" />
 
@@ -593,13 +593,13 @@ JSON 스키마를 C# 형식으로 변환하는 동안 코드 생성 유틸리티
     // Press any key to exit.
   
 
-<h3> <a name="Scenario4"></a>Sample 4: Serialization using object container files and serialization with generic record</h3>
+<h3> <a name="Scenario4"></a>샘플 4: 컨테이너 파일을 사용한 직렬화 및 제네릭 레코드를 사용한 직렬화</h3>
 
-This example is similar to scenario in the <a href="#Scenario2"> second example</a> where the schema is explicitly specified with JSON, except that here the schema is not assumed to be known to the reader that deserializes it. 
+이 예는 스키마를 역직렬화하는 판독기에서 스키마를 모르는 것으로 간주한다는 점을 제외하고 스키마가 JSON을 통해 명시적으로 지정되는 <a href="#Scenario2"> 두 번째 예</a> 의 시나리오와 비슷합니다. 
 
-The test data set is collected into a list of [**AvroRecord**](http://msdn.microsoft.com/ko-kr/library/microsoft.hadoop.avro.avrorecord.aspx) objects using an explicitly defined JSON schema and then stored in an object container file represented by the [**AvroContainer**](http://msdn.microsoft.com/ko-kr/library/microsoft.hadoop.avro.container.avrocontainer.aspx) class. This container file creates a writer that is used to serialize the data, uncompressed, to a memory stream that is then saved to a file. It is the [**Codex.Null**](http://msdn.microsoft.com/ko-kr/library/microsoft.hadoop.avro.container.codec.null.aspx) parameter used when creating the reader that specifies this data will not be compressed. 
+테스트 데이터 집합은 명시적으로 정의된 JSON 스키마를 사용하여 [**AvroRecord**](http://msdn.microsoft.com/en-us/library/microsoft.hadoop.avro.avrorecord.aspx) 개체 목록으로 수집되고 [**AvroContainer**](http://msdn.microsoft.com/en-us/library/microsoft.hadoop.avro.container.avrocontainer.aspx) 클래스로 표현되는 개체 컨테이너 파일에 저장됩니다. 이 컨테이너 파일은 압축 해제된 데이터를 메모리 스트림으로 직렬화하여 파일에 저장하는 데 이 데이터가 압축되지 않도록 지정하는 판독기를 만들 때는 [**Codex.Null**](http://msdn.microsoft.com/en-us/library/microsoft.hadoop.avro.container.codec.null.aspx) 매개 변수가 사용됩니다. 
 
-The data is then read from the file and deserialized into a collection of objects. This collection is compared to the initial list of Avro records to confirm that they are identical.
+그런 후 파일에서 이 데이터를 읽은 다음 개체 컬렉션으로 역직렬화합니다. 이 컬렉션은 Avro 레코드 초기 목록과 비교되어 동일한지 확인됩니다.
 
 
     namespace Microsoft.Hadoop.Avro.Sample
@@ -856,11 +856,11 @@ The data is then read from the file and deserialized into a collection of object
 
 
 
-<h3> <a name="Scenario5"></a>Sample 5: Serialization using object container files with a custom compression codec</h3>
+<h3> <a name="Scenario5"></a>샘플 5: 사용자 지정 압축 코덱과 함께 개체 컨테이너 파일을 사용한 직렬화</h3>
 
-The fifth example shows how to how to use a custom compression codec for Avro Object Container files. A sample containing the code for this example can be downloaded from the  [Azure  code samples](http://code.msdn.microsoft.com/windowsazure/Serialize-data-with-the-67159111) site.
+5번째 예는 Avro 개체 컨테이너 파일에 대해 사용자 지정 압축 코덱을 사용하는 방법을 보여 줍니다. 이 예에 대한 코드를 포함하는 샘플은 [Azure 코드 샘플](http://code.msdn.microsoft.com/windowsazure/Serialize-data-with-the-67159111) (영문) 사이트에서 다운로드할 수 있습니다.
 
-The [Avro Specification](http://avro.apache.org/docs/current/spec.html#Required+Codecs) allows usage of an optional compression codec (in addition to **Null** and **Deflate** defaults). This example is not implementing completely new codec such as Snappy (mentioned as a supported optional codec in [Avro Specification](http://avro.apache.org/docs/current/spec.html#snappy)). It shows how to use the .NET Framework 4.5  implementation of the [**Deflate**][deflate-110] codec which provides a better compression algorithm based on the [zlib](http://zlib.net/) compression library than the default .NET Framework 4.0 version.
+[Avro 사양](http://avro.apache.org/docs/current/spec.html#Required+Codecs) 에서는 **Null** 및 **Deflate** 기본값 이외에 선택적 압축 코덱 사용을 허용합니다. 이 예는 Snappy([Avro 사양에 지원되는 선택적 코덱으로 명시](http://avro.apache.org/docs/current/spec.html#snappy))와 같은 완전히 새로운 코덱은 구현하지 않습니다. 기본 .NET Framework 4.0 버전이 아니라 [zlib] 압축 라이브러리에 기반을 둔 향상된 압축 알고리즘을 제공하는 [**Deflate**][deflate-110](http://zlib.net/) 코덱의 .NET Framework 4.5 구현을 사용하는 방법을 보여 줍니다.
 
 
     // 
@@ -1353,37 +1353,37 @@ The [Avro Specification](http://avro.apache.org/docs/current/spec.html#Required+
     // ----------------------------------------
     // Press any key to exit.
 
-<h3> <a name="Scenario6"></a> Example 6: Using Avro to upload data for the Microsoft Azure HDInsight service</h3>
+<h3> <a name="Scenario6"></a> 예 6: Avro를 사용하여 Microsoft Azure HDInsight 서비스에 대한 데이터 업로드</h3>
 
-The sixth example illustrates some programming techniques related to interacting with the Microsoft Azure HDInsight service. A sample containing the code for this example can be downloaded from the  [Azure code samples](https://code.msdn.microsoft.com/windowsazure/Using-Avro-to-upload-data-ae81b1e3) site.
+6번째 예는 Microsoft Azure HDInsight 서비스 조작과 관련된 몇 가지 프로그래밍 기법을 보여 줍니다. 이 예에 대한 코드를 포함하는 샘플은[Azure 코드 샘플](https://code.msdn.microsoft.com/windowsazure/Using-Avro-to-upload-data-ae81b1e3) (영문) 사이트에서 다운로드할 수 있습니다.
 
-The sample does the following:
+이 샘플은 다음을 수행합니다.
 
-* Connects to an existing HDInsight Service cluster.
-* Serializes several CSV files and uploads the result to Azure Blob storage. (The CSV files are distributed together with the sample and represent an extract from AMEX Stock historical data distributed by [Infochimps](http://www.infochimps.com/) for the period 1970-2010. The sample reads CSV file data, converts the records to instances of **Stock** class and then serializes them using reflection. Stock type definition is created from a JSON schema using Microsoft Avro Library Code Generation utility.
-* Creates a new external table called **Stocks** in Hive and links it to the data uploaded in the previous step.
-* Executes a query using Hive over the **Stocks** table.
+* 기존 HDInsight 서비스 클러스터에 연결합니다.
+* 여러 CSV 파일을 직렬화하고 결과를 Azure Blob 저장소에 업로드합니다. CSV 파일은 샘플과 함께 배포되고 1970-2010 기간에 [Infochimps](http://www.infochimps.com/) 를 통해 배포된 AMEX Stock 기록 데이터에서 추출된 자료를 나타냅니다. 이 샘플은 CSV 파일 데이터를 읽고, 레코드를 **Stock** 클래스 인스턴스로 변환하고, 리플렉션을 사용하여 직렬화합니다. Stock 형식 정의는 Microsoft Avro 라이브러리 코드 생성 유틸리티를 사용하여 JSON 스키마에서 만들어집니다.
+* Hive에서 **Stocks**라는 새 외부 테이블을 만들고 이전 단계에서 업로드한 데이터에 연결합니다.
+* Hive를 사용하여 **Stocks** 테이블에 대해 쿼리를 실행합니다.
 
-In addition, the sample performs a clean-up procedure before and after performing major operations. During the clean up, all of the related Azure Blob data and folders are removed and Hive table is dropped. You may also invoke clean up procedure from the sample command line. 
+또한 주요 작업을 수행하기 전과 수행한 후에 정리 절차를 수행합니다. 정리하는 동안 모든 관련된 Azure Blob 데이터 및 폴더가 제거되고 Hive 테이블이 삭제됩니다. 샘플 명령줄에서 정리 프로시저를 호출할 수도 있습니다. 
 
-The sample has the following prerequisites:
+이 샘플을 사용하려면 다음 필수 조건이 필요합니다.
 
-* An active Microsoft Azure Subscription and its Subscription ID
-* Management Certificate for the Subscription with the corresponding private key. The Certificate should be installed in the current user Private storage on the machine used to run the sample.
-* An active HDInsight cluster
-* An Azure Storage account linked to HDInsight Cluster from the previous prerequisite together with the corresponding Primary or Secondary access key.
+* 활성 Microsoft Azure 구독 및 해당 구독 ID
+* 해당 개인 키가 포함된 구독을 위한 관리 인증서입니다. 인증서는 샘플을 실행하는 데 사용되는 컴퓨터에 있는 현재 사용자 개인 저장소에 설치해야 합니다.
+* 활성 HDInsight 클러스터
+* 해당 주 또는 보조 액세스 키와 함께 이전 필수 조건에서 HDInsight 클러스터에 연결된 Azure 저장소 계정입니다.
 
-All of the information from the prerequisites should be entered to the sample configuration file before running the sample. There are two possible ways to do it:
+샘플을 실행하기 전에 샘플 구성 파일에 필수 조건의 모든 정보를 입력해야 합니다. 입력하는 방법에는 다음 두 가지가 있습니다.
 
-* Edit app.config file in the sample root directory and then build the sample, or 
-* First build the sample and then edit AvroHDISample.exe.config in the build directory 
+* 샘플 루트 디렉터리에서 app.config 파일을 편집하고 샘플 빌드 또는 
+* 먼저 샘플을 빌드하고 빌드 디렉터리에서 AvroHDISample.exe.config 편집 
 
-In both cases all edits should be done in the **<appSettings>** settings section. Please, follow the comments in the file.
-The sample is run from command line by executing the following command (where the ZIP file with the sample was assumed to be extracted to C:\AvroHDISample; if otherwise, use the relevant file path).
+두 경우 모두, 모든 편집을 **<appSettings>** 설정 섹션에서 수행해야 합니다. 파일의 주석을 따르세요.
+샘플을 실행하려면 명령줄에서 다음 명령을 실행합니다. 여기서는 샘플이 포함된 ZIP 파일은 C:\AvroHDISample로 추출된다고 간주했고, 이외의 경우에는 상대 파일 경로를 사용합니다.
 
     AvroHDISample run C:\AvroHDISample\Data
 
-To clean up the cluster run the following command:
+클러스터를 정리하려면 다음 명령을 실행합니다.
 
     AvroHDISample clean
 

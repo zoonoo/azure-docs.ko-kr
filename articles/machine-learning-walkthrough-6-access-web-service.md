@@ -1,25 +1,25 @@
-﻿<properties title="Step 6: Access the Azure Machine Learning web service" pageTitle="6단계: 기계 학습 웹 서비스 액세스 | Azure" description="6단계: 활성 Azure 기계 학습 API 웹 서비스 액세스" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+<properties title="Step 6: Access the Azure Machine Learning web service" pageTitle="6단계: 기계 학습 웹 서비스 액세스 | Azure" description="6단계: 활성 Azure 기계 학습 API 웹 서비스 액세스" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
 
 <tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/06/2014" ms.author="garye" />
 
 
 [Azure 기계 학습을 사용한 예측 솔루션 개발][개발] 자습서의 마지막 단계입니다.
 
-[develop]: ../machine-learning-walkthrough-develop-predictive-solution/
+[개발]: ../machine-learning-walkthrough-develop-predictive-solution/
 
 
-1.	[Create an ML workspace][create-workspace]
-2.	[Upload existing data][upload-data]
-3.	[Create a new experiment][create-new]
-모델 학습 및 평가
-5.	[웹 서비스 게시][게시]
+1.	[기계 학습 작업 영역 만들기][create-workspace]
+2.	[기존 데이터 업로드][upload-data]
+3.	[새로운 실험 만들기][create-new]
+4.	[모델 학습 및 평가][train-models]
+5.	[웹 서비스 게시][게]
 6.	**웹 서비스 액세스**
 
 [create-workspace]: ../machine-learning-walkthrough-1-create-ml-workspace/
 [upload-data]: ../machine-learning-walkthrough-2-upload-data/
 [create-new]: ../machine-learning-walkthrough-3-create-new-experiment/
 [train-models]: ../machine-learning-walkthrough-4-train-and-evaluate-models/
-[publish]: ../machine-learning-walkthrough-5-publish-web-service/
+[게]: ../machine-learning-walkthrough-5-publish-web-service/
 [access-ws]: ../machine-learning-walkthrough-6-access-web-service/
 
 ----------

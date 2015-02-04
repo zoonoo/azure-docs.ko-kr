@@ -1,12 +1,12 @@
-﻿<properties title="Getting started using Storm with Hadoop in HDInsight" pageTitle="Microsoft Azure HDInsight(Hadoop)에서 Apache Storm 사용 시작" description="HDInsight(Hadoop)에서 Apache Storm을 사용하여 데이터를 실시간으로 처리하는 방법 알아보기" metaKeywords="Azure hdinsight storm, Azure hdinsight realtime, azure hadoop storm, azure hadoop realtime, azure hadoop real-time, azure hdinsight real-time" services="hdinsight" solutions="" documentationCenter="big-data" authors="larryfr" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+<properties title="Getting started using Storm with Hadoop in HDInsight" pageTitle="Microsoft Azure HDInsight(Hadoop)에서 Apache Storm 사용 시작" description="HDInsight(Hadoop)에서 Apache Storm을 사용하여 데이터를 실시간으로 처리하는 방법 알아보기" metaKeywords="Azure hdinsight storm, Azure hdinsight realtime, azure hadoop storm, azure hadoop realtime, azure hadoop real-time, azure hdinsight real-time" services="hdinsight" solutions="" documentationCenter="big-data" authors="larryfr" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/30/2014" ms.author="larryfr" />
 
-#HDInsight(Hadoop)에서 Storm 사용 시작
+# HDInsight(Hadoop)에서 Storm 사용 시작
 
 Apache Storm은 데이터 스트림 처리용 확장 가능한 분산형 실시간 계산 시스템입니다. Azure HDInsight에서는 Storm을 사용하여 실시간 데이터 분석을 수행하는 클라우드 기반 Hadoop 클러스터를 만들 수 있습니다.
 
-##이 자습서의 내용
+## 이 자습서의 내용
 
 * [HDInsight Storm 클러스터를 프로비전하는 방법](#provision)
 
@@ -20,7 +20,7 @@ Apache Storm은 데이터 스트림 처리용 확장 가능한 분산형 실시�
 
 * [다음 단계](#next)
 
-##시작하기 전에
+## 시작하기 전에
 
 이 자습서를 성공적으로 완료하려면 다음 항목이 필요합니다.
 
@@ -30,7 +30,7 @@ Apache Storm은 데이터 스트림 처리용 확장 가능한 분산형 실시�
 
 * Apache Storm을 사용해 본 적이 없으면 먼저 [HDInsight Storm 개요](/ko-kr/documentation/articles/hdinsight-storm-overview) 문서를 확인해야 합니다.
 
-##<a id="provision"></a>Azure 포털에서 Storm 클러스터 프로비전
+## <a id="provision"></a>Azure 포털에서 Storm 클러스터 프로비전
 
 [WACOM.INCLUDE [provisioningnote](../includes/hdinsight-provisioning.md)]
 
@@ -58,11 +58,11 @@ Apache Storm은 데이터 스트림 처리용 확장 가능한 분산형 실시�
 
 	![storage account](./media/hdinsight-storm-getting-started/wizard4.png)
 
-##HDInsight Storm 사용
+## HDInsight Storm 사용
 
 HDInsight Storm의 미리 보기 릴리스에서는 Storm을 사용하려면 원격 데스크톱을 사용하여 클러스터에 연결해야 합니다. HDInsight 클러스터에 연결하고 Storm 명령을 사용하려면 다음 단계를 수행합니다.
 
-###<a id="connect"></a>클러스터에 연결
+### <a id="connect"></a>클러스터에 연결
 
 1. [Azure 관리 포털][management]을 사용하여 HDInsight에 대한 원격 데스크톱 연결을 사용하도록 설정합니다. 포털에서 HDInsight 클러스터를 선택한 다음 __구성__ 페이지의 하단에서 __원격 사용__을 선택합니다.
 
@@ -90,7 +90,7 @@ HDInsight Storm의 미리 보기 릴리스에서는 Storm을 사용하려면 원
 
 HDInsight 클러스터는 몇 가지 예제 Storm 토폴로지와 함께 제공됩니다. 샘플 **WordcountTopology**는 다음 단계에서 사용됩니다. HDInsight Storm과 함께 제공되는 예제에 대한 자세한 내용은 [다음 단계](#next)를 참조하세요.
 
-###<a id="run"></a>Storm 토폴로지를 실행하려면
+### <a id="run"></a>Storm 토폴로지를 실행하려면
 
 **WordCountTopology**를 실행하려면 다음 명령을 사용합니다.
 
@@ -102,7 +102,7 @@ HDInsight 클러스터는 몇 가지 예제 Storm 토폴로지와 함께 제공�
 
 명령을 입력해도 아무런 결과도 반환되지 않습니다. **Storm 토폴로지는 시작하면 중지할 때까지 실행됩니다.** WordCountTopology는 임의의 문장을 생성하며 중지할 때까지 각 단어가 나오는 횟수를 계산합니다.
 
-###<a id="monitor"></a>Storm 토폴로지의 상태를 모니터링하려면
+### <a id="monitor"></a>Storm 토폴로지의 상태를 모니터링하려면
 
 WordCountTopology 샘플은 디렉터리에 출력을 쓰지 않지만 Storm UI 웹 페이지를 사용하여 토폴로지의 상태와 출력을 모두 확인할 수 있습니다.
 
@@ -143,7 +143,7 @@ WordCountTopology 샘플은 디렉터리에 출력을 쓰지 않지만 Storm UI 
 
 	이 코드 조각에서 Spout가 개별 단어로 분할된 'snow white and the seven dwarfs'를 내보냈음을 확인할 수 있습니다. 또한 토폴로지가 시작된 후 각 단어가 토폴로지에서 처리된 횟수도 계산됩니다. 예를 들어 'dwarfs'라는 단어는 위의 출력을 확인할 때 Spout에 의해 8360번 내보내기되었습니다.
 
-###<a id="stop"></a>Storm 토폴로지를 중지하려면
+### <a id="stop"></a>Storm 토폴로지를 중지하려면
 
 **WordCountTopology**는 중지할 때까지 계속 실행됩니다. 토폴로지를 중지하려면 다음 명령을 사용합니다.
 
@@ -151,7 +151,7 @@ WordCountTopology 샘플은 디렉터리에 출력을 쓰지 않지만 Storm UI 
 
 이 명령을 실행한 직후에 Storm UI 웹 페이지를 표시하면 **토폴로지 요약**의 **wordcount** 상태가 KILLED로 변경되었음을 확인할 수 있습니다. 그리고 몇 초 후에는 **토폴로지 요약** 섹션에 토폴로지가 더 이상 나열되지 않습니다.
 
-##<a id="next"></a>다음 단계
+## <a id="next"></a>다음 단계
 
 * **샘플 파일** - HDInsight Storm 클러스터의 **%storm_home%\contrib** 디렉터리에서는 여러 예제가 제공됩니다. 각 예제는 다음 항목을 포함합니다.
 

@@ -1,10 +1,11 @@
-﻿<properties urlDisplayName="Queue Service" pageTitle="큐 서비스 사용 방법(Python) | Microsoft Azure" metaKeywords="Azure Queue Service messaging Python" description="Azure 큐 서비스를 사용하여 큐를 작성 및 삭제하고 메시지를 삽입하고 가져오고 삭제하는 방법에 대해 알아봅니다. 샘플은 Python으로 작성되었습니다." metaCanonical="" services="storage" documentationCenter="Python" title="How to Use the Queue Storage Service from Python" authors="huvalo" solutions="" manager="wpickett" editor="" />
+<properties urlDisplayName="Queue Service" pageTitle="큐 서비스 사용 방법(Python) | Microsoft Azure" metaKeywords="Azure Queue Service messaging Python" description="Azure 큐 서비스를 사용하여 큐를 작성 및 삭제하고 메시지를 삽입하고 가져오고 삭제하는 방법에 대해 알아봅니다. 샘플은 Python으로 작성되었습니다." metaCanonical="" services="storage" documentationCenter="Python" title="How to Use the Queue Storage Service from Python" authors="huvalo" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="09/19/2014" ms.author="robmcm" />
 
 
 
-# Python에서 큐 저장소 서비스를 사용하는 방법 이 가이드에서는 Microsoft Azure 큐 저장소 서비스를 사용하여 일반 시나리오를 수행하는 방법을 보여 줍니다. 샘플은 Python API를 사용하여 작성되었습니다. 여기서 다루는 시나리오에는 큐 메시지 **삽입**, **보기**, **가져오기** 및 **삭제**와 **큐 만들기 및 삭제**가 포함됩니다. 큐에 대한 자세한 내용은 [다음 단계][] 섹션을 참조하세요.
+# Python에서 큐 저장소 서비스를 사용하는 방법 
+이 가이드에서는 Microsoft Azure 큐 저장소 서비스를 사용하여 일반 시나리오를 수행하는 방법을 보여 줍니다. 샘플은 Python API를 사용하여 작성되었습니다. 여기서 다루는 시나리오에는 큐 메시지 **삽입**, **보기**, **가져오기** 및 **삭제**와 **큐 만들기 및 삭제**가 포함됩니다. 큐에 대한 자세한 내용은 [다음 단계][] 섹션을 참조하세요.
 
 ## 목차
 

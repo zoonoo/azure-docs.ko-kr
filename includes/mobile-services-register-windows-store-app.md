@@ -1,4 +1,4 @@
-﻿
+
 1. 앱을 아직 등록하지 않은 경우 Windows 스토어 앱용 개발자 센터에 있는 [앱 제출 페이지]로 이동하여 Microsoft 계정으로 로그온한 후 **앱 이름**을 클릭합니다.
 
    	![](./media/mobile-services-register-windows-store-app/mobile-services-submit-win8-app.png)
@@ -15,7 +15,7 @@
 
   	![](./media/mobile-services-register-windows-store-app/mobile-services-store-association.png)
 
-   	   	**응용 프로그램을 Windows 스토어에 연결** 마법사가 나타납니다.
+   	**응용 프로그램을 Windows 스토어에 연결** 마법사가 나타납니다.
 
 5. 마법사에서 **로그인**을 클릭한 후 Microsoft 계정에 로그인합니다.
 

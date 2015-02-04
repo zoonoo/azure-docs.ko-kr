@@ -1,8 +1,8 @@
-﻿<properties title="SharePoint Server Farm" pageTitle="SharePoint Server 팜" description="Azure 미리 보기 포털에서 제공되는 새로운 SharePoint Server 팜 기능에 대해 설명합니다." metaKeywords="" services="virtual-machines" solutions="" documentationCenter="" authors="josephd" videoId="" scriptId="" manager="timlt"/>
+<properties title="SharePoint Server Farm" pageTitle="SharePoint Server 팜" description="Azure 미리 보기 포털에서 제공되는 새로운 SharePoint Server 팜 기능에 대해 설명합니다." metaKeywords="" services="virtual-machines" solutions="" documentationCenter="" authors="josephd" videoId="" scriptId="" manager="timlt"/>
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-sharepoint" ms.devlang="na" ms.topic="article" ms.date="10/20/2014" ms.author="josephd" />
 
-#SharePoint Server 팜#
+# SharePoint Server 팜#
 
 SharePoint Server 팜을 사용하여 Microsoft Azure Preview 포털은 미리 구성된 SharePoint Server 2013 팜을 자동으로 생성합니다. 그러면 개발 및 테스팅 환경을 위해 기본 또는 고가용성 SharePoint 팜이 필요하거나 SharePoint Server 2013 을 조직의 협업 솔루션으로 평가하는 경우 상당한 시간이 줄어들 수 있습니다.
 
@@ -47,11 +47,11 @@ SharePoint Server 팜을 사용하여 Microsoft Azure Preview 포털은 미리 �
 - Azure Preview 포털은 인터넷 연결 웹 서비스를 사용하는 클라우드 전용 가상 네트워크에서 이러한 팜을 모두 만듭니다. 조직 네트워크에 대한 사이트 간 VPN 연결은 없습니다. 
 - 원격 데스크톱 연결을 통해 이러한 서버를 관리할 수 있습니다.
 
-##구성 단계별 실행##
+## 구성 단계별 실행##
 
 SharePoint 팜으로 SharePoint 팜을 만들려면 다음을 수행합니다.
 
-1. [Microsoft Azure Preview 포털]에서(https://portal.azure.com/)**가상 컴퓨터** > **SharePoint 서버 팜**을 클릭합니다.
+1. [Microsoft Azure Preview 포털](https://portal.azure.com/)에서**가상 컴퓨터** > **SharePoint 서버 팜**을 클릭합니다.
 2. **SharePoint 팜 만들기** 창에서 리소스 그룹의 이름을 입력합니다.
 3. 팜의 각 가상 컴퓨터에서 로컬 관리자 계정의 사용자 이름 및 암호를 입력합니다. 추측하기 어려운 이름 및 암호를 선택하세요.
 4. 고가용성 팜을 원하는 경우 **고가용성 사용**을 클릭합니다.
@@ -63,7 +63,7 @@ SharePoint 팜으로 SharePoint 팜을 만들려면 다음을 수행합니다.
 10. 위치(지역)를 지정하려면 화살표를 클릭합니다.
 11. 완료하면 **만들기**를 클릭합니다.
 
-##Azure 리소스 관리자##
+## Azure 리소스 관리자##
 
 SharePoint 서버 팜은 Azure 리소스 관리자 및 스크립트를 사용하여 SharePoint 팜의 인프라 및 서버 구성을 자동으로 만듭니다. 자세한 내용은 [리소스 관리자에서 Windows PowerShell 사용](http://azure.microsoft.com/ko-kr/documentation/articles/powershell-azure-resource-manager/)을 참조하세요.
 

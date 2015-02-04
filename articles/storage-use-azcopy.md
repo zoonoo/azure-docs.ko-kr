@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="AzCopy" pageTitle="Microsoft Azure 저장소와 함께 AzCopy를 사용하는 방법" metaKeywords="Get started Azure AzCopy   Azure unstructured data   Azure unstructured storage   Azure blob   Azure blob storage   Azure file   Azure file storage   Azure file share   AzCopy" description="AzCopy를 사용하여 Blob 및 파일 내용을 업로드, 다운로드 및 복사하는 방법에 대해 알아봅니다." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="storage" documentationCenter="" title="How to use AzCopy with Microsoft Azure Storage" authors="tamram" manager="adinah" editor="cgronlun" />
+<properties urlDisplayName="AzCopy" pageTitle="Microsoft Azure 저장소와 함께 AzCopy를 사용하는 방법" metaKeywords="Get started Azure AzCopy   Azure unstructured data   Azure unstructured storage   Azure blob   Azure blob storage   Azure file   Azure file storage   Azure file share   AzCopy" description="AzCopy를 사용하여 Blob 및 파일 내용을 업로드, 다운로드 및 복사하는 방법에 대해 알아봅니다." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="storage" documentationCenter="" title="How to use AzCopy with Microsoft Azure Storage" authors="tamram" manager="adinah" editor="cgronlun" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/17/2014" ms.author="tamram" />
 
@@ -10,7 +10,7 @@ AzCopy는 Microsoft Azure Blob, 파일 및 테이블 저장소에 대해 고성�
 > 이 설명서에서는 AzCopy의 미리 보기 릴리스인 AzCopy 4.0.0 사용에 대해서도 설명합니다. 이 설명서 전체에서 미리 보기 릴리스로만 제공되는 기능은 *미리 보기*로 지정됩니다.<br />
 > AzCopy 4.x의 경우 명령줄 옵션 및 기능이 향후 릴리스에서 변경될 수 있습니다.
 
-##목차
+## 목차
 
 - [AzCopy 다운로드 및 설치](#install)
 - [AzCopy 명령줄 구문 이해](#syntax)
@@ -21,13 +21,13 @@ AzCopy는 Microsoft Azure Blob, 파일 및 테이블 저장소에 대해 고성�
 - [AzCopy 버전](#versions)
 - [다음 단계](#next-steps)
 
-##<a id="install"></a> AzCopy 다운로드 및 설치
+## <a id="install"></a> AzCopy 다운로드 및 설치
 
 1. [최신 버전의 AzCopy](http://aka.ms/downloadazcopy) 또는 [최신 미리 보기 버전](http://aka.ms/downloadazcopypr)을 다운로드합니다.
 2. 설치를 실행합니다. 기본적으로 AzCopy를 설치하면 `AzCopy`라는 폴더가 `%ProgramFiles(x86)%\Microsoft SDKs\Azure\`(64비트 Windows를 실행하는 컴퓨터) 또는 `%ProgramFiles%\Microsoft SDKs\Azure\`(32비트 Windows를 실행하는 컴퓨터) 아래에 만들어집니다. 그렇지만 설치 마법사에서 설치 경로를 변경할 수 있습니다.
 3. 원할 경우 시스템 경로에 AzCopy 설치 위치를 추가할 수 있습니다.
 
-##<a id="syntax"></a> AzCopy 명령줄 구문 이해
+## <a id="syntax"></a> AzCopy 명령줄 구문 이해
 
 다음에는 명령 창을 열고 컴퓨터의 AzCopy 설치 디렉터리로 이동합니다. 이 디렉터리에 `AzCopy.exe` 실행 파일이 있습니다. AzCopy 명령의 기본 구문은 다음과 같습니다.
 
@@ -373,13 +373,13 @@ AzCopy는 Microsoft Azure Blob, 파일 및 테이블 저장소에 대해 고성�
 
 <br/>
 
-##<a id="limit-writes"></a> 데이터를 복사하는 동안 동시 쓰기 제한
+## <a id="limit-writes"></a> 데이터를 복사하는 동안 동시 쓰기 제한
 
 AzCopy를 사용하여 Blob 또는 파일을 복사할 때는 복사하는 동안 다른 응용 프로그램이 데이터를 수정할 수 있다는 사실을 유의해야 합니다. 가능한 경우 복사 중인 데이터가 복사 작업 중에 수정되지 않도록 합니다. 예를 들어 Azure 가상 컴퓨터와 연결된 VHD를 복사할 때는 다른 응용 프로그램이 현재 VHD에 쓰고 있지 않은지 확인합니다. 또는 먼저 VHD의 스냅샷을 만든 후 스냅샷을 복사할 수 있습니다.
 
 다른 응용 프로그램이 복사 중인 Blob 또는 파일에 쓰지 못하게 할 수 없으면 작업이 완료될 때까지 복사된 리소스가 소스 리소스와 더 이상 완전히 동일하지 않을 수 있습니다.
 
-##<a id="copy-blobs"></a> AzCopy를 사용하여 Azure Blob 복사
+## <a id="copy-blobs"></a> AzCopy를 사용하여 Azure Blob 복사
 
 아래 예에서는 AzCopy를 사용하여 Blob을 복사하기 위한 다양한 시나리오를 보여 줍니다.
 
@@ -705,7 +705,7 @@ AzCopy로 명령을 실행할 때마다 AzCopy는 기본 폴더에 저널 파일
 	AzCopy /Source:https://127.0.0.1:10004/myaccount/myfileshare/ /Dest:C:\myfolder /SourceKey:key /SourceType:Blob /S
 
 
-##<a id="copy-files"></a> AzCopy를 사용하여 Azure 파일 저장소의 파일 복사(미리 보기 버전 전용)
+## <a id="copy-files"></a> AzCopy를 사용하여 Azure 파일 저장소의 파일 복사(미리 보기 버전 전용)
 
 아래 예에서는 AzCopy를 사용하여 Azure 파일을 복사하기 위한 다양한 시나리오를 보여 줍니다.
 
@@ -733,7 +733,7 @@ AzCopy로 명령을 실행할 때마다 AzCopy는 기본 폴더에 저널 파일
 
 	AzCopy /Source:C:\myfolder /Dest:https://myaccount.file.core.windows.net/myfileshare/ /DestKey:key /Pattern:ab* /S
 
-##<a id="copy-entities"></a> AzCopy를 사용하여 Azure 테이블의 엔터티 복사(미리 보기 버전 전용)
+## <a id="copy-entities"></a> AzCopy를 사용하여 Azure 테이블의 엔터티 복사(미리 보기 버전 전용)
 
 아래 예에서는 AzCopy를 사용하여 Azure 테이블 엔터티를 복사하기 위한 다양한 시나리오를 보여 줍니다.
 
@@ -791,7 +791,7 @@ AzCopy는 분할 데이터 파일 이름에서 *볼륨 인덱스*를 사용하�
 가져오기 시나리오에서는 `/PKRS` 옵션을 지정할 수 없습니다. 동시 작업을 시작하려면 `/PKRS` 옵션을 지정해야 하는 내보내기 시나리오와는 달리 엔터티를 가져올 때는 AzCopy가 기본적으로 동시 작업을 시작합니다. 시작되는 동시 작업의 기본 수는 코어 프로세서의 수와 같습니다. 그러나 `/NC` 옵션을 사용하여 다른 동시 작업 수를 지정할 수 있습니다. 자세한 내용을 보려면 명령줄에 `AzCopy /?:NC`를 입력하세요.
 
 
-##<a id="versions"></a> AzCopy 버전
+## <a id="versions"></a> AzCopy 버전
 
 | 버전 | 새로운 기능                                                                                      				|
 |---------|-----------------------------------------------------------------------------------------------------------------|
@@ -808,25 +808,25 @@ AzCopy는 분할 데이터 파일 이름에서 *볼륨 인덱스*를 사용하�
 | V2.1    | 효율적인 방법으로 Blob 업로드, 다운로드 및 복사 작업을 지원하기 위한 20가지 이상의 옵션을 제공합니다.		|
 
 
-##<a id="next-steps"></a> 다음 단계
+## <a id="next-steps"></a> 다음 단계
 
 Azure 저장소 및 AzCopy에 대한 자세한 내용은 다음 리소스를 참조하세요.
 
 ### Azure 저장소 설명서
 
 - [Azure 저장소 소개](http://azure.microsoft.com/ko-kr/documentation/articles/storage-introduction/)
-- [Blob 저장소에 파일 저장](영문)(http://azure.microsoft.com/ko-kr/documentation/articles/storage-dotnet-how-to-use-blobs/)
-- [파일 저장소를 사용하여 Azure에서 SMB 파일 공유 만들기](영문)(http://azure.microsoft.com/ko-kr/documentation/articles/storage-dotnet-how-to-use-files/)
+- [Blob 저장소에 파일 저장 (영문)](http://azure.microsoft.com/ko-kr/documentation/articles/storage-dotnet-how-to-use-blobs/)
+- [파일 저장소를 사용하여 Azure에서 SMB 파일 공유 만들기 (영문)](http://azure.microsoft.com/ko-kr/documentation/articles/storage-dotnet-how-to-use-files/)
 
 ### Azure 저장소 블로그 게시물:
 
-- [AzCopy 3.0: General Availability of AzCopy 3.0의 일반 공급 및 테이블 및 파일을 지원하는 AzCopy 4.0의 미리 보기 릴리스 발표](영문)(http://blogs.msdn.com/b/windowsazurestorage/archive/2014/10/29/azcopy-announcing-general-availability-of-azcopy-3-0-plus-preview-release-of-azcopy-4-0-with-table-and-file-support.aspx)
-- [AzCopy 2.5: 대량 복사 시나리오에 맞게 최적화](영문)(http://go.microsoft.com/fwlink/?LinkId=507682)
-- [Microsoft Azure 파일 서비스 소개](영문)(http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
-- [AzCopy: 읽기 액세스 지역 중복 저장소 지원](영문)(http://blogs.msdn.com/b/windowsazurestorage/archive/2014/04/07/azcopy-support-for-read-access-geo-redundant-account.aspx)
-- [AzCopy: 다시 시작 가능 모드 및 SAS 토큰으로 데이터 전송](영문)(http://blogs.msdn.com/b/windowsazurestorage/archive/2013/09/07/azcopy-transfer-data-with-re-startable-mode-and-sas-token.aspx)
-- [AzCopy: 크로스 계정 Blob 복사 사용](영문)(http://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
-- [AzCopy: Microsoft Azure Blob 파일 업로드/다운로드](영문)(http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)
+- [AzCopy 3.0: General Availability of AzCopy 3.0의 일반 공급 및 테이블 및 파일을 지원하는 AzCopy 4.0의 미리 보기 릴리스 발표 (영문)](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/10/29/azcopy-announcing-general-availability-of-azcopy-3-0-plus-preview-release-of-azcopy-4-0-with-table-and-file-support.aspx)
+- [AzCopy 2.5: 대량 복사 시나리오에 맞게 최적화 (영문)](http://go.microsoft.com/fwlink/?LinkId=507682)
+- [Microsoft Azure 파일 서비스 소개 (영문)](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
+- [AzCopy: 읽기 액세스 지역 중복 저장소 지원 (영문)](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/04/07/azcopy-support-for-read-access-geo-redundant-account.aspx)
+- [AzCopy: 다시 시작 가능 모드 및 SAS 토큰으로 데이터 전송 (영문)](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/09/07/azcopy-transfer-data-with-re-startable-mode-and-sas-token.aspx)
+- [AzCopy: 크로스 계정 Blob 복사 사용 (영문)](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
+- [AzCopy: Microsoft Azure Blob 파일 업로드/다운로드 (영문)](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)
 
 
 <!--HONumber=35.1-->

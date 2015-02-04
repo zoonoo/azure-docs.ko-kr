@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Continuous Delivery" pageTitle="Azure의 TFS를 사용한 클라우드 서비스의 지속적인 전송" metaKeywords="Azure continuous delivery, continuous delivery sample code, continuous delivery PowerShell" description="Azure 클라우드 앱에 대해 지속적인 전송을 설정하는 방법에 대해 알아봅니다. MSBuild 명령줄 문 및 PowerShell 스크립트에 대한 코드 샘플도 제공됩니다." metaCanonical="" services="" documentationCenter="" title="Continuous Delivery for Cloud Services in Azure" authors="kempb" solutions="" manager="douge" editor="" />
+<properties urlDisplayName="Continuous Delivery" pageTitle="Azure의 TFS를 사용한 클라우드 서비스의 지속적인 전송" metaKeywords="Azure continuous delivery, continuous delivery sample code, continuous delivery PowerShell" description="Azure 클라우드 앱에 대해 지속적인 전송을 설정하는 방법에 대해 알아봅니다. MSBuild 명령줄 문 및 PowerShell 스크립트에 대한 코드 샘플도 제공됩니다." metaCanonical="" services="" documentationCenter="" title="Continuous Delivery for Cloud Services in Azure" authors="kempb" solutions="" manager="douge" editor="" />
 
 <tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="12/3/2014" ms.author="kempb" />
 
@@ -123,6 +123,7 @@ Azure 패키지를 빌드하도록 TFS를 구성하려면 다음 단계를 수�
 6.  게시 스크립트에서 대상으로 지정할 수 있는 유효한 클라우드 서비스 및 저장소 계정이 구독에 만들어져 있는지 확인합니다. 저장소 계정(Blob 저장소)은 배포를 만드는 동안 배포 패키지 및 구성 파일을 업로드하고 일시적으로 저장하는 데 사용됩니다.
 
     -   새 클라우드 서비스를 만들려면 다음 스크립트를 호출하거나 Azure 관리 포털을 사용할 수 있습니다. 클라우드 서비스 이름은 정규화된 도메인 이름의 접두사로 사용되므로 고유해야 합니다. 
+
             New-AzureService -ServiceName "mytestcloudservice" -Location "North Central US" -Label "mytestcloudservice"
 
     -   새 저장소 계정을 만들려면 다음 스크립트를 호출하거나 Azure 관리 포털을 사용할 수 있습니다. 저장소 계정 이름은 정규화된 도메인 이름의 접두사로 사용되므로 고유해야 합니다. 클라우드 서비스와 같은 이름을 사용할 수 있습니다.
@@ -161,8 +162,7 @@ Azure 패키지를 빌드하도록 TFS를 구성하려면 다음 단계를 수�
 
         Add-AzureCertificate -serviceName 'mytestcloudservice' -certToDeploy (get-item cert:\CurrentUser\MY\C33B6C432C25581601B84C80F86EC2809DC224E8
 
-    또는 개인 키로 인증서 파일 PFX를 내보내고 Azure 관리 포털을 사용하여 각 대상 클라우드 서비스에 인증서를 업로드할 수 있습니다. 자세한 내용은
-    [http://msdn.microsoft.com/ko-kr/library/windowsazure/gg443832.aspx][]에서 확인할 수 있습니다.
+    또는 개인 키로 인증서 파일 PFX를 내보내고 Azure 관리 포털을 사용하여 각 대상 클라우드 서비스에 인증서를 업로드할 수 있습니다. 자세한 내용은 [http://msdn.microsoft.com/ko-kr/library/windowsazure/gg443832.aspx](http://msdn.microsoft.com/ko-kr/library/windowsazure/gg443832.aspx)에서 확인할 수 있습니다.
 
     **배포 업그레이드 및 배포 삭제 -> 새 배포**
 
@@ -560,7 +560,7 @@ Write-Output "$(Get-Date -f $timeStampFormat) - Azure Cloud Service deploy scrip
 
 지속적인 전송을 사용할 때 원격 디버깅을 사용하도록 설정하려면 [관련 지침](http://go.microsoft.com/fwlink/p/?LinkID=402354)을 참조하세요. 
 
-  [Visual Studio Online을 사용하여 Azure에 지속적으로 전송](영문): ../cloud-services-continuous-delivery-use-vso/
+  [Visual Studio Online을 사용하여 Azure에 지속적으로 전송]: ../cloud-services-continuous-delivery-use-vso/
   [1단계: 빌드 서버 구성]: #step1
   [2단계: MSBuild 명령을 사용하여 패키지 빌드]: #step2
   [3단계: TFS 팀 빌드를 사용하여 패키지 빌드(옵션)]: #step3

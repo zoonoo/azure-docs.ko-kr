@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Get Started with Data" pageTitle="데이터 시작(Windows 스토어) | 모바일 개발자 센터" metaKeywords="" description="모바일 서비스를 사용하여 Windows 스토어 앱에서 데이터를 활용하는 방법에 대해 알아봅니다." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Get Started with Data" pageTitle="데이터 시작(Windows 스토어) | 모바일 개발자 센터" metaKeywords="" description="모바일 서비스를 사용하여 Windows 스토어 앱에서 데이터를 활용하는 방법에 대해 알아봅니다." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/19/2014" ms.author="glenga" />
 
@@ -15,7 +15,7 @@
 
 이 항목에서는 Azure 모바일 서비스를 사용하여 Windows 스토어 앱에서 데이터를 활용하는 방법을 보여 줍니다. 이 자습서에서는 데이터를 메모리 내에 저장하는 앱용 Visual Studio 2013 프로젝트를 다운로드하여 새 모바일 서비스를 만들고 모바일 서비스를 앱과 통합한 후 Azure 관리 포털에 로그인하여 앱을 실행할 때 수행된 데이터 변경 내용을 확인합니다.
 
->[WACOM.NOTE]이 항목에서는 Visual Studio 2013을 사용하여 Windows 스토어 프로젝트에 Azure 모바일 서비스를 추가하는 방법을 보여 줍니다. 동일한 JavaScript 백 엔드 모바일 서비스를 범용 Windows 앱 프로젝트에 추가할 수 있습니다. 자세한 내용은 이 자습서의 [범용 Windows 앱 버전](영문)을(/ko-kr/documentation/articles/mobile-services-javascript-backend-windows-universal-dotnet-get-started-data) 참조하세요. 
+>[WACOM.NOTE]이 항목에서는 Visual Studio 2013을 사용하여 Windows 스토어 프로젝트에 Azure 모바일 서비스를 추가하는 방법을 보여 줍니다. 동일한 JavaScript 백 엔드 모바일 서비스를 범용 Windows 앱 프로젝트에 추가할 수 있습니다. 자세한 내용은 이 자습서의 [범용 Windows 앱 버전 (영문)](/ko-kr/documentation/articles/mobile-services-javascript-backend-windows-universal-dotnet-get-started-data)을 참조하세요. 
 
 이 자습서에서는 다음 기본 단계를 단계별로 안내합니다.
 
@@ -30,7 +30,7 @@
 * 활성 Azure 계정. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](http://azure.microsoft.com/ko-kr/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fko-kr%2Fdocumentation%2Farticles%2Fmobile-services-windows-store-dotnet-get-started-data%2F)을 참조하세요.
 * Visual Studio 2013. Windows 스토어 앱을 모바일 서비스에 쉽게 연결할 수 있게 해 줍니다. 
 
-##<a name="download-app"></a>GetStartedWithData 프로젝트 다운로드
+## <a name="download-app"></a>GetStartedWithData 프로젝트 다운로드
 
 이 자습서는 Visual Studio 2013의 Windows 스토어 앱 프로젝트인 [GetStartedWithMobileServices 앱][Developer Code Samples site](영문)을 기반으로 합니다. 이 앱의 UI는 모바일 서비스 퀵 스타트에서 생성된 앱과 동일합니다. 단, 추가된 항목이 로컬에서 메모리에 저장된다는 점은 예외입니다. 
 
@@ -48,7 +48,7 @@
 
    	저장된 텍스트가 **Query and update data(데이터 쿼리 및 업데이트)** 아래 두 번째 열에 표시됩니다.
 
-##<a name="create-service"></a>Visual Studio에서 새 모바일 서비스 만들기
+## <a name="create-service"></a>Visual Studio에서 새 모바일 서비스 만들기
 
 [WACOM.INCLUDE [mobile-services-create-new-service-vs2013](../includes/mobile-services-create-new-service-vs2013.md)]
 
@@ -64,17 +64,17 @@
 </li>
 </ol>
 
-##<a name="add-table"></a>데이터 저장소로 사용할 새 테이블 추가
+## <a name="add-table"></a>데이터 저장소로 사용할 새 테이블 추가
 
 [WACOM.INCLUDE [mobile-services-create-new-table-vs2013](../includes/mobile-services-create-new-table-vs2013.md)]
 
 >[WACOM.NOTE]새 테이블은 Id, __createdAt, __updatedAt 및 __version 열을 사용하여 만들어집니다. 동적 스키마가 사용하도록 설정된 경우 모바일 서비스에서 삽입 또는 업데이트 요청의 JSON 개체를 기준으로 새 열을 자동으로 생성합니다. 자세한 내용은 [동적 스키마](http://msdn.microsoft.com/ko-kr/library/windowsazure/jj193175.aspx)를 참조하세요.
 
-#<a name="update-app"></a>모바일 서비스를 사용하도록 앱 업데이트
+# <a name="update-app"></a>모바일 서비스를 사용하도록 앱 업데이트
 
 [WACOM.INCLUDE [mobile-services-windows-dotnet-update-data-app](../includes/mobile-services-windows-dotnet-update-data-app.md)]
 
-##<a name="test-app"></a>새 모바일 서비스에 대해 앱 테스트
+## <a name="test-app"></a>새 모바일 서비스에 대해 앱 테스트
 
 1. Visual Studio에서 F5 키를 눌러 앱을 실행합니다.
 
@@ -135,6 +135,7 @@
   
 <!-- Anchors. -->
 
+[Get the Windows Store app]: #download-app
 [Windows 스토어 앱 다운로드]: #download-app
 [Visual Studio에서 모바일 서비스 만들기]: #create-service
 [저장소로 사용할 데이터 테이블 추가]: #add-table
@@ -152,17 +153,17 @@
 <!-- URLs. -->
 [스크립트를 사용하여 데이터 유효성 검사 및 수정]: /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-validate-modify-data-server-scripts/
 [페이징을 사용하여 쿼리 구체화]: /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-add-paging-data/
-[모바일 서비스 시작](영문): /ko-kr/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started/
-[데이터 시작](영문): /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-data/
-[인증 시작](영문): /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-users/
+[모바일 서비스 시작 (영문)]: /ko-kr/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started/
+[데이터 시작 (영문)]: /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-data/
+[인증 시작 (영문)]: /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-users/
 [푸시 알림 시작]: /ko-kr/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push/
 [모바일 서비스 .NET 방법 개념 참조]: /ko-kr/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library/
 
 [Azure 관리 포털]: https://manage.windowsazure.com/
 [관리 포털]: https://manage.windowsazure.com/
 [모바일 서비스 SDK]: http://go.microsoft.com/fwlink/p/?LinkId=257545
-[개발자 코드 샘플 사이트](영문):  http://go.microsoft.com/fwlink/p/?LinkId=328660
-
-[MobileServiceClient 클래스](영문): http://go.microsoft.com/fwlink/p/?LinkId=302030
+[개발자 코드 샘플 사이트 (영문)]:  http://go.microsoft.com/fwlink/p/?LinkId=328660
+[Developer Code Samples site]:  http://go.microsoft.com/fwlink/p/?LinkId=328660
+[MobileServiceClient 클래스 (영문)]: http://go.microsoft.com/fwlink/p/?LinkId=302030
 
 <!--HONumber=35.2-->

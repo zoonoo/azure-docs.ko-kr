@@ -1,4 +1,4 @@
-﻿# Git를 사용하여 Azure 웹 사이트에 게시
+# Git를 사용하여 Azure 웹 사이트에 게시
 
 Azure 웹 사이트는 BitBucket, CodePlex, Dropbox, Git, GitHub, Mercurial, TFS 등과 같은 소스 코드 제어 및 리포지토리 도구로부터 지속적인 배포를 지원합니다. 이러한 도구를 사용하여 웹 사이트의 콘텐츠 및 코드를 관리한 후 원할 때 쉽고 빠르게 사이트에 변경 내용을 적용할 수 있습니다.
 
@@ -247,7 +247,7 @@ Azure **대시보드**에서 지속적인 배포를 사용하지 않도록 설�
 
 ****
 
-**증상**: '[siteURL]'에 액세스할 수 없음: [scmAddress]에 연결하지 못함
+**증상**: Unable to access '[siteURL]':Failed to connect to [scmAddress]
 
 **원인**: 이 오류는 웹 사이트가 가동 및 실행되지 않는 경우에 발생할 수 있습니다.
 
@@ -256,7 +256,7 @@ Azure **대시보드**에서 지속적인 배포를 사용하지 않도록 설�
 
 ****
 
-**증상**: 'hostname' 호스트를 확인할 수 없음
+**증상**: Couldn't resolve host 'hostname'
 
 **원인**: 이 오류는 'azure' 원격을 만들 때 입력한 주소 정보가 올바르지 않을 경우에 발생할 수 있습니다.
 
@@ -264,7 +264,7 @@ Azure **대시보드**에서 지속적인 배포를 사용하지 않도록 설�
 
 ****
 
-**증상**: 공통 참조 없음 및 지정하지 않음; 아무것도 안 함. '마스터'와 같은 분기를 지정해야 할 수도 있습니다.
+**증상**: No refs in common and none specified; doing nothing. Perhaps you should specify a branch such as 'master'.
 
 **원인**: 이 오류는 git push 작업을 수행할 때 분기를 지정하지 않은 경우 및 Git에서 사용하는 push.default 값을 설정하지 않은 경우에 발생할 수 있습니다.
 
@@ -274,7 +274,7 @@ Azure **대시보드**에서 지속적인 배포를 사용하지 않도록 설�
 
 ****
 
-**증상**: src refspec [branchname]이 전혀 일치하지 않음
+**증상**: src refspec [branchname] does not match any.
 
 **원인**: 이 오류는 'azure' 원격의 마스터가 아닌 다른 분기에 푸시하려는 경우 발생할 수 있습니다.
 
@@ -284,7 +284,7 @@ Azure **대시보드**에서 지속적인 배포를 사용하지 않도록 설�
 
 ****
 
-**증상**: 오류 - 변경 내용이 원격 리포지토리에 커밋되었으나 웹 사이트가 업데이트되지 않음
+**증상**: Error - Changes commited to remote repository but your website not updated.
 
 **원인**: 이 오류는 추가 필수 모듈을 지정하는 package.json 파일이 포함된 Node.js 응용 프로그램을 배포하는 경우에 발생할 수 있습니다.
 
