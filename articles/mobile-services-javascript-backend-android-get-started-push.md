@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Get Started with Push (JS)" pageTitle="푸시 알림 시작(Android JavaScript) | 모바일 개발자 센터" metaKeywords="" description="Azure 모바일 서비스를 사용하여 Android JavaScript 앱에 푸시 알림을 보내는 방법에 대해 알아봅니다." metaCanonical="http://www.windowsazure.com/ko-kr/develop/mobile/tutorials/get-started-with-push-dotnet/" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services " authors="ricksal"  solutions="" writer="ricksal" manager="dwrede" editor=""   />
+<properties urlDisplayName="Get Started with Push (JS)" pageTitle="푸시 알림 시작(Android JavaScript) | 모바일 개발자 센터" metaKeywords="" description="Azure 모바일 서비스를 사용하여 Android JavaScript 앱에 푸시 알림을 보내는 방법에 대해 알아봅니다." metaCanonical="http://www.windowsazure.com/ko-kr/develop/mobile/tutorials/get-started-with-push-dotnet/" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services " authors="ricksal"  solutions="" writer="ricksal" manager="dwrede" editor=""   />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="10/16/2014" ms.author="ricksal" />
 
@@ -58,7 +58,7 @@
 
 다음 단계에서는 Google Play Services를 설치합니다. Google Cloud Messaging에는 매니페스트의 **minSdkVersion** 속성이 준수해야 하는 개발 및 테스트에 대한 최소 API 수준 요구 사항이 있습니다. 
 
-이전 장치로 테스트할 경우 이 값을 적절하게 설정할 수 있는 최소값을 확인하려면 [Google Play Services SDK 설정](영문)을 참조하세요.
+이전 장치로 테스트할 경우 이 값을 적절하게 설정할 수 있는 최소값을 확인하려면 [Google Play Services SDK 설정]을 참조하세요.
 
 ###프로젝트에 Google Play Services 추가
 
@@ -167,10 +167,10 @@ USB 케이블로 Android 휴대폰을 직접 연결하거나 에뮬레이터에�
 
 다음 항목에서 모바일 서비스 및 알림 허브에 대해 알아보세요.
 
-* [데이터 시작](영문)
+* [데이터 시작][](영문)
   <br/>모바일 서비스를 사용하여 데이터를 저장 및 쿼리하는 방법에 대해 자세히 알아보세요.
 
-* [인증 시작](영문)
+* [인증 시작][](영문)
   <br/>모바일 서비스를 사용하여 서로 다른 계정 유형의 앱 사용자를 인증하는 방법에 대해 알아봅니다.
 
 * [알림 허브 정의]
@@ -182,7 +182,7 @@ USB 케이블로 Android 휴대폰을 직접 연결하거나 에뮬레이터에�
 * [모바일 서비스용 Android 클라이언트 라이브러리를 사용하는 방법]
   <br/>모바일 서비스를 Android와 함께 사용하는 방법을 알아봅니다.
 
-* [Mobile Services server script reference]
+* [모바일 서비스 서버 스크립트 참조]
   <br/>모바일 서비스에서 비즈니스 논리를 구현하는 방법에 대해 자세히 알아봅니다.
 
 
@@ -201,14 +201,14 @@ USB 케이블로 Android 휴대폰을 직접 연결하거나 에뮬레이터에�
 [앱 제출 페이지]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [내 응용 프로그램]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Windows용 Live SDK]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[모바일 서비스 시작](영문): /ko-kr/documentation/articles/mobile-services-android-get-started/
-[데이터 시작](영문): /ko-kr/documentation/articles/mobile-services-android-get-started-data/
-[인증 시작](영문): /ko-kr/documentation/articles/mobile-services-android-get-started-users
+[모바일 서비스 시작]: /ko-kr/documentation/articles/mobile-services-android-get-started/
+[데이터 시작]: /ko-kr/documentation/articles/mobile-services-android-get-started-data/
+[인증 시작]: /ko-kr/documentation/articles/mobile-services-android-get-started-users
 [푸시 알림 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-push-js
-[앱 사용자에 푸시 알림](영문): /ko-kr/develop/mobile/tutorials/push-notifications-to-users-js
+[앱 사용자에 푸시 알림]: /ko-kr/develop/mobile/tutorials/push-notifications-to-users-js
 [스크립트를 통해 사용자 권한 부여]: /ko-kr/develop/mobile/tutorials/authorize-users-in-scripts-js
 [JavaScript 및 HTML]: /ko-kr/develop/mobile/tutorials/get-started-with-push-js
-[Google Play Services SDK 설정](영문): http://go.microsoft.com/fwlink/?LinkId=389801
+[Google Play Services SDK 설정]: http://go.microsoft.com/fwlink/?LinkId=389801
 [Azure 관리 포털]: https://manage.windowsazure.com/
 [모바일 서비스용 Android 클라이언트 라이브러리를 사용하는 방법]: /ko-kr/documentation/articles/mobile-services-android-how-to-use-client-library
 

@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="REST service using Web API" pageTitle="Web API를 사용하는 .NET REST 서비스 - Azure 자습서" metaKeywords="Azure tutorial web site, ASP.NET API web site, Azure VS" description="Visual Studio를 사용하여 Azure 웹 사이트에 ASP.NET Web API를 사용하는 앱을 배포하는 방법에 대해 설명하는 자습서입니다." metaCanonical="" services="web-sites" documentationCenter=".NET" title="REST service using ASP.NET Web API and SQL Database" authors="riande" solutions="" manager="wpickett" editor="" />
+<properties urlDisplayName="REST service using Web API" pageTitle="Web API를 사용하는 .NET REST 서비스 - Azure 자습서" metaKeywords="Azure tutorial web site, ASP.NET API web site, Azure VS" description="Visual Studio를 사용하여 Azure 웹 사이트에 ASP.NET Web API를 사용하는 앱을 배포하는 방법에 대해 설명하는 자습서입니다." metaCanonical="" services="web-sites" documentationCenter=".NET" title="REST service using ASP.NET Web API and SQL Database" authors="riande" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/06/2014" ms.author="riande" />
 
@@ -704,17 +704,17 @@ XSRF 공격은 피싱 공격과는 구분됩니다. 피싱 공격에는 피해�
             }
         }
 
-1. **[ValidateHttpAntiForgeryToken]** 특성에 대한 액세스 권한을 받을 수 있도록 다음 *using* 문을 연락처 컨트롤러에 추가합니다.
+3. **[ValidateHttpAntiForgeryToken]** 특성에 대한 액세스 권한을 받을 수 있도록 다음 *using* 문을 연락처 컨트롤러에 추가합니다.
 
 	ContactManager.Filters 사용
 
-1. XSRF 위협으로부터 보호할 수 있도록 **[ContactsController]**의 Post 메서드에 **ValidateHttpAntiForgeryToken** 특성을 추가합니다. "PutContact",  "PostContact" 및 **DeleteContact** 작업 메서드에 이 특성을 추가하겠습니다.
+4. XSRF 위협으로부터 보호할 수 있도록 **[ContactsController]**의 Post 메서드에 **ValidateHttpAntiForgeryToken** 특성을 추가합니다. "PutContact",  "PostContact" 및 **DeleteContact** 작업 메서드에 이 특성을 추가하겠습니다.
 
 	[ValidateHttpAntiForgeryToken]
         public IHttpActionResult PutContact(int id, Contact contact)
         {
 
-1. Update the *Scripts* section of the *Views\Home\Index.cshtml* file to include code to get the XSRF tokens.
+5. *Views\Home\Index.cshtml* 파일의 *Scripts* 섹션을 업데이트하여 XSRF 토큰을 가져오는 코드를 포함합니다.
 
          @section Scripts {
             @Scripts.Render("~/bundles/knockout")
@@ -879,9 +879,9 @@ Azure 응용 프로그램에 데이터를 저장하는 또 다른 방법은 Azur
 [addwebapi004]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/dntutmobile-webapi-added-contact.png
 [addwebapi006]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/dntutmobile-webapi-save-returned-contacts.png
 [addwebapi007]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/dntutmobile-webapi-contacts-in-notepad.png
-[Add XSRF Protection]: #xsrf
+[XSRF 보호 추가n]: #xsrf
 [WebPIAzureSdk20NetVS12]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/WebPIAzureSdk20NetVS12.png
-[Add XSRF Protection]: #xsrf
+[XSRF 보호 추가]: #xsrf
 [ImportPublishSettings]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/ImportPublishSettings.png
 [ImportPublishProfile]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/ImportPublishProfile.png
 [PublishVSSolution]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/PublishVSSolution.png

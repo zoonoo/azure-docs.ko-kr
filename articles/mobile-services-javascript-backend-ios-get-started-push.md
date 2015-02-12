@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Get Started with Push (iOS)" pageTitle="푸시 알림 시작(iOS) | 모바일 개발자 센터" metaKeywords="" description="Azure 모바일 서비스를 사용하여 iOS 앱에 푸시 알림을 보내는 방법에 대해 알아봅니다." metaCanonical="http://www.windowsazure.com/ko-kr/develop/mobile/tutorials/get-started-with-push-dotnet/" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" solutions="" manager="dwrede" editor="" authors="krisragh" />
+<properties urlDisplayName="Get Started with Push (iOS)" pageTitle="푸시 알림 시작(iOS) | 모바일 개발자 센터" metaKeywords="" description="Azure 모바일 서비스를 사용하여 iOS 앱에 푸시 알림을 보내는 방법에 대해 알아봅니다." metaCanonical="http://www.windowsazure.com/ko-kr/develop/mobile/tutorials/get-started-with-push-dotnet/" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" solutions="" manager="dwrede" editor="" authors="krisragh" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="krisragh" />
 
@@ -6,7 +6,7 @@
 
 [WACOM.INCLUDE [mobile-services-selector-get-started-push](../includes/mobile-services-selector-get-started-push.md)]
 
-이 항목에서는 Azure 모바일 서비스를 사용하여 iOS 앱에 APNS(Apple 푸시 알림 서비스)를 통해 푸시 알림을 보내는 방법에 대해 설명합니다. 이 자습서에서는 [퀵 스타트 프로젝트]에 대한 Azure 알림 허브를 사용하여 푸시 알림을 사용하도록(http://azure.microsoft.com/ko-kr/documentation/articles/mobile-services-ios-get-started/)설정합니다. 이 작업을 완료하면 레코드가 삽입될 때마다 모바일 서비스에서 푸시 알림을 전송합니다.
+이 항목에서는 Azure 모바일 서비스를 사용하여 iOS 앱에 APNS(Apple 푸시 알림 서비스)를 통해 푸시 알림을 보내는 방법에 대해 설명합니다. 이 자습서에서는 [퀵 스타트 프로젝트](http://azure.microsoft.com/ko-kr/documentation/articles/mobile-services-ios-get-started/)에 대한 Azure 알림 허브를 사용하여 푸시 알림을 사용하도록설정합니다. 이 작업을 완료하면 레코드가 삽입될 때마다 모바일 서비스에서 푸시 알림을 전송합니다.
 
 이 자습서에서는 푸시 알림을 사용하도록 설정하는 다음 기본 단계를 단계별로 안내합니다.
 
@@ -155,11 +155,11 @@
 
 + [구독자에게 브로드케스트 알림 보내기]
 	<br/>사용자가 관심 있어 하는 범주에 대해 푸시 알림을 등록하고 수신하는 방법을 설명합니다.
-<!---
-+ [Send template-based notifications to subscribers]
-	<br/>Learn how to use templates to send push notifications from a Mobile Service, without having to craft platform-specific payloads in your back-end.
--->
-다음 항목에서 모바일 서비스 및 알림 허브에 대해 알아보세요.
+
+<!---+ [구독자에게 템플릿 기반 알림 보내기]
+	<br/>템플릿을 사용하여 백 엔드에 플랫폼별 페이로드를 작성하지 않고도 모바일 서비스에서 푸시 알림을 보내도록 하는 방법을 알아봅니다.
+
+다음 항목에서 모바일 서비스 및 알림 허브에 대해 알아보세요.-->
 
 * [데이터 시작](영문)
   <br/>모바일 서비스를 사용하여 데이터를 저장 및 쿼리하는 방법에 대해 자세히 알아보세요.
@@ -220,13 +220,13 @@
 [117]: ./media/mobile-services-ios-get-started-push/mobile-services-ios-push-17.png
 
 <!-- URLs.   -->
-[Xcode 설치](영문): https://go.microsoft.com/fwLink/p/?LinkID=266532
-[iOS 프로비저닝 포털](영문): http://go.microsoft.com/fwlink/p/?LinkId=272456
+[Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
+[iOS 프로비저닝 포털]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 [모바일 서비스 iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
-[Apple 푸시 알림 서비스](영문): http://go.microsoft.com/fwlink/p/?LinkId=272584
-[모바일 서비스 시작](영문): /ko-kr/documentation/articles/mobile-services-ios-get-started
-[데이터 시작](영문): /ko-kr/documentation/articles/mobile-services-ios-get-started-data
-[인증 시작](영문): /ko-kr/documentation/articles/mobile-services-ios-get-started-users
+[Apple 푸시 알림 서비스]: http://go.microsoft.com/fwlink/p/?LinkId=272584
+[모바일 서비스 시작]: /ko-kr/documentation/articles/mobile-services-ios-get-started
+[데이터 시작]: /ko-kr/documentation/articles/mobile-services-ios-get-started-data
+[인증 시작]: /ko-kr/documentation/articles/mobile-services-ios-get-started-users
 [Azure 관리 포털]: https://manage.windowsazure.com/
 [apns 개체]: http://go.microsoft.com/fwlink/p/?LinkId=272333
 

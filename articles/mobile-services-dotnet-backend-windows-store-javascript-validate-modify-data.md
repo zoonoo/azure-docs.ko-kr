@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Validate and Modify Data" pageTitle=".Net 백 엔드를 사용하여 데이터 유효성 검사 및 수정(Windows 스토어) | 모바일 개발자 센터" metaKeywords="" description=".Net 백 엔드 Microsoft Azure 모바일 서비스를 사용하여 Javascript Windows 스토어 앱에 대한 데이터의 유효성을 검사하고 데이터를 수정 및 보강하는 방법에 대해 알아봅니다." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using the .Net backend" authors="wesmc" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Validate and Modify Data" pageTitle=".Net 백 엔드를 사용하여 데이터 유효성 검사 및 수정(Windows 스토어) | 모바일 개발자 센터" metaKeywords="" description=".Net 백 엔드 Microsoft Azure 모바일 서비스를 사용하여 Javascript Windows 스토어 앱에 대한 데이터의 유효성을 검사하고 데이터를 수정 및 보강하는 방법에 대해 알아봅니다." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using the .Net backend" authors="wesmc" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/26/2014" ms.author="wesmc" />
 
@@ -159,7 +159,7 @@
 
 <!-- URLs. -->
 [모바일 서비스 시작]: /ko-kr/develop/mobile/tutorials/get-started/#create-new-service
-[	사용자의 서비스 쪽 권한 부여]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-authorize-users-in-scripts/
+[사용자의 서비스 쪽 권한 부여]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-authorize-users-in-scripts/
 [페이징을 사용하여 쿼리 구체화]: /ko-kr/develop/mobile/tutorials/add-paging-to-data-dotnet
 [시작]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started/
 [인증 시작]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-users/

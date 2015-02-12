@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="SharePoint on Azure" pageTitle="Azure 가상 컴퓨터에 SharePoint 2010 배포" metaKeywords="" description="Azure 가상 컴퓨터에서 SharePoint 2010을 사용할 수 있도록 지원되는 시나리오에 대해 설명합니다." metaCanonical="" services="virtual-machines" documentationCenter="" title="SharePoint 2010 Deployment on Azure Virtual Machines" authors="josephd" solutions="" manager="timlt" editor="" />
+<properties urlDisplayName="SharePoint on Azure" pageTitle="Azure 가상 컴퓨터에 SharePoint 2010 배포" metaKeywords="" description="Azure 가상 컴퓨터에서 SharePoint 2010을 사용할 수 있도록 지원되는 시나리오에 대해 설명합니다." metaCanonical="" services="virtual-machines" documentationCenter="" title="SharePoint 2010 Deployment on Azure Virtual Machines" authors="josephd" solutions="" manager="timlt" editor="" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/16/2014" ms.author="josephd" />
 
@@ -231,7 +231,7 @@ Azure 가상 컴퓨터는 .NET, Node.js, Java 및 PHP에 대한 공식적인 지
 또한 고유한 이미지를 만들어 Azure에 VHD 파일로 업로드할 수도 있습니다. Azure에서 VHD 파일을 만들어 업로드하려면 다음 단계를 따르세요.
 
 <ol>
-<li>Create the Hyper-V-enabled image: Use Hyper-V Manager to create the Hyper-V-enabled VHD. For more information, go to <a href="http://technet.microsoft.com/ko-kr/library/cc742509">가상 하드 디스크 만들기</a>.</li>
+<li>Hyper-V 사용 이미지 만들기: Hyper-V 관리자를 사용하여 Hyper-V 사용 VHD를 만듭니다. 자세한 내용을 보려면 <a href="http://technet.microsoft.com/ko-kr/library/cc742509">가상 하드 디스크 만들기</a>.</li>
 <li>Azure에서 저장소 계정 만들기: VM을 만드는 데 사용할 수 있는 VHD 파일을 업로드하려면 Azure 저장소 계정이 필요합니다. 이 계정은 Azure 관리 포털을 사용하여 만들 수 있습니다. 자세한 내용은 <a href="/ko-kr/manage/windows/common-tasks/upload-a-vhd/">Azure에서 저장소 계정 만들기</a>로 이동하세요.</li>
 <li>업로드할 이미지 준비: Azure에 이미지를 업로드하려면 먼저 SysPrep 명령을 사용하여 범용화해야 합니다. 자세한 내용은 <a href="http://technet.microsoft.com/ko-kr/library/bb457073.aspx">SysPrep 사용 방법: 소개</a>로 이동하세요.</li>
 <li>Azure에 이미지 업로드: VHD 파일에 포함된 이미지를 업로드하려면 관리 인증서를 만들고 설치해야 합니다. 인증서의 지문 및 구독 ID를가져옵니다. 연결을 설정하고 CSUpload 명령줄 도구를 사용하여 VHD 파일을 업로드합니다. 자세한 내용은 <a href="/ko-kr/manage/windows/common-tasks/upload-a-vhd/">Azure에 이미지 업로드</a>로 이동하세요.</li>
@@ -264,7 +264,7 @@ Azure 가상 컴퓨터는 .NET, Node.js, Java 및 PHP에 대한 공식적인 지
 Azure에서 SharePoint 개발 및 테스트 환경을 구현하려면 다음 단계를 따르세요.
 
 <ol>
-<li><em>Provision</em>: First, provision a VPN connection between on-premises and Azure using Azure Virtual Network. (Because Active Directory is not being used here, a VPN tunnel is needed.) For more information, go to <a href="http://msdn.microsoft.com/ko-kr/library/windowsazure/jj156007.aspx">Azure 가상 네트워크(디자인 고려 사항 및 보안 연결 시나리오)</a>. 그런 다음 관리 포털을 사용하여 이미지 라이브러리의 기존 이미지를 사용해 새 VM을 프로비전합니다.
+<li><em>프로비전</em>: 먼저, Azure 가상 네트워크를 사용하여 온-프레미스와 Azure 간의 VPN 연결을 프로비전합니다. (여기에서는 Active Directory를 사용하지 않으므로 VPN 터널이 필요합니다.) 자세한 내용을 보려면  <a href="http://msdn.microsoft.com/ko-kr/library/windowsazure/jj156007.aspx">Azure 가상 네트워크(디자인 고려 사항 및 보안 연결 시나리오)</a>. 그런 다음 관리 포털을 사용하여 이미지 라이브러리의 기존 이미지를 사용해 새 VM을 프로비전합니다.
 <ul>
 <li>온-프레미스 SharePoint 개발 및 테스트 VM을 Azure 저장소 계정으로 업로드하고, 이미지 라이브러리를 통해 해당 VM을 참조하여 필요한 환경을 빌드할 수 있습니다.</li>
 <li>Windows Server 2008 R2 SP1 이미지 대신 SQL Server 2012 이미지를 사용할 수 있습니다. 자세한 내용은 <a href="/ko-kr/manage/windows/common-tasks/install-sql-server/">Azure에서 SQL Server 가상 컴퓨터 프로비전</a>으로 이동하세요.</li>
@@ -333,7 +333,7 @@ SQL Server 및 SharePoint Server와 같은 다른 Microsoft 제품으로 작업�
 Azure에서 공용 SharePoint 팜을 구현하려면 다음 단계를 따르세요.
 
 <ol>
-<li><em>Deploy Active Directory</em>: The fundamental requirements for deploying Active Directory on Azure Virtual Machines are similar"but not identical"to deploying it on VMs (and, to some extent, physical machines) on-premises. For more information about the differences, as well as guidelines and other considerations, go to <a href="http://msdn.microsoft.com/ko-kr/library/windowsazure/jj156090">Azure 가상 컴퓨터에 Active Directory 배포에 대한 지침</a>. Azure에서 Active Directory를 배포하려면 다음을 수행합니다.
+<li><em>Active Directory 배포</em>: Azure 가상 컴퓨터에서 Active Directory를 배포하기 위해 충족해야 하는 기본 요구 사항은 온-프레미스 VM(및 어느 정도까지는 물리적 컴퓨터)에서 배포하는 경우와 유사하지만 "동일하지는 않습니다". 차이점, 지침 및 기타 고려 사항에 대한 자세한 내용을 보려면 <a href="http://msdn.microsoft.com/ko-kr/library/windowsazure/jj156090">Azure 가상 컴퓨터에 Active Directory 배포에 대한 지침</a>. Azure에서 Active Directory를 배포하려면 다음을 수행합니다.
 <ul>
 <li>VM을 특정 서브넷에 할당할 수 있는 가상 네트워크를 정의하고 만듭니다. 자세한 내용은 <a href="https://github.com/WindowsAzure-TrainingKit/HOL-DeployingActiveDirectory/blob/master/HOL.md">가상 네트워킹 구성</a>(영문)으로 이동하세요.</li>
 <li>Azure에서 관리 포털을 사용하여 새 VM에서 도메인 컨트롤러를 만들고 배포합니다. 자세한 내용은 <a href="https://github.com/WindowsAzure-TrainingKit/HOL-DeployingActiveDirectory/blob/master/HOL.md">도메인 컨트롤러 배포 및 만들기</a>(영문)로 이동하세요.
@@ -388,9 +388,9 @@ BI 구성 요소 배포를 확장하려면 PowerPivot, Power View, Excel Service
 Azure에서 BI 환경을 확장하려면 다음 단계를 따르세요.
 
 <ol>
-<li><em>Provision</em>:
+<li><em>프로비전</em>:
 <ul>
-<li>Provision a VPN connection between on premises and Azure using Azure Virtual Network. For more information, go to <a href="http://msdn.microsoft.com/ko-kr/library/windowsazure/jj156007.aspx">Azure 가상 네트워크(디자인 고려 사항 및 보안 연결 시나리오)</a>.</li>
+<li>Azure 가상 네트워크를 사용하여 온-프레미스와 Azure 간 VPN 연결을 프로비전합니다. 자세한 내용을 보려면 <a href="http://msdn.microsoft.com/ko-kr/library/windowsazure/jj156007.aspx">Azure 가상 네트워크(디자인 고려 사항 및 보안 연결 시나리오)</a>.</li>
 <li>관리 포털을 사용하여 이미지 라이브러리의 기존 이미지에서 새 VM을 프로비전합니다.
 <ul>
 <li>SharePoint Server 또는 SQL Server BI 작업 이미지를 이미지 갤러리에 업로드할 수 있으며, 권한 있는 사용자는 해당 BI 구성 요소 VM을 선택하여 확장된 환경을 빌드할 수 있습니다.</li>
@@ -443,7 +443,7 @@ Azure에서 완전히 사용자 지정된 SharePoint 웹 사이트를 구현하�
 다음 단계는 이미지 라이브러리의 미리 빌드된 이미지에서 사용자 지정된 SharePoint 팜 환경을 만드는 방법을 보여 줍니다. 그러나 SharePoint 팜 VM을 이미지 라이브러리로 업로드할 수도 있으며, 권한 있는 사용자는 해당 VM을 선택하여 Azure에서 필요한 SharePoint 팜을 빌드할 수 있습니다.
 
 <ol>
-<li>Deploy Active Directory<em>: The fundamental requirements for deploying Active Directory on Azure Virtual Machines are similar"but not identical"to deploying it on VMs (and, to some extent, physical machines) on premises. For more information about the differences, as well as guidelines and other considerations, go to <a href="http://msdn.microsoft.com/ko-kr/library/windowsazure/jj156090">Azure 가상 컴퓨터에 Active Directory 배포에 대한 지침</a>. Azure에서 Active Directory를 배포하려면 다음을 수행합니다.</em>
+<li>Active Directory 배포<em>: Azure 가상 컴퓨터에서 Active Directory를 배포하기 위해 충족해야 하는 기본 요구 사항은 온-프레미스 VM(및 어느 정도까지는 물리적 컴퓨터)에서 배포하는 경우와 유사하지만 "동일하지는 않습니다". 차이점, 지침 및 기타 고려 사항에 대한 자세한 내용을 보려면 <a href="http://msdn.microsoft.com/ko-kr/library/windowsazure/jj156090">Azure 가상 컴퓨터에 Active Directory 배포에 대한 지침</a>. Azure에서 Active Directory를 배포하려면 다음을 수행합니다.</em>
 <ul>
 <li>VM을 특정 서브넷에 할당할 수 있는 가상 네트워크를 정의하고 만듭니다. 자세한 내용은 <a href="https://github.com/WindowsAzure-TrainingKit/HOL-DeployingActiveDirectory/blob/master/HOL.md">가상 네트워킹 구성</a>(영문)으로 이동하세요.</li>
 <li>Azure에서 관리 포털을 사용하여 새 VM에서 도메인 컨트롤러를 만들고 배포합니다. 자세한 내용은 <a href="https://github.com/WindowsAzure-TrainingKit/HOL-DeployingActiveDirectory/blob/master/HOL.md">도메인 컨트롤러 배포 및 만들기</a>(영문)로 이동하세요.

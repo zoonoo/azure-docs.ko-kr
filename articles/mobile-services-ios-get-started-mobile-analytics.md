@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Get Started with Mobile Analytics" pageTitle="모바일 분석 시작 | 모바일 개발자 센터" metaKeywords="" description="모바일 분석을 시작하는 방법에 대해 알아봅니다." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Get Started with Mobile Analytics" authors="mahender" manager="dwrede"/>
+<properties urlDisplayName="Get Started with Mobile Analytics" pageTitle="모바일 분석 시작 | 모바일 개발자 센터" metaKeywords="" description="모바일 분석을 시작하는 방법에 대해 알아봅니다." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Get Started with Mobile Analytics" authors="mahender" manager="dwrede"/>
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="10/10/2014" ms.author="mahender" />
 
@@ -76,7 +76,7 @@
     이제 앱이 Capptain으로 분석 데이터를 보내도록 구성되었습니다.
 
 ## 다음 단계
-[http://www.capptain.com](영문)에서 Capptain을 통해 앱에 수행할 수 있는 작업에 대해 자세히 알아보세요.(http://www.capptain.com)
+에서 Capptain을 통해 앱에 수행할 수 있는 작업에 대해 자세히 알아보세요 http://www.capptain.com (영문).
 
 <!-- Anchors. -->
 [Capptain SDK 초기화]: #initialize
@@ -84,7 +84,6 @@
 
 
 <!-- URLs. -->
-[Capptain](영문): http://www.capptain.com
 [모바일 서비스 표준 계층]: /ko-kr/pricing/details/mobile-services/
 
 <!--HONumber=35.1-->

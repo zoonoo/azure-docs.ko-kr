@@ -1,4 +1,4 @@
-﻿<properties linkid="develop-mobile-tutorials-get-started-with-push-android" urlDisplayName="Get Started with Push (Android)" pageTitle="푸시 알림 시작(Android) | 모바일 개발자 센터" metaKeywords="" description="Azure 모바일 서비스를 사용하여 Android 앱에 푸시 알림을 보내는 방법에 대해 알아봅니다." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="ricksal" solutions="" manager="dwrede" editor="" />
+<properties linkid="develop-mobile-tutorials-get-started-with-push-android" urlDisplayName="Get Started with Push (Android)" pageTitle="푸시 알림 시작(Android) | 모바일 개발자 센터" metaKeywords="" description="Azure 모바일 서비스를 사용하여 Android 앱에 푸시 알림을 보내는 방법에 대해 알아봅니다." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="ricksal" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal" />
 
@@ -263,7 +263,7 @@
 
 <!-- Images. -->
 
-<google-developers.png
+[1]: ./media/mobile-services-android-get-started-push/mobile-services-google-developers.png
 [2]: ./media/mobile-services-android-get-started-push/mobile-services-google-create-server.png
 [3]: ./media/mobile-services-android-get-started-push/mobile-services-google-create-server2.png
 [4]: ./media/mobile-services-android-get-started-push/mobile-services-google-create-server3.png

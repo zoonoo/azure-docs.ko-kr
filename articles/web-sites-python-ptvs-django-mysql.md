@@ -1,4 +1,4 @@
-﻿<properties linkid="web-sites-python-ptvs-django-mysql" title="Django and MySQL on Azure with Python Tools 2.1 for Visual Studio" pageTitle="Python Tools 2.1 for Visual Studio가 있는 Azure의 Django 및 MySQL" description="Python Tools for Visual Studio를 사용하여 MySQL 데이터베이스 인스턴스에 데이터를 저장하고 웹 사이트에 배포할 수 있는 Django 응용 프로그램을 만드는 방법에 대해 알아봅니다." metaKeywords="" services="" solutions="" documentationCenter="Python" authors="huvalo" videoId="" scriptId="" manager="wpickett" editor="" />
+<properties linkid="web-sites-python-ptvs-django-mysql" title="Django and MySQL on Azure with Python Tools 2.1 for Visual Studio" pageTitle="Python Tools 2.1 for Visual Studio가 있는 Azure의 Django 및 MySQL" description="Python Tools for Visual Studio를 사용하여 MySQL 데이터베이스 인스턴스에 데이터를 저장하고 웹 사이트에 배포할 수 있는 Django 응용 프로그램을 만드는 방법에 대해 알아봅니다." metaKeywords="" services="" solutions="" documentationCenter="Python" authors="huvalo" videoId="" scriptId="" manager="wpickett" editor="" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="10/10/2014" ms.author="huvalo" />
 
@@ -20,11 +20,11 @@ Bottle, Flask 및 Django 웹 프레임워크, MongoDB, Azure 테이블 저장소
 + [Azure 웹 사이트에 게시](#publish-to-an-azure-website)
 + [다음 단계](#next-steps)
 
-##<a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 조건
 
  - Visual Studio 2012 또는 2013
- - [Python Tools 2.1 for Visual Studio][](영문)
- - [Python Tools 2.1 for Visual Studio 샘플 VSIX][](영문)
+ - [Python Tools 2.1 for Visual Studio (영문)][]
+ - [Python Tools 2.1 for Visual Studio 샘플 VSIX (영문)][]
  - [Azure SDK Tools for VS 2013][] 또는 [Azure SDK Tools for VS 2012][]
  - [Python 2.7 32비트][]
 
@@ -33,7 +33,7 @@ Bottle, Flask 및 Django 웹 프레임워크, MongoDB, Azure 테이블 저장소
 > 
 > 계정을 등록하기 전에 Azure 웹 사이트를 시작하려면 <a href="https://trywebsites.azurewebsites.net/?language=python">https://trywebsites.azurewebsites.net</a>으로 이동합니다. 이 Azure 웹 사이트에서는 무료로 단기 ASP.NET 시작 사이트를 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
-##<a name="create-the-project"></a>프로젝트 만들기
+## <a name="create-the-project"></a>프로젝트 만들기
 
 이 섹션에서는 샘플 템플릿을 사용하여 Visual Studio 프로젝트를 만듭니다. 가상 환경을 만들고 필요한 패키지를 설치합니다.  sqlite를 사용하여 로컬 데이터베이스를 만듭니다.  그런 후 응용 프로그램을 로컬로 실행합니다.
 
@@ -79,7 +79,7 @@ Bottle, Flask 및 Django 웹 프레임워크, MongoDB, Azure 테이블 저장소
 
   	![Web Browser](./media/web-sites-python-ptvs-django-mysql/PollsDjangoSqliteBrowser.png)
 
-##<a name="create-a-mysql-database"></a>MySQL 데이터베이스 만들기
+## <a name="create-a-mysql-database"></a>MySQL 데이터베이스 만들기
 
 데이터베이스로, Azure에 ClearDB MySQL 호스트 데이터베이스를 만듭니다.
 
@@ -105,7 +105,7 @@ Bottle, Flask 및 Django 웹 프레임워크, MongoDB, Azure 테이블 저장소
 
 1.  **구입**을 클릭합니다.
 
-##<a name="configure-the-project"></a>프로젝트 구성
+## <a name="configure-the-project"></a>프로젝트 구성
 
 이 섹션에서는 방금 만든 MySQL 데이터베이스를 사용하도록 응용 프로그램을 구성합니다.  Azure 포털에서 연결 설정을 가져오는 방법을 알아봅니다.  Django에서 MySQL 데이터베이스를 사용하는 데 필요한 추가 Python 패키지도 설치합니다.  그런 후 응용 프로그램을 로컬로 실행합니다.
 
@@ -147,7 +147,7 @@ Bottle, Flask 및 Django 웹 프레임워크, MongoDB, Azure 테이블 저장소
 
 1.  <kbd>F5</kbd> 키를 눌러 응용 프로그램을 실행합니다.  **Create Sample Polls**를 사용하여 만든 설문 조사와 투표를 통해 제출된 데이터는 MySQL 데이터베이스에서 serialize됩니다.
 
-##<a name="publish-to-an-azure-website"></a>Azure 웹 사이트에 게시
+## <a name="publish-to-an-azure-website"></a>Azure 웹 사이트에 게시
 
 PTVS는 Azure 웹 사이트에 웹 응용 프로그램을 배포하는 쉬운 방법을 제공합니다.
 
@@ -171,15 +171,15 @@ PTVS는 Azure 웹 사이트에 웹 응용 프로그램을 배포하는 쉬운 �
 
   	![Web Browser](./media/web-sites-python-ptvs-django-mysql/PollsDjangoAzureBrowser.png)
 
-##<a name="next-steps"></a>다음 단계
+## <a name="next-steps"></a>다음 단계
 
 Python Tools for Visual Studio, Django 및 MySQL에 대해 자세히 알아보려면 다음 링크를 참조하세요.
 
-- [Python Tools for Visual Studio 설명서][](영문)
-  - [웹 프로젝트][](영문)
-  - [클라우드 서비스 프로젝트][](영문)
-  - [Microsoft Azure의 원격 디버깅][](영문)
-- [Django 설명서][](영문)
+- [Python Tools for Visual Studio 설명서 (영문)][]
+  - [웹 프로젝트 (영문)][]
+  - [클라우드 서비스 프로젝트 (영문)][]
+  - [Microsoft Azure의 원격 디버깅 (영문)][]
+- [Django 설명서 (영문)][]
 - [MySQL][]
 
 
@@ -189,16 +189,16 @@ Python Tools for Visual Studio, Django 및 MySQL에 대해 자세히 알아보�
 
 <!--External Link references-->
 [Azure 관리 포털]: https://manage.windowsazure.com
-[Python Tools 2.1 for Visual Studio](영문): http://go.microsoft.com/fwlink/?LinkId=517189
-[Python Tools 2.1 for Visual Studio 샘플 VSIX](영문): http://go.microsoft.com/fwlink/?LinkId=517189
-[Azure SDK Tools for VS 2013](영문): http://go.microsoft.com/fwlink/?LinkId=323510
-[Azure SDK Tools for VS 2012](영문): http://go.microsoft.com/fwlink/?LinkId=323511
-[Python 2.7 32비트](영문): http://go.microsoft.com/fwlink/?LinkId=517190 
-[Python Tools for Visual Studio 설명서](영문): http://pytools.codeplex.com/documentation
-[Microsoft Azure의 원격 디버깅](영문): http://pytools.codeplex.com/wikipage?title=Features%20Azure%20Remote%20Debugging
-[웹 프로젝트](영문): http://pytools.codeplex.com/wikipage?title=Features%20Web%20Project
-[클라우드 서비스 프로젝트](영문): http://pytools.codeplex.com/wikipage?title=Features%20Cloud%20Project
-[Django 설명서](영문): https://www.djangoproject.com/
+[Python Tools 2.1 for Visual Studio (영문)]: http://go.microsoft.com/fwlink/?LinkId=517189
+[Python Tools 2.1 for Visual Studio 샘플 VSIX (영문)]: http://go.microsoft.com/fwlink/?LinkId=517189
+[Azure SDK Tools for VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
+[Azure SDK Tools for VS 2012]: http://go.microsoft.com/fwlink/?LinkId=323511
+[Python 2.7 32비트]: http://go.microsoft.com/fwlink/?LinkId=517190 
+[Python Tools for Visual Studio 설명서 (영문)]: http://pytools.codeplex.com/documentation
+[Microsoft Azure의 원격 디버깅 (영문)]: http://pytools.codeplex.com/wikipage?title=Features%20Azure%20Remote%20Debugging
+[웹 프로젝트 (영문)]: http://pytools.codeplex.com/wikipage?title=Features%20Web%20Project
+[클라우드 서비스 프로젝트 (영문)]: http://pytools.codeplex.com/wikipage?title=Features%20Cloud%20Project
+[Django 설명서 (영문)]: https://www.djangoproject.com/
 [MySQL]: http://www.mysql.com/
 
 <!--HONumber=35.1-->

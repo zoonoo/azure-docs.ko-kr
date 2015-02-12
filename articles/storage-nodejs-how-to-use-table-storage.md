@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Table Service" pageTitle="테이블 저장소 사용 방법(Node.js) | Microsoft Azure" metaKeywords="Azure table storage service, Azure table service Node.js, table storage Node.js" description="Azure에서 테이블 저장소 서비스를 사용하는 방법에 대해 알아봅니다. 코드 샘플은 Node.js API를 사용하여 작성되었습니다." metaCanonical="" services="storage" documentationCenter="nodejs" title="How to Use the Table Service from Node.js" authors="larryfr" solutions="" manager="wpickett" editor="" />
+<properties urlDisplayName="Table Service" pageTitle="테이블 저장소 사용 방법(Node.js) | Microsoft Azure" metaKeywords="Azure table storage service, Azure table service Node.js, table storage Node.js" description="Azure에서 테이블 저장소 서비스를 사용하는 방법에 대해 알아봅니다. 코드 샘플은 Node.js API를 사용하여 작성되었습니다." metaCanonical="" services="storage" documentationCenter="nodejs" title="How to Use the Table Service from Node.js" authors="larryfr" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="mwasson" />
 
@@ -186,7 +186,7 @@ Azure SDK for Node.js에는 재시도 논리를 구현하는 **ExponentialRetryP
 ## <a name="change-entities"> </a>엔터티 그룹 작업 방법
 서버에서 원자성 처리를 수행하도록 여러 작업을 일괄적으로 제출하는 것이 좋은 경우도 있습니다. 이렇게 하려면 **TableBatch** 클래스를 사용하여 배치를 만든 다음 **TableService**의 **executeBatch** 메서드를 사용하여 일괄 처리 작업을 수행합니다.
 
- The following example demonstrates submitting two entities in a batch:
+ 다음 예제에서는 두 엔터티를 일괄적으로 제출하는 방법을 보여 줍니다.
 
     var task1 = { 
 	  PartitionKey: {'_':'hometasks'},
@@ -428,12 +428,12 @@ ACL이 설정되고 나면 정책의 ID를 기반으로 SAS를 만들 수 있습
   [REST API 사용]: http://msdn.microsoft.com/ko-kr/library/windowsazure/hh264518.aspx
   [Azure 관리 포털]: http://manage.windowsazure.com
 
-  [Node.js 클라우드 서비스]: /ko-kr/documentation/articles/cloud-services-nodejs-develop-deploy-app/
-  [Azure에 데이터 저장 및 액세스]: http://msdn.microsoft.com/ko-kr/library/windowsazure/gg433040.aspx
+  [Node.js Cloud Service]: /ko-kr/documentation/articles/cloud-services-nodejs-develop-deploy-app/
+  [Azure 저장소 팀 블로그]: http://msdn.microsoft.com/ko-kr/library/windowsazure/gg433040.aspx
   [Azure 저장소 팀 블로그 방문]: http://blogs.msdn.com/b/windowsazurestorage/
   [WebMatrix를 사용하는 웹 사이트]: /ko-kr/documentation/articles/web-sites-nodejs-use-webmatrix/
   [Node.js 클라우드 서비스 및 저장소]: /ko-kr/documentation/articles/storage-nodejs-use-table-storage-cloud-service-app/
   [Node.js 웹 응용 프로그램 및 저장소]: /ko-kr/documentation/articles/storage-nodejs-use-table-storage-web-site/
-  [Node.js 응용 프로그램을 만들어 Azure 웹 사이트에 배포]: /ko-kr/documentation/articles/web-sites-nodejs-develop-deploy-mac/
+  [Node.js 응용 프로그램을 만들어 Azure 웹 사이트에 배포하기]: /ko-kr/documentation/articles/web-sites-nodejs-develop-deploy-mac/
 
 <!--HONumber=35.1-->

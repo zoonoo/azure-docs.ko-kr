@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Service Bus Topics" pageTitle="서비스 버스 토픽을 사용하는 방법(Ruby) - Azure" metaKeywords="Get started Azure Service Bus topics, Get Started Service Bus topics, Azure publish subscribe messaging, Azure messaging topics and subscriptions, Service Bus topic ruby" description="Azure에서 서비스 버스 토픽 및 구독을 사용하는 방법에 대해 알아봅니다. 코드 샘플은 Ruby 응용 프로그램용으로 작성되었습니다." metaCanonical="" services="service-bus" documentationCenter="Ruby" title="How to Use Service Bus Topics/Subscriptions" authors="tomfitz" solutions="" manager="wpickett" editor="" />
+<properties urlDisplayName="Service Bus Topics" pageTitle="서비스 버스 토픽을 사용하는 방법(Ruby) - Azure" metaKeywords="Get started Azure Service Bus topics, Get Started Service Bus topics, Azure publish subscribe messaging, Azure messaging topics and subscriptions, Service Bus topic ruby" description="Azure에서 서비스 버스 토픽 및 구독을 사용하는 방법에 대해 알아봅니다. 코드 샘플은 Ruby 응용 프로그램용으로 작성되었습니다." metaCanonical="" services="service-bus" documentationCenter="Ruby" title="How to Use Service Bus Topics/Subscriptions" authors="tomfitz" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="11/25/2014" ms.author="tomfitz" />
 
@@ -42,11 +42,11 @@
 To begin using Service Bus queues in Azure, you must first create a service namespace. A service namespace provides a scoping container for addressing Service Bus resources within 
 your application. You must create the namespace through the command-line interface because the Portal does not create the service bus with an ACS connection.
 
-To create a namespace:
+네임스페이스 만들기:
 
-1. Open an Azure Powershell console.
+1. Azure Powershell 콘솔을 엽니다.
 
-2. Type the command to create an Azure service bus namespace as shown below. Provide your own namespace value and specify the same region as your application. 
+2. 명령을 입력하고 아래와 같이 Azure 서비스 버스 네임스페이스를 만듭니다.
 
       New-AzureSBNamespace -Name 'yourexamplenamespace' -Location 'West US' -CreateACSNamespace $true
 
@@ -72,7 +72,7 @@ To create a namespace:
 
 ## <a id="create-a-ruby-application"></a>Ruby 응용 프로그램 만들기
 
-Ruby 응용 프로그램을 만듭니다. 자세한 내용은 [Azure에서 Ruby 응용 프로그램 만들기]를(/ko-kr/develop/ruby/tutorials/web-app-with-linux-vm/)참조하세요.
+Ruby 응용 프로그램을 만듭니다. 자세한 내용은 [Azure에서 Ruby 응용 프로그램 만들기](/ko-kr/develop/ruby/tutorials/web-app-with-linux-vm/)를참조하세요.
 
 ## <a id="configure-your-application-to-use-service-bus"></a>서비스 버스를 사용하도록 응용 프로그램 구성
 
@@ -227,7 +227,7 @@ Azure 모듈은 **AZURE\_SERVICEBUS\_NAMESPACE** 및 **AZURE\_SERVICEBUS\_ACCESS
 이제 서비스 버스 토픽의 기본 사항을 익혔으므로 다음 링크를 따라 자세히 알아보세요.
 
 -   다음 MSDN 참조를 확인하세요. [큐, 토픽 및 구독](http://msdn.microsoft.com/ko-kr/library/windowsazure/hh367516.aspx)
--   [SqlFilter]에 대한 API 참조(http://msdn.microsoft.com/ko-kr/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx)
--	GitHub에서 [Ruby용 Azure SDK](영문)(https://github.com/WindowsAzure/azure-sdk-for-ruby) 리포지토리를 방문하세요.
+-   [SqlFilter](http://msdn.microsoft.com/ko-kr/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx)에 대한 API 참조
+-	GitHub에서 [Ruby용 Azure SDK](https://github.com/WindowsAzure/azure-sdk-for-ruby)(영문) 리포지토리를 방문하세요.
 
 <!--HONumber=35.1-->

@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Web App with Storage" pageTitle="테이블 저장소를 사용하는 웹 앱(Node.js) | Microsoft Azure" metaKeywords="Azure Node.js hello world tutorial, Azure Node.js hello world, Azure Node.js Getting Started tutorial, Azure Node.js tutorial, Azure Node.js Express tutorial" description="Azure 저장소 서비스 및 Azure 모듈을 추가해 Express를 사용하여 웹 앱 빌드 자습서를 기반으로 응용 프로그램을 빌드하는 자습서입니다." metaCanonical="" services="cloud-services,storage" documentationCenter="nodejs" title="Node.js Web Application using Storage" authors="larryfr" solutions="" manager="wpickett" editor="" />
+<properties urlDisplayName="Web App with Storage" pageTitle="테이블 저장소를 사용하는 웹 앱(Node.js) | Microsoft Azure" metaKeywords="Azure Node.js hello world tutorial, Azure Node.js hello world, Azure Node.js Getting Started tutorial, Azure Node.js tutorial, Azure Node.js Express tutorial" description="Azure 저장소 서비스 및 Azure 모듈을 추가해 Express를 사용하여 웹 앱 빌드 자습서를 기반으로 응용 프로그램을 빌드하는 자습서입니다." metaCanonical="" services="cloud-services,storage" documentationCenter="nodejs" title="Node.js Web Application using Storage" authors="larryfr" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="mwasson" />
 
@@ -14,7 +14,7 @@
 작업 항목은 Azure 저장소에 저장됩니다. Azure 저장소는 내결함성과 고가용성이 있는 구조화되지 않은 데이터 저장소를 제공합니다. Azure 저장소에는 데이터를 저장하고 액세스할 수 있는 일부 데이터 구조가 포함되며, Node.js용 Azure SDK에 포함된 API 또는 REST API를 통해 저장소 서비스를 활용할 수 있습니다. 자세한 내용은 [Azure에 데이터 저장 및 액세스]를 참조하세요.
 
 이 자습서에서는 [Node.js 웹
-응용 프로그램] 및 [Express를 사용하는 Node.js][Node.js Web Application using Express] 자습서를 완료한 것으로 가정합니다.
+응용 프로그램] 및 [Express를 사용하는 Node.js][Express를 사용하는 Node.js 웹 응용 프로그램] 자습서를 완료한 것으로 가정합니다.
 
 다음 내용을 배웁니다.
 
@@ -70,7 +70,7 @@ Azure 저장소에 액세스하려면 저장소 자격 증명을 전달해야 �
 
 		PS C:\node\tasklist\WebRole1> npm install azure-storage node-uuid async nconf --save
 
-	The output of this command should appear similar to the following:
+	이 명령의 출력은 다음과 유사하게 표시됩니다:
 
 		node-uuid@1.4.1 node_modules\node-uuid
 

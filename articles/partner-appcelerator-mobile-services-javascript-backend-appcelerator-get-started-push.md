@@ -417,7 +417,7 @@ Android NDK를 설치해야 합니다. [http://developer.android.com/sdk/ndk/ind
             }, 2500);
         }
   
-   	> [WACOM.NOTE] 이 스크립트는 앱을 닫고 푸시 알림을 수신할 수 있는 시간을 주기 위해 알림 전송을 지연시킵니다.  
+> [WACOM.NOTE] 이 스크립트는 앱을 닫고 푸시 알림을 수신할 수 있는 시간을 주기 위해 알림 전송을 지연시킵니다.  
 
 **Android:**
 

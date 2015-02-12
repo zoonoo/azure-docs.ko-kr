@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Define a custom API that supports pull notifications" pageTitle="풀 알림을 지원하는 사용자 지정 API 정의 - Azure 모바일 서비스" metaKeywords="" description="Azure 모바일 서비스를 사용하는 Windows 스토어 앱에서 정기 알림을 지원하는 사용자 지정 API를 정의하는 방법에 대해 알아봅니다." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Define a custom API that supports periodic notifications" authors="glenga" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Define a custom API that supports pull notifications" pageTitle="풀 알림을 지원하는 사용자 지정 API 정의 - Azure 모바일 서비스" metaKeywords="" description="Azure 모바일 서비스를 사용하는 Windows 스토어 앱에서 정기 알림을 지원하는 사용자 지정 API를 정의하는 방법에 대해 알아봅니다." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Define a custom API that supports periodic notifications" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="11/22/2014" ms.author="glenga" />
 # 정기 알림을 지원하는 사용자 지정 API 정의
@@ -66,7 +66,7 @@
 		    }
 		};
 
-	This code returns the top 3 uncompleted items from the TodoItem table, then loads them into a JSON object passed to the **wns**.**createTileSquareText01** function. This function returns the following tile template XML:
+	이 코드는 TodoItem 테이블에서 완료되지 않은 상위 항목 3개를 반환한 후  **wns**.**createTileSquareText01** 함수에 전달되는 JSON 개체에 로드합니다. 이 함수는 다음과 같은 타일 템플릿 XML을 반환합니다:
 
 		<tile>
 			<visual>
@@ -140,8 +140,8 @@
 [Windows 푸시 알림 및 Live Connect]: http://go.microsoft.com/fwlink/?LinkID=257677
 [모바일 서비스 서버 스크립트 참조]: http://go.microsoft.com/fwlink/?LinkId=262293
 [내 앱 대시보드]: http://go.microsoft.com/fwlink/?LinkId=262039
-[모바일 서비스 시작](영문): /ko-kr/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started
-[기존 앱에 모바일 서비스 추가](영문): /ko-kr/documentation/articles/mobile-services-windows-store-javascript-get-started
+[모바일 서비스 시작]: /ko-kr/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started
+[기존 앱에 모바일 서비스 추가]: /ko-kr/documentation/articles/mobile-services-windows-store-javascript-get-started
 [푸시 알림 시작]: /ko-kr/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push
 
 [Azure 관리 포털]: https://manage.windowsazure.com/

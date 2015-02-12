@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Register for Twitter Authentication" pageTitle="Twitter 인증 등록 - 모바일 서비스" metaKeywords="Azure registering application, Azure Twitter authentication, application authenticate, authenticate mobile services, Mobile Services Twitter" description="Azure 모바일 서비스 응용 프로그램에서 Twitter 인증을 사용하는 방법에 대해 알아봅니다." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Register your apps for Twitter login with Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Register for Twitter Authentication" pageTitle="Twitter 인증 등록 - 모바일 서비스" metaKeywords="Azure registering application, Azure Twitter authentication, application authenticate, authenticate mobile services, Mobile Services Twitter" description="Azure 모바일 서비스 응용 프로그램에서 Twitter 인증을 사용하는 방법에 대해 알아봅니다." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Register your apps for Twitter login with Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="glenga" />
 
@@ -6,7 +6,7 @@
 
 이 항목에서는 Twitter를 사용하여 Azure 모바일 서비스에 인증할 수 있도록 앱을 등록하는 방법을 보여 줍니다.
 
->[WACOM.NOTE] 이 자습서는 모든 플랫폼에 대한 확장 가능한 모바일 응용 프로그램을 구축할 수 있는 솔루션인 [Azure 모바일 서비스]에 대해(http://azure.microsoft.com/ko-kr/services/mobile-services/)다룹니다. 모바일 서비스를 사용하면 데이터 동기화, 사용자 인증, 푸시 알림 보내기 작업을 간편하게 수행할 수 있습니다. 이 페이지는 사용자가 앱에 로그인하게 하는 방법을 보여 주는 <a href="http://azure.microsoft.com/ko-kr/documentation/articles/mobile-services-ios-get-started-users/">인증 시작</a> (영문) 자습서를 보완합니다. 모바일 서비스를 처음 사용하는 경우 <a href="http://azure.microsoft.com/ko-kr/documentation/articles/mobile-services-ios-get-started/">모바일 서비스 시작</a>(영문) 자습서를 완료하는 것이 좋습니다.
+>[WACOM.NOTE] 이 자습서는 모든 플랫폼에 대한 확장 가능한 모바일 응용 프로그램을 구축할 수 있는 솔루션인 [Azure 모바일 서비스](http://azure.microsoft.com/ko-kr/services/mobile-services/)에 대해다룹니다. 모바일 서비스를 사용하면 데이터 동기화, 사용자 인증, 푸시 알림 보내기 작업을 간편하게 수행할 수 있습니다. 이 페이지는 사용자가 앱에 로그인하게 하는 방법을 보여 주는 <a href="http://azure.microsoft.com/ko-kr/documentation/articles/mobile-services-ios-get-started-users/">인증 시작</a> (영문) 자습서를 보완합니다. 모바일 서비스를 처음 사용하는 경우 <a href="http://azure.microsoft.com/ko-kr/documentation/articles/mobile-services-ios-get-started/">모바일 서비스 시작</a>(영문) 자습서를 완료하는 것이 좋습니다.
 
 이 항목의 절차를 완료하려면 검증된 메일 주소가 포함된 Twitter 계정이 있어야 합니다. 새 Twitter 계정을 만들려면 <a href="http://go.microsoft.com/fwlink/p/?LinkID=268287" target="_blank">twitter.com</a>으로 이동하세요.
 
@@ -51,8 +51,8 @@
 
 <!-- URLs. -->
 
-[Twitter 개발자](영문): http://go.microsoft.com/fwlink/p/?LinkId=268300
-[인증 시작](영문): /ko-kr/develop/mobile/tutorials/get-started-with-users-dotnet/
+[Twitter 개발자]: http://go.microsoft.com/fwlink/p/?LinkId=268300
+[인증 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-users-dotnet/
 
 [Azure 관리 포털]: https://manage.windowsazure.com/
 

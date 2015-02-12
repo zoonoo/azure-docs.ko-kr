@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Use New Relic to monitor Mobile Services" pageTitle="소스 제어에 서버 스크립트 저장 - Azure 모바일 서비스" metaKeywords="" description="New Relic 추가 기능을 사용하여 모바일 서비스를 모니터링하는 방법에 대해 알아봅니다." metaCanonical="" disqusComments="1" umbracoNaviHide="0" documentationCenter="Mobile" title="Use New Relic to monitor Mobile Services" authors="new relic" manager="carolz" />
+<properties urlDisplayName="Use New Relic to monitor Mobile Services" pageTitle="소스 제어에 서버 스크립트 저장 - Azure 모바일 서비스" metaKeywords="" description="New Relic 추가 기능을 사용하여 모바일 서비스를 모니터링하는 방법에 대해 알아봅니다." metaCanonical="" disqusComments="1" umbracoNaviHide="0" documentationCenter="Mobile" title="Use New Relic to monitor Mobile Services" authors="new relic" manager="carolz" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/25/2014" ms.author="stepsic" />
 
@@ -15,7 +15,7 @@
 
 이 자습서를 완료하려면 [모바일 서비스 시작] 또는[데이터 시작] 자습서를 완료하여 모바일 서비스를 만들어 둬야 합니다.
 
-##<a name="sign-up"></a>Azure 스토어를 사용하여 New Relic에 등록
+## <a name="sign-up"></a>Azure 스토어를 사용하여 New Relic에 등록
 
 첫 번째 단계는 New Relic 서비스를 구입하는 것입니다. 이 자습서에서는 Azure 스토어에서 이 서비스를 구입하는 방법을 보여 줍니다. 모바일 서비스는 Azure 스토어 외부에서 구입한 New Relic 구독을 지원합니다.
 
@@ -39,7 +39,7 @@
 
 11. **구입**을 클릭하면 New Relic 계정을 만드는 프로세스가 시작됩니다. 이제 Azure 관리 포털에서 상태를 모니터링할 수 있습니다.
 
-##<a name="install-module"></a>New Relic 모듈 설치
+## <a name="install-module"></a>New Relic 모듈 설치
 
 New Relic 서비스에 등록한 후에는 모바일 서비스에 New Relic Node.js 모듈을 설치해야 합니다. 모바일 서비스에 대해 소스 제어를 사용하도록 설정되어 있어야 이 모듈을 업로드할 수 있습니다.
 
@@ -61,7 +61,7 @@ New Relic 서비스에 등록한 후에는 모바일 서비스에 New Relic Node
 
 그런 다음 [관리 포털][Azure Management Portal]에서 모바일 서비스의 New Relic 모니터링을 사용할 수 있도록 설정합니다. 
 
-##<a name="enable-service"></a>모바일 서비스에 New Relic 개발자 분석 사용
+## <a name="enable-service"></a>모바일 서비스에 New Relic 개발자 분석 사용
 
 1. [관리 포털][Azure Management Portal]에서 모바일 서비스를 선택한 다음 **구성** 탭을 클릭합니다.
 
@@ -87,7 +87,7 @@ New Relic 서비스에 등록한 후에는 모바일 서비스에 New Relic Node
 
 	![][3] 
 
-##<a name="monitor"></a>New Relic 대시보드에서 모바일 서비스 모니터링
+## <a name="monitor"></a>New Relic 대시보드에서 모바일 서비스 모니터링
 
 1. 클라이언트 앱을 실행하여 모바일 서비스에 대한 읽기, 만들기, 업데이트 및 삭제 요청을 생성합니다.
 
@@ -103,7 +103,7 @@ New Relic 서비스에 등록한 후에는 모바일 서비스에 New Relic Node
 
 	![][5]
 
-##<a name="next-steps"> </a>다음 단계
+## <a name="next-steps"> </a>다음 단계
 
 + **iOS**/**Android** 모바일 앱 성능을 최적화하려면 [New Relic 모바일](영문)을 참조하세요.
 + 가격 정보는 [Azure 스토어의 New Relic 페이지](영문)를 참조하세요.
@@ -127,15 +127,18 @@ New Relic 서비스에 등록한 후에는 모바일 서비스에 New Relic Node
 <!-- URLs. -->
 [소스 제어]: http://msdn.microsoft.com/ko-kr/library/windowsazure/c25aaede-c1f0-4004-8b78-113708761643
 [모바일 서비스에서 서버 스크립트 작업]: /ko-kr/develop/mobile/how-to-guides/work-with-server-scripts.md
-
+[Azure Management Portal]: https://manage.windowsazure.com/
 [Azure 관리 포털]: https://manage.windowsazure.com/
-[Node.js API 설명서: 모듈](영문): http://nodejs.org/api/modules.html
+[Node.js API 설명서: 모듈(영문)]: http://nodejs.org/api/modules.html
 [소스 제어에 서버 스크립트 저장]: /ko-kr/develop/mobile/tutorials/store-scripts-in-source-control/
+[소스 제어의 스토어 서버 스크립트]: /ko-kr/develop/mobile/tutorials/store-scripts-in-source-control/
 [newrelic]: https://npmjs.org/package/newrelic
 [Azure 스토어의 New Relic 페이지]: /ko-kr/gallery/store/new-relic/new-relic/
 [응용 프로그램 개요]: https://docs.newrelic.com/docs/applications-dashboards/applications-overview
-[모바일 서비스 시작](영문): /ko-kr/develop/mobile/tutorials/get-started/
-[데이터 시작](영문): /ko-kr/develop/mobile/tutorials/get-started-with-data-dotnet
+[모바일 서비스 시작(영문)]: /ko-kr/develop/mobile/tutorials/get-started/
+[모바일 서비스 시작]: /ko-kr/develop/mobile/tutorials/get-started/
+[데이터 시작(영문)]: /ko-kr/develop/mobile/tutorials/get-started-with-data-dotnet
+[데이터 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-data-dotnet
 [New Relic 모바일]: http://newrelic.com/mobile-monitoring
 
 

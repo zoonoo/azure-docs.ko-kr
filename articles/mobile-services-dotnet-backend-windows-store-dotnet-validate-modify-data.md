@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Validate and Modify Data" pageTitle=".Net 백 엔드를 사용하여 데이터 유효성 검사 및 수정(Windows 스토어) | 모바일 개발자 센터" metaKeywords="" description=".Net 백 엔드 Microsoft Azure 모바일 서비스를 사용하여 Windows 스토어 앱에 대한 데이터의 유효성을 검사하고 데이터를 수정 및 보강하는 방법에 대해 알아봅니다." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using the .Net backend" authors="wesmc" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Validate and Modify Data" pageTitle=".Net 백 엔드를 사용하여 데이터 유효성 검사 및 수정(Windows 스토어) | 모바일 개발자 센터" metaKeywords="" description=".Net 백 엔드 Microsoft Azure 모바일 서비스를 사용하여 Windows 스토어 앱에 대한 데이터의 유효성을 검사하고 데이터를 수정 및 보강하는 방법에 대해 알아봅니다." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using the .Net backend" authors="wesmc" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc" />
 
@@ -18,12 +18,12 @@
 
 이 자습서는 이전 자습서인 [시작] 또는 [데이터 작업 시작]의 단계 및 샘플 코드를 기반으로 합니다. 이 자습서를 시작하기 전에 먼저 [시작] 또는 [데이터 작업 시작] 자습서를 완료해야 합니다.  
 
-## <a name="string-length-validation"></a>Add validation
+## <a name="string-length-validation"></a>유효성 검사 추가
 
 [WACOM.INCLUDE [mobile-services-dotnet-backend-add-validation](../includes/mobile-services-dotnet-backend-add-validation.md)]
 
 
-## <a name="update-client-validation"></a>Update the client
+## <a name="update-client-validation"></a>클라이언트 업데이트
 
 모바일 서비스가 데이터의 유효성 검사를 하고 잘못된 텍스트 길이에 대한 오류 응답을 보내도록 설정되어 있으므로, 개발자는 유효성 검사의 오류 응답을 처리할 수 있도록 앱을 업데이트해야 합니다. 오류는 `IMobileServiceTable<TodoItem].InsertAsync()`에 대한 클라이언트 앱 호출에서 `MobileServiceInvalidOperationException`으로 발생됩니다.
 
@@ -74,14 +74,14 @@
 
     ![][2]
 
-## <a name="add-timestamp"></a>Add a timestamp field for CompleteDate
+## <a name="add-timestamp"></a>CompleteDate에 대한 타임스탬프 필드 추가
 
 [WACOM.INCLUDE [mobile-services-dotnet-backend-add-completedate](../includes/mobile-services-dotnet-backend-add-completedate.md)]
 
 
 
 
-## <a name="update-client-timestamp"></a>Update the client to display the CompleteDate
+## <a name="update-client-timestamp"></a>CompleteDate를 표시하도록 클라이언트 업데이트
 
 마지막 단계는 새 **CompleteDate** 데이터를 표시하도록 클라이언트를 업데이트하는 것입니다. 
 

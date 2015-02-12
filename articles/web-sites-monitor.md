@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="How to monitor" pageTitle="웹 사이트를 모니터링하는 방법 - Azure 서비스 관리" metaKeywords="Azure monitoring web sites, Azure Management Portal Monitor, Azure monitoring" description="관리 포털에서 모니터 페이지를 사용하여 Azure 웹 사이트를 모니터링하는 방법에 대해 알아봅니다." metaCanonical="" services="web-sites" documentationCenter="" title="How to Monitor Websites" authors="cephalin" solutions="" manager="wpickett" editor="mollybos" />
+<properties urlDisplayName="How to monitor" pageTitle="웹 사이트를 모니터링하는 방법 - Azure 서비스 관리" metaKeywords="Azure monitoring web sites, Azure Management Portal Monitor, Azure monitoring" description="관리 포털에서 모니터 페이지를 사용하여 Azure 웹 사이트를 모니터링하는 방법에 대해 알아봅니다." metaCanonical="" services="web-sites" documentationCenter="" title="How to Monitor Websites" authors="cephalin" solutions="" manager="wpickett" editor="mollybos" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/24/2014" ms.author="cephalin" />
 
@@ -85,10 +85,10 @@
 Azure 저장소 계정에 대한 자세한 내용은 [저장소 계정을 관리하는 방법](https://www.windowsazure.com/ko-kr/manage/services/storage/how-to-manage-a-storage-account/)을 참조하세요.
 
 <div class="dev-callout"on> 
-<b>Note</b> 
-<p>Application logging to table or blob storage is only supported for .NET applications.</p> </div>
+<b>참고</b> 
+<p>테이블 또는 Blob 저장소에 대한 응용 프로그램 로깅은 .NET 응용 프로그램에서만 지원됩니다.</p> </div>
 
-Since application logging to storage requires using a storage client to view the log data, it is most useful when you plan on using a service or application that understands how to read and process the data directly from Azure Table or Blob Storage. Logging to the file system produces files that can be downloaded to your local computer using FTP or other utilities as described later in this section.
+저장소에 대한 응용 프로그램 로깅의 경우 저장소 클라이언트를 사용하여 로그 데이터를 봐야 하므로, Azure 테이블 또는 Blob 저장소에서 데이터를 직접 읽고 처리하는 방법을 인식하는 서비스 또는 응용 프로그램 사용을 계획할 때 이런 점에 유의해야 합니다. 파일 시스템에 로깅하면 FTP 또는 이 섹션의 뒷부분에서 설명하는 기타 유틸리티를 사용하여 로컬 컴퓨터에 다운로드할 수 있는 파일이 생성됩니다.
 
 <div class="dev-callout"> 
 	<b></b> 

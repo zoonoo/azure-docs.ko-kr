@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Get Started with Push (JS)" pageTitle="푸시 알림 시작(레거시 푸시) | 모바일 개발자 센터" metaKeywords="" description="Azure 모바일 서비스를 사용하여 Windows 스토어 JavaScript 앱에 푸시 알림(레거시 푸시)을 보내는 방법에 대해 알아봅니다." metaCanonical="http://www.windowsazure.com/ko-kr/develop/mobile/tutorials/get-started-with-push-dotnet/" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Get Started with Push (JS)" pageTitle="푸시 알림 시작(레거시 푸시) | 모바일 개발자 센터" metaKeywords="" description="Azure 모바일 서비스를 사용하여 Windows 스토어 JavaScript 앱에 푸시 알림(레거시 푸시)을 보내는 방법에 대해 알아봅니다." metaCanonical="http://www.windowsazure.com/ko-kr/develop/mobile/tutorials/get-started-with-push-dotnet/" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="11/22/2014" ms.author="glenga" />
 
@@ -19,9 +19,9 @@
 
 이 항목에서는 Visual Studio 2013에서 Azure 모바일 서비스를 사용하여 Windows 스토어 앱에 푸시 알림을 전송하는 방법에 대해 설명합니다. 이 자습서에서는 WNS(Windows 푸시 알림 서비스)를 사용하여 Visual Studio에서 직접 퀵 스타트 프로젝트에 푸시 알림을 추가합니다. 이 작업을 완료하면 레코드가 삽입될 때마다 모바일 서비스에서 푸시 알림을 전송합니다.
 
->[WACOM.NOTE]이 항목에서는 아직 알림 허브 통합을 사용하도록 <em>업그레이드되지 않은</em> <em>기존</em> 바일 서비스를 지원합니다. <em>새</em> 모바일 서비스를 만들 때 이 통합 기능이 자동으로 사용하도록 설정됩니다. 새 모바일 서비스의 경우 [푸시 알림 시작](영문)을(/ko-kr/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push/)참조하세요.
+>[WACOM.NOTE]이 항목에서는 아직 알림 허브 통합을 사용하도록 <em>업그레이드되지 않은</em> <em>기존</em> 바일 서비스를 지원합니다. <em>새</em> 모바일 서비스를 만들 때 이 통합 기능이 자동으로 사용하도록 설정됩니다. 새 모바일 서비스의 경우 [푸시 알림 시작](/ko-kr/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push/) (영문)을참조하세요.
 >
->모바일 서비스가 Azure 알림 허브와 통합되어 템플릿, 다중 플랫폼, 향상된 확장 등 추가적인 푸시 알림 기능을 지원합니다. <em>가능한 경우 알림 허브를 사용하도록 기존 모바일 서비스를 업그레이드해야 합니다</em>. 업그레이드한 후에는 이 버전의 [푸시 알림 시작](영문)을(/ko-kr/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push/)참조하세요.
+>모바일 서비스가 Azure 알림 허브와 통합되어 템플릿, 다중 플랫폼, 향상된 확장 등 추가적인 푸시 알림 기능을 지원합니다. <em>가능한 경우 알림 허브를 사용하도록 기존 모바일 서비스를 업그레이드해야 합니다</em>. 업그레이드한 후에는 이 버전의 [푸시 알림 시작](/ko-kr/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push/) (영문)을참조하세요.
 
 이 자습서에서는 푸시 알림을 사용하도록 설정하는 다음 기본 단계를 단계별로 안내합니다.
 
@@ -29,7 +29,7 @@
 2. [생성된 푸시 알림 코드 업데이트]
 3. [알림을 받기 위한 데이터 삽입]
 
-이 자습서는 모바일 서비스 퀵 스타트를 기반으로 합니다. 이 자습서를 시작하기 전에 먼저 [모바일 서비스 시작](영문) 또는 [데이터 시작](영문)을 완료하여 프로젝트를 모바일 서비스에 연결해야 합니다. 모바일 서비스가 연결되지 않은 경우 푸시 알림 추가 마법사에서 대신 연결해줍니다. 
+이 자습서는 모바일 서비스 퀵 스타트를 기반으로 합니다. 이 자습서를 시작하기 전에 먼저 [모바일 서비스 시작][] (영문) 또는 [데이터 시작][] (영문)을 완료하여 프로젝트를 모바일 서비스에 연결해야 합니다. 모바일 서비스가 연결되지 않은 경우 푸시 알림 추가 마법사에서 대신 연결해줍니다. 
 
 <h2><a name="register"></a>앱에서 푸시 알림 추가 및 구성</h2>
 
@@ -88,10 +88,10 @@
 
 다음의 모바일 서비스 항목에 대해서도 자세히 알아보세요.
 
-* [데이터 시작](영문)
+* [데이터 시작][] (영문)
   <br/>모바일 서비스를 사용하여 데이터를 저장 및 쿼리하는 방법에 대해 자세히 알아보세요.
 
-* [인증 시작](영문)
+* [인증 시작][] (영문)
   <br/>Windows 계정을 사용하여 앱 사용자를 인증하는 방법을 알아봅니다.
 
 * [모바일 서비스 서버 스크립트 참조]
@@ -124,11 +124,11 @@
 [앱 제출 페이지]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [내 응용 프로그램]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Windows용 Live SDK]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[모바일 서비스 시작](영문): /ko-kr/develop/mobile/tutorials/get-started/
-[데이터 시작](영문): /ko-kr/develop/mobile/tutorials/get-started-with-data-js/
-[인증 시작](영문): /ko-kr/develop/mobile/tutorials/get-started-with-users-js
+[모바일 서비스 시작]: /ko-kr/develop/mobile/tutorials/get-started/
+[데이터 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-data-js/
+[인증 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-users-js
 [푸시 알림 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-push-js
-[앱 사용자에 푸시 알림](영문): /ko-kr/develop/mobile/tutorials/push-notifications-to-users-js
+[앱 사용자에 푸시 알림]: /ko-kr/develop/mobile/tutorials/push-notifications-to-users-js
 [스크립트를 통해 사용자 권한 부여]: /ko-kr/develop/mobile/tutorials/authorize-users-in-scripts-js
 [JavaScript 및 HTML]: /ko-kr/develop/mobile/tutorials/get-started-with-push-js
 

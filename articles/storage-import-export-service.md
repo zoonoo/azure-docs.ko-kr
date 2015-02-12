@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Azure Import/Export Service" pageTitle="가져오기/내보내기를 사용하여 Blob 저장소로 데이터 전송| Microsoft Azure" metaKeywords="" description="Blob 저장소로 데이터를 내보내기 위해 Azure 관리 포털에서 가져오기 및 내보내기 작업을 만드는 방법에 대해 알아봅니다." metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="Using the Azure Import/Export Service to Transfer Data to Blob Storage" authors="tamram" manager="adinah" />
+<properties urlDisplayName="Azure Import/Export Service" pageTitle="가져오기/내보내기를 사용하여 Blob 저장소로 데이터 전송| Microsoft Azure" metaKeywords="" description="Blob 저장소로 데이터를 내보내기 위해 Azure 관리 포털에서 가져오기 및 내보내기 작업을 만드는 방법에 대해 알아봅니다." metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="Using the Azure Import/Export Service to Transfer Data to Blob Storage" authors="tamram" manager="adinah" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/25/2014" ms.author="tamram" />
 
@@ -264,8 +264,8 @@ Microsoft Azure 가져오기/내보내기 도구는 각 드라이브가 준비�
 - 아시아 지역에서는 [DHL](http://www.dhl-welcome.com/Tutorial/) 만 지원됩니다. 모든 패키지는 DHL Express Worldwide를 통해 반환됩니다.
 
 	<div class="dev-callout">
-	<strong>Important</strong>
-	<p>You must provide your tracking number to the Azure Import/Export service; otherwise your job cannot be processed.</p>
+	<strong>중요</strong>
+	<p>Azure 가져오기/내보내기 서비스에 추적 번호를 제공해야 합니다. 그렇지 않으면 작업을 처리할 수 없습니다.</p>
 	</div>
 
 **반환 발송과 관련된 비용이 있습니까?**

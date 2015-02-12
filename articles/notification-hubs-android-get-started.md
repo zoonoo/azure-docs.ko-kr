@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Get Started" pageTitle="Azure 알림 허브 시작" metaKeywords="" description="Azure 알림 허브를 사용하여 알림을 푸시하는 방법에 대해 알아봅니다." metaCanonical="" services="notification-hubs" documentationCenter="Mobile" title="Get started with Notification Hubs" authors="ricksal" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Get Started" pageTitle="Azure 알림 허브 시작" metaKeywords="" description="Azure 알림 허브를 사용하여 알림을 푸시하는 방법에 대해 알아봅니다." metaCanonical="" services="notification-hubs" documentationCenter="Mobile" title="Get started with Notification Hubs" authors="ricksal" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="11/21/2014" ms.author="ricksal" />
 # 알림 허브 시작
@@ -27,13 +27,13 @@
 
 <div class="dev-callout"><strong>참고</strong> <p>이 자습서를 완료하려면 활성 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://www.windowsazure.com/ko-kr/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fko-kr%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure 무료 평가판</a>을 참조하세요.</p></div>
 
-##<a id="register"></a>Google Cloud Messaging 사용
+## <a id="register"></a>Google Cloud Messaging 사용
 
 [WACOM.INCLUDE [Enable GCM](../includes/mobile-services-enable-Google-cloud-messaging.md)]
 
 다음에는 이 API 키 값을 사용하여 알림 허브에서 GCM의 인증을 받고 응용 프로그램 대신 푸시 알림을 보낼 수 있게 합니다.
 
-##<a id="configure-hub"></a>알림 허브 구성
+## <a id="configure-hub"></a>알림 허브 구성
 
 1.  [Azure 관리 포털]에 로그온하고 화면 맨 아래에 있는 **+새로 만들기**를 클릭합니다.
 
@@ -62,9 +62,9 @@
 
 이제 알림 허브가 GCM과 작동하도록 구성되었으며 앱을 등록하고 푸시 알림을 보내기 위한 연결 문자열이 있습니다.
 
-##<a id="connecting-app"></a>알림 허브에 앱 연결
+## <a id="connecting-app"></a>알림 허브에 앱 연결
 
-###새로운 Android 프로젝트 만들기
+### 새로운 Android 프로젝트 만들기
 
 1. Eclipse ADT에서 새로운 Android 프로젝트를 만듭니다(File, New, Android Application).
 
@@ -74,11 +74,11 @@
 
    	![][14]
 
-###프로젝트에 Google Play Services 추가
+### 프로젝트에 Google Play Services 추가
 
 [WACOM.INCLUDE [Add Play Services](../includes/mobile-services-add-Google-play-services.md)]
 
-###코드 추가
+### 코드 추가
 
 1. 알림 허브 Android SDK를 <a href="https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409">여기</a>에서 다운로드합니다. .zip 파일의 압축을 풀고 Package Explorer에서 notificationhubs\notification-hubs-0.1.jar 파일을 프로젝트의 \libs 디렉터리로 복사합니다.
 
@@ -216,7 +216,7 @@
 		}
 	
 
-##<a name="send"></a>앱에 알림을 보내는 방법
+## <a name="send"></a>앱에 알림을 보내는 방법
 
 알림 허브를 사용하여 <a href="http://msdn.microsoft.com/ko-kr/library/windowsazure/dn223264.aspx">REST 인터페이스</a>를 사용하는 모든 백 엔드에서 알림을 보낼 수 있습니다. 이 자습서에서는 .NET 콘솔 응용 프로그램을 사용하여 알림을 보냅니다. 알림 허브와 통합된 Azure 모바일 서비스 백 엔드에서 알림을 보내는 방법에 대한 예제는 **모바일 서비스에서 푸시 알림 시작** ([.NET 백 엔드](/ko-kr/documentation/articles/mobile-services-javascript-backend-android-get-started-push/) | [JavaScript 백 엔드](/ko-kr/documentation/articles/mobile-services-javascript-backend-android-get-started-push/))을 참조하세요.  REST API를 사용하여 알림을 보내는 방법에 대한 예제는 **Java/PHP에서 알림 허브를 사용하는 방법** ([Java](/ko-kr/documentation/articles/notification-hubs-java-backend-how-to/) | [PHP](/ko-kr/documentation/articles/notification-hubs-php-backend-how-to/))을 참조하세요.
 
@@ -236,7 +236,7 @@
     
 	이 명령은 <a href="http://nuget.org/packages/WindowsAzure.ServiceBus/">WindowsAzure.ServiceBus NuGet 패키지</a>(영문)를 사용하여 Azure 서비스 버스 SDK에 대한 참조를 추가합니다. 
 
-4. Program.cs 파일을 열고 다음 'using' 문을 추가합니다.
+4. Program.cs 파일을 열고 다음 `using` 문을 추가합니다.
 
         using Microsoft.ServiceBus.Notifications;
 
@@ -257,7 +257,7 @@
          SendNotificationAsync();
 		 Console.ReadLine();
 
-##<a name="run-app"></a>앱 테스트
+## <a name="run-app"></a>앱 테스트
 
 에뮬레이터에서 앱을 테스트하기 전에 다음과 같은 에뮬레이터 구성 단계를 완료해야 합니다(실제 장치에서 테스트하는 경우에는 건너뜀).
 
@@ -327,20 +327,21 @@
 [앱 제출 페이지]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [내 응용 프로그램]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Windows용 Live SDK]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[모바일 서비스 시작](영문): /ko-kr/develop/mobile/tutorials/get-started/#create-new-service
-[데이터 시작](영문): /ko-kr/develop/mobile/tutorials/get-started-with-data-android
-[인증 시작](영문): /ko-kr/develop/mobile/tutorials/get-started-with-users-android
+[모바일 서비스 시작(영문)]: /ko-kr/develop/mobile/tutorials/get-started/#create-new-service
+[데이터 시작(영문)]: /ko-kr/develop/mobile/tutorials/get-started-with-data-android
+[인증 시작(영문)]: /ko-kr/develop/mobile/tutorials/get-started-with-users-android
 [푸시 알림 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-push-android
-[앱 사용자에 푸시 알림](영문): /ko-kr/develop/mobile/tutorials/push-notifications-to-users-android
+[앱 사용자에 푸시 알림(영문)]: /ko-kr/develop/mobile/tutorials/push-notifications-to-users-android
 [스크립트를 통해 사용자 권한 부여]: /ko-kr/develop/mobile/tutorials/authorize-users-in-scripts-android
 [JavaScript 및 HTML]: /ko-kr/develop/mobile/tutorials/get-started-with-push-js
-[라이브러리 프로젝트 참조](영문): http://go.microsoft.com/fwlink/?LinkId=389800
+[라이브러리 프로젝트 참조(영문)]: http://go.microsoft.com/fwlink/?LinkId=389800
 [Azure 관리 포털]: https://manage.windowsazure.com/
 [wns 개체]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 [알림 허브 지침]: http://msdn.microsoft.com/ko-kr/library/jj927170.aspx
 
 [알림 허브를 사용하여 사용자에게 푸시 알림 보내기]: /ko-kr/manage/services/notification-hubs/notify-users-aspnet
+[알림 허브를 사용하여 사용자에게 알림 푸시]: /ko-kr/manage/services/notification-hubs/notify-users-aspnet
 [알림 허브를 사용하여 속보 보내기]: /ko-kr/manage/services/notification-hubs/breaking-news-dotnet
-
+[알림 허브를 사용하여 뉴스 속보 보내기]: /ko-kr/manage/services/notification-hubs/breaking-news-dotnet
 
 <!--HONumber=35.1-->

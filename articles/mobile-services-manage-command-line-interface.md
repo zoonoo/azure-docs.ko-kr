@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Command Line Administration" pageTitle="명령줄에서 모바일 서비스 관리 - Azure 자습서" metaKeywords="" description="명령줄 도구를 사용하여 Azure 모바일 서비스를 만들고, 배포하고, 관리하는 방법에 대해 알아봅니다." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Automate mobile services with command-line tools" authors="glenga" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Command Line Administration" pageTitle="명령줄에서 모바일 서비스 관리 - Azure 자습서" metaKeywords="" description="명령줄 도구를 사용하여 Azure 모바일 서비스를 만들고, 배포하고, 관리하는 방법에 대해 알아봅니다." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Automate mobile services with command-line tools" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="glenga" />
 
@@ -8,7 +8,7 @@
 
 -	[새 모바일 서비스 만들기] 
 -	[새 테이블 만들기]
--   [테이블 작업에 스크립트 등록][Register a new table script]
+-   [테이블 작업에 스크립트 등록][새 테이블 스크립트 등록]
 -   [테이블 나열]
 - 	[기존 테이블 삭제]
 -	[모바일 서비스 나열]
@@ -40,10 +40,10 @@ Azure 명령줄 도구를 사용하여 모바일 서비스를 관리하려면 Az
 
 		npm install azure-cli -g
 
-설치를 테스트하려면 명령 프롬프트에 'azure'를 입력합니다. 설치에 성공하면 사용 가능한 모든 'azure' 명령 목록이 표시됩니다.
+설치를 테스트하려면 명령 프롬프트에 `azure`를 입력합니다. 설치에 성공하면 사용 가능한 모든 'azure' 명령 목록이 표시됩니다.
 <h2><a name="import-account"></a>게시 설정을 다운로드 및 가져오는 방법</h2>
 
-시작하려면 먼저 게시 설정을 다운로드하고 가져와야 합니다. 그러면 Azure 서비스를 만들고 관리하기 위한 도구를 사용할 수 있습니다. 게시 설정을 다운로드하려면 'account download' 명령을 사용합니다.
+시작하려면 먼저 게시 설정을 다운로드하고 가져와야 합니다. 그러면 Azure 서비스를 만들고 관리하기 위한 도구를 사용할 수 있습니다. 게시 설정을 다운로드하려면 `account download` 명령을 사용합니다.
 
 		azure account download
 
@@ -57,11 +57,11 @@ account clear <code>명령을 사용하여</code> import <code>명령으로 저�
 
 		azure account clear
 
-'account' 명령에 대한 옵션 목록을 보려면 '-help' 옵션을 사용합니다.
+`account` 명령에 대한 옵션 목록을 보려면 `-help` 옵션을 사용합니다.
 
 		azure account -help
 
-게시 설정을 가져온 후 보안을 위해 '.publishsettings' 파일을 삭제해야 합니다. 자세한 내용은 [Mac 및 Linux에서 Azure 명령줄 도구를 설치하는 방법]을 참조하세요. 이제 명령줄이나 배치 파일에서 Azure 모바일 서비스를 만들고 관리할 준비가 되었습니다.  
+게시 설정을 가져온 후 보안을 위해 `.publishsettings` 파일을 삭제해야 합니다. 자세한 내용은 [Mac 및 Linux에서 Azure 명령줄 도구를 설치하는 방법]을 참조하세요. 이제 명령줄이나 배치 파일에서 Azure 모바일 서비스를 만들고 관리할 준비가 되었습니다.  
 
 <h2><a name="create-service"></a>모바일 서비스를 만드는 방법</h2>
 
@@ -71,7 +71,7 @@ account clear <code>명령을 사용하여</code> import <code>명령으로 저�
 
 		azure mobile create <service-name> <server-admin> <server-password>
 
-지정한 모바일 서비스가 있을 경우 'mobile create' 명령이 실패합니다. 자동화 스크립트에서 모바일 서비스를 삭제한 후 다시 만들어야 합니다.
+지정한 모바일 서비스가 있을 경우 `mobile create` 명령이 실패합니다. 자동화 스크립트에서 모바일 서비스를 삭제한 후 다시 만들어야 합니다.
 
 <h2><a name="list-services"></a>구독의 기존 모바일 서비스를 나열하는 방법</h2>
 
@@ -101,7 +101,7 @@ account clear <code>명령을 사용하여</code> import <code>명령으로 저�
 
 기본 사용 권한이 설정된 새 테이블 'application'이 테이블 작업 `insert`, `read`, `update` 및 `delete`를 위해 만들어집니다. 
 
-다음 명령은 public 'read' 권한이 설정되었지만 관리자에게만 'delete' 권한이 부여된 새 테이블을 만듭니다.
+다음 명령은 public `read` 권한이 설정되었지만 관리자에게만 `delete` 권한이 부여된 새 테이블을 만듭니다.
 
 		azure mobile table create <service-name> <table-name> -p read=public,delete=admin
 
@@ -113,7 +113,7 @@ account clear <code>명령을 사용하여</code> import <code>명령으로 저�
 <tr><td><code>user</code></td><td>인증된 사용자만</td></tr>
 <tr><td><code>admin	</code></td><td>스크립트 및 관리자만</td></tr></table>
 
-지정한 테이블이 이미 있을 경우 'mobile table create' 명령이 실패합니다. 자동화 스크립트에서 테이블을 삭제한 후 다시 만들어야 합니다.
+지정한 테이블이 이미 있을 경우 `mobile table create` 명령이 실패합니다. 자동화 스크립트에서 테이블을 삭제한 후 다시 만들어야 합니다.
 
 <h2><a name="list-tables"></a>모바일 서비스의 기존 테이블을 나열하는 방법</h2>
 
@@ -129,7 +129,7 @@ account clear <code>명령을 사용하여</code> import <code>명령으로 저�
 
 		azure mobile table delete <service-name> <table-name> -q
 
-자동화 스크립트에 '-q' 매개 변수를 사용하여 실행을 차단하는 확인 프롬프트를 표시하지 않고 테이블을 삭제합니다.
+자동화 스크립트에 `-q` 매개 변수를 사용하여 실행을 차단하는 확인 프롬프트를 표시하지 않고 테이블을 삭제합니다.
 
 <h2><a name="register-script"></a>테이블 작업에 스크립트를 등록하는 방법</h2>
 
@@ -137,11 +137,11 @@ account clear <code>명령을 사용하여</code> import <code>명령으로 저�
 
 		azure mobile script upload <service-name> table/<table-name>.<operation>.js
 
-이 작업은 로컬 컴퓨터에서 JavaScript(.js) 파일을 업로드합니다. 파일의 이름은 테이블 및 작업 이름으로부터 구성해야 하고, 명령이 실행되는 위치를 기준으로 `table` 하위 폴더에 위치해야 합니다. 예를 들어 다음 작업은 'TodoItems' 테이블에 속하는 새 'insert' 스크립트를 업로드하고 등록합니다.
+이 작업은 로컬 컴퓨터에서 JavaScript(.js) 파일을 업로드합니다. 파일의 이름은 테이블 및 작업 이름으로부터 구성해야 하고, 명령이 실행되는 위치를 기준으로 `table` 하위 폴더에 위치해야 합니다. 예를 들어 다음 작업은 `TodoItems` 테이블에 속하는 새 `insert` 스크립트를 업로드하고 등록합니다.
 
 		azure mobile script upload todolist table/todoitems.insert.js
 
-또한 스크립트 파일의 함수 선언은 등록된 테이블 작업과 일치해야 합니다. 즉, 'insert' 스크립트의 경우 업로드된 스크립트에 다음 서명이 있는 함수가 포함되어 있습니다.
+또한 스크립트 파일의 함수 선언은 등록된 테이블 작업과 일치해야 합니다. 즉, `insert` 스크립트의 경우 업로드된 스크립트에 다음 서명이 있는 함수가 포함되어 있습니다.
 
 		function insert(item, user, request) {
 		    ...
@@ -186,8 +186,8 @@ Next steps here....
 [모바일 서비스 서버 스크립트 참조]: http://go.microsoft.com/fwlink/p?LinkId=262293
 
 [Azure 관리 포털]: https://manage.windowsazure.com/
-[nodejs-org](영문): http://nodejs.org/
-[install-node-linux](영문): https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager
+[nodejs-org]: http://nodejs.org/
+[install-node-linux]: https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager
 
 [mac-installer]: http://go.microsoft.com/fwlink/p?LinkId=252249
 [windows-installer]: http://go.microsoft.com/fwlink/p?LinkID=275464

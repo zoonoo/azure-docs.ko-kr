@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="" pageTitle=".NET 및 Azure Active Directory를 사용한 웹 Single Sign-On" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Web Single Sign-On with .NET and Azure Active Directory" authors="" solutions="" manager="terrylan" editor="" />
+<properties urlDisplayName="" pageTitle=".NET 및 Azure Active Directory를 사용한 웹 Single Sign-On" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Web Single Sign-On with .NET and Azure Active Directory" authors="" solutions="" manager="terrylan" editor="" />
 
 <tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/24/2014" ms.author="mbaldwin" />
 
@@ -174,7 +174,7 @@
 [2단계: 회사 디렉터리 테넌트에서 응용 프로그램 프로비전]: #provisionapp
 [3단계: 직원 로그인을 위해 WS-Federation을 사용하여 응용 프로그램 보호]: #protectapp
 [요약]: #summary
-[Azure Active Directory를 사용하여 다중 테넌트 클라우드 응용 프로그램 개발](영문): http://g.microsoftonline.com/0AX00en/121
+[Azure Active Directory를 사용하여 다중 테넌트 클라우드 응용 프로그램 개발]: http://g.microsoftonline.com/0AX00en/121
 [Windows Identity Foundation 3.5 SDK]: http://www.microsoft.com/ko-kr/download/details.aspx?id=4451
 [Windows Identity Foundation 1.0 런타임]: http://www.microsoft.com/ko-kr/download/details.aspx?id=17331
 [Office 365 Powershell Commandlets]: http://onlinehelp.microsoft.com/ko-kr/office365-enterprises/ff652560.aspx

@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Linux Agent guide" pageTitle="Azure용 Linux 에이전트 사용자 가이드" metaKeywords="" description="Linux 에이전트(waagent)를 설치 및 구성하여 가상 컴퓨터와 Azure 패브릭 컨트롤러의 상호 작용을 관리하는 방법에 대해 알아봅니다." metaCanonical="" services="virtual-machines" documentationCenter="" title="Azure Linux Agent User Guide" authors="szarkos" solutions="" manager="timlt" editor="" />
+<properties urlDisplayName="Linux Agent guide" pageTitle="Azure용 Linux 에이전트 사용자 가이드" metaKeywords="" description="Linux 에이전트(waagent)를 설치 및 구성하여 가상 컴퓨터와 Azure 패브릭 컨트롤러의 상호 작용을 관리하는 방법에 대해 알아봅니다." metaCanonical="" services="virtual-machines" documentationCenter="" title="Azure Linux Agent User Guide" authors="szarkos" solutions="" manager="timlt" editor="" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="10/20/2014" ms.author="szarkos" />
 
@@ -99,15 +99,15 @@ Waagent는 다음과 같은 일부 시스템 패키지가 있어야 제대로 �
 - install: 에이전트를 수동으로 설치합니다.
  * 시스템에서 필수 종속성을 확인합니다.
 
- * SysV init 스크립트, (/etc/init.d/waagent)logrotate 구성 파일을 (/etc/logrotate.d/waagent and configures the image to run the init script on boot
+ * SysV init 스크립트(/etc/init.d/waagent) 및 logrotate 구성 파일(/etc/logrotate.d/waagent)을 만들고, 부팅 시 init 스크립트를 실행하도록 이미지를 구성합니다.
 
- * Writes sample configuration file to /etc/waagent.conf
+ * /etc/waagent.conf에 샘플 구성 파일을 씁니다.
 
- * Any existing configuration file is moved to /etc/waagent.conf.old
+ * /etc/waagent.conf.old로 기존 구성 파일을 모두 이동합니다.
 
- * Detects kernel version and applies the VNUMA workaround if necessary
+ * 커널 버전을 검색하고 필요한 경우 VNUMA 해결 방법을 적용합니다.
 
- * Moves udev rules that may interfere with networking (/lib/udev/rules.d/75-persistent-net-generator.rules, /etc/udev/rules.d/70-persistent-net.rules) /var/lib/waagent/에 만듭니다.  
+ * /var/lib/waagent/로 네트워킹을 방해할 수 있는 udev 규칙(/lib/udev/rules.d/75-persistent-net-generator.rules, /etc/udev/rules.d/70-persistent-net.rules)을 이동합니다. 
 
 - uninstall: waagent 및 연결된 파일을 제거합니다.
  * 시스템에서 init 스크립트의 등록을 취소하고 삭제합니다.
@@ -314,7 +314,7 @@ Waagent는 다음과 같은 일부 시스템 패키지가 있어야 제대로 �
 	    <PrivilegeLevel mode="max" />
 	    <AdditionalProperties><CgiHandlers></CgiHandlers></AdditionalProperties></HostingEnvironmentSettings>
 	    <ApplicationSettings>
-	      <Setting name="__ModelData" value="<m role=&quot;LinuxVM&quot; xmlns=&quot;urn:azure:m:v1&quot;><r name=&quot;LinuxVM&quot;><e name=&quot;HTTP&quot; /><e name=&quot;Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp&quot; /><e name=&quot;Microsoft.WindowsAzure.Plugins.RemoteForwarder.RdpInput&quot; /><e name=&quot;SSH&quot; /></r></m>" />
+	      <Setting name="__ModelData" value="&lt;m role=&quot;LinuxVM&quot; xmlns=&quot;urn:azure:m:v1&quot;>&lt;r name=&quot;LinuxVM&quot;>&lt;e name=&quot;HTTP&quot; />&lt;e name=&quot;Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp&quot; />&lt;e name=&quot;Microsoft.WindowsAzure.Plugins.RemoteForwarder.RdpInput&quot; />&lt;e name=&quot;SSH&quot; />&lt;/r>&lt;/m>" />
 	      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountEncryptedPassword" value="..." />
 	      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountExpiration" value="2015-11-06T23:59:59.0000000-08:00" />
 	      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountUsername" value="rdos" />

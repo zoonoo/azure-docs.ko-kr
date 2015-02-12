@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Web w/ Storage" pageTitle="테이블 저장소를 사용한 PHP 웹 사이트 - Azure 자습서" metaKeywords="Azure table storage PHP, Azure PHP website, Azure PHP web site, Azure PHP tutorial, Azure PHP example" description="이 자습서에서는 PHP 웹 사이트를 만들고 백 엔드에서 Azure 테이블 저장소 서비스를 사용하는 방법을 설명합니다." metaCanonical="" services="web-sites,storage" documentationCenter="PHP" title="Create a PHP Website using Azure Storage" authors="tomfitz" solutions="" manager="wpickett" editor="" />
+<properties urlDisplayName="Web w/ Storage" pageTitle="테이블 저장소를 사용한 PHP 웹 사이트 - Azure 자습서" metaKeywords="Azure table storage PHP, Azure PHP website, Azure PHP web site, Azure PHP tutorial, Azure PHP example" description="이 자습서에서는 PHP 웹 사이트를 만들고 백 엔드에서 Azure 테이블 저장소 서비스를 사용하는 방법을 설명합니다." metaCanonical="" services="web-sites,storage" documentationCenter="PHP" title="Create a PHP Website using Azure Storage" authors="tomfitz" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="11/21/2014" ms.author="tomfitz" />
 
@@ -157,7 +157,7 @@ PHP에서 간단한 작업 목록 응용 프로그램을 빌드할 것입니다.
 			
 		for ($i = 0; $i < count($entities); $i++) {
 
-* `Entity`를 하나 얻으면 데이터를 읽는 모델이 Entity->getPropertyValue('[name]')`이 됩니다.
+* `Entity`를 하나 얻으면 데이터를 읽는 모델이 `Entity->getPropertyValue('[name]')`이 됩니다.
 
 			if ($i == 0) {
 				echo "<table border='1'>
@@ -189,7 +189,7 @@ PHP에서 간단한 작업 목록 응용 프로그램을 빌드할 것입니다.
 			echo "<h3>No items on list.</h3>";
 		?>
 
-* Last, you must insert the form that feeds data into the task insertion script and complete the HTML:
+* 마지막으로, 작업 삽입 스크립트에 데이터를 공급하는 형식을 삽입하고 HTML을 완성해야 합니다.
 
 			<hr/>
 			<form action="additem.php" method="post">
@@ -225,7 +225,7 @@ PHP에서 간단한 작업 목록 응용 프로그램을 빌드할 것입니다.
 		use WindowsAzure\Table\Models\Entity;
 		use WindowsAzure\Table\Models\EdmType;		
 
-* 엔터티를 삽입하는 첫 번째 단계는 'Entity' 개체를 인스턴스화하고 속성을 설정하는 것입니다.
+* 엔터티를 삽입하는 첫 번째 단계는 `Entity` 개체를 인스턴스화하고 속성을 설정하는 것입니다.
 		
 		$entity = new Entity();
 		$entity->setPartitionKey('p1');
@@ -235,7 +235,7 @@ PHP에서 간단한 작업 목록 응용 프로그램을 빌드할 것입니다.
 		$entity->addProperty('date', EdmType::STRING, $_POST['date']);
 		$entity->addProperty('complete', EdmType::BOOLEAN, false);
 
-* 그런 다음 방금 만든 '$entity'를 'insertEntity' 메서드에 전달할 수 있습니다.
+* 그런 다음 방금 만든 `$entity`를 `insertEntity` 메서드에 전달할 수 있습니다.
 
 		try{
 			$tableRestProxy->insertEntity('tasks', $entity);
@@ -267,13 +267,13 @@ PHP에서 간단한 작업 목록 응용 프로그램을 빌드할 것입니다.
 		$entities = $result->getEntities();		
 		$entity = $entities[0];
 
-	표시된 것처럼, 쿼리 필터에 전달된 형식은 'Key eq 'Value'`입니다. 쿼리 구문에 대한 전체 설명은 [여기][msdn-table-query-syntax]에서 볼 수 있습니다.
+	표시된 것처럼, 쿼리 필터에 전달된 형식은 `Key eq 'Value'`입니다. 쿼리 구문에 대한 전체 설명은 [여기][msdn-table-query-syntax]에서 볼 수 있습니다.
 
 * 그런 다음 속성을 변경할 수 있습니다.
 
 		$entity->setPropertyValue('complete', ($_GET['complete'] == 'true') ? true : false);
 
-* 그리고 'updateEntity' 메서드는 업데이트를 수행합니다.
+* 그리고 `updateEntity` 메서드는 업데이트를 수행합니다.
 
 		try{
 			$result = $tableRestProxy->updateEntity('tasks', $entity);
@@ -292,7 +292,7 @@ PHP에서 간단한 작업 목록 응용 프로그램을 빌드할 것입니다.
 
 ## 엔터티 삭제
 
-항목 삭제는 'deleteItem'에 대한 단일 호출을 통해 수행합니다. 값에 전달된 **PartitionKey** 및 **RowKey**은 함께 엔터티의 기본 키를 구성합니다. **deleteitem.php**라는 파일을 만들고 다음 코드를 삽입합니다.
+항목 삭제는 `deleteItem`에 대한 단일 호출을 통해 수행합니다. 값에 전달된 **PartitionKey** 및 **RowKey**은 함께 엔터티의 기본 키를 구성합니다. **deleteitem.php**라는 파일을 만들고 다음 코드를 삽입합니다.
 
 		<?php
 		
@@ -411,7 +411,7 @@ Git를 사용하여 응용 프로그램을 게시하려면 아래 단계를 따�
 응용 프로그램에 변경 내용을 게시하려면 다음 단계를 따르세요.
 
 1. 응용 프로그램을 로컬에서 변경합니다.
-2. GitBash를 열거나 Git가 'PATH'에 있는 경우 터미널을 열고 응용 프로그램의 루트 디렉터리로 이동한 후 다음 명령을 실행합니다.
+2. GitBash를 열거나 Git가 `PATH`에 있는 경우 터미널을 열고 응용 프로그램의 루트 디렉터리로 이동한 후 다음 명령을 실행합니다.
 
 		git add .
 		git commit -m "comment describing changes"

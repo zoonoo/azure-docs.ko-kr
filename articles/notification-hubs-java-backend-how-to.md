@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="How to use Notification Hubs with Java" pageTitle="Java에서 알림 허브를 사용하는 방법" metaKeywords="" description="Java 백 엔드에서 Azure 알림 허브를 사용하는 방법에 대해 알아봅니다." metaCanonical="" services="mobile-services,notification-hubs,push,java" documentationCenter="" title="How to use Notification Hubs with Java" authors="piyushjo" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="How to use Notification Hubs with Java" pageTitle="Java에서 알림 허브를 사용하는 방법" metaKeywords="" description="Java 백 엔드에서 Azure 알림 허브를 사용하는 방법에 대해 알아봅니다." metaCanonical="" services="mobile-services,notification-hubs,push,java" documentationCenter="" title="How to use Notification Hubs with Java" authors="piyushjo" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="java" ms.topic="article" ms.date="11/14/2014" ms.author="piyushjo" />
 
@@ -7,15 +7,15 @@
     	<a href="/ko-kr/documentation/articles/notification-hubs-java-backend-how-to/" title="Java" class="current">Java</a><a href="/ko-kr/documentation/articles/notification-hubs-php-backend-how-to/" title="PHP">PHP</a>
 </div>
 
-MSDN 항목 [알림 허브 REST API]에(http://msdn.microsoft.com/ko-kr/library/dn223264.aspx)설명된 대로 알림 허브 REST 인터페이스를 사용하여 Java/PHP/Ruby 백 엔드에서 모든 알림 허브 기능에 액세스할 수 있습니다.
+MSDN 항목 [알림 허브 REST API](http://msdn.microsoft.com/ko-kr/library/dn223264.aspx)에설명된 대로 알림 허브 REST 인터페이스를 사용하여 Java/PHP/Ruby 백 엔드에서 모든 알림 허브 기능에 액세스할 수 있습니다.
 
 이 항목에서는 다음 방법을 보여 줍니다.
 
 * Java에서 알림 허브 기능에 대한 REST 클라이언트를 빌드하는 방법
-* 선택한 모바일 플랫폼에 대한 [시작 자습서]에(http://azure.microsoft.com/ko-kr/documentation/articles/notification-hubs-ios-get-started/) 따라 Java에서 백 엔드 부분을 구현합니다.
+* 선택한 모바일 플랫폼에 대한 [시작 자습서](http://azure.microsoft.com/ko-kr/documentation/articles/notification-hubs-ios-get-started/)에 따라 Java에서 백 엔드 부분을 구현합니다.
 
-##<a name="client-interface"></a>클라이언트 인터페이스
-기본 클라이언트 인터페이스에서는 [.NET 알림 허브 SDK]에서 제공되는 것과 같은 메서드를 제공할 수 있습니다.(http://msdn.microsoft.com/ko-kr/library/jj933431.aspx)이 인터페이스를 사용하여 현재 이 사이트에서 사용할 수 있고 인터넷의 커뮤니티에서 제공되는 모든 자습서와 샘플을 직접 변환할 수 있습니다.
+## <a name="client-interface"></a>클라이언트 인터페이스
+기본 클라이언트 인터페이스에서는 [.NET 알림 허브 SDK](http://msdn.microsoft.com/ko-kr/library/jj933431.aspx)에서 제공되는 것과 같은 메서드를 제공할 수 있습니다.이 인터페이스를 사용하여 현재 이 사이트에서 사용할 수 있고 인터넷의 커뮤니티에서 제공되는 모든 자습서와 샘플을 직접 변환할 수 있습니다.
 
 [Java REST 래퍼 샘플]에서 사용할 수 있는 모든 코드를 찾을 수 있습니다.
 
@@ -36,11 +36,11 @@ iOS 기본 알림을 보내려면 다음을 수행합니다.
 	Notification n = Notification.createAppleNotifiation("APNS body");
 	hub.sendNotification(n);
 
-##<a name="implementation"></a>구현
+## <a name="implementation"></a>구현
 아직 하지 않았으면 백 엔드를 구현해야 하는 [시작 자습서]의 마지막 섹션까지 수행하세요.
 또한 [Java REST 래퍼 샘플]의 코드를 사용하려면 [자습서 완료](#complete-tutorial) 섹션으로 바로 이동하세요.
 
-전체 REST 래퍼를 구현하는 방법에 대한 자세한 내용은 [MSDN]을(http://msdn.microsoft.com/ko-kr/library/dn530746.aspx)참조하세요. 이 섹션에서는 알림 허브 REST 끝점에 액세스하는 데 필요한 기본 단계의 Java 구현에 대해 설명합니다.
+전체 REST 래퍼를 구현하는 방법에 대한 자세한 내용은 [MSDN](http://msdn.microsoft.com/ko-kr/library/dn530746.aspx)을참조하세요. 이 섹션에서는 알림 허브 REST 끝점에 액세스하는 데 필요한 기본 단계의 Java 구현에 대해 설명합니다.
 
 1. 연결 문자열 구문 분석
 2. 인증 토큰 생성
@@ -90,7 +90,7 @@ iOS 기본 알림을 보내려면 다음을 수행합니다.
 
 
 ### 보안 토큰 만들기
-보안 토큰 만들기에 대한 자세한 내용은 [여기]를(http://msdn.microsoft.com/ko-kr/library/dn495627.aspx)참조하세요.
+보안 토큰 만들기에 대한 자세한 내용은 [여기](http://msdn.microsoft.com/ko-kr/library/dn495627.aspx)를참조하세요.
 현재 요청의 URI 및 연결 문자열에서 추출된 자격 증명에 따라 토큰을 만들려면 **NotificationHub** 클래스에 다음 메서드를 추가해야 합니다.
 
 	private String generateSasToken(URI uri) {
@@ -298,7 +298,7 @@ iOS 기본 알림을 보내려면 다음을 수행합니다.
 
 위의 메서드는 알림을 보내기 위한 올바른 본문과 헤더가 있는 알림 허브의 /messages 끝점으로 HTTP POST 요청을 보냅니다.
 
-##<a name="complete-tutorial"></a>자습서 완료
+## <a name="complete-tutorial"></a>자습서 완료
 이제 Java 백 엔드에서 알림을 보내 시작 자습서를 완료할 수 있습니다.
 
 알림 허브를 초기화합니다([시작 자습서]에 설명된 대로 연결 문자열 및 허브 이름 대체).
@@ -308,7 +308,7 @@ iOS 기본 알림을 보내려면 다음을 수행합니다.
 
 ### Windows 스토어 및 Windows Phone 8.1(비 Silverlight)
 
-
+	String toast = "<toast><visual><binding template=\"ToastText01\"><text id=\"1\">Hello from Java!</text></binding></visual></toast>";
 	Notification n = Notification.createWindowsNotification(toast);
 	hub.sendNotification(n);
 
@@ -342,7 +342,7 @@ iOS 기본 알림을 보내려면 다음을 수행합니다.
 이제 Java 코드를 실행하면 대상 장치에 나타나는 알림이 생성되어야 합니다.
 
 
-##<a name="next-steps"></a>다음 단계
+## <a name="next-steps"></a>다음 단계
 이 항목에서는 알림 허브에 대한 단순한 Java REST 클라이언트를 만드는 방법을 알아보았습니다. 여기에서 다음을 할 수 있습니다.
 
 * 위의 모든 코드와 등록 관리가 포함된 전체 [Java REST 래퍼 샘플]을 다운로드합니다.

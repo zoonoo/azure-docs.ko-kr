@@ -1,4 +1,4 @@
-﻿<properties linkid="web-sites-python-ptvs-flask-mongodb" title="Flask and MongoDB on Azure with Python Tools 2.1 for Visual Studio" pageTitle="Python Tools 2.1 for Visual Studio가 있는 Azure의 Flask 및 MongoDB" description="Python Tools for Visual Studio를 사용하여 MongoDB 데이터베이스 인스턴스에 데이터를 저장하고 웹 사이트에 배포될 수 있는 Flask 응용 프로그램을 만드는 방법을 알아봅니다." metaKeywords="" services="" solutions="" documentationCenter="Python" authors="huvalo" videoId="" scriptId="" manager="wpickett" editor="" />
+<properties linkid="web-sites-python-ptvs-flask-mongodb" title="Flask and MongoDB on Azure with Python Tools 2.1 for Visual Studio" pageTitle="Python Tools 2.1 for Visual Studio가 있는 Azure의 Flask 및 MongoDB" description="Python Tools for Visual Studio를 사용하여 MongoDB 데이터베이스 인스턴스에 데이터를 저장하고 웹 사이트에 배포될 수 있는 Flask 응용 프로그램을 만드는 방법을 알아봅니다." metaKeywords="" services="" solutions="" documentationCenter="Python" authors="huvalo" videoId="" scriptId="" manager="wpickett" editor="" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="10/10/2014" ms.author="huvalo" />
 
@@ -24,7 +24,7 @@ Bottle, Flask 및 Django 웹 프레임워크, MongoDB, Azure 테이블 저장소
 + [Azure 웹 사이트 구성](#configure-the-azure-website)
 + [다음 단계](#next-steps)
 
-##<a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 조건
 
  - Visual Studio 2012 또는 2013
  - [Python Tools 2.1 for Visual Studio][](영문)
@@ -35,7 +35,7 @@ Bottle, Flask 및 Django 웹 프레임워크, MongoDB, Azure 테이블 저장소
 
 [WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
-##<a name="create-the-project"></a>프로젝트 만들기
+## <a name="create-the-project"></a>프로젝트 만들기
 
 이 섹션에서는 샘플 템플릿을 사용하여 Visual Studio 프로젝트를 만듭니다.  가상 환경을 만들고 필요한 패키지를 설치합니다.  그런 후 기본 메모리 내 리포지토리를 사용하여 로컬로 응용 프로그램을 실행합니다.
 
@@ -59,7 +59,7 @@ Bottle, Flask 및 Django 웹 프레임워크, MongoDB, Azure 테이블 저장소
 
   	![Web Browser](./media/web-sites-python-ptvs-flask-mongodb/PollsFlaskInMemoryBrowser.png)
 
-##<a name="create-a-mongodb-database"></a>MongoDB 데이터베이스 만들기
+## <a name="create-a-mongodb-database"></a>MongoDB 데이터베이스 만들기
 
 데이터베이스로, Azure에 MongoLab 호스트 데이터베이스를 만듭니다.
 
@@ -85,7 +85,7 @@ Bottle, Flask 및 Django 웹 프레임워크, MongoDB, Azure 테이블 저장소
 
 1.  **구입**을 클릭합니다.
 
-##<a name="configure-the-project"></a>프로젝트 구성
+## <a name="configure-the-project"></a>프로젝트 구성
 
 이 섹션에서는 방금 만든 MongoDB 데이터베이스를 사용하도록 응용 프로그램을 구성합니다.  Azure 포털에서 연결 설정을 가져오는 방법을 알아봅니다.  그런 후 응용 프로그램을 로컬로 실행합니다.
 
@@ -117,7 +117,7 @@ Bottle, Flask 및 Django 웹 프레임워크, MongoDB, Azure 테이블 저장소
 
   	![Web Browser](./media/web-sites-python-ptvs-flask-mongodb/PollsFlaskMongoDBAbout.png)
 
-##<a name="explore-the-mongodb-database"></a>MongoDB 데이터베이스 탐색
+## <a name="explore-the-mongodb-database"></a>MongoDB 데이터베이스 탐색
 
 [RoboMongo][]와 같은 응용 프로그램을 사용하여 MongoDB 데이터베이스를 쿼리하고 편집할 수 있습니다.  이 섹션에서는 RoboMongo를 사용하여 설문 조사 응용 프로그램 데이터베이스의 내용을 확인합니다.
 
@@ -139,7 +139,7 @@ Bottle, Flask 및 Django 웹 프레임워크, MongoDB, Azure 테이블 저장소
 
   	![RoboMongo Query Results](./media/web-sites-python-ptvs-flask-mongodb/PollsCommonRobomongoQuery.png)
 
-##<a name="publish-to-an-azure-website"></a>Azure 웹 사이트에 게시
+## <a name="publish-to-an-azure-website"></a>Azure 웹 사이트에 게시
 
 PTVS는 Azure 웹 사이트에 웹 응용 프로그램을 배포하는 쉬운 방법을 제공합니다.
 
@@ -161,7 +161,7 @@ PTVS는 Azure 웹 사이트에 웹 응용 프로그램을 배포하는 쉬운 �
 
     환경 변수가 Azure 웹 사이트에 설정되어 있지 않아서 **settings.py**에 지정된 기본값을 사용하기 때문입니다.
 
-##<a name="configure-the-azure-website"></a>Azure 웹 사이트 구성
+## <a name="configure-the-azure-website"></a>Azure 웹 사이트 구성
 
 이 섹션에서는 사이트에 대한 환경 변수를 구성합니다.
 
@@ -185,7 +185,7 @@ PTVS는 Azure 웹 사이트에 웹 응용 프로그램을 배포하는 쉬운 �
 
   	![Web Browser](./media/web-sites-python-ptvs-flask-mongodb/PollsFlaskAzureBrowser.png)
 
-##<a name="next-steps"></a>다음 단계
+## <a name="next-steps"></a>다음 단계
 
 Python Tools for Visual Studio, Flask 및 MongoDB에 대해 자세히 알아보려면 다음 링크를 참조하세요.
 
@@ -205,20 +205,20 @@ Python Tools for Visual Studio, Flask 및 MongoDB에 대해 자세히 알아보�
 
 <!--External Link references-->
 [Azure 관리 포털]: https://manage.windowsazure.com
-[RoboMongo](영문): http://robomongo.org/
-[Python Tools 2.1 for Visual Studio](영문): http://go.microsoft.com/fwlink/?LinkId=517189
-[Python Tools 2.1 for Visual Studio 샘플 VSIX](영문): http://go.microsoft.com/fwlink/?LinkId=517189
-[Azure SDK Tools for VS 2013](영문): http://go.microsoft.com/fwlink/?LinkId=323510
-[Azure SDK Tools for VS 2012](영문): http://go.microsoft.com/fwlink/?LinkId=323511
-[Python 2.7 32비트](영문): http://go.microsoft.com/fwlink/?LinkId=517190 
-[Python 3.4 32비트](영문): http://go.microsoft.com/fwlink/?LinkId=517191
-[Python Tools for Visual Studio 설명서](영문): http://pytools.codeplex.com/documentation
-[Flask 설명서](영문): http://flask.pocoo.org/
-[MongoDB](영문): http://www.mongodb.org/
-[PyMongo 설명서](영문): http://api.mongodb.org/python/current/
-[PyMongo](영문): https://github.com/mongodb/mongo-python-driver
-[Microsoft Azure의 원격 디버깅](영문): http://pytools.codeplex.com/wikipage?title=Features%20Azure%20Remote%20Debugging
-[웹 프로젝트](영문): http://pytools.codeplex.com/wikipage?title=Features%20Web%20Project
-[클라우드 서비스 프로젝트](영문): http://pytools.codeplex.com/wikipage?title=Features%20Cloud%20Project
+[RoboMongo]: http://robomongo.org/
+[Python Tools 2.1 for Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
+[Python Tools 2.1 for Visual Studio 샘플 VSIX]: http://go.microsoft.com/fwlink/?LinkId=517189
+[Azure SDK Tools for VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
+[Azure SDK Tools for VS 2012]: http://go.microsoft.com/fwlink/?LinkId=323511
+[Python 2.7 32비트]: http://go.microsoft.com/fwlink/?LinkId=517190 
+[Python 3.4 32비트]: http://go.microsoft.com/fwlink/?LinkId=517191
+[Python Tools for Visual Studio 설명서]: http://pytools.codeplex.com/documentation
+[Flask 설명서]: http://flask.pocoo.org/
+[MongoDB]: http://www.mongodb.org/
+[PyMongo 설명서]: http://api.mongodb.org/python/current/
+[PyMongo]: https://github.com/mongodb/mongo-python-driver
+[Microsoft Azure의 원격 디버깅]: http://pytools.codeplex.com/wikipage?title=Features%20Azure%20Remote%20Debugging
+[웹 프로젝트]: http://pytools.codeplex.com/wikipage?title=Features%20Web%20Project
+[클라우드 서비스 프로젝트]: http://pytools.codeplex.com/wikipage?title=Features%20Cloud%20Project
 
 <!--HONumber=35.1-->

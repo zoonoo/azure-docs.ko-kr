@@ -1,4 +1,4 @@
-﻿<properties pageTitle="서비스 쪽 권한 부여(Android) | 모바일 개발자 센터" metaKeywords="" description="Azure 모바일 서비스의 JavaScript 백 엔드에서 사용자에게 권한을 부여하는 방법에 대해 알아봅니다." metaCanonical="" services="" documentationCenter="Mobile" title="Service-side authorization of Mobile Services users" authors="glenga" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="서비스 쪽 권한 부여(Android) | 모바일 개발자 센터" metaKeywords="" description="Azure 모바일 서비스의 JavaScript 백 엔드에서 사용자에게 권한을 부여하는 방법에 대해 알아봅니다." metaCanonical="" services="" documentationCenter="Mobile" title="Service-side authorization of Mobile Services users" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="09/29/2014" ms.author="glenga" />
 
@@ -62,7 +62,7 @@
 
    	모바일 서비스에서 TodoItem 테이블의 텍스트 및 userId가 모두 삽입됩니다. 새 항목에 올바른 userId 값이 있기 때문에 값이 모바일 서비스에서 반환되어 두 번째 열에 표시됩니다.
 
-5. [관리 포털][Azure Management Portal]로 돌아와 **todoitem** 테이블에서 **찾아보기**를 클릭하고 새로 추가된 각 항목에 이제 관련 userId 값이 있는지 확인합니다.
+5. [관리 포털][Azure 관리 포털]로 돌아와 **todoitem** 테이블에서 **찾아보기**를 클릭하고 새로 추가된 각 항목에 이제 관련 userId 값이 있는지 확인합니다.
 
 6. (옵션) 추가 로그인 계정이 있는 경우 앱을 닫았다가 다시 실행하여 사용자가 자신의 고유 데이터만 볼 수 있는지 여부를 확인할 수 있습니다. 로그인 자격 증명 대화 상자가 표시되면 다른 로그인을 입력한 후 이전 계정으로 입력한 항목이 표시되지 않는지 확인합니다.
 
@@ -92,9 +92,9 @@
 <!-- URLs. -->
 [모바일 서비스 서버 스크립트 참조]: http://go.microsoft.com/fwlink/p/?LinkId=262293
 [내 앱 대시보드]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[모바일 서비스 시작](영문): /ko-kr/develop/mobile/tutorials/get-started-android
-[데이터 시작](영문): /ko-kr/develop/mobile/tutorials/get-started-with-data-android
-[인증 시작](영문): /ko-kr/develop/mobile/tutorials/get-started-with-users-android
+[모바일 서비스 시작]: /ko-kr/develop/mobile/tutorials/get-started-android
+[데이터 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-data-android
+[인증 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-users-android
 [푸시 알림 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-push-android
 
 [Azure 관리 포털]: https://manage.windowsazure.com/

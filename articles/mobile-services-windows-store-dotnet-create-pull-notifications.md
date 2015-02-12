@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Define a custom API that supports pull notifications" pageTitle="풀 알림을 지원하는 사용자 지정 API 정의 - Azure 모바일 서비스" metaKeywords="" description="Azure 모바일 서비스를 사용하는 Windows 스토어 앱에서 정기 알림을 지원하는 사용자 지정 API를 정의하는 방법에 대해 알아봅니다." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Define a custom API that supports periodic notifications" authors="glenga" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Define a custom API that supports pull notifications" pageTitle="풀 알림을 지원하는 사용자 지정 API 정의 - Azure 모바일 서비스" metaKeywords="" description="Azure 모바일 서비스를 사용하는 Windows 스토어 앱에서 정기 알림을 지원하는 사용자 지정 API를 정의하는 방법에 대해 알아봅니다." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Define a custom API that supports periodic notifications" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="11/22/2014" ms.author="glenga" />
 
@@ -10,13 +10,13 @@
 
 이 항목에서는 Windows 스토어 앱에서 사용자 지정 API를 사용하여 정기 알림을 지원하는 방법을 보여 줍니다. 정기 알림을 사용하면 Windows에서 주기적으로 사용자 지정 API 끝점에 액세스하고 타일 특정 형식으로 반환된 XML을 사용하여 시작 메뉴의 앱 타일을 업데이트합니다. 자세한 내용은 [정기 알림]을 참조하세요. 
 
-[모바일 서비스 시작](영문) 또는 [기존 앱에 모바일 서비스 추가](영문) 자습서를 마쳤을 때 만든 앱에 이 기능을 추가합니다. 그러려면 다음 단계를 완료합니다.
+[모바일 서비스 시작][] (영문) 또는 [기존 앱에 모바일 서비스 추가][] (영문) 자습서를 마쳤을 때 만든 앱에 이 기능을 추가합니다. 그러려면 다음 단계를 완료합니다.
 
 1. [사용자 지정 API 정의]
 2. [정기 알림을 켜도록 앱 업데이트]
 3. [앱 테스트] 
 
-이 자습서는 모바일 서비스 퀵 스타트를 기반으로 합니다. 이 자습서를 시작하기 전에 먼저 [모바일 서비스 시작](영문) 또는 [기존 앱에 모바일 서비스 추가](영문) 자습서를 완료해야 합니다.  
+이 자습서는 모바일 서비스 퀵 스타트를 기반으로 합니다. 이 자습서를 시작하기 전에 먼저 [모바일 서비스 시작][] (영문) 또는 [기존 앱에 모바일 서비스 추가][] (영문) 자습서를 완료해야 합니다.  
 
 ## <a name="define-custom-api"></a>사용자 지정 API 정의
 
@@ -147,8 +147,8 @@
 [Windows 푸시 알림 및 Live Connect]: http://go.microsoft.com/fwlink/?LinkID=257677
 [모바일 서비스 서버 스크립트 참조]: http://go.microsoft.com/fwlink/?LinkId=262293
 [내 앱 대시보드]: http://go.microsoft.com/fwlink/?LinkId=262039
-[모바일 서비스 시작](영문): /ko-kr/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started
-[기존 앱에 모바일 서비스 추가](영문): /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-get-started
+[모바일 서비스 시작]: /ko-kr/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started
+[기존 앱에 모바일 서비스 추가]: /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-get-started
 [푸시 알림 시작]: /ko-kr/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push
 
 [Azure 관리 포털]: https://manage.windowsazure.com/

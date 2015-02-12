@@ -1,4 +1,4 @@
-﻿<properties pageTitle="인증 시작(Appcelerator) | 모바일 개발자 센터" metaKeywords="" description="모바일 서비스를 사용하여 Google, Facebook, Twitter, Microsoft 등의 다양한 ID 공급자를 통해 iOS 앱 사용자를 인증하는 방법에 대해 알아봅니다." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="Appcelerator team;mahender" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="인증 시작(Appcelerator) | 모바일 개발자 센터" metaKeywords="" description="모바일 서비스를 사용하여 Google, Facebook, Twitter, Microsoft 등의 다양한 ID 공급자를 통해 iOS 앱 사용자를 인증하는 방법에 대해 알아봅니다." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="Appcelerator team;mahender" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-appcelerator" ms.devlang="multiple" ms.topic="article" ms.date="11/24/2014" ms.author="Appcelerator team;mahender" />
 
@@ -18,11 +18,11 @@
 
 이 자습서를 완료하려면 Appcelerator Titanium Studio 3.2.1 이상, iOS 7.0 이상 및 Android 4.3 이상이 필요합니다.
 
-##<a name="register"></a>인증을 위해 앱 등록 및 모바일 서비스 구성
+## <a name="register"></a>인증을 위해 앱 등록 및 모바일 서비스 구성
 
 [WACOM.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)] 
 
-##<a name="permissions"></a> 사용 권한을 인증된 사용자로 제한
+## <a name="permissions"></a> 사용 권한을 인증된 사용자로 제한
 
 [WACOM.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)]
 
@@ -34,7 +34,7 @@
 
 다음에는 모바일 서비스의 리소스를 요청하기 전에 사용자를 인증하도록 앱을 업데이트합니다.
 
-##<a name="add-authentication"></a>앱에 인증 추가
+## <a name="add-authentication"></a>앱에 인증 추가
 
 1.	프로젝트 파일 index.js를 열고 테이블 이벤트 Lister 메서드에서 `case 2:`를 찾습니다.
 
@@ -96,6 +96,6 @@
 <!-- Images. -->
 
 <!-- URLs. -->
-[모바일 서비스 시작](영문): /ko-kr/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started
+[모바일 서비스 시작(영문)]: /ko-kr/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started
 
 <!--HONumber=35.1-->

@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Use Hadoop Oozie in HDInsight" pageTitle="HDInsight에서 Hadoop Oozie 사용 | Azure" metaKeywords="" description="빅 데이터 솔루션인 HDInsight에서 Hadoop Oozie를 사용하는 방법에 대해 알아봅니다. 또한 Oozie 워크플로를 정의하고 Oozie 작업을 제출하는 방법에 대해서도 살펴봅니다." metaCanonical="" services="hdinsight" documentationCenter="" title="Use Hadop Oozie in HDInsight" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
+<properties urlDisplayName="Use Hadoop Oozie in HDInsight" pageTitle="HDInsight에서 Hadoop Oozie 사용 | Azure" metaKeywords="" description="빅 데이터 솔루션인 HDInsight에서 Hadoop Oozie를 사용하는 방법에 대해 알아봅니다. 또한 Oozie 워크플로를 정의하고 Oozie 작업을 제출하는 방법에 대해서도 살펴봅니다." metaCanonical="" services="hdinsight" documentationCenter="" title="Use Hadop Oozie in HDInsight" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/12/2014" ms.author="jgao" />
 
@@ -31,7 +31,7 @@ Apache Oozie는 Hadoop 작업을 관리하는 워크플로/조정 시스템입�
 		2012-02-03 18:35:34 SampleClass3 [DEBUG] detail for id 1304807656
 		...
 
-	The Hive script output is similar to:
+	Hive 스크립트 출력은 다음과 같습니다.
 	
 		[DEBUG] 434
 		[ERROR] 3
@@ -462,7 +462,7 @@ Azure PowerShell은 현재 Oozie 작업 정의용 cmdlet을 제공하지 않습�
 	    $oozieServerSatus = $jsonResponse[0].("systemMode")
 	    Write-Host "Oozie server status is $oozieServerSatus..."
 	
-5. Append the following to the script. This part creates and starts an Oozie job:	
+5. 스크립트에 다음을 추가합니다. 이 부분은 Oozie 작업을 만들고 시작합니다.	
 
 	    # create Oozie job
 	    Write-Host "Sending the following Payload to the cluster:" -ForegroundColor Green
@@ -479,7 +479,7 @@ Azure PowerShell은 현재 Oozie 작업 정의용 cmdlet을 제공하지 않습�
 	    $clusterUriStartJob = "https://$clusterName.azurehdinsight.net:443/oozie/v2/job/" + $oozieJobId + "?action=start"
 	    $response = Invoke-RestMethod -Method Put -Uri $clusterUriStartJob -Credential $creds | Format-Table -HideTableHeaders #-debug
 		
-6. Append the following to the script. This part checks the Oozie job status:		
+6. 스크립트에 다음을 추가합니다. 이 부분은 Oozie 작업 상태를 확인합니다:		
 
 	    # get job status
 	    Write-Host "Sleeping for $waitTimeBetweenOozieJobStatusCheck seconds until the job metadata is populated in the Oozie metastore..." -ForegroundColor Green

@@ -1,4 +1,4 @@
-﻿<properties linkid="develop-python-cloud-services-with-ptvs" urlDisplayName="Python Web and Worker Roles with Python Tools 2.1 for Visual Studio" pageTitle="Python Tools 2.1 for Visual Studio의 Python 웹 및 작업자 역할" metaKeywords="Azure python, web role, worker role, PTVS, cloud service" description="Python Tools for Visual Studio를 사용하여 웹 역할과 작업자 역할을 포함한 Azure 클라우드 서비스를 만드는 방법을 간략하게 설명합니다." metaCanonical="" services="" documentationCenter="Python" title="Python Web and Worker Roles with Python Tools 2.1 for Visual Studio" authors="huvalo" solutions="" manager="wpickett" editor="" />
+<properties linkid="develop-python-cloud-services-with-ptvs" urlDisplayName="Python Web and Worker Roles with Python Tools 2.1 for Visual Studio" pageTitle="Python Tools 2.1 for Visual Studio의 Python 웹 및 작업자 역할" metaKeywords="Azure python, web role, worker role, PTVS, cloud service" description="Python Tools for Visual Studio를 사용하여 웹 역할과 작업자 역할을 포함한 Azure 클라우드 서비스를 만드는 방법을 간략하게 설명합니다." metaCanonical="" services="" documentationCenter="Python" title="Python Web and Worker Roles with Python Tools 2.1 for Visual Studio" authors="huvalo" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="10/10/2014" ms.author="huvalo" />
 
@@ -20,7 +20,7 @@
 
  - Visual Studio 2012 또는 2013
  - [Python Tools 2.1 for Visual Studio][](영문)
- - [Azure SDK Tools for VS 2013][] 또는 [Azure SDK Tools for VS 2012][]
+ - [Azure SDK Tools for VS 2013][](영문)또는 [Azure SDK Tools for VS 2012][](영문)
  - [Python 2.7 32비트][] 또는 [Python 3.4 32비트][]
 
 [WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
@@ -127,12 +127,12 @@ Azure 저장소 또는 서비스 버스를 사용하는 등 웹 및 작업자 �
 
 [Python Tools for Visual Studio]: http://pytools.codeplex.com
 [Python Tools for Visual Studio 설명서(영문)]: http://pytools.codeplex.com/documentation 
-[클라우드 서비스 프로젝트](영문): http://pytools.codeplex.com/wikipage?title=Features%20Cloud%20Project
+[클라우드 서비스 프로젝트]: http://pytools.codeplex.com/wikipage?title=Features%20Cloud%20Project
 
-[Python Tools 2.1 for Visual Studio](영문): http://go.microsoft.com/fwlink/?LinkId=517189
-[Azure SDK Tools for VS 2013](영문): http://go.microsoft.com/fwlink/?LinkId=323510
-[Azure SDK Tools for VS 2012](영문): http://go.microsoft.com/fwlink/?LinkId=323511
-[Python 2.7 32비트](영문): http://go.microsoft.com/fwlink/?LinkId=517190 
-[Python 3.4 32비트](영문): http://go.microsoft.com/fwlink/?LinkId=517191
+[Python Tools 2.1 for Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
+[Azure SDK Tools for VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
+[Azure SDK Tools for VS 2012]: http://go.microsoft.com/fwlink/?LinkId=323511
+[Python 2.7 32비트]: http://go.microsoft.com/fwlink/?LinkId=517190 
+[Python 3.4 32비트]: http://go.microsoft.com/fwlink/?LinkId=517191
 
 <!--HONumber=35.1-->

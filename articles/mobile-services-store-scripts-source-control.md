@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Store JavaScript project code in source control" pageTitle="소스 제어에 프로젝트 코드 저장 - Azure 모바일 서비스" metaKeywords="" description="컴퓨터의 로컬 Git 리포지토리에 서버 스크립트 파일 및 모듈을 저장하는 방법에 대해 알아봅니다." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Store project code in source control" authors="glenga" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Store JavaScript project code in source control" pageTitle="소스 제어에 프로젝트 코드 저장 - Azure 모바일 서비스" metaKeywords="" description="컴퓨터의 로컬 Git 리포지토리에 서버 스크립트 파일 및 모듈을 저장하는 방법에 대해 알아봅니다." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Store project code in source control" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="glenga" />
 
@@ -17,7 +17,7 @@
 3. [업데이트된 스크립트 파일을 모바일 서비스에 배포]합니다.
 4. [서버 스크립트에서 공유 코드 및 Node.js 모듈을 활용]합니다.
 
-이 자습서를 완료하려면 [모바일 서비스 시작](영문) 또는 [기존 앱에 모바일 서비스 추가(영문)] 자습서를 완료하여 모바일 서비스를 만들어 둬야 합니다.
+이 자습서를 완료하려면 [모바일 서비스 시작][] (영문) 또는 [기존 앱에 모바일 서비스 추가][] (영문) 자습서를 완료하여 모바일 서비스를 만들어 둬야 합니다.
 
 ##<a name="enable-source-control"></a>모바일 서비스에서 소스 제어를 사용하도록 설정
 
@@ -27,7 +27,7 @@
 
 1. 로컬 컴퓨터에 Git을 설치합니다. 
 
-	Git를 설치하는 데 필요한 단계는 운영 체제마다 다릅니다. 운영 체제 특정 배포 및 설치 지침은 [Git 설치](영문)를 참조하세요.
+	Git를 설치하는 데 필요한 단계는 운영 체제마다 다릅니다. 운영 체제 특정 배포 및 설치 지침은 [Git 설치][] (영문)를 참조하세요.
 
 	> [WACOM.NOTE]
 	> 일부 운영 체제에서는 Git의 명령줄과 GUI 버전을 둘 다 사용할 수 있습니다. 이 문서에서 제공하는 지침은 명령줄 버전을 사용합니다.
@@ -47,7 +47,7 @@
 		remote: Total 8 (delta 1), reused 0 (delta 0)
 		Unpacking objects: 100% (8/8), done.
 
-6. 'git clone' 명령을 실행한 디렉터리로 이동하여 다음 디렉터리 구조를 확인합니다.
+6. `git clone` 명령을 실행한 디렉터리로 이동하여 다음 디렉터리 구조를 확인합니다.
 
 	![4][4]
 
@@ -70,7 +70,7 @@
 		    console.log(JSON.stringify(item, null, 4));
 		}
 	
-	이 코드는 삽입된 항목을 로그에 씁니다. 이 파일에 아직 코드가 포함되어 있지 않은 경우 'console.log()' 호출과 같은 유효한 JavaScript 코드를 이 파일에 추가한 후 변경 내용을 저장하면 됩니다. 
+	이 코드는 삽입된 항목을 로그에 씁니다. 이 파일에 아직 코드가 포함되어 있지 않은 경우 `console.log()` 호출과 같은 유효한 JavaScript 코드를 이 파일에 추가한 후 변경 내용을 저장하면 됩니다. 
 
 3. Git 명령 프롬프트에서 새 스크립트 파일 추적을 시작하는 다음 명령을 입력합니다.
 
@@ -109,7 +109,7 @@
 
 		npm install node-uuid
 
-	NPM현재 위치에 'node_modules' 디렉터리를 만들고 \node-uuid 하위 디렉터리에 [node-uuid] 모듈을 설치합니다. 
+	NPM현재 위치에 `node_modules` 디렉터리를 만들고 `\node-uuid` 하위 디렉터리에 [node-uuid] 모듈을 설치합니다. 
 
 	<div class="dev-callout">
 	<strong>참고</strong>
@@ -147,9 +147,9 @@
 
 <!-- Anchors. -->
 [모바일 서비스에서 소스 제어를 사용하도록 설정]: #enable-source-control
-[Git 설치 및 로컬 리포지토리 만들기]: #clone-repo
-[모바일 서비스에 업데이트된 스크립트 파일 배포]: #deploy-scripts
-[서버 스크립트에서 공유 코드 및 Node.js 모듈 활용]: #use-npm
+[Git을 설치하고 로컬 리포지토리를 만듭니다]: #clone-repo
+[업데이트된 스크립트 파일을 모바일 서비스에 배포]: #deploy-scripts
+[서버 스크립트에서 공유 코드 및 Node.js 모듈을 활용]: #use-npm
 
 <!-- Images. -->
 [4]: ./media/mobile-services-store-scripts-source-control/mobile-source-local-repo.png
@@ -157,15 +157,15 @@
 [6]: ./media/mobile-services-store-scripts-source-control/mobile-insert-script-source-control.png
 
 <!-- URLs. -->
-[Git 웹 사이트](영문): http://git-scm.com
+[Git 웹 사이트]: http://git-scm.com
 [소스 제어]: http://msdn.microsoft.com/ko-kr/library/windowsazure/c25aaede-c1f0-4004-8b78-113708761643
-[Git 설치](영문): http://git-scm.com/book/en/Getting-Started-Installing-Git
-[모바일 서비스 시작](영문): /ko-kr/documentation/articles/mobile-services-ios-get-started/
-[기존 앱에 모바일 서비스 추가](영문): /ko-kr/documentation/articles/mobile-services-ios-get-started-data/
+[Git 설치]: http://git-scm.com/book/en/Getting-Started-Installing-Git
+[모바일 서비스 시작]: /ko-kr/documentation/articles/mobile-services-ios-get-started/
+[기존 앱에 모바일 서비스 추가]: /ko-kr/documentation/articles/mobile-services-ios-get-started-data/
 [모바일 서비스에서 서버 스크립트 작업]: /ko-kr/documentation/articles/mobile-services-how-to-use-server-scripts/
 [Azure 관리 포털]: https://manage.windowsazure.com/
 [클라이언트에서 사용자 지정 API 호출]: /ko-kr/documentation/articles/mobile-services-ios-call-custom-api/
-[Node.js API 설명서: 모듈](영문): http://nodejs.org/api/modules.html
-[node-uuid](영문): https://npmjs.org/package/node-uuid
+[Node.js API Documentation: Modules]: http://nodejs.org/api/modules.html
+[node-uuid]: https://npmjs.org/package/node-uuid
 
 <!--HONumber=35.1-->
