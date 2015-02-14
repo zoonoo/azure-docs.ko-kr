@@ -4,3 +4,5 @@
 - [(Windows Phone | 모두)](/ko-kr/documentation/articles/mobile-services-windows-phone-get-started-offline-data/)
 - [(Xamarin iOS | 모두)](/ko-kr/documentation/articles/mobile-services-xamarin-ios-get-started-offline-data/)
 - [(Xamarin Android | 모두)](/ko-kr/documentation/articles/mobile-services-xamarin-android-get-started-offline-data/)
+
+<!--HONumber=42-->

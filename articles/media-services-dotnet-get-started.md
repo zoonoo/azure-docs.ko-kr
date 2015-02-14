@@ -1,688 +1,513 @@
-﻿<properties urlDisplayName="Get Started with Media Services" pageTitle="미디어 서비스 시작 - Azure" metaKeywords="Azure media services" description="Azure에서 미디어 서비스를 사용하는 방법을 소개합니다." metaCanonical="" services="media-services" documentationCenter="" title="Get started with Media Services" authors="juliako" solutions="" manager="dwrede" editor="" />
+<properties 
+	pageTitle="Media Services SDK for .NET 시작 - Azure" 
+	description="이 자습서에서는 .NET을 사용한 Azure 미디어 서비스로 VoD(주문형 비디오) 콘텐츠 배달 응용 프로그램을 구현하는 단계를 안내합니다." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="10/30/2014" ms.author="juliako" />
+<tags 
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="01/12/2015" 
+	ms.author="juliako"/>
 
 
+# Media Services SDK for .NET을 사용하여 주문형 비디오 배달 
+
+[AZURE.INCLUDE [media-services-selector-get-started](../includes/media-services-selector-get-started.md)]
 
 
-
-# <a name="getting-started"></a>미디어 서비스 시작
-
-이 자습서에서는 Azure 미디어 서비스를 사용하여 개발을 시작하는 방법을 설명합니다. 기본적인 미디어 서비스 워크플로와 미디어 서비스 개발에 필요한 가장 일반적인 프로그래밍 개체 및 작업을 소개합니다. 자습서를 마치면 업로드하고 인코딩하고 다운로드한 샘플 미디어 파일을 재생할 수 있습니다. 또는 서버에서 인코딩된 자산을 찾아 재생할 수 있습니다. 
-
-이 자습서의 코드가 들어 있는 C# Visual Studio 프로젝트를 [다운로드](http://go.microsoft.com/fwlink/?linkid=253275)하세요.
-
-이 자습서에서는 다음 기본 단계를 단계별로 안내합니다.
-
-* [프로젝트 설정](#Step1)
-* [미디어 서비스 서버 컨텍스트 가져오기](#Step2)
-* [자산 생성 및 자산과 연결된 파일을 미디어 서비스로 업로드](#Step3)
-* [자산 인코드 및 출력 자산 다운로드](#Step4)
-
-## 필수 조건
-Azure Media Services SDK를 기반으로 하는 연습 및 개발에는 다음 필수 조건이 필요합니다.
-
-- 신규 또는 기존 Azure 구독의 미디어 서비스 계정. 자세한 내용은 [미디어 서비스 계정을 만드는 방법](http://go.microsoft.com/fwlink/?LinkId=256662)(영문)을 참조하세요.
-- 운영 체제: Windows 7, Windows 2008 R2, Windows 8 이상
-- .NET Framework 4.5 또는 .NET Framework 4
-- Visual Studio 2012, Visual Studio 2010 SP1(Professional, Premium, Ultimate, Express) 이상
-- **Azure SDK for .NET.**, **Azure Media Services SDK for .NET** 및 **WCF Data Services 5.0 for OData V3 라이브러리**를 설치하고 [windowsazure.mediaservices Nuget](http://nuget.org/packages/windowsazure.mediaservices) 패키지를 사용하여 프로젝트에 참조를 추가합니다. 다음 섹션에서는 이러한 참조를 설치하고 추가하는 방법을 설명합니다.
-
->[WACOM.NOTE]
+>[AZURE.NOTE]
 > 이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://www.windowsazure.com/ko-kr/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Azure 무료 평가판</a>을 참조하세요.
 
-<h2><a id="Step1"></a>프로젝트 설정</h2>
+이 자습서에서는 Azure Media Services(AMS) SDK for .NET를 사용하여 VoD(주문형 비디오) 콘텐츠 배달 응용 프로그램을 구현하는 단계를 안내합니다. 
 
-1. Visual Studio 2012 또는 Visual Studio 2010 SP1에서 새 C# 콘솔 응용 프로그램을 만듭니다. **이름**, **위치** 및 **솔루션 이름**을 입력하고 확인을 클릭합니다. 
+기본적인 미디어 서비스 워크플로와 미디어 서비스 개발에 필요한 가장 일반적인 프로그래밍 개체 및 작업을 소개합니다. 자습서를 마치면 업로드하고 인코딩하고 다운로드한 샘플 미디어 파일을 스트리밍하거나 점진적으로 다운로드할 수 있습니다.  
 
-2. System.Configuration 어셈블리에 참조를 추가합니다.
+VoD 콘텐츠 배달 응용 프로그램을 구현하려면 다른 기술(예: .NET, REST 또는 Java)이나 도구(예: Azure 관리 포털 또는 Azure 미디어 서비스 탐색기)를 사용하거나 이 두 가지의 조합을 사용할 수 있습니다. 
 
-	**참조 관리** 대화 상자를 사용하여 참조를 추가하려면 다음과 같이 합니다. **솔루션 탐색기**에서 **참조** 노드를 마우스 오른쪽 단추로 클릭하고 **참조 추가**를 선택합니다. **참조 관리** 대화 상자에서 해당 어셈블리(이 경우 System.Configuration)를 선택합니다.
+이 자습서에서는 Azure 관리 포털 및 Media Services SDK for .NET을 사용하여 다음 작업을 수행합니다.     
 
-3. 아직 참조를 추가하지 않은 경우windowsazure.mediaservices Nuget 패키지를 사용하여 **Azure SDK for .NET**(Microsoft.WindowsAzure.StorageClient.dll), **Azure Media Services SDK for .NET**(Microsoft.WindowsAzure.MediaServices.Client.dll) 및 **WCF Data Services 5.0 for OData V3**(Microsoft.Data.OData.dll) 라이브러리에 참조를 추가합니다. <a href="http://nuget.org/packages/windowsazure.mediaservices"></a>  
 
-	Nuget을 사용하여 참조를 추가하려면 다음과 같이 합니다. Visual Studio 주 메뉴에서 도구 -> 라이브러리 패키지 관리자 -> 패키지 관리자 콘솔을 선택합니다. 콘솔 창에 <i>Install-Package[package name]</i> 를 입력하고 Enter 키를 누릅니다(이 경우 다음 명령 사용: <i>Install-Package windowsazure.mediaservices</i>).
+1.  [포털을 사용하여 미디어 서비스 계정 만들기](#create_ams).
+2.  [포털을 사용하여 스트리밍 단위 구성](#configure_streaming_units).
+3.  [Visual Studio 프로젝트 만들기 및 구성](#configure_VS)
+4.  [.NET을 사용하여 콘텐츠 업로드, 인코딩 및 배달](#use_dotnet)
+	5.  [미디어 서비스 계정에 연결](#connect).
+	1.  [새 자산 만들기 및 비디오 파일 업로드](#upload).
+	1.  [원본 파일을 적응 비트 전송률 MP4 파일 집합으로 인코딩](#encode).
+	1.  [인코딩된 자산에 대한 배달 정책 구성](#configure_delivery_method).
+	2.  [필요에 따라 동적 콘텐츠 보호 구성](#configure_content_protection). 
+	1.  [자산 게시, 스트리밍 기능 사용 및 URL 점진적으로 다운로드](#publish_get_urls). 
+1.  [콘텐츠 재생](#play). 
 
-4. **app.config** 파일에 *appSettings* 섹션을 추가하고 Azure 미디어 서비스 계정 이름 및 계정 키 값을 설정합니다. 계정 설정 프로세스 중 미디어 서비스 계정 이름 및 계정 키를 받았습니다. 이 값을 Visual Studio 프로젝트의 app.config 파일에서 각 설정에 대한 값 특성에 추가합니다.
+## 필수 조건
+Media Services SDK for .NET을 사용하여 개발을 시작하려면 다음 필수 조건이 필요합니다.
 
-	> [WACOM.NOTE]
-	> Visual Studio 2012에는 App.config 파일이 기본적으로 추가되어 있습니다. Visual Studio 2010에서는 응용 프로그램 구성 파일을 수동으로 추가해야 합니다.
+- 운영 체제: Windows 7, Windows 2008 R2, Windows 8 이상
+- .NET Framework 4.5 또는 .NET Framework 4.0
+- Visual Studio 2013, Visual Studio 2012, Visual Studio 2010 SP1(Professional, Premium, Ultimate 또는 Express)
+
+
+## <a id="create_ams"></a>포털을 사용하여 미디어 서비스 계정 만들기
+
+1. [관리 포털][]에서 **새로 만들기**, **미디어 서비스**, **빠른 생성**을 차례로 클릭합니다.
+   
+	![미디어 서비스 빠른 생성](./media/media-services-create-account/wams-QuickCreate.png)
+
+2. **이름**에 새 계정의 이름을 입력합니다. 미디어 서비스 계정 이름은 공백 없이 모두 소문자로 이루어진 3-24자의 숫자 또는 문자입니다. 
+
+3. **지역**에서 미디어 서비스 계정에 대한 메타데이터 레코드를 저장하는 데 사용할 지역을 선택합니다. 사용 가능한 미디어 서비스 지역만 드롭다운에 표시됩니다. 
+
+4. **저장소 계정**에서 미디어 서비스 계정의 미디어 콘텐츠가 포함된 Blob 저장소를 제공할 저장소 계정을 선택합니다. 미디어 서비스 계정과 동일한 지역의 기존 저장소 계정을 선택하거나 새 저장소 계정을 만들 수 있습니다. 동일한 지역에 새 저장소 계정이 생성됩니다. 
+
+5. 새 저장소 계정을 만든 경우 **새 저장소 계정 이름**에 저장소 계정의 이름을 입력합니다. 저장소 계정 이름에 대한 규칙은 미디어 서비스 계정의 경우와 같습니다.
+
+6. 양식 맨 아래에 있는 **빠른 생성**을 클릭합니다.
+
+	창 맨 아래에 있는 메시지 영역에서 프로세스의 상태를 모니터링할 수 있습니다.
+
+	계정이 만들어지면 상태가 활성으로 변경됩니다. 
+	
+	페이지의 맨 아래에 **키 관리** 단추가 나타납니다. 이 단추를 클릭하면 미디어 서비스 계정 이름과 기본 키 및 보조 키가 포함된 대화 상자가 표시됩니다. 프로그래밍 방식으로 미디어 서비스 계정에 액세스하려면 계정 이름과 기본 키 정보가 필요합니다. 
+
+	![Media Services Page](./media/media-services-create-account/wams-mediaservices-page.png)
+
+	계정 이름을 두 번 클릭하면 기본적으로 빠른 시작 페이지가 표시됩니다. 이 페이지를 통해 포털의 다른 페이지에서도 사용할 수 있는 몇 가지 관리 작업을 수행할 수 있습니다. 예를 들어 이 페이지에서 비디오 파일을 업로드하거나 콘텐츠 페이지에서 업로드할 수 있습니다.
+
+	 
+## <a id="configure_streaming_units"></a>포털을 사용하여 스트리밍 단위 구성
+
+Azure 미디어 서비스 작업 시 가장 일반적인 시나리오 중 하나는 클라이언트에 적응 비트 전송률 스트리밍을 제공하는 것입니다. 적응 비트 전송률 스트리밍을 사용하면 현재 네트워크 대역폭, CPU 사용률 및 기타 요인에 따라 비디오가 표시되므로 클라이언트는 더 높거나 낮은 비트 전송률 스트림으로 전환할 수 있습니다. 미디어 서비스가 지원하는 적응 비트 전송률 스트리밍 기술은 HLS(HTTP 라이브 스트리밍), 부드러운 스트리밍, MPEG DASH 및 HDS(Adobe PrimeTime/Access 정식 사용자만 해당)입니다. 
+
+미디어 서비스는 적응 비트 전송률 MP4 또는 부드러운 스트리밍 인코딩 콘텐츠를 미디어 서비스에서 지원되는 스트리밍 형식(MPEG DASH, HLS, 부드러운 스트리밍, HDS)으로 다시 패키지하지 않고도 이런 스트리밍 형식으로 배달할 수 있게 하는 동적 패키징을 제공합니다. 
+
+동적 패키징을 이용하려면 다음을 수행해야 합니다.
+
+- mezzanine (원본) 파일을 적응 비트 전송률 MP4 파일 또는 적응 비트 전송률 부드러운 스트리밍 파일 집합으로 인코딩하거나 트랜스코딩합니다(인코딩 단계는 이 자습서의 뒷부분에서 설명).  
+- 콘텐츠를 배달하는 출발점이 될 스트리밍 끝점에 대해 하나 이상의 주문형 스트리밍 단위를 구성합니다.
+
+동적 패키징에서는 단일 저장소 형식으로 파일을 저장하고 비용을 지불하기만 하면 됩니다. 그러면 미디어 서비스가 클라이언트의 요청에 따라 적절한 응답을 빌드 및 제공합니다. 
+
+동적 패키징 기능을 사용할 수 있을 뿐만 아니라, 주문형 스트리밍 예약 단위는 200Mbps 단위로 구입할 수 있는 전용 송신 용량을 제공합니다. 기본적으로 주문형 스트리밍은 다른 모든 사용자와 서버 리소스(예: 계산, 송신 기능 등)가 공유되는 공유 인스턴스 모델로 구성되어 있습니다. 주문형 스트리밍 처리량을 개선하려면 주문형 스트리밍 예약 단위를 구입하는 것이 좋습니다.
+
+
+주문형 스트리밍 예약 단위의 수를 변경하려면 다음을 수행합니다.
+
+1. [관리 포털](https://manage.windowsazure.com/)에서 **미디어 서비스**를 클릭합니다. 그런 다음 미디어 서비스의 이름을 클릭합니다.
+
+2. 스트리밍 끝점 페이지를 선택합니다. 그리고 수정할 스트리밍 끝점을 클릭합니다.
+
+3. 스트리밍 단위 수를 지정하려면 크기 조정 탭을 선택하고 **예약된 용량** 슬라이더를 움직입니다.
+
+	![Scale page](./media/media-services-how-to-scale/media-services-origin-scale.png)
+
+4. 저장 단추를 눌러 변경 내용을 저장합니다.
+
+	새 주문형 스트리밍 단위를 할당하는 작업은 완료하는 데 20분 정도 걸립니다. 
+
+	 
+	>[AZURE.NOTE] 현재, 주문형 스트리밍 단위의 양수 값을 0으로 변경하면 최대 1시간 동안 주문형 스트리밍을 사용하지 않을 수 있습니다.
+	>
+	> 24시간 동안 가장 많은 단위 수가 비용 계산에 사용됩니다. 가격 정보에 대한 자세한 내용은 [미디어 서비스 가격 정보](http://go.microsoft.com/fwlink/?LinkId=275107)를 참조하세요.
+
+
+
+## <a id="configure_VS"></a>Visual Studio 프로젝트 만들기 및 구성
+
+1. Visual Studio 2013, Visual Studio 2012 또는 Visual Studio 2010 SP1에서 새 C# 콘솔 응용 프로그램을 만듭니다. **이름**, **위치** 및 **솔루션 이름**을 입력하고 확인을 클릭합니다. 
+
+2. [windowsazure.mediaservices.extensions](https://www.nuget.org/packages/windowsazure.mediaservices.extensions) Nuget 패키지를 사용하여 **Azure 미디어 서비스 .NET SDK 확장**을 설치합니다.  미디어 서비스 .NET SDK Extensions는 코드를 단순화하고 미디어 서비스를 사용하여 더욱 쉽게 개발할 수 있도록 지원하는 일련의 확장 메서드 및 도우미 함수입니다. 이 패키지를 설치하면 **미디어 서비스 .NET SDK**도 설치되고 다른 모든 필수 종속성이 추가됩니다.
+ 
+3. System.Configuration 어셈블리에 참조를 추가합니다. 이 어셈블리는 구성 파일 (예: App.config)에 액세스하는 데 사용되는 System.Configuration.ConfigurationManager 클래스를 포함합니다. 
+
+4. App.config 파일을 열고(기본적으로 추가되지 않은 경우 프로젝트에 파일 추가)  *appSettings* 섹션을 파일에 추가합니다. Azure 미디어 서비스 계정 이름 및 계정 키의 값을 다음 예제와 같이 설정합니다. 계정 이름 및 키 정보를 얻으려면 Azure 관리 포털을 열고 미디어 서비스 계정을 선택한 후 **키 관리** 단추를 클릭합니다.
 
 	<pre><code>
-	<configuration>
-  	. . . 
-  	<appSettings>
-    	<add key="accountName" value="Add-Media-Services-Account-Name" />
-    	<add key="accountKey" value="Add-Media-Services-Account-Key" />
-  	</appSettings>
-	</configuration>
+	&lt;configuration&gt;
+        &lt;appSettings&gt;
+    	&lt;add key="MediaServicesAccountName" value="Media-Services-Account-Name" /&gt;
+        	&lt;add key="MediaServicesAccountKey" value="Media-Services-Account-Key" /&gt;
+  	    &lt;/appSettings&gt;
+	&lt;/configuration&gt;
 	</code></pre>
 
-5. 로컬 컴퓨터에 새 폴더를 만들고 이름을 supportFiles로 지정합니다(이 예에서 supportFiles는 MediaServicesGettingStarted 프로젝트 디렉터리에 있음). 이 연습과 함께 제공되는 <a href="http://go.microsoft.com/fwlink/?linkid=253275">프로젝트</a> 에 supportFiles 디렉터리가 포함되어 있습니다. 이 디렉터리의 내용을 supportFiles 폴더로 복사할 수 있습니다.
-
-6. 다음 코드를 사용하여 Program.cs 파일의 앞부분에 있는 기존 using 문을 덮어씁니다.
+5. 다음 코드를 사용하여 Program.cs 파일의 앞부분에 있는 기존 using 문을 덮어씁니다.
 
 		using System;
-		using System.Linq;
-		using System.Configuration;
-		using System.IO;
-		using System.Text;
-		using System.Threading;
-		using System.Threading.Tasks;
 		using System.Collections.Generic;
-		using Microsoft.WindowsAzure;
+		using System.Linq;
+		using System.Text;
+		using System.Threading.Tasks;
+		using System.Configuration;
+		using System.Threading;
+		using System.IO;
 		using Microsoft.WindowsAzure.MediaServices.Client;
+		using Microsoft.WindowsAzure.MediaServices.Client.DynamicEncryption;
+
+6. 프로젝트 디렉터리 아래에 새 폴더를 만들고 인코딩하고 스트리밍 또는 점진적으로 다운로드하려는 .mp4 또는 .wmv 파일을 복사합니다. 이 예제에서는 "C:\VideoFiles" 경로가 사용됩니다. 
+
+## <a id="use_dotnet"></a>.NET을 사용하여 콘텐츠 업로드, 인코딩 및 배달 
+
+이 섹션의 코드는 다음 작업을 수행하는 방법을 보여 줍니다.
+
+1. 미디어 서비스 계정에 연결합니다.
+1. 새 자산을 만들고 비디오 파일을 업로드합니다.
+1. 원본 파일을 적응 비트 전송률 MP4 파일 집합으로 인코딩합니다.
+1. 인코딩된 자산에 대한 배달 정책을 구성합니다.
+2. 필요에 따라 동적 콘텐츠 보호를 구성합니다.
+1. 자산을 게시하고 URL을 가져옵니다. 
 
 
-7. 다음 클래스 수준의 경로 변수를 추가합니다. **_supportFiles** 경로는 이전 단계에서 만든 폴더를 가리켜야 합니다. 
+### <a id="connect"></a>미디어 서비스 계정에 연결
 
-		// Base support files path.  Update this field to point to the base path  
-		// for the local support files folder that you create. 
-		private static readonly string _supportFiles =
-		            Path.GetFullPath(@"../..\supportFiles");
-		
-		// Paths to support files (within the above base path). You can use 
-		// the provided sample media files from the "supportFiles" folder, or 
-		// provide paths to your own media files below to run these samples.
-		private static readonly string _singleInputFilePath =
-		    Path.GetFullPath(_supportFiles + @"\multifile\interview2.wmv");
-		private static readonly string _outputFilesFolder =
-		    Path.GetFullPath(_supportFiles + @"\outputfiles");
-		
-8. 다음 클래스 수준의 변수를 추가하여 인증 및 연결 설정을 검색합니다.  이 설정은 App.Config 파일에서 가져오며 미디어 서비스에 연결하고 인증한 후 서버 컨텍스트에 액세스할 수 있도록 토큰을 받아야 합니다. 프로젝트의 코드는 이 변수를 참조하여 서버 컨텍스트의 인스턴스를 만듭니다.
+미디어 서비스를 .NET과 함께 사용하는 경우 미디어 서비스 계정에 연결하는 작업이나 자산, 자산 파일, 작업, 액세스 정책, 로케이터 등의 개체를 만들고 업데이트하고 액세스하고 삭제하는 작업을 포함한 대부분의 미디어 서비스 프로그래밍 작업에 **CloudMediaContext** 클래스를 사용해야 합니다. 
+ 
+기본 Program 클래스를 다음 코드로 덮어씁니다. 이 코드는 App.config 파일에서 연결 값을 읽는 방법 및 미디어 서비스에 연결하기 위해 CloudMediaContext 개체를 만드는 방법을 보여 줍니다. 미디어 서비스에 연결하는 방법에 대한 자세한 내용은 [Media Services SDK for .NET을 사용하여 미디어 서비스에 연결](http://msdn.microsoft.com/ko-kr/library/azure/jj129571.aspx)을 참조하세요.
+
+**Main** 함수는 이 섹션에서 자세히 정의되는 메서드를 호출합니다.
 	
-		private static readonly string _accountKey = ConfigurationManager.AppSettings["accountKey"];
-		private static readonly string _accountName = ConfigurationManager.AppSettings["accountName"];
-
-9. 정적 참조로 사용되는 다음 클래스 수준의 변수를 서버 컨텍스트에 추가합니다.
-
-		// Field for service context.
-		private static CloudMediaContext _context = null;
-		
-<h2><a id="Step2"></a>미디어 서비스 컨텍스트 가져오기</h2>
-
-미디어 서비스 컨텍스트 개체에는 미디어 서비스 프로그래밍에 액세스하는 기본적인 개체 및 컬렉션이 모두 들어 있습니다. 컨텍스트에는 작업, 자산, 파일, 액세스 정책, 로케이터 및 기타 개체를 비롯하여 중요한 컬렉션에 대한 참조가 포함됩니다. 대부분의 미디어 서비스 프로그래밍 작업의 경우 서버 컨텍스트를 가져와야 합니다.
-
-Program.cs 파일에서 **Main** 메서드의 첫 번째 항목으로 다음 코드를 추가합니다. 이 코드는 app.config 파일의 미디어 서비스 계정 이름 및 계정 키 값을 사용하여 서버 컨텍스트의 인스턴스를 만듭니다. 인스턴스는 클래스 수준에서 만든 **_context** 변수에 할당됩니다.
-
-	// Get the service context.
-	_context = new CloudMediaContext(_accountName, _accountKey);
-	
-<h2><a id="Step3"></a>자산 생성 및 파일 업로드</h2>
-
-이 섹션의 코드는 다음과 같은 작업을 수행합니다. 
-
-1. 빈 자산을 만듭니다.<br/>
-자산을 만들 때는 세 가지의 암호화 옵션을 지정할 수 있습니다. 
-
-	- **AssetCreationOptions.None**: 암호화 없음. 암호화하지 않은 자산을 생성하려면 이 옵션을 설정해야 합니다.
-	- **AssetCreationOptions.CommonEncryptionProtected**: CENC(Common Encryption Protected) 파일의 경우. 예: PlayReady로 이미 암호화된 파일 집합 
-	- **AssetCreationOptions.StorageEncrypted**: 저장소 암호화. Azure 저장소로 업로드하기 전에 암호화되지 않은 입력 파일을 암호화합니다.
-
-		<div class="dev-callout"> 
-	<strong>참고</strong> 
-	<p>미디어 서비스는 DRM(Digital Rights Manager)처럼 네트워크상이 아니라 디스크에 있는 저장소 암호화를 제공합니다.</p> 
-	</div>
-
-2. 자산과 연결하려는 AssetFile 인스턴스를 생성합니다.
-3. 자산에 대한 액세스 권한과 기간을 정의하는 AccessPolicy 인스턴스를 생성합니다.
-4. 자산에 액세스 권한을 제공하는 Locator 인스턴스를 생성합니다.
-5. 단일 미디어 파일을 미디어 서비스로 업로드합니다. 생성 및 업로드 프로세스를 자산 수집이라고도 부릅니다.
-
-클래스에 다음 메서드를 추가합니다.
-
-<pre><code>
-static private IAsset CreateEmptyAsset(string assetName, AssetCreationOptions assetCreationOptions)
-{
-    var asset = _context.Assets.Create(assetName, assetCreationOptions);
-
-    Console.WriteLine("Asset name: " + asset.Name);
-    Console.WriteLine("Time created: " + asset.Created.Date.ToString());
-
-    return asset;
-}
-
-static public IAsset CreateAssetAndUploadSingleFile(AssetCreationOptions assetCreationOptions, string singleFilePath)
-{
-    var assetName = "UploadSingleFile_" + DateTime.UtcNow.ToString();
-    var asset = CreateEmptyAsset(assetName, assetCreationOptions);
-
-    var fileName = Path.GetFileName(singleFilePath);
-
-    var assetFile = asset.AssetFiles.Create(fileName);
-
-    Console.WriteLine("Created assetFile {0}", assetFile.Name);
-
-    var accessPolicy = _context.AccessPolicies.Create(assetName, TimeSpan.FromDays(3),
-                                                        AccessPermissions.Write | AccessPermissions.List);
-
-    var locator = _context.Locators.CreateLocator(LocatorType.Sas, asset, accessPolicy);
-
-    Console.WriteLine("Upload {0}", assetFile.Name);
-
-    assetFile.Upload(singleFilePath);
-    Console.WriteLine("Done uploading of {0} using Upload()", assetFile.Name);
-
-    locator.Delete();
-    accessPolicy.Delete();
-
-    return asset;
-}
-
-</code></pre>
-
-Main 메서드에서 **\_context = new CloudMediaContext(_accountName, _accountKey);** 줄 다음에 메서드에 대한 호출을 추가합니다. 
-
-	IAsset asset = CreateAssetAndUploadSingleFile(AssetCreationOptions.None, _singleInputFilePath)
-
-<h2><a id="Step4"></a>서버의 자산 인코딩 및 출력 자산 다운로드</h2>
-
-미디어 서비스에서 인코드, 암호화, 형식 변환 등의 다양한 방법으로 미디어 콘텐츠를 처리하는 작업을 만들 수 있습니다. 미디어 서비스 작업에는 작업 처리에 대한 세부 정보를 지정하는 태스크가 항상 하나 이상 포함됩니다. 이 섹션에서는 기본적인 인코딩 태스크를 생성한 다음 Azure Media Encoder를 사용하여 수행하는 작업을 실행합니다. 태스크는 기본 설정 문자열을 사용하여 수행하는 인코딩의 유형을 지정합니다. 사용 가능한 미리 설정 인코딩 값을 보려면 [Azure Media Encoder용 작업 미리 설정 문자열](http://msdn.microsoft.com/ko-kr/library/windowsazure/jj129582.aspx) 을 참조하세요. 미디어 서비스는 Microsoft Expression Encoder와 같은 미디어 파일 입력 및 출력 형식을 지원합니다. 지원되는 형식 목록은 [미디어 서비스에 대해 지원되는 파일 형식](http://msdn.microsoft.com/ko-kr/library/windowsazure/hh973634.aspx)을 참조하세요.
-
-<ol>
-<li>
-클래스에 다음과 같은 <strong>CreateEncodingJob</strong> 메서드 정의를 추가합니다. 이 메서드는 인코딩 작업에 대해 필요한 여러 태스크를 수행하는 방법을 설명합니다.
-<ul>
-<li>
-Declare a new job.
-</li>
-<li>
-작업을 처리하는 미디어 프로세서를 선언합니다. 미디어 프로세서는 인코딩, 암호화, 형식 변환 및 기타 관련 처리 작업을 다루는 구성 요소입니다. 사용 가능한 미디어 프로세서에는 여러 가지 유형이 있습니다(_context.MediaProcessors를 사용하여 모두 반복할 수 있음). 이 연습의 뒷부분에 나오는 GetLatestMediaProcessorByName 메서드는 Azure Media Encoder 프로세서를 반환합니다.
-</li>
-<li>
-새 태스크를 선언합니다. 모든 작업에는 하나 이상의 태스크가 있습니다. 태스크와 함께 식별 이름, 미디어 프로세서 인스턴스, 태스크 구성 문자열 및 태스크 생성 옵션을 전달합니다. 구성 문자열은 인코딩 설정을 지정합니다. 이 예제에서는 <strong>H264 Broadband 720p</strong> 설정을 사용합니다. 이 기본 설정은 단일 MP4 파일을 생성합니다. 이 미리 설정과 다른 미리 설정에 대한 자세한 내용은 <a href="http://msdn.microsoft.com/library/windowsazure/jj129582.aspx">Azure Media Encoder용 작업 미리 설정 문자열</a>.을 참조하세요.
-</li>
-<li>
-태스크에 입력 자산을 추가합니다. 이 예제에서 입력 자산은 이전 섹션에서 생성한 자산입니다.
-</li>
-<li>
-태스크에 출력 자산을 추가합니다. 출력 자산의 경우 식별 이름, 작업 완료 후 서버에 출력을 저장할지 여부를 나타내는 부울 값, 저장소 및 전송에 대해 출력이 암호화되지 않음을 나타내는 <strong>AssetCreationOptions.None</strong> 값을 지정합니다. 
-</li>
-<li>
-작업을 제출합니다.<br/>
-작업 제출은 인코딩 작업을 수행하는 데 필요한 마지막 단계입니다.
-</li>
-</ul>
-메서드는 작업 진행 상태 추적, 인코딩 작업이 생성하는 자산에 액세스 등 다른 유용한(그러나 선택적인) 태스크를 수행하는 방법도 보여 줍니다.
-<pre><code>
-static IJob CreateEncodingJob(IAsset asset, string inputMediaFilePath, string outputFolder)
-{
-    // Declare a new job.
-    IJob job = _context.Jobs.Create("My encoding job");
-    // Get a media processor reference, and pass to it the name of the 
-    // processor to use for the specific task.
-    IMediaProcessor processor = GetLatestMediaProcessorByName("Azure Media Encoder");
-
-    // Create a task with the encoding details, using a string preset.
-    ITask task = job.Tasks.AddNew("My encoding task",
-        processor,
-        "H264 Broadband 720p",
-        Microsoft.WindowsAzure.MediaServices.Client.TaskOptions.ProtectedConfiguration);
-
-    // Specify the input asset to be encoded.
-    task.InputAssets.Add(asset);
-    // Add an output asset to contain the results of the job. 
-    // This output is specified as AssetCreationOptions.None, which 
-    // means the output asset is not encrypted. 
-    task.OutputAssets.AddNew("Output asset",
-        AssetCreationOptions.None);
-    // Use the following event handler to check job progress.  
-    job.StateChanged += new
-            EventHandler<JobStateChangedEventArgs>(StateChanged);
-
-    // Launch the job.
-    job.Submit();
-
-    // Optionally log job details. This displays basic job details
-    // to the console and saves them to a JobDetails-{JobId}.txt file 
-    // in your output folder.
-    LogJobDetails(job.Id);
-
-    // Check job execution and wait for job to finish. 
-    Task progressJobTask = job.GetExecutionProgressTask(CancellationToken.None);
-    progressJobTask.Wait();
-
-    // **********
-    // Optional code.  Code after this point is not required for 
-    // an encoding job, but shows how to access the assets that 
-    // are the output of a job, either by creating URLs to the 
-    // asset on the server, or by downloading. 
-    // **********
-
-    // Get an updated job reference.
-    job = GetJob(job.Id);
-
-    // If job state is Error the event handling 
-    // method for job progress should log errors.  Here we check 
-    // for error state and exit if needed.
-    if (job.State == JobState.Error)
+    class Program
     {
-        Console.WriteLine("\nExiting method due to job error.");
-        return job;
-    }
+        // Read values from the App.config file.
+        private static readonly string _mediaServicesAccountName =
+            ConfigurationManager.AppSettings["MediaServicesAccountName"];
+        private static readonly string _mediaServicesAccountKey =
+            ConfigurationManager.AppSettings["MediaServicesAccountKey"];
 
-    // Get a reference to the output asset from the job.
-    IAsset outputAsset = job.OutputMediaAssets[0];
-    IAccessPolicy policy = null;
-    ILocator locator = null;
+        // Field for service context.
+        private static CloudMediaContext _context = null;
+        private static MediaServicesCredentials _cachedCredentials = null;
 
-    // Declare an access policy for permissions on the asset. 
-    // You can call an async or sync create method. 
-    policy =
-        _context.AccessPolicies.Create("My 30 days readonly policy",
-            TimeSpan.FromDays(30),
-            AccessPermissions.Read);
-
-    // Create a SAS locator to enable direct access to the asset 
-    // in blob storage. You can call a sync or async create method.  
-    // You can set the optional startTime param as 5 minutes 
-    // earlier than Now to compensate for differences in time  
-    // between the client and server clocks. 
-
-    locator = _context.Locators.CreateLocator(LocatorType.Sas, outputAsset,
-        policy,
-        DateTime.UtcNow.AddMinutes(-5));
-
-    // Build a list of SAS URLs to each file in the asset. 
-    List<String> sasUrlList = GetAssetSasUrlList(outputAsset, locator);
-
-    // Write the URL list to a local file. You can use the saved 
-    // SAS URLs to browse directly to the files in the asset.
-    if (sasUrlList != null)
-    {
-        string outFilePath = Path.GetFullPath(outputFolder + @"\" + "FileSasUrlList.txt");
-        StringBuilder fileList = new StringBuilder();
-        foreach (string url in sasUrlList)
+        static void Main(string[] args)
         {
-            fileList.AppendLine(url);
-            fileList.AppendLine();
-        }
-        WriteToFile(outFilePath, fileList.ToString());
-
-        // Optionally download the output to the local machine.
-        DownloadAssetToLocal(job.Id, outputFolder);
-    }
-
-    
-    return job;
-}
-
-</code></pre>
-</li>
-<li>
- <strong>Main</strong> 메서드에서 이전에 추가한 줄 뒤에 <strong>CreateEncodingJob</strong> 메서드에 대한 호출을 추가합니다.
-<pre><code>
-CreateEncodingJob(asset, _singleInputFilePath, _outputFilesFolder);
-</code></pre>
-</li>
-<li>
-클래스에 다음과 같은 도우미 메서드를 추가합니다. 도우미 메서드는 <strong>CreateEncodingJob</strong> 메서드를 지원하는 데 필요합니다. 다음은 도우미 메서드에 대한 요약입니다.
-<ul>
-<li>
- <strong>GetLatestMediaProcessorByName</strong> 메서드는 인코딩, 암호화 또는 기타 관련 처리 작업을 다루는 적절한 미디어 프로세서를 반환합니다. 생성하려는 프로세서의 적절한 문자열 이름을 사용하여 미디어 프로세서를 생성합니다. mediaProcessor 매개 변수에 대해 메서드에 전달될 수 있는 가능한 문자열은 <strong>Azure Media Encoder</strong>, <strong>Microsoft Azure Media Packager</strong>, <strong>Microsoft Azure Media Encryptor</strong>, <strong>Storage Decryption</strong>입니다.
-<pre><code>
-private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
-{
-    // The possible strings that can be passed into the 
-    // method for the mediaProcessor parameter:
-    //   Azure Media Encoder
-    //   Windows Azure Media Packager
-    //   Windows Azure Media Encryptor
-    //   Storage Decryption
-
-    var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
-        ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
-
-    if (processor == null)
-        throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
-
-    return processor;
-}
-
-</code></pre>
-</li>
-<li>
-작업을 실행할 때 작업 진행 상태를 추적하는 방법이 종종 필요합니다. 다음 코드 예제는 StateChanged 이벤트 처리기를 정의합니다. 이 이벤트 처리기는 작업 진행 상태를 추적하고 상태에 따라 업데이트된 상태를 제공합니다. 또한 다음 코드는 LogJobStop 메서드를 정의합니다. 이 도우미 메서드는 오류 세부 정보를 기록합니다.
-
-<pre><code>
-private static void StateChanged(object sender, JobStateChangedEventArgs e)
-{
-    Console.WriteLine("Job state changed event:");
-    Console.WriteLine("  Previous state: " + e.PreviousState);
-    Console.WriteLine("  Current state: " + e.CurrentState);
-
-    switch (e.CurrentState)
-    {
-        case JobState.Finished:
-            Console.WriteLine();
-            Console.WriteLine("********************");
-            Console.WriteLine("Job is finished.");
-            Console.WriteLine("Please wait while local tasks or downloads complete...");
-            Console.WriteLine("********************");
-            Console.WriteLine();
-            Console.WriteLine();
-            break;
-        case JobState.Canceling:
-        case JobState.Queued:
-        case JobState.Scheduled:
-        case JobState.Processing:
-            Console.WriteLine("Please wait...\n");
-            break;
-        case JobState.Canceled:
-        case JobState.Error:
-            // Cast sender as a job.
-            IJob job = (IJob)sender;
-            // Display or log error details as needed.
-            LogJobStop(job.Id);
-            break;
-        default:
-            break;
-    }
-}
-
-private static void LogJobStop(string jobId)
-{
-    StringBuilder builder = new StringBuilder();
-    IJob job = GetJob(jobId);
-
-    builder.AppendLine("\nThe job stopped due to cancellation or an error.");
-    builder.AppendLine("***************************");
-    builder.AppendLine("Job ID: " + job.Id);
-    builder.AppendLine("Job Name: " + job.Name);
-    builder.AppendLine("Job State: " + job.State.ToString());
-    builder.AppendLine("Job started (server UTC time): " + job.StartTime.ToString());
-    builder.AppendLine("Media Services account name: " + _accountName);
-    // Log job errors if they exist.  
-    if (job.State == JobState.Error)
-    {
-        builder.Append("Error Details: \n");
-        foreach (ITask task in job.Tasks)
-        {
-            foreach (ErrorDetail detail in task.ErrorDetails)
+            try
             {
-                builder.AppendLine("  Task Id: " + task.Id);
-                builder.AppendLine("    Error Code: " + detail.Code);
-                builder.AppendLine("    Error Message: " + detail.Message + "\n");
+                // Create and cache the Media Services credentials in a static class variable.
+                _cachedCredentials = new MediaServicesCredentials(
+                                _mediaServicesAccountName,
+                                _mediaServicesAccountKey);
+                // Used the chached credentials to create CloudMediaContext.
+                _context = new CloudMediaContext(_cachedCredentials);
+
+                // Add calls to methods defined in this section.
+
+                IAsset inputAsset =
+                    UploadFile(@"C:\VideoFiles\BigBuckBunny.mp4", AssetCreationOptions.None);
+
+                IAsset encodedAsset =
+                    EncodeToAdaptiveBitrateMP4s(inputAsset, AssetCreationOptions.None);
+
+                ConfigureClearAssetDeliveryPolicy(encodedAsset);
+
+                PublishAssetGetURLs(encodedAsset);
+            }
+            catch (Exception exception)
+            {
+                // Parse the XML error message in the Media Services response and create a new 
+                // exception with its content.
+                exception = MediaServicesExceptionParser.Parse(exception);
+
+                Console.Error.WriteLine(exception.Message);
+            }
+            finally
+            {
+                Console.ReadLine();
             }
         }
-    }
-    builder.AppendLine("***************************\n");
-    // Write the output to a local file and to the console. The template 
-    // for an error output file is:  JobStop-{JobId}.txt
-    string outputFile = _outputFilesFolder + @"\JobStop-" + JobIdAsFileName(job.Id) + ".txt";
-    WriteToFile(outputFile, builder.ToString());
-    Console.Write(builder.ToString());
-}
 
-private static void LogJobDetails(string jobId)
-{
-    StringBuilder builder = new StringBuilder();
-    IJob job = GetJob(jobId);
+### <a id="upload"></a>새 자산 만들기 및 비디오 파일 업로드
 
-    builder.AppendLine("\nJob ID: " + job.Id);
-    builder.AppendLine("Job Name: " + job.Name);
-    builder.AppendLine("Job submitted (client UTC time): " + DateTime.UtcNow.ToString());
-    builder.AppendLine("Media Services account name: " + _accountName);
+미디어 서비스에서 자산에 디지털 파일을 업로드(수집)합니다. **자산** 엔터티에는 비디오, 오디오, 이미지, 미리 보기 컬렉션, 텍스트 트랙 및 선택 캡션 파일(및 이 파일에 대한 메타데이터)이 포함될 수 있습니다.  파일이 업로드되면 이후 처리 및 스트리밍을 위해 콘텐츠가 클라우드에 안전하게 저장됩니다. 자산에 포함된 파일을 **자산 파일**이라고 합니다.
 
-    // Write the output to a local file and to the console. The template 
-    // for an error output file is:  JobDetails-{JobId}.txt
-    string outputFile = _outputFilesFolder + @"\JobDetails-" + JobIdAsFileName(job.Id) + ".txt";
-    WriteToFile(outputFile, builder.ToString());
-    Console.Write(builder.ToString());
-}
-        
-private static string JobIdAsFileName(string jobID)
-{
-    return jobID.Replace(":", "_");
-}
-</code></pre>
-</li>
-<li>
-WriteToFile 메서드는 지정한 출력 폴더에 파일을 씁니다.
-<pre><code>
-static void WriteToFile(string outFilePath, string fileContent)
-{
-    StreamWriter sr = File.CreateText(outFilePath);
-    sr.Write(fileContent);
-    sr.Close();
-}
+아래에서 정의된 **UploadFile** 메서드는 **CreateFromFile**(.NET SDK Extensions에 정의됨)을 호출합니다. **CreateFromFile**은 지정된 원본 파일이 업로드되는 새 자산을 만듭니다. 
 
-</code></pre>
-</li>
-<li>
-미디어 서비스에 자산을 인코딩한 후 인코딩 작업의 결과인 출력 자산에 액세스할 수 있습니다. 이 연습에서는 인코딩 작업의 출력에 액세스하는 두 가지 방법을 안내합니다.
-<ul>
-<li>
-서버의 자산에 대한 SAS URL을 만듭니다. 
-</li>
-<li>
-서버에서 출력 자산을 다운로드합니다.
-</li>
-</ul>
-GetAssetSasUrlList 메서드는 자산의 모든 파일에 대한 SAS URL의 목록을 만듭니다. 
-<pre><code>
-static List<String> GetAssetSasUrlList(IAsset asset, ILocator locator)
-{
-    // Declare a list to contain all the SAS URLs.
-    List<String> fileSasUrlList = new List<String>();
+**CreateFromFile** 메서드는 다음 자산 만들기 옵션 중 하나를 지정할 수 있는 **AssetCreationOptions**를 사용합니다.
+ 
+- **없음** - 암호화가 사용되지 않습니다. 기본값입니다. 이 옵션을 사용하면 콘텐츠가 전송 중인 상태이거나 저장소에 저장된 상태일 때 보호되지 않습니다.
+MP4를 배달하려는 경우 이 옵션을 사용하세요. 
+- **StorageEncrypted** - 암호화 되어 있지 않은 콘텐츠를 AES-256 비트 암호화를 사용하여 로컬에서 암호화한 다음 암호화되어 저장되는 Azure 저장소에 업로드합니다. 저장소 암호화로 보호된 자산은 자동으로 암호 해제되어 인코딩되기 전에 암호화된 파일 시스템에 배치됩니다. 그리고 필요에 따라 새 출력 자산으로 다시 업로드되기 전에 다시 암호화됩니다. 저장소 암호화를 사용하는 기본적인 사례는 디스크에 저장된 상태일 때 강력한 암호화로 고품질의 입력 미디어 파일을 보호하려는 경우입니다.
+- **CommonEncryption** - 일반적인 암호화 또는 PlayReady DRM(예: PlayReady DRM으로 보호되는 부드러운 스트리밍)으로 이미 보호된 콘텐츠를 업로드하는 경우 이 옵션을 사용합니다.
+- **EnvelopeEncrypted** - AES로 암호화된 HLS를 업로드하는 경우 이 옵션을 사용합니다. 파일을 Transform Manager로 인코딩 및 암호화해야 합니다.
 
-    // If the asset has files, build a list of URLs to 
-    // each file in the asset and return. 
-    foreach (IAssetFile file in asset.AssetFiles)
+**CreateFromFile** 메서드는 또한 파일의 업로드 진행 상태를 보고하기 위해 콜백을 지정할 수 있습니다.
+
+다음 예제에서는 자산 옵션으로 **없음**을 지정합니다.
+
+Program 클래스에 다음 메서드를 추가합니다.
+
+	static public IAsset UploadFile(string fileName, AssetCreationOptions options)
+	{
+	    IAsset inputAsset = _context.Assets.CreateFromFile(
+	        fileName,
+	        options,
+	        (af, p) =>
+	        {
+	            Console.WriteLine("Uploading '{0}' - Progress: {1:0.##}%", af.Name, p.Progress);
+	        });
+	
+	    Console.WriteLine("Asset {0} created.", inputAsset.Id);
+	
+	    return inputAsset;
+	}
+
+
+### <a id="encode"></a>원본 파일을 적응 비트 전송률 MP4 파일 집합으로 인코딩
+
+미디어 서비스에 자산을 삽입하고 나면 미디어를 클라이언트에 배달하기 전에 인코딩, 트랜스믹싱, 워터마크 지정 등을 수행할 수 있습니다. 이러한 활동은 높은 성능과 가용성을 보장하기 위해 여러 백그라운드 역할 인스턴스에 대해 예약 및 실행합니다. 이러한 활동을 작업이라고 하며, 각 작업은 자산 파일에서 실제 작업을 수행하는 원자성 작업으로 구성됩니다. 
+
+앞에서 언급한 대로, Azure 미디어 서비스 작업 시 가장 일반적인 시나리오 중 하나는 적응 비트 전송률 스트리밍을 클라이언트에 제공하는 것입니다. 미디어 서비스는 적응 비트 전송률 MP4 파일 집합을 HLS(HTTP 라이브 스트리밍), 부드러운 스트리밍, MPEG DASH 및 HDS(Adobe PrimeTime/Access 정식 사용자만 해당) 형식 중 하나로 동적으로 패키징할 수 있습니다. 
+
+동적 패키징을 이용하려면 다음을 수행해야 합니다.
+
+- mezzanine (원본) 파일을 적응 비트 전송률 MP4 파일 또는 적응 비트 전송률 부드러운 스트리밍 파일 집합으로 인코딩하거나 트랜스코딩합니다.  
+- 콘텐츠를 배달하는 출발점이 될 스트리밍 끝점에 대해 하나 이상의 주문형 스트리밍 단위를 구성합니다. 
+
+다음 코드는 인코딩 작업을 제출하는 방법을 보여 줍니다. 이 작업에는 **Azure 미디어 인코더**를 사용하여 mezzanine 파일을 적응 비트 전송률 MP4 집합으로 트랜스코딩하도록 지정하는 태스크 하나가 포함됩니다. 이 코드는 작업을 제출하고 완료될 때까지 기다립니다. 
+
+작업이 완료되면 자산을 스트리밍하거나 트랜스코딩 결과로 생성된 MP4 파일을 점진적으로 다운로드할 수 있습니다.
+MP4 파일을 점진적으로 다운로드하려면 주문형 스트리밍 단위를 사용해야 합니다. 
+
+
+Program 클래스에 다음 메서드를 추가합니다.
+
+	static public IAsset EncodeToAdaptiveBitrateMP4s(IAsset asset, AssetCreationOptions options)
+	{
+		// Prepare a job with a single task to transcode the specified asset
+        // into a multi-bitrate asset.
+
+	    IJob job = _context.Jobs.CreateWithSingleTask(
+	        MediaProcessorNames.AzureMediaEncoder,
+	        MediaEncoderTaskPresetStrings.H264AdaptiveBitrateMP4Set720p,
+	        asset,
+	        "Adaptive Bitrate MP4",
+	        options);
+	
+		Console.WriteLine("Submitting transcoding job...");
+	
+
+	    // Submit the job and wait until it is completed.
+	    job.Submit();
+	
+	    job = job.StartExecutionProgressTask(
+	        j =>
+	        {
+	            Console.WriteLine("Job state: {0}", j.State);
+	            Console.WriteLine("Job progress: {0:0.##}%", j.GetOverallProgress());
+	        },
+	        CancellationToken.None).Result;
+	
+	    Console.WriteLine("Transcoding job finished.");
+	
+	    IAsset outputAsset = job.OutputMediaAssets[0];
+	
+	    return outputAsset;
+	}
+
+
+### <a id="configure_content_protection"></a>필요에 따라 동적 콘텐츠 보호 구성
+
+콘텐츠 보호를 구성하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
+
+- [AES-128 동적 암호화 및 키 전달 서비스 사용](http://msdn.microsoft.com/ko-kr/library/azure/dn783457.aspx)
+- [PlayReady 동적 암호화 및 License Delivery 서비스 사용](http://msdn.microsoft.com/ko-kr/library/azure/dn783467.aspx)
+- [저장소에서 암호화된 콘텐츠 배달](http://msdn.microsoft.com/ko-kr/library/azure/dn783451.aspx)
+
+### <a id="configure_delivery_method"></a>인코딩된 자산에 대한 배달 정책 구성
+
+미디어 서비스 콘텐츠 배달 워크플로의 단계 중 하나는 자산 배달 정책 구성입니다. 자산 배달 정책 구성에 포함되는 사항으로는 자산 배달에 사용할 수 있는 프로토콜(예: MPEG DASH, HLS, HDS, 부드러운 스트리밍 또는 모두), 동적 자산 암호화를 사용할지 여부 및 방법(봉투(Envelope) 또는 일반 암호화) 등이 있습니다. 
+
+다음 **ConfigureClearAssetDeliveryPolicy** 메서드는 동적 암호화를 적용하지 않고 스트림을  MPEG DASH, HLS 및 부드러운 스트리밍 프로토콜 중 하나로 배달하도록 지정합니다. 
+  
+Program 클래스에 다음 메서드를 추가합니다.
+
+    static public void ConfigureClearAssetDeliveryPolicy(IAsset asset)
     {
-        string sasUrl = BuildFileSasUrl(file, locator);
-        fileSasUrlList.Add(sasUrl);
-    }
+        IAssetDeliveryPolicy policy =
+            _context.AssetDeliveryPolicies.Create("Clear Policy",
+            AssetDeliveryPolicyType.NoDynamicEncryption, 
+            AssetDeliveryProtocol.HLS | AssetDeliveryProtocol.SmoothStreaming | AssetDeliveryProtocol.Dash, null);
 
-    // Return the list of SAS URLs.
-    return fileSasUrlList;
-}
-
-// Create and return a SAS URL to a single file in an asset. 
-static string BuildFileSasUrl(IAssetFile file, ILocator locator)
-{
-    // Take the locator path, add the file name, and build 
-    // a full SAS URL to access this file. This is the only 
-    // code required to build the full URL.
-    var uriBuilder = new UriBuilder(locator.Path);
-    uriBuilder.Path += "/" + file.Name;
-
-    // Optional:  print the locator.Path to the asset, and 
-    // the full SAS URL to the file
-    Console.WriteLine("Locator path: ");
-    Console.WriteLine(locator.Path);
-    Console.WriteLine();
-    Console.WriteLine("Full URL to file: ");
-    Console.WriteLine(uriBuilder.Uri.AbsoluteUri);
-    Console.WriteLine();
-
-
-    //Return the SAS URL.
-    return uriBuilder.Uri.AbsoluteUri;
-}
-
-</code></pre>
-</li>
-<li>
- <strong>DownloadAssetToLocal</strong> 메서드는 자산의 각 파일을 로컬 폴더로 다운로드합니다. 이 예제에서는 자산이 하나의 입력 미디어 파일에 생성되었기 때문에 출력 자산 파일 컬렉션에 파일 2개 즉, 인코드된 미디어 파일(.mp4 파일 1개)과 자산에 관한 메타데이터가 있는 .xml 파일 1개가 들어 있습니다. 이 메서드는 두 파일을 모두 다운로드합니다.
-<pre><code>
-static IAsset DownloadAssetToLocal(string jobId, string outputFolder)
-{
-    // This method illustrates how to download a single asset. 
-    // However, you can iterate through the OutputAssets
-    // collection, and download all assets if there are many. 
-
-    // Get a reference to the job. 
-    IJob job = GetJob(jobId);
-    // Get a reference to the first output asset. If there were multiple 
-    // output media assets you could iterate and handle each one.
-    IAsset outputAsset = job.OutputMediaAssets[0];
-
-    IAccessPolicy accessPolicy = _context.AccessPolicies.Create("File Download Policy", TimeSpan.FromDays(30), AccessPermissions.Read);
-    ILocator locator = _context.Locators.CreateSasLocator(outputAsset, accessPolicy);
-    BlobTransferClient blobTransfer = new BlobTransferClient
-    {
-        NumberOfConcurrentTransfers = 10,
-        ParallelTransferThreadCount = 10
-    };
-
-    var downloadTasks = new List<Task>();
-    foreach (IAssetFile outputFile in outputAsset.AssetFiles)
-    {
-        // Use the following event handler to check download progress.
-        outputFile.DownloadProgressChanged += DownloadProgress;
-
-        string localDownloadPath = Path.Combine(outputFolder, outputFile.Name);
-
-        Console.WriteLine("File download path:  " + localDownloadPath);
-
-        downloadTasks.Add(outputFile.DownloadAsync(Path.GetFullPath(localDownloadPath), blobTransfer, locator, CancellationToken.None));
-
-        outputFile.DownloadProgressChanged -= DownloadProgress;
+        asset.DeliveryPolicies.Add(policy);
     }
 
-    Task.WaitAll(downloadTasks.ToArray());
+이 배달 구성을 사용하면 부드러운 스트림, HLS 또는 MPEG DASH 스트림을 각각 다음 형식으로 요청할 수 있게 됩니다.
 
-    return outputAsset;
-}
+부드러운 스트리밍:
 
-static void DownloadProgress(object sender, DownloadProgressChangedEventArgs e)
-{
-    Console.WriteLine(string.Format("{0} % download progress. ", e.Progress));
-}
-</code></pre>
-</li>
-<li>
-GetJob 및 GetAsset 도우미 메서드는 지정된 ID가 있는 작업 개체 및 자산 개체를 쿼리하고 이에 대한 참조를 반환합니다. 비슷한 유형의 LINQ 쿼리를 사용하여 서버의 다른 미디어 서비스 개체에 대한 참조를 반환할 수 있습니다.
-<pre><code>
-static IJob GetJob(string jobId)
-{
-    // Use a Linq select query to get an updated 
-    // reference by Id. 
-    var jobInstance =
-        from j in _context.Jobs
-        where j.Id == jobId
-        select j;
-    // Return the job reference as an Ijob. 
-    IJob job = jobInstance.FirstOrDefault();
+	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest
 
-    return job;
-}
-static IAsset GetAsset(string assetId)
-{
-    // Use a LINQ Select query to get an asset.
-    var assetInstance =
-        from a in _context.Assets
-        where a.Id == assetId
-        select a;
-    // Reference the asset as an IAsset.
-    IAsset asset = assetInstance.FirstOrDefault();
+HLS:
 
-    return asset;
-}
-</code></pre>
-</li>
-</ul>
-</li>
-</ol>
+	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
 
-## 코드 테스트
-프로그램을 실행합니다(F5를 누릅니다). 콘솔에 다음과 비슷한 출력이 표시됩니다.
+MPEG DASH
 
-<pre><code>
-Asset name: UploadSingleFile_11/14/2012 10:09:11 PM
-Time created: 11/14/2012 12:00:00 AM
-Created assetFile interview2.wmv
-Upload interview2.wmv
-Done uploading of interview2.wmv using Upload()
+	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf) 
 
-Job ID: nb:jid:UUID:ea8d5a66-86b8-9b4d-84bc-6d406259acb8
-Job Name: My encoding job
-Job submitted (client UTC time): 11/14/2012 10:09:39 PM
-Media Services account name: Add-Media-Services-Account-Name
-Media Services account location: Add-Media-Services-account-location-name
 
-Job(My encoding job) state: Queued.
-Please wait...
+### <a id="publish_get_urls"></a>자산 게시, 스트리밍 기능 사용 및 URL 점진적으로 다운로드
 
-Job(My encoding job) state: Processing.
-Please wait...
+자산을 스트리밍하거나 다운로드하려면 먼저 로케이터를 만들어 자산을 "게시"해야 합니다. 로케이터는 자산에 포함된 파일에 대한 액세스를 제공합니다. 미디어 서비스는 두 가지 유형의 로케이터를 지원합니다. 하나는 OnDemandOrigin 로케이터로서 미디어를 스트리밍하는 데 사용되고(예: MPEG DASH, HLS 또는 부드러운 스트리밍) 다른 하나는 SAS(공유 액세스 서명) 로케이터로서 미디어 파일을 다운로드하는 데 사용됩니다.
 
-********************
-Job(My encoding job) is finished.
-Please wait while local tasks or downloads complete...
-********************
+로케이터를 만든 후에 파일을 스트리밍하거나 다운로드하는 데 사용되는 URL을 작성할 수 있습니다. 
 
-Locator path:
-https://mediasvcd08mtz29tcpws.blob.core.windows-int.net/asset-4f5b42f4-3ade-4c2c
--9d48-44900d4f6b62?st=2012-11-14T22%3A07%3A01Z&se=2012-11-14T23%3A07%3A01Z&sr=c&
-si=d07ec40c-02d7-4642-8e54-443b79f3ba3c&sig=XKMo0qJI5w8Fod3NsV%2FBxERnav8Jb6hL7f
-xylq3oESc%3D
 
-Full URL to file:
-https://mediasvcd08mtz29tcpws.blob.core.windows-int.net/asset-4f5b42f4-3ade-4c2c
--9d48-44900d4f6b62/interview2.mp4?st=2012-11-14T22%3A07%3A01Z&se=2012-11-14T23%3
-A07%3A01Z&sr=c&si=d07ec40c-02d7-4642-8e54-443b79f3ba3c&sig=XKMo0qJI5w8Fod3NsV%2F
-BxERnav8Jb6hL7fxylq3oESc%3D
+부드러운 스트리밍에 대한 주문형 URL의 형식은 다음과 같습니다.
 
-Locator path:
-https://mediasvcd08mtz29tcpws.blob.core.windows-int.net/asset-4f5b42f4-3ade-4c2c
--9d48-44900d4f6b62?st=2012-11-14T22%3A07%3A01Z&se=2012-11-14T23%3A07%3A01Z&sr=c&
-si=d07ec40c-02d7-4642-8e54-443b79f3ba3c&sig=XKMo0qJI5w8Fod3NsV%2FBxERnav8Jb6hL7f
-xylq3oESc%3D
+	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest
 
-Full URL to file:
-https://mediasvcd08mtz29tcpws.blob.core.windows-int.net/asset-4f5b42f4-3ade-4c2c
--9d48-44900d4f6b62/interview2_metadata.xml?st=2012-11-14T22%3A07%3A01Z&se=2012-1
-1-14T23%3A07%3A01Z&sr=c&si=d07ec40c-02d7-4642-8e54-443b79f3ba3c&sig=XKMo0qJI5w8F
-od3NsV%2FBxERnav8Jb6hL7fxylq3oESc%3D
+HLS에 대한 주문형 URL의 형식은 다음과 같습니다.
 
-Downloads are in progress, please wait.
+	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
 
-File download path:  C:\supportFiles\outputfiles\interview2.mp4
-1.70952185308162 % download progress.
-3.68508804454907 % download progress.
-6.48870388360293 % download progress.
-6.83808741232649 % download progress.
-. . . 
-99.0763740574049 % download progress.
-99.1522674787341 % download progress.
-100 % download progress.
-File download path:  C:\supportFiles\outputfiles\interview2_metadata.xml
-100 % download progress.
+MPEG DASH에 대한 주문형 URL의 형식은 다음과 같습니다.
 
-</code></pre>
+	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)
 
-1. 이 응용 프로그램을 실행한 결과로 다음이 발생합니다.
+파일을 다운로드하는 데 사용되는 SAS URL의 형식은 다음과 같습니다.
 
-2. .wmv 파일이 미디어 서비스에 로드됩니다. 
+	{blob container name}/{asset name}/{file name}/{SAS signature}
 
-3. 그런 다음 이 파일은 **Azure Media Encoder**의 미리 설정인 **H264 Broadband 720p**를 사용하여 인코드됩니다.
+Media Services .NET SDK Extensions는 게시된 자산에 대한 서식 지정된 URL을 반환하는 편리한 도우미 메서드를 제공합니다.
+ 
+다음 코드는 .NET SDK Extensions를 사용하여 로케이터를 만들고, 스트리밍 또는 점진적 다운로드를 통해 URL을 가져옵니다. 코드는 또한 파일을 로컬 폴더에 다운로드하는 방법을 보여 줍니다.
 
-4. FileSasUrlList.txt 파일이 \supportFiles\outputFiles 폴더에 생성됩니다. 이 파일에는 인코딩된 자산에 대한 URL이 들어 있습니다. 
+Program 클래스에 다음 메서드를 추가합니다.
 
-	미디어 파일을 재생하려면 텍스트 파일에서 자산에 대한 URL을 복사하여 브라우저에 붙여넣습니다. 
+    static public void PublishAssetGetURLs(IAsset asset)
+    {
+        // Publish the output asset by creating an Origin locator for adaptive streaming, 
+        // and a SAS locator for progressive download.
 
-5. .mp4 미디어 파일 및 _metadata.xml 파일이 outputFiles 폴더에 다운로드됩니다.
+        _context.Locators.Create(
+            LocatorType.OnDemandOrigin,
+            asset,
+            AccessPermissions.Read,
+            TimeSpan.FromDays(30));
 
->[WACOM.NOTE]
-> 미디어 서비스 개체 모델에서 자산은 많은 파일에 대해 하나를 대표하는 미디어 서비스 콘텐츠 컬렉션 개체입니다. 로케이터 경로는 Azure 저장소에서 이 자산에 대한 기본 경로인 Azure Blob URL을 제공합니다. 자산 내에서 특정 파일에 액세스하려면 기본 로케이터 경로에 파일 이름을 추가합니다.
+        _context.Locators.Create(
+            LocatorType.Sas,
+            asset,
+            AccessPermissions.Read,
+            TimeSpan.FromDays(30));
 
-<h2>다음 단계</h2>
-이 연습에서는 간단한 미디어 서비스 응용 프로그램을 빌드하기 위한 일련의 프로그래밍 작업을 설명했습니다. 서버 컨텍스트 가져오기, 자산 생성, 자산 인코딩, 서버의 자산 다운로드 또는 액세스를 비롯하여 기본적인 미디어 서비스 프로그래밍 작업에 대해 배웠습니다. 다음 단계 및 고급 개발 작업에 대해서는 다음을 참조하세요.
 
-- <a href="http://azure.microsoft.com/ko-kr/develop/media-services/resources/">미디어 서비스 사용 방법</a>
-- <a href="http://msdn.microsoft.com/ko-kr/library/windowsazure/hh973618.aspx">Media Services REST API를 사용하여 응용 프로그램 작성</a>
+        IEnumerable<IAssetFile> mp4AssetFiles = asset
+                .AssetFiles
+                .ToList()
+                .Where(af => af.Name.EndsWith(".mp4", StringComparison.OrdinalIgnoreCase));
+
+        // Get the Smooth Streaming, HLS and MPEG-DASH URLs for adaptive streaming, 
+        // and the Progressive Download URL.
+        Uri smoothStreamingUri = asset.GetSmoothStreamingUri();
+        Uri hlsUri = asset.GetHlsUri();
+        Uri mpegDashUri = asset.GetMpegDashUri();
+
+        // Get progressive download URLs for each MP4 file that was generated as a result
+		// of encoding.
+		List<Uri> mp4ProgressiveDownloadUris = mp4AssetFiles.Select(af => af.GetSasUri()).ToList();
+
+
+        // Display  the streaming URLs.
+        Console.WriteLine("Use the following URLs for adaptive streaming: ");
+        Console.WriteLine(smoothStreamingUri);
+        Console.WriteLine(hlsUri);
+        Console.WriteLine(mpegDashUri);
+        Console.WriteLine();
+
+		// Display the progressive download URLs.
+        Console.WriteLine("Use the following URLs for progressive download.");
+        mp4ProgressiveDownloadUris.ForEach(uri => Console.WriteLine(uri + "\n"));
+        Console.WriteLine();
+
+        // Download the output asset to a local folder.
+        string outputFolder = "job-output";
+        if (!Directory.Exists(outputFolder))
+        {
+            Directory.CreateDirectory(outputFolder);
+        }
+
+        Console.WriteLine();
+        Console.WriteLine("Downloading output asset files to a local folder...");
+        asset.DownloadToFolder(
+            outputFolder,
+            (af, p) =>
+            {
+                Console.WriteLine("Downloading '{0}' - Progress: {1:0.##}%", af.Name, p.Progress);
+            });
+
+        Console.WriteLine("Output asset files available at '{0}'.", Path.GetFullPath(outputFolder));
+    }
+
+## <a id="play"></a>콘텐츠 재생  
+
+이전 섹션에 정의된 프로그램을 실행하고 나면 다음과 유사한 URL이 콘솔 창에 표시됩니다.
+
+적응 스트리밍 URL:
+
+부드러운 스트리밍
+
+	http://amstestaccount001.streaming.mediaservices.windows.net/ebf733c4-3e2e-4a68-b67b-cc5159d1d7f2/BigBuckBunny.ism/manifest
+
+HLS
+
+	http://amstestaccount001.streaming.mediaservices.windows.net/ebf733c4-3e2e-4a68-b67b-cc5159d1d7f2/BigBuckBunny.ism/manifest(format=m3u8-aapl)
+
+MPEG DASH
+
+	http://amstestaccount001.streaming.mediaservices.windows.net/ebf733c4-3e2e-4a68-b67b-cc5159d1d7f2/BigBuckBunny.ism/manifest(format=mpd-time-csf)
+
+점진적 다운로드 URL(오디오 및 비디오)    
+	
+	https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
+	
+	https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_H264_400kbps_AAC_und_ch2_96kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
+	
+	https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_H264_3400kbps_AAC_und_ch2_96kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
+	
+	https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_H264_2250kbps_AAC_und_ch2_96kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
+	
+	https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_H264_1500kbps_AAC_und_ch2_96kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
+	
+	https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_H264_1000kbps_AAC_und_ch2_96kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
+	
+	https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_AAC_und_ch2_96kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
+	
+	https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_AAC_und_ch2_56kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
+
+
+부드러운 스트리밍을 테스트하려면 [http://amsplayer.azurewebsites.net/](http://amsplayer.azurewebsites.net/) 또는 [http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor)를 사용합니다.
+
+MPEG DASH를 테스트하려면 [http://dashif.org](http://dashif.org/reference/players/javascript/)를 사용합니다.
+
+HLS를 테스트하려면 iOS 또는 Safari 장치나 [3ivx-hls-player](http://apps.microsoft.com/windows/ko-kr/app/3ivx-hls-player/f79ce7d0-2993-4658-bc4e-83dc182a0614)를 사용합니다. 
+
+
+점진적 다운로드를 테스트하려면 IE, Chrome, Safari 등의 브라우저에 URL을 붙여 넣습니다.
+
 
 <h2>추가 리소스</h2>
 - <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-101-Get-your-video-online-now-">Azure Media Services 101 - 이제 온라인으로 동영상을 볼 수 있습니다.</a>
 - <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-102-Dynamic-Packaging-and-Mobile-Devices">Azure Media Services 102 - 동적 패키징 및 모바일 장치</a>
 
+
 <!-- Anchors. -->
-[모바일 서비스 시작]:#getting-started
-[새 모바일 서비스 만들기]:#create-new-service
-[모바일 서비스 인스턴스 정의]:#define-mobile-service-instance
-[다음 단계]:#next-steps
 
 
-<!--HONumber=35.1-->
+<!-- URLs. -->
+  [웹 플랫폼 설치 관리자]: http://go.microsoft.com/fwlink/?linkid=255386
+  [관리 포털]: http://manage.windowsazure.com/
+
+
+
+
+<h2>추가 리소스</h2>
+- <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-101-Get-your-video-online-now-">Azure Media Services 101 - 이제 온라인으로 동영상을 볼 수 있습니다.</a>
+- <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-102-Dynamic-Packaging-and-Mobile-Devices">Azure Media Services 102 - 동적 패키징 및 모바일 장치</a>
+<!--HONumber=42-->

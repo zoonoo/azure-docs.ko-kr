@@ -1,4 +1,4 @@
-﻿Azure 고객은 매달 25,000통의 무료 메일의 잠금을 해제할 수 있습니다. 매달 이러한 25,000통의 무료 메일을 통해 고급 보고 및 분석과 모든 API(Web, SMTP, Event, Parse, Sub-User)에 액세스할 수 있습니다. SendGrid에서 제공하는 추가 서비스에 대한 내용은 [SendGrid 기능][](영문) 페이지를 참조하세요.
+﻿Azure 고객은 매달 25,000통의 무료 메일의 잠금을 해제할 수 있습니다. 매달 이러한 25,000통의 무료 메일을 통해 고급 보고 및 분석과 [모든 API][](Web, SMTP, Event, Parse, Sub-User)에 액세스할 수 있습니다. SendGrid에서 제공하는 추가 서비스에 대한 내용은 [SendGrid 기능][](영문) 페이지를 참조하세요.
 
 ### SendGrid 계정을 등록하려면
 
@@ -8,15 +8,15 @@
 
 	![command-bar-new][command-bar-new]
 
-3. **스토어**를 클릭합니다.
+3. **마켓플레이스**를 클릭합니다.
 
 	![sendgrid-store][sendgrid-store]
 
-4. **추가 기능 선택** 대화 상자에서 **SendGrid**를 선택하고 오른쪽 화살표를 클릭합니다.
+4. **응용 프로그램 및 서비스 선택** 대화 상자에서 **SendGrid**를 선택하고 오른쪽 화살표를 클릭합니다.
 
-5. **추가 기능 개인 설정** 대화 상자에서 등록할 **SendGrid** 플랜을 선택합니다.
+5. **응용 프로그램 및 서비스 개인 설정** 대화 상자에서 등록할 **SendGrid** 플랜을 선택합니다.
 
-6. Azure 설정에서 사용자의 **SendGrid** 서비스를 식별하기 위한 이름을 입력하거나 기본값인 **SendGrid**를 사용합니다. 이름은 1자에서 100자 사이의 문자여야 하며, 영숫자, 대시, 점, 밑줄만 포함됩니다. 이 이름은 가입한 Azure 저장소 항목 목록에서 고유해야 합니다.
+6. Azure 설정에서 사용자의 **SendGrid** 서비스를 식별하기 위한 이름을 입력하거나 **SendGridEmailDelivery.Simplified.SMTPWebAPI** 기본값을 사용합니다. 이름은 1자에서 100자 사이의 문자여야 하며, 영숫자, 대시, 점, 밑줄만 포함됩니다. 이 이름은 가입한 Azure 저장소 항목 목록에서 고유해야 합니다.
 
 	![store-screen-2][store-screen-2]
 
@@ -28,13 +28,13 @@
 
 	![store-screen-3][store-screen-3]
 
-10. 구매를 확인하면 추가 기능 대시보드로 리디렉션되고 **Purchasing SendGrid**라는 메시지가 표시됩니다.
+10. 구매를 확인하면 추가 기능 대시보드로 리디렉션되고 **Purchasing SendGrid**라는 메시지가 나타납니다.
 
 	![sendgrid-purchasing-message][sendgrid-purchasing-message]
 
 	SendGrid 계정이 즉시 프로비전되며 **Successfully purchased Add-On SendGrid**라는 메시지가 나타납니다. 이제 사용자의 계정과 자격 증명이 만들어졌습니다. 이제 메일을 보낼 준비가 되었습니다. 
 
-	구독 계획을 수정하거나 SendGrid 연락처 설정을 보려면 SendGrid 서비스 이름을 클릭하여 SendGrid 추가 기능 대시보드를 여세요. 
+	구독 계획을 수정하거나 SendGrid 연락처 설정을 보려면 SendGrid 서비스 이름을 클릭하여 SendGrid 마켓플레이스 대시보드를 여세요. 
 
 	![sendgrid-add-on-dashboard][sendgrid-add-on-dashboard]
 
@@ -46,7 +46,7 @@
 
 	![sendgrid-connection-info-button][sendgrid-connection-info-button]
 
-2. *연결 정보* 대화 상자에서 이 자습서에서 나중에 사용할 **암호**와 사용자 이름을 복사합니다.
+2.  *Connection info* 대화 상자에서 이 자습서에서 나중에 사용하도록 **암호**와 사용자 이름을 복사합니다.
 
 	![sendgrid-connection-info][sendgrid-connection-info]
 
@@ -73,6 +73,7 @@
 [SendGrid 기능]: http://sendgrid.com/features
 [Azure 관리 포털]: https://manage.windowsazure.com
 [SendGrid 시작]: http://sendgrid.com/docs
-[SendGrid 프로 비전 프로세스]: https://support.sendgrid.com/hc/ko-kr/articles/200181628-Why-is-my-account-being-provisioned-
+[SendGrid 프로비전 프로세스]: https://support.sendgrid.com/hc/ko-kr/articles/200181628-Why-is-my-account-being-provisioned-
+[모든 API]: https://sendgrid.com/docs/API_Reference/index.html
 
-
+<!--HONumber=42-->

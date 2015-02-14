@@ -1,4 +1,4 @@
-﻿## Apache Storm을 사용하여 메시지 수신
+## Apache Storm을 사용하여 메시지 수신
 
 [**Apache Storm**](https://storm.incubator.apache.org)은 분산된 실시간 계산 시스템으로, 바인딩되지 않은 데이터 스트림의 안정적인 처리를 간소화합니다. 이 섹션에서는 이벤트 허브 스톰 스파우트를 사용하여 이벤트 허브에서 이벤트를 수신하는 방법을 보여 줍니다. Apache Storm을 사용하면 다른 노드에 호스트된 여러 프로세스 간에 이벤트를 분할할 수 있습니다. 이벤트 허브와 Storm을 통합하면 Storm의 Zookeeper 설치를 통해 진행률을 투명하게 확인하고 지속적인 검사점을 관리하여 이벤트 사용이 간소화되고 이벤트 허브에서 병렬 수신됩니다.
 
@@ -8,7 +8,7 @@
 
 1. [HDInsight Storm - 시작](http://azure.microsoft.com/ko-kr/documentation/articles/hdinsight-storm-getting-started/) 절차에 따라 새 HDInsight 클러스터를 만들고 원격 데스크톱을 통해 이 클러스터에 연결합니다.
 
-2. `%STORM_HOME%\examples\eventhubspout\eventhubs-storm-spout-0.9-jar-with-dependencies.jar` 파일을 로컬 개발 환경으로 복사합니다. 이 파일에는 events-storm-spout가 포함되어 있습니다.
+2.  `%STORM_HOME%\examples\eventhubspout\eventhubs-storm-spout-0.9-jar-with-dependencies.jar` 파일을 로컬 개발 환경에 복사합니다. 이 파일에는 events-storm-spout가 포함되어 있습니다.
 
 3. 다음 명령을 사용하여 패키지를 로컬 Maven 저장소에 설치합니다. 그러면 이후 단계에서 Storm 프로젝트에 참조로 추가할 수 있습니다.
 
@@ -16,7 +16,7 @@
 
 4. Eclipse에서 새 Maven 프로젝트를 만듭니다(**파일**, **새로 만들기**, **프로젝트**를 차례로 클릭).
 
-   	![][12]
+  	![][12]
 
 5. **Use default Workspace location(기본 작업 영역 위치 사용)**을 선택하고 **다음**을 클릭합니다.
 
@@ -73,7 +73,7 @@
 		
 		eventhub.receiver.credits = 10
 
-	**eventhub.receiver.credits**의 값에 따라 이벤트를 Storm 파이프라인으로 릴리스하기 전에 얼마나 많은 수의 이벤트가 일괄 처리되는지 결정됩니다. 이 예제에서는 단순한 구현을 위해 이 값을 10으로 설정합니다. 프로덕션에서는 일반적으로 1024와 같은 더 높은 값으로 설정해야 합니다.
+	**eventhub.receiver.credits**의 값에 따라 이벤트를 Storm 파이프라인으로 릴리스하기 전에 얼마나 많은 수의 이벤트가 일괄 처리되는지 결정됩니다. 간단히 하기 위해 이 예에서는 이 값을 10으로 설정합니다. 프로덕션 환경에서 일반적으로 더 높게(예: 1024) 설정해야 합니다.
 
 10. 다음 코드를 포함하는 **LoggerBolt** 클래스를 새로 만듭니다.
 
@@ -228,4 +228,4 @@
 
 [12]: ./media/service-bus-event-hubs-getstarted/create-storm1.png
 [13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
-[14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
+[14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png<!--HONumber=42-->

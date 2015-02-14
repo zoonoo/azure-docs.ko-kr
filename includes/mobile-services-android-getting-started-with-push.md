@@ -1,6 +1,6 @@
-﻿1. 앱 프로젝트에서 'AndroidManifest.xml' 파일을 엽니다. 다음 두 단계의 코드에서 _`**my_app_package**`_를 프로젝트용 앱 패키지의 이름으로 바꿉니다. 이 이름은 `manifest` 태그의 `package` 특성 값입니다. 
+1. 앱 프로젝트에서  `AndroidManifest.xml` 파일을 엽니다. 다음 두 단계의 코드에서 _`**my_app_package**`_를 프로젝트용 앱 패키지의 이름으로 바꿉니다. 이 이름은  `manifest` 태그의  `package` 특성 값입니다. 
 
-2. 기존 `uses-permission` 요소 뒤에 다음과 같은 새 사용 권한을 추가합니다.
+2. 기존  `uses-permission` 요소 뒤에 다음과 같은 새 사용 권한을 추가합니다.
 
         <permission android:name="**my_app_package**.permission.C2D_MESSAGE" 
             android:protectionLevel="signature" />
@@ -9,7 +9,7 @@
         <uses-permission android:name="android.permission.GET_ACCOUNTS" />
         <uses-permission android:name="android.permission.WAKE_LOCK" />
 
-3. 다음 코드를 `application` 여는 태그 뒤에 추가합니다. 
+3. 다음 코드를  `application` 시작 태그 뒤에 추가합니다. 
 
         <receiver android:name="com.microsoft.windowsazure.notifications.NotificationsBroadcastReceiver"
             						 	android:permission="com.google.android.c2dm.permission.SEND">
@@ -19,64 +19,31 @@
             </intent-filter>
         </receiver>
 
+4. [모바일 서비스 Android SDK]를 다운로드하여 압축을 풀고 **notifications** 폴더를 연 후 **notifications-1.0.1.jar** 파일을 Eclipse 프로젝트의  *libs* 폴더로 복사하고  *libs* 폴더를 새로 고칩니다.
 
-4. [모바일 서비스 Android SDK]를 다운로드하여 압축을 풀고 **notifications** 폴더를 연 후 **notifications-1.0.1.jar** 파일을 Eclipse 프로젝트의 *libs* 폴더로 복사하고 *libs* 폴더를 새로 고칩니다.
+    > [AZURE.NOTE] 후속 SDK 릴리스에서는 파일 이름 끝에 있는 숫자가 변경될 수도 있습니다.
 
-    <div class="dev-callout"><b>참고</b>
-	<p>후속 SDK 릴리스에서는 파일 이름 끝에 있는 숫자가 변경될 수도 있습니다.</p>
-    </div>
-
-5.  *ToDoItemActivity.java* 파일을 열고 다음 import 문을 추가합니다.
+5.   *ToDoItemActivity.java* 파일을 열고 다음 import 문을 추가합니다.
 
 		import com.microsoft.windowsazure.notifications.NotificationsManager;
-		import com.microsoft.windowsazure.mobileservices.notifications.Registration;
 
-
-6. 클래스에 다음 private 변수를 추가합니다. 여기서 _`<PROJECT_NUMBER>`_를 Google이 위의 절차에서 앱에 할당한 프로젝트 번호로 바꿉니다.
+6. 클래스에 다음 개인 변수를 추가합니다. 여기서 _`<PROJECT_NUMBER>`_는 Google이 이전 절차에서 앱에 할당한 프로젝트 번호로 바꿉니다.
 
 		public static final String SENDER_ID = "<PROJECT_NUMBER>";
 
-7. MobileServiceClient의 정의를 private에서 public static으로 변경합니다. 이제 다음과 같이 표시됩니다.
+7.  *MobileServiceClient*의 정의를 **private**에서 **public static**으로 변경합니다. 이제 다음과 같이 표시됩니다.
 
 		public static MobileServiceClient mClient;
 
+9. 다음으로 알림을 처리하는 새 클래스를 추가해야 합니다. Package Explorer에서  `src` 노드 아래의 패키지를 마우스 오른쪽 단추로 클릭하고 **New**와 **Class**를 차례로 클릭합니다.
 
-8. ToDoActivity.java에서 알림에 대한 등록을 허용하도록 ToDoActivity 클래스에 다음 메서드를 추가합니다.
-
-        /**
-		 * Registers mobile services client to receive GCM push notifications
-		 * @param gcmRegistrationId The Google Cloud Messaging session Id returned 
-		 * by the call to GoogleCloudMessaging.register in NotificationsManager.handleNotifications
-		 */
-		public void registerForPush(String gcmRegistrationId)
-		{
-			String [] tags = {null};
-			ListenableFuture<Registration> reg = mClient.getPush().register(gcmRegistrationId, tags);
-			
-	    	Futures.addCallback(reg, new FutureCallback<Registration>() {
-	    		@Override
-	    		public void onFailure(Throwable exc) {
-	    			createAndShowDialog((Exception) exc, "Error");
-	    		}
-	    		
-	    		@Override
-	    		public void onSuccess(Registration reg) {
-	    			createAndShowDialog(reg.getRegistrationId() + " resistered", "Registration");
-	    		}
-	    	});
-		}
-
-
-
-9. 다음으로 알림을 처리하는 새 클래스를 추가해야 합니다. Package Explorer에서 `src` 노드 아래의 패키지를 마우스 오른쪽 단추로 클릭하고 **New**를 클릭한 후 **Class**를 클릭합니다.
-
-10. **Name**에 `MyHandler`, **Superclass**에 `com.microsoft.windowsazure.notifications.NotificationsHandler`를 입력한 다음 **Finish**를 클릭합니다.
+10. **Name**에  `MyHandler`를 입력하고, **Superclass**에  `com.microsoft.windowsazure.notifications.NotificationsHandler`를 입력한 다음 **Finish**를 클릭합니다.
 
 	![](./media/mobile-services-android-get-started-push/mobile-services-android-create-class.png)
 
 	새 MyHandler 클래스가 만들어집니다.
 
-11. `MyHandler` 클래스에 다음 import 문을 추가합니다.
+11.  `MyHandler` 클래스에 대한 다음 import 문을 추가합니다.
 
 		import android.app.NotificationManager;
 		import android.app.PendingIntent;
@@ -85,17 +52,15 @@
 		import android.os.AsyncTask;
 		import android.os.Bundle;
 		import android.support.v4.app.NotificationCompat;
-
 	
-12. 이제 `MyHandler` 클래스에 다음 멤버를 추가합니다.
+12. 이제  `MyHandler` 클래스에 다음 멤버를 추가합니다.
 
 		public static final int NOTIFICATION_ID = 1;
 		private NotificationManager mNotificationManager;
 		NotificationCompat.Builder builder;
 		Context ctx;
 
-
-13. I`MyHandler` 클래스에서 다음 코드를 추가하여 **onRegistered** 메서드를 재정의합니다. 이 코드는 모바일 알림 허브에 장치를 등록합니다.
+13.  `MyHandler` 클래스에서 다음 코드를 추가하여 장치를 모바일 서비스 알림 허브에 등록하는 **onRegistered** 메서드를 재정의합니다.
 
 		@Override
 		public void onRegistered(Context context,  final String gcmRegistrationId) {
@@ -116,9 +81,7 @@
 		    }.execute();
 		}
 
-
-
-14. `MyHandler` 클래스에서 다음 코드를 추가하여 **onReceive** 메서드를 재정의합니다. 그러면 알림이 수신되면 표시됩니다.
+14.  `MyHandler` 클래스에서 다음 코드를 추가하여 알림을 받은 경우 알림이 표시되도록 하는 **onReceive** 메서드를 재정의합니다.
 
 		@Override
 		public void onReceive(Context context, Bundle bundle) {
@@ -147,9 +110,7 @@
 		     mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());
 		}
 
-
-15. 다시 TodoActivity.java 파일에서 ToDoActivity 클래스의 **onCreate** 메서드를 업데이트하여 알림 처리기 클래스를 등록합니다. MobileServiceClient가 인스턴스화된 후에 이 코드를 추가해야 합니다.
-
+15. 다시 TodoActivity.java 파일에서  *ToDoActivity* 클래스의 **onCreate** 메서드를 업데이트하여 알림 처리기 클래스를 등록합니다.  *MobileServiceClient*가 인스턴스화된 후에 이 코드를 추가해야 합니다.
 
 		NotificationsManager.handleNotifications(this, SENDER_ID, MyHandler.class);
 
@@ -157,3 +118,4 @@
 
 <!-- URLs. -->
 [모바일 서비스 Android SDK]: http://aka.ms/Iajk6q
+<!--HONumber=42-->

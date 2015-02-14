@@ -8,7 +8,7 @@
    
 	![](./media/mobile-services-update-registrations-script/mobile-insert-script-registrations.png)
 
-	**Registrations** 테이블에 삽입할 때 호출되는 함수가 표시됩니다.
+	**Registrations** 테이블에 삽입 시 호출되는 함수가 표시됩니다.
 
 3. 삽입 함수를 다음의 코드로 바꾼 후 **저장**을 클릭합니다.
 
@@ -28,3 +28,4 @@
 
    이렇게 하면 새 테이블에 등록 정보를 저장하는 새 삽입 스크립트가 등록됩니다.
 
+<!--HONumber=42-->

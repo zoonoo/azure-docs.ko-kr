@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Create a Media Processor" pageTitle="미디어 프로세서를 만드는 방법 - Azure" metaKeywords="" description="Azure 미디어 서비스용 미디어 콘텐츠를 인코딩하거나 형식을 변환하거나 암호화하거나 암호 해독하기 위한 미디어 프로세서 구성 요소를 만드는 방법에 대해 알아봅니다. 코드 샘플은 C#으로 작성되었으며 Media Services SDK for .NET을 사용합니다." metaCanonical="" services="media-services" documentationCenter="" title="How to: Get a Media Processor Instance" authors="juliako" solutions="" manager="dwrede" editor="" />
+﻿<properties 
+	pageTitle="미디어 프로세서를 만드는 방법 - Azure" 
+	description="Azure 미디어 서비스용 미디어 콘텐츠를 인코딩하거나 형식을 변환하거나 암호화하거나 암호 해독하기 위한 미디어 프로세서 구성 요소를 만드는 방법에 대해 알아봅니다. 코드 샘플은 C#으로 작성되었으며 Media Services SDK for .NET을 사용합니다." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako" />
+<tags 
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/30/2014" 
+	ms.author="juliako"/>
 
 
 
@@ -67,10 +81,8 @@ private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcess
 </code></pre>
 
 <h2>다음 단계</h2>
-미디어 프로세서 인스턴스를 가져오는 방법을 알아보았으므로 이제 Azure Media Encoder를 사용하여 자산을 인코드하는 방법을 보여 주는 [자산을 인코드하는 방법][](영문) 항목으로 이동합니다.
+미디어 프로세서 인스턴스를 가져오는 방법을 알아보았으므로 이제 Azure 미디어 인코더를 사용하여 자산을 인코드하는 방법을 보여 주는 [자산을 인코드하는 방법][](영문) 항목으로 이동합니다.
 
 [자산을 인코드하는 방법]: ../media-services-encode-asset/
-[Azure Media Encoder용 작업 미리 설정 문자열]: http://msdn.microsoft.com/ko-kr/library/jj129582.aspx
-[방법: 프로그래밍 방식으로 미디어 서비스에 연결]: ../media-services-set-up-computer/
-
-<!--HONumber=35.1-->
+[Azure Media Encoder용 태스크 기본 설정 문자열]: http://msdn.microsoft.com/ko-kr/library/jj129582.aspx
+[방법: 프로그래밍 방식으로 미디어 서비스에 연결]: ../media-services-set-up-computer/<!--HONumber=42-->

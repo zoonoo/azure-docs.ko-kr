@@ -1,14 +1,28 @@
-﻿<properties urlDisplayName="Monitor Hadoop clusters  in HDInsight using the Ambari API" pageTitle="Ambari API를 사용하여 HDInsight에서 Hadoop 클러스터 모니터링 | Azure" metaKeywords="" description="Apache Ambari API를 사용하여 Hadoop 클러스터를 프로비전, 관리 및 모니터링하는 방법에 대해 알아봅니다. Ambari의 직관적 운영자 도구와 API를 사용하면 Hadoop의 복잡한 작업을 간편하게 수행할 수 있습니다." services="hdinsight" documentationCenter="" title="Monitor Hadoop clusters in HDInsight using the Ambari API" umbracoNaviHide="0" disqusComments="1" authors="jgao" editor="cgronlun" manager="paulettm" />
+﻿<properties 
+	pageTitle="Ambari API를 사용하여 HDInsight에서 Hadoop 클러스터 모니터링 | Azure" 
+	description="Apache Ambari API를 사용하여 Hadoop 클러스터를 프로비전, 관리 및 모니터링하는 방법에 대해 알아봅니다. Ambari의 직관적 운영자 도구와 API를 사용하면 Hadoop의 복잡한 작업을 간편하게 수행할 수 있습니다." 
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="mumian" 
+	editor="cgronlun" 
+	manager="paulettm"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/12/2014" ms.author="jgao" />
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/12/2014" 
+	ms.author="jgao"/>
 
 # Ambari API를 사용하여 HDInsight에서 Hadoop 클러스터 모니터링
  
 Ambari API를 사용하여 HDInsight 클러스터 버전 3.1 및 2.1을 모니터링하는 방법에 대해 알아봅니다.
 
-##이 문서에서는 다음을 수행합니다.
+##이 문서의 내용
 
-- [Ambari 정의](#whatisambari)
+- [Ambari란?](#whatisambari)
 - [필수 조건](#prerequisites)
 - [신속한 시작](#jumpstart)
 - [Ambari 모니터링 API](#monitor)
@@ -17,7 +31,7 @@ Ambari API를 사용하여 HDInsight 클러스터 버전 3.1 및 2.1을 모니�
 
 ## <a id="whatisambari"></a> Ambari 정의
 
-[Apache Ambari][ambari-home](영문)는 Apache Hadoop 클러스터를 프로비전하고 관리 및 모니터링합니다. Hadoop의 복잡성을 숨기고 클러스터 작업을 단순화하는 직관적인 연산자 도구 모음 및 강력한 API 집합이 포함되어 있습니다. API에 대한 자세한 내용은 [Ambari API 참조][ambari-api-reference](영문)를 참조하세요.
+[Apache Ambari][ambari-home]는 Apache Hadoop 클러스터를 프로비전하고 관리 및 모니터링합니다. Hadoop의 복잡성을 숨기고 클러스터 작업을 단순화하는 직관적인 연산자 도구 모음 및 강력한 API 집합이 포함되어 있습니다. API에 대한 자세한 내용은 [Ambari API 참조][ambari-api-reference](영문)를 참조하세요.
 
 
 HDInsight는 현재 Ambari 모니터링 기능만 지원합니다. Ambari API v1.0은 HDInsight 클러스터 버전 2.1 및 3.0에서 지원됩니다.  이 문서에서는 HDInsight 클러스터 버전 3.1 및 2.1에서 Ambari API에 액세스하는 방법에 대해 설명합니다.  두 버전 간의 가장 큰 차이점은 작업 기록 서버와 같은 새 기능이 도입되면서 일부 구성 요소가 변경되었다는 것입니다.
@@ -27,11 +41,11 @@ HDInsight는 현재 Ambari 모니터링 기능만 지원합니다. Ambari API v1
 
 이 자습서를 시작하기 전에 다음이 있어야 합니다.
 
-- Azure PowerShell이 설치 및 구성된 **워크스테이션**. 자세한 내용은 [Azure PowerShell 설치 및 구성][powershell-install]을 참조하세요. PowerShell 스크립트를 실행하려면 관리자로 Azure PowerShell을 실행하고 실행 정책을 *RemoteSigned*로 설정해야 합니다. [Windows PowerShell 스크립트 실행][powershell-script](영문)을 참조하세요.
+- Azure PowerShell이 설치 및 구성된 **워크스테이션**. 자세한 내용은 [Azure PowerShell 설치 및 구성][powershell-install]을 참조하세요. PowerShell 스크립트를 실행하려면 관리자로 Azure PowerShell을 실행하고 실행 정책을  *RemoteSigned*로 설정해야 합니다. [Windows PowerShell 스크립트 실행][powershell-script](영문)을 참조하세요.
 
 	[Curl][curl](영문)은 선택 사항입니다. [여기][curl-download](영문)에서 설치할 수 있습니다.
 
-	>[WACOM.NOTE] Windows에서 curl 명령을 사용할 때는 옵션 값에 작은따옴표 대신 큰따옴표를 사용합니다.
+	>[AZURE.NOTE] Windows에서 curl 명령을 사용할 때는 옵션 값에 작은따옴표 대신 큰따옴표를 사용합니다.
 
 - **Azure HDInsight 클러스터**. 클러스터 프로비전에 대한 자세한 내용은 [HDInsight 사용 시작][hdinsight-get-started] 또는 [HDInsight 클러스터 프로비전][hdinsight-provision]을 참조하세요. 자습서를 완료하려면 다음 데이터가 필요합니다.
 
@@ -42,7 +56,7 @@ HDInsight는 현재 Ambari 모니터링 기능만 지원합니다. Ambari API v1
 	<tr><td>클러스터 암호</td><td>$clusterPassword</td><td></td><td>클러스터 사용자 암호입니다.</td></tr>
 	</table>
 
-	> [WACOM.NOTE] 테이블에 값을 채우세요.  이 자습서를 완료하는 데 유용합니다.
+	> [AZURE.NOTE] 테이블에 값을 채우세요.  이 자습서를 완료하는 데 유용합니다.
 
 
 
@@ -52,7 +66,7 @@ Ambari를 사용하여 HDInsight 클러스터를 모니터링하는 몇 가지 �
 
 **Azure PowerShell 사용**
 
-다음은 *3.1 클러스터에서* MapReduce jobtracker 정보를 가져오는 PowerShell 스크립트입니다.  여기서 가장 큰 차이점은 이제 MapReduce가 아닌 YARN 서비스에서 이러한 세부 정보를 가져온다는 것입니다.
+다음은  *on a 3.1 cluster.* MapReduce jobtracker 정보를 가져오는 PowerShell 스크립트입니다.  여기서 가장 큰 차이점은 이제 MapReduce가 아닌 YARN 서비스에서 이러한 세부 정보를 가져온다는 것입니다.
 
 	$clusterName = "<HDInsightClusterName>"
 	$clusterUsername = "<HDInsightClusterUsername>"
@@ -68,7 +82,7 @@ Ambari를 사용하여 HDInsight 클러스터를 모니터링하는 몇 가지 �
 	
 	$response.metrics.'yarn.queueMetrics'
 
-다음은 *2.1 클러스터에서* MapReduce jobtracker 정보를 가져오는 PowerShell 스크립트입니다.
+다음은  *on a 2.1 cluster* MapReduce jobtracker 정보를 가져오는 PowerShell 스크립트입니다.
 
 	$clusterName = "<HDInsightClusterName>"
 	$clusterUsername = "<HDInsightClusterUsername>"
@@ -88,7 +102,7 @@ Ambari를 사용하여 HDInsight 클러스터를 모니터링하는 몇 가지 �
 
 ![Jobtracker Output][img-jobtracker-output]
 
-**curl 사용**
+**Curl 사용**
 
 다음은 Curl을 사용하여 클러스터 정보를 가져오는 예입니다.
 
@@ -112,7 +126,7 @@ Ambari를 사용하여 HDInsight 클러스터를 모니터링하는 몇 가지 �
 	             "host_name":"headnode0.{ClusterDNS}.azurehdinsight.net"}}]}
 
 2014/10/8 릴리스 정보:
-이제 Ambari 끝점 "https://{clusterDns}.azurehdinsight.net/ambari/api/v1/clusters/{clusterDns}.azurehdinsight.net/services/{servicename}/components/{componentname}"을 사용할 때 *host_name* 필드가 호스트 이름이 아닌 노드의 FQDN(정규화된 도메인 이름)을 반환합니다. 2014/10/8 릴리스 이전 버전에서는 이 예제가 **headnode0**"만을 반환했습니다. 반면 2014/10/8 릴리스부터는 위의 예제에 나와 있는 것처럼 FQDN **headnode0.{ClusterDNS}.azurehdinsight.net**"이 반환됩니다. 이 변경은 HBase, Hadoop 등의 여러 클러스터 유형을 VNET(가상 네트워크) 하나에 배포할 수 있는 시나리오를 원활하게 수행하기 위해 필요한 작업이었습니다. 예를 들어 Hadoop의 백 엔드 플랫폼으로 HBase를 사용하는 등의 경우 이 변경이 적용됩니다.
+이제 Ambari 끝점 "https://{clusterDns}.azurehdinsight.net/ambari/api/v1/clusters/{clusterDns}.azurehdinsight.net/services/{servicename}/components/{componentname}"을 사용할 때 *host_name* 필드가 호스트 이름이 아닌 노드의 FQDN(정규화된 도메인 이름)을 반환합니다. 2014/10/8 릴리스 이전 버전에서는 이 예제가 "**headnode0**"만을 반환했습니다. 반면 2014/10/8 릴리스부터는 위의 예제에 나와 있는 것처럼 FQDN "**headnode0.{ClusterDNS}.azurehdinsight.net**"이 반환됩니다. 이 변경은 HBase, Hadoop 등의 여러 클러스터 유형을 VNET(가상 네트워크) 하나에 배포할 수 있는 시나리오를 원활하게 수행하기 위해 필요한 작업이었습니다. 예를 들어 Hadoop의 백 엔드 플랫폼으로 HBase를 사용하는 등의 경우 이 변경이 적용됩니다.
 
 ##<a id="monitor"></a>Ambari 모니터링 API
 
@@ -172,5 +186,4 @@ Ambari 모니터링 API 호출을 사용하는 방법을 알아보았습니다. 
 
 [img-jobtracker-output]: ./media/hdinsight-monitor-use-ambari-api/hdi.ambari.monitor.jobtracker.output.png
 
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Encrypt Assets in Media Services" pageTitle="미디어 서비스에서 자산을 암호화하는 방법 - Azure" metaKeywords="" description="Microsoft PlayReady Protection을 사용하여 미디어 서비스에서 자산을 암호화하는 방법에 대해 알아봅니다. 코드 샘플은 C#으로 작성되었으며 Media Services SDK for .NET을 사용합니다. 코드 샘플은 C#으로 작성되었으며 Media Services SDK for .NET을 사용합니다." metaCanonical="" services="media-services" documentationCenter="" title="How to: Protect an Asset with PlayReady Protection" authors="juliako" solutions="" manager="dwrede" editor="" />
+﻿<properties 
+	pageTitle="미디어 서비스에서 자산을 암호화하는 방법 - Azure" 
+	description="Microsoft PlayReady Protection을 사용하여 미디어 서비스에서 자산을 암호화하는 방법에 대해 알아봅니다. 코드 샘플은 C#으로 작성되었으며 Media Services SDK for .NET을 사용합니다. 코드 샘플은 C#으로 작성되었으며 Media Services SDK for .NET을 사용합니다." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako" />
+<tags 
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/30/2014" 
+	ms.author="juliako"/>
 
 
 
@@ -14,7 +28,7 @@ Azure 미디어 서비스에서 Microsoft PlayReady Protection과 통합되어 �
 
 다음 예제에서는 PlayReady Protection을 제공하는 간단한 작업을 만드는 방법을 보여 줍니다.
 
-   1. 구성 데이터를 검색합니다. [Azure Media Encryptor의 작업 미리 설정](http://msdn.microsoft.com/ko-kr/library/hh973610.aspx) 항목에서 예제 구성 파일을 가져올 수 있습니다.
+   1. 구성 데이터를 검색합니다. [Azure 미디어 암호기에 대한 작업 기본 설정](http://msdn.microsoft.com/ko-kr/library/hh973610.aspx) 항목에서 예제 구성 파일을 가져올 수 있습니다.
    2. MP4 입력 파일을 업로드합니다.
    3. MP4 파일을 부드러운 스트리밍 자산으로 변환합니다.
    4. PlayReady를 사용하여 자산을 암호화합니다.
@@ -78,7 +92,7 @@ private static IJob CreatePlayReadyProtectionJob(string inputMediaFilePath, stri
 
     // Use the following event handler to check job progress. 
     job.StateChanged += new
-            EventHandler<JobStateChangedEventArgs>(StateChanged);
+            EventHandler&lt;JobStateChangedEventArgs&gt;(StateChanged);
 
     // Launch the job.
     job.Submit();
@@ -115,5 +129,4 @@ PlayReady Protection에 대한 자세한 내용은 다음을 참조하세요.
 
 <h2>다음 단계</h2>
 이제 미디어 서비스를 사용하여 자산을 보호하는 방법을 배웠으므로 [자산 관리 방법](../media-services-manage-assets/) 항목으로 이동하세요.
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

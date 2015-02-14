@@ -1,12 +1,26 @@
-﻿<properties urlDisplayName="Use Hadoo Sqoop in HDInsight" pageTitle="HDInsight에서 Hadoop Sqoop 사용 | Azure" metaKeywords="" description="워크스테이션에서 Azure PowerShell을 사용하여 Hadoop 클러스터와 Azure SQL 데이터베이스 간에 Sqoop 가져오기 및 내보내기를 실행하는 방법에 대해 알아봅니다." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" title="Use Hadoop Sqoop in HDInsight" authors="jgao" />
+<properties 
+	pageTitle="HDInsight에서 Hadoop Sqoop 사용 | Azure" 
+	description="워크스테이션에서 Azure PowerShell을 사용하여 Hadoop 클러스터와 Azure SQL 데이터베이스 간에 Sqoop 가져오기 및 내보내기를 실행하는 방법에 대해 알아봅니다." 
+	editor="cgronlun" 
+	manager="paulettm" 
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="mumian"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/12/2014" ms.author="jgao" />
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/12/2014" 
+	ms.author="jgao"/>
 
 # HDInsight에서 Hadoop과 Sqoop 사용
  
 워크스테이션에서 Azure PowerShell 및 HDInsight .NET SDK를 사용하여 HDInsight 클러스터와 Azure SQL 데이터베이스 또는 SQL Server 데이터베이스 간에 Sqoop 가져오기 및 내보내기를 실행하는 방법에 대해 알아봅니다.
 
-##이 문서에서는 다음을 수행합니다.
+## 이 문서에서는 다음을 수행합니다.
 
 - [Sqoop 정의](#whatissqoop)
 - [필수 조건](#prerequisites)
@@ -29,11 +43,11 @@ HDInsight 클러스터에서 지원되는 Sqoop 버전을 보려면 [HDInsight�
 
 
 
-##<a id="prerequisites"></a>필수 조건
+## <a id="prerequisites"></a>필수 조건
 
 이 자습서를 시작하기 전에 다음이 있어야 합니다.
 
-- **워크스테이션** - Azure PowerShell이 설치 및 구성된 컴퓨터. 자세한 내용은 [Azure PowerShell 설치 및 구성][powershell-install]을 참조하세요. PowerShell 스크립트를 실행하려면 관리자로 Azure PowerShell을 실행하고 실행 정책을 *RemoteSigned*로 설정해야 합니다. [Windows PowerShell 스크립트 실행][powershell-script](영문)을 참조하세요.
+- **워크스테이션** - Azure PowerShell이 설치 및 구성된 컴퓨터. 자세한 내용은 [Azure PowerShell 설치 및 구성][powershell-install]을 참조하세요. PowerShell 스크립트를 실행하려면 관리자로 Azure PowerShell을 실행하고 실행 정책을  *RemoteSigned*로 설정해야 합니다. [Windows PowerShell 스크립트 실행][powershell-script]을 참조하세요.
 
 - **Azure HDInsight 클러스터**. 클러스터 프로비전에 대한 자세한 내용은 [HDInsight 사용 시작][hdinsight-get-started] 또는 [HDInsight 클러스터 프로비전][hdinsight-provision]을 참조하세요. 자습서를 완료하려면 다음 데이터가 필요합니다.
 
@@ -54,23 +68,23 @@ HDInsight 클러스터에서 지원되는 Sqoop 버전을 보려면 [HDInsight�
 	<tr><td>SQL 데이터베이스 이름</td><td>$sqlDatabaseName</td><td></td><td>Sqoop에서 데이터를 내보내거나 가져올 Azure SQL 데이터베이스입니다. </td></tr>
 	</table>
 
-	> [WACOM.NOTE] 기본적으로 Azure SQL 데이터베이스는 Azure HDInsight 같은 Azure 서비스로부터의 연결을 허용합니다. 이 방화벽 설정을 사용하지 않도록 설정한 경우 Azure 관리 포털에서 사용하도록 설정해야 합니다. SQL 데이터베이스 만들기 및 방화벽 규칙 구성에 대한 지침은 [SQL 데이터베이스 만들기 및 구성][sqldatabase-create-configue]을 참조하세요. 
+	> [AZURE.NOTE] 기본적으로 Azure SQL 데이터베이스는 Azure HDInsight 같은 Azure 서비스로부터의 연결을 허용합니다. 이 방화벽 설정을 사용하지 않도록 설정한 경우 Azure 관리 포털에서 사용하도록 설정해야 합니다. SQL 데이터베이스 만들기 및 방화벽 규칙 구성에 대한 지침은 [SQL 데이터베이스 만들기 및 구성][sqldatabase-create-configue]을 참조하세요. 
 
 * **SQL Server**. HDInsight 클러스터가 SQL Server와 같은 Azure 가상 네트워크에 있으면 이 문서의 단계를 사용하여 SQL Server 데이터베이스에 대해 데이터 가져오기 및 내보내기를 수행할 수 있습니다. 자세한 내용은 다음 문서를 참조하세요.
 
-	> [WACOM.NOTE] > Azure HDInsight는 위치 기반 가상 네트워크만 지원하며 현재 선호도 그룹 기반 가상 네트워크와는 연동되지 않습니다.
+	> [AZURE.NOTE] > Azure HDInsight는 위치 기반 가상 네트워크만 지원하며 현재 선호도 그룹 기반 가상 네트워크와는 연동되지 않습니다.
 
 	* **가상 네트워크를 만들고 구성**하려면 [가상 네트워크 구성 작업](http://msdn.microsoft.com/ko-kr/library/azure/jj156206.aspx)을 참조하세요.
 
-		* **데이터 센터**에서 SQL Server를 사용할 때는 가상 네트워크를 *사이트 간* 또는 *지점 및 사이트 간*으로 구성해야 합니다.
+		* **데이터 센터에서** SQL Server를 사용할 때는 가상 네트워크를 *site-to-site* 또는 *point-to-site*으로 구성해야 합니다.
 
-			> [WACOM.NOTE] **지점 및 사이트 간** 가상 네트워크의 경우 SQL Server가 VPN 클라이언트 구성 응용 프로그램을 실행해야 합니다. 이 응용 프로그램은 Azure 가상 네트워크 구성의 **대시보드**에서 사용 가능합니다.
+			> [AZURE.NOTE] **지점 및 사이트 간** 가상 네트워크의 경우 SQL Server가 VPN 클라이언트 구성 응용 프로그램을 실행해야 합니다. 이 응용 프로그램은 Azure 가상 네트워크 구성의 **대시보드**에서 사용 가능합니다.
 
 		* **Azure 가상 컴퓨터**에서 SQL Server를 사용할 때는 SQL Server를 호스트하는 가상 컴퓨터가 HDInsight와 같은 가상 네트워크의 멤버이면 모든 가상 네트워크 구성을 사용할 수 있습니다.
 
-	* **가상 네트워크에 HDInsight 클러스터를 프로비전**하려면 [사용자 지정 옵션을 사용하여 HDInsight의 Hadoop 클러스터 프로비전]을 참조하세요.(/ko-kr/documentation/articles/hdinsight-provision-clusters/)
+	* **가상 네트워크에 HDInsight 클러스터를 프로비전**하려면 [사용자 지정 옵션을 사용하여 HDInsight의 Hadoop 클러스터 프로비전](/ko-kr/documentation/articles/hdinsight-provision-clusters/)을 참조하세요.
 
-	> [WACOM.NOTE] SQL Server는 SQL 인증도 허용해야 합니다. 이 문서의 단계에서는 SQL 로그인을 사용해야 합니다.
+	> [AZURE.NOTE] SQL Server는 SQL 인증도 허용해야 합니다. 이 문서의 단계에서는 SQL 로그인을 사용해야 합니다.
 
 	<table border="1">
 	<tr><th>SQL 데이터베이스 속성</th><th>PowerShell 변수 이름</th><th>값</th><th>설명</th></tr>
@@ -81,7 +95,7 @@ HDInsight 클러스터에서 지원되는 Sqoop 버전을 보려면 [HDInsight�
 	</table>
 
 
-> [WACOM.NOTE] 위의 테이블에 값을 채우세요.  이 자습서를 완료하는 데 유용합니다.
+> [AZURE.NOTE] 위의 테이블에 값을 채우세요.  이 자습서를 완료하는 데 유용합니다.
 
 ## <a id="scenario"></a>시나리오 이해
 HDInsight 클러스터는 일부 샘플 데이터와 함께 제공됩니다. 다음 두 가지를 사용합니다.
@@ -93,7 +107,7 @@ HDInsight 클러스터는 일부 샘플 데이터와 함께 제공됩니다. 다
 		2012-02-03 18:35:34 SampleClass3 [DEBUG] detail for id 1304807656
 		...
 
-- */hive/warehouse/hivesampletable*에 있는 데이터 파일을 참조하는 *hivesampletable*이라는 Hive 테이블. 이 테이블에는 일부 모바일 장치 데이터가 포함되어 있습니다. 다음은 Hive 테이블 스키마입니다.
+- */hive/warehouse/hivesampletable*에 있는 데이터 파일을 참조하는, 이름이 *hivesampletable*인 Hive 테이블. 이 테이블에는 일부 모바일 장치 데이터가 포함되어 있습니다. 다음은 Hive 테이블 스키마입니다.
 
 	<table border="1">
 	<tr><th>필드</th><th>데이터 형식</th></tr>
@@ -114,18 +128,18 @@ HDInsight 클러스터는 일부 샘플 데이터와 함께 제공됩니다. 다
 
 	/tutorials/usesqoop/importeddata
 
-###HDInsight 저장소 이해
+### HDInsight 저장소 이해
 
-HDInsight는 데이터 저장소로 Azure Blob 저장소를 사용합니다.  이를 *WASB* 또는 *Azure 저장소 - Blob*이라고 합니다. WASB는 Azure Blob 저장소에 구현한 Microsoft의 HDFS입니다. 자세한 내용은 [HDInsight에서 Azure Blob 저장소 사용][hdinsight-storage]을 참조하세요. 
+HDInsight는 데이터 저장소로 Azure Blob 저장소를 사용합니다.  이름은 *WASB* 또는 *Azure Storage - Blob*입니다. WASB는 Azure Blob 저장소에 구현한 Microsoft의 HDFS입니다. 자세한 내용은 [HDInsight에서 Azure Blob 저장소 사용][hdinsight-storage]을 참조하세요. 
 
 HDInsight 클러스터를 프로비전할 때 Azure 저장소 계정 및 이 계정에서 오는 특정 Blob 저장소 컨테이너가 HDFS의 경우와 같이 기본 파일 시스템으로 지정됩니다. 프로비전 프로세스 중에 이 저장소 계정 외에도 동일한 Azure 구독 또는 다른 Azure 구독에서 저장소 계정을 추가할 수 있습니다. 저장소 계정 추가에 대한 지침은 [HDInsight 클러스터 프로비전][hdinsight-provision]을 참조하세요. 이 자습서에 사용된 PowerShell 스크립트를 간소화하려면 모든 파일이 */tutorials/usesqoop*에 있는 기본 파일 시스템 컨테이너에 저장되어야 합니다. 기본적으로 이 컨테이너 이름은 HDInsight 클러스터 이름과 동일합니다. 
 WASB 구문은 다음과 같습니다.
 
 	wasb[s]://<ContainerName>@<StorageAccountName>.blob.core.windows.net/<path>/<filename>
 
-> [WACOM.NOTE] HDInsight 클러스터 버전 3.0에서는 *wasb://* 구문만 지원됩니다. 이전 *asv://* 구문은 HDInsight 2.1 및 1.6 클러스터에서 지원되지만, HDInsight 3.0 클러스터에서는 지원되지 않으며 이후 버전에서도 지원되지 않습니다.
+> [AZURE.NOTE] HDInsight 클러스터 버전 3.0에서는 *wasb://* 구문만 지원됩니다. 이전 *asv://* 구문은 HDInsight 2.1 및 1.6 클러스터에서 지원되지만, HDInsight 3.0 클러스터에서는 지원되지 않으며 이후 버전에서도 지원되지 않습니다.
 
-> [WACOM.NOTE] WASB 경로는 가상 경로입니다.  자세한 내용은 [HDInsight에서 Azure Blob 저장소 사용][hdinsight-storage]을 참조하세요. 
+> [AZURE.NOTE] WASB 경로는 가상 경로입니다.  자세한 내용은 [HDInsight에서 Azure Blob 저장소 사용][hdinsight-storage]을 참조하세요. 
 
 기본 파일 시스템 컨테이너에 저장된 파일은 다음 URI 중 아무거나 사용하여 HDInsight에서 액세스할 수 있습니다(예제로 sample.log 사용).
 
@@ -138,11 +152,11 @@ WASB 구문은 다음과 같습니다.
 	example/data/sample.log
 
 
-##<a id="prepare"></a>자습서 준비
+## <a id="prepare"></a>자습서 준비
 
 SQL 데이터베이스 또는 SQL Server에 테이블 두 개를 만듭니다. 이러한 테이블에는 자습서 뒷부분에서 Sqoop 내보내기에 사용됩니다. 또한 sample.log 파일을 전처리해야 Sqoop에서 처리할 수 있습니다.
 
-###SQL 테이블 만들기
+### SQL 테이블 만들기
 
 **Azure SQL 데이터베이스의 경우**
 
@@ -256,7 +270,7 @@ SQL 데이터베이스 또는 SQL Server에 테이블 두 개를 만듭니다. �
 
 6. SQL Server Management Studio를 닫습니다.
 
-###데이터 생성
+### 데이터 생성
 
 이 자습서에서는 log4j 로그 파일(구분된 파일) 및 Hive 테이블을 SQL 데이터베이스로 내보냅니다.  구분된 파일은 */example/data/sample.log*입니다. 자습서의 앞부분에 log4j 로그 샘플이 몇 개 있습니다. 로그 파일에는 일부 빈 줄과 일부 다음과 유사한 줄이 있습니다.
 
@@ -274,7 +288,7 @@ SQL 데이터베이스 또는 SQL Server에 테이블 두 개를 만듭니다. �
 
 	Azure 계정 자격 증명을 입력하라는 메시지가 표시됩니다. 이 구독 연결 설치 방법이 시간 초과되었으며 12시간 후에 다시 로그인해야 합니다. 
 
-	> [WACOM.NOTE] 여러 Azure 구독이 있는 경우 기본 구독이 사용하려는 구독이 아니면 <strong>Select-AzureSubscription</strong> cmdlet을 사용하여 현재 구독을 선택합니다.
+	> [AZURE.NOTE] 여러 Azure 구독이 있는 경우 기본 구독이 사용하려는 구독이 아니면 <strong>Select-AzureSubscription</strong> cmdlet을 사용하여 현재 구독을 선택합니다.
 
 3. 다음 스크립트를 스크립트 창에 복사한 다음 처음 두 변수를 설정합니다.
 		
@@ -342,14 +356,14 @@ SQL 데이터베이스 또는 SQL Server에 테이블 두 개를 만듭니다. �
 6. 수정한 데이터 파일을 검사하려면 Azure 관리 포털, Azure 저장소 탐색기 도구 또는 Azure PowerShell을 사용할 수 있습니다.  [HDInsight 시작][hdinsight-get-started]에는 파일을 다운로드하고 그 파일의 내용을 표시하는 PowerShell 사용에 관한 코드 샘플이 있습니다.
 
 
-##<a id="export"></a>PowerShell을 사용하여 Sqoop 내보내기 실행
+## <a id="export"></a>PowerShell을 사용하여 Sqoop 내보내기 실행
 
 이 섹션에서는 Hive 테이블과 데이터 파일을 둘 다 Azure SQL 데이터베이스 또는 SQL Server에 내보내기 위해 Azure PowerShell을 사용하여 Sqoop 내보내기 명령을 실행합니다. 다음 섹션에서는 HDInsight .NET 샘플을 제공합니다.
 
-> [WACOM.NOTE] 연결 문자열 정보를 제외하면 이 섹션의 단계는 Azure SQL 데이터베이스 또는 SQL Server에 대해 작동합니다. 이러한 단계는 다음 구성에 대해 테스트되었습니다.
+> [AZURE.NOTE] 연결 문자열 정보를 제외하면 이 섹션의 단계는 Azure SQL 데이터베이스 또는 SQL Server에 대해 작동합니다. 이러한 단계는 다음 구성에 대해 테스트되었습니다.
 > 
-> * **Azure 가상 네트워크 지점 및 사이트 간 구성** - 개인 데이터 센터에서 HDInsight 클러스터를 SQL Server에 연결하는 가상 네트워크입니다. 자세한 내용은 [관리 포털에서 사이트 간 VPN 구성](http://msdn.microsoft.com/ko-kr/library/azure/dn133792.aspx) 을 참조하세요.
-> * **Azure HDInsight 3.1** - 가상 네트워크에 클러스터를 만드는 방법에 대한 자세한 내용은 [사용자 지정 옵션을 사용하여 HDInsight의 Hadoop 클러스터 프로비전](/ko-kr/documentation/articles/hdinsight-provision-clusters/) 을 참조하세요.
+> * **Azure 가상 네트워크 지점 및 사이트 간 구성** - 개인 데이터 센터에서 HDInsight 클러스터를 SQL Server에 연결하는 가상 네트워크입니다. 자세한 내용은 [관리 포털에서 지점 및 사이트 간 VPN 구성](http://msdn.microsoft.com/ko-kr/library/azure/dn133792.aspx)을 참조하세요.
+> * **Azure HDInsight 3.1** - 가상 네트워크에서 클러스터를 만드는 방법에 대한 자세한 내용은 [사용자 지정 옵션을 사용하여 HDInsight의 Hadoop 클러스터 프로비전](/ko-kr/documentation/articles/hdinsight-provision-clusters/)을 참조하세요.
 > * **SQL Server 2014** - SQL 인증을 허용하고 VPN 클라이언트 구성 패키지를 실행하여 가상 네트워크에 안전하게 연결할 수 있도록 구성됩니다.
 
 **log4j 로그 파일을 내보내려면**
@@ -401,7 +415,7 @@ SQL 데이터베이스 또는 SQL Server에 테이블 두 개를 만듭니다. �
 		Write-Host "Standard Output" -BackgroundColor Green
 		Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $sqoopJob.JobId -StandardOutput
 
-	필드 구분 기호는 **\0x20**이며 공백입니다. 구분 기호는 sample.log 파일 전처리 PowerShell 스크립트에 정의되어 있습니다. **-m 1**에 대해 자세히 알아보려면 [Sqoop 사용자 가이드][sqoop-user-guide-1.4.4]를 참조하세요.
+	필드 구분 기호는 **\0x20**이며 공백입니다. 구분 기호는  sample.log 파일 전처리 PowerShell 스크립트에서 정의됩니다. **-m 1**에 대해 자세히 알아보려면 [Sqoop 사용자 가이드][sqoop-user-guide-1.4.4]를 참조하세요.
 
 5. **스크립트 실행**을 클릭하거나 **F5** 키를 눌러 스크립트를 실행합니다.  
 6. [Azure 관리 포털][azure-management-portal]을 사용하여 내보낸 데이터를 검사합니다.
@@ -439,7 +453,7 @@ SQL 데이터베이스 또는 SQL Server에 테이블 두 개를 만듭니다. �
 		
 		$exportDir_mobile = "/hive/warehouse/hivesampletable"
 	
-	변수에 대한 자세한 내용은 이 자습서의 [필수 조건](#prerequisites) 섹션을 참조하세요. 
+	변수에 대한 자세한 내용은 이 자습서의 [필수 조건](#prerequisites) 섹션을 참조하세요.
 
 4. 다음 스크립트를 스크립트 창에 추가합니다.
 		
@@ -459,7 +473,7 @@ SQL 데이터베이스 또는 SQL Server에 테이블 두 개를 만듭니다. �
 
 
 
-##<a id="export-sdk"></a>HDInsight .NET SDK를 사용하여 Sqoop 내보내기 실행
+## <a id="export-sdk"></a>HDInsight .NET SDK를 사용하여 Sqoop 내보내기 실행
 
 다음은 HDInsight .NET SDK를 사용하여 Sqoop 내보내기를 실행하는 C# 샘플입니다. HDInsight .NET SDK 사용에 대한 일반적인 정보를 보려면 [프로그래밍 방식으로 Hadoop 작업 제출][hdinsight-submit-jobs]을 참조하세요.
 
@@ -556,7 +570,7 @@ SQL 데이터베이스 또는 SQL Server에 테이블 두 개를 만듭니다. �
 
 
 
-##<a id="import"></a>PowerShell을 사용하여 Sqoop 가져오기 실행
+## <a id="import"></a>PowerShell을 사용하여 Sqoop 가져오기 실행
 
 이 섹션에서는 SQL 데이터베이스로 내보낸 log4j 로그를 HDInsight로 다시 가져옵니다.
 
@@ -609,11 +623,11 @@ SQL 데이터베이스 또는 SQL Server에 테이블 두 개를 만듭니다. �
 5. **스크립트 실행**을 클릭하거나 **F5** 키를 눌러 스크립트를 실행합니다. 
 6. 수정한 데이터 파일을 검사하려면 Azure 관리 포털, Azure 저장소 탐색기 도구 또는 Azure PowerShell을 사용할 수 있습니다.  [HDInsight 시작][hdinsight-get-started]에는 파일을 다운로드하고 그 파일의 내용을 표시하는 PowerShell 사용에 관한 코드 샘플이 있습니다.
 
-##<a id="nextsteps"></a>다음 단계
+## <a id="nextsteps"></a>다음 단계
 
 이제 Sqoop을 사용하는 방법에 대해 알아봤습니다. 자세한 내용은 다음을 참조하세요.
 
-- [HDInsight와 함께 Oozie 사용][hdinsight-use-oozie]: Oozie 워크플로에서 Sqoop 작업을 사용합니다.
+- [HDInsight에서 Oozie 사용][hdinsight-use-oozie]: Oozie 워크플로에서 Sqoop 동작을 사용합니다.
 - [HDInsight를 사용하여 비행 지연 데이터 분석][hdinsight-analyze-flight-data]: Hive를 사용하여 비행 지연 데이터를 분석한 후 Sqoop을 사용하여 데이터를 SQL 데이터베이스로 내보냅니다.
 - [HDInsight에 데이터 업로드][hdinsight-upload-data]: HDInsight/Azure Blob 저장소에 데이터를 업로드하는 다른 방법을 찾습니다.
 
@@ -640,4 +654,4 @@ SQL 데이터베이스 또는 SQL Server에 테이블 두 개를 만듭니다. �
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-<!--HONumber=35.1-->
+<!--HONumber=42-->

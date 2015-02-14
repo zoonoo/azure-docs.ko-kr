@@ -1,6 +1,20 @@
-<properties urlDisplayName="How to manage" pageTitle="저장소 계정을 관리하는 방법 | Microsoft Azure" metaKeywords="Azure manage storage accounts, storage account management portal, storage account geo-replication, Azure geo-replication, Azure access keys" description="관리 포털을 사용하여 Azure에서 저장소 계정을 관리하는 방법에 대해 알아봅니다." metaCanonical="" services="storage" documentationCenter="" title="How To Manage Storage Accounts" authors="tamram" solutions="" manager="adinah" editor="cgronlun" />
+<properties 
+	pageTitle="저장소 계정을 관리하는 방법 | Microsoft Azure" 
+	description="관리 포털을 사용하여 Azure에서 저장소 계정을 관리하는 방법에 대해 알아봅니다." 
+	services="storage" 
+	documentationCenter="" 
+	authors="tamram" 
+	manager="adinah" 
+	editor="cgronlun"/>
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/17/2014" ms.author="tamram" />
+<tags 
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/17/2014" 
+	ms.author="tamram"/>
 
 
 
@@ -14,11 +28,11 @@
 
 <h2><a id="georeplication"></a>방법: 내구성과 고가용성을 위한 저장소 계정 데이터 복제</h2>
 
-[WACOM.INCLUDE [storage-replication-options](../includes/storage-replication-options.md)]
+[AZURE.INCLUDE [storage-replication-options](../includes/storage-replication-options.md)]
 
 ### 저장소 계정에 대한 복제 설정을 지정하려면 ###
 
-1. [Azure 관리 포털](https://manage.windowsazure.com)에서 **저장소**를 클릭한 다음 저장소 계정의 이름을 클릭하여 대시보드를 표시합니다.
+1. [Azure 관리 포털](https://manage.windowsazure.com)에서 **저장소**를 클릭하고 대시보드에 표시할 저장소 계정 이름을 클릭합니다.
 
 2. **구성**을 클릭합니다.
 
@@ -34,13 +48,13 @@
 
 ### 저장소 액세스 키 복사 ###
 
-**키 관리**를 사용하여 연결 문자열에 사용할 저장소 액세스 키를 복사할 수 있습니다. 연결 문자열에는 인증에 사용할 저장소 계정 이름과 키가 있어야 합니다. Azure 저장소 서비스에 액세스하기 위한 연결 문자열 구성에 대한 자세한 내용은 [연결 문자열 구성](http://msdn.microsoft.com/en-us/library/ee758697.aspx)을 참조하세요.
+**키 관리**를 사용하여 연결 문자열에 사용할 저장소 액세스 키를 복사할 수 있습니다. 연결 문자열에는 인증에 사용할 저장소 계정 이름과 키가 있어야 합니다. Azure 저장소 서비스에 액세스하기 위한 연결 문자열 구성에 대한 자세한 내용은 [연결 문자열 구성](http://msdn.microsoft.com/ko-kr/library/ee758697.aspx)을 참조하세요.
 
-1. [관리 포털](http://manage.windowsazure.com)에서 **저장소**를 클릭한 다음 저장소 계정의 이름을 클릭하여 대시보드를 엽니다.
+1. [관리 포털에](http://manage.windowsazure.com)서 **저장소**를 클릭한 후 대시보드를 열 저장소 계정 이름을 클릭합니다.
 
 2. **키 관리**를 클릭합니다.
 
- 	**Manage Access Keys** opens.
+ 	**액세스 키 관리**가 열립니다.
 
 	![Managekeys](./media/storage-manage-storage-account/Storage_ManageKeys.png)
 
@@ -50,11 +64,7 @@
 ### 저장소 액세스 키 다시 생성 ###
 저장소 연결을 더욱 안전하게 유지하는 데 도움이 되도록 정기적으로 저장소 계정의 액세스 키를 변경해야 합니다. 두 개의 액세스 키가 할당되므로 하나의 액세스 키를 다시 생성하는 동안 다른 액세스 키를 사용하여 저장소 계정에 대한 연결을 유지할 수 있습니다. 
 
-<div class="dev-callout"> 
-    <b>경고</b> 
-    <p>액세스 키를 다시 생성하면 가상 컴퓨터, 미디어 서비스 및 저장소 계정에 종속된 모든 응용 프로그램에 영향을 줍니다. 액세스 키를 사용하여 저장소 계정에 액세스하는 모든 클라이언트에서 새 키를 사용하도록 업데이트해야 합니다.
-    </p> 
-</div>
+> [AZURE.WARNING] 액세스 키를 다시 생성하면 가상 컴퓨터, 미디어 서비스 및 저장소 계정에 종속된 모든 응용 프로그램에 영향을 줍니다. 액세스 키를 사용하여 저장소 계정에 액세스하는 모든 클라이언트에서 새 키를 사용하도록 업데이트해야 합니다.
 
 **가상 컴퓨터** - 실행 중인 가상 컴퓨터가 저장소 계정에 포함된 경우 액세스 키를 다시 생성한 후 모든 가상 컴퓨터를 다시 배포해야 합니다. 다시 배포하지 않으려면 액세스 키를 다시 생성하기 전에 가상 컴퓨터를 종료합니다.
  
@@ -73,20 +83,11 @@
 
 <h2><a id="deletestorageaccount"></a>방법: 저장소 계정 삭제</h2>
 
-더 이상 사용하지 않는 저장소 계정을 제거하려면 대시보드 또는 **구성** 페이지의**삭제**를 사용합니다. **삭제**는 계정의 모든 Blob, 테이블 및 큐를 포함하여 전체 저장소 계정을 삭제합니다. 
+더 이상 사용하지 않는 저장소 계정을 제거하려면 대시보드 또는 **구성** 페이지의 **삭제**를 사용합니다. **삭제**는 계정의 모든 Blob, 테이블 및 큐를 포함하여 전체 저장소 계정을 삭제합니다. 
 
-<div class="dev-callout">
-	<b>경고</b>
-	<p>삭제된 저장소 계정의 내용을 복원하는 방법은 없습니다. 계정을 
-	삭제하기 전에 저장할 내용을 백업했는지 확인합니다.
-	</p>
-	<p>
-	저장소 계정에 Azure 가상 컴퓨터의 VHD 파일이나 디스크가 포함된 
-	경우에는 저장소 계정을 삭제하기 전에 해당 VHD 파일을 사용하는 이미지와 디스크를 
-	모두 삭제해야 합니다. 먼저 가상 컴퓨터가 실행 중인 경우 중지한 다음 삭제합니다. 디스크를 삭제하려면 디스크 탭으로 이동하여 저장소 계정에 포함된 모든 디스크를 삭제합니다. 이미지를 삭제하려면 이미지 탭으로 이동하여 계정에 저장된 모든 이미지를 삭제합니다.
-	</p>
-</div>
-
+> [AZURE.WARNING] 삭제된 저장소 계정의 내용을 복원하는 방법은 없습니다. 계정을 삭제하기 전에 저장할 내용을 백업했는지 확인합니다.
+> 
+> 저장소 계정에 Azure 가상 컴퓨터의 VHD 파일 또는 디스크가 포함되어 있는 경우 우선 해당 VHD 파일을 사용하는 이미지 및 디스크를 모두 삭제해야 저장소 계정을 삭제할 수 있습니다. 먼저 가상 컴퓨터가 실행 중인 경우 중지한 다음 삭제합니다. 디스크를 삭제하려면 디스크 탭으로 이동하여 저장소 계정에 포함된 모든 디스크를 삭제합니다. 이미지를 삭제하려면 이미지 탭으로 이동하여 계정에 저장된 모든 이미지를 삭제합니다.
 
 1. [관리 포털](http://manage.windowsazure.com)에서 **저장소**를 클릭합니다.
 
@@ -97,5 +98,4 @@
 	저장소 계정의 이름을 클릭하여 대시보드를 연 다음 **삭제**를 클릭합니다.
 
 3. **예**를 클릭하여 저장소 계정 삭제를 확인합니다.
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

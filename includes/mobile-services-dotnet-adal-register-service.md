@@ -3,7 +3,7 @@
 
 이 섹션에서는 Azure Active Directory에 모바일 서비스를 등록하고 Single Sign-On 가장을 허용하도록 사용 권한을 구성합니다.
 
-1. [Azure Active Directory에 등록하는 방법] 항목을 따라 Azure Active Directory에 응용 프로그램을 등록합니다.
+1. [Azure Active Directory에 등록하는 방법] 항목에 따라 Azure Active Directory에 응용 프로그램을 등록합니다.
 
 2. [Azure 관리 포털]에서, Azure Active Directory 확장으로 다시 이동하고 활성 디렉터리를 클릭합니다.
 
@@ -37,4 +37,4 @@
 
 <!-- URLs. -->
 [Azure Active Directory에 등록하는 방법]: /ko-kr/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
-[Azure 관리 포털]: https://manage.windowsazure.com/
+[Azure 관리 포털]: https://manage.windowsazure.com/<!--HONumber=42-->

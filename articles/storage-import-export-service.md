@@ -1,6 +1,20 @@
-<properties urlDisplayName="Azure Import/Export Service" pageTitle="가져오기/내보내기를 사용하여 Blob 저장소로 데이터 전송| Microsoft Azure" metaKeywords="" description="Blob 저장소로 데이터를 내보내기 위해 Azure 관리 포털에서 가져오기 및 내보내기 작업을 만드는 방법에 대해 알아봅니다." metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="Using the Azure Import/Export Service to Transfer Data to Blob Storage" authors="tamram" manager="adinah" />
+<properties 
+	pageTitle="가져오기/내보내기를 사용하여 Blob 저장소로 데이터 전송| Microsoft Azure" 
+	description="Blob 저장소로 데이터를 내보내기 위해 Azure 관리 포털에서 가져오기 및 내보내기 작업을 만드는 방법에 대해 알아봅니다." 
+	authors="tamram" 
+	manager="adinah" 
+	editor="" 
+	services="storage" 
+	documentationCenter=""/>
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/25/2014" ms.author="tamram" />
+<tags 
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/25/2014" 
+	ms.author="tamram"/>
 
 
 # Microsoft Azure 가져오기/내보내기 서비스를 사용하여 Blob 저장소로 데이터 전송
@@ -14,11 +28,11 @@
 - Azure 관리 포털 사용
 - 서비스에 대한 REST 인터페이스 사용
 
-이 문서에서는 가져오기/내보내기 서비스에 대한 개요를 제공하고 관리 포털에서 가져오기/내보내기 서비스를 사용하는 방법에 대해 설명합니다. REST API에 대한 자세한 내용은 [Azure 가져오기/내보내기 서비스 REST API 참조](http://go.microsoft.com/fwlink/?LinkID=329099)를 참조하세요.
+이 문서에서는 가져오기/내보내기 서비스에 대한 개요를 제공하고 관리 포털에서 가져오기/내보내기 서비스를 사용하는 방법에 대해 설명합니다. REST API에 대한 자세한 내용은 [Azure 가져오기/내보내기 서비스 REST API 참조](http://go.microsoft.com/fwlink/?LinkID=329099)를 확인하세요.
 
 ## 가져오기/내보내기 서비스 개요 ##
 
-Blob 저장소에서 가져오기 또는 내보내기 프로세스를 시작하려면 먼저 *작업*을 만듭니다. 작업은 *가져오기 작업* 또는 *내보내기 작업*이 될 수 있습니다.
+Blob 저장소에서 가져오기 또는 내보내기 프로세스를 시작하려면 먼저  *job*을 만듭니다. 작업은  *import job* 또는  *export job*일 수 있습니다.
 
 - 온-프레미스에 있는 데이터를 Azure 저장소 계정의 Blob으로 전송하려면 가져오기 작업을 만듭니다.
 - 저장소 계정에 Blob으로 현재 저장되어 있는 데이터를 배송받을 하드 드라이브로 전송하려면 내보내기 작업을 만듭니다.
@@ -27,29 +41,26 @@ Blob 저장소에서 가져오기 또는 내보내기 프로세스를 시작하�
 
 가져오기 작업을 위해 발송할 드라이브를 준비하려면 **Microsoft Azure 가져오기/내보내기 도구** 도구를 실행합니다. 이 도구를 사용하면 아래에 설명된 대로 원활하게 드라이브에 데이터를 복사하고, BitLocker로 드라이브의 데이터를 암호화하고, 드라이브 저널 파일을 생성할 수 있습니다.
 
-<div class="dev-callout">
-<strong>참고</strong>
-<p>드라이브의 데이터는 BitLocker 드라이브 암호화를 사용하여 암호화되어야 합니다. 이렇게 하면 전송 중 데이터가 보호됩니다. 내보내기 작업의 경우 사용자에게 드라이브를 다시 발송하기 전에 가져오기/내보내기 서비스에서 데이터를 암호화합니다.</p>
-</div>
+> [AZURE.NOTE] 드라이브의 데이터는 BitLocker 드라이브 암호화를 사용하여 암호화되어야 합니다. 이렇게 하면 전송 중 데이터가 보호됩니다. 내보내기 작업의 경우 사용자에게 드라이브를 다시 발송하기 전에 가져오기/내보내기 서비스에서 데이터를 암호화합니다.
 
-가져오기 작업 또는 내보내기 작업을 만드는 경우 드라이브 제조업체에서 특정 하드 디스크에 할당하는 일련 번호인 *드라이브 ID*도 필요합니다. 드라이브 ID는 드라이브 외부에 표시되어 있습니다. 
+가져오기 작업 또는 내보내기 작업을 만드는 경우 드라이브 제조업체에서 특정 하드 디스크에 할당하는 일련 번호인  *drive ID*도 필요합니다. 드라이브 ID는 드라이브 외부에 표시되어 있습니다. 
 
 <h3>요구 사항 및 범위</h3>
 
 1.	**구독 및 저장소 계정:** 가져오기/내보내기 서비스를 사용하려면 기존 Azure 구독과 하나 이상의 저장소 계정이 있어야 합니다. 각 작업은 하나의 저장소 계정에서만 데이터 전송에 사용될 수 있습니다. 다시 말해, 하나의 작업이 여러 저장소 계정에서 사용될 수 없습니다. 새 저장소 계정 만들기에 대한 자세한 내용은 [저장소 계정을 만드는 방법](../storage-create-storage-account/)을 참조하세요.
 2.	**하드 드라이브:** 3.5인치 SATA II/III 하드 드라이브만 가져오기/내보내기 서비스에서 사용하도록 지원됩니다. 4TB보다 큰 하드 드라이브는 지원되지 않습니다. 가져오기 작업의 경우 드라이브의 첫 번째 데이터 볼륨만 처리됩니다. 데이터 볼륨은 NTFS로 포맷되어 있어야 합니다. SATA II/III USB 어댑터를 사용하여 외부에서 대부분의 컴퓨터에 SATA II/III 디스크를 연결할 수 있습니다.
 3.	**BitLocker 암호화:** 하드 드라이브에 저장된 모든 데이터는 숫자 암호로 보호되는 암호화 키가 포함된 BitLocker를 사용하여 암호화되어야 합니다.
-4.	**Blob 저장소 목표:** 데이터는 블록 Blob 및 페이지 Blob에서 업로드하거나 다운로드할 수 있습니다. 
+4.	**Blob 저장소 목표:** 데이터는 블록 Blob 및 페이지 Blob에서 업로드하거나 다운로드할 수 있습니다.
 5.	**작업 수:** 고객은 저장소 계정별로 최대 20개의 활성 작업을 보유할 수 있습니다.
 6.	**최대 작업 크기:** 작업 크기는 사용되는 하드 드라이브의 용량과 저장소 계정에 저장할 수 있는 데이터의 최대 크기에 따라 결정됩니다. 각 작업에는 10개 이하의 하드 드라이브가 포함될 수 있습니다.
 
-## 관리 포털에서 가져오기 작업 만들기##
+## 관리 포털에서 가져오기 작업 만들기 ##
 
 가져오기 작업을 만들고 저장소 계정으로 가져올 데이터가 포함된 하나 이상의 드라이브가 데이터 센터로 발송됨을 가져오기/내보내기 서비스에 알립니다.
 
 <h3>드라이브 준비</h3>
 
-가져오기 작업을 만들기 전에 Microsoft Azure 가져오기/내보내기 도구로 드라이브를 준비합니다. Microsoft Azure 가져오기/내보내기 도구 사용에 대한 자세한 내용은 [Microsoft Azure 가져오기/내보내기 도구 참조](http://go.microsoft.com/fwlink/?LinkId=329032)를 참조하세요. [Microsoft Azure 가져오기/내보내기 도구](http://go.microsoft.com/fwlink/?LinkID=301900&clcid=0x409) 는 독립 실행형 패키지로 다운로드할 수 있습니다.
+가져오기 작업을 만들기 전에 Microsoft Azure 가져오기/내보내기 도구로 드라이브를 준비합니다. Microsoft Azure 가져오기/내보내기 도구 사용에 대한 자세한 내용은 [Microsoft Azure 가져오기/내보내기 도구 참조](http://go.microsoft.com/fwlink/?LinkId=329032)를 참조하세요. [Microsoft Azure 가져오기/내보내기 도구](http://go.microsoft.com/fwlink/?LinkID=301900&clcid=0x409)를 독립 실행형 패키지로 다운로드할 수 있습니다.
   
 드라이브를 준비하려면 다음 세 단계를 따르세요. 
 
@@ -57,17 +68,17 @@ Blob 저장소에서 가져오기 또는 내보내기 프로세스를 시작하�
 2.	Azure Blob 서비스에서 데이터의 대상 Blob을 식별합니다.
 3.	Microsoft Azure 가져오기/내보내기 도구를 사용하여 하나 이상의 하드 드라이브로 데이터를 복사합니다.
 
-Microsoft Azure 가져오기/내보내기 도구는 각 드라이브가 준비되면 각 드라이브의 *드라이브 저널* 파일을 생성합니다. 드라이브 저널 파일은 드라이브 자체가 아니라 로컬 컴퓨터에 저장됩니다. 가져오기 작업을 만들면 저널 파일을 업로드합니다. 드라이브 저널 파일에는 드라이브 ID, BitLocker 키 및 드라이브에 대한 기타 정보가 포함되어 있습니다.  
+Microsoft Azure 가져오기/내보내기 도구는 각 드라이브가 준비되면 각 드라이브의  *drive journal* 파일을 생성합니다. 드라이브 저널 파일은 드라이브 자체가 아니라 로컬 컴퓨터에 저장됩니다. 가져오기 작업을 만들면 저널 파일을 업로드합니다. 드라이브 저널 파일에는 드라이브 ID, BitLocker 키 및 드라이브에 대한 기타 정보가 포함되어 있습니다.  
 
 <h3>가져오기 작업 만들기</h3>
 
-1.	드라이브 준비가 완료되면 관리 포털의 저장소 계정으로 이동하여 대시보드를 확인합니다.  <strong>간략 상태</strong>에서 <strong>가져오기 작업 만들기</strong>를 클릭합니다. 
+1.	드라이브 준비가 완료되면 관리 포털의 저장소 계정으로 이동하여 대시보드를 확인합니다. <strong>간략 상태</strong>에서 <strong>가져오기 작업 만들기</strong>를 클릭합니다. 
  
 2.	마법사의 1단계에서 드라이브를 준비했으며 사용 가능한 드라이브 저널 파일이 있음을 지정합니다.
  
-3.	2단계에서는 해당 가져오기 작업을 담당하는 사용자의 연락처 정보를 제공합니다. 가져오기 작업에 대한 세부 정보 표시 로그 데이터를 저장하려면 <strong>내 'waimportexport' Blob 컨테이너에 세부 정보 표시 로그 저장</strong>옵션을 선택합니다.
+3.	2단계에서는 해당 가져오기 작업을 담당하는 사용자의 연락처 정보를 제공합니다. 가져오기 작업에 대한 자세한 로그 데이터를 저장하려면 <strong>내 'waimportexport' blob 컨테이너</strong>에 자세한 로그 저장 옵션을 선택합니다.
 
-4.	3단계에서는 드라이브 준비 단계 중 얻은 드라이브 저널 파일을 업로드합니다. 준비한 각 드라이브에 대해 파일을 하나씩 업로드해야 합니다.
+4.	3단계에서는 드라이브 준비 단계 중 얻은 드라이브 저널 파일을 업로드합니다. 준비한 각 드라이브에 파일을 하나씩 업로드해야 합니다.
 
 	![Create import job - Step 3][import-job-03]
 
@@ -85,13 +96,13 @@ Microsoft Azure 가져오기/내보내기 도구는 각 드라이브가 준비�
 
 	작업이 만드는 중, 발송 중 또는 전송 중 상태이면 마법사 2단계에서 택배사 계정 번호를 업데이트할 수도 있습니다. 작업이 포장 중 상태이면 해당 작업에 대한 택배사 계정 번호를 업데이트할 수 없습니다. 
 
-## 관리 포털에서 내보내기 작업 만들기##
+## 관리 포털에서 내보내기 작업 만들기 ##
 
 내보내기 작업을 만들고 저장소 계정에서 드라이브로 데이터를 내보낸 다음 드라이브를 사용자에게 발송할 수 있도록 하나 이상의 빈 드라이브가 데이터 센터로 발송됨을 가져오기/내보내기 서비스에 알립니다.
 
-1. 	내보내기 작업을 만들려면 관리 포털의 저장소 계정으로 이동하여 대시보드를 봅니다. 	 <strong>간략 상태</strong>에서 <strong>내보내기 작업 만들기</strong>를 클릭하고 마법사를 계속 진행합니다.
+1. 	내보내기 작업을 만들려면 관리 포털의 저장소 계정으로 이동하여 대시보드를 봅니다. 	<strong>간략 상태</strong>에서 <strong>내보내기 작업 만들기</strong>를 클릭하고 마법사를 진행합니다.
 
-2. 	2단계에서는 해당 내보내기 작업을 담당하는 사용자의 연락처 정보를 제공합니다. 내보내기 작업에 대한 세부 정보 표시 로그 데이터를 저장하려면 <strong>내 'waimportexport' Blob 컨테이너에 세부 정보 표시 로그 저장</strong>옵션을 선택합니다.
+2. 	2단계에서는 해당 내보내기 작업을 담당하는 사용자의 연락처 정보를 제공합니다. 내보내기 작업에 대한 자세한 로그 데이터를 저장하려면 <strong>내  'waimportexport' blob 컨테이너</strong>에 자세한 로그 저장 옵션을 선택합니다.
 
 3.	3단계에서는 저장소 계정에서 하나 이상의 빈 드라이브로 내보낼 Blob 데이터를 지정합니다. 저장소 계정의 모든 Blob 데이터를 내보내도록 선택하거나 내보낼 Blob 또는 Blob 집합을 지정할 수 있습니다.
 
@@ -122,27 +133,27 @@ Microsoft Azure 가져오기/내보내기 도구는 각 드라이브가 준비�
 			<tr>
 				<td>시작</td>
 				<td>/book</td>
-				<td>접두사 <strong>book으로 시작하는 모든 컨테이너의 Blob을 모두 내보냄</strong></td>
+				<td>접두사 <strong>book</strong>으로 시작하는 모든 컨테이너의 Blob을 모두 내보냄</td>
 			</tr>
 			<tr>
 				<td>시작</td>
 				<td>/music/</td>
-				<td>컨테이너 <strong>music의 모든 Blob을 내보냄</strong></td>
+				<td>컨테이너 <strong>music</strong>의 모든 Blob을 내보냄</td>
 			</tr>
 			<tr>
 				<td>시작</td>
 				<td>/music/love</td>
-				<td>접두사 love로 시작하는 컨테이너 <strong>music의</strong> 모든 Blob을 <strong>내보냄</strong></td>
+				<td>접두사 <strong>love</strong>로 시작하는 컨테이너 <strong>music</strong>의 모든 Blob을 내보냄</td>
 			</tr>
 			<tr>
 				<td>같음</td>
 				<td>$root/logo.bmp</td>
-				<td>루트 컨테이너의 <strong>logo.bmp</strong> Blob을 내보냄</td>
+				<td>루트 컨테이너의 Blob <strong>logo.bmp</strong>를 내보냄</td>
 			</tr>
 			<tr>
 				<td>같음</td>
 				<td>videos/story.mp4</td>
-				<td>루트 컨테이너의 <strong>story.mp4</strong> 컨테이너 <strong>videos의</strong></td>
+				<td>컨테이너 <strong>videos</strong>의 Blob <strong>story.mp4</strong>를 내보냄</td>
 			</tr>
 		</tbody>
 	</table>
@@ -163,7 +174,7 @@ Microsoft Azure 가져오기/내보내기 도구는 각 드라이브가 준비�
 	작업이 만드는 중, 발송 중 또는 전송 중 상태이면 마법사 2단계에서 택배사 계정 번호를 업데이트할 수도 있습니다. 작업이 포장 중 상태이면 해당 작업에 대한 택배사 계정 번호를 업데이트할 수 없습니다. 
 
 
-## 관리 포털에서 작업 상태 추적##
+## 관리 포털에서 작업 상태 추적 ##
 
 관리 포털에서 가져오기 또는 내보내기 작업 상태를 추적할 수 있습니다. 관리 포털에서 저장소 계정으로 이동하여 **가져오기/내보내기** 탭을 클릭합니다. 작업 목록이 페이지에 표시됩니다. 작업 상태, 작업 이름, 작업 유형 또는 추적 번호로 목록을 필터링할 수 있습니다.
 
@@ -210,7 +221,7 @@ Microsoft Azure 가져오기/내보내기 도구는 각 드라이브가 준비�
 
 **가져오기/내보내기 서비스 가격은 얼마입니까?**
 
-- 가격 정보는 [가격 페이지](http://go.microsoft.com/fwlink/?LinkId=329033) 를 참조하세요.
+- 가격 정보는 [가격 정보 페이지](http://go.microsoft.com/fwlink/?LinkId=329033)를 참조하세요.
 
 **데이터를 가져오거나 내보내는 데 소요되는 시간은 얼마입니까?**
 
@@ -223,7 +234,7 @@ Microsoft Azure 가져오기/내보내기 도구는 각 드라이브가 준비�
 	- Anker 68UPSHHDS-BU
 	- Startech SATADOCK22UE 
 
-> [WACOM.NOTE] 위에 나열되지 않은 변환기가 있는 경우 변환기를 통해 Microsoft Azure 가져오기/내보내기 도구를 실행하여 드라이브를 준비하고 지원되는 변환기를 구입하기 전에 해당 변환기가 작동하는지 확인할 수 있습니다.
+> [AZURE.NOTE] 위에 나열되지 않은 변환기가 있는 경우 변환기를 통해 Microsoft Azure 가져오기/내보내기 도구를 실행하여 드라이브를 준비하고 지원되는 변환기를 구입하기 전에 해당 변환기가 작동하는지 확인할 수 있습니다.
 
 **10개가 넘는 드라이브를 가져오거나 내보내려면 어떻게 해야 합니까?**
 
@@ -259,18 +270,15 @@ Microsoft Azure 가져오기/내보내기 도구는 각 드라이브가 준비�
 
 **어떤 택배 서비스가 지원됩니까?**
 
-- 미국 및 유럽 지역에서는 [Federal Express](http://www.fedex.com/us/oadr/) (FedEx)만 지원됩니다. 모든 패키지는 FedEx Ground 또는 FedEx International Economy를 통해 반송됩니다.
+- 미국 및 유럽 지역에서는 [Federal Express](http://www.fedex.com/us/oadr/)(FedEx)만 지원됩니다. 모든 패키지는 FedEx Ground 또는 FedEx International Economy를 통해 반송됩니다.
 
-- 아시아 지역에서는 [DHL](http://www.dhl-welcome.com/Tutorial/) 만 지원됩니다. 모든 패키지는 DHL Express Worldwide를 통해 반환됩니다.
+- 아시아 지역에서는 [DHL](http://www.dhl-welcome.com/Tutorial/)만 지원됩니다. 모든 패키지는 DHL Express Worldwide를 통해 반환됩니다.
 
-	<div class="dev-callout">
-	<strong>중요</strong>
-	<p>Azure 가져오기/내보내기 서비스에 추적 번호를 제공해야 합니다. 그렇지 않으면 작업을 처리할 수 없습니다.</p>
-	</div>
+	> [AZURE.IMPORTANT] Azure 가져오기/내보내기 서비스에 추적 번호를 제공해야 합니다. 그렇지 않으면 작업을 처리할 수 없습니다.
 
 **반환 발송과 관련된 비용이 있습니까?**
 
-- Microsoft는 작업 완료 시 사용자가 제공한 택배사 계정 번호를 사용하여 데이터 센터에서 사용자의 반품 주소로 드라이브를 배송합니다. 데이터 센터 지역의 지원되는 택배사의 택배사 계정 번호를 제공해야 합니다. [FedEx](http://www.fedex.com/us/oadr/) (미국 및 유럽) 또는 [DHL](http://www.dhl-welcome.com/Tutorial/) (아시아) 택배사 계정이 없는 경우 만들 수 있습니다.
+- Microsoft는 작업 완료 시 사용자가 제공한 택배사 계정 번호를 사용하여 데이터 센터에서 사용자의 반품 주소로 드라이브를 배송합니다. 데이터 센터 지역의 지원되는 택배사의 택배사 계정 번호를 제공해야 합니다. 계정 번호가 없으면 [FedEx](http://www.fedex.com/us/oadr/)(미국 및 유럽) 또는 [DHL](http://www.dhl-welcome.com/Tutorial/)(아시아) 택배사 계정을 만들 수 있습니다.
 
 - 반송료는 택배사 계정에 부과되며 택배사에 따라 다릅니다.
 
@@ -288,10 +296,7 @@ Microsoft Azure 가져오기/내보내기 도구는 각 드라이브가 준비�
 
 - 저장소 계정이 있는 지역의 배송지 주소가 제공됩니다. 예를 들어 미국에 거주하며 저장소 계정이 서유럽 데이터 센터에 있는 경우 드라이브 전송을 위해 유럽의 배송지 주소가 제공됩니다.
 
-	<div class="dev-callout">
-	<strong>중요</strong>
-	<p>배송하는 실제 미디어는 국경을 지나야 할 수 있습니다. 실제 미디어와 데이터를 관련 법률에 따라 가져오거나 내보내도록 해야 합니다. 실제 미디어를 배송하기 전에 관리자에게 미디어 및 데이터를 확인된 데이터 센터에 합법적으로 배송할 수 있는지 확인하세요. 이렇게 하면 해당 품목이 시기 적절하게 Microsoft에 도착될 수 있습니다.</p>
-	</div>
+	> [AZURE.IMPORTANT] 배송하는 실제 미디어는 국경을 지나야 할 수 있습니다. 실제 미디어와 데이터를 관련 법률에 따라 가져오거나 내보내도록 해야 합니다. 실제 미디어를 배송하기 전에 관리자에게 미디어 및 데이터를 확인된 데이터 센터에 합법적으로 배송할 수 있는지 확인하세요. 이렇게 하면 해당 품목이 시기 적절하게 Microsoft에 도착될 수 있습니다.
 
 - 패키지를 발송할 때는 [Microsoft Azure 서비스 조건](http://azure.microsoft.com/ko-kr/support/legal/services-terms/)의 조항을 따라야 합니다. 
 
@@ -308,5 +313,4 @@ Microsoft Azure 가져오기/내보내기 도구는 각 드라이브가 준비�
 [import-job-03]: ./media/storage-import-export-service/import-job-03.png
 [export-job-03]: ./media/storage-import-export-service/export-job-03.png
 [export-job-bitlocker-keys]: ./media/storage-import-export-service/export-job-bitlocker-keys.png
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

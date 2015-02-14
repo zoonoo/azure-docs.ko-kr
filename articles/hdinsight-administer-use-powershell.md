@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="HDInsight Administration" pageTitle="Azure PowerShell을 사용하여 HDInsight의 Hadoop 클러스터 관리 | Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure, Hadoop, administration, administer" description="Azure PowerShell을 사용하여 HDInsight에서 Hadoop 클러스터에 대해 관리 작업을 수행하는 방법에 대해 알아봅니다." services="hdinsight" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" title="Manage Hadoop clusters in HDInsight using Azure PowerShell" authors="jgao" />
+<properties 
+	pageTitle="Azure PowerShell을 사용하여 HDInsight의 Hadoop 클러스터 관리 | Azure" 
+	description="Azure PowerShell을 사용하여 HDInsight에서 Hadoop 클러스터에 대해 관리 작업을 수행하는 방법에 대해 알아봅니다." 
+	services="hdinsight" 
+	editor="cgronlun" 
+	manager="paulettm" 
+	authors="mumian" 
+	documentationCenter=""/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/21/2014" ms.author="jgao" />
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="jgao"/>
 
 # Azure PowerShell을 사용하여 HDInsight의 Hadoop 클러스터 관리
 
@@ -10,7 +24,7 @@ Azure PowerShell은 Azure에서 작업의 배포와 관리를 제어 및 자동�
 
 이 문서를 시작하기 전에 다음이 있어야 합니다.
 
-- Azure 구독. Azure는 구독 기반 플랫폼입니다. HDInsight PowerShell cmdlet은 구독을 사용하여 작업을 수행합니다. 구독을 얻는 방법에 대한 자세한 내용은 [구매 옵션][azure-purchase-options], [구성원 제공 항목][azure-member-offers] 또는 [무료 평가판][azure-free-trial]을 참조하세요.
+- Azure 구독. Azure는 구독 기반 플랫폼입니다. HDInsight PowerShell cmdlet은 구독을 사용하여 작업을 수행합니다. 구독을 예약하는 방법에 대한 자세한 내용은 [구매 옵션][azure-purchase-options], [구성원 제공 항목][azure-member-offers] 또는 [무료 평가판][azure-free-trial]을 참조하세요.
 
 - Azure PowerShell이 포함된 워크스테이션. 자세한 내용은 [Azure PowerShell 설치 및 구성][Powershell-install-configure]을 참조하세요.
 
@@ -32,7 +46,7 @@ Azure PowerShell은 Azure에서 작업의 배포와 관리를 제어 및 자동�
 ##<a id="provision"></a> HDInsight 클러스터 프로비전
 HDInsight는 Azure Blob 저장소 컨테이너를 기본 파일 시스템으로 사용합니다. HDInsight 클러스터를 만들려면 먼저 Azure 저장소 계정 및 저장소 컨테이너가 필요합니다. 
 
-[WACOM.INCLUDE [provisioningnote](../includes/hdinsight-provisioning.md)]
+[AZURE.INCLUDE [provisioningnote](../includes/hdinsight-provisioning.md)]
 
 **Azure 저장소 계정을 만들려면**
 
@@ -44,7 +58,7 @@ publishsettings 파일을 가져온 후 다음 명령을 사용하여 저장소 
 
 	New-AzureStorageAccount -StorageAccountName $storageAccountName -Location $location
 
-> [WACOM.NOTE] 저장소 계정은 HDInsight 클러스터와 동일한 데이터 센터에 있어야 합니다. 현재 다음 데이터 센터에서만 HDInsight 클러스터를 프로비전할 수 있습니다.
+> [AZURE.NOTE] 저장소 계정은 HDInsight 클러스터와 동일한 데이터 센터에 있어야 합니다. 현재 다음 데이터 센터에서만 HDInsight 클러스터를 프로비전할 수 있습니다.
 
 ><ul>
 <li>동남아시아</li>
@@ -56,7 +70,7 @@ publishsettings 파일을 가져온 후 다음 명령을 사용하여 저장소 
 
 
 
-관리 포털을 사용하여 Azure 저장소 계정을 만드는 방법에 대한 자세한 내용은 [저장소 계정 만들기, 관리 또는 삭제](../storage-create-storage-account/)를 참조하세요.
+관리 포털을 사용하여 Azure 저장소 계정을 만드는 방법에 대한 자세한 내용은 [저장소 계정 만들기, 관리 또는 삭제]를(../storage-create-storage-account/)참조하세요.
 
 저장소 계정이 이미 있지만 계정 이름과 계정 키를 모르는 경우 다음 명령을 사용하여 정보를 검색할 수 있습니다.
 
@@ -65,7 +79,7 @@ publishsettings 파일을 가져온 후 다음 명령을 사용하여 저장소 
 	# List the keys for a storage account
 	Get-AzureStorageKey <StorageAccountName>
 
-관리 포털을 사용하여 정보를 가져오는 방법에 대한 자세한 내용은 [저장소 계정 만들기, 관리 또는 삭제]의 *방법: 저장소 액세스 키 보기, 복사 및 다시 생성* 섹션(../storage-create-storage-account/)을 참조하세요.
+관리 포털을 사용하여 정보를 가져오는 방법에 대한 자세한 내용은 [저장소 계정 만들기, 관리 또는 삭제]의 *방법: 저장소 액세스 키 보기, 복사 및 다시 생성* 섹션을(../storage-create-storage-account/)참조하세요.
 
 **Azure 저장소 컨테이너를 만들려면**
 
@@ -140,7 +154,7 @@ HDInsight 클러스터에는 다음과 같은 HTTP 웹 서비스가 있습니다
 
 샘플에서 <i>hdiv2</i> 는 HDInsight 클러스터 이름입니다.
 
->[WACOM.NOTE] 액세스 권한을 부여/해지하여 클러스터 사용자 이름 및 암호를 다시 설정합니다.
+>[AZURE.NOTE] 액세스 권한을 부여/해지하여 클러스터 사용자 이름 및 암호를 다시 설정합니다.
 
 Azure 관리 포털을 사용하여 이 작업을 수행할 수도 있습니다. [관리 포털을 사용하여 HDInsight 관리][hdinsight-admin-portal]를 참조하세요.
 
@@ -159,7 +173,7 @@ HDInsight 클러스터 배포는 몇 가지 MapReduce 샘플과 함께 제공됩
 	# Run the job and show the standard error 
 	$wordCountJobDefinition | Start-AzureHDInsightJob -Cluster $clusterName | Wait-AzureHDInsightJob -WaitTimeoutInSeconds 3600 | %{ Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $_.JobId -StandardError}
 	
-> [WACOM.NOTE] *hadoop-examples.jar* 파일은 버전 2.1 HDInsight 클러스터와 함께 제공됩니다. 버전 3.0 HDInsight 클러스터에서는 파일 이름이 *hadoop-mapreduce.jar*로 바뀌었습니다.
+> [AZURE.NOTE] *hadoop-examples.jar*파일은 버전 2.1 HDInsight 클러스터와 함께 제공됩니다. 버전 3.0 HDInsight 클러스터에서는 파일 이름이  *hadoop-mapreduce.jar*로 바뀌었습니다.
 
 WASB 접두사에 대한 자세한 내용은 [HDInsight에 대해 Azure Blob 저장소 사용][hdinsight-storage]을 참조하세요.
 
@@ -220,7 +234,7 @@ MapReduce 작업 개발 및 실행에 대한 자세한 내용은 [HDInsight와 �
 
 
 ##<a id="hive"></a> Hive 작업 제출
-HDInsight 클러스터 배포는 *hivesampletable*이라는 샘플 Hive 테이블과 함께 제공됩니다. HiveQL "show tables;"을 사용하여 클러스터의 Hive 테이블을 나열할 수 있습니다.
+HDInsight 클러스터 배포는  *hivesampletable*이라는 샘플 Hive 테이블과 함께 제공됩니다. HiveQL "show tables;"을 사용하여 클러스터의 Hive 테이블을 나열할 수 있습니다.
 
 **Hive 작업을 제출하려면**
 
@@ -283,5 +297,4 @@ Hive 사용에 대한 자세한 내용은 [HDInsight와 함께 Hive 사용][hdin
 [image-hdi-ps-provision]: ./media/hdinsight-administer-use-powershell/HDI.PS.Provision.png
 
 
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

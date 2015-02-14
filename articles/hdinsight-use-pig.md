@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Use Hadoop Pig in HDInsight" pageTitle="HDInsight에서 Hadoop Pig 사용 | Azure" metaKeywords="" description="HDInsight에서 Pig를 사용하는 방법에 대해 알아봅니다. 이를 위해 Pig Latin 문을 작성하여 응용 프로그램 로그 파일을 분석하고 데이터에 대해 쿼리를 실행하여 분석을 위한 출력을 생성합니다." metaCanonical="" services="hdinsight" documentationCenter="" title="Use Hadoop Pig in HDInsight" authors="jgao" solutions="big data" manager="paulettm" editor="cgronlun" />
+<properties 
+	pageTitle="HDInsight에서 Hadoop Pig 사용 | Azure" 
+	description="HDInsight에서 Pig를 사용하는 방법에 대해 알아봅니다. 이를 위해 Pig Latin 문을 작성하여 응용 프로그램 로그 파일을 분석하고 데이터에 대해 쿼리를 실행하여 분석을 위한 출력을 생성합니다." 
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="mumian" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/25/2014" ms.author="jgao" />
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/25/2014" 
+	ms.author="jgao"/>
 
 
 
@@ -16,7 +30,7 @@
 
 **완료 예상 시간:** 30분
 
-##이 문서의 내용
+## 이 문서의 내용
 
 * [Pig를 사용하는 이유](#usage)
 * [이 자습서에서 수행하는 작업](#what)
@@ -26,7 +40,7 @@
 * [HDInsight .NET SDK를 사용하여 Pig 작업 제출](#sdk)
 * [다음 단계](#nextsteps)
  
-##<a id="usage"></a>Pig를 사용하는 이유
+## <a id="usage"></a>Pig를 사용하는 이유
 빅데이터는 관계형 데이터베이스 및 통계/시각화 패키지를 사용하여 작업하기가 어렵습니다. 데이터 양이 많고 이 데이터를 계산하기 위해 수십, 수백, 심지어 수천 대의 서버에서 병렬로 실행하는 소프트웨어가 있어야 합당한 시간 내에 이 데이터를 계산할 수 있는 경우가 많습니다. Hadoop의 *MapReduce* 프레임워크에서는 대규모 컴퓨터 클러스터에서 구조화된 데이터 및 구조화되지 않은 대량의 데이터를 안정성과 내결함성이 높은 방식으로 병렬 처리하는 응용 프로그램을 작성할 수 있습니다.
 
 ![HDI.Pig.Architecture][image-hdi-pig-architecture]
@@ -41,7 +55,7 @@ Pig Latin 문은 다음과 같은 일반적인 흐름을 따릅니다.
 
 Pig Latin에 대한 자세한 내용은 [Pig Latin 참조 설명서 1][piglatin-manual-1](영문) 및 [Pig Latin 참조 설명서 2][piglatin-manual-2](영문)를 참조하세요.
 
-##<a id="what"></a>이 자습서에서 수행하는 작업
+## <a id="what"></a>이 자습서에서 수행하는 작업
 이 자습서에서는 Apache 로그 파일(*sample.log*)을 분석하여 INFO, DEBUG, TRACE 등의 여러 로그 수준 수를 확인합니다. 이 문서에서 수행할 작업이 아래 두 그림에 표시되어 있습니다. 첫 번째 그림은 sample.log 파일의 코드 조각을 보여 줍니다.
 
 ![Whole File Sample][image-hdi-log4j-sample]
@@ -52,7 +66,7 @@ Pig Latin에 대한 자세한 내용은 [Pig Latin 참조 설명서 1][piglatin-
 
 이 자습서에서 만드는 Pig 작업도 같은 흐름을 따릅니다.
 
-##<a id="data"></a>분석할 데이터 식별
+## <a id="data"></a>분석할 데이터 식별
 
 HDInsight는 Azure Blob 저장소 컨테이너를 Hadoop 클러스터의 기본 파일 시스템으로 사용합니다. 클러스터 프로비전의 일부분으로 일부 샘플 데이터 파일이 Blob 저장소에 추가됩니다. 클러스터에서 Hive 쿼리를 실행하는 데 이러한 샘플 데이터 파일을 사용할 수 있습니다. 원하는 경우 클러스터와 연결된 Blob 저장소 계정에 고유한 데이터 파일을 업로드할 수도 있습니다. 해당 지침은 [HDInsight에 데이터 업로드][hdinsight-upload-data]를 참조하세요. HDInsight에서 Azure Blob 저장소를 사용하는 방법에 대한 자세한 내용은 [HDInsight에서 Azure Blob 저장소 사용][hdinsight-storage]을 참조하세요.
 
@@ -60,7 +74,7 @@ Blob 저장소의 파일에 액세스하기 위한 구문은 다음과 같습니
 
 	wasb[s]://<ContainerName>@<StorageAccountName>.blob.core.windows.net/<path>/<filename>
 
-> [WACOM.NOTE] HDInsight 클러스터 버전 3.0에서는 *wasb://*구문만 지원됩니다. 이전 *asv://* 구문은 HDInsight 2.1 및 1.6 클러스터에서 지원되지만, HDInsight 3.0 클러스터에서는 지원되지 않으며 이후 버전에서도 지원되지 않습니다.
+> [AZURE.NOTE] HDInsight 클러스터 버전 3.0에서는 *wasb://* 구문만 지원됩니다. 이전 *asv://* 구문은 HDInsight 2.1 및 1.6 클러스터에서 지원되지만, HDInsight 3.0 클러스터에서는 지원되지 않으며 이후 버전에서도 지원되지 않습니다.
 
 기본 파일 시스템 컨테이너에 저장된 파일은 HDInsight에서 다음 URI를 사용하여 액세스할 수도 있습니다(sample.log를 예로 사용함).  이 파일은 이 자습서에서 사용되는 데이터 파일입니다.
 
@@ -77,7 +91,7 @@ Blob 저장소의 파일에 액세스하기 위한 구문은 다음과 같습니
 
 
 
-##<a id="understand"></a> Pig Latin 이해
+## <a id="understand"></a> Pig Latin 이해
 
 이 섹션에서는 일부 Pig Latin 문을 개별적으로 검토한 다음 문을 실행한 후의 결과를 검토합니다. 다음 섹션에서는 PowerShell을 실행하여 샘플 로그 파일 분석을 위해 Pig 문을 함께 실행합니다. 개별 Pig Latin 문은 HDInsight 클러스터에 대해 직접 실행해야 합니다.
 
@@ -98,7 +112,7 @@ Blob 저장소의 파일에 액세스하기 위한 구문은 다음과 같습니
 		grunt> LOGS = LOAD 'wasb:///example/data/sample.log';
 		grunt> DUMP LOGS;
 	
-	The output is similar to the following:
+	다음과 유사하게 출력됩니다.
 	
 		(2012-02-05 19:23:50 SampleClass5 [TRACE] verbose detail for id 313393809)
 		(2012-02-05 19:23:50 SampleClass6 [DEBUG] detail for id 536603383)
@@ -185,7 +199,7 @@ Blob 저장소의 파일에 액세스하기 위한 구문은 다음과 같습니
 	 	(ERROR,6)
 		(FATAL,2)
 
-##<a id="powershell"></a>PowerShell을 사용하여 Pig 작업 제출
+## <a id="powershell"></a>PowerShell을 사용하여 Pig 작업 제출
 
 이 섹션에서는 PowerShell cmdlet 사용 지침을 설명합니다. 이 섹션을 진행하기 전에 먼저 로컬 환경을 설정하고 Azure 연결을 구성해야 합니다. 자세한 내용은 [Azure HDInsight 시작][hdinsight-get-started] 및 [PowerShell을 사용하여 HDInsight 관리][hdinsight-admin-powershell]를 참조하세요.
 
@@ -200,7 +214,7 @@ Blob 저장소의 파일에 액세스하기 위한 구문은 다음과 같습니
 
 	Azure 계정 자격 증명을 입력하라는 메시지가 표시됩니다. 구독 연결을 추가하는 이 메서드의 시간이 초과하고 12시간 후에 cmdlet을 다시 실행해야 합니다. 
 
-	> [WACOM.NOTE] Azure 구독이 여러 개이고 기본 구독을 사용하지 않으려는 경우. <strong>Select-AzureSubscription</strong> cmdlet을 사용하여 현재 구독을 선택합니다.
+	> [AZURE.NOTE] 여러 Azure 구독이 있는 경우 기본 구독이 사용하려는 구독이 아니면 <strong>Select-AzureSubscription</strong> cmdlet을 사용하여 현재 구독을 선택합니다.
 2. 스크립트 창에서 다음 줄을 복사하여 붙여 넣습니다.
 
 		$clusterName = "<HDInsightClusterName>" 	#Specify the cluster name
@@ -242,7 +256,7 @@ Blob 저장소의 파일에 액세스하기 위한 구문은 다음과 같습니
 		Write-Host "Display the standard output ..." -ForegroundColor Green
 		Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $pigJob.JobId -StandardOutput
 
-	> [WACOM.NOTE] 다음 스크린샷에서 Get-AzureHDInsightJobOut cmdlet 중 하나는 출력을 간단히 나타내기 위해 주석으로 처리되었습니다.   
+	> [AZURE.NOTE] 다음 스크린샷에서 Get-AzureHDInsightJobOut cmdlet 중 하나는 출력을 간단히 나타내기 위해 주석으로 처리되었습니다.   
 
 7. **F5** 키를 눌러 스크립트를 실행합니다.
 
@@ -251,7 +265,7 @@ Blob 저장소의 파일에 액세스하기 위한 구문은 다음과 같습니
 	Pig 작업은 다양한 로그 종류의 빈도를 계산합니다.
 
 
-##<a id="sdk"></a>HDInsight .NET SDK를 사용하여 Pig 작업 제출
+## <a id="sdk"></a>HDInsight .NET SDK를 사용하여 Pig 작업 제출
 
 다음 단계에 따라 C# 응용 프로그램을 사용하여 Pig 작업을 제출합니다.   Hadoop 작업 제출을 위한 C# 응용 프로그램을 만드는 방법은 [프로그래밍 방식으로 Hadoop 작업 제출][hdinsight-submit-jobs]을 참조하세요.
 
@@ -354,7 +368,7 @@ Blob 저장소의 파일에 액세스하기 위한 구문은 다음과 같습니
 		    }
 		}
 
-##<a id="nextsteps"></a>다음 단계
+## <a id="nextsteps"></a>다음 단계
 
 Pig를 사용하여 데이터를 분석할 수 있지만, HDInsight에 포함된 다른 언어도 유용할 수 있습니다. Hive는 HDInsight에 저장된 데이터를 손쉽게 쿼리할 수 있는 SQL과 유사한 쿼리 언어를 제공하며, Java로 작성된 MapReduce 작업은 복잡한 데이터를 분석할 수 있게 합니다. 자세한 내용은 다음을 참조하세요.
 
@@ -390,4 +404,4 @@ Pig를 사용하여 데이터를 분석할 수 있지만, HDInsight에 포함된
 [image-hdi-pig-powershell]: ./media/hdinsight-use-pig/hdi.pig.powershell.png
 [image-hdi-pig-architecture]: ./media/hdinsight-use-pig/HDI.Pig.Architecture.png
 
-<!--HONumber=35.2-->
+<!--HONumber=42-->

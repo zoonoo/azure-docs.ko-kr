@@ -56,7 +56,8 @@ Java용 Azure 라이브러리는 [Apache 라이선스 버전 2.0][라이선스](
 
 
 
-`<버전>` 요소 내에서 *n.n.n*을 유효한 버전 번호로 바꿉니다. 버전 번호는 [Maven의 Azure 라이브러리 리포지토리](http://go.microsoft.com/fwlink/?LinkID=286274)에서 얻을 수 있습니다.
+`<version>` 요소 내에서  *n.n.n*을 유효한 버전 번호로 바꿉니다. 버전 번호는 [Maven의 Azure 라이브러리 리포지토리](http://go.microsoft.com/fwlink/?LinkID=286274)에서 얻을 수 있습니다.
 
 [라이선스]: http://www.apache.org/licenses/LICENSE-2.0.html
 [zip 다운로드]:  http://go.microsoft.com/fwlink/?LinkId=253887
+<!--HONumber=42-->

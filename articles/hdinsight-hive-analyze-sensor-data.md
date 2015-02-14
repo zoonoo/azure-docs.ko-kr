@@ -1,6 +1,20 @@
-﻿<properties title="Analyzing sensor data using Hive with HDInsight" pageTitle="Hive 및 Microsoft Azure HDInsight(Hadoop)를 사용하여 센서 데이터 분석" description="Hive 및 Excel을 사용하여 HDInsight(Hadoop)에서 센서 데이터를 분석 및 시각화하는 방법 알아보기" metaKeywords="Azure hdinsight hive, Azure hdinsight hive sensor, azure hadoop hive, azure hadoop sensor, azure hadoop excel, azure hdinsight excel" services="hdinsight" solutions="" documentationCenter="big-data" authors="larryfr" videoId="" scriptId="" manager="paulettm" editor="cgronlun"/>
+﻿<properties 
+	pageTitle="Hive 및 Microsoft Azure HDInsight(Hadoop)를 사용하여 센서 데이터 분석" 
+	description="Hive와 Excel을 사용하여 HDInsight(Hadoop)에서 센서 데이터를 분석 및 시각화하는 방법에 대해 알아봅니다." 
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="blackmist" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/30/2014" ms.author="larryfr" />
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/30/2014" 
+	ms.author="larryfr"/>
 
 #HDInsight와 함께 Hive를 사용하여 센서 데이터 분석
 
@@ -17,11 +31,11 @@ HDInsight(Hadoop)에서 Hive를 사용하여 센서 데이터를 분석한 다�
 
 ##필수 조건:
 
-* HDInsight(Hadoop) 클러스터 - 클러스터 만들기에 대한 자세한 내용은 [HDInsight에서 Hadoop 클러스터 프로비전](/ko-kr/documentation/articles/hdinsight-provision-clusters/) 을 참조하세요.
+* HDInsight(Hadoop) 클러스터 - 클러스터를 만드는 방법에 대한 자세한 내용은 [HDInsight에서 Hadoop 클러스터 프로비전](/ko-kr/documentation/articles/hdinsight-provision-clusters/)을 참조하세요.
 
 * Microsoft Excel 2013
 
-	> [WACOM.NOTE] Microsoft Excel은 현재 Windows에서만 사용할 수 있는 [Power View](https://support.office.com/en-US/Article/Power-View-Explore-visualize-and-present-your-data-98268d31-97e2-42aa-a52b-a68cf460472e?ui=en-US&rs=en-US&ad=US)를 통해 데이터 시각화에 사용됩니다.
+	> [AZURE.NOTE] Microsoft Excel은 현재 Windows에서만 제공되는 [Power View](https://support.office.com/ko-kr/Article/Power-View-Explore-visualize-and-present-your-data-98268d31-97e2-42aa-a52b-a68cf460472e?ui=ko-kr&rs=ko-kr&ad=US)를 사용한 데이터 시각화에 사용됩니다.
 
 * [Microsoft Hive ODBC 드라이버](http://www.microsoft.com/ko-kr/download/details.aspx?id=40886)
 
@@ -36,5 +50,4 @@ HDInsight(Hadoop)에서 Hive를 사용하여 센서 데이터를 분석한 다�
 2. 그러면 열리는 웹 페이지에서 **시작 갤러리** 탭을 클릭하고 **샘플** 범주에서 **웹 사이트 로그 분석** 샘플을 클릭합니다.
 
 3. 웹 페이지에서 제공되는 지침에 따라 샘플을 완료합니다.
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

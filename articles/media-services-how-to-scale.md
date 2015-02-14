@@ -1,29 +1,42 @@
-﻿<properties urlDisplayName="How to scale" pageTitle="미디어 서비스를 확장하는 방법 | Azure 설명서" metaKeywords="" description="계정에서 프로비전할 주문형 스트리밍 예약 단위 및 인코딩 예약 단위의 수를 지정하여 미디어 서비스를 확장하는 방법에 대해 알아봅니다." metaCanonical="" services="media-services" documentationCenter="" title="How to Scale a Media Service" authors="juliako" solutions="" manager="dwrede" editor="" />
+<properties 
+	pageTitle="미디어 서비스를 확장하는 방법 | Azure 설명서" 
+	description="계정에서 프로비전할 주문형 스트리밍 예약 단위 및 인코딩 예약 단위의 수를 지정하여 미디어 서비스를 확장하는 방법에 대해 알아봅니다." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako" />
+<tags 
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/30/2014" 
+	ms.author="juliako"/>
 
 
 
 
 
-#미디어 서비스를 확장하는 방법  
+# 미디어 서비스를 확장하는 방법  
 
-[WACOM.INCLUDE [disclaimer](../includes/disclaimer.md)]
+[AZURE.INCLUDE [고지 사항](../includes/disclaimer.md)]
 
 
-계정에서 프로비전할 **주문형 스트리밍 예약 단위** 및 **인코딩 예약 단위**의 수를 지정하여 미디어 서비스를 확장할 수 있습니다. 
+계정에서 프로비전할 **주문형 스트리밍 예약 단위** alc **인코딩 예약 단위**의 수를 지정하여 미디어 서비스를 확장할 수 있습니다. 
 
 
 <h2>주문형 스트리밍 예약 단위</h2>
 
-주문형 스트리밍 예약 단위는 200Mbps의 증분으로 구입할 수 있는 전용 송신 용량 및 [동적 패키징 기능](http://go.microsoft.com/fwlink/?LinkId=276874)(영문)이 현재 포함된 추가 기능을 제공합니다. 기본적으로 주문형 스트리밍은 다른 모든 사용자와 서버 리소스(예: 계산, 송신 기능 등)가 공유되는 공유 인스턴스 모델로 구성되어 있습니다. 주문형 스트리밍 처리량을 개선하려면 주문형 스트리밍 예약 단위를 구입하는 것이 좋습니다. 
+주문형 스트리밍 예약 단위는 200Mbps의 증분으로 구입할 수 있는 전용 송신 용량 및 동적 패키징 기능  및 [동적 패키징 기능](http://go.microsoft.com/fwlink/?LinkId=276874)이 현재 포함된 추가 기능을 제공합니다. 기본적으로 주문형 스트리밍은 다른 모든 사용자와 서버 리소스(예: 계산, 송신 기능 등)가 공유되는 공유 인스턴스 모델로 구성되어 있습니다. 주문형 스트리밍 처리량을 개선하려면 주문형 스트리밍 예약 단위를 구입하는 것이 좋습니다. 
 
 주문형 스트리밍 예약 단위의 수를 변경하려면 다음을 수행합니다.
 
 1. [관리 포털](https://manage.windowsazure.com/)에서 **미디어 서비스**를 클릭합니다. 그런 다음 미디어 서비스의 이름을 클릭합니다.
 
 2. 스트리밍 끝점 페이지를 선택합니다. 그리고 수정할 스트리밍 끝점을 클릭합니다.
-
 
 3. 스트리밍 단위 수를 지정하려면 크기 조정 탭을 선택하고 **예약된 용량** 슬라이더를 움직입니다.
 
@@ -71,8 +84,8 @@
 
 지원 티켓을 열려면 다음을 수행합니다. 
 
-1. [관리 포털]에서 Azure 계정으로 로그인합니다(http://manage.windowsazure.com).
-2. [지원]으로 이동합니다(http://www.windowsazure.com/ko-kr/support/contact/).
+1. [관리 포털](http://manage.windowsazure.com)에서 Azure 계정으로 로그인합니다.
+2. [지원](http://www.windowsazure.com/ko-kr/support/contact/)으로 이동합니다.
 3. "지원 받기"를 클릭합니다.
 4. 사용 중인 구독을 선택합니다.
 5. 지원 유형으로 "기술적"을 선택합니다.
@@ -92,5 +105,4 @@
 
 
 
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

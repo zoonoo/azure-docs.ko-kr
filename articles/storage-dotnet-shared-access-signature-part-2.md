@@ -1,11 +1,25 @@
-<properties urlDisplayName="" pageTitle="Blob 서비스를 통해 SAS 만들기 및 사용 | Microsoft Azure" metaKeywords="Azure blob, shared access signatures, stored access policy" description="Blob 서비스를 통해 공유 액세스 서명을 생성하고 사용하는 방법에 대해 알아봅니다." metaCanonical="" services="storage" documentationCenter="" title="Part 2: Create and Use a SAS with the Blob Service" solutions="" authors="tamram" manager="adinah" editor="cgronlun" />
+<properties 
+	pageTitle="Blob 서비스를 통해 SAS 만들기 및 사용 | Microsoft Azure" 
+	description="Blob 서비스를 통해 공유 액세스 서명을 생성하고 사용하는 방법에 대해 알아봅니다." 
+	services="storage" 
+	documentationCenter="" 
+	authors="tamram" 
+	manager="adinah" 
+	editor="cgronlun"/>
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/10/2014" ms.author="tamram" />
+<tags 
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="11/10/2014" 
+	ms.author="tamram"/>
 
 
 # 공유 액세스 서명, 2부: Blob 서비스를 통해 SAS 만들기 및 사용
 
-이 자습서의 [1부](../storage-dotnet-shared-access-signature-part-1/) 에서는 SAS(공유 액세스 서명)에 대해 설명하고 SAS 사용을 위한 모범 사례를 살펴보았습니다. 2부에서는 Azure Blob 서비스를 사용하여 공유 액세스 서명을 생성한 다음 사용하는 방법에 대해 살펴봅니다. 예제는 C#으로 작성되었으며 Azure Storage Client Library for .NET을 사용합니다. 시나리오에서는 공유 액세스 서명 작업의 다음과 같은 측면을 다룹니다.
+이 자습서의 [1부](../storage-dotnet-shared-access-signature-part-1/)에서는 SAS(공유 액세스 서명)에 대해 설명하고 SAS 사용을 위한 모범 사례를 살펴보았습니다. 2부에서는 Azure Blob 서비스를 사용하여 공유 액세스 서명을 생성한 다음 사용하는 방법에 대해 살펴봅니다. 예제는 C#으로 작성되었으며 Azure Storage Client Library for .NET을 사용합니다. 시나리오에서는 공유 액세스 서명 작업의 다음과 같은 측면을 다룹니다.
 
 - 컨테이너에서 공유 액세스 서명 생성
 - Blob에서 공유 액세스 서명 생성
@@ -17,7 +31,7 @@
 
 # 1부: 공유 액세스 서명을 생성하는 콘솔 응용 프로그램 만들기 #
 
-먼저 Azure Storage Client Library for .NET을 설치했는지 확인합니다. 클라이언트 라이브러리에 대한 최신 어셈블리가 들어 있는 [NuGet 패키지](http://nuget.org/packages/WindowsAzure.Storage/ "NuGet package") 를 설치할 수 있습니다. 이는 최신 수정이 설치되어 있는지 확인하는 권장 방법입니다. 클라이언트 라이브러리를 [Azure SDK for .NET](http://www.windowsazure.com/ko-kr/downloads/)최신 버전의 일부로 다운로드할 수도 있습니다.
+먼저 Azure Storage Client Library for .NET을 설치했는지 확인합니다. 클라이언트 라이브러리에 대한 최신 어셈블리가 들어 있는 [NuGet 패키지NuGet 패키지](http://nuget.org/packages/WindowsAzure.Storage/ "NuGet package")를 설치할 수 있습니다. 이는 최신 수정이 설치되어 있는지 확인하는 권장 방법입니다. 클라이언트 라이브러리를 [Azure SDK for .NET](http://www.windowsazure.com/ko-kr/downloads/) 최신 버전의 일부로 다운로드할 수도 있습니다.
 
 Visual Studio에서 새 Windows 콘솔 응용 프로그램을 만들고 이름을 **GenerateSharedAccessSignatures**로 지정합니다. 다음 중 한 가지 방법을 사용하여 **Microsoft.WindowsAzure.Configuration.dll** 및 **Microsoft.WindowsAzure.Storage.dll**에 참조를 추가합니다.
 
@@ -236,7 +250,6 @@ Blob을 만들고 공유 액세스 서명을 생성하는 새 메서드를 추�
 
 **Main()** 메서드는 전체적으로 다음과 같이 표시되어야 합니다. 이 메서드를 실행하여 콘솔 창에 공유 액세스 서명 URI를 쓴 다음 URI를 복사하여 이 자습서의 2부에서 사용할 텍스트 파일에 붙여넣습니다.    
 
-
     static void Main(string[] args)
     {
 	    //Parse the connection string and return a reference to the storage account.
@@ -395,7 +408,7 @@ Program.cs에 다음 메서드를 추가합니다.
 	}
 
 
-컨테이너에서 만든 공유 액세스 서명을 모두 사용하여 **UseContainerSAS()** 를 호출하도록 **Main()** 메서드를 업데이트합니다. 
+컨테이너에서 만든 공유 액세스 서명을 모두 사용하여 **UseContainerSAS()** 를 호출하도록 **Main()** 메서드를 업데이트합니다.
 
 
 	static void Main(string[] args)
@@ -494,7 +507,7 @@ Program.cs에 다음 메서드를 추가합니다.
 	}
 
 
-Blob에서 만든 공유 액세스 서명을 모두 사용하여 **UseBlobSAS()를 호출하도록 **Main()** 메서드를 ** 업데이트합니다.
+Blob에서 만든 공유 액세스 서명을 모두 사용하여 **UseBlobSAS()**를 호출하도록 **Main()** 메서드를 업데이트합니다.
 
 	static void Main(string[] args)
 	{
@@ -522,14 +535,13 @@ Blob에서 만든 공유 액세스 서명을 모두 사용하여 **UseBlobSAS()�
 
 [공유 액세스 서명, 1부: SAS 모델 이해](../storage-dotnet-shared-access-signature-part-1/)
 
-[Azure 저장소 리소스에 대한 액세스 관리](http://msdn.microsoft.com/en-us/library/windowsazure/ee393343.aspx)
+[Azure 저장소 리소스에 대한 액세스 관리](http://msdn.microsoft.com/ko-kr/library/windowsazure/ee393343.aspx)
 
-[공유 액세스 서명을 사용하여 액세스 위임(REST API)](http://msdn.microsoft.com/en-us/library/windowsazure/ee395415.aspx)
+[공유 액세스 서명을 사용하여 액세스 위임(REST API)](http://msdn.microsoft.com/ko-kr/library/windowsazure/ee395415.aspx)
 
 [테이블 및 큐 SAS 소개](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)
 
 [sas-console-output-1]: ./media/storage-dotnet-shared-access-signature-part-2/sas-console-output-1.PNG
 [sas-console-output-2]: ./media/storage-dotnet-shared-access-signature-part-2/sas-console-output-2.PNG
 
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

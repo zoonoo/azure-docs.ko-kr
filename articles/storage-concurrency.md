@@ -1,6 +1,20 @@
-﻿<properties title="Managing Concurrency in Microsoft Azure Storage" pageTitle="required" description="Blob, 큐, 테이블 및 파일 서비스의 동시성을 관리하는 방법" metaKeywords="Optional" services="Optional" solutions="Optional" documentationCenter="Optional" authors="tamram" manager="adinah" videoId="Optional" scriptId="Optional" />
+<properties 
+	pageTitle="필수" 
+	description="Blob, 큐, 테이블 및 파일 서비스의 동시성을 관리하는 방법에 대해 알아봅니다." 
+	services="storage" 
+	documentationCenter="" 
+	authors="tamram" 
+	manager="adinah" 
+	editor=""/>
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="10/08/2014" ms.author="tamram" />
+<tags 
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="10/08/2014" 
+	ms.author="tamram"/>
 
 #Microsoft Azure 저장소에서 동시성 관리
 최신 인터넷 기반 응용 프로그램에서는 대개 여러 사용자가 데이터를 동시에 보고 업데이트합니다. 이로 인해 응용 프로그램 개발자는 최종 사용자에게 예측 가능한 환경을 제공하는 방법, 특히 여러 사용자가 같은 데이터를 업데이트할 수 있는 시나리오를 신중하게 고려해야 합니다. 개발자가 일반적으로 고려하는 주요 데이터 동시성 전략에는 다음의 세 가지가 있습니다.  
@@ -65,7 +79,7 @@ Azure 저장소 서비스는 세 가지 전략을 모두 지원하지만 특히 
 	        throw;
 	}  
 
-저장소 서비스는 **If-Modified-Since**, **If-Unmodified-Since** 및 **If-None-Match**와 같은 추가 조건부 헤더 및 이러한 헤더의 조합도 지원합니다. 자세한 내용은 MSDN의 [Blob 서비스 작업의 조건부 헤더 지정](http://msdn.microsoft.com/ko-kr/library/dd179371.aspx) 을 참조하세요.  
+저장소 서비스는 **If-Modified-Since**, **If-Unmodified-Since** 및 **If-None-Match**와 같은 추가 조건부 헤더 및 이러한 헤더의 조합도 지원합니다. 자세한 내용은 MSDN의 [Blob 서비스 작업의 조건부 헤더 지정](http://msdn.microsoft.com/ko-kr/library/dd179371.aspx)을 참조하세요.  
 
 다음 표에는 요청에서 **If-Match**와 같은 조건부 헤더를 수락하고 응답에서 ETag 값을 반환하는 컨테이너 작업이 요약되어 있습니다.  
 
@@ -74,11 +88,11 @@ Azure 저장소 서비스는 세 가지 전략을 모두 지원하지만 특히 
 컨테이너 만들기|	예|	아니요|
 컨테이너 속성 가져오기|	예|	아니요|
 컨테이너 메타데이터 가져오기|	예|	아니요|
-컨테이너 메타데이터 설정|	예|	예|
+컨테이너 메타데이터 설정|	예|	아니요|
 컨테이너 ACL 가져오기|	예|	아니요|
-컨테이너 ACL 설정|	예|	예(*)|
+컨테이너 ACL 설정|	예|	아니요(*)|
 컨테이너 삭제|	아니요|	예|
-컨테이너 임대|	예|	예|
+컨테이너 임대|	예|	아니요|
 Blob 나열|	아니요|	아니요  
 
 (*) SetContainerACL이 정의하는 권한은 캐시되며 이러한 권한에 대한 업데이트가 전파되려면 30초가 걸립니다. 이 시간 동안에는 업데이트의 일관성이 보장되지 않습니다.  
@@ -104,10 +118,10 @@ Blob 삭제|	아니요|	예|
 페이지 배치|	예|	예|
 페이지 범위 가져오기|	예|	예
 
-(*) Blob 임대에서는 Blob의 ETag가 변경되지 않습니다.  
+(*) (*) Blob 임대에서는 Blob의 ETag가 변경되지 않습니다.  
 
 ##Blob에 대한 비관적 동시성
-배타적으로 사용하기 위해 Blob을 잠그려면 Blob에 대해 [임대](http://msdn.microsoft.com/ko-kr/library/azure/ee691972.aspx) 를 획득할 수 있습니다. 임대를 획득하는 경우 임대에 필요한 기간을 지정합니다. 이 기간은 15초에서 60초 사이이거나 배타적 잠금 상태가 되는 무한일 수 있습니다. 유한 임대는 갱신하여 연장할 수 있으며 완료된 임대는 해제할 수 있습니다. Blob 서비스는 만료된 유한 임대를 자동으로 해제합니다.  
+단독 사용을 위해 Blob를 잠그려는 경우 Blob에 대한 [임대](http://msdn.microsoft.com/ko-kr/library/azure/ee691972.aspx)를 획득할 수 있습니다. 임대를 획득하는 경우 임대에 필요한 기간을 지정합니다. 이 기간은 15초에서 60초 사이이거나 배타적 잠금 상태가 되는 무한일 수 있습니다. 유한 임대는 갱신하여 연장할 수 있으며 완료된 임대는 해제할 수 있습니다. Blob 서비스는 만료된 유한 임대를 자동으로 해제합니다.  
 
 임대를 사용하면 배타적 쓰기/공유 읽기, 배타적 쓰기/배타적 읽기, 공유 쓰기/배타적 읽기 등의 다양한 동기화 전략을 지원할 수 있습니다. 임대가 있는 상태에서 저장소 서비스가 배타적 쓰기(배치, 설정 및 삭제 작업)를 강제로 수행하지만 읽기 작업에 대해 독점성을 보장하는 경우 개발자는 모든 클라이언트 응용 프로그램에서 임대 ID를 사용하고 한 번에 한 클라이언트만 유효한 임대 ID를 사용하도록 해야 합니다. 임대 ID를 포함하지 않는 읽기 작업에서는 공유 읽기가 수행됩니다.  
 
@@ -138,7 +152,7 @@ Blob 삭제|	아니요|	예|
 	        throw;
 	}  
 
-임대 ID를 전달하지 않고 임대한 Blob에 대해 쓰기 작업을 시도하면 요청이 실패하고 412 오류가 발생합니다. **UploadText** 메서드를 호출하기 전에 임대가 만료되었는데 임대 ID를 계속 전달하는 경우에도 요청이 실패하고 **412** 오류가 발생합니다. 임대 만료 시간 및 임대 ID 관리에 대한 자세한 내용은 [Blob 임대](http://msdn.microsoft.com/ko-kr/library/azure/ee691972.aspx) REST 설명서를 참조하세요.  
+임대 ID를 전달하지 않고 임대한 Blob에 대해 쓰기 작업을 시도하면 요청이 실패하고 412 오류가 발생합니다. **UploadText** 메서드를 호출하기 전에 임대가 만료되었는데 임대 ID를 계속 전달하는 경우에도 요청이 실패하고 **412** 오류가 발생합니다. 임대 만료 시간 및 임대 ID를 관리하는 방법에 대한 자세한 내용은 [Blob 임대](http://msdn.microsoft.com/ko-kr/library/azure/ee691972.aspx) REST 문서를 참조하세요.  
 
 다음 Blob 작업에서는 임대를 사용하여 비관적 동시성을 관리할 수 있습니다.  
 
@@ -161,7 +175,7 @@ Blob 삭제|	아니요|	예|
 -	Blob 임대  
 
 ##컨테이너에 대한 비관적 동시성
-컨테이너에 대해 임대를 사용하면 배타적 쓰기/공유 읽기, 배타적 쓰기/배타적 읽기, 공유 쓰기/배타적 읽기 등 Blob에서와 같은 동기화 전략을 지원할 수 있습니다. 그러나 Blob과 달리 저장소 서비스에서는 삭제 작업에 대해서만 독점성을 적용합니다. 임대가 활성 상태인 컨테이너를 삭제하려면 클라이언트가 삭제 요청에 활성 임대 ID를 포함해야 합니다. 기타 모든 컨테이너 작업은 임대 ID를 포함하지 않아도 임대한 컨테이너에서 성공합니다. 이 경우 해당 작업은 공유 작업입니다. 업데이트(배치 또는 설정) 또는 읽기 작업에서 독점성이 필요한 경우 개발자는 모든 클라이언트가 임대 ID를 사용하고 한 번에 한 클라이언트만 유효한 임대 ID를 사용하도록 해야 합니다.  
+컨테이너에 대해 임대를 사용하면 배타적 쓰기/공유 읽기, 배타적 쓰기/배타적 읽기, 공유 쓰기/배타적 읽기 등 Blob에서와 같은 동기화 전략을 지원할 수 있습니다. 그러나 Blob와 달리 저장소 서비스에서는 삭제 작업에 대해서만 독점성을 적용합니다. 임대가 활성 상태인 컨테이너를 삭제하려면 클라이언트가 삭제 요청에 활성 임대 ID를 포함해야 합니다. 기타 모든 컨테이너 작업은 임대 ID를 포함하지 않아도 임대한 컨테이너에서 성공합니다. 이 경우 해당 작업은 공유 작업입니다. 업데이트(배치 또는 설정) 또는 읽기 작업에서 독점성이 필요한 경우 개발자는 모든 클라이언트가 임대 ID를 사용하고 한 번에 한 클라이언트만 유효한 임대 ID를 사용하도록 해야 합니다.  
 
 다음 컨테이너 작업에서는 임대를 사용하여 비관적 동시성을 관리할 수 있습니다.  
 
@@ -192,7 +206,7 @@ Blob 삭제|	아니요|	예|
 
 Blob 서비스와 달리 테이블 서비스에서는 클라이언트가 업데이트 요청에 **If-Match** 헤더를 포함해야 합니다. 그러나 클라이언트가 요청에서 **If-Match** 헤더를 와일드카드 문자(*)로 설정하는 경우 무조건 업데이트(마지막 작성자의 업데이트 적용 전략)를 강제 적용하고 동시성 검사를 무시할 수 있습니다.  
 
-다음 C# 코드 조각은 이전에 만들거나 검색한 customer 엔터티의 메일 주소를 업데이트하는 작업을 보여 줍니다. 초기 삽입 또는 검색 작업에서는 ETag 값을 customer 개체에 저장합니다. 이 샘플은 바꾸기 작업을 실행할 때 같은 개체 인스턴스를 사용하므로 ETag 값을 테이블 서비스에 자동으로 다시 보내기 때문에 서비스가 동시성 위반을 검사할 수 있습니다. 다른 프로세스가 테이블 저장소에서 엔터티를 업데이트한 경우 서비스는 HTTP 412(전재 조건 실패) 상태 메시지를 반환합니다. 전체 샘플은 [여기](http://code.msdn.microsoft.com/windowsazure/Managing-Concurrency-using-56018114)에서 다운로드할 수 있습니다.  
+다음 C# 코드 조각에서는 이전에 만들거나 검색한 customer 엔터티의 전자 메일 주소를 업데이트하는 작업을 보여 줍니다. 초기 삽입 또는 검색 작업에서는 ETag 값을 customer 개체에 저장합니다. 이 샘플은 바꾸기 작업을 실행할 때 같은 개체 인스턴스를 사용하므로 ETag 값을 테이블 서비스에 자동으로 다시 보내기 때문에 서비스가 동시성 위반을 검사할 수 있습니다. 다른 프로세스가 테이블 저장소에서 엔터티를 업데이트한 경우 서비스는 HTTP 412(전재 조건 실패) 상태 메시지를 반환합니다. 전체 샘플은 [여기](http://code.msdn.microsoft.com/windowsazure/Managing-Concurrency-using-56018114)에서 다운로드할 수 있습니다.
 
 	try
 	{
@@ -209,7 +223,7 @@ Blob 서비스와 달리 테이블 서비스에서는 클라이언트가 업데�
 	        throw; 
 	}  
 
-동시성 검사를 명시적으로 사용하지 않도록 설정하려면 바꾸기 작업을 실행하기 전에**employee ** 개체의 **ETag **속성을 "*"로 설정해야 합니다  
+동시성 검사를 명시적으로 사용하지 않도록 설정하려면 바꾸기 작업을 실행하기 전에**employee ** 개체의 **ETag **속성을 "*"로 설정해야 합니다.  
 
 customer.ETag = "*";  
 
@@ -227,7 +241,7 @@ customer.ETag = "*";
 
 **엔터티 삽입 또는 바꾸기** 및 **엔터티 삽입 또는 병합** 작업에서는 테이블 서비스로 ETag 값을 보내지 않으므로 동시성 검사를 수행하지 *않습니다*.  
 
-일반적으로 테이블을 사용하는 개발자는 확장 가능한 응용 프로그램을 개발할 때 낙관적 동시성을 사용해야 합니다. 비관적 잠금이 필요한 경우 개발자가 테이블에 액세스할 때 사용할 수 있는 한 가지 방법은 각 테이블에 대해 지정된 Blob을 할당하고 테이블에 작업을 수행하기 전에 Blob에 대한 임대를 받는 것입니다. 이 방식을 사용하는 경우 응용 프로그램은 테이블에 작업을 수행하기 전에 모든 데이터 액세스 경로가 임대를 획득하는지 확인해야 합니다. 또한 최소 임대 시간은 15초이므로 확장성을 신중하게 고려해야 합니다.  
+일반적으로 테이블을 사용하는 개발자는 확장 가능한 응용 프로그램을 개발할 때 낙관적 동시성을 사용해야 합니다. 비관적 잠금이 필요한 경우 개발자가 테이블에 액세스할 때 사용할 수 있는 한 가지 방법은 각 테이블에 대해 지정된 Blob를 할당하고 테이블에 작업을 수행하기 전에 Blob에 대한 임대를 받는 것입니다. 이 방식을 사용하는 경우 응용 프로그램은 테이블에 작업을 수행하기 전에 모든 데이터 액세스 경로가 임대를 획득하는지 확인해야 합니다. 또한 최소 임대 시간은 15초이므로 확장성을 신중하게 고려해야 합니다.  
 
 자세한 내용은 다음을 참조하세요.  
 
@@ -263,8 +277,7 @@ Azure 저장소에 대한 자세한 내용은 다음을 참조하세요.
 
 - [Microsoft Azure 저장소 홈페이지](http://azure.microsoft.com/ko-kr/services/storage/)
 - [Azure 저장소 소개](http://azure.microsoft.com/ko-kr/documentation/articles/storage-introduction/)
-- 저장소 시작 - [Blob](http://azure.microsoft.com/ko-kr/documentation/articles/storage-dotnet-how-to-use-blobs/), [테이블](http://azure.microsoft.com/ko-kr/documentation/articles/storage-dotnet-how-to-use-tables/) 및 [큐](http://azure.microsoft.com/ko-kr/documentation/articles/storage-dotnet-how-to-use-queues/)
-- 저장소 아키텍처 - [Microsoft Azure 저장소: 일관성과 가용성이 뛰어난 클라우드 저장소 서비스](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
+- [Blob](http://azure.microsoft.com/ko-kr/documentation/articles/storage-dotnet-how-to-use-blobs/), [테이블](http://azure.microsoft.com/ko-kr/documentation/articles/storage-dotnet-how-to-use-tables/) 및 [큐](http://azure.microsoft.com/ko-kr/documentation/articles/storage-dotnet-how-to-use-queues/)에 대한 저장소 시작 가이드
+- 저장소 아키텍처 - [Windows Azure 저장소: 일관성과 가용성이 뛰어난 클라우드 저장소 서비스](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

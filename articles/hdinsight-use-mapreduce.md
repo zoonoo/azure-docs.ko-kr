@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="MapReduce with Hadoop in HDInsight" pageTitle="HDInsight에서 Hadoop MapReduce 사용 | Azure" metaKeywords="" description="HDInsight를 사용하여 간단한 Hadoop MapReduce 작업을 실행하는 방법에 대해 알아봅니다." metaCanonical="" services="hdinsight" documentationCenter="" title="Use Hadoop MapReduce in HDInsight" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
+<properties 
+	pageTitle="HDInsight에서 Hadoop MapReduce 사용 | Azure" 
+	description="HDInsight를 사용하여 간단한 Hadoop MapReduce 작업을 실행하는 방법에 대해 알아봅니다." 
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="mumian" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/12/2014" ms.author="jgao" />
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/12/2014" 
+	ms.author="jgao"/>
 
 
 
@@ -17,13 +31,13 @@ Hadoop MapReduce는 방대한 양의 데이터를 처리하는 응용 프로그�
 
 - Azure PowerShell이 설치 및 구성된 워크스테이션. 자세한 내용은 [Azure PowerShell 설치 및 구성][powershell-install-configure]을 참조하세요.
 
-##자습서 내용
+## 자습서 내용
 1. [시나리오 이해](#scenario)
 2. [Azure PowerShell로 샘플 실행](#run-sample)	
 3. [단어 수 계산 MapReduce 프로그램의 Java 코드](#java-code)
 4. [다음 단계](#next-steps)	
 
-##<a id="scenario"></a>시나리오 이해
+## <a id="scenario"></a>시나리오 이해
 
 다음 다이어그램은 단어 수 시나리오에서 MapReduce가 작동하는 방식을 보여 줍니다.
 
@@ -39,12 +53,12 @@ MapReduce 작업의 출력은 키-값 쌍 집합입니다. 키는 단어를 지�
 
 MapReduce 작업을 실행하려면 다음 요소가 필요합니다.
 
-* MapReduce 프로그램. 이 자습서에서는 직접 작성할 필요가 없도록 HDInsight 클러스터와 함께 제공된 단어 수 계산 샘플을 사용합니다. 이 샘플은 */example/jars/hadoop-examples.jar*에 있습니다. 버전 3.0 HDInsight 클러스터에서는 파일 이름이 *hadoop-mapreduce-examples.jar*입니다. 고유한 MapReduce 작업을 작성하는 방법에 대한 지침은 [HDInsight용 Java MapReduce 프로그램 개발][hdinsight-develop-MapReduce-jobs]을 참조하세요.
+* MapReduce 프로그램. 이 자습서에서는 직접 작성할 필요가 없도록 HDInsight 클러스터와 함께 제공된 단어 수 계산 샘플을 사용합니다. 이 샘플은 */example/jars/hadoop-examples.jar*에 있습니다. 버전 3.0 HDInsight 클러스터에서는 파일 이름이  *hadoop-mapreduce-examples.jar*입니다. 고유한 MapReduce 작업을 작성하는 방법에 대한 지침은 [HDInsight용 Java MapReduce 프로그램 개발][hdinsight-develop-mapReduce-jobs]을 참조하세요.
 * 입력 파일. */example/data/gutenberg/davinci.txt*를 입력 파일로 사용합니다. 파일 업로드에 대한 자세한 내용은 [HDInsight에 데이터 업로드][hdinsight-upload-data]를 참조하세요.
 * 출력 파일 폴더. */example/data/WordCountOutput*을 출력 파일 폴더로 사용합니다. 폴더가 없는 경우 시스템에서 새로 만듭니다. 해당 폴더가 있으면 MapReduce 작업이 실패합니다.  MapReduce 작업을 두 번째 실행하려면 출력 폴더를 삭제하거나 다른 출력 폴더를 지정해야 합니다.
 
 	
-##<a id="run-sample"></a>Azure PowerShell로 샘플 실행
+## <a id="run-sample"></a>Azure PowerShell로 샘플 실행
 
 1.	**Azure PowerShell**을 엽니다. Azure PowerShell 콘솔 창을 여는 방법에 대한 지침은 [Azure PowerShell 설치 및 구성][powershell-install-configure]을 참조하세요.
 
@@ -61,7 +75,7 @@ MapReduce 작업을 실행하려면 다음 요소가 필요합니다.
 		# Define the MapReduce job
 		$wordCountJobDefinition = New-AzureHDInsightMapReduceJobDefinition -JarFile "wasb:///example/jars/hadoop-examples.jar" -ClassName "wordcount" -Arguments "wasb:///example/data/gutenberg/davinci.txt", "wasb:///example/data/WordCountOutput" 
 
-	> [WACOM.NOTE] *hadoop-examples.jar* 파일은 버전 2.1 HDInsight 클러스터와 함께 제공됩니다. 버전 3.0 HDInsight 클러스터에서는 파일 이름이 *hadoop-mapreduce.jar*로 바뀌었습니다.
+	> [AZURE.NOTE] *hadoop-examples.jar* 파일은 버전 2.1 HDInsight 클러스터와 함께 제공됩니다. 버전 3.0 HDInsight 클러스터에서는 파일 이름이  *hadoop-mapreduce.jar*로 바뀌었습니다.
 	
 	hadoop-examples.jar 파일은 HDInsight 클러스터 배포와 함께 제공됩니다. MapReduce 작업에 대한 두 개의 인수가 있습니다. 첫 번째 인수는 원본 파일 이름이고, 두 번째 인수는 출력 파일 경로입니다. 원본 파일은 HDInsight 클러스터 배포와 함께 제공되고 출력 파일 경로는 런타임 시 만들어집니다.
 
@@ -71,7 +85,7 @@ MapReduce 작업을 실행하려면 다음 요소가 필요합니다.
 		Select-AzureSubscription $subscriptionName
 		$wordCountJob = Start-AzureHDInsightJob -Cluster $clusterName -JobDefinition $wordCountJobDefinition | Wait-AzureHDInsightJob -WaitTimeoutInSeconds 3600  
 
-	MapReduce 작업 정의뿐 아니라 MapReduce 작업을 실행하려는 HDInsight 클러스터 이름 및 자격 증명도 제공합니다. Start-AzureHDInsightJob은 비동기 호출입니다. 작업 완료를 확인하려면 *Wait-AzureHDInsightJob cmdlet*을 사용합니다.
+	MapReduce 작업 정의뿐 아니라 MapReduce 작업을 실행하려는 HDInsight 클러스터 이름 및 자격 증명도 제공합니다. Start-AzureHDInsightJob은 비동기 호출입니다. 작업 완료를 확인하려면 *Wait-AzureHDInsightJob* cmdlet을 사용합니다.
 
 7. 다음 명령을 실행하여 MapReduce 작업 완료를 확인합니다.
 
@@ -98,7 +112,7 @@ MapReduce 작업을 실행하려면 다음 요소가 필요합니다.
 		$storageAccountName = "<StorageAccountName>"   # Azure storage account name
 		$containerName = "<ContainerName>"			   # Blob storage container name
 
-		Azure 저장소 계정은 자습서의 앞부분에서 만든 계정입니다. 저장소 계정은 기본 HDInsight 클러스터 파일 시스템으로 사용되는 Blob 컨테이너를 호스트하는 데 사용됩니다.  일반적으로 Blob 저장소 컨테이너 이름은 클러스터를 프로비전할 때 다른 이름을 지정하지 않을 경우 HDInsight 클러스터와 동일한 이름을 공유합니다.
+		The Azure Storage account is the one you created earlier in the tutorial. The storage account is used to host the Blob container that is used as the default HDInsight cluster file system.  The Blob storage container name usually share the same name as the HDInsight cluster unless you specify a different name when you provision the cluster.
 
 3. 다음 명령을 실행하여 Azure 저장소 컨텍스트 개체를 만듭니다.
 		
@@ -109,14 +123,14 @@ MapReduce 작업을 실행하려면 다음 요소가 필요합니다.
 		$storageAccountKey = Get-AzureStorageKey $storageAccountName | %{ $_.Primary }
 		$storageContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
 
-	 *Select-AzureSubscription* 은 여러 구독이 있을 경우 현재 구독을 설정하는 데 사용되며, 기본 구독은 사용하지 않습니다. 
+	 *Select-AzureSubscription*은 여러 구독이 있을 경우 현재 구독을 설정하는 데 사용되며, 기본 구독은 사용하지 않습니다. 
 
 4. 다음 명령을 실행하여 Blob 컨테이너의 MapReduce 작업 출력을 워크스테이션으로 다운로드합니다.
 
 		# Download the job output to the workstation
 		Get-AzureStorageBlobContent -Container $ContainerName -Blob example/data/WordCountOutput/part-r-00000 -Context $storageContext -Force
 
-	 */example/data/WordCountOutput* 폴더는 MapReduce 작업을 실행할 때 지정된 출력 폴더입니다. *part-r-00000* 은 MapReduce 작업 출력의 기본 파일 이름입니다.  로컬 폴더의 동일한 폴더 구조에 파일이 다운로드됩니다. 예를 들어 다음 스크린샷에서 현재 폴더는 C 루트 폴더입니다.  파일은 *C:\example\data\WordCountOutput\* 폴더로 다운로드됩니다. 
+	*/example/data/WordCountOutput* 폴더는 MapReduce 작업을 실행할 때 지정된 출력 폴더입니다. *part-r-00000*은 MapReduce 작업 출력의 기본 파일 이름입니다.  로컬 폴더의 동일한 폴더 구조에 파일이 다운로드됩니다. 예를 들어 다음 스크린샷에서 현재 폴더는 C 루트 폴더입니다.  파일은 *C:\example\data\WordCountOutput\* 폴더에 다운로드됩니다. 
 
 5. 다음 명령을 실행하여 MapReduce 작업 출력 파일을 인쇄합니다.
 
@@ -128,7 +142,7 @@ MapReduce 작업을 실행하려면 다음 요소가 필요합니다.
 
 MapReduce 작업의 출력 파일은 변경할 수 없습니다. 따라서 이 샘플을 다시 실행할 경우 출력 파일의 이름을 변경해야 합니다.
 
-##<a id="java-code"></a>단어 수 계산 MapReduce 프로그램의 Java 코드
+## <a id="java-code"></a>단어 수 계산 MapReduce 프로그램의 Java 코드
 
 다음은 단어 수 계산 Java MapReduce 프로그램의 소스 코드입니다.
  
@@ -204,11 +218,11 @@ MapReduce 작업의 출력 파일은 변경할 수 없습니다. 따라서 이 �
  
 
 
-##<a id="nextsteps"></a>다음 단계
+## <a id="nextsteps"></a>다음 단계
 MapReduce는 강력한 진단 기능을 제공하는 반면 익히기 어려울 수 있습니다. Pig, Hive 등의 기타 언어를 사용하면 HDInsight에 저장된 데이터로 더 쉽게 작업할 수 있습니다. 자세한 내용은 다음 문서를 참조하세요.
 
 * [Azure HDInsight 시작][hdinsight-get-started]
-* [HDInsight용 Java MapReduce 프로그램 개발][hdinsight-develop-MapReduce-jobs]
+* [HDInsight용 Java MapReduce 프로그램 개발][hdinsight-develop-mapReduce-jobs]
 * [HDInsight용 C# Hadoop 스트리밍 MapReduce 프로그램 개발][hdinsight-develop-streaming]
 * [HDInsight에서 Hive 사용][hdinsight-use-hive]
 * [HDInsight에서 Pig 사용][hdinsight-use-pig] 
@@ -232,5 +246,4 @@ MapReduce는 강력한 진단 기능을 제공하는 반면 익히기 어려울 
 
 
 
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

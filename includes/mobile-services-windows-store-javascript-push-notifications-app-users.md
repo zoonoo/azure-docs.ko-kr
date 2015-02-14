@@ -5,7 +5,7 @@
 
 이 방법에서는 마법사가 프로젝트에 새 push.register.js 및 service.js 파일을 생성합니다.
 
->[WACOM.NOTE]푸시 알림 추가 마법사는 현재 .NET 백 엔드 모바일 장치에서만 지원됩니다.
+>[AZURE.NOTE]푸시 알림 추가 마법사는 현재 .NET 백 엔드 모바일 장치에서만 지원됩니다.
 
 1. Visual Studio 솔루션 탐색기에서 push.register.js 프로젝트 파일을 열고 **addEventListener**에 대한 호출을 주석으로 처리하거나 삭제합니다. 
 
@@ -79,3 +79,4 @@
 		        });
 		    });
 		}  
+<!--HONumber=42-->

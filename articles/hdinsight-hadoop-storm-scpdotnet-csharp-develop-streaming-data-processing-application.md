@@ -1,10 +1,24 @@
-﻿<properties title="Develop streaming data processing applications with SCP.NET and C# on Storm in HDInsight" pageTitle="Storm에 대해 SCP.NET을 사용하여 스트리밍 데이터 처리 앱 개발 | Azure" description="HDInsight에서 Storm에 대해 SCP.NET 및 C#을 사용하여 스트리밍 데이터 처리 응용 프로그램을 개발하는 방법에 대해 알아봅니다." services="hdinsight" solutions="" documentationCenter="" authors="Qianlin Xia" videoId="" scriptId="" manager="paulettm" editor="cgronlun" />
+﻿<properties 
+	pageTitle="Storm에 대해 SCP.NET을 사용하여 스트리밍 데이터 처리 앱 개발 | Azure" 
+	description="HDInsight에서 Storm에 대해 SCP.NET 및 C#을 사용하여 스트리밍 데이터 처리 응용 프로그램을 개발하는 방법에 대해 알아봅니다." 
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="weedqian" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/15/2014" ms.author="qixia" />
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/15/2014" 
+	ms.author="qixia"/>
 
 #HDInsight에서 Stream Computing Platform 및 Storm에 대해 C#으로 스트리밍 데이터 처리 응용 프로그램 개발
 
-SCP(Stream Computing Platform)는 .NET을 사용하여 실시간의 안정적이고 일관성 있는 분산 고성능 데이터 처리 응용 프로그램을 빌드하기 위한 플랫폼입니다. HDInsight에서 사용할 수 있는 오픈 소스 실시간 스트림 처리 시스템인 [Apache Storm](http://storm.incubator.apache.org/) 위에 빌드됩니다.
+SCP(Stream Computing Platform)는 .NET을 사용하여 실시간의 안정적이고 일관성 있는 분산 고성능 데이터 처리 응용 프로그램을 빌드하기 위한 플랫폼입니다. 이 플랫폼은 HDInsight와 함께 사용할 수 있는 오픈 소스 실시간 스트림 처리 시스템인 [Apache Storm](http://storm.incubator.apache.org/)의 맨 위에 빌드됩니다.
 
 이 문서에서는 다음에 대해 알아봅니다.
 
@@ -14,13 +28,13 @@ SCP(Stream Computing Platform)는 .NET을 사용하여 실시간의 안정적이
 
 * SCP 솔루션을 테스트하는 방법
 
-* SCP 솔루션을 HDInsight Storm 클러스터에 배포하는 방법
+* HDInsight에서 Storm 클러스터에 SCP 솔루션을 배포하는 방법
 
 ##필수 조건
 
 * Azure 구독
 
-* HDInsight Storm 클러스터
+* HDInsight의 Storm 클러스터
 
 * Visual Studio 2010 또는 2013
 
@@ -32,9 +46,9 @@ SCP(Stream Computing Platform)는 .NET을 사용하여 실시간의 안정적이
 
 Apache Storm은 Hadoop 클러스터에서 실행되는 분산 계산 시스템이며, 이를 통해 실시간 데이터 처리를 수행할 수 있습니다. Storm은 JVM(Java Virtual Machine)에서 실행되는 동안 다양한 프로그래밍 언어로 **토폴로지**라는 솔루션을 구현할 수 있도록 설계되었습니다. 여러 언어로 작성된 구성 요소를 혼합하여 토폴로지를 만들 수도 있습니다.
 
-SCP에서는 .NET을 사용하여 Storm 솔루션을 쉽게 만들 수 있는 라이브러리를 제공합니다. Azure HDInsight Storm 클러스터에는 만들려는 SCP 솔루션을 실행하는 데 필요한 서버 쪽 솔루션이 포함됩니다.
+SCP에서는 .NET을 사용하여 Storm 솔루션을 쉽게 만들 수 있는 라이브러리를 제공합니다. HDInsight의 Storm 클러스터에는 만들려는 SCP 솔루션을 실행하는 데 필요한 서버 쪽 솔루션이 포함됩니다.
 
-HDInsight Storm에 대한 자세한 내용은 [HDInsight Storm 개요](http://azure.microsoft.com/ko-kr/documentation/articles/hdinsight-storm-overview/)를 참조하세요.
+HDInsight의 Storm에 대한 자세한 내용은 [HDInsight Storm 개요](http://azure.microsoft.com/ko-kr/documentation/articles/hdinsight-storm-overview/)를 참조하세요.
 
 ###SCP 솔루션 디자인
 
@@ -55,7 +69,7 @@ SCP에서는 다음 Storm 구성 요소를 만드는 데 사용되는 인터페�
 
 ##SCP SDK 설치
 
-SCP SDK는 HDInsight Storm 클러스터에서 제공됩니다. [HDInsight Storm 클러스터를 만들고](http://azure.microsoft.com/ko-kr/documentation/articles/hdinsight-storm-getting-started/)나서 다음 단계에 따라 SDK를 로컬 개발 환경에 다운로드합니다.
+SCP SDK는 HDInsight의 Storm 클러스터에서 제공됩니다. [HDInsight에서 Storm 클러스터를 만들었으면](http://azure.microsoft.com/ko-kr/documentation/articles/hdinsight-storm-getting-started/), 다음 단계에 따라 SDK를 로컬 개발 환경에 다운로드하세요.
 
 1. [Azure 관리 포털](https://manage.windowsazure.com)에 로그인합니다.
 
@@ -75,7 +89,7 @@ SCP SDK는 HDInsight Storm 클러스터에서 제공됩니다. [HDInsight Storm 
 
 9. **SDK** 폴더를 마우스 오른쪽 단추로 클릭하고 **복사**를 선택합니다.
 
-10. 로컬 개발 환경에서 **파일 탐색기**를 열고 SDK를 저장할 위치로 이동합니다. 마우스 오른쪽 단추로 클릭하고 **붙여넣기**를 선택합니다.
+10. 로컬 개발 환경에서 **파일 탐색기**를 열고 SDK를 저장할 위치로 이동합니다. 마우스 오른쪽 단추를 클릭하고 **붙여넣기**를 선택합니다.
 
 ##SCP 솔루션 만들기
 
@@ -83,7 +97,7 @@ SCP SDK는 HDInsight Storm 클러스터에서 제공됩니다. [HDInsight Storm 
 
 2. **솔루션 탐색기**에서 **참조**를 마우스 오른쪽 단추로 클릭하고 **참조 추가**를 선택합니다.
 
-3. **참조 관리자 ** 맨 아래에서 **찾아보기** 단추를 선택하고 앞에서 다운로드한 SDK 폴더로 이동합니다. **Microsoft.SCP.dll** 및 **Microsoft.SCPLogger.dll**을 선택하고 **추가**를 클릭합니다. **확인**을 클릭하여 참조 관리자 창을 닫습니다.
+3. **참조 관리자 ** 맨 아래에서 **찾아보기** 단추를 선택하고 앞에서 다운로드한 SDK 폴더로 이동합니다. **Microsoft.SCPNet.dll** 및 **Microsoft.SCPLogger.dll**을 선택하고 **추가**를 클릭합니다. **확인**을 클릭하여 참조 관리자 창을 닫습니다.
 
 ###Spout 만들기
 
@@ -253,11 +267,11 @@ SCP SDK는 HDInsight Storm 클러스터에서 제공됩니다. [HDInsight Storm 
         {"__isset":{"streamId":true,"tupleId":true,"evt":true,"data":true},"StreamId":"default","TupleId":"","Evt":1000,"Data":[[97,110,32,97,112,112,108,101,32,97,32,100,97,121,32,107,101,101,112,115,32,116,104,101,32,100,111,99,116,111,114,32,97,119,97,121]]}
         {"__isset":{"streamId":true,"tupleId":true,"evt":true,"data":true},"StreamId":"default","TupleId":"","Evt":1000,"Data":[[116,104,101,32,99,111,119,32,106,117,109,112,101,100,32,111,118,101,114,32,116,104,101,32,109,111,111,110]]}
 
-    > [AZURE.NOTE] 위의 줄에서 "Data"는 Spout에서 내보낸 문자열이지만 바이트 배열로 저장됩니다. 예를 들어 `[[97,110,32,97,112,112,108,101,32,97,32,100,97,121,32,107,101,101,112,115,32,116,104,101,32,100,111,99,116,111,114,32,97,119,97,121]]`은 "하루 사과 한 알이면 의사가 필요 없다."를 나타냅니다.
+    > [AZURE.NOTE] 위의 줄에서 "Data"는 Spout에서 내보낸 문자열이지만 바이트 배열로 저장됩니다. 예를 들어, `[[97,110,32,97,112,112,108,101,32,97,32,100,97,121,32,107,101,101,112,115,32,116,104,101,32,100,111,99,116,111,114,32,97,119,97,121]]`은 "an apple a day keeps the doctor away"입니다.
 
 ###Bolt 만들기
 
-1. **솔루션 탐색기**에서 **WordCount**를 마우스 오른쪽 단추로 클릭하고 **추가 | 새 항목**을 선택합니다. **클래스**를 선택하고 이름으로 **SplitterBolt.cs**를 입력합니다. 마지막으로 **추가**를 클릭합니다. 이 단계에 따라 **CounterBolt.cs**라는 클래스를 추가합니다.
+1. **솔루션 탐색기**에서 **WordCount**를 마우스 오른쪽 단추로 클릭하고 **추가 | 새 항목**을 선택합니다. **클래스**를 선택하고 이름으로 **SplitterBolt.cs**를 입력합니다. 마지막으로 **추가**를 클릭합니다. 이 단계를 반복하여 **CounterBolt.cs**라는 클래스를 추가합니다.
 
 2. **SplitterBolt.cs** 파일을 열고 기존 코드를 다음으로 바꿉니다.
 
@@ -318,7 +332,7 @@ SCP SDK는 HDInsight Storm 클러스터에서 제공됩니다. [HDInsight Storm 
             }
         }
 
-4. **CounterBolt.cs** 파일을 열고 기존 코드를 다음으로 바꿉니다.
+4. **CounterBolt.cs** 파일을 열고 내용을 다음으로 바꿉니다.
 
         using System;
         using System.Collections.Generic;
@@ -385,7 +399,7 @@ SCP SDK는 HDInsight Storm 클러스터에서 제공됩니다. [HDInsight Storm 
 
     > [AZURE.NOTE] 이 Bolt는 테스트에 유용한 스트림을 내보냅니다. 실제 솔루션에서는 처리가 끝나면 데이터를 데이터베이스, 큐 또는 기타 영구 저장소에 저장합니다.
 
-3. **LocalTest.cs**를 열고 SplitterBolt 및 CounterBolt에 대한 다음 테스트를 이전 Spout 테스트 블록 앞에 추가합니다.
+3. **LocalTest.cs**를 열고 SplitterBolt 및 CounterBolt에 대한 다음 테스트를 이전 Spout 테스트 블록 다음에 추가합니다.
 
         //SplitterBolt tests
         {
@@ -424,7 +438,7 @@ SCP SDK는 HDInsight Storm 클러스터에서 제공됩니다. [HDInsight Storm 
 
 ###클러스터에서 실행할 코드 추가
 
-1. **Program.cs**를 열고 `//Code to run on HDInsight cluster will go here` 줄을 다음으로 바꾸고 나서 프로젝트를 다시 빌드합니다.
+1. **Program.cs**를 열고  `//Code to run on HDInsight cluster will go here` 줄을 다음으로 바꾼 후 프로젝트를 다시 빌드합니다.
 
         //The component to run
         string compName = args[0];
@@ -455,7 +469,7 @@ SCP SDK는 HDInsight Storm 클러스터에서 제공됩니다. [HDInsight Storm 
             throw new Exception(string.Format("unexpected compName: {0}", compName));
         }
 
-4. **WordCount.spec**라는 새 파일을 만들고 내용으로 다음을 사용합니다. 구성 요소, 클러스터의 여러 노드에서 만들 인스턴스 수, 노드 간 데이터 이동 방식을 포함한 토폴로지를 정의합니다. 이 파일은 [토폴로지 사양 언어](#spec)로 작성됩니다.
+4. **WordCount.spec**이라는 새 파일을 만들고 내용으로 다음을 사용합니다. 구성 요소, 클러스터의 여러 노드에서 만들 인스턴스 수, 노드 간 데이터 이동 방식을 포함한 토폴로지를 정의합니다. 이 파일은 [토폴로지 사양 언어](#spec)로 작성됩니다.
 
         {
           :name "WordCount"
@@ -517,11 +531,11 @@ SCP SDK는 HDInsight Storm 클러스터에서 제공됩니다. [HDInsight Storm 
             }
         }
 
-4. 원격 데스크톱을 사용하여 HDInsight Storm 클러스터에 연결하고 로컬 WordCount 프로젝트에 대한 **bin\debug** 폴더를 HDInsight Storm 클러스터에 복사합니다. 예를 들어 **%storm_home%\examples** 폴더에 복사하고 이름을 **WordCount**로 바꿉니다.
+4. 원격 데스크톱을 사용하여 Storm 클러스터에 연결하고 로컬 WordCount 프로젝트용 **bin\debug** 폴더를 Storm 클러스터에 복사합니다. 예를 들어 **%storm_home%\examples** 폴더에 복사하고 이름을 **WordCount**로 바꿉니다.
 
-3. **WordCount.spec**를 HDInsight 서버에도 복사합니다. 파일을 **%storm_home%\examples** 디렉터리에 넣습니다.
+3. **WordCount.spec**을 HDInsight 서버에도 복사합니다. 파일을 **%storm_home%\examples** 디렉터리에 넣습니다.
 
-4. HDInsight Storm 클러스터에서 데스크톱의 **Storm 명령줄** 아이콘을 사용하여 명령줄을 열고 다음 명령을 사용하여 WordCount 토폴로지를 시작합니다.
+4. Storm 클러스터에서 데스크톱의 **Storm 명령줄** 아이콘을 사용하여 명령줄을 열고 다음 명령을 사용하여 WordCount 토폴로지를 시작합니다.
 
         bin\runspec examples\WordCount.spec temp examples\WordCount
 
@@ -565,17 +579,17 @@ ISCPSpout는 비트랜잭션 Spout용 인터페이스입니다.
         void Fail(long seqId, Dictionary<string, Object> parms);
     }  
 
-`NextTuple()`이 호출되면 코드가 하나 이상의 튜플을 내보낼 수 있습니다. 내보낼 튜플이 없으면 아무 항목도 내보내지 않고 이 메서드가 반환되어야 합니다.
+ `NextTuple()`이 호출되면 코드가 하나 이상의 튜플을 내보낼 수 있습니다. 내보낼 튜플이 없으면 아무 항목도 내보내지 않고 이 메서드가 반환되어야 합니다.
 
-`Ack()` 및 `Fail()`은 사양 파일에서 승인이 사용하도록 설정된 경우에만 호출됩니다. `seqId`는 승인되거나 실패한 튜플을 식별하는 데 사용됩니다. 비트랜잭션 토폴로지에서 승인이 사용하도록 설정되어 있으면 Spout에서 다음의 내보내기 함수를 사용해야 합니다.  
+`Ack()` 및 `Fail()`은 사양 파일에서 승인이 사용하도록 설정된 경우에만 호출됩니다.  `seqId`는 승인되거나 실패한 튜플을 식별하는 데 사용됩니다. 비트랜잭션 토폴로지에서 승인이 사용하도록 설정되어 있으면 Spout에서 다음의 내보내기 함수를 사용해야 합니다.  
 
     public abstract void Emit(string streamId, List<object> values, long seqId);  
 
-비트랜잭션 토폴로지에서 승인이 지원되지 않으면 'Ack()' 및 'Fail()'은 빈 함수로 유지될 수 있습니다.  
+비트랜잭션 토폴로지에서 승인이 지원되지 않으면  `Ack()` 및 `Fail()`은 빈 함수로 유지될 수 있습니다.  
 
-이러한 함수에 대한 `parms` 매개 변수는 빈 Dictionary 개체이고 나중에 사용하도록 예약됩니다.  
+이러한 함수에 대한  `parms` 매개 변수는 빈 Dictionary 개체이고 나중에 사용하도록 예약됩니다.  
 
-> [AZURE.NOTE] `NextTuple()`, `Ack()` 및 `Fail()`은 모두 단일 스레드에서 빽빽한 루프로 호출됩니다. 내보낼 튜플이 없으면 10밀리초 등의 짧은 시간 동안 'sleep'을 사용하여 CPU 주기를 절약해 보세요.
+> [AZURE.NOTE] `NextTuple()`, `Ack()` 및 `Fail()`은 단일 스레드에 대한 타이트 루프에서 호출됩니다. 내보낼 튜플이 없으면 10밀리초 등의 짧은 시간 동안 `sleep`을 사용하여 CPU 주기를 절약해 보세요.
 
 ####ISCPTxSpout
 
@@ -588,13 +602,13 @@ ISCPTxSpout는 트랜잭션 Spout용 인터페이스입니다.
         void Fail(long seqId, Dictionary<string, Object> parms);
     }  
 
-`NextTx()`가 호출되어 새 트랜잭션이 시작됩니다. `seqId`는 `Ack()` 및 `Fail()`에서도 사용되는 트랜잭션을 식별하는 데 사용됩니다. 재생을 지원하기 위해 `NextTx()`에서 내보낸 데이터는 ZooKeeper에 저장됩니다. ZooKeeper의 저장소 용량은 매우 제한되어 있으므로 트랜잭션 Spout에서 데이터를 대량으로 내보내서는 안 되며 메타데이터만 내보내야 합니다.  
+`NextTx()`가 호출되어 새 트랜잭션이 시작됩니다.  `seqId`는  `Ack()` 및 `Fail()`에도 사용되는 트랜잭션을 식별하는 데 사용됩니다. 재생을 지원하기 위해 `NextTx()`에서 내보낸 데이터는 ZooKeeper에 저장됩니다. ZooKeeper의 저장소 용량은 매우 제한되어 있으므로 트랜잭션 Spout에서 데이터를 대량으로 내보내서는 안 되며 메타데이터만 내보내야 합니다.  
 
 Storm에서는 트랜잭션이 실패하면 자동으로 재생하므로 일반적으로 Fail()을 호출하면 안 됩니다. 그러나 SCP는 트랜잭션 Spout에서 내보낸 메타데이터를 확인할 수 있으면 메타데이터가 잘못된 경우 Fail()을 호출할 수 있습니다.
 
-이러한 함수에 대한 `parms` 매개 변수는 빈 Dictionary 개체이고 나중에 사용하도록 예약됩니다.
+이러한 함수에 대한  `parms` 매개 변수는 빈 Dictionary 개체이고 나중에 사용하도록 예약됩니다.
 
-> [AZURE.NOTE] `NextTx()`, `Ack()` 및 `Fail()`은 모두 단일 스레드에서 빽빽한 루프로 호출됩니다. 내보낼 튜플이 없으면 10밀리초 등의 짧은 시간 동안 'sleep'을 사용하여 CPU 주기를 절약해 보세요.
+> [AZURE.NOTE] `NextTx()`, `Ack()` 및  `Fail()`은 단일 스레드에 대한 타이트 루프에서 호출됩니다. 내보낼 튜플이 없으면 10밀리초 등의 짧은 시간 동안 `sleep`을 사용하여 CPU 주기를 절약해 보세요.
 
 ####ISCPBolt
 
@@ -605,7 +619,7 @@ ISCPBolt는 비트랜잭션 Bolt용 인터페이스입니다.
         void Execute(SCPTuple tuple);
     }
 
-새 튜플을 사용할 수 있으면 'Execute()' 함수가 호출되어 해당 튜플을 처리합니다.
+새 튜플을 사용할 수 있으면 `Execute()` 함수가 호출되어 해당 튜플을 처리합니다.
 
 ####ISCPBatchBolt
 
@@ -617,11 +631,11 @@ ISCPBatchBolt는 트랜잭션 Bolt용 인터페이스입니다.
         void FinishBatch(Dictionary<string, Object> parms);
     }  
 
-새 튜플을 사용할 수 있으면 'Execute()' 함수가 호출되어 해당 튜플을 처리합니다. 이 트랜잭션이 종료되면 `FinishBatch()`가 호출됩니다.
+새 튜플을 사용할 수 있으면  `Execute()` 함수가 호출되어 해당 튜플을 처리합니다.  `FinishBatch()`는 이 트랜잭션이 종료되면 호출됩니다.
 
-이러한 함수에 대한 `parms` 매개 변수는 빈 Dictionary 개체이고 나중에 사용하도록 예약됩니다.
+이러한 함수에 대한  `parms` 매개 변수는 빈 Dictionary 개체이고 나중에 사용하도록 예약됩니다.
 
-> [AZURE.NOTE] `ISCPBatchBolt'를 구현하는 Bolt는 `parms`에서 `StormTxAttempt`를 가져올 수 있습니다. `StormTxAttempt`를 사용하여 튜플이 원래 또는 재생 시도인지를 결정할 수 있습니다. 이 작업은 일반적으로 Commit Bolt에서 수행됩니다. **HelloWorldTx** 예제에서 해당 작업을 확인할 수 있습니다.  
+> [AZURE.NOTE]  `ISCPBatchBolt`를 구현하는 Bolt는  `parms`에서  `StormTxAttempt`를 가져올 수 있습니다.  `StormTxAttempt`는 튜플을 원본인지 아니면 재생 시도인지를 확인하는 데 사용할 수 있습니다. 이 작업은 일반적으로 커밋 Bolt에서 수행됩니다. "**HelloWorldTx** 예제에서 해당 작업을 확인할 수 있습니다.  
 
 ###개체 모델
 
@@ -629,7 +643,7 @@ SCP.NET에서는 개발자가 프로그래밍에 사용할 수 있는 주요 개
 
 * `Context` - 응용 프로그램에 대해 실행 중인 환경과 관련된 정보를 제공합니다.
 
-* `StateStore` - 메타데이터 서비스, 단조 시퀀스 생성 및 비대기 조정 기능을 제공합니다. 'StateStore'를 기반으로 하여 분산 잠금, 분산 큐, 장벽 및 트랜잭션 서비스를 비롯한 높은 수준의 분산형 동시성 추상화를 작성할 수 있습니다.
+* `StateStore` - 메타데이터 서비스, 단조 시퀀스 생성 및 비대기 조정 기능을 제공합니다.  `StateStore`를 기반으로 하여 분산 잠금, 분산 큐, 장벽 및 트랜잭션 서비스를 비롯한 높은 수준의 분산형 동시성 추상화를 작성할 수 있습니다.
 
 * `SCPRuntime` - 런타임 환경을 초기화하고 Storm에서 솔루션을 실행할 때 플러그 인을 실행합니다.
 
@@ -639,14 +653,14 @@ SCP.NET에서는 개발자가 프로그래밍에 사용할 수 있는 주요 개
 
 각 ISCPPlugin 인스턴스(ISCPSpout/ISCPBolt/ISCPTxSpout/ISCPBatchBolt)에는 해당하는 Context 인스턴스가 있습니다. Context에서 제공하는 기능은 다음 두 부분으로 나뉩니다.
 
-* **정적** -  전체 C# 프로세스에서 사용 가능
+* **정적** - 전체 C# 프로세스에서 사용 가능
 * **동적** - 특정 인스턴스에서 사용 가능  
 
 **정적 컨텍스트**
 
 * `public static ILogger Logger = null;` - 로깅용으로 제공됩니다.  
 
-* `public static SCPPluginType pluginType;` - C# 프로세스의 플러그 인 유형을 가져옵니다. C# 프로세스가 Java 없이 로컬 테스트 모드에서 실행되면 플러그 인 유형은 "SCP_NET_LOCAL"입니다.
+* `public static SCPPluginType pluginType;` - C# 프로세스의 플러그인 유형을 가져옵니다. C# 프로세스가 Java 없이 로컬 테스트 모드에서 실행되면 플러그 인 유형은 "SCP_NET_LOCAL"입니다.
 
         public enum SCPPluginType
         {
@@ -657,13 +671,13 @@ SCP.NET에서는 개발자가 프로그래밍에 사용할 수 있는 주요 개
             SCP_NET_BATCH_BOLT = 4
         }  
 
-* `public static Config Config { get; set; }` - JVM에서 구성 매개 변수를 가져옵니다. 플러그 인을 초기화할 때 JVM에서 매개 변수가 전달됩니다. `Config`에는 다음 두 사전이 포함됩니다.
+* `public static Config Config { get; set; }` - JVM에서 구성 매개 변수를 가져옵니다. 플러그 인을 초기화할 때 JVM에서 매개 변수가 전달됩니다.  `Config`에는 두 개의 사전이 있습니다.
 
-    * `public Dictionary<string, Object> stormConf { get; set; }` - Storm에서 정의된 매개 변수를 포함합니다.
+    * `public Dictionary<string, Object> stormConf { get; set; }` - Storm으로 정의된 매개 변수를 포함합니다.
 
-    * `public Dictionary<string, Object> pluginConf { get; set; }` - SCP에서 정의된 매개 변수를 포함합니다.
+    * `public Dictionary<string, Object> pluginConf { get; set; }` - SCP로 정의된 매개 변수를 포함합니다.
 
-* `public static TopologyContext TopologyContext { get; set; } ` - 토폴로지 컨텍스트를 가져옵니다. 다중 병렬 처리를 사용한 구성 요소에 가장 유용합니다. 토폴로지 컨텍스트에 액세스하는 방법은 다음과 같습니다.
+* `public static TopologyContext TopologyContext { get; set; } `  - 토폴로지 컨텍스트를 가져옵니다. 다중 병렬 처리를 사용한 구성 요소에 가장 유용합니다. 토폴로지 컨텍스트에 액세스하는 방법은 다음과 같습니다.
 
         if (Context.pluginType != SCPPluginType.SCP_NET_LOCAL)
         {
@@ -688,70 +702,70 @@ SCP.NET에서는 개발자가 프로그래밍에 사용할 수 있는 주요 개
         outputSchema.Add("default", new List<Type>() { typeof(string), typeof(int) });
         this.ctx.DeclareComponentSchema(new ComponentStreamSchema(inputSchema, outputSchema));
 
-* `public abstract void Emit(List<object> values);` - 하나 이상의 튜플을 기본 스트림으로 내보냅니다. 다음 예제에서는 두 튜플을 기본 스트림에 내보냅니다.
+* `public abstract void Emit(List<object> values);` - 하나 이상의 튜플을 기본 스트림에 내보냅니다. 다음 예제에서는 두 튜플을 기본 스트림에 내보냅니다.
 
         this.ctx.Emit(new Values(word, count));
 
-* `public abstract void Emit(string streamId, List<object> values);` - 하나 이상의 튜플을 지정된 스트림으로 내보냅니다. 다음 예제에서는 두 튜플을 'mystream' 스트림에 내보냅니다.
+* `public abstract void Emit(string streamId, List<object> values);` - 하나 이상의 튜플을 지정된 스트림에 내보냅니다. 다음 예제에서는 두 튜플을 'mystream'이라는 스트림에 내보냅니다.
 
         this.ctx.Emit("mystream", new Values(word, count));
 
 승인이 사용하도록 설정된 비트랜잭션 Spout 및 Bolt를 사용할 경우 다음을 사용합니다.
 
-* `public abstract void Emit(string streamId, List<object> values, long seqId);` - 하나 이상의 튜플과 시퀀스 식별자를 **Spout에서 ** 지정된 스트림으로 내보냅니다. 다음 예제에서는 튜플과 시퀀스 식별자를 기본 스트림에 내보냅니다.
+* `public abstract void Emit(string streamId, List<object> values, long seqId);` - 하나 이상의 튜플과 시퀀스 식별자를 **Spout에서** 지정된 스트림으로 내보냅니다. 다음 예제에서는 튜플과 시퀀스 식별자를 기본 스트림에 내보냅니다.
 
         this.ctx.Emit(Constants.DEFAULT_STREAM_ID, new Values(word), lastSeqId);
 
-* `public abstract void Emit(string streamId, IEnumerable<SCPTuple> anchors, List<object> values);` - 하나 이상의 튜플과 시퀀스 식별자를 **Bolt에서** 지정된 스트림으로 내보냅니다. 내보낸 튜플은 `앵커`로 지정된 수신 튜플에 앵커됩니다. 이를 통해 승인이 수신/발신 튜플의 체인에 따라 파이프라인 흐름을 백업할 수 있습니다. 다음 예제에서는 튜플과 시퀀스 식별자를 기본 스트림에 내보내고 '튜플'에 포함된 수신 튜플에 대해 내보낸 튜플을 앵커합니다.
+* `public abstract void Emit(string streamId, IEnumerable<SCPTuple> anchors, List<object> values);` - 하나 이상의 튜플과 시퀀스 식별자를 **Bolt에서** 지정된 스트림으로 내보냅니다. 내보낸 튜플은 `anchors`로 지정된 수신 튜플에 앵커됩니다. 이를 통해 승인이 수신/발신 튜플의 체인에 따라 파이프라인 흐름을 백업할 수 있습니다. 다음 예제에서는 튜플과 시퀀스 식별자를 기본 스트림에 내보내고 `tuple`에 포함된 수신 튜플에 대해 내보낸 튜플을 앵커합니다.
 
         this.ctx.Emit(Constants.DEFAULT_STREAM_ID, new List<SCPTuple> { tuple }, new Values(word));
 
 * `public abstract void Ack(SCPTuple tuple);` - 튜플을 승인합니다. 원래 튜플을 생성한 Spout의 `ISCPSpout.Ack` 함수를 호출합니다.
 
-* `public abstract void Fail(SCPTuple tuple);` - 튜플을 실패하게 합니다. 원래 튜플을 생성한 Spout의 `ISCPSpout.Fail` 함수를 호출합니다.
+* `public abstract void Fail(SCPTuple tuple);` - 튜플을 실패합니다. 원래 튜플을 생성한 Spout의 `ISCPSpout.Fail` 함수를 호출합니다.
 
 ####StateStore
 
 SCP 응용 프로그램은 `State` 개체를 사용하여 ZooKeeper에 정보를 영구 보존할 수 있습니다(특히 트랜잭션 토폴로지의 경우). 이렇게 하면 트랜잭션 Spout가 ZooKeeper에서 상태를 검색하고 작동 중단 시 파이프라인을 다시 시작할 수 있습니다.  
 
-`StateStore` 개체는 다음 메서드를 제공합니다.
+ `StateStore` 개체는 다음 메서드를 제공합니다.
 
-* `public static StateStore Get(string storePath, string connStr);` - 지정된 경로 및 연결 문자열에 대한 `StateStore`를 가져옵니다.
+* `public static StateStore Get(string storePath, string connStr);` - 지정된 경로 및 연결 문자열을 위한 `StateStore`를 가져옵니다.
 
-* `public State Create();` - 이 상태 저장소 인스턴스에서 새 `State` 개체를 만듭니다.
+* `public State Create();` - 이 상태 저장소 인스턴스에서 새  `State` 개체를 만듭니다.
 
-* `public IEnumerable<State> GetUnCommitted();` - 중단된 상태를 제외하고 커밋되지 않은 모든 `State` 개체를 가져옵니다.
+* `public IEnumerable<State> GetUnCommitted();` - 중단된 상태를 제외하고 커밋되지 않은 모든  `State` 개체를 가져옵니다.
 
-* `public IEnumerable<State> States();` - `StateStore`에 있는 모든 'State' 개체를 가져옵니다.
+* `public IEnumerable<State> States();` - `StateStore`에서 모든  'State' 개체를 가져옵니다.
 
 
-* `public T Get<T>(string info = null);` - `State` 또는 `Registry` 개체를 가져옵니다.
+* `public T Get<T>(string info = null);`` -  `State 또는 `Registry` 개체를 가져옵니다.
 
-    * `info` - 가져올 `Registry` 이름입니다. `Registry` 개체를 검색할 때만 사용됩니다.
+    * `info` - 가져올  `Registry` 이름입니다.  `Registry` 개체를 검색할 때만 사용됩니다.
 
-    * `T` - `State` 또는 `Registry` 유형입니다.
+    * `T` -  `State` 또는 `Registry`의 유형
 
-* `public IEnumerable<Registry> Commited();` - 커밋된 `State`를 포함하는 `Registry` 개체를 가져옵니다.
+* `public IEnumerable<Registry> Commited();` - 커밋된  `State`가 들어 있는  `Registry` 개체를 가져옵니다.
 
-* `public IEnumerable<Registry> Aborted();` - 중단된 `State`를 포함하는 `Registry` 개체를 가져옵니다.
+* `public IEnumerable<Registry> Aborted();` - 중단된  `State`가 들어 있는  `Registry` 개체를 가져옵니다.
 
-* `public State GetState(long stateId)` - 지정된 상태 ID에 대한 `State` 개체를 가져옵니다.
+* `public State GetState(long stateId)` - 지정된 상태 ID에 대한  `State` 개체를 가져옵니다.
 
 **State**는 다음 메서드를 제공합니다.
 
-* `public void Commit(bool simpleMode = true);` - `State` 개체의 상태를 커밋으로 설정합니다.
+* `public void Commit(bool simpleMode = true);` - 커밋할  `State` 개체의 상태를 설정합니다.
 
-    > [AZURE.NOTE] `simpleMode`가 true로 설정되면 ZooKeeper에서 해당 ZNode를 삭제합니다. 그렇지 않은 경우에는 현재 ZNode를 삭제하고 'COMMITTED_PATH'에 새 노드를 추가합니다.
+    > [AZURE.NOTE]  `simpleMode`가 true로 설정되면 ZooKeeper에서 해당 ZNode를 삭제합니다. 그렇지 않은 경우에는 현재 ZNode를 삭제하고 `COMMITTED_PATH`에 새 노드를 추가합니다.
 
-* `public void Abort();` - `State` 개체의 상태를 중단으로 설정합니다.
+* `public void Abort();` - 중단할  `State` 개체의 상태를 설정합니다.
 
-* `public void PutAttribute<T>(string key, T attribute);` - 지정된 키의 특성 값을 설정합니다.
+* `public void PutAttribute<T>(string key, T attribute);` - 지정된 키에 대한 특성 값을 설정합니다.
 
-    * `key` - 이 키는 특성을 설정합니다.
+    * `key` - 특성이 설정된 키
 
-    * `attribute` - 특성 값입니다.
+    * `attribute` - 특성 값
 
-* `public T GetAttribute<T>(string key);` - 지정된 키의 특성 값을 가져옵니다.
+* `public T GetAttribute<T>(string key);` - 지정된 키에 대한 특성 값을 가져옵니다.
 
 ####SCPRuntime
 
@@ -768,7 +782,7 @@ SCPRuntime은 다음 메서드를 제공합니다.
 
 * `List<SCPTuple> RecvFromMsgQueue();` - 큐에서 튜플을 수신합니다.
 
-* `void WriteMsgQueueToFile(string filepath, bool append = false);` - 튜플을 파일에 영구 보존합니다.
+* `void WriteMsgQueueToFile(string filepath, bool append = false);` - 튜플을 파일에 계속 보냅니다.
 
 * `void ReadFromFileToMsgQueue(string filepath);` - 파일에서 튜플을 읽습니다.
 
@@ -781,13 +795,13 @@ SCP 토폴로지 사양은 SCP 토폴로지를 설명하고 구성하기 위한 
 
 |새 함수|	매개 변수|	설명
 |-------------|-----------|-----------
-|**tx-topolopy**|	topology-name<br> spout-map<br> bolt-map|	토폴로지 이름, Spout 정의 맵 및 Bolt 정의 맵을 사용하여 트랜잭션 토폴로지를 정의합니다.
-|**scp-tx-spout**|	exec-name<br> args<br> fields|	트랜잭션 Spout를 정의합니다. ***exec-name*** using ***args***를 사용하여 응용 프로그램을 실행합니다.<br><br>***fields***는 Spout의 출력 필드입니다.
-|**scp-tx-batch-bolt**|	exec-name<br> args<br> fields| 	트랜잭션 Batch Bolt를 정의합니다. ***exec-name*** using ***args***를 사용하여 응용 프로그램을 실행합니다.<br><br>Fields는 Bolt의 출력 필드입니다.
-|**scp-tx-commit-bolt**|	exec-name<br>args<br>fields|	xmfoswortus Committer Bolt를 정의합니다. ***exec-name*** using args를 사용하여 응용 프로그램을 실행합니다.<br><br>***fields***는 Bolt의 출력 필드입니다.
-|**nontx-topolopy**|	topology-name<br> spout-map<br>bolt-map|	토폴로지 이름, Spout 정의 맵 및 Bolt 정의 맵을 사용하여 비트랜잭션 토폴로지를 정의합니다.
-|**scp-spout**|	exec-name<br>args<br>fields<br>parameters|	비트랜잭션 Spout를 정의합니다. ***exec-name*** using ***args***를 사용하여 응용 프로그램을 실행합니다.<br><br>***fields***는 Spout의 출력 필드입니다.<br><br>***parameters***는 선택 사항이고, 이를 사용하여 "nontransactional.ack.enabled"와 같은 몇몇 매개 변수를 지정합니다.
-|**scp-bolt**|	exec-name<br>args<br>fields<br>parameters|	비트랜잭션 Bolt를 정의합니다. ***exec-name*** using ***args***를 사용하여 응용 프로그램을 실행합니다.<br><br>***fields***는 Bolt의 출력 필드입니다.<br><br>***parameters***는 선택 사항이고, 이를 사용하여 "nontransactional.ack.enabled"와 같은 몇몇 매개 변수를 지정합니다.
+|**tx-topolopy**|	topology-name<br> spout-map<br> bolt-map|	 토폴로지 이름, Spout 정의 맵 및 Bolt 정의 맵으로 트랜잭션 토폴로지를 정의합니다.
+|**scp-tx-spout**|	exec-name<br> args<br> fields|	트랜잭션 Spout를 정의합니다. ***args***를 사용하여 ***exec-name***이라는 응용 프로그램을 실행합니다.<br><br>***fields***는 Spout의 출력 필드입니다.
+|**scp-tx-batch-bolt**|	exec-name<br> args<br> fields| 	트랜잭션 Batch Bolt를 정의합니다. ***args***를 사용하여 ***exec-name***이라는 응용 프로그램을 실행합니다.<br><br>Fields는 Bolt의 출력 필드입니다.
+|**scp-tx-commit-bolt**|	exec-name<br>args<br>fields|	트랜잭션 Committer Bolt를 정의합니다. args를 사용하여 ***exec-name***이라는 응용 프로그램을 실행합니다.<br><br>***fields***는 Bolt의 출력 필드입니다.
+|**nontx-topolopy**|	topology-name<br> spout-map<br>bolt-map|	토폴로지 이름, Spout 정의 맵 및 Bolt 정의 맵으로  비트랜잭션 토폴로지를 정의합니다.
+|**scp-spout**|	exec-name<br>args<br>fields<br>매개 변수|	비트랜잭션 Spout를 정의합니다. ***args***를 사용하여 ***exec-name***이라는 응용 프로그램을 실행합니다.<br><br>***fields***는 Spout의 출력 필드입니다.<br><br>***parameters***는 선택 사항이고, 이를 사용하여 "nontransactional.ack.enabled"와 같은 몇몇 매개 변수를 지정합니다.
+|**scp-bolt**|	exec-name<br>args<br>fields<br>매개 변수|	비트랜잭션 Bolt를 정의합니다. ***args***를 사용하여 ***exec-name***이라는 응용 프로그램을 실행합니다.<br><br>***fields***는 Bolt의 출력 필드입니다.<br><br>***parameters***는 선택 사항이고, 이를 사용하여 "nontransactional.ack.enabled"와 같은 몇몇 매개 변수를 지정합니다.
 
 토폴로지를 정의할 때 사용할 수 있는 키워드는 다음과 같습니다.
 
@@ -808,20 +822,20 @@ SCP 토폴로지 사양은 SCP 토폴로지를 설명하고 구성하기 위한 
 |**"output.schema"**|	출력 스키마입니다.
 |**"nontransactional.ack.enabled"**|	비트랜잭션 토폴로지에 대해 승인이 사용하도록 설정되는지 여부입니다.
 
-토폴로지 사양은 HDInsight Storm 클러스터의 **%storm_home%\bin** 디렉터리에 있는 ***runspec*** 명령을 통해 실행할 Storm 클러스터에 직접 제출할 수 있습니다.  
+토폴로지 사양은 Storm 클러스터의 ***%storm_home%\bin*** 디렉터리에 있는 **runspec** 명령을 통해 실행할 Storm 클러스터에 직접 제출할 수 있습니다.  
 
     usage: runSpec [spec-file target-dir [resource-dir] [-cp classpath]]
      ex: runSpec examples\HelloWorld\HelloWorld.spec target examples\HelloWorld\Target
 
 > [AZURE.NOTE] ***resource-dir*** 매개 변수는 선택 사항입니다. C# 응용 프로그램을 실행하려는 경우 이 매개 변수를 지정해야 합니다. 이 디렉터리에는 응용 프로그램, 종속성 및 구성이 포함됩니다.  
 
-***classpath*** 매개 변수는 선택 사항입니다. 사양 파일에 Java Spout 또는 Bolt가 포함되는 경우 Java 클래스 경로를 지정하는 데 사용됩니다.  
+***classpath*** 매개 변수도 선택 사항으로, 사양 파일에 Java Spout 또는 Bolt가 포함되는 경우 Java 클래스 경로를 지정하는 데 사용됩니다.  
 
 ###기타 기능
 
 ####입력 및 출력 스키마 선언
 
-`Emit()`을 호출하면 플랫폼에서는 튜플을 바이트 배열로 직렬화하고 JVM으로 전송합니다. Storm에서 이 튜플을 대상에 전송합니다. 이제 Bolt가 튜플을 수신합니다. C# Bolt의 경우 튜플은 JVM에서 수신되고 다시 원래 유형으로 변환됩니다.
+ `Emit()`을 호출하면 플랫폼에서는 튜플을 바이트 배열로 직렬화하고 JVM으로 전송합니다. Storm에서 이 튜플을 대상에 전송합니다. 이제 Bolt가 튜플을 수신합니다. C# Bolt의 경우 튜플은 JVM에서 수신되고 다시 원래 유형으로 변환됩니다.
 
 이 직렬화와 역직렬화를 지원하려면 입력과 출력의 스키마를 선언해야 합니다. 스키마는 `Dictionary<string, List<Type>` 개체로 정의됩니다. 여기서 키는 스트림 ID이고 값은 내보낼 튜플의 `Types`입니다. 구성 요소는 여러 스트림을 선언할 수 있습니다.
 
@@ -836,7 +850,7 @@ SCP 토폴로지 사양은 SCP 토폴로지를 설명하고 구성하기 위한 
         }
     }
 
-`Context` 개체는 직렬화/역직렬화에 대한 스키마를 선언하는 데 사용될 수 있는 `DeclareComponentSchema`를 제공합니다.
+ `Context` 개체는 직렬화/역직렬화에 대한 스키마를 선언하는 데 사용될 수 있는 `DeclareComponentSchema`를 제공합니다.
 
      public void DeclareComponentSchema(ComponentStreamSchema schema)
 
@@ -850,9 +864,9 @@ SCP 토폴로지 사양은 SCP 토폴로지를 설명하고 구성하기 위한 
 
 ####필드 그룹화
 
-Strom의 기본 제공 필드 그룹화는 SCP.NET에서 제대로 작동하지 않습니다. 데이터를 JVM으로 프록시할 때 모든 필드 데이터 형식은 실제로 `byte[]`이고 필드 그룹화는 `byte[]` 개체 해시 코드를 사용하여 그룹화를 수행합니다. `byte[]` 개체 해시 코드는 메모리 내에서 이 개체의 주소이므로 같은 내용을 공유하지만 같은 주소를 공유하지 않는 두 `byte[]` 개체에 대한 그룹화가 잘못됩니다.
+Strom의 기본 제공 필드 그룹화는 SCP.NET에서 제대로 작동하지 않습니다. 데이터를 JVM으로 프록시할 때 모든 필드 데이터 형식은 실제로 `byte[]`이고 필드 그룹화는  `byte[]` 개체 해시 코드를 사용하여 그룹화를 수행합니다. `byte[]` 개체 해시 코드는 메모리 내에서 이 개체의 주소이므로 같은 내용을 공유하지만 같은 주소를 공유하지 않는 두 `byte[]` 개체에 대한 그룹화가 잘못됩니다.
 
-이 문제를 해결하려면 사양에서 `scp-field-group`을 사용합니다. 이 항목은 byte[]의 내용을 사용하여 그룹화를 수행합니다. 사양에서 이 항목을 사용하는 예는 다음과 같습니다.  
+이 문제를 해결하려면 사양에서 `scp-field-group`을 사용합니다. 이 항목은 `byte[]`의 내용을 사용하여 그룹화를 수행합니다. 사양에서 이 항목을 사용하는 예는 다음과 같습니다.  
 
     (bolt-spec
         {
@@ -864,27 +878,27 @@ Strom의 기본 제공 필드 그룹화는 SCP.NET에서 제대로 작동하지 
 이 예제에서는 다음을 수행합니다.
 
 * `scp-field-group` - 사용자 지정 그룹화를 사용합니다.  
-* `:tx` 또는 `:non-tx` - 트랜잭션 또는 비트랜잭션인지를 나타냅니다.
+* `:tx` 또는 `:non-tx` - 트랜잭션인지 아니면 비트랜잭션인지를 나타냅니다.
 * `[0,1]` - 0부터 필드 ID의 해시 집합을 사용합니다.  
 
 ####하이브리드 토폴로지
 
 대부분 기본 Storm Spout, Bolt 및 토폴로지는 Java로 구현됩니다. C# 구성 요소를 사용하는 솔루션에서 이러한 구성 요소를 다시 사용할 수 있도록 SCP에서는 사양에서 하이브리드 토폴로지를 만들도록 허용합니다.
 
-* **Java Spout 또는 Bolt** - 사양 파일에서 `scp-spout` 및 `scp-bolt`를 사용하여 Java Spout 및 Bolt를 지정할 수도 있습니다. `microsoft.scp.example.HybridTopology.Generator`의 클래스 이름을 사용하여 Java Spout를 지정하는 방법은 다음과 같습니다.
+* **Java Spout 또는 Bolt** - 사양 파일에서  `scp-spout` 및 `scp-bolt`를 사용하여 Java Spout 및 Bolt를 지정할 수도 있습니다.  `microsoft.scp.example.HybridTopology.Generator`의 클래스 이름을 사용하여 Java Spout를 지정하는 방법은 다음과 같습니다.
 
         (spout-spec
           (microsoft.scp.example.HybridTopology.Generator.)
           :p 1)
 
-* **Java 클래스 경로** - Java Spout 또는 Bolt를 사용할 때 먼저 Spout 또는 Bolt를 JAR 파일로 컴파일해야 합니다. 그리고 **runSpec** 명령을 사용할 때 '-cp' 매개변수를 통해 Java 클래스 경로를 추가합니다. 다음 예제에는 **examples\HybridTopology\java\target** 디렉터리 아래에 있는 JAR 파일이 포함됩니다.  
+* **Java 클래스 경로** - Java Spout 또는 Bolt를 사용할 때 먼저 Spout 또는 Bolt를 JAR 파일로 컴파일해야 합니다. 그런 다음 **runSpec** 명령을 사용할 때 `-cp` 매개 변수를 통해 Java 클래스 경로를 추가합니다. 다음 예제에는 **examples\HybridTopology\java\target** 디렉터리 아래에 있는 JAR 파일이 포함됩니다.  
 
         bin\runSpec.cmd examples\HybridTopology\HybridTopology.spec specs examples\HybridTopology\net\Target -cp examples\HybridTopology\java\target\*  
 
 
-* **Java와 C# 간의 직렬화 및 역직렬화** - Java와 C# 간에 개체를 직렬화하려면 `CustomizedInteropJSONSerializer`를 사용합니다.
+* **Java와 C# 간의 직렬화 및 역직렬화** - Java와 C# 간에 개체를 직렬화하려면  `CustomizedInteropJSONSerializer`를 사용합니다.
 
-    > [WACOM.NOTE] 현재 `CustomizedInteropJSONSerializer`는 **Java Spout** 및 **C# Bolt**만 지원합니다.
+    > [AZURE.NOTE] 현재  `CustomizedInteropJSONSerializer`는 **Java Spout** 및 **C# Bolt**만 지원합니다.
 
     * 사양 파일에서 Java 구성 요소에 대한 직렬화기를 지정합니다.
 
@@ -921,7 +935,7 @@ Strom의 기본 제공 필드 그룹화는 SCP.NET에서 제대로 작동하지 
 
 ###SCP 호스트 모드
 
-호스트 모드에서는 프로젝트를 DLL로 컴파일하고 **SCPHost.exe**를 사용하여 호스트할 수 있습니다. 프로덕션 설정에서 솔루션을 호스트할 때 이 방법을 사용하는 것이 좋습니다. 호스트 모드를 사용하면 사양 파일에 플러그 인으로 `SCPHost.exe`가 나열됩니다.
+호스트 모드에서는 프로젝트를 DLL로 컴파일하고 **SCPHost.exe**를 사용하여 호스트할 수 있습니다. 프로덕션 설정에서 솔루션을 호스트할 때 이 방법을 사용하는 것이 좋습니다. 호스트 모드를 사용하면 사양 파일에 플러그인으로 `SCPHost.exe`가 나열됩니다.
 
 HelloWorld 예제에 호스트 모드를 사용한 사양 파일의 예는 다음과 같습니다.
 
@@ -939,7 +953,7 @@ HelloWorld 예제에 호스트 모드를 사용한 사양 파일의 예는 다�
 
 ##SCP 프로그래밍 예제
 
-SCP에서 작성된 다음 예제 응용 프로그램은 HDInsight Storm 클러스터의 **%storm_home%\examples**에서 찾을 수 있습니다.
+SCP에서 작성된 다음 예제 응용 프로그램은 **%storm_home%\examples**에 있는 HDInsight의 Storm 클러스터에서 찾을 수 있습니다.
 
 * **HelloWorld** - HelloWorld는 SCP.Net의 간단한 예이고, 이 문서의 앞부분에서 사용한 단어 개수 예제와 비슷합니다. 여기에는 **generator**라는 Spout와 **splitter** 및 **counter**라는 Bolt 2개가 포함된 비트랜잭션 토폴로지가 사용됩니다. **generator** Spout는 일부 문장을 임의로 생성하여 **splitter**로 내보냅니다. **splitter** Bolt는 이러한 문장을 단어로 분할한 다음 **counter** Bolt로 단어를 내보냅니다. **counter** Bolt는 사전을 사용하여 각 단어가 나오는 횟수를 기록합니다.
 
@@ -947,7 +961,7 @@ SCP에서 작성된 다음 예제 응용 프로그램은 HDInsight Storm 클러�
 
 * **HelloWorldTx** - 트랜잭션 토폴로지를 구현하는 방법의 샘플입니다. 이 샘플에는 **generator**라는 트랜잭션 Spout, **partial-count**라는 Batch Bolt, **count-sum**이라는 Commit Bolt가 포함됩니다. 이 토폴로지에서 사용할 미리 만들어진 세 개의 txt 파일 **DataSource0.txt**, **DataSource1.txt** 및 **DataSource2.txt**도 있습니다.
 
-    각 트랜잭션에서 Spout는 2개 파일을 임의로 선택하여 이 두 파일 이름을 **partial-count** Bolt로 내보냅니다. 그러면 Bolt는 먼저 수신된 튜플에서 파일 이름을 가져온 다음 파일을 열고 해당 파일의 단어 수를 계산합니다.  마지막으로 단어 수를 **count-sum** Bolt로 내보냅니다. **count-sum** Bolt는 총 단어 개수의 요약을 표시합니다.  
+    각 트랜잭션에서 Spout는 2개 파일을 임의로 선택하여 이 두 파일 이름을 **partial-count** Bolt로 내보냅니다. 그러면 Bolt는 먼저 수신된 튜플에서 파일 이름을 가져온 다음 파일을 열고 해당 파일의 단어 수를 계산합니다. 마지막으로 단어와 숫자를 **count-sum** Bolt로 내보냅니다. **count-sum** Bolt는 총 개수의 요약을 표시합니다.  
 
     "정확히 한 번" 의미 체계를 적용하려면 **count-sum** Bolt는 재생된 트랜잭션을 처리 중인지를 확인해야 합니다. 이 예제에서는 "count-sum"에 정적 멤버 변수가 있습니다.  
 
@@ -969,7 +983,7 @@ SCP에서 작성된 다음 예제 응용 프로그램은 HDInsight Storm 클러�
             }
         }  
 
-    `FinishBatch()`를 호출할 때 재생된 트랜잭션이 아니면 `lastCommittedTxId`가 업데이트됩니다.  
+     `FinishBatch()`를 호출하면  `lastCommittedTxId`가 업데이트됩니다(재생된 트랜잭션이 아닌 경우).  
 
         public void FinishBatch(Dictionary<string, Object> parms)
         {
@@ -989,5 +1003,4 @@ SCP에서 작성된 다음 예제 응용 프로그램은 HDInsight Storm 클러�
 
 
 [1]: ./media/hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application/hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application-01.png
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

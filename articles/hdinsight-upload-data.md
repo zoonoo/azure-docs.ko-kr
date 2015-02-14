@@ -1,10 +1,24 @@
-﻿<properties urlDisplayName="Upload Data" pageTitle="HDInsight에서 Hadoop 작업용 데이터 업로드 | Azure" metaKeywords="" description="Azure 저장소 탐색기, Azure PowerShell, Hadoop 명령줄 또는 Sqoop을 사용하여 HDInsight에서 데이터를 업로드 및 액세스하는 방법에 대해 알아봅니다." metaCanonical="" services="storage,hdinsight" documentationCenter="" title="Upload data for Hadoop jobs in HDInsight" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
+﻿<properties 
+	pageTitle="HDInsight에서 Hadoop 작업용 데이터 업로드 | Azure" 
+	description="Azure 저장소 탐색기, Azure PowerShell, Hadoop 명령줄 또는 Sqoop을 사용하여 HDInsight에서 데이터를 업로드 및 액세스하는 방법에 대해 알아봅니다." 
+	services="storage, hdinsight" 
+	documentationCenter="" 
+	authors="mumian" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/12/2014" ms.author="jgao" />
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/12/2014" 
+	ms.author="jgao"/>
 
 
 
-#HDInsight에서 Hadoop 작업용 데이터 업로드
+# HDInsight에서 Hadoop 작업용 데이터 업로드
 
 Azure HDInsight는 Azure Blob 저장소를 통해 모든 기능을 갖춘 HDFS(Hadoop Distributed File System)를 제공합니다. HDFS 확장으로 설계된 Azure HDInsight는 관리 중인 데이터에 Hadoop 에코시스템의 모든 구성 요소가 직접 작동하도록 설정하여 고객에게 능률적인 환경을 제공합니다. Azure Blob 저장소와 HDFS는 데이터의 저장소 및 해당 데이터의 계산을 최적화하는 별개의 파일 시스템입니다. Azure Blob 저장소 사용의 이점에 대해 알아보려면 [HDInsight에서 Azure Blob 저장소 사용][hdinsight-storage]을 참조하세요. 
 
@@ -24,7 +38,7 @@ Azure HDInsight 클러스터는 일반적으로 MapReduce 작업 실행을 위�
 
 * Azure HDInsight 클러스터. 자세한 내용은 [Azure HDInsight 시작][hdinsight-get-started] 또는 [HDInsight 클러스터 프로비전][hdinsight-provision]을 참조하세요.
 
-##이 문서에서는 다음을 수행합니다.
+## 이 문서의 내용
 
 * [AzCopy를 사용하여 Blob 저장소에 데이터 업로드](#azcopy)
 * [Azure PowerShell을 사용하여 Blob 저장소에 데이터 업로드](#powershell)
@@ -32,9 +46,9 @@ Azure HDInsight 클러스터는 일반적으로 MapReduce 작업 실행을 위�
 * [Hadoop 명령줄을 사용하여 Blob 저장소에 데이터 업로드](#commandline)
 * [Sqoop을 사용하여 Azure SQL 데이터베이스에서 Blob 저장소로 데이터 가져오기](#sqoop)
 
-##<a id="azcopy"></a>AzCopy를 사용하여 Blob 저장소에 데이터 업로드##
+## <a id="azcopy"></a>AzCopy를 사용하여 Blob 저장소에 데이터 업로드##
 
-AzCopy는 Azure 저장소 계정과 데이터를 주고받는 작업을 간소화하도록 설계된 명령줄 유틸리티입니다. 이 유틸리티는 독립 실행형 도구로 사용할 수도 있고 기존 응용 프로그램에 통합할 수도 있습니다. [AzCopy를 다운로드][azure-azcopy-download]하세요.
+AzCopy는 Azure 저장소 계정과 데이터를 주고받는 작업을 간소화하도록 설계된 명령줄 유틸리티입니다. 이 유틸리티는 독립 실행형 도구로 사용할 수도 있고 기존 응용 프로그램에 통합할 수도 있습니다. [AzCopy][azure-azcopy-download]를 다운로드하세요.
 
 AzCopy 구문은 다음과 같습니다.
 
@@ -42,7 +56,7 @@ AzCopy 구문은 다음과 같습니다.
 
 자세한 내용은 [AzCopy - Azure Blob용 파일 업로드/다운로드][azure-azcopy](영문)를 참조하세요.
 
-##<a id="powershell"></a>Azure PowerShell을 사용하여 Blob 저장소에 데이터 업로드##
+## <a id="powershell"></a>Azure PowerShell을 사용하여 Blob 저장소에 데이터 업로드##
 
 Azure PowerShell은 Azure에서 작업의 배포와 관리를 제어 및 자동화하기 위해 사용할 수 있는 강력한 스크립팅 환경입니다. Azure PowerShell을 사용하면, MapReduce 작업에서 처리할 수 있도록 데이터를 Blob 저장소에 업로드할 수 있습니다. Azure PowerShell을 실행하기 위해 워크스테이션을 구성하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성][powershell-install-configure]을 참조하세요.
 
@@ -70,7 +84,7 @@ Azure PowerShell은 Azure에서 작업의 배포와 관리를 제어 및 자동�
 		
 3. Azure PowerShell 콘솔 창에 스크립트를 붙여넣고 실행합니다.
 
-Blob 저장소 컨테이너는 키/값 쌍으로 데이터를 저장하며, 디렉터리 계층 구조는 없습니다. 그러나 파일이 디렉터리 구조 내에 저장된 것처럼 보이도록 키 이름에 "/" 문자를 사용할 수 있습니다. 예를 들어 Blob의 키 이름을 *input/log1.txt*로 지정할 수 있습니다. 실제로 "input" 디렉터리는 없지만 키 이름에 "/" 문자가 있으므로 파일 경로처럼 보입니다. 이전 스크립트에서는 $blobname 변수를 설정하여 파일에 폴더 구조를 제공할 수 있습니다. 예를 들면 다음과 같습니다. *$blobname="myfolder/myfile.txt"*.
+Blob 저장소 컨테이너는 키/값 쌍으로 데이터를 저장하며, 디렉터리 계층 구조는 없습니다. 그러나 파일이 디렉터리 구조 내에 저장된 것처럼 보이도록 키 이름에 "/" 문자를 사용할 수 있습니다. 예를 들어 Blob의 키 이름을 *input/log1.txt*로 정할 수 있습니다. 실제로 "input" 디렉터리는 없지만 키 이름에 "/" 문자가 있으므로 파일 경로처럼 보입니다. 이전 스크립트에서는 $blobname 변수를 설정하여 파일에 폴더 구조를 제공할 수 있습니다. 예를 들면 *$blobname="myfolder/myfile.txt"*와 같습니다.
 
 Azure 탐색기 도구를 사용하면 몇몇 0바이트 파일을 발견할 수 있습니다. 이러한 파일의 목적은 두 가지입니다.
 
@@ -84,11 +98,11 @@ Azure 탐색기 도구를 사용하면 몇몇 0바이트 파일을 발견할 수
 
 
 
-##<a id="storageexplorer"></a>Azure 저장소 탐색기를 사용하여 Blob 저장소에 데이터 업로드
+## <a id="storageexplorer"></a>Azure 저장소 탐색기를 사용하여 Blob 저장소에 데이터 업로드
 
-*Azure 저장소 탐색기*는 Azure 저장소의 데이터를 검사하고 변경하기 위한 유용한 도구로서 무료이며 [http://azurestorageexplorer.codeplex.com/](http://azurestorageexplorer.codeplex.com/ "Azure Storage Explorer")에서 다운로드할 수 있습니다.
+*Azure 저장소 탐색기*는 Azure 저장소의 데이터를 검사하고 변경하기 위한 유용한 도구로서 [http://azurestorageexplorer.codeplex.com/](http://azurestorageexplorer.codeplex.com/ "Azure Storage Explorer")에서 무료로 다운로드할 수 있습니다.
 
-이 도구를 사용하기 전에 Azure 저장소 계정 이름과 계정 키를 알아야 합니다. 이 정보를 확인하는 방법을 알아보려면 [저장소 계정 만들기, 관리 또는 삭제][azure-create-storageaccount]의 *방법: 저장소 액세스 키 보기, 복사 및 다시 생성* 섹션을 참조하세요.  
+이 도구를 사용하기 전에 Azure 저장소 계정 이름과 계정 키를 알아야 합니다. 이 정보를 확인하는 방법을 알아보려면 [저장소 계정 만들기, 관리 또는 삭제][azure-create-storageaccount]의 "방법: 저장소 액세스 키 보기, 복사 및 다시 생성" 섹션을 참조하세요.  
 
 1. Azure 저장소 탐색기를 실행합니다.
 
@@ -178,7 +192,7 @@ Azure 탐색기 도구를 사용하면 몇몇 0바이트 파일을 발견할 수
 
 
 
-##<a id="commandline"></a> Hadoop 명령줄을 사용하여 Blob 저장소에 데이터 업로드
+## <a id="commandline"></a> Hadoop 명령줄을 사용하여 Blob 저장소에 데이터 업로드
 
 Hadoop 명령줄을 사용하려면 먼저 원격 데스크톱을 사용하여 클러스터에 연결해야 합니다. 
 
@@ -206,14 +220,14 @@ Hadoop 명령줄을 사용하려면 먼저 원격 데스크톱을 사용하여 �
 
 		wasbs://<ContainerName>@<StorageAccountName>.blob.core.windows.net/example/data/davinci.txt
 
-	*wasbs*를 사용할 때에는 정규화된 도메인 이름이 필요합니다.
+	 *wasbs*를 사용할 때에는 정규화된 도메인 이름이 필요합니다.
 
 13. 다음 명령을 사용하여 업로드된 파일을 나열합니다.
 
 		hadoop dfs -lsr /example/data
 
 
-##<a id="sqoop"></a> Sqoop을 사용하여 SQL 데이터베이스/SQL Server에서 HDFS로 데이터 가져오기
+## <a id="sqoop"></a> Sqoop을 사용하여 SQL 데이터베이스/SQL Server에서 HDFS로 데이터 가져오기
 
 Sqoop은 Hadoop과 관계형 데이터베이스 간 데이터 전송을 위해 설계된 도구입니다. 이 도구를 사용하면 SQL, MySQL, Oracle 등의 RDBMS(관계형 데이터베이스 관리 시스템)에서 HDFS(Hadoop Distributed File System)로 데이터를 가져오고, MapReduce 또는 Hive로 Hadoop의 데이터를 변형한 다음, 데이터를 RDBMS로 다시 내보낼 수 있습니다. 자세한 내용은 [Sqoop 사용자 가이드][apache-sqoop-guide](영문)를 참조하세요.
 
@@ -294,5 +308,4 @@ Sqoop 사용에 대한 자세한 내용은 [HDInsight와 함께 Sqoop 사용][hd
 [image-ase-addaccount]: ./media/hdinsight-upload-data/HDI.ASEAddAccount.png
 [image-ase-blob]: ./media/hdinsight-upload-data/HDI.ASEBlob.png
 
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

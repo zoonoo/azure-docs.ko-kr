@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Hudson Continuous Integration" pageTitle="Azure Blob 서비스와 함께 Hudson을 사용하는 방법 | Microsoft Azure" metaKeywords="Hudson, Azure storage, Azure Blob service, Azure storage, Azure hudson" description="아티팩트 빌드용 리포지토리로 Azure Blob 저장소와 함께 Hudson을 사용하는 방법에 대해 설명합니다." metaCanonical="" services="storage" documentationCenter="Java" title="Using Azure Storage with a Hudson Continuous Integration solution" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
+<properties 
+	pageTitle="Azure Blob 서비스와 함께 Hudson을 사용하는 방법 | Microsoft Azure" 
+	description="아티팩트 빌드용 리포지토리로 Azure Blob 저장소와 함께 Hudson을 사용하는 방법에 대해 설명합니다." 
+	services="storage" 
+	documentationCenter="java" 
+	authors="rmcmurray" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="robmcm" />
+<tags 
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="09/25/2014" 
+	ms.author="robmcm"/>
 
 #Hudson Continuous Integration 솔루션과 함께 Azure 저장소 사용
 
@@ -25,7 +39,7 @@
 ## <a id="overview"></a>Hudson 개요 ##
 Hudson은 개발자가 코드 변경을 쉽게 통합하고 자동으로 자주 빌드를 생성하도록 하여 개발자의 생산성을 증가시켜 소프트웨어 프로젝트의 연속 통합을 가능하게 합니다. 빌드는 버전이 있으며 빌드 아티팩트는 다양한 저장소에 업로드할 수 있습니다. 이 항목에서는 Azure Blob 저장소를 빌드 아티팩트의 리포지토리로 사용하는 방법을 보여 줍니다. Azure Blob 저장소에서 종속성을 다운로드하는 방법도 보여 줍니다.
 
-Hudson에 대한 자세한 내용은 [Meet Hudson][](영문)에서 확인할 수 있습니다.
+Hudson에 대한 자세한 내용은 [Meet Hudson][]에서 확인할 수 있습니다.
 
 ## <a id="benefits"></a>Blob 서비스를 사용할 경우의 이점 ##
 
@@ -51,13 +65,13 @@ Hudson CI 솔루션으로 Blob 서비스를 사용하려면 다음이 있어야 
 
     3. 브라우저에서 `http://localhost:8080/`을 엽니다. 그러면 Hudson 대시보드가 열립니다.
 
-    4. Hudson을 처음 사용하는 경우 `http://localhost:8080/`에서 초기 설치를 완료합니다. 
+    4. Hudson을 처음 사용할 때 `http://localhost:8080/`에서 초기 설정을 완료합니다. 
 
-    5. 초기 설치를 완료한 후 실행 중인 Hudson WAR의 인스턴스를 취소하고 Hudson WAR을 다시 시작한 다음 Azure 저장소 플러그 인을 설치 및 구성하는 데 사용할 Hudson 대시보드(`http://localhost:8080/`)를 다시 엽니다.
+    5. 초기 설치를 완료한 후 실행 중인 Hudson WAR의 인스턴스를 취소하고 Hudson WAR을 다시 시작한 다음 Azure 저장소 플러그 인을 설치 및 구성하는 데 사용할 Hudson 대시보드(`http://localhost:8080/`를 다시 엽니다.
 
         일반적인 Hudson CI 솔루션은 서비스로 실행되도록 설정되지만 이 자습서에서는 명령줄에서 Hudson WAR을 실행해도 충분합니다.
 
-- Azure 계정. <http://www.windowsazure.com>에서 Azure 계정에 등록할 수 있습니다.
+- Azure 계정. 다음 웹 사이트에서 Azure 계정에 등록할 수 있습니다. <http://www.windowsazure.com>.
 
 - Azure 저장소 계정. 저장소 계정이 없으면 [저장소 계정을 만드는 방법][]에 나온 단계를 사용하여 만들 수 있습니다.
 
@@ -74,7 +88,7 @@ Hudson으로 Blob 서비스를 사용하려면 Azure 저장소 플러그 인을 
 3. **Available** 탭을 클릭합니다.
 4. **Others**를 클릭합니다.
 5. **Artifact Uploaders** 섹션에서 **Microsoft Azure Storage plugin**을 확인합니다.
-6. **설치**를 클릭합니다.
+6. **Install**을 클릭합니다.
 7. 설치가 완료되면 Hudson을 다시 시작합니다.
 
 ## <a id="howtoconfigure"></a>저장소 계정을 사용하도록 Azure 저장소 플러그 인을 구성하는 방법 ##
@@ -110,7 +124,7 @@ Hudson으로 Blob 서비스를 사용하려면 Azure 저장소 플러그 인을 
 
     **팁**
     
-    **Execute Windows batch command**에 대한 스크립트를 입력한 **Command** 섹션 아래에는 Hudson에서 인식하는 환경 변수에 대한 링크가 있습니다. 환경 변수 이름과 설명을 알아보려면 이 링크를 클릭합니다. **BUILD_URL** 환경 변수와 같이 특수 문자가 포함된 환경 변수는 컨테이너 이름이나 일반 가상 경로로 사용할 수 없습니다.
+    **Execute Windows batch command** 스크립트를 입력한 아래 **Command** 섹션은 Hudson에서 인식하는 환경 변수에 대한 링크입니다. 환경 변수 이름과 설명을 알아보려면 이 링크를 클릭합니다. **BUILD_URL** 환경 변수와 같이 특수 문자가 포함된 환경 변수는 컨테이너 이름이나 일반 가상 경로로 사용할 수 없습니다.
 
 8. 이 예제의 경우 **Make new container public by default**를 클릭합니다. (개인 컨테이너를 사용하려는 경우 액세스를 허용하려면 공유 액세스 서명을 만들어야 합니다. 이 내용은 이 항목에서는 다루지 않습니다. [공유 액세스 서명 만들기](http://go.microsoft.com/fwlink/?LinkId=279889)에서 공유 액세스 서명에 대한 자세한 내용을 알아볼 수 있습니다.)
 9. [옵션] 빌드 아티팩트를 업로드하기 전에 컨테이너에서 내용을 지우려면**Clean container before uploading**을 클릭합니다. 컨테이너의 내용을 지우지 않으려면 선택 취소한 상태로 둡니다.
@@ -119,13 +133,13 @@ Hudson으로 Blob 서비스를 사용하려면 Azure 저장소 플러그 인을 
 12. **Save**를 클릭하여 설정을 저장합니다.
 13. Hudson 대시보드에서 **Build Now**를 클릭하여 **MyJob**을 실행합니다. 상태에 대한 콘솔 출력을 검사합니다. Azure 저장소의 상태 메시지는 빌드 후 작업이 빌드 아티팩트를 업로드하기 시작할 때 콘솔 출력에 포함됩니다.
 14. 작업이 성공적으로 완료되었을 때 공용 Blob을 열어 빌드 아티팩트를 검사할 수 있습니다.
-    1. Azure 관리 포털 <https://manage.windowsazure.com>에 로그인합니다.
+    1. Azure 관리 포털에 로그인합니다. <https://manage.windowsazure.com>.
     2. **저장소**를 클릭합니다.
     3. Hudson에 사용할 저장소 계정 이름을 클릭합니다.
     4. **컨테이너**를 클릭합니다.
     5. Hudson 작업을 만들 때 할당한 작업 이름의 소문자 버전인 **myjob**이라는 컨테이너를 클릭합니다. 컨테이너 이름 및 Blob 이름은 Azure 저장소에서 소문자(및 대/소문자 구분)입니다. **myjob**이라는 컨테이너의 Blob 목록 내에 **hello.txt** 및 **date.txt**가 표시되어야 합니다. 이 항목 중 하나의 URL을 복사하여 브라우저에서 엽니다. 빌드 아티팩트로 업로드된 텍스트 파일이 표시됩니다.
 
-아티팩트를 Azure Blob 저장소에 업로드하는 빌드 후 작업은 작업당 하나만 만들 수 있습니다. 아티팩트를 Azure Blob 저장소로 업로드하는 단일 빌드 후 작업에서는 세미콜론을 구분 기호로 사용하여 **List of Artifacts to upload** 내에서 다른 파일(와일드카드 포함) 및 경로를 지정할 수 있습니다. 예를 들어 Hudson 빌드에서 작업 영역의 **build** 폴더에 JAR 파일과 TXT 파일을 생성한 상태에서 두 개를 모두 Azure Blob 저장소에 업로드하려면 **List of Artifacts to upload** 값에 **build/\*.jar;build/\*.txt**를 사용합니다. 이중 콜론 구문을 사용하여 Blob 이름 내에 사용할 경로를 지정할 수도 있습니다. 예를 들어 Blob 경로에 **binaries**를 사용하여 JAR을 업로드하고 Blob 경로에 **notices**를 사용하여 TXT 파일을 업로드하려면 **List of Artifacts to upload** 값에 **build/\*.jar::binaries;build/\*.txt::notices**를 사용합니다.
+아티팩트를 Azure Blob 저장소에 업로드하는 빌드 후 작업은 작업당 하나만 만들 수 있습니다. 아티팩트를 Azure Blob 저장소로 업로드하는 단일 빌드 후 작업에서는 세미콜론을 구분 기호로 사용하여 **List of Artifacts to upload** 내에서 다른 파일(와일드카드 포함) 및 경로를 지정할 수 있습니다. 예를 들어 Hudson 빌드에서 작업 영역의 **build** 폴더에 JAR 파일과 TXT 파일을 생성한 상태에서 두 개를 모두 Azure Blob 저장소에 업로드하려면 **List of Artifacts to upload** 값에 **build/\*.jar;build/\*.txt**를 사용합니다. 이중 콜론 구문을 사용하여 Blob 이름 내에 사용할 경로를 지정할 수도 있습니다. 예를 들어 Blob 경로에 **binaries**를 사용하여 JAR을 업로드하고 Blob 경로에 **notices**를 사용하여 TXT 파일을 업로드하려면 **List of Artifacts to upload** 값에 다음을 사용합니다. **build/\*.jar::binaries;build/\*.txt::notices**.
 
 ## <a name="howtocreatebuildstep"></a>Azure Blob 저장소에서 다운로드하는 빌드 단계를 만드는 방법 ##
 
@@ -154,7 +168,7 @@ Azure Blob 저장소에서 다운로드할 추가 항목이 있는 경우에는 
     
     (위 형식은 공용 Azure 클라우드에 적용됩니다. 다른 Azure 클라우드를 사용 중이면 Azure 관리 포털 내의 끝점을 사용하여 URL 끝점을 확인합니다.)
 
-    위 형식에서 `storageaccount`는 저장소 계정의 이름을 나타내고, `container_name`은 컨테이너의 이름을 나타내며, `blob_name`은 Blob 이름을 각각 나타냅니다. 컨테이너 이름에는 슬래시( **/**)로 구분하여 여러 경로를 사용할 수 있습니다. 이 자습서에서는 예제 컨테이너 이름으로 **MyJob**이 사용되고 **${BUILD\_ID}/${BUILD\_NUMBER}**는 일반 가상 경로에 사용되었습니다. 따라서 Blob의 URL 형식은 다음과 같습니다.
+    위 형식에서  `storageaccount`는 저장소 계정 이름을 나타내고,  `container_name`은 컨테이너 이름을 나타내며,  `blob_name`은 Blob 이름을 각각 나타냅니다. 컨테이너 이름에는 슬래시(**/**)로 구분하여 여러 경로를 사용할 수 있습니다. 이 자습서에서 컨테이너 이름의 예는 **MyJob**이었고 **${BUILD\_ID}/${BUILD\_NUMBER}**는 일반 가상 경로에 사용되었으므로 Blob의 URL 형식은 다음과 같습니다.
 
     `http://example.blob.core.windows.net/myjob/2014-05-01_11-56-22/1/hello.txt`
 
@@ -171,5 +185,4 @@ Azure Blob 저장소에서 다운로드할 추가 항목이 있는 경우에는 
   [Meet Hudson]: http://wiki.eclipse.org/Hudson-ci/Meet_Hudson
   [ms-open-tech]: http://msopentech.com
 
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

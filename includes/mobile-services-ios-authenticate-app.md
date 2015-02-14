@@ -19,10 +19,8 @@
             }];
         }
 
-    <div class="dev-callout"><b>참고</b>
-	<p>Facebook 이외의 ID 공급자를 사용하는 경우 위의 <strong>loginWithProvider</strong>에 전달된 값을 다음 중 하나로 변경합니다. <em>microsoftaccount</em>, <em>facebook</em>, <em>twitter</em>, <em>google</em> 또는 <em>windowsazureactivedirectory</em></p>
-    </div>
+    > [AZURE.NOTE] Facebook 이외의 ID 공급자를 사용하는 경우 위의 **loginWithProvider**에 전달된 값을 다음 중 하나로 변경합니다. _microsoftaccount_, _facebook_, _twitter_, _google_ 또는 _windowsazureactivedirectory_.
 		
 3. **실행** 단추를 눌러 프로젝트를 빌드하고 iPhone 에뮬레이터에서 앱을 시작한 후 선택한 ID 공급자로 로그온합니다.
 
-   	로그인하고 나면 앱이 오류 없이 실행되며 모바일 서비스를 쿼리하고 데이터를 업데이트할 수 있게 됩니다.
+   	로그인하고 나면 앱이 오류 없이 실행되며 모바일 서비스를 쿼리하고 데이터를 업데이트할 수 있게 됩니다.<!--HONumber=42-->

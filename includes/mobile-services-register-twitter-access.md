@@ -6,7 +6,7 @@
   
   	Twitter에서는 Twitter v1.1 API에 액세스하는 데 필요한 자격 증명을 생성합니다. Twitter 개발자 웹 사이트에서 세 가지 자격 증명을 가져올 수 있습니다. 
 
-2. <a href="http://go.microsoft.com/fwlink/p/?LinkId=268300" target="_blank">Twitter 개발자</a>(영문) 웹 사이트로 이동하고 Twitter 계정 자격 증명을 사용하여 로그인한 후 **My Applications**로 이동하여 사용 중인 Twitter 앱을 선택합니다.
+2. <a href="http://go.microsoft.com/fwlink/p/?LinkId=268300" target="_blank">Twitter 개발자</a> 웹 사이트로 이동하고 Twitter 계정 자격 증명을 사용하여 로그인한 후 **My Applications**로 이동하여 사용 중인 Twitter 앱을 선택합니다.
 
     ![](./media/mobile-services-register-twitter-access/mobile-twitter-my-apps.png)
 
@@ -15,7 +15,7 @@
 	+ **Consumer key**
 	+ **Consumer secret**
 	+ **Access token**
-	+ **Access token secret**
+	+ **Access token**
 
 	![](./media/mobile-services-register-twitter-access/mobile-twitter-app-secrets.png)
 
@@ -40,4 +40,4 @@
 [Microsoft Azure 관리 포털]: https://manage.windowsazure.com/
 [모바일 서비스에 Twitter 로그인을 사용하기 위해 앱 등록]: /ko-kr/documentation/articles/mobile-services-how-to-register-twitter-authentication
 [Twitter 개발자]: http://go.microsoft.com/fwlink/p/?LinkId=268300
-[앱 설정]: http://msdn.microsoft.com/ko-kr/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
+[앱 설정]: http://msdn.microsoft.com/ko-kr/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7<!--HONumber=42-->

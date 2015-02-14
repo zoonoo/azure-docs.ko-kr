@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Deliver Apple HTTP Live Streaming (HLS)" pageTitle="Apple HLS(HTTP 라이브 스트리밍) 제공 방법 - Azure" metaKeywords="" description="미디어 서비스 원본 서버의 Apple HLS(HTTP 라이브 스트림) 콘텐츠에 대한 로케이터를 만드는 방법에 대해 알아봅니다. 코드 샘플은 C#으로 작성되었으며 Media Services SDK for .NET을 사용합니다." metaCanonical="" services="media-services" documentationCenter="" title="How to: Deliver Apple HLS streaming content" authors="juliako" solutions="" manager="dwrede" editor="" />
+﻿<properties 
+	pageTitle="Apple HLS(HTTP 라이브 스트리밍) 제공 방법 - Azure" 
+	description="미디어 서비스 원본 서버의 Apple HLS(HTTP 라이브 스트림) 콘텐츠에 대한 로케이터를 만드는 방법에 대해 알아봅니다. 코드 샘플은 C#으로 작성되었으며 Media Services SDK for .NET을 사용합니다." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako" />
+<tags 
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/30/2014" 
+	ms.author="juliako"/>
 
 
 
@@ -85,6 +99,5 @@ static ILocator GetStreamingHLSOriginLocator( string targetAssetID)
 [Media Services SDK for .NET 시작]: http://go.microsoft.com/fwlink/?linkid=252966
 [Azure Media Services REST API를 사용하여 응용 프로그램 빌드]: http://go.microsoft.com/fwlink/?linkid=252967
 [Media Services SDK for .NET을 사용하여 응용 프로그램 빌드]: http://go.microsoft.com/fwlink/?linkid=247821
-[미디어 서비스 포럼]: http://social.msdn.microsoft.com/Forums/en-US/MediaServices/threads
-
-<!--HONumber=35.1-->
+[미디어 서비스 포럼]: http://social.msdn.microsoft.com/Forums/ko-kr/MediaServices/threads
+<!--HONumber=42-->

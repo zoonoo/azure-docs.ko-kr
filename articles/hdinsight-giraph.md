@@ -1,6 +1,20 @@
-﻿<properties title="How to use Giraph with HDInsight" pageTitle="Azure HDInsight에서 Apache Giraph를 사용하는 방법" description="Apache Giraph를 사용하여 Azure HDInsight에서 그래프 처리를 수행하는 방법 알아보기" metaKeywords="Azure HDInsight Apache Giraph, hdinsight giraph, hdinsight graph, hadoop giraph, azure hadoop, hadoop graph" services="hdinsight" solutions="big-data" documentationCenter="" authors="larryfr" videoId="" scriptId="" manager="paulettm" />
+﻿<properties 
+	pageTitle="Azure HDInsight에서 Apache Giraph를 사용하는 방법" 
+	description="Azure HDInsight에서 Apache Giraph를 사용하여 그래프 처리를 수행하는 방법에 대해 알아봅니다." 
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="blackmist" 
+	manager="paulettm" 
+	editor=""/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/14/2014" ms.author="larryfr" />
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/14/2014" 
+	ms.author="larryfr"/>
 
 #Azure HDInsight(Hadoop)에서 Apache Giraph를 사용하는 방법 알아보기
 
@@ -38,7 +52,7 @@
 
 Giraph는 HDInsight 클러스터의 일부로 제공되지 않으므로 소스에서 빌드해야 합니다.  [Giraph 리포지토리](https://github.com/apache/giraph)에서 Giraph 빌드에 대한 자세한 내용을 볼 수 있습니다.
 
-1. 현재(2014년 7월 14일) Giraph를 사용하려면 HDInsight에 사용되는 WASB 파일 저장소와 함께 작동할 패치가 필요합니다. 이 패치는 Apache Giraph 프로젝트에 제출되었지만 아직 허용되지 않았습니다. [GIRAPH-930](https://issues.apache.org/jira/browse/GIRAPH-930) 의 __attachments__ 섹션에서 패치를 다운로드하고 로컬 드라이브에 __giraph-930.diff__로 저장합니다.
+1. 현재(2014년 7월 14일) Giraph를 사용하려면 HDInsight에 사용되는 WASB 파일 저장소와 함께 작동할 패치가 필요합니다. 이 패치는 Apache Giraph 프로젝트에 제출되었지만 아직 허용되지 않았습니다. [GIRAPH-930](https://issues.apache.org/jira/browse/GIRAPH-930)의 __attachments__ 섹션에서 패치를 다운로드하여 로컬 드라이브에 __giraph-930.diff__로 저장합니다.
 
 1. 명령줄에서 다음 Git 명령을 사용하여 Giraph 리포지토리의 복제를 만듭니다.
 
@@ -74,13 +88,13 @@ Giraph는 HDInsight 클러스터의 일부로 제공되지 않으므로 소스�
 
 	명령이 완료되면 JAR 파일이 wasb:///example/jars/giraph.jar로 업로드됩니다.
 
-	> [WACOM.NOTE] HDInsight에 파일을 업로드하는 데 사용할 수 있는 유틸리티 목록은 [HDInsight에서 Hadoop 작업용 데이터 업로드](http://azure.microsoft.com/ko-kr/documentation/articles/hdinsight-upload-data/)를 참조하세요.
+	> [AZURE.NOTE] HDInsight에 파일을 업로드하는 데 사용할 수 있는 유틸리티 목록은 [HDInsight에서 Hadoop 작업용 데이터 업로드](http://azure.microsoft.com/ko-kr/documentation/articles/hdinsight-upload-data/)를 참조하세요.
 
 ##<a id="run"></a>예제 실행
 
-SimpleShortestPathsComputation에서는 그래프에서 개체 간의 가장 짧은 경로를 찾기 위한 기본 [Pregel](http://people.apache.org/~edwardyoon/documents/pregel.pdf) 구현을 보여 줍니다. 다음 단계에 따라 샘플 데이터를 업로드하고, SimpleShortestPathsComputation 예제를 사용하여 작업을 실행한 후 결과를 봅니다.
+SimpleShortestPathsComputation은 그래프의 개체 간 가장 짧은 경로를 찾기 위한 기본 [Pregel](http://people.apache.org/~edwardyoon/documents/pregel.pdf) 구현을 보여 줍니다. 다음 단계에 따라 샘플 데이터를 업로드하고, SimpleShortestPathsComputation 예제를 사용하여 작업을 실행한 후 결과를 봅니다.
 
-> [WACOM.NOTE] 이에 대한 원본과 기타 예제는 [GitHub 리포지토리](https://github.com/apache/giraph/tree/release-1.1) 의 [release-1.1 분기](https://github.com/apache/giraph)에서 사용할 수 있습니다.
+> [AZURE.NOTE] 이 소스와 기타 예제는 [GitHub 리포지토리](https://github.com/apache/giraph)(영문)의 [release-1.1 branch](https://github.com/apache/giraph/tree/release-1.1)에서 찾아볼 수 있습니다.
 
 1. __tiny\_graph.txt__라는 새 파일을 만듭니다. 이 파일은 다음 줄을 포함해야 합니다.
 
@@ -90,7 +104,7 @@ SimpleShortestPathsComputation에서는 그래프에서 개체 간의 가장 짧
 		[3,0,[[0,3],[1,1],[4,4]]]
 		[4,0,[[3,4],[2,4]]]
 
-	이 데이터는 '[source_id,source_value,[[dest_id], [edge_value],...]](http://en.wikipedia.org/wiki/Directed_graph)' 형식을 사용하여 [방향이 지정된 그래프]에서 개체 간 관계를 설명합니다. 각 줄은 __source\_id__와 하나 이상의 __dest\_id__ 개체 간 관계를 나타냅니다. __edge\_value__(또는 가중치)는 __source\_id__와 __dest\_id__ 간 연결의 강도 또는 거리로 생각할 수 있습니다. 
+	이 데이터는 `[source_id,source_value,[[dest_id], [edge_value] 등의]]` 형식을 사용하여 [방향이 지정된 그래프](http://en.wikipedia.org/wiki/Directed_graph)에서 개체 간 관계를 설명합니다. 각 줄은 __source\_id__와 하나 이상의 __dest\_id__ 개체 간 관계를 나타냅니다. __edge\_value__(또는 가중치)는 __source\_id__와 __dest\_id__ 간 연결의 강도 또는 거리로 생각할 수 있습니다. 
 
 	개체 간 거리로 위의 값(또는 가중치)을 사용하여 그리면 다음과 같을 수 있습니다.
 
@@ -148,9 +162,9 @@ SimpleShortestPathsComputation에서는 그래프에서 개체 간의 가장 짧
 	1	0.0
 	3	1.0
 
-SimpleShortestPathComputation 예제는 개체 ID 1로 시작하도록 하드 코딩되며 다른 개체에 대한 가장 짧은 경로를 찾습니다. 따라서 출력은 `destination_id distance`이며, 여기서 distance는 가장자리를 기준으로 개체 ID 1과 대상 ID 간의 거리 값(또는 가중치)입니다.
+SimpleShortestPathComputation 예제는 개체 ID 1로 시작하도록 하드 코딩되며 다른 개체에 대한 가장 짧은 경로를 찾습니다. 따라서 출력은  `destination_id distance`이며, 여기서 distance는 가장자리를 기준으로 개체 ID 1과 대상 ID 간의 거리 값(또는 가중치)입니다.
 
-이를 시각화하면 ID 1과 다른 모든 개체 간의 가장 짧은 경로를 이동하여 결과를 확인할 수 있습니다. ID 1과 ID 4 간의 가장 짧은 경로는 5입니다. 이는 <span style="color:orange">ID 1과 ID 3 간</span>, 그리고 <span style="color:red">ID 3과 ID 4 </span>간의 전체 거리입니다.
+이를 시각화하면 ID 1과 다른 모든 개체 간의 가장 짧은 경로를 이동하여 결과를 확인할 수 있습니다. ID 1과 ID 4 간의 가장 짧은 경로는 5입니다. 이는 <span style="color:orange">ID 1과 ID 3 간</span>, 그리고 <span style="color:red">ID 3과 ID 4</span>간의 전체 거리입니다.
 
 ![Drawing of objects as circles with shortest paths drawn between](.\media\hdinsight-giraph\giraph-graph-out.png)
 
@@ -166,15 +180,15 @@ Giraph 작업은 지정된 출력 디렉터리를 런타임으로 만듭니다. 
 
 이 문서에서는 PowerShell을 통해 Giraph 작업을 실행하는 방법을 설명하지만 Hadoop 명령줄을 사용하여 작업을 실행할 수도 있습니다.
 
-> [WACOM.NOTE] Hadoop 명령줄은 원격 데스크톱을 사용하여 HDInsight 클러스터에 연결할 경우에만 사용할 수 있습니다.
+> [AZURE.NOTE] Hadoop 명령줄은 원격 데스크톱을 사용하여 HDInsight 클러스터에 연결할 경우에만 사용할 수 있습니다.
 > 
 > HDInsight 클러스터와 같은 Azure 계산 리소스에 대한 원격 데스크톱 세션은 Windows 기반 원격 데스크톱 클라이언트에서만 작동할 수 있습니다.
 
 HDInsight 클러스터에 연결하려면 다음 단계를 수행하세요.
 
-1. [Azure 관리 포털](https://manage.windowsazure.com)에서 HDInsight 클러스터를 선택하고 __구성__을 선택합니다.
+1. [Azure 관리 포털](https://manage.windowsazure.com)에서, HDInsight 클러스터를 선택한 다음 __구성__을 선택합니다.
 
-2. 페이지 맨 아래에서 __원격 사용__을 선택하고 원격 데스크톱 연결의 사용자 이름, 암호 및 만료 날짜를 입력합니다.
+2. 페이지 하단에서 __원격 사용__을 선택하고 원격 데스크톱 연결의 사용자 이름, 암호 및 만료 날짜를 입력합니다.
 
 3. 원격 데스크톱을 사용하는 요청이 처리되면 __연결__에 대한 새로운 항목이 페이지 맨 아래에 나타납니다. 이 항목을 선택하여 원격 데스크톱 세션용 .RDP 파일을 다운로드합니다.
 
@@ -190,9 +204,9 @@ HDInsight 클러스터에 연결하려면 다음 단계를 수행하세요.
 
 ###이전 버전의 HDInsight
 
-이전 버전의 HDInsight에서 Giraph를 사용하려는 경우 해당 버전에서 지원하는 특정 Hadoop 버전용으로 컴파일해야 합니다. Hadoop 버전이 HDInsight 버전과 일치하는지 확인하려면 [HDInsight의 Hadoop 클러스터 버전 내 새로운 기능](http://azure.microsoft.com/ko-kr/documentation/articles/hdinsight-component-versioning/) 을 참조하세요.
+이전 버전의 HDInsight에서 Giraph를 사용하려는 경우 해당 버전에서 지원하는 특정 Hadoop 버전용으로 컴파일해야 합니다. 사용 중인 HDInsight 버전에 해당하는 Hadoop 버전을 알아보려면 [HDInsight 클러스터 버전의 새로운 기능](http://azure.microsoft.com/ko-kr/documentation/articles/hdinsight-component-versioning/)을 참조하세요.
 
-또한 이전 버전의 HDInsight를 사용하려면 Hadoop 명령줄에서 Giraph 작업을 실행해야 할 수 있습니다. PowerShell에서 작업을 실행할 때 오류가 발생하면 [Hadoop 명령줄](#cmd)에서 작업을 실행해보세요.
+또한 이전 버전의 HDInsight를 사용하려면 Hadoop 명령줄에서 Giraph 작업을 실행해야 할 수 있습니다. PowerShell에서 작업을 실행할 때 오류가 발생하면 [Hadoop 명령줄]에서 작업을 실행해보세요.(#cmd)
 
 ##다음 단계
 
@@ -203,5 +217,4 @@ HDInsight에서 Giraph를 사용하는 방법에 대해 알아보았으므로 �
 [aps]: http://azure.microsoft.com/ko-kr/documentation/articles/install-configure-powershell/
 [pig]: http://azure.microsoft.com/ko-kr/documentation/articles/hdinsight-use-pig/
 [hive]: http://azure.microsoft.com/ko-kr/documentation/articles/hdinsight-use-hive/
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

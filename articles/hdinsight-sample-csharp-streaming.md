@@ -1,8 +1,22 @@
-﻿<properties urlDisplayName="Hadoop Samples in HDInsight" pageTitle="HDInsight의 C# 스트리밍 단어 수 Hadoop 샘플 | Azure" metaKeywords="hadoop, hdinsight, hdinsight administration, hdinsight administration azure" description="샘플 TBD를 실행하는 방법에 대해 알아봅니다." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" title="The C# streaming wordcount Hadoop sample in HDInsight" authors="bradsev" />
+﻿<properties 
+	pageTitle="HDInsight의 C# 스트리밍 단어 수 Hadoop 샘플 | Azure" 
+	description="Hadoop 스트리밍 인터페이스를 사용하는 MapReduce 프로그램을 C#으로 작성하는 방법과 PowerShell cmdlet을 사용하여 HDInsight에서 프로그램을 실행하는 방법" 
+	editor="cgronlun" 
+	manager="paulettm" 
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="bradsev"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/10/2014" ms.author="bradsev" />
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="11/10/2014" 
+	ms.author="bradsev"/>
 
-# HDInsight의 C# 스트리밍 단어 수 Hadoop 샘플
+# HDInsight의 Hadoop에서 C# 스트리밍 단어 수 MapReduce 샘플
  
 Hadoop은 MapReduce에 대한 스트리밍 API를 제공합니다. 이 API를 사용하여 Java 이외의 언어로 map 및 reduce 함수를 작성할 수 있습니다. 이 자습서에서는 Hadoop 스트리밍 인터페이스를 사용하는 MapReduce 프로그램을 C#으로 작성하는 방법 및 Azure PowerShell cmdlet을 사용하여 Azure HDInsight에서 프로그램을 실행하는 방법을 보여 줍니다. 
 
@@ -24,12 +38,12 @@ Hadoop 스트리밍 인터페이스에 대한 자세한 내용은 [Hadoop 스트
 
 - Azure 계정이 있어야 합니다. 계정 등록 옵션은 [Azure 평가판 사용](http://azure.microsoft.com/ko-kr/pricing/free-trial/) 페이지를 참조하세요.
 
-- HDInsight 클러스터를 미리 프로비전해야 합니다. 이 클러스터를 만드는 여러 방법에 대한 자세한 내용은 [HDInsight 클러스터 프로비전](영문)을 참조하세요.(../hdinsight-provision-clusters/)
+- HDInsight 클러스터를 미리 프로비전해야 합니다. 이 클러스터를 만드는 여러 방법에 대한 자세한 내용은 [HDInsight 클러스터 프로비전](../hdinsight-provision-clusters/)을 참조하세요.
 
 - Azure PowerShell을 설치하고 계정과 함께 사용하도록 구성해야 합니다. 설치 및 구성 방법에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성][powershell-install-configure]을 참조하세요.
 
 
-##이 문서에서는 다음을 수행합니다.
+## 이 문서의 내용
 이 항목에서는 샘플의 실행 방법을 보여 주고, MapReduce 프로그램의 Java 코드를 제공하며, 배운 내용을 요약하고, 다음 몇 단계에 대해 설명합니다. 이 항목에는 다음 섹션이 있습니다.
 	
 1. [Azure PowerShell로 샘플 실행](#run-sample)	
@@ -43,20 +57,20 @@ Hadoop 스트리밍 인터페이스에 대한 자세한 내용은 [Hadoop 스트
 
 1.	**Azure PowerShell**을 엽니다. Azure PowerShell 콘솔 창을 여는 방법에 대한 지침은 [Azure PowerShell 설치 및 구성][powershell-install-configure]을 참조하세요.
 
-3. 다음 명령에서 변수 2개를 설정한 후 실행합니다.
+2. 다음 명령에서 변수 2개를 설정한 후 실행합니다.
 		
 		$subscriptionName = "<SubscriptionName>"   # Azure subscription name
 		$clusterName = "<ClusterName>"             # HDInsight cluster name
 
 
-2. 다음 명령을 실행하여 MapReduce 작업을 정의합니다.
+3. 다음 명령을 실행하여 MapReduce 작업을 정의합니다.
  
 		# Create a MapReduce job definition for the streaming job.
 		$streamingWC = New-AzureHDInsightStreamingMapReduceJobDefinition -Files "/example/apps/wc.exe", "/example/apps/cat.exe" -InputPath "/example/data/gutenberg/davinci.txt" -OutputPath "/example/data/StreamingOutput/wc.txt" -Mapper "cat.exe" -Reducer "wc.exe" 
 
 	매개 변수는 매퍼 및 리듀서 함수와 입력 파일 및 출력 파일을 지정합니다.
                  
-5. 다음 명령을 실행하여 MapReduce 작업을 실행하고, 작업이 완료될 때까지 기다린 다음 표준 오류를 출력합니다.
+4. 다음 명령을 실행하여 MapReduce 작업을 실행하고, 작업이 완료될 때까지 기다린 다음 표준 오류를 출력합니다.
 
 		# Run the C# Streaming MapReduce job.
 		# Wait for the job to complete.
@@ -64,7 +78,7 @@ Hadoop 스트리밍 인터페이스에 대한 자세한 내용은 [Hadoop 스트
 		Select-AzureSubscription $subscriptionName
 		$streamingWC | Start-AzureHDInsightJob -Cluster $clustername | Wait-AzureHDInsightJob -WaitTimeoutInSeconds 3600 | Get-AzureHDInsightJobOutput -Cluster $clustername -StandardError 
 
-6. 다음 명령을 실행하여 단어 수 결과를 표시합니다.
+5. 다음 명령을 실행하여 단어 수 결과를 표시합니다.
 
 		$subscriptionName = "<SubscriptionName>"   
 		$storageAccountName = "<StorageAccountName>" 
@@ -149,7 +163,7 @@ cat.cs 파일의 매퍼 코드는 StreamReader 개체를 사용하여 들어오�
 	}
 
 
-wc.cs 파일의 리듀서 코드는 [StreamReader][streamreader] 개체를 사용하여 cat.exe 매퍼에 의해 출력된 표준 입력 스트림에서 문자를 읽습니다. [Console.Writeline][console-writeline] 메서드를 사용하여 문자를 읽는 경우 각 단어의 끝에 있는 공백과 줄의 끝 문자를 포함하여 단어 수를 계산한 다음 [Console.Writeline][console-writeline] 메서드를 사용하여 합계를 표준 출력 스트림에 씁니다. 
+wc.cs 파일의 리듀서 코드는 [StreamReader][streamreader]   개체를 사용하여 cat.exe 매퍼에 의해 출력된 표준 입력 스트림에서 문자를 읽습니다. [Console.Writeline][console-writeline] 메서드를 사용하여 문자를 읽는 경우 각 단어의 끝에 있는 공백과 줄의 끝 문자를 포함하여 단어 수를 계산한 다음 [Console.Writeline][console-writeline] 메서드를 사용하여 합계를 표준 출력 스트림에 씁니다. 
 
 <h2><a id="summary"></a>요약</h2>
 
@@ -160,12 +174,12 @@ wc.cs 파일의 리듀서 코드는 [StreamReader][streamreader] 개체를 사�
 Azure PowerShell로 Azure HDInsight에서 Pig, Hive 및 MapReduce 작업을 사용하는 방법에 대한 지침을 제공하고 다른 샘플을 실행하는 자습서에 대해서는 다음 항목을 참조하세요.
 
 * [Azure HDInsight 시작][hdinsight-get-started]
-* [샘플: Pi 추정][hdinsight-sample-pi-estimator]
-* [샘플: Wordcount][hdinsight-sample-wordcount]
+* [샘플: 파이 추정][hdinsight-sample-pi-estimator]
+* [샘플: 워드 수][hdinsight-sample-wordcount]
 * [샘플: 10GB GraySort][hdinsight-sample-10gb-graysort]
 * [HDInsight에서 Pig 사용][hdinsight-use-pig]
 * [HDInsight에서 Hive 사용][hdinsight-use-hive]
-* [Azure HDInsight SDK 문서][hdinsight-sdk-documentation]
+* [Azure HDInsight SDK 설명서][hdinsight-sdk-documentation]
 
 [hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/ko-kr/library/dn479185.aspx
 
@@ -188,5 +202,4 @@ Azure PowerShell로 Azure HDInsight에서 Pig, Hive 및 MapReduce 작업을 사�
 [hdinsight-use-pig]: ../hdinsight-use-pig/
 
 
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

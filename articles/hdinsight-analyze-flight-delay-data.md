@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Analyze flight delay data with Hadoop in HDInsight" pageTitle="HDInsight의 Hadoop을 사용하여 비행 지연 데이터 분석 | Azure" metaKeywords="" description="하나의 PowerShell 스크립트를 사용하여 HDInsight 클러스터를 프로비전하고, Hive 작업을 실행하고, Sqool 작업을 실행하고, 클러스터를 삭제하는 방법에 대해 알아봅니다." metaCanonical="" services="hdinsight" documentationCenter="" title="Analyze flight delay data using Hadoop in HDInsight " authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
+﻿<properties 
+	pageTitle="HDInsight의 Hadoop을 사용하여 비행 지연 데이터 분석 | Azure" 
+	description="하나의 PowerShell 스크립트를 사용하여 HDInsight 클러스터를 프로비전하고, Hive 작업을 실행하고, Sqool 작업을 실행하고, 클러스터를 삭제하는 방법에 대해 알아봅니다." 
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="mumian" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/04/2014" ms.author="jgao" />
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="12/04/2014" 
+	ms.author="jgao"/>
 
 #HDInsight의 Hadoop을 사용하여 비행 지연 데이터 분석
 
@@ -41,13 +55,13 @@ HDInsight의 주요 이점 중 하나는 데이터 저장소와 계산 기능을
 이 자습서를 시작하기 전에 다음이 있어야 합니다.
 
 * Azure PowerShell이 설치 및 구성된 워크스테이션. 자세한 내용은 [Azure PowerShell 설치 및 구성][powershell-install-configure]을 참조하세요.
-* Azure 구독. 구독을 얻는 방법에 대한 자세한 내용은 [구매 옵션][azure-purchase-options], [구성원 제공 항목][azure-member-offers] 또는 [무료 평가판][azure-free-trial]을 참조하세요.
+* Azure 구독. 구독을 예약하는 방법에 대한 자세한 내용은 [구매 옵션][azure-purchase-options], [구성원 제공 항목][azure-member-offers] 또는 [무료 평가판][azure-free-trial]을 참조하세요.
 
 ###HDInsight 저장소 이해
 
-HDInsight의 Hadoop 클러스터는 데이터 저장소로 Azure Blob 저장소를 사용합니다.  이를 *WASB* 또는 *Azure 저장소 - Blob*이라고 합니다. WASB는 Azure Blob 저장소에 구현한 Microsoft의 *HDFS*입니다. 자세한 내용은 [HDInsight에서 Azure Blob 저장소 사용][hdinsight-storage]을 참조하세요. 
+HDInsight의 Hadoop 클러스터는 데이터 저장소로 Azure Blob 저장소를 사용합니다.  이름은 *WASB* 또는  *Azure Storage - Blob*입니다. WASB는 Azure Blob 저장소에 구현한 Microsoft의  *HDFS*입니다. 자세한 내용은 [HDInsight에서 Azure Blob 저장소 사용][hdinsight-storage]을 참조하세요. 
 
-HDInsight 클러스터를 프로비전하면 HDFS의 경우처럼 Azure 저장소 계정의 Blob 저장소 컨테이너가 기본 파일 시스템으로 지정됩니다. 이 저장소 계정을 *기본 저장소 계정*이라고 하며 Blob 컨테이너를 *기본 Blob 컨테이너* 또는 *기본 컨테이너*라고 합니다. 기본 저장소 계정은 HDInsight 클러스터와 동일한 데이터 센터에 있어야 합니다. HDInsight 클러스터를 삭제해도 기본 컨테이너나 기본 저장소 계정은 삭제되지 않습니다.
+HDInsight 클러스터를 프로비전하면 HDFS의 경우처럼 Azure 저장소 계정의 Blob 저장소 컨테이너가 기본 파일 시스템으로 지정됩니다. 이 저장소 계정은  *default storage account*이라고 하며, Blob 컨테이너는  *default Blob container* 또는  *default container*라고 합니다. 기본 저장소 계정은 HDInsight 클러스터와 동일한 데이터 센터에 있어야 합니다. HDInsight 클러스터를 삭제해도 기본 컨테이너나 기본 저장소 계정은 삭제되지 않습니다.
 
 기본 저장소 계정 외의 다른 Azure 저장소 계정도 프로비전 프로세스 중에 HDInsight 클러스터에 바인딩할 수 있습니다. 이 바인딩을 통해 저장소 계정 및 저장소 계정 키를 구성 파일에 추가합니다. 그러면 클러스터가 런타임에 해당 저장소 계정에 액세스할 수 있습니다. 저장소 계정 추가에 대한 지침은 [HDInsight에서 Hadoop 클러스터 프로비전][hdinsight-provision]을 참조하세요. 
 
@@ -55,7 +69,7 @@ WASB 구문은 다음과 같습니다.
 
 	wasb[s]://<ContainerName>@<StorageAccountName>.blob.core.windows.net/<path>/<filename>
 
->[WACOM.NOTE] WASB 경로는 가상 경로입니다.  자세한 내용은 [HDInsight에서 Azure Blob 저장소 사용][hdinsight-storage]을 참조하세요. 
+>[AZURE.NOTE] WASB 경로는 가상 경로입니다.  자세한 내용은 [HDInsight에서 Azure Blob 저장소 사용][hdinsight-storage]을 참조하세요. 
 
 기본 컨테이너에 저장된 파일은 HDInsight에서 다음 URI를 사용하여 액세스할 수 있습니다(flightdelays.hql을 예로 사용함).
 
@@ -71,7 +85,7 @@ Blob 이름 앞에는 "/"가 없습니다.
 
 **이 자습서에서 사용하는 파일**
 
-이 자습서에서는 [Research and Innovative Technology Administration, Bureau of Transportation Statistics][rita-website](RITA)의 항공사 비행 데이터 운항정시성을 사용합니다. 데이터는 공용 Blob 액세스 권한을 사용하여 Azure Blob 저장소 컨테이너에 업로드되었습니다. 이처럼 공용 Blob 컨테이너를 사용하므로 Hive 스크립트를 실행하는 HDInsight 클러스터에 이 저장소 계정을 바인딩하지 않아도 됩니다. HiveQL 스크립트도 같은 Blob 컨테이너에 업로드합니다. 자체 저장소 계정으로 데이터를 가져오고 업로드하는 방법과 HiveQL 스크립트 파일을 만들고 업로드하는 방법을 알아보려면 [부록 A](#appendix-a) 및 [부록 B](#appendix-b)를 참조하세요.
+이 자습서에서는 [Research and Innovative Technology Administration, Bureau of Transportation Statistics][rita-website](RITA)의 항공사 비행 데이터 운항정시성을 사용합니다. 데이터는 공용 Blob 액세스 권한을 사용하여 Azure Blob 저장소 컨테이너에 업로드되었습니다. 이처럼 공용 Blob 컨테이너를 사용하므로 Hive 스크립트를 실행하는 HDInsight 클러스터에 이 저장소 계정을 바인딩하지 않아도 됩니다. HiveQL 스크립트도 같은 Blob 컨테이너에 업로드합니다. 자체 저장소 계정으로 데이터를 가져오고 업로드하는 방법과 HiveQL 스크립트 파일을 만들고 업로드하는 방법을 알아보려면 [부록 A](#appendix-a) 및 [부록 B]를(#appendix-b)참조하세요.
 
 다음 표는 이 자습서에 사용된 파일을 보여 줍니다.
 
@@ -97,7 +111,7 @@ Hive 내부 테이블 및 외부 테이블에 대해 알아야 할 몇 가지 �
 
 자세한 내용은 [HDInsight: Hive 내부 및 외부 테이블 소개][cindygross-hive-tables](영문)를 참조하세요.
 
-> [WACOM.NOTE] HiveQL 문 중 하나는 Hive 외부 테이블을 만듭니다. Hive 외부 테이블은 데이터 파일을 원래 위치에 유지합니다. Hive 내부 테이블은 데이터 파일을 hive\warehouse로 이동합니다. Hive 내부 테이블에서는 데이터 파일이 기본 컨테이너에 있어야 합니다. 기본 Blob 컨테이너 외부에 저장된 데이터의 경우에는 Hive 외부 테이블을 사용해야 합니다.
+> [AZURE.NOTE] HiveQL 문 중 하나는 Hive 외부 테이블을 만듭니다. Hive 외부 테이블은 데이터 파일을 원래 위치에 유지합니다. Hive 내부 테이블은 데이터 파일을 hive\warehouse로 이동합니다. Hive 내부 테이블에서는 데이터 파일이 기본 컨테이너에 있어야 합니다. 기본 Blob 컨테이너 외부에 저장된 데이터의 경우에는 Hive 외부 테이블을 사용해야 합니다.
 
 
 
@@ -109,7 +123,7 @@ Hive 내부 테이블 및 외부 테이블에 대해 알아야 할 몇 가지 �
 
 ##<a id="runjob"></a>HDInsight 클러스터 프로비전 및 Hive/Sqoop 작업 실행 
 
-Hadoop MapReduce에서는 작업을 일괄 처리 방식으로 실행합니다. 비용면에서 가장 효율적으로 Hive 작업을 실행하는 방법은 작업에 대해 클러스터를 프로비전하고 완료된 작업은 삭제하는 것입니다. 다음 스크립트에 전체 프로세스가 나와 있습니다. HDInsight 클러스터를 프로비전하고 Hive 작업을 실행하는 방법에 대한 자세한 내용은 [HDInsight에서 Hadoop 클러스터 프로비전][hdinsight-provision] 및 [HDInsight에서 Hive 사용][hdinsight-use-hive]을 참조하세요. 
+Hadoop MapReduce에서는 작업을 일괄 처리 방식으로 실행합니다. 비용면에서 가장 효율적으로 Hive 작업을 실행하는 방법은 작업에 대해 클러스터를 프로비전하고 완료된 작업은 삭제하는 것입니다. 다음 스크립트에 전체 프로세스가 나와 있습니다. HDInsight 클러스터를 프로비전하고 Hive 작업을 실행하는 방법에 대한 자세한 내용은 [HDInsight에서 Hadoop 클러스터 프로비전][hdinsight-provision] 및  [HDInsight에서 Hive 사용][hdinsight-use-hive]을 참조하세요. 
 
 **PowerShell을 사용하여 Hive 쿼리를 실행하려면**
 
@@ -372,7 +386,7 @@ Hadoop MapReduce에서는 작업을 일괄 처리 방식으로 실행합니다. 
 
 	![HDI.FlightDelays.RunHiveJob.output][img-hdi-flightdelays-run-hive-job-output]
 		
-5. SQL 데이터베이스에 연결하고 *AvgDelays* 테이블에서 도시별 평균 비행 지연을 확인합니다.
+5. SQL 데이터베이스에 연결하고  *AvgDelays* 테이블에서 도시별 평균 비행 지연을 확인합니다.
 
 	![HDI.FlightDelays.AvgDelays.Dataset][image-hdi-flightdelays-avgdelays-dataset]
 
@@ -382,10 +396,10 @@ Hadoop MapReduce에서는 작업을 일괄 처리 방식으로 실행합니다. 
 ##<a id="appendix-a"></a>부록 A - Azure Blob 저장소에 비행 지연 데이터 업로드
 데이터 파일과 HiveQL 스크립트 파일을 업로드하기 전에([부록 B](#appendix-b)참조) 약간의 계획이 필요합니다. 그 계획은 HDInsight 클러스터를 프로비전하고 Hive 작업을 실행하기 전에 데이터 파일과 HiveQL 파일을 저장하는 것입니다.  다음 두 가지 옵션을 사용할 수 있습니다.
 
-- **HDInsight 클러스터에서 기본 파일 시스템으로 사용하는 것과 같은 Azure 저장소 계정을 사용합니다.** HDInsight 클러스터에는 저장소 계정 액세스 키가 포함되므로 추가로 변경할 필요가 없습니다.
-- **HDInsight 클러스터 기본 파일 시스템과 다른 Azure 저장소 계정을 사용합니다.** 이 경우 [HDInsight 클러스터 프로비전 및 Hive/Sqoop 작업 실행](#runjob) 에 있는 PowerShell 스크립트의 프로비전 부분을 수정하여 저장소 계정을 추가 저장소 계정으로 포함해야 합니다. 자세한 내용은 [HDInsight에서 Hadoop 클러스터 프로비전][hdinsight-provision]을 참조하세요. 이렇게 하면 HDInsight 클러스터가 저장소 계정의 액세스 키를 인식합니다.
+- **HDInsight 클러스터에서 사용하는 것과 같은 Azure 저장소 계정을 기본 파일 시스템으로 사용합니다.** HDInsight 클러스터에는 저장소 계정 액세스 키가 있으므로 추가로 변경할 필요가 없습니다.
+- **HDInsight 클러스터 기본 파일 시스템의 다른 Azure 저장소 계정을 사용합니다.** 이 경우 [HDInsight 클러스터 프로비전 및 Hive/Sqoop 작업 실행](#runjob) 에 있는 PowerShell 스크립트의 프로비전 부분을 수정하여 저장소 계정을 추가 저장소 계정으로 포함해야 합니다. 자세한 내용은 [HDInsight에서 Hadoop 클러스터 프로비전][hdinsight-provision]을 참조하세요. 이렇게 하면 HDInsight 클러스터가 저장소 계정의 액세스 키를 인식합니다.
 
->[WACOM.NOTE] 데이터 파일의 WASB 경로는 HiveQL 스크립트 파일에 하드 코드됩니다. 수정 내용에 따라 이를 업데이트해야 합니다.
+>[AZURE.NOTE] 데이터 파일의 WASB 경로는 HiveQL 스크립트 파일에 하드 코드됩니다. 수정 내용에 따라 이를 업데이트해야 합니다.
 
 **비행 데이터를 다운로드하려면**
 
@@ -396,12 +410,12 @@ Hadoop MapReduce에서는 작업을 일괄 처리 방식으로 실행합니다. 
 	<tr><th>이름</th><th>값</th></tr>
 	<tr><td>Filter Year</td><td>2013 </td></tr>
 	<tr><td>Filter Period</td><td>January</td></tr>
-	<tr><td>Fields:</td><td>*Year*, *FlightDate*, *UniqueCarrier*, *Carrier*, *FlightNum*, *OriginAirportID*, *Origin*, *OriginCityName*, *OriginState*, *DestAirportID*, *Dest*, *DestCityName*, *DestState*, *DepDelayMinutes*, *ArrDelay*, *ArrDelayMinutes*, *CarrierDelay*, *WeatherDelay*, *NASDelay*, *SecurityDelay*, *LateAircraftDelay*(다른 모든 필드는 선택하지 않음)</td></tr>
+	<tr><td>Fields:</td><td>*Year*, *FlightDate*, *UniqueCarrier*, *Carrier*, *FlightNum*, *OriginAirportID*, *Origin*, *OriginCityName*, *OriginState*, *DestAirportID*, *Dest*, *DestCityName*, *DestState*, *DepDelayMinutes*, *ArrDelay*, *ArrDelayMinutes*, *CarrierDelay*, *WeatherDelay*, *NASDelay*, *SecurityDelay*, *LateAircraftDelay* (기타 모든 필드 지우기)</td></tr>
 	</table>
 
 3. **다운로드**를 클릭합니다. 
 4. 압축 파일을 **C:\Tutorials\FlightDelays\Data** 폴더에 풉니다.  각 파일은 CSV 파일이며 크기는 60GB 정도입니다.
-5.	파일 이름을 데이터가 포함된 달로 변경합니다. 예를 들어 1월 데이터가 포함된 파일의 이름은 *January.csv*가 됩니다.
+5.	파일 이름을 데이터가 포함된 달로 변경합니다. 예를 들어 1월 데이터가 포함된 파일의 이름은  *January.csv*가 됩니다.
 6. 2단계와 5단계를 반복하여 2013년의 12개월에 해당하는 각 파일을 다운로드합니다. 자습서를 실행하려면 파일이 하나 이상 있어야 합니다.  
 
 **Azure Blob 저장소에 비행 지연 데이터를 업로드하려면**
@@ -480,13 +494,13 @@ Hadoop MapReduce에서는 작업을 일괄 처리 방식으로 실행합니다. 
 
 3. **F5** 키를 눌러 스크립트를 실행합니다.
 
-다른 메서드를 사용하여 파일을 업로드하도록 선택한 경우에는 파일 경로가 *tutorials/flightdelays/data*여야 합니다. 파일을 액세스하는 구문은 다음과 같습니다.
+다른 메서드를 사용하여 파일을 업로드하도록 선택한 경우에는 파일 경로가  *tutorials/flightdelays/data*여야 합니다. 파일을 액세스하는 구문은 다음과 같습니다.
 
 	wasb://<ContainerName>@<StorageAccountName>.blob.core.windows.net/tutorials/flightdelays/data
 
-*tutorials/flightdelays/data*는 파일을 업로드했을 때 만든 가상 폴더입니다. 달마다 하나씩 12개의 파일이 있는지 확인합니다.
+*utorials/flightdelays/data*는 파일을 업로드했을 때 만든 가상 폴더입니다. 달마다 하나씩 12개의 파일이 있는지 확인합니다.
 
->[WACOM.NOTE] 새 위치에서 읽으려면 Hive 쿼리를 업데이트해야 합니다.
+>[AZURE.NOTE] 새 위치에서 읽으려면 Hive 쿼리를 업데이트해야 합니다.
 
 > 컨테이너 액세스 권한을 공용으로 구성하거나 저장소 계정을 HDInsight 클러스터에 바인딩해야 합니다.  그렇지 않으면 Hive 쿼리 문자열이 데이터 파일에 액세스할 수 없습니다. 
 
@@ -497,11 +511,11 @@ Azure PowerShell을 사용하여 여러 HiveQL 문을 한 번에 하나씩 실�
 
 HiveQL 스크립트는 다음을 수행합니다.
 
-1. **delays_raw 테이블을 삭제합니다.** 해당 테이블이 이미 있는 경우에 삭제합니다.
-2. **delays_raw 외부 Hive 테이블을 만듭니다.** 이 테이블은 비행 지연 파일이 있는 WASB 위치를 가리킵니다. 이 쿼리는 필드는 ","로 구분되고 줄은 "\n"로 끝나도록 지정합니다. Hive가 필드 구분 기호인 쉼표와 필드 값(ORIGIN\_CITY\_NAME 및 DEST\_CITY\_NAME에 대한 필드 값의 경우)의 일부인 쉼표를 구분할 수 없기 때문에 필드 값에 쉼표가 *포함*될 경우 문제가 발생합니다. 이 문제를 해결하기 위해 쿼리는 TEMP 열을 만들어 열에 잘못 분할된 데이터를 저장합니다.  
-3. **delays 테이블을 삭제합니다.** 해당 테이블이 이미 있는 경우에 삭제합니다.
-4. **delays 테이블을 만듭니다**. 더 처리하기 전에 데이터를 정리하는 데 도움이 됩니다. 이 쿼리는 *delays_raw* 테이블에서 새 테이블인* delays*를 만듭니다. TEMP 열(앞에서 언급함)은 복사되지 않으며, *substring* 함수는 해당 데이터에서 따옴표를 제거하는 데 사용됩니다. 
-5. **평균 날씨 지연을 계산하고 그 결과를 도시 이름별로 그룹화합니다.** 또한 결과를 WASB에 출력합니다. 이 쿼리는 데이터에서 아포스트로피를 제거하고 *weather_delay* 값이 *null*인 행을 제외하며, 이 작업은 이 자습서의 뒷부분에서 사용되는 Sqoop이 기본적으로 이러한 값을 적절하게 처리하지 못하므로 필요합니다.
+1. **delays_raw 테이블을 삭제합니다**. 해당 테이블이 이미 있는 경우에 삭제합니다.
+2. **delays_raw 외부 Hive 테이블을 만듭니다**. 이 테이블은 비행 지연 파일이 있는 WASB 위치를 가리킵니다. 이 쿼리는 필드는 ","로 구분되고 줄은 "\n"로 끝나도록 지정합니다. Hive가 필드 구분 기호인 쉼표와 필드 값(ORIGIN\_CITY\_NAME 및 DEST\_CITY\_NAME에 대한 필드 값의 경우)의 일부인 쉼표를 구분할 수 없기 때문에 필드 값에 쉼표가  *contain*될 경우 문제가 발생합니다. 이 문제를 해결하기 위해 쿼리는 TEMP 열을 만들어 열에 잘못 분할된 데이터를 저장합니다.  
+3. **delays 테이블을 삭제합니다**. 해당 테이블이 이미 있는 경우에 삭제합니다.
+4. **delays 테이블을 만듭니다**. 더 처리하기 전에 데이터를 정리하는 데 도움이 됩니다. 이 쿼리는  *delays_raw* 테이블에서 새 테이블인  *delays*를 만듭니다. TEMP 열(앞에서 언급함)은 복사되지 않으며,  *substring* 함수는 해당 데이터에서 따옴표를 제거하는 데 사용됩니다. 
+5. **기상으로 인한 평균 지연을 계산하고 결과를 도시 이름별로 그룹화합니다.** 또한 WASB에 결과를 출력합니다. 쿼리는 데이터에서 아포스트로피를 제거하며  *weather_deal* 값이  *null*인 행을 제외합니다. 이는 이 자습서의 뒷부분에서 사용하는 Sqoop이 기본적으로 그러한 값을 정상적으로 처리하지 않기 때문에 필요합니다.
 
 HiveQL 명령의 전체 목록을 보려면 [Hive 데이터 정의 언어][hadoop-hiveql](영문)를 참조하세요. 각 HiveQL 명령은 세미콜론으로 끝나야 합니다.
 
@@ -674,7 +688,7 @@ HiveQL 명령의 전체 목록을 보려면 [Hive 데이터 정의 언어][hadoo
 
 ---
 ##<a id="appendix-c"></a>부록 C - Azure SQL 데이터베이스에서 Sqoop 작업 출력 준비
-**SQL 데이터베이스를 준비하려면(이 작업을 Sqoop 스크립트와 통합)**
+**SQL 데이터베이스를 준비하려면(이 작업을 Sqoop 스크립트와 병합)**
 
 1. 매개 변수를 준비합니다.
 
@@ -818,13 +832,13 @@ HiveQL 명령의 전체 목록을 보려면 [Hive 데이터 정의 언어][hadoo
 		
 		Write-host "`nEnd of the PowerShell script" -ForegroundColor Green
 
-	>[WACOM.NOTE] 스크립트는 REST 서비스 http://bot.whatismyipaddress.com을 사용하여 외부 IP 주소를 검색합니다. IP 주소는 SQL 데이터베이스 서버용 방화벽 규칙을 만드는 데 사용됩니다.  
+	>[AZURE.NOTE] 스크립트는 REST 서비스 http://bot.whatismyipaddress.com을 사용하여 외부 IP 주소를 검색합니다. IP 주소는 SQL 데이터베이스 서버용 방화벽 규칙을 만드는 데 사용됩니다.  
 
 	스크립트에서 사용되는 일부 변수는 다음과 같습니다.
 
-	- **$ipAddressRestService**: 기본값은 <u>http://bot.whatismyipaddress.com</u>입니다. 외부 IP 주소를 가져오기 위한 공용 IP 주소 REST 서비스입니다. 원하는 경우 다른 서비스를 사용할 수 있습니다. 서비스를 사용하여 검색하는 외부 IP 주소를 사용하여 Azure SQL 데이터베이스 서버용 방화벽 규칙을 만듭니다. 따라서 PowerShell 스크립트를 사용하여 워크스테이션에서 데이터베이스에 액세스할 수 있습니다.
+	- **$ipAddressRestService**: 기본값은 <u>http://bot.whatismyipaddress.com</u>이며, 외부 IP 주소를 가져오기 위한 공용 IP 주소 REST 서비스입니다. 원하는 경우 다른 서비스를 사용할 수 있습니다. 서비스를 사용하여 검색하는 외부 IP 주소를 사용하여 Azure SQL 데이터베이스 서버용 방화벽 규칙을 만듭니다. 따라서 PowerShell 스크립트를 사용하여 워크스테이션에서 데이터베이스에 액세스할 수 있습니다.
 	- **$fireWallRuleName**: Azure SQL 데이터베이스 서버 방화벽 규칙 이름입니다. 기본 이름은 <u>FlightDelay</u>입니다. 원하는 경우 이름을 바꿀 수 있습니다.
-	- **$sqlDatabaseMaxSizeGB**: 이 값은 새 Azure SQL 데이터베이스 서버를 만들 때만 사용됩니다. 기본값은 <u>10GB</u>입니다. 이 자습서에서는 크기가 10GB이면 충분합니다.
+	- **$sqlDatabaseMaxSizeGB**: 이 값은 새 Azure SQL 데이터베이스 서버를 만들 때만 사용됩니다. 기본 크기는 <u>10GB</u>입니다. 이 자습서에서는 크기가 10GB이면 충분합니다.
 	- **$sqlDatabaseName**: 이 값은 새 Azure SQL 데이터베이스를 만들 때만 사용됩니다. 기본값은 <u>HDISqoop</u>입니다. 이 상수의 이름을 바꾸는 경우에는 Sqoop PowerShell 스크립트도 그에 따라 업데이트해야 합니다. 
 
 4. **F5** 키를 눌러 스크립트를 실행합니다. 
@@ -872,5 +886,4 @@ HiveQL 명령의 전체 목록을 보려면 [Hive 데이터 정의 언어][hadoo
 [img-hdi-flightdelays-run-hive-job-output]: ./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.RunHiveJob.Output.png
 [img-hdi-flightdelays-flow]: ./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.Flow.png
 
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

@@ -1,10 +1,24 @@
-﻿<properties urlDisplayName="Table Service" pageTitle="테이블 저장소 사용 방법(Java) | Microsoft Azure" metaKeywords="Azure table storage service, Azure table service Java, table storage Java" description="Azure에서 테이블 저장소 서비스를 사용하는 방법에 대해 알아봅니다. 코드 샘플은 Java 코드로 작성되었습니다." metaCanonical="" services="storage" documentationCenter="Java" title="How to use the Table storage service from Java" authors="robmcm" solutions="" manager="wpickett" editor="" />
+﻿<properties 
+	pageTitle="테이블 저장소 사용 방법(Java) | Microsoft Azure" 
+	description="Azure에서 테이블 저장소 서비스를 사용하는 방법에 대해 알아봅니다. 코드 샘플은 Java 코드로 작성되었습니다." 
+	services="storage" 
+	documentationCenter="java" 
+	authors="rmcmurray" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="robmcm" />
+<tags 
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="09/25/2014" 
+	ms.author="robmcm"/>
 
 # Java에서 테이블 저장소를 사용하는 방법
 
-이 가이드에서는 Azure 테이블 저장소 서비스를 사용하여 일반 시나리오를 수행하는 방법을 보여 줍니다. 샘플은 Java로 작성되었으며 [Java용 Azure Storage SDK][](영문)를 사용합니다. 여기서 다루는 시나리오에는 테이블 **만들기**, **나열** 및 **삭제**와 테이블의 엔터티 **삽입**, **쿼리**, **수정** 및 **삭제**가 포함됩니다. 테이블에 대한 자세한 내용은 [다음 단계](#NextSteps) 섹션을 참조하세요.
+이 가이드에서는 Azure 테이블 저장소 서비스를 사용하여 일반 시나리오를 수행하는 방법을 보여 줍니다. 샘플은 Java로 작성되었으며 [Java용 Azure Storage SDK][]를 사용합니다. 여기서 다루는 시나리오에는 테이블 **만들기**, **나열** 및 **삭제**와 테이블의 엔터티 **삽입**, **쿼리**, **수정** 및 **삭제**가 포함됩니다. 테이블에 대한 자세한 내용은 [다음 단계](#NextSteps) 섹션을 참조하세요.
 
 참고: SDK는 Android 장치에서 Azure 저장소를 사용하는 개발자에게 제공됩니다. 자세한 내용은 [Android용 Azure Storage SDK][]를 참조하세요. 
 
@@ -30,11 +44,11 @@
 * [방법: 테이블 삭제](#DeleteTable)
 * [다음 단계](#NextSteps)
 
-[WACOM.INCLUDE [howto-table-storage](../includes/howto-table-storage.md)]
+[AZURE.INCLUDE [howto-table-storage](../includes/howto-table-storage.md)]
 
 ##<a name="CreateAccount"></a>Azure 저장소 계정 만들기
 
-[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
+[AZURE.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ## <a name="CreateApplication"></a>Java 응용 프로그램 만들기
 
@@ -53,7 +67,7 @@
 
 ## <a name="ConnectionString"> </a>Azure 저장소 연결 문자열 설정
 
-Azure 저장소 클라이언트는 저장소 연결 문자열을 사용하여 데이터 관리 서비스에 액세스하기 위한 끝점 및 자격 증명을 저장합니다. 클라이언트 응용 프로그램에서 실행 중인 경우 관리 포털에 나열된 저장소 계정의 이름 및 저장소 계정의 기본 액세스 키를 *AccountName* 및 *AccountKey* 값에 사용하여 저장소 연결 문자열을 다음 형식으로 지정해야 합니다. 이 예제는 정적 필드가 연결 문자열을 포함할 수 있도록 선언하는 방법을 보여 줍니다.
+Azure 저장소 클라이언트는 저장소 연결 문자열을 사용하여 데이터 관리 서비스에 액세스하기 위한 끝점 및 자격 증명을 저장합니다. 클라이언트 응용 프로그램에서 실행 중인 경우 관리 포털에 나열된 저장소 계정의 이름 및 저장소 계정의 기본 액세스 키를  *AccountName* 및  *AccountKey* 값에 사용하여 저장소 연결 문자열을 다음 형식으로 지정해야 합니다. 이 예제는 정적 필드가 연결 문자열을 포함할 수 있도록 선언하는 방법을 보여 줍니다.
 
     // Define the connection-string with your values.
     public static final String storageConnectionString = 
@@ -61,7 +75,7 @@ Azure 저장소 클라이언트는 저장소 연결 문자열을 사용하여 �
         "AccountName=your_storage_account;" + 
         "AccountKey=your_storage_account_key";
 
-Microsoft Azure의 역할 내에서 실행되는 응용 프로그램에서는 이 문자열이 서비스 구성 파일 *ServiceConfiguration.cscfg*에 저장될 수 있으며, **RoleEnvironment.getConfigurationSettings** 메서드를 호출하여 이 문자열에 액세스할 수 있습니다. 다음은 서비스 구성 파일의 *StorageConnectionString*이라는 **설정** 요소에서 연결 문자열을 가져오는 예제입니다.
+Microsoft Azure의 역할 내에서 실행되는 응용 프로그램에서는 이 문자열이 서비스 구성 파일 *ServiceConfiguration.cscfg*에 저장될 수 있고, **RoleEnvironment.getConfigurationSettings** 메서드 호출을 통해 이 문자열에 액세스할 수 있습니다. 다음은 서비스 구성 파일의  *StorageConnectionString*이라는 **설정** 요소에서 연결 문자열을 가져오는 예제입니다.
 
     // Retrieve storage account from connection-string.
     String storageConnectionString = 
@@ -71,7 +85,9 @@ Microsoft Azure의 역할 내에서 실행되는 응용 프로그램에서는 �
 
 ## <a name="CreateTable"> </a>방법: 테이블 만들기
 
-**CloudTableClient** 개체를 통해 테이블 및 엔터티에 대한 참조 개체를 가져올 수 있습니다. 다음 코드에서는 **CloudTableClient** 개체를 만들고 이 개체를 사용하여 "people"이라는 테이블을 나타내는 새 **CloudTable** 개체를 만듭니다. 참고: **CloudStorageAccount** 개체를 만들 수 있는 방법이 더 있습니다. 자세한 내용은 **Azure Storage Client SDK 참조**에서 [CloudStorageAccount]를 참조하세요.
+**CloudTableClient** 개체를 통해 테이블 및 엔터티에 대한 참조 개체를 가져올 수
+있습니다. 다음 코드는 **CloudTableClient** 개체를 만든 다음
+이 개체를 사용하여 "people"이라는 테이블을 나타내는 새 **CloudTable** 개체를 만듭니다. 참고: **CloudStorageAccount** 개체를 만들 수 있는 방법이 더 있습니다. 자세한 내용은 [Azure Storage Client SDK 참조]에서 **CloudStorageAccount**를 참조하세요.
 
     try
     {
@@ -184,7 +200,7 @@ Microsoft Azure의 역할 내에서 실행되는 응용 프로그램에서는 �
 
 ## <a name="InsertBatch"> </a>방법: 엔터티 일괄 삽입
 
-하나의 쓰기 작업으로 테이블 서비스에 엔터티를 일괄 삽입할 수 있습니다. 다음 코드에서는 **TableBatchOperation** 개체를 만든 다음 세 개의 삽입 작업을 추가합니다. 각 삽입 작업은 새 엔터티 개체를 만들고, 해당 값을 설정한 다음 **TableBatchOperation** 개체에서 **insert** 메서드를 호출하여 엔터티를 새 삽입 작업에 연결하는 방식으로 추가합니다. 그런 다음 이 코드는 **CloudTable** 개체에서 **execute**를 호출하여 "people" 테이블 및 **TableBatchOperation** 개체를 지정하고 단일 요청으로 테이블 일괄 작업을 저장소 서비스로 보냅니다.
+하나의 쓰기 작업으로 테이블 서비스에 엔터티를 일괄 삽입할 수 있습니다. 다음 코드에서는 **TableBatchOperation** 개체를 만든 다음 세 개의 삽입 작업을 추가합니다. 각 삽입 작업은 새 엔터티 개체를 만들고, 해당 값을 설정한 다음 **TableBatchOperation** 개체에서 **insert** 메서드를 호출하여 엔터티를 새 삽입 작업에 연결하는 방식으로 추가합니다. 그런 다음, 이 코드는 **CloudTable** 개체에 대해 **execute**를 호출하여 "people" 테이블 및 **TableBatchOperation** 개체를 지정한 후, 테이블 일괄 작업을 단일 요청으로 저장소 서비스로 보냅니다.
 
     try
     {
@@ -459,7 +475,7 @@ Microsoft Azure의 역할 내에서 실행되는 응용 프로그램에서는 �
 
 ## <a name="InsertOrReplace"> </a>방법: 엔터티 삽입 또는 바꾸기
 
-엔터티가 테이블에 이미 있는지 모르는 상태에서 테이블에 엔터티를 추가할 수 있습니다. 이 경우 삽입 또는 바꾸기 작업을 사용하여 엔터티가 없는 경우 엔터티를 삽입하고 엔터티가 있는 경우 기존 엔터티를 바꾸도록 하는 단일 요청을 생성할 수 있습니다. 이전의 예를 기반으로 하는 다음 코드에서는 'Walter Harp'에 대한 엔터티를 삽입하거나 바꿉니다. 이 코드에서는 새 엔터티를 만든 후 **TableOperation.insertOrReplace** 메서드를 호출합니다. 그런 다음 이 코드는 테이블 및 테이블 삽입 또는 바꾸기 작업을 매개 변수로 사용하여 **CloudTable** 개체에서 **execute**를 호출합니다. 엔터티의 일부만 업데이트하려면 **TableOperation.insertOrMerge** 메서드를 대신 사용할 수 있습니다. 로컬 저장소 에뮬레이터에서는 삽입 또는 바꾸기가 지원되지 않으므로 이 코드는 테이블 서비스의 계정을 사용하는 경우에만 실행됩니다. 이 [블로그 게시물][]에서 삽입 또는 바꾸기 및 삽입 또는 병합에 대해 자세히 알아볼 수 있습니다.
+엔터티가 테이블에 이미 있는지 모르는 상태에서 테이블에 엔터티를 추가할 수 있습니다. 이 경우 삽입 또는 바꾸기 작업을 사용하여 엔터티가 없는 경우 엔터티를 삽입하고 엔터티가 있는 경우 기존 엔터티를 바꾸도록 하는 단일 요청을 생성할 수 있습니다. 이전의 예를 기반으로 하는 다음 코드에서는 'Walter Harp'에 대한 엔터티를 삽입하거나 바꿉니다. 이 코드에서는 새 엔터티를 만든 후 **TableOperation.insertOrReplace** 메서드를 호출합니다. 그런 다음, 이 코드는 테이블 및 테이블 삽입 또는 바꾸기 작업을 매개 변수로 하여 **CloudTable** 개체에 대해 **execute**를 호출합니다. 엔터티의 일부만 업데이트하려면 **TableOperation.insertOrMerge** 메서드를 대신 사용할 수 있습니다. 로컬 저장소 에뮬레이터에서는 삽입 또는 바꾸기가 지원되지 않으므로 이 코드는 테이블 서비스의 계정을 사용하는 경우에만 실행됩니다. 이 [블로그 게시물][]에서 삽입 또는 바꾸기 및 삽입 또는 병합에 대해 자세히 알아볼 수 있습니다.
 
     try
     {
@@ -492,7 +508,7 @@ Microsoft Azure의 역할 내에서 실행되는 응용 프로그램에서는 �
 
 ## <a name="DeleteEntity"> </a>방법: 엔터티 삭제
 
-엔터티를 검색한 다음 쉽게 삭제할 수 있습니다. 엔터티를 검색한 후에는 삭제할 엔터티와 함께 **TableOperation.delete**를 호출합니다. 그런 다음 **CloudTable** 개체에서 **execute**를 호출합니다. 다음 코드에서는 고객 엔터티를 검색하고 삭제합니다.
+엔터티를 검색한 다음 쉽게 삭제할 수 있습니다. 엔터티를 검색한 후에는 삭제할 엔터티와 함께 **TableOperation.delete**를 호출합니다. 그런 다음 **CloudTable** 개체에 대해 **execute**를 호출합니다. 다음 코드에서는 고객 엔터티를 검색하고 삭제합니다.
 
     try
     {
@@ -564,5 +580,4 @@ Microsoft Azure의 역할 내에서 실행되는 응용 프로그램에서는 �
 [Azure 저장소 REST API]: http://msdn.microsoft.com/ko-kr/library/azure/gg433040.aspx
 [Azure 저장소 팀 블로그]: http://blogs.msdn.com/b/windowsazurestorage/
 [블로그 게시물]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

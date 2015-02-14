@@ -1,6 +1,20 @@
-<properties urlDisplayName="Web App with Storage" pageTitle="테이블 저장소를 사용하는 웹 앱(Node.js) | Microsoft Azure" metaKeywords="Azure Node.js hello world tutorial, Azure Node.js hello world, Azure Node.js Getting Started tutorial, Azure Node.js tutorial, Azure Node.js Express tutorial" description="Azure 저장소 서비스 및 Azure 모듈을 추가해 Express를 사용하여 웹 앱 빌드 자습서를 기반으로 응용 프로그램을 빌드하는 자습서입니다." metaCanonical="" services="cloud-services,storage" documentationCenter="nodejs" title="Node.js Web Application using Storage" authors="larryfr" solutions="" manager="wpickett" editor="" />
+<properties 
+	pageTitle="테이블 저장소를 사용하는 웹 앱(Node.js) | Microsoft Azure" 
+	description="Azure 저장소 서비스 및 Azure 모듈을 추가해 Express를 사용하여 웹 앱 빌드 자습서를 기반으로 응용 프로그램을 빌드하는 자습서입니다." 
+	services="cloud-services, storage" 
+	documentationCenter="nodejs" 
+	authors="MikeWasson" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="mwasson" />
+<tags 
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="nodejs" 
+	ms.topic="article" 
+	ms.date="09/17/2014" 
+	ms.author="mwasson"/>
 
 
 
@@ -9,12 +23,11 @@
 
 # 저장소를 사용하는 Node.js 웹 응용 프로그램
 
-이 자습서에서는 Node.js용 Microsoft Azure 클라이언트 라이브러리로 데이터 관리 서비스 작업을 수행하여 [Express를 사용하는 Node.js 웹 응용 프로그램] 자습서에서 만든 응용 프로그램을 확장합니다. Azure에 배포할 수 있는 웹 기반 작업 목록 응용 프로그램을 만들도록 응용 프로그램을 확장합니다. 작업 목록을 통해 사용자는 작업을 가져오고 새 작업을 추가하고 작업을 완료로 표시할 수 있습니다.
+이 자습서에서는 Node.js용 Azure 클라이언트 라이브러리를 사용하여 데이터 관리 서비스로 작업하여 [Express를 사용하는 Node.js웹 응용 프로그램] 자습서에서 만든 응용 프로그램을 확장합니다. Azure에 배포할 수 있는 웹 기반 작업 목록 응용 프로그램을 만들도록 응용 프로그램을 확장합니다. 작업 목록을 통해 사용자는 작업을 가져오고 새 작업을 추가하고 작업을 완료로 표시할 수 있습니다.
 
 작업 항목은 Azure 저장소에 저장됩니다. Azure 저장소는 내결함성과 고가용성이 있는 구조화되지 않은 데이터 저장소를 제공합니다. Azure 저장소에는 데이터를 저장하고 액세스할 수 있는 일부 데이터 구조가 포함되며, Node.js용 Azure SDK에 포함된 API 또는 REST API를 통해 저장소 서비스를 활용할 수 있습니다. 자세한 내용은 [Azure에 데이터 저장 및 액세스]를 참조하세요.
 
-이 자습서에서는 [Node.js 웹
-응용 프로그램] 및 [Express를 사용하는 Node.js][Express를 사용하는 Node.js 웹 응용 프로그램] 자습서를 완료한 것으로 가정합니다.
+이 자습서는 [Node.js 웹 응용 프로그램] 및 [Express로Node.js 빌드][Express를 사용하는 Node.js 웹 응용 프로그램] 자습서를 완료했다고 가정합니다.
 
 다음 내용을 배웁니다.
 
@@ -27,12 +40,10 @@
 
 ## Web.Config에서 저장소 자격 증명 설정
 
-Azure 저장소에 액세스하려면 저장소 자격 증명을 전달해야 합니다. 이렇게 하려면 web.config 응용 프로그램 설정을 활용합니다. 이러한 설정은 환경 변수로서 노드에 전달된 다음 Azure SDK에서 읽습니다.
+Azure 저장소에 액세스하려면 저장소 자격 증명을 전달해야 합니다. 이렇게 하려면 web.config 응용 프로그램 설정을 활용합니다.
+이러한 설정은 환경 변수로서 노드에 전달된 다음 Azure SDK에서 읽습니다.
 
-<div class="dev-callout">
-<strong>참고</strong>
-<p>저장소 자격 증명은 응용 프로그램이 Azure에 배포될 경우에만 사용됩니다. 에뮬레이터에서 실행 중이면 응용 프로그램은 저장소 에뮬레이터를 사용합니다.</p>
-</div>
+> [AZURE.NOTE] 저장소 자격 증명은 응용 프로그램이 Azure에 배포될 경우에만 사용됩니다. 에뮬레이터에서 실행 중이면 응용 프로그램은 저장소 에뮬레이터를 사용합니다.
 
 다음 단계에 따라 저장소 계정 자격 증명을 가져와 web.config 설정에 추가합니다.
 
@@ -46,10 +57,7 @@ Azure 저장소에 액세스하려면 저장소 자격 증명을 전달해야 �
 
 	이는 호스티드 서비스와 연결된 저장소 계정 및 계정 키 목록을 가져옵니다.
 
-	<div class="dev-callout">
-	<strong>참고</strong>
-	<p>서비스를 배포할 때 Azure SDK가 저장소 계정을 만들기 때문에 저장소 계정은 이전 가이드에서 응용 프로그램을 배포해서 이미 있어야 합니다.</p>
-	</div>
+	> [AZURE.NOTE] 서비스를 배포할 때 Azure SDK가 저장소 계정을 만들기 때문에 저장소 계정은 이전 가이드에서 응용 프로그램을 배포해서 이미 있어야 합니다.
 
 4.  응용 프로그램이 Azure에 배포될 때 사용되는 환경 설정을 포함하는 **ServiceDefinition.csdef** 파일을 엽니다.
 
@@ -68,9 +76,9 @@ Azure 저장소에 액세스하려면 저장소 자격 증명을 전달해야 �
 
 2. 다음 명령을 사용하여 [azure], [node-uuid], [nconf] 및 [async] 모듈을 로컬로 설치하고 모듈에 대한 항목을 **package.json** 파일에 저장합니다.
 
-		PS C:\node\tasklist\WebRole1> npm install azure-storage node-uuid async nconf --save
+	    PS C:\node\tasklist\WebRole1> npm install azure-storage node-uuid async nconf --save
 
-	이 명령의 출력은 다음과 유사하게 표시됩니다:
+	이 명령의 출력은 다음과 유사하게 표시됩니다.
 
 		node-uuid@1.4.1 node_modules\node-uuid
 
@@ -250,7 +258,7 @@ Azure 저장소에 액세스하려면 저장소 자격 증명을 전달해야 �
 		app.use('/', routes);
 		app.use('/users', users);
 
-	위의 줄을 아래의 코드로 바꿉니다. 그러면 <strong>작업</strong> 의 인스턴스를 저장소 계정에 대한 연결로 초기화합니다. 또한 테이블 서비스와 통신하는 데 사용되는 <strong>TaskList</strong>에 전달됩니다.
+	위의 줄을 아래의 코드로 바꿉니다. 이 코드는 저장소 계정에 대한 연결을 사용하여 <strong>Task</strong>의 인스턴스를 초기화합니다. 이 인스턴스는 <strong>TaskList</strong>로 전달되어 테이블 서비스와의 통신에 사용됩니다.
 
 		var TaskList = require('./routes/tasklist');
 		var Task = require('./models/task');
@@ -306,7 +314,7 @@ Azure 저장소에 액세스하려면 저장소 자격 증명을 전달해야 �
 		    br
 		    button.btn(type="submit") Add item
 
-3. **index.jade** 파일을 저장하고 닫습니다.
+3. **index.js** 파일을 저장하고 닫습니다.
 
 ###전역 레이아웃 수정
 
@@ -368,13 +376,14 @@ Windows PowerShell 창에서 다음 cmdlet을 호출하여 호스티드 서비�
 
 이전과 같이 **-launch** 옵션을 지정했으므로 게시가 완료되면 브라우저가 열리고 Azure에서 실행 중인 응용 프로그램이 표시됩니다.
 
-![내 작업 목록 페이지를 표시하는 브라우저 창. URL은 페이지가 Azure에서 호스트되고 있음을 나타냅니다.](./media/storage-nodejs-use-table-storage-cloud-service-app/getting-started-1.png)
+![A browser window displaying the My Task List page. The URL indicates the page is now being hosted on Azure.](./media/storage-nodejs-use-table-storage-cloud-service-app/getting-started-1.png)
 
 ## 응용 프로그램 중지 및 삭제
 
 추가 비용을 방지하거나 다른 응용 프로그램을 빌드 및 배포할 수 있도록 이전에 배포한 응용 프로그램을 무료 평가판 기간 동안 사용하지 않도록 설정할 수 있습니다.
 
-Azure는 사용된 서버 시간의 시간당 웹 역할 인스턴스 요금을 청구합니다. 서버 시간은 응용 프로그램이 배포된 다음에 사용되며 인스턴스가 실행되지 않고 중지된 상태인 경우에도 사용됩니다.
+Azure는 사용된 서버 시간의 시간당 웹 역할 인스턴스 요금을 청구합니다.
+서버 시간은 응용 프로그램이 배포된 다음에 사용되며 인스턴스가 실행되지 않고 중지된 상태인 경우에도 사용됩니다.
 
 다음 단계에 따라 응용 프로그램을 중지 및 제거할 수 있습니다.
 
@@ -384,7 +393,7 @@ Azure는 사용된 서버 시간의 시간당 웹 역할 인스턴스 요금을 
 
 	서비스를 중지하려면 몇 분 정도 걸릴 수 있습니다. 서비스가 중지되면 서비스가 중지되었다는 메시지가 표시됩니다.
 
-3.  서비스를 삭제하려면 다음 cmdlet을 호출합니다.
+2.  서비스를 삭제하려면 다음 cmdlet을 호출합니다.
 
         PS C:\node\tasklist\WebRole1> Remove-AzureService contosotasklist
 
@@ -393,8 +402,7 @@ Azure는 사용된 서버 시간의 시간당 웹 역할 인스턴스 요금을 
 	서비스를 삭제하려면 몇 분 정도 걸릴 수 있습니다. 서비스가 삭제되면 서비스가 삭제되었다는 메시지가 표시됩니다.
 
   [Express를 사용하는 Node.js 웹 응용 프로그램]: http://www.windowsazure.com/ko-kr/develop/nodejs/tutorials/web-app-with-express/
-  [Azure에 데이터 저장 및 액세스]: http://msdn.microsoft.com/ko-kr/library/windowsazure/gg433040.aspx
-  [Node.js 웹 응용 프로그램]: http://www.windowsazure.com/ko-kr/develop/nodejs/tutorials/getting-started/
+  [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/ko-kr/library/windowsazure/gg433040.aspx
+  [Node.js Web Application]: http://www.windowsazure.com/ko-kr/develop/nodejs/tutorials/getting-started/
  
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

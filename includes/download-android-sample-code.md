@@ -5,17 +5,18 @@
 
 3. 다운로드된 파일의 압축을 풀고 위치를 기록해 둡니다.
 
-2. Eclipse에서 **File**과 **Import**를 차례로 클릭하고 **Android**를 확장한 후 **Existing Android Code into Workspace**, **Next**를 차례로 클릭합니다. 
+2. Eclipse에서 **File**과 **Import**를 클릭하고 **Android**를 확장한 후 **Existing Android Code into Workspace**를 클릭한 다음 **Next**를 클릭합니다. 
 
  	![](./media/download-android-sample-code/mobile-services-import-android-workspace.png)
 
-3. **Browse**를 클릭하고 앞에서 기록한 확장된 gitHub 리포지토리의 위치로 이동합니다. `GetStartedWithData` 디렉터리로 이동하고 `Android` 디렉터리를 클릭합니다. **OK**를 클릭하고 `GetStartedWithData` 프로젝트가 선택되었는지 확인합니다. 프로젝트를 작업 영역에 복사하려는 경우(권장) **Copy projects into workspace** 상자를 선택합니다. 마지막으로, **Finish**를 클릭합니다. 
+3. **Browse**를 클릭하고 앞에서 기록한 확장된 gitHub 리포지토리의 위치로 이동합니다.  `GetStartedWithData` 디렉터리로 이동하고  `Android` 디렉터리를 클릭합니다. **OK**를 클릭하고  `GetStartedWithData` 프로젝트가 선택되었는지 확인합니다. 프로젝트를 작업 영역에 복사하려는 경우(권장) **Copy projects into workspace** 상자를 선택합니다. 마지막으로, **Finish**를 클릭합니다. 
 
  	![](./media/download-android-sample-code/mobile-services-import-android-project.png)
 
 	현재 작업 영역에 프로젝트 파일을 가져옵니다.
  
->[AZURE.NOTE]모바일 서비스 Android SDK의 이전 버전에서 사용되는 샘플 파일을 얻으려는 경우 [여기][GitHub]에서 얻을 수 있습니다.
+>[AZURE.NOTE] 모바일 서비스 Android SDK의 이전 버전에서 사용되는 샘플 파일을 얻으려는 경우 [여기][GitHub]에서 얻을 수 있습니다.
 
 <!-- URLs. -->
 [GitHub]:  http://go.microsoft.com/fwlink/p/?LinkID=282122
+<!--HONumber=42-->

@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Create Encrypted Asset and Upload to Storage" pageTitle="암호화된 자산을 만들어 Azure 저장소에 업로드" metaKeywords="" description="암호화된 자산을 만든 다음 업로드하여 미디어 콘텐츠를 미디어 서비스로 가져오는 방법에 대해 알아봅니다." metaCanonical="" services="media-services" documentationCenter="" title="How to: Create an encrypted Asset and upload to storage" authors="juliako" solutions="" manager="dwrede" editor="" />
+﻿<properties 
+	pageTitle="암호화된 자산을 만들어 Azure 저장소에 업로드" 
+	description="암호화된 자산을 만든 다음 업로드하여 미디어 콘텐츠를 미디어 서비스로 가져오는 방법에 대해 알아봅니다." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako" />
+<tags 
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/30/2014" 
+	ms.author="juliako"/>
 
 
 
@@ -16,7 +30,7 @@
 - **AssetCreationOptions.CommonEncryptionProtected**: CENC(Common Encryption Protected) 파일의 경우. 예: PlayReady로 이미 암호화된 파일 집합 
 - **AssetCreationOptions.StorageEncrypted**: 저장소 암호화. Azure 저장소로 업로드하기 전에 암호화되지 않은 입력 파일을 암호화합니다.
 
-> WACOM.NOTE
+> AZURE.NOTE
 > 미디어 서비스는 DRM(Digital Rights Manager)처럼 네트워크상이 아니라 자산에 대해 디스크상의 저장소 암호화 기능을 제공합니다.
 
 아래 샘플 코드는 다음을 수행합니다. 
@@ -85,7 +99,7 @@ static public IAsset CreateAssetAndUploadMultipleFiles( AssetCreationOptions ass
         throw new FileNotFoundException(String.Format("No files in directory, check folderPath: {0}", folderPath));
     }
 
-    var uploadTasks = new List<Task>();
+    var uploadTasks = new List&lt;Task&gt;();
     foreach (var filePath in filePaths)
     {
         var assetFile = asset.AssetFiles.Create(Path.GetFileName(filePath));
@@ -121,5 +135,4 @@ static void  blobTransferClient_TransferProgressChanged(object sender, BlobTrans
 이제 미디어 서비스에 자산을 업로드했으므로 [미디어 프로세서를 가져오는 방법][] 항목으로 이동하세요.
 
 [미디어 프로세서를 가져오는 방법]: ../media-services-get-media-processor/
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

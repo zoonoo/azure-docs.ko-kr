@@ -12,11 +12,11 @@
 
 	![pusher-store][pusher-store]
 
-4. **추가 가능 선택** 대화 상자에서 **푸셔**를 선택하고 오른쪽 화살표를 클릭합니다.
+4. **추가 기능 선택** 대화 상자에서 **푸셔**를 선택하고 오른쪽 화살표를 클릭합니다.
 
 5. **추가 기능 개인 설정** 대화 상자에서 등록할 **푸셔** 플랜을 선택합니다.
 
-6. Azure 설정에서 사용자의 **푸셔** 서비스를 식별하기 위한 이름을 입력하거나 기본값인 **푸셔**를 사용합니다. 이름은 1자에서 100자 사이의 문자여야 하며, 영숫자, 대시, 점, 밑줄만 포함됩니다. 이 이름은 가입한 Azure 저장소 항목 목록에서 고유해야 합니다.
+6. Azure 설정에서 사용자의 **푸셔** 서비스를 식별하기 위한 이름을 입력하거나 **푸셔** 기본값을 사용합니다. 이름은 1자에서 100자 사이의 문자여야 하며, 영숫자, 대시, 점, 밑줄만 포함됩니다. 이 이름은 가입한 Azure 저장소 항목 목록에서 고유해야 합니다.
 
 	![store-screen-1][store-screen-1]
 
@@ -28,7 +28,7 @@
 
 	![store-screen-2][store-screen-2]
 
-11. 구매를 확인하면 추가 기능 대시보드로 리디렉션되고 **Purchasing Pusher**라는 메시지가 표시됩니다.
+11. 구매를 확인하면 추가 기능 대시보드로 리디렉션되고 **Purchasing Pusher**라는 메시지가 나타납니다.
 
 	![store-screen-3][store-screen-3]
 
@@ -46,7 +46,7 @@
 
 	![pusher-connection-info-button][pusher-connection-info-button]
 
-2. *연결 정보* 대화 상자에 사용자의 앱 ID, 키 및 암호가 표시됩니다. 나중에 자습서에서 이러한 값이 사용되니 나중을 위해 복사해 둡니다.
+2.  *Connection info* 대화 상자에 사용자의 앱 ID, 키 및 암호가 표시됩니다. 나중에 자습서에서 이러한 값이 사용되니 나중을 위해 복사해 두세요.
 
 	![pusher-connection-info][pusher-connection-info]
 
@@ -68,4 +68,4 @@
 [Azure 관리 포털]: https://manage.windowsazure.com
 [푸셔 이해]: http://pusher.com/docs
 
-
+<!--HONumber=42-->

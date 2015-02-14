@@ -1,10 +1,24 @@
-﻿<properties title="How to use blob storage (PHP) - Azure feature guide" pageTitle="Blob 저장소 사용 방법(PHP) | Microsoft Azure" metaKeywords="Azure blob service PHP, Azure blobs PHP" description="Azure Blob 서비스를 사용하여 Blob를 업로드, 나열, 다운로드 및 삭제하는 방법에 대해 알아봅니다. 코드 샘플은 PHP로 작성되었습니다." documentationCenter="PHP" services="storage" videoId="" scriptId="" solutions="" authors="tomfitz" manager="wpickett" editor="mollybos" />
+<properties 
+	pageTitle="Blob 저장소 사용 방법(PHP) | Microsoft Azure" 
+	description="Azure Blob 서비스를 사용하여 Blob를 업로드, 나열, 다운로드 및 삭제하는 방법에 대해 알아봅니다. 코드 샘플은 PHP로 작성되었습니다." 
+	documentationCenter="php" 
+	services="storage" 
+	authors="tfitzmac" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="11/24/2014" ms.author="tomfitz" />
+<tags 
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="PHP" 
+	ms.topic="article" 
+	ms.date="11/24/2014" 
+	ms.author="tomfitz"/>
 
 #PHP에서 Blob 서비스를 사용하는 방법
 
-이 가이드에서는 Azure Blob 서비스를 사용하여 일반 시나리오를 수행하는 방법을 보여 줍니다. 샘플은 PHP로 작성되었으며 [PHP용 Azure SDK] [다운로드]를 사용합니다. 여기서 다루는 시나리오에는 Blob **업로드**, **나열**, **다운로드** 및 **삭제**가 포함됩니다. Blob에 대한 자세한 내용은 [다음 단계](#NextSteps) 섹션을 참조하세요.
+이 가이드에서는 Azure Blob 서비스를 사용하여 일반 시나리오를 수행하는 방법을 보여 줍니다. 샘플은 PHP로 작성되었으며 [PHP용 Azure SDK] [다운로드].를 사용합니다. 여기서 다루는 시나리오에는 Blob **업로드**, **나열**, **다운로드** 및 **삭제**가 포함됩니다. Blob에 대한 자세한 내용은 [다음 단계](#NextSteps) 섹션을 참조하세요.
 
 ##목차
 
@@ -22,11 +36,11 @@
 * [방법: Blob 컨테이너 삭제](#DeleteContainer)
 * [다음 단계](#NextSteps)
 
-[WACOM.INCLUDE [howto-blob-storage](../includes/howto-blob-storage.md)]
+[AZURE.INCLUDE [howto-blob-storage](../includes/howto-blob-storage.md)]
 
 <h2><a id="CreateAccount"></a>Azure 저장소 계정 만들기</h2>
 
-[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
+[AZURE.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 <h2><a id="CreateApplication"></a>PHP 응용 프로그램 만들기</h2>
 
@@ -36,7 +50,7 @@ Azure Blob 서비스에 액세스하는 PHP 응용 프로그램을 만드는 데
 
 <h2><a id="GetClientLibrary"></a>Azure 클라이언트 라이브러리 가져오기</h2>
 
-[WACOM.INCLUDE [get-client-libraries](../includes/get-client-libraries.md)]
+[AZURE.INCLUDE [get-client-libraries](../includes/get-client-libraries.md)]
 
 <h2><a id="ConfigureStorage"></a>응용 프로그램에서 Blob 서비스에 액세스하도록 구성</h2>
 
@@ -47,14 +61,14 @@ Azure Blob 서비스 API를 사용하려면 다음을 수행해야 합니다.
 
 다음 예제에서는 자동 로더 파일을 포함하고 **ServicesBuilder** 클래스를 참조하는 방법을 보여 줍니다.
 
-> [WACOM.NOTE]
+> [AZURE.NOTE]
 > 이 예제 및 이 문서의 다른 예제에서는 Azure용 PHP 클라이언트 라이브러리를 작성기를 통해 설치했다고 가정합니다. 라이브러리를 수동으로 또는 PEAR 패키지로 설치한 경우 `WindowsAzure.php` 자동 로더 파일을 참조해야 합니다.
 
 	require_once 'vendor\autoload.php';
 	use WindowsAzure\Common\ServicesBuilder;
 
 
-아래 예제에서 `require_once` 문은 항상 표시되지만 예제를 실행하는 데 필요한 클래스만 참조됩니다.
+아래 예에서  `require_once` 문은 항상 표시되지만 예를 실행하는 데 필요한 클래스만 참조됩니다.
 
 <h2><a id="ConnectionString"></a>Azure 저장소 연결 설정</h2>
 
@@ -73,7 +87,7 @@ Azure 서비스 클라이언트를 만들려면 **ServicesBuilder** 클래스를
 
 * 연결 문자열을 직접 전달할 수 있습니다.
 * **CloudConfigurationManager(CCM)**를 사용하여 여러 외부 소스에서 연결 문자열을 확인할 수 있습니다.
-	* 기본적으로 하나의 외부 소스, 환경 변수에 대한 지원이 제공됩니다.
+	* 기본적으로 하나의 외부 소스, 환경 변수에 대한 - 지원이 제공됩니다.
 	* **ConnectionStringSource** 클래스를 확장하여 새 소스를 추가할 수 있습니다.
 
 여기에 설명된 예제의 경우 연결 문자열이 직접 전달됩니다.
@@ -138,11 +152,11 @@ Azure 서비스 클라이언트를 만들려면 **ServicesBuilder** 클래스를
 
 **setPublicAccess(PublicAccessType::CONTAINER\_AND\_BLOBS)**를 호출하면 익명 요청을 통해 컨테이너 및 Blob 데이터에 액세스할 수 있습니다. **setPublicAccess(PublicAccessType::BLOBS_ONLY)**를 호출하면 익명 요청을 통해 Blob 데이터에만 액세스할 수 있습니다. 컨테이너 ACL에 대한 자세한 내용은 [컨테이너 ACL 설정(REST API)][container-acl]을 참조하세요.
 
-Blob 서비스 오류 코드에 대한 자세한 내용은 [Blob 서비스 오류 코드][error-codes](영문)를 참조하세요.
+Blob 서비스 오류 코드에 대한 자세한 내용은 [Blob 서비스 오류 코드][error-codes]를 참조하세요.
 
 <h2><a id="UploadBlob"></a>방법: 컨테이너에 Blob 업로드</h2>
 
-파일을 Blob으로 업로드하려면 **BlobRestProxy->createBlockBlob** 메서드를 사용합니다. 이 작업은 Blob이 없는 경우 새로 만들고, Blob이 있는 경우 덮어씁니다. 아래 코드 예제에서는 컨테이너가 이미 만들어졌고 [fopen][fopen]을 사용하여 파일을 스트림으로 연다고 가정합니다.
+파일을 Blob으로 업로드하려면 **BlobRestProxy->createBlockBlob** 메서드를 사용합니다. 이 작업은 Blob가 없는 경우 새로 만들고, Blob가 있는 경우 덮어씁니다. 아래 코드 예제에서는 컨테이너가 이미 만들어졌고 [fopen][fopen]을 사용하여 파일을 스트림으로 연다고 가정합니다.
 
 	require_once 'vendor\autoload.php';
 
@@ -169,11 +183,11 @@ Blob 서비스 오류 코드에 대한 자세한 내용은 [Blob 서비스 오�
 		echo $code.": ".$error_message."<br />";
 	}
 
-위의 예제에서는 Blob을 스트림으로 업로드합니다. 그러나 Blob은 [file\_get\_contents][file_get_contents] 함수를 사용하여 문자열로 업로드될 수도 있습니다. 이렇게 하려면 위의 예제에서 `$content = fopen("c:\myfile.txt", "r");`을 `$content = file_get_contents("c:\myfile.txt");`로 변경하세요.
+위의 예제에서는 Blob를 스트림으로 업로드합니다. 그러나 Blob는 [file\_get\_contents][file_get_contents] 함수를 사용하여 문자열로 업로드될 수도 있습니다. 이렇게 하려면 위의 예제에서 `$content = fopen("c:\myfile.txt", "r");`을 `$content = file_get_contents("c:\myfile.txt");`로 변경하세요.
 
 <h2><a id="ListBlobs"></a>방법: 컨테이너의 Blob 나열</h2>
 
-컨테이너의 Blob을 나열하려면 **BlobRestProxy->listBlobs** 메서드를 **foreach** 루프와 함께 사용하여 결과를 반복합니다. 다음 코드는 컨테이너의 각 Blob 이름과 해당 URI를 브라우저로 출력합니다.
+컨테이너의 Blob를 나열하려면 **BlobRestProxy->listBlobs** 메서드를 **foreach** 루프와 함께 사용하여 결과를 반복합니다. 다음 코드는 컨테이너의 각 Blob 이름과 해당 URI를 브라우저로 출력합니다.
 
 	require_once 'vendor\autoload.php';
 
@@ -206,7 +220,7 @@ Blob 서비스 오류 코드에 대한 자세한 내용은 [Blob 서비스 오�
 
 <h2><a id="DownloadBlob"></a>방법: Blob 다운로드</h2>
 
-Blob을 다운로드하려면 **BlobRestProxy->getBlob** 메서드를 호출한 다음 결과 **GetBlobResult** 개체에서 **getContentStream** 메서드를 호출합니다.
+Blob를 다운로드하려면 **BlobRestProxy->getBlob** 메서드를 호출한 다음 결과 **GetBlobResult** 개체에서 **getContentStream** 메서드를 호출합니다.
 
 	require_once 'vendor\autoload.php';
 
@@ -231,11 +245,11 @@ Blob을 다운로드하려면 **BlobRestProxy->getBlob** 메서드를 호출한 
 		echo $code.": ".$error_message."<br />";
 	}
 
-위의 예제에서는 Blob을 스트림 리소스로 가져옵니다(기본 동작). 그러나 [stream\_get\_contents][stream-get-contents] 함수를 사용하여 반환된 스트림을 문자열로 변환할 수 있습니다.
+위의 예제에서는 Blob를 스트림 리소스로 가져옵니다(기본 동작). 그러나 [stream\_get\_contents][stream-get-contents] 함수를 사용하여 반환된 스트림을 문자열로 변환할 수 있습니다.
 
 <h2><a id="DeleteBlob"></a>방법: Blob 삭제</h2>
 
-Blob을 삭제하려면 컨테이너 이름 및 Blob 이름을 **BlobRestProxy->deleteBlob**에 전달합니다. 
+Blob를 삭제하려면 컨테이너 이름 및 Blob 이름을 **BlobRestProxy->deleteBlob**에 전달합니다. 
 
 	require_once 'vendor\autoload.php';
 
@@ -289,18 +303,17 @@ Blob을 삭제하려면 컨테이너 이름 및 Blob 이름을 **BlobRestProxy->
 
 이제 Azure Blob 서비스의 기본 사항을 배웠으므로 다음 링크를 따라 좀 더 복잡한 저장소 작업을 수행하는 방법을 알아보세요.
 
-- 다음 MSDN 참조를 확인하세요. [Azure에 데이터 저장 및 액세스] []
-- 다음 Azure 저장소 팀 블로그(영문)를 방문하세요. <http://blogs.msdn.com/b/windowsazurestorage/>
-- <https://github.com/WindowsAzure/azure-sdk-for-php-samples/blob/master/storage/BlockBlobExample.php>에서 PHP 블록 Blob 예를 참조하세요.
+- 다음 MSDN 참조를 확인하세요. [Azure에서 데이터 저장 및 액세스] []
+- 다음 Azure 저장소 팀 블로그를 방문하세요. <http://blogs.msdn.com/b/windowsazurestorage/>
+- <https://github.com/WindowsAzure/azure-sdk-for-php-samples/blob/master/storage/BlockBlobExample.php>.에서 PHP 블록 Blob 예를 참조하세요.
 - <https://github.com/WindowsAzure/azure-sdk-for-php-samples/blob/master/storage/PageBlobExample.php>에서 PHP 페이지 Blob 예를 참조하세요.
 
-[download]: http://go.microsoft.com/fwlink/?LinkID=252473
-[Storing and Accessing Data in Azure]: http://msdn.microsoft.com/ko-kr/library/windowsazure/gg433040.aspx
+[다운로드]: http://go.microsoft.com/fwlink/?LinkID=252473
+[Azure에서 데이터 저장 및 액세스]: http://msdn.microsoft.com/ko-kr/library/windowsazure/gg433040.aspx
 [container-acl]: http://msdn.microsoft.com/ko-kr/library/windowsazure/dd179391.aspx
 [error-codes]: http://msdn.microsoft.com/ko-kr/library/windowsazure/dd179439.aspx
 [file_get_contents]: http://php.net/file_get_contents
 [require_once]: http://php.net/require_once
 [fopen]: http://www.php.net/fopen
 [stream-get-contents]: http://www.php.net/stream_get_contents
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

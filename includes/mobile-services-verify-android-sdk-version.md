@@ -4,7 +4,7 @@
 
 1. Eclipse 콘솔의 맨 아래 창을 살펴봅니다. "**Unable to resolve target 'android-n'**"과 같은 오류 메시지를 확인할 수 있습니다.
 
-2. 'import' 문을 기반으로 확인되는 코드의 표준 Android 개체에서 오류 메시지를 생성할 수 있습니다.
+2.  `import` 문을 기반으로 확인되는 코드의 표준 Android 개체에서 오류 메시지를 생성할 수 있습니다.
 
 위와 같은 증상 중 하나가 나타나는 경우 Eclipse에 설치된 Android SDK의 버전이 다운로드한 프로젝트의 SDK 대상과 일치하지 않을 수 있습니다.  버전을 확인하려면 다음을 변경하세요.
 
@@ -17,6 +17,4 @@
 	 	        android:minSdkVersion="8"
 	 	        android:targetSdkVersion="21" />
 	
-3. Eclipse Package Explorer에서 프로젝트 노드를 마우스 오른쪽 단추로 클릭하여 **Properties**를 선택하고 왼쪽 열에서 **Android**를 선택합니다. **Project Build Target**을 **targetSdkVersion**과 동일한 SDK 버전으로 설정하세요.
-
-<!--HONumber=35.1-->
+3. Eclipse Package Explorer에서 프로젝트 노드를 마우스 오른쪽 단추로 클릭하여 **Properties**를 선택하고 왼쪽 열에서 **Android**를 선택합니다. **Project Build Target**을 **targetSdkVersion**과 동일한 SDK 버전으로 설정하세요.<!--HONumber=42-->

@@ -41,7 +41,7 @@
 
 	줄 끝에 있는 세미콜론(;)은 명령을 끝내는 데 매우 중요한 역할을 합니다.
 
-8. 데이터베이스를 만들어서 'mysqluser' 사용자 권한을 부여하려면 다음 명령을 실행합니다.
+8. 데이터베이스를 만들어서 `mysqluser` 사용자 권한을 부여하려면 다음 명령을 실행합니다.
 
 		mysql> CREATE DATABASE testdatabase;
 		mysql> GRANT ALL ON testdatabase.* TO 'mysqluser'@'localhost' IDENTIFIED BY 'password';
@@ -65,7 +65,7 @@
 12. 페이지 맨 아래에 있는 **추가**를 클릭합니다.
 	![Endpoints][Image8]
 
-13. 프로토콜이 **TCP**이고 **Public** 및 **Private** 포트가 "3306"으로 설정된 "MySQL"이라는 끝점을 추가합니다. 그러면 MySQL에 원격으로 액세스할 수 있습니다.
+13. 프로토콜이 **TCP**이고 **공용** 및 **개인** 포트가 "3306"으로 설정된 "MySQL"이라는 끝점을 추가합니다. 그러면 MySQL에 원격으로 액세스할 수 있습니다.
 	![Endpoints][Image9]
 
 14. Azure 내의 OpenSUSE 가상 컴퓨터에서 실행되는 MySQL에 원격으로 연결하려면 로컬 컴퓨터에서 다음 명령을 실행합니다.
@@ -82,5 +82,4 @@
 [AzurePreviewPortal]: http://manage.windowsazure.com
 
 [Image9]: ./media/install-and-run-mysql-on-opensuse-vm/LinuxVmAddEndpointMySQL.png
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

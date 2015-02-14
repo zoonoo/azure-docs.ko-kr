@@ -1,17 +1,171 @@
-﻿<properties title="HDInsight Release Notes" pageTitle="HDInsight 릴리스 정보 | Azure" description="HDInsight 릴리스 정보" metaKeywords="hdinsight, hadoop, hdinsight hadoop, hadoop azure, release notes" services="HDInsight" solutions="" documentationCenter="" editor="cgronlun" manager="paulettm"  authors="bradsev" />
+﻿<properties 
+	pageTitle="HDInsight 릴리스 정보 | Azure" 
+	description="HDInsight 릴리스 정보" 
+	services="hdinsight" 
+	documentationCenter="" 
+	editor="cgronlun" 
+	manager="paulettm" 
+	authors="bradsev"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/05/2014" ms.author="bradsev" />
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/30/2015" 
+	ms.author="bradsev"/>
 
 
 #Microsoft HDInsight 릴리스 정보
+
+## HDInsight의 2015/1/29 릴리스 정보 ##
+
+이 릴리스와 함께 배포된 HDInsight 클러스터의 전체 버전 번호는 다음과 같습니다.
+
+* Oozie 코디네이터 사용 	2.1.10.455.1309616	(HDP 1.3.9.0-01351 - 변경되지 않음)
+* Oozie 코디네이터 사용 	3.0.6.455.1309616	(HDP 2.0.9.0-2097 -  변경되지 않음)
+* Oozie 코디네이터 사용 	3.1.2.455.1309616	(HDP 2.1.9.0-2196 -  변경되지 않음)
+* SDK			N/A
+
+이 릴리스에는 다음 업데이트가 포함됩니다.
+
+<table border="1">
+<tr>
+<th>제목</th>
+<th>설명</th>
+<th>영향을 받는 영역 
+(예: 서비스, OSS 구성 요소, SDK, PS, AUX)</p></th>
+<th>영향을 받는 클러스터 유형(예: Hadoop, HBase, Storm, All)</th>
+<th>JIRA(적용 가능한 경우)</th>
+</tr>
+
+
+<tr>
+
+<td> 버그 수정</td>
+<td>Azure를 업그레이드하는 동안 HDInsight 클러스터의 안정성을 개선하는 몇 가지 중요한 버그를 수정했습니다.</td>
+<td>서비스</td>
+<td></td>
+<td>해당 없음</td>
+</tr>
+
+
+
+</table>
+<br>
+
+## HDInsight의 2015/1/5 릴리스 정보 ##
+
+이 릴리스와 함께 배포된 HDInsight 클러스터의 전체 버전 번호는 다음과 같습니다.
+
+* Oozie 코디네이터 사용 	2.1.10.420.1246118	(HDP 1.3.9.0-01351 - 변경되지 않음)
+* Oozie 코디네이터 사용 	3.0.6.420.1246118	(HDP 2.0.9.0-2097 - 변경되지 않음)
+* Oozie 코디네이터 사용 	3.1.2.420.1246118	(HDP 2.1.9.0-2196 - 변경되지 않음)
+
+
+이 릴리스에는 다음 업데이트가 포함됩니다.
+
+<table border="1">
+<tr>
+<th>제목</th>
+<th>설명</th>
+<th>구성 요소</th>
+<th>클러스터 유형</th>
+<th>JIRA(적용 가능한 경우)</th>
+</tr>
+
+
+<tr>
+<td>Twitter 추세 분석 및 Mahout 기반 동영상 권장 사항 샘플</td>
+<td><p>이 릴리스에서는 다음과 같이 HDInsight 쿼리 콘솔에 2개의 추가 샘플이 있습니다.</p>
+
+<p><b>Twitter 추세 분석</b><br>
+Twitter와 같은 사이트에서 제공하는 공개 API는 대중적인 추세를 분석하고 이해하는 데 유용한 데이터 원본입니다. 이 자습서에서는 Hive를 사용하여 특정 단어를 포함하는 대부분의 트윗을 보낸 Twitter 사용자 목록을 가져오는 방법에 대해 알아봅니다. </p>
+
+<p><b>Mahout 동영상 권장 사항</b><br>
+Apache Mahout는 Apache Hadoop 기계 학습 라이브러리입니다. Mahout에는 필터링, 분류 및 클러스터링과 같은 데이터 처리를 위한 알고리즘이 포함됩니다. 이 자습서에서는 추천 엔진을 사용하여 친구가 본 영화를 기준으로 영화 추천을 생성합니다.</p></td>
+<td>쿼리 콘솔</td>
+<td>빌드</td>
+<td>해당 없음</td>
+</tr>
+
+<tr>
+<td>hive config hive.auto.convert.join.noconditionaltask.size의 기본값 변경</td>
+<td><p>이 크기 구성은 자동으로 변환된 맵 조인에 적용됩니다. 이 값은 메모리 크기에 맞는 해시 맵으로 변환할 수 있는 테이블의 크기를 합한 값을 나타냅니다. 이전 릴리스에서 이 값은 기본값 10MB에서 128MB로 증가했습니다. 그러나 새 값 128MB는 메모리의 부족으로 인한 작업 실패를 초래했습니다. 이 릴리스에서는 기본값을 다시 10MB로 되돌립니다. 고객은 여전히 해당 쿼리 및 테이블 크기가 지정된 클러스터를 만들 때 이 값을 재정의하도록 선택할 수 있습니다. 이 설정에 대한 자세한 내용과 재정의하는 방법에 대한 자세한 내용은 Hortonworks 설명서에서 <a href="http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.0.0.2/ds_Hive/optimize-joins.html#JoinOptimization-OptimizeAutoJoinConversion" target="_blank">자동 조인 변환 최적화</a> 를 참조하세요. </p></td>
+<td>Hive</td>
+<td>Hadoop, Hbase</td>
+<td>해당 없음</td>
+</tr>
+
+</table>
+<br>
+
+## HDInsight의 2014/12/23 릴리스 정보 ##
+
+이 릴리스와 함께 배포된 HDInsight 클러스터의 전체 버전 번호는 다음과 같습니다.
+
+* Oozie 코디네이터 사용 	2.1.10.420.1246783	(HDP 버전 변경되지 않음)
+* Oozie 코디네이터 사용 	3.0.6.420.1246783	(HDP 버전 변경되지 않음)
+* Oozie 코디네이터 사용 	3.1.1.420.1246783	(HDP 버전 변경되지 않음)
+
+이 릴리스에는 다음 업데이트가 포함됩니다.
+
+<table border="1">
+<tr>
+<th>제목</th>
+<th>설명</th>
+<th>구성 요소</th>
+<th>클러스터 유형</th>
+<th>JIRA(적용 가능한 경우)</th>
+</tr>
+
+
+<tr>
+<td>과도한 로드로 인한 일시적인 클러스터 생성 실패</td>
+<td><p>클러스터를 생성하는 동안의 HDP 패키지 다운로드를 위한 알고리즘이 개선되어 과도한 로드로 인한 실패를 보다 강력하게 처리할 수 있습니다. 이 영역에는 클러스터 생성과 관련된 로드 증가에 대한 보다 효율적인 확장을 가능하게 하는 몇 가지 개선 사항이 더 예상됩니다.</p></td>
+<td>부여</td>
+<td>Hadoop, Hbase, Storm</td>
+<td>해당 없음</td>
+</tr>
+
+
+
+</table>
+<br>
+
+## HDInsight의 2014/12/18 릴리스 정보 ##
+
+이 릴리스에는 다음 구성 요소 업데이트가 포함됩니다.
+
+<table border="1">
+<tr>
+<th>제목</th>
+<th>설명</th>
+<th>구성 요소</th>
+<th>클러스터 유형</th>
+<th>JIRA(적용 가능한 경우)</th>
+</tr>
+
+<tr>
+<td><a href = "http://azure.microsoft.com/ko-kr/documentation/articles/hdinsight-hadoop-customize-cluster/" target="_blank">클러스터 사용자 지정 GA</a></td>
+<td><p>사용자 지정 시 Apache Hadoop 에코시스템에서 사용할 수 있는 프로젝트로 Azure HDInsight 클러스터를 사용자 지정할 수 있습니다. 이제 이 새로운 기능을 사용하여 Hadoop 프로젝트를 실험하고 Azure HDInsight에 배포할 수도 있습니다. 이 기능은 사용자 지정 스크립트를 사용하여 Hadoop 클러스터를 임의의 방식으로 수정할 수 있는 <b>스크립트 작업</b> 기능을 통해 사용할 수 있게 됩니다. 이 사용자 지정 방식은 Hadoop, HBase, Storm을 비롯한 모든 HDInsight 유형에서 사용할 수 있습니다. 이 기능을 보여 주기 위해 많이 사용하는  <a href = "http://azure.microsoft.com/ko-kr/documentation/articles/hdinsight-hadoop-spark-install/" target="_blank">Spark</a>, <a href = "http://azure.microsoft.com/ko-kr/documentation/articles/hdinsight-hadoop-r-scripts/" target="_blank">R</a>, <a href = "http://azure.microsoft.com/ko-kr/documentation/articles/hdinsight-hadoop-solr-install/" target="_blank">Solr</a>및 <a href = "http://azure.microsoft.com/ko-kr/documentation/articles/hdinsight-hadoop-giraph-install/" target="_blank">Giraph</a> 모듈을 설치하는 프로세스를 정리했습니다. 이 릴리스에서는 고객이 Azure 관리 포털을 통해 사용자 지정 스크립트 작업을 지정할 수 있는 기능도 추가되며 도우미 메서드를 사용하여 사용자 지정 스크립트 작업을 작성하는 방법에 대한 지침 및 모범 사례를 제공하고 스크립트 작업을 테스트하는 방법에 대한 지침도 제공합니다. </p></td>
+<td>Feature GA</td>
+<td>모두</td>
+<td>해당 없음</td>
+</tr>
+
+
+</table>
+<br>
 
 ## HDInsight의 2014/12/05 릴리스 정보 ##
 
 이 릴리스와 함께 배포된 HDInsight 클러스터의 전체 버전 번호는 다음과 같습니다.
 
-* HDInsight 	2.1.9.406.1221105	(HDP 1.3.9.0-01351)
-* HDInsight 	3.0.5.406.1221105	(HDP 2.0.9.0-2097)
-* HDInsight 	3.1.1.406.1221105	(HDP 2.1.9.0-2196)
+* Oozie 코디네이터 사용 	2.1.9.406.1221105	(HDP 1.3.9.0-01351)
+* Oozie 코디네이터 사용 	3.0.5.406.1221105	(HDP 2.0.9.0-2097)
+* Oozie 코디네이터 사용 	3.1.1.406.1221105	(HDP 2.1.9.0-2196)
 * HDInsight SDK 해당 없음
 
 이 릴리스에는 다음 구성 요소 업데이트가 포함됩니다.
@@ -34,7 +188,7 @@
 </tr>
 
 <tr>
-<td>버그 수정: HDInsight 쿼리 콘솔의 간헐적 중지</td>
+<td>버그 수정: HDInsight 쿼리 쿼리 콘솔의 간헐적  중지</td>
 <td>이 문제가 발생하면 WebHCat 시작 관리자 작업에 대한 WebHCat 로그에 다음 내용이 표시될 수 있습니다. <p>"org.apache.hive.hcatalog.templeton.CatchallExceptionMapper | org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.yarn.exceptions.YarnRuntimeException): Could not load history file {wasb url to the history file}"</p></td>
 <td>WebHCat</td>
 <td>빌드</td>
@@ -45,7 +199,7 @@
 <td>버그 수정: Hbase 쿼리 대기 시간의 간헐적 급증</td>
 <td>이 문제가 발생하면 사용자는 Hbase 쿼리 대기 시간에 3초의 간헐적 급증을 확인하게 됩니다. </td>
 <td>HDInsight 클러스터 게이트웨이</td>
-<td>분석</td>
+<td>HBase</td>
 <td>해당 없음</td>
 </tr>
 
@@ -160,8 +314,8 @@
 
 참고: 클러스터 사용자 지정을 통해 사용할 수 있는 새로운 기능을 설명하기 위해 스크립트 동작을 사용하여 Spark 및 R 모듈을 설치하는 절차가 문서에 포함되었습니다. 자세한 내용은 다음을 참조하세요.
 
-* [HDInsight 클러스터에서 Spark 1.0 설치 및 사용][hdinsight-install-spark]
-* [HDInsight Hadoop 클러스터에서 R 설치 및 사용][hdinsight-r-scripts]
+* [HDInsight 클러스터에 Spark 1.0 설치 및 사용][hdinsight-install-spark]
+* [HDInsight Hadoop 클러스터에 R 설치 및 사용][hdinsight-r-scripts]
 
 
 
@@ -242,20 +396,20 @@
 
 </table><br>
 
-HDInsight에서 사용하는 Hortonworks Data Platform에서 YARN 및 MapReduce에 사용되는 메모리 구성 설정에 대한 자세한 내용은 [HDP 메모리 구성 설정 확인](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.1-latest/bk_installing_manually_book/content/rpm-chap1-11.html)을 참조하세요. Hortonworks에서는 적절한 메모리 설정을 계산하는 도구도 제공합니다.
+HDInsight에서 사용하는 Hortonworks Data Platform에서 YARN 및 MapReduce에 사용되는 메모리 구성 설정에 대한 자세한 내용은 [HDP 메모리 구성 설정 확인](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.1-latest/bk_installing_manually_book/content/rpm-chap1-11.html) Hortonworks에서는 적절한 메모리 설정을 계산하는 도구도 제공합니다.
 
 HDInsight PowerShell/SDK 오류: "*클러스터가 Http 서비스 액세스를 위해 구성되어 있지 않습니다.*":
 
-* 이 오류는 SDK/PowerShell 버전과 클러스터의 버전 차이로 인해 발생할 수 있는 알려진 [호환성 문제](https://social.msdn.microsoft.com/Forums/azure/en-US/a7de016d-8de1-4385-b89e-d2e7a1a9d927/hdinsight-powershellsdk-error-cluster-is-not-configured-for-http-services-access?forum=hdinsight) 입니다. 8/15 또는 그 이후에 만든 클러스터는 가상 네트워크에 대한 새로운 프로비전 기능을 지원합니다. 그러나 이전 버전의 SDK/PowerShell에서는 이 기능이 올바르게 해석되지 않습니다. 따라서 일부 작업 제출 작업이 실패합니다. SDK API 또는 PowerShell cmdlet을 사용하여 작업을 제출하는 경우(**Use-AzureHDInsightCluster**, **Invoke-Hive**) 해당 작업이 실패하고 "*<clustername> 클러스터가 Http 서비스 액세스를 위해 구성되어 있지 않습니다.*" 오류 메시지가 표시되거나 작업에 따라 "*클러스터에 연결할 수 없습니다.*" 등의 다른 오류 메시지가 표시될 수 있습니다.
+* 이 오류는 SDK/PowerShell 버전과 클러스터의 버전 차이로 인해 발생할 수 있는 알려진 [호환성 문제](https://social.msdn.microsoft.com/Forums/azure/ko-kr/a7de016d-8de1-4385-b89e-d2e7a1a9d927/hdinsight-powershellsdk-error-cluster-is-not-configured-for-http-services-access?forum=hdinsight)입니다. 8/15 또는 그 이후에 만든 클러스터는 가상 네트워크에 대한 새로운 프로비전 기능을 지원합니다. 그러나 이전 버전의 SDK/PowerShell에서는 이 기능이 올바르게 해석되지 않습니다. 따라서 일부 작업 제출 작업이 실패합니다. SDK API 또는 PowerShell cmdlet을 사용하여 작업을 제출하는 경우(**Use-AzureHDInsightCluster**, **Invoke-Hive**) 해당 작업이 실패하고 "*<clustername> 클러스터가 Http 서비스 액세스를 위해 구성되어 있지 않습니다.*" 오류 메시지가 표시되거나 작업에 따라 "*클러스터에 연결할 수 없습니다.*" 등의 다른 오류 메시지가 표시될 수 있습니다.
 
-* HDInsight SDK 및 Azure PowerShell의 최신 버전에서는 이러한 호환성 문제가 해결되었습니다. HDInsight SDK는 버전 1.3.1.6 이상으로, Azure PowerShell 도구는 버전 0.8.8 이상으로 업데이트하는 것이 좋습니다. [Azure PowerShell을 설치 및 구성하는 방법]에서 [NuGet](http://nuget.codeplex.com/wikipage?title=Getting%20Started) 및 Azure PowerShell 도구의 최신 HDInsight SDK에 액세스할 수 있습니다(http://azure.microsoft.com/ko-kr/documentation/articles/install-configure-powershell/).
+* HDInsight SDK 및 Azure PowerShell의 최신 버전에서는 이러한 호환성 문제가 해결되었습니다. HDInsight SDK는 버전 1.3.1.6 이상으로, Azure PowerShell 도구는 버전 0.8.8 이상으로 업데이트하는 것이 좋습니다. 최신 HDInsight SDK는 [NuGet](http://nuget.codeplex.com/wikipage?title=Getting%20Started)에서, Azure PowerShell 도구는 [Azure PowerShell을 설치 및 구성하는 방법](http://azure.microsoft.com/ko-kr/documentation/articles/install-configure-powershell/)에서 얻을 수 있습니다.
 
 * 클러스터 버전이 동일하게 유지되면 SDK와 PowerShell은 클러스터에 대한 새 업데이트에서도 계속 작동합니다. 예를 들어 클러스터 버전 3.1은 SDK/PowerShell의 최신 버전인 1.3.1.6 및 0.8.8과 항상 호환됩니다.
 
 
 ## HDInsight 3.1의 2014/9/12 릴리스 정보##
 
-* 이 릴리스는 HDP(Hortonworks Data Platform) 2.1.5에 기반을 둡니다. 이 릴리스에서 수정된 버그 목록을 보려면 Hortonworks 사이트에서 [이 릴리스에서 수정됨](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.1.5/bk_releasenotes_hdp_2.1/content/ch_relnotes-hdp-2.1.5-fixed.html) 페이지를 참조하세요.
+* 이 릴리스는 HDP(Hortonworks Data Platform) 2.1.5에 기반을 둡니다. 이 릴리스에서 수정된 버그 목록을 보려면 Hortonworks 사이트에서 [이 릴리스에서 수정됨](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.1.5/bk_releasenotes_hdp_2.1/content/ch_relnotes-hdp-2.1.5-fixed.html)을 참조하세요.
 * pig 라이브러리 폴더의 "avro-mapred-1.7.4.jar" 파일이 avro-mapred-1.7.4-hadoop2.jar로 변경되었습니다. 이 파일의 내용에는 사소한 버그 수정(줄 바꿈 하지 않음)이 포함되어 있습니다. 고객은 파일 이름을 바꿀 때 줄 바꿈을 방지할 수 있도록 JAR 파일 자체의 이름에 대한 직접 종속성을 사용하지 않는 것이 좋습니다.
 
 
@@ -280,7 +434,7 @@ HDInsight PowerShell/SDK 오류: "*클러스터가 Http 서비스 액세스를 �
 
 SDK/PowerShell과 클러스터 간의 버전 차이로 인해 HDInsight PowerShell/SDK 오류가 발생하고 "<clustername> 클러스터가 Http 서비스 액세스를 위해 구성되어 있지 않습니다." 메시지 또는 작업에 따라 "클러스터에 연결할 수 없습니다."와 같은 기타 오류 메시지가 표시될 수 있습니다. 8/15 또는 그 이후에 만든 클러스터는 가상 네트워크에 대한 새로운 프로비전 기능을 지원합니다. 그러나 이전 버전의 SDK/PowerShell에서는 이 기능이 올바르게 해석되지 않아 작업을 제출하는 작업이 실패합니다. SDK API 또는 PowerShell cmdlet(예: Use-AzureHDInsightCluster 또는 Invoke-AzureHDInsightHiveJob)을 사용하여 작업을 제출하는 경우 해당 작업이 실패하고 위에서 설명한 오류 메시지 중 하나가 표시될 수 있습니다.
 
-SDK 및 Azure PowerShell의 최신 버전에서는 이러한 호환성 문제가 해결되었습니다. HDInsight SDK는 버전 1.3.1.6 이상으로, Azure PowerShell 도구는 버전 0.8.8 이상으로 업데이트하는 것이 좋습니다. [Microsoft Web PI]를 사용하여 [nuget](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.HDInsight/) 및 Azure PowerShell 도구의 최신 HDInsight SDK에 액세스할 수 있습니다(http://go.microsoft.com/?linkid=9811175&clcid=0x409).
+SDK 및 Azure PowerShell의 최신 버전에서는 이러한 호환성 문제가 해결되었습니다. HDInsight SDK는 버전 1.3.1.6 이상으로, Azure PowerShell 도구는 버전 0.8.8 이상으로 업데이트하는 것이 좋습니다. 최신 HDInsight SDK는 [NuGet](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.HDInsight/)에서, Azure PowerShell 도구는 [Microsoft 웹 플랫폼 설치 관리자](http://go.microsoft.com/?linkid=9811175&clcid=0x409)를 사용하여 얻을 수 있습니다.
 
 클러스터 버전이 동일하게 유지되면 SDK와 PowerShell은 클러스터에 대한 새 업데이트에서도 계속 작동합니다. 예를 들어 클러스터 버전 3.1은 SDK/PowerShell의 최신 버전인 1.3.1.6 및 0.8.8과 항상 호환됩니다.
 
@@ -291,7 +445,7 @@ SDK 및 Azure PowerShell의 최신 버전에서는 이러한 호환성 문제가
 	* 동아시아 
 	* 미국 중북부 
 	* 미국 중남부 
-* 이 릴리스에서 HDInsight v1.6(HDP1.1, Hadoop 1.0.3) 및 HDInsight v2.1(HDP1.3, Hadoop 1.2)이 Azure 관리 포털에서 제거됩니다. HDInsight PowerShell cmdlet([New-AzureHDInsightCluster](http://msdn.microsoft.com/ko-kr/library/dn593744.aspx)) 또는 [HDInsight SDK](http://msdn.microsoft.com/ko-kr/library/azure/dn469975.aspx)를 사용하여 이러한 버전의 Hadoop 클러스터를 계속 만들 수 있습니다. 자세한 내용은 [HDInsight 구성 요소 버전 관리](http://azure.microsoft.com/ko-kr/documentation/articles/hdinsight-component-versioning/) 페이지를 참조하세요.
+* 이 릴리스에서 HDInsight v1.6(HDP1.1, Hadoop 1.0.3) 및 HDInsight v2.1(HDP1.3, Hadoop 1.2)이 Azure 관리 포털에서 제거됩니다. HDInsight PowerShell cmdlet([New-AzureHDInsightCluster](http://msdn.microsoft.com/ko-kr/library/dn593744.aspx))을 사용하거나 [HDInsight SDK](http://msdn.microsoft.com/ko-kr/library/azure/dn469975.aspx)를 사용하여 계속 Hadoop 클러스터를 만들 수 있습니다. 자세한 내용은 [HDInsight 구성 요소 버전](http://azure.microsoft.com/ko-kr/documentation/articles/hdinsight-component-versioning/) 페이지를 참조하세요.
 * 이 릴리스의 HDP(Hortonworks Data Platform) 변경 내용: 
 
 <table border="1">
@@ -316,13 +470,13 @@ HBase에서는, 수백만 개의 끝점에서 들어오는 센서 및 원격 분
 
 ### 이제 HDInsight 3.1에 사전 설치되는 Apache Mahout ###
 
- [Mahout](http://hortonworks.com/hadoop/mahout/) 은 HDInsight 3.1 Hadoop 클러스터에 사전 설치됩니다. 따라서 추가 클러스터 구성 없이도 Mahout 작업을 실행할 수 있습니다. 예를 들어 RDP(원격 데스크톱 프로토콜)를 사용하면 Hello world Mahout 명령을 실행하는 추가 단계 없이도 Hadoop 클러스터에 원격으로 연결할 수 있습니다.
+ [Mahout](http://hortonworks.com/hadoop/mahout/)은 HDInsight 3.1 Hadoop 클러스터에 사전 설치됩니다. 따라서 추가 클러스터 구성 없이도 Mahout 작업을 실행할 수 있습니다. 예를 들어 RDP(원격 데스크톱 프로토콜)를 사용하면 Hello world Mahout 명령을 실행하는 추가 단계 없이도 Hadoop 클러스터에 원격으로 연결할 수 있습니다.
 
 		mahout org.apache.mahout.classifier.df.tools.Describe -p /user/hdp/glass.data -f /user/hdp/glass.info -d I 9 N L  
 
 		mahout org.apache.mahout.classifier.df.BreimanExample -d /user/hdp/glass.data -ds /user/hdp/glass.info -i 10 -t 100
 
-이 절차에 대한 자세한 설명은 Apache Mahout 웹 사이트의 [Breiman 예제](https://mahout.apache.org/users/classification/breiman-example.html) (영문) 설명서를 참조하세요. 
+이 절차에 대한 자세한 설명은 Apache Mahout 웹 사이트의 [Breiman 예제](https://mahout.apache.org/users/classification/breiman-example.html) 설명서를 참조하세요. 
 
 
 ### Hive 쿼리는 HDInsight 3.1에서 Tez를 사용할 수 있음 ###
@@ -335,7 +489,7 @@ Tez는 기본적으로 Hive 쿼리에 사용할 수 없습니다. Tez를 사용�
 
 Hortonworks에서 표준 벤치마크로 전달되는 Tez와 함께 사용하는 Hive 쿼리 성능 개선 사항의 자세한 분석을 게시했습니다. 자세한 내용은 [Enterprise Hadoop용 Apache Hive 13 벤치마킹](http://hortonworks.com/blog/benchmarking-apache-hive-13-enterprise-hadoop/)을 참조하세요. 
 
-Tez와 함께 Hive 사용에 대한 자세한 내용은 [Tez의 Hive 위키 페이지](https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez)(영문)를 참조하세요.
+Tez와 함께 Hive 사용에 대한 자세한 내용은 [Tez의 Hive 위키 페이지](https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez)를 참조하세요.
 
 ###전 세계 이용 가능 여부
 Hadoop 2.2의 Azure HDInsight 릴리스부터 모든 주요 Azure 지역에서 HDInsight를 사용할 수 있게 되었습니다. 특별히 서유럽과 동남아시아 데이터 센터를 온라인으로 전환했습니다. 따라서 고객은 준수 요구 사항이 비슷한 영역에 있는, 가까운 데이터 센터에서 클러스터를 찾을 수 있습니다. 
@@ -343,17 +497,17 @@ Hadoop 2.2의 Azure HDInsight 릴리스부터 모든 주요 Azure 지역에서 H
 
 ###클러스터 버전 간에 수행할 수 있는 작업과 수행할 수 없는 작업
 
-**HDInsight 3.1 클러스터에 사용되는 Oozie 메타스토어가 이전 버전인 HDInsight 2.1 클러스터와 호환되지 않으므로 해당 이전 버전에서는 사용할 수 없음**
+**HDInsight 3.1 클러스터에 사용되는 Oozie 메타 저장소가 이전 버전인 HDInsight 2.1 클러스터와 호환되지 않으므로 해당 이전 버전에서는 사용할 수 없음**
 
 HDInsight 3.1 클러스터와 함께 배포한 사용자 지정 Oozie 메타 저장소 데이터베이스는 HDInsight 2.1 클러스터와 함께 다시 사용할 수 없습니다. 해당 메타 저장소를 원래 2.1 클러스터에서 만든 경우에도 마찬가지입니다. 메타 저장소를 3.1 클러스터와 함께 사용하면 메타 저장소 스키마가 업그레이드되어 2.1 클러스터에 필요한 메타 저장소와는 더 이상 호환되지 않으므로 이 시나리오는 지원되지 않습니다. HDInsight 3.1 클러스터와 함께 사용했던 Oozie 메타 저장소를 다시 사용하려고 하면 2.1 클러스터를 사용할 수 없게 됩니다. 
 
-**Oozie 메타스토어는 클러스터 간에 공유할 수 없음**
-일반적이고 직접적으로 설명하자면 Oozie 메타스토어는 특정 클러스터에 연결되며 클러스터 간에 공유할 수 없습니다.
+**Oozie 메타 저장소는 클러스터 간에 공유할 수 없음**
+일반적이고 직접적으로 설명하자면 Oozie 메타 저장소는 특정 클러스터에 연결되며 클러스터 간에 공유할 수 없습니다.
 
 ###주요 변경 내용
 
 **접두사 구문**:
-HDInsight 3.0 및 3.1 클러스터에서는 "wasb://" 구문만 지원됩니다. 이전 "asv://" 구문은 HDInsight 2.1 및 1.6 클러스터에서 지원되지만, HDInsight 3.0 클러스터 이상 버전에서는 지원되지 않습니다. 즉, 정확히 "asv://" 구문을 명시적으로 사용하며 HDInsight 3.0 또는 3.1 클러스터에 제출하는 작업은 실패하게 됩니다. 대신 wasb:// 구문을 사용해야 합니다. 또한 asv:// 구문을 사용하는 리소스에 대한 명시적 참조를 포함하는 기존의 메타스토어로 만들어 HDInsight 3.0 또는 3.1 클러스터에 제출하는 작업도 실패하게 됩니다. 리소스 주소를 지정하려면 wasb://를 사용하여 이러한 메타스토어를 다시 만들어야 합니다. 
+HDInsight 3.0 및 3.1 클러스터에서는 "wasb://" 구문만 지원됩니다. 이전 "asv://" 구문은 HDInsight 2.1 및 1.6 클러스터에서 지원되지만, HDInsight 3.0 클러스터 이상 버전에서는 지원되지 않습니다. 이것은 "asv://" 구문을 명시적으로 사용하는 HDInsight 3.0  또는 3.1 클러스터에 제출된 모든 작업은 실패하게 됨을 의미합니다. 대신 wasb:// 구문을 사용해야 합니다. 또한 asv:// 구문을 사용하는 리소스에 대한 명시적 참조를 포함하는 기존의 메타스토어로 만들어 HDInsight 3.0 또는 3.1 클러스터에 제출하는 작업도 실패하게 됩니다. 리소스 주소를 지정하려면 wasb://를 사용하여 이러한 메타스토어를 다시 만들어야 합니다. 
 
 
 **포트**: HDInsight 서비스에 사용되는 포트가 변경되었습니다. 기존에 사용하는 포트 번호는 Windows OS 사용 후 삭제되는 포트 범위 내에 있었습니다. 포트는 수명이 짧은 인터넷 프로토콜 기반 통신용으로 미리 정의된 사용 후 삭제되는 범위에서 자동으로 할당됩니다. 허용되는 새로운 HDP(Hortonworks Data Platform) 서비스 포트 집합은 이제 이 범위를 벗어나므로 헤드 노드에서 실행 중인 서비스에 사용되는 포트로 인해 발생할 수 있는 충돌을 방지합니다. 새로운 포트 번호로 인한 특별한 변경은 없습니다. 이제 사용되는 번호는 다음과 같습니다.
@@ -445,7 +599,7 @@ HDInsight 3.0 및 3.1 클러스터에서는 "wasb://" 구문만 지원됩니다.
 * sqlline
 * ivy
 * aspectjrt
-* json 
+* json
 * core
 * jdo2-api
 * avro-mapred
@@ -457,7 +611,7 @@ HDInsight 3.0 및 3.1 클러스터에서는 "wasb://" 구문만 지원됩니다.
 * aspectjtools
 * javolution
 * hdfsproxy
-* HBase:
+* hbase
 * snappy
 
 ###버전 변경 내용 
@@ -489,7 +643,7 @@ SQL Server JDBC 드라이버는 HDInsight에서 내부적으로 사용되며 외
 
 ### 버그 수정 ###
 
-이 릴리스에서 몇 가지 버그 수정을 통해 다음 HDInsight(Hortonworks Data Platform - HDP) 버전을 새로 고쳤습니다.
+이 릴리스에서는 몇 가지 버그 수정으로 다음  HDInsight(Hortonworks Data Platform - HDP) 버전을 새로 고쳤습니다.
 
 * HDInsight 2.1(HDP 1.3)
 * HDInsight 3.0(HDP 2.0)
@@ -524,5 +678,4 @@ HDInsight 클러스터의 버전에 사용되는 HDP에 대한 릴리스 정보�
 
 
 
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

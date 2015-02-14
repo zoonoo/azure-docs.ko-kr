@@ -1,11 +1,25 @@
-﻿<properties urlDisplayName="Run Hadoop Samples in HDInsight" pageTitle="HDInsight에서 Hadoop 샘플 실행 | Azure" metaKeywords="hdinsight, hdinsight sample,  hadoop, mapreduce" description="제공된 샘플을 사용하여 Azure HDInsight 서비스 사용을 시작합니다. 또한 데이터 클러스터에 대해 MapReduce 프로그램을 실행하는 PowerShell 스크립트를 사용합니다." metaCanonical="" services="hdinsight" documentationCenter="" title="Run the Hadoop samples in HDInsight" authors="bradsev" solutions="" manager="paulettm" editor="cgronlun" />
+﻿<properties 
+	pageTitle="HDInsight에서 Hadoop 샘플 실행 | Azure" 
+	description="제공된 샘플을 사용하여 Azure HDInsight 서비스 사용을 시작합니다. 또한 데이터 클러스터에 대해 MapReduce 프로그램을 실행하는 PowerShell 스크립트를 사용합니다." 
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="bradsev" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/10/2014" ms.author="bradsev" />
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/10/2014" 
+	ms.author="bradsev"/>
 
 
 
 
-#HDInsight에서 Hadoop 샘플 실행
+# HDInsight에서 Hadoop 샘플 실행
 
 Azure HDInsight를 사용하여 Hadoop 클러스터에서 MapReduce 작업을 실행하는 데 도움이 되는 일련의 샘플이 제공됩니다. 이 샘플은 직접 만든 각 HDInsight의 관리되는 클러스터에 대해 사용할 수 있습니다. 이러한 샘플을 실행하면 Azure PowerShell HDInsight cmdlet을 사용하여 Hadoop 클러스터에 대해 작업을 실행하는 방법을 알 수 있게 됩니다.
 
@@ -22,7 +36,7 @@ Hadoop 관련 기술(예: Java 기반 MapReduce 프로그래밍 및 스트리밍
 
 - Azure 계정이 있어야 합니다. 계정 등록 옵션은 [Azure 평가판 사용](http://azure.microsoft.com/ko-kr/pricing/free-trial/) 페이지를 참조하세요.
 
-- HDInsight 클러스터를 미리 프로비전해야 합니다. 이 클러스터를 만드는 여러 방법에 대한 자세한 내용은 [HDInsight 클러스터 프로비전](영문)을 참조하세요.(../hdinsight-provision-clusters/)
+- HDInsight 클러스터를 미리 프로비전해야 합니다. 이 클러스터를 만드는 여러 방법에 대한 자세한 내용은 [HDInsight 클러스터 프로비전](../hdinsight-provision-clusters/)을 참조하세요.
 
 - Azure PowerShell을 설치하고 계정과 함께 사용하도록 구성해야 합니다. 설치 및 구성 방법에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성][powershell-install-configure]을 참조하세요.
 
@@ -40,7 +54,7 @@ HDInsight에는 다음 샘플이 함께 제공됩니다.
 
 Azure PowerShell을 사용하여 샘플을 실행할 수 있습니다. 실행 방법에 대한 지침은 샘플별로 위의 링크로 연결된 페이지에서 제공됩니다.
 
-##다음 단계 ##
+## 다음 단계 ##
 
 이 문서 및 각 샘플의 문서에서 HDInsight 클러스터에 포함된 샘플을 Azure PowerShell을 사용하여 실행하는 방법을 알아보았습니다. HDInsight에서 Pig, Hive 및 MapReduce를 사용하는 방법에 대한 자습서는 다음 항목을 참조하세요.
 
@@ -48,7 +62,7 @@ Azure PowerShell을 사용하여 샘플을 실행할 수 있습니다. 실행 �
 * [HDInsight에서 Pig 사용][hdinsight-use-pig]
 * [HDInsight에서 Hive 사용][hdinsight-use-hive]
 * [프로그래밍 방식으로 Hadoop 작업 제출][hdinsight-submit-jobs]
-* [Azure HDInsight SDK 문서][hdinsight-sdk-documentation]
+* [Azure HDInsight SDK 설명서][hdinsight-sdk-documentation]
 * [HDInsight 디버그: 오류 메시지][hdinsight-errors]
 
 
@@ -74,5 +88,4 @@ Azure PowerShell을 사용하여 샘플을 실행할 수 있습니다. 실행 �
 [hdinsight-use-hive]: ../hdinsight-use-hive/
 [hdinsight-use-pig]: ../hdinsight-use-pig/
 
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

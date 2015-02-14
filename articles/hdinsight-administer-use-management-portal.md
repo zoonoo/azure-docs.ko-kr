@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Administration" pageTitle="Azure 포털을 사용하여 HDInsight의 Hadoop 클러스터 관리 | Azure" metaKeywords="" description="HDInsight 서비스를 관리하는 방법에 대해 알아봅니다. HDInsight 클러스터를 만들고 대화형 JavaScript 콘솔을 열고 Hadoop 명령 콘솔을 여는 방법에 대해 설명합니다." metaCanonical="" services="hdinsight" documentationCenter="" title="Manage Hadoop clusters in HDInsight using the Azure Management Portal" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
+﻿<properties 
+	pageTitle="Azure 포털을 사용하여 HDInsight의 Hadoop 클러스터 관리 | Azure" 
+	description="HDInsight 서비스를 관리하는 방법에 대해 알아봅니다. HDInsight 클러스터를 만들고 대화형 JavaScript 콘솔을 열고 Hadoop 명령 콘솔을 여는 방법에 대해 설명합니다.." 
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="mumian" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/21/2014" ms.author="jgao" />
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="jgao"/>
 
 
 
@@ -16,10 +30,10 @@ Azure 관리 포털에서 HDInsight의 Hadoop 클러스터를 프로비전하고
 
 이 문서를 시작하기 전에 다음이 있어야 합니다.
 
-- **Azure 구독**. Azure는 구독 기반 플랫폼입니다. 구독을 얻는 방법에 대한 자세한 내용은 [구매 옵션][azure-purchase-options], [구성원 제공 항목][azure-member-offers] 또는 [무료 평가판][azure-free-trial]을 참조하세요.
+- **Azure 구독**. Azure는 구독 기반 플랫폼입니다. 구독을 예약하는 방법에 대한 자세한 내용은 [구매 옵션][azure-purchase-options], [구성원 제공 항목][azure-member-offers] 또는 [무료 평가판][azure-free-trial]을 참조하세요.
 
 
-##이 문서에서는 다음을 수행합니다.
+##이 문서의 내용
 
 * [HDInsight 클러스터 프로비전](#create)
 * [HDInsight 클러스터 사용자 지정](#customize)
@@ -50,17 +64,17 @@ Azure 저장소 계정 만들기에 대한 자세한 내용은 [저장소 계정
 **HDInsight 클러스터를 프로비전하려면**
 
 1. [Azure 관리 포털][azure-management-portal]에 로그인합니다.
-2. 페이지 아래쪽에서 **새로 만들기**를 클릭하고 **데이터 서비스**, **HDINSIGHT**, **빠른 생성**을 차례로 클릭합니다.
+2. 페이지 맨 아래에서 **새로 만들기**를 클릭한 후 **데이터 서비스**, **HDInsight**, **빠른 생성**를 차례로 클릭합니다.
 
-3. **클러스터 이름**, **클러스터 크기**, **클러스터 관리 암호**, Azure **저장소 계정**을 입력하고 **HDInsight 클러스터 만들기**를 클릭합니다. 클러스터를 만든 후 실행하면 상태가 *실행 중*으로 표시됩니다.
+3. **클러스터 이름**, **클러스터 크기**, **클러스터 관리자 암호** 및 Azure **저장소 계정**을 입력하고 **HDInsight 클러스터 만들기**를 클릭합니다. 클러스터를 만든 후 실행하면 상태가  *Running*으로 표시됩니다.
 
 	![HDI.QuickCreate][image-cluster-quickcreate]
 
-	빠른 생성 옵션을 사용하여 클러스터를 만드는 경우 Hadoop 사용자 계정의 기본 사용자 이름은 *admin*입니다. 계정에 다른 사용자 이름을 제공하려면 빠른 생성 옵션 대신 사용자 지정 만들기 옵션을 사용할 수 있습니다. 또는 프로비전된 후 계정 이름을 변경합니다.
+	빠른 생성 옵션을 사용하여 클러스터를 만드는 경우 Hadoop 사용자 계정의 기본 사용자 이름은  *admin*입니다. 계정에 다른 사용자 이름을 제공하려면 빠른 생성 옵션 대신 사용자 지정 만들기 옵션을 사용할 수 있습니다. 또는 프로비전된 후 계정 이름을 변경합니다.
 
 	빠른 생성 옵션을 사용하여 클러스터를 만드는 경우 HDInsight 클러스터 이름을 가진 새 컨테이너가 지정한 저장소 계정에 자동으로 생성됩니다. 클러스터에서 기본적으로 사용되는 컨테이너 이름을 사용자 지정하려면 사용자 지정 만들기 옵션을 사용해야 합니다. 
 
-	> [WACOM.NOTE] HDInsight 클러스터에 대한 Azure 저장소 계정을 선택한 후에는 클러스터를 삭제하고 원하는 저장소 계정으로 새 클러스터를 만들어야 저장소 계정을 변경할 수 있습니다.
+	> [AZURE.NOTE] HDInsight 클러스터에 대한 Azure 저장소 계정을 선택한 후에는 클러스터를 삭제하고 원하는 저장소 계정으로 새 클러스터를 만들어야 저장소 계정을 변경할 수 있습니다.
 
 4. 새로 만든 클러스터를 클릭합니다.  방문 페이지가 표시됩니다.
 
@@ -75,7 +89,7 @@ HDInsight는 다양한 Hadoop 구성 요소에서 작동합니다. 검증되어 
 - Mahout, Cascading 등의 일부 네이티브 Java 구성 요소는 클러스터에서 JAR 파일로 실행할 수 있습니다. 이러한 JAR 파일은 Azure Blob 저장소(WASB)에 배포되고 Hadoop 작업 제출 메커니즘을 통해 HDInsight 클러스터에 제출될 수 있습니다. 자세한 내용은 [프로그래밍 방식으로 Hadoop 작업 제출][hdinsight-submit-jobs]을 참조하세요. 
 
 
-	>[WACOM.NOTE] HDInsight 클러스터에 jar 파일을 배포하거나 HDInsight 클러스터에서 jar 파일을 호출하는 데 문제가 있는 경우 [Microsoft 지원 센터][hdinsight-support]로 문의하세요.
+	>[AZURE.NOTE] HDInsight 클러스터에 jar 파일을 배포하거나 HDInsight 클러스터에서 jar 파일을 호출하는 데 문제가 있는 경우 [Microsoft 지원 센터][hdinsight-support]로 문의하세요.
 	
 	> Cascading은 HDInsight에서 지원되지 않으며 Microsoft 지원 대상이 아닙니다. 지원되는 구성 요소 목록은 [HDInsight에서 제공하는 클러스터 버전의 새로운 기능][hdinsight-versions]을 참조하세요.
 
@@ -83,7 +97,7 @@ HDInsight는 다양한 Hadoop 구성 요소에서 작동합니다. 검증되어 
 원격 데스크톱 연결을 사용하여 클러스터에 사용자 지정 소프트웨어를 설치하는 기능은 지원되지 않습니다. 헤드 노드의 드라이브에는 파일을 저장하면 안 됩니다. 클러스터를 다시 만들어야 하는 경우 파일이 손실됩니다. Azure Blob 저장소에 파일을 저장하는 것이 좋습니다. Blob 저장소는 영구적입니다.
 
 ##<a id="password"></a> HDInsight 클러스터 사용자 이름 및 암호 변경
-HDInsight 클러스터마다 두 개의 사용자 계정이 포함될 수 있습니다.  HDInsight 클러스터 사용자 계정은 프로비전 프로세스 중에 생성됩니다.  RDP를 통해 클러스터에 액세스하기 위해 RDP 사용자 계정을 만들 수도 있습니다. [원격 데스크톱 사용](#enablerdp)을 참조하세요.
+HDInsight 클러스터마다 두 개의 사용자 계정이 포함될 수 있습니다.  HDInsight 클러스터 사용자 계정은 프로비전 프로세스 중에 생성됩니다.  RDP를 통해 클러스터에 액세스하기 위해 RDP 사용자 계정을 만들 수도 있습니다. [원격 데스크톱 사용]을 참조하세요.(#enablerdp)
 
 **HDInsight 클러스터 사용자 이름 및 암호를 변경하려면**
 
@@ -91,7 +105,7 @@ HDInsight 클러스터마다 두 개의 사용자 계정이 포함될 수 있습
 2. 왼쪽 창에서 **HDINSIGHT**를 클릭합니다. 배포된 HDInsight 클러스터 목록이 표시됩니다.
 3. 사용자 이름 및 암호를 다시 설정할 HDInsight 클러스터를 클릭합니다.
 4. 페이지 맨 위에서 **구성**을 클릭합니다.
-5. **HADOOP 서비스** 옆의 **끄기**를 클릭합니다.
+5. **HADOOP 서비스** 옆의  **끄기**를 클릭합니다.
 6. 페이지 맨 아래에서 **저장**을 클릭하고 비활성화가 완료될 때까지 기다립니다.
 7. 서비스가 비활성화된 후 **HADOOP 서비스** 옆의 **켜기**를 클릭합니다.
 8. **사용자 이름** 및 **새 암호**를 입력합니다.  클러스터의 새 사용자 이름 및 암호가 됩니다.
@@ -115,7 +129,7 @@ HDInsight 클러스터마다 두 개의 사용자 계정이 포함될 수 있습
 
 	만료 날짜는 지금부터 1주일 이내의 미래 날짜여야 합니다. 시간은 선택한 날짜의 자정입니다.
 
-> [WACOM.NOTE] 클러스터에 RDP를 사용하도록 설정한 후 페이지를 새로 고쳐야 클러스터에 연결할 수 있습니다.
+> [AZURE.NOTE] 클러스터에 RDP를 사용하도록 설정한 후 페이지를 새로 고쳐야 클러스터에 연결할 수 있습니다.
  
 **RDP를 사용하여 클러스터에 연결하려면**
 
@@ -152,7 +166,7 @@ HDInsight 클러스터에는 다음과 같은 HTTP 웹 서비스가 있습니다
 
 이러한 서비스에는 기본적으로 액세스 권한이 부여됩니다. 관리 포털에서 액세스 권한을 해지/부여할 수 있습니다. 
 
->[WACOM.NOTE] 액세스 권한을 부여/해지하여 클러스터 사용자 이름 및 암호를 다시 설정합니다.
+>[AZURE.NOTE] 액세스 권한을 부여/해지하여 클러스터 사용자 이름 및 암호를 다시 설정합니다.
 
 **HTTP 웹 서비스 액세스 권한을 부여/해지하려면**
 
@@ -236,5 +250,4 @@ Azure PowerShell cmdlet을 사용하여 이 작업을 수행할 수도 있습니
 [image-hdi-create-rpd-user]: ./media/hdinsight-administer-use-management-portal/HDI.CreateRDPUser.png
 [image-hadoopcommandline]: ./media/hdinsight-administer-use-management-portal/HDI.HadoopCommandLine.PNG "Hadoop command line"
 [image-hdiclustercreate-uploadcert]: ./media/hdinsight-administer-use-management-portal/HDI.ClusterCreate.UploadCert.png
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

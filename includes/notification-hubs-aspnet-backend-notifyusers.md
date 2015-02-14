@@ -9,11 +9,11 @@
 > [AZURE.NOTE] 웹 사이트 배포를 위해 Visual Studio [Azure SDK](http://azure.microsoft.com/ko-kr/downloads/)를 설치했는지 확인합니다.
 
 1. Visual Studio 또는 Visual Studio Express를 시작합니다.
-2. Visual Studio에서 **파일**, **새로 만들기**, **프로젝트**를 차례로 클릭한 다음 **템플릿**과 **Visual C#**을 차례로 확장하고 **웹**과 **ASP.NET 웹 응용 프로그램**을 차례로 클릭하고 **AppBackend** 이름을 입력한 다음 **확인**을 클릭합니다. 
+2. Visual Studio에서 **파일**을 클릭한 후 **새로 만들기**, **프로젝트**를 클릭하고 **템플릿**, **Visual C#**을 확장한 다음 **웹** 및 **ASP.NET 웹 응용 프로그램**을 클릭하고 **AppBackend**라는 이름을 입력한 후 **확인**을 클릭합니다. 
 	
 	![][1]
 
-3. **새 ASP.NET 프로젝트** 대화 상자에서 **Web API**를 클릭한 다음 **확인**을 클릭합니다.
+3. **새 ASP.NET 프로젝트** 대화 상자에서 **웹 API**를 클릭한 다음, **확인**을 클릭합니다.
 
 	![][2]
 
@@ -21,7 +21,7 @@
 
 	![][5]
 
-5. 솔루션 탐색기에서 **AppBackend** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **NuGet 패키지 관리**를 클릭합니다.
+5. 솔루션 탐색기에서 **AppBackend** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음, **NuGet 패키지 관리**를 클릭합니다.
 
 6. 왼쪽에서 **온라인**을 클릭하고 **검색** 상자에 **servicebus**를 입력합니다.
 
@@ -33,7 +33,7 @@
 
 	![][6]
 
-9. Notifications.cs에서 파일의 맨 위에 'using' 문을 추가합니다.
+9. Notifications.cs에서 파일의 맨 위에 `using` 문을 추가합니다.
 
         using Microsoft.ServiceBus.Notifications;
 
@@ -50,7 +50,7 @@
             }
         }
 
-11. 그런 다음 **AuthenticationTestHandler.cs** 클래스를 새로 만듭니다. 솔루션 탐색기에서 **AppBackend** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가**와 **클래스**를 차례로 클릭합니다. 새 클래스의 이름을 **AuthenticationTestHandler.cs**로 지정하고 **추가**를 클릭하여 클래스를 생성합니다. 이 클래스는 *기본 인증*을 사용하여 사용자를 인증하는 데 사용됩니다. 앱은 모든 인증 체계를 사용할 수 있습니다.
+11. 그런 다음 **AuthenticationTestHandler.cs** 클래스를 새로 만듭니다. 솔루션 탐색기에서 **AppBackend** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가**와 **클래스**를 차례로 클릭합니다. 새 클래스의 이름을 **AuthenticationTestHandler.cs**로 지정하고 **추가**를 클릭하여 클래스를 생성합니다. 이 클래스는 *Basic Authentication*을 사용하여 사용자를 인증하는 데 사용됩니다. 앱은 모든 인증 체계를 사용할 수 있습니다.
 
 12. AuthenticationTestHandler.cs에 다음 `using` 문을 추가합니다.
 
@@ -110,7 +110,7 @@
 	        }
 	    }
 
-	> [AZURE.NOTE] **보안 참고**: `AuthenticationTestHandler` 클래스는 진정한 의미의 인증을 제공하지 않습니다. 이 클래스는 기본 인증과 비슷한 동작을 하고 보안이 안전하지 않습니다. 프로덕션 응용 프로그램 및 서비스에 보안 인증 메커니즘을 구현해야 합니다.				
+	> [AZURE.NOTE] **보안 정보**:  `AuthenticationTestHandler` 클래스는 진정한 의미의 인증을 제공하지 않습니다. 이 클래스는 기본 인증과 비슷한 동작을 하고 보안이 안전하지 않습니다. 프로덕션 응용 프로그램 및 서비스에 보안 인증 메커니즘을 구현해야 합니다.				
 
 14. **App_Start/WebApiConfig.cs** 클래스의 `Register` 메서드 끝에 다음 코드를 추가합니다.
 
@@ -281,7 +281,7 @@
 
     ![][B16]
 
-25. **연결** 탭의 **대상 URL** 속성을 기록해 둡니다. 이 자습서의 뒷부분에서 이 URL을 *백 엔드 끝점*이라고 합니다. **게시**를 클릭합니다.
+25. **연결** 탭의 **대상 URL** 속성을 기록합니다. 이 자습서의 뒷부분에서 이 URL을 *backend endpoint*이라고 합니다. **게시**를 클릭합니다.
 
     ![][B18]
 
@@ -298,3 +298,4 @@
 [B15]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users15.PNG
 [B16]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users16.PNG
 [B18]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users18.PNG
+<!--HONumber=42-->

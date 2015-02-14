@@ -1,18 +1,32 @@
-﻿<properties title="Analyzing sensor data with Storm and HDInsight" pageTitle="Apache Storm 및 Microsoft Azure HDInsight(Hadoop)를 사용하여 센서 데이터 분석" description="Apache Storm을 사용하여 HDInsight(Hadoop)에서 실시간으로 센서 데이터를 처리하는 방법 알아보기" metaKeywords="Azure hdinsight storm, Azure hdinsight realtime, azure hadoop storm, azure hadoop realtime, azure hadoop real-time, azure hdinsight real-time" services="hdinsight" solutions="" documentationCenter="big-data" authors="larryfr" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Apache Storm 및 Microsoft Azure HDInsight(Hadoop)를 사용하여 센서 데이터 분석" 
+	description="Apache Storm을 사용하여  HDInsight(Hadoop)에서 센서 데이터를 실시간으로 처리하는 방법에 대해 알아보기" 
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="blackmist" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/30/2014" ms.author="larryfr" />
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/30/2014" 
+	ms.author="larryfr"/>
 
-#Storm 및 HDInsight(Hadoop)의 HBase를 사용하여 센서 데이터 분석
+# Storm 및 HDInsight(Hadoop)의 HBase를 사용하여 센서 데이터 분석
 
-이 문서에서는 HDInsight Storm 클러스터를 사용하는 솔루션을 빌드하여 Azure 이벤트 허브에서 센서 데이터를 처리하는 방법을 설명합니다. 처리 중에 Storm 토폴로지는 들어오는 데이터를 HBase 클러스터에 저장합니다. 또한 이 토폴로지는 SignalR을 사용하여 Azure 웹 사이트에서 호스트되는 웹 기반 대시보드를 통해 거의 실시간 정보를 제공합니다.
+이 문서에서는 HDInsight에서 Storm 클러스터를 사용하는 솔루션을 빌드하여 Azure 이벤트 허브에서 센서 데이터를 처리하는 방법을 설명합니다. 처리 중에 Storm 토폴로지는 들어오는 데이터를 HBase 클러스터에 저장합니다. 또한 이 토폴로지는 SignalR을 사용하여 Azure 웹 사이트에서 호스트되는 웹 기반 대시보드를 통해 거의 실시간 정보를 제공합니다.
 
-> [AZURE.NOTE] 이 프로젝트의 전체 버전은 [https://github.com/Blackmist/hdinsight-eventhub-example](https://github.com/Blackmist/hdinsight-eventhub-example)에서 제공됩니다.
+> [AZURE.NOTE] 이 프로젝트의 전체 버전은 [https://github.com/Blackmist/hdinsight-eventhub-example](https://github.com/Blackmist/hdinsight-eventhub-example)에 있습니다.
 
-##필수 조건
+## 필수 조건
 
 * Azure 구독
 
-* [Microsoft Azure SDK for .NET]이 포함된 Visual Studio(http://azure.microsoft.com/ko-kr/downloads/archive-net-downloads/)
+* [Microsoft Azure SDK for .NET](http://azure.microsoft.com/ko-kr/downloads/archive-net-downloads/)이 포함된 Visual Studio
 
 * [Java 및 JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 
@@ -22,13 +36,13 @@
 
 > [AZURE.NOTE] Java, JDK, Maven 및 Git는 [Chocolatey NuGet](http://chocolatey.org/) 패키지 관리자를 통해서도 제공됩니다.
 
-##대시보드 만들기
+## 대시보드 만들기
 
-대시보드는 거의 실시간의 센서 정보를 표시하는 데 사용됩니다. 이 경우 대시보드는 Azure 웹 사이트에서 호스트되는 ASP.NET 응용 프로그램입니다. 응용 프로그램의 기본 목적은 메시지를 처리할 때 Storm 토폴로지에서 정보를 수신하는 [SignalR](http://www.asp.net/signalr/overview/getting-started/introduction-to-signalr) 허브로 사용하는 것입니다.
+대시보드는 거의 실시간의 센서 정보를 표시하는 데 사용됩니다. 이 경우 대시보드는 Azure 웹 사이트에서 호스트되는 ASP.NET 응용 프로그램입니다. 이 응용 프로그램은 기본적으로 메시지를 처리할 때 Storm 토폴로지에서 정보를 받는 [SignalR](http://www.asp.net/signalr/overview/getting-started/introduction-to-signalr) 허브로 사용됩니다.
 
 이 웹 사이트에는 정적 index.html 파일도 포함됩니다. 이 파일은 SignalR에도 연결되며 D3.js를 사용하여 Storm 토폴로지에 의해 전송된 데이터의 그래프를 만듭니다.
 
-> [WACOM.NOTE] SignalR 대신 원시 WebSockets를 사용할 수도 있지만, 웹 사이트를 규모 확장하려는 경우 WebSockets는 확장 메커니즘을 기본적으로 제공하지 않습니다. Azure 서비스 버스([http://www.asp.net/signalr/overview/performance/scaleout-with-windows-azure-service-bus](http://www.asp.net/signalr/overview/performance/scaleout-with-windows-azure-service-bus))를 사용하면 SignalR을 확장할 수 있습니다.
+> [AZURE.NOTE] SignalR 대신 원시 WebSockets를 사용할 수도 있지만, 웹 사이트를 규모 확장하려는 경우 WebSockets는 확장 메커니즘을 기본적으로 제공하지 않습니다. Azure 서비스 버스([http://www.asp.net/signalr/overview/performance/scaleout-with-windows-azure-service-bus](http://www.asp.net/signalr/overview/performance/scaleout-with-windows-azure-service-bus))를 사용하면 SignalR을 확장할 수 있습니다.
 >
 > Storm 토폴로지를 사용하여 원시 WebSockets를 사용하는 Python 웹 사이트와 통신하는 방법의 예제는 [Storm Tweet Sentiment D3 Visualization](https://github.com/P7h/StormTweetsSentimentD3Viz) 프로젝트를 참조하세요.
 
@@ -40,13 +54,13 @@
 
 3. **Microsoft Azure 사이트 구성** 대화 상자에서 웹 사이트의 **사이트 이름** 및 **지역**을 입력하고 **확인**을 클릭합니다. 그러면 대시보드를 호스트할 Azure 웹 사이트가 만들어집니다.
 
-3. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가 | SignalR 허브 클래스(v2)**를 선택합니다. 클래스의 이름을 **DashHub.cs**로 지정하여 프로젝트에 추가합니다. 그러면 HDInsight와 대시보드 웹 페이지 간에 데이터를 전달하는 데 사용되는 SignalR 허브가 포함됩니다.
+4. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가 | SignalR 허브 클래스(v2)**를 선택합니다. 클래스의 이름을 **DashHub.cs**로 지정하여 프로젝트에 추가합니다. 그러면 HDInsight와 대시보드 웹 페이지 간에 데이터를 전달하는 데 사용되는 SignalR 허브가 포함됩니다.
 
 	> [AZURE.NOTE] Visual Studio 2012를 사용하는 경우에는 **SignalR 허브 클래스(v2)** 템플릿을 사용할 수 없습니다. 대신 DashHub라는 일반 **Class**를 추가할 수 있습니다. 또한 **도구 | 라이브러리 패키지 관리자 | 패키지 관리자 콘솔**을 열고 다음 명령을 실행하여 SignalR 패키지를 수동으로 설치해야 합니다.
 	>
 	> `install-package Microsoft.AspNet.SignalR`
 
-4. **DashHub.cs**의 코드를 다음과 같이 바꿉니다.
+5. **DashHub.cs**의 코드를 다음과 같이 바꿉니다.
 
 		using System;
 		using System.Collections.Generic;
@@ -66,11 +80,11 @@
 		    }
 		}
 
-5. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가 | OWIN 시작 클래스**를 선택합니다. 새 클래스의 이름을 **Startup.cs**로 지정합니다.
+6. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가 | OWIN 시작 클래스**를 선택합니다. 새 클래스의 이름을 **Startup.cs**로 지정합니다.
 
 	> [AZURE.NOTE] Visual Studio 2012를 사용하는 경우에는 **OWIN 시작 클래스** 템플릿을 사용할 수 없습니다. 대신 Startup이라는 **Class**를 만들 수 있습니다.
 
-6. **Startup.cs**의 내용을 다음과 같이 바꿉니다.
+7. **Startup.cs**의 내용을 다음과 같이 바꿉니다.
 
 		using System;
 		using System.Threading.Tasks;
@@ -91,9 +105,9 @@
 		    }
 		}
 
-7. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가 | HTML 페이지**를 클릭합니다. 새 페이지의 이름을 **index.html**로 지정합니다. 이 페이지는 이 프로젝트의 실시간 대시보드를 포함하며, DashHub에서 정보를 받은 다음 D3.js를 사용하여 그래프를 표시합니다.
+8. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가 | HTML 페이지**를 클릭합니다. 새 페이지의 이름을 **index.html**로 지정합니다. 이 페이지는 이 프로젝트의 실시간 대시보드를 포함하며, DashHub에서 정보를 받은 다음 D3.js를 사용하여 그래프를 표시합니다.
 
-8. **솔루션 탐색기**에서 **index.html**을 마우스 오른쪽 단추로 클릭하고 **시작 페이지로 설정**을 선택합니다.
+9. **솔루션 탐색기**에서 **index.html**을 마우스 오른쪽 단추로 클릭하고 **시작 페이지로 설정**을 선택합니다.
 
 10. **index.html** 파일의 코드를 다음과 같이 바꿉니다.
 
@@ -127,10 +141,10 @@
 		    <script>
 		        $(function () {
 		            //Huge thanks to Mike Bostok for his Path Transitions article - http://bost.ocks.org/mike/path/
-		            var n = 243,                                 //number of x coordinates in the graph
-		            duration = 750,                          //duration for transitions
-		            deviceValue=[0,0,0,0,0,0,0,0,0,0],       //temp holding for each device value
-		            now = new Date(Date.now() - duration),   //Now
+		            var n = 243,                                //number of x coordinates in the graph
+		            duration = 750,                         //duration for transitions
+		            deviceValue=[0,0,0,0,0,0,0,0,0,0],      //temp holding for each device value
+		            now = new Date(Date.now() - duration),  //Now
 		            //fill an array of arrays with dummy data to start the chart
 		            //each item in the top-level array is a line
 		            //each item in the line arrays represents the X coordinate across a graph
@@ -292,7 +306,7 @@
 
 11. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가 | HTML 페이지**를 클릭합니다. 새 페이지의 이름을 **test.html**로 지정합니다. 이 페이지를 사용하여 메시지를 보내고 받아 DashHub와 대시보드를 테스트할 수 있습니다.
 
-11. **test.html** 파일의 코드를 다음과 같이 바꿉니다.
+12. **test.html** 파일의 코드를 다음과 같이 바꿉니다.
 
 		<!DOCTYPE html>
 		<html>
@@ -349,43 +363,43 @@
 		</body>
 		</html>
 
-11. 프로젝트에 대해 **모두 저장**을 수행합니다.
+13. 프로젝트에 대해 **모두 저장**을 수행합니다.
 
-12. **솔루션 탐색기**에서 **Dashboard** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시Publish**를 선택합니다. 이 프로젝트용으로 만든 웹 사이트를 선택하고 **게시**를 클릭합니다.
+14. **솔루션 탐색기**에서 **Dashboard** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다. 이 프로젝트용으로 만든 웹 사이트를 선택하고 **게시**를 클릭합니다.
 
-13. 사이트가 게시되면 웹 페이지가 열리고 이동하는 타임라인이 표시됩니다.
+15. 사이트가 게시되면 웹 페이지가 열리고 이동하는 타임라인이 표시됩니다.
 
-###대시보드 테스트
+### 대시보드 테스트
 
-14. SignalR이 작동하며 SignalR로 전송된 데이터에 대해 대시보드에 그래프 선이 표시되는지 확인하려면 새 웹 브라우저 창을 열어 이 웹 사이트의 **test.html** 페이지를 표시합니다. 예를 들면 다음과 같습니다. **http://mydashboard.azurewebsites.net/test.html**.
+1. SignalR이 작동하며 SignalR로 전송된 데이터에 대해 대시보드에 그래프 선이 표시되는지 확인하려면 새 웹 브라우저 창을 열어 이 웹 사이트의 **test.html** 페이지를 표시합니다. 예: **http://mydashboard.azurewebsites.net/test.html**.
 
-15. 대시보드에는 **장치 ID** 및 **온도** 값이 포함된 JSON 형식 데이터가 필요합니다. 예를 들면 **{"device":0, "temperature":80}**과 같습니다. 대시보드가 다른 페이지에서 열려 있는 상태로 0~9 사이의 장치 ID를 사용하여 test.html**test.html** 페이지에서 테스트 값을 입력합니다. 각 장치 ID의 선은 서로 다른 색으로 그려집니다.
+2. 대시보드에는 **장치 ID** 및 **온도** 값이 포함된 JSON 형식 데이터가 필요합니다. 예를 들면 **{"device":0, "temperature":80}**과 같습니다. 대시보드가 다른 페이지에서 열려 있는 상태로 0~9 사이의 장치 ID를 사용하여 **test.html** 페이지에서 테스트 값을 입력합니다. 각 장치 ID의 선은 서로 다른 색으로 그려집니다.
 
-##이벤트 허브 구성
+## 이벤트 허브 구성
 
 이벤트 허브는 센서에서 메시지(이벤트)를 받는 데 사용됩니다. 다음 단계에 따라 새 이벤트 허브를 만듭니다.
 
 1. [Azure 포털](https://manage.windowsazure.com)에서 **새로 만들기 | 서비스 버스 | 이벤트 허브 | 사용자 지정 만들기**를 선택합니다.
 
-2. **새 이벤트 허브 추가** 대화 상자에서 **이벤트 허브 이름**을 입력하고 허브를 만들 **지역**을 선택한 다음 새 네임스페이스를 만들거나 기존 네임스페이스를 선택합니다. 마지막으로 **화살표**를 클릭합니다.
+2. **새 이벤트 허브 추가** 대화 상자에서 **이벤트 허브 이름**을 입력하고 허브를 만들 하위 **지역**을 선택한 다음 새 네임스페이스를 만들거나 기존 네임스페이스를 선택합니다. 마지막으로 **화살표**를 클릭합니다.
 
-2. **이벤트 허브 구성** 대화 상자에서 **파티션 수** 및 **메시지 보존** 값을 입력합니다. 이 예에서는 파티션 개수로 10을, 메시지 보존으로는 1을 사용합니다.
+3. **이벤트 허브 구성** 대화 상자에서 **파티션 개수** 및 **메시지 보존** 값을 입력합니다. 이 예에서는 파티션 개수로 10을, 메시지 보존으로는 1을 사용합니다.
 
-3. 이벤트 허브가 만들어지면 네임스페이스를 선택하고 **이벤트 허브**를 선택합니다. 그리고 마지막으로 앞에서 만든 이벤트 허브를 선택합니다.
+4. 이벤트 허브가 만들어지면 네임스페이스를 선택하고 **이벤트 허브**를 선택합니다. 그리고 마지막으로 앞에서 만든 이벤트 허브를 선택합니다.
 
-4. **구성**을 선택하고 다음 정보를 사용하여 새 액세스 정책 두 개를 만듭니다.
+5. **구성**을 선택하고 다음 정보를 사용하여 새 액세스 정책 두 개를 만듭니다.
 
 	<table>
-	<tr><th>Name</th><th>Permissions</th></tr>
-	<tr><td>devices</td><td>Send</td></tr>
-	<tr><td>storm</td><td>Listen</td></tr>
+	<tr><th>이름</th><th>권한</th></tr>
+	<tr><td>devices</td><td>보내기</td></tr>
+	<tr><td>storm</td><td>수신</td></tr>
 	</table>
 
 	권한을 만든 후 페이지 아래쪽의 **저장** 아이콘을 선택합니다. 그러면 이 허브로 메시지를 보내고 이 허브에서 메시지를 읽는 데 사용할 공유 액세스 정책이 만들어집니다.
 
-5. 정책을 저장한 후 페이지 아래쪽의 **공유 액세스 키 생성기**를 사용하여 **devices** 및 **storm** 정책의 키를 검색합니다. 그런 다음 나중에 사용할 수 있도록 키를 저장합니다.
+6. 정책을 저장한 후 페이지 아래쪽의 **공유 액세스 키 생성기**를 사용하여 **devices** 및 **storm** 정책의 키를 검색합니다. 그런 다음 나중에 사용할 수 있도록 키를 저장합니다.
 
-###이벤트 허브에 메시지 보내기
+### 이벤트 허브에 메시지 보내기
 
 누구나 쉽게 사용할 수 있는 표준 센서 집합은 없으므로 .NET 응용 프로그램을 사용하여 난수를 생성합니다. 아래의 단계에 따라 작성하는 .NET 응용 프로그램은 키를 눌러 중지할 때까지 1초마다 10개 장치에 대해 이벤트를 생성합니다.
 
@@ -482,19 +496,19 @@
 
 	이 시점에서 Event 클래스를 참조하는 줄에 대한 경고가 표시됩니다. 지금은 해당 경고를 무시합니다.
 
-4. **Program.cs** 파일의 시작 부분에서 다음 변수의 값을 Azure 관리 포털의 이벤트 허브에서 검색된 해당 값으로 설정합니다.
+5. **Program.cs** 파일의 시작 부분에서 다음 변수의 값을 Azure 관리 포털의 이벤트 허브에서 검색된 해당 값으로 설정합니다.
 
 	<table>
 	<tr><th>설정할 항목</th><th>설정할 값</th></tr>
-	<tr><td>eventHubName</td><td>이벤트 허브의 이름(예: 예를 들면 다음과 같습니다. <strong>temperature</strong>.</td></tr>
-	<tr><td>eventHubNamespace</td><td>이벤트 허브의 네임스페이스(예: 예를 들면 다음과 같습니다. <strong>sensors-ns</strong>.</td></tr>
-	<tr><td>sharedAccessPolicyName</td><td>보내기 권한을 사용하여 만든 정책(예: 예를 들면 다음과 같습니다. <strong>devices</strong>.</td></tr>
+	<tr><td>eventHubName</td><td>이벤트 허브의 이름(예: 예: <strong>temperature</strong>.</td></tr>
+	<tr><td>eventHubNamespace</td><td>이벤트 허브의 네임스페이스(예: 예: <strong>sensors-ns</strong>.</td></tr>
+	<tr><td>sharedAccessPolicyName</td><td>보내기 권한을 사용하여 만든 정책(예: 예: <strong>devices</strong>.</td></tr>
 	<tr><td>sharedAccessPolicyKey</td><td>보내기 권한을 사용하는 정책의 키</td></tr>
 	</table>
 
-4. **솔루션 탐색기**에서 **SendEvents**를 마우스 오른쪽 단추로 클릭하고 **추가 | 클래스**를 클릭합니다. 새 클래스의 이름을 **Event.cs**로 지정합니다. 이 클래스는 이벤트 허브로 전송되는 메시지를 설명합니다.
+6. **솔루션 탐색기**에서 **SendEvents**을 마우스 오른쪽 단추로 클릭하고 **추가 | 클래스**를 클릭합니다. 새 클래스의 이름을 **Event.cs**로 지정합니다. 이 클래스는 이벤트 허브로 전송되는 메시지를 설명합니다.
 
-5. **Event.cs**의 내용을 다음과 같이 바꿉니다.
+7. **Event.cs**의 내용을 다음과 같이 바꿉니다.
 
 		using System;
 		using System.Collections.Generic;
@@ -511,6 +525,8 @@
 		    	[DataMember]
 		    	public DateTime TimeStamp { get; set; }
 		        [DataMember]
+		        public DateTime TimeStamp { get; set; }
+		        [DataMember]
 		        public int DeviceId { get; set; }
 		        [DataMember]
 		        public int Temperature { get; set; }
@@ -519,13 +535,13 @@
 
 	이 클래스는 전송하는 데이터를 설명합니다(TimeStamp, DeviceID 및 Temperature 값).
 
-6. **모두 저장**을 수행한 다음 응용 프로그램을 실행하여 이벤트 허브에 메시지를 채웁니다.
+8. **모두 저장**을 수행한 다음 응용 프로그램을 실행하여 이벤트 허브에 메시지를 채웁니다.
 
-##Azure 가상 네트워크 만들기
+## Azure 가상 네트워크 만들기
 
 Storm 클러스터에서 실행되는 토폴로지가 HBase와 직접 통신하려면 두 서버를 모두 Azure 가상 네트워크에 프로비전해야 합니다.
 
-1.  [Azure 관리 포털][azure-portal]에 로그인합니다..
+1. [Azure 관리 포털][azure-portal]에 로그인합니다.
 
 2. 페이지 아래쪽에서 **+새로 만들기**, **네트워크 서비스**, **가상 네트워크**, **빠른 생성**을 차례로 클릭합니다.
 
@@ -549,15 +565,15 @@ Storm 클러스터에서 실행되는 토폴로지가 HBase와 직접 통신하�
 
 9. 페이지 맨 아래에서 기본 서브넷 이름은 **Subnet-1**입니다. **서브넷 추가** 단추를 사용하여 **Subnet-2**를 추가합니다. 이러한 서브넷에 Storm 및 HBase 클러스터가 포함됩니다.
 
-	> [WACOM.NOTE] 이 문서에서는 노드가 하나뿐인 클러스터를 사용합니다. 다중 노드 클러스터를 만드는 경우에는 클러스터에 사용할 서브넷의 **CIDR(주소 수)**을 확인해야 합니다. 주소 수는 작업자 노드 수에 7을 더한 값보다 커야 합니다(게이트웨이: 2, 헤드 노드: 2, Zookeeper: 3). 예를 들어 10개 노드 HBase 클러스터가 필요한 경우 서브넷의 주소 수는 17(10+7)보다 커야 합니다. 그렇지 않으면 배포에 실패합니다.
+	> [AZURE.NOTE] 이 문서에서는 노드가 하나뿐인 클러스터를 사용합니다. 다중 노드 클러스터를 만드는 경우에는 클러스터에 사용할 서브넷의 **CIDR(주소 수)**을 확인해야 합니다. 주소 수는 작업자 노드 수에 7을 더한 값보다 커야 합니다(게이트웨이: 2, 헤드 노드: 2, Zookeeper: 3). 예를 들어 10개 노드 HBase 클러스터가 필요한 경우 서브넷의 주소 수는 17(10+7)보다 커야 합니다. 그렇지 않으면 배포에 실패합니다.
 	>
 	> 각 클러스터에 단일 서브넷을 지정하는 것이 좋습니다.
 
 11. 페이지 아래쪽에서 **저장**을 클릭합니다.
 
-##HDInsight Storm 클러스터 만들기
+## HDInsight에서 Storm 클러스터 만들기
 
-1.  [Azure 관리 포털][azureportal]에 로그인합니다.
+1. [Azure 관리 포털][azureportal]에 로그인합니다.
 
 2. 왼쪽에서 **HDInsight**를 클릭하고 페이지 왼쪽 아래에서 **+새로 만들기**를 클릭합니다.
 
@@ -565,17 +581,17 @@ Storm 클러스터에서 실행되는 토폴로지가 HBase와 직접 통신하�
 
 4. **클러스터 세부 정보** 페이지에서 새 클러스터의 이름을 입력하고 **클러스터 유형**으로 **Storm**을 선택합니다. 화살표를 선택하여 계속합니다.
 
-5. 이 클러스터에 사용할 **데이터 노드**의 수로 1을 입력합니다. **지역/가상 네트워크**에서 앞에서 만든 Azure 가상 네트워크를 선택합니다. **가상 네트워크 서브넷**으로는 **Subnet-2**를 선택합니다.
+5. 이 클러스터에 사용할 **데이터 노드**의 수로 1을 입력합니다. **하위 지역/가상 네트워크**에서 앞에서 만든 Azure 가상 네트워크를 선택합니다. **가상 네트워크 서브넷**으로는 **Subnet-2**를 선택합니다.
 
-	> [WACOM.NOTE] 이 문서에서 사용하는 클러스터의 비용을 최소화하려면 **클러스터 크기**를 1로 줄이고 클러스터를 다 사용한 후에는 삭제합니다.
+	> [AZURE.NOTE] 이 문서에서 사용하는 클러스터의 비용을 최소화하려면 **클러스터 크기**를 1로 줄이고 클러스터를 다 사용한 후에는 삭제합니다.
 
 6. 관리자의 **사용자 이름** 및 **암호**를 입력하고 화살표를 선택하여 계속합니다.
 
-4. **저장소 계정**에서는 **새 저장소 만들기** 또는 기존 저장소 계정을 선택합니다. 그런 다음 사용할 **계정 이름** 및 **기본 컨테이너**를 선택하거나 입력합니다. 그리고 왼쪽 아래에 있는 확인 아이콘을 클릭하여 Storm 클러스터를 만듭니다.
+7. **저장소 계정**에서는 **새 저장소 만들기** 또는 기존 저장소 계정을 선택합니다. 그런 다음 사용할 **계정 이름** 및 **기본 컨테이너**를 선택하거나 입력합니다. 그리고 왼쪽 아래에 있는 확인 아이콘을 클릭하여 Storm 클러스터를 만듭니다.
 
-##HDInsight HBase 클러스터 만들기
+## HDInsight HBase 클러스터 만들기
 
-1.  [Azure 관리 포털][azureportal]에 로그인합니다.
+1. [Azure 관리 포털][azureportal]에 로그인합니다.
 
 2. 왼쪽에서 **HDInsight**를 클릭하고 페이지 왼쪽 아래에서 **+새로 만들기**를 클릭합니다.
 
@@ -583,21 +599,21 @@ Storm 클러스터에서 실행되는 토폴로지가 HBase와 직접 통신하�
 
 4. **클러스터 세부 정보** 페이지에서 새 클러스터의 이름을 입력하고 **클러스터 유형**으로 **HBase**를 선택합니다. 화살표를 선택하여 계속합니다.
 
-5. 이 클러스터에 사용할 **데이터 노드**의 수로 1을 입력합니다. **지역/가상 네트워크**에서 앞에서 만든 Azure 가상 네트워크를 선택합니다. **가상 네트워크 서브넷**으로는 **Subnet-1**을 선택합니다.
+5. 이 클러스터에 사용할 **데이터 노드**의 수로 1을 입력합니다. **하위 지역/가상 네트워크**에서 앞에서 만든 Azure 가상 네트워크를 선택합니다. **가상 네트워크 서브넷**으로는 **Subnet-1**을 선택합니다.
 
-	> [WACOM.NOTE] 이 문서에서 사용하는 클러스터의 비용을 최소화하려면 **클러스터 크기**를 1로 줄이고 클러스터를 다 사용한 후에는 삭제합니다.
+	> [AZURE.NOTE] 이 문서에서 사용하는 클러스터의 비용을 최소화하려면 **클러스터 크기**를 1로 줄이고 클러스터를 다 사용한 후에는 삭제합니다.
 
 6. 관리자의 **사용자 이름** 및 **암호**를 입력하고 화살표를 선택하여 계속합니다.
 
-4. **저장소 계정**에서는 **새 저장소 만들기** 또는 기존 저장소 계정을 선택합니다. 그런 다음 사용할 **계정 이름** 및 **기본 컨테이너**를 선택하거나 입력합니다. 그리고 왼쪽 아래에 있는 확인 아이콘을 클릭하여 Storm 클러스터를 만듭니다.
+7. **저장소 계정**에서는 **새 저장소 만들기** 또는 기존 저장소 계정을 선택합니다. 그런 다음 사용할 **계정 이름** 및 **기본 컨테이너**를 선택하거나 입력합니다. 그리고 왼쪽 아래에 있는 확인 아이콘을 클릭하여 Storm 클러스터를 만듭니다.
 
-	> [WACOM.NOTE] Storm 클러스터에 사용했던 것과는 다른 컨테이너를 사용해야 합니다.
+	> [AZURE.NOTE] Storm 클러스터에 사용했던 것과는 다른 컨테이너를 사용해야 합니다.
 
-###원격 데스크톱 사용
+### 원격 데스크톱 사용
 
 이 자습서에서는 원격 데스크톱을 사용하여 Storm 및 HBase 클러스터에 액세스해야 합니다. 다음 단계에 따라 Storm 및 HBase에 대해 원격 데스크톱을 사용하도록 설정합니다.
 
-1.  [Azure 관리 포털][azureportal]에 로그인합니다..
+1. [Azure 관리 포털][azureportal]에 로그인합니다.
 
 2. 왼쪽에서 **HDInsight**를 선택하고 목록에서 Storm 클러스터를 선택합니다. 마지막으로 페이지 위쪽에서 **구성**을 선택합니다.
 
@@ -605,19 +621,19 @@ Storm 클러스터에서 실행되는 토폴로지가 HBase와 직접 통신하�
 
 원격 데스크톱을 사용하도록 설정한 후 페이지 아래쪽에서 **연결**을 선택할 수 있습니다. 그런 다음 메시지에 따라 클러스터에 연결합니다.
 
-###HBase DNS 접미사 검색
+### HBase DNS 접미사 검색
 
 Storm 클러스터에서 HBase에 쓰려면 HBase 클러스터의 FQDN(정규화된 도메인 이름)을 사용해야 합니다. 다음 단계에 따라 이 정보를 검색합니다.
 
 1. 원격 데스크톱을 사용하여 HBase 클러스터에 연결
 
-2. 클러스터에 연결한 후 Hadoop 명령줄을 열고 **ipconfig** 명령을 실행하여 DNS 접미사를 가져옵니다. **연결별 DNS 접미사에 접미사** 값이 포함되어 있습니다. 예를 들면 **mycluster.b4.internal.cloudapp.net**과 같습니다. 이 정보를 저장합니다.
+2. 클러스터에 연결한 후 Hadoop 명령줄을 열고 **ipconfig** 명령을 실행하여 DNS 접미사를 가져옵니다. **연결별 DNS 접미사**에 접미사 값이 포함되어 있습니다. 예를 들면 **mycluster.b4.internal.cloudapp.net**과 같습니다. 이 정보를 저장합니다.
 
-##Storm 토폴로지 개발
+## Storm 토폴로지 개발
 
-> [WACOM.NOTE] 이 섹션의 단계는 로컬 개발 환경에서 수행해야 합니다.
+> [AZURE.NOTE] 이 섹션의 단계는 로컬 개발 환경에서 수행해야 합니다.
 
-###외부 종속성 다운로드 및 빌드
+### 외부 종속성 다운로드 및 빌드
 
 이 프로젝트에서 사용되는 종속성 중 다수는 개별적으로 다운로드 및 빌드한 다음 개발 환경의 로컬 Maven 리포지토리에 설치해야 합니다. 이 섹션에서는 다음 항목을 다운로드 및 설치합니다.
 
@@ -625,19 +641,19 @@ Storm 클러스터에서 HBase에 쓰려면 HBase 클러스터의 FQDN(정규화
 
 * SignalR Java 클라이언트 SDK
 
-####이벤트 허브 Spout 다운로드 및 빌드
+#### 이벤트 허브 Spout 다운로드 및 빌드
 
 이벤트 허브에서 데이터를 받기 위해 **eventhubs-storm-spout**를 사용합니다.
 
 1. 원격 데스크톱을 사용하여 Storm 클러스터에 연결한 다음 **%STORM_HOME%\examples\eventhubspout\eventhubs-storm-spout-0.9-jar-with-dependencies.jar** 파일을 로컬 개발 환경에 복사합니다. 이 파일에 **events-storm-spout**가 포함되어 있습니다.
 
-6. 다음 명령을 사용하여 패키지를 로컬 Maven 저장소에 설치합니다. 그러면 이후 단계에서 해당 패키지를 Storm 프로젝트에 참조로 쉽게 추가할 수 있습니다.
+2. 다음 명령을 사용하여 패키지를 로컬 Maven 저장소에 설치합니다. 그러면 이후 단계에서 해당 패키지를 Storm 프로젝트에 참조로 쉽게 추가할 수 있습니다.
 
-		mvn install:install-file -Dfile=target\eventhubs-storm-spout-0.9-jar-with-dependencies.jar -DgroupId=com.microsoft.eventhubs -DartifactId=eventhubs-storm-spout -Dversion=0.9 -Dpackaging=jar
+		mvn install:install-file -Dfile=target/eventhubs-storm-spout-0.9-jar-with-dependencies.jar -DgroupId=com.microsoft.eventhubs -DartifactId=eventhubs-storm-spout -Dversion=0.9 -Dpackaging=jar
 
-####SignalR 클라이언트 다운로드 및 빌드
+#### SignalR 클라이언트 다운로드 및 빌드
 
-ASP.NET 대시보드에 메시지를 보내려면 [SignalR Client SDK for Java](https://github.com/SignalR/java-client)를 사용합니다.
+ASP.NET 대시보드에 메시지를 보내려면 [SignalR client SDK for Java](https://github.com/SignalR/java-client)를 사용합니다.
 
 1. 명령 프롬프트를 엽니다.
 
@@ -652,22 +668,22 @@ ASP.NET 대시보드에 메시지를 보내려면 [SignalR Client SDK for Java](
 		cd java-client\signalr-client-sdk
 		mvn package
 
-	> [WACOM.NOTE] **gson** 종속성을 다운로드할 수 없다는 오류가 표시되면 **java-client\signalr-client-sdk\pom.xml** 파일에서 다음 줄을 제거합니다.
-	> ```<repositories>
+	> [AZURE.NOTE] **gson** 종속성을 다운로드할 수 없다는 오류가 표시되면 **java-client\signalr-client-sdk\pom.xml** 파일에서 다음 줄을 제거합니다.
+	> 
 <repository>
 <id>central</id>
 <name>Central</name>
 <url>http://maven.eclipse.org/build</url>
 </repository>
 </repositories>
-```
-	> 이 줄을 제거하면 Maven이 중앙 리포지토리에서 파일을 끌어옵니다(기본 동작). Maven이 리포지토리를 다시 시도하도록 강제 지정하려면 `-U` 명령을 사용합니다. 예를 들면 `mvn package -U`와 같습니다.
 
-6. 다음 명령을 사용하여 패키지를 로컬 Maven 저장소에 설치합니다. 그러면 이후 단계에서 해당 패키지를 Storm 프로젝트에 참조로 쉽게 추가할 수 있습니다.
+	> 이 줄을 제거하면 Maven이 중앙 리포지토리에서 파일을 끌어옵니다(기본 동작). Maven이 리포지토리를 다시 시도하도록 강제 지정하려면 `-U` 명령을 사용합니다. 예:  `mvn package -U`
 
-		mvn install:install-file -Dfile=target\signalr-client-sdk-1.0.jar -DgroupId=microsoft.aspnet.signalr -DartifactId=signalr-client-sdk -Dversion=1.0 -Dpackaging=jar
+5. 다음 명령을 사용하여 패키지를 로컬 Maven 저장소에 설치합니다. 그러면 이후 단계에서 해당 패키지를 Storm 프로젝트에 참조로 쉽게 추가할 수 있습니다.
 
-###Storm 토폴로지 프로젝트 스캐폴드
+		mvn install:install-file -Dfile=target/signalr-client-sdk-1.0.jar -DgroupId=microsoft.aspnet.signalr -DartifactId=signalr-client-sdk -Dversion=1.0 -Dpackaging=jar
+
+### Storm 토폴로지 프로젝트 스캐폴드
 
 이벤트 허브 Spout 및 SignalR 클라이언트를 로컬 리포지토리에 설치한 후에는 Maven을 사용하여 Storm 토폴로지 프로젝트용 스캐폴딩을 만듭니다.
 
@@ -685,7 +701,7 @@ ASP.NET 대시보드에 메시지를 보내려면 [SignalR Client SDK for Java](
 	* 이 프로젝트의 Maven 정보를 포함하는 **pom.xml** 파일을 만듭니다.
 	* 일부 기본 코드와 테스트를 포함하는 **src** 디렉터리 구조를 만듭니다.
 
-###종속성 및 플러그 인 추가
+### 종속성 및 플러그 인 추가
 
 다음으로 이 프로젝트의 종속성과 빌드 및 패키징 시 사용할 Maven 플러그 인을 참조하도록 **pom.xml**을 수정합니다.
 
@@ -746,7 +762,7 @@ ASP.NET 대시보드에 메시지를 보내려면 [SignalR Client SDK for Java](
 	* storm-core - Storm의 핵심 클래스입니다.
 	* storm-hbase - HBase에 쓰기를 허용하는 클래스입니다.
 
-	> [WACOM.NOTE] 일부 종속성은 범위가 **provided**로 표시됩니다. 이는 해당 종속성을 Maven 리포지토리에서 다운로드해야 하며 로컬에서 응용 프로그램을 빌드 및 테스트하는 데 사용해야 하지만, 종속성을 런타임 환경에서도 사용할 수 있으며 컴파일하여 이 프로젝트에 의해 작성되는 JAR에 포함하지 않아도 됨을 나타냅니다.
+	> [AZURE.NOTE] 일부 종속성은 범위가 **provided**로 표시됩니다. 이는 해당 종속성을 Maven 리포지토리에서 다운로드해야 하며 로컬에서 응용 프로그램을 빌드 및 테스트하는 데 사용해야 하지만, 종속성을 런타임 환경에서도 사용할 수 있으며 컴파일하여 이 프로젝트에 의해 작성되는 JAR에 포함하지 않아도 됨을 나타냅니다.
 
 2. **pom.xml** 파일 끝부분의 **&lt;/project>** 항목 바로 앞에 다음 코드를 추가합니다.
 
@@ -815,16 +831,16 @@ ASP.NET 대시보드에 메시지를 보내려면 [SignalR Client SDK for Java](
 	이 코드는 프로젝트 빌드 시 Maven에서 다음 작업을 수행하도록 명령합니다.
 
 	* **/conf/Config.properties** 리소스 파일을 포함합니다. 이 파일은 나중에 만들어지며 Azure 이벤트 허브에 연결하기 위한 구성 정보를 포함합니다.
-	* **/conf/hbase-site.xml** 리소스 파일을 포함합니다. 이 파일은 나중에 만들어지며 HBase에 연결하는 방법에 대한 정보를 포함합니다.
+	* **/conf/hbase-site.xml** 소스 파일을 포함합니다. 이 파일은 나중에 만들어지며 HBase에 연결하는 방법에 대한 정보를 포함합니다.
 	* **maven-compiler-plugin**을 사용하여 응용 프로그램을 컴파일합니다.
 	* **maven-shade-plugin**을 사용하여 이 프로젝트 및 필수 종속성을 포함하는 uberjar 또는 FAT jar을 빌드합니다.
 	* **exec-maven-plugin**을 사용합니다. 그러면 Hadoop 클러스터 없이도 로컬에서 응용 프로그램을 실행할 수 있습니다.
 
-###구성 파일 추가
+### 구성 파일 추가
 
 **eventhubs-storm-spout**는 **Config.properties** 파일에서 구성 정보를 읽어 연결 대상 이벤트 허브를 확인합니다. 클러스터에서 토폴로지를 시작할 때 구성 파일을 지정할 수도 있지만 프로젝트에 구성 파일을 포함하면 알려진 기본 구성이 제공됩니다.
 
-1. **Temperature** 디렉터리에서 **conf**라는 새 디렉터리를 만듭니다.
+1. **TemperatureMonitor** 디렉터리에서 **conf**라는 새 디렉터리를 만듭니다.
 
 2. **conf** 디렉터리에서 새 파일 두 개를 만듭니다.
 
@@ -838,8 +854,8 @@ ASP.NET 대시보드에 메시지를 보내려면 [SignalR Client SDK for Java](
 		eventhubspout.password = <the key of the 'storm' policy>
 
 		eventhubspout.namespace = <the event hub namespace>
-		# The name of the event hub
-		eventhubspout.entitypath = temperature
+
+		eventhubspout.entitypath = <the event hub name>
 
 		eventhubspout.partitions.count = <the number of partitions for the event hub>
 
@@ -850,9 +866,13 @@ ASP.NET 대시보드에 메시지를 보내려면 [SignalR Client SDK for Java](
 
 		eventhub.receiver.credits = 1024
 
-	**password**는 앞에서 이벤트 허브에 대해 만든 **storm** 정책의 키로 바꿉니다. **namespace**는 이벤트 허브의 네임스페이스로 바꿉니다.
+	**password**는 앞에서 이벤트 허브에 대해 만든 **storm** 정책의 키로 바꿉니다.
+	
+	**namespace**는 이벤트 허브의 네임스페이스로 바꿉니다.
+	
+	**entitpath**는 이벤트 허브의 이름으로 바꿉니다.
 
-3. **hbase-site.xml** 파일의 내용으로 다음을 사용합니다.
+4. **hbase-site.xml** 파일의 내용으로 다음을 사용합니다.
 
 		<?xml version="1.0"?>
 		<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
@@ -892,11 +912,11 @@ ASP.NET 대시보드에 메시지를 보내려면 [SignalR Client SDK for Java](
 		  </property>
 		</configuration>
 
-3. **hbase-site.xml** 파일에서 ZooKeeper 항목의 **suffix** 값을 앞에서 HBase에 대해 검색한 DNS 접미사로 바꿉니다. 예를 들면 **zookeeper0.mycluster.b4.internal.cloudapp.net, zookeeper1.mycluster.b4.internal.cloudapp.net, zookeeper2.mycluster.b4.internal.cloudapp.net**과 같습니다.
+5. **hbase-site.xml** 파일에서 ZooKeeper 항목의 **suffix** 값을 앞에서 HBase에 대해 검색한 DNS 접미사로 바꿉니다. 예를 들면 **zookeeper0.mycluster.b4.internal.cloudapp.net, zookeeper1.mycluster.b4.internal.cloudapp.net, zookeeper2.mycluster.b4.internal.cloudapp.net**과 같습니다.
 
-3. 파일을 저장합니다.
+6. 파일을 저장합니다.
 
-###도우미 추가
+### 도우미 추가
 
 JSON에서의/으로의 직렬화를 지원하려면 개체 구조를 정의하는 몇 가지 도우미 클래스가 필요합니다.
 
@@ -929,9 +949,9 @@ JSON에서의/으로의 직렬화를 지원하려면 개체 구조를 정의하�
 
 5. 이 두 파일을 저장하고 닫습니다.
 
-###Bolt 추가
+### Bolt 추가
 
-Bolt는 토폴로지에서 기본 처리를 수행합니다. 이 토폴로지에는 Bolt가 3개 있습니다. 그중 HBase Bolt는 하나이며, 프로젝트를 빌드할 때 자동으로 다운로드됩니다.
+Bolt는 토폴로지에서 기본 처리를 수행합니다. 이 토폴로지에는 Bolt가 3개 있습니다. 그 중 HBase Bolt는 하나이며, 프로젝트를 빌드할 때 자동으로 다운로드됩니다.
 
 1. **\temperaturemonitor\src\main\java\com\microsoft\examples** 디렉터리에서 **bolts**라는 새 디렉터리를 만듭니다.
 
@@ -940,7 +960,7 @@ Bolt는 토폴로지에서 기본 처리를 수행합니다. 이 토폴로지에
 	* **ParserBolt.java** - 이벤트 허브에서 들어오는 메시지를 개별 필드로 구문 분석한 다음 두 개의 스트림을 내보냅니다.
 	* **DashboardBolt.java** - SignalR을 통해 정보를 웹 대시보드에 기록합니다.
 
-2. **ParserBolt.java** 파일의 내용으로 다음을 사용합니다.
+3. **ParserBolt.java** 파일의 내용으로 다음을 사용합니다.
 
 		package com.microsoft.examples;
 
@@ -991,7 +1011,7 @@ Bolt는 토폴로지에서 기본 처리를 수행합니다. 이 토폴로지에
 		  }
 		}
 
-3. **DashboardBolt.java** 파일의 내용으로 다음을 사용합니다.
+4. **DashboardBolt.java** 파일의 내용으로 다음을 사용합니다.
 
 		package com.microsoft.examples;
 
@@ -1086,11 +1106,11 @@ Bolt는 토폴로지에서 기본 처리를 수행합니다. 이 토폴로지에
 		  }
 		}
 
-	`http://yourwebsiteaddress`를 앞에서 대시보드를 게시한 Azure 웹 사이트의 주소로 바꿉니다. 예를 들면 http://mydashboard.azurewebsites.net과 같습니다.
+	`http://dashboard.azurewebsites.net/`를 앞에서 대시보드를 게시한 Azure 웹 사이트의 주소로 바꿉니다. 예를 들면 http://mydashboard.azurewebsites.net과 같습니다.
 
-2. 파일을 저장하고 닫습니다.
+5. 파일을 저장하고 닫습니다.
 
-###토폴로지 정의
+### 토폴로지 정의
 
 토폴로지는 토폴로지 내의 Spout와 Bolt 간 데이터 흐름 방식과 토폴로지 및 토폴로지 내 구성 요소의 병렬 처리 수준을 설명합니다.
 
@@ -1242,7 +1262,7 @@ Bolt는 토폴로지에서 기본 처리를 수행합니다. 이 토폴로지에
 
 	> [AZURE.NOTE] **HBaseBolt**의 줄은 주석으로 처리됩니다. 다음 단계에서는 토폴로지를 로컬로 실행하기 때문입니다. HBaseBolt는 HBase와 직접 통신하므로 HBaseBolt를 사용하도록 설정하면 오류가 반환됩니다. 단, DNS 서버를 사용하여 가상 네트워크를 구성했으며 로컬 컴퓨터도 가상 네트워크에 가입시킨 경우는 예외입니다.
 
-###로컬에서 토폴로지 테스트
+### 로컬에서 토폴로지 테스트
 
 개발 컴퓨터에서 파일을 컴파일하고 테스트하려면 다음 단계를 수행합니다.
 
@@ -1250,22 +1270,22 @@ Bolt는 토폴로지에서 기본 처리를 수행합니다. 이 토폴로지에
 
 2. 웹 브라우저를 열고 앞에서 Azure 웹 사이트에 배포한 웹 대시보드를 표시합니다. 그러면 토폴로지를 통과하는 값이 그려진 그래프를 확인할 수 있습니다.
 
-2. 다음 명령을 사용하여 로컬에서 토폴로지를 시작합니다.
+3. 다음 명령을 사용하여 로컬에서 토폴로지를 시작합니다.
 
 	mvn compile exec:java -Dstorm.topology=com.microsoft.examples.Temperature
 
 	그러면 토폴로지가 시작되고 이벤트 허브에서 파일을 읽은 후 Azure 웹 사이트에서 실행되는 대시보드로 파일을 보냅니다. 그리고 웹 대시보드에 선이 표시됩니다.
 
-3. 이 작업이 수행됨을 확인한 후 Ctrl+C를 눌러 토폴로지를 중지합니다. SendEvent 앱을 중지하려면 창을 선택하고 아무 키나 누릅니다.
+4. 이 작업이 수행됨을 확인한 후 Ctrl+C를 눌러 토폴로지를 중지합니다. SendEvent 앱을 중지하려면 창을 선택하고 아무 키나 누릅니다.
 
-###HBaseBolt 사용 및 HBase 준비
+### HBaseBolt 사용 및 HBase 준비
 
-1. **Temperature.java** 파일을 열고 다음 줄에서 (//) 주석을 제거합니다.
+1. **Temperature.java** 파일을 열고 다음 줄에서 주석 기호(//)를 제거합니다.
 
 		//topologyBuilder.setBolt("HBase", new HBaseBolt("SensorData", mapper).withConfigKey("hbase.conf"), spoutConfig.getPartitionCount())
     	//  .fieldsGrouping("Parser", "hbasestream", new Fields("deviceid")).setNumTasks(spoutConfig.getPartitionCount());
 
-	This enables the HBase bolt.
+	그러면 HBase Bolt가 사용하도록 설정됩니다.
 
 2. **Temperature.java**를 저장합니다.
 
@@ -1286,9 +1306,9 @@ Bolt는 토폴로지에서 기본 처리를 수행합니다. 이 토폴로지에
 
 HBase 셸에서 이 프롬프트를 열어 둡니다.
 
-##토폴로지를 패키지하여 HDInsight에 배포
+## 토폴로지를 패키지하여 HDInsight에 배포
 
-개발 환경에서 다음 단계를 수행하여 HDInsight Storm 클러스터에서 Temperature 토폴로지를 실행합니다.
+개발 환경에서 다음 단계를 수행하여  Storm 클러스터에서 Temperature 토폴로지를 실행합니다.
 
 1. 다음 명령을 사용하여 프로젝트에서 JAR 패키지를 만듭니다.
 
@@ -1298,43 +1318,42 @@ HBase 셸에서 이 프롬프트를 열어 둡니다.
 
 2. 읽을 수 있는 이벤트가 전송되도록 로컬 개발 컴퓨터에서 **SendEvents** .NET 응용 프로그램을 시작합니다.
 
-1. 원격 데스크톱을 사용하여 HDInsight Storm 클러스터에 연결한 다음 **TemperatureMonitor-1.0-SNAPSHOT.jar**파일을 **c:\apps\dist\storm&lt;version number>** 디렉터리에 복사합니다.
+3. 원격 데스크톱을 사용하여 Storm 클러스터에 연결한 다음 **TemperatureMonitor-1.0-SNAPSHOT.jar** 파일을 **c:\apps\dist\storm&lt;version number>** 디렉터리에 복사합니다.
 
-2. 클러스터 바탕 화면의 **HDInsight 명령줄** 아이콘을 사용하여 새 명령 프롬프트를 열고 다음 명령을 사용하여 토폴로지를 실행합니다.
+4. 클러스터 바탕 화면의 **HDInsight 명령줄** 아이콘을 사용하여 새 명령 프롬프트를 열고 다음 명령을 사용하여 토폴로지를 실행합니다.
 
 		cd %storm_home%
 		bin\storm jar TemperatureMonitor-1.0-SNAPSHOT.jar com.microsoft.examples.Temperature Temperature
 
-3. 토폴로지가 시작되고 웹 대시보드에 항목이 표시될 때까지는 몇 초 정도 걸릴 수 있습니다.
+5. 토폴로지가 시작되고 웹 대시보드에 항목이 표시될 때까지는 몇 초 정도 걸릴 수 있습니다.
 
-3. 항목이 대시보드에 표시되면 HBase 클러스터의 원격 데스크톱 세션으로 전환합니다.
+6. 항목이 대시보드에 표시되면 HBase 클러스터의 원격 데스크톱 세션으로 전환합니다.
 
-4. HBase 셸에서 다음 명령을 입력합니다.
+7. HBase 셸에서 다음 명령을 입력합니다.
 
 		scan 'SensorData'
 
 	이제 이 명령은 Storm 토폴로지에 의해 기록된 여러 데이터 행을 반환합니다.
 
-5. 토폴로지를 중지하려면 Storm 클러스터가 포함된 원격 데스크톱 세션으로 이동한 다음 HDInsight 명령줄에 다음을 입력합니다.
+8. 토폴로지를 중지하려면 Storm 클러스터가 포함된 원격 데스크톱 세션으로 이동한 다음 HDInsight 명령줄에 다음을 입력합니다.
 
 		bin\storm kill Temperature
 
 	몇 초 후에 토폴로지가 중지됩니다.
 
-##요약
+## 요약
 
 지금까지 이벤트 허브에서 데이터를 읽고, HBase에서 데이터를 저장하고, SignalR 및 D3.js를 사용하여 외부 대시보드에서 Storm의 정보를 표시하는 방법에 대해 알아보았습니다.
 
-* Apache Storm에 대한 자세한 내용은 [https://storm.incubator.apache.org/]를 참조하세요.(https://storm.incubator.apache.org/)
+* Apache Storm에 대한 자세한 내용은 [https://storm.incubator.apache.org/](https://storm.incubator.apache.org/)를 참조하세요.
 
-* HDInsight HBase에 대한 자세한 내용은 [HDInsight HBase 개요]를 참조하세요.(http://azure.microsoft.com/ko-kr/documentation/articles/hdinsight-hbase-overview/)
+* HDInsight HBase에 대한 자세한 내용은 [HDInsight HBase 개요](http://azure.microsoft.com/ko-kr/documentation/articles/hdinsight-hbase-overview/)를 참조하세요.
 
-* SignalR에 대한 자세한 내용은 [ASP.NET SignalR]을 참조하세요.(http://signalr.net/)
+* SignalR에 대한 자세한 내용은 [ASP.NET SignalR](http://signalr.net/)을 참조하세요.
 
-* D3.js에 대한 자세한 내용은 [D3.js - 데이터 기반 문서]를 참조하세요.(http://d3js.org/)
+* D3.js에 대한 자세한 내용은 [D3.js - 데이터 기반 문서](http://d3js.org/)를 참조하세요.
 
-* .NET에서 토폴로지를 만드는 방법에 대한 자세한 내용은 [HDInsight에서 Storm에 대해 SCP.NET 및 C#을 사용하여 스트리밍 데이터 처리 응용 프로그램 개발]을 참조하세요.(/ko-kr/documentation/articles/hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application/)
+* .NET에서 토폴로지를 만드는 방법에 대한 자세한 내용은 [HDInsight에서 Storm에 대해 SCP.NET 및 C#을 사용하여 스트리밍 데이터 처리 응용 프로그램 개발](/ko-kr/documentation/articles/hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application/)을 참조하세요.
 
 [azure-portal]: https://manage.windowsazure.com/
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

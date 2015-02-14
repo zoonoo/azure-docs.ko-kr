@@ -1,13 +1,27 @@
-﻿<properties urlDisplayName="Manage Assets in Media Services" pageTitle="미디어 서비스에서 자산을 관리하는 방법 - Azure" metaKeywords="" description="미디어 서비스에서 자산을 관리하는 방법에 대해 알아봅니다. 또한 작업을 관리하고 정책과 로케이터에 액세스하는 방법에 대해서도 설명합니다. 코드 샘플은 C#으로 작성되었으며 Media Services SDK for .NET을 사용합니다." metaCanonical="" services="media-services" documentationCenter="" title="How to: Manage Assets in storage" authors="juliako" solutions="" manager="dwrede" editor="" />
+﻿<properties 
+	pageTitle="미디어 서비스에서 자산을 관리하는 방법 - Azure" 
+	description="미디어 서비스에서 자산을 관리하는 방법에 대해 알아봅니다. 또한 작업을 관리하고 정책과 로케이터에 액세스하는 방법에 대해서도 설명합니다. 코드 샘플은 C#으로 작성되었으며 Media Services SDK for .NET을 사용합니다." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako" />
+<tags 
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/30/2014" 
+	ms.author="juliako"/>
 
 
 
 
 <h1>방법: 저장소의 자산 관리</h1>
 
-이 문서는 Azure 미디어 서비스 프로그래밍을 소개하는 시리즈 중 하나입니다. 이전 항목은 [방법: 자산 보호](../media-services-protect-asset/)입니다.
+이 문서는 Azure 미디어 서비스 프로그래밍을 소개하는 시리즈 중 하나입니다. 이전 항목은 [방법: 자산 보호](../media-services-protect-asset/)(영문)입니다.
 
 미디어 자산을 만들어 미디어 서비스에 업로드한 후에는 서버에서 자산에 액세스하고 자산을 관리할 수 있습니다. 서버에서 미디어 서비스의 일부인 작업, 태스크, 액세스 정책, 로케이터 등의 다른 개체도 관리할 수 있습니다.
 
@@ -80,6 +94,5 @@ foreach (IAsset asset in _context.Assets)
 
 
 <h2>다음 단계</h2>
-자산 관리 방법을 알아보았습니다. [다운로드를 통해 자산을 제공하는 방법](../media-services-deliver-asset-download/) (영문) 항목으로 이동하세요.
-
-<!--HONumber=35.1-->
+자산 관리 방법을 알아보았습니다. [다운로드를 통해 자산을 제공하는 방법](../media-services-deliver-asset-download/)(영문) 항목으로 이동하세요.
+<!--HONumber=42-->

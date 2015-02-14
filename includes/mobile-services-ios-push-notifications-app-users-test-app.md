@@ -3,9 +3,9 @@
 
   	![][23]
 
-    > [WACOM.NOTE] 앱에서 푸시 알림을 명시적으로 허용해야 합니다. 이 요청은 앱을 처음 실행할 때만 발생합니다.
+    > [AZURE.NOTE] 앱의 푸시 알림을 명시적으로 수락해야 합니다. 이 요청은 앱을 처음 실행할 때만 발생합니다.
 
-2. 앱에서 _새 모바일 서비스 작업_과 같은 의미 있는 텍스트를 입력하고 (**+**) 아이콘을 클릭합니다.
+2. 앱에서 _새 모바일 서비스 작업_과 같은 의미 있는 텍스트를 입력하고 더하기(**+**) 아이콘을 클릭합니다.
 
   	![][24]
 
@@ -24,3 +24,4 @@
 [25]: ./media/mobile-services-ios-get-started-push/mobile-quickstart-push3-ios.png
 [26]: ./media/mobile-services-ios-get-started-push/mobile-quickstart-push4-ios.png
 
+<!--HONumber=42-->

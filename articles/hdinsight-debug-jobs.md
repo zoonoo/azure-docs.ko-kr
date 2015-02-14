@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Debug HDInsight Hadoop Errors" pageTitle="HDInsight의 Hadoop 디버그: 오류 메시지 | Azure" metaKeywords="hdinsight, hdinsight service, hdinsight azure, debug, error messages, errors" description="PowerShell을 사용하여 HDInsight를 관리할 때 표시될 수 있는 오류 메시지와 복구를 위해 수행할 수 있는 단계에 대해 알아봅니다." services="hdinsight" title="Debug Hadoop in HDInsight: Error messages" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" authors="bradsev" />
+﻿<properties 
+	pageTitle="HDInsight의 Hadoop 디버그: 오류 메시지 | Azure" 
+	description="PowerShell을 사용하여 HDInsight를 관리할 때 표시될 수 있는 오류 메시지와 복구를 위해 수행할 수 있는 단계에 대해 알아봅니다." 
+	services="hdinsight" 
+	editor="cgronlun" 
+	manager="paulettm" 
+	authors="bradsev" 
+	documentationCenter=""/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/10/2014" ms.author="bradsev" />
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/10/2014" 
+	ms.author="bradsev"/>
 
 # HDInsight의 Hadoop 디버그: 오류 메시지
 
@@ -74,7 +88,7 @@ Azure PowerShell 또는 Azure 포털에서 발생할 수 있는 오류는 [HDIns
 - **해결 방법**: 사용자가 올바른 SQL Azure 메타스토어를 제공하고 요청을 다시 시도해야 합니다.  
 
 <h3><a id="AzureRegionNotSupported"></a>AzureRegionNotSupported</h3>
-- **설명**: *nameOfYourRegion* 지역에서 클러스터를 만들 수 없습니다. 올바른 HDInsight 지역을 사용하여 요청을 다시 시도하세요.   
+- **설명**:  *nameOfYourRegion* 지역에서 클러스터를 만들 수 없습니다. 올바른 HDInsight 지역을 사용하여 요청을 다시 시도하세요.   
 - **해결 방법**: 현재 지원되는 클러스터 지역인 동남아시아, 서유럽, 북유럽, 미국 동부 또는 미국 서버 중에서 만들어야 합니다.  
 
 <h3><a id="ClusterContainerRecordNotFound"></a>ClusterContainerRecordNotFound</h3>
@@ -82,11 +96,11 @@ Azure PowerShell 또는 Azure 포털에서 발생할 수 있는 오류는 [HDIns
 - **해결 방법**: 작업을 다시 시도하세요. 
 
 <h3><a id="ClusterDnsNameInvalidReservedWord"></a>ClusterDnsNameInvalidReservedWord</h3>
-- **설명**: 클러스터 DNS 이름(*yourDnsName*)이 잘못되었습니다. 이름이 영숫자로 시작하고 끝나는지 확인하세요. 이름에는 '-' 특수 문자만 포함할 수 있습니다.  
+- **설명**: 클러스터 DNS 이름( *yourDnsName*)이 올바르지 않습니다. 이름이 영숫자로 시작하고 끝나는지 확인하세요. 이름에는 '-' 특수 문자만 포함할 수 있습니다.  
 - **해결 방법**: 클러스터에 이름의 시작과 끝이 영숫자이고 대시('-') 이외의 특수 문자가 포함되지 않은 올바른 DNS 이름을 사용했는지 확인한 후 작업을 다시 시도하세요.
 
 <h3><a id="ClusterNameUnavailable"></a>ClusterNameUnavailable</h3>
-- **설명**: 클러스터 이름(*yourClusterName*)을 사용할 수 없습니다. 다른 이름을 선택하세요.  
+- **설명**: 클러스터 이름( *yourClusterName*)을 사용할 수 없습니다. 다른 이름을 선택하세요.  
 - **해결 방법**: 사용자가 고유하며 기존에 존재하지 않던 클러스터 이름을 지정한 후 다시 시도해야 합니다. 사용자가 포털을 사용하는 경우 클러스터 이름을 만드는 단계에서 이미 사용 중인 이름을 선택하면 UI에서 이를 알려 줍니다. 
  
 
@@ -99,11 +113,11 @@ Azure PowerShell 또는 Azure 포털에서 발생할 수 있는 오류는 [HDIns
 - **해결 방법**: 올바른 클러스터 사용자 이름을 지정한 후 작업을 다시 시도하세요.
 
 <h3><a id="ClusterUserNameInvalidReservedWord"></a>ClusterUserNameInvalidReservedWord</h3>
-- **설명**: 클러스터 DNS 이름(*yourDnsClusterName*)이 잘못되었습니다. 이름이 영숫자로 시작하고 끝나는지 확인하세요. 이름에는 '-' 특수 문자만 포함할 수 있습니다.  
+- **설명**: 클러스터 DNS 이름( *yourDnsClusterName*)이 올바르지 않습니다. 이름이 영숫자로 시작하고 끝나는지 확인하세요. 이름에는 '-' 특수 문자만 포함할 수 있습니다.  
 - **해결 방법**: 올바른 DNS 클러스터 사용자 이름을 지정한 후 작업을 다시 시도하세요.
 
 <h3><a id="ContainerNameMisMatchWithDnsName"></a>ContainerNameMisMatchWithDnsName</h3>
-- **설명**: 요청 본문에서 URI의 컨테이너 이름(*yourcontainerURI*)과 DNS 이름(*yourDnsName*)이 동일해야 합니다.  
+- **설명**: 요청 본문에서 URI의 컨테이너 이름( *yourcontainerURI*)과 DNS 이름( *yourDnsName*)이 같아야 합니다.  
 - **해결 방법**: 컨테이너 이름과 DNS 이름이 동일한지 확인하고 작업을 다시 시도하세요.
 
 <h3><a id="DataNodeDefinitionNotFound"></a>DataNodeDefinitionNotFound</h3>
@@ -119,11 +133,11 @@ Azure PowerShell 또는 Azure 포털에서 발생할 수 있는 오류는 [HDIns
 - **해결 방법**: 클러스터를 삭제하고 새 클러스터를 만드세요.
 
 <h3><a id="DuplicateClusterContainerRequest"></a>DuplicateClusterContainerRequest</h3>
-- **설명**: 클러스터 컨테이너 만들기 시도가 중복되었습니다. *nameOfYourContainer*의 레코드가 존재하지만 Etags가 일치하지 않습니다.   
+- **설명**: 클러스터 컨테이너 만들기 시도가 중복되었습니다.  *nameOfYourContainer*의 레코드가 존재하지만 Etags가 일치하지 않습니다.   
 - **해결 방법**: 컨테이너에 고유한 이름을 지정한 후 만들기 작업을 다시 시도하세요. 
 
 <h3><a id="DuplicateClusterInHostedService"></a>DuplicateClusterInHostedService</h3>
-- **설명**: 호스티드 서비스(*nameOfYourHostedService*)에 클러스터가 이미 포함되어 있습니다. 호스티드 서비스에는 여러 클러스터를 포함할 수 없습니다.  
+- **설명**: 호스티드 서비스( *nameOfYourHostedService*)에 이미 클러스터가 포함되어 있습니다. 호스티드 서비스에는 여러 클러스터를 포함할 수 없습니다.  
 - **해결 방법**: 클러스터를 다른 호스티드 서비스에서 호스트하세요. 
 
 <h3><a id="FailureToUpdateDeploymentStatus"></a>FailureToUpdateDeploymentStatus</h3>
@@ -131,7 +145,7 @@ Azure PowerShell 또는 Azure 포털에서 발생할 수 있는 오류는 [HDIns
 - **해결 방법**: 작업을 다시 시도하세요. 이 오류가 여러 번 발생하는 경우 CSS에 문의하세요. 
 
 <h3><a id="HdiRestoreClusterAltered"></a>HdiRestoreClusterAltered</h3>
-- **설명**: 클러스터(*yourClusterName*)가 유지 관리 과정에서 삭제되었습니다. 클러스터를 다시 만드세요.     
+- **설명**: 클러스터( *yourClusterName*)가 유지 관리 과정에서 삭제되었습니다. 클러스터를 다시 만드세요.     
 - **해결 방법**: 클러스터를 다시 만드세요.
 
 <h3><a id="HeadNodeConfigNotFound"></a>HeadNodeConfigNotFound</h3>
@@ -139,27 +153,27 @@ Azure PowerShell 또는 Azure 포털에서 발생할 수 있는 오류는 [HDIns
 - **해결 방법**: 작업을 다시 시도하세요.
 
 <h3><a id="HostedServiceCreationFailure"></a>HostedServiceCreationFailure</h3>
-- **설명**: 호스티드 서비스(*nameOfYourHostedService*)를 만들 수 없습니다. 요청을 다시 시도하세요.  
+- **설명**: 호스티드 서비스( *nameOfYourHostedService*)를 만들 수 없습니다. 요청을 다시 시도하세요.  
 - **해결 방법**: 요청을 다시 시도하세요.
 
 <h3><a id="HostedServiceHasProductionDeployment"></a>HostedServiceHasProductionDeployment</h3>
-- **설명**: 호스티드 서비스(*nameOfYourHostedService*)에 이미 프로덕션 배포가 있습니다. 호스티드 서비스에는 여러 프로덕션 배포를 포함할 수 없습니다. 다른 클러스터 이름으로 요청을 다시 시도하세요.   
+- **설명**: 호스티드 서비스( *nameOfYourHostedService*)에 이미 프로덕션 배포가 있습니다. 호스티드 서비스에는 여러 프로덕션 배포를 포함할 수 없습니다. 다른 클러스터 이름으로 요청을 다시 시도하세요.   
 - **해결 방법**: 다른 클러스터 이름을 사용하여 요청을 다시 시도하세요.
 
 <h3><a id="HostedServiceNotFound"></a>HostedServiceNotFound</h3>
-- **설명**: 클러스터의 호스티드 서비스(*nameOfYourHostedService*)를 찾을 수 없습니다.  
+- **설명**: 클러스터의 호스티드 서비스( *nameOfYourHostedService*)를 찾을 수 없습니다.  
 - **해결 방법**: 클러스터가 오류 상태인 경우 클러스터를 삭제한 후 다시 시도하세요. 
 
 <h3><a id="HostedServiceWithNoDeployment"></a>HostedServiceWithNoDeployment</h3>
-- **설명**: 호스티드 서비스(*nameOfYourHostedService*)에 연결된 배포가 없습니다.  
+- **설명**: 호스티드 서비스( *nameOfYourHostedService*)에 연결된 배포가 없습니다.  
 - **해결 방법**: 클러스터가 오류 상태인 경우 클러스터를 삭제한 후 다시 시도하세요. 
 
 <h3><a id="InsufficientResourcesCores"></a>InsufficientResourcesCores</h3>
-- **설명**: 구독 ID(*yourSubscriptionId*)에 클러스터(*yourClusterName*)를 만드는 데 필요한 코어가 남아 있지 않습니다. 필수: *resourcesRequired*, 사용 가능: *resourcesAvailable*.  
+- **설명**: SubscriptionId( *yourSubscriptionId*)에 클러스터( *yourClusterName*)를 만들기 위해 남은 코어가 없습니다. 필요: *resourcesRequired*, 사용 가능: *resourcesAvailable*.  
 - **해결 방법**: 구독에서 리소스를 해제하거나 구독에서 사용할 수 있는 리소스를 늘린 후 클러스터를 다시 만들어 보세요.
 
 <h3><a id="InsufficientResourcesHostedServices"></a>InsufficientResourcesHostedServices</h3>
-- **설명**: 구독 ID(*yourSubscriptionId*)에 클러스터(*yourClusterName*)를 만들 새 HostedService에 대한 할당량이 없습니다.  
+- **설명**: 구독 ID( *yourSubscriptionId*)에 클러스터( *yourClusterName*)를 만들기 위한 새 HostedService에 대한 할당량이 없습니다.  
 - **해결 방법**: 구독에서 리소스를 해제하거나 구독에서 사용할 수 있는 리소스를 늘린 후 클러스터를 다시 만들어 보세요.
 
 <h3><a id="InternalErrorRetryRequest"></a>InternalErrorRetryRequest</h3>
@@ -167,7 +181,7 @@ Azure PowerShell 또는 Azure 포털에서 발생할 수 있는 오류는 [HDIns
 - **해결 방법**: 요청을 다시 시도하세요. 
 
 <h3><a id="InvalidAzureStorageLocation"></a>InvalidAzureStorageLocation</h3>
-- **설명**: Azure 저장소 위치(*dataRegionName*)가 올바른 위치가 아닙니다. 지역이 올바른지 확인하고 요청을 다시 시도하세요.   
+- **설명**: Azure 저장소 위치( *dataRegionName*)가 올바른 위치가 아닙니다. 지역이 올바른지 확인하고 요청을 다시 시도하세요.   
 - **해결 방법**: HDInsight를 지원하는 저장소 위치를 선택하고 클러스터가 공동 배치되었는지 확인한 후 작업을 다시 시도하세요. 
 
 <h3><a id="InvalidNodeSizeForDataNode"></a>InvalidNodeSizeForDataNode</h3>
@@ -179,19 +193,19 @@ Azure PowerShell 또는 Azure 포털에서 발생할 수 있는 오류는 [HDIns
 - **해결 방법**: 헤드 노드에서 지원되는 노드 크기를 지정하고 작업을 다시 시도하세요.
 
 <h3><a id="InvalidRightsForDeploymentDeletion"></a>InvalidRightsForDeploymentDeletion</h3>
-- **설명**: 사용 중인 구독 ID(*yourSubscriptionId*)에 클러스터(*yourClusterName*)에 대한 삭제 작업을 실행할 수 있는 충분한 권한이 없습니다.  
+- **설명**: 사용 중인 구독 ID( *yourSubscriptionId*)에 클러스터( *yourClusterName*)에 대해 삭제 작업을 실행할 수 있는 권한이 없습니다.  
 - **해결 방법**: 클러스터가 오류 상태인 경우 클러스터를 삭제한 후 다시 시도하세요.  
 
 <h3><a id="InvalidStorageAccountBlobContainerName"></a>InvalidStorageAccountBlobContainerName</h3>
-- **설명**: 외부 저장소 계정 Blob 컨테이너 이름(*yourContainerName*)이 잘못되었습니다. 이름이 문자로 시작되며 이름에 소문자, 숫자 및 대시만 포함되어 있는지 확인하세요.  
+- **설명**: 외부 저장소 계정 Blob 컨테이너 이름( *yourContainerName*)이 잘못되었습니다. 이름이 문자로 시작되며 이름에 소문자, 숫자 및 대시만 포함되어 있는지 확인하세요.  
 - **해결 방법**: 올바른 저장소 계정 Blob 컨테이너 이름을 지정한 후 작업을 다시 시도하세요.
 
 <h3><a id="InvalidStorageAccountConfigurationSecretKey"></a>InvalidStorageAccountConfigurationSecretKey</h3>
-- **설명**: 외부 저장소 계정(*yourStorageAccountName*)의 구성이 비밀 키 세부 정보를 설정하는 데 필요합니다.  
+- **설명**: 외부 저장소 계정( *yourStorageAccountName*)의 구성이 비밀 키 세부 정보를 설정하는 데 필요합니다.  
 - **해결 방법**: 저장소 계정에 올바른 비밀 키를 지정한 후 작업을 다시 시도하세요.
 
 <h3><a id="InvalidVersionHeaderFormat"></a>InvalidVersionHeaderFormat</h3>
-- **설명**: 버전 헤더(*yourVersionHeader*)가 yyyy-mm-dd의 올바른 형식이 아닙니다.  
+- **설명**: 버전 헤더( *yourVersionHeader*)가 yyyy-mm-dd의 올바른 형식이 아닙니다.  
 - **해결 방법**: 버전 헤더에 올바른 형식을 지정한 후 요청을 다시 시도하세요. 
 
 <h3><a id="MoreThanOneHeadNode"></a>MoreThanOneHeadNode</h3>
@@ -203,7 +217,7 @@ Azure PowerShell 또는 Azure 포털에서 발생할 수 있는 오류는 [HDIns
 - **해결 방법**: 요청을 다시 시도하세요. 
 
 <h3><a id="ParameterNullOrEmpty"></a>ParameterNullOrEmpty</h3>
-- **설명**: 매개 변수(*yourParameterName*)는 Null이거나 비워 둘 수 없습니다.  
+- **설명**: 매개 변수( *yourParameterName*)는 null이거나 비어 있을 수 없습니다.  
 - **해결 방법**: 매개 변수에 올바른 값을 지정하세요. 
 
 <h3><a id="PreClusterCreationValidationFailure"></a>PreClusterCreationValidationFailure</h3>
@@ -211,39 +225,39 @@ Azure PowerShell 또는 Azure 포털에서 발생할 수 있는 오류는 [HDIns
 - **해결 방법**: 입력 값이 올바른지 확인하고 요청을 다시 시도하세요. 
 
 <h3><a id="RegionCapabilityNotAvailable"></a>RegionCapabilityNotAvailable</h3>
-- **설명**: 지역(*yourRegionName*) 및 구독 ID(*yourSubscriptionId*)에서 사용할 수 없는 지역 정보 값입니다.  
+- **설명**: 지역 기능을 지역( *yourRegionName*) 및 구독 ID( *yourSubscriptionId*)에 대해 사용할 수 없습니다.  
 - **해결 방법**: HDInsight 클러스터를 지원하는 지역을 지정하세요. 공개적으로 지원되는 지역은 동남아시아, 서유럽, 북유럽, 미국 동부 또는 미국 서버 중에서 만들어야 합니다. 
 
 <h3><a id="StorageAccountNotColocated"></a>StorageAccountNotColocated</h3>
-- **설명**: 저장소 계정(*yourStorageAccountName*)이 *currentRegionName* 지역에 있습니다. 지역은 클러스터 지역(*yourClusterRegionName*)과 동일해야 합니다.  
+- **설명**: 저장소 계정( *yourStorageAccountName*)이 지역( *currentRegionName*)에 있습니다. 지역은 클러스터 지역( *yourClusterRegionName*)과 동일해야 합니다.  
 - **해결 방법**: 클러스터가 있는 지역과 동일한 지역에서 저장소 계정을 지정하거나, 사용 중인 데이터가 저장소 계정에 이미 존재하는 경우 기존 저장소 계정과 동일한 지역에서 새 클러스터를 만드세요. 포털을 사용하는 경우 UI에서 이 문제에 대해 사전에 알려 줍니다. 
 
 <h3><a id="SubscriptionIdNotActive"></a>SubscriptionIdNotActive</h3>
-- **설명**: 지정된 구독 ID(*yourSubscriptionId*)가 활성이 아닙니다.  
+- **설명**: 지정된 구독 ID( *yourSubscriptionId*)가 활성 상태가 아닙니다.  
 - **해결 방법**: 구독을 다시 활성화하거나 올바른 새 구독을 가져오세요.
 
 <h3><a id="SubscriptionIdNotFound"></a>SubscriptionIdNotFound</h3>
-- **설명**: 구독 ID(*yourSubscriptionId*)를 찾을 수 없습니다.  
+- **설명**: 구독 ID( *yourSubscriptionId*)를 찾을 수 없습니다.  
 - **해결 방법**: 구독 ID가 올바른지 확인한 후 작업을 다시 시도하세요. 
 
 <h3><a id="UnableToResolveDNS"></a>UnableToResolveDNS</h3>
-- **설명**: DNS(*yourDnsUrl*)를 확인할 수 없습니다. Blob 끝점에 정규화된 URL을 지정했는지 확인하세요.  
-- **해결 방법**: 올바른 Blob URL을 제공하세요. URL은 전체가 유효해야 하며, *http://*로 시작하고 *.com*으로 끝나야 합니다. 정규화된 URL은 일반적으로 manage.windowsazure.com 포털의 저장소 탭에서 찾아볼 수 있습니다.  
+- **설명**: DNS( *yourDnsUrl*)를 확인할 수 없습니다. Blob 끝점에 정규화된 URL을 지정했는지 확인하세요.  
+- **해결 방법**: 올바른 Blob URL을 제공하세요. URL은 전체가 유효해야 하며,  *http://*로 시작하고 *.com*으로 끝나야 합니다. 정규화된 URL은 일반적으로 manage.windowsazure.com 포털의 저장소 탭에서 찾아볼 수 있습니다.  
 
 <h3><a id="UnableToVerifyLocationOfResource"></a>UnableToVerifyLocationOfResource</h3>
-- **설명**: *yourDnsUrl* 리소스의 위치를 확인할 수 없습니다. Blob 끝점에 정규화된 URL을 지정했는지 확인하세요.  
-- **해결 방법**: 올바른 Blob URL을 제공하세요. URL은 전체가 유효해야 하며, *http://*로 시작하고 *.com*으로 끝나야 합니다. 정규화된 URL은 일반적으로 manage.windowsazure.com 포털의 저장소 탭에서 찾아볼 수 있습니다. 
+- **설명**: 리소스의 위치( *yourDnsUrl*)를 확인할 수 없습니다. Blob 끝점에 정규화된 URL을 지정했는지 확인하세요.  
+- **해결 방법**: 올바른 Blob URL을 제공하세요. URL은 전체가 유효해야 하며,  *http://*로 시작하고 *.com*으로 끝나야 합니다. 정규화된 URL은 일반적으로 manage.windowsazure.com 포털의 저장소 탭에서 찾아볼 수 있습니다. 
 
 <h3><a id="VersionCapabilityNotAvailable"></a>VersionCapabilityNotAvailable</h3>
-- **설명**: 버전(*specifiedVersion*) 및 구독ID(*yourSubscriptionId*)에서 사용할 수 없는 버전 정보 값입니다.  
+- **설명**: 버전 기능을 버전( *specifiedVersion*) 및 구독 ID( *yourSubscriptionId*)에 대해 사용할 수 없습니다.  
 - **해결 방법**: 사용할 수 있는 버전을 선택한 후 작업을 다시 시도하세요. 
 
 <h3><a id="VersionNotSupported"></a>VersionNotSupported</h3>
-- **설명**: *specifiedVersion* 버전은 지원되지 않습니다.   
+- **설명**: 버전( *specifiedVersion*)이 지원되지 않습니다.   
 - **해결 방법**: 지원되는 버전을 선택한 후 작업을 다시 시도하세요.
 
 <h3><a id="VersionNotSupportedInRegion"></a>VersionNotSupportedInRegion</h3>
-- **설명**: *specifiedVersion* 버전은 Azure 지역인 *specifiedRegion*에서 사용할 수 없습니다.  
+- **설명**: 버전( *specifiedVersion*)을 Azure 지역( *specifiedRegion*)에서 사용할 수 없습니다.  
 - **해결 방법**: 지정된 지역에서 지원되는 버전을 선택한 후 작업을 다시 시도하세요. 
 
 <h3><a id="WasbAccountConfigNotFound"></a>WasbAccountConfigNotFound</h3>
@@ -263,5 +277,4 @@ Azure PowerShell 또는 Azure 포털에서 발생할 수 있는 오류는 [HDIns
 
 
 
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

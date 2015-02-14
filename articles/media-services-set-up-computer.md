@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Set Up Computer for Media Services" pageTitle="미디어 서비스용 컴퓨터 설정 방법 - Azure" metaKeywords="" description="Media Services SDK for .NET을 사용하는 미디어 서비스에 대한 일반적인 필수 구성 요소에 대해 알아봅니다. 또한 Visual Studio 앱을 만드는 방법에 대해서도 알아봅니다." metaCanonical="" services="media-services" documentationCenter="" title="Setting up your computer for Media Services development" authors="juliako" solutions="" manager="dwrede" editor="" />
+<properties 
+	pageTitle="미디어 서비스용 컴퓨터 설정 방법 - Azure" 
+	description="Media Services SDK for .NET을 사용하는 미디어 서비스에 대한 일반적인 필수 구성 요소에 대해 알아봅니다. 또한 Visual Studio 앱을 만드는 방법에 대해서도 알아봅니다." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako" />
+<tags 
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/30/2014" 
+	ms.author="juliako"/>
 
 
 
@@ -10,9 +24,9 @@
 
 이 섹션에는 Media Services SDK for .NET을 사용하는 미디어 서비스 개발에 대한 일반적인 필수 조건이 들어 있습니다. 또한 개발자에게 Media Services SDK 개발을 위해 Visual Studio 응용 프로그램을 생성하는 방법을 보여 줍니다. 
 
-###필수 조건
+### 필수 조건
 
--   신규 또는 기존 Azure 구독의 미디어 서비스 계정. [미디어 서비스 계정을 만드는 방법](영문)을 참조하세요.(../media-services-create-account/).
+-   신규 또는 기존 Azure 구독의 미디어 서비스 계정. [미디어 서비스 계정을 만드는 방법](../media-services-create-account/)(영문)을 참조하세요.
 -   운영 체제: Windows 7, Windows 2008 R2 또는 Windows 8
 -   .NET Framework 4
 -   Visual Studio 2013, Visual Studio 2012 또는 Visual Studio 2010 SP1(Professional, Premium, Ultimate 또는 Express) 
@@ -22,16 +36,16 @@
 
 미디어 서비스 계정을 설정하려면 Azure 관리 포털을 사용하세요(권장). [미디어 서비스 계정을 만드는 방법][](영문)을 참조하세요. 관리 포털에서 계정을 만들면 미디어 서비스 개발을 위해 컴퓨터를 설정할 준비가 됩니다. 
 
-###Visual Studio에서 응용 프로그램 생성
+### Visual Studio에서 응용 프로그램 생성
 
 이 섹션에서는 Visual Studio에서 프로젝트를 생성하고 미디어 서비스 개발에 대해 설정하는 방법을 설명합니다.  이 경우 프로젝트는 C# Windows 콘솔 응용 프로그램이지만 미디어 서비스 응용 프로그램에 대해 생성할 수 있는 다른 프로젝트 유형에도 여기에 설명된 설정 방법이 그대로 적용됩니다(예: Windows Forms 응용 프로그램 또는 ASP.NET 웹 응용 프로그램).
 
-   1. Visual Studio 2013, Visual Studio 2012 또는 Visual Studio 2010 SP1에서 새 C# **콘솔 응용 프로그램**을 만듭니다. **이름**, **위치** 및 **솔루션 이름**을 입력하고 **확인**을 클릭합니다.
+   1. 새 C# **콘솔 응용 프로그램**을  Visual Studio 2013, Visual Studio 2012 또는 Visual Studio 2010 SP1에서 만듭니다. **이름**, **위치** 및 **솔루션 이름**을 입력하고 **확인**을 클릭합니다.
    2. 대상 프레임워크를 .NET Framework 4로 설정해야 합니다. 이 작업을 하려면 Visual Studio 프로젝트를 마우스 오른쪽 단추로 클릭하고 속성을 선택합니다. 응용 프로그램 탭에서 대상 프레임워크로 .NET Framework 4를 설정합니다.   
    3. **System.Configuration** 어셈블리에 참조를 추가합니다. **System.Configuration**에 참조를 추가하려면 **솔루션 탐색기**에서 **참조** 노드를 마우스 오른쪽 단추로 클릭하고 **참조 추가...**를 선택합니다. **참조 관리** 대화 상자에서 **System.Configuration**을 선택하고 **확인**을 클릭합니다.
-   4. [windowsazure.mediaservices Nuget](http://nuget.org/packages/windowsazure.mediaservices) 패키지를 사용하여 **Azure SDK for .NET**에 참조를 추가합니다. 그러면 기타 모든 종속 어셈블리도 설치됩니다.  
+   4. [windowsazure.mediaservices Nuget](http://nuget.org/packages/windowsazure.mediaservices) 패키지를 사용하여 **Azure SDK for .NET**에 대한 참조를 추가합니다. 그러면 기타 모든 종속 어셈블리도 설치됩니다.  
 
-	Nuget을 사용하여 참조를 추가하려면 다음과 같이 합니다. Visual Studio **주 메뉴**에서 **도구** -> **라이브러리 패키지 관리자** -> **패키지 관리자 콘솔**을 선택합니다. 콘솔 창에서 **Install-Package windowsazure.mediaservices**를 입력하고 **Enter** 키를 누릅니다.
+	Nuget을 사용하여 참조를 추가하려면 다음과 같이 합니다. Visual Studio **주 메뉴**에서 **도구** -> **라이브러리 패키지 관리자** -> **패키지 관리자 콘솔**을 선택합니다. 콘솔 창에 **Install-Package windowsazure.mediaservices**를 입력하고 **Enter** 키를 누릅니다.
    4. 다음 코드를 사용하여 Program.cs 파일의 앞부분에 있는 기존 using 문을 덮어씁니다.
 
    		using System;
@@ -68,6 +82,5 @@
 <h2>다음 단계</h2>
 이제 미디어 서비스 프로그래밍을 위해 컴퓨터를 설정하고 Visual Studio 솔루션을 만들었습니다. [암호화된 자산을 만들어 저장소에 업로드하는 방법][] 항목으로 이동하세요.
 [미디어 서비스 계정을 만드는 방법]: ../media-services-create-account/
-[암호화된 자산을 만들고 저장소에 업로드하는 방법]: ../media-services-create-encrypted-asset-upload-storage/
-
-<!--HONumber=35.1-->
+[암호화된 자산을 만들어 저장소에 업로드하는 방법]: ../media-services-create-encrypted-asset-upload-storage/
+<!--HONumber=42-->

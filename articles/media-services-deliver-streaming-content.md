@@ -1,11 +1,25 @@
-﻿<properties urlDisplayName="Deliver Streaming Content from Media Services" pageTitle="미디어 서비스에서 스트리밍 콘텐츠를 제공하는 방법 - Azure" metaKeywords="" description="직접 URL을 사용하여 미디어 서비스에서 스트리밍 콘텐츠를 제공하는 방법에 대해 알아봅니다. 코드 샘플은 C#으로 작성되었으며 Media Services SDK for .NET을 사용합니다." metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="How to: Deliver streaming content" authors="juliako" manager="dwrede" />
+﻿<properties 
+	pageTitle="미디어 서비스에서 스트리밍 콘텐츠를 제공하는 방법 - Azure" 
+	description="직접 URL을 사용하여 미디어 서비스에서 스트리밍 콘텐츠를 제공하는 방법에 대해 알아봅니다. 코드 샘플은 C#으로 작성되었으며 Media Services SDK for .NET을 사용합니다." 
+	authors="juliako" 
+	manager="dwrede" 
+	editor="" 
+	services="media-services" 
+	documentationCenter=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako" />
+<tags 
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/30/2014" 
+	ms.author="juliako"/>
 
 
-#방법: 스트리밍 콘텐츠 제공
+# 방법: 스트리밍 콘텐츠 제공
 
-이 문서는 Azure 미디어 서비스 프로그래밍을 소개하는 시리즈 중 하나입니다. 이전 항목은 [방법: 다운로드를 통해 자산 제공](../media-services-deliver-asset-download/)입니다.
+이 문서는 Azure 미디어 서비스 프로그래밍을 소개하는 시리즈 중 하나입니다. 이전 항목은 [방법: 다운로드를 통해 자산 제공](../media-services-deliver-asset-download/)(영문)입니다.
 
 미디어 서비스에서 미디어 콘텐츠를 다운로드하는 것뿐만 아니라 적응 비트 전송률 스트리밍을 사용하여 콘텐츠를 제공할 수 있습니다. 예를 들어 미디어 서비스 원본 서버의 스트리밍 콘텐츠에 대해 로케이터라고 하는 직접 URL을 만들 수 있습니다. Microsoft Silverlight 같은 클라이언트 응용 프로그램은 로케이터에서 바로 스트리밍 콘텐츠를 재생할 수 있습니다.
 
@@ -76,6 +90,5 @@ private static ILocator GetStreamingOriginLocator( string targetAssetID)
 </ul>
 
 <h2>다음 단계</h2>
-지금까지 부드러운 스트리밍을 사용하여 Azure 저장소에서 다운로드하여 미디어를 제공하는 방법을 살펴봤습니다. 다음 항목인 [HLS 콘텐츠를 제공하는 방법](../media-services-deliver-http-live-streaming-content/) (영문)에서는 Apple HLS(HTTP 라이브 스트리밍)를 사용하여 스트리밍 콘텐츠를 제공하는 방법을 살펴보겠습니다.
-
-<!--HONumber=35.1-->
+지금까지 부드러운 스트리밍을 사용하여 Azure 저장소에서 다운로드하여 미디어를 제공하는 방법을 살펴봤습니다. 다음 항목인 [HLS 콘텐츠를 제공하는 방법](../media-services-deliver-http-live-streaming-content/)(영문)에서는 Apple HLS(HTTP 라이브 스트리밍)를 사용하여 스트리밍 콘텐츠를 제공하는 방법을 살펴보겠습니다.
+<!--HONumber=42-->

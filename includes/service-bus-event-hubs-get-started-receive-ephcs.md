@@ -1,32 +1,34 @@
-﻿## EventProcessorHost를 사용하여 메시지 수신
+## EventProcessorHost를 사용하여 메시지 수신
+
+**EventProcessorHost**는 영구적 검사점을 관리하여 이벤트 허브의 이벤트 수신을 간소화하고 이러한 이벤트에서 병렬 수신하는 .NET 클래스입니다. **EventProcessorHost**를 사용하면 다른 노드에 호스트된 수신기를 비롯한 여러 수신기 간에 이벤트를 분할할 수 있습니다. 이 예제에서는 단일 수신기에 대해 **EventProcessorHost**를 사용하는 방법을 보여 줍니다. [확장된 이벤트 처리 샘플](영문)에서는 여러 수신기에서 **EventProcessorHost**를 사용하는 방법을 보여 줍니다.
+
+이벤트 허브 수신기 패턴에 대한 자세한 내용은 [이벤트 허브 개발자 가이드]를 참조하세요.
 
 [EventProcessorHost]는 영구적 검사점을 관리하여 이벤트 허브의 이벤트 수신을 간소화하고 이러한 이벤트에서 병렬 수신하는 .NET 클래스입니다. [EventProcessorHost]를 사용하면 다른 노드에 호스트된 수신기를 비롯한 여러 수신기 간에 이벤트를 분할할 수 있습니다. 이 예제에서는 단일 수신기에 대해 [EventProcessorHost]를 사용하는 방법을 보여 줍니다. [확장된 이벤트 처리 샘플](영문)에서는 여러 수신기에서 [EventProcessorHost]를 사용하는 방법을 보여 줍니다.
 
-이벤트 허브 수신기 패턴에 대한 자세한 내용은 [이벤트 허브 개요]를 참조하세요.
-
 [EventProcessorHost]를 사용하려면 [Azure 저장소 계정]이 있어야 합니다.
 
-1. [Azure 관리 포털]에 로그온하고 화면 아래쪽에서 **새로 만들기**를 클릭합니다.
+1. [Azure 관리 포털]에 로그온하고 화면 맨 아래에 있는 **새로 만들기**를 클릭합니다.
 
 2. **데이터 서비스**, **저장소**, **빠른 생성**을 차례로 클릭한 다음 저장소 계정 이름을 입력합니다. 원하는 지역을 선택하고 **저장소 계정 만들기**를 클릭합니다.
 
-   	![][11]
+  	![][11]
 
 3. 새로 만든 저장소 계정을 클릭한 후 **액세스 키 관리**를 클릭합니다.
 
-   	![][12]
+  	![][12]
 
 	나중에 사용하기 위해 액세스 키를 복사합니다.
 
 4. Visual Studio에서 **콘솔 응용 프로그램** 프로젝트 템플릿을 사용하여 Visual C# 데스크톱 응용 프로그램 프로젝트를 새로 만듭니다. 프로젝트 이름을 **Receiver**로 지정합니다.
 
-   	![][14]
+  	![][14]
 
 5. 솔루션 탐색기에서 솔루션을 마우스 오른쪽 단추로 클릭한 후 **NuGet 패키지 관리**를 클릭합니다. 
 
 	**NuGet 패키지 관리** 대화 상자가 나타납니다.
 
-6. `Microsoft Azure 서비스 버스 이벤트 허브 - EventProcessorHost`를 검색한 후 **설치**를 클릭하고 사용 약관에 동의합니다. 
+6.  `Microsoft Azure Service Bus Event Hub - EventProcessorHost`를 검색하고 **설치**를 클릭한 후 사용 약관에 동의합니다. 
 
 	![][13]
 
@@ -67,25 +69,22 @@
 	            {
 	                string data = Encoding.UTF8.GetString(eventData.GetBytes());
 	                
-	                Console.WriteLine(string.Format("Message received.  Partition: '{0}', Data: '{2}'",
+	                Console.WriteLine(string.Format("Message received.  Partition: '{0}', Data: '{1}'",
 	                    context.Lease.PartitionId, data));
 	            }
 	
 	            //Call checkpoint every 5 minutes, so that worker can resume processing from the 5 minutes back if it restarts.
-	            if (this.checkpointStopWatch.Elapsed > TimeSpan.FromMinutes(5))
-	            {
-	                await context.CheckpointAsync();
-	                lock (this)
-	                {
-	                    this.checkpointStopWatch.Reset();
-	                }
-	            }
+	            if (this.checkpointStopWatch.Elapsed > TimeSpan.FromMinutes(5)) 
+                { 
+                    await context.CheckpointAsync(); 
+                    this.checkpointStopWatch.Restart(); 
+                } 
 	        }
 	    }
 
-	이 클래스는 이벤트 허브에서 받는 이벤트를 처리하기 위해 **EventProcessorHost**에서 호출합니다. `SimpleEventProcessor` 클래스는 초시계를 사용하여 **EventProcessorHost** 컨텍스트에서 검사점 메서드를 주기적으로 호출합니다. 따라서 수신기가 다시 시작되는 경우 5분 이하의 처리 작업은 손실됩니다.
+	이 클래스는 이벤트 허브에서 받는 이벤트를 처리하기 위해 **EventProcessorHost**에서 호출합니다.  `SimpleEventProcessor` 클래스는 초시계를 사용하여 **EventProcessorHost** 컨텍스트에서 검사점 메서드를 주기적으로 호출합니다. 따라서 수신기가 다시 시작되는 경우 5분 이하의 처리 작업은 손실됩니다.
 
-8. **Program** 클래스의 위쪽에 다음 'using` 문을 추가합니다.
+8. **Program** 클래스의 위쪽에 다음 `using` 문을 추가합니다.
 
 		using Microsoft.ServiceBus.Messaging;
 		using System.Threading.Tasks;
@@ -106,7 +105,7 @@
         Console.WriteLine("Receiving. Press enter key to stop worker.");
         Console.ReadLine();
 
-> [AZURE.NOTE] 이 자습서에서는 [EventProcessorHost]의 단일 인스턴스를 사용합니다. 처리량을 늘리려면 [EventProcessorHost]의 여러 인스턴스를 사용하는 것이 좋습니다. [확장된 이벤트 처리 샘플](영문)을 참조하세요. 이러한 경우 다양한 인스턴스가 자동으로 서로 조정하여 수신된 이벤트의 부하를 분산합니다. 여러 수신기가 각각 이벤트를 *모두* 처리하도록 하려면 **ConsumerGroup** 개념을 사용해야 합니다. 서로 다른 컴퓨터에서 이벤트를 수신하는 경우 [EventProcessorHost] 인스턴스의 이름을 해당 인스턴스가 배포된 컴퓨터 또는 역할을 기준으로 지정하면 유용할 수 있습니다. 이러한 항목에 대한 자세한 내용은 [이벤트 허브 개요] 및 [이벤트 허브 프로그래밍 가이드]를 참조하세요.
+> [AZURE.NOTE] 이 자습서에서는 [EventProcessorHost]의 단일 인스턴스를 사용합니다. 처리량을 늘리려면 [EventProcessorHost]의 여러 인스턴스를 사용하는 것이 좋습니다. [확장된 이벤트 처리 샘플](영문)을 참조하세요. 이러한 경우 다양한 인스턴스가 자동으로 서로 조정하여 수신된 이벤트의 부하를 분산합니다. 여러 수신기가 각각 이벤트를 *all* 처리하도록 하려면 **ConsumerGroup** 개념을 사용해야 합니다. 서로 다른 컴퓨터에서 이벤트를 수신하는 경우 [EventProcessorHost] 인스턴스의 이름을 해당 인스턴스가 배포된 컴퓨터 또는 역할을 기준으로 지정하면 유용할 수 있습니다. 이러한 항목에 대한 자세한 내용은 [이벤트 허브 개요] 및 [이벤트 허브 프로그래밍 가이드]를 참조하세요.
 
 <!-- Links -->
 [이벤트 허브 개요]: http://msdn.microsoft.com/ko-kr/library/azure/dn821413.aspx
@@ -121,4 +120,4 @@
 [13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
 [14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
 
-[이벤트 허브 프로그래밍 가이드]: http://msdn.microsoft.com/ko-kr/library/azure/dn789972.aspx
+[이벤트 허브 개발자 가이드]: http://msdn.microsoft.com/ko-kr/library/azure/dn789972.aspx<!--HONumber=42-->

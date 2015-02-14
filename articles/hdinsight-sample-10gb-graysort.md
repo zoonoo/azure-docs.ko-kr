@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Hadoop Samples in HDInsight" pageTitle="10GB GraySort 샘플 | Azure" metaKeywords="hdinsight, hadoop, hdinsight administration, hdinsight administration azure" description="Azure PowerShell을 사용하여 HDInsight에서 Hadoop에 대해 범용 GraySort를 실행하는 방법에 대해 알아봅니다." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" title="The 10GB GraySort sample" authors="bradsev" />
+﻿<properties 
+	pageTitle="10GB GraySort 샘플 | Azure" 
+	description="HDInsight의 Hadoop에서 보통 최소 100TB 정도 되는 매우 많은 양의 데이터에 대해 Azure PowerShell을 사용하여 일반적인 목적의 GraySort를 실행하는 방법에 대해 알아봅니다." 
+	editor="cgronlun" 
+	manager="paulettm" 
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="bradsev"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/10/2014" ms.author="bradsev" />
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/10/2014" 
+	ms.author="bradsev"/>
 
 # HDInsight의 10GB GraySort Hadoop 샘플
  
@@ -22,15 +36,15 @@
 * Java로 작성한 MapReduce 프로그램
 
 
-**필수 조건**:	
+**필수 조건**	
 
 - Azure 계정이 있어야 합니다. 계정 등록 옵션은 [Azure 평가판 사용](http://azure.microsoft.com/ko-kr/pricing/free-trial/) 페이지를 참조하세요.
 
-- HDInsight 클러스터를 미리 프로비전해야 합니다. 이 클러스터를 만드는 여러 방법에 대한 자세한 내용은 [HDInsight 클러스터 프로비전](영문)을 참조하세요.(../hdinsight-provision-clusters/)
+- HDInsight 클러스터를 미리 프로비전해야 합니다. 이 클러스터를 만드는 여러 방법에 대한 자세한 내용은 [HDInsight 클러스터 프로비전](../hdinsight-provision-clusters/)을 참조하세요.
 
 - Azure PowerShell을 설치하고 계정과 함께 사용하도록 구성해야 합니다. 설치 및 구성 방법에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성][powershell-install-configure]을 참조하세요.
 
-##이 문서에서는 다음을 수행합니다.
+## 이 문서의 내용
 이 항목에서는 샘플을 구성하는 일련의 MapReduce 프로그램 실행 방법을 보여 주고, MapReduce 프로그램의 Java 코드를 제공하며, 배운 내용을 요약하고, 다음 몇 단계에 대해 설명합니다. 이 항목에는 다음 섹션이 있습니다.
 	
 1. [Azure PowerShell로 샘플 실행](#run-sample)	
@@ -56,16 +70,16 @@
 		$subscriptionName = "myAzureSubscriptionName"   
 		$clusterName = "myClusterName"
                  
-4. 다음 명령을 실행하여 MapReduce 작업 정의를 만듭니다.
+3. 다음 명령을 실행하여 MapReduce 작업 정의를 만듭니다.
 
 		# Create a MapReduce job definition for the TeraGen MapReduce program
 		$teragen = New-AzureHDInsightMapReduceJobDefinition -JarFile "/example/jars/hadoop-examples.jar" -ClassName "teragen" -Arguments "-Dmapred.map.tasks=50", "100000000", "/example/data/10GB-sort-input" 
 
-	> [WACOM.NOTE] *hadoop-examples.jar* 파일은 버전 2.1 HDInsight 클러스터와 함께 제공됩니다. 버전 3.0 HDInsight 클러스터에서는 파일 이름이 *hadoop-mapreduce.jar*로 바뀌었습니다.
+	> [AZURE.NOTE] *hadoop-examples.jar* 파일은 버전 2.1 HDInsight 클러스터와 함께 제공됩니다. 버전 3.0 HDInsight 클러스터에서는 파일 이름이  *hadoop-mapreduce.jar*로 바뀌었습니다.
 	
-	*"-Dmapred.map.tasks=50"* 인수는 50개의 맵을 만들어 작업을 실행하도록 지정합니다. *100000000* 인수는 생성할 데이터의 양을 지정합니다. 마지막 인수, */example/data/10GB-sort-input*은 결과가 저장되는(다음 정렬 단계의 입력을 포함하는) 출력 디렉터리를 지정합니다.
+	*"-Dmapred.map.tasks=50"* 인수는 50개의 맵을 만들어 작업을 실행하도록 지정합니다. *100000000* 인수는 생성할 데이터의 양을 지정합니다. 마지막 인수  */example/data/10GB-sort-input*은 결과가 저장되는(다음 정렬 단계의 입력을 포함하는) 출력 디렉터리를 지정합니다.
 
-5. 다음 명령을 실행하여 작업을 제출하고 작업이 완료될 때까지 기다린 후 표준 오류를 인쇄합니다.
+4. 다음 명령을 실행하여 작업을 제출하고 작업이 완료될 때까지 기다린 후 표준 오류를 인쇄합니다.
 
 		# Run the TeraGen MapReduce job.
 		# Wait for the job to complete.
@@ -405,12 +419,12 @@
 Azure PowerShell로 Azure HDInsight에서 Pig, Hive 및 MapReduce 작업을 사용하는 방법에 대한 지침을 제공하고 다른 샘플을 실행하는 자습서에 대해서는 다음 항목을 참조하세요.
 
 * [Azure HDInsight 시작][hdinsight-get-started]
-* [샘플: Pi 추정][hdinsight-sample-pi-estimator]
-* [샘플: Wordcount][hdinsight-sample-wordcount]
+* [샘플: 파이 추정][hdinsight-sample-pi-estimator]
+* [샘플: 워드 수][hdinsight-sample-wordcount]
 * [샘플: C# 스트리밍][hdinsight-sample-csharp-streaming]
 * [HDInsight에서 Pig 사용][hdinsight-use-pig]
 * [HDInsight에서 Hive 사용][hdinsight-use-hive]
-* [Azure HDInsight SDK 문서][hdinsight-sdk-documentation]
+* [Azure HDInsight SDK 설명서][hdinsight-sdk-documentation]
 
 [hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/ko-kr/library/dn479185.aspx
 
@@ -429,5 +443,4 @@ Azure PowerShell로 Azure HDInsight에서 Pig, Hive 및 MapReduce 작업을 사�
 [hdinsight-use-pig]: ../hdinsight-use-pig/
 
 
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

@@ -10,3 +10,5 @@
 - [(Xamarin iOS | Javascript)](/ko-kr/documentation/articles/partner-xamarin-mobile-services-ios-validate-modify-data-server-scripts/)
 - [(Xamarin Android | Javascript)](/ko-kr/documentation/articles/partner-xamarin-mobile-services-android-validate-modify-data-server-scripts/)
 - [(HTML | Javascript)](/ko-kr/documentation/articles/mobile-services-html-validate-modify-data-server-scripts/)
+
+<!--HONumber=42-->

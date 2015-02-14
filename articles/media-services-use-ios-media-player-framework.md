@@ -1,10 +1,24 @@
-﻿<properties urlDisplayName="iOS Media Player Framework" pageTitle="Azure 미디어 서비스와 함께 iOS 미디어 플레이어 프레임워크 사용" metaKeywords="" description="미디어 서비스 iOS 미디어 플레이어 프레임워크 라이브러리를 사용하여 다양한 기능을 제공하는 동적 앱을 만드는 방법에 대해 알아봅니다." metaCanonical="" services="media-services" documentationCenter="" title="How to use the Azure Media Services iOS Media Player Framework" authors="juliako" solutions="" manager="dwrede" editor="" />
+<properties 
+	pageTitle="Azure 미디어 서비스와 함께 iOS 미디어 플레이어 프레임워크 사용" 
+	description="미디어 서비스 iOS 미디어 플레이어 프레임워크 라이브러리를 사용하여 다양한 기능을 제공하는 동적 앱을 만드는 방법에 대해 알아봅니다." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="mobile-ios" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako" />
+<tags 
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="mobile-ios" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/30/2014" 
+	ms.author="juliako"/>
 
 
 
-#Azure 미디어 서비스 iOS 미디어 플레이어 프레임워크를 사용하는 방법
+# Azure 미디어 서비스 iOS 미디어 플레이어 프레임워크를 사용하는 방법
 
 Azure 미디어 서비스 iOS 미디어 플레이어 프레임워크 라이브러리를 사용하면 iPod, iPhone 및 iPad 개발자가 즉석에서 비디오 및 오디오 스트림을 만들고 혼합하는 풍부한 동적 클라이언트 응용 프로그램을 쉽게 만들 수 있습니다. 예를 들어 스포츠 콘텐츠를 표시하는 응용 프로그램은 선택한 위치에 광고를 쉽게 삽입할 수 있으며, 주요 콘텐츠가 되감기는 경우에도 광고가 표시되는 빈도를 제어할 수 있습니다. 교육 응용 프로그램은 동일한 기능을 사용하여 주요 콘텐츠로 돌아가기 전에 주요 강의에 보충 내용이나 사이드바가 포함된 콘텐츠를 만들 수 있습니다.
 
@@ -30,14 +44,13 @@ SDK에는 이러한 기능을 사용하여 즉석에서 콘텐츠 스트림을 �
 
 2. `azure-media-player-framework/src/iOS/HLSClient/`에 있는 **SamplePlayer.xcodeproj** 프로젝트를 엽니다.
 
- 
 3. 샘플 플레이어의 구조는 다음과 같습니다.
 
 ![HLS Sample Code structure](http://mingfeiy.com/wp-content/uploads/2013/01/HLS-Structure.png)
 
 4. iPad 폴더 아래에는 두 개의 .xib 파일 **SeekbarViewController** 및 **SamplePlayerViewController**가 있습니다. 두 파일은 iPad 응용 프로그램 UI 레이아웃을 만듭니다. 마찬가지로, iPhone 폴더 아래에는 검색 표시줄과 컨트롤러를 정의하는 두 개의 .xib 파일이 있습니다. 
 
-6. 주요 응용 프로그램 논리는 'Shared' 폴더 아래의 **SamplePlayerViewController.m**에 있습니다. 아래 설명된 코드 조각은 대부분 이 파일에 있습니다. 
+6. 주요 응용 프로그램 논리는 `Shared` 폴더 아래의 **SamplePlayerViewController.m**에 있습니다. 아래 설명된 코드 조각은 대부분 이 파일에 있습니다. 
 
 ## UI 레이아웃 이해
 플레이어 인터페이스를 정의하는 두 개의 .xib 파일이 있습니다. 다음 논의에서는 iPad 레이아웃을 예로 사용하지만 iPhone 레이아웃도 유사하며 원칙은 동일합니다.
@@ -59,7 +72,7 @@ SDK에는 이러한 기능을 사용하여 즉석에서 콘텐츠 스트림을 �
 
 * **플레이어 시간** 컨트롤은 (`Label:playerTime`)을 두 번 보여 줍니다(예: 00:23/02:10). 이 경우 00:23은 현재 재생 시간이고 02:10은 미디어의 전체 기간입니다. 
 
-* **SkipFroward 및 SkipBackward 단추**는 현재 예상대로 작동하지 않습니다. 업데이트된 버전이 곧 릴리스될 예정입니다.
+* **SkipFroward 및 SkipBackward 단추**  는 현재 예상대로 작동하지 않습니다. 업데이트된 버전이 곧 릴리스될 예정입니다.
 
 * 주요 콘텐츠가 재생되는 동안 **지금 예약 단추**를 누르면 광고가 삽입됩니다. 코드 숨김에서 광고 원본 URL을 정의할 수 있습니다. 참고: 현재 버전에서는 다른 광고가 재생되는 동안 광고를 예약할 수 없습니다. 
 
@@ -100,7 +113,7 @@ SDK에는 이러한 기능을 사용하여 즉석에서 콘텐츠 스트림을 �
         [self logFrameworkError];
     }
 
-이전 코드 뒤에 이 작업을 수행하면 주요 콘텐츠 타임라인에 콘텐츠 스트림 두 개가 예약됩니다. 첫 번째 콘텐츠는 'URLWithString:url'을 기준으로 예약되고 두 번째 콘텐츠는 'URLWithString:secondContent'를 기준으로 예약됩니다. 두 번째 콘텐츠의 경우 미디어 스트림 시작부터 30초 지점에서 콘텐츠가 시작되고 80초에서 종료됩니다. 
+이전 코드 뒤에 이 작업을 수행하면 주요 콘텐츠 타임라인에 콘텐츠 스트림 두 개가 예약됩니다. 첫 번째 콘텐츠는 `URLWithString:url`을 기준으로 예약되고 두 번째 콘텐츠는 `URLWithString:secondContent`를 기준으로 예약됩니다. 두 번째 콘텐츠의 경우 미디어 스트림 시작부터 30초 지점에서 콘텐츠가 시작되고 80초에서 종료됩니다. 
 
 ## 광고 일정 
 현재 릴리스에서는 **pauseTimeline=false** 광고만 지원되므로 광고가 종료된 후 플레이어에서 주요 콘텐츠가 중단된 위치부터 시작됩니다. 
@@ -114,7 +127,7 @@ SDK에는 이러한 기능을 사용하여 즉석에서 콘텐츠 스트림을 �
 </ul>
 ### 프리롤, 중간롤 및 포스트롤 광고와 광고 포드를 예약하는 방법
 
-####프리롤 광고 예약
+#### 프리롤 광고 예약
 
     LinearTime *adLinearTime = [[[LinearTime alloc] init] autorelease];
     NSString *adURLString = @"http://smoothstreamingdemo.blob.core.windows.net/videoasset/WA-BumpShort_120530-1.mp4";
@@ -134,16 +147,16 @@ SDK에는 이러한 기능을 사용하여 즉석에서 콘텐츠 스트림을 �
 
 **AdInfo** 개체는 광고 클립에 대한 모든 정보를 나타냅니다.
 * **ClipURL**은 클립 원본의 URL입니다.
-* **mediaTime** 속성은 광고가 재생되는 기간을 나타냅니다. **clipBeginMediaTime**은 광고의 시작 시간이고 **clipEndMediaTime**은 광고의 끝을 정의합니다. 이전 샘플 코드는 0부터 시작하여 5초 광고 기간까지 5초 동안 광고를 예약합니다.
+* **mediaTime** 속성은 광고가 재생되는 기간을 나타냅니다. (**clipBeginMediaTime**은 광고 시작 시간이고 **clipEndMediaTime**은 광고 종료를 정의합니다.) 이전 샘플 코드는 0부터 시작하여 5초 광고 기간까지 5초 동안 광고를 예약합니다.
 * **Policy** 개체는 현재 프레임워크에서 사용되지 않습니다.
 * 광고 포드가 아닌 경우 **appendTo** 값을 -1로 설정해야 합니다. 
 * **type** 값은 프리롤, 중간롤, 포스트롤 또는 광고 포드일 수 있습니다. 프리롤 또는 포스트롤의 경우 관련 타이밍이 없으므로 유형을 지정합니다. 
 
-####중간롤 광고 예약
+#### 중간롤 광고 예약
 
 이전 코드 샘플에 `adLinearTime.startTime = 23;`을 추가하면 주요 콘텐츠 타임라인의 23초에서 광고 재생이 시작됩니다.
 
-####포스트롤 광고 예약
+#### 포스트롤 광고 예약
 
     //Schedule Post Roll Ad
     NSString *postAdURLString=@"http://wamsblureg001orig-hs.cloudapp.net/aa152d7f-3c54-487b-ba07-a58e0e33280b/wp-m3u8-aapl.ism/Manifest(format=m3u8-aapl)";
@@ -195,14 +208,13 @@ SDK에는 이러한 기능을 사용하여 즉석에서 콘텐츠 스트림을 �
     }
 
 여기서 확인할 몇 가지 사항은 다음과 같습니다.
-* 첫 번째 클립에서 **appendTo**는 -1입니다. `[framework scheduleClip:adpodInfo1 atTime:adLinearTime forType:PlaylistEntryType_Media andGetClipId:&adIndex]`를 호출할 때 'adIndex'는 광고 포드에서 이 첫 번째 클립의 끝을 나타내는 고유한 값을 받습니다. 광고 포드의 두 번째 클립에서 **appendTo**를 'adpodInfo2.appendTo = adIndex;'로 설정하여 두 번째 광고의 시작을 첫 번째 광고의 끝과 일치시킵니다. 이 경우 첫 번째 클립의 끝 위치가 두 번째 클립의 시작 위치로 지정됩니다. 
-* 유형을 'AdType_Pod'로 설정하여 광고 포드임을 나타내야 합니다. 
+* 첫 번째 클립에서 **appendTo**는 -1입니다. `[framework scheduleClip:adpodInfo1 atTime:adLinearTime forType:PlaylistEntryType_Media andGetClipId:&adIndex]`를 호출할 때 `adIndex`는 광고 포드에서 이 첫 번째 클립의 끝을 나타내는 고유한 값을 받습니다. 광고 포드의 두 번째 클립에서 **appendTo**를 `adpodInfo2.appendTo = adIndex;`로 설정하여 두 번째 광고의 시작을 첫 번째 광고의 끝과 일치시킵니다. 이 경우 첫 번째 클립의 끝 위치가 두 번째 클립의 시작 위치로 지정됩니다. 
+* 유형을 `AdType_Pod`로 설정하여 광고 포드임을 나타내야 합니다. 
 
 ### 한 번 재생 또는 "고정" 광고를 예약하는 방법
     AdInfo *oneTimeInfo = [[[AdInfo alloc] init] autorelease];
     oneTimeInfo.deleteAfterPlay = YES;
 
 이전 코드 예제와 같이 **deleteAfterPlay**를 **YES**로 설정하면 이 광고가 한 번만 재생됩니다. **deleteAfterPlay**를 **NO**로 설정하면 이 광고가 계속 재생되며 "고정 광고"라고 합니다.
-### 자세한 내용은 [Azure 미디어 플레이어 프레임워크 위키](https://github.com/WindowsAzure/azure-media-player-framework/wiki) (영문)를 참조하세요.
-
-<!--HONumber=35.1-->
+### 자세한 내용은 [Azure 미디어 플레이어 프레임워크 위키](https://github.com/WindowsAzure/azure-media-player-framework/wiki)(영문)를 참조하세요.
+<!--HONumber=42-->

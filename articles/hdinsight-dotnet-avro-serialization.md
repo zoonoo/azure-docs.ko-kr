@@ -1,6 +1,20 @@
-<properties urlDisplayName="HDInsight Microsoft .NET Library for Serialization with Avro" pageTitle="Microsoft Avro 라이브러리로 데이터 직렬화 | Azure" metaKeywords="" description="Azure HDInsight에서 Avro를 사용하여 빅 데이터를 직렬화하는 방법에 대해 알아봅니다." metaCanonical="" services="hdinsight" documentationCenter="" title="Serialize data with the Microsoft Avro Library " authors="bradsev" solutions="" manager="paulettm" editor="cgronlun" />
+﻿<properties 
+	pageTitle="라이브러리로 데이터 직렬화 | Azure" 
+	description="Azure HDInsight에서 Avro를 사용하여 빅 데이터를 직렬화하는 방법에 대해 알아봅니다." 
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="bradsev" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/10/2014" ms.author="bradsev" />
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/10/2014" 
+	ms.author="bradsev"/>
 
 
 # Microsoft Avro 라이브러리로 데이터 직렬화
@@ -32,7 +46,7 @@ Apache Avro 직렬화 형식은 Azure HDInsight 및 기타 Apache Hadoop 환경�
 .NET Library for Avro는 다음과 같은 두 가지 방식으로 개체를 직렬화할 수 있도록 지원합니다.
 
 - **리플렉션**: 해당 형식에 대한 JSON 스키마는 직렬화될 수 있게 .NET 형식의 데이터 계약 특성에서 자동으로 빌드됩니다. 
-- **제네릭 레코드**: JSON 스키마는 데이터를 직렬화하기 위한 스키마를 설명하도록 .NET 유형이 제공되지 않을 경우 [**AvroRecord**](http://msdn.microsoft.com/ko-kr/library/microsoft.hadoop.avro.avrorecord.aspx) 클래스로 표현되는 레코드에서 명시적으로 지정됩니다. 
+- **제네릭 레코드**: JSON 스키마는 직렬화할 데이터의 스키마를 설명하는 .NET 형식이 존재하지 않을 때 [**AvroRecord**](http://msdn.microsoft.com/ko-kr/library/microsoft.hadoop.avro.avrorecord.aspx)(영문) 클래스로 표현되는 레코드에 명시적으로 지정됩니다. 
 
 데이터 스키마가 스트림의 기록기 및 판독기 둘 다로 알려져 있으면 데이터를 스키마 없이 전송할 수 있습니다. Avro 개체 컨테이너 파일이 사용되는 경우 스키마는 파일 내에 저장됩니다. 데이터 압축에 사용되는 코덱과 같은 기타 매개 변수를 지정할 수 있습니다. 이러한 시나리오는 아래 코드 예에 좀 더 자세히 설명되어 있습니다.
 
@@ -46,7 +60,7 @@ Newtonsoft.Json.dll 종속성은 다음 섹션에 제공된 절차인 Microsoft 
 ##<a name="installation"></a> Microsoft Avro 라이브러리 설치
 Microsoft Avro 라이브러리는 다음 절차를 사용하여 Visual Studio에서 설치할 수 있는 NuGet 패키지로 배포됩니다. 
 
-- **프로젝트 탭** -> **NuGet 패키지 관리...**를 선택합니다.
+- **프로젝트** 탭 -> **NuGet 패키지 관리...**를 선택합니다.
 - **온라인 검색** 상자에 "Microsoft.Hadoop.Avro"를 입력하여 검색합니다.
 - **Microsoft Avro 라이브러리** 옆의 **설치** 단추를 클릭합니다. 
 
@@ -68,7 +82,7 @@ Microsoft Avro 라이브러리에는 이전에 정의된 JSON 스키마에 따�
 4. 컴파일된 유틸리티는 C:\SDK\Bin\Unsigned\Release\Microsoft.Hadoop.Avro.Tools에 있습니다.
 
 
-명령줄 구문에 익숙해지려면 코드 생성 유틸리티가 있는 폴더에서 다음 명령을 실행합니다. `Microsoft.Hadoop.Avro.Tools help /c:codegen`
+명령줄 구문에 익숙해지려면 코드 생성 유틸리티가 있는 폴더에서 다음 명령을 실행합니다.  `Microsoft.Hadoop.Avro.Tools help /c:codegen`
 
 유틸리티를 테스트하기 위해 소스 코드와 함께 제공되는 샘플 JSON 스키마 파일에서 C# 클래스를 생성할 수 있습니다. 다음 명령을 실행합니다.
 
@@ -97,16 +111,16 @@ JSON 스키마를 C# 형식으로 변환하는 동안 코드 생성 유틸리티
 
 이 항목에서 설명된 6개 샘플의 링크는 다음과 같습니다.
 
- * <a href="#Scenario1">**리플렉션을 사용한 직렬화**</a>: 역직렬화할 형식에 대한 JSON 스키마는 데이터 계약 특성에서 자동으로 빌드됩니다.
- * <a href="#Scenario2">**제네릭 레코드를 사용한 역직렬화**</a>: JSON 스키마는 리플렉션에 사용할 수 있는 .NET 형식이 없을 때 레코드에 명시적으로 지정됩니다.
- * <a href="#Scenario3">**개체 컨테이너 파일과 리플렉션을 사용한 직렬화**</a>: JSON 스키마는 자동으로 빌드되고 Avro 개체 컨테이너 파일을 사용하여 직렬화된 데이터와 함께 공유됩니다.
- * <a href="#Scenario4">**개체 컨테이너 파일과 제네릭 레코드를 사용한 직렬화**</a>: JSON 스키마는 직렬화되기 전에 명시적으로 지정되고 Avro 개체 컨테이너 파일을 사용하여 직렬화된 데이터와 함께 공유됩니다.
- * <a href="#Scenario5">**사용자 지정 압축 코덱과 함께 개체 컨테이너 파일을 사용한 직렬화**</a>: 예에서는 deflate 데이터 압축 코덱의 .NET 구현을 사용자 지정하여 Avro 개체 컨테이너 파일을 만드는 방법을 보여 줍니다.
- * <a href="#Scenario6">**Avro를 사용하여 Microsoft Azure HDInsight 서비스에 대한 데이터 업로드**</a>: Avro 직렬화에서 HDInsight 서비스를 조작하는 방법을 보여 줍니다. 이 예를 실행하려면 활성 Azure 구독 및 Microsoft Azure HDInsight 클러스터에 대한 액세스 권한이 필요합니다.
+ * <a href="#Scenario1">**리플렉션을 사용한 직렬화**</a>로 이벤트 처리기 메서드를 수정합니다. 역직렬화할 형식에 대한 JSON 스키마는 데이터 계약 특성에서 자동으로 빌드됩니다.
+ * <a href="#Scenario2">**제네릭 레코드를 사용한 직렬화**</a>로 이벤트 처리기 메서드를 수정합니다. JSON 스키마는 리플렉션에 사용할 수 있는 .NET 형식이 없을 때 레코드에 명시적으로 지정됩니다.
+ * <a href="#Scenario3">**개체 컨테이너 파일과 리플렉션을 사용한 직렬화**</a>로 이벤트 처리기 메서드를 수정합니다. JSON 스키마는 자동으로 빌드되고 Avro 개체 컨테이너 파일을 사용하여 직렬화된 데이터와 함께 공유됩니다.
+ * <a href="#Scenario4">**개체 컨테이너 파일과 제네릭 레코드를 사용한 직렬화**</a>로 이벤트 처리기 메서드를 수정합니다. JSON 스키마는 직렬화되기 전에 명시적으로 지정되고 Avro 개체 컨테이너 파일을 사용하여 직렬화된 데이터와 함께 공유됩니다.
+ * <a href="#Scenario5">**사용자 지정 압축 코덱과 함께 개체 컨테이너 파일을 사용한 직렬화**</a>로 이벤트 처리기 메서드를 수정합니다. 예에서는 deflate 데이터 압축 코덱의 .NET 구현을 사용자 지정하여 Avro 개체 컨테이너 파일을 만드는 방법을 보여 줍니다.
+ * <a href="#Scenario6">**Avro를 사용하여 Microsoft Azure HDInsight 서비스에 대한 데이터 업로드**</a>로 이벤트 처리기 메서드를 수정합니다. Avro 직렬화에서 HDInsight 서비스를 조작하는 방법을 보여 줍니다. 이 예를 실행하려면 활성 Azure 구독 및 Microsoft Azure HDInsight 클러스터에 대한 액세스 권한이 필요합니다.
 
 <h3> <a name="Scenario1"></a>샘플 1: 리플렉션을 사용한 직렬화</h3>
  
-해당 형식에 대한 JSON 스키마는 직렬화될 수 있게 C# 개체의 데이터 계약 특성을 통한 리플렉션을 사용하여 Microsoft Avro 라이브러리에서 자동으로 빌드될 수 있습니다. Microsoft Avro 라이브러리에서는 [**IAvroSeralizer<T>**](http://msdn.microsoft.com/ko-kr/library/dn627341.aspx) 를 만들어 직렬화할 필드를 식별합니다.
+해당 형식에 대한 JSON 스키마는 직렬화될 수 있게 C# 개체의 데이터 계약 특성을 통한 리플렉션을 사용하여 Microsoft Avro 라이브러리에서 자동으로 빌드될 수 있습니다. Microsoft Avro Library는 [**IAvroSeralizer<T>**](http://msdn.microsoft.com/ko-kr/library/dn627341.aspx)를 만들어 직렬화할 필드를 식별합니다.
 
 이 예에서 개체(멤버 **Location** 구조체를 갖는 **SensorData** 클래스)가 메모리 스트림으로 직렬화된 후 이 스트림이 역직렬화됩니다. 그런 다음 초기 인스턴스와 결과를 비교하여 복구된 **SensorData** 개체가 원본과 동일한지 확인합니다.
 
@@ -233,7 +247,7 @@ JSON 스키마를 C# 형식으로 변환하는 동안 코드 생성 유틸리티
 
 .NET 클래스와 데이터 계약을 사용하여 데이터를 표현할 수 없으므로 리플렉션을 사용할 수 없는 경우 제네릭 레코드에 JSON 스키마를 명시적으로 지정할 수 있습니다. 일반적으로 이 방법은 리플렉션 사용보다 더 느립니다. 이러한 경우 데이터의 스키마가 동적이므로 컴파일 시간에 알려지지 않을 수 있습니다. 해당 스키마가 런타임에 Avro 형식으로 변환될 때까지 알려지지 않는 CSV(쉼표로 구분한 값) 파일로 표현된 데이터가 이러한 종류의 동적 시나리오의 예입니다.
 
-이 예에서는 [**AvroRecord**](http://msdn.microsoft.com/ko-kr/library/microsoft.hadoop.avro.avrorecord.aspx) 를 만들고 사용하여 JSON 스키마를 명시적으로 지정하는 방법, 데이터로 채우고 나서 직렬화 및 역직렬화하는 방법을 보여 줍니다. 그런 다음 초기 인스턴스와 결과를 비교하여 복구된 레코드가 원본과 동일한지 확인합니다.
+이 예에서는 [**AvroRecord**](http://msdn.microsoft.com/ko-kr/library/microsoft.hadoop.avro.avrorecord.aspx)(영문)를 만들고 사용하여 JSON 스키마를 명시적으로 지정하는 방법과 데이터로 채운 후 직렬화 및 역직렬화하는 방법을 보여 줍니다. 그런 다음 초기 인스턴스와 결과를 비교하여 복구된 레코드가 원본과 동일한지 확인합니다.
 
 이 예의 스키마는 Avro 개체 컨테이너 형식이 필요 없도록 판독기와 기록기 간에 공유되는 것으로 간주됩니다. 스키마를 직렬화된 데이터에 포함해야 할 경우 제네릭 레코드와 개체 컨테이너 형식을 사용하여 데이터를 메모리 버퍼로 직렬화 및 역직렬화하는 방법의 예를 보려면 <a href="#Scenario4">개체 컨테이너 파일과 제네릭 레코드를 사용한 직렬화</a> 예를 를 참조하세요.
 
@@ -355,11 +369,11 @@ JSON 스키마를 C# 형식으로 변환하는 동안 코드 생성 유틸리티
 
 <h3> <a name="Scenario3"></a>샘플 3: 개체 컨테이너 파일을 사용한 serialization 및 리플렉션을 사용한 serialization</h3>
 
-이 예는 스키마를 직렬화하는 판독기에서 스키마를 모르는 것으로 간주된다는 점을 제외하고 스키마가 리플렉션을 통해 암시적으로 지정되는 <a href="#Scenario1"> 첫 번째 예</a> 의 시나리오와 비슷합니다. 직렬화할 **SensorData** 개체와 암시적으로 지정된 해당 스키마는 [**AvroContainer**](http://msdn.microsoft.com/ko-kr/library/microsoft.hadoop.avro.container.avrocontainer.aspx) 클래스로 표현되는 Avro 개체 컨테이너 파일에 저장됩니다. 
+이 예는 스키마를 직렬화하는 판독기에서 스키마를 모르는 것으로 간주된다는 점을 제외하고 스키마가 리플렉션을 통해 암시적으로 지정되는 <a href="#Scenario1"> 첫 번째 예</a> 의 시나리오와 비슷합니다. 직렬화할 **SensorData** 개체와 암시적으로 지정된 해당 스키마는 [**AvroContainer**](http://msdn.microsoft.com/ko-kr/library/microsoft.hadoop.avro.container.avrocontainer.aspx) 클래스로 표현되는 개체 컨테이너 파일에 저장됩니다. 
 
-이 예의 데이터는 [**SequentialWriter<SensorData>**](http://msdn.microsoft.com/ko-kr/library/dn627340.aspx) 를 통해 직렬화되고 [**SequentialReader<SensorData>**](http://msdn.microsoft.com/ko-kr/library/dn627340.aspx)를 통해 역직렬화됩니다. 그런 후 초기 인스턴스와 결과를 비교하여 ID를 확인합니다.
+이 예에서 데이터는 [**SequentialWriter<SensorData>**](http://msdn.microsoft.com/ko-kr/library/dn627340.aspx)를 사용하여 직렬화되고 [**SequentialReader<SensorData>**](http://msdn.microsoft.com/ko-kr/library/dn627340.aspx)를 사용하여 역직렬화됩니다. 그런 후 초기 인스턴스와 결과를 비교하여 ID를 확인합니다.
 
-개체 컨테이너 파일의 데이터는 .NET Framework 4.0의 기본 [**Deflate**][deflate-100] 압축 코덱을 사용하여 압축됩니다. 
+개체 컨테이너 파일의 데이터는 .NET Framework 4.0의 기본 [**Deflate**][deflate-100] 압축 코덱을 사용하여 압축됩니다. 자세한 내용은 <a href="#Scenario5"> 5번째 예</a> .NET Framework 4.5에 제공되는 더 나은 최신 버전의 [**Deflate**][deflate-110] 압축 코덱을 사용하는 방법은 5번째 예를 참조하세요.
 
     namespace Microsoft.Hadoop.Avro.Sample
     {
@@ -597,7 +611,7 @@ JSON 스키마를 C# 형식으로 변환하는 동안 코드 생성 유틸리티
 
 이 예는 스키마를 역직렬화하는 판독기에서 스키마를 모르는 것으로 간주한다는 점을 제외하고 스키마가 JSON을 통해 명시적으로 지정되는 <a href="#Scenario2"> 두 번째 예</a> 의 시나리오와 비슷합니다. 
 
-테스트 데이터 집합은 명시적으로 정의된 JSON 스키마를 사용하여 [**AvroRecord**](http://msdn.microsoft.com/en-us/library/microsoft.hadoop.avro.avrorecord.aspx) 개체 목록으로 수집되고 [**AvroContainer**](http://msdn.microsoft.com/en-us/library/microsoft.hadoop.avro.container.avrocontainer.aspx) 클래스로 표현되는 개체 컨테이너 파일에 저장됩니다. 이 컨테이너 파일은 압축 해제된 데이터를 메모리 스트림으로 직렬화하여 파일에 저장하는 데 이 데이터가 압축되지 않도록 지정하는 판독기를 만들 때는 [**Codex.Null**](http://msdn.microsoft.com/en-us/library/microsoft.hadoop.avro.container.codec.null.aspx) 매개 변수가 사용됩니다. 
+테스트 데이터 집합은 명시적으로 정의된 JSON 스키마를 사용하여 [**AvroRecord**](http://msdn.microsoft.com/ko-kr/library/microsoft.hadoop.avro.avrorecord.aspx) 개체 목록으로 수집된 후 [**AvroContainer**](http://msdn.microsoft.com/ko-kr/library/microsoft.hadoop.avro.container.avrocontainer.aspx) 클래스로 표현되는 개체 컨테이너 파일에 저장됩니다. 이 컨테이너 파일은 압축 해제된 데이터를 메모리 스트림으로 직렬화하여 파일에 저장하는 데 이 데이터가 압축되지 않도록 지정하는 판독기를 만들 때는 이 데이터가 압축되지 않도록 지정하는 판독기를 만들 때는 [**Codex.Null**](http://msdn.microsoft.com/ko-kr/library/microsoft.hadoop.avro.container.codec.null.aspx) 매개 변수가 사용됩니다. 
 
 그런 후 파일에서 이 데이터를 읽은 다음 개체 컬렉션으로 역직렬화합니다. 이 컬렉션은 Avro 레코드 초기 목록과 비교되어 동일한지 확인됩니다.
 
@@ -858,9 +872,9 @@ JSON 스키마를 C# 형식으로 변환하는 동안 코드 생성 유틸리티
 
 <h3> <a name="Scenario5"></a>샘플 5: 사용자 지정 압축 코덱과 함께 개체 컨테이너 파일을 사용한 직렬화</h3>
 
-5번째 예는 Avro 개체 컨테이너 파일에 대해 사용자 지정 압축 코덱을 사용하는 방법을 보여 줍니다. 이 예에 대한 코드를 포함하는 샘플은 [Azure 코드 샘플](http://code.msdn.microsoft.com/windowsazure/Serialize-data-with-the-67159111) (영문) 사이트에서 다운로드할 수 있습니다.
+5번째 예는 Avro 개체 컨테이너 파일에 대해 사용자 지정 압축 코덱을 사용하는 방법을 보여 줍니다. 이 예에 대한 코드를 포함하는 샘플은 [Azure 코드 샘플](http://code.msdn.microsoft.com/windowsazure/Serialize-data-with-the-67159111)(영문) 사이트에서 다운로드할 수 있습니다.
 
-[Avro 사양](http://avro.apache.org/docs/current/spec.html#Required+Codecs) 에서는 **Null** 및 **Deflate** 기본값 이외에 선택적 압축 코덱 사용을 허용합니다. 이 예는 Snappy([Avro 사양에 지원되는 선택적 코덱으로 명시](http://avro.apache.org/docs/current/spec.html#snappy))와 같은 완전히 새로운 코덱은 구현하지 않습니다. 기본 .NET Framework 4.0 버전이 아니라 [zlib] 압축 라이브러리에 기반을 둔 향상된 압축 알고리즘을 제공하는 [**Deflate**][deflate-110](http://zlib.net/) 코덱의 .NET Framework 4.5 구현을 사용하는 방법을 보여 줍니다.
+[Avro 사양](http://avro.apache.org/docs/current/spec.html#Required+Codecs)에서는 기본값인 **Null** 및 **Deflate** 외에도 선택적 압축 코덱을 사용할 수 있게 허용합니다. 이 예는 Snappy([Avro 사양에 지원되는 선택적 코덱으로 명시](http://avro.apache.org/docs/current/spec.html#snappy)) 같은 완전히 새로운 코덱을 구현하지 않습니다. 여기서는 기본 .NET Framework 4.0 버전보다 더 나은 [zlib](http://zlib.net/) 압축 라이브러리 기반의 압축 알고리즘을 제공하는 .NET Framework 4.5에서 구현된 [**Deflate**][deflate-110] 코덱 사용 방법을 보여 줍니다.
 
 
     // 
@@ -1353,14 +1367,14 @@ JSON 스키마를 C# 형식으로 변환하는 동안 코드 생성 유틸리티
     // ----------------------------------------
     // Press any key to exit.
 
-<h3> <a name="Scenario6"></a> 예 6: Avro를 사용하여 Microsoft Azure HDInsight 서비스에 대한 데이터 업로드</h3>
+<h3> <a name="Scenario6"></a> 예제 6: Avro를 사용하여 Microsoft Azure HDInsight 서비스에 대한 데이터 업로드</h3>
 
-6번째 예는 Microsoft Azure HDInsight 서비스 조작과 관련된 몇 가지 프로그래밍 기법을 보여 줍니다. 이 예에 대한 코드를 포함하는 샘플은[Azure 코드 샘플](https://code.msdn.microsoft.com/windowsazure/Using-Avro-to-upload-data-ae81b1e3) (영문) 사이트에서 다운로드할 수 있습니다.
+6번째 예는 Microsoft Azure HDInsight 서비스 조작과 관련된 몇 가지 프로그래밍 기법을 보여 줍니다. 이 예에 대한 코드를 포함하는 샘플은 [Azure 코드 샘플](https://code.msdn.microsoft.com/windowsazure/Using-Avro-to-upload-data-ae81b1e3)(영문) 사이트에서 다운로드할 수 있습니다.
 
 이 샘플은 다음을 수행합니다.
 
 * 기존 HDInsight 서비스 클러스터에 연결합니다.
-* 여러 CSV 파일을 직렬화하고 결과를 Azure Blob 저장소에 업로드합니다. CSV 파일은 샘플과 함께 배포되고 1970-2010 기간에 [Infochimps](http://www.infochimps.com/) 를 통해 배포된 AMEX Stock 기록 데이터에서 추출된 자료를 나타냅니다. 이 샘플은 CSV 파일 데이터를 읽고, 레코드를 **Stock** 클래스 인스턴스로 변환하고, 리플렉션을 사용하여 직렬화합니다. Stock 형식 정의는 Microsoft Avro 라이브러리 코드 생성 유틸리티를 사용하여 JSON 스키마에서 만들어집니다.
+* 여러 CSV 파일을 직렬화하고 결과를 Azure Blob 저장소에 업로드합니다. (CSV 파일은 샘플과 함께 배포되고 1970-2010 기간에 [Infochimps](http://www.infochimps.com/)로 배포된 AMEX 증권 기록 데이터의 추출을 나타냅니다. 이 샘플은 CSV 파일 데이터를 읽고, 레코드를 **Stock** 클래스 인스턴스로 변환하고, 리플렉션을 사용하여 직렬화합니다. Stock 형식 정의는 Microsoft Avro 라이브러리 코드 생성 유틸리티를 사용하여 JSON 스키마에서 만들어집니다.
 * Hive에서 **Stocks**라는 새 외부 테이블을 만들고 이전 단계에서 업로드한 데이터에 연결합니다.
 * Hive를 사용하여 **Stocks** 테이블에 대해 쿼리를 실행합니다.
 
@@ -1394,5 +1408,4 @@ JSON 스키마를 C# 형식으로 변환하는 동안 코드 생성 유틸리티
 [deflate-110]: http://msdn.microsoft.com/ko-kr/library/system.io.compression.deflatestream(v=vs.110).aspx
 
 
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

@@ -1,8 +1,22 @@
-﻿<properties urlDisplayName="Media Services" pageTitle="미디어 서비스 사용 방법(.NET) - Azure 기능 가이드" metaKeywords="Azure Media Services, Azure media, Azure streaming, azure media, azure streaming, azure encoding" description="Azure 미디어 서비스를 사용하여 리소스 인코딩, 암호화, 스트리밍 등의 일반적인 작업을 수행하는 방법에 대해 설명합니다." metaCanonical="" services="media-services" documentationCenter="Java" title="How to Use Media Services" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
+﻿<properties 
+	pageTitle="미디어 서비스 사용 방법(.NET) - Azure 기능 가이드" 
+	description="Azure 미디어 서비스를 사용하여 리소스 인코딩, 암호화, 스트리밍 등의 일반적인 작업을 수행하는 방법에 대해 설명합니다." 
+	services="media-services" 
+	documentationCenter="java" 
+	authors="rmcmurray" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="robmcm" />
+<tags 
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/30/2014" 
+	ms.author="robmcm"/>
 
-#미디어 서비스 사용 방법
+# 미디어 서비스 사용 방법
 
 이 가이드에서는 Java를 사용하여 Azure 미디어 서비스로 프로그래밍을 시작하는 방법을 보여 줍니다. 이 가이드에는 미디어 서비스의 기술 개요, 미디어 서비스를 위해 Azure 계정을 구성하는 단계 및 일반적인 프로그래밍 작업을 수행하는 방법을 보여 주는 코드가 포함되어 있습니다. 
 
@@ -15,7 +29,7 @@
 -   [추가 리소스](#additional-resources)
 
  
-##<a id="media_services"></a>미디어 서비스 정의
+## <a id="media_services"></a>미디어 서비스 정의
 
 Azure 미디어 서비스는 Microsoft Media Platform 및 타사 미디어 구성 요소의 장점을 통합하는 확장 가능한 미디어 플랫폼을 Azure에 구성합니다. 미디어 서비스는 업계 파트너가 구성 요소 기술을 확장하거나 대체할 수 있는 미디어 파이프라인을 클라우드에 제공합니다. ISV 및 미디어 공급자는 미디어 서비스를 사용하여 종단 간 미디어 솔루션을 빌드할 수 있습니다. 이 개요에서는 미디어 서비스에 대한 일반적인 아키텍처 및 개발 시나리오에 대해 설명합니다.
 
@@ -23,19 +37,19 @@ Azure 미디어 서비스는 Microsoft Media Platform 및 타사 미디어 구�
 
 ![Media Services Architecture](./media/media-services-dotnet-how-to-use/wams-01.png)
 
-###미디어 서비스 기능 지원
+### 미디어 서비스 기능 지원
 최신 미디어 서비스 릴리스는 클라우드에서 미디어 응용 프로그램을 개발하기 위해 다음 기능 집합을 제공합니다. 
 
 - **수집**. 수집 작업은 자산을 업로드하고 Azure 저장소에 저장되기 전에 암호화하여 자산을 시스템으로 가져옵니다. 미디어 서비스는 RTM 릴리스에서 파트너 구성 요소와 통합되어 빠른 UDP(User Datagram Protocol) 업로드 솔루션을 제공할 예정입니다.
-- **인코드**. 인코딩 작업에는 미디어 자산 인코딩, 변형 및 변환이 포함됩니다. 미디어 서비스에 포함되어 있는 미디어 인코더를 사용하여 클라우드에서 인코딩 작업을 실행할 수 있습니다. 인코딩 옵션은 다음과 같습니다.
+- **인코딩**. 인코딩 작업에는 미디어 자산 인코딩, 변형 및 변환이 포함됩니다. 미디어 서비스에 포함되어 있는 미디어 인코더를 사용하여 클라우드에서 인코딩 작업을 실행할 수 있습니다. 인코딩 옵션은 다음과 같습니다.
    - Azure 미디어 인코더를 사용하고 업계 최고의 IIS 부드러운 스트리밍, MP4, Apple HTTP 라이브 스트리밍으로 변환 등의 다양한 표준 코덱 및 형식으로 작업
    - 입력과 출력을 총체적으로 제어하여 전체 라이브러리 또는 개별 파일 변환
-   - 지원되는 다양한 파일 형식, 형식 및 코덱 집합([미디어 서비스에 대해 지원되는 파일 형식][]).
+   - 지원되는 다양한 파일 형식, 형식 및 코덱 집합([미디어 서비스에 대해 지원되는 파일 형식][] 참조)
    - 지원되는 형식 변환. 미디어 서비스를 통해 ISO MP4(.mp4)를 부드러운 스트리밍 파일 형식(PIFF 1.3)(.ismv; .isma)으로 변환할 수 있습니다. 부드러운 스트리밍 파일 형식(PIFF)을 Apple HTTP 라이브 스트리밍(.msu8, .ts)으로 변환할 수도 있습니다.
 - **보호**. 콘텐츠 보호는 보안 전송, 저장소 및 전달을 위해 라이브 스트리밍 또는 주문형 콘텐츠를 암호화하는 작업입니다. 미디어 서비스는 콘텐츠 보호를 위해 DRM 기술을 알 수 없는 솔루션을 제공합니다.  현재 지원되는 DRM 기술은 Microsoft PlayReady Protection 및 MPEG Common Encryption입니다. 추가 DRM 기술도 지원될 예정입니다. 
-- **스트림**. 콘텐츠 스트리밍은 라이브 또는 주문형으로 콘텐츠를 클라이언트에 보내는 작업입니다. 또는 클라우드에서 특정 미디어 파일을 가져오거나 다운로드할 수 있습니다. 미디어 서비스는 콘텐츠 스트리밍을 위해 형식을 알 수 없는 솔루션을 제공합니다.  미디어 서비스는 스트리밍과 관련해서 부드러운 스트리밍, Apple HTTP 라이브 스트리밍 및 MP4 형식을 지원합니다. 추가 형식도 지원될 예정입니다. 수백만 명의 사용자로 확장하는 옵션을 지원하는 Azure CDN 또는 타사 CDN을 사용하여 스트리밍 콘텐츠를 매끄럽게 제공할 수도 있습니다.   
+- **스트림**. 콘텐츠 스트리밍은 라이브 또는 주문형으로 콘텐츠를 클라이언트에 보내는 작업입니다. 또는 클라우드에서 특정 미디어 파일을 가져오거나 다운로드할 수 있습니다. 미디어 서비스는 콘텐츠 스트리밍을 위해 형식을 알 수 없는 솔루션을 제공합니다.  미디어 서비스는  스트리밍과 관련해서 부드러운 스트리밍, Apple HTTP 라이브 스트리밍 및 MP4 형식을 지원합니다. 추가 형식도 지원될 예정입니다. 수백만 명의 사용자로 확장하는 옵션을 지원하는 Azure CDN 또는 타사 CDN을 사용하여 스트리밍 콘텐츠를 매끄럽게  제공할 수도 있습니다.   
 
-###미디어 서비스 개발 시나리오
+### 미디어 서비스 개발 시나리오
 미디어 서비스는 다음 표의 설명과 같이 여러 가지 일반적인 미디어 개발 시나리오를 지원합니다. 
 <table border="2" cellspacing="0" cellpadding="5" style="border: 2px solid #000000;">
   <thead>
@@ -60,70 +74,70 @@ Azure 미디어 서비스는 Microsoft Media Platform 및 타사 미디어 구�
   </tbody>
 </table>
 
-###미디어 서비스 클라이언트 개발
+### 미디어 서비스 클라이언트 개발
 SDK 및 플레이어 프레임워크를 통해 미디어 클라이언트 응용 프로그램을 빌드하여 미디어 서비스 솔루션의 도달 범위를 확장합니다. 이러한 클라이언트는 다양한 장치와 플랫폼에서 매력적인 사용자 환경을 제공하는 미디어 서비스 응용 프로그램을 빌드하려는 개발자를 위한 것입니다. 빌드하려는 클라이언트 응용 프로그램을 사용할 장치에 따라, Microsoft 및 타사 파트너가 제공하는 SDK 및 플레이어 프레임워크에 대한 옵션을 사용할 수 있습니다.  
 
 사용 가능한 클라이언트 SDK 및 플레이어 프레임워크 목록은 다음과 같습니다.  이러한 SDK 및 플레이어 프레임워크와 기타 계획된 SDK 및 플레이어 프레임워크, 지원할 수 있는 기능에 대한 자세한 내용은 [미디어 서비스 클라이언트 개발](영문)을 참조하세요. 
 
-####Mac 및 PC 클라이언트 지원  
+#### Mac 및 PC 클라이언트 지원  
 PC 및 Mac의 경우 Microsoft Silverlight 또는 Adobe Open Source Media Framework를 사용하여 스트리밍 환경을 대상으로 지정할 수 있습니다.
 
 -	[Silverlight용 부드러운 스트리밍 클라이언트](http://www.iis.net/download/smoothclient)
 -	[Microsoft Media Platform: Silverlight용 플레이어 프레임워크](http://smf.codeplex.com/documentation)
--	[OSMF용 부드러운 스트리밍 플러그 인 2.0](http://go.microsoft.com/fwlink/?LinkId=275022). 이 플러그 인을 사용하는 방법에 대한 자세한 내용은 [Adobe Open Source Media Framework용 부드러운 스트리밍 플러그 인을 사용하는 방법](http://go.microsoft.com/fwlink/?LinkId=275034).
+-	[OSMF용 부드러운 스트리밍 플러그 인 2.0](http://go.microsoft.com/fwlink/?LinkId=275022). 이 플러그 인을 사용하는 방법에 대한 자세한 내용은 [Adobe Open Source Media Framework용 부드러운 스트리밍 플러그 인을 사용하는 방법](http://go.microsoft.com/fwlink/?LinkId=275034)(영문)을 참조하세요.
 
-####Windows 8 응용 프로그램
+#### Windows 8 응용 프로그램
 Windows 8의 경우 HTML, Javascript, XAML, C#, C+ 등의 지원되는 개발 언어와 구문을 사용하여 Windows 스토어 응용 프로그램을 빌드할 수 있습니다.
 
--	[Smooth Streaming Client SDK for Windows 8](http://go.microsoft.com/fwlink/?LinkID=246146). 이 SDK를 사용하여 Windows 스토어 응용 프로그램을 만드는 방법에 대한 자세한 내용은 [부드러운 스트리밍 Windows 스토어 응용 프로그램을 빌드하는 방법](http://go.microsoft.com/fwlink/?LinkId=271647)을 참조하세요. HTML5로 부드러운 스트리밍 플레이어를 만드는 방법에 대한 자세한 내용은 [연습: 첫 번째 HTML5 부드러운 스트리밍 플레이어 빌드](http://msdn.microsoft.com/ko-kr/library/jj573656.aspx)를 참조하세요.
+-	[Smooth Streaming Client SDK for Windows 8](http://go.microsoft.com/fwlink/?LinkID=246146). 이 SDK를 사용하여 Windows 스토어 응용 프로그램을 만드는 방법에 대한 자세한 내용은 [부드러운 스트리밍 Windows 스토어 응용 프로그램을 빌드하는 방법](http://go.microsoft.com/fwlink/?LinkId=271647)(영문)을 참조하세요. HTML5로 부드러운 스트리밍 플레이어를 만드는 방법에 대한 자세한 내용은 [연습: 첫 번째 HTML5 부드러운 스트리밍 플레이어 빌드](http://msdn.microsoft.com/ko-kr/library/jj573656.aspx)(영문)를 참조하세요.
 
 -	[Microsoft Media Platform: Windows 8 Windows 스토어 응용 프로그램용 플레이어 프레임워크](http://playerframework.codeplex.com/wikipage?title=Player%20Framework%20for%20Windows%208%20Metro%20Style%20Apps&referringTitle=Home)
 
-####Xbox
+#### Xbox
 Xbox는 부드러운 스트리밍 콘텐츠를 사용할 수 있는 Xbox LIVE 응용 프로그램을 지원합니다. Xbox LIVE ADK(응용 프로그램 개발 키트)에는 다음 항목이 포함되어 있습니다.
 
 -	Xbox LIVE ADK용 부드러운 스트리밍 클라이언트
 -	Microsoft Media Platform: Xbox LIVE ADK용 플레이어 프레임워크
 
-####포함된 장치 또는 전용 장치
+#### 포함된 장치 또는 전용 장치
 연결된 TV, 셋톱 박스, Blu-Ray 플레이어, OTT TV 박스, 모바일 장치 등 사용자 지정 응용 프로그램 개발 프레임워크 및 사용자 지정 미디어 파이프라인이 있는 장치. Microsoft는 사용이 허가될 수 있는 다음 포팅 키트를 제공하며 파트너가 플랫폼에 대한 부드러운 스트리밍 재생을 포팅할 수 있게 합니다.
 
 -	[부드러운 스트리밍 클라이언트 포팅 키트](http://www.microsoft.com/ko-kr/mediaplatform/sspk.aspx)
 -	[Microsoft PlayReady 장치 포팅 키트](http://www.microsoft.com/PlayReady/Licensing/device_technology.mspx)
 
-####Windows Phone
+#### Windows Phone
 Microsoft는 Windows Phone용 프리미엄 비디오 응용 프로그램을 빌드하는 데 사용할 수 있는 SDK를 제공합니다. 
 
 -	[Silverlight용 부드러운 스트리밍 클라이언트](http://www.iis.net/download/smoothclient)
 -	[Microsoft Media Platform: Silverlight용 플레이어 프레임워크](http://smf.codeplex.com/documentation)
 
-####iOS 장치
+#### iOS 장치
 iPhone, iPod 및 iPad를 비롯한 iOS 장치의 경우 Microsoft는 프리미엄 비디오 콘텐츠를 제공하기 위해 이러한 플랫폼용 응용 프로그램을 빌드하는 데 사용할 수 있는 SDK, 즉 Smooth Streaming SDK for iOS Devices with PlayReady를 제공합니다.  이 SDK는 라이선스 실시권자만 사용할 수 있습니다. 자세한 내용은 [Microsoft에 메일로 문의](mailto:askdrm@microsoft.com)하세요. iOS 개발에 대한 자세한 내용은 [iOS 개발자 센터](https://developer.apple.com/devcenter/ios/index.action)를 참조하세요.
 
-####Android 장치
-여러 Microsoft 파트너는 Android 장치에서 부드러운 스트리밍을 재생하는 기능을 추가하는 Android 플랫폼용 SDK를 제공합니다. 해당 파트너에 대한 자세한 내용은 [Microsoft에 메일로 문의](mailto:sspkinfo@microsoft.com?subject=Partner%20SDKs%20for%20Android%20Devices) 하세요.
+#### Android 장치
+여러 Microsoft 파트너는 Android 장치에서 부드러운 스트리밍을 재생하는 기능을 추가하는 Android 플랫폼용 SDK를 제공합니다. 해당 파트너에 대한 자세한 내용은 [Microsoft에 메일로 문의](mailto:sspkinfo@microsoft.com?subject=Partner%20SDKs%20for%20Android%20Devices)하세요.
 
 
-##<a id="setup-account"></a>미디어 서비스용 Azure 계정 설정
+## <a id="setup-account"></a>미디어 서비스용 Azure 계정 설정
 
 미디어 서비스 계정을 설정하려면 Azure 관리 포털을 사용하세요. [미디어 서비스 계정을 만드는 방법][](영문)을 참조하세요. 관리 포털에서 계정을 만들면 미디어 서비스 개발을 위해 컴퓨터를 설정할 준비가 됩니다. 
 
-##<a id="setup-dev"></a>미디어 서비스 개발을 위한 설정
+## <a id="setup-dev"></a>미디어 서비스 개발을 위한 설정
 
 이 섹션에는 Media Services SDK for Java를 사용하는 미디어 서비스 개발에 대한 일반적인 필수 조건이 들어 있습니다.
 
-###필수 조건
+### 필수 조건
 
 -   신규 또는 기존 Azure 구독의 미디어 서비스 계정. [미디어 서비스 계정을 만드는 방법][](영문)을 참조하세요.
--   [Azure Java 개발자 센터][]에서 설치할 수 있는 Java용 Azure 라이브러리.
+-   [Azure Java 개발자 센터][](영문)에서 설치할 수 있는 Java용 Azure 라이브러리.
 
-##<a if="connect"></a>방법: Java에서 미디어 서비스 사용
+## <a if="connect"></a>방법: Java에서 미디어 서비스 사용
 
 다음 코드에서는 자산을 만들고, 미디어 파일을 자산에 업로드하고, 자산 변환 태스크를 포함하는 작업을 실행하고, 변환된 자산의 출력 파일을 다운로드하는 방법을 보여 줍니다.
 
 이 코드를 사용하기 전에 미디어 서비스 계정을 설정해야 합니다. 계정 설정에 대한 자세한 내용은 [미디어 서비스 계정을 만드는 방법](http://www.windowsazure.com/ko-kr/manage/services/media-services/how-to-create-a-media-services-account/)(영문)을 참조하세요.
 
-`clientId` 및 `clientSecret` 변수를 원하는 값으로 바꿉니다. 또한 이 코드는 로컬로 저장된 `c:/media/MPEG4-H264.mp4` 파일의 영향을 받습니다. 사용할 자체 파일을 제공해야 합니다. 또한 이 코드에는 출력 파일이 다운로드되는 출력 폴더 `c:/output`도 필요합니다.
+ `clientId` 및 `clientSecret` 변수를 원하는 값으로 바꿉니다. 코드는 또한 로컬에 저장된 다음 파일에 따라 다릅니다. `c:/media/MPEG4-H264.mp4`. You'll need to provide your own file to use. The code also requires an output folder, `c:/output` 이는 출력 파일이 다운로드되는 위치입니다.
 
 	import java.io.*;
 	import java.net.URI;
@@ -407,7 +421,7 @@ iPhone, iPod 및 iPad를 비롯한 iOS 장치의 경우 Microsoft는 프리미�
 
 만드는 자산은 Azure 저장소에 저장됩니다. 그렇지만 Azure 미디어 서비스 API(Azure 저장소 API가 아님)만 사용하여 자산을 추가하거나 업데이트하거나 삭제하도록 합니다.
 
-###사용할 수 있는 미디어 프로세서 확인
+### 사용할 수 있는 미디어 프로세서 확인
 
 위의 코드에서는 특정 미디어 프로세서 이름을 통해 액세스하여 미디어 프로세서를 사용했습니다. 둘 이상의 버전이 있으면 마지막 버전이 사용됩니다. 사용할 수 있는 미디어 프로세서를 확인하려면 다음 코드를 사용할 수 있습니다.
 
@@ -431,12 +445,12 @@ iPhone, iPod 및 iPad를 비롯한 iOS 장치의 경우 Microsoft는 프리미�
     System.out.println("Processor named " + mediaProcessorName + 
                        " has ID of " + processor.getId());
 
-###작업 취소
+### 작업 취소
 처리가 끝나지 않은 작업을 취소해야 할 경우 다음 코드에 작업 ID별로 작업을 취소하는 방법이 나와 있습니다.
 
     mediaService.action(Job.cancel(jobId));
 
-##< id="additional-resources"></a>추가 리소스
+## <a id="additional-resources"></a>추가 리소스
 
 미디어 서비스 Javadoc 설명서에 대해서는 [Java용 Azure 라이브러리 설명서][](영문)를 참조하세요.
 
@@ -447,5 +461,4 @@ iPhone, iPod 및 iPad를 비롯한 iOS 장치의 경우 Microsoft는 프리미�
   [Java용 Azure 라이브러리 설명서]: http://dl.windowsazure.com/javadoc/
   [미디어 서비스 클라이언트 개발]: http://msdn.microsoft.com/ko-kr/library/windowsazure/dn223283.aspx
 
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

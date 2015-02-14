@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Queue Service" pageTitle="큐 서비스 사용 방법(Node.js) | Microsoft Azure" metaKeywords="Azure Queue Service get messages Node.js" description="Azure 큐 서비스를 사용하여 큐를 작성 및 삭제하고 메시지를 삽입하고 가져오고 삭제하는 방법에 대해 알아봅니다. 샘플은 Node.js로 작성되었습니다." metaCanonical="" services="storage" documentationCenter="nodejs" title="How to Use the Queue Service from Node.js" authors="larryfr" solutions="" manager="wpickett" editor="" />
+<properties 
+	pageTitle="큐 서비스 사용 방법(Node.js) | Microsoft Azure" 
+	description="Azure 큐 서비스를 사용하여 큐를 작성 및 삭제하고 메시지를 삽입하고 가져오고 삭제하는 방법에 대해 알아봅니다. 샘플은 Node.js로 작성되었습니다." 
+	services="storage" 
+	documentationCenter="nodejs" 
+	authors="MikeWasson" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="mwasson" />
+<tags 
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="nodejs" 
+	ms.topic="article" 
+	ms.date="09/17/2014" 
+	ms.author="mwasson"/>
 
 
 
@@ -8,16 +22,20 @@
 
 # Node.js에서 큐 서비스를 사용하는 방법
 
-이 가이드에서는 Azure 큐 서비스를 사용하여 일반 시나리오를 수행하는 방법을 보여 줍니다. 샘플은 Node.js API를 사용하여 작성되었습니다. 여기서 다루는 시나리오에는 큐 메시지 **삽입**, **보기**, **가져오기** 및 **삭제**와 **큐 만들기 및 삭제**가 포함됩니다. 큐에 대한 자세한 내용은 [다음 단계][] 섹션을 참조하세요.
+이 가이드에서는 Azure 테이블 저장소 서비스를 사용하여
+일반 시나리오를 수행하는 방법을 보여 줍니다. 샘플은 Node.js
+API를 사용하여 작성되었습니다. 여기서 다루는 시나리오에는 큐 메시지 **삽입**, **보기**,
+**가져오기** 및 **삭제**와 **큐 만들기 및
+큐 삭제** 등이 포함됩니다. 큐에 대한 자세한 내용은 [다음 단계][] 섹션을 참조하세요.
 
 ## 목차
 
-* [큐 서비스 정의][]   
-* [개념][]   
-* [Azure 저장소 계정 만들기][]  
-* [Node.js 응용 프로그램 만들기][]   
-* [저장소에 액세스하도록 응용 프로그램 구성][]   
-* [Azure 저장소 연결 문자열 설정][]   
+* [큐 서비스 정의][]
+* [개념][]
+* [Azure 저장소 계정 만들기][]
+* [Node.js 응용 프로그램 만들기][]
+* [저장소에 액세스하도록 응용 프로그램 구성][]
+* [Azure 저장소 연결 문자열 설정][]
 * [방법: 큐 만들기][]   
 * [방법: 큐에 메시지 삽입][]   
 * [방법: 다음 메시지 보기][]   
@@ -29,25 +47,27 @@
 * [방법: 공유 액세스 서명 작업][]
 * [다음 단계][]
 
-[WACOM.INCLUDE [howto-queue-storage](../includes/howto-queue-storage.md)]
+[AZURE.INCLUDE [howto-queue-storage](../includes/howto-queue-storage.md)]
 
 <h2><a name="create-account"></a>Azure 저장소 계정 만들기</h2>
 
-[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
+[AZURE.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ## <a name="create-app"> </a>Node.js 응용 프로그램 만들기
 
-빈 Node.js 응용 프로그램을 만듭니다. Node.js 응용 프로그램을 만드는 방법에 대한 지침은 [Node.js 응용 프로그램을 만들어 Azure 웹 사이트에 배포하기], [Node.js 클라우드 서비스][Node.js Cloud Service](Windows PowerShell 사용) 또는 [WebMatrix를 사용하는 웹 사이트]를 참조하세요.
+빈 Node.js 응용 프로그램을 만듭니다. Node.js 응용 프로그램을 만드는 방법에 대한 지침은 [Node.js 응용 프로그램을 만들어 Azure 웹 사이트에 배포하기], [Node.js 클라우드 서비스][Node.js 클라우드 서비스](Windows PowerShell 사용) 또는 [WebMatrix를 사용하는 웹 사이트]를 참조하세요.
 
 ## <a name="configure-access"> </a>저장소에 액세스하도록 응용 프로그램 구성
 
-Azure 저장소를 사용하려면 저장소 REST 서비스와 통신하는 편리한 라이브러리 집합이 포함되어 있는 Node.js용 Azure Storage SDK가 필요합니다.
+Azure 저장소를 사용하려면 저장소 REST 서비스와 통신하는 편리한 라이브러리 집합이 포함되어 있는
+Node.js용 Azure Storage SDK가 필요합니다.
 
 ### NPM(Node Package Manager)을 사용하여 패키지 가져오기
 
-1.  **PowerShell**(Windows), **Terminal**(Mac) 또는 **Bash**(Unix)와 같은 명령줄 인터페이스를 사용하여 샘플 응용 프로그램을 만든 폴더로 이동합니다.
+1.  **PowerShell**(Windows), **Terminal**(Mac), **Bash**(Unix) 등과 같은 명령줄 인터페이스를 사용하여 응용 프로그램 예제를 만든 폴더로 이동합니다.
 
-2.  명령 창에 **npm install azure-storage**를 입력합니다. 그러면 다음과 같이 출력됩니다.
+2.  명령 창에 **npm install azure-storage**를 입력합니다. 그러면
+    다음과 같이 출력됩니다.
 
         azure-storage@0.1.0 node_modules\azure-storage
 		├── extend@1.2.1
@@ -59,11 +79,15 @@ Azure 저장소를 사용하려면 저장소 REST 서비스와 통신하는 편�
 		├── xml2js@0.2.7 (sax@0.5.2)
 		└── request@2.27.0 (json-stringify-safe@5.0.0, tunnel-agent@0.3.0, aws-sign@0.3.0, forever-agent@0.5.2, qs@0.6.6, oauth-sign@0.3.0, cookie-jar@0.3.0, hawk@1.0.0, form-data@0.1.3, http-signature@0.10.0)
 
-3.  **ls** 명령을 수동으로 실행하여 **node\_modules** 폴더가 만들어졌는지 확인할 수 있습니다. 이 폴더에서 저장소에 액세스하는 데 필요한 라이브러리가 들어 있는 **azure-storage** 패키지를 찾습니다.
+3.  **ls** 명령을 수동으로 실행하여
+    **node\_modules** 폴더가 만들어졌는지 확인할 수 있습니다. 이 폴더에서
+    저장소에 액세스하는 데 필요한 라이브러리가 들어 있는 **azure-storage** 패키지를
+    찾습니다.
 
 ### 패키지 가져오기
 
-메모장이나 다른 텍스트 편집기를 사용하여 저장소를 사용할 응용 프로그램의 **server.js** 파일의 맨 위에 다음을 추가합니다.
+메모장 또는 다른 텍스트 편집기를 사용하여 저장소를 사용할 응용 프로그램의
+**server.js** 파일 맨 위에 다음을 추가합니다.
 
     var azure = require('azure-storage');
 
@@ -71,15 +95,18 @@ Azure 저장소를 사용하려면 저장소 REST 서비스와 통신하는 편�
 
 Azure 모듈은 AZURE\_STORAGE\_ACCOUNT 및 AZURE\_STORAGE\_ACCESS\_KEY 또는 AZURE\_STORAGE\_CONNECTION\_STRING 환경 변수에서 Azure 저장소 계정에 연결하는 데 필요한 정보를 읽습니다. 이러한 환경 변수가 설정되지 않은 경우 **createQueueService**를 호출할 때 계정 정보를 지정해야 합니다.
 
-Azure 웹 사이트의 관리 포털에서 환경 변수를 설정하는 방법에 대한 예제는[Node.js 웹 응용 프로그램 및 저장소]를 참조하세요.
+Azure 웹 사이트의 관리 포털에서 환경 변수를 설정하는 방법에 대한 예제는 [Node.js 웹 응용 프로그램 및 저장소]를 참조하세요.
 
 ## <a name="create-queue"> </a>방법: 큐 만들기
 
-다음 코드에서는 큐 작업을 수행할 수 있도록 하는 **QueueService** 개체를 만듭니다.
+다음 코드는 **QueueService** 개체를 만들어
+큐 작업을 수행할 수 있게 해줍니다.
 
     var queueSvc = azure.createQueueService();
 
-**createQueueIfNotExists** 메서드를 사용합니다. 이 메서드는 지정된 큐가 이미 있으면 해당 큐를 반환하고 지정된 큐가 아직 없으면 지정한 이름으로 새 큐를 만듭니다.
+**createQueueIfNotExists** 메서드를 사용합니다. 이 메서드는 지정된
+큐가 이미 있으면 해당 큐를 반환하고 지정된 큐가 아직 없으면
+지정한 이름으로 새 큐를 만듭니다.
 
 	queueSvc.createQueueIfNotExists('myqueue', function(error, result, response){
       if(!error){
@@ -87,7 +114,7 @@ Azure 웹 사이트의 관리 포털에서 환경 변수를 설정하는 방법�
 	  }
 	});
 
-큐가 만들어지면 `result`는 true입니다. 큐가 있으면 `result`는 false입니다.
+큐가 만들어질 경우  `result` 값은 true가 됩니다. 큐가 있는 경우  `result` 값은 false가 됩니다.
 
 ###필터
 
@@ -101,14 +128,15 @@ Azure 웹 사이트의 관리 포털에서 환경 변수를 설정하는 방법�
 
 이 콜백에서 returnObject(서버에 요청 응답 반환)를 처리한 후 콜백은 next(있는 경우)를 호출하여 다른 필터를 계속 처리하거나 finalCallback을 호출하여 서비스 호출을 종료해야 합니다.
 
-Azure SDK for Node.js에는 재시도 논리를 구현하는 **ExponentialRetryPolicyFilter** 및 **LinearRetryPolicyFilter** 필터 두 개가 포함되어 있습니다. 다음에서는 **ExponentialRetryPolicyFilter**를 사용하는 **QueueService** 개체를 만듭니다.
+Azure SDK for Node.js에는 재시도 논리를 구현하는 두 필터 **ExponentialRetryPolicyFilter** 및 **LinearRetryPolicyFilter**가 포함되어 있습니다. 다음에서는 **ExponentialRetryPolicyFilter**를 사용하는 **QueueService** 개체를 만듭니다.
 
 	var retryOperations = new azure.ExponentialRetryPolicyFilter();
 	var queueSvc = azure.createQueueService().withFilter(retryOperations);
 
 ## <a name="insert-message"> </a>방법: 큐에 메시지 삽입
 
-큐에 메시지를 삽입하려면 **createMessage** 메서드를 사용하여 새 메시지를 만들고 이 메시지를 큐에 추가합니다.
+큐에 메시지를 삽입하려면 **createMessage** 메서드를 사용하여
+새 메시지를 만들고 이 메시지를 큐에 추가하면 됩니다.
 
 	queueSvc.createMessage('myqueue', "Hello world!", function(error, result, response){
 	  if(!error){
@@ -118,7 +146,9 @@ Azure SDK for Node.js에는 재시도 논리를 구현하는 **ExponentialRetryP
 
 ## <a name="peek-message"> </a>방법: 다음 메시지 보기
 
-큐에서 메시지를 제거하지 않고도 **peekMessages** 메서드를 호출하여 큐의 맨 앞에 있는 메시지를 볼 수 있습니다. 기본적으로 **peekMessages**는 단일 메시지를 볼 수 있게 해 줍니다.
+큐에서 메시지를 제거하지 않고도
+**peekMessages** 메서드를 호출하여 큐의 맨 앞에서 원하는 메시지를 볼 수 있습니다. 기본적으로
+**peekMessages**는 단일 메시지를 볼 수 있게 해줍니다.
 
 	queueSvc.peekMessages('myqueue', function(error, result, response){
 	  if(!error){
@@ -126,9 +156,9 @@ Azure SDK for Node.js에는 재시도 논리를 구현하는 **ExponentialRetryP
 	  }
 	});
 
-`result`에는 메시지가 포함됩니다.
+ `result` 값에 메시지가 포함됩니다.
 
-> [WACOM.NOTE] 큐에 메시지가 없을 때 **peekMessages**를 사용하면 오류가 반환되지 않지만 메시지도 반환되지 않습니다.
+> [AZURE.NOTE] 큐에 메시지가 없을 때 **peekMessages**를 사용하면 오류가 반환되지 않지만 메시지도 반환되지 않습니다.
 
 ## <a name="get-message"> </a>방법: 큐에서 다음 메시지 제거
 
@@ -152,10 +182,10 @@ Azure SDK for Node.js에는 재시도 논리를 구현하는 **ExponentialRetryP
 	  }
 	});
 
-> [WACOM.NOTE] 기본적으로 메시지는 30초 동안만 숨겨져 있다가 다른 클라이언트에 표시됩니다. 다른 값을 지정하려면 `options.visibilityTimeout`을 **getMessages**와 함께 사용합니다.
+> [AZURE.NOTE] 기본적으로 메시지는 30초 동안만 숨겨져 있다가 다른 클라이언트에 표시됩니다. 다른 값을 지정하려면  `options.visibilityTimeout`을 **getMessages**와 함께 사용합니다.
 
-> [WACOM.NOTE]
-> 큐에 메시지가 없을 때 <b>getMessages</b> 를 사용하면 오류가 반환되지 않지만 메시지도 반환되지 않습니다.
+> [AZURE.NOTE]
+> 큐에 메시지가 없을 때 <b>getMessages</b>를 사용하면 오류가 반환되지 않지만 메시지도 반환되지 않습니다.
 
 ## <a name="change-contents"> </a>방법: 대기 중인 메시지의 콘텐츠 변경
 
@@ -177,7 +207,7 @@ Azure SDK for Node.js에는 재시도 논리를 구현하는 **ExponentialRetryP
 
 큐에서 메시지 검색을 사용자 지정할 수 있는 방법으로는 두 가지가 있습니다.
 
-* `options.numOfMessages` - 메시지의 배치(최대 32개)를 검색합니다.
+* `options.numOfMessages` - 메시지 배치(최대 32개)를 검색합니다.
 * `options.visibilityTimeout` - 표시하지 않는 시간을 더 길거나 짧게 설정합니다.
 
 다음 예제에서는 **getMessages** 메서드를 사용하여 한 번 호출에 15개 메시지를 가져옵니다. 그런 다음 for 루프를 사용하여
@@ -218,7 +248,7 @@ Azure SDK for Node.js에는 재시도 논리를 구현하는 **ExponentialRetryP
 	  }
 	});
 
-모든 큐를 반환할 수 없는 경우 `result.continuationToken`을 **listQueuesSegmented**의 첫 번째 매개 변수나 **listQueuesSegmentedWithPrefix**의 두 번째 매개 변수로 사용하여 더 많은 결과를 검색할 수 있습니다.
+큐를 모두 반환할 수 없는 경우에는  `result.continuationToken`을 **listQueuesSegmented**의 첫 번째 매개 변수나 **listQueuesSegmentedWithPrefix**의 두 번째 매개 변수로 사용하여 더 많은 결과를 검색할 수 있습니다.
 
 ## <a name="delete-queue"> </a>방법: 큐 삭제
 
@@ -274,7 +304,7 @@ SAS가 추가 액세스만으로 생성되었기 때문에 메시지를 읽거�
 
 ACL(액세스 제어 목록)을 사용하여 SAS에 액세스 정책을 설정할 수도 있습니다. 이 방법은 여러 클라이언트에서 큐에 액세스하게 하면서 각 클라이언트에 서로 다른 액세스 정책을 제공하려는 경우에 유용합니다.
 
-ACL은 각 정책에 ID가 연결된 액세스 정책 배열을 사용하여 구현됩니다. 다음 예에서는 'user1'와 'user2'에 대해 하나씩, 두 개의 정책을 정의합니다.
+ACL은 각 정책에 ID가 연결된 액세스 정책 배열을 사용하여 구현됩니다. 다음 예제에서는 'user1'과 'user2'에 대해 하나씩 두 개의 정책을 정의합니다.
 
 	var sharedAccessPolicy = [
 	  {
@@ -318,8 +348,8 @@ ACL이 설정되고 나면 정책의 ID를 기반으로 SAS를 만들 수 있습
 이제 큐 저장소의 기본 사항을 살펴보았으므로 다음 링크를 통해
 좀 더 복잡한 저장소 작업을 수행하는 방법을 알아보세요.
 
--   다음 MSDN 참조를 확인하세요. [Azure에 데이터 저장 및 액세스][]를 참조하세요.
--   [Azure 저장소 팀 블로그][](영문)를 방문하세요.
+-   다음 MSDN 참조를 확인하세요. [Azure에 데이터 저장 및 액세스][]
+-   [Azure 저장소 팀 블로그][]를 방문하세요.
 -   GitHub에서 [Azure Storage SDK for Node][] 리포지토리를 방문하세요.
 
   [Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node
@@ -339,11 +369,11 @@ ACL이 설정되고 나면 정책의 ID를 기반으로 SAS를 만들 수 있습
   [방법: 큐 길이 가져오기]: #get-queue-length
   [방법: 큐 삭제]: #delete-queue
   [방법: 공유 액세스 서명 작업]: #sas
-  [REST API 사용]: http://msdn.microsoft.com/ko-kr/library/windowsazure/hh264518.aspx
-  [Azure 관리 포털]: http://manage.windowsazure.com
-  [Node.js 응용 프로그램을 만들어 Azure 웹 사이트에 배포]: /ko-kr/documentation/articles/web-sites-nodejs-develop-deploy-mac/
-  [Node.js 클라우드 서비스 및 저장소]: /ko-kr/documentation/articles/storage-nodejs-use-table-storage-cloud-service-app/
-  [Node.js 웹 응용 프로그램 및 저장소]: /ko-kr/documentation/articles/storage-nodejs-use-table-storage-web-site/
+  [using the REST API]: http://msdn.microsoft.com/ko-kr/library/windowsazure/hh264518.aspx
+  [Azure Management Portal]: http://manage.windowsazure.com
+  [Create and deploy a Node.js application to an Azure Web Site]: /ko-kr/documentation/articles/web-sites-nodejs-develop-deploy-mac/
+  [Node.js Cloud Service with Storage]: /ko-kr/documentation/articles/storage-nodejs-use-table-storage-cloud-service-app/
+  [Node.js Web Application with Storage]: /ko-kr/documentation/articles/storage-nodejs-use-table-storage-web-site/
 
   
   [Queue1]: ./media/storage-nodejs-how-to-use-queues/queue1.png
@@ -355,6 +385,5 @@ ACL이 설정되고 나면 정책의 ID를 기반으로 SAS를 만들 수 있습
   [Node.js 클라우드 서비스]: /ko-kr/documentation/articles/cloud-services-nodejs-develop-deploy-app/
   [Azure에 데이터 저장 및 액세스]: http://msdn.microsoft.com/ko-kr/library/windowsazure/gg433040.aspx
   [Azure 저장소 팀 블로그]: http://blogs.msdn.com/b/windowsazurestorage/
- [WebMatrix를 사용하는 웹 사이트]: /ko-kr/documentation/articles/web-sites-nodejs-use-webmatrix/
-
-<!--HONumber=35.1-->
+ [Web Site with WebMatrix]: /ko-kr/documentation/articles/web-sites-nodejs-use-webmatrix/
+<!--HONumber=42-->

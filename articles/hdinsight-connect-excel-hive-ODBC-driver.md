@@ -4,12 +4,12 @@
 
 
 
-#HDInsight에 Microsoft Hive ODBC 드라이버로 Hadoop에 Excel 연결
+#Microsoft Hive ODBC 드라이버로 Hadoop에 Excel 연결
 
 
-Microsoft의 빅 데이터 솔루션이 가진 주요 기능 중 하나는 Microsoft BI(비즈니스 인텔리전스) 구성 요소를 Azure HDInsight가 배포한 Apache Hadoop 클러스터와 통합하는 것입니다. 이 통합의 예로 Microsoft Hive ODBC(Open Database Connectivity) 드라이버를 사용하여 HDInsight Hadoop 클러스터의 Hive 데이터 웨어하우스에 Excel을 연결하는 기능을 들 수 있습니다. 
+Microsoft의 빅데이터 솔루션은 Microsoft BI(비즈니스 인텔리전스) 구성 요소를 Azure HDInsight가 배포한 Apache Hadoop 클러스터와 통합합니다. 이 통합의 예로 Microsoft Hive ODBC(Open Database Connectivity) 드라이버를 사용하여 HDInsight Hadoop 클러스터의 Hive 데이터 웨어하우스에 Excel을 연결하는 기능을 들 수 있습니다. 
 
-Excel에서 Microsoft Excel용 파워 쿼리 추가 기능을 사용하여 HDInsight 클러스터 및 기타 데이터 원본(예: 기타(비 HDInsight) Hadoop 클러스터)과 연결된 데이터를 연결할 수도 있습니다. 파워 쿼리 설치 및 사용에 대한 자세한 내용은 [HDInsight에 파워 쿼리로 Excel 연결][hdinsight-power-query]을 참조하세요.
+Excel에서 Microsoft Excel용 파워 쿼리 추가 기능을 사용하여 HDInsight 클러스터 및 기타 데이터 원본(예: 기타(비 HDInsight) Hadoop 클러스터)과 연결된 데이터를 연결할 수도 있습니다. 파워 쿼리 설치 및 사용에 대한 자세한 내용은 [파워 쿼리로 HDInsight에 Excel 연결][hdinsight-power-query]을 참조하세요.
 
 **필수 조건**:
 
@@ -42,7 +42,7 @@ Excel에서 Microsoft Excel용 파워 쿼리 추가 기능을 사용하여 HDIns
 	![OBDC data source administrator][img-hdi-simbahiveodbc-datasource-admin]
 
 3. 사용자 DNS에서 **추가**를 클릭하여 **새 데이터 원본 만들기** 마법사를 엽니다. 
-4. **Microsoft Hive ODBC 드라이버**를 선택한 후 **마침**을 클릭합니다. **Microsoft Hive ODBC 드라이버 DNS 설정** 대화 상자가 시작됩니다. 
+4. **Microsoft Hive ODBC 드라이버**를 선택한 후 **마침**을 클릭합니다. **Microsoft Hive ODBC Driver DNS Setup** 대화 상자가 시작됩니다. 
 
 5. 다음 값을 입력하거나 선택합니다.
 
@@ -71,7 +71,7 @@ Excel에서 Microsoft Excel용 파워 쿼리 추가 기능을 사용하여 HDIns
 
 	![Advanced options][img-HiveOdbc-DataSource-AdvancedOptions]
 
-6. **테스트**를 클릭하여 데이터 원본을 테스트합니다. 데이터 원본이 올바르게 구성된 경우 *테스트를 성공적으로 완료했습니다.*가 표시됩니다.
+6. **테스트**를 클릭하여 데이터 원본을 테스트합니다. 데이터 원본이 올바르게 구성된 경우  *TESTS COMPLETED SUCCESSFULLY!*가 표시됩니다.
 7. **확인**을 클릭하여 테스트 대화 상자를 닫습니다. 이제 새 데이터 원본이 **ODBC 데이터 원본 관리자**에 나열됩니다. 
 8. **확인**을 클릭하여 마법사를 종료합니다.
 	
@@ -80,19 +80,19 @@ Excel에서 Microsoft Excel용 파워 쿼리 추가 기능을 사용하여 HDIns
 다음 단계에 따라 위 단계에서 만든 ODBC 데이터 원본을 사용하여 hive 테이블에서 Excel 통합 문서로 데이터를 가져올 수 있습니다.
 
 1. Excel에서 새 통합 문서나 기존 통합 문서를 엽니다.
-2. **데이터** 탭에서 **외부 데이터 가져오기** 타일, **다른 데이터 원본에서**, **데이터 연결 마법사에서**를 차례로 클릭하여 **데이터 연결 마법사**를 시작합니다.
+2. **데이터** 탭에서 **외부 데이터 가져오기** 타일을 클릭하고 **기타 데이터 원본**, **데이터 연결 마법사**를 차례로 클릭하여 **데이터 연결 마법사**를 시작합니다.
 
 	![Open data connection wizard][img-hdi-simbahiveodbc.excel.dataconnection]
 
 3. 데이터 원본으로 **ODBC DSN**을 선택한 후 **다음**을 클릭합니다.
-4. ODBC 데이터 원본에서 이전 단계에서 만든 데이터 원본 이름을 선택한 후 **다음**을 클릭합니다.
+4. ODBC 데이터 원본에서 이전 단계에서 만든 데이터 원본 이름을 선택한 후  **다음**을 클릭합니다.
 5. 마법사에서 클러스터의 암호를 다시 입력한 후 **테스트**를 클릭하여 구성을 확인합니다.
 6. **확인**을 클릭하여 테스트 대화 상자를 닫습니다.
 7. **확인**을 클릭합니다. **데이터베이스 및 테이블 선택** 대화 상자가 열릴 때까지 기다립니다. 몇 초 정도 걸릴 수 있습니다.
-8. 가져올 테이블을 선택한 후 **다음**을 클릭합니다. *hivesampletable*은 HDInsight 클러스터와 함께 제공되는 샘플 hive 테이블입니다.  만들지 않은 경우 선택할 수 있습니다. Hive 쿼리 실행 및 Hive 테이블 만들기에 대한 자세한 내용은 [HDInsight와 함께 Hive 사용][hdinsight-use-hive]을 참조하세요.
-8. **마침**을 클릭합니다.
+8. 가져올 테이블을 선택한 후 **다음**을 클릭합니다.  *hivesampletable*은 HDInsight 클러스터와 함께 제공되는 샘플 hive 테이블입니다.  만들지 않은 경우 선택할 수 있습니다. Hive 쿼리 실행 및 Hive 테이블 만들기에 대한 자세한 내용은 [HDInsight와 함께 Hive 사용][hdinsight-use-hive]을 참조하세요.
+8. **Finish**를 클릭합니다.
 9. **데이터 가져오기** 대화 상자에서 쿼리를 변경하거나 지정할 수 있습니다. 이렇게 하려면 **속성**을 클릭합니다. 몇 초 정도 걸릴 수 있습니다.
-10. **정의** 탭을 클릭한 후 **명령 텍스트** 텍스트 상자에서 Hive SELECT 문에 **LIMIT 200**을 추가합니다. 이렇게 수정하면 반환되는 레코드 제한을 200으로 설정합니다.
+10. **정의** 탭을 클릭한 후  **명령 텍스트** 텍스트 상자에서 Hive SELECT 문에 **LIMIT 200**을 추가합니다. 이렇게 수정하면 반환되는 레코드 제한을 200으로 설정합니다.
 
 	![Connection Properties][img-hdi-simbahiveodbc-excel-connectionproperties]
 
@@ -122,5 +122,4 @@ Excel에서 Microsoft Excel용 파워 쿼리 추가 기능을 사용하여 HDIns
 [img-HiveOdbc-DataSource-AdvancedOptions]: ./media/hdinsight-connect-excel-hive-ODBC-driver/HDI.HiveOdbc.DataSource.AdvancedOptions1.png 
 [img-hdi-simbahiveodbc-excel-connectionproperties]: ./media/hdinsight-connect-excel-hive-ODBC-driver/HDI.SimbaHiveODBC.Excel.ConnectionProperties1.png 
 [img-hdi-simbahiveodbc.excel.dataconnection]: ./media/hdinsight-connect-excel-hive-ODBC-driver/HDI.SimbaHiveOdbc.Excel.DataConnection1.png 
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->
