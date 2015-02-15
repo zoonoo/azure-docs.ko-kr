@@ -400,4 +400,5 @@ Azure 서비스 클라이언트를 만들려면 **ServicesBuilder** 클래스를
 [require_once]: http://www.php.net/manual/en/function.require-once.php
 [Azure 관리 포털]: http://manage.windowsazure.com/
 [Azure에서 데이터 저장 및 액세스]: http://msdn.microsoft.com/ko-kr/library/windowsazure/gg433040.aspx
+
 <!--HONumber=42-->

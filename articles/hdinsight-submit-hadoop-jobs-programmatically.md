@@ -722,4 +722,5 @@ Visual Studio에 응용 프로그램이 열려 있을 때 **F5** 키를 눌러 �
 [image-hdi-gettingstarted-mrjoboutput]: ./media/hdinsight-submit-hadoop-jobs-programmatically/HDI.GettingStarted.MRJobOutput.png
 
 [apache-hive]: http://hive.apache.org/
+
 <!--HONumber=42-->

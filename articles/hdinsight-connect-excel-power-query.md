@@ -90,4 +90,5 @@ Excel용 파워 쿼리 추가 기능을 사용하면 HDInsight 클러스터에�
 [image-hdi-powerquery-imported-table]: ./media/hdinsight-connect-excel-power-query/HDI.PowerQuery.ImportedTable.PNG 
 
 [powerquery-download]: http://go.microsoft.com/fwlink/?LinkID=286689 
+
 <!--HONumber=42-->

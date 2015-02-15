@@ -150,4 +150,5 @@
 		
 
 <!-- URLs. -->
-[모바일 서비스 Android SDK]: http://aka.ms/Iajk6q<!--HONumber=42-->
+[모바일 서비스 Android SDK]: http://aka.ms/Iajk6q
+<!--HONumber=42-->

@@ -50,4 +50,5 @@ Azure 웹 사이트에서 A 레코드를 사용하려면 먼저 다음 CNAME 레
 
 	![](./media/custom-dns-web-site/managecustomdomains.png)
 
+
 <!--HONumber=42-->

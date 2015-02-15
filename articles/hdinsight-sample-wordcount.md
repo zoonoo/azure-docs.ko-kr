@@ -226,4 +226,5 @@ Azure PowerShell을 사용하여 Azure HDInsight에서 Pig, Hive 및 MapReduce �
 [image-hdi-sample-wordcount-output]: ./media/hdinsight-sample-wordcount/HDI.Sample.WordCount.Output.png
 
 
+
 <!--HONumber=42-->

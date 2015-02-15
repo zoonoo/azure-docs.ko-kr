@@ -383,4 +383,5 @@ Blob 저장소 서비스를 사용하는 방법]을 참조하세요.
   [저장소 계정을 만드는 방법]: http://www.windowsazure.com/ko-kr/manage/services/storage/how-to-create-a-storage-account/
   [저장소 계정을 관리하는 방법]: http://www.windowsazure.com/ko-kr/manage/services/storage/how-to-manage-a-storage-account/
   [Java에서 Blob 저장소 서비스를 사용하는 방법]: http://www.windowsazure.com/ko-kr/develop/java/how-to-guides/blob-storage/
+
 <!--HONumber=42-->

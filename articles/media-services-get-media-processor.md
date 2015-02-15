@@ -85,4 +85,5 @@ private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcess
 
 [자산을 인코드하는 방법]: ../media-services-encode-asset/
 [Azure Media Encoder용 태스크 기본 설정 문자열]: http://msdn.microsoft.com/ko-kr/library/jj129582.aspx
-[방법: 프로그래밍 방식으로 미디어 서비스에 연결]: ../media-services-set-up-computer/<!--HONumber=42-->
+[방법: 프로그래밍 방식으로 미디어 서비스에 연결]: ../media-services-set-up-computer/
+<!--HONumber=42-->

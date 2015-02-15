@@ -46,4 +46,5 @@ Blob으로 작업을 수행하려면 먼저 Blob을 저장할 저장소 계정�
 [AZURE.INCLUDE [vs-storage-getting-started-blobs-include](../includes/vs-storage-getting-started-blobs-include.md)]
 
 자세한 내용은 [ASP.NET](http://www.asp.net)(영문)을 참조하세요.
+
 <!--HONumber=42-->

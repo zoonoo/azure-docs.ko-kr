@@ -495,4 +495,5 @@ Emulator를 설치한 컴퓨터에서 제어판을 열고 **프로그램**에서
 [hadoop-commands-manual]: http://hadoop.apache.org/docs/r1.1.1/commands_manual.html
 
 [image-hdi-emulator-services]: ./media/hdinsight-get-started-emulator/HDI.Emulator.Services.png 
+
 <!--HONumber=42-->

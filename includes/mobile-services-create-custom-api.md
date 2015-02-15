@@ -50,4 +50,5 @@
 <!-- URLs. -->
 [Azure 관리 포털]: https://manage.windowsazure.com/
 [mssql 개체]: http://msdn.microsoft.com/ko-kr/library/windowsazure/jj554212.aspx
+
 <!--HONumber=42-->

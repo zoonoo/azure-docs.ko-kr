@@ -510,4 +510,5 @@ HLS를 테스트하려면 iOS 또는 Safari 장치나 [3ivx-hls-player](http://a
 <h2>추가 리소스</h2>
 - <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-101-Get-your-video-online-now-">Azure Media Services 101 - 이제 온라인으로 동영상을 볼 수 있습니다.</a>
 - <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-102-Dynamic-Packaging-and-Mobile-Devices">Azure Media Services 102 - 동적 패키징 및 모바일 장치</a>
+
 <!--HONumber=42-->

@@ -378,4 +378,5 @@ PowerShell 콘솔을 열고 Visual Studio 프로젝트를 저장한 위치로 �
 [hdinsight-provision]: ../hdinsight-provision-clusters/
 [hdinsight-install-r]: ../hdinsight-hadoop-r-scripts/
 [hdinsight-cluster-customize]: ../hdinsight-hadoop-customize-cluster
-[powershell-install-configure]: ../install-configure-powershell/<!--HONumber=42-->
+[powershell-install-configure]: ../install-configure-powershell/
+<!--HONumber=42-->

@@ -67,4 +67,5 @@ easy\_install를 사용하여 exe 설치 파일에서 설치할 수도 있습니
 [Windows를 실행하는 가상 컴퓨터 만들기]: http://azure.microsoft.com/ko-kr/documentation/articles/virtual-machines-windows-tutorial/
 [Microsoft Visual C++ Compiler for Python 2.7]: http:://aka.ms/vcpython27
 [Microsoft Visual C++ 2010 Express]: http://go.microsoft.com/?linkid=9709949
+
 <!--HONumber=42-->

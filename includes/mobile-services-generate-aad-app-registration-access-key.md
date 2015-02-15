@@ -30,4 +30,5 @@
     </table><br/>
  
     ![](./media/mobile-services-generate-aad-app-registration-access-key/aad-app-settings.png)
-  <!--HONumber=42-->
+  
+<!--HONumber=42-->

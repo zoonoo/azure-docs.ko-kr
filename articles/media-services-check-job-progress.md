@@ -103,4 +103,5 @@ private static string JobIdAsFileName(string jobID)
 </code></pre>
 <h2>다음 단계</h2>
 지금까지 작업을 만들고 작업 진행 상태를 추적하는 방법을 알아보았으며, 다음 단계는 자산 보호입니다. 자세한 내용은 [Azure 미디어 서비스를 사용하여 자산을 보호하는 방법](http://go.microsoft.com/fwlink/?LinkID=301813&clcid=0x409)(영문)을 참조하세요.
+
 <!--HONumber=42-->

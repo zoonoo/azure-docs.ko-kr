@@ -29,4 +29,5 @@
 이제 모바일 서비스는 AAD에서 앱의 Single Sign-On을 받도록 구성됩니다.
 
 
-[Azure 관리 포털]: https://manage.windowsazure.com/<!--HONumber=42-->
+[Azure 관리 포털]: https://manage.windowsazure.com/
+<!--HONumber=42-->

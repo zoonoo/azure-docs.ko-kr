@@ -8,4 +8,5 @@
 
 	![](./media/mobile-services-dotnet-backend-test-local-service/mobile-service-startup.png)
 
-	모바일 서비스가 성공적으로 시작된 후에 웹 페이지가 표시됩니다.<!--HONumber=42-->
+	모바일 서비스가 성공적으로 시작된 후에 웹 페이지가 표시됩니다.
+<!--HONumber=42-->

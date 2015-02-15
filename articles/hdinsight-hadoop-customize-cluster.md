@@ -174,4 +174,5 @@ HDInsight 서비스는 사용자 지정 구성 요소를 사용하는 여러 방
 
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster/HDI-Cluster-state.png "Stages during cluster provisioning"
+
 <!--HONumber=42-->

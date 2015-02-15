@@ -26,4 +26,5 @@
 [Windows 가상 컴퓨터에 데이터 디스크를 연결하는 방법](http://azure.microsoft.com/ko-kr/documentation/articles/storage-windows-attach-disk/)
 
 
+
 <!--HONumber=42-->

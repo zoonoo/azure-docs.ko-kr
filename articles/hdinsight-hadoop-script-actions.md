@@ -213,4 +213,5 @@ Spark 및 R 클러스터를 사용할 때 필요한 데이터 파일이 HDInsigh
 [hdinsight-cluster-customize]: ../hdinsight-hadoop-customize-cluster
 [hdinsight-install-spark]: ../hdinsight-hadoop-spark-install/
 [hdinsight-r-scripts]: ../hdinsight-hadoop-r-scripts/
-[powershell-install-configure]: ../install-configure-powershell/<!--HONumber=42-->
+[powershell-install-configure]: ../install-configure-powershell/
+<!--HONumber=42-->

@@ -244,4 +244,5 @@ SQL 데이터베이스는 개별 데이터베이스를 모니터링할 수 있�
   [SQL 데이터베이스 소개]: http://msdn.microsoft.com/ko-kr/library/windowsazure/ee336230.aspx
   [SQL 데이터베이스 프로비전 모델]: http://msdn.microsoft.com/ko-kr/library/ee336227.aspx
   [SQL 데이터베이스에 사용자 추가]: http://blogs.msdn.com/b/sqlazure/archive/2010/06/21/10028038.aspx
+
 <!--HONumber=42-->

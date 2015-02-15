@@ -182,4 +182,5 @@ GUI를 사용하여 Hive 테이블을 작성하거나 Hive 쿼리를 사용할 �
 [hdinsight.analyze.twitter.data]: ../hdinsight-analyze-twitter-data/
 
 
-[apache.hive]: http://hive.apache.org<!--HONumber=42-->
+[apache.hive]: http://hive.apache.org
+<!--HONumber=42-->

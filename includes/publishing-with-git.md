@@ -334,4 +334,5 @@ Azure **대시보드**에서 지속적인 배포를 사용하지 않도록 설�
 [Quick Start - Mercurial]: http://mercurial.selenic.com/wiki/QuickStart
 [Using Dropbox to Share Git Repositories]: https://gist.github.com/trey/2722927
 [Visual Studio Online을 사용하여 Azure에 지속적으로 전송]: http://www.windowsazure.com/ko-kr/develop/net/common-tasks/publishing-with-tfs/
+
 <!--HONumber=42-->

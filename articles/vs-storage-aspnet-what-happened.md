@@ -39,4 +39,5 @@ Azure Storage NuGet 패키지가 Visual Studio 프로젝트에 추가되었습�
 ##### 추가된 Azure 저장소에 대한 연결 문자열 
 프로젝트의 web.config 파일에 선택한 저장소 계정의 연결 문자열과 키를 포함하는 요소가 생성되었습니다.
 
-자세한 내용은 [ASP.NET](http://www.asp.net)(영문)을 참조하세요.<!--HONumber=42-->
+자세한 내용은 [ASP.NET](http://www.asp.net)(영문)을 참조하세요.
+<!--HONumber=42-->

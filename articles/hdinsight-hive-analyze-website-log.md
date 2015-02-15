@@ -54,4 +54,5 @@ HDInsight와 함께 HiveQL을 사용하여 웹 사이트의 로그를 분석하�
 [hdinsight-provision]: ../hdinsight-provision-clusters/
 [hdinsight-sensor-data-sample]: ../hdinsight-use-hive-sensor-data-analysis/
 
-[img-hdi-weblogs-sample]: ./media/hdinsight-hive-analyze-website-log/hdinsight-weblogs-sample.png<!--HONumber=42-->
+[img-hdi-weblogs-sample]: ./media/hdinsight-hive-analyze-website-log/hdinsight-weblogs-sample.png
+<!--HONumber=42-->

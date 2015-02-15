@@ -43,4 +43,5 @@ Azure 큐 저장소는 HTTP 또는 HTTPS를 사용하여 인증된 호출을 통
 
 [AZURE.INCLUDE [vs-storage-getting-started-queues-include](../includes/vs-storage-getting-started-queues-include.md)]
 
-자세한 내용은 [ASP.NET](http://www.asp.net)(영문)을 참조하세요.<!--HONumber=42-->
+자세한 내용은 [ASP.NET](http://www.asp.net)(영문)을 참조하세요.
+<!--HONumber=42-->

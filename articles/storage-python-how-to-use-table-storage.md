@@ -170,4 +170,5 @@
   [방법: 테이블 삭제]: #delete-table
   [Azure에서 데이터 저장 및 액세스]: http://msdn.microsoft.com/ko-kr/library/windowsazure/gg433040.aspx
   [Azure 저장소 팀 블로그]: http://blogs.msdn.com/b/windowsazurestorage/
+
 <!--HONumber=42-->

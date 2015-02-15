@@ -42,4 +42,5 @@ Azure 테이블 저장소 서비스를 사용하면 많은 양의 구조화된 �
       CloudConfigurationManager.GetSetting("<storageAccountName>_AzureStorageConnectionString"));
 
 [AZURE.INCLUDE [vs-storage-getting-started-tables-include](../includes/vs-storage-getting-started-tables-include.md)]
+
 <!--HONumber=42-->

@@ -31,4 +31,5 @@
 	이제 모바일 서비스와 앱이 선택한 인증 공급자를 사용하도록 둘 다 구성되었습니다.
 
 <!-- URLs. -->
-[Azure 관리 포털]: https://manage.windowsazure.com/<!--HONumber=42-->
+[Azure 관리 포털]: https://manage.windowsazure.com/
+<!--HONumber=42-->

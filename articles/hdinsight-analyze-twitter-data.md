@@ -566,4 +566,5 @@ HiveQL 스크립트는 다음을 수행합니다.
 [hdinsight-power-query]: ../hdinsight-connect-excel-power-query/
 [hdinsight-hive-odbc]: ../hdinsight-connect-excel-hive-ODBC-driver/
 [hdinsight-hbase-twitter-sentiment]: ../hdinsight-hbase-analyze-twitter-sentiment/
+
 <!--HONumber=42-->

@@ -292,4 +292,5 @@ PowerShell 콘솔을 열고 프로젝트를 저장한 위치로 이동하고 프
 
 [hdinsight-provision]: ../hdinsight-provision-clusters/
 [hdinsight-cluster-customize]: ../hdinsight-hadoop-customize-cluster
-[hdinsight-install-spark]: ../hdinsight-hadoop-spark-install/<!--HONumber=42-->
+[hdinsight-install-spark]: ../hdinsight-hadoop-spark-install/
+<!--HONumber=42-->

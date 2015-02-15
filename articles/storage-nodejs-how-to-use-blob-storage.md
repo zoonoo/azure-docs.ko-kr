@@ -412,4 +412,5 @@ ACL이 설정되고 나면 정책의 ID를 기반으로 SAS를 만들 수 있습
   [Node.js 클라우드 서비스]: /ko-kr/documentation/articles/cloud-services-nodejs-develop-deploy-app/
   [Azure에 데이터 저장 및 액세스]: http://msdn.microsoft.com/ko-kr/library/windowsazure/gg433040.aspx
   [Azure 저장소 팀 블로그]: http://blogs.msdn.com/b/windowsazurestorage/
+
 <!--HONumber=42-->

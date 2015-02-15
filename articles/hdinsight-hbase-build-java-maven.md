@@ -589,4 +589,5 @@ __hdinsightclustername__을 HDInsight 클러스터의 이름으로 바꿉니다.
 ###Start-HBaseExample을 사용할 경우 결과가 없거나 예기치 않은 결과가 표시됨
 
 `-showErr` 매개 변수를 사용하여 작업을 실행하는 동안 생성된 STDERR을 표시합니다.
+
 <!--HONumber=42-->

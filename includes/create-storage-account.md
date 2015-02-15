@@ -33,4 +33,5 @@ Azure 서비스 관리 클라이언트 라이브러리 또는 서비스 관리[R
 [Azure 관리 포털]: http://manage.windowsazure.com
 [plus-new]: ./media/create-storage-account/plus-new.png
 [quick-create-storage]: ./media/create-storage-account/quick-storage-2.png
+
 <!--HONumber=42-->

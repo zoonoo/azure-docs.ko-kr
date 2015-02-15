@@ -407,4 +407,5 @@ Microsoft Azure의 역할 내에서 실행되는 응용 프로그램에서는 �
 [Azure Storage Client SDK 참조]: http://dl.windowsazure.com/storage/javadoc/
 [Azure 저장소 REST API]: http://msdn.microsoft.com/ko-kr/library/azure/gg433040.aspx
 [Azure 저장소 팀 블로그]: http://blogs.msdn.com/b/windowsazurestorage/
+
 <!--HONumber=42-->

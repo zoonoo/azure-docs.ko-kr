@@ -46,4 +46,5 @@ Blob 서비스에는 다음 구성 요소가 포함됩니다.
 
 [Blob1]: ./media/howto-blob-storage/blob1.jpg
 
+
 <!--HONumber=42-->

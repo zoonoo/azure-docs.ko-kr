@@ -137,4 +137,5 @@ A 레코드를 만들려면 먼저 클라우드 서비스의 가상 IP 주소를
   [사용자 지정 도메인 유효성 검사 대화 상자]: http://i.msdn.microsoft.com/dynimg/IC544437.jpg
   [CDN 콘텐츠를 사용자 지정 도메인에 매핑하는 방법]: http://msdn.microsoft.com/ko-kr/library/windowsazure/gg680307.aspx
   [vip]: ./media/custom-dns/csvip.png
-  [csurl]: ./media/custom-dns/csurl.png<!--HONumber=42-->
+  [csurl]: ./media/custom-dns/csurl.png
+<!--HONumber=42-->

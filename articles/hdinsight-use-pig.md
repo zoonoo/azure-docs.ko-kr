@@ -404,4 +404,5 @@ Pig를 사용하여 데이터를 분석할 수 있지만, HDInsight에 포함된
 [image-hdi-pig-powershell]: ./media/hdinsight-use-pig/hdi.pig.powershell.png
 [image-hdi-pig-architecture]: ./media/hdinsight-use-pig/HDI.Pig.Architecture.png
 
+
 <!--HONumber=42-->

@@ -135,4 +135,5 @@ static void  blobTransferClient_TransferProgressChanged(object sender, BlobTrans
 이제 미디어 서비스에 자산을 업로드했으므로 [미디어 프로세서를 가져오는 방법][] 항목으로 이동하세요.
 
 [미디어 프로세서를 가져오는 방법]: ../media-services-get-media-processor/
+
 <!--HONumber=42-->

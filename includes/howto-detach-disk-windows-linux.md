@@ -43,4 +43,5 @@
 [attachdisk]:/ko-kr/manage/windows/how-to-guides/attach-a-disk/
 
 [디스크 및 이미지 정보]:http://go.microsoft.com/fwlink/p/?LinkId=263439
+
 <!--HONumber=42-->

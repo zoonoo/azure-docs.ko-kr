@@ -64,4 +64,5 @@ Azure 미디어 서비스 대시보드는 사용량 메트릭 및 미디어 서�
 [dashboard]: ./media/media-services-monitor-services-account/media-services-dashboard.png
 [storage_options_scoped]: ./media/media-services-monitor-services-account/storagemonitoringoptions_scoped.png
 
+
 <!--HONumber=42-->

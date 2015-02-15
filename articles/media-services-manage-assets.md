@@ -95,4 +95,5 @@ foreach (IAsset asset in _context.Assets)
 
 <h2>다음 단계</h2>
 자산 관리 방법을 알아보았습니다. [다운로드를 통해 자산을 제공하는 방법](../media-services-deliver-asset-download/)(영문) 항목으로 이동하세요.
+
 <!--HONumber=42-->

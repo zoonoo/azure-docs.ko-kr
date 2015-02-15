@@ -78,4 +78,5 @@
 [Azure 스토어]: /ko-kr/gallery/store/
 [portal]: http://manage.windowsazure.com
 [configure]: ../web-sites-configure/
+
 <!--HONumber=42-->

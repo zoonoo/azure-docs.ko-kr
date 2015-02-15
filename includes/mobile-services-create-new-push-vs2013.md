@@ -30,4 +30,5 @@
 [모바일 서비스 시작]: /ko-kr/develop/mobile/tutorials/get-started/
 [데이터 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-data-dotnet/
 [Visual Studio 2013에서 publishsettings 파일 가져오기]: /ko-kr/documentation/articles/mobile-services-windows-how-to-import-publishsettings/
+
 <!--HONumber=42-->

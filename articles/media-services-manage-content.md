@@ -147,4 +147,5 @@ Azure 미디어 서비스 작업 시 가장 일반적인 시나리오 중 하나
 [contentpage]: ./media/media-services-manage-content/media-services-content-page.png
 [process]: ./media/media-services-manage-content/media-services-process-video.png
 [process2]: ./media/media-services-manage-content/media-services-process-video2.png
+
 <!--HONumber=42-->

@@ -8,4 +8,5 @@
    	삽입 작업이 완료되면 앱이 WNS에서 푸시 알림을 받습니다.
 
    	![](./media/mobile-services-windows-store-test-push/mobile-quickstart-push2.png)
+
 <!--HONumber=42-->
