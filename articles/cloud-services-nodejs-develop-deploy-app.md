@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Cloud Service" pageTitle="Node.js 시작 가이드 - Azure 자습서" metaKeywords="Azure node.js getting started, Azure Node.js tutorial, Azure Node.js tutorial" description="간단한 Node.js 웹 응용 프로그램을 개발하여 Azure에 배포하는 전체 과정을 설명하는 자습서입니다." metaCanonical="" services="cloud-services" documentationCenter="nodejs" title="Build and deploy a Node.js application to an Azure Cloud Service" authors="larryfr" solutions="" manager="wpickett" editor="" />
+<properties urlDisplayName="Cloud Service" pageTitle="Node.js 시작 가이드 - Azure 자습서" metaKeywords="Azure node.js getting started, Azure Node.js tutorial, Azure Node.js tutorial" description="간단한 Node.js 웹 응용 프로그램을 개발하여 Azure에 배포하는 전체 과정을 설명하는 자습서입니다." metaCanonical="" services="cloud-services" documentationCenter="nodejs" title="Build and deploy a Node.js application to an Azure Cloud Service" authors="larryfr" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="wpickett" />
 
@@ -24,7 +24,7 @@
 
 아래에는 완성된 응용 프로그램의 스크린샷이 표시되어 있습니다.
 
-<p>img src="https://wacomdpsstablestorage.blob.core.windows.net/articlesmedia/demo-ppe.windowsazure.com/ko-kr/documentation/articles/cloud-services-nodejs-develop-deploy-app/20140107035927/node21.png" alt="hello world 페이지를 표시하는 브라우저 창입니다. URL은 페이지가 Azure에서 호스트됨을 나타냅니다.">
+<p><img src="https://wacomdpsstablestorage.blob.core.windows.net/articlesmedia/demo-ppe.windowsazure.com/en-us/documentation/articles/cloud-services-nodejs-develop-deploy-app/20140107035927/node21.png" alt="hello world 페이지를 표시하는 브라우저 창입니다. URL은 페이지가 Azure에서 호스트됨을 나타냅니다.">
 </p>
 
 
@@ -57,15 +57,15 @@
 	**New-AzureServiceProject cmdlet**으로 만들어지는 파일은 다음과 같습니다.
 
 	-   **ServiceConfiguration.Cloud.cscfg**,
-        **ServiceConfiguration.Local.cscfg** and **ServiceDefinition.csdef** are
-        Azure-specific files necessary for publishing your
-        application.
+        **ServiceConfiguration.Local.cscfg** 및 **ServiceDefinition.csdef** 는 
+        응용 프로그램을 게시하는 데 필요한 Azure 관련 
+        파일입니다.
 		
-	For more information about these files, see
-        [Overview of Creating a Hosted Service for Azure][].
+	이러한 파일에 대한 자세한 내용은
+        [Azure에 대한 호스티드 서비스 만들기 개요][].
 
-	-   **deploymentSettings.json** stores local settings that are used by
-        the Azure PowerShell deployment cmdlets.
+	-   **deploymentSettings.json** 에는 Azure PowerShell 배포 cmdlet에 사용되는 로컬
+        설정이 저장됩니다.
 
 4.  **Add-AzureNodeWebRole** cmdlet을 사용하여 새 웹 역할을 추가하려면 다음 명령을 입력합니다.
 
@@ -209,7 +209,7 @@ Azure 계산 에뮬레이터는 Azure SDK를 통해 설치되는 도구 중 하�
 
 [Azure SDK Node.js 항목이 확장된 상태의 Windows 시작 메뉴]: ./media/cloud-services-nodejs-develop-deploy-app/azure-powershell-menu.png
 [mkdir]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-6.png
-[nodejs.org](영문): http://nodejs.org/
+[nodejs.org]: http://nodejs.org/
 [helloworld 폴더의 디렉터리 목록입니다.]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-7.png
 [Azure에 대한 호스티드 서비스 만들기 개요]: http://msdn.microsoft.com/ko-kr/library/windowsazure/jj155995.aspx
 [WebRole1 폴더의 디렉터리 목록]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-8.png

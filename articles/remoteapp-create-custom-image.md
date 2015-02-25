@@ -1,8 +1,8 @@
-﻿<properties title="How to create a custom template image for RemoteApp" pageTitle="RemoteApp용 사용자 지정 템플릿 이미지를 만드는 방법" description="RemoteApp용 사용자 지정 템플릿 이미지를 만드는 방법에 대해 알아봅니다. 하이브리드 또는 클라우드 배포에서 이 템플릿을 사용할 수 있습니다." metaKeywords="" services="" solutions="" documentationCenter="" authors="elizapo" manager="mbaldwin" />
+<properties title="How to create a custom template image for RemoteApp" pageTitle="RemoteApp용 사용자 지정 템플릿 이미지를 만드는 방법" description="RemoteApp용 사용자 지정 템플릿 이미지를 만드는 방법에 대해 알아봅니다. 하이브리드 또는 클라우드 배포에서 이 템플릿을 사용할 수 있습니다." metaKeywords="" services="" solutions="" documentationCenter="" authors="elizapo" manager="mbaldwin" />
 
 <tags ms.service="remoteapp" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/12/2014" ms.author="elizapo" ms.manager="mbaldwin" />
 
-#RemoteApp용 사용자 지정 템플릿 이미지를 만드는 방법
+# RemoteApp용 사용자 지정 템플릿 이미지를 만드는 방법
 Azure RemoteApp은 Windows Server 2012 R2 템플릿 이미지를 사용하여 사용자와 공유할 모든 프로그램을 호스트합니다. 사용자 지정 RemoteApp 템플릿 이미지를 만들려면 기존 이미지에서 시작하거나 새 이미지를 만듭니다. Azure RemoteApp과 사용하기 위해 업로드할 수 있는 이미지의 요구 사항은 다음과 같습니다.
 
 

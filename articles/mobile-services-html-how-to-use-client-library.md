@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="HTML Client" pageTitle="HTML 클라이언트를 사용하는 방법 - Azure 모바일 서비스" metaKeywords="Azure Mobile Services, Mobile Service HTML client, HTML client" description="Azure 모바일 서비스에 HTML 클라이언트를 사용하는 방법에 대해 알아봅니다." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="How to use an HTML/JavaScript client for Azure Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="HTML Client" pageTitle="HTML 클라이언트를 사용하는 방법 - Azure 모바일 서비스" metaKeywords="Azure Mobile Services, Mobile Service HTML client, HTML client" description="Azure 모바일 서비스에 HTML 클라이언트를 사용하는 방법에 대해 알아봅니다." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="How to use an HTML/JavaScript client for Azure Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="article" ms.date="11/21/2014" ms.author="glenga" />
 
@@ -38,7 +38,7 @@
 
 [WACOM.INCLUDE [mobile-services-concepts](../includes/mobile-services-concepts.md)]
 
-##<a name="create-client"></a>방법: 모바일 서비스 클라이언트 만들기
+## <a name="create-client"></a>방법: 모바일 서비스 클라이언트 만들기
 
 
 
@@ -48,23 +48,23 @@
 
 >[WACOM.NOTE]JavaScript/HTML로 작성된 Windows 스토어 앱의 경우에는 프로젝트에 **WindowsAzure.MobileServices.WinJS** NuGet 패키지를 추가하기만 하면 됩니다.
 
-편집기에서 JavaScript 파일을 열거나 만들고 'MobileServiceClient' 변수를 정의하는 다음 코드를 추가하고 'MobileServiceClient' 생성자에 모바일 서비스의 응용 프로그램 URL 및 응용 프로그램 키를 이 순서대로 제공합니다.
+편집기에서 JavaScript 파일을 열거나 만들고 `MobileServiceClient` 변수를 정의하는 다음 코드를 추가하고 `MobileServiceClient` 생성자에 모바일 서비스의 응용 프로그램 URL 및 응용 프로그램 키를 이 순서대로 제공합니다.
 
 	var MobileServiceClient = WindowsAzure.MobileServiceClient;
     var client = new MobileServiceClient('AppUrl', 'AppKey');
 
-자리 표시자 'AppUrl'을 모바일 서비스의 응용 프로그램 URL로, 'AppKey'를 응용 프로그램 키로 바꿔야 합니다. 모바일 서비스의 응용 프로그램 URL 및 응용 프로그램 키를 구하는 방법에 대한 자세한 내용은 [Windows 스토어 JavaScript에서 데이터 시작](영문) 또는 [HTML/JavaScript에서 데이터 시작](영문) 자습서를 참조하세요.
+자리 표시자 `AppUrl`을 모바일 서비스의 응용 프로그램 URL로, `AppKey`를 응용 프로그램 키로 바꿔야 합니다. 모바일 서비스의 응용 프로그램 URL 및 응용 프로그램 키를 구하는 방법에 대한 자세한 내용은 [Windows 스토어 JavaScript에서 데이터 시작](영문) 또는 [HTML/JavaScript에서 데이터 시작](영문) 자습서를 참조하세요.
 
-##<a name="querying"></a>방법: 모바일 서비스에서 데이터 쿼리
+## <a name="querying"></a>방법: 모바일 서비스에서 데이터 쿼리
 
-SQL 데이터베이스 테이블의 데이터에 액세스하거나 데이터를 수정하는 모든 코드는 'MobileServiceTable' 개체의 함수를 호출합니다. 'MobileServiceClient' 인스턴스의 'getTable()' 함수를 호출하여 테이블에 대한 참조를 가져옵니다.
+SQL 데이터베이스 테이블의 데이터에 액세스하거나 데이터를 수정하는 모든 코드는 `MobileServiceTable` 개체의 함수를 호출합니다. `MobileServiceClient` 인스턴스의 `getTable()` 함수를 호출하여 테이블에 대한 참조를 가져옵니다.
 
     var todoItemTable = client.getTable('todoitem');
 
 
 ### <a name="filtering"></a>방법: 반환된 데이터 필터링
 
-다음 코드에서는 쿼리에 'where' 절을 포함하여 데이터를 필터링하는 방법을 보여 줍니다. 이 코드는 'todoItemTable'에서 complete 필드가 'false'와 동일한 항목을 모두 반환합니다. `todoItemTable`은 이전에 만든 모바일 서비스 테이블에 대한 참조입니다. where 함수는 테이블에 대한 쿼리에 행 필터링 조건자를 적용합니다. 이 함수는 행 필터를 정의하는 JSON 개체나 함수를 인수로 사용하며 추가로 작성할 수 있는 쿼리를 반환합니다.
+다음 코드에서는 쿼리에 `where` 절을 포함하여 데이터를 필터링하는 방법을 보여 줍니다. 이 코드는 `todoItemTable`에서 complete 필드가 `false`와 동일한 항목을 모두 반환합니다. `todoItemTable`은 이전에 만든 모바일 서비스 테이블에 대한 참조입니다. where 함수는 테이블에 대한 쿼리에 행 필터링 조건자를 적용합니다. 이 함수는 행 필터를 정의하는 JSON 개체나 함수를 인수로 사용하며 추가로 작성할 수 있는 쿼리를 반환합니다.
 
 	var query = todoItemTable.where({
 	    complete: false
@@ -74,7 +74,7 @@ SQL 데이터베이스 테이블의 데이터에 액세스하거나 데이터를
 	    alert("Error: " + err);
 	});
 
-Query 개체에 'where' 호출을 추가하고 개체를 매개 변수로 전달하여 모바일 서비스에서 'complete' 열에 'false' 값이 포함된 행만 반환하도록 지정합니다. 또한 다음 요청 URI에서 알 수 있듯이 쿼리 문자열 자체를 수정합니다.
+Query 개체에 `where` 호출을 추가하고 개체를 매개 변수로 전달하여 모바일 서비스에서 `complete` 열에 `false` 값이 포함된 행만 반환하도록 지정합니다. 또한 다음 요청 URI에서 알 수 있듯이 쿼리 문자열 자체를 수정합니다.
 
 	GET /tables/todoitem?$filter=(complete+eq+false) HTTP/1.1
 
@@ -86,7 +86,7 @@ Query 개체에 'where' 호출을 추가하고 개체를 매개 변수로 전달
 	FROM TodoItem
 	WHERE ISNULL(complete, 0) = 0
 
-'where' 메서드에 전달되는 개체에는 임의의 수의 매개 변수가 있을 수 있으며, 이 매개 변수는 모두 쿼리에 대한 AND 절로 변환됩니다. 다음 줄을 예로 들겠습니다.
+`where` 메서드에 전달되는 개체에는 임의의 수의 매개 변수가 있을 수 있으며, 이 매개 변수는 모두 쿼리에 대한 AND 절로 변환됩니다. 다음 줄을 예로 들겠습니다.
 
 	query.where({
 	   complete: false,
@@ -106,9 +106,9 @@ Query 개체에 'where' 호출을 추가하고 개체를 매개 변수로 전달
 	      AND assignee = 'david'
 	      AND difficulty = 'medium'
 
-위의 'where' 문과 SQL 쿼리는 "david"에게 할당되고 난이도가 "medium"인 완료되지 않은 항목을 찾습니다.
+위의 `where` 문과 SQL 쿼리는 "david"에게 할당되고 난이도가 "medium"인 완료되지 않은 항목을 찾습니다.
 
-하지만 동일한 쿼리를 작성하는 다른 방법이 있습니다. Query 개체에 대한 '.where' 호출은 'WHERE' 절에 'AND' 식을 추가하므로, 다음과 같이 세 줄에 이 호출을 작성해도 됩니다.
+하지만 동일한 쿼리를 작성하는 다른 방법이 있습니다. Query 개체에 대한 `.where` 호출은 `WHERE` 절에 `AND` 식을 추가하므로, 다음과 같이 세 줄에 이 호출을 작성해도 됩니다.
 
 	query.where({
 	   complete: false
@@ -132,7 +132,7 @@ Query 개체에 'where' 호출을 추가하고 개체를 매개 변수로 전달
 	   difficulty: "medium"
 	});
 
-두 방법은 동등하며 서로 교환해서 사용할 수 있습니다. 지금까지 모든 'where' 호출은 매개 변수가 있는 개체를 사용하며 데이터베이스의 데이터와 같은지 비교됩니다. 하지만 query 메서드에 대한 다른 오버로드도 있으며, 여기서는 개체 대신 함수를 사용합니다. 이 함수에서는 같지 않음과 같은 연산자 및 기타 관계형 연산을 사용하여 더 복잡한 식을 작성할 수 있습니다. 이 함수에서 키워드 'this'는 서버 개체에 바인딩됩니다.
+두 방법은 동등하며 서로 교환해서 사용할 수 있습니다. 지금까지 모든 `where` 호출은 매개 변수가 있는 개체를 사용하며 데이터베이스의 데이터와 같은지 비교됩니다. 하지만 query 메서드에 대한 다른 오버로드도 있으며, 여기서는 개체 대신 함수를 사용합니다. 이 함수에서는 같지 않음과 같은 연산자 및 기타 관계형 연산을 사용하여 더 복잡한 식을 작성할 수 있습니다. 이 함수에서 키워드 `this`는 서버 개체에 바인딩됩니다.
 
 함수 본문은 쿼리 문자열 매개 변수에 전달되는 OData(Open Data Protocol) 부울 식으로 변환됩니다. 다음과 같이 매개 변수를 취하지 않는 함수에 전달할 수 있습니다.
 
@@ -145,7 +145,7 @@ Query 개체에 'where' 호출을 추가하고 개체를 매개 변수로 전달
     });
 
 
-매개 변수가 있는 함수에 전달하는 경우에는 'where' 절 뒤의 인수가 함수 매개 변수에 순서대로 바인딩됩니다. 이 함수 범위 외부에서 가져온 개체는 반드시 매개 변수로 전달해야 합니다. 함수가 외부 변수를 캡처할 수 없기 때문입니다. 다음 두 예제에서는 인수 "david"가 매개 변수 'name'에 바인딩되며, 첫 번째 예제에서는 인수 "medium"도 매개 변수 'level'에 바인딩됩니다. 또한 함수는 지원되는 식이 포함된 단일 'return' 문으로 구성되어야 합니다. 다음과 같습니다.
+매개 변수가 있는 함수에 전달하는 경우에는 `where` 절 뒤의 인수가 함수 매개 변수에 순서대로 바인딩됩니다. 이 함수 범위 외부에서 가져온 개체는 반드시 매개 변수로 전달해야 합니다. 함수가 외부 변수를 캡처할 수 없기 때문입니다. 다음 두 예제에서는 인수 "david"가 매개 변수 `name`에 바인딩되며, 첫 번째 예제에서는 인수 "medium"도 매개 변수 `level`에 바인딩됩니다. 또한 함수는 지원되는 식이 포함된 단일 `return` 문으로 구성되어야 합니다. 다음과 같습니다.
 
 	 query.where(function (name, level) {
 	    return this.assignee == name && this.difficulty == level;
@@ -170,11 +170,11 @@ Query 개체에 'where' 호출을 추가하고 개체를 매개 변수로 전달
 
 ### <a name="sorting"></a>방법: 반환된 데이터 정렬
 
-다음 코드는 쿼리에 'orderBy' 또는 'orderByDescending' 함수를 포함하여 데이터를 정렬하는 방법을 보여 줍니다. 이 경우 'todoItemTable'의 항목을 'text' 필드를 기준으로 오름차순 정렬하여 반환합니다. 기본적으로 서버는 첫 50개 요소만 반환합니다.
+다음 코드는 쿼리에 `orderBy` 또는 `orderByDescending` 함수를 포함하여 데이터를 정렬하는 방법을 보여 줍니다. 이 경우 `todoItemTable`의 항목을 `text` 필드를 기준으로 오름차순 정렬하여 반환합니다. 기본적으로 서버는 첫 50개 요소만 반환합니다.
 
 <div class="dev-callout"><strong>참고</strong> <p>요소가 모두 반환되지 않도록 서버 기반 페이지 크기가 기본적으로 사용됩니다. 따라서 대량 데이터 집합에 대한 기본 요청이 서비스에 부정적인 영향을 미치지 않습니다. </p> </div>
 >
-다음 섹션의 설명대로 'take'를 호출하여 반환되는 항목 수를 늘릴 수도 있습니다. `todoItemTable`은 이전에 만든 모바일 서비스 테이블에 대한 참조입니다.
+다음 섹션의 설명대로 `take`를 호출하여 반환되는 항목 수를 늘릴 수도 있습니다. `todoItemTable`은 이전에 만든 모바일 서비스 테이블에 대한 참조입니다.
 
 	var ascendingSortedTable = todoItemTable.orderBy("text").read().done(function (results) {
 	   alert(JSON.stringify(results));
@@ -196,7 +196,7 @@ Query 개체에 'where' 호출을 추가하고 개체를 매개 변수로 전달
 
 ### <a name="paging"></a>방법: 페이지에서 데이터 반환
 
-다음 코드는 쿼리에 'take' 및 'skip' 절을 사용하여 반환된 데이터에서 페이징을 구현하는 방법을 보여 줍니다.  다음 쿼리를 실행하면 테이블에서 맨 위 세 개 항목이 반환됩니다.
+다음 코드는 쿼리에 `take` 및 `skip` 절을 사용하여 반환된 데이터에서 페이징을 구현하는 방법을 보여 줍니다.  다음 쿼리를 실행하면 테이블에서 맨 위 세 개 항목이 반환됩니다.
 
 	var query = todoItemTable.take(3).read().done(function (results) {
 	   alert(JSON.stringify(results));
@@ -204,7 +204,7 @@ Query 개체에 'where' 호출을 추가하고 개체를 매개 변수로 전달
 	   alert("Error: " + err);
 	});
 
-'take(3)' 메서드는 쿼리 URI에서 쿼리 옵션 '$top=3'으로 변환되었습니다.
+`take(3)` 메서드는 쿼리 URI에서 쿼리 옵션 `$top=3`으로 변환되었습니다.
 
 수정한 다음 쿼리는 처음 세 개 결과를 건너뛰고 그 다음 세 개 결과를 반환합니다. 따라서 페이지 크기가 세 개 항목인 경우 실질적으로 두 번째 데이터 "페이지"가 됩니다.
 
@@ -214,13 +214,13 @@ Query 개체에 'where' 호출을 추가하고 개체를 매개 변수로 전달
 	   alert("Error: " + err);
 	});
 
-마찬가지로 모바일 서비스에 전송되는 요청의 URI를 볼 수 있습니다. 'skip(3)' 메서드는 쿼리 URI에서 쿼리 옵션 '$skip=3'으로 변환되었습니다.
+마찬가지로 모바일 서비스에 전송되는 요청의 URI를 볼 수 있습니다. `skip(3)` 메서드는 쿼리 URI에서 쿼리 옵션 `$skip=3`으로 변환되었습니다.
 
-이 간소한 시나리오에서는 하드 코드된 페이징 값을 'take' 및 'skip' 함수에 전달합니다. 실제 앱에서는 Pager 컨트롤이나 이와 비슷한 UI에서 위와 비슷한 쿼리를 사용하여 사용자가 이전 및 다음 페이지로 이동하도록 만들 수 있습니다.
+이 간소한 시나리오에서는 하드 코드된 페이징 값을 `take` 및 `skip` 함수에 전달합니다. 실제 앱에서는 Pager 컨트롤이나 이와 비슷한 UI에서 위와 비슷한 쿼리를 사용하여 사용자가 이전 및 다음 페이지로 이동하도록 만들 수 있습니다.
 
 ### <a name="selecting"></a>방법: 특정 열 선택
 
-쿼리에 ';select' 절을 추가하면 결과에 포함할 속성 집합을 지정할 수 있습니다. 예를 들어 다음 코드는 'todoItemTable'의 각 행에서 'id', 'complete' 및 'text' 속성을 반환합니다.
+쿼리에 `;select` 절을 추가하면 결과에 포함할 속성 집합을 지정할 수 있습니다. 예를 들어 다음 코드는 `todoItemTable`의 각 행에서 `id`, `complete` 및 `text` 속성을 반환합니다.
 
 	var query = todoItemTable.select("id", "complete", "text").read().done(function (results) {
 	   alert(JSON.stringify(results));
@@ -246,7 +246,7 @@ Query 개체에 'where' 호출을 추가하고 개체를 매개 변수로 전달
 
 ### <a name="lookingup"></a>방법: ID를 기준으로 데이터 조회
 
-`lookup` 함수는 'id' 값만 사용하여 데이터베이스에서 해당 ID를 사용하는 개체를 반환합니다. 데이터베이스 테이블은 정수 또는 문자열 `id` 열을 사용하여 만들어집니다. 문자열 `id` 열이 기본값입니다.
+`lookup` 함수는 `id` 값만 사용하여 데이터베이스에서 해당 ID를 사용하는 개체를 반환합니다. 데이터베이스 테이블은 정수 또는 문자열 `id` 열을 사용하여 만들어집니다. 문자열 `id` 열이 기본값입니다.
 
 	todoItemTable.lookup("37BBF396-11F0-4B39-85C8-B319C729AF6D").done(function (result) {
 	   alert(JSON.stringify(result));
@@ -254,9 +254,9 @@ Query 개체에 'where' 호출을 추가하고 개체를 매개 변수로 전달
 	   alert("Error: " + err);
 	})
 
-##<a name="odata-query"></a>OData 쿼리 작업 실행
+## <a name="odata-query"></a>OData 쿼리 작업 실행
 
-모바일 서비스에서는 REST 쿼리를 작성 및 실행하는 데 OData 쿼리 URI 규칙을 사용합니다.  속성의 하위 문자열 검색 등 복잡한 필터 작업 같은 경우에는 기본 제공 쿼리 함수로 일부 OData 쿼리를 작성할 수 없습니다. 이처럼 복잡한 쿼리 유형의 경우 다음과 같이 'read' 함수로 유효한 OData 쿼리 옵션 문자열을 전달하면 됩니다.
+모바일 서비스에서는 REST 쿼리를 작성 및 실행하는 데 OData 쿼리 URI 규칙을 사용합니다.  속성의 하위 문자열 검색 등 복잡한 필터 작업 같은 경우에는 기본 제공 쿼리 함수로 일부 OData 쿼리를 작성할 수 없습니다. 이처럼 복잡한 쿼리 유형의 경우 다음과 같이 `read` 함수로 유효한 OData 쿼리 옵션 문자열을 전달하면 됩니다.
 
 	function refreshTodoItems() {
 	    todoItemTable.read("$filter=substringof('search_text',text)").then(function(items) {
@@ -266,7 +266,7 @@ Query 개체에 'where' 호출을 추가하고 개체를 매개 변수로 전달
 	    }, handleError);
 	}
 
->[WACOM.NOTE]원시 OData 쿼리 옵션 문자열을 'read' 함수에 제공하는 경우에는 쿼리 작성기 메서드를 같은 쿼리에서 사용할 수도 없습니다. 이 경우 전체 쿼리를 OData 쿼리 문자열로 작성해야 합니다. OData 시스템 쿼리 옵션에 대한 자세한 내용은 [OData 시스템 쿼리 옵션 참조](영문)를 참조하세요.
+>[WACOM.NOTE]원시 OData 쿼리 옵션 문자열을 `read` 함수에 제공하는 경우에는 쿼리 작성기 메서드를 같은 쿼리에서 사용할 수도 없습니다. 이 경우 전체 쿼리를 OData 쿼리 문자열로 작성해야 합니다. OData 시스템 쿼리 옵션에 대한 자세한 내용은 [OData 시스템 쿼리 옵션 참조](영문)를 참조하세요.
 
 <h2><a name="inserting"></a>방법: 모바일 서비스에 데이터 삽입</h2>
 
@@ -327,12 +327,12 @@ Query 개체에 'where' 호출을 추가하고 개체를 매개 변수로 전달
 +  인쇄 가능한 문자: **"**(0x0022), **\+** (0x002B), **/** (0x002F), **?** (0x003F), **\\** (0x005C), **`** (0x0060)
 +  ID "." 및 ".."
 
-또는 테이블에 정수 ID를 사용할 수 있습니다. 정수 ID를 사용하려면 'mobile table create' 명령에 '--integerId' 옵션을 사용하여 테이블을 만들어야 합니다. 이 명령은 Azure용 CLI(명령줄 인터페이스)와 함께 사용됩니다. CLI 사용에 대한 자세한 내용은 [모바일 서비스 테이블을 관리하는 CLI]를 참조하세요.
+또는 테이블에 정수 ID를 사용할 수 있습니다. 정수 ID를 사용하려면 `mobile table create` 명령에 `--integerId` 옵션을 사용하여 테이블을 만들어야 합니다. 이 명령은 Azure용 CLI(명령줄 인터페이스)와 함께 사용됩니다. CLI 사용에 대한 자세한 내용은 [모바일 서비스 테이블을 관리하는 CLI]를 참조하세요.
 
 
 <h2><a name="modifying"></a>방법: 모바일 서비스의 데이터 수정</h2>
 
-다음 코드는 테이블의 데이터를 업데이트하는 방법을 보여 줍니다. 클라이언트가 PATCH 요청을 모바일 서비스에 보내 데이터 행을 업데이트하도록 요청합니다. 요청 본문에는 업데이트할 특정 필드가 JSON 개체로 포함되어 있습니다. 'todoItemTable' 테이블의 기존 항목을 업데이트합니다.
+다음 코드는 테이블의 데이터를 업데이트하는 방법을 보여 줍니다. 클라이언트가 PATCH 요청을 모바일 서비스에 보내 데이터 행을 업데이트하도록 요청합니다. 요청 본문에는 업데이트할 특정 필드가 JSON 개체로 포함되어 있습니다. `todoItemTable` 테이블의 기존 항목을 업데이트합니다.
 
 			todoItemTable.update({
 			   id: idToUpdate,
@@ -374,7 +374,7 @@ Query 개체에 'where' 호출을 추가하고 개체를 매개 변수로 전달
 
 <h2><a name="binding"></a>방법: 사용자 인터페이스에 데이터 표시</h2>
 
-이 섹션에서는 반환된 데이터 개체를 UI 요소를 사용해서 표시하는 방법을 보여 줍니다. 'todoItemTable'의 항목을 쿼리하여 매우 간단한 목록에 표시하려면 다음 예제 코드를 실행하면 됩니다. 어떤 종류의 선택이나 필터링 또는 정렬도 하지 않습니다.
+이 섹션에서는 반환된 데이터 개체를 UI 요소를 사용해서 표시하는 방법을 보여 줍니다. `todoItemTable`의 항목을 쿼리하여 매우 간단한 목록에 표시하려면 다음 예제 코드를 실행하면 됩니다. 어떤 종류의 선택이나 필터링 또는 정렬도 하지 않습니다.
 
 			var query = todoItemTable;
 
@@ -413,7 +413,7 @@ ID 공급자를 등록하고 나면 공급자의 [MobileServiceAuthenticationPro
 		     alert("Error: " + err);
 		});
 
-Facebook 이외의 ID 공급자를 사용하는 경우 위의 'login' 메서드에 전달된 값을 다음 중 하나로 변경합니다. `microsoftaccount`, `facebook`, `twitter`, `google` 또는 `windowsazureactivedirectory`
+Facebook 이외의 ID 공급자를 사용하는 경우 위의 `login` 메서드에 전달된 값을 다음 중 하나로 변경합니다. `microsoftaccount`, `facebook`, `twitter`, `google` 또는 `windowsazureactivedirectory`
 
 이 경우 모바일 서비스는 선택한 공급자의 로그인 페이지를 표시하고 ID 공급자 로그인 후 모바일 서비스 인증 토큰을 생성하여 OAuth 2.0 인증 흐름을 관리합니다. [login] 함수를 완료하면 사용자 ID와 모바일 서비스 인증 토큰을 각각 **userId** 및 **authenticationToken** 필드에 표시하는 JSON 개체(**user**)가 반환됩니다. 이 토큰을 캐시하여 만료될 때까지 다시 사용할 수 있습니다. 자세한 내용은 [인증 토큰 캐시]를 참조하세요.
 
@@ -451,7 +451,7 @@ Facebook 이외의 ID 공급자를 사용하는 경우 위의 'login' 메서드�
 		     alert("Error: " + err);
 		});
 
-이 예제에서는 각 공급자 SDK에서 제공된 토큰이 'token' 변수에 저장되어 있다고 가정합니다.
+이 예제에서는 각 공급자 SDK에서 제공된 토큰이 `token` 변수에 저장되어 있다고 가정합니다.
 지금은 클라이언트 인증에 Twitter를 사용할 수 없습니다.
 
 <h3>인증 토큰 캐시</h3>
@@ -528,7 +528,7 @@ Promise는 완료할 작업을 아직 계산되지 않은 값으로 예약하는
 			   alert("Error: " + err);
 			});
 
-'then' promise와 'done' promise는 동일합니다. 하지만 'then' promise와 달리, 'done'은 함수 내부에서 처리되지 않은 오류를 반드시 throw합니다. `then`에 오류 처리기를 제공하지 않은 경우 연산에서 오류가 발생하면 오류가 throw되지 않고 대신 오류 상태의 promise가 반환됩니다. 자세한 내용은 [then](영문)을 참조하세요.
+`then` promise와 `done` promise는 동일합니다. 하지만 `then` promise와 달리, `done`은 함수 내부에서 처리되지 않은 오류를 반드시 throw합니다. `then`에 오류 처리기를 제공하지 않은 경우 연산에서 오류가 발생하면 오류가 throw되지 않고 대신 오류 상태의 promise가 반환됩니다. 자세한 내용은 [then](영문)을 참조하세요.
 
 			promise.then(onComplete, onError).done( /* Your success and error handlers */ );
 
@@ -541,7 +541,7 @@ Promise는 완료할 작업을 아직 계산되지 않은 값으로 예약하는
 			   alert("Error: " + err);
 			});
 
-다양한 방법으로 promise를 사용할 수 있습니다. 이전 'then' 함수에서 반환되는 promise에 대해 'then' 또는 'done'을 호출하는 방법으로 promise 연산을 연결할 수 있습니다. 연산의 중간 단계에는 'then'을 사용하고(예: '.then().then()'), 연산의 마지막 단계에는 'done'을 사용합니다(예: '.then().then().done()').  'then'은 promise를 반환하기 때문에 여러 'then' 함수를 연결할 수 있습니다. `done`은 undefined를 반환하기 때문에 두 개 이상의 `done` 메서드를 연결할 수 없습니다.  [then과 done의 차이에 대해 자세히 알아보세요].
+다양한 방법으로 promise를 사용할 수 있습니다. 이전 `then` 함수에서 반환되는 promise에 대해 `then` 또는 `done`을 호출하는 방법으로 promise 연산을 연결할 수 있습니다. 연산의 중간 단계에는 `then`을 사용하고(예: `.then().then()`), 연산의 마지막 단계에는 `done`을 사용합니다(예: `.then().then().done()`).  `then`은 promise를 반환하기 때문에 여러 `then` 함수를 연결할 수 있습니다. `done`은 undefined를 반환하기 때문에 두 개 이상의 `done` 메서드를 연결할 수 없습니다.  [then과 done의 차이에 대해 자세히 알아보세요].
 
  			todoItemTable.insert({
  			   text: "foo"
@@ -554,7 +554,7 @@ Promise는 완료할 작업을 아직 계산되지 않은 값으로 예약하는
 
 <h2><a name="customizing"></a>방법: 클라이언트 요청 헤더 사용자 지정</h2>
 
-'withFilter' 함수를 사용하면 보낼 요청의 임의의 속성을 필터 내부에서 읽고 써서 사용자 지정 요청 헤더를 보낼 수 있습니다. 서버 쪽 스크립트에 필요하거나 이 스크립트를 강화할 수 있는 경우 이런 사용자 지정 HTTP 헤더를 추가할 수 있습니다.
+`withFilter` 함수를 사용하면 보낼 요청의 임의의 속성을 필터 내부에서 읽고 써서 사용자 지정 요청 헤더를 보낼 수 있습니다. 서버 쪽 스크립트에 필요하거나 이 스크립트를 강화할 수 있는 경우 이런 사용자 지정 HTTP 헤더를 추가할 수 있습니다.
 
 			var client = new WindowsAzure.MobileServiceClient('https://your-app-url', 'your-key')
 			   .withFilter(function (request, next, callback) {
@@ -566,7 +566,7 @@ Promise는 완료할 작업을 아직 계산되지 않은 값으로 예약하는
 
 <h2><a name="hostnames"></a>방법: 크로스-원본 자원 공유 사용</h2>
 
-요청을 조작하여 모바일 서비스에 보낼 수 있는 웹 사이트를 제어하려면 구성 탭을 사용하여 호스트하는 데 사용하는 웹 사이트의 호스트 이름을 CORS(크로스 원본 자원 공유) 허용 목록에 추가해야 합니다. 필요한 경우 와일드카드를 사용할 수 있습니다. 기본적으로 새 모바일 서비스는 'localhost'에서만 액세스를 허용하도록 브라우저에 지시하며, CORS(크로스 원본 자원 공유)는 브라우저에서 외부 호스트 이름으로 실행되는 JavaScript 코드가 모바일 서비스와 조작할 수 있게 합니다.  이 구성은 WinJS 응용 프로그램의 경우에는 필요 없습니다.
+요청을 조작하여 모바일 서비스에 보낼 수 있는 웹 사이트를 제어하려면 구성 탭을 사용하여 호스트하는 데 사용하는 웹 사이트의 호스트 이름을 CORS(크로스 원본 자원 공유) 허용 목록에 추가해야 합니다. 필요한 경우 와일드카드를 사용할 수 있습니다. 기본적으로 새 모바일 서비스는 `localhost`에서만 액세스를 허용하도록 브라우저에 지시하며, CORS(크로스 원본 자원 공유)는 브라우저에서 외부 호스트 이름으로 실행되는 JavaScript 코드가 모바일 서비스와 조작할 수 있게 합니다.  이 구성은 WinJS 응용 프로그램의 경우에는 필요 없습니다.
 
 <h2><a name="nextsteps"></a>다음 단계</h2>
 
@@ -615,34 +615,34 @@ Promise는 완료할 작업을 아직 계산되지 않은 값으로 예약하는
 
 
 <!-- URLs. -->
-[모바일 서비스 시작](영문): /ko-kr/develop/mobile/tutorials/get-started-html
+[모바일 서비스 시작]: /ko-kr/develop/mobile/tutorials/get-started-html
 [모바일 서비스 SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
-[데이터 시작](영문): http://www.windowsazure.com/ko-kr/develop/mobile/tutorials/get-started-with-data-html/
-[인증 시작](영문): /ko-kr/develop/mobile/tutorials/get-started-with-users-html
-[Windows 스토어 인증 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-users-js
-[then](영문): http://msdn.microsoft.com/ko-kr/library/windows/apps/br229728.aspx
-[done](영문): http://msdn.microsoft.com/ko-kr/library/windows/apps/hh701079.aspx
-[then과 done의 차이에 대해 자세히 알아보기]: http://msdn.microsoft.com/ko-kr/library/windows/apps/hh700334.aspx
+[데이터 시작]: http://www.windowsazure.com/ko-kr/develop/mobile/tutorials/get-started-with-data-html/
+[Get started with authentication]: /ko-kr/develop/mobile/tutorials/get-started-with-users-html
+[Get started with authentication Windows Store]: /ko-kr/develop/mobile/tutorials/get-started-with-users-js
+[then]: http://msdn.microsoft.com/ko-kr/library/windows/apps/br229728.aspx
+[done]: http://msdn.microsoft.com/ko-kr/library/windows/apps/hh701079.aspx
+[then과 done의 차이에 대해 자세히 알아보세요]: http://msdn.microsoft.com/ko-kr/library/windows/apps/hh700334.aspx
 [Promise의 오류 처리 방법]: http://msdn.microsoft.com/ko-kr/library/windows/apps/hh700337.aspx
 
 [sessionStorage]: http://msdn.microsoft.com/ko-kr/library/cc197062(v=vs.85).aspx
 [localStorage]: http://msdn.microsoft.com/ko-kr/library/cc197062(v=vs.85).aspx
 
-[ListView](영문): http://msdn.microsoft.com/ko-kr/library/windows/apps/br211837.aspx
+[ListView]: http://msdn.microsoft.com/ko-kr/library/windows/apps/br211837.aspx
 [데이터 바인딩(JavaScript 및 HTML을 사용하는 Windows 스토어 앱)]: http://msdn.microsoft.com/ko-kr/library/windows/apps/hh758311.aspx
-[Windows 스토어 JavaScript 퀵 스타트](영문): http://www.windowsazure.com/ko-kr/develop/mobile/tutorials/get-started
-[HTML 퀵 스타트](영문): http://www.windowsazure.com/ko-kr/develop/mobile/tutorials/get-started-html
-[Windows 스토어 JavaScript에서 데이터 시작](영문): http://www.windowsazure.com/ko-kr/develop/mobile/tutorials/get-started-with-data-js
-[HTML/JavaScript에서 데이터 시작](영문): http://www.windowsazure.com/ko-kr/develop/mobile/tutorials/get-started-with-data-html/
+[Windows 스토어 JavaScript 퀵 스타트]: http://www.windowsazure.com/ko-kr/develop/mobile/tutorials/get-started
+[HTML 퀵 스타트]: http://www.windowsazure.com/ko-kr/develop/mobile/tutorials/get-started-html
+[Windows 스토어 JavaScript에서 데이터 시작]: http://www.windowsazure.com/ko-kr/develop/mobile/tutorials/get-started-with-data-js
+[HTML/JavaScript에서 데이터 시작]: http://www.windowsazure.com/ko-kr/develop/mobile/tutorials/get-started-with-data-html/
 [이 시나리오를 설정하는 방법에 대한 전체 예제]: http://www.windowsazure.com/ko-kr/develop/mobile/tutorials/single-sign-on-windows-8-js/
-[데이터 시작](영문): /ko-kr/develop/mobile/tutorials/get-started-with-data-html
+[데이터 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-data-html
 [스크립트를 사용하여 데이터 유효성 검사 및 수정 ]: /ko-kr/develop/mobile/tutorials/validate-modify-and-augment-data-html
 [페이징을 사용하여 쿼리 구체화]: /ko-kr/develop/mobile/tutorials/add-paging-to-data-html
 [스크립트를 통해 사용자 권한 부여]: /ko-kr/develop/mobile/tutorials/authorize-users-in-scripts-html
 [login]: http://msdn.microsoft.com/ko-kr/library/windowsazure/jj554236.aspx
 [단일 로그인으로 앱 인증]: /ko-kr/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/
-[ASCII 제어 코드 C0 및 C1](영문): http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
+[ASCII 제어 코드 C0 및 C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [모바일 서비스 테이블을 관리하는 CLI]: http://www.windowsazure.com/ko-kr/manage/linux/other-resources/command-line-tools/#Mobile_Tables
-[OData 시스템 쿼리 옵션 참조](영문): http://go.microsoft.com/fwlink/p/?LinkId=444502
+[OData 시스템 쿼리 옵션 참조]: http://go.microsoft.com/fwlink/p/?LinkId=444502
 
 <!--HONumber=35.1-->

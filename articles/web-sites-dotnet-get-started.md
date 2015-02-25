@@ -1,4 +1,4 @@
-﻿<properties pageTitle="ASP.NET용 Azure 웹 사이트 시작" metaKeywords="" description="이 자습서에서는 Visual Studio 2013에서 ASP.NET 웹 프로젝트를 만들어 Azure 웹 사이트에 배포하는 방법에 대해 알아봅니다. 15분 이내에 클라우드에서 앱을 작동 및 실행할 수 있습니다." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Get started with Azure Websites and ASP.NET" authors="tdykstra"  solutions="" manager="wpickett" editor="mollybos"  />
+<properties pageTitle="ASP.NET용 Azure 웹 사이트 시작" metaKeywords="" description="이 자습서에서는 Visual Studio 2013에서 ASP.NET 웹 프로젝트를 만들어 Azure 웹 사이트에 배포하는 방법에 대해 알아봅니다. 15분 이내에 클라우드에서 앱을 작동 및 실행할 수 있습니다." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Get started with Azure Websites and ASP.NET" authors="tdykstra"  solutions="" manager="wpickett" editor="mollybos"  />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="hero-article" ms.date="11/12/2014" ms.author="tdykstra" />
 
@@ -268,13 +268,13 @@
 
 * 웹 프로젝트를 배포하는 다른 방법
 
-	이 자습서에서는 단일 작업으로 사이트를 만들고 배포하는 가장 빠른 방법을 확인했습니다. Visual Studio를 사용하거나 [배포를 자동화](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery) 하는([소스 제어 시스템]) 등,(http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control)기타 배포 방법의 개요는 [Azure 웹 사이트를 배포하는 방법](/ko-kr/documentation/articles/web-sites-deploy/"). 
+	이 자습서에서는 단일 작업으로 사이트를 만들고 배포하는 가장 빠른 방법을 확인했습니다. Visual Studio를 사용하거나 [배포를 자동화](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery) 하는([소스 제어 시스템](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control)) 등,기타 배포 방법의 개요는 [Azure 웹 사이트를 배포하는 방법](/ko-kr/documentation/articles/web-sites-deploy/"). 
 
-	Visual Studio can also generate Windows PowerShell scripts that enable you to automate deployment. For more information, see [Automate Everything (Building Real-World Cloud Apps with Azure)](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything).
+	Visual Studio에서 배포를 자동화할 수 있는 Windows PowerShell 스크립트를 생성할 수도 있습니다. 자세한 내용은 자동화[Azure에서 실제 클라우드 앱 빌드](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything)(영문)를 참조하세요.
 
-* How to manage a website in Visual Studio
+* Visual Studio에서 웹 사이트를 관리하는 방법
 
-	For information about site management functions that you can do in **Server Explorer**, see [Troubleshooting Azure Websites in Visual Studio](/ko-kr/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/)을 참조하세요.
+	서버 탐색기에서 수행할 수 있는 사이트 관리 기능에 대한 자세한 내용은 [Visual Studio에서 Azure 웹 사이트 문제 해결](/ko-kr/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/) 을 참조하세요.
 
 * 웹 사이트 문제를 해결하는 방법
 

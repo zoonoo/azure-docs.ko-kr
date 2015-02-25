@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="SendGrid Email Service" pageTitle="SendGrid 메일 서비스를 사용하는 방법(Java) - Azure" metaKeywords="Azure SendGrid, Azure 메일 서비스, Azure SendGrid Java, Azure 메일 Java" description="Azure에서 SendGrid 전자 메일 서비스를 사용하여 전자 메일을 보내는 방법에 대해 알아봅니다. 코드 샘플은 Java로 작성되었습니다." metaCanonical="" services="" documentationCenter="Java" title="How to Send Email Using SendGrid from Java" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
+<properties urlDisplayName="SendGrid Email Service" pageTitle="SendGrid 메일 서비스를 사용하는 방법(Java) - Azure" metaKeywords="Azure SendGrid, Azure 메일 서비스, Azure SendGrid Java, Azure 메일 Java" description="Azure에서 SendGrid 전자 메일 서비스를 사용하여 전자 메일을 보내는 방법에 대해 알아봅니다. 코드 샘플은 Java로 작성되었습니다." metaCanonical="" services="" documentationCenter="Java" title="How to Send Email Using SendGrid from Java" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
 
 <tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="10/30/2014" ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork" />
 
@@ -82,7 +82,7 @@ SendGrid는 사용자 지정 통합을 쉽게 만드는 유연한 API와 함께 
         Session mailSession = Session.getDefaultInstance(properties, auth);
 
 4.  메시지를 만들고 **받는 사람**, **보낸 사람**, **제목** 및 내용 값을 할당합니다. [방법: 전자 메일 만들기](#bkmk_HowToCreateEmail) 섹션을 참조하세요.
-5.  그런 다음     <span class="auto-style1">javax.mail.Transport</span> 개체를 통해 메시지를 보냅니다. [방법: 메일 보내기][How to: Send an Email] 섹션을 참조하세요.
+5.  그런 다음     <span class="auto-style1">javax.mail.Transport</span> 개체를 통해 메시지를 보냅니다. [방법: 전자 메일 보내기][방법: 전자 메일 보내기] 섹션을 참조하세요.
 
 ## <a name="bkmk_HowToCreateEmail"> </a>방법: 전자 메일 만들기
 
@@ -138,8 +138,7 @@ SendGrid는 사용자 지정 통합을 쉽게 만드는 유연한 API와 함께 
 
 SendGrid는 *필터 사용*을 통해 추가 메일 기능을 제공합니다. 클릭 추적, Google 분석, 구독 추적 등을 사용하도록 설정하는 것과 같이 특정 기능을 사용하도록 설정하기 위해 전자 메일 메시지에 추가할 수 있는 설정입니다. 전체 필터 목록은 [필터 설정][](영문)을 참조하세요.
 
--   다음은
-    HTML 텍스트를 보내는 메일 맨 아래에 표시하는 바닥글 필터 삽입 방법을 보여 줍니다.
+-   다음은 HTML 텍스트를 보내는 메일 맨 아래에 표시하는 바닥글 필터 삽입 방법을 보여 줍니다.
 
         message.addHeader("X-SMTPAPI", 
 			"{\"filters\": 
@@ -216,7 +215,7 @@ SendGrid 메일 서비스에 관한 기본적인 사항들을 익혔으며 자�
   [필터 설정]: https://sendgrid.com/docs/API_Reference/Web_API/filter_settings.html
   [SendGrid API 설명서]: https://sendgrid.com/docs/API_Reference/index.html
   [http://sendgrid.com/azure.html]: https://sendgrid.com/windowsazure.html
-  [cloud-based email service]: https://sendgrid.com/email-solutions
-  [transactional email delivery]: https://sendgrid.com/transactional-email
+  [트랜잭션 메일 배달]: https://sendgrid.com/email-solutions
+  [클라우드 기반 메일 서비스]: https://sendgrid.com/transactional-email
 
 <!--HONumber=35.2-->

@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Localized Breaking News" pageTitle="알림 허브 지역화된 속보 자습서" metaKeywords="" description="Azure 서비스 버스 알림 허브를 사용하여 지역화된 최신 뉴스 알림을 보내는 방법에 대해 알아봅니다." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="" title="Use Notification Hubs to send localized breaking news" authors="ricksal" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Localized Breaking News" pageTitle="알림 허브 지역화된 속보 자습서" metaKeywords="" description="Azure 서비스 버스 알림 허브를 사용하여 지역화된 최신 뉴스 알림을 보내는 방법에 대해 알아봅니다." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="" title="Use Notification Hubs to send localized breaking news" authors="ricksal" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal" />
 # 알림 허브를 사용하여 지역화된 속보 보내기
@@ -25,7 +25,7 @@
 
 
 
-##필수 조건 ##
+## 필수 조건 ##
 
 이미 [알림 허브를 사용하여 속보 보내기] 자습서를 완료한 상태여야 하며 사용 가능한 코드가 있어야 합니다. 이 자습서에서는 해당 코드를 기반으로 직접 빌드하기 때문입니다. 
 

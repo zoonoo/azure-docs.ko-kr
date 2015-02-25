@@ -278,10 +278,10 @@ Azure 저장소 계정에 대한 자세한 내용은 [저장소 계정을 관리
 
 웹 사이트 끝점 모니터링에 대한 자세한 내용은 다음 비디오를 참조하세요.
 
-- [스캇 거트리(Scott Guthrie)의 Azure 웹 사이트 소개 및 끝점 모니터링 설정](영문)(http://www.windowsazure.com/ko-kr/documentation/videos/websites-and-endpoint-monitoring-scottgu/)
+- [스캇 거트리(Scott Guthrie)의 Azure 웹 사이트 소개 및 끝점 모니터링 설정](http://www.windowsazure.com/ko-kr/documentation/videos/websites-and-endpoint-monitoring-scottgu/)(영문)
 
-- [Azure 웹 사이트 가동 및 끝점 모니터링 - 스테판 스차코우(Stefan Schackow)](영문)(http://www.windowsazure.com/ko-kr/documentation/videos/azure-web-sites-endpoint-monitoring-and-staying-up/)
-
+- [Azure 웹 사이트 가동 및 끝점 모니터링 - 스테판 스차코우(Stefan Schackow)](http://www.windowsazure.com/ko-kr/documentation/videos/azure-web-sites-endpoint-monitoring-and-staying-up/)
+(영문)
 
 
 

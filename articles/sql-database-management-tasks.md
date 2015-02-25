@@ -1,4 +1,4 @@
-﻿<properties umbracoNaviHide="0" pageTitle="SQL 데이터베이스를 관리하는 방법" metaKeywords ="Azure SQL 데이터베이스, SQL 데이터베이스, sql 데이터베이스 관리, 로그인 추가, sql 데이터베이스에 연결" description="Azure SQL 데이터베이스를 관리하는 방법에 대해 알아봅니다." urlDisplayName="Cloud Services" headerExpose="" footerExpose="" disqusComments="1" title="How to Manage SQL Database" authors="jeffreyg" manager="jeffreyg" />
+<properties umbracoNaviHide="0" pageTitle="SQL 데이터베이스를 관리하는 방법" metaKeywords ="Azure SQL 데이터베이스, SQL 데이터베이스, sql 데이터베이스 관리, 로그인 추가, sql 데이터베이스에 연결" description="Azure SQL 데이터베이스를 관리하는 방법에 대해 알아봅니다." urlDisplayName="Cloud Services" headerExpose="" footerExpose="" disqusComments="1" title="How to Manage SQL Database" authors="jeffreyg" manager="jeffreyg" />
 
 <tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/31/2015" ms.author="jeffreyg" />
 
@@ -7,7 +7,7 @@
 
 이 문서에서는 Azure SQL 데이터베이스에서 간단한 관리 작업을 수행하는 방법을 보여 줍니다. 
 
-##목차##
+## 목차##
 
 * [방법: Management Studio를 사용하여 Azure의 SQL 데이터베이스에 연결](#connect)
 * [방법: Azure에서 SQL 데이터베이스에 로그인 및 사용자 추가](#addlogins)
@@ -23,7 +23,7 @@ Management Studio에는 구문 검사기, 다시 사용하기 위해 스크립�
 
 연결하려면 먼저 로컬 시스템에서 포트 1433에 대한 아웃바운드 요청을 허용하는 방화벽 예외를 만들어야 하는 경우가 있습니다. 기본적으로 안전한 컴퓨터의 경우 일반적으로 포트 1433이 열려 있지 않습니다. 
 
-##온-프레미스 서버용 방화벽 구성
+## 온-프레미스 서버용 방화벽 구성
 
 1. 고급 보안이 포함된 Windows 방화벽에서 새 아웃바운드 규칙을 만듭니다.
 
@@ -32,9 +32,9 @@ Management Studio에는 구문 검사기, 다시 사용하기 위해 스크립�
 3. WindowsAzureSQLDatabase (tcp-out) port 1433과 같이 의미 있는 이름을 지정합니다. 
 
 
-##논리 서버에 연결
+## 논리 서버에 연결
 
-1. Management Studio의 서버에 연결에서 데이터베이스 엔진이 선택되어 있는지 확인한 후 논리 서버 이름을 * 서버이름 *.database.widnows.net 형식으로 입력합니다.
+1. Management Studio의 서버에 연결에서 데이터베이스 엔진이 선택되어 있는지 확인한 후 논리 서버 이름을 *서버이름*.database.widnows.net 형식으로 입력합니다.
 
 	관리 포털, 서버 대시보드, MANAGE URL에서 정규화된 서버 이름을 가져올 수도 있습니다.
 
@@ -45,7 +45,7 @@ Management Studio에는 구문 검사기, 다시 사용하기 위해 스크립�
 4. 데이터베이스에 연결에서 **master**를 지정합니다.
 
 
-##온-프레미스 서버에 연결
+## 온-프레미스 서버에 연결
 
 1. Management Studio의 서버에 연결에서 데이터베이스 엔진이 선택되어 있는지 확인한 후 로컬 인스턴스 이름을 *서버이름*\\*인스턴스이름* 형식으로 입력합니다. 서버가 로컬이며 기본 인스턴스인 경우 *localhost*를 입력합니다.
 
@@ -62,7 +62,7 @@ Management Studio에는 구문 검사기, 다시 사용하기 위해 스크립�
 
 두 번째 스크립트는 데이터베이스 사용자 권한을 할당합니다. 이 스크립트의 경우 이미 Azure에 로드된 데이터베이스에 연결됩니다.
 
-##로그인 만들기
+## 로그인 만들기
 
 1. Management Studio에서 Azure의 논리 서버에 연결하고 데이터베이스 폴더를 확장한 후 **master**를 마우스 오른쪽 단추로 클릭하여 **새 쿼리**를 선택합니다.
 
@@ -82,7 +82,7 @@ Management Studio에는 구문 검사기, 다시 사용하기 위해 스크립�
 </pre></div>
 
 
-##데이터베이스 사용자 만들기
+## 데이터베이스 사용자 만들기
 
 1. 데이터베이스 폴더를 확장하고 **school**을 마우스 오른쪽 단추로 클릭한 후 **새 쿼리**를 선택합니다.
 
@@ -104,7 +104,7 @@ Management Studio에는 구문 검사기, 다시 사용하기 위해 스크립�
     GRANT VIEW DATABASE STATE to 'sqlops';
 </pre></div>
 
-##로그인 보기 및 테스트
+## 로그인 보기 및 테스트
 
 1. 새 쿼리 창에서 **master**에 연결하고 다음 문을 실행합니다. 
 
@@ -114,7 +114,7 @@ Management Studio에는 구문 검사기, 다시 사용하기 위해 스크립�
 
 3. 쿼리 메뉴에서 **연결**을 가리킨 후 **연결 변경**을 클릭합니다.
 
-4. * sqlreader *로 로그인합니다.
+4. *sqlreader*로 로그인합니다.
 
 5. 다음 문을 복사하여 실행합니다. 개체가 존재하지 않는다는 오류가 나타납니다.
 

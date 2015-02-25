@@ -1,4 +1,4 @@
-﻿<properties pageTitle="iOS 앱에 대해 Azure 모바일 서비스 시작" metaKeywords="Azure iOS application, mobile service iOS, getting started Azure iOS" description="이 자습서에 따라 Azure 모바일 서비스를 사용하여 iOS 개발을 시작할 수 있습니다. " metaCanonical="" services="" documentationCenter="Mobile" title="Get started with Mobile Services" authors="krisragh" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="iOS 앱에 대해 Azure 모바일 서비스 시작" metaKeywords="Azure iOS application, mobile service iOS, getting started Azure iOS" description="이 자습서에 따라 Azure 모바일 서비스를 사용하여 iOS 개발을 시작할 수 있습니다. " metaCanonical="" services="" documentationCenter="Mobile" title="Get started with Mobile Services" authors="krisragh" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="hero-article" ms.date="10/10/2014" ms.author="krisragh" />
 
@@ -40,7 +40,7 @@
 
    	![][6]
 
-   	This displays the three easy steps to create an iOS app connected to your mobile service.
+   	모바일 서비스에 연결된 HTML 앱을 만들고 호스트하는 세 가지 간단한 단계가 표시됩니다.
 
   	![][7]
 

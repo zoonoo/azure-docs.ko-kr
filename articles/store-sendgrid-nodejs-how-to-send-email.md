@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="SendGrid Email Service" pageTitle="SendGrid 메일 서비스를 사용하는 방법(Node.js) - Azure" metaKeywords="Azure SendGrid, Azure 메일 서비스, Azure SendGrid Node.js, Azure 메일 Node.js" description="Azure에서 SendGrid 전자 메일 서비스를 사용하여 전자 메일을 보내는 방법에 대해 알아봅니다. 코드 샘플은 Node.js API를 사용하여 작성되었습니다." metaCanonical="" services="" documentationCenter="nodejs" title="How to Send Email Using SendGrid from Node.js" authors="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com" solutions="" manager="wpickett" editor="" />
+<properties urlDisplayName="SendGrid Email Service" pageTitle="SendGrid 메일 서비스를 사용하는 방법(Node.js) - Azure" metaKeywords="Azure SendGrid, Azure 메일 서비스, Azure SendGrid Node.js, Azure 메일 Node.js" description="Azure에서 SendGrid 전자 메일 서비스를 사용하여 전자 메일을 보내는 방법에 대해 알아봅니다. 코드 샘플은 Node.js API를 사용하여 작성되었습니다." metaCanonical="" services="" documentationCenter="nodejs" title="How to Send Email Using SendGrid from Node.js" authors="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="10/30/2014" ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com" />
 
@@ -242,9 +242,9 @@ SendGrid 메일 서비스에 관한 기본적인 사항들을 익혔으며 자�
   
   
   [sendgrid-nodejs]: https://github.com/sendgrid/sendgrid-nodejs
-  [SMTP vs. Web API]: https://sendgrid.com/docs/Integrate/index.html
+  [SMTP 및 Web API]: https://sendgrid.com/docs/Integrate/index.html
   
-  [Filter Settings]: https://sendgrid.com/docs/API_Reference/SMTP_API/apps.html
-  [SendGrid API documentation]: https://sendgrid.com/docs
+  [필터 설정]: https://sendgrid.com/docs/API_Reference/SMTP_API/apps.html
+  [SendGrid API 설명서]: https://sendgrid.com/docs
   [cloud-based email service]: https://sendgrid.com/email-solutions
   [transactional email delivery]: https://sendgrid.com/transactional-email

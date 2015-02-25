@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Install Python" pageTitle="Python 및 SDK 설치 - Azure" metaKeywords="Azure Python SDK" description="Azure에서 사용할 Python 및 SDK를 설치하는 방법에 대해 알아봅니다." metaCanonical="" services="" documentationCenter="Python" title="Installing Python and the SDK" authors="huvalo" solutions="" manager="wpickett" editor="" />
+<properties urlDisplayName="Install Python" pageTitle="Python 및 SDK 설치 - Azure" metaKeywords="Azure Python SDK" description="Azure에서 사용할 Python 및 SDK를 설치하는 방법에 대해 알아봅니다." metaCanonical="" services="" documentationCenter="Python" title="Installing Python and the SDK" authors="huvalo" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="11/10/2014" ms.author="huvalo" />
 
@@ -109,7 +109,7 @@ PTVS는 선택 사항이지만 Python 및 Django 프로젝트/솔루션 지원, 
 
 또한 PTVS를 사용하면 [클라우드 서비스 및 웹 사이트 배포][] 지원과 함께 Microsoft Azure에 쉽게 배포할 수 있습니다.
 
-PTVS는 기존 Visual Studio 2010, 2012 또는 2013 설치와 함께 작동합니다.  자세한 내용 및 다운로드는 [CodePlex의 Python Tools for Visual Studio][]를 참조하세요.  
+PTVS는 기존 Visual Studio 2010, 2012 또는 2013 설치와 함께 작동합니다.  자세한 내용 및 다운로드는 [CodePlex의 Python Tools for Visual Studio(영문)][]를 참조하세요.  
 
 ## Windows 제거
 
@@ -173,9 +173,9 @@ Linux VM을 설정하는 방법에 대한 자세한 내용은 [Linux 관리](/ko
 [Django 프로젝트 - 완성도 높은 웹 프레임워크/CMS(영문)]: http://www.djangoproject.com 
 [IPython - Python용 고급 REPL/Notebook(영문)]: http://ipython.org
 [Azure의 IPython Notebook]: /ko-kr/documentation/articles/virtual-machines-python-ipython-notebook
-[클라우드 서비스 및 웹 사이트에 배포]: /ko-kr/documentation/articles/cloud-services-web-sites-python-django-app-with-ptvs/
+[클라우드 서비스 및 웹 사이트 배포]: /ko-kr/documentation/articles/cloud-services-web-sites-python-django-app-with-ptvs/
 [CodePlex의 Python Tools for Visual Studio(영문)]: http://pytools.codeplex.com 
-[Python 패키지 인덱스(PyPI)]: http://pypi.python.org/pypi
+[PyPI(Python 패키지 인덱스)]: http://pypi.python.org/pypi
 [Virtualenv(영문)]: http://pypi.python.org/pypi/virtualenv 
 [Microsoft Azure SDK for Python 2.7]: http://go.microsoft.com/fwlink/?LinkId=254281&clcid=0x409
 [Microsoft Azure SDK for Python 3.4]: http://go.microsoft.com/fwlink/?LinkID=516990&clcid=0x409

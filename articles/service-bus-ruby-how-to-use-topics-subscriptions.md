@@ -37,10 +37,9 @@
 
 서비스 버스 토픽 및 구독을 사용하면 다수의 사용자와 응용 프로그램에 대해 다수의 메시지를 처리하도록 확장할 수 있습니다.
 
-## <a id="create-a-service-namespace"</a>Create a Service Namespace
+## <a id="create-a-service-namespace"</a>서비스 네임스페이스 만들기
 
-To begin using Service Bus queues in Azure, you must first create a service namespace. A service namespace provides a scoping container for addressing Service Bus resources within 
-your application. You must create the namespace through the command-line interface because the Portal does not create the service bus with an ACS connection.
+Azure에서 서비스 버스 큐 사용을 시작하려면 먼저 서비스 네임스페이스를 만들어야 합니다. 서비스 네임스페이스는 응용 프로그램 내에서 서비스 버스 리소스의 주소를 지정하기 위한 범위 컨테이너를 제공합니다. 포털에서는 ACS 연결에 대한 서비스 버스가 생성되지 않으므로 명령줄 인터페이스를 통해 네임스페이스를 만들어야 합니다.
 
 네임스페이스 만들기:
 
@@ -56,7 +55,7 @@ your application. You must create the namespace through the command-line interfa
 
 새 네임스페이스에 대해 큐 만들기 등의 관리 작업을 수행하려면 네임스페이스에 대한 관리 자격 증명을 받아야 합니다.
 
-1. [Azure 관리 포털]에(http://manage.windowsazure.com/)로그온합니다.
+1. [Azure 관리 포털](http://manage.windowsazure.com/)에로그온합니다.
 
 2. 만든 서비스 버스 네임스페이스를 선택합니다.
 

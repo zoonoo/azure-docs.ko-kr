@@ -1,11 +1,11 @@
-﻿<properties title="Step 3: Create a new Azure Machine Learning experiment" pageTitle="3단계: 새 기계 학습 실험 만들기 | Azure" description="3단계: Azure 기계 학습 스튜디오에서 새 교육 실험 만들기" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun"  videoId="" scriptId="" />
+<properties title="Step 3: Create a new Azure Machine Learning experiment" pageTitle="3단계: 새 기계 학습 실험 만들기 | Azure" description="3단계: Azure 기계 학습 스튜디오에서 새 교육 실험 만들기" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun"  videoId="" scriptId="" />
 
 <tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/02/2014" ms.author="garye" />
 
 
 [Azure 기계 학습을 사용한 예측 솔루션 개발][develop] 자습서의 세 번째 단계입니다.
 
-[개발]: ../machine-learning-walkthrough-develop-predictive-solution/
+[develop]: ../machine-learning-walkthrough-develop-predictive-solution/
 
 
 1.	[기계 학습 작업 영역 만들기][create-workspace]
@@ -15,12 +15,12 @@
 5.	[웹 서비스 게시][publish]
 6.	[웹 서비스 액세스][access-ws]
 
-[작업 영역 만들기]: ../machine-learning-walkthrough-1-create-ml-workspace/
-[데이터 업로드]: ../machine-learning-walkthrough-2-upload-data/
-[새로 만들기]: ../machine-learning-walkthrough-3-create-new-experiment/
-[모델 학습]: ../machine-learning-walkthrough-4-train-and-evaluate-models/
-[게시]: ../machine-learning-walkthrough-5-publish-web-service/
-[ws 액세스]: ../machine-learning-walkthrough-6-access-web-service/
+[create-workspace]: ../machine-learning-walkthrough-1-create-ml-workspace/
+[upload-data]: ../machine-learning-walkthrough-2-upload-data/
+[create-new]: ../machine-learning-walkthrough-3-create-new-experiment/
+[train-models]: ../machine-learning-walkthrough-4-train-and-evaluate-models/
+[publish]: ../machine-learning-walkthrough-5-publish-web-service/
+[access-ws]: ../machine-learning-walkthrough-6-access-web-service/
 
 ----------
 
@@ -33,7 +33,7 @@
 3.	실험 캔버스의 왼쪽에 있는 모듈 팔레트에서 **저장된 데이터 집합**을 확장합니다.
 4.	만든 데이터 집합을 찾고 캔버스로 끕니다. 팔레트 위의 **검색** 상자에 이름을 입력하여 데이터 집합을 찾을 수도 있습니다.  
 
-##데이터 준비
+## 데이터 준비
 데이터 집합의 출력 포트를 마우스 오른쪽 단추로 클릭하고 **시각화**를 선택하여 데이터의 처음 100개 행 및 전체 데이터 집합에 대한 일부 통계 정보를 볼 수 있습니다. 기계 학습 스튜디오에서는 각 열에 대한 데이터 형식을 이미 식별했습니다. 데이터 파일에는 열 제목이 제공되지 않았으므로 열에 일반적인 제목을 제공했습니다.  
 
 열 제목은 필수가 아니지만 열 제목이 있으면 모델에서 데이터를 더 쉽게 사용할 수 있습니다. 또한 최종적으로 웹 서비스에서 이 모델을 게시할 때 제목을 사용하여 서비스 사용자에 대한 열을 식별할 수 있습니다.  
@@ -59,7 +59,7 @@
 
 ![Adding Metadata Editor][2]
  
-##학습 및 테스트 데이터 집합 만들기
+## 학습 및 테스트 데이터 집합 만들기
 실험의 다음 단계에서는 모델 학습 및 테스트에 사용될 개별 데이터 집합을 생성합니다. 이 작업을 하기 위해 **분할** 모듈을 사용합니다.  
 
 1.	**분할** 모듈을 찾고 캔버스로 끌어서 마지막 **메타데이터 편집기** 모듈에 연결합니다.

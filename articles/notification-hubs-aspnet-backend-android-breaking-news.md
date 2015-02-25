@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Breaking News" pageTitle="알림 허브 속보 자습서 - Android" metaKeywords="" description="Azure 서비스 버스 알림 허브를 사용하여 Android 장치에 최신 뉴스 알림을 보내는 방법에 대해 알아봅니다." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="" title="Use Notification Hubs to send breaking news" authors="ricksal" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Breaking News" pageTitle="알림 허브 속보 자습서 - Android" metaKeywords="" description="Azure 서비스 버스 알림 허브를 사용하여 Android 장치에 최신 뉴스 알림을 보내는 방법에 대해 알아봅니다." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="" title="Use Notification Hubs to send breaking news" authors="ricksal" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-android" ms.devlang="java" ms.topic="article" ms.date="11/22/2014" ms.author="ricksal" />
 
@@ -22,7 +22,7 @@
 
 이 항목은 [알림 허브 시작][get-started]에서 만든 앱을 기반으로 합니다. 이 자습서를 시작하기 전에 먼저 [알림 허브 시작][get-started]을 완료해야 합니다.
 
-##<a name="adding-categories"></a>앱에 범주 선택 추가
+## <a name="adding-categories"></a>앱에 범주 선택 추가
 
 첫 번째 단계는 기존의 기본 활동에 사용자가 등록할 범주를 선택할 수 있도록 하는 UI 요소를 추가하는 것입니다. 사용자가 선택한 범주는 장치에 저장됩니다. 앱을 시작하면 장치 등록이 선택한 범주와 함께 태그로서 알림 허브에 생성됩니다. 
 
@@ -209,7 +209,7 @@
 
 이제 사용자가 범주 선택을 변경할 때마다 앱은 범주 집합을 장치의 로컬 저장소에 저장하고 알림 허브에 등록할 수 있습니다. 
 
-##<a name="register"></a>알림 등록
+## <a name="register"></a>알림 등록
 
 다음 단계에서는 로컬 저장소에 저장된 범주를 사용하여 시작 시 알림 허브에 등록합니다. 
 
@@ -262,7 +262,7 @@
 
 [WACOM.INCLUDE [notification-hubs-back-end](../includes/notification-hubs-back-end.md)]
 
-##<a name="test-app"></a>앱 실행 및 알림 생성
+## <a name="test-app"></a>앱 실행 및 알림 생성
 
 1. Eclipse에서는 앱을 빌드하고 장치나 에뮬레이터에서 시작합니다.
 	
@@ -307,8 +307,8 @@
 [get-started]: /ko-kr/documentation/articles/notification-hubs-android-get-started/
 [알림 허브를 사용하여 지역화된 속보 브로드캐스트]: /ko-kr/manage/services/notification-hubs/breaking-news-localized-dotnet/ 
 [알림 허브를 통해 사용자에게 알림]: /ko-kr/manage/services/notification-hubs/notify-users
-[모바일 서비스](영문): /ko-kr/develop/mobile/tutorials/get-started/
-[알림 허브 지침]: http://msdn.microsoft.com/ko-kr/library/jj927170.aspx
+[모바일 서비스]: /ko-kr/develop/mobile/tutorials/get-started/
+[알림 허브 개요]: http://msdn.microsoft.com/ko-kr/library/jj927170.aspx
 [Windows 스토어에 대한 알림 허브 방법]: http://msdn.microsoft.com/ko-kr/library/jj927172.aspx
 [앱 제출 페이지]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [내 응용 프로그램]: http://go.microsoft.com/fwlink/p/?LinkId=262039

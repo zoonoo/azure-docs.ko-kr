@@ -812,9 +812,9 @@ XSRF 공격은 피싱 공격과는 구분됩니다. 피싱 공격에는 피해�
 Azure 응용 프로그램에 데이터를 저장하는 또 다른 방법은 Azure 저장소를 사용하는 것입니다. Azure 저장소는 비관계형 데이터 저장소를 Blob 및 테이블 형식으로 제공합니다. Web API, ASP.NET MVC 및 Window Azure에 대한 자세한 내용은 다음 링크를 참조하세요.
  
 
-* [MVC를 사용하여 Entity Framework 시작][EFCodeFirstMVCTutorial](영문)
-* [ASP.NET MVC 5 소개](영문)(http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started)
-* [ASP.NET Web API 최초 사용](영문)(http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api)
+* [MVC를 사용하여 Entity Framework 시작 (영문)][EFCodeFirstMVCTutorial]
+* [ASP.NET MVC 5 소개 (영문)](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started)
+* [ASP.NET Web API 최초 사용 (영문)](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api)
 * [WAWS 디버그](http://www.windowsazure.com/ko-kr/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/)
 
 이 자습서 및 샘플 응용 프로그램은 [Rick Anderson](http://blogs.msdn.com/b/rickandy/) (Twitter [@RickAndMSFT](https://twitter.com/RickAndMSFT))이 Tom Dykstra 및 Barry Dorrans(Twitter [@blowdart](https://twitter.com/blowdart)의 도움을 받아 작성했습니다. 

@@ -52,7 +52,7 @@
 
    	![][6]
 
-   	This displays the three easy steps to create and host an HTML app connected to your mobile service.
+   	모바일 서비스에 연결된 HTML 앱을 만들고 호스트하는 세 가지 간단한 단계가 표시됩니다.
 
   	![][7]
 

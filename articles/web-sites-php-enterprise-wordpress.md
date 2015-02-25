@@ -202,7 +202,7 @@ WordPress 사이트가 만들어지거나 마이그레이션되면 다음 정보
 
 * [Azure에 기존 WordPress 블로그 호스트 (영문)](http://blogs.msdn.com/b/msgulfcommunity/archive/2013/08/26/migrating-a-self-hosted-wordpress-blog-to-windows-azure.aspx)
 
-* [WordPress에서 멋진 permalinks 사용](영문)(http://www.iis.net/learn/extensions/url-rewrite-module/enabling-pretty-permalinks-in-wordpress)
+* [WordPress에서 멋진 permalinks 사용 (영문)](http://www.iis.net/learn/extensions/url-rewrite-module/enabling-pretty-permalinks-in-wordpress)
 
 * [Azure 웹 사이트에서 WordPress 블로그를 마이그레이션 및 실행하는 방법 (영문)](http://www.kefalidis.me/2012/06/how-to-migrate-and-run-your-wordpress-blog-on-windows-azure-websites/)
 

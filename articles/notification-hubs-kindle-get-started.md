@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Get Started" pageTitle="Azure 알림 허브 시작" metaKeywords="" description="Azure 알림 허브를 사용하여 푸시 알림을 보내는 방법에 대해 알아봅니다." metaCanonical="" services="notification-hubs" documentationCenter="Mobile" title="Get started with Notification Hubs" authors="piyushjo" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Get Started" pageTitle="Azure 알림 허브 시작" metaKeywords="" description="Azure 알림 허브를 사용하여 푸시 알림을 보내는 방법에 대해 알아봅니다." metaCanonical="" services="notification-hubs" documentationCenter="Mobile" title="Get started with Notification Hubs" authors="piyushjo" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-kindle" ms.devlang="Java" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
 
@@ -14,7 +14,7 @@
 + Android SDK(Eclipse를 사용하는 것으로 가정) - <a href="http://go.microsoft.com/fwlink/?LinkId=389797">여기</a>서 다운로드 가능
 + <a href="https://developer.amazon.com/appsandservices/resources/development-tools/ide-tools/tech-docs/01-setting-up-your-development-environment">이</a> 단계에 따라 Kindle에 대한 개발 환경 설정
 
-##개발자 포털에 새 앱 추가
+## 개발자 포털에 새 앱 추가
 
 1. 먼저 [개발자 포털]에서 앱을 만듭니다.
 
@@ -59,12 +59,12 @@
 
 <div class="dev-callout"><b>참고</b>
     <p>응용 프로그램을 만들 때 API Level 17 이상을 사용합니다.</p>
-    </div>
+</div>
 
 Eclipse 프로젝트에 ADM 라이브러리를 추가합니다.
 
 1. ADM 라이브러리를 가져오려면 [SDK를 다운로드합니다]. SDK zip 파일의 압축을 풉니다.
-2. Eclipse에서 프로젝트를 마우스 오른쪽 단추로 클릭한 후 **Properties**를 클릭합니다. 왼쪽에서 **Java Build Path**를 선택한 후 맨 위에 있는 **Libraries ** 탭을 선택합니다. **Add External Jar**을 클릭하고, Amazon SDK의 압축을 푼 디렉터리에서 `\SDK\Android\DeviceMessaging\lib\amazon-device-messaging-*.jar` 파일을 선택합니다.
+2. Eclipse에서 프로젝트를 마우스 오른쪽 단추로 클릭한 후 **Properties**를 클릭합니다. 왼쪽에서 **Java Build Path**를 선택한 후 맨 위에 있는 **Libraries** 탭을 선택합니다. **Add External Jar**을 클릭하고, Amazon SDK의 압축을 푼 디렉터리에서 `\SDK\Android\DeviceMessaging\lib\amazon-device-messaging-*.jar` 파일을 선택합니다.
 3. NotificationHubs Android SDK(링크)를 다운로드합니다.
 4. 패키지의 압축을 푼 후 `notification-hubs-sdk.jar` 파일을 Eclipse의 `libs ` 폴더로 끌어 놓습니다.
 

@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Access Control" pageTitle="액세스 제어 사용 방법(Java) - Azure 기능 가이드" metaKeywords="" description="Azure에서 Java를 사용하여 액세스 제어를 개발하고 사용하는 방법에 대해 알아봅니다." metaCanonical="" services="active-directory" documentationCenter="Java" title="How to Authenticate Web Users with Azure Access Control Service Using Eclipse" videoId="" scriptId="" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" />
+<properties urlDisplayName="Access Control" pageTitle="액세스 제어 사용 방법(Java) - Azure 기능 가이드" metaKeywords="" description="Azure에서 Java를 사용하여 액세스 제어를 개발하고 사용하는 방법에 대해 알아봅니다." metaCanonical="" services="active-directory" documentationCenter="Java" title="How to Authenticate Web Users with Azure Access Control Service Using Eclipse" videoId="" scriptId="" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" />
 
 <tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="robmcm" />
 
@@ -276,9 +276,9 @@ ACS 관리 포털의 응용 프로그램 통합 페이지에서 Java 웹
 ## <a name="deploy_compute_emulator"></a>계산 에뮬레이터에 배포
 
 1. Eclipse의 Project Explorer에서 **MyACSHelloWorld**를 마우스 오른쪽 단추로 클릭하고 **Azure**를 클릭한 후 **Package for Azure**를 클릭합니다.
- 2. **Project name**에 **MyAzureACSProject**를 입력하고 **Next**를 클릭합니다.
+2. **Project name**에 **MyAzureACSProject**를 입력하고 **Next**를 클릭합니다.
 3. JDK 및 응용 프로그램 서버를 선택합니다. (이러한 단계는 [Eclipse에서 Azure용 Hello World 응용 프로그램 만들기](http://msdn.microsoft.com/ko-kr/library/windowsazure/hh690944.aspx)(영문) 자습서에 자세히 설명되어 있습니다.)
- 4. **Finish**를 클릭합니다.
+4. **Finish**를 클릭합니다.
 5. **Run in Azure Emulator** 단추를 클릭합니다.
 6. Java 웹 응용 프로그램이 계산 에뮬레이터에서 시작되고 나면 현재 브라우저 세션이 ACS 로그인 테스트를 방해하지 않도록 모든 브라우저 인스턴스를 닫습니다.
 7. 브라우저에서 <http://localhost:8080/MyACSHelloWorld/>(또는 **Require HTTPS connections**를 선택한 경우 <https://localhost:8080/MyACSHelloWorld/>)를 열어 응용 프로그램을 실행합니다. Windows Live ID 로그인 메시지가 표시되어야 하며, 그런 다음 신뢰 당사자 응용 프로그램에 대해 지정된 반환 URL로 이동되어야 합니다.
@@ -297,13 +297,15 @@ Azure에 배포하려면 ACS 네임스페이스의 신뢰 당사자 영역 및 �
     ![Relying party return URL for use in production][relying_party_return_url_production]
 
 3. **저장**을 클릭하여 업데이트된 신뢰 당사자 영역 및 반환 URL 변경 내용을 저장합니다.
-브라우저에 4. **로그인 페이지 통합** 페이지를 열어둔 상태로 둡니다. 곧 이 페이지에서 복사해야 하기 때문입니다.
+브라우저에
+4. **로그인 페이지 통합** 페이지를 열어둔 상태로 둡니다. 곧 이 페이지에서 복사해야 하기 때문입니다.
 5. Eclipse의 Project Explorer에서 **MyACSHelloWorld**를 마우스 오른쪽 단추로 클릭하고 **Build Path**를 클릭한 후 **Configure Build Path**를 클릭합니다.
- 6. **Libraries** 탭, **Azure Access Control Services Filter**, **Edit**를 차례로 클릭합니다.
+6. **Libraries** 탭, **Azure Access Control Services Filter**, **Edit**를 차례로 클릭합니다.
 7. 관리 포털의 **로그인 페이지 통합** 페이지가 열려 있는 브라우저를 사용하여 **옵션 1: Link to an ACS-hosted login page** 필드에 나열된 URL을 복사하여 Eclipse 대화 상자의 **ACS Authentication Endpoint** 필드에 붙여 넣습니다.
 8. 관리 포털의 **신뢰 당사자 응용 프로그램 편집** 페이지가 열려 있는 브라우저를 사용하여 **영역** 필드에 나열된 URL을 복사하여 Eclipse 대화 상자의 **Relying Party Realm** 필드에 붙여 넣습니다.
 9. Eclipse 대화 상자의 **Security** 섹션 내에서 기존 인증서를 사용하려는 경우 **Browse**를 클릭하여 사용할 인증서로 이동하여 선택한 후 **Open**을 클릭합니다. 또는 새 인증서를 만들려는 경우 **New**를 클릭하여 **New Certificate** 대화 상자를 표시한 후 새 인증서의 암호, .cer 파일 이름 및 .pfx 파일 이름을 지정합니다.
-인증서를 WAR 파일에 포함하려 한다고 가정하므로 10. **Embed the certificate in the WAR file**을 선택된 상태로 둡니다.
+인증서를 WAR 파일에 포함하려 한다고 가정하므로
+10. **Embed the certificate in the WAR file**을 선택된 상태로 둡니다.
 11. [옵션]**Require HTTPS connections**를 선택된 상태로 둡니다. 이 옵션을 설정하면 HTTPS 프로토콜을 사용하여 응용 프로그램에 액세스해야 합니다. HTTPS 연결이 필요하지 않은 경우 이 옵션을 선택 취소합니다.
 12. Azure에 대한 배포의 경우 Azure ACS Filter 설정은 다음과 유사합니다.
 
@@ -339,7 +341,7 @@ ACS에 의해 응용 프로그램으로 반환되는 SAML(Security Assertion Mar
 
         ![Add certificate component][add_cert_component]
 
-     5. **확인**을 클릭합니다.
+    5. **확인**을 클릭합니다.
 
 이때 인증서가 배포에 포함됩니다. 인증서를 WAR 파일에 포함하든 배포에 구성 요소로 추가하든 관계없이 [ACS 네임스페이스에 인증서 업로드][] 섹션에 설명된 대로 인증서를 네임스페이스에 업로드해야 합니다.
 
@@ -359,6 +361,7 @@ ACS에 의해 응용 프로그램으로 반환되는 SAML(Security Assertion Mar
 [Azure에 배포]: #deploy_azure
 [다음 단계]: #next_steps
 [프로젝트 웹 사이트]: http://wastarterkit4java.codeplex.com/releases/view/61026
+[Azure 액세스 제어 서비스에 의해 반환되는 SAML을 확인하는 방법]: /ko-kr/develop/java/how-to-guides/view-saml-returned-by-acs/
 [How to Azure 액세스 제어 서비스에서 반환하는 SAML을 보는 방법]: /ko-kr/develop/java/how-to-guides/view-saml-returned-by-acs/
 [액세스 제어 서비스 2.0]: http://go.microsoft.com/fwlink/?LinkID=212360
 [Windows Identity Foundation]: http://www.microsoft.com/download/en/details.aspx?id=17331

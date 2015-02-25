@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Specifying a Node.js Version" pageTitle="Node.js 버전 지정" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="nodejs" title="Specifying a Node.js version in an Azure application" authors="larryfr" solutions="" manager="wpickett" editor="mollybos" />
+<properties urlDisplayName="Specifying a Node.js Version" pageTitle="Node.js 버전 지정" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="nodejs" title="Specifying a Node.js version in an Azure application" authors="larryfr" solutions="" manager="wpickett" editor="mollybos" />
 
 <tags ms.service="na" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
@@ -10,7 +10,7 @@
 
 Node.js 응용 프로그램을 호스트하는 경우 응용 프로그램에서 특정 버전의 Node.js를 사용하는지 확인하는 것이 좋습니다. Azure에 호스트된 응용 프로그램에 대해 이 작업을 수행하는 여러 가지 방법이 있습니다.
 
-##기본 버전
+## 기본 버전
 
 현재 Azure는 Node.js 버전 0.6.17, 0.6.20 및 0.8.4를 제공합니다. 달리 지정되지 않은 경우 기본 버전 0.6.20이 사용됩니다.
 
@@ -20,7 +20,7 @@ Node.js 응용 프로그램을 호스트하는 경우 응용 프로그램에서 
 </div>
 
 
-##package.json을 사용하여 버전 관리
+## package.json을 사용하여 버전 관리
 
 **package.json** 파일에 다음을 추가하여 사용할 Node.js의 버전을 지정할 수 있습니다.
 
@@ -32,7 +32,7 @@ Node.js 응용 프로그램을 호스트하는 경우 응용 프로그램에서 
 
 0.6.22는 호스팅 환경에서 사용 가능한 버전 중 하나가 아니므로 사용 가능한 0.8 시리즈의 가장 높은 버전인 0.8.4가 대신 사용됩니다.
 
-##PowerShell을 사용하여 클라우드 서비스 버전 관리
+## PowerShell을 사용하여 클라우드 서비스 버전 관리
 
 클라우드 서비스에서 응용 프로그램을 호스트하고 Azure PowerShell을 사용하여 응용 프로그램을 배포하는 경우 **Set-AzureServiceProjectRole** PowerShell cmdlet을 사용하여 기본 Node.js 버전을 재정의할 수 있습니다. 예를 들면 다음과 같습니다.
 
@@ -40,7 +40,7 @@ Node.js 응용 프로그램을 호스트하는 경우 응용 프로그램에서 
 
 **Get-AzureServiceProjectRoleRuntime**을 사용하여 클라우드 서비스로 호스트된 응용 프로그램에 사용 가능한 Node.js 버전 목록을 검색할 수도 있습니다.
 
-##Azure 웹 사이트에서 사용자 지정 버전 사용
+## Azure 웹 사이트에서 사용자 지정 버전 사용
 
 Azure는 Node.js의 기본 버전을 여러 개 제공하지만 기본적으로 제공되지 않는 버전을 사용할 수도 있습니다. 응용 프로그램이 Azure 웹 사이트로 호스트된 경우 **iisnode.yml** 파일을 사용하면 됩니다. 다음 단계에서는 Azure 웹 사이트에서 사용자 지정 버전의 Node.Js를 사용하는 프로세스를 단계별로 안내합니다.
 
@@ -80,7 +80,7 @@ Azure는 Node.js의 기본 버전을 여러 개 제공하지만 기본적으로 
 
 	응용 프로그램이 게시된 후 브라우저에서 웹 사이트를 엽니다. "Hello from Azure running node version: v0.8.1"이라는 메시지가 표시됩니다.
 
-##다음 단계
+## 다음 단계
 
 지금까지 응용 프로그램에서 사용되는 Node.js 버전을 지정하는 방법을 배웠습니다. 이제 [모듈 작업] 방법, [Node.js 웹 사이트 빌드 및 배포] 방법, [Mac 및 Linux에서 Azure 명령줄 도구를 사용하는 방법]을 알아보겠습니다.
 

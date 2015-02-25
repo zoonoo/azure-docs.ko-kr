@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Caching" pageTitle="In-Role Cache 사용 방법(.NET) - Azure 기능 가이드" metaKeywords="Azure cache, Azure caching, Azure cache, Azure caching, Azure store session state, Azure cache .NET, Azure cache C#" description="Azure 역할 내 캐시를 사용 하는 방법에 알아봅니다. 샘플은 C# 코드로 작성되었고 .NET API를 사용합니다." metaCanonical="" services="cache" documentationCenter=".NET" title="How to Use In-Role Cache for Azure Cache" authors="sdanie" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Caching" pageTitle="In-Role Cache 사용 방법(.NET) - Azure 기능 가이드" metaKeywords="Azure cache, Azure caching, Azure cache, Azure caching, Azure store session state, Azure cache .NET, Azure cache C#" description="Azure 역할 내 캐시를 사용 하는 방법에 알아봅니다. 샘플은 C# 코드로 작성되었고 .NET API를 사용합니다." metaCanonical="" services="cache" documentationCenter=".NET" title="How to Use In-Role Cache for Azure Cache" authors="sdanie" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="cache" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/18/2014" ms.author="sdanie" />
 
@@ -99,7 +99,7 @@ In-Role Cache는 역할 인스턴스를 호스트하는 가상 컴퓨터의 메�
 
 캐시의 크기를 결정하는 구성 요소는 역할의 VM 크기, 역할의 인스턴스 개수, 캐시 클러스터가 전용 역할과 공동 배치된 역할 중 무엇으로 구성되어 있는가 등입니다.
 
->이 섹션에서는 캐시 크기 구성에 대한 간단한 개요를 제공합니다. 캐시 크기 및 기타 용량 계획 고려 사항에 대한 자세한 내용은 [In-Role Cache 캐시 용량 고려 사항][]을 참조하세요.
+>이 섹션에서는 캐시 크기 구성에 대한 간단한 개요를 제공합니다. 캐시 크기 및 기타 용량 계획 고려 사항에 대한 자세한 내용은 [In-Role Cache 용량 계획 고려 사항][]을 참조하세요.
 
 가상 컴퓨터 크기 및 역할 인스턴스의 수를 구성하려면 **솔루션 탐색기**에서 역할 속성을 마우스 오른쪽 단추로 클릭하고 **속성**을 선택합니다.
 
@@ -156,7 +156,7 @@ NuGet 패키지는 역할의 web.config 또는 app.config에 다음과 같은 �
                allowDefinition="Everywhere" />
     </configSections>
 
-These new sections include references to a **dataCacheClients** element and a **cacheDiagnostics** element. These elements are also added to the **configuration** element.
+이 두 섹션에는 **dataCacheClients** 요소와 **cacheDiagnostics** 요소에 대한 참조가 포함됩니다. 이러한 요소는 **configuration** 요소에도 추가됩니다.
 
     <dataCacheClients>
       <dataCacheClient name="default">
@@ -168,7 +168,7 @@ These new sections include references to a **dataCacheClients** element and a **
       <crashDump dumpLevel="Off" dumpStorageQuotaInMB="100" />
     </cacheDiagnostics>
 
-After the configuration is added, replace **[cache cluster role name]** with the name of the role that hosts the cache cluster.
+구성이 추가되었으면 **[cache cluster role name]**을 캐시 클러스터를 호스트하는 역할의 이름으로 교체합니다.
 
 >**[cache cluster role name]**을 캐시 클러스터를 호스트하는 역할의 이름으로 바꾸지 않으면, 캐시에 액세스할 때 내부 **DatacacheException** 및 "No such role exists"라는 메시지와 함께 **TargetInvocationException**이 발생합니다.
 
@@ -401,14 +401,14 @@ In-Role Cache에 출력 캐시 공급자를 사용하는 방법에 대한 자세
 [In-Role Cache 샘플]: http://msdn.microsoft.com/ko-kr/library/jj189876.aspx
 [In-Role Cache]: http://go.microsoft.com/fwlink/?LinkId=252658
 [In-Role Cache]: http://www.microsoft.com/ko-kr/showcase/Search.aspx?phrase=azure+caching
-[최대 성능: Azure 캐싱을 사용하여 클라우드 서비스 응용 프로그램 가속화](영문): http://channel9.msdn.com/Events/TechEd/NorthAmerica/2013/WAD-B326#fbid=kmrzkRxQ6gU
+[최대 성능: Azure 캐싱으로 클라우드 서비스 응용 프로그램 가속화]: http://channel9.msdn.com/Events/TechEd/NorthAmerica/2013/WAD-B326#fbid=kmrzkRxQ6gU
 [In-Role Cache로 마이그레이션]: http://msdn.microsoft.com/ko-kr/library/hh914163.aspx
 [NuGet 패키지 관리자 설치]: http://go.microsoft.com/fwlink/?LinkId=240311
 [In-Role Cache용 출력 캐시 공급자]: http://msdn.microsoft.com/ko-kr/library/windowsazure/gg185662.aspx
 [OutputCache 지시문]: http://go.microsoft.com/fwlink/?LinkId=251979
 [In-Role Cache 개요]: http://go.microsoft.com/fwlink/?LinkId=254172
 [In-Role Cache용 세션 상태 공급자]: http://msdn.microsoft.com/ko-kr/library/windowsazure/gg185668.aspx
-[팀 블로그](영문): http://blogs.msdn.com/b/windowsazure/
+[팀 블로그]: http://blogs.msdn.com/b/windowsazure/
 [In-Role Cache 문제 해결 및 진단]: http://msdn.microsoft.com/ko-kr/library/windowsazure/hh914135.aspx
 [Azure AppFabric 캐시: 캐싱 세션 상태]: http://www.microsoft.com/ko-kr/showcase/details.aspx?uuid=87c833e9-97a9-42b2-8bb1-7601f9b5ca20
 [Azure 관리 포털]: http://windows.azure.com/

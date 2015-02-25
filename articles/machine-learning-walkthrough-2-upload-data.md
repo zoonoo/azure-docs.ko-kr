@@ -1,10 +1,10 @@
-﻿<properties title="Step 2: Upload existing data into an Azure Machine Learning experiment" pageTitle="2단계: 기계 학습 실험에 데이터 업로드 | Azure" description="2단계: Azure 기계 학습 실험 스튜디오에 기존 공용 데이터 업로드" metaKeywords="" services="machine-learning" solutions="big-data" documentationCenter="" authors="garye" videoId="" scriptId="" manager="paulettm" editor="cgronlun" />
+<properties title="Step 2: Upload existing data into an Azure Machine Learning experiment" pageTitle="2단계: 기계 학습 실험에 데이터 업로드 | Azure" description="2단계: Azure 기계 학습 실험 스튜디오에 기존 공용 데이터 업로드" metaKeywords="" services="machine-learning" solutions="big-data" documentationCenter="" authors="garye" videoId="" scriptId="" manager="paulettm" editor="cgronlun" />
 
 <tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/02/2014" ms.author="garye" />
 
 [Azure 기계 학습을 사용한 예측 솔루션 개발][develop] 자습서의 두 번째 단계입니다.
 
-[개발]: ../machine-learning-walkthrough-develop-predictive-solution/
+[develop]: ../machine-learning-walkthrough-develop-predictive-solution/
 
 
 1.	[기계 학습 작업 영역 만들기][create-workspace]
@@ -14,16 +14,16 @@
 5.	[웹 서비스 게시][publish]
 6.	[웹 서비스 액세스][access-ws]
 
-[작업 영역 만들기]: ../machine-learning-walkthrough-1-create-ml-workspace/
-[데이터 업로드]: ../machine-learning-walkthrough-2-upload-data/
-[새로 만들기]: ../machine-learning-walkthrough-3-create-new-experiment/
-[모델 학습]: ../machine-learning-walkthrough-4-train-and-evaluate-models/
-[게시]: ../machine-learning-walkthrough-5-publish-web-service/
-[ws 액세스]: ../machine-learning-walkthrough-6-access-web-service/
+[create-workspace]: ../machine-learning-walkthrough-1-create-ml-workspace/
+[upload-data]: ../machine-learning-walkthrough-2-upload-data/
+[create-new]: ../machine-learning-walkthrough-3-create-new-experiment/
+[train-models]: ../machine-learning-walkthrough-4-train-and-evaluate-models/
+[publish]: ../machine-learning-walkthrough-5-publish-web-service/
+[access-ws]: ../machine-learning-walkthrough-6-access-web-service/
 
 ----------
 
-#2단계: Azure 기계 학습 실험에 기존 데이터 업로드  
+# 2단계: Azure 기계 학습 실험에 기존 데이터 업로드  
 
 신용 위험에 대한 예측 모델을 개발하기 위해 UCI 기계 학습 리포지토리의 "UCI Statlog(독일 신용 데이터) 데이터 집합"을 사용합니다. 다음 위치에서 찾을 수 있습니다.  
 <a href="http://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)">http://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)</a>
@@ -38,7 +38,7 @@ UCI 웹 사이트는 금융 정보, 신용 기록, 취업 상태, 개인 정보�
 
 그런데 한 가지 흥미로운 변형이 있습니다. 데이터 집합에 대한 설명에서는 지원자가 실제로 신용 위험이 높은데 낮은 신용 위험으로 잘못 분류하면 낮은 신용 위험을 높은 것으로 잘못 분류하는 경우보다 금융 기관의 비용이 5배 더 커진다고 말합니다. 이 실험에서 이런 점을 고려할 수 있는 간단한 방법은 신용 위험이 높은 사람을 나타내는 항목을 5배 복제하는 것입니다. 그런 다음 모델에서 높은 신용 위험을 낮은 것으로 잘못 분류하는 경우 각 복제마다 한 번씩 분류 오류를 5번 수행합니다. 그러면 학습 결과에서 이 오류의 비용이 증가됩니다.  
 
-##데이터 집합 형식 변환
+## 데이터 집합 형식 변환
 원래 데이터 집합은 공백으로 구분된 형식을 사용합니다. 기계 학습 스튜디오는 CSV(쉼표로 구분된) 파일에서 더 원활하게 작동하므로 공백을 쉼표로 바꿔서 데이터 집합을 변환합니다.  
 
 다음 Windows PowerShell 명령을 사용하여 이 작업을 수행할 수 있습니다.   
@@ -49,7 +49,7 @@ UCI 웹 사이트는 금융 정보, 신용 기록, 취업 상태, 개인 정보�
 
 	sed 's/ /,/g' german.data > german.csv  
 
-##기계 학습 스튜디오에 데이터 집합 업로드
+## 기계 학습 스튜디오에 데이터 집합 업로드
 
 데이터를 CSV 형식으로 변환한 후 기계 학습 스튜디오에 업로드해야 합니다.  
 

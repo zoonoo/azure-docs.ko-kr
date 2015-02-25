@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Get Started" pageTitle="Azure 모바일 서비스 및 Sencha 시작" metaKeywords="" description="이 자습서에 따라 모바일 서비스 및 Sencha HTML5 모바일 앱 프레임워크를 사용하여 개발을 시작할 수 있습니다. " metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="" documentationCenter="Mobile" title="Get started with Mobile Services and Sencha Touch" authors="sencha" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Get Started" pageTitle="Azure 모바일 서비스 및 Sencha 시작" metaKeywords="" description="이 자습서에 따라 모바일 서비스 및 Sencha HTML5 모바일 앱 프레임워크를 사용하여 개발을 시작할 수 있습니다. " metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="" documentationCenter="Mobile" title="Get started with Mobile Services and Sencha Touch" authors="sencha" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-sencha" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="sencha" />
 
@@ -44,7 +44,7 @@
 
     ![Mobile quickstart html](./media/partner-sencha-mobile-services-get-started/mobile-portal-quickstart-html.png)
 
-    This displays the three easy steps to create and host an HTML app connected to your mobile service.
+    모바일 서비스에 연결된 HTML 앱을 만들고 호스트하는 세 가지 간단한 단계가 표시됩니다.
 
     ![Mobile quickstart html](./media/partner-sencha-mobile-services-get-started/mobile-quickstart-steps-html.png)
 

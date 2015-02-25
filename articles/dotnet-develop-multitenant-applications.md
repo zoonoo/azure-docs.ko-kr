@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Multi-Tenant Web Application Pattern" pageTitle="다중 테넌트 웹 응용 프로그램 패턴 - Azure 아키텍처" metaKeywords="" description="Azure에서 다중 테넌트 웹 응용 프로그램을 구현하는 방법에 대해 설명하는 아키텍처 개요 및 디자인 패턴을 찾습니다." metaCanonical="" services="" documentationCenter=".NET" title="Multitenant Applications in Azure" authors="wpickett" solutions="" manager="wpickett" editor="" />
+<properties urlDisplayName="Multi-Tenant Web Application Pattern" pageTitle="다중 테넌트 웹 응용 프로그램 패턴 - Azure 아키텍처" metaKeywords="" description="Azure에서 다중 테넌트 웹 응용 프로그램을 구현하는 방법에 대해 설명하는 아키텍처 개요 및 디자인 패턴을 찾습니다." metaCanonical="" services="" documentationCenter=".NET" title="Multitenant Applications in Azure" authors="wpickett" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="wpickett" />
 
@@ -104,7 +104,7 @@ Azure에는 응용 프로그램의 새 테넌트를 프로비전하는 방법이
 	- 	마스터 참조 데이터베이스에서 복사 
 	- 	데이터베이스 가져오기 및 내보내기를 사용하여 파일에서 새 데이터베이스 프로비전 
 
-][].
+
 
 <!--links-->
 

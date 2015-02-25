@@ -1,4 +1,4 @@
-﻿<properties pageTitle="이벤트 허브 시작" metaKeywords="Azure 서비스 버스, 이벤트 허브, 이벤트 허브 시작" description="이 자습서에 따라 Azure 이벤트 허브를 사용하여 Java로 이벤트를 보내고 Apache Storm 클러스터에서 이벤트를 받을 수 있습니다." metaCanonical="" services="" documentationCenter="" title="Get Started with Event Hubs" authors="elioda" solutions="" manager="timlt" editor="" />
+<properties pageTitle="이벤트 허브 시작" metaKeywords="Azure 서비스 버스, 이벤트 허브, 이벤트 허브 시작" description="이 자습서에 따라 Azure 이벤트 허브를 사용하여 Java로 이벤트를 보내고 Apache Storm 클러스터에서 이벤트를 받을 수 있습니다." metaCanonical="" services="" documentationCenter="" title="Get Started with Event Hubs" authors="elioda" solutions="" manager="timlt" editor="" />
 
 <tags ms.service="service-bus" ms.workload="core" ms.tgt_pltfrm="java" ms.devlang="java" ms.topic="hero-article" ms.date="10/27/2014" ms.author="elioda" />
 
@@ -90,4 +90,4 @@
 [Apache Storm]: https://storm.incubator.apache.org
 [HDInsight Storm 개요]: http://azure.microsoft.com/ko-kr/documentation/articles/hdinsight-storm-overview/
 [Storm 및 HDInsight를 사용하여 센서 데이터 분석]: http://azure.microsoft.com/ko-kr/documentation/articles/hdinsight-storm-sensor-data-analysis/
-[HDInsight 및 Storm에서 SCP.NET 및 C#을 사용하여 스트리밍 데이터 처리 응용 프로그램 개발]: http://azure.microsoft.com/ko-kr/documentation/articles/hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application/
+[Storm 및 HDInsight에서 SCP.NET 및 C#을 사용하여 스트리밍 데이터 처리 응용 프로그램 개발]: http://azure.microsoft.com/ko-kr/documentation/articles/hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application/

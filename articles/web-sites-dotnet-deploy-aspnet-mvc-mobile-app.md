@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="ASP.NET MVC 5 mobile website" pageTitle=".NET ASP.NET MVC 5 모바일 웹 사이트 - Azure 자습서" metaKeywords="Azure tutorial, Azure web app tutorial, Azure mobile app, Azure ASP.NET MVC 5,,ASP.NET MVC" description="ASP.NET MVC 5 웹 응용 프로그램에서 모바일 기능을 사용하여 Azure 웹 사이트에 웹 응용 프로그램을 배포하는 방법에 대해 설명하는 자습서입니다." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Deploy an ASP.NET MVC Mobile Web Application on Azure Websites" authors="cephalin,riande" solutions="" manager="wpickett" editor="mollybos" />
+<properties urlDisplayName="ASP.NET MVC 5 mobile website" pageTitle=".NET ASP.NET MVC 5 모바일 웹 사이트 - Azure 자습서" metaKeywords="Azure tutorial, Azure web app tutorial, Azure mobile app, Azure ASP.NET MVC 5,,ASP.NET MVC" description="ASP.NET MVC 5 웹 응용 프로그램에서 모바일 기능을 사용하여 Azure 웹 사이트에 웹 응용 프로그램을 배포하는 방법에 대해 설명하는 자습서입니다." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Deploy an ASP.NET MVC Mobile Web Application on Azure Websites" authors="cephalin,riande" solutions="" manager="wpickett" editor="mollybos" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="08/19/2014" ms.author="cephalin,riande" />
 
@@ -137,7 +137,8 @@ Bootstrap을 사용하지 않을 때 웹 앱이 어떻게 보이는지를 확인
               "~/Content/site.css"));
 
 `Ctrl+F5`를 눌러 응용 프로그램을 실행합니다.
- 축소 가능한 탐색 표시줄이 이제 일반적인 순서 없는 목록일 뿐인 것을 볼 수 있습니다. **태그로 찾아보기**를 다시 클릭하고 **ASP.NET**을 클릭합니다. 모바일 에뮬레이터 뷰에서 이제 더 이상 화면에 맞게 크기가 조정되지 않는 것을 볼 수 있으며, 표의 오른쪽을 보려면 옆쪽으로 스크롤해야 합니다.
+
+축소 가능한 탐색 표시줄이 이제 일반적인 순서 없는 목록일 뿐인 것을 볼 수 있습니다. **태그로 찾아보기**를 다시 클릭하고 **ASP.NET**을 클릭합니다. 모바일 에뮬레이터 뷰에서 이제 더 이상 화면에 맞게 크기가 조정되지 않는 것을 볼 수 있으며, 표의 오른쪽을 보려면 옆쪽으로 스크롤해야 합니다.
 
 ![][SessionsByTagASP.NETNoBootstrap]
 
@@ -556,7 +557,7 @@ Bootstrap [연결된 목록 그룹][] 스타일은 각 링크의 전체 상자�
 참고 항목
 --------
 
--   [반응형 웹 디자인의 9가지 기본 원칙][http://blog.froont.com/9-basic-principles-of-responsive-web-design/](영문)
+-   [반응형 웹 디자인의 9가지 기본 원칙](http://blog.froont.com/9-basic-principles-of-responsive-web-design/)(영문)
 -   [Bootstrap][BootstrapSite] 사이트
 -   [공식 Bootstrap 블로그][]
 -   [Tutorial Republic의 Twitter Bootstrap 자습서][]
