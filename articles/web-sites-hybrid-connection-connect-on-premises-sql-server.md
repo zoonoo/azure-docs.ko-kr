@@ -1,6 +1,20 @@
-﻿<properties title="Hybrid Connections Step-by-Step: Connect to on-premises SQL Server from an Azure website" pageTitle="하이브리드 연결 단계별 과정: Azure 웹 사이트에서 온-프레미스 SQL Server에 연결" description="Microsoft Azure에서 웹 사이트를 만들어 온-프레미스 SQL Server 데이터베이스에 연결" metaKeywords="" services="web-sites" solutions="web" documentationCenter="" authors="cephalin" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="하이브리드 연결 단계별 과정: Azure 웹 사이트에서 온-프레미스 SQL Server에 연결" 
+	description="Microsoft Azure에서 웹 사이트를 만들어 온-프레미스 SQL Server 데이터베이스에 연결" 
+	services="web-sites" 
+	documentationCenter="" 
+	authors="cephalin" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/24/2014" ms.author="cephalin" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/24/2014" 
+	ms.author="cephalin"/>
 
 #하이브리드 연결을 사용하여 Azure 웹 사이트에서 온-프레미스 SQL Server에 연결
 
@@ -9,20 +23,20 @@
 
 이 자습서에서 Azure Preview 포털에서 웹 사이트를 만들고, 새 하이브리드 연결 기능을 사용하여 로컬 온-프레미스 SQL Server 데이터베이스에 웹 사이트를 연결하고, 하이브리드 연결을 사용하는 단순한 ASP.NET 웹 응용 프로그램을 만들고, Azure 웹 사이트에 응용 프로그램을 배포하는 방법에 대해 알아봅니다. Azure의 완전한 웹 사이트는 온-프레미스인 멤버 자격 데이터베이스에서 사용자 자격 증명을 저장합니다. 이 자습서는 이전에 Azure 또는 ASP.NET을 사용해 본 경험이 있다고 가정합니다.
 
-> [WACOM.NOTE] 하이브리드 연결 기능의 웹 사이트 부분은 [Azure Preview 포털](https://portal.azure.com)에서만 사용 가능합니다. BizTalk 서비스에서 연결을 만들려면 [하이브리드 연결](http://go.microsoft.com/fwlink/p/?LinkID=397274)을 참조하세요.  
+> [AZURE.NOTE] 하이브리드 연결 기능의 웹 사이트 부분은 [Azure Preview 포털](https://portal.azure.com)에서만 사용할 수 있습니다. BizTalk 서비스에서 연결을 만들려면 [하이브리드 연결](http://go.microsoft.com/fwlink/p/?LinkID=397274)을 참조하세요.  
 
 ##필수 조건##
 이 자습서를 완료하려면 다음 제품이 필요합니다. 모두 무료 버전으로 사용 가능할 수 있으므로, Azure용 개발을 완전히 무료로 시작할 수 있습니다.
 
-- **Azure 구독** - 무료 구독에 대해서는 [Azure 무료 평가](http://azure.microsoft.com/ko-kr/pricing/free-trial/)를 참조하세요. 
+- **Azure 구독** - 무료 구독에 대해서는 [Azure 무료 평가판](http://azure.microsoft.com/ko-kr/pricing/free-trial/)을 참조하세요.
 
 - **Visual Studio 2013** - Visual Studio 2013의 무료 평가판 버전을 다운로드하려면 [Visual Studio 다운로드](http://www.visualstudio.com/downloads/download-visual-studio-vs)를 참조하세요. 계속하기 전에 이 제품을 설치하세요.
 
 - **Microsoft .NET Framework 3.5 서비스 팩 1** - 운영 체제가 Windows 8.1, Windows Server 2012 R2, Windows 8, Windows Server 2012, Windows 7 또는 Windows Server 2008 R2인 경우 제어판 > 프로그램 및 기능 > Windows 기능 사용/사용 안 함에서 이 제품을 사용하도록 설정할 수 있습니다. 그렇지 않은 경우 [Microsoft 다운로드 센터](http://www.microsoft.com/download/en/details.aspx?displaylang=en&id=22)에서 다운로드할 수 있습니다.
 
-- **SQL Server 2014 Express with Tools** - [Microsoft 웹 플랫폼 데이터베이스 페이지](http://www.microsoft.com/web/platform/database.aspx)에서 Microsoft SQL Server Express를 무료로 다운로드하세요. **Express**(LocalDB가 아닌) 버전을 선택하세요. **Express with Tools** 버전에는 이 자습서에서 사용할 SQL Server Management Studio가 포함되어 있습니다.
+- **SQL Server 2014 Express with Tools** - [Microsoft 웹 플랫폼 데이터베이스 페이지](http://www.microsoft.com/web/platform/database.aspx)에서 Microsoft SQL Server Express를 무료로 다운로드합니다. **Express**(LocalDB가 아닌) 버전을 선택하세요. **Express with Tools** 버전에는 이 자습서에서 사용할 SQL Server Management Studio가 포함되어 있습니다.
 
-- **SQL Server Management Studio Express** - 이 제품은 위에서 언급한 SQL Server 2014 Express with Tools 다운로드와 함께 포함되지만 별도로 설치해야 하는 경우 [SQL Server Express 다운로드 페이지](http://www.microsoft.com/web/platform/database.aspx)에서 이 제품을 다운로드하여 설치할 수 있습니다.
+- **SQL Server Management Studio Express** - 이 제품은 위에서 언급한 SQL Server 2014 Express with Tools 다운로드와 함께 포함되지만 별도로 설치해야 하는 경우 [SQL Server Express 다운로드 페이지](http://www.microsoft.com/web/platform/database.aspx)에서 다운로드하여 설치할 수 있습니다.
 
 이 자습서에서는 사용자가 Azure 구독을 사용하며, Visual Studio 2013을 설치했고, .NET Framework 3.5을 설치했거나 사용하도록 설정했다고 가정합니다. 이 자습서에서는 Azure 하이브리드 연결 기능(정적 TCP 포트를 사용하는 기본 인스턴스)에서 적절히 작동하는 구성에 SQL Server 2014 Express를 설치하는 방법을 보여 줍니다. 자습서를 시작하기 전에 SQL Server를 설치하지 않은 경우 위에서 언급한 SQL Server 2014 Express with Tools를 다운로드하세요.
 
@@ -40,23 +54,23 @@
     </tr>
     <tr>
         <td>80</td>
-        <td><strong>필수</strong> (HTTP 포트, 인증서 유효성 검사용), 옵션(데이터 연결)</td>
+        <td><strong>필수</strong> - 인증서 유효성 검사용 HTTP 포트, 데이터 연결의 경우 선택</td>
     </tr>
     <tr>
         <td>443</td>
-        <td><strong>옵션</strong> (데이터 연결) 443에 대한 아웃바운드 연결을 사용할 수 없으면 TCP 포트 80이 사용됩니다.</td>
+        <td><strong>선택</strong> - 데이터 연결 443에 대한 아웃바운드 연결을 사용할 수 없으면 TCP 포트 80이 사용됩니다.</td>
     </tr>
 	<tr>
         <td>5671 및 9352</td>
-        <td><strong>권장</strong> 옵션(데이터 연결) 이 모드를 사용하면 일반적으로 더 높은 처리량을 얻을 수 있습니다. 이러한 포트에 대한 아웃바운드 연결을 사용할 수 없으면 TCP 포트 443이 사용됩니다.</td>
+        <td><strong>권장</strong> - 데이터 연결의 경우 선택 이 모드를 사용하면 일반적으로 더 높은 처리량을 얻을 수 있습니다. 이러한 포트에 대한 아웃바운드 연결을 사용할 수 없으면 TCP 포트 443이 사용됩니다.</td>
 	</tr>
 </table>
 
-- 온-프레미스 리소스의 *호스트이름*:*포트번호*에 연결할 수 있어야 합니다. 
+- 온-프레미스 리소스의  *hostname*:*포트번호*에 연결할 수 있어야 합니다. 
 
 이 자습서의 단계에서는 온-프레미스 하이브리드 연결 에이전트를 호스트하는 컴퓨터에서 브라우저를 사용하고 있다고 가정합니다.
 
-위에서 설명한 조건을 충족하는 구성 및 환경으로 SQL Server를 이미 설치한 경우 건너뛰어서 [SQL Server 데이터베이스 온-프레미스](#CreateSQLDB)를 시작할 수 있습니다.
+위에서 설명한 조건을 충족하는 구성 및 환경으로 SQL Server를 이미 설치한 경우 건너뛰어서 [SQL Server 데이터베이스 온-프레미스]를 시작할 수 있습니다(#CreateSQLDB).
 
 ##이 문서에서는 다음을 수행합니다.##
 [A. SQL Server Express 설치, TCP/IP 사용 및 SQL Server 데이터베이스 온-프레미스 만들기](#InstallSQL)
@@ -82,7 +96,7 @@
 	
 	![SQL Server Install][SQLServerInstall]
 	
-2. **새 SQL Server 독립 실행형 설치 또는 기존 설치에 기능 추가**을 선택합니다. **인스턴스 구성** 페이지가 나타날 때까지 지침을 따라, 기본 선택 사항 및 설정을 그대로 사용합니다.
+2. **새 SQL Server 독립 실행형 설치 또는 기존 설치에 기능 추가**를 선택합니다. **인스턴스 구성** 페이지가 나타날 때까지 지침을 따라, 기본 선택 사항 및 설정을 그대로 사용합니다.
 	
 3. **인스턴스 구성** 페이지에서 **기본 인스턴스**를 선택합니다.
 	
@@ -101,14 +115,14 @@
 6. 마법사의 나머지 단계를 진행하여 설치를 완료합니다.
 
 ###TCP/IP 사용###
-TCP/IP를 사용하도록 설정하려면 SQL Server Express를 설치할 때 설치된 SQL Server 구성 관리자를 사용합니다. 계속하기 전에 [SQL Server에 대한 TCP/IP 네트워크 프로토콜 사용](http://technet.microsoft.com/ko-kr/library/hh231672%28v=sql.110%29.aspx) 의 단계를 따릅니다.
+TCP/IP를 사용하도록 설정하려면 SQL Server Express를 설치할 때 설치된 SQL Server 구성 관리자를 사용합니다. 계속하기 전에 [SQL Server에 대한 TCP/IP 네트워크 프로토콜 사용](http://technet.microsoft.com/ko-kr/library/hh231672%28v=sql.110%29.aspx)의 단계를 따르세요.
 
 <a name="CreateSQLDB"></a>
 ###SQL Server 데이터베이스 온-프레미스 만들기###
 
 Visual Studio 웹 응용 프로그램을 사용하려면 Azure에서 액세스할 수 있는 멤버 자격 데이터베이스가 필요합니다. 여기에는 SQL Server 또는 SQL Server Express 데이터베이스(기본적으로 MVC 템플릿에서 사용하는 LocalDB 데이터베이스 아님)가 필요하므로, 이제 멤버 자격 데이터베이스를 만듭니다. 
 
-1. SQL Server Management Studio에서 방금 설치한 SQL Server에 연결합니다. (**서버에 연결** 대화 상자가 자동으로 나타나지 않으면 왼쪽 창의 **개체 탐색기**로 이동하고 **연결**을 클릭한 후 **데이터베이스 엔진**을 클릭합니다.) 	
+1. SQL Server Management Studio에서 방금 설치한 SQL Server에 연결합니다. **서버에 연결** 대화 상자가 자동으로 나타나지 않으면 왼쪽 창의 **개체 탐색기**로 이동하고 **연결**을 클릭한 후 **데이터베이스 엔진**을 클릭합니다. 	
 	![Connect to Server][SSMSConnectToServer]
 	
 	**서버 유형**으로 **데이터베이스 엔진**을 선택합니다. **서버 이름**으로 **localhost** 또는 사용 중인 컴퓨터의 이름을 사용할 수 있습니다. **SQL Server 인증**을 선택한 다음 앞서 만든 사용자 이름 및 암호로 로그인합니다. 
@@ -130,9 +144,9 @@ Visual Studio 웹 응용 프로그램을 사용하려면 Azure에서 액세스�
 <a name="CreateSite"></a>
 ## B. Azure Preview 포털에 웹 사이트 만들기##
 
-> [WACOM.NOTE] 이 자습서에서 사용할 Azure Preview 포털에서 웹 사이트를 이미 만든 경우 [하이브리드 연결 및 BizTalk 서비스 만들기](#CreateHC) 로 건너뛰어 시작할 수 있습니다.
+> [AZURE.NOTE] 이 자습서에서 사용할 Azure Preview 포털에서 웹 사이트를 이미 만든 경우 [하이브리드 연결 및 BizTalk 서비스 만들기](#CreateHC) 로 건너뛰어 시작할 수 있습니다.
 
-1. [Azure Preview 포털](https://portal.azure.com)의 왼쪽 아래 구석에서 **새로 만들기**를 클릭하고 **웹 사이트**를 선택합니다.
+1. [Azure Preview 포털](https://portal.azure.com)의 왼쪽 아래 모서리에서 **새로 만들기**를 클릭한 다음 **웹 사이트**를 선택합니다.
 	
 	![New button][New]
 	
@@ -157,7 +171,7 @@ Visual Studio 웹 응용 프로그램을 사용하려면 Azure에서 액세스�
 <a name="CreateHC"></a>
 ## C. 하이브리드 연결 및 BizTalk 서비스 만들기 ##
 
-1. 미리 보기 포터로 돌아가 웹 사이트의 블레이드 아래로 스크롤하여 **하이브리드 연결**을 선택합니다.
+1. Preview 포털로 돌아가 웹 사이트의 블레이드 아래로 스크롤하여 **하이브리드 연결**을 선택합니다.
 	
 	![Hybrid connections][CreateHCHCIcon]
 	
@@ -170,13 +184,13 @@ Visual Studio 웹 응용 프로그램을 사용하려면 Azure에서 액세스�
 	![Create a hybrid connection][TwinCreateHCBlades]
 	
 	**하이브리드 연결 블레이드 만들기**에서 다음을 수행합니다.
-	- **이름**에서 연결 이름을 입력합니다.
+	- **이름**에 연결 이름을 입력합니다.
 	- **호스트 이름**에 SQL Server 호스트 컴퓨터의 이름을 입력합니다.
-	- **포트**에, 1433(SQL Server의 기본 포트)을 입력합니다.
+	- **포트**에 1433(SQL Server의 기본 포트)을 입력합니다.
 	- **Biz Talk 서비스**를 클릭합니다.
 
 
-4. **Biz Talk 서비스** 블레이드가 열립니다. BizTalk 서비스의 이름을 입력한 다음 **확인**을 클릭합니다.
+4. **Biz Talk 서비스 만들기** 블레이드가 열립니다. BizTalk 서비스의 이름을 입력한 다음 **확인**을 클릭합니다.
 	
 	![Create BizTalk service][CreateHCCreateBTS]
 	
@@ -265,7 +279,7 @@ Visual Studio 웹 응용 프로그램을 사용하려면 Azure에서 액세스�
 
 이 단계에서, 응용 프로그램에 로컬 SQL Server Express 데이터베이스를 찾을 수 있는 위치를 알려 주는 연결 문자열을 편집합니다. 연결 문자열은 응용 프로그램에 대한 구성 정보를 포함하는 응용 프로그램의 Web.config 파일에 있습니다. 
 
-> [WACOM.NOTE] 응용 프로그램이 Visual Studio의 기본 LocalDB에 있는 데이터베이스가 아닌 SQL Server Express에서 만든 데이터베이스를 사용하도록 하려면 프로젝트를 실행하기 전에 이 단계를 완료하는 것이 중요합니다.
+> [AZURE.NOTE] 응용 프로그램이 Visual Studio의 기본 LocalDB에 있는 데이터베이스가 아닌 SQL Server Express에서 만든 데이터베이스를 사용하도록 하려면 프로젝트를 실행하기 전에 이 단계를 완료하는 것이 중요합니다.
 
 1. 솔루션 탐색기에서 Web.config 파일을 두 번 클릭합니다.
 	
@@ -368,19 +382,19 @@ Visual Studio 웹 응용 프로그램을 사용하려면 Azure에서 액세스�
 ##참고 항목##
 [하이브리드 연결 개요](http://go.microsoft.com/fwlink/p/?LinkID=397274)
 
-[Josh Twist가 소개하는 하이브리드 연결(채널 9 비디오)](영문)(http://channel9.msdn.com/Shows/Azure-Friday/Josh-Twist-introduces-hybrid-connections)
+[Josh Twist가 소개하는 하이브리드 연결(채널 9 비디오)](http://channel9.msdn.com/Shows/Azure-Friday/Josh-Twist-introduces-hybrid-connections)
 
 [하이브리드 연결 웹 사이트](http://azure.microsoft.com/ko-kr/services/biztalk-services/)
 
 [BizTalk 서비스: 대시보드, 모니터, 확장, 구성 및 하이브리드 연결 탭](http://azure.microsoft.com/ko-kr/documentation/articles/biztalk-dashboard-monitor-scale-tabs/)
 
-[원활한 응용 프로그램 이식성으로 실시간 하이브리드 연결 클라우드 구축(채널 9 비디오)](영문)(http://channel9.msdn.com/events/TechEd/NorthAmerica/2014/DCIM-B323#fbid=)
+[원활한 응용 프로그램 이식성으로 실시간 하이브리드 연결 클라우드 구축(채널 9 비디오)](http://channel9.msdn.com/events/TechEd/NorthAmerica/2014/DCIM-B323#fbid=)
 
 [하이브리드 연결을 사용하여 Azure 모바일 서비스에서 온-프레미스 SQL Server에 연결](http://azure.microsoft.com/ko-kr/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started/)
 
-[하이브리드 연결을 사용하여 Azure 모바일 서비스에서 온-프레미스 SQL Server에 연결(채널 9 비디오)](영문)(http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Connect-to-an-on-premises-SQL-Server-from-Azure-Mobile-Services-using-Hybrid-Connections)
+[하이브리드 연결을 사용하여 Azure 모바일 서비스에서 온-프레미스 SQL Server에 연결(채널 9 비디오)](http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Connect-to-an-on-premises-SQL-Server-from-Azure-Mobile-Services-using-Hybrid-Connections)
 
-[ASP.NET ID 개요](영문)(http://www.asp.net/identity)
+[ASP.NET ID 개요](http://www.asp.net/identity)
 
 <!-- IMAGES -->
 [SQLServerInstall]:./media/web-sites-hybrid-connection-connect-on-premises-sql-server/A01SQLServerInstall.png
@@ -434,4 +448,5 @@ Visual Studio 웹 응용 프로그램을 사용하려면 Azure에서 액세스�
 [HCTestSSMSTree]:./media/web-sites-hybrid-connection-connect-on-premises-sql-server/F10HCTestSSMSTree.png
 [HCTestShowMemberDb]:./media/web-sites-hybrid-connection-connect-on-premises-sql-server/F11HCTestShowMemberDb.png
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

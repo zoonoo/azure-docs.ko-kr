@@ -1,6 +1,6 @@
-<properties urlDisplayName="SharePoint on Azure" pageTitle="Azure 가상 컴퓨터에 SharePoint 2010 배포" metaKeywords="" description="Azure 가상 컴퓨터에서 SharePoint 2010을 사용할 수 있도록 지원되는 시나리오에 대해 설명합니다." metaCanonical="" services="virtual-machines" documentationCenter="" title="SharePoint 2010 Deployment on Azure Virtual Machines" authors="josephd" solutions="" manager="timlt" editor="" />
+﻿<properties pageTitle="Azure 가상 컴퓨터에 SharePoint 2010 배포" description="Azure 가상 컴퓨터에서 SharePoint 2010을 사용할 수 있도록 지원되는 시나리오에 대해 설명합니다." services="virtual-machines" documentationCenter="" authors="JoeDavies-MSFT" manager="timlt" editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/16/2014" ms.author="josephd" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="1/16/2015" ms.author="josephd"/>
 
 
 
@@ -25,7 +25,7 @@ Azure 가상 컴퓨터가 하드웨어에 대한 요구를 줄여주므로 조�
 
 <h2>클라우드 컴퓨팅으로 이동</h2>
 
-Gartner에 따르면 클라우드 컴퓨팅은 "인터넷 기술을 사용하여 외부 고객에게 방대하게 확장 가능한 IT 사용 기능을 '서비스로' 제공하는 컴퓨팅 스타일"로 정의할 수 있습니다. 이 정의에서 중요한 단어는 확장 가능성, 서비스 및 인터넷입니다. 간단히 말해서 클라우드 컴퓨팅은 <strong>인터넷을 통해 배포 및 전달</strong> 되고 <strong>요청 시 확장 가능</strong>한 IT 서비스로 정의할 수 있습니다.
+Gartner에 따르면 클라우드 컴퓨팅은 "인터넷 기술을 사용하여 외부 고객에게 방대하게 확장 가능한 IT 사용 기능을  'as a service' 제공하는 컴퓨팅 스타일"로 정의할 수 있습니다. 이 정의에서 중요한 단어는 확장 가능성, 서비스 및 인터넷입니다. 요약하면 클라우드 컴퓨팅은 <strong>인터넷을 통해 배포 및 제공</strong>되며 <strong>주문형으로 확장 가능</strong>한 IT 서비스로 정의할 수 있습니다.
 
 명백하게 클라우드 컴퓨팅은 오늘날 IT의 중요한 변화를 나타냅니다. 얼마 전까지만 해도 통합과 비용이 주요 관심사였습니다. 그러나 오늘날의 담론은 클라우드 컴퓨팅에서 제공할 수 있는 새로운 종류의 혜택에 대한 것입니다. 즉, IT에서 새로운 유형의 기능을 활용하여 조직에 제공하는 방법을 완전히 바꾸는 것에 대해서만 얘기합니다. 클라우드 컴퓨팅은 IT 세계를 근본적으로 변화시켜 서비스 공급자와 시스템 설계자로부터 개발자와 최종 사용자에 이르기까지 모든 역할에 영향을 주고 있습니다.
 
@@ -39,12 +39,12 @@ Gartner에 따르면 클라우드 컴퓨팅은 "인터넷 기술을 사용하여
 
 <h2>클라우드 서비스의 배달 모델</h2>
 
-간단히 말하면 클라우드 컴퓨팅은 IT 서비스를 추출한 것입니다. 이러한 서비스의 범위는 기본 인프라에서 완전한 응용 프로그램까지 다양할 수 있습니다. 최종 사용자는 추출된 서비스를 구성하는 요소를 관리할(또는 요소에 대해 완벽하게 알) 필요없이 해당 서비스를 요청하고 사용합니다. 현재 업계에서는 클라우드 서비스로 다음과 같은 세 가지 배달 모델을 인정하며, 각 모델은 제어/유연성과 총비용 측면에서 뚜렷한 장단점을 제공합니다.
+간단히 말하면 클라우드 컴퓨팅은 IT 서비스를 추출한 것입니다. 이러한 서비스의 범위는 기본 인프라에서 완전한 응용 프로그램까지 다양할 수 있습니다. 최종 사용자는 추출된 서비스를 구성하는 요소를 관리할(또는 요소에 대해 완벽하게 알) 필요 없이 해당 서비스를 요청하고 사용합니다. 현재 업계에서는 클라우드 서비스로 다음과 같은 세 가지 배달 모델을 인정하며, 각 모델은 제어/유연성과 총비용 측면에서 뚜렷한 장단점을 제공합니다.
 
 <ul>
-<li><p><strong>Infrastructure as a Service</strong> (IaaS): 가상 컴퓨터와 대부분의 기존 응용 프로그램을 호스트하는 가상 인프라</p></li>
-<li><p><strong>Platform as a Service</strong> (PaaS): 주문형 응용 프로그램 호스팅 환경을 제공하는 클라우드 응용 프로그램 인프라</p></li>
-<li><p><strong>Software as a Service</strong> (SaaS): 응용 프로그램이 인터넷을 통해 제공되며 고객은 사용량에 따라 결제하는 클라우드 서비스 모델(예: Microsoft Office 365 또는 Microsoft CRM Online)</p></li>
+<li><p><strong>IaaS(Infrastructure as a Service)</strong>: 가상 컴퓨터와 대부분의 기존 응용 프로그램을 호스트하는 가상 인프라</p></li>
+<li><p><strong>PaaS(Platform as a Service)</strong>: 주문형 응용 프로그램 호스팅 환경을 제공하는 클라우드 응용 프로그램 인프라</p></li>
+<li><p><strong>SaaS(Software as a Service)</strong>: 응용 프로그램이 인터넷을 통해 제공되며 고객은 사용량에 따라 결제하는 클라우드 서비스 모델(예: Microsoft Office 365 또는 Microsoft CRM Online)</p></li>
 </ul>
 
 그림 1은 클라우드 서비스 분류법 및 IT 인프라의 구성 요소에 매핑하는 방법을 보여 줍니다. 온-프레미스 모델에서 고객은 네트워크 연결부터 응용 프로그램까지 전체 스택을 관리하는 책임이 있습니다. IaaS에서는 고객이 응용 프로그램을 통해 운영 체제를 관리하는 책임이 있지만 낮은 수준의 스택은 공급업체에서 관리합니다. PaaS에서는 플랫폼 공급업체가 런타임을 통해 네트워크 연결의 모든 요소를 제공하고 관리합니다. 고객은 응용 프로그램 및 데이터만 관리하면 됩니다. Azure 제공은 이 모델에 가장 적합합니다. 마지막으로 SaaS에서는 공급업체가 응용 프로그램을 제공하며 모든 기본 구성 요소의 모든 서비스를 추출합니다.
@@ -89,7 +89,7 @@ Azure 가상 컴퓨터 제공은 클라우드에서 호스트되고 관리됩니
 
 <h3>확장성</h3>
 
-조직은 실제 SharePoint 서버 및 팜을 배포, 테스트 및 준비할 필요없이 컴퓨팅 용량을 즉시 주문형으로 확장하고 계약할 수 있습니다. SharePoint 작업 요구 사항이 증가함에 따라 클라우드에서 인프라를 빠르게 확장할 수 있습니다. 마찬가지로 컴퓨팅 요구가 감소하는 경우 리소스를 줄이고 사용하는 리소스에 대해서만 결제할 수 있습니다. Azure 가상 컴퓨터가 선행 투자 경비와 장기간 비용 투입을 줄여주므로 SharePoint 인프라를 적절한 규모로 빌드하고 관리할 수 있습니다. 다시 한 번 말하자면, 조직은 며칠 또는 몇 주가 아니라 몇 시간 내에 기존 배포를 혁신하고 실험해 보고 반복할 수 있습니다.
+조직은 실제 SharePoint 서버 및 팜을 배포, 테스트 및 준비할 필요 없이 컴퓨팅 용량을 즉시 주문형으로 확장하고 계약할 수 있습니다. SharePoint 작업 요구 사항이 증가함에 따라 클라우드에서 인프라를 빠르게 확장할 수 있습니다. 마찬가지로 컴퓨팅 요구가 감소하는 경우 리소스를 줄이고 사용하는 리소스에 대해서만 결제할 수 있습니다. Azure 가상 컴퓨터가 선행 투자 경비와 장기간 비용 투입을 줄여주므로 SharePoint 인프라를 적절한 규모로 빌드하고 관리할 수 있습니다. 다시 한 번 말하자면, 조직은 며칠 또는 몇 주가 아니라 몇 시간 내에 기존 배포를 혁신하고 실험해 보고 반복할 수 있습니다.
 
 <h3>요금제 사용</h3>
 
@@ -101,12 +101,12 @@ Azure 가상 컴퓨터는 .NET, Node.js, Java 및 PHP에 대한 공식적인 지
 
 <h2>프로비전 프로세스</h2>
 
-이 하위 섹션에서는 Azure의 기본적인 강점에 대해 논의합니다. Azure의 <strong>이미지 라이브러리</strong> 는 미리 구성된 사용 가능한 VM의 목록을 제공합니다. 사용자는 SharePoint Server, SQL Server, Windows Server 및 기타 ISO/VHD를 이미지 갤러리에 게시할 수 있습니다. VM 만들기를 간소화하기 위해 기본 이미지를 만들어 라이브러리에 게시했습니다. 권한 있는 사용자는 이러한 이미지를 사용하여 원하는 VM을 생성할 수 있습니다. 자세한 내용은 Azure 사이트의 <a href="/ko-kr/manage/windows/tutorials/virtual-machine-from-gallery/">Windows Server 2008 R2를 실행하는 가상 컴퓨터 만들기</a> 를 참조하세요. 그림 2는 Azure 관리 포털에서 VM을 만드는 기본 단계를 보여 줍니다.
+이 하위 섹션에서는 Azure의 기본적인 강점에 대해 논의합니다. Azure의 <strong>이미지 갤러리</strong>는 미리 구성된 사용 가능한 VM의 목록을 제공합니다. 사용자는 SharePoint Server, SQL Server, Windows Server 및 기타 ISO/VHD를 이미지 갤러리에 게시할 수 있습니다. VM 만들기를 간소화하기 위해 기본 이미지를 만들어 라이브러리에 게시했습니다. 권한 있는 사용자는 이러한 이미지를 사용하여 원하는 VM을 생성할 수 있습니다. 자세한 내용을 보려면 Azure 사이트의 <a href="/ko-kr/manage/windows/tutorials/virtual-machine-from-gallery/">Windows Server 2008 R2를 실행하는 가상 컴퓨터 만들기</a>로 이동하세요. 그림 2는 Azure 관리 포털에서 VM을 만드는 기본 단계를 보여 줍니다.
 
 <p class="caption">그림 2: VM을 만드는 단계 개요</p>
 ![azure-sharepoint-wp-2](./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-2.png)
 
-사용자는 Azure 관리 포털에서 Sysprep을 실행한 이미지를 업로드할 수도 있습니다. 자세한 내용은 Azure 사이트의 <a href="/ko-kr/manage/windows/common-tasks/upload-a-vhd/">가상 하드 디스크 만들기 및 업로드</a>로 이동하세요. 그림 3은 VM을 만들 이미지를 업로드하는 기본 단계를 보여 줍니다.
+사용자는 Azure 관리 포털에서 Sysprep을 실행한 이미지를 업로드할 수도 있습니다. 자세한 내용을 보려면 <a href="/ko-kr/manage/windows/common-tasks/upload-a-vhd/">가상 하드 디스크 만들기 및 업로드</a>로 이동하세요. 그림 3은 VM을 만들 이미지를 업로드하는 기본 단계를 보여 줍니다.
 
 <p class="caption">그림 3: 이미지 업로드 단계 개요</p>
 ![azure-sharepoint-wp-3](./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-3.png)
@@ -116,74 +116,74 @@ Azure 가상 컴퓨터는 .NET, Node.js, Java 및 PHP에 대한 공식적인 지
 다음 단계에 따라 Azure에서 SharePoint 2010을 배포할 수 있습니다.
 
 <ol>
-<li>Log on to the <a href="http://manage.windowsazure.com/">Azure 관리 포털</a> (Azure 구독 계정 사용)
+<li>Azure 구독 계정을 사용하여 <a href="http://manage.windowsazure.com/">Azure 관리 포털</a>에 로그온합니다.
 <ul>
 
-<li>Azure 계정이 없는 경우 <a href="http://www.windowsazure.com/ko-kr/pricing/free-trial/">Azure 무료 평가판에 등록하세요</a>.</li>
+<li>Azure 계정이 없는 경우 <a href="http://www.windowsazure.com/ko-kr/pricing/free-trial/">Azure 무료 평가판에 등록</a>합니다.</li>
 </ul>
 </li>
 
-<li>기본 운영 체제로 VM을 만들려면 Azure 관리 포털에서 <strong>새로 만들기</strong>, <strong>계산</strong>, <strong>가상 컴퓨터</strong> 및 <strong>갤러리에서</strong>를 차례로 클릭합니다.</li>
+<li>기본 운영 체제로 VM을 만들려면 Azure 관리 포털에서 <strong>새로 만들기 > 계산 > 가상 컴퓨터 > 갤러리에서</strong>를 클릭합니다.</li>
 
-<li> <strong>이미지 선택</strong> 대화 상자가 나타납니다.  <strong>Windows Server 2008 R2 SP1</strong> 플랫폼 이미지를 클릭하고 오른쪽 화살표를 클릭합니다.</li>
+<li><strong>이미지 선택</strong> 대화 상자가 나타납니다. <strong>Windows Server 2008 R2 SP1</strong> 플랫폼 이미지를 클릭하고 오른쪽 화살표를 클릭합니다.</li>
 
-<li> <strong><em>가상 컴퓨터 구성 </em></strong>대화 상자가 나타납니다. 다음 정보를 지정합니다.
+<li><strong><em>가상 컴퓨터 구성</em></strong> 대화 상자가 나타납니다. 다음 정보를 지정합니다.
 
 <ul>
-<li> <strong>가상 컴퓨터 이름</strong>을 입력합니다.
+<li><strong>가상 컴퓨터 이름</strong>을 입력합니다.
 </li>
-<li>해당 <strong>크기</strong>를 선택합니다.
+<li>적절한 <strong>크기</strong>를 선택합니다.
 <ul>
-<li>프로덕션 환경(SharePoint 응용 프로그램 서버 및 데이터베이스)의 경우 A3 <em>(4 코어, 7GB 메모리)</em>를 사용하는 것이 좋습니다.</li>
+<li>프로덕션 환경(SharePoint 응용 프로그램 서버 및 데이터베이스)의 경우 A3<em>(4코어, 7GB 메모리)</em>를 사용하는 것이 좋습니다.</li>
 </ul>
 </li>
-<li> <strong>새 사용자 이름</strong>에서 로컬 관리자 계정 이름을 입력합니다.</li>
-<li> <strong>새 암호</strong> 상자에 강력한 암호를 입력합니다.</li>
-<li> <strong>확인</strong> 상자에 암호를 다시 입력하고 오른쪽 화살표를 클릭합니다.</li>
+<li><strong>새 사용자 이름</strong> 상자에 로컬 관리자 계정 이름을 입력합니다.</li>
+<li><strong>새 암호</strong> 상자에 강력한 암호를 입력합니다.</li>
+<li><strong>확인</strong> 상자에 암호를 다시 입력하고 오른쪽 화살표를 클릭합니다.</li>
 </ul>
 <li>두 번째 <strong>가상 컴퓨터 구성</strong> 대화 상자가 나타납니다. 다음 정보를 지정합니다.
 <ul>
-<li> <strong>클라우드 서비스</strong> 상자에서 다음 중 하나를 선택합니다.
+<li><strong>클라우드 서비스</strong> 상자에서 다음 중 하나를 선택합니다.
 <ul>
-<li><strong>새 클라우드 서비스 만들기</strong>. 이 경우 클라우드 서비스 DNS 이름도 제공해야 합니다.</li>
+<li><strong>새 클라우드 서비스 만들기</strong>를 선택합니다. 이 경우 클라우드 서비스 DNS 이름도 입력해야 합니다.</li>
 <li>기존 클라우드 서비스를 선택합니다.</li>
 </ul>
-<li> <strong>지역/선호도 그룹/가상 네트워크 </strong>상자에 가상 이미지가 호스트될 지역을 선택합니다.</li>
-<li> <strong>저장소 계정 </strong>상자에서 다음 중 하나를 선택합니다.
+<li><strong>지역/선호도 그룹/가상 네트워크</strong> 상자에서 가상 이미지를 호스트할 영역을 선택합니다.</li>
+<li><strong>저장소 계정</strong> 상자에서 다음 중 하나를 선택합니다.
 <ul>
 <li><strong>자동으로 생성된 저장소 계정 사용</strong>.</li>
 <li>기존 저장소 계정 이름을 선택합니다.</li>
 <ul>
 <li>영역당 하나의 저장소 계정만 자동으로 만들어집니다. 이 설정으로 만든 다른 모든 VM이 이 저장소 계정에 저장됩니다.</li>
 <li>20개의 저장소 계정으로 제한됩니다.</li>
-<li>자세한 내용은 <a href="/ko-kr/manage/windows/common-tasks/upload-a-vhd/#createstorage">Azure에서 저장소 계정 만들기</a>로 이동하세요.</li>
+<li>자세한 내용을 보려면 <a href="/ko-kr/manage/windows/common-tasks/upload-a-vhd/#createstorage">Azure에서 저장소 계정 만들기</a>로 이동하세요.</li>
 </ul>
 </li>
-<li> <strong>가용성 집합</strong> 상자에서 <STRONG>(없음)</STRONG>을 선택하고 오른쪽 화살표를 클릭합니다.</li>
+<li><strong>가용성 집합</strong> 상자에서 <STRONG>(없음)</STRONG>을 선택하고 오른쪽 화살표를 클릭합니다.</li>
 </ul>
 </li>
 </ul>
 </li>
-<li>세 번째 <strong>가상 컴퓨터 구성 </strong>대화 상자에서 확인 표시를 클릭하여 VM을 만듭니다.</li>
+<li>세 번째 <strong>가상 컴퓨터 구성</strong> 대화 상자에서 확인 표시를 클릭하여 VM을 만듭니다.</li>
 
 
 <li>VM에 연결하려면 다음 단계를 수행합니다.
 <ul>
 <li>원격 데스크톱을 사용하여 VM을 엽니다.</li>
 <li>Azure 관리 포털에서 VM을 선택한 후 <strong>대시보드</strong> 페이지를 선택합니다.</li>
-<li> <strong>연결</strong>을 클릭합니다.</li>
+<li><strong>연결</strong>을 클릭합니다.</li>
 </ul>
 </li>
 <li>다음 옵션 중 하나를 사용하여 SQL Server VM을 빌드합니다.
 <ul>
-<li>위의 1~7단계에 따라 SQL Server 2012 VM을 만듭니다. 단, <strong>3단계</strong>에서 Windows Server 2008 R2 SP1 이미지 대신 SQL Server 2012 이미지를 사용합니다. 자세한 내용은 <a href="/ko-kr/manage/windows/common-tasks/install-sql-server/">Azure에서 SQL Server 가상 컴퓨터 프로비전</a>으로 이동하세요.
+<li>위의 1~7단계에 따라(<strong>3단계</strong>는 예외) SQL Server 2012 VM을 만들어 Windows Server 2008 R2 SP1 이미지 대신 SQL Server 2012 이미지를 사용합니다. 자세한 내용을 보려면 <a href="/ko-kr/manage/windows/common-tasks/install-sql-server/">Azure에서 SQL Server 가상 컴퓨터 프로비전</a>으로 이동하세요.
 <ul>
-<li>이 옵션을 선택하면 프로비저닝 프로세스 중에 SQL Server 2012 설치 프로그램 파일 복사본이 <em>C:\SQLServer_11.0_Full</em> 디렉터리 경로에 저장되므로 설치를 사용자 지정할 수 있습니다. 예를 들어 SQL Server 2012의 평가판 설치를, 라이선스 키를 사용하여 사용이 허가된 버전으로 변환할 수 있습니다.</li>
+<li>이 옵션을 선택한 경우 설치를 사용자 지정할 수 있도록 프로비전 프로세스에서 SQL Server 2012 설치 파일의 복사본을 <em>C:\SQLServer_11.0_Full</em> 디렉터리 경로에 저장합니다. 예를 들어 SQL Server 2012의 평가판 설치를, 라이선스 키를 사용하여 사용이 허가된 버전으로 변환할 수 있습니다.</li>
 </ul>
 </li>
-<li>SQL Server 시스템 준비 도구(SysPrep)를 사용하여 기본 운영 체제가 있는 VM(위의 1 - 7단계)에 SQL Server를 설치합니다. 자세한 내용은 <a href="http://msdn.microsoft.com/ko-kr/library/ee210664.aspx">SysPrep을 사용하여 SQL Server 2012 설치</a>로 이동하세요.</li>
-<li>명령 프롬프트를 사용하여 SQL Server를 설치합니다. 자세한 내용은 <a href="http://msdn.microsoft.com/ko-kr/library/ms144259.aspx#SysPrep">명령 프롬프트에서 SQL Server 2012 설치</a>로 이동하세요.</li>
-<li>지원되는 SQL Server 미디어와 라이선스 키를 사용하여 기본 운영 체제가 있는 VM(위의 1 - 7단계)에 SQL Server를 설치합니다.</li>
+<li>SQL Server 시스템 준비 도구(SysPrep)를 사용하여 기본 운영 체제가 있는 VM(위의 1 - 7단계)에 SQL Server를 설치합니다. 자세한 내용을 보려면 <a href="http://msdn.microsoft.com/ko-kr/library/ee210664.aspx">SysPrep을 사용하여 SQL Server 2012 설치</a>로 이동하세요.</li>
+<li>명령 프롬프트를 사용하여 SQL Server를 설치합니다. 자세한 내용을 보려면 <a href="http://msdn.microsoft.com/ko-kr/library/ms144259.aspx#SysPrep">명령 프롬프트에서 SQL Server 2012 설치</a>로 이동하세요.</li>
+<li>지원되는 SQL Server 미디어와 라이선스 키를 사용하여 기본 운영 체제가 있는 VM(위의 1~7단계)에 SQL Server를 설치합니다.</li>
 </ul>
 </li>
 <li>다음 하위 단계를 사용하여 SharePoint 팜을 빌드합니다.
@@ -193,26 +193,26 @@ Azure 가상 컴퓨터는 .NET, Node.js, Java 및 PHP에 대한 공식적인 지
 <ul>
 <li>SharePoint GUI를 사용하여 프로비전:
 <ul>
-<li>SharePoint 팜을 만들고 프로비전하려면 <a href="http://technet.microsoft.com/ko-kr/library/ee805948.aspx#CreateConfigure">Microsoft SharePoint Server 팜 만들기</a>로 이동하세요.</li>
-<li>팜에 웹 또는 응용 프로그램 서버를 추가하려면 <a href="http://technet.microsoft.com/ko-kr/library/cc261752.aspx">팜에 웹 또는 응용 프로그램 서버 추가(SharePoint Server 2010)</a>로 이동하세요.</li>
+<li>SharePoint 팜을 만들어 프로비전하려면 <a href="http://technet.microsoft.com/ko-kr/library/ee805948.aspx#CreateConfigure">Microsoft SharePoint Server 팜 만들기</a>로 이동하세요.</li>
+<li>웹 서버 또는 응용 프로그램 서버를 팜에 추가하려면 <a href="http://technet.microsoft.com/ko-kr/library/cc261752.aspx">팜(SharePoint Server 2010)에 웹 서버 또는 응용 프로그램 서버 추가</a>로 이동하세요.</li>
 <li>
-<p>기존 팜에 데이터베이스 서버를 추가하려면 <a href="http://technet.microsoft.com/ko-kr/library/cc262781">기존 팜에 데이터베이스 서버 추가</a>로 이동하세요.</p>
+<p>데이터베이스 서버를 기존 팜에 추가하려면 <a href="http://technet.microsoft.com/ko-kr/library/cc262781">기존 팜에 데이터베이스 서버 추가</a>로 이동하세요.</p>
 <ul>
-<li>SharePoint 팜에 SQL Server 2012를 사용하려면 응용 프로그램을 설치하고 서버를 구성하지 않도록 선택한 후 SharePoint Server 2010 서비스 팩 1을 다운로드하여 설치해야 합니다. 자세한 내용은 <a href="http://www.microsoft.com/ko-kr/download/details.aspx?id=26623">SharePoint Server 2010 서비스 팩 1</a>로 이동하세요.</li>
-<li>SQL Server BI 기능을 활용하려면 독립 실행형 서버 대신 서버 팜으로 SharePoint Server를 설치하는 것이 좋습니다. 자세한 내용은 <a href="http://technet.microsoft.com/ko-kr/library/hh231681(v=sql.110).aspx">SQL Server 2012 비즈니스 인텔리전스 기능</a>으로 이동하세요.</li>
+<li>SharePoint 팜에 SQL Server 2012를 사용하려면 응용 프로그램을 설치하고 서버를 구성하지 않도록 선택한 후 SharePoint Server 2010 서비스 팩 1을 다운로드하여 설치해야 합니다. 자세한 내용을 보려면 <a href="http://www.microsoft.com/ko-kr/download/details.aspx?id=26623">SharePoint Server 2010 서비스 팩 1</a>로 이동하세요.</li>
+<li>SQL Server BI 기능을 활용하려면 독립 실행형 서버 대신 서버 팜으로 SharePoint Server를 설치하는 것이 좋습니다. 자세한 내용을 보려면 <a href="http://technet.microsoft.com/ko-kr/library/hh231681(v=sql.110).aspx">SQL Server 2012 비즈니스 인텔리전스 기능 설치</a>로 이동하세요.</li>
 </ul>
 </li>
 </ul>
 </li>
-<li>Microsoft Windows PowerShell을 사용하여 프로비전: Psconfig 명령줄 도구를 대체 인터페이스로 사용하여 SharePoint 2010 제품을 프로비전하는 방법을 제어하는 여러 작업을 수행할 수 있습니다. 자세한 내용은 <a href="http://technet.microsoft.com/ko-kr/library/cc263093.aspx">Psconfig 명령줄 참조</a>로 이동하세요.</li>
+<li>Microsoft Windows PowerShell을 사용하여 프로비전: Psconfig 명령줄 도구를 대체 인터페이스로 사용하여 SharePoint 2010 제품을 프로비전하는 방법을 제어하는 여러 작업을 수행할 수 있습니다. 자세한 내용을 보려면 <a href="http://technet.microsoft.com/ko-kr/library/cc263093.aspx">Psconfig 명령줄 참조</a>로 이동하세요.</li>
 </ul>
 </li>
 <li>하위 단계 3: SharePoint를 구성합니다. 각 SharePoint VM이 준비 상태에 있으면 다음 옵션 중 하나를 사용하여 각 서버에서 SharePoint Server를 구성합니다.
 <ul>
 <li>GUI에서 SharePoint를 구성합니다.</li>
-<li>Windows PowerShell을 사용하여 SharePoint를 구성합니다. 자세한 내용은 <a href="http://technet.microsoft.com/ko-kr/library/cc262839.aspx">Windows PowerShell을 사용하여 SharePoint Server 2010 설치</a>로 이동하세요.
+<li>Windows PowerShell을 사용하여 SharePoint를 구성합니다. 자세한 내용을 보려면 <a href="http://technet.microsoft.com/ko-kr/library/cc262839.aspx">Windows PowerShell을 사용하여 SharePoint Server 2010 설치</a>로 이동하세요.
 <ul>
-<li>또한 Windows PowerShell 스크립트, XML 입력 파일 및 Microsoft Windows 표준 배치 파일로 구성된 CodePlex 프로젝트의 AutoSPInstaller를 사용할 수도 있습니다. AutoSPInstaller는 Windows PowerShell을 기반으로 하여 SharePoint 2010 설치 스크립트용 프레임워크를 제공합니다. 자세한 내용은 <a href="http://autospinstaller.codeplex.com/">CodePlex: AutoSPInstaller</a>(영문)로 이동하세요.
+<li>또한 Windows PowerShell 스크립트, XML 입력 파일 및 Microsoft Windows 표준 배치 파일로 구성된 CodePlex 프로젝트의 AutoSPInstaller를 사용할 수도 있습니다. AutoSPInstaller는 Windows PowerShell을 기반으로 하여 SharePoint 2010 설치 스크립트용 프레임워크를 제공합니다. 자세한 내용을 보려면 <a href="http://autospinstaller.codeplex.com/">CodePlex: AutoSPInstaller</a>로 이동하세요.
 
 <strong>참고</strong>: 관리 포털 끝점에서 보안을 구성하고 VM의 Windows 방화벽에 인바운드 포트를 설정하세요. 그런 다음 관리자 자격 증명으로 Windows PowerShell 세션을 열어서 SharePoint 응용 프로그램 서버 중 하나에 대해 원격 Windows PowerShell 세션을 시작할 수 있는지 확인합니다.
 </li>
@@ -231,10 +231,10 @@ Azure 가상 컴퓨터는 .NET, Node.js, Java 및 PHP에 대한 공식적인 지
 또한 고유한 이미지를 만들어 Azure에 VHD 파일로 업로드할 수도 있습니다. Azure에서 VHD 파일을 만들어 업로드하려면 다음 단계를 따르세요.
 
 <ol>
-<li>Hyper-V 사용 이미지 만들기: Hyper-V 관리자를 사용하여 Hyper-V 사용 VHD를 만듭니다. 자세한 내용을 보려면 <a href="http://technet.microsoft.com/ko-kr/library/cc742509">가상 하드 디스크 만들기</a>.</li>
-<li>Azure에서 저장소 계정 만들기: VM을 만드는 데 사용할 수 있는 VHD 파일을 업로드하려면 Azure 저장소 계정이 필요합니다. 이 계정은 Azure 관리 포털을 사용하여 만들 수 있습니다. 자세한 내용은 <a href="/ko-kr/manage/windows/common-tasks/upload-a-vhd/">Azure에서 저장소 계정 만들기</a>로 이동하세요.</li>
-<li>업로드할 이미지 준비: Azure에 이미지를 업로드하려면 먼저 SysPrep 명령을 사용하여 범용화해야 합니다. 자세한 내용은 <a href="http://technet.microsoft.com/ko-kr/library/bb457073.aspx">SysPrep 사용 방법: 소개</a>로 이동하세요.</li>
-<li>Azure에 이미지 업로드: VHD 파일에 포함된 이미지를 업로드하려면 관리 인증서를 만들고 설치해야 합니다. 인증서의 지문 및 구독 ID를가져옵니다. 연결을 설정하고 CSUpload 명령줄 도구를 사용하여 VHD 파일을 업로드합니다. 자세한 내용은 <a href="/ko-kr/manage/windows/common-tasks/upload-a-vhd/">Azure에 이미지 업로드</a>로 이동하세요.</li>
+<li>Hyper-V 사용 이미지 만들기: Hyper-V 관리자를 사용하여 Hyper-V 사용 VHD를 만듭니다. 자세한 내용을 보려면 <a href="http://technet.microsoft.com/ko-kr/library/cc742509">가상 하드 디스크 만들기</a>로 이동하세요.</li>
+<li>Azure에서 저장소 계정 만들기: VM을 만드는 데 사용할 수 있는 VHD 파일을 업로드하려면 Azure 저장소 계정이 필요합니다. 이 계정은 Azure 관리 포털을 사용하여 만들 수 있습니다. 자세한 내용을 보려면 <a href="/ko-kr/manage/windows/common-tasks/upload-a-vhd/">Azure에서 저장소 계정 만들기</a>로 이동하세요.</li>
+<li>업로드할 이미지 준비: Azure에 이미지를 업로드하려면 먼저 SysPrep 명령을 사용하여 범용화해야 합니다. 자세한 내용을 보려면 <a href="http://technet.microsoft.com/ko-kr/library/bb457073.aspx">SysPrep의 사용법: 소개</a>로 이동하세요.</li>
+<li>Azure에 이미지 업로드: VHD 파일에 포함된 이미지를 업로드하려면 관리 인증서를 만들고 설치해야 합니다. 인증서의 지문 및 구독 ID를가져옵니다. 연결을 설정하고 CSUpload 명령줄 도구를 사용하여 VHD 파일을 업로드합니다. 자세한 내용을 보려면 <a href="/ko-kr/manage/windows/common-tasks/upload-a-vhd/">Azure에 이미지 업로드</a>로 이동하세요.</li>
 </ol>
 
 <h2>사용 시나리오</h2>
@@ -264,26 +264,26 @@ Azure 가상 컴퓨터는 .NET, Node.js, Java 및 PHP에 대한 공식적인 지
 Azure에서 SharePoint 개발 및 테스트 환경을 구현하려면 다음 단계를 따르세요.
 
 <ol>
-<li><em>프로비전</em>: 먼저, Azure 가상 네트워크를 사용하여 온-프레미스와 Azure 간의 VPN 연결을 프로비전합니다. (여기에서는 Active Directory를 사용하지 않으므로 VPN 터널이 필요합니다.) 자세한 내용을 보려면  <a href="http://msdn.microsoft.com/ko-kr/library/windowsazure/jj156007.aspx">Azure 가상 네트워크(디자인 고려 사항 및 보안 연결 시나리오)</a>. 그런 다음 관리 포털을 사용하여 이미지 라이브러리의 기존 이미지를 사용해 새 VM을 프로비전합니다.
+<li><em>프로비전</em>: 먼저, Azure 가상 네트워크를 사용하여 온-프레미스와 Azure 간의 VPN 연결을 프로비전합니다. 여기에서는 Active Directory를 사용하지 않으므로 VPN 터널이 필요합니다. 자세한 내용을 보려면 <a href="http://msdn.microsoft.com/ko-kr/library/windowsazure/jj156007.aspx">Azure 가상 네트워크(디자인 고려 사항 및 보안 연결 시나리오)</a>로 이동하세요. 그런 다음 관리 포털을 사용하여 이미지 라이브러리의 기존 이미지를 사용해 새 VM을 프로비전합니다.
 <ul>
 <li>온-프레미스 SharePoint 개발 및 테스트 VM을 Azure 저장소 계정으로 업로드하고, 이미지 라이브러리를 통해 해당 VM을 참조하여 필요한 환경을 빌드할 수 있습니다.</li>
-<li>Windows Server 2008 R2 SP1 이미지 대신 SQL Server 2012 이미지를 사용할 수 있습니다. 자세한 내용은 <a href="/ko-kr/manage/windows/common-tasks/install-sql-server/">Azure에서 SQL Server 가상 컴퓨터 프로비전</a>으로 이동하세요.</li>
+<li>Windows Server 2008 R2 SP1 이미지 대신 SQL Server 2012 이미지를 사용할 수 있습니다. 자세한 내용을 보려면 <a href="/ko-kr/manage/windows/common-tasks/install-sql-server/">Azure에서 SQL Server 가상 컴퓨터 프로비전</a>으로 이동하세요.</li>
 </ul>
 </li>
 <li><em>설치</em>: 원격 데스크톱 연결을 사용하여 VM에 SharePoint Server, Visual Studio 및 SQL Server를 설치합니다.
 <ul>
 <li>SharePoint Server 설치 옵션을 다음과 같이 선택합니다.
 <ul>
-<li>SharePoint 2010 간편 설치 스크립트를 사용하여 SharePoint 개발자 컴퓨터를 빌드합니다. 자세한 내용은 <a href="http://www.microsoft.com/ko-kr/download/details.aspx?id=23415">SharePoint 2010 간편 설치 스크립트</a>로 이동하세요.</li>
-<li>Windows PowerShell을 사용합니다. 자세한 내용은 <a href="http://technet.microsoft.com/ko-kr/library/cc262839.aspx">Windows PowerShell을 사용하여 SharePoint Server 2010 설치</a>로 이동하세요.</li>
-<li>CodePlex 프로젝트의 AutoSPInstaller를 사용합니다. 자세한 내용은 <a href="http://autospinstaller.codeplex.com/">CodePlex: AutoSPInstaller</a>(영문)로 이동하세요.</li>
+<li>SharePoint 2010 간편 설치 스크립트를 사용하여 SharePoint 개발자 컴퓨터를 빌드합니다. 자세한 내용을 보려면 <a href="http://www.microsoft.com/ko-kr/download/details.aspx?id=23415">SharePoint 2010 간편 설치 스크립트</a>로 이동하세요.</li>
+<li>Windows PowerShell을 사용합니다. 자세한 내용을 보려면 <a href="http://technet.microsoft.com/ko-kr/library/cc262839.aspx">Windows PowerShell을 사용하여 SharePoint Server 2010 설치</a>로 이동하세요.</li>
+<li>CodePlex 프로젝트의 AutoSPInstaller를 사용합니다. 자세한 내용을 보려면 <a href="http://autospinstaller.codeplex.com/">CodePlex: AutoSPInstaller</a>로 이동하세요.</li>
 </ul>
 </li>
-<li>Visual Studio를 설치합니다. 자세한 내용은 <a href="http://msdn.microsoft.com/ko-kr/library/e2h7fzkw.aspx">Visual Studio 설치</a>로 이동하세요.</li>
-<li>SQL Server를 설치합니다. 자세한 내용은 <a href="http://msdn.microsoft.com/ko-kr/library/ee210664.aspx">SysPrep을 사용하여 SQL Server 설치</a>로 이동하세요.
+<li>Visual Studio를 설치합니다. 자세한 내용을 보려면 <a href="http://msdn.microsoft.com/ko-kr/library/e2h7fzkw.aspx">Visual Studio 설치</a>로 이동하세요.</li>
+<li>SQL Server를 설치합니다. 자세한 내용을 보려면 <a href="http://msdn.microsoft.com/ko-kr/library/ee210664.aspx">SysPrep을 사용하여 SQL Server 설치</a>로 이동하세요.
 <ul>
-<li>SharePoint 팜 배포를 위해 SQL Server 2012를 만들어 구성하는 과정에 대해서는 실습 교육 <a href="https://github.com/WindowsAzure-TrainingKit/HOL-DeployingSQLServerForSharePoint">Azure에서 SharePoint에 대해 SQL Server 2012 구성</a>(영문).</li>
-<li>Active Directory를 구성하고 단일 SQL Server 데이터베이스를 사용하여 SharePoint 팜을 만드는 과정에 대해서는 실습 교육 <a href="https://github.com/WindowsAzure-TrainingKit/HOL-DeploySharePointVMs">Azure 가상 컴퓨터로 SharePoint 팜 배포</a>.</li>
+<li>SharePoint 팜 배포를 위해 SQL Server 2012를 만들어 구성하는 과정에 대해서는 실습 교육 <a href="https://github.com/WindowsAzure-TrainingKit/HOL-DeployingSQLServerForSharePoint">Azure에서 SharePoint에 대해 SQL Server 2012 구성</a>을 참조하세요.</li>
+<li>Active Directory를 구성하고 단일 SQL Server 데이터베이스를 사용하여 SharePoint 팜을 만드는 과정에 대해서는 실습 교육 <a href="https://github.com/WindowsAzure-TrainingKit/HOL-DeploySharePointVMs">Azure 가상 컴퓨터로 SharePoint 팜 배포</a>를 참조하세요.</li>
 </ul>
 </li>
 </ul>
@@ -317,7 +317,7 @@ Azure에서 SharePoint 개발 및 테스트 환경을 구현하려면 다음 단
 
 이 시나리오에서는 공용 웹 사이트를 호스트하기 위한 기반으로 SharePoint Server를 사용합니다. 이를 통해 조직은 안전하고 확장 가능한 클라우드 인프라에서 기업 웹 사이트를 빠르게 배포하고 사용자 지정하고 호스트할 수 있습니다. 조직은 Azure의 SharePoint 공용 웹 사이트를 사용하여 트래픽 증가에 맞춰 확장하고 사용하는 리소스에 대해서만 결제할 수 있습니다. 또한 Azure의 SharePoint를 사용하여 콘텐츠 제작, 워크플로 및 승인에 온-프레미스에서 사용하는 것과 비슷한 일반 도구를 사용할 수 있습니다.
 
-더 나아가 Azure 가상 컴퓨터를 사용하는 조직은 VM에서 실행되는 스테이징 환경 및 프로덕션 환경을 쉽게 구성할 수 있습니다. Azure에서 만든 SharePoint 공용 VM을 가상 저장소로 백업할 수 있습니다. 또한 "지역에서 연속 복제" 기능을 통해 조직은 재해 복구를 위해 한 데이터 센터의 VM 작업을 멀리 떨어진 다른 데이터 센터로 자동으로 백업할 수 있습니다. (지역에서 복제에 대한 자세한 내용은 <a href="http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/introducing-geo-replication-for-windows-azure-storage.aspx">Azure 저장소에 대한 지역에서 복제 소개</a>(영문)를 참조하세요.)
+더 나아가 Azure 가상 컴퓨터를 사용하는 조직은 VM에서 실행되는 스테이징 환경 및 프로덕션 환경을 쉽게 구성할 수 있습니다. Azure에서 만든 SharePoint 공용 VM을 가상 저장소로 백업할 수 있습니다. 또한 "지역에서 연속 복제" 기능을 통해 조직은 재해 복구를 위해 한 데이터 센터의 VM 작업을 멀리 떨어진 다른 데이터 센터로 자동으로 백업할 수 있습니다. 지역에서 복제에 대한 자세한 내용을 보려면 <a href="http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/introducing-geo-replication-for-windows-azure-storage.aspx">Azure 저장소의 지역에서 복제 소개</a>로 이동하세요.
 
 SQL Server 및 SharePoint Server와 같은 다른 Microsoft 제품으로 작업할 수 있도록 Azure 인프라의 VM을 확인하고 지원합니다. Azure와 SharePoint Server를 함께 사용하면 더 좋습니다. 둘 다 Microsoft 제품군의 일부이며 최적의 환경을 제공하도록 함께 철저히 통합, 지원 및 테스트되었기 때문입니다. 둘 다 SharePoint 응용 프로그램 및 Azure 인프라 지원을 위한 단일 지점이 있습니다.
 
@@ -333,13 +333,13 @@ SQL Server 및 SharePoint Server와 같은 다른 Microsoft 제품으로 작업�
 Azure에서 공용 SharePoint 팜을 구현하려면 다음 단계를 따르세요.
 
 <ol>
-<li><em>Active Directory 배포</em>: Azure 가상 컴퓨터에서 Active Directory를 배포하기 위해 충족해야 하는 기본 요구 사항은 온-프레미스 VM(및 어느 정도까지는 물리적 컴퓨터)에서 배포하는 경우와 유사하지만 "동일하지는 않습니다". 차이점, 지침 및 기타 고려 사항에 대한 자세한 내용을 보려면 <a href="http://msdn.microsoft.com/ko-kr/library/windowsazure/jj156090">Azure 가상 컴퓨터에 Active Directory 배포에 대한 지침</a>. Azure에서 Active Directory를 배포하려면 다음을 수행합니다.
+<li><em>Active Directory 배포</em>: Azure 가상 컴퓨터에서 Active Directory를 배포하기 위해 충족해야 하는 기본 요구 사항은 온-프레미스 VM(및 어느 정도까지는 물리적 컴퓨터)에서 배포하는 경우와 유사하지만 "동일하지는 않습니다". 차이점, 지침 및 기타 고려 사항에 대한 자세한 내용을 보려면 <a href="http://msdn.microsoft.com/ko-kr/library/windowsazure/jj156090">Azure 가상 컴퓨터에 Active Directory를 배포하기 위한 지침</a>으로 이동하세요. Azure에서 Active Directory를 배포하려면 다음을 수행합니다.
 <ul>
-<li>VM을 특정 서브넷에 할당할 수 있는 가상 네트워크를 정의하고 만듭니다. 자세한 내용은 <a href="https://github.com/WindowsAzure-TrainingKit/HOL-DeployingActiveDirectory/blob/master/HOL.md">가상 네트워킹 구성</a>(영문)으로 이동하세요.</li>
-<li>Azure에서 관리 포털을 사용하여 새 VM에서 도메인 컨트롤러를 만들고 배포합니다. 자세한 내용은 <a href="https://github.com/WindowsAzure-TrainingKit/HOL-DeployingActiveDirectory/blob/master/HOL.md">도메인 컨트롤러 배포 및 만들기</a>(영문)로 이동하세요.
+<li>VM을 특정 서브넷에 할당할 수 있는 가상 네트워크를 정의하고 만듭니다. 자세한 내용을 보려면 <a href="https://github.com/WindowsAzure-TrainingKit/HOL-DeployingActiveDirectory/blob/master/HOL.md">가상 네트워킹 구성</a>으로 이동하세요.</li>
+<li>Azure에서 관리 포털을 사용하여 새 VM에서 도메인 컨트롤러를 만들고 배포합니다. 자세한 내용을 보려면 <a href="https://github.com/WindowsAzure-TrainingKit/HOL-DeployingActiveDirectory/blob/master/HOL.md">도메인 컨트롤러 만들기 및 배포</a>로 이동하세요.
 <ul>
-<li>또한 Azure 가상 컴퓨터 및 가상 네트워크를 사용하는 클라우드에서 Windows PowerShell 스크립트를 참조하여 독립 실행형 도메인을 배포할 수도 있습니다. 자세한 내용은 <a href="https://github.com/WindowsAzure-TrainingKit/HOL-DeployingActiveDirectoryPS">Azure에서 Active Directory 배포(Windows PowerShell)</a>(영문)로 이동하세요.</li>
-<li>Azure 가상 네트워크의 VM에서 새 Active Directory 포리스트를 만드는 방법에 대한 자세한 내용을 보려면 <a href="/ko-kr/manage/services/networking/active-directory-forest/">Azure에서 새 Active Directory 포리스트 설치</a>(영문)로 이동하세요.</li>
+<li>또한 Azure 가상 컴퓨터 및 가상 네트워크를 사용하는 클라우드에서 Windows PowerShell 스크립트를 참조하여 독립 실행형 도메인을 배포할 수도 있습니다. 자세한 내용을 보려면 <a href="https://github.com/WindowsAzure-TrainingKit/HOL-DeployingActiveDirectoryPS">Azure에서 Active Directory 배포(Windows PowerShell)</a>로 이동하세요.</li>
+<li>Azure 가상 네트워크의 VM에서 새 Active Directory 포리스트를 만드는 방법에 대한 자세한 내용을 보려면 <a href="/ko-kr/manage/services/networking/active-directory-forest/">Azure에서 새 Active Directory 포리스트 설치</a>로 이동하세요.</li>
 </ul>
 </li>
 </ul>
@@ -347,7 +347,7 @@ Azure에서 공용 SharePoint 팜을 구현하려면 다음 단계를 따르세�
 <li><em>VM 프로비전</em>: 관리 포털을 사용하여 이미지 라이브러리의 기존 이미지에서 새 VM을 프로비전합니다.</li>
 <li><em>SharePoint 팜 배포</em>:
 <ul>
-<li>새로 프로비전한 VM을 사용하여 SharePoint를 설치하고 재사용 가능 이미지를 생성합니다. SharePoint Server 설치에 대한 자세한 내용은 <a href="http://technet.microsoft.com/ko-kr/library/cc262839.aspx">Windows PowerShell을 사용하여 SharePoint Server 2010 설치 및 구성</a> 또는 <a href="http://autospinstaller.codeplex.com/">CodePlex: AutoSPInstaller</a>(영문)로 이동하세요.</li>
+<li>새로 프로비전한 VM을 사용하여 SharePoint를 설치하고 재사용 가능 이미지를 생성합니다. SharePoint Server 설치에 대한 자세한 내용을 보려면 <a href="http://technet.microsoft.com/ko-kr/library/cc262839.aspx">Windows PowerShell을 사용하여 SharePoint Server 2010 설치 및 구성</a> 또는 <a href="http://autospinstaller.codeplex.com/">CodePlex: AutoSPInstaller</a>로 이동하세요.</li>
 <li>SharePoint VM을 구성하여 SharePoint 팜을 만들고 연결합니다.</li>
 <li>관리 포털을 사용하여 부하 분산을 구성합니다.
 <ul>
@@ -373,7 +373,7 @@ Azure에서 공용 SharePoint 팜을 구현하려면 다음 단계를 따르세�
 
 이 시나리오에서는 조직이 Azure 가상 컴퓨터를 사용하여 중요 업무용 BI 응용 프로그램을 호스트하는 방법에 대해 설명합니다. 조직은 Azure 가상 컴퓨터에서 SharePoint 팜을 배포하고 응용 프로그램 서버 VM의 BI 구성 요소(예: SSRS 또는 Excel Services)를 확장할 수 있습니다. 또한 클라우드에서 리소스를 많이 사용하는 구성 요소를 확장하여 특수한 작업을 훨씬 효율적으로 쉽게 지원할 수 있습니다. 작은 규모의 설치에서 매우 큰 규모의 설치에 이르기까지 SQL Server 인스턴스를 쉽게 확장할 수 있으므로 Azure 가상 컴퓨터의 SQL Server는 뛰어난 성능을 제공합니다. 따라서 즉각적인 작업 요구 사항에 따라 BI 인스턴스를 동적으로 프로비전(확장)하거나 프로비전을 해제(축소)할 수 있는 탄력성을 얻을 수 있습니다.
 
-기존 BI 응용 프로그램을 Azure로 마이그레이션하면 규모를 더욱 쉽게 조정할 수 있습니다. 조직은 SSAS, SSRS 및 SharePoint Server의 기능을 사용하여 확장 또는 축소되는 강력한 BI 및 보고 응용 프로그램과 대시보드를 만들 수 있습니다. 또한 이러한 응용 프로그램 및 대시보드는 온-프레미스 데이터 및 응용 프로그램과 더욱 안전하게 통합될 수 있습니다. Azure는 ISO 27001 지원으로 데이터 센터 규정을 준수합니다. 자세한 내용은 <a href="/ko-kr/support/trust-center/compliance/">Azure 보안 센터</a>로 이동하세요.
+기존 BI 응용 프로그램을 Azure로 마이그레이션하면 규모를 더욱 쉽게 조정할 수 있습니다. 조직은 SSAS, SSRS 및 SharePoint Server의 기능을 사용하여 확장 또는 축소되는 강력한 BI 및 보고 응용 프로그램과 대시보드를 만들 수 있습니다. 또한 이러한 응용 프로그램 및 대시보드는 온-프레미스 데이터 및 응용 프로그램과 더욱 안전하게 통합될 수 있습니다. Azure는 ISO 27001 지원으로 데이터 센터 규정을 준수합니다. 자세한 내용을 보려면 <a href="/ko-kr/support/trust-center/compliance/">Azure 보안 센터</a>로 이동하세요.
 
 <h4>시작하기</h4>
 
@@ -390,7 +390,7 @@ Azure에서 BI 환경을 확장하려면 다음 단계를 따르세요.
 <ol>
 <li><em>프로비전</em>:
 <ul>
-<li>Azure 가상 네트워크를 사용하여 온-프레미스와 Azure 간 VPN 연결을 프로비전합니다. 자세한 내용을 보려면 <a href="http://msdn.microsoft.com/ko-kr/library/windowsazure/jj156007.aspx">Azure 가상 네트워크(디자인 고려 사항 및 보안 연결 시나리오)</a>.</li>
+<li>Azure 가상 네트워크를 사용하여 온-프레미스와 Azure 간 VPN 연결을 프로비전합니다. 자세한 내용을 보려면 <a href="http://msdn.microsoft.com/ko-kr/library/windowsazure/jj156007.aspx">Azure 가상 네트워크(디자인 고려 사항 및 보안 연결 시나리오)</a>로 이동하세요.</li>
 <li>관리 포털을 사용하여 이미지 라이브러리의 기존 이미지에서 새 VM을 프로비전합니다.
 <ul>
 <li>SharePoint Server 또는 SQL Server BI 작업 이미지를 이미지 갤러리에 업로드할 수 있으며, 권한 있는 사용자는 해당 BI 구성 요소 VM을 선택하여 확장된 환경을 빌드할 수 있습니다.</li>
@@ -400,10 +400,10 @@ Azure에서 BI 환경을 확장하려면 다음 단계를 따르세요.
 </li>
 <li><em>설치</em>: 조직에 SharePoint Server 또는 SQL Server BI 구성 요소의 미리 빌드된 이미지가 없는 경우 원격 데스크톱 연결을 사용하여 SharePoint Server 및 SQL Server를 VM에 설치합니다.
 <ul>
-<li>SharePoint 설치에 대한 자세한 내용은 <a href="http://technet.microsoft.com/ko-kr/library/cc262839.aspx">Windows PowerShell을 사용하여 SharePoint Server 2010 설치</a> 또는 <a href="http://autospinstaller.codeplex.com/">CodePlex: AutoSPInstaller</a>(영문)로 이동하세요.</li>
-<li>SQL Server 설치에 대한 자세한 내용은 <a href="http://msdn.microsoft.com/ko-kr/library/ee210664.aspx">SysPrep을 사용하여 SQL Server 설치</a>로 이동하세요.</li>
-<li>SharePoint 팜 배포를 위해 SQL Server 2012를 만들어 구성하는 과정에 대해서는 실습 교육 <a href="https://github.com/WindowsAzure-TrainingKit/HOL-DeployingSQLServerForSharePoint">Azure에서 SharePoint에 대해 SQL Server 2012 구성</a>(영문).</li>
-<li>Active Directory를 구성하고 단일 SQL Server 데이터베이스를 사용하여 SharePoint 팜을 만드는 과정에 대해서는 실습 교육 <a href="https://github.com/WindowsAzure-TrainingKit/HOL-DeploySharePointVMs">Azure 가상 컴퓨터로 SharePoint 팜 배포</a>(영문).</li>
+<li>SharePoint 설치에 대한 자세한 내용을 보려면 <a href="http://technet.microsoft.com/ko-kr/library/cc262839.aspx">Windows PowerShell을 사용하여 SharePoint Server 2010 설치</a> 또는 <a href="http://autospinstaller.codeplex.com/">CodePlex: AutoSPInstaller</a>로 이동하세요.</li>
+<li>SQL Server를 설치하는 방법에 대한 자세한 내용을 보려면 <a href="http://msdn.microsoft.com/ko-kr/library/ee210664.aspx">SysPrep을 사용하여 SQL Server 설치</a>로 이동하세요.</li>
+<li>SharePoint 팜 배포를 위해 SQL Server 2012를 만들어 구성하는 과정에 대해서는 실습 교육 <a href="https://github.com/WindowsAzure-TrainingKit/HOL-DeployingSQLServerForSharePoint">Azure에서 SharePoint에 대해 SQL Server 2012 구성</a>을 참조하세요.</li>
+<li>Active Directory를 구성하고 단일 SQL Server 데이터베이스를 사용하여 SharePoint 팜을 만드는 과정에 대해서는 실습 교육 <a href="https://github.com/WindowsAzure-TrainingKit/HOL-DeploySharePointVMs">Azure 가상 컴퓨터로 SharePoint 팜 배포</a>를 참조하세요.</li>
 </ul>
 </li>
 <li><em>BI VM 추가</em>:
@@ -443,12 +443,12 @@ Azure에서 완전히 사용자 지정된 SharePoint 웹 사이트를 구현하�
 다음 단계는 이미지 라이브러리의 미리 빌드된 이미지에서 사용자 지정된 SharePoint 팜 환경을 만드는 방법을 보여 줍니다. 그러나 SharePoint 팜 VM을 이미지 라이브러리로 업로드할 수도 있으며, 권한 있는 사용자는 해당 VM을 선택하여 Azure에서 필요한 SharePoint 팜을 빌드할 수 있습니다.
 
 <ol>
-<li>Active Directory 배포<em>: Azure 가상 컴퓨터에서 Active Directory를 배포하기 위해 충족해야 하는 기본 요구 사항은 온-프레미스 VM(및 어느 정도까지는 물리적 컴퓨터)에서 배포하는 경우와 유사하지만 "동일하지는 않습니다". 차이점, 지침 및 기타 고려 사항에 대한 자세한 내용을 보려면 <a href="http://msdn.microsoft.com/ko-kr/library/windowsazure/jj156090">Azure 가상 컴퓨터에 Active Directory 배포에 대한 지침</a>. Azure에서 Active Directory를 배포하려면 다음을 수행합니다.</em>
+<li>Active Directory 배포<em>: Azure 가상 컴퓨터에서 Active Directory를 배포하기 위해 충족해야 하는 기본 요구 사항은 온-프레미스 VM(및 어느 정도까지는 물리적 컴퓨터)에서 배포하는 경우와 유사하지만 "동일하지는 않습니다". 차이점, 지침 및 기타 고려 사항에 대한 자세한 내용을 보려면 <a href="http://msdn.microsoft.com/ko-kr/library/windowsazure/jj156090">Azure 가상 컴퓨터에 Active Directory를 배포하기 위한 지침</a>으로 이동하세요. Azure에서 Active Directory를 배포하려면 다음을 수행합니다.</em>
 <ul>
-<li>VM을 특정 서브넷에 할당할 수 있는 가상 네트워크를 정의하고 만듭니다. 자세한 내용은 <a href="https://github.com/WindowsAzure-TrainingKit/HOL-DeployingActiveDirectory/blob/master/HOL.md">가상 네트워킹 구성</a>(영문)으로 이동하세요.</li>
-<li>Azure에서 관리 포털을 사용하여 새 VM에서 도메인 컨트롤러를 만들고 배포합니다. 자세한 내용은 <a href="https://github.com/WindowsAzure-TrainingKit/HOL-DeployingActiveDirectory/blob/master/HOL.md">도메인 컨트롤러 배포 및 만들기</a>(영문)로 이동하세요.
+<li>VM을 특정 서브넷에 할당할 수 있는 가상 네트워크를 정의하고 만듭니다. 자세한 내용을 보려면 <a href="https://github.com/WindowsAzure-TrainingKit/HOL-DeployingActiveDirectory/blob/master/HOL.md">가상 네트워킹 구성</a>으로 이동하세요.</li>
+<li>Azure에서 관리 포털을 사용하여 새 VM에서 도메인 컨트롤러를 만들고 배포합니다. 자세한 내용을 보려면 <a href="https://github.com/WindowsAzure-TrainingKit/HOL-DeployingActiveDirectory/blob/master/HOL.md">도메인 컨트롤러 만들기 및 배포</a>로 이동하세요.
 <ul>
-<li>또한 Azure 가상 컴퓨터 및 가상 네트워크를 사용하는 클라우드에서 Windows PowerShell 스크립트를 참조하여 독립 실행형 도메인을 배포할 수도 있습니다. 자세한 내용은 <a href="https://github.com/WindowsAzure-TrainingKit/HOL-DeployingActiveDirectoryPS">Azure에서 Active Directory 배포(Windows PowerShell)</a>(영문)로 이동하세요.</li>
+<li>또한 Azure 가상 컴퓨터 및 가상 네트워크를 사용하는 클라우드에서 Windows PowerShell 스크립트를 참조하여 독립 실행형 도메인을 배포할 수도 있습니다. 자세한 내용을 보려면 <a href="https://github.com/WindowsAzure-TrainingKit/HOL-DeployingActiveDirectoryPS">Azure에서 Active Directory 배포(Windows PowerShell)</a>로 이동하세요.</li>
 <li>Azure 가상 네트워크의 VM에서 새 Active Directory 포리스트를 만드는 방법에 대한 자세한 내용을 보려면 <a href="/ko-kr/manage/services/networking/active-directory-forest/">Azure에서 새 Active Directory 포리스트 설치</a>로 이동하세요.</li>
 </ul>
 </li>
@@ -457,25 +457,25 @@ Azure에서 완전히 사용자 지정된 SharePoint 웹 사이트를 구현하�
 <li><em>SQL Server 배포</em>:
 <ul>
 <li>관리 포털을 사용하여 이미지 라이브러리의 기존 이미지에서 새 VM을 프로비전합니다.</li>
-<li>VM에서 SQL Server를 구성합니다. 자세한 내용은 <a href="http://msdn.microsoft.com/ko-kr/library/ee210664.aspx">SysPrep을 사용하여 SQL Server 설치</a>로 이동하세요.</li>
+<li>VM에서 SQL Server를 구성합니다. 자세한 내용을 보려면 <a href="http://msdn.microsoft.com/ko-kr/library/ee210664.aspx">SysPrep을 사용하여 SQL Server 설치</a>로 이동하세요.</li>
 <li>새로 만든 Active Directory 도메인에 VM을 가입합니다.</li>
 </ul>
 </li>
 <li><em>다중 서버 SharePoint 팜 배포</em>:
 <ul>
-<li>가상 네트워크를 만듭니다. 자세한 내용은 <a href="http://msdn.microsoft.com/ko-kr/library/windowsazure/jj156007.aspx">Azure 가상 네트워크(디자인 고려 사항 및 보안 연결 시나리오)</a>로 이동하세요.
+<li>가상 네트워크를 만듭니다. 자세한 내용을 보려면 <a href="http://msdn.microsoft.com/ko-kr/library/windowsazure/jj156007.aspx">Azure 가상 네트워크(디자인 고려 사항 및 보안 연결 시나리오)</a>로 이동하세요.
 <ul>
 <li>SharePoint VM을 배포할 때 프로비전하는 동안 로컬 Active Directory 상자의 DNS 주소를 사용할 수 있도록 SharePoint Server에 입력한 서브넷을 기록해 놓아야 합니다.</li>
 </ul>
 </li>
 <li>관리 포털을 사용하여 VM을 만듭니다.</li>
-<li>이 VM에 SharePoint Server를 설치하고 재사용 가능 이미지를 생성합니다. SharePoint Server 설치에 대한 자세한 내용은 <a href="http://technet.microsoft.com/ko-kr/library/cc262839.aspx">Windows PowerShell을 사용하여 SharePoint Server 2010 설치 및 구성</a> 또는 <a href="http://autospinstaller.codeplex.com/">CodePlex: AutoSPInstaller</a>(영문)로 이동하세요.</li>
-<li> <a href="http://technet.microsoft.com/ko-kr/library/ff607979.aspx">Join-SharePointFarm</a> 명령을 사용하여 SharePoint 팜을 만들고 연결하도록 SharePoint VM을 구성합니다.</li>
+<li>이 VM에 SharePoint Server를 설치하고 재사용 가능 이미지를 생성합니다. SharePoint Server 설치에 대한 자세한 내용을 보려면 <a href="http://technet.microsoft.com/ko-kr/library/cc262839.aspx">Windows PowerShell을 사용하여 SharePoint Server 2010 설치 및 구성</a> 또는 <a href="http://autospinstaller.codeplex.com/">CodePlex: AutoSPInstaller</a>로 이동하세요.</li>
+<li>SharePoint VM을 구성하여 SharePoint 팜을 만들고 <a href="http://technet.microsoft.com/ko-kr/library/ff607979.aspx">Join-SharePointFarm</a> 명령을 사용하여 연결합니다.</li>
 <li>다음과 같이 관리 포털을 사용하여 부하 분산을 구성합니다.
 <ul>
 <li>VM 끝점을 구성하고 기존 끝점에서 트래픽 부하를 분산하는 옵션을 선택한 후 부하 분산된 VM의 이름을 지정합니다.
 <ul>
-<li>Azure 가상 컴퓨터에서 SharePoint 팜 배포에 대한 자세한 내용을 알아보려면  <a href="http://channel9.msdn.com/Events/TechEd/NorthAmerica/2012/AZR327">TechEd North America 2012 동영상</a>(영문)을 시청하세요.</li>
+<li>Azure 가상 컴퓨터에서 SharePoint 팜 배포에 대한 자세한 내용을 알아보려면 <a href="http://channel9.msdn.com/Events/TechEd/NorthAmerica/2012/AZR327">TechEd North America 2012 동영상</a>을 시청하세요.</li>
 </ul>
 </li>
 </ul>
@@ -501,26 +501,27 @@ Azure 가상 컴퓨터에서 SharePoint Server를 성공적으로 배포하려�
 
 <ul>
 <li>
-<p>Azure 트레이닝 키트: 실습 교육 및 프레젠테이션(영문)</p>
-<p><a href="http://windowsazure-trainingkit.github.com/labs.htm">http://windowsazure-trainingkit.github.com/labs.htm</a></p>
+<p>Azure 인프라 서비스의 SharePoint</p>
+<p><a href="http://msdn.microsoft.com/library/dn275955.aspx">http://msdn.microsoft.com/library/dn275955.aspx</a></p>
 </li>
 <li>
 <p>Azure PowerShell로 시작</p>
 <p><a href="http://msdn.microsoft.com/ko-kr/library/windowsazure/jj156055">http://msdn.microsoft.com/ko-kr/library/windowsazure/jj156055</a></p>
 </li>
 <li>
-<p>Azure 관리 Cmdlet(영문)</p>
+<p>Azure 관리 Cmdlet</p>
 <p><a href="http://msdn.microsoft.com/ko-kr/library/windowsazure/jj152841">http://msdn.microsoft.com/ko-kr/library/windowsazure/jj152841</a></p>
 </li>
 <li>
-<p>여러 운영 체제용 명령줄 도구 및 PowerShell Cmdlet(영문)</p>
+<p>여러 운영 체제용 명령줄 도구 및 PowerShell Cmdlet</p>
 <p><a href="/ko-kr/manage/downloads/">https://www.windowsazure.com/ko-kr/manage/downloads/</a></p>
 </li>
 <li>
-<p>방법 안내 가이드 및 모범 사례 설명서(영문)</p>
+<p>방법 안내 가이드 및 모범 사례 설명서</p>
 <p><a href="/ko-kr/manage/windows/">https://www.windowsazure.com/ko-kr/manage/windows/</a></p>
 </li>
 </ul>
 
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

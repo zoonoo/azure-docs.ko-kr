@@ -1,23 +1,23 @@
-﻿<properties urlDisplayName="Get Started with Data" pageTitle="데이터 작업 시작(Windows 스토어) | 모바일 개발자 센터" metaKeywords="" description="모바일 서비스를 사용하여 Windows 스토어 앱에서 데이터를 활용하는 방법에 대해 알아봅니다." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="wesmc" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="데이터 시작(Windows 스토어) | 모바일 개발자 센터" description="모바일 서비스를 사용하여 Windows 스토어 앱에서 데이터를 활용하는 방법에 대해 알아봅니다." services="mobile-services" documentationCenter="windows" authors="wesmc7777" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc"/>
 
-# 기존 앱에 모바일 서비스 추가
+# 기존 앱에 모바일 서비스 추가(영문)
 
-[WACOM.INCLUDE [mobile-services-selector-get-started-data-legacy](../includes/mobile-services-selector-get-started-data-legacy.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-data-legacy](../includes/mobile-services-selector-get-started-data-legacy.md)]
 
 <div class="dev-center-tutorial-subselector">
 	<a href="/ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/" title=".NET backend" class="current">.NET 백 엔드</a> | 
 	<a href="/ko-kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-data/" title="JavaScript backend">JavaScript 백 엔드</a>
 </div>
 
-이 항목에서는 Windows 스토어 앱용 백 엔드 데이터 소스로 Azure 모바일 서비스를 사용하는 방법을 보여 줍니다. 이 자습서에서는 데이터를 메모리에 저장하는 앱용 Visual Studio 2013 프로젝트를 다운로드하고, 새 모바일 서비스를 만들고, 모바일 서비스를 앱과 통합하고, 앱을 실행할 때 수행된 데이터 변경 내용을 확인합니다.
+이 항목에서는 Windows 스토어 앱용 백 엔드 데이터 소스로 Azure 모바일 서비스를 사용하는 방법을 보여 줍니다. 이 자습서에서는 데이터를 메모리에 저장하는 앱용 Visual Studio 2013 프로젝트를 다운로드하고, 새 모바일 서비스를 만들고, 모바일 서비스를 앱과 통합하고, 앱을 실행할 때 변경된 데이터를 확인합니다.
 
 이 자습서에서 만들 모바일 서비스는 .NET 백 엔드 모바일 서비스입니다. .NET 백 엔드를 사용하면 모바일 서비스에서 서버 쪽 비즈니스 논리에 .NET 언어 및 Visual Studio를 사용할 수 있으며, 로컬 컴퓨터에서 모바일 서비스를 실행 및 디버그할 수 있습니다. JavaScript에서 서버 쪽 비즈니스 논리를 작성하는 데 사용할 수 있는 모바일 서비스를 만들려면 이 항목의 JavaScript 백 엔드 버전을 참조하세요.
 
->[WACOM.NOTE]이 항목에서는 Windows 스토어 프로젝트에 Azure 모바일 서비스를 추가하는 방법을 보여 줍니다. Visual Studio 2013 도구를 사용하여 동일한 .NET 백 엔드 모바일 서비스를 범용 Windows 앱 프로젝트에 추가할 수 있습니다. 자세한 내용은 [범용 Windows 앱 버전](/ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-data) of this tutorial.을 참조하세요.
+>[AZURE.NOTE]이 항목에서는 Windows 스토어 프로젝트에 Azure 모바일 서비스를 추가하는 방법을 보여 줍니다. Visual Studio 2013 도구를 사용하여 동일한 .NET 백 엔드 모바일 서비스를 범용 Windows 앱 프로젝트에 추가할 수 있습니다. 자세한 내용은 이 자습서의 [범용 Windows 앱 버전 (영문)](/ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-data) 을 참조하세요.
 
-This tutorial walks you through these basic steps:
+이 자습서에서는 다음 기본 단계를 단계별로 안내합니다.
 
 1. [Windows 스토어 앱 프로젝트 다운로드]
 2. [새 모바일 서비스 만들기]
@@ -29,32 +29,32 @@ This tutorial walks you through these basic steps:
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-* 활성 Azure 계정. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](http://azure.microsoft.com/ko-kr/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fazure.microsoft.com%2Fko-kr%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started-data%2F)을 참조하세요.
+* 활성 Azure 계정. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](http://azure.microsoft.com/ko-kr/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fko-kr%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started-data%2F) 을 참조하세요.
 * <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a>. 무료 평가판을 이용할 수 있습니다.
 
 ##<a name="download-app"></a>GetStartedWithData 프로젝트 다운로드
 
-이 자습서는 Visual Studio 2013의 Windows 스토어 앱 프로젝트인 [GetStartedWithMobileServices 앱][Developer Code Samples site]을 기반으로 합니다. 이 앱의 UI는 추가된 항목이 로컬 메모리에 저장된다는 점을 제외하고 모바일 서비스 빠른 시작에서 생성된 앱과 유사합니다. 
+이 자습서는 Visual Studio 2013의 Windows 스토어 앱 프로젝트인 [GetStartedWithMobileServices 앱][개발자 코드 샘플 사이트]를 기반으로 합니다. 이 앱의 UI는 모바일 서비스 퀵 스타트에서 생성된 앱과 비슷합니다. 단, 추가된 항목이 로컬에서 메모리에 저장된다는 점은 예외입니다. 
 
-1. [개발자 코드 샘플 사이트]에서 GetStartedWithMobileServices 샘플 앱의 C# 버전을 다운로드합니다. 
+1. [개발자 코드 샘플 사이트] (영문) 에서 GetStartedWithMobileServices 샘플 앱의 C# 버전을 다운로드합니다. 
 
-2. Visual Studio 2013을 마우스 오른쪽 단추로 클릭하고 **관리자 권한으로 실행**을 클릭하여 Visual Studio를 관리자 권한으로 실행합니다.
+2. Visual Studio를 마우스 오른쪽 단추로 클릭하고 **관리자 권한으로 실행**을 클릭하여 Visual Studio 2013를 관리자 권한으로 실행합니다.
 
 3. Visual Studio 2013에서 다운로드한 프로젝트를 열고 MainPage.xaml.cs 파일을 검사합니다.
 
-   	추가된 **TodoItem** 개체가 메모리 내 **ObservableCollection<TodoItem>**에 저장됩니다.
+   	추가된 **TodoItem** 개체가 메모리 내 **ObservableCollection&lt;TodoItem&gt;**에 저장됩니다.
 
 4. **F5** 키를 눌러 프로젝트를 다시 빌드하고 앱을 시작합니다.
 
-5. **TodoItem 삽입**에 텍스트를 입력하고 **저장**을 클릭합니다.
+5. 앱에서 **Insert a TodoItem**에 일부 텍스트를 입력하고 **저장**을 클릭합니다.
 
    	![][0]  
 
-   	저장된 텍스트가 **데이터 쿼리 및 업데이트** 아래 두 번째 열에 표시됩니다.
+   	저장된 텍스트가 **Query and update data(데이터 쿼리 및 업데이트)** 아래 두 번째 열에 표시됩니다.
 
 ##<a name="create-service"></a>새 모바일 서비스 만들기
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-create-new-service](../includes/mobile-services-dotnet-backend-create-new-service.md)]
+[AZURE.INCLUDE [mobile-services-dotnet-backend-create-new-service](../includes/mobile-services-dotnet-backend-create-new-service.md)]
 
 ##<a name="download-the-service-locally"></a>모바일 서비스 프로젝트 다운로드 및 솔루션에 추가
 
@@ -68,7 +68,7 @@ This tutorial walks you through these basic steps:
 
 3. **시작** 섹션의 아래쪽으로 스크롤하여 **클라우드에 서비스 게시**라는 단계로 이동합니다. 아래의 스크린샷에 보이는 링크를 클릭하여 방금 다운로드한 모바일 서비스용 게시 프로필 파일을 다운로드합니다. 
 
-    > [WACOM.NOTE] Azure 계정과 관련된 중요한 정보가 포함되어 있으므로 파일을 안전한 장소에 보관하세요. 이 자습서 뒤쪽에서 모바일 서비스를 게시한 후 이 파일을 삭제할 것입니다. 
+    > [AZURE.NOTE] Azure 계정과 관련된 중요한 정보가 포함되어 있으므로 파일을 안전한 장소에 보관하세요. 이 자습서 뒤쪽에서 모바일 서비스를 게시한 후 이 파일을 삭제할 것입니다. 
 
     ![][5]
 
@@ -77,7 +77,7 @@ This tutorial walks you through these basic steps:
 
     ![][26]
 
-5. 그런 다음 Visual Studio의 솔루션 탐색기에서 데이터 작업 시작 Windows 스토어 앱용 솔루션을 마우스 오른쪽 단추로 클릭합니다. **추가**를 클릭한 후 **기존 프로젝트**를 클릭합니다.
+5. 그런 다음 Visual Studio의 솔루션 탐색기에서 Getting Started with Data Windows 스토어 앱용 솔루션을 마우스 오른쪽 단추로 클릭합니다. **추가**를 클릭한 후 **기존 프로젝트**를 클릭합니다.
 
     ![][4]
 
@@ -118,7 +118,7 @@ This tutorial walks you through these basic steps:
 
     ![][9]
 
-4. Visual Studio에서 App.xaml.cs를 열고 `App` 클래스 정의의 시작 부분에 코드 조각을 붙여넣습니다. 또한 해당 파일의 맨 위에 다음 `using` 문을 추가하고 파일을 저장합니다.
+4. Visual Studio에서 App.xaml.cs를 엽니다. `App` 클래스 정의의 시작 부분에 코드 조각을 붙여 넣습니다. 또한 다음 `using` 문을 이 파일 위에 추가하고 파일을 저장합니다.
 
 		using Microsoft.WindowsAzure.MobileServices;
 
@@ -131,7 +131,7 @@ This tutorial walks you through these basic steps:
 
 6. Visual Studio의 MainPage.xaml.cs에서 `MainPage` 클래스 정의를 다음 정의와 교체하고 파일을 저장합니다. 
 
-    이 코드는 앱이 데이터를 로컬의 메모리 내 대신 서비스에서 제공하는 테이블에 저장하도록 모바일 서비스 SDK를 사용합니다. 세 가지 기본 메서드는 `InsertTodoItem`, `RefreshTodoItems` 및 `UpdateCheckedTodoItem`입니다. 이 세 가지 메서드를 사용하면 데이터 컬렉션을 Azure의 테이블에 비동기로 삽입하고 쿼리하며 업데이트할 수 있습니다.
+    이 코드는 앱이 데이터를 로컬의 메모리 내 대신 서비스에서 제공하는 테이블에 저장하도록 모바일 서비스 SDK를 사용합니다. 세 가지 기본 메서드는 `InsertTodoItem`,`RefreshTodoItems` 및 `UpdateCheckedTodoItem`입니다. 이 세 가지 메서드를 사용하면 데이터 컬렉션을 Azure의 테이블에 비동기로 삽입하고 쿼리하며 업데이트할 수 있습니다.
 
         public sealed partial class MainPage : Page
         {
@@ -180,11 +180,11 @@ This tutorial walks you through these basic steps:
 
 ##<a name="test-locally-hosted"></a>로컬로 호스트한 서비스에 대해 Windows 스토어 앱 테스트
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-test-local-service-data](../includes/mobile-services-dotnet-backend-test-local-service-data.md)]
+[AZURE.INCLUDE [mobile-services-dotnet-backend-test-local-service-data](../includes/mobile-services-dotnet-backend-test-local-service-data.md)]
 
 ##<a name="publish-mobile-service"></a>Azure에 모바일 서비스 게시
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-publish-service](../includes/mobile-services-dotnet-backend-publish-service.md)]
+[AZURE.INCLUDE [mobile-services-dotnet-backend-publish-service](../includes/mobile-services-dotnet-backend-publish-service.md)]
 
 ##<a name="test-azure-hosted"></a>Azure에 게시된 모바일 서비스 테스트
 
@@ -206,7 +206,7 @@ This tutorial walks you through these basic steps:
 2. Visual Studio에서 F5 키를 누르거나 디버그 메뉴에서 **디버깅 시작**을 클릭합니다. Azure에서 원격으로 호스트한 모바일 서비스에 연결하기 위해 앱을 실행하기 전에, 이전 변경 사항으로 Windows 스토어 앱이 다시 빌드됩니다. 
 
 
-3. 새 todoitem을 몇 개 입력하고 각각에 대해 **저장**을 클릭합니다. 확인란을 클릭하여 몇몇 새 항목을 완료합니다. 각각의 새 todoItem이 저장되고, Azure 관리 포털에서 모바일 서비스에 대해 전에 구성한 SQL 데이터베이스에서 업데이트됩니다. 
+3. 새 todoitem을 몇 개 입력하고 각각에 대해 **저장**을 클릭합니다. 확인란을 클릭하여 몇몇 새 항목을 완료합니다. Azure 관리 포털에서 모바일 서비스에 대해 이전에 구성한 SQL 데이터베이스에서 새 todoItem이 각각 저장되고 업데이트됩니다. 
 
     ![][16]
 
@@ -214,27 +214,27 @@ This tutorial walks you through these basic steps:
 
 ##<a name="view-stored-data"></a>SQL 데이터베이스에 저장된 데이터 확인
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-view-sql-data](../includes/mobile-services-dotnet-backend-view-sql-data.md)]
+[AZURE.INCLUDE [mobile-services-dotnet-backend-view-sql-data](../includes/mobile-services-dotnet-backend-view-sql-data.md)]
 
-이제 **데이터 작업 시작** 자습서를 마쳤습니다.
+이제 **데이터 시작 자습서**를 마쳤습니다.
 
 ## <a name="next-steps"> </a>다음 단계
 
-이 자습서에서는 Windows 스토어 앱에서 모바일 서비스의 데이터로 작업하기 위한 기본 사항에 대해 설명했습니다. 이제 이 자습서에서 만든 GetStartedWithData 앱을 기반으로 하는 다음 자습서 중 하나를 완료하세요.
+이 자습서에서는 Windows 스토어 앱에서 모바일 서비스의 데이터로 작업하기 위한 기본 사항에 대해 설명했습니다. 다음에는 이 자습서에서 만든 GetStartedWithData 앱을 기반으로 하는 다음 자습서 중 하나를 완료해보세요.
 
 * [스크립트를 사용하여 데이터 유효성 검사 및 수정]
-  <br/>모바일 서비스에서 서버 스크립트를 사용하여 앱에서 전송된 데이터의 유효성을 검사하고 데이터를 변경하는 방법에 대해 알아봅니다.
+  <br/>모바일 서비스에서 서버 스크립트를 사용하여 앱에서 전송된 데이터의 유효성을 검사하고 변경하는 방법에 대해 자세히 알아봅니다.
 
 * [페이징을 사용하여 쿼리 구체화]
   <br/>쿼리에 페이징을 사용하여 단일 요청으로 처리되는 데이터 양을 제어하는 방법을 알아봅니다.
 
-데이터 시리즈를 완료한 후에는 다음 자습서 중 하나를 시도해 보세요.
+데이터 계열을 완료한 후에는 다음 자습서 중 하나를 시도해 보세요.
 
-* [인증 시작]
+* [인증 시작 (영문)]
   <br/>앱 사용자를 인증하는 방법을 알아봅니다.
 
 * [푸시 알림 시작] 
-  <br/>매우 기본적인 푸시 알림을 앱에 보내는 방법을 알아봅니다.
+  <br/>앱에 기본적인 푸시 알림을 보내는 방법을 알아봅니다.
 
 * [모바일 서비스 .NET 방법 개념 참조]
   <br/>모바일 서비스를 .NET과 함께 사용하는 방법에 대해 알아봅니다.
@@ -280,7 +280,7 @@ This tutorial walks you through these basic steps:
 [스크립트를 사용하여 데이터 유효성 검사 및 수정]: /ko-kr/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
 [페이징을 사용하여 쿼리 구체화]: /ko-kr/develop/mobile/tutorials/add-paging-to-data-dotnet
 [모바일 서비스 시작]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/
-[인증 시작]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users/
+[인증 시작 (영문)]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users/
 [푸시 알림 시작]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push/
 
 [Azure 관리 포털]: https://manage.windowsazure.com/
@@ -290,3 +290,5 @@ This tutorial walks you through these basic steps:
 [모바일 서비스 .NET 방법 개념 참조]: /ko-kr/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library/
 [MobileServiceClient 클래스]: http://go.microsoft.com/fwlink/p/?LinkId=302030
  
+
+<!--HONumber=42-->

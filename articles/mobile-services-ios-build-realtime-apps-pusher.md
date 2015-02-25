@@ -1,6 +1,6 @@
-﻿<properties urlDisplayName="Build Realtime Apps with Pusher" pageTitle="Pusher를 사용하여 실시간 앱 빌드(iOS) - 모바일 서비스" metaKeywords="" description="Pusher를 사용하여 iOS에서 Azure 미디어 서비스에 알림을 보내는 방법에 대해 알아봅니다." metaCanonical="" services="" documentationCenter="Mobile" title="Build Real-time Apps with Mobile Services and Pusher" authors="donnam" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="Pusher를 사용하여 실시간 앱 빌드(iOS) - 모바일 서비스" description="Pusher를 사용하여 iOS에서 Azure 미디어 서비스에 알림을 보내는 방법에 대해 알아봅니다." services="" documentationCenter="ios" authors="lindydonna" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="donnam" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="donnam"/>
 
 
 # 모바일 서비스 및 Pusher를 사용하여 실시간 앱 빌드
@@ -21,11 +21,11 @@ Pusher는 모바일 서비스처럼 실시간 앱을 쉽게 빌드할 수 있게
 3. [서버 스크립트 설치][]
 4. [앱 테스트][]
 
-이 자습서는 모바일 서비스 빠른 시작을 기반으로 합니다. 이 자습서를 시작하기 전에 먼저 [모바일 서비스 시작][]를 완료해야 합니다.
+이 자습서는 모바일 서비스 퀵 스타트를 기반으로 합니다. 이 자습서를 시작하기 전에 먼저 [모바일 서비스 시작][]을 완료해야 합니다.
 
 ## <a name="sign-up"></a>새 Pusher 계정 만들기
 
-[WACOM.INCLUDE [pusher-sign-up](../includes/pusher-sign-up.md)]
+[AZURE.INCLUDE [pusher-sign-up](../includes/pusher-sign-up.md)]
 
 ## <a name="update-app"></a>앱 업데이트
 
@@ -40,33 +40,33 @@ Pusher는 모바일 서비스처럼 실시간 앱을 쉽게 빌드할 수 있게
 2. 프로젝트에 _libPusher_라는 그룹을 만듭니다.
 
 3. Finder에서 다운로드한 zip 파일의 압축을 풀고 **libPusher-combined.a** 및 **/headers** 폴더를 선택한 후 프로젝트의 **libPusher** 그룹으로 끌어 놓습니다.
-
-4. **Copy items into destination group's folder(대상 그룹의 폴더로 항목 복사)**를 선택하고 **마침**을 클릭합니다.
+	
+4. **대상 그룹의 폴더로 항목 복사**를 선택하고 **마침**을 클릭합니다.
 
 	![][add-files-to-group]
 
    libPusher 파일이 프로젝트에 복사됩니다.
 
-5. 프로젝트 탐색기의 프로젝트 루트에서 **Build Phases(빌드 단계)**를 클릭한 후 **Add Build Phase(빌드 단계 추가)** 및 **Add Copy Files(복사본 파일 추가)**를 클릭합니다.
+5. 프로젝트 탐색기의 프로젝트 루트에서 **빌드 단계**를 클릭한 후 **빌드 단계 추가** 및 **복사본 파일 추가**를 클릭합니다.
 
 6. 프로젝트 탐색기에서 새 빌드 단계로 **libPusher-combined.a** 파일을 끌어 놓습니다.
 
-7. **대상**을 **프레임워크**로 변경하고 **Copy only when installing(설치할 때만 복사)**을 클릭합니다.
+7. **대상**을 **프레임워크**로 변경하고 **설치할 때만 복사**를 클릭합니다.
 
 	![][add-build-phase]
 
-8. **Link Binary With Libraries(이진 파일을 라이브러리에 연결)** 영역 내에 다음 라이브러리를 추가합니다.
+8. **이진 파일을 라이브러리에 연결** 영역 내에 다음 라이브러리를 추가합니다.
 
 	- libicucore.dylib
 	- CFNetwork.framework
 	- Security.framework
 	- SystemConfiguration.framework
 
-9. 마지막으로, **빌드 설정** 내에서 대상 빌드 설정 **Other Linker Flags(기타 링커 플래그)**를 찾은 후 **-all_load** 플래그를 추가합니다.
+9. 마지막으로, **빌드 설정** 내에서 대상 빌드 설정 **기타 링커 플래그**를 찾은 후 **-all_load** 플래그를 추가합니다.
 
 	![][add-linker-flag]
 
-	Debug build target에 대해 **-all_load** 플래그가 설정됩니다.
+	빌드 대상 디버그에 대해 **-all_load** 플래그가 설정됩니다.
 
 이제 라이브러리가 설치되고 사용할 준비가 되었습니다.
 
@@ -266,10 +266,10 @@ Pusher는 모바일 서비스처럼 실시간 앱을 쉽게 빌드할 수 있게
 
 
 
-1. [Azure 관리 포털]에 로그온하여 **모바일 서비스**를 클릭한 후 모바일 서비스를 클릭합니다.
+1. [Azure 관리 포털]에 로그온하여 **모바일 서비스**를 클릭한 후 해당 모바일 서비스를 클릭합니다.
 
 
-2. 관리 포털로 돌아가서 **데이터** 탭을 클릭한 후 **TodoItem** 테이블을 클릭합니다.
+2. 관리 포털에서 **데이터** 탭을 클릭한 후 **TodoItem** 테이블을 클릭합니다.
 
 	![][1]
 
@@ -320,9 +320,9 @@ Pusher는 모바일 서비스처럼 실시간 앱을 쉽게 빌드할 수 있게
 
 5. 위 스크립트의 자리 표시자를 이전에 연결 정보 대화 상자에서 복사한 값으로 바꿉니다.
 
-	- **`**your_app_id**`**: the app&#95;id value
-	- **`**your_app_key**`**: the app&#95;key value
-	- **`**your_app_key_secret**`**: the app&#95;key&#95;secret
+	- **`**your_app_id**`**: app&#95;id value
+	- **`**your_app_key**`**: app&#95;key value
+	- **`**your_app_key_secret**`**: app&#95;key&#95;secret
 
 
 6. **저장** 단추를 클릭합니다. 이제 **TodoItem** 테이블에 새 항목이 삽입될 때마다 Pusher에 이벤트를 게시하도록 스크립트를 구성했습니다.
@@ -420,7 +420,7 @@ Pusher는 모바일 서비스처럼 실시간 앱을 쉽게 빌드할 수 있게
 
 <!-- URLs. -->
 [사용자에게 알림 푸시]: /ko-kr/develop/mobile/tutorials/push-notifications-to-users-ios
-[모바일 서비스 시작]: /ko-kr/develop/mobile/tutorials/get-started
+[모바일 서비스 시작](영문): /ko-kr/develop/mobile/tutorials/get-started
 [libPusher]: http://go.microsoft.com/fwlink/p?LinkId=276999
 [libPusherDownload]: http://go.microsoft.com/fwlink/p/?LinkId=276998
 
@@ -428,3 +428,6 @@ Pusher는 모바일 서비스처럼 실시간 앱을 쉽게 빌드할 수 있게
 [Azure 관리 포털]: https://manage.windowsazure.com/
 
 [모바일 서비스 서버 스크립트 참조]: http://go.microsoft.com/fwlink/p/?LinkId=262293
+
+
+<!--HONumber=42-->

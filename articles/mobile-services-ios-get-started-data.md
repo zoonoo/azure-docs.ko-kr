@@ -1,16 +1,14 @@
-﻿<properties urlDisplayName="Get Started with Data" pageTitle="데이터 시작(iOS) | 모바일 개발자 센터" metaKeywords="Azure iOS 데이터, Azure 모바일 서비스 데이터, " description="모바일 서비스를 사용하여 iOS 앱에서 데이터를 활용하는 방법에 대해 알아봅니다." metaCanonical="" services="" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="krisragh" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="데이터 시작(iOS) | 모바일 개발자 센터" description="모바일 서비스를 사용하여 iOS 앱에서 데이터를 활용하는 방법에 대해 알아봅니다." services="" documentationCenter="ios" authors="krisragh" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="krisragh" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="krisragh"/>
 
 # 기존 앱에 모바일 서비스 추가(영문)
 
-[WACOM.INCLUDE [mobile-services-selector-get-started-data](../includes/mobile-services-selector-get-started-data.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-data](../includes/mobile-services-selector-get-started-data.md)]
 
-이 항목에서는 Azure 모바일 서비스를 사용하여 iOS 앱에서 데이터를 활용하는 방법을 보여 줍니다. 이 자습서에서는 데이터를 메모리에 저장하는 앱을 다운로드하여 새 모바일 서비스를 만들고 모바일 서비스를 앱과 통합한 후 Azure 관리 포털에 로그인하여 앱을 실행할 때 수행된 데이터 변경 내용을 확인합니다.
+이 항목에서는 Azure 모바일 서비스를 사용하여 iOS 앱에서 데이터를 활용하는 방법을 보여 줍니다. 이 자습서에서는 데이터를 메모리에 저장하는 앱을 다운로드하여 새 모바일 서비스를 만들고 모바일 서비스를 앱과 통합한 후 Azure 관리 포털에 로그인하여 앱을 실행할 때 변경된 데이터를 확인합니다.
 
-<div class="dev-callout"><b>참고</b>
-<p>이 자습서는 iOS 앱에서 모바일 서비스를 통해 Azure를 사용하여 데이터를 저장하고 검색할 수 있는 방법을 더욱 잘 이해할 수 있도록 돕기 위한 것입니다. 이 항목에서는 모바일 서비스 퀵 스타트에서 완료한 여러 단계를 순서대로 안내합니다 모바일 서비스를 처음 사용하는 경우, 먼저 <a href="/ko-kr/develop/mobile/tutorials/get-started-ios">모바일 서비스 시작</a>(영문) 자습서를 완료하는 것이 좋습니다.</p>
-</div>
+> [AZURE.NOTE] 이 자습서는 iOS 앱에서 모바일 서비스를 통해 Azure를 사용하여 데이터를 저장하고 검색할 수 있는 방법을 더욱 잘 이해할 수 있도록 돕기 위한 것입니다. 이 항목에서는 모바일 서비스 퀵 스타트에서 완료한 여러 단계를 순서대로 안내합니다. 모바일 서비스를 처음 사용하는 경우 먼저 [모바일 서비스 시작](/ko-kr/develop/mobile/tutorials/get-started-ios) 자습서를 완료하는 것이 좋습니다.
 
 이 자습서에서는 다음 기본 단계를 단계별로 안내합니다.
 
@@ -22,7 +20,7 @@
 
 이 자습서를 사용하려면 다음이 필요합니다.
 
-+ [모바일 서비스 iOS SDK]와 [XCode 4.5][Install Xcode] 및 iOS 5.0 이상 버전
++ [모바일 서비스 iOS SDK]와 [XCode 4.5][Xcode] 및 iOS 5.0 이상 버전을 설치합니다.
 + Microsoft Azure 계정. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://www.windowsazure.com/ko-kr/pricing/free-trial/?WT.mc_id=A756A2826&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fko-kr%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-ios%2F" target="_blank">Azure 무료 평가판</a>을 참조하세요.</p></div>
 
 ##<a name="download-app"></a>GetStartedWithData 프로젝트 다운로드
@@ -45,15 +43,15 @@
 
 ##<a name="create-service"></a>관리 포털에서 새 모바일 서비스 만들기
 
-[WACOM.INCLUDE [mobile-services-create-new-service-data](../includes/mobile-services-create-new-service-data.md)]
+[AZURE.INCLUDE [mobile-services-create-new-service-data](../includes/mobile-services-create-new-service-data.md)]
 
 ##<a name="add-table"></a>모바일 서비스에 새 테이블 추가
 
-[WACOM.INCLUDE [mobile-services-create-new-service-data-2](../includes/mobile-services-create-new-service-data-2.md)]
+[AZURE.INCLUDE [mobile-services-create-new-service-data-2](../includes/mobile-services-create-new-service-data-2.md)]
 
 ##<a name="update-app"></a>데이터 액세스에 모바일 서비스를 사용하도록 앱 업데이트
 
-[WACOM.INCLUDE [mobile-services-ios-enable-mobile-service-access](../includes/mobile-services-ios-enable-mobile-service-access.md)]
+[AZURE.INCLUDE [mobile-services-ios-enable-mobile-service-access](../includes/mobile-services-ios-enable-mobile-service-access.md)]
 
 ##<a name="test-app"></a>새 모바일 서비스에 대해 앱 테스트
 
@@ -121,7 +119,7 @@
 [스크립트를 사용하여 데이터 유효성 검사 및 수정]: /ko-kr/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
 [페이징을 사용하여 쿼리 구체화]: /ko-kr/develop/mobile/tutorials/add-paging-to-data-ios
 [모바일 서비스 시작](영문): /ko-kr/develop/mobile/tutorials/get-started-ios
-[데이터 시작](영문): /ko-kr/develop/mobile/tutorials/get-started-with-data-ios
+[데이터 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-data-ios
 [인증 시작](영문): /ko-kr/develop/mobile/tutorials/get-started-with-users-ios
 [푸시 알림 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-push-ios
 
@@ -132,4 +130,5 @@
 [GitHub]:  http://go.microsoft.com/fwlink/p/?LinkId=268622
 [GitHub 리포지토리](영문): http://go.microsoft.com/fwlink/p/?LinkId=268784
 
-<!--HONumber=35.2-->
+
+<!--HONumber=42-->

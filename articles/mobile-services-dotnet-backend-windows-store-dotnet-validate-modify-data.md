@@ -1,12 +1,12 @@
-<properties urlDisplayName="Validate and Modify Data" pageTitle=".Net 백 엔드를 사용하여 데이터 유효성 검사 및 수정(Windows 스토어) | 모바일 개발자 센터" metaKeywords="" description=".Net 백 엔드 Microsoft Azure 모바일 서비스를 사용하여 Windows 스토어 앱에 대한 데이터의 유효성을 검사하고 데이터를 수정 및 보강하는 방법에 대해 알아봅니다." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using the .Net backend" authors="wesmc" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle=".Net 백 엔드를 사용하여 데이터 유효성 검사 및 수정(Windows 스토어) | 모바일 개발자 센터" description=".Net 백 엔드 Microsoft Azure 모바일 서비스를 사용하여 Windows 스토어 앱에 대한 데이터의 유효성을 검사하고 데이터를 수정 및 보강하는 방법에 대해 알아봅니다." services="mobile-services" documentationCenter="windows" authors="wesmc7777" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc"/>
 
 # .NET 백 엔드를 사용하여 모바일 서비스에서 데이터 유효성 검사 및 수정
 
-[WACOM.INCLUDE [mobile-services-selector-validate-modify-data](../includes/mobile-services-selector-validate-modify-data.md)]
+[AZURE.INCLUDE [mobile-services-selector-validate-modify-data](../includes/mobile-services-selector-validate-modify-data.md)]
 
-이 항목에서는 .NET 백 엔드 Azure 모바일 서비스에서 코드를 사용하여 데이터를 유효성 검사 및 수정하는 방법을 보여 줍니다. .Net 백 엔드 서비스는 Web API 프레임워크 및 Entity Framework에 기본 제공되는 HTTP 서비스입니다. Web API 프레임워크로 정의되는 `ApiController` 클래스에 대해 잘 알고 있다면 모바일 서비스에 제공되는 `TableController` 클래스는 쉽게 이해할 수 있습니다. `TableController`는 `ApiController` 클래스에서 파생되며 데이터베이스 테이블 연결을 위한 추가 기능을 제공합니다. 이 클래스는 이 자습서에서 다루는 유효성 검사 및 데이터 수정을 비롯하여 삽입 및 업데이트 중인 데이터에 대한 작업을 수행하는 데 사용될 수 있습니다. 
+이 항목에서는 .NET 백 엔드 Azure 모바일 서비스에서 코드를 사용하여 데이터를 유효성 검사 및 수정하는 방법을 보여 줍니다. .Net 백 엔드 서비스는 Web API 프레임워크 및 Entity Framework에 기본 제공되는 HTTP 서비스입니다. Web API 프레임워크로 정의되는 `ApiController` 클래스에 대해 잘 알고 있다면 모바일 서비스에 제공되는 `TableController` 클래스는 쉽게 이해할 수 있습니다. `TableController` 는 `ApiController` 클래스에서 파생되며 데이터베이스 테이블 연결을 위한 추가 기능을 제공합니다. 이 클래스는 이 자습서에서 다루는 유효성 검사 및 데이터 수정을 비롯하여 삽입 및 업데이트 중인 데이터에 대한 작업을 수행하는 데 사용될 수 있습니다. 
 
 이 자습서에서는 다음 기본 단계를 단계별로 안내합니다.
 
@@ -16,11 +16,11 @@
 4. [CompleteDate에 대한 타임스탬프 필드 추가]
 5. [CompleteDate를 표시하도록 클라이언트 업데이트]
 
-이 자습서는 이전 자습서인 [시작] 또는 [데이터 작업 시작]의 단계 및 샘플 코드를 기반으로 합니다. 이 자습서를 시작하기 전에 먼저 [시작] 또는 [데이터 작업 시작] 자습서를 완료해야 합니다.  
+이 자습서는 이전 자습서인 [시작] 또는 [데이터 시작]의 단계 및 샘플 코드를 기반으로 합니다. 이 자습서를 시작하기 전에 먼저 [시작] 또는 [데이터 시작] 자습서를 완료해야 합니다.  
 
 ## <a name="string-length-validation"></a>유효성 검사 추가
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-add-validation](../includes/mobile-services-dotnet-backend-add-validation.md)]
+[AZURE.INCLUDE [mobile-services-dotnet-backend-add-validation](../includes/mobile-services-dotnet-backend-add-validation.md)]
 
 
 ## <a name="update-client-validation"></a>클라이언트 업데이트
@@ -76,7 +76,7 @@
 
 ## <a name="add-timestamp"></a>CompleteDate에 대한 타임스탬프 필드 추가
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-add-completedate](../includes/mobile-services-dotnet-backend-add-completedate.md)]
+[AZURE.INCLUDE [mobile-services-dotnet-backend-add-completedate](../includes/mobile-services-dotnet-backend-add-completedate.md)]
 
 
 
@@ -93,7 +93,7 @@
         <TextBlock Name="textCompleteDate" Text="{Binding CompleteDate}" VerticalAlignment="Center"/>
 
 
-2. Visual Studio에서 솔루션 탐색기의 todolist 클라이언트 프로젝트에서 MainPage.xaml.cs 파일을 열고 `CheckBoxComplete_Checked` 이벤트 처리기를 다음 `CheckBoxComplete_Clicked` 이벤트 처리기로 바꿉니다. 그러면 항목을 완료한 후 완료 날짜를 표시할 수 있습니다.
+2. Visual Studio에서 솔루션 탐색기의 todolist 클라이언트 프로젝트에서 MainPage.xaml.cs 파일을 열고  `CheckBoxComplete_Checked` 이벤트 처리기를 다음  `CheckBoxComplete_Clicked` 이벤트 처리기로 바꿉니다. 그러면 항목을 완료한 후 완료 날짜를 표시할 수 있습니다.
 
         private void CheckBoxComplete_Clicked(object sender, RoutedEventArgs e)
         {
@@ -103,7 +103,7 @@
         }
 
 
-2. MainPage.xaml.cs 파일에서 기존 **TodoItem** 클래스를 새 **CompleteDate** 속성을 nullable 형식으로 포함하는 다음 정의로 바꿉니다.
+2. MainPage.xaml.cs 파일에서 기존 **TodoItem** 클래스를 새 **CompleteDate** 속성을 nullable 유형으로 포함하는 다음 정의로 바꿉니다.
 
         public class TodoItem
         {
@@ -116,7 +116,7 @@
             public DateTime? CompleteDate { get; set; }
         }
 	
-    >[WACOM.NOTE] <code>DataMemberAttribute</code>는 앱의 새 </code>CompleteDate<code> 속성을 TodoItem 테이블에 정의된 </code>CompleteDate<code> 열에 매핑하도록 클라이언트에 지시합니다. 이 특성을 사용하면 앱이 SQL 데이터베이스의 열 이름과 다른 개체 속성 이름을 가질 수 있습니다.
+    >[AZURE.NOTE] <code>DataMemberAttribute</code>는 앱의 새 <code>CompleteDate</code> 속성을 TodoItem 테이블에 정의된 <code>CompleteDate</code> 열에 매핑하도록 클라이언트에 지시합니다. 이 특성을 사용하면 앱이 SQL 데이터베이스의 열 이름과 다른 개체 속성 이름을 가질 수 있습니다.
     
 
 	
@@ -146,7 +146,7 @@
 
     ![][3]
 	
-7. **F5** 키를 눌러 클라이언트 앱 및 서비스를 로컬로 실행합니다. 새 항목을 추가하고 클릭으로 일부 항목을 완료로 표시하여 업데이트되는 **CompleteDate** 타임스탬프를 확인합니다.
+7. **F5** 키를 눌러 클라이언트 앱 및 서비스를 로컬로 실행합니다. 새 항목을 추가하고 일부 항목을 완료 표시하여 업데이트되는 **CompleteDate** 타임스탬프를 확인합니다.
 
     ![][4]
 
@@ -159,7 +159,7 @@
 
 ## <a name="next-steps"> </a>다음 단계
 
-이 자습서를 완료했으므로 이제 데이터 시리즈의 마지막 자습서인 [페이징을 사용하여 쿼리 구체화]를 검토해 보세요.
+이 자습서를 완료했으므로 이제 데이터 시리즈의 마지막 자습서인 [페이징을 사용하여 쿼리 구체화]를 계속 진행하세요.
 
 서버 스크립트는 사용자를 인증할 때 및 푸시 알림을 보내기 위해서도 사용됩니다. 자세한 내용은 다음 자습서를 참조하세요.
 
@@ -167,7 +167,7 @@
   <br/>인증된 사용자의 ID를 기준으로 데이터를 필터링하는 방법을 알아봅니다.
 
 * [푸시 알림 시작] 
-  <br/>매우 기본적인 푸시 알림을 앱에 보내는 방법을 알아봅니다.
+  <br/>앱에 기본적인 푸시 알림을 보내는 방법을 알아봅니다.
 
 * [모바일 서비스 .NET 방법 개념 참조]
   <br/>모바일 서비스를 .NET과 함께 사용하는 방법에 대해 알아봅니다.
@@ -189,15 +189,18 @@
 
 
 <!-- URLs. -->
-[모바일 서비스 시작]: /ko-kr/develop/mobile/tutorials/get-started/#create-new-service
+[모바일 서비스 시작](영문): /ko-kr/develop/mobile/tutorials/get-started/#create-new-service
 [사용자의 서비스 쪽 권한 부여]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-authorize-users-in-scripts/
 [페이징을 사용하여 쿼리 구체화]: /ko-kr/develop/mobile/tutorials/add-paging-to-data-dotnet
-[시작하기]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/
-[데이터 작업 시작]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/
-[인증 시작]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users/
+[시작]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/
+[데이터 시작]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/
+[인증 시작](영문): /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users/
 [푸시 알림 시작]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push/
 [JavaScript 및 HTML]: /ko-kr/develop/mobile/tutorials/validate-modify-and-augment-data-js
 
 [관리 포털]: https://manage.windowsazure.com/
 [Azure 관리 포털]: https://manage.windowsazure.com/
 [모바일 서비스 .NET 방법 개념 참조]: /ko-kr/develop/mobile/how-to-guides/work-with-net-client-library
+
+
+<!--HONumber=42-->

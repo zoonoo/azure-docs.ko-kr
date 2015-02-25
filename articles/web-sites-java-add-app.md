@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Add an application to your Java website" pageTitle="Java 웹 사이트에 응용 프로그램 추가" metaKeywords="" description="이 자습서에서는 Microsoft Azure의 Java 웹 사이트에 페이지 또는 응용 프로그램을 추가하는 방법을 보여 줍니다." metaCanonical="" services="web-sites" documentationCenter="Java" title="Add an application to your Java website" videoId="" scriptId="" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" />
+﻿<properties 
+	pageTitle="Java 웹 사이트에 응용 프로그램 추가" 
+	description="이 자습서에서는 Microsoft Azure의 Java 웹 사이트에 페이지 또는 응용 프로그램을 추가하는 방법을 보여 줍니다." 
+	services="web-sites" 
+	documentationCenter="java" 
+	authors="rmcmurray" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="robmcm" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="09/25/2014" 
+	ms.author="robmcm"/>
 
 # Azure에서 Java 웹 사이트에 응용 프로그램 추가
 
@@ -14,3 +28,6 @@
 소스 제어를 사용하여 연속 통합 시나리오에 포함된 응용 프로그램 또는 웹 페이지를 업로드할 수 있습니다. 웹 사이트에 소스 제어를 사용하는 방법에 대한 자세한 내용은 [소스 제어에서 Azure 웹 사이트로 게시](../web-sites-publish-source-control)에서 확인할 수 있습니다. FTP를 사용하여 응용 프로그램 또는 웹 페이지를 업로드할 수도 있습니다.
 
 Tomcat 웹 사이트에 대한 참고 사항: **webapps** 폴더에 WAR 파일을 업로드하면 Tomcat 응용 프로그램 서버에서 해당 파일을 추가했는지 검색한 후 자동으로 로드합니다. 파일(WAR 이외 파일)을 루트 디렉터리로 복사한 경우에는 해당 파일을 사용하기 전에 응용 프로그램 서버를 다시 시작해야 합니다. Azure에서 실행되는 Tomcat Java 웹 사이트의 자동 로드 기능은 추가 중인 새 WAR 파일이나 **webapps** 폴더에 추가된 새 파일 또는 디렉터리를 기반으로 합니다. 
+
+
+<!--HONumber=42-->

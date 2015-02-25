@@ -1,6 +1,6 @@
-﻿<properties urlDisplayName="Schedule Backend Tasks" pageTitle="스케줄러를 사용하여 백 엔드 작업 예약 - 모바일 서비스" metaKeywords="" description="Azure 모바일 서비스 스케줄러를 사용하여 모바일 앱에 대한 작업을 예약합니다." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Schedule recurring jobs in Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="스케줄러를 사용하여 백 엔드 작업 예약 - 모바일 서비스" description="Azure 모바일 서비스 스케줄러를 사용하여 모바일 앱에 대한 작업을 예약합니다." services="mobile-services" documentationCenter="" authors="ggailey777" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="09/26/2014" ms.author="glenga" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="09/26/2014" ms.author="glenga"/>
 
 # 모바일 서비스에서 되풀이 작업 예약 
 
@@ -14,17 +14,17 @@
 + 트윗, RSS 항목, 위치 정보 등의 외부 데이터 요청 및 저장
 + 저장된 이미지 처리 또는 크기 조정
 
-이 자습서에서는 Twitter에 트윗 데이터를 요청하고 이 트윗을 새 Updates 테이블에 저장하는 예약된 작업을 작업 스케줄러를 사용하여 만드는 단계를 안내합니다.
+이 자습서에서는 작업 스케줄러를 사용하여, Twitter에서 트윗 데이터를 요청하고 트윗을 새 Updates 테이블에 저장하는 예약된 작업을 만드는 단계를 안내합니다.
 
 + [Twitter 액세스 및 저장 자격 증명 등록]
 + [새 Updates 테이블 만들기]
 + [새 예약된 작업 만들기]
 
-## <a name="get-oauth-credentials"></a>Twitter v1.1 API 액세스 및 저장 자격 증명 등록
+##<a name="get-oauth-credentials"></a>Twitter v1.1 API 액세스 및 저장 자격 증명 등록
 
-[WACOM.INCLUDE [mobile-services-register-twitter-access](../includes/mobile-services-register-twitter-access.md)]
+[AZURE.INCLUDE [mobile-services-register-twitter-access](../includes/mobile-services-register-twitter-access.md)]
 
-## <a name="create-table"></a>새 Updates 테이블 만들기
+##<a name="create-table"></a>새 Updates 테이블 만들기
 
 다음으로, 트윗을 저장할 새 테이블을 만들어야 합니다.
 
@@ -40,7 +40,7 @@
 
   	**Updates**라는 새 저장소 테이블이 만들어집니다. 
 
-## <a name="add-job"></a>새 예약된 작업 만들기  
+##<a name="add-job"></a>새 예약된 작업 만들기  
 
 이제 Twitter에 액세스하고 새 Updates 테이블에 트윗 데이터를 저장하는 예약된 작업을 만들 수 있습니다.
 
@@ -48,7 +48,7 @@
 
    	![][4]
 
-    >[WACOM.NOTE]<em>무료</em> 계층에서 모바일 서비스를 실행하는 경우 한 번에 하나의 예약된 작업만 실행할 수 있습니다. 유료 계층에서는 한 번에 최대 10개의 예약된 작업을 실행할 수 있습니다.
+    >[AZURE.NOTE]<em>무료</em> 계층에서 모바일 서비스를 실행하는 경우 한 번에 하나의 예약된 작업만 실행할 수 있습니다. 유료 계층에서는 한 번에 최대 10개의 예약된 작업을 실행할 수 있습니다.
 
 3. 스케줄러 대화 상자에서 **작업 이름**으로 _getUpdates_를 입력하고 일정 간격 및 단위를 설정한 후 확인 단추를 클릭합니다. 
    
@@ -138,12 +138,12 @@
 
    	이 스크립트에서는 해시태그 `#mobileservices`를 포함한 최근 트윗을 요청하기 위해 저장된 자격 증명을 사용하여 Twitter 쿼리 API를 호출합니다. 중복 트윗 및 회신은 테이블에 저장되기 전에 결과에서 제거됩니다.
 
-    >[WACOM.NOTE]이 샘플에서는 각 예약 실행 도중에 몇 개의 행만 테이블에 삽입된다고 가정합니다. 반복해서 많은 행이 삽입되는 경우에는 무료 계층에서 실행할 때 연결이 끊어질 수 있습니다. 이런 경우 일괄 처리로 삽입해야 합니다. 자세한 내용은 <a href="/ko-kr/develop/mobile/how-to-guides/work-with-server-scripts/#bulk-inserts">방법: 대량 삽입 수행</a>
+    >[AZURE.NOTE]이 샘플에서는 각 예약 실행 도중에 몇 개의 행만 테이블에 삽입된다고 가정합니다. 반복해서 많은 행이 삽입되는 경우에는 무료 계층에서 실행할 때 연결이 끊어질 수 있습니다. 이런 경우 일괄 처리로 삽입해야 합니다. 자세한 내용은 <a href="/ko-kr/develop/mobile/how-to-guides/work-with-server-scripts/#bulk-inserts">방법: 대량 삽입 수행</a>
 
-6. **한 번 실행**를 클릭하여 스크립트를 테스트합니다. 
+6. **Run Once**를 클릭하여 스크립트를 테스트합니다. 
 
   	![][7]
-       
+
    	그러면 작업이 저장되고 스케줄러에서 사용할 수 없는 상태로 유지되면서 실행됩니다.
 
 7. 뒤로 단추를 클릭하고 **데이터**를 클릭한 다음 **업데이트** 테이블을 클릭하고 **찾아보기**를 클릭하여 Twitter 데이터가 테이블에 삽입되었는지 확인합니다.
@@ -161,7 +161,7 @@
 ## <a name="nextsteps"> </a>다음 단계
 
 * [모바일 서비스 서버 스크립트 참조]
-  <br/>서버 스크립트를 등록하고 사용하는 방법을 알아봅니다.
+  <br/>서버 스크립트의 등록 및 사용에 대해 자세히 알아봅니다.
 
 <!-- Anchors. -->
 [Twitter 액세스 및 저장 자격 증명 등록]: #get-oauth-credentials
@@ -190,3 +190,6 @@
 [모바일 서비스에 Twitter 로그인을 사용하기 위해 앱 등록]: /ko-kr/develop/mobile/how-to-guides/register-for-twitter-authentication
 [Twitter 개발자]: http://go.microsoft.com/fwlink/p/?LinkId=268300
 [앱 설정]: http://msdn.microsoft.com/ko-kr/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
+
+
+<!--HONumber=42-->

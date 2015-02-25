@@ -1,6 +1,6 @@
-﻿<properties urlDisplayName="Tomcat on Virtual Machine" pageTitle="가상 컴퓨터의 Tomcat - Azure 자습서" metaKeywords="Azure vm, creating vm Tomcat, configuring vm Tomcat" description="Windows 가상 컴퓨터를 만들고 Apache Tomcat 응용 프로그램 서버를 실행하도록 구성하는 방법에 대해 알아봅니다." metaCanonical="" services="virtual-machines" documentationCenter="Java" title="How to run a Java application server on a virtual machine" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
+﻿<properties pageTitle="가상 컴퓨터의 Tomcat - Azure 자습서" description="Windows 가상 컴퓨터를 만들고 Apache Tomcat 응용 프로그램 서버를 실행하도록 구성하는 방법에 대해 알아봅니다." services="virtual-machines" documentationCenter="java" authors="rmcmurray" manager="wpickett" editor="mollybos"/>
 
-<tags ms.service="virtual-machines" ms.workload="web" ms.tgt_pltfrm="vm-windows" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="robmcm" />
+<tags ms.service="virtual-machines" ms.workload="web" ms.tgt_pltfrm="vm-windows" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="robmcm"/>
 
 # 가상 컴퓨터에서 Java 응용 프로그램 서버를 실행하는 방법
 
@@ -18,7 +18,7 @@ Azure에서 가상 컴퓨터를 사용하여 서버 기능을 제공할 수 있�
 
 ![Virtual machine running Apache Tomcat][virtual_machine_tomcat]
 
-[WACOM.INCLUDE [create-account-and-vms-note](../includes/create-account-and-vms-note.md)]
+[AZURE.INCLUDE [create-account-and-vms-note](../includes/create-account-and-vms-note.md)]
 
 ## 가상 컴퓨터를 만드는 방법
 
@@ -40,7 +40,7 @@ Azure에서 가상 컴퓨터를 사용하여 서버 기능을 제공할 수 있�
     2. **저장소 계정** 상자에서 **자동으로 생성된 저장소 계정 사용**을 선택합니다.
     3. **가용성 집합**에서 **(없음)**을 선택합니다.
     4. **다음**을 클릭합니다.
-7. 마지막 <strong>가상 컴퓨터 구성</strong> 대화 상자에서 다음 작업을 수행합니다.
+7. 마지막 <strong>가상 컴퓨터 구성</strong> 대화 상자에서 다음을 수행합니다.
     1. 기본 끝점 항목을 그대로 사용합니다.
     2. **완료**를 클릭합니다.
 
@@ -67,7 +67,7 @@ Java 응용 프로그램 서버를 가상 컴퓨터로 복사하거나 설치 �
 ## Tomcat 시작 방법
 **Completing the Apache Tomcat Setup Wizard** 대화 상자에서 Tomcat을 실행하도록 선택하지 않은 경우 가상 컴퓨터에서 명령 프롬프트를 열고 **net start Tomcat7**을 실행하여 시작합니다.
 
-이제 가상 컴퓨터의 브라우저를 실행하여 열고 <http://localhost:8080>을 열면 Tomcat이 실행되는 것을 볼 수 있습니다.
+이제 가상 컴퓨터의 브라우저를 실행하여 <http://localhost:8080>을 열면 Tomcat이 실행되는 것을 볼 수 있습니다.
 
 Tomcat이 외부 컴퓨터에서 실행되는 것을 보려면 끝점을 만들고 포트를 열어야 합니다.
 
@@ -114,7 +114,7 @@ Tomcat이 외부 컴퓨터에서 실행되는 것을 보려면 끝점을 만들�
 
  ![New inbound rule name][NewRuleName]
 
-이제 외부 브라우저에서 **http://*\_DNS\_이름*.cloudapp.net** 형식의 URL을 사용하면 Tomcat 웹 사이트가 표시됩니다. 여기서 ***\_DNS\_이름***은 가상 컴퓨터를 만들 때 지정한 DNS 이름입니다.
+이제 외부 브라우저에서 **http://*your\_DNS\_name*.cloudapp.net**형식의 URL을 사용하면 Tomcat 웹 사이트가 표시됩니다. 여기서 ***your\_DNS\_name***은 가상 컴퓨터를 만들 때 지정한 DNS 이름입니다.
 
 ## 응용 프로그램 수명 주기 고려 사항
 * 고유한 WAR(응용 프로그램 웹 보관)을 만들어 **webapps** 폴더에 추가할 수 있습니다. 예를 들어, 기본 JSP(Java 서비스 페이지) 동적 웹 프로젝트를 만들어 WAR 파일로 내보내고, 가상 컴퓨터의 Apache Tomcat **webapps** 폴더로 WAR 파일을 복사한 후 브라우저에서 실행합니다.
@@ -146,4 +146,5 @@ Tomcat이 외부 컴퓨터에서 실행되는 것을 보려면 끝점을 만들�
 [NewRuleName]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleName.png
 [NewRuleProfile]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleProfile.png
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

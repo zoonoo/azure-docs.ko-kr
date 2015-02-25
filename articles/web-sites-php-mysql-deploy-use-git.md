@@ -1,10 +1,24 @@
-﻿<properties urlDisplayName="Web w/ MySQL + Git" pageTitle="MySQL 및 Git을 사용한 PHP 웹 사이트 - Azure 자습서" metaKeywords="" description="MySQL에 데이터를 저장하는 PHP 웹 사이트를 만들고 Git를 사용하여 Azure에 배포하는 방법을 보여 주는 자습서입니다." metaCanonical="" services="web-sites" documentationCenter="PHP" title="Create a PHP-MySQL Azure website and deploy using Git" authors="tomfitz" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
+﻿<properties 
+	pageTitle="MySQL 및 Git를 사용한 PHP 웹 사이트 - Azure 자습서" 
+	description="MySQL에 데이터를 저장하는 PHP 웹 사이트를 만들고 Git를 사용하여 Azure에 배포하는 방법을 보여 주는 자습서입니다." 
+	services="web-sites" 
+	documentationCenter="php" 
+	authors="tfitzmac" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="11/14/2014" ms.author="tomfitz" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="PHP" 
+	ms.topic="article" 
+	ms.date="11/14/2014" 
+	ms.author="tomfitz"/>
 
 #PHP-MySQL Azure 웹 사이트 만들기 및 Git를 사용하여 배포
 
-이 자습서에서는 PHP-MySQL Azure 웹 사이트를 만들고 Git를 사용하여 배포하는 방법을 설명합니다. 컴퓨터에 설치된 [PHP][install-php], MySQL 명령줄 도구([MySQL][install-mysql]의 일부), 웹 서버 및 [Git][install-git]를 사용할 예정입니다. 이 자습서의 지침은 Windows, Mac 및 Linux를 포함하여 모든 운영 체제에 적용될 수 있습니다. 이 가이드를 완료하면 Azure에서 실행하는 PHP/MySQL 웹 사이트가 완성됩니다.
+이 자습서에서는 PHP-MySQL Azure 웹 사이트를 만들고 Git를 사용하여 배포하는 방법을 설명합니다. 컴퓨터에 설치된 [PHP][install-php], MySQL 명령줄 도구([MySQL][install-mysql]의 일부), 웹 서버 및 [Git][install-git]를 사용합니다. 이 자습서의 지침은 Windows, Mac 및 Linux를 포함하여 모든 운영 체제에 적용될 수 있습니다. 이 가이드를 완료하면 Azure에서 실행하는 PHP/MySQL 웹 사이트가 완성됩니다.
  
 다음 내용을 배웁니다.
 
@@ -15,16 +29,16 @@
 
 ![Azure PHP web site][running-app]
 
-> [WACOM.NOTE]
+> [AZURE.NOTE]
 > 이 자습서를 완료하려면 Azure 웹 사이트 기능이 사용되는 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://www.windowsazure.com/ko-kr/pricing/free-trial/?WT.mc_id=A74E0F923" target="_blank">Azure 무료 평가판</a>을 참조하세요.
 > 
-> 계정을 등록하기 전에 Azure 웹 사이트를 시작하려면 <a href="https://trywebsites.azurewebsites.net/?language=php">https://trywebsites.azurewebsites.net</a>으로 이동합니다. 이 Azure 웹 사이트에서는 무료로 단기 ASP.NET 시작 사이트를 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+> 계정을 등록하기 전에 Azure 웹 사이트를 시작하려면 <a href="https://trywebsites.azurewebsites.net/?language=php">https://trywebsites.azurewebsites.net</a>으로 이동합니다. Azure 웹 사이트에서는 무료로 단기 ASP.NET 시작 사이트를 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
 ##개발 환경 설정
 
 이 자습서의 내용은 컴퓨터에 [PHP][install-php], MySQL 명령줄 도구([MySQL][install-mysql]의 일부), 웹 서버 및 [Git][install-git]가 설치되어 있다는 것을 전제로 합니다.
 
-> [WACOM.NOTE]
+> [AZURE.NOTE]
 > Windows에서 이 자습서의 내용을 수행하는 경우 <a href="http://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/azurephpsdk.appids">PHP용 Azure SDK</a>를 설치하여 PHP용 컴퓨터를 설정하고 자동으로 IIS(Windows에서 기본 제공되는 웹 서버)를 구성할 수 있습니다.
 
 ##<a id="create-web-site-and-set-up-git"></a>Azure 웹 사이트 만들기 및 Git 게시 설정
@@ -48,14 +62,14 @@ Azure 웹 사이트 및 MySQL 데이터베이스를 만들려면 다음 단계�
 
 	![Create new MySQL database][new-mysql-db]
 
-	웹 사이트가 만들어지면 **Website "[SITENAME]" 웹 사이트 만들기가 완료되었습니다.**라는 텍스트가 표시됩니다. 이제 Git 게시를 사용하도록 설정할 수 있습니다.
+	웹 사이트가 만들어지면 **"[SITENAME]" 웹 사이트 만들기가 완료되었습니다.**라는 텍스트가 표시됩니다. 이제 Git 게시를 사용하도록 설정할 수 있습니다.
 
-6. 웹 사이트 목록에 표시된 웹 사이트 이름을 클릭하여 웹 사이트의 **퀵 스타트** 대시보드를 엽니다.
+6. 웹 사이트 목록에 표시된 웹 사이트 이름을 클릭하여 웹 사이트의 **빠른 시작** 대시보드를 엽니다.
 
 	![Open web site dashboard][go-to-dashboard]
 
 
-7. **퀵 스타트** 페이지 맨 아래에 있는 **Git 게시 설정**을 클릭합니다. 
+7. **빠른 시작** 페이지 맨 아래에 있는 **Git 게시 설정**을 클릭합니다. 
 
 	![Set up Git publishing][setup-git-publishing]
 
@@ -77,7 +91,7 @@ Azure 웹 사이트에서 실행되는 MySQL 데이터베이스에 연결하려�
 
 	![Get database connection information][connection-string-info]
 	
-2. `Database`, `Data Source`, `User Id` 및 `Password`의 값을 기록해 둡니다.
+2.  `Database`,  `Data Source`,  `User Id` 및  `Password`의 값을 기록해 둡니다.
 
 ##로컬에서 응용 프로그램 빌드 및 테스트
 
@@ -87,9 +101,9 @@ Azure 웹 사이트를 만들었으므로 로컬에서 응용 프로그램을 �
 
 * **index.php**: 등록 양식 및 등록자 정보가 포함된 테이블을 표시합니다.
 
-응용 프로그램을 빌드하여 로컬에서 실행하려면 아래 단계를 따릅니다. 이러한 단계는 로컬 컴퓨터에 PHP, MySQL 명령줄 도구(MySQL의 일부) 및 웹 서버가 설정되어 있으며 [PDO Extension for MySQL][pdo-mysql]이 사용되도록 설정되어 있다는 것을 전제로 합니다.
+응용 프로그램을 빌드하여 로컬에서 실행하려면 아래 단계를 따릅니다. 이러한 단계는 로컬 컴퓨터에 PHP, MySQL 명령줄 도구(MySQL의 일부) 및 웹 서버가 설정되어 있으며 [PDO extension for MySQL][pdo-mysql]이 사용되도록 설정되어 있다는 것을 전제로 합니다.
 
-1. 이전에 검색한 'Data Source', 'User Id', 'Password' 및 'Database'의 값을 사용하여 원격 MySQL 서버에 연결합니다.
+1. 이전에 검색한  `Data Source`,  `User Id`,  `Password` 및  `Database`의 값을 사용하여 원격 MySQL 서버에 연결합니다.
 
 		mysql -h{Data Source] -u[User Id] -p[Password] -D[Database]
 
@@ -97,11 +111,11 @@ Azure 웹 사이트를 만들었으므로 로컬에서 응용 프로그램을 �
 
 		mysql>
 
-3. 다음 'CREATE TABLE' 명령을 붙여 넣어 데이터베이스에 'registration_tbl' 테이블을 만듭니다.
+3. 다음  `CREATE TABLE` 명령을 붙여 넣어 데이터베이스에  `registration_tbl` 테이블을 만듭니다.
 
 		mysql> CREATE TABLE registration_tbl(id INT NOT NULL AUTO_INCREMENT, PRIMARY KEY(id), name VARCHAR(30), email VARCHAR(30), date DATE);
 
-4. 웹 서버의 루트 디렉터리에서 'registration'이라는 폴더를 만들고 이 폴더 내에 'index.php'라는 파일을 만듭니다.
+4. 웹 서버의 루트 디렉터리에서  `registration`이라는 폴더를 만들고 이 폴더 내에  `index.php`라는 파일을 만듭니다.
 
 5. 텍스트 편집기 또는 IDE에서 **index.php** 파일을 열고 다음 코드를 추가하여 `//TODO:` 주석으로 표시된 필수 변경을 완료합니다.
 
@@ -197,14 +211,14 @@ Azure 웹 사이트를 만들었으므로 로컬에서 응용 프로그램을 �
 
 응용 프로그램을 로컬에서 테스트한 후 Git를 사용하여 Azure 웹 사이트에 게시할 수 있습니다. 로컬 Git 리포지토리를 초기화하고 응용 프로그램을 게시하겠습니다.
 
-> [WACOM.NOTE]
+> [AZURE.NOTE]
 > 이들은 앞선 "Azure 웹 사이트 만들기 및 Git 게시 설정" 섹션의 끝에서 포털에 표시된 단계와 동일합니다.
 
 1. (옵션) Git 원격 리포지토리 URL을 잊어버렸거나 제대로 보관하지 못한 경우 포털의 배포 탭으로 이동합니다.
 	
 	![Get Git URL][git-instructions]
 
-1. GitBash를 열거나 Git가 'PATH'에 있는 경우 터미널을 열고 응용 프로그램의 루트 디렉터리로 이동한 후 다음 명령을 실행합니다.
+1. GitBash를 열거나 Git가  `PATH`에 있는 경우 터미널을 열고 응용 프로그램의 루트 디렉터리로 이동한 후 다음 명령을 실행합니다.
 
 		git init
 		git add .
@@ -227,7 +241,7 @@ Azure 웹 사이트를 만들었으므로 로컬에서 응용 프로그램을 �
 응용 프로그램에 변경 내용을 게시하려면 다음 단계를 따르세요.
 
 1. 응용 프로그램을 로컬에서 변경합니다.
-2. GitBash를 열거나 Git가 'PATH'에 있는 경우 터미널을 열고 응용 프로그램의 루트 디렉터리로 이동한 후 다음 명령을 실행합니다.
+2. GitBash를 열거나 Git가  `PATH`에 있는 경우 터미널을 열고 응용 프로그램의 루트 디렉터리로 이동한 후 다음 명령을 실행합니다.
 
 		git add .
 		git commit -m "comment describing changes"
@@ -241,7 +255,7 @@ Azure 웹 사이트를 만들었으므로 로컬에서 응용 프로그램을 �
 
 	![Azure PHP web site][running-app]
 
-4. 또한 Azure 관리 포털의 '배포' 탭에서 새 배포를 볼 수도 있습니다.
+4. 또한 Azure 관리 포털의  'Deployments' 탭에서 새 배포를 볼 수도 있습니다.
 
 	![List of web site deployments][deployments-list]
 
@@ -269,4 +283,5 @@ Azure 웹 사이트를 만들었으므로 로컬에서 응용 프로그램을 �
 [management-portal]: https://manage.windowsazure.com
 [sql-database-editions]: http://msdn.microsoft.com/ko-kr/library/windowsazure/ee621788.aspx
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

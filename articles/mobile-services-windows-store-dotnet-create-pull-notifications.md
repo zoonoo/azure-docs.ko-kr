@@ -1,6 +1,6 @@
-<properties urlDisplayName="Define a custom API that supports pull notifications" pageTitle="풀 알림을 지원하는 사용자 지정 API 정의 - Azure 모바일 서비스" metaKeywords="" description="Azure 모바일 서비스를 사용하는 Windows 스토어 앱에서 정기 알림을 지원하는 사용자 지정 API를 정의하는 방법에 대해 알아봅니다." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Define a custom API that supports periodic notifications" authors="glenga" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="풀 알림을 지원하는 사용자 지정 API 정의 - Azure 모바일 서비스" description="Azure 모바일 서비스를 사용하는 Windows 스토어 앱에서 정기 알림을 지원하는 사용자 지정 API를 정의하는 방법에 대해 알아봅니다." services="mobile-services" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="11/22/2014" ms.author="glenga" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="11/22/2014" ms.author="glenga"/>
 
 # 정기 알림을 지원하는 사용자 지정 API 정의
 
@@ -10,13 +10,13 @@
 
 이 항목에서는 Windows 스토어 앱에서 사용자 지정 API를 사용하여 정기 알림을 지원하는 방법을 보여 줍니다. 정기 알림을 사용하면 Windows에서 주기적으로 사용자 지정 API 끝점에 액세스하고 타일 특정 형식으로 반환된 XML을 사용하여 시작 메뉴의 앱 타일을 업데이트합니다. 자세한 내용은 [정기 알림]을 참조하세요. 
 
-[모바일 서비스 시작][] (영문) 또는 [기존 앱에 모바일 서비스 추가][] (영문) 자습서를 마쳤을 때 만든 앱에 이 기능을 추가합니다. 그러려면 다음 단계를 완료합니다.
+[모바일 서비스 시작] 또는 [기존 앱에 모바일 서비스 추가] 자습서를 완료할 때 만든 앱에 이 기능을 추가합니다. 그러려면 다음 단계를 완료합니다.
 
 1. [사용자 지정 API 정의]
 2. [정기 알림을 켜도록 앱 업데이트]
 3. [앱 테스트] 
 
-이 자습서는 모바일 서비스 퀵 스타트를 기반으로 합니다. 이 자습서를 시작하기 전에 먼저 [모바일 서비스 시작][] (영문) 또는 [기존 앱에 모바일 서비스 추가][] (영문) 자습서를 완료해야 합니다.  
+이 자습서는 모바일 서비스 퀵 스타트를 기반으로 합니다. 이 자습서를 시작하기 전에 먼저 [모바일 서비스 시작] 또는 [기존 앱에 모바일 서비스 추가] 자습서를 완료해야 합니다.  
 
 ## <a name="define-custom-api"></a>사용자 지정 API 정의
 
@@ -28,7 +28,7 @@
 
    	![][1]
 
-	그러면 **새 사용자 지정 API 만들기** 대화 상자가 표시됩니다.
+	**새 사용자 지정 API 만들기** 대화 상자가 표시됩니다.
 
 3. **사용 권한 얻기**를 **모든 사람**으로 변경하고 **API 이름**에 _tiles_를 입력한 후 확인 단추를 클릭합니다.
 
@@ -67,24 +67,22 @@
 		    }
 		};
 
-	이 코드는 TodoItem 테이블에서 완료되지 않은 상위 항목 3개를 반환한 후 **wns**.**createTileSquareText01** 함수에 전달되는 JSON 개체에 로드합니다. 이 함수는 다음과 같은 타일 템플릿 XML을 반환합니다.
+	이 코드는 TodoItem 테이블에서 완료되지 않은 상위 항목 3개를 반환한 후 **wns**.**createTileSquareText01** 함수에 전달되는 JSON 개체에 로드됩니다. 이 함수는 다음과 같은 타일 템플릿 XML을 반환합니다.
 
 		<tile>
 			<visual>
 				<binding template="TileSquareText01">
-
-
-
-
+					<text id="1">My todo list</text>
+					<text id="2">Task 1</text>
+					<text id="3">Task 2</text>
+					<text id="4">Task 3</text>
 				</binding>
 			</visual>
 		</tile>
 
 	**exports.get** 함수는 클라이언트가 타일 템플릿에 액세스하는 GET 요청을 보내기 때문에 사용됩니다.
 
-   	<div class="dev-callout"><b>참고</b>
-   		<p>이 사용자 지정 API 스크립트는 Node.js <a href="http://go.microsoft.com/fwlink/p/?LinkId=306750">wns 모듈</a>(영문)을 사용합니다. 이 모듈은 <strong>require</strong> 함수를 사용하여 참조됩니다. 이 모듈은 <a href="http://go.microsoft.com/fwlink/p/?LinkId=260591">wns 개체</a> 와 다릅니다. 이 개체는 서버 스크립트의 푸시 알림을 전송하는 데 사용되는 <a href="http://msdn.microsoft.com/ko-kr/library/windowsazure/jj554217.aspx">push 개체</a>에서 반환됩니다.</p>
-   	</div>
+   	> [AZURE.NOTE] 이 사용자 지정 API 스크립트는 **require** 함수를 사용하여 참조되는 Node.js [wns 모듈](http://go.microsoft.com/fwlink/p/?LinkId=306750)을 사용합니다. 이 모듈은 서버 스크립트의 푸시 알림을 전송하는 데 사용되는, [푸시 개체](http://msdn.microsoft.com/ko-kr/library/windowsazure/jj554217.aspx)에서 반환되는 [wns 개체](http://go.microsoft.com/fwlink/p/?LinkId=260591)와 다릅니다.
 
 다음에는 새 사용자 지정 API를 요청하여 라이브 타일을 업데이트하는 정기 알림을 시작하도록 퀵 스타트 앱을 수정합니다.
 
@@ -146,9 +144,9 @@
 <!-- URLs. -->
 [Windows 푸시 알림 및 Live Connect]: http://go.microsoft.com/fwlink/?LinkID=257677
 [모바일 서비스 서버 스크립트 참조]: http://go.microsoft.com/fwlink/?LinkId=262293
-[내 앱 대시보드]: http://go.microsoft.com/fwlink/?LinkId=262039
-[모바일 서비스 시작]: /ko-kr/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started
-[기존 앱에 모바일 서비스 추가]: /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-get-started
+[내 응용 프로그램 대시보드]: http://go.microsoft.com/fwlink/?LinkId=262039
+[모바일 서비스 시작](영문): /ko-kr/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started
+[기존 앱에 모바일 서비스 추가](영문): /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-get-started
 [푸시 알림 시작]: /ko-kr/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push
 
 [Azure 관리 포털]: https://manage.windowsazure.com/
@@ -157,4 +155,5 @@
 [모바일 서비스 .NET 방법 개념 참조]: /ko-kr/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library
 
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

@@ -1,16 +1,31 @@
-﻿<properties urlDisplayName="Migrate from IIS to Azure Websites with Migration Assistant" pageTitle="Migration Assistant를 사용하여 IIS 웹 사이트를 Azure 웹 사이트로 마이그레이션" metaKeywords"Azure 웹 사이트,마이그레이션,마이그레이션,IIS" description="Azure Websites Migration Assistant를 사용하여 기존 IIS 웹 사이트를 Azure 웹 사이트로 신속하게 마이그레이션하는 방법을 보여 줍니다." metaCanonical="" services="web-sites" documentationCenter="" title="Migrate your IIS Websites to Azure Websites using the Migration Assistant" authors="cephalin,anwestg"  solutions="" writer="cephalin" manager="wpickett" editor=""  />
+﻿<properties 
+	pageTitle="Migration Assistant를 사용하여 IIS 웹 사이트를 Azure 웹 사이트로 마이그레이션" 
+	description="Azure Websites Migration Assistant를 사용하여 기존 IIS 웹 사이트를 Azure 웹 사이트로 신속하게 마이그레이션하는 방법을 보여 줍니다." 
+	services="web-sites" 
+	documentationCenter="" 
+	authors="cephalin" 
+	writer="cephalin" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/20/2014" ms.author="cephalin" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/20/2014" 
+	ms.author="cephalin"/>
 
 # Migration Assistant를 사용하여 IIS 웹 사이트를 Azure 웹 사이트로 마이그레이션 #
 IIS(인터넷 정보 서비스) 6 이상을 실행하는 기존 웹 사이트를 Azure 웹 사이트로 쉽게 마이그레이션할 수 있습니다. [Azure Websites Migration Assistant](https://www.movemetothecloud.net/)는 IIS 서버 설치를 분석하고 Azure 사이트로 마이그레이션할 수 있는 사이트를 식별하고 마이그레이션할 수 없거나 플랫폼에서 지원되지 않는 요소를 강조 표시한 후 웹 사이트 및 관련 데이터베이스를 Azure로 마이그레이션합니다.
 
->[WACOM.NOTE] Windows Server 2003은 2015년 7월 14일에 지원이 종료됩니다. 현재 웹 사이트가 Windows Server 2003을 사용하는 IIS 서버에 있는 경우 Azure 웹 사이트가 위험, 비용 및 충돌을 줄이면서 웹 사이트를 온라인으로 유지할 수 있는 방법이며, Azure Websites Migration Assistant를 사용하면 마이그레이션 프로세스를 자동화할 수 있습니다. 
+>[AZURE.NOTE] Windows Server 2003은 2015년 7월 14일에 지원이 종료됩니다. 현재 웹 사이트가 Windows Server 2003을 사용하는 IIS 서버에 있는 경우 Azure 웹 사이트가 위험, 비용 및 충돌을 줄이면서 웹 사이트를 온라인으로 유지할 수 있는 방법이며, Azure Websites Migration Assistant를 사용하면 마이그레이션 프로세스를 자동화할 수 있습니다. 
 
 ## 호환성 분석 중 확인하는 요소 ##
 Azure Websites Migration Assistant에서는 온-프레미스 IIS에서 Azure 웹 사이트로의 성공적인 마이그레이션을 방해할 수 있는 우려나 차단 문제의 잠재적인 원인을 식별하는 준비 보고서를 만듭니다. 알고 있어야 하는 몇 가지 주요 항목은 다음과 같습니다.
 
--	포트 바인딩 - Azure 웹 사이트는 HTTP 트래픽에는 포트 80, HTTPS 트래픽에는 포트 443만 지원합니다. 다른 포트 구성은 무시되며 트래픽이 80 또는 443으로 라우팅됩니다.
+-	포트 바인딩 - Azure 웹 사이트는 HTTP 트래픽에는 포트 80, HTTPS 트래픽에는 포트 443만 지원합니다. 다른 포트 구성은 무시되며 트래픽이 80 또는 443으로 라우팅됩니다. 
 -	인증 - Azure 웹 사이트는 익명 인증을 기본 지원하고 응용 프로그램에서 지정한 경우 폼 인증도 지원합니다. Windows 인증은 Azure Active Directory 및 ADFS와 통합해야만 사용할 수 있습니다. 기본 인증을 비롯한 다른 인증 형식은 현재 지원되지 않습니다. 
 -	GAC(전역 어셈블리 캐시) - GAC는 Azure 웹 사이트에서 지원되지 않습니다. 응용 프로그램에서 일반적으로 GAC에 배포하는 어셈블리를 참조하는 경우 Azure 웹 사이트의 응용 프로그램 bin 폴더에 배포해야 합니다. 
 -	IIS5 호환 모드 - Azure 웹 사이트에서 지원되지 않습니다. 
@@ -18,10 +33,10 @@ Azure Websites Migration Assistant에서는 온-프레미스 IIS에서 Azure 웹
 -	COM 구성 요소 - Azure 웹 사이트에서는 플랫폼에 COM 구성 요소를 등록할 수 없습니다. 웹 사이트 또는 응용 프로그램에서 COM 구성 요소를 사용하는 경우에는 구성 요소를 관리 코드로 다시 작성하고 웹 사이트 또는 응용 프로그램을 함께 배포해야 합니다.
 -	ISAPI 필터 - Azure 웹 사이트에서는 ISAPI 필터를 사용할 수 있습니다. 다음을 수행해야 합니다.
 	-	웹 사이트에 DLL 배포 
-	-	[Web.config](http://www.iis.net/configreference/system.webserver/isapifilters)(영문)를 사용하여 DLL 등록
+	-	[Web.config](http://www.iis.net/configreference/system.webserver/isapifilters)를 사용하여 DLL 등록
 	-	아래 내용이 포함된 applicationHost.xdt 파일을 사이트 루트에 저장
 
-			?xml version="1.0"?
+			<?xml version="1.0"?>
 			<configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
 			<configSections>
 			    <sectionGroup name="system.webServer">
@@ -30,7 +45,7 @@ Azure Websites Migration Assistant에서는 온-프레미스 IIS에서 Azure 웹
 			  </configSections>
 			</configuration>
 
-		웹 사이트에서 XML 문서 변환을 사용하는 방법에 대한 예제는 [Microsoft Azure 웹 사이트 변환](http://blogs.msdn.com/b/waws/archive/2014/06/17/transform-your-microsoft-azure-web-site.aspx)(영문)을 참조하세요.
+		웹 사이트에서 XML 문서 변환을 사용하는 방법에 대한 예제는 [Microsoft Azure 웹 사이트 변환](http://blogs.msdn.com/b/waws/archive/2014/06/17/transform-your-microsoft-azure-web-site.aspx)을 참조하세요.
 
 -	SharePoint, FPSE*Front Page Server Extensions), FTP, SSL 인증서와 같은 다른 구성 요소는 마이그레이션되지 않습니다.
 
@@ -46,7 +61,7 @@ Azure Websites Migration Assistant에서는 온-프레미스 IIS에서 Azure 웹
 
 	![](./media/web-sites-migration-from-iis-server/install-page.png)
 
-	>[WACOM.NOTE] 또한 **Download for offline install**을 클릭하여 인터넷에 연결되지 않은 서버에 설치하기 위한 ZIP 파일을 다운로드할 수도 있습니다. 또는 **Upload an existing migration readiness report**를 선택할 수 있습니다. 이 고급 옵션을 선택하면 이전에 생성한 기존 마이그레이션 준비 보고서로 작업할 수 있습니다(나중에 설명).
+	>[AZURE.NOTE] 또한 **Download for offline install**을 클릭하여 인터넷에 연결되지 않은 서버에 설치하기 위한 ZIP 파일을 다운로드할 수도 있습니다. 또는 **Upload an existing migration readiness report**를 선택할 수 있습니다. 이 고급 옵션을 선택하면 이전에 생성한 기존 마이그레이션 준비 보고서로 작업할 수 있습니다(나중에 설명).
 
 5.	**응용 프로그램 설치** 화면에서 **설치**를 클릭하여 컴퓨터에 설치합니다. 필요한 경우 웹 배포, DacFX, IIS와 같은 해당하는 종속성도 설치됩니다. 
 
@@ -91,7 +106,7 @@ Azure Websites Migration Assistant에서는 온-프레미스 IIS에서 Azure 웹
 
 	![](./media/web-sites-migration-from-iis-server/migration-settings.png)
 
-	>[WACOM.NOTE] 사용자 지정 설정에서 **Enable Azure Active Directory** 확인란을 선택하면 Azure 웹 사이트가 [Azure Active Directory](http://azure.microsoft.com/ko-kr/documentation/articles/active-directory-whatis/)(**기본 디렉터리**)와 통합됩니다. Azure Active Directory를 온-프레미스 Active Directory와 동기화하는 방법에 대한 자세한 내용은 [디렉터리 통합](http://msdn.microsoft.com/library/jj573653)을 참조하세요.
+	>[AZURE.NOTE] 사용자 지정 설정에서 **Enable Azure Active Directory** 확인란을 선택하면 Azure 웹 사이트가 [Azure Active Directory](http://azure.microsoft.com/ko-kr/documentation/articles/active-directory-whatis/)(**기본 디렉터리**)와 통합됩니다. Azure Active Directory를 온-프레미스 Active Directory와 동기화하는 방법에 대한 자세한 내용은 [디렉터리 통합](http://msdn.microsoft.com/library/jj573653)을 참조하세요.
 
 16.	 원하는 대로 모두 변경했으면 **Create**를 클릭하여 마이그레이션 프로세스를 시작합니다. 마이그레이션 도구에서는 Azure SQL 데이터베이스와 Azure 웹 사이트를 만들고 웹 사이트 콘텐츠와 데이터베이스를 게시합니다. 마이그레이션 진행률이 마이그레이션 도구에 명확히 표시되며 끝에 마이그레이션된 사이트, 마이그레이션 성공 여부, 새로 만든 Azure 웹 사이트에 대한 링크를 자세히 설명하는 요약 화면이 표시됩니다. 
 
@@ -104,3 +119,6 @@ Azure Websites Migration Assistant에서는 온-프레미스 IIS에서 Azure 웹
 20.	Azure 웹 사이트에 대한 링크를 클릭하고 마이그레이션이 성공했는지 확인합니다.
 
 
+
+
+<!--HONumber=42-->

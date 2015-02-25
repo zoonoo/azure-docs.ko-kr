@@ -1,6 +1,20 @@
-﻿<properties title="Manage an Azure website" pageTitle="Azure 웹 사이트 관리" description="Microsoft Azure 웹 사이트 관리용 리소스의 링크입니다." services="web-sites" solutions="web" documentationCenter="" authors="mwasson" videoId="" scriptId="" manager="wpickett" />
+﻿<properties 
+	pageTitle="Azure 웹 사이트 관리" 
+	description="Microsoft Azure 웹 사이트 관리용 리소스의 링크입니다." 
+	services="web-sites" 
+	documentationCenter="" 
+	authors="MikeWasson" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/16/2014" ms.author="mwasson" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/16/2014" 
+	ms.author="mwasson"/>
 
 # Azure 웹 사이트 관리
 
@@ -12,7 +26,7 @@
 - [웹 사이트를 실행하는 동안 수행할 작업]
 - [웹 사이트를 업데이트할 때 수행할 작업]
 
-Azure 관리 포털에서 다양한 웹 사이트 관리 작업을 수행할 수 있습니다. 자세한 내용은 [Azure 관리 포털을 통해 웹 사이트 관리](http://azure.microsoft.com/ko-kr/documentation/articles/web-sites-manage/)를 참조하세요
+Azure 관리 포털에서 다양한 웹 사이트 관리 작업을 수행할 수 있습니다. 자세한 내용은 [Azure 관리 포털을 통해 웹 사이트 관리](http://azure.microsoft.com/ko-kr/documentation/articles/web-sites-manage/)를 참조하세요.
 
 ## 사이트를 프로덕션 환경으로 배포하기 전에 수행할 작업
 
@@ -39,7 +53,7 @@ Azure 웹 사이트는 무료, 공유, 기본, 표준의 네 가지 계층으로
 
 언어별 구성:
 
-- **PHP**: [Azure 웹 사이트에서 PHP 구성 방법](http://azure.microsoft.com/ko-kr/documentation/articles/web-sites-php-configure/)
+- **PHP**: [Azure 웹 사이트에서 PHP를 구성하는 방법](http://azure.microsoft.com/ko-kr/documentation/articles/web-sites-php-configure/)
 - **Python**: [Azure 웹 사이트를 사용하여 Python 구성](http://azure.microsoft.com/ko-kr/documentation/articles/web-sites-python-configure/)
 
 
@@ -51,7 +65,7 @@ Azure 웹 사이트는 무료, 공유, 기본, 표준의 네 가지 계층으로
 
 - 관리 포털을 통해 CPU 사용량, 클라이언트 요청 수 등의 [성능 메트릭을 추가](http://azure.microsoft.com/ko-kr/documentation/articles/web-sites-monitor)할 수 있습니다.
 - 보다 자세한 정보를 확인하려면 New Relic을 사용하여 성능을 모니터링 및 관리합니다. [Azure 웹 사이트에서 New Relic 응용 프로그램 성능 관리](http://azure.microsoft.com/ko-kr/documentation/articles/store-new-relic-web-sites-dotnet-application-performance-management/)를 참조하세요.
-트래픽에 맞게 - [웹 사이트 크기를 조정](http://azure.microsoft.com/ko-kr/documentation/articles/web-sites-scale/)합니다. 계층에 따라 VM의 수 및/또는 VM 인스턴스의 크기를 조정할 수 있습니다. 표준 계획에서는 자동 크기 조정도 설정할 수 있으므로 고정된 일정으로 또는 부하에 따라 사이트 크기가 자동으로 조정됩니다. 
+- 트래픽에 맞게 [웹 사이트 크기를 조정](http://azure.microsoft.com/ko-kr/documentation/articles/web-sites-scale/)합니다. 계층에 따라 VM의 수 및/또는 VM 인스턴스의 크기를 조정할 수 있습니다. 표준 계획에서는 자동 크기 조정도 설정할 수 있으므로 고정된 일정으로 또는 부하에 따라 사이트 크기가 자동으로 조정됩니다.  
  
 ### 백업
 
@@ -66,14 +80,14 @@ Azure 웹 사이트는 무료, 공유, 기본, 표준의 네 가지 계층으로
 
 ### 데이터 복원
 
-이전에 백업한 웹 사이트를 - [복원](http://azure.microsoft.com/ko-kr/documentation/articles/web-sites-restore/)할 수 있습니다.
+- 이전에 백업한 웹 사이트를 [복원](http://azure.microsoft.com/ko-kr/documentation/articles/web-sites-restore/)할 수 있습니다.
 
 
 ## 웹 사이트를 업데이트할 때 수행할 작업
 
 자동 백업을 사용하도록 설정하지 않은 경우 [수동 백업](http://azure.microsoft.com/ko-kr/documentation/articles/web-sites-backup/)을 만들 수 있습니다.
 
-[단계적 배포](http://azure.microsoft.com/ko-kr/documentation/articles/web-sites-staged-publishing/)를 사용할 수 있습니다. 이 옵션을 사용하면 프로덕션 배포와 나란히 실행되는 스테이징 배포에 업데이트를 게시할 수 있습니다. 
+[준비된 배포](http://azure.microsoft.com/ko-kr/documentation/articles/web-sites-staged-publishing/)를 사용할 수 있습니다. 이 옵션을 사용하면 프로덕션 배포와 나란히 실행되는 스테이징 배포에 업데이트를 게시할 수 있습니다. 
 
 Visual Studio Online을 사용하는 경우 소스 제어에서 연속 배포를 설정할 수 있습니다.
 
@@ -90,3 +104,5 @@ Visual Studio Online을 사용하는 경우 소스 제어에서 연속 배포를
 [웹 사이트를 업데이트할 때 수행할 작업]: #when-you-update-your-website
 
  
+
+<!--HONumber=42-->

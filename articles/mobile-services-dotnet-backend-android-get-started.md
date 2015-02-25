@@ -1,10 +1,10 @@
-﻿<properties pageTitle="Android 앱에 대해 Azure 모바일 서비스 시작" metaKeywords="Azure android application, mobile service android, getting started Azure android, azure droid, getting started droid windows" description="이 자습서에 따라 Azure 모바일 서비스를 사용하여 Android 개발을 시작할 수 있습니다." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="Android 앱에 대해 Azure 모바일 서비스 시작" description="이 자습서에 따라 Azure 모바일 서비스를 사용하여 Android 개발을 시작할 수 있습니다." services="mobile-services" documentationCenter="android" authors="ggailey777" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="10/20/2014" ms.author="glenga" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="10/20/2014" ms.author="glenga"/>
 
 # <a name="getting-started"> </a>모바일 서비스 시작
 
-[WACOM.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
 
 이 자습서는 Azure 모바일 서비스를 사용하여 Android 앱에 클라우드 기반 백 엔드 서비스를 추가하는 방법을 보여 줍니다. 이 자습서에서는 새 모바일 서비스와 새 모바일 서비스에 앱 데이터를 저장하는 간단한 _할 일 모음_ 앱을 둘 다 만듭니다. 생성되는 모바일 서비스에서는 Visual Studio에서 지원되는 .NET 언어를 서버 쪽 비즈니스 논리와 모바일 서비스 관리에 사용합니다. JavaScript에서 서버 쪽 비즈니스 논리를 작성하는 데 사용할 수 있는 모바일 서비스를 만들려면 이 항목의 [JavaScript 백 엔드 버전](/ko-kr/documentation/articles/mobile-services-android-get-started/)을 참조하세요.
 
@@ -14,19 +14,19 @@
 
 이 자습서를 완료하려면 Eclipse IDE(통합 개발 환경), ADT(Android 개발자 도구) 플러그 인 및 최신 Android 플랫폼이 포함된 [Android 개발자 도구][Android SDK]가 필요합니다. Android 4.2 이상 버전이 필요합니다. 
 
-다운로드한 빠른 시작 프로젝트에는 Android용 모바일 서비스 SDK가 포함되어 있습니다. 이 프로젝트에는 Android 4.2 이상 버전이 필요하지만 모바일 서비스 SDK에는 Android 2.2 이상 버전만 있으면 됩니다.
+다운로드한 퀵 스타트 프로젝트에는 Android용 모바일 서비스 SDK가 포함되어 있습니다. 이 프로젝트에는 Android 4.2 이상 버전이 필요하지만 모바일 서비스 SDK에는 Android 2.2 이상 버전만 있으면 됩니다.
 
-<div class="dev-callout"><strong>참고</strong> <p>이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 Azure 평가판을 등록하고 최대 10개의 무료 모바일 서비스를 사용할 수 있습니다. 이러한 서비스는 평가판 사용 기간이 끝난 후에도 계속 사용할 수 있습니다. 자세한 내용은 <a href="http://www.windowsazure.com/ko-kr/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Azure 무료 평가판</a>을 참조하세요.</p></div>
+> [AZURE.IMPORTANT] 이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 Azure 평가판을 등록하고 최대 10개의 무료 모바일 서비스를 사용할 수 있습니다. 이러한 서비스는 평가판 사용 기간이 끝난 후에도 계속 사용할 수 있습니다. 자세한 내용은 [Azure 무료 평가판](http://www.windowsazure.com/ko-kr/pricing/free-trial/?WT.mc_id=AE564AB28"%20target="_blank)을 참조하세요.
 
 ## <a name="create-new-service"> </a>새 모바일 서비스 만들기
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-create-new-service](../includes/mobile-services-dotnet-backend-create-new-service.md)]
+[AZURE.INCLUDE [mobile-services-dotnet-backend-create-new-service](../includes/mobile-services-dotnet-backend-create-new-service.md)]
 
 ## 로컬 컴퓨터에 모바일 서비스 다운로드
 
 모바일 서비스를 만들었으므로 이제 로컬 컴퓨터 또는 가상 컴퓨터에서 실행할 수 있는 개인 설정된 모바일 서비스 프로젝트를 다운로드합니다.
 
-1. 방금 만든 모바일 서비스를 클릭한 다음 빠른 시작 탭에서 **플랫폼 선택** 아래의 **Android**를 클릭하고 **새 Android 앱 만들기**를 확장합니다.
+1. 방금 만든 모바일 서비스를 클릭한 다음 퀵 스타트 탭에서 **플랫폼 선택** 아래의 **Android**를 클릭하고 **새 Android 앱 만들기**를 확장합니다.
 
 	![][1]  
 
@@ -40,11 +40,11 @@
 
 ## 모바일 서비스 테스트
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-test-local-service](../includes/mobile-services-dotnet-backend-test-local-service.md)]
+[AZURE.INCLUDE [mobile-services-dotnet-backend-test-local-service](../includes/mobile-services-dotnet-backend-test-local-service.md)]
 
 ## 모바일 서비스 게시
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-publish-service](../includes/mobile-services-dotnet-backend-publish-service.md)]
+[AZURE.INCLUDE [mobile-services-dotnet-backend-publish-service](../includes/mobile-services-dotnet-backend-publish-service.md)]
 
 ## 새 Android 앱 만들기
 
@@ -52,7 +52,7 @@
 
 1. [관리 포털]에서 **모바일 서비스**를 클릭한 후 방금 만든 모바일 서비스를 클릭합니다.
 
-2. 빠른 시작 탭에서 **플랫폼 선택** 아래의 **Android**를 클릭하고 **새 Android 앱 만들기**를 확장합니다. 
+2. 퀵 스타트 탭에서 **플랫폼 선택** 아래의 **Android**를 클릭하고 **새 Android 앱 만들기**를 확장합니다. 
  
 	![][2]  
 
@@ -68,11 +68,11 @@
 
 1. 압축된 프로젝트 파일을 저장한 위치로 이동한 후 컴퓨터에서 파일 압축을 풉니다.
 
-2. Eclipse에서 **파일**, **가져오기**를 차례로 클릭하고 **Android**를 확장한 후 **Existing Android Code into Workspace**를 클릭한 다음 **Next** 를 클릭합니다.
+2. Eclipse에서 **파일**과 **가져오기**를 클릭하고 **Android**를 확장한 후 **Existing Android Code into Workspace**를 클릭한 다음 **다음**을 클릭합니다. 
 
  	![][14]
 
-3. **찾아보기**를 클릭하고 압축을 푼 프로젝트 파일 위치로 이동한 후 **확인**을 클릭합니다. TodoActivity 프로젝트가 선택되었는지 확인하고 **마침**를 클릭합니다. 
+3. **찾아보기**를 클릭하고 압축을 푼 프로젝트 파일 위치로 이동한 후 **확인**을 클릭합니다. TodoActivity 프로젝트가 선택되었는지 확인하고 **마침**을 클릭합니다. 
 
  	![][15]
 
@@ -82,31 +82,29 @@
 
 4. **실행** 메뉴에서 **실행**을 클릭하여 Android 에뮬레이터에서 프로젝트를 시작합니다.
 
-	<div class="dev-callout"><strong>참고</strong> <p>Android 에뮬레이터에서 프로젝트를 실행할 수 있으려면 AVD(Android Virtual Device)를 하나 이상 정의해야 합니다. AVD Manager를 사용하여 이러한 장치를 만들고 관리합니다.</p></div>
+	> [AZURE.IMPORTANT] Android 에뮬레이터에서 프로젝트를 실행할 수 있으려면 AVD(Android Virtual Device)를 하나 이상 정의해야 합니다. AVD Manager를 사용하여 이러한 장치를 만들고 관리합니다.
 
 5. 앱에서 _자습서 완료_ 등의 의미 있는 텍스트를 입력하고 **추가**를 클릭합니다.
 
    	![][10]
 
-   	Azure에 호스트된 새 모바일 서비스에 POST 요청이 전송됩니다. 요청에서 데이터가 TodoItem 테이블에 삽입됩니다. TodoItem 테이블에 저장된 항목이 모바일 서비스에서 반환된 후 데이터가 목록에 표시됩니다.
+   Azure에 호스트된 새 모바일 서비스에 POST 요청이 전송됩니다. 요청의 데이터가 TodoItem 테이블에 삽입됩니다. TodoItem 테이블에 저장된 항목이 모바일 서비스에서 반환된 후 데이터가 목록에 표시됩니다.
 
-	<div class="dev-callout"><strong>참고</strong> 
-   	<p>모바일 서비스에 액세스하여 데이터를 쿼리 및 삽입하는 코드를 검토할 수 있습니다. 이 코드는 ToDoActivity.java 파일에 있습니다.</p>
- 	</div>
+	> [AZURE.NOTE] 모바일 서비스에 액세스하여 데이터를 쿼리 및 삽입하는 코드를 검토할 수 있습니다. 이 코드는 ToDoActivity.java 파일에 있습니다.
 
-<!--This shows how to run your new client app against the mobile service running in Azure. Before you can test the Android app with the mobile service running on a local computer, you must configure the Web server and firewall to allow access from your Android development computer. For more information, see [Configure the local web server to allow connections to a local mobile service](/ko-kr/documentation/articles/mobile-services-dotnet-backend-how-to-configure-iis-express).-->
+<!--Azure에서 실행 중인 모바일 서비스에 대해 새 클라이언트 앱을 실행하는 방법을 보여 줍니다. Before you can test the Android app with the mobile service running on a local computer, you must configure the Web server and firewall to allow access from your Android development computer. 자세한 내용은 [로컬 모바일 서비스에 연결할 수 있도록 로컬 웹 서버 구성](/ko-kr/documentation/articles/mobile-services-dotnet-backend-how-to-configure-iis-express).-->
 
 ## <a name="next-steps"> </a>다음 단계
-이제 빠른 시작을 완료했으며 모바일 서비스에서 중요한 추가 작업을 수행하는 방법을 알아보겠습니다. 
+이제 퀵 스타트를 완료했으며 모바일 서비스에서 중요한 추가 작업을 수행하는 방법을 알아보겠습니다. 
 
-* [데이터 작업 시작]
-  <br/>모바일 서비스를 사용하여 데이터를 저장하고 쿼리하는 방법을 알아봅니다.
+* [데이터 시작]
+  <br/>모바일 서비스를 사용하여 데이터를 저장 및 쿼리하는 방법에 대해 자세히 알아봅니다.
 
-* [인증 시작]
-  <br/>ID 공급자를 사용하여 앱 사용자를 인증하는 방법에 대해 알아봅니다.
+* [인증 시작](영문)
+  <br/>ID 공급자를 사용하여 앱 사용자를 인증하는 방법을 알아봅니다.
 
 * [푸시 알림 시작] 
-  <br/>매우 기본적인 푸시 알림을 앱에 보내는 방법을 알아봅니다.
+  <br/>앱에 기본적인 푸시 알림을 보내는 방법을 알아봅니다.
 
 * [모바일 서비스 .NET 백 엔드 문제 해결]
   <br/> 모바일 서비스 .NET 백 엔드에서 발생할 수 있는 문제를 진단하고 해결하는 방법에 알아봅니다. 
@@ -135,11 +133,14 @@
 [15]: ./media/mobile-services-dotnet-backend-android-get-started/mobile-services-import-android-project.png
 
 <!-- URLs. -->
-[데이터 작업 시작]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-android-get-started-data
+[데이터 시작]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-android-get-started-data
 [인증 시작]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-android-get-started-users
 [푸시 알림 시작]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-android-get-started-push
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
-[모바일 서비스 Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
+[모바일 서비스 Android SDK(영문)]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [모바일 서비스 .NET 백 엔드 문제 해결]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-how-to-troubleshoot/
 
 [관리 포털]: https://manage.windowsazure.com/
+
+
+<!--HONumber=42-->

@@ -1,142 +1,548 @@
-﻿<properties urlDisplayName="Websites with Django" pageTitle="Django를 사용하는 Python 웹 사이트 - Azure 자습서" metaKeywords="Azure django, django website" description="Azure에서 Python 웹 사이트를 실행하는 방법을 소개하는 자습서입니다." metaCanonical="" services="web-sites" documentationCenter="Python" title="Creating Websites with Django" authors="huvalo" solutions="" manager="wpickett" editor="" />
+﻿<properties 
+	pageTitle="Django를 사용하는 Python 웹 사이트 - Azure 자습서" 
+	description="Azure에서 Python 웹 사이트를 실행하는 방법을 소개하는 자습서입니다." 
+	services="web-sites" 
+	documentationCenter="python" 
+	authors="huguesv" 
+	manager="" 
+	editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="08/01/2014" ms.author="huvalo" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="python" 
+	ms.topic="article" 
+	ms.date="12/17/2014" 
+	ms.author="huvalo"/>
 
 
 
 
 # Django를 사용하여 웹 사이트 만들기
 
-이 자습서에서는 Azure 웹 사이트에서 Python을 실행하는 방법을 설명합니다.  Azure 웹 사이트는 제한된 무료 호스팅 및 신속한 배포 기능을 제공하며, 이제 Python도 사용할 수 있습니다!  앱이 증가하면 유료 호스팅으로 전환하여 다른 모든 Azure 서비스와 통합할 수도 있습니다.  
+이 자습서에서는 Azure 웹 사이트에서 Python을 실행하는 방법을 설명합니다.  Azure 웹 사이트는 제한된 무료 호스팅 및 신속한 배포 기능을 제공하며, Python을 사용할 수 있습니다!  앱이 증가하면 유료 호스팅으로 전환하여 다른 모든 Azure 서비스와 통합할 수도 있습니다.
 
-이 자습서에서는 Django 웹 프레임워크를 사용하여 빌드된 응용 프로그램을 배포하는 방법을 보여 줍니다.  이 자습서는 Django를 포함하여 응용 프로그램 및 필수 라이브러리를 배포하는 단계를 안내해 줍니다.  Git 리포지토리에 모든 항목을 넣으면 빠르고 간편하게 웹 사이트에 업데이트를 푸시할 수 있습니다.  마지막으로 Python 응용 프로그램을 실행하도록 Azure를 통해 새로 만든 사이트를 구성합니다.  
+먼저 Django 웹 프레임워크([Flask](../web-sites-python-create-deploy-flask-app) 및 [Bottle]은 이 자습서의 다른 버전(../web-sites-python-create-deploy-bottle-app)참조)를 사용하여 응용 프로그램을 만듭니다.  Azure 갤러리에서 웹 사이트를 만들고, Git 배포를 설치하고, 리포지토리를 로컬로 복제합니다.  그런 다음 응용 프로그램을 로컬로 실행하고, 변경한 다음, 이를 커밋하여 Azure에 푸시합니다.  이 자습서에서는 Windows 또는 Mac/Linux에서 이 작업을 수행하는 방법을 보여 줍니다.
 
-> [WACOM.NOTE]
-> 이 자습서를 완료하려면 Azure 계정이 필요합니다.  <a href="http://azure.microsoft.com/ko-kr/pricing/member-offers/msdn-benefits-details/">MSDN 구독자 혜택을 활성화</a> 또는 <a href="http://azure.microsoft.com/ko-kr/pricing/free-trial/">무료 Azure 평가판에 등록</a>할 수 있습니다.
+> [AZURE.NOTE]
+> 이 자습서를 완료하려면 Azure 계정이 필요합니다. <a href="http://azure.microsoft.com/ko-kr/pricing/member-offers/msdn-benefits-details/">MSDN 구독자 혜택을 활성화</a>하거나 <a href="http://azure.microsoft.com/ko-kr/pricing/free-trial/">무료 평가판을 등록</a>할 수 있습니다.
 > 
-> 계정을 등록하기 전에 Azure 웹 사이트를 시작하려면 <a href="https://trywebsites.azurewebsites.net/?language=python">https://trywebsites.azurewebsites.net</a>으로 이동합니다. 이 Azure 웹 사이트에서는 무료로 단기 ASP.NET 시작 사이트를 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+> 계정을 등록하기 전에 Azure 웹 사이트를 시작하려면 <a href="https://trywebsites.azurewebsites.net/?language=python">https://trywebsites.azurewebsites.net</a>으로 이동합니다. Azure 웹 사이트에서는 무료로 단기 ASP.NET 시작 사이트를 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
-이 자습서에서는 Python 2.7 및 Django 1.4를 사용합니다.  이러한 프로그램을 직접 구할 수도 있고 [http://www.windowsazure.com/ko-kr/develop/python/](http://www.windowsazure.com/ko-kr/develop/python/)에서 Windows Installer 링크를 사용하여 빠르고 쉽게 설치할 수도 있습니다.  
 
-**참고**: 이제 Azure 웹 사이트에는 Python(2.7.3 또는 3.4.0 중에서 선택) 및 wfastcgi 처리기가 미리 설치되어 있습니다.  그러나 Django와 같은 웹 프레임워크는 포함되어 있지 않습니다.  원하는 경우 다른 Python 인터프리터도 계속 사용할 수 있습니다.  Git 리포지토리에 원하는 인터프리터를 포함하고 이미 설치된 Python 2.7 인터프리터 대신 해당 인터프리터를 사용하도록 웹 사이트를 구성하면 됩니다.
++ [필수 조건](#prerequisites)
++ [포털에서 웹 사이트 만들기](#website-creation-on-portal)
++ [응용 프로그램 개요](#application-overview)
++ 웹 사이트 개발
+  + [Windows - Python Tools for Visual Studio](#website-development-windows-ptvs)
+  + [Windows - 명령줄](#website-development-windows-command-line)
+  + [Mac/Linux - 명령줄](#website-development-mac-linux-command-line)
++ [문제 해결 - 배포](#troubleshooting-deployment)
++ [문제 해결 - 패키지 설치](#troubleshooting-package-installation)
++ [문제 해결 - 가상 환경](#troubleshooting-virtual-environment)
++ [문제 해결 - 정적 파일](#troubleshooting-static-files)
++ [문제 해결 - 설정](#troubleshooting-settings)
++ [데이터베이스 사용](#using-a-database)
++ [Django 관리 인터페이스](#django-admin-interface)
++ [다음 단계](#next-steps)
 
-> [WACOM.NOTE] 웹 사이트의 구성 탭을 열고 **Python 버전** 설정을 변경하여 Azure 웹 사이트 포털에서 사용할 Python 버전을 선택할 수 있습니다.
 
-또한 Azure에 사이트를 푸시하는 배포 옵션을 설치해야 합니다. 다양한 배포 도구를 사용할 수 있지만 이 자습서에서는 Git를 사용합니다. [msysgit](http://code.google.com/p/msysgit/)을 사용하는 것이 좋습니다. 
+<h2><a name="prerequisites"></a>필수 조건</h2>
+
+- Windows, Mac 또는 Linux
+- Python 2.7 또는 3.4
+- setuptools, pip, virtualenv(Python 2.7 전용)
+- Git
+- Python Tools for Visual Studio(옵션)
 
 **참고**: 현재 Python 프로젝트에서는 TFS 게시를 사용할 수 없습니다.
 
-Python, Django 및 Git를 설치하면 필요한 모든 구성 요소를 충족하게 됩니다.
+### Windows
 
-## 포털에서 웹 사이트 만들기
+Python 2.7 또는 3.4(32비트)를 아직 설치하지 않은 경우 웹 플랫폼 설치 관리자를 사용하여 [Azure SDK for Python 2.7](http://go.microsoft.com/fwlink/?linkid=254281&clcid=0x409) 또는 [Azure SDK for Python 3.4](http://go.microsoft.com/fwlink/?LinkID=516990&clcid=0x409)를 설치하는 것이 좋습니다.  그러면 32비트 버전의 Python, setuptools, pip, virtualenv 등(32비트 Python은 Azure 호스트 컴퓨터에 설치되는 버전)이 설치됩니다.  또는 [python.org](http://www.python.org/)에서 Python을 다운로드할 수 있습니다.
 
-앱을 만드는 첫 번째 단계는 Azure 관리 포털을 통해 웹 사이트를 만드는 것입니다.  그렇게 하려면 포털에 로그인하여 왼쪽 아래 모서리에서 새로 만들기 단추를 클릭해야 합니다. 창이 나타납니다. **빠른 생성**을 클릭하고 URL을 입력하고 **웹 사이트 만들기**를 선택합니다.
+Git의 경우 [Windows용 Git](http://msysgit.github.io/)가 권장됩니다. 이 자습서에서는 Windows용 Git의 Git 셸을 사용합니다.  Visual Studio를 사용하는 경우 통합 Git 지원을 사용할 수 있습니다.
 
-![](./media/web-sites-python-create-deploy-django-app/django-ws-003.png)
+또한 [Python Tools for Visual Studio](http://pytools.codeplex.com)를 설치하는 것이 좋습니다.  이는 선택 사항이지만 [Visual Studio](http://www.visualstudio.com/)(무료 Visual Studio Express 2013 for Web 포함)가 있으면 Python IDE가 향상됩니다.
 
-사이트가 빠르게 설정됩니다.  그런 다음 Git를 통해 게시를 손쉽게 진행합니다.  **소스 제어에서 배포 설정**을 선택하면 됩니다.
+### Mac/Linux
 
-![](./media/web-sites-python-create-deploy-django-app/django-ws-004.png)
-
-**배포 설정** 대화 상자에서 아래로 스크롤하여 **로컬 Git** 옵션을 선택합니다. 오른쪽 화살표를 클릭하여 계속합니다.
-
-![](./media/web-sites-python-create-deploy-django-app/django-ws-005.png)
-
-Git 게시를 설정한 후 리포지토리가 만들어지고 있다고 알리는 페이지가 잠시 나타납니다. 리포지토리가 준비되면 배포 탭으로 이동됩니다. 배포 탭에는 연결하는 방법에 대한 지침이 포함되어 있습니다.  
-
-![](./media/web-sites-python-create-deploy-django-app/django-ws-006.png)
+Python 및 Git를 이미 설치했어야 하지만 Python 버전은 2.7 또는 3.4여야 합니다.
 
 
-## 웹 사이트 개발
+<h2><a name="website-creation-on-portal"></a>포털에서 웹 사이트 만들기</h2>
 
-Azure에서 Git 리포지토리를 만들었으므로 로컬 컴퓨터에서 웹 사이트로 리포지토리를 채웁니다.  첫 번째 단계는 제공된 URL을 사용하여 기존의 빈 사이트를 복제하는 것입니다.
+앱을 만드는 첫 번째 단계는 Azure 관리 포털을 통해 웹 사이트를 만드는 것입니다.  이렇게 하려면 포털에 로그인하여 왼쪽 아래 모서리에서 **새로 만들기** 단추를 클릭해야 합니다. 창이 나타납니다. **계산**, **웹 사이트**, **갤러리에서**를 차례로 클릭합니다.
 
-![](./media/web-sites-python-create-deploy-django-app/django-ws-007.png)
+![](./media/web-sites-python-create-deploy-django-app/portal-create-site.png)
 
-여기에서 웹 사이트에 대한 참여를 설정할 수 있습니다.  다음과 같은 몇 가지 작업을 수행해야 합니다.
+갤러리에서 사용할 수 있는 앱이 나열된 창이 나타납니다. 왼쪽에서 **앱 프레임워크** 범주를 클릭하고 **Django**를 선택합니다.
 
-1.  웹 사이트를 실행하기 위해 사용할 Django 라이브러리 및 기타 라이브러리를 포함합니다.
-2.  Django 응용 프로그램 코드를 포함합니다.
+![](./media/web-sites-python-create-deploy-django-app/portal-gallery-django.png)
 
-먼저, Django 라이브러리를 포함합니다.  그렇게 하려면 site-packages라는 새로운 디렉터리를 만들고 다음 명령을 사용하여 설치된 버전의 Django를 복사하세요.
+다음 페이지에서 사이트의 이름 및 지역을 입력하고 완료 단추를 클릭합니다.
 
-	mkdir site-packages
-	cd site-packages
-	xcopy /s C:\Python27\lib\site-packages\* .
+사이트가 빠르게 설정됩니다. 아래쪽 도구 모음에서 **찾아보기** 버튼을 클릭하여 Azure에서 실행되는 새 Django 응용 프로그램을 확인할 수 있습니다.
 
-이러한 명령은 Django를 포함하여 site-packages에 있는 모든 라이브러리를 복사합니다.  웹 사이트에 사용되지 않는 라이브러리가 있는 경우 제거하세요.
-
-![](./media/web-sites-python-create-deploy-django-app/django-ws-008.png)
+![](./media/web-sites-python-create-deploy-django-app/portal-website-django.png)
  
-그런 다음, 첫 번째 Django 응용 프로그램을 만듭니다.  이를 위해 명령줄에서 다른 Django 응용 프로그램을 만들거나 [Python Tools for Visual Studio](http://pytools.codeplex.com/) (영문)를 참조하여 프로젝트를 만들 수 있습니다.  두 옵션 모두가 아래에 나와 있습니다.
+그런 다음 Git를 통해 게시를 손쉽게 진행합니다.  **소스 제어에서 배포 설정**을 선택하면 됩니다.
 
-**옵션 1:** 
- 명령줄에서 새 프로젝트를 만들려면 다음 명령을 실행하세요. 이 명령은 DjangoApplication 폴더에 Django 응용 프로그램을 만듭니다.
+![](./media/web-sites-python-create-deploy-django-app/portal-site-created.png)
 
-	 C:\Python27\python.exe -m django.bin.django-admin startproject DjangoApplication
+**배포 설정** 대화 상자에서 아래로 스크롤하여 **로컬 Git 리포지토리** 옵션을 선택합니다. 오른쪽 화살표를 클릭하여 계속합니다.
 
-![](./media/web-sites-python-create-deploy-django-app/django-ws-010.png)
+![](./media/web-sites-python-create-deploy-django-app/portal-setup-deployment.png)
 
-**옵션 2:**  
-또한 Python Tools for Visual Studio를 사용하여 새로운 사이트를 만들 수도 있습니다.  Python Tools for Visual Studio가 설치된 Visual Studio를 시작하고 **파일**->**새 프로젝트**를 선택합니다.  **기타 언어**에서 Python 프로젝트로 이동하여 **Django 응용 프로그램**을 선택합니다.  프로젝트 이름으로 **DjangoApplication**을 입력하고 명령줄에서 Django 응용 프로그램을 만들 때와 같은 정확한 디렉터리 구조를 가져올 수 있도록 **솔루션용 디렉터리 만들기**가 선택 취소되어 있는지 확인하세요. 이 옵션은 Visual Studio 솔루션 및 프로젝트 파일을 설정하여 템플릿 디버깅 및 IntelliSense를 포함하는 뛰어난 로컬 개발 환경을 제공합니다.
+Git 게시를 설정한 후 리포지토리가 만들어지고 있다고 알리는 페이지가 잠시 나타납니다. 준비가 완료되면 연결 방법에 대한 지침이 표시됩니다.  
 
-![](./media/web-sites-python-create-deploy-django-app/django-ws-011.png)
+![](./media/web-sites-python-create-deploy-django-app/portal-repo-created.png)
 
-이제 방금 추가한 모든 파일을 추가하고 사이트를 Git로 푸시하면 됩니다.  그렇게 하려면 다음 명령을 실행하세요.
+다음 섹션에서 이러한 지침을 따릅니다.
 
-	git add DjangoApplication site-packages
-	git commit -m "Initial site"
-	git remote add azure https://dinov@pythonwebsite.scm.azurewebsites.net/PythonWebSite.git
-	git push azure master
 
-첫 번째 명령은 추적되지 않는 파일이 추적되도록 추가합니다.  두 번째 명령은 리포지토리에 방금 추가한 파일을 커밋합니다.  세 번째 명령은 리포지토리에 대한 원격을 *azure* 이름으로 추가합니다.  마지막 명령은 변경 내용을 적용하여 원격 리포지토리로 푸시합니다. 또한 마지막 명령은 배포도 시작합니다.  그렇게 하면 다음과 유사한 결과가 나타나야 합니다.
+<h2><a name="application-overview"></a>응용 프로그램 개요</h2>
 
-![](./media/web-sites-python-create-deploy-django-app/django-ws-013.png)
+### Git 리포지토리 콘텐츠
 
-푸시를 수행하면 Azure 포털이 새로 고쳐지고 활성 배포가 표시됩니다.
+다음은 초기 Git 리포지토리에 표시되는 파일의 개요입니다(다음 섹션에서 복제).
 
-![](./media/web-sites-python-create-deploy-django-app/django-ws-014.png)
+    \app\__init__.py
+    \app\forms.py
+    \app\models.py
+    \app\tests.py
+    \app\views.py
+    \app\static\content\
+    \app\static\fonts\
+    \app\static\scripts\
+    \app\templates\about.html
+    \app\templates\contact.html
+    \app\templates\index.html
+    \app\templates\layout.html
+    \app\templates\login.html
+    \app\templates\loginpartial.html
+    \DjangoWebProject\__init__.py
+    \DjangoWebProject\settings.py
+    \DjangoWebProject\urls.py
+    \DjangoWebProject\wsgi.py
 
-## 웹 사이트 구성
+응용 프로그램의 기본 소스.  마스터 레이아웃과 함께 3페이지(index, about, contact)로 구성됩니다.  정적 콘텐츠와 스크립트에는 bootstrap, jquery, modernizr 및 respond가 포함되어 있습니다.
 
-이제 Django 프로젝트에 대해 인식하도록 웹 사이트를 구성하고 wfastcgi 처리기를 사용해야 합니다.  이를 위해 화면 맨 위에 있는 구성을 클릭한 후 **앱 설정** 및 **처리기 매핑** 섹션이 있는 페이지 아래쪽으로 스크롤하세요.  
+    \manage.py
 
-여기에서 지정한 모든 설정은 실제 요청 중에 환경 변수로 전환됩니다.  즉, 이 설정을 사용하여 DJANGO\_SETTINGS\_MODULE 환경 변수와 PYTHONPATH 및 WSGI\_HANDLER를 구성할 수 있습니다.  응용 프로그램에 다른 구성 값이 있는 경우 여기에서 이러한 값을 할당하고 환경 외부에서 선택할 수 있습니다.  때로는 웹 사이트의 파일 경로를 설정할 수 있습니다. 예를 들어 PYTHONPATH에 대해 이 작업을 수행할 수 있습니다.  Azure 웹 사이트로 실행할 때 웹 사이트는 **D:\home\site\wwwroot\**에서 사용되므로, 디스크의 파일에 대한 전체 경로가 필요한 어떤 위치에서든 사용할 수 있습니다.
+로컬 관리 및 개발 서버 지원. 로컬로 응용 프로그램을 실행하고 데이터베이스를 동기화하는 등의 작업에 사용됩니다.
 
-Django 응용 프로그램을 설정하려면 환경 변수를 3개 만들어야 합니다.  첫 번째는 Django 응용 프로그램의 모듈 이름을 제공하는 DJANGO\_SETTINGS\_MODULE이며 구성에 사용됩니다.  두 번째는 설정 모듈이 사용되는 패키지를 지정하는 PYTHONPATH 환경 변수입니다. 세 번째는 WSGI\_HANDLER입니다.  이 변수의 이름은 모듈/패키지 이름과 사용할 모듈의 특성 순으로 지정됩니다(예: mypackage.mymodule.handler).  괄호를 추가하여 특성을 호출해야 한다는 것을 나타냅니다.  따라서 이러한 변수에 대해 다음과 같이 설정합니다.
-                
-	DJANGO_SETTINGS_MODULE    DjangoApplication.settings
-	PYTHONPATH                D:\home\site\wwwroot\DjangoApplication;D:\home\site\wwwroot\site-packages
-	WSGI_HANDLER              django.core.handlers.wsgi.WSGIHandler()
+    \db.sqlite3
 
-![](./media/web-sites-python-create-deploy-django-app/django-ws-015.png)
+기본 데이터베이스. 응용 프로그램을 실행하는 데 필요한 테이블이 포함되어 있지만 사용자는 포함되어 있지 않습니다(데이터베이스를 동기화하여 사용자를 만듬).
 
-이제 처리기 매핑을 구성해야 합니다.  그렇게 하려면 Python 인터프리터 경로 및 wfastcgi.py 스크립트를 사용하여 모든 확장에 대한 처리기를 등록합니다.
+    \DjangoWebProject.pyproj
+    \DjangoWebProject.sln
 
-	EXTENSION                 *
-	SCRIPT PROCESSOR PATH     D:\python27\python.exe
-	ADDITIONAL ARGUMENTS      D:\python27\scripts\wfastcgi.py
+[Python Tools for Visual Studio](http://pytools.codeplex.com)에서 사용되는 프로젝트 파일
 
-![](./media/web-sites-python-create-deploy-django-app/django-ws-016.png)
+    \ptvs_virtualenv_proxy.py
 
-여기서 맨 아래에 있는 **저장** 단추를 클릭할 수 있습니다.
+가상 환경용 IIS 프록시 및 PTVS 원격 디버깅 지원
 
-마지막으로 대시보드로 다시 돌아갑니다. 왼쪽 아래에 있는 **사이트 URL**로 이동합니다. 링크를 클릭하여 다음과 유사한 새 Django 사이트를 엽니다.
+    \requirements.txt
 
-![](./media/web-sites-python-create-deploy-django-app/django-ws-017.png)
+이 응용 프로그램에 필요한 외부 패키지. 배포 스크립트는 이 파일에 나열된 패키지를 pip 설치합니다.
+ 
+    \web.2.7.config
+    \web.3.4.config
 
-## 다음 단계
+IIS 구성 파일.  배포 스크립트에서는 적절한 web.x.y.config를 사용하며 이를 web.config로 복사합니다.
 
-여기에서 기존 도구를 사용하여 Django 응용 프로그램의 개발을 계속할 수 있습니다. 개발을 위해 [Python Tools for Visual Studio](http://pytools.codeplex.com/) 를 사용하는 경우 [VisualGit](http://code.google.com/p/visualgit/) 을 설치하여 Visual Studio 내에서 소스 제어 통합을 얻을 수 있습니다.  
+### 선택적 파일 - 배포 사용자 지정
 
-앱이 사용하는 언어가 Python 및 Django 외의 언어일 수도 있습니다.  [http://www.windowsazure.com/ko-kr/develop/python/](http://www.windowsazure.com/ko-kr/develop/python/)에서 설치 관리자를 사용하여 Python을 설치한 경우 PIP가 이미 설치되어 있을 것이며 이를 사용해서 새로운 종속성을 빠르게 추가할 수 있습니다.  예를 들어 자연어 툴킷 및 모든 종속성을 설치하려면 다음을 입력하세요.
+[AZURE.INCLUDE [web-sites-python-customizing-deployment](../includes/web-sites-python-customizing-deployment.md)]
 
-	pip install nltk
+### 선택적 파일 - Python 런타임
 
-그런 다음 C:\Python27\Lib\site-packages에서 로컬 site-packages 디렉터리로 파일을 복사하여 site-packages 디렉터리를 업데이트해야 합니다.
+[AZURE.INCLUDE [web-sites-python-customizing-runtime](../includes/web-sites-python-customizing-runtime.md)]
 
-파일을 복사한 후 **git status** 명령을 실행하여 새로 추가된 파일을 확인하고 **git add**와 **git commit**을 순서대로 사용하여 리포지토리의 변경 내용을 커밋합니다.  마지막으로 업데이트된 웹 사이트를 Azure로 배포하는 **git push**를 수행할 수 있습니다.
+### 서버의 추가 파일
 
-이제 DjangoApplication 디렉터리로 이동할 수 있으며, 일반적으로 새 응용 프로그램을 Django 프로젝트에 추가할 때 manage.py를 사용할 수 있습니다.  
+일부 파일은 서버에 있지만 git 리포지토리에 추가되지 않습니다.  이러한 파일은 배포 스크립트를 통해 생성됩니다.
 
-<!--HONumber=35.1-->
+    \web.config
+
+IIS 구성 파일.  모든 배포에서 web.x.y.config를 통해 생성됩니다.
+
+    \env\
+
+Python 가상 환경.  호환되는 가상 환경이 사이트에 없는 경우 배포 중에 생성됩니다.  requirements.txt에 나열된 패키지가 pip 설치되지만 패키지가 이미 설치된 경우에는 pip에서 설치를 건너뜁니다.
+
+다음 세 개의 섹션에서는 세 가지 환경에서 웹 사이트 배포를 계속 진행하는 방법에 대해 설명합니다.
+
+- Windows, Python Tools for Visual Studio 사용
+- Windows, 명령줄 사용
+- Mac/Linux, 명령줄 사용
+
+
+<h2><a name="website-development-windows-ptvs"></a>웹 사이트 배포 - Windows - Python Tools for Visual Studio</h2>
+
+### 리포지토리 복제
+
+먼저 Azure 포털에서 제공된 url을 사용하여 리포지토리를 복제합니다.
+
+![](./media/web-sites-python-create-deploy-django-app/ptvs-git-clone.png)
+
+리포지토리의 루트에 포함된 솔루션 파일(.sln)을 엽니다.
+
+![](./media/web-sites-python-create-deploy-django-app/ptvs-solution-django.png)
+
+### 가상 환경 만들기
+
+이제 로컬 개발을 위한 가상 환경을 만듭니다.  **Python Environments**를 마우스 오른쪽 단추로 클릭하고 **Add Virtual Environment...**를 선택합니다.
+
+- 환경 이름이  `env`인지 확인합니다.
+
+- 기본 해석기를 선택합니다.  runtime.txt 또는 사이트 구성 페이지에서 사이트용으로 선택된 Python과 동일한 버전을 사용해야 합니다.
+
+- 패키지를 다운로드하여 설치하는 옵션이 선택되어 있는지 확인합니다.
+
+![](./media/web-sites-python-create-deploy-django-app/ptvs-add-virtual-env-27.png)
+
+**만들기**를 클릭합니다.  가상 환경이 만들어지고 requirements.txt에 나열된 종속성이 설치됩니다.
+
+### superuser 만들기
+
+응용 프로그램에 포함된 데이터베이스에는 superuser가 정의되어 있지 않습니다.  응용 프로그램 또는 Django 관리 인터페이스(사용하도록 설정하려는 경우)에서 로그인 기능을 사용하려면 superuser를 만들어야 합니다.
+
+명령줄을 통해 프로젝트 폴더에서 다음을 실행합니다.
+
+    env\scripts\python manage.py createsuperuser
+
+프롬프트에 따라 사용자 이름, 암호 등을 설정합니다.
+
+### 개발 서버를 사용하여 실행
+
+F5 키를 눌러 디버깅을 시작하면 웹 브라우저에서 로컬로 실행되는 페이지가 자동으로 열립니다.
+
+![](./media/web-sites-python-create-deploy-django-app/windows-browser-django.png)
+
+소스에서 중단점을 설정하고, 조사식 창을 사용할 수 있습니다. 여러 기능에 대한 자세한 내용은 [PTVS 설명서](http://pytools.codeplex.com/documentation)를 참조하세요.
+
+### 변경 작업
+
+이제 응용 프로그램 소스 및/또는 템플릿을 변경하여 실험할 수 있습니다.
+
+변경 내용을 테스트한 후 Git 리포지토리에 커밋합니다.
+
+![](./media/web-sites-python-create-deploy-django-app/ptvs-commit-django.png)
+
+### 추가 패키지 설치
+
+응용 프로그램에 Python 및 Django 이외의 종속성이 있을 수 있습니다.
+
+pip를 사용하여 추가 패키지를 설치할 수 있습니다.  패키지를 설치하려면 가상 환경을 마우스 오른쪽 단추로 클릭하고 **Python 패키지 설치**를 선택합니다.
+
+예를 들어 Azure 저장소, 서비스 버스 및 기타 Azure 서비스에 대한 액세스를 제공하는 Azure SDK for Python을 설치하려면  `azure`를 입력합니다.
+
+![](./media/web-sites-python-create-deploy-django-app/ptvs-install-package-dialog.png)
+
+가상 환경을 마우스 오른쪽 단추로 클릭하고 **Generate requirements.txt**를 선택하고 requirements.txt를 업데이트합니다.
+
+그런 다음 requirements.txt의 변경 내용을 Git 리포지토리에 커밋합니다.
+
+### Azure에 배포
+
+배포를 트리거하려면 **Sync** 또는 **Push**를 클릭합니다.  Sync는 밀어넣기와 끌어오기를 둘 다 수행합니다.
+
+![](./media/web-sites-python-create-deploy-django-app/ptvs-git-push.png)
+
+첫 배포에서는 가상 환경 만들기, 패키지 설치 등의 작업이 수행되므로 약간의 시간이 걸립니다.
+
+Visual Studio에는 배포 진행률이 표시되지 않습니다.  출력을 검토하려면 [문제 해결 - 배포] 섹션을 참조하세요(#troubleshooting-deployment).
+
+Azure URL로 이동하여 변경 내용을 확인합니다.
+
+
+<h2><a name="website-development-windows-command-line"></a>웹 사이트 배포 - Windows - 명령줄</h2>
+
+### 리포지토리 복제
+
+먼저 Azure 포털에서 제공된 url을 사용하여 리포지토리를 복제하고 Azure 리포지토리를 원격으로 추가합니다.
+
+    git clone <repo-url>
+    cd <repo-folder>
+    git remote add azure <repo-url> 
+
+### 가상 환경 만들기
+
+개발을 위해 새 가상 환경을 만듭니다(리포지토리에 추가 안 함).  Python의 가상 환경은 재할당할 수 없으므로 응용 프로그램에서 작업하는 모든 개발자가 각자 로컬로 만듭니다.
+
+runtime.txt 또는 사이트 구성 페이지에서 사이트용으로 선택된 Python과 동일한 버전을 사용해야 합니다.
+
+Python 2.7:
+
+    c:\python27\python.exe -m virtualenv env
+
+Python 3.4:
+
+    c:\python34\python.exe -m venv env
+
+응용 프로그램에 필요한 모든 외부 패키지를 설치합니다. 리포지토리의 루트에 있는 requirements.txt 파일을 사용하여 가상 환경에 패키지를 설치합니다.
+
+    env\scripts\pip install -r requirements.txt
+
+### superuser 만들기
+
+응용 프로그램에 포함된 데이터베이스에는 superuser가 정의되어 있지 않습니다.  응용 프로그램 또는 Django 관리 인터페이스(사용하도록 설정하려는 경우)에서 로그인 기능을 사용하려면 superuser를 만들어야 합니다.
+
+명령줄을 통해 프로젝트 폴더에서 다음을 실행합니다.
+
+    env\scripts\python manage.py createsuperuser
+
+프롬프트에 따라 사용자 이름, 암호 등을 설정합니다.
+
+### 개발 서버를 사용하여 실행
+
+다음 명령을 사용하여 개발 서버에서 응용 프로그램을 시작할 수 있습니다.
+
+    env\scripts\python manage.py runserver
+
+콘솔에 서버에서 수신 대기하는 URL 및 포트가 표시됩니다.
+
+![](./media/web-sites-python-create-deploy-django-app/windows-run-local-django.png)
+
+그러면 이 URL로 웹 브라우저를 엽니다.
+
+![](./media/web-sites-python-create-deploy-django-app/windows-browser-django.png)
+
+### 변경 작업
+
+이제 응용 프로그램 소스 및/또는 템플릿을 변경하여 실험할 수 있습니다.
+
+변경 내용을 테스트한 후 Git 리포지토리에 커밋합니다.
+
+    git add <modified-file>
+    git commit -m "<commit-comment>"
+
+### 추가 패키지 설치
+
+응용 프로그램에 Python 및 Django 이외의 종속성이 있을 수 있습니다.
+
+pip를 사용하여 추가 패키지를 설치할 수 있습니다.  예를 들어 Azure 저장소, 서비스 버스 및 기타 Azure 서비스에 대한 액세스를 제공하는 Azure SDK for Python을 설치하려면 다음을 입력합니다.
+
+    env\scripts\pip install azure
+
+requirements.txt를 업데이트합니다.
+
+    env\scripts\pip freeze > requirements.txt
+
+변경 내용을 커밋합니다.
+
+    git add requirements.txt
+    git commit -m "Added azure package"
+
+### Azure에 배포
+
+배포를 트리거하려면 변경 내용을 Azure에 푸시합니다.
+
+    git push azure master
+
+가상 환경 생성, 패키지 설치, web.config 생성 등 배포 스크립트의 출력이 표시됩니다.
+
+Azure URL로 이동하여 변경 내용을 확인합니다.
+
+
+<h2><a name="website-development-mac-linux-command-line"></a>웹 사이트 배포 - Mac/Linux - 명령줄</h2>
+
+### 리포지토리 복제
+
+먼저 Azure 포털에서 제공된 url을 사용하여 리포지토리를 복제하고 Azure 리포지토리를 원격으로 추가합니다.
+
+    git clone <repo-url>
+    cd <repo-folder>
+    git remote add azure <repo-url> 
+
+### 가상 환경 만들기
+
+개발을 위해 새 가상 환경을 만듭니다(리포지토리에 추가 안 함).  Python의 가상 환경은 재할당할 수 없으므로 응용 프로그램에서 작업하는 모든 개발자가 각자 로컬로 만듭니다.
+
+runtime.txt 또는 사이트 구성 페이지에서 사이트용으로 선택된 Python과 동일한 버전을 사용해야 합니다.
+
+Python 2.7:
+
+    python -m virtualenv env
+
+Python 3.4:
+
+    python -m venv env
+
+응용 프로그램에 필요한 모든 외부 패키지를 설치합니다. 리포지토리의 루트에 있는 requirements.txt 파일을 사용하여 가상 환경에 패키지를 설치합니다.
+
+    env/bin/pip install -r requirements.txt
+
+### superuser 만들기
+
+응용 프로그램에 포함된 데이터베이스에는 superuser가 정의되어 있지 않습니다.  응용 프로그램 또는 Django 관리 인터페이스(사용하도록 설정하려는 경우)에서 로그인 기능을 사용하려면 superuser를 만들어야 합니다.
+
+명령줄을 통해 프로젝트 폴더에서 다음을 실행합니다.
+
+    env/bin/python manage.py createsuperuser
+
+프롬프트에 따라 사용자 이름, 암호 등을 설정합니다.
+
+### 개발 서버를 사용하여 실행
+
+다음 명령을 사용하여 개발 서버에서 응용 프로그램을 시작할 수 있습니다.
+
+    env/bin/python manage.py runserver
+
+콘솔에 서버에서 수신 대기하는 URL 및 포트가 표시됩니다.
+
+![](./media/web-sites-python-create-deploy-django-app/mac-run-local-django.png)
+
+그러면 이 URL로 웹 브라우저를 엽니다.
+
+![](./media/web-sites-python-create-deploy-django-app/mac-browser-django.png)
+
+### 변경 작업
+
+이제 응용 프로그램 소스 및/또는 템플릿을 변경하여 실험할 수 있습니다.
+
+변경 내용을 테스트한 후 Git 리포지토리에 커밋합니다.
+
+    git add <modified-file>
+    git commit -m "<commit-comment>"
+
+### 추가 패키지 설치
+
+응용 프로그램에 Python 및 Django 이외의 종속성이 있을 수 있습니다.
+
+pip를 사용하여 추가 패키지를 설치할 수 있습니다.  예를 들어 Azure 저장소, 서비스 버스 및 기타 Azure 서비스에 대한 액세스를 제공하는 Azure SDK for Python을 설치하려면 다음을 입력합니다.
+
+    env/bin/pip install azure
+
+requirements.txt를 업데이트합니다.
+
+    env/bin/pip freeze > requirements.txt
+
+변경 내용을 커밋합니다.
+
+    git add requirements.txt
+    git commit -m "Added azure package"
+
+### Azure에 배포
+
+배포를 트리거하려면 변경 내용을 Azure에 푸시합니다.
+
+    git push azure master
+
+가상 환경 생성, 패키지 설치, web.config 생성 등 배포 스크립트의 출력이 표시됩니다.
+
+Azure URL로 이동하여 변경 내용을 확인합니다.
+
+
+<h2><a name="troubleshooting-deployment"></a>문제 해결 - 배포</h2>
+
+[AZURE.INCLUDE [web-sites-python-troubleshooting-deployment](../includes/web-sites-python-troubleshooting-deployment.md)]
+
+
+<h2><a name="troubleshooting-package-installation"></a>문제 해결 - 패키지 설치</h2>
+
+[AZURE.INCLUDE [web-sites-python-troubleshooting-package-installation](../includes/web-sites-python-troubleshooting-package-installation.md)]
+
+
+<h2><a name="troubleshooting-virtual-environment"></a>문제 해결 - 가상 환경</h2>
+
+[AZURE.INCLUDE [web-sites-python-troubleshooting-virtual-environment](../includes/web-sites-python-troubleshooting-virtual-environment.md)]
+
+
+<h2><a name="troubleshooting-static-files"></a>문제 해결 - 정적 파일</h2>
+
+Django에는 정적 파일 수집 개념이 있습니다.  이는 모든 정적 파일을 원래 위치에서 가져와 단일 폴더에 복사합니다.  이 응용 프로그램의 경우  `/static`에 복사됩니다.
+
+이 작업은 정적 파일이 다른 Django  'apps'에서 가져온 파일일 수 있기 때문에 수행됩니다.  예를 들어 Django 관리 인터페이스의 정적 파일은 가상 환경에서 Django 라이브러리 하위 폴더에 있습니다.  이 응용 프로그램에서 정의된 정적 파일은  `/app/static`에 있습니다.  추가 Django  'apps'을 사용할 경우 정적 파일을 여러 위치에 둘 수 있습니다.
+
+디버그 모드에서 응용 프로그램을 실행할 때는 정적 파일이 원래 위치에서 제공됩니다.
+
+릴리스 모드에서 응용 프로그램을 실행할 때는 정적 파일이 제공되지 **않습니다**.  이 경우 웹 서버에서 파일을 제공합니다.  이 응용 프로그램의 경우 IIS가  `/static`에서 정적 파일을 제공합니다.
+
+정적 파일 수집은 배포 스크립트의 일부로 자동으로 수행되며, 이전에 수집된 파일은 지워집니다.  따라서 모든 배포에서 수집이 발생하기 때문에 배포가 약간 느려지지만 오래된 파일은 사용할 수 없게 되므로 잠재적 보안 문제가 방지됩니다. 
+
+Django 응용 프로그램에 대한 정적 파일 수집을 건너뛰려면 다음을 실행합니다.
+
+    \.skipDjango 
+
+그런 다음 로컬 컴퓨터에서 수동으로 수집을 수행해야 합니다.
+
+    env\scripts\python manage.py collectstatic
+
+그런 다음  `\static` 폴더를  `.gitignore`에서 제거하고 Git 리포지토리에 추가합니다.
+
+
+<h2><a name="troubleshooting-settings"></a>문제 해결 - 설정</h2>
+
+응용 프로그램의 여러 설정이  `DjangoWebProject/settings.py`에서 변경될 수 있습니다.
+
+개발자의 편의를 위해 디버그 모드가 사용하도록 설정됩니다.  이 모드의 장점은 로컬로 실행할 때 정적 파일을 수집하지 않고도 이미지 및 다른 정적 콘텐츠를 볼 수 있다는 점입니다.
+
+디버그 모드를 사용하지 않도록 설정하려면 다음을 실행합니다.
+
+    DEBUG = False
+
+디버그가 사용하지 않도록 설정되면 Azure 호스트 이름을 포함하도록  `ALLOWED_HOSTS` 값을 업데이트해야 합니다.  예를 들면 다음과 같습니다.
+
+    ALLOWED_HOSTS = (
+        'pythonapp.azurewebsites.net',
+    )
+
+또는 모두 사용하도록 설정하려면 다음을 실행합니다.
+
+    ALLOWED_HOSTS = (
+        '*',
+    )
+ 
+실제로는 디버그 모드와 릴리스 모드 간의 전환 및 호스트 이름 가져오기를 처리하기 위해 보다 복잡한 작업을 수행할 수 있습니다.
+
+Azure 포털 **구성** 페이지의 **앱 설정** 섹션에서 환경 변수를 설정할 수 있습니다.  이는 소스에 표시하지 않으려는 값(연결 문자열, 암호 등)을 설정하거나, Azure와 로컬 컴퓨터 간에 다르게 설정하려는 경우에 유용할 수 있습니다.   `settings.py`에서  `os.getenv`를 사용하여 환경 변수를 쿼리할 수 있습니다.
+
+
+<h2><a name="using-a-database"></a>데이터베이스 사용</h2>
+
+응용 프로그램에 포함된 데이터베이스는 sqlite 데이터베이스입니다.  이는 필요한 설정이 거의 없으므로 개발용으로 편리하고 유용한 기본 데이터베이스입니다.  이 데이터베이스는 프로젝트 폴더의 db.sqlite3 파일에 저장됩니다.
+
+Azure에서는 Django 응용 프로그램에서 쉽게 사용할 수 있는 데이터베이스 서비스를 제공합니다.  Django 응용 프로그램에서 [SQL 데이터베이스](../web-sites-python-ptvs-django-sql) 및 [MySQL](../web-sites-python-ptvs-django-mysql)을 사용하는 방법에 대한 자습서에는 데이터베이스 서비스를 만들고,  `DjangoWebProject/settings.py`에서 데이터베이스 설정을 변경하고, 설치하는 데 필요한 라이브러리를 가져오는 데 필요한 단계가 나와 있습니다.
+
+물론 자체 데이터베이스 서버를 관리하려는 경우에는 Azure에서 실행되는 Windows 또는 Linux 가상 컴퓨터를 사용하여 관리할 수 있습니다.
+
+
+<h2><a name="django-admin-interface"></a>Django 관리 인터페이스</h2>
+
+모델을 빌드하기 시작했으면 일부 데이터로 데이터베이스를 채워야 합니다.  콘텐츠를 대화형으로 추가하고 편집하는 간편한 방법은 Django 관리 인터페이스를 사용하는 것입니다.
+
+관리 인터페이스의 코드는 응용 프로그램 소스에서 주석 처리되지만 쉽게 설정할 수 있도록 명확히 표시되어 있습니다( 'admin' 검색).
+
+사용하도록 설정한 후에는 데이터베이스를 동기화하고 응용 프로그램을 실행한 후  `/admin`으로 이동하세요.
+
+
+<h2><a name="next-steps"></a>다음 단계</h2>
+
+Django 및 Python Tools for Visual Studio에 대한 자세한 내용은 다음 링크를 참조하세요. 
+ 
+- [Django 설명서][]
+- [Python Tools for Visual Studio 설명서][] 
+
+SQL 데이터베이스 및 MySQL 사용에 대한 자세한 정보:
+
+- [Python Tools 2.1 for Visual Studio가 있는 Azure의 Django 및 SQL 데이터베이스][]
+- [Python Tools 2.1 for Visual Studio가 있는 Azure의 Django 및 MySQL][]
+
+
+<!--Link references-->
+[Python Tools 2.1 for Visual Studio가 있는 Azure의 Django 및 MySQL]: ../web-sites-python-ptvs-django-mysql
+[Python Tools 2.1 for Visual Studio가 있는 Azure의 Django 및 SQL 데이터베이스]: ../web-sites-python-ptvs-django-sql
+
+<!--External Link references-->
+[Python Tools for Visual Studio 설명서] : http://pytools.codeplex.com/documentation 
+[Django 설명서]: https://www.djangoproject.com/
+
+
+
+<!--HONumber=42-->

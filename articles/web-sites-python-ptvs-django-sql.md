@@ -1,13 +1,27 @@
-﻿<properties linkid="web-sites-python-ptvs-django-sql" title="Django and SQL Database on Azure with Python Tools 2.1 for Visual Studio" pageTitle="Python Tools 2.1 for Visual Studio가 있는 Azure의 Bottle 및 MongoDB" description="Python Tools for Visual Studio를 사용하여 SQL 데이터베이스 인스턴스에 데이터를 저장하고 웹 사이트에 배포될 수 있는 Django 응용 프로그램을 만드는 방법을 알아봅니다." metaKeywords="" services="" solutions="" documentationCenter="Python" authors="huvalo" videoId="" scriptId="" manager="wpickett" editor="" />
+﻿<properties 
+	pageTitle="Python Tools 2.1 for Visual Studio가 있는 Azure의 Django 및 SQL 데이터베이스" 
+	description="Python Tools for Visual Studio를 사용하여 SQL 데이터베이스 인스턴스에 데이터를 저장하고 웹 사이트에 배포할 수 있는 Django 응용 프로그램을 만드는 방법에 대해 알아봅니다. 
+	services="" 
+	documentationCenter="python" 
+	authors="huguesv" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="10/10/2014" ms.author="huvalo" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="python" 
+	ms.topic="article" 
+	ms.date="10/10/2014" 
+	ms.author="huvalo"/>
 
 
 
 
 # Python Tools 2.1 for Visual Studio가 있는 Azure의 Django 및 SQL 데이터베이스 
 
-이 자습서에서는 PTVS 샘플 템플릿 중 하나를 사용하여 간단한 설문 조사 응용 프로그램을 만들어 보겠습니다. 이 자습서는 [비디오](https://www.youtube.com/watch?v=ZwcoGcIeHF4)로도 사용할 수 있습니다.
+이 자습서에서는 PTVS 샘플 템플릿 중 하나를 사용하여 간단한 설문 조사 응용 프로그램을 만들어 보겠습니다. 이 자습서는 [비디오](https://www.youtube.com/watch?v=ZwcoGcIeHF4)로도 제공됩니다.
 
 Azure에서 호스트된 SQL 데이터베이스를 사용하는 방법, SQL 데이터베이스를 사용하도록 응용 프로그램을 구성하는 방법 및 Azure 웹 사이트에 응용 프로그램을 게시하는 방법을 알아봅니다.
 
@@ -23,12 +37,12 @@ Bottle, Flask 및 Django 웹 프레임워크, MongoDB, Azure 테이블 저장소
 ##<a name="prerequisites"></a>필수 조건
 
  - Visual Studio 2012 또는 2013
- - [Python Tools 2.1 for Visual Studio][](영문)
- - [Python Tools 2.1 for Visual Studio 샘플 VSIX][](영문)
+ - [Python Tools 2.1 for Visual Studio][]
+ - [Python Tools 2.1 for Visual Studio 샘플 VSIX][]
  - [Azure SDK Tools for VS 2013][] 또는 [Azure SDK Tools for VS 2012][]
- - [Python 2.7 32비트][](영문)
+ - [Python 2.7 32비트][]
 
-[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
+[AZURE.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 ##<a name="create-the-project"></a>프로젝트 만들기
 
@@ -84,7 +98,7 @@ Bottle, Flask 및 Django 웹 프레임워크, MongoDB, Azure 테이블 저장소
 
 1.  [Azure 관리 포털][]에 로그인합니다.
 
-1.  탐색 창 맨 아래쪽에서 **새로 만들기**를 클릭합니다.
+1.  탐색 창 맨 아래에 있는 **새로 만들기**를 클릭합니다.
 
   	![New Button](./media/web-sites-python-ptvs-django-sql/PollsCommonAzurePlusNew.png)
 
@@ -118,7 +132,7 @@ Bottle, Flask 및 Django 웹 프레임워크, MongoDB, Azure 테이블 저장소
 
   	![Allowed Services](./media/web-sites-python-ptvs-django-sql/PollsDjangoSqlAllowedServices.png)
 
-1.  Visual Studio에서 *ProjectName* 폴더의 **settings.py**를 엽니다. `DATABASES`의 정의를 편집합니다.
+1.  Visual Studio에서  *ProjectName* 폴더의 **settings.py**를 엽니다.  `DATABASES`의 정의를 편집합니다.
 
         DATABASES = {
             'default': {
@@ -135,17 +149,17 @@ Bottle, Flask 및 Django 웹 프레임워크, MongoDB, Azure 테이블 저장소
             }
         }
 
-    `<DatabaseName>`, `<User>` 및 `<Password>`는 데이터베이스 및 서버를 만들 때 지정한 값입니다.
+    `<DatabaseName>`, `<User>` 및 `<Password>`는 데이터베이스와 서버를 만들 때 지정한 값입니다.
 
     서버가 만들어질 때 `<ServerName>` 및 `<ServerPort>`의 값이 Azure에서 생성되며 **데이터베이스에 연결** 섹션에서 찾을 수 있습니다.
 
 1.  솔루션 탐색기의 **Python Environments**에서 가상 환경을 마우스 오른쪽 단추로 클릭하고 **Install Python Package**를 선택합니다.
 
-1.  **easy_install**을 사용하여 패키지 `pyodbc`를 설치합니다.
+1.  **easy_install**을 사용하여 패키지  `pyodbc`를 설치합니다.
 
   	![Install Python Package Dialog](./media/web-sites-python-ptvs-django-sql/PollsDjangoSqlInstallPackagePyodbc.png)
 
-1.  **pip**를 사용하여 패키지 `django-pyodbc-azure`를 설치합니다.
+1.  **easy_install**을 사용하여 패키지  `django-pyodbc-azure`를 설치합니다.
 
   	![Install Python Package Dialog](./media/web-sites-python-ptvs-django-sql/PollsDjangoSqlInstallPackageDjangoPyodbcAzure.png)
 
@@ -186,11 +200,11 @@ PTVS는 Azure 웹 사이트에 웹 응용 프로그램을 배포하는 쉬운 �
 
 Python Tools for Visual Studio, Django and SQL 및 SQL 데이터베이스에 대해 자세히 알아보려면 다음 링크를 참조하세요.
 
-- [Python Tools for Visual Studio 설명서][](영문)
-  - [웹 프로젝트][](영문)
-  - [클라우드 서비스 프로젝트][](영문)
-  - [Microsoft Azure의 원격 디버깅][](영문)
-- [Django 설명서][](영문)
+- [Python Tools for Visual Studio 설명서][]
+  - [웹 프로젝트][]
+  - [클라우드 서비스 프로젝트][]
+  - [Microsoft Azure의 원격 디버깅][]
+- [Django 설명서][]
 - [SQL 데이터베이스][]
 
 
@@ -200,16 +214,17 @@ Python Tools for Visual Studio, Django and SQL 및 SQL 데이터베이스에 대
 
 <!--External Link references-->
 [Azure 관리 포털]: https://manage.windowsazure.com
-[Python Tools 2.1 for Visual Studio](영문): http://go.microsoft.com/fwlink/?LinkId=517189
-[Python Tools 2.1 for Visual Studio 샘플 VSIX](영문): http://go.microsoft.com/fwlink/?LinkId=517189
-[Azure SDK Tools for VS 2013](영문): http://go.microsoft.com/fwlink/?LinkId=323510
-[Azure SDK Tools for VS 2012](영문): http://go.microsoft.com/fwlink/?LinkId=323511
-[Python 2.7 32비트](영문): http://go.microsoft.com/fwlink/?LinkId=517190 
-[Python Tools for Visual Studio 설명서](영문): http://pytools.codeplex.com/documentation
-[Microsoft Azure의 원격 디버깅](영문): http://pytools.codeplex.com/wikipage?title=Features%20Azure%20Remote%20Debugging
-[웹 프로젝트](영문): http://pytools.codeplex.com/wikipage?title=Features%20Web%20Project
-[클라우드 서비스 프로젝트](영문): http://pytools.codeplex.com/wikipage?title=Features%20Cloud%20Project
-[Django 설명서](영문): https://www.djangoproject.com/
+[Python Tools 2.1 for Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
+[Python Tools 2.1 for Visual Studio 샘플 VSIX]: http://go.microsoft.com/fwlink/?LinkId=517189
+[Azure SDK Tools for VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
+[Azure SDK Tools for VS 2012]: http://go.microsoft.com/fwlink/?LinkId=323511
+[Python 2.7 32비트]: http://go.microsoft.com/fwlink/?LinkId=517190 
+[Python Tools for Visual Studio 설명서]: http://pytools.codeplex.com/documentation
+[Microsoft Azure의 원격 디버깅]: http://pytools.codeplex.com/wikipage?title=Features%20Azure%20Remote%20Debugging
+[웹 프로젝트]: http://pytools.codeplex.com/wikipage?title=Features%20Web%20Project
+[클라우드 서비스 프로젝트]: http://pytools.codeplex.com/wikipage?title=Features%20Cloud%20Project
+[Django 설명서]: https://www.djangoproject.com/
 [SQL 데이터베이스]: /ko-kr/documentation/services/sql-database/
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="How to configure" pageTitle="웹 사이트를 구성하는 방법 - Azure 서비스 관리" metaKeywords="Azure 웹 사이트, Azure 웹 사이트 구성, Azure SQL 데이터베이스, Azure MySQL" description="SQL 데이터베이스 또는 MySQL 데이터베이스를 사용하도록 웹 사이트를 구성하는 방법을 포함하여 Azure에서 웹 사이트를 구성하는 방법에 대해 알아봅니다." metaCanonical="" services="web-sites" documentationCenter="" title="How to Configure Websites" authors="mwasson" solutions="" manager="wpickett" editor="mollybos" />
+﻿<properties 
+	pageTitle="웹 사이트를 구성하는 방법 - Azure 서비스 관리" 
+	description="SQL 데이터베이스 또는 MySQL 데이터베이스를 사용하도록 웹 사이트를 구성하는 방법을 포함하여 Azure에서 웹 사이트를 구성하는 방법에 대해 알아봅니다." 
+	services="web-sites" 
+	documentationCenter="" 
+	authors="MikeWasson" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/18/2014" ms.author="mwasson" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/18/2014" 
+	ms.author="mwasson"/>
 
 
 # 웹 사이트를 구성하는 방법 #
@@ -31,10 +45,10 @@ Azure 관리 포털에서 웹 사이트의 구성 옵션 및 데이터베이스�
 **프레임워크 버전**. 앱에서 다음 프레임워크를 사용하는 경우 이러한 옵션을 설정합니다. 
 
 - **.NET Framework**: .NET Framework 버전을 설정합니다. 
-- **PHP**: PHP 버전을 설정하거나, PHP를 사용하지 않도록 설정하려면 **끄기**를 선택합니다. 
-- **Java**: 표시된 버전을 선택하여 Java를 사용하도록 설정하거나, <strong>끄기</strong>를 선택하여 Java를 사용하지 않도록 설정합니다. 
+- **PHP**: PHP 버전을 설정합니다. PHP를 사용하지 않도록 설정하려면 **끄기**를 선택합니다. 
+- **Java**: 표시된 버전을 선택하여 Java를 사용하도록 설정합니다. Java를 사용하지 않도록 설정하려면 <strong>끄기</strong>를 선택합니다. 
 - Java를 사용하도록 설정한 경우 <strong>웹 컨테이너</strong> 옵션을 사용하여 Tomcat 버전과 Jetty 버전 간에 선택합니다.
-- **Python**: Python 버전을 설정하거나, Python을 사용하지 않도록 설정하려면 **끄기**를 선택합니다.
+- **Python**: Python 버전을 설정합니다. PHP를 사용하지 않도록 설정하려면 **끄기**를 선택합니다.
 
 기술적인 이유로, 웹 사이트에 Java를 사용하도록 설정하면 .NET, PHP 및 Python 옵션은 사용하지 않도록 설정됩니다.
 
@@ -44,16 +58,16 @@ Azure 관리 포털에서 웹 사이트의 구성 옵션 및 데이터베이스�
 
 <strong>웹 소켓</strong>. WebSocket 프로토콜을 사용하도록 설정하려면 **켜기**를 설정합니다. 예를 들어 웹 사이트에서 [ASP.NET SignalR](http://www.asp.net/signalr) 또는 [socket.io](http://azure.microsoft.com/ko-kr/documentation/articles/web-sites-nodejs-chat-app-socketio/)를 사용하는 경우가 여기에 해당합니다.
 
-<strong>Always On</strong>. 기본적으로 웹 사이트는 일정 기간 동안 유휴 상태인 경우 언로드됩니다. 이를 통해 시스템 리소스가 절약됩니다. 기본 또는 표준 모드에서는 <strong>Always On</strong>을 사용하도록 설정하여 사이트를 항상 로드된 상태로 유지할 수 있습니다. 사이트에서 지속형 웹 작업을 실행하는 경우 **Always On**을 사용하도록 설정해야 합니다. 그렇지 않으면 웹 작업이 안정적으로 실행되지 않을 수 있습니다.
+<strong>무중단</strong>. 기본적으로 웹 사이트는 일정 기간 동안 유휴 상태인 경우 언로드됩니다. 이를 통해 시스템 리소스가 절약됩니다. 기본 또는 표준 모드에서는 <strong>무중단</strong>을 사용하도록 설정하여 사이트를 항상 로드된 상태로 유지할 수 있습니다. 사이트에서 지속형 웹 작업을 실행하는 경우 **무중단**을 사용하도록 설정해야 합니다. 그렇지 않으면 웹 작업이 안정적으로 실행되지 않을 수 있습니다.
 
-<strong>Visual Studio Online에서 편집</strong>. Visual Studio Online에서 라이브 코드 편집 기능을 사용하도록 설정합니다. 사용하도록 설정된 경우 대시보드 탭의 <strong>간략 상태</strong> 섹션 아래에 <strong>Visual Studio Online에서 편집</strong>이라는 링크가 표시됩니다. 이 링크를 클릭하면 웹 사이트를 온라인에서 직접 편집할 수 있습니다. 인증해야 하는 경우 기본 배포 자격 증명을 사용할 수 있습니다.
+<strong>Visual Studio Online에서 편집</strong>. Visual Studio Online에서 라이브 코드 편집 기능을 사용하도록 설정합니다. 사용하도록 설정된 경우 대시보드 탭의 <strong>빠른 보기</strong> 섹션 아래에 <strong>Visual Studio Online에서 편집</strong>이라는 링크가 표시됩니다. 이 링크를 클릭하면 웹 사이트를 온라인에서 직접 편집할 수 있습니다. 인증해야 하는 경우 기본 배포 자격 증명을 사용할 수 있습니다.
 
 참고: 소스 제어에서 배포를 사용하도록 설정한 경우 배포가 Visual Studio Online 편집기에서 변경한 사항을 덮어쓸 수 있습니다. 
 
 
 ### 인증서
 
-기본 또는 표준 모드에서는 사용자 지정 도메인에 대해 SSL 인증서를 업로드할 수 있습니다. 자세한 내용은 [Azure 웹 사이트에 HTTPS 사용](href="http://www.windowsazure.com/ko-kr/documentation/articles/web-sites-configure-ssl-certificate/)을 참조하세요. 
+기본 또는 표준 모드에서는 사용자 지정 도메인에 대해 SSL 인증서를 업로드할 수 있습니다. 자세한 내용은 [Azure 웹 사이트에 HTTPS 사용](http://www.windowsazure.com/ko-kr/documentation/articles/web-sites-configure-ssl-certificate/)을 참조하세요. 
 
 업로드한 인증서가 여기에 나열됩니다. 인증서를 업로드한 후 해당 구독 및 지역의 웹 사이트에 할당할 수 있습니다. 유효한 도메인 내의 모든 사이트에 와일드카드 인증서를 사용할 수 있습니다. 해당 인증서에 대한 활성 바인딩이 없는 경우에만 인증서를 삭제할 수 있습니다.
 
@@ -63,11 +77,11 @@ Azure 관리 포털에서 웹 사이트의 구성 옵션 및 데이터베이스�
 
 ### SSL 바인딩
 
-SSL 인증서를 업로드한 경우 사용자 지정 도메인 이름에 바인딩할 수 있습니다. 자세한 내용은 [Azure 웹 사이트에 HTTPS 사용](href="http://www.windowsazure.com/ko-kr/documentation/articles/web-sites-configure-ssl-certificate/)을 참조하세요.
+SSL 인증서를 업로드한 경우 사용자 지정 도메인 이름에 바인딩할 수 있습니다. 자세한 내용은 [Azure 웹 사이트에 HTTPS 사용](http://www.windowsazure.com/ko-kr/documentation/articles/web-sites-configure-ssl-certificate/)을 참조하세요.
 
 ### 배포
 
-이 섹션은 소스 제어에서 배포를 사용하도록 설정한 경우에만 나타납니다. 배포를 구성하려면 이러한 설정을 사용하세요.
+이 섹션은 소스 제어에서 배포를 사용하도록 설정한 경우에만 나타납니다. 배포를 구성하려면 이러한 설정을 사용하십시오.
 
 - <strong>Git URL</strong>. Azure 웹 사이트에 대한 Git 리포지토리를 만든 경우 이 URL이 콘텐츠를 푸시하는 URL입니다.
 - <strong>배포 트리거 URL</strong>. 이 URL은 커밋이 리포지토리로 푸시될 때 배포를 트리거하는 GitHub, CodePlex, Bitbucket 또는 기타 리포지토리에 설정될 수 있습니다.
@@ -111,12 +125,12 @@ SSL 인증서를 업로드한 경우 사용자 지정 도메인 이름에 바인
 
 기본 또는 표준 모드에서는 지리적으로 분산된 최대 세 곳의 HTTP 또는 HTTPS 끝점에 대한 가용성을 테스트할 수 있습니다. HTTP 응답 코드가 오류(4xx 또는 5xx)이거나 응답에 30초 넘게 걸리는 경우 모니터링 테스트가 실패합니다. 지정된 모든 위치에서 모니터링 테스트가 성공하는 경우 끝점은 사용 가능한 것으로 간주됩니다. 
 
- 자세한 내용은 [방법: 웹 끝점 상태 모니터링](http://go.microsoft.com/fwLink/?LinkID=279906&clcid=0x409)을 참조하세요.
+자세한 내용은 [방법: 웹 끝점 상태 모니터링](http://go.microsoft.com/fwLink/?LinkID=279906&clcid=0x409)을 참조하세요.
 
 
 ### 개발자 분석
 
-<strong>추가 기능</strong>을 선택하여 목록에서 분석 추가 기능을 선택하거나, Azure 저장소로 이동하여 분석 추가 기능을 선택합니다. <strong>사용자 지정</strong>을 선택하면 목록에서 New Relic 같은 분석 공급자를 선택할 수 있습니다. 사용자 지정 공급자를 사용하는 경우 <strong>공급자 키</strong> 상자에 라이선스 키를 입력해야 합니다. 
+<strong>추가 기능</strong>을 선택하여 목록에서 분석 추가 기능을 선택하거나, Azure 스토어로 이동하여 분석 추가 기능을 선택합니다. <strong>사용자 지정</strong>을 선택하면 목록에서 New Relic 같은 분석 공급자를 선택할 수 있습니다. 사용자 지정 공급자를 사용하는 경우 <strong>공급자 키</strong> 상자에 라이선스 키를 입력해야 합니다. 
 
 Azure 웹 사이트에서 New Relic 사용에 대한 자세한 내용은 <a href="http://www.windowsazure.com/ko-kr/documentation/articles/store-new-relic-web-sites-dotnet-application-performance-management/">Azure 웹 사이트에서 New Relic 응용 프로그램 성능 관리</a>를 참조하세요.
 
@@ -141,9 +155,9 @@ PHP, Python, Java 및 Node 응용 프로그램에서는 런타임에 이러한 �
 - SQL 데이터베이스: SQLAZURECONNSTR_
 - 사용자 지정: CUSTOMCONNSTR_
 
-예를 들어 MySql 연결 문자열 이름이 connectionstring1로 지정된 경우 환경 변수 <code>MYSQLCONNSTR_connectionString1</code>을 통해 액세스될 수 있습니다.
+예를 들어 MySql 연결 문자열 이름이 connectionstring1로 지정된 경우 환경 변수 <code>MYSQLCONNSTR_connectionString1</code>.을 통해 액세스될 수 있습니다.
 
-<strong>참고</strong>: 데이터베이스 리소스를 웹 사이트에 연결할 때도 연결 문자열이 만들어집니다. 이러한 방식으로 만들어진 연결 문자열은 구성 관리 페이지에서 
+<strong>참고</strong>: 데이터베이스 리소스를 웹 사이트에 연결할 때도 연결 문자열이 만들어집니다. 이러한 방식으로 만들어진 연결 문자열은 구성 관리 페이지에서  
 읽기 전용으로 볼 수 있습니다.
 
 ### 기본 문서
@@ -156,9 +170,9 @@ PHP, Python, Java 및 Node 응용 프로그램에서는 런타임에 이러한 �
 
 이 영역을 사용하여 사용자 지정 스크립트 프로세서를 추가해 특정 파일 확장명에 대한 요청을 처리할 수 있습니다. 
 
-- **확장명**. 처리할 파일 확장명입니다(예: *.php 또는 handler.fcgi).
+- **확장명**. 처리할 파일 확장명입니다(예: *.php 또는 handler.fcgi). 
 - **스크립트 프로세서 경로**. 스크립트 프로세서의 절대 경로입니다. 파일 확장명과 일치하는 파일에 대한 요청이 스크립트 프로세서에서 처리됩니다. <code>D:\home\site\wwwroot</code> 경로를 사용하여 사이트의 루트 디렉터리를 참조합니다.
-- **추가 인수**. 스크립트 프로세서에 대한 선택적 명령줄 인수입니다.
+- **추가 인수**. 스크립트 프로세서에 대한 선택적 명령줄 인수입니다. 
 
 
 ### 가상 응용 프로그램 및 디렉터리 
@@ -182,17 +196,17 @@ SQL 데이터베이스에 웹 사이트를 연결하려면 다음 단계를 따�
 
 5. **새 리소스 만들기**를 클릭하여 웹 사이트에 연결될 수 있는 리소스 유형 목록을 표시합니다.
 
-6. **SQL 데이터베이스**를 클릭하여 **Link Database** 마법사를 표시합니다.
+6. **SQL 데이터베이스**를 클릭하여 **데이터베이스 연결** 마법사를 표시합니다.
 
-7. **Link Database** 마법사의 3~4페이지에 있는 필수 필드를 완성하고 4페이지의 **마침** 확인 표시를 클릭합니다.
+7. **데이터베이스 연결** 마법사의 3~4페이지에 있는 필수 필드를 완성하고 4페이지의 **마침** 확인 표시를 클릭합니다.
 
 Azure는 지정한 매개 변수로 SQL 데이터베이스를 만들고 웹 사이트에 데이터베이스를 연결합니다.
 
 <!-- HOW TO: CONFIGURE A WEBSITE TO USE A MYSQL DATABASE -->
-##<a name="howtoconfigMySQL"></a>방법: MySQL 데이터베이스를 사용하도록 웹 사이트 구성
+##<a name="howtoconfigMySQL"></a>방법: MySQL 데이터베이스를 사용하도록 웹 사이트 구성##
 MySQL 데이터베이스를 사용하도록 웹 사이트를 구성하려면 SQL 데이터베이스를 사용하는 것과 동일한 단계를 따르되, **리소스 연결** 마법사에서 **SQL 데이터베이스** 대신 **MySQL 데이터베이스**를 선택합니다. 
 
-또는 **사용자 지정 만들기** 옵션을 사용하여 웹 사이트를 만들 수 있습니다. **데이터베이스** 드롭다운에서 **새 MySQL 데이터베이스 만들기** 또는 **Use an existing MySQL database** 중 하나를 선택합니다. 
+또는 **사용자 지정 만들기** 옵션을 사용하여 웹 사이트를 만들 수 있습니다. **데이터베이스** 드롭다운에서 **새 MySQL 데이터베이스 만들기** 또는 **기존 MySQL 데이터베이스 사용** 중 하나를 선택합니다. 
 
 ##<a name="howtodomain"></a>방법: 사용자 지정 도메인 이름 구성
 
@@ -206,5 +220,8 @@ Azure에서 사용자 지정 도메인에 대해 SSL을 구성하는 방법에 �
 
 * [웹 사이트 크기를 조정하는 방법](http://www.windowsazure.com/ko-kr/documentation/articles/web-sites-scale/)
 
-* [웹 사이트를 모니터링하는 방법(영문)](http://www.windowsazure.com/ko-kr/documentation/articles/web-sites-monitor/)
+* [웹 사이트를 모니터링하는 방법](http://www.windowsazure.com/ko-kr/documentation/articles/web-sites-monitor/)
 
+
+
+<!--HONumber=42-->

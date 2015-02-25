@@ -1,34 +1,34 @@
-﻿<properties urlDisplayName="Get Started with Push" pageTitle="푸시 시작(Android) | 모바일 개발자 센터" metaKeywords="" description="Azure 모바일 서비스를 사용하여 Android .Net 앱에 푸시 알림을 보내는 방법에 대해 알아봅니다." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="ricksal" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="푸시 시작(Android) | 모바일 개발자 센터" description="Azure 모바일 서비스를 사용하여 Android .Net 앱에 푸시 알림을 보내는 방법에 대해 알아봅니다." services="mobile-services, notification-hubs" documentationCenter="android" authors="RickSaling" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="09/26/2014" ms.author="ricksal" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="09/26/2014" ms.author="ricksal"/>
 
 # 모바일 서비스 앱에 푸시 알림 추가
 
-[WACOM.INCLUDE [mobile-services-selector-get-started-push](../includes/mobile-services-selector-get-started-push.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-push](../includes/mobile-services-selector-get-started-push.md)]
 
-이 항목에서는 Azure 모바일 서비스를 사용하여 Android 앱에 푸시 알림을 보내는 방법을 보여 줍니다. 이 자습서에서는 GCM(Google Cloud Messaging)을 사용하여 빠른 시작 프로젝트에 푸시 알림을 추가합니다. 이 작업을 완료하면 레코드가 삽입될 때마다 모바일 서비스에서 푸시 알림을 보냅니다. 
+이 항목에서는 Azure 모바일 서비스를 사용하여 Android 앱에 푸시 알림을 보내는 방법을 보여 줍니다. 이 자습서에서는 GCM(Google Cloud Messaging)을 사용하여 퀵 스타트 프로젝트에 푸시 알림을 추가합니다. 이 작업을 완료하면 레코드가 삽입될 때마다 모바일 서비스에서 푸시 알림을 전송합니다. 
 
 이 자습서에서는 다음 단계를 안내합니다.
 
 1. [Google Cloud Messaging 사용](#register)
-2. [푸시 요청을 전송하도록 모바일 서비스 구성](#configure)
+2. [푸시 요청을 보내도록 모바일 서비스 구성](#configure)
 5. [푸시 알림을 전송하도록 서버 업데이트](#update-server)
 7. [앱에 푸시 알림 추가](#update-app)
 8. [로컬 테스트에 푸시 알림 사용](#local-testing)
 9. [게시된 모바일 서비스에 대해 앱 테스트]
 
 
-이 자습서는 모바일 서비스 빠른 시작을 기반으로 합니다. 이 자습서를 시작하기 전에 먼저 [모바일 서비스 시작] 또는 [데이터 작업 시작]를 완료하여 프로젝트를 모바일 서비스에 연결해야 합니다. 따라서 이 자습서를 사용하려면 Visual Studio 2013이 있어야 합니다. 
+이 자습서는 모바일 서비스 퀵 스타트를 기반으로 합니다. 이 자습서를 시작하기 전에 먼저 [모바일 서비스 시작] 또는 [데이터 시작]을 완료하여 프로젝트를 모바일 서비스에 연결해야 합니다. 따라서 이 자습서를 사용하려면 Visual Studio 2013이 있어야 합니다. 
 
->[WACOM.NOTE]이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://www.windowsazure.com/ko-kr/pricing/free-trial/?WT.mc_id=AE564AB28&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fko-kr%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started-data%2F" target="_blank">Azure 무료 평가판</a>을 참조하세요. 
+>[AZURE.NOTE]이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://www.windowsazure.com/ko-kr/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fko-kr%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started-data%2F" target="_blank">Azure 무료 평가판</a>을 참조하세요. 
 
 
 ##<a id="register"></a>Google Cloud Messaging 사용
 
-[WACOM.INCLUDE [GCM 사용](../includes/mobile-services-enable-Google-cloud-messaging.md)]
+[AZURE.INCLUDE [GCM 사용](../includes/mobile-services-enable-Google-cloud-messaging.md)]
 
 
-##<a id="configure"></a>푸시 요청을 전송하도록 모바일 서비스 구성
+##<a id="configure"></a>푸시 요청을 보내도록 모바일 서비스 구성
 
 1. [Azure 관리 포털]에 로그온하여 **모바일 서비스**를 클릭한 후 앱을 클릭합니다.
 
@@ -38,9 +38,7 @@
 
    	![](./media/mobile-services-android-get-started-push/mobile-push-tab-android.png)
 
-    <div class="dev-callout"><b>중요</b>
-	<p>포털의 푸시 탭에서 향상된 푸시 알림에 대한 GCM 자격 증명을 설정할 경우 앱에서 알림 허브를 구성하도록 GCM 자격 증명이 알림 허브와 공유됩니다.</p>
-    </div>
+> [AZURE.IMPORTANT] 포털의 푸시 탭에서 향상된 푸시 알림에 대한 GCM 자격 증명을 설정할 경우 앱에서 알림 허브를 구성하도록 GCM 자격 증명이 알림 허브와 공유됩니다.
 
 
 이제 모바일 서비스가 GCM 및 알림 허브와 함께 작동하도록 구성되었습니다.
@@ -48,21 +46,21 @@
 
 <h2><a name="download-the-service"></a>로컬 컴퓨터에 서비스 다운로드</h2>
 
-[WACOM.INCLUDE [mobile-services-download-service-locally](../includes/mobile-services-download-service-locally.md)]
+[AZURE.INCLUDE [mobile-services-download-service-locally](../includes/mobile-services-download-service-locally.md)]
 
 <h2><a name="test-the-service"></a>모바일 서비스 테스트</h2>
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-test-local-service](../includes/mobile-services-dotnet-backend-test-local-service.md)]
+[AZURE.INCLUDE [mobile-services-dotnet-backend-test-local-service](../includes/mobile-services-dotnet-backend-test-local-service.md)]
 
 ##<a id="update-server"></a>푸시 알림을 전송하도록 서버 업데이트
 
-1. Visual Studio 솔루션 탐색기에서 모바일 서비스 프로젝트의 **컨트롤러** 폴더를 확장합니다. TodoItemController.cs를 엽니다. 파일 맨 위에 `using` 문을 추가합니다.
+1. Visual Studio 솔루션 탐색기에서 모바일 서비스 프로젝트의 **컨트롤러** 폴더를 확장합니다. TodoItemController.cs를 엽니다. 파일 맨 위에 다음  `using` 문을 추가합니다.
 
 
 		using System;
 		using System.Collections.Generic;
 
-2. `PostTodoItem` 메서드를 다음 코드로 업데이트합니다.  
+2.  `PostTodoItem` 메서드를 다음 코드로 업데이트합니다.  
 
         public async Task<IHttpActionResult> PostTodoItem(TodoItem item)
         {
@@ -91,27 +89,27 @@
 
 <h2><a name="publish-the-service"></a>Azure에 모바일 서비스 게시</h2>
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-publish-service](../includes/mobile-services-dotnet-backend-publish-service.md)]
+[AZURE.INCLUDE [mobile-services-dotnet-backend-publish-service](../includes/mobile-services-dotnet-backend-publish-service.md)]
 
 
 ##<a name="update-app"></a>앱에 푸시 알림 추가
 
 ###Android SDK 버전 확인
 
-[WACOM.INCLUDE [mobile-services-verify-android-sdk-version](../includes/mobile-services-verify-android-sdk-version.md)]
+[AZURE.INCLUDE [mobile-services-verify-android-sdk-version](../includes/mobile-services-verify-android-sdk-version.md)]
 
 
 다음 단계에서는 Google Play Services를 설치합니다. Google Cloud Messaging에는 매니페스트의 **minSdkVersion** 속성이 준수해야 하는 개발 및 테스트에 대한 최소 API 수준 요구 사항이 있습니다. 
 
-이전 장치로 테스트할 경우 이 값을 적절하게 설정할 수 있는 최소값을 확인하려면 [Google Play 서비스 SDK 설정]을 참조하세요.
+이전 장치로 테스트할 경우 이 값을 적절하게 설정할 수 있는 최소값을 확인하려면 [Google Play Services SDK 설정]을 참조하세요.
 
 ###프로젝트에 Google Play Services 추가
 
-[WACOM.INCLUDE [Play 서비스 추가](../includes/mobile-services-add-Google-play-services.md)]
+[AZURE.INCLUDE [Play 서비스 추가](../includes/mobile-services-add-Google-play-services.md)]
 
 ###코드 추가
 
-[WACOM.INCLUDE [mobile-services-android-getting-started-with-push](../includes/mobile-services-android-getting-started-with-push.md)]
+[AZURE.INCLUDE [mobile-services-android-getting-started-with-push](../includes/mobile-services-android-getting-started-with-push.md)]
 
 <h2><a name="test-app"></a>게시된 모바일 서비스에 대해 앱 테스트</h2>
 
@@ -125,7 +123,7 @@ Google API를 지원하는 AVD(Android Virtual Device)를 사용해야 합니다
 
 	![](./media/mobile-services-android-get-started-push/mobile-services-android-virtual-device-manager.png)
 
-2. **대상**에서 **Google API**(또는 **Google API x86**)를 선택한 다음 확인을 클릭합니다.
+2. **대상**에서 **Google API** 또는 **Google API x86**을 선택하고 확인을 클릭합니다.
 
    	![](./media/mobile-services-android-get-started-push/mobile-services-android-virtual-device-manager-edit.png)
 
@@ -133,13 +131,13 @@ Google API를 지원하는 AVD(Android Virtual Device)를 사용해야 합니다
 
 ###<a id="local-testing"></a> 로컬 테스트에 푸시 알림 사용
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-configure-local-push](../includes/mobile-services-dotnet-backend-configure-local-push.md)]
+[AZURE.INCLUDE [mobile-services-dotnet-backend-configure-local-push](../includes/mobile-services-dotnet-backend-configure-local-push.md)]
 
 ###테스트 실행
 
 1. Eclipse의 **실행** 메뉴에서 **실행**을 클릭하여 앱을 시작합니다.
 
-2. 앱에서 _새 모바일 서비스 작업_ 등의 의미 있는 텍스트를 입력하고 **추가** 단추를 클릭합니다.
+2. 앱에서 _새 모바일 서비스 작업_과 같은 의미 있는 텍스트를 입력하고 **추가** 단추를 클릭합니다.
 
   	![](./media/mobile-services-android-get-started-push/mobile-quickstart-push1-android.png)
 
@@ -151,34 +149,34 @@ Google API를 지원하는 AVD(Android Virtual Device)를 사용해야 합니다
 
 ## <a name="next-steps"> </a>다음 단계
 
-<!---This tutorial demonstrated the basics of enabling an Android app to use Mobile Services and Notification Hubs to send push notifications. Next, consider completing the next tutorial, [Send push notifications to authenticated users], which shows how to use tags to send push notifications from a Mobile Service to only an authenticated user.
+<!---이 자습서에서는 모바일 서비스 및 알림 허브를 사용하여 푸시 알림을 보낼 수 있도록 Android 앱을 설정하는 작업에 대한 기본 사항을 설명했습니다. 그다음에, 태그를 사용하여 모바일 서비스에서 인증된 사용자에게만 푸시 알림을 보내는 방법을 보여 주는 다음 자습서인 [인증된 사용자에게 푸시 알림 보내기]를 완료할 수 있습니다.
 
 
-+ [Send push notifications to authenticated users]
-	<br/>태그를 사용하는 모바일 서비스에서 인증된 사용자에게만 푸시 알림을 보내도록 하는 방법을 알아봅니다.
++ [인증된 사용자에게 푸시 알림 보내기]
+	<br/>태그를 사용하여 모바일 서비스의 푸시 알림을 인증된 사용자에게만 보내는 방법에 대해 알아봅니다.
 
 + [구독자에게 브로드캐스트 알림 보내기]
-	<br/>사용자가 관심 있는 범주에 대한 푸시 알림을 등록하고 수신하게 하는 방법을 알아봅니다.
+	<br/>사용자가 관심 있어 하는 범주에 대해 푸시 알림을 등록하고 수신하는 방법을 설명합니다.
 
 + [구독자에게 템플릿 기반 알림 보내기]
-	<br/>템플릿을 사용하여 백 엔드에 플랫폼별 페이로드를 작성하지 않고도 모바일 서비스에서 푸시 알림을 보내도록 하는 방법을 알아봅니다.
+	<br/>백 엔드에 플랫폼 전용 페이로드를 마련할 필요 없이 템플릿을 사용하여 모바일 서비스에서 푸시 알림을 보내는 방법에 대해 알아봅니다.
 -->
 다음 항목에서 모바일 서비스 및 알림 허브에 대해 알아보세요.
 
-* [데이터 작업 시작]
-  <br/>모바일 서비스를 사용하여 데이터를 저장하고 쿼리하는 방법을 알아봅니다.
+* [데이터 시작]
+  <br/>모바일 서비스를 사용하여 데이터를 저장 및 쿼리하는 방법에 대해 자세히 알아봅니다.
 
-* [인증 시작]
-  <br/>모바일 서비스를 사용하여 서로 다른 계정 유형의 앱 사용자를 인증하는 방법을 알아봅니다.
+* [인증 시작 (영문)]
+  <br/>모바일 서비스를 사용하여 서로 다른 계정 유형의 앱 사용자를 인증하는 방법에 대해 알아봅니다.
 
 * [알림 허브 정의]
   <br/>모든 주요 클라이언트 플랫폼에 걸쳐 알림 허브가 앱에 알림을 전달하는 방법에 대해 알아봅니다.
 
 * [알림 허브 응용 프로그램 디버깅](http://go.microsoft.com/fwlink/p/?linkid=386630)
-  </br>알림 허브 솔루션 문제를 해결하고 디버깅하기 위한 지침을 얻으세요. 
+  </br>알림 허브 솔루션 문제를 해결하고 솔루션을 디버그하기 위한 지침을 얻습니다. 
 
 * [모바일 서비스용 Android 클라이언트 라이브러리를 사용하는 방법]
-  <br/>모바일 서비스를 Android와 함께 사용하는 방법을 알아봅니다.  
+  <br/>모바일 서비스를 Android와 함께 사용하는 방법을 자세히 알아보세요.  
   
 <!-- Anchors. -->
 
@@ -226,8 +224,8 @@ Google API를 지원하는 AVD(Android Virtual Device)를 사용해야 합니다
 [스크립트를 사용하여 데이터 유효성 검사 및 수정]: /ko-kr/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
 [페이징을 사용하여 쿼리 구체화]: /ko-kr/develop/mobile/tutorials/add-paging-to-data-dotnet
 [모바일 서비스 시작]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-android-get-started
-[데이터 작업 시작]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-android-get-started-data
-[인증 시작]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-android-get-started-users
+[데이터 시작]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-android-get-started-data
+[인증 시작 (영문)]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-android-get-started-users
 [JavaScript 및 HTML]: /ko-kr/develop/mobile/tutorials/get-started-with-data-js
 [JavaScript 백 엔드 버전]: /ko-kr/develop/mobile/tutorials/get-started-with-data-android
 [Azure 관리 포털]: https://manage.windowsazure.com/
@@ -245,3 +243,6 @@ Google API를 지원하는 AVD(Android Virtual Device)를 사용해야 합니다
 [구독자에게 브로드캐스트 알림 보내기]: /ko-kr/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/
 [구독자에게 템플릿 기반 알림 보내기]: /ko-kr/documentation/articles/notification-hubs-windows-store-dotnet-send-localized-breaking-news/
 [Azure 관리 포털]: https://manage.windowsazure.com/
+
+
+<!--HONumber=42-->

@@ -1,10 +1,24 @@
-﻿<properties urlDisplayName="Validate Data" pageTitle="서버 스크립트를 사용하여 데이터 유효성 검사 및 수정(Xamarin Android) | 모바일 개발자 센터" metaKeywords="데이터 액세스 및 변경, Azure 모바일 서비스, 모바일 장치, Azure, 모바일, Xamarin.Android" description="Xamarin.Android 앱에서 서버 스크립트를 사용하여 전송된 데이터의 유효성을 검사하고 데이터를 수정하는 방법에 대해 알아봅니다." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" services="mobile-services"  title="Validate and modify data in Mobile Services by using server scripts" authors="donnam" manager="dwrede" />
+﻿<properties 
+	pageTitle="서버 스크립트를 사용하여 데이터 유효성 검사 및 수정(Xamarin Android) | 모바일 개발자 센터" 
+	description="Xamarin.Android 앱에서 서버 스크립트를 사용하여 전송된 데이터의 유효성을 검사하고 데이터를 수정하는 방법에 대해 알아봅니다." 
+	documentationCenter="xamarin" 
+	services="mobile-services" 
+	authors="lindydonna" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-android" ms.devlang="dotnet" ms.topic="article" ms.date="09/26/2014" ms.author="donnam" />
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-xamarin-android" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/26/2014" 
+	ms.author="donnam"/>
 
 # 모바일 서비스에서 서버 스크립트를 사용하여 데이터 유효성 검사 및 수정
 
-[WACOM.INCLUDE [mobile-services-selector-validate-modify-data](../includes/mobile-services-selector-validate-modify-data.md)]
+[AZURE.INCLUDE [mobile-services-selector-validate-modify-data](../includes/mobile-services-selector-validate-modify-data.md)]
 
 이 항목에서는 Azure 모바일 서비스에서 서버 스크립트를 활용하는 방법을 보여 줍니다. 서버 스크립트는 모바일 서비스에서 등록되며 삽입 및 업데이트할 데이터에 대해 유효성 검사 및 데이터 수정을 포함한 다양한 작업을 수행하는 데 사용할 수 있습니다. 이 자습서에서는 데이터의 유효성을 검사하고 데이터를 수정하는 서버 스크립트를 정의하고 등록합니다. 서버 쪽 스크립트의 동작이 클라이언트에 영향을 미치는 경우가 많기 때문에 이런 새로운 동작을 활용하도록 Android 앱도 업데이트합니다. 완성된 코드는 [ValidateModifyData 앱][GitHub] 샘플에서 확인할 수 있습니다.
 
@@ -19,7 +33,7 @@
 
 ## <a name="string-length-validation"></a>유효성 검사 추가
 
-사용자가 제출하는 데이터 길이의 유효성을 항상 검사하는 것이 좋습니다. 먼저, 모바일 서비스에 전송되는 문자열 데이터 길이의 유효성을 검사하고 너무 긴 경우(이 예제에서는 10자 초과) 문자열을 거부하는 스크립트를 등록합니다. 
+사용자가 제출하는 데이터 길이의 유효성을 항상 검사하는 것이 좋습니다. 먼저, 모바일 서비스에 전송되는 문자열 데이터 길이의 유효성을 검사하고 너무 긴 경우(이 예제에서는 10자 초과) 문자열을 거부하는 스크립트를 등록합니다.
 
 1. [Azure 관리 포털]에 로그인하여 **모바일 서비스**를 클릭한 후 앱을 클릭합니다. 
 
@@ -29,7 +43,7 @@
 
 	![][1]
 
-3. **스크립트**를 클릭하고 **삽입** 작업을 선택합니다.
+3. **스크립트**를 클릭한 후 **삽입** 작업을 선택합니다.
 
 	![][2]
 
@@ -45,15 +59,13 @@
 
     이 스크립트는 **text** 속성의 길이를 확인하여 길이가 10자를 초과하는 경우 오류 응답을 보냅니다. 그렇지 않으면 **execute** 메서드가 호출되어 삽입이 완료됩니다.
 
-    <div class="dev-callout"> 
-	<b>참고</b> 
-	<p><strong>지우기</strong>, <strong>저장</strong>을 차례로 클릭하여 <strong>스크립트</strong>에서 등록된 스크립트를 제거할 수 있습니다.</p></div>
+    > [AZURE.TIP] **지우기**를 클릭한 후 **저장**을 클릭하여 **스크립트** 탭에서 등록된 스크립트를 제거할 수 있습니다.
 
 ## <a name="update-client-validation"></a>클라이언트 업데이트
 
 모바일 서비스가 데이터의 유효성 검사를 하고 오류 응답을 보내므로, 개발자는 앱이 유효성 검사의 오류 응답을 올바르게 처리하는지 확인해야 합니다.
 
-1. Xamarin Studio에서 [데이터 작업 시작] 자습서를 완료할 때 만든 프로젝트를 엽니다.
+1. Xamarin Studio에서 [데이터 시작] 자습서를 완료할 때 만든 프로젝트를 엽니다.
 
 2. TodoActivity.cs 파일에서 **AddItem** 메서드를 찾은 후 다음 코드를 사용하여 CreateAndShowDialog 메서드에 대한 호출을 바꿉니다.
 
@@ -63,7 +75,7 @@
 
 	그러면 모바일 서비스에서 반환하는 오류 메시지가 표시됩니다. 
 
-3. **실행**을 클릭하여 앱을 시작한 다음 텍스트 상자에 10자가 넘는 텍스트를 입력하고 **추가** 단추를 클릭합니다.
+3. **Run**을 클릭하여 앱을 시작한 다음 텍스트 상자에 10자가 넘는 텍스트를 입력하고 **Add** 단추를 클릭합니다.
 
   	오류가 처리되고 사용자에게 오류 메시지가 표시됩니다.
 
@@ -84,11 +96,9 @@
 
     이 함수는 **request**.**execute** 호출에 의해 삽입되기 전에 개체에 새 **createdAt** 타임스탬프 속성을 추가하여 이전 삽입 스크립트를 보강합니다. 
 
-    <div class="dev-callout"><b>참고</b>
-	<p>이 삽입 스크립트를 처음 실행할 때는 동적 스키마를 사용하도록 설정해야 합니다. 동적 스키마를 사용하도록 설정하면 첫 번째 실행 시 모바일 서비스가 <strong>createdAt</strong> 열을 <strong>TodoItem</strong> 테이블에 자동으로 추가합니다. 동적 스키마는 기본적으로 새 모바일 서비스에 대해 사용하도록 설정되어 있으며 앱을 게시하기 전에 이 스키마를 사용하지 않도록 설정해야 합니다.</p>
-    </div>
+    > [AZURE.IMPORTANT] 이 삽입 스크립트를 처음 실행할 때는 동적 스키마를 사용하도록 설정해야 합니다. 동적 스키마를 사용하도록 설정하면 첫 번째 실행 시 모바일 서비스가 **createdAt** 열을 **TodoItem** 테이블에 자동으로 추가합니다. 동적 스키마는 기본적으로 새 모바일 서비스에 대해 사용하도록 설정되어 있으며 앱을 게시하기 전에 이 스키마를 사용하지 않도록 설정해야 합니다.
 
-2. **실행** 메뉴에서 **실행**을 클릭하여 앱을 시작한 다음 텍스트 상자에 텍스트(10자 미만)를 입력하고 **추가**를 클릭합니다.
+2. **Run** 메뉴에서 **Run**을 클릭하여 앱을 시작한 다음 텍스트 상자에 텍스트(10자 미만)를 입력하고 **Add**를 클릭합니다.
 
    	새 타임스탬프는 앱 UI에서 표시되지 않습니다.
 
@@ -107,9 +117,7 @@
         [DataMember(Name = "createdAt")]
         public DateTime? CreatedAt { get; set; }
   
-    <div class="dev-callout"><b>참고</b>
-	<p><code>DataMember's Name</code> 주석은 앱의 새 <code>CreatedAt</code> 속성을 TodoItem 테이블에 정의된 <code>CreatedAt</code> 열(이름이 다름)에 매핑하도록 클라이언트에 지시합니다. 이 주석을 사용하면 앱이 SQL 데이터베이스의 열 이름과 다른 개체 속성 이름을 가질 수 있습니다. 이 주석을 사용하지 않는 경우 대/소문자 차이 때문에 오류가 발생합니다.</p>
-    </div>
+    > [AZURE.NOTE]  `DataMember's Name` 주석은 앱의 새  `CreatedAt` 속성을 TodoItem 테이블에 정의된  `createdAt` 열(이름이 다름)에 매핑하도록 클라이언트에 지시합니다. 이 주석을 사용하면 앱이 SQL 데이터베이스의 열 이름과 다른 개체 속성 이름을 가질 수 있습니다. 이 주석을 사용하지 않는 경우 대/소문자 차이 때문에 오류가 발생합니다.
 
 2. GetView 메서드에서 <code>checkBox.Text</code>를 <code>currentItem.Text</code>로 설정하는 현재 코드 바로 위에 다음 코드를 추가합니다.
 
@@ -119,7 +127,7 @@
 
    	타임스탬프 값이 있으면 형식이 지정된 날짜 문자열이 만들어집니다. 
 
-3. 'checkBox.Text = currentItem.Text' 코드를 다시 찾아 이 코드 줄을 다음으로 바꿉니다.
+3.  `checkBox.Text = currentItem.Text` 코드를 다시 찾아 이 코드 줄을 다음으로 바꿉니다.
 
 		checkBox.Text = string.Format("{0} - {1}", currentItem.Text, displayDate);
 
@@ -153,10 +161,10 @@
   <br/>인증된 사용자의 ID를 기준으로 데이터를 필터링하는 방법을 알아봅니다.
 
 * [푸시 알림 시작] 
-  <br/>매우 기본적인 푸시 알림을 앱에 보내는 방법을 알아봅니다.
+  <br/>앱에 기본적인 푸시 알림을 보내는 방법을 알아봅니다.
 
 * [모바일 서비스 서버 스크립트 참조]
-  <br/>서버 스크립트를 등록하고 사용하는 방법을 알아봅니다.
+  <br/>서버 스크립트의 등록 및 사용에 대해 자세히 알아봅니다.
 
 <!-- Anchors. -->
 [문자열 길이 유효성 검사 추가]: #string-length-validation
@@ -177,10 +185,13 @@
 [모바일 서비스 시작]: /ko-kr/develop/mobile/tutorials/get-started-xamarin-android
 [스크립트를 통해 사용자 권한 부여]: /ko-kr/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-android
 [페이징을 사용하여 쿼리 구체화]: /ko-kr/develop/mobile/tutorials/add-paging-to-data-xamarin-android
-[데이터 작업 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-data-xamarin-android
+[데이터 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-data-xamarin-android
 [인증 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-users-xamarin-android
 [푸시 알림 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-push-xamarin-android
 
 [관리 포털]: https://manage.windowsazure.com/
 [Azure 관리 포털]: https://manage.windowsazure.com/
 [GitHub]: http://go.microsoft.com/fwlink/p/?LinkId=331330
+
+
+<!--HONumber=42-->

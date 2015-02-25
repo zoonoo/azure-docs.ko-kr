@@ -1,6 +1,6 @@
-﻿<properties urlDisplayName=".NET Client Library" pageTitle="Azure Mobile Services .NET 백 엔드로 Leaderboard 앱 만들기" metaKeywords="Azure Mobile Services, Mobile Service .NET client, .NET client" description=".NET 백 엔드와 함께 Azure 모바일 서비스를 사용하여 Windows 스토어 앱을 빌드하는 방법에 대해 알아봅니다." documentationCenter="Mobile" title="Creating a Leaderboard App with Azure Mobile Services .NET Backend" authors="mwasson" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="Azure Mobile Services .NET 백 엔드로 Leaderboard 앱 만들기" description=".NET 백 엔드와 함께 Azure 모바일 서비스를 사용하여 Windows 스토어 앱을 빌드하는 방법에 대해 알아봅니다." documentationCenter="windows" authors="MikeWasson" manager="dwrede" editor="" services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="mwasson" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="mwasson"/>
 
 # Azure Mobile Services .NET 백 엔드로 Leaderboard 앱 만들기
 
@@ -26,7 +26,7 @@ Web API는 .NET 개발자가 REST API를 생성하기 위한 최상의 방법을
 
 - 소셜 공급자 및 AAD(Azure Active Directory)를 포함하는 기본 제공 인증. 
 - 장치별 알림 서비스를 사용한 앱에 대한 푸시 알림.
-- 어떤 앱에서도 서비스에 쉽게 액세스할 수 있게 해주는 완벽한 클라이언트 라이브러리 집합. 
+- 어떤 앱에서 도 서비스에 쉽게 액세스할 수 있게 해주는 완벽한 클라이언트 라이브러리 집합. 
 - 기본 제공되는 로깅 및 진단.
 
 이 자습서에서는 다음 작업을 수행합니다.
@@ -59,7 +59,7 @@ PlayerRank에는 Player에 대한 외래 키가 포함됩니다. 각 플레이�
 
 클라이언트 앱은 Players에 대해 전체 CRUD 작업 집합을 수행합니다. 이 앱은 기존의 PlayerRank 엔터티를 읽거나 삭제할 수 있지만 이를 직접 만들거나 업데이트할 수 없습니다. 순위 값은 서비스에서 계산되기 때문입니다. 대신 클라이언트가 점수를 제출하고, 서비스가 모든 플레이어의 순위를 업데이트합니다.
 
-완성된 프로젝트는 [여기](http://code.msdn.microsoft.com/Leaderboard-App-with-Azure-9acf63af).에서 다운로드합니다.
+완성된 프로젝트는 [여기](http://code.msdn.microsoft.com/Leaderboard-App-with-Azure-9acf63af)에서 다운로드합니다.
 
 
 ## 프로젝트 만들기
@@ -80,7 +80,7 @@ Visual Studio 2013 업데이트 3에서 ASP.NET 웹 응용 프로그램 프로�
 
 ## 데이터 모델 추가
 
-[EF Code First](http://msdn.microsoft.com/en-US/data/ee712907#codefirst)를 사용하여 데이터베이스 테이블을 정의합니다. DataObjects 폴더 아래에서 `Player`라는 클래스를 추가합니다.
+[EF Code First](http://msdn.microsoft.com/ko-kr/data/ee712907#codefirst)를 사용하여 데이터베이스 테이블을 정의합니다. DataObjects 폴더 아래에서 `Player`라는 클래스를 추가합니다.
 
 	using Microsoft.WindowsAzure.Mobile.Service;
 	
@@ -92,7 +92,7 @@ Visual Studio 2013 업데이트 3에서 ASP.NET 웹 응용 프로그램 프로�
 	    }
 	}
 
-`PlayerRank`라는 클래스를 추가합니다.
+`PlayerRank`라는 다른 클래스를 추가합니다.
 
 	using Microsoft.WindowsAzure.Mobile.Service;
 	using System.ComponentModel.DataAnnotations.Schema;
@@ -139,14 +139,14 @@ Visual Studio 2013 업데이트 3에서 ASP.NET 웹 응용 프로그램 프로�
 
 컨트롤러는 **TableController<T>**에서 파생됩니다. 이 클래스는 **ApiController**를 상속하지만 Azure 모바일 서비스에 맞게 특별히 설정됩니다.
  
-- 라우팅: **TableController**의 기본 경로는 `/tables/{table_name}/{id}`입니다. 여기서 *table_name*은 엔터티 이름과 일치합니다. 따라서 Player 컨트롤러의 경로는 */tables/player/{id}*입니다. 이 라우팅 규칙에 따라 **TableController**가 모바일 서비스 [REST API](http://msdn.microsoft.com/ko-kr/library/azure/jj710104.aspx)와 일치하게 됩니다.
+- 라우팅: **TableController**의 기본 경로는  `/tables/{table_name}/{id}`입니다. 여기서 *table_name*은 엔터티 이름과 일치합니다. 따라서 Player 컨트롤러의 경로는 */tables/player/{id}*입니다. 이 라우팅 규칙에 따라 **TableController**가 모바일 서비스 [REST API](http://msdn.microsoft.com/ko-kr/library/azure/jj710104.aspx)와 일치하게 됩니다.
 - 데이터 액세스: 데이터베이스 작업의 경우 **TableController** 클래스는 데이터 액세스의 추상을 정의하는 **IDomainManager** 인터페이스를 사용합니다.  스캐폴딩에는 EF 컨텍스트를 래핑하는 **IDomainManager**의 구체적 구현인 **EntityDomainManager**가 사용됩니다. 
 
 이제 PlayerRank 엔터티에 대한 보조 컨트롤러를 추가합니다. 동일한 단계를 수행하지만 모델 클래스에 대해 PlayerRank를 선택합니다. 동일한 데이터 컨텍스트 클래스를 사용하고 새 클래스를 만들지 않습니다. 컨트롤러 이름을 "PlayerRankController"로 지정합니다.
 
 ## DTO를 사용하여 관련 엔터티 반환
 
-`PlayerRank`에 관련 `Player` 엔터티가 있다는 사실에 유의합니다. 
+`PlayerRank`에는 관련된 `Player` 엔터티가 포함되었습니다. 
 
     public class PlayerRank : EntityData
     {
@@ -157,7 +157,7 @@ Visual Studio 2013 업데이트 3에서 ASP.NET 웹 응용 프로그램 프로�
         public virtual Player Player { get; set; }
     }
 
-모바일 서비스 클라이언트 라이브러리에서는 탐색 속성이 지원되지 않으며, 직렬화되지 않습니다. 예를 들어 다음은 GET `/tables/PlayerRank`에 대한 원시 HTTP 응답입니다.
+모바일 서비스 클라이언트 라이브러리에서는 탐색 속성이 지원되지 않으며, 직렬화되지 않습니다. 예를 들어 다음은 GET `/tables/PlayerRank`:에 대한 원시 HTTP 응답입니다.
 
 	HTTP/1.1 200 OK
 	Cache-Control: no-cache
@@ -172,7 +172,7 @@ Visual Studio 2013 업데이트 3에서 ASP.NET 웹 응용 프로그램 프로�
 
 `Player`는 개체 그래프에 포함되지 않았습니다. 플레이어를 포함하려면 DTO(*데이터 전송 개체*)를 정의하여 개체 그래프를 평면화할 수 있습니다. 
 
-DTO는 네트워크에서 데이터를 전송하는 방법을 정의하는 개체입니다. DTO는 유선 형식이 데이터베이스 모델과 다르게 보이기를 원할 때마다 유용합니다. `PlayerRank`에 대한 DTO를 만들려면 DataObjects 폴더에 `PlayerRankDto`라는 새 클래스를 추가합니다.
+DTO는 네트워크에서 데이터를 전송하는 방법을 정의하는 개체입니다. DTO는 유선 형식이 데이터베이스 모델과 다르게 보이기를 원할 때마다 유용합니다. `PlayerRank`에 대한 DTO를 만들려면 DataObjects 폴더에  `PlayerRankDto`라는 새 클래스를 추가합니다.
 
 	namespace Leaderboard.DataObjects
 	{
@@ -185,7 +185,7 @@ DTO는 네트워크에서 데이터를 전송하는 방법을 정의하는 개�
 	    }
 	}
 
-`PlayerRankController` 클래스에서 LINQ **Select** 메서드를 사용하여 `PlayerRank` 인스턴스를 `PlayerRankDto` 인스턴스로 변환합니다. `GetAllPlayerRank` 및 `GetPlayerRank` 컨트롤러 메서드를 다음과 같이 업데이트합니다.
+`PlayerRankController` 클래스에서는 LINQ **Select** 메서드를 사용해서  `PlayerRank` 인스턴스를 `PlayerRankDto` 인스턴스로 변환할 것입니다. `GetAllPlayerRank` 및 `GetPlayerRank` 컨트롤러 메서드를 다음과 같이 업데이트합니다.
 
 	// GET tables/PlayerRank
 	public IQueryable<PlayerRankDto> GetAllPlayerRank()
@@ -374,7 +374,7 @@ MVVM(Model-View-ViewModel)은 MVC(Model-View-Controller)의 변형 중 하나입
 
 ![][11] 
 
-`LeaderboardViewModel`라는 클래스를 추가합니다.
+`LeaderboardViewModel`이라는 클래스를 추가합니다.
 
 	using LeaderboardApp.Models;
 	using Microsoft.WindowsAzure.MobileServices;
@@ -666,7 +666,7 @@ App.xaml.cs 파일을 열고 **MobileServiceClient** 인스턴스를 `App` 클�
  
 ![][12]
 
-**게시** 대화 상자에서 **Microsoft Azure 모바일 서비스**를 누릅니다.
+**게시** 대화 상자에서 **Microsoft Azure 모바일 서비스**를 클릭합니다.
 
 ![][13]
  
@@ -695,7 +695,7 @@ App.xaml.cs 파일을 열고 **MobileServiceClient** 인스턴스를 `App` 클�
 ![][17]
 
  
-서비스 URL 및 응용 프로그램 키를 **MobileServiceClient** 생성자에 전달합니다.
+서비스 URL 및 응용 프로그램 키를 **MobileServiceClient**생성자에 전달합니다.
 
     sealed partial class App : Application
     {
@@ -715,11 +715,11 @@ App.xaml.cs 파일을 열고 **MobileServiceClient** 인스턴스를 `App` 클�
 * [Web API에 대해 자세히 알아보기]
 * [데이터베이스 쓰기 충돌 처리]
 * [푸시 알림 추가](예: 다른 사람이 새 플레이어를 추가하거나 점수를 업데이트하는 경우)
-* [인증 시작]
+* [인증 시작](영문)
 
 <!-- Anchors. -->
 [개요]: #overview
-[샘플 앱 정보]: #about-the-sample-app
+[샘플 앱 정보] : #about-the-sample-app
 [프로젝트 만들기]: #create-the-project
 [데이터 모델 추가]: #add-data-models
 [Web API 컨트롤러 추가]: #add-web-api-controllers
@@ -759,4 +759,7 @@ App.xaml.cs 파일을 열고 **MobileServiceClient** 인스턴스를 `App` 클�
 [Web API에 대해 자세히 알아보기]: http://asp.net/web-api
 [데이터베이스 쓰기 충돌 처리]: /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-handle-database-conflicts/
 [푸시 알림 추가]: /ko-kr/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
-[인증 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-users-dotnet
+[인증 시작](영문): /ko-kr/develop/mobile/tutorials/get-started-with-users-dotnet
+
+
+<!--HONumber=42-->

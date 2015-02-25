@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Web w/ WebMatrix" pageTitle="MySQL 및 WebMatrix를 사용한 PHP 웹 사이트 - Azure 자습서" metaKeywords="" description="무료 WebMatrix IDE를 사용하여 MySQL에 데이터를 저장하는 PHP 웹 사이트를 만들고 배포하는 방법을 보여 주는 자습서입니다." metaCanonical="" services="web-sites" documentationCenter="PHP" title="Create and deploy a PHP-MySQL Azure Website using WebMatrix" authors="tomfitz" solutions="" manager="wpickett" editor="mollybos" />
+﻿<properties 
+	pageTitle="MySQL 및 WebMatrix를 사용한 PHP 웹 사이트 - Azure 자습서" 
+	description="무료 WebMatrix IDE를 사용하여 MySQL에 데이터를 저장하는 PHP 웹 사이트를 만들고 배포하는 방법을 보여 주는 자습서입니다." 
+	services="web-sites" 
+	documentationCenter="php" 
+	authors="tfitzmac" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="11/14/2014" ms.author="tomfitz" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="PHP" 
+	ms.topic="article" 
+	ms.date="11/14/2014" 
+	ms.author="tomfitz"/>
 
 
 
@@ -24,10 +38,10 @@
 
 ![Azure PHP Web Site][running-app]
 
-> [WACOM.NOTE]
-> 이 자습서를 완료하려면 Azure 계정이 필요합니다.  <a href="http://azure.microsoft.com/ko-kr/pricing/member-offers/msdn-benefits-details/">MSDN 구독자 혜택을 활성화</a> 하거나 <a href="http://azure.microsoft.com/ko-kr/pricing/free-trial/">무료 Azure 평가판에 등록</a>할 수 있습니다.
+> [AZURE.NOTE]
+> 이 자습서를 완료하려면 Azure 계정이 필요합니다. <a href="http://azure.microsoft.com/ko-kr/pricing/member-offers/msdn-benefits-details/">MSDN 구독자 혜택을 활성화</a>하거나 <a href="http://azure.microsoft.com/ko-kr/pricing/free-trial/">무료 평가판을 등록</a>할 수 있습니다.
 > 
-> 계정을 등록하기 전에 Azure 웹 사이트를 시작하려면 <a href="https://trywebsites.azurewebsites.net/?language=php">https://trywebsites.azurewebsites.net</a>으로 이동합니다. 이 Azure 웹 사이트에서는 무료로 단기 ASP.NET 시작 사이트를 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+> 계정을 등록하기 전에 Azure 웹 사이트를 시작하려면 <a href="https://trywebsites.azurewebsites.net/?language=php">https://trywebsites.azurewebsites.net</a>으로 이동합니다. Azure 웹 사이트에서는 무료로 단기 ASP.NET 시작 사이트를 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
 ##필수 조건
 
@@ -41,7 +55,7 @@
 	* **markitemcomplete.php**: 완료한 항목의 상태를 변경합니다.
 	* **taskmodel.php**: 데이터베이스의 항목에 대한 추가, 가져오기, 업데이트, 삭제 등의 기능을 포함하고 있습니다.
 
-1. `tasklist`라는 MySQL 데이터베이스를 만듭니다. 다음 명령으로 WebMatrix(자습서의 뒷부분 내용에 따라 설치한 후)의 데이터베이스 작업 영역에서 또는 MySQL 명령 프롬프트에서 이 작업을 수행할 수 있습니다.
+1.  `tasklist`라는 MySQL 데이터베이스를 만듭니다. 다음 명령으로 WebMatrix(자습서의 뒷부분 내용에 따라 설치한 후)의 데이터베이스 작업 영역에서 또는 MySQL 명령 프롬프트에서 이 작업을 수행할 수 있습니다.
 
 		mysql> create database tasklist;
 
@@ -58,8 +72,8 @@
 
 	![Custom Create a new Web Site][NewWebSite2]
 
-	> [WACOM.NOTE]
-	웹 사이트를 만든 후 웹 사이트용 MySQL 데이터베이스를 만들 수 없습니다. 아래 단계에서 설명한 대로 웹 사이트 및 MySQL 데이터베이스를 만들어야 합니다.
+	> [AZURE.NOTE]
+	> 웹 사이트를 만든 후 웹 사이트용 MySQL 데이터베이스를 만들 수 없습니다. 아래 단계에서 설명한 대로 웹 사이트 및 MySQL 데이터베이스를 만들어야 합니다.
 
 1. **URL**에 대한 값을 입력하고 **데이터베이스** 드롭다운에서 **새 MySQL 데이터베이스 만들기**를 선택한 후 **지역** 드롭다운에서 웹 사이트에 대한 데이터 센터를 선택합니다. 대화 상자 아래쪽의 화살표를 클릭합니다.
 
@@ -69,12 +83,12 @@
 
 	![Create new MySQL database][NewWebSite4]
 
-	웹 사이트가 만들어지면 **'[SITENAME]' 웹 사이트 만들기가 완료되었습니다.**라는 텍스트가 표시됩니다.
+	웹 사이트가 만들어지면 **"[SITENAME]" 웹 사이트 만들기가 완료되었습니다.**라는 텍스트가 표시됩니다.
 
 	이제 MySQL 연결 정보를 가져와야 합니다.
 
 
-6. 웹 사이트 목록에 표시된 웹 사이트 이름을 클릭하여 웹 사이트의 퀵 스타트 페이지를 엽니다.
+6. 웹 사이트 목록에 표시된 웹 사이트 이름을 클릭하여 웹 사이트의 빠른 시작 페이지를 엽니다.
 
 	![Open web site dashboard][NewWebSite5]
 
@@ -82,7 +96,7 @@
 
 	![Configure tab][NewWebSite6]
 
-8. **연결 문자열** 섹션까지 아래로 스크롤합니다. `Database`, `Data Source`, `User Id` 및 `Password`의 값은 각기 데이터베이스 이름, 서버 이름, 사용자 이름 및 사용자 암호입니다. 데이터베이스 연결 정보는 나중에 필요하므로 기록합니다.
+8. **연결 문자열** 섹션까지 아래로 스크롤합니다.  `Database`,  `Data Source`,  `User Id`,  `Password`의 값은 각기 데이터베이스 이름, 서버 이름, 사용자 이름 및 사용자 암호입니다. 데이터베이스 연결 정보는 나중에 필요하므로 기록합니다.
 
 	![Connection string][ConnectionString]
 
@@ -90,13 +104,13 @@
 
 [관리 포털][preview-portal]에서 WebMatrix를 설치할 수 있습니다. 
 
-1. 로그인한 후 웹 사이트의 퀵 스타트 페이지로 이동하고 페이지 맨 아래에서 WebMatrix 아이콘을 클릭합니다.
+1. 로그인한 후 웹 사이트의 빠른 시작 페이지로 이동하고 페이지 맨 아래에서 WebMatrix 아이콘을 클릭합니다.
 
 	![Install WebMatrix][InstallWebMatrix]
 
 	프롬프트에 따라 WebMatrix를 설치합니다.
 
-2. WebMatrix를 설치하면 사이트가 WebMatrix 프로젝트로 열립니다. 라이브 사이트를 직접 편집하거나 로컬 복사본을 다운로드하도록 선택할 수 있습니다. 이 자습서의 경우 'Edit local copy'를 선택합니다. 
+2. WebMatrix를 설치하면 사이트가 WebMatrix 프로젝트로 열립니다. 라이브 사이트를 직접 편집하거나 로컬 복사본을 다운로드하도록 선택할 수 있습니다. 이 자습서에서는  'Edit local copy'를 선택합니다. 
 
 3. 사이트를 다운로드할지를 묻는 메시지가 나타나면 **Yes, install from the Template Gallery**를 선택합니다.
 
@@ -106,7 +120,7 @@
 
 	![Site from template][site-from-template]
 
-5. **빈 사이트** 템플릿을 선택합니다. 사이트 이름을 지정하고 **다음**을 클릭합니다.
+5. **Empty Site** 템플릿을 선택합니다. 사이트 이름을 지정하고 **NEXT**를 클릭합니다.
 
 	![Provide name for site][site-from-template-2]
 
@@ -118,9 +132,9 @@
 
 	![WebMatrix - Add existing files][edit_addexisting]
 
-	나타나는 대화 상자에서 이전에 다운로드한 파일로 이동하고 파일을 모두 선택한 후 열기를 클릭합니다. 메시지가 표시되면 'index.php' 파일을 바꾸도록 선택합니다. 
+	나타나는 대화 상자에서 이전에 다운로드한 파일로 이동하고 파일을 모두 선택한 후 열기를 클릭합니다. 메시지가 표시되면  `index.php` 파일을 바꾸도록 선택합니다. 
 
-7. 이제 로컬 MySQL 데이터베이스 연결 정보를 `taskmodel.php` 파일에 추가해야 합니다. 'taskmodel.php' 파일을 두 번 클릭하여 열고 'connect' 함수에 데이터베이스 연결 정보를 업데이트합니다. (**참고**: 응용 프로그램을 로컬에서 테스트하지 않는 대신 Azure 웹 사이트에 직접 게시하려는 경우 [응용 프로그램 게시](#Publish) 로 이동합니다.
+7. 이제 로컬 MySQL 데이터베이스 연결 정보를  `taskmodel.php` 파일에 추가해야 합니다.  `taskmodel.php` 파일을 두 번 클릭하여 열고  `connect` 함수에서 데이터베이스 연결 정보를 업데이트합니다. (**참고**: 응용 프로그램을 로컬에서 테스트하지 않는 대신 Azure 웹 사이트에 직접 게시하려는 경우 [응용 프로그램 게시](#Publish) 로 이동합니다.
 
 		// DB connection info
 		$host = "localhost";
@@ -128,20 +142,20 @@
 		$pwd = "your password";
 		$db = "tasklist";
 
-	`taskmodel.php` 파일을 저장합니다.
+	 `taskmodel.php` 파일을 저장합니다.
 
-8. 실행할 응용 프로그램에 대해 `items` 테이블을 만들어야 합니다. `createtable.php` 파일을 마우스 오른쪽 단추로 클릭하고 **브라우저에서 시작**을 선택합니다. 그러면 브라우저에서 `createtable.php`가 시작되고 `tasklist` 데이터베이스에 'items' 테이블을 만드는 코드가 실행됩니다.
+8. 응용 프로그램이 실행할 수 있도록  `items` 테이블을 만들어야 합니다.  `createtable.php` 파일을 마우스 오른쪽 단추로 클릭하고 **브라우저에서 시작**을 선택합니다. 그러면 브라우저에서  `createtable.php`가 시작되고  `tasklist` 데이터베이스에  `items` 테이블을 만드는 코드가 실행됩니다.
 
 	![WebMatrix - Launch createtable.php in browser][edit_run]
 
-9. 이제 응용 프로그램을 로컬로 테스트할 수 있습니다. `index.php` 파일을 마우스 오른쪽 단추로 클릭하고 **브라우저에서 시작**을 선택합니다. 항목을 추가하고, 완료 상태로 표시하고, 삭제하는 등 응용 프로그램을 테스트합니다.  
+9. 이제 응용 프로그램을 로컬로 테스트할 수 있습니다.  `index.php` 파일을 마우스 오른쪽 단추로 클릭하고 **브라우저에서 시작**을 선택합니다. 항목을 추가하고, 완료 상태로 표시하고, 삭제하는 등 응용 프로그램을 테스트합니다.  
 
 
 <h2><a id="Publish"></a>응용 프로그램 게시</h2>
 
-응용 프로그램을 Azure 웹 사이트에 게시하기 전에 `taskmodel.php`의 데이터베이스 연결 정보를 이전에 [Azure 웹 사이트 및 MySQL 데이터베이스 만들기](#CreateWebsite) 섹션에서 확보한 연결 정보로 업데이트해야 합니다.
+응용 프로그램을 Azure 웹 사이트에 게시하기 전에  `taskmodel.php`의 데이터베이스 연결 정보를 이전에 [Azure 웹 사이트 및 MySQL 데이터베이스 만들기](#CreateWebsite) 섹션에서 확보한 연결 정보로 업데이트해야 합니다.
 
-1. 'taskmodel.php' 파일을 두 번 클릭하여 열고 'connect' 함수에 데이터베이스 연결 정보를 업데이트합니다.
+1.  `taskmodel.php` 파일을 두 번 클릭하여 열고  `connect` 함수에서 데이터베이스 연결 정보를 업데이트합니다.
 
 		// DB connection info
 		$host = "value of Data Source";
@@ -155,18 +169,18 @@
 
 	![WebMatrix - Publish][edit_publish]
 
-3. http://[웹 사이트 이름].azurewebsites.net/createtable.php로 이동하여 `items` 테이블을 만듭니다.
+3. http://[웹 사이트 이름].azurewebsites.net/createtable.php로 이동하여  `items` 테이블을 만듭니다.
 
-4. 마지막으로 http://[웹 사이트 이름].azurewebsites.net/index.php로 이동하여 응용 프로그램을 사용합니다.
+4. 마지막으로 http://[웹 사이트 이름].azurewebsites.net/index.php로 이동하여 응용 프로그램을 시작합니다.
 	
 ##응용 프로그램 수정 및 다시 게시
 
-이전에 다운로드한 사이트의 로컬 복사본을 편집하여 응용 프로그램을 쉽게 수정하고 다시 게시하거나, 원격 모드에서 직접 편집할 수 있습니다. 여기서는 간단히 'index.php' 파일의 제목을 변경하고 이를 라이브 사이트에 직접 저장하겠습니다.
+이전에 다운로드한 사이트의 로컬 복사본을 편집하여 응용 프로그램을 쉽게 수정하고 다시 게시하거나, 원격 모드에서 직접 편집할 수 있습니다. 여기서는 간단히  `index.php` 파일의 제목을 변경하고 이를 라이브 사이트에 직접 저장하겠습니다.
 
 1. WebMatrix에서 사이트의 원격 탭을 클릭하고 **Open Remote View**를 선택합니다. 그러면 직접 편집할 수 있는 원격 사이트가 열립니다.
 	 ![WebMatrix - Open Remote View][OpenRemoteView]
  
-2. 'index.php' 파일을 두 번 클릭하여 엽니다.
+2.  `index.php` 파일을 두 번 클릭하여 엽니다.
 	![WebMatrix - Open index file][Remote_editIndex]
 
 3. **제목** 및 **h1** 태그에서 **My ToDo List**를 **My Task List**로 변경하고 파일을 저장합니다.
@@ -180,9 +194,9 @@
 
 WebMatrix에서 웹 사이트를 만들어 Azure에 배포하는 방법을 학습했습니다. WebMatrix에 대한 자세한 내용은 다음 리소스를 참조하세요.
 
-* [Azure용 WebMatrix](영문)(http://go.microsoft.com/fwlink/?LinkID=253622&clcid=0x409)
+* [Azure용 WebMatrix](http://go.microsoft.com/fwlink/?LinkID=253622&clcid=0x409)
 
-* [WebMatrix 웹 사이트](영문)(http://www.microsoft.com/click/services/Redirect2.ashx?CR_CC=200106398)
+* [WebMatrix 웹 사이트](http://www.microsoft.com/click/services/Redirect2.ashx?CR_CC=200106398)
 
 
 
@@ -236,4 +250,5 @@ WebMatrix에서 웹 사이트를 만들어 Azure에 배포하는 방법을 학�
 
 
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

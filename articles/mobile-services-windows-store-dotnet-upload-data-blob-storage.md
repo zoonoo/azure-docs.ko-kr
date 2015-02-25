@@ -1,10 +1,10 @@
-﻿<properties pageTitle="모바일 서비스를 사용하여 Blob 저장소에 이미지 업로드(Windows 스토어) | 모바일 서비스" metaKeywords="" description="모바일 서비스를 사용하여 Azure Blob 저장소에 이미지를 업로드하고 Windows 스토어 앱에서 이미지에 액세스하는 방법에 대해 알아봅니다." metaCanonical="" services="mobile-services,storage" documentationCenter="Mobile" title="Upload images to Azure Storage by using Mobile Services" authors="glenga" solutions="mobile" manager="dwrede" editor="" />
+﻿<properties pageTitle="모바일 서비스를 사용하여 Blob 저장소에 이미지 업로드(Windows 스토어) | 모바일 서비스" description="모바일 서비스를 사용하여 Azure Blob 저장소에 이미지를 업로드하고 Windows 스토어 앱에서 이미지에 액세스하는 방법에 대해 알아봅니다. services="mobile-services, storage" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/26/2014" ms.author="glenga" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/26/2014" ms.author="glenga"/>
 
 # 모바일 서비스를 사용하여 Azure 저장소에 이미지 업로드
 
-[WACOM.INCLUDE [mobile-services-selector-upload-data-blob-storage](../includes/mobile-services-selector-upload-data-blob-storage.md)]
+[AZURE.INCLUDE [mobile-services-selector-upload-data-blob-storage](../includes/mobile-services-selector-upload-data-blob-storage.md)]
 
 이 항목에서는 Azure 모바일 서비스를 사용하여, 사용자가 만든 이미지를 앱에서 Azure 저장소에 업로드하고 저장하는 방법에 대해 설명합니다. 모바일 서비스에서는 SQL 데이터베이스를 사용하여 데이터를 저장합니다. 그러나 Azure Blob 저장소 서비스에는 BLOB(Binary Large Object) 데이터를 저장하는 것이 좀 더 효율적입니다. 
 
@@ -20,10 +20,10 @@
 이 자습서를 사용하려면 다음이 필요합니다.
 
 + Windows 8용 Microsoft Visual Studio 2012 Express 이상
-+ [Azure 저장소 계정][How To Create a Storage Account]
++ [Azure 저장소 계정][저장소 계정을 만드는 방법]
 + 컴퓨터에 연결되는 카메라 또는 기타 이미지 캡처 장치
 
-이 자습서는 모바일 서비스 퀵 스타트를 기반으로 합니다. 이 자습서를 시작하기 전에 먼저 [모바일 서비스 시작](영문)을 완료해야 합니다. 
+이 자습서는 모바일 서비스 퀵 스타트를 기반으로 합니다. 이 자습서를 시작하기 전에 먼저 [모바일 서비스 시작]을 완료해야 합니다. 
 
 ##<a name="install-storage-client"></a>Windows 스토어 앱용 저장소 클라이언트 설치
 
@@ -31,7 +31,7 @@ SAS를 사용하여 Blob 저장소에 이미지를 업로드하려면 먼저 Win
 
 1. Visual Studio의 **솔루션 탐색기**에서 프로젝트 이름을 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 선택합니다.
 
-2. 왼쪽 창에서 **온라인** 범주를 선택하고, `WindowsAzure.Storage`를 검색하고, **Azure 저장소** 패키지에서 **설치**를 클릭한 다음, 사용권 계약에 동의합니다. 
+2. 왼쪽 창에서 **온라인** 범주를 선택하고 `WindowsAzure.Storage`를 검색한 후 **Azure 저장소** 패키지에서 **설치**를 클릭한 다음 사용권 계약에 동의합니다. 
 
   	![][2]
 
@@ -41,9 +41,9 @@ SAS를 사용하여 Blob 저장소에 이미지를 업로드하려면 먼저 Win
 
 ##<a name="update-scripts"></a>관리 포털에서 등록된 삽입 스크립트 업데이트
 
-[WACOM.INCLUDE [mobile-services-configure-blob-storage](../includes/mobile-services-configure-blob-storage.md)]
+[AZURE.INCLUDE [mobile-services-configure-blob-storage](../includes/mobile-services-configure-blob-storage.md)]
 
-[WACOM.INCLUDE [mobile-services-windows-store-dotnet-upload-to-blob-storage](../includes/mobile-services-windows-store-dotnet-upload-to-blob-storage.md)]
+[AZURE.INCLUDE [mobile-services-windows-store-dotnet-upload-to-blob-storage](../includes/mobile-services-windows-store-dotnet-upload-to-blob-storage.md)]
 
 ## <a name="next-steps"> </a>다음 단계
 
@@ -91,4 +91,5 @@ SAS를 사용하여 Blob 저장소에 이미지를 업로드하려면 먼저 Win
 [모바일 서비스 .NET 방법 개념 참조]: /ko-kr/develop/mobile/how-to-guides/work-with-net-client-library
 [앱 설정]: http://msdn.microsoft.com/ko-kr/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 
-<!--HONumber=35.2-->
+
+<!--HONumber=42-->

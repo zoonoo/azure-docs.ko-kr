@@ -1,15 +1,15 @@
-﻿<properties urlDisplayName="Access SharePoint on behalf of the user" pageTitle="사용자 대신 SharePoint 액세스 | 모바일 개발자 센터" metaKeywords="" description="사용자를 대신해 SharePoint를 호출하는 방법에 대해 알아봅니다." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Access SharePoint on behalf of the user" authors="mahender" manager="dwrede" />
+﻿<properties pageTitle="사용자 대신 SharePoint 액세스 | 모바일 개발자 센터" description="사용자를 대신해 SharePoint를 호출하는 방법에 대해 알아봅니다." documentationCenter="windows" authors="mattchenderson" manager="dwrede" editor="" services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="mahender" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="mahender"/>
 
 # 사용자 대신 SharePoint 액세스
 
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
 <p>이 항목에서는 현재 로그인한 사용자를 대신해서 SharePoint API에 액세스하는 방법을 보여 줍니다.</p>
-<p>동영상을 시청하려는 경우 이 자습서와 동일한 단계를 설명하는 오른쪽에 있는 동영상 클립을 확인하세요. 동영상에서 Mat Velloso는 SharePoint Online으로 조작하기 위해 Windows 스토어 앱을 업데이트하는 과정을 단계별로 안내합니다.</p>
+<p>동영상을 시청하려는 경우 오른쪽에 있는 클립은 이 자습서와 동일한 단계를 따릅니다. 동영상에서 Mat Velloso는 SharePoint Online으로 조작하기 위해 Windows 스토어 앱을 업데이트하는 과정을 단계별로 안내합니다.</p>
 </div>
-<div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Azure-Mobile-Services-AAD-O365-Authentication-identity-across-services" target="_blank" class="label">자습서 보기</a> <a style="background-image: url('http://media.ch9.ms/ch9/f217/3f8cbf94-f36b-4162-b3da-1c00339ff217/AzureMobileServicesAADO365AuthenticationIdentityA_960.jpg') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Azure-Mobile-Services-AAD-O365-Authentication-identity-across-services" target="_blank" class="dev-onpage-video"><span class="icon">동영상 재생</span></a> <span class="time">12:51:00</span></div>
+<div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Azure-Mobile-Services-AAD-O365-Authentication-identity-across-services" target="_blank" class="label">자습서 보기</a> <a style="background-image: url('http://media.ch9.ms/ch9/f217/3f8cbf94-f36b-4162-b3da-1c00339ff217/AzureMobileServicesAADO365AuthenticationIdentityA_960.jpg') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Azure-Mobile-Services-AAD-O365-Authentication-identity-across-services" target="_blank" class="dev-onpage-video"><span class="icon">비디오 재생</span></a> <span class="time">오후 12:51</span></div>
 </div>
 
 이 자습서에서는 새 TodoItem이 추가되었을 때 SharePoint Online에서 Word 문서를 만들 수 있도록 Active Directory 인증 라이브러리 Single Sign-On 자습서를 사용해서 앱 인증 자습서에 따라 앱을 업데이트합니다.
@@ -69,7 +69,7 @@ SharePoint에 액세스하려면 대상으로서 SharePoint에 대한 특별 액
 
 1. Visual Studio에서 모바일 서비스 백 엔드 프로젝트를 엽니다.
 
-[WACOM.INCLUDE [mobile-services-dotnet-adal-install-nuget](../includes/mobile-services-dotnet-adal-install-nuget.md)]
+[AZURE.INCLUDE [mobile-services-dotnet-adal-install-nuget](../includes/mobile-services-dotnet-adal-install-nuget.md)]
 
 2. 모바일 서비스 백 엔드 프로젝트에서 SharePointUploadContext라는 새로운 클래스를 만듭니다. 여기에서 다음을 추가합니다.
 
@@ -93,7 +93,7 @@ SharePoint에 액세스하려면 대상으로서 SharePoint에 대한 특별 액
         {
             //Call ADAL and request a token to SharePoint with the access token
             AuthenticationContext ac = new AuthenticationContext(authority);
-            AuthenticationResult ar = ac.AcquireToken(sharepointURL, new UserAssertion(userToken), new ClientCredential(clientId, clientSecret));
+            AuthenticationResult ar = ac.AcquireToken(sharepointURL, new ClientCredential(clientId, clientSecret), new UserAssertion(userToken));
             accessToken = ar.AccessToken;
             string upn = ar.UserInfo.UserId;
             mySiteApiPath = "/personal/" + upn.Replace('@','_').Replace('.','_') + "/_api/web"; 
@@ -203,3 +203,5 @@ Word 문서를 만들려면 OpenXML NuGet 패키지를 사용합니다. NuGet �
 [Azure 관리 포털]: https://manage.windowsazure.com/
 [SharePoint Online]: http://office.microsoft.com/ko-kr/sharepoint/
 [Active Directory 인증 라이브러리 Single Sign-On으로 앱 인증]: http://azure.microsoft.com/ko-kr/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication/
+
+<!--HONumber=42-->

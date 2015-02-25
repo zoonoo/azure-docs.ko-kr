@@ -1,6 +1,7 @@
-﻿<properties urlDisplayName="Connect to an on-premises SQL Server from an Azure mobile service using Hybrid Connections" pageTitle="하이브리드 연결을 사용하여 Azure 모바일 서비스에서 온-프레미스 SQL Server에 연결 - Azure 모바일 서비스" metaKeywords="" description="하이브리드 연결을 사용하여 Azure 모바일 서비스에서 온-프레미스 SQL Server에 연결하는 방법에 대해 알아봅니다." metaCanonical="" services="" documentationCenter="Mobile" title="Connect to an on-premises SQL Server from an Azure mobile service using Hybrid Connections" authors="mahender" solutions="" manager="dwrede" editor="mollybos" />
+﻿<properties pageTitle="하이브리드 연결을 사용하여 Azure 모바일 서비스에서 온-프레미스 SQL Server에 연결 - Azure 모바일 서비스" description="하이브리드 연결을 사용하여 Azure 모바일 서비스에서 온-프레미스 SQL Server에 연결하는 방법에 대해 알아봅니다." services="" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor="mollybos"/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/11/2014" ms.author="mahender" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/22/2014" ms.author="glenga"/>
+
   
 # 하이브리드 연결을 사용하여 Azure 모바일 서비스에서 온-프레미스 SQL Server에 연결 
 
@@ -22,19 +23,19 @@
 
 - **Visual Studio 2013** - Visual Studio 2013의 무료 평가판 버전을 다운로드하려면 [Visual Studio 다운로드](http://www.visualstudio.com/downloads/download-visual-studio-vs)를 참조하세요. 계속하기 전에 이 제품을 설치하세요.
 
-- **SQL Server 2014 Express with Tools** - [Microsoft 웹 플랫폼 데이터베이스 페이지](http://www.microsoft.com/web/platform/database.aspx)에서 Microsoft SQL Server Express를 무료로 다운로드하세요. **Express**(LocalDB가 아닌) 버전을 선택하세요. **Express with Tools** 버전에는 이 자습서에서 사용할 SQL Server Management Studio가 포함되어 있습니다.
+- **SQL Server 2014 Express with Tools** - [Microsoft 웹 플랫폼 데이터베이스 페이지](http://www.microsoft.com/web/platform/database.aspx)에서 무료로 Microsoft SQL Server Express를 다운로드하세요. **Express**(LocalDB가 아닌) 버전을 선택하세요. **Express with Tools** 버전에는 이 자습서에서 사용할 SQL Server Management Studio가 포함되어 있습니다.
 
 또한 하이브리드 연결을 사용하여 Azure에 연결할 온-프레미스 컴퓨터가 필요합니다. 이 컴퓨터는 다음과 같은 조건을 충족해야 합니다.
 
 - 포트 5671을 통해 Azure에 연결할 수 있습니다.
-- 연결할 온-프레미스 리소스의 *호스트이름*:*포트번호*를 연결할 수 있습니다. 리소스는 동일한 컴퓨터에 호스트할 수도 있고, 호스트하지 않을 수도 있습니다. 
+- 연결하려는 온-프레미스 리소스의  *hostname*:*portnumber*에 연결할 수 없습니다. 리소스는 동일한 컴퓨터에 호스트할 수도 있고, 호스트하지 않을 수도 있습니다. 
 
 <a name="InstallSQL"></a>
 ## SQL Server Express 설치, TCP/IP 사용 및 SQL Server 데이터베이스 온-프레미스 만들기
 
 하이브리드 연결을 사용하여 온-프레미스 SQL Server 또는 SQL Server Express 데이터베이스를 사용하려면 TCP/IP를 고정 포트에서 사용할 수 있어야 합니다. SQL Server의 기본 인스턴스에서는 고정 포트 1433을 사용하는 반면 명명된 인스턴스에서는 이 포트를 사용하지 않습니다. 
 
-위에서 설명한 조건에 맞게 SQL Server를 구성하는 방법에 대한 자세한 내용은 [SQL Server Express 설치, TCP/IP 사용 및 SQL Server 데이터베이스 온-프레미스 만들기](/ko-kr/documentation/articles/web-sites-hybrid-connection-connect-on-premises-sql-server#InstallSQL)를 참조하세요. 위에서 설명한 조건을 충족하는 구성 및 환경으로 SQL Server를 이미 설치한 경우 건너뛰어서 [SQL Server 데이터베이스 온-프레미스](/ko-kr/documentation/articles/web-sites-hybrid-connection-connect-on-premises-sql-server#CreateSQLDB)를 시작할 수 있습니다. 
+위에서 설명한 조건을 충족하도록 SQL Server를 구성하는 방법에 대한 자세한 내용은 [온-프레미스에서 SQL Server Express 설치, TCP/IP 사용 및 SQL Server 데이터베이스를 만들기](/ko-kr/documentation/articles/web-sites-hybrid-connection-connect-on-premises-sql-server#InstallSQL).를 참조하세요. SQL Server가 위에 설명된 조건을 충족하는 구성 및 환경에 이미 설치되어 있는 경우 건너뛴 후 [온-프레미스에서 SQL Server 데이터베이스 만들기](/ko-kr/documentation/articles/web-sites-hybrid-connection-connect-on-premises-sql-server#CreateSQLDB). 를 시작할 수 있습니다.
 
 이 자습서에서는 데이터베이스 이름이 **OnPremisesDB**이고, 이 데이터베이스는 포트 **1433**에서 실행하며 컴퓨터의 호스트 이름은 **onPremisesServer**라고 가정합니다.
 
@@ -42,7 +43,7 @@
 ## 하이브리드 연결 만들기
 1. 온-프레미스 컴퓨터에서 [Azure 관리 포털](http://go.microsoft.com/fwlink/p/?linkid=213885&clcid=0x409)에 로그온합니다.
 
-2. 탐색 창 아래에서 **+새로 만들기**를 선택한 다음 **앱 서비스**, **BizTalk Service** 및 **사용자 지정 만들기**를 차례로 선택합니다.
+2. 탐색 창 아래에서 **+새로 만들기**를 선택한 다음 **앱 서비스**, **BizTalk 서비스**, **사용자 지정 만들기**를 차례로 선택합니다.
 
 	![Create BizTalk Service][CreateBTS]
 
@@ -58,7 +59,7 @@
 
 	이제 새로운 하이브리드 연결이 생성됩니다.
 
-5. 하이브리드 연결에 대한 **이름** 및 **호스트 이름**을 제공하고 **포트**를 `1433`으로 설정합니다. 
+5. 하이브리드 연결의 **이름** 및 **호스트 이름**을 입력하고 **포트**를 `1433`.으로 설정합니다. 
   
 	![Configure Hybrid Connection][ConfigureHC]
 
@@ -68,7 +69,7 @@
  
 	![Hybrid Connection successfully created][HCCreated]
 	
-	새로운 연결의 상태는 **On-premises setup incomplete**을 표시합니다.
+	새로운 연결의 상태는 **온-프레미스 설정 불완전**을 표시합니다.
 
 이제 온-프레미스 컴퓨터에 하이브리드 연결 관리자를 설치해야 합니다.
 
@@ -100,7 +101,7 @@
 ### 하이브리드 연결과 서비스 연계
 1. 포털의 **모바일 서비스** 탭에서 기존 모바일 서비스를 선택하거나 새로운 서비스를 만듭니다. 
 
-	>[WACOM.NOTE].NET 백 엔드를 사용하여 생성된 서비스를 선택하거나 새 .NET 백 엔드 모바일 서비스를 만들어야 합니다. 새 .NET 백 엔드 모바일 서비스를 만드는 방법에 대한 자세한 내용은 [모바일 서비스 시작](/ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/) 를 참조하세요.
+	>[AZURE.NOTE].NET 백 엔드를 사용하여 생성된 서비스를 선택하거나 새 .NET 백 엔드 모바일 서비스를 만들어야 합니다. 새 .NET 백 엔드 모바일 서비스를 만드는 방법에 대한 자세한 내용은 [모바일 서비스 시작](/ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/) 을 참조하세요.
 
 2. 모바일 서비스의 **구성** 탭에서 **하이브리드 연결** 섹션을 찾아 **하이브리드 연결 추가**를 선택합니다.
 
@@ -115,19 +116,19 @@
 ### 온-프레미스 연결 문자열을 사용하도록 서비스 업데이트
 마지막으로, 연결 문자열의 값을 온-프레미스 SQL Server에 저장하는 앱 설정을 만들어야 합니다. 그런 다음 새 연결 문자열을 사용하도록 모바일 서비스를 수정해야 합니다. 
 
-1. **연결 문자열**의 **구성** 탭에서 `Server=onPremisesServer,1433;Database=OnPremisesDB;User ID=sa;Password={password}`와 같은 값을 사용하여 `OnPremisesDatabase`라는 새 연결 문자열을 추가합니다.
+1. **연결 문자열**의 **구성** 탭에서  `Server=onPremisesServer,1433;Database=OnPremisesDB;User ID=sa;Password={password}`와 같은 값을 가지며 이름이  `OnPremisesDatabase`인 새 연결 문자열을 추가합니다.
 
 	![Connection string for on-premises database][ConnectionString]
 
-	온-프레미스 데이터베이스의 보안 암호로 `{password}`를 바꿉니다.
+	온-프레미스 데이터베이스의 보안 암호로  `{password}`를 바꿉니다.
 
 2. **저장**을 눌러 하이브리드 연결과 방금 만든 연결 문자열을 저장합니다.
 
 3. Visual Studio 2013에서 .NET 기반 모바일 서비스를 정의하는 프로젝트를 엽니다. 
 
-	.NET 백 엔드 프로젝트를 다운로드하는 방법에 대해서는 [모바일 서비스 시작](/ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/)를 참조하세요.
+	.NET 백 엔드 프로젝트를 다운로드하는 방법에 대해서는 [모바일 서비스 시작](/ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/) .을 참조하세요.
  
-4. 솔루션 탐색기에서 **Models** 폴더를 확장하여 *Context.cs*로 끝나는 데이터 모델 파일을 엽니다.
+4. 솔루션 탐색기에서 **Models** 폴더를 확장하여  *Context.cs*로 끝나는 데이터 모델 파일을 엽니다.
 
 6. 다음 코드 조각과 유사하게 **DbContext** 인스턴스 생성자를 수정합니다.
 
@@ -174,3 +175,6 @@
 [ConnectionString]:./media/mobile-services-dotnet-backend-hybrid-connections-get-started/11.png
 [SMS]:./media/mobile-services-dotnet-backend-hybrid-connections-get-started/12.png
 [DownloadHCM]:./media/mobile-services-dotnet-backend-hybrid-connections-get-started/5-1.png
+
+
+<!--HONumber=42-->

@@ -1,10 +1,24 @@
-﻿<properties urlDisplayName="Get Started with Authentication (Xamarin.Android)" pageTitle="인증 시작(Xamarin.Android) - 모바일 서비스" metaKeywords="Azure 응용 프로그램 등록, Azure 인증, 응용 프로그램 인증, 모바일 서비스 인증, 모바일 서비스 Xamarin.Android" description="Xamarin.Android용 Azure 모바일 서비스에서 인증을 사용하는 방법에 대해 알아봅니다." metaCanonical="" disqusComments="1" umbracoNaviHide="1" title="Get started with authentication in Mobile Services" services="mobile-services" documentationCenter="Mobile" manager="dwrede" authors="donnam"/>
+﻿<properties 
+	pageTitle="인증 시작(Xamarin.Android) - 모바일 서비스" 
+	description="Xamarin.Android용 Azure 모바일 서비스에서 인증을 사용하는 방법에 대해 알아봅니다." 
+	services="mobile-services" 
+	documentationCenter="xamarin" 
+	manager="dwrede" 
+	authors="lindydonna" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-android" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="donnam" />
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-xamarin-android" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/23/2014" 
+	ms.author="donnam"/>
 
 # 모바일 서비스 앱에 인증 추가
 
-[WACOM.INCLUDE [mobile-services-selector-get-started-users](../includes/mobile-services-selector-get-started-users.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-users](../includes/mobile-services-selector-get-started-users.md)]
 
 <p>이 항목에서는 Xamarin.Android 앱에서 Azure 모바일 서비스의 사용자를 인증하는 방법을 보여 줍니다. 이 자습서에서는 모바일 서비스가 지원하는 ID 공급자를 사용하여 빠른 시작 프로젝트에 인증을 추가합니다. 모바일 서비스에서 인증되고 권한이 부여된 후 사용자 ID 값이 표시됩니다.</p>
 
@@ -20,19 +34,19 @@
 
 <h2><a name="register"></a>인증을 위해 앱 등록 및 모바일 서비스 구성</h2>
 
-[WACOM.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)] 
+[AZURE.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)] 
 
 <h2><a name="permissions"></a>사용 권한을 인증된 사용자로 제한</h2>
 
 
-[WACOM.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)] 
+[AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)] 
 
 
 3. Eclipse에서 [모바일 서비스 시작] 자습서를 완료했을 때 생성된 프로젝트를 엽니다. 
 
-4. **Run** 메뉴에서 **실행**을 클릭하여 앱을 시작하고 앱이 시작된 후 상태 코드 401(인증되지 않음)의 처리되지 않은 예외가 발생하는지 확인합니다. 
+4. **Run** 메뉴에서 **Run**을 클릭하여 앱을 시작하고 앱이 시작된 후 상태 코드 401(인증되지 않음)의 처리되지 않은 예외가 발생하는지 확인합니다. 
 
-	 이러한 현상은 앱이 인증되지 않은 사용자로 모바일 서비스에 액세스하려고 하지만 _TodoItem_ 테이블이 현재 인증을 요구하기 때문에 발생합니다.
+	 이는 앱이 인증되지 않은 사용자로 모바일 서비스에 액세스하려고 시도하지만 _TodoItem_ 테이블에서 이제 인증을 요구하기 때문에 발생합니다.
 
 다음에는 모바일 서비스의 리소스를 요청하기 전에 사용자를 인증하도록 앱을 업데이트합니다.
 
@@ -59,17 +73,15 @@
 
     인증 프로세스를 처리하는 새 메서드가 만들어집니다. 사용자는 Microsoft 계정 로그인을 사용하여 인증됩니다. 인증된 사용자의 ID를 표시하는 대화 상자가 나타납니다. 양성 인증 없이는 진행할 수 없습니다.
 
-    <div class="dev-callout"><b>참고</b>
-	<p>Microsoft 이외의 ID 공급자를 사용하는 경우 위의 <strong>login</strong> 메서드에 전달된 값을 <i>Facebook</i>, <i>Google</i>, <i>Twitter</i> 또는 <i>WindowsAzureActiveDirectory</i> 중 하나로 변경합니다.</p>
-    </div>
+    > [AZURE.NOTE] Microsoft 이외의 ID 공급자를 사용하는 경우 위의 **login** 메서드에 전달된 값을 _Facebook_, _Google_, _Twitter_, _WindowsAzureActiveDirectory_ 중 하나로 변경합니다.
 
-3. **OnCreate** 메서드에서 `MobileServiceClient` 개체를 인스턴스화하는 코드 다음에 다음 코드 줄을 추가합니다.
+3. **OnCreate** 메서드에서  `MobileServiceClient` 개체를 인스턴스화하는 코드 다음에 다음 코드 줄을 추가합니다.
 
 		await Authenticate();
 
 	이 호출은 인증 프로세스를 시작하고 비동기적으로 기다립니다.
 
-4. **OnCreate** 메서드에서 `await Authenticate();` 뒤의 나머지 코드를 새 **CreateTable** 메서드로 이동합니다. 다음과 같이 표시됩니다.
+4. 다음과 같이 **OnCreate** 메서드에서 `await Authenticate();` 뒤에 남은 코드를 새 **CreateTable** 메서드로 이동합니다.
 
 	        private async Task CreateTable()
 	        {
@@ -87,12 +99,12 @@
 	            await RefreshItemsFromTableAsync();
 	        }
 
-5. 2단계에서 추가된 **Authenticate**을 호출한 후 **OnCreate**에서 새 **CreateTable** 메서드를 호출합니다.
+5. 2단계에서 **Authenticate** 호출이 추가된 후 **OnCreate**에서 새 **CreateTable** 메서드를 호출합니다.
 
 		await CreateTable();
 
 
-6. **실행** 메뉴에서 **실행**을 클릭하여 앱을 시작하고 원하는 ID 공급자에 로그인합니다. 
+6. **Run** 메뉴에서 **Run**을 클릭하여 앱을 시작하고 원하는 ID 공급자에 로그인합니다. 
 
    	로그인하고 나면 앱이 오류 없이 실행되며 모바일 서비스를 쿼리하고 데이터를 업데이트할 수 있게 됩니다.
 
@@ -123,7 +135,7 @@
 [내 응용 프로그램]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Windows용 Live SDK]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 [모바일 서비스 시작]: /ko-kr/develop/mobile/tutorials/get-started-xamarin-android
-[데이터 작업 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-data-xamarin-android
+[데이터 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-data-xamarin-android
 [인증 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-users-xamarin-android
 [푸시 알림 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-push-xamarin-android
 [스크립트를 통해 사용자 권한 부여]: /ko-kr/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-android
@@ -131,3 +143,6 @@
 [Azure 관리 포털]: https://manage.windowsazure.com/
 
 [완성된 예제 프로젝트]: http://go.microsoft.com/fwlink/p/?LinkId=331328
+
+
+<!--HONumber=42-->

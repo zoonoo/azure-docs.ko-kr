@@ -1,8 +1,9 @@
-﻿<properties title="How to Configure An Availability Set for Virtual Machines" pageTitle="가상 컴퓨터의 가용성 집합을 구성하는 방법" description="Azure에서 VM에 대해 가용성 집합을 구성하는 단계에 대해 설명합니다." metaKeywords="" services="virtual-machines" solutions="" documentationCenter="" authors="kathydav" manager="timlt" videoId="" scriptId="" />
+<properties pageTitle="가상 컴퓨터의 가용성 집합을 구성하는 방법" description="Azure에서 VM에 대해 가용성 집합을 구성하는 단계에 대해 설명합니다." services="virtual-machines" documentationCenter="" authors="KBDAzure" manager="timlt" editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-multiple" ms.devlang="na" ms.topic="article" ms.date="11/17/2014" ms.author="kathydav" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-multiple" ms.devlang="na" ms.topic="article" ms.date="11/17/2014" ms.author="kathydav"/>
 
 #가상 컴퓨터의 가용성 집합을 구성하는 방법#
+
 
 가용성 집합을 사용하면 유지 관리 중과 같은 가동 중지 시간 동안에도 가상 컴퓨터를 계속 사용할 수 있습니다. 가용성 집합 내에 비슷하게 구성된 둘 이상의 가상 컴퓨터를 배치하면 가상 컴퓨터가 실행하는 서비스나 응용 프로그램의 가용성을 유지하는 데 필요한 중복성이 생성됩니다. 이 기능이 작동하는 방법에 대한 자세한 내용은 [가상 컴퓨터의 가용성 관리][]를 참조하세요. 
 
@@ -10,11 +11,11 @@
 
 다음 두 옵션 중 하나를 사용하여 가상 컴퓨터를 가용성 집합에 배치할 수 있습니다.
 
-- [옵션 1: 가상 컴퓨터와 가용성 집합을 동시에 만들기][] 그런 다음 새 가상 컴퓨터를 만들 때 집합에 가상 컴퓨터를 추가합니다.
-- [옵션 2: 가용성 집합에 기존 가상 컴퓨터 추가][]
+- [옵션 1: 가상 컴퓨터와 가용성 집합을 동시에 만듭니다][]. 그런 다음 새 가상 컴퓨터를 만들 때 집합에 가상 컴퓨터를 추가합니다.
+- [옵션 2: 기존 가상 컴퓨터를 가용성 집합에 추가합니다][].
 
 
->[WACOM.NOTE] 같은 가용성 집합에 배치할 가상 컴퓨터는 같은 클라우드 서비스에 속해야 합니다.   
+>[AZURE.NOTE] 같은 가용성 집합에 배치할 가상 컴퓨터는 같은 클라우드 서비스에 속해야 합니다.   
 
 ## <a id="createset"> </a>옵션 1: 가상 컴퓨터와 가용성 집합을 동시에 만들기##
 
@@ -22,7 +23,7 @@
 
 관리 포털을 사용하려면
 
-1. 아직 로그인하지 않은 경우 Azure [관리 포털](http://manage.windowsazure.com)에 로그인합니다.
+1. 아직 로그인하지 않은 경우 [Azure 관리 포털](http://manage.windowsazure.com)에 로그인합니다.
 
 2. 명령 모음에서 **새로 만들기**를 클릭합니다.
 
@@ -55,7 +56,7 @@ Azure cmdlet을 사용하려면
 
 	`C:\PS> $image = (Get-AzureVMImage)[<index_number>].ImageName`
 
-	>[WACOM.NOTE] 구독에 적용되는 모든 이미지 목록을 가져오려면 매개 변수 없이 `Get-AzureVMImage`를 실행합니다. 이렇게 하면 큰 목록이 반환될 수 있습니다. 이 목록을 간단히 줄이려면 이미지 패밀리 이름과 같은 속성을 사용합니다. 이 작업을 수행하여 특정 이미지를 찾는 방법을 보여 주는 팁 및 예제를 보려면 [Windows PowerShell을 사용하여 이미지 관리](http://msdn.microsoft.com/ko-kr/library/azure/dn790330.aspx)를 참조하세요.
+	>[AZURE.NOTE] 구독에 적용되는 모든 이미지 목록을 가져오려면 매개 변수 없이  `Get-AzureVMImage`를 실행합니다. 이렇게 하면 큰 목록이 반환될 수 있습니다. 이 목록을 간단히 줄이려면 이미지 패밀리 이름과 같은 속성을 사용합니다. 이 작업을 수행하여 특정 이미지를 찾는 방법을 보여 주는 팁 및 예제를 보려면 [Windows PowerShell을 사용하여 이미지 관리](http://msdn.microsoft.com/ko-kr/library/azure/dn790330.aspx)를 참조하세요.
 
 3.	새 가상 컴퓨터의 구성을 지정한 다음 파이프라인을 사용하여 VM을 만드는 cmdlet에 구성 개체를 전달합니다. &lt;VmName&gt; 및 &lt;VmSize&gt;와 같은 자리 표시자는 원하는 값으로 바꿉니다.
 
@@ -65,7 +66,7 @@ Azure cmdlet을 사용하려면
 
 관리 포털에서 기존 가상 컴퓨터를 기존 가용성 집합에 추가하거나 가상 컴퓨터용으로 새 가용성 집합을 만들 수 있습니다. 가상 컴퓨터는 같은 클라우드 서비스에 속해야 합니다. 이 옵션에서도 단계는 거의 동일합니다. Azure PowerShell에서 기존 가용성 집합에 가상 컴퓨터를 추가할 수 있습니다. 
 
-1. 아직 로그인하지 않은 경우 Azure [관리 포털](http://manage.windowsazure.com)에 로그인합니다.
+1. 아직 로그인하지 않은 경우 [Azure 관리 포털](http://manage.windowsazure.com)에 로그인합니다.
 
 2. 탐색 모음에서 **가상 컴퓨터**를 클릭합니다.
 
@@ -89,17 +90,17 @@ Azure PowerShell 세션을 열고 다음 명령을 실행합니다. &lt;VmCloudS
 
 	C:\PS> Get-AzureVM -ServiceName "<VmCloudServiceName>" -Name "<VmName>" | Set-AzureAvailabilitySet -AvailabilitySetName "<MyAvSet>" | Update-AzureVM
 
->[WACOM.NOTE] 가용성 집합에 추가하는 작업을 완료하기 위해 가상 컴퓨터가 다시 시작될 수 있습니다.
+>[AZURE.NOTE] 가용성 집합에 추가하는 작업을 완료하기 위해 가상 컴퓨터가 다시 시작될 수 있습니다.
 
 
 ##추가 리소스
 [Azure VM 구성 설정 정보]
 
-[옵션 1: 가상 컴퓨터와 가용성 집합을 동시에 만들기]: #createset
-[옵션 2: 기존 가상 컴퓨터를 가용성 집합에 추가]: #addmachine
+[옵션 1: 가상 컴퓨터와 가용성 집합을 동시에 만듭니다]: #createset
+[옵션 2: 기존 가상 컴퓨터를 가용성 집합에 추가합니다]: #addmachine
 
 <!-- LINKS -->
-[Azure 인프라 서비스를 위한 부하 분산]: ../virtual-machines-load-balance
+[Azure 인프라 서비스의 부하 분산]: ../virtual-machines-load-balance
 [가상 컴퓨터의 가용성 관리]: ../virtual-machines-manage-availability
 [Windows를 실행하는 가상 컴퓨터 만들기]: ../virtual-machines-windows-tutorial
 [Azure 가상 네트워크 개요]: http://go.microsoft.com/fwlink/p/?linkid=294063
@@ -108,4 +109,5 @@ Azure PowerShell 세션을 열고 다음 명령을 실행합니다. &lt;VmCloudS
 [Azure VM 구성 설정 정보]: http://msdn.microsoft.com/ko-kr/library/azure/dn763935.aspx
 
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

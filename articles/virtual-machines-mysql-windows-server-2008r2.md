@@ -1,11 +1,11 @@
-﻿<properties urlDisplayName="Install MySQL" pageTitle="Azure에서 MySQL을 실행하는 가상 컴퓨터 만들기 " metaKeywords="Azure virtual machines, Azure Windows Server, Azure installing MySQL, Azure configuring MySQL, Azure databases" description="Windows Server 2008 R2를 실행하는 Azure 가상 컴퓨터를 만든 다음 해당 가상 컴퓨터에서 MySQL 데이터베이스를 설치 및 구성하는 방법에 대해 알아봅니다." metaCanonical="" services="virtual-machines" documentationCenter="" title="Install MySQL on a virtual machine running Windows Server 2008 R2 in Azure" authors="kathydav" solutions="" manager="timlt" editor="tysonn" />
+<properties pageTitle="Azure에서 MySQL을 실행하는 가상 컴퓨터 만들기" description="Windows Server 2008 R2를 실행하는 Azure 가상 컴퓨터를 만든 다음 해당 가상 컴퓨터에서 MySQL 데이터베이스를 설치 및 구성하는 방법에 대해 알아봅니다." services="virtual-machines" documentationCenter="" authors="KBDAzure" manager="timlt" editor="tysonn"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="10/23/2014" ms.author="kathydav" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="10/23/2014" ms.author="kathydav"/>
 
 
 #Azure에서 Windows Server 2008 R2를 실행하는 가상 컴퓨터에 MySQL 설치
 
-[MySQL](http://www.mysql.com) 은 인기 있는 오픈 소스 SQL 데이터베이스입니다. [Azure 관리 포털][AzurePreviewPortal]을 사용하여 이미지 갤러리에서 Windows Server 2008 R2를 실행하는 가상 컴퓨터를 만들 수 있습니다. 그런 다음 가상 컴퓨터에서 MySQL 데이터베이스를 설치하고 구성할 수 있습니다.
+[MySQL](http://www.mysql.com)은 인기 있는 오픈 소스 SQL 데이터베이스입니다. [Azure 관리 포털][AzurePreviewPortal]을 사용하여 이미지 갤러리에서 Windows Server 2008 R2를 실행하는 가상 컴퓨터를 만들 수 있습니다. 그런 다음 가상 컴퓨터에서 MySQL 데이터베이스를 설치하고 구성할 수 있습니다.
 
 이 자습서에서는 다음을 수행하는 방법에 대해 설명합니다.
 
@@ -15,25 +15,25 @@
 
 ##Windows Server를 실행하는 가상 컴퓨터 만들기
 
-[WACOM.INCLUDE [virtual-machines-create-WindowsVM](../includes/virtual-machines-create-WindowsVM.md)]
+[AZURE.INCLUDE [virtual-machines-create-WindowsVM](../includes/virtual-machines-create-WindowsVM.md)]
 
 ##데이터 디스크 연결
 
-가상 컴퓨터가 만들어진 후에 데이터 디스크를 연결합니다. 이 디스크는 MySQL을 설치할 때 필요한 데이터 저장소를 제공합니다. [Windows 가상 컴퓨터에 데이터 디스크를 연결하는 방법](http://azure.microsoft.com/ko-kr/documentation/articles/storage-windows-attach-disk/) 을 참조하고 빈 디스크 연결 지침을 따르세요.
+가상 컴퓨터가 만들어진 후에 데이터 디스크를 연결합니다. 이 디스크는 MySQL을 설치할 때 필요한 데이터 저장소를 제공합니다. [Windows 가상 컴퓨터에 데이터 디스크를 연결하는 방법](http://azure.microsoft.com/ko-kr/documentation/articles/storage-windows-attach-disk/)을 참조하여 빈 디스크를 연결하는 방법에 대한 지침을 따르세요.
 
 ##가상 컴퓨터에 로그온
 다음에는 MySQL을 설치할 수 있게 가상 컴퓨터에 로그온합니다.
 
-[WACOM.INCLUDE [virtual-machines-log-on-win-server](../includes/virtual-machines-log-on-win-server.md)]
+[AZURE.INCLUDE [virtual-machines-log-on-win-server](../includes/virtual-machines-log-on-win-server.md)]
 
 ##가상 컴퓨터에서 MySQL Community Server 설치 및 실행
 MySQL Community Server를 설치, 구성 및 실행하려면 다음 단계를 따르세요.
 
 1. 원격 데스크톱을 사용하여 가상 컴퓨터에 연결한 후 **시작** 메뉴에서 **Internet Explorer**를 엽니다. 
 
-2. 오른쪽 위에 있는 **도구** 단추를 선택합니다. **인터넷 옵션**에서 **보안** 탭을 선택한 후 **신뢰할 수 있는 사이트** 아이콘을 선택하고 마지막으로 **사이트** 단추를 클릭합니다. 신뢰할 수 있는 사이트 목록에 *http://\*.mysql.com*을 추가합니다.
+2. 오른쪽 위에 있는 **도구** 단추를 선택합니다. **인터넷 옵션**에서 **보안** 탭을 선택한 후 **신뢰할 수 있는 사이트** 아이콘을 선택하고 마지막으로 **사이트** 단추를 클릭합니다. 신뢰할 수 있는 사이트 목록에  *http://\*.mysql.com*을 추가합니다.
 
-3. [MySQL Community Server 다운로드][MySQLDownloads](영문)로 이동합니다.
+3. [MySQL Community Server 다운로드][MySQLDownloads]로 이동합니다.
 
 4. **Platform** 드롭다운 메뉴에서 **Microsoft Windows**를 선택한 후 **Select**를 클릭합니다.
 
@@ -43,47 +43,47 @@ MySQL Community Server를 설치, 구성 및 실행하려면 다음 단계를 �
 
 7. 데스크톱에서 설치 관리자 파일을 두 번 클릭하여 설치를 시작합니다.
 
-8. **다음**을 클릭합니다.
+8. **Next**를 클릭합니다.
 
-9. 사용권 계약에 동의하고 **다음**을 클릭합니다.
+9. 사용권 계약에 동의하고 **Next**를 클릭합니다.
 
 10. **Typical**을 클릭하여 일반 기능을 설치합니다.
 
-11. **설치**를 클릭합니다.
+11. **Install**을 클릭합니다.
 
-12. MySQL 구성 마법사를 시작하고 **다음**을 클릭합니다.
+12. MySQL Configuration Wizard를 시작하고 **Next**를 클릭합니다.
 
-13. **Detailed Configuration**을 선택하고 다음을 클릭합니다.
+13. Detailed Configuration을 선택하고 **Next**를 클릭합니다.
 
-14. 서버에서 다른 응용 프로그램과 함께 MySQL을 실행하려는 경우 **Server Machine**을 선택하고 그렇지 않으면 요구에 가장 적합한 다른 옵션을 선택합니다.  **다음**을 클릭합니다.
+14. 서버에서 다른 응용 프로그램과 함께 MySQL을 실행하려는 경우 **Server Machine**을 선택하고 그렇지 않으면 요구에 가장 적합한 다른 옵션을 선택합니다.  **Next**를 클릭합니다.
 
-15. **Multifunctional Database**를 선택하거나 요구에 가장 적합한 다른 옵션을 선택합니다.  **다음**을 클릭합니다.
+15. **Multifunctional Database**를 선택하거나 요구에 가장 적합한 다른 옵션을 선택합니다.  **Next**를 클릭합니다.
 
 16. 이전 섹션에서 연결한 데이터 드라이브를 선택합니다.
 
 	![Configure MySQL][MySQLConfig5]
 
-17. **Decision Support (DSS)/OLAP**를 선택하거나 요구에 가장 적합한 다른 옵션을 선택합니다.  **다음**을 클릭합니다.
+17. **Decision Support (DSS)/OLAP**를 선택하거나 요구에 가장 적합한 다른 옵션을 선택합니다.  **Next**를 클릭합니다.
 
 18. **Enable TCP/IP Networking** 및 **Add firewall exception for this port**를 선택합니다. 두 번째 옵션을 선택하면 Windows 방화벽에 이름이 **MySQL Server**인 인바운드 규칙이 만들어집니다.
 
 	![Configure MySQL][MySQLConfig7]
 
-19. 텍스트를 여러 다른 언어로 저장해야 하는 경우 **Best Support For Multilingualism**을 선택합니다. 그렇지 않은 경우 다른 옵션 중 하나를 선택합니다.  **다음**을 클릭합니다.
+19. 텍스트를 여러 다른 언어로 저장해야 하는 경우 **Best Support For Multilingualism**을 선택합니다. 그렇지 않은 경우 다른 옵션 중 하나를 선택합니다.  **Next**를 클릭합니다.
 
 	![Configure MySQL][MySQLConfig8]
 
-20. **Install As Windows Service** 및 **Launch the MySQL Server automatically**를 선택합니다.  또한 **Include Bin Directory in Windows PATH**도 선택합니다. **다음**을 클릭합니다.
+20. **Install As Windows Service** 및 **Launch the MySQL Server automatically**를 선택합니다.  또한 **Include Bin Directory in Windows PATH**도 선택합니다. **Next**를 클릭합니다.
 
 	![Configure MySQL][MySQLConfig9]
 
-21. 루트 암호를 입력합니다. **Enable root access from remote machines** 또는 **Create An Anonymous Account**는 선택하지 않습니다.  **다음**을 클릭합니다.
+21. 루트 암호를 입력합니다. **Enable root access from remote machines** 또는 **Create An Anonymous Account**는 선택하지 않습니다.  **Next**를 클릭합니다.
 
 	![Configure MySQL][MySQLConfig10]
 
-22. **실행**을 클릭하고 구성이 완료될 때까지 기다립니다.
+22. **Execute**를 클릭하고 구성이 완료될 때까지 기다립니다.
 
-23. **마침**을 클릭합니다.
+23. **Finish**를 클릭합니다.
 
 24. **시작**을 클릭하고 **MySQL 5.x Command Line Client**를 선택하여 명령줄 클라이언트를 시작합니다.
 
@@ -95,7 +95,7 @@ MySQL Community Server를 설치, 구성 및 실행하려면 다음 단계를 �
 
 	줄 끝에 있는 세미콜론(;)은 명령을 끝내는 데 필요합니다.
 
-27. 데이터베이스를 만들어서 'mysqluser' 사용자 권한을 부여하려면 다음 명령을 실행합니다.
+27. 데이터베이스를 만들어서  `mysqluser` 사용자 권한을 부여하려면 다음 명령을 실행합니다.
 
 		mysql> CREATE DATABASE testdatabase;
 		mysql> GRANT ALL ON testdatabase.* TO 'mysqluser'@'localhost' IDENTIFIED BY 'password';
@@ -106,7 +106,7 @@ MySQL Community Server를 설치, 구성 및 실행하려면 다음 단계를 �
 
 		mysql> GRANT ALL ON testdatabase.* TO 'mysqluser'@'<ip-address>' IDENTIFIED BY 'password';
 
-	여기서 'ip-address'는 MySQL에 연결할 컴퓨터의 IP 주소입니다.
+	여기서 `ip-address` 는 MySQL에 연결할 컴퓨터의 IP 주소입니다.
 	
 29. MySQL 명령줄 클라이언트를 종료하려면 다음 명령을 실행합니다.
 
@@ -124,12 +124,12 @@ MySQL Community Server를 설치, 구성 및 실행하려면 다음 단계를 �
 
 		mysql -u mysqluser -p -h <yourservicename>.cloudapp.net
 
-	예를 들어 가상 컴퓨터 이름이 "testwinvm"이면 다음 명령을 실행합니다.
+ 예를 들어 가상 컴퓨터 이름이 "testwinvm"이면 다음 명령을 실행합니다.
 
 		mysql -u mysqluser -p -h testwinvm.cloudapp.net
 
 ##리소스
-MySQL에 대한 자세한 내용은 [MySQL 설명서](영문)를 참조하세요(http://dev.mysql.com/doc/).
+MySQL에 대한 자세한 내용은 [MySQL 설명서](http://dev.mysql.com/doc/)를 참조하세요.
 
 [AzurePortal]: http://manage.windowsazure.com
 [MySQLDownloads]: http://www.mysql.com/downloads/mysql/
@@ -142,4 +142,5 @@ MySQL에 대한 자세한 내용은 [MySQL 설명서](영문)를 참조하세요
 [MySQLConfig10]: ./media/virtual-machines-mysql-windows-server-2008r2/MySQLConfig10.png
 
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

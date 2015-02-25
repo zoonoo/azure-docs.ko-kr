@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Website with WebMatrix" pageTitle="WebMatrix를 사용하는 Node.js 웹 사이트 -Azure 자습서" metaKeywords="" description="WebMatrix를 사용하여 Node.js 응용 프로그램을 개발하고 Azure 웹 사이트에 배포하는 방법에 대해 설명하는 자습서입니다." metaCanonical="" services="web-sites" documentationCenter="nodejs" title="Build and deploy a Node.js website to Azure using WebMatrix" authors="larryfr" solutions="" manager="wpickett" editor="mollybos" />
+﻿<properties 
+	pageTitle="WebMatrix를 사용하는 Node.js 웹 사이트 -Azure 자습서" 
+	description="WebMatrix를 사용하여 Node.js 응용 프로그램을 개발하고 Azure 웹 사이트에 배포하는 방법에 대해 설명하는 자습서입니다." 
+	services="web-sites" 
+	documentationCenter="nodejs" 
+	authors="blackmist" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="nodejs" 
+	ms.topic="article" 
+	ms.date="09/17/2014" 
+	ms.author="larryfr"/>
 
 
 # WebMatrix를 사용하여 Node.js 웹 사이트 빌드 및 Azure에 배포
@@ -13,16 +27,13 @@
 
 ![Azure node Web site][webmatrix-node-completed]
 
-[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
+[AZURE.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 ## Azure에 로그인
 
 다음 단계에 따라 Azure 웹 사이트를 만듭니다.
 
-<div class="dev-callout"><strong>참고</strong>
-<p>이 자습서를 완료하려면 Azure 웹 사이트 기능이 사용되는 Azure 계정이 필요합니다.</p>
-<p>계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://www.windowsazure.com/ko-kr/pricing/free-trial/?WT.mc_id=A7171371E" target="_blank">Azure 무료 평가판</a>을 참조하세요.</p>
-</div>
+> [AZURE.NOTE] 이 자습서를 완료하려면 Azure 웹 사이트 기능이 사용되는 Azure 계정이 필요합니다. <br /> 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](http://www.windowsazure.com/ko-kr/pricing/free-trial/?WT.mc_id=A7171371E"%20target="_blank")을 참조하세요.
 <br />
 
 1. WebMatrix를 시작합니다.
@@ -41,7 +52,7 @@
 
 	![New site from Template Gallery][sitefromtemplate]
 
-2. **템플릿에서 사이트 만들기** 대화 상자에서 **노드**를 선택한 후**빠른 사이트**를 선택합니다. 마지막으로 **다음**을 클릭합니다. **빠른 사이트** 템플릿의 필수 조건 이 없는 경우 해당 요소를 설치하라는 메시지가 표시됩니다.
+2. **템플릿에서 사이트 만들기** 대화 상자에서 **노드**를 선택한 후 **빠른 사이트**를 선택합니다. 마지막으로 **다음**을 클릭합니다. **빠른 사이트** 템플릿의 필수 조건이 없는 경우 해당 요소를 설치하라는 메시지가 표시됩니다.
 
 	![select express template][webmatrix-templates]
 
@@ -89,14 +100,14 @@
 
 ##다음 단계
 
-Azure에 제공되는 Node.js 버전에 대한 정보 및 응용 프로그램에 사용할 버전 지정 방법에 대한 자세한 내용은 [Azure 응용 프로그램에서 Node.js 버전 지정](/ko-kr/documentation/articles/nodejs-specify-node-version-azure-apps/)을 참조하세요.
+Azure에 제공되는 Node.js 버전에 대한 정보 및 응용 프로그램에 사용할 버전 지정 방법에 대한 자세한 내용은 [Azure 응용 프로그램에서 Node.js 버전 지정](/ko-kr/documentation/articles/nodejs-specify-node-version-azure-apps/).을 참조하세요
 
-응용 프로그램을 Azure에 배포한 후 문제가 발생하는 경우 [Azure 웹 사이트에서 Node.js 응용 프로그램을 디버그하는 방법](http://www.windowsazure.com/ko-kr/develop/nodejs/how-to-guides/Debug-Website/)에서 문제를 진단하는 방법에 대한 정보를 참조하세요.
+응용 프로그램을 Azure에 배포한 후 문제가 발생하는 경우 [Azure 웹 사이트에서 Node.js 응용 프로그램 디버그 방법](http://www.windowsazure.com/ko-kr/develop/nodejs/how-to-guides/Debug-Website/)에서 문제를 진단하는 방법에 대한 정보를 참조하세요.
 
 
 [Azure 관리 포털]: http://manage.windowsazure.com
 [WebMatrix 웹 사이트]: http://www.microsoft.com/click/services/Redirect2.ashx?CR_CC=200106398
-[Azure용 WebMatrix(영문)]: http://go.microsoft.com/fwlink/?LinkID=253622&clcid=0x409
+[Azure용 WebMatrix]: http://go.microsoft.com/fwlink/?LinkID=253622&clcid=0x409
 
 [Git를 사용하여 Azure 웹 사이트 게시]: /ko-kr/develop/nodejs/common-tasks/publishing-with-git/
 [무료]: /ko-kr/pricing/free-trial
@@ -125,3 +136,6 @@ Azure에 제공되는 Node.js 버전에 대한 정보 및 응용 프로그램에
 [signin]: ./media/web-sites-nodejs-use-webmatrix/webmatrix-sign-in.png
 [sitefromtemplate]: ./media/web-sites-nodejs-use-webmatrix/webmatrix-site-from-template.png
 [nodesitefromtemplateazure]: ./media/web-sites-nodejs-use-webmatrix/webmatrix-node-site-azure.png
+
+
+<!--HONumber=42-->

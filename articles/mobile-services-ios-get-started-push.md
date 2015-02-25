@@ -1,6 +1,6 @@
-﻿<properties urlDisplayName="Get Started with Push (iOS)" pageTitle="푸시 알림 시작(iOS) | 모바일 개발자 센터" metaKeywords="" description="Azure 모바일 서비스를 사용하여 iOS 앱에 푸시 알림(레거시 푸시)을 보내는 방법에 대해 알아봅니다." metaCanonical="http://www.windowsazure.com/ko-kr/develop/mobile/tutorials/get-started-with-push-dotnet/" services="mobile-services" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services (legacy push)" solutions="" manager="dwrede" editor="" authors="krisragh" />
+﻿<properties pageTitle="푸시 알림 시작(iOS) | 모바일 개발자 센터" description="Azure 모바일 서비스를 사용하여 iOS 앱에 푸시 알림(레거시 푸시)을 보내는 방법에 대해 알아봅니다." services="mobile-services" documentationCenter="ios" manager="dwrede" editor="" authors="krisragh"/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="krisragh" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="krisragh"/>
 
 # 모바일 서비스 앱에 푸시 알림 추가(레거시 푸시)
 
@@ -15,10 +15,10 @@
 
 <div class="dev-center-tutorial-subselector"><a href="/ko-kr/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push/" title=".NET backend">.NET 백 엔드</a> | <a href="/ko-kr/documentation/articles/mobile-services-ios-get-started-push/"  title="JavaScript backend" class="current">JavaScript 백 엔드</a></div>
 
-이 항목에서는 Azure 모바일 서비스를 사용하여 iOS 앱에 푸시 알림을 보내는 방법에 대해 설명합니다. 이 자습서에서는 APNS(Apple 푸시 알림 서비스)를 사용하여 quickstart 프로젝트에 푸시 알림을 추가합니다. 이 작업을 완료하면 레코드가 삽입될 때마다 모바일 서비스에서 푸시 알림을 보냅니다.
+이 항목에서는 Azure 모바일 서비스를 사용하여 iOS 앱에 푸시 알림을 보내는 방법에 대해 설명합니다. 이 자습서에서는 APNS(Apple 푸시 알림 서비스)를 사용하여 quickstart 프로젝트에 푸시 알림을 추가합니다. 이 작업을 완료하면 레코드가 삽입될 때마다 모바일 서비스에서 푸시 알림을 전송합니다.
 
 
->[WACOM.NOTE]이 항목에서는 아직 알림 허브 통합을 사용하도록 <em>업그레이드되지 않은</em> <em>기존</em> 모바일 서비스를 지원합니다. <em>새</em> 모바일 서비스를 만드는 경우 이 통합 기능이 자동으로 사용하도록 설정됩니다. 새 모바일 서비스의 경우 [푸시 알림 시작](/ko-kr/documentation/articles/mobile-services-javascript-backend-ios-get-started-push/)을 참조하세요.
+>[AZURE.NOTE]이 항목에서는 알림 허브 통합을 사용하도록 <em>아직 업그레이드되지 않은</em> <em>기존</em> 모바일 서비스를 지원합니다. <em>새</em> 모바일 서비스를 만들 때 이 통합 기능이 자동으로 사용하도록 설정됩니다. 새 모바일 서비스의 경우 [푸시 알림 시작](/ko-kr/documentation/articles/mobile-services-javascript-backend-ios-get-started-push/)을 참조하세요.
 >
 >모바일 서비스가 Azure 알림 허브와 통합되어 템플릿, 다중 플랫폼, 향상된 확장 등 추가적인 푸시 알림 기능을 지원합니다. <em>가능한 경우 알림 허브를 사용하도록 기존 모바일 서비스를 업그레이드해야 합니다</em>. 업그레이드한 후에는 [푸시 알림 시작](/ko-kr/documentation/articles/mobile-services-javascript-backend-ios-get-started-push/)을 참조하세요.
 
@@ -39,15 +39,15 @@
 + iOS 5.0(이상) 지원 장치
 + iOS 개발자 프로그램 멤버 자격
 
-   > [WACOM.NOTE] 푸시 알림 구성 요구 사항 때문에 에뮬레이터 대신 iOS 지원 장치(iPhone 또는 iPad)에서 푸시 알림을 배포 및 테스트해야 합니다.
+   > [AZURE.NOTE] 푸시 알림 구성 요구 사항 때문에 에뮬레이터 대신 iOS 지원 장치(iPhone 또는 iPad)에서 푸시 알림을 배포 및 테스트해야 합니다.
 
-이 자습서는 모바일 서비스 빠른 시작을 기반으로 합니다. 이 자습서를 시작하기 전에 먼저 [모바일 서비스 시작]을 완료해야 합니다.
+이 자습서는 모바일 서비스 퀵 스타트를 기반으로 합니다. 이 자습서를 시작하기 전에 먼저 [모바일 서비스 시작]을 완료해야 합니다.
 
-[WACOM.INCLUDE [Apple 푸시 알림 사용](../includes/enable-apple-push-notifications.md)]
+[AZURE.INCLUDE [Enable Apple Push Notifications](../includes/enable-apple-push-notifications.md)]
 
-## 푸시 요청을 전송하도록 모바일 서비스 구성
+## 푸시 요청을 보내도록 모바일 서비스 구성
 
-[WACOM.INCLUDE [mobile-services-apns-configure-push](../includes/mobile-services-apns-configure-push.md)]
+[AZURE.INCLUDE [mobile-services-apns-configure-push](../includes/mobile-services-apns-configure-push.md)]
 
 ## 앱에 푸시 알림 추가
 
@@ -55,7 +55,7 @@
 
         @property (strong, nonatomic) NSString *deviceToken;
 
-    > [WACOM.NOTE] 모바일 서비스에서 동적 스키마가 사용하도록 설정된 경우 이 속성이 포함된 새 항목이 삽입되면 새 'deviceToken' 열이 **TodoItem** 테이블에 자동으로 추가됩니다.
+    > [AZURE.NOTE] 모바일 서비스에서 동적 스키마가 사용하도록 설정된 경우 이 속성이 포함된 새 항목이 삽입되면  'deviceToken' 열이 **TodoItem** 테이블에 자동으로 추가됩니다.
 
 2. QSAppDelegate.m의 구현 내에서 다음 처리기 메서드를 교체합니다.
 
@@ -109,7 +109,7 @@
 
         NSDictionary *item = @{ @"text" : itemText.text, @"complete" : @(NO) };
 
-   이것을 다음 코드로 교체합니다.
+   Replace this with the following code:
 
         // Get a reference to the AppDelegate to easily retrieve the deviceToken
         QSAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
@@ -123,13 +123,13 @@
 
    	그러면 **QSAppDelegate**에 대한 참조를 추가하여 장치 토큰을 가져온 후 해당 장치 토큰을 포함하도록 요청 페이로드를 수정합니다.
 
-   	> [WACOM.NOTE] <strong>addItem</strong> 메서드를 호출하기 전에 이 코드를 추가해야 합니다.
+   	> [AZURE.NOTE] <strong>addItem</strong> 메서드를 호출하기 전에 이 코드를 추가해야 합니다.
 
 이제 푸시 알림을 지원하도록 앱이 업데이트됩니다.
 
 ## 관리 포털에서 등록된 삽입 스크립트 업데이트
 
-1. 관리 포털로 돌아가서 **데이터** 탭을 클릭한 후 **TodoItem** 테이블을 클릭합니다.
+1. 관리 포털에서 **데이터** 탭을 클릭한 후 **TodoItem** 테이블을 클릭합니다.
 
    	![][21]
 
@@ -158,7 +158,7 @@
    	새 삽입 스크립트가 등록되며, 이 스크립트는 [apns 개체]를 사용하여 삽입 요청에 제공된 장치에 푸시 알림(삽입된 텍스트)을 보냅니다.
 
 
-   	> [WACOM.NOTE] 이 스크립트는 앱을 닫고 알림 메시지를 수신할 수 있는 시간을 주기 위해 알림 전송을 지연시킵니다.
+   	> [AZURE.NOTE] 이 스크립트는 앱을 닫고 알림 메시지를 수신할 수 있는 시간을 주기 위해 알림 전송을 지연시킵니다.
 
 ## 앱에서 푸시 알림 테스트
 
@@ -166,9 +166,9 @@
 
   	![][23]
 
-    > [WACOM.NOTE] 앱의 푸시 알림을 명시적으로 수락해야 합니다. 이 요청은 앱을 처음 실행할 때만 발생합니다.
+    > [AZURE.NOTE] 앱에서 푸시 알림을 명시적으로 수락해야 합니다. 이 요청은 앱이 처음 실행될 때만 수행됩니다.
 
-2. 앱에서 _새 모바일 서비스 작업_과 같은 의미 있는 텍스트를 입력하고 (**+**) 아이콘을 클릭합니다.
+2. 앱에서 _새 모바일 서비스 작업_과 같은 의미 있는 텍스트를 입력하고 더하기(**+**) 아이콘을 클릭합니다.
 
   	![][24]
 
@@ -234,15 +234,18 @@
 [117]: ./media/mobile-services-ios-get-started-push/mobile-services-ios-push-17.png
 
 <!-- URLs. -->
-[Xcode 설치]: https://go.microsoft.com/fwLink/p/?LinkID=266532
-[iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
+[Xcode 설치](영문): https://go.microsoft.com/fwLink/p/?LinkID=266532
+[iOS 프로비전 포털]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 [모바일 서비스 iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [Apple 푸시 알림 서비스]: http://go.microsoft.com/fwlink/p/?LinkId=272584
-[모바일 서비스 시작]: /ko-kr/develop/mobile/tutorials/get-started-ios
-[데이터 작업 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-data-ios
-[인증 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-users-ios
+[모바일 서비스 시작](영문): /ko-kr/develop/mobile/tutorials/get-started-ios
+[데이터 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-data-ios
+[인증 시작](영문): /ko-kr/develop/mobile/tutorials/get-started-with-users-ios
 [푸시 알림 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-push-ios
 [앱 사용자에 대한 푸시 알림]: /ko-kr/develop/mobile/tutorials/push-notifications-to-users-ios
 [스크립트를 통해 사용자 권한 부여]: /ko-kr/develop/mobile/tutorials/authorize-users-in-scripts-ios
 [Azure 관리 포털]: https://manage.windowsazure.com/
 [apns 개체]: http://go.microsoft.com/fwlink/p/?LinkId=272333
+
+
+<!--HONumber=42-->

@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Website with WebMatrix" pageTitle="WebMatrix를 사용한 .NET 웹 사이트 - Azure 자습서" metaKeywords="WebMatrix Azure, WebMatrix Azure, Azure 웹 사이트 WebMatrix, Azure 웹 사이트 WebMatrix, Web Matrix Azure, WebMatrix Azure" description="WebMatrix를 사용하여 Azure 웹 사이트를 개발 및 배포하는 방법에 대해 알아봅니다." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Develop and deploy a website with Microsoft WebMatrix" authors="tomfitz" solutions="" manager="wpickett" editor="" />
+﻿<properties 
+	pageTitle="WebMatrix를 사용한 .NET 웹 사이트 - Azure 자습서" 
+	description="WebMatrix를 사용하여 Azure 웹 사이트를 개발 및 배포하는 방법에 대해 알아봅니다." 
+	services="web-sites" 
+	documentationCenter=".net" 
+	authors="tfitzmac" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="10/27/2014" ms.author="tomfitz" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="10/27/2014" 
+	ms.author="tomfitz"/>
 
 
 
@@ -15,9 +29,9 @@
 * WebMatrix에서 기본 제공 템플릿을 사용하여 사이트를 만드는 방법 
 * WebMatrix에서 Azure로 사용자 지정된 웹 사이트를 직접 배포하는 방법
 
-> [WACOM.NOTE]
-> 이 자습서를 완료하려면 Azure 계정이 필요합니다. 이 경우 <a href="http://azure.microsoft.com/ko-kr/pricing/member-offers/msdn-benefits-details/">MSDN 구독자 혜택 활성화</a> 또는 <a href="http://azure.microsoft.com/ko-kr/pricing/free-trial/">무료 평가판 등록</a>을 수행할 수 있습니다.
-> 계정을 등록하기 전에 Azure 웹 사이트 사용을 시작하려면 <a href="https://trywebsites.azurewebsites.net/">https://trywebsites.azurewebsites.net</a>으로 이동합니다. 여기서 무료로 Azure 웹 사이트에 단기 ASP.NET 시작 사이트를 즉시 만들 수 있습니다. 신용 카드가 필요하지 않으며 약정이 없습니다.
+> [AZURE.NOTE]
+> 이 자습서를 완료하려면 Azure 계정이 필요합니다. <a href="http://azure.microsoft.com/ko-kr/pricing/member-offers/msdn-benefits-details/">MSDN 구독자 혜택을 활성화</a>하거나 <a href="http://azure.microsoft.com/ko-kr/pricing/free-trial/">무료 평가판을 등록</a>할 수 있습니다.
+> 계정을 등록하기 전에 Azure 웹 사이트를 시작하려면 <a href="https://trywebsites.azurewebsites.net/">https://trywebsites.azurewebsites.net</a>으로 이동합니다. Azure 웹 사이트에서는 무료로 단기 ASP.NET 시작 사이트를 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
 ## Azure에 로그인
 
@@ -67,14 +81,14 @@
 
     ![SendGrid added][binsendgrid]
 
-3. 파일 이름을 두 번 클릭하여 *Order.cshtml* 페이지를 엽니다.
+3. 파일 이름을 두 번 클릭하여  *Order.cshtml* 페이지를 엽니다.
 
 	![][modify2]
 
 4. 파일 맨 위에 다음 코드를 추가합니다.
 
         @using SendGrid;
-        @using System.Net.Mail;
+        @using System.Net.Mail;	
 
 4. //SMTP Configuration for Hotmail이라는 주석을 찾아서 삭제하거나 WebMail 사용에 대한 모든 코드를 주석으로 처리합니다.
 
@@ -137,7 +151,7 @@
 
 7. 제품 중 하나에 대해 **지금 주문**을 클릭하고 주문을 자신에게 보냅니다.
 
-8. 전자 메일을 확인해서 주문 확인을 받았는지 확인합니다. 메일을 보내는 데 문제가 있는 경우 ASP.NET 웹 페이지(Razor) 가이드의 [메일 보내기 관련 문제][sendmailissues](영문)를 참조하세요.
+8. 전자 메일을 확인해서 주문 확인을 받았는지 확인합니다. 메일을 보내는 데 문제가 있는 경우 ASP.NET 웹 페이지(Razor) 가이드의 [메일 보내기 관련 문제][sendmailissues]를 참조하세요.
  
 
 ## WebMatrix에서 Azure로 사용자 지정된 웹 사이트 배포
@@ -160,7 +174,7 @@
 
 WebMatrix를 사용하여 사이트를 수정하고 Azure 웹 사이트에 다시 게시할 수 있습니다. 다음 절차에서는 주문이 선물임을 나타내는 확인란을 추가합니다.
 
-1. *Order.cshtml* 페이지를 엽니다.
+1.  *Order.cshtml* 페이지를 엽니다.
 
 2. "shiping" 클래스 양식 정의를 찾습니다. &lt;li&gt; 블록 바로 뒤에 다음 코드를 삽입합니다.
 		
@@ -183,7 +197,7 @@ WebMatrix를 사용하여 사이트를 수정하고 Azure 웹 사이트에 다�
 			body += "This is a gift." + "<br/>";
 		}
 
-	*order.cshtml* 파일이 다음 이미지와 유사하게 나타납니다.
+	 *order.cshtml* 파일이 다음 이미지와 유사하게 나타납니다.
 
 	![][modify6]
 
@@ -201,7 +215,7 @@ WebMatrix를 사용하여 사이트를 수정하고 Azure 웹 사이트에 다�
 
 WebMatrix에서 웹 사이트를 만들어 Azure에 배포하는 방법을 학습했습니다. WebMatrix에 대한 자세한 내용은 다음 리소스를 참조하세요.
 
-* [Azure용 WebMatrix](http://go.microsoft.com/fwlink/?LinkID=253622&clcid=0x409)(영문)
+* [Azure용 WebMatrix](http://go.microsoft.com/fwlink/?LinkID=253622&clcid=0x409)
 
 * [WebMatrix 웹 사이트](http://www.microsoft.com/click/services/Redirect2.ashx?CR_CC=200106398)
 
@@ -236,4 +250,5 @@ WebMatrix에서 웹 사이트를 만들어 Azure에 배포하는 방법을 학�
 [sendmailissues]: http://go.microsoft.com/fwlink/?LinkId=253001#email
 [sendgridexample]: http://azure.microsoft.com/ko-kr/documentation/articles/sendgrid-dotnet-how-to-send-email/
 
-<!--HONumber=35.2-->
+
+<!--HONumber=42-->

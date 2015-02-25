@@ -1,6 +1,6 @@
-﻿<properties urlDisplayName="Compute Intensive .NET Task" pageTitle="가상 컴퓨터의 계산 집약적 .NET 작업 - Azure" metaKeywords="deploying compute .NET application, vm .NET application, Service Bus queue monitoring, remote monitoring" description="Azure 가상 컴퓨터에서 계산 집약적인 .NET 앱을 배포 및 실행하고 서비스 버스 큐를 사용하여 진행률을 원격으로 모니터링하는 방법에 대해 알아봅니다." metaCanonical="" services="virtual-machines" documentationCenter=".NET" title="How to run a compute-intensive task in .NET on an Azure virtual machine" authors="wpickett" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
+﻿<properties pageTitle="가상 컴퓨터의 계산 집약적 .NET 작업 - Azure" description="Azure 가상 컴퓨터에서 계산 집약적인 .NET 앱을 배포 및 실행하고 서비스 버스 큐를 사용하여 진행률을 원격으로 모니터링하는 방법에 대해 알아봅니다." services="virtual-machines" documentationCenter=".net" authors="" manager="wpickett" editor="mollybos"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/24/2014" ms.author="wpickett" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/24/2014" ms.author="wpickett"/>
 
 # Azure 가상 컴퓨터에서 .NET으로 계산 집약적인 작업을 실행하는 방법
 
@@ -26,7 +26,7 @@ Azure에서는 가상 컴퓨터를 사용하여 계산 집약적인 작업을 �
 
 ![Traveling Salesman Problem client][client_output]
 
-[WACOM.INCLUDE [create-account-and-vms-note](../includes/create-account-and-vms-note.md)]
+[AZURE.INCLUDE [create-account-and-vms-note](../includes/create-account-and-vms-note.md)]
 
 <h2>가상 컴퓨터를 만드는 방법</h2>
 
@@ -43,7 +43,7 @@ Azure에서는 가상 컴퓨터를 사용하여 계산 집약적인 작업을 �
 
 <h2>가상 컴퓨터에 원격으로 로그인하는 방법</h2>
 
-1. [관리 포털](https://manage.windowsazure.com)에 로그인합니다.
+1. [관리 포털](https://manage.windowsazure.com)에 로그온합니다.
 2. **가상 컴퓨터**를 클릭합니다.
 3. 로그인할 가상 컴퓨터의 이름을 클릭합니다.
 4. **연결**을 클릭합니다.
@@ -56,7 +56,7 @@ Azure에서 서비스 버스 큐 사용을 시작하려면 먼저 서비스 네�
 서비스 네임스페이스를 만들려면
 
 1.  [Azure 관리 포털](https://manage.windowsazure.com)에 로그인합니다.
-2.  관리 포털의 왼쪽 탐색 창에서 **Service Bus**를 클릭합니다.
+2.  관리 포털의 왼쪽 탐색 창에서 **서비스 버스**를 클릭합니다.
 3.  관리 포털의 아래쪽 창에서 **만들기**를 클릭합니다.
 
     ![Create new service bus][create_service_bus]
@@ -64,10 +64,9 @@ Azure에서 서비스 버스 큐 사용을 시작하려면 먼저 서비스 네�
 
     ![Create a namespace dialog][create_namespace_dialog]
 5.  네임스페이스 이름을 사용할 수 있음을 확인한 후에는 네임스페이스를 호스트해야 하는 지역을 선택합니다(가상 컴퓨터가 호스트되는 것과 동일한 지역을 사용하는지 확인).
-    <div class="dev-callout">
-    <strong>중요</strong>
-    <p>가상 컴퓨터에 사용하거나 사용하려는 것과 **같은 지역**을 선택합니다. 그러면 최상의 성능을 얻을 수 있습니다.</p>
-    </div>
+
+    > [AZURE.IMPORTANT] 가상 컴퓨터에 사용하거나 사용하려는 것과 **같은 지역**을 선택합니다. 그러면 최상의 성능을 얻을 수 있습니다.
+
 6. 로그온하는 데 사용한 계정에 Azure 구독을 두 개 이상 사용하는 경우 네임스페이스에 사용할 구독을 선택합니다. 로그온하는 데 사용한 계정의 구독이 하나뿐인 경우에는 구독이 포함된 드롭다운 목록이 표시되지 않습니다.
 7. 확인 표시를 클릭합니다. 이제 시스템이 서비스 네임스페이스를 만들고 사용하도록 설정합니다. 시스템이 계정에 대한 리소스를 프로비전하는 동안 몇 분 정도 기다려야 할 수도 있습니다.
 
@@ -79,7 +78,8 @@ Azure에서 서비스 버스 큐 사용을 시작하려면 먼저 서비스 네�
 
 새 네임스페이스에 대해 큐 만들기 등의 관리 작업을 수행하려면 네임스페이스에 대한 관리 자격 증명을 받아야 합니다.
 
-1.  왼쪽 탐색 창에서 **Service Bus** 노드를 클릭하여 사용 가능한 네임스페이스 목록을 표시합니다:   
+1.  왼쪽 탐색 창에서 **서비스 버스** 노드를 클릭하여
+    사용 가능한 네임스페이스 목록을 표시합니다.   
     ![Available namespaces screenshot][available_namespaces]
 2.  표시된 목록에서 방금 만든 네임스페이스를 선택합니다.   
     ![Namespace list screenshot][namespace_list]
@@ -89,7 +89,7 @@ Azure에서 서비스 버스 큐 사용을 시작하려면 먼저 서비스 네�
 
 <h2>계산 집약적인 작업을 수행하는 .NET 응용 프로그램을 만드는 방법</h2>
 
-1. 개발 컴퓨터(직접 생성한 가상 컴퓨터일 필요는 없음)에서 [NET용 Azure SDK](http://www.windowsazure.com/ko-kr/develop/net/)를 다운로드합니다.
+1. 개발 컴퓨터(직접 생성한 가상 컴퓨터일 필요는 없음)에서 [.NET용 Azure SDK](http://www.windowsazure.com/ko-kr/develop/net/)를 다운로드합니다.
 2. **TSPSolver**라는 프로젝트를 사용하여 .NET 콘솔 응용 프로그램을 만듭니다. 대상 프레임워크가 .**NET Framework 4** 이상(**.NET Framework 4 Client Profile** 아님)용으로 설정되어 있는지 확인합니다. 대상 프레임워크는 다음과 같이 프로젝트를 만든 후에 설정할 수 있습니다. Visual Studio의 메뉴에서 **프로젝트**를 클릭하고 **속성**을 클릭한 후 **응용 프로그램** 탭을 클릭한 다음 **대상 프레임워크** 값을 설정합니다.
 3. Microsoft ServiceBus 라이브러리에 추가합니다. Visual Studio 솔루션 탐색기에서 **TSPSolver**를 마우스 오른쪽 단추로 클릭하고 **참조 추가**, **찾아보기** 탭을 차례로 클릭한 후 Azure .NET SDK(예를 들어 **C:\Program Files\Microsoft SDKs\Azure\.NET SDK\v2.5\ToolsRef ** 위치)로 이동하고 참조로 **Microsoft.ServiceBus.dll**을 선택합니다.
 4. System Runtime Serialization 라이브러리에 추가합니다. Visual Studio 솔루션 탐색기에서 **TSPSolver**를 마우스 오른쪽 단추로 클릭하고 **참조 추가**, **.NET** 탭을 차례로 클릭하고 참조로 **System.Runtime.Serialization**을 선택합니다.
@@ -323,11 +323,11 @@ Azure에서 서비스 버스 큐 사용을 시작하려면 먼저 서비스 네�
 <h2>계산 집약적인 작업의 진행 상황을 모니터링하는 .NET 응용 프로그램을 만드는 방법</h2>
 
 1. 개발 컴퓨터에서 프로젝트 이름으로 **TSPClient**를 사용하는 .NET 콘솔 응용 프로그램을 만듭니다. 대상 프레임워크가 .**NET Framework 4** 이상(**.NET Framework 4 Client Profile** 아님)용으로 설정되어 있는지 확인합니다. 대상 프레임워크는 다음과 같이 프로젝트를 만든 후에 설정할 수 있습니다. Visual Studio의 메뉴에서 **프로젝트**를 클릭하고 **속성**을 클릭한 후 **응용 프로그램** 탭을 클릭한 다음 **대상 프레임워크** 값을 설정합니다.
-2. Microsoft ServiceBus 라이브러리에 추가합니다. Visual Studio 솔루션 탐색기에서 **TSPSolver**를 마우스 오른쪽 단추로 클릭하고 **참조 추가**, **찾아보기** 탭을 차례로 클릭한 후 Azure .NET SDK(예를 들어 **C:\Program Files\Microsoft SDKs\Azure\.NET SDK\v2.5\ToolsRef ** 위치)로 이동하고 참조로 **Microsoft.ServiceBus.dll**을 선택합니다.
-3. System Runtime Serialization 라이브러리에 추가합니다. Visual Studio 솔루션 탐색기에서 **TSPClient**를 마우스 오른쪽 단추로 클릭하고 **참조 추가**를 클릭한 후 **.NET** 탭을 클릭하고 참조로 **System.Runtime.Serialization**을 선택합니다.
+2. Microsoft ServiceBus 라이브러리에 추가합니다. Visual Studio 솔루션 탐색기에서 **TSPSolver**를 마우스 오른쪽 단추로 클릭하고 **참조 추가**, **찾아보기** 탭을 차례로 클릭한 후 Azure .NET SDK(예를 들어 **C:\Program Files\Microsoft SDKs\Azure\.NET SDK\v2.5\ToolsRef** 위치)로 이동하고 참조로 **Microsoft.ServiceBus.dll**을 선택합니다.
+3. System Runtime Serialization 라이브러리에 추가합니다. Visual Studio 솔루션 탐색기에서 **TSPClient**를 마우스 오른쪽 단추로 클릭하고 **참조 추가**, **.NET** 탭을 차례로 클릭하고 참조로 **System.Runtime.Serialization**을 선택합니다.
 4. **Program.cs**의 콘텐츠로 이 섹션 끝에 있는 예제 코드를 사용합니다.
 5. 서비스 버스의 **네임스페이스**, **기본 발급자** 및 **기본 키** 값을 각각 사용하도록 **your\_service\_bus\_namespace**, **your\_service\_bus\_owner** 및 **your\_service\_bus\_key** 자리 표시자를 수정합니다.
-5. 응용 프로그램을 컴파일합니다. 이렇게 하면 **bin** 폴더(릴리스를 대상으로 하는지 디버그 빌드를 대상으로 하는지에 따라 **bin\release** 또는 **bin\debug**)에 **TSPClient.exe**가 만들어집니다. 개발 컴퓨터에서 이 코드를 실행하거나 클라이언트 응용 프로그램(반드시 가상 컴퓨터에 있을 필요는 없음)을 실행할 컴퓨터에 이 실행 파일 및 Microsoft.ServiceBus.dll을 복사합니다.
+5. 응용 프로그램을 컴파일합니다. 이렇게 하면 프로젝트의 **bin** 폴더(릴리스를 대상으로 하는지 디버그 빌드를 대상으로 하는지에 따라 **bin\release** 또는 **bin\debug**)에 **TSPClient.exe**가 만들어집니다. 개발 컴퓨터에서 이 코드를 실행하거나 클라이언트 응용 프로그램(반드시 가상 컴퓨터에 있을 필요는 없음)을 실행할 컴퓨터에 이 실행 파일 및 Microsoft.ServiceBus.dll을 복사합니다.
 
 <p/>
 
@@ -514,7 +514,7 @@ Azure에서 서비스 버스 큐 사용을 시작하려면 먼저 서비스 네�
 
 모든 경로에 대한 조사를 마칠 때까지 해 찾기가 실행됩니다.
 
-> [WACOM.NOTE]
+> [AZURE.NOTE]
 > 지정한 숫자가 클수록 해 찾기 실행 시간이 길어집니다. 예를 들어 14개 도시에 대해 실행하면 몇 분이 걸릴 수 있고, 15개 도시에 대해 실행하면 몇 시간이 소요될 수 있습니다. 도시를 16개 이상으로 늘리면 며칠 동안 더 나아가 수주, 수개월, 수년에 걸쳐 실행될 수도 있습니다. 이는 도시의 수가 증가함에 따라 해 찾기에 의해 평가되는 순열의 수가 급증하기 때문입니다.
  
 <h3>모니터링하는 클라이언트 응용 프로그램을 실행하는 방법</h3>
@@ -550,4 +550,5 @@ TSPSolver를 사용하여 큐를 만들거나 제거하는 대신 [Azure 관리 
 [namespace_list]: ./media/virtual-machines-dotnet-run-compute-intensive-task/NamespaceList.png
 [access_key_button]: ./media/virtual-machines-dotnet-run-compute-intensive-task/AccessKey.png
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

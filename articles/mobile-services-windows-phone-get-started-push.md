@@ -1,12 +1,12 @@
-﻿<properties pageTitle="푸시 알림 시작(레거시 푸시) | 모바일 개발자 센터" metaKeywords="" description="Azure 모바일 서비스를 사용하여 Windows Phone 앱에 푸시 알림(레거시 푸시)을 보내는 방법에 대해 알아봅니다." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services (legacy push)" authors="glenga" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="푸시 알림 시작(레거시 푸시) | 모바일 개발자 센터" description="Azure 모바일 서비스를 사용하여 Windows Phone 앱에 푸시 알림(레거시 푸시)을 보내는 방법에 대해 알아봅니다." services="mobile-services, notification-hubs" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/25/2014" ms.author="glenga" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/25/2014" ms.author="glenga"/>
 
 
-# 모바일 서비스에서 푸시 알림 시작(기존 푸시)
+# 모바일 서비스에서 푸시 알림 시작(레거시 푸시)
 
 <div class="dev-center-tutorial-selector sublanding">
-    <a href="/ko-kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-push" title="Windows Store C#" >Windows 스토어 C#</a>
+    <a href="/ko-kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-push" title="Windows Store C#" >Windows Store C#</a>
     <a href="/ko-kr/documentation/articles/mobile-services-windows-store-javascript-get-started-push" title="Windows Store JavaScript">Windows 스토어 JavaScript</a>
     <a href="/ko-kr/documentation/articles/mobile-services-windows-phone-get-started-push" title="Windows Phone" class="current">Windows Phone</a>
     <a href="/ko-kr/documentation/articles/mobile-services-ios-get-started-push" title="iOS">iOS</a>
@@ -20,11 +20,11 @@
 </div>
 
 이 항목에서는 Azure 모바일 서비스를 사용하여 Windows Phone 8 앱에 푸시 알림을 보내는 방법을 보여 줍니다. 
-이 자습서에서는 MPNS(Microsoft 푸시 알림 서비스)를 사용하여 빠른 시작 프로젝트에 푸시 알림을 추가합니다. 이 작업을 완료하면 레코드가 삽입될 때마다 모바일 서비스에서 푸시 알림을 보냅니다.
+이 자습서에서는 MPNS(Microsoft 푸시 알림 서비스)를 사용하여 퀵 스타트 프로젝트에 푸시 알림을 추가합니다. 이 작업을 완료하면 레코드가 삽입될 때마다 모바일 서비스에서 푸시 알림을 전송합니다.
 
->[WACOM.NOTE]이 항목에서는 아직 알림 허브 통합을 사용하도록 <em>아직 업그레이드되지 않은</em> <em>기존</em> 모바일 서비스를 지원합니다. <em>새</em> 모바일 서비스를 만드는 경우 이 통합 기능이 자동으로 사용하도록 설정됩니다. 새 모바일 서비스의 경우 [푸시 알림 시작](/ko-kr/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push/)을 참조하세요.
+>[AZURE.NOTE]이 항목에서는 알림 허브 통합을 사용하도록 <em>아직 업그레이드되지 않은</em> <em>기존</em> 모바일 서비스를 지원합니다. <em>새</em> 모바일 서비스를 만들 때 이 통합 기능이 자동으로 사용하도록 설정됩니다. 새 모바일 서비스에 대해서는 [푸시 알림 시작](/ko-kr/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push/)을 참조하세요.
 >
->모바일 서비스가 Azure 알림 허브와 통합되어 템플릿, 다중 플랫폼, 향상된 확장 등 추가적인 푸시 알림 기능을 지원합니다. <em>가능한 경우 알림 허브를 사용하도록 기존 모바일 서비스를 업그레이드해야 합니다</em>. 업그레이드한 후에는 [푸시 알림 시작](/ko-kr/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push/)을 참조하세요.
+>모바일 서비스가 Azure 알림 허브와 통합되어 템플릿, 다중 플랫폼, 향상된 확장 등 추가적인 푸시 알림 기능을 지원합니다. <em>가능한 경우 알림 허브를 사용하도록 기존 모바일 서비스를 업그레이드해야 합니다</em>. 업그레이드 한 후에는 이 버전의 [푸시 알림 시작](/ko-kr/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push/)을 참조하세요.
 
 이 자습서에서는 푸시 알림을 사용하도록 설정하는 다음 기본 단계를 단계별로 안내합니다.
 
@@ -33,15 +33,15 @@
 3. [푸시 알림을 전송하도록 스크립트 업데이트]
 4. [알림을 받기 위한 데이터 삽입]
 
-이 자습서를 완료하려면 [Visual Studio 2012 Express for Windows Phone] 이상 버전이 필요합니다.
+이 자습서에는 [Visual Studio 2012 Express for Windows Phone] 이상 버전이 필요합니다.
 
-이 자습서는 모바일 서비스 빠른 시작을 기반으로 합니다. 이 자습서를 시작하기 전에 먼저 [모바일 서비스 시작]를 완료해야 합니다. 
+이 자습서는 모바일 서비스 퀵 스타트를 기반으로 합니다. 이 자습서를 시작하기 전에 먼저 [모바일 서비스 시작]을 완료해야 합니다. 
 
-   >[WACOM.NOTE]매일 사용자당 500개 이상의 메시지를 보내는 경우 대신 알림 허브를 사용해야 합니다. 자세한 내용은 <a href="/ko-kr/manage/services/notification-hubs/getting-started-windows-dotnet/">알림 허브 시작</a>을 참조하세요.
+   >[AZURE.NOTE]매일 사용자당 500개 이상의 메시지를 보내는 경우 알림 허브를 대신 사용해야 합니다. 자세한 내용은 <a href="/ko-kr/manage/services/notification-hubs/getting-started-windows-dotnet/">알림 허브 시작</a>을 참조하세요.
 
 ## <a name="create-table"></a>새 테이블 만들기
 
-[WACOM.INCLUDE [mobile-services-create-new-push-table](../includes/mobile-services-create-new-push-table.md)]
+[AZURE.INCLUDE [mobile-services-create-new-push-table](../includes/mobile-services-create-new-push-table.md)]
 
 <h2><a name="add-push"></a>앱에 푸시 알림 추가</h2>
 		
@@ -81,11 +81,9 @@
 	       await registrationsTable.InsertAsync(registration);
         }
 
-   	This code acquires and stores a channel for a push notification subscription and binds it to the app's default tile.
+   	이 코드는 푸시 알림 구독을 위한 채널을 얻어 저장한 다음 앱의 기본 타일에 바인딩합니다.
 
-	<div class="dev-callout"><b>참고</b>
-		<p>이 자습서에서 모바일 서비스는 대칭 이동 타일 알림을 장치에 보냅니다. 알림 메시지를 보내는 경우 채널에서 <strong>BindToShellToast</strong> 메서드를 대신 호출해야 합니다. 알림과 타일 알림을 둘 다 지원하려면 <strong>BindToShellTile</strong>과 <strong>BindToShellToast</strong></p>를 둘 다 호출합니다.
-	</div>
+	> [AZURE.NOTE] 이 자습서에서 모바일 서비스는 대칭 이동 타일 알림을 장치에 보냅니다. 알림 메시지를 보내는 경우 채널에서 **BindToShellToast** 메서드를 대신 호출해야 합니다. 알림 메시지와 타일 알림을 둘 다 지원하려면 **BindToShellTile** 및 **BindToShellToast**를 둘 다 호출합니다.
     
 4. App.xaml.cs에서 **Application_Launching** 이벤트 처리기의 맨 위에 다음과 같은 새 **AcquirePushChannel** 메서드 호출을 추가합니다.
 
@@ -102,13 +100,13 @@
 
 <h2><a name="update-scripts"></a>관리 포털에서 등록된 삽입 스크립트 업데이트</h2>
 
-[WACOM.INCLUDE [mobile-services-update-registrations-script](../includes/mobile-services-update-registrations-script.md)]
+[AZURE.INCLUDE [mobile-services-update-registrations-script](../includes/mobile-services-update-registrations-script.md)]
 
 4. **TodoItem**을 클릭하고 **스크립트**를 클릭한 후 **삽입**을 선택합니다. 
 
    	![][10]
 
-3. 삽입 함수를 다음 코드로 바꾼 후 **저장**을 클릭합니다.
+3. 삽입 함수를 다음의 코드로 바꾼 후 **저장**을 클릭합니다.
 
 	    function insert(item, user, request) {
     	    request.execute({
@@ -154,7 +152,7 @@
 
   	![][3]
 
-5. 앱에서 텍스트 상자에 "hello push" 텍스트를 입력한 후 **저장**을 클릭합니다.
+5. 앱에서 "hello push" 텍스트를 텍스트 상자에 입력한 후 **저장**을 클릭합니다.
 
    	![][4]
 
@@ -168,7 +166,7 @@
 
 ## <a name="next-steps"> </a>다음 단계
 
-이 자습서는 모바일 서비스에서 제공하는 기본 푸시 알림 기능을 보여 줍니다. 플랫폼 간 알림 보내기, 구독 기반 라우팅, 대량 볼륨 등의 고급 기능이 앱에 필요한 경우 모바일 서비스와 함께 Azure 알림 허브를 사용하는 것이 좋습니다. 자세한 내용은 다음 알림 허브 항목 중 하나를 참조하세요.
+이 자습서는 모바일 서비스에서 제공하는 기본 푸시 알림 기능을 보여 줍니다. 플랫폼 간 알림 보내기, 구독 기반 라우팅, 대량 볼륨 등의 고급 기능이 앱에 필요한 경우 모바일 서비스와 함께 Azure 알림 허브를 사용하는 것이 좋습니다. 자세한 내용은 다음과 같은 알림 허브 항목 중 하나를 참조하세요.
 
 + [알림 허브 시작]
   <br/>Windows 스토어 앱에서 알림 허브를 활용하는 방법을 알아봅니다.
@@ -177,25 +175,25 @@
 	<br/>알림을 만들고 여러 플랫폼의 사용자에게 푸시하는 방법을 알아봅니다.
 
 + [구독자에게 알림 보내기]
-	<br/>사용자가 관심 있는 범주에 대한 푸시 알림을 등록하고 수신하게 하는 방법을 알아봅니다.
+	<br/>사용자가 관심 있어 하는 범주에 대해 푸시 알림을 등록하고 수신하는 방법을 설명합니다.
 
-<!--+ [Send notifications to users]
-	<br/>Learn how to send push notifications from a Mobile Service to specific users on any device.
+<!--+ [사용자에게 알림 보내기]
+	<br/>모바일 서비스에서 장치와 상관없이 특정 사용자에게 푸시 알림을 보내는 방법에 대해 알아봅니다.
 
-+ [Send cross-platform notifications to users]
-	<br/>Learn how to use templates to send push notifications from a Mobile Service, without having to craft platform-specific payloads in your back-end.
++ [사용자에게 플랫폼 간 알림 보내기]
+	<br/>백 엔드에 플랫폼 전용 페이로드를 마련할 필요 없이 템플릿을 사용하여 모바일 서비스에서 푸시 알림을 보내는 방법에 대해 알아봅니다.
 -->
 
 다음의 모바일 서비스 항목에 대해서도 자세히 알아보세요.
 
-* [데이터 작업 시작]
-  <br/>모바일 서비스를 사용하여 데이터를 저장하고 쿼리하는 방법을 알아봅니다.
+* [데이터 시작]
+  <br/>모바일 서비스를 사용하여 데이터를 저장 및 쿼리하는 방법에 대해 자세히 알아봅니다.
 
-* [인증 시작]
+* [인증 시작](영문)
   <br/>Windows 계정을 사용하여 앱 사용자를 인증하는 방법을 알아봅니다.
 
 * [모바일 서비스 서버 스크립트 참조]
-  <br/>서버 스크립트를 등록하고 사용하는 방법을 알아봅니다.
+  <br/>서버 스크립트의 등록 및 사용에 대해 자세히 알아봅니다.
 
 * [모바일 서비스 .NET 방법 개념 참조]
   <br/>모바일 서비스를 .NET과 함께 사용하는 방법에 대해 알아봅니다. 
@@ -220,9 +218,9 @@
 <!-- URLs. -->
 [모바일 서비스 SDK]: https://go.microsoft.com/fwLink/p/?LinkID=268375
 [Visual Studio 2012 Express for Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374
-[모바일 서비스 시작]: /ko-kr/develop/mobile/tutorials/get-started-wp8
-[데이터 작업 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-data-wp8
-[인증 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-users-wp8
+[모바일 서비스 시작](영문): /ko-kr/develop/mobile/tutorials/get-started-wp8
+[데이터 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-data-wp8
+[인증 시작](영문): /ko-kr/develop/mobile/tutorials/get-started-with-users-wp8
 [푸시 알림 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-push-wp8
 [앱 사용자에 대한 푸시 알림]: /ko-kr/develop/mobile/tutorials/push-notifications-to-users-wp8
 [스크립트를 통해 사용자 권한 부여]: /ko-kr/develop/mobile/tutorials/authorize-users-in-scripts-wp8
@@ -236,3 +234,6 @@
 [구독자에게 알림 보내기]: /ko-kr/manage/services/notification-hubs/breaking-news-wp8/
 [사용자에게 알림 보내기]: /ko-kr/manage/services/notification-hubs/notify-users/
 [사용자에게 플랫폼 간 알림 보내기]: /ko-kr/manage/services/notification-hubs/notify-users-xplat-mobile-services/
+
+
+<!--HONumber=42-->

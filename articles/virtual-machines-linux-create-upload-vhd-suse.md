@@ -1,6 +1,6 @@
-﻿<properties urlDisplayName="Upload a SUSE Linux VHD" pageTitle="Azure에서 SUSE Linux VHD 만들기 및 업로드" metaKeywords="Azure VHD, uploading Linux VHD, SUSE, SLES, openSUSE" description="SUSE Linux 운영 체제가 포함된 Azure VHD(가상 하드 디스크)를 만들고 업로드하는 방법에 대해 알아봅니다." metaCanonical="" services="virtual-machines" documentationCenter="" title="Creating and Uploading a Virtual Hard Disk that Contains a SUSE Linux Operating System" authors="szarkos" solutions="" manager="timlt" editor="tysonn" />
+﻿<properties pageTitle="Azure에서 SUSE Linux VHD 만들기 및 업로드" description="SUSE Linux 운영 체제가 포함된 Azure VHD(가상 하드 디스크)를 만들고 업로드하는 방법에 대해 알아봅니다." services="virtual-machines" documentationCenter="" authors="szarkos" manager="timlt" editor="tysonn"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="06/05/2014" ms.author="szarkos" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/13/2015" ms.author="szarkos"/>
 
 
 # Azure용 SLES 또는 openSUSE 가상 컴퓨터 준비
@@ -13,61 +13,35 @@
 이 문서에서는 가상 하드 디스크에 SUSE 또는 openSUSE Linux 운영 체제를 이미 설치했다고 가정합니다. Hyper-V와 같은 가상화 솔루션 등의 다양한 도구를 사용하여 .vhd 파일을 만들 수 있습니다. 관련 지침은 [Hyper-V 역할 설치 및 가상 컴퓨터 구성](http://technet.microsoft.com/library/hh846766.aspx)을 참조하세요. 
 
 
-**SLES / openSUSE 설치 참고 사항**
+**SLES/openSUSE 설치 참고 사항**
 
- - [SUSE Studio](http://www.susestudio.com) 에서는 Azure 및 Hyper-V용 SLES/openSUSE 이미지를 쉽게 만들고 관리할 수 있습니다. 고유한 SUSE 및 openSUSE 이미지를 사용자 지정하려면 이 방식을 사용하는 것이 좋습니다. SUSE Studio 갤러리의 다음 공식 이미지를 SUSE Studio로 다운로드하거나 복제할 수 있습니다.
+ - [SUSE Studio](http://www.susestudio.com)에서는 Azure 및 Hyper-V용 SLES/openSUSE 이미지를 쉽게 만들고 관리할 수 있습니다. 고유한 SUSE 및 openSUSE 이미지를 사용자 지정하려면 이 방식을 사용하는 것이 좋습니다. SUSE Studio 갤러리의 다음 공식 이미지를 SUSE Studio로 다운로드하거나 복제할 수 있습니다.
 
   - [SUSE Studio Gallery의 Azure용 SLES 11 SP3](http://susestudio.com/a/02kbT4/sles-11-sp3-for-windows-azure)
   - [SUSE Studio Gallery의 Azure용 openSUSE 13.1](https://susestudio.com/a/02kbT4/opensuse-13-1-for-windows-azure)
 
 - 새 VHDX 형식은 Azure에서 지원되지 않습니다. Hyper-V 관리자 또는 convert-vhd cmdlet을 사용하여 디스크를 VHD 형식으로 변환할 수 있습니다.
 
-- Linux 시스템 설치 시에는 LVM(설치 기본값인 경우가 많음)이 아닌 표준 파티션을 사용하는 것이 좋습니다. 이렇게 하면 특히 문제 해결을 위해 OS 디스크를 다른 VM에 연결해야 하는 경우 복제된 VM과 LVM 이름이 충돌하지 않도록 방지합니다.  원하는 경우에는 데이터 디스크에서 LVM 또는 [RAID](../virtual-machines-linux-configure-raid) 를 사용할 수 있습니다.
+- Linux 시스템 설치 시에는 LVM(설치 기본값인 경우가 많음)이 아닌 표준 파티션을 사용하는 것이 좋습니다. 이렇게 하면 특히 문제 해결을 위해 OS 디스크를 다른 VM에 연결해야 하는 경우 복제된 VM과 LVM 이름이 충돌하지 않도록 방지합니다.  원하는 경우에는 데이터 디스크에서 LVM 또는 [RAID](../virtual-machines-linux-configure-raid)를 사용할 수 있습니다.
 
 - OS 디스크에 스왑 파티션을 구성하지 마세요. 임시 리소스 디스크에서 스왑 파일을 만들도록 Linux 에이전트를 구성할 수 있습니다.  여기에 대한 자세한 내용은 아래 단계에서 확인할 수 있습니다.
 
 - 모든 VHD 크기는 1MB의 배수여야 합니다.
 
 
-## <a id="sles11"> </a>SUSE Linux Enterprise Server 11 SP3 준비##
+## <a id="sles11"> </a>SUSE Linux Enterprise Server 11 SP3 준비 ##
 
 1. Hyper-V 관리자의 가운데 창에서 가상 컴퓨터를 선택합니다.
 
 2. **연결**을 클릭하여 가상 컴퓨터 창을 엽니다.
 
-3. 최신 커널 및 Azure Linux 에이전트가 포함된 리포지토리를 추가합니다. `zypper lr` 명령을 실행합니다. 예를 들어 SLES 11 SP3의 출력은 다음과 유사합니다.
+3. 업데이트를 다운로드하고 패키지를 설치할 수 있도록 SUSE Linux Enterprise 시스템을 등록합니다.
 
-		# | Alias                        | Name               | Enabled | Refresh
-		--+------------------------------+--------------------+---------+--------
-		1 | susecloud:SLES11-SP1-Pool    | SLES11-SP1-Pool    | No      | Yes
-		2 | susecloud:SLES11-SP1-Updates | SLES11-SP1-Updates | No      | Yes
-		3 | susecloud:SLES11-SP2-Core    | SLES11-SP2-Core    | No      | Yes
-		4 | susecloud:SLES11-SP2-Updates | SLES11-SP2-Updates | No      | Yes
-		5 | susecloud:SLES11-SP3-Pool    | SLES11-SP3-Pool    | Yes     | Yes
-		6 | susecloud:SLES11-SP3-Updates | SLES11-SP3-Updates | Yes     | Yes
-
-	이 명령에서 다음과 같은 오류 메시지를 반환하는 경우
-
-		"No repositories defined. Use the 'zypper addrepo' command to add one or more repositories."
-
-	다음 명령을 사용하여 해당 리포지토리를 추가합니다.
-
-		# sudo zypper ar -f http://azure-update.susecloud.net/repo/$RCE/SLES11-SP3-Pool/sle-11-x86_64 SLES11-SP3-Pool 
-		# sudo zypper ar -f http://azure-update.susecloud.net/repo/$RCE/SLES11-SP3-Updates/sle-11-x86_64 SLES11-SP3-Updates
-
-	관련된 업데이트 리포지토리 중 하나가 사용하도록 설정되어 있지 않은 경우 다음 명령을 사용하여 사용하도록 설정합니다.
-
-		# sudo zypper mr -e [REPOSITORY NUMBER]
-
-4. 커널을 사용 가능한 최신 버전으로 업데이트합니다.
-
-		# sudo zypper up kernel-default
-
-	또는 모든 최신 패치로 시스템을 업데이트합니다.
+4. 모든 최신 패치로 시스템을 업데이트합니다.
 
 		# sudo zypper update
 
-5. Azure Linux 에이전트를 설치합니다.
+5. SLES 리포지토리에서 Azure Linux 에이전트를 설치합니다.
 
 		# sudo zypper install WALinuxAgent
 
@@ -77,7 +51,7 @@
 
 	이렇게 하면 모든 콘솔 메시지가 첫 번째 직렬 포트로 전송되므로 Azure 지원에서 문제를 디버깅하는 데 도움이 될 수 있습니다.
 
-7.	"/etc/sysconfig/network/dhcp" 파일을 편집하여 `DHCLIENT_SET_HOSTNAME` 매개 변수를 다음과 같이 변경하는 것이 좋습니다.
+7.	"/etc/sysconfig/network/dhcp" 파일을 편집하여  `DHCLIENT_SET_HOSTNAME` 매개 변수를 다음과 같이 변경하는 것이 좋습니다.
 
 		DHCLIENT_SET_HOSTNAME="no"
 
@@ -90,7 +64,7 @@
 
 10.	OS 디스크에 스왑 공간을 만들지 마세요.
 
-	Azure Linux 에이전트는 Azure에서 프로비전한 후 VM에 연결된 로컬 리소스 디스크를 사용하여 자동으로 스왑 공간을 구성할 수 있습니다. 로컬 리소스 디스크는 *임시* 디스크이며 VM의 프로비전을 해제할 때 비워질 수 있습니다. Azure Linux 에이전트를 설치한 후(이전 단계 참조) /etc/waagent.conf에서 다음 매개 변수를 적절하게 수정합니다.
+	Azure Linux 에이전트는 Azure에서 프로비전한 후 VM에 연결된 로컬 리소스 디스크를 사용하여 자동으로 스왑 공간을 구성할 수 있습니다. 로컬 리소스 디스크는  *임시* 디스크이며 VM의 프로비전을 해제할 때 비워질 수 있습니다. Azure Linux 에이전트를 설치한 후(이전 단계 참조) /etc/waagent.conf에서 다음 매개 변수를 적절하게 수정합니다.
 
 		ResourceDisk.Format=y
 		ResourceDisk.Filesystem=ext4
@@ -109,7 +83,7 @@
 
 ----------
 
-## <a id="osuse"> </a>openSUSE 13.1+ 준비 ##
+## <a id="osuse"> </a>OpenSUSE 13.1 이상 준비 ##
 
 1. Hyper-V 관리자의 가운데 창에서 가상 컴퓨터를 선택합니다.
 
@@ -156,7 +130,7 @@
 
 		libata.atapi_enabled=0 reserve=0x1f0,0x8
 
-7.	"/etc/sysconfig/network/dhcp" 파일을 편집하여 `DHCLIENT_SET_HOSTNAME` 매개 변수를 다음과 같이 변경하는 것이 좋습니다.
+7.	"/etc/sysconfig/network/dhcp" 파일을 편집하여  `DHCLIENT_SET_HOSTNAME` 매개 변수를 다음과 같이 변경하는 것이 좋습니다.
 
 		DHCLIENT_SET_HOSTNAME="no"
 
@@ -169,7 +143,7 @@
 
 10.	OS 디스크에 스왑 공간을 만들지 마세요.
 
-	Azure Linux 에이전트는 Azure에서 프로비전한 후 VM에 연결된 로컬 리소스 디스크를 사용하여 자동으로 스왑 공간을 구성할 수 있습니다. 로컬 리소스 디스크는 *임시* 디스크이며 VM의 프로비전을 해제할 때 비워질 수 있습니다. Azure Linux 에이전트를 설치한 후(이전 단계 참조) /etc/waagent.conf에서 다음 매개 변수를 적절하게 수정합니다.
+	Azure Linux 에이전트는 Azure에서 프로비전한 후 VM에 연결된 로컬 리소스 디스크를 사용하여 자동으로 스왑 공간을 구성할 수 있습니다. 로컬 리소스 디스크는  *임시* 디스크이며 VM의 프로비전을 해제할 때 비워질 수 있습니다. Azure Linux 에이전트를 설치한 후(이전 단계 참조) /etc/waagent.conf에서 다음 매개 변수를 적절하게 수정합니다.
 
 		ResourceDisk.Format=y
 		ResourceDisk.Filesystem=ext4
@@ -191,4 +165,5 @@
 
 
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

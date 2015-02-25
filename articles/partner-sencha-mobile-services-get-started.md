@@ -1,42 +1,54 @@
-<properties urlDisplayName="Get Started" pageTitle="Azure 모바일 서비스 및 Sencha 시작" metaKeywords="" description="이 자습서에 따라 모바일 서비스 및 Sencha HTML5 모바일 앱 프레임워크를 사용하여 개발을 시작할 수 있습니다. " metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="" documentationCenter="Mobile" title="Get started with Mobile Services and Sencha Touch" authors="sencha" solutions="" manager="dwrede" editor="" />
+﻿<properties 
+	pageTitle="Azure 모바일 서비스 및 Sencha 시작" 
+	description="이 자습서에 따라 모바일 서비스 및 Sencha HTML5 모바일 앱 프레임워크를 사용하여 개발을 시작할 수 있습니다." 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-sencha" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="sencha" />
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-sencha" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/22/2014" 
+	ms.author="sencha"/>
 
 # <a name="getting-started"> </a>모바일 서비스 및 Sencha Touch 시작
 
-[WACOM.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
 
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
 <p>이 자습서에서는 Sencha Touch 응용 프로그램에서 Azure 모바일 서비스를 활용하는 방법을 보여 줍니다. 관리 포털을 통해 정의하는 모바일 서비스를 활용하며 Sencha Touch를 사용하는 간단한 To Do List 앱을 만듭니다. 이 자습서는 JavaScript에 대해 잘 이해하고 있으며 Sencha Touch 프레임워크에 익숙한 중급 및 고급 웹 응용 프로그램 개발자를 대상으로 합니다. </p>
-<p>동영상을 시청하려는 경우 이 자습서와 동일한 단계를 설명하는 오른쪽에 있는 동영상 클립을 확인하세요. 이 동영상에서는 Arthur Kay가 Azure 모바일 서비스 백 엔드를 사용하여 Sencha Touch 응용 프로그램을 빌드하는 방법을 설명합니다.</p>
+<p>동영상을 시청하려는 경우 이 자습서와 동일한 단계를 설명하는 오른쪽에 있는 동영상 클립을 확인하세요. 비디오에서는 Arthur Kay가 Azure 모바일 서비스 백 엔드를 사용하여 Sencha Touch 응용 프로그램을 빌드하는 방법을 설명합니다.</p>
 </div>
-<div class="dev-onpage-video-wrapper"><a href="http://go.microsoft.com/fwlink/?LinkId=392574" target="_blank" class="label">자습서 보기</a> <a style="background-image: url('/media/partner-sencha-mobile-services-get-started/mobile-sencha-get-started-180x120.png') !important;" href="http://go.microsoft.com/fwlink/?LinkId=392574" target="_blank" class="dev-onpage-video"><span class="icon">동영상 재생</span></a> <span class="time">14:37:00</span></div>
+<div class="dev-onpage-video-wrapper"><a href="http://go.microsoft.com/fwlink/?LinkId=392574" target="_blank" class="label">자습서 보기</a> <a style="background-image: url('/media/partner-sencha-mobile-services-get-started/mobile-sencha-get-started-180x120.png') !important;" href="http://go.microsoft.com/fwlink/?LinkId=392574" target="_blank" class="dev-onpage-video"><span class="icon">비디오 재생</span></a> <span class="time">오후 2:37</span></div>
 </div>
-
 
 
 완성된 앱의 스크린샷은 다음과 같습니다.
 
 ![][0]
 
-
-
 ##요구 사항
 
-- <a href="http://wwww.sencha.com/products/touch/download" target="_blank">Sencha Touch</a>(영문)를 다운로드하여 설치합니다.
+- <a href="http://wwww.sencha.com/products/touch/download" target="_blank">Sencha Touch</a>를 다운로드하여 설치합니다.
 
-- <a href="http://www.sencha.com/products/sencha-cmd/download" target="_blank">Sencha Cmd 도구</a>(영문)를 다운로드하여 설치합니다.
+- <a href="http://www.sencha.com/products/sencha-cmd/download" target="_blank">Sencha Cmd Tool</a>을 다운로드하여 설치합니다.
 
 - JRE(Java Runtime Environment) 또는 Java Development Kit(Android 앱을 만드는 경우)
 
 ## <a name="create-new-service"> </a>새 모바일 서비스 만들기
 
-[WACOM.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
+[AZURE.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
 
 ##TodoItems 테이블 만들기
 
-모바일 서비스를 만들고 나면 관리 포털에서 쉬운 빠른 시작에 따라 모바일 서비스에 사용할 새 데이터베이스 테이블을 만들 수 있습니다.
+모바일 서비스를 만들고 나면 관리 포털에서 쉬운 빠른 시작에 따라 모바일 서비스에 사용할
+새 데이터베이스 테이블을 만들 수 있습니다.
 
 1. 관리 포털에서 **모바일 서비스**를 클릭한 후 방금 만든 모바일 서비스를 클릭합니다.
 
@@ -44,22 +56,20 @@
 
     ![Mobile quickstart html](./media/partner-sencha-mobile-services-get-started/mobile-portal-quickstart-html.png)
 
-    모바일 서비스에 연결된 HTML 앱을 만들고 호스트하는 세 가지 간단한 단계가 표시됩니다.
+    그러면 모바일 서비스에 연결된 HTML 앱을 만들고 호스트하기 위한 쉬운 3단계가 표시됩니다.
 
     ![Mobile quickstart html](./media/partner-sencha-mobile-services-get-started/mobile-quickstart-steps-html.png)
 
 3. **TodoItems 테이블 만들기**를 클릭하여 앱 데이터를 저장할 테이블을 만듭니다.
 
-	<div class="dev-callout"> 
-	<b>참고</b> 
-	<p>관리 포털에서 HTML 앱을 다운로드하지 마세요. 대신, 아래 섹션에서 직접 Sencha Touch 응용 프로그램을 만듭니다.</p></div> 
+	> [AZURE.NOTE] 관리 포털에서 HTML 앱을 다운로드하지 마세요. 대신, 아래 섹션에서 직접 Sencha Touch 응용 프로그램을 만듭니다.
 
 
 1. 관리 포털에서 **appKey** 및 **appUrl**을 기록해 두세요. 이 자습서의 다른 섹션에서 이 정보를 사용합니다.
 
     ![app key](./media/partner-sencha-mobile-services-get-started/mobile-app-key-portal.png)
 
-1. **구성** 탭의 `크로스-원본 자원 공유(CORS)** 아래에 있는 **호스트 이름의 요청 허용** 목록에 **localhost`가 이미 나열되어 있는지 확인합니다. 그렇지 않으면 **호스트 이름** 필드에 `localhost`를 입력하고 **저장**을 클릭합니다.
+1. **구성** 탭의 **크로스-원본 자원 공유(CORS)** 아래에 있는 **호스트 이름의 요청 허용** 목록에  `localhost`가 이미 나열되어 있는지 확인합니다. 그렇지 않으면 **호스트 이름** 필드에  `localhost`를 입력하고 **저장**을 클릭합니다.
 
     ![Setup CORS for localhost](./media/partner-sencha-mobile-services-get-started/mobile-services-set-cors-localhost.png)
 
@@ -71,7 +81,7 @@ Touch 프레임워크를 설치한 디렉터리에서 다음 명령을 실행합
 
 	$ sencha generate app Basic /path/to/application
 
-응용 프로그램 이름이 'Basic'인 템플릿 Touch 응용 프로그램이 생성됩니다. 응용 프로그램을 시작하려면 브라우저를 /path/to/application 디렉터리로 가리키면 됩니다. 그러면 표준 Touch 샘플 응용 프로그램이 표시됩니다.
+응용 프로그램 이름이  'Basic'인 템플릿 Touch 응용 프로그램이 생성됩니다. 응용 프로그램을 시작하려면 브라우저를 /path/to/application 디렉터리로 가리키면 됩니다. 그러면 표준 Touch 샘플 응용 프로그램이 표시됩니다.
 
 ##Azure용 Sencha Touch 확장 프로그램 설치
 
@@ -83,7 +93,7 @@ Azure용 확장 프로그램은 수동으로 또는 Sencha 패키지로 설치�
 
 다음 단계를 사용하여 응용 프로그램에 Azure 확장 프로그램을 수동으로 추가할 수 있습니다.
 
-1. Azure 확장 패키지는 [여기](https://market.sencha.com/extensions/sencha-touch-extensions-for-windows-azure)(영문)에서 다운로드합니다. 이 영역에 액세스하려면 Sencha Forums ID를 사용할 수 있습니다.
+1. Azure 확장 패키지는 [여기](https://market.sencha.com/extensions/sencha-touch-extensions-for-windows-azure)에서 다운로드합니다. 이 영역에 액세스하려면 Sencha Forums ID를 사용할 수 있습니다.
 
 2. 다운로드 디렉터리에서 Azure 확장 패키지를 복사하여 최종적으로 배치하여 압축을 풀 위치에 넣습니다. 
 
@@ -96,13 +106,11 @@ Azure용 확장 프로그램은 수동으로 또는 Sencha 패키지로 설치�
 
 ###Sencha 패키지로 설치
 
-<div class="dev-callout"> 
-	<b>참고</b> 
-	<p><code>sencha generate app</code> 명령을 사용하여 응용 프로그램을 생성한 경우에만 이 방법을 사용할 수 있습니다.</p></div> 
+> [AZURE.NOTE] <code>sencha generate app</code> 명령을 사용하여 응용 프로그램을 생성한 경우에만 이 방법을 사용할 수 있습니다.
 
 Sencha Cmd로 생성된 모든 응용 프로그램에는 루트에 "packages" 폴더가 있습니다. 이 폴더의 위치는 구성할 수 있지만, 위치에 상관없이 "packages" 폴더의 역할은 응용 프로그램에서 사용되는 모든 패키지(또는 Sencha Workspace를 만든 경우 여러 응용 프로그램)의 저장소 역할입니다.
 
-Ext.Azure는 Sencha Cmd "패키지"이므로, Sencha Cmd를 사용하여 소스 코드를 쉽게 설치하고 응용 프로그램에 포함할 수 있습니다. 자세한 내용은 [Sencha Cmd 패키지](http://docs.sencha.com/cmd/3.1.2/#!/guide/command_packages)(영문)를 참조하세요.
+Ext.Azure는 Sencha Cmd "패키지"이므로, Sencha Cmd를 사용하여 소스 코드를 쉽게 설치하고 응용 프로그램에 포함할 수 있습니다. 자세한 내용은 [Sencha Cmd 패키지](http://docs.sencha.com/cmd/3.1.2/#!/guide/command_packages)를 참조하세요.
 
 Sencha 패키지 리포지토리에서 Azure 확장 패키지를 다운로드하여 설치하려면 **app.json** 파일에 패키지 이름을 추가하고 응용 프로그램을 빌드해야 합니다.
 
@@ -157,7 +165,7 @@ Sencha 패키지 리포지토리에서 Azure 확장 패키지를 다운로드하
 
 	구성 개체를 init 메서드에 바로 전달할 수도 있지만 **azure**라는 Sencha 응용 프로그램 구성 속성을 만들어 여기에 모든 해당 정보를 넣는 것이 좋습니다. 그런 다음 이 속성 값을 Ext.Azure.init 메서드에 전달할 수 있습니다.
 
-	Azure에서 모바일 서비스를 만들면([Azure 시작](http://senchaazuredocs.azurewebsites.net/#!/guide/getting_started)(영문) 참조) 이 서비스에 응용 프로그램 키 및 URL이 할당됩니다. 이 정보를 Azure 패키지에 제공해야 패키지가 서비스에 연결할 수 있습니다.
+	Azure에서 모바일 서비스를 만들면([Azure 시작](http://senchaazuredocs.azurewebsites.net/#!/guide/getting_started) 참조) 이 서비스에 응용 프로그램 키 및 URL이 할당됩니다. 이 정보를 Azure 패키지에 제공해야 패키지가 서비스에 연결할 수 있습니다.
 
 	다음 예는 응용 프로그램 키와 URL만 제공하는 매우 간단한 Azure 구성 및 초기화를 보여 줍니다.
 
@@ -197,7 +205,7 @@ Touch 응용 프로그램은 데이터 프록시를 통해 모바일 서비스�
 
 Sencha Touch 모델은 응용 프로그램에서 사용할 데이터 레코드의 정의를 제공합니다. 이 모델에서는 데이터 필드를 정의할 뿐만 아니라 응용 프로그램과 Azure 모바일 서비스 사이의 통신을 처리할 프록시에 대한 구성도 제공할 수 있습니다.
 
-다음 코드에서는 모델의 필드(및 해당 형식)를 정의하고 프록시 구성을 제공합니다. 프록시를 구성할 때는 해당 유형(이 경우 'azure'), 모바일 서비스 테이블 이름(ToDoItem), 기타 선택적인 매개 변수를 지정해야 합니다. 이 예에서는 목록 항목을 원활하게 페이지 앞으로 및 뒤로 이동할 수 있도록 프록시 페이징을 설정합니다.
+다음 코드에서는 모델의 필드(및 해당 형식)를 정의하고 프록시 구성을 제공합니다. 프록시를 구성할 때는 해당 유형(이 경우  'azure'), 모바일 서비스 테이블 이름(ToDoItem), 기타 선택적인 매개 변수를 지정해야 합니다. 이 예에서는 목록 항목을 원활하게 페이지 앞으로 및 뒤로 이동할 수 있도록 프록시 페이징을 설정합니다.
 
 Azure 프록시는 Azure API에서 요구되는 적합한 CRUD 작업을 사용하여(있는 경우 인증 자격 증명 포함) 모든 HTTP 헤더를 자동 설정합니다.
 
@@ -568,7 +576,7 @@ Sencha Touch 저장소는 다양한 방식으로 레코드를 표시할 수 있�
 
 **Filename**: app.js
 
-마지막 단계는 기본 응용 프로그램 파일 편집을 마치고 정의된 모델, 저장소, 뷰, 컨트롤러에 대한 정보를 제공하는 것입니다. 이 리소스의 원본 파일은 자동으로 응용 프로그램에 로드됩니다. 마지막으로, 기본 응용 프로그램 뷰인 'Basic.main.View'를 만들고 표시하는 launch 메서드를 호출합니다.
+마지막 단계는 기본 응용 프로그램 파일 편집을 마치고 정의된 모델, 저장소, 뷰, 컨트롤러에 대한 정보를 제공하는 것입니다. 이 리소스의 원본 파일은 자동으로 응용 프로그램에 로드됩니다. 마지막으로, 기본 응용 프로그램 뷰인  'Basic.main.View'를 만들고 표시하는 launch 메서드를 호출합니다.
 
 
 	Ext.Loader.setConfig({
@@ -654,8 +662,7 @@ Sencha Touch 저장소는 다양한 방식으로 레코드를 표시할 수 있�
 
   2. Sencha Cmd를 사용하여 다음 명령을 실행합니다.
 
-    * *sencha app refresh* : Sencha Cmd에 모든 앱 종속성을 찾아
-필요한 패키지를 다운로드하도록 지시합니다(예: [Azure용 Sencha Touch 확장 프로그램](https://market.sencha.com/extensions/sencha-touch-extensions-for-windows-azure)).
+    * *sencha app refresh* : Sencha Cmd에 모든 앱 종속성을 찾고 필요한 패키지를 다운로드(예: [Azure용 Sencha Touch 확장](https://market.sencha.com/extensions/sencha-touch-extensions-for-windows-azure))하도록 지시합니다.
 
     * *sencha web start* : 응용 프로그램을 테스트하는 로컬 웹 서버를 시작합니다.
 
@@ -663,11 +670,11 @@ Sencha Touch 저장소는 다양한 방식으로 레코드를 표시할 수 있�
 
   3. 터미널에서 나열된 URL(예: http://localhost:1841)을 웹 브라우저에서 열고 앱을 시작합니다.
 
-  4. 앱에서 "자습서 완료" 등의 의미 있는 텍스트를 입력하고 **추가**를 클릭합니다.
+  4. 앱에서 "Complete the tutorial" 등의 의미 있는 텍스트를 입력하고 **Add**를 클릭합니다.
 
     ![new todo item](./media/partner-sencha-mobile-services-get-started/new-todo-item.png)
 
-    Azure에 호스트된 새 모바일 서비스에 POST 요청이 전송됩니다. 요청에서 데이터가 TodoItem 테이블에 삽입됩니다. 
+    Azure에 호스트된 새 모바일 서비스에 POST 요청이 전송됩니다. 요청의 데이터가 TodoItem 테이블에 삽입됩니다.
 
   5. 관리 포털로 돌아가서 **데이터** 탭을 클릭한 후 TodoItems 테이블을 클릭합니다.
 
@@ -680,27 +687,30 @@ Sencha Touch 저장소는 다양한 방식으로 레코드를 표시할 수 있�
 ##다음 단계
 이제 시작하기 가이드를 완료했으며 Sencha를 사용하여 모바일 서비스에서 중요한 추가 작업을 수행하는 방법을 알아보겠습니다.
 
-[추가 스타일 및 기능이 있는 완성된 샘플 앱을 다운로드](https://github.com/arthurakay/sencha-touch-azure-example)하여 Sencha Touch에서 제공되는 다른 이점을 확인하세요.
+추가 스타일 및 기능이 있는 완성된 샘플 앱을 [다운로드](https://github.com/arthurakay/sencha-touch-azure-example)하여 Sencha Touch에서 제공되는 다른 이점을 확인하세요.
 
 그런 다음, Azure용 Sencha Touch 확장 프로그램에 대한 자세한 내용을 알아보세요.
 
-  * 샘플 앱[ 연습(영문)](http://docs.sencha.com/touch-azure/1.0.0/#!/guide/data_filters)
-  * [Sencha 포럼](http://www.sencha.com/forum)(영문)에서 도움말 얻기
-  * [Sencha 설명서](http://docs.sencha.com/)(영문) 찾아보기
-  * Azure 모바일 서비스에서 Sencha 사용: [(비디오)(영문)](http://channel9.msdn.com/Shows/Cloud+Cover/Episode-126-Using-Sencha-With-Windows-Azure-Mobile-Services)
+  * 샘플 앱 [연습](http://docs.sencha.com/touch-azure/1.0.0/#!/guide/data_filters)
+  * [Sencha Forums](http://www.sencha.com/forum)에서 도움말 얻기
+  * [Sencha 설명서](http://docs.sencha.com/) 찾아보기
+  * Azure 모바일 서비스에서 Sencha 사용: [(비디오)](http://channel9.msdn.com/Shows/Cloud+Cover/Episode-126-Using-Sencha-With-Windows-Azure-Mobile-Services)
 
 
 ##추가 리소스
 
-  * [Sencha Touch 다운로드(영문)](http://pages.sencha.com/touch-for-azure.html)
-  * [Azure용 Sencha Touch 확장 프로그램(영문)](https://market.sencha.com/extensions/sencha-touch-extensions-for-windows-azure)
+  * [Sencha Touch 다운로드](http://pages.sencha.com/touch-for-azure.html)
+  * [Azure용 Sencha Touch 확장 프로그램](https://market.sencha.com/extensions/sencha-touch-extensions-for-windows-azure)
  
 
 ##요약
 
 여기에 나온 예는 Azure용 Sencha Touch 확장 프로그램 패키지로 제공되며 Basic Data 예로 예제 디렉터리에 있습니다. 이 확장 프로그램의 다른 기능을 시연하는 예가 몇 가지 더 있으며 이와 함께 자세한 의견과 설명이 제공됩니다.
 
-Sencha Touch 시작에 대한 자세한 내용을 보려면 전체 [가이드](http://docs.sencha.com/touch/#!/guide)(영문)를 방문하세요.
+Sencha Touch 시작에 대한 자세한 내용을 보려면 전체 [가이드](http://docs.sencha.com/touch/#!/guide)를 방문하세요.
 
 <!-- images -->
 [0]: ./media/partner-sencha-mobile-services-get-started/finished-app.png
+
+
+<!--HONumber=42-->

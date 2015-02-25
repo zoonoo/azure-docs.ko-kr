@@ -1,12 +1,12 @@
-﻿<properties urlDisplayName="Get Started with authentication in Mobile Services for Xamarin iOS apps" pageTitle="Xamarin iOS 앱용 모바일 서비스에서 인증 시작 - Azure 모바일 서비스" metaKeywords="" description="모바일 서비스를 사용하여 Google, Facebook, Twitter, Microsoft 등의 다양한 ID 공급자를 통해 Xamarin iOS 앱 사용자를 인증하는 방법에 대해 알아봅니다." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get Started with authentication in Mobile Services" authors="donnam" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="Xamarin iOS 앱용 모바일 서비스에서 인증 시작 - Azure 모바일 서비스" description="모바일 서비스를 사용하여 Google, Facebook, Twitter, Microsoft 등의 다양한 ID 공급자를 통해 Xamarin iOS 앱 사용자를 인증하는 방법에 대해 알아봅니다." services="mobile-services" documentationCenter="xamarin" authors="lindydonna" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="donnam" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="donnam"/>
 
 # 모바일 서비스 앱에 인증 추가
 
-[WACOM.INCLUDE [mobile-services-selector-get-started-users](../includes/mobile-services-selector-get-started-users.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-users](../includes/mobile-services-selector-get-started-users.md)]
 
-이 항목에서는 앱에서 Azure 모바일 서비스의 사용자를 인증하는 방법을 보여 줍니다. 이 자습서에서는 모바일 서비스가 지원하는 ID 공급자를 사용하여 빠른 시작 프로젝트에 인증을 추가합니다. 모바일 서비스에서 인증되고 권한이 부여된 후 사용자 ID 값이 표시됩니다.
+이 항목은 앱에서 Azure 모바일 서비스의 사용자를 인증하는 방법을 보여 줍니다. 이 자습서에서는 모바일 서비스가 지원하는 ID 공급자를 사용하여 퀵 스타트 프로젝트에 인증을 추가합니다. 모바일 서비스에서 인증되고 권한이 부여된 후 사용자 ID 값이 표시됩니다.
 
 이 자습서에서는 앱에서 인증을 사용하도록 설정하는 다음 기본 단계를 단계별로 안내합니다.
 
@@ -14,17 +14,17 @@
 2. [테이블 사용 권한을 인증된 사용자로 제한]
 3. [앱에 인증 추가]
 
-이 자습서는 모바일 서비스 빠른 시작을 기반으로 합니다. 먼저 [모바일 서비스 시작] 자습서를 완료해야 합니다. 
+이 자습서는 모바일 서비스 퀵 스타트를 기반으로 합니다. 먼저 [모바일 서비스 시작] 자습서를 완료해야 합니다. 
 
 ##<a name="register"></a>인증을 위해 앱 등록 및 모바일 서비스 구성
 
-[WACOM.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)] 
+[AZURE.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)] 
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-aad-server-extension](../includes/mobile-services-dotnet-backend-aad-server-extension.md)] 
+[AZURE.INCLUDE [mobile-services-dotnet-backend-aad-server-extension](../includes/mobile-services-dotnet-backend-aad-server-extension.md)] 
 
 ##<a name="permissions"></a>사용 권한을 인증된 사용자로 제한
 
-[WACOM.INCLUDE [mobile-services-restrict-permissions-dotnet-backend](../includes/mobile-services-restrict-permissions-dotnet-backend.md)] 
+[AZURE.INCLUDE [mobile-services-restrict-permissions-dotnet-backend](../includes/mobile-services-restrict-permissions-dotnet-backend.md)] 
 
 <ol start="6">
 <li><p>Visual Studio 또는 Xamarin Studio에서 클라이언트 프로젝트를 장치 또는 시뮬레이터에서 실행합니다. 앱이 시작된 후 상태 코드 401(인증되지 않음)의 처리되지 않은 예외가 발생하는지 확인합니다.</p>
@@ -58,9 +58,7 @@
             }
         }
 
-    <div class="dev-callout"><b>참고</b>
-	<p>Facebook 이외의 ID 공급자를 사용하는 경우 위의 <strong>LoginAsync</strong>에 전달된 값을 <i>MicrosoftAccount</i>, <i>Twitter</i>, <i>Google</i> 또는 <i>WindowsAzureActiveDirectory</i> 중 하나로 변경합니다.</p>
-    </div>
+> [AZURE.NOTE] Facebook 이외의 ID 공급자를 사용하는 경우 위의 **LoginAsync**에 전달된 값을 _MicrosoftAccount_, _Twitter_, _Google_ 또는 _WindowsAzureActiveDirectory_ 중 하나로 변경합니다.
 
 3. **QSTodoListViewController.cs**를 엽니다. **ViewDidLoad**의 메서드 정의를 수정해서 끝 부근의 **RefreshAsync()** 호출을 제거합니다.
 
@@ -116,10 +114,13 @@
 [앱 제출 페이지]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [내 응용 프로그램]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Windows용 Live SDK]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[모바일 서비스 시작]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-get-started/
-[인증 시작]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-get-started-users/
+[모바일 서비스 시작](영문): /ko-kr/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-get-started/
+[인증 시작](영문): /ko-kr/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-get-started-users/
 [푸시 알림 시작]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-get-started-push/
 [스크립트를 통해 사용자 권한 부여]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-authorize-users-in-scripts
 [JavaScript 및 HTML]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-users/
 
 [Azure 관리 포털]: https://manage.windowsazure.com/
+
+
+<!--HONumber=42-->

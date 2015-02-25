@@ -1,6 +1,21 @@
-﻿<properties urlDisplayName="Azure Websites Enterprise Offerings" pageTitle="Migration Assistant를 사용하여 IIS 웹 사이트를 Azure 웹 사이트로 마이그레이션" metaKeywords="Azure Websites,solution" description="Azure 웹 사이트를 사용하여 비즈니스에 적합한 엔터프라이즈 웹 사이트 솔루션을 만드는 방법을 보여 줍니다." metaCanonical="" services="web-sites" documentationCenter="" title="Azure Websites Offerings for Enterprise Whitepaper" authors="cephalin,Apurva.Joshi"  solutions="" writer="cephalin" manager="wpickett" editor=""  />
+﻿<properties 
+	pageTitle="Migration Assistant를 사용하여 IIS 웹 사이트를 Azure 웹 사이트로 마이그레이션" 
+	description="Azure 웹 사이트를 사용하여 비즈니스에 적합한 엔터프라이즈 웹 사이트 솔루션을 만드는 방법을 보여 줍니다." 
+	services="web-sites" 
+	documentationCenter="" 
+	authors="cephalin" 
+	writer="cephalin" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/20/2014" ms.author="cephalin" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/20/2014" 
+	ms.author="cephalin"/>
 
 # 엔터프라이즈용 Azure 웹 사이트 제품 백서 #
 
@@ -33,8 +48,8 @@ Microsoft Azure 웹 사이트는 이러한 응용 프로그램을 호스트하�
 
 또 다른 접근 방법으로 기존 온-프레미스 투자를 활용하는 방법이 있습니다. 예제 시나리오인 직원 비용 시스템에서는 자체의 내부 인프라 내에 데이터 저장소를 유지 관리할 수 있습니다. 이는 내부 시스템(보고, 급여, 청구 등)과의 통합을 위해서이거나 IT 거버넌스 요구 사항을 충족하기 위해서일 수 있습니다.  Microsoft Azure 웹 사이트는 온-프레미스 인프라에 연결할 수 있는 두 가지 방법을 제공합니다.
 
-- [하이브리드 연결](http://aka.ms/hybridconnections) - 하이브리드 연결은 Microsoft Azure BizTalk 서비스의 기능이며, Azure 웹 사이트에서 SQL Server, MySQL, Web API 및 사용자 지정 웹 서비스 등과 같은 온-프레미스 리소스에 안전하게 액세스할 수 있도록 지원합니다. 
-- [가상 네트워크 통합 ](http://aka.ms/websitesvnet) - Azure 웹 사이트 가상 네트워크 통합을 사용하면 웹 사이트를 Azure 가상 네트워크에 연결할 수 있으며, 결과적으로 Azure 가상 네트워크가 사이트 간 VPN을 통해 사용자의 온-프레미스 인프라에 연결될 수 있습니다. 
+- [하이브리드 연결](http://aka.ms/hybridconnections) - 하이브리드 연결은 Microsoft Azure BizTalk 서비스의 기능이며, Azure 웹 사이트에서 SQL Server, MySQL, Web API 및 사용자 지정 웹 서비스 등과 같은 온-프레미스 리소스에 안전하게 액세스할 수 있도록 지원합니다.
+- [가상 네트워크 통합 ](http://aka.ms/websitesvnet) - Azure 웹 사이트 가상 네트워크 통합을 사용하면 웹 사이트를 Azure 가상 네트워크에 연결할 수 있으며, 결과적으로 Azure 가상 네트워크가 사이트 간 VPN을 통해 사용자의 온-프레미스 인프라에 연결될 수 있습니다.
 
 다음 다이어그램은 온-프레미스 리소스에 대한 연결 옵션을 사용하는 고급 솔루션의 예입니다.
 
@@ -66,7 +81,7 @@ Azure 웹 사이트는 소규모 내부 배포와 테스트 작업에서 트래�
 
 Microsoft Azure Platform에서는 RBAC(역할 기반 권한 부여 제어)를 통해 Azure 웹 사이트 내의 리소스를 엔터프라이즈 수준으로 제어할 수 있습니다. RBAC를 통해 기업은 사용자를 그룹에 할당하고 Azure 웹 사이트와 같은 자산에 대해 필요한 권한을 이러한 그룹에 할당하여 Azure 환경의 모든 자산에 대한 고유한 액세스 관리 정책을 구현할 수 있습니다. Azure의 RBAC에 대한 자세한 내용은 [http://aka.ms/azurerbac](http://aka.ms/azurerbac)를 참조하세요. Azure 웹 사이트를 활용하면 웹 응용 프로그램을 안전한 보안 환경에 배포하고 자산이 배포되는 영역을 완벽히 제어할 수 있습니다. 
 
-또한 Azure 웹 사이트에서는 데이터 웨어하우스나 SharePoint 환경과 같은 내부 리소스에 다시 연결하는 기능을 제공하여 온-프레미스 투자를 최대한 활용할 수도 있습니다. [고급 솔루션](#highlevel)에서 설명한 대로 하이브리드 연결과 가상 네트워크 연결을 활용하여 온-프레미스 인프라 및 서비스에 대한 연결을 설정할 수 있습니다.
+또한 Azure 웹 사이트에서는 데이터 웨어하우스나 SharePoint 환경과 같은 내부 리소스에 다시 연결하는 기능을 제공하여 온-프레미스 투자를 최대한 활용할 수도 있습니다. [고급 솔루션]에서 설명한 대로(#highlevel) 하이브리드 연결과 가상 네트워크 연결을 활용하여 온-프레미스 인프라 및 서비스에 대한 연결을 설정할 수 있습니다.
 
 ### 글로벌 환경 ###
 
@@ -78,7 +93,7 @@ Azure 웹 사이트는 전 세계 17개 데이터 센터에서 전 세계에서 
 
 응용 프로그램 마이그레이션 시나리오의 예를 살펴보겠습니다. 이를 통해 Azure 웹 사이트 기능을 함께 사용하여 유용한 솔루션과 비즈니스 가치를 제공하는 방법을 자세히 설명합니다.
  
-이 예제 전체에서 논의할 기간 업무 응용 프로그램은 직원이 정산받을 비용을 제출할 수 있는 비용 보고 응용 프로그램입니다. 이 응용 프로그램은 IIS6을 실행하는 Windows Server 2003 R2에 호스트되어 있고 데이터베이스는 SQL Server 2005 데이터베이스입니다. 이전 서버를 선택한 이유는 Windows Server 2003 R2와 SQL Server 2005에 대한 서비스 종료가 다가오고 있기 때문이며 작업을 Azure로 자동으로 마이그레이션하는 [도구](http://aka.ms/websitesmigration)(영문)와 [지침](http://aka.ms/websitesmigrationresources)(영문)이 제공합니다. 따라서 이 예제에서 사용되는 패턴은 다양한 마이그레이션 시나리오에 적용됩니다. 
+이 예제 전체에서 논의할 기간 업무 응용 프로그램은 직원이 정산받을 비용을 제출할 수 있는 비용 보고 응용 프로그램입니다. 이 응용 프로그램은 IIS6을 실행하는 Windows Server 2003 R2에 호스트되어 있고 데이터베이스는 SQL Server 2005 데이터베이스입니다. 이전 서버를 선택한 이유는 Windows Server 2003 R2와 SQL Server 2005에 대한 서비스 종료가 다가오고 있기 때문이며 작업을 Azure로 자동으로 마이그레이션하는 [도구](http://aka.ms/websitesmigration)와 [지침](http://aka.ms/websitesmigrationresources)이 제공합니다. 따라서 이 예제에서 사용되는 패턴은 다양한 마이그레이션 시나리오에 적용됩니다. 
 
 ### 기존 응용 프로그램 마이그레이션 ###
 
@@ -88,10 +103,10 @@ Azure 웹 사이트는 전 세계 17개 데이터 센터에서 전 세계에서 
 
 #### 고려할 항목 ###
 
-온-프레미스 환경에서 응용 프로그램을 마이그레이션할 때는 몇몇 Azure 웹 사이트에서 제한하는 사항에 유의해야 합니다. 다음은 웹 응용 프로그램을 Azure 웹 사이트로 마이그레이션할 때 알고 있어야 하는 몇 가지 주요 항목입니다([http://aka.ms/websitesmigrationresources](http://aka.ms/websitesmigrationresources)(영문)).
+온-프레미스 환경에서 응용 프로그램을 마이그레이션할 때는 몇몇 Azure 웹 사이트에서 제한하는 사항에 유의해야 합니다. 다음은 웹 응용 프로그램을 Azure 웹 사이트로 마이그레이션할 때 알고 있어야 하는 몇 가지 주요 항목입니다([http://aka.ms/websitesmigrationresources](http://aka.ms/websitesmigrationresources)).
 
 -	포트 바인딩 - Azure 웹 사이트는 HTTP 트래픽에는 포트 80, HTTPS 트래픽에는 포트 443만 지원합니다. 응용 프로그램 또는 사이트에서 다른 포트를 사용하는 경우 응용 프로그램을 마이그레이션하면 응용 프로그램 또는 사이트에서 HTTP 트래픽에는 포트 80, HTTPS 트래픽에는 포트 443을 사용합니다. 이는 문제가 되지 않는 경우가 많은데, 온-프레미스 배포 특히, 개발 및 테스트 환경에서는 도메인 이름 사용을 원활히 처리하기 위해 다른 포트를 사용하는 경우가 일반적이기 때문입니다.
--	인증 - Azure 웹 사이트는 익명 인증을 기본 지원하며 응용 프로그램에서 식별된 폼 인증을 지원합니다. Azure 웹 사이트에서는 응용 프로그램 또는 사이트가 Azure Active Directory 및 ADFS와 통합된 경우에만 Windows 인증을 제공할 수 있습니다. 이 기능에 대해서는 [여기](http://aka.ms/azurebizapp)에서 자세히 다룹니다.
+-	인증 - Azure 웹 사이트는 익명 인증을 기본 지원하며 응용 프로그램에서 식별된 폼 인증을 지원합니다. Azure 웹 사이트에서는 응용 프로그램 또는 사이트가 Azure Active Directory 및 ADFS와 통합된 경우에만 Windows 인증을 제공할 수 있습니다. 이 기능에 대해서는 [여기](http://aka.ms/azurebizapp)에서 자세히 다룹니다. 
 -	GAC 기반 어셈블리 - Azure 웹 사이트에서는 어셈블리를 GAC(전역 어셈블리 캐시)로 배포할 수 없으므로 마이그레이션하는 응용 프로그램 또는 사이트에서 이 기능을 온-프레미스에서 사용하는 경우 어셈블리를 응용 프로그램 또는 사이트의 bin 폴더로 이동합니다.
 -	IIS5 호환 모드 - Azure 웹 사이트는 IIS5 호환 모드를 지원하지 않으므로 부모 사이트 아래의 각 사이트와 모든 웹 응용 프로그램이 단일 응용 프로그램 풀 내에서 동일한 작업자 프로세스로 실행됩니다.
 -	COM 라이브러리 사용 - Azure 웹 사이트에서는 플랫폼에 COM 구성 요소를 등록할 수 없으므로 사이트 또는 응용 프로그램이 COM 구성 요소를 사용하는 중이면 관리 코드에서 이러한 구성 요소를 다시 작성하고 사이트 또는 응용 프로그램에 배포해야 합니다.
@@ -101,7 +116,7 @@ Azure 웹 사이트는 전 세계 17개 데이터 센터에서 전 세계에서 
 
 마이그레이션 프로세스의 다음 단계에서는 Azure 웹 사이트와 Azure SQL 데이터베이스를 만듭니다. CPU 코어 수와 RAM 양이 다른 여러 크기의 Microsoft Azure 웹 사이트 인스턴스가 있으며, 웹 응용 프로그램 요구 사항에 따라 이들 중 선택할 수 있습니다. 자세한 내용은 가격은 [http://aka.ms/azurewebsitesskus](http://aka.ms/azurewebsitesskus)를 참조하세요. 마찬가지로 Microsoft Azure SQL 데이터베이스는 요구 사항에 맞는 다양한 서비스 계층 및 성능 수준을 통해 모든 비즈니스 요구 사항을 충족합니다. 자세한 내용은 [http://aka.ms/azuresqldbskus](http://aka.ms/azuresqldbskus)를 참조하세요. 만든 후에는 사이트/응용 프로그램을 FTP 또는 WebDeploy를 통해 Azure 웹 사이트에 업로드한 다음 데이터베이스로 이동합니다.
 
-이 마이그레이션의 솔루션은 Azure SQL 데이터베이스를 사용하지만 다른 데이터베이스도 Azure에서 지원됩니다. 회사는 [Azure Store](http://aka.ms/azurestore)에서 구입할 수 있는 추가 기능을 통해 MySQL, MongoDB, Azure DocumentDB 등도 사용할 수 있습니다. 
+이 마이그레이션의 솔루션은 Azure SQL 데이터베이스를 사용하지만 다른 데이터베이스도 Azure에서 지원됩니다. 회사는 [Azure 스토어](http://aka.ms/azurestore)에서 구입할 수 있는 추가 기능을 통해 MySQL, MongoDB, Azure DocumentDB 등도 사용할 수 있습니다. 
 
 Azure SQL 데이터베이스를 만들 때 기존 데이터베이스의 스크립트를 생성하거나 [데이터 계층 응용 프로그램 내보내기 및 가져오기](http://aka.ms/dacpac)를 사용하는 등과 같은 여러 옵션을 사용하여 온-프레미스 서버에서 기존 데이터베이스를 가져올 수 있습니다. 
 
@@ -131,4 +146,7 @@ Microsoft Azure 웹 사이트의 크기 조정 유연성 외에도 전체 플랫
 Microsoft Azure 웹 사이트는 빠르게 발전하는 환경의 동적 비즈니스 요구 사항을 충족하는 유연하고, 비용 효율적이고, 응답성이 뛰어난 솔루션을 제공합니다. Azure 웹 사이트는 최신 DevOps 기능을 포함하고 수동 관리를 줄이는 관리되는 플랫폼을 활용하여 생산성과 효율성을 늘릴 뿐 아니라 크기 조정, 복원력, 보안 및 온-프레미스와의 통합 면에서 엔터프라이즈급 기능을 제공합니다.
 
 ## 활용 방안 ##
-Microsoft Azure 웹 사이트 서비스에 대한 자세한 내용은 [http://aka.ms/enterprisewebsites](http://aka.ms/enterprisewebsites)를 참조하고 지금 바로 [http://aka.ms/azuretrial](http://aka.ms/azuretrial)평가판에 등록하여 서비스를 평가하고 비즈니스 혜택을 확인하세요.
+Microsoft Azure 웹 사이트 서비스에 대한 자세한 내용은 [http://aka.ms/enterprisewebsites](http://aka.ms/enterprisewebsites)를 참조하고 지금 바로 [http://aka.ms/azuretrial](http://aka.ms/azuretrial)에서 평가판에 등록하여 서비스를 평가하고 비즈니스 혜택을 확인하세요.
+
+
+<!--HONumber=42-->

@@ -1,13 +1,24 @@
-<properties urlDisplayName="REST service using Web API" pageTitle="Web API를 사용하는 .NET REST 서비스 - Azure 자습서" metaKeywords="Azure tutorial web site, ASP.NET API web site, Azure VS" description="Visual Studio를 사용하여 Azure 웹 사이트에 ASP.NET Web API를 사용하는 앱을 배포하는 방법에 대해 설명하는 자습서입니다." metaCanonical="" services="web-sites" documentationCenter=".NET" title="REST service using ASP.NET Web API and SQL Database" authors="riande" solutions="" manager="wpickett" editor="" />
+﻿<properties 
+	pageTitle="Web API를 사용하는 .NET REST 서비스 - Azure 자습서" 
+	description="Visual Studio를 사용하여 Azure 웹 사이트에 ASP.NET Web API를 사용하는 앱을 배포하는 방법에 대해 설명하는 자습서입니다." 
+	services="web-sites" 
+	documentationCenter=".net" 
+	authors="riande" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/06/2014" ms.author="riande" />
-
-
-
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="11/06/2014" 
+	ms.author="riande"/>
 
 # ASP.NET Web API 및 SQL 데이터베이스를 사용한 REST 서비스 
 
-***작성자: [Rick Anderson](https://twitter.com/RickAndMSFT) 및 Tom Dykstra.***
+***작성자: [Rick Anderson](https://twitter.com/RickAndMSFT) 및 Tom Dykstra***
 
 이 자습서에서는 Visual Studio 2013 또는 Visual Studio 2013 Express for Web의 웹 게시 마법사를 사용하여 ASP.NET 웹 응용 프로그램을 Azure 웹 사이트에 배포하는 방법을 보여 줍니다. 
 
@@ -26,6 +37,7 @@ Azure 계정은 무료로 개설할 수 있으며, Visual Studio 2013이 아직 
 ASP.NET MVC 5에서 빌드되고 데이터베이스 액세스에 ADO.NET Entity Framework를 사용하는 간단한 연락처 목록 웹 응용 프로그램을 빌드합니다. 다음 그림에서는 완료된 응용 프로그램을 보여 줍니다.
 
 ![screenshot of web site][intro001]
+
 이 자습서에서는 다음을 수행합니다.
 
 * [개발 환경 설정][setupdbenv]
@@ -40,7 +52,7 @@ ASP.NET MVC 5에서 빌드되고 데이터베이스 액세스에 ADO.NET Entity 
 
 <a name="bkmk_setupdevenv"></a>
 <!-- the next line produces the "Set up the development environment" section as see at http://www.windowsazure.com/ko-kr/documentation/articles/web-sites-dotnet-get-started/ -->
-[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
+[AZURE.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 <h2><a name="bkmk_setupwindowsazure"></a>Azure 환경 설정</h2>
 
@@ -54,11 +66,11 @@ Azure 웹 사이트는 공유 호스팅 환경에서 실행되므로 다른 Azur
 
 SQL 데이터베이스는 SQL Server 기술로 구축된 클라우드 기반의 관계형 데이터베이스 서비스입니다. SQL Server에서 작동하는 도구와 응용 프로그램은 SQL 데이터베이스에서도 작동합니다.
 
-1. [Azure 관리 포털](https://manage.windowsazure.com)의 왼쪽 탭에서 **웹 사이트**를 클릭하고 **새로 만들기**를 클릭합니다.
+1. [Azure 관리 포털](https://manage.windowsazure.com)의 왼쪽 탭에서 **웹 사이트**를 클릭한 다음 **새로 만들기**를 클릭합니다.
 
 2. **사용자 지정 만들기**를 클릭합니다.
 
-	![Create with Database link in Management Portal](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr6.PNG)
+	![관리 포털의 데이터베이스 링크를 사용하여 만들기](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr6.PNG)
 
 	**새 웹 사이트 - 사용자 지정 만들기** 마법사가 열립니다. 
 
@@ -68,15 +80,15 @@ SQL 데이터베이스는 SQL Server 기술로 구축된 클라우드 기반의 
 
 1. **데이터베이스** 드롭다운 목록에서 **무료 20MB SQL 데이터베이스 만들기**를 선택합니다.
 
-	![Create a New Website step of New Website - Create with Database wizard](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rrCWS.png)
+	![새 웹 사이트 - 데이터베이스를 사용하여 만들기 마법사의 새 웹 사이트 만들기 단계](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rrCWS.png)
 
 6. 상자 맨 아래에서 오른쪽을 가리키는 화살표를 클릭합니다.
 
 	마법사의 **데이터베이스 설정** 단계로 이동됩니다.
 
-7. **이름** 상자에 *ContactDB*를 입력합니다.
+7. **이름** 상자에  *ContactDB*를 입력합니다.
 
-8. **서버** 상자에서 **새 SQL 데이터베이스 서버**를 선택합니다. 또는 이전에 SQL Server 데이터베이스를 만든 경우 드롭다운 컨트롤에서 SQL Server를 선택할 수 있습니다.
+8. **서버** 상자에서 **새 SQL 데이터베이스** 서버를 선택합니다. 또는 이전에 SQL Server 데이터베이스를 만든 경우 드롭다운 컨트롤에서 SQL Server를 선택할 수 있습니다.
 
 9. 상자 맨 아래에서 오른쪽을 가리키는 화살표를 클릭합니다.
 
@@ -84,11 +96,11 @@ SQL 데이터베이스는 SQL Server 기술로 구축된 클라우드 기반의 
 
 11. 상자 아래쪽에 있는 확인 표시를 클릭하여 마쳤음을 표시합니다.
 
-	![Database Settings step of New Website - Create with Database wizard][setup007]
+	![새 웹 사이트의 데이터베이스 설정 단계 - 데이터베이스 마법사를 사용하여 만들기][setup007]
 
 	 다음 이미지는 기존 SQL Server와 로그인 사용을 보여 줍니다.
 	
-	![Database Settings step of New Website - Create with Database wizard][rxPrevDB]
+	![새 웹 사이트의 데이터베이스 설정 단계 - 데이터베이스 마법사를 사용하여 만들기][rxPrevDB]
 
 	관리 포털이 웹 사이트 페이지로 돌아가고 **상태** 열에 사이트를 만드는 중이라고 표시됩니다. 잠시(일반적으로 1분 미만) 후에 **상태** 열에 사이트를 만들었다고 표시됩니다. 왼쪽의 탐색 모음에서 계정에 보유한 사이트 수가 **웹 사이트** 아이콘 옆에 표시되고 데이터베이스 수가 **SQL 데이터베이스** 아이콘 옆에 표시됩니다.
 
@@ -103,27 +115,27 @@ Azure 웹 사이트를 만들었지만 아직 콘텐츠가 없습니다. 다음 
 1. Visual Studio 2013을 시작합니다.
 1. **파일** 메뉴에서 **새 프로젝트**를 클릭합니다.
 3. **새 프로젝트** 대화 상자에서 **Visual C#**를 확장한 후 **웹**을 선택하고 **ASP.NET MVC 5  웹 응용 프로그램**을 선택합니다. 기본값인 **.NET Framework 4.5**를 그대로 유지합니다. 응용 프로그램 이름을 **ContactManager**로 지정하고 **확인**을 클릭합니다.
-	![New Project dialog box](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr4.PNG)]
+	![새 프로젝트 대화 상자](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr4.PNG)]
 1. **새 ASP.NET 프로젝트** 대화 상자에서 **MVC** 템플릿을 선택하고 **웹 API**를 선택한 후 **인증 변경**을 클릭합니다.
 
-	![New ASP.NET Project dialog box](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rt3.PNG)
+	![새 ASP.NET 프로젝트 대화 상자](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rt3.PNG)
 
 1. **인증 변경** 대화 상자에서 **인증 없음**, **확인**을 차례로 클릭합니다.
 
-	![No Authentication](./media/web-sites-dotnet-get-started-vs2013/GS13noauth.png)
+	![인증 없음](./media/web-sites-dotnet-get-started-vs2013/GS13noauth.png)
 
 	만드는 샘플 응용 프로그램에는 사용자 로그인을 요구하는 기능이 없습니다. 인증 및 권한 부여 기능을 구현하는 방법에 대한 자세한 내용은 이 자습서 끝에 있는 [다음 단계](#nextsteps) 섹션을 참조하세요. 
 
 1. **새 ASP.NET 프로젝트** 대화 상자에서 **확인**을 클릭합니다.
 
-	![New ASP.NET Project dialog box](./media/web-sites-dotnet-get-started-vs2013/GS13newaspnetprojdb.png)
+	![새 ASP.NET 프로젝트 대화 상자](./media/web-sites-dotnet-get-started-vs2013/GS13newaspnetprojdb.png)
 
 ### 페이지 머리글 및 바닥글 설정
 
 
-1. **솔루션 탐색기**에서 *Views\Shared* 폴더를 확장하고 *_Layout.cshtml* 파일을 엽니다.
+1. **솔루션 탐색기**에서  *Views\Shared* 폴더를 확장하고 *_Layout.cshtml* 파일을 엽니다.
 
-	![_Layout.cshtml in Solution Explorer][newapp004]
+	![솔루션 탐색기의 _Layout.cshtml][newapp004]
 
 1. *_Layout.cshtml* 파일 내용을 다음 코드로 바꿉니다.
 
@@ -170,15 +182,15 @@ Azure 웹 사이트를 만들었지만 아직 콘텐츠가 없습니다. 다음 
 
 1. Ctrl+F5를 눌러 응용 프로그램을 실행합니다.
 응용 프로그램 홈페이지가 기본 브라우저에 나타납니다.
-	![To Do List home page](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr5.PNG)
+	![할 일 모음 홈페이지](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr5.PNG)
 
 Azure에 배포할 응용 프로그램을 만들기 위해 지금 수행해야 하는 작업은 이것뿐입니다. 나중에 데이터베이스 기능을 추가하겠습니다.
 
 <h2><a name="bkmk_deploytowindowsazure1"></a>Azure에 응용 프로그램 배포</h2>
 
-1. Visual Studio의 **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 상황에 맞는 메뉴에서**게시**를 선택합니다.
+1. Visual Studio의 **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 상황에 맞는 메뉴에서 **게시**를 선택합니다.
 
-	![Publish in project context menu][PublishVSSolution]
+	![프로젝트 상황에 맞는 메뉴의 게시][PublishVSSolution]
 
 	**웹 게시** 마법사가 열립니다.
 
@@ -238,7 +250,7 @@ Azure에 배포할 응용 프로그램을 만들기 위해 지금 수행해야 �
 
 	![Add Class in Models folder context menu][adddb001]
 
-2. **새 항목 추가** 대화 상자에서 새 클래스 파일의 이름을 **추가**를 클릭합니다.
+2. **새 항목 추가** 대화 상자에서 새 클래스 파일의 이름을  *Contact.cs*로 지정하고 **추가**를 클릭합니다.
 
 	![Add New Item dialog box][adddb002]
 
@@ -294,9 +306,9 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 
 	Visual Studio에서 **Contact** 개체에 대한 CRUD 데이터베이스 작업의 컨트롤러 메서드와 뷰를 만듭니다.
 
-## 마이그레이션 사용, 데이터베이스 만들기, 샘플 데이터 및 데이터 이니셜라이저 추가##
+## 마이그레이션 사용, 데이터베이스 만들기, 샘플 데이터 및 데이터 이니셜라이저 추가 ##
 
-다음 작업은 만든 데이터 모델을 토대로 데이터베이스를 만들기 위해 [Code First 마이그레이션](http://curah.microsoft.com/55220) 기능을 사용하도록 설정하는 것입니다.
+다음 작업은 만든 데이터 모델에 따라 데이터베이스를 만들기 위해 [Code First 마이그레이션](http://curah.microsoft.com/55220)기능을 사용하도록 설정하는 것입니다.
 
 1. **도구** 메뉴에서 **라이브러리 패키지 관리자**, **패키지 관리자 콘솔**을 차례로 선택합니다.
 
@@ -306,23 +318,23 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 
 		enable-migrations 
   
-	**enable-migrations** 명령은 *Migrations* 폴더를 만들고 해당 폴더에 *Configuration.cs* 파일을 넣습니다. 이 파일을 편집하여 마이그레이션을 구성할 수 있습니다. 
+	**enable-migrations** 명령은  *Migrations* 폴더를 만들고 해당 폴더에  *Configuration.cs* 파일을 넣습니다. 이 파일을 편집하여 데이터베이스를 시드하고 마이그레이션을 구성할 수 있습니다. 
 
 2. **패키지 관리자 콘솔** 창에서 다음 명령을 입력합니다.
 
 		add-migration Initial
 
-	**add-migration Initial** 명령은 데이터베이스를 만드는 **&lt;date_stamp&gt;Initial**이라는 클래스를 생성합니다. 첫 번째 매개 변수(*Initial*)는 임의이며 파일 이름을 만드는 데 사용됩니다. **솔루션 탐색기**에서 새 클래스 파일을 볼 수 있습니다.
+	**add-migration Initial** 명령은 데이터베이스를 만드는 **&lt;date_stamp&gt;Initial**이라는 클래스를 생성합니다. 첫 번째 매개 변수( *Initial*)는 임의이며 파일 이름을 만드는 데 사용됩니다. **솔루션 탐색기**에서 새 클래스 파일을 볼 수 있습니다.
 
 	**Initial** 클래스의 **Up** 메서드는 Contacts 테이블을 만들고 이전 상태로 돌아가려는 경우 사용되는 **Down** 메서드는 테이블을 삭제합니다.
 
-3. *Migrations\Configuration.cs* 파일을 엽니다. 
+3.  *Migrations\Configuration.cs* 파일을 엽니다. 
 
 4. 다음 네임스페이스를 추가합니다. 
 
     	 using ContactManager.Models;
 
-5. *Seed* 메서드를 다음 코드로 바꿉니다.
+5.  *Seed* 메서드를 다음 코드로 바꿉니다.
 		
         protected override void Seed(ContactManager.Models.ContactManagerContext context)
         {
@@ -380,7 +392,7 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
                 );
         }
 
-	이 코드는 연락처 정보가 있는 데이터베이스를 초기화합니다. 데이터베이스 시드에 대한 자세한 내용은 [EF(Entity Framework) DB 디버그](http://blogs.msdn.com/b/rickandy/archive/2013/02/12/seeding-and-debugging-entity-framework-ef-dbs.aspx)(영문)를 참조하세요.
+	이 코드는 연락처 정보가 있는 데이터베이스를 초기화합니다. 데이터베이스 시드에 대한 자세한 내용은 [EF(Entity Framework) DB 디버그](http://blogs.msdn.com/b/rickandy/archive/2013/02/12/seeding-and-debugging-entity-framework-ef-dbs.aspx)를 참조하세요.
 
 
 1. **패키지 관리자 콘솔**에서 다음 명령을 입력합니다.
@@ -399,7 +411,7 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 
 <h2><a name="bkmk_addview"></a>뷰 편집</h2>
 
-1. *Views\Home\Index.cshtml* 파일을 엽니다. 다음 단계에서는 생성된 태그를 [jQuery](http://jquery.com/) 및 [Knockout.js]를 사용하는 코드로 바꿉니다(http://knockoutjs.com/). 이 새 코드는 웹 API 및 JSON을 사용하여 연락처 목록을 가져온 후 knockout.js를 사용하여 연락처 데이터를 UI에 바인딩합니다. 자세한 내용은 이 자습서 끝에 나오는 [다음 단계](#nextsteps) 섹션을 참조하세요. 
+1.  *Views\Home\Index.cshtml* 파일을 엽니다. 다음 단계에서는 생성된 변경 내용을 [jQuery](http://jquery.com/) 및 [Knockout.js](http://knockoutjs.com/)를 사용하는 코드로 바꿀 것입니다. 이 새 코드는 웹 API 및 JSON을 사용하여 연락처 목록을 가져온 후 knockout.js를 사용하여 연락처 데이터를 UI에 바인딩합니다. 자세한 내용은 이 자습서 끝에 나오는 [다음 단계](#nextsteps) 섹션을 참조하세요. 
 
 
 2. 파일 내용을 다음 코드로 바꿉니다.
@@ -499,7 +511,7 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 4. **새 항목 추가** 대화 상자에서 오른쪽 위에 있는 검색 상자에 **스타일**을 입력하고 **스타일시트**를 선택합니다.
 	![Add New Item dialog box][rxStyle]
 
-5. 파일 이름을 *Contacts.css*로 지정하고 **추가**를 클릭합니다. 파일 내용을 다음 코드로 바꿉니다.
+5. 파일 이름을  *Contacts.css*로 지정하고 **추가**를 클릭합니다. 파일 내용을 다음 코드로 바꿉니다.
     
         .column {
             float: left;
@@ -557,7 +569,7 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 
 	Contact Manager 앱에 사용되는 레이아웃, 색 및 스타일에 이 스타일시트를 사용하겠습니다.
 
-6. *App_Start\BundleConfig.cs* 파일을 엽니다.
+6.  *App_Start\BundleConfig.cs* 파일을 엽니다.
 
 
 7. 다음 코드를 추가하여 [Knockout](http://knockoutjs.com/index.html "KO") 플러그 인을 등록합니다.
@@ -566,7 +578,7 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 		            "~/Scripts/knockout-{version}.js"));
 	knockout을 사용하는 이 샘플은 차단 템플릿을 처리하는 동적 JavaScript 코드를 간소화합니다.
 
-8. contents/css 항목을 수정하여 *contacts.css* 스타일시트를 등록합니다. 다음 줄을
+8. contents/css 항목을 수정하여  *contacts.css* 스타일시트를 등록합니다. 다음 줄을
 
                  bundles.Add(new StyleBundle("~/Content/css").Include(
                    "~/Content/bootstrap.css",
@@ -622,7 +634,7 @@ To:
 
 	![Web API save dialog][addwebapi007]
 
-	**보안 경고**: 이 단계에서 응용 프로그램은 CSRF 공격에 취약하고 보안되지 않는 상태입니다. 이 취약성은 자습서의 뒷부분에서 제거하겠습니다. 자세한 내용은 [CSRF(교차 사이트 요청 위조) 공격 예방][prevent-csrf-attacks](영문)을 참조하세요.
+	**보안 경고**: 이 단계에서 응용 프로그램은 CSRF 공격에 취약하고 보안되지 않는 상태입니다. 이 취약성은 자습서의 뒷부분에서 제거하겠습니다. 자세한 내용은 [CSRF(교차 사이트 요청 위조) 공격 예방][prevent-csrf-attacks]을 참조하세요.
 
 <h2><a name="xsrf"></a>XSRF 보호 추가</h2>
 
@@ -630,11 +642,11 @@ XSRF 또는 CSRF라고도 하는 교차 사이트 요청 위조는 웹 호스팅
 
 XSRF 공격은 피싱 공격과는 구분됩니다. 피싱 공격에는 피해자의 상호 작용이 필요합니다. 피싱 공격에서 악성 웹 사이트는 대상 웹 사이트를 가장하고 피해자는 공격자에게 중요 정보를 제공하는 실수를 저지르게 됩니다. XSRF 공격에서는 종종 피해자의 상호 작용이 필요하지 않습니다. 대신, 공격자는 대상 웹 사이트에 모든 관련 쿠키를 자동으로 보내는 브라우저를 사용합니다.
 
-자세한 내용은 [OWASP(Open Web Application Security Project)](https://www.owasp.org/index.php/Main_Page) (영문)에서 [XSRF](https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)(영문)를 참조하세요.
+자세한 내용은 [OWASP(Open Web Application Security Project)](https://www.owasp.org/index.php/Main_Page)에서 [XSRF](https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)를 참조하세요.
 
 1. **솔루션 탐색기**에서 **ContactManager** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가**를 클릭한 후 **클래스**를 클릭합니다.
 
-2. 파일 이름을 *ValidateHttpAntiForgeryTokenAttribute.cs*로 지정하고 다음 코드를 추가합니다.
+2. 파일 이름을  *ValidateHttpAntiForgeryTokenAttribute.cs*로 지정하고 다음 코드를 추가합니다.
 
         using System;
         using System.Collections.Generic;
@@ -704,17 +716,17 @@ XSRF 공격은 피싱 공격과는 구분됩니다. 피싱 공격에는 피해�
             }
         }
 
-3. **[ValidateHttpAntiForgeryToken]** 특성에 대한 액세스 권한을 받을 수 있도록 다음 *using* 문을 연락처 컨트롤러에 추가합니다.
+1. **[ValidateHttpAntiForgeryToken]** 특성에 대한 액세스 권한을 받을 수 있도록 다음  *using* 문을 연락처 컨트롤러에 추가합니다.
 
-	ContactManager.Filters 사용
+	using ContactManager.Filters;
 
-4. XSRF 위협으로부터 보호할 수 있도록 **[ContactsController]**의 Post 메서드에 **ValidateHttpAntiForgeryToken** 특성을 추가합니다. "PutContact",  "PostContact" 및 **DeleteContact** 작업 메서드에 이 특성을 추가하겠습니다.
+1. XSRF 위협으로부터 보호할 수 있도록 **[ContactsController]**의 Post 메서드에 **ValidateHttpAntiForgeryToken** 특성을 추가합니다. "PutContact",  "PostContact" 및 **DeleteContact** 작업 메서드에 이 특성을 추가하겠습니다.
 
 	[ValidateHttpAntiForgeryToken]
         public IHttpActionResult PutContact(int id, Contact contact)
         {
 
-5. *Views\Home\Index.cshtml* 파일의 *Scripts* 섹션을 업데이트하여 XSRF 토큰을 가져오는 코드를 포함합니다.
+1.  *Views\Home\Index.cshtml* 파일의  *Scripts* 섹션을 업데이트하여 XSRF 토큰을 가져오는 코드를 포함합니다.
 
          @section Scripts {
             @Scripts.Render("~/bundles/knockout")
@@ -780,7 +792,7 @@ XSRF 공격은 피싱 공격과는 구분됩니다. 피싱 공격에는 피해�
 5. **설정** 탭을 클릭합니다.
 	
 
-1. **ContactsManagerContext(ContactsManagerContext)**에서 **v** 아이콘을 클릭하여 *원격 연결 문자열*을 연락처 데이터베이스에 대한 연결 문자열로 변경합니다. **ContactDB**를 클릭합니다.
+1. **ContactsManagerContext(ContactsManagerContext)**에서 **v** 아이콘을 클릭하여  *Remote connection string*을 연락처 데이터베이스에 대한 연결 문자열로 변경합니다. **ContactDB**를 클릭합니다.
 
 	![Settings](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rt5.png)
 
@@ -793,7 +805,7 @@ XSRF 공격은 피싱 공격과는 구분됩니다. 피싱 공격에는 피해�
 
 	![Index page with no contacts][intro001]
 
-	Visual Studio 게시 프로세스는 배포된 *Web.config* 파일의 연결 문자열을 자동으로 구성하여 SQL 데이터베이스를 가리켰습니다. 또한 배포 후 응용 프로그램이 처음 데이터베이스에 액세스할 때 데이터베이스를 최신 버전으로 자동 업그레이드하도록 Code First 마이그레이션을 구성했습니다.
+	Visual Studio 게시 프로세스는 배포된  *Web.config* 파일의 연결 문자열을 자동으로 구성하여 SQL 데이터베이스를 가리켰습니다. 또한 배포 후 응용 프로그램이 처음 데이터베이스에 액세스할 때 데이터베이스를 최신 버전으로 자동 업그레이드하도록 Code First 마이그레이션을 구성했습니다.
 
 	이러한 구성으로 인해 Code First는 이전에 만든 **Initial** 클래스의 코드를 실행하여 데이터베이스를 만들었습니다. 이는 배포 후 응용 프로그램이 데이터베이스에 처음 액세스하려 할 때 수행되었습니다.
 
@@ -801,30 +813,30 @@ XSRF 공격은 피싱 공격과는 구분됩니다. 피싱 공격에는 피해�
 
 입력한 항목이 저장되어 Contact Manager 페이지에 나타나면 해당 항목은 데이터베이스에 저장된 것입니다.
 
-![Index page with contacts][addwebapi004]
+![연락처가 있는 인덱스 페이지][addwebapi004]
 
 이제 응용 프로그램이 클라우드에서 실행되고 데이터를 저장하는 데 SQL 데이터베이스가 사용됩니다. Azure에서 응용 프로그램 테스트를 마치면 해당 응용 프로그램을 삭제해야 합니다. 응용 프로그램이 공개될 뿐 아니라 액세스를 제한할 메커니즘이 없기 때문입니다.
 
 <h2><a name="nextsteps"></a>다음 단계</h2>
 
-실제 응용 프로그램에는 인증 및 권한 부여가 필요할 수 있으므로 멤버 자격 데이터베이스를 사용할 수 있습니다. 자습서 [OAuth , 멤버 자격 및 SQL 데이터베이스를 포함한 보안 ASP.NET MVC 응용 프로그램 배포](http://www.windowsazure.com/ko-kr/develop/net/tutorials/web-site-with-sql-database/) 는 이 자습서를 기반으로 하며 멤버 자격 데이터베이스를 포함하는 웹 응용 프로그램의 배포 방법을 보여 줍니다.
+실제 응용 프로그램에는 인증 및 권한 부여가 필요할 수 있으므로 멤버 자격 데이터베이스를 사용할 수 있습니다. [OAuth, 멤버 자격 및 SQL 데이터베이스를 사용하여 안전한 ASP.NET MVC 응용 프로그램 배포](http://www.windowsazure.com/ko-kr/develop/net/tutorials/web-site-with-sql-database/) 자습서는 현재 자습서를 기반으로 작성되었으며, 멤버 자격 데이터베이스를 사용하여 웹 응용 프로그램을 배포하는 방법을 설명합니다.
 
 Azure 응용 프로그램에 데이터를 저장하는 또 다른 방법은 Azure 저장소를 사용하는 것입니다. Azure 저장소는 비관계형 데이터 저장소를 Blob 및 테이블 형식으로 제공합니다. Web API, ASP.NET MVC 및 Window Azure에 대한 자세한 내용은 다음 링크를 참조하세요.
  
 
-* [MVC를 사용하여 Entity Framework 시작 (영문)][EFCodeFirstMVCTutorial]
-* [ASP.NET MVC 5 소개 (영문)](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started)
-* [ASP.NET Web API 최초 사용 (영문)](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api)
+* [MVC를 사용하여 Entity Framework 시작][EFCodeFirstMVCTutorial]
+* [ASP.NET MVC 5 소개](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started)
+* [ASP.NET Web API 최초 사용](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api)
 * [WAWS 디버그](http://www.windowsazure.com/ko-kr/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/)
 
-이 자습서 및 샘플 응용 프로그램은 [Rick Anderson](http://blogs.msdn.com/b/rickandy/) (Twitter [@RickAndMSFT](https://twitter.com/RickAndMSFT))이 Tom Dykstra 및 Barry Dorrans(Twitter [@blowdart](https://twitter.com/blowdart)의 도움을 받아 작성했습니다. 
+이 자습서 및 응용 프로그램 예제는 [Rick Anderson](http://blogs.msdn.com/b/rickandy/)(Twitter [@RickAndMSFT](https://twitter.com/RickAndMSFT))에 의해 작성되었으며, Tom Dykstra 및 Barry Dorrans(Twitter [@blowdart](https://twitter.com/blowdart))의 도움을 받았습니다. 
 
 자습서 자체뿐 아니라 설명된 제품과 관련해서 좋아한 사항이나 바라는 개선 사항에 대한 의견을 남겨주세요. 사용자 의견은 개선 사항의 우선 순위를 지정하는 데 도움이 됩니다. 특히 멤버 자격 데이터베이스를 구성하고 배포하는 프로세스 자동화에 대한 사용자의 관심도가 어느 정도인지 파악하는 데 유용합니다. 
 
 <!-- bookmarks -->
 [OAuth 공급자 추가]: #addOauth
 [멤버 자격 데이터베이스에 역할 추가]:#mbrDB
-[데이터 배포 스크립트 작성]:#ppd
+[데이터 배포 스크립트 만들기]:#ppd
 [멤버 자격 데이터베이스 업데이트]:#ppd2
 [setupdbenv]: #bkmk_setupdevenv
 [setupwindowsazureenv]: #bkmk_setupwindowsazure
@@ -879,9 +891,9 @@ Azure 응용 프로그램에 데이터를 저장하는 또 다른 방법은 Azur
 [addwebapi004]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/dntutmobile-webapi-added-contact.png
 [addwebapi006]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/dntutmobile-webapi-save-returned-contacts.png
 [addwebapi007]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/dntutmobile-webapi-contacts-in-notepad.png
-[XSRF 보호 추가n]: #xsrf
+[Add XSRF Protection]: #xsrf
 [WebPIAzureSdk20NetVS12]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/WebPIAzureSdk20NetVS12.png
-[XSRF 보호 추가]: #xsrf
+[Add XSRF Protection]: #xsrf
 [ImportPublishSettings]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/ImportPublishSettings.png
 [ImportPublishProfile]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/ImportPublishProfile.png
 [PublishVSSolution]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/PublishVSSolution.png
@@ -889,4 +901,5 @@ Azure 응용 프로그램에 데이터를 저장하는 또 다른 방법은 Azur
 [WebPIAzureSdk20NetVS12]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/WebPIAzureSdk20NetVS12.png
 [prevent-csrf-attacks]: http://www.asp.net/web-api/overview/security/preventing-cross-site-request-forgery-(csrf)-attacks
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

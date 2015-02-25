@@ -1,17 +1,32 @@
-﻿<properties pageTitle="Xamarin.Android용 모바일 서비스 시작" metaKeywords="Azure Xamarin.Android 응용 프로그램, 모바일 서비스 XamarinAndroid, Azure Xamarin.Android 시작" writer="craigd" description="Xamarin.Android 앱에서 Azure 모바일 서비스를 사용하는 방법에 대해 알아봅니다." metaCanonical="" documentationCenter="Mobile" title="Get started with Mobile Services" authors="donnam" manager="dwrede" />
+﻿<properties 
+	pageTitle="Xamarin.Android용 모바일 서비스 시작 
+	writer="craigd" 
+	description="Xamarin.Android 앱에서 Azure 모바일 서비스를 사용하는 방법에 대해 알아봅니다." 
+	documentationCenter="xamarin" 
+	authors="lindydonna" 
+	manager="dwrede" 
+	editor="" 
+	services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-android" ms.devlang="dotnet" ms.topic="hero-article" ms.date="11/11/2014" ms.author="donnam" />
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-xamarin-android" 
+	ms.devlang="dotnet" 
+	ms.topic="hero-article" 
+	ms.date="11/11/2014" 
+	ms.author="donnam"/>
 
 # <a name="getting-started"></a>모바일 서비스 시작
 
-[WACOM.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
 
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
 <p>이 자습서에서는 Azure 모바일 서비스를 사용하여 Xamarin.Android 앱에 클라우드 기반 백 엔드 서비스를 추가하는 방법을 보여 줍니다. 이 자습서에서는 새 모바일 서비스와 새 모바일 서비스에 앱 데이터를 저장하는 간단한 <em>할 일 모음</em> 앱을 둘 다 만듭니다.</p>
 <p>완성된 앱의 스크린샷은 다음과 같습니다.</p>
 </div>
-<div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Getting-Started-with-Xamarin-and-Windows-Azure-Mobile-Services" target="_blank" class="label">자습서 보기</a> <a style="background-image: url('/media/devcenter/mobile/videos/get-started-xamarin-180x120.png') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Getting-Started-with-Xamarin-and-Windows-Azure-Mobile-Services" target="_blank" class="dev-onpage-video"><span class="icon">동영상 재생</span></a> <span class="time">10:05:00</span></div>
+<div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Getting-Started-with-Xamarin-and-Windows-Azure-Mobile-Services" target="_blank" class="label">자습서 보기</a> <a style="background-image: url('/media/devcenter/mobile/videos/get-started-xamarin-180x120.png') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Getting-Started-with-Xamarin-and-Windows-Azure-Mobile-Services" target="_blank" class="dev-onpage-video"><span class="icon">비디오 재생</span></a> <span class="time">오전 10:05</span></div>
 </div>
 
 ![][0]
@@ -20,11 +35,11 @@
 
 다운로드한 빠른 시작 프로젝트에는 Xamarin.Android용 Azure 모바일 서비스 구성 요소가 포함되어 있습니다. 이 프로젝트는 Android 4.2 이상 버전을 대상으로 하지만 모바일 서비스 SDK에는 Android 2.2 이상 버전만 있으면 됩니다.
 
-<div class="dev-callout"><strong>참고</strong> <p>이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 Azure 평가판을 등록하고 최대 10개의 무료 모바일 서비스를 사용할 수 있습니다. 이러한 서비스는 평가판 사용 기간이 끝난 후에도 계속 사용할 수 있습니다. 자세한 내용은 <a href="http://www.windowsazure.com/ko-kr/pricing/free-trial/?WT.mc_id=A9C9624B5" target="_blank">Azure 무료 평가판</a>을 참조하세요.</p></div>
+> [AZURE.IMPORTANT] 이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 Azure 평가판을 등록하고 최대 10개의 무료 모바일 서비스를 사용할 수 있습니다. 이러한 서비스는 평가판 사용 기간이 끝난 후에도 계속 사용할 수 있습니다. 자세한 내용은 [Azure 무료 평가판](http://www.windowsazure.com/ko-kr/pricing/free-trial/?WT.mc_id=A9C9624B5"%20target="_blank)을 참조하세요.
 
 ## <a name="create-new-service"> </a>새 모바일 서비스 만들기
 
-[WACOM.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
+[AZURE.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
 
 ## <h2>새 Xamarin.Android 앱 만들기</h2>
 
@@ -34,7 +49,7 @@
 
 1.  관리 포털에서 **모바일 서비스**를 클릭한 후 방금 만든 모바일 서비스를 클릭합니다.
 
-2. 빠른 시작 탭에서 **플랫폼 선택** 아래의 **Xamarin.Android**을 클릭하고 **새 Android 앱 만들기**를 확장합니다.
+2. 빠른 시작 탭의 **플랫폼 선택** 아래에서 **Xamarin.Android**를 클릭하고 **새 Android 앱 만들기**를 확장합니다.
 
 	![][6]
 
@@ -62,18 +77,18 @@
 
 3. **실행** 단추를 눌러 프로젝트를 빌드하고 앱을 시작합니다. 에뮬레이터 또는 연결된 USB 장치를 선택하라는 메시지가 표시됩니다. 
 
-	<div class="dev-callout"><strong>참고</strong> <p>Android 에뮬레이터에서 프로젝트를 실행할 수 있으려면 AVD(Android Virtual Device)를 하나 이상 정의해야 합니다. AVD Manager를 사용하여 이러한 장치를 만들고 관리합니다.</p></div>
+	> [AUZRE.NOTE] Android 에뮬레이터에서 프로젝트를 실행할 수 있으려면 AVD(Android Virtual Device)를 하나 이상 정의해야 합니다. AVD Manager를 사용하여 이러한 장치를 만들고 관리합니다.
 
-4. 앱에서 _자습서 완료_ 등의 의미 있는 텍스트를 입력하고 **추가**를 클릭합니다.
+4. 앱에서 _Complete the tutorial_ 등의 의미 있는 텍스트를 입력하고 **Add**를 클릭합니다.
 
 	![][10]
 
-	Azure에 호스트된 새 모바일 서비스에 POST 요청이 전송됩니다. 요청에서 데이터가 TodoItem 테이블에 삽입됩니다. TodoItem 테이블에 저장된 항목이 모바일 서비스에서 반환된 후 데이터가 목록에 표시됩니다.
+	Azure에 호스트된 새 모바일 서비스에 POST 요청이 전송됩니다. 요청의 데이터가 TodoItem 테이블에 삽입됩니다. TodoItem 테이블에 저장된 항목이 모바일 서비스에서 반환된 후 데이터가 목록에 표시됩니다.
 
-	> [WACOM.NOTE] 
+	> [AZURE.NOTE] 
    	> 모바일 서비스에 액세스하여 데이터를 쿼리 및 삽입하는 코드를 검토할 수 있습니다. 이 코드는 ToDoActivity.cs C# 파일에 있습니다.
 
-6. 관리 포털로 돌아가서 **데이터** 탭을 클릭한 후 **TodoItem** 테이블을 클릭합니다.
+6. 관리 포털로 돌아가서 **데이터** 탭을 클릭한 후 **TodoItems** 테이블을 클릭합니다.
 
 	![][11]
 
@@ -82,19 +97,16 @@
 	![][12]
 
 ## <a name="next-steps"> </a>다음 단계
-이제 빠른 시작을 완료했으며 모바일 서비스에서 중요한 추가 작업을 수행하는 방법을 알아보겠습니다. 
-
-* [데이터 작업 시작]
-  <br/>모바일 서비스를 사용하여 데이터를 저장하고 쿼리하는 방법을 알아봅니다.
+이제 빠른 시작을 완료했으므로 모바일 서비스에서 중요한 추가 작업을 수행하는 방법을 알아보겠습니다. 
 
 * [오프라인 데이터 동기화 시작]
-  <br/>오프라인 데이터 동기화를 사용하여 앱의 응답성 및 성능을 강화합니다.
+  <br/>빠른 시작에서 오프라인 데이터 동기화를 사용하여 앱의 응답성과 견고성을 향상하는 방법을 알아봅니다.
 
 * [인증 시작]
-  <br/>ID 공급자를 사용하여 앱 사용자를 인증하는 방법에 대해 알아봅니다.
+  <br/>ID 공급자를 사용하여 앱 사용자를 인증하는 방법을 알아봅니다.
 
 * [푸시 알림 시작] 
-  <br/>매우 기본적인 푸시 알림을 앱에 보내는 방법을 알아봅니다.
+  <br/>앱에 기본적인 푸시 알림을 보내는 방법을 알아봅니다.
 
 <!-- Anchors. -->
 [모바일 서비스 시작]:#getting-started
@@ -119,7 +131,7 @@
 
 
 <!-- URLs. -->
-[데이터 작업 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-data-xamarin-android
+[데이터 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-data-xamarin-android
 [오프라인 데이터 동기화 시작]: /ko-kr/documentation/articles/mobile-services-xamarin-android-get-started-offline-data
 [인증 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-users-xamarin-android
 [푸시 알림 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-push-xamarin-android
@@ -127,3 +139,6 @@
 [모바일 서비스 Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [WindowsAzure.com]: http://www.windowsazure.com/
 [관리 포털]: https://manage.windowsazure.com/
+
+
+<!--HONumber=42-->

@@ -1,6 +1,6 @@
-﻿<properties urlDisplayName="Notify iOS app users by using Mobile Services" pageTitle="모바일 서비스를 사용하여 푸시 알림에 현재 사용자 등록 - 알림 허브" metaKeywords="Azure 응용 프로그램 등록, 알림 허브, Azure 푸시 알림, 푸시 알림 iOS 앱" description="Azure 모바일 서비스에서 등록을 수행할 때 Azure 알림 허브를 사용하여 iOS 앱에서 푸시 알림 등록을 요청하는 방법에 대해 알아봅니다." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="" title="Register the current user for push notifications by using a mobile service" authors="yuaxu" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="모바일 서비스를 사용하여 푸시 알림에 현재 사용자 등록 - 알림 허브" description="Azure 모바일 서비스에서 등록을 수행할 때 Azure 알림 허브를 사용하여 iOS 앱에서 푸시 알림 등록을 요청하는 방법에 대해 알아봅니다." services="mobile-services, notification-hubs" documentationCenter="" authors="ysxu" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="yuaxu" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="yuaxu"/>
 
 # 모바일 서비스를 사용하여 푸시 알림에 현재 사용자 등록
 
@@ -10,7 +10,7 @@
 
 이 항목에서는 Azure 모바일 서비스에 의해 등록이 수행될 때 Azure 알림 허브를 사용하여 푸시 알림 등록을 요청하는 방법을 보여 줍니다. 이 항목은 [알림 허브를 통해 사용자에게 알림] 자습서를 확장합니다. 이미 해당 자습서의 필수 단계를 완료하여 인증된 모바일 서비스를 만든 상태여야 합니다. 사용자 알림 시나리오에 대한 자세한 내용은 [알림 허브를 통해 사용자에게 알림]을 참조하세요.  
 
-1. Xcode에서 필수 자습서 [인증 시작]을 완료할 때 만든 프로젝트의 QSTodoService.h 파일을 열고 다음 **deviceToken** 속성을 추가합니다.
+1. Xcode에서, 필수 자습서 [인증 시작]을 완료할 때 만든 프로젝트의 QSTodoService.h 파일을 열고 다음 **deviceToken** 속성을 추가합니다.
 
 		@property (nonatomic) NSData* deviceToken;
 
@@ -41,11 +41,9 @@
 			    [QSTodoService defaultService].deviceToken = deviceToken;
 			}
 
-	이 메서드는 **deviceToken** 속성을 업데이트합니다.
+	그러면 **deviceToken** 속성이 업데이트됩니다.
 
-	<div class="dev-callout"><b>참고</b>
-	<p>이때 이 메서드에 다른 코드가 있어서는 안 됩니다. <a href="/ko-kr/manage/services/notification-hubs/get-started-notification-hubs-ios/" target="_blank">알림 허브 시작</a> 자습서를 완료할 때 추가된 **registerNativeWithDeviceToken** 메서드에 대한 호출이 이미 있는 경우 해당 호출을 주석으로 처리하거나 제거해야 합니다.</p>
-	</div>
+	> [AZURE.NOTE] 이때 이 메서드에 다른 코드가 있어서는 안 됩니다. [알림 허브 시작](/ko-kr/manage/services/notification-hubs/get-started-notification-hubs-ios/"%20target="_blank")  자습서를 완료할 때 추가된 **registerNativeWithDeviceToken** 메서드에 대한 호출이 이미 있는 경우 해당 호출을 주석으로 처리하거나 제거해야 합니다.
 
 5.  (옵션) QSAppDelegate.m 파일에서 다음 처리기 메서드를 추가합니다.
 
@@ -93,10 +91,8 @@
 			    }];
 			}
 
-	<div class="dev-callout"><b>참고</b>
-	<p>이제 페이지가 로드될 때마다 등록이 요청됩니다. 등록 상태가 유지되도록 앱에서 주기적으로 등록할 수도 있습니다.</p>
-	</div>
-
+	> [AZURE.NOTE] 이제 페이지가 로드될 때마다 등록이 요청됩니다. 등록 상태가 유지되도록 앱에서 주기적으로 등록할 수도 있습니다.
+	
 클라이언트 앱이 업데이트되었으므로 [알림 허브를 통해 사용자에게 알림]으로 돌아가서 알림 허브를 사용하여 알림을 보내도록 모바일 서비스를 업데이트합니다.
 
 <!-- Anchors. -->
@@ -110,3 +106,6 @@
 
 [Azure 관리 포털]: https://manage.windowsazure.com/
 [알림 허브 시작]: /ko-kr/manage/services/notification-hubs/get-started-notification-hubs-ios/
+
+
+<!--HONumber=42-->

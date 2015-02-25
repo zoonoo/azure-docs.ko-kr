@@ -1,28 +1,42 @@
-﻿<properties urlDisplayName="Website Using Socket.IO" pageTitle="Socket.io를 사용하는 Node.js 웹 사이트 - Azure 자습서" metaKeywords="Azure Node.js socket.io 자습서, Azure Node.js socket.io, Azure Node.js 자습서" description="Azure에서 호스팅되는 node.js 웹 사이트에서 socket.io를 사용하는 방법을 보여 주는 자습서입니다." metaCanonical="" services="web-sites" documentationCenter="nodejs" title="Build a Node.js Chat Application with Socket.IO on an Azure Website" authors="larryfr" solutions="" videoId="" scriptId="" manager="wpickett" editor="mollybos" />
+﻿<properties 
+	pageTitle="Socket.io를 사용하는 Node.js 웹 사이트 - Azure 자습서" 
+	description="Azure에서 호스팅되는 node.js 웹 사이트에서 socket.io를 사용하는 방법을 보여 주는 자습서입니다." 
+	services="web-sites" 
+	documentationCenter="nodejs" 
+	authors="blackmist" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="nodejs" 
+	ms.topic="article" 
+	ms.date="09/17/2014" 
+	ms.author="larryfr"/>
 
 
 
 
 #Azure 웹 사이트에서 Socket.IO를 사용하여 Node.js 채팅 응용 프로그램 빌드
 
-Socket.IO는 WebSocket을 사용하여 node.js 서버와 클라이언트 간의 실시간 통신을 제공합니다. 또한 이전 브라우저에서 작동하는 다른 전송(예: 긴 폴링)으로의 대체를 지원합니다. 이 자습서는 Azure 웹 사이트에서 Socket.IO를 기반으로 하는 채팅 응용 프로그램 호스팅에 대해 안내합니다. Socket.IO에 대한 자세한 내용은 [http://socket.io/][socketio](영문)를 참조하세요.
+Socket.IO는 WebSocket을 사용하여 node.js 서버와 클라이언트 간의 실시간 통신을 제공합니다. 또한 이전 브라우저에서 작동하는 다른 전송(예: 긴 폴링)으로의 대체를 지원합니다. 이 자습서는 Azure 웹 사이트에서 Socket.IO를 기반으로 하는 채팅 응용 프로그램 호스팅에 대해 안내합니다. Socket.IO에 대한 자세한 내용은 [http://socket.io/][socketio]를 참조하세요.
 
-> [WACOM.NOTE] 이 작업의 절차는 Azure 웹 사이트에 적용됩니다. 클라우드 서비스에 대해서는 <a href="http://www.windowsazure.com/ko-kr/develop/nodejs/tutorials/app-using-socketio/">Azure 클라우드 서비스에서 Socket.IO를 사용하여 Node.js 채팅 응용 프로그램 빌드</a>를 참조하세요.
+> [AZURE.NOTE] 이 작업의 절차는 Azure 웹 사이트에 적용됩니다. 클라우드 서비스에 대해서는 <a href="http://www.windowsazure.com/ko-kr/develop/nodejs/tutorials/app-using-socketio/">Azure 클라우드 서비스에서 Socket.IO를 사용하여 Node.js 채팅 응용 프로그램 빌드</a>를 참조하세요.
 
 
 ## <a id="Download"></a>채팅 예제 다운로드
 
 이 프로젝트에서는 [Socket.IO
-GitHub 리포지토리](영문)의 채팅 예제를 사용합니다. 다음 단계에 따라 예제를 다운로드하여
+GitHub 리포지토리]의 채팅 예제를 사용합니다. 다음 단계에 따라 예제를 다운로드하여
 이전에 만든 프로젝트에 추가하세요.
 
-1.  Socket.IO 프로젝트의 [ZIP 또는 GZ 보관 릴리스][릴리스](영문)를 다운로드합니다(이 문서에서는 버전 1.0.6 사용).
+1.  Socket.IO 프로젝트의 [ZIP 또는 GZ 보관 릴리스][release]를 다운로드합니다(이 문서에서는 버전 1.0.6 사용).
 
 
-3.  보관 파일을 추출하고 **examples\\chat**
-    새 위치(예:
+3.  보관 파일을 추출하고 **examples\\chat** 디렉터리를
+    새 위치(예: 
     **\\node\\chat**)에 복사합니다.
 
 ## <a id="Modify"></a>App.js 수정 및 모듈 설치
@@ -34,7 +48,7 @@ Azure에 응용 프로그램을 배포하기 전에
 
 1.  메모장 또는 기타 텍스트 편집기에서 **app.js** 파일을 엽니다.
 
-2.  app.js의 시작 부분에서 **Module dependencies** 섹션을 찾아 아래에 표시된 대로 `var io = require('../..')(server);`가 포함된 줄을 `var io = require('socket.io')(server);`로 변경합니다.
+2.  app.js의 시작 부분에서 **Module dependencies** 섹션을 찾아 아래 표시된 대로 `var io = require('../..')(server);`가 포함된 줄을 `var io = require('socket.io')(server);`로 변경합니다.
 
 		var express = require('express');
 		var app = express();
@@ -76,76 +90,76 @@ app.js의 변경 내용을 저장한 후 다음 단계에 따라
 
         npm install socket.io@1.0.6 -save
 
-	> [WACOM.NOTE] 새 버전의 Socket.IO를 사용하여 이 문서의 단계를 수행할 수도 있지만 이 문서는 버전 1.0.6으로 테스트되었습니다.
+	> [AZURE.NOTE] 새 버전의 Socket.IO를 사용하여 이 문서의 단계를 수행할 수도 있지만 이 문서는 버전 1.0.6으로 테스트되었습니다.
 
 ## <a id="Publish"></a>Azure 웹 사이트 만들기
 
 다음 단계에 따라 Azure 웹 사이트를 만들고, Git 게시를 사용하도록 설정한 다음, 웹 사이트에 대한 WebSocket 지원을 사용하도록 설정합니다.
 
-> [WACOM.NOTE]이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 다음을 참조하세요. <a href="http://www.windowsazure.com/ko-kr/pricing/free-trial/?WT.mc_id=A7171371E" target="_blank">Azure Free Trial</a>.
+> [AZURE.NOTE] 이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://www.windowsazure.com/ko-kr/pricing/free-trial/?WT.mc_id=A7171371E" target="_blank">Azure 무료 평가판</a>을 참조하세요.
 
-1. From the command-line, change directories to the **\\node\chat** directory and use the following command to create a new Azure Website and enable a Git repository for the website and the local directory. This will also create a Git remote named 'azure'.
+1. 명령줄에서 **\\node\chat**로 디렉터리를 변경하고 다음 명령을 사용하여 새 Azure 웹 사이트를 만들고 해당 웹 사이트 및 로컬 디렉터리에 대해 Git 리포지토리를 사용하도록 설정합니다. 그렇게 하면  'azure'라는 Git 원격이 만들어집니다.
 
 		azure site create mysitename --git
 
-	You must replace 'mysitename' with a unique name for your website.
+	 'mysitename'을 웹 사이트의 고유한 이름으로 바꿔야 합니다.
 
-2. Commit the existing files to the local repository by using the following commands:
+2. 다음 명령을 사용하여 기존 파일을 로컬 리포지토리로 커밋합니다.
 
 		git add .
 		git commit -m "Initial commit"
 
-3. Push the files to the Azure Website repository with the following command:
+3. 다음 명령으로 파일을 Azure 웹 사이트 리포지토리로 푸시합니다.
 
 		git push azure master
 
-	You will receive status messages as modules are imported on the server. Once this process has completed, the application will be hosted on your Azure Website.
+	서버에서 모듈을 가져올 때 상태 메시지가 표시됩니다. 이 프로세스가 완료되면 응용 프로그램이 Azure 웹 사이트에서 호스트됩니다.
 
- 	> [WACOM.NOTE] During module installation, you may notice errors that 'The imported project ... was not found'. These can safely be ignored.
+ 	> [AZURE.NOTE] 설치하는 동안  'The imported project ... was not found' 오류가 발생할 수도 있습니다. 이 오류는 무시해도 됩니다.
 
-4. Socket.IO uses WebSockets, which are not enabled by default on Azure. To enable web sockets, use the following command:
+4. Socket.IO는 Azure에서 기본적으로 사용되지 않는 WebSocket을 사용합니다. WebSocket을 사용하도록 설정하려면 다음 명령을 사용하십시오.
 
 		azure site set -w
 
-	If prompted, enter the name of the website.
+	메시지가 표시되면 웹 사이트 이름을 입력합니다.
 
-	>[WACOM.NOTE]
-	>The 'azure site set -w' command will only work with version 0.7.4 or higher of the Azure Cross-Platform Command-Line Interface. You can also enable WebSocket support using the Azure Management Portal.
+	>[AZURE.NOTE]
+	> 'azure site set -w' 명령은 버전 0.7.4 이상의 Azure 크로스 플랫폼 명령줄 인터페이스에서만 작동합니다. 또한 Azure 관리 포털에서 WebSocket 지원을 사용하도록 설정할 수도 있습니다.
 	>
-	>To enable WebSockets using the [Azure Management Portal](https://manage.windowsazure.com), select the Configure page for your website, select 'ON' for the Web Sockets entry, and then click Save.
+	>[Azure 관리 포털](https://manage.windowsazure.com)에서 WebSocket을 사용하도록 설정하려면 웹 사이트의 구성 페이지를 선택하고, WebSocket 항목에 대해 '설정'을 선택한 후 저장을 클릭합니다.
 	>	
 	>![websockets](./media/web-sites-nodejs-chat-app-socketio/websockets.png)
 	
-5. To view the website on Azure, use the following command to launch your web browser and navigate to the hosted website:
+5. Azure에서 웹 사이트를 보려면 다음 명령을 사용하여 웹 브라우저를 시작하고 호스트되는 웹 사이트로 이동합니다.
 
 		azure site browse
 
-Your application is now running on Azure, and can relay chat
-messages between different clients using Socket.IO.
+이제 응용 프로그램이 Azure에서 실행되고 있으며
+Socket.IO를 사용하여 서로 다른 클라이언트 간에 채팅 메시지를 릴레이할 수 있습니다.
 
-> [WACOM.NOTE] For simplicity, this sample is limited to chatting between users connected to the same instance. This means that if the cloud service creates two worker role instances, users will only be able to chat with others connected to the same worker role instance. To scale the application to work with multiple role instances, you could use a technology like Service Bus to share the Socket.IO store state across instances. For examples, see the Service Bus Queues and Topics usage samples in the <a href="https://github.com/WindowsAzure/azure-sdk-for-node">Azure SDK for Node.js GitHub repository</a>.
+> [AZURE.NOTE] 간단히 하기 위해 샘플은 같은 인스턴스에 연결된 사용자 간 채팅으로 제한됩니다. 즉 클라우드 서비스에서 작업자 역할 인스턴스를 두 개 만드는 경우 사용자는 같은 작업자 역할 인스턴스에 연결된 사람들과만 채팅할 수 있습니다. 응용 프로그램을 여러 역할 인스턴스와 작업하도록 조정하려면 서비스 버스 같은 기술을 사용하여 인스턴스 간에 Socket.IO 저장소 상태를 공유할 수 있습니다. 예를 들어, <a href="https://github.com/WindowsAzure/azure-sdk-for-node">Node.js에 대한 Azure SDK GitHub 리포지토리</a>의 서비스 버스 큐 및 토픽 사용 샘플을 참조하세요.
 
-##Scale out
+##확장
 
-Socket.IO applications can be scaled out by using an __adapter__ to distribute messages and events between multiple application instances. While there are several adapters available, the [socket.io-redis](https://github.com/automattic/socket.io-redis) adapter can be easily used with the Azure Redis Cache feature.
+__adapter__를 사용하여 여러 응용 프로그램 인스턴스 간에 메시지 및 이벤트를 배포하는 방식으로 Socket.IO 응용 프로그램을 확장할 수 있습니다. 사용 가능한 여러 어댑터가 있지만 Azure Redis 캐시 기능에 사용하기 편리한 어댑터는 [socket.io-redis](https://github.com/automattic/socket.io-redis) 어댑터입니다.
 
-> [WACOM.NOTE] An additional requirement for scaling out a Socket.IO solution is support for sticky sessions. Sticky sessions are enabled by default for Azure Websites through Azure Request Routing. For more information, see [Instance Affinity in Azure Web Sites](http://azure.microsoft.com/blog/2013/11/18/disabling-arrs-instance-affinity-in-windows-azure-web-sites/)
+> [AZURE.NOTE] Socket.IO 솔루션 확장에 대한 추가 요구 사항은 고정 세션의 지원입니다. 고정 세션은 Azure 요청 라우팅을 통해 Azure 웹 사이트에서 기본적으로 사용하도록 설정됩니다. 자세한 내용은 [Azure 웹 사이트의 인스턴스 선호도](http://azure.microsoft.com/blog/2013/11/18/disabling-arrs-instance-affinity-in-windows-azure-web-sites/)를 참조하세요.
 
-###Create a Redis cache
+###Redis 캐시 만들기
 
-Perform the steps in [Create a cache in Azure Redis Cache](http://go.microsoft.com/fwlink/p/?linkid=398592&clcid=0x409) to create a new cache.
+[Azure Redis 캐시에서 캐시 만들기](http://go.microsoft.com/fwlink/p/?linkid=398592&clcid=0x409)의 단계를 수행하여 새 캐시를 만듭니다.
 
-> [WACOM.NOTE] Save the __Host name__ and __Primary key__ for your cache, as these will be needed in the next steps.
+> [AZURE.NOTE] 캐시의 __Host name__ 및 __Primary key__를 저장합니다. 이러한 정보는 다음 단계에서 필요합니다.
 
-###Add the redis and socket.io-redis modules
+###Redis 및 socket.io-redis 모듈 추가
 
-1. From a command-line, change to the __\\node\\chat__ directory and use the following command.
+1. 명령줄에서 __\\node\\chat__ 디렉터리로 변경하여 다음 명령을 사용합니다.
 
 		npm install socket.io-redis@0.1.3 redis@0.11.0 --save
 
-	> [WACOM.NOTE] The versions specified in this command are the versions used when testing this article.
+	> [AZURE.NOTE] 이 명령에 지정된 버전은 이 문서를 테스트할 때 사용된 버전입니다.
 
-2. Modify the __app.js__ file to add the following lines immediately after `var io = require('socket.io')(server);`
+2. __app.js__ 파일을 수정하여 다음 줄을 `var io = require('socket.io')(server);` 바로 뒤에 추가합니다.
 
 		var pub = require('redis').createClient(6379,'redishostname', {auth_pass: 'rediskey', return_buffers: true});
 		var sub = require('redis').createClient(6379,'redishostname', {auth_pass: 'rediskey', return_buffers: true});
@@ -154,77 +168,77 @@ Perform the steps in [Create a cache in Azure Redis Cache](http://go.microsoft.c
 		io.adapter(redis({pubClient: pub, subClient: sub}));
 
 
-	Replace __redishostname__ and __rediskey__ with the host name and key for your Redis cache.
+	__redishostname__ 및 __rediskey__를 Redis 캐시의 호스트 이름 및 키로 바꿉니다.
 
-	This will create a publish and subscribe client to the Redis cache created previously. The clients are then used with the adapter to configure Socket.IO to use the Redis cache for passing messages and events between instances of your application
+	그러면 이전에 만든 Redis 캐시에 대한 게시 및 구독 클라이언트가 만들어집니다. 이 클라이언트는 어댑터에서 응용 프로그램의 인스턴스 간에 메시지 및 이벤트를 전달하는 데 Redis 캐시를 사용하도록 Socket.IO를 구성하는 데 사용됩니다.
 
-	> [WACOM.NOTE] While the __socket.io-redis__ adapter can communicate directly to Redis, the current version (as of 7/14/2014) does not support the authentication required by Azure Redis cache. So the initial connection is created using the __redis__ module, then the client is passed to the __socket.io-redis__ adapter.
+	> [AZURE.NOTE] __socket.io-redis__ 어댑터는 Redis와 직접 통신할 수 있지만 현재 버전(2014년 7월 14일자)에서는 Azure Redis 캐시에 필요한 인증을 지원하지 않습니다. 따라서 __redis__ 모듈을 통해 초기 연결이 만들어진 다음 __socket.io-redis__ 어댑터로 클라이언트가 전달됩니다.
 	> 
-	> While Azure Redis Cache supports secure connections using port 6380, the modules used in this example do not support secure connections as of 7/14/2014. The above code uses the default, unsecure port of 6380.
+	> Azure Redis 캐시는 포트 6380을 사용한 보안 연결을 지원하지만 이 예제에 사용된 모듈에서는 2014년 7월 14일 현재 보안 연결을 지원하지 않습니다. 위 코드에서는 기본적으로 비보안 포트 6380을 사용합니다.
 
-3. Save the modified __app.js__
+3. 수정한 __app.js__를 저장합니다.
 
-###Commit changes and redeploy
+###변경 내용 커밋 및 다시 배포
 
-From the command-line in the __\\node\\chat__ directory, use the following commands to commit changes and redeploy the application.
+__\\node\\chat__ 디렉터리의 명령줄에서 다음 명령을 사용하여 변경 내용을 커밋하고 응용 프로그램을 다시 배포합니다.
 
 	git add .
 	git commit -m "implementing scale out"
 	git push azure master
 
-Once the changes have been pushed to the server, you can scale your site across multiple instances by using the following command.
+변경 내용이 서버에 푸시되고 나면 다음 명령을 사용하여 여러 인스턴스 간에 사이트를 확장할 수 있습니다.
 
 	azure site scale instances --instances #
 
-Where __#__ is the number of instances to create. 
+여기서 __#__은 만들 인스턴스 수입니다. 
 
-You can connect to your website from multiple browsers or computers to verify that messages are correctly sent to all clients.
+여러 브라우저 또는 컴퓨터에서 웹 사이트에 연결하여 메시지가 모든 클라이언트에 올바르게 전송되었는지 확인할 수 있습니다.
 
-##<a id="tshooting"></a>Troubleshooting
+##<a id="tshooting"></a>문제 해결
 
-###Connection limits
+###연결 제한
 
-Azure Websites is available in multiple SKUs, which determine the resources available to your site. This includes the number of allowed WebSocket connections. For more information, see the [Web Sites Pricing page][pricing].
+Azure 웹 사이트는 여러 SKU에서 사용할 수 있으며, 이러한 SKU에 따라 사이트에 사용 가능한 리소스가 결정됩니다. 여기에는 허용되는 WebSocket 연결 수가 포함됩니다. 자세한 내용은 [웹 사이트 가격 책정 페이지][pricing]를 참조하세요.
 
-###Messages aren't being sent using WebSockets
+###메시지가 WebSocket을 사용하여 전송되지 않음
 
-If client browsers keep falling back to long polling instead of using WebSockets, it may be because of one of the following.
+클라이언트 브라우저에서 WebSocket을 사용하는 대신 긴 폴링으로의 대체를 유지하는 경우 다음 중 하나가 원인일 수 있습니다.
 
-* **Try limiting the transport to just WebSockets**
+* **전송을 WebSocket으로만 제한**
 
-	In order for Socket.IO to use WebSockets as the messaging transport, both the server and client must support WebSockets. If one or the other does not, Socket.IO will negotiate another transport, such as long polling. The default list of transports used by Socket.IO is ` websocket, htmlfile, xhr-polling, jsonp-polling`. You can force it to only use WebSockets by adding the following code to the **app.js** file, after the line containing `, nicknames = {};`.
+	Socket.IO에서 WebSocket을 메시징 전송으로 사용하려면 서버와 클라이언트가 모두 WebSocket을 지원해야 합니다. 둘 중 하나가 지원하지 않으면 Socket.IO에서 긴 폴링과 같은 다른 전송을 협상합니다. Socket.IO에서 사용하는 기본 전송 목록은 ` websocket, htmlfile, xhr-polling, jsonp-polling`입니다. **app.js** 파일에서 `, nicknames = {};`가 포함된 줄 뒤에 다음 코드를 추가하여 Socket.IO에서 WebSocket만 사용하도록 강제로 설정할 수 있습니다.
 
 		io.configure(function() {
 		  io.set('transports', ['websocket']);
 		});
 
-	> [WACOM.NOTE] Note that older browsers that do not support WebSockets will not be able to connect to the site while the above code is active, as it restricts communication to WebSockets only.
+	> [AZURE.NOTE] 위 코드가 활성화되어 있는 동안에는 통신이 WebSocket으로만 제한되므로 WebSocket을 지원하지 않는 이전 브라우저에서 사이트에 연결할 수 없게 됩니다.
 
-* **Use SSL**
+* **SSL 사용**
 
-	WebSockets relies on some lesser used HTTP headers, such as the **Upgrade** header. Some intermediate network devices, such as web proxies, may remove these headers. To avoid this problem, you can establish the WebSocket connection over SSL.
+	WebSocket은 **Upgrade** 헤더와 같은 보다 적은 수의 사용된 HTTP 헤더를 기반으로 합니다. 웹 프록시와 같은 일부 중간 네트워크 장치는 이러한 헤더를 제거할 수 있습니다. 이 문제를 방지하기 위해 SSL을 통해 WebSocket 연결을 설정할 수 있습니다.
 
-	An easy way to accomplish this is to configure Socket.IO to `match origin protocol`. This instructs Socket.IO to secure WebSockets communication the same as the originating HTTP/HTTPS request for the web page. If a browser uses an HTTPS URL to visit your website, subsequent WebSocket communications through Socket.IO will be secured over SSL.
+	이 작업을 수행하는 간단한 방법은  `match origin protocol`로 Socket.IO를 구성하는 것입니다. 이 명령은 Socket.IO에 웹 페이지에 대한 시작 HTTP/HTTPS 요청과 동일하게 WebSockets 통신의 보안을 유지하도록 지시합니다. 브라우저에서 HTTPS URL을 사용하여 웹 사이트를 방문한 경우 Socket.IO를 통한 이후의 WebSocket 통신은 SSL을 통해 보안이 유지됩니다.
 
-	To modify this example to enable this configuration, add the following code to the **app.js** file after the line containing `, nicknames = {};`.
+	이 구성을 사용하도록 이 예제를 수정하려면 **app.js** 파일에서 `, nicknames = {};`이 포함된 줄 뒤에 다음 코드를 추가합니다.
 
 		io.configure(function() {
 		  io.set('match origin protocol', true);
 		});
 
-* **Verify web.config settings**
+* **web.config 설정 확인**
 
-	Azure Websites that host Node.js applications use the **web.config** file to route incoming requests to the Node.js application. For WebSockets to function correctly with Node.js applications, the **web.config** must contain the following entry.
+	Node.js 응용 프로그램을 호스트하는 Azure 웹 사이트에서는 **web.config** 파일을 사용하여 들어오는 요청을 Node.js 응용 프로그램으로 라우팅합니다. Node.js 응용 프로그램에서 WebSocket이 올바르게 작동하려면 **web.config**에 다음 항목이 포함되어야 합니다.
 
 		<webSocket enabled="false"/>
 
-	이는 WebSocket의 자체 구현을 포함하고 있어 Socket.IO와 같은 Node.js 관련 WebSocket 모듈과 충돌하는 IIS WebSocket 모듈을 사용하지 않도록 설정합니다. 이 줄이 없거나 'true'로 설정되어 있으면 응용 프로그램에서 WebSocket 전송이 작동하지 않는 원인이 될 수 있습니다.
+	그러면 WebSocket의 자체 구현을 포함하고 Socket.IO와 같은 Node.js 관련 WebSocket 모듈과 충돌하는 IIS WebSocket 모듈이 사용하지 않도록 설정됩니다. 이 줄이 없거나  `true`로 설정되면 WebSocket 전송이 사용자 응용 프로그램에 작동하지 않습니다.
 
-	일반적으로 Node.js 응용 프로그램에는 **web.config** 파일이 포함되어 있지 않으므로 Azure 웹 사이트를 배포할 때 해당 웹 사이트에서 Node.js 응용 프로그램에 대해 이 파일을 자동으로 생성합니다. 이 파일은 서버에서 자동으로 생성되기 때문에 이 파일을 보려면 웹 사이트에 FTP 또는 FTPS URL을 사용해야 합니다. 사이트의 FTP 및 FTPS URL은 Azure 관리 포털에서 웹 사이트를 선택한 후 **대시보드** 링크를 선택하여 찾을 수 있습니다. 이러한 URL은 **간략 상태** 섹션에 표시됩니다.
+	일반적으로 Node.js 응용 프로그램에는 **web.config** 파일이 포함되어 있지 않으므로 Azure 웹 사이트를 배포할 때 해당 웹 사이트에서 Node.js 응용 프로그램에 대해 이 파일을 자동으로 생성합니다. 이 파일은 서버에서 자동으로 생성되기 때문에 이 파일을 보려면 웹 사이트에 FTP 또는 FTPS URL을 사용해야 합니다. 사이트의 FTP 및 FTPS URL은 Azure 관리 포털에서 웹 사이트를 선택한 후 **대시보드** 링크를 선택하여 찾을 수 있습니다. 이러한 URL은 **빠른 보기** 섹션에 표시됩니다.
 
-	> [WACOM.NOTE] **web.config** 파일은 응용 프로그램에서 제공하지 않는 경우에만 Azure 웹 사이트에 의해 생성됩니다. 응용 프로그램 프로젝트의 루트에 **web.config** 파일을 제공한 경우에는 Azure 웹 사이트에서 이 파일이 사용됩니다.
+	> [AZURE.NOTE] **web.config** 파일은 응용 프로그램에서 제공하지 않는 경우에만 Azure 웹 사이트에 의해 생성됩니다. 응용 프로그램 프로젝트의 루트에 **web.config** 파일을 제공한 경우에는 Azure 웹 사이트에서 이 파일이 사용됩니다.
 
-	이 항목이 없거나 `true` 값으로 설정된 경우 Node.js 응용 프로그램의 루트에 **web.config**를 만들고 `false` 값을 지정해야 합니다.  참고로 다음은 **app.js**를 진입점으로 사용하는 응용 프로그램의 기본 **web.config**입니다.
+	이 항목이 없거나  `true` 값으로 설정된 경우 Node.js 응용 프로그램의 루트에 **web.config**를 만들고  `false` 값을 지정해야 합니다.  참고로 다음은 **app.js**를 진입점으로 사용하는 응용 프로그램의 기본 **web.config**입니다.
 
 		<?xml version="1.0" encoding="utf-8"?>
 		<!--
@@ -275,7 +289,7 @@ If client browsers keep falling back to long polling instead of using WebSockets
 		  </system.webServer>
 		</configuration>
 
-	> [WACOM.NOTE] 응용 프로그램에서 **app.js**가 아닌 다른 진입점을 사용하는 경우 표시되는 **app.js**를 모두 올바른 진입점으로 바꿔야 합니다. 예를 들어 **app.js**를 **server.js**로 바꿉니다.
+	> [AZURE.NOTE] 응용 프로그램에서 **app.js**가 아닌 다른 진입점을 사용하는 경우 표시되는 **app.js**를 모두 올바른 진입점으로 바꿔야 합니다. 예를 들어 **app.js**를 **server.js**로 바꿉니다.
 
 ##다음 단계
 
@@ -283,10 +297,12 @@ If client browsers keep falling back to long polling instead of using WebSockets
 
 [socketio]: http://socket.io/
 [completed-app]: ./media/web-sites-nodejs-chat-app-socketio/websitesocketcomplete.png
-[Socket.IO GitHub 리포지토리]: https://github.com/Automattic/socket.io
-[릴리스]: https://github.com/Automattic/socket.io/releases
+[Socket.IO GitHub repository]: https://github.com/Automattic/socket.io
+[release]: https://github.com/Automattic/socket.io/releases
 [cloudservice]: /ko-kr/develop/nodejs/tutorials/app-using-socketio/
-
+	
 [chat-example-view]: ./media/web-sites-nodejs-chat-app-socketio/socketio-2.png
 [npm-output]: ./media/web-sites-nodejs-chat-app-socketio/socketio-7.png
-[가격]: /ko-kr/pricing/details/web-sites/
+[pricing]: /ko-kr/pricing/details/web-sites/
+
+<!--HONumber=42-->

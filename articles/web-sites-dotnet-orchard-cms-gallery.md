@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Website from Gallery" pageTitle="Azure의 갤러리에서 Orchard CMS 웹 사이트 만들기" metaKeywords="Azure 웹 사이트 빌드, 웹 사이트 관리 Azure" description="Azure에서 새 웹 사이트를 만드는 방법에 대해 설명하는 자습서입니다. 관리 포털을 사용하여 사이트를 시작하고 관리하는 방법에 대해서도 알아봅니다." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Create an Orchard CMS website from the gallery in Azure" authors="tomfitz" solutions="" manager="wpickett" editor="" />
+﻿<properties 
+	pageTitle="Azure의 갤러리에서 Orchard CMS 웹 사이트 만들기" 
+	description="Azure에서 새 웹 사이트를 만드는 방법에 대해 설명하는 자습서입니다. 관리 포털을 사용하여 사이트를 시작하고 관리하는 방법에 대해서도 알아봅니다." 
+	services="web-sites" 
+	documentationCenter=".net" 
+	authors="tfitzmac" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="10/21/2014" ms.author="tomfitz" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="10/21/2014" 
+	ms.author="tomfitz"/>
 
 # Azure의 갤러리에서 Orchard CMS 웹 사이트 만들기
 
@@ -12,11 +26,11 @@
 
 - 관리 포털에서 사이트를 시작하고 관리하는 방법
  
-이 자습서에서는 기본 템플릿을 사용하는 Orchard CMS 사이트를 빌드해 봅니다. [Orchard](http://www.orchardproject.net/)는 사용자 지정된 콘텐츠 중심의 웹 사이트를 만들 수 있는 오픈 소스의 무료 .NET 기반 CMS 응용 프로그램입니다. Orchard CMS에는 [추가 모듈 및 테마를 다운로드하여](http://gallery.orchardproject.net/) 사이트를 사용자 지정할 수 있는 확장성 프레임워크가 포함되어 있습니다. 다음 그림은 앞으로 만들 Orchard CMS 사이트를 보여 줍니다.
+이 자습서에서는 기본 템플릿을 사용하는 Orchard CMS 사이트를 빌드해 봅니다. [Orchard](http://www.orchardproject.net/)는 사용자 지정된 콘텐츠 중심의 웹 사이트를 만들 수 있는 오픈 소스의 무료 .NET 기반 CMS 응용 프로그램입니다. Orchard CMS에는 [추가 모듈 및 테마를 다운로드](http://gallery.orchardproject.net/)하여 사이트를 사용자 지정할 수 있는 확장성 프레임워크가 포함되어 있습니다. 다음 그림은 앞으로 만들 Orchard CMS 사이트를 보여 줍니다.
 
 ![Orchard blog][13]
 
-[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
+[AZURE.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 <h2>갤러리에서 Orchard 웹 사이트 만들기</h2>
 
@@ -61,10 +75,10 @@ Azure에서 빌드 및 배포 작업을 시작합니다. 웹 사이트를 만들
 
 	![your Orchard site][13]
 
-3. [Orchard 문서](http://docs.orchardproject.net/)(영문)의 세부 정보를 따라서 Orchard에 대해 자세히 알아보고 새 사이트를 구성합니다.
+3. [Orchard 설명서](http://docs.orchardproject.net/)의 세부 정보를 따라서 Orchard에 대해 자세히 알아보고 새 사이트를 구성합니다.
 
 <h2>다음 단계</h2>
-* [Microsoft WebMatrix로 웹 사이트 개발 및 배포](/ko-kr/develop/net/tutorials/website-with-webmatrix/) - WebMatrix에서 Azure 웹 사이트를 편집하는 방법을 알아봅니다. 
+* [Microsoft WebMatrix로 웹 사이트 개발 및 배포](/ko-kr/develop/net/tutorials/website-with-webmatrix/) - WebMatrix에서 Azure 웹 사이트를 편집하는 방법을 알아봅니다.
 * [Azure 웹 사이트에 멤버 자격, OAuth 및 SQL 데이터베이스가 포함된 보안 ASP.NET MVC 앱 배포](/ko-kr/develop/net/tutorials/web-site-with-sql-database/) - Visual Studio에서 새 웹 사이트를 만드는 방법을 알아봅니다.
 
 [1]: ./media/web-sites-dotnet-orchard-cms-gallery/orchardgallery-01.png
@@ -77,3 +91,6 @@ Azure에서 빌드 및 배포 작업을 시작합니다. 웹 사이트를 만들
 [13]: ./media/web-sites-dotnet-orchard-cms-gallery/orchardgallery-08.png
 
 
+
+
+<!--HONumber=42-->

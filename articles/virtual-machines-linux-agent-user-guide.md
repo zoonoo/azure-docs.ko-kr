@@ -1,6 +1,6 @@
-<properties urlDisplayName="Linux Agent guide" pageTitle="Azure용 Linux 에이전트 사용자 가이드" metaKeywords="" description="Linux 에이전트(waagent)를 설치 및 구성하여 가상 컴퓨터와 Azure 패브릭 컨트롤러의 상호 작용을 관리하는 방법에 대해 알아봅니다." metaCanonical="" services="virtual-machines" documentationCenter="" title="Azure Linux Agent User Guide" authors="szarkos" solutions="" manager="timlt" editor="" />
+﻿<properties pageTitle="Azure용 Linux 에이전트 사용자 가이드" description="Linux 에이전트(waagent)를 설치 및 구성하여 가상 컴퓨터와 Azure 패브릭 컨트롤러의 상호 작용을 관리하는 방법에 대해 알아봅니다." services="virtual-machines" documentationCenter="" authors="szarkos" manager="timlt" editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="10/20/2014" ms.author="szarkos" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="10/20/2014" ms.author="szarkos"/>
 
 
 
@@ -44,30 +44,30 @@ Azure Linux 에이전트(waagent)는 가상 컴퓨터와 Azure 패브릭 컨트�
 최신 Linux 에이전트는 다음에서 직접 가져올 수 있습니다.
 
 - [Azure에서 Linux를 인증하는 다른 배포 공급자](http://support.microsoft.com/kb/2805216)
-- 또는 [Azure Linux 에이전트의 Github 오픈 소스 리포지토리]에서(https://github.com/WindowsAzure/WALinuxAgent)
+- 또는 [Azure Linux 에이전트의 Github 오픈 소스 리포지토리](https://github.com/WindowsAzure/WALinuxAgent)
 
 
 ###지원되는 Linux 배포
 * CoreOS
-* CentOS 6.2 이상
-* Debian 7.0 이상
-* Ubuntu 12.04 이상
-* OpenSUSE 12.3 이상
-* SLES 11 SP2 이상
-* Oracle Linux 6.4 이상
+* CentOS 6.2+
+* Debian 7.0+
+* Ubuntu 12.04+
+* openSUSE 12.3+
+* SLES 11 SP2+
+* Oracle Linux 6.4+
 
 기타 지원되는 시스템:
 
-* FreeBSD 9 이상(WALinuxAgent v2.0.0 이상)
+* FreeBSD 9+ (WALinuxAgent v2.0.0+)
 
 
 ###요구 사항
 
 Waagent는 다음과 같은 일부 시스템 패키지가 있어야 제대로 기능을 수행합니다.
 
-* Python 2.5 이상
-* Openssl 1.0 이상
-* Openssh 5.3 이상
+* Python 2.5+
+* Openssl 1.0+
+* Openssh 5.3+
 * 파일 시스템 유틸리티: sfdisk, fdisk, mkfs
 * 암호 도구: chpasswd, sudo
 * 텍스트 처리 도구: sed, grep
@@ -107,7 +107,7 @@ Waagent는 다음과 같은 일부 시스템 패키지가 있어야 제대로 �
 
  * 커널 버전을 검색하고 필요한 경우 VNUMA 해결 방법을 적용합니다.
 
- * /var/lib/waagent/로 네트워킹을 방해할 수 있는 udev 규칙(/lib/udev/rules.d/75-persistent-net-generator.rules, /etc/udev/rules.d/70-persistent-net.rules)을 이동합니다. 
+ * 네트워킹을 방해할 수 있는 udev 규칙(/lib/udev/rules.d/75-persistent-net-generator.rules, /etc/udev/rules.d/70-persistent-net.rules)을 /var/lib/waagent/로 이동합니다.  
 
 - uninstall: waagent 및 연결된 파일을 제거합니다.
  * 시스템에서 init 스크립트의 등록을 취소하고 삭제합니다.
@@ -144,7 +144,7 @@ Waagent는 다음과 같은 일부 시스템 패키지가 있어야 제대로 �
 
 ##구성
 
-구성 파일 (/etc/waagent.conf) 은 waagent의 동작을 제어합니다. 
+구성 파일(/etc/waagent.conf)은 waagent의 동작을 제어합니다. 
 다음은 샘플 구성 파일입니다.
 	
 	#
@@ -176,21 +176,21 @@ Waagent는 다음과 같은 일부 시스템 패키지가 있어야 제대로 �
 **Role.StateConsumer:**
 
 형식: String  
-기본값: None
+기본값: 없음
 
 실행 프로그램에 대한 경로가 지정된 경우 waagent에서 이미지를 프로비전한 후 "준비" 상태를 패브릭에 보고하려고 할 때 프로그램이 호출됩니다. 프로그램에 지정되는 인수는 "Ready"입니다. 에이전트는 프로그램이 반환할 때까지 기다리지 않고 진행합니다.
 
 **Role.ConfigurationConsumer:**
 
 형식: String  
-기본값: None
+기본값: 없음
 
 실행 프로그램에 대한 경로가 지정된 경우 패브릭에서 구성 파일을 가상 컴퓨터에 사용할 수 있음을 나타낼 때 프로그램이 호출됩니다. XML 구성 파일에 대한 경로는 실행 파일에 대한 인수로 제공됩니다. 이 경로는 구성 파일이 변경될 때마다 여러 번 호출될 수 있습니다. 샘플 파일은 부록에 나와 있습니다. 이 파일의 현재 경로는 /var/lib/waagent/HostingEnvironmentConfig.xml입니다.
 
 **Role.TopologyConsumer:**
 
 형식: String  
-기본값: None
+기본값: 없음
 
 실행 프로그램에 대한 경로가 지정된 경우 패브릭에서 새 네트워크 토폴로지 레이아웃을 가상 컴퓨터에서 사용할 수 있음을 나타낼 때 프로그램이 호출됩니다. XML 구성 파일에 대한 경로는 실행 파일에 대한 인수로 제공됩니다. 이 경로는 네트워크 토폴로지가 변경(예: 서비스 복구로 인해 변경)될 때마다 여러 번 호출될 수 있습니다. 샘플 파일은 부록에 나와 있습니다. 이 파일의 현재 위치는 /var/lib/waagent/SharedConfig.xml입니다.
 
@@ -250,14 +250,14 @@ Waagent는 다음과 같은 일부 시스템 패키지가 있어야 제대로 �
 형식: String  
 기본값: /mnt/resource 
 
-이 옵션은 리소스 디스크가 탑재되는 경로를 지정합니다. 리소스 디스크는 *임시* 디스크이며 VM의 프로비전을 해제할 때 비워질 수 있습니다.
+이 옵션은 리소스 디스크가 탑재되는 경로를 지정합니다. 리소스 디스크는  *temporary* 디스크이며 VM의 프로비전을 해제할 때 비워질 수 있습니다.
 
 **ResourceDisk.EnableSwap:**
 
 형식: Boolean  
 기본값: n 
 
-설정한 경우 스왑 파일 (/swapfile) 이 리소스 디스크에 만들어져서 시스템 스왑 공간에 추가됩니다.
+설정한 경우 스왑 파일(/swapfile)이 리소스 디스크에 만들어져서 시스템 스왑 공간에 추가됩니다.
 
 **ResourceDisk.SwapSizeMB:**
 
@@ -290,7 +290,7 @@ Waagent는 다음과 같은 일부 시스템 패키지가 있어야 제대로 �
 **OS.OpensslPath:**
 
 형식: String  
-기본값: None
+기본값: 없음
 
 이 옵션은 openssl 이진의 대체 경로를 지정하는 데 사용하여 암호화 작업에 사용할 수 있습니다.
 
@@ -405,4 +405,5 @@ Waagent는 다음과 같은 일부 시스템 패키지가 있어야 제대로 �
 	  </Instances>
 	</SharedConfig>
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

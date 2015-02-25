@@ -1,6 +1,20 @@
-﻿<properties pageTitle="음성 및 SMS 기능을 위해 Twilio 사용 | 모바일 개발자 센터" metaKeywords="" description="Azure 모바일 서비스와 함께 Twilio API를 사용하여 일반적인 작업을 수행하는 방법에 대해 알아봅니다." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="How to use Twilio for voice and SMS capabilities from Mobile Services" authors="MicrosoftHelp@twilio.com" solutions="" manager="twilio" editor="" />
+﻿<properties 
+	pageTitle="음성 및 SMS 기능을 위해 Twilio 사용 | 모바일 개발자 센터" 
+	description="Azure 모바일 서비스와 함께 Twilio API를 사용하여 일반적인 작업을 수행하는 방법에 대해 알아봅니다." 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="devinrader" 
+	manager="twilio" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/25/2014" ms.author="MicrosoftHelp@twilio.com" />
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/25/2014" 
+	ms.author="MicrosoftHelp@twilio.com"/>
 
 
 <h1>모바일 서비스에서 음성 및 SMS 기능을 위해 Twilio를 사용하는 방법</h1>
@@ -13,19 +27,19 @@ Twilio는 개발자가 응용 프로그램에 음성, VoIP 및 메시징을 포�
 **Twilio 음성**을 통해 응용 프로그램에서 전화 통화를 걸고 받을 수 있습니다. **Twilio SMS**를 사용하면 응용 프로그램에서 SMS 메시지를 보내고 받을 수 있습니다. **Twilio 클라이언트**를 통해서는 전화, 태블릿 또는 브라우저에서 VoIP 통화를 하고 WebRTC를 지원할 수 있습니다.
 
 <h2><a id="Pricing"></a>Twilio 가격 책정 및 특별 제공</h2>
-Azure 고객은 Twilio 계정을 업그레이드하면 무료 10달러 Twilio 크레딧이라는 [특별 제공][special_offer](영문) 혜택을 받습니다. 이 Twilio 크레딧은 모든 Twilio 사용량에 적용될 수 있습니다. 10달러의 크레딧은 전화 번호 및 메시지 또는 통화 대상의 위치에 따라 SMS 메시지를 1,000개 보내거나 최대 1000분간 인바운드 음성을 받을 수 있는 금액입니다. [ahoy.twilio.com/azure][special_offer](영문)에서 이 Twilio 크레딧을 충전하고 시작하세요.
+Azure 고객은 Twilio 계정을 업그레이드하면 무료 10달러 Twilio 크레딧이라는 [특별 제공][special_offer] 혜택을 받습니다. 이 Twilio 크레딧은 모든 Twilio 사용량에 적용될 수 있습니다. 10달러의 크레딧은 전화 번호 및 메시지 또는 통화 대상의 위치에 따라 SMS 메시지를 1,000개 보내거나 최대 1000분간 인바운드 음성을 받을 수 있는 금액입니다. [ahoy.twilio.com/azure][special_offer]에서 이 Twilio 크레딧을 충전하고 시작하세요.
 
-Twilio는 종량제 서비스입니다. 설정 수수료는 없으며 언제든 계정을 종료할 수 있습니다. [Twilio 가격 책정][twilio_pricing](영문)에서 자세한 내용을 볼 수 있습니다.  
+Twilio는 종량제 서비스입니다. 설정 수수료는 없으며 언제든 계정을 종료할 수 있습니다. [Twilio 가격 책정][twilio_pricing]에서 자세한 내용을 확인할 수 있습니다.  
 
 <h2><a id="Concepts"></a>개념</h2>
-Twilio API는 응용 프로그램에 대한 음성 및 SMS 기능을 제공하는 RESTful API입니다. 클라이언트 라이브러리는 다양한 언어로 사용할 수 있습니다. 목록은 [Twilio API 라이브러리] [twilio_libraries](영문)를 참조하세요.  [.NET][azure_twilio_howto_dotnet], [node.js][azure_twilio_howto_node], [Java][azure_twilio_howto_java], [PHP][azure_twilio_howto_php], [Python][azure_twilio_howto_python] 또는 [Ruby][azure_twilio_howto_ruby]에서 작성된 Azure 응용 프로그램에서 Twilio를 사용하는 방법에 대한 추가 자습서가 제공됩니다.
+Twilio API는 응용 프로그램에 대한 음성 및 SMS 기능을 제공하는 RESTful API입니다. 클라이언트 라이브러리는 다양한 언어로 사용할 수 있습니다. 목록에 대해서는 [Twilio API 라이브러리][twilio_libraries]를 참조하세요.  [.NET][azure_twilio_howto_dotnet], [node.js][azure_twilio_howto_node], [Java][azure_twilio_howto_java], [PHP][azure_twilio_howto_php], [Python][azure_twilio_howto_python] 또는 [Ruby][azure_twilio_howto_ruby]에서 작성된 Azure 응용 프로그램에서 Twilio를 사용하는 방법에 대한 추가 자습서가 제공됩니다.
 
 Twilio API의 핵심 요소는 Twilio 동사와 TwiML(Twilio Markup Language)입니다.
 
 <h3><a id="Verbs"></a>Twilio 동사</h3>
 API는 Twilio 동사를 활용합니다. 예를 들어 **&lt;Say&gt;** 동사는 Twilio에 통화 메시지를 음성으로 전달하도록 지시합니다. 
 
-다음은 Twilio 동사의 목록입니다.  기타 동사 및 기능에 대해서는 [Twilio Markup Language 설명서](영문)에서(http://www.twilio.com/docs/api/twiml)알아보세요.
+다음은 Twilio 동사의 목록입니다.  기타 동사 및 기능에 대해서는 [Twilio Markup Language 설명서](http://www.twilio.com/docs/api/twiml)에서 알아보세요.
 
 * **&lt;Dial&gt;**: 발신자를 다른 전화에 연결합니다.
 * **&lt;Gather&gt;**: 전화 키패드에 입력된 숫자를 수집합니다.
@@ -48,26 +62,26 @@ TwiML은 Twilio에 통화 또는 SMS 처리 방법을 알려 주는 Twilio 동�
        <Say>Hello World</Say>
     </Response>
 
-응용 프로그램에서 Twilio API를 호출할 때 API 매개 변수 중 하나는 TwiML 응답을 반환하는 URL입니다. 개발을 위해서 Twilio 제공 URL을 사용하여 응용 프로그램에 사용되는 TwiML 응답을 제공할 수 있습니다. 또한 TwiML 응답을 생성하는 고유한 URL을 호스트할 수도 있고 **TwiMLResponse** 개체를 사용할 수도 있습니다.
+응용 프로그램에서 Twilio API를 호출할 때 API 매개 변수 중 하나는 TwiML 응답을 반환하는 URL입니다. 개발을 위해서 Twilio 제공 URL을 사용하여 응용 프로그램에 사용되는 TwiML 응답을 제공할 수 있습니다. 또한 TwiML 응답을 생성하는 고유한 URL을 호스트할 수도 있고, **TwiMLResponse** 개체를 사용할 수도 있습니다.
 
-wilio 동사, 특성 및 TwiML에 대한 자세한 내용은 [TwiML][twiml](영문)을 참조하세요. Twilio API에 대한 자세한 내용은 [Twilio API][twilio_api](영문)를 참조하세요.
+Twilio 동사, 특성 및 TwiML에 대한 자세한 내용은 [TwiML][twiml]을 참조하세요. Twilio API에 대한 자세한 내용은 [Twilio API][twilio_api]를 참조하세요.
 
 <h2><a id="CreateAccount"></a>Twilio 계정 만들기</h2>
-Twilio 계정을 사용할 준비가 되었다면 [Twilio 체험][try_twilio](영문)에서 등록하세요. 무료 계정으로 시작했다가 나중에 계정을 업그레이드할 수 있습니다.
+Twilio 계정을 사용할 준비가 되었다면 [Twilio 체험 ][try_twilio]에서 등록하세요. 무료 계정으로 시작했다가 나중에 계정을 업그레이드할 수 있습니다.
 
-Twilio 계정을 등록하면 계정 ID 및 인증 토큰을 받게 됩니다. 둘 다 Twilio API 통화를 하는 데 필요합니다. 계정에 대한 무단 액세스를 방지하려면 인증 토큰을 안전하게 유지하세요. 계정 ID 및 인증 토큰은 [Twilio 계정 페이지][twilio_account](영문)의 **ACCOUNT SID** 및 **AUTH TOKEN**이라는 필드에서 각각 확인할 수 있습니다.
+Twilio 계정을 등록하면 계정 ID 및 인증 토큰을 받게 됩니다. 둘 다 Twilio API 통화를 하는 데 필요합니다. 계정에 대한 무단 액세스를 방지하려면 인증 토큰을 안전하게 유지하세요. 계정 ID 및 인증 토큰은 [Twilio 계정 페이지][twilio_account]의 **ACCOUNT SID** 및 **AUTH TOKEN** 필드에서 각각 확인할 수 있습니다.
 
 <h2><a id="create_app"></a>모바일 서비스 만들기</h2>
-Twilio 사용 응용 프로그램을 호스트하는 모바일 서비스도 다른 모바일 서비스와 동일합니다. 모바일 서비스 사용자 지정 API 스크립트에서 참조하기 위해 Twilio node.js 라이브러리를 추가하면 됩니다. 최초 모바일 서비스 만들기에 대한 내용은 [모바일 서비스 시작](영문)을(/ko-kr/documentation/articles/mobile-services-ios-get-started/)참조하세요.
+Twilio 사용 응용 프로그램을 호스트하는 모바일 서비스도 다른 모바일 서비스와 동일합니다. 모바일 서비스 사용자 지정 API 스크립트에서 참조하기 위해 Twilio node.js 라이브러리를 추가하면 됩니다. 최초 모바일 서비스 만들기에 대한 내용은 [모바일 서비스 시작](/ko-kr/documentation/articles/mobile-services-ios-get-started/)을 참조하세요.
 
 <h2><a id="ConfigureMobileService"></a>Twilio Node.js 라이브러리를 사용하도록 모바일 서비스 구성</h2>
 Twilio는 Node.js 라이브러리를 제공하며, 이 라이브러리는 Twilio의 여러 가지 요소를 래핑함으로써 Twilio REST API 및 Twilio 클라이언트를 간단하고 쉽게 조작해서 TwiML 응답을 생성하는 방법을 제공합니다.
 
 모바일 서비스에서 Twilio node.js 라이브러리를 사용하려면 모바일 서비스 npm 모듈 지원을 사용해야 합니다. 이는 소스 제어에서 스크립트를 저장함으로써 사용할 수 있습니다. 
 
-1. [소스 제어에 스크립트 저장](영문)(/ko-kr/documentation/articles/mobile-services-store-scripts-source-control/)자습서를 완료하세요. 이 자습서에서는 모바일 서비스에 대한 소스 제어를 설정하고 서버 스크립트를 Git 리포지토리에 저장하는 방법을 안내합니다.
+1. [소스 제어에 스크립트 저장l](/ko-kr/documentation/articles/mobile-services-store-scripts-source-control/) 자습서를 완료하세요. 이 자습서에서는 모바일 서비스에 대한 소스 제어를 설정하고 서버 스크립트를 Git 리포지토리에 저장하는 방법을 안내합니다.
 
-2. 모바일 서비스에 대해 소스 제어를 설정했으면 로컬 컴퓨터에서 리포지토리를 열고 `\services` 하위 폴더로 이동하고 텍스트 편집기에서 package.json 파일을 연 후 **dependencies** 개체에 다음 필드를 추가합니다.
+2. 모바일 서비스에 대해 소스 제어를 설정했으면 로컬 컴퓨터에서 리포지토리를 열고  `\services` 하위 폴더로 이동하고 텍스트 편집기에서 package.json 파일을 연 후 **dependencies** 개체에 다음 필드를 추가합니다.
 
 		"twilio": "~1.7.0"
  
@@ -91,7 +105,7 @@ Twilio는 Node.js 라이브러리를 제공하며, 이 라이브러리는 Twilio
 		  "keywords":[]
 		}
 
-	>[WACOM.NOTE]Twilio에 대한 종속성은 (~)를 사용하여 `"twilio": "~1.7.0"`으로 추가해야 합니다. 캐럿(^)을 사용한 참조는 지원되지 않습니다. 
+	>[AZURE.NOTE]Twilio에 대한 종속성은 (~)를 사용하여 `"twilio": "~1.7.0"`으로 추가해야 합니다. 캐럿(^)을 사용한 참조는 지원되지 않습니다. 
 
 4. 이 파일 업데이트를 커밋하고 업데이트를 다시 모바일 서비스로 푸시합니다.
 
@@ -119,12 +133,12 @@ Twilio는 Node.js 라이브러리를 제공하며, 이 라이브러리는 Twilio
         });
     };
 
-**client.makeCall** 함수에 전달된 매개 변수에 대한 자세한 내용은 [http://www.twilio.com/docs/api/rest/making-calls][twilio_rest_making_calls](명문)를 참조하세요.
+**client.makeCall** 함수에 전달된 매개 변수에 대한 자세한 내용은 [http://www.twilio.com/docs/api/rest/making-calls][twilio_rest_making_calls]를 참조하세요.
 
-언급한 대로 이 코드는 Twilio 제공 사이트를 사용하여 TwiML 응답을 반환합니다. 이 사이트 대신 고유한 사이트를 사용하여 TwiML 응답을 제공할 수 있습니다. 자세한 내용은 [방법: 고유한 웹 사이트에서 TwiML 응답 제공]을(#howto_provide_twiml_responses)참조하세요.
+언급한 대로 이 코드는 Twilio 제공 사이트를 사용하여 TwiML 응답을 반환합니다. 이 사이트 대신 고유한 사이트를 사용하여 TwiML 응답을 제공할 수 있습니다. 자세한 내용은 [방법: 고유한 웹 사이트에서 TwiML 응답 제공](#howto_provide_twiml_responses).
 
 <h2><a id="howto_send_sms"></a>방법: SMS 메시지 보내기</h2>
-다음 코드는 **sendSms** 함수를 사용하여 SMS 메시지를 보내는 방법을 보여 줍니다. 평가판 계정이 SMS 메시지를 보낼 **From** 번호는 Twilio에서 제공합니다. 코드를 실행하기 전에 Twilio 계정에 대해 **To** 번호를 확인해야 합니다.
+다음 코드는 **sendSms** 함수를 사용하여 SMS 메시지를 보내는 방법을 보여 줍니다. 평가판 계정이 SMS 메시지를 보낼 **From** 번호는 자동으로 입력됩니다. 코드를 실행하기 전에 Twilio 계정에 대해 **To** 번호를 확인해야 합니다.
 
     var twilio = require('twilio');
 
@@ -156,10 +170,7 @@ Twilio는 Node.js 라이브러리를 제공하며, 이 라이브러리는 Twilio
 
 응용 프로그램에서 Twilio API에 대한 호출을 시작하면(예: client.InitiateOutboundCall 메서드를 통해) Twilio에서 TwiML 응답을 반환해야 하는 URL로 요청을 보냅니다. 방법: 발신 전화 걸기의 예제에서는 Twilio 제공 URL인 http://twimlets.com/message를 사용하여 응답을 반환합니다.
 
-<div class="dev-callout">
-<b>참고</b>
-<p>TwiML이 웹 서비스에 사용하도록 설계되었지만 브라우저에서도 TwiML을 볼 수 있습니다. 예를 들어 <a href="http://twimlets.com/message">twimlet_message_url</a> 을 클릭하면 빈 &lt;Response&gt; 요소를 볼 수 있습니다. 또는 다른 예로 <a href="http://twimlets.com/message?Message%5B0%5D=Hello%20World">twimlet_message_url_hello_world</a> 를 클릭하면 &lt;Say&gt; 요소가 포함된 &lt;Response&gt; 요소를 볼 수 있습니다.</p>
-</div>
+> [AZURE.NOTE] TwiML이 웹 서비스에 사용하도록 설계되었지만 브라우저에서도 TwiML을 볼 수 있습니다. 예를 들어 [twimlet_message_url](http://twimlets.com/message)을 클릭하면 빈 &lt;Response&gt; 요소를 볼 수 있습니다. 또 다른 예로, [twimlet_message_url_hello_world](http://twimlets.com/message?Message%5B0%5D=Hello%20World)를 클릭하면 &lt;Say&gt; 요소가 포함된 &lt;Response&gt; 요소를 볼 수 있습니다.
 
 Twilio 제공 URL을 사용하지 않고 HTTP 응답을 반환하는 고유한 URL 사이트를 만들 수 있습니다. HTTP 응답을 반환하는 사이트는 어떤 언어로든 만들 수 있습니다. 이 항목에서는 ASP.NET 제네릭 처리기에서 URL을 호스트한다고 가정합니다.
 
@@ -174,7 +185,7 @@ Twilio 제공 URL을 사용하지 않고 HTTP 응답을 반환하는 고유한 U
         response.send(200, resp.toString());
     };
 
-TwiML에 대한 자세한 내용은 [https://www.twilio.com/docs/api/twiml](영문)을(https://www.twilio.com/docs/api/twiml)참조하세요.
+TwiML에 대한 자세한 내용은 다음을 참조하세요. [https://www.twilio.com/docs/api/twiml](https://www.twilio.com/docs/api/twiml).
 
 TwiML 응답을 제공하는 방법을 설정한 후에는 다음 코드 샘플에 표시된 것처럼 **client.makeCall** 메서드로 해당 URL을 전달할 수 있습니다.
     
@@ -196,7 +207,7 @@ TwiML 응답을 제공하는 방법을 설정한 후에는 다음 코드 샘플�
         });
     };
 
-[WACOM.INCLUDE [twilio_additional_services_and_next_steps](../includes/twilio_additional_services_and_next_steps.md)]
+[AZURE.INCLUDE [twilio_additional_services_and_next_steps](../includes/twilio_additional_services_and_next_steps.md)]
 
 
 [twilio_rest_making_calls]: http://www.twilio.com/docs/api/rest/making-calls
@@ -218,4 +229,5 @@ TwiML 응답을 제공하는 방법을 설정한 후에는 다음 코드 샘플�
 [azure_twilio_howto_python]: /ko-kr/develop/python/how-to-guides/twilio-voice-and-sms-service/
 [azure_twilio_howto_php]: /ko-kr/develop/php/how-to-guides/twilio-voice-and-sms-service/
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

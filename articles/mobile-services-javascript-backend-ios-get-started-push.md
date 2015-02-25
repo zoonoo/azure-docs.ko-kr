@@ -1,12 +1,12 @@
-<properties urlDisplayName="Get Started with Push (iOS)" pageTitle="푸시 알림 시작(iOS) | 모바일 개발자 센터" metaKeywords="" description="Azure 모바일 서비스를 사용하여 iOS 앱에 푸시 알림을 보내는 방법에 대해 알아봅니다." metaCanonical="http://www.windowsazure.com/ko-kr/develop/mobile/tutorials/get-started-with-push-dotnet/" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" solutions="" manager="dwrede" editor="" authors="krisragh" />
+﻿<properties pageTitle="푸시 알림 시작(iOS) | 모바일 개발자 센터" description="Azure 모바일 서비스를 사용하여 iOS 앱에 푸시 알림을 보내는 방법에 대해 알아봅니다." services="mobile-services, notification-hubs" documentationCenter="ios" manager="dwrede" editor="" authors="krisragh"/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="krisragh" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="12/15/2014" ms.author="krisragh"/>
 
 # 모바일 서비스 앱에 푸시 알림 추가
 
-[WACOM.INCLUDE [mobile-services-selector-get-started-push](../includes/mobile-services-selector-get-started-push.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-push](../includes/mobile-services-selector-get-started-push.md)]
 
-이 항목에서는 Azure 모바일 서비스를 사용하여 iOS 앱에 APNS(Apple 푸시 알림 서비스)를 통해 푸시 알림을 보내는 방법에 대해 설명합니다. 이 자습서에서는 [퀵 스타트 프로젝트](http://azure.microsoft.com/ko-kr/documentation/articles/mobile-services-ios-get-started/)에 대한 Azure 알림 허브를 사용하여 푸시 알림을 사용하도록설정합니다. 이 작업을 완료하면 레코드가 삽입될 때마다 모바일 서비스에서 푸시 알림을 전송합니다.
+이 항목에서는 Azure 모바일 서비스를 사용하여 iOS 앱에 APNS(Apple 푸시 알림 서비스)를 통해 푸시 알림을 보내는 방법에 대해 설명합니다. 이 자습서에서는 [퀵 스타트 프로젝트](http://azure.microsoft.com/ko-kr/documentation/articles/mobile-services-ios-get-started/)에 대한 Azure 알림 허브를 사용하여 푸시 알림을 사용하도록 설정합니다. 이 작업을 완료하면 레코드가 삽입될 때마다 모바일 서비스에서 푸시 알림을 전송합니다.
 
 이 자습서에서는 푸시 알림을 사용하도록 설정하는 다음 기본 단계를 단계별로 안내합니다.
 
@@ -21,21 +21,21 @@
 이 자습서를 사용하려면 다음이 필요합니다.
 
 + [모바일 서비스 iOS SDK]
-+ [XCode 4.5][Install Xcode](영문)
++ [XCode 4.5][Xcode 설치]
 + iOS 6.0(이상) 지원 장치
 + iOS 개발자 프로그램 멤버 자격
 
-   > [WACOM.NOTE] 푸시 알림 구성 요구 사항 때문에 에뮬레이터 대신 iOS 지원 장치(iPhone 또는 iPad)에서 푸시 알림을 배포 및 테스트해야 합니다.
+   > [AZURE.NOTE] 푸시 알림 구성 요구 사항 때문에 에뮬레이터 대신 iOS 지원 장치(iPhone 또는 iPad)에서 푸시 알림을 배포 및 테스트해야 합니다.
 
-이 자습서는 모바일 서비스 퀵 스타트를 기반으로 합니다. 이 자습서를 시작하기 전에 먼저 [모바일 서비스 시작](영문)을 완료해야 합니다.
+이 자습서는 모바일 서비스 퀵 스타트를 기반으로 합니다. 이 자습서를 시작하기 전에 먼저 [모바일 서비스 시작] 또는 [기존 앱에 모바일 서비스 추가][데이터 시작]을 완료해야 합니다.
 
 
-[WACOM.INCLUDE [Enable Apple Push Notifications](../includes/enable-apple-push-notifications.md)]
+[AZURE.INCLUDE [Enable Apple Push Notifications](../includes/enable-apple-push-notifications.md)]
 
 
 ## <a id="configure"></a>푸시 요청을 보내도록 모바일 서비스 구성
 
-[WACOM.INCLUDE [mobile-services-apns-configure-push](../includes/mobile-services-apns-configure-push.md)]
+[AZURE.INCLUDE [mobile-services-apns-configure-push](../includes/mobile-services-apns-configure-push.md)]
 
 ## <a id="update-scripts"></a>관리 포털에서 등록된 삽입 스크립트 업데이트
 
@@ -68,7 +68,7 @@
    	새 삽입 스크립트가 등록되며, 이 스크립트는 [apns 개체]를 사용하여 삽입 요청에 제공된 장치에 푸시 알림(삽입된 텍스트)을 보냅니다.
 
 
-   	> [WACOM.NOTE] 이 스크립트는 앱을 닫고 푸시 알림을 수신할 수 있는 시간을 주기 위해 알림 전송을 지연시킵니다.
+   	> [AZURE.NOTE] 이 스크립트는 앱을 닫고 푸시 알림을 수신할 수 있는 시간을 주기 위해 알림 전송을 지연시킵니다.
 
 ## <a id="add-push"></a>앱에 푸시 알림 추가
 
@@ -124,13 +124,13 @@
 
 이제 푸시 알림을 지원하도록 앱이 업데이트됩니다.
 
-## <a id="test"></a>앱에서 푸시 알림 테스트
+## <a id="test"></a> 앱에서 푸시 알림 테스트
 
-1. **실행** 단추를 눌러 프로젝트를 빌드하고 iOS 지원 장치에서 앱을 시작한 다음 **확인**을 클릭하여 푸시 알림을 수락합니다.
+1. **실행** 단추를 눌러 프로젝트를 빌드하고 iOS 지원 장치에서 앱을 시작한 다음, **확인**을 클릭하여 푸시 알림을 수락합니다.
 
   	![][23]
 
-    > [WACOM.NOTE] 앱에서 푸시 알림을 명시적으로 수락해야 합니다. 이 요청은 앱이 처음 실행될 때만 발생합니다.
+    > [AZURE.NOTE] 앱에서 푸시 알림을 명시적으로 수락해야 합니다. 이 요청은 앱이 처음 실행될 때만 수행됩니다.
 
 2. 앱에서 _새 모바일 서비스 작업_과 같은 의미 있는 텍스트를 입력하고 더하기(**+**) 아이콘을 클릭합니다.
 
@@ -153,24 +153,24 @@
 + [인증된 사용자에게 푸시 알림 보내기]
 	<br/>태그를 사용하여 모바일 서비스의 푸시 알림을 인증된 사용자에게만 보내는 방법에 대해 알아봅니다.
 
-+ [구독자에게 브로드케스트 알림 보내기]
++ [구독자에게 브로드캐스트 알림 보내기]
 	<br/>사용자가 관심 있어 하는 범주에 대해 푸시 알림을 등록하고 수신하는 방법을 설명합니다.
+<!---
++ [구독자에게 템플릿 기반 알림 보내기]
+	<br/>백 엔드에 플랫폼 전용 페이로드를 마련할 필요 없이 템플릿을 사용하여 모바일 서비스에서 푸시 알림을 보내는 방법에 대해 알아봅니다.
+-->
+다음 항목에서 모바일 서비스 및 알림 허브에 대해 알아보세요.
 
-<!---+ [구독자에게 템플릿 기반 알림 보내기]
-	<br/>템플릿을 사용하여 백 엔드에 플랫폼별 페이로드를 작성하지 않고도 모바일 서비스에서 푸시 알림을 보내도록 하는 방법을 알아봅니다.
+* [데이터 시작]
+  <br/>모바일 서비스를 사용하여 데이터를 저장 및 쿼리하는 방법에 대해 자세히 알아봅니다.
 
-다음 항목에서 모바일 서비스 및 알림 허브에 대해 알아보세요.-->
-
-* [데이터 시작](영문)
-  <br/>모바일 서비스를 사용하여 데이터를 저장 및 쿼리하는 방법에 대해 자세히 알아보세요.
-
-* [인증 시작](영문)
+* [인증 시작]
   <br/>모바일 서비스를 사용하여 서로 다른 계정 유형의 앱 사용자를 인증하는 방법에 대해 알아봅니다.
 
 * [알림 허브 정의]
   <br/>모든 주요 클라이언트 플랫폼에 걸쳐 알림 허브가 앱에 알림을 전달하는 방법에 대해 알아봅니다.
 
-* [알림 허브 응용 프로그램 디버그](http://go.microsoft.com/fwlink/p/?linkid=386630)
+* [알림 허브 응용 프로그램 디버깅](http://go.microsoft.com/fwlink/p/?linkid=386630)
   </br>알림 허브 솔루션 문제를 해결하고 솔루션을 디버그하기 위한 지침을 얻습니다. 
 
 * [모바일 서비스 Objective-C 방법 개념 참조]
@@ -220,13 +220,13 @@
 [117]: ./media/mobile-services-ios-get-started-push/mobile-services-ios-push-17.png
 
 <!-- URLs.   -->
-[Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
-[iOS 프로비저닝 포털]: http://go.microsoft.com/fwlink/p/?LinkId=272456
+[Xcode 설치](영문): https://go.microsoft.com/fwLink/p/?LinkID=266532
+[iOS 프로비전 포털]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 [모바일 서비스 iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [Apple 푸시 알림 서비스]: http://go.microsoft.com/fwlink/p/?LinkId=272584
-[모바일 서비스 시작]: /ko-kr/documentation/articles/mobile-services-ios-get-started
+[모바일 서비스 시작](영문): /ko-kr/documentation/articles/mobile-services-ios-get-started
 [데이터 시작]: /ko-kr/documentation/articles/mobile-services-ios-get-started-data
-[인증 시작]: /ko-kr/documentation/articles/mobile-services-ios-get-started-users
+[인증 시작](영문): /ko-kr/documentation/articles/mobile-services-ios-get-started-users
 [Azure 관리 포털]: https://manage.windowsazure.com/
 [apns 개체]: http://go.microsoft.com/fwlink/p/?LinkId=272333
 
@@ -235,9 +235,10 @@
 [인증된 사용자에게 푸시 알림 보내기]: /ko-kr/documentation/articles/mobile-services-javascript-backend-ios-push-notifications-app-users/
 
 [알림 허브 정의]: /ko-kr/documentation/articles/notification-hubs-overview/
-[구독자에게 브로드케스트 알림 보내기]: /ko-kr/documentation/articles/notification-hubs-ios-send-breaking-news/
+[구독자에게 브로드캐스트 알림 보내기]: /ko-kr/documentation/articles/notification-hubs-ios-send-breaking-news/
 [구독자에게 템플릿 기반 알림 보내기]: /ko-kr/documentation/articles/notification-hubs-ios-send-localized-breaking-news/
 
 [모바일 서비스 Objective-C 방법 개념 참조]: /ko-kr/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

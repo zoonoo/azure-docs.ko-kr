@@ -1,8 +1,8 @@
-<properties pageTitle="PhoneGap에서 모바일 서비스 시작 | 모바일 개발자 센터" metaKeywords="" description="이 자습서에 따라 Azure 모바일 서비스를 사용하여 iOS, Android 및 Windows Phone용 PhoneGap 개발을 시작할 수 있습니다." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="PhoneGap에서 모바일 서비스 시작 | 모바일 개발자 센터" description="이 자습서에 따라 Azure 모바일 서비스를 사용하여 iOS, Android 및 Windows Phone용 PhoneGap 개발을 시작할 수 있습니다." services="mobile-services" documentationCenter="" authors="ggailey777" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-phonegap" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="glenga" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-phonegap" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="glenga"/>
 
-[WACOM.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
 
 # <a name="getting-started"> </a>모바일 서비스 시작
 
@@ -18,14 +18,14 @@
 
 PhoneGap은 다중 플랫폼용 개발을 지원합니다. PhoneGap 도구 자체 외에도 각각의 대상 플랫폼에 맞는 도구를 설치해야 합니다.
 
-- Windows Phone: [Visual Studio 2012 Express for Windows Phone] 설치(https://go.microsoft.com/fwLink/p/?LinkID=268374)
-- iOS: [Xcode(영문)] 설치(v4.4+ 필요)
-- Android: [Android Developer Tools(영문)][Android SDK] 설치
+- Windows Phone: [Visual Studio 2012 Express for Windows Phone](https://go.microsoft.com/fwLink/p/?LinkID=268374) 설치
+- iOS: [Xcode] 설치(v4.4 이상 필요)
+- Android: [Android 개발자 도구][Android SDK] 설치
 	<br/>(Android용 모바일 서비스 SDK는 Android 2.2 이상용 앱을 지원합니다. 퀵 스타트 앱을 실행하려면 Android 4.2 이상이 필요합니다.)
 
 ## <a name="create-new-service"> </a>새 모바일 서비스 만들기
 
-[WACOM.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
+[AZURE.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
 
 <h2>새 PhoneGap 앱 만들기</h2>
 
@@ -47,7 +47,7 @@ PhoneGap은 다중 플랫폼용 개발을 지원합니다. PhoneGap 도구 자�
 
 4. **TodoItems 테이블 만들기**를 클릭하여 앱 데이터를 저장할 테이블을 만듭니다.
 
-5. Under **앱 다운로드 및 실행** 아래에서 **다운로드**를 클릭합니다. 
+5. **앱 다운로드 및 실행** 아래에서 **다운로드**를 클릭합니다. 
 
 	모바일 서비스 JavaScript SDK와 함께 모바일 서비스에 연결된 샘플 _To do list_ 응용 프로그램에 대한 프로젝트가 다운로드됩니다. 압축된 프로젝트 파일을 로컬 컴퓨터에 저장하고 저장 위치를 기록해 둡니다.
 
@@ -77,24 +77,24 @@ PhoneGap은 다중 플랫폼용 개발을 지원합니다. PhoneGap 도구 자�
 
 	+ **Android**
 
-		1. Eclipse에서 **File**과 **Import**를 차례로 클릭하고 **Android**를 확장한 후 **Existing Android Code into Workspace**, **Next**를 차례로 클릭합니다. 
+		1. Eclipse에서 **파일**과 **가져오기**를 클릭하고 **Android**를 확장한 후 **Existing Android Code into Workspace**를 클릭한 다음 **다음**을 클릭합니다. 
 		
-		2. **Browse**를 클릭하고 압축을 푼 프로젝트 파일 위치로 이동한 후 **OK**를 클릭하고 TodoActivity 프로젝트가 선택되어 있는지 확인한 후 **Finish**를 클릭합니다. <p>현재 작업 영역에 프로젝트 파일을 가져옵니다.</p>
+		2. **찾아보기**를 클릭하고 압축을 푼 프로젝트 파일 위치로 이동한 후 **확인**을 클릭합니다. TodoActivity 프로젝트가 선택되었는지 확인하고 **마침**을 클릭합니다. <p>현재 작업 영역에 프로젝트 파일을 가져옵니다.</p>
 		
-		3. **Run** 메뉴에서 **Run**을 클릭하여 Android 에뮬레이터에서 프로젝트를 시작합니다.
+		3. **실행** 메뉴에서 **실행**을 클릭하여 Android 에뮬레이터에서 프로젝트를 시작합니다.
 		
 			![][4]
 	
-		>[WACOM.NOTE]Android 에뮬레이터에서 프로젝트를 실행할 수 있으려면 AVD(Android Virtual Device)를 하나 이상 정의해야 합니다. AVD Manager를 사용하여 이러한 장치를 만들고 관리합니다.
+		>[AZURE.NOTE]Android 에뮬레이터에서 프로젝트를 실행할 수 있으려면 AVD(Android Virtual Device)를 하나 이상 정의해야 합니다. AVD Manager를 사용하여 이러한 장치를 만들고 관리합니다.
 			
 	
 3. 위의 모바일 에뮬레이터 중 하나에서 앱을 시작한 후 텍스트 상자에 텍스트를 입력하고 **추가**를 클릭합니다.
 
 	Azure에 호스트된 새 모바일 서비스에 POST 요청이 전송됩니다. 요청의 데이터가 **TodoItem** 테이블에 삽입됩니다. TodoItem 테이블에 저장된 항목이 모바일 서비스에서 반환된 후 데이터가 목록에 표시됩니다.
 
-	<div class="dev-callout"><strong>중요</strong> <p>PhoneGap 도구로 기본 프로젝트를 다시 빌드하는 경우 이 플랫폼 프로젝트에 대한 변경 사항을 덮어쓰게 됩니다. 대신 아래의 섹션에서 설명하는 것처럼 프로젝트의 루트 www 디렉터리에서 변경하세요.</p></div>
+	> [AZURE.IMPORTANT] PhoneGap 도구로 기본 프로젝트를 다시 빌드하는 경우 이 플랫폼 프로젝트에 대한 변경 사항을 덮어쓰게 됩니다. 대신 아래의 섹션에서 설명하는 것처럼 프로젝트의 루트 www 디렉터리에서 변경하세요.
 
-4. 관리 포털로 돌아와서 <strong>데이터</strong> 탭을 클릭한 다음 <strong>TodoItems</strong> 테이블을 클릭합니다.
+4. 관리 포털로 돌아가서 <strong>데이터</strong> 탭을 클릭한 후 <strong>TodoItems</strong> 테이블을 클릭합니다.
 
 	![](./media/mobile-services-javascript-backend-phonegap-get-started/mobile-data-tab.png)
 
@@ -132,15 +132,15 @@ PhoneGap은 다중 플랫폼용 개발을 지원합니다. PhoneGap 도구 자�
 
 4. 이전 섹션에서 설명한 것처럼 적절한 개발 환경에서 각 프로젝트를 엽니다.
 
->[WACOM.NOTE]모바일 서비스에 액세스하여 데이터를 쿼리 및 삽입하는 코드를 검토할 수 있습니다. 이 코드는 js/index.js 파일에 있습니다.
+>[AZURE.NOTE]모바일 서비스에 액세스하여 데이터를 쿼리 및 삽입하는 코드를 검토할 수 있습니다. 이 코드는 js/index.js 파일에 있습니다.
 
 ## <a name="next-steps"> </a>다음 단계
 이제 퀵 스타트를 완료했으며 모바일 서비스에서 중요한 추가 작업을 수행하는 방법을 알아보겠습니다. 
 
-* [데이터 시작(영문)]
-  <br/>모바일 서비스를 사용하여 데이터를 저장 및 쿼리하는 방법에 대해 자세히 알아보세요.
+* [데이터 시작]
+  <br/>모바일 서비스를 사용하여 데이터를 저장 및 쿼리하는 방법에 대해 자세히 알아봅니다.
 
-* [인증 시작(영문)]
+* [인증 시작](영문)
   <br/>ID 공급자를 사용하여 앱 사용자를 인증하는 방법을 알아봅니다.
   
 <!-- Images. -->
@@ -151,13 +151,14 @@ PhoneGap은 다중 플랫폼용 개발을 지원합니다. PhoneGap 도구 자�
 [4]: ./media/mobile-services-javascript-backend-phonegap-get-started/mobile-portal-quickstart-android.png
 
 <!-- URLs. -->
-[데이터 시작(영문)]: /ko-kr/documentation/articles/mobile-services-html-get-started-data
-[인증 시작(영문)]: /ko-kr/documentation/articles/mobile-services-html-get-started-users
+[데이터 시작]: /ko-kr/documentation/articles/mobile-services-html-get-started-data
+[인증 시작](영문): /ko-kr/documentation/articles/mobile-services-html-get-started-users
 [푸시 알림 시작]: /ko-kr/develop/mobile/tutorials/mobile-services-html-get-started-push
-[Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
+[Android SDK](영문): https://go.microsoft.com/fwLink/p/?LinkID=280125
 [관리 포털]: https://manage.windowsazure.com/
-[Xcode(영문)]: https://go.microsoft.com/fwLink/p/?LinkID=266532
+[Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Visual Studio 2012 Express for Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374
 
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

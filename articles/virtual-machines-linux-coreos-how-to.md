@@ -1,10 +1,10 @@
-﻿<properties title="How to Use CoreOS on Azure" pageTitle="Azure에서 CoreOS를 사용하는 방법" description="CoreOS, Azure에서 CoreOS 가상 컴퓨터를 만드는 방법 및 기본적인 사용 방법에 대해 설명합니다." metaKeywords="linux, virtual machines, vm, azure, CoreOS, linux containers,  lxc, virtualization" services="virtual-machines" solutions="dev-test" documentationCenter="virtual-machines" authors="rasquill" videoId="" scriptId="" manager="timlt" />
+﻿<properties pageTitle="Azure에서 CoreOS를 사용하는 방법" description="CoreOS, Azure에서 CoreOS 가상 컴퓨터를 만드는 방법 및 기본적인 사용 방법에 대해 설명합니다." services="virtual-machines" documentationCenter="" authors="squillace" manager="timlt" editor=""/>
 
-<tags ms.service="virtual-machines" ms.devlang="multiple" ms.topic="article" ms.tgt_pltfrm="vm-linux" ms.workload="infrastructure-services" ms.date="10/27/2014" ms.author="rasquill" />
+<tags ms.service="virtual-machines" ms.devlang="multiple" ms.topic="article" ms.tgt_pltfrm="vm-linux" ms.workload="infrastructure-services" ms.date="10/27/2014" ms.author="rasquill"/>
 
-<!--This is a basic template that shows you how to use mark down to create a topic that includes a TOC, sections with subheadings, links to other azure.microsoft.com topics, links to other sites, bold text, italic text, numbered and bulleted lists, code snippets, and images. For fancier markdown, find a published topic and copy the markdown or HTML you want. For more details about using markdown, see http://sharepoint/sites/azurecontentguidance/wiki/Pages/Content%20Guidance%20Wiki%20Home.aspx.-->
+<!--이것은 마크다운(mark down)을 사용하여 목차, 부제목이 포함된 섹션, 다른 azure.microsoft.com 항목의 링크, 다른 사이트의 링크, 굵은 텍스트, 기울임꼴 텍스트, 번호 매기기 및 글머리 기호 목록, 코드 조각 및 이미지를 포함하는 항목을 만드는 방법을 보여 주는 기본 템플릿입니다. 고급 마크다운의 경우 게시된 항목을 찾고 원하는 마크다운 또는 HTML을 복사합니다. 마크다운 사용에 대한 자세한 내용은 http://sharepoint/sites/azurecontentguidance/wiki/Pages/Content%20Guidance%20Wiki%20Home.aspx 웹 사이트를 참조하세요.-->
 
-<!--Properties section (above): this is required in all topics. Please fill it out! See http://sharepoint/sites/azurecontentguidance/wiki/Pages/Markdown%20tagging%20-%20add%20a%20properties%20section%20to%20your%20markdown%20file%20to%20specify%20metadata%20values.aspx for details. -->
+<!--속성 섹션(위): 모든 항목에 필요합니다. 작성해 주세요! 자세한 내용은 http://sharepoint/sites/azurecontentguidance/wiki/Pages/Markdown%20tagging%20-%20add%20a%20properties%20section%20to%20your%20markdown%20file%20to%20specify%20metadata%20values.aspx 웹 사이트를 참조하세요. -->
 
 <!-- Tags section (above): this is required in all topics. Please fill it out! See http://sharepoint/sites/azurecontentguidance/wiki/Pages/Markdown%20tagging%20-%20add%20a%20tags%20section%20to%20your%20markdown%20file%20to%20specify%20metadata%20for%20reporting.aspx for details. -->
 
@@ -34,7 +34,7 @@ CoreOS는 [Docker] 컨테이너를 비롯한 Linux 컨테이너만을 패키징 
 
 1. 단일 패키지 시스템: CoreOS는 높은 속도와 통일성 및 손쉬운 배포를 위해 Linux 컨테이너에서 실행되는 Linux 컨테이너 이미지만을 실행합니다.
 2. 운영 체제 업데이트가 원자 방식으로 수행되므로 운영 체제를 단일 엔터티로 업데이트하고 알려진 상태로 쉽게 롤백할 수 있습니다.
-3. 동적 VM 및 클러스터 통신과 관리를 위한 [etcd](https://github.com/coreos/etcd) 및 [fleet](https://github.com/coreos/fleet) 디먼(서비스)이 기본 제공됩니다.
+3. 동적 VM 및 클러스터 통신과 관리를 위한 [etcd](https://github.com/coreos/etcd) 및 [fleet](https://github.com/coreos/fleet) 데몬(서비스)이 기본 제공됩니다.
 
 위의 항목은 CoreOS 및 해당 기능에 대한 매우 일반적인 설명입니다. CoreOS에 대한 전체 설명은 [CoreOS 개요]를 참조하세요.
 
@@ -47,20 +47,20 @@ CoreOS는 [Docker] 컨테이너를 비롯한 Linux 컨테이너만을 패키징 
 
 1. CoreOS 가상 컴퓨터와의 통신을 보호하기 위한 SSH 인증서와 키를 만듭니다.
 2. 상호 통신을 위한 클러스터의 etcd ID를 가져옵니다.
-3. [YAML] 형식의 cloud-config 파일을 만듭니다 .
+3. [YAML] 형식의 cloud-config 파일을 만듭니다.
 4. xplat-cli를 사용하여 새 Azure 클라우드 서비스와 3개 CoreOS VM을 만듭니다.
 5. Azure VM에서 CoreOS 클러스터를 테스트합니다.
 6. localhost에서 CoreOS 클러스터를 테스트합니다. 
 
 ### 통신용 공용 키와 개인 키 만들기
  
-[Azure에서 Linux와 함께 SSH를 사용하는 방법](http://azure.microsoft.com/ko-kr/documentation/articles/virtual-machines-linux-use-ssh-key/) 의 지침을 사용하여 SSH에 대한 공용 및 개인 키를 만듭니다. 기본 단계는 아래 지침에 나와 있습니다. 이러한 키를 사용하여 클러스터의 VM에 연결해 VM이 작동하며 서로 통신할 수 있는지를 확인합니다.
+[Azure에서 Linux 환경의 SSH를 사용하는 방법](http://azure.microsoft.com/ko-kr/documentation/articles/virtual-machines-linux-use-ssh-key/)의 지침에 따라 SSH용 공용 키 및 개인 키를 만듭니다. 기본 단계는 아래 지침에 나와 있습니다. 이러한 키를 사용하여 클러스터의 VM에 연결해 VM이 작동하며 서로 통신할 수 있는지를 확인합니다.
 
-> [WACOM.NOTE] 이 항목에서는 이러한 키가 없다고 가정하며, 명확한 작업을 위해 **`myPrivateKey.pem`** 및 **`myCert.pem`** 파일을 만들어야 합니다. 공용 및 개인 키 쌍을 이미 **`~/.ssh/id_rsa`**에 저장한 경우 `openssl req -x509 -key ~/.ssh/id_rsa -nodes -days 365 -newkey rsa:2048 -out myCert.pem`을 입력하여 Azure에 업로드해야 하는 .pem 파일을 얻을 수 있습니다.
+> [AZURE.NOTE] 이 항목에서는 이러한 키가 없다고 가정하며, 명확한 작업을 위해 **`myPrivateKey.pem`** 및 **`myCert.pem`** 파일을 만들어야 합니다. 공용 키와 개인 키 쌍을 이미 **`~/.ssh/id_rsa`**에 저장한 경우에는  `openssl req -x509 -key ~/.ssh/id_rsa -nodes -days 365 -newkey rsa:2048 -out myCert.pem`만 입력하여 Azure에 업로드해야 하는 .pem 파일을 가져올 수 있습니다.
 
-1. 작업 디렉터리에서 `openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout myPrivateKey.key -out myCert.pem`을 입력하여 개인 키 및 연결된 X.509 인증서를 만듭니다. 
+1. 작업 디렉터리에서  `openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout myPrivateKey.key -out myCert.pem`을 입력하여 개인 키 및 해당 키에 연결된 X.509 인증서를 만듭니다. 
 
-2. 개인 키 소유자가 파일을 읽거나 쓸 수 있도록 어설션하려면 `chmod 600 myPrivateKey.key`를 입력합니다. 
+2. 개인 키 소유자가 파일을 읽거나 쓸 수 있도록 어설션하려면  `chmod 600 myPrivateKey.key`를 입력합니다. 
 
 이제 작업 디렉터리에 **`myPrivateKey.key`** 및 **`myCert.pem`** 파일이 모두 포함되어 있습니다. 
 
@@ -77,7 +77,7 @@ curl https://discovery.etcd.io/new | grep ^http.* > etcdid
 
 계속해서 같은 작업 디렉터리에서 평소에 사용하는 텍스트 편집기를 사용해 다음 텍스트를 포함하는 파일을 만든 다음 **`cloud-config.yaml`**로 저장합니다. 파일은 원하는 이름으로 저장하면 되지만 다음 단계에서 VM을 만들 때 **azure create vm** 명령의 **--custom-data** 옵션에서 이 파일 이름을 참조해야 합니다.
 
-> [WACOM.NOTE] `cat etcdid`를 입력하여 위에서 만든 `etcdid` 파일에서 etcd 검색 ID를 가져온 후 다음 **cloud-config.yaml** 파일의 **`<token>`**을 `etcdid` 파일에서 생성된 번호로 바꿉니다. 작업 종료 시 클러스터의 유효성을 검사할 수 없는 경우 이 단계를 건너뛰었기 때문일 수 있습니다.
+> [AZURE.NOTE]  `cat etcdid`를 입력하여 위에서 만든  `etcdid` 파일에서 etcd 검색 ID를 검색한 후 다음 **cloud-config.yaml** 파일의 **`<token>`**을  `etcdid` 파일에서 생성된 번호로 바꾸세요. 작업 종료 시 클러스터의 유효성을 검사할 수 없는 경우 이 단계를 건너뛰었기 때문일 수 있습니다.
 
 ```
 #cloud-config
@@ -96,18 +96,18 @@ coreos:
       command: start
 ```
 
-cloud-config 파일에 대한 자세한 내용은 CoreOS 설명서의 [Cloud-Config 사용](https://coreos.com/docs/cluster-management/setup/cloudinit-cloud-config/) 을 참조하세요.
+cloud-config 파일에 대한 전체 정보는 CoreOS 설명서의 [Cloud-Config 사용](https://coreos.com/docs/cluster-management/setup/cloudinit-cloud-config/)을 참조하세요.
 
 ### xplat-cli를 사용하여 새 CoreOS VM 만들기
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 
 1. [Azure 플랫폼 간 인터페이스(xplat-cli)]를 아직 설치하지 않은 경우 설치하고 회사 또는 학교 ID를 사용하여 로그인하거나 .publishsettings 파일을 다운로드한 다음 계정으로 가져옵니다.
-2. CoreOS 이미지를 찾습니다. 현재는 이미지가 **`2b171e93f07c4903bcad35bda10acf22__CoreOS-Alpha-475.1.0`** 하나뿐이지만 언제든지 사용 가능한 이미지를 찾으려면 `azure vm image list | grep .*CoreOS.*`를 입력합니다. 그러면 다음과 같은 하나 이상의 결과가 표시됩니다.
+2. CoreOS 이미지를 찾습니다. 현재는 하나의 이미지(**`2b171e93f07c4903bcad35bda10acf22__CoreOS-Alpha-475.1.0`**)만 있지만 언제든지 사용 가능한 이미지를 찾으려면  `azure vm image list | grep .*CoreOS.*` and you should see one or more results similar to:
 `data:    2b171e93f07c4903bcad35bda10acf22__CoreOS-Alpha-475.1.0              Public    Linux`
-3. 
-`azure service create <cloud-service-name>`을 입력하여 기본 클러스터의 클라우드 서비스를 만듭니다. 여기서 *cloud-service-name*은 CoreOS 클라우드 서비스의 이름입니다. 이 샘플에서는 이름으로 **`coreos-cluster`**를 사용합니다. 클라우드 서비스 내에서 CoreOS vm 인스턴스를 만들기 위해 선택하는 이름을 다시 사용해야 합니다. 
+3. 기본 클러스터에 대한 클라우드 서비스를 만듭니다. 이렇게 하려면
+`azure service create <cloud-service-name>`(여기서  *cloud-service-name*은 CoreOS 클라우드 서비스의 이름)을 입력합니다. 이 샘플에서는 이름으로 **`coreos-cluster`**를 사용합니다. 클라우드 서비스 내에서 CoreOS vm 인스턴스를 만들기 위해 선택하는 이름을 다시 사용해야 합니다. 
 
-참고: 지금까지 [새 포털](https://portal.azure.com)에서 작업을 확인하고 있다면 다음 이미지와 같이 클라우드 서비스 이름이 리소스 그룹이기도 하고 도메인이기도 하다는 것을 알 수 있습니다.
+참고: [새 포털](https://portal.azure.com)에서 지금까지 수행한 작업을 확인하면 다음 이미지에 나와 있는 것처럼 클라우드 서비스 이름이 리소스 그룹이자 도메인임을 확인할 수 있습니다.
 
 ![][CloudServiceInNewPortal]  
 4. 클라우드 서비스에 연결한 다음 **azure vm create** 명령을 사용하여 서비스 내에 새 CoreOS vm을 만듭니다. **--ssh-cert** 옵션을 통해 X.509 인증서의 위치를 전달합니다. 다음을 입력하여 첫 번째 VM 이미지를 만듭니다. 이때 **coreos-cluster**는 앞에서 만든 클라우드 서비스 이름으로 바꿉니다.
@@ -130,7 +130,7 @@ azure vm create --custom-data=cloud-config.yaml --ssh=22 --ssh-cert=./myCert.pem
 
 `ssh core@coreos-cluster.cloudapp.net -p 22 -i ./myPrivateKey.key`
 
-연결되면 `sudo fleetctl list-machines`를 입력하여 클러스터가 클러스터 내의 모든 VM을 이미 식별했는지 여부를 확인합니다. 그러면 다음과 같은 응답이 표시됩니다.
+연결되면  `sudo fleetctl list-machines`를 입력하여 클러스터가 클러스터 내의 모든 VM을 이미 식별했는지 여부를 확인합니다. 그러면 다음과 같은 응답이 표시됩니다.
 
 ```
 core@node-1 ~ $ sudo fleetctl list-machines
@@ -142,7 +142,7 @@ f7de6717...	100.71.188.96	-
 
 ### localhost에서 CoreOS 클러스터 테스트
 
-마지막으로 **fleet**을 설치하여 로컬 Linux 클라이언트에서 CoreOS 클러스터를 테스트해보겠습니다. **fleet**에는 **golang**가 필요하므로 다음을 입력하여 먼저 이 기능을 설치해야 할 수 있습니다.
+마지막으로 **fleet**을 설치하여 로컬 Linux 클라이언트에서 CoreOS 클러스터를 테스트해보겠습니다. **fleet**에는 **golang**이 필요하므로 다음을 입력하여 먼저 이 기능을 설치해야 할 수 있습니다.
 
 `sudo apt-get install golang` 
 
@@ -158,11 +158,11 @@ f7de6717...	100.71.188.96	-
 
 `cp bin/fleetctl /usr/local/bin`
 
-다음을 입력하여 **fleet**가 작업 디렉터리의 `myPrivateKey.key`에 액세스할 수 있는지 확인합니다.
+다음을 입력하여 **fleet**가 작업 디렉터리의  `myPrivateKey.key`에 액세스할 수 있는지 확인합니다.
 
 `ssh-add ./myPrivateKey.key`
 
-> [WACOM.NOTE] **~/.ss h/id_rsa** 키를 이미 사용 중인 경우 `ssh-add ~/.ssh/id_rsa`를 사용하여 해당 키를 추가합니다.
+> [AZURE.NOTE] **`~/.ssh/id_rsa`** 키를 이미 사용하고 있으면  `ssh-add ~/.ssh/id_rsa`와 함께 이 키를 추가합니다.
 
 이제 **node-1**에서 사용한 것과 같은 **fleetctl** 명령을 사용하되 일부 원격 인수를 전달하여 원격으로 테스트를 수행할 수 있습니다.
 
@@ -206,4 +206,5 @@ f7de6717...	100.71.188.96	-
 [Docker]: http://docker.io
 [YAML]: http://yaml.org/
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

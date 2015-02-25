@@ -1,20 +1,34 @@
-﻿<properties title="Getting Started with Mobile Services" pageTitle="" metaKeywords="Azure, Getting Started, Mobile Services" description="" services="mobile-services" documentationCenter="" authors="ghogen, kempb" />
+﻿<properties 
+	pageTitle="" 
+	description="" 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="kempb" 
+	manager="douge" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="web" ms.tgt_pltfrm="vs-getting-started" ms.devlang="na" ms.topic="article" ms.date="10/8/2014" ms.author="ghogen, kempb" />
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="vs-getting-started" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/8/2014" 
+	ms.author="kempb"/>
 
 > [AZURE.SELECTOR]
-> - [시작하기](/documentation/articles/vs-mobile-services-cordova-getting-started/)
+> - [시작](/documentation/articles/vs-mobile-services-cordova-getting-started/)
 > - [변경된 내용](/documentation/articles/vs-mobile-services-cordova-what-happened/)
 
 ## 모바일 서비스 시작(Cordova 프로젝트)
 
 이 예에서 코드를 따르기 위해 해야 할 첫 번째 단계는 연결할 모바일 서비스 유형에 따라 다릅니다.
 
-JavaScript 백엔드 모바일 서비스의 경우 TodoItem이라는 이름의 테이블을 만듭니다.  테이블을 만들려면 서버 탐색기의 Azure 노드에서 모바일 서비스를 찾고, 모바일 서비스 노드를 마우스 오른쪽으로 클릭하여 상황에 맞는 메뉴를 연 다음 **테이블 만들기**를 선택합니다. 테이블 이름으로 "TodoItem"을 입력합니다.
+JavaScript 백엔드 모바일 서비스의 경우 TodoItem이라는 이름의 테이블을 만듭니다.  테이블을 만들려면 서버 탐색기의 Azure 노드에서 모바일 서비스를 찾고, 모바일 서비스 노드를 마우스 오른쪽으로 클릭하여 상황에 맞는 메뉴를 연 다음 **테이블 만들기**를 선택합니다. "TodoItem"을 테이블 이름으로 입력합니다.
 
-대신 .NET 백엔드 모바일 서비스가 있는 경우 Visual Studio에서 사용자를 위해 만든 기본 프로젝트 템플릿에 TodoItem 테이블이 이미 있습니다. 하지만 이 테이블을 Azure에 게시해야 합니다. 테이블을 게시하려면 솔루션 탐색기에서 모바일 서비스 프로젝트의 상황에 맞는 메뉴를 연 다음 **웹 게시**를 선택합니다. 기본값을 수락하고 **게시** 단추를 선택합니다.
+대신 .NET 백엔드 모바일 서비스가 있는 경우 Visual Studio에서 사용자를 위해 만든 기본 프로젝트 템플릿에 TodoItem 테이블이 이미 있습니다. 하지만 이 테이블을 Azure에 게시해야 합니다. 테이블을 게시하려면 솔루션 탐색기에서 모바일 서비스 프로젝트의 상황에 맞는 메뉴를 연 다음 **웹 게시**를 선택합니다. 기본값을 사용하려면 **게시** 단추를 선택합니다.
   
->[WACOM.NOTE]**Cordova 프로젝트에서 Azure 모바일 서비스를 사용하려면 이 [해결 방법](http://go.microsoft.com/fwlink/?LinkId=518765)을 따릅니다.**
+>[AZURE.NOTE]**Visual Studio 2015 Preview를 사용하여 빌드된 프로젝트에서 Azure 모바일 서비스를 사용하려면 이 [해결 방법](http://go.microsoft.com/fwlink/?LinkId=518765)을 따릅니다. 이후 버전의 Visual Studio 2015를 사용하는 프로젝트에는 이 해결 방법이 필요 없습니다.**
 
 #####테이블에 대한 참조 가져오기
 
@@ -78,3 +92,5 @@ where 메서드를 사용하여 쿼리를 수정할 수 있습니다. 다음은 
 	});
 
 [모바일 서비스에 대한 자세한 정보](http://azure.microsoft.com/documentation/services/mobile-services/)
+
+<!--HONumber=42-->

@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="New Relic" pageTitle="Azure에서 New Relic 사용 - Azure 기능 가이드" metaKeywords="" description="New Relic 서비스를 사용하여 Azure 응용 프로그램을 관리 및 모니터링하는 방법에 대해 알아봅니다." metaCanonical="" services="" documentationCenter=".NET" title="New Relic Application Performance Management on Azure" authors="" solutions="" manager="carolz" editor="" />
+﻿<properties 
+	pageTitle="Azure에서 New Relic 사용 - Azure 기능 가이드" 
+	description="New Relic 서비스를 사용하여 Azure 응용 프로그램을 관리 및 모니터링하는 방법에 대해 알아봅니다." 
+	services="" 
+	documentationCenter=".net" 
+	authors="stepsic-microsoft-com" 
+	manager="carolz" 
+	editor=""/>
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/25/2014" ms.author="stepsic" />
+<tags 
+	ms.service="cloud-services" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="11/25/2014" 
+	ms.author="stepsic"/>
 
 
 
@@ -21,12 +35,9 @@ Azure 스토어에서 제공하는 New Relic의 특별 가격
 New Relic Standard는 Azure 사용자에게 무료이며,
 New Relic Pro는 Azure 클라우드 서비스의 인스턴스 크기에 따라 제공됩니다.
 
-가격 책정 정보는 [Azure 스토어의 New Relic 페이지](http://www.windowsazure.com/ko-kr/gallery/store/new-relic/new-relic/)(영문)를 참조하세요.
+가격 책정 정보는 [Azure 스토어의 New Relic 페이지](http://www.windowsazure.com/ko-kr/gallery/store/new-relic/new-relic/)를 참조하세요.
 
-<div class="dev-callout"> 
-<strong>참고:</strong>
-<p>최대 10개의 계산 인스턴스에 대해서만 가격이 책정됩니다. 인스턴스가 11개 이상인 경우에는 New Relic(sales@newrelic.com)에 볼륨 가격을 문의하세요.</p>
-</div>
+> [AZURE.NOTE] 최대 10개의 계산 인스턴스에 대해서만 가격이 책정됩니다. 인스턴스가 11개 이상인 경우에는 New Relic(sales@newrelic.com)에 볼륨 가격을 문의하세요.
 
 Azure 고객은 New Relic 에이전트를 배포할 때 New Relic Pro에 대해 2주의 평가판 구독을 받습니다.
 
@@ -37,7 +48,7 @@ New Relic은 Azure 웹 역할 및 작업자 역할과 원활하게 통합됩니�
 
 Azure 스토어에서 직접 New Relic에 등록하려면 다음과 같이 간단한 세 단계를 수행하세요.
 
-### 1단계: Azure 스토어를 통해 등록
+### 1단계. Azure 스토어를 통해 등록
 
 1. [Azure 관리 포털](https://manage.windowsazure.com)에 로그인합니다.
 2. 관리 포털의 아래쪽 창에서 **새로 만들기**를 클릭합니다.
@@ -55,8 +66,7 @@ Azure 스토어에서 직접 New Relic에 등록하려면 다음과 같이 간�
 
 ### 2단계. Nuget 패키지 설치
 
-1. Visual Studio 솔루션을 열거나
-   **파일 > 새로 만들기 > 프로젝트**를 선택하여 새로 만듭니다.
+1. Visual Studio 솔루션을 열거나 **파일 > 새로 만들기 > 프로젝트**를 선택하여 새로 만듭니다.
 
 	![Visual Studio](./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelicAzureNuget01.png)
 
@@ -68,8 +78,7 @@ Azure 스토어에서 직접 New Relic에 등록하려면 다음과 같이 간�
 
 	![Package manager console](./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelicAzureNuget04.png)
 
-4. 패키지 관리자 명령 프롬프트에서 'Install-Package
-   NewRelicWindowsAzure'를 입력하고 **Enter** 키를 누릅니다.
+4. 패키지 관리자 명령 프롬프트에서  `Install-Package NewRelicWindowsAzure`를 입력한 후 **Enter** 키를 누릅니다.
 
 	![install in package manager](./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelicAzureNuget06.png)
 
@@ -86,7 +95,8 @@ Azure 스토어에서 직접 New Relic에 등록하려면 다음과 같이 간�
 	![public the cloud project](./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelicAzureNuget09.png)
 
 
-**참고:** Azure에 이 앱을 처음 배포하는 경우 Azure 자격 증명을 입력하라는 메시지가 표시됩니다. 자세한 내용은 <a href="/ko-kr/develop/net/tutorials/get-started/">Azure 웹 사이트에 ASP.NET 웹 응용 프로그램 배포</a>(영문)를 참조하세요.
+**참고:** Azure에 이 앱을 처음 배포하는 경우 Azure 자격 증명을 입력하라는 메시지가
+표시됩니다. 자세한 내용은 <a href="/ko-kr/develop/net/tutorials/get-started/">Azure 웹 사이트에 ASP.NET 웹 응용 프로그램 배포</a>를 참조하세요.
 
 ![publish settings](./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelicAzureNuget10.png)
 
@@ -106,9 +116,9 @@ New Relic 대시보드를 보려면 다음을 수행합니다.
 
 ### <a id="using-new-relic"></a>New Relic 사용
 
-Applications 메뉴의 목록에서 앱을 선택하면 Overview 대시보드에서 현재 앱 서버 및 브라우저 정보를 표시합니다. 두 보기 간에 화면을 전환하려면 **App server** 또는 **Browser** 단추를 클릭합니다.
+Applications 메뉴의 목록에서 앱을 선택하면 Overview 대시보드에서 현재 앱 서버 및 브라우저 정보를 표시합니다. 두 보기 간을 전환하려면**App server** 또는 **Browser** 단추를 클릭합니다.
 
-Applications Overview 대시보드에는 <a href="https://newrelic.com/docs/site/the-new-relic-ui#functions">표준 New Relic UI</a> 및 <a href="https://newrelic.com/docs/site/the-new-relic-ui#drilldown">대시보드 드릴다운</a> 기능 외에 추가 기능이 있습니다.
+Applications Overview 대시보드에는 <a href="https://newrelic.com/docs/site/the-new-relic-ui#functions">표준 New Relic UI</a> 및 <a href="https://newrelic.com/docs/site/the-new-relic-ui#drilldown">대시보드 드릴다운</a> 기능 외에도 추가 기능이 있습니다.
 
 <table border="1">
   <thead>
@@ -120,26 +130,26 @@ Applications Overview 대시보드에는 <a href="https://newrelic.com/docs/site
   <tbody>
     <tr>
        <td>선택한 앱 서버 또는 브라우저에 대한 대시보드 정보 표시</td>
-       <td>단추 <b>App Server</b> 또는 <b>Browser</b> 를 클릭합니다.</td>
+       <td><b>App Server</b> 또는 <b>Browser</b> 단추를 클릭합니다.</td>
     </tr>
-     <tr>
-       <td>앱의 <a href="https://newrelic.com/docs/site/apdex" target="_blank">Apdex</a> score에 대한 임계값 수준 보기</td>
+€<tr>
+€<td>앱의 <a href="https://newrelic.com/docs/site/apdex" target="_blank">Apdex</a> score에 대한 임계값 수준 보기</td>
        <td>Apdex score <b>?<b> 아이콘을 가리킵니다.</b></b></td>
     </tr>
     <tr>
        <td>Worldwide Apdex 세부 정보 보기</td>
-       <td>Overview의 <b>Browser</b> 보기에서 Global Apdex 맵의 아무 곳이나 가리킵니다.<br /><b>팁:</b> 선택한 앱의 <a href="https://docs.newrelic.com/docs/new-relic-browser/geography-dashboard" target="_blank">Geography</a>대시보드로 바로 이동하려면 <b>Global Apdex</b> 제목을 클릭하거나 Global Apdex 맵의 아무 곳이나 클릭합니다.</td>
+       <td>Overview의 <b>Browser</b> 보기에서 Global Apdex 맵의 아무 곳이나 마우스로 가리킵니다.<br /><b>팁:</b> 선택한 앱의 <a href="https://docs.newrelic.com/docs/new-relic-browser/geography-dashboard" target="_blank">Geography</a> 대시보드로 바로 이동하려면 Global Apdex 제목을 클릭하거나 <b>Global Apdex</b> 맵의 아무 곳이나 클릭합니다.</td>
     </tr>
     <tr>
-       <td>대시보드 <a href="https://newrelic.com/docs/applications-dashboards/web-transactions" target="_blank">Web Transactions</a> 보기</td>
-       <td>Applications Overview 대시보드에서 Web Transactions 테이블을 클릭합니다. 또는 특정 웹 트랜잭션( <a href="https://newrelic.com/docs/site/key-transactions" target="_blank">Key Transactions</a>포함)에 대한 세부 정보를 보려면 해당 이름을 클릭합니다.</td>
+       <td><a href="https://newrelic.com/docs/applications-dashboards/web-transactions" target="_blank">Web Transactions</a> 대시보드 보기</td>
+       <td>Applications Overview 대시보드에서 Web Transactions 테이블을 클릭합니다. 또는 특정 웹 트랜잭션(<a href="https://newrelic.com/docs/site/key-transactions" target="_blank">Key Transactions</a> 포함)에 대한 세부 정보를 보려면 해당 이름을 클릭합니다.</td>
     </tr>
     <tr>
-       <td>대시보드 <a href="https://newrelic.com/docs/site/errors" target="_blank">Errors</a> 보기</td>
-       <td>Applications Overview 대시보드에서 Error rate 차트 제목을 클릭합니다.<br /><b>팁:</b> Errors 대시보드는 <b>Applications</b> &gt; (해당 앱) &gt; Events &gt; Errors에서도 볼 수 있습니다.</td>
+       <td><a href="https://newrelic.com/docs/site/errors" target="_blank">Errors</a> 대시보드 보기</td>
+       <td>Applications Overview 대시보드에서 Error rate 차트 제목을 클릭합니다.<br /><b>팁:</b> <b>Applications</b> &gt; (사용자의 앱) &gt; Events &gt; Errors를 클릭하여 Errors 대시보드를 볼 수도 있습니다.</td>
     </tr>
     <tr>
-       <td>앱 서버 세부 정보 보기</td>
+       <td>앱의 서버 세부 정보 보기</td>
        <td><p>다음 중 하나를 수행합니다.<p>
         <ul>
           <li>호스트의 테이블 보기 또는 각 호스트의 브레이크아웃 메트릭 세부 정보 간에 전환합니다.</li>
@@ -149,7 +159,7 @@ Applications Overview 대시보드에는 <a href="https://newrelic.com/docs/site
         </ul>
        </p></p></td>
     </tr>
-  </tbody>
+€</tbody>
 </table>
 
 아래 그림은 Browser 보기를 선택한 경우 Applications Overview 대시보드의 예제입니다.
@@ -160,12 +170,13 @@ Applications Overview 대시보드에는 <a href="https://newrelic.com/docs/site
 
 자세한 내용은 다음 추가 리소스에서 확인하세요.
 
- * [Azure에서 .NET 에이전트 설치](https://newrelic.com/docs/dotnet/installing-the-net-agent-on-azure)(영문):: New Relic .NET 에이전트 설치 절차 
- * [New Relic 사용자 인터페이스](https://newrelic.com/docs/site/the-new-relic-ui)(영문): 
+ * [Azure에서 .NET 에이전트 설치](https://newrelic.com/docs/dotnet/installing-the-net-agent-on-azure): New Relic .NET 에이전트 설치 절차 
+ * [New Relic 사용자 인터페이스](https://newrelic.com/docs/site/the-new-relic-ui): 
 New Relic UI, 사용자 권한 및 프로필 설정, 표준 기능 및 대시보드 드릴다운 세부 정보 사용 등에 대한 개요
- * [Applications Overview](https://newrelic.com/docs/site/applications-overview)(영문): New Relic의 Applications Overview 대시보드에서 사용할 수 있는 기능
- * [Apdex](https://newrelic.com/docs/site/apdex)(영문): Apdex에서 응용 프로그램에 대한 최종 사용자의 만족도를 측정하는 방법에 대한 개요
- * [실제 사용자 모니터링](https://newrelic.com/docs/features/real-user-monitoring)(영문): RUM에서 사용자의 브라우저가 웹 페이지를 로드하는 데 걸리는 시간, 사용자의 위치 및 사용하는 브라우저의 종류를 자세히 표시하는 방법에 대한 개요
- * [도움말 찾기](https://newrelic.com/docs/site/finding-help)(영문): New Relic의 온라인 도움말 센터를 통해 사용 가능한 리소스
+ * [Applications Overview](https://newrelic.com/docs/site/applications-overview): New Relic의 Applications Overview 대시보드에서 사용할 수 있는 기능
+ * [Apdex](https://newrelic.com/docs/site/apdex): Apdex에서 응용 프로그램에 대한 최종 사용자의 만족도를 측정하는 방법에 대한 개요
+ * [실제 사용자 모니터링](https://newrelic.com/docs/features/real-user-monitoring): RUM에서 사용자의 브라우저가 웹 페이지를 로드하는 데 걸리는 시간, 사용자의 위치 및 사용하는 브라우저의 종류를 자세히 표시하는 방법에 대한 개요
+ * [도움말 찾기](https://newrelic.com/docs/site/finding-help): New Relic의 온라인 도움말 센터를 통해 사용 가능한 리소스
 
-<!--HONumber=35.2-->
+
+<!--HONumber=42-->

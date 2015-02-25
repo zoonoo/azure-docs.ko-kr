@@ -1,6 +1,20 @@
-<properties urlDisplayName="Web w/ Storage" pageTitle="테이블 저장소를 사용한 PHP 웹 사이트 - Azure 자습서" metaKeywords="Azure table storage PHP, Azure PHP website, Azure PHP web site, Azure PHP tutorial, Azure PHP example" description="이 자습서에서는 PHP 웹 사이트를 만들고 백 엔드에서 Azure 테이블 저장소 서비스를 사용하는 방법을 설명합니다." metaCanonical="" services="web-sites,storage" documentationCenter="PHP" title="Create a PHP Website using Azure Storage" authors="tomfitz" solutions="" manager="wpickett" editor="" />
+﻿<properties 
+	pageTitle="테이블 저장소를 사용한 PHP 웹 사이트 - Azure 자습서" 
+	description="이 자습서에서는 PHP 웹 사이트를 만들고 백 엔드에서 Azure 테이블 저장소 서비스를 사용하는 방법을 설명합니다." 
+	services="web-sites, storage" 
+	documentationCenter="php" 
+	authors="tfitzmac" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="11/21/2014" ms.author="tomfitz" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="PHP" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="tomfitz"/>
 
 #Azure 저장소를 사용하여 PHP 웹 사이트 만들기
 
@@ -17,7 +31,7 @@ PHP에서 간단한 작업 목록 응용 프로그램을 빌드할 것입니다.
 
 ![Azure PHP web site][ws-storage-app]
 
-[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
+[AZURE.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 ##Azure 클라이언트 라이브러리 설치
 
@@ -25,7 +39,7 @@ PHP에서 간단한 작업 목록 응용 프로그램을 빌드할 것입니다.
 
 1. [Git 설치][install-git]
 
-	> [WACOM.NOTE]
+	> [AZURE.NOTE]
 	> Windows에서는 PATH 환경 변수에도 Git 실행 파일을 추가해야 합니다.
 
 2. 프로젝트 루트에 **composer.json**이라는 파일을 만들고 다음 코드를 추가합니다.
@@ -79,7 +93,7 @@ PHP에서 간단한 작업 목록 응용 프로그램을 빌드할 것입니다.
 	
 		UseDevelopmentStorage=true
 
-* `ServicesBuilder::createTableService` 팩터리 메서드를 사용하여 테이블 서비스 호출의 래퍼를 인스턴스화합니다.
+*  `ServicesBuilder::createTableService` 팩터리 메서드를 사용하여 테이블 서비스 호출의 래퍼를 인스턴스화합니다.
 
 		$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
 	
@@ -97,7 +111,7 @@ PHP에서 간단한 작업 목록 응용 프로그램을 빌드할 것입니다.
 		<?php
 		require_once "init.php";
 
-* 그런 다음 테이블 이름에서 전달하는 'createTable'에 대해 호출합니다. 다른 NoSQL 테이블 저장과 마찬가지로 Azure 테이블에 대해서 스키마가 필요하지 않습니다.
+* 그런 다음 테이블 이름을 전달하는  *createTable*을 호출합니다. 다른 NoSQL 테이블 저장과 마찬가지로 Azure 테이블에 대해서 스키마가 필요하지 않습니다.
 	
 		try	{
 			$tableRestProxy->createTable('tasks');
@@ -140,7 +154,7 @@ PHP에서 간단한 작업 목록 응용 프로그램을 빌드할 것입니다.
 		<?php		
 		require_once "init.php";
 
-* *tasks* 테이블에 저장되는 **모든 엔터티**에 대해 Azure 테이블을 쿼리하기 위해 테이블 이름만 전달하는 *queryEntities* 메서드를 호출합니다. 아래 **엔터티 업데이트** 섹션에 특정 엔터티를 쿼리하는 필터를 전달하는 방법도 나와 있습니다.
+*  *tasks* 테이블에 저장되는 **모든 엔터티**에 대해 Azure 테이블을 쿼리하기 위해 테이블 이름만 전달하는  *queryEntities* 메서드를 호출합니다. 아래 **엔터티 업데이트** 섹션에 특정 엔터티를 쿼리하는 필터를 전달하는 방법도 나와 있습니다.
 
 		try {
 		    $result = $tableRestProxy->queryEntities('tasks');
@@ -157,7 +171,7 @@ PHP에서 간단한 작업 목록 응용 프로그램을 빌드할 것입니다.
 			
 		for ($i = 0; $i < count($entities); $i++) {
 
-* `Entity`를 하나 얻으면 데이터를 읽는 모델이 `Entity->getPropertyValue('[name]')`이 됩니다.
+*  `Entity`를 가져온 후 데이터를 읽기 위한 모델은  `Entity->getPropertyValue('[name]')`입니다.
 
 			if ($i == 0) {
 				echo "<table border='1'>
@@ -189,7 +203,7 @@ PHP에서 간단한 작업 목록 응용 프로그램을 빌드할 것입니다.
 			echo "<h3>No items on list.</h3>";
 		?>
 
-* 마지막으로, 작업 삽입 스크립트에 데이터를 공급하는 형식을 삽입하고 HTML을 완성해야 합니다.
+* Last, you must insert the form that feeds data into the task insertion script and complete the HTML:
 
 			<hr/>
 			<form action="additem.php" method="post">
@@ -225,7 +239,7 @@ PHP에서 간단한 작업 목록 응용 프로그램을 빌드할 것입니다.
 		use WindowsAzure\Table\Models\Entity;
 		use WindowsAzure\Table\Models\EdmType;		
 
-* 엔터티를 삽입하는 첫 번째 단계는 `Entity` 개체를 인스턴스화하고 속성을 설정하는 것입니다.
+* 엔터티를 삽입하는 첫 번째 단계는  `Entity` 개체를 인스턴스화하고 속성을 설정하는 것입니다.
 		
 		$entity = new Entity();
 		$entity->setPartitionKey('p1');
@@ -235,7 +249,7 @@ PHP에서 간단한 작업 목록 응용 프로그램을 빌드할 것입니다.
 		$entity->addProperty('date', EdmType::STRING, $_POST['date']);
 		$entity->addProperty('complete', EdmType::BOOLEAN, false);
 
-* 그런 다음 방금 만든 `$entity`를 `insertEntity` 메서드에 전달할 수 있습니다.
+* 그런 다음 방금 만든 `$entity`를  `insertEntity` 메서드에 전달할 수 있습니다.
 
 		try{
 			$tableRestProxy->insertEntity('tasks', $entity);
@@ -253,7 +267,7 @@ PHP에서 간단한 작업 목록 응용 프로그램을 빌드할 것입니다.
 	
 ## 엔터티 업데이트
 
-작업 목록 응용 프로그램에는 항목을 완료로 표시하고 표시 해제하는 기능이 있습니다. 홈페이지는 엔터티의 *RowKey* 및 *PartitionKey* 및 대상 상태(표시==1, 표시 해제==0)를 전달합니다.
+작업 목록 응용 프로그램에는 항목을 완료로 표시하고 표시 해제하는 기능이 있습니다. 홈 페이지는 엔터티의  *RowKey* 및  *PartitionKey* 및 대상 상태(marked==1, unmarked==0를 전달합니다.
 
 * **markitem.php**라는 파일을 만들고 초기화 부분을 추가합니다.
 
@@ -273,7 +287,7 @@ PHP에서 간단한 작업 목록 응용 프로그램을 빌드할 것입니다.
 
 		$entity->setPropertyValue('complete', ($_GET['complete'] == 'true') ? true : false);
 
-* 그리고 `updateEntity` 메서드는 업데이트를 수행합니다.
+* 또한  `updateEntity` 메서드는 업데이트를 수행합니다.
 
 		try{
 			$result = $tableRestProxy->updateEntity('tasks', $entity);
@@ -292,7 +306,7 @@ PHP에서 간단한 작업 목록 응용 프로그램을 빌드할 것입니다.
 
 ## 엔터티 삭제
 
-항목 삭제는 `deleteItem`에 대한 단일 호출을 통해 수행합니다. 값에 전달된 **PartitionKey** 및 **RowKey**은 함께 엔터티의 기본 키를 구성합니다. **deleteitem.php**라는 파일을 만들고 다음 코드를 삽입합니다.
+항목 삭제는  `deleteItem`에 대한 단일 호출을 통해 수행합니다. 값에 전달된 **PartitionKey** 및 **RowKey**은 함께 엔터티의 기본 키를 구성합니다. **deleteitem.php**라는 파일을 만들고 다음 코드를 삽입합니다.
 
 		<?php
 		
@@ -305,7 +319,7 @@ PHP에서 간단한 작업 목록 응용 프로그램을 빌드할 것입니다.
 
 ## Azure 저장소 계정 만들기
 
-응용 프로그램에서 데이터를 클라우드에 저장하도록 만들려면 먼저 Azure에 저장소 계정을 만든 다음 적절한 인증 정보를 *Configuration* 클래스에 전달해야 합니다.
+응용 프로그램에서 데이터를 클라우드에 저장하도록 만들려면 먼저 Azure에 저장소 계정을 만든 다음 적절한 인증 정보를  *Configuration* 클래스에 전달해야 합니다.
 
 1. [Azure 관리 포털][management-portal]에 로그인합니다.
 
@@ -333,7 +347,7 @@ PHP에서 간단한 작업 목록 응용 프로그램을 빌드할 것입니다.
 
 	![Select Manage Keys][storage-access-keys]
 
-7. **init.php**를 열고 `[YOUR_STORAGE_ACCOUNT_NAME]` 및 `[YOUR_STORAGE_ACCOUNT_KEY]`를 마지막 단계에서 적어둔 계정 이름과 키로 바꿉니다. 파일을 저장합니다.
+7. **init.php**를 열고 `[YOUR_STORAGE_ACCOUNT_NAME]` 및 `[YOUR_STORAGE_ACCOUNT_KEY]`를 마지막 단계에서 메모한 계정 이름 및 키로 바꿉니다. 파일을 저장합니다.
 
 
 ## Azure 웹 사이트 만들기 및 Git 게시 설정
@@ -355,16 +369,16 @@ PHP에서 간단한 작업 목록 응용 프로그램을 빌드할 것입니다.
 
 	웹 사이트가 만들어지면 **'[SITENAME]' 웹 사이트 만들기가 완료되었습니다.**라는 텍스트가 표시됩니다. 이제 Git 게시를 사용하도록 설정할 수 있습니다.
 
-5. 웹 사이트 목록에 표시된 웹 사이트 이름을 클릭하여 웹 사이트의 **퀵 스타트** 대시보드를 엽니다.
+5. 웹 사이트 목록에 표시된 웹 사이트 이름을 클릭하여 웹 사이트의 **빠른 시작** 대시보드를 엽니다.
 
 	![Open web site dashboard][go-to-dashboard]
 
 
-6. 퀵 스타트 페이지의 오른쪽 아래에서 **소스 제어에서 배포 설정**을 선택합니다.
+6. 빠른 시작 페이지의 오른쪽 아래에서 **소스 제어에서 배포 설정**을 선택합니다.
 
 	![Set up Git publishing][setup-git-publishing]
 
-6. "소스 코드 위치?" 질문이 나타나면 **로컬 Git 리포지토리**를 선택한 후 화살표를 클릭합니다.
+6. "소스 코드 위치?" 질문이 나타나면 **로컬 Git 리포지토리**를 선택하고 화살표를 클릭합니다.
 
 	![where is your source code][where-is-code]
 
@@ -391,7 +405,7 @@ Git를 사용하여 응용 프로그램을 게시하려면 아래 단계를 따�
 			
 	작성기 패키지 관리자가 Azure 클라이언트 라이브러리 및 종속성을 다운로드할 때 이들이 있는 GitHub 리포지토리를 복제하여 다운로드합니다. 다음 단계에서 응용 프로그램의 루트 폴더 밖에 리포지토리를 생성하여 Git를 통해 응용 프로그램이 배포됩니다. Git는 리포지토리별 파일이 제거되지 않는 한, 클라이언트 라이브러리가 있는 하위 리포지토리를 무시합니다.
 
-2. GitBash(또는 Git이 `PATH`에 있는 경우 터미널)를 열고 디렉터리를 응용 프로그램의 루트 디렉터리로 변경한 후 다음 명령을 실행합니다(**참고:** **Azure 웹 사이트 만들기 및 Git 게시 설정** 섹션 끝에 명시된 것과 동일한 단계 사용).
+2. GitBash(또는 Git가  `PATH`에 있는 경우 터미널)를 열고 디렉터리를 응용 프로그램의 루트 디렉터리로 변경한 후 다음 명령을 실행합니다(**참고:** **Azure 웹 사이트 만들기 및 Git 게시 설정** 섹션 끝에 명시된 것과 동일한 단계 사용).
 
 		git init
 		git add .
@@ -411,7 +425,7 @@ Git를 사용하여 응용 프로그램을 게시하려면 아래 단계를 따�
 응용 프로그램에 변경 내용을 게시하려면 다음 단계를 따르세요.
 
 1. 응용 프로그램을 로컬에서 변경합니다.
-2. GitBash를 열거나 Git가 `PATH`에 있는 경우 터미널을 열고 응용 프로그램의 루트 디렉터리로 이동한 후 다음 명령을 실행합니다.
+2. GitBash를 열거나 Git가  `PATH`에 있는 경우 터미널을 열고 응용 프로그램의 루트 디렉터리로 이동한 후 다음 명령을 실행합니다.
 
 		git add .
 		git commit -m "comment describing changes"
@@ -419,7 +433,7 @@ Git를 사용하여 응용 프로그램을 게시하려면 아래 단계를 따�
 
 	이전에 만든 암호를 입력하라는 메시지가 나타납니다.
 
-3. **http://[웹 사이트 도메인]/index.php**로 이동하여 변경 내용을 표시합니다. 
+3. **http://[웹 사이트 도메인]/index.php**로 이동하여 변경 내용을 확인합니다. 
 
 [install-php]: http://www.php.net/manual/en/install.php
 
@@ -451,4 +465,5 @@ Git를 사용하여 응용 프로그램을 게시하려면 아래 단계를 따�
 [git-instructions]: ./media/web-sites-php-storage/git-instructions.png
 [where-is-code]: ./media/web-sites-php-storage/where_is_code.png
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

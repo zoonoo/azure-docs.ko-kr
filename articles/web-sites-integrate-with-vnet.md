@@ -1,6 +1,20 @@
-﻿<properties title="Integrate your Azure Website with an Azure Virtual Network" pageTitle="Azure VNet에 Azure 웹 사이트 통합" description="신규 또는 기존 Azure 가상 네트워크에 Azure 웹 사이트를 연결하는 방법을 보여 줍니다." metaKeywords="" services="web-sites,virtual-network" solutions="web,integration,infrastructure" documentationCenter="" authors="cephalin" videoId="" scriptId="" manager="wpickett" />
+﻿<properties 
+	pageTitle="Azure VNet에 Azure 웹 사이트 통합" 
+	description="신규 또는 기존 Azure 가상 네트워크에 Azure 웹 사이트를 연결하는 방법을 보여 줍니다." 
+	services="web-sites, virtual-network" 
+	documentationCenter="" 
+	authors="cephalin" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/24/2014" ms.author="cephalin" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/24/2014" 
+	ms.author="cephalin"/>
 
 # Azure 가상 네트워크에 Azure 웹 사이트 통합 #
 이 문서에서는 가상 네트워크 통합 미리 보기 기능 및 Azure 웹 사이트에서 해당 기능을 설정하는 방법을 설명합니다.  Azure 가상 네트워크에 대해 잘 모르는 사용자를 위해 설명하자면 Azure 가상 네트워크는 Azure 및 온-프레미스 리소스를 사용하여 하이브리드 솔루션을 빌드하는 데 사용할 수 있는 기능입니다.  
@@ -84,3 +98,6 @@ Azure 웹 사이트에서는 가상 네트워크 통합과 다소 비슷한 하�
 또 다른 차이점은 하이브리드 연결의 경우 릴레이 에이전트를 설치해야 작동한다는 점입니다.  이 에이전트는 Windows Server 인스턴스에서 실행해야 합니다.  가상 네트워크 기능의 경우 설치해야 하는 항목이 없으며, 호스팅 운영 체제에 관계없이 원격 리소스에 액세스하도록 설정할 수 있습니다.  
 
 또한 현재 두 기능의 가격 책정 계층도 서로 다릅니다.  그 이유는 최저가형 수준에서는 하이브리드 연결 기능이 개발/테스트 시나리오에 사용할 때 매우 유용하며 소수의 끝점에 대한 액세스 권한만 제공되기 때문입니다.  반면 가상 네트워크 기능은 VNET 내부의 모든 항목 또는 VNET에 연결된 모든 항목에 대한 액세스 권한을 제공합니다.  
+
+
+<!--HONumber=42-->

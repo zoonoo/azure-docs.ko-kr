@@ -1,10 +1,25 @@
-﻿<properties urlDisplayName="How to stage sites on Microsoft Azure" pageTitle="Microsoft Azure 웹 사이트의 준비된 배포" metaKeywords="Microsoft Azure 웹 사이트, 준비된 배포, 사이트 슬롯" description="Microsoft Azure 웹 사이트에서 준비된 게시를 사용하는 방법에 대해 알아봅니다." metaCanonical="" services="web-sites" documentationCenter="" title="Staged Deployment on Microsoft Azure Websites" authors="cephalin"  solutions="" writer="cephalin" manager="wpickett" editor="mollybos"  />
+﻿<properties 
+	pageTitle="Microsoft Azure 웹 사이트의 준비된 배포" 
+	description="Microsoft Azure 웹 사이트에서 준비된 게시를 사용하는 방법에 대해 알아봅니다." 
+	services="web-sites" 
+	documentationCenter="" 
+	authors="cephalin" 
+	writer="cephalin" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="9/9/2014" ms.author="cephalin" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="9/9/2014" 
+	ms.author="cephalin"/>
 
 <a name="Overview"></a>
 #Microsoft Azure 웹 사이트의 준비된 배포
-Azure 웹 사이트에 응용 프로그램을 배포할 때 기본 프로덕션 슬롯 대신 별도의 배포 슬롯을 배포할 수 있습니다. 이것은 실제로는 자체적인 호스트 이름을 가진 라이브 사이트입니다. 이 옵션은 **표준** 웹 호스팅 계획에서 사용할 수 있습니다. 또한 프로덕선 슬롯을 포함하여 두 배포 슬롯 간에 사이트 및 사이트 구성을 교환할 수 있습니다. 응용 프로그램을 배포 슬롯에 배포하면 다음과 같은 이점이 있습니다.
+Azure 웹 사이트에 응용 프로그램을 배포할 때 기본 프로덕션 슬롯 대신 별도의 배포 슬롯을 배포할 수 있습니다. 이것은 실제로는 자체적인 호스트 이름을 가진 라이브 사이트입니다. 이 옵션은 **표준** 웹 호스팅 계획에서 사용할 수 있습니다. 또한 프로덕션 슬롯을 포함하여 두 배포 슬롯 간에 사이트 및 사이트 구성을 교환할 수 있습니다. 응용 프로그램을 배포 슬롯에 배포하면 다음과 같은 이점이 있습니다.
 
 - 프로덕션 슬롯과 교환하기 전에 준비 배포 슬롯에서 웹 사이트 변경 사항의 유효성을 검사할 수 있습니다.
 
@@ -28,11 +43,11 @@ Azure 웹 사이트에 응용 프로그램을 배포할 때 기본 프로덕션 
 
 다중 배포 슬롯을 사용하려면 웹 사이트가 **표준** 호스팅 계획으로 실행 중이어야 합니다. 
 
-1. 빠른 시작 페이지나 웹 사이트 대시보드 페이지의 간략 상태 섹션에서 **새 배포 슬롯 추가**를 클릭합니다. 
+1. 빠른 시작 페이지나 웹 사이트 대시보드 페이지의 빠른 보기 섹션에서 **새 배포 슬롯 추가**를 클릭합니다. 
 	
 	![Add a new deployment slot][QGAddNewDeploymentSlot]
 	
-	> [WACOM.NOTE]
+	> [AZURE.NOTE]
 	> 웹 사이트가 아직 **표준** 모드가 아닌 경우 **준비된 게시를 사용하려면 표준 모드여야 합니다** 메시지가 수신됩니다. 이때 **업그레이드**를 선택할 수 있는 옵션이 제공되고 계속하기 전에 웹 사이트의 **크기 조정** 탭으로 이동합니다.
 	
 2. **새 배포 슬롯 추가** 대화 상자에서 슬롯에 이름을 지정하고, 다른 기존 배포 슬롯으로부터 웹 사이트 구성을 복제할 것인지 여부를 선택합니다. 확인 표시를 클릭하여 계속합니다. 
@@ -53,7 +68,7 @@ Azure 웹 사이트에 응용 프로그램을 배포할 때 기본 프로덕션 
 	
 	![Deployment Slot Title][StagingTitle]
 	
-5. 대시보드 뷰에서 사이트 URL을 클릭합니다. 배포 슬롯은 고유의 호스트 이름을 가지고 있고 라이브 사이트이기도 합니다. 배포 슬롯에 대한 공용 액세스를 제한하려면 [Azure 웹 사이트 - 비 프로덕션 배포 슬롯에 대한 웹 액세스 차단](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)(영문)을 참조하세요.
+5. 대시보드 뷰에서 사이트 URL을 클릭합니다. 배포 슬롯은 고유의 호스트 이름을 가지고 있고 라이브 사이트이기도 합니다. 배포 슬롯에 대한 공용 액세스를 제한하려면 [Azure 웹 사이트 - 비 프로덕션 배포 슬롯에 대한 웹 액세스 차단](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)을 참조하세요.
 
 	-	 
 
@@ -123,7 +138,7 @@ Azure 웹 사이트 포털 페이지 맨 아래에 있는 명령 모음에서 **
 
 - 기본적으로 배포 슬롯(사이트)은 프로덕션 슬롯(사이트)과 동일한 리소스를 공유하고 동일한 VM에서 실행됩니다. 준비 슬롯에 스트레스 테스트를 실행하는 경우 프로덕션 환경에 비교 가능한 스트레스 로드가 발생합니다. 
 	
-	> [WACOM.NOTE] 특별히 [Azure Preview 포털](https://portal.azure.com)에서는 프로덕션이 아닌 슬롯을 다른 웹 호스팅 계획으로 일시적으로 전환함으로써 프로덕션 슬롯에 미칠 수 있는 영향을 방지할 수 있습니다. 테스트 슬롯을 프로덕션으로 교환하기 전에 테스트 및 프로덕션 슬롯이 다시 한 번 같은 웹 호스팅 계획을 공유해야 합니다.
+	> [AZURE.NOTE] 특별히 [Azure Preview 포털](https://portal.azure.com)에서는 프로덕션이 아닌 슬롯을 다른 웹 호스팅 계획으로 일시적으로 전환함으로써 프로덕션 슬롯에 미칠 수 있는 영향을 방지할 수 있습니다. 테스트 슬롯을 프로덕션으로 교환하기 전에 테스트 및 프로덕션 슬롯이 다시 한 번 같은 웹 호스팅 계획을 공유해야 합니다.
 
 <!-- ======== AZURE POWERSHELL CMDLETS =========== -->
 
@@ -132,9 +147,9 @@ Azure 웹 사이트 포털 페이지 맨 아래에 있는 명령 모음에서 **
 
 Azure PowerShell은 Windows PowerShell을 통해 Azure를 관리하기 위한 cmdlet을 제공하는 모듈로, Azure 웹 사이트 배포 슬롯을 관리하는 기능도 지원합니다. 
 
-- Azure PowerShell을 설치 및 구성하는 방법과 Azure 구독에 Azure PowerShell을 인증하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법](http://www.windowsazure.com/ko-kr/documentation/articles/install-configure-powershell)(영문)을 참조하세요.  
+- Azure PowerShell을 설치 및 구성하는 방법과 Microsoft Azure 구독에 Azure PowerShell을 인증하는 방법에 대한 자세한 내용은 [Microsoft Azure PowerShell 설치 및 구성 방법](http://www.windowsazure.com/ko-kr/documentation/articles/install-configure-powershell)을 참조하세요.  
 
-- PowerShell에서 Azure 웹 사이트에 사용할 수 있는 cmdlet을 나열하려면 `help AzureWebsite`를 호출합니다. 
+- PowerShell에서 Azure 웹 사이트에 사용할 수 있는 cmdlet을 나열하려면  `help AzureWebsite`를 호출합니다. 
 
 ----------
 
@@ -187,15 +202,15 @@ Azure PowerShell은 Windows PowerShell을 통해 Azure를 관리하기 위한 cm
 
 Azure 플랫폼 간 명령줄 인터페이스(xplat-cli)는 Azure 플랫폼 작업을 위한 플랫폼 간 오픈 소스 명령 집합을 제공하며, Azure 웹 사이트의 배포 슬롯을 관리하는 기능을 지원합니다. 
 
-- xplat-cli 설치 및 구성 지침과 xplat-cli를 Azure 구독에 연결하는 방법에 대한 자세한 내용은 [Azure 플랫폼 간 명령줄 인터페이스 설치 및 구성](http://www.windowsazure.com/ko-kr/documentation/articles/xplat-cli)(영문)을 참조하세요. 
+- xplat-cli 설치 및 구성 지침과 xplat-cli를 Azure 구독에 연결하는 방법에 대한 자세한 내용은 [Azure 플랫폼 간 명령줄 인터페이스 설치 및 구성](http://www.windowsazure.com/ko-kr/documentation/articles/xplat-cli)을 참조하세요. 
 
--  xplat-cli에서 Azure 웹 사이트에 사용할 수 있는 명령을 나열하려면 `azure site -h`를 호출합니다. 
+-  xplat-cli에서 Azure 웹 사이트에 사용할 수 있는 명령을 나열하려면  `azure site -h`를 호출합니다. 
 
 ----------
 ###azure site list
 현재 구독의 Azure 웹 사이트 관련 정보를 확인하려면 다음 예에서와 같이 **azure site list**를 호출합니다.
  
-azure site list siteslotstest
+`azure site list siteslotstest`
 
 ----------
 ###azure site create
@@ -237,3 +252,6 @@ azure site list siteslotstest
 [SwapConfirmationDialog]:  ./media/web-sites-staged-publishing/SwapConfirmationDialog.png
 [DeleteStagingSiteButton]: ./media/web-sites-staged-publishing/DeleteStagingSiteButton.png
 [SwapDeploymentsDialog]: ./media/web-sites-staged-publishing/SwapDeploymentsDialog.png
+
+
+<!--HONumber=42-->

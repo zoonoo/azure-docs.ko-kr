@@ -1,14 +1,13 @@
-﻿
-<properties pageTitle="인증된 사용자에게 푸시 알림 보내기" metaKeywords="push notifications, authentication, users, Notification Hubs, Mobile Services" description="특정 사용자에게 푸시 알림을 보내는 방법에 대해 알아봅니다. " metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="krisragh" solutions="Mobile" manager="dwrede" editor="" />
+﻿<properties pageTitle="인증된 사용자에게 푸시 알림 보내기" description="특정 사용자에게 푸시 알림을 보내는 방법에 대해 알아봅니다." services="mobile-services, notification-hubs" documentationCenter="ios" authors="krisragh" manager="dwrede" editor=""/>
 
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="krisragh" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="krisragh"/>
 
 # 인증된 사용자에게 푸시 알림 보내기
 
-[WACOM.INCLUDE [mobile-services-selector-push-users](../includes/mobile-services-selector-push-users.md)]
+[AZURE.INCLUDE [mobile-services-selector-push-users](../includes/mobile-services-selector-push-users.md)]
 
-이 항목에서는 등록된 모든 iOS 장치에서 인증된 사용자에게 푸시 알림을 보내는 방법을 보여 줍니다. 이전의 [푸시 알림][푸시 알림 시작] 자습서와 달리, 이 자습서에서는 먼저 사용자가 인증된 후에야 iOS 클라이언트가 푸시 알림을 받기 위해 알림 허브에 등록할 수 있도록 모바일 서비스를 변경합니다. 또한 할당된 사용자 ID를 기반으로 태그를 추가하도록 등록이 수정됩니다. 마지막에는 모든 등록 대신 인증된 사용자에게만 알림을 보내도록 서버 스크립트가 업데이트됩니다.
+이 항목에서는 등록된 모든 iOS 장치에서 인증된 사용자에게 푸시 알림을 보내는 방법을 보여 줍니다. 이전의 [푸시 알림][푸시 알림 시작] 자습서와 달리, 이 자습서에서는 먼저 사용자가 인증된 후에야 iOS 클라이언트가 푸시 알림을 받기 위해 알림 허브에 등록할 수 있도록 모바일 서비스를 변경합니다. 할당된 사용자 ID에 따라 태그를 추가하도록 등록도 수정됩니다. 마지막으로 서버 스크립트는 모든 등록 대신 인증된 사용자에게만 알림을 보내도록 업데이트됩니다.
 
 이 자습서에서는 다음 프로세스를 단계별로 안내합니다.
 
@@ -28,7 +27,7 @@
 
 ##<a name="register"></a>등록에 인증이 필요하도록 서비스 업데이트
 
-[WACOM.INCLUDE [mobile-services-javascript-backend-push-notifications-app-users](../includes/mobile-services-javascript-backend-push-notifications-app-users.md)]
+[AZURE.INCLUDE [mobile-services-javascript-backend-push-notifications-app-users](../includes/mobile-services-javascript-backend-push-notifications-app-users.md)]
 
 <ol start="5"><li><p>삽입 함수를 다음의 코드로 바꾼 후 <strong>저장</strong>을 클릭합니다.</p>
 <pre><code>function insert(item, user, request) {
@@ -52,11 +51,11 @@
 
 ##<a name="update-app"></a>등록 전에 로그인하도록 앱 업데이트
 
-[WACOM.INCLUDE [mobile-services-ios-push-notifications-app-users-login](../includes/mobile-services-ios-push-notifications-app-users-login.md)]
+[AZURE.INCLUDE [mobile-services-ios-push-notifications-app-users-login](../includes/mobile-services-ios-push-notifications-app-users-login.md)]
 
 ##<a name="test"></a>앱 테스트
 
-[WACOM.INCLUDE [mobile-services-ios-push-notifications-app-users-test-app](../includes/mobile-services-ios-push-notifications-app-users-test-app.md)]
+[AZURE.INCLUDE [mobile-services-ios-push-notifications-app-users-test-app](../includes/mobile-services-ios-push-notifications-app-users-test-app.md)]
 
 
 
@@ -78,3 +77,6 @@
 [24]: ./media/mobile-services-ios-get-started-push/mobile-quickstart-push2-ios.png
 [25]: ./media/mobile-services-ios-get-started-push/mobile-quickstart-push3-ios.png
 [26]: ./media/mobile-services-ios-get-started-push/mobile-quickstart-push4-ios.png
+
+
+<!--HONumber=42-->

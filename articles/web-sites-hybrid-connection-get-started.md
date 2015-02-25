@@ -1,12 +1,26 @@
-﻿<properties title="Hybrid Connection: Connect an Azure Website to an On-Premises Resource" pageTitle="하이브리드 연결: Azure 웹 사이트를 온-프레미스 리소스에 연결(영문)" description="Azure 웹사이트와 정적 TCP 포트를 사용하는 온-프레미스 리소스 간의 연결 만들기" metaKeywords="" services="web-sites" solutions="web" documentationCenter="" authors="cephalin" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="하이브리드 연결: Azure 웹 사이트를 온-프레미스 리소스에 연결" 
+	description="Azure 웹사이트와 정적 TCP 포트를 사용하는 온-프레미스 리소스 간의 연결 만들기" 
+	services="web-sites" 
+	documentationCenter="" 
+	authors="cephalin" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/24/2014" ms.author="cephalin" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/24/2014" 
+	ms.author="cephalin"/>
 
 #하이브리드 연결을 사용하여 Azure 웹 사이트에서 온-프레미스 리소스에 연결
 
 Microsoft Azure의 웹 사이트를 정적 TCP 포트를 사용하는 온-프레미스 리소스(예: SQL Server, MySQL, HTTP 웹 API, 모바일 서비스 및 대부분의 사용자 지정 웹 서비스)에 연결할 수 있습니다. 이 문서에서는 Azure 웹 사이트와 온-프레미스 SQL Server 데이터베이스 간 하이브리드 연결을 만드는 방법을 보여 줍니다.
 
-> [WACOM.NOTE] 하이브리드 연결 기능의 웹 사이트 부분은 [Azure Preview 포털](https://portal.azure.com)에서만 사용 가능합니다. BizTalk 서비스에서 연결을 만들려면 [하이브리드 연결](http://go.microsoft.com/fwlink/p/?LinkID=397274)(영문)을 참조하세요.  
+> [AZURE.NOTE] 하이브리드 연결 기능의 웹 사이트 부분은 [Azure Preview 포털](https://portal.azure.com)에서만 사용할 수 있습니다. BizTalk 서비스에서 연결을 만들려면 [하이브리드 연결](http://go.microsoft.com/fwlink/p/?LinkID=397274)을 참조하세요.  
 
 ##필수 조건
 - Azure 구독. 무료 구독에 대해서는 [Azure 무료 평가판](http://azure.microsoft.com/ko-kr/pricing/free-trial/)을 참조하세요. 
@@ -16,9 +30,9 @@ Microsoft Azure의 웹 사이트를 정적 TCP 포트를 사용하는 온-프레
 - 이 문서의 뒷부분에서 설명하는 온-프레미스 하이브리드 연결 관리자 에이전트를 설치하는 컴퓨터는 다음 조건을 충족해야 합니다.
 
 	- 포트 5671을 통해 Azure에 연결할 수 있어야 합니다.
-	- 온-프레미스 리소스의 *호스트이름*:*포트번호*에 연결할 수 있어야 합니다. 
+	- 온-프레미스 리소스의  *hostname*:*포트번호*에 연결할 수 있어야 합니다. 
 
-> [WACOM.NOTE] 이 자습서의 단계에서는 온-프레미스 하이브리드 연결 에이전트를 호스트하는 컴퓨터에서 브라우저를 사용하고 있다고 가정합니다.
+> [AZURE.NOTE] 이 자습서의 단계에서는 온-프레미스 하이브리드 연결 에이전트를 호스트하는 컴퓨터에서 브라우저를 사용하고 있다고 가정합니다.
 
 
 ##이 문서에서는 다음을 수행합니다.##
@@ -35,9 +49,9 @@ Microsoft Azure의 웹 사이트를 정적 TCP 포트를 사용하는 온-프레
 
 ## Azure Preview 포털에 웹 사이트 만들기##
 
-> [WACOM.NOTE] 이 자습서에서 사용할 Azure Preview 포털에서 웹 사이트를 이미 만든 경우 [하이브리드 연결 및 BizTalk 서비스 만들기](#CreateHC) 로 건너뛰어 시작할 수 있습니다.
+> [AZURE.NOTE] 이 자습서에서 사용할 Azure Preview 포털에서 웹 사이트를 이미 만든 경우 [하이브리드 연결 및 BizTalk 서비스 만들기](#CreateHC)로 건너뛰어 시작할 수 있습니다.
 
-1. [Azure Preview 포털](https://portal.azure.com)의 왼쪽 아래 구석에서 **새로 만들기**를 클릭하고 **웹 사이트**를 선택합니다.
+1. [Azure Preview 포털](https://portal.azure.com)의 왼쪽 아래 모서리에서 **새로 만들기**를 클릭한 다음 **웹 사이트**를 선택합니다.
 	
 	![New button][New]
 	
@@ -62,7 +76,7 @@ Microsoft Azure의 웹 사이트를 정적 TCP 포트를 사용하는 온-프레
 <a name="CreateHC"></a>
 ## 하이브리드 연결 및 BizTalk 서비스 만들기##
 
-1. 미리 보기 포터로 돌아가 웹 사이트의 블레이드 아래로 스크롤하여 **하이브리드 연결**을 선택합니다.
+1. Preview 포털로 돌아가 웹 사이트의 블레이드 아래로 스크롤하여 **하이브리드 연결**을 선택합니다.
 	
 	![Hybrid connections][CreateHCHCIcon]
 	
@@ -75,13 +89,13 @@ Microsoft Azure의 웹 사이트를 정적 TCP 포트를 사용하는 온-프레
 	![Create a hybrid connection][TwinCreateHCBlades]
 	
 	**하이브리드 연결 블레이드 만들기**에서 다음을 수행합니다.
-	- **이름**에서 연결 이름을 입력합니다.
-	- **호스트 이름**에서 리소스를 호스트하는 온-프레미스 컴퓨터의 이름을 입력합니다.
-	- **포트**에서 온-프레미스 리소스가 사용하는 포트 번호(SQL Server 기본 인스턴스의 경우 1433)를 입력합니다.
+	- **이름**에 연결 이름을 입력합니다.
+	- **호스트 이름**에 리소스를 호스트하는 온-프레미스 컴퓨터의 이름을 입력합니다.
+	- **포트**에 온-프레미스 리소스가 사용하는 포트 번호(SQL Server 기본 인스턴스의 경우 1433)를 입력합니다.
 	- **Biz Talk 서비스**를 클릭합니다.
 
 
-4. **Biz Talk 서비스** 블레이드가 열립니다. BizTalk 서비스의 이름을 입력한 다음 **확인**을 클릭합니다.
+4. **Biz Talk 서비스 만들기** 블레이드가 열립니다. BizTalk 서비스의 이름을 입력한 다음 **확인**을 클릭합니다.
 	
 	![Create BizTalk service][CreateHCCreateBTS]
 	
@@ -142,7 +156,7 @@ Microsoft Azure의 웹 사이트를 정적 TCP 포트를 사용하는 온-프레
 	
 	**하이브리드 연결** 블레이드에서 이제 **상태** 열은 **연결됨**을 표시합니다. 
 	
-	![Connected Status][HCStatusConnected]
+	![연결됨 상태][HCStatusConnected]
 
 하이브리드 연결 인프라를 완성했으므로 이 인프라를 사용하는 하이브리드 응용 프로그램을 만듭니다. 
 
@@ -157,15 +171,15 @@ Microsoft Azure의 웹 사이트를 정적 TCP 포트를 사용하는 온-프레
 
 [하이브리드 연결 개요](http://go.microsoft.com/fwlink/p/?LinkID=397274)
 
-[Josh Twist가 소개하는 하이브리드 연결(채널 9 비디오)](영문)(http://channel9.msdn.com/Shows/Azure-Friday/Josh-Twist-introduces-hybrid-connections)
+[Josh Twist가 소개하는 하이브리드 연결(채널 9 비디오)](http://channel9.msdn.com/Shows/Azure-Friday/Josh-Twist-introduces-hybrid-connections)
 
 [하이브리드 연결 웹 사이트](http://azure.microsoft.com/ko-kr/services/biztalk-services/)
 
 [BizTalk 서비스: 대시보드, 모니터, 확장, 구성 및 하이브리드 연결 탭](http://azure.microsoft.com/ko-kr/documentation/articles/biztalk-dashboard-monitor-scale-tabs/)
 
-[원활한 응용 프로그램 이식성으로 실시간 하이브리드 연결 클라우드 구축(채널 9 비디오)](영문)(http://channel9.msdn.com/events/TechEd/NorthAmerica/2014/DCIM-B323#fbid=)
+[원활한 응용 프로그램 이식성으로 실시간 하이브리드 연결 클라우드 구축(채널 9 비디오)](http://channel9.msdn.com/events/TechEd/NorthAmerica/2014/DCIM-B323#fbid=)
 
-[하이브리드 연결을 사용하여 Azure 모바일 서비스에서 온-프레미스 SQL Server에 연결(채널 9 비디오)](영문)(http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Connect-to-an-on-premises-SQL-Server-from-Azure-Mobile-Services-using-Hybrid-Connections)
+[하이브리드 연결을 사용하여 Azure 모바일 서비스에서 온-프레미스 SQL Server에 연결(채널 9 비디오)](http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Connect-to-an-on-premises-SQL-Server-from-Azure-Mobile-Services-using-Hybrid-Connections)
 
 <!-- IMAGES -->
 [New]:./media/web-sites-hybrid-connection-get-started/B01New.png
@@ -192,4 +206,5 @@ Microsoft Azure의 웹 사이트를 정적 TCP 포트를 사용하는 온-프레
 [HCMInstallComplete]:./media/web-sites-hybrid-connection-get-started/D09HCMInstallComplete.png
 [HCStatusConnected]:./media/web-sites-hybrid-connection-get-started/D10HCStatusConnected.png
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

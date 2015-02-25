@@ -1,13 +1,13 @@
-﻿<properties urlDisplayName="Cassandra with Linux" pageTitle="Azure에서 Linux 환경의 Cassandra 실행" metaKeywords="" description="Azure 가상 컴퓨터의 Linux에서 Cassandra 클러스터를 실행하는 방법에 대해 알아봅니다." metaCanonical="" services="virtual-machines" documentationCenter="nodejs" title="Running Cassandra with Linux on Azure and Accessing it from Node.js" authors="hanuk" solutions="" manager="timlt" editor="" />
+<properties pageTitle="Azure에서 Linux 환경의 Cassandra 실행" description="Azure 가상 컴퓨터의 Linux에서 Cassandra 클러스터를 실행하는 방법에 대해 알아봅니다." services="virtual-machines" documentationCenter="nodejs" authors="hanuk" manager="timlt" editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="12/01/2014" ms.author="hanuk" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="12/01/2014" ms.author="hanuk"/>
 
 
 
 
 
 <h1><a id = ""></a>Azure에서 Linux 환경의 Cassandra 실행 및 Node.js에서 Cassandra에 액세스 </h1>
-**만든 이:** Hanu Kommalapati
+**작성자:** Hanu Kommalapati
 
 ## 목차##
 
@@ -42,7 +42,7 @@ Cassandra는 작업의 분산 특성에 따라 단일 Azure 지역이나 여러 
 ###<a id="oneregion"> </a>단일 지역 배포 ###
 단일 지역 배포로 시작하여 다중 지역 모델을 만드는 방법을 알아보겠습니다. Azure 가상 네트워킹은 위에서 언급한 네트워크 보안 요구 사항을 충족할 수 있도록 격리된 서브넷을 만드는 데 사용됩니다.  단일 지역 배포를 만드는 방법에서 설명된 프로세스는 Ubuntu 14.04 LTS 및 Cassandra 2.08을 사용하지만 다른 Linux 변형에도 쉽게 이 프로세스를 채택할 수 있습니다. 다음은 단일 지역 배포의 몇 가지 시스템 특성입니다.  
 
-**고가용성**: 그림 1에 표시된 Cassandra 노드는 고가용성을 위해 여러 장애 도메인에 간에 노드가 배포되도록 두 개의 가용성 집합에 배포됩니다. 각 가용성 집합이 주석으로 추가된 VM은 2개의 장애 도메인에 매핑됩니다. Microsoft Azure는 장애 도메인의 개념을 사용하여 계획되지 않은 중단 시간(예: 하드웨어 또는 소프트웨어 오류)을 관리하는 반면, 예약된 중단 시간 관리에는 업그레이드 도메인의 개념(예: 호스트 또는 게스트 OS 패치/업그레이드, 응용 프로그램 업그레이드)이 사용됩니다. 고가용성 실현에서 장애 도메인과 업그레이드 도메인의 역할에 대해서는 [Azure 응용 프로그램에 대한 재해 복구 및 고가용성](http://msdn.microsoft.com/ko-kr/library/dn251004.aspx)을 참조하세요.
+**고가용성:** 그림 1에 표시된 Cassandra 노드는 고가용성을 위해 여러 장애 도메인에 간에 노드가 배포되도록 두 개의 가용성 집합에 배포됩니다. 각 가용성 집합이 주석으로 추가된 VM은 2개의 장애 도메인에 매핑됩니다. Microsoft Azure는 장애 도메인의 개념을 사용하여 계획되지 않은 중단 시간(예: 하드웨어 또는 소프트웨어 오류)을 관리하는 반면, 예약된 중단 시간 관리에는 업그레이드 도메인의 개념(예: 호스트 또는 게스트 OS 패치/업그레이드, 응용 프로그램 업그레이드)이 사용됩니다. 고가용성 실현에서 장애 도메인과 업그레이드 도메인의 역할에 대해서는 [Azure 응용 프로그램에 대한 재해 복구 및 고가용성](http://msdn.microsoft.com/ko-kr/library/dn251004.aspx)을 참조하세요.
 
 ![Single region deployment](./media/virtual-machines-linux-nodejs-running-cassandra/cassandra-linux1.png)
 
@@ -52,9 +52,9 @@ Cassandra는 작업의 분산 특성에 따라 단일 Azure 지역이나 여러 
 
 **쓰리프트 트래픽의 부하 분산:** 웹 서버 내부의 쓰리프트 클라이언트 라이브러리는 내부 부하 분산 장치를 통해 클러스터에 연결합니다. 이 경우 Cassandra 클러스터를 호스트하는 클라우드 서비스 컨텍스트의 "data" 서브넷(그림 1 참조)에 내부 부하 분산 장치를 추가해야 합니다. 내부 부하 분산 장치가 정의되고 나면 이전에 정의한 내부 부하 분산 장치 이름으로 부하 분산 집합에 주석을 지정하여 각 노드에 부하 분산 끝점을 추가해야 합니다. 자세한 내용은 [Azure 내부 부하 분산](http://msdn.microsoft.com/ko-kr/library/azure/dn690121.aspx)을 참조하세요.
 
-**클러스터 시드**: 새 노드는 시드 노드와 통신하여 클러스터의 토폴로지를 검색하므로 가장 가용성이 큰 노드를 시드에 대해 선택하는 것이 중요합니다. 단일 실패 지점을 방지하기 위해 각 가용성 집합에서 하나의 노드가 시드 노드로 지정됩니다.
+**클러스터 시드:** 새 노드는 시드 노드와 통신하여 클러스터의 토폴로지를 검색하므로 가장 가용성이 큰 노드를 시드에 대해 선택하는 것이 중요합니다. 단일 실패 지점을 방지하기 위해 각 가용성 집합에서 하나의 노드가 시드 노드로 지정됩니다.
 
-**복제 계수 및 일관성 수준**: Cassandra의 기본 제공 고가용성 및 데이터 지속성은 복제 계수(RF - 클러스터에 저장되는 각 행의 복사본 수) 및 일관성 수준(호출자에게 결과를 반환하기 전에 읽거나 쓸 복제본 수)으로 구분됩니다. 복제 계수는 KEYSPACE(관계형 데이터베이스와 유사) 생성 중 지정되는 반면 일관성 수준은 CRUD 쿼리를 실행하는 동안 지정됩니다. 일관성에 대한 자세한 내용과 쿼럼 계산 공식은 [일관성에 대한 구성](http://www.datastax.com/documentation/cassandra/2.0/cassandra/dml/dml_config_consistency_c.html)의 Cassandra 설명서를 참조하세요.
+**복제 계수 및 일관성 수준:** Cassandra의 기본 제공 고가용성 및 데이터 지속성은 복제 계수(RF - 클러스터에 저장되는 각 행의 복사본 수) 및 일관성 수준(호출자에게 결과를 반환하기 전에 읽거나 쓸 복제본 수)으로 구분됩니다. 복제 계수는 KEYSPACE(관계형 데이터베이스와 유사) 생성 중 지정되는 반면 일관성 수준은 CRUD 쿼리를 실행하는 동안 지정됩니다. 일관성에 대한 자세한 내용과 쿼럼 계산 공식은 [일관성에 대한 구성](http://www.datastax.com/documentation/cassandra/2.0/cassandra/dml/dml_config_consistency_c.html)의 Cassandra 설명서를 참조하세요.
 
 Cassandra는 두 가지 유형의 데이터 무결성 모델, 즉 일관성과 최종 일관성을 지원합니다. 복제 계수 및 일관성 수준이 결합되어 쓰기 작업이 완료되는 즉시 데이터가 일치하는지 또는 최종적으로 일치하는지를 결정합니다. 예를 들어 QUORUM을 일관성 수준으로 지정하면 항상 데이터 일관성이 유지되는 반면 QUORUM 실현에 필요한 쓸 복제본 수보다 낮은 일관성 수준(예: ONE)에서는 데이터가 최종적으로 일치합니다. 
 
@@ -85,7 +85,7 @@ Azure에 배포된 시스템에 고가용성(예: 8.76시간/년과 동등한 �
 
 **고가용성:** 중복성은 소프트웨어 및 하드웨어의 고가용성 실현에 중요한 요소입니다. 자세한 내용은 Microsoft Azure에서 신뢰할 수 있는 클라우드 시스템 빌드를 참조하세요. Microsoft Azure에서 진정한 중복성을 실현하는 신뢰할 수 있는 방법은 다중 지역 클러스터를 배포하는 것뿐입니다. 능동-능동 또는 능동-수동 모드로 응용 프로그램을 배포할 수 있으며, 지역 중 하나가 다운되면 Azure 트래픽 관리자가 활성 지역으로 트래픽을 리디렉션할 수 있습니다. 단일 지역 배포에서는 가용성이 99.9일 경우 다음 공식에 따라 2개 지역 배포를 통해 99.9999의 가용성을 실현할 수 있습니다. (1-(1-0.999) * (1-0.999))*100). 자세한 내용은 위의 문서를 참조하세요.
 
-**재해 복구**: 제대로 디자인된 다중 지역 Cassandra 클러스터는 심각한 센터 중단 문제를 극복할 수 있습니다. 한 지역이 다운되면 다른 지역에 배포된 응용 프로그램에서 최종 사용자에게 서비스를 제공할 수 있습니다. 다른 비즈니스 연속성 구현과 마찬가지로 응용 프로그램에서는 비동기 파이프라인의 데이터에서 발생하는 약간의 데이터 손실을 감당해야 합니다. 그러나 Cassandra는 기존의 데이터베이스 복구 프로세스에 걸리는 시간보다 훨씬 신속하게 복구합니다. 그림 2에서는 각 지역에 8개 노드가 있는 일반적인 다중 지역 배포 모델을 보여 줍니다. 두 지역은 대칭의 동일성을 위해 상대 지역의 미러 이미지입니다. 실제 디자인은 작업 유형(예: 트랜잭션 또는 분석), RPO, RTO, 데이터 일관성 및 가용성 요구 사항에 따라 달라집니다.
+**재해 복구:** 제대로 디자인된 다중 지역 Cassandra 클러스터는 심각한 센터 중단 문제를 극복할 수 있습니다. 한 지역이 다운되면 다른 지역에 배포된 응용 프로그램에서 최종 사용자에게 서비스를 제공할 수 있습니다. 다른 비즈니스 연속성 구현과 마찬가지로 응용 프로그램에서는 비동기 파이프라인의 데이터에서 발생하는 약간의 데이터 손실을 감당해야 합니다. 그러나 Cassandra는 기존의 데이터베이스 복구 프로세스에 걸리는 시간보다 훨씬 신속하게 복구합니다. 그림 2에서는 각 지역에 8개 노드가 있는 일반적인 다중 지역 배포 모델을 보여 줍니다. 두 지역은 대칭의 동일성을 위해 상대 지역의 미러 이미지입니다. 실제 디자인은 작업 유형(예: 트랜잭션 또는 분석), RPO, RTO, 데이터 일관성 및 가용성 요구 사항에 따라 달라집니다.
 
 ![Multi region deployment](./media/virtual-machines-linux-nodejs-running-cassandra/cassandra-linux2.png)
 
@@ -118,7 +118,7 @@ Azure에 배포된 시스템에 고가용성(예: 8.76시간/년과 동등한 �
 <tr><td>JRE	</td><td>[JRE 8](http://www.oracle.com/technetwork/java/javase/downloads/server-jre8-downloads-2133154.html) </td><td>8U5</td></tr>
 <tr><td>JNA	</td><td>[JNA](https://github.com/twall/jna) </td><td> 3.2.7</td></tr>
 <tr><td>Cassandra</td><td>[Apache Cassandra 2.0.8](http://www.apache.org/dist/cassandra/2.0.8/apache-cassandra-2.0.8-bin.tar.gz)</td><td> 2.0.8</td></tr>
-<tr><td>Ubuntu	</td><td>[Mcrosoft Azure 포털](http://azure.microsoft.com) </td><td>14.04 LTS</td></tr>
+<tr><td>Ubuntu	</td><td>[Mcrosoft Azure Portal](http://azure.microsoft.com) </td><td>14.04 LTS</td></tr>
 </table>
 
 JRE를 다운로드하려면 Oracle 라이선스를 수동으로 승인해야 하므로 배포를 간소화하려면 클러스터 배포 전에 만들려는 Ubuntu 템플릿 이미지에 나중에 업로드할 필수 소프트웨어를 데스크톱에 모두 다운로드합니다. 
@@ -128,10 +128,10 @@ JRE를 다운로드하려면 Oracle 라이선스를 수동으로 승인해야 �
 ### UBUNTU VM 만들기 ###
 이 프로세스 단계에서는 여러 개의 Cassandra 노드를 프로비전하는 데 이미지를 다시 사용할 수 있도록 필수 조건 소프트웨어로 Ubuntu 이미지를 만듭니다.  
 ####1단계: SSH 키 쌍 생성####
-Azure는 프로비전 시간에 PEM 또는 DER 인코딩된 X509 공개 키를 필요로 합니다. Azure에서 Linux와 함께 SSH를 사용하는 방법(영문)에 설명된 지침에 따라 공개/개인 키 쌍을 생성합니다. Windows 또는 Linux에서 putty.exe를 SSH 클라이언트로 사용할 계획이면 PEM 인코딩된 RSA 개인 키를 puttygen.exe를 사용하여 PPK 형식으로 변환해야 합니다. 이에 대한 지침은 위의 웹 페이지를 참조하세요. 
+Azure는 프로비전 시간에 PEM 또는 DER 인코딩된 X509 공개 키를 필요로 합니다. Azure에서 Linux와 함께 SSH를 사용하는 방법에 설명된 지침에 따라 공개/개인 키 쌍을 생성합니다. Windows 또는 Linux에서 putty.exe를 SSH 클라이언트로 사용할 계획이면 PEM 인코딩된 RSA 개인 키를 puttygen.exe를 사용하여 PPK 형식으로 변환해야 합니다. 이에 대한 지침은 위의 웹 페이지를 참조하세요. 
 
 ####2단계: Ubuntu 템플릿 VM 만들기####
-템플릿 VM을 만들려면 azure.microsoft.com 포털에 로그인하고 다음 시퀀스를 사용합니다. 새로 만들기, 계산, 가상 컴퓨터, 갤러리에서, UBUNTU, Ubuntu Server 14.04 LTS를 차례로 클릭한 다음 오른쪽 화살표를 클릭합니다. Linux VM을 만드는 방법을 설명하는 자습서는 Linux를 실행하는 가상 컴퓨터 만들기(영문)를 참조하세요.
+템플릿 VM을 만들려면 azure.microsoft.com 포털에 로그인하고 다음 시퀀스를 사용합니다. 새로 만들기, 계산, 가상 컴퓨터, 갤러리에서, UBUNTU, Ubuntu Server 14.04 LTS를 차례로 클릭한 다음 오른쪽 화살표를 클릭합니다. Linux VM을 만드는 방법을 설명하는 자습서는 Linux를 실행하는 가상 컴퓨터 만들기를 참조하세요.
 
 "가상 컴퓨터 구성" 화면 #1에서 다음 정보를 입력합니다. 
 
@@ -156,7 +156,7 @@ Azure는 프로비전 시간에 PEM 또는 DER 인코딩된 X509 공개 키를 �
 <tr><td> 클라우드 서비스 DNS 이름	</td><td>ubuntu-template.cloudapp.net	</td><td>컴퓨터에 알 수 없는 부하 분산 장치 이름을 지정합니다.</td></tr>
 <tr><td> 지역/선호도 그룹/가상 네트워크 </td><td>	미국 서부	</td><td> 웹 응용 프로그램이 Cassandra 클러스터에 액세스하는 지역을 선택합니다.</td></tr>
 <tr><td>저장소 계정 </td><td>	기본값 사용	</td><td>기본 저장소 계정이나 특정 지역에 미리 생성된 저장소 계정을 사용합니다.</td></tr>
-<tr><td>가용성 집합 </td><td>	None </td><td>	비워 둡니다.</td></tr>
+<tr><td>가용성 집합 </td><td>	없음 </td><td>	비워 둡니다.</td></tr>
 <tr><td>끝점	</td><td>기본값 사용 </td><td>	기본 SSH 구성을 사용합니다. </td></tr>
 </table>
 
@@ -309,20 +309,20 @@ Cassandra 시작 스크립트에서 이러한 jar을 찾을 수 있도록 $CASS_
 <tr><th>VM 특성 이름</th><th>값</th><th>설명</th></tr>
 <tr><td>이름</td><td>vnet-cass-west-us</td><td></td></tr>	
 <tr><td>지역</td><td>미국 서부</td><td></td></tr>	
-<tr><td>DNS 서버	</td><td>None</td><td>DNS 서버를 사용하지 않으므로 이 특성을 무시합니다.</td></tr>
-<tr><td>지점 및 사이트 간 VPN 구성</td><td>None</td><td> 이 특성을 무시합니다.</td></tr>
+<tr><td>DNS 서버	</td><td>없음</td><td>DNS 서버를 사용하지 않으므로 이 특성을 무시합니다.</td></tr>
+<tr><td>지점 및 사이트 간 VPN 구성</td><td>없음</td><td> 이 특성을 무시합니다.</td></tr>
 <tr><td>사이트 간 VPN 구성</td><td>None</td><td> 이 특성을 무시합니다.</td></tr>
 <tr><td>주소 공간</td><td>10.1.0.0/16</td><td></td></tr>	
 <tr><td>시작 IP</td><td>10.1.0.0</td><td></td></tr>	
-<tr><td>CIDR </td><td>/16(65531)</td><td></td></tr>
+<tr><td>CIDR </td><td>/16 (65531)</td><td></td></tr>
 </table>
 
 다음 서브넷을 추가합니다. 
 
 <table>
 <tr><th>이름</th><th>시작 IP</th><th>CIDR</th><th>설명</th></tr>
-<tr><td>web</td><td>10.1.1.0</td><td>/24(251)</td><td>웹 팜에 대한 서브넷입니다.</td></tr>
-<tr><td>data</td><td>10.1.2.0</td><td>/24(251)</td><td>데이터베이스 노드에 대한 서브넷입니다.</td></tr>
+<tr><td>web</td><td>10.1.1.0</td><td>/24 (251)</td><td>웹 팜에 대한 서브넷입니다.</td></tr>
+<tr><td>data</td><td>10.1.2.0</td><td>/24 (251)</td><td>데이터베이스 노드에 대한 서브넷입니다.</td></tr>
 </table>
 
 Data 및 Web 서브넷은 이 문서를 범위를 벗어난 네트워크 보안 그룹을 통해 보호할 수 있습니다.  
@@ -481,14 +481,14 @@ VM에 로그인하고 다음을 수행합니다.
 <tr><td>사이트 간 VPN 구성</td><td></td><td>		이 특성을 무시합니다.</td></tr>
 <tr><td>주소 공간	</td><td>10.2.0.0/16</td><td></td></tr>	
 <tr><td>시작 IP	</td><td>10.2.0.0	</td><td></td></tr>
-<tr><td>CIDR	</td><td>/16(65531)</td><td></td></tr>
+<tr><td>CIDR	</td><td>/16 (65531)</td><td></td></tr>
 </table>	
 
 다음 서브넷을 추가합니다. 
 <table>
 <tr><th>이름    </th><th>시작 IP	</th><th>CIDR	</th><th>설명</th></tr>
-<tr><td>web	</td><td>10.2.1.0	</td><td>/24(251)	</td><td>웹 팜에 대한 서브넷입니다.</td></tr>
-<tr><td>data	</td><td>10.2.2.0	</td><td>/24(251)	</td><td>데이터베이스 노드에 대한 서브넷입니다.</td></tr>
+<tr><td>web	</td><td>10.2.1.0	</td><td>/24 (251)	</td><td>웹 팜에 대한 서브넷입니다.</td></tr>
+<tr><td>data	</td><td>10.2.2.0	</td><td>/24 (251)	</td><td>데이터베이스 노드에 대한 서브넷입니다.</td></tr>
 </table>
 
 
@@ -549,7 +549,7 @@ Azure 서비스 관리 포털에서 두 가상 네트워크의 "대시보드" �
 </table>
 
 지역 #1과 동일한 지침을 따르되 10.2.xxx.xxx 주소 공간을 사용합니다. 
-###8단계: 각 VM에 Cassandra 구성###
+###8단계: 각 VM에서 Cassandra 구성###
 VM에 로그인하고 다음을 수행합니다. 
 
 1. $CASS_HOME/conf/cassandra-rackdc.properties를 편집하여 데이터 센터 및 랙 속성을 다음 형식으로 지정합니다.
@@ -718,5 +718,4 @@ Microsoft Azure는 이 연습에서 알 수 있듯이 Microsoft 및 오픈 소�
 - [http://www.datastax.com](http://www.datastax.com) 
 - [http://www.nodejs.org](http://www.nodejs.org) 
 
-
-<!--HONumber=35.2-->
+<!--HONumber=42-->

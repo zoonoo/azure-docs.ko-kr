@@ -1,6 +1,6 @@
-<properties urlDisplayName="Create a virtual machine for a website" pageTitle="Visual Studio를 사용하여 웹 프로젝트용 가상 컴퓨터 만들기" metaKeywords="Visual Studio, ASP.NET, web project, virtual machine" description="웹 사이트용 가상 컴퓨터를 만드는 방법에 대해 알아봅니다." metaCanonical="" services="" documentationCenter="" title="Visual Studio에서 웹 사이트용 가상 컴퓨터 만들기" authors="ghogen" solutions="" manager="douge" editor="" />
+﻿<properties pageTitle="Visual Studio를 사용하여 웹 프로젝트용 가상 컴퓨터 만들기" description="웹 사이트용 가상 컴퓨터를 만드는 방법에 대해 알아봅니다." services="virtual-machines" documentationCenter="" authors="ghogen" manager="douge" editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-multiple" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="ghogen" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-multiple" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="ghogen"/>
 
 # Visual Studio에서 웹 사이트용 가상 컴퓨터 만들기
 
@@ -8,44 +8,48 @@ Azure 웹 사이트용 웹 프로젝트를 만들면 Azure에서 가상 컴퓨�
 
 웹 사이트를 만들 때 가상 컴퓨터를 만들려면 다음 단계를 따르세요.
 
-1.  Visual Studio에서 **파일**, **새 프로젝트**, **웹** 및 **ASP.NET 웹 응용 프로그램**을 차례로 선택합니다.
-2.  **새 ASP.NET 프로젝트** 대화 상자에서 원하는 웹 응용 프로그램 유형을 선택하고 대화 상자의 Azure 섹션(오른쪽 아래 구석)에서 **Host in the cloud(클라우드의 호스트)** 확인란을 선택합니다(이 확인란의 경우 일부 설치에서 **Create remote resources(원격 리소스 만들기)**로 표시됨).
+1. Visual Studio에서 **파일**, **새 프로젝트**, **웹** 및 **ASP.NET 웹 응용 프로그램**을 차례로 선택합니다.
+2. **새 ASP.NET 프로젝트** 대화 상자에서 원하는 웹 응용 프로그램 유형을 선택하고 대화 상자의 Azure 섹션(오른쪽 아래 구석)에서 **클라우드의 호스트** 확인란을 선택합니다(이 확인란의 경우 일부 설치에서 **원격 리소스 만들기**로 표시됨).
 
-    ![][0]
+	![][0]
 
-3.  **가상 컴퓨터**를 선택하고 **확인** 단추를 선택합니다.
-4.  Azure에 로그인하라는 메시지가 표시되면 로그인합니다. 가상 컴퓨터 만들기 대화 상자가 나타납니다.
+3. **가상 컴퓨터**를 선택하고 **확인** 단추를 선택합니다.
+4. Azure에 로그인하라는 메시지가 표시되면 로그인합니다. 가상 컴퓨터 만들기 대화 상자가 나타납니다.
 
-    ![][1]
+	![][2]
 
-5.  DNS 이름 상자에 가상 컴퓨터의 이름을 입력합니다. DNS 이름은 Azure에서 고유해야 합니다. 입력한 이름을 사용할 수 없으면 빨간색 느낌표가 표시됩니다.
-6.  이미지 목록에서 가상 컴퓨터에 원하는 운영 체제 이미지를 선택합니다. 표준 이미지 중 하나를 선택하거나 Azure에 업로드한 자체 이미지를 선택할 수 있습니다.
-7.  다른 웹 서버를 설치할 계획이 아니라면 **Enable IIS and Web Deploy(IIS 및 웹 배포 사용)** 확인란을 선택된 상태로 둡니다. 웹 배포를 사용하지 않도록 설정하면 Visual Studio에서 게시할 수 없게 됩니다. 자체 사용자 지정 이미지를 비롯하여 패키지된 Windows Server 이미지 중 하나에 IIS 및 웹 배포를 추가할 수 있습니다.
-8.  **크기** 목록에서 가상 컴퓨터의 크기를 선택합니다.
-9.  이 가상 컴퓨터의 로그인 자격 증명을 지정합니다. 원격 데스크톱을 통해 이 컴퓨터에 액세스할 때 필요하므로 이러한 자격 증명을 적어둡니다.
+5. DNS 이름 상자에 가상 컴퓨터의 이름을 입력합니다. DNS 이름은 Azure에서 고유해야 합니다. 입력한 이름을 사용할 수 없으면 빨간색 느낌표가 표시됩니다.
+6. 이미지 목록에서 가상 컴퓨터에 원하는 운영 체제 이미지를 선택합니다. 표준 이미지 중 하나를 선택하거나 Azure에 업로드한 자체 이미지를 선택할 수 있습니다.
+7. 다른 웹 서버를 설치할 계획이 아니라면 **IIS 및 웹 배포 사용** 확인란을 선택된 상태로 둡니다. 웹 배포를 사용하지 않도록 설정하면 Visual Studio에서 게시할 수 없게 됩니다. 자체 사용자 지정 이미지를 비롯하여 패키지된 Windows Server 이미지 중 하나에 IIS 및 웹 배포를 추가할 수 있습니다.
+8. **크기** 목록에서 가상 컴퓨터의 크기를 선택합니다.
+9. 이 가상 컴퓨터의 로그인 자격 증명을 지정합니다. 원격 데스크톱을 통해 이 컴퓨터에 액세스할 때 필요하므로 이러한 자격 증명을 적어둡니다.
 10. **위치** 목록에서 가상 컴퓨터를 호스팅할 지역, 가상 네트워크 또는 선호도 그룹을 선택합니다. 선호도 그룹을 사용하여 서로 간에 많은 네트워크 트래픽이 발생하는 Azure 리소스가 동일한 데이터 센터에 함께 위치하도록 하거나 지역을 사용하여 정확한 데이터 센터 위치를 지정할 수 있습니다.
 11. **확인**을 선택하여 가상 컴퓨터를 만드는 프로세스를 시작합니다. **출력** 창에서 진행 상태를 확인할 수 있습니다.
 
-    ![][2]
+	![][3]
 
 12. 가상 컴퓨터가 프로비전되면 솔루션의 **PublishScripts** 노드에 게시 스크립트가 만들어집니다. 이 게시 스크립트가 실행되고 Azure에서 가상 컴퓨터를 프로비전합니다. **출력** 창에 상태가 표시됩니다. 이 스크립트는 가상 컴퓨터 설치를 위해 다음을 수행합니다.
 
-    -   가상 컴퓨터가 없는 경우 만듭니다.
-    -   이름이 `devtest`로 시작하는 저장소 계정을 만듭니다. 단, 지정된 지역에 이러한 저장소 계정이 없어야 합니다.
-    -   가상 컴퓨터에 대한 컨테이너로 클라우드 서비스를 만들고 웹 사이트에 대한 웹 역할을 만듭니다.
-    -   가상 컴퓨터에서 웹 배포를 구성합니다.
-    -   가상 컴퓨터에서 IIS 및 ASP.NET을 구성합니다.
+	* 가상 컴퓨터가 없는 경우 만듭니다.
+	* 이름이  `devtest`로 시작하는 저장소 계정을 만듭니다. 단, 지정된 지역에 이러한 저장소 계정이 없어야 합니다.
+	* 가상 컴퓨터에 대한 컨테이너로 클라우드 서비스를 만들고 웹 사이트에 대한 웹 역할을 만듭니다.
+	* 가상 컴퓨터에서 웹 배포를 구성합니다.
+	* 가상 컴퓨터에서 IIS 및 ASP.NET을 구성합니다.
 
-    ![][3]
+	![][4]
 
-1.  (옵션) **Server Explorer(서버 탐색기)**에서 **Virtual Machines(가상 컴퓨터)** 노드를 확장하고 만든 가상 컴퓨터에 대한 노드를 선택한 후 **Connect with Remote Desktop(원격 데스크톱으로 연결)**을 선택하여 가상 컴퓨터에 연결합니다.
+<br/>
+13. (옵션) **서버 탐색기**에서 **가상 컴퓨터** 노드를 확장하고 만든 가상 컴퓨터에 대한 노드를 선택한 후 **원격 데스크톱 연결**을 선택하여 가상 컴퓨터에 연결합니다.
 
 # 다음 단계
 
-만든 게시 스크립트를 사용자 지정하려면 [여기][여기]에서 자세한 내용은 참조하세요.
+만든 게시 스크립트를 사용자 지정하려면 [여기](http://msdn.microsoft.com/library/dn642480.aspx)에서 자세한 내용은 참조하세요.
 
-  [0]: ./media/dotnet-visual-studio-create-virtual-machine/CreateVM_NewProject.PNG
-  [1]: ./media/dotnet-visual-studio-create-virtual-machine/CreateVM_CreateVM.PNG
-  [2]: ./media/dotnet-visual-studio-create-virtual-machine/CreateVM_Provisioning.png
-  [3]: ./media/dotnet-visual-studio-create-virtual-machine/CreateVM_SolutionExplorer.png
-  [여기]: http://msdn.microsoft.com/library/dn642480.aspx
+[0]: ./media/dotnet-visual-studio-create-virtual-machine/CreateVM_NewProject.PNG
+[1]: ./media/dotnet-visual-studio-create-virtual-machine/CreateVM_SignIn.PNG
+[2]: ./media/dotnet-visual-studio-create-virtual-machine/CreateVM_CreateVM.PNG
+[3]: ./media/dotnet-visual-studio-create-virtual-machine/CreateVM_Provisioning.png
+[4]: ./media/dotnet-visual-studio-create-virtual-machine/CreateVM_SolutionExplorer.png
+
+
+<!--HONumber=42-->

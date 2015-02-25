@@ -1,10 +1,24 @@
-﻿<properties pageTitle="Azure WebJobs SDK 시작" metaKeywords="Azure 자습서, Azure WebJobs 자습서, Azure 다중 계층 자습서, MVC 자습서, Azure Blob 자습서, Azure 큐 자습서, Azure 저장소 자습서" description="ASP.NET MVC 및 Azure를 사용하여 다중 계층 앱을 만드는 방법에 대해 알아봅니다. 프런트 엔드는 웹 사이트에서 실행되고 백 엔드는 WebJob으로 실행됩니다. 앱에서는 Entity Framework, SQL 데이터베이스 및 Azure 저장소 큐와 Blob를 사용합니다." metaCanonical="" services="web-sites,storage" documentationCenter=".NET" title="Get Started with the Azure WebJobs SDK" authors="tdykstra" solutions="" manager="wpickett" editor="mollybos" />
+﻿<properties 
+	pageTitle="Azure WebJobs SDK 시작" 
+	description="ASP.NET MVC 및 Azure를 사용하여 다중 계층 앱을 만드는 방법에 대해 알아봅니다. 프런트 엔드는 웹 사이트에서 실행되고 백 엔드는 WebJob으로 실행됩니다. 앱에서는 Entity Framework, SQL 데이터베이스 및 Azure 저장소 큐와 Blob를 사용합니다." 
+	services="web-sites, storage" 
+	documentationCenter=".net" 
+	authors="tdykstra" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/12/2014" ms.author="tdykstra" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/12/2014" 
+	ms.author="tdykstra"/>
 
-# Azure WebJob SDK 시작
+# Azure WebJobs SDK 시작
 
-이 자습서에서는 WebJobs SDK를 사용하여 [Azure 웹 사이트]에서 [Azure 큐](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) 및 [Azure Blob](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage) 작업을 수행하는 다중 계층 ASP.NET MVC 응용 프로그램을 만드는 방법을 보여 줍니다(/ko-kr/documentation/services/websites/). 또한 이 응용 프로그램은 [Azure SQL 데이터베이스](http://msdn.microsoft.com/library/azure/ee336279)를 사용합니다. 
+이 자습서에서는 WebJobs SDK를 사용하여 [Azure 웹 사이트](/ko-kr/documentation/services/websites/)에서 [Azure 큐](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) 및 [Azure Blob](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage) 작업을 수행하는 다중 계층 ASP.NET MVC 응용 프로그램을 만드는 방법을 보여 줍니다 또한 이 응용 프로그램은 [Azure SQL 데이터베이스](http://msdn.microsoft.com/library/azure/ee336279)를 사용합니다. 
 
 응용 프로그램 예제는 광고 게시판입니다. 사용자는 텍스트를 입력하고 이미지를 업로드하여 광고를 만듭니다. 사용자는 미리 보기 이미지가 있는 광고 목록을 볼 수 있으며 광고를 선택하여 자세한 내용을 확인할 때 전체 크기 이미지를 볼 수 있습니다. 다음 스크린샷을 참조하세요.
 
@@ -27,16 +41,17 @@ MSDN 코드 갤러리에서 [Visual Studio 프로젝트를 다운로드][downloa
 
 ## <a id="prerequisites"></a>필수 조건
 
-이 자습서에서는 Visual Studio에서 [ASP.NET MVC](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started)(영문) 또는 [Web Forms](http://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview)(영문) 프로젝트를 작업하는 방법도 알고 있다고 가정합니다. 응용 프로그램 예제는 MVC를 사용하지만, 자습서 내용의 대부분은 Web Forms에도 적용됩니다. 
+이 자습서에서는 Visual Studio에서 [ASP.NET MVC](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started) 또는 [Web Forms](http://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview) 프로젝트를 작업하는 방법도 알고 있다고 가정합니다. 응용 프로그램 예제는 MVC를 사용하지만, 자습서 내용의 대부분은 Web Forms에도 적용됩니다. 
 
 자습서의 지침은 다음 제품에 적용됩니다.
 
 * Visual Studio 2013
+* Visual Studio 2013 커뮤니티
 * Visual Studio 2013 Express for Web
 
 위 제품 중 하나도 없는 경우에는 Azure SDK를 설치하면 Visual Studio 2013 Express for Web이 자동으로 설치됩니다.
 
-[WACOM.INCLUDE [free-trial-note](../includes/free-trial-note.md)]
+[AZURE.INCLUDE [free-trial-note](../includes/free-trial-note.md)]
 
 ## <a id="learn"></a>학습할 내용
 
@@ -51,17 +66,17 @@ MSDN 코드 갤러리에서 [Visual Studio 프로젝트를 다운로드][downloa
 
 ## <a id="contosoads"></a>응용 프로그램 아키텍처
 
-이 응용 프로그램 예제에서는 [큐 중심 작업 패턴](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern)을 사용하여 미리 보기를 만드는 CPU 사용량이 많은 작업을 백 엔드 프로세스에 오프로드합니다. 
+이 응용 프로그램 예제에서는 [queue-centric work pattern](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern)을 사용하여 미리 보기를 만드는 CPU 사용량이 많은 작업을 백 엔드 프로세스에 오프로드합니다. 
 
 앱은 Entity Framework Code First를 사용해 SQL 데이터베이스에 광고를 저장하여 테이블을 만들고 데이터에 액세스합니다. 광고별로 데이터베이스는 전체 크기 이미지용과 미리 보기용으로 두 개의 URL을 저장합니다.
 
 ![Ad table](./media/websites-dotnet-webjobs-sdk-get-started/adtable.png)
 
-사용자가 이미지를 업로드하면 프런트 엔드 웹 사이트가 [Azure Blob](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage)(영문)에 이미지를 저장하며 Blob을 가리키는 URL을 사용하여 데이터베이스에 광고 정보를 저장합니다. 이와 동시에 Azure 큐에 메시지를 기록합니다. Azure WebJob으로 실행되는 백 엔드 프로세스는 WebJobs SDK를 사용하여 큐에서 새 메시지를 폴링합니다. 새 메시지가 나타나면 WebJob은 해당 이미지의 미리 보기를 만들고 광고에 대한 미리 보기 URL 데이터베이스 필드를 업데이트합니다. 다음은 응용 프로그램의 여러 부분이 상호 작용하는 방법을 보여 주는 다이어그램입니다.
+사용자가 이미지를 업로드하면 프런트 엔드 웹 사이트가 [Azure Blob](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage)에 이미지를 저장하며 Blob를 가리키는 URL을 사용하여 데이터베이스에 광고 정보를 저장합니다. 이와 동시에 Azure 큐에 메시지를 기록합니다. Azure WebJob으로 실행되는 백 엔드 프로세스는 WebJobs SDK를 사용하여 큐에서 새 메시지를 폴링합니다. 새 메시지가 나타나면 WebJob은 해당 이미지의 미리 보기를 만들고 광고에 대한 미리 보기 URL 데이터베이스 필드를 업데이트합니다. 다음은 응용 프로그램의 여러 부분이 상호 작용하는 방법을 보여 주는 다이어그램입니다.
 
 ![Contoso Ads architecture](./media/websites-dotnet-webjobs-sdk-get-started/apparchitecture.png)
 
-### 대체 아키텍처
+### Alternative architecture
 
 WebJob은 웹 사이트의 컨텍스트에서 실행되며 별도로 확장 가능하지 않습니다. 예를 들어 표준 웹 사이트 인스턴스가 하나 있으면 실행 중인 백그라운드 프로세스 인스턴스가 하나만 있고 웹 콘텐츠를 제공하는 데 사용될 수 있는 일부 서버 리소스(CPU, 메모리 등)를 사용하고 있습니다. 
 
@@ -70,9 +85,9 @@ WebJob은 웹 사이트의 컨텍스트에서 실행되며 별도로 확장 가�
 * 프로그램을 해당 용도로만 사용되는 별도의 웹 사이트에서 WebJob으로 실행합니다. 그런 후 프런트 엔드 웹 사이트와는 별도로 백 엔드 웹 사이트를 확장할 수 있습니다.
 * Azure 클라우드 서비스 작업자 역할에서 프로그램을 실행합니다. 이 옵션을 선택하는 경우 클라우드 서비스 웹 역할이나 웹 사이트에서 프런트 엔드를 실행할 수 있습니다.
 
-이 자습서에서는 프런트 엔드를 웹 사이트에서 실행하고, 백 엔드를 동일한 웹 사이트의 WebJob으로 실행하는 방법을 보여 줍니다. 시나리오에 가장 적합한 환경을 선택하는 방법에 대한 자세한 내용은 [Azure 웹 사이트, 클라우드 서비스 및 가상 컴퓨터 비교](영문)를 참조하세요(/ko-kr/documentation/articles/choose-web-site-cloud-service-vm/).
+이 자습서에서는 프런트 엔드를 웹 사이트에서 실행하고, 백 엔드를 동일한 웹 사이트의 WebJob으로 실행하는 방법을 보여 줍니다. 시나리오에 가장 적합한 환경을 선택하는 방법에 대한 자세한 내용은 [Azure 웹 사이트, 클라우드 서비스 및 가상 컴퓨터 비교](/ko-kr/documentation/articles/choose-web-site-cloud-service-vm/).를 참조하세요
 
-[WACOM.INCLUDE [install-sdk-2013-only](../includes/install-sdk-2013-only.md)]
+[AZURE.INCLUDE [install-sdk-2013-only](../includes/install-sdk-2013-only.md)]
 
 자습서 지침은 [Visual Studio 2013 업데이트 4](http://go.microsoft.com/fwlink/?LinkID=510328)의 다음 미리 보기 릴리스를 사용하여 작성되었습니다. Visual Studio 2013 업데이트 3에 대한 차이점은 WebJob 프로젝트를 만드는 처음부터 만들기 섹션뿐입니다. 업데이트 4에서는 WebJobs SDK 패키지가 프로젝트에 자동으로 포함됩니다. 업데이트 4가 없을 경우 패키지를 수동으로 설치해야 합니다.
 
@@ -128,7 +143,7 @@ Azure 저장소 계정은 큐 및 Blob 데이터를 클라우드에 저장하기
 
 ## <a id="configurestorage"></a>저장소 계정을 사용하도록 응용 프로그램 구성
 
-2. ContosoAdsWeb 프로젝트에서 응용 프로그램 *Web.config* 파일을 엽니다.
+2. ContosoAdsWeb 프로젝트에서 응용 프로그램  *Web.config* 파일을 엽니다.
  
 	이 파일에는 Blob 및 큐 사용을 위한 SQL 연결 문자열과 Azure 저장소 연결 문자열이 포함되어 있습니다. 
 
@@ -155,9 +170,9 @@ Azure 저장소 계정은 큐 및 Blob 데이터를 클라우드에 저장하기
 
 	![Storage Account Keys dialog](./media/websites-dotnet-webjobs-sdk-get-started/cpak.png)	
 
-8. *Web.config* 파일의 저장소 연결 문자열을 방금 복사한 연결 문자열로 바꿉니다. 붙여 넣기 전에 따옴표를 포함하지 않고 따옴표 안의 모든 내용을 선택해야 합니다.
+8.  *Web.config* 파일의 저장소 연결 문자열을 방금 복사한 연결 문자열로 바꿉니다. 붙여 넣기 전에 따옴표를 포함하지 않고 따옴표 안의 모든 내용을 선택해야 합니다.
 
-4. ContosoAdsWebJob 프로젝트에서 *App.config* 파일을 엽니다.
+4. ContosoAdsWebJob 프로젝트에서  *App.config* 파일을 엽니다.
 
 	이 파일에는 응용 프로그램 데이터를 위한 저장소 연결 문자열과 로깅을 위한 저장소 연결 문자열이 있습니다. 이 자습서에서는 두 문자열에 같은 계정을 사용합니다. 연결 문자열에는 저장소 계정 키의 자리 표시자가 있습니다.
   	<pre class="prettyprint">&lt;configuration&gt;
@@ -171,7 +186,7 @@ Azure 저장소 계정은 큐 및 Blob 데이터를 클라우드에 저장하기
     &lt;/startup&gt;
 &lt;/configuration&gt;</pre>
 
-	기본적으로 WebJob SDK는 AzureWebJobsStorage 및 AzureWebJobsDashboard라는 연결 문자열을 찾습니다. 또는 [원하는 연결 문자열을 저장한 후 'JobHost' 개체에 명시적으로 전달]할 수 있습니다(../websites-dotnet-webjobs-sdk-storage-queues-how-to/#config).
+	기본적으로 WebJob SDK는 AzureWebJobsStorage 및 AzureWebJobsDashboard라는 연결 문자열을 찾습니다. 또는 [원하는 연결 문자열을 저장한 후  `JobHost` 개체에 명시적으로 전달](../websites-dotnet-webjobs-sdk-storage-queues-how-to/#config).할 수 있습니다.
 
 1. 두 저장소 연결 문자열을 앞서 복사한 연결 문자열로 바꿉니다.
 
@@ -211,7 +226,7 @@ Azure 저장소 계정은 큐 및 Blob 데이터를 클라우드에 저장하기
 
 	![Details page](./media/websites-dotnet-webjobs-sdk-get-started/details.png)
 
-로컬 컴퓨터에서 응용 프로그램을 실행하고 있으며, 해당 응용 프로그램은 컴퓨터에 있는 SQL Server 데이터베이스를 사용하고 있지만 클라우드의 큐 및 Blob을 사용하고 있습니다. 다음 섹션에서는 클라우드 데이터베이스와 클라우드 Blob 및 큐를 사용하여 클라우드에서 응용 프로그램을 실행합니다.  
+로컬 컴퓨터에서 응용 프로그램을 실행하고 있으며, 해당 응용 프로그램은 컴퓨터에 있는 SQL Server 데이터베이스를 사용하고 있지만 클라우드의 큐 및 Blob를 사용하고 있습니다. 다음 섹션에서는 클라우드 데이터베이스와 클라우드 Blob 및 큐를 사용하여 클라우드에서 응용 프로그램을 실행합니다.  
 
 ## <a id="runincloud"></a>클라우드에서 응용 프로그램 실행
 
@@ -232,7 +247,7 @@ Azure 저장소 계정은 큐 및 Blob 데이터를 클라우드에 저장하기
 
 	![Select Azure Website publish target](./media/websites-dotnet-webjobs-sdk-get-started/pubweb.png)	
 
-2. **기존 웹 사이트 선택** 상자에서 **로그인**을 클릭합니다.
+2. **기존 웹 사이트** 선택 상자에서 **로그인**을 클릭합니다.
  
 	![Click Sign In](./media/websites-dotnet-webjobs-sdk-get-started/signin.png)	
 
@@ -242,7 +257,7 @@ Azure 저장소 계정은 큐 및 Blob 데이터를 클라우드에 저장하기
 
 9. **Microsoft Azure에서 사이트 만들기** 대화 상자의 **사이트 이름** 상자에 고유 이름을 입력합니다.
 
-	완전한 URL은 여기에 입력한 항목과 .azurewebsites.net(**사이트** 이름 텍스트 상자 옆에 표시된 대로)으로 구성됩니다. 예를 들어 사이트 이름이 ContosoAds이면 URL은 ContosoAds.azurewebsites.net이 됩니다.
+	완전한 URL은 여기에 입력한 항목과 .azurewebsites.net(**사이트 이름** 텍스트 상자 옆에 표시된 대로)으로 구성됩니다. 예를 들어 사이트 이름이 ContosoAds이면 URL은 ContosoAds.azurewebsites.net이 됩니다.
 
 9. **지역** 드롭다운 목록에서 저장소 계정에 대해 선택한 것과 동일한 지역을 선택합니다.
 
@@ -286,7 +301,7 @@ Azure 저장소 계정은 큐 및 Blob 데이터를 클라우드에 저장하기
 
 	데이터베이스가 게시되지 않는다는 내용의 경고는 무시해도 됩니다. Entity Framework Code First에서 게시할 필요가 없는 데이터베이스가 만들어집니다.
 
-	미리 보기 창에는 WebJob 프로젝트의 이진 및 구성 파일이 웹 사이트의 *app_data\jobs\continuous* 폴더로 복사되는 모습이 표시됩니다.
+	미리 보기 창에는 WebJob 프로젝트의 이진 및 구성 파일이 웹 사이트의  *app_data\jobs\continuous* 폴더로 복사되는 모습이 표시됩니다.
 
 	![WebJobs files in preview window](./media/websites-dotnet-webjobs-sdk-get-started/previewwjfiles.png)	
 
@@ -298,7 +313,7 @@ Azure 저장소 계정은 큐 및 Blob 데이터를 클라우드에 저장하기
 
 ### Azure SQL 데이터베이스 및 저장소 계정을 사용하도록 웹 사이트를 구성합니다.
 
-[연결 문자열과 같은 중요한 정보를 소스 코드 리포지토리에 저장된 파일에 두지 않는 방식](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#secrets)(영문)이 보안 모범 사례입니다. Azure는 이 작업을 수행하는 방법을 제공합니다. Azure 환경에서 연결 문자열 및 기타 설정 값을 지정하면 ASP.NET 구성 API가 앱이 Azure에서 실행될 때 해당 값을 자동으로 선택합니다. 이 섹션에서는 Azure에서 연결 문자열 값을 설정할 것입니다.
+[연결 문자열과 같은 중요한 정보를 소스 코드 리포지토리에 저장된 파일에 두지 않는 방식](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#secrets)이 보안 모범 사례입니다. Azure는 이 작업을 수행하는 방법을 제공합니다. Azure 환경에서 연결 문자열 및 기타 설정 값을 지정하면 ASP.NET 구성 API가 앱이 Azure에서 실행될 때 해당 값을 자동으로 선택합니다. 이 섹션에서는 Azure에서 연결 문자열 값을 설정할 것입니다.
 
 7. **서버 탐색기**의 **웹 사이트** 노드에서 해당 웹 사이트를 마우스 오른쪽 단추로 클릭한 다음 **설정 보기**를 클릭합니다.
 
@@ -308,7 +323,7 @@ Azure 저장소 계정은 큐 및 Blob 데이터를 클라우드에 저장하기
 
 	Azure는 연결된 데이터베이스로 이 사이트를 만들 때 이 연결 문자열을 자동으로 만들기 때문에 이미 적절한 연결 문자열 값이 지정되어 있을 것입니다. 코드가 찾는 이름으로 변경하기만 하면 됩니다.
 
-9. AzureWebJobsStorage 및 AzureWebJobsDashboard의 두 연결 문자열을 추가합니다. 유형을 사용자 지정으로 설정하고 연결 문자열 값을 이전에 *Web.config* 및 *App.config* 파일에 사용했던 것과 동일한 값으로 설정합니다. (액세스 키만이 아니라 전체 연결 문자열을 포함해야 하며 따옴표는 제외합니다.)
+9. AzureWebJobsStorage 및 AzureWebJobsDashboard의 두 연결 문자열을 추가합니다. 유형을 사용자 지정으로 설정하고 연결 문자열 값을 이전에  *Web.config* 및  *App.config* 파일에 사용했던 것과 동일한 값으로 설정합니다. (액세스 키만이 아니라 전체 연결 문자열을 포함해야 하며 따옴표는 제외합니다.)
 
 	이러한 연결 문자열은 WebJob SDK에서 응용 프로그램 데이터와 로깅에 각각 사용됩니다. 앞서 살펴본 것처럼 응용 프로그램 데이터용 연결 문자열은 웹 프런트 엔드 코드에도 사용됩니다.
 	
@@ -353,11 +368,11 @@ Azure 저장소 계정은 큐 및 Blob 데이터를 클라우드에 저장하기
 
 	![WebJobs SDK dashboard](./media/websites-dotnet-webjobs-sdk-get-started/wjfunctiondetails.png)	
 
-	이 페이지의 **Replay Function(함수 재생)** 단추를 클릭하면 WebJob SDK 프레임워크가 해당 함수를 다시 호출하며 처음에 함수에 전달된 데이터를 변경할 기회가 제공됩니다.
+	이 페이지의 **함수 재생** 단추를 클릭하면 WebJob SDK 프레임워크가 해당 함수를 다시 호출하며 처음에 함수에 전달된 데이터를 변경할 기회가 제공됩니다.
 
->[WACOM.NOTE] 테스트를 마치면 웹 사이트 및 SQL 데이터베이스 인스턴스를 삭제합니다. 이 웹 사이트는 무료이지만 SQL 데이터베이스 인스턴스와 저장소 계정은 요금이 부과됩니다(크기가 작으므로 소량 부과됨). 또한 이 사이트를 실행 중인 채로 두는 경우에는 누군가가 URL을 발견하면 광고를 만들고 볼 수 있습니다. Azure 관리 포털에서 웹 사이트에 대한 **대시보드** 탭으로 이동한 후 페이지 아래에서 **삭제** 단추를 클릭합니다. 그런 후 SQL 데이터베이스 인스턴스를 동시에 삭제하기 위한 확인란을 선택할 수 있습니다. 임시로 다른 사람이 사이트에 액세스하지 못하도록 만들려면 대신 **중지**를 클릭합니다. 이 경우에는 SQL 데이터베이스 및 저장소 계정에 대해 요금이 계속해서 발생합니다. 더 이상 필요 없는 경우 비슷한 절차에 따라 SQL 데이터베이스 및 저장소 계정을 삭제할 수 있습니다.
+>[AZURE.NOTE] 테스트를 마치면 웹 사이트 및 SQL 데이터베이스 인스턴스를 삭제합니다. 이 웹 사이트는 무료이지만 SQL 데이터베이스 인스턴스와 저장소 계정은 요금이 부과됩니다(크기가 작으므로 소량 부과됨). 또한 이 사이트를 실행 중인 채로 두는 경우에는 누군가가 URL을 발견하면 광고를 만들고 볼 수 있습니다. Azure 관리 포털에서 웹 사이트에 대한 **대시보드** 탭으로 이동한 후 페이지 아래에서 **삭제** 단추를 클릭합니다. 그런 후 SQL 데이터베이스 인스턴스를 동시에 삭제하기 위한 확인란을 선택할 수 있습니다. 임시로 다른 사람이 사이트에 액세스하지 못하도록 만들려면 대신 **중지**를 클릭합니다. 이 경우에는 SQL 데이터베이스 및 저장소 계정에 대해 요금이 계속해서 발생합니다. 더 이상 필요 없는 경우 비슷한 절차에 따라 SQL 데이터베이스 및 저장소 계정을 삭제할 수 있습니다.
 
-### 장기 실행 프로세스에 대해 AlwaysOn 사용
+### 장기 실행 프로세스에 AlwaysOn 사용
 
 이 응용 프로그램 예제의 경우 큐 메시지를 만들기 전에 항상 웹 사이트 작업이 수행되므로 오랜 시간 동안 활동이 없어 웹 사이트가 절전 모드로 전환되고 WebJob을 종료하는 경우에도 문제가 발생하지 않습니다. 요청을 받으면 사이트가 절전 모드에서 해제되고 WebJob이 다시 시작됩니다.
 
@@ -385,9 +400,9 @@ Azure 저장소 계정은 큐 및 Blob 데이터를 클라우드에 저장하기
 
 	![New Project](./media/websites-dotnet-webjobs-sdk-get-started/newproject.png)	
 
-5. **새 ASP.NET 프로젝트** 대화 상자에서 MVC 템플릿을 선택하고 **Microsoft Azure** 아래의 **Host in the cloud(클라우드에 호스트)** 확인란을 선택 취소합니다.
+5. **새 ASP.NET 프로젝트** 대화 상자에서 MVC 템플릿을 선택하고 **Microsoft Azure** 아래의 **클라우드의 호스트** 확인란을 선택 취소합니다.
 
-	**Host in the cloud(클라우드에 호스트)**를 선택하면 Visual Studio에서 새 Azure 웹 사이트와 SQL 데이터베이스를 자동으로 만들 수 있습니다. 이러한 항목을 이전에 이미 만들었으므로 프로젝트를 만드는 동안 이 작업을 수행할 필요는 없습니다. 새 항목을 만들려면 해당 확인란을 선택합니다. 그런 후 이전에 응용 프로그램을 배포했을 때 수행했던 것과 같은 방식으로 새 웹 사이트와 SQL 데이터베이스를 구성할 수 있습니다.
+	**클라우드의 호스트**를 선택하면 Visual Studio에서 새 Azure 웹 사이트와 SQL 데이터베이스를 자동으로 만들 수 있습니다. 이러한 항목을 이전에 이미 만들었으므로 프로젝트를 만드는 동안 이 작업을 수행할 필요는 없습니다. 새 항목을 만들려면 해당 확인란을 선택합니다. 그런 후 이전에 응용 프로그램을 배포했을 때 수행했던 것과 같은 방식으로 새 웹 사이트와 SQL 데이터베이스를 구성할 수 있습니다.
 
 5. **인증 변경**을 클릭합니다.
 
@@ -405,13 +420,13 @@ Azure 저장소 계정은 큐 및 Blob 데이터를 클라우드에 저장하기
 
 11. **새 프로젝트 추가** 대화 상자에서 **Visual C#** > **Windows 데스크톱** > **클래스 라이브러리** 템플릿을 선택합니다.  
 
-10. 프로젝트의 이름을 *ContosoAdsCommon*으로 지정한 다음 **확인**을 클릭합니다.
+10. 프로젝트의 이름을  *ContosoAdsCommon*로 지정한 다음 **확인**을 클릭합니다.
 
 	이 프로젝트에는 프런트 엔드 및 백 엔드 둘 다 사용할 Entity Framework 컨텍스트와 데이터 모델이 포함됩니다. 또는 웹 프로젝트에서 EF 관련 클래스를 정의하고 WebJob 프로젝트에서 이 프로젝트를 참조할 수 있습니다. 하지만 WebJob 프로젝트에는 필요 없는 웹 어셈블리 참조가 포함됩니다.
 
 ### WebJob 배포가 설정된 콘솔 응용 프로그램 프로젝트 추가
 
-11. 웹 프로젝트(솔루션 또는 클래스 라이브러리 프로젝트 아님)를 마우스 오른쪽 단추로 클릭하고 **추가** > **New Azure WebJob Project(새 Azure WebJob 프로젝트)**를 클릭합니다.
+11. 웹 프로젝트(솔루션 또는 클래스 라이브러리 프로젝트 아님)를 마우스 오른쪽 단추로 클릭하고 **추가** > **새 Azure WebJob 프로젝트**를 클릭합니다.
 
 	![New Azure WebJob Project menu selection](./media/websites-dotnet-webjobs-sdk-get-started/newawjp.png)	
 
@@ -421,11 +436,11 @@ Azure 저장소 계정은 큐 및 Blob 데이터를 클라우드에 저장하기
   
 	Visual Studio는 웹 프로젝트를 배포할 때마다 WebJob으로 배포되도록 구성된 콘솔 응용 프로그램을 만듭니다. 이렇게 하기 위해 프로젝트를 만든 후에 다음 작업을 수행했습니다.
 
-	* WebJob 프로젝트 속성 폴더에 *webjob-publish-settings.json* 파일을 추가했습니다.
-	* 웹 프로젝트 속성 폴더에 *webjobs-list.json* 파일을 추가했습니다.
+	* WebJob 프로젝트 속성 폴더에  *webjob-publish-settings.json* 파일을 추가했습니다.
+	* 웹 프로젝트 속성 폴더에  *webjobs-list.json* 파일을 추가했습니다.
 	* WebJob 프로젝트에 Microsoft.Web.WebJobs.Publish NuGet 패키지를 설치했습니다.
 	 
-	이러한 변경에 대한 자세한 내용은 [Visual Studio를 사용하여 WebJob을 배포하는 방법]을 참조하세요(/ko-kr/documentation/articles/websites-dotnet-deploy-webjobs/).
+	이러한 변경에 대한 자세한 내용은 [Visual Studio를 사용하여 WebJob을 배포하는 방법](/ko-kr/documentation/articles/websites-dotnet-deploy-webjobs/).을 참조하세요.
 
 ### NuGet 패키지 추가
 
@@ -437,7 +452,7 @@ WebJob 프로젝트에서 자동으로 설치되는 WebJobs SDK 종속성 중 �
 
 12. 왼쪽 창에서 **설치된 패키지**를 선택합니다.
    
-13. *Azure Storage* 패키지를 찾은 후 **관리**를 클릭합니다.
+13.  *Azure Storage* 패키지를 찾은 후 **관리**를 클릭합니다.
 
 13. **프로젝트 선택** 상자에서 **ContosoAdsWeb** 확인란을 선택하고 **확인**을 클릭합니다. 
 
@@ -445,7 +460,7 @@ WebJob 프로젝트에서 자동으로 설치되는 WebJobs SDK 종속성 중 �
 
 12. 왼쪽 창에서 **온라인**을 선택합니다.
    
-16. *EntityFramework* NuGet 패키지를 찾아 세 개의 프로젝트 모두에서 설치합니다.
+16.  *EntityFramework* NuGet 패키지를 찾아 세 개의 프로젝트 모두에서 설치합니다.
 
 
 ### 프로젝트 참조 설정
@@ -458,15 +473,15 @@ WebJob 프로젝트에서 자동으로 설치되는 WebJobs SDK 종속성 중 �
 
 WebJob 프로젝트는 이미지를 사용하고 연결 문자열에 액세스하기 위해 참조가 필요합니다.
 
-11. ContosoAdsWebJob 프로젝트에서 'System.Drawing' 및 'System.Configuration' 프로젝트에 대한 참조를 설정합니다.
+11. ContosoAdsWebJob 프로젝트에서  `System.Drawing` 및  `System.Configuration`에 대한 참조를 설정합니다.
 
 ### 코드 및 구성 파일 추가
 
-이 자습서에 [스캐폴딩을 사용하여 MVC 컨트롤러 및 보기를 만드는 방법](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started)(영문), [SQL Server 데이터베이스를 사용하는 Entity Framework 코드를 작성하는 방법](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc)(영문) 또는 [ASP.NET 4.5의 비동기 프로그래밍에 대한 기본 사항](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices#async)(영문)은 나와 있지 않습니다. 이 작업을 수행하려면 다운로드한 솔루션에서 새 솔루션으로 코드 및 구성 파일을 복사합니다. 이 작업을 수행한 후에는 다음 섹션에서 코드의 핵심 부분에 대한 설명을 확인할 수 있습니다.
+이 자습서에 [스캐폴딩을 사용하여 MVC 컨트롤러 및 보기를 만드는 방법](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started), [SQL Server 데이터베이스를 사용하는 Entity Framework 코드를 작성하는 방법](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc) 또는 [ASP.NET 4.5의 비동기 프로그래밍에 대한 기본 사항](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices#async)은 나와 있지 않습니다. 이 작업을 수행하려면 다운로드한 솔루션에서 새 솔루션으로 코드 및 구성 파일을 복사합니다. 이 작업을 수행한 후에는 다음 섹션에서 코드의 핵심 부분에 대한 설명을 확인할 수 있습니다.
 
 프로젝트나 폴더에 파일을 추가하려면 프로젝트나 폴더를 마우스 오른쪽 단추로 클릭하고 **추가** > **기존 항목**을 클릭합니다. 원하는 파일을 선택하고 **추가**를 클릭합니다. 기존 파일을 바꿀지 여부를 묻는 메시지가 나타나면 **예**를 클릭합니다.
 
-3. ContosoAdsCommon 프로젝트에서 *Class1.cs* 파일을 삭제하고 그 자리에 다운로드한 프로젝트의 다음 파일을 추가합니다.
+3. ContosoAdsCommon 프로젝트에서  *Class1.cs* 파일을 삭제하고 그 자리에 다운로드한 프로젝트의 다음 파일을 추가합니다.
 
 	- *Ad.cs*
 	- *ContosoAdscontext.cs*
@@ -476,14 +491,14 @@ WebJob 프로젝트는 이미지를 사용하고 연결 문자열에 액세스�
 
 	- *Web.config*
 	- *Global.asax.cs*  
-	- *Controllers* 폴더: *AdController.cs* 
-	- *Views\Shared* 폴더: <em>_Layout.cshtml</em> 파일을 저장합니다. 
-	- *Views\Home* 폴더: *Index.cshtml*. 
-	- *Views\Ad* 폴더(먼저 폴더 생성): *.cshtml* 파일 5개<br/><br/>
+	- In the *Controllers* folder: *AdController.cs* 
+	- In the *Views\Shared* folder: <em>_Layout.cshtml</em> file. 
+	- In the *Views\Home* folder: *Index.cshtml*. 
+	- In the *Views\Ad* folder (create the folder first): five *.cshtml* files.<br/><br/>
 
 3. ContosoAdsWebJob 프로젝트에서 다운로드한 프로젝트에서 가져온 다음 파일을 추가합니다.
 
-	- *App.config*(파일 형식 필터를 **모든 파일**로 변경)
+	- *App.config* (change the file type filter to **All Files**)
 	- *Program.cs*
 	- *Functions.cs*
 
@@ -491,7 +506,7 @@ WebJob 프로젝트는 이미지를 사용하고 연결 문자열에 액세스�
 
 ## <a id="code"></a>응용 프로그램 코드 검토
 
-다음 섹션에서는 WebJob SDK 및 Azure 저장소 Blob과 큐 작업과 관련된 코드에 대해 설명합니다. WebJob SDK 관련 코드의 경우는 [Program.cs 섹션]을 참조하세요(#programcs).
+다음 섹션에서는 WebJob SDK 및 Azure 저장소 Blob와 큐 작업과 관련된 코드에 대해 설명합니다. WebJob SDK 관련 코드의 경우는 [Program.cs 섹션]을 참조하세요(#programcs).
 
 ### ContosoAdsCommon - Ad.cs
 
@@ -556,7 +571,7 @@ ContosoAdsContext 클래스는 DbSet 컬렉션에서 Ad 클래스가 사용된�
 
 ### ContosoAdsCommon - BlobInformation.cs
 
-'BlobInformation' 클래스는 큐 메시지의 이미지 Blob에 대한 정보를 저장하는 데 사용됩니다.
+ `BlobInformation` 클래스는 큐 메시지의 이미지 Blob에 대한 정보를 저장하는 데 사용됩니다.
 
 		public class BlobInformation
 		{
@@ -582,14 +597,14 @@ ContosoAdsContext 클래스는 DbSet 컬렉션에서 Ad 클래스가 사용된�
 
 ### ContosoAdsWeb - Global.asax.cs
 
-'Application_Start' 메서드에서 호출되는 코드는 *images* Blob 컨테이너 및 *images* 큐를 만듭니다(아직 없는 경우). 따라서 새 저장소 계정을 사용하기 시작할 때마다 필수 Blob 컨테이너와 큐가 자동으로 만들어집니다.
+ `Application_Start` 메서드에서 호출되는 코드는  *images* Blob 컨테이너 및  *images* 큐를 만듭니다(아직 없는 경우). 따라서 새 저장소 계정을 사용하기 시작할 때마다 필수 Blob 컨테이너와 큐가 자동으로 만들어집니다.
 
-이 코드는 *Web.config* 파일 또는 Azure 런타임 환경의 저장소 연결 문자열을 사용하여 저장소 계정에 액세스합니다.
+이 코드는  *Web.config* 파일 또는 Azure 런타임 환경의 저장소 연결 문자열을 사용하여 저장소 계정에 액세스합니다.
 
 		var storageAccount = CloudStorageAccount.Parse
 		    (ConfigurationManager.ConnectionStrings["AzureWebJobsStorage"].ToString());
 
-그런 다음 *images* Blob 컨테이너에 대한 참조를 가져오고 컨테이너를 만들고(아직 없는 경우) 새 컨테이너에 대한 액세스 권한을 설정합니다. 기본적으로 새 컨테이너는 저장소 계정 자격 증명이 있는 클라이언트만 Blob에 액세스할 수 있게 허용합니다. 이미지 Blob을 가리키는 URL을 사용하여 이미지를 표시할 수 있도록 웹 사이트는 Blob을 공개로 설정해야 합니다.
+그런 다음  *images* Blob 컨테이너에 대한 참조를 가져오고 컨테이너를 만들고(아직 없는 경우) 새 컨테이너에 대한 액세스 권한을 설정합니다. 기본적으로 새 컨테이너는 저장소 계정 자격 증명이 있는 클라이언트만 Blob에 액세스할 수 있게 허용합니다. 이미지 Blob를 가리키는 URL을 사용하여 이미지를 표시할 수 있도록 웹 사이트는 Blob를 공개로 설정해야 합니다.
 
 		var blobClient = storageAccount.CreateCloudBlobClient();
 		var imagesBlobContainer = blobClient.GetContainerReference("images");
@@ -602,7 +617,7 @@ ContosoAdsContext 클래스는 DbSet 컬렉션에서 Ad 클래스가 사용된�
 		        });
 		}
 
-비슷한 코드가 *blobnamerequest* 큐에 대한 참조를 가져오고 새 큐를 만듭니다. 이 경우에는 권한을 변경할 필요가 없습니다. 이 자습서 뒷부분에 나오는 [ResolveBlobName](#resolveblobname) 섹션에서는 웹 응용 프로그램이 쓰는 큐가 미리 보기 생성을 위해서가 아니라 단지 Blob 이름을 가져오는 데만 사용되는 이유를 설명합니다.
+비슷한 코드가  *blobnamerequest* 큐에 대한 참조를 가져오고 새 큐를 만듭니다. 이 경우에는 권한을 변경할 필요가 없습니다. 이 자습서 뒷부분에 나오는 [ResolveBlobName](#resolveblobname) 섹션에서는 웹 응용 프로그램이 쓰는 큐가 미리 보기 생성을 위해서가 아니라 단지 Blob 이름을 가져오는 데만 사용되는 이유를 설명합니다.
 
 		CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 		var imagesQueue = queueClient.GetQueueReference("blobnamerequest");
@@ -614,7 +629,7 @@ ContosoAdsContext 클래스는 DbSet 컬렉션에서 Ad 클래스가 사용된�
 
 ### ContosoAdsWeb - Views\Home\Index.cshtml
 
-*Views\Home\Index.cshtml* 파일은 홈페이지에 범주 링크를 표시합니다. 이 링크는 쿼리 문자열 변수의 'Category' 열거형 정수 값을 광고 인덱스 페이지에 전달합니다.
+ *Views\Home\Index.cshtml* 파일은 홈페이지에 범주 링크를 표시합니다. 이 링크는 쿼리 문자열 변수의  `Category` 열거형 정수 값을 광고 인덱스 페이지에 전달합니다.
 	
 		<li>@Html.ActionLink("Cars", "Index", "Ad", new { category = (int)Category.Cars }, null)</li>
 		<li>@Html.ActionLink("Real estate", "Index", "Ad", new { category = (int)Category.RealEstate }, null)</li>
@@ -623,21 +638,21 @@ ContosoAdsContext 클래스는 DbSet 컬렉션에서 Ad 클래스가 사용된�
 
 ### ContosoAdsWeb - AdController.cs
 
-*AdController.cs* 파일에서 생성자는 'InitializeStorage' 메서드를 호출하여 Blob 및 큐 작업을 위한 API를 제공하는 Azure 저장소 클라이언트 라이브러리 개체를 만듭니다. 
+ *AdController.cs* 파일에서 생성자는  `InitializeStorage` 메서드를 호출하여 Blob 및 큐 작업을 위한 API를 제공하는 Azure 저장소 클라이언트 라이브러리 개체를 만듭니다. 
 
-그런 다음, 코드는 앞서 *Global.asax.cs*에서 확인한 *images* Blob 컨테이너에 대한 참조를 가져옵니다. 그 과정에서 웹앱에 해당하는 기본 [재시도 정책](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling)(영문)을 설정합니다. 기본 지수 백오프 재시도 정책은 일시적 오류에 대해 반복적으로 재시도하는 경우 1분 넘게 웹앱을 중지시킬 수 있습니다. 여기서 지정된 재시도 정책은 시도 횟수 최대 3회까지 각 시도 이후에 3초 동안 대기합니다.
+그런 다음, 코드는 앞서  *Global.asax.cs*에서 확인한  *images* Blob 컨테이너에 대한 참조를 가져옵니다. 그 과정에서 웹앱에 해당하는 기본 [재시도 정책](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling)을 설정합니다. 기본 지수 백오프 재시도 정책은 일시적 오류에 대해 반복적으로 재시도하는 경우 1분 넘게 웹앱을 중지시킬 수 있습니다. 여기서 지정된 재시도 정책은 시도 횟수 최대 3회까지 각 시도 이후에 3초 동안 대기합니다.
 
 		var blobClient = storageAccount.CreateCloudBlobClient();
 		blobClient.DefaultRequestOptions.RetryPolicy = new LinearRetry(TimeSpan.FromSeconds(3), 3);
 		imagesBlobContainer = blobClient.GetContainerReference("images");
 
-비슷한 코드가 *images* 큐에 대한 참조를 가져옵니다.
+비슷한 코드가  *images* 큐에 대한 참조를 가져옵니다.
 
 		CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 		queueClient.DefaultRequestOptions.RetryPolicy = new LinearRetry(TimeSpan.FromSeconds(3), 3);
 		imagesQueue = queueClient.GetQueueReference("blobnamerequest");
 
-대부분의 컨트롤러 코드는 DbContext 클래스를 사용한 Entity Framework 데이터 모델 작업에 일반적입니다. 단, 파일을 업로드하고 Blob 저장소에 저장하는 HttpPost 'Create' 메서드는 예외입니다. 모델 바인더는 메서드에 [HttpPostedFileBase](http://msdn.microsoft.com/ko-kr/library/system.web.httppostedfilebase.aspx) 개체를 제공합니다.
+대부분의 컨트롤러 코드는 DbContext 클래스를 사용한 Entity Framework 데이터 모델 작업에 일반적입니다. 예외는 HttpPost  `Create` 메서드이며, 이 메서드는 파일을 업로드하고 Blob 저장소에 저장합니다. 모델 바인더는 메서드에 [HttpPostedFileBase](http://msdn.microsoft.com/ko-kr/library/system.web.httppostedfilebase.aspx) 개체를 제공합니다.
 
 		[HttpPost]
 		[ValidateAntiForgeryToken]
@@ -645,7 +660,7 @@ ContosoAdsContext 클래스는 DbSet 컬렉션에서 Ad 클래스가 사용된�
 		    [Bind(Include = "Title,Price,Description,Category,Phone")] Ad ad,
 		    HttpPostedFileBase imageFile)
 
-사용자가 업로드할 파일을 선택한 경우 코드는 파일을 업로드하고 Blob에 저장하며 광고 데이터베이스 레코드를 Blob을 가리키는 URL로 업데이트합니다.
+사용자가 업로드할 파일을 선택한 경우 코드는 파일을 업로드하고 Blob에 저장하며 광고 데이터베이스 레코드를 Blob를 가리키는 URL로 업데이트합니다.
 
 		if (imageFile != null && imageFile.ContentLength != 0)
 		{
@@ -653,7 +668,7 @@ ContosoAdsContext 클래스는 DbSet 컬렉션에서 Ad 클래스가 사용된�
 		    ad.ImageURL = blob.Uri.ToString();
 		}
 
-업로드를 수행하는 코드는 'UploadAndSaveBlobAsync' 메서드에 있습니다. Blob에 대한 GUID 이름을 만들고, 파일을 업로드 및 저장하며, 저장된 Blob에 대한 참조를 반환합니다.
+업로드를 수행하는 코드는  `UploadAndSaveBlobAsync` 메서드에 있습니다. Blob에 대한 GUID 이름을 만들고, 파일을 업로드 및 저장하며, 저장된 Blob에 대한 참조를 반환합니다.
 
 		private async Task<CloudBlockBlob> UploadAndSaveBlobAsync(HttpPostedFileBase imageFile)
 		{
@@ -666,13 +681,13 @@ ContosoAdsContext 클래스는 DbSet 컬렉션에서 Ad 클래스가 사용된�
 		    return imageBlob;
 		}
 
-'Create' 메서드가 Blob을 업로드하고 데이터베이스를 업데이트한 후에는 이미지를 미리 보기로 변환할 수 있는 백 엔드 프로세스에 대해 알리는 큐 메시지를 만듭니다.
+ `Create` 메서드가 Blob를 업로드하고 데이터베이스를 업데이트한 후에는 이미지를 미리 보기로 변환할 수 있는 백 엔드 프로세스에 대해 알리는 큐 메시지를 만듭니다.
 
 		BlobInformation blobInfo = new BlobInformation() { AdId = ad.AdId, BlobUri = new Uri(ad.ImageURL) };
 		var queueMessage = new CloudQueueMessage(JsonConvert.SerializeObject(blobInfo));
 		await thumbnailRequestQueue.AddMessageAsync(queueMessage);
 
-HttpPost 'Edit' 메서드의 코드도 비슷하지만, 사용자가 새 이미지 파일을 선택하면 이 광고에 대해 이미 존재하는 Blob을 삭제해야 한다는 점은 다릅니다.
+HttpPost  `Edit` 메서드의 코드도 비슷하지만, 사용자가 새 이미지 파일을 선택하면 이 광고에 대해 이미 존재하는 Blob를 삭제해야 한다는 점은 다릅니다.
  
 		if (imageFile != null && imageFile.ContentLength != 0)
 		{
@@ -681,7 +696,7 @@ HttpPost 'Edit' 메서드의 코드도 비슷하지만, 사용자가 새 이미�
 		    ad.ImageURL = imageBlob.Uri.ToString();
 		}
 
-다음은 광고를 삭제하면 Blob을 삭제하는 코드입니다.
+다음은 광고를 삭제하면 Blob를 삭제하는 코드입니다.
 
 		private async Task DeleteAdBlobsAsync(Ad ad)
 		{
@@ -703,29 +718,29 @@ HttpPost 'Edit' 메서드의 코드도 비슷하지만, 사용자가 새 이미�
 		    await blobToDelete.DeleteAsync();
 		}
  
-### ContosoAdsWeb - Views\Ad\Index.cshtml 및 Details.cshtml
+### ContosoAdsWeb - Views\Ad\Index.cshtml and Details.cshtml
 
-*Index.cshtml* 파일은 다른 광고 데이터가 포함된 미리 보기를 표시합니다.
+ *Index.cshtml* 파일은 다른 광고 데이터가 포함된 미리 보기를 표시합니다.
 
 		<img  src="@Html.Raw(item.ThumbnailURL)" />
 
-*Details.cshtml* 파일은 전체 크기 이미지를 표시합니다.
+ *Details.cshtml* 파일은 전체 크기 이미지를 표시합니다.
 
 		<img src="@Html.Raw(Model.ImageURL)" />
 
-### ContosoAdsWeb - Views\Ad\Create.cshtml 및 Edit.cshtml
+### ContosoAdsWeb - Views\Ad\Create.cshtml and Edit.cshtml
 
-*Create.cshtml* 및 *Edit.cshtml* 파일은 컨트롤러가 'HttpPostedFileBase' 개체를 가져올 수 있게 하는 양식 인코딩을 지정합니다.
+ *Create.cshtml* 및  *Edit.cshtml* 파일은 컨트롤러가  `HttpPostedFileBase` 개체를 가져올 수 있게 하는 양식 인코딩을 지정합니다.
 
 		@using (Html.BeginForm("Create", "Ad", FormMethod.Post, new { enctype = "multipart/form-data" }))
 
-'<input>' 요소는 파일 선택 대화 상자를 제공하도록 브라우저에 지시합니다.
+`<input>` 요소는 파일 선택 대화 상자를 제공하도록 브라우저에 지시합니다.
 
 		<input type="file" name="imageFile" accept="image/*" class="form-control fileupload" />
 
 ### <a id="programcs"></a>ContosoAdsWebJob - Program.cs
 
-WebJob이 시작되면 'Main' 메서드는 'Initialize'를 호출하여 Entity Framework 데이터베이스 컨텍스트를 인스턴스화합니다. 그런 후 WebJob SDK 'JobHost.RunAndBlock' 메서드를 호출하여 현재 스레드에서 트리거된 함수의 단일 스레드 실행을 시작합니다.
+WebJob이 시작되면  `Main` 메서드는  `Initialize`를 호출하여 Entity Framework 데이터베이스 컨텍스트를 인스턴스화합니다. 그런 후 WebJobs SDK  `JobHost.RunAndBlock` 메서드를 호출하여 현재 스레드에서 트리거된 함수의 단일 스레드 실행을 시작합니다.
 
 		static void Main(string[] args)
 		{
@@ -740,9 +755,9 @@ WebJob이 시작되면 'Main' 메서드는 'Initialize'를 호출하여 Entity F
 		    db = new ContosoAdsContext();
 		}
 
-### <a id="generatethumbnail"></a>ContosoAdsWebJob - Functions.cs - GenerateThumbnail 메서드
+### <a id="generatethumbnail"></a>ContosoAdsWebJob - Functions.cs - GenerateThumbnail method
 
-WebJob SDK는 큐 메시지가 수신될 때 이 메서드를 호출합니다. 이 메서드는 미리 보기를 만든 후 데이터베이스에 미리 보기 URL을 추가합니다.
+WebJobs SDK는 큐 메시지가 수신될 때 이 메서드를 호출합니다. 이 메서드는 미리 보기를 만든 후 데이터베이스에 미리 보기 URL을 추가합니다.
 
 		public static void GenerateThumbnail(
 		[QueueTrigger("thumbnailrequest")] BlobInformation blobInfo,
@@ -765,38 +780,46 @@ WebJob SDK는 큐 메시지가 수신될 때 이 메서드를 호출합니다. �
 		    Program.db.SaveChanges();
 		}
 
-* 'QueueTrigger' 특성은 thumbnailrequest 큐에 새 메시지가 수신될 때 WebJob SDK가 이 메서드를 호출하도록 합니다.
+*  `QueueTrigger` 특성은 thumbnailrequest 큐에 새 메시지가 수신될 때 WebJob SDK가 이 메서드를 호출하도록 합니다.
 
 		[QueueTrigger("thumbnailrequest")] BlobInformation blobInfo,
 
-	큐 메시지의 'BlobInformation' 개체는 자동으로 'blobInfo' 매개 변수로 역직렬화됩니다. 이 메서드가 완료되면 큐 메시지가 삭제됩니다. 완료되기 전에 메서드가 실패하면 큐 메시지는 삭제되지 않고 10분의 임대 기간이 만료되면 선택하여 처리할 수 있게 메시지가 해제됩니다. 메시지가 항상 예외를 발생하는 경우에는 이 시퀀스가 무한 반복되지 않습니다. 메시지 처리 시도가 5회 연속으로 실패하면 메시지는 {queuename}-poison 큐로 이동됩니다. 최대 시도 횟수는 구성 가능합니다. 
+	큐 메시지의  `BlobInformation` 개체는 자동으로  `blobInfo` 매개 변수로 역직렬화됩니다. 이 메서드가 완료되면 큐 메시지가 삭제됩니다. 완료되기 전에 메서드가 실패하면 큐 메시지는 삭제되지 않고 10분의 임대 기간이 만료되면 선택하여 처리할 수 있게 메시지가 해제됩니다. 메시지가 항상 예외를 발생하는 경우에는 이 시퀀스가 무한 반복되지 않습니다. 메시지 처리 시도가 5회 연속으로 실패하면 메시지는 {queuename}-poison 큐로 이동됩니다. 최대 시도 횟수는 구성 가능합니다. 
 
-* 두 'Blob' 특성은 Blob에 바인딩된 개체를 제공합니다. 하나는 기존 이미지 Blob에 바인딩되고 다른 하나는 메서드가 만드는 새 축소판 그림 Blob에 바인딩됩니다. 
+* 두  `Blob` 특성은 Blob에 바인딩된 개체를 제공합니다. 하나는 기존 이미지 Blob에 바인딩되고 다른 하나는 메서드가 만드는 새 축소판 그림 Blob에 바인딩됩니다. 
 
 		[Blob("images/{BlobName}", FileAccess.Read)] Stream input,
 		[Blob("images/{BlobNameWithoutExtension}_thumbnail.jpg")] CloudBlockBlob outputBlob)
 
-	Blob 이름은 큐 메시지('BlobName' 및 'BlobNameWithoutExtension')에 수신된 'BlobInformation' 개체의 속성을 기반으로 합니다. 저장소 클라이언트 라이브러리의 전기능을 사용하려는 경우 'CloudBlockBlob' 클래스를 사용하여 Blob을 작동할 수 있습니다. 'Stream' 개체 사용을 위해 작성한 코드를 다시 사용하려면 'Stream' 클래스를 사용할 수 있습니다. 
+	Blob 이름은 큐 메시지(`BlobName` 및  `BlobNameWithoutExtension`)에 수신된  `BlobInformation` 개체의 속성을 기반으로 합니다. 저장소 클라이언트 라이브러리의 전기능을 사용하려는 경우  `CloudBlockBlob` 클래스를 사용하여 Blob를 작동할 수 있습니다.  `Stream` 개체 사용을 위해 작성한 코드를 다시 사용하려면  `Stream` 클래스를 사용할 수 있습니다. 
 
->[WACOM.NOTE] 
+WebJobs SDK 특성을 사용하는 함수를 작성하는 방법에 대한 자세한 내용은 다음 리소스를 참조하세요.
+
+* [WebJobs SDK를 사용하여 Azure 큐 저장소로 작업하는 방법](../websites-dotnet-webjobs-sdk-storage-queues-how-to)
+* [WebJobs SDK를 사용하여 Azure Blob 저장소로 작업하는 방법](../websites-dotnet-webjobs-sdk-storage-blobs-how-to)
+* [WebJobs SDK를 사용하여 Azure 테이블 저장소로 작업하는 방법](../websites-dotnet-webjobs-sdk-storage-tables-how-to)
+* [WebJobs SDK를 사용하여 Azure 서비스 버스로 작업하는 방법](../websites-dotnet-webjobs-sdk-service-bus)
+
+>[AZURE.NOTE] 
 >* 웹 사이트가 여러 VM에서 실행되는 경우 이 프로그램은 각 컴퓨터에서 실행되고, 각 컴퓨터는 트리거를 기다렸다가 함수 실행을 시도합니다. 일부 시나리오에서는 이로 인해 일부 함수가 동일한 데이터를 두 번 처리하게 될 수 있으므로 함수는 역등원이어야 합니다(같은 입력 데이터로 반복 호출해도 중복된 결과가 나오지 않도록 작성).
->* 정상 종료를 구현하는 방법에 대한 자세한 내용은 [정상 종료]를 참조하세요(../websites-dotnet-webjobs-sdk-storage-queues-how-to/#graceful).   
->* 'ConvertImageToThumbnailJPG' 메서드의 코드(표시되지 않음)는 간소화를 위해 'System.Drawing' 네임스페이스의 클래스를 사용합니다. 하지만 이 네임스페이스의 클래스는 Windows Forms에서 사용하도록 설계되었습니다. Windows 또는 ASP.NET 서비스에서 사용할 수 있도록 지원되지 않습니다.
+>* * 정상 종료를 구현하는 방법에 대한 자세한 내용은 [정상 종료](../websites-dotnet-webjobs-sdk-storage-queues-how-to/#graceful).   를 참조하세요
+>*  `ConvertImageToThumbnailJPG` 메서드의 코드(표시되지 않음)는 간소화를 위해  `System.Drawing` 네임스페이스의 클래스를 사용합니다. 하지만 이 네임스페이스의 클래스는 Windows Forms에서 사용하도록 설계되었습니다. Windows 또는 ASP.NET 서비스에서 사용할 수 있도록 지원되지 않습니다.
 
 ### WebJobs SDK 및 WebJobs SDK가 없는 클라우드 서비스 작업자 역할
 
-이 응용 프로그램 예제의 'GenerateThumbnails' 메서드에 있는 코드 양과 [클라우드 서비스 버전의 응용 프로그램]에 있는 작업자 역할 코드를 비교하면(/ko-kr/documentation/articles/cloud-services-dotnet-get-started/)WebJobs SDK가 자동으로 수행하는 작업이 얼마나 많은지 확인할 수 있습니다. 장점은 보이는 것보다 더 큽니다. 클라우드 서비스 응용 프로그램 예제 코드는 프로덕션 응용 프로그램에서 이러한 모든 작업(예: 포이즌 메시지 처리)을 수행하지는 못하지만 WebJob SDK는 이러한 작업을 수행합니다.
+이 샘플 응용 프로그램에 포함된  `GenerateThumbnails` 메서드의 코드 양과 [클라우드 서비스 버전의 응용 프로그램](/ko-kr/documentation/articles/cloud-services-dotnet-get-started/)의 작업자 역할 코드를 비교하면 WebJob SDK가 알아서 수행하는 작업의 양을 확인할 수 있습니다. 장점은 보이는 것보다 더 큽니다. 클라우드 서비스 응용 프로그램 예제 코드는 프로덕션 응용 프로그램에서 이러한 모든 작업(예: 포이즌 메시지 처리)을 수행하지는 못하지만 WebJob SDK는 이러한 작업을 수행합니다.
 
-클라우드 서비스 버전의 응용 프로그램에서 레코드 ID는 큐 메시지의 유일한 정보이며 백그라운드 프로세스가 데이터베이스에서 이미지 URL을 가져옵니다. WebJob SDK 버전의 응용 프로그램에서는 큐 메시지에 이미지 URL이 포함되므로 'Blob' 특성에 제공될 수 있습니다. 큐 메시지에 Blob URL이 없는 경우 [서드 서명 대신 메서드 본문에 Blob 특성을 사용](영문)할 수 있습니다(../websites-dotnet-webjobs-sdk-storage-queues-how-to/#blobbody).
+클라우드 서비스 버전의 응용 프로그램에서 레코드 ID는 큐 메시지의 유일한 정보이며 백그라운드 프로세스가 데이터베이스에서 이미지 URL을 가져옵니다. WebJob SDK 버전의 응용 프로그램에서는 큐 메시지에 이미지 URL이 포함되므로  `Blob` 특성에 제공될 수 있습니다. 큐 메시지에 Blob URL이 없는 경우 [서드 서명 대신 메서드 본문에 Blob 특성을 사용](../websites-dotnet-webjobs-sdk-storage-queues-how-to/#blobbody).할 수 있습니다
 
 ### WebJobs 외부에서 WebJobs SDK 사용
 
-WebJob SDK를 사용하는 프로그램은 WebJob의 Azure에서 실행될 필요가 없습니다. 로컬로 실행될 수 있으며, 클라우드 서비스 작업자 역할 또는 Windows 서비스와 같은 다른 환경에서 실행될 수도 있습니다. 그렇지만 WebJob SDK 대시보드에는 Azure 웹 사이트를 통해서만 액세스할 수 있습니다. 이 대시보드를 사용하려면 관리 포털의 **구성** 탭에서 AzureWebJobsDashboard 연결 문자열을 설정하여 사용 중인 저장소 계정에 웹 사이트를 연결해야 합니다. 그런 후 URL https://{websitename}.scm.azurewebsites.net/azurejobs/#/functions를 사용하여 대시보드로 이동할 수 있습니다. 자세한 내용은 [WebJob SDK를 사용한 로컬 개발을 위해 대시보드 가져오기](http://blogs.msdn.com/b/jmstall/archive/2014/01/27/getting-a-dashboard-for-local-development-with-the-webjobs-sdk.aspx)(영문)를 참조하세요. 단 여기에는 이전 연결 문자열 이름이 표시됩니다. 
+WebJob SDK를 사용하는 프로그램은 WebJob의 Azure에서 실행될 필요가 없습니다. 로컬로 실행될 수 있으며, 클라우드 서비스 작업자 역할 또는 Windows 서비스와 같은 다른 환경에서 실행될 수도 있습니다. 그렇지만 WebJob SDK 대시보드에는 Azure 웹 사이트를 통해서만 액세스할 수 있습니다. 이 대시보드를 사용하려면 관리 포털의 **구성** 탭에서 AzureWebJobsDashboard 연결 문자열을 설정하여 사용 중인 저장소 계정에 웹 사이트를 연결해야 합니다. 그런 후 다음 URL을 사용하여 대시보드로 이동할 수 있습니다. https://{websitename}.scm.azurewebsites.net/azurejobs/#/functions. 자세한 내용은 [WebJob SDK를 사용한 로컬 개발을 위해 대시보드 가져오기](http://blogs.msdn.com/b/jmstall/archive/2014/01/27/getting-a-dashboard-for-local-development-with-the-webjobs-sdk.aspx)를 참조하세요. 단 여기에는 이전 연결 문자열 이름이 표시됩니다. 
 
 ## 다음 단계
 
-이 자습서에서는 백 엔드 처리를 위해 WebJob SDK를 사용하는 간단한 다중 계층 응용 프로그램을 살펴보았습니다. 이 응용 프로그램은 시작 자습서용으로 단순하게 유지되었습니다. 예를 들어 이 응용 프로그램은 [종속성 주입](http://www.asp.net/mvc/tutorials/hands-on-labs/aspnet-mvc-4-dependency-injection)(영문) 또는 [리포지토리 및 작업 단위 패턴](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/advanced-entity-framework-scenarios-for-an-mvc-web-application#repo)(영문)을 구현하지 않고, [로깅용 인터페이스를 사용](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry#log)(영문)하지 않으며, 데이터 모델 변경을 관리하는 데 [EF Code First 마이그레이션](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application)(영문)을 사용하지 않고, 일시적인 네트워크 오류를 관리하는 데 [EF 연결 복원](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application)(영문)을 사용하지 않습니다.
+이 자습서에서는 백 엔드 처리를 위해 WebJob SDK를 사용하는 간단한 다중 계층 응용 프로그램을 살펴보았습니다. 이 응용 프로그램은 시작 자습서용으로 단순하게 유지되었습니다. 예를 들어 이 응용 프로그램은 [종속성 주입](http://www.asp.net/mvc/tutorials/hands-on-labs/aspnet-mvc-4-dependency-injection) 또는 [리포지토리 및 작업 단위 패턴](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/advanced-entity-framework-scenarios-for-an-mvc-web-application#repo)을 구현하지 않고, [로깅용 인터페이스를 사용](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry#log)하지 않으며, 데이터 모델 변경을 관리하는 데 [EF Code First 마이그레이션](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application)을 사용하지 않고, 일시적인 네트워크 오류를 관리하는 데 [EF 연결 복원](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application)을 사용하지 않습니다.
 
-자세한 내용은 [Azure WebJob 권장 리소스](http://go.microsoft.com/fwlink/?LinkId=390226)(영문)를 참조하세요.
+자세한 내용은 [Azure WebJob 권장 리소스](http://go.microsoft.com/fwlink/?LinkId=390226)를 참조하세요.
 
-<!--HONumber=35.2-->
+
+<!--HONumber=42-->

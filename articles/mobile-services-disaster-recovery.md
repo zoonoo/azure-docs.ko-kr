@@ -1,6 +1,6 @@
-﻿<properties urlDisplayName="Recover your mobile service in the event of a disaster" pageTitle="재해가 발생한 경우 모바일 서비스 복구 - Azure 모바일 서비스" metaKeywords="" description="재해가 발생한 경우 모바일 서비스를 복구하는 방법에 대해 알아봅니다." metaCanonical="" services="" documentationCenter="Mobile" title="Recover your mobile service in the event of a disaster" authors="brettsam" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="재해가 발생한 경우 모바일 서비스 복구 - Azure 모바일 서비스" description="재해가 발생한 경우 모바일 서비스를 복구하는 방법에 대해 알아봅니다." services="mobile-services" documentationCenter="" authors="brettsam" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/11/2014" ms.author="brettsam" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/11/2014" ms.author="brettsam"/>
 
 # 재해가 발생한 경우 모바일 서비스 복구
 
@@ -13,7 +13,7 @@ Azure 모바일 서비스를 사용하여 앱을 배포하는 경우 서버 오�
 + **Azure 모바일 서비스 SQL 데이터베이스에서 데이터 백업**
 	<br/>모바일 서비스 응용 프로그램 데이터는 Azure SQL 데이터베이스에 저장됩니다. [SQL 데이터베이스 비즈니스 연속성 지침]의 설명대로 데이터를 백업하는 것이 좋습니다.
 + **모바일 서비스 스크립트 백업**
-	<br/>[Team Foundation Service] 또는 [GitHub]와 같은 소스 제어 시스템에 모바일 서비스 스크립트를 저장하고 모바일 서비스 자체의 복사본에만 의존하지는 않는 것이 좋습니다. 모바일 서비스 [소스 제어 기능](영문)을 사용하거나 [Azure 명령줄 도구를 사용](영문)하여 Azure 포털을 통해 다운로드할 수 있습니다. 포털에서 "preview"라는 레이블이 있는 기능은 특히 주의하세요. 해당 스크립트의 경우 복구가 보장되지 않으므로 고유한 소스 제어 원본에서 스크립트를 복구해야 할 수 있습니다.
+	<br/>[Team Foundation Service] 또는 [GitHub]와 같은 소스 제어 시스템에 모바일 서비스 스크립트를 저장하고 모바일 서비스 자체의 복사본에만 의존하지는 않는 것이 좋습니다. 모바일 서비스 [소스 제어 기능]을 사용하거나 [Azure 명령줄 도구를 사용]하여 Azure 포털을 통해 스크립트를 다운로드할 수 있습니다. 포털에서 "preview"라는 레이블이 있는 기능은 특히 주의하세요. 해당 스크립트의 경우 복구가 보장되지 않으므로 고유한 소스 제어 원본에서 스크립트를 복구해야 할 수 있습니다.
 + **보조 모바일 서비스 예약**
 	<br/>모바일 서비스의 가용성 문제가 발생하는 경우 대체 Azure 지역에 모바일 서비스를 다시 배포해야 할 수 있습니다. 용량을 사용할 수 있도록 하려면(예: 흔하지 않은 상황이지만 전체 지역이 손실된 경우) 대체 지역에 보조 모바일 서비스를 만들고 기본 서비스의 모드와 동일하거나 그보다 높은 모드로 설정하는 것이 좋습니다. 즉, 기본 서비스가 공유 모드인 경우 보조 서비스를 공유 또는 예약으로 만들 수 있습니다. 하지만 기본 서비스가 예약인 경우에는 보조 서비스도 예약이어야 합니다.
 
@@ -45,10 +45,8 @@ Azure 모바일 서비스를 사용하여 앱을 배포하는 경우 서버 오�
 
 4. 이제 보조 서비스를 사용하여 기본 서비스를 복구할 수 있습니다.
 
-    <div class="dev-callout"><b>중요</b>
-	<p>이 단계에서 명령을 실행하면 보조 서비스가 삭제되어 해당 용량을 기본 서비스 복구에 사용할 수 있게 됩니다. 스크립트 및 설정을 유지하려는 경우에는 명령을 실행하기 전에 백업하는 것이 좋습니다.</p>
-    </div>
-
+    > [AZURE.IMPORTANT] 이 단계에서 명령을 실행하면 보조 서비스가 삭제되어 해당 용량을 기본 서비스 복구에 사용할 수 있게 됩니다. 스크립트 및 설정을 유지하려는 경우에는 명령을 실행하기 전에 백업하는 것이 좋습니다.
+    
    준비가 되면 다음 명령을 실행합니다.
 
 		azure mobile recover PrimaryService SecondaryService
@@ -60,9 +58,7 @@ Azure 모바일 서비스를 사용하여 앱을 배포하는 경우 서버 오�
 		info:    mobile recover command OK
 
 
-	<div class="dev-callout"><b>참고</b>
-	<p>명령이 완료된 후 포털에서 변경 내용이 표시될 때까지 몇 분 정도 걸릴 수 있습니다.</p>
-    </div>
+	> [AZURE.NOTE] 명령이 완료된 후 포털에서 변경 내용이 표시될 때까지 몇 분 정도 걸릴 수 있습니다.
 
 5. 스크립트를 소스 제어에 있는 원본과 비교하여 모든 스크립트가 올바르게 복구되었는지 확인합니다. 대부분의 경우 스크립트는 데이터 손실 없이 자동으로 복구됩니다. 하지만 차이가 발견하는 경우에는 해당 스크립트를 수동으로 복구할 수 있습니다.
 
@@ -85,3 +81,6 @@ Azure 모바일 서비스를 사용하여 앱을 배포하는 경우 서버 오�
 [Azure 포털]: http://manage.windowsazure.com/
 [Azure 서비스 대시보드]: http://www.windowsazure.com/ko-kr/support/service-dashboard/
 [명령줄 도구를 사용하여 모바일 서비스 자동화]: http://www.windowsazure.com/ko-kr/develop/mobile/tutorials/command-line-administration/
+
+
+<!--HONumber=42-->

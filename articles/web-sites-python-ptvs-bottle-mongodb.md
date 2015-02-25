@@ -1,13 +1,27 @@
-﻿<properties linkid="web-sites-python-ptvs-bottle-mongodb" title="Bottle and MongoDB on Azure with Python Tools 2.1 for Visual Studio" pageTitle="Python Tools 2.1 for Visual Studio가 있는 Azure의 Bottle 및 MongoDB" description="Python Tools for Visual Studio를 사용하여 MongoDB 데이터베이스 인스턴스에 데이터를 저장하고 웹 사이트에 배포될 수 있는 Bottle 응용 프로그램을 만드는 방법을 알아봅니다." metaKeywords="" services="web-sites" solutions="" documentationCenter="Python" authors="huvalo" videoId="" scriptId="" manager="wpickett" editor="" />
+﻿<properties 
+	pageTitle="Python Tools 2.1 for Visual Studio가 있는 Azure의 Bottle 및 MongoDB" 
+	description="Python Tools for Visual Studio를 사용하여 MongoDB 데이터베이스 인스턴스에 데이터를 저장하고 웹 사이트에 배포할 수 있는 Bottle 응용 프로그램을 만드는 방법에 대해 알아봅니다. 
+	services="web-sites" 
+	documentationCenter="python" 
+	authors="huguesv" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="10/10/2014" ms.author="huvalo" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="python" 
+	ms.topic="article" 
+	ms.date="10/10/2014" 
+	ms.author="huvalo"/>
 
 
 
 
 # Python Tools 2.1 for Visual Studio가 있는 Azure의 Bottle 및 MongoDB
 
-이 자습서에서는 PTVS 샘플 템플릿 중 하나를 사용하여 간단한 설문 조사 응용 프로그램을 만들어 보겠습니다. 이 자습서는 [비디오](https://www.youtube.com/watch?v=8hQMyf8p_Jo)로도 사용할 수 있습니다.
+이 자습서에서는 PTVS 샘플 템플릿 중 하나를 사용하여 간단한 설문 조사 응용 프로그램을 만들어 보겠습니다. 이 자습서는 [비디오](https://www.youtube.com/watch?v=8hQMyf8p_Jo)로도 제공됩니다.
 
 설문 조사 응용 프로그램은 리포지토리의 추상화를 정의하므로 여러 다른 유형의 리포지토리(메모리 내, Azure 테이블 저장소, MongoDB) 간을 쉽게 전환할 수 있습니다.
 
@@ -27,13 +41,13 @@ Bottle, Flask 및 Django 웹 프레임워크, MongoDB, Azure 테이블 저장소
 ##<a name="prerequisites"></a>필수 조건
 
  - Visual Studio 2012 또는 2013
- - [Python Tools 2.1 for Visual Studio][](영문)
- - [Python Tools 2.1 for Visual Studio 샘플 VSIX][](영문)
+ - [Python Tools 2.1 for Visual Studio][]
+ - [Python Tools 2.1 for Visual Studio 샘플 VSIX][]
  - [Azure SDK Tools for VS 2013][] 또는 [Azure SDK Tools for VS 2012][]
  - [Python 2.7 32비트][] 또는 [Python 3.4 32비트][]
  - [RoboMongo][](옵션)
 
-[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
+[AZURE.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 ##<a name="create-the-project"></a>프로젝트 만들기
 
@@ -69,11 +83,11 @@ Bottle, Flask 및 Django 웹 프레임워크, MongoDB, Azure 테이블 저장소
 
 1.  [Azure 관리 포털][]에 로그인합니다.
 
-1.  탐색 창 맨 아래쪽에서 **새로 만들기**를 클릭합니다.
+1.  탐색 창 맨 아래에 있는 **새로 만들기**를 클릭합니다.
 
   	![New Button](./media/web-sites-python-ptvs-bottle-mongodb/PollsCommonAzurePlusNew.png)
 
-1.  **저장소**, **MongoLab**을 차례로 클릭합니다.
+1.  **스토어**, **MongoLab**을 차례로 클릭합니다.
 
   	![Choose Add-on Dialog](./media/web-sites-python-ptvs-bottle-mongodb/PollsCommonMongoLabAddon1.png)
 
@@ -113,7 +127,7 @@ Bottle, Flask 및 Django 웹 프레임워크, MongoDB, Azure 테이블 저장소
 
 1.  <kbd>F5</kbd> 키를 눌러 응용 프로그램을 실행합니다.  **Create Sample Polls**를 사용하여 만든 설문 조사와 투표를 통해 제출된 데이터는 MongoDB에서 serialize됩니다.
 
-1.  **정보** 페이지로 가서 응용 프로그램이 **MongoDB** 리포지토리를사용하고 있는지 확인합니다.
+1.  **정보** 페이지로 가서 응용 프로그램이 **MongoDB** 리포지토리를 사용하고 있는지 확인합니다.
 
   	![Web Browser](./media/web-sites-python-ptvs-bottle-mongodb/PollsBottleMongoDBAbout.png)
 
@@ -123,15 +137,15 @@ Bottle, Flask 및 Django 웹 프레임워크, MongoDB, Azure 테이블 저장소
 
 1.  새 연결을 만듭니다.  이전 섹션에서 가져온 **MONGOLAB\_URI**가 필요합니다.
 
-    Note the format of the URI: `mongodb://<name>:<password>@<address>:<port>/<name>`
+    URI 형식은  `mongodb://<name>:<password>@<address>:<port>/<name>`입니다.
 
-    이 이름은 Azure에서 서비스를 만들 때 입력한 이름과 같습니다.  이 이름은 데이터베이스 이름과 사용자 이름 둘 다에 사용됩니다.
+    이 이름은 Azure로 서비스를 만들 때 입력한 이름과 일치합니다.  이 이름은 데이터베이스 이름과 사용자 이름 둘 다에 사용됩니다.
 
-1.  연결 페이지에서 **이름**을 연결에 사용할 아무 이름으로 설정합니다.  또한 **주소** 및 **포트** 필드를 **MONGOLAB\_URI**의 *address* 및 *port*로 설정합니다.
+1.  연결 페이지에서 **이름**을 연결에 사용할 아무 이름으로 설정합니다.  또한 **주소** 및 **포트** 필드를 **MONGOLAB\_URI**의  *address* 및  *port*로 설정합니다.
 
   	![Connection Settings Dialog](./media/web-sites-python-ptvs-bottle-mongodb/PollsCommonRobomongoCreateConnection1.png)
 
-1.  인증 페이지에서 **데이터베이스** 및 **사용자 이름**을 **MONGOLAB\_URI**의  *name*으로 설정합니다.  또한 **암호**를 **MONGOLAB\_URI**의 *password*로 설정합니다.
+1.  인증 페이지에서 **데이터베이스** 및 **사용자 이름**을 **MONGOLAB\_URI**의  *name*으로 설정합니다.  또한 **암호**를 **MONGOLAB\_URI**의  *password*로 설정합니다.
 
   	![Connection Settings Dialog](./media/web-sites-python-ptvs-bottle-mongodb/PollsCommonRobomongoCreateConnection2.png)
 
@@ -189,14 +203,14 @@ PTVS는 Azure 웹 사이트에 웹 응용 프로그램을 배포하는 쉬운 �
 
 Python Tools for Visual Studio, Bottle 및 MongoDB에 대해 자세히 알아보려면 다음 링크를 참조하세요.
 
-- [Python Tools for Visual Studio 설명서][](영문)
-  - [웹 프로젝트][](영문)
-  - [클라우드 서비스 프로젝트][](영문)
-  - [Microsoft Azure의 원격 디버깅][](영문)
-- [Bottle 설명서][](영문)
-- [MongoDB][](영문)
-- [PyMongo 설명서][](영문)
-- [PyMongo][](영문)
+- [Python Tools for Visual Studio 설명서][]
+  - [웹 프로젝트][]
+  - [클라우드 서비스 프로젝트][]
+  - [Microsoft Azure의 원격 디버깅][]
+- [Bottle 설명서][]
+- [MongoDB][]
+- [PyMongo 설명서][]
+- [PyMongo][]
 
 
 <!--Link references-->
@@ -205,20 +219,21 @@ Python Tools for Visual Studio, Bottle 및 MongoDB에 대해 자세히 알아보
 
 <!--External Link references-->
 [Azure 관리 포털]: https://manage.windowsazure.com
-[RoboMongo](영문): http://robomongo.org/
-[Python Tools 2.1 for Visual Studio](영문): http://go.microsoft.com/fwlink/?LinkId=517189
-[Python Tools 2.1 for Visual Studio 샘플 VSIX](영문): http://go.microsoft.com/fwlink/?LinkId=517189
-[Azure SDK Tools for VS 2013](영문): http://go.microsoft.com/fwlink/?LinkId=323510
-[Azure SDK Tools for VS 2012](영문): http://go.microsoft.com/fwlink/?LinkId=323511
-[Python 2.7 32비트](영문): http://go.microsoft.com/fwlink/?LinkId=517190 
-[Python 3.4 32비트](영문): http://go.microsoft.com/fwlink/?LinkId=517191
-[Python Tools for Visual Studio 설명서](영문): http://pytools.codeplex.com/documentation
-[Bottle 설명서](영문): http://bottlepy.org/docs/dev/index.html
-[MongoDB](영문): http://www.mongodb.org/
-[PyMongo 설명서](영문): http://api.mongodb.org/python/current/
-[PyMongo](영문): https://github.com/mongodb/mongo-python-driver
-[Microsoft Azure의 원격 디버깅](영문): http://pytools.codeplex.com/wikipage?title=Features%20Azure%20Remote%20Debugging
-[웹 프로젝트](영문): http://pytools.codeplex.com/wikipage?title=Features%20Web%20Project
-[클라우드 서비스 프로젝트](영문): http://pytools.codeplex.com/wikipage?title=Features%20Cloud%20Project
+[RoboMongo]: http://robomongo.org/
+[Python Tools 2.1 for Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
+[Python Tools 2.1 for Visual Studio 샘플 VSIX]: http://go.microsoft.com/fwlink/?LinkId=517189
+[Azure SDK Tools for VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
+[Azure SDK Tools for VS 2012]: http://go.microsoft.com/fwlink/?LinkId=323511
+[Python 2.7 32비트]: http://go.microsoft.com/fwlink/?LinkId=517190 
+[Python 3.4 32비트]: http://go.microsoft.com/fwlink/?LinkId=517191
+[Python Tools for Visual Studio 설명서]: http://pytools.codeplex.com/documentation
+[Bottle 설명서]: http://bottlepy.org/docs/dev/index.html
+[MongoDB]: http://www.mongodb.org/
+[PyMongo 설명서]: http://api.mongodb.org/python/current/
+[PyMongo]: https://github.com/mongodb/mongo-python-driver
+[Microsoft Azure의 원격 디버깅]: http://pytools.codeplex.com/wikipage?title=Features%20Azure%20Remote%20Debugging
+[웹 프로젝트]: http://pytools.codeplex.com/wikipage?title=Features%20Web%20Project
+[클라우드 서비스 프로젝트]: http://pytools.codeplex.com/wikipage?title=Features%20Cloud%20Project
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

@@ -1,6 +1,20 @@
-<properties urlDisplayName="Website with MongoDB on MongoLab" pageTitle="MongoLab에서 MongoDB를 사용하는 웹 사이트 만들기(.NET)" metaKeywords="" description="MongoLab에서 호스팅되는 MongoDB에 데이터를 저장하는 Azure 웹사이트를 만드는 방법에 대해 알아봅니다." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Create a C# ASP.NET Application on Azure with MongoDB using the MongoLab Add-On" authors="chris@mongolab.com, eric@mongolab.com" solutions="" manager="mongolab" editor="mollybos" />
+﻿<properties 
+	pageTitle="MongoLab에서 MongoDB를 사용하는 웹 사이트 만들기(.NET)" 
+	description="MongoLab에서 호스팅되는 MongoDB에 데이터를 저장하는 Azure 웹사이트를 만드는 방법에 대해 알아봅니다." 
+	services="web-sites" 
+	documentationCenter=".net" 
+	authors="chrischang12" 
+	manager="partners@mongolab.com" 
+	editor="mollybos"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/17/2014" ms.author="chris@mongolab.com" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="11/17/2014" 
+	ms.author="chris@mongolab.com"/>
 
 
 
@@ -10,15 +24,15 @@
 
 모험심이 많은 사용자 여러분, 반갑습니다! MongoDB-as-a-Service에 오신 것을 환영합니다. 이 자습서에서는 다음을 수행합니다.
 
-1. [데이터베이스 프로비전][provision] - Azure 스토어 [MongoLab](http://mongolab.com) 추가 기능은 Azure 클라우드에서 호스트되고 MongoLab 클라우드 데이터베이스 플랫폼에서 관리되는 MongoDB 데이터베이스를 제공합니다.
+1. [데이터베이스 프로비전][provision]- Azure 스토어 [MongoLab](http://mongolab.com) 추가 기능은 Azure 클라우드에 호스트되고 MongoLab 클라우드 데이터베이스 플랫폼에서 관리되는 MongoDB 데이터베이스를 제공합니다.
 1. [앱 만들기][create] -참고를 위한 간단한 C# ASP.NET MVC 앱입니다.
 1. [앱 배포][deploy] - 몇 가지 구성 후크를 연결하여 원활하게 코드를 푸시합니다.
 1. [데이터베이스 관리][manage] - 마지막으로 쉽게 데이터를 검색하고, 시각화하고, 수정할 수 있는 MongoLab의 웹 기반 데이터베이스 관리 포털을 보여 줍니다.
 
 언제든 이 자습서를 보면서 질문할 사항이 있으면 [support@mongolab.com](mailto:support@mongolab.com)으로 메일을 보내주세요.
 
-## 퀵 스타트
-사용할 Azure 응용 프로그램 및 웹 사이트가 이미 있거나 Azure 스토어에 대해 잘 알고 있는 경우 이 섹션을 사용하여 빠르게 시작할 수 있습니다. 그렇지 않은 경우 아래의 [데이터베이스 프로비전][provision]을 계속 진행합니다.
+## 빠른 시작
+사용할 Azure 응용 프로그램 및 웹 사이트가 이미 있거나 Azure 스토어에 대해 잘 알고 있는 경우 이 섹션을 사용하여 빠르게 시작할 수 있습니다. 그렇지 않은 경우 아래의 [데이터베이스 프로비전][프로비전]을 계속 진행합니다.
  
 1. Azure 스토어를 엽니다.  
 ![Store][button-store]
@@ -43,13 +57,13 @@
         ...
         MongoUrl url = new MongoUrl(connectionString);
         MongoClient client = new MongoClient(url);
-참고: Azure는 **CUSTOMCONNSTR\_** 접두사를 처음에 선언된 연결 문자열에 추가합니다. 따라서 코드가 **MONGOLAB\_URI** 대신 **CUSTOMCONNSTR\_MONGOLAB\_URI**를 참조합니다.
+Note: Azure adds the **CUSTOMCONNSTR\_** prefix to the originally-declared connection string, which is why the code references **CUSTOMCONNSTR\_MONGOLAB\_URI.** instead of **MONGOLAB\_URI**.
 
 이제, 전체 자습서에서...
 
 <h2><a name="provision"></a>데이터베이스 프로비전</h2>
 
-[WACOM.INCLUDE [howto-provision-mongolab](../includes/howto-provision-mongolab.md)]
+[AZURE.INCLUDE [howto-provision-mongolab](../includes/howto-provision-mongolab.md)]
 
 <h2><a name="create"></a>앱 만들기</h2>
 
@@ -75,7 +89,7 @@ MongoDB C# 드라이버가 프로젝트에 통합되고, 다음 줄이 _packages
 ### 메모 모델 추가
 먼저 날짜 및 텍스트 콘텐츠만 사용하여 메모용 모델을 설정합니다.
 
-1. 솔루션 탐색기에서 **모델**을 마우스 오른쪽 단추로 클릭한 다음 **추가 > 클래스**를 선택합니다. 이 새 클래스의 이름으로 *Note.cs*로 지정합니다.
+1. 솔루션 탐색기에서 **모델**을 마우스 오른쪽 단추로 클릭한 다음 **추가 > 클래스**를 선택합니다. 이 새 클래스의 이름을  *Note.cs*로 지정합니다.
 1. 이 클래스에 대해 자동으로 생성된 코드를 다음과 같이 바꿉니다.  
 
         using System;
@@ -115,7 +129,7 @@ MongoDB C# 드라이버가 프로젝트에 통합되고, 다음 줄이 _packages
 MongoDB에 액세스하여 메모를 검색하고 저장하는 방법을 구성해야 합니다. 데이터 액세스 계층에서는 나중에 메모 모델을 사용하고 HomeController에 연결할 것입니다.
 
 1. 솔루션 탐색기에서 **mongoNotes** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가 > 새 폴더**를 선택합니다. 폴더의 이름을 **DAL**로 지정합니다.
-1. 솔루션 탐색기에서 **DAL**을 마우스 오른쪽 단추로 클릭하고 **추가 > 클래스**를 선택합니다. 이 새 클래스의 이름을 *Dal.cs*로 지정합니다.
+1. 솔루션 탐색기에서 **DAL**을 마우스 오른쪽 단추로 클릭하고 **추가 > 클래스**를 선택합니다. 이 새 클래스의 이름을  *Dal.cs*로 지정합니다.
 1. 이 클래스에 대해 자동으로 생성된 코드를 다음과 같이 바꿉니다.  
 
         using System;
@@ -230,11 +244,11 @@ MongoDB에 액세스하여 메모를 검색하고 저장하는 방법을 구성�
         mongoServer = client.GetServer();
         MongoDatabase database = mongoServer.GetDatabase(dbName);
         MongoCollection<Note> noteCollection = database.GetCollection<Note>(collectionName);
-  여기서는 아무것도 변경하지 않습니다. 이 코드는 **GetAllNotes()**의 다음과 같이 삽입, 업데이트 및 쿼리를 수행하는 MongoCollection 개체를 가져오는 방법을 보여 줍니다.:  
+  There's nothing to change here; Just be aware that this is how you get a MongoCollection object for performing inserts, updates, and queries, such as the following in **GetAllNotes()**:  
 
         collection.FindAll().ToList<Note>();
 
-C# MongoDB 드라이버를 활용하는 방법에 대한 자세한 내용은 mongodb.org에서 [CSharp 드라이버 퀵 스타트](http://www.mongodb.org/display/DOCS/CSharp+Driver+Quickstart "CSharp Driver Quickstart") (영문)을 참조하세요.
+C# MongoDB 드라이버를 활용하는 방법에 대한 자세한 내용은 mongodb.org에서 [CSharp 드라이버 빠른 시작](http://www.mongodb.org/display/DOCS/CSharp+Driver+Quickstart "CSharp Driver Quickstart")을 참조하세요.
 
 ### create 뷰 추가
 이제 새 메모 작성을 위한 뷰를 추가합니다.
@@ -397,18 +411,18 @@ Azure에서 웹 사이트를 만드는 것은 매우 쉽습니다. 특히, Azure
 1. **웹 사이트 만들기**를 클릭합니다.
 1. 웹 사이트 만들기가 완료되면 웹 사이트 목록에서 웹 사이트 이름을 클릭합니다. 웹 사이트 대시보드가 표시됩니다.  
 ![WebSiteDashboard][screen-mongolab-websitedashboard]
-1. **간략 상태**에서 **Download publish profile**을 클릭하고 .PublishSettings 파일을 선택한 디렉터리에 저장합니다.  
+1. **빠른 보기**에서 **게시 프로필 다운로드**를 클릭하고 .PublishSettings 파일을 선택한 디렉터리에 저장합니다.  
 ![DownloadPublishProfile][button-website-downloadpublishprofile]
 
 또는 Visual Studio에서 직접 웹 사이트를 구성할 수도 있습니다. Azure 계정을 Visual Studio에 연결하면 표시되는 메시지에 따라 Visual Studio에서 웹 사이트를 구성합니다. 작업이 완료되면 솔루션 탐색기에서 프로젝트 이름을 마우스 오른쪽 단추로 클릭하여 Azure에 배포하면 됩니다. 아래 단계에 설명된 대로 MongoLab 연결 문자열을 구성해야 합니다.
 
 ### MongoLab 연결 문자열 가져오기
 
-[WACOM.INCLUDE [howto-get-connectioninfo-mongolab](../includes/howto-get-connectioninfo-mongolab.md)]
+[AZURE.INCLUDE [howto-get-connectioninfo-mongolab](../includes/howto-get-connectioninfo-mongolab.md)]
 
 ### 웹 사이트 환경 변수에 연결 문자열 추가
 
-[WACOM.INCLUDE [howto-save-connectioninfo-mongolab](../includes/howto-save-connectioninfo-mongolab.md)]
+[AZURE.INCLUDE [howto-save-connectioninfo-mongolab](../includes/howto-save-connectioninfo-mongolab.md)]
 
 ### 웹 사이트 게시
 1. Visual Studio의 솔루션 탐색기에서 **mongoNotes** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다. 게시 대화 상자가 표시됩니다.  
@@ -421,7 +435,7 @@ Azure에서 웹 사이트를 만드는 것은 매우 쉽습니다. 특히, Azure
 
 <h2><a name="manage"></a>데이터베이스 관리</h2>
 
-[WACOM.INCLUDE [howto-access-mongolab-ui](../includes/howto-access-mongolab-ui.md)]
+[AZURE.INCLUDE [howto-access-mongolab-ui](../includes/howto-access-mongolab-ui.md)]
 
 축하합니다. MongoLab 호스트 MongoDB 데이터베이스의 지원을 받는 C# ASP.NET 응용 프로그램이 시작되었습니다. 이제 MongoLab 데이터베이스가 있으므로 데이터베이스에 대한 질문이나 우려 사항 또는 MongoDB나 C# 드라이버 자체에 대한 지원을 [support@mongolab.com](mailto:support@mongolab.com)에 문의할 수 있습니다. 여러분의 행운을 빕니다.
 
@@ -445,4 +459,5 @@ Azure에서 웹 사이트를 만드는 것은 매우 쉽습니다. 특히, Azure
 [manage]: #manage
 
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->
