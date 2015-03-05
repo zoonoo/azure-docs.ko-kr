@@ -1,7 +1,21 @@
-<properties pageTitle="Django를 사용하는 Python 웹 앱 - Azure 자습서" description="Azure에서 Windows Server 2012 R2 Datacenter 가상 컴퓨터를 사용하여 Django 기반 웹사이트를 호스트하는 방법을 설명하는 자습서입니다." services="virtual-machines" documentationCenter="python" authors="huguesv" manager="wpickett" editor=""/>
+<properties 
+	pageTitle="Django를 사용하는 Python 웹 앱 - Azure 자습서" 
+	description="Azure에서 Windows Server 2012 R2 Datacenter 가상 컴퓨터를 사용하여 Django 기반 웹사이트를 호스트하는 방법을 설명하는 자습서입니다." 
+	services="virtual-machines" 
+	documentationCenter="python" 
+	authors="huguesv" 
+	manager="wpickett" 
+	editor=""/>
 
 
-<tags ms.service="virtual-machines" ms.workload="web" ms.tgt_pltfrm="vm-windows" ms.devlang="python" ms.topic="article" ms.date="09/25/2014" ms.author="huvalo"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="vm-windows" 
+	ms.devlang="python" 
+	ms.topic="article" 
+	ms.date="02/05/2015" 
+	ms.author="huvalo"/>
 
 
 
@@ -29,18 +43,18 @@
 
 ## Django를 호스트하기 위해 Azure 가상 컴퓨터 만들기 및 구성
 
-1. [여기][portal-vm]에 나와 있는 지침을 따라서  *Windows Server 2012 R2 Datacenter* 배포의 Azure 가상 컴퓨터를 만드세요.
+1. [여기][portal-vm]에 나와 있는 지침을 따라서 *Windows Server 2012 R2 Datacenter* 배포의 Azure 가상 컴퓨터를 만드세요.
 
 1. 웹을 통해 들어오는 포트 **80** 트래픽을 가상 컴퓨터의 포트 **80**으로 보내도록 Azure에 지시합니다.
- - Azure 포털에서 새로 만든 가상 컴퓨터로 이동하고  *끝점* 탭을 클릭합니다.
- - 화면 아래쪽에 있는  *추가* 단추를 클릭합니다.
+ - Azure 포털에서 새로 만든 가상 컴퓨터로 이동하고 *ENDPOINTS* 탭을 클릭합니다.
+ - 화면 아래쪽에 있는 *ADD* 단추를 클릭합니다.
 	![add endpoint](./media/virtual-machines-python-django-web-app-windows-server/django-helloworld-addendpoint.png)
 
- -  *TCP* 프로토콜의  *공용 포트 80*을  *개인 포트 80*으로 엽니다.
+ - *TCP* 프로토콜의 *PUBLIC PORT 80*을 *PRIVATE PORT 80*으로 엽니다.
 ![][port80]
-1.  *대시보드* 탭에서  *연결*을 클릭하여  *원격 데스크톱*을 사용해 새로 만든 Azure 가상 컴퓨터에 원격으로 로그인합니다.  
+1. *DASHBOARD* 탭에서 *CONNECT*을 클릭하여 *Remote Desktop*을 사용해 새로 만든 Azure 가상 컴퓨터에 원격으로 로그인합니다.  
 
-**중요:** 아래에 설명된 모든 지침에서는 가상 컴퓨터에 올바로 로그인했고 로컬 컴퓨터가 아니라 가상 컴퓨터에서 명령을 실행하는 것으로 가정합니다.
+**중요:** 아래에 설명된 모든 지침에서는 가상 컴퓨터에 올바로 로그인했고 로컬 컴퓨터가 아니라 가상 컴퓨터에서 명령을 실행하는 것으로 가정합니다. 
 
 ## <a id="setup"> </a>Python 및 Django 설정
 
@@ -51,7 +65,6 @@
 	1. 웹 플랫폼 설치 관리자를 시작합니다.
 	1. 검색 창에 WFastCGI를 입력합니다. 
 	1. 사용하려는 Python 버전(2.7 또는 3.4)에 해당하는 WFactCGI 항목을 선택합니다.  그러면 WFastCGI의 종속성으로 Python이 설치됩니다. 
-1. Python 2.7을 설치한 경우 [다음 절차에 따라 pip를 수동으로 설치](https://pip.pypa.io/en/latest/installing.html)합니다. Python 3.4의 경우에는 pip가 이미 설치된 상태로 제공됩니다.
 1. pip를 사용하여 Django를 설치합니다.
 
     Python 2.7:
@@ -105,7 +118,7 @@
 
 ### Python 3.4
 
-Run these commands only if you are using Python 3.4.
+아래 명령은 Python 3.4를 실행하는 경우에만 실행합니다.
 
 1. Python Fast CGI 처리기를 설정합니다.
 
@@ -139,7 +152,7 @@ Run these commands only if you are using Python 3.4.
 ## 새 Django 응용 프로그램 만들기
 
 
-1.   *C:\inetpub\wwwroot*에서 다음 명령을 입력하여 새 Django 프로젝트를 만듭니다.
+1.  *C:\inetpub\wwwroot*에서 다음 명령을 입력하여 새 Django 프로젝트를 만듭니다.
 
     Python 2.7:
 
@@ -159,7 +172,7 @@ Run these commands only if you are using Python 3.4.
 
 
 
-1.   *C:\inetpub\wwwroot\helloworld\helloworld* 디렉터리에 **views.py**라는 새 파일을 만듭니다. 이 파일에는 "hello world" 페이지를 렌더링하는 뷰가 포함되어 있습니다. 편집기를 시작하고 다음을 입력합니다.
+1.  *C:\inetpub\wwwroot\helloworld\helloworld* 디렉터리에 **views.py**라는 새 파일을 만듭니다. 이 파일에는 "hello world" 페이지를 렌더링하는 뷰가 포함되어 있습니다. 편집기를 시작하고 다음을 입력합니다.
 		
 		from django.http import HttpResponse
 		def home(request):
@@ -189,4 +202,5 @@ Run these commands only if you are using Python 3.4.
 
 [웹 플랫폼 설치 관리자]: http://www.microsoft.com/web/downloads/platform.aspx
 
-<!--HONumber=42-->
+
+<!--HONumber=45--> 

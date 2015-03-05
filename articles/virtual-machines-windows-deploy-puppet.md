@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Puppet 및 Azure 가상 컴퓨터 정보" description="Azure에서 VM에 Puppet을 설치 및 구성하는 방법에 대해 설명합니다." services="virtual-machines" documentationCenter="" authors="KBDAzure" manager="timlt" editor=""/>
+<properties 
+	pageTitle="Puppet 및 Azure 가상 컴퓨터 정보" 
+	description="Azure에서 VM에 Puppet을 설치 및 구성하는 방법에 대해 설명합니다." 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="KBDAzure" 
+	manager="timlt" 
+	editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="01/23/2015" ms.author="kathydav"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-windows" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/23/2015" 
+	ms.author="kathydav"/>
 
 #Puppet 및 Azure 가상 컴퓨터 정보
 
@@ -31,5 +45,4 @@ Puppet은 클라이언트-서버 시스템입니다. Puppet Master와 Puppet Ent
 
 
 
-
-<!--HONumber=42-->
+<!--HONumber=45--> 

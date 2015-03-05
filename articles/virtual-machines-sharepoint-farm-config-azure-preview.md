@@ -1,6 +1,20 @@
-<properties pageTitle="SharePoint 서버 팜 구성 정보" description="SharePoint 팜의 기본 구성에 대해 설명합니다." services="virtual-machines" documentationCenter="" authors="JoeDavies-MSFT" manager="timlt" editor=""/>
+<properties 
+	pageTitle="SharePoint 서버 팜 구성 정보" 
+	description="SharePoint 팜의 기본 구성에 대해 설명합니다." 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="JoeDavies-MSFT" 
+	manager="timlt" 
+	editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-sharepoint" ms.devlang="na" ms.topic="article" ms.date="1/26/2015" ms.author="josephd"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-sharepoint" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="1/26/2015" 
+	ms.author="josephd"/>
 
 
 #SharePoint 서버 팜 구성 정보#
@@ -12,7 +26,7 @@ SharePoint Server 팜은 미리 구성된 SharePoint Server 2013 팜을 자동�
 
 다음 섹션에서는 각 팜의 구성을 자세히 설명합니다.
 
-자세한 내용은 [SharePoint 서버 팜](../virtual-machines-sharepoint-farm-azure-preview/) 을 참조하세요.
+자세한 내용은 [SharePoint 서버 팜](../virtual-machines-sharepoint-farm-azure-preview/)을 참조하세요
 
 ##기본 SharePoint 팜##
 
@@ -111,5 +125,4 @@ SharePoint Server 팜은 미리 구성된 SharePoint Server 2013 팜을 자동�
 
 [Azure 인프라 서비스의 SharePoint](http://msdn.microsoft.com/library/azure/dn275955.aspx)
 
-
-<!--HONumber=42-->
+<!--HONumber=45--> 

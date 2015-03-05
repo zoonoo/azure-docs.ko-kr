@@ -76,11 +76,11 @@
 
 		mysql -u mysqluser -p -h testlinuxvm.cloudapp.net
 
-15. 이제 성공적으로 MySQL을 구성하고 데이터베이스와 새 사용자를 만들었습니다.  MySQL에 대한 자세한 내용은 [MySQL 설명서][MySQLDocs](영문)를 참조하세요.	
+15. 이제 성공적으로 MySQL을 구성하고 데이터베이스와 새 사용자를 만들었습니다.  MySQL에 대한 자세한 내용은 [MySQL 설명서][MySQLDocs]를 참조하세요.	
 
 [MySQLDocs]: http://dev.mysql.com/doc/
 [AzurePreviewPortal]: http://manage.windowsazure.com
 
 [Image9]: ./media/install-and-run-mysql-on-opensuse-vm/LinuxVmAddEndpointMySQL.png
 
-<!--HONumber=42-->
+<!--HONumber=45--> 

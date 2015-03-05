@@ -1,4 +1,4 @@
-
+﻿
 
 ## <a id="logon"> </a>가상 컴퓨터를 만든 후 로그온하는 방법 ##
 
@@ -30,9 +30,9 @@
 
 응용 프로그램에서 데이터를 저장해야 할 수도 있습니다. 설정하려면 이전에 만든 가상 컴퓨터에 데이터 디스크를 연결합니다. 가장 쉬운 방법은 컴퓨터에 빈 데이터 디스크를 연결하는 것입니다.
 
-Linux에서 리소스 디스크는 일반적으로 Azure Linux 에이전트에 의해 관리되며 **/mnt/resource**(또는 Ubuntu 이미지의 **/mnt**)에 자동으로 탑재됩니다. 다른 한편, Linux에서 데이터 디스크 이름은 커널에 의해 `/dev/sdc`로 지정될 수 있으며 사용자는 해당 리소스를 파티셔닝, 형식 지정 및 마운트해야 합니다. 자세한 내용은 [Azure Linux 에이전트 사용자 가이드](http://www.windowsazure.com/ko-kr/manage/linux/how-to-guides/linux-agent-guide/)(영문)를 참조하세요.
+Linux에서 리소스 디스크는 일반적으로 Azure Linux 에이전트에 의해 관리되며 **/mnt/resource**(또는 Ubuntu 이미지의 **/mnt**)에 자동으로 탑재됩니다. 다른 한편, Linux에서 데이터 디스크 이름은 커널에 의해 `/dev/sdc`로 지정될 수 있으며 사용자는 해당 리소스를 파티셔닝, 형식 지정 및 마운트해야 합니다. 자세한 내용은 [Azure Linux 에이전트 사용자 가이드](http://azure.microsoft.com/manage/linux/how-to-guides/linux-agent-guide/)를 참조하세요.
 
->[AZURE.NOTE] 리소스 디스크에 데이터를 저장하지 마세요. 리소스 디스크는 응용 프로그램 및 프로세스에 임시 저장소를 제공하며, 스왑 파일과 같이 보관할 필요가 없는 데이터를 저장하는 데 사용됩니다. 데이터 디스크는 Azure 저장소에서 페이지 Blob의 .vhd 파일로 상주하며, 데이터 보호를 위한 중복 저장소를 제공합니다. 자세한 내용은 [Azure의 디스크 및 이미지 정보](http://msdn.microsoft.com/ko-kr/library/jj672979.aspx)를 참조하세요.
+>[AZURE.NOTE] 리소스 디스크에 데이터를 저장하지 마세요. 리소스 디스크는 응용 프로그램 및 프로세스에 임시 저장소를 제공하며, 스왑 파일과 같이 보관할 필요가 없는 데이터를 저장하는 데 사용됩니다. 데이터 디스크는 Azure 저장소에서 페이지 Blob의 .vhd 파일로 상주하며, 데이터 보호를 위한 중복 저장소를 제공합니다. 자세한 내용은 [Azure의 디스크 및 이미지 정보](http://msdn.microsoft.com/library/jj672979.aspx)를 참조하세요.
 
 1. 아직 로그인하지 않은 경우 Azure 관리 포털에 로그인합니다.
 
@@ -42,7 +42,7 @@ Linux에서 리소스 디스크는 일반적으로 Azure Linux 에이전트에 �
 	
 	**빈 디스크 연결** 대화 상자가 나타납니다.
 
-	![디스크 세부 정보 정의](. / media/virtual-machines-Linux-tutorial-log-on-attach-disk/attachnewdisklinux.png)
+	![Define disk details](./media/virtual-machines-Linux-tutorial-log-on-attach-disk/attachnewdisklinux.png)
 
 4. **가상 컴퓨터 이름**, **저장소 위치** 및 **파일 이름**은 이미 정의되어 있습니다. 원하는 디스크 크기만 입력하면 됩니다. **크기** 필드에 **5**를 입력합니다.
 
@@ -61,6 +61,7 @@ Linux에서 리소스 디스크는 일반적으로 Azure Linux 에이전트에 �
 
 1. 위의 **가상 컴퓨터를 만든 후 로그온하는 방법**에 나열된 단계에 따라 가상 컴퓨터에 연결합니다.
 
+
 2. SSH 창에서 다음 명령을 입력한 후 계정 암호를 입력합니다.
 
 	`sudo grep SCSI /var/log/messages`
@@ -69,27 +70,33 @@ Linux에서 리소스 디스크는 일반적으로 Azure Linux 에이전트에 �
 
 	![Identify disk](./media/virtual-machines-Linux-tutorial-log-on-attach-disk/diskmessages.png)
 
+
 3. SSH 창에서 다음 명령을 입력하여 새 장치를 만들고 계정 암호를 입력합니다.
 
 	`sudo fdisk /dev/sdc`
 
 	>[AZURE.NOTE] 이 예제에서는 일부 분산에서 `$PATH`에 /sbin 또는 /usr/sbin이 없는 경우 `sudo -i`를 사용해야 할 수도 있습니다.
 
+
 4. **n**을 입력하여 새 파티션을 만듭니다.
 
 	![Create new device](./media/virtual-machines-Linux-tutorial-log-on-attach-disk/diskpartition.png)
+
 
 5. **p**를 입력하여 파티션을 주 파티션으로 설정하고, **1**을 입력하여 첫 번째 파티션으로 설정한 다음 enter를 입력하여 실린더에 대한 기본값을 적용합니다.
 
 	![Create partition](./media/virtual-machines-Linux-tutorial-log-on-attach-disk/diskcylinder.png)
 
+
 6. **p**를 입력하여 분할되는 디스크에 대한 세부 정보를 확인합니다.
 
 	![List disk information](./media/virtual-machines-Linux-tutorial-log-on-attach-disk/diskinfo.png)
 
+
 7. **w**를 입력하여 디스크에 대한 설정을 씁니다.
 
 	![Write the disk changes](./media/virtual-machines-Linux-tutorial-log-on-attach-disk/diskwrite.png)
+
 
 8. 새 파티션에 파일 시스템을 만들어야 합니다. 예를 들어 다음 명령을 입력하여 파일 시스템을 만들고 계정 암호를 입력합니다.
 
@@ -99,15 +106,18 @@ Linux에서 리소스 디스크는 일반적으로 Azure Linux 에이전트에 �
 
 	>[AZURE.NOTE] SUSE Linux Enterprise 11 시스템에서는 ext4 파일 시스템에 대해 읽기 전용 액세스 권한만 제공됩니다. 이 시스템에서는 새 파일 시스템의 형식을 ext4 대신 ext3으로 지정하는 것이 좋습니다.
 
+
 9. 새 파일 시스템을 탑재할 디렉터리를 만듭니다. 예를 들어, 다음 명령을 입력한 후 계정 암호를 입력합니다.
 
 	`sudo mkdir /datadrive`
+
 
 10. 다음 명령을 입력하여 드라이브를 탑재합니다.
 
 	`sudo mount /dev/sdc1 /datadrive`
 
 	이제 데이터 디스크를 **/datadrive**로 사용할 준비가 되었습니다.
+
 
 11. /etc/fstab에 새 드라이브를 추가합니다.
 
@@ -123,7 +133,7 @@ Linux에서 리소스 디스크는 일반적으로 Azure Linux 에이전트에 �
 
 	>[AZURE.NOTE] blkid에 항상 sudo 액세스가 필요한 것은 아니지만 /sbin 또는 /usr/sbin이 `$PATH`에 없는 경우 일부 배포에서 `sudo -i`를 사용하여 실행하는 것이 더 쉬울 수도 있습니다.
 
-	**주의:** /etc/fstab 파일을 부적절하게 편집하면 시스템을 부팅할 수 없게 될 수 있습니다. 확실하지 않은 경우 배포 설명서에서 이 파일을 제대로 편집하는 방법에 대한 자세한 내용을 확인하세요. 확실하지 않은 경우 배포 설명서에서 이 파일을 제대로 편집하는 방법에 대한 자세한 내용을 확인하세요.
+	**주의:** /etc/fstab 파일을 잘못 편집하면 시스템이 부팅하지 않을 수 있습니다. 잘 모르는 경우 배포 설명서에서 이 파일을 올바르게 편집하는 방법에 대한 정보를 참조하세요. 또한 편집하기 전에 /etc/fstab 파일의 백업을 만드는 것이 좋습니다.
 
 	텍스트 편집기를 사용하여 /etc/fstab 파일의 끝에 새 파일 시스템에 대한 정보를 입력합니다.  이 예제에서는 이전 단계에서 만든 새 **/dev/sdc1** 장치의 UUID 값과 탑재 지점 **/datadrive**를 사용합니다.
 
@@ -147,4 +157,4 @@ Linux에서 리소스 디스크는 일반적으로 Azure Linux 에이전트에 �
 
 
 
-<!--HONumber=42-->
+<!--HONumber=45--> 

@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Azure에서 OpenSUSE Linux를 실행하는 가상 컴퓨터에 MySQL 설치" description="Azure에서 가상 컴퓨터에 MySQL을 설치하는 방법에 대해 알아봅니다." services="virtual-machines" documentationCenter="" authors="KBDAzure" manager="timlt" editor=""/>
+﻿<properties 
+	pageTitle="Azure에서 OpenSUSE Linux를 실행하는 가상 컴퓨터에 MySQL 설치" 
+	description="Azure에서 가상 컴퓨터에 MySQL을 설치하는 방법에 대해 알아봅니다." 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="KBDAzure" 
+	manager="timlt" 
+	editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="12/12/2014" ms.author="kathydav"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-linux" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="12/12/2014" 
+	ms.author="kathydav"/>
 
 # Azure에서 OpenSUSE Linux를 실행하는 가상 컴퓨터에 MySQL 설치
 
@@ -27,5 +41,4 @@
 [MySQL]: http://www.mysql.com
 [AzurePortal]: http://manage.windowsazure.com
 
-
-<!--HONumber=42-->
+<!--HONumber=45--> 

@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Windows 임시 디스크의 드라이브 문자를 변경하는 방법" description="Azure에서 Windows VM의 임시 디스크를 다시 매핑하는 방법에 대해 설명합니다." services="virtual-machines" documentationCenter="" authors="KBDAzure" manager="timlt" editor=""/>
+<properties 
+	pageTitle="Windows 임시 디스크의 드라이브 문자를 변경하는 방법" 
+	description="Azure에서 Windows VM의 임시 디스크를 다시 매핑하는 방법에 대해 설명합니다." 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="KBDAzure" 
+	manager="timlt" 
+	editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="01/15/2015" ms.author="kathydav"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-windows" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/15/2015" 
+	ms.author="kathydav"/>
 
 #Windows 임시 디스크의 드라이브 문자를 변경하는 방법
 
@@ -8,7 +22,7 @@ D 드라이브를 사용하여 데이터를 저장해야 하는 경우 다음 �
 
 시작하기 전에 이 절차를 수행하는 동안 Windows 페이지 파일(pagefile.sys)을 저장할 수 있도록 데이터 디스크를 가상 컴퓨터에 연결해야 합니다. 아직 연결하지 않은 경우 [Windows 가상 컴퓨터에 데이터 디스크를 연결하는 방법]을 참조하세요. 연결된 디스크를 확인하는 방법에 대한 지침은 [Azure의 가상 컴퓨터 디스크 정보]의 "디스크 관리"를 참조하세요.
 
-D 드라이브에서 기존 데이터 디스크를 사용하려면 VHD를 저장소 계정으로 업로드해야 합니다. 지침은 [Windows Server VHD를 만들어 Azure에 업로드]의 3, 4단계를 참조하세요.
+D 드라이브에서 기존 데이터 디스크를 사용하려면 VHD를 저장소 계정으로 업로드해야 합니다. 지침은 [Windows Server VHD를 만들어서 Azure에 업로드]의 3, 4단계를 참조하세요.
 
 > [AZURE.WARNING] 가상 컴퓨터의 크기를 조정하고 이로 인해 가상 컴퓨터가 다른 호스트로 이동한 경우에는 임시 드라이브가 다시 D 드라이브로 변경됩니다.
 
@@ -39,7 +53,7 @@ D 드라이브에서 기존 데이터 디스크를 사용하려면 VHD를 저장
 
 <!--Link references-->
 [Windows 가상 컴퓨터에 데이터 디스크를 연결하는 방법]: ../storage-windows-attach-disk
-[Azure의 가상 컴퓨터 디스크 정보]: ../http://msdn.microsoft.com/ko-kr/library/azure/dn790303.aspx
+[Azure의 가상 컴퓨터 디스크 정보]: ../http://msdn.microsoft.com/library/azure/dn790303.aspx
 [Windows Server VHD를 만들어서 Azure에 업로드]: ../virtual-machines-create-upload-vhd-windows-server/
 [Windows Server를 실행하는 가상 컴퓨터에 로그온하는 방법]: ../virtual-machines-log-on-windows-server/
 [가상 컴퓨터에서 데이터 디스크를 분리하는 방법]: ../storage-windows-detach-disk/
@@ -47,5 +61,4 @@ D 드라이브에서 기존 데이터 디스크를 사용하려면 VHD를 저장
 
 
 
-
-<!--HONumber=42-->
+<!--HONumber=45--> 

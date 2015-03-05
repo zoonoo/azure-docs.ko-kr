@@ -1,6 +1,20 @@
-<properties pageTitle="Azure VM에서 Symantec Endpoint Protection을 설치하고 구성하는 방법" description="Azure에서 VM에 Symantec Endpoint Protection을 설치 및 구성하는 방법에 대해 설명합니다." services="virtual-machines" documentationCenter="" authors="KBDAzure" manager="timlt" editor=""/>
+﻿<properties 
+	pageTitle="Azure VM에서 Symantec Endpoint Protection을 설치하고 구성하는 방법" 
+	description="Azure에서 VM에 Symantec Endpoint Protection을 설치 및 구성하는 방법에 대해 설명합니다." 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="KBDAzure" 
+	manager="timlt" 
+	editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-multiple" ms.devlang="na" ms.topic="article" ms.date="1/26/2015" ms.author="kathydav"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-multiple" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="1/26/2015" 
+	ms.author="kathydav"/>
 
 #Azure VM에서 Symantec Endpoint Protection을 설치하고 구성하는 방법
 
@@ -57,15 +71,14 @@ Symantec 보안 확장이 설치되고 최신 상태인지 확인하려면 다�
 3.	필요한 경우 상태 창에서 업데이트를 적용합니다.
 
 ## 추가 리소스
-[Windows Server를 실행하는 가상 컴퓨터에 로그온하는 방법][How to Log on to a Virtual Machine Running Windows Server]
+[Windows Server를 실행하는 가상 컴퓨터에 로그온하는 방법]
 
-[확장 관리][Manage Extensions]
+[확장 관리]
 
 <!--Link references-->
-[How to Log on to a Virtual Machine Running Windows Server]: ../virtual-machines-log-on-windows-server/
+[Windows Server를 실행하는 가상 컴퓨터에 로그온하는 방법]: ../virtual-machines-log-on-windows-server/
 
-[Manage Extensions]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
+[확장 관리]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
 
 
-
-<!--HONumber=42-->
+<!--HONumber=45--> 

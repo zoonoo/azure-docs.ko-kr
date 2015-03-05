@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Azure용 Linux 에이전트 사용자 가이드" description="Linux 에이전트(waagent)를 설치 및 구성하여 가상 컴퓨터와 Azure 패브릭 컨트롤러의 상호 작용을 관리하는 방법에 대해 알아봅니다." services="virtual-machines" documentationCenter="" authors="szarkos" manager="timlt" editor=""/>
+﻿<properties 
+	pageTitle="Azure용 Linux 에이전트 사용자 가이드" 
+	description="Linux 에이전트(waagent)를 설치 및 구성하여 가상 컴퓨터와 Azure 패브릭 컨트롤러의 상호 작용을 관리하는 방법에 대해 알아봅니다." 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="szarkos" 
+	manager="timlt" 
+	editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="10/20/2014" ms.author="szarkos"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-linux" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/20/2014" 
+	ms.author="szarkos"/>
 
 
 
@@ -49,25 +63,25 @@ Azure Linux 에이전트(waagent)는 가상 컴퓨터와 Azure 패브릭 컨트�
 
 ###지원되는 Linux 배포
 * CoreOS
-* CentOS 6.2+
-* Debian 7.0+
-* Ubuntu 12.04+
-* openSUSE 12.3+
-* SLES 11 SP2+
-* Oracle Linux 6.4+
+* CentOS 6.2 이상
+* Debian 7.0 이상
+* Ubuntu 12.04 이상
+* OpenSUSE 12.3 이상
+* SLES 11 SP2 이상
+* Oracle Linux 6.4 이상
 
 기타 지원되는 시스템:
 
-* FreeBSD 9+ (WALinuxAgent v2.0.0+)
+* FreeBSD 9 이상(WALinuxAgent v2.0.0 이상)
 
 
 ###요구 사항
 
 Waagent는 다음과 같은 일부 시스템 패키지가 있어야 제대로 기능을 수행합니다.
 
-* Python 2.5+
-* Openssl 1.0+
-* Openssh 5.3+
+* Python 2.5 이상
+* Openssl 1.0 이상
+* Openssh 5.3 이상
 * 파일 시스템 유틸리티: sfdisk, fdisk, mkfs
 * 암호 도구: chpasswd, sudo
 * 텍스트 처리 도구: sed, grep
@@ -107,7 +121,7 @@ Waagent는 다음과 같은 일부 시스템 패키지가 있어야 제대로 �
 
  * 커널 버전을 검색하고 필요한 경우 VNUMA 해결 방법을 적용합니다.
 
- * 네트워킹을 방해할 수 있는 udev 규칙(/lib/udev/rules.d/75-persistent-net-generator.rules, /etc/udev/rules.d/70-persistent-net.rules)을 /var/lib/waagent/로 이동합니다.  
+ * /var/lib/waagent/로 네트워킹을 방해할 수 있는 udev 규칙(/lib/udev/rules.d/75-persistent-net-generator.rules, /etc/udev/rules.d/70-persistent-net.rules)을 이동합니다.  
 
 - uninstall: waagent 및 연결된 파일을 제거합니다.
  * 시스템에서 init 스크립트의 등록을 취소하고 삭제합니다.
@@ -250,7 +264,7 @@ Waagent는 다음과 같은 일부 시스템 패키지가 있어야 제대로 �
 형식: String  
 기본값: /mnt/resource 
 
-이 옵션은 리소스 디스크가 탑재되는 경로를 지정합니다. 리소스 디스크는  *temporary* 디스크이며 VM의 프로비전을 해제할 때 비워질 수 있습니다.
+이 옵션은 리소스 디스크가 탑재되는 경로를 지정합니다. 리소스 디스크는 *temporary* 디스크이며 VM의 프로비전을 해제할 때 비워질 수 있습니다.
 
 **ResourceDisk.EnableSwap:**
 
@@ -405,5 +419,4 @@ Waagent는 다음과 같은 일부 시스템 패키지가 있어야 제대로 �
 	  </Instances>
 	</SharedConfig>
 
-
-<!--HONumber=42-->
+<!--HONumber=45--> 

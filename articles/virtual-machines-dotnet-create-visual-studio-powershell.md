@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Visual Studio를 사용하여 웹 프로젝트용 가상 컴퓨터 만들기" description="웹 사이트용 가상 컴퓨터를 만드는 방법에 대해 알아봅니다." services="virtual-machines" documentationCenter="" authors="ghogen" manager="douge" editor=""/>
+﻿<properties 
+	pageTitle="Visual Studio를 사용하여 웹 프로젝트용 가상 컴퓨터 만들기" 
+	description="웹 사이트용 가상 컴퓨터를 만드는 방법에 대해 알아봅니다." 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="kempb" 
+	manager="douge" 
+	editor="tglee"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-multiple" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="ghogen"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-multiple" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="02/02/2015" 
+	ms.author="kempb"/>
 
 # Visual Studio에서 웹 사이트용 가상 컴퓨터 만들기
 
@@ -31,7 +45,7 @@ Azure 웹 사이트용 웹 프로젝트를 만들면 Azure에서 가상 컴퓨�
 12. 가상 컴퓨터가 프로비전되면 솔루션의 **PublishScripts** 노드에 게시 스크립트가 만들어집니다. 이 게시 스크립트가 실행되고 Azure에서 가상 컴퓨터를 프로비전합니다. **출력** 창에 상태가 표시됩니다. 이 스크립트는 가상 컴퓨터 설치를 위해 다음을 수행합니다.
 
 	* 가상 컴퓨터가 없는 경우 만듭니다.
-	* 이름이  `devtest`로 시작하는 저장소 계정을 만듭니다. 단, 지정된 지역에 이러한 저장소 계정이 없어야 합니다.
+	* 이름이 `devtest`로 시작하는 저장소 계정을 만듭니다. 단, 지정된 지역에 이러한 저장소 계정이 없어야 합니다.
 	* 가상 컴퓨터에 대한 컨테이너로 클라우드 서비스를 만들고 웹 사이트에 대한 웹 역할을 만듭니다.
 	* 가상 컴퓨터에서 웹 배포를 구성합니다.
 	* 가상 컴퓨터에서 IIS 및 ASP.NET을 구성합니다.
@@ -51,5 +65,4 @@ Azure 웹 사이트용 웹 프로젝트를 만들면 Azure에서 가상 컴퓨�
 [3]: ./media/dotnet-visual-studio-create-virtual-machine/CreateVM_Provisioning.png
 [4]: ./media/dotnet-visual-studio-create-virtual-machine/CreateVM_SolutionExplorer.png
 
-
-<!--HONumber=42-->
+<!--HONumber=45--> 

@@ -1,6 +1,20 @@
-<properties pageTitle="Azure에서 Linux를 실행하는 가상 컴퓨터에 로그온" description="SSH(Secure Shell) 클라이언트를 사용하여 Linux를 실행하는 Azure 가상 컴퓨터에 로그온하는 방법에 대해 알아봅니다." services="virtual-machines" documentationCenter="" authors="KBDAzure" manager="timlt" editor=""/>
+﻿<properties 
+	pageTitle="Azure에서 Linux를 실행하는 가상 컴퓨터에 로그온" 
+	description="SSH(Secure Shell) 클라이언트를 사용하여 Linux를 실행하는 Azure 가상 컴퓨터에 로그온하는 방법에 대해 알아봅니다." 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="KBDAzure" 
+	manager="timlt" 
+	editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="11/12/2014" ms.author="kathydav"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-linux" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/12/2014" 
+	ms.author="kathydav"/>
 
 
 
@@ -28,7 +42,7 @@ Linux 운영 체제를 실행하는 가상 컴퓨터의 경우 SSH(보안 셸) �
 
 	![Open PuTTY](./media/virtual-machines-linux-how-to-log-on/putty.png)
 
-4. 컴퓨터를 만들 때 지정한 계정을 사용하여 가상 컴퓨터에 로그온합니다. 사용자 이름 및 암호를 사용하여 가상 컴퓨터를 만드는 방법에 대한 자세한 내용은 [Linux를 실행하는 가상 컴퓨터 만들기](http://azure.microsoft.com/ko-kr/documentation/articles/virtual-machines-linux-tutorial/)를 참조하세요. 
+4. 컴퓨터를 만들 때 지정한 계정을 사용하여 가상 컴퓨터에 로그온합니다. 사용자 이름 및 암호를 사용하여 가상 컴퓨터를 만드는 방법에 대한 자세한 내용은 [Linux를 실행하는 가상 컴퓨터 만들기](http://azure.microsoft.com/documentation/articles/virtual-machines-linux-tutorial/)를 참조하세요. 
 
 	![Log on to the virtual machine](./media/virtual-machines-linux-how-to-log-on/sshlogin.png)
 
@@ -39,5 +53,4 @@ Linux 운영 체제를 실행하는 가상 컴퓨터의 경우 SSH(보안 셸) �
 <!-- LINKS -->
 [Linux 가상 컴퓨터에 대한 암호 또는 SSH를 다시 설정하는 방법]: http://go.microsoft.com/fwlink/p/?LinkId=512138
 
-
-<!--HONumber=42-->
+<!--HONumber=45--> 

@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Azure에서 Ubuntu Linux VHD 만들기 및 업로드" description="Ubuntu Linux 운영 체제가 포함된 Azure VHD(가상 하드 디스크)를 만들고 업로드하는 방법에 대해 알아봅니다." services="virtual-machines" documentationCenter="" authors="szarkos" manager="timlt" editor="tysonn"/>
+﻿<properties 
+	pageTitle="Azure에서 Ubuntu Linux VHD 만들기 및 업로드" 
+	description="Ubuntu Linux 운영 체제가 포함된 Azure VHD(가상 하드 디스크)를 만들고 업로드하는 방법에 대해 알아봅니다." 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="szarkos" 
+	manager="timlt" 
+	editor="tysonn"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/13/2015" ms.author="szarkos"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-linux" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/13/2015" 
+	ms.author="szarkos"/>
 
 
 # Azure용 Ubuntu 가상 컴퓨터 준비
@@ -79,13 +93,13 @@
 
 	a) /etc/grub.d/00_header 파일을 엽니다.
 
-	b) **make_timeout()** 함수에서 **if ["\${recordfail}" = 1 ]; then**을 검색합니다.
+	b) 함수 **make_timeout()**에서 **if ["\${recordfail}" = 1 ]; then**을 검색합니다.
 
 	c) 이 줄 아래 문을 **set timeout=5**로 변경합니다.
 
 	d)  'sudo update-grub'을 실행합니다.
 
-6. Azure용 커널 매개 변수를 추가로 포함하려면 Grub의 커널 부팅 줄을 수정합니다. 이 작업을 수행하려면 "/etc/default/grub"을 텍스트 편집기에서 열고  `GRUB_CMDLINE_LINUX_DEFAULT` 변수를 찾거나 필요한 경우 추가하여 다음 매개 변수가 포함되도록 편집합니다.
+6. Azure용 커널 매개 변수를 추가로 포함하려면 Grub의 커널 부팅 줄을 수정합니다. 이 작업을 수행하려면 "/etc/default/grub"을 텍스트 편집기에서 열고 `GRUB_CMDLINE_LINUX_DEFAULT` 변수를 찾거나 필요한 경우 추가하여 다음 매개 변수가 포함되도록 편집합니다.
 
 		GRUB_CMDLINE_LINUX_DEFAULT="console=ttyS0 earlyprintk=ttyS0 rootdelay=300"
 
@@ -98,7 +112,7 @@
 		# sudo apt-get update
 		# sudo apt-get install walinuxagent
 
-	 `walinuxagent` 패키지를 설치하면  `NetworkManager` 및  `NetworkManager-gnome` 패키지가 설치되어 있는 경우 이러한 패키지를 제거합니다.
+	`walinuxagent` 패키지를 설치하면 `NetworkManager` 및 `NetworkManager-gnome` 패키지가 설치되어 있는 경우 이러한 패키지를 제거합니다.
 
 10.	다음 명령을 실행하여 가상 컴퓨터의 프로비전을 해제하고 Azure에서 프로비전할 준비를 합니다.
 
@@ -109,4 +123,5 @@
 11. Hyper-V 관리자에서 **작업 -> 종료**를 클릭합니다. 이제 Linux VHD를 Azure에 업로드할 수 있습니다.
 
 
-<!--HONumber=42-->
+
+<!--HONumber=45--> 

@@ -17,10 +17,10 @@
 	- **가상 컴퓨터 이름**을 입력합니다(예: "testlinuxvm").
 	- **계층**을 확인하고 **크기**를 선택합니다. 계층에 따라 선택할 수 있는 크기가 결정됩니다.
 	- Sudoers 목록 파일에 추가될 **새 사용자 이름**(예: "newuser")을 입력합니다.
-	- 사용할 **인증** 유형을 결정합니다. 일반적인 암호 지침은 [강력한 암호](http://msdn.microsoft.com/ko-kr/library/ms161962.aspx)를 참조하세요.
+	- 사용할 **인증** 유형을 결정합니다. 일반적인 암호 지침은 [강력한 암호](http://msdn.microsoft.com/library/ms161962.aspx)를 참조하세요.
 
 
-5. 다음  **가상 컴퓨터 구성** 페이지에서 설정을 입력하거나 확인합니다.
+5. 다음 **가상 컴퓨터 구성** 페이지에서 설정을 입력하거나 확인합니다.
 	- 기본 **새 클라우드 서비스 만들기**를 사용합니다.
 	- **DNS 이름** 상자에 주소 부분으로 사용할 유효한 DNS 이름을 입력합니다(예: "testlinuxvm").
 	- **지역/선호도 그룹/가상 네트워크** 상자에서 이 가상 이미지를 호스트할 영역을 선택합니다.
@@ -34,9 +34,9 @@
 
 	`$ ssh newuser@testlinuxvm.cloudapp.net -o ServerAliveInterval=180`
 	
-	Type the user's password.
+	사용자의 암호를 입력합니다.
 
-- VM에 연결하는 데 Windows를 사용하고 있으면 PuTTY를 사용하세요. [PuTTY 다운로드 페이지][PuTTYDownLoad](영문)에서 PuTTY를 다운로드할 수 있습니다. 
+- VM에 연결하는 데 Windows를 사용하고 있으면 PuTTY를 사용하세요. [PuTTY 다운로드 페이지][PuTTYDownLoad]에서 PuTTY를 다운로드할 수 있습니다. 
 
 	**putty.exe**를 다운로드하고 컴퓨터의 디렉터리에 저장합니다. 명령 프롬프트에서 해당 폴더로 이동한 다음 **putty.exe**를 실행합니다.
 
@@ -60,4 +60,4 @@
 
 [Image6]: ./media/create-and-configure-opensuse-vm-in-portal/putty.png
 
-<!--HONumber=35.1-->
+<!--HONumber=45--> 

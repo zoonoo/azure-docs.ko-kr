@@ -1,6 +1,20 @@
-<properties pageTitle="가상 컴퓨터의 가용성 관리 - Azure" description="여러 가상 컴퓨터를 사용하여 Azure 응용 프로그램의 고가용성을 유지하는 방법에 대해 알아봅니다." services="virtual-machines" documentationCenter="" authors="kenazk" manager="timlt" editor="tysonn"/>
+<properties 
+	pageTitle="가상 컴퓨터의 가용성 관리 - Azure" 
+	description="여러 가상 컴퓨터를 사용하여 Azure 응용 프로그램의 고가용성을 유지하는 방법에 대해 알아봅니다." 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="kenazk" 
+	manager="timlt" 
+	editor="tysonn"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/26/2014" ms.author="kenazk"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/26/2014" 
+	ms.author="kenazk"/>
 
 #가상 컴퓨터의 가용성 관리
 
@@ -14,10 +28,10 @@
 ## 응용 프로그램을 설계할 때 고가용성을 위한 모범 사례 준수
 이러한 이벤트로 인한 가동 중지 시간의 영향을 줄이기 위해 가상 컴퓨터에 다음과 같은 고가용성 모범 사례를 권장합니다.
 
-* [중복성을 위해 가용성 집합에서 여러 가상 컴퓨터 구성]
-* [각 응용 프로그램 계층을 별도의 가용성 집합으로 구성]
-* [부하 분산 장치를 가용성 집합과 결합]
-* [가용성 집합에서 단일 인스턴스 가상 컴퓨터 방지]
+* [중복성을 위해 가용성 집합에서 여러 가상 컴퓨터 구성] 
+* [각 응용 프로그램 계층을 별도의 가용성 집합으로 구성] 
+* [부하 분산 장치를 가용성 집합과 결합] 
+* [가용성 집합에서 단일 인스턴스 가상 컴퓨터 방지] 
 
 ### 중복성을 위해 가용성 집합에서 여러 가상 컴퓨터 구성 
 응용 프로그램에 중복성을 제공하기 위해 여러 개의 가상 컴퓨터를 가용성 집합으로 그룹화하는 것이 좋습니다. 이 구성은 계획된 유지 관리 또는 계획되지 않은 유지 관리 이벤트 중에 적어도 하나의 가상 컴퓨터를 사용할 수 있고 99.95% Azure SLA가 충족되도록 합니다. 서비스 수준 계약에 대한 자세한 정보는 [서비스 수준 계약](../../../support/legal/sla/)의 "클라우드 서비스, 가상 컴퓨터 및 가상 네트워크" 섹션을 참조하세요. 
@@ -59,5 +73,4 @@ Azure 부하 분산 장치를 가용성 집합과 결합하여 응용 프로그�
 
 
 
-
-<!--HONumber=42-->
+<!--HONumber=45--> 

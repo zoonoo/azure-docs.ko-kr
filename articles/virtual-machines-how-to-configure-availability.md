@@ -1,6 +1,20 @@
-<properties pageTitle="가상 컴퓨터의 가용성 집합을 구성하는 방법" description="Azure에서 VM에 대해 가용성 집합을 구성하는 단계에 대해 설명합니다." services="virtual-machines" documentationCenter="" authors="KBDAzure" manager="timlt" editor=""/>
+<properties 
+	pageTitle="가상 컴퓨터의 가용성 집합을 구성하는 방법" 
+	description="Azure에서 VM에 대해 가용성 집합을 구성하는 단계에 대해 설명합니다." 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="KBDAzure" 
+	manager="timlt" 
+	editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-multiple" ms.devlang="na" ms.topic="article" ms.date="11/17/2014" ms.author="kathydav"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-multiple" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/17/2014" 
+	ms.author="kathydav"/>
 
 #가상 컴퓨터의 가용성 집합을 구성하는 방법#
 
@@ -56,11 +70,12 @@ Azure cmdlet을 사용하려면
 
 	`C:\PS> $image = (Get-AzureVMImage)[<index_number>].ImageName`
 
-	>[AZURE.NOTE] 구독에 적용되는 모든 이미지 목록을 가져오려면 매개 변수 없이  `Get-AzureVMImage`를 실행합니다. 이렇게 하면 큰 목록이 반환될 수 있습니다. 이 목록을 간단히 줄이려면 이미지 패밀리 이름과 같은 속성을 사용합니다. 이 작업을 수행하여 특정 이미지를 찾는 방법을 보여 주는 팁 및 예제를 보려면 [Windows PowerShell을 사용하여 이미지 관리](http://msdn.microsoft.com/ko-kr/library/azure/dn790330.aspx)를 참조하세요.
+	>[AZURE.NOTE] 구독에 적용되는 모든 이미지 목록을 가져오려면 매개 변수 없이 `Get-AzureVMImage`를 실행합니다. 이렇게 하면 큰 목록이 반환될 수 있습니다. 이 목록을 간단히 줄이려면 이미지 패밀리 이름과 같은 속성을 사용합니다. 이 작업을 수행하여 특정 이미지를 찾는 방법을 보여 주는 팁 및 예제를 보려면 [Windows PowerShell을 사용하여 이미지 관리](http://msdn.microsoft.com/library/azure/dn790330.aspx)를 참조하세요.
 
-3.	새 가상 컴퓨터의 구성을 지정한 다음 파이프라인을 사용하여 VM을 만드는 cmdlet에 구성 개체를 전달합니다. &lt;VmName&gt; 및 &lt;VmSize&gt;와 같은 자리 표시자는 원하는 값으로 바꿉니다.
+3.	새 가상 컴퓨터의 구성을 지정한 다음 파이프라인을 사용하여 VM을 만드는 cmdlet에 구성 개체를 전달합니다. 여기서  &lt;VmName&gt; 및 &lt;VmSize&gt;와 같은 자리 표시자는 원하는 값으로 바꿉니다.
 
 	`C:\PS> New-AzureVMConfig -Name "<VmName>" -InstanceSize <VmSize> -AvailabilitySetName "<SetName>" -ImageName $image | Add-AzureProvisioningConfig -Windows -AdminUsername "<UserName>" -Password "<MyPassword>" | Add-AzureDataDisk -CreateNew -DiskSizeInGB 50 -DiskLabel 'datadisk1' -LUN 0 | New-AzureVM -ServiceName "<MySvc1>" `
+
 
 ## <a id="addmachine"> </a>옵션 2: 기존 가상 컴퓨터를 가용성 집합에 추가##
 
@@ -86,7 +101,7 @@ Azure cmdlet을 사용하려면
 
 Azure cmdlet을 사용하려면
 
-Azure PowerShell 세션을 열고 다음 명령을 실행합니다. &lt;VmCloudServiceName&gt; 및 &lt;VmName&gt;와 같은 자리 표시자는 원하는 값으로 바꿉니다.
+Azure PowerShell 세션을 열고 다음 명령을 실행합니다. &lt;VmCloudServiceName&gt; 및 &lt;VmName&gt;과 같은 자리 표시자는 원하는 값으로 바꿉니다.
 
 	C:\PS> Get-AzureVM -ServiceName "<VmCloudServiceName>" -Name "<VmName>" | Set-AzureAvailabilitySet -AvailabilitySetName "<MyAvSet>" | Update-AzureVM
 
@@ -100,14 +115,13 @@ Azure PowerShell 세션을 열고 다음 명령을 실행합니다. &lt;VmCloudS
 [옵션 2: 기존 가상 컴퓨터를 가용성 집합에 추가합니다]: #addmachine
 
 <!-- LINKS -->
-[Azure 인프라 서비스의 부하 분산]: ../virtual-machines-load-balance
+[Azure 인프라 서비스를 위한 부하 분산]: ../virtual-machines-load-balance
 [가상 컴퓨터의 가용성 관리]: ../virtual-machines-manage-availability
 [Windows를 실행하는 가상 컴퓨터 만들기]: ../virtual-machines-windows-tutorial
 [Azure 가상 네트워크 개요]: http://go.microsoft.com/fwlink/p/?linkid=294063
 [가상 네트워크의 선호도 그룹 정보]: http://msdn.microsoft.com/library/windowsazure/jj156085.aspx
 [클라우드 서비스에서 가상 컴퓨터를 연결하는 방법]: ../virtual-machines-connect-cloud-service
-[Azure VM 구성 설정 정보]: http://msdn.microsoft.com/ko-kr/library/azure/dn763935.aspx
+[Azure VM 구성 설정 정보]: http://msdn.microsoft.com/library/azure/dn763935.aspx
 
 
-
-<!--HONumber=42-->
+<!--HONumber=45--> 

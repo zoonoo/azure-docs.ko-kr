@@ -1,10 +1,24 @@
-<properties pageTitle="Azure에서 Linux용 Docker VM 확장 사용" description="Docker 및 Azure 가상 컴퓨터 확장에 대해 설명하고, azure-cli 명령 인터페이스를 사용하여 명령줄에서 Docker 호스트인 가상 컴퓨터를 Azure에 프로그래밍 방식으로 만드는 방법을 안내합니다." services="virtual-machines" documentationCenter="" authors="squillace" manager="timlt" editor=""/>
+<properties 
+	pageTitle="Azure에서 Linux용 Docker VM 확장 사용" 
+	description="Docker 및 Azure 가상 컴퓨터 확장에 대해 설명하고, azure-cli 명령 인터페이스를 사용하여 명령줄에서 Docker 호스트인 가상 컴퓨터를 Azure에 프로그래밍 방식으로 만드는 방법을 안내합니다." 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="squillace" 
+	manager="timlt" 
+	editor="tysonn"/>
 
-<tags ms.service="virtual-machines" ms.devlang="multiple" ms.topic="article" ms.tgt_pltfrm="vm-linux" ms.workload="infrastructure-services" ms.date="10/21/2014" ms.author="rasquill"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="vm-linux" 
+	ms.workload="infrastructure-services" 
+	ms.date="02/11/2015" 
+	ms.author="rasquill"/>
 <!--The next line, with one pound sign at the beginning, is the page title--> 
 # Azure 포털에서 Docker VM 확장 사용
 
-[Docker](https://www.docker.com/)는 공유 리소스의 데이터와 계산을 격리시키는 한 가지 방법으로 가상 컴퓨터 대신 [Linux 컨테이너](http://en.wikipedia.org/wiki/LXC)를 사용하는 가장 많이 사용되는 가상화 방법 중 하나입니다. [Azure Linux 에이전트]에 대한 Docker VM 확장을 사용하여 Azure에 응용 프로그램의 컨테이너를 개수에 제한없이 호스트하는 Docker VM을 만들 수 있습니다. 
+[Docker](https://www.docker.com/)는 공유 리소스의 데이터와 계산을 격리시키는 한 가지 방법으로 가상 컴퓨터 대신 [Linux 컨테이너](http://en.wikipedia.org/wiki/LXC)를 사용하는 가장 많이 사용되는 가상화 방법 중 하나입니다. [Azure Linux 에이전트]에서 관리되는 Docker VM 확장을 사용하여 Azure에 응용 프로그램의 컨테이너를 개수에 제한없이 호스트하는 Docker VM을 만들 수 있습니다. 
 
 <!--Table of contents for topic, the words in brackets must match the heading wording exactly-->
 섹션 내용
@@ -47,6 +61,7 @@ VM을 만든 후에는 클라이언트 컴퓨터에 Docker가 설치되어 있�
 
 ## <a id'adddockerextension'>Docker VM 확장 추가</a>
 Docker VM 확장을 추가하려면 앞에서 만든 VM 인스턴스를 찾은 다음 아래쪽의 확장으로 스크롤하여 **확장**을 클릭합니다. 그러면 아래와 같이 VM 확장이 표시됩니다.
+> [AZURE.NOTE] 이 기능은 미리 보기 포털에서만 지원됩니다.: https://portal.azure.com/
 
 ![](./media/virtual-machines-docker-with-portal/ClickExtensions.png)
 ### 확장 추가
@@ -78,7 +93,7 @@ Docker VM 확장을 선택하면 Docker 설명 및 중요 링크가 표시됩니
 
 
 ## <a id='testclientandserver'>Docker 클라이언트 및 Azure Docker 호스트 테스트</a>
-VM 도메인의 이름을 찾아서 복사한 다음 클라이언트 컴퓨터의 명령줄에 `docker --tls -H tcp://`*dockerextension*`.cloudapp.net:4243 info`를 입력합니다. 여기서  *dockerextension*은 VM의 하위 도메인으로 바꿉니다. 
+VM 도메인의 이름을 찾아서 복사한 다음 클라이언트 컴퓨터의 명령줄에 `docker --tls -H tcp://`*dockerextension*`.cloudapp.net:4243 info`를 입력합니다. 여기서 *dockerextension*은 VM의 하위 도메인으로 바꿉니다. 
 
 결과는 다음과 같이 표시됩니다.
 
@@ -101,10 +116,12 @@ Kernel Version: 3.13.0-36-generic
 WARNING: No swap limit support
 ```
 
+위 단계를 완료했으면 이제 다른 클라이언트에서 원격으로 연결하도록 구성된 완전한 기능의 Docker 호스트가 Azure VM에서 실행됩니다.
+
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## 다음 단계
 
-이제 [Docker 사용자 가이드]로 이동하여 Docker VM을 사용할 수 있습니다. Azure에서 Docker VM을 반복적으로 빠르게 만들려면 [Azure 플랫폼 간 인터페이스(xplat-cli)에서 Docker VM 확장을 사용하는 방법]을 참조하세요.
+이제 [Docker 사용자 가이드]로 이동하여 Docker VM을 사용할 수 있습니다. 명령줄 인터페이스를 통해 Azure VM에서 Docker 호스트를 자동으로 만들려면 [Azure 플랫폼 간 인터페이스(xplat-cli)에서 Docker VM 확장을 사용하는 방법]을 참조하세요.
 
 <!--Anchors-->
 [이미지 갤러리에서 새 VM 만들기]: #createvm
@@ -127,12 +144,11 @@ WARNING: No swap limit support
 
 
 <!--Link references-->
-[Azure 플랫폼 간 인터페이스(xplat-cli)에서 Docker VM 확장을 사용하는 방법]: http://azure.microsoft.com/ko-kr/documentation/articles/virtual-machines-docker-with-xplat-cli/
+[Azure 플랫폼 간 인터페이스(xplat-cli)에서 Docker VM 확장을 사용하는 방법]: http://azure.microsoft.com/documentation/articles/virtual-machines-docker-with-xplat-cli/
 [Azure Linux 에이전트]: ../virtual-machines-linux-agent-user-guide/
-[다른 azure.microsoft.com 설명서 항목에 대한 링크 3]: ../storage-whatis-account/
+[다른 azure.microsoft.com 설명서 항목의 링크 3]: ../storage-whatis-account/
 
 [https를 사용하여 Docker 실행]: http://docs.docker.com/articles/https/
 [Docker 사용자 가이드]: https://docs.docker.com/userguide/
 
-
-<!--HONumber=42-->
+<!--HONumber=45--> 

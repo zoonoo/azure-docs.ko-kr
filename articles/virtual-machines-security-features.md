@@ -1,6 +1,20 @@
-<properties pageTitle="Azure 가상 컴퓨터에 대한 보안 서비스" description="Azure VM의 주요 보안 기능에 대해 간략하게 설명하고 자세한 정보를 확인할 수 있는 링크를 제공합니다." services="virtual-machines" documentationCenter="" authors="KBDAzure" manager="timlt" editor=""/>
+<properties 
+	pageTitle="Azure 가상 컴퓨터에 대한 보안 서비스" 
+	description="Azure VM의 주요 보안 기능에 대해 간략하게 설명하고 자세한 정보를 확인할 수 있는 링크를 제공합니다." 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="KBDAzure" 
+	manager="timlt" 
+	editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-multiple" ms.devlang="na" ms.topic="article" ms.date="01/23/2015" ms.author="kathydav"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-multiple" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/23/2015" 
+	ms.author="kathydav"/>
 
 #Azure 가상 컴퓨터에 대한 보안 서비스
 
@@ -21,12 +35,11 @@ Azure는 바이러스 백신/맬웨어 방지 솔루션에 대한 몇 가지 옵
 
 ##가상 컴퓨터 끝점에서 네트워크 ACL(액세스 제어 목록) 사용
 
-네트워크 ACL(액세스 제어 목록)을 사용하여 가상 컴퓨터 끝점으로의 인바운드 트래픽을 선택적으로 허용하거나 거부할 수 있습니다. 이 패킷 필터링 기능을 통해 보안을 강화할 수 있습니다. 이러한 기능의 작동 방식 및 지침에 대한 링크는 [네트워크 ACL(액세스 제어 목록)](http://go.microsoft.com/fwlink/?LinkId=506655) 정보]를 참조하세요.
+네트워크 ACL(액세스 제어 목록)을 사용하여 가상 컴퓨터 끝점으로의 인바운드 트래픽을 선택적으로 허용하거나 거부할 수 있습니다. 이 패킷 필터링 기능을 통해 보안을 강화할 수 있습니다. 이러한 기능의 작동 방식 및 지침에 대한 링크는 [네트워크 ACL(액세스 제어 목록) 정보](http://go.microsoft.com/fwlink/?LinkId=506655)를 참조하세요.
 
 ##추가 리소스
-Microsoft Azure 보안 센터의 [리소스](http://azure.microsoft.com/ko-kr/support/trust-center/resources/)
+Microsoft Azure 보안 센터의 [리소스](http://azure.microsoft.com/support/trust-center/resources/)
 
 
 
-
-<!--HONumber=42-->
+<!--HONumber=45--> 
