@@ -1,6 +1,20 @@
-<properties linkid="develop-php-how-to-guides-web-sso" urlDisplayName="Web SSO" pageTitle="Single sign-on with Azure Active Directory (PHP)" metaKeywords="Azure PHP web app, Azure single sign-on, Azure PHP Active Directory" description="Learn how to create a PHP web application that uses single sign-on with Azure Active Directory." metaCanonical="" services="active-directory" documentationCenter="PHP" title="Web Single Sign-On with PHP and Azure Active Directory" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Azure Active Directory를 사용하여 Single Sign-On(PHP)" 
+	description="Azure Active Directory에서 Single Sign-On을 사용하는 PHP 웹 응용 프로그램을 만드는 방법에 대해 알아봅니다." 
+	services="active-directory" 
+	documentationCenter="php" 
+	authors="tfitzmac" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
+<tags 
+	ms.service="active-directory" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="PHP" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="tomfitz"/>
 
 # PHP 및 Azure Active Directory를 사용한 웹 Single Sign-On
 
@@ -199,3 +213,5 @@ PHP 웹 사이트에 Azure Active Directory 및 Single Sign-On을 사용하는 �
   [2단계: 회사 디렉터리 테넌트에서 응용 프로그램 프로비전]: #provisionapp
   [3단계: 직원 로그인을 위해 WS-Federation을 사용하여 응용 프로그램 보호]: #protectapp
   [요약]: #summary
+
+<!--HONumber=46--> 

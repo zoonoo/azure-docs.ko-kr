@@ -1,6 +1,20 @@
-﻿<properties title="How to create a cloud collection of RemoteApp" pageTitle="RemoteApp의 클라우드 컬렉션을 만드는 방법" description="Azure 클라우드에 데이터를 저장하는 RemoteApp 배포를 만드는 방법에 대해 알아봅니다." metaKeywords="" services="" solutions="" documentationCenter="" authors="elizapo" manager="kathyw" />
+﻿<properties 
+	pageTitle="RemoteApp의 클라우드 컬렉션을 만드는 방법" 
+	description="Azure 클라우드에 데이터를 저장하는 RemoteApp 배포를 만드는 방법에 대해 알아봅니다." 
+	services="remoteapp" 
+	documentationCenter="" 
+	authors="lizap" 
+	manager="mbaldwin" 
+	editor=""/>
 
-<tags ms.service="remoteapp" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/12/2014" ms.author="elizapo" ms.manager="kathyw" />
+<tags 
+	ms.service="remoteapp" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2/17/2015" 
+	ms.author="elizapo"/>
 
 #RemoteApp의 클라우드 컬렉션을 만드는 방법
 
@@ -20,10 +34,10 @@
 
 컬렉션을 만들기 전에 다음을 수행해야 합니다.
 
-- RemoteApp에 등록합니다. [http://azure.microsoft.com/ko-kr/services/remoteapp/](http://azure.microsoft.com/ko-kr/services/remoteapp/)에서 등록할 수 있습니다.
+- RemoteApp에 등록합니다. [http://azure.microsoft.com/services/remoteapp/](http://azure.microsoft.com/services/remoteapp/)에서 등록할 수 있습니다.
 - 액세스 권한을 부여할 사용자에 대한 정보를 수집합니다. 이 정보는 사용자의 Microsoft 계정 정보나 Active Directory 작업 계정 정보가 될 수 있습니다.
 - 이 프로세스에서는 구독의 일부로 제공된 템플릿 이미지 중 하나를 사용할 예정이거나 사용할 템플릿 이미지를 이미 업로드했다고 가정합니다. 다른 템플릿 이미지를 업로드해야 하는 경우 템플릿 이미지 페이지에서 그렇게 할 수 있습니다. 단지 **템플릿 이미지 업로드**를 클릭하고 마법사의 단계를 따르면 됩니다. 
-- 사용자 지정 앱이나 LOB 프로그램을 제공하려는 경우 새로운 [사용자 지정 템플릿 이미지](http://azure.microsoft.com/ko-kr/documentation/articles/remoteapp-create-custom-image/)를 만든 다음 클라우드 컬렉션에서 사용합니다.
+- 사용자 지정 앱이나 LOB 프로그램을 제공하려는 경우 새로운 [사용자 지정 템플릿 이미지](http://azure.microsoft.com/documentation/articles/remoteapp-create-custom-image/)를 만든 다음 클라우드 컬렉션에서 사용합니다.
 
 ## **1단계: RemoteApp 서비스 만들기** ##
 
@@ -36,7 +50,7 @@
 4. 사용할 계획(표준 또는 기본)을 선택합니다.
 5. 이 컬렉션에 사용할 템플릿을 선택합니다. 
 
-	**팁:** RemoteApp 구독과 함께 Office 365 또는 Office 2013(평가판 사용) 프로그램, 게시된 프로그램(예: Word) 및 게시 준비된 프로그램이 포함된 [템플릿 이미지](http://azure.microsoft.com/ko-kr/documentation/articles/remoteapp-images/)가 제공됩니다. 새로운 [사용자 지정 템플릿 이미지](http://azure.microsoft.com/ko-kr/documentation/articles/remoteapp-create-custom-image/)를 만들어 클라우드 컬렉션에서 사용할 수도 있습니다.
+	**팁:** RemoteApp 구독과 함께 Office 365 또는 Office 2013(평가판 사용) 프로그램, 게시된 프로그램(예: Word) 및 게시 준비된 프로그램이 포함된 [템플릿 이미지](http://azure.microsoft.com/documentation/articles/remoteapp-images/)가 제공됩니다. 새로운 [사용자 지정 템플릿 이미지](http://azure.microsoft.com/documentation/articles/remoteapp-create-custom-image/)를 만들어 클라우드 컬렉션에서 사용할 수도 있습니다.
 
 
 1. **RemoteApp 컬렉션 만들기**를 클릭합니다.
@@ -48,7 +62,7 @@ RemoteApp 컬렉션을 만든 후 RemoteApp **빠른 시작** 페이지로 이�
 
 ## **2단계: Active Directory 디렉터리 동기화 구성(선택 사항)** ##
 
-Active Directory를 사용하려는 경우 RemoteApp에서 Azure Active Directory 테넌트와 사용자, 연락처 및 암호를 동기화하려면 Azure Active Directory와 온-프레미스 Active Directory 간의 디렉터리 동기화가 필요합니다. 계획에 대한 내용은 [Azure RemoteApp에 대해 Active Directory 구성](http://azure.microsoft.com/ko-kr/documentation/articles/remoteapp-ad/)을 참조하세요.
+Active Directory를 사용하려는 경우 RemoteApp에서 Azure Active Directory 테넌트와 사용자, 연락처 및 암호를 동기화하려면 Azure Active Directory와 온-프레미스 Active Directory 간의 디렉터리 동기화가 필요합니다. 계획에 대한 내용은 [Azure RemoteApp에 대해 Active Directory 구성](http://azure.microsoft.com/documentation/articles/remoteapp-ad/)을 참조하세요.
 
 ## **3단계: RemoteApp 프로그램 게시** ##
 
@@ -80,3 +94,5 @@ RemoteApp 클라우드 컬렉션을 만들고 배포했습니다. 다음 단계�
 
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

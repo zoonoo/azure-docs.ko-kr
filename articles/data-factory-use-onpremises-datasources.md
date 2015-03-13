@@ -1,6 +1,20 @@
-﻿<properties title="Enable your pipelines to work with on-premises data" pageTitle="파이프라인에서 온-프레미스 데이터를 사용할 수 있도록 설정 | Azure 데이터 팩터리" description="온-프레미스 데이터 원본을 Azure 데이터 팩터리에 등록하고 데이터 원본에 데이터를 복사하거나 데이터 원본에서 데이터를 복사하는 방법에 대해 알아봅니다." metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
+﻿<properties 
+	pageTitle="파이프라인에서 온-프레미스 데이터를 사용할 수 있도록 설정 | Azure 데이터 팩터리" 
+	description="온-프레미스 데이터 원본을 Azure 데이터 팩터리에 등록하고 데이터 원본에 데이터를 복사하거나 데이터 원본에서 데이터를 복사하는 방법에 대해 알아봅니다." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
+	editor="monicar"/>
 
-<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="spelluru" />
+<tags 
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2/10/2015" 
+	ms.author="spelluru"/>
 
 # 파이프라인에서 온-프레미스 데이터를 사용할 수 있도록 설정
 
@@ -504,7 +518,7 @@ Azure 데이터 팩터리의 파이프라인에서 온-프레미스 데이터 �
 
 
 
-[azure-powershell-install]: http://azure.microsoft.com/ko-kr/documentation/articles/install-configure-powershell/
+[azure-powershell-install]: http://azure.microsoft.com/documentation/articles/install-configure-powershell/
 
 
 [image-data-factory-onprem-new-everything]: ./media/data-factory-use-onpremises-datasources/OnPremNewEverything.png
@@ -580,3 +594,5 @@ Azure 데이터 팩터리의 파이프라인에서 온-프레미스 데이터 �
 [image-data-factory-new-datafactory-menu]: ./media/data-factory-use-onpremises-datasources/NewDataFactoryMenu.png
 
 [image-data-factory-preview-portal-storage-key]: ./media/data-factory-get-started/PreviewPortalStorageKey.png
+
+<!--HONumber=46--> 

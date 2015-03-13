@@ -1,12 +1,34 @@
-﻿<properties urldisplayname="Team Foundation Service" headerexpose="" pageTitle="계산 에뮬레이터에서 로컬로 클라우드 서비스 프로파일링" metakeywords="" footerexpose="" description="" umbraconavihide="0" disquscomments="1" title="Testing the Performance of a Cloud Service Locally in the Azure Compute Emulator Using the Visual Studio Profiler" authors="kempb" manager="douge" />
+<properties 
+	urldisplayname="Team Foundation Service" 
+	headerexpose="" 
+	pageTitle="계산 에뮬레이터에서 로컬로 클라우드 서비스 프로파일링" 
+	metakeywords="" 
+	footerexpose="" 
+	description="Visual Studio 프로파일러를 사용하여 Azure 계산 에뮬레이터에서 로컬로 클라우드 서비스의 성능을 테스트하는 방법을 알아봅니다." 
+	umbraconavihide="0" 
+	disquscomments="1" 
+	authors="kempb" 
+	manager="douge" 
+	editor="tglee" 
+	services="cloud-services" 
+	documentationCenter=""/>
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="12/3/2014" ms.author="kempb" />
+<tags 
+	ms.service="cloud-services" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="02/18/2015" 
+	ms.author="kempb"/>
 
 # Visual Studio 프로파일러를 사용하여 Azure 계산 에뮬레이터에서 로컬로 클라우드 서비스의 성능 테스트
 
 다양한 도구와 기법을 사용하여 클라우드 서비스의 성능을 테스트할 수 있습니다.
-클라우드 서비스를 Azure에 게시할 때 [Azure 응용 프로그램 프로파일링][1]에 설명된 대로 Visual Studio에서 프로파일링 데이터를 수집하고 로컬에서 분석하게 할 수 있습니다.
-[Azure에서 성능 카운터 사용][2]에 설명된 대로 진단을 사용하여 다양한 성능 카운터를 추적할 수도 있습니다.
+Azure에 클라우드 서비스를 게시하는 경우에 Visual Studio로 프로파일링 데이터를 수집한 다음 로컬로 분석할 수 있습니다.
+[Azure 응용 프로그램 프로파일링][1]에서 설명한 내용을 참조하세요.
+다양한 성능 카운터를 추적하기 위해 진단을 사용할 수도 있습니다.
+[Azure에서 성능 카운터 사용][2]에서 설명한 내용을 참조하세요.
 또한 클라우드에 배포하기 전에 계산 에뮬레이터에서 로컬로 응용 프로그램을 프로파일링할 수 있습니다.
 
 이 문서에서는 에뮬레이터를 통해 로컬로 수행할 수 있는 CPU 샘플링 프로파일링 방법을 다룹니다. CPU 샘플링은 주입식이 아닌 프로파일링 방법입니다. 지정된 샘플링 간격마다 프로파일러가 호출 스택의 스냅숏을 만듭니다. 정해진 기간 동안 데이터가 수집되어 보고서에 표시됩니다. 이 프로파일링 방법은 계산이 많은 응용 프로그램에서 대부분의 CPU 작업이 수행되는 위치를 나타냅니다.  이 정보를 통해 응용 프로그램이 대부분의 시간을 보내는 "실행 부하 과다 경로"에 집중할 수 있습니다.
@@ -32,7 +54,7 @@ Visual Studio Premium 또는 Visual Studio Ultimate가 있는 경우에만 로�
 
 ## <a name="step1"> </a> 1단계: 프로파일링을 위해 Visual Studio 구성
 
-먼저 프로파일링 시 유용할 수 있는 몇 가지 Visual Studio 구성 옵션이 있습니다. 프로파일링 보고서를 이해하려면 응용 프로그램용 기호(.pdb 파일) 및 시스템 라이브러리용 기호가 필요합니다. 사용 가능한 기호 서버를 참조하는 것이 좋습니다. 이 작업을 하려면 Visual Studio의 **도구** 메뉴에서 **옵션**, **디버깅**, **기호**를 차례로 선택합니다. Microsoft 기호 서버가 **기호 파일(.pdb) 위치** 아래에 표시되는지 확인합니다.  추가 기호 파일이 있는 http://referencesource.microsoft.com/symbols를 참조할 수도 있습니다.
+먼저 프로파일링 시 유용할 수 있는 몇 가지 Visual Studio 구성 옵션이 있습니다. 프로파일링 보고서를 이해하려면 응용 프로그램용 기호(.pdb 파일) 및 시스템 라이브러리용 기호가 필요합니다. 사용 가능한 기호 서버를 참조하는 것이 좋습니다. 이 작업을 하려면 Visual Studio의 **도구** 메뉴에서 **옵션**, **디버깅**, **기호**를 차례로 선택합니다. Microsoft 기호 서버가 **기호 파일(.pdb) 위치** 아래에 표시되는지 확인합니다.  추가 기호 파일이 있는 http://referencesource.microsoft.com/symbols 를 참조할 수도 있습니다.
 
 ![][4]
 
@@ -90,7 +112,8 @@ Visual Studio 2010 IDE에서 시작하여 응용 프로그램을 프로파일링
 프로젝트 폴더가 네트워크 드라이브에 있는 경우 프로파일러에서 프로파일링 보고서를 저장할 다른 위치를 제공하라는 메시지를 표시합니다.
 
  WaIISHost.exe에 연결하여 웹 역할에 연결할 수도 있습니다.
- 응용 프로그램에 작업자 역할 프로세스가 여러 개 있는 경우 processID를 사용하여 구분해야 합니다. Process 개체에 액세스하면 프로그래밍 방식으로 processID를 쿼리할 수 있습니다. 예를 들어 역할에 포함된 RoleEntryPoint 파생 클래스의 Run 메서드에 이 코드를 추가하면 계산 에뮬레이터 UI의 로그에서 연결할 프로세스를 확인할 수 있습니다.
+ 응용 프로그램에 작업자 역할 프로세스가 여러 개 있는 경우 processID를 사용하여 구분해야 합니다. Process 개체에 액세스하면 프로그래밍 방식으로 processID를 쿼리할 수 있습니다. 예를 들어 역할에 포함된 RoleEntryPoint 파생 클래스의 Run 메서드에 이 코드를 추가하면
+계산 에뮬레이터 UI의 로그에서 연결할 프로세스를 확인할 수 있습니다.
 
 	var process = System.Diagnostics.Process.GetCurrentProcess();
 	var message = String.Format("Process ID: {0}", process.Id);
@@ -122,7 +145,8 @@ Visual Studio 2010 IDE에서 시작하여 응용 프로그램을 프로파일링
 
 실행 부하 과다 경로에 String.wstrcpy가 표시되는 경우 내 코드만을 클릭하여 사용자 코드만 표시하도록 뷰를 변경합니다.  String.Concat가 표시되는 경우 모든 코드 표시 단추를 누릅니다.
 
-Concatenate 메서드와 String.Concat가 실행 시간의 대부분을 사용합니다.
+Concatenate 메서드와 String.Concat가
+실행 시간의 대부분을 사용합니다.
 
 ![][12]
 
@@ -172,7 +196,7 @@ Concatenate 메서드와 String.Concat가 실행 시간의 대부분을 사용�
 
 ## <a name="nextSteps"> </a> 다음 단계
 
-에뮬레이터를 통한 Azure 이진 계측은 Visual Studio 프로파일러에서 지원되지 않지만 메모리 할당을 테스트하려는 경우 프로파일링 시 해당 옵션을 선택할 수 있습니다. 스레드가 잠금 경쟁에 시간을 낭비하는지 확인하는 데 유용한 동시성 프로파일링이나 응용 프로그램 계층 간, 특히 데이터 계층과 작업자 역할 간 상호 작용 시의 성능 문제를 추적하는 데 유용한 계층 상호 작용 프로파일링을 선택할 수도 있습니다.  앱에서 생성하는 데이터베이스 쿼리를 보고 프로파일링 데이터를 사용하여 데이터베이스 사용을 개선할 수 있습니다. 계층 상호 작용 프로파일링에 대한 자세한 내용은 [연습: Visual Studio Team System 2010에서 계층 상호 작용 프로파일러 사용][3](영문)을 참조하세요.
+에뮬레이터를 통한 Azure 이진 계측은 Visual Studio 프로파일러에서 지원되지 않지만 메모리 할당을 테스트하려는 경우 프로파일링 시 해당 옵션을 선택할 수 있습니다. 스레드가 잠금 경쟁에 시간을 낭비하는지 확인하는 데 유용한 동시성 프로파일링이나 응용 프로그램 계층 간, 특히 데이터 계층과 작업자 역할 간 상호 작용 시의 성능 문제를 추적하는 데 유용한 계층 상호 작용 프로파일링을 선택할 수도 있습니다.  앱에서 생성하는 데이터베이스 쿼리를 보고 프로파일링 데이터를 사용하여 데이터베이스 사용을 개선할 수 있습니다. 계층 상호 작용 프로파일링에 대한 자세한 내용은 [연습: Visual Studio Team System 2010][3]에서 계층 상호 작용 프로파일러 사용(영문)을 참조하세요.
 
 
 [1단계: 프로파일링을 위해 Visual Studio 구성]: #step1
@@ -199,4 +223,4 @@ Concatenate 메서드와 String.Concat가 실행 시간의 대부분을 사용�
 [16]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally012.png
 [17]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally08.png
 
-<!--HONumber=35.1-->
+<!--HONumber=45--> 

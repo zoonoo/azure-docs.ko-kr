@@ -75,5 +75,4 @@
 
 5. 앱에서 모바일 서비스에 사용자가 인증되었으므로 전달되어야 하는 요청을 보낸 경우 401 응답(권한 없음 오류)이 반환되면 이는 전달한 사용자 토큰이 만료되었음을 의미합니다. 모바일 서비스와 상호 작용하는 모든 메서드에 대한 완료 처리기에서 401 응답을 확인하거나 모든 작업을 한 곳, 즉 MSFilter의 handleRequest 메서드에서 처리할 수 있습니다.  이 시나리오를 처리하는 방법에 대한 자세한 내용은 [이 블로그 게시물](http://www.thejoyofcode.com/Handling_expired_tokens_in_your_application_Day_11_.aspx)을 참조하세요.
 
-
 <!--HONumber=42-->

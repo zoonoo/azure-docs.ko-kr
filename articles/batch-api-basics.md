@@ -1,7 +1,20 @@
-﻿
-<properties title="API basics for Azure Batch" pageTitle="Azure 배치에 대한 API 기본 사항" description="개발자에게 Azure 일괄 처리 API 및 일괄 처리 서비스를 소개하는 개념" metaKeywords="" services="batch" solutions="" documentationCenter=".NET" authors="yidingz, karran.batta" videoId="" scriptId="" manager="timlt" />
+﻿<properties 
+	pageTitle="Azure 배치에 대한 API 기본 사항" 
+	description="개발자에게 Azure 일괄 처리 API 및 일괄 처리 서비스를 소개하는 개념" 
+	services="batch" 
+	documentationCenter=".net" 
+	authors="yidingzhou" 
+	manager="timlt" 
+	editor=""/>
 
-<tags ms.service="batch" ms.devlang="multiple" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="big-compute" ms.date="10/27/2014" ms.author="yidingz, karran.batta" />
+<tags 
+	ms.service="batch" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.workload="big-compute" 
+	ms.date="02/02/2015" 
+	ms.author="yidingz, kabatta"/>
 
 
 <!--The next line, with one pound sign at the beginning, is the page title--> 
@@ -57,7 +70,7 @@ Azure 배치 서비스는 확장 가능한 분산 계산을 위한 작업 예약
 
 ### <a name="taskvm"></a>태스크용 가상 컴퓨터
 
-TVM(태스크용 가상 컴퓨터)은 응용 프로그램의 특정 작업을 전담하는 Azure VM입니다. TVM의 크기에 따라 TVM에 할당되는 CPU 코어 수, 메모리 용량 및 로컬 파일 시스템 크기가 결정됩니다. [Azure용 가상 컴퓨터 및 클라우드 서비스 크기](http://msdn.microsoft.com/ko-kr/library/dn197896.aspx)에 설명된 대로 TVM은 소형, 대형 또는 초대형 가상 컴퓨터일 수 있습니다.
+TVM(태스크용 가상 컴퓨터)은 응용 프로그램의 특정 작업을 전담하는 Azure VM입니다. TVM의 크기에 따라 TVM에 할당되는 CPU 코어 수, 메모리 용량 및 로컬 파일 시스템 크기가 결정됩니다. [Azure용 가상 컴퓨터 및 클라우드 서비스 크기](http://msdn.microsoft.com/library/dn197896.aspx)에 설명된 대로 TVM은 소형, 대형 또는 초대형 가상 컴퓨터일 수 있습니다.
 
 TVM이 실행할 수 있는 프로그램의 종류에는 실행 파일(.exe), 명령 파일(.cmd), 배치 파일(.bat) 및 스크립트 파일이 포함됩니다. 또한 TVM에는 다음과 같은 특성이 있습니다.
 
@@ -340,3 +353,5 @@ TVM에서 계산을 수행하도록 정의할 수 있는 태스크 외에도 배
 이러한 시스템 정의 변수는 덮어쓸 수 없습니다.
 
 태스크 가져오기 작업을 사용하여 환경 설정 값을 검색할 수 있습니다.
+
+<!--HONumber=46--> 

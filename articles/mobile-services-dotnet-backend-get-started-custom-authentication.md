@@ -1,6 +1,20 @@
-<properties pageTitle="사용자 지정 인증 시작(Android) | 모바일 개발자 센터" description="사용자 이름 및 암호를 사용하여 사용자를 인증하는 방법에 대해 알아봅니다." documentationCenter="windows" authors="mattchenderson" manager="dwrede" editor="" services=""/>
+<properties 
+	pageTitle="사용자 지정 인증 시작(Android) | 모바일 개발자 센터" 
+	description="사용자 이름 및 암호를 사용하여 사용자를 인증하는 방법에 대해 알아봅니다." 
+	documentationCenter="windows" 
+	authors="mattchenderson" 
+	manager="dwrede" 
+	editor="" 
+	services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="mahender"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="mahender"/>
 
 # 사용자 지정 인증 시작
 

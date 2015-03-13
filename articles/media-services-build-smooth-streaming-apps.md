@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="부드러운 스트리밍 Windows 스토어 앱 - Azure .NET 자습서" 
 	description="Azure 미디어 서비스를 사용하여 부드러운 스트림 콘텐츠를 재생하기 위해 XML MediaElement 컨트롤이 포함된 C# Windows 스토어 응용 프로그램을 만드는 방법에 대해 알아봅니다." 
 	services="media-services" 
@@ -31,8 +31,8 @@ Smooth Streaming Client SDK for Windows 8을 사용하면 개발자가 주문형
 3. 부드러운 스트리밍 스트림 선택
 4. 부드러운 스트리밍 트랙 선택
 
-#필수 조건
-- Windows 8 32비트 또는 64비트. MSDN에서 [Windows 8 Enterprise Evaluation](http://msdn.microsoft.com/ko-kr/evalcenter/jj554510.aspx)을 다운로드할 수 있습니다.
+# 필수 조건
+- Windows 8 32비트 또는 64비트. MSDN에서 [Windows 8 Enterprise Evaluation](http://msdn.microsoft.com/evalcenter/jj554510.aspx)을 다운로드할 수 있습니다.
 - Windows 8에 설치된 Visual Studio 2012 또는 Visual Studio Express 2012 for Windows 8. [여기](http://www.microsoft.com/visualstudio/11/ko-kr/downloads)에서 평가판을 다운로드할 수 있습니다.
 - [Microsoft Smooth Streaming Client SDK for Windows 8](http://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Homehttp://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Home).
 
@@ -43,7 +43,7 @@ Smooth Streaming Client SDK for Windows 8을 사용하면 개발자가 주문형
 
 ![Smooth Streaming Windows Store application example][PlayerApplication]
  
-Windows 스토어 응용 프로그램 개발에 대한 자세한 내용은 [유용한 Windows 8용 앱 개발](http://msdn.microsoft.com/ko-kr/windows/apps/br229512.aspx)을 참조하세요. 
+Windows 스토어 응용 프로그램 개발에 대한 자세한 내용은 [유용한 Windows 8용 앱 개발](http://msdn.microsoft.com/windows/apps/br229512.aspx)을 참조하세요. 
 이 단원에는 다음 절차가 포함되어 있습니다.
 
 1.	Windows 스토어 프로젝트 만들기
@@ -55,7 +55,7 @@ Windows 스토어 응용 프로그램 개발에 대한 자세한 내용은 [유�
 
 1.	Visual Studio 2012 이상을 실행합니다.
 2.	**파일** 메뉴에서 **새로 만들기**와 **프로젝트**를 차례로 클릭합니다.
-3.	새 프로젝트 대화 상자에서 다음 값을  입력하거나 선택합니다.
+3.	새 프로젝트 대화 상자에서 다음 값을 입력하거나 선택합니다.
 
 	<table border="1">
 	<tr>
@@ -492,7 +492,7 @@ lesson1을 완성했습니다.  이 단원에서는 MediaElement 컨트롤을 �
 		}
 		#endregion sliderMediaPlayer
 
-	**참고:** CoreDispatcher는 UI가 아닌 스레드에서 UI 스레드로 변경하는 데 사용됩니다. 디스패처 스레드에서 병목 현상이 발생할 경우 개발자는 업데이트하려는 UI 요소에서 제공되는 디스패처를 사용할 수 있습니다.  예를 들면 다음과 같습니다.
+	**참고:** CoreDispatcher는 UI가 아닌 스레드에서 UI 스레드로 변경하는 데 사용됩니다. 디스패처 스레드에서 병목 현상이 발생할 경우 개발자는 업데이트하려는 UI 요소에서 제공되는 디스패처를 사용할 수 있습니다. 예:
 	
 		await sliderProgress.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () => { TimeSpan 
 		  timespan = new TimeSpan(adaptiveSourceStatusUpdate.EndTime); 
@@ -500,7 +500,7 @@ lesson1을 완성했습니다.  이 단원에서는 MediaElement 컨트롤을 �
 		  sliderProgress.Maximum = absvalue; }); 
 		
 
-6.	**mediaElement_AdaptiveSourceStatusUpdated** 메서드의 끝에 다음 코드를 추가하여 이벤트를 구독합니다.
+6.	**mediaElement_AdaptiveSourceStatusUpdated** 메서드의 끝에 다음 코드를 추가합니다.
 	
 		setSliderStartTime(args.StartTime);
 		setSliderEndTime(args.EndTime);
@@ -1001,11 +1001,11 @@ lesson1을 완성했습니다.  이 단원에서는 MediaElement 컨트롤을 �
 단원 4를 완료했습니다.  이 단원에서는 트랙을 선택하는 기능을 추가합니다.
 
 
-#기타 리소스:
+# 기타 리소스:
 - [고급 기능이 포함된 부드러운 스트리밍 Windows 8 JavaScript 응용 프로그램을 빌드하는 방법](http://blogs.iis.net/cenkd/archive/2012/08/10/how-to-build-a-smooth-streaming-windows-8-javascript-application-with-advanced-features.aspx)
 - [부드러운 스트리밍 기술 개요](http://www.iis.net/learn/media/on-demand-smooth-streaming/smooth-streaming-technical-overview)
 
 [PlayerApplication]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-1.png
 [CodeViewPic]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-2.png
 
-<!--HONumber=42-->
+<!--HONumber=45--> 

@@ -1,6 +1,20 @@
-<properties title="DocumentDB programming: Stored procedures, triggers, and UDFs" pageTitle="DocumentDB programming: Stored procedures, triggers, and UDFs | Azure" description="Find out how for Document DB you can write stored procedures, triggers, and user defined functions (UDFs) natively in JavaScript." metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, getting started"  services="documentdb" solutions="data-management" documentationCenter=""  authors="bradsev" manager="jhubbard" editor="cgronlun" scriptId="" />
+﻿<properties 
+	pageTitle="DocumentDB 프로그래밍: 저장 프로시저, 트리거 및 UDF | Azure" 
+	description="Microsoft Azure DocumentDB를 사용하여 JavaScript에서 기본적으로 저장 프로시저, 트리거 및 UDF(사용자 정의 함수)를 작성하는 방법에 대해 알아봅니다." 
+	services="documentdb" 
+	documentationCenter="" 
+	authors="mimig1" 
+	manager="jhubbard" 
+	editor="cgronlun"/>
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="hawong" />
+<tags 
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/12/2015" 
+	ms.author="mimig"/>
 
 # DocumentDB 프로그래밍: 저장 프로시저, 트리거 및 UDF
 
@@ -614,3 +628,5 @@ Node.js 클라이언트 외에도 DocumentDB는 .NET, JavaScript 및 Python SDK�
   [3]: http://dl.acm.org/citation.cfm?id=276339
   [4]: http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE
   [5]: http://dl.acm.org/citation.cfm?id=1007669
+
+<!--HONumber=46--> 

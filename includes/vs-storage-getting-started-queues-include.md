@@ -1,5 +1,5 @@
 ﻿#####큐 만들기
-**CloudQueueClient** 개체를 통해 큐에 대한 참조 개체를 가져올 수 있습니다. 다음 코드는 **CloudQueueClient** 개체를 만듭니다. 이 항목의 모든 코드는 Azure 응용 프로그램의 서비스 구성에 저장된 저장소 연결 문자열을 사용합니다. **CloudStorageAccount** 개체를 만드는 다른 방법도 있습니다. 자세한 내용은 [CloudStorageAccount](http://msdn.microsoft.com/ko-kr/library/microsoft.windowsazure.cloudstorageaccount_methods.aspx "CloudStorageAccount")(영문) 설명서를 참조하세요.
+**CloudQueueClient** 개체를 통해 큐에 대한 참조 개체를 가져올 수 있습니다. 다음 코드는 **CloudQueueClient** 개체를 만듭니다. 이 항목의 모든 코드는 Azure 응용 프로그램의 서비스 구성에 저장된 저장소 연결 문자열을 사용합니다. **CloudStorageAccount** 개체를 만드는 다른 방법도 있습니다. 자세한 내용은 [CloudStorageAccount](http://msdn.microsoft.com/library/microsoft.windowsazure.cloudstorageaccount_methods.aspx "CloudStorageAccount")(영문) 설명서를 참조하세요.
 
 	// Create the queue client.
 	CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
@@ -46,5 +46,5 @@
 	queue.DeleteMessage(retrievedMessage);
 
 [Azure 저장소에 대한 자세한 정보](http://azure.microsoft.com/documentation/services/storage/)
-또한 [서버 탐색기로 저장소 리소스 탐색](http://msdn.microsoft.com/ko-kr/library/azure/ff683677.aspx)(영문)을 참조하세요.
-<!--HONumber=42-->
+또한 [서버 탐색기로 저장소 리소스 탐색](http://msdn.microsoft.com/library/azure/ff683677.aspx)(영문)을 참조하세요.
+\<!--HONumber=42-->

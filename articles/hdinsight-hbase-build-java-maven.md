@@ -154,7 +154,7 @@ Apache Maven을 사용하여 Java로 [Apache HBase](http://hbase.apache.org/) �
 
 	이 파일은 HDInsight 클러스터용 HBase 구성을 로드하는 데 사용됩니다.
 
-	> [AZURE.NOTE] 이 파일은 최소 크기의 hbase-site.xml 파일로, HDInsight 클러스터용 완전한 최소 설정을 포함합니다. HDInsight에 사용되는 hbase-site.xml 구성 파일의 전체 버전에 대해서는 [HDInsight 클러스터에 대한 원격 데스크톱](http://azure.microsoft.com/ko-kr/documentation/articles/hdinsight-administer-use-management-portal/#rdp)을 참조하세요. hbase-site.xml 파일은 C:\apps\dist\hbase-&lt;version number>-hadoop2\conf 디렉터리에 있습니다. 파일 경로의 버전 번호 부분은 HBase가 클러스터에서 업데이트될 때 변경됩니다.
+	> [AZURE.NOTE] 이 파일은 최소 크기의 hbase-site.xml 파일로, HDInsight 클러스터용 완전한 최소 설정을 포함합니다. HDInsight에 사용되는 hbase-site.xml 구성 파일의 전체 버전에 대해서는 [HDInsight 클러스터에 대한 원격 데스크톱](http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp)을 참조하세요. hbase-site.xml 파일은 C:\apps\dist\hbase-&lt;version number>-hadoop2\conf 디렉터리에 있습니다. 파일 경로의 버전 번호 부분은 HBase가 클러스터에서 업데이트될 때 변경됩니다.
 
 3. __hbase-site.xml__ 파일을 저장합니다.
 
@@ -482,7 +482,7 @@ Apache Maven을 사용하여 Java로 [Apache HBase](http://hbase.apache.org/) �
 		    # Is the Azure module installed?
 		    if (-not(Get-Module -ListAvailable Azure))
 		    {
-		        throw "Windows Azure PowerShell not found! For help, see http://www.windowsazure.com/ko-kr/documentation/articles/install-configure-powershell/"
+		        throw "Windows Azure PowerShell not found! For help, see http://azure.microsoft.com/documentation/articles/install-configure-powershell/"
 		    }
 		
 		    # Is there an active Azure subscription?
@@ -589,5 +589,4 @@ __hdinsightclustername__을 HDInsight 클러스터의 이름으로 바꿉니다.
 ###Start-HBaseExample을 사용할 경우 결과가 없거나 예기치 않은 결과가 표시됨
 
 `-showErr` 매개 변수를 사용하여 작업을 실행하는 동안 생성된 STDERR을 표시합니다.
-
 <!--HONumber=42-->

@@ -45,7 +45,7 @@ JavaScript 백엔드 모바일 서비스의 경우 TodoItem이라는 이름의 �
 
 	IMobileServiceTable<TodoItem> todoTable = App.<yourClient>.GetTable<TodoItem>();
 
-이 코드는 테이블의 사용 권한이 **응용 프로그램 키가 있는 모든 사용자**로 설정된 경우 작동합니다. 모바일 서비스를 보호하기 위해 사용 권한을 변경하는 경우 사용자 인증 지원을 추가해야 합니다. [인증 시작](http://azure.microsoft.com/ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users/)을 참조하세요.
+이 코드는 테이블의 사용 권한이 **응용 프로그램 키가 있는 모든 사용자**로 설정된 경우 작동합니다. 모바일 서비스를 보호하기 위해 사용 권한을 변경하는 경우 사용자 인증 지원을 추가해야 합니다. [인증 시작](http://azure.microsoft.com/documentation/articles/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users/)을 참조하세요.
 
 #####항목 추가 
 

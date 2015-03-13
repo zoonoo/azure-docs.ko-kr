@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Apple HLS(HTTP 라이브 스트리밍) 제공 방법 - Azure" 
 	description="미디어 서비스 원본 서버의 Apple HLS(HTTP 라이브 스트림) 콘텐츠에 대한 로케이터를 만드는 방법에 대해 알아봅니다. 코드 샘플은 C#으로 작성되었으며 Media Services SDK for .NET을 사용합니다." 
 	services="media-services" 
@@ -22,7 +22,7 @@
 
 <h1>방법: Apple HLS 스트리밍 콘텐츠 제공</h1>
 
-이 문서는 Azure 미디어 서비스 프로그래밍을 소개하는 시리즈 중 하나입니다. 이전 항목은 [방법: 스트리밍 콘텐츠 제공](../media-services-deliver-streaming-content/)입니다.
+이 문서는 Azure 미디어 서비스 프로그래밍을 소개하는 시리즈 중 하나입니다. 이전 항목은 [방법: 스트리밍 콘텐츠 제공](../media-services-deliver-streaming-content/).
 
 이 항목에서는 미디어 서비스 원본 서버의 Apple HLS(HTTP 라이브 스트리밍) 콘텐츠에 대한 로케이터를 만드는 방법을 보여 줍니다. 이 방법을 사용하여 Apple HLS 콘텐츠에 대한 URL을 빌드하고 재생을 위해 Apple iOS 장치에 제공할 수 있습니다. 로케이터 URL을 빌드하는 기본 방법은 동일합니다. 원본 서버의 Apple HLS 스트리밍 자산 경로에 대한 로케이터를 빌드한 후 스트리밍 콘텐츠에 대한 매니페스트에 연결하는 전체 URL을 빌드합니다.
 
@@ -79,8 +79,8 @@ static ILocator GetStreamingHLSOriginLocator( string targetAssetID)
 
 자산 제공에 대한 자세한 내용은 다음을 참조하세요.
 <ul>
-<li><a href="http://msdn.microsoft.com/ko-kr/library/jj129575.aspx">Media Services for .NET을 사용하여 자산 제공(영문)</a></li>
-<li><a href="http://msdn.microsoft.com/ko-kr/library/jj129578.aspx">Media Services REST API를 사용하여 자산 제공(영문)</a></li>
+<li><a href="http://msdn.microsoft.com/library/jj129575.aspx">Media Services for .NET을 사용하여 자산 제공(영문)</a></li>
+<li><a href="http://msdn.microsoft.com/library/jj129578.aspx">Media Services REST API를 사용하여 자산 제공(영문)</a></li>
 </ul>
 
 <h2>다음 단계</h2>
@@ -99,6 +99,6 @@ static ILocator GetStreamingHLSOriginLocator( string targetAssetID)
 [Media Services SDK for .NET 시작]: http://go.microsoft.com/fwlink/?linkid=252966
 [Azure Media Services REST API를 사용하여 응용 프로그램 빌드]: http://go.microsoft.com/fwlink/?linkid=252967
 [Media Services SDK for .NET을 사용하여 응용 프로그램 빌드]: http://go.microsoft.com/fwlink/?linkid=247821
-[미디어 서비스 포럼]: http://social.msdn.microsoft.com/Forums/ko-kr/MediaServices/threads
+[미디어 서비스 포럼]: http://social.msdn.microsoft.com/Forums/en-US/MediaServices/threads
 
-<!--HONumber=42-->
+<!--HONumber=45--> 

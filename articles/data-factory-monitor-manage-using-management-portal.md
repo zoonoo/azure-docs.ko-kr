@@ -1,6 +1,20 @@
-﻿<properties title="Monitor and manage Azure Data Factory using Azure Preview Portal" pageTitle="Azure 미리 보기 포털을 사용하여 Azure 데이터 팩터리 모니터링 및 관리" description="Azure 관리 포털을 사용하여 사용자가 만든 Azure 데이터 팩터리를 모니터링하고 관리하는 방법에 대해 알아봅니다." metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
+﻿<properties 
+	pageTitle="Azure 미리 보기 포털을 사용하여 Azure 데이터 팩터리 모니터링 및 관리" 
+	description="Azure 관리 포털을 사용하여 사용자가 만든 Azure 데이터 팩터리를 모니터링하고 관리하는 방법에 대해 알아봅니다." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
+	editor="monicar"/>
 
-<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/13/2014" ms.author="spelluru" />
+<tags 
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2/10/2015" 
+	ms.author="spelluru"/>
 
 # Azure 미리 보기 포털을 사용하여 Azure 데이터 팩터리 모니터링
 
@@ -204,3 +218,5 @@ ValidationInProgress | JSON 테이블에 정의된 정책에 따라 조각에 �
 [image-data-factory-events]: ./media/data-factory-monitor-manage-using-management-portal/Events.png
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

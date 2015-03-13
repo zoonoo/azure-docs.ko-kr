@@ -26,7 +26,7 @@ SharePoint Server 팜은 미리 구성된 SharePoint Server 2013 팜을 자동�
 
 다음 섹션에서는 각 팜의 구성을 자세히 설명합니다.
 
-자세한 내용은 [SharePoint 서버 팜](../virtual-machines-sharepoint-farm-azure-preview/)을 참조하세요
+자세한 내용은 [SharePoint 서버 팜](../virtual-machines-sharepoint-farm-azure-preview/) 을 참조하세요.
 
 ##기본 SharePoint 팜##
 
@@ -125,4 +125,5 @@ SharePoint Server 팜은 미리 구성된 SharePoint Server 2013 팜을 자동�
 
 [Azure 인프라 서비스의 SharePoint](http://msdn.microsoft.com/library/azure/dn275955.aspx)
 
-<!--HONumber=45--> 
+
+<!--HONumber=42-->

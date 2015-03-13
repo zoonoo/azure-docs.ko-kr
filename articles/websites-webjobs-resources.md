@@ -89,7 +89,7 @@ Azure 관리 포털의 WebJob 대시보드는 WebJob 내의 개별 함수를 호
 * [WebJob을 통한 간단한 웹 사이트 백업 보존 정책](http://azure.microsoft.com/blog/2014/04/28/simple-web-site-backup-retention-policy-with-webjobs/)
 * [최초 요청 시 느려지는 Microsoft Azure 웹 사이트 및 클라우드 서비스](http://wp.sjkp.dk/windows-azure-websites-and-cloud-services-slow-on-first-request/). WebJob을 사용하여 표준 웹 사이트 계층에서만 사용할 수 있는 AlwaysOn 기능을 시뮬레이트하는 방법을 보여 줍니다.
 * [WebJobs 정상 종료](http://blog.amitapple.com/post/2014/05/webjobs-graceful-shutdown/#.U72Il_5OWUl). WebJobs SDK 정상 종료에 대해서는 [정상 종료]를 참조하세요.(../websites-dotnet-webjobs-sdk-storage-queues-how-to/#graceful).)
-* [Azure 웹 사이트로 웹 응용 프로그램 크기 조정](http://msdn.microsoft.com/ko-kr/magazine/dn786914.aspx)
+* [Azure 웹 사이트로 웹 응용 프로그램 크기 조정](http://msdn.microsoft.com/magazine/dn786914.aspx)
 * 비디오
 	* [WebJob 크기 조정](http://channel9.msdn.com/Shows/Azure-Friday/Azure-WebJobs-105-Scaling-out-Web-Jobs)
 	* [Magnus Mårtensson의 Azure WebJob 비디오](https://www.youtube.com/playlist?list=PLqp1ZOYYUSd81yEzMYLTw8cz91wx_LU9r)

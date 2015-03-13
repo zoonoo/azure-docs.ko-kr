@@ -1,6 +1,20 @@
-﻿<properties title="Get started with Azure Search" pageTitle="Azure 검색 시작" description="Azure 검색 시작" metaKeywords="" services="Azure Search" solutions="" documentationCenter="" authors="Heidist" manager="mblythe" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Azure 검색 시작" 
+	description="Azure 검색 시작" 
+	services="search" 
+	documentationCenter="" 
+	authors="HeidiSteen" 
+	manager="mblythe" 
+	editor=""/>
 
-<tags ms.service="azure-search" ms.devlang="" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="" ms.date="09/23/2014" ms.author="heidist" />
+<tags 
+	ms.service="search" 
+	ms.devlang="rest-api" 
+	ms.workload="search" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.date="01/16/2015" 
+	ms.author="heidist"/>
 
 # Azure 검색 시작
 
@@ -292,7 +306,7 @@ Composer 탭에서 문서 게시 요청은 다음과 같이 표시됩니다. 요
  
    ![][19]
 
-다음 예제 쿼리는 MSDN의 [검색 인덱스 작업(Azure 검색 API)](http://msdn.microsoft.com/ko-kr/library/dn798927.aspx)에서 가져온 것입니다. 이 항목의 많은 예제 쿼리에는 공백이 포함되어 있으며, 공백은 Fiddler에서 허용되지 않습니다. Fiddler에서 쿼리를 시도하기에 앞서, 쿼리 문자열을 붙여 넣기 전에 각 공백을 + 문자로 바꾸세요. 
+다음 예제 쿼리는 MSDN의 [검색 인덱스 작업(Azure 검색 API)](http://msdn.microsoft.com/library/dn798927.aspx)에서 가져온 것입니다. 이 항목의 많은 예제 쿼리에는 공백이 포함되어 있으며, 공백은 Fiddler에서 허용되지 않습니다. Fiddler에서 쿼리를 시도하기에 앞서, 쿼리 문자열을 붙여 넣기 전에 각 공백을 + 문자로 바꾸세요. 
 
 **공백을 바꾸기 전:**
 
@@ -357,9 +371,9 @@ Composer 탭에서 문서 게시 요청은 다음과 같이 표시됩니다. 요
 
 - [Microsoft Azure에서 검색 솔루션 관리](../search-manage/) 
 
-- [Azure 검색 기술 개요](http://msdn.microsoft.com/ko-kr/library/dn798933.aspx)
+- [Azure 검색 기술 개요](http://msdn.microsoft.com/library/dn798933.aspx)
 
-- [Azure 검색 REST API](http://msdn.microsoft.com/ko-kr/library/dn798935.aspx)
+- [Azure 검색 REST API](http://msdn.microsoft.com/library/dn798935.aspx)
 
 - [Channel 9 동영상: Azure 검색 소개](http://channel9.msdn.com/Shows/Data-Exposed/Introduction-To-Azure-Search)
 
@@ -402,3 +416,5 @@ Composer 탭에서 문서 게시 요청은 다음과 같이 표시됩니다. 요
 [Azure 검색을 사용하여 지리 공간적 검색 앱 만들기]: ../search-create-geospatial/
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

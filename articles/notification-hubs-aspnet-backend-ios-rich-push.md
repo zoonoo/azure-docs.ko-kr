@@ -1,14 +1,21 @@
-﻿<properties title="Azure Notification Hubs Rich Push" pageTitle="Azure 알림 허브 풍부한 푸시" metaKeywords="Azure 푸시 알림, Azure 알림 허브, 풍부한 푸시" description="Azure에서 iOS 앱에 다양한 푸시 알림을 보내는 방법에 대해 알아봅니다. 코드 샘플은 Objective-C 및 C#으로 작성되었습니다." documentationCenter="Mobile" metaCanonical="" services="notification-hubs" authors="yuaxu" manager="timlt" />
+<properties pageTitle="Azure 알림 허브 다양한 푸시" description="Azure에서 iOS 앱에 다양한 푸시 알림을 보내는 방법에 대해 알아봅니다. 코드 샘플은 Objective-C 및 C#으로 작성되었습니다." documentationCenter="ios" services="notification-hubs" authors="ysxu" manager="timlt" editor=""/>
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="yuaxu" />
+<tags 
+	ms.service="notification-hubs" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="" 
+	ms.devlang="objective-c" 
+	ms.topic="article" 
+	ms.date="10/10/2014" 
+	ms.author="yuaxu"/>
 
-#Azure 알림 허브 풍부한 푸시
+# Azure 알림 허브 풍부한 푸시
 
 <div class="dev-center-tutorial-selector sublanding">
         <a href="/ko-kr/documentation/articles/notification-hubs-aspnet-backend-ios-rich-push/" title="iOS" class="current">iOS</a>
 </div>
 
-사용자에게 즉각적인 풍부한 콘텐츠를 제공하기 위해 응용 프로그램은 일반 텍스트 이상을 푸시할 수 있습니다. 이러한 알림은 사용자 조작을 촉진하고 URL, 소리, 이미지/쿠폰 등의 콘텐츠를 제공합니다. 이 자습서는 [사용자에게 알림](http://azure.microsoft.com/ko-kr/documentation/articles/notification-hubs-aspnet-backend-ios-notify-users/) 항목을 기반으로 하며 페이로드(예: 이미지)를 통합하는 푸시 알림을 보내는 방법을 보여 줍니다.
+사용자에게 즉각적인 풍부한 콘텐츠를 제공하기 위해 응용 프로그램은 일반 텍스트 이상을 푸시할 수 있습니다. 이러한 알림은 사용자 조작을 촉진하고 URL, 소리, 이미지/쿠폰 등의 콘텐츠를 제공합니다. 이 자습서는 [사용자에게 알림](http://azure.microsoft.com/ documentation/articles/notification-hubs-aspnet-backend-ios-notify-users/) 항목을 기반으로 하며 페이로드(예: 이미지)를 통합하는 푸시 알림을 보내는 방법을 보여줍니다.
 
 이 자습서는 iOS 7 및 8과 호환됩니다.
     ![][IOS1]
@@ -25,7 +32,7 @@
 
 ## WebAPI 프로젝트
 
-1. Visual Studio에서 [사용자에게 알림](http://azure.microsoft.com/ko-kr/documentation/articles/notification-hubs-aspnet-backend-ios-notify-users/) 자습서에서 만든 **AppBackend** 프로젝트를 엽니다.
+1. Visual Studio에서 [사용자에게 알림](http://azure.microsoft.com/ documentation/articles/notification-hubs-aspnet-backend-ios-notify-users/) 자습서에서 만든 **AppBackend** 프로젝트를 엽니다.
 2. 사용자에게 알릴 이미지를 얻어 프로젝트 디렉터리의 **img** 폴더에 배치합니다.
 3. 솔루션 탐색기에서 **모든 파일 표시**를 클릭하고 **프로젝트에 포함**할 폴더를 마우스 오른쪽 단추로 클릭합니다.
 4. 이미지를 선택한 상태로 속성 창에서 해당 빌드 작업을 **포함 리소스**로 변경합니다.
@@ -115,33 +122,33 @@
 
 8. 이제 모든 장치에서 액세스할 수 있도록 이 앱을 Azure 웹 사이트에 다시 배포합니다. **AppBackend** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다.
 
-9. Azure 웹 사이트를 게시 대상으로 선택합니다. Azure 계정으로 로그인하여 기존 또는 새로운 웹 사이트를 선택하며, **연결** 탭의 **대상 URL** 속성을 기록합니다. 이 자습서의 뒷부분에서 이 URL을 *백 엔드 끝점*이라고 합니다. **게시**를 클릭합니다.
+9. Azure 웹 사이트를 게시 대상으로 선택합니다. Azure 계정으로 로그인하여 기존 또는 새로운 웹 사이트를 선택하며, **연결** 탭의 **대상 URL** 속성을 기록합니다. 이 자습서의 뒷부분에서 이 URL을  *backend endpoint*이라고 합니다. **게시**를 클릭합니다.
 
 ## iOS 프로젝트 수정
 
-알림의 *id*만 보내도록 앱 백 엔드를 수정했으므로 해당 ID를 처리하고 백 엔드에서 풍부한 메시지를 검색하도록 iOS 앱을 변경합니다.
+알림의  *id*만 보내도록 앱 백 엔드를 수정했으므로 해당 ID를 처리하고 백 엔드에서 풍부한 메시지를 검색하도록 iOS 앱을 변경합니다.
 
-1. iOS 프로젝트를 열고 **Targets** 섹션에서 기본 앱 대상으로 이동하여 원격 알림을 사용하도록 설정합니다.
+1. iOS 프로젝트를 열고 **대상** 섹션에서 기본 앱 대상으로 이동하여 원격 알림을 사용하도록 설정합니다.
 
-2. **Capabilities**를 클릭하고 **Background Modes**를 켠 후 **Remote Notifications** 확인란을 선택합니다.
+2. **기능**을 클릭하고 **백그라운드 모드**를 켠 후 **원격 알림** 확인란을 선택합니다.
 
     ![][IOS3]
 
-3. **Main.storyboard**로 이동하여 [사용자에게 알림](http://azure.microsoft.com/ko-kr/documentation/articles/notification-hubs-aspnet-backend-ios-notify-users/) 자습서의 보기 컨트롤러(이 자습서에서는 Home View Controller라고 함)가 있는지 확인합니다.
+3. **Main.storyboard**로 이동하여 [사용자에게 알림](http://azure.microsoft.com/ documentation/articles/notification-hubs-aspnet-backend-ios-notify-users/) 자습서의 보기 컨트롤러(이 자습서에서는 홈 보기 컨트롤러라고 함)가 있는지 확인합니다.
 
-4. 스토리보드에 **Navigation Controller**를 추가하고 Ctrl 키를 누른 상태에서 Home View Controller로 끌어 탐색의 **루트 보기**로 만듭니다. Attributes Inspector에서 **Is Initial View Controller**가 Navigation Controller에 대해서만 선택되어 있어야 합니다.
+4. 스토리보드에 **탐색 컨트롤러**를 추가하고 Ctrl 키를 누른 상태에서 홈 보기 컨트롤러로 끌어 탐색의 **루트 보기**로 만듭니다. 특성 검사기에서 **Is Initial View Controller**가 탐색 컨트롤러에 대해서만 선택되어 있어야 합니다.
 
-5. 스토리보드에 **View Controller**를 추가하고 **Image View**를 추가합니다. 이 페이지는 사용자가 자세한 내용을 보기 위해 알림에서 클릭하면 표시되는 페이지입니다. 스토리보드는 다음과 같이 표시됩니다.
+5. 스토리보드에 **보기 컨트롤러**를 추가하고 **이미지 보기**를 추가합니다. 이 페이지는 사용자가 자세한 내용을 보기 위해 알림에서 클릭하면 표시되는 페이지입니다. 스토리보드는 다음과 같이 표시됩니다.
 
     ![][IOS4]
 
-6. 스토리보드에서 **Home View Controller**를 클릭하고 Identity Inspector에서 **homeViewController**가 해당 **Custom Class** 및 **Storyboard ID**로 포함되어 있는지 확인합니다.
+6. 스토리보드에서 **홈 보기 컨트롤러**를 클릭하고 특성 검사기에서 **homeViewController**가 해당 **사용자 지정 클래스** 및 **스토리 보드 ID**로 포함되어 있는지 확인합니다.
 
-7. **imageViewController**로서 Image View Controller에 대해서도 동일하게 수행합니다.
+7. 이미지 보기 컨트롤러에 대해서도 **imageViewController**와 동일하게 수행합니다.
 
-8. 그런 다음 방금 만든 UI를 처리하기 위한 **imageViewController**라는 새 View Controller 클래스를 만듭니다.
+8. 그런 다음 방금 만든 UI를 처리하기 위한 **imageViewController**라는 새 뷰 컨트롤러 클래스를 만듭니다.
 
-9. **imageViewController.h**에서 컨트롤러의 인터페이스 선언에 다음을 추가합니다. 스토리보드 이미지 보기에서 Ctrl 키를 누른 상태에서 이러한 속성으로 끌어 이 둘을 연결해야 합니다.
+9. **imageViewController.h**에서 컨트롤러의 인터페이스 선언에 다음을 추가합니다. 스토리보드 이미지 보기에서 Ctrl 키를 누른 상태에서 이러한 속성으로 끌어 다음 두 항목을 연결해야 합니다.
 
         @property (weak, nonatomic) IBOutlet UIImageView *myImage;
         @property (strong) UIImage* imagePayload;
@@ -151,7 +158,7 @@
         // Display the UI Image in UI Image View
         [self.myImage setImage:self.imagePayload];
 
-11. **AppDelegate.m**에서, 만든 이미지 컨트롤러를 가져옵니다.
+11. **AppDelegate.m**에서, 사용자가 만든 이미지 컨트롤러를 가져옵니다.
 
         #import "imageViewController.h"
 
@@ -171,7 +178,7 @@
 
         @end
 
-13. **AppDelegate**에서 앱이 **application: didFinishLaunchingWithOptions**에 자동 알림을 등록하는지 확인합니다.
+13. **AppDelegate**에서, 반드시 사용자의 앱이 **application: didFinishLaunchingWithOptions**에 자동 알림을 등록해야 합니다.
 
         // Software version
         self.iOS8 = [[UIApplication sharedApplication] respondsToSelector:@selector(registerUserNotificationSettings:)] && [[UIApplication sharedApplication] respondsToSelector:@selector(registerForRemoteNotifications)];
@@ -222,7 +229,7 @@
         homeViewController *hvc = (homeViewController *)[nc.viewControllers objectAtIndex:0];
         hvc.deviceToken = deviceToken;
 
-15. 그런 다음 **AppDelegate.m**에 다음 메서드를 추가하여 끝점에서 이미지를 검색하고 검색이 완료되면 로컬 알림을 보냅니다. 자리 표시자 `{backend endpoint}` 를 해당 백 엔드 끝점으로 대체해야 합니다.
+15. 그런 다음 **AppDelegate.m** 에 다음 메서드를 추가하여 끝점에서 이미지를 검색하고 검색이 완료되면 로컬 알림을 보냅니다. 자리 표시자 `{backend endpoint}` 를 해당 백 엔드 끝점으로 대체해야 합니다.
 
         NSString *const GetNotificationEndpoint = @"{backend endpoint}/api/notifications";
 
@@ -302,7 +309,7 @@
             // Add "else if" here to handle more types of rich content such as url, sound files, etc.
         }
 
-16. 다음 메서드를 사용하여 **AppDelegate.m**에서 Image View Controller를 열어 위의 로컬 알림을 처리합니다.
+16. 다음 메서드를 사용하여 **AppDelegate.m**에서 이미지 뷰 컨트롤러를 열어 위의 로컬 알림을 처리합니다.
 
         // Helper: redirect users to image view controller
         - (void)redirectToImageViewWithImage: (UIImage *)img {
@@ -365,3 +372,5 @@
 [IOS2]: ./media/notification-hubs-aspnet-backend-ios-rich-push/rich-push-ios-2.png
 [IOS3]: ./media/notification-hubs-aspnet-backend-ios-rich-push/rich-push-ios-3.png
 [IOS4]: ./media/notification-hubs-aspnet-backend-ios-rich-push/rich-push-ios-4.png
+
+<!--HONumber=45--> 

@@ -1,6 +1,20 @@
-﻿<properties title="Search Service: workflow for developers" pageTitle="검색 서비스: 개발자를 위한 워크플로" description="검색 서비스: 개발자를 위한 워크플로" metaKeywords="" services="" solutions="" documentationCenter="" authors="Heidist" manager="mblythe" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="검색 서비스: 개발자를 위한 워크플로" 
+	description="검색 서비스: 개발자를 위한 워크플로" 
+	services="search" 
+	documentationCenter="" 
+	authors="HeidiSteen" 
+	manager="mblythe" 
+	editor=""/>
 
-<tags ms.service="azure-search" ms.devlang="" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="" ms.date="09/23/2014" ms.author="heidist" />
+<tags 
+	ms.service="search" 
+	ms.devlang="rest-api" 
+	ms.workload="search" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.date="01/16/2015" 
+	ms.author="heidist"/>
 
 # Azure 검색: 개발 워크플로
 
@@ -21,7 +35,7 @@
 
 쿼리는 검색 데이터 및 특성을 포함하는 검색 인덱스를 대상으로 합니다. 이와 같이 서비스를 프로비전한 후 첫 번째 단계는 JSON 형식으로 인덱스 스키마를 정의하고 HTTPS PUT 요청을 실행하여 서비스에서 인덱스 만드는 것입니다. 
 
-인덱스는 응용 프로그램 코드를 통해 생성됩니다. 사용자 인터페이스에서 인덱스를 정의하도록 도와주는 기본 제공 도구나 편집기는 없습니다. 인덱스를 생성하는 다양한 방법을 보여 주는 예제에는 Program.cs 파일에서 스키마를 지정하는 [Azure 검색을 사용하여 첫 번째 검색 솔루션 만들기](../search-create-first-solution/)와 독립 실행형 JSON 스키마 파일로 인덱스를 제공하는 [Azure 검색에서 점수 매기기 프로필 시작](../search-get-started-scoring-profiles)이 포함됩니다. 인덱스를 만드는 방법에 대한 자세한 내용은 MSDN에서 [인덱스 만들기(Azure 검색 API)](http://msdn.microsoft.com/ko-kr/library/dn798941.aspx)를 참조하세요.
+인덱스는 응용 프로그램 코드를 통해 생성됩니다. 사용자 인터페이스에서 인덱스를 정의하도록 도와주는 기본 제공 도구나 편집기는 없습니다. 인덱스를 생성하는 다양한 방법을 보여 주는 예제에는 Program.cs 파일에서 스키마를 지정하는 [Azure 검색을 사용하여 첫 번째 검색 솔루션 만들기](../search-create-first-solution/)와 독립 실행형 JSON 스키마 파일로 인덱스를 제공하는 [Azure 검색에서 점수 매기기 프로필 시작](../search-get-started-scoring-profiles)이 포함됩니다. 인덱스를 만드는 방법에 대한 자세한 내용은 MSDN에서 [인덱스 만들기(Azure 검색 API)](http://msdn.microsoft.com/library/dn798941.aspx)를 참조하세요.
 
 <h2 id="sub-2">2단계: 문서 추가</h2>
 
@@ -40,8 +54,8 @@ POST 요청에 대한 전체 상태 코드가 있습니다. 상태 코드는 HTT
 
 문서가 인덱싱된 후 검색 쿼리를 실행할 수 있습니다. OData 또는 간단한 쿼리 구문을 사용하여 한 번에 하나씩 인덱스를 쿼리할 수 있습니다.
 
-+	[Azure 검색의 OData 식 구문](http://msdn.microsoft.com/ko-kr/library/dn798921.aspx)
-+	[Azure 검색의 간단한 쿼리 구문](http://msdn.microsoft.com/ko-kr/library/dn798920.aspx)
++	[Azure 검색의 OData 식 구문](http://msdn.microsoft.com/library/dn798921.aspx)
++	[Azure 검색의 간단한 쿼리 구문](http://msdn.microsoft.com/library/dn798920.aspx)
 
 <h2 id="sub-4">4단계: 인덱스 및 문서 업데이트 또는 삭제</h2>
 
@@ -55,7 +69,7 @@ Azure 검색은 검색 작업에 사용되는 인덱스 및 문서에 대해 내
 
 문서의 모든 필드가 검색 가능한 것은 아닙니다. 예를 들어 응용 프로그램이 음악 또는 동영상의 온라인 카탈로그인 경우 Azure BLOB 서비스 또는 다른 저장소 형식에 이진 파일을 저장하는 것이 좋습니다. 이진 파일 자체는 검색 가능하지 않으므로 Azure 검색 저장소에 저장할 필요가 없습니다. 이미지, 비디오 및 오디오 파일을 다른 서비스 또는 위치에 저장해야 하더라도 파일 위치에 대한 URL을 참조하는 필드를 포함해야 합니다. 이러한 방식으로 검색 결과의 일부로 외부 데이터를 반환할 수 있습니다. 
 
-인덱스 또는 문서를 만드는 방법에 대한 자세한 내용은 [Azure 검색 REST API](http://msdn.microsoft.com/ko-kr/library/dn798935.aspx)를 참조하세요.
+인덱스 또는 문서를 만드는 방법에 대한 자세한 내용은 [Azure 검색 REST API](http://msdn.microsoft.com/library/dn798935.aspx)를 참조하세요.
 
 
 <!--Anchors-->
@@ -73,3 +87,5 @@ Azure 검색은 검색 작업에 사용되는 인덱스 및 문서에 대해 내
 [Microsoft Azure에서 검색 서비스 관리]: ../search-manage/
 [Azure 검색을 사용하는 첫 검색 솔루션 만들기]: ../search-create-first-solution/
 
+
+<!--HONumber=46--> 

@@ -1,6 +1,21 @@
-﻿<properties pageTitle="iOS 앱에서 사용자 지정 API 호출 | 모바일 서비스" description="사용자 지정 API를 정의한 다음 Azure 모바일 서비스를 사용하는 iOS 앱에서 이를 호출하는 방법에 대해 알아봅니다." services="mobile-services" documentationCenter="ios" authors="krisragh" writer="krisragh" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="iOS 앱에서 사용자 지정 API 호출 | 모바일 서비스" 
+	description="사용자 지정 API를 정의한 다음 Azure 모바일 서비스를 사용하는 iOS 앱에서 이를 호출하는 방법에 대해 알아봅니다." 
+	services="mobile-services" 
+	documentationCenter="ios" 
+	authors="krisragh" 
+	Writer="krisragh" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="krisragh"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-ios" 
+	ms.devlang="objective-c" 
+	ms.topic="article" 
+	ms.date="10/10/2014" 
+	ms.author="krisragh"/>
 
 # 클라이언트에서 사용자 지정 API 호출
 

@@ -1,12 +1,25 @@
-﻿<properties linkid="batch-technical-overview" urlDisplayName="" pageTitle="Azure 배치 기술 개요" metaKeywords="" description="Azure 일괄 처리 서비스의 개념, 워크플로 및 시나리오에 대해 알아봅니다." metaCanonical="" services="batch" documentationCenter="" title="Azure Batch technical overview" authors="danlep" solutions="" manager="timlt" editor="tysonn" />
+﻿<properties 
+	pageTitle="Azure 배치 기술 개요" 
+	description="Azure 일괄 처리 서비스의 개념, 워크플로 및 시나리오에 대해 알아봅니다." 
+	services="batch" 
+	documentationCenter="" 
+	authors="dlepow" 
+	manager="timlt"/>
 
-<tags ms.service="batch" ms.workload="big-compute" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/08/2014" ms.author="danlep" />
+<tags 
+	ms.service="batch" 
+	ms.workload="big-compute" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/30/2015" 
+	ms.author="danlep"/>
 
 
 #Azure 배치 기술 개요
 Azure 배치는 계산 리소스의 작업 예약 및 자동 크기 조정을 플랫폼 서비스로 제공하여 클라우드에서 대규모 병렬 및 HPC(고성능 컴퓨팅) 응용 프로그램을 실행하도록 도와줍니다. 배치 SDK 및 배치 서비스를 사용하여 주문형 또는 가상 컴퓨터의 관리되는 컬렉션에 대한 일정에 따라 배치 작업이 실행되도록 구성할 수 있으며 기본 플랫폼의 작업 예약 및 리소스 관리에 따른 복잡성도 걱정할 필요가 없습니다.
  
->[WACOM.NOTE]배치는 미리 보기로 제공됩니다. 배치를 사용하려면 Azure 계정이 필요하고 구독에서 배치 미리 보기를 사용하도록 설정해야 합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 계정 만들기](http://www.windowsazure.com/ko-kr/develop/php/tutorials/create-a-windows-azure-account/)(영문)를 참조하세요. 
+>[WACOM.NOTE]배치는 미리 보기로 제공됩니다. 배치를 사용하려면 Azure 계정이 필요하고 구독에서 배치 미리 보기를 사용하도록 설정해야 합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 계정 만들기](http://azure.microsoft.com/develop/php/tutorials/create-a-windows-azure-account/)(영문)를 참조하세요. 
 
 
 이 문서에서는 다음에 대해 대략적으로 설명합니다.
@@ -53,7 +66,7 @@ REST 기반 배치 API는 배치 서비스로 배치 작업을 구성하고 실�
 
 <h2 id="BKMK_Entities">배치 개념</h2>
 
-다음 섹션에서는 배치 서비스 및 API를 사용하기 위한 주요 개념을 요약해서 설명합니다. 자세한 내용은 [Azure 배치의 API 기본 사항](http://azure.microsoft.com/ko-kr/documentation/articles/batch-api-basics)(영문)을 참조하세요. 
+다음 섹션에서는 배치 서비스 및 API를 사용하기 위한 주요 개념을 요약해서 설명합니다. 자세한 내용은 [Azure 배치의 API 기본 사항](http://azure.microsoft.com/documentation/articles/batch-api-basics)(영문)을 참조하세요. 
 
 * [배치 계정](#BKMK_Account)
 * [태스크용 가상 컴퓨터 및 풀](#BKMK_TVM)
@@ -173,8 +186,8 @@ REST 기반 배치 API는 배치 서비스로 배치 작업을 구성하고 실�
 	
 <h2 id="BKMK_Resources">추가 리소스</h2>
 
-* [.NET용 Azure 배치 라이브러리 시작](http://azure.microsoft.com/ko-kr/documentation/articles/batch-dotnet-get-started/)(영문)
-* [Azure 배치 개발 라이브러리 및 도구](http://azure.microsoft.com/ko-kr/documentation/articles/batch-development-libraries-tools/)
+* [.NET용 Azure 배치 라이브러리 시작](http://azure.microsoft.com/documentation/articles/batch-dotnet-get-started/)(영문)
+* [Azure 배치 개발 라이브러리 및 도구](http://azure.microsoft.com/documentation/articles/batch-development-libraries-tools/)
 * [Azure 배치 REST API 참조](http://go.microsoft.com/fwlink/p/?LinkId=517803)
 * [Azure 배치 앱 REST API 참조](http://go.microsoft.com/fwlink/p/?LinkId=517804)
 
@@ -186,3 +199,5 @@ REST 기반 배치 API는 배치 서비스로 배치 작업을 구성하고 실�
 [app_pub_workflow]: ./media/batch-technical-overview/app_pub_workflow.png
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

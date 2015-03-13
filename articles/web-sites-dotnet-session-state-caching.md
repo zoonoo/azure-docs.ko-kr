@@ -32,7 +32,7 @@ ASP.NET 웹 앱에서 세션 상태를 사용하는 경우 외부 세션 상태 
 * [Session 개체를 사용하여 캐시된 항목을 저장 및 검색합니다.](#usesessionobject)
 
 <h2><a id="createcache"></a>캐시 만들기</h2>
-캐시를 만들려면 [다음 지침](http://azure.microsoft.com/ko-kr/documentation/articles/cache-dotnet-how-to-use-azure-redis-cache/#create-cache)을 따르세요.
+캐시를 만들려면 [다음 지침](http://azure.microsoft.com/documentation/articles/cache-dotnet-how-to-use-azure-redis-cache/#create-cache)을 따르세요.
 
 <h2><a id="configureproject"></a>웹 앱에 RedisSessionStateProvider NuGet 패키지 추가</h2>
 NuGet  `RedisSessionStateProvider` 패키지를 설치합니다.  다음 명령을 사용하여 패키지 관리자 콘솔에서 설치합니다(**도구** > **NuGet 패키지 관리자** > **패키지 관리자 콘솔**).
@@ -41,14 +41,14 @@ NuGet  `RedisSessionStateProvider` 패키지를 설치합니다.  다음 명령�
   
 **도구** > **NuGet 패키지 관리자** > **솔루션의 NuGet 패키지 관리**에서 설치하려면  `RedisSessionStateProvider`를 검색하고 **시험판 포함**을 지정해야 합니다.
 
-자세한 내용은 [NuGet RedisSessionStateProvider 페이지](http://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider/ ) 및 [캐시 클라이언트 구성](http://azure.microsoft.com/ko-kr/documentation/articles/cache-dotnet-how-to-use-azure-redis-cache/#NuGet)을 참조하세요.
+자세한 내용은 [NuGet RedisSessionStateProvider 페이지](http://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider/ ) 및 [캐시 클라이언트 구성](http://azure.microsoft.com/documentation/articles/cache-dotnet-how-to-use-azure-redis-cache/#NuGet)을 참조하세요.
 
 <h2><a id="configurewebconfig"></a>Web.Config 파일 수정</h2>
 NuGet 패키지는 캐시에 대한 어셈블리 참조를 만들 뿐 아니라  *web.config* 파일에 스텁 항목을 추가합니다. 
 
 1.  *web.config*를 열고 **sessionState** 요소를 찾습니다.
 
-1.  `host`,  `accessKey`,  `port`(SSL 포트는 6380이어야 함) 값을 입력하고  `SSL`을  `true`로 설정합니다. 이러한 값은 캐시 인스턴스에 대한 Azure 관리 미리 보기 포털 블레이드에서 가져올 수 있습니다. 자세한 내용은 [캐시에 연결](http://azure.microsoft.com/ko-kr/documentation/articles/cache-dotnet-how-to-use-azure-redis-cache/#connect-to-cache)을 참조하세요.
+1.  `host`,  `accessKey`,  `port`(SSL 포트는 6380이어야 함) 값을 입력하고  `SSL`을  `true`로 설정합니다. 이러한 값은 캐시 인스턴스에 대한 Azure 관리 미리 보기 포털 블레이드에서 가져올 수 있습니다. 자세한 내용은 [캐시에 연결](http://azure.microsoft.com/documentation/articles/cache-dotnet-how-to-use-azure-redis-cache/#connect-to-cache)을 참조하세요.
 다음 태그는  *web.config* 파일의 변경 내용을 표시합니다.
 
 
@@ -99,8 +99,8 @@ ASP.NET 세션 상태 사용 방법에 대한 자세한 내용은 [ASP.NET 세�
 
   *작성자: [Rick Anderson](https://twitter.com/RickAndMSFT)*
   
-  [installed the latest]: http://www.windowsazure.com/ko-kr/downloads/?sdk=net  
-  [ASP.NET Session State Overview]: http://msdn.microsoft.com/ko-kr/library/ms178581.aspx
+  [installed the latest]: http://azure.microsoft.com/downloads/?sdk=net  
+  [ASP.NET Session State Overview]: http://msdn.microsoft.com/library/ms178581.aspx
 
   [NewIcon]: ./media/web-sites-dotnet-session-state-caching/CacheScreenshot_NewButton.png
   [NewCacheDialog]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_CreateOptions.png

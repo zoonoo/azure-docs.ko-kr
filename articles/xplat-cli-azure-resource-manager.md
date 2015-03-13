@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Microsoft Azure Cross-Platform Command-Line Interface" pageTitle="리소스 관리자에서 Microsoft Azure Platform 간 명령줄 인터페이스 사용" title="리소스 관리자에서 Microsoft Azure Platform 간 명령줄 인터페이스 사용" metaKeywords="Microsoft azure Platform 간 명령줄 인터페이스 리소스 관리자, Microsoft azure 명령줄 리소스 관리자, azure 명령줄 리소스 관리자, azure cli 리소스 관리자" description="리소스 관리자에서 Microsoft Azure 플랫폼 간 명령줄 인터페이스 사용" metaCanonical="http://www.windowsazure.com/ko-kr/script/xplat-cli-intro" umbracoNaviHide="0" disqusComments="1" editor="mollybos" manager="need to identify contact" documentationCenter="" solutions="" authors="larryfr" services="" />
+﻿<properties 
+	pageTitle="리소스 관리자에서 Microsoft Azure Platform 간 명령줄 인터페이스 사용" 
+	description="리소스 관리자에서 Microsoft Azure 플랫폼 간 명령줄 인터페이스 사용" 
+	editor="tysonn" 
+	manager="timlt" 
+	documentationCenter="" 
+	authors="squillace" 
+	services=""/>
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="command-line-interface" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/05/2015" 
+	ms.author="rasquill"/>
 
 #리소스 관리자에서 Azure 플랫폼 간 명령줄 인터페이스 사용
 
@@ -162,8 +176,10 @@
 * Azure Platform 간 명령줄 인터페이스를 사용하는 방법에 대한 자세한 내용은 [Microsoft Azure Platform 간 명령줄 인터페이스 설치 및 구성][xplatsetup]을 참조하세요.
 * Azure PowerShell을 사용하는 리소스 관리자 작업에 대한 자세한 내용은 [리소스 관리자와 함께 Windows PowerShell 사용 시작][psrm]을 참조하세요.
 
-[signuporg]: http://www.windowsazure.com/ko-kr/documentation/articles/sign-up-organization/
-[adtenant]: http://technet.microsoft.com/ko-kr/library/jj573650#createAzureTenant
+[signuporg]: http://azure.microsoft.com/documentation/articles/sign-up-organization/
+[adtenant]: http://technet.microsoft.com/library/jj573650#createAzureTenant
 [portal]: https://manage.windowsazure.com/
 [xplatsetup]: /ko-kr/documentation/articles/xplat-cli/
 [psrm]: http://go.microsoft.com/fwlink/?LinkId=394760
+
+<!--HONumber=46--> 

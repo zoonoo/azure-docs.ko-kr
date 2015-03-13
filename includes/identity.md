@@ -49,7 +49,7 @@ Azure VM에서 Windows Server AD를 실행하는 것은 온-프레미스에서 �
 
 - 재난 복구용으로 Azure를 사용하는 조직은 클라우드에 도메인 컨트롤러를 포함하여 소규모로 활성화된 VM 세트를 관리할 수도 있습니다. 이렇게 하면 다른 곳에 오류가 발생했을 때 필요에 따라 이 사이트를 다른 곳으로 확장하도록 준비해둘 수 있습니다.
 
-다른 경우도 있습니다. 예를 들어 클라우드에 있는 Windows Server AD를 온-프레미스 데이터 센터에 연결할 필요가 없습니다. 예를 들어 모든 사용자가 클라우드 기반 ID를 가지고 로그인하는 특정 사용자 그룹을 지원하는 SharePoint 팜을 실행하는 경우 Azure에서 독립형 포리스트를 만들 수 있습니다. 원하는 바에 따라 다양하게 기술을 활용할 수 있습니다. Azure에서 Windows Server AD를 사용하는 방법에 대한 자세한 지침을 보려면 [여기를 참조](http://msdn.microsoft.com/ko-kr/library/windowsazure/jj156090.aspx)하세요.
+다른 경우도 있습니다. 예를 들어 클라우드에 있는 Windows Server AD를 온-프레미스 데이터 센터에 연결할 필요가 없습니다. 예를 들어 모든 사용자가 클라우드 기반 ID를 가지고 로그인하는 특정 사용자 그룹을 지원하는 SharePoint 팜을 실행하는 경우 Azure에서 독립형 포리스트를 만들 수 있습니다. 원하는 바에 따라 다양하게 기술을 활용할 수 있습니다. Azure에서 Windows Server AD를 사용하는 방법에 대한 자세한 지침을 보려면 [여기를 참조](http://msdn.microsoft.com/library/windowsazure/jj156090.aspx)하세요.
 
 ## <a name="ad"></a>Azure Active Directory 사용
 
@@ -121,5 +121,4 @@ ID 관련 작업은 대부분의 응용 프로그램에서 중요한 부분을 �
 ##저자 정보
 
 David Chappell은 미국 캘리포니아주 샌프란시스코에 있는 Chappell & Associates([www.davidchappell.com](http://www.davidchappell.com))의 대표이며 강연, 집필, 컨설팅 등에 힘쓰고 있습니다.
-
 <!--HONumber=42-->

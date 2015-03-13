@@ -1,6 +1,20 @@
-﻿<properties title="Get started using Azure Data Factory" pageTitle="Azure 데이터 팩터리 시작" description="이 자습서에서는 Blob에서 Azure SQL 데이터베이스 인스턴스로 데이터를 복사하는 샘플 데이터 파이프라인을 만드는 방법을 보여 줍니다." metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
+﻿<properties 
+	pageTitle="Azure 데이터 팩터리 시작" 
+	description="이 자습서에서는 Blob에서 Azure SQL 데이터베이스 인스턴스로 데이터를 복사하는 샘플 데이터 파이프라인을 만드는 방법을 보여 줍니다." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
+	editor="monicar"/>
 
-<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/04/2014" ms.author="spelluru" />
+<tags 
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/13/2015" 
+	ms.author="spelluru"/>
 
 # Azure 데이터 팩터리 시작
 이 문서는 Azure 데이터 팩터리 사용을 시작할 때 도움이 됩니다. 이 문서의 자습서에서는 Azure 데이터 팩터리를 만들고 샘플 데이터를 Azure Blob 저장소에서 Azure SQL 데이터베이스에 복사하는 파이프라인을 데이터 팩터리에 만드는 방법을 보여 줍니다.
@@ -441,12 +455,12 @@
 
 
 <!--Link references-->
-[azure-purchase-options]: http://azure.microsoft.com/ko-kr/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/ko-kr/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/ko-kr/pricing/free-trial/
+[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
 [azure-preview-portal]: https://portal.azure.com/
-[download-azure-powershell]: http://azure.microsoft.com/ko-kr/documentation/articles/install-configure-powershell
+[download-azure-powershell]: http://azure.microsoft.com/documentation/articles/install-configure-powershell
 
 [monitor-manage-using-powershell]: ../data-factory-monitor-manage-using-powershell
 [use-onpremises-datasources]: ../data-factory-use-onpremises-datasources
@@ -536,3 +550,5 @@
 [image-data-factory-name-not-available]: ./media/data-factory-get-started/getstarted-data-factory-not-available.png
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

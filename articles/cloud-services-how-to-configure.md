@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="How to configure" pageTitle="클라우드 서비스를 구성하는 방법 - Azure" metaKeywords="클라우드 서비스 구성" description="Azure에서 클라우드 서비스를 구성하는 방법에 대해 알아봅니다. 또한 클라우드 서비스 구성을 업데이트하고 역할 인스턴스에 대한 원격 액세스를 구성하는 방법도 알아봅니다." metaCanonical="" services="cloud-services" documentationCenter="" title="How to Configure Cloud Services" authors="davidmu" solutions="" manager="timlt" editor="" />
+﻿<properties 
+	pageTitle="클라우드 서비스를 구성하는 방법 - Azure" 
+	description="Azure에서 클라우드 서비스를 구성하는 방법에 대해 알아봅니다. 또한 클라우드 서비스 구성을 업데이트하고 역할 인스턴스에 대한 원격 액세스를 구성하는 방법도 알아봅니다." 
+	services="cloud-services" 
+	documentationCenter="" 
+	authors="Thraka" 
+	manager="timlt" 
+	editor=""/>
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/21/2014" ms.author="davidmu" />
+<tags 
+	ms.service="cloud-services" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/21/2014" 
+	ms.author="adegeo"/>
 
 
 
@@ -13,7 +27,7 @@ Azure 관리 포털에서 클라우드 서비스에 가장 일반적으로 사�
 
 Azure는 각 역할에 둘 이상의 역할 인스턴스가 있는 경우에만 구성 업데이트 중 99.95%의 서비스 가용성을 보장할 수 있습니다. 이에 따라, 가상 컴퓨터 하나는 클라이언트 요청을 처리하고 다른 하나는 업데이트를 진행할 수 있습니다. 자세한 내용은 [서비스 수준 계약](https://www.windowsazure.com/ko-kr/support/legal/sla/)을 참조하세요.
 
-##목차##
+## 목차##
 
 * [방법: 클라우드 서비스 구성 업데이트](#update)
 * [방법: 역할 인스턴스에 대한 원격 액세스 구성](#remoteaccess)
@@ -27,12 +41,12 @@ Azure는 각 역할에 둘 이상의 역할 인스턴스가 있는 경우에만 
 	
 	**구성** 페이지에서 모니터링을 구성하고, 역할 설정을 업데이트하고, 게스트 운영 체제 및 역할 인스턴스 패밀리를 선택할 수 있습니다. 
 
-2. **모니터링**에서 모니터링 수준을 세부 정보 표시 또는 최소로 설정하고 자세한 모니터링에 필요한 진단 연결 문자열을 구성합니다. 지침은 [클라우드 서비스를 모니터링하는 방법]을 참조하세요(../how-to-monitor-a-cloud-service/).
+2. **모니터링**에서 모니터링 수준을 세부 정보 표시 또는 최소로 설정하고 자세한 모니터링에 필요한 진단 연결 문자열을 구성합니다. 지침은 [클라우드 서비스를 모니터링하는 방법](../how-to-monitor-a-cloud-service/)을 참조하세요.
 
 
 3. 역할을 기준으로 그룹화된 서비스 역할의 경우 다음 설정을 업데이트할 수 있습니다.
 
-	>- **설정**   서비스 구성 파일(.cscfg)의 *ConfigurationSettings* 요소에 지정된 기타 구성 설정의 값을 수정합니다.
+	>- **설정**   서비스 구성(.cscfg) 파일의  *ConfigurationSettings* 요소에서 지정된 기타 구성 설정의 값을 수정합니다.
 	
 	>- **인증서**   역할의 SSL 암호화에 사용 중인 인증서 지문을 변경합니다. 인증서를 변경하려면 먼저 새 인증서를 업로드해야 합니다(**인증서** 페이지). 그런 다음, 역할 설정에 표시되는 인증서 문자열에서 인증서 지문을 업데이트합니다.
 
@@ -48,7 +62,7 @@ Azure는 각 역할에 둘 이상의 역할 인스턴스가 있는 경우에만 
 
 5. 구성 설정을 저장하려면 역할 인스턴스에 적용하고 **저장**을 클릭합니다. 변경 내용을 취소하려면 **취소**를 클릭합니다. **저장** 및 **취소**는 설정 변경 후 명령 모음에 추가됩니다.
 
-###클라우드 서비스 구성 파일을 수동으로 업데이트하려면###
+### 클라우드 서비스 구성 파일을 수동으로 업데이트하려면###
 
 1. 현재 구성과 함께 클라우드 서비스 구성 파일(.cscfg)을 다운로드합니다. 클라우드 서비스의 **구성** 페이지에서 **다운로드**를 클릭합니다. **저장** 또는 **다른 이름으로 저장**을 클릭하여 파일을 저장합니다.
 
@@ -60,9 +74,9 @@ Azure는 각 역할에 둘 이상의 역할 인스턴스가 있는 경우에만 
 
 	b. **구성 파일**에서 **찾아보기**를 사용하여 업데이트된 .cscfg 파일을 선택합니다.
 
-	c. 클라우드 서비스에 인스턴스가 하나뿐인 역할이 포함된 경우 **Apply configuration even if one or more roles contain a single instance (하나 이상의 역할에 단일 인스턴스가 포함된 경우에도 구성 적용) ** 확인란을 선택하여 역할의 구성 업데이트를 진행하도록 설정합니다.
+	c. 클라우드 서비스에 인스턴스가 하나뿐인 역할이 포함된 경우 **Apply configuration even if one or more roles contain a single instance(하나 이상의 역할에 단일 인스턴스가 포함된 경우에도 구성 적용)** 확인란을 선택하여 역할의 구성 업데이트를 진행하도록 설정합니다.
 
-	모든 역할에 대해 두 개 이상의 인스턴스를 정의하지 않는 경우 Azure는 서비스 구성 업데이트 과정에서 최소 99.95%의 클라우드 서비스 가용성을 보장할 수 없습니다. 자세한 내용은 [서비스 수준 계약](http://www.windowsazure.com/ko-kr/support/legal/sla/)을 참조하세요.
+	모든 역할에 대해 두 개 이상의 인스턴스를 정의하지 않는 경우 Azure는 서비스 구성 업데이트 과정에서 최소 99.95%의 클라우드 서비스 가용성을 보장할 수 없습니다. 자세한 내용은 [서비스 수준 계약](http://azure.microsoft.com/support/legal/sla/)을 참조하세요.
 
 	d. **확인**(확인 표시)을 클릭합니다. 
 
@@ -73,11 +87,11 @@ Azure는 각 역할에 둘 이상의 역할 인스턴스가 있는 경우에만 
 
 클라우드 서비스의 **구성** 페이지에서 원격 데스크톱을 사용하도록 설정하거나 가상 컴퓨터에 연결하는 데 사용되는 로컬 관리자 계정이나 암호, 인증에 사용되는 인증서, 만료 날짜 등을 변경할 수 있습니다.
 
-###서비스 정의 파일에서 원격 액세스를 구성하려면###
+### 서비스 정의 파일에서 원격 액세스를 구성하려면###
 
 서비스 정의 파일(.csdef)에 **가져오기** 요소를 추가하여 RemoteAccess 및 RemoteForwarder 모듈을 서비스 모델로 가져옵니다. 이 모듈이 이미 있는 경우 Azure는 원격 데스크톱의 구성 설정을 서비스 구성 파일에 추가합니다. 원격 데스크톱 구성을 완료하려면 인증서를 Azure에 가져오고 서비스 구성 파일에서 인증서를 지정해야 합니다. 자세한 내용은 [Azure에서 역할에 대한 원격 데스크톱 연결 설정][]을 참조하세요.
 
-###관리 포털에서 역할 인스턴스의 원격 액세스를 사용하도록 설정하거나 수정하려면###
+### 관리 포털에서 역할 인스턴스의 원격 액세스를 사용하도록 설정하거나 수정하려면###
 
 1. **클라우드 서비스**, 클라우드 서비스의 이름, **구성**을 차례로 클릭합니다.
 
@@ -115,7 +129,7 @@ Azure는 각 역할에 둘 이상의 역할 인스턴스가 있는 경우에만 
 
 	d. **열기**를 클릭한 후 **연결**을 클릭하여 원격 데스크톱 연결을 시작합니다.
 
-###관리 포털에서 역할 인스턴스의 원격 액세스를 사용하지 않도록 설정하려면###
+### 관리 포털에서 역할 인스턴스의 원격 액세스를 사용하지 않도록 설정하려면###
 
 1. **클라우드 서비스**, 클라우드 서비스의 이름, **구성**을 차례로 클릭합니다.
 
@@ -127,9 +141,9 @@ Azure는 각 역할에 둘 이상의 역할 인스턴스가 있는 경우에만 
 
 5. **확인**(확인 표시)을 클릭합니다.
 
-[Azure에서 역할에 대한 원격 데스크톱 연결 설정]: http://msdn.microsoft.com/ko-kr/library/windowsazure/hh124107.aspx
+[Azure에서 역할에 대한 원격 데스크톱 연결 설정]: http://msdn.microsoft.com/library/windowsazure/hh124107.aspx
 
-[Azure 역할과 함께 원격 데스크톱 사용]: http://msdn.microsoft.com/ko-kr/library/windowsazure/gg443832.aspx
+[Azure 역할과 함께 원격 데스크톱 사용]: http://msdn.microsoft.com/library/windowsazure/gg443832.aspx
 			
 
-<!--HONumber=35.2-->
+<!--HONumber=45--> 

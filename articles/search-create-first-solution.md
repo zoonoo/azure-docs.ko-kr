@@ -1,6 +1,20 @@
-﻿<properties title="Create your first search solution using Azure Search" pageTitle="Azure 검색을 사용하는 첫 검색 솔루션 만들기" description="Azure 검색을 사용하는 첫 검색 솔루션 만들기" metaKeywords="" services="" solutions="" documentationCenter="" authors="Heidist" manager="mblythe" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Azure 검색을 사용하는 첫 검색 솔루션 만들기" 
+	description="Azure 검색을 사용하는 첫 검색 솔루션 만들기" 
+	services="search" 
+	documentationCenter="" 
+	authors="HeidiSteen" 
+	manager="mblythe" 
+	editor=""/>
 
-<tags ms.service="azure-search" ms.devlang="" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="" ms.date="09/23/2014" ms.author="heidist" />
+<tags 
+	ms.service="search" 
+	ms.devlang="rest-api" 
+	ms.workload="search" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.date="01/16/2015" 
+	ms.author="heidist"/>
 
 # Azure 검색을 사용하는 첫 검색 솔루션 만들기
 
@@ -29,7 +43,7 @@
 
 <h2 id="sub-1">필수 조건</h2>
 
-+	ASP.NET MVC 4 및 SQL Server가 설치된 Visual Studio 2012 이상 버전. 소프트웨어를 아직 설치하지 않았다면 무료 Express 버전인 [Visual Studio 2013 Express](http://www.visualstudio.com/ko-kr/products/visual-studio-express-vs.aspx) 및 [Microsoft SQL Server 2014 Express](http://msdn.microsoft.com/ko-kr/evalcenter/dn434042.aspx).
++	ASP.NET MVC 4 및 SQL Server가 설치된 Visual Studio 2012 이상 버전. 소프트웨어를 아직 설치하지 않았다면 무료 Express 버전인 [Visual Studio 2013 Express](http://www.visualstudio.com/ko-kr/products/visual-studio-express-vs.aspx) 및 [Microsoft SQL Server 2014 Express](http://msdn.microsoft.com/evalcenter/dn434042.aspx).
 +	Azure 검색 서비스. 검색 서비스 이름과 관리 키가 필요합니다. 자세한 내용은 [Azure 검색 시작](../search-get-started/) 을 참조하세요.
 +	[CodePlex의 Adventure Works Azure 검색 데모 프로젝트](http://go.microsoft.com/fwlink/p/?LinkID=510972). 소스 탭에서 **다운로드**를 클릭하여 솔루션 zip 파일을 다운로드합니다. 
 
@@ -89,7 +103,7 @@
 
 4.	같은 파일의 'ApplyChanges'로 이동합니다. 인덱스가 이미 있는 경우 이 함수가 인덱스를 삭제한 다음('DeleteCatalogIndex') 새 인덱스인 "catalog"를 만드는 방법('CreateCatalogIndex')을 살펴보세요.  
 
-5.	'CreateCatalogIndex' 함수로 이동한 다음 SQL Server의 Products 테이블 열과 일치하는 스키마를 사용하여 인덱스가 작성되는 방법을 살펴보세요. 각 필드에는 유형('Edm.String' 또는 'Edm.Double')과 해당 필드의 용도를 정의하는 특성이 있습니다. 이러한 특성에 대한 자세한 내용은 [Azure 검색 REST API 문서](http://msdn.microsoft.com/ko-kr/library/azure/dn798935.aspx)를 참조하세요.
+5.	'CreateCatalogIndex' 함수로 이동한 다음 SQL Server의 Products 테이블 열과 일치하는 스키마를 사용하여 인덱스가 작성되는 방법을 살펴보세요. 각 필드에는 유형('Edm.String' 또는 'Edm.Double')과 해당 필드의 용도를 정의하는 특성이 있습니다. 이러한 특성에 대한 자세한 내용은 [Azure 검색 REST API 문서](http://msdn.microsoft.com/library/azure/dn798935.aspx)를 참조하세요.
 
 6.	'ApplyChanges' 함수로 돌아간 다음 이 함수가 'ChangeSet'에서 열거된 변경 내용의 모든 데이터를 반복하는 방법을 살펴보세요. 변경 내용은 하나씩 적용되지 않고 1,000개 단위의 배치 그룹으로 구성된 다음 검색 서비스에 적용됩니다. 따라서 문서를 하나씩 적용하는 것보다 훨씬 효율적입니다.
 
@@ -147,7 +161,7 @@ AdventureWorksWeb 프로젝트에서는 ASP.NET MVC 4를 통해 웹 응용 프�
 
 5.	응용 프로그램이 아직 실행되고 있으면 중지하고 보기 | 홈에서 **Index.cshtml** 파일을 엽니다.  이 파일 끝에서 'JQuery $(function ())'을 사용하는 JavaScript 함수를 확인할 수 있습니다. 페이지 로드 시 호출되는 이 함수는 JQuery 자동 완성 함수를 사용하며 이 함수를 검색 텍스트 상자로부터의 콜백으로 연결합니다("q"로 식별됨). 사용자가 텍스트 상자에 텍스트를 입력할 때마다 이 자동 완성 함수가 호출되며, 그러면 입력한 내용을 사용하여 /home/suggest가 호출됩니다.  '/home/suggest'는 'Suggest'라는 **HomeController.cs**의 함수에 대한 참조입니다.
 
-6.	**HomeController.cs**를 열고 Suggest 함수로 이동합니다. 이 코드는 '_catalogSearch' 개체를 사용하여 **CatalogSearch.cs**에서 'Suggest'라는 함수를 호출하는 Search 함수와 매우 비슷합니다. 그러나 'Suggest' 함수는 검색 쿼리를 만드는 대신 [추천 단어 API](http://msdn.microsoft.com/ko-kr/library/azure/dn798936.aspx)를 호출합니다. 이때 텍스트 상자에 입력된 용어를 사용하여 추천 가능한 단어의 목록을 작성합니다. 값은 **Index.cshtml** 파일로 반환되며 검색 상자에 자동 완성 옵션으로 자동 나열됩니다.
+6.	**HomeController.cs**를 열고 Suggest 함수로 이동합니다. 이 코드는 '_catalogSearch' 개체를 사용하여 **CatalogSearch.cs**에서 'Suggest'라는 함수를 호출하는 Search 함수와 매우 비슷합니다. 그러나 'Suggest' 함수는 검색 쿼리를 만드는 대신 [추천 단어 API](http://msdn.microsoft.com/library/azure/dn798936.aspx)를 호출합니다. 이때 텍스트 상자에 입력된 용어를 사용하여 추천 가능한 단어의 목록을 작성합니다. 값은 **Index.cshtml** 파일로 반환되며 검색 상자에 자동 완성 옵션으로 자동 나열됩니다.
 
 Azure 검색에서 추천 단어를 작성하는 데 사용하는 필드를 확인하는 방법은 인덱스를 만들 때 지정합니다. **CatalogIndexer** 프로젝트의 Program.cs 파일 내 'CreateCatalogIndex' 함수에는 'Suggestions'라는 특성이 있습니다.  이 특성을 'True'로 설정할 때마다 Azure 검색은 해당 특성을 추천 단어 검색용 필드로 사용할 수 있습니다.
 
@@ -176,11 +190,11 @@ AdventureWorksWeb을 빌드할 때 "파일이나 어셈블리 'System.Web.Mvc, V
 
 자가 학습을 추가로 진행하려면 사용자가 검색 결과 중 하나를 클릭할 때 열리는 세부 정보 페이지를 추가해 보세요. 이 작업을 준비하기 위해 다음을 수행할 수 있습니다.
 
-+	특정 문서를 반환하도록 Azure 검색을 쿼리할 수 있는 [조회 API](http://msdn.microsoft.com/ko-kr/library/azure/dn798929.aspx) 관련 문서를 확인합니다(예: productID를 전달할 수 있습니다).
++	특정 문서를 반환하도록 Azure 검색을 쿼리할 수 있는 [조회 API](http://msdn.microsoft.com/library/azure/dn798929.aspx) 관련 문서를 확인합니다(예: productID를 전달할 수 있습니다).
 +	**HomeController.cs** 파일에 Details라는 새 함수를 추가하고, 이 조회의 결과를 받아서 표시하는 해당 **Details.cshtml** 보기를 추가해 봅니다.
 +	지리 공간 검색에 대한 추가 코드 샘플과 비디오인 [Channel 9 - Azure 검색 및 지리 공간 데이터 ](http://channel9.msdn.com/Shows/Data-Exposed/Azure-Search-and-Geospatial-Data) 및 [CodePlex: Azure 검색 지리적 검색 샘플](http://azuresearchgeospatial.codeplex.com)을 확인해 보세요.
 
-MSDN에서 [Azure 검색 REST API](http://msdn.microsoft.com/ko-kr/library/azure/dn798935.aspx)를 검토할 수도 있습니다.
+MSDN에서 [Azure 검색 REST API](http://msdn.microsoft.com/library/azure/dn798935.aspx)를 검토할 수도 있습니다.
 
 
 <!--Anchors-->
@@ -201,3 +215,5 @@ MSDN에서 [Azure 검색 REST API](http://msdn.microsoft.com/ko-kr/library/azure
 [12]: ./media/search-create-first-solution/AzureSearch_Create1_CodeplexDownload.PNG
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

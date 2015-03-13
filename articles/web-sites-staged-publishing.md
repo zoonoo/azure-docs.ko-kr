@@ -72,7 +72,7 @@ Azure 웹 사이트에 응용 프로그램을 배포할 때 기본 프로덕션 
 
 	-	 
 
-콘텐츠가 없습니다. 다른 리포지토리 분기 또는 아예 다른 리포지토리로부터 슬롯에 배포할 수 있습니다. 슬롯의 구성을 변경할 수도 있습니다. 게시 프로필을 사용하거나 콘텐츠 업데이트를 위해 배포 슬롯에 연결된 배포 자격 증명을 사용합니다.  예를 들어 [git를 사용하여 이 슬롯에 게시](http://azure.microsoft.com/ko-kr/documentation/articles/web-sites-publish-source-control/)할 수 있습니다.
+콘텐츠가 없습니다. 다른 리포지토리 분기 또는 아예 다른 리포지토리로부터 슬롯에 배포할 수 있습니다. 슬롯의 구성을 변경할 수도 있습니다. 게시 프로필을 사용하거나 콘텐츠 업데이트를 위해 배포 슬롯에 연결된 배포 자격 증명을 사용합니다.  예를 들어 [git를 사용하여 이 슬롯에 게시](http://azure.microsoft.com/documentation/articles/web-sites-publish-source-control/)할 수 있습니다.
 
 <a name="AboutConfiguration"></a>
 ##배포 슬롯의 구성 정보##
@@ -147,7 +147,7 @@ Azure 웹 사이트 포털 페이지 맨 아래에 있는 명령 모음에서 **
 
 Azure PowerShell은 Windows PowerShell을 통해 Azure를 관리하기 위한 cmdlet을 제공하는 모듈로, Azure 웹 사이트 배포 슬롯을 관리하는 기능도 지원합니다. 
 
-- Azure PowerShell을 설치 및 구성하는 방법과 Microsoft Azure 구독에 Azure PowerShell을 인증하는 방법에 대한 자세한 내용은 [Microsoft Azure PowerShell 설치 및 구성 방법](http://www.windowsazure.com/ko-kr/documentation/articles/install-configure-powershell)을 참조하세요.  
+- Azure PowerShell을 설치 및 구성하는 방법과 Microsoft Azure 구독에 Azure PowerShell을 인증하는 방법에 대한 자세한 내용은 [Microsoft Azure PowerShell 설치 및 구성 방법](http://azure.microsoft.com/documentation/articles/install-configure-powershell)을 참조하세요.  
 
 - PowerShell에서 Azure 웹 사이트에 사용할 수 있는 cmdlet을 나열하려면  `help AzureWebsite`를 호출합니다. 
 
@@ -202,7 +202,7 @@ Azure PowerShell은 Windows PowerShell을 통해 Azure를 관리하기 위한 cm
 
 Azure 플랫폼 간 명령줄 인터페이스(xplat-cli)는 Azure 플랫폼 작업을 위한 플랫폼 간 오픈 소스 명령 집합을 제공하며, Azure 웹 사이트의 배포 슬롯을 관리하는 기능을 지원합니다. 
 
-- xplat-cli 설치 및 구성 지침과 xplat-cli를 Azure 구독에 연결하는 방법에 대한 자세한 내용은 [Azure 플랫폼 간 명령줄 인터페이스 설치 및 구성](http://www.windowsazure.com/ko-kr/documentation/articles/xplat-cli)을 참조하세요. 
+- xplat-cli 설치 및 구성 지침과 xplat-cli를 Azure 구독에 연결하는 방법에 대한 자세한 내용은 [Azure 플랫폼 간 명령줄 인터페이스 설치 및 구성](http://azure.microsoft.com/documentation/articles/xplat-cli)을 참조하세요. 
 
 -  xplat-cli에서 Azure 웹 사이트에 사용할 수 있는 명령을 나열하려면  `azure site -h`를 호출합니다. 
 
@@ -238,7 +238,7 @@ Azure 플랫폼 간 명령줄 인터페이스(xplat-cli)는 Azure 플랫폼 작�
 ## 다음 단계 ##
 [Azure 웹 사이트 - 비 프로덕션 배포 슬롯에 대한 웹 액세스 차단](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)
 
-[Microsoft Azure 무료 평가판](http://azure.microsoft.com/ko-kr/pricing/free-trial/)
+[Microsoft Azure 무료 평가판](http://azure.microsoft.com/pricing/free-trial/)
 
 
 <!-- IMAGES -->

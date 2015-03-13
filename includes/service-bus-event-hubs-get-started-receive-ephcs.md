@@ -108,10 +108,10 @@
 > [AZURE.NOTE] 이 자습서에서는 [EventProcessorHost]의 단일 인스턴스를 사용합니다. 처리량을 늘리려면 [EventProcessorHost]의 여러 인스턴스를 사용하는 것이 좋습니다. [확장된 이벤트 처리 샘플](영문)을 참조하세요. 이러한 경우 다양한 인스턴스가 자동으로 서로 조정하여 수신된 이벤트의 부하를 분산합니다. 여러 수신기가 각각 이벤트를 *all* 처리하도록 하려면 **ConsumerGroup** 개념을 사용해야 합니다. 서로 다른 컴퓨터에서 이벤트를 수신하는 경우 [EventProcessorHost] 인스턴스의 이름을 해당 인스턴스가 배포된 컴퓨터 또는 역할을 기준으로 지정하면 유용할 수 있습니다. 이러한 항목에 대한 자세한 내용은 [이벤트 허브 개요] 및 [이벤트 허브 프로그래밍 가이드]를 참조하세요.
 
 <!-- Links -->
-[이벤트 허브 개요]: http://msdn.microsoft.com/ko-kr/library/azure/dn821413.aspx
+[이벤트 허브 개요]: http://msdn.microsoft.com/library/azure/dn821413.aspx
 [확장된 이벤트 처리 샘플]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-45f43fc3
-[Azure 저장소 계정]: http://azure.microsoft.com/ko-kr/documentation/articles/storage-create-storage-account/
-[EventProcessorHost]: http://msdn.microsoft.com/ko-kr/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx 
+[Azure 저장소 계정]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/
+[EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx 
 
 <!-- Images -->
 
@@ -120,5 +120,4 @@
 [13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
 [14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
 
-[이벤트 허브 개발자 가이드]: http://msdn.microsoft.com/ko-kr/library/azure/dn789972.aspx
-<!--HONumber=42-->
+[이벤트 허브 개발자 가이드]: http://msdn.microsoft.com/library/azure/dn789972.aspx<!--HONumber=42-->

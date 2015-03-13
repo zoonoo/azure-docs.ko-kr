@@ -1,6 +1,20 @@
-﻿<properties title="Manage your Search service on Microsoft Azure" pageTitle="Microsoft Azure에서 검색 서비스 관리" description="Microsoft Azure에서 검색 서비스 관리" metaKeywords="" services="" solutions="" documentationCenter="" authors="Heidist" manager="mblythe" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Microsoft Azure에서 검색 서비스 관리" 
+	description="Microsoft Azure에서 검색 서비스 관리" 
+	services="search" 
+	documentationCenter="" 
+	authors="HeidiSteen" 
+	manager="mblythe" 
+	editor=""/>
 
-<tags ms.service="azure-search" ms.devlang="" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="" ms.date="09/23/2014" ms.author="heidist" />
+<tags 
+	ms.service="search" 
+	ms.devlang="rest-api" 
+	ms.workload="search" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.date="01/16/2015" 
+	ms.author="heidist"/>
 
 # Microsoft Azure에서 검색 서비스 관리
 
@@ -11,7 +25,7 @@ Azure 검색은 사용자 지정 검색 응용 프로그램에서 사용할 수 
 
 이 문서에서는 새로운 [Azure 미리 보기 포털](https://portal.azure.com)에서 검색 서비스를 관리하는 방법을 설명합니다.
 
-또는 관리 REST API를 사용할 수 있습니다. 자세한 내용은 [Azure 검색 관리 REST API 시작](http://azure.microsoft.com/ko-kr/documentation/articles/search-get-started-management-api/) 및 [Azure 검색 관리 REST API 참조](http://msdn.microsoft.com/ko-kr/library/azure/dn832684.aspx)를 참조하세요.
+또는 관리 REST API를 사용할 수 있습니다. 자세한 내용은 [Azure 검색 관리 REST API 시작](http://azure.microsoft.com/documentation/articles/search-get-started-management-api/) 및 [Azure 검색 관리 REST API 참조](http://msdn.microsoft.com/library/azure/dn832684.aspx)를 참조하세요.
 
 <!--TOC-->
 
@@ -34,7 +48,7 @@ Azure 검색은 사용자 지정 검색 응용 프로그램에서 사용할 수 
 
 용량을 계획하고 청구 영향을 이해하려면 다음 링크를 참조하세요.
 
-+	[한도 및 제약 조건](http://msdn.microsoft.com/ko-kr/library/dn798934.aspx)
++	[한도 및 제약 조건](http://msdn.microsoft.com/library/dn798934.aspx)
 +	[가격 정보](http://go.microsoft.com/fwlink/p/?LinkdID=509792)
 
 등록할 준비가 되면 [Azure 검색 시작](../search-get-started/)을 참조하세요.
@@ -98,10 +112,10 @@ api-key를 가져오거나 다시 생성하려면 서비스 대시보드를 엽�
 
 서비스 대시보드의 사용 섹션에서 파티션 리소스 수준이 응용 프로그램에 적합한지 신속하게 확인할 수 있습니다.
 
-검색 서비스 API를 사용하여 문서 및 인덱스 수를 가져올 수 있습니다. 가격 계층에 따라 이러한 개수와 연결된 고정 한도가 있습니다. 자세한 내용은 [한도 및 제약 조건](http://msdn.microsoft.com/ko-kr/library/dn798934.aspx)을 참조하세요. 
+검색 서비스 API를 사용하여 문서 및 인덱스 수를 가져올 수 있습니다. 가격 계층에 따라 이러한 개수와 연결된 고정 한도가 있습니다. 자세한 내용은 [한도 및 제약 조건](http://msdn.microsoft.com/library/dn798934.aspx)을 참조하세요. 
 
-+	[인덱스 통계 가져오기](http://msdn.microsoft.com/ko-kr/library/dn798942.aspx)
-+	[문서 수 계산](http://msdn.microsoft.com/ko-kr/library/dn798924.aspx)
++	[인덱스 통계 가져오기](http://msdn.microsoft.com/library/dn798942.aspx)
++	[문서 수 계산](http://msdn.microsoft.com/library/dn798924.aspx)
 
 > [WACOM.NOTE] 캐싱 동작 때문에 한도가 일시적으로 과장될 수 있습니다. 예를 들어 공유 서비스를 사용하는 경우 문서 수가 문서 10,000개 고정 한도보다 높게 표시될 수도 있습니다. 과장은 일시적이며 다음 한도 적용 확인 시 검색됩니다. 
 
@@ -141,7 +155,7 @@ QPS(초당 쿼리 수)를 높이거나 고가용성을 구현하려면 복제본
 
 특정 파티션에 저장되는 인덱스 분할을 알려주는 검색 방법은 없습니다. 각 파티션에서 제공하는 저장소는 대략 25GB이므로 보유한 개수의 파티션에 수용할 수 있는 크기로 저장소를 줄여야 합니다. 파티션 한 개로 되돌리려면 12개 분할이 모두 들어가야 합니다.
 
-미래 계획에 도움이 되도록 저장소를 검사([인덱스 통계 가져오기](http://msdn.microsoft.com/ko-kr/library/dn798942.aspx) 사용)하여 실제로 사용한 크기를 확인하는 것이 좋습니다. 
+미래 계획에 도움이 되도록 저장소를 검사([인덱스 통계 가져오기](http://msdn.microsoft.com/library/dn798942.aspx) 사용)하여 실제로 사용한 크기를 확인하는 것이 좋습니다. 
 
 
 <!---->
@@ -157,7 +171,7 @@ QPS(초당 쿼리 수)를 높이거나 고가용성을 구현하려면 복제본
 <!---->
 <h2 id="sub-8">관리자 액세스 권한에 대한 역할 설정</h2>
 
-Azure에서는 미리 보기 포털을 통해 관리되거나 사용자 지정 관리 도구를 사용하는 경우 Azure 리소스 관리자 API에서 관리되는 모든 서비스에 대해 전역 역할 기반 권한 부여 모델을 제공합니다. 소유자, 참가자 및 읽기 권한자 역할은 Active Directory 사용자, 그룹 및 각 역할에 할당하는 보안 주체에 대한 서비스 관리 수준을 설정합니다. 역할 멤버 자격에 대한 자세한 내용은 [Azure 미리 보기 포털의 역할 기반 액세스 제어](http://azure.microsoft.com/ko-kr/updates/role-based-access-control-in-azure-preview-portal/)를 참조하세요.
+Azure에서는 미리 보기 포털을 통해 관리되거나 사용자 지정 관리 도구를 사용하는 경우 Azure 리소스 관리자 API에서 관리되는 모든 서비스에 대해 전역 역할 기반 권한 부여 모델을 제공합니다. 소유자, 참가자 및 읽기 권한자 역할은 Active Directory 사용자, 그룹 및 각 역할에 할당하는 보안 주체에 대한 서비스 관리 수준을 설정합니다. 역할 멤버 자격에 대한 자세한 내용은 [Azure 미리 보기 포털의 역할 기반 액세스 제어](http://azure.microsoft.com/updates/role-based-access-control-in-azure-preview-portal/)를 참조하세요.
 
 Azure 검색에서는 역할 기반 액세스 제어에 따라 다음 관리 작업이 결정됩니다.
 
@@ -185,7 +199,7 @@ Azure 검색에서는 역할 기반 액세스 제어에 따라 다음 관리 작
 </tr>
 </table>
 
-역할은 서비스 끝점에 대한 액세스 권한을 부여하지 않습니다. 인덱스 관리, 인덱스 채우기 및 검색 데이터 쿼리와 같은 검색 서비스 작업은 역할이 아니라 api-key를 통해 제어합니다. 자세한 내용은[ Azure 미리 보기 포털의 역할 기반 액세스 제어](http://azure.microsoft.com/ko-kr/updates/role-based-access-control-in-azure-preview-portal/)에서 "관리 및 데이터 작업에 대한 권한 부여"를 참조하세요.
+역할은 서비스 끝점에 대한 액세스 권한을 부여하지 않습니다. 인덱스 관리, 인덱스 채우기 및 검색 데이터 쿼리와 같은 검색 서비스 작업은 역할이 아니라 api-key를 통해 제어합니다. 자세한 내용은[ Azure 미리 보기 포털의 역할 기반 액세스 제어](http://azure.microsoft.com/updates/role-based-access-control-in-azure-preview-portal/)에서 "관리 및 데이터 작업에 대한 권한 부여"를 참조하세요.
 
 역할은 서비스가 만들어진 후 액세스 제어를 제공합니다. 구독 관리자만 구독에 검색 서비스를 추가할 수 있습니다.
 
@@ -213,3 +227,5 @@ Azure 검색에서는 역할 기반 액세스 제어에 따라 다음 관리 작
 [Azure 검색 개발 워크플로]: ../search-workflow/
 [첫 Azure 검색 솔루션 만들기]: ../search-create-first-solution/
 
+
+<!--HONumber=46--> 

@@ -1,6 +1,21 @@
-<properties pageTitle=".NET 런타임 모바일 서비스를 사용하여 푸시 알림 허브 시작" description="Microsoft Azure .Net 런타임 모바일 서비스 및 알림 허브를 사용하여 Windows phone 앱에 푸시 알림을 보내는 방법에 대해 알아봅니다." services="mobile-services, notification-hubs" documentationCenter="windows" authors="wesmc7777" writer="wesmc" manager="dwrede" editor=""/>
+<properties 
+	pageTitle=".NET 런타임 모바일 서비스를 사용하여 푸시 알림 허브 시작" 
+	description="Microsoft Azure .Net 런타임 모바일 서비스 및 알림 허브를 사용하여 Windows phone 앱에 푸시 알림을 보내는 방법에 대해 알아봅니다." 
+	services="mobile-services, notification-hubs" 
+	documentationCenter="windows" 
+	authors="wesmc7777" 
+	Writer="wesmc" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-phone" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/23/2014" 
+	ms.author="wesmc"/>
 
 # 모바일 서비스 앱에 푸시 알림 추가
 
@@ -131,7 +146,7 @@
 
    	![][4]
 
-	>[AZURE.NOTE]이 자습서에서는 인증되지 않은 모드로 MPNS를 사용합니다. 이 모드에서 MPNS는 장치 채널로 전송할 수 있는 알림 수를 제한합니다. 이 제한을 제거하려면 <strong>업로드</strong>를 클릭하고 인증서를 선택하여 인증서를 생성 및 업로드해야 합니다. 인증서 생성에 대한 자세한 내용은 <a href="http://msdn.microsoft.com/ko-kr/library/windowsphone/develop/ff941099(v=vs.105).aspx">Windows Phone의 푸시 알림을 보내도록 인증된 웹 서비스 설정</a>을 참조하세요.
+	>[AZURE.NOTE]이 자습서에서는 인증되지 않은 모드로 MPNS를 사용합니다. 이 모드에서 MPNS는 장치 채널로 전송할 수 있는 알림 수를 제한합니다. 이 제한을 제거하려면 <strong>업로드</strong>를 클릭하고 인증서를 선택하여 인증서를 생성 및 업로드해야 합니다. 인증서 생성에 대한 자세한 내용은 <a href="http://msdn.microsoft.com/library/windowsphone/develop/ff941099(v=vs.105).aspx">Windows Phone의 푸시 알림을 보내도록 인증된 웹 서비스 설정</a>을 참조하세요.
 
 이렇게 하면 푸시 알림을 보낼 수 있도록 모바일 서비스가 인증되지 않은 모드에서 MPNS에 연결됩니다.
 
@@ -210,7 +225,7 @@
 
 
 [모바일 서비스 .NET 방법 개념 참조]: /ko-kr/documentation/articles/mobile-services-html-how-to-use-client-library
-[Windows Phone Silverlight 8.1 앱]: http://msdn.microsoft.com/ko-kr/library/windowsphone/develop/dn642082(v=vs.105).aspx
+[Windows Phone Silverlight 8.1 앱]: http://msdn.microsoft.com/library/windowsphone/develop/dn642082(v=vs.105).aspx
 [Azure 관리 포털]: https://manage.windowsazure.com/
 
 

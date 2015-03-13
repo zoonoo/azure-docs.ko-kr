@@ -1,7 +1,20 @@
-﻿<properties urlDisplayName="Visual Studio 14 CTP" pageTitle="Visual Studio 14 CTP2용 Azure SDK 2.4 설치" metaKeywords="Visual Studio, Azure SDK" description="Azure SDK 2.4 및 Visual Studio 14 CTP2 설치" metaCanonical="" services="" documentationCenter="" title="Installing Azure SDK 2.4 for Visual Studio 14 CTP" authors="ghogen" solutions="" manager="douge" editor="" />
+﻿<properties 
+	pageTitle="Visual Studio 14 CTP2용 Azure SDK 2.4 설치" 
+	description="Azure SDK 2.4 및 Visual Studio 14 CTP2 설치" 
+	services="visual-studio-online" 
+	documentationCenter=".net" 
+	authors="kempb" 
+	manager="douge" 
+	editor="tglee"/>
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="ghogen" />
-
+<tags 
+	ms.service="visual-studio-online" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="02/02/2015" 
+	ms.author="kempb"/>
 # Visual Studio "14" CTP용 Azure SDK 2.4 설치
 
 Visual Studio "14" CTP와 함께 Azure SDK 2.4 for .NET을 설치하려면 다음 단계를 따르세요. 이 절차에서는 Visual Studio "14" CTP와 함께 Azure 개발용 SDK, 기본 도구 및 확장 도구를 설치하며, 다른 버전의 Visual Studio에는 이 절차를 사용할 수 없습니다.
@@ -32,3 +45,5 @@ Azure SDK 2.4 for .NET을 설치하려면 다음 단계를 따르세요.
 ## 릴리스 정보
 
 Azure SDK 2.4에 대한 [릴리스 정보](http://go.microsoft.com/fwlink/?LinkId=507517)(영문)를 참조하세요.
+
+<!--HONumber=46--> 

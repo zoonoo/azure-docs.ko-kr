@@ -98,7 +98,7 @@ tomcat이 수신 대기하는 기본 포트 번호는 TCP 포트 8080입니다. 
 **SSH** 필드에서 SSH 연결의 포트 번호를 가져옵니다. 다음은 예제입니다.  
 ![][8]
  
-[여기](http://www.putty.org/)서 Putty를 다운로드합니다.  
+[여기](http://www.putty.org/) 에서 Putty를 다운로드합니다.  
 
 다운로드한 후 실행 파일 PUTTY.EXE를 클릭합니다. 가상 컴퓨터의 속성에서 가져온 호스트 이름과 포트 번호를 사용하여 기본 옵션을 구성합니다. 다음은 예제입니다.  
 ![][9]
@@ -243,7 +243,7 @@ Tomcat이 실행되고 있지만 브라우저에서 Tomcat 기본 페이지를 �
 
 			sudo vi /etc/default/tomcat7  
 
-		그런 다음 마지막 줄에 주석 처리를 제거하고 "아니요"를 "예"로 변경합니다.  
+		그런 다음 마지막 줄 주석 처리를 제거 하 고 "no"을 "yes"로 변경 합니다.
 
 			AUTHBIND=yes
 
@@ -254,7 +254,7 @@ Tomcat이 실행되고 있지만 브라우저에서 Tomcat 기본 페이지를 �
 			sudo yum  install w3m w3m-img
 			w3m http://localhost:8080  
 
--	**해결 방법** 
+-	**해결 방법**
 	1. Tomcat 수신 대기 포트가 가상 컴퓨터의 트래픽에 대한 끝점의 개인 포트와 다른 경우 개인 포트를 Tomcat 수신 대기 포트와 동일하게 변경해야 합니다.   
 	
 	2.	방화벽/iptables로 인해 문제가 발생한 경우 /etc/sysconfig/iptables에 다음 줄을 추가합니다.  
@@ -323,4 +323,5 @@ SFTP 클라이언트(예: FileZilla)를 사용하여 가상 컴퓨터에 연결�
 [16]: ./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-16.png
 [17]: ./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-17.png
 [18]: ./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-18.png
-<!--HONumber=45--> 
+
+<!--HONumber=42-->

@@ -23,7 +23,7 @@
 이 자습서에서는 SQL 데이터베이스를 통합하는 보안 ASP.NET 4.5 Web Forms 웹 앱을 빌드하고 응용 프로그램을 Azure에 배포하는 방법을 보여 줍니다. 
 
 >[AZURE.NOTE] 
-이 자습서의 MVC 버전에 대해서는 [Azure 웹 사이트에 멤버 자격, OAuth 및 SQL 데이터베이스를 포함한 보안 ASP.NET MVC 5 앱 배포](http://azure.microsoft.com/ko-kr/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/)를 참조하세요.
+이 자습서의 MVC 버전에 대해서는 [Azure 웹 사이트에 멤버 자격, OAuth 및 SQL 데이터베이스를 포함한 보안 ASP.NET MVC 5 앱 배포](http://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/)를 참조하세요.
 
 Azure 계정은 무료로 개설할 수 있으며, Visual Studio 2013이 아직 없는 경우 SDK에서 Web Express용 Visual Studio 2013을 자동으로 설치합니다. Azure용 개발을 무료로 시작할 수 있습니다.
 
@@ -783,7 +783,7 @@ ASP.NET ID를 사용하여 관리자 역할을 추가하고 해당 역할에 사
 3. **방화벽 규칙 추가** 대화 상자가 표시되면 **방화벽 규칙 추가**를 선택합니다.  
 
 	>[AZURE.NOTE]  
-	**SQL 데이터베이스**를 확장할 수 없고 Visual Studio에서 **ContactDB**를 볼 수 없는 경우 아래 지침에 따라 방화벽 포트나 포트 범위를 열어야 합니다. 이렇게 하려면 [MVC 자습서](http://azure.microsoft.com/ko-kr/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/) 끝에 있는 **Azure 방화벽 규칙 설정**의 지침을 따르세요. 또는 로컬로 응용 프로그램을 빌드 및 실행하고, 이 응용 프로그램에 데이터를 추가하여 로컬 데이터베이스의 데이터를 검토할 수 있습니다(Visual Studio에서 **Ctrl+F5**를 누름).  
+	**SQL 데이터베이스**를 확장할 수 없고 Visual Studio에서 **ContactDB**를 볼 수 없는 경우 아래 지침에 따라 방화벽 포트나 포트 범위를 열어야 합니다. 이렇게 하려면 [MVC 자습서](http://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/) 끝에 있는 **Azure 방화벽 규칙 설정**의 지침을 따르세요. 또는 로컬로 응용 프로그램을 빌드 및 실행하고, 이 응용 프로그램에 데이터를 추가하여 로컬 데이터베이스의 데이터를 검토할 수 있습니다(Visual Studio에서 **Ctrl+F5**를 누름).  
 
 4. **서버에 연결** 대화 상자가 표시되면 이 자습서의 앞부분에서 만든 **암호**를 입력하고 **연결** 단추를 누릅니다.  
 
@@ -809,9 +809,9 @@ ASP.NET ID를 사용하여 관리자 역할을 추가하고 해당 역할에 사
 사용자 및 역할 관리를 도와줄 도구를 개발 중입니다.  
 
 ##다음 단계
-ASP.NET Web Forms에 대해 자세한 내용은 ASP.NET 웹 사이트의 [ASP.NET Web Forms 알아보기](http://www.asp.net/web-forms) 및 [Microsoft Azure 자습서 및 가이드](http://azure.microsoft.com/ko-kr/documentation/services/web-sites/#net)를 참조하세요.
+ASP.NET Web Forms에 대해 자세한 내용은 ASP.NET 웹 사이트의 [ASP.NET Web Forms 알아보기](http://www.asp.net/web-forms) 및 [Microsoft Azure 자습서 및 가이드](http://azure.microsoft.com/documentation/services/web-sites/#net)를 참조하세요.
 
-이 자습서는 Rick Anderson(Twitter [@RickAndMSFT](https://twitter.com/RickAndMSFT))이 Tom Dykstra 및 Barry Dorrans(Twitter [@blowdart](https://twitter.com/blowdart))의 도움을 받아 작성한 MVC 자습서인 [Azure 웹 사이트에 멤버 자격, OAuth 및 SQL 데이터베이스를 포함한 보안 ASP.NET MVC 5 앱 배포](http://azure.microsoft.com/ko-kr/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/) 내용을 바탕으로 합니다. 
+이 자습서는 Rick Anderson(Twitter [@RickAndMSFT](https://twitter.com/RickAndMSFT))이 Tom Dykstra 및 Barry Dorrans(Twitter [@blowdart](https://twitter.com/blowdart))의 도움을 받아 작성한 MVC 자습서인 [Azure 웹 사이트에 멤버 자격, OAuth 및 SQL 데이터베이스를 포함한 보안 ASP.NET MVC 5 앱 배포](http://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/) 내용을 바탕으로 합니다. 
 
 자습서 자체뿐 아니라 설명된 제품과 관련해서 마음에 드는 사항이나 바라는 개선 사항에 대한 의견을 남겨주세요. 사용자 의견은 개선 사항의 우선 순위를 지정하는 데 도움이 됩니다. [코드 사용 방법 보기](http://aspnet.uservoice.com/forums/228522-show-me-how-with-code)에서 새 항목을 요청하고 투표할 수도 있습니다.
 

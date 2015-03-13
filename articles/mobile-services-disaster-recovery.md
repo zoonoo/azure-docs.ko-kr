@@ -1,6 +1,20 @@
-﻿<properties pageTitle="재해가 발생한 경우 모바일 서비스 복구 - Azure 모바일 서비스" description="재해가 발생한 경우 모바일 서비스를 복구하는 방법에 대해 알아봅니다." services="mobile-services" documentationCenter="" authors="brettsam" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="재해가 발생한 경우 모바일 서비스 복구 - Azure 모바일 서비스" 
+	description="재해가 발생한 경우 모바일 서비스를 복구하는 방법에 대해 알아봅니다." 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="brettsam" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/11/2014" ms.author="brettsam"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/11/2014" 
+	ms.author="brettsam"/>
 
 # 재해가 발생한 경우 모바일 서비스 복구
 
@@ -73,14 +87,14 @@ Azure 모바일 서비스를 사용하여 앱을 배포하는 경우 서버 오�
 <!-- Images. -->
 
 <!-- URLs. -->
-[SQL 데이터베이스 비즈니스 연속성 지침]: http://msdn.microsoft.com/ko-kr/library/windowsazure/hh852669.aspx
+[SQL 데이터베이스 비즈니스 연속성 지침]: http://msdn.microsoft.com/library/windowsazure/hh852669.aspx
 [Team Foundation Service]: http://tfs.visualstudio.com/
 
-[소스 제어 기능]: http://www.windowsazure.com/ko-kr/develop/mobile/tutorials/store-scripts-in-source-control/
-[Azure 명령줄 도구 사용]: http://www.windowsazure.com/ko-kr/develop/mobile/tutorials/command-line-administration/
+[소스 제어 기능]: http://azure.microsoft.com/develop/mobile/tutorials/store-scripts-in-source-control/
+[Azure 명령줄 도구 사용]: http://azure.microsoft.com/develop/mobile/tutorials/command-line-administration/
 [Azure 포털]: http://manage.windowsazure.com/
-[Azure 서비스 대시보드]: http://www.windowsazure.com/ko-kr/support/service-dashboard/
-[명령줄 도구를 사용하여 모바일 서비스 자동화]: http://www.windowsazure.com/ko-kr/develop/mobile/tutorials/command-line-administration/
+[Azure 서비스 대시보드]: http://azure.microsoft.com/support/service-dashboard/
+[명령줄 도구를 사용하여 모바일 서비스 자동화]: http://azure.microsoft.com/develop/mobile/tutorials/command-line-administration/
 
 
 <!--HONumber=42-->

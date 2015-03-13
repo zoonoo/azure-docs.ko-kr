@@ -1,6 +1,20 @@
-<properties urlDisplayName="Caching" pageTitle="In-Role Cache 사용 방법(.NET) - Azure 기능 가이드" metaKeywords="Azure cache, Azure caching, Azure cache, Azure caching, Azure store session state, Azure cache .NET, Azure cache C#" description="Azure 역할 내 캐시를 사용 하는 방법에 알아봅니다. 샘플은 C# 코드로 작성되었고 .NET API를 사용합니다." metaCanonical="" services="cache" documentationCenter=".NET" title="How to Use In-Role Cache for Azure Cache" authors="sdanie" solutions="" manager="dwrede" editor="" />
+﻿<properties 
+	pageTitle="In-Role Cache 사용 방법(.NET) - Azure 기능 가이드" 
+	description="Azure In-Role Cache를 사용하는 방법에 대해 알아봅니다. 샘플은 C# 코드로 작성되었고 .NET API를 사용합니다." 
+	services="cache" 
+	documentationCenter=".net" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="cache" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/18/2014" ms.author="sdanie" />
+<tags 
+	ms.service="cache" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="11/18/2014" 
+	ms.author="sdanie"/>
 
 
 
@@ -394,26 +408,28 @@ In-Role Cache에 출력 캐시 공급자를 사용하는 방법에 대한 자세
   
 <!-- LINKS -->
 [가상 컴퓨터 크기를 구성하는 방법]: http://go.microsoft.com/fwlink/?LinkId=164387
-[방법: 프로그래밍 방식으로 캐시 클라이언트 구성]: http://msdn.microsoft.com/ko-kr/library/windowsazure/gg618003.aspx
-[방법: 프로그래밍 방식으로 페이지의 캐시 가능성 설정]: http://msdn.microsoft.com/ko-kr/library/z852zf6b.aspx
-[방법: 선언적으로 ASP.NET 페이지의 캐시 가능성 설정]: http://msdn.microsoft.com/ko-kr/library/zd1ysf1y.aspx
+[방법: 프로그래밍 방식으로 캐시 클라이언트 구성]: http://msdn.microsoft.com/library/windowsazure/gg618003.aspx
+[방법: 프로그래밍 방식으로 페이지의 캐시 가능성 설정]: http://msdn.microsoft.com/library/z852zf6b.aspx
+[방법: 선언적으로 ASP.NET 페이지의 캐시 가능성 설정]: http://msdn.microsoft.com/library/zd1ysf1y.aspx
 [In-Role Cache 용량 계획 고려 사항]: http://go.microsoft.com/fwlink/?LinkId=252651
-[In-Role Cache 샘플]: http://msdn.microsoft.com/ko-kr/library/jj189876.aspx
+[In-Role Cache 샘플]: http://msdn.microsoft.com/library/jj189876.aspx
 [In-Role Cache]: http://go.microsoft.com/fwlink/?LinkId=252658
 [In-Role Cache]: http://www.microsoft.com/ko-kr/showcase/Search.aspx?phrase=azure+caching
 [최대 성능: Azure 캐싱으로 클라우드 서비스 응용 프로그램 가속화]: http://channel9.msdn.com/Events/TechEd/NorthAmerica/2013/WAD-B326#fbid=kmrzkRxQ6gU
-[In-Role Cache로 마이그레이션]: http://msdn.microsoft.com/ko-kr/library/hh914163.aspx
+[In-Role Cache로 마이그레이션]: http://msdn.microsoft.com/library/hh914163.aspx
 [NuGet 패키지 관리자 설치]: http://go.microsoft.com/fwlink/?LinkId=240311
-[In-Role Cache용 출력 캐시 공급자]: http://msdn.microsoft.com/ko-kr/library/windowsazure/gg185662.aspx
+[In-Role Cache용 출력 캐시 공급자]: http://msdn.microsoft.com/library/windowsazure/gg185662.aspx
 [OutputCache 지시문]: http://go.microsoft.com/fwlink/?LinkId=251979
 [In-Role Cache 개요]: http://go.microsoft.com/fwlink/?LinkId=254172
-[In-Role Cache용 세션 상태 공급자]: http://msdn.microsoft.com/ko-kr/library/windowsazure/gg185668.aspx
+[In-Role Cache용 세션 상태 공급자]: http://msdn.microsoft.com/library/windowsazure/gg185668.aspx
 [팀 블로그]: http://blogs.msdn.com/b/windowsazure/
-[In-Role Cache 문제 해결 및 진단]: http://msdn.microsoft.com/ko-kr/library/windowsazure/hh914135.aspx
+[In-Role Cache 문제 해결 및 진단]: http://msdn.microsoft.com/library/windowsazure/hh914135.aspx
 [Azure AppFabric 캐시: 캐싱 세션 상태]: http://www.microsoft.com/ko-kr/showcase/details.aspx?uuid=87c833e9-97a9-42b2-8bb1-7601f9b5ca20
 [Azure 관리 포털]: http://windows.azure.com/
-[Azure 공유 캐싱]: http://msdn.microsoft.com/ko-kr/library/windowsazure/gg278356.aspx
+[Azure 공유 캐싱]: http://msdn.microsoft.com/library/windowsazure/gg278356.aspx
 
-[내게 적합한 Azure 캐시 기능]: http://msdn.microsoft.com/ko-kr/library/azure/dn766201.aspx
+[내게 적합한 Azure 캐시 기능]: http://msdn.microsoft.com/library/azure/dn766201.aspx
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

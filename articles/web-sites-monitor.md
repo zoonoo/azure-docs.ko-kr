@@ -61,7 +61,7 @@
 	-	**파일 시스템 저장소** - 이 할당량에 도달하면 읽기 작업 중에는 파일 시스템 저장소에 액세스할 수 있지만 정상적인 웹 사이트를 활동에 필요한 작업을 비롯한 모든 쓰기 작업 중에는 파일 시스템 저장소가 차단됩니다. 파일 사용량을 줄이거나 웹 사이트를 할당량이 더 높은 웹 호스팅 계획으로 전환하면 쓰기 작업이 다시 시작됩니다.
 	-	**연결된 리소스** - 데이터베이스 또는 저장소와 같은 웹 사이트의 연결된 리소스 할당량도 여기에 표시됩니다.
 
-	일부 할당량은 웹 호스팅 계획을 기준으로 적용할 수 있지만 사이트 기준으로 적용할 수 있는 할당량도 있습니다. 각 웹 호스팅 계획의 사용 할당량에 대한 자세한 내용은 [웹 사이트 제한](http://azure.microsoft.com/ko-kr/documentation/articles/azure-subscription-service-limits/#websiteslimits)을 참조하세요.
+	일부 할당량은 웹 호스팅 계획을 기준으로 적용할 수 있지만 사이트 기준으로 적용할 수 있는 할당량도 있습니다. 각 웹 호스팅 계획의 사용 할당량에 대한 자세한 내용은 [웹 사이트 제한](http://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/#websiteslimits)을 참조하세요.
 
 
 ##<a name="resourceusage"></a>방법: 할당량을 초과하지 않기
@@ -106,7 +106,7 @@ Azure 저장소 계정에 대한 자세한 내용은 [저장소 계정을 관리
 
 > [AZURE.NOTE] Azure PowerShell에서 **Set-AzureWebsite** cmdlet을 사용해서도 진단을 사용하도록 설정할 수 있습니다.
 > 
-> Azure PowerShell을 설치하지 않았거나 Azure 구독을 사용하도록 Azure PowerShell을 구성하지 않은 경우 [Azure PowerShell 사용 방법](http://www.windowsazure.com/ko-kr/develop/nodejs/how-to-guides/powershell-cmdlets/)을 참조하세요.
+> Azure PowerShell을 설치하지 않았거나 Azure 구독을 사용하도록 Azure PowerShell을 구성하지 않은 경우 [Azure PowerShell 사용 방법](http://azure.microsoft.com/develop/nodejs/how-to-guides/powershell-cmdlets/)을 참조하세요.
 
 > [AZURE.NOTE] 응용 프로그램 로깅은 응용 프로그램에서 생성되는 로그 정보를 사용합니다. 로그 정보뿐 아니라 정보의 형식을 생성하는 데 사용되는 메서드는 응용 프로그램을 작성한 언어에 따라 달라집니다. 응용 프로그램 로깅 사용에 대한 언어별 정보에 대해서는 다음 문서를 참조하세요.
 > 
@@ -173,7 +173,7 @@ Azure 저장소 계정에 대한 자세한 내용은 [저장소 계정을 관리
 
 1. **시작 화면** 또는 **시작 메뉴**에서 **Azure PowerShell**을 검색합니다. **Azure PowerShell** 항목을 을 마우스 오른쪽 단추로 클릭하고 **관리자 권한으로 실행**을 선택합니다.
 
-	> [AZURE.NOTE] **Azure PowerShell**이 아직 설치되지 않은 경우 설치 및 구성 정보에 대해서는 [Azure PowerShell Cmdlet 시작](http://msdn.microsoft.com/ko-kr/library/windowsazure/jj554332.aspx)을 참조하세요.
+	> [AZURE.NOTE] **Azure PowerShell**이 아직 설치되지 않은 경우 설치 및 구성 정보에 대해서는 [Azure PowerShell Cmdlet 시작](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx)을 참조하세요.
 
 2. Azure PowerShell 프롬프트에서 다음 명령을 사용하여 로그 파일을 다운로드합니다.
 
@@ -201,7 +201,7 @@ Azure 저장소 계정에 대한 자세한 내용은 [저장소 계정을 관리
 
 명령이 실행된 명령 프롬프트, PowerShell, bash 또는 터미널 세션에 로그 정보가 표시됩니다.
 
-> [AZURE.NOTE] **azure** 명령이 설치되지 않은 경우 설치 및 구성 정보에 대해서는 [Azure 명령줄 도구를 사용하는 방법](http://www.windowsazure.com/ko-kr/develop/nodejs/how-to-guides/command-line-tools/)을 참조하세요.
+> [AZURE.NOTE] **azure** 명령이 설치되지 않은 경우 설치 및 구성 정보에 대해서는 [Azure 명령줄 도구를 사용하는 방법](http://azure.microsoft.com/develop/nodejs/how-to-guides/command-line-tools/)을 참조하세요.
 
 ###로그 파일 읽기###
 
@@ -276,9 +276,9 @@ Azure 저장소 계정에 대한 자세한 내용은 [저장소 계정을 관리
 
 웹 사이트 끝점 모니터링에 대한 자세한 내용은 다음 비디오를 참조하세요.
 
-- [스캇 거트리(Scott Guthrie)의 Azure 웹 사이트 소개 및 끝점 모니터링 설정](http://www.windowsazure.com/ko-kr/documentation/videos/websites-and-endpoint-monitoring-scottgu/)
+- [스캇 거트리(Scott Guthrie)의 Azure 웹 사이트 소개 및 끝점 모니터링 설정](http://azure.microsoft.com/documentation/videos/websites-and-endpoint-monitoring-scottgu/)
 
-- [Azure 웹 사이트 가동 및 끝점 모니터링 - 스테판 스차코우(Stefan Schackow)](http://www.windowsazure.com/ko-kr/documentation/videos/azure-web-sites-endpoint-monitoring-and-staying-up/)
+- [Azure 웹 사이트 가동 및 끝점 모니터링 - 스테판 스차코우(Stefan Schackow)](http://azure.microsoft.com/documentation/videos/azure-web-sites-endpoint-monitoring-and-staying-up/)
 
 
 

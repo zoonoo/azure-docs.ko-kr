@@ -288,18 +288,18 @@ Web.config 파일을 편집하는 방법은 문제를 더 쉽게 해결할 수 �
           <httpRuntime targetFramework="4.5" />
         </system.web>
 
-* 디버거에서 디버그하려는 코드가 단계별로 실행되지 않는 경우 "내 코드만" 설정을 변경해야 할 수 있습니다.  자세한 내용은 [단계별 코드 실행을 내 코드만으로 제한](http://msdn.microsoft.com/ko-kr/library/vstudio/y740d9d3.aspx#BKMK_Restrict_stepping_to_Just_My_Code)을 참조하세요.
+* 디버거에서 디버그하려는 코드가 단계별로 실행되지 않는 경우 "내 코드만" 설정을 변경해야 할 수 있습니다.  자세한 내용은 [단계별 코드 실행을 내 코드만으로 제한](http://msdn.microsoft.com/library/vstudio/y740d9d3.aspx#BKMK_Restrict_stepping_to_Just_My_Code)을 참조하세요.
 
 * 원격 디버깅 기능을 사용하도록 설정하면 서버의 타이머가 시작되고 48시간 후 기능이 자동으로 꺼집니다. 이 48시간 제한은 보안 및 성능상의 이유로 제한됩니다. 원하는 횟수만큼 기능을 쉽게 다시 켤 수 있습니다. 디버깅을 활발히 사용하지 않는 경우 이를 사용하지 않는 상태로 두는 것이 좋습니다.
 
-* 웹 사이트 프로세스(w3wp.exe)뿐만 아니라 모든 프로세스에 디버거를 수동으로 연결할 수 있습니다. Visual Studio에서 디버그 모드를 사용하는 방법에 대한 자세한 내용은 [Visual Studio의 디버깅](http://msdn.microsoft.com/ko-kr/library/vstudio/sc65sadd.aspx)을 참조하세요.
+* 웹 사이트 프로세스(w3wp.exe)뿐만 아니라 모든 프로세스에 디버거를 수동으로 연결할 수 있습니다. Visual Studio에서 디버그 모드를 사용하는 방법에 대한 자세한 내용은 [Visual Studio의 디버깅](http://msdn.microsoft.com/library/vstudio/sc65sadd.aspx)을 참조하세요.
 
 <h2><a name="logsoverview"></a>진단 로그 개요</h2>
 
 Azure 웹 사이트에서 실행하는 ASP.NET 응용 프로그램은 다음과 같은 종류의 로그를 생성할 수 있습니다.
 
 * **응용 프로그램 추적 로그**<br/>
-  응용 프로그램은 [System.Diagnostics.Trace](http://msdn.microsoft.com/ko-kr/library/system.diagnostics.trace.aspx) 클래스의 메서드를 호출하여 추적 로그를 생성합니다.
+  응용 프로그램은 [System.Diagnostics.Trace](http://msdn.microsoft.com/library/system.diagnostics.trace.aspx) 클래스의 메서드를 호출하여 추적 로그를 생성합니다.
 * **웹 서버 로그**<br/>
   웹 서버는 사이트에 대한 모든 HTTP 요청에 대해 로그 항목을 생성합니다.
 * **자세한 오류 메시지 로그**<br/>
@@ -394,7 +394,7 @@ WebJob에서 응용 프로그램을 만드는 방법에 대한 자세한 내용�
 
 	 `WebPageTraceListener`를 사용하면  `/trace.axd`로 이동하여 추적 출력을 확인할 수 있습니다.
 
-3. Web.config 파일의 `<system.web>` 아래에 <a href="http://msdn.microsoft.com/ko-kr/library/vstudio/6915t83k(v=vs.100).aspx">trace 요소</a>를 다음 예와 같이 추가합니다.
+3. Web.config 파일의 `<system.web>` 아래에 <a href="http://msdn.microsoft.com/library/vstudio/6915t83k(v=vs.100).aspx">trace 요소</a>를 다음 예와 같이 추가합니다.
 
 		<trace enabled="true" writeToDiagnosticsTrace="true" mostRecent="true" pageOutput="false" />
 
@@ -638,7 +638,7 @@ WebJob에서 응용 프로그램을 만드는 방법에 대한 자세한 내용�
 
 	![Storage logs in table view](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-tracelogtableview.png)
 
-	이 보기에는 다른 보기에서 볼 수 없는 추가 필드가 표시됩니다. 이 보기에서는 또한 쿼리를 작성하는 특수 쿼리 작성기 UI를 사용하여 로그를 필터링할 수 있습니다. 자세한 내용은 [서버 탐색기를 사용하여 저장소 리소스 탐색](http://msdn.microsoft.com/ko-kr/library/windowsazure/ff683677.aspx)에서 "테이블 리소스 사용 - 엔터티 필터링"을 참조하세요.
+	이 보기에는 다른 보기에서 볼 수 없는 추가 필드가 표시됩니다. 이 보기에서는 또한 쿼리를 작성하는 특수 쿼리 작성기 UI를 사용하여 로그를 필터링할 수 있습니다. 자세한 내용은 [서버 탐색기를 사용하여 저장소 리소스 탐색](http://msdn.microsoft.com/library/windowsazure/ff683677.aspx)에서 "테이블 리소스 사용 - 엔터티 필터링"을 참조하세요.
 
 7. 단일 행에 대한 세부 정보를 보려면 행 중 하나를 두 번 클릭합니다.
 
@@ -727,7 +727,7 @@ Azure 웹 사이트(WAWS) 문제 해결에 대한 자세한 내용은 다음 리
 
 ### Visual Studio의 디버깅 
 
-Visual Studio에서 디버그 모드를 사용하는 방법에 대한 자세한 내용은 [Visual Studio의 디버깅](http://msdn.microsoft.com/ko-kr/library/vstudio/sc65sadd.aspx) MSDN 항목과 [Visual Studio 2010을 사용한 디버깅 팁](http://weblogs.asp.net/scottgu/archive/2010/08/18/debugging-tips-with-visual-studio-2010.aspx)을 참조하세요.
+Visual Studio에서 디버그 모드를 사용하는 방법에 대한 자세한 내용은 [Visual Studio의 디버깅](http://msdn.microsoft.com/library/vstudio/sc65sadd.aspx) MSDN 항목과 [Visual Studio 2010을 사용한 디버깅 팁](http://weblogs.asp.net/scottgu/archive/2010/08/18/debugging-tips-with-visual-studio-2010.aspx)을 참조하세요.
 
 ### Azure에서 원격 디버깅
 
@@ -746,14 +746,14 @@ Azure 웹 사이트 및 WebJob의 원격 디버깅에 대한 자세한 내용은
 
 * [모니터링 및 원격 분석(Azure에서 실제 클라우드 앱 빌드)](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry)<br> 
   Azure 클라우드 응용 프로그램에서 추적을 권장하는 전자책의 한 챕터
-* [ASP.NET 추적](http://msdn.microsoft.com/ko-kr/library/ms972204.aspx)<br/>
+* [ASP.NET 추적](http://msdn.microsoft.com/library/ms972204.aspx)<br/>
   오래된 자료이지만 추적의 기초를 소개하는 여전히 유용한 리소스입니다.
-* [추적 수신기](http://msdn.microsoft.com/ko-kr/library/4y5y10s7.aspx)<br/>
-  추적 수신기에 대한 정보를 제공하지만 [WebPageTraceListener](http://msdn.microsoft.com/ko-kr/library/system.web.webpagetracelistener.aspx)는 언급되지 않았습니다.
-* [연습: ASP.NET 추적을 System.Diagnostics 추적과 통합](http://msdn.microsoft.com/ko-kr/library/b0ectfxd.aspx)<br/>
+* [추적 수신기](http://msdn.microsoft.com/library/4y5y10s7.aspx)<br/>
+  추적 수신기에 대한 정보를 제공하지만 [WebPageTraceListener](http://msdn.microsoft.com/library/system.web.webpagetracelistener.aspx)는 언급되지 않았습니다.
+* [연습: ASP.NET 추적을 System.Diagnostics 추적과 통합](http://msdn.microsoft.com/library/b0ectfxd.aspx)<br/>
   이 자료도 오래되었지만 소개 자료에서 다루지 않은 일부 추가 정보가 포함되어 있습니다.
 * [ASP.NET MVC Razor 뷰에서 추적](http://blogs.msdn.com/b/webdev/archive/2013/07/16/tracing-in-asp-net-mvc-razor-views.aspx)<br/>
-  Razor 뷰의 추적 정보와 더불어, MVC 응용 프로그램의 처리되지 않은 모든 예외를 기록할 수 있도록 오류 필터를 만드는 방법을 설명하는 게시물입니다. Web Forms 응용 프로그램의 처리되지 않은 모든 예외를 기록하는 방법에 대한 자세한 내용은 MSDN의 [오류 처리기의 전체 예제](http://msdn.microsoft.com/ko-kr/library/bb397417.aspx)에서 Global.asax를 참조하세요. MVC 또는 Web Forms 중 하나에서 특정 예외를 기록하되 기본 프레임워크 처리 방식은 그대로 적용하려면 다음 예와 같이 해당 오류를 catch한 후 다시 throw하면 됩니다.
+  Razor 뷰의 추적 정보와 더불어, MVC 응용 프로그램의 처리되지 않은 모든 예외를 기록할 수 있도록 오류 필터를 만드는 방법을 설명하는 게시물입니다. Web Forms 응용 프로그램의 처리되지 않은 모든 예외를 기록하는 방법에 대한 자세한 내용은 MSDN의 [오류 처리기의 전체 예제](http://msdn.microsoft.com/library/bb397417.aspx)에서 Global.asax를 참조하세요. MVC 또는 Web Forms 중 하나에서 특정 예외를 기록하되 기본 프레임워크 처리 방식은 그대로 적용하려면 다음 예와 같이 해당 오류를 catch한 후 다시 throw하면 됩니다.
 
         try
         {
@@ -767,7 +767,7 @@ Azure 웹 사이트 및 WebJob의 원격 디버깅에 대한 자세한 내용은
 
 * [Azure 명령줄에서 진단 추적 로깅 스트리밍(Glimpse 포함)](http://www.hanselman.com/blog/StreamingDiagnosticsTraceLoggingFromTheAzureCommandLinePlusGlimpse.aspx)<br/>
   이 자습서에서 설명한 Visual Studio 관련 작업을 명령줄로 수행하는 방법을 설명합니다. [Glimpse](http://www.hanselman.com/blog/IfYoureNotUsingGlimpseWithASPNETForDebuggingAndProfilingYoureMissingOut.aspx)는 ASP.NET 응용 프로그램을 디버그하는 데 사용하는 도구입니다. 
-* [David Ebbo와 함께 하는 Azure 웹 사이트 로깅 및 진단](http://www.windowsazure.com/ko-kr/documentation/videos/azure-web-site-logging-and-diagnostics/) 및 [David Ebbo와 함께 하는 Azure 웹 사이트에서 로그 스트리밍](http://www.windowsazure.com/ko-kr/documentation/videos/log-streaming-with-azure-web-sites/)<br>
+* [David Ebbo와 함께 하는 Azure 웹 사이트 로깅 및 진단](http://azure.microsoft.com/documentation/videos/azure-web-site-logging-and-diagnostics/) 및 [David Ebbo와 함께 하는 Azure 웹 사이트에서 로그 스트리밍](http://azure.microsoft.com/documentation/videos/log-streaming-with-azure-web-sites/)<br>
   Scott Hanselman과 David Ebbo가 제작한 동영상입니다.
 
 오류 로깅과 관련하여, 사용자 자신의 추적 코드를 기록하는 또 다른 방법은 [ELMAH](http://nuget.org/packages/elmah/) 같은 오픈 소스 로깅 프레임워크를 사용하는 것입니다. 자세한 내용은 [Scott Hanselman의 ELMAH 관련 블로그 게시물](http://www.hanselman.com/blog/NuGetPackageOfTheWeek7ELMAHErrorLoggingModulesAndHandlersWithSQLServerCompact.aspx)을 참조하세요.
@@ -791,7 +791,7 @@ Microsoft TechNet 웹 사이트에 포함된 [실패한 요청 추적 사용](ht
 
 ### 클라우드 서비스 디버깅
 
-웹 사이트가 아닌 Azure 클라우드 서비스를 디버그하려면 [클라우드 서비스 디버깅](http://msdn.microsoft.com/ko-kr/library/windowsazure/ee405479.aspx)을 참조하세요.
+웹 사이트가 아닌 Azure 클라우드 서비스를 디버그하려면 [클라우드 서비스 디버깅](http://msdn.microsoft.com/library/windowsazure/ee405479.aspx)을 참조하세요.
 
 
 

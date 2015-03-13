@@ -1,6 +1,21 @@
-﻿<properties urlDisplayName="Working with Node.js Modules" pageTitle="Node.js 모듈 작업" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="nodejs" title="Using Node.js Modules with Azure applications" authors="larryfr" solutions="" manager="wpickett" editor="mollybos" />
+<properties 
+	pageTitle="Node.js 모듈 작업" 
+	description="" 
+	services="" 
+	documentationCenter="nodejs" 
+	title="Using Node.js Modules with Azure applications" 
+	authors="larryfr" 
+	manager="wpickett" 
+	editor="mollybos" />
 
-<tags ms.service="na" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
+<tags 
+	ms.service="na" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="nodejs" 
+	ms.topic="article" 
+	ms.date="09/17/2014" 
+	ms.author="larryfr" />
 
 
 
@@ -83,3 +98,5 @@ Azure에서 Node.js 모듈을 사용하는 방법을 익혔습니다. 이제 [No
 [Azure 클라우드 서비스에서 Node.js 응용 프로그램 빌드 및 배포]: /ko-kr/documentation/articles/cloud-services-nodejs-develop-deploy-app/
 
 
+
+<!--HONumber=46--> 

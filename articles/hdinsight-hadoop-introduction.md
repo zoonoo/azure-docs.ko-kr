@@ -123,7 +123,7 @@ MapReduce에 대한 자세한 내용은 <a target="_blank" href="http://wiki.apa
 * <a target="_blank" href="http://www.microsoft.com/ko-kr/download/details.aspx?id=39379">Microsoft Excel용 파워 쿼리 다운로드</a> 
 * <a target="_blank" href="http://www.microsoft.com/ko-kr/download/details.aspx?id=40886">Microsoft Hive ODBC 드라이버 다운로드</a>
 * <a target="_blank" href="http://www.microsoft.com/ko-kr/server-cloud/solutions/business-intelligence/analysis.aspx">SQL Server Analysis Services에 대해 자세히 알아보기</a>
-* <a target="_blank" href="http://msdn.microsoft.com/ko-kr/library/ms159106.aspx">SQL Server Reporting Services에 대해 알아보기</a>
+* <a target="_blank" href="http://msdn.microsoft.com/library/ms159106.aspx">SQL Server Reporting Services에 대해 알아보기</a>
 
 ## <a name="advantage"></a>클라우드에서 Hadoop이 제공하는 이점
 
@@ -166,9 +166,9 @@ HDInsight에서 Hadoop을 사용해 보려면 [HDInsight 설명서 페이지](..
 
 ### Azure의 SQL 데이터베이스	
 		
-* [Azure SQL 데이터베이스](http://msdn.microsoft.com/ko-kr/library/windowsazure/ee336279.aspx): SQL 데이터베이스용 MSDN 설명서입니다.
+* [Azure SQL 데이터베이스](http://msdn.microsoft.com/library/windowsazure/ee336279.aspx): SQL 데이터베이스용 MSDN 설명서입니다.
 	
-* [SQL 데이터베이스용 관리 포털](http://msdn.microsoft.com/ko-kr/library/windowsazure/gg442309.aspx): 클라우드에서 SQL 데이터베이스를 관리하기 위한 간단하고 사용하기 쉬운 데이터베이스 관리 도구입니다.
+* [SQL 데이터베이스용 관리 포털](http://msdn.microsoft.com/library/windowsazure/gg442309.aspx): 클라우드에서 SQL 데이터베이스를 관리하기 위한 간단하고 사용하기 쉬운 데이터베이스 관리 도구입니다.
 
 * [SQL 데이터베이스용 Adventure Works](http://msftdbprodsamples.codeplex.com/releases/view/37304): SQL 데이터베이스 샘플 데이터베이스를 위한 다운로드 페이지입니다.	
 
@@ -194,5 +194,4 @@ HDInsight에서 Hadoop을 사용해 보려면 [HDInsight 설명서 페이지](..
 [component-versioning]: ../hdinsight-component-versioning/
 
 [zookeeper]: http://zookeeper.apache.org/ 
-
 <!--HONumber=42-->

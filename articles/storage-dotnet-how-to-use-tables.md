@@ -56,7 +56,7 @@
 <h3>어셈블리 가져오기</h3>
 NuGet을 사용하여  `Microsoft.WindowsAzure.Storage.dll` 어셈블리를 가져올 수 있습니다. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 선택합니다.  온라인에서 "WindowsAzure.Storage"를 검색하고 **설치**를 클릭하여 Azure 저장소 패키지 및 종속성을 설치합니다.
 
-`Microsoft.WindowsAzure.Storage.dll`은 <a href="http://www.windowsazure.com/ko-kr/develop/net/#">.NET 개발자 센터</a>에서 다운로드할 수 있는 Azure SDK for .NET에도 포함되어 있습니다. 이 어셈블리는  `%Program Files%\Microsoft SDKs\Windows Azure\.NET SDK\<sdk-version>\ref\` 디렉터리에 설치됩니다.
+`Microsoft.WindowsAzure.Storage.dll`은 <a href="http://azure.microsoft.com/develop/net/#">.NET 개발자 센터</a>에서 다운로드할 수 있는 Azure SDK for .NET에도 포함되어 있습니다. 이 어셈블리는  `%Program Files%\Microsoft SDKs\Windows Azure\.NET SDK\<sdk-version>\ref\` 디렉터리에 설치됩니다.
 
 <h3>네임스페이스 선언</h3>
 프로그래밍 방식으로 Azure 저장소에 액세스하려는 C\# 파일의 맨 위에 다음과 같은 코드 네임스페이스 선언을 추가합니다.
@@ -434,10 +434,10 @@ Storage Client Library for .NET의 ODataLib 종속성은 WCF 데이터 서비스
   <ul>
     <li><a href="http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409">Storage Client Library for .NET 참조</a>
     </li>
-    <li><a href="http://msdn.microsoft.com/ko-kr/library/windowsazure/dd179355">REST API 참조</a></li>
+    <li><a href="http://msdn.microsoft.com/library/windowsazure/dd179355">REST API 참조</a></li>
   </ul>
 </li>
-<li>Azure 저장소를 사용하여 수행할 수 있는 고급 작업에 대한 자세한 내용은 <a href="http://msdn.microsoft.com/ko-kr/library/windowsazure/gg433040.aspx">Azure에 데이터 저장 및 액세스</a>를 참조하세요.</li>
+<li>Azure 저장소를 사용하여 수행할 수 있는 고급 작업에 대한 자세한 내용은 <a href="http://msdn.microsoft.com/library/windowsazure/gg433040.aspx">Azure에 데이터 저장 및 액세스</a>를 참조하세요.</li>
 <li><a href="../websites-dotnet-webjobs-sdk/">Azure WebJobs SDK를 사용하여 Azure 저장소에서 작동하도록 작성하는 코드를 간소화하는 방법을 알아보세요.</li>
 <li>Azure에 데이터를 저장하기 위한 추가 옵션에 대한 자세한 내용은 추가 기능 가이드를 참조하세요.
   <ul>
@@ -468,7 +468,7 @@ Storage Client Library for .NET의 ODataLib 종속성은 WCF 데이터 서비스
   [방법: 엔터티 삭제]: #delete-entity
   [방법: 테이블 삭제]: #delete-table
   [Azure SDK for .NET 다운로드 및 설치]: /ko-kr/develop/net/
-  [Visual Studio에서 Azure 프로젝트 만들기]: http://msdn.microsoft.com/ko-kr/library/windowsazure/ee405487.aspx
+  [Visual Studio에서 Azure 프로젝트 만들기]: http://msdn.microsoft.com/library/windowsazure/ee405487.aspx
   
   [Blob5]: ./media/storage-dotnet-how-to-use-table-storage/blob5.png
   [Blob6]: ./media/storage-dotnet-how-to-use-table-storage/blob6.png
@@ -478,11 +478,10 @@ Storage Client Library for .NET의 ODataLib 종속성은 WCF 데이터 서비스
   
   [블로그 게시물]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
   [.NET 클라이언트 라이브러리 참조]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
-  [Azure에서 데이터 저장 및 액세스]: http://msdn.microsoft.com/ko-kr/library/windowsazure/gg433040.aspx
+  [Azure에서 데이터 저장 및 액세스]: http://msdn.microsoft.com/library/windowsazure/gg433040.aspx
   [Azure 저장소 팀 블로그]: http://blogs.msdn.com/b/windowsazurestorage/
-  [연결 문자열 구성]: http://msdn.microsoft.com/ko-kr/library/windowsazure/ee758697.aspx
+  [연결 문자열 구성]: http://msdn.microsoft.com/library/windowsazure/ee758697.aspx
   [OData]: http://nuget.org/packages/Microsoft.Data.OData/5.0.2
   [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
-
 <!--HONumber=42-->

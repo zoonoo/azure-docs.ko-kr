@@ -1,6 +1,20 @@
-﻿<properties title="Download the Azure SDK for PHP" pageTitle="PHP용 Azure SDK 다운로드" metaKeywords="" description="Azure SDK for PHP를 다운로드하여 설치하는 방법에 대해 알아봅니다." documentationCenter="PHP" services="" solutions="web" authors="tomfitz" manager="wpickett" />
+﻿<properties 
+	pageTitle="PHP용 Azure SDK 다운로드" 
+	description="Azure SDK for PHP를 다운로드하여 설치하는 방법에 대해 알아봅니다." 
+	documentationCenter="php" 
+	services="" 
+	authors="tfitzmac" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="10/21/2014" ms.author="tomfitz" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="PHP" 
+	ms.topic="article" 
+	ms.date="2/5/2015" 
+	ms.author="tomfitz"/>
 
 #PHP용 Azure SDK 다운로드
 
@@ -121,3 +135,5 @@ Mac 및 Linux용 Azure 명령줄 도구 사용 방법에 대한 내용은 [Mac �
 [powershell-tools]: http://go.microsoft.com/fwlink/?LinkId=252718
 [php-sdk-github]: http://go.microsoft.com/fwlink/?LinkId=252719
 [install-git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
+
+<!--HONumber=46--> 

@@ -1,6 +1,18 @@
-﻿<properties title="Track custom usage events and metrics in your web app with Application Insights" pageTitle="Application Insights를 사용한 웹 앱의 사용 현황 이벤트 및 메트릭 추적" description="몇 줄의 코드를 삽입하여 사용자가 웹 사이트에서 수행하는 작업을 확인합니다." metaKeywords="analytics monitoring application insights" authors="awills" manager="kamrani"  />
+﻿<properties 
+	pageTitle="Application Insights API를 사용한 웹 앱의 사용 현황 및 이벤트 추적" 
+	description="코드를 몇 줄 삽입하여 사용 현황을 추적하고 문제를 진단합니다." 
+	services="application-insights" 
+	authors="alancameronwills" 
+	manager="kamrani"/>
  
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-10-01" ms.author="awills" />
+<tags 
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2015-02-06" 
+	ms.author="awills"/>
 
 # 웹 앱의 사용자 지정 사용 현황 이벤트 및 메트릭 추적
 
@@ -254,3 +266,5 @@ TelemetryContext에서 기본값을 설정할 수 있습니다. 이러한 기본
 
 
 
+
+<!--HONumber=46--> 

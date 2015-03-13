@@ -44,9 +44,9 @@ Spark를 사용하여 기존 디스크 기반 데이터 처리를 수행할 수�
 
 HDInsight 클러스터에 Spark를 설치하는 샘플 스크립트는 읽기 전용 Azure 저장소 Blob([https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv02/spark-installer-v02.ps1](https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv02/spark-installer-v02.ps1))에서 다운로드할 수 있습니다. 이 섹션에서는 Azure 관리 포털을 사용하여 클러스터를 프로비전하면서 샘플 스크립트를 사용하는 방법에 대한 지침을 제공합니다. 
 
-> [AZURE.NOTE] 샘플 스크립트는 HDInsight 클러스터 버전 3.1에서만 작동합니다.  HDInsight 클러스터 버전에 대한 자세한 내용은 [HDInsight 클러스터 버전](http://azure.microsoft.com/ko-kr/documentation/articles/hdinsight-component-versioning/)을 참조하세요.
+> [AZURE.NOTE] 샘플 스크립트는 HDInsight 클러스터 버전 3.1에서만 작동합니다.  HDInsight 클러스터 버전에 대한 자세한 내용은 [HDInsight 클러스터 버전](http://azure.microsoft.com/documentation/articles/hdinsight-component-versioning/)을 참조하세요.
 
-1. [사용자 지정 옵션을 사용하여 클러스터를 프로비저닝](http://azure.microsoft.com/ko-kr/documentation/articles/hdinsight-provision-clusters/#portal)에 설명된 대로 **사용자 지정 만들기** 옵션을 사용하여 클러스터 프로비저닝을 시작합니다. 
+1. [사용자 지정 옵션을 사용하여 클러스터를 프로비저닝](http://azure.microsoft.com/documentation/articles/hdinsight-provision-clusters/#portal)에 설명된 대로 **사용자 지정 만들기** 옵션을 사용하여 클러스터 프로비저닝을 시작합니다. 
 2. 아래와 같이 마법사의 **스크립트 작업** 페이지에서 **스크립트 작업 추가**를 클릭하여 스크립트 작업에 대한 세부 정보를 제공합니다.
 
 	![Use Script Action to customize a cluster](./media/hdinsight-hadoop-customize-cluster/HDI.CustomProvision.Page6.png "Use Script Action to customize a cluster")
@@ -76,7 +76,7 @@ Spark는 Scala, Python 및 Java의 API를 제공합니다. 대화형 Spark 셸�
 ###<a name="sparkshell"></a>Spark 셸 사용
 대화형 Spark 셸에서 Spark 쿼리를 실행하려면 다음 단계를 수행합니다. 이 섹션에서는 기본적으로 HDInsight 클러스터에서 사용할 수 있는 샘플 데이터 파일(/example/data/gutenberg/davinci.txt)에 대한 Spark 쿼리를 실행합니다.
 
-1. Azure 관리 포털에서 Spark를 설치하여 만든 클러스터에 대해 원격 데스크톱을 사용하도록 설정한 다음 클러스터에 원격으로 연결합니다. 자세한 내용은 <a href="http://azure.microsoft.com/ko-kr/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">RDP를 사용하여 HDInsight 클러스터에 연결</a>을 참조하세요.
+1. Azure 관리 포털에서 Spark를 설치하여 만든 클러스터에 대해 원격 데스크톱을 사용하도록 설정한 다음 클러스터에 원격으로 연결합니다. 자세한 내용은 <a href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">RDP를 사용하여 HDInsight 클러스터에 연결</a>을 참조하세요.
 
 2. RDP 세션의 데스크톱에서 Hadoop 명령줄을 열고 Spark가 설치된 위치(예: **C:\apps\dist\spark-1.0.2**)로 이동합니다.
 
@@ -180,7 +180,7 @@ Spark는 Scala, Python 및 Java의 API를 제공합니다. 대화형 Spark 셸�
 
 ## <a name="usingPS"></a>PowerShell을 사용하여 HDInsight Hadoop 클러스터에 Spark 설치
 
-이 섹션에서는 클러스터를 사용자 지정하기 위해 **<a href = "http://msdn.microsoft.com/ko-kr/library/dn858088.aspx" target="_blank">Add-AzureHDInsightScriptAction</a>** cmdlet을 사용하여 스크립트 작업을 사용하는 스크립트를 호출하고 클러스터를 사용자 지정합니다. 계속하기 전에 PowerShell을 설치 및 구성했는지 확인하세요. HDInsight PowerShell cmdlet을 실행하도록 워크스테이션을 구성하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성][powershell-install-configure]을 참조하세요.
+이 섹션에서는 클러스터를 사용자 지정하기 위해 **<a href = "http://msdn.microsoft.com/library/dn858088.aspx" target="_blank">Add-AzureHDInsightScriptAction</a>** cmdlet을 사용하여 스크립트 작업을 사용하는 스크립트를 호출하고 클러스터를 사용자 지정합니다. 계속하기 전에 PowerShell을 설치 및 구성했는지 확인하세요. HDInsight PowerShell cmdlet을 실행하도록 워크스테이션을 구성하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성][powershell-install-configure]을 참조하세요.
 
 다음 단계를 수행합니다.
 
@@ -341,7 +341,7 @@ HDInsight .NET SDK는 .NET 응용 프로그램에서 HDInsight로 더 쉽게 작
             Version = "3.1"
         };        
 
-10. 사용자 지정 스크립트를 호출하여 Spark를 설치하는 [ScriptAction](http://msdn.microsoft.com/ko-kr/library/microsoft.windowsazure.management.hdinsight.clusterprovisioning.data.scriptaction.aspx) 클래스를 사용하는 다음 코드를 Main() 함수에 추가합니다.
+10. 사용자 지정 스크립트를 호출하여 Spark를 설치하는 [ScriptAction](http://msdn.microsoft.com/library/microsoft.windowsazure.management.hdinsight.clusterprovisioning.data.scriptaction.aspx) 클래스를 사용하는 다음 코드를 Main() 함수에 추가합니다.
 
 		// ADD THE SCRIPT ACTION TO INSTALL SPARK
         clusterInfo.ConfigActions.Add(new ScriptAction(
@@ -379,4 +379,4 @@ PowerShell 콘솔을 열고 Visual Studio 프로젝트를 저장한 위치로 �
 [hdinsight-install-r]: ../hdinsight-hadoop-r-scripts/
 [hdinsight-cluster-customize]: ../hdinsight-hadoop-customize-cluster
 [powershell-install-configure]: ../install-configure-powershell/
-<!--HONumber=42-->
+\<!--HONumber=42-->

@@ -36,7 +36,7 @@ Azure 스토어에서 제공하는 New Relic의 특별 가격
 New Relic Standard는 Azure 사용자에게 무료입니다.
 New Relic Pro는 사용 중인 웹 사이트 모드에 따라 여러 패키지로 제공되며 reserved 모드에서 실행 중인 경우에는 인스턴스 크기에 따라 제공됩니다.
 
-가격 책정 정보는 [Azure 스토어의 New Relic 페이지](http://www.windowsazure.com/ko-kr/gallery/store/new-relic/new-relic/)를 참조하세요.
+가격 책정 정보는 [Azure 스토어의 New Relic 페이지](http://azure.microsoft.com/gallery/store/new-relic/new-relic/)를 참조하세요.
 
 > [AZURE.NOTE] 최대 10개의 계산 인스턴스에 대해서만 가격이 책정됩니다. 인스턴스가 11개 이상인 경우에는 New Relic(sales@newrelic.com)에 볼륨 가격을 문의하세요.
 
@@ -238,8 +238,8 @@ New Relic UI, 사용자 권한 및 프로필 설정, 표준 기능 및 대시보
  * [도움말 찾기](https://newrelic.com/docs/site/finding-help): New Relic의 온라인 도움말 센터를 통해 사용 가능한 리소스
 
 
-[webmatrixwebsite]: http://www.windowsazure.com/ko-kr/develop/net/tutorials/website-with-webmatrix/
-[vswebsite]: http://www.windowsazure.com/ko-kr/develop/net/tutorials/get-started/
+[webmatrixwebsite]: http://azure.microsoft.com/develop/net/tutorials/website-with-webmatrix/
+[vswebsite]: http://azure.microsoft.com/develop/net/tutorials/get-started/
 
 [wmnugetbutton]: ./media/store-new-relic-web-sites-dotnet-application-performce-management/nrwmnugetbutton.png
 [wmnugetgallery]: ./media/store-new-relic-web-sites-dotnet-application-performce-management/nrwmnugetgallery.png

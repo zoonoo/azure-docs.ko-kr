@@ -1,6 +1,21 @@
-﻿<properties pageTitle=".NET 백 엔드 모바일 서비스에 대한 데이터 모델 변경 방법" description="이 항목에서는 데이터 모델 이니셜라이저 및 .NET 백 엔드 모바일 서비스에서 데이터 모델을 변경하는 방법을 설명합니다." services="mobile-services" documentationCenter="" authors="ggailey777" writer="glenga" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle=".NET 백 엔드 모바일 서비스에 대한 데이터 모델 변경 방법" 
+	description="이 항목에서는 데이터 모델 이니셜라이저 및 .NET 백 엔드 모바일 서비스에서 데이터 모델을 변경하는 방법을 설명합니다." 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="ggailey777" 
+	Writer="glenga" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="dotnet" ms.topic="article" ms.date="09/27/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/27/2014" 
+	ms.author="glenga"/>
 
 # .NET 백 엔드 모바일 서비스에 대한 데이터 모델 변경 방법
 
@@ -117,7 +132,8 @@ Code First 마이그레이션에서는 스냅숏 방법을 사용하여 데이�
 
 다음 코드는 UserId 열을 시드합니다.
  		    
-        context.TodoItems.AddOrUpdate(
+        context.TodoIte
+	ms.AddOrUpdate(
             t => t.UserId,
                 new TodoItem { UserId = 1 },
                 new TodoItem { UserId = 1 },
@@ -137,10 +153,10 @@ Code First 마이그레이션에서는 스냅숏 방법을 사용하여 데이�
 [2]: ./media/mobile-services-dotnet-backend-how-to-use-code-first-migrations/sql-database-drop-tables.png
 
 <!-- URLs -->
-[DropCreateDatabaseIfModelChanges]: http://msdn.microsoft.com/ko-kr/library/gg679604(v=vs.113).aspx
-[Seed]: http://msdn.microsoft.com/ko-kr/library/hh829453(v=vs.113).aspx
+[DropCreateDatabaseIfModelChanges]: http://msdn.microsoft.com/library/gg679604(v=vs.113).aspx
+[Seed]: http://msdn.microsoft.com/library/hh829453(v=vs.113).aspx
 [Azure 관리 포털]: https://manage.windowsazure.com/
-[DbContext]: http://msdn.microsoft.com/ko-kr/library/system.data.entity.dbcontext(v=vs.113).aspx
-[AddOrUpdate]: http://msdn.microsoft.com/ko-kr/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx
+[DbContext]: http://msdn.microsoft.com/library/system.data.entity.dbcontext(v=vs.113).aspx
+[AddOrUpdate]: http://msdn.microsoft.com/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx
 
 <!--HONumber=42-->

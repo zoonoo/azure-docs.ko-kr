@@ -401,11 +401,10 @@ Microsoft Azure의 역할 내에서 실행되는 응용 프로그램에서는 �
 - [Azure 저장소 REST API]
 - [Azure 저장소 팀 블로그]
 
-[Java용 Azure SDK]: http://www.windowsazure.com/ko-kr/develop/java/
+[Java용 Azure SDK]: http://azure.microsoft.com/develop/java/
 [Java용 Azure Storage SDK]: https://github.com/azure/azure-storage-java
 [Android용 Azure Storage SDK]: https://github.com/azure/azure-storage-android
 [Azure Storage Client SDK 참조]: http://dl.windowsazure.com/storage/javadoc/
-[Azure 저장소 REST API]: http://msdn.microsoft.com/ko-kr/library/azure/gg433040.aspx
+[Azure 저장소 REST API]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [Azure 저장소 팀 블로그]: http://blogs.msdn.com/b/windowsazurestorage/
-
 <!--HONumber=42-->

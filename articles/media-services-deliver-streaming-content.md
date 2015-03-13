@@ -1,6 +1,6 @@
 ﻿<properties 
 	pageTitle="미디어 서비스에서 스트리밍 콘텐츠를 제공하는 방법 - Azure" 
-	description="직접 URL을 사용하여 미디어 서비스에서 스트리밍 콘텐츠를 제공하는 방법에 대해 알아봅니다. 코드 샘플은 C#으로 작성되었으며 Media Services SDK for .NET을 사용합니다." 
+	description="스트리밍 URL을 작성하는 데 사용되는 로케이터를 만드는 방법에 대해 알아봅니다. 코드 샘플은 C#으로 작성되었으며 Media Services SDK for .NET을 사용합니다." 
 	authors="juliako" 
 	manager="dwrede" 
 	editor="" 
@@ -13,83 +13,142 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/30/2014" 
+	ms.date="02/17/2015" 
 	ms.author="juliako"/>
 
 
 # 방법: 스트리밍 콘텐츠 제공
 
-이 문서는 Azure 미디어 서비스 프로그래밍을 소개하는 시리즈 중 하나입니다. 이전 항목은 [방법: 다운로드를 통해 자산 제공](../media-services-deliver-asset-download/)(영문)입니다.
 
-미디어 서비스에서 미디어 콘텐츠를 다운로드하는 것뿐만 아니라 적응 비트 전송률 스트리밍을 사용하여 콘텐츠를 제공할 수 있습니다. 예를 들어 미디어 서비스 원본 서버의 스트리밍 콘텐츠에 대해 로케이터라고 하는 직접 URL을 만들 수 있습니다. Microsoft Silverlight 같은 클라이언트 응용 프로그램은 로케이터에서 바로 스트리밍 콘텐츠를 재생할 수 있습니다.
+이 문서는 [워크플로 주문형 미디어 서비스 비디오](../media-services-video-on-demand-workflow) 및 [미디어 서비스 라이브 스트리밍 워크플로](../media-services-live-streaming-workflow) 시리즈의 일부입니다.  
 
-다음 예제에서는 작업으로 생성된 출력 자산에 대해 원본 로케이터를 만드는 방법을 보여 줍니다. 예제에서는 부드러운 스트리밍 파일이 들어 있는 자산에 대한 참조를 이미 얻었으며 코드에 **assetToStream**이라는 이름의 변수가 참조되었다고 가정합니다. 
+## 개요
 
-스트리밍 콘텐츠에 대해 원본 로케이터를 만드는 방법
+적응 비트 전송률 MP4 집합은 주문형 스트리밍 로케이터를 만들고 스트리밍 URL을 작성하여 스트리밍할 수 있습니다. [자산 인코딩](../media-services-encode-asset) 항목에서는 적응 비트 전송률 MP4 집합으로 인코딩하는 방법을 보여줍니다. 로케이터를 만들기 전에 [이](../media-services-dotnet-configure-asset-delivery-policy) 항목에서 설명한 대로 자산 배달 정책을 구성해야 합니다. 
 
-   1. 자산에서 스트리밍 매니페스트 파일(.ism)에 대한 자산을 가져옵니다. 
-   2. 액세스 정책을 정의합니다.
-   3. CreateLocator 메서드라고 하는 원본 로케이터를 만듭니다. 
-   4. 매니페스트 파일에 대한 URL을 작성합니다. 
+스트리밍 로케이터는 요청 시 점진적으로 다운로드할 수 있는 MP4 파일을 가리키는 URL을 작성하는 데 사용할 수도 있습니다.  
 
-다음 코드는 단계를 실행하는 방법을 보여 줍니다.
-<pre><code>
-private static ILocator GetStreamingOriginLocator( string targetAssetID)
-{
-    // Get a reference to the asset you want to stream.
-    IAsset assetToStream = GetAsset(targetAssetID);
+이 항목에서는 자산을 게시하고 부드러운, MPEG DASH 및 HLS 스트리밍 URL을 작성하기 위해 주문형 스트리밍 로케이터를 만드는 방법을 보여줍니다. 점진적 다운로드 URL을 작성하는 방법도 보여줍니다. 
+  	 
+## 주문형 스트리밍 로케이터 만들기
 
-    // Get a reference to the streaming manifest file from the  
-    // collection of files in the asset. 
-    var theManifest =
-                        from f in assetToStream.AssetFiles
-                        where f.Name.EndsWith(".ism")
-                        select f;
+주문형 스트리밍 로케이터를 만들고 필요한 URL을 가져오려면 다음과 같이 합니다.
 
-    // Cast the reference to a true IAssetFile type. 
-    IAssetFile manifestFile = theManifest.First();
-    IAccessPolicy policy = null;
-    ILocator originLocator = null;
-            
-    // Create a 30-day readonly access policy. 
-    policy = _context.AccessPolicies.Create("Streaming policy",
-        TimeSpan.FromDays(30),
-        AccessPermissions.Read);
+   1. 액세스 정책을 정의합니다.
+   2. 주문형 스트리밍 로케이터를 만듭니다.
+   3. 스트리밍 하려는 경우 자산에서 스트리밍 매니페스트 파일(.ism)을 가져옵니다. 
+   		
+	점진적으로 다운로드 하려는 경우 자산에서 MP4 파일의 이름을 가져옵니다.  
+   4. 매니페스트 파일 또는 MP4 파일에 URL을 작성하십시오. 
+   
 
-    // Create an OnDemandOrigin locator to the asset. 
-    originLocator = _context.Locators.CreateLocator(LocatorType.OnDemandOrigin, assetToStream,
-        policy,
-        DateTime.UtcNow.AddMinutes(-5));
-            
-    // Display some useful values based on the locator.
-    Console.WriteLine("Streaming asset base path on origin: ");
-    Console.WriteLine(originLocator.Path);
-    Console.WriteLine();
-    
-    // Create a full URL to the manifest file. Use this for playback
-    // in streaming media clients. 
-    string urlForClientStreaming = originLocator.Path + manifestFile.Name + "/manifest";
-    Console.WriteLine("URL to manifest for client streaming: ");
-    Console.WriteLine(urlForClientStreaming);
-    Console.WriteLine();
-    
-    // Display the ID of the origin locator, the access policy, and the asset.
-    Console.WriteLine("Origin locator Id: " + originLocator.Id);
-    Console.WriteLine("Access policy Id: " + policy.Id);
-    Console.WriteLine("Streaming asset Id: " + assetToStream.Id);
+### Media Services .NET SDK 사용 
 
-    // Return the locator. 
-    return originLocator;
-}
-</code></pre>
+스트리밍 URL 작성 
 
-자산 제공에 대한 자세한 내용은 다음을 참조하세요.
-<ul>
-<li><a href="http://msdn.microsoft.com/ko-kr/library/jj129575.aspx">Media Services for .NET을 사용하여 자산 제공(영문)</a></li>
-<li><a href="http://msdn.microsoft.com/ko-kr/library/jj129578.aspx">Media Services REST API를 사용하여 자산 제공(영문)</a></li>
-</ul>
+	private static void BuildStreamingURLs(IAsset asset)
+	{
+	
+	    // Create a 30-day readonly access policy. 
+	    IAccessPolicy policy = _context.AccessPolicies.Create("Streaming policy",
+	        TimeSpan.FromDays(30),
+	        AccessPermissions.Read);
+	
+	    // Create a locator to the streaming content on an origin. 
+	    ILocator originLocator = _context.Locators.CreateLocator(LocatorType.OnDemandOrigin, asset,
+	        policy,
+	        DateTime.UtcNow.AddMinutes(-5));
+	
+	    // Display some useful values based on the locator.
+	    Console.WriteLine("Streaming asset base path on origin: ");
+	    Console.WriteLine(originLocator.Path);
+	    Console.WriteLine();
+	
+	    // Get a reference to the streaming manifest file from the  
+	    // collection of files in the asset. 
+	    var manifestFile = asset.AssetFiles.Where(f => f.Name.ToLower().
+	                                EndsWith(".ism")).
+	                                FirstOrDefault();
+	    
+	    // Create a full URL to the manifest file. Use this for playback
+	    // in streaming media clients. 
+	    string urlForClientStreaming = originLocator.Path + manifestFile.Name + "/manifest";
+	    Console.WriteLine("URL to manifest for client streaming using Smooth Streaming protocol: ");
+	    Console.WriteLine(urlForClientStreaming);
+	    Console.WriteLine("URL to manifest for client streaming using HLS protocol: ");
+	    Console.WriteLine(urlForClientStreaming + "(format=m3u8-aapl)");
+	    Console.WriteLine("URL to manifest for client streaming using MPEG DASH protocol: ");
+	    Console.WriteLine(urlForClientStreaming + "(format=mpd-time-csf)"); 
+	    Console.WriteLine();
+	}
 
-<h2>다음 단계</h2>
-지금까지 부드러운 스트리밍을 사용하여 Azure 저장소에서 다운로드하여 미디어를 제공하는 방법을 살펴봤습니다. 다음 항목인 [HLS 콘텐츠를 제공하는 방법](../media-services-deliver-http-live-streaming-content/)(영문)에서는 Apple HLS(HTTP 라이브 스트리밍)를 사용하여 스트리밍 콘텐츠를 제공하는 방법을 살펴보겠습니다.
+The code  outputs:
+	
+	URL to manifest for client streaming using Smooth Streaming protocol:
+	http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny.ism/manifest
+	URL to manifest for client streaming using HLS protocol:
+	http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny.ism/manifest(format=m3u8-aapl)
+	URL to manifest for client streaming using MPEG DASH protocol:
+	http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny.ism/manifest(format=mpd-time-csf)
+	
 
-<!--HONumber=42-->
+점진적 다운로드 URL 작성 
+
+	private static void BuildProgressiveDownloadURLs(IAsset asset)
+	{
+	    // Create a 30-day readonly access policy. 
+	    IAccessPolicy policy = _context.AccessPolicies.Create("Streaming policy",
+	        TimeSpan.FromDays(30),
+	        AccessPermissions.Read);
+	
+	    // Create an OnDemandOrigin locator to the asset. 
+	    ILocator originLocator = _context.Locators.CreateLocator(LocatorType.OnDemandOrigin, asset,
+	        policy,
+	        DateTime.UtcNow.AddMinutes(-5));
+	
+	    // Display some useful values based on the locator.
+	    Console.WriteLine("Streaming asset base path on origin: ");
+	    Console.WriteLine(originLocator.Path);
+	    Console.WriteLine();
+	
+	    // Get MP4 files.
+	    IEnumerable<IAssetFile> mp4AssetFiles = asset
+	        .AssetFiles
+	        .ToList()
+	        .Where(af => af.Name.EndsWith(".mp4", StringComparison.OrdinalIgnoreCase));
+	            
+	    // Create a full URL to the MP4 files. Use this to progressively download files.
+	    foreach (var pd in mp4AssetFiles)
+	        Console.WriteLine(originLocator.Path + pd.Name);
+	}
+
+코드 출력:
+	
+	http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4
+	http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_400kbps_AAC_und_ch2_96kbps.mp4
+	http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_3400kbps_AAC_und_ch2_96kbps.mp4
+	http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_2250kbps_AAC_und_ch2_96kbps.mp4
+	
+	. . . 
+
+### Media Services .NET SDK Extensions 사용
+
+다음 코드는 로케이터를 만들고 적응 스트리밍에 대한 부드러운 스트리밍, HLS 및 MPEG-DASH URL을 생성하는 .NET SDK 확장 메서드를 호출합니다.
+
+	// Create a loctor.
+	_context.Locators.Create(
+	    LocatorType.OnDemandOrigin,
+	    inputAsset,
+	    AccessPermissions.Read,
+	    TimeSpan.FromDays(30));
+	
+	// Get the streaming URLs.
+	Uri smoothStreamingUri = inputAsset.GetSmoothStreamingUri();
+	Uri hlsUri = inputAsset.GetHlsUri();
+	Uri mpegDashUri = inputAsset.GetMpegDashUri();
+	
+	Console.WriteLine(smoothStreamingUri);
+	Console.WriteLine(hlsUri);
+	Console.WriteLine(mpegDashUri);
+
+<!--HONumber=45--> 

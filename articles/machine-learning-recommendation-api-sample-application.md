@@ -1,6 +1,20 @@
-﻿<properties title="Common operations in the Machine Learning Recommendations API" pageTitle="기계 학습 권장 사항 API의 공통 작업 | Azure" description="Azure ML 권장 사항 샘플 응용 프로그램" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jaymathe" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="기계 학습 권장 사항 API의 공통 작업 | Azure" 
+	description="Azure ML 권장 사항 샘플 응용 프로그램" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="jaymathe" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/14/2014" ms.author="jaymathe" /> 
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/14/2014" 
+	ms.author="jaymathe"/> 
 
 
 # 기계 학습 권장 사항 API의 공통 작업
@@ -78,3 +92,5 @@ API에 대한 자세한 내용은 Microsoft Azure 마켓플레이스 설명서�
 이 문서는 Microsoft 제품의 지적 소유권에 대한 법적 권한을 사용자에게 제공하지 않습니다. 이 문서는 내부 참조용으로만 복사 및 사용할 수 있습니다. 
 (c) 2014 Microsoft. All rights reserved. 
 
+
+<!--HONumber=46--> 

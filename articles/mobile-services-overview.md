@@ -1,6 +1,20 @@
-﻿<properties pageTitle="모바일 서비스 개요 | 모바일 개발자 센터" description="모바일 서비스에 대해 알아봅니다." documentationCenter="" authors="mattchenderson" manager="dwrede" services="mobile-services" editor=""/>
+﻿<properties 
+	pageTitle="모바일 서비스 개요 | 모바일 개발자 센터" 
+	description="모바일 서비스에 대해 알아봅니다." 
+	documentationCenter="" 
+	authors="mattchenderson" 
+	manager="dwrede" 
+	services="mobile-services" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="08/19/2014" ms.author="mahender"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="08/19/2014" 
+	ms.author="mahender"/>
 
 # 모바일 서비스 개요
 

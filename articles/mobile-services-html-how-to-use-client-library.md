@@ -1,6 +1,20 @@
-﻿<properties pageTitle="HTML 클라이언트를 사용하는 방법 - Azure 모바일 서비스" description="Azure 모바일 서비스에 HTML 클라이언트를 사용하는 방법에 대해 알아봅니다." services="mobile-services" documentationCenter="" authors="ggailey777" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="HTML 클라이언트를 사용하는 방법 - Azure 모바일 서비스" 
+	description="Azure 모바일 서비스에 HTML 클라이언트를 사용하는 방법에 대해 알아봅니다." 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="article" ms.date="11/21/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-html" 
+	ms.devlang="javascript" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="glenga"/>
 
 
 # Azure 모바일 서비스용 HTML/JavaScript 클라이언트를 사용하는 방법
@@ -261,7 +275,8 @@ Query 개체에  `where` 호출을 추가하고 매개 변수로 개체를 전�
 	    todoItemTable.read("$filter=substringof('search_text',text)").then(function(items) {
 	        var itemElements = $.map(items, createUiForTodoItem);
 	        $("#todo-items").empty().append(itemElements);
-	        $("#no-items").toggle(items.length === 0);
+	        $("#no-items").toggle(ite
+	ms.length === 0);
 	    }, handleError);
 	}
 
@@ -380,12 +395,14 @@ Query 개체에  `where` 호출을 추가하고 매개 변수로 개체를 전�
 			query.read().then(function (todoItems) {
 			   // The space specified by 'placeToInsert' is an unordered list element <ul> ... </ul>
 			   var listOfItems = document.getElementById('placeToInsert');
-			   for (var i = 0; i < todoItems.length; i++) {
+			   for (var i = 0; i < todoIte
+	ms.length; i++) {
 			      var li = document.createElement('li');
 			      var div = document.createElement('div');
 			      div.innerText = todoItems[i].text;
 			      li.appendChild(div);
-			      listOfItems.appendChild(li);
+			      listOfIte
+	ms.appendChild(li);
 			   }
 			}).read().done(function (results) {
 			   alert(JSON.stringify(results));
@@ -616,32 +633,32 @@ Promise는 완료할 작업을 아직 계산되지 않은 값으로 예약하는
 <!-- URLs. -->
 [모바일 서비스 시작]: /ko-kr/develop/mobile/tutorials/get-started-html
 [모바일 서비스 SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
-[데이터 시작]: http://www.windowsazure.com/ko-kr/develop/mobile/tutorials/get-started-with-data-html/
+[데이터 시작]: http://azure.microsoft.com/develop/mobile/tutorials/get-started-with-data-html/
 [인증 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-users-html
 [Windows 스토어 인증 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-users-js
-[then]: http://msdn.microsoft.com/ko-kr/library/windows/apps/br229728.aspx
-[done]: http://msdn.microsoft.com/ko-kr/library/windows/apps/hh701079.aspx
-[then과 done의 차이에 대해 자세히 알아보기]: http://msdn.microsoft.com/ko-kr/library/windows/apps/hh700334.aspx
-[Promise의 오류 처리 방법]: http://msdn.microsoft.com/ko-kr/library/windows/apps/hh700337.aspx
+[then]: http://msdn.microsoft.com/library/windows/apps/br229728.aspx
+[done]: http://msdn.microsoft.com/library/windows/apps/hh701079.aspx
+[then과 done의 차이에 대해 자세히 알아보기]: http://msdn.microsoft.com/library/windows/apps/hh700334.aspx
+[Promise의 오류 처리 방법]: http://msdn.microsoft.com/library/windows/apps/hh700337.aspx
 
-[sessionStorage]: http://msdn.microsoft.com/ko-kr/library/cc197062(v=vs.85).aspx
-[localStorage]: http://msdn.microsoft.com/ko-kr/library/cc197062(v=vs.85).aspx
+[sessionStorage]: http://msdn.microsoft.com/library/cc197062(v=vs.85).aspx
+[localStorage]: http://msdn.microsoft.com/library/cc197062(v=vs.85).aspx
 
-[ListView]: http://msdn.microsoft.com/ko-kr/library/windows/apps/br211837.aspx
-[데이터 바인딩(JavaScript 및 HTML을 사용하는 Windows 스토어 앱)]: http://msdn.microsoft.com/ko-kr/library/windows/apps/hh758311.aspx
-[Windows 스토어 JavaScript 퀵 스타트]: http://www.windowsazure.com/ko-kr/develop/mobile/tutorials/get-started
-[HTML 퀵 스타트]: http://www.windowsazure.com/ko-kr/develop/mobile/tutorials/get-started-html
-[Windows 스토어 JavaScript에서 데이터 시작]: http://www.windowsazure.com/ko-kr/develop/mobile/tutorials/get-started-with-data-js
-[HTML/JavaScript에서 데이터 시작]: http://www.windowsazure.com/ko-kr/develop/mobile/tutorials/get-started-with-data-html/
-[이 시나리오를 설정하는 방법에 대한 전체 예제]: http://www.windowsazure.com/ko-kr/develop/mobile/tutorials/single-sign-on-windows-8-js/
+[ListView]: http://msdn.microsoft.com/library/windows/apps/br211837.aspx
+[데이터 바인딩(JavaScript 및 HTML을 사용하는 Windows 스토어 앱)]: http://msdn.microsoft.com/library/windows/apps/hh758311.aspx
+[Windows 스토어 JavaScript 퀵 스타트]: http://azure.microsoft.com/develop/mobile/tutorials/get-started
+[HTML 퀵 스타트]: http://azure.microsoft.com/develop/mobile/tutorials/get-started-html
+[Windows 스토어 JavaScript에서 데이터 시작]: http://azure.microsoft.com/develop/mobile/tutorials/get-started-with-data-js
+[HTML/JavaScript에서 데이터 시작]: http://azure.microsoft.com/develop/mobile/tutorials/get-started-with-data-html/
+[이 시나리오를 설정하는 방법에 대한 전체 예제]: http://azure.microsoft.com/develop/mobile/tutorials/single-sign-on-windows-8-js/
 [데이터 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-data-html
 [스크립트를 사용하여 데이터 유효성 검사 및 수정]: /ko-kr/develop/mobile/tutorials/validate-modify-and-augment-data-html
 [페이징을 사용하여 쿼리 구체화]: /ko-kr/develop/mobile/tutorials/add-paging-to-data-html
 [스크립트를 통해 사용자 권한 부여]: /ko-kr/develop/mobile/tutorials/authorize-users-in-scripts-html
-[login]: http://msdn.microsoft.com/ko-kr/library/windowsazure/jj554236.aspx
+[login]: http://msdn.microsoft.com/library/windowsazure/jj554236.aspx
 [단일 로그인으로 앱 인증]: /ko-kr/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/
 [ASCII 제어 코드 C0 및 C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
-[모바일 서비스 테이블 관리를 위한 CLI]: http://www.windowsazure.com/ko-kr/manage/linux/other-resources/command-line-tools/#Mobile_Tables
+[모바일 서비스 테이블 관리를 위한 CLI]: http://azure.microsoft.com/manage/linux/other-resources/command-line-tools/#Mobile_Tables
 [OData 시스템 쿼리 옵션 참조]: http://go.microsoft.com/fwlink/p/?LinkId=444502
 
 

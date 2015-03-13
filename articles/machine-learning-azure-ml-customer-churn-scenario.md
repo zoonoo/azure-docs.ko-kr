@@ -1,6 +1,20 @@
-﻿<properties title="Analyzing Customer Churn using Microsoft Azure Machine Learning" pageTitle="Microsoft 기계 학습을 사용하여 고객 이탈 분석 | Azure" description="고객 변동을 분석하고 채점하는 통합 모델 개발에 대한 사례 연구" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="pamehta" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Microsoft 기계 학습을 사용하여 고객 이탈 분석 | Azure" 
+	description="고객 변동을 분석하고 채점하는 통합 모델 개발에 대한 사례 연구" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/06/2014" ms.author="barga" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/06/2014" 
+	ms.author="barga"/>
 
 # Microsoft Azure 기계 학습을 사용하여 고객 이탈 분석
 
@@ -211,3 +225,5 @@ Azure 클라우드 ML에서 제공되는 또 다른 흥미로운 기능은 이�
 [8]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-8.png
 [9]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-9.png
 [10]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-10.png
+
+<!--HONumber=46--> 

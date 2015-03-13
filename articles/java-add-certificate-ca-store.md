@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Add a Cert to the CA Store" pageTitle="Java CA 저장소에 인증서 추가 - Azure" metaKeywords="Azure Twilio Java, Twilio Java Certificate, Azure Service Bus Certificate" description="Java CA(인증 기관) 인증서(cacerts) 저장소에 Twilio 서비스 또는 Azure 서비스 버스용 CA 인증서를 추가하는 방법에 대해 알아봅니다." metaCanonical="" services="" documentationCenter="Java" title="Adding a Certificate to the Java CA Certificates Store" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
+﻿<properties 
+	pageTitle="Java CA 저장소에 인증서 추가 - Azure" 
+	description="Java CA(인증 기관) 인증서(cacerts) 저장소에 Twilio 서비스 또는 Azure 서비스 버스용 CA 인증서를 추가하는 방법에 대해 알아봅니다." 
+	services="" 
+	documentationCenter="java" 
+	authors="rmcmurray" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="robmcm" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="09/25/2014" 
+	ms.author="robmcm"/>
 
 # Java CA 인증서 저장소에 인증서 추가
 다음 단계는 Java CA 인증서(cacerts) 저장소에 CA(인증 기관) 인증서를 추가하는 방법을 보여 줍니다. 사용된 예제는 Twilio 서비스에 필요한 CA 인증서용입니다. 항목의 뒷부분에 제공된 정보는 Azure 서비스 버스용 CA 인증서를 설치하는 방법을 설명합니다. 
@@ -38,3 +52,5 @@ Baltimore CyberTrust Root를 추가해야 하는 경우 일련 번호 02:00:00:b
 
 Azure에서 사용되는 루트 인증서에 대한 자세한 내용은 [Microsoft Azure 루트 인증서 마이그레이션](http://blogs.msdn.com/b/windowsazure/archive/2013/03/15/windows-azure-root-certificate-migration.aspx)(영문)을 참조하세요.
 
+
+<!--HONumber=46--> 

@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Create and Manage Hybrid Connections - BizTalk Services" pageTitle="하이브리드 연결 만들기 및 관리 | Azure" metaKeywords="BizTalk Services, BizTalk, web sites, website, hybrid connections, Azure" description="하이브리드 연결을 만들고, 연결을 관리하며, 하이브리드 연결 관리자를 설치하는 방법에 대해 알아봅니다." metaCanonical="" services="integration-services" documentationCenter="" title="Create and Manage Hybrid Connections" authors="mandia" solutions="" manager="dwrede" editor="cgronlun" />
+﻿<properties 
+	pageTitle="하이브리드 연결 만들기 및 관리 | Azure" 
+	description="하이브리드 연결을 만들고, 연결을 관리하며, 하이브리드 연결 관리자를 설치하는 방법에 대해 알아봅니다. MABS, WABS" 
+	services="biztalk-services" 
+	documentationCenter="" 
+	authors="MandiOhlinger" 
+	manager="dwrede" 
+	editor="cgronlun"/>
 
-<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia" />
+<tags 
+	ms.service="biztalk-services" 
+	ms.workload="integration" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/17/2015" 
+	ms.author="mandia"/>
 
 
 #하이브리드 연결 만들기 및 관리
@@ -78,7 +92,7 @@
 
 Azure 웹 사이트를 기존 하이브리드 연결에 연결하려면 하이브리드 연결 블레이드에서 **기존 하이브리드 연결 사용**을 선택합니다. [Azure 웹 사이트를 온-프레미스 리소스에 연결](http://go.microsoft.com/fwlink/p/?LinkId=397538)을 참조하세요.
 
-Azure 모바일 서비스를 기존 하이브리드 연결에 연결하려면 모바일 서비스를 변경하거나 만들 때 **하이브리드 연결 추가**를 선택합니다. [Azure 모바일 서비스 및 하이브리드 연결](http://azure.microsoft.com/ko-kr/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started)을 참조하세요.
+Azure 모바일 서비스를 기존 하이브리드 연결에 연결하려면 모바일 서비스를 변경하거나 만들 때 **하이브리드 연결 추가**를 선택합니다. [Azure 모바일 서비스 및 하이브리드 연결](http://azure.microsoft.com/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started)을 참조하세요.
 
 
 ##<a name="InstallHCM"></a>온-프레미스에 하이브리드 연결 관리자 설치
@@ -164,8 +178,8 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 
 - [Azure 웹 사이트를 온-프레미스 리소스에 연결(영문)](http://go.microsoft.com/fwlink/p/?LinkId=397538)
 - [하이브리드 연결 단계별 과정: Azure 웹 사이트에서 온-프레미스 SQL Server에 연결](http://go.microsoft.com/fwlink/?LinkID=397979)(영문)
-- [Azure 모바일 서비스 및 하이브리드 연결(영문)](http://azure.microsoft.com/ko-kr/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started)
-- [하이브리드 연결 개요](http://azure.microsoft.com/ko-kr/documentation/articles/integration-hybrid-connection-overview)
+- [Azure 모바일 서비스 및 하이브리드 연결(영문)](http://azure.microsoft.com/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started)
+- [하이브리드 연결 개요](http://azure.microsoft.com/documentation/articles/integration-hybrid-connection-overview)
 
 
 ## 참고 항목
@@ -179,3 +193,5 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 [HybridConnectionTab]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionTab.png
 [HCOnPremSetup]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionOnPremSetup.png
 [HCManageConnection]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionManageConn.png
+
+<!--HONumber=46--> 

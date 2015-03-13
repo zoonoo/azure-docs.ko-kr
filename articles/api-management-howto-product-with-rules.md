@@ -1,6 +1,20 @@
-<properties pageTitle="How to create and configure advanced product settings in Azure API Management" metaKeywords="" description="Learn how to configure a product with quota and rate limit policies." metaCanonical="" services="" documentationCenter="API Management" title="How to create and configure advanced product settings in Azure API Management" authors="sdanie" solutions="" manager="" editor="" />
+﻿<properties 
+	pageTitle="Azure API 관리에서 고급 제품 설정을 만들고 구성하는 방법" 
+	description="할당량과 비율 제한 정책을 사용하여 제품을 구성하는 방법에 대해 알아봅니다." 
+	services="api-management" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
+<tags 
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2/11/2015" 
+	ms.author="sdanie"/>
 
 # Azure API 관리에서 고급 제품 설정을 만들고 구성하는 방법
 
@@ -255,3 +269,5 @@ API를 추가하고 정책을 구성했으며 이제 개발자가 제품을 사�
   [작업 결과]: ./media/api-management-howto-product-with-rules/api-management-http-get-results.png
   [5]: ./media/api-management-howto-product-with-rules/api-management-http-get-429.png
   [고급 API 구성 시작]: ../api-management-get-started-advanced
+
+<!--HONumber=46--> 

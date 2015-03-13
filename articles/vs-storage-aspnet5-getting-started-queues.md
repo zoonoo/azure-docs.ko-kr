@@ -27,7 +27,7 @@
 > - [큐](/documentation/articles/vs-storage-aspnet5-getting-started-queues/)
 > - [테이블](/documentation/articles/vs-storage-aspnet5-getting-started-tables/)
 
-Azure 큐 저장소는 HTTP 또는 HTTPS를 사용하여 인증된 호출을 통해 전 세계 어디에서나 액세스할 수 있는 다수의 메시지를 저장하기 위한 서비스입니다. 단일 큐 메시지의 크기는 최대 64KB일 수 있으며, 하나의 큐에 저장소 계정의 총 용량 제한까지 수백만 개의 메시지가 포함될 수 있습니다. 자세한 내용은 [.NET에서 큐 저장소를 사용하는 방법](http://azure.microsoft.com/ko-kr/documentation/articles/storage-dotnet-how-to-use-queues/ "How to use Queue Storage from .NET")(영문)을 참조하세요.
+Azure 큐 저장소는 HTTP 또는 HTTPS를 사용하여 인증된 호출을 통해 전 세계 어디에서나 액세스할 수 있는 다수의 메시지를 저장하기 위한 서비스입니다. 단일 큐 메시지의 크기는 최대 64KB일 수 있으며, 하나의 큐에 저장소 계정의 총 용량 제한까지 수백만 개의 메시지가 포함될 수 있습니다. 자세한 내용은 [.NET에서 큐 저장소를 사용하는 방법](http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-queues/ "How to use Queue Storage from .NET")(영문)을 참조하세요.
 
 ASP.NET 5 프로젝트에서 큐에 프로그래밍 방식으로 액세스하려면 다음 항목(아직 없는 경우)을 추가해야 합니다.
 
@@ -53,7 +53,7 @@ ASP.NET 5 프로젝트에서 큐에 프로그래밍 방식으로 액세스하려
       config.Get("MicrosoftAzureStorage:<storageAccountName>_AzureStorageConnectionString"));
 
 ##### 큐 만들기
-**CloudQueueClient** 개체를 통해 큐에 대한 참조 개체를 가져올 수 있습니다. 다음 코드는 **CloudQueueClient** 개체를 만듭니다. 이 항목의 모든 코드는 Azure 응용 프로그램의 서비스 구성에 저장된 저장소 연결 문자열을 사용합니다. **CloudStorageAccount** 개체를 만드는 다른 방법도 있습니다. 자세한 내용은 [CloudStorageAccount](http://msdn.microsoft.com/ko-kr/library/microsoft.windowsazure.cloudstorageaccount_methods.aspx "CloudStorageAccount") 설명서를 참조하세요.
+**CloudQueueClient** 개체를 통해 큐에 대한 참조 개체를 가져올 수 있습니다. 다음 코드는 **CloudQueueClient** 개체를 만듭니다. 이 항목의 모든 코드는 Azure 응용 프로그램의 서비스 구성에 저장된 저장소 연결 문자열을 사용합니다. **CloudStorageAccount** 개체를 만드는 다른 방법도 있습니다. 자세한 내용은 [CloudStorageAccount](http://msdn.microsoft.com/library/microsoft.windowsazure.cloudstorageaccount_methods.aspx "CloudStorageAccount") 설명서를 참조하세요.
 
 **참고:** ASP.NET 5에서 Azure 저장소로 나가는 호출을 수행하는 API는 비동기입니다. 자세한 내용은 [Async 및 Await를 사용한 비동기 프로그래밍](http://msdn.microsoft.com/library/hh191443.aspx)을 참조하세요. 다음 코드는 비동기 프로그래밍 방법을 사용한다고 가정합니다.
 
@@ -102,6 +102,5 @@ ASP.NET 5 프로젝트에서 큐에 프로그래밍 방식으로 액세스하려
 	await queue.DeleteMessageAsync(retrievedMessage);
 
 [Azure 저장소에 대한 자세한 정보](http://azure.microsoft.com/documentation/services/storage/)
-또한 [서버 탐색기로 저장소 리소스 탐색](http://msdn.microsoft.com/ko-kr/library/azure/ff683677.aspx)(영문) 및 [ASP.NET 5](http://www.asp.net/vnext)(영문)를 참조하세요.
-
+또한 [서버 탐색기로 저장소 리소스 탐색](http://msdn.microsoft.com/library/azure/ff683677.aspx)(영문) 및 [ASP.NET 5](http://www.asp.net/vnext)(영문)를 참조하세요.
 <!--HONumber=42-->

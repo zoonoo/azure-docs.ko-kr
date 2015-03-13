@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Service Bus Relay" pageTitle="서비스 버스 릴레이를 사용하는 방법(.NET) - Azure" metaKeywords="azure 서비스 버스 릴레이 C# 시작 " description="Azure 서비스 버스 릴레이 서비스를 사용하여 서로 다른 위치에서 호스팅되는 두 응용 프로그램을 연결하는 방법에 대해 알아봅니다." metaCanonical="" services="service-bus" documentationCenter=".NET" title="How to Use the Service Bus Relay Service" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
+﻿<properties 
+	pageTitle="서비스 버스 릴레이를 사용하는 방법(.NET) - Azure" 
+	description="Azure 서비스 버스 릴레이 서비스를 사용하여 서로 다른 위치에서 호스팅되는 두 응용 프로그램을 연결하는 방법에 대해 알아봅니다." 
+	services="service-bus" 
+	documentationCenter=".net" 
+	authors="sethmanheim" 
+	manager="timlt" 
+	editor="mattshel"/>
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
+<tags 
+	ms.service="service-bus" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="02/10/2015" 
+	ms.author="sethm"/>
 
 
 
@@ -260,9 +274,11 @@ App.config 파일을 사용하여 클라이언트를 구성할 수도 있습니�
   [서비스 버스 NuGet 패키지 다운로드]: #get_nuget_package
   [방법: 서비스 버스를 사용하여 TCP로 SOAP 웹 서비스 노출 및 사용]: #how_soap
   [Azure 관리 포털]: http://manage.windowsazure.com
-  [서비스 버스를 사용한 공유 액세스 서명 인증]: http://msdn.microsoft.com/ko-kr/library/dn170477.aspx
-  [서비스 버스용 서비스 빌드]: http://msdn.microsoft.com/ko-kr/library/windowsazure/ee173564.aspx
-  [서비스 버스 클라이언트 응용 프로그램 빌드]: http://msdn.microsoft.com/ko-kr/library/windowsazure/ee173543.aspx
+  [서비스 버스를 사용한 공유 액세스 서명 인증]: http://msdn.microsoft.com/library/dn170477.aspx
+  [서비스 버스용 서비스 빌드]: http://msdn.microsoft.com/library/windowsazure/ee173564.aspx
+  [서비스 버스 클라이언트 응용 프로그램 빌드]: http://msdn.microsoft.com/library/windowsazure/ee173543.aspx
   [Azure 샘플]: http://code.msdn.microsoft.com/windowsazure
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

@@ -1,6 +1,20 @@
-﻿<properties title="Get started with the DocumentDB .NET SDK" pageTitle="DocumentDB .NET SDK 시작 | Azure" description="만들기 및 Azure DocumentDB 계정을 구성, 데이터베이스를 만들, 컬렉션을 만들고, 및 NoSQL 문서 데이터베이스 계정 내에서 JSON 문서를 저장 하는 방법에 알아봅니다." metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, getting started"   services="documentdb" solutions="data-management" documentationCenter=""  authors="mimig" manager="jhubbard" editor="monicar" scriptId="" />
+﻿<properties 
+	pageTitle="DocumentDB .NET SDK 시작 | Azure" 
+	description="Azure DocumentDB 계정을 작성 및 구성하고, 데이터베이스와 컬렉션을 만들고, NoSQL 문서 데이터베이스 계정 내에 JSON 문서를 저장하는 방법에 대해 알아봅니다." 
+	services="documentdb" 
+	documentationCenter="" 
+	authors="mimig1" 
+	manager="jhubbard" 
+	editor="monicar"/>
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/11/2014" ms.author="mimig" />
+<tags 
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="12/12/2014" 
+	ms.author="mimig"/>
 
 #DocumentDB .NET SDK 시작  
 
@@ -214,3 +228,5 @@ Visual Studio 2013에서 DocumentDB .NET SDK에 대한 참조를 복원하려면
 [1]: ./media/documentdb-get-started/gs1.png
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

@@ -1,6 +1,20 @@
-﻿<properties title="Machine Learning example apps in the Azure Marketplace" pageTitle="Azure 마켓플레이스의 기계 학습 예제 앱 | Azure" description="Azure 기계 학습 앱 예제에서는 유료 구독자가 자신의 앱에서 사용할 수 있도록 Azure 마켓플레이스에 기계 학습 서비스를 게시하는 방법을 보여 줍니다." metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jaymathe" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Azure 마켓플레이스의 기계 학습 예제 앱 | Azure" 
+	description="Azure 기계 학습 마켓플레이스 앱 예제에서는 유료 구독자가 자신의 앱에서 사용할 수 있도록 Azure 마켓플레이스에 기계 학습 서비스를 게시하는 방법을 보여 줍니다." 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="luisca" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/16/2014" ms.author="jaymathe" /> 
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/10/2015" 
+	ms.author="luiscabrer"/> 
 
 # Azure 마켓플레이스의 기계 학습 예제 앱
 
@@ -17,3 +31,5 @@
 * [비정상 감지](https://datamarket.azure.com/dataset/aml_labs/anomalydetection) - 시계열 데이터(예: 서버 원격 분석, 센서 기반 데이터)에서 비정상적인 이벤트를 감지할 수 있는 API입니다.
 
 이러한 API를 사용하면 데이터 과학자가 되거나 스스로 API를 개발하는 데 시간을 들일 필요 없이 Azure 기계 학습에 빌드된 강력한 기계 학습 기반 서비스를 사용할 수 있습니다.
+
+<!--HONumber=46--> 

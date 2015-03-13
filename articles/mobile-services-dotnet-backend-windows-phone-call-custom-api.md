@@ -1,6 +1,21 @@
-<properties pageTitle="Windows Phone 앱에서 사용자 지정 API 호출 - 모바일 서비스" description="사용자 지정 API를 정의한 다음 Microsoft Azure 모바일 서비스를 사용하는 Windows Phone 앱에서 이를 호출하는 방법에 대해 알아봅니다." services="mobile-services" documentationCenter="windows" authors="ggailey777" writer="glenga" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="Windows Phone 앱에서 사용자 지정 API 호출 - 모바일 서비스" 
+	description="사용자 지정 API를 정의한 다음 Microsoft Azure 모바일 서비스를 사용하는 Windows Phone 앱에서 이를 호출하는 방법에 대해 알아봅니다." 
+	services="mobile-services" 
+	documentationCenter="windows" 
+	authors="ggailey777" 
+	Writer="glenga" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/26/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-phone" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/26/2014" 
+	ms.author="glenga"/>
 
 # 클라이언트에서 사용자 지정 API 호출
 

@@ -1,6 +1,20 @@
-﻿<properties pageTitle="모바일 서비스 및 Azure Active Directory의 역할 기반 액세스 제어(Windows 스토어) | 모바일 개발자 센터" description="Windows 스토어 응용 프로그램에서 Azure Active Directory 역할을 기반으로 액세스를 제어하는 방법에 대해 알아봅니다." documentationCenter="windows" authors="wesmc7777" manager="dwrede" editor="" services=""/>
+﻿<properties 
+	pageTitle="모바일 서비스 및 Azure Active Directory의 역할 기반 액세스 제어(Windows 스토어) | 모바일 개발자 센터" 
+	description="Windows 스토어 응용 프로그램에서 Azure Active Directory 역할을 기반으로 액세스를 제어하는 방법에 대해 알아봅니다." 
+	documentationCenter="windows" 
+	authors="wesmc7777" 
+	manager="dwrede" 
+	editor="" 
+	services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/29/2014" ms.author="wesmc"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/29/2014" 
+	ms.author="wesmc"/>
 
 # 모바일 서비스 및 Azure Active Directory의 역할 기반 액세스 제어
 
@@ -263,7 +277,8 @@ Git를 사용하여 모바일 서비스에 스크립트를 배포하는 데 익�
 [0]: ./media/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/users.png
 [1]: ./media/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/group-membership.png
 [2]: ./media/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/sales-group.png
-[3]: ./media/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/table-perms.png
+[3]: ./media/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/table-per
+	ms.png
 [4]: ./media/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/insert-table-op-view.png
 [5]: ./media/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/sales-group-id.png
 [6]: ./media/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/client-id-and-key.png
@@ -276,7 +291,7 @@ Git를 사용하여 모바일 서비스에 스크립트를 배포하는 데 익�
 [서버 스크립트 저장]: /ko-kr/documentation/articles/mobile-services-store-scripts-source-control/
 [등록하여 Azure Active Directory 로그인 사용]: /ko-kr/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
 [그래프 API]: http://msdn.microsoft.com/library/azure/hh974478.aspx
-[그래프 API 오류 참조]: http://msdn.microsoft.com/ko-kr/library/azure/hh974480.aspx
-[IsMemberOf]: http://msdn.microsoft.com/ko-kr/library/azure/dn151601.aspx
+[그래프 API 오류 참조]: http://msdn.microsoft.com/library/azure/hh974480.aspx
+[IsMemberOf]: http://msdn.microsoft.com/library/azure/dn151601.aspx
 
 <!--HONumber=42-->

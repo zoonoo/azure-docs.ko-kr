@@ -1,6 +1,20 @@
-<properties pageTitle="How to configure notifications and email templates in Azure API Management" metaKeywords="" description="Learn how to configure notifications and email templates in Azure API Management." metaCanonical="" services="" documentationCenter="API Management" title="How to configure notifications and email templates in Azure API Management" authors="sdanie" solutions="" manager="" editor="" />
+﻿<properties 
+	pageTitle="Azure API 관리에서 알림 및 메일 템플릿을 구성하는 방법" 
+	description="Azure API 관리에서 알림 및 메일 템플릿을 구성하는 방법에 대해 알아봅니다." 
+	services="api-management" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
+<tags 
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/18/2014" 
+	ms.author="sdanie"/>
 
 # Azure API 관리에서 알림 및 전자 메일 템플릿을 구성하는 방법
 
@@ -94,3 +108,5 @@ API 관리 인스턴스의 전자 메일 템플릿을 보고 구성하려면 왼
 [전자 메일 템플릿]: ./media/api-management-howto-configure-notifications/api-management-email-templates.png
 [전자 메일 템플릿 목록]: ./media/api-management-howto-configure-notifications/api-management-email-templates-list.png
 [전자 메일 템플릿 편집기]: ./media/api-management-howto-configure-notifications/api-management-email-template.png
+
+<!--HONumber=46--> 

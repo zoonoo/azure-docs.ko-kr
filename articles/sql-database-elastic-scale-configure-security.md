@@ -37,7 +37,7 @@ Microsoft Azure SQL 데이터베이스 탄력적인 확장에는 자체 호스�
 
         %ProgramFiles(x86)%\Windows Kits\x.y\bin\x86 
 
-* [Windows 8.1: 키트 및 도구 다운로드](http://msdn.microsoft.com/en-US/windows/hardware/gg454513#drivers)에서 WDK를 가져옵니다.
+* [Windows 8.1: 키트 및 도구 다운로드](http://msdn.microsoft.com/windows/hardware/gg454513#drivers)에서 WDK를 가져옵니다.
 
 ##    <a name="to-configure-ssl-cert"></a>SSL 인증서를 구성하려면
 통신을 암호화하고 서버를 인증하려면 SSL 인증서가 필요합니다. 아래 세 가지 시나리오 중 가장 적합한 시나리오를 선택하고 모든 단계를 실행합니다.

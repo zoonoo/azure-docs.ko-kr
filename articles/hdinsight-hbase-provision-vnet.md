@@ -292,7 +292,7 @@ Java 응용 프로그램에서 이 정보를 사용하려는 경우 [Maven을 �
     	<value>zookeeper0.<dns suffix>,zookeeper1.<dns suffix>,zookeeper2.<dns suffix></value>
 	</property>
 
-> [AZURE.NOTE] 자체 DNS 서버를 사용하는 방법을 포함한 Azure 가상 네트워크의 이름 확인에 대한 자세한 내용은 [이름 확인(DNS)](http://msdn.microsoft.com/ko-kr/library/azure/jj156088.aspx)을 참조하세요.
+> [AZURE.NOTE] 자체 DNS 서버를 사용하는 방법을 포함한 Azure 가상 네트워크의 이름 확인에 대한 자세한 내용은 [이름 확인(DNS)](http://msdn.microsoft.com/library/azure/jj156088.aspx)을 참조하세요.
 
 ##<a id="powershell"></a>Azure PowerShell을 사용하여 HBase 클러스터 프로비전
 
@@ -343,9 +343,9 @@ Java 응용 프로그램에서 이 정보를 사용하려는 경우 [Maven을 �
 - [가상 네트워크 개요][vnet-overview].
 
 
-[1]: http://azure.microsoft.com/ko-kr/services/virtual-network/
-[2]: http://technet.microsoft.com/ko-kr/library/ee176961.aspx
-[3]: http://technet.microsoft.com/ko-kr/library/hh847889.aspx
+[1]: http://azure.microsoft.com/services/virtual-network/
+[2]: http://technet.microsoft.com/library/ee176961.aspx
+[3]: http://technet.microsoft.com/library/hh847889.aspx
 
 [hbase-get-started]: ../hdinsight-hbase-get-started/
 [hbase-twitter-sentiment]: ../hdinsight-hbase-twitter-sentiment/
@@ -354,14 +354,14 @@ Java 응용 프로그램에서 이 정보를 사용하려는 경우 [Maven을 �
 
 [azure-portal]: https://manage.windowsazure.com
 [azure-create-storageaccount]: ../storage-create-storage-account/ 
-[azure-purchase-options]: http://azure.microsoft.com/ko-kr/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/ko-kr/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/ko-kr/pricing/free-trial/
+[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
 [hdinsight-admin-powershell]: ../hdinsight-administer-use-powershell/
 [hdinsight-admin-portal]: ../hdinsight-administer-use-management-portal/#rdp
 
-[hdinsight-powershell-reference]: http://msdn.microsoft.com/ko-kr/library/windowsazure/dn479228.aspx
+[hdinsight-powershell-reference]: http://msdn.microsoft.com/library/windowsazure/dn479228.aspx
 
 
 [twitter-streaming-api]: https://dev.twitter.com/docs/streaming-apis
@@ -385,4 +385,4 @@ Java 응용 프로그램에서 이 정보를 사용하려는 경우 [Maven을 �
 [img-primary-dns-suffix]: ./media/hdinsight-hbase-provision-vnet/PrimaryDNSSuffix.png
 [img-provision-cluster-page1]: ./media/hdinsight-hbase-provision-vnet/hbasewizard1.png "Provision details for the new HBase cluster"
 [img-provision-cluster-page5]: ./media/hdinsight-hbase-provision-vnet/hbasewizard5.png "Use Script Action to customize an HBase cluster"
-<!--HONumber=42-->
+\<!--HONumber=42-->

@@ -17,5 +17,4 @@ CNAME 레코드는 **mail.contoso.com** 또는 **www.contoso.com**과 같은 *sp
 트래픽 관리자에 트래픽이 도착하면 트래픽 관리자는 구성된 부하 분산 방법을 사용하여 트래픽을 웹 사이트로 라우팅합니다. 이러한 과정이 웹 사이트의 방문자에게는 전혀 노출되지 않습니다. 방문자의 브라우저에는 사용자 지정 도메인 이름만 표시됩니다.
 
 > [AZURE.NOTE] **www.contoso.com**과 같은 루트 이름이 아닌 **www.contoso.com**과 같은 CNAME 레코드를 사용할 경우 일부 도메인 등록 기관에서만 하위 도메인을 매핑할 수 있습니다. CNAME 레코드에 대한 자세한 내용은 등록 기관에서 제공하는 설명서인 <a href="http://en.wikipedia.org/wiki/CNAME_record">CNAME 레코드에 대한 Wikipedia 항목</a>(영문) 또는 <a href="http://tools.ietf.org/html/rfc1035">IETF 도메인 이름 - 구현 및 사양</a>(영문) 문서를 참조하세요.
-
 <!--HONumber=42-->

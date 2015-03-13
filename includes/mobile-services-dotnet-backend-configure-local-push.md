@@ -17,7 +17,7 @@ Azure에 게시하기 전에 선택적으로 로컬 컴퓨터 또는 VM에서 �
 
 4. Visual Studio의 모바일 서비스 프로젝트에서, 서비스에 대한 Web.config 파일을 열고 **connectionStrings**에서, **MS_NotificationHubConnectionString**에 대한 연결 문자열을 이전 단계의 연결 문자열로 바꿉니다.
 
-5. **appSettings**에서, **MS_NotificationHubName** 앱 설정의 값을 알림 허브의 이름으로 바꿉니다.
+5. **appSettings**에서 **MS_NotificationHubName** 앱 설정의 값을 알림 허브의 이름으로 바꿉니다.
 
 이제 모바일 서비스 프로젝트는 로컬로 실행될 때 Azure에서 알림 허브에 연결되도록 구성됩니다. Azure에서 실행할 때 이러한 Web.config 프로젝트 설정이 포털 설정에 의해 재정의되므로 포털과 동일한 알림 허브 이름 및 연결 문자열을 사용하는 것이 중요합니다.
-<!--HONumber=42-->
+<!--HONumber=45--> 

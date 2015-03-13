@@ -1,6 +1,21 @@
-<properties urlDisplayName="Specifying a Node.js Version" pageTitle="Node.js 버전 지정" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="nodejs" title="Specifying a Node.js version in an Azure application" authors="larryfr" solutions="" manager="wpickett" editor="mollybos" />
+<properties 
+	pageTitle="Node.js 버전 지정" 
+	description="" 
+	services="" 
+	documentationCenter="nodejs" 
+	title="Specifying a Node.js version in an Azure application" 
+	authors="larryfr" 
+	manager="wpickett" 
+	editor="mollybos" />
 
-<tags ms.service="na" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
+<tags 
+	ms.service="na" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="nodejs" 
+	ms.topic="article" 
+	ms.date="09/17/2014" 
+	ms.author="larryfr" />
 
 
 
@@ -88,3 +103,5 @@ Azure는 Node.js의 기본 버전을 여러 개 제공하지만 기본적으로 
 [Azure 명령줄 도구]: /ko-kr/documentation/articles/xplat-cli/
 [모듈 작업]: /ko-kr/documentation/articles/nodejs-use-node-modules-azure-apps/
 [Node.js 웹 사이트 빌드 및 배포]: /ko-kr/documentation/articles/web-sites-nodejs-develop-deploy-mac/
+
+<!--HONumber=46--> 

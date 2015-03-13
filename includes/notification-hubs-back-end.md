@@ -1,14 +1,14 @@
 
 이 섹션에서는 .NET 콘솔 앱 및 다른 위치에서 알림을 보내는 방법을 보여 줍니다.
-모바일 서비스를 사용하는 경우 [푸시 시작](/ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push/) 자습서를 참조하세요. Java 또는 PHP를 사용하려는 경우 [Java/PHP에서 알림 허브를 사용하는 방법](/ko-kr/documentation/articles/notification-hubs-java-backend-how-to/)을 참조하세요. [알림 허브 REST 인터페이스]를 사용하여 아무 백 엔드에서나 알림을 보낼 수 있습니다.
+모바일 서비스를 사용하는 경우 [푸시 시작](/ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push/)자습서를 참조하세요. Java 또는 PHP를 사용하려는 경우 [Java/PHP에서 알림 허브를 사용하는 방법](/ko-kr/documentation/articles/notification-hubs-java-backend-how-to/)을 참조하세요. [알림 허브 REST 인터페이스]를 사용하여 아무 백 엔드에서나 알림을 보낼 수 있습니다.
 
 다음 코드는 Windows 스토어, Windows Phone, iOS 및 Android 장치에 알림을 보냅니다. 
 
-[알림 허브 시작][get-started].을 완료했을 때 콘솔 응용 프로그램을 만들었으면 1~3단계를 건너뛰세요.
+[알림 허브 시작][시작]을 완료할 때 콘솔 앱을 만들었으면 1~3단계를 건너뜁니다.
 
 1. Visual Studio에서 다음과 같이 새로운 Visual C# 콘솔 응용 프로그램을 만듭니다. 
 
-  	![][13]
+   	![][13]
 
 2. Visual Studio 주 메뉴에서 **도구**, **라이브러리 패키지 관리자**, **패키지 관리자 콘솔**을 차례로 클릭한 후 콘솔 창에서 다음을 입력하고 **Enter** 키를 누릅니다.
 
@@ -92,13 +92,13 @@
 [16]: ./media/notification-hubs-back-end/notification-hub-scheduler2.png
 
 <!-- URLs. -->
-[get-started]: /ko-kr/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
+[시작]: /ko-kr/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
 [알림 허브를 사용하여 사용자에게 알림 보내기]: ../notificationhubs/tutorial-notify-users-mobileservices.md
-[모바일 서비스 시작](영문): /ko-kr/develop/mobile/tutorials/get-started/#create-new-service
+[모바일 서비스 시작]: /ko-kr/develop/mobile/tutorials/get-started/#create-new-service
 [Azure 관리 포털]: https://manage.windowsazure.com/
 [wns 개체]: http://go.microsoft.com/fwlink/p/?LinkId=260591
-[알림 허브 지침]: http://msdn.microsoft.com/ko-kr/library/jj927170.aspx
-[Windows 스토어용 알림 허브 방법]: http://msdn.microsoft.com/ko-kr/library/jj927172.aspx
-[알림 허브 REST 인터페이스]: http://msdn.microsoft.com/ko-kr/library/windowsazure/dn223264.aspx
+[알림 허브 지침]: http://msdn.microsoft.com/library/jj927170.aspx
+[Windows 스토어용 알림 허브 방법]: http://msdn.microsoft.com/library/jj927172.aspx
+[알림 허브 REST 인터페이스]: http://msdn.microsoft.com/library/windowsazure/dn223264.aspx
 
-<!--HONumber=42-->
+<!--HONumber=45--> 

@@ -1,6 +1,21 @@
-﻿<properties title="Cluster Model" pageTitle="클러스터 모델 | Azure" description="클러스터 모델" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jaymathe" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="클러스터 모델 | Azure" 
+	description="클러스터 모델" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="jaymathe" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/13/2014" ms.author="jaymathe" /> 
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/12/2015" 
+	ms.author="jaymathe"/> 
+ 
 
 
 #클러스터 모델    
@@ -58,7 +73,7 @@
 
 
 #웹 서비스 만들기  
->이 웹 서비스는 Azure 기계 학습을 사용하여 만들었습니다. 무료 평가판 및 실험을 만들고 [웹 서비스를 게시](http://azure.microsoft.com/ko-kr/documentation/articles/machine-learning-publish-web-service-to-azure-marketplace/)하는 방법에 대한 소개 비디오는 [azure.com/ml](http://azure.com/ml)을 참조하세요. 다음은 웹 서비스를 만든 실험과 실험 내 각 모듈의 예제 코드의 스크린샷입니다.
+>이 웹 서비스는 Azure 기계 학습을 사용하여 만들었습니다. 무료 평가판 및 실험을 만들고 [웹 서비스를 게시](http://azure.microsoft.com/documentation/articles/machine-learning-publish-web-service-to-azure-marketplace/)하는 방법에 대한 소개 비디오는 [azure.com/ml](http://azure.com/ml)을 참조하세요. 다음은 웹 서비스를 만든 실험과 실험 내 각 모듈의 예제 코드의 스크린샷입니다.
 
 Azure 기계 학습 내에서 새로운 빈 실험이 만들어졌으며 두 개의 "R 스크립트 실행"을 작업 영역으로 가져왔습니다. 간단한 "R 스크립트 실행"을 사용하여 데이터 스키마를 만든 후 데이터 스키마를 클러스터 모델 섹션에 연결하고 다시 "R 스크립트 실행"을 사용하여 데이터 스키마를 만들었습니다. 그런 다음 클러스터 모델에 사용된 "R 스크립트 실행"에서 웹 서비스는 Azure 기계 학습의 "R 스크립트 실행"에 미리 빌드된 "k-means" 함수를 활용합니다.    
    
@@ -102,8 +117,10 @@ Azure 기계 학습 내에서 새로운 빈 실험이 만들어졌으며 두 개
 이 예제는 매우 간단한 클러스터링 웹 서비스 예제입니다. 위의 예제 코드에서 알 수 있듯이 오류 catch는 구현되지 않고 서비스에서는 이 웹 서비스를 만들 때 숫자 값만 입력하므로 모든 항목이 연속 변수인 것으로 가정합니다(범주 기능이 허용되지 않음). 또한 웹 서비스가 호출될 때마다 모델이 맞춰진다는 사실과 웹 서비스 호출의 요청/응답 속성 때문에 서비스에서는 현재 제한된 데이터 크기를 처리합니다. 
 
 ##FAQ
-웹 서비스 사용 또는 마켓플레이스 게시 방법과 관련한 질문과 대답은 [여기](http://azure.microsoft.com/ko-kr/documentation/articles/machine-learning-marketplace-faq)를 참조하세요.
+웹 서비스 사용 또는 마켓플레이스 게시 방법과 관련한 질문과 대답은 [여기](http://azure.microsoft.com/documentation/articles/machine-learning-marketplace-faq)를 참조하세요.
 
 [1]: ./media/machine-learning-r-csharp-cluster-model/cluster-img1.png
 [2]: ./media/machine-learning-r-csharp-cluster-model/cluster-img2.png
 [3]: ./media/machine-learning-r-csharp-cluster-model/cluster-img3.png
+
+<!--HONumber=46--> 

@@ -27,7 +27,7 @@
 > - [큐](/documentation/articles/vs-storage-aspnet5-getting-started-queues/)
 > - [테이블](/documentation/articles/vs-storage-aspnet5-getting-started-tables/)
 
-Azure 테이블 저장소 서비스를 사용하면 많은 양의 구조화된 데이터를 저장할 수 있습니다. 이 서비스는 Azure 클라우드 내부 및 외부에서 인증된 호출을 수락하는 NoSQL 데이터 저장소입니다. Azure 테이블은 구조화된 비관계형 데이터를 저장하는 데 적합합니다.  자세한 내용은 [.NET에서 테이블 저장소를 사용하는 방법](http://azure.microsoft.com/ko-kr/documentation/articles/storage-dotnet-how-to-use-tables/#create-table "How to use Table Storage from .NET")(영문)을 참조하세요.
+Azure 테이블 저장소 서비스를 사용하면 많은 양의 구조화된 데이터를 저장할 수 있습니다. 이 서비스는 Azure 클라우드 내부 및 외부에서 인증된 호출을 수락하는 NoSQL 데이터 저장소입니다. Azure 테이블은 구조화된 비관계형 데이터를 저장하는 데 적합합니다.  자세한 내용은 [.NET에서 테이블 저장소를 사용하는 방법](http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-tables/#create-table "How to use Table Storage from .NET")(영문)을 참조하세요.
 
 ASP.NET 5 프로젝트에서 테이블에 프로그래밍 방식으로 액세스하려면 다음 항목(아직 없는 경우)을 추가해야 합니다.
 
@@ -192,6 +192,5 @@ ASP.NET 5 프로젝트에서 테이블에 프로그래밍 방식으로 액세스
 	   Console.WriteLine("Couldn't delete the entity.");
 
 [Azure 저장소에 대한 자세한 정보](http://azure.microsoft.com/documentation/services/storage/)
-또한 [서버 탐색기로 저장소 리소스 탐색](http://msdn.microsoft.com/ko-kr/library/azure/ff683677.aspx)(영문) 및 [ASP.NET 5](http://www.asp.net/vnext)(영문)를 참조하세요.
-
+또한 [서버 탐색기로 저장소 리소스 탐색](http://msdn.microsoft.com/library/azure/ff683677.aspx)(영문) 및 [ASP.NET 5](http://www.asp.net/vnext)(영문)를 참조하세요.
 <!--HONumber=42-->

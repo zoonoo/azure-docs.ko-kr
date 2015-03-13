@@ -33,7 +33,7 @@ Azure 트래픽 관리자는 세 가지의 다른 부하 분산 방법을 사용
 	
 * **성능**: 성능 방법은 클라이언트에 대한 가장 짧은 왕복 시간에 따라 트래픽을 분산합니다. 성능 방법은 동일한 지역 내에 있거나 다른 지역에 있는 웹 사이트에 사용할 수 있습니다. 
 
-Azure 트래픽 관리자의 부하 분산에 대한 자세한 내용은 [트래픽 관리자 부하 분산 방법 정보](http://msdn.microsoft.com/ko-kr/library/windowsazure/dn339010.aspx)를 참조하세요.
+Azure 트래픽 관리자의 부하 분산에 대한 자세한 내용은 [트래픽 관리자 부하 분산 방법 정보](http://msdn.microsoft.com/library/windowsazure/dn339010.aspx)를 참조하세요.
 
 ##Azure 웹 사이트 및 트래픽 관리자 프로필 
 웹 사이트 트래픽을 제어하도록 구성하려면 앞서 설명한 세 가지 부하 분산 방법 중 하나를 사용하는 프로필을 Azure 트래픽 관리자에서 만든 후 트래픽을 제어하려는 끝점(이 경우에는 웹 사이트)을 프로필에 추가합니다. 웹 사이트 상태(실행 중, 중지됨 또는 삭제됨)가 정기적으로 프로필에 전달되므로 Azure 트래픽 관리자가 상태에 따라 트래픽을 보낼 수 있습니다.
@@ -56,11 +56,11 @@ Azure에서 Azure 트래픽 관리자를 사용할 경우 다음 사항에 유�
 
 ## 다음 단계
 
-Azure 트래픽 관리자의 개념 및 기술 개요에 대해서는 [트래픽 관리자 개요](http://msdn.microsoft.com/ko-kr/library/windowsazure/hh744833.aspx)를 참조하세요. 
+Azure 트래픽 관리자의 개념 및 기술 개요에 대해서는 [트래픽 관리자 개요](http://msdn.microsoft.com/library/windowsazure/hh744833.aspx)를 참조하세요. 
 
-Azure 웹 사이트 사용을 비롯하여 Azure 트래픽 관리자를 구성하는 방법에 대한 자세한 내용은 [트래픽 관리자 구성 작업](http://msdn.microsoft.com/ko-kr/library/windowsazure/hh744830.aspx)을 참조하세요.
+Azure 웹 사이트 사용을 비롯하여 Azure 트래픽 관리자를 구성하는 방법에 대한 자세한 내용은 [트래픽 관리자 구성 작업](http://msdn.microsoft.com/library/windowsazure/hh744830.aspx)을 참조하세요.
 
-Azure 트래픽 관리자의 부하 분산에 대한 자세한 내용은 [트래픽 관리자 부하 분산 방법 정보](http://msdn.microsoft.com/ko-kr/library/windowsazure/dn339010.aspx)를 참조하세요.
+Azure 트래픽 관리자의 부하 분산에 대한 자세한 내용은 [트래픽 관리자 부하 분산 방법 정보](http://msdn.microsoft.com/library/windowsazure/dn339010.aspx)를 참조하세요.
 
 Azure 웹 사이트에서 트래픽 관리자를 사용하는 방법은 블로그 게시물 
 [Azure 웹 사이트에서 Azure 트래픽 관리자 사용](http://blogs.msdn.com/b/waws/archive/2014/03/18/using-windows-azure-traffic-manager-with-waws.aspx) 및 [이제 Azure 트래픽 관리자를 Azure 웹 사이트와 통합할 수 있음](http://azure.microsoft.com/blog/2014/03/27/azure-traffic-manager-can-now-integrate-with-azure-web-sites/)을 참조하세요.

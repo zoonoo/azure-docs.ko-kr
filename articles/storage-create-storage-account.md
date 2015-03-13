@@ -33,7 +33,7 @@ Azure 저장소 사용 비용은 저장소 계정에 따라 청구됩니다. 저
 - 트랜잭션은 Azure 저장소에 대한 모든 읽기 및 쓰기 작업을 나타냅니다. 
 - 데이터 송신은 Azure 지역 외부에서 전송되는 데이터를 나타냅니다. 저장소 계정의 데이터에 동일한 지역에서 실행되지 않는 응용 프로그램이 액세스하는 경우 해당 응용 프로그램이 클라우드 서비스인지 다른 유형의 응용 프로그램인지 여부에 상관없이 데이터 송신 요금이 부과됩니다. Azure 서비스의 경우 데이터 송신 요금을 줄이거나 제거하기 위해 동일한 데이터 센터의 데이터와 서비스를 그룹화하는 조치를 취할 수 있습니다.  
 
-[저장소 가격 정보](http://www.windowsazure.com/ko-kr/pricing/details/#storage) 페이지에서는 저장소 용량, 복제 및 트랜잭션에 대한 자세한 가격 정보를 제공합니다. [데이터 전송 가격 정보](http://www.windowsazure.com/ko-kr/pricing/details/data-transfers/)에서는 데이터 송신에 대한 자세한 가격 정보를 제공합니다.
+[저장소 가격 정보](http://azure.microsoft.com/pricing/details/#storage) 페이지에서는 저장소 용량, 복제 및 트랜잭션에 대한 자세한 가격 정보를 제공합니다. [데이터 전송 가격 정보](http://azure.microsoft.com/pricing/details/data-transfers/)에서는 데이터 송신에 대한 자세한 가격 정보를 제공합니다.
 
 저장소 계정 용량 및 성능 목표에 대한 자세한 내용은 [Azure 저장소 확장성 및 성능 목표](http://msdn.microsoft.com/library/windowsazure/dn249410.aspx)를 참조하세요.
 
@@ -101,7 +101,7 @@ Azure 저장소에 저장되는 모든 개체에는 고유한 URL 주소가 있�
 
 *선호도 그룹*은 Azure 저장소 계정을 사용하여 Azure 서비스와 VM을 지리적으로 그룹화한 것을 말합니다. 선호도 그룹은 동일한 데이터 센터 또는 대상 사용자 그룹 인근의 컴퓨터 작업을 찾아 서비스 성능을 향상시킬 수 있습니다. 또한 같은 선호도 그룹에 속한 다른 서비스에서 저장소 계정의 데이터에 액세스할 경우 송신 요금이 청구되지 않습니다.
 
-> [AZURE.NOTE]  선호도 그룹을 만들려면 관리 포털의 <b>설정</b> 영역을 열고 <b>선호도 그룹</b>을 클릭한 다음 <b>선호도 그룹 추가</b> 또는 <b>추가</b> 단추를 클릭합니다. Azure 서비스 관리 API를 사용하여 선호도 그룹을 만들고 관리할 수도 있습니다. 자세한 내용은 <a href="http://msdn.microsoft.com/ko-kr/library/windowsazure/ee460798.aspx">선호도 그룹 작업</a>을 참조하세요.
+> [AZURE.NOTE]  선호도 그룹을 만들려면 관리 포털의 <b>설정</b> 영역을 열고 <b>선호도 그룹</b>을 클릭한 다음 <b>선호도 그룹 추가</b> 또는 <b>추가</b> 단추를 클릭합니다. Azure 서비스 관리 API를 사용하여 선호도 그룹을 만들고 관리할 수도 있습니다. 자세한 내용은 <a href="http://msdn.microsoft.com/library/windowsazure/ee460798.aspx">선호도 그룹 작업</a>을 참조하세요.
 
 
 ### <a id="replication-options"></a>저장소 계정 복제 옵션
@@ -119,7 +119,7 @@ Azure 저장소에 저장되는 모든 개체에는 고유한 URL 주소가 있�
 
 ### 저장소 액세스 키 복사 ###
 
-**키 관리**를 사용하여 연결 문자열에 사용할 저장소 액세스 키를 복사할 수 있습니다. 연결 문자열에는 인증에 사용할 저장소 계정 이름과 키가 있어야 합니다. Azure 저장소 서비스에 액세스하기 위한 연결 문자열 구성에 대한 자세한 내용은 [연결 문자열 구성](http://msdn.microsoft.com/ko-kr/library/ee758697.aspx)을 참조하세요.
+**키 관리**를 사용하여 연결 문자열에 사용할 저장소 액세스 키를 복사할 수 있습니다. 연결 문자열에는 인증에 사용할 저장소 계정 이름과 키가 있어야 합니다. Azure 저장소 서비스에 액세스하기 위한 연결 문자열 구성에 대한 자세한 내용은 [연결 문자열 구성](http://msdn.microsoft.com/library/ee758697.aspx)을 참조하세요.
 
 1. [관리 포털에](http://manage.windowsazure.com)서 **저장소**를 클릭한 후 대시보드를 열 저장소 계정 이름을 클릭합니다.
 
@@ -171,10 +171,9 @@ Azure 저장소에 저장되는 모든 개체에는 고유한 URL 주소가 있�
 
 ## <a id="next"></a>다음 단계
 
-- Azure 저장소에 대한 자세한 내용은 [azure.com](http://azure.microsoft.com/ko-kr/documentation/services/storage/) 및 [MSDN](http://msdn.microsoft.com/ko-kr/library/gg433040.aspx)에서 Azure 저장소 설명서를 참조하세요. 
+- Azure 저장소에 대한 자세한 내용은 [azure.com](http://azure.microsoft.com/documentation/services/storage/) 및 [MSDN](http://msdn.microsoft.com/library/gg433040.aspx)에서 Azure 저장소 설명서를 참조하세요. 
 
 - [Azure 저장소 팀 블로그](http://blogs.msdn.com/b/windowsazurestorage/)를 방문하세요.
-
 
 
 

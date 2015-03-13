@@ -1,6 +1,20 @@
-<properties pageTitle="모바일 서비스 .NET 백 엔드 문제 해결 - Azure 모바일 서비스" description=".NET 백 엔드를 사용하여 모바일 서비스와 관련된 문제를 진단 및 해결하는 방법에 대해 알아봅니다." services="" documentationCenter="windows" authors="wesmc7777" manager="dwrede" editor="mollybos"/>
+<properties 
+	pageTitle="모바일 서비스 .NET 백 엔드 문제 해결 - Azure 모바일 서비스" 
+	description=".NET 백 엔드를 사용하여 모바일 서비스와 관련된 문제를 진단 및 해결하는 방법에 대해 알아봅니다." 
+	services="" 
+	documentationCenter="windows" 
+	authors="wesmc7777" 
+	manager="dwrede" 
+	editor="mollybos"/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="wesmc"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="wesmc"/>
 # 모바일 서비스 .NET 백 엔드 문제 해결
 
 모바일 서비스를 사용한 개발 작업은 일반적으로 쉽고 간편하지만 경우에 따라 문제가 발생할 수도 있습니다. 이 자습서에서는 모바일 서비스 .NET 백 엔드에서 발생할 수 있는 공통적인 문제를 해결할 수 있는 몇 가지 기법에 대해 설명합니다. 
@@ -119,7 +133,7 @@ Azure에 서비스를 게시한 후에는 Visual Studio의 **서버 탐색기**�
 <a name="EFMigrations"></a>
 ## Entity Framework 마이그레이션 문제 해결
 
-SQL 데이터베이스와 함께 모바일 서비스 .NET 백 엔드를 사용할 때는 사용자가 데이터베이스를 쿼리하고 여기에 개체를 저장할 수 있게 해주는 데이터 액세스 기술로 EF(Entity Framework)가 사용됩니다. EF가 개발자를 위해 처리하는 한 가지 중요한 특징은 코드에 지정된 모델 클래스가 변경될 때 데이터베이스 열( *schema*)이 변경되는 방식입니다. 이 프로세스를 [Code First 마이그레이션](http://msdn.microsoft.com/ko-kr/data/jj591621) 이라고 합니다.
+SQL 데이터베이스와 함께 모바일 서비스 .NET 백 엔드를 사용할 때는 사용자가 데이터베이스를 쿼리하고 여기에 개체를 저장할 수 있게 해주는 데이터 액세스 기술로 EF(Entity Framework)가 사용됩니다. EF가 개발자를 위해 처리하는 한 가지 중요한 특징은 코드에 지정된 모델 클래스가 변경될 때 데이터베이스 열( *schema*)이 변경되는 방식입니다. 이 프로세스를 [Code First 마이그레이션](http://msdn.microsoft.com/data/jj591621) 이라고 합니다.
 
 마이그레이션은 복잡할 수 있으며 작업을 성공하기 위해서는 데이터베이스 상태가 EF 모델과 동기화된 상태로 유지되어야 합니다. 모바일 서비스의 마이그레이션 처리 방법과 발생 가능한 오류에 대한 자세한 내용은 [.NET 백 엔드 모바일 서비스에 대한 데이터 모델 변경 방법](/ko-kr/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations/) 을 참조하세요.
 

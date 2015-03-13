@@ -1,6 +1,20 @@
-﻿<properties title="FAQ for setting up and using the Machine Learning Recommendations API" pageTitle="기계 학습 권장 사항 API 설정 및 사용에 대한 FAQ | Azure" description="Azure 기계 학습을 사용하여 빌드한 Microsoft 권장 사항 API FAQ" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jaymathe" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="기계 학습 권장 사항 API 설정 및 사용에 대한 FAQ | Azure" 
+	description="Azure 기계 학습을 사용하여 빌드한 Microsoft 권장 사항 API FAQ" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="jaymathe" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/14/2014" ms.author="jaymathe" /> 
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/30/2014" 
+	ms.author="jaymathe"/> 
 
 # 기계 학습 권장 사항 API 설정 및 사용에 대한 FAQ
 버전 1.0
@@ -88,7 +102,7 @@
 
 중요: 요금 청구 및 사용에 따라 영향이 있으므로 업그레이드하기 전에 대화 상자를 주의깊게 읽어야 합니다.
 
-구독에 대한 자세한 내용을 보려면 [여기](http://msdn.microsoft.com/ko-kr/library/gg312164.aspx)를 클릭하세요.
+구독에 대한 자세한 내용을 보려면 [여기](http://msdn.microsoft.com/library/gg312164.aspx)를 클릭하세요.
 
 ###권장 사항에 대한 내 구독은 언제 종료됩니까?
 구독은 고객이 구독을 취소할 때 종료됩니다. 구독을 취소하려면 아래 지침을 참조하세요.
@@ -143,3 +157,5 @@ API 설명서는 [여기](https://onedrive.live.com/view.aspx?cid=8536718B52F717
 (c) 2014 Microsoft. All rights reserved. 
 
 
+
+<!--HONumber=46--> 

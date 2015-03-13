@@ -162,8 +162,7 @@ Blob를 다운로드하려면 **get\_blob()** 메서드를 사용하여 콘텐�
 
 이제 Blob 저장소의 기본 사항을 배웠으므로 다음 링크를 따라 좀 더 복잡한 저장소 작업을 수행하는 방법을 알아보세요.
 
--   다음 MSDN 참조를 확인하세요. [Azure에서 데이터 저장 및 액세스](http://msdn.microsoft.com/ko-kr/library/windowsazure/gg433040.aspx)
+-   다음 MSDN 참조를 확인하세요. [Azure에서 데이터 저장 및 액세스](http://msdn.microsoft.com/library/windowsazure/gg433040.aspx)
 -   [Azure 저장소 팀 블로그](http://blogs.msdn.com/b/windowsazurestorage/)를 방문하세요.
 -   GitHub에서 [Azure SDK for Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) 리포지토리를 방문하세요.
-
 <!--HONumber=42-->

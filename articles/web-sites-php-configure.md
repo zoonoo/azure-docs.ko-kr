@@ -121,8 +121,8 @@ Azure 웹 사이트에서 PHP를 구성하는 방법을 배웠으므로 다음 �
 [http://windows.php.net/download/]: http://windows.php.net/download/
 [http://windows.php.net/downloads/releases/archives/]: http://windows.php.net/downloads/releases/archives/
 [handler-mappings]: ./media/web-sites-php-configure/handler-mappings.png
-[Azure에서 웹 사이트 구성, 모니터링 및 크기 조정]: http://www.windowsazure.com/ko-kr/manage/services/web-sites/
-[PHP용 Azure SDK 다운로드]: http://www.windowsazure.com/ko-kr/develop/php/common-tasks/download-php-sdk/
+[Azure에서 웹 사이트 구성, 모니터링 및 크기 조정]: http://azure.microsoft.com/manage/services/web-sites/
+[PHP용 Azure SDK 다운로드]: http://azure.microsoft.com/develop/php/common-tasks/download-php-sdk/
 
 
 <!--HONumber=42-->

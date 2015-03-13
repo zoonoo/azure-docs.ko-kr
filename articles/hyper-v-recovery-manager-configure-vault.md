@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="configure-Azure-Site-Recovery" pageTitle="Azure 사이트 복구 시작하기: Hyper-V 복제를 사용한 온-프레미스와 온-프레미스 VMM 사이트 간 보호" metaKeywords="Azure 사이트 복구, VMM, 클라우드, 재해 복구" description="Azure 사이트 복구는 복제, 장애 조치 및 온-프레미스 VMM 사이트 간에 Hyper-v 가상 컴퓨터의 복구를 조정합니다." metaCanonical="" umbracoNaviHide="0" disqusComments="1" title="Getting Started with Azure Site Recovery:  On-Premises to On-Premises VMM Site Protection with Hyper-V Replication" editor="jimbe" manager="johndaw" authors="raynew" />
+﻿<properties 
+	pageTitle="자습서: 온-프레미스 VMM 사이트 간 보호 설정" 
+	description="Azure Site Recovery는 온-프레미스 VMM 사이트 간 Hyper-V 가상 컴퓨터의 복제, 장애 조치(failover) 및 복구를 조정합니다." 
+	services="site-recovery" 
+	documentationCenter="" 
+	authors="raynew" 
+	manager="jwhit" 
+	editor="tysonn"/>
 
-<tags ms.service="site-recovery" ms.workload="backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/19/2014" ms.author="raynew" />
+<tags 
+	ms.service="site-recovery" 
+	ms.workload="backup-recovery" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/18/2015" 
+	ms.author="raynew"/>
 
 
 # Azure 사이트 복구 시작하기:  Hyper-V 복제를 사용한 온-프레미스와 온-프레미스 VMM 사이트 간 보호
@@ -241,3 +255,5 @@ VMM 서버가 등록되면 클라우드 보호 설정을 구성할 수 있습니
 </UL>
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

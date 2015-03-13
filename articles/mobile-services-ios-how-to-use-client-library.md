@@ -1,6 +1,20 @@
-﻿<properties pageTitle="iOS 클라이언트 라이브러리를 사용하는 방법 - Azure 모바일 서비스" description="Azure 모바일 서비스에 iOS 클라이언트 라이브러리를 사용하는 방법에 대해 알아봅니다." services="" documentationCenter="ios" authors="krisragh" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="iOS 클라이언트 라이브러리를 사용하는 방법 - Azure 모바일 서비스" 
+	description="Azure 모바일 서비스에 iOS 클라이언트 라이브러리를 사용하는 방법에 대해 알아봅니다." 
+	services="" 
+	documentationCenter="ios" 
+	authors="krisragh" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="krisragh"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-ios" 
+	ms.devlang="objective-c" 
+	ms.topic="article" 
+	ms.date="10/10/2014" 
+	ms.author="krisragh"/>
 
 
 
@@ -176,7 +190,8 @@ MSQuery 개체는 다음 쿼리 동작을 제어할 수 있게 합니다.
 
 		query.includeTotalCount = YES;
 		query.fetchLimit = 20;
-		query.fetchOffset = self.loadedItems.count;
+		query.fetchOffset = self.loadedIte
+	ms.count;
 
 		[query readWithCompletion:^(NSArray *items, NSInteger totalCount, NSError *error) {
 			if(!error) {
@@ -184,7 +199,8 @@ MSQuery 개체는 다음 쿼리 동작을 제어할 수 있게 합니다.
 				[self.loadedItems addObjectsFromArray:items];
 
 				// Set a flag to keep track if there are any additional records we need to load
-				self.moreResults = (self.loadedItems.count < totalCount);
+				self.moreResults = (self.loadedIte
+	ms.count < totalCount);
 			}
 		}];
 	}
@@ -504,14 +520,14 @@ _(선택 사항) 이 섹션에서는 특성을 사용하여 데이터 형식이 
 
 [만료된 토큰 처리]: http://go.microsoft.com/fwlink/p/?LinkId=301955
 [Live Connect SDK]: http://go.microsoft.com/fwlink/p/?LinkId=301960
-[권한]: http://msdn.microsoft.com/ko-kr/library/windowsazure/jj193161.aspx
+[권한]: http://msdn.microsoft.com/library/windowsazure/jj193161.aspx
 [스크립트를 사용하여 사용자 권한 부여]: /ko-kr/develop/mobile/tutorials/authorize-users-in-scripts-ios
 [동적 스키마]: http://go.microsoft.com/fwlink/p/?LinkId=296271
 [방법: 사용자 지정 매개 변수 액세스]: /ko-kr/develop/mobile/how-to-guides/work-with-server-scripts#access-headers
-[테이블 만들기]: http://msdn.microsoft.com/ko-kr/library/windowsazure/jj193162.aspx
+[테이블 만들기]: http://msdn.microsoft.com/library/windowsazure/jj193162.aspx
 [NSDictionary 개체]: http://go.microsoft.com/fwlink/p/?LinkId=301965
 [ASCII 제어 코드 C0 및 C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
-[모바일 서비스 테이블 관리를 위한 CLI]: http://www.windowsazure.com/ko-kr/manage/linux/other-resources/command-line-tools/#Mobile_Tables
+[모바일 서비스 테이블 관리를 위한 CLI]: http://azure.microsoft.com/manage/linux/other-resources/command-line-tools/#Mobile_Tables
 
 
 <!--HONumber=42-->

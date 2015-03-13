@@ -12,5 +12,4 @@
 - [(HTML | Javascript)](/ko-kr/documentation/articles/mobile-services-html-add-paging-data/)
 
 
-
 <!--HONumber=42-->

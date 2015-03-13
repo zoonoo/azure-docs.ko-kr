@@ -36,9 +36,8 @@
 
 <!-- URLs. -->
 [모바일 서비스 서버 스크립트 참조]: http://go.microsoft.com/fwlink/?LinkId=262293
-[WindowsAzure.com]: http://www.windowsazure.com/
+[WindowsAzure.com]: http://azure.microsoft.com/
 [Microsoft Azure 관리 포털]: https://manage.windowsazure.com/
 [모바일 서비스에 Twitter 로그인을 사용하기 위해 앱 등록]: /ko-kr/documentation/articles/mobile-services-how-to-register-twitter-authentication
 [Twitter 개발자]: http://go.microsoft.com/fwlink/p/?LinkId=268300
-[앱 설정]: http://msdn.microsoft.com/ko-kr/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
-<!--HONumber=42-->
+[앱 설정]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7<!--HONumber=42-->

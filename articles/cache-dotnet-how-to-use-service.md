@@ -1,5 +1,5 @@
-<properties 
-	pageTitle="Azure 관리된 캐시 서비스 사용 방법" 
+﻿<properties 
+	pageTitle="<MORAVIA_TRANSLATEAzure 관리된 캐시 서비스 사용 방법" 
 	description="" 
 	services="cache" 
 	documentationCenter="" 
@@ -15,6 +15,7 @@
 	ms.topic="article" 
 	ms.date="11/18/2014" 
 	ms.author="sdanie"/>
+
 
 # Azure 관리된 캐시 서비스 사용 방법
 
@@ -470,24 +471,24 @@ Azure 캐시에 출력 캐시 공급자를 사용하는 방법에 대한 자세�
    
 <!-- LINKS -->
 [Azure 관리 포털]: https://manage.windowsazure.com/
-[방법: 프로그래밍 방식으로 캐시 클라이언트 구성]: http://msdn.microsoft.com/ko-kr/library/windowsazure/gg618003.aspx
+[방법: 프로그래밍 방식으로 캐시 클라이언트 구성]: http://msdn.microsoft.com/library/windowsazure/gg618003.aspx
 [Azure 캐시용 세션 상태 공급자]: http://go.microsoft.com/fwlink/?LinkId=320835
 [Azure AppFabric 캐시: 캐싱 세션 상태]: http://www.microsoft.com/ko-kr/showcase/details.aspx?uuid=87c833e9-97a9-42b2-8bb1-7601f9b5ca20
 [Azure 캐시용 출력 캐시 공급자]: http://go.microsoft.com/fwlink/?LinkId=320837
-[Azure 공유 캐싱]: http://msdn.microsoft.com/ko-kr/library/windowsazure/gg278356.aspx
+[Azure 공유 캐싱]: http://msdn.microsoft.com/library/windowsazure/gg278356.aspx
 [팀 블로그]: http://blogs.msdn.com/b/windowsazure/
 [Azure 캐싱]: http://www.microsoft.com/ko-kr/showcase/Search.aspx?phrase=azure+caching
 [가상 컴퓨터 크기를 구성하는 방법]: http://go.microsoft.com/fwlink/?LinkId=164387
 [Azure 캐싱 용량 계획 고려 사항]: http://go.microsoft.com/fwlink/?LinkId=320167
 [Azure 캐싱]: http://go.microsoft.com/fwlink/?LinkId=252658
-[방법: 선언적으로 ASP.NET 페이지의 캐시 가능성 설정]: http://msdn.microsoft.com/ko-kr/library/zd1ysf1y.aspx
-[방법: 프로그래밍 방식으로 페이지의 캐시 가능성 설정]: http://msdn.microsoft.com/ko-kr/library/z852zf6b.aspx
+[방법: 선언적으로 ASP.NET 페이지의 캐시 가능성 설정]: http://msdn.microsoft.com/library/zd1ysf1y.aspx
+[방법: 프로그래밍 방식으로 페이지의 캐시 가능성 설정]: http://msdn.microsoft.com/library/z852zf6b.aspx
 [Azure 관리된 캐시 서비스 개요]: http://go.microsoft.com/fwlink/?LinkId=320830
 [관리된 캐시 서비스]: http://go.microsoft.com/fwlink/?LinkId=320830
 [OutputCache 지시문]: http://go.microsoft.com/fwlink/?LinkId=251979
 [문제 해결 및 진단]: http://go.microsoft.com/fwlink/?LinkId=320839
 [NuGet 패키지 관리자 설치]: http://go.microsoft.com/fwlink/?LinkId=240311
-[캐시 가격 정보]: http://www.windowsazure.com/ko-kr/pricing/details/cache/
+[캐시 가격 정보]: http://azure.microsoft.com/pricing/details/cache/
 [관리 포털]: https://manage.windowsazure.com/
 [캐시 기능]: http://go.microsoft.com/fwlink/?LinkId=317277
 [용량 계획]: http://go.microsoft.com/fwlink/?LinkId=320167
@@ -499,9 +500,11 @@ Azure 캐시에 출력 캐시 공급자를 사용하는 방법에 대한 자세�
 [New-AzureManagedCache]: http://go.microsoft.com/fwlink/?LinkId=400495
 [Azure 관리된 캐시 Cmdlet]: http://go.microsoft.com/fwlink/?LinkID=398555
 [Azure PowerShell을 설치 및 구성하는 방법]: http://go.microsoft.com/fwlink/?LinkId=400494
-[Add-AzureAccount]: http://msdn.microsoft.com/ko-kr/library/dn495128.aspx
-[Select-AzureSubscription]: http://msdn.microsoft.com/ko-kr/library/dn495203.aspx
+[Add-AzureAccount]: http://msdn.microsoft.com/library/dn495128.aspx
+[Select-AzureSubscription]: http://msdn.microsoft.com/library/dn495203.aspx
 
-[내게 적합한 Azure 캐시 기능]: http://msdn.microsoft.com/ko-kr/library/azure/dn766201.aspx
+[내게 적합한 Azure 캐시 기능]: http://msdn.microsoft.com/library/azure/dn766201.aspx
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

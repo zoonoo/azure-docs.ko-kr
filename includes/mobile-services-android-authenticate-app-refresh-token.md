@@ -233,5 +233,4 @@
 
        이 코드에서는  `ProgressFilter` 외에도  `RefreshTokenCacheFilter`가 사용됩니다. 또한  `onCreate`하는 중 토큰 캐시를 로드하려고 합니다. 따라서  `authenticate` 메서드에  `false`가 전달됩니다.
 
-
 <!--HONumber=42-->

@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Visual Studio 2013에서 게시 설정 파일 가져오기 | 모바일 서비스" description="Visual Studio 2013에서 Azure 모바일 서비스 응용 프로그램에 대한 구독 게시 설정 파일을 가져오는 방법에 대해 알아봅니다." documentationCenter="windows" services="mobile-services" manager="dwrede" editor="" authors="ggailey777"/>
+﻿<properties 
+	pageTitle="Visual Studio 2013에서 게시 설정 파일 가져오기 | 모바일 서비스" 
+	description="Visual Studio 2013에서 Azure 모바일 서비스 응용 프로그램에 대한 구독 게시 설정 파일을 가져오는 방법에 대해 알아봅니다." 
+	documentationCenter="windows" 
+	services="mobile-services" 
+	manager="dwrede" 
+	editor="" 
+	authors="ggailey777"/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="glenga"/>
 
 # Visual Studio 2013에서 구독 게시 설정 파일 가져오기
 

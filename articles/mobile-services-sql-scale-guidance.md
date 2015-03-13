@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Azure SQL 데이터베이스에서 지원되는 모바일 서비스 크기 조정 - Azure 모바일 서비스" description="SQL 데이터베이스에서 지원하는 모바일 서비스에서 확장성 문제를 진단 및 해결하는 방법에 대해 알아봅니다." services="mobile-services" documentationCenter="" authors="lindydonna" manager="dwrede" editor="mollybos"/>
+﻿<properties 
+	pageTitle="Azure SQL 데이터베이스에서 지원되는 모바일 서비스 크기 조정 - Azure 모바일 서비스" 
+	description="SQL 데이터베이스에서 지원하는 모바일 서비스에서 확장성 문제를 진단 및 해결하는 방법에 대해 알아봅니다." 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="lindydonna" 
+	manager="dwrede" 
+	editor="mollybos"/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/11/2014" ms.author="donnam"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/11/2014" 
+	ms.author="donnam"/>
 # Azure SQL 데이터베이스에서 지원되는 모바일 서비스 크기 조정
 
 Azure 모바일 서비스를 사용하면 작업을 매우 쉽게 시작하고 SQL 데이터베이스에 데이터를 저장하는 클라우드 호스팅 백 엔드에 연결되는 앱을 쉽게 작성할 수 있습니다. 앱이 커지면 포털에서 계산 및 네트워킹 용량을 추가하여 크기 조정 설정을 조정하는 것처럼 간단하게 서비스 인스턴스 크기를 조정할 수 있습니다. 하지만 서비스 지원 SQL 데이터베이스를 크기 조정하기 위해서는 서비스의 부하 증가에 따라 사전적인 일부 계획과 모니터링이 필요합니다. 이 문서에서는 SQL 지원 모바일 서비스의 지속적인 성능 향상을 보장하기 위한 몇 가지 모범 사례에 대해 설명합니다.
@@ -31,7 +45,7 @@ Azure 모바일 서비스를 사용하면 작업을 매우 쉽게 시작하고 S
 - Web 및 Business 버전(사용 중지됨)
 - Basic, Standard 및 Premium Edition 
 
-Web 및 Business Edition은 현재 완전히 지원되지만 [Web 및 Business Edition 지원 종료 FAQ](http://msdn.microsoft.com/ko-kr/library/azure/dn741330.aspx)에 설명한 대로 2015년 4월 24일에 지원이 종료됩니다. 새 고객에게 이러한 변화를 준비하면서 Basic, Standard 및 Premium Edition을 사용할 것을 권장합니다. 이 새로운 버전에서는 데이터베이스 성능 문제를 이해하고 더 쉽게 해결할 수 있게 해주는 다양한 새로운 계층 및 모니터링 기능이 제공됩니다. 모든 새 모바일 서비스는 새 Edition을 사용하여 생성됩니다.
+Web 및 Business Edition은 현재 완전히 지원되지만 [Web 및 Business Edition 지원 종료 FAQ](http://msdn.microsoft.com/library/azure/dn741330.aspx)에 설명한 대로 2015년 4월 24일에 지원이 종료됩니다. 새 고객에게 이러한 변화를 준비하면서 Basic, Standard 및 Premium Edition을 사용할 것을 권장합니다. 이 새로운 버전에서는 데이터베이스 성능 문제를 이해하고 더 쉽게 해결할 수 있게 해주는 다양한 새로운 계층 및 모니터링 기능이 제공됩니다. 모든 새 모바일 서비스는 새 Edition을 사용하여 생성됩니다.
 
 Web 및 Business Edition부터 Basic, Standard 및 Premium Edition을 사용하여 모바일 서비스를 변환하려면 다음 단계를 따르세요.
 
@@ -47,7 +61,7 @@ Web 및 Business Edition부터 Basic, Standard 및 Premium Edition을 사용하�
 - **Standard** - 여러 개의 동시 데이터베이스 쿼리가 예상되는 프로덕션 서비스의 경우 사용합니다.
 - **Premium** - 동시 쿼리 수가 많고, 최대 로드가 높고, 모든 요청에 대해 낮은 대기 시간이 필요한 대규모 프로덕션 서비스의 경우 사용합니다.
 
-각 계층의 사용 시기에 대한 자세한 내용은 [새 서비스 계층을 사용해야 하는 이유](http://msdn.microsoft.com/ko-kr/library/azure/dn369873.aspx#Reasons)를 참조하세요.
+각 계층의 사용 시기에 대한 자세한 내용은 [새 서비스 계층을 사용해야 하는 이유](http://msdn.microsoft.com/library/azure/dn369873.aspx#Reasons)를 참조하세요.
 
 ### 데이터베이스 메트릭 분석
 
@@ -67,7 +81,7 @@ Web 및 Business Edition부터 Basic, Standard 및 Premium Edition을 사용하�
 
     ![Azure Management Portal - SQL Database Metrics][PortalSqlMetrics]
 
-특정 메트릭의 사용률이 장시간 동안 80%를 초과할 경우 이는 성능 문제를 나타낼 수 있습니다. 데이터베이스 사용률 이해에 대한 자세한 내용은 [리소스 사용 이해](http://msdn.microsoft.com/ko-kr/library/azure/dn369873.aspx#Resource)를 참조하세요.
+특정 메트릭의 사용률이 장시간 동안 80%를 초과할 경우 이는 성능 문제를 나타낼 수 있습니다. 데이터베이스 사용률 이해에 대한 자세한 내용은 [리소스 사용 이해](http://msdn.microsoft.com/library/azure/dn369873.aspx#Resource)를 참조하세요.
 
 메트릭으로 데이터베이스 사용량이 높게 나타나면 첫 번째 해결 단계로 **데이터베이스를 더 높은 서비스 계층으로 크기 조정**해야 할 수 있습니다. 문제를 즉시 해결하기 위해서는 데이터베이스에 대한 **크기 조정** 탭을 사용하여 데이터베이스 크기를 늘려야 합니다. 이로 인해 청구 요금이 증가하게 됩니다.
 ![Azure Management Portal - SQL Database Scale][PortalSqlScale]
@@ -173,10 +187,10 @@ Entity Framework에서 인덱스를 정의하려면 인덱싱하려는 필드에
 
 - **항상 데이터베이스에서 조인 작업을 실행 합니다.** 결합할 레코드가 공통 필드를 공유하는 둘 이상의 테이블에서 레코드를 결합해야 합니다( *join*이라고도 함). 이 작업은 두 테이블의 모든 항목을 아래로 끈 다음 모든 항목을 반복하므로 잘못 수행될 경우 비효율적일 수 있습니다. 이런 종류의 작업은 데이터베이스 자체에서 유지되는 것이 가장 좋지만 실수로 클라이언트나 모바일 서비스 코드에서 수행되는 경우도 가끔 있습니다.
     - 앱 코드에서는 조인을 수행하지 마세요.
-    - 모바일 서비스 코드에서 조인을 수행하지 마세요. JavaScript 백 엔드를 사용할 때는 [테이블 개체](http://msdn.microsoft.com/ko-kr/library/windowsazure/jj554210.aspx)가 조인을 처리하지 않습니다. 조인이 데이터베이스에서 수행되도록 [mssql 개체](http://msdn.microsoft.com/ko-kr/library/windowsazure/jj554212.aspx)를 직접 사용하세요. 자세한 내용은 [관계형 테이블 조인](http://azure.microsoft.com/ko-kr/documentation/articles/mobile-services-how-to-use-server-scripts/#joins)을 참조하세요. .NET 백 엔드를 사용하고 LINQ를 통해 쿼리할 때는 데이터베이스 수준에서 Entity Framework에 의해 조인이 자동으로 처리됩니다.
+    - 모바일 서비스 코드에서 조인을 수행하지 마세요. JavaScript 백 엔드를 사용할 때는 [테이블 개체](http://msdn.microsoft.com/library/windowsazure/jj554210.aspx)가 조인을 처리하지 않습니다. 조인이 데이터베이스에서 수행되도록 [mssql 개체](http://msdn.microsoft.com/library/windowsazure/jj554212.aspx)를 직접 사용하세요. 자세한 내용은 [관계형 테이블 조인](http://azure.microsoft.com/documentation/articles/mobile-services-how-to-use-server-scripts/#joins)을 참조하세요. .NET 백 엔드를 사용하고 LINQ를 통해 쿼리할 때는 데이터베이스 수준에서 Entity Framework에 의해 조인이 자동으로 처리됩니다.
 - **페이징을 구현 합니다.** 데이터베이스를 쿼리하면 많은 수의 레코드가 클라이언트로 반환되는 경우가 있을 수 있습니다. 작업의 크기 및 대기 시간을 최소화하려면 페이징을 구현하는 것이 좋습니다.
-    - 기본적으로 모바일 서비스는 모든 들어오는 쿼리를 페이지 크기 50으로 제한하며, 사용자는 최대 1,000개까지 레코드를 수동으로 요청할 수 있습니다. 자세한 내용은 [Windows 스토어](http://azure.microsoft.com/ko-kr/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library/#paging), [iOS](http://azure.microsoft.com/ko-kr/documentation/articles/mobile-services-ios-how-to-use-client-library/#paging), [Android](http://azure.microsoft.com/ko-kr/documentation/articles/mobile-services-android-how-to-use-client-library/#paging), [HTML/JavaScript](http://azure.microsoft.com/ko-kr/documentation/articles/mobile-services-html-how-to-use-client-library/#paging) 및 [Xamarin](http://azure.microsoft.com/ko-kr/documentation/articles/partner-xamarin-mobile-services-how-to-use-client-library/#paging)에 대해 "페이지에서 데이터 반환"을 참조하세요.
-    - 모바일 서비스 코드에서 생성되는 쿼리에 대해서는 기본 페이지 크기가 없습니다. 앱에서 페이징이 구현되지 않을 경우 또는 방어적인 수단으로서 쿼리에 대한 기본 제한을 적용할 수 있습니다. JavaScript 백 엔드에서는 [쿼리 개체](http://msdn.microsoft.com/ko-kr/library/azure/jj613353.aspx)에 대해 **take** 연산자를 사용합니다. .NET 백 엔드를 사용할 경우에는 LINQ 쿼리의 일부로 [Take 메서드](http://msdn.microsoft.com/ko-kr/library/vstudio/bb503062(v=vs.110).aspx)를 사용할 수 있습니다.  
+    - 기본적으로 모바일 서비스는 모든 들어오는 쿼리를 페이지 크기 50으로 제한하며, 사용자는 최대 1,000개까지 레코드를 수동으로 요청할 수 있습니다. 자세한 내용은 [Windows 스토어](http://azure.microsoft.com/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library/#paging), [iOS](http://azure.microsoft.com/documentation/articles/mobile-services-ios-how-to-use-client-library/#paging), [Android](http://azure.microsoft.com/documentation/articles/mobile-services-android-how-to-use-client-library/#paging), [HTML/JavaScript](http://azure.microsoft.com/documentation/articles/mobile-services-html-how-to-use-client-library/#paging) 및 [Xamarin](http://azure.microsoft.com/documentation/articles/partner-xamarin-mobile-services-how-to-use-client-library/#paging)에 대해 "페이지에서 데이터 반환"을 참조하세요.
+    - 모바일 서비스 코드에서 생성되는 쿼리에 대해서는 기본 페이지 크기가 없습니다. 앱에서 페이징이 구현되지 않을 경우 또는 방어적인 수단으로서 쿼리에 대한 기본 제한을 적용할 수 있습니다. JavaScript 백 엔드에서는 [쿼리 개체](http://msdn.microsoft.com/library/azure/jj613353.aspx)에 대해 **take** 연산자를 사용합니다. .NET 백 엔드를 사용할 경우에는 LINQ 쿼리의 일부로 [Take 메서드](http://msdn.microsoft.com/library/vstudio/bb503062(v=vs.110).aspx)를 사용할 수 있습니다.  
 
 쿼리 계획을 분석하는 방법을 비롯하여 쿼리 디자인 향상에 대한 자세한 내용은 이 문서의 맨 아래에 있는 [고급 쿼리 디자인](#AdvancedQuery) 을 참조하세요.
 
@@ -185,9 +199,9 @@ Entity Framework에서 인덱스를 정의하려면 인덱싱하려는 필드에
 
 앱에서 새로운 콘텐츠를 확인하라고 모든 고객에게 푸시 알림을 보내려는 시나리오를 가정해 보세요. 이때 사용자가 알림을 탭하면 앱이 실행되고 모바일 서비스에 대한 호출 및 SQL 데이터베이스에 대한 쿼리 실행이 트리거될 것입니다. 단 몇 분 이내에 수백만 명의 고객이 이 작업을 수행한다면 앱의 평균 상태 로드보다 훨씬 높게 SQL 로드가 증가할 것입니다. 이 문제를 해결하기 위해서는 부하가 급증되는 시간 동안 앱을 상위 SQL 계층으로 확장한 후 다시 축소시킬 수 있지만 이러한 방식은 수동 개입이 필요하고 비용 증가로 이어질 수 있습니다. 모바일 서비스 아키텍처를 자주 조금만 조정하면 클라이언트가 SQL 데이터베이스에 미치는 로드를 균형적으로 조정하고 문제가 되는 갑작스러운 수요 증가 문제를 없앨 수 있습니다. 이러한 수정은 고객 환경에 대한 최소한의 영향만으로 쉽게 구현할 수 있는 경우가 많습니다. 다음은 몇 가지 예제입니다.
 
-- **시간에 따라 부하를 분산시킵니다.** 급격한 수요 증가가 예상되는 특정 이벤트(예: 브로드캐스트 푸시 알림)의 타이밍을 제어하고 해당 이벤트의 타이밍이 중요 하지 않은 경우 시간에 따라 분산시키는 것이 좋습니다. 위의 예에서 앱 고객은 거의 동시에가 아니라 하루 동안 일괄 처리로 새 앱 콘텐츠에 대한 알림을 받을 수 있습니다. 각 일괄 처리에 시차를 적용하여 전달할 수 있는 그룹으로 고객을 일괄 처리하는 것이 좋습니다. 알림 허브를 사용하고 추가 태그를 사용하여 일괄 처리를 추적한 다음 해당 태그에 푸시 알림을 제공하면 이 전략을 구현하는 쉬운 방법을 제공합니다. 태그에 대한 자세한 내용은 [알림 허브를 사용하여 속보 보내기](http://azure.microsoft.com/ko-kr/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/)를 참조하세요.
-- **해당될 때마다 Blob 및 테이블 저장소를 사용합니다.** 부하가 급증하는 시간 동안 고객이 보는 콘텐츠가 매우 정적이어서 해당 콘텐츠에 대해 관계형 쿼리 기능이 필요할 것 같지 않으므로 SQL 데이터베이스에 저장할 필요가 없는 경우가 자주 있습니다. 이런 경우 Blob이나 테이블 저장소에는 콘텐츠를 저장하는 것이 좋습니다. 장치에서 직접 Blob 저장소의 공용 Blob에 액세스할 수 있습니다. 안전한 방식으로 Blob에 액세스하거나 테이블 저장소를 사용하려면 모바일 서비스 사용자 지정 API를 통해 저장소 액세스 키를 보호해야 합니다. 자세한 내용은 [모바일 서비스를 사용하여 Azure 저장소에 이미지 업로드](http://azure.microsoft.com/ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage/)를 참조하세요.
-- **메모리 내 캐시를 사용합니다**. 또 다른 방법은 트래픽이 크게 증가되는 기간 동안 일반적으로 액세스되는 데이터를 [Azure 캐시](http://azure.microsoft.com/ko-kr/services/cache/)와 같은 메모리 내 캐시에 저장하는 방법입니다. 즉, 요청이 수신되었을 때 데이터베이스를 반복적으로 쿼리하는 대신 필요한 정보를 메모리에서 인출할 수 있게 하는 것입니다.
+- **시간에 따라 부하를 분산시킵니다.** 급격한 수요 증가가 예상되는 특정 이벤트(예: 브로드캐스트 푸시 알림)의 타이밍을 제어하고 해당 이벤트의 타이밍이 중요 하지 않은 경우 시간에 따라 분산시키는 것이 좋습니다. 위의 예에서 앱 고객은 거의 동시에가 아니라 하루 동안 일괄 처리로 새 앱 콘텐츠에 대한 알림을 받을 수 있습니다. 각 일괄 처리에 시차를 적용하여 전달할 수 있는 그룹으로 고객을 일괄 처리하는 것이 좋습니다. 알림 허브를 사용하고 추가 태그를 사용하여 일괄 처리를 추적한 다음 해당 태그에 푸시 알림을 제공하면 이 전략을 구현하는 쉬운 방법을 제공합니다. 태그에 대한 자세한 내용은 [알림 허브를 사용하여 속보 보내기](http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/)를 참조하세요.
+- **해당될 때마다 Blob 및 테이블 저장소를 사용합니다.** 부하가 급증하는 시간 동안 고객이 보는 콘텐츠가 매우 정적이어서 해당 콘텐츠에 대해 관계형 쿼리 기능이 필요할 것 같지 않으므로 SQL 데이터베이스에 저장할 필요가 없는 경우가 자주 있습니다. 이런 경우 Blob이나 테이블 저장소에는 콘텐츠를 저장하는 것이 좋습니다. 장치에서 직접 Blob 저장소의 공용 Blob에 액세스할 수 있습니다. 안전한 방식으로 Blob에 액세스하거나 테이블 저장소를 사용하려면 모바일 서비스 사용자 지정 API를 통해 저장소 액세스 키를 보호해야 합니다. 자세한 내용은 [모바일 서비스를 사용하여 Azure 저장소에 이미지 업로드](http://azure.microsoft.com/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage/)를 참조하세요.
+- **메모리 내 캐시를 사용합니다**. 또 다른 방법은 트래픽이 크게 증가되는 기간 동안 일반적으로 액세스되는 데이터를 [Azure 캐시](http://azure.microsoft.com/services/cache/)와 같은 메모리 내 캐시에 저장하는 방법입니다. 즉, 요청이 수신되었을 때 데이터베이스를 반복적으로 쿼리하는 대신 필요한 정보를 메모리에서 인출할 수 있게 하는 것입니다.
 
 <a name="Advanced"></a>
 ## 고급 문제 해결
@@ -196,7 +210,7 @@ Entity Framework에서 인덱스를 정의하려면 인덱싱하려는 필드에
 ### 필수 조건
 이 섹션의 일부 진단 작업을 수행하기 위해서는 **SQL Server Management Studio**와 같은 SQL 데이터베이스를 위한 관리 도구 또는 **Azure 관리 포털**에서 기본 제공되는 관리 기능에 액세스할 수 있어야 합니다.
 
-SQL Server Management Studio는 고급 기능을 제공하는 무료 Windows 응용 프로그램입니다. Windows 컴퓨터에 액세스할 수 없는 경우(예: Mac을 사용하는 경우), [Windows Server를 실행하는 가상 컴퓨터 만들기](http://azure.microsoft.com/ko-kr/documentation/articles/virtual-machines-windows-tutorial/)에 설명된 것처럼 Azure에서 가상 컴퓨터를 프로비전하고 원격으로 연결할 수 있습니다. SQL Server Management Studio 실행을 위해 주로 VM을 사용하려는 경우 **Basic A0**(이전의 "Extra Small") 인스턴스만으로도 충분합니다. 
+SQL Server Management Studio는 고급 기능을 제공하는 무료 Windows 응용 프로그램입니다. Windows 컴퓨터에 액세스할 수 없는 경우(예: Mac을 사용하는 경우), [Windows Server를 실행하는 가상 컴퓨터 만들기](http://azure.microsoft.com/documentation/articles/virtual-machines-windows-tutorial/)에 설명된 것처럼 Azure에서 가상 컴퓨터를 프로비전하고 원격으로 연결할 수 있습니다. SQL Server Management Studio 실행을 위해 주로 VM을 사용하려는 경우 **Basic A0**(이전의 "Extra Small") 인스턴스만으로도 충분합니다. 
 
 Azure 관리 포털은 보다 제한적이지만 로컬 설치 없이 사용 가능한 기본 제공되는 관리 환경을 제공합니다.
 
@@ -254,7 +268,7 @@ SQL Server Management Studio에서 데이터베이스에 연결하기 위해 이
 
 #### 고급 메트릭
 
-Basic, Standard 및 Premium 계층을 사용 중인 경우 관리 포털에서 일부 메트릭을 바로 사용할 수 있습니다. 하지만 Web 및 Business 계층을 사용할 경우에는 저장소 메트릭만 포털을 통해 사용할 수 있습니다. 다행스럽게도, 사용 중인 계층에 관계없이 **[sys.resource\_stats](http://msdn.microsoft.com/ko-kr/library/dn269979.aspx)** 관리 뷰를 사용하면 이러한 메트릭 및 기타 메트릭을 쉽게 가져올 수 있습니다. 다음과 같은 쿼리를 고려해 보세요.
+Basic, Standard 및 Premium 계층을 사용 중인 경우 관리 포털에서 일부 메트릭을 바로 사용할 수 있습니다. 하지만 Web 및 Business 계층을 사용할 경우에는 저장소 메트릭만 포털을 통해 사용할 수 있습니다. 다행스럽게도, 사용 중인 계층에 관계없이 **[sys.resource\_stats](http://msdn.microsoft.com/library/dn269979.aspx)** 관리 뷰를 사용하면 이러한 메트릭 및 기타 메트릭을 쉽게 가져올 수 있습니다. 다음과 같은 쿼리를 고려해 보세요.
 
     SELECT TOP 10 * 
     FROM sys.resource_stats 
@@ -268,7 +282,7 @@ Basic, Standard 및 Premium 계층을 사용 중인 경우 관리 포털에서 �
 
 #### SQL 연결 이벤트
 
-**[sys.event\_log](http://msdn.microsoft.com/ko-kr/library/azure/jj819229.aspx)** 뷰에는 연결 관련 이벤트의 세부 정보가 포함됩니다.
+**[sys.event\_log](http://msdn.microsoft.com/library/azure/jj819229.aspx)** 뷰에는 연결 관련 이벤트의 세부 정보가 포함됩니다.
 
     select * from sys.event_log 
     where database_name = 'todoitem_db'
@@ -440,30 +454,30 @@ JavaScript 백 엔드의 경우, SQL Server Management Studio 또는 Azure SQL �
 
 [Azure 관리 포털]: http://manage.windowsazure.com
 
-[Azure SQL 데이터베이스 설명서]: http://azure.microsoft.com/ko-kr/documentation/services/sql-database/
+[Azure SQL 데이터베이스 설명서]: http://azure.microsoft.com/documentation/services/sql-database/
 [SQL Server Management Studio를 사용하여 SQL 데이터베이스 관리]: http://go.microsoft.com/fwlink/p/?linkid=309723&clcid=0x409
 [동적 관리 뷰를 사용하여 SQL 데이터베이스 모니터링]: http://go.microsoft.com/fwlink/p/?linkid=309725&clcid=0x409
 [Azure SQL 데이터베이스 성능 및 크기 조정]: http://go.microsoft.com/fwlink/p/?linkid=397217&clcid=0x409
-[Azure SQL 데이터베이스 문제 해결]: http://msdn.microsoft.com/ko-kr/library/azure/ee730906.aspx
+[Azure SQL 데이터베이스 문제 해결]: http://msdn.microsoft.com/library/azure/ee730906.aspx
 
 <!-- MSDN -->
-[PRIMARY KEY 제약 조건 만들기 및 수정]: http://technet.microsoft.com/ko-kr/library/ms181043(v=sql.105).aspx
-[클러스터형 인덱스 만들기]: http://technet.microsoft.com/ko-kr/library/ms186342(v=sql.120).aspx
-[고유 인덱스 만들기]: http://technet.microsoft.com/ko-kr/library/ms187019.aspx
-[비클러스터형 인덱스 만들기]: http://technet.microsoft.com/ko-kr/library/ms189280.aspx
+[PRIMARY KEY 제약 조건 만들기 및 수정]: http://technet.microsoft.com/library/ms181043(v=sql.105).aspx
+[클러스터형 인덱스 만들기]: http://technet.microsoft.com/library/ms186342(v=sql.120).aspx
+[고유 인덱스 만들기]: http://technet.microsoft.com/library/ms187019.aspx
+[비클러스터형 인덱스 만들기]: http://technet.microsoft.com/library/ms189280.aspx
 
-[기본 및 외래 키 제약 조건]: http://msdn.microsoft.com/ko-kr/library/ms179610(v=sql.120).aspx
-[인덱스 기본 사항]: http://technet.microsoft.com/ko-kr/library/ms190457(v=sql.105).aspx
-[일반 인덱스 디자인 지침]: http://technet.microsoft.com/ko-kr/library/ms191195(v=sql.105).aspx 
-[고유 인덱스 디자인 지침]: http://technet.microsoft.com/ko-kr/library/ms187019(v=sql.105).aspx
-[클러스터형 인덱스 디자인 지침]: http://technet.microsoft.com/ko-kr/library/ms190639(v=sql.105).aspx
+[기본 및 외래 키 제약 조건]: http://msdn.microsoft.com/library/ms179610(v=sql.120).aspx
+[인덱스 기본 사항]: http://technet.microsoft.com/library/ms190457(v=sql.105).aspx
+[일반 인덱스 디자인 지침]: http://technet.microsoft.com/library/ms191195(v=sql.105).aspx 
+[고유 인덱스 디자인 지침]: http://technet.microsoft.com/library/ms187019(v=sql.105).aspx
+[클러스터형 인덱스 디자인 지침]: http://technet.microsoft.com/library/ms190639(v=sql.105).aspx
 
-[sys-missing-index-stats]: http://technet.microsoft.com/ko-kr/library/ms345421.aspx
+[sys-missing-index-stats]: http://technet.microsoft.com/library/ms345421.aspx
 
 <!-- EF -->
-[Entity Framework 5 성능 고려 사항]: http://msdn.microsoft.com/ko-kr/data/hh949853
-[Code First 데이터 주석]: http://msdn.microsoft.com/ko-kr/data/jj591583.aspx
-[Entity Framework의 인덱스 주석]:http://msdn.microsoft.com/ko-kr/data/jj591583.aspx#Index
+[Entity Framework 5 성능 고려 사항]: http://msdn.microsoft.com/data/hh949853
+[Code First 데이터 주석]: http://msdn.microsoft.com/data/jj591583.aspx
+[Entity Framework의 인덱스 주석]:http://msdn.microsoft.com/data/jj591583.aspx#Index
 
 <!-- BLOG LINKS -->
 [키 비용 확인]: http://www.sqlskills.com/blogs/kimberly/how-much-does-that-key-cost-plus-sp_helpindex9/

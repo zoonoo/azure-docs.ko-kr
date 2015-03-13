@@ -1,6 +1,20 @@
-<properties pageTitle="How to add operations to an API in Azure API Management" metaKeywords="" description="Learn how to add operations to an API in Azure API Management." metaCanonical="" services="" documentationCenter="API Management" title="How to add operations to an API in Azure API Management" authors="sdanie" solutions="" manager="" editor="" />
+﻿<properties 
+	pageTitle="Azure API 관리에서 API에 작업을 추가하는 방법" 
+	description="Azure API 관리에서 API에 작업을 추가하는 방법에 대해 알아봅니다." 
+	services="api-management" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
+<tags 
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/18/2014" 
+	ms.author="sdanie"/>
 
 # Azure API 관리에서 API에 작업을 추가하는 방법
 
@@ -145,3 +159,5 @@ API 관리 포털에서 원하는 API를 선택한 다음 **작업** 탭을 선�
 [본문 콘텐츠 형식]: ./media/api-management-howto-add-operations/api-management-response-body-content-type.png
 [응답 본문]: ./media/api-management-howto-add-operations/api-management-response-body.png
 [제품을 만들고 게시하는 방법]: ../api-management-howto-add-products
+
+<!--HONumber=46--> 

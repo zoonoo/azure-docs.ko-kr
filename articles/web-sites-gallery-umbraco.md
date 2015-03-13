@@ -1,6 +1,20 @@
-﻿<properties title="Create an Umbraco website from the gallery in Microsoft Azure" pageTitle="Microsoft Azure의 갤러리에서 Umbraco 웹 사이트 만들기" description="필수" metaKeywords="Azure, gallery, Umbraco, web site, website" services="web-sites" solutions="web" documentationCenter="" authors="tomfitz" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Microsoft Azure의 갤러리에서 Umbraco 웹 사이트 만들기" 
+	description="필수" 
+	services="web-sites" 
+	documentationCenter="" 
+	authors="tfitzmac" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="10/21/2014" ms.author="tomfitz" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/21/2014" 
+	ms.author="tomfitz"/>
 
 #Microsoft Azure의 갤러리에서 Umbraco 웹 사이트 만들기#
 
@@ -88,13 +102,13 @@ Umbraco CMS는 소규모 응용 프로그램에서 복잡한 응용 프로그램
 
 [Umbraco 비디오 자습서(영문)](https://umbraco.com/help-and-support/video-tutorials.aspx)
 
-[Microsoft Azure 미리 보기 포털 개요](http://azure.microsoft.com/ko-kr/overview/preview-portal/)
+[Microsoft Azure 미리 보기 포털 개요](http://azure.microsoft.com/overview/preview-portal/)
 
-[Microsoft Azure 미리 보기 포털 설명서](http://azure.microsoft.com/ko-kr/documentation/preview-portal/)
+[Microsoft Azure 미리 보기 포털 설명서](http://azure.microsoft.com/documentation/preview-portal/)
 
 [Azure 미리 보기 포털(채널 9)](http://channel9.msdn.com/Blogs/Windows-Azure/Azure-Preview-portal)(영문) 
 
-[Microsoft Azure 웹 사이트 설명서](http://azure.microsoft.com/ko-kr/documentation/services/web-sites/)
+[Microsoft Azure 웹 사이트 설명서](http://azure.microsoft.com/documentation/services/web-sites/)
 
 
 <!-- IMAGES -->
@@ -114,3 +128,5 @@ Umbraco CMS는 소규모 응용 프로그램에서 복잡한 응용 프로그램
 [15CreateItemUnderOverflow]: ./media/web-sites-gallery-umbraco/15CreateItemUnderOverflow.PNG
 [16EnterAName]: ./media/web-sites-gallery-umbraco/16EnterAName.PNG
 [17MyPage]: ./media/web-sites-gallery-umbraco/17MyPage.PNG
+
+<!--HONumber=46--> 

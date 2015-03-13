@@ -1,6 +1,20 @@
-<properties pageTitle="Azure 포털을 사용하여 HDInsight의 Hadoop 클러스터 관리 | Azure" description="HDInsight 서비스를 관리하는 방법에 대해 알아봅니다. HDInsight 클러스터를 만들고 대화형 JavaScript 콘솔을 열고 Hadoop 명령 콘솔을 여는 방법에 대해 설명합니다.." services="hdinsight" documentationCenter="" authors="mumian" manager="paulettm" editor="cgronlun"/>
+﻿<properties 
+	pageTitle="Azure 포털을 사용하여 HDInsight의 Hadoop 클러스터 관리 | Azure" 
+	description="HDInsight 서비스를 관리하는 방법에 대해 알아봅니다. HDInsight 클러스터를 만들고 대화형 JavaScript 콘솔을 열고 Hadoop 명령 콘솔을 여는 방법에 대해 설명합니다.." 
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="mumian" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/21/2014" ms.author="jgao"/>
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="jgao"/>
 
 
 
@@ -83,7 +97,7 @@ HDInsight는 다양한 Hadoop 구성 요소에서 작동합니다. 검증되어 
 원격 데스크톱 연결을 사용하여 클러스터에 사용자 지정 소프트웨어를 설치하는 기능은 지원되지 않습니다. 헤드 노드의 드라이브에는 파일을 저장하면 안 됩니다. 클러스터를 다시 만들어야 하는 경우 파일이 손실됩니다. Azure Blob 저장소에 파일을 저장하는 것이 좋습니다. Blob 저장소는 영구적입니다.
 
 ##<a id="password"></a> HDInsight 클러스터 사용자 이름 및 암호 변경
-HDInsight 클러스터마다 두 개의 사용자 계정이 포함될 수 있습니다.  HDInsight 클러스터 사용자 계정은 프로비전 프로세스 중에 생성됩니다.  RDP를 통해 클러스터에 액세스하기 위해 RDP 사용자 계정을 만들 수도 있습니다. [원격 데스크톱 사용](#enablerdp)을 참조하세요.
+HDInsight 클러스터마다 두 개의 사용자 계정이 포함될 수 있습니다.  HDInsight 클러스터 사용자 계정은 프로비전 프로세스 중에 생성됩니다.  RDP를 통해 클러스터에 액세스하기 위해 RDP 사용자 계정을 만들 수도 있습니다. [원격 데스크톱 사용]을 참조하세요.(#enablerdp)
 
 **HDInsight 클러스터 사용자 이름 및 암호를 변경하려면**
 
@@ -218,15 +232,15 @@ Azure PowerShell cmdlet을 사용하여 이 작업을 수행할 수도 있습니
 [hdinsight-submit-jobs]: ../hdinsight-submit-hadoop-jobs-programmatically/
 [hdinsight-storage]: ../hdinsight-use-blob-storage/
 [hdinsight-versions]: ../hdinsight-component-versioning/
-[hdinsight-support]: http://azure.microsoft.com/ko-kr/support/options/
-[makecert-info]: http://msdn.microsoft.com/ko-kr/library/bfsktky3(v=vs.110).aspx
+[hdinsight-support]: http://azure.microsoft.com/support/options/
+[makecert-info]: http://msdn.microsoft.com/library/bfsktky3(v=vs.110).aspx
 
 [azure-create-storageaccount]: ../storage-create-storage-account/ 
 [azure-management-portal]: https://manage.windowsazure.com/
 
-[azure-purchase-options]: http://azure.microsoft.com/ko-kr/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/ko-kr/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/ko-kr/pricing/free-trial/
+[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
 
 [hadoop-command-reference]: http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/CommandsManual.html
@@ -236,6 +250,4 @@ Azure PowerShell cmdlet을 사용하여 이 작업을 수행할 수도 있습니
 [image-hdi-create-rpd-user]: ./media/hdinsight-administer-use-management-portal/HDI.CreateRDPUser.png
 [image-hadoopcommandline]: ./media/hdinsight-administer-use-management-portal/HDI.HadoopCommandLine.PNG "Hadoop command line"
 [image-hdiclustercreate-uploadcert]: ./media/hdinsight-administer-use-management-portal/HDI.ClusterCreate.UploadCert.png
-
-
 <!--HONumber=42-->

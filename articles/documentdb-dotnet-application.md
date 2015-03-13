@@ -1,8 +1,21 @@
-﻿<properties title="Build a web application with ASP.NET MVC using DocumentDB" pageTitle="DocumentDB를 사용하여 ASP.NET MVC로 웹 응용 프로그램 작성 | Azure" description="DocumentDB를 사용하여 할 일 목록 웹 응용 프로그램을 빌드하는 방법에 대해 알아봅니다. Azure에서 호스팅되는 ASP.NET MVC 웹 응용 프로그램의 데이터를 저장하고 액세스합니다.."  metaKeywords="NoSQL, DocumentDB, database, document-orientated database, JSON, account" services="documentdb"  solutions="data-management" documentationCenter=""  authors="ryancraw" manager="jhubbard" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="DocumentDB를 사용하여 ASP.NET MVC로 웹 응용 프로그램 작성 | Azure" 
+	description="DocumentDB를 사용하여 할 일 목록 웹 응용 프로그램을 빌드하는 방법에 대해 알아봅니다. Azure에서 호스팅되는 ASP.NET MVC 웹 응용 프로그램의 데이터를 저장하고 액세스합니다." 
+	services="documentdb" 
+	documentationCenter="" 
+	authors="ryancrawcour" 
+	manager="jhubbard" 
+	editor="cgronlun"/>
 
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="08/19/2014" ms.author="ryancraw" />
-
+<tags 
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="02/12/2015" 
+	ms.author="ryancraw"/>
 <a name="_Toc395809351">DocumentDB를 사용하여 ASP.NET MVC로 웹 응용 프로그램 작성</a>
 =======================================================================================================
 <a name="_Toc395637758"></a> <a name="_Toc389865467"></a> <a name="_Toc389828008">개요</a>
@@ -587,3 +600,5 @@ Todo 목록에 항목을 더 추가해도 됩니다.
 [ASP.NET MVC의 기본 CRUD 작업]: http://go.microsoft.com/fwlink/?LinkId=317598
 
 <!--HONumber=27-->
+
+<!--HONumber=46--> 

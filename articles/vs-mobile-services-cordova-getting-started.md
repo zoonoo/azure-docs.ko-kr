@@ -36,7 +36,7 @@ JavaScript 백엔드 모바일 서비스의 경우 TodoItem이라는 이름의 �
 
 	var todoTable = mobileServiceClient.getTable('TodoItem');
 
-이 예제가 작동하려면 테이블에 대한 사용 권한을 **응용 프로그램 키가 있는 모든 사용자**로 설정해야 합니다. 나중에 인증을 설정할 수 있습니다. [인증 시작](http://azure.microsoft.com/ko-kr/documentation/articles/mobile-services-html-get-started-users/)을 참조하세요.
+이 예제가 작동하려면 테이블에 대한 사용 권한을 **응용 프로그램 키가 있는 모든 사용자**로 설정해야 합니다. 나중에 인증을 설정할 수 있습니다. [인증 시작](http://azure.microsoft.com/documentation/articles/mobile-services-html-get-started-users/)을 참조하세요.
 
 #####항목 추가 
 

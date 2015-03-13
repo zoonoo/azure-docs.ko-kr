@@ -424,7 +424,7 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
    이 코드는 *canEdit*라는 새 역할을 만들고, 새 로컬 사용자 *user1@contoso.com*을 만든 다음 *canEdit* 역할에 *user1@contoso.com*을 추가합니다. 자세한 내용은 [ASP.NET ID 리소스 페이지](http://curah.microsoft.com/55636/aspnet-identity)를 참조하세요.
 
 ## 임시 코드를 사용하여 canEdit 역할에 새 소셜 로그인 사용자 추가 ##
-이 섹션에서는 Account 컨트롤러의 **ExternalLoginConfirmation** 메서드를 임시로 수정하여 OAuth 공급자로 등록하는 새 사용자를 *canEdit* 역할에 추가합니다. **ExternalLoginConfirmation** 메서드를 임시로 수정하여 관리 역할에 새 사용자를 자동으로 추가합니다. 역할을 추가하고 관리할 도구를 제공할 때까지 아래의 임시 자동 등록 코드를 사용하겠습니다. 앞으로 사용자 계정 및 역할을 만들고 편집할 수 있는 [WSAT](http://msdn.microsoft.com/ko-kr/library/ms228053.aspx)와 유사한 도구를 제공하려고 합니다. **서버 탐색기**를 사용하여 역할에 사용자를 추가하는 방법은 자습서 뒷부분에 보여 드리겠습니다.  
+이 섹션에서는 Account 컨트롤러의 **ExternalLoginConfirmation** 메서드를 임시로 수정하여 OAuth 공급자로 등록하는 새 사용자를 *canEdit* 역할에 추가합니다. **ExternalLoginConfirmation** 메서드를 임시로 수정하여 관리 역할에 새 사용자를 자동으로 추가합니다. 역할을 추가하고 관리할 도구를 제공할 때까지 아래의 임시 자동 등록 코드를 사용하겠습니다. 앞으로 사용자 계정 및 역할을 만들고 편집할 수 있는 [WSAT](http://msdn.microsoft.com/library/ms228053.aspx)와 유사한 도구를 제공하려고 합니다. **서버 탐색기**를 사용하여 역할에 사용자를 추가하는 방법은 자습서 뒷부분에 보여 드리겠습니다.  
 
 1. **Controllers\AccountController.cs** 파일을 열고 **ExternalLoginConfirmation** 메서드로 이동합니다.
 1. **AddToRoleAsync**에서 **SignInAsync** 호출 바로 앞에 다음 호출을 추가합니다.
@@ -445,9 +445,9 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 
 ## SSL 및 Authorize 특성을 사용하여 응용 프로그램 보호 ##
 
-이 섹션에서는 [Authorize](http://msdn.microsoft.com/ko-kr/library/system.web.mvc.authorizeattribute.aspx) 특성을 적용하여 작업 메서드에 대한 액세스를 제한합니다. 익명 사용자는 home 컨트롤러의 **인덱스** 작업 메서드만 볼 수 있습니다. 등록된 사용자는 연락처 데이터(Cm 컨트롤러의 **인덱스** 및 **세부 정보** 페이지), 정보 및 연락처 페이지를 볼 수 있습니다.  *canEdit* 역할의 사용자만 데이터를 변경하는 작업 메서드에 액세스할 수 있습니다.
+이 섹션에서는 [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) 특성을 적용하여 작업 메서드에 대한 액세스를 제한합니다. 익명 사용자는 home 컨트롤러의 **인덱스** 작업 메서드만 볼 수 있습니다. 등록된 사용자는 연락처 데이터(Cm 컨트롤러의 **인덱스** 및 **세부 정보** 페이지), 정보 및 연락처 페이지를 볼 수 있습니다.  *canEdit* 역할의 사용자만 데이터를 변경하는 작업 메서드에 액세스할 수 있습니다.
 
-1. 응용 프로그램에 [Authorize](http://msdn.microsoft.com/ko-kr/library/system.web.mvc.authorizeattribute.aspx) 필터와 [RequireHttps](http://msdn.microsoft.com/ko-kr/library/system.web.mvc.requirehttpsattribute.aspx) 필터를 추가합니다. 또 다른 방법은 각 컨트롤러에 [Authorize](http://msdn.microsoft.com/ko-kr/library/system.web.mvc.authorizeattribute.aspx) 특성과 [RequireHttps](http://msdn.microsoft.com/ko-kr/library/system.web.mvc.requirehttpsattribute.aspx) 특성을 추가하는 것이지만 전체 응용 프로그램에 적용하는 것이 보안상 더 좋은 모범 사례입니다. 전체적으로 추가하면 새로 추가된 모든 컨트롤러와 작업 메서드가 자동으로 보호되므로 따로 적용할 필요가 없습니다. 자세한 내용은 [ASP.NET MVC 앱 및 새 AllowAnonymous 특성 보안 유지](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx)를 참조하세요. *App_Start\FilterConfig.cs* 파일을 열고  *RegisterGlobalFilters* 메서드를 다음 내용(두 개의 필터 추가):으로 바꿉니다.
+1. 응용 프로그램에 [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) 필터와 [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) 필터를 추가합니다. 또 다른 방법은 각 컨트롤러에 [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) 특성과 [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) 특성을 추가하는 것이지만 전체 응용 프로그램에 적용하는 것이 보안상 더 좋은 모범 사례입니다. 전체적으로 추가하면 새로 추가된 모든 컨트롤러와 작업 메서드가 자동으로 보호되므로 따로 적용할 필요가 없습니다. 자세한 내용은 [ASP.NET MVC 앱 및 새 AllowAnonymous 특성 보안 유지](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx)를 참조하세요. *App_Start\FilterConfig.cs* 파일을 열고  *RegisterGlobalFilters* 메서드를 다음 내용(두 개의 필터 추가):으로 바꿉니다.
 		<pre>
         public static void
         RegisterGlobalFilters(GlobalFilterCollection filters)
@@ -461,7 +461,7 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 
 
 
-	위의 코드에 적용된 [Authorize](http://msdn.microsoft.com/ko-kr/library/system.web.mvc.authorizeattribute.aspx) 필터는 익명 사용자가 응용 프로그램의 메서드에 액세스할 수 없도록 합니다. [AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) 특성을 사용하여 몇 개 메서드의 권한 부여 요구 사항을 옵트아웃(opt out)하므로 익명 사용자가 로그인하고 홈페이지를 볼 수 있습니다. [RequireHttps](http://msdn.microsoft.com/ko-kr/library/system.web.mvc.requirehttpsattribute.aspx)는 웹앱에 대한 모든 액세스가 HTTPS를 통해 이루어져야 합니다.
+	위의 코드에 적용된 [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) 필터는 익명 사용자가 응용 프로그램의 메서드에 액세스할 수 없도록 합니다. [AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) 특성을 사용하여 몇 개 메서드의 권한 부여 요구 사항을 옵트아웃(opt out)하므로 익명 사용자가 로그인하고 홈페이지를 볼 수 있습니다. [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx)는 웹앱에 대한 모든 액세스가 HTTPS를 통해 이루어져야 합니다.
 
 1. Home 컨트롤러의 **Index** 메서드에 [AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) 특성을 추가합니다. [AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) 특성을 사용하여 권한 부여에서 옵트아웃(opt out)하려는 메서드를 허용 목록에 추가할 수 있습니다. 아래에는 HomeController 일부의 이미지가 표시되어 있습니다:	
 

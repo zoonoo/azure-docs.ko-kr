@@ -1,6 +1,21 @@
-﻿<properties urlDisplayName="" pageTitle="지원되는 브라우저 및 장치" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Supported browsers and devices" authors="Justin Beckwith"  solutions="" writer="" manager="need to identify contact" editor=""  />
+﻿<properties 
+	pageTitle="지원되는 브라우저 및 장치" 
+	description="" 
+	services="" 
+	documentationCenter="" 
+	authors="JustinBeckwith" 
+	writer="" 
+	manager="carolz" 
+	editor=""/>
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="11/16/2014" ms.author="Justin Beckwith" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/16/2014" 
+	ms.author="justbe"/>
 
 #지원되는 브라우저 및 장치
 Microsoft Azure 미리 보기 포털은 모든 최신 데스크톱 및 태블릿 장치와 브라우저에서 실행됩니다.
@@ -20,3 +35,5 @@ Microsoft Azure 미리 보기 포털은 모든 최신 데스크톱 및 태블릿
  
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

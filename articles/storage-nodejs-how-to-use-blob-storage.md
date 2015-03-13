@@ -160,7 +160,7 @@ Azure SDK for Node.js에는 재시도 논리를 구현하는 두 필터 **Expone
 
 ## <a name="upload-blob"> </a>방법: 컨테이너에 Blob 업로드
 
-Blob는 블록 기반 또는 페이지 기반일 수 있습니다. 블록 Blob를 사용하면 큰 데이터를 더 효율적으로 업로드할 수 있고, 페이지 Blob는 읽기/쓰기 작업용으로 최적화되어 있습니다. 자세한 내용은 [블록 Blob 및 페이지 Blob 이해](http://msdn.microsoft.com/ko-kr/library/azure/ee691964.aspx)를 참조하세요..
+Blob는 블록 기반 또는 페이지 기반일 수 있습니다. 블록 Blob를 사용하면 큰 데이터를 더 효율적으로 업로드할 수 있고, 페이지 Blob는 읽기/쓰기 작업용으로 최적화되어 있습니다. 자세한 내용은 [블록 Blob 및 페이지 Blob 이해](http://msdn.microsoft.com/library/azure/ee691964.aspx)를 참조하세요..
 
 ###블록 Blob
 
@@ -407,10 +407,9 @@ ACL이 설정되고 나면 정책의 ID를 기반으로 SAS를 만들 수 있습
   [Node.js Cloud Service with Storage]: /ko-kr/documentation/articles/storage-nodejs-use-table-storage-cloud-service-app/
   [Node.js Web Application with Storage]: /ko-kr/documentation/articles/storage-nodejs-use-table-storage-web-site/
  [Web Site with WebMatrix]: /ko-kr/documentation/articles/web-sites-nodejs-use-webmatrix/
-  [using the REST API]: http://msdn.microsoft.com/ko-kr/library/windowsazure/hh264518.aspx
+  [using the REST API]: http://msdn.microsoft.com/library/windowsazure/hh264518.aspx
   [Azure Management Portal]: http://manage.windowsazure.com
   [Node.js 클라우드 서비스]: /ko-kr/documentation/articles/cloud-services-nodejs-develop-deploy-app/
-  [Azure에 데이터 저장 및 액세스]: http://msdn.microsoft.com/ko-kr/library/windowsazure/gg433040.aspx
+  [Azure에 데이터 저장 및 액세스]: http://msdn.microsoft.com/library/windowsazure/gg433040.aspx
   [Azure 저장소 팀 블로그]: http://blogs.msdn.com/b/windowsazurestorage/
-
 <!--HONumber=42-->

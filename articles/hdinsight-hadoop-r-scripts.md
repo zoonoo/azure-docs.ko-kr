@@ -43,9 +43,9 @@ R 스크립트는 클러스터를 만들 때 스크립트 작업을 사용하여
 
 HDInsight 클러스터에 R을 설치하는 샘플 스크립트는 읽기 전용 Azure 저장소 Blob([https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1](https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1))에서 다운로드할 수 있습니다. 이 섹션에서는 Azure 관리 포털을 사용하여 클러스터를 프로비전하면서 샘플 스크립트를 사용하는 방법에 대한 지침을 제공합니다.
 
-> [AZURE.NOTE] 샘플 스크립트는 HDInsight 클러스터 버전 3.1에서만 작동합니다. HDInsight 클러스터 버전에 대한 자세한 내용은 [HDInsight 클러스터 버전](http://azure.microsoft.com/ko-kr/documentation/articles/hdinsight-component-versioning/)을 참조하세요.
+> [AZURE.NOTE] 샘플 스크립트는 HDInsight 클러스터 버전 3.1에서만 작동합니다. HDInsight 클러스터 버전에 대한 자세한 내용은 [HDInsight 클러스터 버전](http://azure.microsoft.com/documentation/articles/hdinsight-component-versioning/)을 참조하세요.
 
-1. [사용자 지정 옵션을 사용하여 클러스터를 프로비저닝](http://azure.microsoft.com/ko-kr/documentation/articles/hdinsight-provision-clusters/#portal)에 설명된 대로 **사용자 지정 만들기** 옵션을 사용하여 클러스터 프로비저닝을 시작합니다. 
+1. [사용자 지정 옵션을 사용하여 클러스터를 프로비저닝](http://azure.microsoft.com/documentation/articles/hdinsight-provision-clusters/#portal)에 설명된 대로 **사용자 지정 만들기** 옵션을 사용하여 클러스터 프로비저닝을 시작합니다. 
 2. 아래와 같이 마법사의 **스크립트 작업** 페이지에서 **스크립트 작업 추가**를 클릭하여 스크립트 작업에 대한 세부 정보를 제공합니다.
 
 	![Use Script Action to customize a cluster](./media/hdinsight-hadoop-r-scripts/hdi-r-script-action.png "Use Script Action to customize a cluster")
@@ -69,7 +69,7 @@ HDInsight 클러스터에 R을 설치하는 샘플 스크립트는 읽기 전용
 ## <a name="useR"></a>HDInsight에서 R 스크립트를 실행하는 방법
 이 섹션에서는 HDInsight를 사용하는 Hadoop 클러스터에서 R 스크립트를 실행하는 방법에 대해 설명합니다.
 
-1. **클러스터에 대한 원격 데스크톱 연결 설정**: Azure 관리 포털에서 R을 설치하여 만든 클러스터에 대해 원격 데스크톱을 사용하도록 설정한 다음 클러스터에 원격으로 연결합니다. 자세한 내용은 <a href="http://azure.microsoft.com/ko-kr/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">RDP를 사용하여 HDInsight 클러스터에 연결</a>을 참조하세요.
+1. **클러스터에 대한 원격 데스크톱 연결 설정**: Azure 관리 포털에서 R을 설치하여 만든 클러스터에 대해 원격 데스크톱을 사용하도록 설정한 다음 클러스터에 원격으로 연결합니다. 자세한 내용은 <a href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">RDP를 사용하여 HDInsight 클러스터에 연결</a>을 참조하세요.
 
 2. **R 콘솔 열기**: R 설치에서는 R 콘솔에 대한 링크를 헤드 노드의 데스크톱에 놓습니다. 이 링크를 클릭하여 R 콘솔을 엽니다.
 
@@ -94,7 +94,7 @@ HDInsight 클러스터에 R을 설치하는 샘플 스크립트는 읽기 전용
 
 ## <a name="usingPS"></a>PowerShell을 사용하여 HDInsight에 R 설치
 
-이 섹션에서는 **<a href = "http://msdn.microsoft.com/ko-kr/library/dn858088.aspx" target="_blank">Add-AzureHDInsightScriptAction</a>** cmdlet을 사용하여 스크립트 작업을 사용하는 스크립트를 호출하고 클러스터를 사용자 지정합니다. 계속하기 전에 PowerShell을 설치 및 구성했는지 확인하세요. HDInsight PowerShell cmdlet을 실행하도록 워크스테이션을 구성하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성][powershell-install-configure]을 참조하세요.
+이 섹션에서는 **<a href = "http://msdn.microsoft.com/library/dn858088.aspx" target="_blank">Add-AzureHDInsightScriptAction</a>** cmdlet을 사용하여 스크립트 작업을 사용하는 스크립트를 호출하고 클러스터를 사용자 지정합니다. 계속하기 전에 PowerShell을 설치 및 구성했는지 확인하세요. HDInsight PowerShell cmdlet을 실행하도록 워크스테이션을 구성하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성][powershell-install-configure]을 참조하세요.
 
 다음 단계를 수행합니다.
 
@@ -259,7 +259,7 @@ SDK를 사용하여 HDInsight 클러스터를 프로비전하려면 다음 절�
             Version = "3.1"
         };        
 
-10. 다음 코드를 Main() 함수에 추가하여 [ScriptAction](http://msdn.microsoft.com/ko-kr/library/microsoft.windowsazure.management.hdinsight.clusterprovisioning.data.scriptaction.aspx) 클래스를 사용하고 사용자 지정 스크립트를 호출하여 R을 설치합니다.
+10. 다음 코드를 Main() 함수에 추가하여 [ScriptAction](http://msdn.microsoft.com/library/microsoft.windowsazure.management.hdinsight.clusterprovisioning.data.scriptaction.aspx) 클래스를 사용하고 사용자 지정 스크립트를 호출하여 R을 설치합니다.
 
 		// ADD THE SCRIPT ACTION TO INSTALL R
 
@@ -293,4 +293,4 @@ PowerShell 콘솔을 열고 프로젝트를 저장한 위치로 이동하고 프
 [hdinsight-provision]: ../hdinsight-provision-clusters/
 [hdinsight-cluster-customize]: ../hdinsight-hadoop-customize-cluster
 [hdinsight-install-spark]: ../hdinsight-hadoop-spark-install/
-<!--HONumber=42-->
+\<!--HONumber=42-->

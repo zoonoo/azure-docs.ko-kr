@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Azure에서 Linux를 실행하는 가상 컴퓨터에 로그온" 
 	description="SSH(Secure Shell) 클라이언트를 사용하여 Linux를 실행하는 Azure 가상 컴퓨터에 로그온하는 방법에 대해 알아봅니다." 
 	services="virtual-machines" 
@@ -53,4 +53,5 @@ Linux 운영 체제를 실행하는 가상 컴퓨터의 경우 SSH(보안 셸) �
 <!-- LINKS -->
 [Linux 가상 컴퓨터에 대한 암호 또는 SSH를 다시 설정하는 방법]: http://go.microsoft.com/fwlink/p/?LinkId=512138
 
-<!--HONumber=45--> 
+
+<!--HONumber=42-->

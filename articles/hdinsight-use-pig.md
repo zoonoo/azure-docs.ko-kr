@@ -95,7 +95,7 @@ Blob 저장소의 파일에 액세스하기 위한 구문은 다음과 같습니
 
 이 섹션에서는 일부 Pig Latin 문을 개별적으로 검토한 다음 문을 실행한 후의 결과를 검토합니다. 다음 섹션에서는 PowerShell을 실행하여 샘플 로그 파일 분석을 위해 Pig 문을 함께 실행합니다. 개별 Pig Latin 문은 HDInsight 클러스터에 대해 직접 실행해야 합니다.
 
-1. [RDP를 사용하여 HDInsight 클러스터에 연결](http://azure.microsoft.com/ko-kr/documentation/articles/hdinsight-administer-use-management-portal/#rdp)의 지침에 따라 HDInsight 클러스터에 대해 원격 데스크톱을 사용하도록 설정합니다. 클러스터 노드에 로그인한 다음 바탕 화면에서 **Hadoop 명령줄**을 클릭합니다.
+1. [RDP를 사용하여 HDInsight 클러스터에 연결](http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp)의 지침에 따라 HDInsight 클러스터에 대해 원격 데스크톱을 사용하도록 설정합니다. 클러스터 노드에 로그인한 다음 바탕 화면에서 **Hadoop 명령줄**을 클릭합니다.
 
 2. 명령줄에서 **Pig**가 설치된 디렉터리로 이동합니다. 형식:
 
@@ -397,12 +397,11 @@ Pig를 사용하여 데이터를 분석할 수 있지만, HDInsight에 포함된
 
 [Powershell-install-configure]: ../install-configure-powershell/
 
-[powershell-start]: http://technet.microsoft.com/ko-kr/library/hh847889.aspx
+[powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
 
 [image-hdi-log4j-sample]: ./media/hdinsight-use-pig/HDI.wholesamplefile.png
 [image-hdi-pig-data-transformation]: ./media/hdinsight-use-pig/HDI.DataTransformation.gif
 [image-hdi-pig-powershell]: ./media/hdinsight-use-pig/hdi.pig.powershell.png
 [image-hdi-pig-architecture]: ./media/hdinsight-use-pig/HDI.Pig.Architecture.png
-
 
 <!--HONumber=42-->

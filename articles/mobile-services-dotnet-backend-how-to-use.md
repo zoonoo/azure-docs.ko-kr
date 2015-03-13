@@ -1,6 +1,20 @@
-<properties pageTitle="모바일 서비스 .NET 백 엔드 사용 - Azure 모바일 서비스" description="테이블 데이터, API, 인증 및 예약된 작업을 사용하는 방법을 비롯하여 Azure 모바일 서비스용 .NET 백 엔드 프로그래밍 모델에 대해 자세히 알아봅니다." services="" documentationCenter="windows" authors="mattchenderson" manager="dwrede" editor="mollybos"/>
+<properties 
+	pageTitle="모바일 서비스 .NET 백 엔드 사용 - Azure 모바일 서비스" 
+	description="테이블 데이터, API, 인증 및 예약된 작업을 사용하는 방법을 비롯하여 Azure 모바일 서비스용 .NET 백 엔드 프로그래밍 모델에 대해 자세히 알아봅니다." 
+	services="" 
+	documentationCenter="windows" 
+	authors="mattchenderson" 
+	manager="dwrede" 
+	editor="mollybos"/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/11/2014" ms.author="mahender"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/11/2014" 
+	ms.author="mahender"/>
 # 모바일 서비스 .NET 백 엔드 사용
 
 <div class="dev-center-tutorial-subselector"><a href="/ko-kr/documentation/articles/mobile-services-dotnet-backend-how-to-use/" title=".NET backend" class="current">.NET 백 엔드</a> | <a href="/ko-kr/documentation/articles/mobile-services-how-to-use-server-scripts/"  title="JavaScript backend">JavaScript 백 엔드</a></div>

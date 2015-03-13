@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Microsoft 인증 등록 - 모바일 서비스" description="Azure 모바일 서비스 응용 프로그램에서 Microsoft 인증을 위해 등록하는 방법에 대해 알아봅니다." authors="ggailey777" services="mobile-services" documentationCenter="" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Microsoft 인증 등록 - 모바일 서비스" 
+	description="Azure 모바일 서비스 응용 프로그램에서 Microsoft 인증을 위해 등록하는 방법에 대해 알아봅니다." 
+	authors="ggailey777" 
+	services="mobile-services" 
+	documentationCenter="" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="glenga"/>
 
 # Microsoft 계정 로그인을 사용하도록 앱 등록
 

@@ -50,7 +50,7 @@ HDInsight 클러스터 버전과 연결된 구성 요소 버전은 HDInsight에 
 
 **릴리스 정보**	
 
-최신 HDInsight 버전과 관련된 추가 릴리스 정보에 대해서는 [HDInsight 릴리스 정보](http://azure.microsoft.com/ko-kr/documentation/articles/hdinsight-release-notes/)를 참조하세요.
+최신 HDInsight 버전과 관련된 추가 릴리스 정보에 대해서는 [HDInsight 릴리스 정보](http://azure.microsoft.com/documentation/articles/hdinsight-release-notes/)를 참조하세요.
 
 ### HDInsight 클러스터를 프로비전할 경우 버전 선택
 
@@ -90,7 +90,7 @@ HDInsight PowerShell Cmdlet 또는 HDInsight .NET SDK를 통해 클러스터를 
 다음 표는 현재 사용 가능한 HDInsight 버전, 버전에서 사용하는 해당 HDP(Hortonworks Data Platform) 버전 및 릴리스 날짜를 나열합니다. 알려진 경우 지원 만료 날짜와 사용이 중단된 날짜도 나와 있습니다. 다음 사항에 유의하세요.
 
 * 헤드 노드가 2개 있는 고가용성 클러스터는 기본적으로 HDInsight 2.1, 3.0 및 3.1 클러스터에 대해 배포됩니다. HDInsight 1.6 클러스터에서는 사용할 수 없습니다.
-* 특정 버전에 대한 지원이 만료되면 Azure 관리 포털을 통해 사용할 수 없게 됩니다. 다음 표에는 Azure 관리 포털에서 사용할 수 있는 버전이 나와 있습니다. 클러스터 버전은 사용이 중단될 때까지 PowerShell [New-AzureHDInsightCluster](http://msdn.microsoft.com/ko-kr/library/dn593744.aspx) 명령의  `Version` 매개 변수 및 .NET SDK를 사용하여 계속 사용할 수 있습니다. 
+* 특정 버전에 대한 지원이 만료되면 Azure 관리 포털을 통해 사용할 수 없게 됩니다. 다음 표에는 Azure 관리 포털에서 사용할 수 있는 버전이 나와 있습니다. 클러스터 버전은 사용이 중단될 때까지 PowerShell [New-AzureHDInsightCluster](http://msdn.microsoft.com/library/dn593744.aspx) 명령의  `Version` 매개 변수 및 .NET SDK를 사용하여 계속 사용할 수 있습니다. 
 
 <table border="1">
 <tr><th>HDInsight 버전</th><th>HDP 버전</a><th>고가용성</th></th><th>릴리스 날짜</th><th>Azure 관리 포털에서 사용 가능 여부</th><th>지원 만료 날짜</th><th>사용 중단 날짜</th></tr>
@@ -113,7 +113,7 @@ SLA는 "지원 기간" 면에서 정의됩니다. 지원 기간은 Microsoft 고
 
 **사용 중단 날짜**는 HDInsight에서 해당 클러스터 버전을 만들 수 없게 되는 날짜입니다.
 
-> [AZURE.NOTE] HDInsight 2.1 및 3.0 클러스터는 모두 64비트 버전의 Windows Server 2012 R2를 사용하고 .NET Framework 4.0, 4.5 및 4.5.1을 지원하는 Azure 게스트 OS [제품군 4](http://msdn.microsoft.com/ko-kr/library/azure/ee924680.aspx#explanation)에서 실행됩니다. 
+> [AZURE.NOTE] HDInsight 2.1 및 3.0 클러스터는 모두 64비트 버전의 Windows Server 2012 R2를 사용하고 .NET Framework 4.0, 4.5 및 4.5.1을 지원하는 Azure 게스트 OS [제품군 4](http://msdn.microsoft.com/library/azure/ee924680.aspx#explanation)에서 실행됩니다. 
 
 ## HDInsight 버전과 관련된 Hortonworks 릴리스 정보##
 
@@ -128,7 +128,7 @@ SLA는 "지원 기간" 면에서 정의됩니다. 지원 기간은 Microsoft 고
 
 [image-hdi-versioning-versionscreen]: ./media/hdinsight-component-versioning/hdi-versioning-version-screen.png
 
-[wa-forums]: http://azure.microsoft.com/ko-kr/support/forums/
+[wa-forums]: http://azure.microsoft.com/support/forums/
 
 [connect-excel-with-hive-ODBC]: ../hdinsight-connect-excel-hive-ODBC-driver/
 
@@ -145,5 +145,4 @@ SLA는 "지원 기간" 면에서 정의됩니다. 지원 기간은 Microsoft 고
 [ambari-docs]: https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md
 
 [zookeeper]: http://zookeeper.apache.org/ 
-
 <!--HONumber=42-->

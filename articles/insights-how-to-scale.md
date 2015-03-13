@@ -1,6 +1,20 @@
-﻿<properties title="How to scale a website" pageTitle="웹 사이트를 크기 조정하는 방법" description="Azure에서 호스팅 계획을 확장하는 방법에 대해 알아봅니다." authors="stepsic" manager="kamrani" />
+﻿<properties 
+	pageTitle="웹 사이트를 크기 조정하는 방법" 
+	description="Azure에서 호스팅 계획을 확장하는 방법에 대해 알아봅니다." 
+	authors="stepsic-microsoft-com" 
+	manager="kamrani" 
+	editor="" 
+	services="application-insights" 
+	documentationCenter=""/>
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-11-04" ms.author="stepsic" />
+<tags 
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2014-11-04" 
+	ms.author="stepsic"/>
 
 # 웹 사이트를 크기 조정하는 방법
 
@@ -70,3 +84,5 @@ CPU 외에도 다음을 기반으로 크기 조정할 수 있습니다.
 2. CPU 비율이 85%를 넘는 경우 3개 인스턴스 강화
 
 이 추가 규칙을 사용하면 크기 조정 작업 이전에 로드가 85%를 넘는 경우 1개가 아니라 2개의 추가 인스턴스를 얻게 됩니다. 
+
+<!--HONumber=46--> 

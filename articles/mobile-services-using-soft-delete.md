@@ -1,12 +1,26 @@
-﻿<properties pageTitle="모바일 서비스에서 일시 삭제 사용(Windows 스토어) | 모바일 개발자 센터" description="응용 프로그램에서 Azure 모바일 서비스 일시 삭제 기능을 사용하는 방법에 대해 알아봅니다." documentationCenter="" authors="wesmc7777" manager="dwrede" editor="" services="mobile-services"/>
+﻿<properties 
+	pageTitle="모바일 서비스에서 일시 삭제 사용(Windows 스토어) | 모바일 개발자 센터" 
+	description="응용 프로그램에서 Azure 모바일 서비스 일시 삭제 기능을 사용하는 방법에 대해 알아봅니다." 
+	documentationCenter="" 
+	authors="wesmc7777" 
+	manager="dwrede" 
+	editor="" 
+	services="mobile-services"/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/25/2014" ms.author="wesmc"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/25/2014" 
+	ms.author="wesmc"/>
 
 # 모바일 서비스에서 일시 삭제 사용
 
 JavaScript 또는 .NET 백 엔드를 사용하여 만든 테이블에서 선택적으로 일시 삭제를 사용하도록 설정할 수 있습니다. 일시 삭제를 사용할 때는 [SQL 비트 유형]의 새 열인 *__deleted*가 데이터베이스에 추가됩니다. 일시 삭제를 사용하도록 설정한 상태로 삭제 작업을 수행해도 데이터베이스에서 행이 실제로 삭제되는 것은 아니며 삭제된 열의 값이 TRUE로 설정됩니다.
 
-일시 삭제를 사용하도록 설정한 상태로 테이블에서 레코드를 쿼리하면 기본적으로 쿼리에 서 삭제된 행이 반환되지 않습니다. 이러한 행을 요청하려면 [REST 쿼리 작업](http://msdn.microsoft.com/ko-kr/library/azure/jj677199.aspx)에서 쿼리 매개 변수 *__includeDeleted=true*를 전달해야 합니다. .NET 클라이언트 SDK에서는 도우미 메서드 `IMobileServiceTable.IncludeDeleted()`를 사용할 수도 있습니다.
+일시 삭제를 사용하도록 설정한 상태로 테이블에서 레코드를 쿼리하면 기본적으로 쿼리에 서 삭제된 행이 반환되지 않습니다. 이러한 행을 요청하려면 [REST 쿼리 작업](http://msdn.microsoft.com/library/azure/jj677199.aspx)에서 쿼리 매개 변수 *__includeDeleted=true*를 전달해야 합니다. .NET 클라이언트 SDK에서는 도우미 메서드 `IMobileServiceTable.IncludeDeleted()`를 사용할 수도 있습니다.
 
 .NET 백 엔드에 대한 일시 삭제 지원은 Microsoft Azure 모바일 서비스 .NET 백 엔드 버전 1.0.402에서 처음 공개되었습니다. 최신 NuGet 패키지는 [Microsoft Azure 모바일 서비스 .NET 백 엔드](http://go.microsoft.com/fwlink/?LinkId=513165)에서 제공됩니다.
 
@@ -87,8 +101,10 @@ JavaScript 백 엔드의 기존 테이블에 대해 일시 삭제를 사용하�
             Services.Log.Info("Purging old records");
             var monthAgo = DateTimeOffset.UtcNow.AddDays(-30);
      
-            var toDelete = context.TodoItems.Where(x => x.Deleted == true && x.UpdatedAt <= monthAgo).ToArray();
-            context.TodoItems.RemoveRange(toDelete);
+            var toDelete = context.TodoIte
+	ms.Where(x => x.Deleted == true && x.UpdatedAt <= monthAgo).ToArray();
+            context.TodoIte
+	ms.RemoveRange(toDelete);
             context.SaveChanges();
      
             return Task.FromResult(true);
@@ -153,7 +169,7 @@ JavaScript 백 엔드 모바일 서비스의 예약된 작업에 대한 자세�
 [2]: ./media/mobile-services-using-soft-delete/enable-soft-delete-new-table.png
 
 <!-- URLs. -->
-[SQL 비트 유형]: http://msdn.microsoft.com/ko-kr/library/ms177603.aspx
+[SQL 비트 유형]: http://msdn.microsoft.com/library/ms177603.aspx
 [모바일 서비스용 오프라인 데이터 동기화]: /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data/
 [관리 포털]: https://manage.windowsazure.com/
 

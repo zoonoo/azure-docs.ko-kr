@@ -1,6 +1,20 @@
-<properties title="Step 5: Publish the Azure Machine Learning web service" pageTitle="5단계: Azure 기계 학습 웹 서비스 게시" description="5단계: Azure 기계 학습 스튜디오에서 채점 실험을 ML API 웹 서비스로 게시" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="5단계: 기계 학습 웹 서비스 게시 | Azure" 
+	description="솔루션 연습 5단계: Azure 기계 학습 스튜디오에서 채점 실험을 Azure 기계 학습 웹 서비스로 게시" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="garyericson" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/06/2014" ms.author="garye" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/29/2015" 
+	ms.author="garye"/>
 
 
 [Azure 기계 학습을 사용한 예측 솔루션 개발][develop] 자습서의 5번째 단계입니다.
@@ -144,3 +158,5 @@
 [1]: ./media/machine-learning-walkthrough-5-publish-web-service/publish1.png
 [2]: ./media/machine-learning-walkthrough-5-publish-web-service/publish2.png
 [4]: ./media/machine-learning-walkthrough-5-publish-web-service/publish3.png
+
+<!--HONumber=46--> 

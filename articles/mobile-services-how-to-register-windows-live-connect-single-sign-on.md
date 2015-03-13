@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Single Sign-On 등록 - Azure 모바일 서비스" description="Azure 모바일 서비스 응용 프로그램에서 SSO(Single Sign-On) 인증을 위해 등록하는 방법에 대해 알아봅니다." services="mobile-services" documentationCenter="" authors="ggailey777" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Single Sign-On 등록 - Azure 모바일 서비스" 
+	description="Azure 모바일 서비스 응용 프로그램에서 SSO(Single Sign-On) 인증을 위해 등록하는 방법에 대해 알아봅니다." 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="glenga"/>
 
 # Windows Live Connect Single Sign-On 사용을 위해 Windows 스토어 앱 등록
 

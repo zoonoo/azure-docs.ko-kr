@@ -148,8 +148,8 @@ Apache Mahout는 Apache Hadoop 기계 학습 라이브러리입니다. Mahout에
 </tr>
 
 <tr>
-<td><a href = "http://azure.microsoft.com/ko-kr/documentation/articles/hdinsight-hadoop-customize-cluster/" target="_blank">클러스터 사용자 지정 GA</a></td>
-<td><p>사용자 지정 시 Apache Hadoop 에코시스템에서 사용할 수 있는 프로젝트로 Azure HDInsight 클러스터를 사용자 지정할 수 있습니다. 이제 이 새로운 기능을 사용하여 Hadoop 프로젝트를 실험하고 Azure HDInsight에 배포할 수도 있습니다. 이 기능은 사용자 지정 스크립트를 사용하여 Hadoop 클러스터를 임의의 방식으로 수정할 수 있는 <b>스크립트 작업</b> 기능을 통해 사용할 수 있게 됩니다. 이 사용자 지정 방식은 Hadoop, HBase, Storm을 비롯한 모든 HDInsight 유형에서 사용할 수 있습니다. 이 기능을 보여 주기 위해 많이 사용하는  <a href = "http://azure.microsoft.com/ko-kr/documentation/articles/hdinsight-hadoop-spark-install/" target="_blank">Spark</a>, <a href = "http://azure.microsoft.com/ko-kr/documentation/articles/hdinsight-hadoop-r-scripts/" target="_blank">R</a>, <a href = "http://azure.microsoft.com/ko-kr/documentation/articles/hdinsight-hadoop-solr-install/" target="_blank">Solr</a>및 <a href = "http://azure.microsoft.com/ko-kr/documentation/articles/hdinsight-hadoop-giraph-install/" target="_blank">Giraph</a> 모듈을 설치하는 프로세스를 정리했습니다. 이 릴리스에서는 고객이 Azure 관리 포털을 통해 사용자 지정 스크립트 작업을 지정할 수 있는 기능도 추가되며 도우미 메서드를 사용하여 사용자 지정 스크립트 작업을 작성하는 방법에 대한 지침 및 모범 사례를 제공하고 스크립트 작업을 테스트하는 방법에 대한 지침도 제공합니다. </p></td>
+<td><a href = "http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-customize-cluster/" target="_blank">클러스터 사용자 지정 GA</a></td>
+<td><p>사용자 지정 시 Apache Hadoop 에코시스템에서 사용할 수 있는 프로젝트로 Azure HDInsight 클러스터를 사용자 지정할 수 있습니다. 이제 이 새로운 기능을 사용하여 Hadoop 프로젝트를 실험하고 Azure HDInsight에 배포할 수도 있습니다. 이 기능은 사용자 지정 스크립트를 사용하여 Hadoop 클러스터를 임의의 방식으로 수정할 수 있는 <b>스크립트 작업</b> 기능을 통해 사용할 수 있게 됩니다. 이 사용자 지정 방식은 Hadoop, HBase, Storm을 비롯한 모든 HDInsight 유형에서 사용할 수 있습니다. 이 기능을 보여 주기 위해 많이 사용하는  <a href = "http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-spark-install/" target="_blank">Spark</a>, <a href = "http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-r-scripts/" target="_blank">R</a>, <a href = "http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-solr-install/" target="_blank">Solr</a>및 <a href = "http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-giraph-install/" target="_blank">Giraph</a> 모듈을 설치하는 프로세스를 정리했습니다. 이 릴리스에서는 고객이 Azure 관리 포털을 통해 사용자 지정 스크립트 작업을 지정할 수 있는 기능도 추가되며 도우미 메서드를 사용하여 사용자 지정 스크립트 작업을 작성하는 방법에 대한 지침 및 모범 사례를 제공하고 스크립트 작업을 테스트하는 방법에 대한 지침도 제공합니다. </p></td>
 <td>Feature GA</td>
 <td>모두</td>
 <td>해당 없음</td>
@@ -402,7 +402,7 @@ HDInsight PowerShell/SDK 오류: "*클러스터가 Http 서비스 액세스를 �
 
 * 이 오류는 SDK/PowerShell 버전과 클러스터의 버전 차이로 인해 발생할 수 있는 알려진 [호환성 문제](https://social.msdn.microsoft.com/Forums/azure/ko-kr/a7de016d-8de1-4385-b89e-d2e7a1a9d927/hdinsight-powershellsdk-error-cluster-is-not-configured-for-http-services-access?forum=hdinsight)입니다. 8/15 또는 그 이후에 만든 클러스터는 가상 네트워크에 대한 새로운 프로비전 기능을 지원합니다. 그러나 이전 버전의 SDK/PowerShell에서는 이 기능이 올바르게 해석되지 않습니다. 따라서 일부 작업 제출 작업이 실패합니다. SDK API 또는 PowerShell cmdlet을 사용하여 작업을 제출하는 경우(**Use-AzureHDInsightCluster**, **Invoke-Hive**) 해당 작업이 실패하고 "*<clustername> 클러스터가 Http 서비스 액세스를 위해 구성되어 있지 않습니다.*" 오류 메시지가 표시되거나 작업에 따라 "*클러스터에 연결할 수 없습니다.*" 등의 다른 오류 메시지가 표시될 수 있습니다.
 
-* HDInsight SDK 및 Azure PowerShell의 최신 버전에서는 이러한 호환성 문제가 해결되었습니다. HDInsight SDK는 버전 1.3.1.6 이상으로, Azure PowerShell 도구는 버전 0.8.8 이상으로 업데이트하는 것이 좋습니다. 최신 HDInsight SDK는 [NuGet](http://nuget.codeplex.com/wikipage?title=Getting%20Started)에서, Azure PowerShell 도구는 [Azure PowerShell을 설치 및 구성하는 방법](http://azure.microsoft.com/ko-kr/documentation/articles/install-configure-powershell/)에서 얻을 수 있습니다.
+* HDInsight SDK 및 Azure PowerShell의 최신 버전에서는 이러한 호환성 문제가 해결되었습니다. HDInsight SDK는 버전 1.3.1.6 이상으로, Azure PowerShell 도구는 버전 0.8.8 이상으로 업데이트하는 것이 좋습니다. 최신 HDInsight SDK는 [NuGet](http://nuget.codeplex.com/wikipage?title=Getting%20Started)에서, Azure PowerShell 도구는 [Azure PowerShell을 설치 및 구성하는 방법](http://azure.microsoft.com/documentation/articles/install-configure-powershell/)에서 얻을 수 있습니다.
 
 * 클러스터 버전이 동일하게 유지되면 SDK와 PowerShell은 클러스터에 대한 새 업데이트에서도 계속 작동합니다. 예를 들어 클러스터 버전 3.1은 SDK/PowerShell의 최신 버전인 1.3.1.6 및 0.8.8과 항상 호환됩니다.
 
@@ -445,7 +445,7 @@ SDK 및 Azure PowerShell의 최신 버전에서는 이러한 호환성 문제가
 	* 동아시아 
 	* 미국 중북부 
 	* 미국 중남부 
-* 이 릴리스에서 HDInsight v1.6(HDP1.1, Hadoop 1.0.3) 및 HDInsight v2.1(HDP1.3, Hadoop 1.2)이 Azure 관리 포털에서 제거됩니다. HDInsight PowerShell cmdlet([New-AzureHDInsightCluster](http://msdn.microsoft.com/ko-kr/library/dn593744.aspx))을 사용하거나 [HDInsight SDK](http://msdn.microsoft.com/ko-kr/library/azure/dn469975.aspx)를 사용하여 계속 Hadoop 클러스터를 만들 수 있습니다. 자세한 내용은 [HDInsight 구성 요소 버전](http://azure.microsoft.com/ko-kr/documentation/articles/hdinsight-component-versioning/) 페이지를 참조하세요.
+* 이 릴리스에서 HDInsight v1.6(HDP1.1, Hadoop 1.0.3) 및 HDInsight v2.1(HDP1.3, Hadoop 1.2)이 Azure 관리 포털에서 제거됩니다. HDInsight PowerShell cmdlet([New-AzureHDInsightCluster](http://msdn.microsoft.com/library/dn593744.aspx))을 사용하거나 [HDInsight SDK](http://msdn.microsoft.com/library/azure/dn469975.aspx)를 사용하여 계속 Hadoop 클러스터를 만들 수 있습니다. 자세한 내용은 [HDInsight 구성 요소 버전](http://azure.microsoft.com/documentation/articles/hdinsight-component-versioning/) 페이지를 참조하세요.
 * 이 릴리스의 HDP(Hortonworks Data Platform) 변경 내용: 
 
 <table border="1">
@@ -675,7 +675,6 @@ HDInsight 클러스터의 버전에 사용되는 HDP에 대한 릴리스 정보�
 
 [hdinsight-install-spark]: ../hdinsight-hadoop-spark-install/
 [hdinsight-r-scripts]: ../hdinsight-hadoop-r-scripts/
-
 
 
 

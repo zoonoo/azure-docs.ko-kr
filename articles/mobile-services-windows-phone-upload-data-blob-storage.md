@@ -1,6 +1,21 @@
-﻿<properties pageTitle="모바일 서비스를 사용하여 Blob 저장소에 이미지 업로드(Windows Phone) | 모바일 서비스" description="모바일 서비스를 사용하여 Azure Blob 저장소에 이미지를 업로드하는 방법에 대해 알아봅니다." documentationCenter="windows" authors="wesmc7777" writer="wesmc" services="mobile-services, storage" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="모바일 서비스를 사용하여 Blob 저장소에 이미지 업로드(Windows Phone) | 모바일 서비스" 
+	description="모바일 서비스를 사용하여 Azure Blob 저장소에 이미지를 업로드하는 방법에 대해 알아봅니다." 
+	documentationCenter="windows" 
+	authors="wesmc7777" 
+	Writer="wesmc" 
+	services="mobile-services, storage" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="10/06/2014" ms.author="wesmc"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-phone" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="10/06/2014" 
+	ms.author="wesmc"/>
 
 # 모바일 서비스를 사용하여 Azure 저장소에 이미지 업로드
 

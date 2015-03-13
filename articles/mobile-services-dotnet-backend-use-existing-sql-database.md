@@ -1,6 +1,20 @@
-﻿<properties pageTitle="모바일 서비스 .NET 백 엔드가 포함된 기존 SQL 데이터베이스를 사용해서 서비스 구축 - Azure 모바일 서비스" description=".NET 기반 모바일 서비스에서 기존 클라우드 또는 온-프레미스 SQL 데이터베이스를 사용하는 방법에 대해 알아봅니다." services="mobile-services, biztalk-services" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor="mollybos"/>
+﻿<properties 
+	pageTitle="모바일 서비스 .NET 백 엔드가 포함된 기존 SQL 데이터베이스를 사용해서 서비스 구축 - Azure 모바일 서비스" 
+	description=".NET 기반 모바일 서비스에서 기존 클라우드 또는 온-프레미스 SQL 데이터베이스를 사용하는 방법에 대해 알아봅니다." 
+	services="mobile-services, biztalk-services" 
+	documentationCenter="windows" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor="mollybos"/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/22/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/22/2014" 
+	ms.author="glenga"/>
 
 
 # 모바일 서비스 .NET 백 엔드가 포함된 기존 SQL 데이터베이스를 사용해서 서비스 구축

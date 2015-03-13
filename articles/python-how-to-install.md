@@ -1,6 +1,20 @@
-<properties urlDisplayName="Install Python" pageTitle="Python 및 SDK 설치 - Azure" metaKeywords="Azure Python SDK" description="Azure에서 사용할 Python 및 SDK를 설치하는 방법에 대해 알아봅니다." metaCanonical="" services="" documentationCenter="Python" title="Installing Python and the SDK" authors="huvalo" solutions="" manager="wpickett" editor="" />
+﻿<properties 
+	pageTitle="Python 및 SDK 설치 - Azure" 
+	description="Azure에서 사용할 Python 및 SDK를 설치하는 방법에 대해 알아봅니다." 
+	services="" 
+	documentationCenter="python" 
+	authors="huguesv" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="11/10/2014" ms.author="huvalo" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="python" 
+	ms.topic="article" 
+	ms.date="02/05/2015" 
+	ms.author="huvalo"/>
 
 
 
@@ -182,3 +196,5 @@ Linux VM을 설정하는 방법에 대한 자세한 내용은 [Linux 관리](/ko
 [Azure 포털을 통해 Linux VM 설정]: ../../../shared/chunks/create-and-configure-opensuse-vm-in-portal
 [Mac 및 Linux에서 Azure 명령줄 도구를 사용하는 방법]: ../../shared/chunks/crossplat-cmd-tools
 
+
+<!--HONumber=46--> 

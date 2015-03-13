@@ -1,6 +1,20 @@
-﻿<properties pageTitle="모바일 서비스의 로컬 테스트를 위해 IIS Express를 구성합니다." description="테스트를 위해 로컬 모바일 서비스 프로젝트에 대한 연결을 허용하도록 IIS Express를 구성하는 방법을 알아봅니다." authors="ggailey777" manager="dwrede" services="mobile-services" documentationCenter="windows" editor=""/>
+﻿<properties 
+	pageTitle="모바일 서비스의 로컬 테스트를 위해 IIS Express를 구성합니다." 
+	description="테스트를 위해 로컬 모바일 서비스 프로젝트에 대한 연결을 허용하도록 IIS Express를 구성하는 방법을 알아봅니다." 
+	authors="ggailey777" 
+	manager="dwrede" 
+	services="mobile-services" 
+	documentationCenter="windows" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/20/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/20/2014" 
+	ms.author="glenga"/>
 
 # 로컬 모바일 서비스에 연결할 수 있도록 로컬 웹 서버 구성 
 

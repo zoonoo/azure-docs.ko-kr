@@ -1,12 +1,26 @@
-﻿<properties urlDisplayName="How to scale" pageTitle="클라우드 서비스 크기 조정 방법 - Azure" metaKeywords="Azure link resource, scaling cloud service" description="Azure에서 클라우드 서비스 및 연결된 리소스의 크기를 조정하는 방법에 대해 알아봅니다." metaCanonical="" services="cloud-services" documentationCenter="" title="How to Scale an Application" authors="davidmu" solutions="" manager="timlt" editor="" />
+<properties 
+	pageTitle="클라우드 서비스 크기 조정 방법 - Azure" 
+	description="Azure에서 클라우드 서비스 및 연결된 리소스의 크기를 조정하는 방법에 대해 알아봅니다." 
+	services="cloud-services" 
+	documentationCenter="" 
+	authors="Thraka" 
+	manager="timlt" 
+	editor=""/>
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/21/2014" ms.author="davidmu" />
+<tags 
+	ms.service="cloud-services" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/21/2014" 
+	ms.author="adegeo"/>
 
 
 
 
 
-#응용 프로그램의 크기를 조정하는 방법
+# 응용 프로그램의 크기를 조정하는 방법
 
 
 Azure 관리 포털의 크기 조정 페이지에서 응용 프로그램의 크기를 수동으로 조정하거나, 매개 변수를 설정하여 응용 프로그램의 크기를 자동으로 조정할 수 있습니다. 웹 역할, 작업자 역할 또는 가상 컴퓨터를 실행 중인 응용 프로그램의 크기를 조정할 수 있습니다. 웹 역할 또는 작업자 역할의 인스턴스를 실행 중인 응용 프로그램의 크기를 조정하려면 작업에 맞게 역할 인스턴스를 추가하거나 제거할 수 있습니다.
@@ -15,18 +29,18 @@ Azure 관리 포털의 크기 조정 페이지에서 응용 프로그램의 크�
 
 응용 프로그램의 크기 조정을 구성하기 전에 다음 내용을 고려해야 합니다.
 
-- 가상 컴퓨터를 사용하는 응용 프로그램의 크기를 조정하려면 만든 가상 컴퓨터를 가용성 집합에 추가해야 합니다. 추가하는 가상 컴퓨터는 처음에 켜지거나 꺼질 수 있지만 확대 작업 중에는 켜지고 축소 작업 중에는 꺼집니다. 가상 컴퓨터와 가용성 집합에 대한 자세한 내용은 [가상 컴퓨터의 가용성 관리](http://azure.microsoft.com/ko-kr/documentation/articles/virtual-machines-manage-availability/)(영문)를 참조하세요.
-- 크기 조정은 코어 사용량의 영향을 받습니다. 역할 인스턴스 또는 가상 컴퓨터가 클수록 더 많은 코어를 사용합니다. 구독에 대한 코드 제한 내에서만 응용 프로그램의 크기를 조정할 수 있습니다. 예를 들어 구독의 코어 제한이 20이고 중간 크기의 가상 컴퓨터(총 코어 수 4개) 두 대에서 응용 프로그램을 실행할 경우 구독에 있는 다른 클라우드 서비스 배포를 16코어까지만 확장할 수 있습니다. 응용 프로그램 크기 조정에 사용되는 가용성 집합 내의 모든 가상 컴퓨터는 크기가 동일해야 합니다. 코어 사용량 및 컴퓨터 크기에 대한 자세한 내용은 [Azure를 위한 가상 컴퓨터 및 클라우드 서비스 크기](http://msdn.microsoft.com/ko-kr/library/dn197896.aspx)를 참조하세요.
-- 메시지 임계값을 기반으로 응용 프로그램의 크기를 조정하려면 큐를 만든 후 역할 또는 가용성 집합에 연결해야 합니다. 자세한 내용은 [큐 저장소 서비스를 사용하는 방법](http://www.windowsazure.com/ko-kr/develop/net/how-to-guides/queue-service)(영문)을 참조하세요.
-- 클라우드 서비스에 연결되는 리소스의 크기를 조정할 수 있습니다. 리소스를 연결하는 방법에 대한 자세한 내용은 [방법: 클라우드 서비스에 리소스 연결](http://www.windowsazure.com/ko-kr/manage/services/cloud-services/how-to-manage-a-cloud-service/#linkresources)(영문)을 참조하세요.
-- 응용 프로그램의 고가용성을 사용하려면 응용 프로그램이 두 개 이상의 역할 인스턴스 또는 가상 컴퓨터와 함께 배포되는지 확인해야 합니다. 자세한 내용은 [서비스 수준 계약](https://www.windowsazure.com/ko-kr/support/legal/sla/)을 참조하세요.
+- 가상 컴퓨터를 사용하는 응용 프로그램의 크기를 조정하려면 만든 가상 컴퓨터를 가용성 집합에 추가해야 합니다. 추가하는 가상 컴퓨터는 처음에 켜지거나 꺼질 수 있지만 확대 작업 중에는 켜지고 축소 작업 중에는 꺼집니다. 가상 컴퓨터와 가용성 집합에 대한 자세한 내용은 [가상 컴퓨터의 가용성 관리](http://azure.microsoft.com/ documentation/articles/virtual-machines-manage-availability/)(영문)을 참조하세요.
+- 크기 조정은 코어 사용량의 영향을 받습니다. 역할 인스턴스 또는 가상 컴퓨터가 클수록 더 많은 코어를 사용합니다. 구독에 대한 코드 제한 내에서만 응용 프로그램의 크기를 조정할 수 있습니다. 예를 들어 구독의 코어 제한이 20이고 중간 크기의 가상 컴퓨터(총 코어 수 4개) 두 대에서 응용 프로그램을 실행할 경우 구독에 있는 다른 클라우드 서비스 배포를 16코어까지만 확장할 수 있습니다. 응용 프로그램 크기 조정에 사용되는 가용성 집합 내의 모든 가상 컴퓨터는 크기가 동일해야 합니다. 코어 사용량 및 컴퓨터 크기에 대한 자세한 내용은 [가상 컴퓨터와 Azure 클라우드 서비스 크기](http://msdn.microsoft.com/library/dn197896.aspx)를 참조하십시오.
+- 메시지 임계값을 기반으로 응용 프로그램의 크기를 조정하려면 큐를 만든 후 역할 또는 가용성 집합에 연결해야 합니다. 자세한 내용은 [큐 저장소 서비스를 사용하는 방법](http://azure.microsoft.com/develop/net/how-to-guides/queue-service)을 참조하세요.
+- 클라우드 서비스에 연결되는 리소스의 크기를 조정할 수 있습니다. 리소스를 연결하는 방법에 대한 자세한 내용은 [방법: 클라우드 서비스에 리소스 연결](http://azure.microsoft.com/manage/services/cloud-services/how-to-manage-a-cloud-service/#linkresources)(영문)을 참조하세요.
+- 응용 프로그램의 고가용성을 사용하려면 응용 프로그램이 두 개 이상의 역할 인스턴스 또는 가상 컴퓨터와 함께 배포되는지 확인해야 합니다. 자세한 내용은 참조 [서비스 수준 계약](https://www.windowsazure.com/ko-kr/support/legal/sla/).
 
 클라우드 서비스에 대해 다음 크기 조정 작업을 수행할 수 있습니다.
 
 - [웹 역할 또는 작업자 역할을 실행 중인 응용 프로그램의 크기 수동 조정](#manualscale)
-- [웹 역할, 작업자 역할 또는 가상 컴퓨터를 실행 중인 응용 프로그램의 크기 자동 조정](#autoscale)
-- [연결된 리소스 크기 조정](#scalelink)
-- [응용 프로그램 크기 조정 예약](#schedule)
+- [웹 역할, 작업자 역할 또는 가상 컴퓨터를 실행 중인 응용 프로그램의 크기를 자동으로 조정](#autoscale)
+- [연결 된 리소스 크기 조정](#scalelink)
+- [응용 프로그램의 크기 조정 예약](#schedule)
 
 
 <h2><a id="manualscale"></a>웹 역할 또는 작업자 역할을 실행 중인 응용 프로그램의 크기 수동 조정</h2>
@@ -64,13 +78,13 @@ Azure 관리 포털의 크기 조정 페이지에서 응용 프로그램의 크�
 
 1. [관리 포털](https://manage.windowsazure.com/)에서 **클라우드 서비스**를 클릭한 다음 클라우드 서비스의 이름을 클릭하여 대시보드를 엽니다.
 2. **크기 조정**을 클릭합니다.
-3. 역할 또는 가용성 집합 섹션으로 스크롤한 다음 **CPU**를 클릭합니다. 그러면 응용 프로그램에 사용되는 CPU 리소스의 평균 비율을 기반으로 응용 프로그램의 크기가 자동으로 조정됩니다.
+3. 역할 또는 가용성 집합에 대한 섹션으로 스크롤한 다음 **CPU**를 클릭합니다. 그러면 응용 프로그램에 사용되는 CPU 리소스의 평균 비율을 기반으로 응용 프로그램의 크기가 자동으로 조정됩니다.
 
 	![Autoscale on][autoscale_on]
 
 4. 각 역할 또는 가용성 집합에는 사용 가능한 인스턴스 수를 변경하는 데 사용되는 슬라이더가 있습니다. 사용 가능한 최대 인스턴스 수를 설정하려면 오른쪽 막대를 오른쪽으로 끌고, 사용 가능한 최소 인스턴스 수를 설정하려면 왼쪽 막대를 왼쪽으로 끕니다.
 
-	**참고:** 크기 조정 페이지에서 **인스턴스**는 역할 인스턴스 또는 가상 컴퓨터 인스턴스를 나타냅니다.
+	**참고:** 크기 조정 페이지에서 **인스턴스**는 역할 인스턴스 또는 가상 컴퓨터의 인스턴스를 나타냅니다.
 
 	![Instance range][instance_range]
 
@@ -111,7 +125,7 @@ Azure 관리 포털의 크기 조정 페이지에서 응용 프로그램의 크�
 
 1. [관리 포털](https://manage.windowsazure.com/)에서 **클라우드 서비스**를 클릭한 다음 클라우드 서비스의 이름을 클릭하여 대시보드를 엽니다.
 2. **크기 조정**을 클릭합니다.
-3. 역할 또는 가용성 집합 섹션으로 스크롤한 다음 **큐**를 클릭합니다. 그러면 대상 큐 메시지 수를 기반으로 응용 프로그램의 크기를 자동으로 조정할 수 있습니다.
+3. 역할 또는 가용성 집합에 섹션으로 스크롤한 다음 **큐**를 클릭합니다. 그러면 대상 큐 메시지 수를 기반으로 응용 프로그램의 크기를 자동으로 조정할 수 있습니다.
 
 	![Scale queue][scale_queue]
 
@@ -119,7 +133,7 @@ Azure 관리 포털의 크기 조정 페이지에서 응용 프로그램의 크�
 
 	![Queue range][queue_range]
 
-	**참고:** 크기 조정 페이지에서 **인스턴스**는 역할 인스턴스 또는 가상 컴퓨터 인스턴스를 나타냅니다.
+	**참고:** 크기 조정 페이지에서 **인스턴스**는 역할 인스턴스 또는 가상 컴퓨터의 인스턴스를 나타냅니다.
 	
 	최대 인스턴스 수는 구독에 사용할 수 있는 코어 수에 의해 제한됩니다. 슬라이더의 색은 구독에 사용된 코어와 사용 가능한 코어를 나타냅니다.
 	- 파란색은 역할이 사용할 수 있는 최대 코어 수를 나타냅니다.
@@ -176,11 +190,11 @@ Azure 관리 포털의 크기 조정 페이지에서 응용 프로그램의 크�
 
 시간별 일정을 구성하여 응용 프로그램의 자동 크기 조정을 예약할 수 있습니다. 크기 자동 조정에 사용할 수 있는 옵션은 다음과 같습니다.
 
-- **일정 없음** - 기본 옵션이며 항상 동일한 방법으로 응용 프로그램의 크기를 자동으로 조정할 수 있습니다.
+- **No schedule** - 기본 옵션이며 항상 동일한 방법으로 응용 프로그램의 크기를 자동으로 조정할 수 있습니다.
 
-- **주간 및 야간** - 이 옵션을 사용하여 주간 및 야간의 특정 시간에 대한 크기 조정을 지정할 수 있습니다.
+- **Day and night** - 이 옵션을 사용하여 주간 및 야간의 특정 시간에 대한 크기 조정을 지정할 수 있습니다.
 
-**참고:** 현재는 가상 컴퓨터를 사용하는 응용 프로그램에 대해서는 일정을 사용할 수 없습니다.
+**참고:** 현재 일정은 가상 컴퓨터를 사용하는 응용 프로그램에 사용할 수 없습니다.
 
 1. [관리 포털](https://manage.windowsazure.com/)에서 **클라우드 서비스**를 클릭한 다음 클라우드 서비스의 이름을 클릭하여 대시보드를 엽니다.
 2. **크기 조정**을 클릭합니다.
@@ -213,4 +227,4 @@ Azure 관리 포털의 크기 조정 페이지에서 응용 프로그램의 크�
 [linked_resources]: ./media/cloud-services-how-to-scale/CloudServices_ScaleLinkedResources.png
 [scale_schedule]: ./media/cloud-services-how-to-scale/CloudServices_SetUpSchedule.png
 
-<!--HONumber=35.1-->
+<!--HONumber=45--> 

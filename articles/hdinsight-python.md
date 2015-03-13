@@ -149,7 +149,7 @@ HDInsight 클러스터에서 이 예제를 실행하는 방법에 대해서는 [
 
 ##<a name="running"></a>예제 실행
 
-이 단계에서는 Microsoft Azure PowerShell을 사용합니다. 이 도구를 아직 개발 컴퓨터에 설치하여 구성하지 않은 경우 다음 단계를 사용하기 전에 [Azure PowerShell을 설치 및 구성하는 방법](http://azure.microsoft.com/ko-kr/documentation/articles/install-configure-powershell/)을 참조하세요.
+이 단계에서는 Microsoft Azure PowerShell을 사용합니다. 이 도구를 아직 개발 컴퓨터에 설치하여 구성하지 않은 경우 다음 단계를 사용하기 전에 [Azure PowerShell을 설치 및 구성하는 방법](http://azure.microsoft.com/documentation/articles/install-configure-powershell/)을 참조하세요.
 
 
 1. Python 예제인 [streaming.py](#streamingpy)과 [jython.py](#jythonpy)를 사용하여개발 컴퓨터에서 파일의 로컬 복사본을 만듭니다.
@@ -279,5 +279,4 @@ HDInsight 클러스터에서 이 예제를 실행하는 방법에 대해서는 [
 기본적으로 제공되지 않는 Python 모듈을 로드해야 하는 경우 수행 방법의 예제에 대해서는 [Azure HDInsight에 모듈을 배포하는 방법](http://blogs.msdn.com/b/benjguin/archive/2014/03/03/how-to-deploy-a-python-module-to-windows-azure-hdinsight.aspx)(영문)을 참조하세요.
 
 PowerShell을 사용하지 않고 HDInsight에서 작업을 원격으로 실행하려는 경우 Python을 사용하여 WebHCat REST API를 통해 작업을 실행하는 예제에 대해서는 [Linux에서 Azure HDInsight를 사용하는 방법](http://blogs.msdn.com/b/benjguin/archive/2014/02/18/how-to-use-hdinsight-from-linux.aspx)을 참조하세요.
-
 <!--HONumber=42-->

@@ -308,11 +308,11 @@ Azure **대시보드**에서 지속적인 배포를 사용하지 않도록 설�
 * [Git 설명서]
 * [프로젝트 Kudu](https://github.com/projectkudu/kudu/wiki)
 
-[Azure 개발자 센터]: http://www.windowsazure.com/ko-kr/develop/overview/
+[Azure 개발자 센터]: http://azure.microsoft.com/develop/overview/
 [Azure 포털]: http://manage.windowsazure.com
 [Git 웹 사이트(영문)]: http://git-scm.com
 [Git 설치(영문)]: http://git-scm.com/book/en/Getting-Started-Installing-Git
-[Azure용 PowerShell 사용 방법]: http://www.windowsazure.com/ko-kr/develop/nodejs/how-to-guides/powershell-cmdlets/
+[Azure용 PowerShell 사용 방법]: http://azure.microsoft.com/develop/nodejs/how-to-guides/powershell-cmdlets/
 [Mac 및 Linux에서 Azure 명령줄 도구를 사용하는 방법]: /ko-kr/develop/nodejs/how-to-guides/command-line-tools/
 [Git 설명서]: http://git-scm.com/documentation
 
@@ -333,6 +333,5 @@ Azure **대시보드**에서 지속적인 배포를 사용하지 않도록 설�
 [Create a Repo (BitBucket)]: https://confluence.atlassian.com/display/BITBUCKET/Create+an+Account+and+a+Git+Repo
 [Quick Start - Mercurial]: http://mercurial.selenic.com/wiki/QuickStart
 [Using Dropbox to Share Git Repositories]: https://gist.github.com/trey/2722927
-[Visual Studio Online을 사용하여 Azure에 지속적으로 전송]: http://www.windowsazure.com/ko-kr/develop/net/common-tasks/publishing-with-tfs/
-
+[Visual Studio Online을 사용하여 Azure에 지속적으로 전송]: http://azure.microsoft.com/develop/net/common-tasks/publishing-with-tfs/
 <!--HONumber=42-->

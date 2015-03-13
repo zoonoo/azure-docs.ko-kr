@@ -1,6 +1,20 @@
-﻿<properties title="How to debug with events" pageTitle="이벤트를 사용하여 디버그하는 방법" description="Azure에서 이벤트를 확인하는 방법에 대해 알아봅니다." authors="hanikn" manager="kamrani" />
+﻿<properties 
+	pageTitle="이벤트를 사용하여 디버그하는 방법" 
+	description="Azure에서 이벤트를 확인하는 방법에 대해 알아봅니다." 
+	authors="HaniKN-MSFT" 
+	manager="kamrani" 
+	editor="" 
+	services="application-insights" 
+	documentationCenter=""/>
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="hanikn" />
+<tags 
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/24/2014" 
+	ms.author="hanikn"/>
 
 # Azure 리소스 또는 리소스 그룹에 영향을 미치는 이벤트 모니터링
 
@@ -18,3 +32,5 @@
     ![Resource groups](./media/insights-debugging-with-events/Insights_EventDetails.png)  
     이벤트에 대한 다양한 세부 정보가 포함된 새 블레이드가 열립니다. **실패** 이벤트의 경우 이 페이지에는 일반적으로 디버깅 목적의 유용한 세부 정보가 포함된 **하위 상태** 및 **속성** 섹션이 있습니다.
 
+
+<!--HONumber=46--> 

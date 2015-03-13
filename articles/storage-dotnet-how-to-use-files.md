@@ -58,7 +58,7 @@ Azure 가상 컴퓨터나 클라우드 서비스에서 실행되는 응용 프�
 ![files-concepts][files-concepts]
 
 
--   **저장소 계정:** Azure 저장소에 대한 모든 액세스는 저장소 계정을 통해 수행됩니다. 저장소 계정 용량에 대한 자세한 내용은 [Azure 저장소 확장성 및 성능 목표](http://msdn.microsoft.com/ko-kr/library/dn249410.aspx)를 참조하세요.
+-   **저장소 계정:** Azure 저장소에 대한 모든 액세스는 저장소 계정을 통해 수행됩니다. 저장소 계정 용량에 대한 자세한 내용은 [Azure 저장소 확장성 및 성능 목표](http://msdn.microsoft.com/library/dn249410.aspx)를 참조하세요.
 
 -   **공유:** 파일 저장소 공유는 Azure의 SMB 2.1 파일 공유입니다. 모든 디렉터리와 파일은 부모 공유에 만들어야 합니다. 계정은 개수에 제한 없이 공유를 포함할 수 있으며, 공유는 저장소 계정의 용량 한도까지 개수에 제한 없이 파일을 저장할 수 있습니다.
 
@@ -72,7 +72,7 @@ Azure 가상 컴퓨터나 클라우드 서비스에서 실행되는 응용 프�
 
 
 
-공유, 디렉터리 및 파일 이름 지정 방법에 대한 자세한 내용은 [공유, 디렉터리, 파일 및 메타데이터 이름 지정 및 참조](http://msdn.microsoft.com/ko-kr/library/azure/dn167011.aspx)를 참조하세요.
+공유, 디렉터리 및 파일 이름 지정 방법에 대한 자세한 내용은 [공유, 디렉터리, 파일 및 메타데이터 이름 지정 및 참조](http://msdn.microsoft.com/library/azure/dn167011.aspx)를 참조하세요.
 
 ##<a name="create-account"></a>Azure 저장소 계정 만들기
 
@@ -155,7 +155,7 @@ Azure 파일 공유를 마운트하는 방법을 보여 주기 위해 Azure 가�
 	   
 	net use z: \\<storage-account>.file.core.windows.net\<share-name> /u:<storage-account> <account-key>
 
-이제 다른 드라이브의 경우처럼 가상 컴퓨터 내에서 파일 저장소 공유를 사용할 수 있습니다. 명령 프롬프트에서 표준 파일 명령을 실행하거나 파일 탐색기에서 마운트된 공유 및 해당 내용을 확인할 수 있습니다. .NET Framework의 [System.IO 네임스페이스](http://msdn.microsoft.com/ko-kr/library/gg145019(v=vs.110).aspx)에서 제공하는 것과 같은 표준 Windows 파일 I/O API를 사용하여 파일 공유에 액세스하는 가상 컴퓨터 내에서 코드를 실행할 수도 있습니다. 
+이제 다른 드라이브의 경우처럼 가상 컴퓨터 내에서 파일 저장소 공유를 사용할 수 있습니다. 명령 프롬프트에서 표준 파일 명령을 실행하거나 파일 탐색기에서 마운트된 공유 및 해당 내용을 확인할 수 있습니다. .NET Framework의 [System.IO 네임스페이스](http://msdn.microsoft.com/library/gg145019(v=vs.110).aspx)에서 제공하는 것과 같은 표준 Windows 파일 I/O API를 사용하여 파일 공유에 액세스하는 가상 컴퓨터 내에서 코드를 실행할 수도 있습니다. 
 
 역할에 원격으로 연결하여 Azure 클라우드 서비스에서 실행되는 역할에서 파일 공유를 마운트할 수도 있습니다.
 
@@ -248,7 +248,7 @@ Visual Studio에서 새 콘솔 응용 프로그램을 만들고 Azure 저장소 
   <ul>
     <li><a href="http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409">Storage Client Library for .NET 참조</a>
     </li>
-    <li><a href="http://msdn.microsoft.com/ko-kr/library/azure/dn167006.aspx">파일 서비스 REST API 참조</a></li>
+    <li><a href="http://msdn.microsoft.com/library/azure/dn167006.aspx">파일 서비스 REST API 참조</a></li>
   </ul>
 </li>
 <li>파일 서비스와 관련된 Azure 저장소 팀의 블로그 게시물을 확인할 수 있습니다.
@@ -276,6 +276,5 @@ Visual Studio에서 새 콘솔 응용 프로그램을 만들고 Azure 저장소 
 [온-프레미스 응용 프로그램을 만들어 파일 저장소 액세스]: #create-console-app
 
 [files-concepts]: ./media/storage-dotnet-how-to-use-files/files-concepts.png
-
 
 <!--HONumber=42-->

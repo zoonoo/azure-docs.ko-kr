@@ -208,7 +208,7 @@ Python Tools for Visual Studio, Flask 및 Azure 테이블 저장소에 대해 �
 
 <!--External Link references-->
 [Azure 관리 포털]: https://manage.windowsazure.com
-[.NET용 Azure SDK]: http://azure.microsoft.com/ko-kr/downloads/
+[.NET용 Azure SDK]: http://azure.microsoft.com/downloads/
 [Python Tools 2.1 for Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
 [Python Tools 2.1 for Visual Studio 샘플 VSIX]: http://go.microsoft.com/fwlink/?LinkId=517189
 [Azure SDK Tools for VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
@@ -220,7 +220,7 @@ Python Tools for Visual Studio, Flask 및 Azure 테이블 저장소에 대해 �
 [Microsoft Azure의 원격 디버깅]: http://pytools.codeplex.com/wikipage?title=Features%20Azure%20Remote%20Debugging
 [웹 프로젝트]: http://pytools.codeplex.com/wikipage?title=Features%20Web%20Project
 [클라우드 서비스 프로젝트]: http://pytools.codeplex.com/wikipage?title=Features%20Cloud%20Project
-[Azure 저장소]: http://azure.microsoft.com/ko-kr/documentation/services/storage/
+[Azure 저장소]: http://azure.microsoft.com/documentation/services/storage/
 [Azure SDK for Python]: https://github.com/Azure/azure-sdk-for-python
 
 

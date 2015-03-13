@@ -1,12 +1,12 @@
 ﻿## WebAPI 프로젝트 만들기
 
-아래 단계에 따라 새 ASP.NET WebAPI 백 엔드를 만들어 클라이언트를 인증하고 알림을 생성하거나 이전 프로젝트 또는 [인증된 사용자에게 푸시 알림 보내기](http://azure.microsoft.com/ko-kr/documentation/articles/mobile-services-dotnet-backend-ios-push-notifications-app-users/) 자습서의 기존 백 엔드를 수정합니다.
+아래 단계에 따라 새 ASP.NET WebAPI 백 엔드를 만들어 클라이언트를 인증하고 알림을 생성하거나 이전 프로젝트 또는 [인증된 사용자에게 푸시 알림 보내기](http://azure.microsoft.com/ documentation/articles/mobile-services-dotnet-backend-ios-push-notifications-app-users/) 자습서의 기존 백 엔드를 수정합니다.
 
 > [AZURE.NOTE] **중요**: 이 자습서를 시작하기 전에 최신 버전의 NuGet 패키지 관리자를 설치했는지 확인하세요. 확인하려면 Visual Studio를 시작합니다. **도구** 메뉴에서 **확장 및 업데이트**를 클릭합니다. **Visual Studio 2013용 NuGet 패키지 관리자**를 검색하고 버전이 2.8.50313.46 이상인지 확인합니다. 그렇지 않은 경우 제거한 다음, NuGet 패키지 관리자를 다시 설치합니다.
 > 
 > ![][4]
 
-> [AZURE.NOTE] 웹 사이트 배포를 위해 Visual Studio [Azure SDK](http://azure.microsoft.com/ko-kr/downloads/)를 설치했는지 확인합니다.
+> [AZURE.NOTE] 웹 사이트 배포를 위해 Visual Studio [Azure SDK](http://azure.microsoft.com/ downloads/)를 설치했는지 확인합니다.
 
 1. Visual Studio 또는 Visual Studio Express를 시작합니다.
 2. Visual Studio에서 **파일**을 클릭한 후 **새로 만들기**, **프로젝트**를 클릭하고 **템플릿**, **Visual C#**을 확장한 다음 **웹** 및 **ASP.NET 웹 응용 프로그램**을 클릭하고 **AppBackend**라는 이름을 입력한 후 **확인**을 클릭합니다. 
@@ -299,4 +299,4 @@
 [B16]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users16.PNG
 [B18]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users18.PNG
 
-<!--HONumber=42-->
+<!--HONumber=45--> 

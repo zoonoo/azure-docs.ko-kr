@@ -88,7 +88,7 @@ Giraph는 HDInsight 클러스터의 일부로 제공되지 않으므로 소스�
 
 	명령이 완료되면 JAR 파일이 wasb:///example/jars/giraph.jar로 업로드됩니다.
 
-	> [AZURE.NOTE] HDInsight에 파일을 업로드하는 데 사용할 수 있는 유틸리티 목록은 [HDInsight에서 Hadoop 작업용 데이터 업로드](http://azure.microsoft.com/ko-kr/documentation/articles/hdinsight-upload-data/)를 참조하세요.
+	> [AZURE.NOTE] HDInsight에 파일을 업로드하는 데 사용할 수 있는 유틸리티 목록은 [HDInsight에서 Hadoop 작업용 데이터 업로드](http://azure.microsoft.com/documentation/articles/hdinsight-upload-data/)를 참조하세요.
 
 ##<a id="run"></a>예제 실행
 
@@ -204,7 +204,7 @@ HDInsight 클러스터에 연결하려면 다음 단계를 수행하세요.
 
 ###이전 버전의 HDInsight
 
-이전 버전의 HDInsight에서 Giraph를 사용하려는 경우 해당 버전에서 지원하는 특정 Hadoop 버전용으로 컴파일해야 합니다. 사용 중인 HDInsight 버전에 해당하는 Hadoop 버전을 알아보려면 [HDInsight 클러스터 버전의 새로운 기능](http://azure.microsoft.com/ko-kr/documentation/articles/hdinsight-component-versioning/)을 참조하세요.
+이전 버전의 HDInsight에서 Giraph를 사용하려는 경우 해당 버전에서 지원하는 특정 Hadoop 버전용으로 컴파일해야 합니다. 사용 중인 HDInsight 버전에 해당하는 Hadoop 버전을 알아보려면 [HDInsight 클러스터 버전의 새로운 기능](http://azure.microsoft.com/documentation/articles/hdinsight-component-versioning/)을 참조하세요.
 
 또한 이전 버전의 HDInsight를 사용하려면 Hadoop 명령줄에서 Giraph 작업을 실행해야 할 수 있습니다. PowerShell에서 작업을 실행할 때 오류가 발생하면 [Hadoop 명령줄]에서 작업을 실행해보세요.(#cmd)
 
@@ -214,8 +214,7 @@ HDInsight에서 Giraph를 사용하는 방법에 대해 알아보았으므로 �
 
 [giraph]: http://giraph.apache.org
 [tools]: https://github.com/Blackmist/hdinsight-tools
-[aps]: http://azure.microsoft.com/ko-kr/documentation/articles/install-configure-powershell/
-[pig]: http://azure.microsoft.com/ko-kr/documentation/articles/hdinsight-use-pig/
-[hive]: http://azure.microsoft.com/ko-kr/documentation/articles/hdinsight-use-hive/
-
+[aps]: http://azure.microsoft.com/documentation/articles/install-configure-powershell/
+[pig]: http://azure.microsoft.com/documentation/articles/hdinsight-use-pig/
+[hive]: http://azure.microsoft.com/documentation/articles/hdinsight-use-hive/
 <!--HONumber=42-->

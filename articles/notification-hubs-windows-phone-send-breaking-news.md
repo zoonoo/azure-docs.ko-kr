@@ -1,6 +1,20 @@
-﻿<properties pageTitle="알림 허브를 사용하여 속보 보내기(Windows Phone)" metaKeywords="" description="등록된 태그와 함께 Azure 알림 허브를 사용하여 Windows Phone 앱에 최신 뉴스를 보낼 수 있습니다." metaCanonical="" services="notification-hubs" documentationCenter="Mobile" title="Use Notification Hubs to send breaking news" authors="glenga" solutions="" manager="dwrede" editor="" />
+﻿<properties 
+	pageTitle="알림 허브를 사용하여 속보 보내기(Windows Phone)" 
+	description="등록된 태그와 함께 Azure 알림 허브를 사용하여 Windows Phone 앱에 최신 뉴스를 보낼 수 있습니다." 
+	services="notification-hubs" 
+	documentationCenter="windows" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="12/03/2014" ms.author="glenga" />
+<tags 
+	ms.service="notification-hubs" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="12/03/2014" 
+	ms.author="glenga"/>
 
 # 알림 허브를 사용하여 속보 보내기
 <div class="dev-center-tutorial-selector sublanding"> 
@@ -20,11 +34,11 @@
 
 이 항목은 [알림 허브 시작]에서 만든 앱을 기반으로 합니다. 이 자습서를 시작하기 전에 먼저 [알림 허브 시작]을 완료해야 합니다.
 
-##<a name="adding-categories"></a>앱에 범주 선택 추가
+## <a name="adding-categories"></a>앱에 범주 선택 추가
 
 첫 번째 단계는 기존의 기본 페이지에 사용자가 등록할 범주를 선택할 수 있도록 하는 UI 요소를 추가하는 것입니다. 사용자가 선택한 범주는 장치에 저장됩니다. 앱을 시작하면 장치 등록이 선택한 범주와 함께 태그로서 알림 허브에 생성됩니다. 
 
-1. MainPage.xaml 프로젝트 파일을 연 다음 **Grid** 요소 'TitlePanel' 및 'ContentPanel'을 다음 코드로 바꿉니다.
+1. MainPage.xaml 프로젝트 파일을 열고 `TitlePanel` 및 `ContentPanel`이라는 **Grid** 요소를 다음 코드로 바꿉니다.
 			
         <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
             <TextBlock Text="Breaking News" Style="{StaticResource PhoneTextNormalStyle}" Margin="12,0"/>
@@ -99,11 +113,9 @@
 
     이 클래스는 로컬 저장소를 사용하여, 이 장치에서 받아야 할 뉴스의 범주를 저장합니다. 이러한 범주를 등록하기 위한 메서드도 이 클래스에 포함됩니다.
 
-4. 위 코드에서 '<hub name>'과 '<connection string with listen access>' 자리 표시자를 알림 허브 이름과 앞서 얻었던 "DefaultListenSharedAccessSignature"의 연결 문자열로 바꿉니다.
+4. 위 코드에서 `<hub name>`과 `<connection string with listen access>` 자리 표시자를 알림 허브 이름과 앞서 얻었던 *DefaultListenSharedAccessSignature*의 연결 문자열로 바꿉니다.
 
-	<div class="dev-callout"><strong>Note</strong> 
-		<p>Because credentials that are distributed with a client app are not generally secure, you should only distribute the key for listen access with your client app. Listen access enables your app to register for notifications, but existing registrations cannot be modified and notifications cannot be sent. The full access key is used in a secured backend service for sending notifications and changing existing registrations.</p>
-	</div> 
+	> [AZURE.NOTE] 클라이언트 앱과 함께 배포되는 자격 증명은 일반적으로 안전하지 않기 때문에 클라이언트 앱과 함께 listen access용 키만 배포해야 합니다. Listen access를 통해 앱에서 알림을 등록할 수 있지만, 기존 등록을 수정할 수 없으며 알림을 전송할 수도 없습니다. 안전한 백 엔드 서비스에서 알림을 보내고 기존 등록을 변경하는 데에는 모든 액세스 키가 사용됩니다.
 
 4. App.xaml.cs 프로젝트 파일에서 **App** 클래스에 다음 속성을 추가합니다.
 
@@ -136,13 +148,11 @@
 
 이제 사용자가 범주 선택을 변경할 때마다 앱은 범주 집합을 장치의 로컬 저장소에 저장하고 알림 허브에 등록할 수 있습니다. 
 
-##<a name="register"></a>알림 등록
+## <a name="register"></a>알림 등록
 
 다음 단계에서는 로컬 저장소에 저장된 범주를 사용하여 시작 시 알림 허브에 등록합니다. 
 
-<div class="dev-callout"><strong>Note</strong> 
-	<p>Because the channel URI assigned by the Microsoft Push Notification Service (MPNS) can chance at any time, you should register for notifications frequently to avoid notification failures. This example registers for notification every time that the app starts. For apps that are run frequently, more than once a day, you can probably skip registration to preserve bandwidth if less than a day has passed since the previous registration.</p>
-</div>  
+> [AZURE.NOTE] MPNS(Microsoft 푸시 알림 서비스)에서 할당하는 채널 URI는 언제든지 변경될 수 있으므로 알림 실패를 피하려면 알림을 자주 등록해야 합니다. 이 예제에서는 앱이 시작될 때마다 알림을 등록합니다. 자주(하루 두 번 이상) 실행되는 앱에서는 이전 등록 이후 만 하루가 지나지 않은 경우 대역폭 유지를 위한 등록을 건너뛸 수 있습니다.
 
 1. **Notifications** 클래스에 다음 코드를 추가합니다.
 
@@ -182,9 +192,9 @@
 
 <h2><a name="send"></a>백 엔드에서 알림 보내기</h2>
 
-[WACOM.INCLUDE [notification-hubs-back-end](../includes/notification-hubs-back-end.md)]
+[AZURE.INCLUDE [알림 허브-백 엔드](../includes/notification-hubs-back-end.md)]
 
-##<a name="test-app"></a>앱 실행 및 알림 생성
+## <a name="test-app"></a>앱 실행 및 알림 생성
 
 1. Visual Studio에서 F5 키를 눌러 앱을 컴파일 및 시작합니다.
 
@@ -212,18 +222,18 @@
 
 <!--## <a name="next-steps"> </a>다음 단계
 
-이 자습서에서는 범주별로 속보를 브로드캐스트하는 방법에 대해 알아보았습니다. 이제 기타 고급 알림 허브 시나리오를 다루는 다음 자습서 중 하나를 완료해 보십시오.
+이 자습서에서는 범주별로 속보를 브로드캐스트하는 방법에 대해 알아보았습니다. 이제 기타 고급 알림 허브 시나리오를 다루는 다음 자습서 중 하나를 완료해 보세요.
 
 + [알림 허브를 사용하여 지역화된 속보 브로드캐스트]
 
-	지역화된 알림을 보낼 수 있도록 속보 앱을 확장하는 방법에 대해 알아보십시오. 
+	지역화된 알림을 보낼 수 있도록 속보 앱을 확장하는 방법에 대해 알아보세요. 
 
 + [알림 허브를 통해 사용자에게 알림]
 
-	인증된 특정 사용자에게 알림을 푸시하는 방법에 대해 알아보십시오. 이 방법은 특정 사용자에게만 알림을 보내기 위한 훌륭한 솔루션입니다.
+	인증된 특정 사용자에게 알림을 푸시하는 방법에 대해 알아보세요. 이 방법은 특정 사용자에게만 알림을 보내기 위한 훌륭한 솔루션입니다.
 -->
 
-<!-- 앵커. -->
+<!-- Anchors. -->
 [앱에 범주 선택 추가]: #adding-categories
 [알림 등록]: #register
 [백 엔드에서 알림 보내기]: #send
@@ -242,8 +252,8 @@
 [알림 허브를 사용하여 지역화된 속보 브로드캐스트]: ./breakingnews-localized-wp8.md 
 [알림 허브를 통해 사용자에게 알림]: /ko-kr/manage/services/notification-hubs/notify-users/
 [모바일 서비스]: /ko-kr/develop/mobile/tutorials/get-started
-[알림 허브 지침]: http://msdn.microsoft.com/ko-kr/library/jj927170.aspx
-[Windows Phone에 대한 알림 허브 방법]: ??
+[알림 허브 지침]: http://msdn.microsoft.com/library/jj927170.aspx
+[Windows Phone용 알림 허브 사용 방법]: ??
 
 [Azure 관리 포털]: https://manage.windowsazure.com/
 
@@ -251,4 +261,4 @@
 
 
 
-<!--HONumber=35.2-->
+<!--HONumber=45--> 

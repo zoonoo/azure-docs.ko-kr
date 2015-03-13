@@ -1,6 +1,20 @@
-﻿<properties pageTitle="HTML 5 앱에 대해 Azure 모바일 서비스 시작" description="이 자습서에 따라 HTML 개발을 위해 Azure 모바일 서비스 사용을 시작할 수 있습니다." services="mobile-services" documentationCenter="" authors="ggailey777" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="HTML 5 앱에 대해 Azure 모바일 서비스 시작" 
+	description="이 자습서에 따라 HTML 개발을 위해 Azure 모바일 서비스 사용을 시작할 수 있습니다." 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="hero-article" ms.date="11/21/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-html" 
+	ms.devlang="javascript" 
+	ms.topic="hero-article" 
+	ms.date="11/21/2014" 
+	ms.author="glenga"/>
 
 
 # <a name="getting-started"> </a>모바일 서비스 시작
@@ -20,7 +34,7 @@
 
 먼저 이 자습서를 완료해야만 HTML 앱에 대한 다른 모든 모바일 서비스 자습서를 학습할 수 있습니다. 
 
-> [AZURE.IMPORTANT] 이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](http://www.windowsazure.com/ko-kr/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fko-kr%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-html%2F"%20target="_blank)을 참조하세요.  
+> [AZURE.IMPORTANT] 이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fko-kr%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-html%2F"%20target="_blank)을 참조하세요.  
 
 ###추가 요구 사항
 
@@ -66,7 +80,7 @@
 
   	![][9]
 
-	> [AZURE.IMPORTANT] localhost 이외의 웹 서버에 퀵 스타트 앱을 배포하는 경우, 웹 서버 호스트 이름을 **호스트 이름의 요청 허용** 목록에 추가해야 합니다. 자세한 내용은 [CORS(크로스-원본 자원 공유)](http://msdn.microsoft.com/ko-kr/library/windowsazure/dn155871.aspx"%20target="_blank)(영문)를 참조하세요.
+	> [AZURE.IMPORTANT] localhost 이외의 웹 서버에 퀵 스타트 앱을 배포하는 경우, 웹 서버 호스트 이름을 **호스트 이름의 요청 허용** 목록에 추가해야 합니다. 자세한 내용은 [CORS(크로스-원본 자원 공유)](http://msdn.microsoft.com/library/windowsazure/dn155871.aspx"%20target="_blank)(영문)를 참조하세요.
 
 ## HTML 앱 호스트 및 실행
 
@@ -146,7 +160,7 @@
 [Microsoft 웹 플랫폼 설치 관리자]:  http://go.microsoft.com/fwlink/p/?LinkId=286333
 [Python의 최신 버전]: http://go.microsoft.com/fwlink/p/?LinkId=286342
 [모바일 서비스 HTML/JavaScript 방법 개념 참조]: /ko-kr/develop/mobile/how-to-guides/work-with-html-js-client
-[크로스-원본 자원 공유]: http://msdn.microsoft.com/ko-kr/library/windowsazure/dn155871.aspx
+[크로스-원본 자원 공유]: http://msdn.microsoft.com/library/windowsazure/dn155871.aspx
 
 
 <!--HONumber=42-->

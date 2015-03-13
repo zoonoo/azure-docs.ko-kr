@@ -18,9 +18,9 @@
 
 # <a id="createstorageaccount"></a>Azure 관리 포털에서 저장소 계정 모니터링
 
-Azure 관리 포털에서 저장소 계정을 모니터링할 수 있습니다. 포털을 통해 모니터링할 저장소 계정을 구성하면 Azure 저장소에서 [저장소 분석](http://msdn.microsoft.com/ko-kr/library/azure/hh343270.aspx)을 사용하여 계정에 대한 메트릭을 추적하고 요청 데이터를 로깅합니다. 
+Azure 관리 포털에서 저장소 계정을 모니터링할 수 있습니다. 포털을 통해 모니터링할 저장소 계정을 구성하면 Azure 저장소에서 [저장소 분석](http://msdn.microsoft.com/library/azure/hh343270.aspx)을 사용하여 계정에 대한 메트릭을 추적하고 요청 데이터를 로깅합니다. 
 
-> [AZURE.NOTE] 관리 포털에서 모니터링 데이터를 검사하면 추가 비용이 발생할 수 있습니다. 자세한 내용은 <a href="http://msdn.microsoft.com/ko-kr/library/windowsazure/hh360997.aspx">저장소 분석 및 청구</a>를 참조하세요. <br />
+> [AZURE.NOTE] 관리 포털에서 모니터링 데이터를 검사하면 추가 비용이 발생할 수 있습니다. 자세한 내용은 <a href="http://msdn.microsoft.com/library/windowsazure/hh360997.aspx">저장소 분석 및 청구</a>를 참조하세요. <br />
 
 > Azure 파일 서비스는 현재 저장소 분석을 지원하지 않습니다.
 
@@ -65,7 +65,7 @@ Azure 관리 포털에서 저장소 계정을 모니터링할 수 있습니다. 
 
 모니터링 수준 및 보존 정책을 설정한 후 관리 포털에서 모니터링에 사용할 수 있는 메트릭과 메트릭 차트에 넣을 메트릭을 선택할 수 있습니다. 기본 메트릭 집합이 각 모니터링 수준에서 표시됩니다. **메트릭 추가**를 사용하여 메트릭 목록에서 메트릭을 추가하거나 제거할 수 있습니다.
 
-메트릭은 저장소 계정에서 이름이 $MetricsTransactionsBlob, $MetricsTransactionsTable, $MetricsTransactionsQueue 및 $MetricsCapacityBlob인 네 가지 테이블에 저장됩니다. 자세한 내용은 저장소 [분석 메트릭 정보](http://msdn.microsoft.com/ko-kr/library/windowsazure/hh343258.aspx)를 참조하세요.
+메트릭은 저장소 계정에서 이름이 $MetricsTransactionsBlob, $MetricsTransactionsTable, $MetricsTransactionsQueue 및 $MetricsCapacityBlob인 네 가지 테이블에 저장됩니다. 자세한 내용은 저장소 [분석 메트릭 정보](http://msdn.microsoft.com/library/windowsazure/hh343258.aspx)를 참조하세요.
 
 
 <h2><a id="customizestoragemonitoring"></a>방법: 모니터링을 위한 대시보드 사용자 지정</h2>
@@ -109,7 +109,7 @@ Azure 관리 포털에서 저장소 계정을 모니터링할 수 있습니다. 
 
 	![Monitoring_VerboseDisplay](./media/storage-monitor-storage-account/Storage_Monitoring_VerboseDisplay.png)
 
-	> [AZURE.NOTE] 메트릭을 선택할 때 비용을 고려하세요. 모니터링 화면 새로 고침과 관련한 트랜잭션 및 송신 비용이 발생할 수 있습니다. 자세한 내용은 [저장소 분석 및 청구](http://msdn.microsoft.com/ko-kr/library/windowsazure/hh360997.aspx)를 참조하세요.
+	> [AZURE.NOTE] 메트릭을 선택할 때 비용을 고려하세요. 모니터링 화면 새로 고침과 관련한 트랜잭션 및 송신 비용이 발생할 수 있습니다. 자세한 내용은 [저장소 분석 및 청구](http://msdn.microsoft.com/library/windowsazure/hh360997.aspx)를 참조하세요.
 
 3. **메트릭 추가**를 클릭합니다. 
 
@@ -164,6 +164,5 @@ Azure 관리 포털에서 저장소 계정을 모니터링할 수 있습니다. 
 
 4. **저장**을 클릭합니다.
 
-진단 로그는 저장소 계정의 이름이 $logs인 Blob 컨테이너에 저장됩니다. $logs 컨테이너 액세스에 대한 자세한 내용은 [저장소 분석 로깅 정보](http://msdn.microsoft.com/ko-kr/library/windowsazure/hh343262.aspx)를 참조하세요.
-
+진단 로그는 저장소 계정의 이름이 $logs인 Blob 컨테이너에 저장됩니다. $logs 컨테이너 액세스에 대한 자세한 내용은 [저장소 분석 로깅 정보](http://msdn.microsoft.com/library/windowsazure/hh343262.aspx)를 참조하세요.
 <!--HONumber=42-->

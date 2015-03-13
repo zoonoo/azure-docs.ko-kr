@@ -1,7 +1,7 @@
 ﻿## 이벤트 허브에 메시지 보내기
 이 섹션에서는 이벤트 허브로 이벤트를 보내는 C 응용 프로그램을 작성합니다. 여기서는 [Apache Qpid 프로젝트](http://qpid.apache.org/)(영문)의 Proton AMQP 라이브러리를 사용합니다. 이는 [여기](https://code.msdn.microsoft.com/windowsazure/Using-Apache-Qpid-Proton-C-afd76504)(영문)에 나온 C에서 AMQP와 함께 서비스 버스 큐와 토픽을 사용하는 방법과 유사합니다. 자세한 내용은 [Qpid Proton 설명서](http://qpid.apache.org/proton/index.html)(영문)를 참조하세요.
 
-1. [Qpid AMQP Messenger 페이지](http://qpid.apache.org/components/messenger/index.html)(영문)에서 **Installing Qpid Proton** 링크를 클릭하고 환경에 맞는 지침을 따릅니다. 여기서는 [Azure Linux VM](http://azure.microsoft.com/ko-kr/documentation/articles/virtual-machines-linux-tutorial/)과 Ubuntu 14.04를 사용하는 Linux 환경을 가정합니다.
+1. [Qpid AMQP Messenger 페이지](http://qpid.apache.org/components/messenger/index.html)(영문)에서 **Installing Qpid Proton** 링크를 클릭하고 환경에 맞는 지침을 따릅니다. 여기서는 [Azure Linux VM](http://azure.microsoft.com/documentation/articles/virtual-machines-linux-tutorial/)과 Ubuntu 14.04를 사용하는 Linux 환경을 가정합니다.
 
 2. Proton 라이브러리를 컴파일하려면 다음 패키지를 설치합니다.
 
@@ -105,4 +105,4 @@
 		gcc sender.c -o sender -lqpid-proton
 
 > [AZURE.NOTE] 위의 코드에서 발신 창 1을 사용하여 메시지가 최대한 빨리 출력되게 합니다. 일반적 응용 프로그램에서는 메시지를 일괄 처리하여 처리량을 늘려야 합니다. 이 환경과 다른 환경 및 바인딩이 제공되는 플랫폼(현재 Perl, PHP, Python 및 Ruby)에서 Qpid Proton 라이브러리를 사용하는 방법에 대한 자세한 내용은 [Qpid AMQP Messenger 페이지](http://qpid.apache.org/components/messenger/index.html)(영문)를 참조하세요.
-<!--HONumber=42-->
+\<!--HONumber=42-->

@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Tutorial: Create a Cross-Premises Virtual Network for Site-to-Site Connectivity" pageTitle="자습서: 사이트 간 연결용 프레미스 간 가상 네트워크 만들기" metaKeywords="" description="이 자습서에서는 프레미스 간 연결을 지원하는 Azure 가상 네트워크를 만드는 방법에 대해 알아봅니다." metaCanonical="" services="virtual-network" documentationCenter="" title="Create a Virtual Network for Site-to-Site Cross-Premises Connectivity" authors="cherylmc" solutions="" manager="adinah" editor="" />
+﻿<properties 
+	pageTitle="자습서: 사이트 간 연결용 프레미스 간 가상 네트워크 만들기" 
+	description="이 자습서에서는 프레미스 간 연결을 지원하는 Azure 가상 네트워크를 만드는 방법에 대해 알아봅니다." 
+	services="virtual-network" 
+	documentationCenter="" 
+	authors="cherylmc" 
+	manager="adinah" 
+	editor=""/>
 
-<tags ms.service="virtual-network" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/23/2014" ms.author="cherylmc" />
+<tags 
+	ms.service="virtual-network" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/23/2014" 
+	ms.author="cherylmc"/>
 
 
 
@@ -10,9 +24,9 @@
 
 이 자습서에서는 사이트 간 연결이 있는 프레미스 간 가상 네트워크 예제를 만드는 단계를 안내합니다. 
 
-클라우드 전용 가상 네트워크를 만들려면 [자습서: Azure에서 클라우드 전용 가상 네트워크 만들기](http://azure.microsoft.com/ko-kr/documentation/articles/create-virtual-network/)를 참조하세요. 인증서 및 VPN 클라이언트를 사용하여 지점 및 사이트 간 VPN을 만들려는 경우 [관리 포털 마법사를 사용하여 지점 및 사이트 간 VPN 구성](http://go.microsoft.com/fwlink/?LinkId=296653)을 참조하세요.
+클라우드 전용 가상 네트워크를 만들려면 [자습서: Azure에서 클라우드 전용 가상 네트워크 만들기](http://azure.microsoft.com/documentation/articles/create-virtual-network/)를 참조하세요. 인증서 및 VPN 클라이언트를 사용하여 지점 및 사이트 간 VPN을 만들려는 경우 [관리 포털 마법사를 사용하여 지점 및 사이트 간 VPN 구성](http://go.microsoft.com/fwlink/?LinkId=296653)을 참조하세요.
 
-이 자습서에서는 이전에 Azure를 사용한 경험이 없다고 가정합니다. 이 자습서는 프레미스 간 가상 네트워크 예제를 만드는 데 필요한 단계에 익숙해지도록 돕기 위한 것입니다. 가상 네트워크에 대한 디자인 시나리오 및 고급 정보를 원하는 경우에는 [Azure 가상 네트워크 개요](http://msdn.microsoft.com/ko-kr/library/windowsazure/jj156007.aspx)를 참조하세요.
+이 자습서에서는 이전에 Azure를 사용한 경험이 없다고 가정합니다. 이 자습서는 프레미스 간 가상 네트워크 예제를 만드는 데 필요한 단계에 익숙해지도록 돕기 위한 것입니다. 가상 네트워크에 대한 디자인 시나리오 및 고급 정보를 원하는 경우에는 [Azure 가상 네트워크 개요](http://msdn.microsoft.com/library/windowsazure/jj156007.aspx)를 참조하세요.
 
 이 자습서를 완료하고 나면 프레미스 간 가상 네트워크 예제가 준비됩니다. 다음 그림에서는 이 자습서에서 예제 설정을 기반으로 한 세부 정보를 보여 줍니다.
 
@@ -28,7 +42,7 @@
 
 -  [Azure 가상 네트워크에서 복제 Active Directory 도메인 컨트롤러 설치](http://go.microsoft.com/fwlink/?LinkId=299877)
 
-Azure 가상 컴퓨터에 AD DS를 배포하는 방법에 대한 지침은 [Azure 가상 컴퓨터에서의 Windows Server Active Directory 배포 지침](http://msdn.microsoft.com/ko-kr/library/windowsazure/jj156090.aspx)을 참조하세요.
+Azure 가상 컴퓨터에 AD DS를 배포하는 방법에 대한 지침은 [Azure 가상 컴퓨터에서의 Windows Server Active Directory 배포 지침](http://msdn.microsoft.com/library/windowsazure/jj156090.aspx)을 참조하세요.
 
 추가 가상 네트워크 구성 절차 및 설정은 [Azure 가상 네트워크 구성 작업](http://go.microsoft.com/fwlink/?LinkId=296652)을 참조하세요.
 
@@ -42,7 +56,7 @@ Azure 가상 컴퓨터에 AD DS를 배포하는 방법에 대한 지침은 [Azur
 
 ##  필수 조건
 
--  유효한 활성 Azure 구독이 하나 이상 있는 Microsoft 계정.  Azure 구독이 아직 없는 경우 [Azure 평가판 사용](http://www.windowsazure.com/pricing/free-trial/)에서 무료 평가판에 등록할 수 있습니다. MSDN 구독이 있는 경우에는 [Microsoft Azure 특별 가격: MSDN, MPN 및 Bizspark 혜택](http://azure.microsoft.com/ko-kr/pricing/member-offers/msdn-benefits-details/)을 참조하세요.
+-  유효한 활성 Azure 구독이 하나 이상 있는 Microsoft 계정.  Azure 구독이 아직 없는 경우 [Azure 평가판 사용](http://www.windowsazure.com/pricing/free-trial/)에서 무료 평가판에 등록할 수 있습니다. MSDN 구독이 있는 경우에는 [Microsoft Azure 특별 가격: MSDN, MPN 및 Bizspark 혜택](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 참조하세요.
 
 이 자습서를 사용하여 귀사에 맞게 사용자 지정되고 실제로 작동하는 프레미스 간 가상 네트워크를 구성하려면 다음이 필요합니다.
 
@@ -103,7 +117,7 @@ Azure 가상 컴퓨터에 AD DS를 배포하는 방법에 대한 지침은 [Azur
 
 	-  **이름:** 이 자습서에 있는 예제의 경우 **YourCorpHQ**를 입력합니다.
 
-	-  **VPN 장치 IP 주소:** 이 자습서에 있는 예제의 경우 **3.2.1.1**을 입력합니다. 그렇지 않으면 VPN 장치의 공개 IP 주소를 입력합니다. 이 정보가 없는 경우 마법사의 다음 단계를 진행하기 전에 이 정보를 가져와야 합니다. VPN 장치는 NAT 뒤에 배치될 수 없습니다. VPN 장치에 대한 자세한 내용은 [가상 네트워크의 VPN 장치 정보](http://msdn.microsoft.com/ko-kr/library/windowsazure/jj156075.aspx)를 참조하세요.
+	-  **VPN 장치 IP 주소:** 이 자습서에 있는 예제의 경우 **3.2.1.1**을 입력합니다. 그렇지 않으면 VPN 장치의 공개 IP 주소를 입력합니다. 이 정보가 없는 경우 마법사의 다음 단계를 진행하기 전에 이 정보를 가져와야 합니다. VPN 장치는 NAT 뒤에 배치될 수 없습니다. VPN 장치에 대한 자세한 내용은 [가상 네트워크의 VPN 장치 정보](http://msdn.microsoft.com/library/windowsazure/jj156075.aspx)를 참조하세요.
 
 	-  **주소 공간:** 이 자습서에 있는 예제의 경우 **10.1.0.0/16**을 입력합니다.
 	-  **주소 공간 추가:** 이 자습서에서는 추가 주소 공간이 필요하지 않습니다.
@@ -244,15 +258,15 @@ Azure 가상 네트워크를 만든 후 사이트 간 VPN을 만들려면 다음
 
 ## 참고 항목
 
--  [Azure 가상 네트워크](http://msdn.microsoft.com/ko-kr/library/windowsazure/jj156007.aspx)
+-  [Azure 가상 네트워크](http://msdn.microsoft.com/library/windowsazure/jj156007.aspx)
 
 -  [가상 네트워크 FAQ](http://msdn.microsoft.com/library/windowsazure/dn133803.aspx)
 
--  [네트워크 구성 파일을 사용하여 가상 네트워크 구성](http://msdn.microsoft.com/ko-kr/library/windowsazure/jj156097.aspx)
+-  [네트워크 구성 파일을 사용하여 가상 네트워크 구성](http://msdn.microsoft.com/library/windowsazure/jj156097.aspx)
 
--  [가상 네트워크에 가상 컴퓨터 추가](http://www.windowsazure.com/ko-kr/manage/services/networking/add-a-vm-to-a-virtual-network/)
+-  [가상 네트워크에 가상 컴퓨터 추가](http://azure.microsoft.com/manage/services/networking/add-a-vm-to-a-virtual-network/)
 
--  [가상 네트워크의 VPN 장치 정보](http://msdn.microsoft.com/ko-kr/library/windowsazure/jj156075.aspx)
+-  [가상 네트워크의 VPN 장치 정보](http://msdn.microsoft.com/library/windowsazure/jj156075.aspx)
 
 -  [Azure 이름 확인 개요](http://go.microsoft.com/fwlink/?LinkId=248097)
 
@@ -260,3 +274,5 @@ Azure 가상 네트워크를 만든 후 사이트 간 VPN을 만들려면 다음
 
 
 
+
+<!--HONumber=46--> 

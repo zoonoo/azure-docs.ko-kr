@@ -1,6 +1,20 @@
-﻿<properties title="Use Pig and Hive with Azure Data Factory" pageTitle="Azure 데이터 팩터리에서 Pig 및 Hive 사용" description="Azure HDInsight 클러스터에서 Azure 데이터 팩터리의 Pig 및 Hive 스크립트를 실행하여 데이터를 처리하는 방법에 대해 알아봅니다." metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
+﻿<properties 
+	pageTitle="Azure 데이터 팩터리에서 Pig 및 Hive 사용" 
+	description="Azure HDInsight 클러스터에서 Azure 데이터 팩터리의 Pig 및 Hive 스크립트를 실행하여 데이터를 처리하는 방법에 대해 알아봅니다." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
+	editor="monicar"/>
 
-<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/13/2014" ms.author="spelluru" />
+<tags 
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2/10/2015" 
+	ms.author="spelluru"/>
 
 # Azure 데이터 팩터리에서 Pig 및 Hive 사용
 Azure 데이터 팩터리의 파이프라인은 연결된 저장소 서비스의 데이터를 연결된 계산 서비스를 사용하여 처리합니다. 파이프라인에는 일련의 작업이 포함되며 각 작업에서는 특정 처리 작업을 수행합니다. 
@@ -418,3 +432,5 @@ Azure 데이터 팩터리 서비스는 주문형 클러스터 만들기를 지�
 [Azure 포털]: http://portal.azure.com
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

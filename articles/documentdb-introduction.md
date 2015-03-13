@@ -1,6 +1,20 @@
-﻿<properties title="Introduction to Microsoft Azure DocumentDB" pageTitle="Microsoft Azure DocumentDB 소개 | Azure" description="Azure DocumentDB, NoSQL 문서 데이터베이스 및 클라우드 및 모바일 응용 프로그램에 해당 값에 알아봅니다. 데이터를 관리 하는 방법 및 사용 하 여 응용 프로그램 개발에는 방법을 알아봅니다." metaKeywords="" services="documentdb" solutions="data-management"  authors="spelluru" manager="jhubbard" editor="monicar" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Microsoft Azure DocumentDB 소개 | Azure" 
+	description="Azure DocumentDB, NoSQL 문서 데이터베이스 및 클라우드와 모바일 응용 프로그램에서 DocumentDB를 활용하는 방법에 대해 알아봅니다. DocumentDB에서 데이터를 관리하는 방법과 응용 프로그램 개발에 DocumentDB를 사용하는 방법에 대해서도 살펴봅니다." 
+	services="documentdb" 
+	authors="mimig1" 
+	manager="jhubbard" 
+	editor="monicar" 
+	documentationCenter=""/>
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/05/2014" ms.author="mimig" />
+<tags 
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/18/2015" 
+	ms.author="mimig"/>
 
 #Microsoft Azure DocumentDB 소개
 
@@ -83,3 +97,5 @@ Azure DocumentDB를 시작하려면 다음 리소스를 탐색하세요.
 [1]: ./media/documentdb-introduction/intro.png
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

@@ -1,6 +1,20 @@
-<properties pageTitle="SignalR 및 모바일 서비스를 사용하여 실시간 푸시 시작 | 모바일 개발자 센터" description="SignalR 및 모바일 서비스를 사용하여 실시간 푸시를 시작하는 방법에 대해 알아봅니다." documentationCenter="windows" authors="mattchenderson" manager="dwrede" editor="" services=""/>
+<properties 
+	pageTitle="SignalR 및 모바일 서비스를 사용하여 실시간 푸시 시작 | 모바일 개발자 센터" 
+	description="SignalR 및 모바일 서비스를 사용하여 실시간 푸시를 시작하는 방법에 대해 알아봅니다." 
+	documentationCenter="windows" 
+	authors="mattchenderson" 
+	manager="dwrede" 
+	editor="" 
+	services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="08/19/2014" ms.author="mahender"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="08/19/2014" 
+	ms.author="mahender"/>
 
 # SignalR 및 모바일 서비스를 사용하여 실시간 푸시 시작
 

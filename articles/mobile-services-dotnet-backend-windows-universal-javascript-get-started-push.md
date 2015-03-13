@@ -1,6 +1,20 @@
-﻿<properties pageTitle=".NET 백 엔드 모바일 서비스를 사용하여 푸시 알림 시작" description="Azure 모바일 서비스와 알림 허브를 사용하여 범용 Windows 앱에 푸시 알림을 보내는 방법에 대해 알아봅니다." services="mobile-services, notification-hubs" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle=".NET 백 엔드 모바일 서비스를 사용하여 푸시 알림 시작" 
+	description="Azure 모바일 서비스와 알림 허브를 사용하여 범용 Windows 앱에 푸시 알림을 보내는 방법에 대해 알아봅니다." 
+	services="mobile-services, notification-hubs" 
+	documentationCenter="windows" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/27/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.devlang="javascript" 
+	ms.topic="article" 
+	ms.date="09/27/2014" 
+	ms.author="glenga"/>
 
 
 # 모바일 서비스 앱에 푸시 알림 추가
@@ -54,7 +68,7 @@
 
 <ol start="5">
 <li><p>다음에는 <code>\services\mobileServices\settings</code> 프로젝트 폴더로 이동하여 생성된 &lt;<em>your_service_name</em>&gt;.js 스크립트 파일을 공유 <code>\js</code> 프로젝트 폴더에 복사한 다음 개별 Windows 및 WindowsPhone 앱 프로젝트 둘 다에서 이 파일을 삭제합니다. 또한 이 파일이 각 앱 프로젝트의 <code>\services\mobileServices\scripts</code> 폴더에도 있는 경우 여기서도 삭제합니다.</p></li> 
-<li><p>공유되는 <code>\js</code> 프로젝트 폴더에서 이 스크립트 파일을 열고 Azure에서 실행되는 <a href="http://msdn.microsoft.com/ko-kr/library/azure/jj554219.aspx">MobileServiceClient object</a>를 정의하는 기존 코드를 주석 처리합니다.</p></li>
+<li><p>공유되는 <code>\js</code> 프로젝트 폴더에서 이 스크립트 파일을 열고 Azure에서 실행되는 <a href="http://msdn.microsoft.com/library/azure/jj554219.aspx">MobileServiceClient object</a>를 정의하는 기존 코드를 주석 처리합니다.</p></li>
 <li><p>같은 이름의 새 <strong>MobileServiceClient</strong> 개체 정의를 추가하되 다음과 같이 생성자에서 로컬 호스트의 URL을 사용합니다.</p>
 <pre><code>// This MobileServiceClient has been configured to communicate with your local
 // test project for debugging purposes.

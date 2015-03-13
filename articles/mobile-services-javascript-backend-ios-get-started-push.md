@@ -1,12 +1,26 @@
-﻿<properties pageTitle="푸시 알림 시작(iOS) | 모바일 개발자 센터" description="Azure 모바일 서비스를 사용하여 iOS 앱에 푸시 알림을 보내는 방법에 대해 알아봅니다." services="mobile-services, notification-hubs" documentationCenter="ios" manager="dwrede" editor="" authors="krisragh"/>
+﻿<properties 
+	pageTitle="푸시 알림 시작(iOS) | 모바일 개발자 센터" 
+	description="Azure 모바일 서비스를 사용하여 iOS 앱에 푸시 알림을 보내는 방법에 대해 알아봅니다." 
+	services="mobile-services, notification-hubs" 
+	documentationCenter="ios" 
+	manager="dwrede" 
+	editor="" 
+	authors="krisragh"/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="12/15/2014" ms.author="krisragh"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-ios" 
+	ms.devlang="objective-c" 
+	ms.topic="article" 
+	ms.date="12/15/2014" 
+	ms.author="krisragh"/>
 
 # 모바일 서비스 앱에 푸시 알림 추가
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../includes/mobile-services-selector-get-started-push.md)]
 
-이 항목에서는 Azure 모바일 서비스를 사용하여 iOS 앱에 APNS(Apple 푸시 알림 서비스)를 통해 푸시 알림을 보내는 방법에 대해 설명합니다. 이 자습서에서는 [퀵 스타트 프로젝트](http://azure.microsoft.com/ko-kr/documentation/articles/mobile-services-ios-get-started/)에 대한 Azure 알림 허브를 사용하여 푸시 알림을 사용하도록 설정합니다. 이 작업을 완료하면 레코드가 삽입될 때마다 모바일 서비스에서 푸시 알림을 전송합니다.
+이 항목에서는 Azure 모바일 서비스를 사용하여 iOS 앱에 APNS(Apple 푸시 알림 서비스)를 통해 푸시 알림을 보내는 방법에 대해 설명합니다. 이 자습서에서는 [퀵 스타트 프로젝트](http://azure.microsoft.com/documentation/articles/mobile-services-ios-get-started/)에 대한 Azure 알림 허브를 사용하여 푸시 알림을 사용하도록 설정합니다. 이 작업을 완료하면 레코드가 삽입될 때마다 모바일 서비스에서 푸시 알림을 전송합니다.
 
 이 자습서에서는 푸시 알림을 사용하도록 설정하는 다음 기본 단계를 단계별로 안내합니다.
 

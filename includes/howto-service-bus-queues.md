@@ -67,7 +67,7 @@ Azure에서 서비스 버스 큐 사용을 시작하려면 먼저 서비스 네�
 
 ###서버 탐색기에서 관리 자격 증명을 가져오려면
 
-관리 포털 대신 Visual Studio를 사용하여 연결 정보를 가져오려면 [여기](http://http://msdn.microsoft.com/ko-kr/library/windowsazure/ff687127.aspx), 나오는 **Visual Studio에서 Azure에 연결하려면** 섹션에서 설명하는 절차를 따르세요. Azure에 로그인하면 서버 탐색기의 **Microsoft Azure** 트리 아래에 있는 **Service Bus** 노드에 이미 만들어진 네임스페이스가 자동으로 채워집니다. 네임스페이스를 마우스 오른쪽 단추로 클릭한 후 **속성**을 클릭하여 연결 문자열 및 Visual Studio **속성** 창에 이 네임스페이스와 관련하여 표시되는 다른 메타데이터를 표시합니다. 
+관리 포털 대신 Visual Studio를 사용하여 연결 정보를 가져오려면 [여기](http://http://msdn.microsoft.com/library/windowsazure/ff687127.aspx), 나오는 **Visual Studio에서 Azure에 연결하려면** 섹션에서 설명하는 절차를 따르세요. Azure에 로그인하면 서버 탐색기의 **Microsoft Azure** 트리 아래에 있는 **Service Bus** 노드에 이미 만들어진 네임스페이스가 자동으로 채워집니다. 네임스페이스를 마우스 오른쪽 단추로 클릭한 후 **속성**을 클릭하여 연결 문자열 및 Visual Studio **속성** 창에 이 네임스페이스와 관련하여 표시되는 다른 메타데이터를 표시합니다. 
 
 **SharedAccessKey** 값을 적어 두거나 클립보드에 복사해 둡니다.
 
@@ -77,5 +77,4 @@ Azure에서 서비스 버스 큐 사용을 시작하려면 먼저 서비스 네�
   [Azure 관리 포털]: http://manage.windowsazure.com
 
   [34]: ./media/howto-service-bus-queues/VSProperties.png
-
 <!--HONumber=42-->

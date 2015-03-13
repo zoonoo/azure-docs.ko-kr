@@ -57,11 +57,10 @@
 
 	위 코드에서  `todolistContext`를 데이터 모델의 DbContext 이름으로 바꿉니다. 그러면  `Context`와 함께 추가된 모바일 서비스 이름이 됩니다. 또한 UPDATE 문의 스키마 이름을 모바일 서비스 이름으로 바꿉니다. 
 
-	이 코드에서는 **TodoItems** 테이블에 직접 액세스하여 모든 항목에 완료 플래그를 설정하는 데 [Database 클래스](http://msdn.microsoft.com/ko-kr/library/system.data.entity.database.aspx)를 사용합니다. 이 메서드는 POST 요청을 지원하며, 변경된 행의 수가 정수 값으로 클라이언트에 반환됩니다.
+	이 코드에서는 **TodoItems** 테이블에 직접 액세스하여 모든 항목에 완료 플래그를 설정하는 데 [Database 클래스](http://msdn.microsoft.com/library/system.data.entity.database.aspx)를 사용합니다. 이 메서드는 POST 요청을 지원하며, 변경된 행의 수가 정수 값으로 클라이언트에 반환됩니다.
 
 	> [AZURE.NOTE] 기본 권한이 설정되어 앱의 모든 사용자가 사용자 지정 API를 호출할 수 있습니다. 하지만 응용 프로그램 키가 안전하게 분산되거나 저장되지 않으므로 보안 인증으로 생각하면 안 됩니다. 이 때문에 데이터를 수정하거나 모바일 서비스에 영향을 미치는 작업은 인증된 사용자만 액세스하도록 제한하는 것을 고려해야 합니다. 
 
 다음 과정에서는 새 단추와 새 사용자 지정 API를 비동기적으로 호출하는 코드를 추가하는 빠른 시작 앱을 수정합니다.
-
 
 <!--HONumber=42-->

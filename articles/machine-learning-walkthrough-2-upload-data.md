@@ -1,6 +1,20 @@
-<properties title="Step 2: Upload existing data into an Azure Machine Learning experiment" pageTitle="2단계: 기계 학습 실험에 데이터 업로드 | Azure" description="2단계: Azure 기계 학습 실험 스튜디오에 기존 공용 데이터 업로드" metaKeywords="" services="machine-learning" solutions="big-data" documentationCenter="" authors="garye" videoId="" scriptId="" manager="paulettm" editor="cgronlun" />
+﻿<properties 
+	pageTitle="2단계: 기계 학습 실험에 데이터 업로드 | Azure" 
+	description="솔루션 연습 2단계: Azure 기계 학습 실험 스튜디오에 기존 공용 데이터 업로드" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="garyericson" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/02/2014" ms.author="garye" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/06/2015" 
+	ms.author="garye"/>
 
 [Azure 기계 학습을 사용한 예측 솔루션 개발][develop] 자습서의 두 번째 단계입니다.
 
@@ -70,3 +84,5 @@ UCI 웹 사이트는 금융 정보, 신용 기록, 취업 상태, 개인 정보�
 **다음: [새로운 실험 만들기][create-new]**
 
 [1]: ./media/machine-learning-walkthrough-2-upload-data/upload1.png
+
+<!--HONumber=46--> 

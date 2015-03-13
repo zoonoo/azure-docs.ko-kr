@@ -1,6 +1,20 @@
-<properties pageTitle="How to create APIs in Azure API Management" metaKeywords="" description="Learn how to create and configure APIs in Azure API Management." metaCanonical="" services="" documentationCenter="API Management" title="How to create APIs in Azure API Management" authors="sdanie" solutions="" manager="" editor="" />
+﻿<properties 
+	pageTitle="Azure API 관리에서 API를 만드는 방법" 
+	description="Azure API 관리에서 API를 만들고 구성하는 방법에 대해 알아봅니다." 
+	services="api-management" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
+<tags 
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/18/2014" 
+	ms.author="sdanie"/>
 
 # Azure API 관리에서 API를 만드는 방법
 
@@ -76,3 +90,5 @@ API를 만들고 설정을 구성한 후 다음 단계는 API에 작업을 추�
 [API 요약]: ./media/api-management-howto-create-apis/api-management-api-summary.png
 [API 설정]: ./media/api-management-howto-create-apis/api-management-api-settings.png
 [기본 인증 설정]: ./media/api-management-howto-create-apis/api-management-api-settings-credentials.png
+
+<!--HONumber=46--> 

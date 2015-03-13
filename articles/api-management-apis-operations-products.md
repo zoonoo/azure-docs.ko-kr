@@ -1,6 +1,20 @@
-<properties pageTitle="How to create APIs, operations, and products in Azure API Management" metaKeywords="" description="Learn how to create APIs, operations, and products in API Management." metaCanonical="" services="" documentationCenter="API Management" title="How to create APIs, operations, and products in Azure API Management" authors="sdanie" solutions="" manager="" editor="" />
+﻿<properties 
+	pageTitle="Azure API 관리에서 API, 작업 및 제품을 만드는 방법" 
+	description="API 관리에서 API, 작업 및 제품을 만드는 방법에 대해 알아봅니다.." 
+	services="api-management" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
+<tags 
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/18/2014" 
+	ms.author="sdanie"/>
 
 # Azure API 관리에서 API, 작업 및 제품을 만드는 방법
 
@@ -36,3 +50,5 @@ API 관리에서 제품은 하나 이상의 API뿐만 아니라 사용 할당량
   [작업과 함께 API의 정의를 가져오는 방법]: ../api-management-howto-import-api
   [제품을 추가하고 게시하는 방법]: ../api-management-howto-add-products
   [고급 제품 설정을 만들고 구성하는 방법]: ../api-management-howto-product-with-rules
+
+<!--HONumber=46--> 

@@ -1,6 +1,6 @@
 ﻿<properties 
-	pageTitle="미디어 서비스 계정에서 원본을 관리하는 방법" 
-	description="" 
+	pageTitle="미디어 서비스 계정에서 스트리밍 끝점을 관리하는 방법" 
+	description="이 항목에서는 Azure 관리 포털을 사용하여 스트리밍 끝점을 관리하는 방법을 보여줍니다." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako" 
@@ -14,30 +14,35 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/29/2015" 
+	ms.date="02/15/2015" 
 	ms.author="juliako"/>
 
 
-# <a id="managemediaservicesorigins"></a>미디어 서비스 계정에서 스트리밍 끝점을 관리하는 방법
+#<a id="managemediaservicesorigins"></a>미디어 서비스 계정에서 스트리밍 끝점을 관리하는 방법
 
-미디어 서비스를 사용하여 계정에 여러 스트리밍 끝점을 추가하고 스트리밍 끝점을 구성할 수 있습니다. 각 미디어 서비스 계정은 **기본**이라는 하나 이상의 스트리밍 끝점이 연결되어 있습니다.
-
->[AZURE.NOTE] 이전에는 스트리밍 끝점의 명칭이 원본이었습니다. 
+일부 기사는 [워크플로 주문형 미디어 서비스 비디오](../media-services-video-on-demand-workflow) 및 [미디어 서비스 라이브 스트리밍 워크플로](../media-services-live-streaming-workflow) 시리즈입니다.  
 
 
-## 스트리밍 끝점 추가 및 삭제 
+미디어 서비스 스트리밍 끝점에는 네트워크 CDN (콘텐츠 배달) 추가 배포를 위해 클라이언트 플레이어 응용 프로그램에 직접 또는 콘텐츠를 배달할 수 있는 스트리밍 서비스를 나타냅니다. 현재 Microsoft Azure 미디어 서비스에 원활한 CDN 통합을 제공 하지 않습니다 하지만 (Azure CDN 또는 Akamai) 시장에서 CDN 공급자 중 하나를 사용할 수 있습니다. 라이브 스트림을 또는 미디어 서비스 계정에 자산 주문형 비디오 스트리밍 끝점 서비스의 아웃 바운드 스트림은 될 수 있습니다. 
+
+또한 확장 단위 (스트리밍 단위)를 조정하여 증가 하는 대역폭 수요를 처리하는 스트리밍 끝점 서비스의 용량을 제어할 수 있습니다. 프로덕션 환경에서 응용 프로그램에 대한 하나 이상의 확장 단위를 할당하는 것이 좋습니다. 확장 단위는 200mbps 단위로 구입할 수 있는 전용된 송신 용량 및 동적 패키징을 사용하여 현재 포함된 추가 기능을 모두 사용하여 제공 합니다. 
+
+이 항목에서는 Azure 관리 포털을 사용하여 스트리밍 끝점을 관리하는 방법을 보여줍니다.
+
+
+##스트리밍 끝점 추가 및 삭제 
 
 1. [관리 포털](https://manage.windowsazure.com/)에서 **미디어 서비스**를 클릭합니다. 그런 다음 미디어 서비스의 이름을 클릭합니다.
-2. 스트리밍 끝점 페이지를 선택합니다. 
+2. 선택 된 **스트리밍 끝점** 페이지입니다. 
 3. 페이지 아래쪽에 있는 추가 또는 삭제 단추를 클릭합니다. 기본 스트리밍 끝점은 삭제할 수 없습니다. 
 4. 시작 단추를 클릭하여 스트리밍 끝점을 시작합니다. 
 5. 스트리밍 끝점의 이름을 클릭하여 해당 끝점을 구성합니다.   
 
 	![Origin page][origin-page]
 
-## 스트리밍 끝점 조정
+##<a id="scale_streaming_endpoints"></a>스트리밍 끝점 조정
 
-스트리밍 단위는 200Mbps 단위로 구입할 수 있는 전용 송신 용량 및 동적 패키징 기능  및 [동적 패키징 기능](http://go.microsoft.com/fwlink/?LinkId=276874)이 현재 포함된 추가 기능을 제공합니다. 기본적으로 주문형 스트리밍은 다른 모든 사용자와 서버 리소스(예: 계산, 송신 기능 등)가 공유되는 공유 인스턴스 모델로 구성되어 있습니다. 주문형 스트리밍 처리량을 개선하려면 스트리밍 단위를 구입하는 것이 좋습니다. 
+스트리밍 단위 모두 200mbps 단위로 구입할 수 있는 전용 송신 용량 및 현재 [동적 패키징 능력](http://go.microsoft.com/fwlink/?LinkId=276874)을 포함한 추가 기능을 제공합니다. 기본적으로 스트리밍 서버에 대한 리소스(예: 계산, 송신 용량 등)는 다른 모든 사용자와 공유되는 공유 인스턴스 모델에서 구성 됩니다. 스트리밍 처리량을 개선하려면 스트리밍 단위를 구입하는 것이 좋습니다. 
 
 스트리밍 단위의 수를 변경하려면 다음을 수행합니다.
 
@@ -54,7 +59,7 @@
 
 	>[AZURE.NOTE] 24시간 동안 가장 많은 단위 수가 비용 계산에 사용됩니다. 가격 정보에 대한 자세한 내용은 [미디어 서비스 가격 정보](http://go.microsoft.com/fwlink/?LinkId=275107)를 참조하세요.
 	
-## 스트리밍 끝점 구성
+##스트리밍 끝점 구성
 
 이 이미지에 나온 대로 구성 탭을 사용하여 구성을 수행할 수 있습니다. 필드에 대한 설명은 다음과 같습니다.
 
@@ -75,9 +80,8 @@
 
 
 
-
 [origin-page]: ./media/media-services-manage-origins/media-services-origins-page.png
 [configure-origin]: ./media/media-services-manage-origins/media-services-origins-configure.png
 [configure-origin-configure-custom-host-names]: ./media/media-services-manage-origins/media-services-configure-custom-host-names.png
 
-<!--HONumber=42-->
+<!--HONumber=45--> 

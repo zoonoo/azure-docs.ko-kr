@@ -48,7 +48,7 @@ Apache Storm은 Hadoop 클러스터에서 실행되는 분산 계산 시스템�
 
 SCP에서는 .NET을 사용하여 Storm 솔루션을 쉽게 만들 수 있는 라이브러리를 제공합니다. HDInsight의 Storm 클러스터에는 만들려는 SCP 솔루션을 실행하는 데 필요한 서버 쪽 솔루션이 포함됩니다.
 
-HDInsight의 Storm에 대한 자세한 내용은 [HDInsight Storm 개요](http://azure.microsoft.com/ko-kr/documentation/articles/hdinsight-storm-overview/)를 참조하세요.
+HDInsight의 Storm에 대한 자세한 내용은 [HDInsight Storm 개요](http://azure.microsoft.com/documentation/articles/hdinsight-storm-overview/)를 참조하세요.
 
 ###SCP 솔루션 디자인
 
@@ -69,7 +69,7 @@ SCP에서는 다음 Storm 구성 요소를 만드는 데 사용되는 인터페�
 
 ##SCP SDK 설치
 
-SCP SDK는 HDInsight의 Storm 클러스터에서 제공됩니다. [HDInsight에서 Storm 클러스터를 만들었으면](http://azure.microsoft.com/ko-kr/documentation/articles/hdinsight-storm-getting-started/), 다음 단계에 따라 SDK를 로컬 개발 환경에 다운로드하세요.
+SCP SDK는 HDInsight의 Storm 클러스터에서 제공됩니다. [HDInsight에서 Storm 클러스터를 만들었으면](http://azure.microsoft.com/documentation/articles/hdinsight-storm-getting-started/), 다음 단계에 따라 SDK를 로컬 개발 환경에 다운로드하세요.
 
 1. [Azure 관리 포털](https://manage.windowsazure.com)에 로그인합니다.
 
@@ -1003,5 +1003,4 @@ SCP에서 작성된 다음 예제 응용 프로그램은 **%storm_home%\examples
 
 
 [1]: ./media/hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application/hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application-01.png
-
 <!--HONumber=42-->

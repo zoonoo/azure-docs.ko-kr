@@ -68,5 +68,4 @@
 [모바일 서비스 시작]: /ko-kr/develop/mobile/tutorials/get-started/#create-new-service
 [앱 제출 페이지]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Azure 관리 포털]: https://manage.windowsazure.com/
-
 <!--HONumber=42-->

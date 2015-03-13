@@ -1,6 +1,18 @@
-﻿<properties title="How to use end user analytics in Azure" pageTitle="최종 사용자 분석을 사용하는 방법" description="Microsoft Azure 웹 사이트에 대한 최종 사용자 분석입니다." authors="awills" manager="kamrani" />
+﻿<properties 
+	pageTitle="최종 사용자 분석을 사용하는 방법" 
+	description="Microsoft Azure 웹 사이트에 대한 최종 사용자 분석입니다." 
+	services="application-insights" 
+	authors="alancameronwills" 
+	manager="kamrani"/>
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-10-02" ms.author="awills" />
+<tags 
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2015-01-09" 
+	ms.author="awills"/>
 
 # Microsoft Azure 웹 사이트에 대한 분석
 
@@ -31,3 +43,5 @@
     ![Top Pages](./media/insights-usage-analytics/Insights_TopPages.png)
 - 지난주 동안의 가장 느린 페이지(비즈니스 목표 및 목적을 충족하도록 개성하기 위해)
 
+
+<!--HONumber=46--> 

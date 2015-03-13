@@ -1,6 +1,20 @@
-<properties linkid="Install-Config-Windows-Azure-PowerShell" urlDisplayName="Azure PowerShell" pageTitle="How to install and configure Azure PowerShell" description="Learn how to install and configure Azure PowerShell." umbracoNaviHide="0" disqusComments="1" editor="tysonn" manager="stevenka" documentationCenter="" services="" solutions="" authors="stevenka" title="How to install and configure Azure PowerShell" />
+﻿<properties 
+	pageTitle="Azure PowerShell을 설치 및 구성하는 방법" 
+	description="Azure PowerShell을 설치 및 구성하는 방법에 대해 알아봅니다." 
+	editor="tysonn" 
+	manager="stevenka" 
+	documentationCenter="" 
+	services="" 
+	authors="coreyp69"/>
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="powershell" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="stevenka;juneb" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="powershell" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/26/2014" 
+	ms.author="coreyp"/>
 
 # Azure PowerShell을 설치 및 구성하는 방법(영문)
 
@@ -277,13 +291,15 @@ Azure 및 Windows PowerShell을 사용하는 방법을 알아볼 수 있는 몇 
   [Azure 시작]: http://go.microsoft.com/fwlink/p/?LinkId=320795
   [계정, 구독 및 관리 역할 관리]: http://go.microsoft.com/fwlink/?LinkId=324796
   [Azure 관리 포털]: https://manage.windowsazure.com
-  [조직으로 Microsoft Azure에 등록]: http://azure.microsoft.com/ko-kr/documentation/articles/sign-up-organization/
+  [조직으로 Microsoft Azure에 등록]: http://azure.microsoft.com/documentation/articles/sign-up-organization/
   [2]: http://manage.windowsazure.com
-  [Azure 구독에 대한 공동 관리자 추가 및 제거]: http://msdn.microsoft.com/ko-kr/library/windowsazure/gg456328.aspx
-  [Azure Cmdlet 참조]: http://msdn.microsoft.com/ko-kr/library/windowsazure/jj554330.aspx
+  [Azure 구독에 대한 공동 관리자 추가 및 제거]: http://msdn.microsoft.com/library/windowsazure/gg456328.aspx
+  [Azure Cmdlet 참조]: http://msdn.microsoft.com/library/windowsazure/jj554330.aspx
   [MSDN의 Azure 포럼]: http://go.microsoft.com/fwlink/p/?LinkId=320212
   [Stackoverflow]: http://go.microsoft.com/fwlink/?LinkId=320213
   [TechNet 스크립트 센터]: http://go.microsoft.com/fwlink/p/?LinkId=320211
   [Windows PowerShell을 사용한 스크립팅]: http://go.microsoft.com/fwlink/p/?LinkId=320210
   [스크립트 실행]: http://go.microsoft.com/fwlink/p/?LinkId=320627
   [Windows PowerShell을 사용하여 Azure AD 관리]: http://go.microsoft.com/fwlink/p/?LinkId=320628
+
+<!--HONumber=46--> 

@@ -1,8 +1,20 @@
-<properties pageTitle="알림 허브를 사용하여 속보 보내기(Windows Universal)" metaKeywords="" description="등록된 태그와 함께 Azure 알림 허브를 사용하여 범용 Windows 앱에 최신 뉴스를 보낼 수 있습니다." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="" title="Use Notification Hubs to send breaking news" authors="ricksal" solutions="" manager="dwrede" editor="" />
+<properties 
+	pageTitle="알림 허브를 사용하여 속보 보내기(Windows Universal) 
+	description="등록된 태그와 함께 Azure 알림 허브를 사용하여 범용 Windows 앱에 최신 뉴스를 보낼 수 있습니다." 
+	services="notification-hubs" 
+	documentationCenter="windows" 
+	authors="RickSaling" 
+	manager="dwrede" 
+	editor=""/>
 
-<properties pageTitle="알림 허브를 사용하여 속보 보내기(Windows Phone)" metaKeywords="" description="등록된 태그와 함께 Azure 알림 허브를 사용하여 Windows Phone 앱에 최신 뉴스를 보낼 수 있습니다." metaCanonical="" services="notification-hubs" documentationCenter="Mobile" title="Use Notification Hubs to send breaking news" authors="glenga" solutions="" manager="dwrede" editor="" />
-
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="11/21/2014" ms.author="ricksal" />
+<tags 
+	ms.service="notification-hubs" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="ricksal"/>
 
 # 알림 허브를 사용하여 속보 보내기
 <div class="dev-center-tutorial-selector sublanding"> 
@@ -10,7 +22,7 @@
 		<a href="/ko-kr/documentation/articles/notification-hubs-aspnet-backend-android-breaking-news/" title="Android">Android</a>
 </div>
 
-이 항목에서는 Azure 알림 허브를 사용하여 Windows 스토어 또는 Windows Phone 8.1(비 Silverlight) 앱에 속보 알림을 브로드캐스트하는 방법을 보여 줍니다. Windows Phone 8.1 Silverlight를 대상으로 하는 경우  [Windows Phone](/ko-kr/documentation/articles/notification-hubs-ios-send-breaking-news) 버전을 참조하세요. 완료하면, 관심이 있는 속보 범주를 등록하고 해당 범주의 푸시 알림만 받을 수 있습니다. 이 시나리오는 RSS 수집기, 음악 애호가를 위한 앱 등 이전에 관심을 보인 사용자 그룹에 알림을 보내야 하는 많은 앱에 공통된 패턴입니다. 
+이 항목에서는 Azure 알림 허브를 사용하여 Windows 스토어 또는 Windows Phone 8.1(비 Silverlight) 앱에 속보 알림을 브로드캐스트하는 방법을 보여 줍니다. Windows Phone 8.1 Silverlight를 대상으로 하는 경우 [Windows Phone](/ko-kr/documentation/articles/notification-hubs-ios-send-breaking-news) 버전을 참조하세요. 완료하면, 관심이 있는 속보 범주를 등록하고 해당 범주의 푸시 알림만 받을 수 있습니다. 이 시나리오는 RSS 수집기, 음악 애호가를 위한 앱 등 이전에 관심을 보인 사용자 그룹에 알림을 보내야 하는 많은 앱에 공통된 패턴입니다. 
 
 브로드캐스트 시나리오를 사용하려면 알림 허브에서 등록을 만들 때 하나 이상의 _태그_를 포함하면 됩니다. 태그에 알림이 전송되면 태그에 대해 등록된 모든 장치에서 알림을 받게 됩니다. 태그는 단순히 문자열이므로 사전에 프로비전해야 할 필요가 없습니다. 태그에 대한 자세한 내용은 [알림 허브 지침]을 참조하세요. 
 
@@ -21,7 +33,7 @@
 3. [백 엔드에서 알림 보내기]
 4. [앱 실행 및 알림 생성]
 
-이 항목은  [알림 허브 시작][get-started]에서 만든 앱을 기반으로 합니다. 이 자습서를 시작하기 전에 먼저 [알림 허브 시작][get-started]을 완료해야 합니다.
+이 항목은 [알림 허브 시작][시작]에서 만든 앱을 기반으로 작성되었습니다. 이 자습서를 시작하기 전에 먼저 [알림 허브 시작][시작]을 완료해야 합니다.
 
 ## <a name="adding-categories"></a>앱에 범주 선택 추가
 
@@ -51,7 +63,7 @@
             <Button Name="SubscribeButton" Content="Subscribe" HorizontalAlignment="Center" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Click="SubscribeButton_Click" />
         </Grid>
 
-2. 프로젝트에서 **Notifications**라는 이름의 새 클래스를 만들고, 클래스 정의에 **public** 한정자를 추가하고, 다음 **using** 문을 새 코드 파일에 추가합니다.
+2. 프로젝트에서 **Notifications**라는 이름의 새 클래스를 만들고, 클래스 정의에 **public** 한정자를 추가한 후 다음 **using** 문을 새 코드 파일에 추가합니다.
 
 		using Windows.Networking.PushNotifications;
 		using Microsoft.WindowsAzure.Messaging;
@@ -82,9 +94,7 @@
 
 4. 위 코드에서 `<hub name>`과 `<connection string with listen access>` 자리 표시자를 알림 허브 이름과 앞서 얻었던 *DefaultListenSharedAccessSignature*의 연결 문자열로 바꿉니다.
 
-	<div class="dev-callout"><strong>참고</strong> 
-		<p>클라이언트 앱과 함께 배포되는 자격 증명은 일반적으로 안전하지 않기 때문에 클라이언트 앱과 함께 listen access용 키만 배포해야 합니다. Listen access를 통해 앱에서 알림을 등록할 수 있지만, 기존 등록을 수정할 수 없으며 알림을 전송할 수도 없습니다. 안전한 백 엔드 서비스에서 알림을 보내고 기존 등록을 변경하는 데에는 모든 액세스 키가 사용됩니다.</p>
-	</div> 
+	> [AZURE.NOTE] 클라이언트 앱과 함께 배포되는 자격 증명은 일반적으로 안전하지 않기 때문에 클라이언트 앱과 함께 listen access용 키만 배포해야 합니다. Listen access를 통해 앱에서 알림을 등록할 수 있지만, 기존 등록을 수정할 수 없으며 알림을 전송할 수도 없습니다. 안전한 백 엔드 서비스에서 알림을 보내고 기존 등록을 변경하는 데에는 모든 액세스 키가 사용됩니다.
 
 4. App.xaml.cs 프로젝트 파일에서 **App** 클래스에 다음 속성을 추가합니다.
 
@@ -123,9 +133,7 @@
 
 다음 단계에서는 로컬 저장소에 저장된 범주를 사용하여 시작 시 알림 허브에 등록합니다. 
 
-<div class="dev-callout"><strong>참고</strong> 
-	<p>WNS(Windows 알림 서비스)에서 할당하는 채널 URI는 언제든지 변경될 수 있으므로 알림 실패를 피하려면 알림을 자주 등록해야 합니다. 이 예제에서는 앱이 시작될 때마다 알림을 등록합니다. 자주(하루 두 번 이상) 실행되는 앱에서는 이전 등록 이후 만 하루가 지나지 않은 경우 대역폭 유지를 위한 등록을 건너뛸 수 있습니다.</p>
-</div> 
+> [AZURE.NOTE] WNS(Windows 알림 서비스)에서 할당하는 채널 URI는 언제든지 변경될 수 있으므로 알림 실패를 피하려면 알림을 자주 등록해야 합니다. 이 예제에서는 앱이 시작될 때마다 알림을 등록합니다. 자주(하루 두 번 이상) 실행되는 앱에서는 이전 등록 이후 만 하루가 지나지 않은 경우 대역폭 유지를 위한 등록을 건너뛸 수 있습니다.
 
 1. **Notifications** 클래스에 다음 코드를 추가합니다.
 
@@ -139,7 +147,7 @@
 
 1. App.xaml.cs 파일을 열고 **async** 한정자를 **OnLaunched** 메서드에 추가합니다.
 
-2. **OnLaunched** 메서드에서 **InitNotificationsAsync** 메서드에 대한 기존 호출을 찾아 다음 코드 줄로 교체합니다.
+2. **OnLaunched** 메서드에서 **InitNotificationsAsync** 메서드에 대한 기존 호출을 찾아 다음 코드 줄로 바꿉니다.
 
 		await notifications.SubscribeToCategories(notifications.RetrieveCategories());
 
@@ -162,7 +170,7 @@
 
 <h2><a name="send"></a>백 엔드에서 알림 보내기</h2>
 
-[WACOM.INCLUDE [notification-hubs-back-end](../includes/notification-hubs-back-end.md)]
+[AZURE.INCLUDE [notification-hubs-back-end](../includes/notification-hubs-back-end.md)]
 
 ## <a name="test-app"></a>앱 실행 및 알림 생성
 
@@ -217,12 +225,12 @@
 [19]: ./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-windows-reg-2.png
 
 <!-- URLs.-->
-[get-started]: /ko-kr/manage/services/notification-hubs/getting-started-windows-dotnet/
+[시작]: /ko-kr/manage/services/notification-hubs/getting-started-windows-dotnet/
 [알림 허브를 사용하여 지역화된 속보 브로드캐스트]: /ko-kr/manage/services/notification-hubs/breaking-news-localized-dotnet/ 
 [알림 허브를 통해 사용자에게 알림]: /ko-kr/manage/services/notification-hubs/notify-users
-[모바일 서비스(영문)]: /ko-kr/develop/mobile/tutorials/get-started/
-[알림 허브 지침]: http://msdn.microsoft.com/ko-kr/library/jj927170.aspx
-[Windows 스토어에 대한 알림 허브 방법]: http://msdn.microsoft.com/ko-kr/library/jj927172.aspx
+[모바일 서비스]: /ko-kr/develop/mobile/tutorials/get-started/
+[알림 허브 지침]: http://msdn.microsoft.com/library/jj927170.aspx
+[Windows 스토어용 알림 허브 방법]: http://msdn.microsoft.com/library/jj927172.aspx
 [앱 제출 페이지]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [내 응용 프로그램]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Windows용 Live SDK]: http://go.microsoft.com/fwlink/p/?LinkId=262253
@@ -235,4 +243,4 @@
 
 
 
-<!--HONumber=35.1-->
+<!--HONumber=45--> 

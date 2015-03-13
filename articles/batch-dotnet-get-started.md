@@ -1,6 +1,20 @@
-﻿<properties title="Tutorial - Getting Started with the Azure Batch Library for .NET" pageTitle="자습서 - .NET용 Azure 배치 라이브러리 시작" description="필수" metaKeywords="" services="batch" solutions="" documentationCenter=".NET" authors="yidingz, karran.batta" videoId="" scriptId="" manager="timlt" />
+﻿<properties 
+	pageTitle="자습서 - .NET용 Azure 배치 라이브러리 시작" 
+	description="Azure 배치의 기본 개념과 간단한 시나리오를 통해 배치 서비스를 사용하는 방법에 대해 알아봅니다." 
+	services="batch" 
+	documentationCenter=".net" 
+	authors="yidingzhou" 
+	manager="timlt" 
+	editor=""/>
 
-<tags ms.service="batch" ms.devlang="dotnet" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="big-compute" ms.date="12/03/2014" ms.author="yidingz, karran.batta" />
+<tags 
+	ms.service="batch" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.workload="big-compute" 
+	ms.date="12/03/2014" 
+	ms.author="yidingz, kabatta"/>
 
 #.NET용 Azure 배치 라이브러리 시작  
 
@@ -10,14 +24,14 @@
 -	[자습서 2: .NET용 Azure 배치 앱 라이브러리](#tutorial2)  
 
 
-Azure 배치 관련 배경 정보 및 시나리오에 대해서는 [Azure 배치 기술 개요](http://azure.microsoft.com/ko-kr/documentation/articles/batch-technical-overview/)를 참조하세요.
+Azure 배치 관련 배경 정보 및 시나리오에 대해서는 [Azure 배치 기술 개요](http://azure.microsoft.com/documentation/articles/batch-technical-overview/)를 참조하세요.
 
 ##<a name="tutorial1"></a>자습서 1: .NET용 Azure 배치 라이브러리
   	
 이 자습서에서는 Azure 배치 서비스를 사용하여 가상 컴퓨터의 풀 내에서 분산 계산을 설정하는 콘솔 응용 프로그램을 만드는 방법을 보여 줍니다. 이 자습서에서 만들어진 태스크는 Azure 저장소의 파일 텍스트를 평가하고 가장 일반적으로 사용되는 단어를 반환합니다. 샘플은 C# 코드로 작성되었으며 .NET용 Azure 배치 라이브러리를 사용합니다.
 
 
->[WACOM.NOTE] 이 자습서를 완료하려면 Azure 계정이 필요합니다. 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](http://www.windowsazure.com/ko-kr/pricing/free-trial/)을 참조하세요. 
+>[WACOM.NOTE] 이 자습서를 완료하려면 Azure 계정이 필요합니다. 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](http://azure.microsoft.com/pricing/free-trial/)을 참조하세요. 
 >
 >NuGet을 사용하여 **Microsoft.Azure.Batch.dll** 어셈블리를 가져와야 합니다. Visual Studio에서 프로젝트를 만든 후에 **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 선택합니다. 온라인에서 **Azure.Batch**를 검색하고 설치를 클릭하여 Azure 배치 패키지와 종속성을 설치합니다.
 >
@@ -42,7 +56,7 @@ Azure 배치 관련 배경 정보 및 시나리오에 대해서는 [Azure 배치
 가장 기본적인 사용 방식부터 살펴보겠습니다.
 
 ###Azure 배치 계정 만들기
-관리 포털을 사용하여 배치 계정을 만들 수 있습니다. 키는 계정이 만들어진 후에 제공됩니다. 자세한 내용은 [Azure 배치 기술 개요](http://azure.microsoft.com/ko-kr/documentation/articles/batch-technical-overview/)를 참조하세요.  
+관리 포털을 사용하여 배치 계정을 만들 수 있습니다. 키는 계정이 만들어진 후에 제공됩니다. 자세한 내용은 [Azure 배치 기술 개요](http://azure.microsoft.com/documentation/articles/batch-technical-overview/)를 참조하세요.  
 
 ###방법: 계정에 풀 추가
 태스크용 가상 컴퓨터 풀은 태스크를 실행하려고 할 때 만들어야 하는 첫 번째 리소스 집합입니다.  
@@ -406,7 +420,7 @@ VM에서 Hello world를 실행할 수 있으므로 좀 더 실질적인 작업�
 6.	선택적으로, 지역에서 복제를 사용하도록 설정할 수 있습니다.
 7.	**저장소 계정 만들기**를 클릭합니다.  
 
-Azure 저장소에 대한 자세한 내용은 [.NET에서 Azure Blob 저장소 서비스를 사용하는 방법](http://www.windowsazure.com/ko-kr/develop/net/how-to-guides/blob-storage/)을 참조하세요.  
+Azure 저장소에 대한 자세한 내용은 [.NET에서 Azure Blob 저장소 서비스를 사용하는 방법](http://azure.microsoft.com/develop/net/how-to-guides/blob-storage/)을 참조하세요.  
 
 
 ##<a name="tutorial2"></a>자습서 2: .NET용 Azure 배치 앱 라이브러리
@@ -416,7 +430,7 @@ Azure 저장소에 대한 자세한 내용은 [.NET에서 Azure Blob 저장소 �
 
 배치 앱 시나리오에서는 배치 앱 클라우드 SDK를 사용하여 작업을 병렬 태스크로 분할하고, 이러한 태스크 간 종속성에 설명하고, 각 태스크 실행 방법을 지정하는 코드를 작성합니다.  이 코드는 배치 계정에 배포됩니다.  그러면 클라이언트는 REST API에 작업 종류 및 입력 파일을 지정하여 작업을 간단히 실행할 수 있습니다.
 
->[WACOM.NOTE] 이 자습서를 완료하려면 Azure 계정이 필요합니다. 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](http://www.windowsazure.com/ko-kr/pricing/free-trial/)을 참조하세요. NuGet을 사용하여 <a href="http://www.nuget.org/packages/Microsoft.Azure.Batch.Apps.Cloud/">배치 앱 클라우드</a> 어셈블리 및 <a href="http://www.nuget.org/packages/Microsoft.Azure.Batch.Apps/">배치 앱 클라이언트</a> 어셈블리를 둘 다 가져올 수 있습니다. Visual Studio에서 프로젝트를 만든 후에 **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 선택합니다. 또한 <a href="https://visualstudiogallery.msdn.microsoft.com/8b294850-a0a5-43b0-acde-57a07f17826a">여기</a> 에서나 Visual Studio에서 확장 및 업데이트 메뉴 항목을 통해 **배치 앱**을 검색하여, 프로젝트 템플릿이 포함된 배치 앱용 Visual Studio 확장을 다운로드하여 응용 프로그램과 응용 프로그램을 배포하는 기능을 클라우드에서 사용할 수 있도록 설정할 수 있습니다.  또한 <a href="https://go.microsoft.com/fwLink/?LinkID=512183&clcid=0x409">MSDN에서 종단 간 샘플을 찾을 수도 있습니다.</a>
+>[WACOM.NOTE] 이 자습서를 완료하려면 Azure 계정이 필요합니다. 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](http://azure.microsoft.com/pricing/free-trial/)을 참조하세요. NuGet을 사용하여 <a href="http://www.nuget.org/packages/Microsoft.Azure.Batch.Apps.Cloud/">배치 앱 클라우드</a> 어셈블리 및 <a href="http://www.nuget.org/packages/Microsoft.Azure.Batch.Apps/">배치 앱 클라이언트</a> 어셈블리를 둘 다 가져올 수 있습니다. Visual Studio에서 프로젝트를 만든 후에 **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 선택합니다. 또한 <a href="https://visualstudiogallery.msdn.microsoft.com/8b294850-a0a5-43b0-acde-57a07f17826a">여기</a> 에서나 Visual Studio에서 확장 및 업데이트 메뉴 항목을 통해 **배치 앱**을 검색하여, 프로젝트 템플릿이 포함된 배치 앱용 Visual Studio 확장을 다운로드하여 응용 프로그램과 응용 프로그램을 배포하는 기능을 클라우드에서 사용할 수 있도록 설정할 수 있습니다.  또한 <a href="https://go.microsoft.com/fwLink/?LinkID=512183&clcid=0x409">MSDN에서 종단 간 샘플을 찾을 수도 있습니다.</a>
 >
 
 ###Azure 배치 앱의 기본 사항 
@@ -597,3 +611,5 @@ RunExternalMergeProcess의 구현은 다음을 제외하고 RunExternalTaskProce
 
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

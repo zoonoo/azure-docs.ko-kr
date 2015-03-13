@@ -102,7 +102,7 @@ Drupal을 Azure 웹 사이트에 배포한 후에는 Git 또는 FTP를 통해 �
   [Settings.php 수정]: #modify-settingsphp
   [Drupal 코드 배포]: #deploy-drupalcode
   [관련 정보]: #related-information
-  [PHP-MySQL Azure 웹 사이트 만들기 및 Git를 사용하여 배포]: http://www.windowsazure.com/ko-kr/develop/php/tutorials/website-w-mysql-and-git/
+  [PHP-MySQL Azure 웹 사이트 만들기 및 Git를 사용하여 배포]: http://azure.microsoft.com/develop/php/tutorials/website-w-mysql-and-git/
   
   [Azure 웹 사이트, PHP Perspective]: http://blogs.msdn.com/b/silverlining/archive/2012/06/12/windows-azure-websites-a-php-perspective.aspx
   [Azure 웹 사이트, 클라우드 서비스 및 VM: 각 항목을 사용해야 하는 경우]: http://go.microsoft.com/fwlink/?LinkId=310123

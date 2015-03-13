@@ -1,19 +1,30 @@
-﻿<properties urlDisplayName="Publishing with Visual Studio Online" pageTitle="Azure에서 Visual Studio Online을 사용한 지속적 전송" metaKeywords="" description="자동으로 빌드되어 Azure 웹 사이트 또는 클라우드 서비스에 배포되도록 Visual Studio Online 팀 프로젝트를 구성하는 방법에 대해 알아봅니다." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Continuous delivery to Azure using Visual Studio Online" authors="ghogen" solutions="" manager="douge" editor="" />
+﻿<properties 
+	pageTitle="Azure에서 Visual Studio Online을 사용한 지속적 전송" 
+	description="자동으로 빌드되어 Azure 웹 사이트 또는 클라우드 서비스에 배포되도록 Visual Studio Online 팀 프로젝트를 구성하는 방법에 대해 알아봅니다." 
+	services="web-sites" 
+	documentationCenter=".net" 
+	authors="kempb" 
+	manager="douge" 
+	editor="tglee"/>
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="ghogen" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="02/17/2015" 
+	ms.author="kempb"/>
 
 
 # Visual Studio Online을 사용하여 Azure에 지속적으로 전송
 
-  Azure 웹 사이트 또는 클라우드 서비스에 자동으로 빌드 및 배포하도록 Visual Studio Online 팀 프로젝트를 구성할 수 있습니다.  온-프레미스 Team Foundation Server를 사용하여 연속 빌드 및 배포 시스템을 설정하는 방법에 대한 자세한 내용은 [Azure 클라우드 서비스의 지속적인 전송](영문)을(../cloud-services-dotnet-continuous-delivery)참조하세요.
+  Azure 웹 사이트 또는 클라우드 서비스에 자동으로 빌드 및 배포하도록 Visual Studio Online 팀 프로젝트를 구성할 수 있습니다.  *on-premises* Team Foundation Server를 사용하여 연속 빌드 및 배포 시스템을 설정하는 방법에 대한 자세한 내용은 [Azure 클라우드 서비스의 지속적인 전송](../cloud-services-dotnet-continuous-delivery)(영문)을 참조하세요.
 
-이 자습서에서는 Visual Studio 2013 및 Azure SDK가 설치되어 있다고 가정합니다. Visual Studio 2013을 아직 설치하지 않은 경우 [www.visualstudio.com]에서 **무료로 시작하기**(http://www.visualstudio.com) 링크를 선택하여 다운로드하세요. Azure SDK의 경우 [여기](http://go.microsoft.com/fwlink/?LinkId=239540)에서 설치할 수 있습니다.
+이 자습서에서는 Visual Studio 2013 및 Azure SDK가 설치되어 있다고 가정합니다. Visual Studio 2013을 아직 설치하지 않은 경우 [www.visualstudio.com](http://www.visualstudio.com)에서 **무료로 시작하기** 링크를 선택하여 다운로드하세요. Azure SDK의 경우 [여기](http://go.microsoft.com/fwlink/?LinkId=239540)에서 설치할 수 있습니다.
 
-<div class="wa-note">
-  <span class="wa-icon-bulb"></span>
-  <h5><a name="note"></a>이 자습서를 완료하려면 Visual Studio Online 계정이 있어야 합니다.</h5>
-<p> <a href="http://go.microsoft.com/fwlink/p/?LinkId=512979">Visual Studio Online 계정은 무료로 개설할 수 있습니다.</a></p>
-</div>
+> [AZURE.NOTE] 이 자습서를 완료하려면 Visual Studio Online 계정이 있어야 합니다.
+> [Visual Studio Online 계정은 무료](http://go.microsoft.com/fwlink/p/?LinkId=512979)로 개설할 수 있습니다.
 
 Visual Studio Online을 사용하여 Azure에 자동으로 빌드 및 배포하도록 클라우드 서비스를 설정하려면 다음 단계를 따르세요.
 
@@ -33,7 +44,7 @@ Visual Studio Online을 사용하여 Azure에 자동으로 빌드 및 배포하�
 
 <h2> <a name="step1"></a>1단계: 팀 프로젝트 만들기</h2>
 
-[여기]에 나와 있는 지침에 따라(http://go.microsoft.com/fwlink/?LinkId=512980) 팀 프로젝트를 만들고 Visual Studio에 연결합니다. 이 연습에서는 TFVC(Team Foundation 버전 제어)를 소스 제어 솔루션으로 사용하고 있는 것으로 가정합니다. 버전 제어를 위해 Git를 사용하려는 경우 [이 연습의 Git 버전](http://go.microsoft.com/fwlink/p/?LinkId=397358)을 참조하세요.
+[여기](http://go.microsoft.com/fwlink/?LinkId=512980)에 나와 있는 지침에 따라 팀 프로젝트를 만들고 Visual Studio에 연결합니다. 이 연습에서는 TFVC(Team Foundation 버전 제어)를 소스 제어 솔루션으로 사용하고 있는 것으로 가정합니다. 버전 제어를 위해 Git를 사용하려는 경우 [이 연습의 Git 버전](http://go.microsoft.com/fwlink/p/?LinkId=397358)을 참조하세요.
 
 <h2><a name="step2"> </a>2단계: 소스 제어에 프로젝트 체크 인</h2>
 
@@ -41,7 +52,7 @@ Visual Studio Online을 사용하여 Azure에 자동으로 빌드 및 배포하�
 이 연습의 단계에 따라 웹 사이트 또는 클라우드 서비스(Azure 응용 프로그램)를 배포할 수 있습니다.
 새 솔루션을 만들려는 경우 새 Azure 클라우드 서비스 프로젝트
 또는 새 ASP.NET MVC 프로젝트를 만듭니다. 프로젝트의 대상을 .NET Framework 4 또는 4.5로 지정했는지 확인하고, 클라우드 서비스 프로젝트를 만드는 경우 ASP.NET MVC 웹 역할 및 작업자 역할을 추가하고 웹 역할을 위한 인터넷 응용 프로그램을 선택합니다. 메시지가 표시되면 **인터넷 응용 프로그램**을 선택합니다.
-웹 사이트를 만들려는 경우 ASP.NET 웹 응용 프로그램 프로젝트 템플릿을 선택한 후 MVC를 선택합니다. 자세한 내용은 [Azure 및 ASP.NET 시작]을 참조하세요.(http://www.windowsazure.com/ko-kr/documentation/articles/web-sites-dotnet-get-started/)
+웹 사이트를 만들려는 경우 ASP.NET 웹 응용 프로그램 프로젝트 템플릿을 선택한 후 MVC를 선택합니다. 자세한 내용은 [Azure 및 ASP.NET 시작](http://azure.microsoft.com/documentation/articles/web-sites-dotnet-get-started/)을 참조하세요.
 
 2. 솔루션의 상황에 맞는 메뉴를 열고 **소스 제어에 솔루션 추가**를 선택합니다.<br/>
 ![][5]
@@ -61,7 +72,7 @@ Visual Studio Online을 사용하여 Azure에 자동으로 빌드 및 배포하�
 
 <h2> <a name="step3"> </a>3단계: Azure에 프로젝트 연결</h2>
 
-1. 일부 소스 코드를 포함한 VSO 팀 프로젝트가 있으므로 Azure에 팀 프로젝트를 연결할 준비가 되었습니다.  [Azure 포털](http://manage.windowsazure.com)에서 **클라우드 서비스** 또는 **웹 사이트**를 선택하거나, 왼쪽 아래에 있는 + 아이콘을 선택하고 클라우드 서비스 또는 웹 사이트를 선택한 후 **빠른 생성**을 선택하여 새로 만듭니다. **Visual Studio Online으로 게시 설정** 링크를 선택합니다.<br/>
+1. 일부 소스 코드를 포함한 VSO 팀 프로젝트가 있으므로 Azure에 팀 프로젝트를 연결할 준비가 되었습니다.  [Azure 포털](http://manage.windowsazure.com)에서 클라우드 서비스 또는 웹 사이트를 선택하거나, 왼쪽 아래에 있는 + 아이콘을 선택하고 **클라우드 서비스** 또는 **웹 사이트**를 선택한 후 **빠른 생성**을 선택하여 새로 만듭니다. **Visual Studio Online으로 게시 설정** 링크를 선택합니다.<br/>
 ![][10]
 
 2. 마법사의 텍스트 상자에 Visual Studio Online 계정의 이름을 입력하고 **지금 권한 부여** 링크를 클릭합니다. 로그인하라는 메시지가 표시될 수 있습니다.<br/>
@@ -131,7 +142,7 @@ Visual Studio Online을 사용하여 Azure에 자동으로 빌드 및 배포하�
 <br/>
 
 여러 서비스 구성(.cscfg 파일)을 사용하는 경우 **빌드, 고급, MSBuild 인수** 설정에서 원하는 서비스 구성을 지정할 수 있습니다. 예를 들어 ServiceConfiguration.Test.cscfg를 사용하려면 MSBuild 인수 줄 옵션인 /p:TargetProfile=Test를 설정합니다.<br/>
-![][37]
+![][38]
 
 11. 이제 빌드가 완료됩니다.<br/>
 ![][28]
@@ -163,7 +174,7 @@ Visual Studio Online을 사용하여 Azure에 자동으로 빌드 및 배포하�
 
 <h2> <a name="step7"> </a>7단계: 단위 테스트 실행</h2>
 
-라이브 또는 스테이징 배포에 대한 품질 관문을 배치하기 위해 단위 테스트를 실행하고 실패할 경우 배포를 중지할 수 있습니다.
+이 단계는 웹사이트, 클라우드 서비스에만 적용됩니다. 배포에 대한 품질 관문을 배치하기 위해 단위 테스트를 실행하고 실패할 경우 배포를 중지할 수 있습니다.
 
 1.  Visual Studio에서 단위 테스트 프로젝트를 추가합니다.<br/>
 ![][39]
@@ -211,13 +222,13 @@ Visual Studio Online을 사용하여 Azure에 자동으로 빌드 및 배포하�
 <br/>
 ![][47]
 
-8.  실패로 끝나는 테스트를 만들어 봅니다. 첫 번째 테스트를 복사하고 이름을 바꾼 후 NotImplementedException이 발생하는 주석으로 처리하여 새 테스트를 추가합니다. 
+8.  실패로 끝나는 테스트를 만들어 봅니다. 첫 번째 테스트를 복사하고 이름을 바꾼 후 NotImplementedException는 예상되는 예외라고 설명하는 주석을 추가하여 새 테스트를 추가합니다. 
 
 		[TestMethod]
-		[ExpectedException(typeof(NotImplementedException))]
+		//[ExpectedException(typeof(NotImplementedException))]
 		public void TestMethod2()
 		{
-		    //throw new NotImplementedException();
+		    throw new NotImplementedException();
 		}
 
 9. 변경 내용을 체크 인하여 새 빌드를 큐에 대기시킵니다.<br/>
@@ -230,7 +241,7 @@ Visual Studio Online을 사용하여 Azure에 자동으로 빌드 및 배포하�
 
 Visual Studio Online의 단위 테스트에 대한 자세한 내용은 [빌드에서 단위 테스트 실행](http://go.microsoft.com/fwlink/p/?LinkId=510474)을 참조하세요.
 
-자세한 내용은 [Visual Studio Online](http://go.microsoft.com/fwlink/?LinkId=253861)을 참조하세요. Git를 사용하고 있다면 [Git에서 코드 공유](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx) 및 [소스 제어에서 Azure 웹 사이트로 게시](http://www.windowsazure.com/ko-kr/documentation/articles/web-sites-publish-source-control)(영문)를 참조하세요.
+자세한 내용은 [Visual Studio Online](http://go.microsoft.com/fwlink/?LinkId=253861)을 참조하세요. Git를 사용하는 경우 [Git에서 코드 공유](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx) 및 [소스 제어에서 Azure 웹 사이트로 게시](http://azure.microsoft.com/documentation/articles/web-sites-publish-source-control)를 참조하세요.
 
 [1단계: 팀 프로젝트 만들기]: #step1
 [2단계: 소스 제어에 프로젝트 체크 인]: #step2
@@ -291,4 +302,4 @@ Visual Studio Online의 단위 테스트에 대한 자세한 내용은 [빌드�
 [49]: ./media/cloud-services-continuous-delivery-use-vso/TestsFailed.PNG
 [50]: ./media/cloud-services-continuous-delivery-use-vso/TestsResultsFailed.PNG
 
-<!--HONumber=35.1-->
+<!--HONumber=45--> 

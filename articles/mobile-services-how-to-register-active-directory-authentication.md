@@ -1,13 +1,27 @@
-﻿<properties pageTitle="Azure Active Directory 인증 등록 - 모바일 서비스" description="모바일 서비스 응용 프로그램에서 Azure Active Directory 인증을 위해 등록하는 방법에 대해 알아봅니다." authors="wesmc7777" services="mobile-services" documentationCenter="" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Azure Active Directory 인증 등록 - 모바일 서비스" 
+	description="모바일 서비스 응용 프로그램에서 Azure Active Directory 인증을 위해 등록하는 방법에 대해 알아봅니다." 
+	authors="wesmc7777" 
+	services="mobile-services" 
+	documentationCenter="" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="09/23/2014" 
+	ms.author="wesmc"/>
 
 # Azure Active Directory 계정 로그인 사용을 위한 앱 등록
 
 이 항목에서는 Azure 모바일 서비스를 위한 인증 공급자로 Azure Active Directory를 사용할 수 있도록 앱을 등록하는 방법을 보여 줍니다. 
 
 
->[AZURE.NOTE] 이 항목에 설명된 단계는 앱에서 [서비스에서 지시하는 로그인 작업](http://msdn.microsoft.com/ko-kr/library/azure/dn283952.aspx)을 사용할 때 [모바일 서비스 앱에 인증 추가](/ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users/) 자습서와 함께 사용하기 위해 작성되었습니다. 또는 앱이 Azure Active Directory 및 .NET 백 엔드 서비스에 대해 [클라이언트에서 지시하는 로그인 작업](http://msdn.microsoft.com/ko-kr/library/azure/jj710106.aspx)을 요구하는 경우 [Active Directory 인증 라이브러리 Single Sign-On으로 앱 인증](/ko-kr/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication/) 자습서부터 시작해야 합니다.
+>[AZURE.NOTE] 이 항목에 설명된 단계는 앱에서 [서비스에서 지시하는 로그인 작업](http://msdn.microsoft.com/library/azure/dn283952.aspx)을 사용할 때 [모바일 서비스 앱에 인증 추가](/ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users/) 자습서와 함께 사용하기 위해 작성되었습니다. 또는 앱이 Azure Active Directory 및 .NET 백 엔드 서비스에 대해 [클라이언트에서 지시하는 로그인 작업](http://msdn.microsoft.com/library/azure/jj710106.aspx)을 요구하는 경우 [Active Directory 인증 라이브러리 Single Sign-On으로 앱 인증](/ko-kr/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication/) 자습서부터 시작해야 합니다.
 
 
 1. [Azure 관리 포털]에 로그온하여 **모바일 서비스**를 클릭한 후 해당 모바일 서비스를 클릭합니다.

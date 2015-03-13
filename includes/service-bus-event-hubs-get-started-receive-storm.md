@@ -6,7 +6,7 @@
 
 이 자습서에서는 이미 사용할 수 있는 이벤트 허브 spout와 함께 제공되는 [HDInsight Storm] 설치를 사용합니다.
 
-1. [HDInsight Storm - 시작](http://azure.microsoft.com/ko-kr/documentation/articles/hdinsight-storm-getting-started/) 절차에 따라 새 HDInsight 클러스터를 만들고 원격 데스크톱을 통해 이 클러스터에 연결합니다.
+1. [HDInsight Storm - 시작](http://azure.microsoft.com/documentation/articles/hdinsight-storm-getting-started/) 절차에 따라 새 HDInsight 클러스터를 만들고 원격 데스크톱을 통해 이 클러스터에 연결합니다.
 
 2.  `%STORM_HOME%\examples\eventhubspout\eventhubs-storm-spout-0.9-jar-with-dependencies.jar` 파일을 로컬 개발 환경에 복사합니다. 이 파일에는 events-storm-spout가 포함되어 있습니다.
 
@@ -220,13 +220,12 @@
 	이 클래스는 새 이벤트 허브 spout를 만들고, 구성 파일의 속성을 사용하여 spout를 인스턴스화합니다. 이 예에서는 이벤트 허브에서 허용되는 최대 병렬 처리를 사용하기 위해 이벤트 허브의 파티션 수만큼 spout 작업을 많이 만듭니다.
 
 <!-- Links -->
-[이벤트 허브 개요]: http://msdn.microsoft.com/ko-kr/library/azure/dn821413.aspx
-[HDInsight Storm]: http://azure.microsoft.com/ko-kr/documentation/articles/hdinsight-storm-overview/
-[HDInsight 센서 분석 자습서]: http://azure.microsoft.com/ko-kr/documentation/articles/hdinsight-storm-sensor-data-analysis/
+[이벤트 허브 개요]: http://msdn.microsoft.com/library/azure/dn821413.aspx
+[HDInsight Storm]: http://azure.microsoft.com/documentation/articles/hdinsight-storm-overview/
+[HDInsight 센서 분석 자습서]: http://azure.microsoft.com/documentation/articles/hdinsight-storm-sensor-data-analysis/
 
 <!-- Images -->
 
 [12]: ./media/service-bus-event-hubs-getstarted/create-storm1.png
 [13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
-[14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
-<!--HONumber=42-->
+[14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png<!--HONumber=42-->

@@ -19,7 +19,7 @@ Blob 서비스에는 다음 구성 요소가 포함됩니다.
 ![Blob1][Blob1]
 
 -   **저장소 계정:** Azure 저장소에 대한 모든 액세스는
-    저장소 계정을 통해 수행됩니다. 저장소 계정 용량에 대한 자세한 내용은 [Azure 저장소 확장성 및 성능 목표](http://msdn.microsoft.com/ko-kr/library/dn249410.aspx) (영문)를 참조하세요.
+    저장소 계정을 통해 수행됩니다. 저장소 계정 용량에 대한 자세한 내용은 [Azure 저장소 확장성 및 성능 목표](http://msdn.microsoft.com/library/dn249410.aspx) (영문)를 참조하세요.
 
 -   **컨테이너:** 컨테이너는 Blob 집합 그룹화를 제공합니다.
     모든 Blob은 컨테이너에 있어야 합니다. 하나의 계정에 포함할 수 있는
@@ -46,4 +46,4 @@ Blob 서비스에는 다음 구성 요소가 포함됩니다.
 
 [Blob1]: ./media/howto-blob-storage/blob1.jpg
 
-<!--HONumber=41-->
+<!--HONumber=42-->

@@ -1,6 +1,18 @@
-﻿<properties title="Search diagnostic logs with Application Insights" pageTitle="진단 로그 검색" description="추적, NLog 또는 Log4Net을 사용하여 생성된 로그를 검색합니다." metaKeywords="analytics web test" authors="awills"  manager="kamrani" />
+﻿<properties 
+	pageTitle="진단 로그 검색" 
+	description="추적, NLog 또는 Log4Net을 사용하여 생성된 로그를 검색합니다." 
+	services="application-insights" 
+	authors="alancameronwills" 
+	manager="kamrani"/>
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-09-24" ms.author="awills" />
+<tags 
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2015-01-09" 
+	ms.author="awills"/>
  
 # Application Insights의 진단 검색
 
@@ -306,3 +318,5 @@ Application Insights를 설치하지 않고 로깅 어댑터 Nuget 패키지를 
 
 
 
+
+<!--HONumber=46--> 

@@ -1,6 +1,20 @@
-<properties title="Step 6: Access the Azure Machine Learning web service" pageTitle="6단계: 기계 학습 웹 서비스 액세스 | Azure" description="6단계: 활성 Azure 기계 학습 API 웹 서비스 액세스" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="6단계: 기계 학습 웹 서비스 액세스 | Azure" 
+	description="솔루션 연습 6단계: 활성 Azure 기계 학습 웹 서비스 액세스" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="garyericson" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/06/2014" ms.author="garye" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/06/2014" 
+	ms.author="garye"/>
 
 
 [Azure 기계 학습을 사용한 예측 솔루션 개발][개발] 자습서의 마지막 단계입니다.
@@ -79,3 +93,5 @@ API 도움말 페이지에는 R, C# 및 Python 프로그래밍 언어에 대한 
 	result = h$value()
 
 
+
+<!--HONumber=46--> 

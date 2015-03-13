@@ -1,6 +1,20 @@
-<properties title="Step 1: Create an Azure Machine Learning workspace" pageTitle="1단계: 기계 학습 작업 영역 만들기 | Azure" description="1단계: 새 Azure 기계 학습 스튜디오 작업 영역 만들기" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="1단계: 기계 학습 작업 영역 만들기 | Azure" 
+	description="솔루션 연습 1단계: 새 Azure 기계 학습 스튜디오 작업 영역 만들기" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="garyericson" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/06/2014" ms.author="garye" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/29/2015" 
+	ms.author="garye"/>
 
 
 [Azure 기계 학습을 사용한 예측 솔루션 개발][develop] 자습서의 첫 번째 단계입니다.
@@ -47,3 +61,5 @@
 **다음: [기존 데이터 업로드][upload-data]**
 
 [1]: ./media/machine-learning-walkthrough-1-create-ml-workspace/create1.png
+
+<!--HONumber=46--> 

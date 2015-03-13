@@ -26,5 +26,4 @@ HDInsight에서는 Hadoop, HBase 및 사용자 지정된 클러스터의 클라�
 
 
 
-
 <!--HONumber=42-->

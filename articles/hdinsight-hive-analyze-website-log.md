@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/14/2014" 
+	ms.date="02/06/2015" 
 	ms.author="nitinme"/>
 
 # HDInsight와 함께 Hive를 사용하여 웹 사이트의 로그 분석
@@ -29,14 +29,14 @@ HDInsight와 함께 HiveQL을 사용하여 웹 사이트의 로그를 분석하�
 
 ![HDI.Samples.Website.Log.Analysis][img-hdi-weblogs-sample]
 
-##필수 조건
+## 필수 조건
 
 - **HDInsight 클러스터**를 미리 프로비전해야 합니다. 관련 지침은 [HDInsight 클러스터 프로비전][hdinsight-provision]을 참조하세요. 
 - Microsoft Excel 2010 또는 Microsoft Excel 2013을 설치해야 합니다.
 - Hive에서 Excel로 데이터를 가져오려면 [Microsoft Hive ODBC 드라이버](http://www.microsoft.com/ko-kr/download/details.aspx?id=40886)가 필요합니다.
 
 
-##샘플을 실행하려면
+## 샘플을 실행하려면
 
 1. Azure 관리 포털에서 샘플을 실행할 클러스터를 클릭한 다음 아래쪽에서 **쿼리 콘솔**을 클릭합니다. 다음 URL을 사용하여 쿼리 콘솔을 직접 열 수도 있습니다.
 
@@ -47,7 +47,7 @@ HDInsight와 함께 HiveQL을 사용하여 웹 사이트의 로그를 분석하�
 2. 그러면 열리는 웹 페이지에서 **시작 갤러리** 탭을 클릭하고 **샘플** 범주에서 **웹 사이트 로그 분석** 샘플을 클릭합니다.
 3. 웹 페이지에서 제공되는 지침에 따라 샘플을 완료합니다.
 
-##다음 단계
+## 다음 단계
 샘플을 실행하여 Azure HDInsight를 사용해 센서 데이터를 분석하는 방법을 확인할 수 있습니다. [HDInsight와 함께 Hive를 사용하여 센서 데이터 분석][hdinsight-sensor-data-sample]을 참조하세요.
 
 
@@ -55,4 +55,4 @@ HDInsight와 함께 HiveQL을 사용하여 웹 사이트의 로그를 분석하�
 [hdinsight-sensor-data-sample]: ../hdinsight-use-hive-sensor-data-analysis/
 
 [img-hdi-weblogs-sample]: ./media/hdinsight-hive-analyze-website-log/hdinsight-weblogs-sample.png
-<!--HONumber=42-->
+<!--HONumber=45--> 

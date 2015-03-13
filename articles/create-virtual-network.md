@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Tutorial: Create a cloud-only virtual network" pageTitle="자습서: 클라우드 전용 가상 네트워크 만들기" metaKeywords="" description="이 자습서에서는 클라우드 전용 Azure 가상 네트워크 예제를 만드는 방법에 대해 알아봅니다." metaCanonical="" services="virtual-machines,virtual-network" documentationCenter="" title="Tutorial: Create a Clound-only Virtual Network in Azure" authors="cherylmc" solutions="" manager="adinah" editor="" />
+﻿<properties 
+	pageTitle="자습서: 클라우드 전용 가상 네트워크 만들기" 
+	description="이 자습서에서는 클라우드 전용 Azure 가상 네트워크 예제를 만드는 방법에 대해 알아봅니다." 
+	services="virtual-machines, virtual-network" 
+	documentationCenter="" 
+	authors="cherylmc" 
+	manager="adinah" 
+	editor=""/>
 
-<tags ms.service="virtual-network" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/29/2014" ms.author="cherylmc" />
+<tags 
+	ms.service="virtual-network" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/29/2014" 
+	ms.author="cherylmc"/>
 
 <h1 id="vnettut1">자습서: Azure에서 클라우드 전용 가상 네트워크 만들기</h1>
 
@@ -25,7 +39,7 @@
 
 ##  필수 조건
 
-*  유효한 활성 Azure 구독이 하나 이상 있는 Microsoft 계정. Azure 구독이 아직 없는 경우 [Azure 평가판 사용](http://www.windowsazure.com/pricing/free-trial/)에서 무료 평가판에 등록할 수 있습니다. MSDN 구독이 있는 경우에는 [Microsoft Azure 특별 가격: MSDN, MPN 및 Bizspark 혜택](http://azure.microsoft.com/ko-kr/pricing/member-offers/msdn-benefits-details/)을 참조하세요.
+*  유효한 활성 Azure 구독이 하나 이상 있는 Microsoft 계정. Azure 구독이 아직 없는 경우 [Azure 평가판 사용](http://www.windowsazure.com/pricing/free-trial/)에서 무료 평가판에 등록할 수 있습니다. MSDN 구독이 있는 경우에는 [Microsoft Azure 특별 가격: MSDN, MPN 및 Bizspark 혜택](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 참조하세요.
 
 ##  이 자습서용 가상 네트워크 만들기
 
@@ -71,9 +85,9 @@
 
 다음을 사용하여 Azure 인프라 서비스에 대해 계속 알아볼 수 있습니다.
 
-- [사용자 지정 가상 컴퓨터를 만드는 방법](http://www.windowsazure.com/ko-kr/manage/windows/how-to-guides/custom-create-a-vm/) 이 항목을 사용하여 가상 네트워크에 가상 컴퓨터를 설치할 수 있습니다. 가상 컴퓨터 및 설치 옵션에 대한 자세한 내용은 [Azure 가상 컴퓨터](http://www.windowsazure.com/ko-kr/manage/windows/)를 참조하세요.
+- [사용자 지정 가상 컴퓨터를 만드는 방법](http://azure.microsoft.com/manage/windows/how-to-guides/custom-create-a-vm/) 이 항목을 사용하여 가상 네트워크에 가상 컴퓨터를 설치할 수 있습니다. 가상 컴퓨터 및 설치 옵션에 대한 자세한 내용은 [Azure 가상 컴퓨터](http://azure.microsoft.com/manage/windows/)를 참조하세요.
 
-- [Azure 가상 네트워크에 새 Active Directory 포리스트 설치](http://www.windowsazure.com/ko-kr/manage/services/networking/active-directory-forest/) - 이 항목을 사용하여 다른 네트워크에 연결하지 않고 새 Windows Server AD(Active Directory) 포리스트를 설치할 수 있습니다. 이 자습서에서는 새 포리스트 설치를 위해 VM(가상 컴퓨터)을 만드는 데 필요한 특정 단계를 설명합니다. 이 자습서를 사용할 경우에는 관리 포털을 사용하여 VM을 만들지 마세요. 자세한 내용은 [Azure 가상 컴퓨터에 Windows Server Active Directory를 배포하기 위한 지침](http://msdn.microsoft.com/ko-kr/library/windowsazure/jj156090.aspx)을 참조하세요.
+- [Azure 가상 네트워크에 새 Active Directory 포리스트 설치](http://azure.microsoft.com/manage/services/networking/active-directory-forest/) - 이 항목을 사용하여 다른 네트워크에 연결하지 않고 새 Windows Server AD(Active Directory) 포리스트를 설치할 수 있습니다. 이 자습서에서는 새 포리스트 설치를 위해 VM(가상 컴퓨터)을 만드는 데 필요한 특정 단계를 설명합니다. 이 자습서를 사용할 경우에는 관리 포털을 사용하여 VM을 만들지 마세요. 자세한 내용은 [Azure 가상 컴퓨터에 Windows Server Active Directory를 배포하기 위한 지침](http://msdn.microsoft.com/library/windowsazure/jj156090.aspx)을 참조하세요.
 
 이 가상 네트워크를 제거하려면 가상 네트워크를 선택하고 **삭제**를 클릭한 후 **예**를 클릭합니다.
 
@@ -90,7 +104,7 @@
 
 -  [Azure 가상 네트워크 구성 작업](http://go.microsoft.com/fwlink/?LinkId=296652)
 
--  [네트워크 구성 파일을 사용하여 가상 네트워크 구성](http://msdn.microsoft.com/ko-kr/library/windowsazure/jj156097.aspx)
+-  [네트워크 구성 파일을 사용하여 가상 네트워크 구성](http://msdn.microsoft.com/library/windowsazure/jj156097.aspx)
 
 -  [Azure 이름 확인 개요](http://go.microsoft.com/fwlink/?LinkId=248097)
 
@@ -103,3 +117,5 @@
 [Image7]: ./media/create-virtual-network/createVNet_07_VNetExampleSpaces.png
 [Image8]: ./media/create-virtual-network/createVNet_07_VNetExampleSpaces.png
 
+
+<!--HONumber=46--> 

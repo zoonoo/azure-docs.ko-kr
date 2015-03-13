@@ -1,13 +1,28 @@
-﻿<properties urlDisplayName="" pageTitle="태그를 사용하여 Azure 리소스 구성" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Using tags to organize your Azure resources" authors="Michael Flanakin" solutions="" writer="" manager="carolz" editor=""  />
+﻿<properties 
+	pageTitle="태그를 사용하여 Azure 리소스 구성" 
+	description="" 
+	services="" 
+	documentationCenter="" 
+	authors="flanakin" 
+	writer="" 
+	manager="carolz" 
+	editor=""/>
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="10/08/2014" ms.author="micflan" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/08/2014" 
+	ms.author="micflan"/>
 
 
 # 태그를 사용하여 Azure 리소스 구성
 
 Azure 미리 보기 포털 및 기본 리소스 관리자는 리소스를 구성하고 사용자에게 잘 맞게 환경을 사용자 지정하는 작업에 사용됩니다. 
 
-전체 Azure 포털에서는 리소스를 분류하고 그룹화하기 위해 반드시 구독이 필요합니다. 미리 보기 포털에서 관련 엔터티를 그룹화할 수 있는 [리소스 그룹을 도입했습니다](http://azure.microsoft.com/ko-kr/documentation/articles/azure-preview-portal-using-resource-groups). 이 리소스 그룹은 [역할 기반 액세스를 도입](http://azure.microsoft.com/ko-kr/documentation/articles/role-based-access-control-configure)했을 때 더 유용해졌습니다. 이제 같은 맥락으로 여러 리소스 그룹에서, 포털 내에서, 구독 간에 리소스를 추가적으로 분류하고 확인할 수 있게 리소스에 키/값 쌍을 태그로 지정할 수 있습니다.
+전체 Azure 포털에서는 리소스를 분류하고 그룹화하기 위해 반드시 구독이 필요합니다. 미리 보기 포털에서 관련 엔터티를 그룹화할 수 있는 [리소스 그룹을 도입했습니다](http://azure.microsoft.com/documentation/articles/azure-preview-portal-using-resource-groups). 이 리소스 그룹은 [역할 기반 액세스를 도입](http://azure.microsoft.com/documentation/articles/role-based-access-control-configure)했을 때 더 유용해졌습니다. 이제 같은 맥락으로 여러 리소스 그룹에서, 포털 내에서, 구독 간에 리소스를 추가적으로 분류하고 확인할 수 있게 리소스에 키/값 쌍을 태그로 지정할 수 있습니다.
 
 팀, 프로젝트 또는 심지어 작업 환경별로 리소스를 그룹화하여 보고 싶을 때 보려는 리소스를 정확히 확인할 수 있습니다. 
 
@@ -27,9 +42,9 @@ Azure 미리 보기 포털 및 기본 리소스 관리자는 리소스를 구성
 
 ## PowerShell을 사용한 태그 지정
 
-먼저 최신 [Azure PowerShell 모듈](http://azure.microsoft.com/ko-kr/documentation/articles/install-configure-powershell/)을 구합니다. 이번에 Azure PowerShell 모듈을 처음 사용하는 경우이면 [설명서를 참조](http://azure.microsoft.com/ko-kr/documentation/articles/install-configure-powershell)하여 더 빠르게 작업할 수 있습니다. 이 문서의 목적에 맞게 이미 계정을 추가했고 태그를 지정하려는 리소스가 있는 구독을 선택했다고 가정합니다.
+먼저 최신 [Azure PowerShell 모듈](http://azure.microsoft.com/documentation/articles/install-configure-powershell/)을 구합니다. 이번에 Azure PowerShell 모듈을 처음 사용하는 경우이면 [설명서를 참조](http://azure.microsoft.com/documentation/articles/install-configure-powershell)하여 더 빠르게 작업할 수 있습니다. 이 문서의 목적에 맞게 이미 계정을 추가했고 태그를 지정하려는 리소스가 있는 구독을 선택했다고 가정합니다.
 
-태그 지정은 [리소스 관리자](http://msdn.microsoft.com/ko-kr/library/azure/dn790568.aspx)에서 제공되는 리소스 및 리소스 그룹에만 사용할 수 있으므로 먼저 리소스 관리자를 사용하도록 전환해야 합니다. 자세한 내용은 [리소스 관리자에서 Windows PowerShell 사용](http://azure.microsoft.com/ko-kr/documentation/articles/powershell-azure-resource-manager/)을 참조하세요.
+태그 지정은 [리소스 관리자](http://msdn.microsoft.com/library/azure/dn790568.aspx)에서 제공되는 리소스 및 리소스 그룹에만 사용할 수 있으므로 먼저 리소스 관리자를 사용하도록 전환해야 합니다. 자세한 내용은 [리소스 관리자에서 Windows PowerShell 사용](http://azure.microsoft.com/documentation/articles/powershell-azure-resource-manager/)을 참조하세요.
 
   Switch-AzureMode AzureResourceManager
 
@@ -50,7 +65,7 @@ Azure 미리 보기 포털 및 기본 리소스 관리자는 리소스를 구성
 
 ## 리소스 관리자를 사용하여 태그 지정
 
-미리 보기 포털 및 PowerShell 둘 다 백그라운드에서 [리소스 관리자 REST API](http://msdn.microsoft.com/ko-kr/library/azure/dn790568.aspx)를 사용합니다. 태그를 다른 환경으로 통합해야 하는 경우 리소스 ID에 대해 GET을 사용하여 태그를 얻고 PATCH 호출을 통해 태그 집합을 업데이트할 수 있습니다.
+미리 보기 포털 및 PowerShell 둘 다 백그라운드에서 [리소스 관리자 REST API](http://msdn.microsoft.com/library/azure/dn790568.aspx)를 사용합니다. 태그를 다른 환경으로 통합해야 하는 경우 리소스 ID에 대해 GET을 사용하여 태그를 얻고 PATCH 호출을 통해 태그 집합을 업데이트할 수 있습니다.
 
 
 ## 분류 관리
@@ -74,3 +89,5 @@ PowerShell을 사용하여 구독 내의 모든 태그 목록을 가져오려면
 
 ![Pin tags to the Startboard](./media/azure-preview-portal-using-tags/pin-tags.png)
 
+
+<!--HONumber=46--> 

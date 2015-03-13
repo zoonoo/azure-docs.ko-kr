@@ -1,6 +1,20 @@
-﻿<properties pageTitle="사용자에게 푸시 알림(Windows Phone) | 모바일 개발자 센터" description="모바일 서비스를 사용하여 Windows Phone 앱 사용자에게 알림을 푸시하는 방법에 대해 알아봅니다." services="mobile-services, notification-hubs" documentationCenter="" authors="ggailey777" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="사용자에게 푸시 알림(Windows Phone) | 모바일 개발자 센터" 
+	description="모바일 서비스를 사용하여 Windows Phone 앱 사용자에게 알림을 푸시하는 방법에 대해 알아봅니다." 
+	services="mobile-services, notification-hubs" 
+	documentationCenter="" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="10/07/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-phone" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="10/07/2014" 
+	ms.author="glenga"/>
 
 # 모바일 서비스를 사용하여 사용자에게 푸시 알림
 

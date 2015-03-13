@@ -74,7 +74,7 @@ HDInsight 클러스터에서 지원되는 Sqoop 버전을 보려면 [HDInsight�
 
 	> [AZURE.NOTE] > Azure HDInsight는 위치 기반 가상 네트워크만 지원하며 현재 선호도 그룹 기반 가상 네트워크와는 연동되지 않습니다.
 
-	* **가상 네트워크를 만들고 구성**하려면 [가상 네트워크 구성 작업](http://msdn.microsoft.com/ko-kr/library/azure/jj156206.aspx)을 참조하세요.
+	* **가상 네트워크를 만들고 구성**하려면 [가상 네트워크 구성 작업](http://msdn.microsoft.com/library/azure/jj156206.aspx)을 참조하세요.
 
 		* **데이터 센터에서** SQL Server를 사용할 때는 가상 네트워크를 *site-to-site* 또는 *point-to-site*으로 구성해야 합니다.
 
@@ -362,7 +362,7 @@ SQL 데이터베이스 또는 SQL Server에 테이블 두 개를 만듭니다. �
 
 > [AZURE.NOTE] 연결 문자열 정보를 제외하면 이 섹션의 단계는 Azure SQL 데이터베이스 또는 SQL Server에 대해 작동합니다. 이러한 단계는 다음 구성에 대해 테스트되었습니다.
 > 
-> * **Azure 가상 네트워크 지점 및 사이트 간 구성** - 개인 데이터 센터에서 HDInsight 클러스터를 SQL Server에 연결하는 가상 네트워크입니다. 자세한 내용은 [관리 포털에서 지점 및 사이트 간 VPN 구성](http://msdn.microsoft.com/ko-kr/library/azure/dn133792.aspx)을 참조하세요.
+> * **Azure 가상 네트워크 지점 및 사이트 간 구성** - 개인 데이터 센터에서 HDInsight 클러스터를 SQL Server에 연결하는 가상 네트워크입니다. 자세한 내용은 [관리 포털에서 지점 및 사이트 간 VPN 구성](http://msdn.microsoft.com/library/azure/dn133792.aspx)을 참조하세요.
 > * **Azure HDInsight 3.1** - 가상 네트워크에서 클러스터를 만드는 방법에 대한 자세한 내용은 [사용자 지정 옵션을 사용하여 HDInsight의 Hadoop 클러스터 프로비전](/ko-kr/documentation/articles/hdinsight-provision-clusters/)을 참조하세요.
 > * **SQL Server 2014** - SQL 인증을 허용하고 VPN 클라이언트 구성 패키지를 실행하여 가상 네트워크에 안전하게 연결할 수 있도록 구성됩니다.
 
@@ -648,11 +648,10 @@ SQL 데이터베이스 또는 SQL Server에 테이블 두 개를 만듭니다. �
 [sqldatabase-get-started]: ../sql-database-get-started/
 [sqldatabase-create-configue]: ../sql-database-create-configure/
 
-[powershell-start]: http://technet.microsoft.com/ko-kr/library/hh847889.aspx
+[powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
 [powershell-install]: ../install-configure-powershell
-[powershell-script]: http://technet.microsoft.com/ko-kr/library/ee176949.aspx
+[powershell-script]: http://technet.microsoft.com/library/ee176949.aspx
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
-
 
 <!--HONumber=42-->

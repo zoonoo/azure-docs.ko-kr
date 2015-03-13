@@ -1,6 +1,20 @@
-﻿<properties title="Survival Analysis" pageTitle="생존 분석 | Azure" description="생존 분석" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jaymathe" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="생존 분석 | Azure" 
+	description="생존 분석 이벤트 발생 확률" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="jaymathe" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/08/2014" ms.author="jaymathe" /> 
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/11/2015" 
+	ms.author="jaymathe"/> 
 
 
 #생존 분석 
@@ -70,7 +84,7 @@
 
 ##웹 서비스 만들기
 
->이 웹 서비스는 Azure 기계 학습을 사용하여 만들었습니다. 무료 평가판 및 실험을 만들고 [웹 서비스를 게시](http://azure.microsoft.com/ko-kr/documentation/articles/machine-learning-publish-web-service-to-azure-marketplace/)하는 방법에 대한 소개 비디오는 [azure.com/ml](http://azure.com/ml)을 참조하세요. 다음은 웹 서비스를 만든 실험과 실험 내 각 모듈의 예제 코드의 스크린샷입니다.
+>이 웹 서비스는 Azure 기계 학습을 사용하여 만들었습니다. 무료 평가판 및 실험을 만들고 [웹 서비스를 게시](http://azure.microsoft.com/documentation/articles/machine-learning-publish-web-service-to-azure-marketplace/)하는 방법에 대한 소개 비디오는 [azure.com/ml](http://azure.com/ml)을 참조하세요. 다음은 웹 서비스를 만든 실험과 실험 내 각 모듈의 예제 코드의 스크린샷입니다.
 
 Azure 기계 학습 내에서 새로운 빈 실험이 만들어졌으며 두 개의 "R 스크립트 실행"을 작업 영역으로 가져왔습니다. 데이터 스키마는 웹 서비스에 대한 입력 데이터 스키마를 정의하는 간단한 'R 스크립트 실행'을 사용하여 만들어졌습니다. 이 모듈은 주요 작업을 수행하는 두 번째 'R 스크립트 실행' 모듈에 연결됩니다. 이 모듈은 데이터 전처리, 모델 작성 및 예측을 수행합니다. 데이터 전처리 단계에서 긴 문자열로 표시되는 입력 데이터는 데이터 프레임으로 변형 및 변환됩니다. 모델 작성 단계에서 외부 R 패키지 "survival_2.37-7.zip"이 생존 분석을 수행하기 위해 먼저 설치됩니다. 그리고 나서 "coxph" 함수가 계열 데이터 처리 작업 후에 실행됩니다. 생존 분석에 대한 "coxph" 함수에 대한 자세한 내용은 R 설명서를 참조하세요. 예측 단계에서 테스트 인스턴스가 "surfit" 함수를 통해 학습된 모델에 제공되고 이 테스트 인스턴스에 대한 생존 곡선이 "curve" 변수로 생성됩니다. 마지막으로 관련 시간의 확률을 얻습니다. 
 
@@ -172,6 +186,8 @@ Azure 기계 학습 내에서 새로운 빈 실험이 만들어졌으며 두 개
 이 웹 서비스는 기능 변수(열)로 숫자 값만 사용할 수 있습니다. "이벤트" 열에는 0 또는 1 값만 사용할 수 있습니다. "시간" 열은 양의 정수여야 합니다.
 
 ##FAQ
-웹 서비스 사용 또는 마켓플레이스 게시 방법과 관련한 질문과 대답은 [여기](http://azure.microsoft.com/ko-kr/documentation/articles/machine-learning-marketplace-faq)를 참조하세요.
+웹 서비스 사용 또는 마켓플레이스 게시 방법과 관련한 질문과 대답은 [여기](http://azure.microsoft.com/documentation/articles/machine-learning-marketplace-faq)를 참조하세요.
 
 [1]: ./media/machine-learning-r-csharp-survival-analysis/survive_img2.png
+
+<!--HONumber=46--> 

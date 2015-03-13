@@ -1,6 +1,20 @@
-﻿<properties title="Introduction to Azure Data Factory" pageTitle="Azure 데이터 팩터리 소개" description="Azure 데이터 팩터리 서비스를 통해 데이터 처리, 데이터 저장 및 데이터 이동 서비스를 구성하여 신뢰할 수 있는 정보를 생성하는 파이프라인을 만드는 방법에 대해 알아봅니다." metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
+﻿<properties 
+	pageTitle="Azure 데이터 팩터리 소개" 
+	description="Azure 데이터 팩터리 서비스를 통해 데이터 처리, 데이터 저장 및 데이터 이동 서비스를 구성하여 신뢰할 수 있는 정보를 생성하는 파이프라인을 만드는 방법에 대해 알아봅니다." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
+	editor="monicar"/>
 
-<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/13/2014" ms.author="spelluru" />
+<tags 
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/13/2015" 
+	ms.author="spelluru"/>
 
 # Azure 데이터 팩터리 서비스 소개
 **Azure 데이터 팩터리** 서비스는 데이터 저장소, 처리 및 이동 서비스를 효율적이고 확장 가능하며 안정적인 데이터 프로덕션 파이프라인으로 구성하기 위한 완전히 관리되는 서비스입니다.  개발자는 데이터 팩터리를 사용하여 온-프레미스 및 클라우드 소스의 반구조적, 비구조적 및 구조적 데이터를 신뢰할 수 있는 정보로 변환할 수 있습니다. 개발자는 온-프레미스 서비스, 클라우드 기반 서비스 및 인터넷 서비스에서 얻은 데이터를 결합, 집계 및 변환하고 복잡한 데이터 처리를 단순한 JSON 스크립트를 통해 설정하는 데이터 기반 워크플로(파이프라인)를 구축합니다. Azure 데이터 팩터리 서비스는 Azure 미리 보기 포털을 통해 제공되는 다양한 시각적 환경에서 이러한 파이프라인을 한눈에 모니터링하고 관리할 수 있는 기능을 제공합니다. 파이프라인에 의해 생성되는 정보는 BI 및 분석 도구와 기타 응용 프로그램에서 손쉽게 사용하여 주요 비즈니스 통찰력과 의사 결정을 안정적으로 지원할 수 있습니다.
@@ -175,3 +189,5 @@ Microsoft 데이터 관리 게이트웨이는 온-프레미스 데이터 원본�
 
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

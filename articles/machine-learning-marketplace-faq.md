@@ -1,6 +1,20 @@
-﻿<properties title="FAQ for publishing and using Machine Learning apps in the Azure Marketplace" pageTitle="Azure 마켓플레이스에서의 기계 학습 앱 게시 및 사용에 대한 FAQ | Azure" description="질문과 대답" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jaymathe" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Azure 마켓플레이스에서의 기계 학습 앱 게시 및 사용에 대한 FAQ | Azure" 
+	description="질문과 대답" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="luisca" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/13/2014" ms.author="jaymathe" /> 
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/10/2015" 
+	ms.author="luisca"/> 
 
 #Azure 마켓플레이스에서의 기계 학습 앱 게시 및 사용에 대한 FAQ
 
@@ -16,7 +30,7 @@
 
 ###질문 3: '이 데이터 집합 탐색'에서 웹 서비스의 입력을 입력한 후 다음과 같은 오류가 표시됩니다. 이 오류가 표시되는 이유는 무엇인가요?
 요청을 처리하는 동안 예기치 않은 오류가 발생했습니다. 나중에 다시 시도하세요.
-대답: 마켓플레이스 '이 데이터 집합 탐색' 페이지에서 웹 서비스를 사용할 때 웹 서비스의 하나 이상의 입력 매개 변수가 길이 제한을 초과했을 수 있습니다. HTTP POST 메서드를 사용하여 더 긴 입력 길이로 서비스를 호출할 수 있습니다. 샘플 코드는 http://azure.microsoft.com/ko-kr/documentation/articles/machine-learning-r-csharp-web-service-examples/(영문)에 설명된 샘플 서비스에 게시되어 있습니다.
+대답: 마켓플레이스 '이 데이터 집합 탐색' 페이지에서 웹 서비스를 사용할 때 웹 서비스의 하나 이상의 입력 매개 변수가 길이 제한을 초과했을 수 있습니다. HTTP POST 메서드를 사용하여 더 긴 입력 길이로 서비스를 호출할 수 있습니다. 샘플 코드는 http://azure.microsoft.com/documentation/articles/machine-learning-r-csharp-web-service-examples/(영문)에 설명된 샘플 서비스에 게시되어 있습니다.
 
 ###
 
@@ -44,3 +58,5 @@
 
 
 
+
+<!--HONumber=46--> 

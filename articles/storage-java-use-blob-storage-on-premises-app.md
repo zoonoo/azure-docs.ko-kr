@@ -379,9 +379,8 @@ Blob 저장소 서비스를 사용하는 방법]을 참조하세요.
   [필수 조건]: #bkmk_prerequisites
   [Azure Blob 저장소를 사용하여 파일을 업로드하려면]: #bkmk_uploadfile
   [컨테이너를 삭제하려면]: #bkmk_deletecontainer
-  [Java용 Azure SDK다운로드]: http://www.windowsazure.com/ko-kr/develop/java/
-  [저장소 계정을 만드는 방법]: http://www.windowsazure.com/ko-kr/manage/services/storage/how-to-create-a-storage-account/
-  [저장소 계정을 관리하는 방법]: http://www.windowsazure.com/ko-kr/manage/services/storage/how-to-manage-a-storage-account/
-  [Java에서 Blob 저장소 서비스를 사용하는 방법]: http://www.windowsazure.com/ko-kr/develop/java/how-to-guides/blob-storage/
-
+  [Java용 Azure SDK다운로드]: http://azure.microsoft.com/develop/java/
+  [저장소 계정을 만드는 방법]: http://azure.microsoft.com/manage/services/storage/how-to-create-a-storage-account/
+  [저장소 계정을 관리하는 방법]: http://azure.microsoft.com/manage/services/storage/how-to-manage-a-storage-account/
+  [Java에서 Blob 저장소 서비스를 사용하는 방법]: http://azure.microsoft.com/develop/java/how-to-guides/blob-storage/
 <!--HONumber=42-->

@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Get Started with Azure Automation" pageTitle="Azure 자동화 시작" metaKeywords="" description="Azure에서 자동화 작업을 가져오고 실행하는 방법에 대해 알아봅니다." metaCanonical="" services="automation" documentationCenter="" title="Get Started with Azure Automation" authors="bwren" solutions="" manager="stevenka" editor="" />
+﻿<properties 
+	pageTitle="Azure 자동화 시작" 
+	description="Azure에서 자동화 작업을 가져오고 실행하는 방법에 대해 알아봅니다." 
+	services="automation" 
+	documentationCenter="" 
+	authors="bwren" 
+	manager="stevenka" 
+	editor=""/>
 
-<tags ms.service="automation" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/21/2014" ms.author="bwren" />
+<tags 
+	ms.service="automation" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="1/13/2015" 
+	ms.author="bwren"/>
 
 
 # Azure 자동화 시작
@@ -9,7 +23,7 @@ Microsoft Azure 자동화를 통해 개발자는 일반적으로 클라우드 �
 
 이 자습서에서는 샘플 "Hello World" Runbook을 Azure 자동화로 가져오고, Runbook을 실행한 후 출력을 확인하는 작업을 단계별로 안내합니다.
 
->[WACOM.NOTE] [Azure PowerShell cmdlet](http://msdn.microsoft.com/ko-kr/library/jj156055.aspx)을 사용하여 Azure 작업을 자동화하는 방법에 대한 자세한 내용은 <a href="http://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/">Azure 자동화: Azure Active Directory를 사용하여 Azure에 인증</a>(영문)을 참조하세요.
+>[WACOM.NOTE] [Azure PowerShell cmdlet](http://msdn.microsoft.com/library/jj156055.aspx)을 사용하여 Azure 작업을 자동화하는 방법에 대한 자세한 내용은 <a href="http://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/">Azure 자동화: Azure Active Directory를 사용하여 Azure에 인증</a>(영문)을 참조하세요.
 
 ## 샘플 및 유틸리티 Runbook
 
@@ -117,7 +131,7 @@ Azure 자동화 팀은 자동화를 시작하는 데 도움을 주는 다수의 
 
 
 # Runbook에서 Azure 서비스 관리 
-위의 예제에서는 Azure 서비스를 관리하지 않는 단순한 Runbook을 보여 줍니다. [Azure cmdlet](http://msdn.microsoft.com/ko-kr/library/jj156055.aspx)을 사용하려면 Azure에 대한 인증이 필요합니다. Azure 자동화를 통해 관리하도록 Azure 구독을 구성하려면 [Azure 자동화: Azure Active Directory를 사용하여 Azure에 인증](http://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/)(영문)에 나와 있는 지침을 수행하면 됩니다.
+위의 예제에서는 Azure 서비스를 관리하지 않는 단순한 Runbook을 보여 줍니다. [Azure cmdlet](http://msdn.microsoft.com/library/jj156055.aspx)을 사용하려면 Azure에 대한 인증이 필요합니다. Azure 자동화를 통해 관리하도록 Azure 구독을 구성하려면 [Azure 자동화: Azure Active Directory를 사용하여 Azure에 인증](http://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/)(영문)에 나와 있는 지침을 수행하면 됩니다.
 
 # 참고 항목
 
@@ -127,3 +141,5 @@ Azure 자동화 팀은 자동화를 시작하는 데 도움을 주는 다수의 
 - [Azure 자동화: Azure Active Directory를 사용하여 Azure에 인증](http://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/)(영문)
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

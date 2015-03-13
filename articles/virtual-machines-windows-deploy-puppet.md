@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Puppet 및 Azure 가상 컴퓨터 정보" 
 	description="Azure에서 VM에 Puppet을 설치 및 구성하는 방법에 대해 설명합니다." 
 	services="virtual-machines" 
@@ -45,4 +45,5 @@ Puppet은 클라이언트-서버 시스템입니다. Puppet Master와 Puppet Ent
 
 
 
-<!--HONumber=45--> 
+
+<!--HONumber=42-->

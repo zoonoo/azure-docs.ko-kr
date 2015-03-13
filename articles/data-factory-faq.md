@@ -1,6 +1,20 @@
-﻿<properties title="Azure Data Factory - Frequently Asked Questions" pageTitle="Azure 데이터 팩터리 - 질문과 대답" description="Azure 데이터 팩터리에 대한 질문과 대답입니다." metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
+﻿<properties 
+	pageTitle="Azure 데이터 팩터리 - 질문과 대답" 
+	description="Azure 데이터 팩터리에 대한 질문과 대답입니다." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
+	editor="monicar"/>
 
-<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/13/2014" ms.author="spelluru" />
+<tags 
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2/10/2015" 
+	ms.author="spelluru"/>
 
 # Azure 데이터 팩터리 - 질문과 대답
 
@@ -93,6 +107,8 @@ Azure 데이터 팩터리에 대한 가격 정보는 [데이터 팩터리 가격
 [azure-preview-portal]: http://portal.azure.com
 
 [adf-pricing-details]: http://go.microsoft.com/fwlink/?LinkId=517777
-[hdinsight-supported-regions]: http://azure.microsoft.com/ko-kr/pricing/details/hdinsight/
+[hdinsight-supported-regions]: http://azure.microsoft.com/pricing/details/hdinsight/
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

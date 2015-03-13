@@ -56,7 +56,7 @@ Azure 관리 포털에서 웹 사이트의 구성 옵션 및 데이터베이스�
 
 <strong>플랫폼</strong>. 응용 프로그램이 32비트 환경에서 실행되는지 또는 64비트 환경에서 실행되는지 선택합니다. 64비트 환경에는 기본 또는 표준 모드가 필요합니다. 무료 및 공유 모드는 항상 32비트 환경에서 실행됩니다.
 
-<strong>웹 소켓</strong>. WebSocket 프로토콜을 사용하도록 설정하려면 **켜기**를 설정합니다. 예를 들어 웹 사이트에서 [ASP.NET SignalR](http://www.asp.net/signalr) 또는 [socket.io](http://azure.microsoft.com/ko-kr/documentation/articles/web-sites-nodejs-chat-app-socketio/)를 사용하는 경우가 여기에 해당합니다.
+<strong>웹 소켓</strong>. WebSocket 프로토콜을 사용하도록 설정하려면 **켜기**를 설정합니다. 예를 들어 웹 사이트에서 [ASP.NET SignalR](http://www.asp.net/signalr) 또는 [socket.io](http://azure.microsoft.com/documentation/articles/web-sites-nodejs-chat-app-socketio/)를 사용하는 경우가 여기에 해당합니다.
 
 <strong>무중단</strong>. 기본적으로 웹 사이트는 일정 기간 동안 유휴 상태인 경우 언로드됩니다. 이를 통해 시스템 리소스가 절약됩니다. 기본 또는 표준 모드에서는 <strong>무중단</strong>을 사용하도록 설정하여 사이트를 항상 로드된 상태로 유지할 수 있습니다. 사이트에서 지속형 웹 작업을 실행하는 경우 **무중단**을 사용하도록 설정해야 합니다. 그렇지 않으면 웹 작업이 안정적으로 실행되지 않을 수 있습니다.
 
@@ -67,17 +67,17 @@ Azure 관리 포털에서 웹 사이트의 구성 옵션 및 데이터베이스�
 
 ### 인증서
 
-기본 또는 표준 모드에서는 사용자 지정 도메인에 대해 SSL 인증서를 업로드할 수 있습니다. 자세한 내용은 [Azure 웹 사이트에 HTTPS 사용](http://www.windowsazure.com/ko-kr/documentation/articles/web-sites-configure-ssl-certificate/)을 참조하세요. 
+기본 또는 표준 모드에서는 사용자 지정 도메인에 대해 SSL 인증서를 업로드할 수 있습니다. 자세한 내용은 [Azure 웹 사이트에 HTTPS 사용](http://azure.microsoft.com/documentation/articles/web-sites-configure-ssl-certificate/)을 참조하세요. 
 
 업로드한 인증서가 여기에 나열됩니다. 인증서를 업로드한 후 해당 구독 및 지역의 웹 사이트에 할당할 수 있습니다. 유효한 도메인 내의 모든 사이트에 와일드카드 인증서를 사용할 수 있습니다. 해당 인증서에 대한 활성 바인딩이 없는 경우에만 인증서를 삭제할 수 있습니다.
 
 ### 도메인 이름
 
-웹 사이트에 대한 추가 도메인 이름을 보거나 추가합니다. 자세한 내용은 [Azure 웹 사이트에 대한 사용자 지정 도메인 이름 구성](http://www.windowsazure.com/ko-kr/documentation/articles/web-sites-custom-domain-name/)을 참조하세요.
+웹 사이트에 대한 추가 도메인 이름을 보거나 추가합니다. 자세한 내용은 [Azure 웹 사이트에 대한 사용자 지정 도메인 이름 구성](http://azure.microsoft.com/documentation/articles/web-sites-custom-domain-name/)을 참조하세요.
 
 ### SSL 바인딩
 
-SSL 인증서를 업로드한 경우 사용자 지정 도메인 이름에 바인딩할 수 있습니다. 자세한 내용은 [Azure 웹 사이트에 HTTPS 사용](http://www.windowsazure.com/ko-kr/documentation/articles/web-sites-configure-ssl-certificate/)을 참조하세요.
+SSL 인증서를 업로드한 경우 사용자 지정 도메인 이름에 바인딩할 수 있습니다. 자세한 내용은 [Azure 웹 사이트에 HTTPS 사용](http://azure.microsoft.com/documentation/articles/web-sites-configure-ssl-certificate/)을 참조하세요.
 
 ### 배포
 
@@ -93,7 +93,7 @@ SSL 인증서를 업로드한 경우 사용자 지정 도메인 이름에 바인
 
 로깅을 지원하는 웹 응용 프로그램의 진단 정보를 기록하는 옵션입니다. 
 
-- <strong>파일 시스템</strong>. 웹 사이트의 파일 시스템에 로그를 기록합니다. 파일 시스템 로깅은 12시간 동안 유지됩니다. 웹 사이트의 로그는 FTP 공유에서 액세스할 수 있습니다. [FTP 자격 증명](http://azure.microsoft.com/ko-kr/documentation/articles/web-sites-manage#ftp-credentials)을 참조하세요.
+- <strong>파일 시스템</strong>. 웹 사이트의 파일 시스템에 로그를 기록합니다. 파일 시스템 로깅은 12시간 동안 유지됩니다. 웹 사이트의 로그는 FTP 공유에서 액세스할 수 있습니다. [FTP 자격 증명](http://azure.microsoft.com/documentation/articles/web-sites-manage#ftp-credentials)을 참조하세요.
 - <strong>테이블 저장소</strong>. Azure 테이블 저장소에 로그를 기록합니다. 시간 제한은 없으며, 사용하지 않도록 설정할 때까지 로깅이 사용 가능한 상태로 유지됩니다. 
 - <strong>Blob 저장소</strong>. Azure Blob 저장소에 로그를 기록합니다. 시간 제한은 없으며, 사용하지 않도록 설정할 때까지 로깅이 사용 가능한 상태로 유지됩니다.
 
@@ -109,13 +109,13 @@ SSL 인증서를 업로드한 경우 사용자 지정 도메인 이름에 바인
 
 <strong>웹 서버 로깅</strong>. 웹 서버 로깅을 사용하도록 설정합니다. 로그는 W3C 확장 로그 파일 형식으로 저장됩니다. Azure 저장소 또는 웹 사이트의 파일 시스템에 로그를 저장할 수 있습니다.
  
-- <strong>파일 시스템</strong>을 선택한 경우 대시보드 관리 페이지의 "FTP 진단 로그" 아래에 나열된 FTP 사이트에 로그가 저장됩니다. [FTP 자격 증명](http://azure.microsoft.com/ko-kr/documentation/articles/web-sites-manage#ftp-credentials)을 참조하세요. 
+- <strong>파일 시스템</strong>을 선택한 경우 대시보드 관리 페이지의 "FTP 진단 로그" 아래에 나열된 FTP 사이트에 로그가 저장됩니다. [FTP 자격 증명](http://azure.microsoft.com/documentation/articles/web-sites-manage#ftp-credentials)을 참조하세요. 
 - **파일 시스템**을 선택한 경우 <strong>할당량</strong> 상자를 사용하여 로그 파일의 최대 디스크 공간 크기를 설정합니다. 최소값은 25MB이고 최대값은 100MB입니다. 기본값은 35MB입니다. 할당량에 도달하는 경우 가장 오래된 파일부터 연속적으로 최신 파일로 덮어씁니다. 100MB보다 큰 기록을 유지해야 하는 경우 더 많은 저장 용량을 지원하는 Azure 저장소를 사용하세요.
 - 필요한 경우 일정 기간 후 파일을 자동으로 삭제하려면 <strong>보존 설정</strong>을 클릭합니다. 기본적으로 로그는 삭제되지 않습니다.   
 
-<strong>자세한 오류 메시지</strong>. 사용하도록 설정한 경우 자세한 오류 메시지가 .htm 파일로 저장됩니다. 파일을 보려면 대시보드 페이지의 "FTP 진단 로그" 아래에 나열된 FTP 사이트로 이동합니다. 파일은 FTP 사이트의 /LogFiles/DetailedErrors 아래에 저장됩니다. [FTP 자격 증명](http://azure.microsoft.com/ko-kr/documentation/articles/web-sites-manage#ftp-credentials)을 참조하세요.
+<strong>자세한 오류 메시지</strong>. 사용하도록 설정한 경우 자세한 오류 메시지가 .htm 파일로 저장됩니다. 파일을 보려면 대시보드 페이지의 "FTP 진단 로그" 아래에 나열된 FTP 사이트로 이동합니다. 파일은 FTP 사이트의 /LogFiles/DetailedErrors 아래에 저장됩니다. [FTP 자격 증명](http://azure.microsoft.com/documentation/articles/web-sites-manage#ftp-credentials)을 참조하세요.
 
-<strong>실패한 요청 추적</strong>. 사용하도록 설정한 경우 실패한 요청이 XML 파일에 로깅됩니다. 파일을 보려면 대시보드 페이지의 "FTP 진단 로그" 아래에 나열된 FTP 사이트로 이동합니다. [FTP 자격 증명](http://azure.microsoft.com/ko-kr/documentation/articles/web-sites-manage#ftp-credentials)을 참조하세요. 파일은 /LogFiles/W3SVC*xxx*(여기서 xxx는 고유 식별자) 아래에 저장됩니다. 이 폴더에는 하나의 XSL 파일 및 하나 이상의 XML 파일이 포함되어 있습니다. XSL 파일은 XML 파일 내용의 서식을 지정하고 필터링하는 기능을 제공하므로 XSL 파일을 다운로드해야 합니다.
+<strong>실패한 요청 추적</strong>. 사용하도록 설정한 경우 실패한 요청이 XML 파일에 로깅됩니다. 파일을 보려면 대시보드 페이지의 "FTP 진단 로그" 아래에 나열된 FTP 사이트로 이동합니다. [FTP 자격 증명](http://azure.microsoft.com/documentation/articles/web-sites-manage#ftp-credentials)을 참조하세요. 파일은 /LogFiles/W3SVC*xxx*(여기서 xxx는 고유 식별자) 아래에 저장됩니다. 이 폴더에는 하나의 XSL 파일 및 하나 이상의 XML 파일이 포함되어 있습니다. XSL 파일은 XML 파일 내용의 서식을 지정하고 필터링하는 기능을 제공하므로 XSL 파일을 다운로드해야 합니다.
 
 <strong>원격 디버깅</strong>. 원격 디버깅을 사용하도록 설정합니다. 이를 사용하도록 설정하면 Visual Studio의 원격 디버거를 사용하여 Azure 웹 사이트에 직접 연결할 수 있습니다. 원격 디버깅은 48시간 동안 사용 가능한 상태로 유지됩니다.
 
@@ -132,7 +132,7 @@ SSL 인증서를 업로드한 경우 사용자 지정 도메인 이름에 바인
 
 <strong>추가 기능</strong>을 선택하여 목록에서 분석 추가 기능을 선택하거나, Azure 스토어로 이동하여 분석 추가 기능을 선택합니다. <strong>사용자 지정</strong>을 선택하면 목록에서 New Relic 같은 분석 공급자를 선택할 수 있습니다. 사용자 지정 공급자를 사용하는 경우 <strong>공급자 키</strong> 상자에 라이선스 키를 입력해야 합니다. 
 
-Azure 웹 사이트에서 New Relic 사용에 대한 자세한 내용은 <a href="http://www.windowsazure.com/ko-kr/documentation/articles/store-new-relic-web-sites-dotnet-application-performance-management/">Azure 웹 사이트에서 New Relic 응용 프로그램 성능 관리</a>를 참조하세요.
+Azure 웹 사이트에서 New Relic 사용에 대한 자세한 내용은 <a href="http://azure.microsoft.com/documentation/articles/store-new-relic-web-sites-dotnet-application-performance-management/">Azure 웹 사이트에서 New Relic 응용 프로그램 성능 관리</a>를 참조하세요.
 
 ### 앱 설정
 
@@ -210,17 +210,17 @@ MySQL 데이터베이스를 사용하도록 웹 사이트를 구성하려면 SQL
 
 ##<a name="howtodomain"></a>방법: 사용자 지정 도메인 이름 구성
 
-사용자 지정 도메인 이름을 사용하도록 웹 사이트를 구성하는 방법에 대한 자세한 내용은 [Azure 웹 사이트에 대한 사용자 지정 도메인 이름 구성](http://www.windowsazure.com/ko-kr/documentation/articles/web-sites-custom-domain-name/)을 참조하세요.
+사용자 지정 도메인 이름을 사용하도록 웹 사이트를 구성하는 방법에 대한 자세한 내용은 [Azure 웹 사이트에 대한 사용자 지정 도메인 이름 구성](http://azure.microsoft.com/documentation/articles/web-sites-custom-domain-name/)을 참조하세요.
 
 ##<a name="howtoconfigSSL"></a>방법: SSL을 사용하도록 웹 사이트 구성##
 
-Azure에서 사용자 지정 도메인에 대해 SSL을 구성하는 방법에 대한 자세한 내용은 [Azure 웹 사이트에 HTTPS 사용](http://www.windowsazure.com/ko-kr/documentation/articles/web-sites-configure-ssl-certificate/)을 참조하세요. 
+Azure에서 사용자 지정 도메인에 대해 SSL을 구성하는 방법에 대한 자세한 내용은 [Azure 웹 사이트에 HTTPS 사용](http://azure.microsoft.com/documentation/articles/web-sites-configure-ssl-certificate/)을 참조하세요. 
 
 ##<a name="next"></a>다음 단계
 
-* [웹 사이트 크기를 조정하는 방법](http://www.windowsazure.com/ko-kr/documentation/articles/web-sites-scale/)
+* [웹 사이트 크기를 조정하는 방법](http://azure.microsoft.com/documentation/articles/web-sites-scale/)
 
-* [웹 사이트를 모니터링하는 방법](http://www.windowsazure.com/ko-kr/documentation/articles/web-sites-monitor/)
+* [웹 사이트를 모니터링하는 방법](http://azure.microsoft.com/documentation/articles/web-sites-monitor/)
 
 
 

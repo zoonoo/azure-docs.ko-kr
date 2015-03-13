@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Performance" pageTitle="성능 모범 사례 - Azure" metaKeywords="Azure 최적화, Azure 모범 사례 성능" description="Azure에서 성능에 대 한 모범 사례에 알아봅니다." metaCanonical="" services="cloud-services,sql-database,storage,service-bus,virtual-network" documentationCenter=".NET" title="" authors="robb" solutions="" manager="johndaw" editor="" />
+﻿<properties 
+	pageTitle="성능 모범 사례 - Azure" 
+	description="Azure의 성능 모범 사례에 대해 알아봅니다." 
+	services="cloud-services, sql-database, storage, service-bus, virtual-network" 
+	documentationCenter=".net" 
+	authors="Rboucher" 
+	manager="jwhit" 
+	editor=""/>
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="9/1/2014" ms.author="robb" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="9/1/2014" 
+	ms.author="robb"/>
 
 # Azure 응용 프로그램의 성능 모범 사례
 
@@ -103,7 +117,7 @@ Azure 테이블 저장소 사용 여부를 결정할 때에는 비용과 성능�
 
 테이블 저장소에 대한 자세한 내용은 다음을 참조하십시오. 
 
-* [Azure 테이블 저장소 및 Azure SQL 데이터베이스 - 비교 및 대조](http://msdn.microsoft.com/ko-kr/library/jj553018.aspx)
+* [Azure 테이블 저장소 및 Azure SQL 데이터베이스 - 비교 및 대조](http://msdn.microsoft.com/library/jj553018.aspx)
 * [Azure 테이블 저장소 성능 고려 사항](http://go.microsoft.com/fwlink/?LinkId=252663)(영문)
 * [SQL 데이터베이스 및 Azure 테이블 저장소](http://go.microsoft.com/fwlink/?LinkId=252664)(영문)
 * [Azure 테이블 저장소 삽입 일괄 처리로 성능 향상](http://go.microsoft.com/fwlink/?LinkID=252665)(영문). 이 문서에서는 몇 가지 성능 결과에 대해 설명합니다. 
@@ -343,3 +357,5 @@ Azure 성능 분석에 Microsoft 이외의 여러 타사 도구를 사용할 수
 * [Azure 계획 - 환경에 Azure를 통합하기 위한 사후 결정 가이드](http://go.microsoft.com/fwlink/?LinkId=252884)(영문)
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

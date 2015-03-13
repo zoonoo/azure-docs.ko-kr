@@ -53,5 +53,4 @@
    	**skip(3)** 메서드는 쿼리 URI에서 쿼리 옵션 **$skip=3**으로 변환되었습니다.
 
 <!-- URLs -->
-[Fiddler]: http://go.microsoft.com/fwlink/?LinkID=262412
-<!--HONumber=42-->
+[Fiddler]: http://go.microsoft.com/fwlink/?LinkID=262412<!--HONumber=42-->

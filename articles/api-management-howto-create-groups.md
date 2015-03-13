@@ -1,6 +1,20 @@
-<properties pageTitle="How to create and use groups to manage developer accounts in Azure API Management" metaKeywords="" description="Learn how to manage developer accounts using groups in Azure API Management" metaCanonical="" services="" documentationCenter="API Management" title="How to create and use groups to manage developer accounts in Azure API Management" authors="sdanie" solutions="" manager="" editor="" />
+﻿<properties 
+	pageTitle="Azure API 관리에서 개발자 계정을 관리하는 그룹을 만들고 사용하는 방법" 
+	description="Azure API 관리에서 그룹을 사용하여 개발자 계정을 관리하는 방법에 대해 알아봅니다." 
+	services="api-management" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
+<tags 
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/18/2014" 
+	ms.author="sdanie"/>
 
 # Azure API 관리에서 개발자 계정을 관리하는 그룹을 만들고 사용하는 방법
 
@@ -91,3 +105,5 @@ API 관리에는 다음과 같은 기본 제공 그룹이 있습니다.
 [그룹에 개발자 추가]: ./media/api-management-howto-create-groups/api-management-add-group-to-developer.png
 [개발자]: ./media/api-management-howto-create-groups/api-management-add-group-to-developer-saved.png
 [Azure API 관리에서 제품을 만들고 게시하는 방법]: ../api-management-howto-add-products
+
+<!--HONumber=46--> 

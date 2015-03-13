@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="02/05/2015" 
+	ms.date="09/25/2014" 
 	ms.author="huvalo"/>
 
 
@@ -43,15 +43,15 @@
 
 ## Django를 호스트하기 위해 Azure 가상 컴퓨터 만들기 및 구성
 
-1. [여기][portal-vm]에 나와 있는 지침을 따라서 *Ubuntu Server 14.04 LTS* 배포의 Azure 가상 컴퓨터를 만드세요.
+1. [여기][portal-vm]에 나와 있는 지침을 따라서  *Ubuntu Server 14.04 LTS* 배포의 Azure 가상 컴퓨터를 만드세요.
 
-  **참고:** 가상 컴퓨터를 만들기*only* 하면 됩니다.  *How to log on to the virtual machine after you create it* 섹션에서 중지합니다.
+  **참고:** 가상 컴퓨터를 만들기 *만* 하면 됩니다.  *가상 컴퓨터를 만든 후 로그온하는 방법* 섹션을 참조하세요.
 
 1. 웹을 통해 들어오는 포트 **80** 트래픽을 가상 컴퓨터의 포트 **80**으로 보내도록 Azure에 지시합니다.
-	* Azure 포털에서 새로 만든 가상 컴퓨터로 이동하고 *ENDPOINTS* 탭을 클릭합니다.
-	* 화면 아래쪽에 있는 *ADD* 단추를 클릭합니다.
+	* Azure 포털에서 새로 만든 가상 컴퓨터로 이동하고  *끝점* 탭을 클릭합니다.
+	* 화면 아래쪽에 있는  *추가* 단추를 클릭합니다.
 	![add endpoint](./media/virtual-machines-python-django-web-app-linux/mac-linux-django-helloworld-add-endpoint.png)
-	* *TCP* 프로토콜의 *PUBLIC PORT 80*을 *PRIVATE PORT 80*으로 엽니다.
+	*  *TCP* 프로토콜의  *공용 포트 80*을  *개인 포트 80*으로 엽니다.
 	![port80](./media/virtual-machines-python-django-web-app-linux/mac-linux-django-helloworld-port80.png)
 
 ## <a id="setup"> </a>개발 환경 설정
@@ -107,7 +107,7 @@ Ubuntu Linux VM에는 Python 2.7이 사전 설치되어 있지만, Apache 또는
 
 ## Apache 설정
 
-1.  Apache 가상 호스트 구성 파일인 **/etc/apache2/sites-available/helloworld.conf**를 만듭니다. 콘텐츠를 다음으로 설정하고 *yourVmUrl*을 현재 사용 중인 컴퓨터의 실제 URL(예: *pyubuntu.cloudapp.net*)으로 바꿉니다.
+1.  Apache 가상 호스트 구성 파일인 **/etc/apache2/sites-available/helloworld.conf**를 만듭니다. 콘텐츠를 다음으로 설정하고  *yourVmUrl*을 현재 사용 중인 컴퓨터의 실제 URL(예:  *pyubuntu.cloudapp.net*)으로 바꿉니다.
 
 		<VirtualHost *:80>
 		ServerName yourVmUrl
@@ -135,4 +135,5 @@ Ubuntu Linux VM에는 Python 2.7이 사전 설치되어 있지만, Apache 또는
 
 [portal-vm]: /ko-kr/manage/linux/tutorials/virtual-machine-from-gallery/
 
-<!--HONumber=45--> 
+
+<!--HONumber=42-->

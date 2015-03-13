@@ -1,6 +1,20 @@
-<properties pageTitle="리소스 관리자에서 Windows PowerShell 사용" metaKeywords="ResourceManager, PowerShell, Azure PowerShell" description="자원 그룹을 만들려면 Windows PowerShell을 사용하여" metaCanonical="" services="" documentationCenter="" title="Using Windows PowerShell with Resource Manager" authors="stevenka; juneb" solutions="" manager="stevenka" editor="mollybos" />
+﻿<properties 
+	pageTitle="리소스 관리자에서 Windows PowerShell 사용" 
+	description="Windows PowerShell을 사용하여 리소스 그룹 만들기" 
+	services="" 
+	documentationCenter="" 
+	authors="sdkaczmarek" 
+	manager="stevenka" 
+	editor="mollybos"/>
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="powershell" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="stevenka; juneb" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="powershell" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="12/02/2014" 
+	ms.author="stevenka"/>
 
 # 리소스 관리자에서 Windows PowerShell 사용
 
@@ -489,3 +503,5 @@ AzureResourceManager 모듈에는 오류를 방지하는 데 유용한 cmdlet이
   [Azure 블로그]: http://blogs.msdn.com/windowsazure
   [Windows PowerShell 블로그]: http://blogs.msdn.com/powershell
   ["Hey, Scripting Guy!" 블로그]: http://blogs.technet.com/b/heyscriptingguy/
+
+<!--HONumber=46--> 

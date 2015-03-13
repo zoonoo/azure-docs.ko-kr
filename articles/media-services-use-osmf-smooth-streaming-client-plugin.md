@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="오픈 소스 미디어 프레임워크용 부드러운 스트리밍 플러그 인" 
 	description="Adobe 오픈 소스 미디어 프레임워크용 Azure 미디어 서비스 부드러운 스트리밍 플러그 인을 사용하는 방법에 대해 알아봅니다." 
 	services="media-services" 
@@ -29,7 +29,7 @@ SS for OSMF에는 두 가지 버전의 플러그 인이 포함됩니다.
 
 - OSMF용 동적 부드러운 스트리밍 플러그 인(.swf)
 
-이 문서는 OSMF 및 OSMF 플러그 인에 대한 실용적인 일반 지식을 가진 독자를 대상으로 합니다. OSMF에 대한 자세한 내용은 [OSMF 공식 사이트](http://osmf.org/)(영문)에 있는 설명서를 참조하세요.
+이 문서는 OSMF 및 OSMF 플러그 인에 대한 실용적인 일반 지식을 가진 독자를 대상으로 합니다. OSMF에 대한 자세한 내용은[OSMF 공식 사이트](http://osmf.org/)(영문)에 있는 설명서를 참조하세요.
 
 ### OSMF용 부드러운 스트리밍 플러그 인 2.0
 
@@ -342,15 +342,16 @@ package
 }
 </code></pre>
 
-## Strobe Media  Playback 및 SS ODMF 동적 플러그 인
-OSMF용 부드러운 스트리밍 동적 플러그 인은 [SMP(Strobe Media Playback)](http://osmf.org/strobe_mediaplayback.html)(영문)와 호환됩니다. SS for OSMF 플러그 인을 사용하여 SMP에 부드러운 스트리밍 콘텐츠 재생을 추가할 수 있습니다. 이렇게 하려면 다음 단계에 따라 "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf"를 HTTP 로드용 웹 서버 아래에 복사합니다.
+## Strobe Media Playback 및 SS ODMF 동적 플러그 인
+OSMF용 부드러운 스트리밍 동적 플러그 인은 [SMP(Strobe Media Playback)](http://osmf.org/strobe_mediaplayback.html)(영문)과 호환됩니다. SS for OSMF 플러그 인을 사용하여 SMP에 부드러운 스트리밍 콘텐츠 재생을 추가할 수 있습니다. 이렇게 하려면 다음 단계에 따라 "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf"를 HTTP 로드용 웹 서버 아래에 복사합니다.
 
 1.	[Strobe Media Playback 설정 페이지](http://osmf.org/dev/2.0gm/setup.html)(영문)로 이동합니다. 
 2.	src를 부드러운 스트리밍 원본(예: http://devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest)으로 설정합니다. 
 3.	원하는 대로 구성을 변경하고 Preview and Update를 클릭합니다.
  
-	**참고** 콘텐츠 웹 서버에는 유효한 crossdomain.xml이 필요합니다. 
+	**참고** 콘텐츠 웹 서버에서 유효한 crossdomain.xml이 필요합니다. 
 4.	즐겨 사용하는 텍스트 편집기에서 코드를 복사하여 다음 예와 같이 간단한 HTML 페이지에 붙여넣습니다.
+
 
 
 		<html>
@@ -374,6 +375,8 @@ OSMF용 부드러운 스트리밍 동적 플러그 인은 [SMP(Strobe Media Play
 		</body>
 		</html>
 
+
+
 5. 부드러운 스트리밍 OSMF 플러그 인을 embed 태그에 추가하고 저장합니다.
 
 		<html>
@@ -395,9 +398,10 @@ OSMF용 부드러운 스트리밍 동적 플러그 인은 [SMP(Strobe Media Play
 		</object>
 		</html>
 
+
 6. 	HTML 페이지를 저장하고 웹 서버에 게시합니다. 즐겨 사용하는 Flash&reg; Player 지원 인터넷 브라우저(Internet Explorer, Chrome, Firefox 등)를 사용하여 게시된 웹 페이지로 이동합니다.
 7. 	Adobe&reg; Flash&reg; Player에서 부드러운 스트리밍 콘텐츠를 즐깁니다.
 
-일반적인 OSMF 개발에 대한 자세한 내용은 공식 [OSMF 개발 페이지](http://osmf.org/resources.html)(영문)를 참조하세요.
+일반적인 OSMF 개발에 대한 자세한 내용은 공식 [OSMF 개발 페이지](http://osmf.org/resources.html)(영문)을 참조하세요.
 
-<!--HONumber=42-->
+<!--HONumber=45--> 

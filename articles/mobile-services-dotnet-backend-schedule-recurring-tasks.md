@@ -1,6 +1,21 @@
-<properties pageTitle="스케줄러를 사용하여 백 엔드 작업 예약 - 모바일 서비스" description="Microsoft Azure 모바일 서비스 스케줄러를 사용하여 모바일 앱에 대한 작업을 예약합니다." services="mobile-services" documentationCenter="windows" authors="ggailey777" writer="" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="스케줄러를 사용하여 백 엔드 작업 예약 - 모바일 서비스" 
+	description="Microsoft Azure 모바일 서비스 스케줄러를 사용하여 모바일 앱에 대한 작업을 예약합니다." 
+	services="mobile-services" 
+	documentationCenter="windows" 
+	authors="ggailey777" 
+	Writer="" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="09/26/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="09/26/2014" 
+	ms.author="glenga"/>
 
 # 모바일 서비스에서 되풀이 작업 예약 
 
@@ -297,7 +312,7 @@ Azure에 게시하고 포털에 등록하기 전에 로컬에서 작업 예약�
 [Azure 관리 포털]: https://manage.windowsazure.com/
 [모바일 서비스에 Twitter 로그인을 사용하기 위해 앱 등록]: /ko-kr/documentation/articles/mobile-services-how-to-register-twitter-authentication
 [Twitter 개발자]: http://go.microsoft.com/fwlink/p/?LinkId=268300
-[앱 설정]: http://msdn.microsoft.com/ko-kr/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
+[앱 설정]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 [LINQ to Twitter CodePlex 프로젝트]: http://linqtotwitter.codeplex.com/
 
 <!--HONumber=42-->

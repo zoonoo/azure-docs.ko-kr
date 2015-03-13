@@ -33,5 +33,4 @@
 [waws]: /ko-kr/manage/services/web-sites/
 [Azure 스토어]: /ko-kr/store/overview/
 [portal]: http://windows.azure.com/
-
 <!--HONumber=42-->

@@ -93,6 +93,5 @@
 
 <!-- URLs. -->
 [저장소 계정을 만드는 방법]: /ko-kr/manage/services/storage/how-to-create-a-storage-account
-[앱 설정]: http://msdn.microsoft.com/ko-kr/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
-
+[앱 설정]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 <!--HONumber=42-->

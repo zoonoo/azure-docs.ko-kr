@@ -13,21 +13,24 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/30/2014" 
+	ms.date="02/05/2015" 
 	ms.author="juliako"/>
 
 
 
 
 
-<h1><a id="monitormediaservicesaccount"></a>미디어 서비스 계정을 모니터링하는 방법</h1>
+#<a id="monitormediaservicesaccount"></a>미디어 서비스 계정을 모니터링하는 방법
+
+이 문서는 [워크플로 주문형 미디어 서비스 비디오](../media-services-video-on-demand-workflow) 및 [미디어 서비스 라이브 스트리밍 워크플로](../media-services-live-streaming-workflow) 시리즈의 일부입니다. 
+
 Azure 미디어 서비스 대시보드는 사용량 메트릭 및 미디어 서비스 계정을 관리하는 데 사용할 수 있는 계정 정보를 보여 줍니다.
 
 인코더의 입력 및 출력 데이터가 표시하는 대기 중인 인코딩 작업, 실패한 인코딩 작업, 활성 인코딩 작업의 수 및 미디어 서비스 계정과 관련된 Blob 저장소 사용량을 모니터링할 수 있습니다. 또한 고객에게 콘텐츠를 스트리밍하는 경우 다양한 스트리밍 메트릭을 검색할 수도 있습니다. 최근 6시간, 24시간 또는 7일 동안의 데이터를 모니터링하도록 선택할 수 있습니다.
  
 >[AZURE.NOTE] Azure 관리 포털에서 저장소 데이터를 모니터링하면 추가 비용이 발생할 수 있습니다. 자세한 내용은 [저장소 분석 및 청구](http://go.microsoft.com/fwlink/?LinkId=256667)를 참조하세요.
 
-<h2><a id="configuremonitoring"></a>방법: 미디어 서비스 계정 모니터링</h2>
+##<a id="configuremonitoring"></a>방법: 미디어 서비스 계정 모니터링
 
 1. [관리 포털](http://go.microsoft.com/fwlink/?LinkID=256666)에서 **미디어 서비스**를 클릭한 후 대시보드를 열 미디어 서비스 계정 이름을 클릭합니다. 
 
@@ -35,7 +38,7 @@ Azure 미디어 서비스 대시보드는 사용량 메트릭 및 미디어 서�
 
 2. 인코딩 작업 또는 데이터를 모니터링하려면 인코딩 작업을 미디어 서비스에 제출하기 시작하거나 Azure 미디어 주문형 스트리밍을 사용하여 고객에게 콘텐츠를 스트리밍하기 시작하면 됩니다. 약 1시간 후에 대시보드에 모니터링 데이터가 표시되기 시작합니다.
 
-<h2><a id="configuringstorage"></a>방법: Blob 저장소 사용법 모니터링(옵션)</h2>
+##<a id="configuringstorage"></a>방법: Blob 저장소 사용법 모니터링(옵션)
 1. **간략 상태** 섹션에서 **저장소 계정** 이름을 클릭합니다.
 2. 저장소 계정 페이지에서 **구성 페이지** 링크를 클릭하고 아래와 같이 Blob, 테이블 및 큐 서비스의 **모니터링** 설정까지 아래로 스크롤합니다.
 
@@ -65,4 +68,4 @@ Azure 미디어 서비스 대시보드는 사용량 메트릭 및 미디어 서�
 [storage_options_scoped]: ./media/media-services-monitor-services-account/storagemonitoringoptions_scoped.png
 
 
-<!--HONumber=42-->
+<!--HONumber=45--> 

@@ -1,6 +1,20 @@
-﻿<properties title="Create a geospatial search solution using Azure Search" pageTitle="Azure 검색을 사용하여 지리 공간적 검색 앱 만들기" description="Bing과 Azure 검색을 사용하여 지리 공간적 검색 앱 만들기" metaKeywords="" services="" solutions="" documentationCenter="" authors="Heidist" manager="mblythe" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Azure 검색을 사용하여 지리 공간 검색 앱 만들기" 
+	description="Bing과 Azure 검색을 사용하여 지리 공간적 검색 앱 만들기" 
+	services="search" 
+	documentationCenter="" 
+	authors="HeidiSteen" 
+	manager="mblythe" 
+	editor=""/>
 
-<tags ms.service="azure-search" ms.devlang="" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="" ms.date="09/23/2014" ms.author="heidist" />
+<tags 
+	ms.service="search" 
+	ms.devlang="rest-api" 
+	ms.workload="search" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.date="01/16/2015" 
+	ms.author="heidist"/>
 
 # Azure 검색을 사용하여 지리 공간적 검색 앱 만들기
 
@@ -25,7 +39,7 @@
 
 <h2 id="sub-1">필수 조건</h2>
 
-+	ASP.NET MVC 4 및 SQL Server가 설치된 Visual Studio 2012 이상 버전. 소프트웨어를 아직 설치하지 않았다면 무료 Express 버전인 [Visual Studio 2013 Express](http://www.visualstudio.com/ko-kr/products/visual-studio-express-vs.aspx) 및 [Microsoft SQL Server 2014 Express](http://msdn.microsoft.com/ko-kr/evalcenter/dn434042.aspx)를 다운로드할 수 있습니다.
++	ASP.NET MVC 4 및 SQL Server가 설치된 Visual Studio 2012 이상 버전. 소프트웨어를 아직 설치하지 않았다면 무료 Express 버전인 [Visual Studio 2013 Express](http://www.visualstudio.com/ko-kr/products/visual-studio-express-vs.aspx) 및 [Microsoft SQL Server 2014 Express](http://msdn.microsoft.com/evalcenter/dn434042.aspx)를 다운로드할 수 있습니다.
 +	Azure 검색 서비스. 검색 서비스 이름과 관리 키가 필요합니다. 자세한 내용은 [Azure 검색 시작](../search-get-started/)을 참조하세요.
 +	Bing 지도 서비스 및 서비스 액세스용 키. 관련 지침은 다음 섹션에 나와 있습니다.
 +	[CodePlex의 Azure 검색 지리적 검색 샘플](https://azuresearchgeospatial.codeplex.com/). 소스 탭에서 **다운로드**를 클릭하여 솔루션 zip 파일을 다운로드하세요. 
@@ -158,3 +172,5 @@ AdventureWorksWeb을 빌드할 때 "파일이나 어셈블리 'System.Web.Mvc, V
 <!--Image references-->
 [7]: ./media/search-create-geospatial/AzureSearch-geo1-App.PNG
 [12]: ./media/search-create-geospatial/AzureSearch_Create2_CodeplexDownload.PNG
+
+<!--HONumber=46--> 

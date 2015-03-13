@@ -1,6 +1,20 @@
-<properties pageTitle="클라우드에 수많은 항목 연결" metaKeywords="Service Bus, internet of things" description="Microsoft Azure를 사용하여 클라우드에 수많은 항목을 연결하는 방법에 대해 알아봅니다." services="service-bus" documentationCenter=".NET" title="클라우드에 수많은 항목 연결" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
+﻿<properties 
+	pageTitle="클라우드에 수많은 항목 연결" 
+	description="Microsoft Azure를 사용하여 클라우드에 수많은 항목을 연결하는 방법에 대해 알아봅니다." 
+	services="service-bus" 
+	documentationCenter=".net" 
+	authors="sethmanheim" 
+	manager="timlt" 
+	editor="mattshel"/>
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
+<tags 
+	ms.service="service-bus" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="02/10/2015" 
+	ms.author="sethm"/>
 
 # 클라우드에 수많은 "항목" 연결
 
@@ -28,13 +42,15 @@
 -   [Azure Active Directory][Azure Active Directory]
 -   [클라우드 서비스][클라우드 서비스]
 
-  [이벤트 허브(영문)]: http://msdn.microsoft.com/ko-kr/library/dn789973.aspx
-  [분할 패턴(영문)]: http://msdn.microsoft.com/ko-kr/library/dn589797.aspx
-  [서비스 버스 및 AMQP 1.0]: http://msdn.microsoft.com/ko-kr/library/azure/jj841071.aspx
-  [서비스 버스 소개]: http://azure.microsoft.com/ko-kr/documentation/services/service-bus/
-  [메시징 엔터티 분할]: http://msdn.microsoft.com/ko-kr/library/azure/dn520246.aspx
-  [서비스 버스 토픽]: http://azure.microsoft.com/ko-kr/documentation/articles/service-bus-dotnet-how-to-use-topics-subscriptions/
-  [Linux 및 Windows에서 Azure 서비스 버스와 Apache Qpid Proton C 사용]: http://msdn.microsoft.com/ko-kr/library/azure/dn235560.aspx
+  [이벤트 허브(영문)]: http://msdn.microsoft.com/library/dn789973.aspx
+  [분할 패턴(영문)]: http://msdn.microsoft.com/library/dn589797.aspx
+  [서비스 버스 및 AMQP 1.0]: http://msdn.microsoft.com/library/azure/jj841071.aspx
+  [서비스 버스 소개]: http://azure.microsoft.com/documentation/services/service-bus/
+  [메시징 엔터티 분할]: http://msdn.microsoft.com/library/azure/dn520246.aspx
+  [서비스 버스 토픽]: http://azure.microsoft.com/documentation/articles/service-bus-dotnet-how-to-use-topics-subscriptions/
+  [Linux 및 Windows에서 Azure 서비스 버스와 Apache Qpid Proton C 사용]: http://msdn.microsoft.com/library/azure/dn235560.aspx
   [연결된 장치에 대한 서비스 지원 통신]: http://blogs.msdn.com/b/clemensv/archive/2014/02/10/service-assisted-communication-for-connected-devices.aspx
-  [Azure Active Directory]: http://azure.microsoft.com/ko-kr/documentation/services/active-directory/
-  [클라우드 서비스]: http://azure.microsoft.com/ko-kr/documentation/services/cloud-services/
+  [Azure Active Directory]: http://azure.microsoft.com/documentation/services/active-directory/
+  [클라우드 서비스]: http://azure.microsoft.com/documentation/services/cloud-services/
+
+<!--HONumber=46--> 

@@ -18,4 +18,4 @@
 	 	        android:targetSdkVersion="21" />
 	
 3. Eclipse Package Explorer에서 프로젝트 노드를 마우스 오른쪽 단추로 클릭하여 **Properties**를 선택하고 왼쪽 열에서 **Android**를 선택합니다. **Project Build Target**을 **targetSdkVersion**과 동일한 SDK 버전으로 설정하세요.
-<!--HONumber=42-->
+\<!--HONumber=42-->

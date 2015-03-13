@@ -1,6 +1,20 @@
-﻿<properties pageTitle="풀 알림을 지원하는 사용자 지정 API 정의 - Azure 모바일 서비스" description="Azure 모바일 서비스를 사용하는 Windows 스토어 앱에서 정기 알림을 지원하는 사용자 지정 API를 정의하는 방법에 대해 알아봅니다." services="mobile-services" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="풀 알림을 지원하는 사용자 지정 API 정의 - Azure 모바일 서비스" 
+	description="Azure 모바일 서비스를 사용하는 Windows 스토어 앱에서 정기 알림을 지원하는 사용자 지정 API를 정의하는 방법에 대해 알아봅니다." 
+	services="mobile-services" 
+	documentationCenter="windows" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="11/22/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="11/22/2014" 
+	ms.author="glenga"/>
 
 # 정기 알림을 지원하는 사용자 지정 API 정의
 
@@ -45,7 +59,8 @@
 		exports.get = function(request, response) {
 		    var wns = require('wns');
 		    var todoItems = request.service.tables.getTable('TodoItem');
-		    todoItems.where({
+		    todoIte
+	ms.where({
 		        complete: false
 		    }).read({
 		        success: sendResponse
@@ -82,7 +97,7 @@
 
 	**exports.get** 함수는 클라이언트가 타일 템플릿에 액세스하는 GET 요청을 보내기 때문에 사용됩니다.
 
-   	> [AZURE.NOTE] 이 사용자 지정 API 스크립트는 **require** 함수를 사용하여 참조되는 Node.js [wns 모듈](http://go.microsoft.com/fwlink/p/?LinkId=306750)을 사용합니다. 이 모듈은 서버 스크립트의 푸시 알림을 전송하는 데 사용되는, [푸시 개체](http://msdn.microsoft.com/ko-kr/library/windowsazure/jj554217.aspx)에서 반환되는 [wns 개체](http://go.microsoft.com/fwlink/p/?LinkId=260591)와 다릅니다.
+   	> [AZURE.NOTE] 이 사용자 지정 API 스크립트는 **require** 함수를 사용하여 참조되는 Node.js [wns 모듈](http://go.microsoft.com/fwlink/p/?LinkId=306750)을 사용합니다. 이 모듈은 서버 스크립트의 푸시 알림을 전송하는 데 사용되는, [푸시 개체](http://msdn.microsoft.com/library/windowsazure/jj554217.aspx)에서 반환되는 [wns 개체](http://go.microsoft.com/fwlink/p/?LinkId=260591)와 다릅니다.
 
 다음에는 새 사용자 지정 API를 요청하여 라이브 타일을 업데이트하는 정기 알림을 시작하도록 퀵 스타트 앱을 수정합니다.
 
@@ -150,7 +165,7 @@
 [푸시 알림 시작]: /ko-kr/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push
 
 [Azure 관리 포털]: https://manage.windowsazure.com/
-[정기 알림]: http://msdn.microsoft.com/ko-kr/library/windows/apps/jj150587.aspx
+[정기 알림]: http://msdn.microsoft.com/library/windows/apps/jj150587.aspx
 
 [모바일 서비스 .NET 방법 개념 참조]: /ko-kr/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library
 

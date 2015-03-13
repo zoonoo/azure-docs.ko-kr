@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Azure .NET SDK 정의" metaKeywords="azure .net sdk" description="Azure .NET SDK에 포함된 항목에 대해 알아봅니다." documentationCenter=".NET" title="What is the Azure SDK for .NET" authors="tdykstra" solutions="" manager="wpickett" editor="mollybos" />
+﻿<properties 
+	pageTitle="Azure .NET SDK 정의" 
+	description="Azure .NET SDK에 포함된 항목에 대해 알아봅니다." 
+	documentationCenter=".net" 
+	authors="tdykstra" 
+	manager="wpickett" 
+	editor="mollybos" 
+	services=""/>
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="tdykstra" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="02/19/2015" 
+	ms.author="tdykstra"/>
 
 # Azure SDK for .NET 정의
 
@@ -40,7 +54,7 @@ Azure SDK for .NET은 다음 제품을 설치합니다.
 * [Azure 웹 사이트에 웹 프로젝트 게시](../web-sites-dotnet-get-started/)
 * [Azure WebJobs에 콘솔 응용 프로그램 프로젝트 게시](../websites-dotnet-deploy-webjobs/)
 * [새 웹 프로젝트를 만드는 동안 또는 웹 프로젝트를 게시하는 동안 Azure 웹 사이트 및 SQL 데이터베이스 리소스 만들기](../web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/)
-* [새 웹 사이트를 만드는 동안 PowerShell 배포 스크립트 만들기](http://msdn.microsoft.com/ko-kr/library/dn642480.aspx)
+* [새 웹 사이트를 만드는 동안 PowerShell 배포 스크립트 만들기](http://msdn.microsoft.com/library/dn642480.aspx)
 * [서버 탐색기에서 Azure 웹 사이트 관리 및 문제 해결](../web-sites-dotnet-troubleshoot-visual-studio/#sitemanagement)
 * [웹 사이트 및 WebJobs에 대해 원격으로 디버그 모드에서 실행](../web-sites-dotnet-troubleshoot-visual-studio/#remotedebug) 
 
@@ -51,28 +65,28 @@ Azure SDK for .NET은 다음 제품을 설치합니다.
 이 제품을 사용하면 Azure 클라우드 서비스 및 가상 컴퓨터에서 다음 작업을 수행할 수 있습니다.
 
 * [클라우드 서비스 프로젝트 만들기, 열기 및 게시](../cloud-services-dotnet-get-started/)
-* [클라우드 서비스 프로젝트에 대한 배포 패키지 만들기](http://msdn.microsoft.com/ko-kr/library/ff683672.aspx)
+* [클라우드 서비스 프로젝트에 대한 배포 패키지 만들기](http://msdn.microsoft.com/library/ff683672.aspx)
 * [새 웹 프로젝트를 만드는 동안 Azure 가상 컴퓨터 만들기](../virtual-machines-dotnet-create-visual-studio-powershell/)
-* [새 가상 컴퓨터를 만드는 동안 PowerShell 스크립트 만들기](http://msdn.microsoft.com/ko-kr/library/dn642480.aspx)
-* [Visual Studio 프로젝트 속성 창에서 클라우드 서비스 프로젝트 설정 보기 및 관리](http://msdn.microsoft.com/ko-kr/library/ee405486.aspx)
-* 서버 탐색기에서 [클라우드 서비스](http://msdn.microsoft.com/ko-kr/library/ff683675.aspx), [가상 컴퓨터](http://msdn.microsoft.com/ko-kr/library/jj131259.aspx) 및 [서비스 버스](http://msdn.microsoft.com/ko-kr/library/jj149828.aspx) 보기 및 관리 
-* [클라우드 서비스 및 가상 컴퓨터에 대해 원격으로 디버그 모드에서 실행](http://msdn.microsoft.com/ko-kr/library/ff683670.aspx)
+* [새 가상 컴퓨터를 만드는 동안 PowerShell 스크립트 만들기](http://msdn.microsoft.com/library/dn642480.aspx)
+* [Visual Studio 프로젝트 속성 창에서 클라우드 서비스 프로젝트 설정 보기 및 관리](http://msdn.microsoft.com/library/ee405486.aspx)
+* 서버 탐색기에서 [클라우드 서비스](http://msdn.microsoft.com/library/ff683675.aspx), [가상 컴퓨터](http://msdn.microsoft.com/library/jj131259.aspx) 및 [서비스 버스](http://msdn.microsoft.com/library/jj149828.aspx) 보기 및 관리 
+* [클라우드 서비스 및 가상 컴퓨터에 대해 원격으로 디버그 모드에서 실행](http://msdn.microsoft.com/library/ff683670.aspx)
 
 ###<a id="auth"></a>Microsoft Azure 작성 도구
 
 이 제품에는 다음이 포함됩니다.
 
-* 배포 패키지를 만들기 위한 [CSPack 명령줄 도구](http://msdn.microsoft.com/ko-kr/library/gg432988.aspx)
-* 원격 데스크톱 연결을 통해 클라우드 서비스 역할 인스턴스에 액세스하는 데 사용되는 암호를 암호화하기 위한 [CSEncrypt 명령줄 도구](http://msdn.microsoft.com/ko-kr/library/hh404001.aspx)
+* 배포 패키지를 만들기 위한 [CSPack 명령줄 도구](http://msdn.microsoft.com/library/gg432988.aspx)
+* 원격 데스크톱 연결을 통해 클라우드 서비스 역할 인스턴스에 액세스하는 데 사용되는 암호를 암호화하기 위한 [CSEncrypt 명령줄 도구](http://msdn.microsoft.com/library/hh404001.aspx)
 * 클라우드 서비스 프로젝트가 런타임 환경과 통신하고 진단하는 데 필요한 런타임 이진. NuGet 패키지에서는 해당 이진을 사용할 수 없습니다.
 
 ###<a id="emulator"></a>Microsoft Azure 에뮬레이터
 
-[Azure 에뮬레이터](http://msdn.microsoft.com/ko-kr/library/dn339018.aspx)는 Azure에 배포하기 전에 사용자 컴퓨터에서 클라우드 서비스 프로젝트를 로컬로 테스트할 수 있도록 클라우드 서비스 환경을 시뮬레이트합니다.
+[Azure 에뮬레이터](http://msdn.microsoft.com/library/dn339018.aspx)는 Azure에 배포하기 전에 사용자 컴퓨터에서 클라우드 서비스 프로젝트를 로컬로 테스트할 수 있도록 클라우드 서비스 환경을 시뮬레이트합니다.
 
 ###<a id="stgemulator"></a>Microsoft Azure 저장소 에뮬레이터
 
-[Azure 저장소 에뮬레이터](http://msdn.microsoft.com/ko-kr/library/hh403989.aspx)는 로컬에서 테스트할 수 있도록 SQL Server 인스턴스 및 로컬 파일 시스템을 사용하여 Azure 저장소(큐, 테이블, blob)를 시뮬레이트합니다. 
+[Azure 저장소 에뮬레이터](http://msdn.microsoft.com/library/hh403989.aspx)는 로컬에서 테스트할 수 있도록 SQL Server 인스턴스 및 로컬 파일 시스템을 사용하여 Azure 저장소(큐, 테이블, blob)를 시뮬레이트합니다. 
 
 ###<a id="stgtools"></a>Microsoft Azure 저장소 도구
 
@@ -83,11 +97,11 @@ Azure SDK for .NET은 다음 제품을 설치합니다.
 이 제품에는 다음이 포함됩니다.
 
 * Visual Studio가 오프라인 상태에서 새 클라우드 서비스 프로젝트를 만들 수 있도록 사용자 컴퓨터에 저장되는 Azure 저장소, 서비스 버스 및 캐싱용 NuGet 패키지입니다.
-* [In-Role Cache](http://msdn.microsoft.com/ko-kr/library/dn386103.aspx) 프로젝트가 Visual Studio에서 로컬로 실행될 수 있도록 하는 Visual Studio 플러그 인입니다. 
+* [In-Role Cache](http://msdn.microsoft.com/library/dn386103.aspx) 프로젝트가 Visual Studio에서 로컬로 실행될 수 있도록 하는 Visual Studio 플러그 인입니다. 
 
 ###<a id="ls"></a>Visual Studio용 LightSwitch Azure 게시 추가 기능
 
-이 제품을 사용하면 [Azure 웹 사이트에 LightSwitch 프로젝트를 게시](http://msdn.microsoft.com/ko-kr/library/jj131261.aspx)할 수 있습니다. LightSwitch 추가 기능은 Visual Studio 업데이트 및 Azure SDK for .NET에 포함되어 있습니다. SDK를 설치하면 이 추가 기능의 최신 버전을 갖게 됩니다. 
+이 제품을 사용하면 [Azure 웹 사이트에 LightSwitch 프로젝트를 게시](http://msdn.microsoft.com/library/jj131261.aspx)할 수 있습니다. LightSwitch 추가 기능은 Visual Studio 업데이트 및 Azure SDK for .NET에 포함되어 있습니다. SDK를 설치하면 이 추가 기능의 최신 버전을 갖게 됩니다. 
 
 ##<a id="notincluded"></a>Azure SDK for .NET을 설치할 때 포함되지 않는 항목
 
@@ -139,7 +153,7 @@ SDK는 인터넷에 연결되지 않은 경우에도 클라우드 서비스 프�
 
 ###<a id="guestos"></a>Azure SDK for .NET과 호환되는 게스트 OS 버전은 무엇인가요?
 
-[Azure 게스트 OS 릴리스 및 SDK 호환성 매트릭스](http://msdn.microsoft.com/ko-kr/library/ee924680.aspx)를 참조하세요.
+[Azure 게스트 OS 릴리스 및 SDK 호환성 매트릭스](http://msdn.microsoft.com/library/ee924680.aspx)를 참조하세요.
 
 
 
@@ -150,3 +164,5 @@ Azure SDK for .NET 또는 클라이언트 라이브러리를 다운로드하려�
 클라이언트 라이브러리를 비롯한 Azure SDK for .NET 소스 코드는 [GitHub.com/Azure](https://github.com/azure/)(영문)를 참조하세요.
 
 Azure 클라이언트 라이브러리 참조 설명서는 [Azure .NET 참조](/ko-kr/develop/net/reference/)를 참조하세요. 
+
+<!--HONumber=46--> 

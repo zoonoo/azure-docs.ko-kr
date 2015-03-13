@@ -1,6 +1,20 @@
-<properties pageTitle="How to use the API Inspector to trace calls in Azure API Management" metaKeywords="" description="Learn how to trace calls using the API Inspector in Azure API Management." metaCanonical="" services="" documentationCenter="API Management" title="How to use the API Inspector to trace calls in Azure API Management" authors="sdanie" solutions="" manager="" editor="" />
+﻿<properties 
+	pageTitle="API 검사기를 사용하여 Azure API 관리에서 호출을 추적하는 방법" 
+	description="API 검사기를 사용하여 Azure API 관리에서 호출을 추적하는 방법에 대해 알아봅니다." 
+	services="api-management" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
+<tags 
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/18/2014" 
+	ms.author="sdanie"/>
 
 # API 검사기를 사용하여 Azure API 관리에서 호출을 추적하는 방법
 
@@ -197,3 +211,5 @@ API 검사기를 사용하려면 **ocp-apim-trace: true** 요청 헤더를 작�
 [콘솔 시작]: ./media/api-management-howto-api-inspector/api-management-open-console.png
 [HTTP Get]: ./media/api-management-howto-api-inspector/api-management-http-get.png
 [고급 API 구성 시작]: ../api-management-get-started-advanced
+
+<!--HONumber=46--> 

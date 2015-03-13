@@ -1,37 +1,51 @@
-﻿<properties title="Azure Notification Hubs Notify Users" pageTitle="Azure 알림 허브 사용자에게 알림" metaKeywords="Azure push notifications, Azure notification hubs" description="Azure에서 보안 푸시 알림을 보내는 방법에 대해 알아봅니다. 코드 샘플은 .NET API를 사용하여 Objective-C로 작성되었습니다." documentationCenter="Mobile" metaCanonical="" disqusComments="1" umbracoNaviHide="0" authors="yuaxu" manager="dwrede" />
+﻿<properties 
+	pageTitle="Azure 알림 허브 사용자에게 알림" 
+	description="Azure에서 보안 푸시 알림을 보내는 방법에 대해 알아봅니다. 코드 샘플은 .NET API를 사용하여 Objective-C로 작성되었습니다." 
+	documentationCenter="ios" 
+	authors="ysxu" 
+	manager="dwrede" 
+	editor="" 
+	services="notification-hubs"/>
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="11/22/2014" ms.author="yuaxu" />
+<tags 
+	ms.service="notification-hubs" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="" 
+	ms.devlang="objective-c" 
+	ms.topic="article" 
+	ms.date="11/22/2014" 
+	ms.author="yuaxu"/>
 
-#Azure 알림 허브 사용자에게 알림
+# Azure 알림 허브 사용자에게 알림
 
 <div class="dev-center-tutorial-selector sublanding">
     	<a href="/ko-kr/documentation/articles/notification-hubs-aspnet-backend-windows-dotnet-notify-users/" title="Windows Universal">Windows Universal</a><a href="/ko-kr/documentation/articles/notification-hubs-/" title="iOS" class="current">iOS</a>
 		<a href="/ko-kr/documentation/articles/notification-hubs-aspnet-backend-android-notify-users/" title="Android">Android</a>
 </div>
 
-Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플랫폼 및 규모 확장 푸시 인프라에 액세스할 수 있어, 모바일 플랫폼용 소비자 응용 프로그램 및 엔터프라이즈 응용 프로그램 모두에 대한 푸시 알림을 매우 간단하게 구현할 수 있습니다. 이 자습서에서는 Azure 알림 허브를 사용하여 특정 장치에서 특정 앱 사용자에게 푸시 알림을 보내는 방법을 보여 줍니다. 지침 항목 [앱 백 엔드에서 등록]에(http://msdn.microsoft.com/ko-kr/library/dn743807.aspx)나와 있는 대로 ASP.NET WebAPI 백 엔드는 클라이언트를 인증하고 알림을 생성하는 데 사용됩니다.
+Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플랫폼 및 규모 확장 푸시 인프라에 액세스할 수 있어, 모바일 플랫폼용 소비자 응용 프로그램 및 엔터프라이즈 응용 프로그램 모두에 대한 푸시 알림을 매우 간단하게 구현할 수 있습니다. 이 자습서에서는 Azure 알림 허브를 사용하여 특정 장치에서 특정 앱 사용자에게 푸시 알림을 보내는 방법을 보여 줍니다. 지침 항목 [앱 백 엔드에서 등록](http://msdn.microsoft.com/library/dn743807.aspx)에 나와 있는 대로 ASP.NET WebAPI 백 엔드는 클라이언트를 인증하고 알림을 생성하는 데 사용됩니다.
 
-> [AZURE.NOTE] 이 자습서에서는 [GGetting 알림 허브 시작(iOS)]에(http://azure.microsoft.com/ko-kr/documentation/articles/notification-hubs-ios-get-started/)설명된 대로 알림 허브를 만들고 구성했다고 가정합니다. 이 자습서는 [보안 푸시(iOS)](http://azure.microsoft.com/ko-kr/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/) 자습서의 필수 조건이기도 합니다.
-> 모바일 서비스를 백 엔드 서비스로 사용 중인 경우 이 자습서의 [모바일 서비스 버전]을(/ko-kr/documentation/articles/mobile-services-javascript-backend-ios-push-notifications-app-users/) 참조하세요.
+> [AZURE.NOTE] 이 자습서에서는 [알림 허브 시작(iOS)](http://azure.microsoft.com/ documentation/articles/notification-hubs-ios-get-started/)에 설명된 대로 알림 허브를 만들고 구성했다고 가정합니다. 이 자습서는 [보안 푸시(iOS)](http://azure.microsoft.com/ documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/) 자습서의 필수 조건이기도 합니다.
+> 모바일 서비스를 백 엔드 서비스로 사용 중인 경우 이 자습서의 [모바일 서비스 버전](/ko-kr/documentation/articles/mobile-services-javascript-backend-ios-push-notifications-app-users/)을 참조하세요.
 
 
 ## 알림 허브 만들기 및 구성
 
-[알림 허브 시작(iOS)]의(http://azure.microsoft.com/ko-kr/documentation/articles/notification-hubs-ios-get-started/)섹션 1-5를 수행하세요. iOS 장치 프로비저닝에 대한 추가 리소스는 [Big Nerd Ranch](영문)의(http://www.bignerdranch.com/we-teach/how-to-prepare/ios-device-provisioning.html)가이드를 참조하세요.
+[알림 허브 시작(iOS) 시작](http://azure.microsoft.com/ documentation/articles/notification-hubs-ios-get-started/)의 1~5 섹션을 수행하세요. iOS 장치 프로비전에 대한 추가 리소스는 [Big Nerd Ranch](http://www.bignerdranch.com/we-teach/how-to-prepare/ios-device-provisioning.html)의 가이드를 참조하세요.
 
-[WACOM.INCLUDE [notification-hubs-aspnet-backend-notifyusers](../includes/notification-hubs-aspnet-backend-notifyusers.md)]
+[AZURE.INCLUDE [notification-hubs-aspnet-backend-notifyusers](../includes/notification-hubs-aspnet-backend-notifyusers.md)]
 
 ## iOS 앱 수정
 
-1. [알림 허브 시작(iOS)]의 섹션 1-5에 따라 만든 단일 페이지 보기 앱을(http://azure.microsoft.com/ko-kr/documentation/articles/notification-hubs-ios-get-started/)엽니다.
+1. [알림 허브 시작(iOS)](http://azure.microsoft.com/ documentation/articles/notification-hubs-ios-get-started/)의 섹션 1~5에 따라 만든 단일 페이지 보기 앱을 엽니다.
 
 > [AZURE.NOTE] 이 섹션에서는 빈 조직 이름을 사용하여 프로젝트를 구성했다고 가정합니다. 이렇게 구성하지 않았으면 모든 클래스 이름 앞에 조직 이름을 추가해야 합니다.
 
 2. Main.storyboard의 개체 라이브러리에서 다음 구성 요소를 추가합니다.
 	+ 자리 표시자 텍스트 **Username**이 포함된 UITextField
 	+ 자리 표시자 텍스트 **Password**가 포함된 UITextField, Attribute Inspector의 Textfield Return Key 아래에서 **보안** 옵션 선택
-	+ **1. 로그인** 레이블이 지정된 UIButton, Attributes Inspector의 Control then Content 아래에서 **사용** 옵션 선택 취소
-	+ **2. 푸시 보내기** 레이블이 지정된 UIButton, **사용** 옵션 선택 취소
+	+ **1 레이블이 지정된 UIButton. 로그인** 레이블이 지정된 UIButton, Attributes Inspector의 Control then Content 아래에서 **사용** 옵션 선택 취소
+	+ **2 레이블이 지정된 UIButton. 푸시 보내기** 레이블이 지정된 UIButton, **사용** 옵션 선택 취소
 
 	스토리보드는 다음과 같이 표시됩니다.
 
@@ -192,7 +206,7 @@ Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플랫폼 및
 		    [dataTask resume];
 		}
 
-	위 코드는 지침 문서 [앱 백 엔드에서 등록]에(http://msdn.microsoft.com/ko-kr/library/dn743807.aspx) 설명된 논리를 구현합니다. 이 논리에서는 NSURLSession를 사용하여 앱 백 엔드에 대한 REST 호출을 수행하고 NSUserDefaults를 사용하여 알림 허브에서 반환된 registrationId를 로컬로 저장합니다.
+	위의 코드는 NSURLSession를 사용하여 앱 백 엔드에 대한 REST 호출을 수행하고 NSUserDefaults를 사용하여 알림 허브에서 반환된 registrationId를 로컬로 저장하는, 지침 문서 [앱 백 엔드에서 등록](http://msdn.microsoft.com/library/dn743807.aspx)에서 설명된 논리를 구현합니다.
 
 	이 클래스가 제대로 작동하려면 **authorizationHeader** 속성을 설정해야 합니다. 이 속성은 로그인 후에 **ViewController** 클래스에 의해 설정됩니다.
 
@@ -313,11 +327,11 @@ Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플랫폼 및
 
 2. iOS 앱 UI에서 사용자 이름과 암호를 입력합니다. 이는 임의 문자열일 수 있지만 같은 값이어야 합니다. 그리고 나서 **로그인**을 클릭합니다.
 
-3. 등록 성공을 알려주는 팝업이 표시됩니다. **확인**을 클릭합니다.
+3. 등록 성공을 알리는 팝업이 표시됩니다. **확인**을 클릭합니다.
 
 4. **푸시 보내기**를 클릭하고 홈 단추를 누릅니다. 금방 푸시 알림이 표시됩니다.
 
 
 [IOS1]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users1.png
 
-<!--HONumber=35.1-->
+<!--HONumber=45--> 

@@ -123,7 +123,7 @@ Microsoft에서는 HDInsight 클러스터에 구성 요소를 설치하는 샘�
 - [HDInsight 클러스터에 Solr 설치 및 사용](../hdinsight-hadoop-solr-install)
 - [HDInsight클러스터에 Giraph 설치 및 사용](../hdinsight-hadoop-giraph-install)  
 
-> [AZURE.NOTE] 샘플 스크립트는 HDInsight 클러스터 버전 3.1 이상에서만 작동합니다. HDInsight 클러스터 버전에 대한 자세한 내용은 [HDInsight 클러스터 버전](http://azure.microsoft.com/ko-kr/documentation/articles/hdinsight-component-versioning/)을 참조하세요.
+> [AZURE.NOTE] 샘플 스크립트는 HDInsight 클러스터 버전 3.1 이상에서만 작동합니다. HDInsight 클러스터 버전에 대한 자세한 내용은 [HDInsight 클러스터 버전](http://azure.microsoft.com/documentation/articles/hdinsight-component-versioning/)을 참조하세요.
 
 ## <a name="testScript"></a>HDInsight Emulator를 사용하여 사용자 지정 스크립트를 테스트하는 방법
 
@@ -131,7 +131,7 @@ Microsoft에서는 HDInsight 클러스터에 구성 요소를 설치하는 샘�
 
 이 섹션에서는 테스트 목적을 위해 로컬에서 HDInsight Emulator를 사용하는 절차를 설명하지만, VM 사용에 대한 절차와 비슷합니다.
 
-**HDInsight Emulator 설치**: 로컬에서 스크립트 작업을 실행하려면 HDInsight Emulator가 설치되어 있어야 합니다. HDInsight Emulator를 설치하는 방법에 대한 지침은 [HDInsight Emulator 시작](http://azure.microsoft.com/ko-kr/documentation/articles/hdinsight-get-started-emulator/)을 참조하세요.
+**HDInsight Emulator 설치**: 로컬에서 스크립트 작업을 실행하려면 HDInsight Emulator가 설치되어 있어야 합니다. HDInsight Emulator를 설치하는 방법에 대한 지침은 [HDInsight Emulator 시작](http://azure.microsoft.com/documentation/articles/hdinsight-get-started-emulator/)을 참조하세요.
 
 **Azure PowerShell에 대한 실행 정책 설정:** Microsoft Azure PowerShell을 열고 다음 명령을 (관리자로서) 실행하여  *LocalMachine*에 실행 정책을 설정하고  *Unrestricted*으로 설정합니다.
  
@@ -214,4 +214,4 @@ Spark 및 R 클러스터를 사용할 때 필요한 데이터 파일이 HDInsigh
 [hdinsight-install-spark]: ../hdinsight-hadoop-spark-install/
 [hdinsight-r-scripts]: ../hdinsight-hadoop-r-scripts/
 [powershell-install-configure]: ../install-configure-powershell/
-<!--HONumber=42-->
+\<!--HONumber=42-->

@@ -1,6 +1,20 @@
-<properties pageTitle="Azure Redis Cache 사용 방법" metaKeywords="" description="Azure Redis Cache에서 캐시를 만들고 사용하는 방법에 대해 알아봅니다." metaCanonical="" services="cache" documentationCenter="API Management" title="How to Use Azure Redis Cache" authors="sdanie" solutions="" manager="dwrede" editor="" />
+﻿<properties 
+	pageTitle="Azure Redis Cache 사용 방법" 
+	description="Azure Redis Cache에서 캐시를 만들고 사용하는 방법에 대해 알아봅니다." 
+	services="cache" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="cache" ms.workload="tbd" ms.tgt_pltfrm="cache-redis" ms.devlang="dotnet" ms.topic="article" ms.date="11/18/2014" ms.author="sdanie" />
+<tags 
+	ms.service="cache" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="cache-redis" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="1/20/2015" 
+	ms.author="sdanie"/>
 
 # Azure Redis Cache 사용 방법
 
@@ -332,27 +346,27 @@ NuGet 패키지는 필요한 어셈블리 참조를 다운로드 및 추가하�
 <!-- LINKS -->
 [Azure Redis 세션 상태 공급자]: http://go.microsoft.com/fwlink/?LinkId=398249
 [Azure 관리 포털]: http://windows.azure.com/
-[방법: 프로그래밍 방식으로 캐시 클라이언트 구성]: http://msdn.microsoft.com/ko-kr/library/windowsazure/gg618003.aspx
+[방법: 프로그래밍 방식으로 캐시 클라이언트 구성]: http://msdn.microsoft.com/library/windowsazure/gg618003.aspx
 [Azure 캐시용 세션 상태 공급자]: http://go.microsoft.com/fwlink/?LinkId=320835
 [Azure AppFabric 캐시: 캐싱 세션 상태]: http://www.microsoft.com/ko-kr/showcase/details.aspx?uuid=87c833e9-97a9-42b2-8bb1-7601f9b5ca20
 [Azure 캐시용 출력 캐시 공급자]: http://go.microsoft.com/fwlink/?LinkId=320837
-[Azure 공유 캐싱]: http://msdn.microsoft.com/ko-kr/library/windowsazure/gg278356.aspx
+[Azure 공유 캐싱]: http://msdn.microsoft.com/library/windowsazure/gg278356.aspx
 [팀 블로그]: http://blogs.msdn.com/b/windowsazure/
 [Azure 캐싱]: http://www.microsoft.com/ko-kr/showcase/Search.aspx?phrase=azure+caching
 [가상 컴퓨터 크기를 구성하는 방법]: http://go.microsoft.com/fwlink/?LinkId=164387
 [Azure 캐싱 용량 계획 고려 사항]: http://go.microsoft.com/fwlink/?LinkId=320167
 [Azure 캐싱]: http://go.microsoft.com/fwlink/?LinkId=252658
-[방법: ASP.NET 페이지의 캐시 가능성을 선언적으로 설정]: http://msdn.microsoft.com/ko-kr/library/zd1ysf1y.aspx
-[방법: 페이지의 캐시 가능성을 프로그래밍 방식으로 설정]: http://msdn.microsoft.com/ko-kr/library/z852zf6b.aspx
-[Azure Redis Cache에서 캐시 구성]: http://msdn.microsoft.com/ko-kr/library/azure/dn793612.aspx
+[방법: ASP.NET 페이지의 캐시 가능성을 선언적으로 설정]: http://msdn.microsoft.com/library/zd1ysf1y.aspx
+[방법: 페이지의 캐시 가능성을 프로그래밍 방식으로 설정]: http://msdn.microsoft.com/library/z852zf6b.aspx
+[Azure Redis Cache에서 캐시 구성]: http://msdn.microsoft.com/library/azure/dn793612.aspx
 
 [StackExchange.Redis 구성 모델]: http://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Configuration.md
 
-[캐시에서 .NET 개체 사용]: http://msdn.microsoft.com/ko-kr/library/dn690521.aspx#Objects
+[캐시에서 .NET 개체 사용]: http://msdn.microsoft.com/library/dn690521.aspx#Objects
 
 
 [NuGet 패키지 관리자 설치]: http://go.microsoft.com/fwlink/?LinkId=240311
-[캐시 가격 정보]: http://www.windowsazure.com/ko-kr/pricing/details/cache/
+[캐시 가격 정보]: http://azure.microsoft.com/pricing/details/cache/
 [관리 포털]: https://manage.windowsazure.com/
 
 [Azure Redis Cache 개요]: http://go.microsoft.com/fwlink/?LinkId=320830
@@ -360,7 +374,7 @@ NuGet 패키지는 필요한 어셈블리 참조를 다운로드 및 추가하�
 
 [Azure Redis Cache로 마이그레이션]: http://go.microsoft.com/fwlink/?LinkId=317347
 [Azure Redis Cache 샘플]: http://go.microsoft.com/fwlink/?LinkId=320840
-[리소스 그룹을 사용하여 Azure 리소스 관리]: http://azure.microsoft.com/ko-kr/documentation/articles/azure-preview-portal-using-resource-groups/
+[리소스 그룹을 사용하여 Azure 리소스 관리]: http://azure.microsoft.com/documentation/articles/azure-preview-portal-using-resource-groups/
 
 [StackExchange.Redis]: http://github.com/StackExchange/StackExchange.Redis
 [StackExchange.Redis 캐시 클라이언트 설명서]: http://github.com/StackExchange/StackExchange.Redis#documentation
@@ -372,3 +386,5 @@ NuGet 패키지는 필요한 어셈블리 참조를 다운로드 및 추가하�
 [Windows Azure 웹 사이트: 응용 프로그램 설정 및 연결 문자열 작동 방식]: http://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

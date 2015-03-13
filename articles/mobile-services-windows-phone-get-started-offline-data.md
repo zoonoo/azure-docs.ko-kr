@@ -1,6 +1,20 @@
-﻿<properties pageTitle="모바일 서비스에서 오프라인 데이터 사용(Windows Phone) | 모바일 개발자 센터" description="Azure 모바일 서비스를 사용하여 Windows Phone 응용 프로그램에서 오프라인 데이터를 동기화하는 방법에 대해 알아봅니다." documentationCenter="windows" authors="wesmc7777" manager="dwrede" editor="" services=""/>
+﻿<properties 
+	pageTitle="모바일 서비스에서 오프라인 데이터 사용(Windows Phone) | 모바일 개발자 센터" 
+	description="Azure 모바일 서비스를 사용하여 Windows Phone 응용 프로그램에서 오프라인 데이터를 동기화하는 방법에 대해 알아봅니다." 
+	documentationCenter="windows" 
+	authors="wesmc7777" 
+	manager="dwrede" 
+	editor="" 
+	services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="12/10/2014" ms.author="wesmc"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-phone" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="12/10/2014" 
+	ms.author="wesmc"/>
 
 # 모바일 서비스에서 오프라인 데이터 동기화 사용
 
@@ -30,7 +44,7 @@
 * [Azure 모바일 서비스 SQLite 저장소 1.0.0 이상 버전][SQLite 저장소 Nuget]
 * [SQLite for Windows Phone 8]
 
->[AZURE.NOTE] 이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://www.windowsazure.com/ko-kr/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Azure 무료 평가판</a>을 참조하세요. 
+>[AZURE.NOTE] 이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Azure 무료 평가판</a>을 참조하세요. 
 
 ## <a name="enable-offline-app"></a>오프라인 기능을 지원하도록 앱 업데이트
 

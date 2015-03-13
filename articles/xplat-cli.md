@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Azure Cross-Platform Command-Line Interface" pageTitle="Azure 플랫폼 간 명령줄 인터페이스" title="Azure 플랫폼 간 명령줄 인터페이스" metaKeywords="Azure 플랫폼 간 명령줄 인터페이스, Azure 명령줄, azure 명령줄, azure cli" description="Azure 서비스를 관리할 Azure 플랫폼 간 명령줄 인터페이스 설치 및 구성" metaCanonical="http://www.windowsazure.com/ko-kr/script/xplat-cli-intro" umbracoNaviHide="0" disqusComments="1" editor="mollybos" manager="need to identify contact" documentationCenter="" solutions="" authors="carolz" services="" />
+﻿<properties 
+	pageTitle="Azure 플랫폼 간 명령줄 인터페이스" 
+	description="Azure 서비스를 관리할 Azure 플랫폼 간 명령줄 인터페이스 설치 및 구성" 
+	editor="tysonn" 
+	manager="timlt" 
+	documentationCenter="" 
+	authors="squillace" 
+	services=""/>
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="carolz" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="command-line-interface" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="1/16/2015" 
+	ms.author="rasquill"/>
 
 #Azure 플랫폼 간 명령줄 인터페이스 설치 및 구성
 
@@ -389,15 +403,17 @@ xplat-cli는 오류 정보를 STDERR에 기록하지만 스크립트가 실행�
 
 [mac-installer]: http://go.microsoft.com/fwlink/?LinkId=252249
 [windows-installer]: http://go.microsoft.com/?linkid=9828653&clcid=0x409
-[authandsub]: http://msdn.microsoft.com/ko-kr/library/windowsazure/hh531793.aspx#BKMK_AccountVCert
+[authandsub]: http://msdn.microsoft.com/library/windowsazure/hh531793.aspx#BKMK_AccountVCert
 
 [Azure 웹 사이트]: ../media/freetrial.png
 [미리 보기 기능 선택]: ../media/antares-iaas-preview-02.png
 [구독 선택]: ../media/antares-iaas-preview-03.png
-[free-trial]: http://www.windowsazure.com/ko-kr/pricing/free-trial/?WT.mc_id=A7171371E
+[free-trial]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A7171371E
 [advanced-bash]: http://tldp.org/LDP/abs/html/
 [script]: http://en.wikipedia.org/wiki/Shell_script
-[batch]: http://technet.microsoft.com/ko-kr/library/bb490890.aspx
+[batch]: http://technet.microsoft.com/library/bb490890.aspx
 [xplatarm]: /ko-kr/documentation/articles/xplat-cli-azure-resource-manager/
 [portal]: https://manage.windowsazure.com
-[signuporg]: http://www.windowsazure.com/ko-kr/documentation/articles/sign-up-organization/
+[signuporg]: http://azure.microsoft.com/documentation/articles/sign-up-organization/
+
+<!--HONumber=46--> 

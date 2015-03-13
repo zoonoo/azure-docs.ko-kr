@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Localized Breaking News" pageTitle="iOS용 알림 허브 지역화된 속보 자습서" metaKeywords="" description="Azure 서비스 버스 알림 허브를 사용하여 지역화된 최신 뉴스 알림을 보내는 방법에 대해 알아봅니다(iOS)." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="" title="Use Notification Hubs to send localized breaking news to iOS devices" authors="yuaxu" solutions="" manager="dwrede" editor="" />
+﻿<properties 
+	pageTitle="iOS용 알림 허브 지역화된 속보 자습서" 
+	description="Azure 서비스 버스 알림 허브를 사용하여 지역화된 최신 뉴스 알림을 보내는 방법에 대해 알아봅니다(iOS)." 
+	services="notification-hubs" 
+	documentationCenter="ios" 
+	authors="ysxu" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="yuaxu" />
+<tags 
+	ms.service="notification-hubs" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="" 
+	ms.devlang="objective-c" 
+	ms.topic="article" 
+	ms.date="10/10/2014" 
+	ms.author="yuaxu"/>
 # 알림 허브를 사용하여 iOS 장치로 지역화된 속보 보내기
 
 <div class="dev-center-tutorial-selector sublanding">
@@ -26,7 +40,7 @@
 
 
 
-##필수 조건 ##
+## 필수 조건 ##
 
 이미 [알림 허브를 사용하여 속보 보내기] 자습서를 완료한 상태여야 하며 사용 가능한 코드가 있어야 합니다. 이 자습서에서는 해당 코드를 기반으로 직접 빌드하기 때문입니다.
 
@@ -75,7 +89,7 @@ MainStoryboard_iPhone.storyboard에서 지원되는 3가지 언어 즉 영어, �
 
 <h2><a name="building-client"></a><span class="building app">앱 UI</span>iOS 앱 빌드</h2>
 
-지역화된 메시지를 받도록 클라이언트 앱을 조정하려면 *네이티브* 등록(즉, 템플릿을 지정하는 등록)을 템플릿 등록으로 바꿔야 합니다.
+지역화된 메시지를 받도록 클라이언트 앱을 조정하려면  *native* 등록(템플릿을 지정하는 등록)을 템플릿 등록으로 바꿔야 합니다.
 
 1. Notification.h에서 아래와 같이 *retrieveLocale* 메서드를 추가하고 저장 및 구독 메서드를 수정합니다.
 
@@ -133,11 +147,11 @@ MainStoryboard_iPhone.storyboard에서 지원되는 3가지 언어 즉 영어, �
 		    return locale < 0?0:locale;
 		}
 
-3. 이제 Notifications 클래스를 수정했으므로 ViewController가 새 UISegmentControl을 사용하는지 확인해야 합니다. *viewDidLoad* 메서드에 다음 줄을 추가하여 현재 선택된 로캘을 표시해야 합니다.
+3. 이제 Notifications 클래스를 수정했으므로 ViewController가 새 UISegmentControl을 사용하는지 확인해야 합니다. 다음 줄을 *viewDidLoad* 메서드에 추가하여 현재 선택된 로캘을 표시해야 합니다.
 
 		self.Locale.selectedSegmentIndex = [notifications retrieveLocale];
 
-	그런 다음 *subscribe* 메서드에서 *storeCategoriesAndSubscribe*에 대한 호출을 다음으로 변경합니다.
+	그런 다음  *subscribe* 메서드에서 *storeCategoriesAndSubscribe*에 대한 호출을 다음으로 변경합니다.
 
 		[notifications storeCategoriesAndSubscribeWithLocale: self.Locale.selectedSegmentIndex categories:[NSSet setWithArray:categories] completion: ^(NSError* error) {
 	        if (!error) {
@@ -150,7 +164,7 @@ MainStoryboard_iPhone.storyboard에서 지원되는 3가지 언어 즉 영어, �
 	        }
 	    }];
 
-4. 마지막으로, 앱이 시작될 때 등록을 올바르게 새로 고칠 수 있도록 AppDelegate.m에서 *didRegisterForRemoteNotificationsWithDeviceToken* 메서드를 업데이트해야 합니다. 알림의 *subscribe* 메서드에 대한 호출을 다음으로 변경합니다.
+4. 마지막으로, 앱이 시작될 때 등록을 올바르게 새로 고칠 수 있도록 AppDelegate.m에서 *didRegisterForRemoteNotificationsWithDeviceToken* 메서드를 업데이트해야 합니다. 알림의  *subscribe* 메서드에 대한 호출을 다음으로 변경합니다.
 
 		NSSet* categories = [notifications retrieveCategories];
 	    int locale = [notifications retrieveLocale];
@@ -162,18 +176,18 @@ MainStoryboard_iPhone.storyboard에서 지원되는 3가지 언어 즉 영어, �
 
 <h2><a name="send"></a>백 엔드에서 지역화된 알림 보내기</h2>
 
-[WACOM.INCLUDE [notification-hubs-localized-back-end](../includes/notification-hubs-localized-back-end.md)]
+[AZURE.INCLUDE [notification-hubs-localized-back-end](../includes/notification-hubs-localized-back-end.md)]
 
 
 ## 다음 단계
 
 템플릿 사용에 대한 자세한 내용은 다음을 참조하세요.
 
-- [알림 허브를 통해 사용자에게 알림: ASP.NET](영문)
-- [알림 허브를 통해 사용자에게 알림: 모바일 서비스](영문)
+- [알림 허브를 통해 사용자에게 알림: ASP.NET]
+- [알림 허브를 통해 사용자에게 알림: 모바일 서비스]
 - [알림 허브 지침]
 
-템플릿 식 언어에 대한 참조는 [iOS용 알림 허브 방법]에 있습니다.
+템플릿 식 언어에 대한 참조는 [iOS용 알림 허브 사용 방법]에 있습니다.
 
 
 
@@ -204,16 +218,16 @@ MainStoryboard_iPhone.storyboard에서 지원되는 3가지 언어 즉 영어, �
 
 
 <!-- URLs. -->
-[방법: 서비스 버스 알림 허브(iOS 앱)]: http://msdn.microsoft.com/ko-kr/library/jj927168.aspx
+[방법: 서비스 버스 알림 허브(iOS 앱)]: http://msdn.microsoft.com/library/jj927168.aspx
 [알림 허브를 사용하여 속보 보내기]: /ko-kr/manage/services/notification-hubs/breaking-news-ios
 [모바일 서비스]: /ko-kr/develop/mobile/tutorials/get-started
-[알림 허브를 통해 사용자에게 알림: ASP.NET]: /ko-kr/manage/services/notification-hubs/notify-users-aspnet(영문)
-[알림 허브를 통해 사용자에게 알림: 모바일 서비스]: /ko-kr/manage/services/notification-hubs/notify-users(영문)
+[알림 허브를 통해 사용자에게 알림: ASP.NET]: /ko-kr/manage/services/notification-hubs/notify-users-aspnet
+[알림 허브를 통해 사용자에게 알림: 모바일 서비스]: /ko-kr/manage/services/notification-hubs/notify-users
 [앱 제출 페이지]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [내 응용 프로그램]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Windows용 Live SDK]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 [모바일 서비스 시작]: /ko-kr/develop/mobile/tutorials/get-started/#create-new-service
-[데이터 작업 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-data-ios
+[데이터 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-data-ios
 [인증 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-users-ios
 [푸시 알림 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-push-ios
 [앱 사용자에 대한 푸시 알림]: /ko-kr/develop/mobile/tutorials/push-notifications-to-users-ios
@@ -223,5 +237,7 @@ MainStoryboard_iPhone.storyboard에서 지원되는 3가지 언어 즉 영어, �
 [Azure 관리 포털]: https://manage.windowsazure.com/
 [모바일 서비스에 대한 Windows 개발자 미리 보기 등록 단계]: ../HowTo/mobile-services-windows-developer-preview-registration.md
 [wns 개체]: http://go.microsoft.com/fwlink/p/?LinkId=260591
-[알림 허브 지침]: http://msdn.microsoft.com/ko-kr/library/jj927170.aspx
-[iOS용 알림 허브 방법]: http://msdn.microsoft.com/ko-kr/library/jj927168.aspx
+[알림 허브 지침]: http://msdn.microsoft.com/library/jj927170.aspx
+[iOS용 알림 허브 사용 방법]: http://msdn.microsoft.com/library/jj927168.aspx
+
+<!--HONumber=45--> 

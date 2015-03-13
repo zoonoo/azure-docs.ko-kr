@@ -11,5 +11,5 @@
 
     ![query SQL Database for stored items](./media/mobile-services-dotnet-backend-view-sql-data/sql-azure-query.png)
 
-	테이블에는 Id, __createdAt, __updatedAt 및 __version 열이 포함되어 있습니다. 이러한 열은 오프라인 데이터 동기화를 지원하며 [EntityData](http://msdn.microsoft.com/ko-kr/library/microsoft.windowsazure.mobile.service.entitydata.aspx) 기본 클래스에서 구현됩니다. 자세한 내용은 [오프라인 데이터 동기화 시작]을 참조하세요.
-<!--HONumber=42-->
+	테이블에는 Id, __createdAt, __updatedAt 및 __version 열이 포함되어 있습니다. 이러한 열은 오프라인 데이터 동기화를 지원하며 [EntityData](http://msdn.microsoft.com/library/microsoft.windowsazure.mobile.service.entitydata.aspx) 기본 클래스에서 구현됩니다. 자세한 내용은 [오프라인 데이터 동기화 시작]을 참조하세요.
+\<!--HONumber=42-->

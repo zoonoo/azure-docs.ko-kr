@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="BizTalk Services: Troubleshoot using operation logs" pageTitle="BizTalk 서비스: 작업 로그를 사용한 문제 해결 | Azure" metaKeywords="" description="BizTalk 서비스: 작업 로그를 사용하여 문제 해결" metaCanonical="" services="" documentationCenter="" title="BizTalk Services: Troubleshoot using ops logs" authors="mandia"  solutions="" writer="nitinme" manager="dwrede" editor="cgronlun"  />
+﻿<properties 
+	pageTitle="BizTalk 서비스:" 
+	description="작업 로그를 사용한 문제 해결 | Azure 작업 로그를 사용하여 BizTalk 서비스의 문제를 해결합니다. MABS, WABS" 
+	services="biztalk-services" 
+	documentationCenter="" 
+	authors="nitinme" 
+	manager="dwrede" 
+	editor="cgronlun"/>
 
-<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia" />
+<tags 
+	ms.service="biztalk-services" 
+	ms.workload="integration" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/16/2015" 
+	ms.author="mandia"/>
 
 
 # BizTalk 서비스: 작업 로그를 사용한 문제 해결
@@ -8,7 +22,7 @@
 작업 로그는 Azure 관리 포털에서 사용할 수 있는 관리 서비스 기능으로서 BizTalk 서비스를 포함한 Azure 서비스에서 수행된 작업의 기록 로그를 볼 수 있습니다. 이렇게 하면 BizTalk 서비스 구독에서 180일 이전의 관리 작업과 관련된 기록 데이터를 볼 수 있습니다.
 
 <div class="dev-callout"><b>참고</b>
-<p>이 기능은 서비스가 시작되었을 경우, 백업되었을 경우 등과 같은 BizTalk 서비스의 관리 작업에 대한 로그만 캡처합니다. 이러한 작업은 Azure 관리 포털에서 수행되었는지 또는 <a href="http://msdn.microsoft.com/ko-kr/library/windowsazure/dn232347.aspx">BizTalk 서비스 REST API</a>를 사용하여 수행되었는지 여부와 관계없이 추적됩니다. 관리 서비스를 사용하여 추적된 작업의 전체 목록을 보려면 <a href="#bizops">Azure 관리 서비스를 사용하여 추적된 작업</a>을 참조하세요.</p>
+<p>이 기능은 서비스가 시작되었을 경우, 백업되었을 경우 등과 같은 BizTalk 서비스의 관리 작업에 대한 로그만 캡처합니다. 이러한 작업은 Azure 관리 포털에서 수행되었는지 또는 <a href="http://msdn.microsoft.com/library/windowsazure/dn232347.aspx">BizTalk 서비스 REST API</a>를 사용하여 수행되었는지 여부와 관계없이 추적됩니다. 관리 서비스를 사용하여 추적된 작업의 전체 목록을 보려면 <a href="#bizops">Azure 관리 서비스를 사용하여 추적된 작업</a>을 참조하세요.</p>
 <p>BizTalk 서비스 런타임과 관련된 작업(예: 브리지에서 처리하는 메시지 등)에 대한 로그는 캡처하지 않습니다. 이러한 로그를 보려면 BizTalk 서비스 포털에서 추적 뷰를 사용해야 합니다. 자세한 내용은 <a HREF="http://msdn.microsoft.com/library/windowsazure/hh949805.aspx">메시지 추적</a>(영문)을 참조하세요.</p>
 </div>
 
@@ -99,3 +113,5 @@
 - [Azure BizTalk 서비스 SDK로 시작하는 방법](http://go.microsoft.com/fwlink/p/?LinkID=302335)
 
 [ViewLogs]: ./media/biztalk-troubleshoot-using-ops-logs/Operation-Logs.png
+
+<!--HONumber=46--> 

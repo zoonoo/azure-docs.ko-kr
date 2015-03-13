@@ -1,6 +1,20 @@
-﻿<properties title="Role Based Access Control in Azure Preview Portal" pageTitle="Azure 미리 보기 포털의 역할 기반 액세스 제어" description="역할 기반 액세스 제어의 작동 방식 및 설정 방법에 대해 설명합니다." metaKeywords="" services="multiple" solutions="" documentationCenter="" authors="justinha" videoId="" scriptId="" manager="terrylan" />
+﻿<properties 
+	pageTitle="Azure 미리 보기 포털의 역할 기반 액세스 제어" 
+	description="역할 기반 액세스 제어의 작동 방식 및 설정 방법에 대해 설명합니다." 
+	services="" 
+	documentationCenter="" 
+	authors="Justinha" 
+	manager="terrylan" 
+	editor=""/>
 
-<tags ms.service="multiple" ms.devlang="dotnet" ms.topic="article" ms.tgt_pltfrm="Ibiza" ms.workload="infrastructure-services" ms.date="09/12/2014" ms.author="justinha;Justinha@microsoft.com" />
+<tags 
+	ms.service="multiple" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="Ibiza" 
+	ms.workload="infrastructure-services" 
+	ms.date="02/06/2015" 
+	ms.author="justinha"/>
 
 <!--This is a basic template that shows you how to use mark down to create a topic that includes a TOC, sections with subheadings, links to other azure.microsoft.com topics, links to other sites, bold text, italic text, numbered and bulleted lists, code snippets, and images. For fancier markdown, find a published topic and copy the markdown or HTML you want. For more details about using markdown, see http://sharepoint/sites/azurecontentguidance/wiki/Pages/Content%20Guidance%20Wiki%20Home.aspx.-->
 
@@ -124,7 +138,7 @@ Windows PowerShell용 Microsoft Azure 모듈을 사용하여 역할 할당을 �
 
 	PS C:\> New-AzureRoleAssignment -Mail brockh@contoso.com -RoleDefinitionName Contributor -ResourceGroupName ProdDB
 
-Windows PowerShell을 사용하여 액세스 권한을 추가 및 제거하는 방법에 대한 자세한 내용은 [Windows PowerShell을 사용하여 역할 기반 액세스 제어 관리](http://azure.microsoft.com/ko-kr/documentation/articles/role-based-access-control-powershell/)를 참조하세요. 
+Windows PowerShell을 사용하여 액세스 권한을 추가 및 제거하는 방법에 대한 자세한 내용은 [Windows PowerShell을 사용하여 역할 기반 액세스 제어 관리](http://azure.microsoft.com/documentation/articles/role-based-access-control-powershell/)를 참조하세요. 
 
 <h3><a id="remove"></a>액세스 권한 제거</h2>
 
@@ -165,7 +179,7 @@ Windows PowerShell을 사용하여 액세스 권한을 추가 및 제거하는 �
  
 <h2><a id="knownissues"></a>역할 기반 액세스 제어 사용 시의 알려진 문제</h2>
 
-미리 보기 상태에서 역할 기반 액세스 제어 기능을 사용할 때 문제가 발생하는 경우 [역할 기반 액세스 제어 문제 해결](http://azure.microsoft.com/ko-kr/documentation/articles/role-based-access-control-troubleshooting/)에서 문제와 관련이 있을 수 있는 알려진 문제점을 확인하세요.
+미리 보기 상태에서 역할 기반 액세스 제어 기능을 사용할 때 문제가 발생하는 경우 [역할 기반 액세스 제어 문제 해결](http://azure.microsoft.com/documentation/articles/role-based-access-control-troubleshooting/)에서 문제와 관련이 있을 수 있는 알려진 문제점을 확인하세요.
 
 
 <h2><a id="feedback"></a>의견을 보내는 방법</h2>
@@ -177,12 +191,12 @@ Azure RBAC를 사용해 보고 [feedback](http://aka.ms/azurerbacfeedback). 을 
 
 아래에는 역할 기반 액세스 제어를 사용하는 데 도움이 되는 몇 가지 추가 리소스가 나와 있습니다. 
 
-+ [Windows PowerShell을 사용하여 역할 기반 액세스 제어 관리](http://azure.microsoft.com/ko-kr/documentation/articles/role-based-access-control-powershell/)
-+ [XPLAT CLI를 사용하여 역할 기반 액세스 제어 관리](http://azure.microsoft.com/ko-kr/documentation/articles/role-based-access-control-xplat-cli/)
-+ [역할 기반 액세스 제어 문제 해결](http://azure.microsoft.com/ko-kr/documentation/articles/role-based-access-control-troubleshooting/)
++ [Windows PowerShell을 사용하여 역할 기반 액세스 제어 관리](http://azure.microsoft.com/documentation/articles/role-based-access-control-powershell/)
++ [XPLAT CLI를 사용하여 역할 기반 액세스 제어 관리](http://azure.microsoft.com/documentation/articles/role-based-access-control-xplat-cli/)
++ [역할 기반 액세스 제어 문제 해결](http://azure.microsoft.com/documentation/articles/role-based-access-control-troubleshooting/)
 + [Azure Active Directory](http://msdn.microsoft.com/library/azure/jj673460.aspx)
-+ [Azure Active Directory Premium 및 Basic](http://msdn.microsoft.com/ko-kr/library/azure/dn532272.aspx)
-+ [Azure 구독과 Azure AD의 연관 관계](http://msdn.microsoft.com/ko-kr/library/azure/dn629581.aspx)
++ [Azure Active Directory Premium 및 Basic](http://msdn.microsoft.com/library/azure/dn532272.aspx)
++ [Azure 구독과 Azure AD의 연관 관계](http://msdn.microsoft.com/library/azure/dn629581.aspx)
 + 보안 그룹용 셀프 서비스 그룹 관리 기능에 대한 소개는 [Active Directory 팀 블로그](http://blogs.technet.com/b/ad/archive/2014/02/24/more-preview-enhancements-for-windows-azure-ad-premium.aspx)를 참조하세요.
 
 
@@ -200,3 +214,5 @@ Azure RBAC를 사용해 보고 [feedback](http://aka.ms/azurerbacfeedback). 을 
 [10]: ./media/role-based-access-control-configure/RBACDirConfigTab.png
 
 
+
+<!--HONumber=46--> 

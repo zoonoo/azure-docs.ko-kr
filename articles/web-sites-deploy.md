@@ -103,7 +103,7 @@ Visual Studio에서 Azure 웹 사이트에 배포하는 방법에 대한 자세�
 * [Azure 및 ASP.NET 시작](../web-sites-dotnet-get-started/). Visual Studio 및 웹 배포를 사용하여 간단한 ASP.NET MVC 웹 프로젝트를 만들고 배포하는 방법을 설명합니다.
 * [Azure 웹 사이트에 Azure WebJobs를 배포하는 방법](../websites-dotnet-deploy-webjobs/). WebJob으로 배포되도록 콘솔 응용 프로그램 프로젝트를 구성하는 방법입니다.  
 * [Azure 웹 사이트에 멤버 자격, OAuth 및 SQL 데이터베이스를 포함한 ASP.NET MVC 5 앱 배포](../web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/). Visual Studio, 웹 배포 및 Entity Framework Code First 마이그레이션을 사용하여 SQL 데이터베이스가 포함된 ASP.NET MVC 웹 프로젝트를 만들고 배포하는 방법을 설명합니다.
-* [Visual Studio 및 ASP.NET의 웹 배포 개요](http://msdn.microsoft.com/ko-kr/library/dd394698.aspx). Visual Studio를 사용한 웹 배포에 대한 기본적인 소개입니다. 이전에 작성되기는 했지만 웹 응용 프로그램과 함께 데이터베이스를 배포하는 옵션의 개요, 직접 수행해야 하거나 Visual Studio에서 수행하도록 수동 구성해야 하는 추가 배포 작업 목록 등 여전히 관련 있는 정보를 포함하고 있습니다. 이 항목은 Azure 웹 사이트로의 배포에 국한된 내용이 아니라 일반적인 배포에 관한 내용입니다.
+* [Visual Studio 및 ASP.NET의 웹 배포 개요](http://msdn.microsoft.com/library/dd394698.aspx). Visual Studio를 사용한 웹 배포에 대한 기본적인 소개입니다. 이전에 작성되기는 했지만 웹 응용 프로그램과 함께 데이터베이스를 배포하는 옵션의 개요, 직접 수행해야 하거나 Visual Studio에서 수행하도록 수동 구성해야 하는 추가 배포 작업 목록 등 여전히 관련 있는 정보를 포함하고 있습니다. 이 항목은 Azure 웹 사이트로의 배포에 국한된 내용이 아니라 일반적인 배포에 관한 내용입니다.
 * [Visual Studio를 사용한 ASP.NET 웹 배포](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/introduction). 12개 부분으로 구성된 자습서 시리즈로, 이 목록의 다른 자료보다 더 폭넓은 배포 작업 범위를 다룹니다. 일부 Azure 배포 기능은 이 자습서가 작성되기 전에 추가되었지만 이후에 추가된 참고 사항에 누락된 내용이 설명되어 있습니다. 
 * [Visual Studio 2012를 사용하여 Git 리포지토리에서 바로 Azure에 ASP.NET 웹 사이트 배포](http://www.dotnetcurry.com/ShowArticle.aspx?ID=881). Git 플러그 인을 사용하여 코드를 Git에 커밋하고 Azure를 Git 리포지토리에 연결하여 Visual Studio에서 ASP.NET 웹 프로젝트를 배포하는 방법을 설명합니다. Visual Studio 2013부터 Git 지원이 기본적으로 제공되므로 플러그 인을 설치할 필요가 없습니다.
 
@@ -111,9 +111,9 @@ Visual Studio에서 Azure 웹 사이트에 배포하는 방법에 대한 자세�
 
 WebMatrix에서 Azure 웹 사이트에 배포하는 방법에 대한 자세한 내용은 다음 리소스를 참조하세요.
 
-* [Microsoft WebMatrix로 웹 사이트 개발 및 배포](http://www.windowsazure.com/ko-kr/documentation/articles/web-sites-dotnet-using-webmatrix/). WebMatrix 템플릿을 사용하여 간단한 ASP.NET 웹 사이트를 만들고 WebMatrix 및 웹 배포를 사용하여 이 웹 사이트를 Azure 웹 사이트에 배포하는 방법을 설명합니다.
-* [WebMatrix를 사용하여 Node.js 웹 사이트 빌드 및 Azure에 배포](http://www.windowsazure.com/ko-kr/documentation/articles/web-sites-nodejs-use-webmatrix/).
-* [WebMatrix를 사용하여 PHP-MySQL Azure 웹 사이트 만들기 및 배포](http://www.windowsazure.com/ko-kr/documentation/articles/web-sites-php-mysql-use-webmatrix/).
+* [Microsoft WebMatrix로 웹 사이트 개발 및 배포](http://azure.microsoft.com/documentation/articles/web-sites-dotnet-using-webmatrix/). WebMatrix 템플릿을 사용하여 간단한 ASP.NET 웹 사이트를 만들고 WebMatrix 및 웹 배포를 사용하여 이 웹 사이트를 Azure 웹 사이트에 배포하는 방법을 설명합니다.
+* [WebMatrix를 사용하여 Node.js 웹 사이트 빌드 및 Azure에 배포](http://azure.microsoft.com/documentation/articles/web-sites-nodejs-use-webmatrix/).
+* [WebMatrix를 사용하여 PHP-MySQL Azure 웹 사이트 만들기 및 배포](http://azure.microsoft.com/documentation/articles/web-sites-php-mysql-use-webmatrix/).
 * [WebMatrix 3: 통합된 Git 및 Azure에 배포](http://www.codeproject.com/Articles/577581/Webmatrixplus3-3aplusIntegratedplusGitplusandplusD). WebMatrix를 사용하여 Git 소스 제어 리포지토리에서 배포하는 방법을 설명합니다.
 
 ##<a name="ftp"></a>FTP 유틸리티를 사용하여 배포
@@ -186,12 +186,12 @@ Azure 웹 사이트의 [FTP/FTPS](http://en.wikipedia.org/wiki/File_Transfer_Pro
 
 ###<a name="powershell"></a>Windows PowerShell
 
-[Windows PowerShell](http://msdn.microsoft.com/ko-kr/library/dd835506.aspx)에서 MSBuild 또는 FTP 배포 기능을 수행할 수 있습니다. 이 기능을 수행하는 경우 Azure REST 관리 API를 쉽게 호출할 수 있는 Windows PowerShell cmdlet 컬렉션을 사용할 수도 있습니다.
+[Windows PowerShell](http://msdn.microsoft.com/library/dd835506.aspx)에서 MSBuild 또는 FTP 배포 기능을 수행할 수 있습니다. 이 기능을 수행하는 경우 Azure REST 관리 API를 쉽게 호출할 수 있는 Windows PowerShell cmdlet 컬렉션을 사용할 수도 있습니다.
 
 자세한 내용은 다음 리소스를 참조하세요.
 
 * [Azure에서 실제 클라우드 앱 빌드 - 자동화](http://asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything). 전자책에 나온 응용 프로그램 예제가 Windows PowerShell 스크립트를 사용하여 Azure 테스트 환경을 만들고 이 환경에 배포하는 방법을 설명하는 전자책 장입니다. 추가 Azure PowerShell 설명서 링크를 보려면 [리소스](http://asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything#resources) 섹션을 참조하세요.
-* [Windows PowerShell 스크립트를 사용하여 개발 및 테스트 환경에 게시](http://msdn.microsoft.com/ko-kr/library/dn642480.aspx). Visual Studio에서 생성된 Windows PowerShell 배포 스크립트를 사용하는 방법.
+* [Windows PowerShell 스크립트를 사용하여 개발 및 테스트 환경에 게시](http://msdn.microsoft.com/library/dn642480.aspx). Visual Studio에서 생성된 Windows PowerShell 배포 스크립트를 사용하는 방법.
 
 ###<a name="api"></a>.NET 관리 API
 
@@ -216,7 +216,7 @@ Mac 또는 Linux 컴퓨터에서 명령줄을 사용하여 FTP를 사용한 배�
 자세한 내용은 다음 리소스를 참조하세요.
 
 * [간단한 Azure 웹 사이트: 배포](http://azure.microsoft.com/blog/2014/07/28/simple-azure-websites-deployment/). 웹 배포를 보다 쉽게 사용할 수 있도록 하기 위해 자신이 작성한 도구에 대해 소개하는 David Ebbo의 블로그입니다.
-* [웹 배포 도구](http://technet.microsoft.com/ko-kr/library/dd568996). Microsoft TechNet 사이트의 공식적인 설명서입니다. 이전에 작성되었지만 시작할 때 참조하기 좋습니다.
+* [웹 배포 도구](http://technet.microsoft.com/library/dd568996). Microsoft TechNet 사이트의 공식적인 설명서입니다. 이전에 작성되었지만 시작할 때 참조하기 좋습니다.
 * [웹 배포 사용](http://www.iis.net/learn/publish/using-web-deploy). Microsoft IIS.NET 사이트의 공식적인 설명서입니다. 마찬가지로, 이전에 작성되었지만 시작할 때 참조하기 좋습니다.
 * [StackOverflow](http://www.stackoverflow.com). 명령줄에서 웹 배포를 사용하는 방법에 대한 최신 정보를 원하는 경우 가장 적합한 자료입니다.
 * [Visual Studio를 사용한 ASP.NET 웹 배포: 명령줄 배포](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/command-line-deployment). MSBuild는 Visual Studio에서 사용되는 빌드 엔진입니다. 명령줄에서 이 엔진을 사용하여 Azure 웹 사이트에 웹 응용 프로그램을 배포할 수도 있습니다. 이 자습서는 주로 Visual Studio 배포에 대해 다루는 시리즈의 일부입니다.

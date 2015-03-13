@@ -433,15 +433,14 @@ ACL이 설정되고 나면 정책의 ID를 기반으로 SAS를 만들 수 있습
   [How To: Delete a Table]: #delete-table
 
   [OData.org]: http://www.odata.org/
-  [using the REST API]: http://msdn.microsoft.com/ko-kr/library/windowsazure/hh264518.aspx
+  [using the REST API]: http://msdn.microsoft.com/library/windowsazure/hh264518.aspx
   [Azure Management Portal]: http://manage.windowsazure.com
 
   [Node.js Cloud Service]: /ko-kr/documentation/articles/cloud-services-nodejs-develop-deploy-app/
-  [Azure에 데이터 저장 및 액세스]: http://msdn.microsoft.com/ko-kr/library/windowsazure/gg433040.aspx
+  [Azure에 데이터 저장 및 액세스]: http://msdn.microsoft.com/library/windowsazure/gg433040.aspx
   [Azure 저장소 팀 블로그]: http://blogs.msdn.com/b/windowsazurestorage/
   [Web Site with WebMatrix]: /ko-kr/documentation/articles/web-sites-nodejs-use-webmatrix/
   [Node.js Cloud Service with Storage]: /ko-kr/documentation/articles/storage-nodejs-use-table-storage-cloud-service-app/
   [Node.js Web Application with Storage]: /ko-kr/documentation/articles/storage-nodejs-use-table-storage-web-site/
   [Create and deploy a Node.js application to an Azure Web Site]: /ko-kr/documentation/articles/web-sites-nodejs-develop-deploy-mac/
-
 <!--HONumber=42-->

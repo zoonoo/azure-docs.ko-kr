@@ -1,6 +1,20 @@
-﻿<properties pageTitle="모바일 서비스를 사용하여 Blob 저장소에 이미지 업로드(Windows 스토어) | 모바일 서비스" description="모바일 서비스를 사용하여 Azure Blob 저장소에 이미지를 업로드하고 Windows 스토어 앱에서 이미지에 액세스하는 방법에 대해 알아봅니다. services="mobile-services, storage" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="모바일 서비스를 사용하여 Blob 저장소에 이미지 업로드(Windows 스토어) | 모바일 서비스" 
+	description="모바일 서비스를 사용하여 Azure Blob 저장소에 이미지를 업로드하고 Windows 스토어 앱에서 이미지에 액세스하는 방법에 대해 알아봅니다. 
+	services="mobile-services, storage" 
+	documentationCenter="windows" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/26/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/26/2014" 
+	ms.author="glenga"/>
 
 # 모바일 서비스를 사용하여 Azure 저장소에 이미지 업로드
 
@@ -89,7 +103,7 @@ SAS를 사용하여 Blob 저장소에 이미지를 업로드하려면 먼저 Win
 [저장소 계정을 만드는 방법]: /ko-kr/manage/services/storage/how-to-create-a-storage-account
 [스토어 앱용 Azure 저장소 클라이언트 라이브러리]: http://go.microsoft.com/fwlink/p/?LinkId=276866 
 [모바일 서비스 .NET 방법 개념 참조]: /ko-kr/develop/mobile/how-to-guides/work-with-net-client-library
-[앱 설정]: http://msdn.microsoft.com/ko-kr/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
+[앱 설정]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 
 
 <!--HONumber=42-->

@@ -425,7 +425,7 @@ AzCopy를 사용하여 Blob 또는 파일을 복사할 때는 복사하는 동�
 
 	AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /Pattern:abc.txt
 
-저장소 액세스 키 작업에 대한 자세한 내용은 [저장소 액세스 키 보기, 복사 및 재생성]( http://azure.microsoft.com/ko-kr/documentation/articles/storage-create-storage-account/#regeneratestoragekeys)을 참조하세요.
+저장소 액세스 키 작업에 대한 자세한 내용은 [저장소 액세스 키 보기, 복사 및 재생성]( http://azure.microsoft.com/documentation/articles/storage-create-storage-account/#regeneratestoragekeys)을 참조하세요.
 
 ### 서버 쪽 복사를 통해 Blob 복사
 
@@ -885,9 +885,9 @@ Azure 저장소 및 AzCopy에 대한 자세한 내용은 다음 리소스를 참
 
 ### Azure 저장소 설명서
 
-- [Azure 저장소 소개](http://azure.microsoft.com/ko-kr/documentation/articles/storage-introduction/)
-- [Blob 저장소에 파일 저장](http://azure.microsoft.com/ko-kr/documentation/articles/storage-dotnet-how-to-use-blobs/)
-- [파일 저장소를 사용하여 Azure에서 SMB 파일 공유 만들기](http://azure.microsoft.com/ko-kr/documentation/articles/storage-dotnet-how-to-use-files/)
+- [Azure 저장소 소개](http://azure.microsoft.com/documentation/articles/storage-introduction/)
+- [Blob 저장소에 파일 저장](http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-blobs/)
+- [파일 저장소를 사용하여 Azure에서 SMB 파일 공유 만들기](http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-files/)
 
 ### Azure 저장소 블로그 게시물:
 - [AzCopy: 동기 복사 및 사용자 지정 콘텐츠 형식 소개](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/01/13/azcopy-introducing-synchronous-copy-and-customized-content-type.aspx)
@@ -898,6 +898,5 @@ Azure 저장소 및 AzCopy에 대한 자세한 내용은 다음 리소스를 참
 - [AzCopy: 다시 시작 가능 모드 및 SAS 토큰으로 데이터 전송](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/09/07/azcopy-transfer-data-with-re-startable-mode-and-sas-token.aspx)
 - [AzCopy: 크로스 계정 Blob 복사 사용](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
 - [AzCopy: Windows Azure Blob 파일 업로드/다운로드](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)
-
 
 <!--HONumber=42-->

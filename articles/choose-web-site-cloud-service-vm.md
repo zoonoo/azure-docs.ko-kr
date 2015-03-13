@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Azure 웹 사이트, 클라우드 서비스 및 가상 컴퓨터 비교" metaKeywords="Cloud Services, Virtual Machines, Web Sites" description="웹 응용 프로그램을 호스팅하는 데 Azure 웹 사이트, 클라우드 서비스 및 가상 컴퓨터를 사용하는 경우에 대해 알아봅니다." metaCanonical="" services="web-sites,virtual-machines,cloud-services" documentationCenter="" title="Azure Websites, Cloud Services, and Virtual Machines comparison" authors="tdykstra" solutions="" manager="wpickett" editor="jimbe" />
+﻿<properties 
+	pageTitle="Azure 웹 사이트, 클라우드 서비스 및 가상 컴퓨터 비교" 
+	description="웹 응용 프로그램을 호스팅하는 데 Azure 웹 사이트, 클라우드 서비스 및 가상 컴퓨터를 사용하는 경우에 대해 알아봅니다." 
+	services="web-sites, virtual-machines, cloud-services" 
+	documentationCenter="" 
+	authors="tdykstra" 
+	manager="wpickett" 
+	editor="jimbe"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/24/2014" ms.author="tdykstra" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/24/2014" 
+	ms.author="tdykstra"/>
 
 # Azure 웹 사이트, 클라우드 서비스 및 가상 컴퓨터 비교
 
@@ -346,15 +360,17 @@ HTTP 기반 웹 서비스를 사용하면 모바일 클라이언트를 포함하
   [가상 컴퓨터]: http://go.microsoft.com/fwlink/?LinkID=306053
   [ClearDB]: http://www.cleardb.com/
   [WebJob]: http://go.microsoft.com/fwlink/?linkid=390226&clcid=0x409
-  [Azure 웹 사이트에 대해 SSL 인증서 구성]: http://www.windowsazure.com/ko-kr/develop/net/common-tasks/enable-ssl-web-site/
-  [azurestore]: http://www.windowsazure.com/ko-kr/gallery/store/
-  [scripting]: http://www.windowsazure.com/ko-kr/documentation/scripts/?services=web-sites
-  [dotnet]: http://www.windowsazure.com/ko-kr/develop/net/
-  [nodejs]: http://www.windowsazure.com/ko-kr/develop/nodejs/
-  [PHP]: http://www.windowsazure.com/ko-kr/develop/php/
-  [Python]: http://www.windowsazure.com/ko-kr/develop/python/
-  [servicebus]: http://www.windowsazure.com/ko-kr/documentation/services/service-bus/
-  [sqldatabase]: http://www.windowsazure.com/ko-kr/documentation/services/sql-database/
-  [저장소]: http://www.windowsazure.com/ko-kr/documentation/services/storage/
+  [Azure 웹 사이트에 대해 SSL 인증서 구성]: http://azure.microsoft.com/develop/net/common-tasks/enable-ssl-web-site/
+  [azurestore]: http://azure.microsoft.com/gallery/store/
+  [scripting]: http://azure.microsoft.com/documentation/scripts/?services=web-sites
+  [dotnet]: http://azure.microsoft.com/develop/net/
+  [nodejs]: http://azure.microsoft.com/develop/nodejs/
+  [PHP]: http://azure.microsoft.com/develop/php/
+  [Python]: http://azure.microsoft.com/develop/python/
+  [servicebus]: http://azure.microsoft.com/documentation/services/service-bus/
+  [sqldatabase]: http://azure.microsoft.com/documentation/services/sql-database/
+  [저장소]: http://azure.microsoft.com/documentation/services/storage/
 
 <!--HONumber=35.1-->
+
+<!--HONumber=46--> 

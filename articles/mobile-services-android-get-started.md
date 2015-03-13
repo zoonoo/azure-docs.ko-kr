@@ -1,6 +1,20 @@
-<properties pageTitle="Android 앱에 대해 Azure 모바일 서비스 시작" description="이 자습서에 따라 Azure 모바일 서비스를 사용하여 Android 개발을 시작할 수 있습니다." services="" documentationCenter="android" authors="RickSaling" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="Android 앱에 대해 Azure 모바일 서비스 시작" 
+	description="이 자습서에 따라 Azure 모바일 서비스를 사용하여 Android 개발을 시작할 수 있습니다." 
+	services="" 
+	documentationCenter="android" 
+	authors="RickSaling" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="hero-article" ms.date="10/16/2014" ms.author="ricksal,glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="Mobile-Android" 
+	ms.devlang="Java" 
+	ms.topic="hero-article" 
+	ms.date="10/16/2014" 
+	ms.author="ricksal,glenga"/>
 
 # <a name="getting-started"> </a>모바일 서비스 시작
 
@@ -20,7 +34,7 @@
 
 다운로드한 퀵 스타트 프로젝트에는 Android용 모바일 서비스 SDK가 포함되어 있습니다. 이 프로젝트에는 Android 4.2 이상 버전이 필요하지만 모바일 서비스 SDK에는 Android 2.2 이상 버전만 있으면 됩니다.
 
-> [AZURE.IMPORTANT] 이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](http://www.windowsazure.com/ko-kr/pricing/free-trial/?WT.mc_id=AE564AB28"%20target="_blank) 을 참조하세요.
+> [AZURE.IMPORTANT] 이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28"%20target="_blank) 을 참조하세요.
 
 >[AZURE.NOTE] 완성된 앱의 소스 코드를 참조하려는 경우 <a href="https://github.com/RickSaling/mobile-services-samples/tree/futures/GettingStarted/Android" target="_blank">여기</a>로 이동하세요.
 
@@ -75,7 +89,7 @@
 	- 	**TodoActivity.java**에서 **OnCreate** 메서드를 찾은 후 모바일 서비스 클라이언트를 인스턴스화하는 코드를 찾습니다. 이 코드는 이전 이미지에서 확인할 수 있습니다.
 	- 	"MobileServiceUrl"을 모바일 서비스의 실제 URL로 바꿉니다.
 	- 	"AppKey"를 모바일 서비스의 키로 바꿉니다.
-	- 	자세한 내용은 <a href="http://azure.microsoft.com/ko-kr/documentation/articles/mobile-services-android-get-started-data/">기존 앱에 모바일 서비스 추가</a> 자습서를 참조하세요.
+	- 	자세한 내용은 <a href="http://azure.microsoft.com/documentation/articles/mobile-services-android-get-started-data/">기존 앱에 모바일 서비스 추가</a> 자습서를 참조하세요.
 
 4. **실행** 메뉴에서 **실행**을 클릭하여 Android 에뮬레이터에서 프로젝트를 시작합니다.
 

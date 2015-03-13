@@ -1,6 +1,20 @@
-﻿<properties title="How to Create a DocumentDB Account" pageTitle="데이터베이스 계정 만들기 | Azure" description="DocumentDB NoSQL 문서 데이터베이스 계정을 만들고 Azure Preview 포털에서 계정 설정을 선택 하는 방법에 알아봅니다."  metaKeywords="NoSQL, DocumentDB, database, document-orientated database, JSON, account" services="documentdb"  solutions="data-management" documentationCenter=""  authors="mimig" manager="jhubbard" editor="monicar" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="데이터베이스 계정 만들기 | Azure" 
+	description="Azure 미리 보기 포털에서 DocumentDB NoSQL 문서 데이터베이스 계정을 만들고 계정 설정을 선택하는 방법에 대해 알아봅니다." 
+	services="documentdb" 
+	documentationCenter="" 
+	authors="mimig1" 
+	manager="jhubbard" 
+	editor="monicar"/>
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/09/2014" ms.author="mimig" />
+<tags 
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="12/09/2014" 
+	ms.author="mimig"/>
 
 #데이터베이스 계정 만들기
 Microsoft Azure DocumentDB를 사용하려면 DocumentDB 계정을 만들어야 합니다.  이 항목에서는 Azure 미리 보기 관리 포털에서 DocumentDB 계정을 만드는 방법에 대해 설명합니다.  
@@ -25,7 +39,7 @@ Microsoft Azure DocumentDB를 사용하려면 DocumentDB 계정을 만들어야 
 
 	- **옵션 구성** 렌즈는 DocumentDB 계정에 할당된 초기 용량을 지정하는 데 사용됩니다.  DocumentDB는 용량 단위를 사용하여 DocumentDB 계정 크기를 조정할 수 있습니다. 각 용량 단위에는 예약된 데이터베이스 저장소 및 처리량이 포함됩니다.  기본적으로, 1 용량 단위가 프로비전됩니다.  언제든지 [미리 보기 관리 포털](https://portal.azure.com/#gallery/Microsoft.DocumentDB)을 통해 DocumentDB 계정에 사용 가능한 용량 단위 수를 조정할 수 있습니다. DocumentDB 계정 용량 및 처리량에 대한 자세한 내용은 [DocumentDB 용량 및 성능 관리][documentdb-manage] 문서를 참조하세요.
 
-	- **리소스 그룹**에서 DocumentDB 계정에 대한 리소스 그룹을 선택하거나 만듭니다.  기본적으로 새 리소스 그룹이 생성됩니다.  그러나 DocumentDB 계정을 추가할 기존 리소스 그룹을 선택할 수 있습니다. 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리](http://azure.microsoft.com/ko-kr/documentation/articles/azure-preview-portal-using-resource-groups/)를 참조하세요.
+	- **리소스 그룹**에서 DocumentDB 계정에 대한 리소스 그룹을 선택하거나 만듭니다.  기본적으로 새 리소스 그룹이 생성됩니다.  그러나 DocumentDB 계정을 추가할 기존 리소스 그룹을 선택할 수 있습니다. 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리](http://azure.microsoft.com/documentation/articles/azure-preview-portal-using-resource-groups/)를 참조하세요.
 
 	- **구독**에서 DocumentDB 계정에 사용할 Azure 구독을 선택합니다. 계정에 구독이 하나뿐인 경우 해당 계정이 자동으로 선택됩니다.*
  
@@ -73,3 +87,5 @@ DocumentDB에 대한 자세한 내용은 [azure.com](http://go.microsoft.com/fwl
 [8]: ./media/documentdb-create-account/ca8.png
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="" pageTitle="아키텍처" metaKeywords="" description="일반적인 디자인 패턴에 설명 하는 아키텍처 개요" metaCanonical="" services="" documentationCenter="" videoId="" scriptId="" title="Architecture Overview" authors="robb" solutions="" manager="johndaw" editor="mattshel" />
+﻿<properties 
+	pageTitle="아키텍처" 
+	description="일반적인 디자인 패턴에 설명하는 아키텍처 개요" 
+	services="" 
+	documentationCenter="" 
+	authors="Rboucher" 
+	manager="jwhit" 
+	editor="mattshel"/>
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/25/2014" ms.author="robb" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/25/2014" 
+	ms.author="robb"/>
 
 #아키텍처
 Microsoft Azure를 사용하는 응용 프로그램을 빌드하기 위한 리소스입니다.
@@ -25,12 +39,12 @@ Microsoft Azure를 사용하는 응용 프로그램을 빌드하기 위한 리�
 ![Azure Symbol/Icon set][azure_symbols]
 
 ##디자인 패턴
-Microsoft Patterns and Practices에서 [클라우드 디자인 패턴](http://msdn.microsoft.com/ko-kr/library/dn568099.aspx)(영문)이라는 책을 출간했습니다. 이 책은 MSDN에서 제공되며 PDF로 다운로드할 수도 있습니다. 모든 패턴이 나열된 큰 판형의 포스터도 제공됩니다. 
+Microsoft Patterns and Practices에서 [클라우드 디자인 패턴](http://msdn.microsoft.com/library/dn568099.aspx)(영문)이라는 책을 출간했습니다. 이 책은 MSDN에서 제공되며 PDF로 다운로드할 수도 있습니다. 모든 패턴이 나열된 큰 판형의 포스터도 제공됩니다. 
 
 ![Patterns and Practices Cloud Patterns Poster][PnPPoster]
 
 ##아키텍처 Infographics
-Microsoft에서는 포스터/Infographics 관련 아키텍처를 여러 개 게시합니다. 여기에는 [실제 클라우드 응용 프로그램 빌드](http://azure.microsoft.com/ko-kr/documentation/infographics/building-real-world-cloud-apps/) 및 [클라우드 서비스를 사용하여 크기 조정](http://azure.microsoft.com/ko-kr/documentation/infographics/cloud-services/)이 포함됩니다. 
+Microsoft에서는 포스터/Infographics 관련 아키텍처를 여러 개 게시합니다. 여기에는 [실제 클라우드 응용 프로그램 빌드](http://azure.microsoft.com/documentation/infographics/building-real-world-cloud-apps/) 및 [클라우드 서비스를 사용하여 크기 조정](http://azure.microsoft.com/documentation/infographics/cloud-services/)이 포함됩니다. 
 
 
 ![Azure Architecture Infographics][AzureInfographic]
@@ -43,3 +57,5 @@ Microsoft에서는 포스터/Infographics 관련 아키텍처를 여러 개 게�
 [AzureInfographic]: ./media/architecture-overview/AzureArchInfographicThumb.png
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

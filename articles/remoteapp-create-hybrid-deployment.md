@@ -1,6 +1,20 @@
-﻿<properties title="How to create a hybrid deployment of RemoteApp" pageTitle="RemoteApp의 하이브리드 배포를 만드는 방법" description="내부 네트워크에 연결되는 RemoteApp 배포를 만드는 방법에 대해 알아봅니다." metaKeywords="" services="" solutions="" documentationCenter="" authors="elizapo" manager="kathyw" />
+﻿<properties 
+	pageTitle="RemoteApp의 하이브리드 컬렉션을 만드는 방법" 
+	description="내부 네트워크에 연결되는 RemoteApp 배포를 만드는 방법에 대해 알아봅니다." 
+	services="remoteapp" 
+	documentationCenter="" 
+	authors="lizap" 
+	manager="mbaldwin" 
+	editor=""/>
 
-<tags ms.service="remoteapp" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/12/2014" ms.author="elizapo" ms.manager="kathyw" />
+<tags 
+	ms.service="remoteapp" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2/17/2015" 
+	ms.author="elizapo"/>
 
 #RemoteApp의 하이브리드 배포를 만드는 방법
 
@@ -11,7 +25,7 @@
 
 이 자습서에서는 하이브리드 배포를 만드는 프로세스를 단계별로 안내합니다. 이 프로세스는 다음 7개의 단계로 구성됩니다. 
 
-1.	[RemoteApp용 사용자 지정 템플릿 이미지](http://azure.microsoft.com/ko-kr/documentation/articles/remoteapp-create-custom-image/)를 만듭니다.
+1.	[RemoteApp용 사용자 지정 템플릿 이미지](http://azure.microsoft.com/documentation/articles/remoteapp-create-custom-image/)를 만듭니다.
 2.	RemoteApp 서비스를 만듭니다.
 2.	가상 네트워크에 연결합니다.
 3.	템플릿 이미지를 연결합니다.
@@ -23,12 +37,12 @@
 
 서비스를 만들기 전에 다음을 수행해야 합니다.
 
-- RemoteApp의 미리 보기에 등록합니다. [http://azure.microsoft.com/ko-kr/services/remoteapp/](http://azure.microsoft.com/ko-kr/services/remoteapp/)에서 등록할 수 있습니다.
+- RemoteApp의 미리 보기에 등록합니다. [http://azure.microsoft.com/services/remoteapp/](http://azure.microsoft.com/services/remoteapp/)에서 등록할 수 있습니다.
 - RemoteApp 서비스 계정으로 사용할 Active Directory의 사용자 계정을 만듭니다. 이 계정의 권한은 도메인에 컴퓨터를 가입시킬 수 있는 권한만으로 제한합니다.
 - 온-프레미스 네트워크에 대한 IP 주소 정보 및 VPN 장치 정보를 수집합니다.
-- [Azure PowerShell](http://azure.microsoft.com/ko-kr/documentation/articles/install-configure-powershell/) 모듈을 설치합니다.
+- [Azure PowerShell](http://azure.microsoft.com/documentation/articles/install-configure-powershell/) 모듈을 설치합니다.
 - 액세스 권한을 부여할 사용자 및 그룹에 대한 정보를 수집합니다. 이 정보는 사용자 또는 그룹의 Microsoft 계정 정보나 Active Directory 작업 계정 정보가 될 수 있습니다.
-- 템플릿 이미지를 만듭니다. RemoteApp 템플릿 이미지는 사용자를 위해 게시하려는 앱 및 프로그램을 포함합니다. 단계에 대한 자세한 내용은 [RemoteApp용 사용자 지정 템플릿 이미지를 만드는 방법](http://azure.microsoft.com/ko-kr/documentation/articles/remoteapp-create-custom-image/)을 참조하세요. 
+- 템플릿 이미지를 만듭니다. RemoteApp 템플릿 이미지는 사용자를 위해 게시하려는 앱 및 프로그램을 포함합니다. 단계에 대한 자세한 내용은 [RemoteApp용 사용자 지정 템플릿 이미지를 만드는 방법](http://azure.microsoft.com/documentation/articles/remoteapp-create-custom-image/)을 참조하세요. 
 
 
 
@@ -74,7 +88,7 @@ RemoteApp 서비스를 만든 후 RemoteApp **빠른 시작** 페이지로 이�
 
 ## **3단계: RemoteApp 템플릿 이미지에 연결** ##
 
-RemoteApp 템플릿 이미지에는 사용자와 공유할 프로그램이 포함됩니다. [RemoteApp용 사용자 지정 템플릿 이미지를 만드는 방법](http://azure.microsoft.com/ko-kr/documentation/articles/remoteapp-create-custom-image/)의 지침에 따라 직접 만든 새 템플릿 이미지를 업로드하거나, Azure에 이미 업로드된 기존 이미지에 연결할 수 있습니다.
+RemoteApp 템플릿 이미지에는 사용자와 공유할 프로그램이 포함됩니다. [RemoteApp용 사용자 지정 템플릿 이미지를 만드는 방법](http://azure.microsoft.com/documentation/articles/remoteapp-create-custom-image/)의 지침에 따라 직접 만든 새 템플릿 이미지를 업로드하거나, Azure에 이미 업로드된 기존 이미지에 연결할 수 있습니다.
 
 새 이미지를 업로드하는 경우 이름을 입력하고 이미지의 위치를 선택해야 합니다. 마법사의 다음 페이지에는 PowerShell cmdlet 집합이 표시됩니다. 관리자 권한 Windows PowerShell 프롬프트에서 이러한 cmdlet을 복사하고 실행하여 지정된 이미지를 업로드합니다.
 
@@ -110,3 +124,5 @@ RemoteApp 서비스를 만들었으므로 원격 리소스를 사용할 수 있�
 RemoteApp 하이브리드 배포를 만들고 배포했습니다. 다음 단계는 사용자가 원격 데스크톱 클라이언트를 다운로드하여 설치하도록 설정하는 것입니다. RemoteApp 빠른 시작 페이지에서 클라이언트의 URL을 찾을 수 있습니다. 그런 다음 사용자가 클라이언트에 로그인하여 게시된 RemoteApp 프로그램에 액세스하도록 합니다.
 
 
+
+<!--HONumber=46--> 

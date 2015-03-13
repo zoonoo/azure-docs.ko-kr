@@ -280,7 +280,7 @@ Sqoop 사용에 대한 자세한 내용은 [HDInsight와 함께 Sqoop 사용][hd
 
 
 [azure-management-portal]: https://manage.windowsazure.com
-[azure-powershell]: http://msdn.microsoft.com/ko-kr/library/windowsazure/jj152841.aspx
+[azure-powershell]: http://msdn.microsoft.com/library/windowsazure/jj152841.aspx
 
 [azure-storage-client-library]: /ko-kr/develop/net/how-to-guides/blob-storage/
 [azure-create-storage-account]: ../storage-create-storage-account/
@@ -307,6 +307,5 @@ Sqoop 사용에 대한 자세한 내용은 [HDInsight와 함께 Sqoop 사용][hd
 [image-azure-storage-explorer]: ./media/hdinsight-upload-data/HDI.AzureStorageExplorer.png
 [image-ase-addaccount]: ./media/hdinsight-upload-data/HDI.ASEAddAccount.png
 [image-ase-blob]: ./media/hdinsight-upload-data/HDI.ASEBlob.png
-
 
 <!--HONumber=42-->

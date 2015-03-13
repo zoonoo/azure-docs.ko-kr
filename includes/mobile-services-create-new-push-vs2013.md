@@ -20,7 +20,7 @@
 
 	모바일 서비스에서 사용하는 알림 허브가 WNS(Windows 알림 서비스) 등록을 통해 업데이트됩니다. 이제 Azure 알림 허브를 사용하여 WNS를 통해 모바일 서비스에서 앱으로 알림을 보낼 수 있습니다. 
 
-	>[AZURE.NOTE]이 자습서에서는 모바일 서비스 백 엔드에서 알림을 보내는 방법을 보여 줍니다. 이와 동일한 알림 허브 등록을 사용하여 모든 백 엔드 서비스에서 알림을 보낼 수 있습니다. 자세한 내용은 [알림 허브 개요](http://msdn.microsoft.com/ko-kr/library/azure/jj927170.aspx)를 참조하세요.
+	>[AZURE.NOTE]이 자습서에서는 모바일 서비스 백 엔드에서 알림을 보내는 방법을 보여 줍니다. 이와 동일한 알림 허브 등록을 사용하여 모든 백 엔드 서비스에서 알림을 보낼 수 있습니다. 자세한 내용은 [알림 허브 개요](http://msdn.microsoft.com/library/azure/jj927170.aspx)를 참조하세요.
 
 5. 마법사가 완료되면 Visual Studio에서 **푸시 설정이 거의 완료됨**이라는 새 페이지가 열립니다. 이 페이지에는 이 자습서와 다른 알림을 보내도록 모바일 서비스 프로젝트를 구성하기 위한 또 다른 방법이 자세히 설명되어 있습니다. 
 
@@ -30,5 +30,4 @@
 [모바일 서비스 시작]: /ko-kr/develop/mobile/tutorials/get-started/
 [데이터 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-data-dotnet/
 [Visual Studio 2013에서 publishsettings 파일 가져오기]: /ko-kr/documentation/articles/mobile-services-windows-how-to-import-publishsettings/
-
 <!--HONumber=42-->

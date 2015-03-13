@@ -19,8 +19,9 @@
 
 #Windows Server를 실행하는 가상 컴퓨터에 로그온하는 방법#
 
-Windows Server를 실행하는 가상 컴퓨터에 로그온하려면 관리 포털에서 연결 단추를 사용하여 원격 데스크톱 연결을 시작합니다. (Linux VM의 경우 [Linux를 실행하는 가상 컴퓨터에 로그온하는 방법을 참조하세요](./virtual-machines-linux-how-to-log-on/).)
+Windows Server를 실행하는 가상 컴퓨터에 로그온하려면 관리 포털에서 연결 단추를 사용하여 원격 데스크톱 연결을 시작합니다. Linux VM의 경우 [Linux를 실행하는 가상 컴퓨터에 로그온하는 방법](./virtual-machines-linux-how-to-log-on/)을 참조하세요.
 
 [AZURE.INCLUDE [virtual-machines-log-on-win-server](../includes/virtual-machines-log-on-win-server.md)]
 
-<!--HONumber=45--> 
+
+<!--HONumber=42-->

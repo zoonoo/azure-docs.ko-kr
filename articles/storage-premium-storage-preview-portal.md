@@ -214,7 +214,7 @@ Azure에서 디스크를 생성하는 경우 용량, 성능, 확장성 및 최�
 ###<a id="howto3">Azure 미리 보기 포털: 프리미엄 저장소 계정 만들기</a>
 이 섹션에서는 Azure 미리 보기 포털을 사용하여 프리미엄 저장소 계정을 만드는 방법을 보여 줍니다.
 
-1.	[Azure 미리 보기 포털](https://portal.azure.com/)에 로그인합니다. 아직 구독이 없으면 [무료 평가판](http://www.windowsazure.com/pricing/free-trial/) 서비스를 확인하세요. 
+1.	[Azure 미리 보기 포털](https://portal.azure.com/)에 로그인합니다. 아직 구독이 없으면 [무료 평가판](http://azure.microsoft.com/pricing/free-trial/) 서비스를 확인하세요. 
 
 
     >[AZURE.NOTE] Azure 관리 포털에 로그인한 경우 포털의 오른쪽 위에 있는 사용자 계정 이름을 클릭합니다. **새 포털로 전환**을 클릭합니다.
@@ -236,7 +236,7 @@ Azure 환경 내의 전체 연습은 [Azure 미리 보기 포털에서 Windows�
 ###<a id="howto2">Azure PowerShell: 프리미엄 저장소 계정 만들기 및 기본 VM 작업에 사용</a>
 이 섹션에서는 프리미엄 저장소 계정을 만드는 방법 및 가상 컴퓨터를 만들고 Azure PowerShell을 통해 데이터 디스크를 VM에 연결하는 동안 이 계정을 사용하는 방법을 보여 줍니다.
 
-1. [Azure PowerShell을 설치 및 구성하는 방법](http://azure.microsoft.com/ko-kr/documentation/articles/install-configure-powershell/)에 제공된 단계에 따라 PowerShell 환경을 설정합니다.
+1. [Azure PowerShell을 설치 및 구성하는 방법](http://azure.microsoft.com/documentation/articles/install-configure-powershell/)에 제공된 단계에 따라 PowerShell 환경을 설정합니다.
 2. PowerShell 콘솔을 시작하고, 구독에 연결한 후 콘솔 창에서 다음 PowerShell cmdlet을 실행합니다. 이 PowerShell 문에 표시된 대로 프리미엄 저장소 계정을 만드는 경우 **Type** 매개 변수를 **Premium_LRS**로 지정해야 합니다.
 
 		New-AzureStorageAccount -StorageAccountName "yourpremiumaccount" -Location "West US" -Type "Premium_LRS"
@@ -277,5 +277,4 @@ Azure 환경 내의 전체 연습은 [Azure 미리 보기 포털에서 Windows�
 [MSDN 참조](http://msdn.microsoft.com/library/azure/gg433040.aspx)
 
 [Image1]: ./media/storage-premium-storage-preview-portal/Azure_pricing_tier.png
-
 <!--HONumber=42-->

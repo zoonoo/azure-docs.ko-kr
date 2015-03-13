@@ -1,6 +1,20 @@
-﻿<properties title="Monitor and manage Azure Data Factory using Azure PowerShell" pageTitle="Azure PowerShell을 사용하여 Azure 데이터 팩터리 모니터링 및 관리" description="Azure PowerShell을 사용하여 사용자가 만든 Azure 데이터 팩터리를 모니터링하고 관리하는 방법에 대해 알아봅니다." metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
+﻿<properties 
+	pageTitle="Azure PowerShell을 사용하여 Azure 데이터 팩터리 모니터링 및 관리" 
+	description="Azure PowerShell을 사용하여 사용자가 만든 Azure 데이터 팩터리를 모니터링하고 관리하는 방법에 대해 알아봅니다." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
+	editor="monicar"/>
 
-<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/13/2014" ms.author="spelluru" />
+<tags 
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2/10/2015" 
+	ms.author="spelluru"/>
 
 # Azure PowerShell을 사용하여 Azure 데이터 팩터리 모니터링 및 관리
 다음 표에는 Azure PowerShell을 사용하여 Azure 데이터 팩터리를 모니터링 및 관리하는 데 사용할 수 있는 cmdlet이 나와 있습니다. 
@@ -411,3 +425,5 @@ Resume-AzureDataFactoryPipeline cmdlet은 Azure 데이터 팩터리에서 현재
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

@@ -1,6 +1,20 @@
-﻿<properties title="Lexicon Based Sentiment Analysis" pageTitle="1단계: 어휘집 기반 감정 분석 | Azure" description="어휘집 기반 감정 분석" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jaymathe" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="1단계: 어휘집 기반 감정 분석 | Azure" 
+	description="어휘집 기반 감정 분석" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="jaymathe" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/08/2014" ms.author="jaymathe" /> 
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/11/2015" 
+	ms.author="jaymathe"/> 
 
 
 
@@ -61,7 +75,7 @@
 입력이 "Today is a good day.(오늘은 좋은 날입니다.)"인 경우 출력은 긍정적인 감정이 입력 문장과 연관되었음을 나타내는 "1"입니다. 
 
 ##웹 서비스 만들기
->이 웹 서비스는 Azure 기계 학습을 사용하여 만들었습니다. 무료 평가판 및 실험을 만들고 [웹 서비스를 게시](http://azure.microsoft.com/ko-kr/documentation/articles/machine-learning-publish-web-service-to-azure-marketplace/)하는 방법에 대한 소개 비디오는 [azure.com/ml](http://azure.com/ml)을 참조하세요. 다음은 웹 서비스를 만든 실험과 실험 내 각 모듈의 예제 코드의 스크린샷입니다.
+>이 웹 서비스는 Azure 기계 학습을 사용하여 만들었습니다. 무료 평가판 및 실험을 만들고 [웹 서비스를 게시](http://azure.microsoft.com/documentation/articles/machine-learning-publish-web-service-to-azure-marketplace/)하는 방법에 대한 소개 비디오는 [azure.com/ml](http://azure.com/ml)을 참조하세요. 다음은 웹 서비스를 만든 실험과 실험 내 각 모듈의 예제 코드의 스크린샷입니다.
 
 
 Azure 기계 학습 내에서 새로운 빈 실험이 만들어졌습니다. 아래의 그림은 어휘집 기반 감정 분석의 실험 흐름을 보여 줍니다. "sent_dict.csv"는 MPQA 주관성 어휘집이며 "R 스크립트 실행"의 입력 중 하나로 설정되었습니다. 다른 입력은 테스트를 위해 Amazon 리뷰 데이터 집합에서 샘플링된 리뷰입니다. 여기서는 선택, 열 이름 수정, 분할 작업을 수행했습니다.  해시 패키지를 사용하여 메모리에 주관성 어휘집을 저장하고 점수 계산 프로세스를 가속화합니다. 전체 텍스트는 "tm" 패키지에 의해 토큰화되고 감정 사전에 있는 단어와 비교됩니다. 마지막으로, 텍스트에 있는 주관적인 각 단어의 가중치를 더하여 점수가 계산됩니다. 
@@ -129,7 +143,7 @@ Azure 기계 학습 내에서 새로운 빈 실험이 만들어졌습니다. 아
 알고리즘 관점에서 봤을 때 어휘집 기반 감정 분석은 특정 필드에 대해 분류 방법보다 성능이 좋지 않을 수도 있는 일반 감정 분석 도구입니다. 부정 문제가 잘 처리되지 않습니다. 여기서는 프로그램에 몇 가지 부정 단어를 하드 코드하지만, 더 좋은 방법은 부정 사전을 사용하고 몇 가지 규칙을 작성하는 것입니다. 이 웹 서비스는 Amazon 리뷰와 같은 길고 복잡한 문장보다 트윗, Facebook 게시물과 같은 짧고 간단한 문장에 대해 더 잘 수행됩니다. 
 
 ##FAQ
-웹 서비스 사용 또는 마켓플레이스 게시 방법과 관련한 질문과 대답은 [여기](http://azure.microsoft.com/ko-kr/documentation/articles/machine-learning-marketplace-faq)를 참조하세요.
+웹 서비스 사용 또는 마켓플레이스 게시 방법과 관련한 질문과 대답은 [여기](http://azure.microsoft.com/documentation/articles/machine-learning-marketplace-faq)를 참조하세요.
 
 [1]: ./media/machine-learning-r-csharp-lexicon-based-sentiment-analysis/sentiment_analysis_1.png
 [2]: ./media/machine-learning-r-csharp-lexicon-based-sentiment-analysis/sentiment_analysis_2.png
@@ -141,3 +155,5 @@ Azure 기계 학습 내에서 새로운 빈 실험이 만들어졌습니다. 아
 
 
 
+
+<!--HONumber=46--> 

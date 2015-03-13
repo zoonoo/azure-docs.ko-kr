@@ -1,6 +1,20 @@
-<properties pageTitle="How create and publish a product in Azure API Management" metaKeywords="" description="Learn how to create and publish products in Azure API Management." metaCanonical="" services="" documentationCenter="API Management" title="How create and publish a product in Azure API Management" authors="sdanie" solutions="" manager="" editor="" />
+﻿<properties 
+	pageTitle="Azure API 관리에서 제품을 만들고 게시하는 방법" 
+	description="Azure API 관리에서 제품을 만들고 게시하는 방법에 대해 알아봅니다." 
+	services="api-management" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
+<tags 
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2/11/2015" 
+	ms.author="sdanie"/>
 
 # Azure API 관리에서 제품을 만들고 게시하는 방법
 
@@ -109,3 +123,5 @@ Azure API 관리(미리 보기)에서 제품은 하나 이상의 API뿐만 아�
 [Azure API 관리에서 개발자 계정을 관리하는 그룹을 만들고 사용하는 방법]: ../api-management-howto-create-groups
 [개발자]: ./media/api-management-howto-add-products/api-management-developer-list.png
 [Azure API 관리에서 고급 제품 설정을 만들고 구성하는 방법]: ../api-management-howto-product-with-rules
+
+<!--HONumber=46--> 

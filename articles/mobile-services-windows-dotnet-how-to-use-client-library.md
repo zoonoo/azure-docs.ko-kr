@@ -1,6 +1,20 @@
-﻿<properties pageTitle="모바일 서비스 .NET 클라이언트 라이브러리 사용" description="Azure 모바일 서비스에 .NET 클라이언트를 사용하는 방법에 대해 알아봅니다." services="" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="모바일 서비스 .NET 클라이언트 라이브러리 사용" 
+	description="Azure 모바일 서비스에 .NET 클라이언트를 사용하는 방법에 대해 알아봅니다." 
+	services="" 
+	documentationCenter="windows" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="10/10/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="10/10/2014" 
+	ms.author="glenga"/>
 
 
 
@@ -80,7 +94,7 @@
 
 <h2><a name="instantiating"></a>방법: 테이블 참조 만들기</h2>
 
-모바일 서비스 테이블의 데이터에 액세스하거나 데이터를 수정하는 모든 코드는 `MobileServiceTable` 개체에 대한 함수를 호출합니다.  `MobileServiceClient` 인스턴스에 대해[GetTable](http://msdn.microsoft.com/ko-kr/library/windowsazure/jj554275.aspx) 함수를 호출하여 테이블에 대한 참조를 구합니다.
+모바일 서비스 테이블의 데이터에 액세스하거나 데이터를 수정하는 모든 코드는 `MobileServiceTable` 개체에 대한 함수를 호출합니다.  `MobileServiceClient` 인스턴스에 대해[GetTable](http://msdn.microsoft.com/library/windowsazure/jj554275.aspx) 함수를 호출하여 테이블에 대한 참조를 구합니다.
 
     IMobileServiceTable<TodoItem> todoTable =
 		client.GetTable<TodoItem>();
@@ -158,14 +172,16 @@
 
 기본적으로 서버는 처음 50개 행만 반환합니다. [Take] 메서드를 호출하여 반환되는 행 수를 늘릴 수 있습니다.  `Take`를 [Skip] 메서드와 함께 사용하면 쿼리에 서 반환되는 전체 데이터 집합의 특정 "페이지"가 요청됩니다. 다음 쿼리를 실행하면 테이블에서 맨 위 세 개 항목이 반환됩니다.
 
-	// Define a filtered query that returns the top 3 items.
+	// Define a filtered query that returns the top 3 ite
+	ms.
 	MobileServiceTableQuery<TodoItem> query = todoTable
 					.Take(3);
 	List<TodoItem> items = await query.ToListAsync();
 
 수정한 다음 쿼리는 처음 세 개 결과를 건너뛰고 그 다음 세 개 결과를 반환합니다. 따라서 페이지 크기가 세 개 항목인 경우 실질적으로 두 번째 데이터 "페이지"가 됩니다.
 
-	// Define a filtered query that skips the top 3 items and returns the next 3 items.
+	// Define a filtered query that skips the top 3 items and returns the next 3 ite
+	ms.
 	MobileServiceTableQuery<TodoItem> query = todoTable
 					.Skip(3)
 					.Take(3);
@@ -407,7 +423,8 @@
 
 이 섹션에서는 반환된 데이터 개체를 UI 요소를 사용해서 표시하는 방법을 보여 줍니다.  `todoTable`에서 완료되지 않은 항목을 쿼리하고 이를 매우 간단한 목록으로 표시하려면 다음 예제 코드를 실행하여 목록 원본을 쿼리와 바인딩하면 됩니다.  `MobileServiceCollection`을 사용하면 모바일 서비스 인식 바인딩 컬렉션이 만들어집니다.
 
-	// This query filters out completed TodoItems.
+	// This query filters out completed TodoIte
+	ms.
 	MobileServiceCollection<TodoItem, TodoItem> items = await todoTable
 		.Where(todoItem => todoItem.Complete == false)
 		.ToCollectionAsync();
@@ -419,7 +436,7 @@
 	ListBox lb = new ListBox();
 	lb.ItemsSource = items;
 
-Windows 런타임의 일부 컨트롤은 [ISupportIncrementalLoading](http://msdn.microsoft.com/ko-kr/library/windows/apps/Hh701916)이라는 인터페이스를 지원합니다. 이 인터페이스에서는 사용자가 스크롤할 때 컨트롤이 추가 데이터를 요청할 수 있습니다. 컨트롤에서 발생하는 호출을 자동으로 처리하는 `MobileServiceIncrementalLoadingCollection`을 통해 Windows 스토어 앱용으로 이 인터페이스를 기본적으로 지원합니다. Windows 스토어 앱에서  `MobileServiceIncrementalLoadingCollection`을 사용하려면 다음을 수행합니다.
+Windows 런타임의 일부 컨트롤은 [ISupportIncrementalLoading](http://msdn.microsoft.com/library/windows/apps/Hh701916)이라는 인터페이스를 지원합니다. 이 인터페이스에서는 사용자가 스크롤할 때 컨트롤이 추가 데이터를 요청할 수 있습니다. 컨트롤에서 발생하는 호출을 자동으로 처리하는 `MobileServiceIncrementalLoadingCollection`을 통해 Windows 스토어 앱용으로 이 인터페이스를 기본적으로 지원합니다. Windows 스토어 앱에서  `MobileServiceIncrementalLoadingCollection`을 사용하려면 다음을 수행합니다.
 
 			MobileServiceIncrementalLoadingCollection<TodoItem,TodoItem> items;
 		items =  todoTable.Where(todoItem => todoItem.Complete == false)
@@ -432,7 +449,8 @@ Windows 런타임의 일부 컨트롤은 [ISupportIncrementalLoading](http://msd
 Windows Phone에서 세 컬렉션을 사용하려면 `IMobileServiceTableQuery<T>` 및  `IMobileServiceTable<T>`에 대해  `ToCollection` 확장 메서드를 사용합니다. 실제로 데이터를 로드하려면  `LoadMoreItemsAsync()`를 호출합니다.
 
 	MobileServiceCollection<TodoItem, TodoItem> items = todoTable.Where(todoItem => todoItem.Complete==false).ToCollection();
-	await items.LoadMoreItemsAsync();
+	await ite
+	ms.LoadMoreItemsAsync();
 
  `ToCollectionAsync` 또는  `ToCollection`을 호출하여 만들어진 컬렉션을 사용하는 경우 UI 컨트롤에 바인딩할 수 있는 컬렉션을 얻게 됩니다. 이 컬렉션은 페이징을 인식합니다. 다시 말해서, 컨트롤은 "더 많은 항목을 로드"하도록 컬렉션에 요청할 수 있고 컬렉션은 이를 수행합니다. 이때 사용자 코드가 사용되지 않으며 컨트롤에서 흐름을 시작합니다. 하지만 컬렉션이 네트워크에서 데이터를 로드하기 때문에 로딩에 실패하는 경우도 있습니다. 이 오류를 처리하려면 컨트롤에서 수행한 `LoadMoreItemsAsync` 호출의 결과로 발생한 예외를 처리하도록  `MobileServiceIncrementalLoadingCollection`에 대한  `OnException` 메서드를 재정의할 수 있습니다.
 
@@ -583,7 +601,8 @@ Windows Phone 앱의 경우 [ProtectedData] 클래스를 사용하여 데이터�
 		try
 		{
 			await todoTable.InsertAsync(todoItem);
-			items.Add(todoItem);
+			ite
+	ms.Add(todoItem);
 		}
 		catch (MobileServiceInvalidOperationException e)
 		{
@@ -639,7 +658,7 @@ Windows Phone 앱의 경우 [ProtectedData] 클래스를 사용하여 데이터�
 
 ### <a name="serialization"></a>방법: serialization 사용자 지정
 
-[MobileServiceClient](http://msdn.microsoft.com/ko-kr/library/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx) 클래스는 [JsonSerializerSettings](http://james.newtonking.com/projects/json/help/?topic=html/T_Newtonsoft_Json_JsonSerializerSettings.htm) 형식의 `SerializerSettings` 속성을 표시합니다.
+[MobileServiceClient](http://msdn.microsoft.com/library/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx) 클래스는 [JsonSerializerSettings](http://james.newtonking.com/projects/json/help/?topic=html/T_Newtonsoft_Json_JsonSerializerSettings.htm) 형식의 `SerializerSettings` 속성을 표시합니다.
 
 이 속성을 사용하면 예를 들어 모든 속성을 소문자로 변환하는 속성을 포함한 JSON.NET 속성(다수의 속성)을 설정할 수 있습니다.
 
@@ -704,33 +723,33 @@ Windows Phone 앱의 경우 [ProtectedData] 클래스를 사용하여 데이터�
 <!-- URLs. -->
 [모바일 서비스 시작](영문): /ko-kr/develop/mobile/tutorials/get-started
 [모바일 서비스 SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
-[Windows 스토어 퀵 스타트 자습서]: http://www.windowsazure.com/ko-kr/develop/mobile/tutorials/get-started/
-[Windows Phone 퀵 스타트 자습서]: http://www.windowsazure.com/ko-kr/develop/mobile/tutorials/get-started-wp8/
-[Windows 스토어 데이터 자습서]: http://www.windowsazure.com/ko-kr/develop/mobile/tutorials/get-started-with-data-dotnet/
-[Windows Phone 데이터 자습서]: http://www.windowsazure.com/ko-kr/develop/mobile/tutorials/get-started-with-data-wp8/
-[Windows 스토어 인증]: http://www.windowsazure.com/ko-kr/develop/mobile/tutorials/get-started-with-users-dotnet/
-[Windows Phone 인증]: http://www.windowsazure.com/ko-kr/develop/mobile/tutorials/get-started-with-users-wp8/
-[PasswordVault]: http://msdn.microsoft.com/ko-kr/library/windows/apps/windows.security.credentials.passwordvault.aspx
+[Windows 스토어 퀵 스타트 자습서]: http://azure.microsoft.com/develop/mobile/tutorials/get-started/
+[Windows Phone 퀵 스타트 자습서]: http://azure.microsoft.com/develop/mobile/tutorials/get-started-wp8/
+[Windows 스토어 데이터 자습서]: http://azure.microsoft.com/develop/mobile/tutorials/get-started-with-data-dotnet/
+[Windows Phone 데이터 자습서]: http://azure.microsoft.com/develop/mobile/tutorials/get-started-with-data-wp8/
+[Windows 스토어 인증]: http://azure.microsoft.com/develop/mobile/tutorials/get-started-with-users-dotnet/
+[Windows Phone 인증]: http://azure.microsoft.com/develop/mobile/tutorials/get-started-with-users-wp8/
+[PasswordVault]: http://msdn.microsoft.com/library/windows/apps/windows.security.credentials.passwordvault.aspx
 [모바일 서비스 SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
-[ProtectedData]: http://msdn.microsoft.com/ko-kr/library/system.security.cryptography.protecteddata%28VS.95%29.aspx
+[ProtectedData]: http://msdn.microsoft.com/library/system.security.cryptography.protecteddata%28VS.95%29.aspx
 [모바일 서비스 SDK]: http://nuget.org/packages/WindowsAzure.MobileServices/
 [데이터 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-data-dotnet/
 [인증 시작](영문): /ko-kr/develop/mobile/tutorials/get-started-with-users-dotnet
 [스크립트를 사용하여 데이터 유효성 검사 및 수정]: /ko-kr/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
 [페이징을 사용하여 쿼리 구체화]: /ko-kr/develop/mobile/tutorials/add-paging-to-data-dotnet
 [스크립트를 통해 사용자 권한 부여]: /ko-kr/develop/mobile/tutorials/authorize-users-in-scripts-dotnet
-[LoginAsync 메서드]: http://msdn.microsoft.com/ko-kr/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclientextensions.loginasync.aspx
-[MobileServiceAuthenticationProvider]: http://msdn.microsoft.com/ko-kr/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceauthenticationprovider.aspx
-[MobileServiceUser]: http://msdn.microsoft.com/ko-kr/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.aspx
-[UserID]: http://msdn.microsoft.com/ko-kr/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid.aspx
-[MobileServiceAuthenticationToken]: http://msdn.microsoft.com/ko-kr/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.mobileserviceauthenticationtoken.aspx
+[LoginAsync 메서드]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclientextensions.loginasync.aspx
+[MobileServiceAuthenticationProvider]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceauthenticationprovider.aspx
+[MobileServiceUser]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.aspx
+[UserID]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid.aspx
+[MobileServiceAuthenticationToken]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.mobileserviceauthenticationtoken.aspx
 [ASCII 제어 코드 C0 및 C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
-[모바일 서비스 테이블 관리를 위한 CLI]: http://www.windowsazure.com/ko-kr/manage/linux/other-resources/command-line-tools/#Mobile_Tables
-[낙관적 동시성 자습서]: http://www.windowsazure.com/ko-kr/develop/mobile/tutorials/handle-database-write-conflicts-dotnet/
+[모바일 서비스 테이블 관리를 위한 CLI]: http://azure.microsoft.com/manage/linux/other-resources/command-line-tools/#Mobile_Tables
+[낙관적 동시성 자습서]: http://azure.microsoft.com/develop/mobile/tutorials/handle-database-write-conflicts-dotnet/
 
-[IncludeTotalCount]: http://msdn.microsoft.com/ko-kr/library/windowsazure/dn250560.aspx
-[Skip]: http://msdn.microsoft.com/ko-kr/library/windowsazure/dn250573.aspx
-[Take]: http://msdn.microsoft.com/ko-kr/library/windowsazure/dn250574.aspx
+[IncludeTotalCount]: http://msdn.microsoft.com/library/windowsazure/dn250560.aspx
+[Skip]: http://msdn.microsoft.com/library/windowsazure/dn250573.aspx
+[Take]: http://msdn.microsoft.com/library/windowsazure/dn250574.aspx
 [Fiddler]: http://www.telerik.com/fiddler
 [Azure 모바일 서비스 클라이언트 SDK의 사용자 지정 API]: http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx
 [클라이언트에서 사용자 지정 API 호출]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-call-custom-api/

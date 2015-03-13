@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Azure API 관리 시작" metaKeywords="" description="API와 작업을 만들고 API 관리를 시작하는 방법에 대해 알아봅니다." metaCanonical="" services="api-management" documentationCenter="API Management" title="Get started with Azure API Management" authors="sdanie" solutions="" manager="dwrede" editor="" />
+﻿<properties 
+	pageTitle="Azure API 관리 시작" 
+	description="API와 작업을 만들고 API 관리를 시작하는 방법에 대해 알아봅니다.." 
+	services="api-management" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/18/2014" ms.author="sdanie" />
+<tags 
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2/11/2015" 
+	ms.author="sdanie"/>
 
 # Azure API 관리 시작
 
@@ -156,7 +170,7 @@ API는 API 관리 콘솔에서 생성 및 구성되며, 이 콘솔에는 Azure �
 -   개발자 포털 사용자 지정
 -   API 검사기를 사용하여 호출 추적
 
-[Azure 무료 평가판]: http://www.windowsazure.com/ko-kr/pricing/free-trial/
+[Azure 무료 평가판]: http://azure.microsoft.com/pricing/free-trial/
 
 [API 관리 인스턴스 만들기]: #create-service-instance
 [API 만들기]: #create-api
@@ -203,3 +217,5 @@ API는 API 관리 콘솔에서 생성 및 구성되며, 이 콘솔에는 Azure �
 [api-management-invoke-get-response]: ./media/api-management-get-started-b/api-management-invoke-get-response.png
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

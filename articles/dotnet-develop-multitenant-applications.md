@@ -1,6 +1,20 @@
-<properties urlDisplayName="Multi-Tenant Web Application Pattern" pageTitle="다중 테넌트 웹 응용 프로그램 패턴 - Azure 아키텍처" metaKeywords="" description="Azure에서 다중 테넌트 웹 응용 프로그램을 구현하는 방법에 대해 설명하는 아키텍처 개요 및 디자인 패턴을 찾습니다." metaCanonical="" services="" documentationCenter=".NET" title="Multitenant Applications in Azure" authors="wpickett" solutions="" manager="wpickett" editor="" />
+﻿<properties 
+	pageTitle="Azure 계정 만들기" 
+	description="계정 만들기" 
+	authors="" 
+	manager="wpickett" 
+	editor="" 
+	services="" 
+	documentationCenter=".net"/>
 
-<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="wpickett" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="11/11/2014" 
+	ms.author="wpickett"/>
 
 
 <div>
@@ -108,7 +122,9 @@ Azure에는 응용 프로그램의 새 테넌트를 프로비전하는 방법이
 
 <!--links-->
 
-[Azure에서 다중 테넌트 응용 프로그램 호스트]: http://msdn.microsoft.com/ko-kr/library/hh534480.aspx
-[Azure에서 다중 테넌트 응용 프로그램 설계]: http://msdn.microsoft.com/ko-kr/library/windowsazure/hh689716
+[Azure에서 다중 테넌트 응용 프로그램 호스트]: http://msdn.microsoft.com/library/hh534480.aspx
+[Azure에서 다중 테넌트 응용 프로그램 설계]: http://msdn.microsoft.com/library/windowsazure/hh689716
 
 
+
+<!--HONumber=46--> 

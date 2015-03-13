@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Hybrid Connections Overview - BizTalk Services" pageTitle="하이브리드 연결 개요 | Azure" metaKeywords="BizTalk Services, BizTalk, websites, web sites, hybrid connections, Azure" description="보안을 포함하여 하이브리드 연결에 대해 알아봅니다." metaCanonical="" services="integration-services" documentationCenter="" title="Hybrid Connections Overview" authors="mandia" solutions="" manager="dwrede" editor="cgronlun" />
+﻿<properties 
+	pageTitle="하이브리드 연결 개요 | Azure" 
+	description="보안, TCP 포트 및 지원되는 구성 등을 포함한 하이브리드 연결에 대해 알아봅니다. MABS, WABS" 
+	services="biztalk-services" 
+	documentationCenter="" 
+	authors="MandiOhlinger" 
+	manager="dwrede" 
+	editor="cgronlun"/>
 
-<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/20/2014" ms.author="mandia" />
+<tags 
+	ms.service="biztalk-services" 
+	ms.workload="integration" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/17/2015" 
+	ms.author="mandia"/>
 
 
 
@@ -62,7 +76,7 @@
 
 하이브리드 연결은 응용 프로그램과 온-프레미스 하이브리드 연결 관리자로 원활하고 안전하게 키를 배포합니다. 
 
-[하이브리드 연결 만들기 및 관리](http://azure.microsoft.com/ko-kr/documentation/articles/integration-hybrid-connection-create-manage)를 참조하세요. 
+[하이브리드 연결 만들기 및 관리](http://azure.microsoft.com/documentation/articles/integration-hybrid-connection-create-manage)를 참조하세요. 
 
 **응용 프로그램 권한 부여가 하이브리드 연결과는 별개임**. 적절한 어떤 권한 부여 방법도 사용될 수 있습니다. 권한 부여 방법은 Azure 클라우드와 온-프레미스 구성 요소에서 지원되는 종단 간 권한 부여 방법에 따라 좌우됩니다. 예를 들어 Azure 응용 프로그램은 온-프레미스 SQL Server에 액세스합니다. 이 시나리오에서 SQL 권한 부여는 종단 간에 지원되는 권한 부여 방법일 수 있습니다.
 
@@ -97,10 +111,10 @@
 
 ## 다음
 
-- [하이브리드 연결 만들기 및 관리](http://azure.microsoft.com/ko-kr/documentation/articles/integration-hybrid-connection-create-manage)
+- [하이브리드 연결 만들기 및 관리](http://azure.microsoft.com/documentation/articles/integration-hybrid-connection-create-manage)
 - [Azure 웹 사이트를 온-프레미스 리소스에 연결(영문)](http://go.microsoft.com/fwlink/p/?LinkId=397538)
 - [하이브리드 연결 단계별 과정: Azure 웹 사이트에서 온-프레미스 SQL Server에 연결](http://go.microsoft.com/fwlink/?LinkID=397979)(영문)
-- [Azure 모바일 서비스 및 하이브리드 연결(영문)](http://azure.microsoft.com/ko-kr/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started)
+- [Azure 모바일 서비스 및 하이브리드 연결(영문)](http://azure.microsoft.com/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started)
 
 
 ## 참고 항목
@@ -114,3 +128,5 @@
 [HybridConnectionTab]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionTab.png
 [HCOnPremSetup]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionOnPremSetup.png
 [HCManageConnection]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionManageConn.png
+
+<!--HONumber=46--> 

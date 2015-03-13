@@ -1,6 +1,20 @@
-<properties linkid="Azure Site Recovery Overview" urlDisplayName="Azure Site Recovery Overview" pageTitle="Azure Site Recovery Overview" metaKeywords="Azure Site Recovery, on-premises, clouds, Azure, VMM, Hyper-V" description="Deploy Azure Site Recovery to protect virtual machines on Hyper-V host servers that are located in VMM clouds. You can deploy from one on-premises site to another, or from an on-premises site to Azure." metaCanonical="" umbracoNaviHide="0" disqusComments="1" title="Azure Site Recovery Overview" editor="jimbe" manager="cfreeman" authors="raynew" />
+﻿<properties 
+	pageTitle="Azure 사이트 복구 개요" 
+	description="Azure Site Recovery를 배포하여 온-프레미스 가상 컴퓨터를 다른 온-프레미스 사이트 또는 Azure에 대해 보호합니다." 
+	services="site-recovery" 
+	documentationCenter="" 
+	authors="raynew" 
+	manager="jwhit" 
+	editor="tysonn"/>
 
-<tags ms.service="site-recovery" ms.workload="backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="raynew" />
+<tags 
+	ms.service="site-recovery" 
+	ms.workload="backup-recovery" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/18/2015" 
+	ms.author="raynew"/>
 
 # Azure 사이트 복구 개요
 
@@ -109,3 +123,5 @@
 [Azure 사이트 복구 시작: 온-프레미스와 Azure 간 보호]: http://go.microsoft.com/fwlink/?LinkId=398764
 [자격 증명 모음 요구 사항]: %20http://go.microsoft.com/fwlink/?LinkId=386485
 [Azure 복구 서비스 포럼]: http://go.microsoft.com/fwlink/?LinkId=313628
+
+<!--HONumber=46--> 

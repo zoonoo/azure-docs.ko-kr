@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Load Testing Pattern" pageTitle="부하 테스트 응용 프로그램 패턴 - Azure 아키텍처 패턴" metaKeywords="" description="아키텍처 개요 및 Azure에서 부하 테스트 시스템을 구현 하는 방법을 설명 하는 디자인 패턴을 찾습니다." metaCanonical="" services="" documentationCenter=".NET" title="Load Testing in Azure" authors="robb" solutions="" manager="johndaw" editor="" />
+﻿<properties 
+	pageTitle="부하 테스트 응용 프로그램 패턴 - Azure 아키텍처 패턴" 
+	description="Azure에서 부하 테스트 시스템을 구현하는 방법을 설명하는 아키텍처 개요 및 디자인 패턴을 찾습니다." 
+	services="" 
+	documentationCenter=".net" 
+	authors="Rboucher" 
+	manager="jwhit" 
+	editor=""/>
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/25/2014" ms.author="robb" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="11/25/2014" 
+	ms.author="robb"/>
 
 # Azure의 부하 테스트
 
@@ -9,8 +23,8 @@
 <!--links-->
 
 [Azure 및 Visual Studio Ultimate]: http://www.microsoft.com/visualstudio/eng/products/visual-studio-ultimate-2012#product-edition-ultimate-details
-[혼합 환경에서 부하 테스트 실행]: http://msdn.microsoft.com/ko-kr/library/windowsazure/hh966776.aspx
-[Azure 역할에서 Visual Studio 부하 테스트 사용]: http://msdn.microsoft.com/ko-kr/library/windowsazure/hh674491.aspx
+[혼합 환경에서 부하 테스트 실행]: http://msdn.microsoft.com/library/windowsazure/hh966776.aspx
+[Azure 역할에서 Visual Studio 부하 테스트 사용]: http://msdn.microsoft.com/library/windowsazure/hh674491.aspx
 
 <!--images-->
 
@@ -18,3 +32,5 @@
  
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

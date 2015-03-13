@@ -1,6 +1,20 @@
-﻿<properties title="How to customize monitoring" pageTitle="모니터링을 사용자 지정하는 방법" description="Azure에서 모니터링 차트를 사용자 지정하는 방법에 대해 알아봅니다." authors="awills" manager="kamrani" />
+﻿<properties 
+	pageTitle="모니터링을 사용자 지정하는 방법" 
+	description="Azure에서 모니터링 차트를 사용자 지정하는 방법에 대해 알아봅니다." 
+	authors="alancameronwills" 
+	manager="kamrani" 
+	editor="" 
+	services="application-insights" 
+	documentationCenter=""/>
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-11-04" ms.author="awills" />
+<tags 
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2014-11-04" 
+	ms.author="awills"/>
 
 # 모니터링 사용자 지정
 
@@ -53,3 +67,5 @@ Azure 포털 Preview의 강력한 사용자 지정을 사용하여 사용자 지
 
 포털에서 나가면 차트 시간 범위 및 선택한 메트릭이 다시 설정됩니다.
 
+
+<!--HONumber=46--> 

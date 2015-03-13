@@ -1,6 +1,20 @@
-﻿<properties pageTitle="API 관리 주요 개념" metaKeywords="" description="Api, 제품, 역할, 그룹 및 다른 API 관리의 주요 개념에 알아봅니다." metaCanonical="" services="api-management" documentationCenter="API Management" title="API Management key concepts" authors="sdanie" solutions="" manager="dwrede" editor="" />
+﻿<properties 
+	pageTitle="API 관리 주요 개념" 
+	description="API, 제품, 역할, 그룹 및 기타 API 관리의 주요 개념에 대해 알아봅니다." 
+	services="api-management" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/18/2014" ms.author="sdanie" />
+<tags 
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/18/2014" 
+	ms.author="sdanie"/>
 
 #API 관리 주요 개념
 
@@ -90,3 +104,5 @@ API 관리 정책의 전체 목록을 보려면 [정책 참조][]를 참조하�
 
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

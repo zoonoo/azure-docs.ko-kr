@@ -217,7 +217,7 @@ SQL 데이터베이스는 개별 데이터베이스를 모니터링할 수 있�
 * [SQL 데이터베이스에 사용자 추가][]   
 * [Transact-SQL 참조(SQL 데이터베이스)][]
 
-  [Azure SQL 데이터베이스를 사용하는 방법]: http://www.windowsazure.com/ko-kr/develop/net/how-to-guides/sql-azure/
+  [Azure SQL 데이터베이스를 사용하는 방법]: http://azure.microsoft.com/develop/net/how-to-guides/sql-azure/
   [1단계: SQL Server Management Studio 가져오기]: #Step1
   [2단계: SQL 데이터베이스에 연결]: #Step2
   [3단계: 데이터베이스 만들기 및 관리]: #Step3
@@ -231,18 +231,17 @@ SQL 데이터베이스는 개별 데이터베이스를 모니터링할 수 있�
   [관리 포털에서 SQL 데이터베이스 서버 이름 가져오기]: /media/portal_get_database_name.png
   [SSMS에 연결]: /media/ssms_connect.png
   [SSMS에 연결 - 속성]: /media/ssms_connect_properties.png
-  [Transact-SQL 참조(SQL 데이터베이스)]: http://msdn.microsoft.com/ko-kr/library/bb510741(v=sql.120).aspx
-  [CREATE DATABASE(SQL 데이터베이스)]: http://msdn.microsoft.com/ko-kr/library/windowsazure/ee336274.aspx
-  [ALTER DATABASE(SQL 데이터베이스)]: http://msdn.microsoft.com/ko-kr/library/windowsazure/ff394109.aspx
-  [DROP DATABASE(SQL 데이터베이스)]: http://msdn.microsoft.com/ko-kr/library/windowsazure/ee336259.aspx
-  [SQL 데이터베이스에서 데이터베이스 및 로그인 관리]: http://msdn.microsoft.com/ko-kr/library/windowsazure/ee336235.aspx
-  [CREATE LOGIN(SQL 데이터베이스)]: http://msdn.microsoft.com/ko-kr/library/windowsazure/ee336268.aspx
-  [CREATE USER(SQL 데이터베이스)]: http://msdn.microsoft.com/ko-kr/library/ee336277.aspx
-  [sp_addrolemember(Transact-SQL)]: http://msdn.microsoft.com/ko-kr/library/ms187750.aspx
-  [ALTER LOGIN(SQL 데이터베이스)]: http://msdn.microsoft.com/ko-kr/library/windowsazure/ee336254.aspx
-  [동적 관리 뷰를 사용하여 SQL 데이터베이스 모니터링]: http://msdn.microsoft.com/ko-kr/library/windowsazure/ff394114.aspx
-  [SQL 데이터베이스 소개]: http://msdn.microsoft.com/ko-kr/library/windowsazure/ee336230.aspx
-  [SQL 데이터베이스 프로비전 모델]: http://msdn.microsoft.com/ko-kr/library/ee336227.aspx
+  [Transact-SQL 참조(SQL 데이터베이스)]: http://msdn.microsoft.com/library/bb510741(v=sql.120).aspx
+  [CREATE DATABASE(SQL 데이터베이스)]: http://msdn.microsoft.com/library/windowsazure/ee336274.aspx
+  [ALTER DATABASE(SQL 데이터베이스)]: http://msdn.microsoft.com/library/windowsazure/ff394109.aspx
+  [DROP DATABASE(SQL 데이터베이스)]: http://msdn.microsoft.com/library/windowsazure/ee336259.aspx
+  [SQL 데이터베이스에서 데이터베이스 및 로그인 관리]: http://msdn.microsoft.com/library/windowsazure/ee336235.aspx
+  [CREATE LOGIN(SQL 데이터베이스)]: http://msdn.microsoft.com/library/windowsazure/ee336268.aspx
+  [CREATE USER(SQL 데이터베이스)]: http://msdn.microsoft.com/library/ee336277.aspx
+  [sp_addrolemember(Transact-SQL)]: http://msdn.microsoft.com/library/ms187750.aspx
+  [ALTER LOGIN(SQL 데이터베이스)]: http://msdn.microsoft.com/library/windowsazure/ee336254.aspx
+  [동적 관리 뷰를 사용하여 SQL 데이터베이스 모니터링]: http://msdn.microsoft.com/library/windowsazure/ff394114.aspx
+  [SQL 데이터베이스 소개]: http://msdn.microsoft.com/library/windowsazure/ee336230.aspx
+  [SQL 데이터베이스 프로비전 모델]: http://msdn.microsoft.com/library/ee336227.aspx
   [SQL 데이터베이스에 사용자 추가]: http://blogs.msdn.com/b/sqlazure/archive/2010/06/21/10028038.aspx
-
 <!--HONumber=42-->

@@ -1,6 +1,20 @@
-﻿<properties pageTitle="데이터 시작(HTML 5) | 모바일 개발자 센터" description="모바일 서비스를 사용하여 HTML 앱에서 데이터를 활용하는 방법에 대해 알아봅니다." services="mobile-services" documentationCenter="" authors="ggailey777" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="데이터 시작(HTML 5) | 모바일 개발자 센터" 
+	description="모바일 서비스를 사용하여 HTML 앱에서 데이터를 활용하는 방법에 대해 알아봅니다." 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="article" ms.date="09/24/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-html" 
+	ms.devlang="javascript" 
+	ms.topic="article" 
+	ms.date="09/24/2014" 
+	ms.author="glenga"/>
 
 # 기존 앱에 모바일 서비스 추가(영문)
 
@@ -18,7 +32,7 @@
 4. [모바일 서비스를 사용하도록 앱 업데이트]
 5. [모바일 서비스에 대해 앱 테스트]
 
-> [AZURE.IMPORTANT] 이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](http://www.windowsazure.com/ko-kr/pricing/free-trial/?WT.mc_id=A756A2826&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fko-kr%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-html%2F"%20target="_blank)을 참조하세요.
+> [AZURE.IMPORTANT] 이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A756A2826&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fko-kr%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-html%2F"%20target="_blank)을 참조하세요.
 
 ###추가 요구 사항
 
@@ -126,7 +140,7 @@
 
   	![][11]
 
-	> [AZURE.IMPORTANT] localhost 이외의 웹 서버에 퀵 스타트 앱을 배포하는 경우, 웹 서버 호스트 이름을 **호스트 이름의 요청 허용** 목록에 추가해야 합니다. 자세한 내용은 [CORS(크로스-원본 자원 공유)](http://msdn.microsoft.com/ko-kr/library/windowsazure/dn155871.aspx"%20target="_blank)(영문)를 참조하세요.
+	> [AZURE.IMPORTANT] localhost 이외의 웹 서버에 퀵 스타트 앱을 배포하는 경우, 웹 서버 호스트 이름을 **호스트 이름의 요청 허용** 목록에 추가해야 합니다. 자세한 내용은 [CORS(크로스-원본 자원 공유)](http://msdn.microsoft.com/library/windowsazure/dn155871.aspx"%20target="_blank)(영문)를 참조하세요.
 
 이제 새 모바일 서비스를 앱의 데이터 저장소로 사용할 준비가 되었습니다.
 
@@ -197,8 +211,10 @@
 						.append($('<div>').append($('<input class="item-text">').val(item.text)));
 				});
 					   
-				$('#todo-items').empty().append(listItems).toggle(listItems.length > 0);
-				$('#summary').html('<strong>' + todoItems.length + '</strong> item(s)');
+				$('#todo-items').empty().append(listItems).toggle(listIte
+	ms.length > 0);
+				$('#summary').html('<strong>' + todoIte
+	ms.length + '</strong> item(s)');
 			});
 		}
 	   
@@ -308,7 +324,7 @@
 
 [모바일 서비스 HTML/JavaScript 방법 개념 참조]: /ko-kr/develop/mobile/how-to-guides/work-with-html-js-client
 
-[크로스-원본 자원 공유]: http://msdn.microsoft.com/ko-kr/library/windowsazure/dn155871.aspx
+[크로스-원본 자원 공유]: http://msdn.microsoft.com/library/windowsazure/dn155871.aspx
 
 
 

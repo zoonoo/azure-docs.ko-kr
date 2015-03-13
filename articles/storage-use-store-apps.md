@@ -26,7 +26,7 @@
 
 ## 필요한 도구 다운로드 ##
 
-- [Visual Studio 2012](http://msdn.microsoft.com/ko-kr/library/windows/apps/br211384)를 사용하면 Windows 스토어 앱을 쉽게 빌드, 디버그, 지역화, 패키지 및 배포할 수 있습니다.
+- [Visual Studio 2012](http://msdn.microsoft.com/library/windows/apps/br211384)를 사용하면 Windows 스토어 앱을 쉽게 빌드, 디버그, 지역화, 패키지 및 배포할 수 있습니다.
 - [Windows 런타임용 Microsoft Azure Storage Client Library](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/11/05/windows-azure-storage-client-library-for-windows-runtime.aspx)는 Azure 저장소 작업에 필요한 클래스 라이브러리를 제공합니다.
 - [Windows 스토어 앱용 WCF 데이터 서비스 도구](http://www.microsoft.com/ko-kr/download/details.aspx?id=30714)는 Visual Studio 2012에서 Windows 스토어 앱용 클라이언트 쪽 OData 지원으로 서비스 참조 추가까지 경험하게 해줍니다.
 
@@ -49,7 +49,7 @@ Visual Studio 2012 이상에서 새 Windows 스토어 앱 프로젝트를 만듭
     using Microsoft.WindowsAzure.Storage;
     using Microsoft.WindowsAzure.Storage.Auth;
     
-그런 다음, 페이지에 단추를 추가합니다. 다음 코드를 단추의 **Click** 이벤트에 추가하고 [비동기 키워드](http://msdn.microsoft.com/ko-kr/library/vstudio/hh156513.aspx)로 이벤트 처리기 메서드를 수정합니다.
+그런 다음, 페이지에 단추를 추가합니다. 다음 코드를 단추의 **Click** 이벤트에 추가하고 [비동기 키워드](http://msdn.microsoft.com/library/vstudio/hh156513.aspx)로 이벤트 처리기 메서드를 수정합니다.
     
     var credentials = new StorageCredentials(accountName, accountKey);
     var account = new CloudStorageAccount(credentials, true);
@@ -90,5 +90,4 @@ WCF 데이터 서비스 NuGet 패키지를 참조한 경우 단추의 **Click** 
 [store-apps-storage-vs-project]: ./media/storage-use-store-apps/store-apps-storage-vs-project.png
 [store-apps-storage-choose-library]: ./media/storage-use-store-apps/store-apps-storage-choose-library.png
 [store-apps-storage-package-manager]: ./media/storage-use-store-apps/store-apps-storage-package-manager.png
-
 <!--HONumber=42-->

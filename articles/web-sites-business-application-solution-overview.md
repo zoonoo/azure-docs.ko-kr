@@ -34,7 +34,7 @@ LOB(기간 업무) 응용 프로그램을 Azure 웹 사이트로 이동할 경�
 
 <div class="dev-callout">
 <strong>참고</strong>
-<p>이 가이드에서는 LOB(기간 업무) 응용 프로그램에 맞는 가장 일반적인 몇 가지 영역과 작업에 대해 설명합니다. 그러나 특정 구현에서 사용할 수 있는 Azure 웹 사이트의 다른 기능이 있습니다. 이러한 기능에 대해 알아보려면 <a href="http://www.windowsazure.com/ko-kr/manage/services/web-sites/global-web-presence-solution-overview/">글로벌 웹 서비스</a> 및 <a href="http://www.windowsazure.com/ko-kr/manage/services/web-sites/digital-marketing-campaign-solution-overview">디지털 마케팅 캠페인</a>에서 제공하는 다른 가이드도 참조하십시오.</p>
+<p>이 가이드에서는 LOB(기간 업무) 응용 프로그램에 맞는 가장 일반적인 몇 가지 영역과 작업에 대해 설명합니다. 그러나 특정 구현에서 사용할 수 있는 Azure 웹 사이트의 다른 기능이 있습니다. 이러한 기능에 대해 알아보려면 <a href="http://azure.microsoft.com/manage/services/web-sites/global-web-presence-solution-overview/">글로벌 웹 서비스</a> 및 <a href="http://azure.microsoft.com/manage/services/web-sites/digital-marketing-campaign-solution-overview">디지털 마케팅 캠페인</a>에서 제공하는 다른 가이드도 참조하십시오.</p>
 </div>
 
 ### 기존 자산 가져오기
@@ -108,8 +108,8 @@ Azure 웹 사이트 대시보드에서 웹 사이트의 현재 성능 메트릭 
 
 [수평 및 수직 확장]:/ko-kr/manage/services/web-sites/how-to-scale-websites/
 [Azure 관리 포털]:http://manage.windowsazure.com/
-[서비스 관리 API]:http://msdn.microsoft.com/ko-kr/library/windowsazure/ee460799.aspx
-[PowerShell 스크립팅]:http://msdn.microsoft.com/ko-kr/library/windowsazure/jj152841.aspx
+[서비스 관리 API]:http://msdn.microsoft.com/library/windowsazure/ee460799.aspx
+[PowerShell 스크립팅]:http://msdn.microsoft.com/library/windowsazure/jj152841.aspx
 [Troy Hunt]:https://twitter.com/troyhunt
 [Azure를 사용하여 웹 사이트를 신속하게 확장하는 방법에 대해 배운 10가지]:http://www.troyhunt.com/2014/09/10-things-i-learned-about-rapidly.html
 [Azure Redis Cache]:/blog/2014/06/05/mvc-movie-app-with-azure-redis-cache-in-15-minutes/

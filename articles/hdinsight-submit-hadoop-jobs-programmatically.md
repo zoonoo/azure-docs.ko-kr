@@ -701,7 +701,7 @@ Visual Studio에 응용 프로그램이 열려 있을 때 **F5** 키를 눌러 �
 * [HDInsight에서 Pig 사용][hdinsight-use-pig]
 
 
-[azure-certificate]: http://msdn.microsoft.com/ko-kr/library/windowsazure/gg551722.aspx
+[azure-certificate]: http://msdn.microsoft.com/library/windowsazure/gg551722.aspx
 [azure-management-portal]: http://manage.windowsazure.com/
 
 [hdinsight-use-sqoop]: ../hdinsight-use-sqoop/
@@ -714,7 +714,7 @@ Visual Studio에 응용 프로그램이 열려 있을 때 **F5** 키를 눌러 �
 [hdinsight-admin-powershell]: ../hdinsight-administer-use-powershell/
 [hdinsight-develop-streaming-jobs]: ../hdinsight-hadoop-develop-deploy-streaming-jobs/
 
-[hdinsight-powershell-reference]: http://msdn.microsoft.com/ko-kr/library/windowsazure/dn479228.aspx
+[hdinsight-powershell-reference]: http://msdn.microsoft.com/library/windowsazure/dn479228.aspx
 
 [Powershell-install-configure]: ../install-configure-powershell/
 
@@ -722,5 +722,4 @@ Visual Studio에 응용 프로그램이 열려 있을 때 **F5** 키를 눌러 �
 [image-hdi-gettingstarted-mrjoboutput]: ./media/hdinsight-submit-hadoop-jobs-programmatically/HDI.GettingStarted.MRJobOutput.png
 
 [apache-hive]: http://hive.apache.org/
-
 <!--HONumber=42-->

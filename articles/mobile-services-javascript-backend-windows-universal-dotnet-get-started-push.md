@@ -1,6 +1,20 @@
-﻿<properties pageTitle="JavaScript 백 엔드 모바일 서비스를 사용하여 푸시 알림 시작" description="Azure 모바일 서비스와 알림 허브를 사용하여 범용 Windows 앱에 푸시 알림을 보내는 방법에 대해 알아봅니다." services="mobile-services, notification-hubs" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="JavaScript 백 엔드 모바일 서비스를 사용하여 푸시 알림 시작" 
+	description="Azure 모바일 서비스와 알림 허브를 사용하여 범용 Windows 앱에 푸시 알림을 보내는 방법에 대해 알아봅니다." 
+	services="mobile-services, notification-hubs" 
+	documentationCenter="windows" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/27/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/27/2014" 
+	ms.author="glenga"/>
 
 
 # 모바일 서비스 앱에 푸시 알림 추가
@@ -32,7 +46,7 @@
 <li><p><code>\Services\MobileServices\your_service_name</code> 프로젝트 폴더로 이동하여 생성된 push.register.cs 코드 파일을 열고 장치의 채널 URL을 알림 허브에 등록하는 <strong>UploadChannel</strong> 메서드를 검사합니다.</p></li> 
 <li><p>공유되는 App.xaml.cs 코드 파일을 열고 새 <strong>UploadChannel</strong> 메서드 호출이 <strong>OnLaunched</strong> 이벤트 처리기에 추가되었음을 확인합니다.</p> <p>따라서 앱을 시작할 때마다 장치 등록을 시도합니다.</p></li>
 <li><p>이전 단계를 반복하여 Windows Phone 스토어 앱 프로젝트에 푸시 알림을 추가한 다음 공유되는 App.xaml.cs 파일에서 추가 <strong>UploadChannel</strong> 호출과 나머지 <code>#if...#endif</code> 조건부 래퍼를 제거합니다.</p> <p>이제 두 프로젝트가 모두 단일 <strong>UploadChannel</strong> 호출을 공유할 수 있습니다.</p>
-<p><code>#if...#endif</code> 래핑 <a href="http://msdn.microsoft.com/ko-kr/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx">MobileServiceClient</a> 정의를 앱의 두 버전에서 모두 사용되는 래핑 해제된 단일 정의로 통합하여 생성되는 코드를 간소화할 수도 있습니다.</p></li>
+<p><code>#if...#endif</code> 래핑 <a href="http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx">MobileServiceClient</a> 정의를 앱의 두 버전에서 모두 사용되는 래핑 해제된 단일 정의로 통합하여 생성되는 코드를 간소화할 수도 있습니다.</p></li>
 </ol>
 
 이제 앱에서 푸시 알림을 사용하도록 설정했으므로 모바일 서비스가 푸시 알림을 보내도록 업데이트해야 합니다. 

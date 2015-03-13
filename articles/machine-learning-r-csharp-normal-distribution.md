@@ -1,6 +1,20 @@
-﻿<properties title="Normal Distribution Web Service Suite" pageTitle="정규 분포 웹 서비스 제품군 | Azure" description="정규 분포 웹 서비스 제품군" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jaymathe" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="정규 분포 웹 서비스 제품군 | Azure" 
+	description="정규 분포 웹 서비스 제품군" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="jaymathe" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/08/2014" ms.author="jaymathe" /> 
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/11/2015" 
+	ms.author="jaymathe"/> 
 
 #정규 분포 웹 서비스 제품군
 
@@ -87,7 +101,7 @@
 	}
 
 ##웹 서비스 만들기 
->이 웹 서비스는 Azure 기계 학습을 사용하여 만들었습니다. 무료 평가판 및 실험을 만들고 [웹 서비스를 게시](http://azure.microsoft.com/ko-kr/documentation/articles/machine-learning-publish-web-service-to-azure-marketplace/)하는 방법에 대한 소개 비디오는 [azure.com/ml](http://azure.com/ml)을 참조하세요. 
+>이 웹 서비스는 Azure 기계 학습을 사용하여 만들었습니다. 무료 평가판 및 실험을 만들고 [웹 서비스를 게시](http://azure.microsoft.com/documentation/articles/machine-learning-publish-web-service-to-azure-marketplace/)하는 방법에 대한 소개 비디오는 [azure.com/ml](http://azure.com/ml)을 참조하세요. 
 
 다음은 웹 서비스를 만든 실험과 실험 내 각 모듈의 예제 코드의 스크린샷입니다.
 
@@ -173,9 +187,11 @@
 이는 정규 분포와 관련된 매우 간단한 예제입니다. 위의 예제 코드에서 볼 수 있듯이 오류 catch가 거의 구현되어 있지 않습니다.
 
 ##FAQ
-웹 서비스 사용 또는 마켓플레이스 게시 방법과 관련한 질문과 대답은 [여기](http://azure.microsoft.com/ko-kr/documentation/articles/machine-learning-marketplace-faq)를 참조하세요.
+웹 서비스 사용 또는 마켓플레이스 게시 방법과 관련한 질문과 대답은 [여기](http://azure.microsoft.com/documentation/articles/machine-learning-marketplace-faq)를 참조하세요.
 
 [1]: ./media/machine-learning-r-csharp-normal-distribution/normal-img1.png
 [2]: ./media/machine-learning-r-csharp-normal-distribution/normal-img2.png
 [3]: ./media/machine-learning-r-csharp-normal-distribution/normal-img3.png
 [4]: ./media/machine-learning-r-csharp-normal-distribution/normal-img4.png
+
+<!--HONumber=46--> 

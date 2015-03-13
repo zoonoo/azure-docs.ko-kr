@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="BizTalk Services: Backup and Restore" pageTitle="BizTalk 서비스: 백업 및 복원 | Azure" metaKeywords="" description="BizTalk 서비스에는 백업 및 복원 기능이 포함되어 있습니다. 백업을 만들 때 BizTalk 서비스 구성에 대한 스냅샷이 만들어집니다." metaCanonical="" services="" documentationCenter="" title="BizTalk Services: Backup and Restore" authors="mandia"  solutions="" writer="mandia" manager="dwrede" editor="cgronlun"  />
+﻿<properties 
+	pageTitle="BizTalk 서비스의 대시보드, 모니터 및 크기 | Azure" 
+	description="대시보드, 모니터, 확장, 구성 및 하이브리드 연결을 포함하는 BizTalk 서비스에 대한 관리 포털 탭에서 성능을 제어하고 모니터링하는 방법에 대해 알아봅니다. MABS, WABS" 
+	services="biztalk-services" 
+	documentationCenter="" 
+	authors="MandiOhlinger" 
+	manager="dwrede" 
+	editor="cgronlun"/>
 
-<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/14/2014" ms.author="mandia" />
+<tags 
+	ms.service="biztalk-services" 
+	ms.workload="integration" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/16/2015" 
+	ms.author="mandia"/>
 
 
 # BizTalk 서비스: 백업 및 복원
@@ -16,7 +30,7 @@ Azure BizTalk 서비스에는 백업 및 복원 기능이 포함되어 있습니
 
 ##<a name="beforebackup"></a>시작하기 전에
 
-- 일부 버전에서는 백업 및 복원을 사용하지 못할 수도 있습니다. [BizTalk 서비스: Edition 차트](http://azure.microsoft.com/ko-kr/documentation/articles/biztalk-editions-feature-chart/)를 참조하세요.
+- 일부 버전에서는 백업 및 복원을 사용하지 못할 수도 있습니다. [BizTalk 서비스: Edition 차트](http://azure.microsoft.com/documentation/articles/biztalk-editions-feature-chart/)를 참조하세요.
 
 	**참고** 하이브리드 연결은 버전에 상관없이 백업되지 않습니다.
 
@@ -227,3 +241,5 @@ Azure 관리 포털에서 Azure BizTalk 서비스를 만들려면 [BizTalk 서�
 [Restore]: ./media/biztalk-backup-restore/restore-ui.png
 [AutomaticBU]: ./media/biztalk-backup-restore/AutomaticBU.png
 [RestoreBizTalkService]: ./media/biztalk-backup-restore/RestoreBizTalkServiceWindow.png
+
+<!--HONumber=46--> 

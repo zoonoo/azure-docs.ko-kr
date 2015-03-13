@@ -6,7 +6,7 @@
 	authors="blackmist" 
 	manager="wpickett" 
 	editor=""/>
-
+	
 <tags 
 	ms.service="virtual-machines" 
 	ms.workload="infrastructure-services" 
@@ -38,15 +38,15 @@
 
 ## <a name="what-is"> </a>서비스 관리
 
-Azure에서는 Azure 가상 컴퓨터 관리를 포함하여 [서비스 관리 작업용 REST API](http://msdn.microsoft.com/library/windowsazure/ee460799.aspx)를 사용할 수 있습니다. Azure SDK for Ruby는 **Azure::VirtualMachineSerivce** 클래스를 통해 가상 컴퓨터의 관리 작업을 노출합니다. [Azure 관리 포털](https://manage.windowsazure.com)을 통해 사용할 수 있는 가상 컴퓨터 관리 기능 중 다수는 이 클래스를 사용해 액세스할 수 있습니다.
+Azure에서는 Azure 가상 컴퓨터 관리를 포함하여 [서비스 관리 작업용 REST API](http://msdn.microsoft.com/library/windowsazure/ee460799.aspx) 를 사용할 수 있습니다. Azure SDK for Ruby는 **Azure::VirtualMachineSerivce** 클래스를 통해 가상 컴퓨터의 관리 작업을 노출합니다. [Azure 관리 포털](https://manage.windowsazure.com) 을 통해 사용할 수 있는 가상 컴퓨터 관리 기능 중 다수는 이 클래스를 사용해 액세스할 수 있습니다.
 
 서비스 관리 API를 사용하면 Azure에서 호스트되는 다양한 서비스를 관리할 수 있지만, 이 문서에서는 Azure 가상 컴퓨터 관리에 대해서만 자세히 설명합니다.
 
 ## <a name="concepts"> </a>개념
 
-Azure 가상 컴퓨터는 클라우드 서비스 내에서  'roles'로 구현됩니다. 각 클라우드 서비스에는 다수의 배포로 논리적으로 그룹화된 하나 이상의 역할이 포함될 수 있습니다. 역할은 가용 메모리 양, CPU 코어 수 등과 같이 VM의 전반적인 물리적 특징을 정의합니다.
+Azure 가상 컴퓨터는 클라우드 서비스 내에서 '역할'로 구현됩니다. 각 클라우드 서비스에는 다수의 배포로 논리적으로 그룹화된 하나 이상의 역할이 포함될 수 있습니다. 역할은 가용 메모리 양, CPU 코어 수 등과 같이 VM의 전반적인 물리적 특징을 정의합니다.
 
-또한 각 VM에는 부팅 가능한 운영 체제가 포함된 OS 디스크가 있습니다. VM에는 응용 프로그램 데이터를 저장하는 데 사용해야 하는 추가 디스크인 데이터 디스크가 한 개 이상 있을 수 있습니다. 디스크는 Azure Blob 저장소에 저장되는 VHD(가상 하드 드라이브)로 구현됩니다. 또한 VHD는 VM 생성 도중 VM에서 사용되는 디스크를 만드는 데 사용하는 템플릿인  'images'로 노출될 수 있습니다. 예를 들어 Ubuntu 이미지를 사용하는 새 VM을 만들면 Ubuntu 이미지에서 새 OS 디스크가 만들어집니다.
+또한 각 VM에는 부팅 가능한 운영 체제가 포함된 OS 디스크가 있습니다. VM에는 응용 프로그램 데이터를 저장하는 데 사용해야 하는 추가 디스크인 데이터 디스크가 한 개 이상 있을 수 있습니다. 디스크는 Azure Blob 저장소에 저장되는 VHD(가상 하드 드라이브)로 구현됩니다. 또한 VHD는 VM 생성 도중 VM에서 사용되는 디스크를 만드는 데 사용하는 템플릿인 '이미지'로 노출될 수 있습니다. 예를 들어 Ubuntu 이미지를 사용하는 새 VM을 만들면 Ubuntu 이미지에서 새 OS 디스크가 만들어집니다.
 
 대부분의 이미지는 Microsoft 또는 파트너에서 제공되지만, 고유한 이미지를 만들거나 Azure에서 호스트되는 VM에서 이미지를 만들 수 있습니다.
 
@@ -54,7 +54,7 @@ Azure 가상 컴퓨터는 클라우드 서비스 내에서  'roles'로 구현됩
 
 **Azure::VirtualMachineService** 클래스를 통해 노출된 작업과 같은 서비스 관리 작업을 수행할 때는 Azure 구독 ID 및 구독의 관리 인증서가 포함된 파일을 제공해야 합니다. 두 가지 모두 Azure REST API로 인증할 때 SDK에서 사용됩니다.
 
-Azure 플랫폼 간 명령줄 인터페이스(xplat-cli)를 사용하여 구독 ID 및 관리 인증서를 구해야 합니다. xplat-cli 설치 및 구성에 대한 자세한 내용은 [Azure 플랫폼 간 명령줄 인터페이스 설치 및 구성](http://azure.microsoft.com/manage/install-and-configure-cli/)을 참조하세요.
+Azure 플랫폼 간 명령줄 인터페이스(xplat-cli)를 사용하여 구독 ID 및 관리 인증서를 구해야 합니다. xplat-cli 설치 및 구성에 대한 자세한 내용은 [Azure 플랫폼 간 명령줄 인터페이스 설치 및 구성](http://azure.microsoft.com/manage/install-and-configure-cli/) 을 참조하세요.
 
 xplat-cli를 구성하고 나면 다음 단계를 수행하여 Azure 구독 ID를 검색하고 관리 인증서를 내보낼 수 있습니다.
 
@@ -104,7 +104,7 @@ Azure 서비스를 관리하려면 Azure SDK for Ruby가 포함된 Azure gem을 
 		Successfully installed azure-0.5.0
 		7 gems installed
 
-	> [AZURE.NOTE] 사용 권한 관련 오류가 나타나는 경우 대신 <code>sudo gem install azure</code> 를 사용하세요.
+	> [AZURE.NOTE] 권한 관련 오류가 나타나는 경우에는 대신 <code>sudo gem install azure</code>를 사용하십시오.
 
 ### gem 요구
 
@@ -114,7 +114,7 @@ Azure 서비스를 관리하려면 Azure SDK for Ruby가 포함된 Azure gem을 
 
 ## <a name="setup-connection"> </a>방법: 서비스 관리에 연결
 
-Azure에서 서비스 관리 작업을 수행하려면 [구독 ID 및 Azure 관리 인증서 만들기](#setup-certificate) 합니다. 이렇게 하는 가장 쉬운 방법은 다음 환경 변수를 사용하여 ID 및 인증서 파일 경로를 지정하는 것입니다.
+Azure에서 서비스 관리 작업을 수행하려면 [구독 ID 및 Azure 관리 인증서 만들기] 섹션에서 구한 인증서를 지정해야(#setup-certificate) 합니다. 이렇게 하는 가장 쉬운 방법은 다음 환경 변수를 사용하여 ID 및 인증서 파일 경로를 지정하는 것입니다.
 
 * AZURE\_MANAGEMENT\_CERTIFICATE - 관리 인증서가 포함된 .PEM 파일의 경로
 
@@ -183,7 +183,7 @@ VM 생성의 기본 동작을 다시 정의(예: 새로 만드는 대신 기존 
 
 * **:ssh\_private\_key\_file** - Linux 기반 VM에 대한 보안 SSH 액세스에 사용되는 개인 키가 포함된 파일. HTTPS 전송을 선택한 경우 WinRM 보안을 설정하는 데 사용되는 인증서를 지정하는 데에도 사용됩니다. **:ssh\_private\_key\_file** 및 **:ssh\_certificate\_file**을 생략하면 SSH에서 암호 인증만 사용합니다.
 
-* **:ssh\_certificate\_file** - Linux 기반 VM에 대한 보안 SSH 액세스에 사용되는 개인 키가 포함된 파일. HTTPS 전송을 선택한 경우 WinRM 보안을 설정하는 데 사용되는 인증서를 지정하는 데에도 사용됩니다. **:ssh\_private\_key\_file** 및 **:ssh\_certificate\_file**을 생략하면 SSH에서 암호 인증만 사용합니다.
+* **:ssh\_certificate\_file** - Linux 기반 VM에 대한 보안 SSH 액세스에 사용되는 인증서 파일이 포함된 파일. HTTPS 전송을 선택한 경우 WinRM 보안을 설정하는 데 사용되는 인증서를 지정하는 데에도 사용됩니다. **:ssh\_private\_key\_file** 및 **:ssh\_certificate\_file**을 생략하면 SSH에서 암호 인증만 사용합니다.
 
 * **:ssh\_port** - SSH 통신에 사용할 공용 포트. 생략되는 경우 SSH 포트는 기본적으로 22로 설정됩니다.
 
@@ -281,7 +281,7 @@ Azure 클라우드 서비스에 대한 관리 작업은 **Azure::CloudService** 
 
 새 클라우드 서비스를 만들려면 **create\_cloud\_service** 메서드를 사용하고 옵션의 이름 및 해시를 제공합니다. 유효한 옵션은 다음과 같습니다.
 
-* **:location** - *Required*. 클라우드 서비스가 만들어질 지역
+* **:location** - *필수입니다*. 클라우드 서비스가 만들어질 지역
 
 * **:description** - 클라우드 서비스에 대한 설명
 
@@ -326,7 +326,7 @@ Azure 클라우드 서비스에 대한 관리 작업은 **Azure::StorageService*
 
 새 클라우드 서비스를 만들려면 **create\_storage\_account** 메서드를 사용하고 옵션의 이름 및 해시를 제공합니다. 유효한 옵션은 다음과 같습니다.
 
-* **:location** - *Required*. 저장소 계정이 만들어질 지역
+* **:location** - *필수입니다*. 저장소 계정이 만들어질 지역
 
 * **:description** - 저장소 계정에 대한 설명
 
@@ -362,6 +362,7 @@ Azure 구독의 저장소 계정 목록을 가져오려면 **list\_storage\_acco
 
 * [가상 컴퓨터](http://azure.microsoft.com/documentation/services/virtual-machines/) 기능 페이지를 방문하세요.
 *  다음 MSDN 참조를 확인하세요. [가상 컴퓨터](http://msdn.microsoft.com/library/windowsazure/jj156003.aspx)
-* [가상 컴퓨터에서 Ruby on Rails 응용 프로그램](http://azure.microsoft.com/develop/ruby/tutorials/web-app-with-linux-vm/)을 호스트하는 방법을 알아보세요.
+* [가상 컴퓨터에서 Ruby on Rails 응용 프로그램](http://azure.microsoft.com/develop/ruby/tutorials/web-app-with-linux-vm/) 을 호스트하는 방법을 알아보세요.
 
-<!--HONumber=45--> 
+
+<!--HONumber=42-->

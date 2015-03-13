@@ -1,6 +1,20 @@
-<properties linkid="dev-net-how-to-access-control" urlDisplayName="Access Control" pageTitle="How to use Access Control (.NET) - Azure feature guide" metaKeywords="Azure Access Control Service authentication C#" description="Learn how to use Access Control Service (ACS) in your Azure application to authenticate users when they try to gain access to a web app." metaCanonical="" services="active-directory" documentationCenter=".NET" title="How to Authenticate Web Users with Azure Active Directory Access Control" authors="mbaldwin, juneb" solutions="" manager="mbaldwin" editor="" />
+﻿<properties 
+	pageTitle="액세스 제어 사용 방법(.NET) - Azure 기능 가이드" 
+	description="웹 앱에 대한 액세스 권한을 받으려고 하는 경우 Azure 응용 프로그램에서 ACS(액세스 제어 서비스)를 사용해 사용자를 인증하는 방법에 대해 알아봅니다." 
+	services="active-directory" 
+	documentationCenter=".net" 
+	authors="msmbaldwin" 
+	manager="mbaldwin" 
+	editor=""/>
 
-<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="mbaldwin, juneb" />
+<tags 
+	ms.service="active-directory" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="11/24/2014" 
+	ms.author="mbaldwin"/>
 
 # Azure Active Directory 액세스 제어를 사용하여 웹 사용자를 인증하는 방법
 
@@ -389,7 +403,7 @@ ACS 기능을 자세히 살펴보고 추가 시나리오를 실험하려면 [액
   [13]: ./media/active-directory-dotnet-how-to-use-access-control/acsMSFTAcct.png
   [14]: ./media/active-directory-dotnet-how-to-use-access-control/rzAv.png
   [15]: ./media/active-directory-dotnet-how-to-use-access-control/rzCl.png
-  [Windows Identity Foundation 라이브러리]: http://msdn.microsoft.com/ko-kr/library/hh377151.aspx
+  [Windows Identity Foundation 라이브러리]: http://msdn.microsoft.com/library/hh377151.aspx
   [16]: ./media/active-directory-dotnet-how-to-use-access-control/acsACSPortal.png
   [17]: ./media/active-directory-dotnet-how-to-use-access-control/acsRPPage.png
   [18]: ./media/active-directory-dotnet-how-to-use-access-control/acsEdit-RP.png
@@ -399,3 +413,5 @@ ACS 기능을 자세히 살펴보고 추가 시나리오를 실험하려면 [액
   [22]: ./media/active-directory-dotnet-how-to-use-access-control/acsSave-Google.png
   [23]: ./media/active-directory-dotnet-how-to-use-access-control/acsIdAndA-after.png
   [24]: ./media/active-directory-dotnet-how-to-use-access-control/acsSignIn.png
+
+<!--HONumber=46--> 

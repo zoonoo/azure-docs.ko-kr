@@ -1,6 +1,20 @@
-<properties pageTitle="Policies in Azure API Management" metaKeywords="" description="Learn how to create, edit, and configure policies in API Management." metaCanonical="" services="" documentationCenter="API Management" title="Policies in Azure API Management" authors="sdanie" solutions="" manager="" editor="" />
+﻿<properties 
+	pageTitle="Azure API 관리의 정책" 
+	description="API 관리에서 정책을 만들고 편집하고 구성하는 방법에 대해 알아봅니다." 
+	services="api-management" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
+<tags 
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="1/28/2015" 
+	ms.author="sdanie"/>
 
 # Azure API 관리의 정책
 
@@ -100,3 +114,5 @@ Azure API 관리(미리 보기)에서, 정책은 게시자가 구성을 통해 A
 [편집]: ./media/api-management-howto-policies/api-management-policies-edit.png
 [제한 정책]: ./media/api-management-howto-policies/api-management-policies-restrict.png
 [저장]: ./media/api-management-howto-policies/api-management-policies-save.png
+
+<!--HONumber=46--> 

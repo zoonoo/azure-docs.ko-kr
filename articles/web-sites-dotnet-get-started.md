@@ -304,11 +304,11 @@
 	SSL 및 사용자만의 도메인(예: contoso.azurewebsites.net 대신 www.contoso.com 사용)을 사용하는 방법에 대한 자세한 내용은 다음 리소스를 참조하세요.
 
 	* [Azure 웹 사이트에 대한 사용자 지정 도메인 이름 구성](/ko-kr/documentation/articles/web-sites-custom-domain-name/). 
-	* [Azure 웹 사이트에 HTTPS 사용](http://azure.microsoft.com/ko-kr/documentation/articles/web-sites-configure-ssl-certificate/)
+	* [Azure 웹 사이트에 HTTPS 사용](http://azure.microsoft.com/documentation/articles/web-sites-configure-ssl-certificate/)
 
 * 유휴 시간 제한 후 절전 모드 해제 대기 시간을 방지하는 방법 
 
-	기본적으로 웹 사이트가 일정 기간 동안 유휴 상태인 경우 언로드됩니다. 언로드된 후 첫 번째 요청은 사이트가 다시 로드될 때까지 대기해야 합니다. 대기 시간을 방지하기 위해 AlwaysOn 기능을 사용할 수 있습니다. 자세한 내용은 [웹 사이트를 구성하는 방법](http://azure.microsoft.com/ko-kr/documentation/articles/web-sites-configure/)의 구성 옵션을 참조하세요.
+	기본적으로 웹 사이트가 일정 기간 동안 유휴 상태인 경우 언로드됩니다. 언로드된 후 첫 번째 요청은 사이트가 다시 로드될 때까지 대기해야 합니다. 대기 시간을 방지하기 위해 AlwaysOn 기능을 사용할 수 있습니다. 자세한 내용은 [웹 사이트를 구성하는 방법](http://azure.microsoft.com/documentation/articles/web-sites-configure/)의 구성 옵션을 참조하세요.
 
 * 채팅과 같은 실시간 기능을 추가하는 방법
 

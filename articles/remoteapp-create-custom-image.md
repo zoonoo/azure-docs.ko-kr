@@ -1,6 +1,20 @@
-<properties title="How to create a custom template image for RemoteApp" pageTitle="RemoteApp용 사용자 지정 템플릿 이미지를 만드는 방법" description="RemoteApp용 사용자 지정 템플릿 이미지를 만드는 방법에 대해 알아봅니다. 하이브리드 또는 클라우드 배포에서 이 템플릿을 사용할 수 있습니다." metaKeywords="" services="" solutions="" documentationCenter="" authors="elizapo" manager="mbaldwin" />
+﻿<properties 
+	pageTitle="RemoteApp용 사용자 지정 템플릿 이미지를 만드는 방법" 
+	description="RemoteApp용 사용자 지정 템플릿 이미지를 만드는 방법에 대해 알아봅니다. 하이브리드 또는 클라우드 배포에서 이 템플릿을 사용할 수 있습니다." 
+	services="remoteapp" 
+	documentationCenter="" 
+	authors="lizap" 
+	manager="mbaldwin" 
+	editor=""/>
 
-<tags ms.service="remoteapp" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/12/2014" ms.author="elizapo" ms.manager="mbaldwin" />
+<tags 
+	ms.service="remoteapp" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2/17/2015" 
+	ms.author="elizapo"/>
 
 # RemoteApp용 사용자 지정 템플릿 이미지를 만드는 방법
 Azure RemoteApp은 Windows Server 2012 R2 템플릿 이미지를 사용하여 사용자와 공유할 모든 프로그램을 호스트합니다. 사용자 지정 RemoteApp 템플릿 이미지를 만들려면 기존 이미지에서 시작하거나 새 이미지를 만듭니다. Azure RemoteApp과 사용하기 위해 업로드할 수 있는 이미지의 요구 사항은 다음과 같습니다.
@@ -23,10 +37,10 @@ Azure RemoteApp은 Windows Server 2012 R2 템플릿 이미지를 사용하여 �
 
 서비스를 만들기 전에 다음을 수행해야 합니다.
 
-- RemoteApp에 등록합니다. [http://azure.microsoft.com/ko-kr/services/remoteapp/](http://azure.microsoft.com/ko-kr/services/remoteapp/)에서 등록할 수 있습니다.
-- RemoteApp 서비스 계정으로 사용할 Active Directory의 사용자 계정을 만듭니다. 이 계정의 권한은 도메인에 컴퓨터를 가입시킬 수 있는 권한만으로 제한합니다. 자세한 내용은 [RemoteApp에 대해 Azure Active Directory 구성](http://azure.microsoft.com/ko-kr/documentation/articles/remoteapp-ad/)을 참조하세요.
+- RemoteApp에 등록합니다. [http://azure.microsoft.com/services/remoteapp/](http://azure.microsoft.com/services/remoteapp/)에서 등록할 수 있습니다.
+- RemoteApp 서비스 계정으로 사용할 Active Directory의 사용자 계정을 만듭니다. 이 계정의 권한은 도메인에 컴퓨터를 가입시킬 수 있는 권한만으로 제한합니다. 자세한 내용은 [RemoteApp에 대해 Azure Active Directory 구성](http://azure.microsoft.com/documentation/articles/remoteapp-ad/)을 참조하세요.
 - 온-프레미스 네트워크에 대한 IP 주소 정보 및 VPN 장치 정보를 수집합니다.
-- [Azure PowerShell](http://azure.microsoft.com/ko-kr/documentation/articles/install-configure-powershell/) 모듈을 설치합니다.
+- [Azure PowerShell](http://azure.microsoft.com/documentation/articles/install-configure-powershell/) 모듈을 설치합니다.
 - 액세스 권한을 부여할 사용자에 대한 정보를 수집합니다. 이 정보는 사용자의 Microsoft 계정 정보나 Active Directory 작업 계정 정보가 될 수 있습니다.
 
 
@@ -115,8 +129,10 @@ Azure RemoteApp은 Windows Server 2012 R2 템플릿 이미지를 사용하여 �
 사용자 지정 템플릿 이미지를 만들었으니 이제 RemoteApp 배포에 해당 이미지를 업로드해야 합니다. 다음 문서의 정보를 사용하여 컬렉션을 만듭니다.
 
 
-- [RemoteApp의 하이브리드 컬렉션을 만드는 방법](http://azure.microsoft.com/ko-kr/documentation/articles/remoteapp-create-hybrid-deployment/) 
-- [RemoteApp의 클라우드 컬렉션을 만드는 방법](http://azure.microsoft.com/ko-kr/documentation/articles/remoteapp-create-cloud-deployment/)
+- [RemoteApp의 하이브리드 컬렉션을 만드는 방법](http://azure.microsoft.com/documentation/articles/remoteapp-create-hybrid-deployment/) 
+- [RemoteApp의 클라우드 컬렉션을 만드는 방법](http://azure.microsoft.com/documentation/articles/remoteapp-create-cloud-deployment/)
 
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

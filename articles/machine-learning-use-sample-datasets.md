@@ -1,6 +1,21 @@
-﻿<properties title="Use the sample datasets in Azure Machine Learning Studio" pageTitle="Azure 기계 학습 스튜디오에서 샘플 데이터 집합 사용 | Azure" description="Azure 기계 학습 스튜디오에서 샘플 데이터 집합 사용" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="기계 학습 스튜디오에서 샘플 데이터 집합 사용 | Azure" 
+	description="Azure 기계 학습 스튜디오에 포함된 샘플 데이터 집합에 대한 설명" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="garyericson" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/06/2014" ms.author="garye" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="12/16/2014" 
+	ms.author="garye"/>
+
 
 
 # Azure 기계 학습 스튜디오에서 샘플 데이터 집합 사용
@@ -338,3 +353,5 @@ DotNetTable
 </td>
 </tr>
 </table>
+
+<!--HONumber=46--> 

@@ -1,6 +1,20 @@
-﻿<properties title="Get started with scoring profiles in Azure Search" pageTitle="Azure 검색에서 점수 매기기 프로필 시작" description="Azure 검색에서 점수 매기기 프로필 시작" metaKeywords="" services="" solutions="" documentationCenter="" authors="Heidist" manager="mblythe" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Azure 검색에서 점수 매기기 프로필을 사용하는 방법" 
+	description="Azure 검색에서 점수 매기기 프로필 시작" 
+	services="search" 
+	documentationCenter="" 
+	authors="HeidiSteen" 
+	manager="mblythe" 
+	editor=""/>
 
-<tags ms.service="azure-search" ms.devlang="" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="" ms.date="10/16/2014" ms.author="heidist" />
+<tags 
+	ms.service="search" 
+	ms.devlang="rest-api" 
+	ms.workload="search" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.date="02/10/2015" 
+	ms.author="heidist"/>
 
 # Azure 검색에서 점수 매기기 프로필 시작
 
@@ -43,7 +57,7 @@ URL 및 `api-key`를 app.config에 추가하고 나면 응용 프로그램 설�
 
 앱을 빌드하고 실행할 준비가 거의 되었지만 수행하기 전에 인덱스를 채우는 데 사용되는 JSON 파일을 살펴보시기 바랍니다.
 
-**Schema.json**에서는 이 데모에서 강조하는 점수 매기기 프로필을 포함하여 인덱스를 정의합니다. 스키마는 점수 매기기 프로필에서 사용할 수 있는 검색할 수 없는 필드(`margin`)를 포함하여 인덱스에서 사용되는 모든 필드를 정의합니다. 점수 매기기 프로필 구문은 [Azure 검색 인덱스에 점수 매기기 프로필 추가](http://msdn.microsoft.com/ko-kr/library/azure/dn798928.aspx)에서 설명합니다.
+**Schema.json**에서는 이 데모에서 강조하는 점수 매기기 프로필을 포함하여 인덱스를 정의합니다. 스키마는 점수 매기기 프로필에서 사용할 수 있는 검색할 수 없는 필드(`margin`)를 포함하여 인덱스에서 사용되는 모든 필드를 정의합니다. 점수 매기기 프로필 구문은 [Azure 검색 인덱스에 점수 매기기 프로필 추가](http://msdn.microsoft.com/library/azure/dn798928.aspx)에서 설명합니다.
 
 **Data1-3.json**에서는 몇 가지 장르에 걸쳐 246개 앨범 데이터를 제공합니다. 데이터는 검색 작업을 설명하는 데 사용되는 'price' 및 'margin' 같은 가상 필드를 사용한 실제 앨범과 아티스트 정보의 조합입니다. 데이터 파일은 인덱스를 따르고 Azure 검색 서비스에 업로드됩니다. 데이터가 업로드 및 인덱싱되고 나면 데이터에 대해 쿼리를 실행할 수 있습니다.
 
@@ -85,9 +99,9 @@ URL 및 `api-key`를 app.config에 추가하고 나면 응용 프로그램 설�
 
 <h2 id="next-steps">다음 단계</h2>
 
-점수 매기기 프로필에 대해 알아봅니다. 자세한 내용은 [Azure 검색 인덱스에 점수 매기기 프로필 추가](http://msdn.microsoft.com/ko-kr/library/azure/dn798928.aspx)를 참조하세요.
+점수 매기기 프로필에 대해 알아봅니다. 자세한 내용은 [Azure 검색 인덱스에 점수 매기기 프로필 추가](http://msdn.microsoft.com/library/azure/dn798928.aspx)를 참조하세요.
 
-검색 구문 및 쿼리 매개 변수에 대해 알아봅니다. 자세한 내용은 [문서 검색(Azure 검색 REST API)](http://msdn.microsoft.com/ko-kr/library/azure/dn798927.aspx)을 참조하세요.
+검색 구문 및 쿼리 매개 변수에 대해 알아봅니다. 자세한 내용은 [문서 검색(Azure 검색 REST API)](http://msdn.microsoft.com/library/azure/dn798927.aspx)을 참조하세요.
 
 한 걸음 물러나 인덱스 만들기에 대해 자세히 알아볼까요? 기본 사항을 이해하려면 [이 비디오를 보세요](http://channel9.msdn.com/Shows/Cloud+Cover/Cloud-Cover-152-Azure-Search-with-Liam-Cavanagh).
 
@@ -104,3 +118,5 @@ URL 및 `api-key`를 app.config에 추가하고 나면 응용 프로그램 설�
 [11]: ./media/search-get-started-scoring-profiles/AzureSearch_Scoring_AppConfig.PNG
 [10]: ./media/search-get-started-scoring-profiles/AzureSearch_XLSX1.PNG
 [9]: ./media/search-get-started-scoring-profiles/AzureSearch_XLSX2.PNG
+
+<!--HONumber=46--> 

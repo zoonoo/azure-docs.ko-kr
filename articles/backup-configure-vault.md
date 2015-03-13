@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Configure a Backup Vault" pageTitle="Windows Server를 빠르고 쉽게 백업하도록 Azure 복구 서비스 구성" metaKeywords="재해 복구" description="이 자습서를 통해 Microsoft Azure 클라우드 제품 내 백업 서비스를 사용하여 Windows Server를 클라우드에 백업하는 방법을 알아볼 수 있습니다." metaCanonical="" services="recovery-services" documentationCenter="" title="Configure Azure Backup to quickly and easily back-up Windows Server" authors="markgal" solutions="" manager="johndaw" editor="tysonn" />
+﻿<properties 
+	pageTitle="Windows Server를 빠르고 쉽게 백업하도록 Azure 복구 서비스 구성" 
+	description="이 자습서를 통해 Microsoft Azure 클라우드 제품 내 백업 서비스를 사용하여 Windows Server를 클라우드에 백업하는 방법을 알아볼 수 있습니다." 
+	services="site-recovery" 
+	documentationCenter="" 
+	authors="markgalioto" 
+	manager="jwhit" 
+	editor="tysonn"/>
 
-<tags ms.service="site-recovery" ms.workload="backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/21/2014" ms.author="markgal" />
+<tags 
+	ms.service="site-recovery" 
+	ms.workload="backup-recovery" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="markgal"/>
 
 
 
@@ -61,8 +75,8 @@
 
 3. 빠른 시작 페이지에서 다운로드하려는 에이전트의 유형을 선택합니다. **Azure 백업 에이전트 다운로드**, **Windows Server 및 System Center Data Protection Manager** 또는 **Windows Server Essentials**를 선택할 수 있습니다.  자세한 내용은 다음을 참조하세요.
 
-	* [Windows Server 2012 및 System Center 2012 SP1 - Data Protection Manager용 Azure 백업 에이전트 설치](http://technet.microsoft.com/ko-kr/library/hh831761.aspx#BKMK_installagent)
-	* [Windows Server 2012 Essentials용 Azure 백업 에이전트 설치](http://technet.microsoft.com/ko-kr/library/jj884318.aspx)
+	* [Windows Server 2012 및 System Center 2012 SP1 - Data Protection Manager용 Azure 백업 에이전트 설치](http://technet.microsoft.com/library/hh831761.aspx#BKMK_installagent)
+	* [Windows Server 2012 Essentials용 Azure 백업 에이전트 설치](http://technet.microsoft.com/library/jj884318.aspx)
 
 에이전트가 설치된 후 해당 로컬 관리 인터페이스(예: Microsoft Management Console 스냅인, System Center Data Protection Manager Console 또는 Windows Server Essentials Dashboard)를 사용하여 서버에 대한 백업 정책을 구성할 수 있습니다.
 	
@@ -101,3 +115,5 @@
 [protected-itmes]: ./media/backup-configure-vault/RS_protecteditems.png
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

@@ -1,11 +1,11 @@
-﻿<properties 
+<properties 
 	pageTitle="Azure의 Linux용 Docker 가상 컴퓨터 확장" 
 	description="Docker와 컨테이너 및 Azure 가상 컴퓨터 확장에 대해 설명하고 xplat-cli와 포털에서 Docker 컨테이너를 만드는 방법을 설명하는 추가 리소스 링크를 제공합니다." 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="squillace" 
 	manager="timlt" 
-	editor="tysonn"/>
+	editor=""/>
 
 <tags 
 	ms.service="virtual-machines" 
@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="vm-linux" 
 	ms.workload="infrastructure-services" 
-	ms.date="02/11/2015" 
+	ms.date="10/21/2014" 
 	ms.author="rasquill"/>
 
 # Azure의 Linux용 Docker 가상 컴퓨터 확장
@@ -36,7 +36,7 @@ Docker 사용 가능 VM을 즉시 만들려면 다음 항목을 참조하세요.
 
 Docker 및 Linux 컨테이너는 [하이퍼바이저](http://en.wikipedia.org/wiki/Hypervisor)(예: Windows Hyper-V 및 Linux의 [KVM](http://www.linux-kvm.org/page/Main_Page))가 아닙니다(다른 많은 예가 있음). 하이퍼바이저는 기본 운영 체제를 가상화하여 전체 운영 체제를 응용 프로그램처럼 하이퍼바이저 내부에서 실행할 수 있도록 합니다. 
 
-Docker 및 기타 *container* 접근 방법은 Linux 커널의 프로세스 및 파일 시스템 격리 기능을 통해 달리 격리된 컨테이너에 커널 기능만 노출하여 사용되는 시작 시간과 필요한 처리 및 저장소 오버헤드 둘 다를 크게 줄였습니다.
+Docker 및 기타  *container* 접근 방법은 Linux 커널의 프로세스 및 파일 시스템 격리 기능을 통해 달리 격리된 컨테이너에 커널 기능만 노출하여 사용되는 시작 시간과 필요한 처리 및 저장소 오버헤드 둘 다를 크게 줄였습니다.
 
 다음 표에서는 하이퍼바이저와 Linux 컨테이너 간의 기능 차이에 대해 매우 간략하게 설명합니다. 개별 응용 프로그램 요구 사항에 따라 보다 적합한 기능도 있고 그렇지 않은 기능도 있습니다.
 
@@ -57,7 +57,7 @@ Docker 정의 및 실제 작동 방식에 대한 자세한 내용은 [Docker 정
 
 ## <a id='How to use the Docker VM Extension with Azure'>Azure와 함께 Docker VM 확장을 사용하는 방법</a>
 
-Docker VM 확장은 사용자가 만드는 VM 인스턴스에 설치되는 구성 요소로, 자체적으로 Docker 엔진을 설치하고 VM과의 원격 통신을 관리합니다. 두 가지 방법으로 VM 확장을 설치할 수 있습니다. 그 중 하나는 관리 포털을 통해 VM을 만드는 것이고, 다른 하나는 Azure 플랫폼 간 명령줄 인터페이스(xplat-cli)에서 VM을 만드는 것입니다. 
+Docker VM 확장은 사용자가 만드는 VM 인스턴스에 설치되는 구성 요소로, 자체적으로 Docker 엔진을 설치하고 VM과의 원격 통신을 관리합니다. 두 가지 방법으로 VM 확장을 설치할 수 있습니다. 그 중 하나는 관리 포털을 통해 VM을 만드는 것이고, 다른 하나는 Azure 플랫폼 간 명령줄 인터페이스(xplat-cli)에서 이미지를 만드는 것입니다. 
 
 포털을 사용하면 호환되는 모든 Linux VM에 Docker VM 확장을 추가할 수 있습니다. 현재 확장을 지원하는 이미지는 7월 이후의 Ubuntu 14.04 LTS 이미지뿐입니다. 그러나 xplat-cli 명령줄을 사용하는 경우에는 VM 인스턴스를 만들 때 Docker VM 확장 설치 및 Docker 통신 인증서 업로드를 모두 동시에 수행할 수 있습니다.
 
@@ -66,8 +66,8 @@ Docker 사용 가능 VM을 즉시 만들려면 다음 항목을 참조하세요.
 + [Azure 플랫폼 간 명령줄 인터페이스(xplat-cli)에서 Docker VM 확장을 사용하는 방법]
 + [Azure 포털에서 Docker VM 확장을 사용하는 방법]
 
-## <a id='Virtual Machine Extensions for Linux and Windows'>Linux 및 Windows용 가상 컴퓨터 확장</a>
-Azure용 Docker VM 확장은 특수 동작을 제공하는 여러 VM 확장 중 하나일 뿐이며 추가 VM이 개발 중입니다. 예를 들어 보안 기능, 커널 및 네트워킹 기능 등을 비롯한 [Linux VM 에이전트 확장](http://azure.microsoft.com/documentation/articles/virtual-machines-linux-agent-user-guide/)의 여러 기능을 사용하여 가상 컴퓨터를 수정하고 관리할 수 있습니다. 예제용 VMAccess 확장을 사용하여 관리자 암호 또는 SSH 키를 다시 설정할 수 있습니다.
+## <a id='Virtual Machine Extensions for Linux and Windows'>Linux 및 Windows용 가상 컴퓨터 확장</a> 
+Azure용 Docker VM 확장은 특수 동작을 제공하는 여러 VM 확장 중 하나일 뿐이며 추가 VM이 개발 중입니다. 예를 들어 보안 기능, 커널 및 네트워킹 기능 등을 비롯한 [Linux VM 에이전트 확장](http://azure.microsoft.com/documentation/articles/virtual-machines-linux-agent-user-guide/)의 여러 기능을 사용하여 이미지를 수정하고 관리할 수 있습니다. Windows용 VMAccess 확장 이미지를 사용하면 원격 데스크톱 액세스 설정을 재설정하거나 수정하고 관리자 암호를 재설정할 수 있습니다. 
 
 전체 목록은 [Azure VM 확장](http://msdn.microsoft.com/library/azure/dn606311.aspx)을 참조하세요.
 
@@ -79,4 +79,5 @@ Azure용 Docker VM 확장은 특수 동작을 제공하는 여러 VM 확장 중 
 [Azure와 함께 Docker VM 확장을 사용하는 방법]: #How-to-use-the-Docker-VM-Extension-with-Azure
 [Linux 및 Windows용 가상 컴퓨터 확장]: #Virtual-Machine-Extensions-For-Linux-and-Windows
 
-<!--HONumber=45--> 
+
+<!--HONumber=42-->

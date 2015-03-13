@@ -106,7 +106,7 @@ Azure Websites Migration Assistant에서는 온-프레미스 IIS에서 Azure 웹
 
 	![](./media/web-sites-migration-from-iis-server/migration-settings.png)
 
-	>[AZURE.NOTE] 사용자 지정 설정에서 **Enable Azure Active Directory** 확인란을 선택하면 Azure 웹 사이트가 [Azure Active Directory](http://azure.microsoft.com/ko-kr/documentation/articles/active-directory-whatis/)(**기본 디렉터리**)와 통합됩니다. Azure Active Directory를 온-프레미스 Active Directory와 동기화하는 방법에 대한 자세한 내용은 [디렉터리 통합](http://msdn.microsoft.com/library/jj573653)을 참조하세요.
+	>[AZURE.NOTE] 사용자 지정 설정에서 **Enable Azure Active Directory** 확인란을 선택하면 Azure 웹 사이트가 [Azure Active Directory](http://azure.microsoft.com/documentation/articles/active-directory-whatis/)(**기본 디렉터리**)와 통합됩니다. Azure Active Directory를 온-프레미스 Active Directory와 동기화하는 방법에 대한 자세한 내용은 [디렉터리 통합](http://msdn.microsoft.com/library/jj573653)을 참조하세요.
 
 16.	 원하는 대로 모두 변경했으면 **Create**를 클릭하여 마이그레이션 프로세스를 시작합니다. 마이그레이션 도구에서는 Azure SQL 데이터베이스와 Azure 웹 사이트를 만들고 웹 사이트 콘텐츠와 데이터베이스를 게시합니다. 마이그레이션 진행률이 마이그레이션 도구에 명확히 표시되며 끝에 마이그레이션된 사이트, 마이그레이션 성공 여부, 새로 만든 Azure 웹 사이트에 대한 링크를 자세히 설명하는 요약 화면이 표시됩니다. 
 

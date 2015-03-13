@@ -1,6 +1,20 @@
-﻿<properties pageTitle="모바일 분석 시작 | 모바일 개발자 센터" description="모바일 분석을 시작하는 방법에 대해 알아봅니다." documentationCenter="ios" authors="mattchenderson" manager="dwrede" editor="" services=""/>
+﻿<properties 
+	pageTitle="모바일 분석 시작 | 모바일 개발자 센터" 
+	description="모바일 분석을 시작하는 방법에 대해 알아봅니다." 
+	documentationCenter="ios" 
+	authors="mattchenderson" 
+	manager="dwrede" 
+	editor="" 
+	services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="multiple" ms.topic="article" ms.date="10/10/2014" ms.author="mahender"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-ios" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="10/10/2014" 
+	ms.author="mahender"/>
 
 # 모바일 분석 시작(Capptain)
 

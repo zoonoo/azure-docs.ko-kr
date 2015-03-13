@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Azure 플랫폼 간 명령줄 인터페이스를 사용하여 역할 기반 액세스 제어 관리" metaKeywords="ResourceManager, Azure 플랫폼 간 명령줄 인터페이스, Azure 명령줄, azure 명령줄, azure cli, RBAC" description="플랫폼 간 명령줄 인터페이스를 사용하여 역할 기반 액세스 제어 관리" metaCanonical="" services="" documentationCenter="" title="Managing Role-Based Access Control with Cross-Platform Command-Line Interface" authors="guayan" solutions="" manager="terrylan" editor="mollybos" />
+﻿<properties 
+	pageTitle="Azure 플랫폼 간 명령줄 인터페이스를 사용하여 역할 기반 액세스 제어 관리" 
+	description="플랫폼 간 명령줄 인터페이스를 사용하여 역할 기반 액세스 제어 관리" 
+	services="" 
+	documentationCenter="" 
+	authors="guangyang" 
+	manager="terrylan" 
+	editor="mollybos"/>
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="guayan" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="command-line-interface" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/26/2014" 
+	ms.author="guayan"/>
 
 # 플랫폼 간 명령줄 인터페이스를 사용하여 역할 기반 액세스 제어 관리 #
 
@@ -16,8 +30,8 @@ Azure 미리 보기 포털 및 Azure 리소스 관리자 API의 RBAC(역할 기�
 
 xplat-cli를 사용하여 RBAC를 관리하려면 다음 항목이 필요합니다.
 
-- Azure 플랫폼 간 명령줄 인터페이스 버전 0.8.8 이상. 최신 버전을 설치하고 Azure 구독에 연결하려면 [Azure 플랫폼 간 명령줄 인터페이스 설치 및 구성](http://azure.microsoft.com/ko-kr/documentation/articles/xplat-cli/)을 참조하세요.
-- Azure 플랫폼 간 명령줄 인터페이스에서 Azure 리소스 관리자를 설치하고 사용하는 방법을 익히려면 다음 자습서도 확인하세요. [리소스 관리자에서 Azure 플랫폼 간 명령줄 인터페이스 사용](http://azure.microsoft.com/ko-kr/documentation/articles/xplat-cli-azure-resource-manager/)
+- Azure 플랫폼 간 명령줄 인터페이스 버전 0.8.8 이상. 최신 버전을 설치하고 Azure 구독에 연결하려면 [Azure 플랫폼 간 명령줄 인터페이스 설치 및 구성](http://azure.microsoft.com/documentation/articles/xplat-cli/)을 참조하세요.
+- Azure 플랫폼 간 명령줄 인터페이스에서 Azure 리소스 관리자를 설치하고 사용하는 방법을 익히려면 다음 자습서도 확인하세요. [리소스 관리자에서 Azure 플랫폼 간 명령줄 인터페이스 사용](http://azure.microsoft.com/documentation/articles/xplat-cli-azure-resource-manager/)
 
 ## 자습서 내용 ##
 
@@ -33,7 +47,7 @@ RBAC는 Azure 리소스 관리자에서만 작동하므로 먼저 Azure 리소�
 
     azure config mode arm
 
-자세한 내용은 [리소스 관리자에서 Azure 플랫폼 간 명령줄 인터페이스 사용](http://azure.microsoft.com/ko-kr/documentation/articles/xplat-cli-azure-resource-manager/)을 참조하세요.
+자세한 내용은 [리소스 관리자에서 Azure 플랫폼 간 명령줄 인터페이스 사용](http://azure.microsoft.com/documentation/articles/xplat-cli-azure-resource-manager/)을 참조하세요.
 
 Azure 구독에 연결하려면 다음을 입력합니다.
 
@@ -48,7 +62,7 @@ Azure 구독에 연결하려면 다음을 입력합니다.
     # 구독 이름을 사용하여 작업할 구독을 선택합니다.
     azure account set <구독 이름>
 
-자세한 내용은 [Azure 플랫폼 간 명령줄 인터페이스 설치 및 구성](http://azure.microsoft.com/ko-kr/documentation/articles/xplat-cli/)을 참조하세요.
+자세한 내용은 [Azure 플랫폼 간 명령줄 인터페이스 설치 및 구성](http://azure.microsoft.com/documentation/articles/xplat-cli/)을 참조하세요.
 
 ## <a id="check"></a>기존 역할 할당 확인 ##
 
@@ -125,7 +139,9 @@ Azure 구독에 연결하려면 다음을 입력합니다.
 
 xplat-cli를 사용하여 역할 기반 액세스 제어를 관리하는 방법과 관련 항목에 대해 자세히 알아보려면 다음 항목을 참조하세요.
 
-- [Azure 플랫폼 간 명령줄 인터페이스 설치 및 구성](http://azure.microsoft.com/ko-kr/documentation/articles/xplat-cli/)
-- [리소스 관리자에서 Azure 플랫폼 간 명령줄 인터페이스 사용](http://azure.microsoft.com/ko-kr/documentation/articles/xplat-cli-azure-resource-manager/)
-- [리소스 그룹을 사용하여 Azure 리소스 관리](http://azure.microsoft.com/ko-kr/documentation/articles/azure-preview-portal-using-resource-groups): Azure 관리 포털에서 리소스 그룹을 만들고 관리하는 방법을 알아봅니다.
+- [Azure 플랫폼 간 명령줄 인터페이스 설치 및 구성](http://azure.microsoft.com/documentation/articles/xplat-cli/)
+- [리소스 관리자에서 Azure 플랫폼 간 명령줄 인터페이스 사용](http://azure.microsoft.com/documentation/articles/xplat-cli-azure-resource-manager/)
+- [리소스 그룹을 사용하여 Azure 리소스 관리](http://azure.microsoft.com/documentation/articles/azure-preview-portal-using-resource-groups): Azure 관리 포털에서 리소스 그룹을 만들고 관리하는 방법을 알아봅니다.
 - [Azure 블로그](http://blogs.msdn.com/windowsazure)(영문): Azure의 새로운 기능에 대해 알아봅니다.
+
+<!--HONumber=46--> 

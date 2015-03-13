@@ -1,6 +1,20 @@
-<properties pageTitle="How to implement disaster recovery using service backup and restore in Azure API Management" metaKeywords="" description="Learn how to use backup and restore to perform disaster recovery in Azure API Management." metaCanonical="" services="api-management" documentationCenter="API Management" title="How to implement disaster recovery using service backup and restore in Azure API Management" authors="sdanie" solutions="" manager="" editor="" />
+﻿<properties 
+	pageTitle="Azure API 관리에서 서비스 백업 및 복원을 사용하여 재해 복구를 구현하는 방법" 
+	description="Azure API 관리에서 백업 및 복원을 사용하여 재해 복구를 수행하는 방법에 대해 알아봅니다.." 
+	services="api-management" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
+<tags 
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/18/2014" 
+	ms.author="sdanie"/>
 
 # Azure API 관리에서 서비스 백업 및 복원을 사용하여 재해 복구를 구현하는 방법
 
@@ -81,7 +95,9 @@ API 관리 서비스를 백업하려면 다음 HTTP 요청을 실행합니다.
 -   백업을 복원할 서비스의 **계층**은 복원하려는 백업된 서비스의 계층과 **일치**해야 합니다.
 -   복원 작업이 진행되는 동안 API, 정책, 개발자 포털 모양 등의 서비스 구성에 적용된 **변경 내용**을 **덮어쓸 수 있습니다**.
 
-  [Azure 리소스 관리자 요청 인증]: http://msdn.microsoft.com/ko-kr/library/dn790557.aspx
+  [Azure 리소스 관리자 요청 인증]: http://msdn.microsoft.com/library/dn790557.aspx
   [API 관리 서비스 백업]: #step1
   [API 관리 서비스 복원]: #step2
-  [Azure API 관리 REST API]: http://msdn.microsoft.com/ko-kr/library/azure/dn781421.aspx
+  [Azure API 관리 REST API]: http://msdn.microsoft.com/library/azure/dn781421.aspx
+
+<!--HONumber=46--> 

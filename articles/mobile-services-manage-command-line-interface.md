@@ -1,6 +1,20 @@
-﻿<properties pageTitle="명령줄에서 모바일 서비스 관리 - Azure 자습서" description="명령줄 도구를 사용하여 Azure 모바일 서비스를 만들고, 배포하고, 관리하는 방법에 대해 알아봅니다." services="mobile-services" documentationCenter="" authors="ggailey777" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="명령줄에서 모바일 서비스 관리 - Azure 자습서" 
+	description="명령줄 도구를 사용하여 Azure 모바일 서비스를 만들고, 배포하고, 관리하는 방법에 대해 알아봅니다." 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="glenga"/>
 
 # 명령줄 도구를 사용하여 모바일 서비스 자동화 
 
@@ -18,9 +32,9 @@
 
 Azure 명령줄 도구를 사용하여 모바일 서비스를 관리하려면 Azure 모바일 서비스 기능을 사용할 수 있는 Azure 계정이 필요합니다.
 
-+ 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://www.windowsazure.com/ko-kr/pricing/free-trial/" target="_blank">Azure 무료 평가판</a>을 참조하세요.
++ 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://azure.microsoft.com/pricing/free-trial/" target="_blank">Azure 무료 평가판</a>을 참조하세요.
 
-+ 기존 계정이 있지만 Azure 모바일 서비스 미리 보기를 사용하도록 설정해야 하는 경우 <a href="http://azure.microsoft.com/ko-kr/documentation/articles/php-create-account/#enable" target="_blank">Azure 미리 보기 기능 사용</a>을 참조하세요.
++ 기존 계정이 있지만 Azure 모바일 서비스 미리 보기를 사용하도록 설정해야 하는 경우 <a href="http://azure.microsoft.com/documentation/articles/php-create-account/#enable" target="_blank">Azure 미리 보기 기능 사용</a>을 참조하세요.
 
 이 항목에서는 Azure 명령줄 도구가 지원하는 몇 개의 일반적인 관리 작업에 대해 다룹니다. 자세한 내용은 [Azure 명령줄 도구 설명서][를 참조하세요].
 
@@ -137,7 +151,8 @@ Azure 명령줄 도구를 사용하여 모바일 서비스를 관리하려면 Az
 
 이 작업은 로컬 컴퓨터에서 JavaScript(.js) 파일을 업로드합니다. 파일의 이름은 테이블 및 작업 이름으로부터 구성해야 하고, 명령이 실행되는 위치를 기준으로 `table` 하위 폴더에 위치해야 합니다. 예를 들어 다음 작업은  `TodoItems` 테이블에 속하는 새 `insert` 스크립트를 업로드하고 등록합니다.
 
-		azure mobile script upload todolist table/todoitems.insert.js
+		azure mobile script upload todolist table/todoite
+	ms.insert.js
 
 또한 스크립트 파일의 함수 선언은 등록된 테이블 작업과 일치해야 합니다. 즉,  `insert` 스크립트의 경우 업로드된 스크립트에 다음 서명이 있는 함수가 포함되어 있습니다.
 

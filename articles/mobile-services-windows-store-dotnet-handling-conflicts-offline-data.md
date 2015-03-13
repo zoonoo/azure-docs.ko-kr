@@ -1,6 +1,20 @@
-﻿<properties pageTitle="모바일 서비스에서 오프라인 데이터를 사용하여 충돌 처리(Windows 스토어) | 모바일 개발자 센터" description="Windows 스토어 응용 프로그램에서 오프라인 데이터를 동기화할 때 Azure 모바일 서비스를 사용하여 충돌을 처리하는 방법에 대해 알아봅니다." documentationCenter="windows" authors="wesmc7777" manager="dwrede" editor="" services=""/>
+﻿<properties 
+	pageTitle="모바일 서비스에서 오프라인 데이터를 사용하여 충돌 처리(Windows 스토어) | 모바일 개발자 센터" 
+	description="Windows 스토어 응용 프로그램에서 오프라인 데이터를 동기화할 때 Azure 모바일 서비스를 사용하여 충돌을 처리하는 방법에 대해 알아봅니다." 
+	documentationCenter="windows" 
+	authors="wesmc7777" 
+	manager="dwrede" 
+	editor="" 
+	services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/26/2014" ms.author="wesmc"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/26/2014" 
+	ms.author="wesmc"/>
 
 
 # 모바일 서비스에서 오프라인 데이터 동기화를 사용하여 충돌 처리

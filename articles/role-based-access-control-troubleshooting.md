@@ -1,19 +1,34 @@
-﻿<properties urlDisplayName="" pageTitle="역할 기반 액세스 제어 문제 해결" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Role based access control troubleshooting" authors="Stephen Siciliano"  solutions="" writer="" manager="terrylan" editor=""  />
+﻿<properties 
+	pageTitle="역할 기반 액세스 제어 문제 해결" 
+	description="" 
+	services="" 
+	documentationCenter="" 
+	authors="stepsic-microsoft-com" 
+	writer="" 
+	manager="terrylan" 
+	editor=""/>
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="11/03/2014" ms.author="Stephen Siciliano" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/03/2014" 
+	ms.author="stepsic"/>
 
 # 역할 기반 액세스 제어 문제 해결
 
 ## 소개
 
-[역할 기반 액세스 제어](http://azure.microsoft.com/ko-kr/documentation/articles/role-based-access-control-configure/)는 Azure의 리소스에 대해 세분화된 액세스 권한을 위임하는 데 사용할 수 있는 유용한 기능입니다. 이 기능을 통해 특정 사용자에게 필요한 리소스에 대한 권한을 적절하게 부여할 수 있습니다. 그러나 Azure 리소스의 리소스 모델이 복잡하여 권한 부여 대상을 정확하게 파악하기가 어려운 경우도 있습니다.
+[역할 기반 액세스 제어](http://azure.microsoft.com/documentation/articles/role-based-access-control-configure/)는 Azure의 리소스에 대해 세분화된 액세스 권한을 위임하는 데 사용할 수 있는 유용한 기능입니다. 이 기능을 통해 특정 사용자에게 필요한 리소스에 대한 권한을 적절하게 부여할 수 있습니다. 그러나 Azure 리소스의 리소스 모델이 복잡하여 권한 부여 대상을 정확하게 파악하기가 어려운 경우도 있습니다.
 
 이 문서에서는 미리 보기 포털의 몇 가지 새 역할을 사용하는 경우의 결과를 소개합니다.  이 릴리스에는 다음과 같은 기본 제공 역할 세 개가 포함되어 있습니다.
 * 소유자
 * 참여자
 * 읽기 권한자
 
-소유자와 참여자는 관리 환경에 대한 모든 권한을 가집니다. 이 두 역할의 차이점은, 참여자의 경우 다른 사용자나 그룹에 액세스 권한을 제공할 수 없다는 것입니다. 읽기 권한자 역할은 좀 더 복잡하므로 자세히 파악해야 합니다. 액세스 권한을 부여하는 정확한 방법에 대한 자세한 내용은 [이 문서를 참조](http://azure.microsoft.com/ko-kr/documentation/articles/role-based-access-control-configure/)하세요.
+소유자와 참여자는 관리 환경에 대한 모든 권한을 가집니다. 이 두 역할의 차이점은, 참여자의 경우 다른 사용자나 그룹에 액세스 권한을 제공할 수 없다는 것입니다. 읽기 권한자 역할은 좀 더 복잡하므로 자세히 파악해야 합니다. 액세스 권한을 부여하는 정확한 방법에 대한 자세한 내용은 [이 문서를 참조](http://azure.microsoft.com/documentation/articles/role-based-access-control-configure/)하세요.
 
 ## 웹 사이트 작업
 
@@ -74,3 +89,5 @@
     * 경고 규칙
     
 이러한 부분에 액세스할 수 없는 경우 관리자에게 리소스 그룹에 대한 참여자 권한을 요청해야 합니다.
+
+<!--HONumber=46--> 

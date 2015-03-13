@@ -26,7 +26,7 @@
 <object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/digital-marketing-notitle.svg" width="100%" height="100%"></object>
 
 > [WACOM.NOTE]
-> 이 가이드에서는 Azure 웹 사이트에서 디지털 마케팅 캠페인을 실행하는 데 적합한 가장 일반적인 몇 가지 영역과 작업에 대해 설명합니다. 그러나 Azure 웹 사이트에서 구현할 수 있는 다른 일반적인 시나리오도 있습니다. 이러한 솔루션에 대해 알아보려면 <a href="http://www.windowsazure.com/ko-kr/manage/services/web-sites/global-web-presence-solution-overview/">글로벌 웹 서비스</a> 및 <a href="http://www.windowsazure.com/ko-kr/manage/services/web-sites/business-application-solution-overview">비즈니스 응용 프로그램</a>에서 제공하는 다른 가이드를 참조하세요.
+> 이 가이드에서는 Azure 웹 사이트에서 디지털 마케팅 캠페인을 실행하는 데 적합한 가장 일반적인 몇 가지 영역과 작업에 대해 설명합니다. 그러나 Azure 웹 사이트에서 구현할 수 있는 다른 일반적인 시나리오도 있습니다. 이러한 솔루션에 대해 알아보려면 <a href="http://azure.microsoft.com/manage/services/web-sites/global-web-presence-solution-overview/">글로벌 웹 서비스</a> 및 <a href="http://azure.microsoft.com/manage/services/web-sites/business-application-solution-overview">비즈니스 응용 프로그램</a>에서 제공하는 다른 가이드를 참조하세요.
 
 ### 자산 새로 만들기 또는 기존 자산 가져오기
 
@@ -124,8 +124,8 @@ Azure 웹 사이트 대시보드에서 웹 사이트의 현재 성능 메트릭 
 
 [수평 및 수직 확장]:/ko-kr/manage/services/web-sites/how-to-scale-websites/
 [Azure 관리 포털]:http://manage.windowsazure.com/
-[서비스 관리 API]:http://msdn.microsoft.com/ko-kr/library/windowsazure/ee460799.aspx
-[PowerShell 스크립팅]:http://msdn.microsoft.com/ko-kr/library/windowsazure/jj152841.aspx
+[서비스 관리 API]:http://msdn.microsoft.com/library/windowsazure/ee460799.aspx
+[PowerShell 스크립팅]:http://msdn.microsoft.com/library/windowsazure/jj152841.aspx
 [Troy Hunt]:https://twitter.com/troyhunt
 [Azure를 사용하여 웹 사이트를 신속하게 확장하는 방법에 대해 배운 10가지]:http://www.troyhunt.com/2014/09/10-things-i-learned-about-rapidly.html
 [Azure Redis Cache]:/blog/2014/06/05/mvc-movie-app-with-azure-redis-cache-in-15-minutes/

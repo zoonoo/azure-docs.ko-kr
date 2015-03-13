@@ -31,7 +31,7 @@
  
 ##<a name="https"></a>보안 통신
 
-웹 사이트에 대해 만들어진 ***.azurewebsites.net** 도메인 이름을 사용하는 경우 모든 ***.azurewebsites.net** 도메인 이름에 대해 SSL 인증서가 제공되므로 HTTPS를 즉시 사용할 수 있습니다. 사이트에서 [사용자 지정 도메인 이름](http://azure.microsoft.com/ko-kr/documentation/articles/web-sites-custom-domain-name/)을 사용하는 경우 SSL 인증서를 업로드하여 해당 사용자 지정 도메인에 대해 HTTPS를 사용하도록 설정할 수 있습니다.
+웹 사이트에 대해 만들어진 ***.azurewebsites.net** 도메인 이름을 사용하는 경우 모든 ***.azurewebsites.net** 도메인 이름에 대해 SSL 인증서가 제공되므로 HTTPS를 즉시 사용할 수 있습니다. 사이트에서 [사용자 지정 도메인 이름](http://azure.microsoft.com/documentation/articles/web-sites-custom-domain-name/)을 사용하는 경우 SSL 인증서를 업로드하여 해당 사용자 지정 도메인에 대해 HTTPS를 사용하도록 설정할 수 있습니다.
 
 ##<a name="develop"></a>보안 개발 
 

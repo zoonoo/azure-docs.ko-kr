@@ -1,6 +1,18 @@
-﻿<properties title="Diagnose performance issues on a running website" pageTitle="실행 중인 웹 사이트에서 성능 문제 진단" description="다시 배포하지 않고 웹 사이트의 성능을 모니터링합니다." metaKeywords="analytics monitoring application insights" authors="awills"  manager="kamrani" />
+﻿<properties 
+	pageTitle="실행 중인 웹 사이트에서 성능 문제 진단" 
+	description="다시 배포하지 않고 웹 사이트의 성능을 모니터링합니다. 독립 실행형 또는 Application Insights SDK 사용" 
+	services="application-insights" 
+	authors="alancameronwills" 
+	manager="kamrani"/>
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-09-24" ms.author="awills" />
+<tags 
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2015-01-23" 
+	ms.author="awills"/>
  
 
 # 라이브 웹 사이트에서 현재 성능 모니터링
@@ -98,3 +110,5 @@ Azure에서 계정을 열고 Application Insights를 찾아보고 생성된 리�
 
 
 
+
+<!--HONumber=46--> 

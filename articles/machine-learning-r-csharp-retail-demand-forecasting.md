@@ -1,6 +1,20 @@
-﻿<properties title="Forecasting - ETS + STL " pageTitle="예측 - ETS + STL  | Azure" description="예측 - ETS + STL " metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jaymathe" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="예측 - ETS + STL  | Azure" 
+	description="예측 - ETS + STL" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="jaymathe" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/08/2014" ms.author="jaymathe" /> 
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/11/2015" 
+	ms.author="jaymathe"/> 
 
 #예측 - ETS + STL  
  
@@ -72,7 +86,7 @@
 
 ##웹 서비스 만들기 
 
->이 웹 서비스는 Azure 기계 학습을 사용하여 만들었습니다. 무료 평가판 및 실험을 만들고 [웹 서비스를 게시](http://azure.microsoft.com/ko-kr/documentation/articles/machine-learning-publish-web-service-to-azure-marketplace/)하는 방법에 대한 소개 비디오는 [azure.com/ml](http://azure.com/ml)을 참조하세요. 다음은 웹 서비스를 만든 실험과 실험 내 각 모듈의 예제 코드의 스크린샷입니다.
+>이 웹 서비스는 Azure 기계 학습을 사용하여 만들었습니다. 무료 평가판 및 실험을 만들고 [웹 서비스를 게시](http://azure.microsoft.com/documentation/articles/machine-learning-publish-web-service-to-azure-marketplace/)하는 방법에 대한 소개 비디오는 [azure.com/ml](http://azure.com/ml)을 참조하세요. 다음은 웹 서비스를 만든 실험과 실험 내 각 모듈의 예제 코드의 스크린샷입니다.
 
 Azure 기계 학습 내에서 새로운 빈 실험이 만들어졌습니다. 샘플 입력 데이터는 미리 정의된 데이터 스키마로 업로드되었습니다. 데이터 스키마는 R에서 'stl', 'ets' 및 'forecast' 함수를 사용하여 계절별 추세 분해(STL) 및 지수 평활(ETS) 예측 모델을 생성하는 "R 스크립트 실행" 모듈에 연결됩니다. 
 
@@ -118,8 +132,10 @@ Azure 기계 학습 내에서 새로운 빈 실험이 만들어졌습니다. 샘
 이는 ETS+STL 예측에 대한 매우 간단한 예제입니다. 위의 예제 코드에서 알 수 있듯이 오류 catch는 구현되지 않고 서비스에서는 모든 변수가 연속/양수 값이고 빈도는 1보다 큰 정수여야 한다고 가정합니다. 날짜 및 값 벡터의 길이는 같아야 하고 시계열 길이는 2*빈도보다 커야 합니다. 날짜 변수는 'mm/dd/yyyy' 형식을 준수해야 합니다.
 
 ##FAQ
-웹 서비스 사용 또는 마켓플레이스 게시 방법과 관련한 질문과 대답은 [여기](http://azure.microsoft.com/ko-kr/documentation/articles/machine-learning-marketplace-faq)를 참조하세요.
+웹 서비스 사용 또는 마켓플레이스 게시 방법과 관련한 질문과 대답은 [여기](http://azure.microsoft.com/documentation/articles/machine-learning-marketplace-faq)를 참조하세요.
 
 [1]: ./media/machine-learning-r-csharp-retail-demand-forecasting/retail-img1.png
 [2]: ./media/machine-learning-r-csharp-retail-demand-forecasting/retail-img2.png
 [3]: ./media/machine-learning-r-csharp-retail-demand-forecasting/retail-img3.png
+
+<!--HONumber=46--> 

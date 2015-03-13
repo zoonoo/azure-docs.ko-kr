@@ -1,20 +1,34 @@
-﻿<properties title="Azure Notification Hubs Notify Users" pageTitle="Azure 알림 허브 사용자에게 알림" metaKeywords="Azure push notifications, Azure notification hubs" description="Azure에서 보안 푸시 알림을 보내는 방법에 대해 알아봅니다. 코드 샘플은 .NET API를 사용하여 C#으로 작성되었습니다." documentationCenter="" services="notification-hubs" metaCanonical="" disqusComments="1" umbracoNaviHide="0" authors="glenga" manager="dwrede" />
+﻿<properties 
+	pageTitle="Azure 알림 허브 사용자에게 알림" 
+	description="Azure에서 보안 푸시 알림을 보내는 방법에 대해 알아봅니다. 코드 샘플은 .NET API를 사용하여 C#으로 작성되었습니다." 
+	documentationCenter="android" 
+	services="notification-hubs" 
+	authors="RickSaling" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-android" ms.devlang="java" ms.topic="article" ms.date="11/22/2014" ms.author="glenga" />
+<tags 
+	ms.service="notification-hubs" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="" 
+	ms.devlang="java" 
+	ms.topic="article" 
+	ms.date="11/22/2014" 
+	ms.author="ricksal"/>
 
-#Azure 알림 허브 사용자에게 알림
+# Azure 알림 허브 사용자에게 알림
 
 <div class="dev-center-tutorial-selector sublanding"> 
     	<a href="/ko-kr/documentation/articles/notification-hubs-aspnet-backend-windows-dotnet-notify-users/" title="Windows Universal">Windows Universal</a><a href="/ko-kr/documentation/articles/notification-hubs-aspnet-backend-ios-notify-users/" title="iOS">iOS</a>
 		<a href="/ko-kr/documentation/articles/notification-hubs-aspnet-backend-android-notify-users/" title="Android" class="current">Android</a>
 </div>
 
-Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플랫폼 및 규모 확장 푸시 인프라에 액세스할 수 있어, 모바일 플랫폼용 소비자 응용 프로그램 및 엔터프라이즈 응용 프로그램 모두에 대한 푸시 알림을 매우 간단하게 구현할 수 있습니다. 이 자습서에서는 Azure 알림 허브를 사용하여 특정 장치에서 특정 앱 사용자에게 푸시 알림을 보내는 방법을 보여 줍니다. 지침 항목 [앱 백 엔드에서 등록](http://msdn.microsoft.com/ko-kr/library/dn743807.aspx)에 나와 있는 대로 ASP.NET WebAPI 백 엔드는 클라이언트를 인증하고 알림을 생성하는 데 사용됩니다. 이 자습서는 **알림 허브 시작** 자습서에서 만든 알림 허브를 기반으로 합니다.
+Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플랫폼 및 규모 확장 푸시 인프라에 액세스할 수 있어, 모바일 플랫폼용 소비자 응용 프로그램 및 엔터프라이즈 응용 프로그램 모두에 대한 푸시 알림을 매우 간단하게 구현할 수 있습니다. 이 자습서에서는 Azure 알림 허브를 사용하여 특정 장치에서 특정 앱 사용자에게 푸시 알림을 보내는 방법을 보여 줍니다. 지침 항목 [앱 백 엔드에서 등록](http://msdn.microsoft.com/library/dn743807.aspx)에 나와 있는 대로 ASP.NET WebAPI 백 엔드는 클라이언트를 인증하고 알림을 생성하는 데 사용됩니다. 이 자습서는 **알림 허브 시작** 자습서에서 만든 알림 허브를 기반으로 합니다.
 
-> [AZURE.NOTE] 이 자습서에서는 [Getting 알림 허브 시작(Android)]에(/ko-kr/documentation/articles/notification-hubs-android-get-started/)설명된 대로 알림 허브를 만들고 구성했다고 가정합니다. 
-> 모바일 서비스를 백 엔드 서비스로 사용 중인 경우 이 자습서의 [모바일 서비스 버전]을(/ko-kr/documentation/articles/mobile-services-javascript-backend-android-push-notifications-app-users/) 참조하세요.
+> [AZURE.NOTE] 이 자습서에서는 [알림 허브 시작(Android)](/ko-kr/documentation/articles/notification-hubs-android-get-started/)에 설명된 대로 알림 허브를 만들고 구성했다고 가정합니다. 
+> 모바일 서비스를 백 엔드 서비스로 사용 중인 경우 이 자습서의 [모바일 서비스 버전](/ko-kr/documentation/articles/mobile-services-javascript-backend-android-push-notifications-app-users/)을 참조하세요.
 
-[WACOM.INCLUDE [notification-hubs-aspnet-backend-notifyusers](../includes/notification-hubs-aspnet-backend-notifyusers.md)]
+[AZURE.INCLUDE [notification-hubs-aspnet-backend-notifyusers](../includes/notification-hubs-aspnet-backend-notifyusers.md)]
 
 ## Android 프로젝트 만들기
 
@@ -73,7 +87,7 @@ Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플랫폼 및
 
 	![][A1]
 
-3. 이제 **MainActivity** 클래스와 같은 패키지에서 **RegisterClient** 클래스를 만듭니다. `{backend endpoint}`를 이전 섹션에서 얻은 백 엔드 끝점으로 바꿔야 합니다.
+3. 이제 **MainActivity** 클래스와 같은 패키지에서 **RegisterClient** 클래스를 만듭니다. 여기서 `{backend endpoint}`는 이전 섹션에서 얻은 백 엔드 끝점으로 바꿔야 합니다.
 
 		import java.io.IOException;
 		import java.io.UnsupportedEncodingException;
@@ -177,14 +191,14 @@ Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플랫폼 및
 			}
 		}
 
-	이 구성 요소는 푸시 알림을 등록하기 위해 앱 백 엔드에 접속하는 데 필요한 REST 호출을 구현합니다. 또한 [앱 백 엔드에서 등록]에(http://msdn.microsoft.com/ko-kr/library/dn743807.aspx)설명된 대로 알림 허브에서 생성된 *registrationIds*를 로컬로 저장합니다. . 이 구성 요소는 **로그인 및 등록** 단추를 클릭할 때 로컬 저장소에 저장된 인증 토큰을 사용합니다.
+	이 구성 요소는 푸시 알림을 등록하기 위해 앱 백 엔드에 접속하는 데 필요한 REST 호출을 구현합니다. 또한 [앱 백 엔드에서 등록](http://msdn.microsoft.com/library/dn743807.aspx)에 설명된 대로 알림 허브에서 생성된 *registrationIds*를 로컬로 저장합니다. 이 구성 요소는 **로그인 및 등록** 단추를 클릭할 때 로컬 저장소에 저장된 인증 토큰을 사용합니다.
 
 4. **MainActivity** 클래스에서 **NotificationHub**에 대한 Private 필드를 제거하고 **RegisterClient**에 대한 필드를 추가합니다.
 
 		//private NotificationHub hub;
 		private RegisterClient registerClient;
  
-5. **onCreate** 메서드에서 **hub** 필드 및 **registerWithNotificationHubs** 메서드의 초기화를 제거합니다. 그런 다음 **RegisterClient** 클래스 인스턴스를 초기화하는 다음 줄을 추가합니다. 메서드에는 다음 줄이 포함되어야 합니다.
+5. **onCreate** 메서드에서 **hub** 필드 및 **registerWithNotificationHubs** 메서드의 초기화를 제거합니다. **RegisterClient** 클래스 인스턴스를 초기화하는 다음 줄을 추가합니다. 메서드에는 다음 줄이 포함되어야 합니다.
 
 		@Override
 	    protected void onCreate(Bundle savedInstanceState) {
@@ -273,9 +287,9 @@ Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플랫폼 및
 
 2. Android 앱 UI에서 사용자 이름과 암호를 입력합니다. 이는 임의 문자열일 수 있지만 같은 값이어야 합니다.
 
-3. Android 앱 UI에서 **로그인**을 클릭합니다. 그런 다음 **푸시 보내기**를 클릭합니다.
+3. Android 앱 UI에서 **로그인**을 클릭합니다. 그리고 나서 **푸시 보내기**를 클릭합니다.
 
 
 [A1]: ./media/notification-hubs-aspnet-backend-android-notify-users/android-notify-users1.PNG
 
-<!--HONumber=35.1-->
+<!--HONumber=45--> 

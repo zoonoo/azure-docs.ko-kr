@@ -1,7 +1,20 @@
-﻿<properties title="How to use diagnostics" pageTitle="진단을 사용하는 방법" description="Azure에서 리소스에 대한 진단을 설정하는 방법에 대해 알아봅니다." authors="stepsic" manager="kamrani" />
+﻿<properties 
+	pageTitle="진단을 사용하는 방법" 
+	description="Azure에서 리소스에 대한 진단을 설정하는 방법에 대해 알아봅니다." 
+	authors="stepsic-microsoft-com" 
+	manager="kamrani" 
+	editor="" 
+	services="application-insights" 
+	documentationCenter=""/>
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-11-04" ms.author="stepsic" />
-
+<tags 
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2014-11-04" 
+	ms.author="stepsic"/>
 # 진단 설정
 
 Azure 포털 미리 보기에서는 이제 Windows 가상 컴퓨터와 저장소 계정과 관련하여 빈번하게 사용되는 다양한 모니터링 및 진단 데이터를 구성할 수 있습니다.
@@ -66,3 +79,5 @@ Azure 포털 미리 보기에서는 이제 Windows 가상 컴퓨터와 저장소
 그래프에는 전날의 메트릭과 비교한 경고 임계값 미리 보기가 표시됩니다. **저장**을 클릭하면 몇 분 이내에 선택한 메트릭이 임계값을 초과할 때마다 알림이 표시됩니다. 
 
 미리 보기 포털에서만 표시되는 메트릭에 대해서는 전체 포털에서 경고를 받을 수 없습니다. 따라서 미리 보기 포털의 특정 경고 규칙은 전체 포털에 표시되지 않습니다.
+
+<!--HONumber=46--> 

@@ -123,7 +123,7 @@ PHP에서 간단한 작업 목록 응용 프로그램을 빌드할 것입니다.
 		}
 		?>
 
-	다음에서 오류 코드 및 메시지 검색을 찾을 수 있습니다. [http://msdn.microsoft.com/ko-kr/library/windowsazure/dd179438.aspx][msdn-errors]
+	다음에서 오류 코드 및 메시지 검색을 찾을 수 있습니다. [http://msdn.microsoft.com/library/windowsazure/dd179438.aspx][msdn-errors]
 
 
 ##테이블 쿼리
@@ -441,11 +441,11 @@ Git를 사용하여 응용 프로그램을 게시하려면 아래 단계를 따�
 [install-git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 [composer-phar]: http://getcomposer.org/composer.phar
 
-[msdn-errors]: http://msdn.microsoft.com/ko-kr/library/windowsazure/dd179438.aspx
+[msdn-errors]: http://msdn.microsoft.com/library/windowsazure/dd179438.aspx
 
 
 
-[msdn-table-query-syntax]: http://msdn.microsoft.com/ko-kr/library/windowsazure/dd894031.aspx
+[msdn-table-query-syntax]: http://msdn.microsoft.com/library/windowsazure/dd894031.aspx
 [ws-storage-app]: ./media/web-sites-php-storage/ws-storage-app.png
 [management-portal]: https://manage.windowsazure.com
 [new-website]: ./media/web-sites-php-storage/new_website.jpg

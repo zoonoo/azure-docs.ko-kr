@@ -29,7 +29,7 @@
 
 <h2 id="BKMK_Prereq">필수 조건</h2>
 
->[AZURE.NOTE]이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 계정 만들기](http://www.windowsazure.com/ko-kr/develop/php/tutorials/create-a-windows-azure-account/)(영문)를 참조하세요.
+>[AZURE.NOTE]이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 계정 만들기](http://azure.microsoft.com/develop/php/tutorials/create-a-windows-azure-account/)(영문)를 참조하세요.
 
 또한 이 자습서에는 다음이 필요합니다.
 
@@ -306,7 +306,7 @@ HPC 팩 **clusrun** 명령을 사용하여 하나 이상의 클러스터 노드�
 * [HPC Pack 2012 R2 및 HPC Pack 2012 (영문)](http://go.microsoft.com/fwlink/p/?LinkID=263697)
 * [Microsoft HPC 팩을 사용하여 Azure로 버스트](http://go.microsoft.com/fwlink/p/?LinkID=200493)
 * [Azure VM의 Microsoft HPC 팩](http://go.microsoft.com/fwlink/p/?linkid=330375)
-* [Azure 큰 계산: HPC 및 일괄 처리](http://azure.microsoft.com/ko-kr/solutions/big-compute/)
+* [Azure 큰 계산: HPC 및 일괄 처리](http://azure.microsoft.com/solutions/big-compute/)
 
 
 [Overview]: ./media/set-up-hybrid-cluster-microsoft-hpc-pack-2012-sp1/hybrid_cluster_overview.png
@@ -345,5 +345,4 @@ HPC 팩 **clusrun** 명령을 사용하여 하나 이상의 클러스터 노드�
 [stop_node2]: ./media/set-up-hybrid-cluster-microsoft-hpc-pack-2012-sp1/stop_node2.png
 [stop_node4]: ./media/set-up-hybrid-cluster-microsoft-hpc-pack-2012-sp1/stop_node4.png
 [view_instances2]: ./media/set-up-hybrid-cluster-microsoft-hpc-pack-2012-sp1/view_instances2.png
-
 <!--HONumber=42-->

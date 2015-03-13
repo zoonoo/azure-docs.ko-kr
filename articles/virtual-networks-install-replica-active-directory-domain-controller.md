@@ -1,6 +1,21 @@
-﻿<properties urlDisplayName="Replica domain controller" pageTitle="Azure에 복제본 도메인 컨트롤러 설치" metaKeywords="" description="Azure 가상 컴퓨터에서 온-프레미스 Active Directory 포리스트의 도메인 컨트롤러를 설치 하는 방법에 설명 하는 자습서입니다." metaCanonical="" services="virtual-network" documentationCenter="" title="Install a Replica Active Directory Domain Controller on an Azure Virtual Network" authors="Justinha" solutions="" writer="Justinha" manager="TerryLan" editor="LisaToft" />
+﻿<properties 
+	pageTitle="Azure에 복제본 도메인 컨트롤러 설치" 
+	description="온-프레미스 Active Directory 포리스트에서 Azure 가상 컴퓨터에 도메인 컨트롤러를 설치하는 방법을 설명하는 자습서입니다." 
+	services="virtual-network" 
+	documentationCenter="" 
+	authors="Justinha" 
+	writer="Justinha" 
+	manager="TerryLan" 
+	editor="LisaToft"/>
 
-<tags ms.service="virtual-network" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/04/2014" ms.author="Justinha" />
+<tags 
+	ms.service="virtual-network" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/12/2015" 
+	ms.author="Justinha"/>
 
 
 #Azure 가상 네트워크에서 복제본 Active Directory 도메인 컨트롤러 설치
@@ -154,7 +169,7 @@ VM에 로그인한 다음 사이트 간 VPN 또는 Express 경로 연결을 통�
 관리 포털을 사용하여 VM을 프로비전하는 대신 Microsoft Azure용 Windows PowerShell을 사용할 수 있습니다. 여기서 <a href = "http://msdn.microsoft.com/library/azure/dn495159.aspx">New-AzureVMConfig</a> 및 <a href = "http://msdn.microsoft.com/library/azure/dn495299.aspx">Add-AzureProvisioningConfig</a> 를 사용하여 처음 부팅 시 VM을 도메인에 가입된 컴퓨터로 프로비전하고 <a href = "http://msdn.microsoft.com/library/azure/dn495254.aspx">New-AzureVM</a> 을 사용하여 VM 자체를 만듭니다. 
 </p>
 
-Windows PowerShell 사용에 대한 자세한 내용은 [Azure PowerShell 시작](http://msdn.microsoft.com/ko-kr/library/windowsazure/jj156055.aspx) 및 [Azure 관리 Cmdlet](http://msdn.microsoft.com/ko-kr/library/windowsazure/jj152841)(영문)을 참조하세요.
+Windows PowerShell 사용에 대한 자세한 내용은 [Azure PowerShell 시작](http://msdn.microsoft.com/library/windowsazure/jj156055.aspx) 및 [Azure 관리 Cmdlet](http://msdn.microsoft.com/library/windowsazure/jj152841)(영문)을 참조하세요.
 
 
 <h2><a id="resources"></a>추가 리소스</h2>
@@ -179,3 +194,5 @@ Windows PowerShell 사용에 대한 자세한 내용은 [Azure PowerShell 시작
 [1]: ./media/virtual-networks-install-replica-active-directory-domain-controller/ReplicaDCsOnAzureVNet.png
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

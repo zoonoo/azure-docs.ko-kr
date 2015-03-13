@@ -1,6 +1,20 @@
-﻿<properties pageTitle="사용자 대신 SharePoint 액세스 | 모바일 개발자 센터" description="사용자를 대신해 SharePoint를 호출하는 방법에 대해 알아봅니다." documentationCenter="windows" authors="mattchenderson" manager="dwrede" editor="" services=""/>
+﻿<properties 
+	pageTitle="사용자 대신 SharePoint 액세스 | 모바일 개발자 센터" 
+	description="사용자를 대신해 SharePoint를 호출하는 방법에 대해 알아봅니다." 
+	documentationCenter="windows" 
+	authors="mattchenderson" 
+	manager="dwrede" 
+	editor="" 
+	services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="mahender"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="mahender"/>
 
 # 사용자 대신 SharePoint 액세스
 
@@ -202,6 +216,6 @@ Word 문서를 만들려면 OpenXML NuGet 패키지를 사용합니다. NuGet �
 <!-- URLs. -->
 [Azure 관리 포털]: https://manage.windowsazure.com/
 [SharePoint Online]: http://office.microsoft.com/ko-kr/sharepoint/
-[Active Directory 인증 라이브러리 Single Sign-On으로 앱 인증]: http://azure.microsoft.com/ko-kr/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication/
+[Active Directory 인증 라이브러리 Single Sign-On으로 앱 인증]: http://azure.microsoft.com/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication/
 
 <!--HONumber=42-->

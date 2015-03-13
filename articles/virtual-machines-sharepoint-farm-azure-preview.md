@@ -32,7 +32,7 @@ SharePoint Server 팜을 사용하여 Microsoft Azure 미리 보기 포털은 �
 
 이 팜 구성을 사용하여 SharePoint 팜에 대해 보다 과도한 클라이언트 부하, 외부 SharePoint 사이트의 고가용성 및 SQL Server AlwaysOn을 테스트할 수 있습니다. 또한 고가용성 환경에서 SharePoint app 개발에 이 구성을 사용할 수 있습니다.
  
-이러한 두 가지 팜에 대한 구성 세부 사항에 대해서는 [SharePoint 서버 팜 구성 세부 정보](../virtual-machines-sharepoint-farm-config-azure-preview/)를 참조하세요.
+이러한 두 가지 팜에 대한 구성 세부 사항에 대해서는 [SharePoint 서버 팜 구성 세부 정보](../virtual-machines-sharepoint-farm-config-azure-preview/) 를 참조하세요.
 
 ##연결 단계별 실행##
 
@@ -61,7 +61,7 @@ SharePoint 팜은 인터넷 연결 클라이언트 컴퓨터에 대해 SharePoin
 6.	인터넷 브라우저의 주소 필드에 URL을 붙여 넣습니다.
 7.	메시지가 표시되면 팜을 만들 때 지정한 사용자 계정 자격 증명을 입력합니다.
 
-중앙 관리 SharePoint 사이트에서 내 사이트, SharePoint 응용 프로그램 및 기타 기능을 구성할 수 있습니다. 자세한 내용은 [SharePoint 2013 구성](http://technet.microsoft.com/library/ee836142.aspx)을 참조하세요. 중앙 관리 SharePoint 사이트에 액세스하려면 다음을 수행합니다.
+중앙 관리 SharePoint 사이트에서 내 사이트, SharePoint 응용 프로그램 및 기타 기능을 구성할 수 있습니다. 자세한 내용은 [SharePoint 2013 구성](http://technet.microsoft.com/library/ee836142.aspx) 을 참조하세요. 중앙 관리 SharePoint 사이트에 액세스하려면 다음을 수행합니다.
 
 1.	Azure 미리 보기 포털에서 **찾아보기**와 **리소스 그룹**을 차례로 클릭합니다. 
 2.	리소스 그룹 목록에서 SharePoint 팜 리소스 그룹의 이름을 클릭합니다.
@@ -81,7 +81,7 @@ SharePoint 팜은 인터넷 연결 클라이언트 컴퓨터에 대해 SharePoin
 
 ##Azure 리소스 관리자##
 
-SharePoint 서버 팜은 Azure 리소스 관리자 및 스크립트를 사용하여 SharePoint 팜의 인프라 및 서버 구성을 자동으로 만듭니다. 자세한 내용은 [리소스 관리자에서 Windows PowerShell 사용](http://azure.microsoft.com/documentation/articles/powershell-azure-resource-manager/)을 참조하세요.
+SharePoint 서버 팜은 Azure 리소스 관리자 및 스크립트를 사용하여 SharePoint 팜의 인프라 및 서버 구성을 자동으로 만듭니다. 자세한 내용은 [리소스 관리자에서 Windows PowerShell 사용](http://azure.microsoft.com/documentation/articles/powershell-azure-resource-manager/) 을 참조하세요.
 
 ##추가 리소스
 
@@ -89,4 +89,5 @@ SharePoint 서버 팜은 Azure 리소스 관리자 및 스크립트를 사용하
 
 [테스트용 하이브리드 클라우드에 SharePoint 인트라넷 팜 설치](http://azure.microsoft.com/documentation/articles/virtual-networks-setup-sharepoint-hybrid-cloud-testing/)
 
-<!--HONumber=45--> 
+
+<!--HONumber=42-->

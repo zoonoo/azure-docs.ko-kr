@@ -1,6 +1,18 @@
-﻿<properties title="Troubleshooting and Q & A about Application Insights" pageTitle="Application Insights에 대한 문제 해결 및 질문과 대답" description="팁 및 문제 해결" metaKeywords="analytics monitoring" authors="awills"  manager="kamrani" />
+﻿<properties 
+	pageTitle="Application Insights에 대한 문제 해결 및 질문과 대답" 
+	description="명확하지 않은 부분이 있거나 작동이 잘 안 되는 경우 여기를 참조하세요." 
+	services="application-insights" 
+	authors="alancameronwills" 
+	manager="kamrani"/>
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-09-24" ms.author="awills" />
+<tags 
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2015-02-03" 
+	ms.author="awills"/>
  
 # 문제 해결과 질문 및 답변 - Microsoft Azure 미리 보기의 Application Insights
 
@@ -185,3 +197,5 @@ Visual Studio 업데이트 3은 새로운 Application Insights 도구의 사전 
 
 [older]: http://www.visualstudio.com/get-started/get-usage-data-vs
 
+
+<!--HONumber=46--> 

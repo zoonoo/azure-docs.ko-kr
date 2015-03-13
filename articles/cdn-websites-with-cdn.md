@@ -1,15 +1,29 @@
-﻿<properties urlDisplayName="Integrate an Azure Website with Azure CDN" pageTitle="Azure CDN에 Azure 웹사이트 통합" metaKeywords="Azure tutorial, Azure web app tutorial, ASP.NET, CDN, MVC, websites" description="통합 Azure CDN 끝점에서 콘텐츠를 제공하는 웹 사이트의 배포 방법에 대해 설명하는 자습서입니다." metaCanonical="" services="cdn,web-sites" documentationCenter=".NET" title="Integrate an Azure Website with Azure CDN" authors="cephalin" solutions="" manager="wpickett" editor="jimbe" />
+﻿<properties 
+	pageTitle="Azure CDN에 Azure 웹사이트 통합" 
+	description="통합 Azure CDN 끝점에서 콘텐츠를 제공하는 웹 사이트의 배포 방법에 대해 설명하는 자습서입니다." 
+	services="cdn, web-sites" 
+	documentationCenter=".net" 
+	authors="cephalin" 
+	manager="wpickett" 
+	editor="jimbe"/>
 
-<tags ms.service="cdn" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="10/02/2014" ms.author="cephalin" />
+<tags 
+	ms.service="cdn" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="10/02/2014" 
+	ms.author="cephalin"/>
 
 <a name="intro"></a>
 # Azure CDN에 Azure 웹사이트 통합 #
 
-Azure 웹사이트를 [Azure CDN](http://azure.microsoft.com/ko-kr/services/cdn/)에 통합하여 서버 노드에서 가까이에 있는 고객에게 전역적으로 웹 사이트 콘텐츠를 제공함으로써 Azure 웹사이트에 기본적으로 포함되어 있는 전역 확장 기능이 강화될 수 있습니다(모든 현재 노드 위치의 업데이트된 목록은 [여기](http://msdn.microsoft.com/ko-kr/library/azure/gg680302.aspx)에서 찾을 수 있음). 이러한 통합은 Azure 웹사이트의 성능을 크게 향상시키고 전 세계 웹사이트 사용자 환경을 획기적으로 개선합니다. 
+Azure 웹사이트를 [Azure CDN](http://azure.microsoft.com/services/cdn/)에 통합하여 서버 노드에서 가까이에 있는 고객에게 전역적으로 웹 사이트 콘텐츠를 제공함으로써 Azure 웹사이트에 기본적으로 포함되어 있는 전역 확장 기능이 강화될 수 있습니다(모든 현재 노드 위치의 업데이트된 목록은 [여기](http://msdn.microsoft.com/library/azure/gg680302.aspx)에서 찾을 수 있음). 이러한 통합은 Azure 웹사이트의 성능을 크게 향상시키고 전 세계 웹사이트 사용자 환경을 획기적으로 개선합니다. 
 
 Azure CDN과 Azure 웹사이트를 통합하면 다음과 같은 이점을 얻을 수 있습니다.
 
-- 콘텐츠 배포(이미지, 스크립트 및 스타일시트)를 Azure 웹사이트의 [연속 배포](http://azure.microsoft.com/ko-kr/documentation/articles/web-sites-publish-source-control/) 프로세스로 통합
+- 콘텐츠 배포(이미지, 스크립트 및 스타일시트)를 Azure 웹사이트의 [연속 배포](http://azure.microsoft.com/documentation/articles/web-sites-publish-source-control/) 프로세스로 통합
 - jQuery 또는 부트스트랩 버전과 같은 Azure 웹사이트의 NuGet 패키지를 쉽게 업그레이드 
 - 동일한 Visual Studio 인터페이스에서 웹 응용 프로그램 및 CDN 제공 콘텐츠 관리
 - ASP.NET 묶음 및 축소를 Azure CDN과 통합
@@ -32,15 +46,15 @@ Visual Studio에서 기본 ASP.NET MVC 템플릿을 사용하여 Azure 웹사이
 
 이 자습서를 사용하려면 다음 필수 조건이 필요합니다.
 
--	활성 [Microsoft Azure 계정](http://azure.microsoft.com/ko-kr/account/)
+-	활성 [Microsoft Azure 계정](http://azure.microsoft.com/account/)
 -	[Azure SDK를 설치한 Visual Studio 2013](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409)
 
 <div class="wa-note">
   <span class="wa-icon-bulb"></span>
   <h5><a name="note"></a>이 자습서를 완료하려면 Azure 계정이 있어야 합니다.</h5>
   <ul>
-    <li><a href="http://azure.microsoft.com/ko-kr/pricing/free-trial/?WT.mc_id=A261C142F">Azure 계정을 무료로 개설</a>할 수 있음 - 유료 Azure 서비스를 사용해볼 수 있는 크레딧을 받게 되며 크레딧을 모두 사용한 후에도 계정을 유지하고 무료 Azure 서비스(예: 웹 서비스)를 사용할 수 있습니다.</li>
-    <li><a href="http://azure.microsoft.com/ko-kr/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F">MSDN 구독자 혜택을 활성화</a>할 수 있음 - MSDN 구독은 유료 Azure 서비스에 사용할 수 있는 크레딧을 매달 제공합니다.</li>
+    <li><a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F">Azure 계정을 무료로 개설</a>할 수 있음 - 유료 Azure 서비스를 사용해볼 수 있는 크레딧을 받게 되며 크레딧을 모두 사용한 후에도 계정을 유지하고 무료 Azure 서비스(예: 웹 서비스)를 사용할 수 있습니다.</li>
+    <li><a href="http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F">MSDN 구독자 혜택을 활성화</a>할 수 있음 - MSDN 구독은 유료 Azure 서비스에 사용할 수 있는 크레딧을 매달 제공합니다.</li>
   <ul>
 </div>
 
@@ -368,7 +382,7 @@ public ActionResult Show(string id)
 
 ASP.NET 묶음 및 축소를 CDN 끝점과 통합하려면 다음 단계를 따르세요.
 
-1. *App_Start\BundleConfig.cs* 파일로 돌아가 `bundles.Add()` 메서드를 수정하여 CDN 주소를 지정한 다른 [Bundle 생성자](http://msdn.microsoft.com/ko-kr/library/jj646464.aspx)를 사용합니다. 이를 수행하려면 `RegisterBundles` 메서드 정의를 다음 코드로 바꿉니다.  
+1. *App_Start\BundleConfig.cs* 파일로 돌아가 `bundles.Add()` 메서드를 수정하여 CDN 주소를 지정한 다른 [Bundle 생성자](http://msdn.microsoft.com/library/jj646464.aspx)를 사용합니다. 이를 수행하려면 `RegisterBundles` 메서드 정의를 다음 코드로 바꿉니다.  
 	<pre class="prettyprint">
 	public static void RegisterBundles(BundleCollection bundles)
 	{
@@ -462,9 +476,9 @@ ASP.NET 묶음 및 축소를 CDN 끝점과 통합하려면 다음 단계를 따�
 
 어떤 이유로 Azure CDN 끝점에 문제가 발생한 경우 JavaScript 또는 부트스트랩을 로드하는 대체 옵션으로 원본 웹 서버에 액세스할 수 있을 정도로 지능적인 웹 페이지를 원합니다. CDN을 사용할 수 없어서 웹사이트의 이미지가 손실되는 심각한 상황이 올 수도 있지만 좀 더 심각한 경우는 스크립트 및 스타일시트에서 제공하는 중요한 페이지 기능을 사용하지 못하는 게 되는 것입니다.
 
-[Bundle](http://msdn.microsoft.com/ko-kr/library/system.web.optimization.bundle.aspx) 클래스에는 CDN 오류에 대비해 대체 메커니즘을 구성할 수 있도록 [CdnFallbackExpression](http://msdn.microsoft.com/ko-kr/library/system.web.optimization.bundle.cdnfallbackexpression.aspx)이라는 속성이 포함되어 있습니다. 이 속성을 사용하려면 다음 단계를 따르세요.
+[Bundle](http://msdn.microsoft.com/library/system.web.optimization.bundle.aspx) 클래스에는 CDN 오류에 대비해 대체 메커니즘을 구성할 수 있도록 [CdnFallbackExpression](http://msdn.microsoft.com/library/system.web.optimization.bundle.cdnfallbackexpression.aspx)이라는 속성이 포함되어 있습니다. 이 속성을 사용하려면 다음 단계를 따르세요.
 
-1. ASP.NET 프로젝트에서 각 [Bundle 생성자](http://msdn.microsoft.com/ko-kr/library/jj646464.aspx)의 CDN URL을 추가한 *App_Start\BundleConfig.cs* 파일을 열고 다음과 같이 강조 표시된 내용을 변경하여 기본 번들에 대체 메커니즘을 추가합니다.  
+1. ASP.NET 프로젝트에서 각 [Bundle 생성자](http://msdn.microsoft.com/library/jj646464.aspx)의 CDN URL을 추가한 *App_Start\BundleConfig.cs* 파일을 열고 다음과 같이 강조 표시된 내용을 변경하여 기본 번들에 대체 메커니즘을 추가합니다.  
 	<pre class="prettyprint">
 	public static void RegisterBundles(BundleCollection bundles)
 	{
@@ -576,7 +590,9 @@ ASP.NET 묶음 및 축소를 CDN 끝점과 통합하려면 다음 단계를 따�
 
 # 추가 정보 #
 - [Azure CDN(콘텐츠 배달 네트워크) 개요](http://msdn.microsoft.com/library/azure/ff919703.aspx)
-- [웹 응용 프로그램에서 Azure CDN의 콘텐츠 제공](http://azure.microsoft.com/ko-kr/Documentation/Articles/cdn-serve-content-from-cdn-in-your-web-application/)
-- [Azure CDN과 클라우드 서비스 통합](http://azure.microsoft.com/ko-kr/documentation/articles/cdn-cloud-service-with-cdn/)
+- [웹 응용 프로그램에서 Azure CDN의 콘텐츠 제공](http://azure.microsoft.com/Documentation/Articles/cdn-serve-content-from-cdn-in-your-web-application/)
+- [Azure CDN과 클라우드 서비스 통합](http://azure.microsoft.com/documentation/articles/cdn-cloud-service-with-cdn/)
 - [ASP.NET 묶음 및 축소](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification)
-- [Azure에 CDN 사용](http://azure.microsoft.com/ko-kr/documentation/articles/cdn-how-to-use/)
+- [Azure에 CDN 사용](http://azure.microsoft.com/documentation/articles/cdn-how-to-use/)
+
+<!--HONumber=46--> 

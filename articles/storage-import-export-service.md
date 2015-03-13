@@ -298,7 +298,7 @@ Microsoft Azure 가져오기/내보내기 도구는 각 드라이브가 준비�
 
 	> [AZURE.IMPORTANT] 배송하는 실제 미디어는 국경을 지나야 할 수 있습니다. 실제 미디어와 데이터를 관련 법률에 따라 가져오거나 내보내도록 해야 합니다. 실제 미디어를 배송하기 전에 관리자에게 미디어 및 데이터를 확인된 데이터 센터에 합법적으로 배송할 수 있는지 확인하세요. 이렇게 하면 해당 품목이 시기 적절하게 Microsoft에 도착될 수 있습니다.
 
-- 패키지를 발송할 때는 [Microsoft Azure 서비스 조건](http://azure.microsoft.com/ko-kr/support/legal/services-terms/)의 조항을 따라야 합니다. 
+- 패키지를 발송할 때는 [Microsoft Azure 서비스 조건](http://azure.microsoft.com/support/legal/services-terms/)의 조항을 따라야 합니다. 
 
 **가져오기/내보내기 작업에 사용할 드라이브를 Microsoft에서 구입할 수 있습니까?**
 
@@ -313,5 +313,4 @@ Microsoft Azure 가져오기/내보내기 도구는 각 드라이브가 준비�
 [import-job-03]: ./media/storage-import-export-service/import-job-03.png
 [export-job-03]: ./media/storage-import-export-service/export-job-03.png
 [export-job-bitlocker-keys]: ./media/storage-import-export-service/export-job-bitlocker-keys.png
-
 <!--HONumber=42-->

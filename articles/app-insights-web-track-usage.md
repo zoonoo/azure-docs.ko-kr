@@ -1,6 +1,18 @@
-﻿<properties title="Track usage in web applications with Application Insights" pageTitle="웹 응용 프로그램에서 사용 현황 추적" description="사용자 활동을 기록합니다." metaKeywords="analytics monitoring application insights" authors="awills" manager="kamrani" />
+﻿<properties 
+	pageTitle="웹 응용 프로그램에서 사용 현황 추적" 
+	description="사용자 활동을 기록합니다." 
+	services="application-insights" 
+	authors="alancameronwills" 
+	manager="kamrani"/>
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-11-21" ms.author="awills" />
+<tags 
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2015-01-09" 
+	ms.author="awills"/>
  
 # 웹 응용 프로그램에서 사용 현황 추적
 
@@ -119,3 +131,5 @@
 
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

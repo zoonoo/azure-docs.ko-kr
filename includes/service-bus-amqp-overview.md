@@ -91,10 +91,9 @@ AMQP 1.0이 추가됨으로써 효율적인 이진 프로토콜을 사용하여 
 
 *    [서비스 버스 .NET API와 함께 AMQP 1.0을 사용하는 방법](http://aka.ms/lym3vk)
 *    [서비스 버스 및 AMQP 1.0과 함께 JMS(Java Message Service) API를 사용하는 방법](http://aka.ms/ll1fm3)
-*    [서비스 버스 AMQP 1.0 개발자 가이드](http://msdn.microsoft.com/ko-kr/library/jj841071.aspx)
+*    [서비스 버스 AMQP 1.0 개발자 가이드](http://msdn.microsoft.com/library/jj841071.aspx)
 *    [OASIS AMQP(Advanced Message Queuing Protocol) 버전 1.0 사양](http://docs.oasis-open.org/amqp/core/v1.0/os/amqp-core-complete-v1.0-os.pdf)
 
 [0]: ./media/service-bus-amqp-overview/Example1.png
-
 
 <!--HONumber=42-->

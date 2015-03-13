@@ -1,6 +1,20 @@
-<properties title="Azure 기계 학습으로 예측 솔루션 개발" pageTitle="기계 학습으로 예측 솔루션 개발 | Azure" description="Azure 기계 학습 스튜디오에서 예측 분석 실험을 만드는 방법의 연습을 소개합니다." metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="기계 학습으로 예측 솔루션 개발 | Azure" 
+	description="Azure 기계 학습 스튜디오에서 예측 분석 실험을 만드는 방법의 연습을 소개합니다." 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="garyericson" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/06/2014" ms.author="garye" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/06/2014" 
+	ms.author="garye"/>
 
 # Azure 기계 학습으로 예측 솔루션 개발
 
@@ -29,3 +43,5 @@
   [웹 서비스 게시]: ../machine-learning-walkthrough-5-publish-web-service/
   [웹 서비스 액세스]: ../machine-learning-walkthrough-6-access-web-service/
   [신용 위험 예측 샘플 실험]: ../machine-learning-sample-credit-risk-prediction/
+
+<!--HONumber=46--> 

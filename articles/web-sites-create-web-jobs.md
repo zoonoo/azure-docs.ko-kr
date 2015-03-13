@@ -21,7 +21,7 @@
 
 Azure 웹 사이트를 사용하면 사용자 웹 사이트에서 프로그램 또는 스크립트를 세 가지 방식, 즉 주문형, 연속형, 예약형 중 하나로 실행할 수 있습니다. Microsoft Azure WebJob을 사용하는 데는 별도의 비용이 들지 않습니다.
 
-이 문서에서는 Azure 관리 포털을 사용하여 WebJob을 배포하는 방법을 보여 줍니다. Visual Studio 또는 지속적인 전송 프로세스를 사용하여 배포하는 방법에 대한 자세한 내용은 [Azure WebJob을 Azure 웹 사이트에 배포하는 방법](http://azure.microsoft.com/ko-kr/documentation/articles/websites-dotnet-deploy-webjobs)을 참조하세요.
+이 문서에서는 Azure 관리 포털을 사용하여 WebJob을 배포하는 방법을 보여 줍니다. Visual Studio 또는 지속적인 전송 프로세스를 사용하여 배포하는 방법에 대한 자세한 내용은 [Azure WebJob을 Azure 웹 사이트에 배포하는 방법](http://azure.microsoft.com/documentation/articles/websites-dotnet-deploy-webjobs)을 참조하세요.
 
 Azure WebJobs SDK는 많은 WebJob 프로그래밍 작업을 간소화합니다. 자세한 내용은 [WebJobs SDK란?](../websites-dotnet-webjobs-sdk).을 참조하세요.
 

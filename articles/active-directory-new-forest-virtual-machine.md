@@ -1,18 +1,33 @@
-﻿<properties urlDisplayName="Active Directory forest" pageTitle="Azure 가상 네트워크에 Active Directory 포리스트 설치" metaKeywords="" description="Azure 가상 네트워크의 VM(가상 컴퓨터)에서 새 Active Directory 포리스트를 만드는 방법에 대해 설명하는 자습서입니다." metaCanonical="" services="active-directory,virtual-network" documentationCenter="" title="Install a new Active Directory forest in Azure" authors="Justinha"  solutions="" writer="Justinha" manager="TerryLan" editor="LisaToft"  />
+﻿<properties 
+	pageTitle="Azure 가상 네트워크에 Active Directory 포리스트 설치" 
+	description="<MORAVIA_TRANSLATEAzure 가상 네트워크의 VM(가상 컴퓨터)에서 새 Active Directory 포리스트를 만드는 방법에 대해 설명하는 자습서입니다." 
+	services="active-directory, virtual-network" 
+	documentationCenter="" 
+	authors="Justinha" 
+	writer="Justinha" 
+	manager="TerryLan" 
+	editor="LisaToft"/>
 
-<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/30/2014" ms.author="Justinha" />
+<tags 
+	ms.service="active-directory" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="12/12/2014" 
+	ms.author="Justinha"/>
 
 
 
 
 #Azure 가상 네트워크에 새 Active Directory 포리스트 설치
 
-이 항목에서는 Azure 가상 네트워크 또는 [Azure 가상 네트워크](http://msdn.microsoft.com/ko-kr/library/windowsazure/jj156007.aspx)의 VM(가상 컴퓨터)에 새 Windows Server Active Directory 환경을 만드는 방법을 보여 줍니다. 이 경우 Azure 가상 네트워크는 온-프레미스 네트워크에 연결되지 않습니다. 
+이 항목에서는 Azure 가상 네트워크 또는 [Azure 가상 네트워크](http://msdn.microsoft.com/library/windowsazure/jj156007.aspx)의 VM(가상 컴퓨터)에 새 Windows Server Active Directory 환경을 만드는 방법을 보여 줍니다. 이 경우 Azure 가상 네트워크는 온-프레미스 네트워크에 연결되지 않습니다. 
 
 다음 관련 토픽을 참조할 수도 있습니다.
 
-- 선택적으로 [관리 포털 마법사를 사용하여 사이트 간 VPN을 구성](http://msdn.microsoft.com/ko-kr/library/windowsazure/dn133795.aspx)하고 새 포리스트를 설치하거나 온-프레미스 포리스트를 Azure 가상 네트워크로 확장할 수 있습니다. 이러한 단계는 [Azure 가상 네트워크에서 복제본 Active Directory 도메인 컨트롤러 설치](http://www.windowsazure.com/ko-kr/documentation/articles/virtual-networks-install-replica-active-directory-domain-controller/)를 참조하세요.
--  Azure 가상 네트워크에 AD DS(Active Directory 도메인 서비스)를 설치하는 방법에 대한 개념 지침은 [Azure 가상 컴퓨터에 Windows Server Active Directory를 배포하기 위한 지침](http://msdn.microsoft.com/ko-kr/library/windowsazure/jj156090.aspx)을 참조하세요.
+- 선택적으로 [관리 포털 마법사를 사용하여 사이트 간 VPN을 구성](http://msdn.microsoft.com/library/windowsazure/dn133795.aspx)하고 새 포리스트를 설치하거나 온-프레미스 포리스트를 Azure 가상 네트워크로 확장할 수 있습니다. 이러한 단계는 [Azure 가상 네트워크에서 복제본 Active Directory 도메인 컨트롤러 설치](http://azure.microsoft.com/documentation/articles/virtual-networks-install-replica-active-directory-domain-controller/)를 참조하세요.
+-  Azure 가상 네트워크에 AD DS(Active Directory 도메인 서비스)를 설치하는 방법에 대한 개념 지침은 [Azure 가상 컴퓨터에 Windows Server Active Directory를 배포하기 위한 지침](http://msdn.microsoft.com/library/windowsazure/jj156090.aspx)을 참조하세요.
 -  Azure에 AD DS가 포함된 테스트 랩 환경을 만들기 위한 단계별 지침은 [테스트 랩 가이드: Azure의 Windows Server 2012 R2 기본 구성](http://www.microsoft.com/ko-kr/download/details.aspx?id=41684)(영문)을 참조하세요.
 
 
@@ -62,7 +77,7 @@ Azure에 도메인 컨트롤러를 설치할 때와 온-프레미스에 설치�
 	**클라우드 서비스**  | <p>클라우드 서비스: <b>새 클라우드 서비스 만들기</b></p><p>클라우드 서비스 이름: 기본값 적용</p><p>지역/선호도 그룹/가상 네트워크: 만든 가상 네트워크 선택</p><p>가상 네트워크 서브넷: 만든 서브넷 선택 </p><p>저장소 계정: <b>자동으로 생성된 저장소 계정 사용</b></p><p>가용성 집합: <b>None</b></p><p>Endpoints: 기본값 적용</p>
 	**VM 에이전트**  | **VM 에이전트 설치** 선택
 
-1. VM에 기본적으로 할당되는 동적 IP 주소는 클라우드 서비스 기간 동안 유효합니다. 그러나 VM을 종료하면 변경됩니다. VM을 종료해야 하는 경우 IP 주소가 지속되도록 [Set-AzureStaticVNetIP Azure PowerShell cmdlet을 실행](http://msdn.microsoft.com/ko-kr/library/windowsazure/dn630228.aspx)하여 고정 IP 주소를 할당합니다. 
+1. VM에 기본적으로 할당되는 동적 IP 주소는 클라우드 서비스 기간 동안 유효합니다. 그러나 VM을 종료하면 변경됩니다. VM을 종료해야 하는 경우 IP 주소가 지속되도록 [Set-AzureStaticVNetIP Azure PowerShell cmdlet을 실행](http://msdn.microsoft.com/library/windowsazure/dn630228.aspx)하여 고정 IP 주소를 할당합니다. 
 2. VM에 추가 디스크를 연결하여 Active Directory 데이터베이스, 로그 및 SYSVOL을 저장합니다. 
   3.  <b>VM</b> > <b>연결</b> > <b>빈 디스크 연결</b>을 클릭합니다. 
   4. 크기(예: 10GB)를 지정하고 다른 모든 기본값을 적용합니다.
@@ -118,23 +133,23 @@ Azure에 도메인 컨트롤러를 설치할 때와 온-프레미스에 설치�
 
 -  [Azure 가상 컴퓨터에 Windows Server Active Directory를 배포하기 위한 지침](http://msdn.microsoft.com/library/azure/jj156090.aspx)
 
--  [관리 포털에서 클라우드 전용 가상 네트워크 구성](http://msdn.microsoft.com/ko-kr/library/dn631643.aspx)
+-  [관리 포털에서 클라우드 전용 가상 네트워크 구성](http://msdn.microsoft.com/library/dn631643.aspx)
 
--  [관리 포털에서 사이트 간 VPN 구성](http://msdn.microsoft.com/ko-kr/library/dn133795.aspx)
+-  [관리 포털에서 사이트 간 VPN 구성](http://msdn.microsoft.com/library/dn133795.aspx)
 
--  [Azure 가상 네트워크에서 복제본 Active Directory 도메인 컨트롤러 설치](http://azure.microsoft.com/ko-kr/documentation/articles/virtual-networks-install-replica-active-directory-domain-controller/)
+-  [Azure 가상 네트워크에서 복제본 Active Directory 도메인 컨트롤러 설치](http://azure.microsoft.com/documentation/articles/virtual-networks-install-replica-active-directory-domain-controller/)
 
 -  [Microsoft Azure IT Pro IaaS: (01) 가상 컴퓨터 기본 사항](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/01)(영문)
 
 -  [Microsoft Azure IT Pro IaaS: (05) 가상 네트워크 및 프레미스 간 연결 만들기](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/05)(영문)
 
--  [Azure 가상 네트워크](http://msdn.microsoft.com/ko-kr/library/windowsazure/jj156007.aspx)
+-  [Azure 가상 네트워크](http://msdn.microsoft.com/library/windowsazure/jj156007.aspx)
 
--  [Azure PowerShell을 설치 및 구성하는 방법](http://www.windowsazure.com/ko-kr/documentation/articles/install-configure-powershell/)
+-  [Azure PowerShell을 설치 및 구성하는 방법](http://azure.microsoft.com/documentation/articles/install-configure-powershell/)
 
--  [Azure PowerShell](http://msdn.microsoft.com/ko-kr/library/windowsazure/jj156055.aspx)
+-  [Azure PowerShell](http://msdn.microsoft.com/library/windowsazure/jj156055.aspx)
 
--  [Azure 관리 Cmdlet](http://msdn.microsoft.com/ko-kr/library/windowsazure/jj152841)(영문)
+-  [Azure 관리 Cmdlet](http://msdn.microsoft.com/library/windowsazure/jj152841)(영문)
 
 -  [Azure VM 고정 IP 주소 설정](http://windowsitpro.com/windows-azure/set-azure-vm-static-ip-address)(영문)
 
@@ -142,9 +157,11 @@ Azure에 도메인 컨트롤러를 설치할 때와 온-프레미스에 설치�
 
 -  [새 Active Directory 포리스트 설치](http://technet.microsoft.com/library/jj574166.aspx)
 
--  [AD DS(Active Directory 도메인 서비스) 가상화(수준 100) 소개](http://technet.microsoft.com/ko-kr/library/hh831734.aspx)
+-  [AD DS(Active Directory 도메인 서비스) 가상화(수준 100) 소개](http://technet.microsoft.com/library/hh831734.aspx)
 
 -  [테스트 랩 가이드: Azure의 Windows Server 2012 R2 기본 구성](http://www.microsoft.com/ko-kr/download/details.aspx?id=41684)(영문)
 
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

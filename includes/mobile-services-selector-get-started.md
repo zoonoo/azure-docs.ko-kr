@@ -16,5 +16,4 @@
 - [(Sencha | Javascript)](/ko-kr/documentation/articles/partner-sencha-mobile-services-get-started/)
 - [(Appcelerator | Javascript)](/ko-kr/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started/)
 
-
 <!--HONumber=42-->

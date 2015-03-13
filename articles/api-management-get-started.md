@@ -1,6 +1,20 @@
-<properties pageTitle="Get started with Azure API Management" metaKeywords="" description="Learn how to create APIs, operations, and get started with API Management." metaCanonical="" services="" documentationCenter="API Management" title="Get started with Azure API Management" authors="sdanie" solutions="" manager="" editor="" />
+﻿<properties 
+	pageTitle="Azure API 관리 시작" 
+	description="API와 작업을 만들고 API 관리를 시작하는 방법에 대해 알아봅니다." 
+	services="api-management" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
+<tags 
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2/11/2015" 
+	ms.author="sdanie"/>
 
 # Azure API 관리 시작
 
@@ -244,7 +258,7 @@ My Echo API에 대한 차트 위로 마우스를 가져가서 주어진 기간�
   [개발자 포털에서 작업 호출]: #call-operation
   [분석 보기]: #view-analytics
   [다음 단계]: #next-steps
-  [Azure 무료 평가판]: http://azure.microsoft.com/ko-kr/pricing/free-trial/?WT.mc_id=api_management_hero_a
+  [Azure 무료 평가판]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=api_management_hero_a
   [관리 포털]: https://manage.windowsazure.com/
   [API 관리 새 인스턴스]: ./media/api-management-get-started/api-management-create-instance-menu.png
   [새 API 관리 서비스]: ./media/api-management-get-started/api-management-create-instance-step1.png
@@ -282,3 +296,5 @@ My Echo API에 대한 차트 위로 마우스를 가져가서 주어진 기간�
   [요약]: ./media/api-management-get-started/api-management-api-summary-metrics.png
   [개요]: ./media/api-management-get-started/api-management-analytics-overview.png
   [고급 API 구성 시작]: ../api-management-get-started-advanced
+
+<!--HONumber=46--> 

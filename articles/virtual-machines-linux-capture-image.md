@@ -34,7 +34,7 @@ Azure에서는 이 템플릿이 이미지로 취급되고 **내 이미지**에 �
 
 1. 명령 모음에서 **연결**을 클릭하여 가상 컴퓨터에 연결합니다. 자세한 내용은 [Linux를 실행하는 가상 컴퓨터에 로그온하는 방법][]을 참조하세요.
 
-2. SSH 창에서 다음 명령을 입력하고 가상 컴퓨터에서 만든 계정의 암호를 입력합니다.  `waagent`의 출력은 이 유틸리티의 버전에 따라 약간씩 다를 수 있습니다.
+2. SSH 창에서 다음 명령을 입력하고 가상 컴퓨터에서 만든 계정의 암호를 입력합니다.   `waagent`의 출력은 이 유틸리티의 버전에 따라 약간씩 다를 수 있습니다.
 
 	`sudo waagent -deprovision`
 
@@ -53,7 +53,7 @@ Azure에서는 이 템플릿이 이미지로 취급되고 **내 이미지**에 �
 
 7.	**이미지 이름**에 새 이미지의 이름을 입력합니다.
 
-8.	모든 Linux 이미지는 `-deprovision` 옵션으로 `waagent` 명령을 실행하여 *deprovisioned*되어야 합니다. **I have run waagent-deprovision on the virtual machine**을 클릭하여 운영 체제가 이미지로 캡처될 준비가 되었음을 나타냅니다.
+8.	모든 Linux 이미지는 `-deprovision` 옵션으로  `waagent` 명령을 실행하여  *deprovisioned*되어야 합니다. **I have run waagent-deprovision on the virtual machine**을 클릭하여 운영 체제가 이미지로 캡처될 준비가 되었음을 나타냅니다.
 
 9.	확인 표시를 클릭하여 이미지를 캡처합니다.
 
@@ -70,4 +70,5 @@ Azure에서는 이 템플릿이 이미지로 취급되고 **내 이미지**에 �
 [가상 컴퓨터에 데이터 디스크를 연결하는 방법]: ../storage-windows-attach-disk/
 
 
-<!--HONumber=45--> 
+
+<!--HONumber=42-->

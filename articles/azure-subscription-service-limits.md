@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Azure Subscription and Service Limits, Quotas, and Constraints" pageTitle="Microsoft Azure 구독 및 서비스 제한, 할당량 및 제약 조건" metaKeywords="클라우드 서비스, 가상 컴퓨터, 웹 사이트, 가상 네트워크, SQL 데이터베이스, 구독, 저장소" description="일반적인 Azure 구독 및 서비스 제한 및 최대값 목록을 제공합니다." metaCanonical="" services="web-sites,virtual-machines,cloud-services" documentationCenter="" title="" authors="jroth" solutions="" manager="jeffreyg" editor="mollybos" />
+﻿<properties 
+	pageTitle="Microsoft Azure 구독 및 서비스 제한, 할당량 및 제약 조건" 
+	description="일반적인 Azure 구독 및 서비스 제한 및 최대값 목록을 제공합니다." 
+	services="" 
+	documentationCenter="" 
+	authors="rothja" 
+	manager="jeffreyg" 
+	editor="mollybos"/>
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/21/2014" ms.author="jroth" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/16/2015" 
+	ms.author="jroth"/>
 
 # Azure 구독 및 서비스 제한, 할당량 및 제약 조건
 
@@ -30,22 +44,22 @@
    <th align="left" valign="middle">최대 제한</th>
 </tr>
 <tr>
-   <td valign="middle"><p>코어 <a href="http://msdn.microsoft.com/ko-kr/library/azure/hh531793.aspx">(구독당)</a><sup>1</sup></p></td>
+   <td valign="middle"><p>코어 <a href="http://msdn.microsoft.com/library/azure/hh531793.aspx">(구독당)</a><sup>1</sup></p></td>
    <td valign="middle"><p>20</p></td>
    <td valign="middle"><p>10,000</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/ko-kr/library/azure/gg456328.aspx">공동 관리자</a> (구독당)</p></td>
+   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/azure/gg456328.aspx">공동 관리자</a> (구독당)</p></td>
    <td valign="middle"><p>200</p></td>
    <td valign="middle"><p>200</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://azure.microsoft.com/ko-kr/documentation/articles/storage-whatis-account/">저장소 계정</a> (구독당)</p></td>
+   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/storage-whatis-account/">저장소 계정</a> (구독당)</p></td>
    <td valign="middle"><p>100</p></td>
    <td valign="middle"><p>100</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://azure.microsoft.com/ko-kr/documentation/articles/cloud-services-what-is/">클라우드 서비스</a> (구독당)</p></td>
+   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/cloud-services-what-is/">클라우드 서비스</a> (구독당)</p></td>
    <td valign="middle"><p>20</p></td>
    <td valign="middle"><p>200</p></td>
 </tr>
@@ -55,7 +69,7 @@
    <td valign="middle"><p>100</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/ko-kr/library/jj157100.aspx">로컬 네트워크</a> (구독당)</p></td>
+   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/jj157100.aspx">로컬 네트워크</a> (구독당)</p></td>
    <td valign="middle"><p>10</p></td>
    <td valign="middle"><p>100</p></td>
 </tr>
@@ -85,18 +99,18 @@
    <td valign="middle"><p>400</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/ko-kr/library/azure/jj156085.aspx">선호도 그룹</a> (구독당)</p></td>
+   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/azure/jj156085.aspx">선호도 그룹</a> (구독당)</p></td>
    <td valign="middle"><p>256</p></td>
    <td valign="middle"><p>256</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://azure.microsoft.com/ko-kr/documentation/articles/azure-preview-portal-using-resource-groups/">리소스 그룹</a> (구독당)</p></td>
+   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/azure-preview-portal-using-resource-groups/">리소스 그룹</a> (구독당)</p></td>
    <td valign="middle"><p>300</p></td>
    <td valign="middle"><p>300</p></td>
 </tr>
 
 <tr>
-   <td valign="middle"><p><a href="http://azure.microsoft.com/ko-kr/services/batch/">배치 미리 보기</a> 구독당 지역별 계정</p></td>
+   <td valign="middle"><p><a href="http://azure.microsoft.com/services/batch/">배치 미리 보기</a> 구독당 지역별 계정</p></td>
    <td valign="middle"><p>1</p></td>
    <td valign="middle"><p>50</p></td>   
 </tr>
@@ -115,22 +129,22 @@
    <th align="left" valign="middle">최대 제한</th>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://azure.microsoft.com/ko-kr/documentation/articles/cloud-services-what-is/">배포당 웹/작업자 역할<sup>1</sup></a></p></td>
+   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/cloud-services-what-is/">배포당 웹/작업자 역할<sup>1</sup></a></p></td>
    <td valign="middle"><p>25</p></td>
    <td valign="middle"><p>25</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/ko-kr/library/gg557552.aspx#InstanceInputEndpoint">인스턴스 입력 끝점</a> (배포당)</p></td>
+   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/gg557552.aspx#InstanceInputEndpoint">인스턴스 입력 끝점</a> (배포당)</p></td>
    <td valign="middle"><p>25</p></td>
    <td valign="middle"><p>25</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/ko-kr/library/gg557552.aspx#InputEndpoint">입력 끝점</a> (배포당)</p></td>
+   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/gg557552.aspx#InputEndpoint">입력 끝점</a> (배포당)</p></td>
    <td valign="middle"><p>25</p></td>
    <td valign="middle"><p>25</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/ko-kr/library/gg557552.aspx#InternalEndpoint">내부 끝점</a> (배포당)</p></td>
+   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/gg557552.aspx#InternalEndpoint">내부 끝점</a> (배포당)</p></td>
    <td valign="middle"><p>25</p></td>
    <td valign="middle"><p>25</p></td>
 </tr>
@@ -147,7 +161,7 @@
    <th align="left" valign="middle">최대 제한</th>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://azure.microsoft.com/ko-kr/documentation/services/virtual-machines/">가상 컴퓨터</a> (클라우드 서비스당)<sup>1</sup></p></td>
+   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/services/virtual-machines/">가상 컴퓨터</a> (클라우드 서비스당)<sup>1</sup></p></td>
    <td valign="middle"><p>50</p></td>
    <td valign="middle"><p>50</p></td>
 </tr>
@@ -314,18 +328,20 @@ Azure AD(Active Directory)의 경우 다음 항목을 참조하세요.
 
 [Azure를 위한 가상 컴퓨터 및 클라우드 서비스 크기][vmsizes]
 
-  [customersupportfaq]: http://azure.microsoft.com/ko-kr/support/faq/
+  [customersupportfaq]: http://azure.microsoft.com/support/faq/
   [azurelimitsblogpost]: http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/
-  [gateway]: http://msdn.microsoft.com/ko-kr/library/azure/jj156210.aspx 
+  [gateway]: http://msdn.microsoft.com/library/azure/jj156210.aspx 
   [storagelimits]: http://msdn.microsoft.com/library/azure/dn249410.aspx
   [georedundantstorage]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/introducing-geo-replication-for-windows-azure-storage.aspx
-  [sqldblimits]: http://msdn.microsoft.com/ko-kr/library/azure/dn338081.aspx
-  [sqltiers]: http://msdn.microsoft.com/ko-kr/library/azure/dn741340.aspx
-  [sqltiersperflevels]: http://msdn.microsoft.com/ko-kr/library/azure/dn741336.aspx
-  [sqlDTU]: http://msdn.microsoft.com/ko-kr/library/azure/ee336245.aspx#DTUs
-  [vmsizes]: http://msdn.microsoft.com/ko-kr/library/azure/dn197896.aspx
+  [sqldblimits]: http://msdn.microsoft.com/library/azure/dn338081.aspx
+  [sqltiers]: http://msdn.microsoft.com/library/azure/dn741340.aspx
+  [sqltiersperflevels]: http://msdn.microsoft.com/library/azure/dn741336.aspx
+  [sqlDTU]: http://msdn.microsoft.com/library/azure/ee336245.aspx#DTUs
+  [vmsizes]: http://msdn.microsoft.com/library/azure/dn197896.aspx
   [georedundantstorage]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/introducing-geo-replication-for-windows-azure-storage.aspx
   [locallyredundantstorage]: http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/08/introducing-locally-redundant-storage-for-windows-azure-storage.aspx
-  [adlimitsandrestrictions]: http://msdn.microsoft.com/ko-kr/library/azure/dn764971.aspx
+  [adlimitsandrestrictions]: http://msdn.microsoft.com/library/azure/dn764971.aspx
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

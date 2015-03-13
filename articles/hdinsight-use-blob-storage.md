@@ -62,7 +62,7 @@ Hadoop은 기본 파일 시스템의 개념을 지원합니다. 기본 파일 �
 - **클러스터에 연결되지 않은 저장소 계정의 공용 컨테이너 또는 공용 Blob:** 컨테이너의 Blob에 대한 읽기 전용 권한을 가집니다.
 
 	> [AZURE.NOTE]
-        > 공용 컨테이너를 사용하면 해당 컨테이너에서 사용할 수 있는 모든 Blob 목록 및 컨테이너 메타데이터를 가져올 수 있습니다. 공용 Blob을 사용하면  정확한 URL을 아는 경우에만 Blob에 액세스할 수 있습니다. 자세한 내용은 다음을 참조하세요. <a href="http://msdn.microsoft.com/ko-kr/library/windowsazure/dd179354.aspx">컨테이너 및 Blob에 대한 액세스 제한</a>.
+        > 공용 컨테이너를 사용하면 해당 컨테이너에서 사용할 수 있는 모든 Blob 목록 및 컨테이너 메타데이터를 가져올 수 있습니다. 공용 Blob을 사용하면  정확한 URL을 아는 경우에만 Blob에 액세스할 수 있습니다. 자세한 내용은 다음을 참조하세요. <a href="http://msdn.microsoft.com/library/windowsazure/dd179354.aspx">컨테이너 및 Blob에 대한 액세스 제한</a>.
 
 - **클러스터에 연결되지 않은 저장소 계정의 개인 컨테이너:** WebHCat 작업을 제출할 때 저장소 계정을 정의하지 않는 경우 컨테이너의 Blob에 액세스할 수 없습니다. 이 문서 뒷부분에서 자세히 설명합니다.
 
@@ -296,11 +296,10 @@ URI 체계는 *wasb:* 접두사가 있는 암호화되지 않은 액세스와 *w
 [hdinsight-use-pig]: ../hdinsight-use-pig/
 
 [Powershell-install]: ../install-configure-powershell/
-[blob-storage-restAPI]: http://msdn.microsoft.com/ko-kr/library/windowsazure/dd135733.aspx
+[blob-storage-restAPI]: http://msdn.microsoft.com/library/windowsazure/dd135733.aspx
 [azure-storage-create]: ../storage-create-storage-account/
 
 [img-hdi-powershell-blobcommands]: ./media/hdinsight-use-blob-storage/HDI.PowerShell.BlobCommands.png 
 [img-hdi-quick-create]: ./media/hdinsight-use-blob-storage/HDI.QuickCreateCluster.png
 [img-hdi-custom-create-storage-account]: ./media/hdinsight-use-blob-storage/HDI.CustomCreateStorageAccount.png  
-
 <!--HONumber=42-->

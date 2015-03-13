@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Windows PowerShell을 사용하여 역할 기반 액세스 제어 관리" metaKeywords="ResourceManager, PowerShell, Azure PowerShell, RBAC" description="Windows PowerShell을 사용하여 역할 기반 액세스 제어 관리" metaCanonical="" services="" documentationCenter="" title="Managing Role-Based Access Control with Windows PowerShell" authors="guayan" solutions="" manager="terrylan" editor="mollybos" />
+﻿<properties 
+	pageTitle="Windows PowerShell을 사용하여 역할 기반 액세스 제어 관리" 
+	description="Windows PowerShell을 사용하여 역할 기반 액세스 제어 관리" 
+	services="" 
+	documentationCenter="" 
+	authors="guangyang" 
+	manager="terrylan" 
+	editor="mollybos"/>
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="powershell" ms.devlang="na" ms.topic="article" ms.date="11/03/2014" ms.author="guayan" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="powershell" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/03/2014" 
+	ms.author="guayan"/>
 
 # Windows PowerShell을 사용하여 역할 기반 액세스 제어 관리 #
 
@@ -18,9 +32,9 @@ Windows PowerShell을 사용하여 RBAC를 관리하려면 다음 항목이 필�
 
 - Windows PowerShell, 버전 3.0 또는 4.0. Windows PowerShell 버전을 확인하려면 '$PSVersionTable'을 입력하고 'PSVersion' 값이 3.0 또는 4.0인지를 확인합니다. 호환되는 버전을 설치하려면 [Windows Management Framework 3.0](http://www.microsoft.com/ko-kr/download/details.aspx?id=34595) 또는 [Windows Management Framework 4.0](http://www.microsoft.com/ko-kr/download/details.aspx?id=40855)을 참조하세요.
 
-- Azure PowerShell 버전 0.8.8 이상. 최신 버전을 설치하여 Azure 구독에 연결하려면 [zure PowerShell을 설치 및 구성하는 방법](http://www.windowsazure.com/ko-kr/documentation/articles/install-configure-powershell/)을 참조하세요.
+- Azure PowerShell 버전 0.8.8 이상. 최신 버전을 설치하여 Azure 구독에 연결하려면 [zure PowerShell을 설치 및 구성하는 방법](http://azure.microsoft.com/documentation/articles/install-configure-powershell/)을 참조하세요.
 
-이 자습서는 Windows PowerShell 초보자용으로 설계되었지만, 모듈, cmdlet, 세션 등과 같은 기본 개념을 잘 알고 있다고 가정합니다. Windows PowerShell에 대한 자세한 내용은 [Windows PowerShell 시작](http://technet.microsoft.com/ko-kr/library/hh857337.aspx)(영문)을 참조하세요.
+이 자습서는 Windows PowerShell 초보자용으로 설계되었지만, 모듈, cmdlet, 세션 등과 같은 기본 개념을 잘 알고 있다고 가정합니다. Windows PowerShell에 대한 자세한 내용은 [Windows PowerShell 시작](http://technet.microsoft.com/library/hh857337.aspx)(영문)을 참조하세요.
 
 이 설명서에 나오는 cmdlet에 대한 자세한 도움말을 보려면 Get-Help cmdlet을 사용합니다. 
 
@@ -32,8 +46,8 @@ Windows PowerShell을 사용하여 RBAC를 관리하려면 다음 항목이 필�
 
 Windows PowerShell에서 Azure 리소스 관리자를 설치하고 사용하는 방법을 익히려면 다음 자습서도 확인하세요.
 
-- [Azure PowerShell을 설치 및 구성하는 방법](http://azure.microsoft.com/ko-kr/documentation/articles/install-configure-powershell/)
-- [리소스 관리자에서 Windows PowerShell 사용](http://azure.microsoft.com/ko-kr/documentation/articles/powershell-azure-resource-manager/)
+- [Azure PowerShell을 설치 및 구성하는 방법](http://azure.microsoft.com/documentation/articles/install-configure-powershell/)
+- [리소스 관리자에서 Windows PowerShell 사용](http://azure.microsoft.com/documentation/articles/powershell-azure-resource-manager/)
 
 ## 자습서 내용 ##
 
@@ -49,7 +63,7 @@ RBAC는 Azure 리소스 관리자에서만 작동하므로 먼저 Azure 리소�
 
     PS C:\> Switch-AzureMode -Name AzureResourceManager
 
-자세한 내용은 [리소스 관리자에서 Windows PowerShell 사용](http://azure.microsoft.com/ko-kr/documentation/articles/powershell-azure-resource-manager/)을 참조하세요.
+자세한 내용은 [리소스 관리자에서 Windows PowerShell 사용](http://azure.microsoft.com/documentation/articles/powershell-azure-resource-manager/)을 참조하세요.
 
 Azure 구독에 연결하려면 다음을 입력합니다.
 
@@ -64,7 +78,7 @@ Azure 구독에 연결하려면 다음을 입력합니다.
     # 구독 이름을 사용하여 작업할 구독을 선택합니다.
     PS C:\> Select-AzureSubscription -SubscriptionName <subscription name>
 
-자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](http://azure.microsoft.com/ko-kr/documentation/articles/install-configure-powershell/)을 참조하세요.
+자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](http://azure.microsoft.com/documentation/articles/install-configure-powershell/)을 참조하세요.
 
 ## <a id="check"></a>기존 역할 할당 확인 ##
 
@@ -139,13 +153,15 @@ Azure 구독에 연결하려면 다음을 입력합니다.
 
 Windows PowerShell을 사용하여 역할 기반 액세스 제어를 관리하는 방법과 관련 항목에 대해 자세히 알아보려면 다음 항목을 참조하세요.
  
-- [Microsoft Azure의 역할 기반 액세스 제어](http://azure.microsoft.com/ko-kr/documentation/articles/role-based-access-control-configure/)
+- [Microsoft Azure의 역할 기반 액세스 제어](http://azure.microsoft.com/documentation/articles/role-based-access-control-configure/)
 - [Azure 리소스 관리자 Cmdlet](http://go.microsoft.com/fwlink/?LinkID=394765&clcid=0x409)(영문): AzureResourceManager 모듈에서 cmdlet을 사용하는 방법을 알아보세요.
-- [리소스 그룹을 사용하여 Azure 리소스 관리](http://azure.microsoft.com/ko-kr/documentation/articles/azure-preview-portal-using-resource-groups): Azure 관리 포털에서 리소스 그룹을 만들고 관리하는 방법을 알아봅니다.
+- [리소스 그룹을 사용하여 Azure 리소스 관리](http://azure.microsoft.com/documentation/articles/azure-preview-portal-using-resource-groups): Azure 관리 포털에서 리소스 그룹을 만들고 관리하는 방법을 알아봅니다.
 - [Azure 블로그](http://blogs.msdn.com/windowsazure)(영문): Azure의 새로운 기능에 대해 알아보십시오.
 - [Windows PowerShell 블로그](http://blogs.msdn.com/powershell): Windows PowerShell의 새로운 기능에 대해 알아보십시오.
 - ["Hey, Scripting Guy!" 블로그](http://blogs.technet.com/b/heyscriptingguy/)(영문): Windows PowerShell 커뮤니티에서 실제 팁과 요령을 확인합니다.
-- [XPLAT CLI를 사용하여 역할 기반 액세스 제어 구성](http://azure.microsoft.com/ko-kr/documentation/articles/role-based-access-control-xplat-cli/)
-- [역할 기반 액세스 제어 문제 해결](http://azure.microsoft.com/ko-kr/documentation/articles/role-based-access-control-troubleshooting/)
+- [XPLAT CLI를 사용하여 역할 기반 액세스 제어 구성](http://azure.microsoft.com/documentation/articles/role-based-access-control-xplat-cli/)
+- [역할 기반 액세스 제어 문제 해결](http://azure.microsoft.com/documentation/articles/role-based-access-control-troubleshooting/)
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

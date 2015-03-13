@@ -1,6 +1,20 @@
-﻿<properties title="Create a simple experiment in Azure Machine Learning Studio" pageTitle="기계 학습 스튜디오에서 간단한 실험 만들기 | Azure" description="Azure 기계 학습 스튜디오에서 간단한 모델을 교육하고 테스트하는 실험을 만드는 방법" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun"  videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="기계 학습 스튜디오에서 간단한 실험 만들기 | Azure" 
+	description="Azure 기계 학습 스튜디오에서 간단한 모델을 교육하고 테스트하는 실험을 만드는 방법" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="garyericson" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/22/2014" ms.author="garye" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/07/2015" 
+	ms.author="garye"/>
 
 #Azure 기계 학습 스튜디오에서 간단한 실험 만들기 
  
@@ -173,7 +187,7 @@ RMSE(	- **제곱 평균 오차**) - 테스트 데이터 집합에 대해 예측�
 
 모델이 마음에 들면 모델을 새 데이터를 사용한 자동차 가격 예측에 사용할 웹 서비스로 게시할 수 있습니다. 자세한 내용은 기계 학습 스튜디오 도움말 항목 **실험 게시**를 참조하세요.
 
-예측 모델 만들기, 학습, 점수 매기기 및 게시에 대한 더 자세한 포괄적인 연습을 보려면 [연습: Azure 기계 학습으로 예측 솔루션 개발](http://azure.microsoft.com/ko-kr/documentation/articles/machine-learning-walkthrough-develop-predictive-solution/)을 참조하세요. 
+예측 모델 만들기, 학습, 점수 매기기 및 게시에 대한 더 자세한 포괄적인 연습을 보려면 [연습: Azure 기계 학습으로 예측 솔루션 개발](http://azure.microsoft.com/documentation/articles/machine-learning-walkthrough-develop-predictive-solution/)을 참조하세요. 
 
 
 <!-- Images -->
@@ -191,3 +205,5 @@ RMSE(	- **제곱 평균 오차**) - 테스트 데이터 집합에 대해 예측�
 [screen8a]:./media/machine-learning-create-experiment/screen8a.png
 [screen9]:./media/machine-learning-create-experiment/screen9.png
 [screen10]:./media/machine-learning-create-experiment/screen10.png
+
+<!--HONumber=46--> 

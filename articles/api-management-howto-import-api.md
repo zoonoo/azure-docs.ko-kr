@@ -1,6 +1,20 @@
-<properties pageTitle="API Management key concepts" metaKeywords="" description="Learn about APIs, products, roles, groups, and other API Management key concepts." metaCanonical="" services="" documentationCenter="API Management" title="API Management key concepts" authors="sdanie" solutions="" manager="" editor="" />
+﻿<properties 
+	pageTitle="API 관리 주요 개념" 
+	description="API, 제품, 역할, 그룹 및 기타 API 관리의 주요 개념에 대해 알아봅니다." 
+	services="api-management" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
+<tags 
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/18/2014" 
+	ms.author="sdanie"/>
 
 # Azure API 관리에서 작업과 함께 API의 정의를 가져오는 방법
 
@@ -82,3 +96,5 @@ API를 만들고 작업을 가져온 후 추가 설정을 검토 및 구성하�
 [API 내보내기 형식]: ./media/api-management-howto-import-api/api-management-export-api-format.png
 [API 설정을 구성하는 방법]: ../api-management-howto-create-apis/#configure-api-settings
 [제품을 만들고 게시하는 방법]: ../api-management-howto-add-products
+
+<!--HONumber=46--> 

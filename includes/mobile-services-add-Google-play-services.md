@@ -1,30 +1,30 @@
+﻿1. Android Studio의 도구 모음 오른쪽 끝에서 아이콘을 클릭하여 Android SDK Manager를 엽니다. 해당 아이콘의 모양을 모르는 경우에는 마우스 포인터로 아이콘을 가리킵니다. 프로젝트에서 사용되는 Android SDK의 대상 버전을 찾아 열고 **Google API**가 아직 설치되어 있지 않으면 선택합니다.
 
-
-1. Eclipse 위쪽 도구 모음에서 **Window**를 클릭하여 Android SDK Manager를 엽니다. 프로젝트 속성에서 지정한 Android SDK의 대상 버전을 찾아 열고 **Google APIs**를 선택합니다.
-
-2. **Extras**까지 아래로 스크롤하여 확장하고 아래와 같이**Google Play Services**를 선택합니다. **Install Packages**를 클릭합니다. 다음 단계에서 사용할 수 있도록 SDK 경로를 기록해 둡니다. Eclipse를 다시 시작합니다.
+2. 아래쪽으로 스크롤하여 **추가**가 표시되면 확장한 다음 아래와 같이 **Google Play Services**를 선택합니다. **패키지 설치**를 클릭합니다. 다음 단계에서 사용할 수 있도록 SDK 경로를 기록해 둡니다. 
 
    	![](./media/notification-hubs-android-get-started/notification-hub-create-android-app4.png)
 
-3. 프로젝트에서 Google Play Services SDK를 설치합니다. Eclipse에서 **File**, **Import**를 차례로 클릭합니다. **Android**, **Existing Android Code into Workspace**를 차례로 선택하고 **Next**를 클릭합니다. **Browse**를 클릭하여 SDK 경로(폴더 이름은 보통  `adt-bundle-windows-x86_64` inside the folder that contains Eclipse), then go to the `\extras\google\google_play_services\libproject`)로 이동한 다음 google-play-services-lib 폴더를 선택하고 **OK**를 클릭합니다. **Copy projects into workspace** 확인란을 선택한 후 **Finish**를 클릭합니다.
 
-	![](./media/mobile-services-android-get-started-push/mobile-eclipse-import-Play-library.png)
+3. 앱 라이브러리에서 **build.gradle** 파일을 엽니다.
 
-4. 그런 다음, 프로젝트에서 방금 가져온 Google Play Services SDK 라이브러리를 참조해야 합니다. 
+	![](./media/mobile-services-android-get-started-push/android-studio-push-build-gradle.png)
 
-5. **Package Explorer**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고  *Properties*를 선택합니다.
+4. 다음 줄을 *dependencies* 아래에 추가합니다. 
+
+   		compile 'com.google.android.gms:play-services-base:6.5.87'
+
+5. 그런 다음 *defaultConfig* 아래에서 *minSdkVersion*을 9로 변경합니다.
  
-6. Properties 창에서 왼쪽의 Android를 선택합니다.
+6. 도구 모음에서 **Gradle 파일과 프로젝트 동기화** 단추를 클릭합니다.
 
-	![](./media/mobile-services-android-get-started-push/mobile-google-set-project-properties.png)
+7. **AndroidManifest.xml**을 열고 다음 태그를 *application* 태그에 추가합니다.
 
-7. **프로젝트 빌드 대상**에서 개발 플랫폼에 따라 적절한 SDK 수준에 대해  `Google APIs x86` (or `Google APIs`을 선택했는지 확인합니다.
-
-8. **Library** 섹션에서 **Add**를 선택하여 Google Play Services 프로젝트(*google-play-services-lib*)를 선택하고 **OK**를 클릭합니다.
-
-9. **Apply**를 클릭한 후 **OK**를 클릭합니다.
+        <meta-data android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+ 
 
 
 
 
-<!--HONumber=42-->
+
+<!--HONumber=45--> 

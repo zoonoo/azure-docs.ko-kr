@@ -401,9 +401,8 @@ Azure는 사용된 서버 시간의 시간당 웹 역할 인스턴스 요금을 
 
 	서비스를 삭제하려면 몇 분 정도 걸릴 수 있습니다. 서비스가 삭제되면 서비스가 삭제되었다는 메시지가 표시됩니다.
 
-  [Express를 사용하는 Node.js 웹 응용 프로그램]: http://www.windowsazure.com/ko-kr/develop/nodejs/tutorials/web-app-with-express/
-  [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/ko-kr/library/windowsazure/gg433040.aspx
-  [Node.js Web Application]: http://www.windowsazure.com/ko-kr/develop/nodejs/tutorials/getting-started/
+  [Express를 사용하는 Node.js 웹 응용 프로그램]: http://azure.microsoft.com/develop/nodejs/tutorials/web-app-with-express/
+  [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/library/windowsazure/gg433040.aspx
+  [Node.js Web Application]: http://azure.microsoft.com/develop/nodejs/tutorials/getting-started/
  
-
 <!--HONumber=42-->

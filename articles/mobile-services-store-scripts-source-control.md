@@ -1,6 +1,20 @@
-﻿<properties pageTitle="소스 제어에 프로젝트 코드 저장 - Azure 모바일 서비스" description="컴퓨터의 로컬 Git 리포지토리에 서버 스크립트 파일 및 모듈을 저장하는 방법에 대해 알아봅니다." services="mobile-services" documentationCenter="" authors="ggailey777" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="소스 제어에 프로젝트 코드 저장 - Azure 모바일 서비스" 
+	description="컴퓨터의 로컬 Git 리포지토리에 서버 스크립트 파일 및 모듈을 저장하는 방법에 대해 알아봅니다." 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="glenga"/>
 
 <div class="dev-center-tutorial-subselector">
 	<a href="/ko-kr/documentation/articles/mobile-services-dotnet-backend-store-code-source-control/" title=".NET backend">.NET 백 엔드</a> | <a href="/ko-kr/documentation/articles/mobile-services-store-scripts-source-control/"  title="JavaScript backend" class="current">JavaScript 백 엔드</a>
@@ -155,7 +169,7 @@
 
 <!-- URLs. -->
 [Git 웹 사이트](영문): http://git-scm.com
-[소스 제어]: http://msdn.microsoft.com/ko-kr/library/windowsazure/c25aaede-c1f0-4004-8b78-113708761643
+[소스 제어]: http://msdn.microsoft.com/library/windowsazure/c25aaede-c1f0-4004-8b78-113708761643
 [Git 설치](영문): http://git-scm.com/book/en/Getting-Started-Installing-Git
 [모바일 서비스 시작](영문): /ko-kr/documentation/articles/mobile-services-ios-get-started/
 [기존 앱에 모바일 서비스 추가](영문): /ko-kr/documentation/articles/mobile-services-ios-get-started-data/

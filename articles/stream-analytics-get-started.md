@@ -1,6 +1,20 @@
-﻿<properties linkid="manage-services-Stream-Analytics-get-started" urlDisplayName="Get Started" pageTitle="Azure 스트림 분석을 사용하여 시작 | Azure" metaKeywords="" description="Azure 스트림 분석을 사용하여 Azure 서비스 버스 이벤트 허브에서 이벤트를 처리 및 변환하고 Azure SQL 데이터베이스에 결과를 저장합니다." metaCanonical="" services="stream analytics" documentationCenter="" title="Get started with Azure Stream Analytics" authors="jgao" solutions="big-data" manager="paulettm" editor="cgronlun" />
+﻿<properties 
+	pageTitle="Azure 스트림 분석을 사용하여 시작 | Azure" 
+	description="Azure 스트림 분석을 사용하여 Azure 서비스 버스 이벤트 허브에서 이벤트를 처리 및 변환하고 Azure SQL 데이터베이스에 결과를 저장합니다." 
+	services="stream-analytics" 
+	documentationCenter="" 
+	authors="mumian" 
+	manager="paulettm" 
+	editor="cgronlun" />
 
-<tags ms.service="stream analytics" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/28/2014" ms.author="jgao" />
+<tags 
+	ms.service="stream-analytics" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.workload="data-services" 
+	ms.date="2/17/2015" 
+	ms.author="jgao" />
 
 
 # Azure 스트림 분석을 사용하여 시작
@@ -73,7 +87,7 @@ Azure 스트림 분석은 Azure SQL 데이터베이스, Azure Blob 저장소 및
 1.	관리 포털에서 **새로 만들기**, **데이터 서비스**, **SQL 데이터베이스**, **빠른 생성을 차례로 클릭합니다**.  기존 또는 새 SQL 데이터베이스 서버의 데이터베이스 이름을 지정합니다.
 2.	새로 만든 데이터베이스 선택
 3.	**대시보드**를 클릭하고 페이지의 오른쪽 창에서 **연결 문자열 표시**를 클릭합니다. 그런 다음 **ADO.NET** 연결 문자열을 복사합니다. 이 자습서의 뒷부분에서 필요합니다.  
-4.	서버 수준 방화벽 설정을 통해 데이터베이스에 연결할 수 있는지 확인합니다.  서버의 구성 탭에서 새 IP 규칙을 추가하면 이렇게 할 수 있습니다. 동적 IP를 처리하는 방법을 비롯한 자세한 내용은 [http://msdn.microsoft.com/ko-kr/library/azure/ee621782.aspx](http://msdn.microsoft.com/ko-kr/library/azure/ee621782.aspx)를 참조하세요.
+4.	서버 수준 방화벽 설정을 통해 데이터베이스에 연결할 수 있는지 확인합니다.  서버의 구성 탭에서 새 IP 규칙을 추가하면 이렇게 할 수 있습니다. 동적 IP를 처리하는 방법을 비롯한 자세한 내용은 [http://msdn.microsoft.com/library/azure/ee621782.aspx](http://msdn.microsoft.com/library/azure/ee621782.aspx)를 참조하세요.
 
 ###출력 테이블 만들기
 1.	Visual Studio 또는 SQL Server Management Studio를 엽니다.
@@ -264,13 +278,13 @@ Azure 서비스 버스 이벤트 허브, Azure SQL 데이터베이스 및 출력
 [img.stream.analytics.operation.log.details]: ./media/stream-analytics-get-started/StreamAnalytics.operation.log.details.png
 
 
-[azure.sql.database.firewall]: http://msdn.microsoft.com/ko-kr/library/azure/ee621782.aspx
-[azure.event.hubs.documentation]: http://azure.microsoft.com/ko-kr/services/event-hubs/
-[azure.sql.database.documentation]: http://azure.microsoft.com/ko-kr/services/sql-database/
+[azure.sql.database.firewall]: http://msdn.microsoft.com/library/azure/ee621782.aspx
+[azure.event.hubs.documentation]: http://azure.microsoft.com/services/event-hubs/
+[azure.sql.database.documentation]: http://azure.microsoft.com/services/sql-database/
 
-[sql.database.introduction]: http://azure.microsoft.com/ko-kr/services/sql-database/
-[event.hubs.introduction]: http://azure.microsoft.com/ko-kr/services/event-hubs/
-[azure.blob.storage]: http://azure.microsoft.com/ko-kr/documentation/services/storage/
+[sql.database.introduction]: http://azure.microsoft.com/services/sql-database/
+[event.hubs.introduction]: http://azure.microsoft.com/services/event-hubs/
+[azure.blob.storage]: http://azure.microsoft.com/documentation/services/storage/
 [azure.sdk.net]: ../dotnet-sdk/
 
 [stream.analytics.introduction]: ../stream-analytics-introduction/
@@ -286,3 +300,5 @@ Azure 서비스 버스 이벤트 허브, Azure SQL 데이터베이스 및 출력
 
 [azure.management.portal]: https://manage.windowsazure.com
 
+
+<!--HONumber=46--> 

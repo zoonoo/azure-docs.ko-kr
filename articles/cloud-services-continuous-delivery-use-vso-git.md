@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Publishing with Visual Studio Online" pageTitle="Azure에서 Visual Studio Online을 사용한 지속적 전송" metaKeywords="" description="자동으로 빌드되어 Azure 웹 사이트 또는 클라우드 서비스에 배포되도록 Visual Studio Online 팀 프로젝트를 구성하는 방법에 대해 알아봅니다." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Continuous delivery to Azure using Visual Studio Online and Git" authors="ghogen" solutions="" manager="douge" editor="" />
+﻿<properties 
+	pageTitle="Azure에서 Visual Studio Online을 사용한 지속적 전송" 
+	description="자동으로 빌드되어 Azure 웹 사이트 또는 클라우드 서비스에 배포되도록 Visual Studio Online 팀 프로젝트를 구성하는 방법에 대해 알아봅니다." 
+	services="web-sites" 
+	documentationCenter=".net" 
+	authors="kempb" 
+	manager="douge" 
+	editor=""/>
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="ghogen" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="02/02/2015" 
+	ms.author="kempb"/>
 
 
 
@@ -9,14 +23,11 @@
 
 Visual Studio Online 팀 프로젝트를 사용하여 소스 코드용 Git 리포지토리를 호스트할 수 있으며 리포지토리로 커밋을 푸시할 때마다 Azure 웹 사이트 또는 클라우드 서비스를 자동으로 빌드 및 배포할 수 있습니다.
 
-Visual Studio 2013 및 Azure SDK가 설치되어 있어야 합니다. Visual Studio 2013을 아직 설치하지 않은 경우 [www.visualstudio.com]에서 **무료로 시작하기**(http://www.visualstudio.com) 링크를 선택하여 다운로드하세요. Azure SDK의 경우 [여기](http://go.microsoft.com/fwlink/?LinkId=239540)에서 설치할 수 있습니다.
+Visual Studio 2013 및 Azure SDK가 설치되어 있어야 합니다. Visual Studio 2013을 아직 설치하지 않은 경우 [www.visualstudio.com](http://www.visualstudio.com)에서 **무료로 시작하기** 링크를 선택하여 다운로드하세요. Azure SDK의 경우 [여기](http://go.microsoft.com/fwlink/?LinkId=239540)에서 설치할 수 있습니다.
 
 
-<div class="wa-note">
-  <span class="wa-icon-bulb"></span>
-  <h5><a name="note"></a>이 자습서를 완료하려면 Visual Studio Online 계정이 있어야 합니다.</h5>
-<p> <a href="http://go.microsoft.com/fwlink/p/?LinkId=512979">Visual Studio Online 계정은 무료로 개설할 수 있습니다.</a></p>
-</div>
+> [AZURE.NOTE] 이 자습서를 완료하려면 Visual Studio Online 계정이 있어야 합니다.
+> [Visual Studio Online 계정은 무료](http://go.microsoft.com/fwlink/p/?LinkId=512979)로 개설할 수 있습니다.
 
 Visual Studio Online을 사용하여 Azure에 자동으로 빌드 및 배포하도록 클라우드 서비스를 설정하려면 다음 단계를 따르세요.
 
@@ -50,8 +61,9 @@ Visual Studio Online을 사용하여 Azure에 자동으로 빌드 및 배포하�
 ![][4]
 
 2. 이 연습의 단계에 따라 웹 사이트 또는 클라우드 서비스(Azure 응용 프로그램)를 배포할 수 있습니다.
-새 Microsoft Azure 클라우드 서비스 프로젝트 또는 새 ASP.NET MVC 프로젝트를 만듭니다. 프로젝트의 대상을 .NET Framework 4 또는 4.5로 지정했는지 확인하고, 클라우드 서비스 프로젝트를 만드는 경우 ASP.NET MVC 웹 역할 및 작업자 역할을 추가합니다.
-웹 사이트를 만들려는 경우 ASP.NET 웹 응용 프로그램 프로젝트 템플릿을 선택한 후 MVC를 선택합니다. 자세한 내용은 [Azure 및 ASP.NET 시작](http://www.windowsazure.com/ko-kr/documentation/articles/web-sites-dotnet-get-started/)(영문)을 참조하세요.
+새 Windows Azure 클라우드 서비스 프로젝트를 만들려면,
+또는 새 ASP.NET MVC 프로젝트를 만듭니다. 프로젝트의 대상을 .NET Framework 4 또는 4.5로 지정했는지 확인하고, 클라우드 서비스 프로젝트를 만드는 경우 ASP.NET MVC 웹 역할 및 작업자 역할을 추가합니다.
+웹 사이트를 만들려는 경우 ASP.NET 웹 응용 프로그램 프로젝트 템플릿을 선택한 후 MVC를 선택합니다. 자세한 내용은 [Azure 및 ASP.NET 시작](http://azure.microsoft.com/documentation/articles/web-sites-dotnet-get-started/)을 참조하세요.
 
 3. 솔루션의 바로 가기 메뉴를 열고 **커밋**을 선택합니다.<br/>
 ![][7]
@@ -59,13 +71,13 @@ Visual Studio Online을 사용하여 Azure에 자동으로 빌드 및 배포하�
 4. Visual Studio Online에서 처음으로 Git을 사용하는 경우 Git에서 본인을 식별해 주는 정보를 제공해야 합니다. 팀 탐색기의 **보류 중인 변경 내용** 영역에서 사용자 이름 및 메일 주소를 입력합니다. 커밋에 대한 설명을 입력하고 **커밋**을 선택합니다.<br/>
 ![][8]
 
-5. 체크 인할 때 특정 변경 내용을 포함하거나 제외하는 옵션을 선택할 수 있습니다. 원하는 변경 내용이 제외된 경우 **모두 포함** 링크를 선택합니다.<br/>
+5. 체크인할 때 특정 변경 내용을 포함하거나 제외하는 옵션을 선택할 수 있습니다. 원하는 변경 내용이 제외된 경우 **모두 포함** 링크를 선택합니다.<br/>
 
 6. 이제 리포지토리에 있는 로컬 복사본의 변경 내용을 커밋했습니다. 그런 다음 변경 내용을 서버와 동기화합니다. **동기화** 링크를 선택합니다.
 
 <h2> <a name="step3"> </a>3단계: Azure에 프로젝트 연결</h2>
 
-1. Visual Studio Online에 일부 소스 코드를 포함한 Git 리포지토리가 있으므로 Azure에 Git 리포지토리를 연결할 준비가 되었습니다.  [Azure 포털](http://manage.windowsazure.com)에서 **클라우드 서비스** 또는 **웹 사이트**를 선택하거나, 왼쪽 아래에 있는 + 아이콘을 선택하고 클라우드 서비스 또는 웹 사이트를 선택한 후 **빠른 생성**을 선택하여 새로 만듭니다.<br.>
+1. Visual Studio Online에 일부 소스 코드를 포함한 Git 리포지토리가 있으므로 Azure에 Git 리포지토리를 연결할 준비가 되었습니다.  [Azure 포털](http://manage.windowsazure.com)에서 클라우드 서비스 또는 웹 사이트를 선택하거나, 왼쪽 아래에 있는 + 아이콘을 선택하고 **클라우드 서비스** 또는 **웹 사이트**를 선택한 후 **빠른 생성**을 선택하여 새로 만듭니다.<br.>
 ![][9]
 
 3. 클라우드 서비스의 경우 **Visual Studio Online으로 게시 설정** 링크를 선택합니다. 웹 사이트의 경우 **소스 코드에서 배포 설정** 링크를 선택합니다.<br/>
@@ -99,7 +111,7 @@ Visual Studio Online을 사용하여 Azure에 자동으로 빌드 및 배포하�
 5. **동기화** 링크를 선택합니다.<br/>
 ![][38]
 
-6. **푸시** 링크를 선택하여 Visual Studio Online의 리포지토리에 커밋을 푸시합니다. 또한 **동기화** 단추를 사용하여 리포지토리로 커밋을 복사할 수도 있습니다. **동기화**는 리포지토리의 최신 변경 내용을 끌어온다는 점이 다릅니다.<br/>
+6. **푸시** 링크를 선택하여 Visual Studio Online의 리포지토리에 커밋을 푸시합니다. (또한 **동기화** 단추를 사용하여 리포지토리로 커밋을 복사할 수도 있습니다. **동기화**는 리포지토리의 최신 변경 내용을 끌어온다는 점이 다릅니다.)<br/>
 ![][39]
 
 7. 홈 단추를 선택하여 팀 탐색기 홈페이지로 돌아갑니다.<br/>
@@ -116,7 +128,7 @@ Visual Studio Online을 사용하여 Azure에 자동으로 빌드 및 배포하�
 10. 빌드가 진행되는 동안 마법사를 사용하여 Azure에 연결할 때 생성된 빌드 정의를 살펴봅니다.  빌드 정의의 바로 가기 메뉴를 열고 **빌드 정의 편집**을 선택합니다.<br/>
 ![][25]
 <br/>
-**트리거** 탭에서 기본적으로 체크 인할 때마다 빌드 정의가 빌드되도록 설정된 것을 확인합니다. 클라우드 서비스의 경우 Visual Studio Online에서 마스터 분기를 자동으로 빌드하여 스테이징 환경에 배포합니다. 라이브 사이트에 배포하려면 여전히 수동 단계를 수행해야 합니다. 스테이징 환경이 없는 웹 사이트의 경우 마스터 분기를 라이브 사이트에 직접 배포합니다.<br/>
+**트리거** 탭에서, 기본적으로 체크 인할 때마다 빌드 정의가 빌드되도록 설정된 것을 확인합니다. 클라우드 서비스의 경우 Visual Studio Online에서 마스터 분기를 자동으로 빌드하여 스테이징 환경에 배포합니다. 라이브 사이트에 배포하려면 여전히 수동 단계를 수행해야 합니다. 스테이징 환경이 없는 웹 사이트의 경우 마스터 분기를 라이브 사이트에 직접 배포합니다.<br/>
 ![][26]
 <br/>
 **프로세스** 탭에서 배포 환경이 사용 중인 클라우드 서비스 또는 웹 사이트의 이름으로 설정된 것을 확인할 수 있습니다.<br/>
@@ -155,7 +167,7 @@ Visual Studio Online을 사용하여 Azure에 자동으로 빌드 및 배포하�
 
 <h2> <a name="step5"> </a>5단계: 초기 빌드 다시 배포</h2>
 
-이 단계는 옵션입니다. 관리 포털에서 이전 배포를 선택하고 **다시 배포**를 클릭하여 사이트를 이전 체크 인으로 되돌립니다. 그러면 TFS에 새 빌드가 트리거되고 배포 기록에 새 항목이 생성됩니다.<br/>
+이 단계는 옵션입니다. 관리 포털에서 이전 배포를 선택하고 다시 **배포**를 클릭하여 사이트를 이전 체크인으로 되돌립니다. 그러면 TFS에 새 빌드가 트리거되고 배포 기록에 새 항목이 생성됩니다.<br/>
 ![][34]
 
 <h2> <a name="step6"> </a>6단계: 프로덕션 배포 변경</h2>
@@ -181,13 +193,13 @@ Git을 사용할 경우 보통 작업 분기에서 변경한 다음 개발이 �
 
 6. 기본적으로 마스터 분기만 변경하면 연속 빌드가 트리거됩니다. 작업 분기의 연속 빌드를 설정하려면 팀 탐색기에서 빌드 페이지를 선택하고 **빌드 정의 편집**을 선택합니다.
 
-7. **소스 설정** 탭을 선택합니다. **연속 통합 및 빌드의 모니터링된 분기**에서, **새 행을 추가하려면 여기를 클릭하세요.**를 선택합니다.<br/>
+7. **소스 설정** 탭을 선택합니다. **연속 통합 및 빌드의 모니터링된 분기**에서, **새 행을 추가하려면 여기를 클릭하십시오.**를 선택합니다.<br/>
 ![][47]
 
 8. 생성된 분기(예: refs/heads/working)를 지정합니다.
 ![][48]
 
-9. 코드를 변경하고, 변경된 파일의 바로 가기 메뉴를 열고, **커밋**을 선택합니다.<br/>
+9. 코드를 변경하고 변경된 파일의 바로 가기 메뉴를 열고, **커밋**을 선택합니다.<br/>
 ![][43]
 
 10. **동기화되지 않은 커밋** 링크를 선택하고, **동기화** 단추 또는 **푸시** 링크를 선택하여 Visual Studio Online에서 작업 분기의 복사본 변경 내용을 복사합니다.
@@ -195,7 +207,7 @@ Git을 사용할 경우 보통 작업 분기에서 변경한 다음 개발이 �
 
 11. **빌드** 뷰로 이동하여 작업 분기에 대해 트리거된 빌드를 찾습니다.
 
-자세한 내용은 [Visual Studio Online](http://go.microsoft.com/fwlink/?LinkId=253861)(영문)을 참조하세요. Visual Studio Online에서 Git를 사용하는 방법에 대한 자세한 내용은 [Git에서 코드 공유](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx) 를 참조하고, Visual Studio Online에서 관리되지 않는 Git 리포지토리를 사용하여 Azure에 게시하는 방법에 대한 자세한 내용은 [소스 제어에서 Azure 웹 사이트로 게시](http://www.windowsazure.com/ko-kr/documentation/articles/web-sites-publish-source-control)를 참조하세요.
+자세한 내용은 [Visual Studio Online](http://go.microsoft.com/fwlink/?LinkId=253861)을 참조하세요. Visual Studio Online에서 Git 사용에 대한 추가 팁은 [Git에서 코드 공유](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx)를 참조하고, Visual Studio Online에서 관리하지 않는 Git 리포지토리를 사용하여 Azure에 게시하는 방법에 대한 자세한 내용은 [소스 제어에서 Azure 웹 사이트로 게시](http://azure.microsoft.com/documentation/articles/web-sites-publish-source-control)를 참조하세요.
 
 [1단계: Git 리포지토리 만들기]: #step1
 [2단계: 프로젝트를 만들어 Git 리포지토리로 푸시]: #step2
@@ -250,4 +262,4 @@ Git을 사용할 경우 보통 작업 분기에서 변경한 다음 개발이 �
 [47]: ./media/cloud-services-continuous-delivery-use-vso-git/SourceSettingsPage.PNG
 [48]: ./media/cloud-services-continuous-delivery-use-vso-git/IncludeWorkingBranch.PNG
 
-<!--HONumber=35.1-->
+<!--HONumber=45--> 

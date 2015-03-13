@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Pusher를 사용하여 실시간 앱 빌드(iOS) - 모바일 서비스" description="Pusher를 사용하여 iOS에서 Azure 미디어 서비스에 알림을 보내는 방법에 대해 알아봅니다." services="" documentationCenter="ios" authors="lindydonna" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Pusher를 사용하여 실시간 앱 빌드(iOS) - 모바일 서비스" 
+	description="Pusher를 사용하여 iOS에서 Azure 미디어 서비스에 알림을 보내는 방법에 대해 알아봅니다." 
+	services="" 
+	documentationCenter="ios" 
+	authors="lindydonna" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="donnam"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-ios" 
+	ms.devlang="objective-c" 
+	ms.topic="article" 
+	ms.date="10/10/2014" 
+	ms.author="donnam"/>
 
 
 # 모바일 서비스 및 Pusher를 사용하여 실시간 앱 빌드

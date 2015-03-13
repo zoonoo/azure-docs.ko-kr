@@ -39,7 +39,7 @@
 	이 코드에서는 **todoitem** 테이블에 직접 액세스하여 모든 항목에 완료 플래그를 설정하기 위해 [mssql 개체]를 사용합니다. **exports.post** 함수를 사용하기 때문에 작업을 수행하기 위해 클라이언트는 POST 요청을 보내고, 변경된 행의 수가 클라이언트에 정수 값으로 반환됩니다.
 
 > [AZURE.NOTE]
-> <a href="http://go.microsoft.com/fwlink/p/?LinkId=309046" target="_blank">Express.js 라이브러리</a>를 사용하여 구현된 사용자 지정 함수에 <a href="http://msdn.microsoft.com/ko-kr/library/windowsazure/jj554218.aspx" target="_blank">request</a>와 <a href="http://msdn.microsoft.com/ko-kr/library/windowsazure/dn303373.aspx" target="_blank">response</a> 개체가 제공됩니다. 자세한 내용은 <a href="http://msdn.microsoft.com/ko-kr/library/windowsazure/dn280974.aspx" target="_blank">사용자 지정 API</a>를 참조하세요. 
+> <a href="http://go.microsoft.com/fwlink/p/?LinkId=309046" target="_blank">Express.js 라이브러리</a>를 사용하여 구현된 사용자 지정 함수에 <a href="http://msdn.microsoft.com/library/windowsazure/jj554218.aspx" target="_blank">request</a>와 <a href="http://msdn.microsoft.com/library/windowsazure/dn303373.aspx" target="_blank">response</a> 개체가 제공됩니다. 자세한 내용은 <a href="http://msdn.microsoft.com/library/windowsazure/dn280974.aspx" target="_blank">사용자 지정 API</a>를 참조하세요. 
 
 다음 과정에서는 새 단추와 새 사용자 지정 API를 비동기적으로 호출하는 코드를 추가하는 빠른 시작 앱을 수정합니다.
 
@@ -49,6 +49,5 @@
 
 <!-- URLs. -->
 [Azure 관리 포털]: https://manage.windowsazure.com/
-[mssql 개체]: http://msdn.microsoft.com/ko-kr/library/windowsazure/jj554212.aspx
-
+[mssql 개체]: http://msdn.microsoft.com/library/windowsazure/jj554212.aspx
 <!--HONumber=42-->

@@ -1,6 +1,20 @@
-﻿<properties title="Create an Azure Machine Learning workspace" pageTitle="기계 학습 작업 영역 만들기 | Azure" description="Azure 기계 학습 스튜디오에 대한 작업 영역 만들기" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="기계 학습 작업 영역 만들기 | Azure" 
+	description="Azure 기계 학습 스튜디오의 작업 영역을 만드는 방법" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="garyericson" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/06/2014" ms.author="garye" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/06/2014" 
+	ms.author="garye"/>
 
 
 # Azure Machine Learning 작업 영역 만들기 
@@ -31,3 +45,5 @@ Microsoft Azure 기계 학습 작업 영역(ML 작업 영역)에는 실험을 �
 
 
 <!--Link references-->
+
+<!--HONumber=46--> 

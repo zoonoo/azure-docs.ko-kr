@@ -36,5 +36,4 @@
 
 <!-- URLs. -->
 [새 Windows 방화벽 포트 규칙을 추가하는 방법]:  http://go.microsoft.com/fwlink/?LinkId=392240
-
 <!--HONumber=42-->

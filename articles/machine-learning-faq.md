@@ -1,6 +1,20 @@
-<properties title="Microsoft Azure 기계 학습 FAQ(질문과 대답)" pageTitle="Azure 기계 학습 FAQ | Azure" description="Microsoft Azure 기계 학습 관련 질문과 대답을 소개합니다." metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="pamehta" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Azure 기계 학습 FAQ | Azure" 
+	description="Microsoft Azure 기계 학습 관련 질문과 대답을 소개합니다." 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="pablissima" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/06/2014" ms.author="pamehta" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/17/2015" 
+	ms.author="paulettm"/>
 
 # Microsoft Azure 기계 학습 FAQ(질문과 대답)
 
@@ -36,11 +50,11 @@ Azure 기계 학습 스튜디오 서비스 요금은 활성 실험의 계산 시
 -   API 서비스 예측 시간 - 이 측정기는 프로덕션에서 실행하는 웹 서비스로 발생된 계산 요금을 포함합니다.
 -   API 서비스 예측(1000개 단위) - 이 측정기는 프로덕션 웹 서비스에 대한 호출당 발생하는 요금을 포함합니다.
 
-가격 정보에 대해서는 가격 정보 페이지([http://azure.microsoft.com/ko-kr/pricing/details/machine-learning/][http://azure.microsoft.com/ko-kr/pricing/details/machine-learning/])를 참조하세요.
+가격 정보에 대해서는 가격 정보 페이지([http://azure.microsoft.com/pricing/details/machine-learning/][http://azure.microsoft.com/pricing/details/machine-learning/])를 참조하세요.
 
 **6. Azure 기계 학습의 무료 평가판이 있습니까?**
 
-Azure 기계 학습은 Azure 무료 평가판의 일부입니다. Azure 무료 평가판에 등록하면 한 달 동안 모든 Azure 서비스를 사용해볼 수 있습니다. Azure 무료 평가판에 대한 자세한 내용은 [http://azure.microsoft.com/ko-kr/pricing/free-trial-faq/][http://azure.microsoft.com/ko-kr/pricing/free-trial-faq/]를 참조하세요.
+Azure 기계 학습은 Azure 무료 평가판의 일부입니다. Azure 무료 평가판에 등록하면 한 달 동안 모든 Azure 서비스를 사용해볼 수 있습니다. Azure 무료 평가판에 대한 자세한 내용은 [http://azure.microsoft.com/pricing/free-trial-faq/][http://azure.microsoft.com/pricing/free-trial-faq/]를 참조하세요.
 
 ### 기계 학습 스튜디오
 
@@ -108,15 +122,17 @@ Microsoft는 기계 학습 센터에 새로운 자료를 계속 추가할 예정
 
 **18. Azure 기계 학습에 대한 지원은 어떻게 받습니까?**
 
-Azure 기계 학습은 Azure 지원 제공물의 일부로 지원됩니다. Azure 기계 학습에 대한 기술 지원을 받으려면 '기계 학습'을 서비스로 선택하세요. 그러면 지원 티켓을 제출할 수 있는 항목의 범주가 제공됩니다. Azure 지원 제공물에 대한 자세한 내용은 [http://azure.microsoft.com/ko-kr/support/options/][http://azure.microsoft.com/ko-kr/support/options/]를 참조하세요.
+Azure 기계 학습은 Azure 지원 제공물의 일부로 지원됩니다. Azure 기계 학습에 대한 기술 지원을 받으려면 '기계 학습'을 서비스로 선택하세요. 그러면 지원 티켓을 제출할 수 있는 항목의 범주가 제공됩니다. Azure 지원 제공물에 대한 자세한 내용은 [http://azure.microsoft.com/support/options/][http://azure.microsoft.com/support/options/]를 참조하세요.
 
 또한 Azure 기계 학습은 MSDN에 커뮤니티 포럼을 갖고 있으며, 여기에서 Azure 기계 학습 관련 질문을 할 수 있습니다. 이 포럼은 Azure 기계 학습 팀에서 모니터합니다. [Azure 포럼][Azure 포럼]을 방문해보세요.
 
   [시작하기 페이지]: http://go.microsoft.com/fwlink/?LinkId=404226
-  [Azure 기계 학습 센터]: http://azure.microsoft.com/ko-kr/documentation/services/machine-learning/
-  [http://azure.microsoft.com/ko-kr/pricing/details/machine-learning/]: http://azure.microsoft.com/ko-kr/pricing/details/machine-learning/
-  [http://azure.microsoft.com/ko-kr/pricing/free-trial-faq/]: http://azure.microsoft.com/ko-kr/pricing/free-trial-faq/
+  [Azure 기계 학습 센터]: http://azure.microsoft.com/documentation/services/machine-learning/
+  [http://azure.microsoft.com/pricing/details/machine-learning/]: http://azure.microsoft.com/pricing/details/machine-learning/
+  [http://azure.microsoft.com/pricing/free-trial-faq/]: http://azure.microsoft.com/pricing/free-trial-faq/
   [사용자 피드백 포럼]: http://go.microsoft.com/fwlink/?LinkId=404231
   [1]: https://windowsazure.uservoice.com/forums/257792-machine-learning
-  [http://azure.microsoft.com/ko-kr/support/options/]: http://azure.microsoft.com/ko-kr/support/options/
+  [http://azure.microsoft.com/support/options/]: http://azure.microsoft.com/support/options/
   [Azure 포럼]: http://social.msdn.microsoft.com/Forums/windowsazure/ko-kr/home?forum=MachineLearning
+
+<!--HONumber=46--> 

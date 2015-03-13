@@ -1,6 +1,20 @@
-﻿<properties title="Use custom activities in an Azure Data Factory pipeline" pageTitle="Azure 데이터 팩터리 파이프라인에서 사용자 지정 작업 사용" description="사용자 지정 작업을 만들고 Azure 데이터 팩터리 파이프라인에서 사용하는 방법에 대해 알아봅니다." metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
+﻿<properties 
+	pageTitle="Azure 데이터 팩터리 파이프라인에서 사용자 지정 작업 사용" 
+	description="사용자 지정 작업을 만들고 Azure 데이터 팩터리 파이프라인에서 사용하는 방법에 대해 알아봅니다." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
+	editor="monicar"/>
 
-<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="spelluru" />
+<tags 
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2/10/2015" 
+	ms.author="spelluru"/>
 
 # Azure 데이터 팩터리 파이프라인에서 사용자 지정 작업 사용
 Azure 데이터 팩터리는 파이프라인에서 데이터를 이동 및 처리하는 데 사용되는 **복사 작업** 및 **HDInsight 작업**과 같은 기본 제공 작업을 지원합니다. 고유한 변환/처리 논리를 포함하는 사용자 지정 작업을 만들어 파이프라인에서 사용할 수도 있습니다. 사용자 지정 작업은 HDInsight 클러스터에서 맵 전용 작업으로 실행되므로 파이프라인에서 사용자 지정 작업에 대한 HDInsight 클러스터를 연결해야 합니다.
@@ -488,7 +502,7 @@ Azure 데이터 팩터리 서비스는 주문형 클러스터 만들기를 지�
 
 
 [nuget-package]: http://go.microsoft.com/fwlink/?LinkId=517478
-[azure-developer-center]: http://azure.microsoft.com/ko-kr/develop/net/
+[azure-developer-center]: http://azure.microsoft.com/develop/net/
 [adf-developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
 [azure-preview-portal]: https://portal.azure.com/
 
@@ -502,3 +516,5 @@ Azure 데이터 팩터리 서비스는 주문형 클러스터 만들기를 지�
 [image-data-factory-ouput-from-custom-activity]: ./media/data-factory-use-custom-activities/OutputFilesFromCustomActivity.png
 
 [image-data-factory-download-logs-from-custom-activity]: ./media/data-factory-use-custom-activities/DownloadLogsFromCustomActivity.png
+
+<!--HONumber=46--> 

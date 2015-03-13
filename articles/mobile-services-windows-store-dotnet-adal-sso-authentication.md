@@ -1,17 +1,31 @@
-﻿<properties pageTitle="Active Directory 인증 라이브러리 Single Sign-On으로 앱 인증(Windows 스토어) | 모바일 개발자 센터" description="Windows 스토어 응용 프로그램에서 ADAL을 사용하여 SSO(Single Sign-On) 사용자를 인증하는 방법에 대해 알아봅니다." documentationCenter="windows" authors="wesmc7777" manager="dwrede" editor="" services=""/>
+﻿<properties 
+	pageTitle="Active Directory 인증 라이브러리 Single Sign-On으로 앱 인증(Windows 스토어) | 모바일 개발자 센터" 
+	description="Windows 스토어 응용 프로그램에서 ADAL을 사용하여 SSO(Single Sign-On) 사용자를 인증하는 방법에 대해 알아봅니다." 
+	documentationCenter="windows" 
+	authors="wesmc7777" 
+	manager="dwrede" 
+	editor="" 
+	services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="10/14/2014" ms.author="wesmc"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="10/14/2014" 
+	ms.author="wesmc"/>
 
 # Active Directory 인증 라이브러리 Single Sign-On으로 앱 인증
 
 [AZURE.INCLUDE [mobile-services-selector-adal-sso](../includes/mobile-services-selector-adal-sso.md)]
 
-이 자습서에서는 Azure Active Directory에서 [클라이언트 지향 로그인 작업](http://msdn.microsoft.com/ko-kr/library/azure/jj710106.aspx)을 지원하기 위해 Active Directory 인증 라이브러리를 사용하여 퀵 스타트 프로젝트에 인증을 추가합니다. Azure Active Directory에서 [서비스 지향 로그인 작업](http://msdn.microsoft.com/ko-kr/library/azure/dn283952.aspx)을 지원하려면 [모바일 서비스 앱에 인증 추가](/ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users/) 자습서를 시작합니다.
+이 자습서에서는 Azure Active Directory에서 [클라이언트 지향 로그인 작업](http://msdn.microsoft.com/library/azure/jj710106.aspx)을 지원하기 위해 Active Directory 인증 라이브러리를 사용하여 퀵 스타트 프로젝트에 인증을 추가합니다. Azure Active Directory에서 [서비스 지향 로그인 작업](http://msdn.microsoft.com/library/azure/dn283952.aspx)을 지원하려면 [모바일 서비스 앱에 인증 추가](/ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users/) 자습서를 시작합니다.
 
 사용자를 인증하려면 먼저 AAD(Azure Active Directory)에 응용 프로그램을 등록해야 합니다. 이 작업은 다음 두 단계로 수행됩니다. 먼저, 모바일 서비스를 등록하고 그에 대한 사용 권한을 표시합니다. 두 번째로 Windows 스토어 앱을 등록하여 해당 사용 권한에 대한 액세스를 부여해야 합니다.
 
 
->[AZURE.NOTE] 이 자습서는 모바일 서비스에서 [클라이언트 지향 로그인 작업](http://msdn.microsoft.com/ko-kr/library/azure/jj710106.aspx)을 사용하여 Windows 스토어 앱에 대해 Single Sign-On Azure Active Directory 인증을 수행할 수 있도록 하는 방법의 이해를 돕기 위한 것입니다. 모바일 서비스를 처음 사용하는 경우 [모바일 서비스 시작] 자습서를 완료하는 것이 좋습니다.
+>[AZURE.NOTE] 이 자습서는 모바일 서비스에서 [클라이언트 지향 로그인 작업](http://msdn.microsoft.com/library/azure/jj710106.aspx)을 사용하여 Windows 스토어 앱에 대해 Single Sign-On Azure Active Directory 인증을 수행할 수 있도록 하는 방법의 이해를 돕기 위한 것입니다. 모바일 서비스를 처음 사용하는 경우 [모바일 서비스 시작] 자습서를 완료하는 것이 좋습니다.
 
 이 자습서에서는 다음 기본 단계를 단계별로 안내합니다.
 

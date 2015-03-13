@@ -1,6 +1,20 @@
-<properties pageTitle="Azure API Management Policy Reference" metaKeywords="" description="Learn about the policies available to configure API Management." metaCanonical="" services="" documentationCenter="API Management" title="Azure API Management Policy Reference" authors="sdanie" solutions="" manager="" editor="" />
+﻿<properties 
+	pageTitle="Azure API 관리 정책 참조" 
+	description="API 관리를 구성하기 위해 사용할 수 있는 정책에 대해 알아봅니다." 
+	services="api-management" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
+<tags 
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2/11/2015" 
+	ms.author="sdanie"/>
 
 # Azure API 관리 정책 참조
 
@@ -779,3 +793,5 @@ CORS를 통해 브라우저와 서버가 상호 작용하여 특정 원본 간 �
 [도메인 간 호출 허용]: #allow-cross-domain-calls
 [JSONP]: #jsonp
 [CORS]: #cors
+
+<!--HONumber=46--> 

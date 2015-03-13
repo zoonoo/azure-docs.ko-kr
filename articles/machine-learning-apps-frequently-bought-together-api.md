@@ -1,6 +1,20 @@
-﻿<properties title="Machine Learning example app: Frequently Bought Together" pageTitle="기계 학습 예제 앱: 자주 함께 구매됨 | Azure" description="온라인 쇼핑 카트 분석을 수행하여 사용자가 제공한 기록 트랜잭션의 자주 함께 구매한 항목에 대한 제품 추천을 생성하는 기계 학습 웹 서비스입니다." metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="coromt" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="기계 학습 예제 앱: 자주 함께 구매됨 | Azure" 
+	description="온라인 쇼핑 카트 분석을 수행하여 사용자가 제공한 기록 트랜잭션의 자주 함께 구매한 항목에 대한 제품 추천을 생성하는 기계 학습 웹 서비스입니다." 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="CoromT" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/17/2014" ms.author="coromt" /> 
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/17/2014" 
+	ms.author="coromt"/> 
 
 # 기계 학습 예제 앱: 자주 함께 구매됨
  
@@ -13,3 +27,5 @@
 
 이 서비스에는 자주 함께 구매됨 모델을 관리하고 만들며, 기록 트랜잭션을 업로드하고, 지정된 제품에 대한 자주 함께 구매되는 최상위 제품을 받기 위한 API가 포함되어 있습니다.  이러한 API를 사용하는 방법을 보여 주는 샘플은 [GitHub의 Azure-MachineLearning-DataScience 리포지토리](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Apps/FrequentlyBoughtTogether)(영문)에서 찾을 수 있습니다.
 
+
+<!--HONumber=46--> 

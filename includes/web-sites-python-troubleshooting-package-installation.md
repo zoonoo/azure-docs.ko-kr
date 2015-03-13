@@ -64,8 +64,7 @@ easy\_install를 사용하여 exe 설치 파일에서 설치할 수도 있습니
  가상 환경이 자동 관리될 때 잔존 파일들이 사용되지 않도록 하기 위해 사이트의 기존 가상 환경을 삭제하는 것이 좋습니다.
 
 
-[Windows를 실행하는 가상 컴퓨터 만들기]: http://azure.microsoft.com/ko-kr/documentation/articles/virtual-machines-windows-tutorial/
+[Windows를 실행하는 가상 컴퓨터 만들기]: http://azure.microsoft.com/documentation/articles/virtual-machines-windows-tutorial/
 [Microsoft Visual C++ Compiler for Python 2.7]: http:://aka.ms/vcpython27
 [Microsoft Visual C++ 2010 Express]: http://go.microsoft.com/?linkid=9709949
-
 <!--HONumber=42-->

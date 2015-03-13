@@ -129,5 +129,4 @@ APNS(Apple 푸시 알림 서비스)는 인증서를 사용하여 모바일 서�
 9. **Targets** 아래에서 **Quickstart**를 클릭하고 **Code Signing Identity**를 확장한 다음, **Debug** 아래에서 새 프로필을 선택합니다. 이제 Xcode 프로젝트에서 코드 서명에 새 프로필을 사용하게 됩니다. 다음 단계에서는 인증서를 Azure에 업로드해야 합니다.
 
    	![](./media/enable-apple-push-notifications/mobile-services-ios-push-step17.png)
-
 <!--HONumber=42-->

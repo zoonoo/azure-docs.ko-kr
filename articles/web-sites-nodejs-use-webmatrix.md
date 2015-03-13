@@ -33,7 +33,7 @@
 
 다음 단계에 따라 Azure 웹 사이트를 만듭니다.
 
-> [AZURE.NOTE] 이 자습서를 완료하려면 Azure 웹 사이트 기능이 사용되는 Azure 계정이 필요합니다. <br /> 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](http://www.windowsazure.com/ko-kr/pricing/free-trial/?WT.mc_id=A7171371E"%20target="_blank")을 참조하세요.
+> [AZURE.NOTE] 이 자습서를 완료하려면 Azure 웹 사이트 기능이 사용되는 Azure 계정이 필요합니다. <br /> 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A7171371E"%20target="_blank")을 참조하세요.
 <br />
 
 1. WebMatrix를 시작합니다.
@@ -102,7 +102,7 @@
 
 Azure에 제공되는 Node.js 버전에 대한 정보 및 응용 프로그램에 사용할 버전 지정 방법에 대한 자세한 내용은 [Azure 응용 프로그램에서 Node.js 버전 지정](/ko-kr/documentation/articles/nodejs-specify-node-version-azure-apps/).을 참조하세요
 
-응용 프로그램을 Azure에 배포한 후 문제가 발생하는 경우 [Azure 웹 사이트에서 Node.js 응용 프로그램 디버그 방법](http://www.windowsazure.com/ko-kr/develop/nodejs/how-to-guides/Debug-Website/)에서 문제를 진단하는 방법에 대한 정보를 참조하세요.
+응용 프로그램을 Azure에 배포한 후 문제가 발생하는 경우 [Azure 웹 사이트에서 Node.js 응용 프로그램 디버그 방법](http://azure.microsoft.com/develop/nodejs/how-to-guides/Debug-Website/)에서 문제를 진단하는 방법에 대한 정보를 참조하세요.
 
 
 [Azure 관리 포털]: http://manage.windowsazure.com

@@ -1,6 +1,20 @@
-﻿<properties title="Guide to the Net# Neural Networks Specification Language for Azure ML" pageTitle="Azure 기계 학습용 Net# 신경망 사양 언어에 대한 가이드 " description="Net# 신경망 사양 언어 구문(Net#을 사용하여 Microsoft Azure ML에서 사용자 지정 신경망 모델을 만드는 방법에 대한 예제 포함) " metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jeannt" manager="paulettm" editor="cgronlun"  videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Azure 기계 학습용 Net# 신경망 사양 언어에 대한 가이드" 
+	description="Azure 기계 학습용 Net# 신경망 사양 언어에 대한 가이드" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/08/2014" ms.author="jeannt" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/08/2014" 
+	ms.author="jeannt"/>
 
 
 
@@ -377,3 +391,5 @@ Net#에서는 선택적으로 공유 가중치를 사용하여 여러 번들을 
 -	**Sharing**[d]는 d == 0에 대해서만 False이므로 커널 수는 **MapCount** * **NodeCount**\[0] = 10 * 5 = 50입니다. 
 
 [1]:./media/machine-learning-azure-ml-netsharp-reference-guide/formula_large.gif
+
+<!--HONumber=46--> 

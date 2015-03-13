@@ -1,6 +1,20 @@
-<properties pageTitle="모바일 서비스 Android 클라이언트 라이브러리 사용" description="Azure 모바일 서비스에 Android 클라이언트를 사용하는 방법에 대해 알아봅니다." services="mobile-services" documentationCenter="android" authors="RickSaling" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="모바일 서비스 Android 클라이언트 라이브러리 사용" 
+	description="Azure 모바일 서비스에 Android 클라이언트를 사용하는 방법에 대해 알아봅니다." 
+	services="mobile-services" 
+	documentationCenter="android" 
+	authors="RickSaling" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="10/20/2014" ms.author="ricksal"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="Mobile-Android" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="10/20/2014" 
+	ms.author="ricksal"/>
 
 # 모바일 서비스용 Android 클라이언트 라이브러리를 사용하는 방법
 
@@ -882,7 +896,7 @@ Android 클라이언트 API에 대한 Javadoc 참조는 [http://dl.windowsazure.
 [모바일 서비스 SDK]: http://go.microsoft.com/fwlink/p/?linkid=280126
 [인증 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-users-android/
 [ASCII 제어 코드 C0 및 C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
-[모바일 서비스 테이블 관리를 위한 CLI]: http://www.windowsazure.com/ko-kr/manage/linux/other-resources/command-line-tools/#Mobile_Tables
+[모바일 서비스 테이블 관리를 위한 CLI]: http://azure.microsoft.com/manage/linux/other-resources/command-line-tools/#Mobile_Tables
 
 
 <!--HONumber=42-->

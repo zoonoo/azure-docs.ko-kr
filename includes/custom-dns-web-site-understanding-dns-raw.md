@@ -44,11 +44,10 @@ Azure 웹 사이트에서 A 레코드를 사용하려면 먼저 다음 CNAME 레
 
 	![](./media/custom-dns-web-site/dncmntask-cname-6.png)
 
-	> [AZURE.NOTE] **도메인 관리**를 사용하지 않도록 설정하면 무료 웹 사이트를 사용하는 것입니다. 무료 웹 사이트에는 사용자 지정 도메인 이름을 사용할 수 없으며 공유, 기본 또는 표준 모드로 업그레이드해야 합니다. 사이트의 모드를 변경하는 방법을 비롯한 웹 사이트 모드에 대한 자세한 내용은 [웹 사이트 크기를 조정하는 방법](http://www.windowsazure.com/ko-kr/documentation/articles/web-sites-scale/)(영문)을 참조하세요.
+	> [AZURE.NOTE] **도메인 관리**를 사용하지 않도록 설정하면 무료 웹 사이트를 사용하는 것입니다. 무료 웹 사이트에는 사용자 지정 도메인 이름을 사용할 수 없으며 공유, 기본 또는 표준 모드로 업그레이드해야 합니다. 사이트의 모드를 변경하는 방법을 비롯한 웹 사이트 모드에 대한 자세한 내용은 [웹 사이트 크기를 조정하는 방법](http://azure.microsoft.com/documentation/articles/web-sites-scale/)(영문)을 참조하세요.
 
 6. **사용자 지정 도메인 관리** 대화 상자에서 **awverify** 정보, 현재 할당된 **.azurewebsites.net** 도메인 이름 및 가상 IP 주소를 확인할 수 있습니다. 이 정보는 DNS 레코드를 만들 때 사용되므로 저장합니다.
 
 	![](./media/custom-dns-web-site/managecustomdomains.png)
-
 
 <!--HONumber=42-->

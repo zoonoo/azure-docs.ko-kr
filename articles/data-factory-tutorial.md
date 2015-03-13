@@ -1,6 +1,20 @@
-﻿<properties title="Tutorial: Move and process log files using Azure Data Factory" pageTitle="Azure 데이터 팩터리를 사용하여 로그 파일 이동 및 처리" description="이 고급 자습서에서는 거의 실제 시나리오를 설명하고 Azure 데이터 팩터리 서비스를 사용하여 시나리오를 구현합니다." metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
+﻿<properties 
+	pageTitle="Azure 데이터 팩터리를 사용하여 로그 파일 이동 및 처리" 
+	description="이 고급 자습서에서는 거의 실제 시나리오를 설명하고 Azure 데이터 팩터리 서비스를 사용하여 시나리오를 구현합니다." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
+	editor="monicar"/>
 
-<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="spelluru" />
+<tags 
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="1/28/2015" 
+	ms.author="spelluru"/>
 
 # 자습서: 데이터 팩터리를 사용하여 로그 파일 이동 및 처리
 이 문서에서는 Azure 데이터 팩터리를 사용하여 로그 파일의 데이터를 유용한 정보로 변환하는 정식 로그 처리 시나리오로 구성된 완전한 연습을 제공합니다. 
@@ -589,14 +603,14 @@ Contoso는 게임 콘솔, 핸드헬드 장치, PC(개인용 컴퓨터) 등 다�
 [usepigandhive]: ../data-factory-pig-hive-activities
 
 [azure-preview-portal]: http://portal.azure.com
-[azure-purchase-options]: http://azure.microsoft.com/ko-kr/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/ko-kr/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/ko-kr/pricing/free-trial/
+[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
 [sqlcmd-install]: http://www.microsoft.com/ko-kr/download/details.aspx?id=35580
-[azure-sql-firewall]: http://msdn.microsoft.com/ko-kr/library/azure/jj553530.aspx
+[azure-sql-firewall]: http://msdn.microsoft.com/library/azure/jj553530.aspx
 
-[download-azure-powershell]: http://azure.microsoft.com/ko-kr/documentation/articles/install-configure-powershell
+[download-azure-powershell]: http://azure.microsoft.com/documentation/articles/install-configure-powershell
 [adfwalkthrough-download]: http://go.microsoft.com/fwlink/?LinkId=517495
 [developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
 
@@ -675,3 +689,5 @@ Contoso는 게임 콘솔, 핸드헬드 장치, PC(개인용 컴퓨터) 등 다�
 [image-data-factory-new-datafactory-menu]: ./media/data-factory-tutorial/NewDataFactoryMenu.png
 
 [image-data-factory-new-datafactory-create-button]: ./media/data-factory-tutorial/DataFactoryCreateButton.png
+
+<!--HONumber=46--> 

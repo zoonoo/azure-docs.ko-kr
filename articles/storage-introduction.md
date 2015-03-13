@@ -49,7 +49,7 @@ Azure 저장소 계정은 Azure 저장소의 서비스에 대한 액세스 권�
 - 표준 저장소 계정에는 Blob, 테이블, 큐 및 파일 저장소가 포함됩니다.
 - 프리미엄 저장소 계정은 현재 Azure 가상 컴퓨터 디스크만 지원합니다. Azure 프리미엄 저장소는 [Azure 미리 보기 페이지](/ko-kr/services/preview/)를 통해 요청할 수 있습니다.
 
-저장소 계정을 만들려면 먼저 다양한 Azure 서비스에 대한 액세스 권한을 제공하는 계획인 Azure 구독이 있어야 합니다. 단일 구독으로 고유하게 명명된 저장소 계정을 최대 100개까지 만들 수 있습니다. 볼륨 가격에 대한 자세한 내용은 [저장소 가격 정보](http://www.windowsazure.com/ko-kr/pricing/details/storage/)를 참조하세요.
+저장소 계정을 만들려면 먼저 다양한 Azure 서비스에 대한 액세스 권한을 제공하는 계획인 Azure 구독이 있어야 합니다. 단일 구독으로 고유하게 명명된 저장소 계정을 최대 100개까지 만들 수 있습니다. 볼륨 가격에 대한 자세한 내용은 [저장소 가격 정보](http://azure.microsoft.com/pricing/details/storage/)를 참조하세요.
 
 [무료 평가판](/ko-kr/pricing/free-trial/)으로 Azure를 시작할 수 있습니다. 계획을 구입하기로 결정한 경우 다양한 [구입 옵션](/ko-kr/pricing/purchase-options/) 중에서 선택할 수 있습니다. [MSDN 구독자](/ko-kr/pricing/member-offers/msdn-benefits-details/)는 Azure 저장소를 포함한 Azure 서비스에 사용할 수 있는 무료 월별 크레딧을 받습니다.
 
@@ -164,7 +164,7 @@ Azure 저장소를 시작하려면 다음 리소스를 탐색하세요.
 ### 다운로드
 
 - [Azure 저장소 NuGet 패키지 - Client Libraries for .NET, Windows Phone 및 Windows 런타임](https://www.nuget.org/packages/WindowsAzure.Storage/)
-- [Azure SDK 및 도구](http://azure.microsoft.com/ko-kr/downloads/)
+- [Azure SDK 및 도구](http://azure.microsoft.com/downloads/)
 - [Azure 저장소 에뮬레이터](http://www.microsoft.com/en-in/download/details.aspx?id=43709)
 
 ### 소스 코드
@@ -174,15 +174,15 @@ Azure 저장소를 시작하려면 다음 리소스를 탐색하세요.
 ### 설명서
 
 - [Azure 저장소 설명서](/ko-kr/documentation/services/storage/)
-- [Azure 저장소 서비스 REST API 참조](http://msdn.microsoft.com/ko-kr/library/dd179355.aspx)
-- [AzCopy 명령줄 도구 참조](http://azure.microsoft.com/ko-kr/documentation/articles/storage-use-azcopy/)
+- [Azure 저장소 서비스 REST API 참조](http://msdn.microsoft.com/library/dd179355.aspx)
+- [AzCopy 명령줄 도구 참조](http://azure.microsoft.com/documentation/articles/storage-use-azcopy/)
 
 <h3>PowerShell 사용자</h3>
-- [Azure 저장소 Cmdlet](http://msdn.microsoft.com/ko-kr/library/azure/dn806401.aspx)
+- [Azure 저장소 Cmdlet](http://msdn.microsoft.com/library/azure/dn806401.aspx)
 
 <h3>.NET 개발자</h3>
 
-- [.NET 클라이언트 라이브러리 참조](http://msdn.microsoft.com/ko-kr/library/wa_storage_30_reference_home.aspx)
+- [.NET 클라이언트 라이브러리 참조](http://msdn.microsoft.com/library/wa_storage_30_reference_home.aspx)
 - [.NET에서 Blob 저장소를 사용하는 방법](../storage-dotnet-how-to-use-blobs/)
 - [.NET에서 테이블 저장소를 사용하는 방법](../storage-dotnet-how-to-use-tables/)
 - [.NET에서 큐 저장소를 사용하는 방법](../storage-dotnet-how-to-use-queues/)
@@ -217,5 +217,4 @@ Azure 저장소를 시작하려면 다음 리소스를 탐색하세요.
 - [Python에서 Blob 저장소를 사용하는 방법](../storage-python-how-to-use-blob-storage/)
 - [Python에서 테이블 저장소를 사용하는 방법](../storage-python-how-to-use-table-storage/)
 - [Python에서 큐 저장소를 사용하는 방법](../storage-python-how-to-use-queue-storage/)
-
 <!--HONumber=42-->

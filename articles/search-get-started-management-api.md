@@ -1,6 +1,20 @@
-﻿<properties title="Get started with Azure Search Management REST API" pageTitle="Azure 검색 관리 REST API 시작" description="Azure 검색 관리 REST API 시작" metaKeywords="" services="Azure Search" solutions="" documentationCenter="" authors="Heidist" manager="mblythe" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Azure 검색 관리 REST API 시작" 
+	description="Azure 검색 관리 REST API 시작" 
+	services="search" 
+	documentationCenter="" 
+	authors="HeidiSteen" 
+	manager="mblythe" 
+	editor=""/>
 
-<tags ms.service="azure-search" ms.devlang="" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="" ms.date="10/10/2014" ms.author="heidist" />
+<tags 
+	ms.service="search" 
+	ms.devlang="rest-api" 
+	ms.workload="search" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.date="01/16/2015" 
+	ms.author="heidist"/>
 # Azure 검색 관리 REST API 시작 #
 
 Azure 검색 REST 관리 API는 포털에서 프로그래밍 방식으로 관리 작업을 수행하는 대체 방법입니다. 서비스 관리 작업에는 서비스 만들기 또는 삭제, 서비스 확장, 키 관리가 포함됩니다. 이 자습서는 서비스 관리 API를 보여 주는 샘플 클라이언트 응용 프로그램과 함께 제공됩니다. 로컬 개발 환경에서 샘플을 실행하는 데 필요한 구성 단계도 포함됩니다.
@@ -24,11 +38,11 @@ Azure 검색 REST 관리 API는 포털에서 프로그래밍 방식으로 관리
 
 <h2 id="config">응용 프로그램 구성</h2>
 
-샘플 응용 프로그램을 실행하려면 먼저 클라이언트 응용 프로그램에서 리소스 관리자 끝점으로 보낸 요청을 수락할 수 있도록 인증을 사용하도록 설정해야 합니다. 인증 요구 사항은 검색 서비스 관리와 관련된 작업을 포함하여 API를 통해 요청된 모든 포털 관련 작업에 대한 기반이 되는 [Azure 리소스 관리자](http://msdn.microsoft.com/ko-kr/library/azure/dn790568.aspx)에서 시작됩니다. Azure 검색의 서비스 관리 API는 단순히 Azure 리소스 관리자의 확장이므로 해당 종속성을 상속합니다.  
+샘플 응용 프로그램을 실행하려면 먼저 클라이언트 응용 프로그램에서 리소스 관리자 끝점으로 보낸 요청을 수락할 수 있도록 인증을 사용하도록 설정해야 합니다. 인증 요구 사항은 검색 서비스 관리와 관련된 작업을 포함하여 API를 통해 요청된 모든 포털 관련 작업에 대한 기반이 되는 [Azure 리소스 관리자](http://msdn.microsoft.com/library/azure/dn790568.aspx)에서 시작됩니다. Azure 검색의 서비스 관리 API는 단순히 Azure 리소스 관리자의 확장이므로 해당 종속성을 상속합니다.  
 
 Azure 리소스 관리자에는 ID 공급자로서 Azure Active Directory 서비스가 필요합니다. 
 
-요청이 리소스 관리자에 연결되도록 허용하는 액세스 토큰을 가져오기 위해 클라이언트 응용 프로그램에는 Active Directory를 호출하는 코드 세그먼트가 포함됩니다. 코드 세그먼트와 코드 세그먼트 사용의 필수 조건 단계는 [Azure 리소스 관리자 요청 인증](http://msdn.microsoft.com/ko-kr/library/azure/dn790557.aspx) 문서에서 가져왔습니다.
+요청이 리소스 관리자에 연결되도록 허용하는 액세스 토큰을 가져오기 위해 클라이언트 응용 프로그램에는 Active Directory를 호출하는 코드 세그먼트가 포함됩니다. 코드 세그먼트와 코드 세그먼트 사용의 필수 조건 단계는 [Azure 리소스 관리자 요청 인증](http://msdn.microsoft.com/library/azure/dn790557.aspx) 문서에서 가져왔습니다.
 
 위 링크의 지침에 따르거나, 자습서를 단계별로 진행하려고 이 문서의 단계를 사용할 수 있습니다.
 
@@ -39,7 +53,7 @@ Azure 리소스 관리자에는 ID 공급자로서 Azure Active Directory 서비
 1. 다운로드한 샘플 클라이언트 응용 프로그램에 대한 세부 정보를 등록하여 AD 응용 프로그램 구성
 1. 요청에 대한 권한을 얻는 데 사용할 값과 함께 샘플 클라이언트 응용 프로그램 로드
 
-> [WACOM.NOTE] 이러한 링크는 Azure Active Directory를 사용하여 리소스 관리자에 대한 클라이언트 요청을 인증하기 위한 배경이 되는 [Azure 리소스 관리자](http://msdn.microsoft.com/ko-kr/library/azure/dn790568.aspx), [Azure 리소스 관리자 요청 인증](http://msdn.microsoft.com/ko-kr/library/azure/dn790557.aspx) 및 [Azure Active Directory](http://msdn.microsoft.com/library/azure/jj673460.aspx)를 제공합니다.
+> [WACOM.NOTE] 이러한 링크는 Azure Active Directory를 사용하여 리소스 관리자에 대한 클라이언트 요청을 인증하기 위한 배경이 되는 [Azure 리소스 관리자](http://msdn.microsoft.com/library/azure/dn790568.aspx), [Azure 리소스 관리자 요청 인증](http://msdn.microsoft.com/library/azure/dn790557.aspx) 및 [Azure Active Directory](http://msdn.microsoft.com/library/azure/jj673460.aspx)를 제공합니다.
 
 <h3>Active Directory 서비스 만들기</h3>
 
@@ -140,7 +154,7 @@ Azure 리소스 관리자에는 ID 공급자로서 Azure Active Directory 서비
 
 어셈블리 참조에 문제가 있으면 솔루션이 빌드되지 않을 수 있습니다. 이 섹션에서는 몇 가지 관련 문제에 해결 방법을 제공합니다.
 
-- Microsoft.IdentityModel.Clients.ActiveDirectory가 설치되어 있어야 합니다. [Active Directory 인증 라이브러리](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/) 설치 방법에 대한 자세한 내용은 [Azure 리소스 관리자 요청 인증](http://msdn.microsoft.com/ko-kr/library/azure/dn790557.aspx)을 참조하세요.
+- Microsoft.IdentityModel.Clients.ActiveDirectory가 설치되어 있어야 합니다. [Active Directory 인증 라이브러리](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/) 설치 방법에 대한 자세한 내용은 [Azure 리소스 관리자 요청 인증](http://msdn.microsoft.com/library/azure/dn790557.aspx)을 참조하세요.
 - 어셈블리를 다시 설치하면 문제가 해결될 수도 있습니다. **도구** | **NuGet 패키지 관리자** | **패키지 관리자 콘솔**로 이동합니다. PM> 프롬프트에서 *Update-package -reinstall Microsoft.IdentityModel.Clients.ActiveDirectory*를 입력합니다.
 - 이 솔루션에서는 Newtonsoft.Json도 참조됩니다. 이 어셈블리에 대한 오류가 발생하면 프로젝트에서 오류를 삭제하고 나서 다시 추가합니다. **참조** | **NuGet 패키지 관리** | **패키지 설치**를 마우스 오른쪽 단추로 클릭합니다. **Json.Net**을 선택하여 제거합니다. **온라인**을 확장하고 **Json.Net** | **설치**를 선택합니다.
 
@@ -155,13 +169,13 @@ Azure 리소스 관리자에는 ID 공급자로서 Azure Active Directory 서비
  
 3. **ExecuteArmRequest**는 지정된 `subscriptionID`의 Azure 리소스 관리자 끝점, `https://management.azure.com/subscriptions`에 대해 요청을 실행하는 데 사용됩니다. 이 메서드는 프로그램 전체에서 Azure 리소스 관리자 API 또는 검색 관리 API를 사용하여 작업을 수행하는 데 사용됩니다.
 
-3. Azure 리소스 관리자에 대한 요청은 인증하고 권한을 부여해야 합니다. 이 작업은 [Azure 리소스 관리자 요청 인증](http://msdn.microsoft.com/ko-kr/library/azure/dn790557.aspx)에서 가져온 **ExecuteArmRequest**  메서드를 통해 호출되는 **GetAuthorizationHeader** 메서드를 사용하여 수행합니다. **GetAuthorizationHeader**는 `https://management.core.windows.net`을 호출하여 액세스 토큰을 가져옵니다.
+3. Azure 리소스 관리자에 대한 요청은 인증하고 권한을 부여해야 합니다. 이 작업은 [Azure 리소스 관리자 요청 인증](http://msdn.microsoft.com/library/azure/dn790557.aspx)에서 가져온 **ExecuteArmRequest**  메서드를 통해 호출되는 **GetAuthorizationHeader** 메서드를 사용하여 수행합니다. **GetAuthorizationHeader**는 `https://management.core.windows.net`을 호출하여 액세스 토큰을 가져옵니다.
 
 4. 구독에 대해 유효한 사용자 이름 및 암호를 사용하여 로그인하라는 메시지가 표시됩니다.
 
 5. 다음으로 새 Azure 검색 서비스가 Azure 리소스 관리자 공급자에 등록됩니다. 또한 이때 **ExecuteArmRequest** 메서드는 `providers/Microsoft.Search/register`를 통해 구독을 위한 Azure 검색 서비스를 만드는 데 사용됩니다. 
 
-6. 프로그램의 나머지 부분에서는 [Azure 검색 관리 REST API](http://msdn.microsoft.com/ko-kr/library/dn832684.aspx)를 사용합니다. 이 API의 `api-version`은 Azure 리소스 관리자 api-version과 다릅니다. 예를 들어, `/listAdminKeys?api-version=2014-07-31-Preview`는 Azure 검색 관리 REST API의 `api-version`을 표시합니다.
+6. 프로그램의 나머지 부분에서는 [Azure 검색 관리 REST API](http://msdn.microsoft.com/library/dn832684.aspx)를 사용합니다. 이 API의 `api-version`은 Azure 리소스 관리자 api-version과 다릅니다. 예를 들어, `/listAdminKeys?api-version=2014-07-31-Preview`는 Azure 검색 관리 REST API의 `api-version`을 표시합니다.
 
 	다음 일련의 작업에서는 방금 만든 서비스 정의, admin api-key를 검색하고, 키를 재생성 및 검색하고, 복제본과 파티션을 변경하고, 마지막으로 서비스를 삭제합니다.
 
@@ -173,8 +187,8 @@ Azure 리소스 관리자에는 ID 공급자로서 Azure Active Directory 서비
 
 이 자습서를 완료한 후 Active Directory 서비스를 사용한 서비스 관리 또는 인증에 대해 자세히 알아볼 수 있습니다.
 
-- 클라이언트 응용 프로그램을 Active Directory와 통합하는 방법을 알아봅니다. [Azure Active Directory에서 응용 프로그램 통합](http://msdn.microsoft.com/ko-kr/library/azure/dn151122.aspx)을 참조하세요.
-- Azure의 다른 서비스 관리 작업에 대해 알아봅니다. [서비스 관리](http://msdn.microsoft.com/ko-kr/library/azure/dn578292.aspx)를 참조하세요.
+- 클라이언트 응용 프로그램을 Active Directory와 통합하는 방법을 알아봅니다. [Azure Active Directory에서 응용 프로그램 통합](http://msdn.microsoft.com/library/azure/dn151122.aspx)을 참조하세요.
+- Azure의 다른 서비스 관리 작업에 대해 알아봅니다. [서비스 관리](http://msdn.microsoft.com/library/azure/dn578292.aspx)를 참조하세요.
 
 <!--Anchors-->
 [샘플 응용 프로그램 다운로드]: #Download
@@ -197,3 +211,5 @@ Azure 리소스 관리자에는 ID 공급자로서 Azure Active Directory 서비
 [Azure 검색을 사용하여 지리 공간적 검색 앱 만들기]: ../search-create-geospatial/
 
 
+
+<!--HONumber=46--> 

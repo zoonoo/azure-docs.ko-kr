@@ -107,7 +107,7 @@ Azure 웹 사이트에서 PHP 웹 사이트를 만들었으므로, 이제 사이
 [configure-php]: /ko-kr/develop/php/common-tasks/configure-php-web-site/
 [website-mysql-git]: /ko-kr/develop/php/tutorials/website-w-mysql-and-git/
 [wordpress-gallery]: /ko-kr/develop/php/tutorials/website-from-gallery/
-[websites-pricing]: http://www.windowsazure.com/ko-kr/pricing/details/#header-1
+[websites-pricing]: http://azure.microsoft.com/pricing/details/#header-1
 [scale-websites]: /ko-kr/manage/services/web-sites/how-to-scale-websites/
 
 

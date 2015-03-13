@@ -1,6 +1,20 @@
-<properties title="DocumentDB limits for the preview release" pageTitle="미리 보기 릴리스의 DocumentDB 한도 | Azure" description="미리 보기 릴리스용 DocumentDB의 한도 및 할당량 적용에 대해 알아봅니다." metaKeywords="" services="documentdb" solutions="data-management"  authors="bradsev" manager="jhubbard" editor="cgronlun"  videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="미리 보기 릴리스의 DocumentDB 한도 | Azure" 
+	description="미리 보기 릴리스용 DocumentDB의 한도 및 할당량 적용에 대해 알아봅니다." 
+	services="documentdb" 
+	authors="mimig1" 
+	manager="jhubbard" 
+	editor="cgronlun" 
+	documentationCenter=""/>
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="spelluru" />
+<tags 
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/29/2015" 
+	ms.author="mimig"/>
 
 
 # DocumentDB 미리 보기 릴리스의 한도
@@ -37,3 +51,5 @@
 |쿼리당 최대 JOIN 수    |2
 |쿼리당 최대 AND 절 수      |5
 |쿼리당 최대 OR 절 수       |5
+
+<!--HONumber=46--> 

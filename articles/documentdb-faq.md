@@ -1,6 +1,20 @@
-﻿<properties title="Frequently asked questions about DocumentDB" pageTitle="DocumentDB에 대한 질문과 대답 | Azure" description="Azure DocumentDB nosql 문서 데이터베이스 서비스에 대한 질문과 대답을 제공합니다. 용량 및 요청 단위에 대해 알아보고 응용 프로그램 요구 사항에 맞게 크기를 조정하는 방법을 이해합니다." metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, faq"   services="documentdb" solutions="data-management"   authors="spelluru" manager="jhubbard" editor="monicar" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="<MORAVIA_TRANSLATEDocumentDB에 대한 질문과 대답 | Azure" 
+	description="Azure DocumentDB nosql 문서 데이터베이스 서비스에 대한 질문과 대답을 제공합니다. 용량 및 요청 단위에 대해 알아보고 응용 프로그램 요구 사항에 맞게 크기를 조정하는 방법을 이해합니다." 
+	services="documentdb" 
+	authors="mimig1" 
+	manager="jhubbard" 
+	editor="monicar" 
+	documentationCenter=""/>
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="spelluru" />
+<tags 
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="12/22/2014" 
+	ms.author="mimig"/>
 
 
 #DocumentDB에 대한 질문과 대답
@@ -32,7 +46,7 @@ DocumentDB는 JSON 형식으로 데이터를 저장하는 NoSQL 문서 지향 �
 DocumentDB는 스키마 제약이 없는 데이터에 대한 크기 조정, 성능 및 쿼리가 중요한 새로운 웹 및 모바일 응용 프로그램에 적합한 옵션입니다. DocumentDB는 응용 프로그램 데이터 모델의 신속한 개발 및 연속적인 반복 지원에 적합합니다. 사용자 생성 콘텐츠 및 데이터를 관리하는 응용 프로그램은 DocumentDB의 일반적인 사용 사례입니다.  
 
 ###크기 조정 및 용량 제한은 무엇인가요?
-각 Azure DocumentDB 계정은 Azure 포털을 통해 구성할 수 있는 최대 용량 단위 수를 지원합니다. 용량 단위가 추가적으로 필요한 경우 지원 담당자에게 문의하여 계정 할당량을 늘리세요.  리소스 할당량에 대한 자세한 내용은 [DocumentDB 미리 보기 리소스의 한도](http://azure.microsoft.com/en-us/documentation/articles/documentdb-limits/) 를 참조하세요.
+각 Azure DocumentDB 계정은 Azure 포털을 통해 구성할 수 있는 최대 용량 단위 수를 지원합니다. 용량 단위가 추가적으로 필요한 경우 지원 담당자에게 문의하여 계정 할당량을 늘리세요.  리소스 할당량에 대한 자세한 내용은 [DocumentDB 미리 보기 리소스의 한도](http://azure.microsoft.com/documentation/articles/documentdb-limits/) 를 참조하세요.
 
 
 ###Microsoft Azure DocumentDB 비용은 얼마인가요?
@@ -87,3 +101,5 @@ DocumentDB는 JavaScript 저장 프로시저 및 트리거를 통해 언어 통�
 
 [미리 보기 포털]: https://portal.azure.com
 [쿼리]: ../documentdb-sql-query/
+
+<!--HONumber=46--> 

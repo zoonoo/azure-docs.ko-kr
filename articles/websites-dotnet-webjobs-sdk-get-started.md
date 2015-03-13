@@ -147,7 +147,7 @@ Azure 저장소 계정은 큐 및 Blob 데이터를 클라우드에 저장하기
  
 	이 파일에는 Blob 및 큐 사용을 위한 SQL 연결 문자열과 Azure 저장소 연결 문자열이 포함되어 있습니다. 
 
-	SQL 연결 문자열은 [SQL Server Express LocalDB](http://msdn.microsoft.com/ko-kr/library/hh510202.aspx) 데이터베이스를 가리킵니다.
+	SQL 연결 문자열은 [SQL Server Express LocalDB](http://msdn.microsoft.com/library/hh510202.aspx) 데이터베이스를 가리킵니다.
  
 	저장소 연결 문자열은 저장소 계정 이름과 액세스 키에 대한 자리 표시자가 있는 예입니다. 해당 저장소 계정의 이름과 키가 있는 연결 문자열로 대체합니다.  
 
@@ -652,7 +652,7 @@ ContosoAdsContext 클래스는 DbSet 컬렉션에서 Ad 클래스가 사용된�
 		queueClient.DefaultRequestOptions.RetryPolicy = new LinearRetry(TimeSpan.FromSeconds(3), 3);
 		imagesQueue = queueClient.GetQueueReference("blobnamerequest");
 
-대부분의 컨트롤러 코드는 DbContext 클래스를 사용한 Entity Framework 데이터 모델 작업에 일반적입니다. 예외는 HttpPost  `Create` 메서드이며, 이 메서드는 파일을 업로드하고 Blob 저장소에 저장합니다. 모델 바인더는 메서드에 [HttpPostedFileBase](http://msdn.microsoft.com/ko-kr/library/system.web.httppostedfilebase.aspx) 개체를 제공합니다.
+대부분의 컨트롤러 코드는 DbContext 클래스를 사용한 Entity Framework 데이터 모델 작업에 일반적입니다. 예외는 HttpPost  `Create` 메서드이며, 이 메서드는 파일을 업로드하고 Blob 저장소에 저장합니다. 모델 바인더는 메서드에 [HttpPostedFileBase](http://msdn.microsoft.com/library/system.web.httppostedfilebase.aspx) 개체를 제공합니다.
 
 		[HttpPost]
 		[ValidateAntiForgeryToken]

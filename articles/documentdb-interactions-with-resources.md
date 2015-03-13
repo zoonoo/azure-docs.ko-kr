@@ -1,6 +1,20 @@
-﻿<properties title="Interact with DocumentDB resources" pageTitle="DocumentDB 리소스와 상호 작용 | Azure" description="DocumentDB는 .NET, Python, Node.js 및 JavaScript용 클라이언트 SDK를 제공하며, 모두 기본 REST API 위의 단순한 래퍼입니다." metaKeywords="" services="documentdb" solutions="data-management"  authors="bradsev" manager="jhubbard" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="DocumentDB 리소스와 RESTful 상호 작용 | Azure" 
+	description="HTTP 동사를 사용하여 Microsoft Azure DocumentDB 리소스와 함께 RESTful 상호 작용을 수행하는 방법에 대해 알아봅니다." 
+	services="documentdb" 
+	authors="mimig1" 
+	manager="jhubbard" 
+	editor="monicar" 
+	documentationCenter=""/>
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="spelluru" />
+<tags 
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/03/2015" 
+	ms.author="mimig"/>
 
 #DocumentDB 리소스 조작 
 DocumentDB는 HTTP를 통해 단순한 개방형 RESTful 프로그래밍 모델을 제공합니다. 미리 보기 릴리스에서 DocumentDB는 .NET, Python, Node.js 및 JavaScript용 클라이언트 SDK를 제공하며, 모두 기본 REST API 위의 단순한 래퍼입니다. 이후 릴리스에서는 C++ 및 Java SDK도 제공합니다. Microsoft에서 SDK를 개방한 것처럼, 특정 프로그래밍 환경을 위한 고유한 SDK를 작성하고 커뮤니티와 공유하는 것이 좋습니다. 
@@ -334,3 +348,5 @@ DocumentDB는 각 리소스에 해당 _self 링크로 식별되는 논리적이�
 
 [1]: ./media/documentdb-interactions-with-resources/interactions-with-resources1.png
 [2]: ./media/documentdb-interactions-with-resources/interactions-with-resources2.png
+
+<!--HONumber=46--> 

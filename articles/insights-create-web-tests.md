@@ -1,6 +1,18 @@
-﻿<properties title="How to create web test" pageTitle="웹 테스트를 만드는 방법" description="Azure에서 웹 테스트를 만드는 방법에 대해 알아봅니다." authors="awills" manager="kamrani" />
+﻿<properties 
+	pageTitle="웹 테스트를 만드는 방법" 
+	description="Azure에서 웹 테스트를 만드는 방법에 대해 알아봅니다." 
+	services="application-insights" 
+	authors="alancameronwills" 
+	manager="kamrani"/>
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-09-29" ms.author="awills"  />
+<tags 
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2015-01-17" 
+	ms.author="awills"/>
 
 # Microsoft Azure 웹 사이트에 대한 웹 테스트
 Azure 웹 사이트가 여전히 실행 중입니까? 빠른 속도로, 제대로 응답하고 있습니까? 웹 테스트를 구성하여 정기적으로 웹 사이트를 테스트합니다. 사이트가 가동 중지하거나 사이트 응답이 느리거나 잘못된 경우, 메일 경고를 수신합니다. 또한 시간 경과에 따라 사이트 가용성 및 응답성을 보여 주는 그래프를 확인할 수 있습니다.  
@@ -47,3 +59,5 @@ Basic 또는 Standard 요금제를 사용하는 Azure 웹 사이트에 대해 �
 ![Open in VS](./media/insights-create-web-tests/Insights_OpenInVS.png)
 
 [availability]: ../app-insights-monitor-web-app-availability/
+
+<!--HONumber=46--> 

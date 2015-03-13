@@ -1,6 +1,20 @@
-﻿<properties title="What is RemoteApp?" pageTitle="RemoteApp 정의" description="Azure RemoteApp에 대해 알아봅니다." metaKeywords="" services="" solutions="" documentationCenter="" authors="elizapo" manager="kathyw" />
+﻿<properties 
+	pageTitle="RemoteApp 정의" 
+	description="Azure RemoteApp에 대해 알아봅니다." 
+	services="remoteapp" 
+	documentationCenter="" 
+	authors="lizap" 
+	manager="mbaldwin" 
+	editor=""/>
 
-<tags ms.service="remoteapp" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/12/2014" ms.author="elizapo" ms.manager="mbaldwin" />
+<tags 
+	ms.service="remoteapp" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2/17/2015" 
+	ms.author="elizapo"/>
 
 #Azure RemoteApp이란?
  
@@ -8,9 +22,9 @@ Azure RemoteApp은 원격 데스크톱 서비스가 지원하는 온-프레미�
 
 RemoteApp을 Azure로 이동하면 복잡한 온-프레미스 구성에 대해 염려하지 않고 Azure의 저장소, 확장성 및 글로벌 환경을 활용할 수 있습니다. Microsoft는 Azure를 유지 관리하여 안정성을 보장하고 비즈니스에서 사용할 최상의 앱 생성과 같은 더 중요한 문제에 집중할 수 있게 합니다. Azure RemoteApp의 또 다른 장점은 액세스 가능성입니다. 사용자가 Windows, iOS, Mac OS X 및 Android 장치에서 RemoteApp 프로그램에 액세스할 수 있습니다. Azure 관리 포털을 사용하여 앱을 관리하는 동시에 사용자가 원하는 환경에서 앱을 사용할 수 있습니다. 
 
-RemoteApp에 대한 자세한 내용을 읽거나 이미 확신을 가진 경우 [지금 사용해 보세요](http://azure.microsoft.com/ko-kr/services/remoteapp/).
+RemoteApp에 대한 자세한 내용을 읽거나 이미 확신을 가진 경우 [지금 사용해 보세요](http://azure.microsoft.com/services/remoteapp/).
 
-Azure RemoteApp과 관련된 질문이 있는 경우 [FAQ](http://azure.microsoft.com/ko-kr/documentation/articles/remoteapp-faq/)를 확인하세요.
+Azure RemoteApp과 관련된 질문이 있는 경우 [FAQ](http://azure.microsoft.com/documentation/articles/remoteapp-faq/)를 확인하세요.
 
 Azure RemoteApp은 [Microsoft 가상 데스크톱 인프라](http://www.microsoft.com/ko-kr/server-cloud/products/virtual-desktop-infrastructure/explore.aspx)의 일부입니다.
 
@@ -25,16 +39,16 @@ Azure RemoteApp은 [Microsoft 가상 데스크톱 인프라](http://www.microsof
 
 ###클라우드 컬렉션
 
-[클라우드 RemoteApp 컬렉션](http://azure.microsoft.com/ko-kr/documentation/articles/remoteapp-create-cloud-deployment/)은 클라우드에서 응용 프로그램을 호스트하는 독립 실행형 방법을 제공합니다. 클라우드 컬렉션은 로컬 네트워크에 연결하지 않고 Azure 클라우드에만 있습니다.
+[클라우드 RemoteApp 컬렉션](http://azure.microsoft.com/documentation/articles/remoteapp-create-cloud-deployment/)은 클라우드에서 응용 프로그램을 호스트하는 독립 실행형 방법을 제공합니다. 클라우드 컬렉션은 로컬 네트워크에 연결하지 않고 Azure 클라우드에만 있습니다.
 
 RemoteApp 평가판의 일부로, 사전 설치되어 사용자와 공유할 수 있는 Office 365 ProPlus 또는 Office 2013 앱을 제공합니다. 사용 가능한 소프트웨어를 이용하도록 선택한 경우 서비스를 빠르게 프로비전할 수 있습니다.
 
 Office와 함께 클라우드 컬렉션을 사용할 경우 서비스가 빌드된 운영 체제 및 앱이 정기적인 업데이트를 통해 항상 최신 상태로 유지되며 Microsoft 맬웨어 방지 프로그램 끝점 보호를 통해 지속적으로 보호된다는 추가 장점이 있습니다. 최종 사용자는 Microsoft 계정이나 회사 자격 증명을 사용하여 앱에 액세스합니다. 관리자는 누가 어떤 앱에 액세스할 수 있어야 하는지만 파악하면 됩니다.
 
-클라우드 컬렉션을 만들어 사용자를 위해 사용자 지정 응용 프로그램 또는 응용 프로그램 집합을 공유할 수도 있습니다. 이렇게 하려면 [사용자 지정 템플릿 이미지를 만들고](http://azure.microsoft.com/ko-kr/documentation/articles/remoteapp-create-custom-image/)(앱을 RemoteApp에 게시하는 데 사용) 컬렉션을 만들 때 Office 2013 이미지 대신 해당 이미지를 선택하면 됩니다. 
+클라우드 컬렉션을 만들어 사용자를 위해 사용자 지정 응용 프로그램 또는 응용 프로그램 집합을 공유할 수도 있습니다. 이렇게 하려면 [사용자 지정 템플릿 이미지를 만들고](http://azure.microsoft.com/documentation/articles/remoteapp-create-custom-image/)(앱을 RemoteApp에 게시하는 데 사용) 컬렉션을 만들 때 Office 2013 이미지 대신 해당 이미지를 선택하면 됩니다. 
 
 ###하이브리드 컬렉션
-[하이브리드 RemoteApp 컬렉션](http://azure.microsoft.com/ko-kr/documentation/articles/remoteapp-create-hybrid-deployment/)을 사용하면 사용자 지정 응용 프로그램 집합을 사용자에게 제공하고 로컬 네트워크의 데이터와 리소스에 액세스하도록 할 수 있습니다. 클라우드 컬렉션과 함께 사용되는 사용자 지정 이미지와 달리 하이브리드 컬렉션용으로 만든 이미지는 도메인에 가입된 환경에서 앱을 실행하고 로컬 네트워크와 데이터에 대한 모든 권한을 부여합니다.
+[하이브리드 RemoteApp 컬렉션](http://azure.microsoft.com/documentation/articles/remoteapp-create-hybrid-deployment/)을 사용하면 사용자 지정 응용 프로그램 집합을 사용자에게 제공하고 로컬 네트워크의 데이터와 리소스에 액세스하도록 할 수 있습니다. 클라우드 컬렉션과 함께 사용되는 사용자 지정 이미지와 달리 하이브리드 컬렉션용으로 만든 이미지는 도메인에 가입된 환경에서 앱을 실행하고 로컬 네트워크와 데이터에 대한 모든 권한을 부여합니다.
 
 Active Directory와 Azure Active Directory가 통합되므로(DirSync 사용) 사용자가 회사 자격 증명을 사용하여 앱과 데이터에 액세스할 수 있습니다. Active Directory에서 회사 계정을 사용할 경우 회사 정책을 클라우드로 가져와 RemoteApp을 통해 제공하는 앱을 제어할 수 있습니다.
 
@@ -53,11 +67,13 @@ Azure RemoteApp은 Windows 및 Windows RT용 RemoteApp 클라이언트 앱과 Ma
 ##다음 단계
 지금 사용해보기! 다음은 RemoteApp를 시작하는 데 도움이 되는 문서입니다.
 
-- [RemoteApp용 사용자 지정 템플릿 이미지를 만드는 방법](http://azure.microsoft.com/ko-kr/documentation/articles/remoteapp-create-custom-image/)
-- [RemoteApp의 클라우드 컬렉션을 만드는 방법](http://azure.microsoft.com/ko-kr/documentation/articles/remoteapp-create-cloud-deployment/)
-- [RemoteApp의 하이브리드 컬렉션을 만드는 방법](http://azure.microsoft.com/ko-kr/documentation/articles/remoteapp-create-hybrid-deployment/) 
-- [RemoteApp의 라이선스 작동 방식](http://azure.microsoft.com/ko-kr/documentation/articles/remoteapp-licensing/)
-- [Azure RemoteApp 사용 모범 사례](http://azure.microsoft.com/ko-kr/documentation/articles/remoteapp-bestpractices/)
-- [Azure RemoteApp FAQ](http://azure.microsoft.com/ko-kr/documentation/articles/remoteapp-faq/)
+- [RemoteApp용 사용자 지정 템플릿 이미지를 만드는 방법](http://azure.microsoft.com/documentation/articles/remoteapp-create-custom-image/)
+- [RemoteApp의 클라우드 컬렉션을 만드는 방법](http://azure.microsoft.com/documentation/articles/remoteapp-create-cloud-deployment/)
+- [RemoteApp의 하이브리드 컬렉션을 만드는 방법](http://azure.microsoft.com/documentation/articles/remoteapp-create-hybrid-deployment/) 
+- [RemoteApp의 라이선스 작동 방식](http://azure.microsoft.com/documentation/articles/remoteapp-licensing/)
+- [Azure RemoteApp 사용 모범 사례](http://azure.microsoft.com/documentation/articles/remoteapp-bestpractices/)
+- [Azure RemoteApp FAQ](http://azure.microsoft.com/documentation/articles/remoteapp-faq/)
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

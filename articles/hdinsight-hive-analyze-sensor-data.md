@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Hive 및 Microsoft Azure HDInsight(Hadoop)를 사용하여 센서 데이터 분석" 
 	description="Hive와 Excel을 사용하여 HDInsight(Hadoop)에서 센서 데이터를 분석 및 시각화하는 방법에 대해 알아봅니다." 
 	services="hdinsight" 
@@ -16,7 +16,7 @@
 	ms.date="09/30/2014" 
 	ms.author="larryfr"/>
 
-#HDInsight와 함께 Hive를 사용하여 센서 데이터 분석
+# HDInsight와 함께 Hive를 사용하여 센서 데이터 분석
 
 HDInsight(Hadoop)에서 Hive를 사용하여 센서 데이터를 분석한 다음 Microsoft Excel에서 Power View를 사용하여 데이터를 시각화하는 방법에 대해 알아봅니다.
 
@@ -29,17 +29,17 @@ HDInsight(Hadoop)에서 Hive를 사용하여 센서 데이터를 분석한 다�
 
 ![A diagram of the solution architecture](./media/hdinsight-use-hive-sensor-data-analysis/hvac-architecture.png)
 
-##필수 조건:
+## 필수 조건:
 
 * HDInsight(Hadoop) 클러스터 - 클러스터를 만드는 방법에 대한 자세한 내용은 [HDInsight에서 Hadoop 클러스터 프로비전](/ko-kr/documentation/articles/hdinsight-provision-clusters/)을 참조하세요.
 
 * Microsoft Excel 2013
 
-	> [AZURE.NOTE] Microsoft Excel은 현재 Windows에서만 제공되는 [Power View](https://support.office.com/ko-kr/Article/Power-View-Explore-visualize-and-present-your-data-98268d31-97e2-42aa-a52b-a68cf460472e?ui=ko-kr&rs=ko-kr&ad=US)를 사용한 데이터 시각화에 사용됩니다.
+	> [AZURE.NOTE] Microsoft Excel은 현재 Windows에서만 제공되는 [Power View](https://support.office.com/en-US/Article/Power-View-Explore-visualize-and-present-your-data-98268d31-97e2-42aa-a52b-a68cf460472e?ui=en-US&rs=en-US&ad=US)를 사용한 데이터 시각화에 사용됩니다.
 
 * [Microsoft Hive ODBC 드라이버](http://www.microsoft.com/ko-kr/download/details.aspx?id=40886)
 
-##샘플을 실행하려면
+## 샘플을 실행하려면
 
 1. Azure 관리 포털에서 샘플을 실행할 클러스터를 클릭한 다음 아래쪽에서 **쿼리 콘솔**을 클릭합니다. 다음 URL을 사용하여 쿼리 콘솔을 직접 열 수도 있습니다.
 
@@ -51,4 +51,4 @@ HDInsight(Hadoop)에서 Hive를 사용하여 센서 데이터를 분석한 다�
 
 3. 웹 페이지에서 제공되는 지침에 따라 샘플을 완료합니다.
 
-<!--HONumber=42-->
+<!--HONumber=45--> 

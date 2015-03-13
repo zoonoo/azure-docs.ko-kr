@@ -41,9 +41,9 @@ Azure 가상 컴퓨터 갤러리에는 Microsoft SQL Server가 포함된 몇 개
 
     >[AZURE.NOTE] 플랫폼 이미지인 SQL Server 평가 버전을 사용하여 만든 가상 컴퓨터가 있는 경우 갤러리에서 분당 유료 버전 이미지로 업그레이드할 수 없습니다. 두 가지 옵션 중에서 선택할 수 있습니다.
     
-    > - 먼저, 갤러리에서 분당 유료 SQL Server 버전을 사용하여 새 가상 컴퓨터를 만들고 [데이터 디스크를 사용하여 Azure에서 가상 컴퓨터 간에 SQL Server 데이터베이스 파일 및 스키마를 마이그레이션하는 방법](http://go.microsoft.com/fwlink/p/?LinkId=294738)에 설명된 단계에 따라 데이터베이스 파일을 이 새 가상 컴퓨터로 마이그레이션합니다. **또는**
+   > - 먼저, 갤러리에서 분당 유료 SQL Server 버전을 사용하여 새 가상 컴퓨터를 만들고 [데이터 디스크를 사용하여 Azure에서 가상 컴퓨터 간에 SQL Server 데이터베이스 파일 및 스키마를 마이그레이션하는 방법](http://go.microsoft.com/fwlink/p/?LinkId=294738)에 설명된 단계에 따라 데이터베이스 파일을 이 새 가상 컴퓨터로 마이그레이션합니다. **또는**
 
-    > - [다른 버전의 SQL Server 2014로 업그레이드](http://go.microsoft.com/fwlink/?LinkId=396915)의 단계를 수행하여 ](http://azure.microsoft.com/pricing/license-mobility/)Azure에서 Software Assurance를 통한 라이선스 이동 계약[에 따라 SQL Server 평가판 버전의 기존 인스턴스를 다른 버전의 SQL Server로 업그레이드할 수 있습니다. 라이선스가 부여된 SQL Server를 구입하는 방법에 대한 자세한 내용은 [SQL Server 구입 방법](http://www.microsoft.com/ko-kr/sqlserver/get-sql-server/how-to-buy.aspx)을 참조하세요.
+   > - [다른 버전의 SQL Server 2014로 업그레이드](http://go.microsoft.com/fwlink/?LinkId=396915) 의 단계를 수행하여 [Azure에서 Software Assurance를](http://azure.microsoft.com/pricing/license-mobility/) 통한 라이선스 이동 계약에 따라 SQL Server 평가판 버전의 기존 인스턴스를 다른 버전의 SQL Server로 업그레이드할 수 있습니다. 라이선스가 부여된 SQL Server를 구입하는 방법에 대한 자세한 내용은 [SQL Server 구입 방법](http://www.microsoft.com/ko-kr/sqlserver/get-sql-server/how-to-buy.aspx)을 참조하세요.
    
 
 4. 첫 번째 **가상 컴퓨터 구성** 페이지에서 다음 정보를 입력합니다.
@@ -54,12 +54,12 @@ Azure 가상 컴퓨터 갤러리에는 Microsoft SQL Server가 포함된 몇 개
 	- 드롭다운 목록에서 적절한 **크기**를 선택합니다. 
 
 	>[AZURE.NOTE] 가상 컴퓨터의 크기는 프로비전 중 지정합니다.
- 	> AA2는 프로덕션 작업용으로 권장되는 최소 크기입니다. 
+ 	> A2는 프로덕션 작업용으로 권장되는 최소 크기입니다. 
     > SQL Server Enterprise Edition을 사용할 경우 가상 컴퓨터의 최소 권장 크기는 A3입니다.
     > SQL Server Enterprise Edition을 사용할 경우 A3 이상을 선택합니다.
    	> 트랜잭션 작업 이미지에 최적화된 SQL Server 2012 또는 2014 Enterprise를 사용할 때는 A4를 선택합니다.  
    	> 데이터 웨어하우스 작업 이미지에 최적화된 SQL Server 2012 또는 2014 Enterprise를 사용할 때는 A7을 선택합니다. 
-   	> T선택한 크기는 구성할 수 있는 데이터 디스크 수를 제한합니다. 사용 가능한 가상 컴퓨터 크기 및 가상 컴퓨터에 연결할 수 있는 데이터 디스크 수에 대한 최신 정보는 [Azure의 가상 컴퓨터 크기](http://msdn.microsoft.com/library/azure/dn197896.aspx)를 참조하세요.
+   	> 선택한 크기는 구성할 수 있는 데이터 디스크 수를 제한합니다. 사용 가능한 가상 컴퓨터 크기 및 가상 컴퓨터에 연결할 수 있는 데이터 디스크 수에 대한 최신 정보는 [Azure의 가상 컴퓨터 크기](http://msdn.microsoft.com/library/azure/dn197896.aspx)를 참조하세요.
 
 	오른쪽 아래에 있는 다음 화살표를 클릭하여 계속합니다.
 
@@ -99,7 +99,7 @@ Azure 가상 컴퓨터 갤러리에는 Microsoft SQL Server가 포함된 몇 개
 	
 3. **Windows 보안** 대화 상자에서, 이전 단계에서 지정한 로컬 관리자 계정의 암호를 입력합니다. 가상 컴퓨터의 자격 증명을 확인하도록 요청될 수도 있습니다.
 
-4. 이 가상 컴퓨터에 처음 로그온하는 경우 데스크톱 설정, Windows 업데이트 및 Windows 초기 구성 작업(sysprep) 완료를 포함하여 여러 프로세스를 완료해야 할 수 있습니다. Windows sysprep이 완료되면 SQL Server 설치 프로세스에서 구성 작업을 완료합니다. 이러한 작업으로 인해 완료되는 동안 잠시 지연이 발생할 수 있습니다. SQL Server 설치가 완료될 때까지 `SELECT @@SERVERNAME`에서 올바른 이름을 반환하지 못할 수 있으며, SQL Server Management Studio가 시작 페이지에 표시되지 않을 수 있습니다.
+4. 이 가상 컴퓨터에 처음 로그온하는 경우 데스크톱 설정, Windows 업데이트 및 Windows 초기 구성 작업(sysprep) 완료를 포함하여 여러 프로세스를 완료해야 할 수 있습니다. Windows sysprep이 완료되면 SQL Server 설치 프로세스에서 구성 작업을 완료합니다. 이러한 작업으로 인해 완료되는 동안 잠시 지연이 발생할 수 있습니다. SQL Server 설치가 완료될 때까지  `SELECT @@SERVERNAME`에서 올바른 이름을 반환하지 못할 수 있으며, SQL Server Management Studio가 시작 페이지에 표시되지 않을 수 있습니다.
 
 Windows 원격 데스크톱을 사용하여 가상 컴퓨터에 연결된 후 가상 컴퓨터는 다른 컴퓨터와 상당히 유사하게 작동합니다. SQL Server Management Studio(가상 컴퓨터에서 실행 중인)가 설치되어 있는 기본 SQL Server 인스턴스에 일반적인 방식으로 연결합니다. 
 
@@ -152,7 +152,7 @@ Windows 원격 데스크톱을 사용하여 가상 컴퓨터에 연결된 후 �
 	![Start the Firewall Program][Image12]
 2. **고급 보안이 포함된 Windows 방화벽**의 왼쪽 창에 있는 작업 창에서 **인바운드 규칙**을 마우스 오른쪽 단추로 클릭한 후 **새 규칙**을 클릭합니다.
 
-	![New Rule][Image13]
+	![새 규칙][Image13]
 
 3. **규칙 유형** 대화 상자에서 **포트**를 선택한 후 **다음**을 클릭합니다.
 
@@ -170,7 +170,7 @@ Windows 원격 데스크톱을 사용하여 가상 컴퓨터에 연결된 후 �
 
 7. **프로필** 대화 상자에서 **공개**를 선택한 후 **다음**을 클릭합니다. 
 
-    **보안 정보:** **공개**를 선택하면 인터넷을 통해 액세스할 수 있습니다. 가능하면 보다 제한적인 프로필을 선택하세요.
+    **보안 정보:**  **공개**를 선택하면 인터넷을 통한 액세스가 허용됩니다. 가능하면 더 제한적인 프로필을 선택하세요.
 
 	![Public Profile][Image16]
 
@@ -183,7 +183,7 @@ Windows 원격 데스크톱을 사용하여 가상 컴퓨터에 연결된 후 �
 
 ###<a id="TCP">TCP 프로토콜을 수신 대기하도록 SQL Server 구성</a>
 
-1. 원격 데스크톱을 사용하여 가상 컴퓨터에 연결되어 있는 동안 시작 메뉴에서 **모든 프로그램**, **Microsoft SQL Server** *version*, **구성 도구** 및 **SQL Server 구성 관리자**를 차례로 클릭합니다.
+1. 원격 데스크톱을 사용하여 가상 컴퓨터에 연결되어 있는 동안 시작 메뉴에서 **모든 프로그램**, **Microsoft SQL Server**  *version*, **구성 도구** 및 **SQL Server 구성 관리자**를 차례로 클릭합니다.
 	
 	![Open SSCM][Image9]
 
@@ -288,7 +288,7 @@ SQL Server 로그인에 대한 자세한 내용은 [로그인 만들기](http://
  
 1. 인터넷에 연결된 컴퓨터에서 SQL Server Management Studio를 엽니다.
 
-2. **서버에 연결** 또는 **데이터베이스 엔진에 연결** 대화 상자의 **서버 이름** 상자에 가상 컴퓨터의 DNS 이름(이전 작업에서 확인된 이름) 및 공개 끝점 포트 번호를 *DNSName,portnumber* 형식(예: **tutorialtestVM.cloudapp.net,57500**)으로 입력합니다.
+2. **서버에 연결** 또는 **데이터베이스 엔진에 연결** 대화 상자의 **서버 이름** 상자에 가상 컴퓨터의 DNS 이름(이전 작업에서 확인된 이름) 및 공개 끝점 포트 번호를  *DNSName,portnumber* 형식(예: **tutorialtestVM.cloudapp.net,57500**)으로 입력합니다.
 
 3. **인증** 상자에서 **SQL Server 인증**을 선택합니다.
 
@@ -387,7 +387,8 @@ Management Studio를 사용하여 Azure 가상 컴퓨터에서 실행 중인 SQL
 [Image15]: ./media/virtual-machines-provision-sql-server/15Allow-Connection.png
 [Image16]: ./media/virtual-machines-provision-sql-server/16Public-Profile.png
 [Image17]: ./media/virtual-machines-provision-sql-server/17Rule-Name.png
-[Image18]: ./media/virtual-machines-provision-sql-server/18Start-SSMS.png
+[Image18]: ./media/virtual-machines-provision-sql-server/18Start-SS
+	ms.png
 [Image19]: ./media/virtual-machines-provision-sql-server/19Connect-to-Server.png
 [Image20]: ./media/virtual-machines-provision-sql-server/20Server-Properties.png
 [Image21]: ./media/virtual-machines-provision-sql-server/21Mixed-Mode.png
@@ -400,6 +401,8 @@ Management Studio를 사용하여 Azure 가상 컴퓨터에서 실행 중인 SQL
 [Image30]: ./media/virtual-machines-provision-sql-server/30Endpoint-Details.png
 [Image31]: ./media/virtual-machines-provision-sql-server/31VM-Connect.png
 [Image32]: ./media/virtual-machines-provision-sql-server/32DNS-Name.png
-[Image33]: ./media/virtual-machines-provision-sql-server/33Connect-SSMS.png
+[Image33]: ./media/virtual-machines-provision-sql-server/33Connect-SS
+	ms.png
 
-<!--HONumber=45--> 
+
+<!--HONumber=42-->

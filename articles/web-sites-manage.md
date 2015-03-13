@@ -83,7 +83,7 @@ Azure 포털에서 페이지 또는 "탭" 집합을 사용하여 웹 사이트�
 **모니터** 관리 페이지는 웹 사이트의 사용량 정보를 표시하는 차트를 제공합니다. 기본적으로 차트는 위의 대시보드 섹션에서 설명한 **대시보드** 페이지의 차트와 동일한 메트릭을 표시합니다. 또한 HTTP 성공, HTTP 리디렉션, HTTP 401 오류, HTTP 403 오류, HTTP 404 오류 및 HTTP 406 오류 메트릭을 표시하도록 차트를 구성할 수도 있습니다. 이러한 메트릭에 대한 자세한 내용은 [웹 사이트를 모니터링하는 방법][Monitor]을 참조하세요.
 
 ##웹 작업##
-웹 작업 관리 페이지에서 주문형, 예약형 또는 연속형 웹 사이트 작업을 만들 수 있습니다. 자세한 내용은 [Microsoft Azure 웹 사이트에서 WebJob 기능 사용 방법](http://www.windowsazure.com/ko-kr/documentation/articles/web-sites-create-web-jobs/)을 참조하세요.
+웹 작업 관리 페이지에서 주문형, 예약형 또는 연속형 웹 사이트 작업을 만들 수 있습니다. 자세한 내용은 [Microsoft Azure 웹 사이트에서 WebJob 기능 사용 방법](http://azure.microsoft.com/documentation/articles/web-sites-create-web-jobs/)을 참조하세요.
 
 ##구성##
 **구성** 관리 페이지는 응용 프로그램별 설정을 지정하는 데 사용됩니다.
@@ -102,7 +102,7 @@ Azure 포털에서 페이지 또는 "탭" 집합을 사용하여 웹 사이트�
 **연결된 리소스** 관리 페이지는 SQL 데이터베이스, MySQL 데이터베이스, Azure 저장소 계정 등 웹 사이트에서 사용 중인 Microsoft Azure 리소스의 목록을 제공합니다. 관리할 리소스의 이름을 클릭하십시오.
 
 ##백업##
-**백업** 관리 페이지에서 웹 사이트의 자동 또는 수동 백업을 만들거나 웹 사이트를 이전 상태로 복원하거나 백업 중 하나를 기반으로 새 웹 사이트를 만들 수 있습니다. 자세한 내용은 [Microsoft Azure 웹 사이트 백업](http://www.windowsazure.com/ko-kr/documentation/articles/web-sites-backup/) 및 [Microsoft Azure 웹 사이트 복원](http://www.windowsazure.com/ko-kr/documentation/articles/web-sites-restore/)을 참조하세요.
+**백업** 관리 페이지에서 웹 사이트의 자동 또는 수동 백업을 만들거나 웹 사이트를 이전 상태로 복원하거나 백업 중 하나를 기반으로 새 웹 사이트를 만들 수 있습니다. 자세한 내용은 [Microsoft Azure 웹 사이트 백업](http://azure.microsoft.com/documentation/articles/web-sites-backup/) 및 [Microsoft Azure 웹 사이트 복원](http://azure.microsoft.com/documentation/articles/web-sites-restore/)을 참조하세요.
 
 ##관리 페이지 아이콘##
 아이콘은 각 웹 사이트 관리 페이지의 맨 아래에 표시됩니다. 이 중 몇몇 아이콘은 여러 페이지에 표시되고 특정 페이지에만 표시되는 아이콘도 있습니다.  다음 아이콘이 **대시보드** 관리 페이지의 맨 아래에 표시됩니다.
@@ -210,11 +210,11 @@ Azure 포털에서 페이지 또는 "탭" 집합을 사용하여 웹 사이트�
 
 [azuresdk]:http://go.microsoft.com/fwlink/?LinkId=246928
 
-[구성]: http://www.windowsazure.com/ko-kr/manage/services/web-sites/how-to-configure-websites
+[구성]: http://azure.microsoft.com/manage/services/web-sites/how-to-configure-websites
 
-[모니터]: http://www.windowsazure.com/ko-kr/manage/services/web-sites/how-to-monitor-websites/
+[모니터]: http://azure.microsoft.com/manage/services/web-sites/how-to-monitor-websites/
 
-[크기 조정]: http://www.windowsazure.com/ko-kr/manage/services/web-sites/how-to-scale-websites
+[크기 조정]: http://azure.microsoft.com/manage/services/web-sites/how-to-scale-websites
 
 
 <!-- Anchors. -->

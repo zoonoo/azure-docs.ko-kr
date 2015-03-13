@@ -1,6 +1,20 @@
-﻿<properties pageTitle="JavaScript 백 엔드 모바일 서비스 작업" description="Azure 모바일 서비스에서 서버 스크립트를 정의, 등록 및 사용하는 방법에 대한 예제를 제공합니다." services="mobile-services" documentationCenter="" authors="RickSaling" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="JavaScript 백 엔드 모바일 서비스 작업" 
+	description="Azure 모바일 서비스에서 서버 스크립트를 정의, 등록 및 사용하는 방법에 대한 예제를 제공합니다." 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="RickSaling" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="ricksal"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="ricksal"/>
 
 
 # JavaScript 백 엔드 모바일 서비스 작업
@@ -231,7 +245,8 @@ execute를 호출할 때 **success** 처리기를 전달하면 쿼리 결과를 
 		    }
 
 		    function insertItemIfNotComplete(existingItems) {
-		        if (existingItems.length > 0) {
+		        if (existingIte
+	ms.length > 0) {
 		            request.respond(statusCodes.CONFLICT, 
                         "Duplicate items are not allowed.");
 		        } else {
@@ -945,34 +960,34 @@ npm(Node.js 패키지 관리자)과 함께 소스 제어를 사용하여 모바�
 [4]: ./media/mobile-services-how-to-use-server-scripts/4-mobile-source-local-cli.png
 
 <!-- URLs. -->
-[모바일 서비스 서버 스크립트 참조]: http://msdn.microsoft.com/ko-kr/library/windowsazure/jj554226.aspx
+[모바일 서비스 서버 스크립트 참조]: http://msdn.microsoft.com/library/windowsazure/jj554226.aspx
 [모바일 서비스에서 백 엔드 작업 예약]: /ko-kr/develop/mobile/tutorials/schedule-backend-tasks/
-[request object]: http://msdn.microsoft.com/ko-kr/library/windowsazure/jj554218.aspx
-[response object]: http://msdn.microsoft.com/ko-kr/library/windowsazure/dn303373.aspx
-[User object]: http://msdn.microsoft.com/ko-kr/library/windowsazure/jj554220.aspx
-[push object]: http://msdn.microsoft.com/ko-kr/library/windowsazure/jj554217.aspx
-[insert 함수]: http://msdn.microsoft.com/ko-kr/library/windowsazure/jj554229.aspx
-[insert]: http://msdn.microsoft.com/ko-kr/library/windowsazure/jj554229.aspx
-[update 함수]: http://msdn.microsoft.com/ko-kr/library/windowsazure/jj554214.aspx
-[delete 함수]: http://msdn.microsoft.com/ko-kr/library/windowsazure/jj554215.aspx
-[read 함수]: http://msdn.microsoft.com/ko-kr/library/windowsazure/jj554224.aspx
-[update]: http://msdn.microsoft.com/ko-kr/library/windowsazure/jj554214.aspx
-[delete]: http://msdn.microsoft.com/ko-kr/library/windowsazure/jj554215.aspx
-[read]: http://msdn.microsoft.com/ko-kr/library/windowsazure/jj554224.aspx
-[query 개체]: http://msdn.microsoft.com/ko-kr/library/windowsazure/jj613353.aspx
-[apns 개체]: http://msdn.microsoft.com/ko-kr/library/windowsazure/jj839711.aspx
-[mpns 개체]: http://msdn.microsoft.com/ko-kr/library/windowsazure/jj871025.aspx
-[wns 개체]: http://msdn.microsoft.com/ko-kr/library/windowsazure/jj860484.aspx
-[table 개체]: http://msdn.microsoft.com/ko-kr/library/windowsazure/jj554210.aspx
-[tables 개체]: http://msdn.microsoft.com/ko-kr/library/windowsazure/jj614364.aspx
-[mssql 개체]: http://msdn.microsoft.com/ko-kr/library/windowsazure/jj554212.aspx
-[console 개체]: http://msdn.microsoft.com/ko-kr/library/windowsazure/jj554209.aspx
-[데이터 읽기 및 쓰기]: http://msdn.microsoft.com/ko-kr/library/windowsazure/jj631640.aspx
-[데이터 유효성 검사]: http://msdn.microsoft.com/ko-kr/library/windowsazure/jj631638.aspx
-[요청 수정]: http://msdn.microsoft.com/ko-kr/library/windowsazure/jj631635.aspx
-[응답 수정]: http://msdn.microsoft.com/ko-kr/library/windowsazure/jj631631.aspx
+[request object]: http://msdn.microsoft.com/library/windowsazure/jj554218.aspx
+[response object]: http://msdn.microsoft.com/library/windowsazure/dn303373.aspx
+[User object]: http://msdn.microsoft.com/library/windowsazure/jj554220.aspx
+[push object]: http://msdn.microsoft.com/library/windowsazure/jj554217.aspx
+[insert 함수]: http://msdn.microsoft.com/library/windowsazure/jj554229.aspx
+[insert]: http://msdn.microsoft.com/library/windowsazure/jj554229.aspx
+[update 함수]: http://msdn.microsoft.com/library/windowsazure/jj554214.aspx
+[delete 함수]: http://msdn.microsoft.com/library/windowsazure/jj554215.aspx
+[read 함수]: http://msdn.microsoft.com/library/windowsazure/jj554224.aspx
+[update]: http://msdn.microsoft.com/library/windowsazure/jj554214.aspx
+[delete]: http://msdn.microsoft.com/library/windowsazure/jj554215.aspx
+[read]: http://msdn.microsoft.com/library/windowsazure/jj554224.aspx
+[query 개체]: http://msdn.microsoft.com/library/windowsazure/jj613353.aspx
+[apns 개체]: http://msdn.microsoft.com/library/windowsazure/jj839711.aspx
+[mpns 개체]: http://msdn.microsoft.com/library/windowsazure/jj871025.aspx
+[wns 개체]: http://msdn.microsoft.com/library/windowsazure/jj860484.aspx
+[table 개체]: http://msdn.microsoft.com/library/windowsazure/jj554210.aspx
+[tables 개체]: http://msdn.microsoft.com/library/windowsazure/jj614364.aspx
+[mssql 개체]: http://msdn.microsoft.com/library/windowsazure/jj554212.aspx
+[console 개체]: http://msdn.microsoft.com/library/windowsazure/jj554209.aspx
+[데이터 읽기 및 쓰기]: http://msdn.microsoft.com/library/windowsazure/jj631640.aspx
+[데이터 유효성 검사]: http://msdn.microsoft.com/library/windowsazure/jj631638.aspx
+[요청 수정]: http://msdn.microsoft.com/library/windowsazure/jj631635.aspx
+[응답 수정]: http://msdn.microsoft.com/library/windowsazure/jj631631.aspx
 [관리 포털]: https://manage.windowsazure.com/
-[작업 예약]: http://msdn.microsoft.com/ko-kr/library/windowsazure/jj860528.aspx
+[작업 예약]: http://msdn.microsoft.com/library/windowsazure/jj860528.aspx
 [모바일 서비스에서 서버 스크립트를 사용하여 데이터 유효성 검사 및 수정]: /ko-kr/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet/
 [Azure 모바일 서비스를 관리하는 명령]: /ko-kr/manage/linux/other-resources/command-line-tools/#Commands_to_manage_mobile_services/#Mobile_Scripts
 [Windows 스토어 푸시]: /ko-kr/develop/mobile/tutorials/get-started-with-push-dotnet/
@@ -980,7 +995,7 @@ npm(Node.js 패키지 관리자)과 함께 소스 제어를 사용하여 모바�
 [iOS 푸시]: /ko-kr/develop/mobile/tutorials/get-started-with-push-ios/
 [Android 푸시]: /ko-kr/develop/mobile/tutorials/get-started-with-push-android/
 [Azure SDK for Node.js]: http://go.microsoft.com/fwlink/p/?LinkId=275539
-[HTTP 요청 보내기]: http://msdn.microsoft.com/ko-kr/library/windowsazure/jj631641.aspx
+[HTTP 요청 보내기]: http://msdn.microsoft.com/library/windowsazure/jj631641.aspx
 [SendGrid로 모바일 서비스에서 메일 보내기]: /ko-kr/develop/mobile/tutorials/send-email-with-sendgrid/
 [인증 시작](영문): http://go.microsoft.com/fwlink/p/?LinkId=287177
 [crypto API]: http://go.microsoft.com/fwlink/p/?LinkId=288802
@@ -989,16 +1004,16 @@ npm(Node.js 패키지 관리자)과 함께 소스 제어를 사용하여 모바�
 [url API]: http://go.microsoft.com/fwlink/p/?LinkId=288805
 [util API]: http://go.microsoft.com/fwlink/p/?LinkId=288806
 [zlib API]: http://go.microsoft.com/fwlink/p/?LinkId=288807
-[사용자 지정 API]: http://msdn.microsoft.com/ko-kr/library/windowsazure/dn280974.aspx
+[사용자 지정 API]: http://msdn.microsoft.com/library/windowsazure/dn280974.aspx
 [클라이언트에서 사용자 지정 API 호출]: /ko-kr/develop/mobile/tutorials/call-custom-api-dotnet/#define-custom-api
 [express.js 라이브러리]: http://go.microsoft.com/fwlink/p/?LinkId=309046
 [정기 알림을 지원하는 사용자 지정 API 정의]: /ko-kr/develop/mobile/tutorials/create-pull-notifications-dotnet/
 [express.js의 express 개체]: http://expressjs.com/api.html#express
 [소스 제어에 서버 스크립트 저장]: /ko-kr/develop/mobile/tutorials/store-scripts-in-source-control/
 [서버 스크립트에서 공유 코드 및 Node.js 모듈 활용]: /ko-kr/develop/mobile/tutorials/store-scripts-in-source-control/#use-npm
-[service 개체]: http://msdn.microsoft.com/ko-kr/library/windowsazure/dn303371.aspx
-[앱 설정]: http://msdn.microsoft.com/ko-kr/library/dn529070.aspx
-[구성 모듈]: http://msdn.microsoft.com/ko-kr/library/dn508125.aspx
+[service 개체]: http://msdn.microsoft.com/library/windowsazure/dn303371.aspx
+[앱 설정]: http://msdn.microsoft.com/library/dn529070.aspx
+[구성 모듈]: http://msdn.microsoft.com/library/dn508125.aspx
 [Azure 모바일 서비스의 package.json 지원]: http://go.microsoft.com/fwlink/p/?LinkId=391036
 
 

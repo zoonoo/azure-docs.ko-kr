@@ -1,6 +1,20 @@
-﻿<properties title="Azure Stream Analytics limitations in the preview release" pageTitle=" 미리 보기 릴리스의 스트림 분석 제한 | Azure" description="Azure 스트림 분석 작업의 공개 미리 보기 릴리스에 대한 제한 사항을 알아봅니다." metaKeywords="" services="stream analytics" solutions="" documentationCenter="" authors="jgao" videoId="" scriptId="" manager="paulettm" editor="cgronlun"/>
+﻿<properties 
+	pageTitle="미리 보기 릴리스의 스트림 분석 제한 | Azure" 
+	description="Azure 스트림 분석 작업의 공개 미리 보기 릴리스에 대한 제한 사항을 알아봅니다." 
+	services="stream-analytics" 
+	documentationCenter="" 
+	authors="mumian" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="stream-analytics" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="data-services" ms.date="10/28/2014" ms.author="jgao" />
+<tags 
+	ms.service="stream-analytics" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.workload="data-services" 
+	ms.date="2/10/2015" 
+	ms.author="jgao"/>
 
 #Azure 스트림 분석 미리 보기 제한 사항 및 알려진 문제
 
@@ -131,8 +145,10 @@ LEFT OUTER JOIN 작업은 스트림 분석 쿼리 언어에서 사용할 수 있
 
 
 [microsoft.support]: http://support.microsoft.com/
-[azure.event.hubs.developer.guide]: http://msdn.microsoft.com/ko-kr/library/azure/dn789972.aspx
+[azure.event.hubs.developer.guide]: http://msdn.microsoft.com/library/azure/dn789972.aspx
 
 [다른 azure.microsoft.com 설명서 항목에 대한 링크 1]: ../virtual-machines-windows-tutorial/
 [다른 azure.microsoft.com 설명서 항목에 대한 링크 2]: ../web-sites-custom-domain-name/
 [다른 azure.microsoft.com 설명서 항목에 대한 링크 3]: ../storage-whatis-account/
+
+<!--HONumber=46--> 

@@ -322,7 +322,7 @@ Azure HDInsight는 데이터 저장소에 Azure Blob 저장소를 사용합니�
 		$containerName_Data = "<ContainerName>"
 		$location = "<MicrosoftDataCenter>"  # For example, "East US"
 
-	**$subscripionName**은 Azure 구독과 연결됩니다. **$storageAccountName\_Data** 및 **$containerName\_Data**의 이름을 지정해야 합니다. 명명 제한에 대해서는 [컨테이너와 Blob, 메타데이터의 명명 및 참조](http://msdn.microsoft.com/ko-kr/library/windowsazure/dd135715.aspx)를 참조하세요. 
+	**$subscripionName**은 Azure 구독과 연결됩니다. **$storageAccountName\_Data** 및 **$containerName\_Data**의 이름을 지정해야 합니다. 명명 제한에 대해서는 [컨테이너와 Blob, 메타데이터의 명명 및 참조](http://msdn.microsoft.com/library/windowsazure/dd135715.aspx)를 참조하세요. 
 
 3. 다음 명령을 실행하여 저장소 계정 및 계정의 Blob 저장소 컨테이너를 만듭니다.
 
@@ -586,9 +586,9 @@ Azure HDInsight는 데이터 저장소에 Azure Blob 저장소를 사용합니�
 - [파워 쿼리로 HDInsight에 Excel 연결][hdinsight-power-query]
 - [Microsoft Hive ODBC 드라이버로 HDInsight에 Excel 연결(영문)][hdinsight-ODBC]
 
-[azure-purchase-options]: http://azure.microsoft.com/ko-kr/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/ko-kr/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/ko-kr/pricing/free-trial/
+[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
 [hdinsight-use-sqoop]: ../hdinsight-use-sqoop/
 [hdinsight-ODBC]: ../hdinsight-connect-excel-hive-ODBC-driver/
@@ -613,6 +613,5 @@ Azure HDInsight는 데이터 저장소에 Azure Blob 저장소를 사용합니�
 
 [image-emulator-wordcount-compile]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Compile-Java-MapReduce.png
 [image-emulator-wordcount-run]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Run-Java-MapReduce.png
-
 
 <!--HONumber=42-->

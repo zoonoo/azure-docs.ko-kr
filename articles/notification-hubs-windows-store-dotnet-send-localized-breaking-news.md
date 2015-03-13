@@ -1,6 +1,20 @@
-<properties urlDisplayName="Localized Breaking News" pageTitle="알림 허브 지역화된 속보 자습서" metaKeywords="" description="Azure 서비스 버스 알림 허브를 사용하여 지역화된 최신 뉴스 알림을 보내는 방법에 대해 알아봅니다." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="" title="Use Notification Hubs to send localized breaking news" authors="ricksal" solutions="" manager="dwrede" editor="" />
+<properties 
+	pageTitle="알림 허브 지역화된 속보 자습서" 
+	description="Azure 서비스 버스 알림 허브를 사용하여 지역화된 최신 뉴스 알림을 보내는 방법에 대해 알아봅니다." 
+	services="notification-hubs" 
+	documentationCenter="windows" 
+	authors="RickSaling" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal" />
+<tags 
+	ms.service="notification-hubs" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="ricksal"/>
 # 알림 허브를 사용하여 지역화된 속보 보내기
 
 <div class="dev-center-tutorial-selector sublanding"> 
@@ -11,7 +25,7 @@
 
 이 자습서에서는 이 시나리오를 사용하기 위한 다음 기본 단계를 차례로 안내합니다.
 
-1. [템플릿 개념] 
+1. [템플릿 개념]
 2. [앱 사용자 인터페이스]
 3. [Windows 스토어 클라이언트 앱 빌드]
 4. [백 엔드에서 알림 보내기]
@@ -60,7 +74,7 @@ Visual Studio 2012도 필요합니다.
 
 
 
-템플릿은 [알림 허브 지침] 문서에서 자세한 내용을 알아볼 수 있는 매우 강력한 기능입니다. 템플릿 표현 언어에 대한 참조는 [Windows 스토어용 알림 허브 방법]을 참조하세요.
+템플릿은 [알림 허브 지침] 문서에서 자세한 내용을 알아볼 수 있는 매우 강력한 기능입니다. 템플릿 표현 언어에 대한 참조는 [Windows 스토어용 알림 허브 사용 방법]을 참조하세요.
 
 
 <h2><a name="ui"></a>앱 사용자 인터페이스</h2>
@@ -68,7 +82,7 @@ Visual Studio 2012도 필요합니다.
 이제 [알림 허브를 사용하여 속보 보내기] 항목에서 만든 속보 앱을 수정하고 템플릿을 사용하여 지역화된 속보를 보냅니다.
 
 
-지역화된 메시지를 받도록 클라이언트 앱을 조정하려면 *네이티브* 등록(즉, 템플릿을 지정하는 등록)을 템플릿 등록으로 바꿔야 합니다.
+지역화된 메시지를 받도록 클라이언트 앱을 조정하려면 *native* 등록(템플릿을 지정하는 등록)을 템플릿 등록으로 바꿔야 합니다.
 
 
 Windows 스토어 앱에서
@@ -104,7 +118,7 @@ Windows 스토어 앱에서
         <Button Content="Subscribe" HorizontalAlignment="Center" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Click="Button_Click" />
     </Grid>
 
-<h2><a name="building-client"></a><span class="building app">앱 ui</span>Windows 스토어 클라이언트 앱 빌드</h2>
+<h2><a name="building-client"></a><span class="building app">앱 UI</span>Windows 스토어 클라이언트 앱 빌드</h2>
 
 1. Notifications 클래스에서 *StoreCategoriesAndSubscribe* 및 *SubscribeToCateories* 메서드에 로캘 매개 변수를 추가합니다.
 
@@ -123,7 +137,7 @@ Windows 스토어 앱에서
             await hub.RegisterTemplateAsync(channel.Uri, template, "newsTemplate", categories);
         }
 
-	*RegisterNativeAsync* 메서드를 호출하는 대신 *RegisterTemplateAsync*를 호출합니다. 템플릿이 로캘에 종속하는 특정 알림 형식을 등록합니다. 또한 알림 메시지용 템플릿, 타일 알림용 템플릿 등 여러 템플릿을 등록할 수도 있으므로 템플릿의 이름("newsTemplate")을 제공합니다. 그런 다음 템플릿을 업데이트하거나 삭제하려면 해당 이름을 지정해야 합니다.
+	여기서는 템플릿이 로캘에 따라 달라지는 특정 알림 형식을 등록할 것이기 때문에 *RegisterNativeAsync* 메서드를 호출하는 대신 *RegisterTemplateAsync*를 호출합니다. 또한 알림 메시지용 템플릿, 타일 알림용 템플릿 등 여러 템플릿을 등록할 수도 있으므로 템플릿의 이름("newsTemplate")을 제공합니다. 그런 다음 템플릿을 업데이트하거나 삭제하려면 해당 이름을 지정해야 합니다.
 
 	장치에서 동일한 태그로 여러 템플릿을 등록한 경우 해당 태그를 대상으로 하는 수신 메시지는 템플릿별로 하나씩 여러 알림을 장치에 제공합니다. 이 동작은 동일한 논리 메시지로 여러 시각적 알림을 나타내야 하는 경우(예: Windows 스토어 응용 프로그램에 배지와 알림을 모두 표시해야 하는 경우)에 유용합니다.
 
@@ -153,15 +167,15 @@ Windows 스토어 앱에서
          dialog.Commands.Add(new UICommand("OK"));
          await dialog.ShowAsync();
 
-4. 마지막으로 App.xaml.cs 파일에서 *OnLaunched* 메서드로 
-알림 단일 항목에 대한 호출을 업데이트해야 합니다.
+4. 마지막으로 App.xaml.cs 
+파일의 *OnLaunched* 메서드에서 알림 단일 항목에 대한 호출을 업데이트합니다.
 
 		Notifications.SubscribeToCategories(Notifications.RetrieveLocale(), Notifications.RetrieveCategories());
 
 
 <h2><a name="send"></a>백 엔드에서 지역화된 알림 보내기</h2>
 
-[WACOM.INCLUDE [notification-hubs-localized-back-end](../includes/notification-hubs-localized-back-end.md)]
+[AZURE.INCLUDE [notification-hubs-localized-back-end](../includes/notification-hubs-localized-back-end.md)]
 
 
 
@@ -169,7 +183,7 @@ Windows 스토어 앱에서
 
 ## 다음 단계
 
-템플릿 사용에 대한 자세한 내용은 [알림 허브를 통해 사용자에게 알림: ASP.NET], [알림 허브를 통해 사용자에게 알림: 모바일 서비스] 및 [알림 허브 지침]을 참조하세요. 템플릿 표현 언어에 대한 자세한 내용은 [Windows 스토어용 알림 허브 방법]을 참조하세요.
+템플릿 사용에 대한 자세한 내용은 [알림 허브를 통해 사용자에게 알림: ASP.NET], [알림 허브를 통해 사용자에게 알림: 모바일 서비스] 및 [알림 허브 지침]을 참조하세요. 템플릿 표현 언어에 대한 자세한 내용은 [Windows 스토어용 알림 허브 사용 방법]을 참조하세요.
 
 <!-- Anchors. -->
 [템플릿 개념]: #concepts
@@ -202,15 +216,15 @@ Windows 스토어 앱에서
 
 <!-- URLs. -->
 [모바일 서비스]: /ko-kr/develop/mobile/tutorials/get-started
-[알림 허브를 통해 사용자에게 알림: ASP.NET]: /ko-kr/manage/services/notification-hubs/notify-users-aspnet(영문)
-[알림 허브를 통해 사용자에게 알림: 모바일 서비스]: /ko-kr/manage/services/notification-hubs/notify-users(영문)
+[알림 허브를 통해 사용자에게 알림: ASP.NET]: /ko-kr/manage/services/notification-hubs/notify-users-aspnet
+[알림 허브를 통해 사용자에게 알림: 모바일 서비스]: /ko-kr/manage/services/notification-hubs/notify-users
 [알림 허브를 사용하여 속보 보내기]: /ko-kr/manage/services/notification-hubs/breaking-news-dotnet 
 
 [앱 제출 페이지]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [내 응용 프로그램]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Windows용 Live SDK]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 [모바일 서비스 시작]: /ko-kr/develop/mobile/tutorials/get-started/#create-new-service
-[데이터 작업 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-data-dotnet
+[데이터 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-data-dotnet
 [인증 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-users-dotnet
 [푸시 알림 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-push-dotnet
 [앱 사용자에 대한 푸시 알림]: /ko-kr/develop/mobile/tutorials/push-notifications-to-app-users-dotnet
@@ -219,6 +233,8 @@ Windows 스토어 앱에서
 
 [Azure 관리 포털]: https://manage.windowsazure.com/
 [wns 개체]: http://go.microsoft.com/fwlink/p/?LinkId=260591
-[알림 허브 지침]: http://msdn.microsoft.com/ko-kr/library/jj927170.aspx
-[IOS용 알림 허브 방법]: http://msdn.microsoft.com/ko-kr/library/jj927168.aspx
-[Windows 스토어용 알림 허브 방법]: http://msdn.microsoft.com/ko-kr/library/jj927172.aspx
+[알림 허브 지침]: http://msdn.microsoft.com/library/jj927170.aspx
+[iOS용 알림 허브 사용 방법]: http://msdn.microsoft.com/library/jj927168.aspx
+[Windows 스토어용 알림 허브 사용 방법]: http://msdn.microsoft.com/library/jj927172.aspx
+
+<!--HONumber=45--> 

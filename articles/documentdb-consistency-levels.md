@@ -1,6 +1,20 @@
-﻿<properties title="Consistency levels in DocumentDB" pageTitle="DocumentDB의 일관성 수준" description="DocumentDB에는 일관성-가용성-대기 시간 간의 상충 관계를 예측하는 데 도움이 되는 네 가지 일관성 수준이 성능 수준과 연결되어 있습니다." metaKeywords="Optional" services="documentdb" solutions="data-management" authors="bradsev" manager="jhubbard" editor="cgronlun" videoId="Optional" scriptId="Optional" />
+﻿<properties 
+	pageTitle="DocumentDB의 일관성 수준" 
+	description="DocumentDB에는 일관성-가용성-대기 시간 간의 상충 관계를 예측하는 데 도움이 되는 네 가지 일관성 수준이 성능 수준과 연결되어 있습니다." 
+	services="documentdb" 
+	authors="mimig1" 
+	manager="jhubbard" 
+	editor="cgronlun" 
+	documentationCenter=""/>
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="spelluru" />
+<tags 
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/05/2015" 
+	ms.author="mimig"/>
 
 #DocumentDB의 일관성 수준
 개발자는 강력한 일관성과 최종 일관성의 양 극단 사이에서 선택을 고민해야 하는 경우가 많습니다. 실제로는 두 극단 사이에 조정할 수 있는 다양한 일관성 수준이 있습니다. 대부분의 실제 시나리오에서 응용 프로그램은 일관성, 가용성, 대기 시간 간의 세분화된 절충을 활용합니다. DocumentDB에서는 잘 정의된 네 가지 일관성 수준과 관련 성능 수준을 제공합니다. 따라서 응용 프로그램 개발자가 일관성, 가용성, 대기 시간을 예측 가능하게 절충할 수 있습니다.  
@@ -49,3 +63,5 @@
 [http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
 -	Werner Vogels. 최종 일관성 - 재고되었습니다.     
 [http://allthingsdistributed.com/2008/12/eventually_consistent.html](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
+
+<!--HONumber=46--> 

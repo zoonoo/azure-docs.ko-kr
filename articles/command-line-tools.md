@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Command-Line Tools" pageTitle="Mac 및 Linux용 Azure 명령줄 도구" metaKeywords="Azure command-line, Azure tools Mac, Azure tools Linux" description="Azure에서 Mac 및 Linux용 명령줄 도구를 사용하는 방법에 대해 알아봅니다." metaCanonical="" services="web-sites,virtual-machines,mobile-services,cloud-services" documentationCenter="" title="" authors="carolz" solutions="" manager="need to identify contact" editor="" />
+﻿<properties 
+	pageTitle="Mac 및 Linux용 Azure 명령줄 도구" 
+	description="Azure에서 Mac 및 Linux용 명령줄 도구를 사용하는 방법에 대해 알아봅니다." 
+	services="web-sites, virtual-machines, mobile-services, cloud-services" 
+	documentationCenter="" 
+	authors="squillace" 
+	manager="timlt" 
+	editor="tysonn"/>
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="carolz" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="command-line-interface" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/13/2014" 
+	ms.author="rasquill"/>
 
 #Mac 및 Linux용 Azure 명령줄 도구
 
@@ -659,7 +673,7 @@ Azure 클라우드 서비스는 웹 역할 및 작업자 역할에 호스트되�
 
 ##<a name="Commands_to_manage_your_Azure_certificates"></a>Azure 인증서를 관리하는 명령
 
-Azure 서비스 인증서는 Azure 계정에 연결된 SSL 인증서입니다. Azure 인증서에 대한 자세한 내용은 [인증서 관리](http://msdn.microsoft.com/ko-kr/library/azure/gg981929.aspx)를 참조하세요.
+Azure 서비스 인증서는 Azure 계정에 연결된 SSL 인증서입니다. Azure 인증서에 대한 자세한 내용은 [인증서 관리](http://msdn.microsoft.com/library/azure/gg981929.aspx)를 참조하세요.
 
 **service cert list [옵션]**
 
@@ -1467,7 +1481,7 @@ Azure 모바일 서비스는 앱에서 백엔드 기능을 사용할 수 있도�
 
 ###<a name="Mobile_Scripts"></a>스크립트를 관리하는 명령
 
-이 섹션에 나오는 명령을 사용하여 모바일 서비스에 속하는 서버 스크립트를 관리할 수 있습니다. 자세한 내용은 [모바일 서비스에서 서버 스크립트 작업](http://www.windowsazure.com/ko-kr/develop/mobile/how-to-guides/work-with-server-scripts/)(영문)을 참조하세요.
+이 섹션에 나오는 명령을 사용하여 모바일 서비스에 속하는 서버 스크립트를 관리할 수 있습니다. 자세한 내용은 [모바일 서비스에서 서버 스크립트 작업](http://azure.microsoft.com/develop/mobile/how-to-guides/work-with-server-scripts/)(영문)을 참조하세요.
 
 **mobile script list [옵션] [서비스 이름]**
 
@@ -1526,7 +1540,7 @@ Azure 모바일 서비스는 앱에서 백엔드 기능을 사용할 수 있도�
 
 ###<a name="Mobile_Jobs"></a>예약된 작업을 관리하는 명령
 
-이 섹션에 나오는 명령을 사용하여 모바일 서비스에 속하는 예약된 작업을 관리할 수 있습니다. 자세한 내용은 [작업 예약](http://msdn.microsoft.com/ko-kr/library/windowsazure/jj860528.aspx)을 참조하세요.
+이 섹션에 나오는 명령을 사용하여 모바일 서비스에 속하는 예약된 작업을 관리할 수 있습니다. 자세한 내용은 [작업 예약](http://msdn.microsoft.com/library/windowsazure/jj860528.aspx)을 참조하세요.
 
 **mobile job list [옵션] [서비스 이름]**
 
@@ -1600,7 +1614,7 @@ Azure 모바일 서비스는 앱에서 백엔드 기능을 사용할 수 있도�
 
 ###<a name="Mobile_Scale"></a>모바일 서비스의 크기를 조정하는 명령
 
-이 섹션에 나오는 명령을 사용하여 모바일 서비스를 크기 조정할 수 있습니다. 자세한 내용은 [모바일 서비스 확장](http://msdn.microsoft.com/ko-kr/library/windowsazure/jj193178.aspx)을 참조하세요.
+이 섹션에 나오는 명령을 사용하여 모바일 서비스를 크기 조정할 수 있습니다. 자세한 내용은 [모바일 서비스 확장](http://msdn.microsoft.com/library/windowsazure/jj193178.aspx)을 참조하세요.
 
 **mobile scale show [옵션] [서비스 이름]**
 
@@ -2377,3 +2391,5 @@ DNS 서버 항목을 네트워크 구성에서 제거합니다.
 	Delete the DNS server entry dns-4 ( 77.88.99.11 ) %s ? (y/n) y
 	+ Deleting the DNS server entry dns-4 ( 77.88.99.11 )
 	info:    network dnsserver unregister command OK
+
+<!--HONumber=46--> 

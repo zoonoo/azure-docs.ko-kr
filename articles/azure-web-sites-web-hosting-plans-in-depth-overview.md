@@ -1,6 +1,20 @@
-﻿<properties title="Azure Websites Web Hosting Plans In-Depth Overview" pageTitle="Azure 웹 사이트 웹 호스팅 계획의 포괄 개요-Microsoft Azure 기능 가이드" description="Azure 웹 사이트에 대한 웹 호스팅 계획의 작동 방식 및 이러한 계획을 통해 관리 경험을 향상시킬 수 있는 방법에 대해 알아봅니다." metaKeywords="Azure Web Sites, Azure Websites, WHP, Web Hosting Plan, Web Hosting Plans, Resource Groups" services="web-sites" solutions="web" documentationCenter="Infrastructure" authors="Byron Tardif and Yochay Kiryaty" videoId="" scriptId="" manager="wpickett" />
+﻿<properties 
+	pageTitle="Azure 웹 사이트 웹 호스팅 계획의 포괄 개요-Microsoft Azure 기능 가이드" 
+	description="Azure 웹 사이트에 대한 웹 호스팅 계획의 작동 방식 및 이러한 계획을 통해 관리 경험을 향상시킬 수 있는 방법에 대해 알아봅니다." 
+	services="web-sites" 
+	documentationCenter="" 
+	authors="btardif" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="11/17/2014" ms.author="Byron Tardif and Yochay Kiryaty" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/17/2014" 
+	ms.author="byvinyal, yochayk"/>
 </br>
 #Azure 웹 사이트 웹 호스팅 계획의 포괄 개요
 </br>
@@ -189,3 +203,5 @@ Azure 웹 사이트에 이미 기존 웹 사이트가 있는 경우 모든 웹 �
 웹 호스팅 계획은 웹 사이트를 통해 공유할 수 있는 기능 및 용량의 집합을 나타냅니다.  웹 호스팅 계획을 사용하면 융통성 있게 특정 리소스 집합, 즉 가상 컴퓨터에 특정 사이트를 할당하고 Azure 리소스 할당 및 웹 사이트 사용을 추가로 최적화할 수 있습니다.
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

@@ -65,15 +65,13 @@ Azure에서는 가상 컴퓨터를 사용하여 계산 집약적인 작업을 �
 
 <h2>서비스 버스 네임스페이스를 만드는 방법</h2>
 
-Azure에서 서비스 버스 큐 사용을 시작하려면 먼저
-서비스 네임스페이스를 만들어야 합니다. 서비스 네임스페이스는 응용 프로그램
-내에서 서비스 버스 리소스의 범위 지정 컨테이너를 제공합니다.
+Azure에서 서비스 버스 큐 사용을 시작하려면 먼저 서비스 네임스페이스를 만들어야 합니다. 서비스 네임스페이스는 응용 프로그램 내에서 서비스 버스 리소스의 주소를 지정하기 위한 범위 컨테이너를 제공합니다.
 
 서비스 네임스페이스를 만들려면
 
 1.  [Azure 관리 포털](https://manage.windowsazure.com)에 로그인합니다.
 2.  관리 포털의 왼쪽 탐색 창에서 **서비스 버스**를 클릭합니다.
-3.  관리 포털의 아래쪽 창에서  **만들기**를 클릭합니다.
+3.  관리 포털의 아래쪽 창에서 **만들기**를 클릭합니다.
 
     ![Create new service bus][create_service_bus]
 4.  **네임스페이스 만들기** 대화 상자에서 네임스페이스 이름을 입력합니다. 이 이름은 고유해야 하므로, 입력한 이름을 사용할 수 있는지 시스템에서 즉시 확인합니다.
@@ -92,9 +90,7 @@ Azure에서 서비스 버스 큐 사용을 시작하려면 먼저
 
 <h2>네임스페이스에 대한 기본 관리 자격 증명 얻기</h2>
 
-새 네임스페이스에 대해 큐를 만드는 것과 같은 관리 작업을 수행하려면
-네임스페이스에 대한 관리 자격 증명을
-얻어야 합니다.
+새 네임스페이스에 대해 큐 만들기 등의 관리 작업을 수행하려면 네임스페이스에 대한 관리 자격 증명을 받아야 합니다.
 
 1.  왼쪽 탐색 창에서 **서비스 버스** 노드를 클릭하여
     사용 가능한 네임스페이스 목록을 표시합니다.   
@@ -341,7 +337,7 @@ Azure에서 서비스 버스 큐 사용을 시작하려면 먼저
 <h2>계산 집약적인 작업의 진행 상황을 모니터링하는 .NET 응용 프로그램을 만드는 방법</h2>
 
 1. 개발 컴퓨터에서 프로젝트 이름으로 **TSPClient**를 사용하는 .NET 콘솔 응용 프로그램을 만듭니다. 대상 프레임워크가 .**NET Framework 4** 이상(**.NET Framework 4 Client Profile** 아님)용으로 설정되어 있는지 확인합니다. 대상 프레임워크는 다음과 같이 프로젝트를 만든 후에 설정할 수 있습니다. Visual Studio의 메뉴에서 **프로젝트**를 클릭하고 **속성**을 클릭한 후 **응용 프로그램** 탭을 클릭한 다음 **대상 프레임워크** 값을 설정합니다.
-2. Microsoft ServiceBus 라이브러리에 추가합니다. Visual Studio 솔루션 탐색기에서 **TSPSolver**를 마우스 오른쪽 단추로 클릭하고 **참조 추가**, **찾아보기** 탭을 차례로 클릭한 후 Azure .NET SDK(예를 들어 **C:\Program Files\Microsoft SDKs\Azure\.NET SDK\v2.5\ToolsRef ** 위치)로 이동하고 참조로 **Microsoft.ServiceBus.dll**을 선택합니다.
+2. Microsoft ServiceBus 라이브러리에 추가합니다. Visual Studio 솔루션 탐색기에서 **TSPSolver**를 마우스 오른쪽 단추로 클릭하고 **참조 추가**, **찾아보기** 탭을 차례로 클릭한 후 Azure .NET SDK(예를 들어 **C:\Program Files\Microsoft SDKs\Azure\.NET SDK\v2.5\ToolsRef** 위치)로 이동하고 참조로 **Microsoft.ServiceBus.dll**을 선택합니다.
 3. System Runtime Serialization 라이브러리에 추가합니다. Visual Studio 솔루션 탐색기에서 **TSPClient**를 마우스 오른쪽 단추로 클릭하고 **참조 추가**, **.NET** 탭을 차례로 클릭하고 참조로 **System.Runtime.Serialization**을 선택합니다.
 4. **Program.cs**의 콘텐츠로 이 섹션 끝에 있는 예제 코드를 사용합니다.
 5. 서비스 버스의 **네임스페이스**, **기본 발급자** 및 **기본 키** 값을 각각 사용하도록 **your\_service\_bus\_namespace**, **your\_service\_bus\_owner** 및 **your\_service\_bus\_key** 자리 표시자를 수정합니다.
@@ -548,7 +544,7 @@ Azure에서 서비스 버스 큐 사용을 시작하려면 먼저
 
 	    TSPClient 1
 
-    클라이언트는 "완료"라는 큐 메시지가 확인될 때까지 실행됩니다. 클라이언트를 실행하지 않은 상태로 해 찾기를 여러 번 실행하는 경우, 큐를 완전히 비우기 위해 클라이언트를 여러 번 실행해야 할 수도 있습니다. 또는 큐를 삭제한 후 큐를 다시 만들 수도 있습니다. 큐를 삭제하려면 다음 **TSPSolver**(**TSPClient**가 아님) 명령을  실행합니다.
+    클라이언트는 "완료"라는 큐 메시지가 확인될 때까지 실행됩니다. 클라이언트를 실행하지 않은 상태로 해 찾기를 여러 번 실행하는 경우, 큐를 완전히 비우기 위해 클라이언트를 여러 번 실행해야 할 수도 있습니다. 또는 큐를 삭제한 후 큐를 다시 만들 수도 있습니다. 큐를 삭제하려면 다음 **TSPSolver**(**TSPClient**가 아님)  명령을 실행합니다.
 
         TSPSolver deletequeue
 
@@ -568,4 +564,5 @@ TSPSolver를 사용하여 큐를 만들거나 제거하는 대신 [Azure 관리 
 [namespace_list]: ./media/virtual-machines-dotnet-run-compute-intensive-task/NamespaceList.png
 [access_key_button]: ./media/virtual-machines-dotnet-run-compute-intensive-task/AccessKey.png
 
-<!--HONumber=45--> 
+
+<!--HONumber=42-->

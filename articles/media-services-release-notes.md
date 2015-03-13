@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="미디어 서비스 릴리스 정보" 
 	description="미디어 서비스 릴리스 정보" 
 	services="media-services" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="media" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="10/15/2014" 
+	ms.date="02/03/2015" 
 	ms.author="juliako"/>
 
 
@@ -25,6 +25,7 @@
 
 - [현재 알려진 문제](#issues)
 - [REST API 버전 기록](#rest_version_history)
+- [2015 년 1월 릴리스](#january_changes_15)
 - [2014 년 12 월 릴리스](#december_changes_14)
 - [2014 년 11 월 릴리스](#november_changes_14)
 - [2014 년 10 월 릴리스](#october_changes_14)
@@ -43,7 +44,7 @@
 - [2012 년 6 월 미리 보기 릴리스](#june_changes_12)
 
 
-## <a id="issues"></a>현재 알려진 문제
+##<a id="issues"></a>현재 알려진 문제
 
 ### <a id="general_issues"></a>미디어 서비스 관련 일반 문제
 
@@ -51,8 +52,8 @@
 <tr><th>문제</th><th>설명</yt></tr>
 <tr><td>REST API에 다양한 일반 HTTP 헤더가 제공되지 않습니다.</td><td>REST API를 사용하여 미디어 서비스 응용 프로그램을 개발하는 경우 CLIENT-REQUEST-ID, REQUEST-ID, RETURN-CLIENT-REQUEST-ID를 비롯한 몇 가지 일반 HTTP 헤더 필드가 지원되지 않습니다. 이 헤더는 이후 업데이트에서 추가될 예정입니다.</td></tr>
 <tr><td>%20과 같이 이스케이프 문자가 포함된 파일 이름으로 자산을 인코딩하면 "MediaProcessor: 파일을 찾을 수 없습니다."라는 메시지와 함께 작업에 실패합니다.</td><td>자산에 추가된 후 인코딩되는 파일 이름에는 영숫자와 공백만 사용할 수 있습니다. 이 문제는 이후 업데이트에서 수정될 예정입니다.</td></tr>
-<tr><td>Azure 저장소 SDK 버전 3.x의 일부분인 ListBlobs 메서드에서 오류가 발생합니다.</td><td>미디어 서비스는 <a href="http://msdn.microsoft.com/ko-kr/library/azure/dn592123.aspx">2012-02-12</a> 버전을 기반으로 SAS URL을 생성합니다. Azure 저장소 SDK를 사용하여 Blob 컨테이너에 있는 Blob을 나열하려는 경우 Azure 저장소 SDK 버전 2.x의 일부인 <a href="http://msdn.microsoft.com/ko-kr/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobs.aspx">CloudBlobContainer.ListBlobs</a> 메서드를 사용합니다. Azure 저장소 SDK 버전 3.x의 일부분인 ListBlobs 메서드에서는 오류가 발생합니다.</td></tr>
-<tr><td>미디어 서비스 제한 메커니즘은 서비스에 과도한 요청을 보내는 응용 프로그램의 리소스 사용을 제한합니다. 해당 서비스에서 서비스를 사용할 수 없음(503) HTTP 상태 코드가 반환될 수 있습니다.</td><td>자세한 내용은 503 HTTP 상태 코드에 대한 설명을 <a href="http://msdn.microsoft.com/ko-kr/library/azure/dn168949.aspx">Azure 미디어 서비스 오류 코드</a> 항목에서 참조하세요.</td></tr>
+<tr><td>Azure 저장소 SDK 버전 3.x의 일부분인 ListBlobs 메서드에서 오류가 발생합니다.</td><td>미디어 서비스는 <a href="http://msdn.microsoft.com/library/azure/dn592123.aspx">2012-02-12</a> 버전을 기반으로 SAS URL을 생성합니다. Azure 저장소 SDK를 사용하여 Blob 컨테이너에 있는 Blob을 나열하려는 경우 Azure 저장소 SDK 버전 2.x의 일부인 <a href="http://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobs.aspx">CloudBlobContainer.ListBlobs</a> 메서드를 사용합니다. Azure 저장소 SDK 버전 3.x의 일부분인 ListBlobs 메서드에서는 오류가 발생합니다.</td></tr>
+<tr><td>미디어 서비스 제한 메커니즘은 서비스에 과도한 요청을 보내는 응용 프로그램의 리소스 사용을 제한합니다. 해당 서비스에서 서비스를 사용할 수 없음(503) HTTP 상태 코드가 반환될 수 있습니다.</td><td>자세한 내용은 503 HTTP 상태 코드에 대한 설명을 <a href="http://msdn.microsoft.com/library/azure/dn168949.aspx">Azure 미디어 서비스 오류 코드</a> 항목에서 참조하세요.</td></tr>
 </table><br/>
 
 ### <a id="dotnet_issues"></a>.NET용 미디어 서비스 SDK 관련 문제
@@ -62,38 +63,53 @@
 <tr><td>SDK의 미디어 서비스 개체는 직렬화할 수 없으며, 결과적으로 Azure 캐싱에서 작동하지 않습니다.</td><td>SDK AssetCollection 개체를 직렬화하여 Azure 캐싱에 추가하려는 경우 예외가 Throw됩니다.</td></tr>
 </table><br/>
 
-## <a id="rest_version_history"></a>REST API 버전 기록
+##<a id="rest_version_history"></a>REST API 버전 기록
 
 미디어 서비스 REST API 버전 기록에 대한 자세한 내용은 [Azure 미디어 서비스 REST API 참조]를 참조하세요.
 
-## <a id="december_changes_14"></a>2014년 12월 릴리스
+##<a id="january_changes_15"></a>2015 년 1월 릴리스
+
+### 일반 미디어 서비스 업데이트
+
+동적 암호화를 통해 GA(General Availability)의 콘텐츠 보호 알림. 자세한 내용은 [Azure 미디어 서비스에서 DRM 기술의 일반적인 가용성으로 스트리밍 보안 강화](http://azure.microsoft.com/blog/2015/01/29/azure-media-services-enhances-streaming-security-with-general-availability-of-drm-technology/)를 참조하세요.
+
+###미디어 서비스 .NET SDK 업데이트
+
+이제 Azure 미디어 서비스 .NET SDK의 버전은 3.1.0.1입니다.
+
+이 릴리즈에서 기본 Microsoft.WindowsAzure.MediaServices.Client.ContentKeyAuthorization.TokenRestrictionTemplate 생성자는 사용되지 않음으로 표시됩니다. TokenType를 인수로 사용하는 새로운 생성자입니다.
+
+	TokenRestrictionTemplate template = new TokenRestrictionTemplate(TokenType.SWT);
+
+
+##<a id="december_changes_14"></a>2014년 12월 릴리스
 
 ###일반 미디어 서비스 업데이트
 
 - 일부 업데이트 및 새 기능이 Azure 인덱서 미디어 프로세서에 추가 되었습니다. 자세한 내용은 [Azure 미디어 인덱서 버전 1.1.6.7 릴리스 정보](http://azure.microsoft.com/blog/2014/12/03/azure-media-indexer-version-1-1-6-7-release-notes/)를 참조하세요.
-- 인코딩 예약 단위를 업데이트할 수 있는 새 REST API인 [EncodingReservedUnitType가 REST에 추가되었습니다](http://msdn.microsoft.com/ko-kr/library/azure/dn859236.aspx).
+- 인코딩 예약 단위를 업데이트할 수 있는 새 REST API인 [EncodingReservedUnitType가 REST에 추가되었습니다](http://msdn.microsoft.com/library/azure/dn859236.aspx).
 - 키 배달 서비스를 위한 CORS 지원이 추가되었습니다.
 - 권한 부여 정책 옵션을 쿼리하는 성능이 향상되었습니다.
-- 중국 데이터 센터에서는 이제 다른 데이터 센터와 마찬가지로 [키 배달 URL](http://msdn.microsoft.com/ko-kr/library/azure/ef4dfeeb-48ae-4596-ab28-44d6b36d8769#get_delivery_service_url)이 고객별로 하나씩 할당됩니다.
+- 중국 데이터 센터에서는 이제 다른 데이터 센터와 마찬가지로 [키 배달 URL](http://msdn.microsoft.com/library/azure/ef4dfeeb-48ae-4596-ab28-44d6b36d8769#get_delivery_service_url)이 고객별로 하나씩 할당됩니다.
 - HLS 자동 대상 기간이 추가되었습니다. 라이브 스트리밍을 수행할 때 HLS는 항상 동적으로 패키지됩니다. 기본적으로 미디어 서비스는 라이브 인코더에서 수신되는, GOP(Group of Pictures)라고도 하는 키 프레임 간격(KeyFrameInterval)에 따라 자동으로 HLS 세그먼트 패키징 비율(FragmentsPerSegment)을 계산합니다. 자세한 내용은 [Azure 미디어 서비스 라이브 스트리밍 사용]을 참조하세요.
  
 ###미디어 서비스 .NET SDK 업데이트
 
 - [Azure 미디어 서비스 .NET SDK](http://www.nuget.org/packages/windowsazure.mediaservices/)의 현재 버전은 3.1.0.0입니다.
 - .Net SDK 종속성이 .NET 4.5 Framework로 업그레이드되었습니다.
-- 인코딩 예약 단위를 업데이트할 수 있는 새로운 API가 추가되었습니다. 자세한 내용은 [.NET을 사용하여 예약 단위 유형 업데이트 및 증가 인코딩 RU 증가](http://msdn.microsoft.com/ko-kr/library/azure/jj129582.aspx)(영문)를 참조하세요.
+- 인코딩 예약 단위를 업데이트할 수 있는 새로운 API가 추가되었습니다. 자세한 내용은 [.NET을 사용하여 예약 단위 유형 업데이트 및 증가 인코딩 RU 증가](http://msdn.microsoft.com/library/azure/jj129582.aspx)(영문)를 참조하세요.
 - 노큰 인증을 위한 JWT(JSON 웹 토큰) 지원이 추가되었습니다. 자세한 내용은 [Azure 미디어 서비스 및 동적 암호화의 JWT 토큰 인증](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)(영문)을 참조하세요.
 - PlayReady 라이선스 템플릿에 BeginDate 및 ExpirationDate에 대한 상대적 오프셋이 추가되었습니다.
 
 
-## <a id="november_changes_14"></a>2014년 11월 릴리스
+##<a id="november_changes_14"></a>2014년 11월 릴리스
 
 - 이제 미디어 서비스에서 라이브 부드러운 스트리밍(FMP4) 콘텐츠를 SSL 연결을 통해 수집할 수 있습니다. SSL을 통해 수집하려면 수집 URL을 HTTPS로 업데이트해야 합니다.  라이브 스트리밍에 대한 자세한 내용은 [Azure 미디어 서비스 라이브 스트리밍 사용]을 참조하세요.
 - 현재, SSL 연결을 통해 RTMP 라이브 스트림을 수집할 수 없습니다.
 - SSL 연결을 통해 콘텐츠를 스트리밍할 수도 있습니다. 이렇게 하려면 스트리밍 URL이 HTTPS로 시작해야 합니다.
-- 콘텐츠를 배달하는 출발점이 될 스트리밍 끝점이 2014년 9월 10일 이후에 만들어진 경우에만 SSL을 통해 스트리밍할 수 있습니다. 스트리밍 URL이 9월 10일 이후에 만들어진 스트리밍 끝점을 기반으로 하는 경우 URL에는 "streaming.mediaservices.windows.net"(새 형식)이 포함됩니다. "origin.mediaservices.windows.net"(이전 형식)이 포함된 스트리밍 URL은 SSL을 지원하지 않습니다. URL이 이전 형식으로 되어 있으며 SSL을 통해 스트리밍할 수 있도록 만들려면 [새 스트리밍 끝점을 만드세요](http://azure.microsoft.com/ko-kr/documentation/articles/media-services-manage-origins/). 새 스트리밍 끝점을 기반으로 만들어진 URL을 사용하여 SSL을 통해 콘텐츠를 스트리밍합니다.
+- 콘텐츠를 배달하는 출발점이 될 스트리밍 끝점이 2014년 9월 10일 이후에 만들어진 경우에만 SSL을 통해 스트리밍할 수 있습니다. 스트리밍 URL이 9월 10일 이후에 만들어진 스트리밍 끝점을 기반으로 하는 경우 URL에는 "streaming.mediaservices.windows.net"(새 형식)이 포함됩니다. "origin.mediaservices.windows.net"(이전 형식)이 포함된 스트리밍 URL은 SSL을 지원하지 않습니다. URL이 이전 형식으로 되어 있으며 SSL을 통해 스트리밍할 수 있도록 만들려면 [새 스트리밍 끝점을 만드세요](http://azure.microsoft.com/ documentation/articles/media-services-manage-origins/). 새 스트리밍 끝점을 기반으로 만들어진 URL을 사용하여 SSL을 통해 콘텐츠를 스트리밍합니다.
    
-## <a id="october_changes_14"></a>2014년 10월 릴리스
+##<a id="october_changes_14"></a>2014년 10월 릴리스
 
 ### <a id="new_encoder_release"></a>미디어 서비스 인코더 릴리스
 
@@ -119,7 +135,7 @@
 샘플은 [Azure 미디어 서비스 샘플 GitHub 리포지토리](https://github.com/Azure/Azure-Media-Services-Samples)(영문)에 있습니다.
 
 
-## <a id="september_changes_14"></a>2014년 9월 릴리스
+##<a id="september_changes_14"></a>2014년 9월 릴리스
 
 이제 미디어 서비스 REST 메타데이터의 버전이 2.7입니다. 최신 REST 업데이트에 대한 자세한 내용은 [Azure 미디어 서비스 REST API 참조]를 참조하세요.
 
@@ -153,7 +169,7 @@
 	
 	* Azure 미디어 서비스에서 도메인 이름 소유권의 유효성을 확인해야 합니다. 도메인의 유효성을 검사 하려면 <MediaServicesAccountId>.<parent domain>을 verifydns.<mediaservices-dns-zone>으로 매핑하는 CName을 만듭니다. 
 	
-	* 다른 CName을 만들어야 하며, 이 CName은  사용자 지정 호스트 이름(예:  sports.contoso.com)을 미디어 서비스 StreamingEndpont의 호스트 이름(예:  amstest.streaming.mediaservices.windows.net)으로 매핑하는 이름이어야 합니다.
+	* 사용자 지정 호스트 이름(예: sports.contoso.com)을 미디어 서비스 StreamingEndpont 호스트 이름(예: amstest.streaming.mediaservices.windows.net)에 매핑되는 다른 CName을 만들어야 합니다.
 
 
 	자세한 내용은 [StreamingEndpoint] 항목의 **CustomHostNames** 속성을 참조하세요.
@@ -174,12 +190,12 @@
 
 * 저장소에서 암호화된 자산 스트리밍. 자세한 내용은 [저장소에서 암호화된 콘텐츠 스트리밍]을 참조하세요.
 
-## <a id="august_changes_14"></a>2014년 8월 릴리스
+##<a id="august_changes_14"></a>2014년 8월 릴리스
 
 자산을 인코딩하는 경우 출력 자산은 인코딩 작업 완료 시 생성됩니다. 이번 릴리스까지 Azure 미디어 서비스 인코더는 출력 자산에 대한 메타데이터를 생성했습니다. 이번 릴리스부터 이 인코더는 입력 자산에 대한 메타데이터도 생성합니다. 자세한 내용은 [입력 메타데이터] 및 [출력 메타데이터] 항목을 참조하세요.
 
 
-## <a id="july_changes_14"></a>2014년 7월 릴리스
+##<a id="july_changes_14"></a>2014년 7월 릴리스
 
 Azure 미디어 서비스 패키지 작성 도구 및 암호기에 대한 다음 버그가 수정되었습니다.
 
@@ -187,7 +203,7 @@ Azure 미디어 서비스 패키지 작성 도구 및 암호기에 대한 다음
 
 * HTTP 라이브 스트리밍 및 AES 128비트 봉투 암호화에 자산을 패키지한 경우 Android 장치에서 패키지 스트림이 재생되지 않음 - 이 버그는 수정되었으며, HTTP 라이브 스트리밍을 지원하는 Android 장치에서 패키지 스트림이 재생됩니다.
 
-## <a id="may_changes_14"></a>2014년 5월 릴리스
+##<a id="may_changes_14"></a>2014년 5월 릴리스
 
 ### <a id="may_14_changes"></a>일반 미디어 서비스 업데이트
 
@@ -209,7 +225,7 @@ Azure 미디어 서비스 패키지 작성 도구 및 암호기에 대한 다음
 
 자세한 내용은 [.NET용 미디어 서비스 SDK의 다시 시도 논리]를 참조하세요.
 
-## <a id="april_changes_14"></a>2014년 4월 인코더 릴리스
+##<a id="april_changes_14"></a>2014년 4월 인코더 릴리스
 
 ### <a name="april_14_enocer_changes"></a>미디어 서비스 인코더 업데이트
 
@@ -224,7 +240,7 @@ Azure 미디어 서비스 패키지 작성 도구 및 암호기에 대한 다음
 * 오디오가 MP3(MPEG-1 Audio layer 3)로 인코딩된 경우 MP4의 코드 변환 관련 버그가 수정되었습니다.
 
 
-## <a id="jan_feb_changes_14"></a>2014년 1월/2월 릴리스
+##<a id="jan_feb_changes_14"></a>2014년 1월/2월 릴리스
 
 ### <a name="jan_fab_14_donnet_changes"></a>Azure 미디어 서비스 .NET SDK 3.0.0.1, 3.0.0.2 및 3.0.0.3
 
@@ -243,7 +259,7 @@ Azure 미디어 서비스 패키지 작성 도구 및 암호기에 대한 다음
 * 3.0.*.* 릴리스에 대한 이전 버전과의 호환성 문제가 해결되었습니다. 
 
 
-## <a id="december_changes_13"></a>2013년 12월 릴리스
+##<a id="december_changes_13"></a>2013년 12월 릴리스
 
 ### <a name="dec_13_donnet_changes"></a>Azure 미디어 서비스 .NET SDK 3.0.0.0
 
@@ -257,13 +273,13 @@ Azure 미디어 서비스 패키지 작성 도구 및 암호기에 대한 다음
 
 Azure 미디어 서비스 .NET SDK Extensions는 코드를 단순화하고 Azure 미디어 서비스를 사용하여 더욱 쉽게 개발할 수 있도록 지원하는 일련의 확장 메서드 및 도우미 함수입니다. [Azure 미디어 서비스 .NET SDK 확장]에서 최신 파일을 구할 수 있습니다.
 
-## <a id="november_changes_13"></a>2013년 11월 릴리스
+##<a id="november_changes_13"></a>2013년 11월 릴리스
 
 ### <a name="nov_13_donnet_changes"></a>Azure 미디어 서비스 .NET SDK 변경 내용
 
 이 버전부터 .NET용 미디어 서비스 SDK는 미디어 서비스 REST API 계층에 대한 호출을 실행할 때 발생할 수 있는 일시적인 오류를 처리합니다.
 
-## <a id="august_changes_13"></a>2013년 8월 릴리스
+##<a id="august_changes_13"></a>2013년 8월 릴리스
 
 ### <a name="aug_13_powershell_changes"></a>Azure SDK 도구에 포함된 미디어 서비스 PowerShell cmdlet
 
@@ -285,7 +301,7 @@ Azure 미디어 서비스 .NET SDK Extensions는 코드를 단순화하고 Azure
 
 	예를 들면 `Remove-AzureMediaServicesAccount -Name "MediaAccountName" -Force`입니다.
 
-## <a id="june_changes_13"></a>2013년 6월 릴리스
+##<a id="june_changes_13"></a>2013년 6월 릴리스
 
 ### <a name="june_13_general_changes"></a>Azure 미디어 서비스 변경 내용
 
@@ -346,7 +362,7 @@ Azure 미디어 서비스 .NET SDK Extensions는 코드를 단순화하고 Azure
 * OData 5.5(Microsoft.Data.OData.dll)에 대한 종속성
 
 
-## <a id="december_changes_12"></a>2012년 12월 릴리스
+##<a id="december_changes_12"></a>2012년 12월 릴리스
 
 ### <a name="dec_12_dotnet_changes"></a>Azure 미디어 서비스 .NET SDK 변경 내용
 
@@ -378,7 +394,7 @@ Azure 미디어 서비스 .NET SDK Extensions는 코드를 단순화하고 Azure
 
 * EncryptionUtils.GetCertificateFromStore(): 이 메서드는 인증서 구성 문제로 인해 인증서를 찾지 못하여 발생하는 Null 참조 예외를 더 이상 Throw하지 않습니다.
 
-## <a id="november_changes_12"></a>2012년 11월 릴리스
+##<a id="november_changes_12"></a>2012년 11월 릴리스
 
 이 섹션에 설명된 변경 내용은 2012년 11월(버전 2.0.0.0) SDK에 포함된 업데이트입니다. 이러한 변경 내용에서는 2012년 6월 SDK 미리 보기 릴리스용으로 작성된 코드를 수정하거나 다시 작성해야 할 수 있습니다.
 
@@ -407,7 +423,7 @@ Azure 미디어 서비스 .NET SDK Extensions는 코드를 단순화하고 Azure
 	원본 관련 버전이 제거되었습니다. SAS 특정 context.Locators.CreateSasLocator(asset, accessPolicy)가 더 이상 사용되지 않거나 GA에 의해 제거된 것으로 표시됩니다. 업데이트된 동작에 대한 자세한 내용은 새 기능 아래의 로케이터 섹션을 참조하세요.
 
 
-## <a id="june_changes_12"></a>2012년 6월 미리 보기 릴리스
+##<a id="june_changes_12"></a>2012년 6월 미리 보기 릴리스
 
 11월 SDK 릴리스의 새로운 기능은 다음과 같습니다.
 
@@ -430,36 +446,36 @@ Azure 미디어 서비스 .NET SDK Extensions는 코드를 단순화하고 Azure
 <!-- Images. -->
 
 <!-- URLs. -->
-[Azure 미디어 서비스 MSDN 포럼]: http://social.msdn.microsoft.com/forums/azure/ko-kr/home?forum=MediaServices
-[Azure 미디어 서비스 REST API 참조]: http://msdn.microsoft.com/ko-kr/library/azure/hh973617.aspx 
-[미디어 서비스 가격 정보]: http://azure.microsoft.com/ko-kr/pricing/details/media-services/
-[입력 메타데이터]: http://msdn.microsoft.com/ko-kr/library/azure/dn783120.aspx
-[출력 메타데이터]: http://msdn.microsoft.com/ko-kr/library/azure/dn783217.aspx
-[콘텐츠 배달]: http://msdn.microsoft.com/ko-kr/library/azure/hh973618.aspx
-[Azure 미디어 인덱서를 사용하여 미디어 파일 인덱싱]: http://msdn.microsoft.com/ko-kr/library/azure/dn783455.aspx
-[StreamingEndpoint]: http://msdn.microsoft.com/ko-kr/library/azure/dn783468.aspx
-[Azure 미디어 서비스 라이브 스트리밍 사용]: http://msdn.microsoft.com/ko-kr/library/azure/dn783466.aspx
-[AES-128 동적 암호화 및 키 전달 서비스 사용]: http://msdn.microsoft.com/ko-kr/library/azure/dn783457.aspx
-[PlayReady 동적 암호화 및 License Delivery 서비스 사용]: http://msdn.microsoft.com/ko-kr/library/azure/dn783467.aspx
-[미리 보기 기능]: http://azure.microsoft.com/ko-kr/services/preview/
-[미디어 서비스 PlayReady 라이선스 템플릿 개요]: http://msdn.microsoft.com/ko-kr/library/azure/dn783459.aspx
-[저장소에서 암호화된 콘텐츠 스트리밍]: http://msdn.microsoft.com/ko-kr/library/azure/dn783451.aspx
+[Azure 미디어 서비스 MSDN 포럼]: http://social.msdn.microsoft.com/forums/azure/en-US/home?forum=MediaServices
+[Azure 미디어 서비스 REST API 참조]: http://msdn.microsoft.com/library/azure/hh973617.aspx 
+[미디어 서비스 가격 정보]: http://azure.microsoft.com/ pricing/details/media-services/
+[입력 메타데이터]: http://msdn.microsoft.com/library/azure/dn783120.aspx
+[출력 메타데이터]: http://msdn.microsoft.com/library/azure/dn783217.aspx
+[콘텐츠 배달]: http://msdn.microsoft.com/library/azure/hh973618.aspx
+[Azure 미디어 인덱서를 사용하여 미디어 파일 인덱싱]: http://msdn.microsoft.com/library/azure/dn783455.aspx
+[StreamingEndpoint]: http://msdn.microsoft.com/library/azure/dn783468.aspx
+[Azure 미디어 서비스 라이브 스트리밍 사용]: http://msdn.microsoft.com/library/azure/dn783466.aspx
+[AES-128 동적 암호화 및 키 전달 서비스 사용]: http://msdn.microsoft.com/library/azure/dn783457.aspx
+[PlayReady 동적 암호화 및 License Delivery 서비스 사용]: http://msdn.microsoft.com/library/azure/dn783467.aspx
+[미리 보기 기능]: http://azure.microsoft.com/ services/preview/
+[미디어 서비스 PlayReady 라이선스 템플릿 개요]: http://msdn.microsoft.com/library/azure/dn783459.aspx
+[저장소에서 암호화된 콘텐츠 스트리밍]: http://msdn.microsoft.com/library/azure/dn783451.aspx
 [Azure 관리 포털]: https://manage.windowsazure.com
-[동적 패키징]: http://msdn.microsoft.com/ko-kr/library/azure/jj889436.aspx
+[동적 패키징]: http://msdn.microsoft.com/library/azure/jj889436.aspx
 [Nick Drouin의 블로그]: http://blog-ndrouin.azurewebsites.net/hls-v3-new-old-thing/
-[PlayReady로 부드러운 스트림 보호]: http://msdn.microsoft.com/ko-kr/library/azure/dn189154.aspx
-[.NET용 미디어 서비스 SDK의 다시 시도 논리]: http://msdn.microsoft.com/ko-kr/library/azure/dn745650.aspx
+[PlayReady로 부드러운 스트림 보호]: http://msdn.microsoft.com/library/azure/dn189154.aspx
+[.NET용 미디어 서비스 SDK의 다시 시도 논리]: http://msdn.microsoft.com/library/azure/dn745650.aspx
 [Grass Valley의 클라우드를 통한 EDIUS 7 스트리밍 발표]: http://www.streamingmedia.com/Producer/Articles/ReadArticle.aspx?ArticleID=96351&utm_source=dlvr.it&utm_medium=twitter
-[미디어 서비스 인코더 출력 파일 이름 제어]: http://msdn.microsoft.com/ko-kr/library/azure/dn303341.aspx
-[오버레이 만들기]: http://msdn.microsoft.com/ko-kr/library/azure/dn640496.aspx
-[비디오 세그먼트 연결]: http://msdn.microsoft.com/ko-kr/library/azure/dn640504.aspx
+[미디어 서비스 인코더 출력 파일 이름 제어]: http://msdn.microsoft.com/library/azure/dn303341.aspx
+[오버레이 만들기]: http://msdn.microsoft.com/library/azure/dn640496.aspx
+[비디오 세그먼트 연결]: http://msdn.microsoft.com/library/azure/dn640504.aspx
 [Azure 미디어 서비스 .NET SDK 3.0.0.1 및 3.0.0.2 릴리스]: http://www.gtrifonov.com/2014/02/07/windows-azure-media-services-.net-sdk-3.0.0.2-release/
-[Azure Active Directory ACS(액세스 제어 서비스)]: http://msdn.microsoft.com/ko-kr/library/hh147631.aspx
-[Media Services SDK for .NET을 사용하여 미디어 서비스에 연결]: http://msdn.microsoft.com/ko-kr/library/azure/jj129571.aspx
+[Azure Active Directory ACS(액세스 제어 서비스)]: http://msdn.microsoft.com/library/hh147631.aspx
+[Media Services SDK for .NET을 사용하여 미디어 서비스에 연결]: http://msdn.microsoft.com/library/azure/jj129571.aspx
 [Azure 미디어 서비스 .NET SDK 확장]: https://github.com/Azure/azure-sdk-for-media-services-extensions/tree/dev
 [azure-sdk-tools]: https://github.com/Azure/azure-sdk-tools
 [Github]: https://github.com/Azure/azure-sdk-for-media-services
-[여러 저장소 계정에서 미디어 서비스 자산 관리]: http://msdn.microsoft.com/ko-kr/library/azure/dn271889.aspx
-[미디어 서비스 작업 알림 처리]: http://msdn.microsoft.com/ko-kr/library/azure/dn261241.aspx
+[여러 저장소 계정에서 미디어 서비스 자산 관리]: http://msdn.microsoft.com/library/azure/dn271889.aspx
+[미디어 서비스 작업 알림 처리]: http://msdn.microsoft.com/library/azure/dn261241.aspx
 
-<!--HONumber=42-->
+<!--HONumber=45--> 

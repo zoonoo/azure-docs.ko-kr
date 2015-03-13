@@ -237,20 +237,19 @@ Azure와 온-프레미스 SQL Server 데이터베이스를 비교 논의할 때 
    <td valign="middle">라이브러리 문서에 대한 링크입니다.</td>   
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/ko-kr/library/azure/jj879332.aspx">Windows Azure SQL 데이터베이스 및 SQL Server - 성능과 확장성 비교 및 대조</p></td>
+   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/azure/jj879332.aspx">Windows Azure SQL 데이터베이스 및 SQL Server - 성능과 확장성 비교 및 대조</p></td>
    <td valign="middle">이 문서에서는 Azure SQL 데이터베이스와 온-프레미스 또는 VM에서 실행되는 SQL Server를 사용할 경우 성능 차이와 문제 해결 기술에 대해 설명합니다. </td>   
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/ko-kr/library/dn574746.aspx">Azure 가상 컴퓨터의 SQL Server에 대한 응용 프로그램 패턴 및 개발 전략</p></td>
+   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/dn574746.aspx">Azure 가상 컴퓨터의 SQL Server에 대한 응용 프로그램 패턴 및 개발 전략</p></td>
    <td valign="middle">이 문서에서는 Azure VM의 SQL Server에 적용되는 가장 일반적인 응용 프로그램 패턴에 대해 설명하고 Azure SQL 데이터베이스를 비롯한 하이브리드 시나리오도 다룹니다. </td>   
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/ko-kr/library/hh680934(v=PandP.50).aspx">Microsoft Enterprise Library 일시적인 오류 처리 응용 프로그램 블록(영문)</p></td>
+   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/hh680934(v=PandP.50).aspx">Microsoft Enterprise Library 일시적인 오류 처리 응용 프로그램 블록(영문)</p></td>
    <td valign="middle">이 라이브러리에서는 개발자가 강력한 일시적인 오류 처리 논리를 추가하여 더욱 복원력이 뛰어난 Azure SQL 데이터베이스에서 자신의 응용 프로그램을 실행해 볼 수 있습니다. 일시적인 오류는 네트워크 연결 문제 또는 서비스 사용 불가 등의 일시적인 조건으로 인해 발생하는 오류입니다. Azure SQL 데이터베이스는 다중 테넌트 서비스이므로 응용 프로그램 가동 중지 시간을 최소화하기 위해 이러한 오류를 처리해야 합니다. </td>   
 </tr>
 </table>
 
 <!--Image references-->
 [1]: ./media/data-management-azure-sql-database-and-sql-server-iaas/SQLIAAS_SQL_Server_Cloud_Continuum.png
-
 <!--HONumber=42-->

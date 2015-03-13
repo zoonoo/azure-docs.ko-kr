@@ -1,6 +1,20 @@
-<properties title="Publishing Azure ML Web Services to the Azure Marketplace" pageTitle="Azure 마켓플레이스에 Azure 기계 학습 웹 서비스 게시 | Azure" description="Azure 마켓플레이스에 Azure 기계 학습 웹 서비스 게시" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Azure 마켓플레이스에 Azure 기계 학습 웹 서비스 게시 | Azure" 
+	description="<MORAVIA_TRANSLATEAzure 마켓플레이스에 Azure 기계 학습 웹 서비스를 게시하는 방법" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="luisca" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/03/2014" ms.author="garye" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/03/2014" 
+	ms.author="luisca"/>
 
 # Azure 마켓플레이스에 Azure 기계 학습 웹 서비스 게시 
 
@@ -28,14 +42,14 @@ Azure 기계 학습 웹 서비스를 Azure 마켓플레이스에 게시하는 �
 1.	Azure 기계 학습 RRS(요청-응답 서비스) 웹 서비스를 만들고 게시합니다.
 2.	Azure 관리 포털에서 서비스를 프로덕션에 배포합니다.
 3.	게시된 웹 서비스의 URL을 사용하여 Azure 마켓플레이스에 게시합니다.
-4.	게시 프로세스 개요: <http://msdn.microsoft.com/ko-kr/library/azure/hh580725.aspx>(영문) 
+4.	게시 프로세스 개요: <http://msdn.microsoft.com/library/azure/hh580725.aspx>(영문) 
 5.	제출된 제품은 검토되고 고객이 구매를 시작하기 전에 승인되어야 합니다. 게시 프로세스는 영업일 기준 몇 일이 걸릴 수 있습니다. 시간을 가능하면 많이 단축하려는 작업이 진행되고 있고 향후 통신에서 업데이트가 제공될 예정입니다.
 
 ## Azure 마켓플레이스에 대한 게시 지침
 
-1.	게시자로 등록해야 합니다. 자세한 내용은 다음을 참조하세요. <http://msdn.microsoft.com/ko-kr/library/azure/hh563872.aspx>(영문)
-2.	가격 계획을 포함하여 제품에 대한 정보를 제공해야 합니다. 무료 또는 유료 서비스를 제공할지 결정합니다. 자세한 내용은 다음을 참조하세요. <http://msdn.microsoft.com/ko-kr/library/azure/hh563873.aspx>(영문) 
-3.	유료로 제공하려면 은행 및 세금 정보와 같은 결제 정보를 제공해야 합니다. 자세한 내용은 다음을 참조하세요. <http://msdn.microsoft.com/ko-kr/library/azure/hh563873.aspx>(영문)
+1.	게시자로 등록해야 합니다. 자세한 내용은 다음을 참조하세요. <http://msdn.microsoft.com/library/azure/hh563872.aspx>(영문)
+2.	가격 계획을 포함하여 제품에 대한 정보를 제공해야 합니다. 무료 또는 유료 서비스를 제공할지 결정합니다. 자세한 내용은 다음을 참조하세요. <http://msdn.microsoft.com/library/azure/hh563873.aspx>(영문) 
+3.	유료로 제공하려면 은행 및 세금 정보와 같은 결제 정보를 제공해야 합니다. 자세한 내용은 다음을 참조하세요. <http://msdn.microsoft.com/library/azure/hh563873.aspx>(영문)
 
 ## 기계 학습 특정 옵션
 
@@ -80,3 +94,5 @@ Azure 기계 학습 웹 서비스를 Azure 마켓플레이스에 게시하는 �
 
 [image1]:./media/machine-learning-publish-web-service-to-azure-marketplace/image1.png
 [image2]:./media/machine-learning-publish-web-service-to-azure-marketplace/image2.png
+
+<!--HONumber=46--> 

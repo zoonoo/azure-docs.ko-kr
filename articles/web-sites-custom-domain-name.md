@@ -77,7 +77,7 @@ CNAME 레코드를 만들 경우에는 이 단계를 건너뛰세요. A 레코�
 
 1.	브라우저에서 [Azure 관리 포털](https://manage.windowsazure.com)을 엽니다.
 2.	**웹 사이트** 탭에서 사이트의 이름을 클릭하고 **대시보드**를 선택합니다.
-3.	페이지 아래쪽에서 **도메인 관리**를 선택합니다. (이 옵션이 해제된 경우에는 공유, 기본 또는 표준 모드를 사용 중인지 확인하세요. 자세한 내용은 [웹 사이트 크기를 조정하는 방법](http://www.windowsazure.com/ko-kr/documentation/articles/web-sites-scale/)을 참조하세요.) 
+3.	페이지 아래쪽에서 **도메인 관리**를 선택합니다. (이 옵션이 해제된 경우에는 공유, 기본 또는 표준 모드를 사용 중인지 확인하세요. 자세한 내용은 [웹 사이트 크기를 조정하는 방법](http://azure.microsoft.com/documentation/articles/web-sites-scale/)을 참조하세요.) 
 
 	![](media/web-sites-custom-domain-name/dncmntask-cname-6.png)
 

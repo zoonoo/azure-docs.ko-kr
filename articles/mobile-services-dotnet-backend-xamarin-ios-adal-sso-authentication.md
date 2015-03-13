@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Active Directory 인증 라이브러리 Single Sign-On으로 앱 인증(Xamarin.iOS) | 모바일 개발자 센터" description="Xamarin.iOS 응용 프로그램에서 ADAL을 사용하여 SSO(Single Sign-On) 사용자를 인증하는 방법에 대해 알아봅니다." documentationCenter="xamarin" authors="wesmc7777" manager="dwrede" editor="" services=""/>
+﻿<properties 
+	pageTitle="Active Directory 인증 라이브러리 Single Sign-On으로 앱 인증(Xamarin.iOS) | 모바일 개발자 센터" 
+	description="Xamarin.iOS 응용 프로그램에서 ADAL을 사용하여 SSO(Single Sign-On) 사용자를 인증하는 방법에 대해 알아봅니다." 
+	documentationCenter="xamarin" 
+	authors="wesmc7777" 
+	manager="dwrede" 
+	editor="" 
+	services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="article" ms.date="09/29/2014" ms.author="wesmc,mahender"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-xamarin-ios" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/29/2014" 
+	ms.author="wesmc,mahender"/>
 
 # Active Directory 인증 라이브러리 Single Sign-On으로 앱 인증
 

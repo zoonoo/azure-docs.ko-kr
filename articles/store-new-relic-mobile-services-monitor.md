@@ -139,7 +139,7 @@ New Relic 서비스에 등록한 후에는 모바일 서비스에 New Relic Node
 [5]: ./media/store-new-relic-mobile-services-monitor/mobile-new-relic-dashboard-2.png
 
 <!-- URLs. -->
-[소스 제어]: http://msdn.microsoft.com/ko-kr/library/windowsazure/c25aaede-c1f0-4004-8b78-113708761643
+[소스 제어]: http://msdn.microsoft.com/library/windowsazure/c25aaede-c1f0-4004-8b78-113708761643
 [모바일 서비스에서 서버 스크립트 작업]: /ko-kr/develop/mobile/how-to-guides/work-with-server-scripts.md
 
 [Azure 관리 포털]: https://manage.windowsazure.com/

@@ -1,7 +1,20 @@
-﻿<properties title="Build a web application with Python and Flask (MVC) using DocumentDB" pageTitle="DocumentDB를 사용하여 Python 및 Flask로 웹 앱 작성 | Azure" description="DocumentDB를 사용하여 Azure에 호스팅되는 Python 및 Flask(MVC) 웹 응용 프로그램의 데이터를 저장하고 액세스하는 방법에 대해 알아봅니다."  metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, account" services="documentdb"  solutions="data-management" documentationCenter=""  authors="hawong" manager="jhubbard" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+    pageTitle="DocumentDB를 사용하여 Python 및 Flask로 웹 앱 작성 | Azure" 
+    description="DocumentDB를 사용하여 Azure에 호스팅되는 Python 및 Flask(MVC) 웹 응용 프로그램의 데이터를 저장하고 액세스하는 방법에 대해 알아봅니다." 
+    services="documentdb" 
+    documentationCenter="" 
+    authors="crwilcox" 
+    manager="jhubbard" 
+    editor="cgronlun"/>
 
-
-<tags ms.service="documentdb" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="hawong" />
+<tags 
+    ms.service="documentdb" 
+    ms.workload="data-management" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="02/12/2015" 
+    ms.author="crwilcox"/>
 
 <a name="_Toc395888515"></a><a name="_Toc395809324">DocumentDB를 사용하여 Python 및 Flask(MVC)로 웹 응용 프로그램 작성</a>
 ===========================================================================================================================================
@@ -473,7 +486,9 @@ Python 응용 프로그램을 작성하고 Azure 웹 사이트에 게시했습�
   [여기를 클릭]: http://go.microsoft.com/fwlink/?LinkID=509840&clcid=0x409
   [Flask 자습서에 액세스하려면 여기를 클릭하세요.]: http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world
 
-  [Visual Studio Express]: http://www.visualstudio.com/en-us/products/visual-studio-express-vs.aspx
+  [Visual Studio Express]: http://www.visualstudio.com/ko-kr/products/visual-studio-express-vs.aspx
   [시작]: https://pytools.codeplex.com/releases/view/123624
   [1]: http://go.microsoft.com/fwlink/?linkid=254281&clcid=0x409
   [Microsoft 웹 플랫폼 설치 관리자]: http://www.microsoft.com/web/downloads/platform.aspx
+
+<!--HONumber=46--> 

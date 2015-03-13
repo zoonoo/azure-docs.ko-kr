@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Apple 푸시 알림 설정 방법" description="Azure 모바일 서비스를 사용하여 새 서비스를 만들려면 이 자습서를 따라 작업을 진행합니다." services="mobile-services, notification-hubs" documentationCenter="ios" authors="ggailey777" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Apple 푸시 알림 설정 방법" 
+	description="Azure 모바일 서비스를 사용하여 새 서비스를 만들려면 이 자습서를 따라 작업을 진행합니다." 
+	services="mobile-services, notification-hubs" 
+	documentationCenter="ios" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-ios" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="glenga"/>
 
 # Apple 푸시 알림 설정 방법
 

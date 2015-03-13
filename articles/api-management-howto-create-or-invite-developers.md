@@ -1,6 +1,20 @@
-<properties pageTitle="How manage developer accounts in Azure API Management" metaKeywords="" description="Learn how to create or invite developers in Azure API Management" metaCanonical="" services="" documentationCenter="API Management" title="How manage developer accounts in Azure API Management" authors="sdanie" solutions="" manager="" editor="" />
+﻿<properties 
+	pageTitle="Azure API 관리에서 개발자 계정을 관리하는 방법" 
+	description="Azure API 관리에서 개발자를 만들거나 초대하는 방법에 대해 알아봅니다." 
+	services="api-management" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
+<tags 
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/18/2014" 
+	ms.author="sdanie"/>
 
 # Azure API 관리에서 개발자 계정을 관리하는 방법
 
@@ -80,3 +94,5 @@ API 관리(미리 보기)에서, 개발자는 API 관리 사용을 공개하는 
 [초대 확인]: ./media/api-management-howto-create-or-invite-developers/api-management-invite-developer-confirmation.png
 [전자 메일 템플릿 구성]: ../api-management-howto-configure-notifications/#email-templates
 [그룹을 만들고 사용하는 방법]: ../api-management-howto-create-groups
+
+<!--HONumber=46--> 

@@ -37,7 +37,7 @@ Microsoft는 사용자의 의견을 소중하게 생각합니다. 이 문서는 
  
 <h2><a id="components"></a>Azure 구성 요소</h2>
 
-Azure는 [Microsoft Azure 인포그래픽](http://azure.microsoft.com/ko-kr/documentation/infographics/azure/ "What Is Microsoft Azure Poster Infographic")과 같은 다양한 시각적 보조 기능 및 관리 포털의 범주로 서비스를 그룹화합니다. 관리 포털은 전부는 아니지만 대부분의 Azure 서비스를 관리하는 포털입니다. 
+Azure는 [Microsoft Azure 인포그래픽](http://azure.microsoft.com/documentation/infographics/azure/ "What Is Microsoft Azure Poster Infographic")과 같은 다양한 시각적 보조 기능 및 관리 포털의 범주로 서비스를 그룹화합니다. 관리 포털은 전부는 아니지만 대부분의 Azure 서비스를 관리하는 포털입니다. 
 
 이 백서에서는 **다른 조직**을 사용하여 비슷한 기능을 기반으로 하는 서비스에 대해 설명하고 대규모 서비스를 구성하는 중요 하위 서비스에 대해서도 살펴봅니다.  
 
@@ -121,7 +121,7 @@ Azure 클라우드 서비스가 정답입니다. PaaS(Platform as a Service)의 
 클라우드 서비스는 Azure 웹 사이트에서 제공하는 것보다 더 높은 수준으로 플랫폼을 제어하지만 기본 운영 체제는 제어할 필요가 없는 경우 광범위한 확장을 지원하는 데 이상적입니다. 
 
 ####계산 모델 선택####
-Azure 웹 사이트, 클라우드 서비스 및 가상 컴퓨터 비교 페이지(http://azure.microsoft.com/ko-kr/documentation/articles/choose-web-site-cloud-service-vm/)에서는 계산 모델을 선택하는 방법에 대한 자세한 내용을 제공합니다.
+Azure 웹 사이트, 클라우드 서비스 및 가상 컴퓨터 비교 페이지(http://azure.microsoft.com/documentation/articles/choose-web-site-cloud-service-vm/)에서는 계산 모델을 선택하는 방법에 대한 자세한 내용을 제공합니다.
 
 
 
@@ -246,7 +246,7 @@ Azure 가상 네트워크 연결에서 제공할 수 있는 것보다 더 많은
 
 Express 경로 연결을 설정하는 데 더 많은 시간과 계획이 필요하므로, 사이트 간 VPN으로 시작한 다음 Express 경로 연결로 마이그레이션할 수 있습니다.
 
-Express 경로에 대한 자세한 내용은 [Express 경로 기술 개요](http://msdn.microsoft.com/ko-kr/library/azure/dn606309.aspx)를 참조하세요.
+Express 경로에 대한 자세한 내용은 [Express 경로 기술 개요](http://msdn.microsoft.com/library/azure/dn606309.aspx)를 참조하세요.
 
 ###트래픽 관리자###
 
@@ -268,7 +268,7 @@ Azure는 개발자 및 IT 전문가가 클라우드에서 응용 프로그램을
 ###Azure SDK###
 2008년 Azure 첫 번째 시험판 버전에서는 .NET 개발만 지원했습니다. 하지만 이제 Azure 응용 프로그램을 대부분의 언어로 작성할 수 있습니다. 현재 Microsoft는 .NET, Java, PHP, Node.js, Ruby, Python 등의 언어별 SDK를 제공합니다. 또한 C++ 등 모든 언어를 기본적으로 지원하는 일반적인 Azure SDK도 있습니다.  
 
-이러한 SDK는 Azure 응용 프로그램의 구축, 배포, 관리 등을 돕습니다. SDK는 [www.microsoftazure.com](http://azure.microsoft.com/ko-kr/downloads/) 또는 GitHub에 있으며, Visual Studio 및 Eclipse와 함께 사용할 수 있습니다. 또한 Azure는 개발자가 어느 편집기나 개발 환경에서 사용할 수 있는 명령줄 도구를 제공하며, 여기에는 Linux나 Macintosh 시스템의 응용 프로그램을 Azure로 배포하는 도구가 포함됩니다. 
+이러한 SDK는 Azure 응용 프로그램의 구축, 배포, 관리 등을 돕습니다. SDK는 [www.microsoftazure.com](http://azure.microsoft.com/downloads/) 또는 GitHub에 있으며, Visual Studio 및 Eclipse와 함께 사용할 수 있습니다. 또한 Azure는 개발자가 어느 편집기나 개발 환경에서 사용할 수 있는 명령줄 도구를 제공하며, 여기에는 Linux나 Macintosh 시스템의 응용 프로그램을 Azure로 배포하는 도구가 포함됩니다. 
 
 Azure 응용 프로그램 빌드를 돕는 것 외에도, 이 SDK는 Azure 서비스를 사용하는 소프트웨어 작성을 돕는 클라이언트 라이브러리를 제공합니다. 예를 들어, Azure Blob를 읽고 쓰는 응용 프로그램을 빌드하거나 Azure 관리 인터페이스를 통해 Azure 응용 프로그램 배포 도구를 만들 수 있습니다. 
 
@@ -418,7 +418,7 @@ Azure 백업은 Windows Server를 실행하는 온-프레미스 서버에서 클
 
 **Azure 백업에 대한 시나리오**
 
-Windows Server 또는 System Center를 이미 사용하는 경우 Azure 백업은 서버 파일 시스템, 가상 컴퓨터 및 SQL Server 데이터베이스를 백업하는 데 사용할 수 있는 자연스러운 솔루션입니다.  이 솔루션은 암호화된, 스파스 및 압축 파일에 대해 작업합니다. 몇 가지 제한 사항이 있으므로 먼저 [Azure 백업 필수 구성 요소를 확인](http://technet.microsoft.com/ko-kr/library/dn296608.aspx)해야 합니다. 
+Windows Server 또는 System Center를 이미 사용하는 경우 Azure 백업은 서버 파일 시스템, 가상 컴퓨터 및 SQL Server 데이터베이스를 백업하는 데 사용할 수 있는 자연스러운 솔루션입니다.  이 솔루션은 암호화된, 스파스 및 압축 파일에 대해 작업합니다. 몇 가지 제한 사항이 있으므로 먼저 [Azure 백업 필수 구성 요소를 확인](http://technet.microsoft.com/library/dn296608.aspx)해야 합니다. 
 
 
 
@@ -619,7 +619,6 @@ SendGrid는 메일을 보낼 수 있는 Azure 스토어의 응용 프로그램�
 
 
 
-[Azure Media Services Poster]: http://azure.microsoft.com/ko-kr/documentation/infographics/media-services/
-
+[Azure Media Services Poster]: http://azure.microsoft.com/documentation/infographics/media-services/
 
 <!--HONumber=42-->

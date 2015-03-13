@@ -1,4 +1,4 @@
-Azure 클라우드 서비스에 대한 사용자 지정 도메인 이름 구성
+# Azure 클라우드 서비스에 대한 사용자 지정 도메인 이름 구성
 
 > [AZURE.NOTE]
 > 새로운 Azure의 [안내 방식 연습](http://support.microsoft.com/kb/2990804)을 사용하면 작업을 보다 빠르게 수행할 수 있습니다.  이 연습을 통해 사용자 지정 도메인 이름을 연결하고 SSL을 사용하여 Azure 클라우드 서비스 또는 Azure 웹 사이트와의 통신을 보호하는 등의 작업을 매우 쉽게 완료할 수 있습니다.
@@ -6,7 +6,7 @@ Azure 클라우드 서비스에 대한 사용자 지정 도메인 이름 구성
 Azure에서 응용 프로그램을 만들면 Azure에서는 사용자가 http://&lt;*myapp*>.cloudapp.net 등의 URL에서 응용 프로그램에 액세스할 수 있도록 cloudapp.net 도메인에 하위 도메인을 제공합니다. 그러나 contoso.com 등의 고유한 도메인 이름에도 응용 프로그램을 표시할 수 있습니다.
 
 > [AZURE.NOTE] 
-> 이 작업의 절차는 Azure 클라우드 서비스에 적용됩니다. 저장소 계정의 경우 [Azure 저장소 계정에 대한 사용자 지정 도메인 이름 구성](../storage-custom-domain-name/)을 참조하세요. 웹 사이트의 경우 [Azure 웹 사이트에 대한 사용자 지정 도메인 이름 구성](../web-sites-custom-domain-name/)을 참조하세요.
+> 이 작업의 절차는 Azure 클라우드 서비스에 적용됩니다. 저장소 계정의 경우 [Azure 저장소 계정에 대한 사용자 지정 도메인 이름 구성 참조하세요](../storage-custom-domain-name/). 웹 사이트의 경우 [Azure 웹 사이트에 대한 사용자 지정 도메인 이름 구성](../web-sites-custom-domain-name/)을 참조하세요.
 
 이 문서의 내용
 
@@ -23,16 +23,16 @@ CNAME(또는 별칭 레코드) 및 A 레코드는 둘 다 도메인 이름을 �
 CNAME 레코드는 **contoso.com**, **www.contoso.com** 등의 *specific* 도메인을 정식 도메인 이름에 매핑합니다. 이 경우 정식 도메인 이름은 Azure 호스티드 응용 프로그램의 **&lt;myapp>.cloudapp.net** 도메인 이름입니다. CNAME을 만들면 **&lt;myapp>.cloudapp.net**에 대한 별칭이 만들어집니다. CNAME 항목은 **&lt;myapp>.cloudapp.net** 서비스의 IP 주소로 자동으로 확인되므로 클라우드 서비스의 IP 주소가 변경될 경우 특별한 조치를 수행할 필요가 없습니다.
 
 > [AZURE.NOTE] 
-> contoso.com과 같은 루트 이름이 아닌 www.contoso.com과 같은 CNAME 레코드를 사용할 경우 일부 도메인 등록 기관에서만 하위 도메인을 매핑할 수 있습니다. CNAME 레코드에 대한 자세한 내용은 등록 기관에서 제공하는 설명서인 <a href="http://en.wikipedia.org/wiki/CNAME_record">CNAME 레코드에 대한 Wikipedia 항목</a>(영문) 또는 <a href="http://tools.ietf.org/html/rfc1035">IETF 도메인 이름 - 구현 및 사양</a>(영문) 문서를 참조하세요.
+> contoso.com과 같은 루트 이름이 아닌 www.contoso.com과 같은 CNAME 레코드를 사용할 경우 일부 도메인 등록 기관에서만 하위 도메인을 매핑할 수 있습니다. CNAME 레코드에 대한 자세한 내용은 등록 기관에서 제공하는 설명서인 <a href="http://en.wikipedia.org/wiki/CNAME_record">CNAME 레코드에 대한 Wikipedia 항목</a>또는 <a href="http://tools.ietf.org/html/rfc1035">IETF 도메인 이름 - 구현 및 사양</a> 문서를 참조하세요.
 
 ###A 레코드
 
-A 레코드는 **contoso.com**, **www.contoso.com** 등의 도메인이나 **\*.contoso.com** 등의  *or a wildcard domain*을 IP 주소에 매핑합니다. Azure 클라우드 서비스의 경우 서비스의 가상 IP입니다. 따라서 A 레코드가 CNAME 레코드보다 나은 주요 장점은 ***.contoso.com**과 같이 와일드카드를 사용하는 항목을 사용할 수 있다는 것입니다. 이러한 항목은 **mail.contoso.com**, **login.contoso.com**, **www.contso.com** 등의 여러 하위 도메인에 대한 요청을 처리합니다.
+A 레코드는 **contoso.com**, **www.contoso.com** 등의 도메인이나 **\*.contoso.com** 등의 *or a wildcard domain*을 IP 주소에 매핑합니다. Azure 클라우드 서비스의 경우 서비스의 가상 IP입니다. 따라서 A 레코드가 CNAME 레코드보다 나은 주요 장점은 **.contoso.com**과 같이 와일드카드를 사용하는 항목을 사용할 수 있다는 것입니다. 이러한 항목은 **mail.contoso.com**, **login.contoso.com**, **www.contso.com** 등의 여러 하위 도메인에 대한 요청을 처리합니다.
 
 > [AZURE.NOTE]
 > A 레코드는 고정 IP 주소에 매핑되므로 변경 내용을 클라우드 서비스의 IP 주소로 자동으로 확인할 수 없습니다. 빈 슬롯(프로덕션 또는 스테이징)에 처음 배포할 때 클라우드 서비스에서 사용되는 IP 주소가 할당됩니다. 슬롯에 대한 배포를 삭제하면 Azure에서 IP 주소를 해제하며, 나중에 슬롯에 배포할 때 새 IP 주소가 지정될 수 있습니다.
 > 
-> 편의상, 스테이징 배포와 프로덕션 배포 간에 전환하거나 기존 배포의 바로 업그레이드를 수행하는 경우 주어진 배포 슬롯(프로덕션 또는 스테이징)의 IP 주소가 지속됩니다. 이러한 작업을 수행하는 방법에 대한 자세한 내용은 [클라우드 서비스를 관리하는 방법]을 참조하세요.(../cloud-services-how-to-manage/).
+> 편의상, 스테이징 배포와 프로덕션 배포 간에 전환하거나 기존 배포의 바로 업그레이드를 수행하는 경우 주어진 배포 슬롯(프로덕션 또는 스테이징)의 IP 주소가 지속됩니다. 이러한 작업을 수행하는 방법에 대한 자세한 내용은 [클라우드 서비스를 관리하는 방법](../cloud-services-how-to-manage/)을 참조하세요.
 
 
 <h2><a name="add-cname"></a>사용자 지정 도메인에 대한 CNAME 레코드 추가</h2>
@@ -43,9 +43,9 @@ CNAME 레코드를 만들려면 등록 기관에서 제공한 도구를 사용�
 
   * [Azure 관리 포털]에 로그인하고 클라우드 서비스를 선택한 다음 **대시보드**를 선택하고 **간략 상태** 섹션에서 **사이트 URL** 항목을 찾습니다.
 
-  		  ![사이트 URL을 표시하는 한눈에 보기 섹션][csurl]
+  		  ![quick glance section showing the site URL][csurl]
 
-  * [Azure Powershell을 설치 및 구성한](../install-configure-powershell/)후 다음 명령을 사용합니다.
+  * [Azure Powershell](../install-configure-powershell/)을 설치 및 구성하고 다음 명령을 사용합니다.
 
     Get-AzureDeployment -ServiceName yourservicename | Select Url
 
@@ -77,7 +77,7 @@ CNAME 레코드를 만들려면 등록 기관에서 제공한 도구를 사용�
 표시되지 않습니다.
 
 > [AZURE.NOTE]
-> 위의 예제는 <strong>www</strong> 하위 도메인의 트래픽에만 적용됩니다. CNAME 레코드와 함께 와일드카드를 사용할 수 없으므로 각 도메인/하위 도메인에 대해 하나의 CNAME을 만들어야 합니다. *.contoso.com 등의 하위 도메인에서 cloudapp.net 주소로 트래픽을 보내려는 경우 DNS 설정에서 <strong>URL 리디렉션</strong> 또는 <strong>URL 전달</strong> 항목을 구성하거나 A 레코드를 만들 수 있습니다.
+> 위의 예제는 <strong>www</strong> 하위 도메인의 트래픽에만 적용됩니다. CNAME 레코드와 함께 와일드카드를 사용할 수 없으므로 각 도메인/하위 도메인에 대해 하나의 CNAME을 만들어야 합니다. *.contoso.com 등의  하위 도메인에서 cloudapp.net 주소로 트래픽을 전달하려는 경우 DNS 설정에서 <strong>URL 리디렉션</strong> 또는 <strong>URL 전달</strong> 항목을 구성하거나 A 레코드를 만들 수 있습니다.
 
 
 <h2><a name="add-aname"></a>사용자 지정 도메인에 대한 A 레코드 추가</h2>
@@ -88,9 +88,9 @@ A 레코드를 만들려면 먼저 클라우드 서비스의 가상 IP 주소를
 
   * [Azure 관리 포털]에 로그인하고 클라우드 서비스를 선택한 다음 **대시보드**를 선택하고 **간략 상태** 섹션에서 **공용 VIP(가상 IP) 주소** 항목을 찾습니다.
 
-   		 ![VIP를 표시하는 한눈에 보기 섹션][vip]
+   		 ![quick glance section showing the VIP][vip]
 
-  * [Azure Powershell](../install-configure-powershell/)을 설치 및 구성한후 다음 명령을 사용합니다.
+  * [Azure Powershell](../install-configure-powershell/)을 설치 및 구성하고 다음 명령을 사용합니다.
 
       get-azurevm -servicename yourservicename | get-azureendpoint -VM {$_.VM} | select Vip
 
@@ -102,7 +102,7 @@ A 레코드를 만들려면 먼저 클라우드 서비스의 가상 IP 주소를
 
 2.  이제 A 레코드를 선택하거나 입력할 수 있는 위치를 찾습니다. 드롭다운에서 레코드 유형을 선택하거나 고급 설정 페이지로 이동해야 할 수도 있습니다.
 
-3. 이 A 레코드를 사용할 도메인 또는 하위 도메인을 선택하거나 입력합니다. 예를 들어 **www.customdomain.com**에 대한 별칭을 만들려는 경우 **www**를 선택합니다. 모든 하위 도메인에 대한 와일드 카드 항목을 만들려는 경우 '__*__'.를 입력합니다. 이렇게 하면 **mail.customdomain.com**, **login.customdomain.com**, **www.customdomain.com** 등의 모든 하위 도메인을 커버합니다.
+3. 이 A 레코드를 사용할 도메인 또는 하위 도메인을 선택하거나 입력합니다. 예를 들어 **www.customdomain.com**에 대한 별칭을 만들려는 경우 **www**를 선택합니다. 모든 하위 도메인에 대한 와일드카드 항목을 만들려면 '__*__'를 입력합니다. 그러면 **mail.customdomain.com**, **login.customdomain.com**, **www.customdomain.com** 등의 모든 하위 도메인이 포함됩니다.
 
   루트 도메인에 대한 A 레코드를 만들려는 경우 등록 기관의 DNS 도구에서 '**@**' 기호로 표시될 수도 있습니다.
 
@@ -131,11 +131,11 @@ A 레코드를 만들려면 먼저 클라우드 서비스의 가상 IP 주소를
   [사용자 지정 도메인에 응용 프로그램 표시]: #access-app
   [사용자 지정 도메인에 대한 CNAME 레코드 추가]: #add-cname
   [사용자 지정 도메인에 데이터 표시]: #access-data
-  [VIP 교환]: http://msdn.microsoft.com/ko-kr/library/ee517253.aspx
+  [VIP 교환]: http://msdn.microsoft.com/library/ee517253.aspx
   [하위 도메인을 저장소 계정과 연결하는 CNAME 레코드 만들기]: #create-cname
   [Azure 관리 포털]: https://manage.windowsazure.com
   [사용자 지정 도메인 유효성 검사 대화 상자]: http://i.msdn.microsoft.com/dynimg/IC544437.jpg
-  [CDN 콘텐츠를 사용자 지정 도메인에 매핑하는 방법]: http://msdn.microsoft.com/ko-kr/library/windowsazure/gg680307.aspx
+  [CDN 콘텐츠를 사용자 지정 도메인에 매핑하는 방법]: http://msdn.microsoft.com/library/windowsazure/gg680307.aspx
   [vip]: ./media/custom-dns/csvip.png
   [csurl]: ./media/custom-dns/csurl.png
-<!--HONumber=42-->
+<!--HONumber=45--> 

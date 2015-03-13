@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Azure Mobile Services .NET 백 엔드로 Leaderboard 앱 만들기" description=".NET 백 엔드와 함께 Azure 모바일 서비스를 사용하여 Windows 스토어 앱을 빌드하는 방법에 대해 알아봅니다." documentationCenter="windows" authors="MikeWasson" manager="dwrede" editor="" services=""/>
+﻿<properties 
+	pageTitle="Azure Mobile Services .NET 백 엔드로 Leaderboard 앱 만들기" 
+	description=".NET 백 엔드와 함께 Azure 모바일 서비스를 사용하여 Windows 스토어 앱을 빌드하는 방법에 대해 알아봅니다." 
+	documentationCenter="windows" 
+	authors="MikeWasson" 
+	manager="dwrede" 
+	editor="" 
+	services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="mwasson"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/23/2014" 
+	ms.author="mwasson"/>
 
 # Azure Mobile Services .NET 백 엔드로 Leaderboard 앱 만들기
 
@@ -80,7 +94,7 @@ Visual Studio 2013 업데이트 3에서 ASP.NET 웹 응용 프로그램 프로�
 
 ## 데이터 모델 추가
 
-[EF Code First](http://msdn.microsoft.com/ko-kr/data/ee712907#codefirst)를 사용하여 데이터베이스 테이블을 정의합니다. DataObjects 폴더 아래에서 `Player`라는 클래스를 추가합니다.
+[EF Code First](http://msdn.microsoft.com/data/ee712907#codefirst)를 사용하여 데이터베이스 테이블을 정의합니다. DataObjects 폴더 아래에서 `Player`라는 클래스를 추가합니다.
 
 	using Microsoft.WindowsAzure.Mobile.Service;
 	
@@ -109,9 +123,9 @@ Visual Studio 2013 업데이트 3에서 ASP.NET 웹 응용 프로그램 프로�
 	    }
 	}
 
-두 클래스는 모두 **EntityData** 클래스에서 파생됩니다. **EntityData**에서 파생되기 때문에 Azure 모바일 서비스에 대해 크로스 플랫폼 클라이언트 라이브러리를 사용해서 앱이 데이터를 쉽게 사용할 수 있습니다. **EntityData**는 또한 앱이 [데이터베이스 쓰기 충돌 해결](http://azure.microsoft.com/ko-kr/documentation/articles/mobile-services-windows-store-dotnet-handle-database-conflicts/)을 쉽게 수행할 수 있게 해줍니다.
+두 클래스는 모두 **EntityData** 클래스에서 파생됩니다. **EntityData**에서 파생되기 때문에 Azure 모바일 서비스에 대해 크로스 플랫폼 클라이언트 라이브러리를 사용해서 앱이 데이터를 쉽게 사용할 수 있습니다. **EntityData**는 또한 앱이 [데이터베이스 쓰기 충돌 해결](http://azure.microsoft.com/documentation/articles/mobile-services-windows-store-dotnet-handle-database-conflicts/)을 쉽게 수행할 수 있게 해줍니다.
 
-`PlayerRank` 클래스에는 관련된 `Player` 엔터티를 가리키는 [탐색 속성](http://msdn.microsoft.com/ko-kr/data/jj713564.aspx)이 있습니다. **[ForeignKey]** 특성은 EF에 `Player` 속성이 외래 키를 나타내도록 지정합니다.
+`PlayerRank` 클래스에는 관련된 `Player` 엔터티를 가리키는 [탐색 속성](http://msdn.microsoft.com/data/jj713564.aspx)이 있습니다. **[ForeignKey]** 특성은 EF에 `Player` 속성이 외래 키를 나타내도록 지정합니다.
 
 # Web API 컨트롤러 추가
 
@@ -139,7 +153,7 @@ Visual Studio 2013 업데이트 3에서 ASP.NET 웹 응용 프로그램 프로�
 
 컨트롤러는 **TableController<T>**에서 파생됩니다. 이 클래스는 **ApiController**를 상속하지만 Azure 모바일 서비스에 맞게 특별히 설정됩니다.
  
-- 라우팅: **TableController**의 기본 경로는  `/tables/{table_name}/{id}`입니다. 여기서 *table_name*은 엔터티 이름과 일치합니다. 따라서 Player 컨트롤러의 경로는 */tables/player/{id}*입니다. 이 라우팅 규칙에 따라 **TableController**가 모바일 서비스 [REST API](http://msdn.microsoft.com/ko-kr/library/azure/jj710104.aspx)와 일치하게 됩니다.
+- 라우팅: **TableController**의 기본 경로는  `/tables/{table_name}/{id}`입니다. 여기서 *table_name*은 엔터티 이름과 일치합니다. 따라서 Player 컨트롤러의 경로는 */tables/player/{id}*입니다. 이 라우팅 규칙에 따라 **TableController**가 모바일 서비스 [REST API](http://msdn.microsoft.com/library/azure/jj710104.aspx)와 일치하게 됩니다.
 - 데이터 액세스: 데이터베이스 작업의 경우 **TableController** 클래스는 데이터 액세스의 추상을 정의하는 **IDomainManager** 인터페이스를 사용합니다.  스캐폴딩에는 EF 컨텍스트를 래핑하는 **IDomainManager**의 구체적 구현인 **EntityDomainManager**가 사용됩니다. 
 
 이제 PlayerRank 엔터티에 대한 보조 컨트롤러를 추가합니다. 동일한 단계를 수행하지만 모델 클래스에 대해 PlayerRank를 선택합니다. 동일한 데이터 컨텍스트 클래스를 사용하고 새 클래스를 만들지 않습니다. 컨트롤러 이름을 "PlayerRankController"로 지정합니다.

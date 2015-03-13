@@ -114,7 +114,6 @@ Blob에서 데이터를 다운로드하려면 **get\_blob\_to\_path**, **get\_bl
   [방법: Blob 다운로드]: #download-blobs
   [방법: Blob 삭제]: #delete-blobs
   [방법: 대규모 Blob 업로드 및 다운로드]: #large-blobs
-  [Azure에서 데이터 저장 및 액세스]: http://msdn.microsoft.com/ko-kr/library/windowsazure/gg433040.aspx
+  [Azure에서 데이터 저장 및 액세스]: http://msdn.microsoft.com/library/windowsazure/gg433040.aspx
   [Azure 저장소 팀 블로그]: http://blogs.msdn.com/b/windowsazurestorage/
-
 <!--HONumber=42-->

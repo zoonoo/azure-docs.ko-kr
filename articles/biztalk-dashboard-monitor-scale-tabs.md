@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Dashboard, Monitor, Scale, Configure and Hybrid Connections tabs" pageTitle="BizTalk 서비스의 대시보드, 모니터 및 크기 | Azure" metaKeywords="BizTalk Services, Azure, dashboard, monitor, scale, wabs, mabs" description="BizTalk 서비스에 대한 관리 포털 탭인 대시보드, 모니터 및 크기 조정 탭에 있는 컨트롤에 대해 알아봅니다." metaCanonical="" services="biztalk-services" documentationCenter="" title=" Monitor and Scale tabs" authors="mandia" solutions="" manager="dwrede" editor="cgronlun" />
+﻿<properties 
+	pageTitle="BizTalk 서비스 버전의 기능 알아보기 | Azure" 
+	description="BizTalk 서비스 에디션(Free, Developer, Basic, Standard 및 Premium)의 기능을 비교합니다. MABS, WABS" 
+	services="biztalk-services" 
+	documentationCenter="" 
+	authors="MandiOhlinger" 
+	manager="dwrede" 
+	editor="cgronlun"/>
 
-<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia" />
+<tags 
+	ms.service="biztalk-services" 
+	ms.workload="integration" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/16/2015" 
+	ms.author="mandia"/>
 
 
 
@@ -47,7 +61,7 @@ BizTalk 서비스 버전에 따라 나열된 일부 옵션을 사용하지 못�
 
 <tr>
         <td><strong>BizTalk 서비스 알아보기</strong></td>
-        <td>Azure BizTalk 서비스에 대해 자세히 알아볼 수 있는 <a HREF="http://azure.microsoft.com/ko-kr/documentation/services/biztalk-services/">학습 센터</a>로 이동합니다.</td>
+        <td>Azure BizTalk 서비스에 대해 자세히 알아볼 수 있는 <a HREF="http://azure.microsoft.com/documentation/services/biztalk-services/">학습 센터</a>로 이동합니다.</td>
 </tr>
 </table>
 
@@ -341,7 +355,7 @@ BizTalk 서비스 이름을 선택하면 다음 항목이 표시된 모니터 �
 
 Azure 웹 사이트에서 하이브리드 연결을 만들려면 [하이브리드 연결: Azure 웹 사이트에서 온-프레미스 리소스에 연결](http://go.microsoft.com/fwlink/p/?LinkId=397538)을 참조하세요.
 
-Azure 모바일 서비스에서 하이브리드 연결을 사용하려면 [Azure 모바일 서비스 및 하이브리드 연결](http://azure.microsoft.com/ko-kr/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started)을 참조하세요.
+Azure 모바일 서비스에서 하이브리드 연결을 사용하려면 [Azure 모바일 서비스 및 하이브리드 연결](http://azure.microsoft.com/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started)을 참조하세요.
 
 Azure BizTalk 서비스에서 하이브리드 연결을 만들거나 관리하려면 [하이브리드 연결](http://go.microsoft.com/fwlink/p/?LinkID=397274)을 참조하세요.
 
@@ -365,3 +379,5 @@ Azure BizTalk 서비스에서 하이브리드 연결을 만들거나 관리하�
 [AddMetrics]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_AddMetrics.png
 [GrayedMetric]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_GrayedMetric.png
 [EnabledMetric]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_EnabledMetric.png
+
+<!--HONumber=46--> 

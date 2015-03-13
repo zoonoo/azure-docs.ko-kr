@@ -1,6 +1,20 @@
-<properties title="Monitor a DocumentDB Account" pageTitle="Manage a DocumentDB account | Azure" description="Learn how to manage your DocumentDB account." metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, accounts" services="documentdb" solutions="data-management" documentationCenter=""  authors="hawong" manager="jhubbard" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="DocumentDB 계정 관리 | Azure" 
+	description="DocumentDB 계정을 관리하는 방법에 대해 알아봅니다." 
+	services="documentdb" 
+	documentationCenter="" 
+	authors="stephbaron" 
+	manager="jhubbard" 
+	editor="cgronlun"/>
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/03/2014" ms.author="hawong" />
+<tags 
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/12/2015" 
+	ms.author="stbaro"/>
 
 # DocumentDB 계정을 관리하는 방법
 
@@ -202,3 +216,5 @@ Microsoft Azure DocumentDB는 수명 주기 전체에 걸쳐 응용 프로그램
   []: ./media/documentdb-manage-account/image002.jpg
   [일관성 수준]: http://go.microsoft.com/fwlink/p/?LinkId=402365
   [azure.com]: http://go.microsoft.com/fwlink/?LinkID=402319&clcid=0x409
+
+<!--HONumber=46--> 

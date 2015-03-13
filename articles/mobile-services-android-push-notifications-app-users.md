@@ -1,6 +1,20 @@
-﻿<properties pageTitle="사용자에 대한 푸시 알림(Android) | 모바일 개발자 센터" description="모바일 서비스를 사용하여 Android 앱 사용자에게 알림을 푸시하는 방법에 대해 알아봅니다." services="mobile-services, notification-hubs" documentationCenter="android" authors="RickSaling" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="사용자에 대한 푸시 알림(Android) | 모바일 개발자 센터" 
+	description="모바일 서비스를 사용하여 Android 앱 사용자에게 알림을 푸시하는 방법에 대해 알아봅니다." 
+	services="mobile-services, notification-hubs" 
+	documentationCenter="android" 
+	authors="RickSaling" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="10/07/2014" ms.author="ricksal"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="Mobile-Android" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="10/07/2014" 
+	ms.author="ricksal"/>
 
 # 모바일 서비스를 사용하여 사용자에게 푸시 알림
 

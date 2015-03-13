@@ -66,7 +66,7 @@
     	}
 	}
 
-Blob 컨테이너의 콘텐츠를 나열하는 다른 방법이 있습니다. 자세한 내용은 [.NET에서 Blob 저장소를 사용하는 방법](http://azure.microsoft.com/ko-kr/documentation/articles/storage-dotnet-how-to-use-blobs/#list-blob)(영문)을 참조하세요.
+Blob 컨테이너의 콘텐츠를 나열하는 다른 방법이 있습니다. 자세한 내용은 [.NET에서 Blob 저장소를 사용하는 방법](http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-blobs/#list-blob)(영문)을 참조하세요.
 
 #####Blob 다운로드
 Blob을 다운로드하려면 먼저 Blob에 대한 참조를 가져온 다음 the DownloadToStream() 메서드를 호출합니다. 다음 예제에서는 DownloadToStream() 메서드를 사용하여 Blob 콘텐츠를 스트림 개체로 전송합니다. 그러면 이 개체를 로컬 파일에 저장할 수 있습니다.
@@ -80,7 +80,7 @@ Blob을 다운로드하려면 먼저 Blob에 대한 참조를 가져온 다음 t
     	blockBlob.DownloadToStream(fileStream);
 	}
 
-Blob을 파일로 저장하는 다른 방법이 있습니다. 자세한 내용은 [.NET에서 Blob 저장소를 사용하는 방법](http://azure.microsoft.com/ko-kr/documentation/articles/storage-dotnet-how-to-use-blobs/#download-blobs)(영문)을 참조하세요.
+Blob을 파일로 저장하는 다른 방법이 있습니다. 자세한 내용은 [.NET에서 Blob 저장소를 사용하는 방법](http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-blobs/#download-blobs)(영문)을 참조하세요.
 
 #####Blob 삭제
 Blob을 삭제하려면 먼저 Blob 참조를 가져온 다음 Delete() 메서드를 호출합니다.
@@ -92,5 +92,5 @@ Blob을 삭제하려면 먼저 Blob 참조를 가져온 다음 Delete() 메서�
 	blockBlob.Delete();
 
 [Azure 저장소에 대한 자세한 정보](http://azure.microsoft.com/documentation/services/storage/)
-또한 [서버 탐색기로 저장소 리소스 탐색](http://msdn.microsoft.com/ko-kr/library/azure/ff683677.aspx)(영문)을 참조하세요.
-<!--HONumber=42-->
+또한 [서버 탐색기로 저장소 리소스 탐색](http://msdn.microsoft.com/library/azure/ff683677.aspx)(영문)을 참조하세요.
+\<!--HONumber=42-->

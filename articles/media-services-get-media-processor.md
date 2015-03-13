@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="미디어 프로세서를 만드는 방법 - Azure" 
 	description="Azure 미디어 서비스용 미디어 콘텐츠를 인코딩하거나 형식을 변환하거나 암호화하거나 암호 해독하기 위한 미디어 프로세서 구성 요소를 만드는 방법에 대해 알아봅니다. 코드 샘플은 C#으로 작성되었으며 Media Services SDK for .NET을 사용합니다." 
 	services="media-services" 
@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/30/2014" 
+	ms.date="02/10/2015" 
 	ms.author="juliako"/>
 
 
+# 방법: 미디어 프로세서 인스턴스 가져오기
 
+이 기사는 [필요 시 워크플로 관련 미디어 서비스 비디오](../media-services-video-on-demand-workflow) 시리즈의 일부입니다. 
 
-
-<h1>방법: 미디어 프로세서 인스턴스 가져오기</h1>
-이 문서는 Azure 미디어 서비스 프로그래밍을 소개하는 시리즈 중 하나입니다. 이전 항목은 [방법: 암호화된 자산 만들기 및 저장소에 업로드](../media-services-create-encrypted-asset-upload-storage/)입니다.
+## 개요
 
 미디어 서비스에서 미디어 프로세서는 미디어 콘텐츠 인코딩, 형식 변환, 암호화 또는 암호 해독과 같은 특정 처리 작업을 다루는 구성 요소입니다. 일반적으로 미디어 콘텐츠 인코드, 암호화 또는 형식 변환 작업을 만들 때 미디어 프로세서를 만듭니다.
 
@@ -39,17 +39,17 @@
     <tr>
        <td>Azure Media Encoder</td>
        <td>Media Encoder를 사용하여 인코딩 작업을 실행할 수 있습니다.</td>
-       <td><a href="http://msdn.microsoft.com/ko-kr/library/jj129582.aspx"> Azure Media Encoder용 태스크 기본 설정 문자열</a></td>
+       <td><a href="http://msdn.microsoft.com/library/jj129582.aspx"> Azure Media Encoder용 태스크 기본 설정 문자열</a></td>
     </tr>
     <tr>
         <td>Microsoft Azure Media Packager</td>
         <td>미디어 자산을 .mp4에서 부드러운 스트리밍 형식으로 변환할 수 있습니다. 또한 미디어 자산을 부드러운 스트리밍에서 Apple HLS(HTTP 라이브 스트리밍) 형식으로 변환할 수 있습니다.</td>
-		<td><a href="http://msdn.microsoft.com/ko-kr/library/hh973635.aspx">Azure Media Packager용 태스크 기본 설정 문자열</a></td>
+		<td><a href="http://msdn.microsoft.com/library/hh973635.aspx">Azure Media Packager용 태스크 기본 설정 문자열</a></td>
     </tr>
     <tr>
         <td>Microsoft Azure Media Encryptor</td>
         <td>PlayReady Protection을 사용하여 미디어 자산을 암호화할 수 있습니다.</td>
-        <td><a href="http://msdn.microsoft.com/ko-kr/library/hh973610.aspx">Azure Media Packager용 태스크 기본 설정 문자열</a></td>
+        <td><a href="http://msdn.microsoft.com/library/hh973610.aspx">Azure Media Packager용 태스크 기본 설정 문자열</a></td>
     </tr>
     <tr>
         <td>Azure 미디어 인덱서</td>
@@ -65,25 +65,25 @@
 
 <br />
 
+## 미디어 프로세서 가져오기
+
 다음 메서드는 미디어 프로세서 인스턴스를 가져오는 방법을 보여 줍니다. 이 코드 예제에서는 **_context**라는 모듈 수준 변수를 사용하여 [방법: 프로그래밍 방식으로 미디어 서비스에 연결](영문) 섹션에 설명된 대로 서버 컨텍스트를 참조한다고 가정합니다.
 
-<pre><code>
-private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
-{
-     var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
-        ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
+	private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
+	{
+	     var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
+	        ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
+	
+	    if (processor == null)
+	        throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
+	
+	    return processor;
+	}
 
-    if (processor == null)
-        throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
-
-    return processor;
-}
-</code></pre>
-
-<h2>다음 단계</h2>
-미디어 프로세서 인스턴스를 가져오는 방법을 알아보았으므로 이제 Azure 미디어 인코더를 사용하여 자산을 인코드하는 방법을 보여 주는 [자산을 인코드하는 방법][](영문) 항목으로 이동합니다.
+## 다음 단계
+미디어 프로세서 인스턴스를 가져오는 방법을 알아보았으므로 이제 Azure Media Encoder를 사용하여 자산을 인코드하는 방법을 보여 주는 [자산을 인코드하는 방법][](영문) 항목으로 이동합니다.
 
 [자산을 인코드하는 방법]: ../media-services-encode-asset/
-[Azure Media Encoder용 태스크 기본 설정 문자열]: http://msdn.microsoft.com/ko-kr/library/jj129582.aspx
+[Azure Media Encoder용 태스크 기본 설정 문자열]: http://msdn.microsoft.com/library/jj129582.aspx
 [방법: 프로그래밍 방식으로 미디어 서비스에 연결]: ../media-services-set-up-computer/
-<!--HONumber=42-->
+<!--HONumber=45--> 

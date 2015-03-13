@@ -34,7 +34,7 @@
 
 ### 새로운 기능 
  
-* [서비스의 3.1 버전에 해당하는 업데이트된 Hadoop 구성 요소 버전](http://azure.microsoft.com/ko-kr/documentation/articles/hdinsight-component-versioning/).  여기에는 Hive 0.13 및 Tez 지원이 포함됩니다.
+* [서비스의 3.1 버전에 해당하는 업데이트된 Hadoop 구성 요소 버전](http://azure.microsoft.com/documentation/articles/hdinsight-component-versioning/).  여기에는 Hive 0.13 및 Tez 지원이 포함됩니다.
 
 ## v1.0.0.0, 릴리스 날짜: 2013-10-28
 
@@ -92,7 +92,7 @@
  
 * Azure HDInsight 서비스를 사용하여 원격으로 실행 중인 클러스터 및 로컬 설치 등 여러 클러스터에 연결합니다. 
  
-* HDInsight 서비스에 대한 자세한 내용은 [http://azure.microsoft.com/ko-kr/documentation/services/hdinsight/](http://azure.microsoft.com/ko-kr/documentation/services/hdinsight/)를 참조하세요.
+* HDInsight 서비스에 대한 자세한 내용은 [http://azure.microsoft.com/documentation/services/hdinsight/](http://azure.microsoft.com/documentation/services/hdinsight/)를 참조하세요.
 
 * 로컬 클러스터에 WASB를 구성합니다.
 
@@ -283,6 +283,5 @@
 
 
 [hdinsight-get-started-emulator]: ../hdinsight-get-started-emulator/
-
 
 <!--HONumber=42-->

@@ -1,6 +1,20 @@
-﻿<properties pageTitle="푸시 알림 시작(레거시 푸시) | 모바일 개발자 센터" description="Azure 모바일 서비스를 사용하여 Windows 스토어 JavaScript 앱에 푸시 알림(레거시 푸시)을 보내는 방법에 대해 알아봅니다." services="mobile-services, notification-hubs" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="푸시 알림 시작(레거시 푸시) | 모바일 개발자 센터" 
+	description="Azure 모바일 서비스를 사용하여 Windows 스토어 JavaScript 앱에 푸시 알림(레거시 푸시)을 보내는 방법에 대해 알아봅니다." 
+	services="mobile-services, notification-hubs" 
+	documentationCenter="windows" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="11/22/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.devlang="javascript" 
+	ms.topic="article" 
+	ms.date="11/22/2014" 
+	ms.author="glenga"/>
 
 # 모바일 서비스 앱에 푸시 알림 추가(레거시 푸시)
 

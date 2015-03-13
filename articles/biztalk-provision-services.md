@@ -1,6 +1,20 @@
-<properties linkid="provisioning-biztalk-service" urlDisplayName="Provision BizTalk Services in management portal" pageTitle="Create BizTalk Services in management portal | Azure" metaKeywords="Get started Azure biztalk services, provision, Azure unstructured data" description="Learn how to provision a BizTalk service in the Azure Management Portal, as well as create an optional SQL database server and Storage account." metaCanonical="http://www.windowsazure.com/ko-KR/manage/services/biztalk-services/provisioning-biztalk-service" services="biztalk-services" documentationCenter="" title="BizTalk Services: Provisioning Using Azure Management Portal" authors="mandia" solutions="" manager="dwrede" editor="cgronlun" />
+﻿<properties 
+	pageTitle="관리 포털에서 BizTalk 서비스 만들기 | Azure" 
+	description="Azure 관리 포털에서 BizTalk 서비스를 프로비전하거나 만드는 방법에 대해 알아봅니다. MABS, WABS" 
+	services="biztalk-services" 
+	documentationCenter="" 
+	authors="MandiOhlinger" 
+	manager="dwrede" 
+	editor="cgronlun"/>
 
-<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia" />
+<tags 
+	ms.service="biztalk-services" 
+	ms.workload="integration" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/16/2015" 
+	ms.author="mandia"/>
 
 # Azure 관리 포털을 사용하여 BizTalk 서비스 만들기
 
@@ -310,3 +324,5 @@ BizTalk 서비스를 만들었으므로 이제 [BizTalk 서비스: 대시보드,
   [BizTalk 서비스: 제한]: http://go.microsoft.com/fwlink/p/?LinkID=302282
   [BizTalk 서비스: 발급자 이름 및 발급자 키]: http://go.microsoft.com/fwlink/p/?LinkID=303941
   [Azure BizTalk 서비스 SDK로 시작하는 방법]: http://go.microsoft.com/fwlink/p/?LinkID=302335
+
+<!--HONumber=46--> 

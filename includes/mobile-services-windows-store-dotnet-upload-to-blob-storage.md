@@ -142,5 +142,4 @@
 
    	>[AZURE.NOTE]새 항목의 <code>imageUri</code> 속성이 <strong>Image</strong> 컨트롤에 바인딩되면 이미지가 Blob 저장소 서비스에서 자동으로 다운로드됩니다.
 
-
 <!--HONumber=42-->

@@ -1,6 +1,20 @@
-<properties title="Error During Authentication Detection" pageTitle="인증 검색 중 오류 발생" metaKeywords="" description="" services="active-directory" documentationCenter="" authors="ghogen, kempb" />
+﻿<properties 
+	pageTitle="인증 검색 중 오류 발생" 
+	description="Active Directory 연결 마법사에서 호환되지 않는 인증 유형 검색" 
+	services="active-directory" 
+	documentationCenter="" 
+	authors="kempb" 
+	manager="douge" 
+	editor="tglee"/>
   
-<tags ms.service="active-directory" ms.workload="web" ms.tgt_pltfrm="vs-getting-started" ms.devlang="na" ms.topic="article" ms.date="10/8/2014" ms.author="ghogen, kempb" />
+<tags 
+	ms.service="active-directory" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="vs-getting-started" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/02/2015" 
+	ms.author="kempb"/>
 
 ###인증 검색 중 오류 발생 
 이전 인증 코드를 검색하는 동안 마법사에서 호환되지 않는 인증 유형을 검색했습니다.   
@@ -78,3 +92,5 @@ Web API 프로젝트에서 Windows 인증을 감지하기 위해 마법사는 �
 인증 유형을 변경하려면 호환되지 않는 인증 유형을 제거하고 마법사를 다시 실행하세요.
 
 자세한 내용은 [Azure AD의 인증 시나리오](http://msdn.microsoft.com/library/azure/dn499820.aspx)를 참조하세요.
+
+<!--HONumber=46--> 

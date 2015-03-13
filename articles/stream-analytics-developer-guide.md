@@ -1,6 +1,20 @@
-﻿<properties title="Azure Stream Analytics developer guide" pageTitle="스트림 분석 개발자 가이드 | Azure" description="Azure 스트림 분석 응용 프로그램을 개발하는 방법에 대해 알아봅니다." metaKeywords="" services="stream analytics" solutions="" documentationCenter="" authors="jgao" videoId="" scriptId="" manager="paulettm" editor="cgronlun"/>
+﻿<properties 
+	pageTitle="스트림 분석 개발자 가이드 | Azure" 
+	description="Azure 스트림 분석 응용 프로그램을 개발하는 방법에 대해 알아봅니다." 
+	services="stream-analytics" 
+	documentationCenter="" 
+	authors="mumian" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="stream-analytics" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="data-services" ms.date="10/28/2014" ms.author="jgao" />
+<tags 
+	ms.service="stream-analytics" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.workload="data-services" 
+	ms.date="2/17/2015" 
+	ms.author="jgao"/>
 
 
 # Azure 스트림 분석 개발자 가이드 
@@ -187,11 +201,11 @@ Azure 스트림 분석은 완전히 관리되는 서비스로, 클라우드의 �
 
 
 <!--Link references-->
-[azure.blob.storage]: http://azure.microsoft.com/ko-kr/documentation/services/storage/
-[azure.blob.storage.use]: http://azure.microsoft.com/ko-kr/documentation/articles/storage-dotnet-how-to-use-blobs/
+[azure.blob.storage]: http://azure.microsoft.com/documentation/services/storage/
+[azure.blob.storage.use]: http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-blobs/
 
-[azure.event.hubs]: http://azure.microsoft.com/ko-kr/services/event-hubs/
-[azure.event.hubs.developer.guide]: http://msdn.microsoft.com/ko-kr/library/azure/dn789972.aspx
+[azure.event.hubs]: http://azure.microsoft.com/services/event-hubs/
+[azure.event.hubs.developer.guide]: http://msdn.microsoft.com/library/azure/dn789972.aspx
 
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.forum]: http://go.microsoft.com/fwlink/?LinkId=512151
@@ -203,3 +217,5 @@ Azure 스트림 분석은 완전히 관리되는 서비스로, 클라우드의 �
 [stream.analytics.limitations]: ../stream-analytics-limitations/
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
+
+<!--HONumber=46--> 

@@ -1,6 +1,20 @@
-﻿<properties title="What Is Azure Machine Learning Studio?" pageTitle="기계 학습 스튜디오란 무엇인가요? | Azure" description="Azure 기계 학습 스튜디오 개요" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Azure 기계 학습 스튜디오란? | Azure" 
+	description="Azure 기계 학습 스튜디오 개요 및 기본 구성 요소" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="garyericson" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/11/2014" ms.author="garye" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/11/2014" 
+	ms.author="garye"/>
 
 # Azure 기계 학습 스튜디오란 무엇인가요?
 
@@ -39,8 +53,8 @@ Microsoft Azure 기계 학습 스튜디오는 데이터에 대해 작동하는 �
 - 모듈에 대한 모든 입력 포트에는 데이터 흐름에 대한 연결이 포함되어야 합니다. 
 - 모듈에 대한 모든 필수 매개 변수를 설정해야 합니다. 
 
-간단한 실험을 만드는 예에 대해서는 [Azure 기계 학습 스튜디오에서 간단한 실험 만들기](http://azure.microsoft.com/ko-kr/documentation/articles/machine-learning-create-experiment/)를 참조하세요. 
-예측 분석 솔루션을 만드는 자세한 연습 과정에 대해서는 [Azure 기계 학습을 사용한 예측 솔루션 개발](http://azure.microsoft.com/ko-kr/documentation/articles/machine-learning-walkthrough-develop-predictive-solution/)을 참조하세요.
+간단한 실험을 만드는 예에 대해서는 [Azure 기계 학습 스튜디오에서 간단한 실험 만들기](http://azure.microsoft.com/documentation/articles/machine-learning-create-experiment/)를 참조하세요. 
+예측 분석 솔루션을 만드는 자세한 연습 과정에 대해서는 [Azure 기계 학습을 사용한 예측 솔루션 개발](http://azure.microsoft.com/documentation/articles/machine-learning-walkthrough-develop-predictive-solution/)을 참조하세요.
 
 ### 데이터 집합
 
@@ -67,3 +81,5 @@ Microsoft Azure 기계 학습 스튜디오는 데이터에 대해 작동하는 �
 
 
 [ml-studio-overview]:./media/machine-learning-what-is-ml-studio/context.jpg
+
+<!--HONumber=46--> 

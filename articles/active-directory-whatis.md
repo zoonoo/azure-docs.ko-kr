@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="What is Azure AD?" pageTitle="Azure Active Directory 정의" metaKeywords="" description="Microsoft에서 뛰어난 확장성, 고가용성 및 통합 재해 복구 기능을 제공하는 클라우드에서 Active Directory를 실행하는 동안 Azure Active Directory를 사용하여 기존 온-프레미스 ID를 클라우드로 확장해 관리자 및 최종 사용자 환경을 향상시킬 수 있습니다. 또는 사용자의 조직이나 다른 조직을 위해 Azure AD 통합 응용 프로그램을 개발할 수 있습니다." metaCanonical="" services="active-directory" documentationCenter="" title="What is Azure Active Directory?" authors="justinha" solutions="" manager="terrylan" editor="" />
+﻿<properties 
+	pageTitle="Azure Active Directory란?" 
+	description="Microsoft에서 뛰어난 확장성, 고가용성 및 통합 재해 복구 기능을 제공하는 클라우드에서 Active Directory를 실행하는 동안 Azure Active Directory를 사용하여 기존 온-프레미스 ID를 클라우드로 확장해 관리자 및 최종 사용자 환경을 향상시킬 수 있습니다. 또는 사용자의 조직이나 다른 조직을 위해 Azure AD 통합 응용 프로그램을 개발할 수 있습니다." 
+	services="active-directory" 
+	documentationCenter="" 
+	authors="Justinha" 
+	manager="terrylan" 
+	editor=""/>
 
-<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/03/2014" ms.author="justinha" />
+<tags 
+	ms.service="active-directory" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/03/2015" 
+	ms.author="justinha"/>
 
 
 
@@ -28,3 +42,5 @@ Azure AD는 조직의 독립 실행형 클라우드 디렉터리로 사용될 �
 * [조직으로 Azure 등록](/ko-kr/manage/services/identity/organizational-account/)
 * [Azure ID](/ko-kr/manage/windows/fundamentals/identity/)
 * [MSDN의 Azure AD 라이브러리](http://go.microsoft.com/fwlink/?LinkId=293425)
+
+<!--HONumber=46--> 

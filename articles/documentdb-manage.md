@@ -1,6 +1,20 @@
-﻿<properties title="Manage DocumentDB capacity and performance" pageTitle="DocumentDB 용량 및 성능 관리 | Azure" description="응용 프로그램의 성능 및 저장소 요구 사항을 충족하기 위해 탄력적으로 DocumentDB의 크기를 조정할 수 있는 방법에 대해 알아봅니다." metaKeywords="" services="documentdb" solutions="data-management"  authors="bradsev" manager="jhubbard" editor="cgronlun"  videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="DocumentDB 용량 및 성능 관리 | Azure" 
+	description="응용 프로그램의 성능 및 저장소 요구 사항을 충족하기 위해 탄력적으로 DocumentDB의 크기를 조정할 수 있는 방법에 대해 알아봅니다." 
+	services="documentdb" 
+	authors="mimig1" 
+	manager="jhubbard" 
+	editor="cgronlun" 
+	documentationCenter=""/>
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="spelluru" />
+<tags 
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/13/2015" 
+	ms.author="mimig"/>
 
 #DocumentDB 용량 및 성능 관리
 DocumentDB는 완전히 관리되고 대규모로 확장 가능한 문서 지향 NoSQL 데이터베이스 서비스입니다.  DocumentDB를 사용하면 가상 컴퓨터를 임대하거나, 소프트웨어를 배포하거나, 데이터베이스를 모니터링하거나, 재해 복구에 대해 걱정할 필요가 없습니다. 세계적 수준의 가용성, 성능 및 데이터 보호를 제공하기 위해 Microsoft 엔지니어가 DocumentDB를 작동하고 지속적으로 모니터링합니다.  
@@ -66,3 +80,5 @@ SSD 지원 문서 저장소 및 처리량의 누적형 단위를 CU(용량 단�
 
 기본적으로 모든 문서가 DocumentDB에서 자동으로 인덱싱됩니다. 그러나 인덱스 오버헤드를 미세 조정하려는 경우 문서를 삽입하거나 바꿀 때 특정 문서가 인덱싱되지 않도록 제거할 수 있습니다. 컬렉션 내의 모든 문서를 인덱싱에서 제외하도록 DocumentDB 컬렉션을 구성할 수 있습니다. 또한 JSON 문서의 와일드카드를 사용하여 특정 속성 또는 경로만 선택적으로 인덱싱하도록 DocumentDB 컬렉션을 구성할 수 있습니다.  속성 또는 문서를 제외하면 쓰기 처리량이 향상되어 사용하는 요청 단위 수가 줄어듭니다.   
  
+
+<!--HONumber=46--> 

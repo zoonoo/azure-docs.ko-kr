@@ -29,7 +29,7 @@
 
 Azure Blob 저장소는 HTTP 또는 HTTPS를 통해 전 세계 어디에서나 액세스할 수 있는 다량의 구조화되지 않은 데이터를 저장하기 위한 서비스입니다. 단일 Blob은 임의의 크기일 수 있습니다. Blob은 이미지, 오디오 및 비디오 파일, 원시 데이터, 문서 파일 등일 수 있습니다.
 
-시작하려면 Azure 저장소 계정을 만든 다음 저장소에 컨테이너를 하나 이상 만들어야 합니다. 예를 들어 "Scrapbook"이라는 저장소를 만든 다음 저장소에 사진을 저장할 "images"라는 컨테이너를 만들고 오디오 파일을 저장할 "audio"라는 컨테이너를 만들 수 있습니다. 컨테이너를 만든 후 컨테이너에 개별 Blob 파일을 업로드할 수 있습니다. 프로그래밍 방식으로 Blob을 조작하는 방법에 대한 자세한 내용은 [.NET에서 Blob 저장소를 사용하는 방법](http://azure.microsoft.com/ko-kr/documentation/articles/storage-dotnet-how-to-use-blobs/ "How to use Blob Storage from .NET")(영문)을 참조하세요.
+시작하려면 Azure 저장소 계정을 만든 다음 저장소에 컨테이너를 하나 이상 만들어야 합니다. 예를 들어 "Scrapbook"이라는 저장소를 만든 다음 저장소에 사진을 저장할 "images"라는 컨테이너를 만들고 오디오 파일을 저장할 "audio"라는 컨테이너를 만들 수 있습니다. 컨테이너를 만든 후 컨테이너에 개별 Blob 파일을 업로드할 수 있습니다. 프로그래밍 방식으로 Blob을 조작하는 방법에 대한 자세한 내용은 [.NET에서 Blob 저장소를 사용하는 방법](http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-blobs/ "How to use Blob Storage from .NET")(영문)을 참조하세요.
 
 ASP.NET 5 프로젝트에서 Blob에 프로그래밍 방식으로 액세스하려면 다음 항목(아직 없는 경우)을 추가해야 합니다.
 
@@ -123,7 +123,7 @@ Blob으로 작업을 수행하려면 먼저 Blob을 저장할 저장소 계정�
             }
         } while (token != null);
 
-Blob 컨테이너의 콘텐츠를 나열하는 다른 방법이 있습니다. 자세한 내용은 [.NET에서 Blob 저장소를 사용하는 방법](http://azure.microsoft.com/ko-kr/documentation/articles/storage-dotnet-how-to-use-blobs/#list-blob)(영문)을 참조하세요.
+Blob 컨테이너의 콘텐츠를 나열하는 다른 방법이 있습니다. 자세한 내용은 [.NET에서 Blob 저장소를 사용하는 방법](http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-blobs/#list-blob)(영문)을 참조하세요.
 
 ##### Blob 다운로드
 Blob을 다운로드하려면 먼저 Blob에 대한 참조를 가져온 다음 **DownloadToStreamAsync()** 메서드를 호출합니다. 다음 예제에서는 **DownloadToStreamAsync()** 메서드를 사용하여 Blob 콘텐츠를 스트림 개체로 전송합니다. 그러면 이 개체를 로컬 파일에 저장할 수 있습니다.
@@ -137,7 +137,7 @@ Blob을 다운로드하려면 먼저 Blob에 대한 참조를 가져온 다음 *
     	await blockBlob.DownloadToStreamAsync(fileStream);
 	}
 
-Blob을 파일로 저장하는 다른 방법이 있습니다. 자세한 내용은 [.NET에서 Blob 저장소를 사용하는 방법](http://azure.microsoft.com/ko-kr/documentation/articles/storage-dotnet-how-to-use-blobs/#download-blobs)(영문)을 참조하세요.
+Blob을 파일로 저장하는 다른 방법이 있습니다. 자세한 내용은 [.NET에서 Blob 저장소를 사용하는 방법](http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-blobs/#download-blobs)(영문)을 참조하세요.
 
 ##### Blob 삭제
 Blob을 삭제하려면 먼저 Blob에 대한 참조를 가져온 다음 **DeleteAsync()** 메서드를 호출합니다.
@@ -149,5 +149,5 @@ Blob을 삭제하려면 먼저 Blob에 대한 참조를 가져온 다음 **Delet
 	await blockBlob.DeleteAsync();
 
 [Azure 저장소에 대한 자세한 정보](http://azure.microsoft.com/documentation/services/storage/)
-또한 [서버 탐색기로 저장소 리소스 탐색](http://msdn.microsoft.com/ko-kr/library/azure/ff683677.aspx)(영문) 및 [ASP.NET 5](http://www.asp.net/vnext)(영문)를 참조하세요.
-<!--HONumber=42-->
+또한 [서버 탐색기로 저장소 리소스 탐색](http://msdn.microsoft.com/library/azure/ff683677.aspx)(영문) 및 [ASP.NET 5](http://www.asp.net/vnext)(영문)를 참조하세요.
+\<!--HONumber=42-->

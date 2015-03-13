@@ -1,6 +1,20 @@
-﻿<properties title="Scale Azure Stream Analytics jobs" pageTitle="스트림 분석 작업 규모 지정 | Azure" description="스트림 분석 작업을 확장하는 방법에 알아봅니다." metaKeywords="" services="stream-analytics" solutions="" documentationCenter="" authors="jgao" videoId="" scriptId="" manager="paulettm" editor="cgronlun"/>
+﻿<properties 
+	pageTitle="스트림 분석 작업 규모 지정 | Azure" 
+	description="스트림 분석 작업을 확장하는 방법에 알아봅니다." 
+	services="stream-analytics" 
+	documentationCenter="" 
+	authors="mumian" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="stream-analytics" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="data-services" ms.date="10/28/2014" ms.author="jgao" />
+<tags 
+	ms.service="stream-analytics" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.workload="data-services" 
+	ms.date="2/10/2015" 
+	ms.author="jgao"/>
 
 # Azure 스트림 분석 작업 규모 지정 
 
@@ -164,7 +178,7 @@ Azure 스트림 분석의 미리 보기 릴리스에서는 열 이름별 분할�
 
 [microsoft.support]: http://support.microsoft.com
 [azure.management.portal]: http://manage.windowsazure.com
-[azure.event.hubs.developer.guide]: http://msdn.microsoft.com/ko-kr/library/azure/dn789972.aspx
+[azure.event.hubs.developer.guide]: http://msdn.microsoft.com/library/azure/dn789972.aspx
 
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide/
 [stream.analytics.limitations]: ../stream-analytics-limitations/
@@ -174,3 +188,5 @@ Azure 스트림 분석의 미리 보기 릴리스에서는 열 이름별 분할�
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
 
+
+<!--HONumber=46--> 

@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Service Bus Topics" pageTitle="서비스 버스 토픽을 사용하는 방법(.NET) - Azure" metaKeywords="Azure 서비스 버스 토픽 시작, Azure 게시 구독 메시징, Azure 메시징 토픽 및 구독 C# " description="Azure에서 서비스 버스 토픽 및 구독을 사용하는 방법에 대해 알아봅니다. 코드 샘플은 .NET 응용 프로그램용으로 작성되었습니다. " metaCanonical="" services="service-bus" documentationCenter=".NET" title="How to Use Service Bus Topics/Subscriptions" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
+﻿<properties 
+	pageTitle="서비스 버스 토픽을 사용하는 방법(.NET) - Azure" 
+	description="Azure에서 서비스 버스 토픽 및 구독을 사용하는 방법에 대해 알아봅니다. 코드 샘플은 .NET 응용 프로그램용으로 작성되었습니다." 
+	services="service-bus" 
+	documentationCenter=".net" 
+	authors="sethmanheim" 
+	manager="timlt" 
+	editor="mattshel"/>
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
+<tags 
+	ms.service="service-bus" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="02/10/2015" 
+	ms.author="sethm"/>
 
 
 
@@ -308,6 +322,8 @@ a **MessageNumber** property less than or equal to 3:
   
   [7]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/getting-started-multi-tier-13.png
   
-  [큐, 토픽 및 구독]: http://msdn.microsoft.com/ko-kr/library/hh367516.aspx
-  [SqlFilter]: http://msdn.microsoft.com/ko-kr/library/microsoft.servicebus.messaging.sqlfilter.aspx
-  [서비스 버스 조정된 메시징 .NET 자습서]: http://msdn.microsoft.com/ko-kr/library/hh367512.aspx
+  [큐, 토픽 및 구독]: http://msdn.microsoft.com/library/hh367516.aspx
+  [SqlFilter]: http://msdn.microsoft.com/library/microsoft.servicebus.messaging.sqlfilter.aspx
+  [서비스 버스 조정된 메시징 .NET 자습서]: http://msdn.microsoft.com/library/hh367512.aspx
+
+<!--HONumber=46--> 

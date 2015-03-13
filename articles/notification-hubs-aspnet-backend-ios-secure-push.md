@@ -1,11 +1,25 @@
-﻿<properties title="Azure Notification Hubs Secure Push" pageTitle="Azure 알림 허브 보안 푸시" metaKeywords="Azure 푸시 알림, Azure 알림 허브, 보안 푸시" description="Azure에서 iOS 앱에 보안 푸시 알림을 보내는 방법에 대해 알아봅니다. 코드 샘플은 Objective-C 및 C#으로 작성되었습니다." documentationCenter="Mobile" metaCanonical="" disqusComments="1" umbracoNaviHide="0" authors="yuaxu" manager="dwrede" />
+﻿<properties 
+	pageTitle="Azure 알림 허브 보안 푸시" 
+	description="Azure에서 iOS 앱에 보안 푸시 알림을 보내는 방법에 대해 알아봅니다. 코드 샘플은 Objective-C 및 C#으로 작성되었습니다." 
+	documentationCenter="ios" 
+	authors="ysxu" 
+	manager="dwrede" 
+	editor="" 
+	services="notification-hubs"/>
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="yuaxu" />
+<tags 
+	ms.service="notification-hubs" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="" 
+	ms.devlang="objective-c" 
+	ms.topic="article" 
+	ms.date="10/10/2014" 
+	ms.author="yuaxu"/>
 
-#Azure 알림 허브 보안 푸시
+# Azure 알림 허브 보안 푸시
 
 <div class="dev-center-tutorial-selector sublanding">
-    	<a href="/ko-kr/documentation/articles/notification-hubs-aspnet-backend-windows-dotnet-secure-push/" title="Windows Universal">Windows 범용</a><a href="/ko-kr/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/" title="iOS" class="current">iOS</a>
+    	<a href="/ko-kr/documentation/articles/notification-hubs-aspnet-backend-windows-dotnet-secure-push/" title="Windows Universal">Windows Universal</a><a href="/ko-kr/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/" title="iOS" class="current">iOS</a>
 		<a href="/ko-kr/documentation/articles/notification-hubs-aspnet-backend-android-secure-push/" title="Android">Android</a>
 </div>
 
@@ -26,13 +40,13 @@ Microsoft Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플
 
 이 보안 푸시 자습서에서는 푸시 알림을 안전하게 보내는 방법을 보여 줍니다. 이 자습서는 **사용자에게 알림** 자습서를 기반으로 하여 빌드되므로 해당 자습서의 단계를 먼저 완료해야 합니다.
 
-> [AZURE.NOTE] 이 자습서에서는 [알림 허브 시작(iOS)](http://azure.microsoft.com/ko-kr/documentation/articles/notification-hubs-ios-get-started/)에 설명된 대로 알림 허브를 만들고 구성했다고 가정합니다.
+> [AZURE.NOTE] 이 자습서에서는 [알림 허브 시작(iOS)](http://azure.microsoft.com/ documentation/articles/notification-hubs-ios-get-started/)에 설명된 대로 알림 허브를 만들고 구성했다고 가정합니다.
 
-[WACOM.INCLUDE [notification-hubs-aspnet-backend-securepush](../includes/notification-hubs-aspnet-backend-securepush.md)]
+[AZURE.INCLUDE [notification-hubs-aspnet-backend-securepush](../includes/notification-hubs-aspnet-backend-securepush.md)]
 
 ## iOS 프로젝트 수정
 
-알림의 *id*만 보내도록 앱 백 엔드를 수정했으므로 해당 알림을 처리하고 백 엔드를 콜백하여 표시할 보안 메시지를 검색하도록 iOS 앱을 변경해야 합니다.
+알림의  *id*만 보내도록 앱 백 엔드를 수정했으므로 해당 알림을 처리하고 백 엔드를 콜백하여 표시할 보안 메시지를 검색하도록 iOS 앱을 변경해야 합니다.
 
 이 목표를 달성하려면 앱 백 엔드에서 보안 콘텐츠를 검색하는 논리를 작성해야 합니다.
 
@@ -46,13 +60,13 @@ Microsoft Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플
 		- (void) retrieveSecurePayloadWithId:(int)payloadId completion: (void(^)(NSString*, NSError*)) completion;
 		@end
 
-3. 그리고 나서 구현 섹션에 다음 코드를 추가하여 자리 표시자 '{back-end endpoint}'를 이전에 얻은 백 엔드의 끝점으로 대체합니다.
+3. 그리고 나서 구현 섹션에 다음 코드를 추가하여 자리 표시자 `{back-end endpoint}`를 이전에 얻은 백 엔드의 끝점으로 대체합니다.
 
 		NSString *const GetNotificationEndpoint = @"{back-end endpoint}/api/notifications";
 
 		- (void) retrieveSecurePayloadWithId:(int)payloadId completion: (void(^)(NSString*, NSError*)) completion;
 		{
-		    // check if authenticated
+		    // 인증 여부 확인
 		    ANHViewController* rvc = (ANHViewController*) self.window.rootViewController;
 		    NSString* authenticationHeader = rvc.registerClient.authenticationHeader;
 		    if (!authenticationHeader) return;
@@ -95,7 +109,7 @@ Microsoft Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플
 
 	이 메서드는 앱 백 엔드를 호출하여 공유 기본 설정에 저장된 자격 증명을 통해 알림 콘텐츠를 검색합니다.
 
-4. 이제 들어오는 알림을 처리하고 위의 메서드를 사용하여 표시할 콘텐츠를 검색해야 합니다. 먼저 푸시 알림을 받을 때 iOS 앱이 백그라운드에서 실행될 수 있도록 설정해야 합니다. **XCode**의 왼쪽 패널에서 앱 프로젝트를 선택하고 가운데 창의 **대상** 섹션에서  메인 앱 대상을 클릭합니다.
+4. 이제 들어오는 알림을 처리하고 위의 메서드를 사용하여 표시할 콘텐츠를 검색해야 합니다. 먼저 푸시 알림을 받을 때 iOS 앱이 백그라운드에서 실행될 수 있도록 설정해야 합니다. **XCode**의 왼쪽 패널에서 앱 프로젝트를 선택하고 가운데 창의 **대상** 섹션에서 메인 앱 대상을 클릭합니다.
 
 5. 그리고 가운데 창의 맨 위에서 **기능** 탭을 클릭하고 **원격 알림** 확인란을 선택합니다.
 
@@ -110,7 +124,7 @@ Microsoft Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플
 
 		    [self retrieveSecurePayloadWithId:[[userInfo objectForKey:@"secureId"] intValue] completion:^(NSString * payload, NSError *error) {
 		        if (!error) {
-		            // show local notification
+		            // 로컬 알림 표시
 		            UILocalNotification* localNotification = [[UILocalNotification alloc] init];
 		            localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:0];
 		            localNotification.alertBody = payload;
@@ -139,4 +153,4 @@ Microsoft Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플
 
 [IOS1]: ./media/notification-hubs-aspnet-backend-ios-secure-push/secure-push-ios-1.png
 
-<!--HONumber=35.2-->
+<!--HONumber=45--> 

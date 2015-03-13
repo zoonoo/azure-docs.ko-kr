@@ -1,6 +1,20 @@
-﻿<properties title="DocumentDB resource model and concepts" pageTitle="DocumentDB 리소스 모델 및 개념 | Azure" description="DocumentDB nosql 문서 데이터베이스는 개발자가 HTTP 동사, 요청/응답 헤더 및 상태 코드를 사용하여 상호 작용할 수 있는 논리 URI로 고유하게 식별되는 리소스를 관리합니다." metaKeywords="" services="documentdb" solutions="data-management" documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="DocumentDB 리소스 모델 및 개념 | Azure" 
+	description="Microsoft Azure DocumentDB는 리소스를 관리하기 위해 데이터베이스 계정의 계층 모델, 데이터베이스, 컬렉션, 저장 프로시저, 트리거, UDF, 문서, 첨부 파일, 미디어, 사용자 및 사용 권한을 사용하는 문서 데이터베이스로 완전하게 관리됩니다."  
+	services="documentdb" 
+	documentationCenter="" 
+	authors="mimig1" 
+	manager="jhubbard" 
+	editor="monicar"/>
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="spelluru" />
+<tags 
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/03/2015" 
+	ms.author="mimig"/>
 
 #DocumentDB 리소스 모델 및 개념
 
@@ -460,3 +474,5 @@ DocumentDB의 사용자는 사용 권한 그룹화를 위한 논리적 네임스
 [2]: ./media/documentdb-resources/resources2.png
 [3]: ./media/documentdb-resources/resources3.png
 [4]: ./media/documentdb-resources/resources4.png
+
+<!--HONumber=46--> 
