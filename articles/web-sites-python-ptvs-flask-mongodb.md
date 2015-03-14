@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Python Tools 2.1 for Visual Studio가 있는 Azure의 Flask 및 MongoDB" 
 	description="Python Tools for Visual Studio를 사용하여 MongoDB 데이터베이스 인스턴스에 데이터를 저장하고 웹 사이트에 배포할 수 있는 Flask 응용 프로그램을 만드는 방법에 대해 알아봅니다." 
 	services="" 
@@ -229,7 +229,7 @@ Python Tools for Visual Studio, Flask 및 MongoDB에 대해 자세히 알아보�
 [Python Tools for Visual Studio 설명서]: http://pytools.codeplex.com/documentation
 [Flask 설명서]: http://flask.pocoo.org/
 [MongoDB]: http://www.mongodb.org/
-[PyMongo Documentation]: http://api.mongodb.org/python/current/
+[PyMongo 설명서]: http://api.mongodb.org/python/current/
 [PyMongo]: https://github.com/mongodb/mongo-python-driver
 [Microsoft Azure의 원격 디버깅]: http://pytools.codeplex.com/wikipage?title=Features%20Azure%20Remote%20Debugging
 [웹 프로젝트]: http://pytools.codeplex.com/wikipage?title=Features%20Web%20Project

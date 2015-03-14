@@ -1,6 +1,24 @@
-<properties pageTitle="이벤트 허브 시작" metaKeywords="Azure Service Bus, Event Hub, getting started Event Hubs" description="이 자습서에 따라 EventProcessorHost를 통해 C#과 함께 Azure 이벤트 허브를 사용할 수 있습니다." metaCanonical="" services="" documentationCenter="" title="Get Started with Event Hubs" authors="elioda" solutions="" manager="timlt" editor="" />
+<properties 
+	pageTitle="이벤트 허브 시작" 
+	metaKeywords="Azure Service Bus, Event Hub, getting started Event Hubs" 
+	description="이 자습서에 따라 EventProcessorHost를 통해 C#과 함께 Azure 이벤트 허브를 사용할 수 있습니다." 
+	metaCanonical="" 
+	services="" 
+	documentationCenter="" 
+	title="Get Started with Event Hubs" 
+	authors="elioda" 
+	solutions="" 
+	manager="timlt" 
+	editor="" />
 
-<tags ms.service="service-bus" ms.workload="core" ms.tgt_pltfrm="csharp" ms.devlang="csharp" ms.topic="hero-article" ms.date="10/27/2014" ms.author="elioda" />
+<tags 
+	ms.service="service-bus" 
+	ms.workload="core" 
+	ms.tgt_pltfrm="csharp" 
+	ms.devlang="csharp" 
+	ms.topic="hero-article" 
+	ms.date="10/27/2014" 
+	ms.author="elioda" />
 
 # <a name="getting-started"> </a>이벤트 허브 시작
 
@@ -16,7 +34,7 @@
 
 + Microsoft Visual Studio Express 2013 for Windows
 
-+ 활성 Azure 계정. <br/>계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://www.windowsazure.com/ko-kr/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fko-kr%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure 무료 평가판</a>을 참조하세요.
++ 활성 Azure 계정. <br/>계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fko-kr%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure 무료 평가판</a>을 참조하세요.
 
 ## 이벤트 허브 만들기
 
@@ -79,6 +97,6 @@
 <!-- Links -->
 [Azure 관리 포털]: https://manage.windowsazure.com/
 [이벤트 프로세서 호스트]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
-[이벤트 허브 개요]: http://msdn.microsoft.com/ko-kr/library/azure/dn836025.aspx
+[이벤트 허브 개요]: http://msdn.microsoft.com/library/azure/dn836025.aspx
 
 <!--HONumber=35.1-->

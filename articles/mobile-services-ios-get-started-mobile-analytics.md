@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="모바일 분석 시작 | 모바일 개발자 센터" 
 	description="모바일 분석을 시작하는 방법에 대해 알아봅니다." 
 	documentationCenter="ios" 
@@ -90,7 +90,7 @@
     이제 앱이 Capptain으로 분석 데이터를 보내도록 구성되었습니다.
 
 ## 다음 단계
-[http://www.capptain.com](http://www.capptain.com)(영문)에서 Capptain을 통해 앱에 수행할 수 있는 작업에 대해 자세히 알아보세요.
+[http://www.capptain.com](http://www.capptain.com) (영문)에서 Capptain을 통해 앱에 수행할 수 있는 작업에 대해 자세히 알아보세요.
 
 <!-- Anchors. -->
 [Capptain SDK 초기화]: #initialize

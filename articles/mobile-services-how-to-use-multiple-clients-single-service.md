@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="단일 모바일 서비스 백 엔드에서 여러 클라이언트를 사용하는 방법 | Azure 모바일" 
 	description="Windows 스토어 및 Windows Phone을 비롯한 다양한 모바일 플랫폼을 대상으로 하는 여러 클라이언트 앱에서 단일 모바일 서비스 백 엔드를 사용하는 방법에 대해 알아봅니다." 
 	services="mobile-services" 
@@ -191,7 +191,7 @@ Windows Phone 8.1에서는 이전 Silverlight 기반 XAML을 사용하여 앱을
 <!-- URLs -->
 [Azure 관리 포털]: https://manage.windowsazure.com
 [Azure 알림 허브]: /ko-kr/develop/net/how-to-guides/service-bus-notification-hubs/
-[SSO Windows 스토어]: /ko-kr/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/
+[SSO Windows Store]: /ko-kr/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/
 [SSO Windows Phone]: /ko-kr/develop/mobile/tutorials/single-sign-on-wp8/
 [자습서 및 리소스]: /ko-kr/develop/mobile/resources/
 [알림 허브 시작]: /ko-kr/manage/services/notification-hubs/getting-started-windows-dotnet/

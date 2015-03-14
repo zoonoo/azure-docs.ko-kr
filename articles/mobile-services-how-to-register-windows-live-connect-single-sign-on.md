@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Single Sign-On 등록 - Azure 모바일 서비스" 
 	description="Azure 모바일 서비스 응용 프로그램에서 SSO(Single Sign-On) 인증을 위해 등록하는 방법에 대해 알아봅니다." 
 	services="mobile-services" 
@@ -84,8 +84,8 @@
 [Live Connect를 사용한 Windows 스토어 앱의 Single Sign-On]: /ko-kr/develop/mobile/tutorials/single-sign-on-windows-8-dotnet
 [앱 제출 페이지]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [내 응용 프로그램]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[모바일 서비스 시작](영문): /ko-kr/develop/mobile/tutorials/get-started
-[인증 시작](영문): /ko-kr/develop/mobile/tutorials/get-started-with-users-dotnet
+[모바일 서비스 시작]: /ko-kr/develop/mobile/tutorials/get-started
+[인증 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-users-dotnet
 [푸시 알림 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-push-dotnet/
 [스크립트를 통해 사용자 권한 부여]: /ko-kr/develop/mobile/tutorials/authorize-users-in-scripts-dotnet/
 [JavaScript 및 HTML]: /ko-kr/develop/mobile/tutorials/get-started-with-users-js/

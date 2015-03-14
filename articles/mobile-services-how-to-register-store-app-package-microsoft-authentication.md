@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Microsoft 인증을 위해 Windows 스토어 앱 패키지 등록" 
 	description="Azure 모바일 서비스 응용 프로그램에서 Microsoft 인증을 위해 Windows 스토어 앱을 등록하는 방법에 대해 알아봅니다." 
 	services="mobile-services" 

@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Live Connect로 Windows 스토어 앱 인증" 
 	description="Windows 스토어 응용 프로그램에서 Azure 모바일 서비스의 Live Connect Single Sign-On을 사용하는 방법에 대해 알아봅니다." 
 	services="mobile-services" 
@@ -110,7 +110,7 @@
 
     현재 Live Connect 세션을 저장하기 위한 멤버 변수와 인증 프로세스를 처리할 메서드가 만들어집니다. 이 코드는 가능한 경우 로그아웃을 실행하며 응용 프로그램이 실행될 때마다 사용자에게 자격 증명을 요구하는 메시지가 표시되도록 합니다. 인증이 올바르게 작동하는지 확인하기 위해 다양한 Microsoft 계정을 사용하여 응용 프로그램을 테스트하기 쉬워집니다. 이 메커니즘은 로그인한 사용자에게 연결된 Microsoft 계정이 없는 경우에만 작동합니다. 
 
-	>[AZURE.NOTE]앱이 실행될 때마다 Live Connection 인증 토큰 또는 모바일 서비스 권한 부여 토큰을 요청해야 하는 것은 아닙니다. 이 방법은 비효율적일 뿐 아니라 많은 고객이 동시에 앱을 시작하려고 할 경우 사용 관련 문제가 발생할 수도 있습니다. 보다 나은 접근 방법은 토큰을 캐시하고 **LoginWithMicrosoftAccountAsync**를 호출하기 전에 캐시된 모바일 서비스의 사용을 시도하는 것입니다. 이 토큰을 캐시하는 방법에 대한 예제는 [인증 시작]을 참조하세요.(/ko-kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-users/#tokens)
+	>[AZURE.NOTE]앱이 실행될 때마다 Live Connection 인증 토큰 또는 모바일 서비스 권한 부여 토큰을 요청해야 하는 것은 아닙니다. 이 방법은 비효율적일 뿐 아니라 많은 고객이 동시에 앱을 시작하려고 할 경우 사용 관련 문제가 발생할 수도 있습니다. 보다 나은 접근 방법은 토큰을 캐시하고 **LoginWithMicrosoftAccountAsync**를 호출하기 전에 캐시된 모바일 서비스의 사용을 시도하는 것입니다. 이 토큰을 캐시하는 방법에 대한 예제는 [인증 시작](/ko-kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-users/#tokens)을 참조하세요.
 	
 
 7. 이전 단계의 _<< INSERT REDIRECT DOMAIN HERE >>_ 문자열을 Live Connect에서 앱을 구성할 때 지정된 **https://_service-name_.azure-mobile.net/**. 형식의 리디렉션 도메인으로 업데이트합니다.
@@ -155,16 +155,15 @@
 
 [13]: ./media/mobile-services-windows-store-dotnet-single-sign-on/mobile-identity-tab-ma-only.png
 [14]: ./media/mobile-services-windows-store-dotnet-single-sign-on/mobile-portal-data-tables.png
-[15]: ./media/mobile-services-windows-store-dotnet-single-sign-on/mobile-portal-change-table-per
-	ms.png
+[15]: ./media/mobile-services-windows-store-dotnet-single-sign-on/mobile-portal-change-table-perms.png
 [16]: ./media/mobile-services-windows-store-dotnet-single-sign-on/mobile-add-reference-live-dotnet.png
 
 <!-- URLs. -->
 [앱 제출 페이지]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [내 응용 프로그램]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Windows용 Live SDK]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[기존 앱에 모바일 서비스 추가](영문): /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-data/
-[인증 시작](영문): /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-users
+[기존 앱에 모바일 서비스 추가]: /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-data/
+[인증 시작]: /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-users
 [스크립트를 통해 사용자 권한 부여]: /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-authorize-users-in-scripts/
 
 [Azure 관리 포털]: https://manage.windowsazure.com/

@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="푸시 알림 시작(iOS) | 모바일 개발자 센터" 
 	description="Azure 모바일 서비스를 사용하여 iOS 앱에 푸시 알림을 보내는 방법에 대해 알아봅니다." 
 	services="mobile-services, notification-hubs" 
@@ -234,13 +234,13 @@
 [117]: ./media/mobile-services-ios-get-started-push/mobile-services-ios-push-17.png
 
 <!-- URLs.   -->
-[Xcode 설치](영문): https://go.microsoft.com/fwLink/p/?LinkID=266532
+[Xcode 설치]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [iOS 프로비전 포털]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 [모바일 서비스 iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [Apple 푸시 알림 서비스]: http://go.microsoft.com/fwlink/p/?LinkId=272584
-[모바일 서비스 시작](영문): /ko-kr/documentation/articles/mobile-services-ios-get-started
+[모바일 서비스 시작]: /ko-kr/documentation/articles/mobile-services-ios-get-started
 [데이터 시작]: /ko-kr/documentation/articles/mobile-services-ios-get-started-data
-[인증 시작](영문): /ko-kr/documentation/articles/mobile-services-ios-get-started-users
+[인증 시작]: /ko-kr/documentation/articles/mobile-services-ios-get-started-users
 [Azure 관리 포털]: https://manage.windowsazure.com/
 [apns 개체]: http://go.microsoft.com/fwlink/p/?LinkId=272333
 

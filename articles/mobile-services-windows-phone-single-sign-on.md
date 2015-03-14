@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Live Connect로 앱 인증(Windows Phone) | 모바일 개발자 센터" 
 	description="Windows Phone 응용 프로그램에서 Azure 모바일 서비스의 Live Connect Single Sign-On을 사용하는 방법에 대해 알아봅니다." 
 	services="mobile-services" 
@@ -185,15 +185,14 @@
 
 [13]: ./media/mobile-services-windows-phone-single-sign-on/mobile-identity-tab-ma-only.png
 [14]: ./media/mobile-services-windows-phone-single-sign-on/mobile-portal-data-tables.png
-[15]: ./media/mobile-services-windows-phone-single-sign-on/mobile-portal-change-table-per
-	ms.png
+[15]: ./media/mobile-services-windows-phone-single-sign-on/mobile-portal-change-table-perms.png
 [16]: ./media/mobile-services-windows-phone-single-sign-on/mobile-add-reference-live-wp8.png
 
 <!-- URLs. -->
 [내 응용 프로그램]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Windows 및 Windows Phone용 Live SDK]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[기존 앱에 모바일 서비스 추가](영문): /ko-kr/documentation/articles/mobile-services-windows-phone-get-started-data/
-[인증 시작](영문): /ko-kr/documentation/articles/mobile-services-windows-phone-get-started-users
+[기존 앱에 모바일 서비스 추가]: /ko-kr/documentation/articles/mobile-services-windows-phone-get-started-data/
+[인증 시작]: /ko-kr/documentation/articles/mobile-services-windows-phone-get-started-users
 [스크립트를 통해 사용자 권한 부여]: /ko-kr/documentation/articles/mobile-services-windows-phone-authorize-users-in-scripts/
 
 [Azure 관리 포털]: https://manage.windowsazure.com/

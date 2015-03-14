@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Twitter 인증 등록 - 모바일 서비스" 
 	description="Azure 모바일 서비스 응용 프로그램에서 Twitter 인증을 사용하는 방법에 대해 알아봅니다." 
 	services="mobile-services" 
@@ -64,7 +64,7 @@
 <!-- URLs. -->
 
 [Twitter 개발자]: http://go.microsoft.com/fwlink/p/?LinkId=268300
-[인증 시작](영문): /ko-kr/develop/mobile/tutorials/get-started-with-users-dotnet/
+[인증 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-users-dotnet/
 
 [Azure 관리 포털]: https://manage.windowsazure.com/
 

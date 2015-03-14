@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="모바일 서비스에서 오프라인 데이터를 사용하여 충돌 처리(Windows 스토어) | 모바일 개발자 센터" 
 	description="Windows 스토어 응용 프로그램에서 오프라인 데이터를 동기화할 때 Azure 모바일 서비스를 사용하여 충돌을 처리하는 방법에 대해 알아봅니다." 
 	documentationCenter="windows" 
@@ -55,7 +55,7 @@
 
 3. Visual Studio 2013에서  *mobile-services-samples\TodoOffline\WindowsUniversal\TodoOffline-Universal.sln* 솔루션 파일을 엽니다. **F5** 키를 눌러 프로젝트를 다시 빌드하고 실행합니다. NuGet 패키지가 복원되고 참조가 올바르게 설정되었는지 확인합니다.
 
-    >[AZURE.NOTE] [오프라인 데이터 시작] 자습서에 언급된 대로 SQLite 런타임에 대한 이전 참조를 삭제하고 업데이트된 참조로 바꿔야 할 수 있습니다.
+    >[AZURE.NOTE] <a href="/ko-kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data/" title="오프라인 데이터 시작">오프라인 데이터 시작</a> 자습서에 언급된 대로 SQLite 런타임에 대한 이전 참조를 삭제하고 업데이트된 참조로 바꿔야 할 수 있습니다.
 
 4. 앱에서 **Insert a TodoItem**에 일부 텍스트를 입력한 후 **저장**을 클릭하여 일부 todo 항목을 로컬 저장소에 추가합니다. 그런 다음 앱을 닫습니다.
 
@@ -144,7 +144,7 @@
 
 
 <!-- Anchors. -->
-[Windows 스토어 앱 프로젝트 다운로드] : #download-app
+[Windows 스토어 앱 프로젝트 다운로드]: #download-app
 [모바일 서비스 만들기]: #create-service
 [데이터베이스에 대한 기한 열 추가]: #add-column
 [.NET 백 엔드 모바일 서비스에 대한 데이터베이스 업데이트]: #dotnet-backend  
@@ -168,7 +168,7 @@
 
 <!-- URLs -->
 [충돌 처리 코드 샘플]: http://go.microsoft.com/fwlink/?LinkId=394787
-[모바일 서비스 시작](영문): /ko-kr/documentation/articles/mobile-services-windows-store-get-started/
+[모바일 서비스 시작]: /ko-kr/documentation/articles/mobile-services-windows-store-get-started/
 [오프라인 데이터 시작]: /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data
 [SQLite for Windows 8.1]: http://go.microsoft.com/fwlink/?LinkId=394776
 [Azure 관리 포털]: https://manage.windowsazure.com/

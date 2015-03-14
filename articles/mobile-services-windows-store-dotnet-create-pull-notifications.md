@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="풀 알림을 지원하는 사용자 지정 API 정의 - Azure 모바일 서비스" 
 	description="Azure 모바일 서비스를 사용하는 Windows 스토어 앱에서 정기 알림을 지원하는 사용자 지정 API를 정의하는 방법에 대해 알아봅니다." 
 	services="mobile-services" 
@@ -160,8 +160,8 @@
 [Windows 푸시 알림 및 Live Connect]: http://go.microsoft.com/fwlink/?LinkID=257677
 [모바일 서비스 서버 스크립트 참조]: http://go.microsoft.com/fwlink/?LinkId=262293
 [내 응용 프로그램 대시보드]: http://go.microsoft.com/fwlink/?LinkId=262039
-[모바일 서비스 시작](영문): /ko-kr/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started
-[기존 앱에 모바일 서비스 추가](영문): /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-get-started
+[모바일 서비스 시작]: /ko-kr/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started
+[기존 앱에 모바일 서비스 추가]: /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-get-started
 [푸시 알림 시작]: /ko-kr/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push
 
 [Azure 관리 포털]: https://manage.windowsazure.com/

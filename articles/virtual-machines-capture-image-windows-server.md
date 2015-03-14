@@ -36,13 +36,13 @@ Azure에서는 이 템플릿이 이미지로 취급되고 **내 이미지**에 �
 2.	관리자로 명령 프롬프트 창을 엽니다.
 
 
-3.	디렉터리를  `%windir%\system32\sysprep`로 변경한 후 sysprep.exe를 실행합니다.
+3.	디렉터리를 `%windir%\system32\sysprep`로 변경한 후 sysprep.exe를 실행합니다.
 
 
 4. 	**시스템 준비 도구** 대화 상자가 나타납니다. 다음을 수행합니다.
 
 
-	- **시스템 정리 작업**에서 **시스템 OOBE(첫 실행 경험) 입력**을 선택하고 **일반화**를 선택했는지 확인합니다. Sysprep 사용에 대한 자세한 내용은 [Sysprep 사용 방법: 소개][]를 참조하세요.
+	- **시스템 정리 작업**에서 **시스템 OOBE(첫 실행 경험) 입력**을 선택하고 **일반화**를 선택했는지 확인합니다. Sysprep 사용에 대한 자세한 내용은 [Sysprep 사용 방법: 소개][]로 이동하세요.
 
 	- **종료 옵션**에서 **종료**를 선택합니다.
 
@@ -69,15 +69,14 @@ Azure에서는 이 템플릿이 이미지로 취급되고 **내 이미지**에 �
 
   **참고: 범용화한 가상 컴퓨터의 이미지를 캡처하면 가상 컴퓨터가 삭제됩니다.**
 
-	이제 **이미지**에서 새 이미지를 사용할 수 있습니다.
-
-	![Image capture successful](./media/virtual-machines-capture-image-windows-server/VMCapturedImageAvailable.png)
+ 이제 **이미지**에서 새 이미지를 사용할 수 있습니다.
+ ![Image capture successful](./media/virtual-machines-capture-image-windows-server/VMCapturedImageAvailable.png)
 
 ##다음 단계##
 가상 컴퓨터를 만들기 위한 템플릿으로 사용할 이미지가 마련됩니다. 이렇게 하려면 **갤러리에서** 방법을 사용하여 사용자 지정 가상 컴퓨터를 만들고 위에서 만든 이미지를 선택합니다. 자세한 내용은 [사용자 지정 가상 컴퓨터를 만드는 방법][]을 참조하세요.
 
 	
-[Azure의 가상 컴퓨터 이미지 정보]: http://msdn.microsoft.com/library/azure/dn790290.aspx
+[Azure의 가상 컴퓨터 정보]: http://msdn.microsoft.com/library/azure/dn790290.aspx
 [사용자 지정 가상 컴퓨터를 만드는 방법]: ../virtual-machines-create-custom/
 [가상 컴퓨터에 데이터 디스크를 연결하는 방법]: ../storage-windows-attach-disk/
 [Windows Server를 실행하는 가상 컴퓨터에 로그온하는 방법]:http://azure.microsoft.com/manage/windows/how-to-guides/log-on-a-windows-vm/
@@ -90,5 +89,4 @@ Azure에서는 이 템플릿이 이미지로 취급되고 **내 이미지**에 �
 [이미지 캡처 성공]: ./media/virtual-machines-capture-image-windows-server/CaptureSuccess.png
 [캡처한 이미지 사용]: ./media/virtual-machines-capture-image-windows-server/MyImagesWindows.png
 
-
-<!--HONumber=42-->
+<!--HONumber=45--> 

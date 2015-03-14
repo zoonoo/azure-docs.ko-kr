@@ -371,9 +371,9 @@ ACL이 설정되고 나면 정책의 ID를 기반으로 SAS를 만들 수 있습
   [방법: 공유 액세스 서명 작업]: #sas
   [using the REST API]: http://msdn.microsoft.com/library/windowsazure/hh264518.aspx
   [Azure Management Portal]: http://manage.windowsazure.com
-  [Create and deploy a Node.js application to an Azure Web Site]: /ko-kr/documentation/articles/web-sites-nodejs-develop-deploy-mac/
+  [Node.js 응용 프로그램을 만들어 Azure 웹 사이트에 배포하기]: /ko-kr/documentation/articles/web-sites-nodejs-develop-deploy-mac/
   [Node.js Cloud Service with Storage]: /ko-kr/documentation/articles/storage-nodejs-use-table-storage-cloud-service-app/
-  [Node.js Web Application with Storage]: /ko-kr/documentation/articles/storage-nodejs-use-table-storage-web-site/
+  [Node.js 웹 응용 프로그램 및 저장소]: /ko-kr/documentation/articles/storage-nodejs-use-table-storage-web-site/
 
   
   [Queue1]: ./media/storage-nodejs-how-to-use-queues/queue1.png
@@ -385,5 +385,5 @@ ACL이 설정되고 나면 정책의 ID를 기반으로 SAS를 만들 수 있습
   [Node.js 클라우드 서비스]: /ko-kr/documentation/articles/cloud-services-nodejs-develop-deploy-app/
   [Azure에 데이터 저장 및 액세스]: http://msdn.microsoft.com/library/windowsazure/gg433040.aspx
   [Azure 저장소 팀 블로그]: http://blogs.msdn.com/b/windowsazurestorage/
- [Web Site with WebMatrix]: /ko-kr/documentation/articles/web-sites-nodejs-use-webmatrix/
+ [WebMatrix를 사용하는 웹 사이트]: /ko-kr/documentation/articles/web-sites-nodejs-use-webmatrix/
 <!--HONumber=42-->

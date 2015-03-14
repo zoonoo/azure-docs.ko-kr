@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Visual Studio 2013에서 게시 설정 파일 가져오기 | 모바일 서비스" 
 	description="Visual Studio 2013에서 Azure 모바일 서비스 응용 프로그램에 대한 구독 게시 설정 파일을 가져오는 방법에 대해 알아봅니다." 
 	documentationCenter="windows" 
@@ -53,8 +53,8 @@
 [Live Connect를 사용한 Windows 스토어 앱의 Single Sign-On]: /ko-kr/develop/mobile/how-to-guides/register-for-single-sign-on/
 [앱 제출 페이지]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [내 응용 프로그램]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[모바일 서비스 시작](영문): /ko-kr/develop/mobile/tutorials/get-started/
-[인증 시작](영문): /ko-kr/develop/mobile/tutorials/get-started-with-users-dotnet/
+[모바일 서비스 시작]: /ko-kr/develop/mobile/tutorials/get-started/
+[인증 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-users-dotnet/
 [푸시 알림 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-push-dotnet/
 [스크립트를 통해 사용자 권한 부여]: /ko-kr/develop/mobile/tutorials/authorize-users-in-scripts-dotnet/
 [JavaScript 및 HTML]: /ko-kr/develop/mobile/tutorials/get-started-with-users-js/

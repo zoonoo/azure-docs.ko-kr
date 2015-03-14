@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="소스 제어에 프로젝트 코드 저장 - Azure 모바일 서비스" 
 	description="컴퓨터의 로컬 Git 리포지토리에 서버 스크립트 파일 및 모듈을 저장하는 방법에 대해 알아봅니다." 
 	services="mobile-services" 
@@ -168,11 +168,11 @@
 [6]: ./media/mobile-services-store-scripts-source-control/mobile-insert-script-source-control.png
 
 <!-- URLs. -->
-[Git 웹 사이트](영문): http://git-scm.com
+[Git 웹 사이트]: http://git-scm.com
 [소스 제어]: http://msdn.microsoft.com/library/windowsazure/c25aaede-c1f0-4004-8b78-113708761643
-[Git 설치](영문): http://git-scm.com/book/en/Getting-Started-Installing-Git
-[모바일 서비스 시작](영문): /ko-kr/documentation/articles/mobile-services-ios-get-started/
-[기존 앱에 모바일 서비스 추가](영문): /ko-kr/documentation/articles/mobile-services-ios-get-started-data/
+[Git 설치]: http://git-scm.com/book/en/Getting-Started-Installing-Git
+[모바일 서비스 시작]: /ko-kr/documentation/articles/mobile-services-ios-get-started/
+[기존 앱에 모바일 서비스 추가]: /ko-kr/documentation/articles/mobile-services-ios-get-started-data/
 [모바일 서비스에서 서버 스크립트 작업]: /ko-kr/documentation/articles/mobile-services-how-to-use-server-scripts/
 [Azure 관리 포털]: https://manage.windowsazure.com/
 [클라이언트에서 사용자 지정 API 호출]: /ko-kr/documentation/articles/mobile-services-ios-call-custom-api/
