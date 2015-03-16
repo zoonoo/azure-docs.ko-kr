@@ -1,5 +1,5 @@
-<properties 
-	pageTitle="알림 허브를 사용하여 속보 보내기(Windows Universal) 
+﻿<properties 
+	pageTitle="알림 허브를 사용하여 속보 보내기(Windows Universal)" 
 	description="등록된 태그와 함께 Azure 알림 허브를 사용하여 범용 Windows 앱에 최신 뉴스를 보낼 수 있습니다." 
 	services="notification-hubs" 
 	documentationCenter="windows" 
