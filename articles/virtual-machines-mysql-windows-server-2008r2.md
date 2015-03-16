@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Azure에서 MySQL을 실행하는 가상 컴퓨터 만들기" 
 	description="Windows Server 2008 R2를 실행하는 Azure 가상 컴퓨터를 만든 다음 해당 가상 컴퓨터에서 MySQL 데이터베이스를 설치 및 구성하는 방법에 대해 알아봅니다." 
 	services="virtual-machines" 
@@ -147,14 +147,6 @@ MySQL에 대한 자세한 내용은 [MySQL 설명서](http://dev.mysql.com/doc/)
 
 [AzurePortal]: http://manage.windowsazure.com
 [MySQLDownloads]: http://www.mysql.com/downloads/mysql/
-
-
-[MySQLConfig5]: ./media/virtual-machines-mysql-windows-server-2008r2/MySQLConfig5.png
-[MySQLConfig7]: ./media/virtual-machines-mysql-windows-server-2008r2/MySQLConfig7.png
-[MySQLConfig8]: ./media/virtual-machines-mysql-windows-server-2008r2/MySQLConfig8.png
-[MySQLConfig9]: ./media/virtual-machines-mysql-windows-server-2008r2/MySQLConfig9.png
-[MySQLConfig10]: ./media/virtual-machines-mysql-windows-server-2008r2/MySQLConfig10.png
-
 
 
 <!--HONumber=42-->

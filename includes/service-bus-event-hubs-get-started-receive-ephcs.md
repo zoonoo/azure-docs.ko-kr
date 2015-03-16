@@ -1,4 +1,4 @@
-## EventProcessorHost를 사용하여 메시지 수신
+﻿## EventProcessorHost를 사용하여 메시지 수신
 
 **EventProcessorHost**는 영구적 검사점을 관리하여 이벤트 허브의 이벤트 수신을 간소화하고 이러한 이벤트에서 병렬 수신하는 .NET 클래스입니다. **EventProcessorHost**를 사용하면 다른 노드에 호스트된 수신기를 비롯한 여러 수신기 간에 이벤트를 분할할 수 있습니다. 이 예제에서는 단일 수신기에 대해 **EventProcessorHost**를 사용하는 방법을 보여 줍니다. [확장된 이벤트 처리 샘플](영문)에서는 여러 수신기에서 **EventProcessorHost**를 사용하는 방법을 보여 줍니다.
 
@@ -120,4 +120,5 @@
 [13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
 [14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
 
-[이벤트 허브 개발자 가이드]: http://msdn.microsoft.com/library/azure/dn789972.aspx<!--HONumber=42-->
+[이벤트 허브 개발자 가이드]: http://msdn.microsoft.com/library/azure/dn789972.aspx
+<!--HONumber=42-->
