@@ -4,11 +4,8 @@
 
 1. [Azure 관리 포털]에 로그온하여 **모바일 서비스**를 클릭한 후 해당 모바일 서비스를 클릭합니다.
 
-   	![](./media/mobile-services-register-authentication/mobile-services-selection.png)
 
 2. **대시보드** 탭을 클릭하고 **모바일 서비스 URL** 값을 기록해 둡니다.
-
-   	![](./media/mobile-services-register-authentication/mobile-service-uri.png)
 
     앱을 등록할 때 이 값을 ID 공급자에게 제공해야 할 수도 있습니다.
 
