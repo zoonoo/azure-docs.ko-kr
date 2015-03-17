@@ -45,10 +45,10 @@ Node.js API를 사용하여 작성되었습니다. Blob **업로드**, **나열*
 * [방법: 공유 액세스 서명 작업][]     
 * [다음 단계][]
 
-[AZURE.INCLUDE [howto-blob-storage](../includes/howto-blob-storage.md)]
+[AZURE.INCLUDE [storage-blob-concepts-include](../includes/storage-blob-concepts-include.md)]
 
 ##<a name="create-account"></a>Azure 저장소 계정 만들기
-[AZURE.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
+[AZURE.INCLUDE [storage-create-account-include](../includes/storage-create-account-include.md)]
 
 ## <a name="create-app"> </a>Node.js 응용 프로그램 만들기
 

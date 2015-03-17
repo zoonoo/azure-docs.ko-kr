@@ -31,11 +31,11 @@
  [방법: Blob 삭제][]   
  [다음 단계][]
 
-[AZURE.INCLUDE [howto-blob-storage](../includes/howto-blob-storage.md)]
+[AZURE.INCLUDE [storage-blob-concepts-include](../includes/storage-blob-concepts-include.md)]
 
 ## <a name="create-account"> </a>Azure 저장소 계정 만들기
 
-[AZURE.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
+[AZURE.INCLUDE [storage-create-account-include](../includes/storage-create-account-include.md)]
 
 ## <a name="create-container"> </a>방법: 컨테이너 만들기
 

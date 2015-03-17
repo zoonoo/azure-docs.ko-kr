@@ -42,7 +42,7 @@
 [AZURE.INCLUDE [howto-table-storage](../includes/howto-table-storage.md)]
 
 ## <a name="create-account"> </a>Azure 저장소 계정 만들기
-[AZURE.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
+[AZURE.INCLUDE [storage-create-account-include](../includes/storage-create-account-include.md)]
 
 **참고:** Python 또는 클라이언트 라이브러리를 설치해야 하는 경우 [Python 설치 가이드]를 참조하세요(../python-how-to-install/).
 

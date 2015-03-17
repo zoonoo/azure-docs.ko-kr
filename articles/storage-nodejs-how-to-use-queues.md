@@ -51,7 +51,7 @@ API를 사용하여 작성되었습니다. 여기서 다루는 시나리오에�
 
 <h2><a name="create-account"></a>Azure 저장소 계정 만들기</h2>
 
-[AZURE.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
+[AZURE.INCLUDE [storage-create-account-include](../includes/storage-create-account-include.md)]
 
 ## <a name="create-app"> </a>Node.js 응용 프로그램 만들기
 

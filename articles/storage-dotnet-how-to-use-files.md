@@ -80,7 +80,7 @@ Azure 파일 저장소는 현재 미리 보기에 있습니다. 미리 보기에
 
 > [AZURE.NOTE] 파일 저장소는 현재 새 저장소 계정에 대해서만 사용할 수 있습니다. 사용자 구독에 파일 저장소에 대한 액세스 권한이 부여되면 이 설명서를 진행하면서 사용할 새 저장소 계정을 만듭니다.
 
-[AZURE.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
+[AZURE.INCLUDE [storage-create-account-include](../includes/storage-create-account-include.md)]
 
 ##<a name="use-cmdlets"></a>PowerShell을 사용하여 파일 공유 만들기
 

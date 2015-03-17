@@ -1,4 +1,4 @@
-﻿갤러리는 Microsoft, 타사 및 오픈 소스 소프트웨어에서 개발된 다양한 인기 웹 응용 프로그램을 사용할 수 있습니다. 갤러리에서 만든 웹 응용 프로그램은 Azure 관리 포털에 연결하는 데 사용되는 브라우저 외에 다른 소프트웨어를 설치할 필요가 없습니다. 
+갤러리는 Microsoft, 타사 및 오픈 소스 소프트웨어에서 개발된 다양한 인기 웹 응용 프로그램을 사용할 수 있습니다. 갤러리에서 만든 웹 응용 프로그램은 Azure 관리 포털에 연결하는 데 사용되는 브라우저 외에 다른 소프트웨어를 설치할 필요가 없습니다. 
 
 이 자습서에서는 다음에 대해 알아봅니다.
 
@@ -53,11 +53,11 @@
 
 2. **대시보드** 관리 페이지에서 아래로 스크롤하고 **사이트 URL** 아래의 왼쪽에 있는 링크를 클릭하여 사이트의 시작 페이지를 엽니다.
 
-	![site URL][11] 
+
 
 3. WordPress에 필요한 해당 구성 정보를 입력하고, **WordPress 설치**를 클릭하여 구성을 마무리하고 웹 사이트의 로그인 페이지를 엽니다.
 
-	![login to WordPress][12]
+
 
 4. **환영합니다.** 페이지에서 지정한 사용자 이름과 암호를 입력하여 새 WordPress 웹 사이트에 로그인합니다.
 
@@ -76,8 +76,6 @@
 [8]: ./media/website-from-gallery/wordpressgallery-04.png
 [9]: ./media/website-from-gallery/wordpressgallery-05.png
 [10]: ./media/website-from-gallery/wordpressgallery-06.png
-[11]: ./media/website-from-gallery/wordpressgallery-07.png
-[12]: ./media/website-from-gallery/wordpressgallery-08.png
 [13]: ./media/website-from-gallery/wordpressgallery-09.png
 
 

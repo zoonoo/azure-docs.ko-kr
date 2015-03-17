@@ -37,9 +37,9 @@
 -   [방법: 여러 페이지에서 비동기식으로 Blob 나열][]
 -   [다음 단계][]
 
-[AZURE.INCLUDE [howto-blob-storage](../includes/howto-blob-storage.md)]
+[AZURE.INCLUDE [storage-blob-concepts-include](../includes/storage-blob-concepts-include.md)]
 
-[AZURE.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
+[AZURE.INCLUDE [storage-create-account-include](../includes/storage-create-account-include.md)]
 
 [AZURE.INCLUDE [storage-configure-connection-string](../includes/storage-configure-connection-string.md)]
 

@@ -1,4 +1,4 @@
-﻿## <a name="create-account"> </a>Azure 저장소 계정 만들기
+## <a name="create-account"> </a>Azure 저장소 계정 만들기
 
 Azure 저장소를 사용하려면 저장소 계정이 있어야 합니다. 다음 
 단계에 따라 저장소 계정을 만들 수 있습니다. 또는
@@ -29,8 +29,8 @@ Azure 서비스 관리 클라이언트 라이브러리 또는 서비스 관리[R
 
 6.  **저장소 계정 만들기**를 클릭합니다.
 
-[REST API 사용]: http://msdn.microsoft.com/library/windowsazure/hh264518.aspx
+[REST API]: http://msdn.microsoft.com/library/windowsazure/hh264518.aspx
 [Azure 관리 포털]: http://manage.windowsazure.com
-[plus-new]: ./media/create-storage-account/plus-new.png
-[quick-create-storage]: ./media/create-storage-account/quick-storage-2.png
+[plus-new]: ./media/storage-create-account-include/plus-new.png
+[quick-create-storage]: ./media/storage-create-account-include/quick-storage-2.png
 <!--HONumber=42-->

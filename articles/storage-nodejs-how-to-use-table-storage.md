@@ -43,7 +43,7 @@
 
 <h2><a name="create-account"></a>Azure 저장소 계정 만들기</h2>
 
-[AZURE.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
+[AZURE.INCLUDE [storage-create-account-include](../includes/storage-create-account-include.md)]
 
 ## <a name="create-app"> </a>Node.js 응용 프로그램 만들기
  빈 Node.js 응용 프로그램을 만듭니다. Node.js 응용 프로그램을 만드는 방법에 대한 지침은 [Node.js 응용 프로그램을 만들어 Azure 웹 사이트에 배포], [Node.js 클라우드 서비스][Node.js Cloud Service](Windows PowerShell 사용) 또는 [WebMatrix를 사용하는 웹 사이트]를 참조하세요.

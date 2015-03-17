@@ -36,11 +36,11 @@
 * [방법: Blob 컨테이너 삭제](#DeleteContainer)
 * [다음 단계](#NextSteps)
 
-[AZURE.INCLUDE [howto-blob-storage](../includes/howto-blob-storage.md)]
+[AZURE.INCLUDE [storage-blob-concepts-include](../includes/storage-blob-concepts-include.md)]
 
 <h2><a id="CreateAccount"></a>Azure 저장소 계정 만들기</h2>
 
-[AZURE.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
+[AZURE.INCLUDE [storage-create-account-include](../includes/storage-create-account-include.md)]
 
 <h2><a id="CreateApplication"></a>PHP 응용 프로그램 만들기</h2>
 
