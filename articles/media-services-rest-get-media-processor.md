@@ -17,11 +17,11 @@
 	ms.author="juliako"/>
 
 
-# 방법: 미디어 프로세서 인스턴스 가져오기
+#방법: 미디어 프로세서 인스턴스 가져오기
 
-이 문서는 [워크플로 주문형 미디어 서비스 비디오](../media-services-video-on-demand-workflow) 시리즈의 일부입니다. 
+이 문서는 [워크플로 주문형 미디어 서비스 비디오] 시리즈의(../media-services-video-on-demand-workflow) 일부입니다. 
 
-## 개요
+##개요
 
 미디어 서비스에서 미디어 프로세서는 미디어 콘텐츠 인코딩, 형식 변환, 암호화 또는 암호 해독과 같은 특정 처리 작업을 다루는 구성 요소입니다. 일반적으로 미디어 콘텐츠 인코드, 암호화 또는 형식 변환 작업을 만들 때 미디어 프로세서를 만듭니다.
 
@@ -37,19 +37,19 @@
   </thead>
   <tbody>
     <tr>
-       <td>Azure Media Encoder</td>
-       <td>Media Encoder를 사용하여 인코딩 작업을 실행할 수 있습니다.</td>
-       <td><a href="http://msdn.microsoft.com/library/jj129582.aspx"> Azure Media Encoder용 태스크 기본 설정 문자열</a></td>
+       <td>Azure 미디어 인코더</td>
+       <td>미디어 인코더를 사용하여 인코딩 작업을 실행할 수 있습니다.</td>
+       <td><a href="http://msdn.microsoft.com/library/jj129582.aspx">Azure 미디어 인코더용 작업 기본 설정 문자열</a></td>
     </tr>
     <tr>
         <td>Microsoft Azure Media Packager</td>
         <td>미디어 자산을 .mp4에서 부드러운 스트리밍 형식으로 변환할 수 있습니다. 또한 미디어 자산을 부드러운 스트리밍에서 Apple HLS(HTTP 라이브 스트리밍) 형식으로 변환할 수 있습니다.</td>
-		<td><a href="http://msdn.microsoft.com/library/hh973635.aspx">Azure Media Packager용 태스크 기본 설정 문자열</a></td>
+		<td><a href="http://msdn.microsoft.com/library/hh973635.aspx">Azure 미디어 인코더용 작업 기본 설정 문자열</a></td>
     </tr>
     <tr>
         <td>Microsoft Azure Media Encryptor</td>
         <td>PlayReady Protection을 사용하여 미디어 자산을 암호화할 수 있습니다.</td>
-        <td><a href="http://msdn.microsoft.com/library/hh973610.aspx">Azure Media Packager용 태스크 기본 설정 문자열</a></td>
+        <td><a href="http://msdn.microsoft.com/library/hh973610.aspx">Azure 미디어 인코더용 작업 기본 설정 문자열</a></td>
     </tr>
     <tr>
         <td>Azure 미디어 인덱서</td>
@@ -65,17 +65,17 @@
 
 <br />
 
-## 미디어 프로세서 가져오기
+##미디어 프로세서 가져오기
 
 >[AZURE.NOTE] 미디어 서비스 REST API를 사용할 때는 다음 사항을 고려해야 합니다.
 >
->미디어 서비스에서 엔터티를 액세스할 때 HTTP 요청에 구체적인 헤더 필드 및 값 설정 해야 합니다. 자세한 내용은 [미디어 서비스 REST API 개발을 위한 설치](../media-services-rest-how-to-use)를 참조합니다.
+>미디어 서비스에서 엔터티에 액세스할 때는 HTTP 요청에서 구체적인 헤더 필드와 값을 설정해야 합니다. 자세한 내용은 [미디어 서비스 REST API 개발 설정]을 참조하세요(../media-services-rest-how-to-use).
 
->Https://media.windows.net에 연결 후, 다른 미디어 서비스 URI를 지정하는 301 리디렉션을 받게 됩니다. 설명한 대로 새 URI에 대한 후속 호출을 확인해야 [미디어 서비스 REST API](../media-services-rest-connect_programmatically/)를 사용하여 연결할 수 있습니다. 
+>https://media.windows.net에 연결하면 다른 미디어 서비스 URI를 지정하는 301 리디렉션을 받게 됩니다. [미디어 서비스 REST API를 사용하여 미디어 서비스에 연결]에서 설명한 대로 새 URI에 대한 후속 호출을 해야 합니다(../media-services-rest-connect_programmatically/). 
 
 
 
-다음 REST 호출에서는 이름으로 미디어 프로세서 인스턴스를 가져오는 방법을 보여줍니다 (이 경우 **Azure Media Encoder**). 
+다음 REST 호출에서는 이름으로 미디어 프로세서 인스턴스를 가져오는 방법을 보여줍니다 (이 경우 **Azure 미디어 인코더**). 
 
 	
 요청:
@@ -109,10 +109,10 @@
 	{"odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#MediaProcessors","value":[{"Id":"nb:mpid:UUID:1b1da727-93ae-4e46-a8a1-268828765609","Description":"Azure Media Encoder","Name":"Azure Media Encoder","Sku":"","Vendor":"Microsoft","Version":"4.4"}]}
 
 
-## 다음 단계
-미디어 프로세서 인스턴스를 가져오는 방법을 알아보았으므로 이제 Azure Media Encoder를 사용하여 자산을 인코드하는 방법을 보여주는 [자산을 인코드하는 방법][] 항목으로 이동합니다.
+##다음 단계
+미디어 프로세서 인스턴스를 가져오는 방법을 알아보았으므로 이제 Azure 미디어 인코더를 사용하여 자산을 인코드하는 방법을 보여 주는 [자산을 인코드하는 방법][](영문) 항목으로 이동합니다.
 
 [자산을 인코드하는 방법]: ../media-services-rest-encode-asset/
-[Azure Media Encoder용 태스크 기본 설정 문자열]: http://msdn.microsoft.com/library/jj129582.aspx
+[Azure 미디어 인코더용 작업 기본 설정 문자열]: http://msdn.microsoft.com/library/jj129582.aspx
 [방법: 프로그래밍 방식으로 미디어 서비스에 연결]: ../media-services-rest-connect_programmatically/
-<!--HONumber=45--> 
+<!--HONumber=47-->

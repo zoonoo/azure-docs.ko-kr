@@ -1,5 +1,5 @@
 ﻿> [AZURE.SELECTOR]
-- [.NET SDK](/ko-kr/documentation/articles/media-services-dotnet-connect_programmatically/)
-- [REST API](/ko-kr/documentation/articles/media-services-rest-connect_programmatically/)
+- [.NET SDK](/documentation/articles/media-services-dotnet-connect_programmatically/)
+- [REST API](/documentation/articles/media-services-rest-connect_programmatically/)
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

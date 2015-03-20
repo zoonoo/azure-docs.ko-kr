@@ -22,7 +22,7 @@
 
 이 문서에서는 원격 데스크톱을 사용하여 HDInsight 클러스터에서 Hadoop에 연결한 다음 Hadoop 명령을 사용하여 MapReduce 작업을 실행하는 방법을 배웁니다.
 
-## <a id="prereq"></a>필수 조건
+##<a id="prereq"></a>필수 조건
 
 이 문서의 단계를 완료하려면 다음이 필요합니다.
 
@@ -30,19 +30,19 @@
 
 * Windows 7, 8 또는 10 클라이언트
 
-## <a id="connect"></a>원격 데스크톱을 사용하여 연결
+##<a id="connect"></a>원격 데스크톱을 사용하여 연결
 
-HDInsight 클러스터에 대한 원격 데스크톱을 사용을 설정하면 다음 지침에 따라 연결할 수 있습니다. <a href="http://azure.microsoft.com/ documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">RDP를 사용하여 HDInsight 클러스터에 연결</a>.
+HDInsight 클러스터에 대해 원격 데스크톱을 사용하도록 설정한 다음 <a href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">RDP를 사용하여 HDInsight 클러스터에 연결</a>의 지침에 따라 연결합니다.
 
-## <a id="hadoop"></a>Hadoop 명령 사용
+##<a id="hadoop"></a>Hadoop 명령 사용
 
-HDInsight 클러스터에 대한 데스크톱에 연결된 후 Hadoop 명령을 사용하여 MapReduce 작업을 실행하려면 다음 단계를 따르십시오.
+HDInsight 클러스터에 대한 데스크톱에 연결된 후 Hadoop 명령을 사용하여 MapReduce 작업을 실행하려면 다음 단계를 따르세요.
 
 1. HDInsight 데스크톱에서 **Hadoop 명령줄**을 시작합니다. **c:\apps\dist\hadoop-&lt;버전 번호 >** 디렉터리에서 새 명령 프롬프트가 열립니다.
 
-	> [AZURE.NOTE] 버전 번호는 Hadoop를 업데이트할 때 변경 됩니다. 해당 경로를 찾으려면 **HADOOP_HOME** 환경 변수를 사용할 수 있습니다. 예를 들어, `cd % HADOOP_HOME %` 명령은 버전 번호를 알 필요 없이 Hadoop 디렉터리로 이동합니다.
+	> [AZURE.NOTE] 버전 번호는 Hadoop를 업데이트할 때 변경됩니다. 해당 경로를 찾으려면 **HADOOP_HOME** 환경 변수를 사용할 수 있습니다. 예를 들어 `cd %HADOOP_HOME%`은 버전 번호를 알 필요 없이 디렉터리를 Hadoop 디렉터리로 변경합니다.
 
-2. **Hadoop** 명령을 사용하여 예제 MapReduce 작업을 실행하려면 다음을 사용하십시오.
+2. **Hadoop** 명령을 사용하여 예제 MapReduce 작업을 실행하려면 다음을 사용하세요.
 
 		hadoop jar hadoop-mapreduce-examples.jar wordcount wasb:///example/data/gutenberg/davinci.txt wasb:///example/data/WordCountOutput
 
@@ -69,7 +69,7 @@ HDInsight 클러스터에 대한 데스크톱에 연결된 후 Hadoop 명령을 
 
 		hadoop fs -cat wasb:///example/data/WordCountOutput/part-r-00000
 
-	각 단어가 나타나는 횟수 뿐만 아니라 포함된 단어의 목록이 **wasb://example/data/gutenberg/davinci.txt** 파일에 표시됩니다.  다음은 파일에 포함된 데이터의 예입니다.
+	그러면 각 단어가 나타나는 횟수뿐만 아니라 **wasb://example/data/gutenberg/davinci.txt** 파일에 포함된 단어의 목록이 표시됩니다.  다음은 파일에 포함된 데이터의 예입니다.
 
 		wreathed        3
 		wreathing       1
@@ -79,11 +79,11 @@ HDInsight 클러스터에 대한 데스크톱에 연결된 후 Hadoop 명령을 
 		wretched        6
 		wriggling       1
 
-## <a id="summary"></a>요약
+##<a id="summary"></a>요약
 
 여기에서 볼 수 있듯이 Hadoop 명령은 HDInsight 클러스터에서 MapReduce 작업을 실행하고 작업 출력을 볼 수 있는 쉬운 방법을 제공합니다.
 
-## <a id="nextsteps"></a>다음 단계
+##<a id="nextsteps"></a>다음 단계
 
 HDInsight에서 MapReduce 작업의 일반적인 내용.
 
@@ -94,4 +94,4 @@ HDInsight에서 Hadoop으로 작업하는 다른 방법에 관한 내용입니�
 * [HDInsight에서 Hadoop과 Hive 사용](../hdinsight-use-hive/)
 
 * [HDInsight에서 Hadoop과 Pig 사용](../hdinsight-use-pig/)
-<!--HONumber=45--> 
+<!--HONumber=47-->

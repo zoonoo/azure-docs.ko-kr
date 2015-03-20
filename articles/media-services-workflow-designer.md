@@ -1,0 +1,35 @@
+﻿<properties 
+	pageTitle="Workflow Designer" 
+	description="Workflow Designer에 대해 알아봅니다." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="dwrede" 
+	editor=""/>
+
+<tags 
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="03/04/2015" 
+	ms.author="juliako"/>
+
+
+#Workflow Designer
+
+##개요
+**Workflow Designer**는 **Media Encoder Premium Workflow**를 사용하여 인코딩할 워크플로/그래프를 생성하는 데 사용되는 독립 실행형 도구입니다.
+
+이 도구를 사용하여 [기존 워크플로]를 수정할 수도 있습니다 (#existing_workflows). 
+
+>[AZURE.NOTE]Workflow Designer 도구의 복사본을 얻으려면 mepd@microsoft.com에 문의하세요.
+
+
+워크플로 파일을 만든 후 이를 자산으로 업로드한 다음 미디어 파일을 인코딩하는 데 사용할 수 있습니다. **.NET**을 사용하여 **Media Encoder Premium Workflow**에서 인코딩하는 방법에 대한 자세한 내용은 [Media Encoder Premium Workflow를 사용한 고급 인코딩](영문)을 참조하세요(../media-services-encode-with-premium-workflow).
+
+##<a id="existing_workflows"></a>기존 워크플로 수정
+
+디자이너 도구를 사용하여 기본 워크플로 파일을 수정할 수 있습니다. [여기](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows)에서 기본 워크플로 파일을 가져올 수 있습니다. 폴더에는 이러한 파일에 대한 설명도 포함되어 있습니다.
+<!--HONumber=47-->

@@ -1,6 +1,6 @@
-<properties 
+﻿<properties 
 	pageTitle="Azure 미디어 인덱서를 사용하여 미디어 파일 인덱싱" 
-	description="Azure 미디어 인덱서를 사용하면 미디어 파일 콘텐츠를 검색 가능하게 만들고 선택 캡션 및 키워드용 전체 텍스트 기록을 생성할 수 있습니다. 이 항목에서는 미디어 인덱서를 사용하는 방법을 보여줍니다." 
+	description="Azure 미디어 인덱서를 사용하면 미디어 파일 콘텐츠를 검색 가능하게 만들고 선택 캡션 및 키워드용 전체 텍스트 기록을 생성할 수 있습니다. 이 항목에서는 미디어 인덱서를 사용하는 방법을 보여 줍니다." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako" 
@@ -19,19 +19,28 @@
 
 # Azure 미디어 인덱서를 사용하여 미디어 파일 인덱싱
 
-이 문서는 [워크플로 주문형 미디어 서비스 비디오](../media-services-video-on-demand-workflow) 시리즈의 일부입니다. 
+이 문서는 [워크플로 주문형 미디어 서비스 비디오] 시리즈의(../media-services-video-on-demand-workflow) 일부입니다. 
 
 Azure 미디어 인덱서를 사용하면 미디어 파일 콘텐츠를 검색 가능하게 만들고 선택 캡션 및 키워드용 전체 텍스트 기록을 생성할 수 있습니다. 하나의 미디어 파일 또는 일괄 처리에서 여러 미디어 파일을 처리할 수 있습니다. 또한 매니페스트 파일에는 파일의 URL을 지정하여 인터넷에서 공개적으로 사용할 수 있는 파일을 인덱싱할 수 있습니다.
 
 >[AZURE.NOTE] 콘텐츠를 인덱싱할 때, 음성이 매우 분명한(배경 음악, 소음, 효과 또는 마이크 소음) 미디어 파일을 사용해야 합니다. 적절한 콘텐츠의 예: 회의, 강의 또는 프레젠테이션 녹음. 인덱싱에 적합하지 않을 수 있는 콘텐츠: 영화, TV 프로그램, 오디오 및 사운드 효과가 혼합된 콘텐츠, 배경 소음(기계 소음)이 들어간 녹음 품질이 좋지 않은 콘텐츠.
->
-인덱싱 작업은 SAMI 및 TTML 출력 파일(다른 파일 중에서)을 생성합니다.  SAMI과 TTML 둘 다 Recognizability라는 태그를 포함합니다. 이 태그는 원본 비디오의 음성 인지 방식에 따라 인덱싱 작업에 점수를 냅니다.  유용성을 위해 화면 출력 파일에 Recognizability 값을 사용할 수 있습니다. 낮은 점수는 오디오 품질로 인해 결과가 좋지 않음을 의미합니다.
 
-이 항목에서는 **자산 인덱스**, **여러 파일 인덱스** 및 **인터넷에서 공개적으로 사용할 수 있는 파일**에 인덱싱 작업을 만드는 방법을 보여줍니다.
 
-지원 언어는 **지원 언어** 섹션을 참조하세요.
+인덱싱 작업은 모든 인덱싱 파일에 대해 네 개의 출력을 생성합니다.
 
-최신 Azure 미디어 인덱서 업데이트는 [Media Services 블로그](http://azure.microsoft.com/blog/topics/media-services/)를 참조하세요.
+- SAMI 형식의 선택 캡션 파일.
+- TTML(Timed Text Markup Language) 형식의 선택 캡션 파일.
+
+	SAMI과 TTML 둘 다 Recognizability라는 태그를 포함합니다. 이 태그는 원본 비디오의 음성 인지 방식에 따라 인덱싱 작업에 점수를 냅니다.  유용성을 위해 화면 출력 파일에 Recognizability 값을 사용할 수 있습니다. 낮은 점수는 오디오 품질로 인해 결과가 좋지 않음을 의미합니다.
+- 키워드 파일(XML).
+- SQL server에서 사용할 AIB(오디오 인덱싱 Blob) 파일.
+	
+	자세한 내용은 [Azure 미디어 인덱서 및 SQL Server에서 AIB 파일 사용](http://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/)(영문)을 참조하세요.
+
+
+이 항목에서는 **자산 인덱스**, **여러 파일 인덱스** 및 **인터넷에서 공개적으로 사용할 수 있는 파일**에 인덱싱 작업을 만드는 방법을 보여 줍니다.
+
+최신 Azure 미디어 인덱서 업데이트는 [미디어 서비스 블로그](http://azure.microsoft.com/blog/topics/media-services/)(영문)를 참조하세요.
 
 ##인덱싱 태스크에 대한 구성 및 매니페스트 파일 사용
 
@@ -39,7 +48,7 @@ Azure 미디어 인덱서를 사용하면 미디어 파일 콘텐츠를 검색 �
 
 매니페스트 파일을 사용하여 여러 미디어 파일을 한 번에 처리할 수도 있습니다.
 
-자세한 내용은 [Azure 미디어 인덱서의 작업 기본 설정](https://msdn.microsoft.com/ko-kr/library/azure/dn783454.aspx)을 참조하세요.
+자세한 내용은 [Azure 미디어 인덱서의 태스크 사전 설정](https://msdn.microsoft.com/library/azure/dn783454.aspx)(영문)을 참조하세요.
 
 ##자산 인덱스
 
@@ -57,7 +66,7 @@ Azure 미디어 인덱서를 사용하면 미디어 파일 콘텐츠를 검색 �
 	    // Declare a new job.
 	    IJob job = _context.Jobs.Create("My Indexing Job");
 	
-	    // Get a reference to the Windows Azure Media Indexer.
+	    // Get a reference to the Azure Media Indexer.
 	    string MediaProcessorName = "Azure Media Indexer",
 	    IMediaProcessor processor = GetLatestMediaProcessorByName(MediaProcessorName);
 	
@@ -148,7 +157,7 @@ AIB(Audio Indexing Blob) 파일은 전체 텍스트 검색을 사용하는 Micro
 <br/>
 Microsoft SQL server 2008 이상을 실행하는 컴퓨터에서 Indexer SQL 추가 기능을 설치해야 합니다. Microsoft SQL server의 전체 텍스트 검색을 사용하는 AIB 검색은 WAMI에 의해 생성된 선택 캡션 파일을 검색할 때보다 훨씬 정교한 검색 결과를 제공합니다. 선택 캡션 파일은 오디오의 각 세그먼트에 가장 신뢰성이 높은 단어를 포함하지만 AIB는 사운드가 유사한 대체 단어를 포함하기 때문입니다. 음성 단어 검색이 가장 중요한 경우, Microsoft SQL Server와 함께 AIB를 사용하는 것이 좋습니다.
 <br/><br/>
-추가 기능을 다운로드하려면 <a href="http://aka.ms/indexersql">Azure Media Indexer SQL Add-on를</a>클릭하세요.
+추가 기능을 다운로드하려면 <a href="http://aka.ms/indexersql">Azure 미디어 인덱서 SQL 추가 기능</a>을 클릭합니다.
 <br/><br/>
 선택 캡션에 기반한 비디오 및 키워드 XML 파일을 간단하게 인덱스하기 위해 Apache Lucene/Solr와 같은 기타 검색 엔진을 활용할 수도 있습니다. 하지만 이는 검색 결과의 정확성이 떨어집니다.</td></tr>
 <tr><td>InputFileName.smi<br/>InputFileName.ttml</td>
@@ -171,7 +180,7 @@ SAMI과 TTML 둘 다 <b>Recognizability</b>라는 태그를 포함합니다. 이
 
 다음 메서드는 여러 파일을 한 자산으로 업로드하고 이러한 모든 파일을 일괄로 인덱스하기 위해 작업을 만듭니다.
 
-확장명이 .lst인 매니페스트 파일이 만들어지고 자산으로 업로드됩니다. 매니페스트 파일은 모든 자산 파일 목록을 포함합니다. 자세한 내용은 [Azure 미디어 인덱서의 작업 기본 설정](https://msdn.microsoft.com/ko-kr/library/azure/dn783454.aspx)을 참조하세요.
+확장명이 .lst인 매니페스트 파일이 만들어지고 자산으로 업로드됩니다. 매니페스트 파일은 모든 자산 파일 목록을 포함합니다. 자세한 내용은 [Azure 미디어 인덱서의 태스크 사전 설정](https://msdn.microsoft.com/library/azure/dn783454.aspx)(영문)을 참조하세요.
 	
 	static bool RunBatchIndexingJob(string[] inputMediaFiles, string outputFolder)
 	{
@@ -189,7 +198,7 @@ SAMI과 TTML 둘 다 <b>Recognizability</b>라는 태그를 포함합니다. 이
 	    // Declare a new job.
 	    IJob job = _context.Jobs.Create("My Indexing Job - Batch Mode");
 	
-	    // Get a reference to the Windows Azure Media Indexer.
+	    // Get a reference to the Azure Media Indexer.
 	    string MediaProcessorName = "Azure Media Indexer";
 	    IMediaProcessor processor = GetLatestMediaProcessorByName(MediaProcessorName);
 	
@@ -251,7 +260,7 @@ SAMI과 TTML 둘 다 <b>Recognizability</b>라는 태그를 포함합니다. 이
 
 하나 이상의 입력 미디어 파일이 있을 때, WAMI는 'JobResult.txt'라는 작업 출력을 위한 매니페스트 파일을 생성합니다. 각각의 입력 미디어 파일의 경우, AIB, SAMI, TTML 및 키워드 파일의 결과는 아래 나열된 대로 순차적으로 번호가 매겨집니다.
 
-출력 파일 설명은 [출력 파일을](#output_files)참조하세요. 
+출력 파일 설명은 [출력 파일]을(#output_files)참조하세요. 
 
 
 <table border="1">
@@ -275,7 +284,7 @@ Alias: 대리 출력 파일 이름.
 <br/><br/>
 MediaLength: 입력 미디어 파일의 길이(초). 0은 이 입력에 오류를 발생할 수 있습니다.
 <br/><br/>
-Error: 이 미디어 파일이 성공적으로 인덱스되었음을 나타냅니다. 0인 경우 성공, 0이 아닌 경우 실패입니다. 구체적인 오류는  <a href="#error_codes">오류 코드를</a> 참조하세요.
+Error: 이 미디어 파일이 성공적으로 인덱스되었음을 나타냅니다. 0인 경우 성공, 0이 아닌 경우 실패입니다. 구체적인 오류는 <a href="#error_codes">오류 코드</a>를 참조하세요.
 </td></tr>
 <tr><td>Media_1.aib </td>
 <td>File #0 - 오디오 인덱싱 blob 파일.</td></tr>
@@ -287,18 +296,18 @@ Error: 이 미디어 파일이 성공적으로 인덱스되었음을 나타냅�
 <td>File #1 - 오디오 인덱싱 blob 파일.</td></tr>
 </table>
 
-모든 입력 미디어 파일이 성공적으로 인덱스되지 않은 경우, 오류 코드 4000으로 인덱싱 작업이 실패합니다. 자세한 내용은 <a href="#error_codes">오류 코드를</a> 참조하세요.
+모든 입력 미디어 파일이 성공적으로 인덱스되지 않은 경우, 오류 코드 4000으로 인덱싱 작업이 실패합니다. 자세한 내용은 [오류 코드]를(#error_codes)참조하세요.
 
 ###부분적으로 성공된 작업
 
-모든 입력 미디어 파일이 성공적으로 인덱스되지 않은 경우, 오류 코드 4000으로 인덱싱 작업이 실패합니다. 자세한 내용은 <a href="#error_codes">오류 코드를</a> 참조하세요.
+모든 입력 미디어 파일이 성공적으로 인덱스되지 않은 경우, 오류 코드 4000으로 인덱싱 작업이 실패합니다. 자세한 내용은 [오류 코드]를(#error_codes)참조하세요.
 
 
 동일한 출력(성공된 작업)이 생성됩니다. 출력 매니페스트 파일을 참조하여 오류 열 값에 따라 실패한 입력 파일을 알아볼 수 있습니다. 실패한 입력 파일의 경우, AIB, SAMI, TTML 및 키워드 파일의 결과가 생성되지 않습니다.
 
 ##인터넷에서 파일 인덱스
 
-인터넷에서 공개적으로 사용할 수 있는 미디어 파일의 경우, Azure 저장소로 복사하지 않고 인덱스할 수도 있습니다. 매니페스트 파일을 사용하여 미디어 파일의 URL을 지정할 수 있습니다. 자세한 내용은 [Azure 미디어 인덱서의 작업 기본 설정](https://msdn.microsoft.com/ko-kr/library/azure/dn783454.aspx)을 참조하세요.
+인터넷에서 공개적으로 사용할 수 있는 미디어 파일의 경우, Azure 저장소로 복사하지 않고 인덱스할 수도 있습니다. 매니페스트 파일을 사용하여 미디어 파일의 URL을 지정할 수 있습니다. 자세한 내용은 [Azure 미디어 인덱서의 태스크 사전 설정](https://msdn.microsoft.com/library/azure/dn783454.aspx)(영문)을 참조하세요.
 
 HTTP 및 HTTPS URL 프로토콜이 지원됩니다.
 
@@ -318,7 +327,7 @@ HTTP 및 HTTPS URL 프로토콜이 지원됩니다.
 	    // Declare a new job.
 	    IJob job = _context.Jobs.Create("My Indexing Job - Public URL");
 	
-	    // Get a reference to the Windows Azure Media Indexer.
+	    // Get a reference to the Azure Media Indexer.
 	    IMediaProcessor processor = GetLatestMediaProcessorByName(MediaProcessorName);
 	
 	    // Read configuration.
@@ -363,14 +372,14 @@ HTTP 및 HTTPS URL 프로토콜이 지원됩니다.
 
 ###출력 파일
 
-출력 파일 설명은 [출력 파일을](#output_files)참조하세요. 
+출력 파일 설명은 [출력 파일]을(#output_files)참조하세요. 
 
 
 ##보호된 파일 처리
 
 인덱서는 http 또는 https를 통해 인터넷 파일을 다운로드할 때 사용자 이름 및 암호로 기본 인증을 지원합니다.
 
-[Azure 미디어 인덱서의 작업 기본 설정](https://msdn.microsoft.com/ko-kr/library/azure/dn783454.aspx)에 설명된 대로 작업 구성에서 **사용자 이름** 및 **암호**를 지정할 수 있습니다.
+[Azure 미디어 인덱스의 태스크 사전 설정](https://msdn.microsoft.com/library/azure/dn783454.aspx)(영문)에 설명된 대로 태스크 구성에서 **사용자 이름** 및 **암호**를 지정할 수 있습니다.
 
 ### <a id="error_codes"></a>오류 코드
 
@@ -390,14 +399,18 @@ HTTP 및 HTTPS URL 프로토콜이 지원됩니다.
 손상된 미디어 파일.
 <br/>또는<br/>
 입력 미디어에 오디오 스트림 없음.</td></tr>
-<tr><td>4000</td><td>인덱싱 일괄 처리 부분적으로 성공</td><td>일부 입력 미디어 파일 인덱싱에 실패했습니다. 자세한 내용은 <a href="output_files">출력 파일을</a>참조하세요.</td></tr>
+<tr><td>4000</td><td>인덱싱 일괄 처리 부분적으로 성공</td><td>일부 입력 미디어 파일 인덱싱에 실패했습니다. 자세한 내용은 <a href="output_files">출력 파일</a>을 참조하세요.</td></tr>
 <tr><td>기타</td><td>내부 오류</td><td>지원 팀에 문의하시기 바랍니다.</td></tr>
 </table>
 
 
-##지원 언어
+##<a id="supported_languages"></a>지원되는 언어
 
 현재 영어만 지원됩니다.
+
+##관련 링크
+
+[Azure 미디어 인덱서 및 SQL Server에서 AIB 파일 사용](http://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/)(영문)
 
 <!-- Anchors. -->
 
@@ -405,4 +418,4 @@ HTTP 및 HTTPS URL 프로토콜이 지원됩니다.
 
 <!-- URLs. -->
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

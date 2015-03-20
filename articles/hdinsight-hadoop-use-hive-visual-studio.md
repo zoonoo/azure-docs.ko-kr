@@ -16,23 +16,23 @@
    ms.date="02/18/2015"
    ms.author="larryfr"/>
 
-# Visual Studio용 HDInsight 도구를 사용하여 Hive 쿼리 실행
+#Visual Studio용 HDInsight 도구를 사용하여 Hive 쿼리 실행
 
 [AZURE.INCLUDE [hive-selector](../includes/hdinsight-selector-use-hive.md)]
 
 이 문서에서는 원격으로 HDInsight 클러스터에 Hive 쿼리를 제출하기 위해 Visual Studio용 HDInsight 도구를 사용하는 방법에 대해 배웁니다.
 
-> [AZURE.NOTE] 이 문서에는 예제에서 사용된 HiveQL 문을 수행하는 방법에 대해 자세한 설명을 제공하지 않습니다. 이 예제에서 사용된 HiveQL 대한 내용은 <a href="../hdinsight-use-hive/" target="_blank">HDInsight에서 Hadoop과 Hive 사용</a>을 참조하세요.
+> [AZURE.NOTE] 이 문서에서는 예제에 사용된 HiveQL 문이 수행하는 작업에 대한 자세한 설명을 제공하지 않습니다. 이 예제에 사용된 HiveQL에 대한 자세한 내용은 <a href="../hdinsight-use-hive/" target="_blank">HDInsight에서 Hadoop과 Hive 사용</a>을 참조하세요.
 
-## <a id="prereq"></a>필수 조건
+##<a id="prereq"></a>필수 조건
 
 이 문서의 단계를 완료하려면 다음이 필요합니다.
 
 * Azure HDInsight(HDInsight의 Hadoop)클러스터(Linux 또는 Windows 기반)
 
-* Visual Studio 2012 <a href="http://www.microsoft.com/ko-kr/download/details.aspx?id=39305" target="_blank">업데이트 4</a>, Visual Studio 2013 <a href="http://www.microsoft.com/ko-kr/download/details.aspx?id=43721" target="_blank">업데이트 3</a> 또는 <a href="http://www.microsoft.com/ko-kr/download/details.aspx?id=43722" target="_blank">Visual Studio Express 2013</a>
+* Visual Studio 2012 <a href="http://www.microsoft.com/download/details.aspx?id=39305" target="_blank">업데이트 4</a>, Visual Studio 2013 <a href="http://www.microsoft.com/download/details.aspx?id=43721" target="_blank">업데이트 3</a> 또는 <a href="http://www.microsoft.com/download/details.aspx?id=43722" target="_blank">Visual Studio Express 2013</a>
 
-## <a id="run"></a> Visual Studio용 HDInsight 도구를 사용하여 Hive 쿼리 실행
+##<a id="run"></a> Visual Studio용 HDInsight 도구를 사용하여 Hive 쿼리 실행
 
 1. **Visual Studio**를 열고 **새로 만들기**, **프로젝트**, **HDInsight**를 선택하고 마지막으로 **Hive 응용 프로그램**을 선택합니다. 이 프로젝트에 대한 이름을 입력합니다.
 
@@ -47,7 +47,7 @@
     이러한 문은 다음 작업을 수행합니다.
 
     * **DROP TABLE** - 테이블과 데이터 파일을 삭제합니다(테이블이 이미 있는 경우).
-    * **CREATE EXTERNAL TABLE** - Hive에서 새 'external' 테이블을 만듭니다. 외부 테이블은 Hive에 테이블 정의만 저장하고, 데이터는 원래 위치에 남아 있습니다.
+    * **CREATE EXTERNAL TABLE** - Hive에서 새 '외부' 테이블을 만듭니다. 외부 테이블은 Hive에 테이블 정의만 저장하고, 데이터는 원래 위치에 남아 있습니다.
 
         > [AZURE.NOTE] 자동화된 데이터 업로드 프로세스와 같은 외부 원본이나 또 다른 MapReduce 작업을 통해 기본 데이터를 업데이트해야 하지만 Hive 쿼리에서 항상 최신 데이터를 사용하려고 할 경우 외부 테이블을 사용해야 합니다.
         >
@@ -81,11 +81,11 @@
 
 8. 작업이 완료되고 새 테이블이 만들어졌는지 확인하려면, **서버 탐색기**를 사용하여 **Azure**, **HDInsight**, HDInsight 클러스터, **Hive 데이터베이스**, 및 **기본**을 확장합니다. **errorLogs** 및 **log4jLogs** 테이블을 모두 보십시오.
 
-## <a id="summary"></a>요약
+##<a id="summary"></a>요약
 
 여기에서 볼 수 있듯이 Visual Studio용 HDInsight 도구는 HDInsight 클러스터에서 Hive 쿼리 실행 작업 상태를 모니터링하고, 출력을 검색하는 쉬운 방법을 제공합니다.
 
-## <a id="nextsteps"></a>다음 단계
+##<a id="nextsteps"></a>다음 단계
 
 HDInsight Hive에 대한 일반적인 내용입니다.
 
@@ -99,20 +99,20 @@ HDInsight에서 Hadoop으로 작업하는 다른 방법에 관한 내용입니�
 
 Visual Studio용 HDInsight 도구에서 자세한 내용을 참조하세요.
 
-* [Visual Studio용 HDInsight 도구 사용 시작](../hdinsight-hadoop-visual-studio-tools-get-started/)
+* [Visual Studio용 HDInsight 도구 시작](../hdinsight-hadoop-visual-studio-tools-get-started/)
 
 
-[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/ko-kr/library/dn479185.aspx
+[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
 
-[azure-purchase-options]: http://azure.microsoft.com/ pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/ pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/ pricing/free-trial/
+[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
 [apache-tez]: http://tez.apache.org
 [apache-hive]: http://hive.apache.org/
 [apache-log4j]: http://en.wikipedia.org/wiki/Log4j
 [hive-on-tez-wiki]: https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez
-[import-to-excel]: http://azure.microsoft.com/ documentation/articles/hdinsight-connect-excel-power-query/
+[import-to-excel]: http://azure.microsoft.com/documentation/articles/hdinsight-connect-excel-power-query/
 
 
 [hdinsight-use-oozie]: ../hdinsight-use-oozie/
@@ -134,4 +134,4 @@ Visual Studio용 HDInsight 도구에서 자세한 내용을 참조하세요.
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

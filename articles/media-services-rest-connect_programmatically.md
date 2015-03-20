@@ -1,6 +1,6 @@
 ﻿<properties 
 	pageTitle="REST API를 사용하여 미디어 서비스 계정에 연결" 
-	description="이 항목에서는 REST API를 사용하여 미디어 서비스에 연결하는 방법을 보여줍니다." 
+	description="이 항목에서는 REST API를 사용하여 미디어 서비스에 연결하는 방법을 보여 줍니다." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako" 
@@ -19,7 +19,7 @@
 
 # 미디어 서비스 REST API를 사용하여 미디어 서비스 계정에 연결
 
-이 기사는 [워크플로 주문형 미디어 서비스 비디오](../media-services-video-on-demand-workflow) 및 [미디어 서비스 라이브 스트리밍 워크플로](../media-services-live-streaming-workflow)  시리즈의 일부입니다. 
+이 문서는 [워크플로 주문형 미디어 서비스 비디오] 시리즈의(../media-services-video-on-demand-workflow) 및 [미디어 서비스 라이브 스트리밍 워크플로](../media-services-live-streaming-workflow) 일부입니다. 
 
 이 항목에서는 미디어 서비스 REST API로 프로그래밍할 때 Microsoft Azure 미디어 서비스에 대 한 프로그래밍 방식의 연결을 가져오는 방법을 설명 합니다.
 
@@ -30,8 +30,8 @@ Microsoft Azure 미디어 서비스에 액세스할 때 다음 두 가지 요소
 1. 액세스 토큰 가져오기 
 2. 미디어 서비스 URI에 연결 
 
-	>[AZURE.NOTE] Https://media.windows.net에 연결 후 다른 미디어 서비스 URI를 지정하는 301 리디렉션을 받게 됩니다. 사용자는 새 URI에 대한 후속 호출을 해야 합니다.
-	ODATA API 메타 데이터 설명을 포함하는 HTTP/1.1 200 응답을 받을 수도 있습니다.
+	>[AZURE.NOTE] https://media.windows.net에 연결하면 다른 미디어 서비스 URI를 지정하는 301 리디렉션을 받게 됩니다. 사용자는 새 URI에 대한 후속 호출을 해야 합니다.
+	ODATA API 메타데이터 설명을 포함하는 HTTP/1.1 200 응답을 받을 수도 있습니다.
 
 3. 새 URL에 대 한 후속 API 호출을 게시합니다. 
 
@@ -40,13 +40,13 @@ Microsoft Azure 미디어 서비스에 액세스할 때 다음 두 가지 요소
 		HTTP/1.1 301 Moved Permanently
 		Location: https://wamsbayclus001rest-hs.cloudapp.net/api/
 
-	Https://wamsbayclus001rest-hs.cloudapp.net/api/에 대한 후속 API 호출을 게시해야 합니다.
+	https://wamsbayclus001rest-hs.cloudapp.net/api/에 대한 후속 API 호출을 게시해야 합니다.
 
-## 액세스 토큰 가져오기
+##액세스 토큰 가져오기
 
-REST API를 통해 직접 미디어 서비스에 액세스 하려면 사용자가 서비스에 HTTP 요청을 할 때 ACS에서 액세스 토큰을 검색하고 해당 토큰을 사용해야 합니다. 이 토큰은 HTTP 요청 헤더에 제공된 액세스 클레임을 기반으로 하고 OAuth v2 프로토콜을 사용하는 ACS에서 제공하는 다른 토큰과 비슷합니다. 미디어 서비스에 직접 연결할 때 다른 필수 구성 요소가 필요가 없습니다.
+REST API를 통해 바로 미디어 서비스에 액세스하려면 ACS에서 액세스 토큰을 검색하여 서비스에 HTTP 요청을 할 때마다 이를 사용합니다. 이 토큰은 HTTP 요청 헤더에서 제공하는 액세스 클레임을 기반으로 하고 OAuth v2 프로토콜을 사용하는 ACS에서 제공하는 다른 토큰과 비슷합니다. 미디어 서비스에 직접 연결하기 전에는 다른 필수 조건은 필요하지 않습니다.
 
-다음 예제는 토큰을 검색 하는데 사용되는 HTTP 요청 헤더와 본문을 보여줍니다.
+다음 예제에서는 HTTP 요청 헤더와 토큰을 검색하는 데 사용되는 본문을 보여 줍니다.
 
 **헤더**:
 
@@ -61,9 +61,9 @@ REST API를 통해 직접 미디어 서비스에 액세스 하려면 사용자�
 	
 **본문**:
 
-이 요청의; 본문의 client_id와 client_secret 값을 입증 해야 합니다. client_id와 client_secret 각각 AccountName과 AccountKey 값에 해당 합니다. 계정을 설정할 때 미디어 서비스에서 이 값을 제공합니다. 
+이 요청의 본문에 있는 client_id와 client_secret 값을 입증해야 합니다. client_id와 client_secret은 각각 AccountName과 AccountKey 값에 해당합니다. 이러한 값은 계정을 설정할 때 미디어 서비스에서 제공합니다. 
 
-미디어 서비스 계정에 대한 AccountKey는 사용자 액세스 토큰 요청에서 client_secret 값으로 사용하는 경우 URL로 인코딩되어야 합니다.
+미디어 서비스 계정에 대한 AccountKey는 액세스 토큰 요청에서 client_secret 값으로 사용하는 경우 URL로 인코딩되어야 합니다.
 
 	grant_type=client_credentials&client_id=ams_account_name&client_secret=URL_encoded_ams_account_key&scope=urn%3aWindowsAzureMediaServices
 
@@ -73,7 +73,7 @@ REST API를 통해 직접 미디어 서비스에 액세스 하려면 사용자�
 	grant_type=client_credentials&client_id=amstestaccount001&client_secret=wUNbKhNj07oqjqU3Ah9R9f4kqTJ9avPpfe6Pk3YZ7ng%3d&scope=urn%3aWindowsAzureMediaServices
 
 
-다음 예제 응답 본문에 토큰의 액세스를 포함 하는 HTTP 응답을 보여줍니다.
+다음 예제에서는 응답 본문에 액세스 토큰을 포함하는 HTTP 응답을 보여 줍니다.
 
 	HTTP/1.1 200 OK
 	Cache-Control: no-cache, no-store
@@ -95,17 +95,17 @@ REST API를 통해 직접 미디어 서비스에 액세스 하려면 사용자�
 	
 
 >[AZURE.NOTE]
-"access_token" 및 "expires_in" 값을 외부 저장소로 캐시 하는 것이 좋습니다. 나중에 저장소에서 토큰 데이터를 검색하고 미디어 서비스 REST API 호출에서 다시 사용할 수 있습니다. 여어 프로세스 또는 컴퓨터 간에 토큰을 안전하고 공유할 수 있는 시나리오에 특히 유용합니다.
+외부 저장소에 "access_token" 및 "expires_in" 값을 캐시하는 것이 좋습니다. 나중에 저장소에서 토큰 데이터를 검색하여 미디어 서비스 REST API 호출에서 다시 사용할 수 있습니다. 여러 프로세스 또는 컴퓨터 사이에서 토큰을 안전하게 공유할 수 있는 시나리오에 특히 유용합니다.
 
-액세스 토큰의 "expires_in" 값을 모니터링 하 고 필요에 따라 새 토큰으로 REST API 호출을 업데이트 해야 합니다.
+액세스 토큰의 "expires_in" 값을 모니터링하고 필요에 따라 REST API 호출을 새 토큰으로 업데이트해야 합니다.
 
-### 미디어 서비스 URI에 연결
+###미디어 서비스 URI에 연결
 
-미디어 서비스에 대한 루트 URI는 https://media.windows.net/입니다. 이 URI에 처음으로 연결해야 하며 응답으로 301 리디렉션을 받은 경우 새 URI에 대한 후속 호출을 해야합니다. 또한 사용자의 요청에 자동 리디렉션/follow 논리를 사용하지 마십시오. HTTP 동사와 요청 본문은 새 URI에 전달 되지 않습니다.
+미디어 서비스의 루트 URI는 https://media.windows.net/입니다. 이 URI에 처음으로 연결해야 하며 응답으로 301 리디렉션을 받은 경우 새 URI에 대한 후속 호출을 해야합니다. 또한 요청에서 자동 리디렉션/팔로우 논리를 사용하지 마세요 HTTP 동사와 요청 본문은 새 URI로 전달되지 않습니다.
 
-Note 루트 자산 파일 업로드 및 다운로드에 대 한 URI 인지 https://yourstorageaccount.blob.core.windows.net/ 미디어 서비스 계정 설정을 하는 동안 사용 되는 동일한 저장소 계정 이름 됩니다.
+자산 파일을 업로드하고 다운로드하기 위한 루트 URI는 https://yourstorageaccount.blob.core.windows.net/으로 저장소 계정 이름은 미디어 서비스 계정을 설정하는 동안 사용한 이름과 동일합니다.
 
-다음 예제에서는 미디어 서비스 루트 URI(https://media.windows.net/)에 대한 HTTP 요청을 설명합니다.. 요청이 응답으로 301 리디렉션을 가져옵니다. 후속 요청은 새 URI(https://wamsbayclus001rest-hs.cloudapp.net/api/)를 사용합니다.     
+다음 예제에서는 미디어 서비스 루트 URI(https://media.windows.net/)에 대한 HTTP 요청을 설명합니다. 요청은 응답에서 301 리디렉션을 받습니다. 후속 요청은 새 URI((https://wamsbayclus001rest-hs.cloudapp.net/api/))를 사용합니다.     
 
 **HTTP 요청**:
 	
@@ -133,7 +133,7 @@ Note 루트 자산 파일 업로드 및 다운로드에 대 한 URI 인지 https
 	</body></html>
 
 
-**HTTP 요청**(URI 사용):
+**HTTP 요청**(새 URI 사용):
 			
 	GET https://wamsbayclus001rest-hs.cloudapp.net/api/ HTTP/1.1
 	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=f7f09258-6753-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421500579&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=ElVWXOnMVggFQl%2ft9vhdcv1qH1n%2fE8l3hRef4zPmrzg%3d
@@ -169,4 +169,4 @@ Note 루트 자산 파일 업로드 및 다운로드에 대 한 URI 인지 https
 
 <!-- URLs. -->
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

@@ -16,11 +16,9 @@
 	ms.date="02/10/2015" 
 	ms.author="adlevin"/>
 
-
-
 # David Chappell의 DocumentDB 백서 
 
-**요약:** Microsoft Azure의 관리되는 NoSQL 데이터베이스인 DocumentDB에 대해 알아봅니다. DocumentDB는 다음과 같은 경우에 사용하면 효율적인 데이터베이스 기술입니다.
+**요약:** Microsoft Azure의 관리되는 NoSQL 데이터베이스인 DocumentDB에 대해 알아봅니다. DocumentDB는 다음과 같은 경우에 적합한 데이터베이스 기술 선택 사항입니다.
 
 * 응용 프로그램에서 스키마가 없는 데이터 모델을 사용하는 것이 유리한 경우
 * 많은 저장소와 처리량을 수용할 수 있도록 데이터베이스의 크기를 조정해야 하는 경우
@@ -33,9 +31,9 @@
 * 응용 프로그램에서 성능과 일관성 간의 균형을 조정하기 위한 옵션
 
 
-**게시:** 2014년 9월 10일
+**게시 날짜:** 2014년 9월 10일
 
-**다운로드:** [DocumentDB 소개 - Microsoft Azure용 NoSQL 데이터베이스](http://go.microsoft.com/fwlink/?LinkId=511318)
+**다운로드:** [DocumentDB 소개 - Microsoft Azure용 NoSQL 데이터베이스](http://go.microsoft.com/fwlink/?LinkId=511318)(영문)
 
 
-<!--HONumber=46--> 
+<!--HONumber=47-->

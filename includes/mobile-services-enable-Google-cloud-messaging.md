@@ -1,11 +1,11 @@
 ﻿
-1. 먼저 <a href="http://cloud.google.com/console" target="_blank">Google 클라우드 콘솔</a> 웹 사이트로 이동하여 Google 계정 자격 증명으로 로그인한 후 **Create Project**를 클릭합니다.
+1. <a href="http://cloud.google.com/console" target="_blank">Google 클라우드 콘솔</a> 웹 사이트로 이동하여 Google 계정 자격 증명으로 로그인한 다음 **프로젝트 만들기**를 클릭합니다.
 
    	![](./media/notification-hubs-android-get-started/mobile-services-google-new-project.png)   
 
-	>[AZURE.NOTE]기존 프로젝트가 이미 있는 경우 로그인하면 <strong>Projects</strong> 페이지로 이동됩니다. Dashboard에서 새 프로젝트를 만들려면 <strong>API Project</strong>를 확장하고 <strong>Other projects</strong> 아래의 <strong>Create...</strong>를 클릭한 후 프로젝트 이름을 입력하고 <strong>Create project</strong>를 클릭합니다.
+	>[AZURE.NOTE]기존 프로젝트가 이미 있는 경우 로그인하면 <strong>프로젝트</strong> 페이지로 이동됩니다. 대시보드에서 새 프로젝트를 만들려면 <strong>API 프로젝트</strong>를 확장하고 <strong>기타 프로젝트</strong> 아래의 <strong>만들기...</strong>를 클릭한 후 프로젝트 이름을 입력하고 <strong>프로젝트 만들기</strong>를 클릭합니다.
 
-2. 프로젝트 이름을 입력하고 서비스 약관에 동의한 후 **Create**를 클릭합니다. 요청된 경우 SMS 확인을 수행하고 **Create**를 다시 클릭합니다.
+2. 프로젝트 이름을 입력하고 서비스 약관에 동의한 후 **만들기**를 클릭합니다. 요청된 경우 SMS 확인을 수행하고 **Create**를 다시 클릭합니다.
 
 3. **Projects** 섹션에 있는 프로젝트 번호를 기록해 둡니다. 
 
@@ -30,4 +30,4 @@
 	이 API 키를 사용하여 모바일 서비스에서 GCM에 인증하고 앱 대신 푸시 알림을 보낼 수 있게 합니다.
 
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

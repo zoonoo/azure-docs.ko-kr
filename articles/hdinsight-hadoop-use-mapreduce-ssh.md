@@ -22,17 +22,17 @@
 
 이 문서에서는 HDInsight 클러스터에서 SSH를 사용하여 Hadoop에 연결하고 Hadoop 명령을 사용하여 MapReduce 작업을 제출하는 방법을 배웁니다.
 
-> [AZURE.NOTE] 이미 익숙한 Linux 기반 Hadoop 서버를 사용하지만 HDInsight는 처음인 경우, <a href="../hdinsight-hadoop-linux-information/" target="_blank">Linux 기반 HDInsight에서 Hadoop에 대해 알아야 할 내용</a>.
+> [AZURE.NOTE] Linux 기반 Hadoop 서버를 익숙하게 사용하지만 HDInsight는 처음인 경우 <a href="../hdinsight-hadoop-linux-information/" target="_blank">HDInsight의 Linux 기반 Hadoop에 대해 알아야 할 정보</a>를 참조하세요.
 
-## <a id="prereq"></a>필수 조건
+##<a id="prereq"></a>필수 조건
 
 이 문서의 단계를 완료하려면 다음이 필요합니다.
 
 * Linux 기반 HDInsight(HDInsight의 Hadoop) 클러스터
 
-* SSH 클라이언트. Linux, Unix 및 Mac OS에는 ssh 클라이언트가 설치되어 있습니다. Windows 사용자는 다음과 같은 클라이언트를 다운로드해야 합니다. <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank">Putty</a>.
+* SSH 클라이언트. Linux, Unix 및 Mac OS에는 SSH 클라이언트가 함께 제공됩니다. Windows 사용자는 <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank">Putty</a>와 같은 클라이언트를 다운로드해야 합니다.
 
-## <a id="ssh"></a>SSH를 사용하여 연결
+##<a id="ssh"></a>SSH를 사용하여 연결
 
 SSH 명령을 사용하여 HDInsight 클러스터의 정규화된 도메인 이름(FQDN)에 연결합니다. FQDN은 클러스터에 지정한 이름이며 그 다음은 **.azurehdinsight.net**입니다. 예를 들어, 다음은 **myhdinsight** 클러스터에 연결합니다.
 
@@ -44,15 +44,15 @@ SSH 명령을 사용하여 HDInsight 클러스터의 정규화된 도메인 이�
 
 **SSH 인증을 위해 암호를 제공하는 경우**, HDInsight 클러스터를 만들 때 메시지가 표시되면 암호를 제공해야 합니다.
 
-### Putty(Windows 클라이언트)
+###Putty(Windows 클라이언트)
 
-Windows에는 SSH 클라이언트가 기본 제공되지 않습니다. 다음에서 다운로드할 수 있는 **Putty**를 사용하는 것이 좋습니다. <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank">http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html</a>.
+Windows에는 SSH 클라이언트가 기본 제공되지 않습니다. **Putty**는 <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank">http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html</a>에서 다운로드하여 사용하는 것이 좋습니다.
 
-Putty 사용에 대한 자세한 내용은 Azure에서 Linux와 함께 SSH를 사용하는 방법 중 **Linux 컴퓨터에 연결하기 위해 Putty 사용** <a href="http://azure.microsoft.com/ documentation/articles/virtual-machines-linux-use-ssh-key/" target="_blank">섹션을</a>참조하세요.
+Putty 사용에 대한 자세한 내용은 <a href="http://azure.microsoft.com/documentation/articles/virtual-machines-linux-use-ssh-key/" target="_blank">Azure에서 Linux와 함께 SSH를 사용하는 방법</a>의 **Putty를 사용하여 Linux 컴퓨터에 연결** 섹션을 참조하세요.
 
-> [AZURE.NOTE] HDInsight 클러스터에 SSH 인증용 자격 증명을 사용한 경우, Azure에서 Linux와 함께 SSH를 사용하는 방법 중 **Putty용 PPK 만들기** <a href="http://azure.microsoft.com/ documentation/articles/virtual-machines-linux-use-ssh-key/" target="_blank"> 섹션을 참조해야 합니다.</a>
+> [AZURE.NOTE] HDInsight 클러스터에 대한 SSH 인증을 위해 인증서를 사용한 경우 <a href="http://azure.microsoft.com/documentation/articles/virtual-machines-linux-use-ssh-key/" target="_blank">Azure에서 Linux와 함께 SSH를 사용하는 방법</a>의 **Putty용 PPK 만들기** 섹션도 참조해야 할 수 있습니다.
 
-## <a id="hadoop"></a>Hadoop 명령 사용
+##<a id="hadoop"></a>Hadoop 명령 사용
 
 1. HDInsight 클러스터에 연결되면 다음을 사용하여 MapReduce 작업을 시작하는 **Hadoop** 명령을 사용합니다.
 
@@ -60,7 +60,7 @@ Putty 사용에 대한 자세한 내용은 Azure에서 Linux와 함께 SSH를 �
 
 	이 명령은 **hadoop-mapreduce-examples.jar** 파일에 있는 **wordcount** 클래스를 시작합니다. 입력으로 **wasb://example/data/gutenberg/davinci.txt** 문서를 사용하고 출력은 **wasb:///example/data/WordCountOutp**에 저장됩니다.
 
-	> [AZURE.NOTE] 이 MapReduce 작업 및 예제 데이터에 대한 자세한 내용은 <a href="../hdinsight-use-mapreduce/" target="_blank">HDInsight에서 Hadoop과 MapReduce 사용</a>을 참조하세요.
+	> [AZURE.NOTE] 이 MapReduce 작업 및 예제 데이터에 대한 자세한 내용은 <a href="../hdinsight-use-mapreduce/" target="_blank">HDInsight Hadoop에서 MapReduce 사용</a>을 참조하세요.
 
 2. 작업이 처리되는 동안 세부 정보를 내보내며 마지막으로 작업이 완료될 때 반환 정보는 다음과 유사합니다.
 
@@ -81,7 +81,7 @@ Putty 사용에 대한 자세한 내용은 Azure에서 Linux와 함께 SSH를 �
 
 		hadoop fs -cat wasb:///example/data/WordCountOutput/part-r-00000
 
-	그러면 포함된 단어의 목록이 표시 됩니다는 **wasb://example/data/gutenberg/davinci.txt** 파일에 포함된 단어의 목록과 각 단어가 나타나는 횟수를 표시합니다.  다음은 파일에 포함된 데이터의 예입니다.
+	그러면 각 단어가 나타나는 횟수뿐만 아니라 **wasb://example/data/gutenberg/davinci.txt** 파일에 포함된 단어의 목록이 표시됩니다.  다음은 파일에 포함된 데이터의 예입니다.
 
 		wreathed        3
 		wreathing       1
@@ -91,11 +91,11 @@ Putty 사용에 대한 자세한 내용은 Azure에서 Linux와 함께 SSH를 �
 		wretched        6
 		wriggling       1
 
-## <a id="summary"></a>요약
+##<a id="summary"></a>요약
 
 여기에서 볼 수 있듯이 Hadoop 명령은 HDInsight 클러스터에서 MapReduce 작업을 실행하고 작업 출력을 볼 수 있는 쉬운 방법을 제공합니다.
 
-## <a id="nextsteps"></a>다음 단계
+##<a id="nextsteps"></a>다음 단계
 
 HDInsight에서 MapReduce 작업의 일반적인 내용.
 
@@ -106,4 +106,4 @@ HDInsight에서 Hadoop으로 작업하는 다른 방법에 관한 내용입니�
 * [HDInsight에서 Hadoop과 Hive 사용](../hdinsight-use-hive/)
 
 * [HDInsight에서 Hadoop과 Pig 사용](../hdinsight-use-pig/)
-<!--HONumber=45--> 
+<!--HONumber=47-->

@@ -1,5 +1,5 @@
 ﻿<properties 
-   pageTitle="HDInsight에서 Hive와 Hadoop 사용 시작 | Azure" 
+   pageTitle="Linux의 HDInsight에서 Hive와 Hadoop 사용 시작|  Azure" 
    description="Linux에서 HDInsight의 Hadoop 사용 시작 Linux에서 실행하는 HDInsight Hadoop 클러스터를 프로비전하고 Hive를 사용하여 데이터를 쿼리하는 방법을 알아봅니다." 
    services="hdinsight" 
    documentationCenter="" 
@@ -21,7 +21,7 @@
 이 자습서는 Linux에서 HDInsight Hadoop 클러스터를 프로비전하고 구조화 되지 않은 데이터에서 의미 있는 정보를 추출할 Hive 쿼리를 실행하는 방법을 표시하여 Linux의 HDInsight 에서 신속하게 시작할 수 있도록 해줍니다. 그런 다음 Tableau와 같은 BI (비즈니스 인텔리전스) 도구 내에서 결과를 분석할 수 있습니다.
 
 
-> [AZURE.NOTE] Hadoop과 빅데이터를 처음 사용하는 경우, 용어에 대해 자세히 알아볼 수 있습니다. <a href="http://go.microsoft.com/fwlink/?LinkId=510084" target="_blank">Apache Hadoop</a>, <a href="http://go.microsoft.com/fwlink/?LinkId=510086" target="_blank">MapReduce</a>, <a href="http://go.microsoft.com/fwlink/?LinkId=510087" target="_blank">HDFS</a>및 <a href="http://go.microsoft.com/fwlink/?LinkId=510085" target="_blank">Hive</a>. HDInsight를 통해 Azure에서 Hadoop을 사용하도록 설정하는 방법을 이해하려면[HDInsight의 Hadoop 소개](../hdinsight-hadoop-introduction/)(영문)를 참조하세요.
+> [AZURE.NOTE] Hadoop과 빅데이터를 처음 사용하는 경우 <a href="http://go.microsoft.com/fwlink/?LinkId=510084" target="_blank">Apache Hadoop</a>, <a href="http://go.microsoft.com/fwlink/?LinkId=510086" target="_blank">MapReduce</a>, <a href="http://go.microsoft.com/fwlink/?LinkId=510087" target="_blank">HDFS</a> 및 <a href="http://go.microsoft.com/fwlink/?LinkId=510085" target="_blank">Hive</a> 용어에 대해 자세히 알아볼 수 있습니다. HDInsight를 통해 Azure에서 Hadoop을 사용하도록 설정하는 방법을 이해하려면[HDInsight의 Hadoop 소개](../hdinsight-hadoop-introduction/)(영문)를 참조하세요.
 
 
 ## 이 자습서의 목적 ##
@@ -36,7 +36,7 @@
 이 자습서를 시작하기 전에 다음이 있어야 합니다.
 
 
-- Azure 구독. 구독을 얻는 방법에 대한 자세한 내용은 <a href="http://azure.microsoft.com/ pricing/purchase-options/" target="_blank">구매 옵션</a>, <a href="http://azure.microsoft.com/ pricing/member-offers/" target="_blank">멤버 제안</a>또는 <a href="http://azure.microsoft.com/ pricing/free-trial/" target="_blank">무료 평가판</a>을 참조하세요.
+- Azure 구독. 구독을 예약하는 방법에 대한 자세한 내용은 <a href="http://azure.microsoft.com/pricing/purchase-options/" target="_blank">구매 옵션</a>, <a href="http://azure.microsoft.com/pricing/member-offers/" target="_blank">구성원 제공 항목</a> 또는 <a href="http://azure.microsoft.com/pricing/free-trial/" target="_blank">무료 평가판</a>을 참조하세요.
 
 **완료 예상 시간:** 30분
 
@@ -49,7 +49,7 @@
 
 ## <a name="storage"></a>Azure 저장소 계정 만들기
 
-HDInsight는 데이터 저장을 위해 Azure Blob 저장소를 사용합니다. 이름은 *WASB* 또는 *Azure Storage - Blob*입니다. WASB는 Azure Blob 저장소에 구현한 Microsoft의 HDFS입니다. 자세한 내용은 [HDInsight에서 Azure Blob 저장소 사용](../hdinsight-use-blob-storage/)을 참조하세요.
+HDInsight는 데이터 저장을 위해 Azure Blob 저장소를 사용합니다. 이를  *WASB* 또는 *Azure 저장소 - Blob*이라고 합니다. WASB는 Azure Blob 저장소에 구현한 Microsoft의 HDFS입니다. 자세한 내용은 [HDInsight에서 Azure Blob 저장소 사용](../hdinsight-use-blob-storage/)을 참조하세요.
 
 HDInsight 클러스터를 프로비전할 때 Azure 저장소 계정을 지정합니다. HDFS의 경우처럼 해당 계정의 특정 Blob 저장소 컨테이너는 기본 파일 시스템으로 지정됩니다. HDInsight 클러스터는 기본적으로 사용자가 지정한 저장소 계정과 동일한 데이터 센터에 프로비전됩니다.
 
@@ -59,7 +59,7 @@ HDInsight 클러스터를 프로비전할 때 Azure 저장소 계정을 지정�
 
 **Azure 저장소 계정을 만들려면**
 
-1. Azure 관리 포털 <a href="https://manage.windowsazure.com/" target="_blank">에 로그인합니다</a>.
+1. <a href="https://manage.windowsazure.com/" target="_blank">Azure 관리 포털</a>에 로그인합니다.
 2. 왼쪽 아래에서 **새로 만들기**를 클릭하고 **데이터 서비스**, **저장소**를 차례로 가리킨 후 **빠른 생성**을 클릭합니다.
 
 	![Azure portal where you can use Quick Create to set up a new storage account.](./media/hdinsight-hadoop-linux-get-started/HDI.StorageAccount.QuickCreate.png)
@@ -78,14 +78,14 @@ HDInsight 클러스터를 프로비전할 때 Azure 저장소 계정을 지정�
 	
 ## <a name="provision"></a>Linux에서 HDInsight 클러스터 프로비전
 
-HDInsight 클러스터를 프로비전할 때는 Hadoop과 관련 응용 프로그램을 포함하는 Azure 계산 리소스를 프로비전합니다. 이 섹션에서는 quick-create 옵션을 사용하여 Linux에서 HDInsight 클러스터를 프로비전합니다. 이 옵션 기본 사용자 이름 및 Azure 저장소 컨테이너를 사용 하 여 HDInsight 버전 3.2 (Hadoop 버전 2.5, HDP 버전 2.2)는 클러스터를 구성하고 Ubuntu 12.04 LTS를 실행 합니다. 여러 다른 HDInsight 버전 및 해당 SLA에 대한 [HDInsight 구성 요소 버전 관리](http://azure.microsoft.com/ documentation/articles/hdinsight-component-versioning/) 페이지를 참조하세요.
+HDInsight 클러스터를 프로비전할 때는 Hadoop과 관련 응용 프로그램을 포함하는 Azure 계산 리소스를 프로비전합니다. 이 섹션에서는 quick-create 옵션을 사용하여 Linux에서 HDInsight 클러스터를 프로비전합니다. 이 옵션 기본 사용자 이름 및 Azure 저장소 컨테이너를 사용 하 여 HDInsight 버전 3.2 (Hadoop 버전 2.5, HDP 버전 2.2)는 클러스터를 구성하고 Ubuntu 12.04 LTS를 실행 합니다. 여러 다른 HDInsight 버전 및 해당 SLA에 대한 [HDInsight 구성 요소 버전 관리](http://azure.microsoft.com/documentation/articles/hdinsight-component-versioning/) 페이지를 참조하세요.
 
 >[AZURE.NOTE]  Windows Server OS를 실행하는 Hadoop 클러스터를 만들 수 있습니다. 자세한 지침은 [Windows에서 HDInsight 사용 시작](../hdinsight-get-started/)을 참조하세요.
 
 
-**HDInsight 클러스터를 프로비전하려면** 
+**HDInsight 클러스터를 프로비전하려면**
 
-1. Azure 관리 포털 <a href="https://manage.windowsazure.com/" target="_blank">에 로그인합니다</a>. 
+1. <a href="https://manage.windowsazure.com/" target="_blank">Azure 관리 포털</a>에 로그인합니다. 
 
 2. 왼쪽 아래에서 **신규**를 클릭하고, **데이터 서비스**를 클릭하고, **HDInsight**를 클릭한 다음, **Linux의 Hadoop**을 클릭합니다.
 
@@ -96,8 +96,8 @@ HDInsight 클러스터를 프로비전할 때는 Hadoop과 관련 응용 프로�
 	<table border="1">
 	<tr><th>이름</th><th>값</th></tr>
 	<tr><td>클러스터 이름</td><td>클러스터의 이름입니다.</td></tr>
-	<tr><td>클러스터 크기</td><td>배포하려는 데이터 노드 수입니다. 기본값은 4입니다. 그러나 드롭다운 메뉴에서 1 또는 2개의 데이터 노드를 사용하는 옵션을 사용할 수도 있습니다. 옵션을 사용하면 클러스터 노드 수를 임의로 지정할 수 있습니다. <strong>사용자 지정 만들기</strong> 옵션을 사용하지 않을 때는 클러스터 사용자 이름 "admin"이 지정됩니다. 다양한 클러스터 크기의 청구 요금에 대한 가격 책정 정보를 사용할 수 있습니다. 드롭다운 상자 위의 <strong>?</strong> 기호를 클릭하고 팝업의 링크를 따르세요.</td></tr>
-	<tr><td>암호</td><td>다음 <i>HTTP</i> 계정(기본 사용자 이름) 및 <i>SSH</i> 계정 (기본 사용자 이름: hdiuser)에 대한 암호 이 계정은 클러스터가 프로비전되는 VM에 대한 Windows 관리자 계정이 아닙니다. </td></tr>
+	<tr><td>클러스터 크기</td><td>배포하려는 데이터 노드 수입니다. 기본값은 4입니다. 그러나 드롭다운 메뉴에서 1 또는 2개의 데이터 노드를 사용하는 옵션을 사용할 수도 있습니다. <strong>사용자 지정 만들기</strong> 옵션을 사용하면 클러스터 노드 수를 임의로 지정할 수 있습니다. 다양한 클러스터 크기의 청구 요금에 대한 가격 책정 정보를 사용할 수 있습니다. 드롭다운 상자 바로 위의 <strong>?</strong> 기호를 클릭하고 팝업의 링크를 따르세요.</td></tr>
+	<tr><td>암호</td><td><i>HTTP</i> 계정(기본 사용자 이름: admin) 및 <i>SSH</i> 계정(기본 사용자 이름: hdiuser)에 대한 암호입니다. 이 계정은 클러스터가 프로비전되는 VM에 대한 Windows 관리자 계정이 아닙니다. </td></tr>
 	
 	<tr><td>저장소 계정</td><td>드롭다운 상자에서 직접 만든 저장소 계정을 선택합니다. <br/>
 
@@ -144,7 +144,7 @@ Linux 컴퓨터 또는 SSH를 사용하는 Windows 컴퓨터에서 Linux의 HDIn
 
 **Windows 컴퓨터에서 연결하려면**
 
-1. Windows 클라이언트용 **PuTTY**를 다운로드합니다. 다음 사이트에서 사용할 수 있습니다. <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank">http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html</a>
+1. Windows 클라이언트용 **PuTTY**를 다운로드합니다. <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank">http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html</a>에서 사용할 수 있습니다.
 
 2. **PuTTY**를 엽니다. **범주**에서 **세션**을 클릭합니다. **PuTTY 세션에 대한 기본 옵션** 화면에서, **호스트 이름(또는 IP 주소)** 필드에 HDInsight 서버의 SSH 주소를 입력합니다. SSH 주소는 **-ssh.azurehdinsight.net** 뒤의 클러스터 이름입니다. 예를 들면, **myhdinsightcluster-ssh.azurehdinsight.net**입니다.
 
@@ -175,10 +175,10 @@ SSH를 사용하여 클러스터에 연결되면 다음 명령을 사용하여 H
 	이러한 문은 다음 작업을 수행합니다.
 
 	- **DROP TABLE** - 테이블이 이미 있는 경우에 테이블 및 데이터 파일을 삭제합니다.
-	- **CREATE EXTERNAL TABLE** - Hive에서 새 'external' 테이블을 만듭니다. 외부 테이블은 Hive에 테이블 정의만 저장하고, 데이터는 원래 위치에 남아 있습니다.
+	- **CREATE EXTERNAL TABLE** - Hive에서 새 '외부' 테이블을 만듭니다. 외부 테이블은 Hive에 테이블 정의만 저장하고, 데이터는 원래 위치에 남아 있습니다.
 	- **ROW FORMAT** - 데이터의 형식 지정 방식을 Hive에 알립니다. 이 경우, 각 로그의 필드는 공백으로 구분됩니다.
 	- **STORED AS TEXTFILE LOCATION** - 데이터가 저장된 위치와 텍스트로 저장되었다는 것을 Hive에 알립니다.
-	- **SELECT** - t4 열에 [ERROR] 값이 포함된 모든 행의 수를 선택합니다. 
+	- **SELECT** - t4 열에 [ERROR] 값이 포함된 모든 행의 수를 선택합니다.
 
 	>[WACOM.NOTE] 자동화된 데이터 업로드 프로세스와 같은 외부 원본이나 또 다른 MapReduce 작업을 통해 기본 데이터를 업데이트해야 하지만 Hive 쿼리에서 항상 최신 데이터를 사용하려고 할 경우 외부 테이블을 사용해야 합니다. 외부 테이블을 삭제하면 데이터**뿐만 아니라** 테이블 정의도 삭제됩니다.
 
@@ -219,7 +219,7 @@ SSH를 사용하여 클러스터에 연결되면 다음 명령을 사용하여 H
 
 	이러한 문은 다음 작업을 수행합니다.
 
-	- **CREATE TABLE IF NOT EXISTS** - 테이블을 만듭니다(아직 없는 경우). EXTERNAL 키워드가 사용되지 않으므로 Hive 데이터 웨어하우스에 저장되고 Hive에서 완전히 관리되는  'internal' 테이블입니다. **EXTERNAL** 테이블과 달리 내부 테이블을 삭제하면 기본 데이터도 삭제됩니다.
+	- **CREATE TABLE IF NOT EXISTS** - 테이블을 만듭니다(아직 없는 경우). EXTERNAL 키워드가 사용되지 않으면 Hive 데이터 웨어하우스에 저장되고 Hive에서 완전히 관리되는 '내부' 테이블입니다. **EXTERNAL** 테이블과 달리 내부 테이블을 삭제하면 기본 데이터도 삭제됩니다.
 	- **STORED AS ORC** - 데이터를 ORC(Optimized Row Columnar) 형식으로 저장합니다. Hive 데이터를 저장하기 위한 고도로 최적화되고 효율적인 형식입니다.
 	- **INSERT OVERWRITE ... SELECT** - [ERROR]가 포함된 **log4jLogs** 테이블에서 행을 선택하고 데이터를 **errorLogs**테이블에 삽입합니다.
 
@@ -234,16 +234,16 @@ SSH를 사용하여 클러스터에 연결되면 다음 명령을 사용하여 H
 		2012-02-03	19:25:27	SampleClass4	[ERROR]	 incorrect		id
 		Time taken: 0.987 seconds, Fetched: 3 row(s)
 
-	반환된 데이터는 모두 해당[ERROR] 로그에 해당합니다.
+	The returned data should all correspond to [ERROR] logs.
 
 
 ## <a name="nextsteps"></a>다음 단계
 이 자습서에서 HDInsight를 사용하여 Hadoop Linux 클러스터를 프로비전하는 방법과 SSH를 사용하여 Hive 쿼리를 실행하는 방법을 배웠습니다. 자세한 내용은 다음 문서를 참조하세요.
 
 - [사용자 지정 옵션을 사용하여 Linux에서 HDInsight 프로비전](../hdinsight-hadoop-provision-linux-clusters)
-- [Linux의 HDInsight에서 작업](../hdinsight-hadoop-linux-information)
+- [Linux에서 HDInsight 작업](../hdinsight-hadoop-linux-information)
 - [Ambari를 사용하여 HDInsight 클러스터 관리](../hdinsight-hadoop-manage-ambari)
-- [HDInsight와 MapReduce 사용][hdinsight-use-mapreduce]
+- [HDInsight에서 MapReduce 사용][hdinsight-use-mapreduce]
 - [HDInsight에서 Hive 사용][hdinsight-use-hive]
 - [HDInsight에서 Pig 사용][hdinsight-use-pig]
 - [HDInsight에서 Azure Blob 저장소 사용](../hdinsight-use-blob-storage)
@@ -271,4 +271,4 @@ SSH를 사용하여 클러스터에 연결되면 다음 명령을 사용하여 H
 [image-hdi-clusterstatus]: ./media/hdinsight-get-started/HDI.ClusterStatus.png
 [image-hdi-gettingstarted-powerquery-importdata]: ./media/hdinsight-get-started/HDI.GettingStarted.PowerQuery.ImportData.png
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-get-started/HDI.GettingStarted.PowerQuery.ImportData2.png
-<!--HONumber=45--> 
+<!--HONumber=47-->

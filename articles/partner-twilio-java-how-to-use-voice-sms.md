@@ -1,5 +1,5 @@
-<properties 
-	pageTitle="음성 및 SMS를 위해 Twilio를 사용하는 방법(Java) - Azure" 
+﻿<properties 
+	pageTitle="음성 및 SMS에 Twilio 사용(Java) - Azure" 
 	description="Azure에서 Twilio API 서비스를 사용하여 전화를 걸고 SMS 메시지를 보내는 방법에 대해 알아봅니다. 코드 샘플은 Java로 작성되었습니다." 
 	services="" 
 	documentationCenter="java" 
@@ -20,30 +20,16 @@
 
 이 가이드에서는 Azure에서 Twilio API 서비스로 일반 프로그래밍 작업을 수행하는 방법을 보여 줍니다. 이 문서의 시나리오에서는 전화 통화를 걸고 SMS(Short Message Service) 메시지를 보냅니다. 응용 프로그램에서 음성 및 SMS 사용 방법과 Twilio에 대한 자세한 내용은 [다음 단계](#NextSteps) 섹션을 참조하세요.
 
-## 목차
-* [Twilio 정의](#WhatIs)
-* [Twilio 가격 책정](#Pricing)
-* [개념](#Concepts)
-* [Twilio 계정 만들기](#CreateAccount)
-* [전화 번호 확인](#VerifyPhoneNumbers)
-* [Java 응용 프로그램 만들기](#create_app)
-* [Twilio 라이브러리를 사용하도록 응용 프로그램 구성](#configure_app)
-* [방법: 발신 전화 걸기](#howto_make_call)
-* [방법: SMS 메시지 보내기](#howto_send_sms)
-* [방법: 고유한 웹 사이트에서 TwiML 응답 제공](#howto_provide_twiml_responses)
-* [방법: 추가 Twilio 서비스 사용](#AdditionalServices)
-* [다음 단계](#NextSteps)
-
-<h2><a id="WhatIs"></a>Twilio 정의</h2>
+<h2>Twilio는 무엇입니까?</h2>
 Twilio는 기존 웹 언어와 기술을 사용하여 음성 및 SMS 응용 프로그램을 빌드할 수 있게 해주는 전화 통신 웹 서비스 API입니다. Twilio는 타사 서비스입니다(Azure 기능 또는 Microsoft 제품 아님).
 
-**Twilio 음성**을 통해 응용 프로그램에서 전화 통화를 걸고 받을 수 있습니다. **Twilio SMS**를 사용하면 응용 프로그램에서 SMS 메시지를 작성하고 받을 수 있습니다. **Twilio 클라이언트**를 사용하면 응용 프로그램에서 모바일 연결을 비롯한 기존 인터넷 연결을 통해 음성 통신을 사용할 수 있습니다.
+**Twilio 음성**을 통해 응용 프로그램에서 전화 통화를 걸고 받을 수 있습니다. **Twilio SMS**를 사용하면 응용 프로그램에서 SMS 메시지를 작성하고 받을 수 있습니다. **Twilio 클라이언트** 모바일 연결을 비롯 한 기존 인터넷 연결을 사용 하 여 음성 통신을 사용 하도록 응용 프로그램을 허용 합니다.
 
-<h2><a id="Pricing"></a>Twilio 가격 책정 및 특별 제공</h2>
+<h2><a id="Pricing"></a>Twilio 가격 책정 및 특별 행사</h2>
 Twilio 가격 책정 정보는 [Twilio 가격 책정][twilio_pricing]에서 확인할 수 있습니다. Azure 고객은 [특별 제공][special_offer](영문)(문자 1000통 또는 인바운드 통화 1000분의 무료 크레딧)을 받습니다. 이 제공에 등록하거나 추가 정보를 얻으려면 [http://ahoy.twilio.com/azure][special_offer](영문)를 방문하세요.  
 
 <h2><a id="Concepts"></a>개념</h2>
-Twilio API는 응용 프로그램에 대한 음성 및 SMS 기능을 제공하는 RESTful API입니다. 클라이언트 라이브러리는 다양한 언어로 사용할 수 있습니다. 목록에 대해서는 [Twilio API 라이브러리][twilio_libraries]를 참조하세요.
+Twilio API는 응용 프로그램에 대한 음성 및 SMS 기능을 제공하는 RESTful API입니다. 클라이언트 라이브러리는 여러 언어로; 제공 됩니다. 목록에 대 한 참조 [Twilio API 라이브러리][twilio_libraries].
 
 Twilio API의 핵심 요소는 Twilio 동사와 TwiML(Twilio Markup Language)입니다.
 
@@ -88,7 +74,7 @@ Twilio 계정을 등록하면 계정 ID 및 인증 토큰을 받게 됩니다. �
 
 Java용 Twilio 클라이언트 라이브러리 사용에 대한 자세한 지침은 [Azure의 Java 응용 프로그램에서 Twilio를 사용하여 전화를 거는 방법][howto_phonecall_java]을 참조하세요.
 
-<h2><a id="configure_app"></a>Twilio 라이브러리를 사용하도록 응용 프로그램 구성</h2>
+<h2><a id="configure_app"></a>Twilio 라이브러리를 사용 하 여 응용 프로그램 구성</h2>
 코드 내에서 응용 프로그램에 사용할 Twilio 패키지 또는 클래스의 원본 파일 맨 위에 **import** 문을 추가할 수 있습니다. 
 
 Java 원본 파일의 경우
@@ -107,7 +93,7 @@ JSP(Java Server Page) 원본 파일의 경우
 사용할 Twilio 패키지 또는 클래스에 따라 **import** 문이 달라질 수 있습니다.
 
 <h2><a id="howto_make_call"></a>방법: 발신 전화 걸기</h2>
-다음은 **CallFactory** 클래스를 사용하여 발신 전화를 거는 방법을 보여 줍니다. 또한 이 코드는 Twilio 제공 사이트를 사용하여 TwiML(Twilio Markup Language) 응답을 반환합니다. **From** 및 **To** 전화 번호의 값을 바꾸고, 코드를 실행하기 전에 Twilio 계정의 **From** 번호를 확인하세요.
+다음은 **CallFactory** 클래스를 사용하여 발신 전화를 거는 방법을 보여 줍니다. 또한 이 코드는 Twilio 제공 사이트를 사용하여 TwiML(Twilio Markup Language) 응답을 반환합니다. 에 대 한 값을 대체는 **에서** 및 **를** 전화 번호를 확인 하는 확인 및는 **에서** 전화 코드를 실행 하기 전에 Twilio 계정에 대 한 번호입니다.
 
     // Use your account SID and authentication token instead
     // of the placeholders shown here.
@@ -139,7 +125,7 @@ JSP(Java Server Page) 원본 파일의 경우
 
 **CallFactory.create** 메서드에 전달된 매개 변수에 대한 자세한 내용은 [http://www.twilio.com/docs/api/rest/making-calls][twilio_rest_making_calls](영문)를 참조하세요.
 
-언급한 대로 이 코드는 Twilio 제공 사이트를 사용하여 TwiML 응답을 반환합니다. 고유한 사이트를 대신 사용하여 TwiML 응답을 제공할 수 있습니다. 자세한 내용은 [Azure의 Java 응용 프로그램에서 TwiML 응답을 제공하는 방법](#howto_provide_twiml_responses)을 참조하세요.
+언급한 대로 이 코드는 Twilio 제공 사이트를 사용하여 TwiML 응답을 반환합니다. 고유한 사이트를 대신 사용하여 TwiML 응답을 제공할 수 있습니다. 자세한 내용은 [Azure의 Java 응용 프로그램에서 TwiML 응답을 제공하는 방법]을 참조하세요(#howto_provide_twiml_responses).
 
 <h2><a id="howto_send_sms"></a>방법: SMS 메시지 보내기</h2>
 다음은 **SmsFactory** 클래스를 사용하여 SMS 메시지를 보내는 방법을 보여 줍니다. 평가판 계정이 SMS 메시지를 보낼 **From** 번호 **4155992671**은 자동으로 입력됩니다. 코드를 실행하기 전에 Twilio 계정에 대한 **To** 번호를 확인해야 합니다.
@@ -169,7 +155,7 @@ JSP(Java Server Page) 원본 파일의 경우
 **SmsFactory.create** 메서드에 전달된 매개 변수에 대한 자세한 내용은 [http://www.twilio.com/docs/api/rest/sending-sms][twilio_rest_sending_sms](영문)를 참조하세요.
 
 <h2><a id="howto_provide_twiml_responses"></a>방법: 고유한 웹 사이트에서 TwiML 응답 제공</h2>
-응용 프로그램에서 Twilio API 호출을 시작하면(예: **CallFactory.create** 메서드를 통해) Twilio에서 TwiML 응답을 반환해야 하는 URL로 요청을 보냅니다. 위 예제에서는 Twilio 제공 URL인 [http://twimlets.com/message][twimlet_message_url]를 사용합니다. TwiML은 웹 서비스에서 사용되도록 설계되었지만 브라우저에서도 TwiML을 볼 수 있습니다. 예를 들어 [http://twimlets.com/message][twimlet_message_url]를 클릭하면 빈 **&lt;Response&gt;** 요소를 볼 수 있습니다. 또 다른 예로, [http://twimlets.com/message?Message%5B0%5D=Hello%20World][twimlet_message_url_hello_world]를 클릭하면 **&lt;Say&gt;** 요소가 포함된 **&lt;Response&gt;** 요소를 볼 수 있습니다.
+응용 프로그램에서 Twilio API 호출을 시작하면(예: **CallFactory.create** 메서드를 통해) Twilio에서 TwiML 응답을 반환해야 하는 URL로 요청을 보냅니다. 위 예제에서는 Twilio 제공 URL인 [http://twimlets.com/message][twimlet_message_url]를 사용합니다. TwiML은 웹 서비스에서 사용되도록 설계되었지만 브라우저에서도 TwiML을 볼 수 있습니다. 예를 클릭 하 여 [http://twimlets.com/message][twimlet_message_url] 빈 보려면 **&lt;응답&gt;** 요소; 또다른 예로, 클릭 [http://twimlets.com/message?Message%5B0%5D=Hello%20World][twimlet_message_url_hello_world] 참조 하는 **&lt;응답&gt;** 요소를 포함 하는 **&lt;말하기&gt;** 요소입니다.)
 
 Twilio 제공 URL을 사용하지 않고 HTTP 응답을 반환하는 고유한 URL 사이트를 만들 수 있습니다. HTTP 응답을 반환하는 모든 언어로 사이트를 만들 수 있습니다. 이 항목에서는 JSP 페이지에 URL을 호스트한다고 가정합니다.
 
@@ -193,7 +179,7 @@ Twilio 제공 URL을 사용하지 않고 HTTP 응답을 반환하는 고유한 U
         <Say>Good bye.</Say>
     </Response>
 
-**ApiVersion** 매개 변수는 Twilio 음성 요청(SMS 요청 아님)에 사용할 수 있습니다. Twilio 음성 및 SMS 요청에 사용 가능한 요청 매개 변수를 보려면 각각 <https://www.twilio.com/docs/api/twiml/twilio_request> 및 <https://www.twilio.com/docs/api/twiml/sms/twilio_request>를 참조하세요. **RoleName** 환경 변수는 Azure 배포의 일부로 사용할 수 있습니다. **System.getenv**에서 선택될 수 있도록 사용자 지정 환경 변수를 추가하려면 [기타 역할 구성 설정][misc_role_config_settings]의 환경 변수 섹션을 참조하세요.
+**ApiVersion** 매개 변수는 Twilio 음성 요청(SMS 요청 아님)에 사용할 수 있습니다. Twilio 음성 및 SMS 요청에 대 한 사용 가능한 요청 매개 변수를 보려면 <https://www.twilio.com/docs/api/twiml/twilio_request>및 <https://www.twilio.com/docs/api/twiml/sms/twilio_request>각각. **RoleName** 환경 변수는 Azure 배포의 일부로 사용할 수 있습니다. **System.getenv**에서 선택될 수 있도록 사용자 지정 환경 변수를 추가하려면 [기타 역할 구성 설정][misc_role_config_settings]의 환경 변수 섹션을 참조하세요.
 
 JSP 페이지가 TwiML 응답을 제공하도록 설정된 경우 **CallFactory.create** 메서드에 전달되는 URL로 JSP 페이지의 URL을 사용합니다. 예를 들어 MyTwiML이라는 웹 응용 프로그램이 Azure 호스팅 서비스에 배포되어 있고 JSP 페이지의 이름이 mytwiml.jsp인 경우 다음과 같이 URL을 **CallFactory.create**에 전달할 수 있습니다.
 
@@ -218,7 +204,7 @@ Twilio 서비스에 관한 기본적인 사항들을 익혔으며 자세한 내�
 
 * [Twilio 보안 지침] [twilio_security_guidelines](영문)
 * [Twilio 방법 및 예제 코드][twilio_howtos](영문)
-* [Twilio 빠른 시작 자습서][twilio_quickstarts](영문) 
+* [Twilio 빠른 시작 자습서][twilio_quickstarts](영문)
 * [Twilio on GitHub] [twilio_on_github](영문)
 * [Twilio 지원 문의] [twilio_support](영문)
 
@@ -246,4 +232,4 @@ Twilio 서비스에 관한 기본적인 사항들을 익혔으며 자세한 내�
 [twilio_support]: http://www.twilio.com/help/contact
 [twilio_quickstarts]: http://www.twilio.com/docs/quickstart
 
-<!--HONumber=45-->
+<!--HONumber=47-->

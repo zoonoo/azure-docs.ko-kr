@@ -1,0 +1,217 @@
+﻿<properties 
+   pageTitle="Azure Mobile Engagement 사용자 인터페이스 - 세그먼트" 
+   description="Azure Mobile Engagement의 세그먼트 섹션 사용자 인터페이스 개요" 
+   services="mobile-engagement" 
+   documentationCenter="mobile" 
+   authors="v-micada" 
+   manager="mattgre" 
+   editor=""/>
+
+<tags
+   ms.service="mobile-engagement"
+   ms.devlang="Java"
+   ms.topic="article"
+   ms.tgt_pltfrm="mobile"
+   ms.workload="required" 
+   ms.date="02/17/2015"
+   ms.author="v-micada"/>
+
+# Azure Mobile Engagement - 사용자 인터페이스
+
+<div class="dev-center-tutorial-selector sublanding">
+<a href="../mobile-engagement-user-interface" title="Introduction">소개</a>
+<a href="../mobile-engagement-user-interface-navigation" title="Navigation">탐색</a>
+<a href="../mobile-engagement-user-interface-home/" title="Home">홈</a>
+<a href="../mobile-engagement-user-interface-my-account" title="My Account">내 계정</a>
+<a href="../mobile-engagement-user-interface-analytics" title="Analytics">분석</a>
+<a href="../mobile-engagement-user-interface-monitor" title="Monitor">모니터</a>
+<a href="../mobile-engagement-user-interface-reach" title="Reach">도달률</a>
+<a href="../mobile-engagement-user-interface-segments" title="Segments">세그먼트</a>
+<a href="../mobile-engagement-user-interface-dashboard" title="Dashboard">대시보드</a>
+<a href="../mobile-engagement-user-interface-settings" title="Settings">설정</a>
+</div>
+
+# 세그먼트
+ 
+UI의 세그먼트 섹션에서는 응용 프로그램에서 확인할 수 있으며 세그먼트 API를 통해서도 액세스할 수 있는 다양한 동작 및 분석 정보에 따라 사용자 구분 작업을 수행할 수 있습니다. 세그먼트는 작성된 지 24시간 후에 먼저 계산된 다음 최신 분석 정보를 기준으로 24시간마다 다시 계산됩니다. 계산된 세그먼트는 매일 "일 단위 기록" 차트에 표시됩니다.
+
+**참고 항목:**
+
+- [API 설명서 - 세그먼트 API][Link 4], [문제 해결 가이드 - 분석][Link 2]
+
+분석 섹션에서 지난 60일까지의 특정 기간에 대해 최대 10개의 기준에 따라 세그먼트를 만들 수 있습니다. 
+예를 들어 지난 10일 이내에 앱 내에서 특정 콘텐츠를 검색했거나 특정 페이지를 본 사용자를 기준으로 세그먼트를 만들 수 있습니다. 이 정보는 분석 섹션에서 제공됩니다. 따라서 이 정보를 사용해 세그먼트를 만든 다음 해당 특정 사용자 하위 집합을 대상으로 응용 프로그램을 다시 사용하도록 하는 푸시 알림을 설정할 수 있습니다. 
+ 
+> 참고: 계산된 세그먼트는 편집할 수 없으며 복제(복사) 또는 소멸(삭제)만 가능합니다. 세그먼트는 AppID가 같은 동일 응용 프로그램 내에서 복제할 수도 있고 AppID가 다른 타 응용 프로그램에 복제할 수도 있습니다. 
+ 
+ ![segments1][35] 
+
+## 구분 예제 
+
+ ![segments2][36]
+
+세그먼트를 사용하면 응용 프로그램의 최종 사용자를 구분할 수 있습니다.
+사용자 구분은 중요한 마케팅 전략입니다. Azure Mobile Engagement에서는 기록 데이터를 가져와 사용자 지정 세그먼트를 만들 수 있습니다. 이 유용한 도구를 통해 응용 프로그램 내의 고객 작업 환경을 파악할 수 있습니다. 또한 세그먼트는 쉽게 분석이 가능하고 푸시 대상으로 사용할 수 있습니다.
+일반적인 사용 사례로는 최종 사용자가 스토어에서 응용 프로그램을 평가하도록 푸시 알림을 보내는 경우가 있습니다. 이때 모든 최종 사용자에게 알림을 보내는 대신 지난 달에 매일 응용 프로그램을 사용했으며 사용자 환경에 만족했던 사용자만 지정하는 세그먼트를 만들 수 있습니다. 이처럼 대상이 자세하게 지정된 더 적은 수의 푸시 알림을 보내면 ROI가 높아집니다.
+ 
+ ![segments3][37]
+
+**주요 Azure Mobile Engagement 요소를 기준으로 만들 수 있는 예제 세그먼트**
+
+- 이벤트: 매주 2회 넘게 발생하는 응용 프로그램의 특정 단일 이벤트를 대상으로 지정하는 세그먼트를 만듭니다. 
+- 세션: 지난 주에 5회 넘게 응용 프로그램을 사용한 사용자의 세그먼트를 만듭니다.
+- 활동: 지난 달에 특정 페이지나 콘텐츠를 사용한 횟수가 10회 정도인 사용자의 세그먼트를 만듭니다.
+- 작업: 매일 2회 넘게 작업을 완료한 사용자의 세그먼트를 만듭니다.
+- 작동 중단: 지난 주에 작동 중단이 10회를 초과하여 발생한 모든 사용자의 세그먼트를 만듭니다. 이 세그먼트에 대해 사과 메시지나 쿠폰을 푸시로 보낼 수도 있습니다.
+- 오류: 지난 3일 동안 오류가 100회를 초과하여 발생한 모든 사용자의 세그먼트를 만듭니다.
+- 앱 정보: 지난 25일 동안 생성된 사용자 지정 앱 정보를 대상으로 하는 세그먼트를 만듭니다.
+ 
+ ![segments4][38]
+
+세그먼트를 가장 적절하게 사용하려면 "앱 정보" 태그의 태깅 계획이 포함된 SDK를 응용 프로그램에 사용자 지정된 방식으로 통합해야 합니다.
+그런 다음 인터페이스 홈 페이지에서 원하는 응용 프로그램을 선택하고 "세그먼트" 섹션을 클릭합니다.
+
+1. "세그먼트" 섹션을 선택합니다.
+2. "새 세그먼트" 단추를 클릭하여 새 세그먼트를 만듭니다.
+
+**예제: "세션" 정보를 기준으로 간단한 세그먼트 만들기**
+
+지난 주에 앱을 사용한 횟수가 최소 50회 이상인 모든 최종 사용자의 세그먼트를 만듭니다. 그런 다음 세션당 앱 사용 시간이 최소 30초 이상인 최종 사용자만 찾습니다. 그러면 앱 사용 환경이 긍정적이었던 모든 최종 사용자가 표시됩니다. 이렇게 만든 세그먼트를 사용하여 해당 최종 사용자에게 스토어에서 앱을 평가해 줄 것을 요청하는 푸시 알림을 보낼 수 있습니다.
+ 
+ ![segments5][39]
+
+1. 세그먼트를 "세그먼트" 목록에서 빠르게 찾을 수 있도록 세그먼트 이름을 지정합니다.
+2. "만들기" 단추를 클릭합니다.
+ 
+ ![segments6][40]
+
+세션을 선택합니다.
+ 
+ ![segments7][41]
+
+1. 기간을 "지난 주"로 선택합니다.
+2. 다음을 클릭합니다.
+ 
+ ![segments8][42]
+
+1. 목록에서 적절한 연산자를 =, ≥, ≤ 중에서 선택합니다.
+2. 원하는 횟수를 입력합니다.
+3. 원하는 발생 수를 선택합니다. 
+4. 다음을 클릭합니다.
+그러면 지난 주에 세션을 최소 50개 이상 만든 사용자와 일치하는 예제가 설정됩니다.
+ 
+ ![segments9][43]
+
+세션 구분 시에는 세션당 길이를 기준으로 선택할 수 있습니다.
+
+1. 목록에서 연산자를 선택합니다.
+2. 세션당 길이를 입력합니다.
+3. 다음을 클릭합니다.
+이 예제에서는 발생 섹션에서 구분한 모든 세션에 대해 세션당 사용 시간이 30초를 넘은 사용자만 선택하도록 지정합니다.
+ 
+ ![segments10][44]
+
+전체 깔때기에서 검색할 수 있도록 기준 이름을 지정하고 마침을 클릭합니다.
+ 
+ ![segments11][45]
+
+기준 설정을 완료하면 세그먼트 깔때기에 해당 기준이 표시됩니다.
+세그먼트는 분석 데이터를 기준으로 하므로 매일 한 번씩 계산됩니다.
+이 예제에서는 전체 최종 사용자 중 47.7%가 해당 기준에 일치합니다. 이러한 사용자는 응용 프로그램 환경에 만족했으므로 스토어에서 앱을 평가해 달라는 푸시 알림을 보내면 더 높은 등급을 선택할 가능성이 높습니다.
+
+<!--Image references-->
+[1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png
+[2]: ./media/mobile-engagement-user-interface-home/home1.png
+[3]: ./media/mobile-engagement-user-interface-home/home2.png
+[4]: ./media/mobile-engagement-user-interface-home/home3.png
+[5]: ./media/mobile-engagement-user-interface-home/home4.png
+[6]: ./media/mobile-engagement-user-interface-home/home5.png
+[7]: ./media/mobile-engagement-user-interface-my-account/myaccount1.png
+[8]: ./media/mobile-engagement-user-interface-my-account/myaccount2.png
+[9]: ./media/mobile-engagement-user-interface-my-account/myaccount3.png
+[10]: ./media/mobile-engagement-user-interface-analytics/analytics1.png
+[11]: ./media/mobile-engagement-user-interface-analytics/analytics2.png
+[12]: ./media/mobile-engagement-user-interface-analytics/analytics3.png
+[13]: ./media/mobile-engagement-user-interface-analytics/analytics4.png
+[14]: ./media/mobile-engagement-user-interface-monitor/monitor1.png
+[15]: ./media/mobile-engagement-user-interface-monitor/monitor2.png
+[16]: ./media/mobile-engagement-user-interface-monitor/monitor3.png
+[17]: ./media/mobile-engagement-user-interface-monitor/monitor4.png
+[18]: ./media/mobile-engagement-user-interface-reach/reach1.png
+[19]: ./media/mobile-engagement-user-interface-reach/reach2.png
+[20]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign1.png
+[21]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign2.png
+[22]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign3.png
+[23]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign4.png
+[24]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign5.png
+[25]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign6.png
+[26]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign7.png
+[27]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign8.png
+[28]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign9.png
+[29]: ./media/mobile-engagement-user-interface-reach/Reach-Criterion1.png
+[30]: ./media/mobile-engagement-user-interface-reach/Reach-Content1.png
+[31]: ./media/mobile-engagement-user-interface-reach/Reach-Content2.png
+[32]: ./media/mobile-engagement-user-interface-reach/Reach-Content3.png
+[33]: ./media/mobile-engagement-user-interface-reach/Reach-Content4.png
+[34]: ./media/mobile-engagement-user-interface-dashboard/dashboard1.png
+[35]: ./media/mobile-engagement-user-interface-segments/segments1.png
+[36]: ./media/mobile-engagement-user-interface-segments/segments2.png
+[37]: ./media/mobile-engagement-user-interface-segments/segments3.png
+[38]: ./media/mobile-engagement-user-interface-segments/segments4.png
+[39]: ./media/mobile-engagement-user-interface-segments/segments5.png
+[40]: ./media/mobile-engagement-user-interface-segments/segments6.png
+[41]: ./media/mobile-engagement-user-interface-segments/segments7.png
+[42]: ./media/mobile-engagement-user-interface-segments/segments8.png
+[43]: ./media/mobile-engagement-user-interface-segments/segments9.png
+[44]: ./media/mobile-engagement-user-interface-segments/segments10.png
+[45]: ./media/mobile-engagement-user-interface-segments/segments11.png
+[46]: ./media/mobile-engagement-user-interface-settings/settings1.png
+[47]: ./media/mobile-engagement-user-interface-settings/settings2.png
+[48]: ./media/mobile-engagement-user-interface-settings/settings3.png
+[49]: ./media/mobile-engagement-user-interface-settings/settings4.png
+[50]: ./media/mobile-engagement-user-interface-settings/settings5.png
+[51]: ./media/mobile-engagement-user-interface-settings/settings6.png
+[52]: ./media/mobile-engagement-user-interface-settings/settings7.png
+[53]: ./media/mobile-engagement-user-interface-settings/settings8.png
+[54]: ./media/mobile-engagement-user-interface-settings/settings9.png
+[55]: ./media/mobile-engagement-user-interface-settings/settings10.png
+[56]: ./media/mobile-engagement-user-interface-settings/settings11.png
+[57]: ./media/mobile-engagement-user-interface-settings/settings12.png
+[58]: ./media/mobile-engagement-user-interface-settings/settings13.png
+
+<!--Link references-->
+[Link 1]: ../mobile-engagement-user-interface/
+[Link 2]: ../mobile-engagement-troubleshooting-guide/
+[Link 3]: ../mobile-engagement-how-tos/
+[Link 4]: http://go.microsoft.com/fwlink/?LinkID=525553
+[Link 5]: http://go.microsoft.com/fwlink/?LinkID=525554
+[Link 6]: http://go.microsoft.com/fwlink/?LinkId=525555
+[Link 7]: https://account.windowsazure.com/PreviewFeatures
+[Link 8]: https://social.msdn.microsoft.com/Forums/azure/home?forum=azuremobileengagement
+[Link 9]: http://azure.microsoft.com/services/mobile-engagement/
+[Link 10]: http://azure.microsoft.com/documentation/services/mobile-engagement/
+[Link 11]: http://azure.microsoft.com/pricing/details/mobile-engagement/
+[Link 12]: ../mobile-engagement-user-interface-navigation/
+[Link 13]: ../mobile-engagement-user-interface-home/
+[Link 14]: ../mobile-engagement-user-interface-my-account/
+[Link 15]: ../mobile-engagement-user-interface-analytics/
+[Link 16]: ../mobile-engagement-user-interface-monitor/
+[Link 17]: ../mobile-engagement-user-interface-reach/
+[Link 18]: ../mobile-engagement-user-interface-segments/
+[Link 19]: ../mobile-engagement-user-interface-dashboard/
+[Link 20]: ../mobile-engagement-user-interface-settings/
+[Link 21]: ../mobile-engagement-troubleshooting-guide-analytics/
+[Link 22]: ../mobile-engagement-troubleshooting-guide-apis/
+[Link 23]: ../mobile-engagement-troubleshooting-guide-push-reach/
+[Link 24]: ../mobile-engagement-troubleshooting-guide-service/
+[Link 25]: ../mobile-engagement-troubleshooting-guide-sdk/
+[Link 26]: ../mobile-engagement-troubleshooting-guide-sr-info/
+[Link 27]: ../mobile-engagement-how-tos-first-push/
+[Link 28]: ../mobile-engagement-how-tos-test-campaign/
+[Link 29]: ../mobile-engagement-how-tos-personalize-push/
+[Link 30]: ../mobile-engagement-how-tos-differentiate-push/
+[Link 31]: ../mobile-engagement-how-tos-schedule-campaign/
+[Link 32]: ../mobile-engagement-how-tos-text-view/
+[Link 33]: ../mobile-engagement-how-tos-web-view/
+
+<!--HONumber=47-->

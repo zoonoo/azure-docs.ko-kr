@@ -30,13 +30,13 @@ Microsoft Azure 미디어 서비스는 OData 기반의 HTTP 요청을 허용하�
 <table border="1">
 <tr><th>헤더</th><th>유형</th><th>값</th></tr>
 <tr><td>권한 부여</td><td>전달자</td><td>전달자는 승인된 유일한 권한 부여 메커니즘입니다. 이 값은 ACS에서 제공한 액세스 토큰도 포함해야 합니다.</td></tr>
-<tr><td>x-ms-version</td><td>10진수</td><td>2.8</td></tr>
+<tr><td>x-ms-version</td><td>10진수</td><td>2.9</td></tr>
 <tr><td>DataServiceVersion</td><td>10진수</td><td>3.0</td></tr>
 <tr><td>MaxDataServiceVersion</td><td>10진수</td><td>3.0</td></tr>
 </table><br/>
 
 
->[AZURE.NOTE] 미디어 서비스는 OData를 사용하여 REST API를 통해 기본 자산 메타 데이터 리포지토리를 표시합니다. DataServiceVersion과 MaxDataServiceVersion 헤더는 모든 요청에 포함되어야 합니다. 그러나 그렇지 않은 경우 현재 미디어 서비스는 사용 중인 DataServiceVersion 값이 3.0이라고 가정합니다.
+>[AZURE.NOTE] 미디어 서비스는 OData를 사용하여 REST API를 통해 기본 자산 메타데이터 리포지토리를 표시합니다. DataServiceVersion과 MaxDataServiceVersion 헤더는 모든 요청에 포함되어야 합니다. 그러나 그렇지 않은 경우 현재 미디어 서비스는 사용 중인 DataServiceVersion 값이 3.0이라고 가정합니다.
 
 다음은 선택적 헤더의 집합입니다.
 
@@ -50,8 +50,8 @@ Microsoft Azure 미디어 서비스는 OData 기반의 HTTP 요청을 허용하�
 <tr><td>Accept-Language</td><td>"en", "es" 등입니다.</td><td>응답에 대한 기본 언어를 지정합니다.</td></tr>
 <tr><td>Accept-Charset</td><td>"UTF-8"과 같은 문자 집합 유형</td><td>기본값은 UTF-8입니다.</td></tr>
 <tr><td>X-HTTP-Method</td><td>HTTP 메서드</td><td>PUT 또는 DELETE와 같이 HTTP 메서드를 지원하지 않는 클라이언트나 방화벽이 GET 호출을 통해 터널링된 이러한 메서드를 사용하도록 허용합니다.</td></tr>
-<tr><td>Content-Type</td><td>콘텐츠 형식</td><td>PUT 또는 POST 요청에서 요청 본문의 콘텐츠 형식입니다.</td></tr>
-<tr><td>client-request-id</td><td>String</td><td>지정된된 요청을 식별하는 호출자 정의 값입니다. 지정된 경우 이 값은 요청을 매핑하는 방법으로 응답 메시지에 포함됩니다. <br/><br/>
+<tr><td>콘텐츠 형식</td><td>콘텐츠 형식</td><td>PUT 또는 POST 요청에서 요청 본문의 콘텐츠 형식입니다.</td></tr>
+<tr><td>client-request-id</td><td>String</td><td>지정된 요청을 식별하는 호출자 정의 값입니다. 지정된 경우 이 값은 요청을 매핑하는 방법으로 응답 메시지에 포함됩니다. <br/><br/>
 <b>중요</b><br/>
 값은 2096b(2k)에서 제한되어야 합니다.</td></tr>
 </table><br/>
@@ -88,7 +88,7 @@ Microsoft Azure 미디어 서비스는 OData 기반의 HTTP 요청을 허용하�
 
 ## 미디어 서비스 모델 검색
 
-미디어 서비스 엔터티를 더 쉽게 검색할 수 있게 되면 $metadata 작업을 사용할 수 있습니다. 유효한 모든 엔터티 형식, 엔터티 속성, 연결, 함수, 동작 등을 검색할 수 있습니다. 다음 예제에서는 URI를 생성하는 방법을 보여줍니다.: https://media.windows.net/API/$metadata.
+미디어 서비스 엔터티를 더 쉽게 검색할 수 있게 되면 $metadata 작업을 사용할 수 있습니다. 유효한 모든 엔터티 형식, 엔터티 속성, 연결, 함수, 동작 등을 검색할 수 있습니다. 다음 예제에서는 URI를 생성하는 방법을 보여 줍니다. https://media.windows.net/API/$metadata.
 
 브라우저에서 메타데이터를 보려면 "? api version=2.x"를 URI의 끝에 추가하거나 귀하의 요청에 x-ms-version 헤더를 포함하지 말아야 합니다.
 
@@ -103,4 +103,4 @@ Microsoft Azure 미디어 서비스는 OData 기반의 HTTP 요청을 허용하�
 
 
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

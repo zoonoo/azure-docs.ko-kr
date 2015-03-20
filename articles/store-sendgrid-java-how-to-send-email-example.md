@@ -1,10 +1,24 @@
-﻿<properties urlDisplayName="Request Azure Store Integration" pageTitle="Azure 배포에서 Java의 SendGrid를 사용하여 메일을 보내는 방법" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="How to Send Email Using SendGrid from Java in an Azure Deployment" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Azure 배포에서 Java의 SendGrid를 사용하여 메일을 보내는 방법" 
+	description="" 
+	services="" 
+	documentationCenter="java" 
+	authors="thinkingserious" 
+	manager="sendgrid" 
+	editor="mollybos"/>
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="10/30/2014" ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="10/30/2014" 
+	ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork"/>
 
 # Azure 배포에서 Java의 SendGrid를 사용하여 메일을 보내는 방법
 
-다음 예제는 Azure에 호스트된 웹 페이지에서 SendGrid를 사용하여 메일을 보내는 방법을 보여 줍니다. 다음 스크린샷에 표시된 것처럼, 응용 프로그램에서 사용자에게 메일 값을 묻습니다.
+다음 예제는 Azure에 호스트된 웹 페이지에서 SendGrid를 사용하여 메일을 보내는 방법을 보여 줍니다. 다음 스크린샷에 표시된 것처럼, 응용 프로그램에서 사용자에게 전자 메일 값을 묻습니다.
 
 ![Email form][emailform]
 
@@ -14,14 +28,14 @@
 
 이 항목에서 코드를 사용하려면 다음을 수행해야 합니다.
 
-1. javax.mail JAR을 예를 들어 <http://www.oracle.com/technetwork/java/javamail/index.html>(영문)에서 가져옵니다.
+1. javax.mail JAR을 예를 들어 <http://www.oracle.com/technetwork/java/javamail/index.html>에서 가져옵니다.
 2. Java 빌드 경로에 JAR을 추가합니다.
-3. Eclipse를 사용하여 이 Java 응용 프로그램을 만드는 경우, Eclipse의 배포 어셈블리 기능을 사용하여 응용 프로그램 배포 파일(WAR)에 SendGrid 라이브러리를 포함시킵니다. Eclipse를 사용하지 않고 이 Java 응용 프로그램을 만드는 경우, 같은 Azure 역할 내에 이 라이브러리가 Java 응용 프로그램으로 포함되어 있으며 응용 프로그램의 클래스 경로에 추가되어 있는지 확인합니다.
+3. Eclipse를 사용하여 이 Java 응용 프로그램을 만드는 경우, Eclipse의 배포 어셈블리 기능을 사용하여 응용 프로그램 배포 파일(WAR)에 SendGrid 라이브러리를 포함합니다. Eclipse를 사용하지 않고 이 Java 응용 프로그램을 만드는 경우, 같은 Azure 역할 내에 이 라이브러리가 Java 응용 프로그램으로 포함되어 있으며 응용 프로그램의 클래스 경로에 추가되어 있는지 확인합니다.
 
 
-또한 고유한 SendGrid 사용자 이름 및 암호가 있어야 메일을 보낼 수 있습니다. SendGrid를 시작하려면 [Java의 SendGrid를 사용하여 메일을 보내는 방법](../store-sendgrid-java-how-to-send-email)을 참조하세요.
+또한 고유한 SendGrid 사용자 이름 및 암호가 있어야 메일을 보낼 수 있습니다. SendGrid를 시작 하려면 참조 [Java의에서 SendGrid를 사용 하 여 메일을 보내는 방법](../store-sendgrid-java-how-to-send-email).
 
-또한 [Eclipse에서 Azure용 Hello World 응용 프로그램 만들기](http://msdn.microsoft.com/ko-kr/library/windowsazure/hh690944)(영문)에 나온 정보나 Eclipse를 사용하지 않는 경우 Azure에서 Java 응용 프로그램을 호스트하는 다른 기술을 익히는 것이 좋습니다.
+또한 숙련도 영문 [Hello World 응용 프로그램을 만드는 Azure에 대 한 Eclipse에서](http://msdn.microsoft.com/library/windowsazure/hh690944), 또는 Eclipse를 사용 하지 않는 경우 Azure에서 Java 응용 프로그램 호스팅에 대 한 다른 기술로 것이 좋습니다.
 
 ## 메일을 보내기 위한 웹 양식 만들기
 
@@ -195,14 +209,16 @@ emailform.jsp는 메일을 보낼 뿐만 아니라 사용자에게 결과를 제
 
 ## 다음 단계
 
-계산 에뮬레이터에 응용 프로그램을 배포하고 브라우저 내에서 emailform.jsp를 실행한 후, 양식에 값을 입력하고 **Send this email**를 클릭한 다음 sendemail.jsp의 결과를 표시합니다.
+계산 에뮬레이터에 응용 프로그램을 배포하고 브라우저 내에서 emailform.jsp를 실행한 후, 양식에 값을 입력하고 **Send this email**을 클릭한 다음 sendemail.jsp의 결과를 표시합니다.
 
 이 코드는 Azure의 Java에서 SendGrid를 사용하는 방법을 보여 줍니다. Azure를 프로덕션에 배포하기 전에 더 많은 오류 처리 또는 기타 기능을 추가할 수 있습니다. 예를 들면 다음과 같습니다. 
 
-* 웹 양식을 사용하는 대신 Azure 저장소 Blob 또는 SQL 데이터베이스를 사용하여 메일 주소 및 메일 메시지를 저장할 수 있습니다. Java에서 Azure 저장소 Blob 사용에 대한 내용은 [Java에서 Blob 저장소 서비스를 사용하는 방법](http://www.windowsazure.com/ko-kr/develop/java/how-to-guides/blob-storage/)(영문)을 참조하세요. Java에서 SQL 데이터베이스 사용에 대한 내용은 [Java에서 SQL 데이터베이스 사용](http://www.windowsazure.com/ko-kr/develop/java/how-to-guides/using-sql-azure-in-java/)을 참조하세요.
-* 웹 양식을 사용하여 검색하는 대신, `RoleEnvironment.getConfigurationSettings`를 사용하여 배포의 구성 설정에서 SendGrid 사용자 이름 및 암호를 검색할 수 있습니다. `RoleEnvironment` 클래스에 대한 자세한 내용은 [JSP에서 Azure 서비스 런타임 라이브러리 사용](http://msdn.microsoft.com/ko-kr/library/windowsazure/hh690948)(영문) 및 Azure 서비스 런타임 패키지 설명서(<http://dl.windowsazure.com/javadoc>)(영문)를 참조하세요.
-* Java의 SendGrid 사용에 대한 자세한 내용은 [Java의 SendGrid를 사용하여 메일을 보내는 방법](../store-sendgrid-java-how-to-send-email)을 참조하세요.
+* 웹 양식을 사용하는 대신 Azure 저장소 Blob 또는 SQL 데이터베이스를 사용하여 전자 메일 주소 및 전자 메일 메시지를 저장할 수 있습니다. Java에서 Azure 저장소 blob 사용에 대 한 정보를 참조 하십시오. [Java에서 Blob 저장소 서비스를 사용 하는 방법을](http://www.windowsazure.com/develop/java/how-to-guides/blob-storage/). Java에서 SQL 데이터베이스를 사용 하는 방법에 대 한 정보를 참조 하십시오. [Java에서 SQL 데이터베이스를 사용 하 여](http://www.windowsazure.com/develop/java/how-to-guides/using-sql-azure-in-java/).
+* 사용할 수 있습니다 `RoleEnvironment.getConfigurationSettings` web form을 사용 하 여 이러한 값을 검색 하는 대신 배포의 구성 설정에서 SendGrid 사용자 이름 및 암호를 검색할 수 있습니다. 에 대 한 내용은 `RoleEnvironment` 클래스를 참조 하십시오. [JSP에서 Azure 서비스 런타임 라이브러리를 사용 하 여](http://msdn.microsoft.com/library/windowsazure/hh690948) 및 Azure 서비스 런타임 패키지 설명서에서 <http://dl.windowsazure.com/javadoc>.
+* Java의 SendGrid를 사용 하는 방법에 대 한 자세한 내용은 참조 [Java의에서 SendGrid를 사용 하 여 메일을 보내는 방법](../store-sendgrid-java-how-to-send-email).
 
 [emailform]: ./media/store-sendgrid-java-how-to-send-email-example/SendGridJavaEmailform.jpg
 [emailsent]: ./media/store-sendgrid-java-how-to-send-email-example/SendGridJavaEmailSent.jpg
 [emailresult]: ./media/store-sendgrid-java-how-to-send-email-example/SendGridJavaResult.jpg
+
+<!--HONumber=47-->

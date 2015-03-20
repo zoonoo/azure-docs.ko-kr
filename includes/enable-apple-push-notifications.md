@@ -1,5 +1,5 @@
-
-APNS(Apple 푸시 알림 서비스)는 인증서를 사용하여 모바일 서비스를 인증합니다. 필요한 인증서를 만들어 모바일 서비스에 업로드하려면 해당 지침을 따르세요. 공식 APNS 기능 설명서는 [Apple Push Notification Service](http://go.microsoft.com/fwlink/p/?LinkId=272584)를 참조하세요.
+﻿
+APNS(Apple 푸시 알림 서비스)는 인증서를 사용하여 모바일 서비스를 인증합니다. 필요한 인증서를 만들어 모바일 서비스에 업로드하려면 해당 지침을 따르세요. 공식 APNS 기능 설명서는 [Apple 푸시 알림 서비스](http://go.microsoft.com/fwlink/p/?LinkId=272584)를 참조하세요.
 
 ## <a id="certificates"></a>인증서 서명 요청 파일 생성
 
@@ -15,7 +15,7 @@ APNS(Apple 푸시 알림 서비스)는 인증서를 사용하여 모바일 서�
 
   	![](./media/enable-apple-push-notifications/mobile-services-ios-push-step6.png)
 
-4. **Save As**에 CSR(인증서 서명 요청) 파일의 이름을 입력하고, **Where**에서 위치를 선택한 후 **Save**를 클릭합니다.
+4. **다른 이름으로 저장**에 CSR(인증서 서명 요청) 파일의 이름을 입력하고 **위치**에서 위치를 선택한 후 **저장**을 클릭합니다.
 
   	![](./media/enable-apple-push-notifications/mobile-services-ios-push-step7.png)
 
@@ -23,30 +23,30 @@ APNS(Apple 푸시 알림 서비스)는 인증서를 사용하여 모바일 서�
 
 이제 Apple에 앱을 등록하고, 푸시 알림을 사용하도록 설정하고, 내보낸 CSR을 업로드하여 푸시 인증서를 만들 것입니다.
 
-## <a id="register"></a>푸시 알림에 대해 앱 등록
+## <a id="register"></a>푸시 알림을 받도록 앱 등록
 
 모바일 서비스에서 iOS 앱으로 푸시 알림을 보내려면 Apple에 앱을 등록하고 푸시 알림도 등록해야 합니다.  
 
-1. 아직 앱을 등록하지 않은 경우 Apple Developer Center의 <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">iOS Provisioning Portal</a>로 이동하여 Apple ID로 로그온하고 **Identifiers**와 **App IDs**를 클릭한 다음에 **+** 기호를 클릭하여 새 앱을 등록합니다.
+1. 아직 앱을 등록하지 않은 경우 Apple Developer Center의 <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">iOS 프로비전 포털</a>로 이동하여 Apple ID로 로그온하고 **식별자**와 **앱 ID**를 클릭한 다음 마지막으로 **+** 기호를 클릭하여 새 앱을 등록합니다.
 
    	![](./media/enable-apple-push-notifications/mobile-services-ios-push-02.png)
 
 
 
-> [AZURE.NOTE] <i>MobileServices.Quickstart</i> 외의 <strong>Bundle Identifier</strong> 값을 제공하려는 경우 Xcode 프로젝트에서도 번들 식별자 값을 업데이트해야 합니다. 빠른 시작 프로젝트에서 이미 사용되는 정확한 번들 식별자 값을 사용하는 것이 좋습니다.
+> [AZURE.NOTE] <i>MobileServices.Quickstart</i> 외의 <strong>번들 식별자</strong> 값을 입력하는 경우 Xcode 프로젝트에서도 번들 식별자 값을 업데이트해야 합니다. 빠른 시작 프로젝트에서 이미 사용되는 정확한 번들 식별자 값을 사용하는 것이 좋습니다.
 
-2. **Description**에 앱의 이름을 입력하고, **Bundle Identifier**에 _MobileServices.Quickstart_ 값을 입력하고, "App Services" 섹션에서 "Push Notifications" 옵션을 선택하고, **Continue**를 클릭합니다. 이 예제에서는 **MobileServices.Quickstart** ID를 사용하지만 실제로 이 ID를 사용해서는 안 됩니다. 모든 사용자는 고유한 앱 ID를 사용해야 하기 때문입니다. 사용자의 전체 이름 또는 이니셜을 앱 이름 뒤에 추가하는 것이 좋습니다.
+2. **설명**에 앱의 이름을 입력하고 **번들 식별자**에 _MobileServices.Quickstart_ 값을 입력한 다음 "앱 서비스" 섹션에서 "푸시 알림" 옵션을 선택하고, **계속**을 클릭합니다. 이 예제에서는 **MobileServices.Quickstart** ID를 사용하지만 실제로 이 ID를 사용해서는 안 됩니다. 모든 사용자는 고유한 앱 ID를 사용해야 하기 때문입니다. 사용자의 전체 이름 또는 이니셜을 앱 이름 뒤에 추가하는 것이 좋습니다.
 
 
     ![](./media/enable-apple-push-notifications/mobile-services-ios-push-03.png)
 
-   	앱 ID가 생성되고 정보를 **제출**하도록 요청됩니다. **Submit**를 클릭합니다.
+   	그러면 앱 ID가 생성되고 정보를 **제출**하라는 요청이 표시됩니다. **Submit**를 클릭합니다.
 
 
     ![](./media/enable-apple-push-notifications/mobile-services-ios-push-04.png)
 
 
-   	**Submit**를 클릭하면 아래와 같은 **Registration complete** 화면이 표시됩니다. **Done**을 클릭합니다.
+   	**Submit**를 클릭하면 아래와 같은 **Registration complete** 화면이 표시됩니다. **완료**를 클릭합니다.
 
 
     ![](./media/enable-apple-push-notifications/mobile-services-ios-push-05.png)
@@ -56,7 +56,7 @@ APNS(Apple 푸시 알림 서비스)는 인증서를 사용하여 모바일 서�
 
    	![](./media/enable-apple-push-notifications/mobile-services-ios-push-06.png)
 
-   	앱 ID를 클릭하면 앱에 대한 세부 정보 및 앱 ID가 표시됩니다. **Settings** 탭을 클릭합니다.
+   	앱 ID를 클릭하면 앱 및 앱 ID에 대한 세부 정보가 표시됩니다. **Settings** 단추를 클릭합니다.
 
    	![](./media/enable-apple-push-notifications/mobile-services-ios-push-07.png)
 
@@ -64,7 +64,7 @@ APNS(Apple 푸시 알림 서비스)는 인증서를 사용하여 모바일 서�
 
    	![](./media/enable-apple-push-notifications/mobile-services-ios-push-08.png)
 
-   	"Add iOS Certificate" assistant가 표시됩니다.
+   	그러면 "iOS 인증서 추가" 도우미가 표시됩니다.
 
     > [AZURE.NOTE] 이 자습서에서는 개발 인증서를 사용합니다. 프로덕션 인증서를 등록할 때에도 동일한 프로세스가 사용됩니다. 모바일 서비스로 인증서를 업로드할 때 동일한 인증서 유형을 설정해야 합니다.
 
@@ -72,11 +72,11 @@ APNS(Apple 푸시 알림 서비스)는 인증서를 사용하여 모바일 서�
 
   	![](./media/enable-apple-push-notifications/mobile-services-ios-push-10.png)
 
-6. 포털에서 인증서가 생성되면 **Download** 단추를 클릭하고 **Done**을 클릭합니다.
+6. 포털에서 인증서가 생성되면 **다운로드** 단추와 **완료**를 차례로 클릭합니다.
 
   	![](./media/enable-apple-push-notifications/mobile-services-ios-push-11.png)
 
-   	서명 인증서가 다운로드되어 컴퓨터의 다운로드 폴더에 저장됩니다.
+   	그러면 서명 인증서가 다운로드되어 컴퓨터의 Downloads 폴더에 저장됩니다.
 
   	![](./media/enable-apple-push-notifications/mobile-services-ios-push-step9.png)
 
@@ -94,7 +94,7 @@ APNS(Apple 푸시 알림 서비스)는 인증서를 사용하여 모바일 서�
 
 ## <a id="profile"></a>앱용 프로비저닝 프로필 만들기
 
-1. <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">iOS Provisioning Portal</a>로 돌아가, **Provisioning Profiles**와 **All**을 차례로 선택하고 **+** 단추를 클릭하여 새 프로필을 만듭니다. **Add iOS Provisiong Profile** 마법사가 실행됩니다.
+1. <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">iOS 프로비전닝 포털</a>로 돌아가서 **프로비저닝 프로필**, **모두**를 차례로 선택한 후에 **+** 단추를 클릭하여 새 프로필을 만듭니다. **Add iOS Provisiong Profile** 마법사가 실행됩니다.
 
    	![](./media/enable-apple-push-notifications/mobile-services-ios-push-12.png)
 
@@ -129,4 +129,5 @@ APNS(Apple 푸시 알림 서비스)는 인증서를 사용하여 모바일 서�
 9. **Targets** 아래에서 **Quickstart**를 클릭하고 **Code Signing Identity**를 확장한 다음, **Debug** 아래에서 새 프로필을 선택합니다. 이제 Xcode 프로젝트에서 코드 서명에 새 프로필을 사용하게 됩니다. 다음 단계에서는 인증서를 Azure에 업로드해야 합니다.
 
    	![](./media/enable-apple-push-notifications/mobile-services-ios-push-step17.png)
-<!--HONumber=42-->
+
+<!--HONumber=47-->

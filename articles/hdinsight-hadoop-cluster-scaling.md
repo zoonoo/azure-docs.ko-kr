@@ -1,4 +1,4 @@
-<properties
+﻿<properties
    pageTitle="HDInsight에서 클러스터 크기 조정 | Azure"
    description="클러스터를 삭제한 후 다시 생성하지 않고 HDInsight에서 실행되는 클러스터의 데이터 노드 수를 변경합니다."
    services="hdinsight"
@@ -16,7 +16,7 @@
    ms.date="02/18/2015"
    ms.author="bradsev"/>
 
-# HDInsight에서 클러스터 크기 조정
+#HDInsight에서 클러스터 크기 조정
 
 클러스터 크기 조정 기능을 사용하여 클러스터를 삭제한 후 다시 생성하지 않고 HDInsight에서 실행되는 클러스터에서 사용되는 데이터 노드 수를 변경합니다. PowerShell, HDInsight SDK를 사용하여 또는 Azure 포털에서 작업을 수행할 수 있습니다.
 
@@ -59,14 +59,14 @@ Storm 웹 UI는 HDInsight 클러스터에서 제공됩니다.
 
 	$ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
 
-## HBase
+##HBase
 지금은 HBase 유형 클러스터에 대한 클러스터 크기 조정 작업이 지원되지 않습니다.
 
 ## 필수 조건:
 
-* HDInsight 버전 3.1.3 이상을 사용하는 클러스터만 지원됩니다. 클러스터 버전을 확실히 알 수 없는 경우 HDInsight 클러스터 이름을 클릭하거나 Azure PowerShell에서 `Get-AzureHDInsightCluster -name <clustername>` 명령을 실행하여 Azure 포털에서 클러스터 버전을 확인하십시오.
+* HDInsight 버전 3.1.3 이상을 사용하는 클러스터만 지원됩니다. 클러스터 버전을 확실히 알 수 없는 경우 HDInsight 클러스터 이름을 클릭하거나 Azure PowerShell에서 `Get-AzureHDInsightCluster -name <clustername>` 명령을 실행하여 Azure 포털에서 클러스터 버전을 확인할 수 있습니다.
 
-* PowerShell에서 작업을 수행하는 데 Azure PowerShell 버전 0.8.14 이상이 필요합니다. [Azure 다운로드](http://azure.microsoft.com/ downloads/) 웹 사이트에서 명령줄 도구 섹션의 PowerShell 최신 버전을 다운로드할 수 있습니다. PowerShell 창에서 다음 명령을 사용하여 설치된 Azure PowerShell 버전을 확인할 수 있습니다. `(get-module Azure).Version`
+* PowerShell에서 작업을 수행하는 데 Azure PowerShell 버전 0.8.14 이상이 필요합니다. [Azure 다운로드](http://azure.microsoft.com/downloads/) 웹 사이트에서 명령줄 도구 섹션의 PowerShell 최신 버전을 다운로드할 수 있습니다. PowerShell 창에서 다음 명령을 사용하여 설치된 Azure PowerShell 버전을 확인할 수 있습니다. `(get-module Azure).Version`
 
 ## 클러스터 크기 조정 사용 방법
 
@@ -140,5 +140,5 @@ HDInsight SDK를 사용하여 Hadoop 클러스터 크기를 변경하려면 다�
 	}
 
 
-HDInsight .NET SDK 사용 정보에 대한 자세한 내용은 [사용자 지정 옵션을 사용하여 HDInsight에서 Hadoop 클러스터 프로비전](http://azure.microsoft.com/ documentation/articles/hdinsight-provision-clusters/) 주제를 참조하세요.
-<!--HONumber=45--> 
+HDInsight .NET SDK 사용 정보에 대한 자세한 내용은 [사용자 지정 옵션을 사용하여 HDInsight에서 Hadoop 클러스터 프로비전](http://azure.microsoft.com/documentation/articles/hdinsight-provision-clusters/) 주제를 참조하세요.
+<!--HONumber=47-->

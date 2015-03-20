@@ -1,4 +1,4 @@
-﻿Azure 고객은 매달 25,000통의 무료 메일의 잠금을 해제할 수 있습니다. 매달 이러한 25,000통의 무료 메일을 통해 고급 보고 및 분석과 [모든 API][](Web, SMTP, Event, Parse, Sub-User)에 액세스할 수 있습니다. SendGrid에서 제공하는 추가 서비스에 대한 내용은 [SendGrid 기능][](영문) 페이지를 참조하세요.
+﻿Azure 고객은 매달 25,000통의 무료 메일의 잠금을 해제할 수 있습니다. 매달 이러한 25,000통의 무료 메일을 통해 고급 보고 및 분석과 [모든 API][](Web, SMTP, Event, Parse, Sub-User)에 액세스할 수 있습니다. SendGrid에서 제공하는 추가 서비스에 대한 내용은 [SendGrid 기능][] 페이지를 참조하세요.
 
 ### SendGrid 계정을 등록하려면
 
@@ -46,7 +46,7 @@
 
 	![sendgrid-connection-info-button][sendgrid-connection-info-button]
 
-2.  *Connection info* 대화 상자에서 이 자습서에서 나중에 사용하도록 **암호**와 사용자 이름을 복사합니다.
+2.  *Connection info*대화 상자에서 이 자습서에서 나중에 사용하도록 **암호**와 사용자 이름을 복사합니다.
 
 	![sendgrid-connection-info][sendgrid-connection-info]
 
@@ -54,7 +54,7 @@
 
 	![sendgrid-control-panel][sendgrid-control-panel]
 
-	SendGrid 시작에 대한 자세한 내용은 [SendGrid 시작][](영문)을 참조하세요.
+	SendGrid 시작에 대한 자세한 내용은 [SendGrid 시작][]을 참조하세요.
 
 <!--images-->
 
@@ -73,7 +73,8 @@
 [SendGrid 기능]: http://sendgrid.com/features
 [Azure 관리 포털]: https://manage.windowsazure.com
 [SendGrid 시작]: http://sendgrid.com/docs
-[SendGrid 프로비전 프로세스]: https://support.sendgrid.com/hc/ko-kr/articles/200181628-Why-is-my-account-being-provisioned-
+[SendGrid 프로비전 프로세스]: https://support.sendgrid.com/hc/articles/200181628-Why-is-my-account-being-provisioned-
 [모든 API]: https://sendgrid.com/docs/API_Reference/index.html
 
-<!--HONumber=42-->
+
+<!--HONumber=47-->

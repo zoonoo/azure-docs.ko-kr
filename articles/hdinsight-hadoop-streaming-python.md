@@ -1,5 +1,5 @@
-<properties
-   pageTitle="HDInsight와 함께 Python MapReduce 작업 개발 | Aure"
+﻿<properties
+   pageTitle="HDInsight에서 Python MapReduce 작업 개발 | Aure"
    description="Linux 기반 HDInsight 클러스터에서 Python MapReduce 작업을 만들고 실행하는 방법에 대해 알아봅니다."
    services="hdinsight"
    documentationCenter=""
@@ -16,21 +16,21 @@
    ms.date="02/18/2015"
    ms.author="larryfr"/>
 
-# HDInsight용 Python 스트리밍 프로그램 개발
+#HDInsight용 Python 스트리밍 프로그램 개발
 
 Hadoop은 MapReduce용 스트리밍 API를 제공합니다. 이 API를 사용하여 Java 이외의 언어로 map 및 reduce 함수를 작성할 수 있습니다. 이 문서에서는 MapReduce 작업을 수행하기 위해 Python을 사용하는 방법을 배웁니다.
 
-> [AZURE.NOTE] 이 문서는 정보 및 Michael Noll의 [http://www.michael-noll.com/tutorials/writing-an-hadoop-mapreduce-program-in-python/](http://www.michael-noll.com/tutorials/writing-an-hadoop-mapreduce-program-in-python/)에 게시되는 예제를 기반으로 합니다.
+> [AZURE.NOTE] 이 문서는 Michael Noll이 [http://www.michael-noll.com/tutorials/writing-an-hadoop-mapreduce-program-in-python/](http://www.michael-noll.com/tutorials/writing-an-hadoop-mapreduce-program-in-python/)에 게시한 정보 및 예제를 기반으로 합니다.
 
-## 요구 사항
+##요구 사항
 
-* HDInsight 클러스터에서 Linux 기반 Hadoop
+* HDInsight 클러스터의 Linux 기반 Hadoop
 
 * 텍스트 편집기
 
-* Windows 클라이언트, PuTTY 및 PSCP 이러한 유틸리티는 다음에서 다운로드할 수 있습니다. <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank">http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html</a>
+* Windows 클라이언트, PuTTY 및 PSCP 이러한 유틸리티는 <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank">http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html</a>에서 사용할 수 있습니다.
 
-## 단어 개수
+##단어 개수
 
 이 예에서는 mapper 및 reducer를 사용하여 기본 단어 수 계산을 구현합니다. mapper는 문장을 개별 단어로 끊고 reducer는 출력하기 위해 단어와 개수를 집계합니다.
 
@@ -38,13 +38,13 @@ Hadoop은 MapReduce용 스트리밍 API를 제공합니다. 이 API를 사용하
 
 ![illustration of map reduce](./media/hdinsight-hadoop-streaming-python/HDI.WordCountDiagram.png)
 
-## Python인 이유
+##Python인 이유
 
 Python은 범용, 상위 수준 프로그래밍 언어이며 다른 언어에 비해 더 적은 줄의 코드로 개념을 표현할 수 있습니다. 데이터 과학자들로부터 인터프린트가 자연스러우며 동적으로 입력할 수 있고, 세련된 구문을 가지고 있어서 빠른 응용 프로그램 개발에 적합한 프로토타입 언어로 인기를 얻고 있습니다.
 
 Python은 모든 HDInsight 클러스터에 설치됩니다.
 
-## MapReduce 스트리밍
+##MapReduce 스트리밍
 
 Hadoop을 사용하면 map과 reduce 로직을 포함하는 파일을 지정할 수 있습니다. map과 reduce 로직의 특정 요구 사항:
 
@@ -54,13 +54,13 @@ Hadoop을 사용하면 map과 reduce 로직을 포함하는 파일을 지정할 
 
 * **데이터 형식** - 소비되고 생성되는 데이터는 탭 문자로 구분하는 키/값 쌍이어야 합니다
 
-Python은 STDIN에서 읽을 수 있는 **sys** 모듈 및 STDOUT에 출력하는 **print**를 사용하여 이러한 요구 사항을 쉽게 처리할 수 있습니다. 나머지는 키와 값 사이에 탭 문자(`\t`)를 사용하여 데이터 서식을 지정하기만 하면 됩니다.
+Python은 STDIN에서 읽을 수 있는 **sys** 모듈 및 STDOUT에 출력하는 **print**를 사용하여 이러한 요구 사항을 쉽게 처리할 수 있습니다. 나머지는 키와 값 사이에 탭 문자(`\t`) 를 사용하여 데이터 서식을 지정하기만 하면 됩니다.
 
-## mapper 및 reducer 만들기
+##mapper 및 reducer 만들기
 
 mapper 및 reducer는 텍스트 파일이며 이 경우 **mapper.py** 및 **reducer.py**가 어디서 어떤 작업을 하는지 명확합니다. 선택한 편집기를 사용하여 mapper와 reducer를 만들 수 있습니다.
 
-### Mapper.py
+###Mapper.py
 
 **mapper.py**라는 새 파일을 생성하고 다음을 그 내용으로 사용합니다.
 
@@ -90,7 +90,7 @@ mapper 및 reducer는 텍스트 파일이며 이 경우 **mapper.py** 및 **redu
 
 코드를 모두 읽는 동안 기다리고 그 기능을 이해합니다.
 
-### Reducer.py
+###Reducer.py
 
 **reducer.py**라는 새 파일을 생성하고 다음을 그 내용으로 사용합니다.
 
@@ -129,7 +129,7 @@ mapper 및 reducer는 텍스트 파일이며 이 경우 **mapper.py** 및 **redu
 	if __name__ == "__main__":
 	    main()
 
-## 파일 업로드
+##파일 업로드
 
 **mapper.py** 및 **reducer.py** 모두 실행하기 전에 클러스터의 헤드 노드에 있어야 합니다. 업로드하는 가장 쉬운 방법은 **scp**(Windows 클라이언트를 사용하는 경우 **pscp**)를 사용하는 것입니다.
 
@@ -139,15 +139,15 @@ mapper 및 reducer는 텍스트 파일이며 이 경우 **mapper.py** 및 **redu
 
 헤드 노드에 로컬 시스템에서 파일 복사 됩니다.
 
-> [AZURE.NOTE] SSH 계정을 보호하는 암호를 사용한 경우 암호를 묻는 메시지가 나타납니다. SSH 키를 사용한 경우 `-i` 매개 변수 및 개인 키에 대한 경로를 사용해야 합니다. 예를 들어, `scp-i /path/to/private/key mapper.py reducer.py username@clustername-ssh.azurehdinsight.net:`
+> [AZURE.NOTE] SSH 계정을 보호하는 암호를 사용한 경우 암호를 묻는 메시지가 나타납니다. SSH 키를 사용한 경우 `-i` 매개 변수 및 개인 키에 대한 경로를 사용해야 합니다. 예를 들면 `scp -i /path/to/private/key mapper.py reducer.py username@clustername-ssh.azurehdinsight.net:`과 같습니다.
 
-## MapReduce 실행
+##MapReduce 실행
 
 1. SSH를 사용하여 클러스터에 연결합니다.
 
 		ssh username@clustername-ssh.azurehdinsight.net
 
-	> [AZURE.NOTE] SSH 계정을 보호하는 암호를 사용한 경우 암호를 묻는 메시지가 나타납니다. SSH 키를 사용한 경우 `-i` 매개 변수 및 개인 키에 대한 경로를 사용해야 합니다. 예:  `ssh -i /path/to/private/key username@clustername-ssh.azurehdinsight.net`
+	> [AZURE.NOTE] SSH 계정을 보호하는 암호를 사용한 경우 암호를 묻는 메시지가 나타납니다. SSH 키를 사용한 경우 `-i` 매개 변수 및 개인 키에 대한 경로를 사용해야 합니다. 예를 들면  `ssh -i /path/to/private/key username@clustername-ssh.azurehdinsight.net`과 같습니다.
 
 2. 다음 명령을 사용하여 MapReduce 작업을 시작합니다.
 
@@ -177,7 +177,7 @@ mapper 및 reducer는 텍스트 파일이며 이 경우 **mapper.py** 및 **redu
 
 마지막으로, 작업이 완료될 때 작업에 대한 상태 정보가 표시됩니다.
 
-## 출력 보기
+##출력 보기
 
 작업이 완료되면 다음 명령을 사용하여 결과를 봅니다.
 
@@ -192,12 +192,11 @@ mapper 및 reducer는 텍스트 파일이며 이 경우 **mapper.py** 및 **redu
 	wrinkles        2
 	wrinkling       2
 
-## 다음 단계
+##다음 단계
 
 이제 HDInsight에서 스트리밍 MapRedcue 작업을 사용하는 방법을 배웠으며 Azure HDInsight에서 작업하는 다른 방법을 보려면 아래 링크를 사용합니다.
 
 * [HDInsight에서 Hive 사용](../hdinsight-use-hive/)
 * [HDInsight에서 Pig 사용](../hdinsight-use-pig/)
 * [HDInsight에서 MapReduce 작업 사용](../hdinsight-use-mapreduce)
-
-<!--HONumber=45--> 
+<!--HONumber=47-->

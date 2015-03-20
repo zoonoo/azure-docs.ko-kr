@@ -16,13 +16,13 @@
    ms.date="02/18/2015"
    ms.author="larryfr"/>
 
-# Pig 명령을 사용하여 Pig 작업 실행(원격 데스크톱)
+#Pig 명령을 사용하여 Pig 작업 실행(원격 데스크톱)
 
 [AZURE.INCLUDE [pig-selector](../includes/hdinsight-selector-use-pig.md)]
 
-이 문서는 HDInsight 클러스터에서 Linux 기반 Hadoop에 Pig Latin 문을 대화형으로 실행되도록 하거나 일괄 작업으로 실행되도록 Pig 명령을 사용하는 연습을 제공 합니다. Pig Latin을 사용하면 매핑하고 함수를 줄이는 대신 데이터 변환을 설명하여 MapReduce 응용 프로그램을 만들 수 있습니다.
+이 문서는 HDInsight 클러스터의 Linux 기반 Hadoop에 Pig Latin 문을 대화형으로 실행되도록 하거나 일괄 작업으로 실행되도록 Pig 명령을 사용하는 연습을 제공합니다. Pig Latin을 사용하면 매핑하고 함수를 줄이는 대신 데이터 변환을 설명하여 MapReduce 응용 프로그램을 만들 수 있습니다.
 
-## <a id="prereq"></a>필수 조건
+##<a id="prereq"></a>필수 조건
 
 이 문서의 단계를 완료하려면 다음이 필요합니다.
 
@@ -30,11 +30,11 @@
 
 * Windows 7, 8 또는 10 클라이언트
 
-## <a id="connect"></a>원격 데스크톱을 사용하여 연결
+##<a id="connect"></a>원격 데스크톱을 사용하여 연결
 
-HDInsight 클러스터에 대한 원격 데스크톱을 사용을 설정하면 다음 지침에 따라 연결할 수 있습니다. <a href="http://azure.microsoft.com/ documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">RDP를 사용하여 HDInsight 클러스터에 연결</a>.
+HDInsight 클러스터에 대해 원격 데스크톱을 사용하도록 설정한 다음 <a href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">RDP를 사용하여 HDInsight 클러스터에 연결</a>의 지침에 따라 연결합니다.
 
-## <a id="pig"></a>Pig 명령 사용
+##<a id="pig"></a>Pig 명령 사용
 
 2. 연결되면 데스크톱의 아이콘을 사용하여 **Hadoop 명령줄**을 시작합니다.
 
@@ -42,7 +42,7 @@ HDInsight 클러스터에 대한 원격 데스크톱을 사용을 설정하면 �
 
 		%pig_home%\bin\pig
 
-	`grunt>`  프롬프트가 나타납니다. 
+	 `grunt>` 프롬프트가 나타납니다. 
 
 3. 다음 문을 입력합니다.
 
@@ -56,9 +56,9 @@ HDInsight 클러스터에 대한 원격 데스크톱을 사용을 설정하면 �
 
 		LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
 
-	**DUMP**를 사용하여 변환 후 데이터를 볼 수 있습니다. 이 경우에는 `DUMP LEVELS;`입니다.
+	**DUMP**를 사용하여 변환 후 데이터를 볼 수 있습니다. 이 경우 `DUMP LEVELS;`입니다.
 
-5. 다음 문을 사용하여 변환 적용을 계속합니다. `DUMP` 를 사용하여 각 단계의 변환 결과를 볼 수 있습니다.
+5. 다음 문을 사용하여 변환 적용을 계속합니다.  `DUMP`를 사용하여 각 단계 후의 변환 결과를 확인합니다.
 
 	<table>
 	<tr>
@@ -78,7 +78,7 @@ HDInsight 클러스터에 대한 원격 데스크톱을 사용을 설정하면 �
 	</tr>
 	</table>
 
-6. `STORE`  문을 사용하여 변환 결과를 저장할 수도 있습니다. 예를 들어, 다음은 클러스터의 기본 저장소 컨테이너에 있는 **/example/data/pigout** 디렉터리에 `RESULT`를 저장합니다.
+6.  `STORE` 문을 사용하여 변환 결과를 저장할 수도 있습니다. 예를 들어 다음은 클러스터의 기본 저장소 컨테이너에 있는 **/example/data/pigout** 디렉터리에 `RESULT`를 저장합니다.
 
 		STORE RESULT into 'wasb:///example/data/pigout'
 
@@ -88,7 +88,7 @@ HDInsight 클러스터에 대한 원격 데스크톱을 사용을 설정하면 �
 
 		QUIT;
 
-### Pig Latin 배치 파일
+###Pig Latin 배치 파일
 
 Pig 명령을 사용하여 파일에 포함된 Pig Latin을 실행할 수도 있습니다.
 
@@ -108,7 +108,7 @@ Pig 명령을 사용하여 파일에 포함된 Pig Latin을 실행할 수도 있
 
 		pig %PIG_HOME%\pigbatch.pig
 
-	일괄 작업이 완료되면 이전 단계에서 `DUMP RESULT;`를 사용했을 때와 같이 다음과 같은 출력이 보입니다.
+	일괄 작업이 완료되면 다음과 같은 출력이 표시되며, 이 출력은 이전 단계에서 `DUMP RESULT;`를 사용했을 때와 같습니다.
 
 		(TRACE,816)
 		(DEBUG,434)
@@ -117,11 +117,11 @@ Pig 명령을 사용하여 파일에 포함된 Pig Latin을 실행할 수도 있
 		(ERROR,6)
 		(FATAL,2)
 
-## <a id="summary"></a>요약
+##<a id="summary"></a>요약
 
 이처럼 Pig 명령을 사용하면 배치 파일에 저장된 문을 실행할 뿐 아니라 Pig Latin을 사용하여 MapReduce 작업을 대화형으로 실행할 수 있습니다.
 
-## <a id="nextsteps"></a>다음 단계
+##<a id="nextsteps"></a>다음 단계
 
 HDInsight에서 Pig에 대한 일반 정보.
 
@@ -132,4 +132,4 @@ HDInsight에서 Hadoop으로 작업하는 다른 방법에 관한 내용입니�
 * [HDInsight에서 Hadoop과 Hive 사용](../hdinsight-use-hive/)
 
 * [HDInsight에서 Hadoop과 MapReduce 사용](../hdinsight-use-mapreduce/)
-<!--HONumber=45--> 
+<!--HONumber=47-->

@@ -18,7 +18,13 @@
 
 #Microsoft Azure DocumentDB 소개
 
-이 문서에서는 개발자, IT 전문가 및 비즈니스 의사 결정자를 위한 NoSQL 문서 데이터베이스 서비스인 Microsoft Azure DocumentDB를 소개합니다. 이 문서를 읽어 보면 다음을 알게 됩니다.  
+이 문서에서는 개발자, IT 전문가 및 비즈니스 의사 결정자를 위한 NoSQL 문서 데이터베이스 서비스인 Microsoft Azure DocumentDB를 소개합니다. 
+
+Ryan CrawCour와 Scott Hanselman이 Azure DocumentDB를 소개하는 다음 동영상을 보는 것으로 시작하는 것이 좋습니다. 
+
+> [AZURE.VIDEO documentdb-101-with-ryan-crawcour]
+
+그런 다음 이 문서로 돌아와서 다음 내용을 살펴보세요.  
 
 -	[DocumentDB 정의와 클라우드 및 모바일 응용 프로그램에 제공하는 가치](#what-is-docdb)
 -	[DocumentDB에서 사용자 데이터를 관리하는 방법과 데이터에 액세스하는 방법](#data-management)
@@ -45,8 +51,7 @@ Azure DocumentDB는 다음과 같은 주요 기능 및 이점을 제공합니다
 
 -	**탄력적으로 확장 가능한 처리량 및 저장소:** 응용 프로그램 요구를 충족하기 위해 쉽게 DocumentDB를 확장 또는 축소합니다. 크기 조정은 예약된 SSD 지원 저장소 및 처리량의 세분화된 단위를 통해 수행됩니다. 응용 프로그램 증가에 따라 용량 단위를 더 구매하여 탄력적으로 DocumentDB를 확장하고 예측 가능한 성능을 얻을 수 있습니다. 
 
--	**의도적인 개방성:** 
--	 기존 기술과 도구를 사용하여 신속하게 시작합니다. DocumentDB에 대한 프로그래밍은 단순하고 사용하기 쉬우며 새 도구를 채택하거나 JSON 또는 JavaScript에 대한 사용자 지정 확장을 준수할 필요가 없습니다. 단순한 RESTful HTTP 인터페이스를 통해 CRUD, 쿼리 및 JavaScript 처리를 비롯한 모든 데이터베이스 기능에 액세스할 수 있습니다. DocumentDB는 기존 형식, 언어 및 표준을 수용하며 이를 바탕으로 중요한 데이터베이스 기능을 제공합니다.
+-	**의도적인 개방성:** 기존 기술과 도구를 사용하여 빠르게 시작할 수 있습니다. DocumentDB에 대해 프로그래밍하는 것은 간단하고 이해하기 쉬우며 새로운 도구를 채택하거나 JSON 또는 JavaScript에 대한 사용자 지정 확장을 준수할 필요가 없습니다. CRUD, 쿼리 및 간단한 RESTful HTTP 인터페이스를 통한 JavaScript 처리를 비롯한 모든 데이터베이스 기능에 액세스할 수 있습니다. DocumentDB는 기존 형식, 언어 및 표준을 수용할 뿐만 아니라 유용한 데이터베이스 기능도 제공합니다.
 
 DocumentDB를 사용하여 쿼리 검색 및 트랜잭션 처리가 필요한 유연한 데이터 집합을 저장할 수 있습니다. 응용 프로그램 시나리오에는 대화형 웹 및 모바일 응용 프로그램에 대한 사용자 데이터와 응용 프로그램 JSON 데이터 저장, 검색 및 처리가 포함될 수 있습니다. 데이터베이스는 개수에 제한 없이 JSON 문서를 저장할 수 있으므로 DocumentDB는 인터넷 규모로 실행되는 응용 프로그램에 적합합니다.
 
@@ -96,6 +101,4 @@ Azure DocumentDB를 시작하려면 다음 리소스를 탐색하세요.
 
 [1]: ./media/documentdb-introduction/intro.png
 
-<!--HONumber=35.2-->
-
-<!--HONumber=46--> 
+<!--HONumber=47-->

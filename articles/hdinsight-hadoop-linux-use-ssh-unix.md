@@ -1,4 +1,4 @@
-<properties
+﻿<properties
    pageTitle="Linux, Unix 또는 OS X에서 Linux 기반 HDInsight의 Hadoop과 SSH 키 사용 | Aure"
    description="SSH 키를 생성하고 사용하여 Linux 기반 HDInsight 클러스터에 인증하는 방법을 알아봅니다."
    services="hdinsight"
@@ -16,27 +16,27 @@
    ms.date="02/18/2015"
    ms.author="larryfr"/>
 
-## Linux, Unix 또는 OS X에서 HDInsight의 Linux 기반 Hadoop과 SSH 사용(미리 보기)
+##Linux, Unix 또는 OS X에서 HDInsight의 Linux 기반 Hadoop과 SSH 사용(미리 보기)
 
 HDInsight 클러스터 Linux 기반 암호 또는 SSH 키를 사용하여 SSH 액세스 보안의 옵션을 제공합니다. 이 문서에서는 Linux, Unix 또는 OS X 클라이언트에서 HDInsight와 함께 SSH를 사용하는 방법을 설명합니다.
 
-> [AZURE.NOTE] 이 문서의 단계에서는 Linux, Unix 또는 OS X 클라이언트를 사용한다고 가정합니다. Windows 클라이언트에서 다음 단계가 수행되는 동안 `ssh` 및  `ssh-keygen`(Windows용 Git과 같은)을 제공하는 패키지가 설치되어 있는 경우 Windows 클라이언트가 [Windows에서 Linux 기반 HDInsight(Hadoop)과 SSH 사용](/ko-kr/documentation/articles/hdinsight-hadoop-linux-use-ssh-windows/) 단계를 따를 것을 권장합니다.
+> [AZURE.NOTE] 이 문서의 단계에서는 Linux, Unix 또는 OS X 클라이언트를 사용한다고 가정합니다.  `ssh` 및 `ssh-keygen`(예: Git for Windows)을 제공하는 패키지를 설치한 경우 Windows 클라이언트에서 이러한 단계를 수행하면 Windows 클라이언트에서 [Windows에서 Linux 기반 HDInsight(Hadoop)으로 SSH 사용]의 단계를 따르는 것이 좋습니다(/documentation/articles/hdinsight-hadoop-linux-use-ssh-windows/).
 
-## 필수 조건
+##필수 조건
 
 * Linux, Unix 및 OS X 클라이언트에 대한 **ssh-keygen** 및 **ssh**입니다. 이 유틸리티는 운영 체제에서 일반적으로 제공하걱나 패키지 관리 시스템을 통해 사용할 수 있습니다.
 
 * HTML5를 지원하는 모뎀 웹 브라우저
 
-또는
+OR
 
 * Azure 플랫폼간 명령줄 도구
 
-## SSH 정의
+##SSH 정의
 
 SSH는 원격 서버에서 로그인 및 원격으로 실행하는 명령 유틸리티입니다. Linux 기반 HDInsight와 함께 SSH는 클러스터 헤드 노드에 보안 연결을 설정하고 명령에서 입력하는 데 사용하는 명령줄을 제공합니다. 명령은 서버에서 직접 실행됩니다.
 
-## SSH 키 만들기(옵션)
+##SSH 키 만들기(옵션)
 
 Linux 기반 HDInsight 클러스터를 만들 때, SSH 키를 사용할 때 암호 또는 SSH 키를 사용하여 인증하는 옵션이 있습니다. SSH 키는 인증서를 기반으로 보다 안전한 것으로 간주됩니다. 클러스터와 SSH 키를 사용하려는 경우에 다음 정보를 사용합니다.
 
@@ -64,17 +64,17 @@ Linux 기반 HDInsight 클러스터를 만들 때, SSH 키를 사용할 때 암�
 
 	명령이 완료되면 개인 키(예: **id\_rsa**) 및 공개키(예: **id\_rsa.pub**), 두 개의 새 파일을 갖게 됩니다.
 
-## Linux 기반 HDInsight 클러스터 만들기
+##Linux 기반 HDInsight 클러스터 만들기
 
 Linux 기반 HDInsight 클러스터를 만들 때 이전에 생성한 **공개 키**를 제공해야 합니다. Linux, Unix 또는 OS X 클라이언트에서 HDInsight 클러스터를 만들 수 있는 두 가지 방법이 있습니다.
 
 * **Azure 관리 포털** - 웹 기반 포털을 사용하여 클러스터 생성
 
-* **Azure 플랫폼간 명령줄 인터페이스(xplat-cli)** - 명령줄 명령을 사용하여 클러스터 생성
+* **Azure 플랫폼 간 명령줄 인터페이스(xplat-cli)** - 명령줄 명령을 사용하여 클러스터 생성
 
-이러한 각 메서드는 각각의 **암호** 또는 **공개 키**가 필요합니다. Linux 기반 HDInsight 클러스터 만들기에 대한 자세한 내용은 <a href="/ko-kr/documentation/articles/hdinsight-hadoop-provision-linux-clusters/" target="_blank">Linux 기반 HDInsight 클러스터 프로비전을</a>참조하세요.
+이러한 각 메서드는 각각의 **암호** 또는 **공개 키**가 필요합니다. Linux 기반 HDInsight 클러스터를 만드는 방법에 대한 자세한 내용은 <a href="/documentation/articles/hdinsight-hadoop-provision-linux-clusters/" target="_blank">Linux 기반 HDInsight 클러스터 프로비전</a>을 참조하세요.
 
-### Azure 관리 포털
+###Azure 관리 포털
 
 포털을 사용하여 Linux 기반 HDInsight 클러스터를 만들 때 **SSH 사용자 이름**을 입력하고 **암호** 또는 **SSH 공용 키**를 선택하여 입력합니다. **SSH 공용 키**를 선택하는 경우 다음 형식으로 공용 키(**.pub** 확장자 파일이 포함됨)를 붙여넣으십시오.
 
@@ -87,13 +87,13 @@ ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCelfkjrpYHYiks4TM+r1LVsTYQ4jAXXGeOAF9Vv/KG
 
 이렇게 하면 제공한 암호 또는 공개 키를 사용하여 특정 사용자 로그인을 생성합니다.
 
-### Azure 플랫폼간 명령줄 인터페이스
+###Azure 플랫폼간 명령줄 인터페이스
 
-전체 <a href="../xplat-cli/" target="_brad">Azure 플랫폼간 명령줄 인터페이스</a> `azure hdinsight cluster create` 명령을 사용하여 새 클러스터를 생성합니다.
+<a href="../xplat-cli/" target="_brad">Azure 플랫폼 간 명령줄 인터페이스</a>를 사용하면  `azure hdinsight cluster create` 명령을 사용하여 새 클러스터를 만들 수 있습니다.
 
-이 명령 사용에 대한 자세한 내용은 <a href="../hdinsight-hadoop-provision-linux-clusters/" target="_blank">사용자 지정 옵션을 사용하여 HDInsight의 Hadoop Linux 클러스터 프로비전을 참조하세요.</a>
+이 명령은 사용에 대한 자세한 내용은 <a href="../hdinsight-hadoop-provision-linux-clusters/" target="_blank">사용자 지정 옵션을 사용하여 HDInsight에서 Hadoop Linux 클러스터 프로비전</a>을 참조하세요.
 
-## Linux 기반 HDInsight 클러스터에 연결
+##Linux 기반 HDInsight 클러스터에 연결
 
 터미널 세션에서 SSH 명령을 사용하여 사용자 이름 및 클러스터 주소를 제공 하고 클러스터에 연결합니다.
 
@@ -113,9 +113,9 @@ ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCelfkjrpYHYiks4TM+r1LVsTYQ4jAXXGeOAF9Vv/KG
 > 
 > `ssh -i ~/.ssh/id_rsa me@mycluster-ssh.azurehdinsight.net`
 
-## 추가 계정 추가
+##추가 계정 추가
 
-2. [SSH 키 생성](#create) 섹션에서 설명된 것처럼 새로운 사용자 계정에 대한 새로운 **공개 키** 및 **개인 키**를 생성합니다.
+2. [SSH 키 생성] 섹션에서 설명된 것처럼 새로운 사용자 계정에 대한 새로운 **공개 키** 및 **개인 키**를(#create) 생성합니다.
 
 	> [AZURE.NOTE] 개인 키는 사용자가 클러스터에 연결하는 데 사용하거나 생성 후 이러한 클라이언트에 안전하게 전송하는 클라이언트에서 생성되어야 합니다.
 
@@ -141,13 +141,13 @@ ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCelfkjrpYHYiks4TM+r1LVsTYQ4jAXXGeOAF9Vv/KG
 
 5. 이제 새 사용자 계정 및 **개인 키**를 사용하여 서버에 인증할 수 있습니다.
 
-## <a id="tunnel"></a>SSH 터널링
+##<a id="tunnel"></a>SSH 터널링
 
 SSH는 웹 요청과 같은 로컬 요청을 HDInsight 클러스터에 터널링하는 데 사용할 수도 있습니다. HDInsight 클러스터 헤드 노드에서 발생하는 경우 요청이 요청된 리소스에 라우팅됩니다.
 
 클러스터에서 헤드 또는 작업자 노드에 대한 내부 도메인 이름을 사용하는 HDInsight 클러스터의 웹 기반 서비스에 엑세스할 때 가장 유용합니다. 예를 들어 Ambari 웹 페이지의 일부 섹션은 **headnode0.mycluster.d1.internal.cloudapp.net**과 같은 내부 도메인 이름을 사용합니다. 이 이름은 클러스터 외부에서 확인할 수 없지만 SSH를 통해 터널링된 요청은 클러스터 내에서 발생하고 올바르게 확인됩니다.
 
-SSH 터널을 만들고 브라우저를 구성하여 클러스터에 연결하려면 다음 단계를 따르십시오.
+SSH 터널을 만들고 브라우저를 구성하여 클러스터에 연결하려면 다음 단계를 따르세요.
 
 1. 다음 명령은 클러스터 헤드 노드에 SSH 터널을 생성하는 데 사용할 수 있습니다.
 
@@ -171,7 +171,7 @@ SSH 터널을 만들고 브라우저를 구성하여 클러스터에 연결하�
 
 	* **f** - 백그라운드에서 실행
 
-	**SSH 키**를 사용하여 클러스터를 구성한 경우에는 `-i` 매개 변수를 사용하여 개인 SSH 키에 대한 경로를 지정합니다.
+	**SSH 키**를 사용하여 클러스터를 구성한 경우에는 `-i` 매개 변수를 사용하여 개인 SSH 키에 대한 경로를 지정할 수 있습니다.
 
 	명령이 완료되면 로컬 컴퓨터에서 9876 포트로 전송되는 트래픽이 SSL을 통해 클러스터 헤드 노드에 라우팅되며 생성된 곳에 나타납니다.
 
@@ -181,13 +181,13 @@ SSH 터널을 만들고 브라우저를 구성하여 클러스터에 연결하�
 
 	> [AZURE.NOTE] **원격 DNS**를 선택하면 HDInsight 클러스터를 사용하여 DNS 요청을 해결합니다. 선택하지 않은 경우 DNS가 로컬로 해결됩니다.
 
-	Firefox에서 프록시 설정을 활성화하거나 비활성화한 상태에서 다음 <a href="http://www.whatismyip.com/" target="_blank">http://www.whatismyip.com/</a> 사이트 등을 방문하여 터널을 통해 트래픽이 라우팅되는 것을 확인할 수 있습니다. 활성화되어 있는 동안 IP 주소는 Microsoft Azure 데이터 센터에 있는 컴퓨터의 주소입니다.
+	Firefox에서 프록시 설정을 사용하거나 사용하지 않도록 설정한 상태에서 <a href="http://www.whatismyip.com/" target="_blank">http://www.whatismyip.com/</a> 같은 사이트를 방문하여 트래픽이 터널을 통해 라우팅되는지 확인할 수 있습니다. 활성화되어 있는 동안 IP 주소는 Microsoft Azure 데이터 센터에 있는 컴퓨터의 주소입니다.
 
-### 브라우저 확장
+###브라우저 확장
 
-작동하는 터널을 사용하여 브라우저를 구성하는 동안 보통 터널을 통해 모든 트래픽을 라우팅하지 않으려고 할 수 있습니다. 이 <a href="http://getfoxyproxy.org/" target="_blank">FoxyProxy와</a>  같은 브라우저 확장 프로그램이 URL 요청에 대해 일치하는 패턴을 지원하므로(FoxyProxy 표준 또는 Plus만) 특정 URL에 대한 요청만 터널을 통해 전송됩니다.
+작동하는 터널을 사용하여 브라우저를 구성하는 동안 보통 터널을 통해 모든 트래픽을 라우팅하지 않으려고 할 수 있습니다. <a href="http://getfoxyproxy.org/" target="_blank">FoxyProxy</a> 같은 브라우저 확장 프로그램이 URL 요청에 대해 일치하는 패턴을 지원하므로(FoxyProxy Standard 또는 Plus만 해당) 특정 URL에 대한 요청만 터널을 통해 전송됩니다.
 
-**FoxyProxy 표준**을 설치한 경우 터널을 통해 HDInsight에 대한 트래픽을 전달만 하도록 구성하려면 다음 단계를 따르십시오.
+**FoxyProxy 표준**을 설치한 경우 터널을 통해 HDInsight에 대한 트래픽을 전달만 하도록 구성하려면 다음 단계를 따르세요.
 
 1. 브라우저에서 FoxyProxy 확장 프로그램을 엽니다. 예를 들어, Firefox에서 주소 필드 옆에 있는 FoxyProxy 아이콘을 선택합니다.
 
@@ -213,7 +213,7 @@ SSH 터널을 만들고 브라우저를 구성하여 클러스터에 연결하�
 
 	* **패턴 이름** - **headnode** - 패턴에 대한 친숙한 이름
 
-	* **URL 패턴** - **\*headnode\*** - **headnode** 단어가 있는 모든 URL과 일치하는 패턴 정의
+	* **URL 패턴** - **\*headnode\*** - **headnode** 단어가 포함된 모든 URL과 일치하는 패턴을 정의합니다.
 
 	![foxyproxy pattern](./media/hdinsight-hadoop-linux-use-ssh-unix/foxypattern.png)
 
@@ -225,7 +225,7 @@ SSH 터널을 만들고 브라우저를 구성하여 클러스터에 연결하�
 
 다음 이 단계를 따른 후 **headnode** 문자열이 포함된 URL에 대한 요청만 SSL 터널을 통해 라우팅됩니다.
 
-## 다음 단계
+##다음 단계
 
 이제 SSH 키를 사용하여 인증하는 방법을 배웠으므로 HDInsight에서 Hadoop과 MapReduce를 함께 사용하는 방법에 알아봅니다.
 
@@ -235,4 +235,4 @@ SSH 터널을 만들고 브라우저를 구성하여 클러스터에 연결하�
 
 * [HDInsight에서 MapReduce 작업 사용](../hdinsight-use-mapreduce/)
  
-<!--HONumber=45--> 
+<!--HONumber=47-->
