@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="JavaScript 백 엔드 모바일 서비스를 사용하여 푸시 알림 시작" 
 	description="Azure 모바일 서비스와 알림 허브를 사용하여 범용 Windows 앱에 푸시 알림을 보내는 방법에 대해 알아봅니다." 
 	services="mobile-services, notification-hubs" 
@@ -91,9 +91,9 @@
 [앱 제출 페이지]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [내 응용 프로그램]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Windows용 Live SDK]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[모바일 서비스 시작](영문): /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started
+[모바일 서비스 시작]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started
 [데이터 시작]: /ko-kr/documentation/articles/mobile-services-javascript-backend-windows-universal-dotnet-get-started-data
-[인증 시작](영문): /ko-kr/documentation/articles/mobile-services-javascript-backend-windows-universal-dotnet-get-started-users
+[인증 시작]: /ko-kr/documentation/articles/mobile-services-javascript-backend-windows-universal-dotnet-get-started-users
 
 [인증된 사용자에게 푸시 알림 보내기]: /ko-kr/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users/
 

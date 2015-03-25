@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="MongoLab에서 MongoDB를 사용하는 웹 사이트 만들기(.NET)" 
 	description="MongoLab에서 호스팅되는 MongoDB에 데이터를 저장하는 Azure 웹사이트를 만드는 방법에 대해 알아봅니다." 
 	services="web-sites" 
@@ -244,7 +244,7 @@ MongoDB에 액세스하여 메모를 검색하고 저장하는 방법을 구성�
         mongoServer = client.GetServer();
         MongoDatabase database = mongoServer.GetDatabase(dbName);
         MongoCollection<Note> noteCollection = database.GetCollection<Note>(collectionName);
-  There's nothing to change here; Just be aware that this is how you get a MongoCollection object for performing inserts, updates, and queries, such as the following in **GetAllNotes()**:  
+  여기서는 아무것도 변경할 것이 없습니다. 다만 이 방식으로 **GetAllNotes()**의 다음에서처럼 삽입, 업데이트, 쿼리를 수행하는 MongoCollection 개체를 가져온다는 점을 알아두면 됩니다:  
 
         collection.FindAll().ToList<Note>();
 
