@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="How to deploy" pageTitle="SQL 데이터베이스를 배포하는 방법 - Azure" metaKeywords="" description="Azure에 SQL Server 데이터베이스를 배포하는 방법에 대해 알아봅니다. Deploy Database to SQL Database 마법사를 사용하여 샘플 데이터베이스를 업로드합니다." metaCanonical="" services="sql-database" documentationCenter="" title="How to Deploy a Database to Azure" authors="jeffreyg" solutions="" manager="jeffreyg" editor="" />
+﻿<properties 
+	pageTitle="SQL 데이터베이스를 배포하는 방법 - Azure" 
+	description="Azure에 SQL Server 데이터베이스를 배포하는 방법에 대해 알아봅니다. Deploy Database to SQL Database 마법사를 사용하여 샘플 데이터베이스를 업로드합니다." 
+	services="sql-database" 
+	documentationCenter="" 
+	authors="jeffgoll" 
+	manager="jeffreyg" 
+	editor=""/>
 
-<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/30/2014" ms.author="jeffreyg" />
+<tags 
+	ms.service="sql-database" 
+	ms.workload="data-management" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/25/2015" 
+	ms.author="jeffreyg"/>
 
 
 
@@ -13,12 +27,8 @@
 
 School 샘플 데이터베이스는 편의상 단순합니다. 모든 해당 개체는 SQL 데이터베이스와 호환되므로 마이그레이션을 위해 데이터베이스를 수정하거나 준비할 필요가 없습니다. 새 관리자는 소유한 데이터베이스를 사용하기 전에 먼저 단순 데이터베이스를 배포해서 단계를 알아보세요. 
 
-**참고:** Azure로 마이그레이션하기 위해 온-프레미스 데이터베이스를 준비하는 방법에 대한 자세한 지침은 SQL 데이터베이스 마이그레이션 가이드를 참조하세요. 또한 Azure 트레이닝 키트 다운로드를 고려하세요. 이 키트에는 온-프레미스 데이터베이스를 마이그레이션하는 다른 방법을 보여 주는 랩이 포함되어 있습니다.
+**참고:** Azure로 마이그레이션할 온-프레미스 데이터베이스를 준비하는 방법에 대한 자세한 지침은 SQL 데이터베이스 마이그레이션 가이드를 검토하세요. 또한 온-프레미스 데이터베이스로 마이그레이션하는 대체 방식을 보여 주는 랩이 포함된 Azure 트레이닝 키트를 다운로드할 수도 있습니다.
 
-##목차##
-* [방법: 온-프레미스 서버에서 school 데이터베이스 만들기](#schooldb)
-* [방법: SQL 데이터베이스에 배포](#deploydb)
-* [방법: 데이터베이스 배포 확인](#verify)
 
 <h2><a id="schooldb"></a>방법: 온-프레미스 서버에서 school 데이터베이스 만들기</h2>
 
@@ -26,7 +36,7 @@ School 샘플 데이터베이스는 편의상 단순합니다. 모든 해당 개
 
 1. Management Studio에서 온-프레미스 서버에 연결합니다. **데이터베이스**를 마우스 오른쪽 단추로 클릭하고 **새 데이터베이스**를 클릭한 후 *school*을 입력합니다.
 
-2. *school*을 마우스 오른쪽 단추로 클릭하고 **새 쿼리**를 클릭합니다. 
+2. 그런 다음 *school*을 마우스 오른쪽 단추로 클릭하고 **새 쿼리**를 클릭합니다. 
 
 3. 자습서에서 스키마 만들기 스크립트를 복사한 후 실행합니다. 
 
@@ -531,7 +541,7 @@ School 샘플 데이터베이스는 편의상 단순합니다. 모든 해당 개
 
 2. 방금 만든 school 데이터베이스를 마우스 오른쪽 단추로 클릭하고 **작업**을 가리킨 후 **SQL Azure에 데이터베이스 배포**를 클릭합니다.
 
-3. 배포 설정에서 데이터베이스의 이름을 입력합니다(예: *school*). 
+3. 배포 설정에서 데이터베이스의 이름을 입력합니다(예:*school*). 
 
 4. **연결**을 클릭합니다.
 
@@ -543,19 +553,19 @@ School 샘플 데이터베이스는 편의상 단순합니다. 모든 해당 개
 
 8. **옵션**을 클릭합니다.
 
-9. 연결 속성에서 데이터베이스에 연결에 **master**를 입력합니다.
+9. 연결 속성에서 **데이터베이스에 연결**에 **master**를 입력합니다.
 
 10. **연결**을 클릭합니다. 이 단계는 연결 사양을 끝내며 사용자는 다시 마법사로 돌아갑니다.
 
 
-11. **다음**을 클릭하고 **마침**을 클릭하여 마법사를 실행합니다.
+11. **다음**, **마침**을 차례로 클릭하여 마법사를 실행합니다.
 
 
 <h2><a id="verify"></a>방법: 데이터베이스 배포 확인</h2>
 
 1. Management Studio의 개체 탐색기에서 데이터베이스를 새로 고쳐 방금 만든 새 데이터베이스를 표시합니다.
 
-2. 데이터베이스 폴더를 확장합니다. 목록에 **school** 데이터베이스가 표시됩니다.
+2. **데이터베이스** 폴더를 확장합니다. 목록에 **school** 데이터베이스가 표시되어야 합니다.
 
 3. school 데이터베이스를 마우스 오른쪽 단추로 클릭하고 **새 쿼리**를 클릭합니다.
 
@@ -581,7 +591,7 @@ School 샘플 데이터베이스는 편의상 단순합니다. 모든 해당 개
 		ON OnsiteCourse.CourseID = CourseInstructor.CourseID;
 </pre></div>
 
-[SQL 데이터베이스 관리 시작]: /ko-kr/manage/services/sql-databases/getting-started-w-sql-databases/  
+[SQL 데이터베이스 관리 시작]: /manage/services/sql-databases/getting-started-w-sql-databases/  
 
 
-<!--HONumber=35.1-->
+<!--HONumber=47-->

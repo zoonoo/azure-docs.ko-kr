@@ -1,4 +1,4 @@
-﻿<properties services="virtual-machines" title="How to Log on to a Virtual Machine Running Windows Server" authors="KBDAzure" solutions="" manager="timlt" editor="tysonn" />
+﻿<properties services="virtual-machines" title="Windows Server를 실행하는 가상 컴퓨터에 로그온하는 방법" authors="KBDAzure" solutions="" manager="timlt" editor="tysonn" />
 
 >[AZURE.NOTE] 사용자 이름 또는 암호를 재설정해야 하거나 가상 컴퓨터에서 RDP를 사용하도록 설정해야 하는 경우 [VMAccess](http://go.microsoft.com/fwlink/p/?LinkId=396856) 확장을 사용하여 이러한 작업을 수행할 수 있습니다. 로그온에 대한 자세한 요구 사항 및 문제 해결 팁은 [RDP 또는 SSH를 사용하여 Azure 가상 컴퓨터에 연결](http://go.microsoft.com/fwlink/p/?LinkId=398294)을 참조하세요.
 
@@ -31,4 +31,4 @@
 이제 원격으로 가상 컴퓨터를 사용할 수 있습니다.
 
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

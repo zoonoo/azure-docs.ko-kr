@@ -1,11 +1,11 @@
-<properties 
+﻿<properties 
 	pageTitle="Azure 저장소 시작" 
-	description="" 
+	description="Visual Studio의 ASP.NET 프로젝트에서 Azure 큐 저장소를 사용하는 방법" 
 	services="storage" 
 	documentationCenter="" 
 	authors="kempb" 
 	manager="douge" 
-	editor=""/>
+	editor="tglee"/>
 
 <tags 
 	ms.service="storage" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/10/2014" 
+	ms.date="02/02/2015" 
 	ms.author="kempb"/>
 
 > [AZURE.SELECTOR]
@@ -43,7 +43,5 @@ Azure 큐 저장소는 HTTP 또는 HTTPS를 사용하여 인증된 호출을 통
 
 [AZURE.INCLUDE [vs-storage-getting-started-queues-include](../includes/vs-storage-getting-started-queues-include.md)]
 
-자세한 내용은 [ASP.NET](http://www.asp.net)(영문)을 참조하세요.
-
-
-<!--HONumber=42-->
+자세한 내용은 [ASP.NET](http://www.asp.net)을 참조하세요.
+<!--HONumber=47-->

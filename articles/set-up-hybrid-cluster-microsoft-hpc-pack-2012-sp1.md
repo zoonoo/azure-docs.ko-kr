@@ -29,7 +29,7 @@
 
 <h2 id="BKMK_Prereq">필수 조건</h2>
 
->[AZURE.NOTE]이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 계정 만들기](http://azure.microsoft.com/develop/php/tutorials/create-a-windows-azure-account/)(영문)를 참조하세요.
+>[AZURE.NOTE]이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 계정 만들기](http://www.windowsazure.com/develop/php/tutorials/create-a-windows-azure-account/)를 참조하세요.
 
 또한 이 자습서에는 다음이 필요합니다.
 
@@ -92,7 +92,7 @@
 
 - Azure 저장소 계정 만들기
 	
-	>[AZURE.NOTE]또한 나중에 필요한 Azure 구독 ID를 기록해 둡니다. 이 ID는 Azure <a href="[https://account.windowsazure.com/Subscriptions">계정 정보</a>입니다.
+	>[AZURE.NOTE]또한 나중에 필요한 Azure 구독 ID를 기록해 둡니다. Azure <a href="[https://account.windowsazure.com/Subscriptions">계정 정보</a>에서 확인할 수 있습니다.
 
 <h3>기본 관리 인증서 업로드</h3>
 HPC 팩은 Azure 관리 인증서로 업로드할 수 있는 자체 서명된 인증서(기본 Microsoft HPC Azure 관리 인증서라고 함)를 헤드 노드에 설치합니다. 이 인증서는 테스트 목적 및 개념 증명 배포를 위해 제공됩니다.
@@ -177,7 +177,7 @@ HPC Cluster Manager를 사용하여 Azure 노드를 배포하고 작업을 제�
 
 	b. **다음**을 클릭하여 기본 템플릿 이름을 적용합니다.
 
-	c. **구독 정보 제공** 페이지에서 Azure 구독 ID(Azure <a href="[https://account.windowsazure.com/Subscriptions">계정 정보</a>에서 찾을 수 있음)를 입력합니다. **관리 인증서**에서 **찾아보기**를 클릭하고 **기본 HPC Azure 관리**를 선택합니다. 그런 후 **다음**을 클릭합니다.
+	c. **구독 정보 제공** 페이지에서 Azure <a href="[https://account.windowsazure.com/Subscriptions">계정 정보</a>에 제공된 Azure 구독 ID를 입력합니다. **관리 인증서**에서 **찾아보기**를 클릭하고 **기본 HPC Azure 관리**를 선택합니다. 그런 후 **다음**을 클릭합니다.
 
 	![Node Template][config_hpc12]
 
@@ -303,13 +303,14 @@ HPC 팩 **clusrun** 명령을 사용하여 하나 이상의 클러스터 노드�
 
 <h2 id="">관련 리소스</h2>
 
-* [HPC Pack 2012 R2 및 HPC Pack 2012 (영문)](http://go.microsoft.com/fwlink/p/?LinkID=263697)
+* [HPC Pack 2012 R2 및 HPC Pack 2012](http://go.microsoft.com/fwlink/p/?LinkID=263697)
 * [Microsoft HPC 팩을 사용하여 Azure로 버스트](http://go.microsoft.com/fwlink/p/?LinkID=200493)
 * [Azure VM의 Microsoft HPC 팩](http://go.microsoft.com/fwlink/p/?linkid=330375)
 * [Azure 큰 계산: HPC 및 일괄 처리](http://azure.microsoft.com/solutions/big-compute/)
 
 
 [Overview]: ./media/set-up-hybrid-cluster-microsoft-hpc-pack-2012-sp1/hybrid_cluster_overview.png
+[개요]: ./media/set-up-hybrid-cluster-microsoft-hpc-pack-2012-sp1/hybrid_cluster_overview.png
 [install_hpc1]: ./media/set-up-hybrid-cluster-microsoft-hpc-pack-2012-sp1/install_hpc1.png
 [install_hpc2]: ./media/set-up-hybrid-cluster-microsoft-hpc-pack-2012-sp1/install_hpc2.png
 [install_hpc3]: ./media/set-up-hybrid-cluster-microsoft-hpc-pack-2012-sp1/install_hpc3.png
@@ -345,4 +346,5 @@ HPC 팩 **clusrun** 명령을 사용하여 하나 이상의 클러스터 노드�
 [stop_node2]: ./media/set-up-hybrid-cluster-microsoft-hpc-pack-2012-sp1/stop_node2.png
 [stop_node4]: ./media/set-up-hybrid-cluster-microsoft-hpc-pack-2012-sp1/stop_node4.png
 [view_instances2]: ./media/set-up-hybrid-cluster-microsoft-hpc-pack-2012-sp1/view_instances2.png
-<!--HONumber=42-->
+
+<!--HONumber=47-->

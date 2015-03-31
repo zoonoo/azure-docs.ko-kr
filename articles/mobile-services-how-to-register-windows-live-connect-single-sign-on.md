@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Single Sign-On 등록 - Azure 모바일 서비스" 
 	description="Azure 모바일 서비스 응용 프로그램에서 SSO(Single Sign-On) 인증을 위해 등록하는 방법에 대해 알아봅니다." 
 	services="mobile-services" 
@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-multiple" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
 	ms.date="11/21/2014" 
@@ -20,7 +20,7 @@
 
 이 항목에서는 Live Connect Single Sign-On을 Azure 모바일 서비스에 대한 ID 공급자로 사용할 수 있도록 Windows 스토어에 앱을 등록하는 방법을 보여 줍니다. 이 단계는 푸시 알림을 사용하는 데에도 필요합니다.
 
-> [AZURE.IMPORTANT] 앱을 게시하기 전에 Microsoft 계정을 사용하여 인증하려면 Windows 스토어에 앱을 등록할 필요가 없습니다. Windows 스토어 앱에 Single Sign-On 또는 푸시 알림이 필요하지 않은 경우 Live Connect에만 앱을 등록하여 Microsoft 계정 로그인을 사용할 수 있습니다.  자세한 내용은 [Microsoft 계정 로그인 사용을 위해 Windows 스토어 앱 등록](/ko-kr/develop/mobile/how-to-guides/register-for-microsoft-authentication)을 참조하세요.
+> [AZURE.IMPORTANT] 앱을 게시하기 전에 Microsoft 계정을 사용하여 인증하려면 Windows 스토어에 앱을 등록할 필요가 없습니다. Windows 스토어 앱에 Single Sign-On 또는 푸시 알림이 필요하지 않은 경우 Live Connect에만 앱을 등록하여 Microsoft 계정 로그인을 사용할 수 있습니다.  자세한 내용은 [Microsoft 계정 로그인 사용을 위해 Windows 스토어 앱 등록](/develop/mobile/how-to-guides/register-for-microsoft-authentication)을 참조하세요.
 
 1. 앱을 아직 등록하지 않은 경우 Windows 스토어 앱용 개발자 센터에 있는 [앱 제출 페이지]로 이동하여 Microsoft 계정으로 로그온한 후 **앱 이름**을 클릭합니다.
 
@@ -38,7 +38,7 @@
 
   	![][2]
 
-   	응용 프로그램을 **Windows 스토어에 연결** 마법사가 나타납니다.
+   	**응용 프로그램을 Windows 스토어에 연결** 마법사가 나타납니다.
 
 5. 마법사에서 **로그인**을 클릭한 후 Microsoft 계정에 로그인합니다.
 
@@ -81,15 +81,14 @@
 
 
 <!-- URLs. -->
-[Live Connect를 사용한 Windows 스토어 앱의 Single Sign-On]: /ko-kr/develop/mobile/tutorials/single-sign-on-windows-8-dotnet
+[Live Connect를 사용한 Windows 스토어 앱의 Single Sign-On]: /develop/mobile/tutorials/single-sign-on-windows-8-dotnet
 [앱 제출 페이지]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [내 응용 프로그램]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[모바일 서비스 시작]: /ko-kr/develop/mobile/tutorials/get-started
-[인증 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-users-dotnet
-[푸시 알림 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-push-dotnet/
-[스크립트를 통해 사용자 권한 부여]: /ko-kr/develop/mobile/tutorials/authorize-users-in-scripts-dotnet/
-[JavaScript 및 HTML]: /ko-kr/develop/mobile/tutorials/get-started-with-users-js/
+[모바일 서비스 시작]: /develop/mobile/tutorials/get-started
+[인증 시작]: /develop/mobile/tutorials/get-started-with-users-dotnet
+[푸시 알림 시작]: /develop/mobile/tutorials/get-started-with-push-dotnet/
+[스크립트를 통해 사용자 권한 부여]: /develop/mobile/tutorials/authorize-users-in-scripts-dotnet/
+[JavaScript 및 HTML]: /develop/mobile/tutorials/get-started-with-users-js/
 [Azure 관리 포털]: https://manage.windowsazure.com/
 
-
-<!--HONumber=42-->
+<!--HONumber=47-->

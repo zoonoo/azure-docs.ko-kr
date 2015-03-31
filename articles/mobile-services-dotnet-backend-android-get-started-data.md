@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="데이터 시작(Android) | 모바일 개발자 센터" 
 	description="모바일 서비스를 사용하여 Android 앱에서 데이터를 활용하는 방법에 대해 알아봅니다." 
 	services="mobile-services" 
@@ -10,10 +10,10 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="Mobile-Android" 
-	ms.devlang="Java" 
+	ms.tgt_pltfrm="mobile-android" 
+	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="09/24/2014" 
+	ms.date="02/03/2015" 
 	ms.author="ricksal"/>
 
 # 기존 앱에 모바일 서비스 추가(영문)
@@ -25,6 +25,10 @@
 이 자습서에서 만드는 모바일 서비스는 모바일 서비스의 .NET 런타임을 지원합니다. 따라서 사용자는 모바일 서비스에서 서버 쪽 비즈니스 논리에 .NET 언어 및 Visual Studio를 사용할 수 있습니다. JavaScript에서 서버 쪽 비즈니스 논리를 작성하는 데 사용할 수 있는 모바일 서비스를 만들려면 이 항목의 [JavaScript 백 엔드 버전]을 참조하세요.
 
 > [AZURE.IMPORTANT] 이 자습서를 완료하려면 Visual Studio 2013이 필요합니다.
+
+<!-- -->
+
+> [AZURE.NOTE] 이 자습서의 Eclipse 버전을 참조하려면 [데이터 시작(Eclipse)]으로 이동하세요.
 
 이 자습서에서는 다음 기본 단계를 단계별로 안내합니다.
 
@@ -38,7 +42,7 @@
 5. [게시된 모바일 서비스에 대해 앱 테스트]
 
 
-> [AZURE.IMPORTANT] 이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fko-kr%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started-data%2F"%20target="_blank)을 참조하세요. 
+> [AZURE.IMPORTANT] 이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fko-kr%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started-data%2F"%20target="_blank)을 참조하세요. 
 
 
 <h2><a name="create-service"></a>새 모바일 서비스 만들기</h2>
@@ -60,16 +64,16 @@
 
 <h2><a name="download-app"></a>GetStartedWithData 프로젝트 다운로드</h2>
 
-###샘플 코드 가져오기
+### 샘플 코드 가져오기
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-create-new-service](../includes/download-android-sample-code.md)]
 
-###Android SDK 버전 확인
+### Android SDK 버전 확인
 
 [AZURE.INCLUDE [mobile-services-verify-android-sdk-version](../includes/mobile-services-verify-android-sdk-version.md)]
 
 
-###샘플 코드 검사 및 실행
+### 샘플 코드 검사 및 실행
 
 [AZURE.INCLUDE [mobile-services-android-run-sample-code](../includes/mobile-services-android-run-sample-code.md)]
 
@@ -82,7 +86,7 @@
 
 앱이 백 엔드 저장소용으로 모바일 서비스를 사용하도록 업데이트되었으므로, 이제 Android 에뮬레이터나 Android 휴대폰을 사용하여 모바일 서비스에 대해 앱을 테스트할 수 있습니다.
 
-1. **실행** 메뉴에서 **실행**을 클릭하여 프로젝트를 시작합니다.
+1. **실행** 메뉴에서 **앱 실행**을 클릭하여 프로젝트를 시작합니다.
 
 	그러면 Android SDK를 사용하여 빌드된 앱이 실행되며 클라이언트 라이브러리를 사용하여 모바일 서비스의 항목을 반환합니다.
 
@@ -97,9 +101,9 @@
 
     ![](./media/mobile-services-dotnet-backend-android-get-started-data/manage-sql-azure-database.png)
 
-5. 관리 포털에서 쿼리를 실행하여 Windows 스토어 앱에 의한 변경 사항을 확인합니다. 쿼리는 다음과 유사하지만,  `todolist` 대신 데이터베이스 이름을 사용하게 됩니다.
+5. 관리 포털에서 쿼리를 실행하여 Windows 스토어 앱에 의한 변경 사항을 확인합니다. 쿼리는 다음과 유사하지만 `todolist` 대신 데이터베이스 이름을 사용하게 됩니다.
 
-        SELECT * FROM [todolist].[todoitems]	
+        SELECT * FROM [todolist].[todoitems]
 
     ![](./media/mobile-services-dotnet-backend-android-get-started-data/sql-azure-query.png)
 
@@ -111,7 +115,7 @@
 
 이 자습서에서는 Android 앱에서 모바일 서비스의 데이터로 작업하기 위한 기본 사항에 대해 설명했습니다. 
 
-<!--다음에는 이 자습서에서 만든 GetStartedWithData 앱을 기반으로 하는 다음 자습서 중 하나를 완료해보세요.
+<!--다음에는 이 자습서에서 만든 GetStartedWithData 앱을 기반으로 하는 다음 자습서 중 하나를 완료해 보세요.
 
 * [스크립트를 사용하여 데이터 유효성 검사 및 수정]
   <br/>모바일 서비스에서 서버 스크립트를 사용하여 앱에서 전송된 데이터의 유효성을 검사하고 변경하는 방법에 대해 자세히 알아봅니다.
@@ -124,7 +128,7 @@
 
 다른 자습서도 시도해보세요.
 
-* [인증 시작](영문)
+* [인증 시작]
   <br/>앱 사용자를 인증하는 방법을 알아봅니다.
 
 * [푸시 알림 시작] 
@@ -163,8 +167,7 @@
 [13]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/new-local-todoitem.png
 [14]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/vs-show-local-table-data.png
 [15]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/local-item-checked.png
-[16]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/azure-ite
-	ms.png
+[16]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/azure-items.png
 [17]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/manage-sql-azure-database.png
 [18]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/sql-azure-query.png
 
@@ -177,21 +180,20 @@
 
 
 <!-- URLs. -->
-[스크립트를 사용하여 데이터 유효성 검사 및 수정]: /ko-kr/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
-[페이징을 사용하여 쿼리 구체화]: /ko-kr/develop/mobile/tutorials/add-paging-to-data-dotnet
-[모바일 서비스 시작]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/
-[인증 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-users-android
-[푸시 알림 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-push-android
-[JavaScript 및 HTML]: /ko-kr/develop/mobile/tutorials/get-started-with-data-js
-[JavaScript 백 엔드 버전]: /ko-kr/develop/mobile/tutorials/get-started-with-data-android
+[데이터 시작(Eclipse)]: /documentation/articles/mobile-services-dotnet-backend-android-get-started-data-EC/
+[스크립트를 사용하여 데이터 유효성 검사 및 수정]: /develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
+[페이징을 사용하여 쿼리 구체화]: /develop/mobile/tutorials/add-paging-to-data-dotnet
+[모바일 서비스 시작]: /documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/
+[인증 시작]: /develop/mobile/tutorials/get-started-with-users-android
+[푸시 알림 시작]: /develop/mobile/tutorials/get-started-with-push-android
+[JavaScript 및 HTML]: /develop/mobile/tutorials/get-started-with-data-js
+[JavaScript 백 엔드 버전]: /develop/mobile/tutorials/get-started-with-data-android
 
 [Azure 관리 포털]: https://manage.windowsazure.com/
 [관리 포털]: https://manage.windowsazure.com/
 [모바일 서비스 SDK]: http://go.microsoft.com/fwlink/p/?LinkId=257545
-[개발자 코드 샘플 사이트]:  http://go.microsoft.com/fwlink/p/?LinkId=328660
-[모바일 서비스 .NET 방법 개념 참조]: /ko-kr/develop/mobile/how-to-guides/work-with-net-client-library
-[MobileServiceClient 클래스]: http://go.microsoft.com/fwlink/p/?LinkId=302030
-[모바일 서비스 .NET 방법 개념 참조]: /ko-kr/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library
-
-
-<!--HONumber=42-->
+[개발자 코드 샘플 사이트(영문)]:  http://go.microsoft.com/fwlink/p/?LinkId=328660
+[모바일 서비스 .NET 방법 개념 참조]: /develop/mobile/how-to-guides/work-with-net-client-library
+[MobileServiceClient 클래스(영문)]: http://go.microsoft.com/fwlink/p/?LinkId=302030
+[모바일 서비스 .NET 방법 개념 참조]: /documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library  
+<!--HONumber=47-->

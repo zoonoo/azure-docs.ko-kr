@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Azure 웹 사이트, 클라우드 서비스 및 가상 컴퓨터 비교" 
 	description="웹 응용 프로그램을 호스팅하는 데 Azure 웹 사이트, 클라우드 서비스 및 가상 컴퓨터를 사용하는 경우에 대해 알아봅니다." 
 	services="web-sites, virtual-machines, cloud-services" 
@@ -20,9 +20,9 @@
 
 ## 개요
 
-Azure는  [Azure 웹 사이트][], [클라우드 서비스][], [가상 컴퓨터][] 등 웹 사이트를 호스트할 수 있는 여러 가지 방법을 제공합니다. 이 문서에서는 각 옵션에 대해 파악하고 웹 응용 프로그램에 적합한 옵션을 선택하는 데 도움이 되는 정보를 제공합니다.
+Azure는 [Azure 웹 사이트][], [클라우드 서비스][], [가상 컴퓨터][] 등 웹 사이트를 호스트할 수 있는 여러 가지 방법을 제공합니다. 이 문서에서는 각 옵션에 대해 파악하고 웹 응용 프로그램에 적합한 옵션을 선택하는 데 도움이 되는 정보를 제공합니다.
 
-대부분의 웹 앱에서는 Azure 웹 사이트가 가장 적합합니다. Azure 웹 사이트에서는 배포와 관리 기능이 플랫폼에 통합되고, 높은 트래픽 부하를 처리하기 위해 사이트를 빠르게 확장할 수 있으며, 기본 제공 부하 분산 및 트래픽 관리자가 고가용성을 제공합니다. [온라인 마이그레이션 도구](https://www.migratetoazure.net/)로 손쉽게 기존 사이트를 Azure 웹 사이트로 이동하거나, Web Application Gallery에서 오픈 소스 앱을 사용하거나, 선택한 프레임워크와 도구를 사용하여 새 사이트를 만들 수 있습니다. [WebJob][] 기능을 사용하면 백그라운드 작업 처리 기능을 앱에 쉽게 추가할 수 있습니다. 
+대부분의 웹 앱에서는 Azure 웹 사이트가 가장 적합합니다. Azure 웹 사이트에서는 배포와 관리 기능이 플랫폼에 통합되고, 높은 트래픽 부하를 처리하기 위해 사이트를 빠르게 확장할 수 있으며, 기본 제공 부하 분산 및 트래픽 관리자가 고가용성을 제공합니다. [온라인 마이그레이션 도구](https://www.migratetoazure.net/)를 사용하여 기존 사이트를 Azure 웹 사이트로 쉽게 이동하거나, 웹 응용 프로그램 갤러리에서 오픈 소스 앱을 사용하거나, 원하는 프레임워크와 도구를 사용하여 새 사이트를 만들 수 있습니다. [WebJob][] 기능을 사용하면 백그라운드 작업 처리 기능을 앱에 쉽게 추가할 수 있습니다. 
 
 서버에 원격 접속하거나 서버 시작 작업을 구성하는 기능 등 웹 서버 환경에 대한 추가 제어 기능이 필요한 경우에는 대개 Azure 클라우드 서비스가 가장 적합한 옵션입니다.
 
@@ -32,13 +32,7 @@ Azure 웹 사이트 또는 Azure 클라우드 서비스에서 실행하려면 �
 
 ![ChoicesDiagram][ChoicesDiagram]
 
-## 목차
-
-- [시나리오 및 권장 사항](#scenarios)
-- [기능 비교](#features)
-- [다음 단계](#nextsteps)
-
-##<a name="scenarios"></a>시나리오 및 권장 사항
+## <a name="scenarios"></a>시나리오 및 권장 사항
 
 아래에는 몇 가지 일반적인 응용 프로그램 시나리오와 권장 사항 및 각 시나리오에 가장 적합한 Azure 웹 호스팅 옵션이 나와 있습니다.
 
@@ -54,7 +48,7 @@ Azure 웹 사이트 또는 Azure 클라우드 서비스에서 실행하려면 �
 - [모바일 클라이언트용으로 REST API 또는 웹 서비스를 호스트하려는 경우](#mobile)
 
 
-### <a id="onprem"></a> 온-프레미스 자산과 통합된 비즈니스 응용 프로그램을 실행하기 위한 데이터베이스 백 엔드 및 백그라운드 처리 기능이 있는 웹 프런트 엔드가 필요한 경우
+### <a id="onprem"></a>온-프레미스 자산과 통합된 비즈니스 응용 프로그램을 실행하기 위한 데이터베이스 백 엔드 및 백그라운드 처리 기능이 있는 웹 프런트 엔드가 필요한 경우
 
 복잡한 비즈니스 응용 프로그램에 적합한 솔루션인 Azure 웹 사이트에서는 부하 분산된 플랫폼에서 자동으로 확장되고 Active Directory를 통해 보호되며 온-프레미스 리소스에 연결되는 앱을 개발할 수 있습니다. 또한 최고의 기능을 제공하는 관리 포털과 API를 통해 이러한 앱을 쉽게 관리할 수 있으며 앱 정보 도구를 사용하여 고객이 앱을 사용하는 방법을 파악할 수 있습니다. 새로운 [Webjob][] 기능을 통해 백그라운드 프로세스와 작업을 웹 계층의 일부로 실행할 수 있으며, 하이브리드 연결 및 [VNET 기능](../fundamentals-introduction-to-azure/#networking/) 을 사용하여 손쉽게 온-프레미스 리소스에 다시 연결할 수 있습니다. 99.9% SLA를 제공하는 Azure 웹 사이트에서는 다음을 수행할 수 있습니다.
 
@@ -64,7 +58,7 @@ Azure 웹 사이트 또는 Azure 클라우드 서비스에서 실행하려면 �
 * ISO, SOC2 및 PCI 호환성을 제공할 수 있습니다.
 * Active Directory와 통합할 수 있습니다.
 
-### <a id="corp"></a> 효율적으로 확장 가능하며 전 세계적으로 제공할 수 있는 회사 웹 사이트를 호스트할 안정적인 방법이 필요한 경우 
+### <a id="corp"></a> 효율적으로 확장 가능하며 전 세계적으로 제공할 수 있는 회사 웹 사이트를 호스트할 안정적인 방법이 필요한 경우
 
 회사 웹 사이트를 호스트하는 데 적합한 솔루션인 Azure 웹 사이트에서는 전 세계 데이터 센터 네트워크의 요구를 충족하도록 사이트를 빠르고 쉽게 확장할 수 있습니다. Azure 웹 사이트는 로컬 연결, 내결함성 및 지능형 트래픽 관리 기능을 제공합니다. 이러한 모든 기능이 최고 수준의 관리 도구가 포함된 플랫폼에서 제공되므로 사이트 상태와 사이트 트래픽을 빠르고 쉽게 파악할 수 있습니다. 99.9% SLA를 제공하는 Azure 웹 사이트에서는 다음을 수행할 수 있습니다.
 
@@ -77,7 +71,7 @@ Azure 웹 사이트 또는 Azure 클라우드 서비스에서 실행하려면 �
 
 ### <a id="iis6"></a> IIS6 응용 프로그램을 Windows Server 2003에서 실행 중인 경우
 
-Azure 웹 사이트에서는 이전의 IIS6 응용 프로그램 마이그레이션과 관련된 인프라 비용 문제를 쉽게 해결할 수 있습니다. Microsoft에서는 호환성을 확인하고 변경해야 하는 항목을 식별할 수 있는 [사용하기 쉬운 마이그레이션 도구와 자세한 마이그레이션 지침](https://www.movemetowebsites.net/) 을 만들었습니다. Visual Studio, TFS 및 일반 CMS 도구와의 통합을 통해 IIS6 응용 프로그램을 쉽게 클라우드로 직접 배포할 수 있습니다. 배포 후에는 Azure 관리 포털에서 제공하는 유용한 관리 도구를 사용하여 응용 프로그램을 축소해 비용을 관리하고 필요에 따라 수요 충족을 위해 응용 프로그램을 확장할 수 있습니다. 마이그레이션 도구를 통해 다음을 수행할 수 있습니다.
+Azure 웹 사이트에서는 이전의 IIS6 응용 프로그램 마이그레이션과 관련된 인프라 비용 문제를 쉽게 해결할 수 있습니다. Microsoft는 호환성을 확인하고 수행해야 하는 변경을 식별할 수 있는 [간편한 마이그레이션 도구와 자세한 마이그레이션 지침](https://www.movemetowebsites.net/)을 제작했습니다. Visual Studio, TFS 및 일반 CMS 도구와의 통합을 통해 IIS6 응용 프로그램을 쉽게 클라우드로 직접 배포할 수 있습니다. 배포 후에는 Azure 관리 포털에서 제공하는 유용한 관리 도구를 사용하여 응용 프로그램을 축소해 비용을 관리하고 필요에 따라 수요 충족을 위해 응용 프로그램을 확장할 수 있습니다. 마이그레이션 도구를 통해 다음을 수행할 수 있습니다.
 
 * 레거시 Windows Server 2003 웹 응용 프로그램을 클라우드로 빠르고 쉽게 마이그레이션할 수 있습니다.
 * 연결된 SQL 데이터베이스를 온-프레미스에 유지하여 하이브리드 응용 프로그램을 만들 수 있습니다. 
@@ -96,10 +90,10 @@ Azure 웹 사이트는 처음에 무료로 사용한 후 필요할 때 기능을
 
 웹 개발자와 디자이너의 경우 다양한 프레임워크 및 도구와 쉽게 통합되고, Git 및 FTP용 배포 지원을 포함하며, Visual Studio 및 SQL 데이터베이스와 같은 도구 및 서비스와 긴밀하게 통합되는 Azure 웹 사이트가 적합합니다. 웹 사이트를 통해 다음을 수행할 수 있습니다.
 
-- [자동화된 작업][scripting](영문)을 위해 명령줄 도구를 사용할 수 있습니다.
+- [자동화된 작업][scripting]을 위해 명령줄 도구를 사용할 수 있습니다.
 - [.Net][dotnet], [PHP][], [Node.js][nodejs], [Python][] 등의 인기 있는 언어로 작업할 수 있습니다.
 - 매우 높은 기능까지 확장하기 위해 세 가지 확장 수준을 선택할 수 있습니다.
-- [SQL 데이터베이스][sqldatabase], [Service Bus][servicebus], [저장소][] 등의 다른 Azure 서비스 및 MySQL, MongoDB 등 [Azure 스토어][azurestore]의 파트너 제공 항목과 통합할 수 있습니다.
+- [SQL 데이터베이스][sqldatabase], [서비스 버스][servicebus], [저장소][] 등의 다른 Azure 서비스 및 MySQL, MongoDB 등 [Azure 스토어][azurestore]의 파트너 제공 항목과 통합할 수 있습니다.
 - Visual Studio, Git, WebMatrix, WebDeploy, TFS, FTP 등의 도구와 통합할 수 있습니다.
 
 ### <a id="multitier"></a>웹 프런트 엔드가 있는 다중 계층 응용 프로그램을 클라우드로 마이그레이션하는 경우
@@ -129,7 +123,7 @@ Azure 웹 사이트는 처음에 무료로 사용한 후 필요할 때 기능을
 
 ### <a id="lob"></a>LOB(기간 업무) 응용 프로그램을 회사 네트워크에 연결해야 하는 경우
 
-LOB(기간 업무) 애플리케이션을 만들려는 경우 웹 사이트에 회사 네트워크의 서비스 또는 데이터에 대한 직접 액세스 권한이 필요할 수 있습니다. 웹 사이트, 클라우드 서비스 및 가상 컴퓨터에서 [Azure 가상 네트워크 서비스](/ko-kr/services/virtual-network/)를 사용하면 이와 같은 직접 액세스가 가능합니다. 웹 사이트에서 Azure 응용 프로그램이 회사 네트워크에 있는 것처럼 실행되도록 하는 새로운 [VNET 통합 기능](http://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/)을 사용할 수 있습니다.
+LOB(기간 업무) 애플리케이션을 만들려는 경우 웹 사이트에 회사 네트워크의 서비스 또는 데이터에 대한 직접 액세스 권한이 필요할 수 있습니다. 웹 사이트, 클라우드 서비스 및 가상 컴퓨터에서 [Azure 가상 네트워크 서비스](/services/virtual-network/)를 사용하면 이와 같은 직접 액세스가 가능합니다. 웹 사이트에서는 새로운 [VNET 통합 기능](http://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/)을 사용하면 Azure 응용 프로그램을 회사 네트워크에서와 같이 실행할 수 있습니다.
 
 ### <a id="mobile"></a>모바일 클라이언트용으로 REST API 또는 웹 서비스를 호스트하려는 경우
 
@@ -140,9 +134,9 @@ HTTP 기반 웹 서비스를 사용하면 모바일 클라이언트를 포함하
 - 단일 인스턴스로 가용성에 대한 SLA를 달성하거나 여러 전용 컴퓨터로 규모를 확장할 수 있습니다. 
 - 게시된 사이트를 사용하여 모바일 클라이언트를 비롯한 모든 HTTP 클라이언트에 REST API를 제공할 수 있습니다.
 
-##<a name="features"></a>기능 비교
+## <a name="features"></a>기능 비교
 
-다음 표에서는 최상의 옵션 선택에 도움이 되도록 웹 사이트, 클라우드 서비스 및 가상 컴퓨터의 기능을 비교합니다. 각 옵션의 SLA에 대한 최신 정보는 [Azure 서비스 수준 계약](/ko-kr/support/legal/sla/)을 참조하세요.
+다음 표에서는 최상의 옵션 선택에 도움이 되도록 웹 사이트, 클라우드 서비스 및 가상 Machines의 기능을 비교합니다. 각 옵션의 SLA에 대한 최신 정보는 [Azure 서비스 수준 계약](/support/legal/sla/)을 참조하세요.
 
 <table cellspacing="0" border="1">
 <tr>
@@ -234,7 +228,7 @@ HTTP 기반 웹 서비스를 사용하면 모바일 클라이언트를 포함하
    <td valign="middle">X</td>
    <td valign="middle">X</td>
    <td valign="middle">X</td>
-   <td valign="middle">웹 사이트에서 쉽게 REST API 중간 계층을 호스트할 수 있고, 웹 사이트의 <a href="http://go.microsoft.com/fwlink/?linkid=390226">WebJob</a> 기능으로 후순위 처리 작업을 호스트할 수 있습니다. 전용 웹 사이트에서 WebJobs를 실행하여 계층을 독립적으로 확장할 수 있습니다.</td>
+   <td valign="middle">웹 사이트에서는 REST API 중간 계층을 쉽게 호스트할 수 있으며 웹 사이트의 <a href="http://go.microsoft.com/fwlink/?linkid=390226">WebJobs</a> 기능은 백그라운드 처리 작업을 호스트할 수 있습니다. 전용 웹 사이트에서 WebJobs를 실행하여 계층을 독립적으로 확장할 수 있습니다.</td>
 </tr>
 <tr>
    <td valign="middle"><p>통합된 MySQL-as-a-Service 지원</p></td>
@@ -262,7 +256,7 @@ HTTP 기반 웹 서비스를 사용하면 모바일 클라이언트를 포함하
    <td valign="middle">X</td>
    <td valign="middle">X</td>
    <td valign="middle">X</td>
-   <td valign="middle">웹 사이트의 경우 사용자 지정 도메인 이름에 대한 SSL은 기본 및 표준 모드에서만 지원됩니다. 웹 사이트에서 SSL을 사용하는 방법에 대한 자세한 내용은 <a href="../web-sites-configure-ssl-certificate/">Azure 웹 사이트에 대해 SSL 인증서 구성</a>을 참조하세요.</td>
+   <td valign="middle">웹 사이트의 경우 사용자 지정 도메인 이름에 대한 SSL은 기본 및 표준 모드에서만 지원됩니다. 웹 사이트에 SSL을 사용하는 방법에 대한 자세한 내용은 <a href="../web-sites-configure-ssl-certificate/">Azure 웹 사이트에 대한 SSL 인증서 구성</a>을 참조하세요.</td>
 </tr>
 <tr>
    <td valign="middle"><p>Visual Studio 통합</p></td>
@@ -286,14 +280,14 @@ HTTP 기반 웹 서비스를 사용하면 모바일 클라이언트를 포함하
    <td valign="middle"></td>
 </tr>
 <tr>
-   <td valign="middle"><p>Azure 가상 네트워크를 사용한 <a href="/ko-kr/services/virtual-network/">네트워크 격리</a></p></td>
+   <td valign="middle"><p><a href="/services/virtual-network/">Azure 가상 네트워크</a>를 사용한 네트워크 격리</p></td>
    <td valign="middle">X</td>
    <td valign="middle">X</td>
    <td valign="middle">X</td>
-   <td valign="middle">참고 항목 <a href="/blog/2014/09/15/azure-websites-virtual-network-integration/">Azure 웹 사이트 가상 네트워크 통합</a></td>
+   <td valign="middle"><a href="/blog/2014/09/15/azure-websites-virtual-network-integration/">Azure 웹 사이트 가상 네트워크 통합</a>도 참조하세요.</td>
 </tr>
 <tr>
-   <td valign="middle"><p>Azure 트래픽 관리자 <a href="/ko-kr/services/traffic-manager/">지원</a></p></td>
+   <td valign="middle"><p><a href="/services/traffic-manager/">Azure 트래픽 관리자</a> 지원</p></td>
    <td valign="middle">X</td>
    <td valign="middle">X</td>
    <td valign="middle">X</td>
@@ -337,22 +331,22 @@ HTTP 기반 웹 서비스를 사용하면 모바일 클라이언트를 포함하
 </table>
 
 
-> [WACOM.NOTE]
-> 계정을 등록하기 전에 Azure 웹 사이트를 시작하려면 <a href="https://trywebsites.azurewebsites.net/">https://trywebsites.azurewebsites.net</a>으로 이동합니다. 이 Azure 웹 사이트에서는 무료로 단기 ASP.NET 시작 사이트를 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+> [AZURE.NOTE]
+> 계정을 등록하기 전에 Azure 웹 사이트를 시작하려면 <a href="https://trywebsites.azurewebsites.net/">https://trywebsites.azurewebsites.net</a>으로 이동합니다. Azure 웹 사이트에서는 무료로 단기 ASP.NET 시작 사이트를 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
 
 ## <a id="nextsteps"></a> 다음 단계
 
 3개 웹 호스팅 옵션에 대한 자세한 내용은 다음 리소스를 참조하세요.
 
-* [Azure 소개](영문)(../fundamentals-introduction-to-azure/)
-* [Azure 실행 모델](../fundamentals-application-models/)
+* [Azure 소개](../fundamentals-introduction-to-azure/)
+* [Azure에서 제공하는 계산 호스팅 옵션](../fundamentals-application-models/)
 
 응용 프로그램에 대해 선택한 옵션 사용을 시작하려면 다음 리소스를 참조하세요.
 
-* [Azure 웹 사이트](/ko-kr/documentation/services/websites/)
-* [Azure 클라우드 서비스](/ko-kr/documentation/services/cloud-services/)
-* [Azure 가상 컴퓨터](/ko-kr/documentation/services/virtual-machines/)
+* [Azure 웹 사이트](/documentation/services/websites/)
+* [Azure 클라우드 서비스](/documentation/services/cloud-services/)
+* [Azure 가상 컴퓨터](/documentation/services/virtual-machines/)
 
   [ChoicesDiagram]: ./media/choose-web-site-cloud-service-vm/Websites_CloudServices_VMs_3.png
   [Azure 웹 사이트]: http://go.microsoft.com/fwlink/?LinkId=306051
@@ -360,17 +354,16 @@ HTTP 기반 웹 서비스를 사용하면 모바일 클라이언트를 포함하
   [가상 컴퓨터]: http://go.microsoft.com/fwlink/?LinkID=306053
   [ClearDB]: http://www.cleardb.com/
   [WebJob]: http://go.microsoft.com/fwlink/?linkid=390226&clcid=0x409
-  [Azure 웹 사이트에 대해 SSL 인증서 구성]: http://azure.microsoft.com/develop/net/common-tasks/enable-ssl-web-site/
-  [azurestore]: http://azure.microsoft.com/gallery/store/
-  [scripting]: http://azure.microsoft.com/documentation/scripts/?services=web-sites
-  [dotnet]: http://azure.microsoft.com/develop/net/
-  [nodejs]: http://azure.microsoft.com/develop/nodejs/
-  [PHP]: http://azure.microsoft.com/develop/php/
-  [Python]: http://azure.microsoft.com/develop/python/
-  [servicebus]: http://azure.microsoft.com/documentation/services/service-bus/
-  [sqldatabase]: http://azure.microsoft.com/documentation/services/sql-database/
-  [저장소]: http://azure.microsoft.com/documentation/services/storage/
+  [WebJobs]: http://go.microsoft.com/fwlink/?linkid=390226&clcid=0x409
+  [Azure 웹 사이트에 대해 SSL 인증서 구성]: http://www.windowsazure.com/develop/net/common-tasks/enable-ssl-web-site/
+  [azurestore]: http://www.windowsazure.com/gallery/store/
+  [scripting]: http://www.windowsazure.com/documentation/scripts/?services=web-sites
+  [dotnet]: http://www.windowsazure.com/develop/net/
+  [nodejs]: http://www.windowsazure.com/develop/nodejs/
+  [PHP]: http://www.windowsazure.com/develop/php/
+  [Python]: http://www.windowsazure.com/develop/python/
+  [servicebus]: http://www.windowsazure.com/documentation/services/service-bus/
+  [sqldatabase]: http://www.windowsazure.com/documentation/services/sql-database/
+  [저장소]: http://www.windowsazure.com/documentation/services/storage/
 
-<!--HONumber=35.1-->
-
-<!--HONumber=46--> 
+<!--HONumber=47-->

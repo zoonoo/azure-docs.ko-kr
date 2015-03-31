@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/17/2015" 
+	ms.date="03/05/2015" 
 	ms.author="josephd"/>
 
-#테스트용 하이브리드 클라우드에 Office 365 디렉터리 동기화(DirSync) 설치
+# 테스트용 하이브리드 클라우드에 Office 365 디렉터리 동기화(DirSync) 설치
 
 이 항목에서는 Microsoft Azure에서 호스트되는 암호 동기화 사용 Office 365 디렉터리 동기화(DirSync)를 테스트하기 위한 하이브리드 클라우드 환경을 만드는 과정을 안내합니다. 다음은 결과 구성입니다.
 
@@ -41,17 +41,17 @@
 2.	Office 365 FastTrack 평가판 구성
 3.	DirSync 서버(DS1) 구성
 
-Azure 구독이 아직 없는 경우 [Azure 평가판 사용](http://www.windowsazure.com/pricing/free-trial/)에서 무료 평가판에 등록할 수 있습니다. MSDN 구독이 있는 경우 [MSDN 구독자를 위한 Azure 혜택](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 참조하세요.
+Azure 구독이 아직 없는 경우 [Azure 평가판 사용](http://azure.microsoft.com/pricing/free-trial/)에서 무료 평가판에 등록할 수 있습니다. MSDN 구독이 있는 경우 [MSDN 구독자를 위한 Azure 혜택](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 참조하세요.
 
-##단계 1: 하이브리드 클라우드 환경 설정
+## 단계 1: 하이브리드 클라우드 환경 설정
 
-[테스트용 하이브리드 클라우드 환경 설정](../virtual-networks-setup-hybrid-cloud-environment-testing/) 항목의 지침을 사용합니다. 이 테스트 환경에는 APP1 서버가 Corpnet 서브넷에 있을 필요가 없으므로 지금은 종료해도 됩니다.
+[테스트용 하이브리드 클라우드 환경 설정](../virtual-networks-setup-hybrid-cloud-environment-testing/)항목의 지침을 사용합니다. 이 테스트 환경에는 APP1 서버가 Corpnet 서브넷에 있을 필요가 없으므로 지금은 종료해도 됩니다.
 
 다음은 현재 구성입니다.
 
 ![](./media/virtual-networks-set-up-DirSync-hybrid-cloud-for-testing/CreateDirSyncHybridCloud_1.png)
 
-##단계 2: Office 365 FastTrack 평가판 구성
+## 단계 2: Office 365 FastTrack 평가판 구성
 
 Office 365 FastTrack 평가판을 시작하려면 가상 회사 이름 및 Microsoft 계정이 필요합니다. Contoso라는 회사 이름의 변형을 회사 이름으로 사용하는 것이 좋습니다. 이는 Microsoft 샘플 콘텐츠에서 사용되는 가상 회사이지만 필수 사항은 아닙니다.
 
@@ -74,13 +74,13 @@ Office 365 FastTrack 평가판을 시작하려면 가상 회사 이름 및 Micro
 
 ![](./media/virtual-networks-set-up-DirSync-hybrid-cloud-for-testing/CreateDirSyncHybridCloud_2.png)
 
-##단계 3: DirSync 서버(DS1) 구성
+## 단계 3: DirSync 서버(DS1) 구성
 
 먼저 로컬 컴퓨터의 Azure PowerShell 명령 프롬프트에서 다음 명령을 사용하여 DS1용 Azure 가상 컴퓨터를 만듭니다. 이러한 명령을 실행하기 전에 변수 값을 작성하고 < 및 > 문자를 제거합니다.
 
-	$ServiceName="<The cloud service name for your TestVNET virtual network>"
+	$ServiceName="<The cloud service name for your TestVNET virtual network>"	
 	$LocalAdminName="<A local administrator account name>" 
-	$LocalAdminPW="<A password for the local administrator account>"
+	$LocalAdminPW="<The password for the local administrator account>"
 	$User1Password="<The password for the CORP\User1 account>"
 	$image= Get-AzureVMImage | where { $_.ImageFamily -eq "Windows Server 2012 R2 Datacenter" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 	$vm1=New-AzureVMConfig -Name DS1 -InstanceSize Medium -ImageName $image
@@ -128,13 +128,13 @@ Windows PowerShell 명령 프롬프트에서 다음 명령을 사용하여 DS1�
 4.	**활성 디렉터리 동기화를 활성화하시겠습니까?**라는 메시지가 나타나면 **활성화**를 클릭합니다. 그러면 **Active Directory 동기화가 활성화되었습니다.**가 3단계에 표시됩니다.
 5.	CLIENT1에서 **Active Directory 동기화 설정 및 관리** 페이지를 열린 상태로 둡니다.
 
-그런 다음 CORP\User1 계정으로 DC1에 로그온하여 관리자 수준 Windows PowerShell 명령 프롬프트를 엽니다. 다음 명령을 실행하여 contoso_users라는 새 조직 구성 단위를 만들고 Marci Kaufman 및 Lynda Meyer에 대한 새 사용자 계정 두 개를 추가합니다.
+그런 다음 CORP\User1 계정으로 DC1에 로그온하여 관리자 수준 Windows PowerShell 명령 프롬프트를 엽니다. 다음 명령을 한 번에 하나씩 실행하여 contoso_users라는 새 조직 구성 단위를 만들고 Marci Kaufman 및 Lynda Meyer에 대한 새 사용자 계정 두 개를 추가합니다.
 
 	New-ADOrganizationalUnit -Name contoso_users -Path "DC=corp,DC=contoso,DC=com"
 	New-ADUser -SamAccountName marcik -AccountPassword (Read-Host "Set user password" -AsSecureString) -name "Marci Kaufman" -enabled $true -PasswordNeverExpires $true -ChangePasswordAtLogon $false -Path "OU=contoso_users,DC=corp,DC=contoso,DC=com"
 	New-ADUser -SamAccountName lyndam -AccountPassword (Read-Host "Set user password" -AsSecureString) -name "Lynda Meyer" -enabled $true -PasswordNeverExpires $true -ChangePasswordAtLogon $false -Path "OU=contoso_users,DC=corp,DC=contoso,DC=com"
 
-각 Windows PowerShell 명령을 실행하면 새 사용자의 암호를 묻는 메시지가 표시됩니다. 이러한 암호를 기록하여 안전하 위치에 보관합니다. 나중에 필요합니다.
+각 Windows PowerShell 명령을 실행하면 새 사용자의 암호를 묻는 메시지가 표시됩니다. 이러한 암호를 기록하여 안전한 위치에 보관합니다. 나중에 필요합니다.
 
 그런 다음 DS1에서 디렉터리 동기화를 구성합니다.
 
@@ -142,7 +142,7 @@ Windows PowerShell 명령 프롬프트에서 다음 명령을 사용하여 DS1�
 2.	**시작** 화면에서 **디렉터리 동기화**를 입력합니다.
 3.	**디렉터리 동기화 구성**을 마우스 오른쪽 단추로 클릭하고 **관리자 권한으로 실행**을 클릭합니다. 그러면 구성 마법사가 시작됩니다.
 4.	시작 페이지에서 **다음**을 클릭합니다.
-5.	Windows Azure Active Directory 자격 증명 페이지에서 단계 2에서 Office 365 FastTrack 평가판을 설치할 때 만든 초기 계정의 전자 메일 주소 및 암호를 입력합니다. 다음을 클릭합니다. 
+5.	Microsoft Azure Active Directory 자격 증명 페이지에서 단계 2에서 Office 365 FastTrack 평가판을 설치할 때 만든 초기 계정의 전자 메일 주소 및 암호를 입력합니다. 다음을 클릭합니다. 
 6.	Active Directory 자격 증명 페이지에서 **사용자 이름**에 **CORP\User1**을 입력하고 **암호**에 User1 계정 암호를 입력합니다. **다음**을 클릭합니다.
 7.	하이브리드 배포 페이지에서 **하이브리드 배포 사용**을 선택하고 **다음**을 클릭합니다.
 8.	암호 동기화 페이지에서 **암호 동기화 사용**을 선택하고 **다음**을 클릭합니다.
@@ -174,7 +174,7 @@ CLIENT1의 **Active Directory 동기화 설정 및 관리** 페이지에서 이 
  
 이제 이 환경은 Office 365 DirSync 기능을 기반으로 하는 Office 365 응용 프로그램의 테스트를 수행하거나 DS1에서 DirSync 기능 및 성능을 테스트할 준비가 완료되었습니다.
 
-##추가 리소스
+## 추가 리소스
 
 [Microsoft Azure에서 Office 365 디렉터리 동기화(DirSync) 배포](http://technet.microsoft.com/library/dn635310.aspx)
 
@@ -186,5 +186,6 @@ CLIENT1의 **Active Directory 동기화 설정 및 관리** 페이지에서 이 
 
 [테스트용 하이브리드 클라우드에 웹 기반 LOB 응용 프로그램 설치](../virtual-networks-setup-lobapp-hybrid-cloud-testing/)
 
+[테스트용 시뮬레이션된 하이브리드 클라우드 환경 설정](../virtual-networks-setup-simulated-hybrid-cloud-environment-testing/)
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

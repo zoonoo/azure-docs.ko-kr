@@ -34,15 +34,15 @@
 
 이 자습서는 모바일 서비스 퀵 스타트를 기반으로 합니다. 이 자습서를 시작하기 전에 먼저 [모바일 서비스 시작] 또는 [데이터 시작]을 완료하여 프로젝트를 모바일 서비스에 연결해야 합니다. 따라서 이 자습서를 사용하려면 Visual Studio 2013이 있어야 합니다. 
 
->[AZURE.NOTE]이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fko-kr%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started-data%2F" target="_blank">Azure 무료 평가판을</a>참조하세요. 
+>[AZURE.NOTE]이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fko-kr%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started-data%2F" target="_blank">Azure 무료 평가판</a>을 참조하세요. 
 
 
-## <a id="register"></a>Google Cloud Messaging 사용
+##<a id="register"></a>Google Cloud Messaging 사용
 
 [AZURE.INCLUDE [Enable GCM](../includes/mobile-services-enable-Google-cloud-messaging.md)]
 
 
-## <a id="configure"></a>푸시 요청을 보내도록 모바일 서비스 구성
+##<a id="configure"></a>푸시 요청을 보내도록 모바일 서비스 구성
 
 1. [Azure 관리 포털]에 로그온하여 **모바일 서비스**를 클릭한 후 앱을 클릭합니다.
 
@@ -66,7 +66,7 @@
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-test-local-service](../includes/mobile-services-dotnet-backend-test-local-service.md)]
 
-## <a id="update-server"></a>푸시 알림을 전송하도록 서버 업데이트
+##<a id="update-server"></a>푸시 알림을 전송하도록 서버 업데이트
 
 1. Visual Studio 솔루션 탐색기에서 모바일 서비스 프로젝트의 **컨트롤러** 폴더를 확장합니다. TodoItemController.cs를 엽니다. 파일 맨 위에 다음 `using` 문을 추가합니다.
 
@@ -106,9 +106,9 @@
 [AZURE.INCLUDE [mobile-services-dotnet-backend-publish-service](../includes/mobile-services-dotnet-backend-publish-service.md)]
 
 
-## <a name="update-app"></a>앱에 푸시 알림 추가
+##<a name="update-app"></a>앱에 푸시 알림 추가
 
-### Android SDK 버전 확인
+###Android SDK 버전 확인
 
 [AZURE.INCLUDE [mobile-services-verify-android-sdk-version](../includes/mobile-services-verify-android-sdk-version-EC.md)]
 
@@ -117,11 +117,11 @@
 
 이전 장치로 테스트할 경우 이 값을 적절하게 설정할 수 있는 최소값을 확인하려면 [Google Play Services SDK 설정]을 참조하세요.
 
-### 프로젝트에 Google Play Services 추가
+###프로젝트에 Google Play Services 추가
 
 [AZURE.INCLUDE [Add Play Services](../includes/mobile-services-add-Google-play-services-EC.md)]
 
-### 코드 추가
+###코드 추가
 
 [AZURE.INCLUDE [mobile-services-android-getting-started-with-push](../includes/mobile-services-android-getting-started-with-push-EC.md)]
 
@@ -129,7 +129,7 @@
 
 USB 케이블로 Android 휴대폰을 직접 연결하거나 에뮬레이터에서 가상 장치를 사용하여 앱을 테스트할 수 있습니다.
 
-### 테스트에 에뮬레이터를 사용하는 경우...
+###테스트에 에뮬레이터를 사용하는 경우...
 
 Google API를 지원하는 AVD(Android Virtual Device)를 사용해야 합니다.
 
@@ -137,17 +137,17 @@ Google API를 지원하는 AVD(Android Virtual Device)를 사용해야 합니다
 
 	![](./media/mobile-services-android-get-started-push/mobile-services-android-virtual-device-manager.png)
 
-2. **Google API**(또는 **Google API x86**)를  **대상**에서 선택하고 확인을 클릭합니다.
+2. **대상**에서 **Google API** 또는 **Google API x86**을 선택하고 확인을 클릭합니다.
 
    	![](./media/mobile-services-android-get-started-push/mobile-services-android-virtual-device-manager-edit.png)
 
 	AVD 대상이 Google API를 사용하도록 설정됩니다. 몇 가지 버전의 Android SDK가 설치되어 있는 경우 API 수준이 앞서 프로젝트 속성에서 설정한 것과 일치하는지 확인합니다.
 
-### <a id="local-testing"></a> 로컬 테스트에 푸시 알림 사용
+###<a id="local-testing"></a> 로컬 테스트에 푸시 알림 사용
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-configure-local-push](../includes/mobile-services-dotnet-backend-configure-local-push.md)]
 
-### 테스트 실행
+###테스트 실행
 
 1. Eclipse의 **실행** 메뉴에서 **실행**을 클릭하여 앱을 시작합니다.
 
@@ -163,17 +163,17 @@ Google API를 지원하는 AVD(Android Virtual Device)를 사용해야 합니다
 
 ## <a name="next-steps"> </a>다음 단계
 
-<!---이 자습서에서는 모바일 서비스 및 알림 허브를 사용하여 푸시 알림을 보낼 수 있도록 Android 앱을 설정하는 작업에 대한 기본 사항을 설명했습니다. 그다음에, 태그를 사용하여 모바일 서비스에서 인증된 사용자에게만 푸시 알림을 보내는 방법을 보여 주는 다음 자습서인 [인증된 사용자에게 푸시 알림 보내기]를 완료할 수 있습니다.
+<!---This tutorial demonstrated the basics of enabling an Android app to use Mobile Services and Notification Hubs to send push notifications. Next, consider completing the next tutorial, [Send push notifications to authenticated users], which shows how to use tags to send push notifications from a Mobile Service to only an authenticated user.
 
 
-+ [인증된 사용자에게 푸시 알림 보내기]
-	<br/>태그를 사용하여 모바일 서비스의 푸시 알림을 인증된 사용자에게만 보내는 방법에 대해 알아봅니다.
++ [Send push notifications to authenticated users]
+	<br/>Learn how to use tags to send push notifications from a Mobile Service to only an authenticated user.
 
-+ [구독자에게 브로드캐스트 알림 보내기]
-	<br/>사용자가 관심 있어 하는 범주에 대해 푸시 알림을 등록하고 수신하는 방법을 설명합니다.
++ [Send broadcast notifications to subscribers]
+	<br/>Learn how users can register and receive push notifications for categories they're interested in.
 
-+ [구독자에게 템플릿 기반 알림 보내기]
-	<br/>백 엔드에 플랫폼 전용 페이로드를 마련할 필요 없이 템플릿을 사용하여 모바일 서비스에서 푸시 알림을 보내는 방법에 대해 알아봅니다.
++ [Send template-based notifications to subscribers]
+	<br/>Learn how to use templates to send push notifications from a Mobile Service, without having to craft platform-specific payloads in your back-end.
 -->
 다음 항목에서 모바일 서비스 및 알림 허브에 대해 알아보세요.
 
@@ -235,27 +235,27 @@ Google API를 지원하는 AVD(Android Virtual Device)를 사용해야 합니다
 
 
 <!-- URLs. -->
-[스크립트를 사용하여 데이터 유효성 검사 및 수정]: /ko-kr/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
-[페이징을 사용하여 쿼리 구체화]: /ko-kr/develop/mobile/tutorials/add-paging-to-data-dotnet
-[모바일 서비스 시작]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-android-get-started
-[데이터 시작]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-android-get-started-data
-[인증 시작]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-android-get-started-users
-[JavaScript 및 HTML]: /ko-kr/develop/mobile/tutorials/get-started-with-data-js
-[JavaScript 백 엔드 버전]: /ko-kr/develop/mobile/tutorials/get-started-with-data-android
+[스크립트를 사용하여 데이터 유효성 검사 및 수정]: /develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
+[페이징을 사용하여 쿼리 구체화]: /develop/mobile/tutorials/add-paging-to-data-dotnet
+[모바일 서비스 시작]: /documentation/articles/mobile-services-dotnet-backend-android-get-started
+[데이터 시작]: /documentation/articles/mobile-services-dotnet-backend-android-get-started-data
+[인증 시작]: /documentation/articles/mobile-services-dotnet-backend-android-get-started-users
+[JavaScript 및 HTML]: /develop/mobile/tutorials/get-started-with-data-js
+[JavaScript 백 엔드 버전]: /develop/mobile/tutorials/get-started-with-data-android
 [Azure 관리 포털]: https://manage.windowsazure.com/
 [관리 포털]: https://manage.windowsazure.com/
 [모바일 서비스 SDK]: http://go.microsoft.com/fwlink/p/?LinkId=257545
-[개발자 코드 샘플 사이트(영문)]:  http://go.microsoft.com/fwlink/p/?LinkId=328660
-[모바일 서비스 .NET 방법 개념 참조]: /ko-kr/develop/mobile/how-to-guides/work-with-net-client-library
-[MobileServiceClient 클래스(영문)]: http://go.microsoft.com/fwlink/p/?LinkId=302030
+[개발자 코드 샘플 사이트]:  http://go.microsoft.com/fwlink/p/?LinkId=328660
+[모바일 서비스 .NET 방법 개념 참조]: /develop/mobile/how-to-guides/work-with-net-client-library
+[MobileServiceClient 클래스]: http://go.microsoft.com/fwlink/p/?LinkId=302030
 
-[모바일 서비스용 Android 클라이언트 라이브러리를 사용하는 방법]: /ko-kr/documentation/articles/mobile-services-android-how-to-use-client-library
+[모바일 서비스용 Android 클라이언트 라이브러리를 사용하는 방법]: /documentation/articles/mobile-services-android-how-to-use-client-library
 
-[인증된 사용자에게 푸시 알림 보내기]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-android-push-notifications-app-users/
+[인증된 사용자에게 푸시 알림 보내기]: /documentation/articles/mobile-services-dotnet-backend-android-push-notifications-app-users/
 
-[알림 허브 정의]: /ko-kr/documentation/articles/notification-hubs-overview/
-[구독자에게 브로드캐스트 알림 보내기]: /ko-kr/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/
-[구독자에게 템플릿 기반 알림 보내기]: /ko-kr/documentation/articles/notification-hubs-windows-store-dotnet-send-localized-breaking-news/
+[알림 허브 정의]: /documentation/articles/notification-hubs-overview/
+[구독자에게 브로드캐스트 알림 보내기]: /documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/
+[구독자에게 템플릿 기반 알림 보내기]: /documentation/articles/notification-hubs-windows-store-dotnet-send-localized-breaking-news/
 [Azure 관리 포털]: https://manage.windowsazure.com/
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

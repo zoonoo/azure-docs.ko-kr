@@ -1,11 +1,11 @@
-﻿<properties 
+<properties 
 	pageTitle="자습서: 사이트 간 연결용 프레미스 간 가상 네트워크 만들기" 
 	description="이 자습서에서는 프레미스 간 연결을 지원하는 Azure 가상 네트워크를 만드는 방법에 대해 알아봅니다." 
 	services="virtual-network" 
 	documentationCenter="" 
 	authors="cherylmc" 
 	manager="adinah" 
-	editor=""/>
+	editor="tysonn"/>
 
 <tags 
 	ms.service="virtual-network" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/23/2014" 
+	ms.date="02/20/2015" 
 	ms.author="cherylmc"/>
 
 
@@ -46,7 +46,7 @@ Azure 가상 컴퓨터에 AD DS를 배포하는 방법에 대한 지침은 [Azur
 
 추가 가상 네트워크 구성 절차 및 설정은 [Azure 가상 네트워크 구성 작업](http://go.microsoft.com/fwlink/?LinkId=296652)을 참조하세요.
 
-##  목표
+## 목표
 
 이 자습서에서는 다음에 대해 알아봅니다.
 
@@ -54,7 +54,7 @@ Azure 가상 컴퓨터에 AD DS를 배포하는 방법에 대한 지침은 [Azur
 
 -  조직 네트워크와 통신하도록 가상 네트워크를 구성하는 방법
 
-##  필수 조건
+## 필수 조건
 
 -  유효한 활성 Azure 구독이 하나 이상 있는 Microsoft 계정.  Azure 구독이 아직 없는 경우 [Azure 평가판 사용](http://www.windowsazure.com/pricing/free-trial/)에서 무료 평가판에 등록할 수 있습니다. MSDN 구독이 있는 경우에는 [Microsoft Azure 특별 가격: MSDN, MPN 및 Bizspark 혜택](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 참조하세요.
 
@@ -66,7 +66,7 @@ Azure 가상 컴퓨터에 AD DS를 배포하는 방법에 대한 지침은 [Azur
 
 -  공개 IPv4 주소를 사용하는 VPN 장치. 마법사를 완료하려면 IP 주소가 필요합니다. VPN 장치는 NAT(Network Address Translator) 뒤에 배치될 수 없으며 최소 장치 표준을 충족해야 합니다. 자세한 내용은 [가상 네트워크의 VPN 장치 정보](http://go.microsoft.com/fwlink/?LinkID=248098)를 참조하세요. 
 
-참고: VPN 솔루션의 일부로 Windows Server에서 RRAS(라우팅 및 원격 액세스 서비스)를 사용할 수 있습니다. 그러나 이 자습서에서는 RRAS 구성 단계를 안내하지 않습니다. 
+	참고: VPN 솔루션의 일부로 Windows Server에서 RRAS(라우팅 및 원격 액세스 서비스)를 사용할 수 있습니다. 그러나 이 자습서에서는 RRAS 구성 단계를 안내하지 않습니다. 
 	RRAS 구성 정보에 대해서는 [라우팅 및 원격 액세스 서비스 템플릿](http://msdn.microsoft.com/library/windowsazure/dn133801.aspx)을 참조하세요. 
 
 -  IPsec 터널 모드 연결을 위한 라우터 구성에 대한 경험 또는 이 단계에 도움이 될 수 있는 다른 사람
@@ -82,7 +82,7 @@ Azure 가상 컴퓨터에 AD DS를 배포하는 방법에 대한 지침은 [Azur
 
 3.  [VPN 장치 구성](#ConfigVPN)
 
-##  <a name="CreateVN">가상 네트워크 만들기</a>
+## <a name="CreateVN">가상 네트워크 만들기</a>
 
 회사 네트워크에 연결되는 가상 네트워크 예제를 만들려면
 
@@ -92,22 +92,19 @@ Azure 가상 컴퓨터에 AD DS를 배포하는 방법에 대한 지침은 [Azur
 
 	![](./media/virtual-networks-create-site-to-site-cross-premises-connectivity/CreateCrossVnet_01_OpenVirtualNetworkWizard.png)
 
-3.	**가상 네트워크 세부 정보** 페이지에서 다음 정보를 입력한 후 오른쪽 아래에서 다음 화살표를 클릭합니다. 정보 페이지의 설정에 대한 자세한 내용은 [관리 포털의 가상 네트워크 구성 정보](http://go.microsoft.com/fwlink/?LinkID=248092)의 **가상 네트워크 정보** 섹션을 참조하세요.
+3.	**가상 네트워크 세부 정보** 페이지에서 다음 정보를 입력한 후 오른쪽 아래에서 다음 화살표를 클릭합니다. 정보 페이지의 설정에 대한 자세한 내용은 관리 포털의 [가상 네트워크 구성 정보](http://go.microsoft.com/fwlink/?LinkID=248092)의 **가상 네트워크 정보** 섹션을 참조하세요.
 
-	-  **이름:**가상 네트워크의 이름. 이 자습서에 있는 예제의 경우 **YourVirtualNetwork**를 입력합니다.
+	-  **이름:** 가상 네트워크 이름을 지정합니다. 이 자습서의 예제에서는 **YourVirtualNetwork**를 입력합니다.
 
-	-  **지역:** 드롭다운 목록에서 원하는 지역을 선택합니다. 지정한 지역에 있는 Azure 데이터 센터에 가상 네트워크가 만들어집니다.
+	-  **위치:** 드롭다운 목록에서 원하는 지역을 선택합니다. 가상 네트워크는 지정된 지역에 있는 Azure 데이터 센터에 만들어집니다.
 
 	
 4.	**DNS 서버 및 VPN 연결** 페이지에서 다음 정보를 입력한 후 화면 아래의 오른쪽에 있는 정방향 화살표를 클릭합니다. 
 
-	<div class="dev-callout"> 
-	<b>참고</b> 
-	<p>이 페이지에서 <b>지점 및 사이트 간</b>과 <b>사이트 간</b> 구성을 동시에 선택할 수는 없습니다. 이 자습서에서는 <b>사이트 간</b>만 구성하도록 선택합니다. 이 페이지의 설정에 대한 자세한 내용은 <a href="http://go.microsoft.com/fwlink/?LinkID=248092">관리 포털의 가상 네트워크 구성 정보</a>의 <b>DNS 서버 및 VPN 연결</b> 페이지를 참조하세요.</p> 
-	</div>
+> [AZURE.NOTE] 이 페이지에서 **지점 및 사이트 간**과 **사이트 간** 구성을 동시에 선택할 수는 없습니다. 이 자습서에서는 **사이트 간**만 구성하도록 선택합니다. 이 페이지를 설정하는 방법에 대한 자세한 내용은 [관리 포털의 가상 네트워크 구성 정보](http://go.microsoft.com/fwlink/?LinkID=248092)에서 **DNS 서버 및 VPN 연결** 페이지를 참조하세요.
 
-	-  **DNS 서버:** 이름 확인에 사용할 DNS 서버 이름 및 IP 주소를 입력합니다. 일반적으로 온-프레미스 이름 확인에 사용하는 DNS 서버입니다. 이 설정은 DNS 서버를 만들지 않습니다. 이 자습서에 있는 예제의 경우 **YourDNS**를 이름으로, **10.1.0.4**를 IP 주소로 입력합니다.
-	-  **지점 및 사이트 간 VPN 구성:** 이 필드는 공백으로 둡니다. 
+	-  **DNS 서버:** 이름 확인에 사용할 DNS 서버 이름 및 IP 주소를 입력합니다. 일반적으로 온-프레미스 이름 확인에 사용하는 DNS 서버입니다. 이 설정은 DNS 서버를 만들지 않습니다. 이 자습서의 예제에서는 이름에 **YourDNS**를 입력하고, IP 주소에 **10.1.0.4**를 입력합니다.
+	-  **지점 및 사이트 간 VPN 구성:** 이 필드는 비워 둡니다. 
 	-  **사이트 간 VPN 구성:** 확인란을 선택합니다.
 	-  **로컬 네트워크:** 드롭다운 목록에서 **새 로컬 네트워크 지정**을 선택합니다.
  
@@ -117,7 +114,7 @@ Azure 가상 컴퓨터에 AD DS를 배포하는 방법에 대한 지침은 [Azur
 
 	-  **이름:** 이 자습서에 있는 예제의 경우 **YourCorpHQ**를 입력합니다.
 
-	-  **VPN 장치 IP 주소:** 이 자습서에 있는 예제의 경우 **3.2.1.1**을 입력합니다. 그렇지 않으면 VPN 장치의 공개 IP 주소를 입력합니다. 이 정보가 없는 경우 마법사의 다음 단계를 진행하기 전에 이 정보를 가져와야 합니다. VPN 장치는 NAT 뒤에 배치될 수 없습니다. VPN 장치에 대한 자세한 내용은 [가상 네트워크의 VPN 장치 정보](http://msdn.microsoft.com/library/windowsazure/jj156075.aspx)를 참조하세요.
+	-  **VPN 장치 IP 주소:** 이 자습서에 있는 예제의 경우 **3.2.1.1**을 입력합니다. 그렇지 않으면 VPN 장치의 공용 IP 주소를 입력합니다. 이 정보가 없는 경우 마법사의 다음 단계를 진행하기 전에 얻어야 합니다. VPN 장치는 NAT 뒤에 있을 수 없습니다. VPN 장치에 대한 자세한 내용은 [가상 네트워크의 VPN 장치 정보](http://msdn.microsoft.com/library/windowsazure/jj156075.aspx)를 참조하세요.
 
 	-  **주소 공간:** 이 자습서에 있는 예제의 경우 **10.1.0.0/16**을 입력합니다.
 	-  **주소 공간 추가:** 이 자습서에서는 추가 주소 공간이 필요하지 않습니다.
@@ -126,13 +123,13 @@ Azure 가상 컴퓨터에 AD DS를 배포하는 방법에 대한 지침은 [Azur
 
 6.  **가상 네트워크 주소 공간** 페이지에서 아래 정보를 입력한 후 페이지 아래의 오른쪽에 있는 확인 표시를 클릭하여 네트워크를 구성합니다. 
 
-	주소 공간은 10.0.0.0/8, 172.16.0.0/12 또는 192.168.0.0/16 주소 공간(RFC 1918에서 지정하는 대로)에서 CIDR 표기법으로 지정된 개인 주소 범위여야 합니다. 이 페이지의 설정에 대한 자세한 내용은 [관리 포털의 가상 네트워크 구성 정보](http://go.microsoft.com/fwlink/?LinkID=248092)의 **가상 네트워크 주소 공간** 페이지를 참조하세요.
+	주소 공간은 10.0.0.0/8, 172.16.0.0/12 또는 192.168.0.0/16 주소 공간(RFC 1918에서 지정하는 대로)에서 CIDR 표기법으로 지정된 개인 주소 범위여야 합니다. 이 페이지의 설정에 대한 자세한 내용은 [관리 포털의 가상 네트워크 구성 정보](http://go.microsoft.com/fwlink/?LinkID=248092)의 **가상 네트워크 주소 공간** 페이지를 참조하십시오.
 
 	-  **주소 공간:** 이 자습서에 있는 예제의 경우 화면 위의 오른쪽 모서리에서 **CIDR**을 클릭한 후 다음을 입력합니다.
 		-  **시작 IP:** 10.4.0.0
 		-  **CIDR:** /16
 	-  **서브넷 추가:** 이 자습서에 있는 예제의 경우 다음을 입력합니다.
-		-  **Subnet-1**을 시작 IP **10.4.2.0/24**인 **FrontEndSubnet**으로 바꿉니다.
+		-  **Subnet-1**을 시작 IP가 **10.4.2.0/24**인 **FrontEndSubnet**으로 바꿉니다.
 		-  시작 IP가 **10.4.3.0/24**인 **BackEndSubnet**이라는 서브넷을 추가합니다.
 		-  시작 IP가 **10.4.4.0/24**인 **ADDNSSubnet**이라는 서브넷을 추가합니다.
 		-  시작 IP가 **10.4.1.0/24**인 게이트웨이 서브넷을 추가합니다.
@@ -144,7 +141,7 @@ Azure 가상 컴퓨터에 AD DS를 배포하는 방법에 대한 지침은 [Azur
 
 	![](./media/virtual-networks-create-site-to-site-cross-premises-connectivity/CreateCrossVNet_06_VirtualNetworkCreatedStatus.png)
 
-##  <a name="StartGateway">게이트웨이 시작</a>
+## <a name="StartGateway">게이트웨이 시작</a>
 
 Azure 가상 네트워크를 만든 후 사이트 간 VPN을 만들려면 다음 절차에 따라 가상 네트워크 게이트웨이를 구성합니다. 이 절차에서는 최소 요구 사항을 충족하는 VPN 장치가 있어야 합니다. VPN 장치 및 장치 구성에 대한 자세한 내용은 [가상 네트워크의 VPN 장치 정보](http://go.microsoft.com/fwlink/?LinkID=248098)를 참조하세요.
 
@@ -152,13 +149,13 @@ Azure 가상 네트워크를 만든 후 사이트 간 VPN을 만들려면 다음
 
 1.	가상 네트워크가 만들어지면 **네트워크** 페이지에 가상 네트워크의 상태가 **Created**로 표시됩니다.
 
-**이름** 열에서 **YourVirtualNetwork**(이 자습서에서 만든 예제의 경우)를 클릭하여 대시보드를 엽니다.
+	**이름** 열에서 **YourVirtualNetwork**(이 자습서에서 만든 예제의 경우)를 클릭하여 대시보드를 엽니다.
  
 	![](./media/virtual-networks-create-site-to-site-cross-premises-connectivity/CreateCrossVNet_07_ClickYourVirtualNetwork.png)
 
 2.	페이지 위쪽에서 **대시보드**를 클릭합니다. 대시보드 페이지의 아래에 있는 **CREATE GATEWAY**를 클릭합니다. 만들려는 게이트웨이 유형에 대해 **Dynamic Routing** 또는 **Static Routing**을 선택합니다. 
 
-사이트 간 연결뿐 아니라 지점 및 사이트 간 연결에도 이 가상 네트워크를 사용하려는 경우 **Dynamic Routing**을 게이트웨이 유형으로 선택해야 합니다. 게이트웨이를 만들기 전에 VPN 장치에서 만들려는 게이트웨이 유형을 지원하는지 확인합니다. [가상 네트워크의 VPN 장치 정보](http://go.microsoft.com/fwlink/?LinkID=248098)를 참조하세요. 시스템에서 게이트웨이 만들 것인지 확인하는 메시지를 표시하면 **예**를 클릭합니다.
+	사이트 간 연결뿐 아니라 지점 및 사이트 간 연결에도 이 가상 네트워크를 사용하려는 경우 **Dynamic Routing**을 게이트웨이 유형으로 선택해야 합니다. 게이트웨이를 만들기 전에 VPN 장치에서 만들려는 게이트웨이 유형을 지원하는지 확인합니다. [가상 네트워크의 VPN 장치 정보](http://go.microsoft.com/fwlink/?LinkID=248098)를 참조하세요. 시스템에서 게이트웨이 만들 것인지 확인하는 메시지를 표시하면 **예**를 클릭합니다.
 
 	![](./media/virtual-networks-create-site-to-site-cross-premises-connectivity/CreateCrossVnet_08_CreateGateway.png)
 
@@ -191,7 +188,7 @@ Azure 가상 네트워크를 만든 후 사이트 간 VPN을 만들려면 다음
 드롭다운 목록에 VPN 장치가 표시되지 않는 경우 MSDN 라이브러리의 [가상 네트워크의 VPN 장치 정보](http://go.microsoft.com/fwlink/?LinkID=248098)에서 추가 스크립트 템플릿에 대한 내용을 참조하세요.
 
 
-##  <a name="ConfigVPN">VPN 장치 구성(네트워크 관리자)</a>
+## <a name="ConfigVPN">VPN 장치 구성(네트워크 관리자)</a>
 
 각 VPN 장치가 서로 다르므로 대략적인 절차만 다룹니다. 이 절차는 네트워크 관리자만 수행해야 합니다.
 
@@ -247,7 +244,7 @@ Azure 가상 네트워크를 만든 후 사이트 간 VPN을 만들려면 다음
 	</table>
 
 
-##  다음 단계
+## 다음 단계
 온-프레미스 Active Directory를 방금 만든 가상 네트워크로 확장하려면 다음 자습서를 진행하세요.
 
 -  [사용자 지정 방식으로 가상 컴퓨터를 만드는 방법](http://go.microsoft.com/fwlink/?LinkID=294356)
@@ -258,21 +255,22 @@ Azure 가상 네트워크를 만든 후 사이트 간 VPN을 만들려면 다음
 
 ## 참고 항목
 
--  [Azure 가상 네트워크](http://msdn.microsoft.com/library/windowsazure/jj156007.aspx)
+-  [Azure 가상 네트워크 개요](http://msdn.microsoft.com/library/windowsazure/jj156007.aspx)
 
 -  [가상 네트워크 FAQ](http://msdn.microsoft.com/library/windowsazure/dn133803.aspx)
 
 -  [네트워크 구성 파일을 사용하여 가상 네트워크 구성](http://msdn.microsoft.com/library/windowsazure/jj156097.aspx)
 
--  [가상 네트워크에 가상 컴퓨터 추가](http://azure.microsoft.com/manage/services/networking/add-a-vm-to-a-virtual-network/)
+-  [가상 네트워크에 가상 컴퓨터 추가](http://www.windowsazure.com/manage/services/networking/add-a-vm-to-a-virtual-network/)
 
--  [가상 네트워크의 VPN 장치 정보](http://msdn.microsoft.com/library/windowsazure/jj156075.aspx)
+-  [가상 네트워크의 VPN 장치 정보](http://msdn.microsoft.com/library/windowsazure/jj1575.aspx)
 
 -  [Azure 이름 확인 개요](http://go.microsoft.com/fwlink/?LinkId=248097)
+-  [테스트용 하이브리드 클라우드 환경 설정](http://azure.microsoft.com/documentation/articles/virtual-networks-setup-hybrid-cloud-environment-testing/)
 
 
 
 
 
 
-<!--HONumber=46--> 
+<!--HONumber=47-->

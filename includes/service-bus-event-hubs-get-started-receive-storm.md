@@ -1,4 +1,4 @@
-## Apache Storm을 사용하여 메시지 수신
+﻿## Apache Storm을 사용하여 메시지 수신
 
 [**Apache Storm**](https://storm.incubator.apache.org)은 분산된 실시간 계산 시스템으로, 바인딩되지 않은 데이터 스트림의 안정적인 처리를 간소화합니다. 이 섹션에서는 이벤트 허브 스톰 스파우트를 사용하여 이벤트 허브에서 이벤트를 수신하는 방법을 보여 줍니다. Apache Storm을 사용하면 다른 노드에 호스트된 여러 프로세스 간에 이벤트를 분할할 수 있습니다. 이벤트 허브와 Storm을 통합하면 Storm의 Zookeeper 설치를 통해 진행률을 투명하게 확인하고 지속적인 검사점을 관리하여 이벤트 사용이 간소화되고 이벤트 허브에서 병렬 수신됩니다.
 
@@ -16,7 +16,7 @@
 
 4. Eclipse에서 새 Maven 프로젝트를 만듭니다(**파일**, **새로 만들기**, **프로젝트**를 차례로 클릭).
 
-  	![][12]
+   	![][12]
 
 5. **Use default Workspace location(기본 작업 영역 위치 사용)**을 선택하고 **다음**을 클릭합니다.
 
@@ -228,4 +228,5 @@
 
 [12]: ./media/service-bus-event-hubs-getstarted/create-storm1.png
 [13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
-[14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png<!--HONumber=42-->
+[14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
+<!--HONumber=47-->

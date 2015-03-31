@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/17/2015" 
+	ms.date="03/05/2015" 
 	ms.author="josephd"/>
 
-#Azure PowerShell을 사용하여 Linux 기반 가상 컴퓨터 만들기 및 미리 구성
+# Azure PowerShell을 사용하여 Linux 기반 가상 컴퓨터 만들기 및 미리 구성
 
 다음 단계에서는 구성 요소 접근 방식을 사용하여 Linux 기반 Azure 가상 컴퓨터를 만들고 미리 구성하는 Azure PowerShell 명령 집합을 사용자 지정하는 방법을 보여 줍니다. 이 프로세스를 사용하여 새 Linux 기반 가상 컴퓨터에 대한 명령 집합을 신속하게 만들고 기존 배포를 확장하거나, 사용자 지정 개발/테스트 또는 IT 전문가 환경을 신속하게 빌드하는 여러 명령 집합을 만들 수 있습니다.
 
@@ -24,11 +24,11 @@
 
 Windows 기반 가상 컴퓨터에 대한 관련 항목은 [Azure PowerShell을 사용하여 Windows 기반 가상 컴퓨터 만들기 및 미리 구성](../virtual-machines-ps-create-preconfigure-windows-vms/)을 참조하세요.
 
-##1단계: Azure PowerShell 설치
+## 1단계: Azure PowerShell 설치
 
-[Azure PowerShell을 설치 및 구성하는 방법](../install-configure-powershell/)의 지침을 사용하여 로컬 컴퓨터에 Azure PowerShell을 설치합니다(아직 설치하지 않은 경우). 그런 다음 관리자 수준 Azure PowerShell 명령 프롬프트를 엽니다.
+[Azure PowerShell을 설치 및 구성하는 방법](../install-configure-powershell/)의 지침을 사용하여 로컬 컴퓨터에 Azure PowerShell을 설치합니다(아직 설치하지 않은 경우). 그런 다음 Azure PowerShell 명령 프롬프트를 엽니다.
 
-##2단계: 구독 및 저장소 계정 설정
+## 2단계: 구독 및 저장소 계정 설정
 
 Azure PowerShell 명령 프롬프트에서 다음 명령을 실행하여 Azure 구독 및 저장소 계정을 설정합니다. < 및 > 문자를 포함하여 따옴표 안의 모든 항목을 올바른 이름으로 바꿉니다.
 
@@ -39,7 +39,7 @@ Azure PowerShell 명령 프롬프트에서 다음 명령을 실행하여 Azure �
 
 **Get-AzureSubscription** 명령의 출력에 표시된 SubscriptionName 속성에서 올바른 구독 이름을 가져올 수 있습니다. **Select-AzureSubscription** 명령을 실행한 후 **Get-AzureStorageAccount** 명령의 출력에 표시된 Label 속성에서 올바른 저장소 계정 이름을 가져올 수 있습니다. 또한 이러한 명령을 텍스트 파일에 저장하여 나중에 사용할 수 있습니다.
 
-##3단계: ImageFamily 확인
+## 3단계: ImageFamily 확인
 
 이제 만들려는 Azure 가상 컴퓨터에 해당하는 특정 이미지에 대한 ImageFamily 값을 확인해야 합니다. 다음 명령을 사용하여 사용 가능한 ImageFamily 값 목록을 가져올 수 있습니다.
 
@@ -56,9 +56,9 @@ Azure PowerShell 명령 프롬프트에서 다음 명령을 실행하여 Azure �
 	$family="<ImageFamily value>"
 	$image=Get-AzureVMImage | where { $_.ImageFamily -eq $family } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 
-##4단계: 명령 집합 작성
+## 4단계: 명령 집합 작성
 
-아래에서 해당 블록 집합을 새 텍스트 파일에 복사한 다음 변수 값을 입력하고 < 및 > 문자를 제거하여 나머지 명령 집합을 작성합니다. 최종 결과에 대한 아이디어는 이 문서의 끝에 있는 두 가지 [예제](#examples) 참조하세요.
+아래에서 해당 블록 집합을 새 텍스트 파일에 복사한 다음 변수 값을 입력하고 < 및 > 문자를 제거하여 나머지 명령 집합을 작성합니다. 최종 결과에 대한 아이디어는 이 문서의 끝에 있는 두 가지 [예제](#examples)를 참조하세요.
 
 다음 두 명령 블록 중 하나를 선택하여 명령 집합을 시작합니다(필수).
 
@@ -151,7 +151,7 @@ Linux 기반 가상 컴퓨터에 대한 추가 사전 구성 옵션은 [Add-Azur
 	$vnetname="<name of the virtual network>"
 	New-AzureVM -ServiceName $svcname -VMs $vm1 -VNetName $vnetname
 
-##5단계: 명령 집합 실행
+## 5단계: 명령 집합 실행
 
 텍스트 편집기에서 작성한 Azure PowerShell 명령 집합(4단계의 여러 명령 블록으로 구성)을 검토합니다. 필요한 모든 변수를 지정하고 해당 변수에 올바른 값이 있는지 확인합니다. 또한 < 및 > 문자를 모두 제거했는지 확인합니다.
 
@@ -164,11 +164,11 @@ Linux 기반 가상 컴퓨터에 대한 추가 사전 구성 옵션은 [Add-Azur
 - 이 명령 집합을 텍스트 파일 또는 PowerShell 스크립트 파일(*.ps1)로 저장
 - Azure 관리 포털의 **자동화** 섹션에서 이 명령을 Azure 자동화 Runbook으로 저장 
 
-##<a id="examples"></a>예제
+## <a id="examples"></a>예제
 
 다음은 위 단계를 사용하여 Azure에서 Linux 기반 가상 컴퓨터를 만드는 Azure PowerShell 명령 집합을 작성하는 두 가지 예제입니다.
 
-###예제 1
+### 예제 1
 
 다음과 같은 MySQL Server용 Linux 가상 컴퓨터를 처음 만드는 데 사용할 수 있는 PowerShell 명령 집합이 필요합니다.
 
@@ -206,7 +206,7 @@ Linux 기반 가상 컴퓨터에 대한 추가 사전 구성 옵션은 [Add-Azur
 	$vnetname="AZDatacenter"
 	New-AzureVM -ServiceName $svcname -VMs $vm1 -VNetName $vnetname
 
-###예제 2
+### 예제 2
 
 다음과 같은 Apache 서버용 Linux 가상 컴퓨터를 만드는 데 사용할 수 있는 PowerShell 명령 집합이 필요합니다.
 
@@ -252,7 +252,7 @@ Linux 기반 가상 컴퓨터에 대한 추가 사전 구성 옵션은 [Add-Azur
 	$vnetname="AZDatacenter"
 	New-AzureVM -ServiceName $svcname -VMs $vm1 -VNetName $vnetname
 
-##추가 리소스
+## 추가 리소스
 
 [가상 컴퓨터 설명서](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
@@ -267,4 +267,4 @@ Linux 기반 가상 컴퓨터에 대한 추가 사전 구성 옵션은 [Add-Azur
 [Azure PowerShell을 사용하여 Windows 기반 가상 컴퓨터 만들기 및 미리 구성](../virtual-machines-ps-create-preconfigure-windows-vms/)
 
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

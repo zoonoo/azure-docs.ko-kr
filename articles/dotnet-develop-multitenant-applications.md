@@ -1,50 +1,20 @@
 ﻿<properties 
-	pageTitle="Azure 계정 만들기" 
-	description="계정 만들기" 
+	pageTitle="다중 테넌트 웹 응용 프로그램 패턴 - Azure 아키텍처" 
+	description="Azure에서 다중 테넌트 웹 응용 프로그램을 구현하는 방법에 대해 설명하는 아키텍처 개요 및 디자인 패턴을 찾습니다." 
+	services="" 
+	documentationCenter=".net" 
 	authors="" 
 	manager="wpickett" 
-	editor="" 
-	services="" 
-	documentationCenter=".net"/>
+	editor=""/>
 
 <tags 
-	ms.service="multiple" 
-	ms.workload="na" 
+	ms.service="active-directory" 
+	ms.workload="identity" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/11/2014" 
+	ms.date="11/19/2014" 
 	ms.author="wpickett"/>
-
-
-<div>
-<div class="left-nav">
-<div class="static-nav">
-<ul>
-<li class="menu-nodejs-compute"><a href="/ko-kr/develop/net/compute/">계산</a></li>
-<li class="menu-nodejs-data"><a href="/ko-kr/develop/net/data/">데이터 서비스</a></li>
-<li class="menu-nodejs-appservices"><a href="/ko-kr/develop/net/app-services/">앱 서비스</a></li>
-<li><a href="/ko-kr/develop/net/reference/">참조</a></li>
-<li><a href="/ko-kr/develop/net/guidance/">지침</a></li>
-<li><a href="/ko-kr/develop/net/architecture/">아키텍처</a></li>
-<li><a href="/ko-kr/develop/net/samples/">샘플</a></li>
-<li><a href="/ko-kr/develop/net/end-to-end-Apps/">시나리오 기반 자습서</a></li>
-</ul>
-<ul class="links">
-<li class="forum"><a href="/ko-kr/support/forums/">포럼</a></li>
-</ul>
-</div>
-<div class="floating-nav jump-to"><br />
-<ul>
-<li>섹션 내용(이동):</li>
-<li><a href="/ko-kr/develop/net/architecture/#overviews">응용 프로그램 아키텍처 개요</a></li>
-<li><strong>응용 프로그램 패턴: 다중 테넌트 앱</strong></li>
-<li><a href="/ko-kr/develop/net/architecture/load-testing-pattern/">응용 프로그램 패턴: 부하 테스트</a></li>
-<li><a href="/ko-kr/develop/net/architecture/#designpatterns">디자인 패턴</a></li>
-</ul>
-</div>
-</div>
-</div>
 
 # Azure의 다중 테넌트 응용 프로그램
 
@@ -60,19 +30,19 @@
 
 올바르게 구현된 다중 테넌트 응용 프로그램을 통해 사용자가 얻는 이점은 다음과 같습니다.
 
-- **격리**: 개별 테넌트의 활동이 다른 테넌트의 응용 프로그램 사용에 영향을 미치지 않습니다. 테넌트는 다른 테넌트의 데이터에 액세스할 수 없습니다. *단일 테넌트의 입장에서 응용 프로그램을 배타적으로 사용하는 것으로 보입니다.
+- **격리**: 개별 테넌트의 활동이 다른 테넌트의 응용 프로그램 사용에 영향을 미치지 않습니다. 테넌트는 다른 테넌트의 데이터에 액세스할 수 없습니다. 단일 테넌트의 입장에서 응용 프로그램을 배타적으로 사용하는 것으로 보입니다.
 - **가용성**: 개별 테넌트는 가능하면 SLA에 정의된 보증에 따라 응용 프로그램을 지속적으로 사용할 수 있기를 바랍니다. 또한 다른 테넌트의 활동이 응용 프로그램의 가용성에 영향을 미쳐서는 안 됩니다.
 - **확장성**: 개별 테넌트의 요구를 충족할 수 있도록 응용 프로그램이 확장됩니다. 다른 테넌트의 존재와 동작이 응용 프로그램의 성능에 영향을 미쳐서는 안 됩니다. 
 - **비용**: 다중 테넌트 지원은 리소스 공유를 가능하게 하므로 전용 단일 테넌트 응용 프로그램을 실행하는 것보다 비용이 낮습니다. 
-- **사용자 지정 가능**: 기능 추가 또는 제거, 색 및 로고 변경, 고유 코드 또는 스크립트 추가 등과 같은 다양한 방식으로 개별 테넌트에 맞게 응용 프로그램을 사용자 지정하는 기능입니다.
+- **사용자 지정 가능**. 기능 추가 또는 제거, 색 및 로고 변경, 고유 코드 또는 스크립트 추가 등과 같은 다양한 방식으로 개별 테넌트에 맞게 응용 프로그램을 사용자 지정하는 기능입니다.
  
 다시 말해서, 확장성이 뛰어난 서비스를 제공하기 위해 고려해야 할 점이 많이 있지만 다수의 다중 테넌트 응용 프로그램에 공통적인 목표와 요구 사항도 많습니다. 일부는 특정 시나리오에서 적절하지 않을 수 있으며, 개별 목표와 요구 사항의 중요성은 시나리오별로 다릅니다. 다중 테넌트 응용 프로그램 공급자에게는 테넌트의 목표와 요구 사항 충족, 수익성, 청구, 여러 서비스 수준, 프로비전, 유지 관리 모니터링, 자동화와 같은 목표와 요구 사항도 있습니다. 
 
-다중 테넌트 응용 프로그램 설계와 관련된 추가 고려 사항에 대한 자세한 내용은 [Azure에서 다중 테넌트 응용 프로그램 호스트][](영문)를 참조하세요.
+다중 테넌트 응용 프로그램 설계와 관련된 추가 고려 사항에 대한 자세한 내용은 [Azure에서 다중 테넌트 응용 프로그램 호스트][]를 참조하세요.
 
 Azure에는 다중 테넌트 시스템을 설계할 때 발생하는 주요 문제를 해결할 수 있는 많은 기능이 있습니다. 
 
-**격리** 
+**격리**
 
 - 호스트 헤더로 웹 사이트 테넌트 분할(SSL 통신을 사용하거나 사용하지 않음)
 - 쿼리 매개 변수로 웹 사이트 테넌트 분할
@@ -127,4 +97,4 @@ Azure에는 응용 프로그램의 새 테넌트를 프로비전하는 방법이
 
 
 
-<!--HONumber=46--> 
+<!--HONumber=47-->

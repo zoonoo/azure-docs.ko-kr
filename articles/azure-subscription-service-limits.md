@@ -1,6 +1,6 @@
 ﻿<properties 
 	pageTitle="Microsoft Azure 구독 및 서비스 제한, 할당량 및 제약 조건" 
-	description="일반적인 Azure 구독 및 서비스 제한 및 최대값 목록을 제공합니다." 
+	description="일반적인 Azure 구독 및 서비스 제한, 할당량 및 제약 조건 목록을 제공합니다. 여기에는 최대값과 함께 제한을 늘리는 방법에 대한 정보가 포함됩니다."
 	services="" 
 	documentationCenter="" 
 	authors="rothja" 
@@ -13,29 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/16/2015" 
+	ms.date="02/20/2015" 
 	ms.author="jroth"/>
 
 # Azure 구독 및 서비스 제한, 할당량 및 제약 조건
 
-다음 문서는 가장 일반적인 Microsoft Azure 제한을 지정합니다. 현재 이 문서에서는 일부 Azure 서비스에 대해 다룹니다. 시간 경과에 따라 이 제한은 더 많은 플랫폼에 적용되도록 확장 및 업데이트됩니다.
+## 개요
 
-- [구독 제한](#subscription)
-- [클라우드 서비스 제한](#webworkerlimits)
-- [가상 컴퓨터 제한](#vmlimits)
-- [웹 사이트 제한](#websiteslimits)
-- [네트워킹 제한](#networkinglimits)
-- [저장소 제한](#storagelimits)
-- [배치 미리 보기 제한](#batchlimits)
-- [DocumentDB 미리 보기 제한](#documentdblimits)
-- [SQL 데이터베이스 제한](#sqldblimits)
-- [미디어 서비스 제한](#mediaserviceslimits)
-- [서비스 버스 제한](#servicebuslimits)
-- [Active Directory 제한](#adlimits)
+이 문서는 가장 일반적인 Microsoft Azure 제한을 지정합니다. 현재 이 문서에서는 일부 Azure 서비스에 대해 다룹니다. 시간 경과에 따라 이 제한은 더 많은 플랫폼에 적용되도록 확장 및 업데이트됩니다.
 
-> [WACOM.NOTE] **기본 제한** 이상으로 제한을 높이려는 경우 [무료로 온라인 고객 지원 요청을 개설][azurelimitsblogpost]할 수 있습니다. 다음 표에 나오는 **최대 제한** 값 이상으로 제한을 높일 수 없습니다. **최대 제한** 열이 없는 경우는 지정된 리소스에 조정 가능한 제한이 없습니다.
+> [AZURE.NOTE] **기본 제한** 이상으로 제한을 높이려는 경우 [무료로 온라인 고객 지원 요청을 개설][azurelimitsblogpost]할 수 있습니다. 다음 표에 나오는 **최대 제한** 값 이상으로 제한을 높일 수 없습니다. **최대 제한** 열이 없는 경우는 지정된 리소스에 조정 가능한 제한이 없습니다.
 
-##<a name="subscription"></a>구독 제한
+## 구독 제한
 
 <table cellspacing="0" border="1">
 <tr>
@@ -44,32 +33,32 @@
    <th align="left" valign="middle">최대 제한</th>
 </tr>
 <tr>
-   <td valign="middle"><p>코어 <a href="http://msdn.microsoft.com/library/azure/hh531793.aspx">(구독당)</a><sup>1</sup></p></td>
+   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/azure/hh531793.aspx">구독</a>당 코어<sup>1</sup></p></td>
    <td valign="middle"><p>20</p></td>
    <td valign="middle"><p>10,000</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/azure/gg456328.aspx">공동 관리자</a> (구독당)</p></td>
+   <td valign="middle"><p>구독당 <a href="http://msdn.microsoft.com/library/azure/gg456328.aspx">공동 관리자</a></p></td>
    <td valign="middle"><p>200</p></td>
    <td valign="middle"><p>200</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/storage-whatis-account/">저장소 계정</a> (구독당)</p></td>
+   <td valign="middle"><p>구독당 <a href="http://azure.microsoft.com/documentation/articles/storage-create-storage-account/">저장소 계정</a></p></td>
    <td valign="middle"><p>100</p></td>
    <td valign="middle"><p>100</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/cloud-services-what-is/">클라우드 서비스</a> (구독당)</p></td>
+   <td valign="middle"><p>구독당 <a href="http://azure.microsoft.com/documentation/articles/cloud-services-what-is/">클라우드 서비스</a></p></td>
    <td valign="middle"><p>20</p></td>
    <td valign="middle"><p>200</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/azure/jj156007.aspx">가상 네트워크</a> (구독당)<sup>2</sup></p></td>
+   <td valign="middle"><p>구독당 <a href="http://msdn.microsoft.com/library/azure/jj156007.aspx">가상 네트워크</a><sup>2</sup></p></td>
    <td valign="middle"><p>10</p></td>
    <td valign="middle"><p>100</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/jj157100.aspx">로컬 네트워크</a> (구독당)</p></td>
+   <td valign="middle"><p>구독당 <a href="http://msdn.microsoft.com/library/jj157100.aspx">로컬 네트워크</a></p></td>
    <td valign="middle"><p>10</p></td>
    <td valign="middle"><p>100</p></td>
 </tr>
@@ -99,12 +88,12 @@
    <td valign="middle"><p>400</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/azure/jj156085.aspx">선호도 그룹</a> (구독당)</p></td>
+   <td valign="middle"><p>구독당 <a href="http://msdn.microsoft.com/library/azure/jj156085.aspx">선호도 그룹</a></p></td>
    <td valign="middle"><p>256</p></td>
    <td valign="middle"><p>256</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/azure-preview-portal-using-resource-groups/">리소스 그룹</a> (구독당)</p></td>
+   <td valign="middle"><p>구독당 <a href="http://azure.microsoft.com/documentation/articles/azure-preview-portal-using-resource-groups/">리소스 그룹</a></p></td>
    <td valign="middle"><p>300</p></td>
    <td valign="middle"><p>300</p></td>
 </tr>
@@ -120,7 +109,7 @@
 
 <sup>2</sup>각 가상 네트워크는 단일 가상 네트워크 게이트웨이를 지원합니다.
 
-##<a name="webworkerlimits"></a>클라우드 서비스 제한
+## 클라우드 서비스 제한
 
 <table cellspacing="0" border="1">
 <tr>
@@ -134,17 +123,17 @@
    <td valign="middle"><p>25</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/gg557552.aspx#InstanceInputEndpoint">인스턴스 입력 끝점</a> (배포당)</p></td>
+   <td valign="middle"><p>배포당 <a href="http://msdn.microsoft.com/library/gg557552.aspx#InstanceInputEndpoint">인스턴스 입력 끝점</a></p></td>
    <td valign="middle"><p>25</p></td>
    <td valign="middle"><p>25</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/gg557552.aspx#InputEndpoint">입력 끝점</a> (배포당)</p></td>
+   <td valign="middle"><p>배포당 <a href="http://msdn.microsoft.com/library/gg557552.aspx#InputEndpoint">입력 끝점</a></p></td>
    <td valign="middle"><p>25</p></td>
    <td valign="middle"><p>25</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/gg557552.aspx#InternalEndpoint">내부 끝점</a> (배포당)</p></td>
+   <td valign="middle"><p>배포당 <a href="http://msdn.microsoft.com/library/gg557552.aspx#InternalEndpoint">내부 끝점</a></p></td>
    <td valign="middle"><p>25</p></td>
    <td valign="middle"><p>25</p></td>
 </tr>
@@ -152,7 +141,7 @@
 
 <sup>1</sup>웹/작업자 역할이 있는 각 클라우드 서비스에는 프로덕션용과 스테이징용으로 두 개의 배포가 있을 수 있습니다. 또한 이 제한은 역할당 인스턴스 수(확장)가 아닌 고유 역할 수(구성)를 지칭합니다. 
 
-##<a name="vmlimits"></a>가상 컴퓨터 제한
+## 가상 컴퓨터 제한
 
 <table cellspacing="0" border="1">
 <tr>
@@ -161,7 +150,7 @@
    <th align="left" valign="middle">최대 제한</th>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/services/virtual-machines/">가상 컴퓨터</a> (클라우드 서비스당)<sup>1</sup></p></td>
+   <td valign="middle"><p>클라우드 서비스당 <a href="http://azure.microsoft.com/documentation/services/virtual-machines/">가상 컴퓨터</a><sup>1</sup></p></td>
    <td valign="middle"><p>50</p></td>
    <td valign="middle"><p>50</p></td>
 </tr>
@@ -176,11 +165,11 @@
 
 <sup>2</sup>입력 끝점은 포함 클라우드 서비스 외부에 있는 가상 컴퓨터와 통신을 허용하는 데 사용됩니다. 이 클라우드 서비스 내의 가상 컴퓨터는 내부 통신을 위해 모든 UDP 포트와 TCP 포트 사이의 통신을 자동으로 허용합니다.
 
-##<a name="websiteslimits"></a>웹 사이트 제한
+## 웹 사이트 제한
 
-[WACOM.INCLUDE [azure-websites-limits](../includes/azure-websites-limits.md)]
+[AZURE.INCLUDE [azure-websites-limits](../includes/azure-websites-limits.md)]
 
-##<a name="networkinglimits"></a>네트워킹 제한
+## 네트워킹 제한
 
 <table cellspacing="0" border="1">
 <tr>
@@ -189,7 +178,7 @@
    <th align="left" valign="middle">최대 제한</th>
 </tr>
 <tr>
-   <td valign="middle"><p>총 컴퓨터 수<sup>1</sup> 단위: <a href="http://msdn.microsoft.com/library/azure/jj156007.aspx">가상 네트워크</a><sup>2</sup></p></td>
+   <td valign="middle"><p>총 컴퓨터 수<sup>1</sup> <a href="http://msdn.microsoft.com/library/azure/jj156007.aspx">가상 네트워크</a>당<sup>2</sup></p></td>
    <td valign="middle"><p>2048</p></td>
    <td valign="middle"><p>2048</p></td>
 </tr>
@@ -216,7 +205,7 @@
 
 <sup>3</sup>ACL은 가상 컴퓨터의 입력 끝점에서 지원됩니다. 웹/작업자 역할의 경우, 입력 끝점 및 인스턴스 입력 끝점에서 지원됩니다.
 
-##<a name="storagelimits"></a>저장소 제한
+## 저장소 제한
 
 <table cellspacing="0" border="1">
 <tr>
@@ -291,15 +280,15 @@
 
 <sup>3</sup>GRS는 [지역 중복 저장소][georedundantstorage]의 약어입니다. LRS는 [로컬 중복 저장소][locallyredundantstorage]의 약어입니다. GRS도 로컬 중복 저장소입니다.
 
-##<a name="batchlimits"></a>배치 미리 보기 제한
+## 배치 미리 보기 제한
 
-[WACOM.INCLUDE [azure-batch-limits](../includes/azure-batch-limits.md)]
+[AZURE.INCLUDE [azure-batch-limits](../includes/azure-batch-limits.md)]
 
-##<a name="documentdblimits"></a>DocumentDB 미리 보기 제한
+## DocumentDB 미리 보기 제한
 
-[WACOM.INCLUDE [azure-documentdb-limits](../includes/azure-documentdb-limits.md)]
+[AZURE.INCLUDE [azure-documentdb-limits](../includes/azure-documentdb-limits.md)]
 
-##<a name="sqldblimits"></a>SQL 데이터베이스 제한
+## SQL 데이터베이스 제한
 
 SQL 데이터베이스 제한에 대한 자세한 내용은 다음 항목을 참조하세요.
 
@@ -308,40 +297,38 @@ SQL 데이터베이스 제한에 대한 자세한 내용은 다음 항목을 참
  - [DTU(데이터베이스 처리량 단위) 할당량][sqlDTU]
  - [SQL 데이터베이스 리소스 제한][sqldblimits]
 
-##<a name="mediaserviceslimits"></a>미디어 서비스 제한
+## 미디어 서비스 제한
 
-[WACOM.INCLUDE [azure-mediaservices-limits](../includes/azure-mediaservices-limits.md)]
+[AZURE.INCLUDE [azure-mediaservices-limits](../includes/azure-mediaservices-limits.md)]
 
-##<a name="servicebuslimits"></a>서비스 버스 제한
+## 서비스 버스 제한
 
-[WACOM.INCLUDE [azure-servicebus-limits](../includes/azure-servicebus-limits.md)]
+[AZURE.INCLUDE [azure-servicebus-limits](../includes/azure-servicebus-limits.md)]
 
-##<a name="adlimits"></a>Active Directory 제한
+## Active Directory 제한
 
 Azure AD(Active Directory)의 경우 다음 항목을 참조하세요.
 
  - [Azure Active Directory 서비스 제한 사항][adlimitsandrestrictions]
 
-##<a name="seealso"></a>참고 항목
+## 참고 항목
 
-[Azure 제한 및 증가 이해][azurelimitsblogpost](영문)
+[Azure 제한 및 증가 이해][azurelimitsblogpost]
 
 [Azure를 위한 가상 컴퓨터 및 클라우드 서비스 크기][vmsizes]
 
-  [customersupportfaq]: http://azure.microsoft.com/support/faq/
-  [azurelimitsblogpost]: http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/
-  [gateway]: http://msdn.microsoft.com/library/azure/jj156210.aspx 
-  [storagelimits]: http://msdn.microsoft.com/library/azure/dn249410.aspx
-  [georedundantstorage]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/introducing-geo-replication-for-windows-azure-storage.aspx
-  [sqldblimits]: http://msdn.microsoft.com/library/azure/dn338081.aspx
-  [sqltiers]: http://msdn.microsoft.com/library/azure/dn741340.aspx
-  [sqltiersperflevels]: http://msdn.microsoft.com/library/azure/dn741336.aspx
-  [sqlDTU]: http://msdn.microsoft.com/library/azure/ee336245.aspx#DTUs
-  [vmsizes]: http://msdn.microsoft.com/library/azure/dn197896.aspx
-  [georedundantstorage]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/introducing-geo-replication-for-windows-azure-storage.aspx
+[customersupportfaq]: http://azure.microsoft.com/support/faq/
+[azurelimitsblogpost]: http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/
+[gateway]: http://msdn.microsoft.com/library/azure/jj156210.aspx 
+[storagelimits]: http://msdn.microsoft.com/library/azure/dn249410.aspx
+[georedundantstorage]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/introducing-geo-replication-for-windows-azure-storage.aspx
+[sqldblimits]: http://msdn.microsoft.com/library/azure/dn338081.aspx
+[sqltiers]: http://msdn.microsoft.com/library/azure/dn741340.aspx
+[sqltiersperflevels]: http://msdn.microsoft.com/library/azure/dn741336.aspx
+[sqlDTU]: http://msdn.microsoft.com/library/azure/ee336245.aspx#DTUs
+[vmsizes]: http://msdn.microsoft.com/library/azure/dn197896.aspx
+[georedundantstorage]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/introducing-geo-replication-for-windows-azure-storage.aspx
   [locallyredundantstorage]: http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/08/introducing-locally-redundant-storage-for-windows-azure-storage.aspx
   [adlimitsandrestrictions]: http://msdn.microsoft.com/library/azure/dn764971.aspx
 
-<!--HONumber=35.2-->
-
-<!--HONumber=46--> 
+<!--HONumber=47-->

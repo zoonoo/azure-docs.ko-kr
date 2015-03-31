@@ -2,19 +2,15 @@
 
 1. Visual Studio 2013에서 솔루션 탐색기를 열어 마우스 오른쪽 단추로 Windows 스토어 앱을 클릭한 후 **추가**를 클릭하고 **푸시 알림...**을 클릭합니다. 
 
-	![Add Push Notification wizard in Visual Studio 2013](../includes/media/mobile-services-create-new-push-vs2013/mobile-add-push-notifications-vs2013.png)
+	![Add Push Notification wizard in Visual Studio 2013](./media/mobile-services-create-new-push-vs2013/mobile-add-push-notifications-vs2013.png)
 
 	푸시 알림 추가 마법사를 시작합니다.
 
 2. **다음**을 클릭하고 Windows 스토어 계정에 로그인하여 **새 이름 예약**에 이름을 입력한 후 **예약**을 클릭합니다.
 
-	![Select an app name in the Add Push Notification wizard](../includes/media/mobile-services-create-new-push-vs2013/mobile-add-push-notifications-vs2013-2.png) 
-
 	이렇게 하면 새 앱이 등록됩니다.
 
 3. **앱 이름** 목록에서 새로 등록한 앱을 클릭한 후 **다음**을 클릭합니다.
-
-	![mobile-add-push-notifications-vs2013-3](../includes/media/mobile-services-create-new-push-vs2013/mobile-add-push-notifications-vs2013-3.png)
 
 4. **서비스 선택** 페이지에서 모바일 서비스 이름을 클릭한 후 **다음** 및 **마침**을 클릭합니다. 
 
@@ -24,10 +20,11 @@
 
 5. 마법사가 완료되면 Visual Studio에서 **푸시 설정이 거의 완료됨**이라는 새 페이지가 열립니다. 이 페이지에는 이 자습서와 다른 알림을 보내도록 모바일 서비스 프로젝트를 구성하기 위한 또 다른 방법이 자세히 설명되어 있습니다. 
 
-	>[AZURE.NOTE]푸시 알림 추가 마법사를 통해 범용 Windows 앱 솔루션에 추가되는 코드는 플랫폼에 따라 다릅니다. 이 섹션의 뒷부분에서는 범용 앱을 보다 손쉽게 관리할 수 있도록 모바일 서비스 클라이언트 코드를 공유하여 이러한 중복성을 없앱니다.  
+	푸시 알림 추가 마법사를 통해 범용 Windows 앱 솔루션에 추가되는 코드는 플랫폼에 따라 다릅니다. 이 섹션의 뒷부분에서는 범용 앱을 보다 손쉽게 관리할 수 있도록 모바일 서비스 클라이언트 코드를 공유하여 이러한 중복성을 없앱니다.  
 
 <!-- URLs. -->
-[모바일 서비스 시작]: /ko-kr/develop/mobile/tutorials/get-started/
-[데이터 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-data-dotnet/
-[Visual Studio 2013에서 publishsettings 파일 가져오기]: /ko-kr/documentation/articles/mobile-services-windows-how-to-import-publishsettings/
-<!--HONumber=42-->
+[모바일 서비스 시작]: /develop/mobile/tutorials/get-started/
+[데이터 시작]: /develop/mobile/tutorials/get-started-with-data-dotnet/
+[Visual Studio 2013에서 publishsettings 파일 가져오기]: /documentation/articles/mobile-services-windows-how-to-import-publishsettings/
+
+<!--HONumber=47-->

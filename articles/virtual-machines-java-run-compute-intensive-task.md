@@ -5,7 +5,7 @@
 	documentationCenter="java" 
 	authors="rmcmurray" 
 	manager="wpickett" 
-	editor="mollybos"/>
+	editor="jimbe"/>
 
 <tags 
 	ms.service="virtual-machines" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="09/25/2014" 
+	ms.date="02/20/2015" 
 	ms.author="robmcm"/>
 
 # 가상 컴퓨터에서 Java로 계산 집약적인 작업을 실행하는 방법
@@ -78,18 +78,20 @@ Azure 서비스 버스 기능을 사용하려면 Baltimore CyberTrust 루트 인
 
 ## 서비스 버스 네임스페이스를 만드는 방법
 
-Azure에서 서비스 버스 큐 사용을 시작하려면 먼저 서비스 네임스페이스를 만들어야 합니다. 서비스 네임스페이스는 응용 프로그램 내에서 서비스 버스 리소스의 주소를 지정하기 위한 범위 컨테이너를 제공합니다.
+Azure에서 서비스 버스 큐 사용을 시작하려면 먼저
+서비스 네임스페이스를 만들어야 합니다. 서비스 네임스페이스는 응용 프로그램
+내에서 서비스 버스 리소스의 범위 지정 컨테이너를 제공합니다.
 
 서비스 네임스페이스를 만들려면
 
-1.  [관리 포털](https://manage.windowsazure.com)에 로그온합니다.
+1.  [Azure 관리 포털](https://manage.windowsazure.com)에 로그온합니다.
 2.  관리 포털의 왼쪽 아래 탐색 창에서 **서비스 버스, 액세스 제어 및 캐시**를 클릭합니다.
 3.  관리 포털의 왼쪽 위 창에서 **서비스
     버스** 노드를 클릭한 다음 **새로 만들기** 버튼을 클릭합니다.  
     ![Service Bus Node screenshot][svc_bus_node]
 4.  **새 서비스 네임스페이스 만들기** 대화 상자에서
     **네임스페이스**를 입력한 다음 해당 네임스페이스가 고유한지 확인하기 위해
-    **가용성 확인** 단추를 클릭합니다.
+    **가용성 확인** 단추를 클릭합니다.  
     ![Create a New Namespace screenshot][create_namespace]
 5.  네임스페이스 이름을 사용할 수 있음을 확인한 후에는
     네임스페이스를 호스트해야 하는 국가 또는 지역을 선택하고 **네임스페이스 만들기** 단추를 클릭합니다.  
@@ -99,16 +101,20 @@ Azure에서 서비스 버스 큐 사용을 시작하려면 먼저 서비스 네�
 
 ## 네임스페이스에 대한 기본 관리 자격 증명 얻기
 
-새 네임스페이스에 대해 큐 만들기 등의 관리 작업을 수행하려면 네임스페이스에 대한 관리 자격 증명을 받아야 합니다.
+새 네임스페이스에 대해 큐를 만드는 것과 같은 관리 작업을 수행하려면
+네임스페이스에 대한 관리 자격 증명을
+얻어야 합니다.
 
 1.  왼쪽 탐색 창에서 **서비스 버스** 노드를 클릭하여
     사용 가능한 네임스페이스 목록을 표시합니다.   
     ![Available Namespaces screenshot][avail_namespaces]
 2.  표시된 목록에서 방금 만든 네임스페이스를 선택합니다.   
     ![Namespace List screenshot][namespace_list]
-3.  오른쪽 **속성** 창에 새 네임스페이스의 속성이 나열됩니다.   
+3.  오른쪽 **속성** 창에 새 네임스페이스의
+    속성이 나열됩니다.   
     ![Properties Pane screenshot][properties_pane]
-4.  **기본 키**가 숨겨져 있습니다. **보기** 단추를 클릭하여 보안 자격 증명을 표시합니다.
+4.  **기본 키**가 숨겨져 있습니다. **보기** 단추를 클릭하여
+    보안 자격 증명을 표시합니다.   
     ![Default Key screenshot][default_key]
 5.  **기본 발급자** 및 **기본 키**를 기록해 둡니다.
     이 정보는 아래에서 네임스페이스 관련 작업을 수행하는 데
@@ -116,8 +122,8 @@ Azure에서 서비스 버스 큐 사용을 시작하려면 먼저 서비스 네�
 
 ## 계산 집약적인 작업을 수행하는 Java 응용 프로그램을 만드는 방법
 
-1. 개발 컴퓨터(직접 생성한 가상 컴퓨터일 필요는 없음)에서 [Java용 Azure SDK](http://azure.microsoft.com/develop/java/)를 다운로드합니다.
-2. 이 섹션의 끝부분에 있는 예제 코드를 사용하여 Java 콘솔 응용 프로그램을 만듭니다. 이 자습서의 목적에 맞춰 Java 파일 이름으로 **TSPSolver.java**를 사용합니다. **your\_service\_bus\_namespace**, **your\_service\_bus\_owner** 및 **your\_service\_bus\_key** 자리 표시자를 각각 서비스 버스의 **네임스페이스**, **기본 발급자** 및 **기본 키** 값을 사용하도록 수정합니다.
+1. 개발 컴퓨터(직접 생성한 가상 컴퓨터일 필요는 없음)에서 [Java용 Azure SDK](http://www.windowsazure.com/develop/java/)를 다운로드합니다.
+2. 이 섹션의 끝부분에 있는 예제 코드를 사용하여 Java 콘솔 응용 프로그램을 만듭니다. 이 자습서의 목적에 맞춰 Java 파일 이름으로 **TSPSolver.java**를 사용합니다. 서비스 버스의 **네임스페이스**, **기본 발급자** 및 **기본 키** 값을 각각 사용하도록 **your\_service\_bus\_namespace**, **your\_service\_bus\_owner** 및 **your\_service\_bus\_key** 자리 표시자를 수정합니다.
 3. 코딩 후에 응용 프로그램을 실행 가능한 Java 아카이브(JAR)로 내보내고 필요한 라이브러리를 생성된 JAR 안에 패키징합니다. 이 자습서의 목적에 맞게 **TSPSolver.jar**을 생성된 JAR의 이름으로 사용합니다.
 
 <p/>
@@ -501,7 +507,7 @@ Azure에서 서비스 버스 큐 사용을 시작하려면 먼저 서비스 네�
 ### 모니터링하는 클라이언트 응용 프로그램을 실행하는 방법
 1. 클라이언트 응용 프로그램을 실행할 컴퓨터에 로그온합니다. 이 컴퓨터가 **TSPSolver** 응용 프로그램을 실행하는 컴퓨터와 같을 수도 있지만 반드시 같아야 하는 것은 아닙니다.
 2. 응용 프로그램을 실행할 폴더(예: **c:\TSP**)를 만듭니다.
-3. **TSPClient.jar**을 **c:\TSP**에 복사합니다.
+3. **TSPClient.jar**을 **c:\TSP**에 복사합니다,
 4. JRE의 bin 폴더가 PATH 환경 변수에 포함되어 있는지 확인합니다.
 5. 명령 프롬프트에서 디렉터리를 c:\TSP로 변경합니다.
 6. 다음 명령을 실행합니다.
@@ -533,4 +539,5 @@ Azure에서 서비스 버스 큐 사용을 시작하려면 먼저 서비스 네�
 [add_ca_cert]: ../java-add-certificate-ca-store
 
 
-<!--HONumber=42-->
+
+<!--HONumber=47-->

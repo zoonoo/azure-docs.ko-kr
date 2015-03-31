@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/17/2015" 
+	ms.date="03/05/2015" 
 	ms.author="josephd"/>
 
 
-#테스트용 하이브리드 클라우드에 SharePoint 인트라넷 팜 설치
+# 테스트용 하이브리드 클라우드에 SharePoint 인트라넷 팜 설치
 
 이 항목에서는 Microsoft Azure에서 호스트되는 인트라넷 SharePoint 팜을 테스트하기 위한 하이브리드 클라우드 환경을 만드는 과정을 안내합니다. 다음은 결과 구성입니다.
 
@@ -41,9 +41,9 @@
 2.	SQL Server 컴퓨터(SQL1) 구성
 3.	SharePoint Server(SP1) 구성
 
-Azure 구독이 아직 없는 경우 [Azure 평가판 사용](http://www.windowsazure.com/pricing/free-trial/)에서 무료 평가판에 등록할 수 있습니다. MSDN 구독이 있는 경우 [MSDN 구독자를 위한 Azure 혜택](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 참조하세요.
+Azure 구독이 아직 없는 경우 [Azure 평가판 사용](http://azure.microsoft.com/pricing/free-trial/)에서 무료 평가판에 등록할 수 있습니다. MSDN 구독이 있는 경우 [MSDN 구독자를 위한 Azure 혜택](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 참조하세요.
 
-##단계 1: 하이브리드 클라우드 환경 설정
+## 단계 1: 하이브리드 클라우드 환경 설정
 
 [테스트용 하이브리드 클라우드 환경 설정](../virtual-networks-setup-hybrid-cloud-environment-testing/) 항목의 지침을 사용합니다. 이 테스트 환경에는 APP1 서버가 Corpnet 서브넷에 있을 필요가 없으므로 지금은 종료해도 됩니다.
 
@@ -51,7 +51,7 @@ Azure 구독이 아직 없는 경우 [Azure 평가판 사용](http://www.windows
 
 ![](./media/virtual-networks-set-up-SharePoint-hybrid-cloud-for-testing/CreateSPFarmHybridCloud_1.png)
  
-##단계 2: SQL Server 컴퓨터(SQL1) 구성
+## 단계 2: SQL Server 컴퓨터(SQL1) 구성
 
 Azure 관리 포털에서 DC2 컴퓨터(필요한 경우)를 시작합니다.
 
@@ -70,7 +70,7 @@ SPFarmAdmin 계정 암호를 제공하라는 메시지가 나타나면 강력한
 	$image= Get-AzureVMImage | where { $_.ImageFamily -eq "SQL Server 2014 RTM Standard on Windows Server 2012 R2" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 	$ServiceName="<The cloud service name for your TestVNET virtual network>"
 	$LocalAdminName="<A local administrator account name>" 
-	$LocalAdminPW="<A password for the local administrator account>"
+	$LocalAdminPW="<The password for the local administrator account>"
 	$User1Password="<The password for the CORP\User1 account>"
 	$vm1=New-AzureVMConfig -Name SQL1 -InstanceSize Large -ImageName $image
 	$vm1 | Add-AzureProvisioningConfig -AdminUserName $LocalAdminName -Password $LocalAdminPW -WindowsDomain -Domain "CORP" -DomainUserName "User1" -DomainPassword $User1Password -JoinDomain "corp.contoso.com"
@@ -142,14 +142,14 @@ SQL1의 Windows PowerShell 명령 프롬프트에서 다음 명령을 실행합�
 ![](./media/virtual-networks-set-up-SharePoint-hybrid-cloud-for-testing/CreateSPFarmHybridCloud_2.png)
 
  
-##단계 3: SharePoint Server(SP1) 구성
+## 단계 3: SharePoint Server(SP1) 구성
 
 먼저 로컬 컴퓨터의 Azure PowerShell 명령 프롬프트에서 다음 명령을 사용하여 SP1용 Azure 가상 컴퓨터를 만듭니다.
 
 	$image= Get-AzureVMImage | where { $_.Label -eq "SharePoint Server 2013 Trial" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 	$ServiceName="<The cloud service name for your TestVNET virtual network>"
 	$LocalAdminName="<A local administrator account name>" 
-	$LocalAdminPW="<A password for the local administrator account>"
+	$LocalAdminPW="<The password for the local administrator account>"
 	$User1Password="<The password for the CORP\User1 account>"
 	$vm1=New-AzureVMConfig -Name SP1 -InstanceSize Large -ImageName $image
 	$vm1 | Add-AzureProvisioningConfig -AdminUserName $LocalAdminName -Password $LocalAdminPW -WindowsDomain -Domain "CORP" -DomainUserName "User1" -DomainPassword $User1Password -JoinDomain "corp.contoso.com"
@@ -191,7 +191,7 @@ Ping 명령을 실행한 경우 IP 주소 10.0.0.1에서 성공적인 회신 4�
  
 하이브리드 클라우드 환경의 SharePoint 인트라넷 팜을 테스트할 준비가 완료되었습니다.
 
-##추가 리소스
+## 추가 리소스
 
 [Azure 인프라 서비스의 SharePoint](http://msdn.microsoft.com/library/azure/dn275955.aspx)
 
@@ -203,4 +203,5 @@ Ping 명령을 실행한 경우 IP 주소 10.0.0.1에서 성공적인 회신 4�
 
 [테스트용 하이브리드 클라우드에 Office 365 디렉터리 동기화(DirSync) 설치](../virtual-networks-setup-dirsync-hybrid-cloud-testing/)
 
-<!--HONumber=45--> 
+[테스트용 시뮬레이션된 하이브리드 클라우드 환경 설정](../virtual-networks-setup-simulated-hybrid-cloud-environment-testing/)
+<!--HONumber=47-->

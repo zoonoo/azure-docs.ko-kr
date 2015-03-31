@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/17/2015" 
+	ms.date="03/05/2015" 
 	ms.author="josephd"/>
 
-#테스트용 하이브리드 클라우드 환경 설정
+# 테스트용 하이브리드 클라우드 환경 설정
 
 이 항목에서는 Microsoft Azure를 사용하여 테스트용 하이브리드 클라우드 환경을 만드는 과정을 안내합니다. 다음은 결과 구성입니다.
 
@@ -42,11 +42,11 @@
 4.	사이트 간 VPN 연결 만들기
 5.	DC2 구성 
 
-Azure 구독이 아직 없는 경우 [Azure 평가판 사용](http://www.windowsazure.com/pricing/free-trial/)에서 무료 평가판에 등록할 수 있습니다. MSDN 구독이 있는 경우 [MSDN 구독자를 위한 Azure 혜택](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 참조하세요.
+Azure 구독이 아직 없는 경우 [Azure 평가판 사용](http://azure.microsoft.com/pricing/free-trial/)에서 무료 평가판에 등록할 수 있습니다. MSDN 구독이 있는 경우 [MSDN 구독자를 위한 Azure 혜택](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 참조하세요.
 
->[AZURE.NOTE] Azure의 가상 컴퓨터 및 가상 네트워크 게이트웨이는 실행 중인 동안 지속적인 비용이 부과됩니다. 이 비용은 무료 평가판, MSDN 구독 또는 유료 구독에 대해 청구됩니다. 이 테스트 환경을 사용하지 않을 때 실행 비용을 절감하려면 이 항목의 [이 환경의 지속적인 비용 최소화](#costs) 참조하세요.
+>[AZURE.NOTE] Azure의 가상 컴퓨터 및 가상 네트워크 게이트웨이는 실행 중인 동안 지속적인 비용이 부과됩니다. 이 비용은 무료 평가판, MSDN 구독 또는 유료 구독에 대해 청구됩니다. 이 테스트 환경을 사용하지 않을 때 실행 비용을 절감하려면 이 항목의 [이 환경의 지속적인 비용 최소화]를(#costs) 참조하세요.
 
-##단계 1: Corpnet 서브넷에서 컴퓨터 구성
+## 단계 1: Corpnet 서브넷에서 컴퓨터 구성
 
 [테스트 랩 가이드: Windows Server 2012 R2의 기본 구성](http://www.microsoft.com/download/details.aspx?id=39638)의 "Corpnet 서브넷 구성 단계"에 설명된 지침을 사용하여 Corpnet이라는 서브넷에서 DC1, APP1 및 CLIENT1 컴퓨터를 구성합니다. **이 서브넷은 RRAS1 컴퓨터를 통해 인터넷에 직접 연결되므로 조직 네트워크와 격리해야 합니다.** 
 
@@ -61,7 +61,7 @@ Azure 구독이 아직 없는 경우 [Azure 평가판 사용](http://www.windows
 
 ![](./media/virtual-networks-set-up-hybrid-cloud-environment-for-testing/CreateHybridCloudVNet_1.png)
  
-##단계 2: RRAS1 구성
+## 단계 2: RRAS1 구성
 
 RRAS1은 Corpnet 서브넷에 있는 컴퓨터와 TestVNET 가상 네트워크에 있는 컴퓨터 간에 트래픽 라우팅 및 VPN 장치 서비스를 제공합니다. RRAS1에는 두 개의 네트워크 어댑터가 설치되어야 합니다.
 
@@ -101,7 +101,7 @@ RRAS1의 관리자 수준 Windows PowerShell 명령 프롬프트에서 다음 �
 
 ![](./media/virtual-networks-set-up-hybrid-cloud-environment-for-testing/CreateHybridCloudVNet_2.png)
 
-#단계 3: 크로스-프레미스 Azure 가상 네트워크 만들기
+# 단계 3: 크로스-프레미스 Azure 가상 네트워크 만들기
 
 먼저 Azure 구독 자격 증명을 사용하여 [Azure 관리 포털](https://manage.windowsazure.com/microsoft.onmicrosoft.com#Workspaces/All/dashboard)에 로그온하고 TestVNET이라는 가상 네트워크를 만듭니다.
 
@@ -150,7 +150,7 @@ RRAS1의 관리자 수준 Windows PowerShell 명령 프롬프트에서 다음 �
 ![](./media/virtual-networks-set-up-hybrid-cloud-environment-for-testing/CreateHybridCloudVNet_3.png)
 
  
-#단계 4: 사이트 간 VPN 연결 만들기
+# 단계 4: 사이트 간 VPN 연결 만들기
 
 먼저 가상 네트워크 게이트웨이를 만듭니다.
 
@@ -213,16 +213,16 @@ CLIENT1의 관리자 수준 Windows PowerShell 명령 프롬프트에서 다음 
 ![](./media/virtual-networks-set-up-hybrid-cloud-environment-for-testing/CreateHybridCloudVNet_4.png)
 
 
-#단계 5: DC2 구성
+# 단계 5: DC2 구성
 
 먼저 로컬 컴퓨터의 Azure PowerShell 명령 프롬프트에서 다음 명령을 사용하여 DS2용 Azure 가상 컴퓨터를 만듭니다.
 
 	$ServiceName="<Your cloud service name from Phase 3>"
 	$LocalAdminName="<A local administrator account name>" 
-	$LocalAdminPW="<A password for the local administrator account>"
+	$LocalAdminPW="<The password for the local administrator account>"
 	$image = Get-AzureVMImage | where { $_.ImageFamily -eq "Windows Server 2012 R2 Datacenter" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 	$vm1=New-AzureVMConfig -Name DC2 -InstanceSize Medium -ImageName $image
-	$vm1 | Add-AzureProvisioningConfig -Windows -AdminUsername $LocalAdminName -Password $LocalAdminPW
+	$vm1 | Add-AzureProvisioningConfig -Windows -AdminUsername $LocalAdminName -Password $LocalAdminPW	
 	$vm1 | Set-AzureSubnet -SubnetNames TestSubnet
 	$vm1 | Set-AzureStaticVNetIP -IPAddress 192.168.0.4
 	$vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB 20 -DiskLabel ADFiles -LUN 0 -HostCaching None
@@ -285,15 +285,17 @@ TestVNET 가상 네트워크에는 고유한 DNS 서버(DC2)가 있으므로 이
  
 이제 하이브리드 클라우드 환경을 테스트할 준비가 완료되었습니다.
 
-##추가 리소스
+## 추가 리소스
 
-[테스트용 하이브리드 클라우드에 SharePoint 인트라넷 팜 설치](./virtual-networks-setup-sharepoint-hybrid-cloud-testing/)
+[테스트용 하이브리드 클라우드에 SharePoint 인트라넷 팜 설치](../virtual-networks-setup-sharepoint-hybrid-cloud-testing/)
 
 [테스트용 하이브리드 클라우드에 웹 기반 LOB 응용 프로그램 설치](../virtual-networks-setup-lobapp-hybrid-cloud-testing/)
 
 [테스트용 하이브리드 클라우드에 Office 365 디렉터리 동기화(DirSync) 설치](../virtual-networks-setup-dirsync-hybrid-cloud-testing/)
 
-##이 환경의 지속적인 비용 최소화
+[테스트용 시뮬레이션된 하이브리드 클라우드 환경 설정](../virtual-networks-setup-simulated-hybrid-cloud-environment-testing/)
+
+## 이 환경의 지속적인 비용 최소화
 
 이 환경에서 가상 컴퓨터를 실행하는 데 드는 비용을 최소화하려면 가능한 신속하게 필요한 테스트 및 데모를 수행한 다음 가상 컴퓨터를 삭제하거나, 사용하지 않을 때 가상 컴퓨터를 종료합니다. 예를 들어 Azure 자동화 및 Runbook을 사용하여 업무 시간이 끝날 때마다 Test_VNET 가상 네트워크의 가상 컴퓨터를 자동으로 종료할 수 있습니다. 자세한 내용은 [Azure 자동화 시작](../automation-create-runbook-from-samples/)을 참조하세요. 
 
@@ -316,4 +318,4 @@ Azure VPN 게이트웨이는 지속적인 비용이 발생하는 두 개의 Azur
 
 그런 다음 로컬 컴퓨터에서 Azure 관리 포털로 이동하여 TestVNET 가상 네트워크의 상태가 연결됨으로 표시될 때까지 기다립니다.
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

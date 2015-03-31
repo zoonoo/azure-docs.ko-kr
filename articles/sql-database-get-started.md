@@ -1,9 +1,24 @@
-﻿<properties urlDisplayName="How to create and provision" pageTitle="Azure SQL 데이터베이스 시작 - Azure" metaKeywords="" description="Azure에서 SQL 데이터베이스 만들기와 관리를 시작하는 방법에 대해 알아봅니다." metaCanonical="" services="sql-database" documentationCenter="" title="Getting Started with Azure SQL Database" authors="jeffryg"  solutions="" writer="" manager="jeffreyg" editor="tysonn"  />
+﻿<properties 
+	pageTitle="Azure SQL 데이터베이스 시작 - Azure" 
+	description="Azure에서 SQL 데이터베이스 만들기와 관리를 시작하는 방법에 대해 알아봅니다." 
+	services="sql-database" 
+	documentationCenter="" 
+	authors="jeffgoll" 
+	writer="" 
+	manager="jeffreyg" 
+	editor="tysonn"/>
 
-<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/04/2014" ms.author="jeffreyg" />
+<tags 
+	ms.service="sql-database" 
+	ms.workload="data-management" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="12/04/2014" 
+	ms.author="jeffreyg"/>
 
 
-#Microsoft Azure SQL 데이터베이스 시작
+## Microsoft Azure SQL 데이터베이스 시작
 
 이 자습서에서는 Azure 관리 포털을 사용하여 Microsoft Azure SQL 데이터베이스 관리의 기본 내용에 대해 알아봅니다. 처음으로 데이터베이스 관리를 접하는 경우 다음 단원의 내용을 따라 대략 30분 만에 핵심적인 기술을 배워볼 수 있습니다. 
 
@@ -12,37 +27,26 @@
 Excel을 사용하여 Azure 플랫폼의 샘플 데이터베이스와 쿼리 시스템 및 사용자 데이터를 만들고 프로비전하게 됩니다.
 
 
-##목차##
-
-* [1단계: Microsoft Azure 계정 만들기](#Subscribe)
-* [2단계: Azure에 연결 및 데이터베이스 만들기](#Subscribe)
-* [3단계: 방화벽 구성](#ConfigFirewall)
-* [4단계: Transact-SQL 스크립트를 사용하여 데이터 및 스키마 추가](#AddData)
-* [5단계: 스키마 만들기](#createschema)
-* [6단계: 데이터 삽입](#insertData)
-* [7단계: 관리 포털의 SQL 데이터베이스용 쿼리 샘플 및 시스템 데이터](#QueryDBSysData)
-* [8단계: 데이터베이스 로그인 만들기 및 권한 할당](#DBLogin)
-* [9단계: 다른 응용 프로그램에서 연결](#ClientConnection)
 
 
-<h2 id="Subscribe">1단계: Microsoft Azure 계정 만들기</h2>
+## 1단계: Microsoft Azure 계정 만들기
 
-1. 웹 브라우저를 열고 [http://azure.microsoft.com]으로(http://azure.microsoft.com)이동합니다.
+1. 웹 브라우저를 열고 [http://azure.microsoft.com](http://azure.microsoft.com)으로 이동합니다.
 무료 계정으로 시작하려면 오른쪽 위에 있는 무료 평가판을 클릭하고 안내되는 단계를 따르세요.
 
 2. 이제 계정이 만들어집니다. 시작할 준비가 되었습니다.
 
 
-<h2 id="Connect">2단계: Azure에 연결 및 데이터베이스 만들기</h2>
+## 2단계: Azure에 연결 및 데이터베이스 만들기
 
 
-1. [관리 포털]에(http://manage.windowsazure.com)로그인합니다. 다음과 같은 탐색 창이 표시됩니다.
+1. [관리 포털](http://manage.windowsazure.com)에 로그인합니다. 다음과 같은 탐색 창이 표시됩니다.
 
 	![Navigation pane][Image1]
 
-2. 페이지 아래쪽에서 **새로 만들기**를 클릭합니다. **새로 만들기**를 클릭하면 사용자가 만들 수 있는 항목의 목록이 화면에 표시됩니다.
+2. 페이지 맨 아래에서 **새로 만들기**를 클릭합니다. **새로 만들기**를 클릭하면 만들 수 있는 항목의 목록이 화면 위로 표시됩니다.
 
-3. **SQL 데이터베이스**를 클릭한 후 **사용자 지정 만들기**를 클릭합니다. 
+3. **SQL 데이터베이스**와 **사용자 지정 만들기**를 차례로 클릭합니다. 
 
 	![Navigation pane][Image2]
 
@@ -73,23 +77,23 @@ Excel을 사용하여 Azure 플랫폼의 샘플 데이터베이스와 쿼리 시
 
 * 지역을 선택합니다. 지역은 서버의 지리적 위치를 결정합니다. 지역은 쉽게 바꿀 수 없으므로 이 서버에 맞는 지역을 선택하세요. 사용자에게 가장 가까운 위치를 선택합니다. Azure 응용 프로그램 및 데이터베이스를 동일한 지역에 유지하면 발신용 대역폭 비용과 데이터 대기 시간이 절약됩니다.
 
-* SQL 데이터베이스용 관리 포털, Office 365의 Excel 또는 Azure SQL 보고를 사용하여 이 데이터베이스에 연결할 수 있도록 **Azure 서비스가 서버에 액세스할 수 있도록 허용합니다.**  확인란을 선택한 상태를 유지해야 합니다.
+* SQL 데이터베이스용 관리 포털, Office 365의 Excel 또는 Azure SQL 보고를 사용하여 이 데이터베이스에 연결할 수 있도록 **Azure 서비스가 이 서버에 액세스할 수 있도록 허용합니다.**  확인란을 선택한 상태를 유지해야 합니다.
 
 * 완료하면 페이지 맨 아래에 있는 확인 표시를 클릭합니다.
 
 서버 이름을 지정하지 않았다는 점에 유의하세요. 전 세계에서 SQL 데이터베이스 서버에 액세스할 수 있어야 하므로, SQL 데이터베이스는 서버가 만들어질 때 적절한 DNS 항목을 구성합니다. 이 이름은 다른 DNS 항목과의 이름 충돌이 발생하지 않도록 생성됩니다. SQL 데이터베이스 서버의 이름은 변경할 수 없습니다.
 
-방금 만든 **School** 데이터베이스를 호스트하는 서버의 이름을 보려면 왼쪽 탐색 창에서 **SQL 데이터베이스**를 클릭한 후에 **SQL 데이터베이스** 목록 보기에서 **School** 데이터베이스를 클릭합니다. **퀵 스타트** 페이지에서 아래로 스크롤하여 서버 이름을 봅니다.
+방금 만든 **School** 데이터베이스를 호스트하는 서버의 이름을 보려면 왼쪽 탐색 창에서 **SQL 데이터베이스**를 클릭한 후에 **SQL 데이터베이스** 목록 보기에서 **School** 데이터베이스를 클릭합니다. **빠른 시작** 페이지에서 아래로 스크롤하여 서버 이름을 확인합니다.
 
 다음 단계에서는, SQL 데이터베이스 서버의 데이터베이스에 액세스할 수 있게 컴퓨터에서 실행 중인 응용 프로그램의 연결이 허용되도록 방화벽을 구성합니다.
 
 
 
-<h2 id="ConfigFirewall">3단계: 방화벽 구성</h2>
+## 3단계: 방화벽 구성
 
 연결이 허용되도록 방화벽을 구성하려면 서버 페이지에 정보를 입력합니다.
 
-**참고:** SQL 데이터베이스 서비스는 TDS 프로토콜에 사용되는 TCP 포트 1433에서만 사용 가능하므로 네트워크 및 로컬 컴퓨터의 방화벽에서 포트 1433의 나가는 TCP 통신을 허용하는지 확인하세요. 자세한 내용은 [SQL 데이터베이스 방화벽](영문)을(http://social.technet.microsoft.com/wiki/contents/articles/2677.sql-azure-firewall-ko-kr.aspx)참조하세요.
+**참고:** SQL 데이터베이스 서비스는 TDS 프로토콜에 사용되는 TCP 포트 1433에서만 사용 가능하므로 네트워크 및 로컬 컴퓨터의 방화벽에서 포트 1433의 나가는 TCP 통신을 허용하는지 확인해야 합니다. 자세한 내용은 [SQL 데이터베이스 방화벽](http://social.technet.microsoft.com/wiki/contents/articles/2677.sql-azure-firewall-ko-kr.aspx)을 참조하세요.
 
 
 1. 왼쪽의 탐색 창에서 **SQL 데이터베이스**를 클릭합니다.
@@ -116,29 +120,29 @@ Excel을 사용하여 Azure 플랫폼의 샘플 데이터베이스와 쿼리 시
 
 
 
-<h2 id="AddData">4단계: Transact-SQL 스크립트를 사용하여 데이터 및 스키마 추가</h2>
+## 4단계: Transact-SQL 스크립트를 사용하여 데이터 및 스키마 추가
 
 이 단계에서는 두 개의 스크립트를 실행합니다. 첫 번째 스크립트는 테이블, 열 및 관계를 정의하는 스키마를 만듭니다. 두 번째 스크립트는 데이터를 추가합니다. 각 단계는 개별 연결과 상관없이 수행됩니다. SQL Server에서 이전에 데이터베이스를 만들어 본 적이 있는 경우 SQL 데이터베이스의 유일한 차이점 중 하나는 CREATE 및 INSERT 명령을 개별 배치로 실행해야 한다는 것입니다. SQL 데이터베이스는 전송 중인 데이터에 대한 공격을 최소화하기 위해 이 요구 사항을 설정합니다. 
 
-**참고:** 스키마 및 데이터 값은 이 [MSDN 문서]에서(http://msdn.microsoft.com/ko-kr/library/windowsazure/ee621790.aspx "MSDN article") 가져온 것이며 SQL 데이터베이스에 사용하기 위해 수정했습니다.
+**참고:** 스키마 및 데이터 값은 이 [MSDN 문서](http://msdn.microsoft.com/library/windowsazure/ee621790.aspx "MSDN article")에서 가져온 것이며, SQL 데이터베이스에 사용하기 위해 수정되었습니다.
 
-1. 홈페이지로 이동합니다. [관리 포털](http://manage.windowsazure.com)에서 **School** 데이터베이스가 홈페이지의 항목 목록에 나타납니다.
+1. 홈 페이지로 이동합니다. [관리 포털](http://manage.windowsazure.com)에서 **School** 데이터베이스가 홈 페이지의 항목 목록에 나타납니다.
 
 	![Navigation pane][Image8]
 
 2. **School**을 클릭하여 선택한 후에 페이지 맨 아래에 있는 **관리**를 클릭합니다. 그러면 SQL 데이터베이스용 관리 포털이 열립니다. 이 포털은 Azure 관리 포털과 별개입니다. 이 포털에서 Transact-SQL 명령 및 쿼리를 실행합니다.
 
-3. 관리자 로그인 이름 및 암호를 입력하여 **School** 데이터베이스에 로그인합니다. 이는 서버를 만들 때 지정한 관리자 로그인입니다.
+3. **School**데이터베이스에 로그인하기 위한 관리자 로그인 이름 및 암호를 입력합니다. 이는 서버를 만들 때 지정한 관리자 로그인입니다.
 
 4. SQL 데이터베이스의 관리 포털에서 리본에 있는 **새 쿼리**를 클릭합니다. 빈 쿼리 창이 작업 영역에서 열립니다. 다음 단계에서는, 이 창에서 빈 데이터베이스에 구조체 및 데이터를 추가하는 미리 정의된 일련의 스크립트를 복사해 넣습니다.
 
 
 
-<h2 id="createschema">5단계: 스키마 만들기</h2>
+## 5단계: 스키마 만들기
 
-이 단계에서 다음 스크립트를 사용하여 스키마를 만듭니다. 이 스크립트는 먼저 동일한 이름의 기존 테이블을 검사하여 이름 충돌이 발생하지 않는지 확인하고, [CREATE TABLE](http://msdn.microsoft.com/ko-kr/library/windowsazure/ee336258.aspx) 문을 사용하여 테이블을 만듭니다. 더 나아가, 이 스크립트는 [ALTER TABLE](http://msdn.microsoft.com/ko-kr/library/windowsazure/ee336286.aspx) 문을 사용하여 기본 키 및 테이블 관계를 지정합니다.
+이 단계에서 다음 스크립트를 사용하여 스키마를 만듭니다. 이 스크립트는 먼저 동일한 이름의 기존 테이블을 검사하여 이름 충돌이 발생하지 않는지 확인한 다음 [CREATE TABLE](http://msdn.microsoft.com/library/windowsazure/ee336258.aspx) 문을 사용하여 테이블을 만듭니다. 또한 [ALTER TABLE](http://msdn.microsoft.com/library/windowsazure/ee336286.aspx) 문을 사용하여 기본 키 및 테이블 관계를 지정합니다.
 
-다음 스크립트를 복사하여 쿼리 창에 붙여넣습니다. 창 위쪽에서 **실행**을 클릭하여 스크립트를 실행합니다.
+다음 스크립트를 복사하여 쿼리 창에 붙여넣습니다. 창의 위쪽에서 **실행**을 클릭하여 스크립트를 실행합니다.
 
 <div style="width:auto; height:600px; overflow:auto"><pre>
 	-- Create the Department table.
@@ -380,9 +384,9 @@ Excel을 사용하여 Azure 플랫폼의 샘플 데이터베이스와 쿼리 시
 
 
 
-<h2 id="insertData">6단계: 데이터 삽입</h2>
+## 6단계: 데이터 삽입
 
-새 쿼리 창을 연 후 다음 스크립트를 붙여넣습니다. 스크립트를 실행하여 데이터를 삽입합니다. 이 스크립트는 [INSERT](http://msdn.microsoft.com/ko-kr/library/windowsazure/ee336284.aspx) 문을 사용하여 각 열에 값을 추가합니다.
+새 쿼리 창을 연 후 다음 스크립트를 붙여넣습니다. 스크립트를 실행하여 데이터를 삽입합니다. 이 스크립트는 [INSERT](http://msdn.microsoft.com/library/windowsazure/ee336284.aspx) 문을 사용하여 각 열에 값을 추가합니다.
 
 <div style="width:auto; height:600px; overflow:auto"><pre>
 	-- Insert data into the Person table.
@@ -463,7 +467,7 @@ Excel을 사용하여 Azure 플랫폼의 샘플 데이터베이스와 쿼리 시
 </pre></div>
 
 
-<h2 id="QueryDBSysData">7단계: 관리 포털의 SQL 데이터베이스용 쿼리 샘플 및 시스템 데이터</h2>
+## 7단계: SQL 데이터베이스용 관리 포털에서 샘플 및 시스템 데이터 쿼리
 
 작업을 확인하기 위해 방금 입력한 데이터를 반환하는 쿼리를 실행할 수 있습니다. 또한 SQL 데이터베이스 서버에서 실행 중인 데이터베이스에 대한 정보를 제공하는 기본 제공 저장 프로시저 및 데이터 관리를 실행할 수도 있습니다.
 
@@ -499,9 +503,9 @@ person 테이블에서 PersonID, LastName, FirstName, HireDate, EnrollmentDate �
 
 
 
-<h2 id="DBLogin">8단계: 데이터베이스 로그인 만들기 및 권한 할당</h2>
+## 8단계: 데이터베이스 로그인 만들기 및 권한 할당
 
-SQL 데이터베이스에서 로그인을 만들고 Transact-SQL을 사용하여 권한을 부여할 수 있습니다. 이 단원에서는 Transact-SQL을 사용하여 다음 세 가지 작업을 수행합니다.
+SQL 데이터베이스에서 로그인을 만들고 Transact-SQL을 사용하여 권한을 부여할 수 있습니다. 이 단원에서는 Transact-SQL을 사용하여 세 가지 작업 즉,
 
 
 1. SQL Server 인증 로그인 만들기
@@ -514,12 +518,12 @@ SQL Server 인증 로그인은 서버 연결에 사용됩니다. SQL 데이터�
 
 <h4 id="CreateLogin">SQL Server 인증 로그인 만들기</h4>
 
-1. [관리 포털](http://manage.windowsazure.com)에서 **SQL 데이터베이스**를 선택하고, **서버**를 클릭하고, 서버를 선택한 후 흰색 화살표를 클릭하여
+1. [관리 포털](http://manage.windowsazure.com)에서 **SQL 데이터베이스**를 선택하고, **서버**를 클릭한 후, 서버를 선택하고 흰색 화살표를 클릭하여
 서버 페이지를 엽니다.
 
-2. 퀵 스타트 페이지에서 **서버 관리**를 클릭하여 SQL 데이터베이스용 관리 포털에 대한 새 연결을 엽니다. 
+2. 빠른 시작 페이지에서 **서버 관리**를 클릭하여 SQL 데이터베이스용 관리 포털에 대한 새 연결을 엽니다. 
 
-3. 연결할 데이터베이스로 **master**를 지정한 후, 사용자 이름 및 암호를 사용하여 로그인합니다. 이는 서버를 만들 때 지정한 관리자 로그인입니다.
+3. 연결할 데이터베이스에 대해 **master**를 지정한 후 사용자 이름 및 암호를 사용하여 로그인합니다. 이는 서버를 만들 때 지정한 관리자 로그인입니다.
 
 4. SQL 데이터베이스 관리 포털이 새 브라우저 창에서 열리고 **master**에 연결됩니다.
 
@@ -531,16 +535,16 @@ SQL Server 인증 로그인은 서버 연결에 사용됩니다. SQL 데이터�
 
         CREATE LOGIN SQLDBLogin WITH password='Password1';
 
-7. 이 명령을 실행하여 'SQLDBLogin'이라는 새 SQL Server 로그인을 만듭니다.
+7. 이 명령을 실행하여  'SQLDBLogin'이라는 새 SQL Server 로그인을 만듭니다.
 
 
-<h4 id="CreateDBuser">데이터베이스 사용자 만들기 및 권한 할당</h4>
+<h4 id="CreateDBuser">데이터베이스 로그인 만들기 및 권한 할당</h4>
 
-SQL Server 인증 로그인을 만든 후 다음 단계는 로그인과 연결된 데이터베이스 및 권한 수준을 할당하는 것입니다. 각 데이터베이스에서 **데이터베이스 사용자**를 만들어 그렇게 할 수 있습니다.
+SQL Server 인증 로그인을 만든 후 다음 단계는 로그인과 연결된 데이터베이스 및 권한 수준을 할당하는 것입니다. 이렇게 하려면 각 데이터베이스에서 **데이터베이스 사용자**를 만듭니다.
 
-1. **School** 데이터베이스에 연결하는 SQL 데이터베이스 관리 포털 페이지로 다시 돌아갑니다. 브라우저 창을 닫으면 앞 단원인 "Transact-SQL 스크립트를 사용하여 데이터 및 스키마 추가"의 단계에 따라 **School** 데이터베이스에 대한 새 연결을 시작합니다. 
+1. **School** 데이터베이스에 연결하는 SQL 데이터베이스 관리 포털 페이지로 돌아갑니다. 브라우저 창을 닫은 경우 이전의 단원인 "Transact-SQL 스크립트를 사용하여 데이터 및 스키마 추가"의 단계에 따라 **School** 데이터베이스에 대한 새 연결을 시작합니다. 
 
-	SQL 데이터베이스 관리 포털 페이지에서 **School** 데이터베이스 이름이 맨 위 왼쪽 모서리에 표시됩니다.
+	SQL 데이터베이스 관리 포털 페이지에서 **School** 데이터베이스 이름이 왼쪽 위에 표시됩니다.
 
 	![Navigation pane][Image12]
 
@@ -559,9 +563,9 @@ SQL Server 인증 로그인을 만든 후 다음 단계는 로그인과 연결�
 이제 **School** 데이터베이스에 대한 읽기 전용 권한이 있는 새 SQL Server 인증 로그인이 만들어졌습니다. 이러한 단계에 따라 SQL Server 인증 로그인을 만들어 데이터에 대한 다른 수준의 액세스를 허용할 수 있습니다.
 
 
-<h2 id="ClientConnection">9단계: 응용 프로그램에서 연결</h2>
+## 9단계: 응용 프로그램에서 연결
 
-ADO.NET을 사용하여 Microsoft Azure SQL 데이터베이스에 연결할 수 있습니다. 온-프레미스 연결과 달리 연결을 종료시키거나 새 연결을 일시적으로 차단할 수 있는 제한이나 기타 서비스 장애를 고려해야 합니다. 이 조건을 일시적 장애라고 합니다. 일시적 장애를 관리하려면 재시도 전략을 구현합니다. Azure SQL 데이터베이스에 연결할 때 Enterprise Library 6 - 2013년 4월의 일부인 [일시적 장애 처리 응용 프로그램 블록](영문)에는(http://go.microsoft.com/fwlink/?LinkId=519356)일시적 장애 조건을 식별하는 검색 전략이 있습니다.
+ADO.NET을 사용하여 Microsoft Azure SQL 데이터베이스에 연결할 수 있습니다. 온-프레미스 연결과 달리 연결을 종료시키거나 새 연결을 일시적으로 차단할 수 있는 제한이나 기타 서비스 장애를 고려해야 합니다. 이 조건을 일시적 장애라고 합니다. 일시적 장애를 관리하려면 재시도 전략을 구현합니다. Azure SQL 데이터베이스에 연결할 때 Enterprise Library 6 - 2013년 4월 버전에 포함된 [일시적 오류 처리 응용 프로그램 블록](http://go.microsoft.com/fwlink/?LinkId=519356)에 포함된 검색 전략을 통해 일시적 오류 상황을 확인합니다.
 
 <h4>샘플 C# 콘솔 응용 프로그램</h4>
 
@@ -642,19 +646,19 @@ ADO.NET을 사용하여 Microsoft Azure SQL 데이터베이스에 연결할 수 
 
 
 
-<h2 id="NextSteps">다음 단계</h2>
+## 다음 단계
 
 SQL 데이터베이스 및 관리 포털에 익숙해졌으므로, SQL Server 데이터베이스 관리자가 사용하는 기타 도구 및 기술을 시도해 볼 수 있습니다.
 
-새 데이터베이스를 적극적으로 관리하기 위해 SQL Server Management Studio를 설치하여 사용해 볼 수 있습니다. Management Studio는 Azure에서 실행되는 데이터베이스를 포함하여 SQL Server 데이터베이스를 관리할 수 있는 주 데이터베이스 관리 도구입니다. Management Studio를 사용하여 쿼리를 나중에 사용하도록 저장하고, 새 테이블 및 저장 프로시저를 추가하고, 구문 검사기, IntelliSense 및 템플릿을 포함하는 다양한 스크립팅 환경에서 Transact-SQL 기술을 익힐 수 있습니다. 시작하려면 [SQL Server Management Studio를 사용하여 SQL 데이터베이스 관리]의 지침을(http://www.azure.microsoft.com/ko-kr/documentation/articles/sql-database-manage-azure-ssms/)따르세요.
+새 데이터베이스를 적극적으로 관리하기 위해 SQL Server Management Studio를 설치하여 사용해 볼 수 있습니다. Management Studio는 Azure에서 실행되는 데이터베이스를 포함하여 SQL Server 데이터베이스를 관리할 수 있는 주 데이터베이스 관리 도구입니다. Management Studio를 사용하여 쿼리를 나중에 사용하도록 저장하고, 새 테이블 및 저장 프로시저를 추가하고, 구문 검사기, IntelliSense 및 템플릿을 포함하는 다양한 스크립팅 환경에서 Transact-SQL 기술을 익힐 수 있습니다. 시작하려면 [SQL Server Management Studio를 사용하여 SQL 데이터베이스 관리](http://www.azure.microsoft.com/documentation/articles/sql-database-manage-azure-ssms/)의 지침을 따르세요.
 
-데이터베이스 관리자는 Transact-SQL 쿼리 및 데이터 정의 언어에 능숙해야 합니다. Transact-SQL을 처음 사용한다면 먼저 [자습서: Transact-SQL 문 쓰기]에서(http://msdn.microsoft.com/ko-kr/library/ms365303.aspx) 기본 기술을 익혀 보세요.
+데이터베이스 관리자는 Transact-SQL 쿼리 및 데이터 정의 언어에 능숙해야 합니다. Transact-SQL을 처음 사용한다면 [자습서: Transact-SQL 문 작성](http://msdn.microsoft.com/library/ms365303.aspx)부터 확인하여 기본적인 기술을 파악할 수 있습니다.
 
 다른 방법으로도 SQL 데이터베이스로 온-프레미스 데이터베이스를 이동할 수 있습니다. 기존 데이터베이스가 있거나 샘플 데이터베이스를 다운로드하여 연습하는 경우 다음과 같은 다른 방법을 시도해 보세요.
 
-* [SQL 데이터베이스로 데이터베이스 마이그레이션](http://msdn.microsoft.com/ko-kr/library/windowsazure/ee730904.aspx)
-* [SQL 데이터베이스에서 데이터베이스 복사](http://msdn.microsoft.com/ko-kr/library/windowsazure/ff951624.aspx)
-* [Azure 가상 컴퓨터에 SQL Server 데이터베이스 배포](http://msdn.microsoft.com/ko-kr/library/dn195938.aspx)
+* [SQL 데이터베이스로 데이터베이스 마이그레이션](http://msdn.microsoft.com/library/windowsazure/ee730904.aspx)
+* [SQL 데이터베이스에서 데이터베이스 복사](http://msdn.microsoft.com/library/windowsazure/ff951624.aspx)
+* [Azure 가상 컴퓨터에 SQL Server 데이터베이스 배포](http://msdn.microsoft.com/library/dn195938)
 
 
 
@@ -680,4 +684,4 @@ SQL 데이터베이스 및 관리 포털에 익숙해졌으므로, SQL Server �
 [Image20]: ./media/sql-database-get-started/11ManageDatabaseLogin_SQLTut.PNG
 
 
-<!--HONumber=35.1-->
+<!--HONumber=47-->

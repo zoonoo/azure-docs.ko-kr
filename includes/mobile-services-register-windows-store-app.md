@@ -1,4 +1,4 @@
-﻿
+
 1. 앱을 아직 등록하지 않은 경우 Windows 스토어 앱용 개발자 센터에 있는 [앱 제출 페이지]로 이동하여 Microsoft 계정으로 로그온한 후 **앱 이름**을 클릭합니다.
 
    	![](./media/mobile-services-register-windows-store-app/mobile-services-submit-win8-app.png)
@@ -33,7 +33,7 @@
 
 	![](./media/mobile-services-register-windows-store-app/mobile-services-win8-edit2-app.png) 
 
-9. **앱 설정**에서 **클라이언트 ID**, **클라이언트 암호** 및 **패키지 SID(보안 식별자)** 값을 기록해 둡니다. 
+9. **앱 설정**에서 **클라이언트 ID**, **클라이언트 암호** 및 **패키지 SID(보안 식별자)**의 값을 적어 둡니다.
 
    	![](./media/mobile-services-register-windows-store-app/mobile-services-win8-app-push-auth.png)
 
@@ -65,7 +65,8 @@
  
 
 <!-- URLs. -->
-[모바일 서비스 시작]: /ko-kr/develop/mobile/tutorials/get-started/#create-new-service
+[모바일 서비스 시작]: /develop/mobile/tutorials/get-started/#create-new-service
 [앱 제출 페이지]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Azure 관리 포털]: https://manage.windowsazure.com/
-<!--HONumber=42-->
+
+<!--HONumber=47-->

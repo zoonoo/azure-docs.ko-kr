@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-multiple" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
 	ms.date="08/19/2014" 
@@ -26,8 +26,7 @@
 
 <!-- URLs. -->
 [@AzureMobile]: https://twitter.com/AzureMobile
-[포럼]: http://social.msdn.microsoft.com/Forums/windowsazure/ko-kr/home?forum=azuremobile
+[포럼]: http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=azuremobile
 [UserVoice]: http://feedback.azure.com/forums/216254-mobile-services
 [블로그 게시물]: http://azure.microsoft.com/blog/2014/07/11/azure-mobile-services-why-should-asp-net-developers-care/
-
-<!--HONumber=42-->
+<!--HONumber=47-->

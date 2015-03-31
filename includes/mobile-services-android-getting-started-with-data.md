@@ -1,18 +1,27 @@
-이제 모바일 서비스를 사용할 수 있으므로 로컬 컬렉션 대신 모바일 서비스에 항목을 저장하도록 앱을 업데이트할 수 있습니다. 
+﻿이제 모바일 서비스를 사용할 수 있으므로 로컬 컬렉션 대신 모바일 서비스에 항목을 저장하도록 앱을 업데이트할 수 있습니다. 
 
-1. [모바일 서비스 Android SDK]가 아직 없는 경우 지금 다운로드하고 압축 파일의 압축을 풉니다.
+1.  *build.gradle (Module app)* 파일의 **dependencies** 태그에 다음 줄이 있는지 확인하고, 없으면 추가합니다. 그러면 모바일 서비스 Android Client SDK에 대한 참조가 추가됩니다.
 
-2.  `.jar` 파일(SDK의  `mobileservices` 폴더)을 GetStartedWithData 프로젝트의  `libs` 폴더로 복사합니다.
+		compile 'com.android.support:support-v4:21.0.3'
+    	compile 'com.google.code.gson:gson:2.2.2'
+	    compile 'com.google.guava:guava:18.0'
+	    compile 'com.microsoft.azure:azure-mobile-services-android-sdk:2.0.2-beta'
 
-3. Eclipse의 Package Explorer에서  `libs` 폴더를 마우스 오른쪽 단추로 클릭하고 **Refresh**를 클릭하면 복사된 jar 파일이 나타납니다.
 
-  	모바일 서비스 SDK 참조가 작업 영역에 추가됩니다.
+2. 이제 **Sync Project with Gradle Files**를 클릭하여 프로젝트를 다시 빌드합니다.
 
-4. AndroidManifest.xml 파일을 열어 Azure에서 모바일 서비스에 액세스할 수 있게 하는 다음 줄을 추가합니다.
+3. AndroidManifest.xml 파일을 열어 Azure에서 모바일 서비스에 액세스할 수 있게 하는 다음 줄을 추가합니다.
 
 		<uses-permission android:name="android.permission.INTERNET" />
 
-5. Package Explorer에서 com.example.getstartedwithdata 패키지에 있는 TodoActivity.java 파일을 열고 다음 코드 줄의 주석 처리를 제거합니다. 
+
+6. AndroidManifest.xml 파일을 열어 Azure에서 모바일 서비스에 액세스할 수 있게 하는 다음 줄을 추가합니다.
+
+		<uses-permission android:name="android.permission.INTERNET" />
+
+5. Package Explorer에서 **GetStartedWithData => app => src => java** 폴더에 있는 TodoActivity.java 파일을 열고 다음 코드 줄의 주석 처리를 제거합니다. 
+
+
 
 		import java.net.MalformedURLException;
 		import android.os.AsyncTask;
@@ -26,34 +35,36 @@
 		import com.microsoft.windowsazure.mobileservices.http.ServiceFilterRequest;
 		import com.microsoft.windowsazure.mobileservices.http.ServiceFilterResponse;
 		import com.microsoft.windowsazure.mobileservices.table.MobileServiceTable;
+
  
-6. 다음 줄을 주석으로 처리합니다.
+5. 다음 줄을 주석으로 처리합니다.
 
 		import java.util.ArrayList;
 		import java.util.List;
 
-7. 모바일 서비스와 바꿀 수 있도록 앱에서 현재 사용되고 있는 메모리 내 목록을 제거합니다. **ToDoActivity** 클래스에서 기존 **toDoItemList** 목록을 정의하는 다음 코드 줄을 주석으로 처리합니다.
+6. 모바일 서비스와 바꿀 수 있도록 앱에서 현재 사용되고 있는 메모리 내 목록을 제거합니다. **ToDoActivity** 클래스에서 기존 **toDoItemList** 목록을 정의하는 다음 코드 줄을 주석으로 처리합니다.
 
 		public List<ToDoItem> toDoItemList = new ArrayList<ToDoItem>();
 
-8. 파일을 저장하면 프로젝트에서 빌드 오류를 나타냅니다.  `toDoItemList` 변수가 사용되는 나머지 세 개 위치를 검색하여 표시된 섹션을 주석으로 처리합니다. 그러면 메모리 내 목록이 완전히 제거됩니다. 
+7. 파일을 저장하면 프로젝트에서 빌드 오류를 나타냅니다.  `toDoItemList` 변수가 사용되는 나머지 세 개 위치를 검색하여 표시된 섹션을 주석으로 처리합니다. 그러면 메모리 내 목록이 완전히 제거됩니다. 
 
-9. 이제 모바일 서비스를 추가합니다. 다음 코드 줄의 주석 처리를 제거합니다.
+8. 이제 모바일 서비스를 추가합니다. 다음 코드 줄의 주석 처리를 제거합니다.
 
 		private MobileServiceClient mClient;
 		private private MobileServiceTable<ToDoItem> mToDoTable;
 
-10. 파일 아래쪽에서  *ProgressFilter* 클래스를 찾아 주석 처리를 제거합니다. 이 클래스는  *MobileServiceClient*에서 네트워크 작업을 실행하는 동안  'loading' 표시기를 표시합니다.
+9. 파일 아래쪽에서  *ProgressFilter* 클래스를 찾아 주석 처리를 제거합니다. 이 클래스는  *MobileServiceClient*에서 네트워크 작업을 실행하는 동안  'loading' 표시기를 표시합니다.
 
-11. 관리 포털에서 **모바일 서비스**를 클릭한 후 방금 만든 모바일 서비스를 클릭합니다.
 
-12. **대시보드** 탭을 클릭하여 **사이트 URL**을 기록한 후 **키 관리**를 클릭하여 **응용 프로그램 키**를 기록합니다.
+10. 관리 포털에서 **모바일 서비스**를 클릭한 후 방금 만든 모바일 서비스를 클릭합니다.
+
+11. **대시보드** 탭을 클릭하여 **사이트 URL**을 기록한 후 **키 관리**를 클릭하여 **응용 프로그램 키**를 기록합니다.
 
    	![](./media/download-android-sample-code/mobile-dashboard-tab.png)
 
   	앱 코드에서 모바일 서비스에 액세스할 때 이 값이 필요합니다.
 
-13. **onCreate** 메서드에서 **MobileServiceClient** 변수를 정의하는 다음 코드 줄의 주석 처리를 제거합니다.
+12. **onCreate** 메서드에서 **MobileServiceClient** 변수를 정의하는 다음 코드 줄의 주석 처리를 제거합니다.
 
 		try {
 		// Create the Mobile Service Client instance, using the provided
@@ -71,9 +82,11 @@
 
   	모바일 서비스에 액세스하는 데 사용되는 새  *MobileServiceClient* 인스턴스가 만들어집니다. 모바일 서비스에서 데이터 저장소에 프록시를 설정하는 데 사용되는  *MobileServiceTable* 인스턴스도 만들어집니다.
 
-14. 위의 코드에서 모바일 서비스의 URL 및 응용 프로그램 키로  `MobileServiceUrl` 및  `AppKey`를 바꿉니다.
+13. 위의 코드에서 모바일 서비스의 URL 및 응용 프로그램 키로  `MobileServiceUrl` 및  `AppKey`를 바꿉니다.
 
-15. **checkItem** 메서드에서 다음 줄의 주석 처리를 제거합니다.
+
+
+14. **checkItem** 메서드에서 다음 줄의 주석 처리를 제거합니다.
 
 	    new AsyncTask<Void, Void, Void>() {
 	        @Override
@@ -97,7 +110,7 @@
 
    	그러면 항목 업데이트가 모바일 서비스에 전송되고 선택한 항목이 어댑터에서 제거됩니다.
     
-16. **addItem** 메서드에서 다음 줄의 주석 처리를 제거합니다.
+15. **addItem** 메서드에서 다음 줄의 주석 처리를 제거합니다.
 	
 		// Insert the new item
 		new AsyncTask<Void, Void, Void>() {
@@ -119,9 +132,10 @@
 	        }
 	    }.execute();
 		
+
   	이 코드는 새 항목을 만들어 원격 모바일 서비스의 테이블에 삽입합니다.
 
-18. **refreshItemsFromTable** 메서드에서 다음 줄의 주석 처리를 해제합니다.
+16. **refreshItemsFromTable** 메서드에서 다음 줄의 주석 처리를 해제합니다.
 
 		// Get the items that weren't marked as completed and add them in the adapter
 	    new AsyncTask<Void, Void, Void>() {
@@ -150,4 +164,5 @@
 		
 
 <!-- URLs. -->
-[모바일 서비스 Android SDK]: http://aka.ms/Iajk6q<!--HONumber=42-->
+[모바일 서비스 Android SDK]: http://aka.ms/Iajk6q
+<!--HONumber=47-->

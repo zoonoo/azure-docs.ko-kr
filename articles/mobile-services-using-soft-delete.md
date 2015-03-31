@@ -10,17 +10,19 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/25/2014" 
+	ms.date="02/19/2015" 
 	ms.author="wesmc"/>
 
 # 모바일 서비스에서 일시 삭제 사용
 
-JavaScript 또는 .NET 백 엔드를 사용하여 만든 테이블에서 선택적으로 일시 삭제를 사용하도록 설정할 수 있습니다. 일시 삭제를 사용할 때는 [SQL 비트 유형]의 새 열인 *__deleted*가 데이터베이스에 추가됩니다. 일시 삭제를 사용하도록 설정한 상태로 삭제 작업을 수행해도 데이터베이스에서 행이 실제로 삭제되는 것은 아니며 삭제된 열의 값이 TRUE로 설정됩니다.
+## 개요
 
-일시 삭제를 사용하도록 설정한 상태로 테이블에서 레코드를 쿼리하면 기본적으로 쿼리에 서 삭제된 행이 반환되지 않습니다. 이러한 행을 요청하려면 [REST 쿼리 작업](http://msdn.microsoft.com/library/azure/jj677199.aspx)에서 쿼리 매개 변수 *__includeDeleted=true*를 전달해야 합니다. .NET 클라이언트 SDK에서는 도우미 메서드 `IMobileServiceTable.IncludeDeleted()`를 사용할 수도 있습니다.
+JavaScript 또는 .NET 백 엔드를 사용하여 만든 테이블에서 선택적으로 일시 삭제를 사용하도록 설정할 수 있습니다. 일시 삭제를 사용할 때는 [SQL 비트 유형]의 새 열인 *\__deleted*가 데이터베이스에 추가됩니다. 일시 삭제를 사용하도록 설정한 상태로 삭제 작업을 수행해도 데이터베이스에서 행이 실제로 삭제되는 것은 아니며 삭제된 열의 값이 TRUE로 설정됩니다.
+
+일시 삭제를 사용하도록 설정한 상태로 테이블에서 레코드를 쿼리하면 기본적으로 쿼리에 서 삭제된 행이 반환되지 않습니다. 이러한 행을 요청하려면 [REST 쿼리 작업](http://msdn.microsoft.com/library/azure/jj677199.aspx)에서 쿼리 매개 변수 *\__includeDeleted=true*를 전달해야 합니다. .NET 클라이언트 SDK에서는 도우미 메서드 `IMobileServiceTable.IncludeDeleted()`를 사용할 수도 있습니다.
 
 .NET 백 엔드에 대한 일시 삭제 지원은 Microsoft Azure 모바일 서비스 .NET 백 엔드 버전 1.0.402에서 처음 공개되었습니다. 최신 NuGet 패키지는 [Microsoft Azure 모바일 서비스 .NET 백 엔드](http://go.microsoft.com/fwlink/?LinkId=513165)에서 제공됩니다.
 
@@ -34,16 +36,9 @@ JavaScript 또는 .NET 백 엔드를 사용하여 만든 테이블에서 선택�
 
 
 
-항목 개요
-
-1. [.NET 백 엔드에 대해 일시 삭제를 사용하도록 설정]
-2. [JavaScript 백 엔드에 대해 일시 삭제를 사용하도록 설정]
-3. [.NET 백 엔드에서 일시 삭제 사용]
-4. [JavaScript 백 엔드에서 일시 삭제 사용]
 
 
-
-## <a name="enable-for-dotnet"></a>.NET 백 엔드에 대해 일시 삭제를 사용하도록 설정
+## .NET 백 엔드에 대해 일시 삭제를 사용하도록 설정
 
 .NET 백 엔드에 대한 일시 삭제 지원은 Microsoft Azure 모바일 서비스 .NET 백 엔드 버전 1.0.402에서 처음 공개되었습니다. 최신 NuGet 패키지는 [Microsoft Azure 모바일 서비스 .NET 백 엔드](http://go.microsoft.com/fwlink/?LinkId=513165)에서 제공됩니다.
 
@@ -52,8 +47,8 @@ JavaScript 또는 .NET 백 엔드를 사용하여 만든 테이블에서 선택�
 1. Visual Studio에서 .NET 백 엔드 모바일 서비스 프로젝트를 엽니다.
 2. .NET 백 엔드 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 클릭합니다. 
 3. 패키지 관리자 대화 상자에서 업데이트 아래의 **Nuget.org**를 클릭하고 [Microsoft Azure 모바일 서비스 .NET 백 엔드](http://go.microsoft.com/fwlink/?LinkId=513165) NuGet 패키지 1.0.402 이상 버전을 설치합니다.
-3. Visual Studio의 솔루션 탐색기에서 .NET 백 엔드 프로젝트 아래의 **컨트롤러** 노드를 확장하고 컨트롤러 소스를 엽니다. 예를 들면  *TodoItemController.cs*과 같습니다.
-4. 컨트롤러의 `Initialize()` 메서드에서  `enableSoftDelete: true` 매개 변수를 EntityDomainManager 생성자로 전달합니다.
+3. Visual Studio의 솔루션 탐색기에서 .NET 백 엔드 프로젝트 아래의 **컨트롤러** 노드를 확장하고 컨트롤러 소스를 엽니다. 예를 들면 *TodoItemController.cs*입니다.
+4. 컨트롤러의 `Initialize()` 메서드에서 `enableSoftDelete: true` 매개 변수를 EntityDomainManager 생성자로 전달합니다.
 
         protected override void Initialize(HttpControllerContext controllerContext)
         {
@@ -63,7 +58,7 @@ JavaScript 또는 .NET 백 엔드를 사용하여 만든 테이블에서 선택�
         }
 
 
-## <a name="enable-for-javascript"></a>JavaScript 백 엔드에 대해 일시 삭제를 사용하도록 설정
+## JavaScript 백 엔드에 대해 일시 삭제를 사용하도록 설정
 
 모바일 서비스에 대해 새 테이블을 만드는 경우 테이블 만들기 페이지에서 일시 삭제를 사용하도록 설정할 수 있습니다.
 
@@ -72,11 +67,11 @@ JavaScript 또는 .NET 백 엔드를 사용하여 만든 테이블에서 선택�
 JavaScript 백 엔드의 기존 테이블에 대해 일시 삭제를 사용하도록 설정하려면
 
 1. [관리 포털]에서 모바일 서비스를 클릭한 다음 데이터 탭을 클릭합니다.
-2. 데이터 페이지에서 원하는 테이블을 클릭하여 선택합니다. 그런 다음 명령 모음에서 **일시 삭제 사용** 단추를 클릭합니다. 테이블에 대해 일시 삭제가 이미 사용하도록 설정되어 있으면 이 단추는 표시되지 않습니다. 그러나 테이블의 **찾아보기** 또는 **열** 탭을 클릭하면 *__deleted* 열을 확인할 수 있습니다.
+2. 데이터 페이지에서 원하는 테이블을 클릭하여 선택합니다. 그런 다음 명령 모음에서 **일시 삭제 사용** 단추를 클릭합니다. 테이블에 대해 일시 삭제가 이미 사용하도록 설정되어 있으면 이 단추는 표시되지 않습니다. 그러나 테이블의 **찾아보기** 또는 **열** 탭을 클릭하면 *\__deleted* 열을 확인할 수 있습니다.
 
     ![][0]
 
-    테이블에 대해 일시 삭제를 사용하지 않도록 설정하려면 **열** 탭을 클릭하고 *__deleted* 열과 **삭제** 단추를 차례로 클릭합니다.  
+    테이블에 대해 일시 삭제를 사용하지 않도록 설정하려면 **열** 탭을 클릭하고 *\__deleted*열과 **삭제** 단추를 차례로 클릭합니다.  
 
     ![][1]
 
@@ -101,22 +96,20 @@ JavaScript 백 엔드의 기존 테이블에 대해 일시 삭제를 사용하�
             Services.Log.Info("Purging old records");
             var monthAgo = DateTimeOffset.UtcNow.AddDays(-30);
      
-            var toDelete = context.TodoIte
-	ms.Where(x => x.Deleted == true && x.UpdatedAt <= monthAgo).ToArray();
-            context.TodoIte
-	ms.RemoveRange(toDelete);
+            var toDelete = context.TodoItems.Where(x => x.Deleted == true && x.UpdatedAt <= monthAgo).ToArray();
+            context.TodoItems.RemoveRange(toDelete);
             context.SaveChanges();
      
             return Task.FromResult(true);
         }
     }
 
-.NET 백 엔드 모바일 서비스의 예약된 작업에 대한 자세한 내용은 다음 항목을 참조하세요. [JavaScript 백 엔드 모바일 서비스와 되풀이 작업 예약](/ko-kr/documentation/articles/mobile-services-dotnet-backend-schedule-recurring-tasks/) 
+.NET 백 엔드 모바일 서비스의 예약된 작업에 대한 자세한 내용은 다음 항목을 참조하세요. [JavaScript 백 엔드 모바일 서비스에서 반복 작업 예약](/documentation/articles/mobile-services-dotnet-backend-schedule-recurring-tasks/) 
 
 
 
 
-## <a name="using-with-javascript"></a>JavaScript 백 엔드에서 일시 삭제 사용
+## JavaScript 백 엔드에서 일시 삭제 사용
 
 테이블 스크립트를 사용하여 JavaScript 백 엔드 모바일 서비스의 일시 삭제 기능과 관련된 논리를 추가합니다.
 
@@ -125,7 +118,7 @@ JavaScript 백 엔드의 기존 테이블에 대해 일시 삭제를 사용하�
     function update(item, user, request) {
         if (request.undelete) { /* any undelete specific code */; }
     }
-To include deleted records in query result in a script, set the "includeDeleted" parameter to true:
+스크립트의 쿼리 결과에 삭제된 레코드를 포함하려면 "includeDeleted" 매개 변수를 true로 설정합니다.
     
     tables.getTable('softdelete_scenarios').read({
         includeDeleted: true,
@@ -152,16 +145,11 @@ HTTP 요청을 통해 삭제된 레코드를 검색하려면 "__includedeleted=t
         }});
     }
 
-JavaScript 백 엔드 모바일 서비스의 예약된 작업에 대한 자세한 내용은 [JavaScript 백 엔드 모바일 서비스와 되풀이 작업 예약]/ko-kr/documentation/articles/mobile-services-schedule-recurring-tasks/)을 참조하세요.
+JavaScript 백 엔드 모바일 서비스의 예약된 작업에 대한 자세한 내용은 [JavaScript 백 엔드 모바일 서비스에서 반복 작업 예약](/documentation/articles/mobile-services-schedule-recurring-tasks/)
 
 
 
 
-<!-- Anchors. -->
-[.NET 백 엔드에 대해 일시 삭제를 사용하도록 설정]: #enable-for-dotnet
-[JavaScript 백 엔드에 대해 일시 삭제를 사용하도록 설정]: #enable-for-javascript
-[.NET 백 엔드에서 일시 삭제 사용]: #using-with-dotnet
-[JavaScript 백 엔드에서 일시 삭제 사용]: #using-with-javascript
 
 <!-- Images -->
 [0]: ./media/mobile-services-using-soft-delete/enable-soft-delete-button.png
@@ -170,10 +158,9 @@ JavaScript 백 엔드 모바일 서비스의 예약된 작업에 대한 자세�
 
 <!-- URLs. -->
 [SQL 비트 유형]: http://msdn.microsoft.com/library/ms177603.aspx
-[모바일 서비스용 오프라인 데이터 동기화]: /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data/
+[모바일 서비스용 오프라인 데이터 동기화]: /documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data/
 [관리 포털]: https://manage.windowsazure.com/
 
 
 
-
-<!--HONumber=42-->
+<!--HONumber=47-->

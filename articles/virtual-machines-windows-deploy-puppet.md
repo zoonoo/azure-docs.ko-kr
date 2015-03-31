@@ -16,7 +16,7 @@
 	ms.date="01/23/2015" 
 	ms.author="kathydav"/>
 
-#Puppet 및 Azure 가상 컴퓨터 정보
+# Puppet 및 Azure 가상 컴퓨터 정보
 
 <p>Puppet Enterprise는 인프라를 구축, 배포 및 관리하기 위한 자동화 소프트웨어입니다. 이 프로그램을 사용하여 검색, 프로비전, OS 및 응용 프로그램의 구성 관리, 오케스트레이션, 보고를 비롯한 IT 인프라 수명 주기를 관리할 수 있습니다.   
 
@@ -28,7 +28,7 @@ Puppet은 클라이언트-서버 시스템입니다. Puppet Master와 Puppet Ent
 지침을 보려면 [Microsoft Windows 및 Azure](http://puppetlabs.com/solutions/microsoft) 페이지의 "시작 가이드"를 다운로드하세요.  
 
 
-##추가 리소스
+## 추가 리소스
 [Microsoft Azure 및 Visual Studio와의 새로운 통합]
 
 [Windows Server를 실행하는 가상 컴퓨터에 로그온하는 방법]
@@ -45,5 +45,4 @@ Puppet은 클라이언트-서버 시스템입니다. Puppet Master와 Puppet Ent
 
 
 
-
-<!--HONumber=42-->
+<!--HONumber=47-->

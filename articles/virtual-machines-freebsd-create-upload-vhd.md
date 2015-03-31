@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
    pageTitle="FreeBSD VHD를 만들어서 Azure에 업로드" 
    description="FreeBSD 운영 체제가 포함된 Azure VHD(가상 하드 디스크)를 만들고 업로드하는 방법에 대해 알아봅니다." 
    services="virtual-machines" 
@@ -23,19 +23,19 @@
 ##필수 조건##
 이 문서에서는 사용자에게 다음 항목이 있다고 가정합니다.
 
-- **Azure 구독** - 없는 경우에는 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 계정 만들기](http://azure.microsoft.com/documentation/articles/php-create-account/)(영문)를 참조하세요. 
+- **Azure 구독** - 없는 경우에는 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 계정 만들기](http://azure.microsoft.com/documentation/articles/php-create-account/)를 참조하세요. 
 
 - **Azure PowerShell 도구** - Microsoft Azure PowerShell 모듈이 설치되고 구독을 사용하도록 구성되어 있어야 합니다. 모듈을 다운로드하려면 [Azure 다운로드](http://azure.microsoft.com/downloads/)를 참조하세요. 모듈 설치 및 구성에 대한 자습서는 여기에서 확인할 수 있습니다. [Azure Downloads](http://azure.microsoft.com/downloads/) cmdlet을 사용하여 VHD를 업로드합니다.
 
-- **.vhd 파일에 설치된 FreeBSD 운영 체제**  - 지원되는 FreeBSD 운영 체제가 가상 하드 디스크에 설치되어 있습니다. 다양한 도구를 사용하여 .vhd 파일을 만들 수 있습니다. 예를 들어 Hyper-V와 같은 가상화 솔루션을 사용하여 .vhd 파일을 만들고 운영 체제를 설치할 수 있습니다. 자세한 내용은 [Hyper-V 역할 설치 및 가상 컴퓨터 구성](http://technet.microsoft.com/library/hh846766.aspx)을 참조하세요. 
+- **.vhd 파일에 설치된 FreeBSD 운영 체제** - 가상 하드 디스크에 지원되는 FreeBSD 운영 체제를 설치했습니다. 다양한 도구를 사용하여 .vhd 파일을 만들 수 있습니다. 예를 들어 Hyper-V와 같은 가상화 솔루션을 사용하여 .vhd 파일을 만들고 운영 체제를 설치할 수 있습니다. 자세한 내용은 [Hyper-V 역할 설치 및 가상 컴퓨터 구성](http://technet.microsoft.com/library/hh846766.aspx)을 참조하세요. 
 
-> [AZURE.NOTE] 새 VHDX 형식은 Azure에서 지원되지 않습니다. Hyper-V 관리자 또는 [convert-vhd](https://technet.microsoft.com/ko-kr/library/hh848454.aspx) cmdlet을 사용하여 디스크를 VHD 형식으로 변환할 수 있습니다.
+> [AZURE.NOTE] 새 VHDX 형식은 Azure에서 지원되지 않습니다. Hyper-V 관리자 또는 [convert-vhd](https://technet.microsoft.com/library/hh848454.aspx) cmdlet을 사용하여 디스크를 VHD 형식으로 변환할 수 있습니다.
 
 이 작업에는 다음 5단계가 포함됩니다.
 
 ## 1단계: 업로드할 이미지 준비 ##
 
-Hyper-v에 FreeBSD를 설치하는 방법에 대한 자습서는 [여기](http://blogs.msdn.com/b/kylie/archive/2014/12/25/running-freebsd-on-hyper-v.aspx)에서 확인할 수 있습니다.
+Hyper-V에 FreeBSD를 설치하는 방법에 대한 자습서는 [여기](http://blogs.msdn.com/b/kylie/archive/2014/12/25/running-freebsd-on-hyper-v.aspx)서 확인할 수 있습니다.
 
 FreeBSD 운영 체제를 설치한 가상 컴퓨터에서 다음 절차를 완료합니다.
 
@@ -77,14 +77,14 @@ FreeBSD 운영 체제를 설치한 가상 컴퓨터에서 다음 절차를 완�
 
 6. **Azure 에이전트 설치**
 
-    최신 버전의 Azure 에이전트는 언제든 [github](https://github.com/Azure/WALinuxAgent/releases)에서 확인할 수 있습니다. 버전 2.0.10 이상에서는 공식적으로 FreeBSD 10 이상 버전을 지원합니다.
+    언제든지 최신 버전의 Azure 에이전트를 [github](https://github.com/Azure/WALinuxAgent/releases)에서 확인할 수 있습니다. 버전 2.0.10 이상에서는 공식적으로 FreeBSD 10 이상 버전을 지원합니다.
 
 		# wget https://raw.githubusercontent.com/Azure/WALinuxAgent/WALinuxAgent-2.0.10/waagent --no-check-certificate
 		# mv waagent /usr/sbin
 		# chmod 755 /usr/sbin/waagent
 		# /usr/sbin/waagent -install
 
-    **중요**: 설치 후 실행 중인지 다시 확인하세요.
+    **Important**: After installation, please double check it is running.
 
 		# service -e | grep waagent
 		/etc/rc.d/waagent
@@ -116,7 +116,7 @@ Azure에서 가상 컴퓨터를 만드는 데 사용할 수 있도록 .vhd 파�
 			
 	- 저장소 계정의 **위치 또는 선호도 그룹**을 선택합니다. 선호도 그룹을 사용하면 클라우드 서비스와 저장소를 동일한 데이터 센터에 배치할 수 있습니다.
 		 
-	- 저장소 계정에 **지역에서 복제**를 사용할지 여부를 결정합니다. 지역에서 복제는 기본적으로 설정되어 있습니다. 이 옵션을 사용하면 추가 비용 없이 보조 위치로 데이터를 복제하므로 기본 위치에서 심각한 장애가 발생하는 경우 저장소에서 보조 위치로 장애 조치(Failover)할 수 있습니다. 보조 위치는 자동으로 할당되며 변경될 수 없습니다. 법적 필요 또는 조직 정책에 따라 클라우드 기반 저장소의 위치를 더 엄격하게 제어해야 하는 경우 지역에서 복제를 해제할 수 있습니다. 그러나 나중에 지역에서 복제를 설정하는 경우 기존 데이터를 대체 위치로 복제하는 데 일회성 데이터 전송 요금이 청구됩니다. 지역에서 복제를 사용하지 않는 저장소 서비스는 할인하여 제공됩니다. 저장소 계정의 지역에서 복제를 관리하는 방법에 대한 자세한 정보는 [저장소 계정 만들기, 관리 또는 삭제](../storage-create-storage-account/#replication-options)에서 확인할 수 있습니다.
+	- 저장소 계정에 **지역에서 복제**를 사용할지 여부를 결정합니다. 지역에서 복제는 기본적으로 설정되어 있습니다. 이 옵션을 사용하면 추가 비용 없이 보조 위치로 데이터를 복제하므로 기본 위치에서 심각한 장애가 발생하는 경우 저장소에서 보조 위치로 장애 조치(Failover)할 수 있습니다. 보조 위치는 자동으로 할당되며 변경될 수 없습니다. 법적 필요 또는 조직 정책에 따라 클라우드 기반 저장소의 위치를 더 엄격하게 제어해야 하는 경우 지역에서 복제를 해제할 수 있습니다. 그러나 나중에 지역에서 복제를 설정하는 경우 기존 데이터를 대체 위치로 복제하는 데 일회성 데이터 전송 요금이 청구됩니다. 지역에서 복제를 사용하지 않는 저장소 서비스는 할인하여 제공됩니다. 저장소 계정의 지역에서 복제를 관리하는 방법에 대한 자세한 정보는 [저장소 계정 만들기, 관리 또는 삭제](../storage-create-storage-account/#replication-options)를 참조하세요.
 
 	![Enter storage account details](./media/virtual-machines-create-upload-vhd-windows-server/Storage-create-account.png)
 
@@ -125,7 +125,7 @@ Azure에서 가상 컴퓨터를 만드는 데 사용할 수 있도록 .vhd 파�
 
 	![Storage account successfully created](./media/virtual-machines-create-upload-vhd-windows-server/Storagenewaccount.png)
 
-6. 그런 다음, 업로드된 VHD를 위한 컨테이너를 만듭니다. 저장소 계정 이름을 클릭한 다음 **컨테이너**를 클릭합니다.
+6. 그런 다음, 업로드된 VHD를 위한 컨테이너를 만듭니다. 저장소 계정 이름을 클릭한 다음 ****컨테이너를 클릭합니다.
 
 	![Storage account detail](./media/virtual-machines-create-upload-vhd-windows-server/storageaccount_detail.png)
 
@@ -150,7 +150,7 @@ Azure에서 가상 컴퓨터를 만드는 데 사용할 수 있도록 .vhd 파�
 2. 다음 명령을 입력합니다.  
 	`Add-AzureAccount`
 	
-	이 명령은 직장 또는 학교 계정으로 로그인할 수 있는 로그인 창을 엽니다.
+	이 명령은 회사 또는 학교 계정으로 로그인할 수 있는 로그인 창을 엽니다.
 
 	![PowerShell Window](./media/virtual-machines-create-upload-vhd-windows-server/add_azureaccount.png)
 
@@ -161,7 +161,7 @@ Azure에서 가상 컴퓨터를 만드는 데 사용할 수 있도록 .vhd 파�
 1. Azure PowerShell 콘솔을 엽니다. 
 
 2. 다음을 입력합니다. 
-	`Get-AzurePublishSettingsFile`.
+	`Get-AzurePublishSettingsFile`
 
 3. .publishsettings 파일을 다운로드할 것을 요구하는 브라우저 창이 열립니다. 여기에는 Microsoft Azure 구독을 위한 정보와 인증서가 포함되어 있습니다.
 
@@ -171,12 +171,12 @@ Azure에서 가상 컴퓨터를 만드는 데 사용할 수 있도록 .vhd 파�
 
 4. 다음을 입력합니다. 
 	`Import-AzurePublishSettingsFile <PathToFile>`
-
+	
 	여기서 `<PathToFile>`은 .publishsettings 파일의 전체 경로입니다. 
 
-   자세한 내용은 [Microsoft Azure Cmdlets 시작](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx)을 참조하세요. 
+   자세한 내용은 [Microsoft Azure Cmdlets 시작](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx)(영문)을 참조하세요. 
 	
-   PowerShell을 설치하고 구성하는 방법에 대한 자세한 내용은 [Microsoft Azure PowerShell을 설치 및 구성하는 방법](http://azure.microsoft.com/documentation/articles/install-configure-powershell/)을 참조하세요. 
+   PowerShell을 설치하고 구성하는 방법에 대한 자세한 내용은 [Microsoft Azure PowerShell을 설치 및 구성하는 방법](http://www.windowsazure.com/documentation/articles/install-configure-powershell/)을 참조하세요. 
 
 ## 4단계: .vhd 파일 업로드 ##
 
@@ -208,4 +208,4 @@ Azure에서 가상 컴퓨터를 만드는 데 사용할 수 있도록 .vhd 파�
 
 	![freebsd image in azure](./media/virtual-machines-freebsd-create-upload-vhd/freebsdimageinazure.png)
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

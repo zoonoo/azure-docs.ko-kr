@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Windows 임시 디스크의 드라이브 문자를 변경하는 방법" 
 	description="Azure에서 Windows VM의 임시 디스크를 다시 매핑하는 방법에 대해 설명합니다." 
 	services="virtual-machines" 
@@ -16,7 +16,7 @@
 	ms.date="01/15/2015" 
 	ms.author="kathydav"/>
 
-#Windows 임시 디스크의 드라이브 문자를 변경하는 방법
+# Windows 임시 디스크의 드라이브 문자를 변경하는 방법
 
 D 드라이브를 사용하여 데이터를 저장해야 하는 경우 다음 지침에 따라 임시 디스크에 다른 드라이브를 사용할 수 있습니다. 보관해야 하는 데이터를 저장하는 데 임시 드라이브를 사용하지 마세요.
 
@@ -26,7 +26,7 @@ D 드라이브에서 기존 데이터 디스크를 사용하려면 VHD를 저장
 
 > [AZURE.WARNING] 가상 컴퓨터의 크기를 조정하고 이로 인해 가상 컴퓨터가 다른 호스트로 이동한 경우에는 임시 드라이브가 다시 D 드라이브로 변경됩니다.
 
-##드라이브 문자 변경
+## 드라이브 문자 변경
 
 1. 가상 컴퓨터에 로그인합니다. 
 
@@ -44,7 +44,7 @@ D 드라이브에서 기존 데이터 디스크를 사용하려면 VHD를 저장
 
 8.	다른 드라이브에 옮겨 놓았던 pagefile.sys를 E 드라이브로 옮깁니다.
 
-##추가 리소스
+## 추가 리소스
 [Windows Server를 실행하는 가상 컴퓨터에 로그온하는 방법]
 
 [가상 컴퓨터에서 데이터 디스크를 분리하는 방법]
@@ -54,12 +54,11 @@ D 드라이브에서 기존 데이터 디스크를 사용하려면 VHD를 저장
 <!--Link references-->
 [Windows 가상 컴퓨터에 데이터 디스크를 연결하는 방법]: ../storage-windows-attach-disk
 [Azure의 가상 컴퓨터 디스크 정보]: ../http://msdn.microsoft.com/library/azure/dn790303.aspx
-[Windows Server VHD를 만들어서 Azure에 업로드]: ../virtual-machines-create-upload-vhd-windows-server/
+[Windows Server VHD를 만들어 Azure에 업로드]: ../virtual-machines-create-upload-vhd-windows-server/
 [Windows Server를 실행하는 가상 컴퓨터에 로그온하는 방법]: ../virtual-machines-log-on-windows-server/
 [가상 컴퓨터에서 데이터 디스크를 분리하는 방법]: ../storage-windows-detach-disk/
 [Azure 저장소 계정 정보]: ../storage-whatis-account/
 
 
 
-
-<!--HONumber=42-->
+<!--HONumber=47-->

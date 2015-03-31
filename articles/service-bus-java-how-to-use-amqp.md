@@ -1,6 +1,27 @@
-﻿<properties urldisplayname="Service Bus AMQP" headerexpose="" pageTitle="Java 서비스 버스 API와 함께 AMQP 1.0을 사용하는 방법 - Azure" metakeywords="Java Messsage AMQP, Service Bus AMQP, AMQP JMS 라이브러리 다운로드" footerexpose="" description="Azure 서비스 버스 및 AMQP(Advanced Message Queuing Protocol) 1.0과 함께 JMS(Java Message Service)를 사용하는 방법에 대해 알아봅니다." umbraconavihide="0" disquscomments="1" metaCanonical="" title="How to use the Java Message Service (JMS) API with Service Bus & AMQP 1.0" authors="sethm"  solutions="" documentationCenter="Java" writer="sethm" manager="timlt" editor="mattshel" />
+﻿<properties 
+	urldisplayname="Service Bus AMQP" 
+	headerexpose="" 
+	pageTitle="Java 서비스 버스 API와 함께 AMQP 1.0을 사용하는 방법 - Azure" 
+	metakeywords="Java Messsage AMQP, Service Bus AMQP, download AMQP JMS library" 
+	footerexpose="" 
+	description="Azure 서비스 버스 및 AMQP(Advanced Message Queuing Protocol) 1.0과 함께 JMS(Java Message Service)를 사용하는 방법에 대해 알아봅니다." 
+	umbraconavihide="0" 
+	disquscomments="1" 
+	authors="sethmanheim" 
+	documentationCenter="java" 
+	writer="sethm" 
+	manager="timlt" 
+	editor="mattshel" 
+	services=""/>
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="java" ms.topic="article" ms.date="11/12/2014" ms.author="sethm" />
+<tags 
+	ms.service="service-bus" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="java" 
+	ms.topic="article" 
+	ms.date="02/10/2015" 
+	ms.author="sethm"/>
 
 
 # 서비스 버스 및 AMQP 1.0과 함께 JMS(Java Message Service) API를 사용하는 방법
@@ -13,15 +34,13 @@ AMQP 1.0이 추가됨으로써 효율적인 이진 프로토콜을 사용하여 
 
 이 방법 가이드에서는 널리 사용되는 JMS(Java Message Service) API 표준을 통해 Java 응용 프로그램에서 서비스 버스 조정된 메시징 기능(큐 및 게시/구독 토픽)을 사용하는 방법을 설명합니다.
 
-# 
-
 # 서비스 버스 시작
 
-이 가이드에서는 사용자가 "queue1"이라는 큐가 포함된 서비스 버스 네임스페이스를 이미 가지고 있다고 가정합니다. 없는 경우 [Azure 관리 포털]을 사용하여 네임스페이스와 큐를 만들 수(http://manage.windowsazure.com)있습니다. 서비스 버스 네임스페이스와 큐를 만드는 방법에 대한 자세한 내용은 "[서비스 버스 큐를 사용하는 방법](https://www.windowsazure.com/ko-kr/develop/net/how-to-guides/service-bus-queues/)"이라는 제목의 방법 가이드를 참조하세요.
+이 가이드에서는 사용자가 "queue1"이라는 큐가 포함된 서비스 버스 네임스페이스를 이미 가지고 있다고 가정합니다. 그렇지 않은 경우에는 [Azure 관리 포털](http://manage.windowsazure.com)을 사용하여 네임스페이스와 큐를 만들 수 있습니다. 서비스 버스 네임스페이스와 큐를 만드는 방법에 대한 자세한 내용은 [서비스 버스 큐를 사용하는 방법](https://azure.microsoft.com/develop/net/how-to-guides/service-bus-queues/)이라는 제목의 방법 가이드를 참조하세요.
 
 ## AMQP 1.0 JMS 클라이언트 라이브러리 다운로드
 
-최신 버전의 Apache Qpid JMS AMQP 1.0 클라이언트 라이브러리를 다운로드할 위치에 대한 자세한 내용은 [http://people.apache.org/~rgodfrey/qpid-java-amqp-1-0-client-jms.html](영문)을(http://people.apache.org/~rgodfrey/qpid-java-amqp-1-0-client-jms.html)참조하세요.
+최신 버전의 Apache Qpid JMS AMQP 1.0 클라이언트 라이브러리를 다운로드할 위치에 대한 자세한 내용은 [http://people.apache.org/~rgodfrey/qpid-java-amqp-1-0-client-jms.html](http://people.apache.org/~rgodfrey/qpid-java-amqp-1-0-client-jms.html)을 참조하세요.
 
 서비스 버스를 사용하여 JMS 응용 프로그램을 빌드 및 실행할 때 Apache Qpid JMS AMQP 1.0 배포 보관에 포함된 다음 JAR 파일 4개를 Java CLASSPATH에 추가해야 합니다.
 
@@ -32,7 +51,8 @@ AMQP 1.0이 추가됨으로써 효율적인 이진 프로토콜을 사용하여 
 
 ## Java 응용 프로그램 코딩
 
-### ***JNDI(Java Naming and Directory Interface)***
+### JNDI(Java Naming and Directory Interface)
+
 JMS는 JNDI(Java Naming and Directory Interface)를 사용하여 논리적 이름과 물리적 이름 간에 구분을 만듭니다. JNDI를 사용하여 두 유형의 JMS 개체인 ConnectionFactory와 Destination을 확인합니다. JNDI는 다양한 디렉터리 서비스를 연결할 수 있는 공급자 모델을 사용하여 이름 확인 책임을 처리합니다. Apache Qpid JMS AMQP 1.0 라이브러리에는 다음 형식의 속성 파일을 사용하여 구성된 간단한 속성 파일 기반 JNDI 공급자가 포함되어 있습니다.
 
 	# servicebus.properties - sample JNDI configuration
@@ -87,7 +107,7 @@ Qpid 속성 파일 JNDI 공급자에서 **ConnectionFactory**를 정의하는 �
   </tr>
 </table>
 
-**참고**: 수동으로 암호를 URL 인코딩해야 합니다. 유용한 URL 인코딩 유틸리티는 [http://www.w3schools.com/tags/ref_urlencode.asp](영문)에서(http://www.w3schools.com/tags/ref_urlencode.asp)사용할 수 있습니다.
+**참고**: 수동으로 암호를 URL 인코딩해야 합니다. [http://www.w3schools.com/tags/ref_urlencode.asp](http://www.w3schools.com/tags/ref_urlencode.asp)에서 유용한 URL 인코딩 유틸리티가 제공됩니다.
 
 예를 들어 Azure 관리 포털에서 얻은 정보가 다음과 같다고 가정합니다.
 
@@ -115,7 +135,7 @@ Qpid 속성 파일 JNDI 공급자에서 **ConnectionFactory**를 정의하는 �
 Qpid 속성 파일 JNDI 공급자에서 destination을 정의하는 데 사용되는 항목의 형식은 다음과 같습니다.
 
 	queue.[jndi_name] = [physical_name]
-or
+또는
 
 	topic.[jndi_name] = [physical_name]
 
@@ -132,11 +152,11 @@ or
   </tr>
 </table>
 
-**참고**: 서비스 버스 토픽 구독에서 받는 경우 JNDI에 지정된 물리적 이름은 토픽 이름이어야 합니다. 구독 이름은 JMS 응용 프로그램 코드에서 지속형 구독을 만들 때 제공됩니다. [Service Bus AMQP 1.0 개발자 가이드]에서는(http://msdn.microsoft.com/ko-kr/library/windowsazure/jj841071.aspx) JMS의 서비스 버스 토픽 구독 작업에 대한 세부 정보를 제공합니다.
+**참고**: 서비스 버스 토픽 구독에서 받는 경우 JNDI에 지정된 물리적 이름은 토픽 이름이어야 합니다. 구독 이름은 JMS 응용 프로그램 코드에서 지속형 구독을 만들 때 제공됩니다. [서비스 버스 AMQP 1.0 개발자 가이드](http://msdn.microsoft.com/library/jj841071.aspx)에서는 JMS의 서비스 버스 토픽 구독 작업에 대한 세부 정보를 제공합니다.
 
 ### JMS 응용 프로그램 작성
 
-서비스 버스와 함께 JMS를 사용할 때 필요한 특별한 API 또는 옵션은 없습니다. 그러나 몇 가지 제한 사항이 있으며 나중에 설명하겠습니다. JMS 응용 프로그램과 마찬가지로 **ConnectionFactory** destination을 확인하려면 먼저 JNDI 환경의 구성이 필요합니다.
+서비스 버스와 함께 JMS를 사용할 때 필요한 특별한 API 또는 옵션은 없습니다. 그러나 몇 가지 제한 사항이 있으며 나중에 설명하겠습니다. JMS 응용 프로그램과 마찬가지로 **ConnectionFactory** 및 destination을 확인하려면 먼저 JNDI 환경의 구성이 필요합니다.
 
 <p><strong>JNDI InitialContext 구성</strong></p>
 
@@ -263,13 +283,13 @@ JNDI 환경은 구성 정보 해시 테이블을 javax.naming.InitialContext 클
 	Received message with JMSMessageID = ID:956102171969368961
 	exit
 
-##JMS와 .NET 간의 크로스 플랫폼 메시징
+## JMS와 .NET 간의 크로스 플랫폼 메시징
 
 이 가이드에서는 JMS를 사용하여 서비스 버스로 메시지를 보내고 받는 방법을 보여 줍니다. 그러나 AMQP 1.0의 주요 이점 중 하나는 다른 언어로 작성된 구성 요소로 응용 프로그램을 빌드하여 안정적이며 완전히 신뢰할 수 있는 상태로 메시지를 교환할 수 있다는 것입니다.
 
-에서 설명한 샘플 JMS 응용 프로그램 및 동반 가이드 [.NET 서비스 버스 .NET API와 함께 AMQP 1.0을 사용하는 방법]에서 제공하는 유사한 .NET 응용 프로그램을 사용하여(http://aka.ms/lym3vk).NET과 Java 간에 메시지를 교환할 수 있습니다. 
+위에서 설명한 샘플 JMS 응용 프로그램 및 동반 가이드([.NET 서비스 버스 .NET API와 함께 AMQP 1.0을 사용하는 방법](http://aka.ms/lym3vk))에서 제공하는 유사한 .NET 응용 프로그램을 사용하여 .NET과 Java 간에 메시지를 교환할 수 있습니다. 
 
-서비스 버스 및 AMQP 1.0을 사용하는 플랫폼 간 메시징에 대한 자세한 내용은 [Service Bus AMQP 1.0 개발자 가이드]를(http://msdn.microsoft.com/ko-kr/library/windowsazure/jj841071.aspx)참조하세요.
+서비스 버스 및 AMQP 1.0을 사용하는 플랫폼 간 메시징에 대한 자세한 내용은 [서비스 버스 AMQP 1.0 개발자 가이드](http://msdn.microsoft.com/library/jj841071.aspx)를 참조하세요.
 
 ### JMS에서 .NET으로
 
@@ -300,7 +320,7 @@ JMS에서 .NET으로의 메시징을 시연하려면:
 
 ### .NET에서 JMS로
 
-.NET에서 JMS로의 메시징을 시연하려면:
+.NET에서 JMS로의 메시징을 시연하려면
 
 * "sendonly" 명령줄 인수로 .NET 샘플 응용 프로그램을 시작합니다. 이 모드에서는 응용 프로그램이 큐에서 메시지를 받지 않고 보내기만 합니다.
 * 명령줄 인수 없이 Java 샘플 응용 프로그램을 시작합니다.
@@ -326,7 +346,7 @@ JMS에서 .NET으로의 메시징을 시연하려면:
 	Received message with JMSMessageID = ID:acbca67f03c346de9b7893026f97ddeb
 	exit
 
-##지원되지 않는 기능 및 제한
+## 지원되지 않는 기능 및 제한
 
 서비스 버스와 함께 JMS over AMQP 1.0을 사용하는 경우 다음과 같은 제한 사항이 있습니다.
 
@@ -336,17 +356,17 @@ JMS에서 .NET으로의 메시징을 시연하려면:
 * 임시 대상인 **TemporaryQueue** 및 **TemporaryTopic**과 이러한 대상을 사용하는 **QueueRequestor** 및 **TopicRequestor** API는 현재 지원되지 않습니다.
 * 트랜잭션 처리된 세션과 분산 트랜잭션은 지원되지 않습니다.
 
-##요약
+## 요약
 
 이 방법 가이드에서는 널리 사용되는 JMS API 및 AMQP 1.0을 통해 Java에서 서비스 버스 조정된 메시징 기능(큐 및 게시/구독 토픽)에 액세스하는 방법을 설명했습니다.
 
-.NET, C, Python, PHP 등의 다른 언어에서도 Service Bus AMQP 1.0을 사용할 수 있습니다. 이러한 다른 언어로 빌드한 구성 요소는 서비스 버스의 AMQP 1.0 지원을 사용하여 안정적이며 완전히 신뢰할 수 있는 상태로 메시지를 교환할 수 있습니다. 자세한 내용은 [Service Bus AMQP 1.0 개발자 가이드]를(http://msdn.microsoft.com/ko-kr/library/windowsazure/jj841071.aspx)참조하세요.
+.NET, C, Python, PHP 등의 다른 언어에서도 서비스 버스 AMQP 1.0을 사용할 수 있습니다. 이러한 언어로 빌드한 구성 요소는 서비스 버스의 AMQP 1.0 지원을 사용하여 안정적이며 완전히 신뢰할 수 있는 상태로 메시지를 교환할 수 있습니다. 자세한 내용은 [서비스 버스 AMQP 1.0 개발자 가이드](http://msdn.microsoft.com/library/jj841071.aspx)를 참조하세요.
 
-##추가 정보
+## 추가 정보
 
 * [Azure 서비스 버스의 AMQP 1.0 지원](http://aka.ms/pgr3dp)
 * [서비스 버스 .NET API와 함께 AMQP 1.0을 사용하는 방법](http://aka.ms/lym3vk)
-* [Service Bus AMQP 1.0 개발자 가이드](http://msdn.microsoft.com/ko-kr/library/windowsazure/jj841071.aspx)
-* [서비스 버스 큐를 사용하는 방법](http://www.windowsazure.com/ko-kr/develop/net/how-to-guides/service-bus-queues/)
+* [서비스 버스 AMQP 1.0 개발자 가이드](http://msdn.microsoft.com/library/jj841071.aspx)
+* [서비스 버스 큐를 사용하는 방법](http://azure.microsoft.com/develop/net/how-to-guides/service-bus-queues/)
 
-<!--HONumber=35.1-->
+<!--HONumber=47-->

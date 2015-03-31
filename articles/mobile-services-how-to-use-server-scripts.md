@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="JavaScript 백 엔드 모바일 서비스 작업" 
 	description="Azure 모바일 서비스에서 서버 스크립트를 정의, 등록 및 사용하는 방법에 대한 예제를 제공합니다." 
 	services="mobile-services" 
@@ -10,67 +10,50 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-multiple" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="11/21/2014" 
+	ms.date="02/12/2015" 
 	ms.author="ricksal"/>
 
 
 # JavaScript 백 엔드 모바일 서비스 작업
 
-<div class="dev-center-tutorial-subselector"><a href="/ko-kr/documentation/articles/mobile-services-dotnet-backend-how-to-use/" title=".NET backend">.NET 백 엔드</a> | <a href="/ko-kr/documentation/articles/mobile-services-how-to-use-server-scripts/"  title="JavaScript backend" class="current">JavaScript 백 엔드</a></div>
+<div class="dev-center-tutorial-subselector"><a href="/documentation/articles/mobile-services-dotnet-backend-how-to-use/" title=".NET backend">.NET 백 엔드</a> | <a href="/documentation/articles/mobile-services-how-to-use-server-scripts/"  title="JavaScript backend" class="current">JavaScript 백 엔드</a></div>
  
-이 문서에서는 Azure 모바일 서비스에서 JavaScript 백 엔드 작업을 수행하는 방법에 대한 자세한 정보와 예를 제공합니다. 이 항목의 내용은 다음과 같습니다.
+이 문서에서는 Azure 모바일 서비스에서 JavaScript 백 엔드 작업을 수행하는 방법에 대한 자세한 정보와 예를 제공합니다. 
 
-+ [소개]
-+ [테이블 작업]
-	+ [방법: 테이블 작업 등록]
-	+ [방법: 기본 응답 재정의]
-	+ [방법: execute success 재정의]
-	+ [방법: 기본 오류 처리 재정의]
-	+ [방법: 사용자 지정 매개 변수 추가]
-	+ [방법: 테이블 사용자 작업][방법: 사용자 작업]
-+ [사용자 지정 API][사용자 지정 API 앵커]
-	+ [방법: 사용자 지정 API 정의]
-	+ [방법: HTTP 메서드 구현]
-	+ [방법: XML로 데이터 보내기 및 받기]
-	+ [방법: 사용자 지정 API에서 사용자 및 헤더 작업]
-	+ [방법: 사용자 지정 API에서 여러 경로 정의]
-+ [작업 스케줄러]
-	+ [방법: 예약된 작업 스크립트 정의]
-+ [소스 제어, 공유 코드 및 도우미 함수]
-	+ [방법: Node.js 모듈 로드]
-	+ [방법: 도우미 함수 사용]
-	+ [방법: 소스 제어를 사용하여 코드 공유]
-	+ [방법: 앱 설정 작업] 
-+ [명령줄 도구 사용]
-+ [테이블 작업]
-	+ [방법: 스크립트에서 테이블 액세스]
-	+ [방법: 대량 삽입 수행]
-	+ [방법: JSON 형식을 데이터베이스 형식에 매핑]
-	+ [Transact-SQL을 사용하여 테이블 액세스]
-+ [디버그 및 문제 해결]
-	+ [방법: 모바일 서비스 로그에 출력 쓰기]
-
-##<a name="intro"></a>소개
+## <a name="intro"></a>소개
 
 JavaScript 백 엔드 모바일 서비스에서 사용자 지정 비즈니스 논리를 서버에 저장 및 실행되는 JavaScript 코드로 정의할 수 있습니다. 이 서버 스크립트 코드는 다음과 같은 서버 기능 중 하나에 할당됩니다.
 
 + [주어진 테이블에 대한 삽입, 읽기, 업데이트 또는 삭제 작업][테이블 작업]
 + [예약된 작업][작업 스케줄러]
-+ [사용자 지정 API에서 정의된 HTTP 메서드][사용자 지정 API 앵커]
++ [사용자 지정 API에서 정의된 HTTP 메서드][사용자 지정 API 앵커] 
 
 서버 스크립트에서 main 함수의 서명은 스크립트가 사용되는 위치의 컨텍스트에 따라 달라집니다. 일반 스크립트 코드를 스크립트 간에 공유되는 nodes.js 모듈로 정의할 수도 있습니다. 자세한 내용은 [소스 제어 및 공유 코드][소스 제어, 공유 코드 및 도우미 함수]를 참조하세요.
 
 개별 서버 스크립트 개체 및 함수에 대한 설명은 [모바일 서비스 서버 스크립트 참조]를 참조하세요. 
 
 
-##<a name="table-scripts"></a>테이블 작업
+## <a name="table-scripts"></a>테이블 작업
 
-테이블 작업 스크립트는 삽입, 읽기, 업데이트, 삭제(*del*) 등의 테이블 작업에 등록된 서버 스크립트입니다. 스크립트 이름은 등록된 작업 종류와 일치해야 합니다. 주어진 테이블 작업에 대해 하나의 스크립트만 등록할 수 있습니다. 주어진 작업이 REST 요청에 의해 호출될 때마다(예: 테이블에 항목을 삽입하는 POST 요청이 수신될 때) 스크립트가 실행됩니다. 모바일 서비스는 스크립트 실행 간에 상태를 유지하지 않습니다. 스크립트가 실행될 때마다 새 전역 컨텍스트가 만들어지기 때문에 스크립트에 정의된 모든 상태 변수가 다시 초기화됩니다. 요청 간에 상태를 저장하려면 모바일 서비스에서 테이블을 만든 후 상태를 읽고 테이블에 씁니다. 자세한 내용은 [방법: 스크립트에서 테이블 액세스]를 참조하세요.
+테이블 작업 스크립트는&mdash;삽입, 읽기, 업데이트, 삭제(*del*) 등의 테이블 작업에 등록된 서버 스크립트입니다. 다음 항목으로 구성된 이 섹션에서는 JavaScript 백 엔드에서 테이블 작업을 수행하는 방법을 설명합니다.
 
-작업이 실행될 때 사용자 지정 비즈니스 논리를 적용해야 하는 경우 테이블 작업 스크립트를 작성합니다. 예를 들어 다음 스크립트는  `text` 필드의 문자열 길이가 10보다 큰 경우 삽입 작업을 거부합니다. 
++ [테이블 작업 개요][기본 테이블 작업]
++ [방법: 테이블 작업 등록]
++ [방법: 기본 응답 재정의]
++ [방법: execute success 재정의]
++ [방법: 기본 오류 처리 재정의]
++ [방법: 고유한 ID 값 생성](#generate-guids)
++ [방법: 사용자 지정 매개 변수 추가]
++ [방법: 테이블 사용자 작업][방법: 사용자 작업]
+
+### <a name="basic-table-ops"></a>테이블 작업 개요
+
+스크립트 이름은 등록된 작업 종류와 일치해야 합니다. 주어진 테이블 작업에 대해 하나의 스크립트만 등록할 수 있습니다. 주어진 작업이 REST 요청에 의해 호출될 때마다(예: 테이블에 항목을 삽입하는 POST 요청이 수신될 때) 스크립트가 실행됩니다. 모바일 서비스는 스크립트 실행 간에 상태를 유지하지 않습니다. 스크립트가 실행될 때마다 새 전역 컨텍스트가 만들어지기 때문에 스크립트에 정의된 모든 상태 변수가 다시 초기화됩니다. 요청 간에 상태를 저장하려면 모바일 서비스에서 테이블을 만든 후 상태를 읽고 테이블에 씁니다. 자세한 내용은 [방법: 스크립트에서 테이블 액세스]를 참조하세요.
+
+작업이 실행될 때 사용자 지정 비즈니스 논리를 적용해야 하는 경우 테이블 작업 스크립트를 작성합니다. 예를 들어 다음 스크립트는 `text` 필드의 문자열 길이가 10보다 큰 경우 삽입 작업을 거부합니다. 
 
 	function insert(item, user, request) {
 	    if (item.text.length > 10) {
@@ -85,7 +68,7 @@ JavaScript 백 엔드 모바일 서비스에서 사용자 지정 비즈니스 �
 
 - 첫 번째 인수는 테이블 작업에 따라 달라집니다. 
 
-	- 삽입 및 업데이트의 경우 작업의 영향을 받는 행의 JSON 표현인 **item** 개체입니다. 이 개체를 사용하면  *item.Owner* 등의 이름으로 열 값에 액세스할 수 있습니다. 여기서  *Owner*는 JSON 표현의 이름 중 하나입니다.
+	- 삽입 및 업데이트의 경우 작업의 영향을 받는 행의 JSON 표현인 **item** 개체입니다. 이 개체를 사용하면 *item.Owner* 등의 이름으로 열 값에 액세스할 수 있습니다. 여기서 *Owner*는 JSON 표현의 이름 중 하나입니다.
 	- 삭제의 경우 삭제할 레코드의 ID입니다. 
 	- 읽기의 경우 반환할 행 집합을 지정하는 [query 개체]입니다.
 
@@ -104,17 +87,17 @@ JavaScript 백 엔드 모바일 서비스에서 사용자 지정 비즈니스 �
 
 모든 서버 스크립트는 main 함수를 포함하며 선택적 도우미 함수가 있을 수도 있습니다. 서버 스크립트가 특정 테이블에 대해 만들어진 경우에도 동일한 데이터베이스의 다른 테이블을 참조할 수 있습니다. 공통 함수를 스크립트 간에 공유되는 모듈로 정의할 수도 있습니다. 자세한 내용은 [소스 제어 및 공유 코드][소스 제어, 공유 코드 및 도우미 함수]를 참조하세요.
 
-###<a name="register-table-scripts"></a>방법: 테이블 스크립트 등록
+### <a name="register-table-scripts"></a>방법: 테이블 스크립트 등록
 
 다음 방법 중 하나로 테이블 작업에 등록된 서버 스크립트를 정의할 수 있습니다.
 
-+ [Azure 관리 포털][관리 포털]에서  테이블 작업 스크립트는 주어진 테이블에 대한 **스크립트** 탭에서 액세스합니다. 다음은  `TodoItem` 테이블에 대한 삽입 스크립트에 등록된 기본 코드를 보여 줍니다. 이 코드를 고유한 사용자 지정 비즈니스 논리로 재정의할 수 있습니다.
++ [Azure 관리 포털][관리 포털]에서 테이블 작업 스크립트는 주어진 테이블에 대한 **스크립트** 탭에서 액세스합니다. 다음은 `TodoItem` 테이블에 대한 삽입 스크립트에 등록된 기본 코드를 보여 줍니다. 이 코드를 고유한 사용자 지정 비즈니스 논리로 재정의할 수 있습니다.
 
 	![1][1]
 	
 	작업 방법은 [모바일 서비스에서 서버 스크립트를 사용하여 데이터 유효성 검사 및 수정]을 참조하세요.  
 
-+ 소스 제어 사용. 소스 제어를 사용하도록 한 경우 git 리포지토리의 .\service\table 하위 폴더에 이름이 <em>`<table>`</em>.<em>`<operation>`</em>.js인 파일을 만듭니다. 여기서 <em>`<table>`</em>은 테이블의 이름이고 <em>`<operation>`</em>은 등록 중인 테이블 작업입니다. 자세한 내용은 [소스 제어 및 공유 코드][소스 제어, 공유 코드 및 도우미 함수]를 참조하세요.
++ 소스 제어 사용. 소스 제어를 사용하도록 한 경우 git 리포지토리의 .\service\table 하위 폴더에 이름이 <em>`<table>`</em>.<em>`<operation>`</em>.js인 파일을 만듭니다. 여기서 <em>`<table>`</em> 은 테이블의 이름이고 <em>`<operation>`</em> 은 등록 중인 테이블 작업입니다. 자세한 내용은 [소스 제어 및 공유 코드][소스 제어, 공유 코드 및 도우미 함수]를 참조하세요.
 
 + 명령 프롬프트에서 Azure 명령줄 도구 사용. 자세한 내용은 [명령줄 도구 사용]을 참조하세요.
 
@@ -135,7 +118,7 @@ JavaScript 백 엔드 모바일 서비스에서 사용자 지정 비즈니스 �
 
 이 예제에서는 항목이 데이터베이스에 삽입되고 해당 상태 코드가 사용자에게 반환됩니다. 
 
-**execute** 함수가 호출될 때 첫 번째 인수로 스크립트 함수에 전달된  `item`, [query][query 개체] 또는  `id` 값이 작업을 수행하는 데 사용됩니다. 삽입, 업데이트 또는 쿼리 작업의 경우 **execute**를 호출하기 전에 항목이나 쿼리를 수정할 수 있습니다. 
+**execute** 함수가 호출될 때 첫 번째 인수로 스크립트 함수에 전달된 `item`, [query][query 개체] 또는 `id` 값이 작업을 수행하는 데 사용됩니다. 삽입, 업데이트 또는 쿼리 작업의 경우 **execute**를 호출하기 전에 항목이나 쿼리를 수정할 수 있습니다. 
 
 	function insert(item, user, request) { 
 	    item.scriptComment =
@@ -160,7 +143,7 @@ JavaScript 백 엔드 모바일 서비스에서 사용자 지정 비즈니스 �
 추가 예제는 [데이터 읽기 및 쓰기], [요청 수정] 및 [데이터 유효성 검사]를 참조하세요.
 
 
-###<a name="override-response"></a>방법: 기본 응답 재정의
+### <a name="override-response"></a>방법: 기본 응답 재정의
 
 스크립트를 사용하여 기본 응답 동작을 재정의할 수 있는 유효성 검사 논리를 구현할 수도 있습니다. 유효성 검사에 실패하는 경우 **execute** 함수 대신 **respond** 함수를 호출하고 응답을 클라이언트에 씁니다. 
 
@@ -173,13 +156,13 @@ JavaScript 백 엔드 모바일 서비스에서 사용자 지정 비즈니스 �
 	    }
 	}
 
-이 예제에서는 삽입된 항목의  `userId` 속성이 인증된 클라이언트에 대해 제공된 [user 개체]의  `userId`와 일치하지 않을 경우 요청이 거부됩니다. 이 경우 데이터베이스 작업(*insert*)이 발생하지 않으며 403 HTTP 상태 코드와 사용자 지정 오류 메시지가 포함된 응답이 클라이언트에 반환됩니다. 추가 예제는 [응답 수정]을 참조하세요.
+이 예제에서는 삽입된 항목의 `userId` 속성이 인증된 클라이언트에 대해 제공된 [user 개체]의 `userId`와 일치하지 않을 경우 요청이 거부됩니다. 이 경우 데이터베이스 작업(*insert*)이 발생하지 않으며 403 HTTP 상태 코드와 사용자 지정 오류 메시지가 포함된 응답이 클라이언트에 반환됩니다. 추가 예제는 [응답 수정]을 참조하세요.
 
-###<a name="override-success"></a>방법: execute success 재정의
+### <a name="override-success"></a>방법: execute success 재정의
 
 기본적으로 테이블 작업에서 **execute** 함수는 자동으로 응답을 씁니다. 그러나 성공 및 /또는 오류 시 동작을 재정의하는 두 개의 선택적 매개 변수를 execute 함수에 전달할 수 있습니다.
 
-execute를 호출할 때 **success** 처리기를 전달하면 쿼리 결과를 응답에 쓰기 전에 수정할 수 있습니다. 다음 예제에서는  `execute({ success: function(results) { ... })`을 호출하여 데이터베이스에서 데이터를 읽은 후 응답을 쓰기 전에 추가 작업을 수행합니다.
+execute를 호출할 때 **success** 처리기를 전달하면 쿼리 결과를 응답에 쓰기 전에 수정할 수 있습니다. 다음 예제에서는 `execute({ success: function(results) { ... })`을 호출하여 데이터베이스에서 데이터를 읽은 후 응답을 쓰기 전에 추가 작업을 수행합니다.
 
 	function read(query, user, request) {
 	    request.execute({
@@ -197,7 +180,7 @@ execute를 호출할 때 **success** 처리기를 전달하면 쿼리 결과를 
 
 >[AZURE.NOTE]먼저 **execute** 함수를 호출한 후에만 인수 없이 **respond**를 호출하여 기본 응답을 호출할 수 있습니다.
  
-###<a name="override-error"></a>방법: 기본 오류 처리 재정의
+### <a name="override-error"></a>방법: 기본 오류 처리 재정의
 
 데이터베이스 연결 끊김이나 잘못된 개체 또는 쿼리가 있는 경우 **execute** 함수가 실패할 수 있습니다. 기본적으로 오류가 발생하면 서버 스크립트에서 오류를 기록하고 오류 결과를 응답에 씁니다. 모바일 서비스에서 기본 오류 처리를 제공하기 때문에 서비스에서 발생할 수 있는 오류를 처리할 필요는 없습니다. 
 
@@ -217,15 +200,50 @@ execute를 호출할 때 **success** 처리기를 전달하면 쿼리 결과를 
 
 원하는 경우 **success** 및 **error**처리기를 둘 다 제공할 수도 있습니다.
 
-###<a name="access-headers"></a>방법: 사용자 지정 매개 변수 액세스
+### <a name="generate-guids"></a>방법: 고유한 ID 값 생성
+
+모바일 서비스는 테이블의 **id** 열에 대한 고유한 사용자 지정 문자열 값을 지원합니다. 이를 통해 응용 프로그램에서 전자 메일 주소 또는 사용자 이름과 같은 사용자 지정 값을 ID에 사용할 수 있습니다. 
+
+문자열 ID는 다음과 같은 이점을 제공합니다.
+
++ ID는 데이터베이스에 대한 왕복 없이도 생성됩니다.
++ 여러 테이블 또는 데이터베이스의 레코드를 병합하기가 더 쉽습니다.
++ 응용 프로그램의 논리를 통해 ID 값이 더 효율적으로 통합될 수 있습니다.
+
+문자열 ID 값이 삽입된 레코드에 설정되지 않은 경우 모바일 서비스는 해당 ID에 대한 고유한 값을 생성합니다. 서버 스크립트에서 원하는 고유한 ID 값을 생성할 수 있습니다. 아래 스크립트 예제에서는 사용자 지정 GUID를 생성하여 새 레코드의 ID에 할당합니다. 이는 레코드의 ID 값을 전달하지 않은 경우 모바일 서비스가 생성하는 ID 값과 유사합니다.
+
+	// Example of generating an id. This is not required since Mobile Services
+	// will generate an id if one is not passed in.
+	item.id = item.id || newGuid();
+	request.execute();
+
+	function newGuid() {
+		var pad4 = function(str) { return "0000".substring(str.length) + str; };
+		var hex4 = function () { return pad4(Math.floor(Math.random() * 0x10000 /* 65536 */ ).toString(16)); };
+		return (hex4() + hex4() + "-" + hex4() + "-" + hex4() + "-" + hex4() + "-" + hex4() + hex4() + hex4());
+	}
+
+
+응용 프로그램에서 ID 값을 제공하는 경우 모바일 서비스는 값을 있는 그대로 저장합니다. 여기에는 선행 또는 후행 공백이 포함됩니다. 공백은 값에서 잘리지 않습니다.
+
+`id`의 값은 고유해야 하며 다음과 같은 문자를 포함해서는 안 됩니다.
+
++ 제어 문자: [0x0000-0x001F] 및 [0x007F-0x009F]. 자세한 내용은 [ASCII 제어 코드 C0 및 C1](http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set)을 참조하세요.
++  인쇄 가능한 문자: **"**(0x0022), **\+** (0x002B), **/** (0x002F), **?** (0x003F), **\\** (0x005C), **`** (0x0060)
++  ID "." 및 ".."
+
+또한 테이블에 정수 ID를 사용할 수 있습니다. 정수 ID를 사용하려면 `mobile table create` 명령으로 `--integerId` 옵션을 사용하여 테이블을 만들어야 합니다. 이 명령은 Azure용 CLI(명령줄 인터페이스)와 함께 사용됩니다. CLI 사용에 대한 자세한 내용은 [모바일 서비스 테이블 관리를 위한 CLI](/documentation/articles/virtual-machines-command-line-tools/#Mobile_Tables)를 참조하세요.
+
+
+### <a name="access-headers"></a>방법: 사용자 지정 매개 변수 액세스
 
 모바일 서비스에 요청을 보낼 때 사용자 지정 매개 변수를 요청 URI에 포함하여 테이블 작업 스크립트에 주어진 요청을 처리하는 방법을 지시할 수 있습니다. 그런 다음 매개 변수를 검사하여 처리 경로를 확인하도록 스크립트를 수정합니다.
 
-예를 들어 POST 요청에 대한 다음 URI는 동일한 텍스트 값이 포함된 새  *TodoItem*의 삽입을 허용하지 않도록 서비스에 지시합니다.
+예를 들어 POST 요청에 대한 다음 URI는 동일한 텍스트 값이 포함된 새 *TodoItem*의 삽입을 허용하지 않도록 서비스에 지시합니다.
 
 		https://todolist.azure-mobile.net/tables/TodoItem?duplicateText=false
 
-이러한 사용자 지정 쿼리 매개 변수는 [request 개체]의 **parameters** 속성에서 JSON 값으로 액세스합니다. 모바일 서비스는 테이블 작업에 등록된 모든 함수에 **request** 개체를 제공합니다. 삽입 작업에 대한 다음 서버 스크립트는 삽입 작업이 실행되기 전에  `duplicateText` 매개 변수의 값을 확인합니다.
+이러한 사용자 지정 쿼리 매개 변수는 [request 개체]의 **parameters** 속성에서 JSON 값으로 액세스합니다. 모바일 서비스는 테이블 작업에 등록된 모든 함수에 **request** 개체를 제공합니다. 삽입 작업에 대한 다음 서버 스크립트는 삽입 작업이 실행되기 전에 `duplicateText` 매개 변수의 값을 확인합니다.
 
 		function insert(item, user, request) {
 		    var todoItemTable = tables.getTable('TodoItem');
@@ -245,8 +263,7 @@ execute를 호출할 때 **success** 처리기를 전달하면 쿼리 결과를 
 		    }
 
 		    function insertItemIfNotComplete(existingItems) {
-		        if (existingIte
-	ms.length > 0) {
+		        if (existingItems.length > 0) {
 		            request.respond(statusCodes.CONFLICT, 
                         "Duplicate items are not allowed.");
 		        } else {
@@ -256,7 +273,7 @@ execute를 호출할 때 **success** 처리기를 전달하면 쿼리 결과를 
 		    }
 		}
 
-**insertItemIfNotComplete**에서는 중복 텍스트가 없는 경우 [request 개체]의 **execute** 함수가 호출되어 항목을 삽입하고, 그렇지 않으면 **respond** 함수가 호출되어 클라이언트에 중복을 알립니다. 
+**insertItemIfNotComplete** 에서는 중복 텍스트가 없는 경우 [request 개체] 의 **execute**  함수가 호출되어 항목을 삽입하고, 그렇지 않으면 **respond**함수가 호출되어 클라이언트에 중복을 알립니다. 
 
 위 코드에서 **success** 함수 호출 구문은 다음과 같습니다.
 
@@ -272,7 +289,7 @@ JavaScript에서 다음과 같은 긴 동등 항목의 간결한 버전입니다
 		}
 
 
-###<a name="work-with-users"></a>방법: 사용자 작업
+### <a name="work-with-users"></a>방법: 사용자 작업
 
 Azure 모바일 서비스에서 ID 공급자를 통해 사용자를 인증할 수 있습니다. 자세한 내용은 [인증 시작]을 참조하세요. 인증된 사용자가 테이블 작업을 호출하면 모바일 서비스에서 [user 개체]를 사용하여 등록된 스크립트 함수에 사용자 정보를 제공합니다. **userId** 속성을 사용하여 사용자별 정보를 저장하고 검색할 수 있습니다. 다음 예제에서는 인증된 사용자의 userId를 기준으로 항목의 owner 속성을 설정합니다.
 
@@ -281,7 +298,7 @@ Azure 모바일 서비스에서 ID 공급자를 통해 사용자를 인증할 �
 	    request.execute();
 	}
 
-다음 예제에서는 인증된 사용자의 **userId**를 기준으로 쿼리에 다른 필터를 추가합니다. 이 필터는 결과를 현재 사용자에 속하는 항목으로만 제한합니다.  
+아래 예제에서는 인증된 사용자의 **userId**를 기준으로 쿼리에 다른 필터를 추가합니다. 이 필터는 결과를 현재 사용자에 속하는 항목으로만 제한합니다.  
 
 	function read(query, user, request) {
 	    query.where({
@@ -290,7 +307,18 @@ Azure 모바일 서비스에서 ID 공급자를 통해 사용자를 인증할 �
 	    request.execute();
 	}
 
-##<a name="custom-api"></a>사용자 지정 API
+## <a name="custom-api"></a>사용자 지정 API
+
+다음 항목으로 구성된 이 섹션에서는 사용자 지정 API 끝점을 만들고 작업하는 방법을 설명합니다. 
+	
++ [사용자 지정 API 개요](#custom-api-overview)
++ [방법: 사용자 지정 API 정의]
++ [방법: HTTP 메서드 구현]
++ [방법: XML로 데이터 보내기 및 받기]
++ [방법: 사용자 지정 API에서 사용자 및 헤더 작업]
++ [방법: 사용자 지정 API에서 여러 경로 정의]
+
+### <a name="custom-api-overview"></a>사용자 지정 API 개요
 
 사용자 지정 API는 GET, POST, PUT, PATCH, DELETE 등의 표준 HTTP 메서드 중 하나 이상에 의해 액세스되는 모바일 서비스의 끝점입니다. 사용자 지정 API에서 지원하는 각 HTTP 메서드에 대해 별도의 함수 내보내기를 단일 스크립트 파일에서 모두 정의할 수 있습니다. 주어진 메서드를 사용한 사용자 지정 API 요청이 수신되면 등록된 스크립트가 호출됩니다. 자세한 내용은 [사용자 지정 API]를 참조하세요.
 
@@ -306,21 +334,21 @@ Azure 모바일 서비스에서 ID 공급자를 통해 사용자를 인증할 �
 
 실행 간에 전역 상태가 유지됩니다. 
 
-###<a name="define-custom-api"></a>방법: 사용자 지정 API 정의
+### <a name="define-custom-api"></a>방법: 사용자 지정 API 정의
 
 다음 방법 중 하나로 사용자 지정 API 끝점의 HTTP 메서드에 등록된 서버 스크립트를 정의할 수 있습니다.
 
-+ [Azure 관리 포털][관리 포털]에서  사용자 지정 API 스크립트는 **API** 탭에서 생성 및 수정됩니다. 서버 스크립트 코드는 주어진 사용자 지정 API의 **스크립트** 탭에 있습니다. 다음은  `CompleteAll` 사용자 지정 API 끝점에 대한 POST 요청에서 호출되는 스크립트를 보여 줍니다. 
++ [Azure 관리 포털][관리 포털]에서 사용자 지정 API 스크립트는 **API** 탭에서 생성 및 수정됩니다. 서버 스크립트 코드는 주어진 사용자 지정 API의 **스크립트** 탭에 있습니다. 다음은 `CompleteAll` 사용자 지정 API 끝점에 대한 POST 요청에서 호출되는 스크립트를 보여 줍니다. 
 
 	![2][2]
 	
 	사용자 지정 API 메서드에 대한 액세스 권한은 사용 권한 탭에서 할당됩니다. 이 사용자 지정 API가 생성된 방법을 확인하려면 [클라이언트에서 사용자 지정 API 호출]을 참조하세요.  
 
-+ 소스 제어 사용. 소스 제어가 사용하도록 설정된 경우 git 리포지토리의 .\service\api 하위 폴더에 <em>`<custom_api>`</em>.js라는 파일을 만듭니다. 여기서 <em>`<custom_api>`</em>는 등록되는 사용자 지정 API의 이름입니다. 이 스크립트 파일에는 사용자 지정 API에 의해 노출되는 각 HTTP 메서드에 대한 _exported_ 함수가 포함되어 있습니다. 사용 권한은 도우미 .json 파일에서 정의됩니다. 자세한 내용은 [소스 제어 및 공유 코드][소스 제어, 공유 코드 및 도우미 함수]를 참조하세요.
++ 소스 제어 사용. 소스 제어를 사용하도록 한 경우 git 리포지토리의 .\service\api 하위 폴더에 이름이 <em>`<custom_api>`</em>.js인 파일을 만듭니다. 여기서 <em>`<custom_api>`</em> 는 등록할 사용자 지정 API입니다. 이 스크립트 파일에는 사용자 지정 API에 의해 노출되는 각 HTTP 메서드에 대한 _exported_ 함수가 포함되어 있습니다. 사용 권한은 도우미 .json 파일에서 정의됩니다. 자세한 내용은 [소스 제어 및 공유 코드][소스 제어, 공유 코드 및 도우미 함수]를 참조하세요.
 
 + 명령 프롬프트에서 Azure 명령줄 도구 사용. 자세한 내용은 [명령줄 도구 사용]을 참조하세요.
 
-###<a name="handle-methods"></a>방법: HTTP 메서드 구현
+### <a name="handle-methods"></a>방법: HTTP 메서드 구현
 
 사용자 지정 API는 GET, POST, PUT, PATCH, DELETE 등의 HTTP 메서드 중 하나 이상을 처리할 수 있습니다. 사용자 지정 API에서 처리되는 각 HTTP 메서드에 대해 exported 함수가 정의됩니다. 단일 사용자 지정 API 코드 파일에서 다음 함수 중 하나 또는 모두를 내보낼 수 있습니다.
 
@@ -332,7 +360,7 @@ Azure 모바일 서비스에서 ID 공급자를 통해 사용자를 인증할 �
 
 서버 스크립트에 구현되지 않은 HTTP 메서드를 사용하여 사용자 지정 API 끝점을 호출할 수 없으며 405(메서드가 허용되지 않음) 오류 응답이 반환됩니다. 각 지원 HTTP 메서드에 별도의 사용 권한 수준을 할당할 수 있습니다.
 
-###<a name="api-return-xml"></a>방법: XML로 데이터 보내기 및 받기
+### <a name="api-return-xml"></a>방법: XML로 데이터 보내기 및 받기
 
 클라이언트가 데이터를 저장 및 검색할 때 모바일 서비스는 JSON(JavaScript Object Notation)을 사용하여 메시지 본문의 데이터를 나타냅니다. 그러나 XML 페이로드를 대신 사용하려는 시나리오도 있습니다. 예를 들어 Windows 스토어 앱에는 서비스에서 XML을 내보내야 하는 기본 제공 정기 알림 기능이 있습니다. 자세한 내용은 [정기 알림을 지원하는 사용자 지정 API 정의]를 참조하세요.
 
@@ -348,11 +376,11 @@ Azure 모바일 서비스에서 ID 공급자를 통해 사용자를 인증할 �
 
 		https://todolist.azure-mobile.net/api/orderpizza
 
-###<a name="get-api-user"></a>방법: 사용자 지정 API에서 사용자 및 헤더 작업
+### <a name="get-api-user"></a>방법: 사용자 지정 API에서 사용자 및 헤더 작업
 
 Azure 모바일 서비스에서 ID 공급자를 통해 사용자를 인증할 수 있습니다. 자세한 내용은 [인증 시작]을 참조하세요. 인증된 사용자가 사용자 지정 API를 요청하면 모바일 서비스에서 [user 개체]를 사용하여 사용자 지정 API 코드에 사용자 정보를 제공합니다. [user 개체]는 [request 개체]의 user 속성에서 액세스합니다. **userId** 속성을 사용하여 사용자별 정보를 저장하고 검색할 수 있습니다. 
 
-다음 **OrderPizza** 사용자 지정 API 함수는 인증된 사용자의 userId를 기준으로 항목의 userId 속성을 설정합니다.
+다음 **OrderPizza** 사용자 지정 API 함수는 인증된 사용자의 userId를 기준으로 항목의 owner 속성을 설정합니다.
 
 		exports.post = function(request, response) {
 			var userTable = request.service.tables.getTable('user');
@@ -377,9 +405,9 @@ Azure 모바일 서비스에서 ID 공급자를 통해 사용자를 인증할 �
     		response.send(200, "You sent: " + header);
 		};
 
-이 간단한 예제에서는  `my-custom-header`라는 사용자 지정 헤더를 읽은 후 이 값을 응답에 반환합니다.
+이 간단한 예제에서는 `my-custom-header`라는 사용자 지정 헤더를 읽은 후 이 값을 응답에 반환합니다.
 
-###<a name="api-routes"></a>방법: 사용자 지정 API에서 여러 경로 정의
+### <a name="api-routes"></a>방법: 사용자 지정 API에서 여러 경로 정의
 
 모바일 서비스를 사용하면 사용자 지정 API에 여러 경로를 정의할 수 있습니다. 예를 들어 **calculator** 사용자 지정 API의 다음 URL에 대한 HTTP GET 요청은 각각 **add** 또는 **subtract** 함수를 호출합니다. 
 
@@ -415,13 +443,13 @@ Azure 모바일 서비스에서 ID 공급자를 통해 사용자를 인증할 �
 
 		{"result":-2}
 
-##<a name="scheduler-scripts"></a>작업 스케줄러
+## <a name="scheduler-scripts"></a>작업 스케줄러
 
 모바일 서비스를 사용하면 관리 포털에서 주문형 또는 정해진 일정의 작업으로 실행되는 서버 스크립트를 정의할 수 있습니다. 예약된 작업은 테이블 데이터 정리, 일괄 처리 등의 정기 작업을 수행하는 데 유용합니다. 자세한 내용은 [작업 예약]을 참조하세요.
 
 예약된 작업에 등록된 스크립트에는 예약된 작업과 동일한 이름의 main 함수가 있습니다. 예약된 스크립트는 HTTP 요청에 의해 호출되지 않으므로 서버 런타임에서 전달할 수 있는 컨텍스트가 없으며 함수가 매개 변수를 사용하지 않습니다. 다른 종류의 스크립트와 마찬가지로 서브루틴 함수를 사용할 수 있으며 공유 모듈이 필요할 수 있습니다. 자세한 내용은 [소스 제어, 공유 코드 및 도우미 함수]를 참조하세요.
 
-###<a name="scheduler-scripts"></a>방법: 예약된 작업 스크립트 정의
+### <a name="scheduler-scripts"></a>방법: 예약된 작업 스크립트 정의
 
 모바일 서비스 스케줄러에서 정의된 작업에 서버 스크립트를 할당할 수 있습니다. 이러한 스크립트는 작업에 속하며 작업 일정에 따라 실행됩니다. [관리 포털]을 사용하여 주문형 작업을 실행할 수도 있습니다. 모바일 서비스에서 데이터를 전달하지 않기 때문에 예약된 작업을 정의하는 스크립트에는 매개 변수가 없습니다. 일반적인 JavaScript 함수로 실행되며 모바일 서비스와 직접 상호 작용하지 않습니다. 
 
@@ -437,23 +465,33 @@ Azure 모바일 서비스에서 ID 공급자를 통해 사용자를 인증할 �
 
 >[AZURE.NOTE]소스 제어가 사용하도록 설정된 경우 git 리포지토리의 .\service\scheduler 하위 폴더에서 직접 예약된 작업 스크립트를 편집할 수 있습니다. 자세한 내용은 [방법: 소스 제어를 사용하여 코드 공유]를 참조하세요.
 
-##<a name="shared-code"></a>소스 제어, 공유 코드 및 도우미 함수
+## <a name="shared-code"></a>소스 제어, 공유 코드 및 도우미 함수
+
+다음 항목으로 구성된 이 섹션에서는 소스 제어를 활용하여 사용자 고유의 사용자 지정 node.js 모듈, 공유 코드 및 기타 코드 재사용 전략을 추가하는 방법을 보여 줍니다.
+
++ [공유 코드 활용 개요](#leverage-source-control)
++ [방법: Node.js 모듈 로드]
++ [방법: 도우미 함수 사용]
++ [방법: 소스 제어를 사용하여 코드 공유]
++ [방법: 앱 설정 작업] 
+
+### <a name="leverage-source-control"></a>공유 코드 활용 개요
 
 모바일 서비스에서 서버의 Node.js를 사용하기 때문에 스크립트는 기본 제공 Node.js 모듈에 이미 액세스할 수 있습니다. 소스 제어를 사용하여 고유한 모듈을 정의하거나 서비스에 다른 Node.js 모듈을 추가할 수도 있습니다.
 
 다음은 전역 **require** 함수를 사용하여 스크립트에서 활용할 수 있는 유용한 모듈 중 일부입니다.
 
-+ **azure**: Azure SDK for Node.js의 기능을 노출합니다. 자세한 내용은 [Azure SDK for Node.js]를 참조하세요. 
++ **azure**: Node.js용 Azure SDK의 기능을 노출합니다. 자세한 내용은 [Node.js용 Azure SDK]를 참조하세요. 
 + **crypto**: OpenSSL의 암호화 기능을 제공합니다. 자세한 내용은 [Node.js 설명서][crypto API]를 참조하세요.
 + **path**: 파일 경로 작업을 위한 유틸리티가 포함되어 있습니다. 자세한 내용은 [Node.js 설명서][path API]를 참조하세요.
 + **querystring**: 쿼리 문자열 작업을 위한 유틸리티가 포함되어 있습니다. 자세한 내용은 [Node.js 설명서][querystring API]를 참조하세요.
 + **request**: Twitter, Facebook 등의 외부 REST 서비스에 HTTP 요청을 보냅니다. 자세한 내용은 [HTTP 요청 보내기]를 참조하세요.
-+ **sendgrid**: Azure의 Sendgrid 메일 서비스를 사용하여 메일을 보냅니다. 자세한 내용은 [SendGrid를 사용하여 모바일 서비스에서 메일 보내기]를 참조하세요.
++ **sendgrid**: Azure의 Sendgrid 메일 서비스를 사용하여 메일을 보냅니다. 자세한 내용은 [SendGrid로 모바일 서비스에서 메일 보내기]를 참조하세요.
 + **url**: URL을 구문 분석하고 확인하는 유틸리티가 포함되어 있습니다. 자세한 내용은 [Node.js 설명서][url API]를 참조하세요.
 + **util**: 문자열 서식 지정, 개체 형식 검사 등의 다양한 유틸리티가 포함되어 있습니다. 자세한 내용은 [Node.js 설명서][util API]를 참조하세요. 
 + **zlib**: gzip, deflate 등의 압축 기능을 노출합니다. 자세한 내용은 [Node.js 설명서][zlib API]를 참조하세요. 
 
-###<a name="modules-helper-functions"></a>방법: 모듈 활용
+### <a name="modules-helper-functions"></a>방법: 모듈 활용
 
 모바일 서비스는 전역 **require** 함수를 사용하여 스크립트에서 로드할 수 있는 모듈 집합을 노출합니다. 예를 들어 스크립트에서 HTTP 요청을 하려면 **request**가 필요할 수 있습니다. 
 
@@ -465,21 +503,21 @@ Azure 모바일 서비스에서 ID 공급자를 통해 사용자를 인증할 �
 	} 
 
 
-###<a name="shared-code-source-control"></a>방법: 소스 제어를 사용하여 코드 공유
+### <a name="shared-code-source-control"></a>방법: 소스 제어를 사용하여 코드 공유
 
 npm(Node.js 패키지 관리자)과 함께 소스 제어를 사용하여 모바일 서비스에서 사용할 수 있는 모듈을 제어할 수 있습니다. 이 작업을 수행하는 방법에는 다음 두 가지가 있습니다.
 
-+ npm에 게시되고 npm에 의해 설치되는 모듈의 경우 package.json 파일을 사용하여 모바일 서비스에서 설치하려는 패키지를 선언합니다. 그러면 서비스에서 항상 최신 버전의 필수 패키지에 액세스할 수 있습니다. package.json 파일은  `.\service` 디렉터리에 있습니다. 자세한 내용은 [Azure 모바일 서비스에서 package.json 지원](영문)을 참조하세요.
++ npm에 게시되고 npm에 의해 설치되는 모듈의 경우 package.json 파일을 사용하여 모바일 서비스에서 설치하려는 패키지를 선언합니다. 그러면 서비스에서 항상 최신 버전의 필수 패키지에 액세스할 수 있습니다. package.json 파일은 `.\service` 디렉터리에 있습니다. 자세한 내용은 [Azure 모바일 서비스의 package.json 지원]을 참조하세요.
 
-+ 개인 또는 사용자 지정 모듈의 경우 npm을 사용하여 소스 제어의  `.\service\node_modules` 디렉터리에 수동으로 모듈을 설치할 수 있습니다. 수동으로 모듈을 업로드하는 방법의 예제는 [서버 스크립트에서 공유 코드 및 Node.js 모듈 활용]을 참조하세요.
++ 개인 또는 사용자 지정 모듈의 경우 npm을 사용하여 소스 제어의 `.\service\node_modules` 디렉터리에 수동으로 모듈을 설치할 수 있습니다. 수동으로 모듈을 업로드하는 방법의 예제는 [서버 스크립트에서 공유 코드 및 Node.js 모듈 활용]을 참조하세요.
 
-	>[AZURE.NOTE]디렉터리 계층 구조에  `node_modules`가 이미 있는 경우 NPM은 리포지토리에 새  `node_modules`를 만드는 대신  `\node-uuid` 하위 디렉터리를 만듭니다. 이 경우 기존  `node_modules` 디렉터리를 삭제하면 됩니다.
+	>[AZURE.NOTE]디렉터리 계층 구조에 `node_modules`가 이미 있는 경우 NPM은 리포지토리에 새 `node_modules`를 만드는 대신 `\node-uuid` 하위 디렉터리를 만듭니다. 이 경우 기존 `node_modules` 디렉터리를 삭제하면 됩니다.
 
 모바일 서비스에 대한 리포지토리에 package.json 파일 또는 사용자 지정 모듈을 커밋한 후 **require**를 사용하여 모듈을 이름으로 참조합니다.   
 
->[AZURE.NOTE] package.json에 지정하거나 모바일 서비스에 업로드한 모듈은 서버 스크립트 코드에서 만 사용됩니다. 이러한 모듈은 모바일 서비스 런타임에서 사용되지 않습니다.
+>[AZURE.NOTE] package.json에 지정하거나 모바일 서비스에 업로드한 모듈은 서버 스크립트 코드에서만 사용됩니다. 이러한 모듈은 모바일 서비스 런타임에서 사용되지 않습니다.
 
-###<a name="helper-functions"></a>방법: 도우미 함수 사용
+### <a name="helper-functions"></a>방법: 도우미 함수 사용
 
 개별 서버 스크립트에는 모듈이 필요할 뿐 아니라 도우미 함수가 포함될 수 있습니다. 이러한 함수는 main 함수와 별개이며 스크립트에서 코드를 분해하는 데 사용할 수 있습니다. 
 
@@ -500,7 +538,7 @@ npm(Node.js 패키지 관리자)과 함께 소스 제어를 사용하여 모바�
  
 스크립트에서 도우미 함수는 main 함수 뒤에 선언되어야 합니다. 스크립트에서 모든 변수를 선언해야 합니다. 선언되지 않은 변수는 오류를 발생시킵니다.
 
-도우미 함수를 한 번 정의한 후 서버 스크립트 간에 공유할 수도 있습니다. 스크립트 간에 함수를 공유하려면 함수를 내보내야 하며  `.\service\shared\` 디렉터리에 스크립트 파일이 있어야 합니다. 다음은  `.\services\shared\helpers.js` 파일에 공유 함수를 내보내는 방법에 대한 템플릿입니다.
+도우미 함수를 한 번 정의한 후 서버 스크립트 간에 공유할 수도 있습니다. 스크립트 간에 함수를 공유하려면 함수를 내보내야 하며 `.\service\shared\` 디렉터리에 스크립트 파일이 있어야 합니다. 다음은 `.\services\shared\helpers.js` 파일에 공유 함수를 내보내는 방법에 대한 템플릿입니다.
 
 		exports.handleUnapprovedItem = function (tables, user, callback) {
 		    
@@ -524,7 +562,7 @@ npm(Node.js 패키지 관리자)과 함께 소스 제어를 사용하여 모바�
 
 스크립트 파일은 [소스 제어][방법: 소스 제어를 사용하여 코드 공유] 또는 [명령줄 도구][명령줄 도구 사용]를 사용하여 공유 디렉터리로 업로드됩니다.
 
-###<a name="app-settings"></a>방법: 앱 설정 작업
+### <a name="app-settings"></a>방법: 앱 설정 작업
 
 모바일 서비스를 사용하면 런타임에 서버 스크립트에서 액세스할 수 있는 앱 설정으로 안전하게 값을 저장할 수 있습니다.  모바일 서비스의 앱 설정에 데이터를 추가하면 이름/값 쌍이 암호화된 상태로 저장되며, 스크립트 파일에 하드 코딩하지 않아도 서버 스크립트에서 액세스할 수 있습니다. 자세한 내용은 [앱 설정]을 참조하세요.
 
@@ -562,7 +600,7 @@ npm(Node.js 패키지 관리자)과 함께 소스 제어를 사용하여 모바�
 
 이 디렉터리 구조는 소스 제어를 사용할 때의 git 리포지토리와 같습니다. 
 
-명령줄 도구에서 스크립트 파일을 업로드하는 경우 먼저  `.\services\` 디렉터리로 이동해야 합니다. 다음 명령은  `table` 하위 디렉터리에서  `todoitem.insert.js`라는 스크립트를 업로드합니다.
+명령줄 도구에서 스크립트 파일을 업로드하는 경우 먼저 `.\services\` 디렉터리로 이동해야 합니다. 다음 명령은 `table` 하위 디렉터리에서 `todoitem.insert.js`라는 스크립트를 업로드합니다.
 
 		~$azure mobile script upload todolist table/todoitem.insert.js
 		info:    Executing command mobile script upload
@@ -595,19 +633,29 @@ npm(Node.js 패키지 관리자)과 함께 소스 제어를 사용하여 모바�
 		data:    register_notifications  application  application  user         application  application
 		info:    mobile script list command OK
 
-자세한 내용은 [Azure 모바일 서비스 관리 명령]을 참조하세요. 
+자세한 내용은 [Azure 모바일 서비스를 관리하는 명령]을 참조하세요. 
 
-##<a name="working-with-tables"></a>테이블 작업
+## <a name="working-with-tables"></a>테이블 작업
+
+다음 항목으로 구성된 이 섹션에서는 SQL 데이터베이스 테이블 데이터로 직접 작업하는 전략을 자세히 설명합니다.
+
++ [테이블 작업 개요](#overview-tables)
++ [방법: 스크립트에서 테이블 액세스]
++ [방법: 대량 삽입 수행]
++ [방법: JSON 형식을 데이터베이스 형식에 매핑]
++ [Transact-SQL을 사용하여 테이블 액세스]
+
+### <a name="overview-tables"></a>테이블 작업 개요
 
 모바일 서비스의 시나리오에서는 대체로 서버 스크립트가 데이터베이스의 테이블에 액세스해야 합니다. 예를 들어 모바일 서비스는 스크립트 실행 간에 상태를 유지하지 않으므로 스크립트 실행 간에 지속되어야 하는 모든 데이터를 테이블에 저장해야 합니다. permissions 테이블의 항목을 검사하거나 감사 데이터를 로그에 쓰는 대신 저장할 수도 있습니다. 로그에 쓰는 경우 데이터 유지 기간이 제한되며 프로그래밍 방식으로 액세스할 수 없습니다. 
 
 모바일 서비스에서 테이블에 액세스하는 방법에는 두 가지가 있습니다. [table 개체] 프록시를 사용하거나 [mssql 개체]를 사용하여 Transact-SQL 쿼리를 작성하는 것입니다. [table 개체]를 사용하면 서버 스크립트 코드에서 테이블 데이터에 쉽게 액세스할 수 있지만 [mssql 개체]는 더 복잡한 데이터 작업을 지원하며 유연성이 가장 뛰어납니다. 
 
-###<a name="access-tables"></a>방법: 스크립트에서 테이블 액세스
+### <a name="access-tables"></a>방법: 스크립트에서 테이블 액세스
 
 스크립트에서 테이블에 액세스하는 가장 쉬운 방법은 [table 개체]를 사용하는 것입니다. **getTable** 함수는 요청된 테이블에 액세스하기 위한 프록시인 [table 개체] 인스턴스를 반환합니다. 프록시에서 함수를 호출하여 데이터에 액세스하고 변경할 수 있습니다. 
 
-테이블 작업과 예약된 작업 둘 다에 등록된 스크립트는 전역 개체로 [table 개체]에 액세스할 수 있습니다. 다음 코드 줄은 전역 [table 개체]에서  *TodoItems* 테이블에 대한 프록시를 가져옵니다. 
+테이블 작업과 예약된 작업 둘 다에 등록된 스크립트는 전역 개체로 [table 개체]에 액세스할 수 있습니다. 다음 코드 줄은 전역 [table 개체]에서 *TodoItems* 테이블에 대한 프록시를 가져옵니다. 
 
 		var todoItemsTable = tables.getTable('TodoItems');
 
@@ -661,11 +709,11 @@ npm(Node.js 패키지 관리자)과 함께 소스 제어를 사용하여 모바�
 
 최종 예제는 [방법: 사용자 지정 매개 변수 액세스][방법: 사용자 지정 매개 변수 추가]에 나와 있습니다.
 
-###<a name="bulk-inserts"></a>방법: 대량 삽입 수행
+### <a name="bulk-inserts"></a>방법: 대량 삽입 수행
 
 **for** 또는 **while** 루프를 사용하여 다수의 항목(예: 1000개)을 테이블에 직접 삽입하는 경우 SQL 연결 제한이 발생하여 일부 삽입 작업이 실패할 수 있습니다. 요청이 완료되지 않거나 요청에서 HTTP 500 내부 서버 오류를 반환할 수도 있습니다.  이 문제를 방지하기 위해 10개 정도의 일괄 처리로 항목을 삽입할 수 있습니다. 첫 번째 일괄 처리가 삽입된 후 다음 일괄 처리를 제출합니다.
 
-다음 스크립트를 사용하여 병렬로 삽입할 레코드 배치의 크기를 설정할 수 있습니다. 레코드 수를 적게 유지하는 것이 좋습니다. 비동기 삽입 일괄 처리가 완료되면 **insertItems** 함수가 재귀적으로 호출됩니다. 끝에 나오는 for 루프는 한 번에 하나의 레코드를 삽입하고 성공 시에는 **insertComplete**, 오류 시에는 **errorHandler**를 호출합니다. **insertComplete** 는 다음 일괄 처리에 대해 **insertItems**가 호출되는지 여부 또는 작업이 수행되고 스크립트가 종료되는지 여부를 제어합니다.
+다음 스크립트를 사용하여 병렬로 삽입할 레코드 배치의 크기를 설정할 수 있습니다. 레코드 수를 적게 유지하는 것이 좋습니다. 비동기 삽입 일괄 처리가 완료되면 **insertItems** 함수가 재귀적으로 호출됩니다. 끝에 나오는 for 루프는 한 번에 하나의 레코드를 삽입하고 성공 시에는 **insertComplete**, 오류 시에는 **errorHandler**를 호출합니다. **insertComplete**는 다음 일괄 처리에 대해 **insertItems**가 호출되는지 여부 또는 작업이 수행되고 스크립트가 종료되는지 여부를 제어합니다.
 
 		var todoTable = tables.getTable('TodoItem');
 		var recordsToInsert = 1000;
@@ -711,7 +759,7 @@ npm(Node.js 패키지 관리자)과 함께 소스 제어를 사용하여 모바�
 
 전체 코드 샘플 및 해당 설명은 이 [블로그 게시물](http://blogs.msdn.com/b/jpsanders/archive/2013/03/20/server-script-to-insert-table-items-in-windows-azure-mobile-services.aspx)(영문)에서 확인할 수 있습니다. 이 코드를 사용하는 경우 특정 상황에 맞게 조정하고 철저하게 테스트할 수 있습니다.
 
-###<a name="JSON-types"></a>방법: JSON 형식을 데이터베이스 형식에 매핑
+### <a name="JSON-types"></a>방법: JSON 형식을 데이터베이스 형식에 매핑
 
 클라이언트와 모바일 서비스 데이터베이스 테이블의 데이터 형식 모음은 서로 다릅니다. 쉽게 매핑되는 경우도 있지만 그렇지 않은 경우도 있습니다. 모바일 서비스는 매핑에서 다양한 형식 변환을 수행합니다.
 
@@ -758,12 +806,12 @@ npm(Node.js 패키지 관리자)과 함께 소스 제어를 사용하여 모바�
 </tr>
 </table> 
 
-###<a name="TSQL"></a>Transact-SQL을 사용하여 테이블 액세스
+### <a name="TSQL"></a>Transact-SQL을 사용하여 테이블 액세스
 
 서버 스크립트에서 테이블 데이터 작업을 수행하는 가장 쉬운 방법은 [table 개체] 프록시를 사용하는 것입니다. 그러나 조인 쿼리 및 기타 복잡한 쿼리, 저장 프로시저 호출 등 [table 개체]에서 지원되지 않는 고급 시나리오가 있습니다. 이 경우 [mssql 개체]를 사용하여 관계형 테이블에 대해 직접 Transact-SQL 문을 실행해야 합니다. 이 개체는 다음 함수를 제공합니다.
 
-- **query**: TSQL 문자열에 지정된 쿼리를 실행합니다. 결과는 **options** 개체의 **success** 콜백에 반환됩니다.  *params* 매개 변수가 있는 경우 쿼리에 매개 변수가 포함될 수 있습니다.
-- **queryRaw**: 쿼리에 서 반환된 결과 집합이 "원시" 형식이라는 점을 제외하고  *query*와 같습니다(아래 예제 참조).
+- **query**: TSQL 문자열에 지정된 쿼리를 실행합니다. 결과는 **options** 개체의 **success** 콜백에 반환됩니다. *params* 매개 변수가 있는 경우 쿼리에 매개 변수가 포함될 수 있습니다.
+- **queryRaw**: 쿼리에 서 반환된 결과 집합이 "원시" 형식이라는 점을 제외하고 *query*와 같습니다(아래 예제 참조).
 - **open**: 모바일 서비스 데이터베이스에 연결하는 데 사용되며, 연결 개체를 사용하여 트랜잭션 등의 데이터베이스 작업을 호출할 수 있습니다.
 
 이러한 메서드는 쿼리 처리보다 훨씬 강력한 하위 수준 제어를 제공합니다.
@@ -774,9 +822,9 @@ npm(Node.js 패키지 관리자)과 함께 소스 제어를 사용하여 모바�
 + [방법:  *raw* 결과를 반환하는 쿼리 실행]
 + [방법: 데이터베이스 연결 액세스]	
 
-####<a name="static-query"></a>방법: 정적 쿼리 실행
+#### <a name="static-query"></a>방법: 정적 쿼리 실행
 
-다음 쿼리는 매개 변수가 없으며  `statusupdate` 테이블의 레코드 3개를 반환합니다. 행 집합은 표준 JSON 형식을 사용합니다.
+다음 쿼리는 매개 변수가 없으며 `statusupdate` 테이블의 레코드 3개를 반환합니다. 행 집합은 표준 JSON 형식을 사용합니다.
 
 		mssql.query('select top 3 * from statusupdates', {
 		    success: function(results) {
@@ -788,7 +836,7 @@ npm(Node.js 패키지 관리자)과 함께 소스 제어를 사용하여 모바�
 		});
 
 
-####<a name="dynamic-query"></a>방법: 매개 변수가 있는 동적 쿼리 실행
+#### <a name="dynamic-query"></a>방법: 매개 변수가 있는 동적 쿼리 실행
 
 아래 예제에서는 permissions 테이블에서 각 사용자의 사용 권한을 읽어 사용자 지정 권한 부여를 구현합니다. 쿼리를 실행할 때 자리 표시자(?)가 제공된 매개 변수로 바뀝니다.
 
@@ -809,9 +857,9 @@ npm(Node.js 패키지 관리자)과 함께 소스 제어를 사용하여 모바�
 		    });
 
 
-####<a name="joins"></a>방법: 관계형 테이블 조인
+#### <a name="joins"></a>방법: 관계형 테이블 조인
 
-조인을 구현하는 TSQL 코드에 전달할 [mssql 개체]의 **query** 메서드를 사용하여 두 테이블을 조인할 수 있습니다. **ToDoItem** 테이블에 몇 개의 항목이 있고 테이블의 각 항목에 테이블의 열에 해당하는 **priority** 속성이 있다고 가정합니다. 항목은 다음과 같이 표시될 수 있습니다.
+조인을 구현하는 TSQL 코드에 전달할 [mssql 개체] 의 **query** 메서드를 사용하여 두 테이블을 조인할 수 있습니다. **ToDoItem** 테이블에 몇 개의 항목이 있고 테이블의 각 항목에 테이블의 열에 해당하는 **priority** 속성이 있다고 가정합니다. 항목은 다음과 같이 표시될 수 있습니다.
 
 		{ text: 'Take out the trash', complete: false, priority: 1}
 
@@ -834,7 +882,7 @@ npm(Node.js 패키지 관리자)과 함께 소스 제어를 사용하여 모바�
 		{ text: 'Take out the trash', complete: false, description: 'Critical'}
 
 
-####<a name="raw"></a>방법:  *raw* 결과를 반환하는 쿼리 실행
+#### <a name="raw"></a>방법:  *raw* 결과를 반환하는 쿼리 실행
 
 이 예제에서는 이전처럼 쿼리를 실행하지만 행 단위 및 열 단위로 구문 분석해야 하는 "원시" 형식으로 결과 집합을 반환합니다. 이러한 경우의 가능한 시나리오는 모바일 서비스에서 지원하지 않는 데이터 형식에 대한 액세스가 필요한 경우입니다. 다음 코드는 원시 형식을 검사할 수 있도록 출력을 콘솔에 씁니다.
 
@@ -877,11 +925,11 @@ npm(Node.js 패키지 관리자)과 함께 소스 제어를 사용하여 모바�
 		     [ 4, 'we need to fix this one real soon now', null, 1 ],
 		   ] }
 
-####<a name="connection"></a>방법: 데이터베이스 연결 액세스
+#### <a name="connection"></a>방법: 데이터베이스 연결 액세스
 
 **open** 메서드를 사용하여 데이터베이스 연결에 액세스할 수 있습니다. 데이터베이스 트랜잭션을 사용해야 하는 이 작업이 필요할 수 있습니다.
 
-**open**을 성공적으로 실행하면 데이터베이스 연결이 **success** 함수에 매개 변수로 전달됩니다. **connection** 개체에 대해  *close*, *queryRaw*, *query*, *beginTransaction*, *commit* 및  *rollback* 함수 중 하나를 호출할 수 있습니다.
+**open**을 성공적으로 실행하면 데이터베이스 연결이 **success** 함수에 매개 변수로 전달됩니다. **connection** 개체에 대해 *close*, *queryRaw*, *query*, *beginTransaction*, *commit* 및  *rollback* 함수 중 하나를 호출할 수 있습니다.
 
 		    mssql.open({
 		        success: function(connection) {
@@ -892,11 +940,11 @@ npm(Node.js 패키지 관리자)과 함께 소스 제어를 사용하여 모바�
 				}
 		    });
 
-##<a name="debugging"></a>디버그 및 문제 해결
+## <a name="debugging"></a>디버그 및 문제 해결
 
 서버 스크립트를 디버그하고 문제를 해결하는 주요 방법은 서비스 로그에 쓰는 것입니다. 기본적으로 모바일 서비스는 서비스 스크립트를 실행하는 동안 발생하는 오류를 서비스 로그에 씁니다. 스크립트에서 로그에 쓸 수도 있습니다. 로그에 쓰는 것은 스크립트를 디버그하고 원하는 대로 동작하는지 확인하는 효율적인 방법입니다.
 
-###<a name="write-to-logs"></a>방법: 모바일 서비스 로그에 출력 쓰기
+### <a name="write-to-logs"></a>방법: 모바일 서비스 로그에 출력 쓰기
 
 로그에 쓰려면 전역 [console 개체]를 사용합니다. **log** 또는 **info** 함수를 사용하여 정보 수준의 경고를 기록할 수 있습니다. **warning** 및 **error**함수는 로그에서 호출되는 해당 수준을 기록합니다. 
 
@@ -909,13 +957,14 @@ npm(Node.js 패키지 관리자)과 함께 소스 제어를 사용하여 모바�
 	    request.execute();
 	}
 
- `%j` 문자열은 JSON 개체의 자리 표시자로 사용되고 매개 변수는 순차적으로 제공됩니다. 
+`%j` 문자열은 JSON 개체의 자리 표시자로 사용되고 매개 변수는 순차적으로 제공됩니다. 
 
 로그가 오버로드되지 않도록 하려면 프로덕션 사용에 필요하지 않은 console.log() 호출을 제거하거나 사용하지 않도록 설정해야 합니다.
 
 <!-- Anchors. -->
 [소개]: #intro
 [테이블 작업]: #table-scripts
+[기본 테이블 작업]: #basic-table-ops
 [방법: 테이블 작업 등록]: #register-table-scripts
 [방법: 테이블 스크립트 정의]: #execute-operation
 [방법: 기본 응답 재정의]: #override-response
@@ -961,11 +1010,11 @@ npm(Node.js 패키지 관리자)과 함께 소스 제어를 사용하여 모바�
 
 <!-- URLs. -->
 [모바일 서비스 서버 스크립트 참조]: http://msdn.microsoft.com/library/windowsazure/jj554226.aspx
-[모바일 서비스에서 백 엔드 작업 예약]: /ko-kr/develop/mobile/tutorials/schedule-backend-tasks/
-[request object]: http://msdn.microsoft.com/library/windowsazure/jj554218.aspx
-[response object]: http://msdn.microsoft.com/library/windowsazure/dn303373.aspx
-[User object]: http://msdn.microsoft.com/library/windowsazure/jj554220.aspx
-[push object]: http://msdn.microsoft.com/library/windowsazure/jj554217.aspx
+[모바일 서비스에서 백 엔드 작업 예약]: /develop/mobile/tutorials/schedule-backend-tasks/
+[request 개체]: http://msdn.microsoft.com/library/windowsazure/jj554218.aspx
+[response 개체]: http://msdn.microsoft.com/library/windowsazure/dn303373.aspx
+[User 개체]: http://msdn.microsoft.com/library/windowsazure/jj554220.aspx
+[push 개체]: http://msdn.microsoft.com/library/windowsazure/jj554217.aspx
 [insert 함수]: http://msdn.microsoft.com/library/windowsazure/jj554229.aspx
 [insert]: http://msdn.microsoft.com/library/windowsazure/jj554229.aspx
 [update 함수]: http://msdn.microsoft.com/library/windowsazure/jj554214.aspx
@@ -988,16 +1037,16 @@ npm(Node.js 패키지 관리자)과 함께 소스 제어를 사용하여 모바�
 [응답 수정]: http://msdn.microsoft.com/library/windowsazure/jj631631.aspx
 [관리 포털]: https://manage.windowsazure.com/
 [작업 예약]: http://msdn.microsoft.com/library/windowsazure/jj860528.aspx
-[모바일 서비스에서 서버 스크립트를 사용하여 데이터 유효성 검사 및 수정]: /ko-kr/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet/
-[Azure 모바일 서비스를 관리하는 명령]: /ko-kr/manage/linux/other-resources/command-line-tools/#Commands_to_manage_mobile_services/#Mobile_Scripts
-[Windows 스토어 푸시]: /ko-kr/develop/mobile/tutorials/get-started-with-push-dotnet/
-[Windows Phone 푸시]: /ko-kr/develop/mobile/tutorials/get-started-with-push-wp8/
-[iOS 푸시]: /ko-kr/develop/mobile/tutorials/get-started-with-push-ios/
-[Android 푸시]: /ko-kr/develop/mobile/tutorials/get-started-with-push-android/
-[Azure SDK for Node.js]: http://go.microsoft.com/fwlink/p/?LinkId=275539
+[모바일 서비스에서 서버 스크립트를 사용하여 데이터 유효성 검사 및 수정]: /develop/mobile/tutorials/validate-modify-and-augment-data-dotnet/
+[Azure 모바일 서비스를 관리하는 명령]: /documentation/articles/virtual-machines-command-line-tools/#Mobile_Scripts
+[Windows 스토어 푸시]: /develop/mobile/tutorials/get-started-with-push-dotnet/
+[Windows Phone 푸시]: /develop/mobile/tutorials/get-started-with-push-wp8/
+[iOS 푸시]: /develop/mobile/tutorials/get-started-with-push-ios/
+[Android 푸시]: /develop/mobile/tutorials/get-started-with-push-android/
+[Node.js용 Azure SDK]: http://go.microsoft.com/fwlink/p/?LinkId=275539
 [HTTP 요청 보내기]: http://msdn.microsoft.com/library/windowsazure/jj631641.aspx
-[SendGrid로 모바일 서비스에서 메일 보내기]: /ko-kr/develop/mobile/tutorials/send-email-with-sendgrid/
-[인증 시작](영문): http://go.microsoft.com/fwlink/p/?LinkId=287177
+[SendGrid로 모바일 서비스에서 메일 보내기]: /develop/mobile/tutorials/send-email-with-sendgrid/
+[인증 시작]: http://go.microsoft.com/fwlink/p/?LinkId=287177
 [crypto API]: http://go.microsoft.com/fwlink/p/?LinkId=288802
 [path API]: http://go.microsoft.com/fwlink/p/?LinkId=288803
 [querystring API]: http://go.microsoft.com/fwlink/p/?LinkId=288804
@@ -1005,16 +1054,15 @@ npm(Node.js 패키지 관리자)과 함께 소스 제어를 사용하여 모바�
 [util API]: http://go.microsoft.com/fwlink/p/?LinkId=288806
 [zlib API]: http://go.microsoft.com/fwlink/p/?LinkId=288807
 [사용자 지정 API]: http://msdn.microsoft.com/library/windowsazure/dn280974.aspx
-[클라이언트에서 사용자 지정 API 호출]: /ko-kr/develop/mobile/tutorials/call-custom-api-dotnet/#define-custom-api
+[클라이언트에서 사용자 지정 API 호출]: /develop/mobile/tutorials/call-custom-api-dotnet/#define-custom-api
 [express.js 라이브러리]: http://go.microsoft.com/fwlink/p/?LinkId=309046
-[정기 알림을 지원하는 사용자 지정 API 정의]: /ko-kr/develop/mobile/tutorials/create-pull-notifications-dotnet/
+[정기 알림을 지원하는 사용자 지정 API 정의]: /develop/mobile/tutorials/create-pull-notifications-dotnet/
 [express.js의 express 개체]: http://expressjs.com/api.html#express
-[소스 제어에 서버 스크립트 저장]: /ko-kr/develop/mobile/tutorials/store-scripts-in-source-control/
-[서버 스크립트에서 공유 코드 및 Node.js 모듈 활용]: /ko-kr/develop/mobile/tutorials/store-scripts-in-source-control/#use-npm
+[소스 제어에 서버 스크립트 저장]: /develop/mobile/tutorials/store-scripts-in-source-control/
+[서버 스크립트에서 공유 코드 및 Node.js 모듈 활용]: /develop/mobile/tutorials/store-scripts-in-source-control/#use-npm
 [service 개체]: http://msdn.microsoft.com/library/windowsazure/dn303371.aspx
 [앱 설정]: http://msdn.microsoft.com/library/dn529070.aspx
 [구성 모듈]: http://msdn.microsoft.com/library/dn508125.aspx
 [Azure 모바일 서비스의 package.json 지원]: http://go.microsoft.com/fwlink/p/?LinkId=391036
 
-
-<!--HONumber=42-->
+<!--HONumber=47-->

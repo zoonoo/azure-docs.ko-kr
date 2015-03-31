@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="How to monitor" pageTitle="SQL 데이터베이스를 모니터링하는 방법 - Azure 서비스 관리" metaKeywords="" description="Azure 관리 포털을 사용하여 SQL 데이터베이스를 모니터링하는 방법에 대해 알아봅니다." metaCanonical="" services="sql-database" documentationCenter="" title="How to Monitor Logical Servers and Database Instances" authors="jeffreyg" solutions="" manager="jeffreyg" editor="" />
+﻿<properties 
+	pageTitle="SQL 데이터베이스를 모니터링하는 방법 - Azure 서비스 관리" 
+	description="Azure 관리 포털을 사용하여 SQL 데이터베이스를 모니터링하는 방법에 대해 알아봅니다." 
+	services="sql-database" 
+	documentationCenter="" 
+	authors="jeffgoll" 
+	manager="jeffreyg" 
+	editor=""/>
 
-<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/31/2015" ms.author="jeffreyg" />
+<tags 
+	ms.service="sql-database" 
+	ms.workload="data-management" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/13/2015" 
+	ms.author="jeffreyg"/>
 
 
 
@@ -12,4 +26,6 @@
 
 자세한 내용은 [동적 관리 뷰를 사용하여 SQL 데이터베이스 모니터링][]을 참조하세요.
 
-[동적 관리 뷰를 사용하여 SQL 데이터베이스 모니터링]: http://msdn.microsoft.com/ko-kr/library/windowsazure/ff394114.aspx
+[동적 관리 뷰를 사용하여 SQL 데이터베이스 모니터링]: http://msdn.microsoft.com/library/windowsazure/ff394114.aspx
+
+<!--HONumber=47-->

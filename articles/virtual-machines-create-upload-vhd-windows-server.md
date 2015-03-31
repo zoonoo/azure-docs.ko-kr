@@ -17,18 +17,18 @@
 	ms.author="kathydav"/>
 
 
-#Windows Server VHD를 만들어서 Azure에 업로드#
+# Windows Server VHD를 만들어서 Azure에 업로드#
 
 이 문서에서는 운영 체제가 설치된 VHD(가상 하드 디스크)를 업로드하여 이미지로 사용하고 해당 이미지를 기반으로 가상 컴퓨터를 만드는 방법을 보여 줍니다. Microsoft Azure의 디스크 및 이미지에 대한 자세한 내용은 [Azure의 디스크 및 이미지 정보](http://msdn.microsoft.com/library/windowsazure/jj672979.aspx)를 참조하세요.
 
-> [AZURE.NOTE] 이미지를 기반으로 가상 컴퓨터를 만드는 경우 가상 컴퓨터에서 실행할 응용 프로그램에 적절하게 운영 체제 설정을 사용자 지정할 수 있습니다. 이 구성은 해당 가상 컴퓨터에 대해 저장되며, 이미지에 영향을 주지 않습니다. 자세한 내용은 [사용자 지정 가상 컴퓨터를 만드는 방법](http://azure.microsoft.com/documentation/articles/virtual-machines-windows-tutorial/)을 참조하세요.
+> [AZURE.NOTE] 이미지를 기반으로 가상 컴퓨터를 만드는 경우 가상 컴퓨터에서 실행할 응용 프로그램에 적절하게 운영 체제 설정을 사용자 지정할 수 있습니다. 이 구성은 해당 가상 컴퓨터에 대해 저장되며, 이미지에 영향을 주지 않습니다. 자세한 내용은 [사용자 지정 가상 컴퓨터를 만드는 방법](http://www.windowsazure.com/documentation/articles/virtual-machines-windows-tutorial/)을 참조하세요.
 
-##필수 조건##
+## 필수 조건##
 이 문서에서는 사용자에게 다음 항목이 있는 것으로 가정합니다.
 
-1. **Azure 구독** - 없는 경우에는 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 계정 만들기](http://azure.microsoft.com/develop/php/tutorials/create-a-windows-azure-account/)를 참조하세요.  
+1. **Azure 구독** - 없는 경우에는 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 계정 만들기](http://www.windowsazure.com/develop/php/tutorials/create-a-windows-azure-account/)(영문)를 참조하세요.  
 
-2. **Microsoft Azure PowerShell** - Microsoft Azure PowerShell 모듈이 설치되고 구독을 사용하도록 구성되어 있어야 합니다. 모듈을 다운로드하려면 [Microsoft Azure 다운로드](http://azure.microsoft.com/downloads/)를 참조하세요. 모듈 설치 및 구성에 대한 자습서는 [여기](http://azure.microsoft.com/documentation/articles/install-configure-powershell/)에서 확인할 수 있습니다. [Add-AzureVHD](http://msdn.microsoft.com/library/azure/dn495173.aspx) cmdlet을 사용하여 VHD를 업로드합니다.
+2. **Microsoft Azure PowerShell** - Microsoft Azure PowerShell 모듈이 설치되고 구독을 사용하도록 구성되어 있어야 합니다. 모듈을 다운로드하려면 [Microsoft Azure 다운로드](http://www.windowsazure.com/downloads/)를 참조하세요. 모듈 설치 및 구성에 대한 자습서는 [여기](http://www.windowsazure.com/documentation/articles/install-configure-powershell/)에서 확인할 수 있습니다. [Add-AzureVHD](http://msdn.microsoft.com/library/azure/dn495173.aspx) cmdlet을 사용하여 VHD를 업로드합니다.
 
 3. **.vhd 파일에 저장된 지원되는 Windows 운영 체제** - 지원되는 Windows Server 운영 체제를 가상 하드 디스크에 설치했습니다. .vhd 파일을 만드는 도구는 여러 가지가 있습니다. Hyper-V와 같은 가상화 솔루션을 사용하여 가상 컴퓨터를 만들고 운영 체제를 설치할 수 있습니다. 자세한 내용은 [Hyper-V 역할 설치 및 가상 컴퓨터 구성](http://technet.microsoft.com/library/hh846766.aspx)을 참조하세요.
 
@@ -74,13 +74,13 @@
 
 ## <a id="prepimage"> </a>1단계: 업로드할 이미지 준비 ##
 
-Azure에 이미지를 업로드하려면 먼저 Sysprep 명령을 사용하여 범용화해야 합니다. Sysprep 사용에 대한 자세한 내용은 [Sysprep 사용 방법: 소개](http://technet.microsoft.com/library/bb457073.aspx)를 참조하세요.
+Azure에 이미지를 업로드하려면 먼저 Sysprep 명령을 사용하여 범용화해야 합니다. Sysprep 사용에 대한 자세한 내용은 [Sysprep 사용 방법: 소개](http://technet.microsoft.com/library/bb457073.aspx)로 이동하세요.
 
 운영 체제를 설치한 가상 컴퓨터에서 다음 절차를 완료합니다.
 
 1. 운영 체제에 로그인합니다.
 
-2. 관리자로 명령 프롬프트 창을 엽니다. 디렉터리를 **%windir%\system32\sysprep**로 변경한 후  `sysprep.exe`를 실행합니다.
+2. 관리자로 명령 프롬프트 창을 엽니다. 디렉터리를 **%windir%\system32\sysprep**로 변경한 후 `sysprep.exe`를 실행합니다.
 
 	![Open Command Prompt window](./media/virtual-machines-create-upload-vhd-windows-server/sysprep_commandprompt.png)
 
@@ -113,7 +113,7 @@ Azure에서 가상 컴퓨터를 만드는 데 사용할 수 있도록 .vhd 파�
 			
 	- 저장소 계정의 **위치 또는 선호도 그룹**을 선택합니다. 선호도 그룹을 사용하면 클라우드 서비스와 저장소를 동일한 데이터 센터에 배치할 수 있습니다.
 		 
-	- 저장소 계정에 **지역에서 복제**를 사용할지 여부를 결정합니다. 지역에서 복제는 기본적으로 설정되어 있습니다. 이 옵션을 사용하면 추가 비용 없이 보조 위치로 데이터를 복제하므로 기본 위치에서 심각한 장애가 발생하는 경우 저장소에서 보조 위치로 장애 조치(Failover)할 수 있습니다. 보조 위치는 자동으로 할당되며 변경될 수 없습니다. 법적 필요 또는 조직 정책에 따라 클라우드 기반 저장소의 위치를 더 엄격하게 제어해야 하는 경우 지역에서 복제를 해제할 수 있습니다. 그러나 나중에 지역에서 복제를 설정하는 경우 기존 데이터를 대체 위치로 복제하는 데 일회성 데이터 전송 요금이 청구됩니다. 지역에서 복제를 사용하지 않는 저장소 서비스는 할인하여 제공됩니다. 저장소 계정의 지역에서 복제를 관리하는 방법에 대한 자세한 정보는 [저장소 계정 만들기, 관리 또는 삭제](../storage-create-storage-account/#replication-options)에서 확인할 수 있습니다.
+	- 저장소 계정에 **지역에서 복제**를 사용할지 여부를 결정합니다. 지역에서 복제는 기본적으로 설정되어 있습니다. 이 옵션을 사용하면 추가 비용 없이 보조 위치로 데이터를 복제하므로 기본 위치에서 심각한 장애가 발생하는 경우 저장소에서 보조 위치로 장애 조치(Failover)할 수 있습니다. 보조 위치는 자동으로 할당되며 변경될 수 없습니다. 법적 필요 또는 조직 정책에 따라 클라우드 기반 저장소의 위치를 더 엄격하게 제어해야 하는 경우 지역에서 복제를 해제할 수 있습니다. 그러나 나중에 지역에서 복제를 설정하는 경우 기존 데이터를 대체 위치로 복제하는 데 일회성 데이터 전송 요금이 청구됩니다. 지역에서 복제를 사용하지 않는 저장소 서비스는 할인하여 제공됩니다. 저장소 계정의 지역에서 복제를 관리하는 방법에 대한 자세한 정보는 [저장소 계정 만들기, 관리 또는 삭제](../storage-create-storage-account/#replication-options) 에서 확인할 수 있습니다.
 
 	![Enter storage account details](./media/virtual-machines-create-upload-vhd-windows-server/Storage-create-account.png)
 
@@ -142,7 +142,7 @@ Azure에서 가상 컴퓨터를 만드는 데 사용할 수 있도록 .vhd 파�
 
 <h3>Microsoft Azure AD 방법 사용</h3>
 
-1. [방법: Microsoft Azure PowerShell 설치](#Install)의 지침에 따라 Azure PowerShell 콘솔을 엽니다.
+1. [방법: Microsoft Azure PowerShell 설치](#Install)의 지침에 따라 Microsoft Azure PowerShell 콘솔을 엽니다.
 
 2. 다음 명령을 입력합니다.  
 	`Add-AzureAccount`
@@ -175,7 +175,7 @@ Azure에서 가상 컴퓨터를 만드는 데 사용할 수 있도록 .vhd 파�
 
 	자세한 내용은 [Microsoft Azure Cmdlets 시작](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx)을 참조하세요. 
 	
-	PowerShell을 설치하고 구성하는 방법에 대한 자세한 내용은 [Microsoft Azure PowerShell을 설치 및 구성하는 방법](http://azure.microsoft.com/documentation/articles/install-configure-powershell/)을 참조하세요. 
+	PowerShell을 설치하고 구성하는 방법에 대한 자세한 내용은 [Microsoft Azure PowerShell을 설치 및 구성하는 방법](http://www.windowsazure.com/documentation/articles/install-configure-powershell/)을 참조하세요. 
 
 
 ## <a id="upload"> </a>4단계: .vhd 파일 업로드 ##
@@ -191,7 +191,7 @@ Azure에서 가상 컴퓨터를 만드는 데 사용할 수 있도록 .vhd 파�
 
 	Add-AzureVhd cmdlet에 대한 자세한 내용은 [Add-AzureVhd](http://msdn.microsoft.com/library/dn495173.aspx)를 참조하세요.
 
-##5단계: 사용자 지정 이미지 목록에 이미지 추가 ##
+## 5단계: 사용자 지정 이미지 목록에 이미지 추가##
 .vhd를 업로드한 후 구독과 연결된 사용자 지정 이미지 목록에 이미지로 추가합니다.
 
 1. 관리 포털의 **모든 항목**에서 **가상 컴퓨터**를 클릭합니다.
@@ -217,7 +217,7 @@ Azure에서 가상 컴퓨터를 만드는 데 사용할 수 있도록 .vhd 파�
 
 	![Add Image](./media/virtual-machines-create-upload-vhd-windows-server/Create_Image_From_VHD.png)
 
-5. **선택 사항:** 관리 포털 대신 Add-AzureVMImage cmdlet을 사용하여 VHD를 이미지로 추가할 수 있습니다. 	Azure PowerShell 콘솔에서 다음을 입력합니다.
+5. **선택 사항:** 관리 포털 대신 Add-AzureVMImage cmdlet을 사용하여 VHD를 이미지로 추가할 수 있습니다.  	Azure PowerShell 콘솔에서 다음을 입력합니다.
 
 	`Add-AzureVMImage -ImageName <Your Image's Name> -MediaLocation <location of the VHD> -OS <Type of the OS on the VHD>`
 	
@@ -228,7 +228,7 @@ Azure에서 가상 컴퓨터를 만드는 데 사용할 수 있도록 .vhd 파�
 
 	![custom image](./media/virtual-machines-create-upload-vhd-windows-server/vm_custom_image.png)
 
-	이제 가상 컴퓨터를 만들 때 **내 이미지**에서 이 새 이미지를 사용할 수 있습니다. 지침에 대해서는 [Windows Server를 실행하는 가상 컴퓨터 만들기](http://azure.microsoft.com/documentation/articles/virtual-machines-windows-tutorial/)를 참조하세요.
+	이제 가상 컴퓨터를 만들 때 **내 이미지**에서 이 새 이미지를 사용할 수 있습니다. 지침은 [Windows Server를 실행하는 가상 컴퓨터 만들기](http://www.windowsazure.com/documentation/articles/virtual-machines-windows-tutorial/)를 참조하세요.
 
 	![create VM from custom image](./media/virtual-machines-create-upload-vhd-windows-server/create_vm_custom_image.png)
 
@@ -237,12 +237,11 @@ Azure에서 가상 컴퓨터를 만드는 데 사용할 수 있도록 .vhd 파�
 ## 다음 단계 ##
  
 
-가상 컴퓨터를 만든 후에 SQL Server 가상 컴퓨터를 만들어 보세요. 지침은 [Microsoft Azure에서 SQL Server 가상 컴퓨터 프로비전](http://azure.microsoft.com/documentation/articles/virtual-machines-provision-sql-server/)을 참조하세요. 
+가상 컴퓨터를 만든 후에 SQL Server 가상 컴퓨터를 만들어 보세요. 지침은 [Microsoft Azure에서 SQL Server 가상 컴퓨터 프로비전](http://www.windowsazure.com/documentation/articles/virtual-machines-provision-sql-server/)을 참조하세요. 
 
 [1단계: 업로드할 이미지 준비]: #prepimage
 [2단계: Azure에서 저장소 계정 만들기]: #createstorage
 [3단계: Azure 연결 준비]: #prepAzure
 [4단계: .vhd 파일 업로드]: #upload
 
-
-<!--HONumber=42-->
+<!--HONumber=47-->

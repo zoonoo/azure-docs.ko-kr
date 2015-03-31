@@ -1,7 +1,7 @@
 ﻿<properties 
 	pageTitle="Android 앱에 대해 Azure 모바일 서비스 시작" 
 	description="이 자습서에 따라 Azure 모바일 서비스를 사용하여 Android 개발을 시작할 수 있습니다." 
-	services="" 
+	services="mobile-services" 
 	documentationCenter="android" 
 	authors="RickSaling" 
 	manager="dwrede" 
@@ -22,7 +22,7 @@
 
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
-<p>이 자습서는 Azure 모바일 서비스를 사용하여 Android 앱에 클라우드 기반 백 엔드 서비스를 추가하는 방법을 보여 줍니다. 이 자습서에서는 새 모바일 서비스와 새 모바일 서비스에 앱 데이터를 저장하는 간단한 <em>To do list</em> 앱은 새로운 모바일 서비스에 앱 데이터를 저장합니다.</p>
+<p>이 자습서는 Azure 모바일 서비스를 사용하여 Android 앱에 클라우드 기반 백 엔드 서비스를 추가하는 방법을 보여 줍니다. 이 자습서에서는 새 모바일 서비스뿐만 아니라 새 모바일 서비스에 앱 데이터를 저장하는 간단한 <em>할 일 모음</em> 앱도 만듭니다.</p>
 <p>완성된 앱의 스크린샷은 다음과 같습니다.</p>
 </div>
 <div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Support-in-Windows-Azure-Mobile-Services" target="_blank" class="label">자습서 보기</a> <a style="background-image: url('/media/devcenter/mobile/videos/mobile-get-started-android-180x120.png') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Support-in-Windows-Azure-Mobile-Services" target="_blank" class="dev-onpage-video"><span class="icon">비디오 재생</span></a><span class="time">오전 7:26</span></div>
@@ -34,11 +34,11 @@
 
 다운로드한 퀵 스타트 프로젝트에는 Android용 모바일 서비스 SDK가 포함되어 있습니다. 이 프로젝트에는 Android 4.2 이상 버전이 필요하지만 모바일 서비스 SDK에는 Android 2.2 이상 버전만 있으면 됩니다.
 
-> [AZURE.IMPORTANT] 이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28"%20target="_blank)을 참조하세요.
+> [AZURE.IMPORTANT] 이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28"%20target="_blank)을 참조하세요.
 
 <!-- -->
 
->[AZURE.NOTE] 완료된 앱의 소스 코드를 보려면 <a href="https://github.com/RickSaling/mobile-services-samples/tree/futures/GettingStarted/Android" target="_blank">여기</a>로 이동하십시오.
+>[AZURE.NOTE] 완성된 앱의 소스 코드를 참조하려는 경우 <a href="https://github.com/RickSaling/mobile-services-samples/tree/futures/GettingStarted/Android" target="_blank">여기</a>로 이동하세요.
 
 ## <a name="create-new-service"> </a>새 모바일 서비스 만들기
 
@@ -66,7 +66,7 @@
 
 
 5. 이제 앱을 다운로드합니다.
-	- 최신 앱 버전에서는 모바일 서비스 Android SDK 2.0을 사용합니다. 해당 버전을 <a href="https://github.com/RickSaling/mobile-services-samples/tree/futures">여기에서</a>다운로드할 수 있습니다. **Zip 다운로드**를 클릭하고 압축을 풀면 Android 폴더 아래의 GettingStarted에 프로젝트가 추가됩니다.
+	- 최신 앱 버전에서는 모바일 서비스 Android SDK 2.0을 사용합니다. <a href="https://github.com/RickSaling/mobile-services-samples/tree/futures">여기</a>에서 해당 버전을 다운로드할 수 있습니다. **Zip 다운로드**를 클릭하고 압축을 풀면 Android 폴더 아래의 GettingStarted에 프로젝트가 추가됩니다.
 	 
 	- 이전 버전에서는 이전 버전의 SDK를 사용합니다. 이를 사용하려면 **앱 다운로드 및 실행** 아래에서 **다운로드**를 클릭합니다. 모바일 서비스에 연결된 샘플 _할 일 모음_ 응용 프로그램에 대한 프로젝트가 다운로드됩니다. 프로젝트 파일은 압축되므로 해당 위치로 이동한 후 컴퓨터에 파일 압축을 풉니다.
 
@@ -75,7 +75,7 @@
 
 이 자습서의 최종 단계는 새 앱을 빌드하고 실행하는 것입니다.
 
-2. Eclipse에서 **File**과 **Import**를 클릭하고 **Android**를 확장한 후 **Existing Android Code into Workspace**를 클릭한 다음 **Next**를 클릭합니다. 
+2. Eclipse에서 **파일**과 **가져오기**를 클릭하고 **Android**를 확장한 후 **Existing Android Code into Workspace**를 클릭한 다음 **다음**을 클릭합니다. 
 
  	![][14]
 
@@ -91,15 +91,15 @@
 	- 	**TodoActivity.java**에서 **OnCreate** 메서드를 찾은 후 모바일 서비스 클라이언트를 인스턴스화하는 코드를 찾습니다. 이 코드는 이전 이미지에서 확인할 수 있습니다.
 	- 	"MobileServiceUrl"을 모바일 서비스의 실제 URL로 바꿉니다.
 	- 	"AppKey"를 모바일 서비스의 키로 바꿉니다.
-	- 	자세한 내용은 <a href="http://azure.microsoft.com/ documentation/articles/mobile-services-android-get-started-data/">기존 앱에 모바일 서비스 추가(영문)</a>자습서를 참조하십시오. 
+	- 	자세한 내용은 <a href="http://azure.microsoft.com/documentation/articles/mobile-services-android-get-started-data/">기존 앱에 모바일 서비스 추가</a> 자습서를 참조하세요. 
 
 
 
-4. **Run** 메뉴에서 **Run**을 클릭하여 Android 에뮬레이터에서 프로젝트를 시작합니다.
+4. **실행** 메뉴에서 **실행**을 클릭하여 Android 에뮬레이터에서 프로젝트를 시작합니다.
 
 	> [AZURE.IMPORTANT] Android 에뮬레이터에서 프로젝트를 실행할 수 있으려면 AVD(Android Virtual Device)를 하나 이상 정의해야 합니다. AVD Manager를 사용하여 이러한 장치를 만들고 관리합니다.
 
-5. 앱에서 _자습서 완료_ 등의 의미 있는 텍스트를 입력하고 **추가**를 클릭합니다.
+5. 앱에서 _자습서 완료_와 같이 의미 있는 텍스트를 입력하고 **추가**를 클릭합니다.
 
    	![][10]
 
@@ -116,7 +116,7 @@
    	![][12]
 
 ## <a name="next-steps"> </a>다음 단계
-이제 퀵 스타트를 완료했으며 모바일 서비스에서 중요한 추가 작업을 수행하는 방법을 알아보겠습니다. 
+이제 빠른 시작을 완료했으므로 모바일 서비스에서 중요한 추가 작업을 수행하는 방법을 알아보겠습니다. 
 
 * [데이터 시작]
   <br/>모바일 서비스를 사용하여 데이터를 저장 및 쿼리하는 방법에 대해 자세히 알아봅니다.
@@ -152,12 +152,12 @@
 [15]: ./media/mobile-services-android-get-started/mobile-services-import-android-project.png
 
 <!-- URLs. -->
-[데이터 시작]: /ko-kr/documentation/articles/mobile-services-android-get-started-data/
-[인증 시작]: /ko-kr/documentation/articles/mobile-services-android-get-started-users/
-[푸시 알림 시작]: /ko-kr/documentation/articles/mobile-services-javascript-backend-android-get-started-push/
-[Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
-[모바일 서비스 Android SDK(영문)]: https://go.microsoft.com/fwLink/p/?LinkID=266533
+[데이터 시작]: /documentation/articles/mobile-services-android-get-started-data/
+[인증 시작]: /documentation/articles/mobile-services-android-get-started-users/
+[푸시 알림 시작]: /documentation/articles/mobile-services-javascript-backend-android-get-started-push/
+[Android SDK](영문): https://go.microsoft.com/fwLink/p/?LinkID=280125
+[모바일 서비스 Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 
 [관리 포털]: https://manage.windowsazure.com/
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

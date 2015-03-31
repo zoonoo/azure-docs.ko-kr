@@ -22,15 +22,6 @@
 
 <p>Azure 가상 컴퓨터의 고가용성 환경에서 작업하기 위해 강력하고 확장성이 크며 신뢰할 수 있는 MySQL의 드롭인 대체 기능인 [MariaDB](https://mariadb.org/en/about/)의 다중 마스터 [Galera](http://galeracluster.com/products/) 클러스터를 만드는 중입니다.</p>
 
-<!--Table of contents for topic, the words in brackets must match the heading wording exactly-->
-
-+ [아키텍처 개요] 
-+ [템플릿 만들기]
-+ [클러스터 만들기]
-+ [클러스터 부하 분산]
-+ [클러스터 유효성 검사]
-
-
 ## 아키텍처 개요
 
 이 항목에서는 다음 단계를 수행합니다.
@@ -65,7 +56,7 @@
 3. CentOS 7 가상 컴퓨터 이미지의 이름을 찾습니다.
 
 		azure vm image list | findstr CentOS        
-`5112500ae3b842c8b9c604889f8753c3__OpenLogic-CentOS-70-20140926`같은 출력 합니다. 다음 단계에서 이름을 사용 합니다.
+`5112500ae3b842c8b9c604889f8753c3__OpenLogic-CentOS-70-20140926`과 같이 출력됩니다. 다음 단계에 이름을 사용하세요.
 
 4. 생성된 .pem SSH 키를 저장한 경로로 **/path/to/key.pem**을 바꾸어 VM 템플릿을 만듭니다.
 
@@ -152,11 +143,11 @@
     
     		ln -s /mnt/data/mysql /var/lib/mysql   
 
-5. [SELinux는 클러스터 작업을 방해](http://galeracluster.com/documentation-webpages/configuration.html#selinux)하므로 호환되는 버전이 나타날 때까지 현재 세션에 대해 사용하지 않도록 설정해야 합니다.  `/etc/selinux/config`를 편집하여 이후의 다시 시작에서 사용하지 않도록 설정합니다.
+5. [SELinux는 클러스터 작업을 방해](http://galeracluster.com/documentation-webpages/configuration.html#selinux)하므로 호환되는 버전이 나타날 때까지 현재 세션에 대해 사용하지 않도록 설정해야 합니다. `/etc/selinux/config`를 편집하여 이후의 다시 시작에서 사용하지 않도록 설정합니다.
     	
 	        setenforce 0
     
-       편집 `/etc/selinux/config` `SELINUX=permissive`를 설정 하려면 다음 관대 한 =
+       그런 다음 `/etc/selinux/config`를  `SELINUX=permissive`로 설정합니다.
        
 6. MySQL 실행의 유효성을 확인합니다.
 
@@ -180,7 +171,7 @@
             
 7. 구성 자리 표시자를 만듭니다.
 
-	- MySQL 구성을 편집하여 클러스터 설정에 대한 자리 표시자를 만듭니다. 지금은 **'<Vairables>'**를 바꾸거나 주석을 제거하지 마세요. 이 템플릿에서 VM을 만들면 해당 작업이 수행됩니다.
+	- MySQL 구성을 편집하여 클러스터 설정에 대한 자리 표시자를 만듭니다. 지금은 **`<Vairables>`**를 바꾸거나 주석을 제거하지 마세요. 이 템플릿에서 VM을 만들면 해당 작업이 수행됩니다.
 	
 			vi /etc/my.cnf.d/server.cnf
 			
@@ -271,7 +262,7 @@
 		--ssh 23
 		--vm-name mariadb2
         --connect mariadbha mariadb-galera-image azureuser
-또한 MariaDB3에 대해 다음을 수행합니다.
+and for MariaDB3
 
 		azure vm create
         --virtual-network-name mariadbvnet
@@ -293,7 +284,7 @@
 		sudo vi /etc/my.cnf.d/server.cnf
 		
 	시작 부분에 있는 **#**을 제거하여 **`wsrep_cluster_name`** 및 **`wsrep_cluster_address`** 주석을 제거하고 원하는 내용이 맞는지 확인합니다.
-    또한 **'wsrep_node_address'**의 **'<ServerIP>'** 및 **'wsrep_node_name'**의 **'<NodeName>'**을 VM의 IP 주소와 이름으로 각각 바꾸고 해당 줄의 주석도 제거합니다.
+    또한 **`wsrep_node_address`**의 **`<ServerIP>`** 및 **`wsrep_node_name`**의 **`<NodeName>`**을 VM의 IP 주소와 이름으로 각각 바꾸고 해당 줄의 주석도 제거합니다.
 	
 5. MariaDB1에서 클러스터를 시작하고 시작 시 실행되도록 합니다.
 
@@ -311,7 +302,7 @@
 이제 Azure 부하 분산 장치를 사용하여 3개 노드 간에 요청을 분산시킵니다.
 
 Azure CLI를 사용하여 컴퓨터에서 아래 명령을 실행합니다.
-명령 매개 변수 구조는 다음과 같습니다.  `azure vm endpoint create-multiple <MachineName> <PublicPort>:<VMPort>:<Protocol>:<EnableDirectServerReturn>:<Load Balanced Set Name>:<ProbeProtocol>:<ProbePort>`
+명령 매개 변수 구조는 다음과 같습니다. `azure vm endpoint create-multiple <MachineName> <PublicPort>:<VMPort>:<Protocol>:<EnableDirectServerReturn>:<Load Balanced Set Name>:<ProbeProtocol>:<ProbePort>`
 
 	azure vm endpoint create-multiple mariadb1 3306:3306:tcp:false:MySQL:tcp:3306
     azure vm endpoint create-multiple mariadb2 3306:3306:tcp:false:MySQL:tcp:3306
@@ -331,7 +322,7 @@ Azure CLI를 사용하여 컴퓨터에서 아래 명령을 실행합니다.
 
 ## 클러스터 유효성 검사
 
-하드 작업이 완료되었습니다. 이제 부하 분산 장치에 도달하고 3개의 VM 간에 요청을 매끄럽고 효율적으로 라우팅하는 'mariadbha.cloudapp.net:3306'에서 클러스터에 액세스할 수 있습니다.
+하드 작업이 완료되었습니다. 이제 부하 분산 장치에 도달하고 3개의 VM 간에 요청을 매끄럽고 효율적으로 라우팅하는 `mariadbha.cloudapp.net:3306`에서 클러스터에 액세스할 수 있습니다.
 
 원하는 MySQL 클라이언트를 사용하여 VM 중 하나에 연결하거나 연결을 끊어 이 클러스터가 작동하는지 확인합니다.
 
@@ -375,11 +366,11 @@ Azure CLI를 사용하여 컴퓨터에서 아래 명령을 실행합니다.
 
 <!--Link references-->
 [Azure CLI]: http://azure.microsoft.com/documentation/articles/xplat-cli/
-[Azure CLI command reference]: http://azure.microsoft.com/documentation/articles/command-line-tools/
-[create an SSH key for authentication]:http://www.jeff.wilcox.name/2013/06/secure-linux-vms-with-ssh-certificates/
-[performance tuning strategy]: http://azure.microsoft.com/documentation/articles/virtual-machines-linux-optimize-mysql-perf/
-[optimize and test MySQL performance on Azure Linux VMs]:http://azure.microsoft.com/documentation/articles/virtual-machines-linux-optimize-mysql-perf/
-[issue #1268 in the Azure CLI]:https://github.com/Azure/azure-xplat-cli/issues/1268
-[another way to cluster MySQL on Linux]: http://azure.microsoft.com/documentation/articles/virtual-machines-linux-mysql-cluster/
+[Azure CLI 명령 참조]: http://azure.microsoft.com/documentation/articles/virtual-machines-command-line-tools/
+[인증에 사용할 SSH 키를 만들고]:http://www.jeff.wilcox.name/2013/06/secure-linux-vms-with-ssh-certificates/
+[성능 조정 전략]: http://azure.microsoft.com/sv-se/documentation/articles/virtual-machines-linux-optimize-mysql-perf/
+[Azure Linux VM에서 MySQL 성능 최적화 및 테스트]:http://azure.microsoft.com/sv-se/documentation/articles/virtual-machines-linux-optimize-mysql-perf/
+[Azure CLI 도구의 문제 #1268]:https://github.com/Azure/azure-xplat-cli/issues/1268
+[Linux에서 MySQL을 클러스터링하는 다른 방법]: http://azure.microsoft.com/documentation/articles/virtual-machines-linux-mysql-cluster/
 
-<!--HONumber=42-->
+<!--HONumber=47-->

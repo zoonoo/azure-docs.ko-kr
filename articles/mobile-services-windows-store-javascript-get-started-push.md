@@ -1,7 +1,7 @@
 ﻿<properties 
 	pageTitle="푸시 알림 시작(레거시 푸시) | 모바일 개발자 센터" 
 	description="Azure 모바일 서비스를 사용하여 Windows 스토어 JavaScript 앱에 푸시 알림(레거시 푸시)을 보내는 방법에 대해 알아봅니다." 
-	services="mobile-services, notification-hubs" 
+	services="mobile-services" 
 	documentationCenter="windows" 
 	authors="ggailey777" 
 	manager="dwrede" 
@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
 	ms.date="11/22/2014" 
@@ -19,23 +19,23 @@
 # 모바일 서비스 앱에 푸시 알림 추가(레거시 푸시)
 
 <div class="dev-center-tutorial-selector sublanding">
-    <a href="/ko-kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-push" title="Windows Store C#">Windows 스토어 C#</a>
-    <a href="/ko-kr/documentation/articles/mobile-services-windows-store-javascript-get-started-push" title="Windows Store JavaScript" class="current">Windows 스토어 JavaScript</a>
-    <a href="/ko-kr/documentation/articles/mobile-services-windows-phone-get-started-push" title="Windows Phone">Windows Phone</a>
-    <a href="/ko-kr/documentation/articles/mobile-services-ios-get-started-push" title="iOS">iOS</a>
-    <a href="/ko-kr/documentation/articles/mobile-services-android-get-started-push" title="Android">Android</a>
-<!--    <a href="/ko-kr/documentation/articles/partner-xamarin-mobile-services-ios-get-started-push" title="Xamarin.iOS">Xamarin.iOS</a>
-    <a href="/ko-kr/documentation/articles/partner-xamarin-mobile-services-android-get-started-push" title="Xamarin.Android">Xamarin.Android</a> -->
-	<a href="/ko-kr/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push" title="Appcelerator">Appcelerator</a>
+    <a href="/documentation/articles/mobile-services-windows-store-dotnet-get-started-push" title="Windows Store C#">Windows 스토어 C#</a>
+    <a href="/documentation/articles/mobile-services-windows-store-javascript-get-started-push" title="Windows Store JavaScript" class="current">Windows 스토어 JavaScript</a>
+    <a href="/documentation/articles/mobile-services-windows-phone-get-started-push" title="Windows Phone">Windows Phone</a>
+    <a href="/documentation/articles/mobile-services-ios-get-started-push" title="iOS">iOS</a>
+    <a href="/documentation/articles/mobile-services-android-get-started-push" title="Android">Android</a>
+<!--    <a href="/documentation/articles/partner-xamarin-mobile-services-ios-get-started-push" title="Xamarin.iOS">Xamarin.iOS</a>
+    <a href="/documentation/articles/partner-xamarin-mobile-services-android-get-started-push" title="Xamarin.Android">Xamarin.Android</a> -->
+	<a href="/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push" title="Appcelerator">Appcelerator</a>
 </div>
 
-<div class="dev-center-tutorial-subselector"><a href="/ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push/" title=".NET backend">.NET 백 엔드</a> | <a href="/ko-kr/documentation/articles/mobile-services-windows-store-javascript-get-started-push/"  title="JavaScript backend" class="current">JavaScript 백 엔드</a></div>		
+<div class="dev-center-tutorial-subselector"><a href="/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push/" title=".NET backend">.NET 백 엔드</a> |  <a href="/documentation/articles/mobile-services-windows-store-javascript-get-started-push/"  title="JavaScript backend" class="current">JavaScript 백 엔드</a></div>		
 
 이 항목에서는 Visual Studio 2013에서 Azure 모바일 서비스를 사용하여 Windows 스토어 앱에 푸시 알림을 전송하는 방법에 대해 설명합니다. 이 자습서에서는 WNS(Windows 푸시 알림 서비스)를 사용하여 Visual Studio에서 직접 퀵 스타트 프로젝트에 푸시 알림을 추가합니다. 이 작업을 완료하면 레코드가 삽입될 때마다 모바일 서비스에서 푸시 알림을 전송합니다.
 
->[AZURE.NOTE]이 항목에서는 알림 허브 통합을 사용하도록 <em>아직 업그레이드되지 않은</em> <em>기존</em> 모바일 서비스를 지원합니다. <em>새</em> 모바일 서비스를 만들 때 이 통합 기능이 자동으로 사용하도록 설정됩니다. 새 모바일 서비스의 경우 [푸시 알림 시작](/ko-kr/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push/).을 참조하세요.
+>[AZURE.NOTE]이 항목에서는 알림 허브 통합을 사용하도록 <em>아직 업그레이드되지 않은</em> <em>기존</em> 모바일 서비스를 지원합니다. <em>새</em> 모바일 서비스를 만들 때는 이 통합 기능이 자동으로 사용하도록 설정됩니다. 새 모바일 서비스의 경우 [푸시 알림 시작]을 참조하세요(/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push/).
 >
->모바일 서비스가 Azure 알림 허브와 통합되어 템플릿, 다중 플랫폼, 향상된 확장 등 추가적인 푸시 알림 기능을 지원합니다. <em>가능한 경우 알림 허브를 사용하도록 기존 모바일 서비스를 업그레이드해야 합니다</em>. 업그레이드한 후에는 이 버전의 [푸시 알림 시작](/ko-kr/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push/)을 참조하세요.
+>모바일 서비스가 Azure 알림 허브와 통합되어 템플릿, 다중 플랫폼, 향상된 확장 등 추가적인 푸시 알림 기능을 지원합니다. <em>가능한 경우 알림 허브를 사용하도록 기존 모바일 서비스를 업그레이드해야 합니다</em>. 업그레이드한 후에는 이 버전의 [푸시 알림 시작]을 참조하세요.(/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push/).
 
 이 자습서에서는 푸시 알림을 사용하도록 설정하는 다음 기본 단계를 단계별로 안내합니다.
 
@@ -74,7 +74,7 @@
 
 1. Visual Studio에서 F5 키를 눌러 앱을 실행합니다.
 
-2. 앱에서 **Insert a TodoItem**에 텍스트를 입력하고 **저장**을 클릭합니다.
+2. 앱에서 **TodoItem 삽입**에 텍스트를 입력하고 **저장**을 클릭합니다.
 
    	![][13]
 
@@ -103,14 +103,14 @@
 * [데이터 시작]
   <br/>모바일 서비스를 사용하여 데이터를 저장 및 쿼리하는 방법에 대해 자세히 알아봅니다.
 
-* [인증 시작](영문)
+* [인증 시작]
   <br/>Windows 계정을 사용하여 앱 사용자를 인증하는 방법을 알아봅니다.
 
 * [모바일 서비스 서버 스크립트 참조]
-  <br/>서버 스크립트의 등록 및 사용에 대해 자세히 알아봅니다.
+  <br/>서버 스크립트 등록 및 사용에 대해 자세히 알아봅니다.
 
 * [모바일 서비스 HTML/JavaScript 방법 개념 참조]
-  <br/>모바일 서비스를 HTML 및 JavaScript와 함께 사용하는 방법을 자세히 알아보세요.  
+  <br/>모바일 서비스를 HTML 및 JavaScript와 함께 사용하는 방법에 대해 자세히 알아봅니다.  
 
 <!-- Anchors. -->
 [푸시 알림을 위한 앱 등록 및 모바일 서비스 구성]: #register
@@ -136,22 +136,21 @@
 [앱 제출 페이지]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [내 응용 프로그램]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Windows용 Live SDK]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[모바일 서비스 시작](영문): /ko-kr/develop/mobile/tutorials/get-started/
-[데이터 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-data-js/
-[인증 시작](영문): /ko-kr/develop/mobile/tutorials/get-started-with-users-js
-[푸시 알림 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-push-js
-[앱 사용자에 대한 푸시 알림]: /ko-kr/develop/mobile/tutorials/push-notifications-to-users-js
-[스크립트를 통해 사용자 권한 부여]: /ko-kr/develop/mobile/tutorials/authorize-users-in-scripts-js
-[JavaScript 및 HTML]: /ko-kr/develop/mobile/tutorials/get-started-with-push-js
+[모바일 서비스 시작]: /develop/mobile/tutorials/get-started/
+[데이터 시작]: /develop/mobile/tutorials/get-started-with-data-js/
+[인증 시작]: /develop/mobile/tutorials/get-started-with-users-js
+[푸시 알림 시작]: /develop/mobile/tutorials/get-started-with-push-js
+[앱 사용자에 대한 푸시 알림]: /develop/mobile/tutorials/push-notifications-to-users-js
+[스크립트를 통해 사용자 권한 부여]: /develop/mobile/tutorials/authorize-users-in-scripts-js
+[JavaScript 및 HTML]: /develop/mobile/tutorials/get-started-with-push-js
 
 [Azure 관리 포털]: https://manage.windowsazure.com/
-[모바일 서비스 HTML/JavaScript 방법 개념 참조]: /ko-kr/develop/mobile/how-to-guides/work-with-html-js-client/
+[모바일 서비스 HTML/JavaScript 방법 개념 참조]: /develop/mobile/how-to-guides/work-with-html-js-client/
 [모바일 서비스 서버 스크립트 참조]: http://go.microsoft.com/fwlink/?LinkId=262293
-[알림 허브 시작]: /ko-kr/manage/services/notification-hubs/getting-started-windows-dotnet/
-[알림 허브 정의]: /ko-kr/develop/net/how-to-guides/service-bus-notification-hubs/
-[구독자에게 알림 보내기]: /ko-kr/manage/services/notification-hubs/breaking-news-dotnet/
-[사용자에게 알림 보내기]: /ko-kr/manage/services/notification-hubs/notify-users/
-[사용자에게 플랫폼 간 알림 보내기]: /ko-kr/manage/services/notification-hubs/notify-users-xplat-mobile-services/
+[알림 허브 시작]: /manage/services/notification-hubs/getting-started-windows-dotnet/
+[알림 허브 정의]: /develop/net/how-to-guides/service-bus-notification-hubs/
+[구독자에게 알림 보내기]: /manage/services/notification-hubs/breaking-news-dotnet/
+[사용자에게 알림 보내기]: /manage/services/notification-hubs/notify-users/
+[사용자에게 플랫폼 간 알림 보내기]: /manage/services/notification-hubs/notify-users-xplat-mobile-services/
 
-
-<!--HONumber=42-->
+<!--HONumber=47-->

@@ -5,7 +5,7 @@
    <th align="left" valign="middle">최대 제한</th>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://azure.microsoft.com/ko-kr/services/batch/">일괄 처리</a> 계정당 코어 수</p></td>
+   <td valign="middle"><p><a href="http://azure.microsoft.com/services/batch/">일괄 처리</a> 계정당 코어</p></td>
    <td valign="middle"><p>20</p></td>
    <td valign="middle"><p>해당 없음<sup>1</sup></p></td>
 </tr>
@@ -22,4 +22,4 @@
 </table>
 <sup>1</sup> 일괄 처리 계정당 코어 수는 증가할 수 없지만 최대 수가 지정되지 않습니다. 증가 옵션에 대해서는 고객 지원에 문의하세요.
 
-<!--HONumber=35.1-->
+<!--HONumber=47-->

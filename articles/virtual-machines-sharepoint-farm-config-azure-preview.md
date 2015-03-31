@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="vm-sharepoint" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="1/26/2015" 
+	ms.date="03/04/2015" 
 	ms.author="josephd"/>
 
 
-#SharePoint 서버 팜 구성 정보#
+# SharePoint 서버 팜 구성 정보
 
 SharePoint Server 팜은 미리 구성된 SharePoint Server 2013 팜을 자동으로 만드는 Microsoft Azure 미리 보기 포털의 기능입니다. 다음과 같은 두 가지 팜 구성이 있습니다.
 
@@ -26,9 +26,9 @@ SharePoint Server 팜은 미리 구성된 SharePoint Server 2013 팜을 자동�
 
 다음 섹션에서는 각 팜의 구성을 자세히 설명합니다.
 
-자세한 내용은 [SharePoint 서버 팜](../virtual-machines-sharepoint-farm-azure-preview/) 을 참조하세요.
+자세한 내용은 [SharePoint 서버 팜](../virtual-machines-sharepoint-farm-azure-preview/)을 참조하세요.
 
-##기본 SharePoint 팜##
+## 기본 SharePoint 팜
 
 기본 SharePoint 팜은 다음 구성의 3가지 가상 컴퓨터로 구성됩니다.
 
@@ -71,7 +71,7 @@ SharePoint Server 팜은 미리 구성된 SharePoint Server 2013 팜을 자동�
 	-	SharePoint 팜 암호: 초기 구성 중에 지정됩니다.
 
 
-##고가용성 SharePoint 팜##
+## 고가용성 SharePoint 팜
 
 고가용성 SharePoint 팜은 다음과 같은 구성으로 9개의 가상 컴퓨터로 구성됩니다.
 
@@ -119,11 +119,10 @@ SharePoint Server 팜은 미리 구성된 SharePoint Server 2013 팜을 자동�
 	-	SharePoint 팜 계정 암호: 초기 구성 중에 지정됩니다.		
 	-	SharePoint 팜 암호: 초기 구성 중에 지정됩니다.
 
-##추가 리소스##
+## 추가 리소스
 
 [SharePoint Server 팜](../virtual-machines-sharepoint-farm-azure-preview/)
 
 [Azure 인프라 서비스의 SharePoint](http://msdn.microsoft.com/library/azure/dn275955.aspx)
 
-
-<!--HONumber=42-->
+<!--HONumber=47-->

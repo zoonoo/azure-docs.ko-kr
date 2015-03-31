@@ -1,48 +1,60 @@
-﻿<properties title="Elastic Scale Security Configurations" pageTitle="탄력적인 확장 보안 구성" description="Azure SQL 데이터베이스에 탄력적인 확장을 사용하여 분할-병합 서비스의 보안 유지" metaKeywords="Elastic Scale Security Configurations, Azure SQL Database sharding, elastic scale " services="sql-database" documentationCenter="" manager="jhubbard" authors="sidneyh@microsoft.com"/>
+<properties 
+	title="Elastic Scale Security Configurations" 
+	pageTitle="탄력적인 확장 보안 구성" 
+	description="Azure SQL 데이터베이스에 탄력적인 확장을 사용하여 분할-병합 서비스의 보안 유지" 
+	metaKeywords="Elastic Scale Security Configurations, Azure SQL Database sharding, elastic scale " 
+	services="sql-database" documentationCenter="" 
+	manager="jhubbard" 
+	authors="sidneyh@microsoft.com"/>
 
-<tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/02/2014" ms.author="sidneyh" />
+<tags 
+	ms.service="sql-database" 
+	ms.workload="sql-database" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" ms.topic="article" ms.date="03/05/2015" 
+	ms.author="sidneyh" />
 
 # 탄력적인 확장 보안 구성  
 
-Microsoft Azure SQL 데이터베이스 탄력적인 확장에는 자체 호스트 서비스가 포함됩니다. 배포에는 구성해야 하는 보안 관련 설정을 포함하는 서비스 구성 파일이 포함됩니다.
+Microsoft Azure SQL 데이터베이스 탄력적인 확장에는 자체 호스트 서비스가 포함됩니다. 배포에는 구성해야 하는 보안 관련 설정이 들어 있는 서비스 구성 파일이 포함됩니다.
 
-1. [인증서 구성][] 
+1. [인증서 구성][]
 2. [허용된 IP 주소][]
 3. [서비스 거부 방지][]
 4. [기타 보안 고려 사항][]
 
-## <a name="configuring-certificates"></a>Configuring Certificates
+## <a name="configuring-certificates"></a>인증서 구성
 
 인증서는 두 가지 방법으로 구성합니다. 
 
 1. [SSL 인증서를 구성하려면][]
-2. [클라이언트 인증서를 구성하려면][] 
+2. [클라이언트 인증서를 구성하려면][]
 
 ## <a name="obtain-certificates"></a>인증서를 얻으려면
 
-공용 CA(인증 기관) 또는 [Windows 인증서 서비스](http://msdn.microsoft.com/ko-kr/library/windows/desktop/aa376539.aspx)에서 인증서를 가져올 수 있습니다. 인증서를 가져올 때 이러한 방법이 일반적으로 사용됩니다.
+공용 CA(인증 기관) 또는 [Windows 인증서 서비스](http://msdn.microsoft.com/library/windows/desktop/aa376539.aspx)에서 인증서를 얻을 수 있습니다. 인증서를 가져올 때 이러한 방법이 일반적으로 사용됩니다.
 
-이러한 옵션을 사용할 수 없는 경우 **자체 서명된 인증서**를 생성할 수 있습니다.
+이러한 옵션을 사용할 수 없는 경우 **자체 서명된 인증서 인증서**를 생성할 수 있습니다.
  
 ## <a name="tools"></a>인증서를 생성하는 도구
 
-* [makecert.exe](http://msdn.microsoft.com/ko-kr/library/bfsktky3.aspx)
-* [pvk2pfx.exe](http://msdn.microsoft.com/ko-kr/library/windows/hardware/ff550672.aspx)
+* [makecert.exe](http://msdn.microsoft.com/library/bfsktky3.aspx)
+* [pvk2pfx.exe](http://msdn.microsoft.com/library/windows/hardware/ff550672.aspx)
 
-###도구를 실행하려면
+### 도구를 실행하려면
 
-* Visual Studio용 개발자 명령 프롬프트에서 [Visual Studio 명령 프롬프트](http://msdn.microsoft.com/ko-kr/library/ms229859.aspx)를 참조하세요. 
+* Visual Studio용 개발자 명령 프롬프트에서 [Visual Studio 명령 프롬프트](http://msdn.microsoft.com/library/ms229859.aspx)를 참조하세요. 
 
     설치되어 있는 경우 다음으로 이동합니다.
 
         %ProgramFiles(x86)%\Windows Kits\x.y\bin\x86 
 
-* [Windows 8.1: 키트 및 도구 다운로드](http://msdn.microsoft.com/windows/hardware/gg454513#drivers)에서 WDK를 가져옵니다.
+* [Windows 8.1: 키트 및 도구 다운로드](http://msdn.microsoft.com/en-US/windows/hardware/gg454513#drivers)에서 WDK를 가져옵니다.
 
-##    <a name="to-configure-ssl-cert"></a>SSL 인증서를 구성하려면
+## <a name="to-configure-ssl-cert"></a>SSL 인증서를 구성하려면
 통신을 암호화하고 서버를 인증하려면 SSL 인증서가 필요합니다. 아래 세 가지 시나리오 중 가장 적합한 시나리오를 선택하고 모든 단계를 실행합니다.
 
-###자체 서명된 새로운 인증서 만들기
+### 자체 서명된 새로운 인증서 만들기
 
 1.    [자체 서명된 인증서 만들기][]
 2.    [자체 서명된 SSL 인증서용 PFX 파일 만들기][]
@@ -50,12 +62,12 @@ Microsoft Azure SQL 데이터베이스 탄력적인 확장에는 자체 호스�
 4.    [서비스 구성 파일에서 SSL 인증서 업데이트][]
 5.    [SSL 인증 기관 가져오기][]
 
-#### 인증서 저장소에서 기존 인증서를 사용하려면
+### 인증서 저장소에서 기존 인증서를 사용하려면
 1. [인증서 저장소에서 SSL 인증서 내보내기][]
 2. [클라우드 서비스에 SSL 인증서 업로드][]
 3. [서비스 구성 파일에서 SSL 인증서 업데이트][]
 
-#### PFX 파일에서 기존 인증서를 사용하려면
+### PFX 파일에서 기존 인증서를 사용하려면
 
 1. [클라우드 서비스에 SSL 인증서 업로드][]
 2. [서비스 구성 파일에서 SSL 인증서 업데이트][]
@@ -63,10 +75,10 @@ Microsoft Azure SQL 데이터베이스 탄력적인 확장에는 자체 호스�
 ## <a name="configuring-client-certs"></a>클라이언트 인증서를 구성하려면
 클라이언트 인증서는 서비스에 요청을 인증하는 데 필요합니다. 아래 세 가지 시나리오 중 가장 적합한 시나리오를 선택하고 모든 단계를 실행합니다.
 
-###클라이언트 인증서 해제
+### 클라이언트 인증서 해제
 1.    [클라이언트 인증서 기반 인증 해제][]
 
-###자체 서명된 새로운 클라이언트 인증서 발급
+### 자체 서명된 새로운 클라이언트 인증서 발급
 1.    [자체 서명된 인증 기관 만들기][]
 2.    [클라우드 서비스에 CA 인증서 업로드][]
 3.    [서비스 구성 파일의 CA 인증서 업데이트][]
@@ -76,7 +88,7 @@ Microsoft Azure SQL 데이터베이스 탄력적인 확장에는 자체 호스�
 7.    [클라이언트 인증서 지문 복사][]
 8.    [서비스 구성 파일에서 허용된 클라이언트 구성][]
 
-###기존 클라이언트 인증서 사용
+### 기존 클라이언트 인증서 사용
 1.    [CA 공개 키 찾기][]
 2.    [클라우드 서비스에 CA 인증서 업로드][]
 3.    [서비스 구성 파일의 CA 인증서 업데이트][]
@@ -84,28 +96,50 @@ Microsoft Azure SQL 데이터베이스 탄력적인 확장에는 자체 호스�
 5.    [서비스 구성 파일에서 허용된 클라이언트 구성][]
 6.    [클라이언트 인증서 해지 확인 구성][]
 
-## <a name="allowed-ip-addresses"></a>Allowed IP Addresses
+## <a name="allowed-ip-addresses"></a>허용된 IP 주소
 
-Access to the service endpoints can be restricted to specific ranges of IP addresses.
- 
-## The Default Configuration
+특정 범위의 IP 주소에서만 서비스 끝점에 액세스하도록 제한할 수 있습니다.
 
-The default configuration denies all access to the HTTP endpoint. This is the recommended setting, since the requests to these endpoints may carry sensitive information like database credentials.
-The default configuration allows all access to the HTTPS endpoint. This setting may be restricted further.
+## 저장소에 대한 암호화를 구성하려면
 
-### Changing the Configuration
+메타데이터 저장소에 저장된 자격 증명을 암호화하려면 인증서가 필요합니다. 아래 세 가지 시나리오 중 가장 적합한 시나리오를 선택하고 모든 단계를 실행합니다.
 
-The group of access control rules that apply to and endpoint are configured in the **<EndpointAcls>** section in the **service configuration file**.
+### 자체 서명된 새 인증서 사용
+
+1.	 [자체 서명된 인증서 만들기][]
+2.	 [자체 서명된 암호화 인증서용 PFX 파일 만들기][]
+3.	 [클라우드 서비스에 암호화 인증서 업로드][]
+4.	 [서비스 구성 파일에서 암호화 인증서 업데이트][]
+
+### 인증서 저장소에서 기존 인증서를 사용하려면
+
+1.	 [인증서 저장소에서 암호화 인증서 내보내기][]
+2.	 [클라우드 서비스에 암호화 인증서 업로드][]
+3.	 [서비스 구성 파일에서 암호화 인증서 업데이트][]
+
+### PFX 파일에서 기존 인증서를 사용
+
+1.	 [클라우드 서비스에 암호화 인증서 업로드][]
+2.	 [서비스 구성 파일에서 암호화 인증서 업데이트][]
+
+## 기본 구성
+
+기본 구성에서는 HTTP 끝점에 대한 모든 액세스를 거부합니다. 이러한 끝점에 대한 요청에서는 데이터베이스 자격 증명과 같은 중요한 정보가 전송될 수 있으므로 이 설정을 사용하는 것이 좋습니다.
+기본 구성에서는 HTTPS 끝점에 대한 모든 액세스가 허용됩니다. 이 설정을 추가로 제한할 수 있습니다.
+
+### 구성 변경
+
+**서비스 구성 파일**의 **<EndpointAcls>** 섹션에서 끝점에 적용되는 액세스 제어 규칙 그룹을 구성합니다.
 
     <EndpointAcls>
       <EndpointAcl role="SplitMergeWeb" endPoint="HttpIn" accessControl="DenyAll" />
       <EndpointAcl role="SplitMergeWeb" endPoint="HttpsIn" accessControl="AllowAll" />
     </EndpointAcls>
 
-The rules in an access control group are configured in a <AccessControl name=""> section of the service configuration file. 
+액세스 제어 그룹의 규칙은 서비스 구성 파일의 <AccessControl name=""> 섹션에서 구성합니다. 
 
-The format is explained in Network Access Control Lists documentation.
-For example, to allow only IPs in the range 100.100.0.0 to 100.100.255.255 to access the HTTPS endpoint, the rules would look like this:
+해당 형식에 대한 설명은 네트워크 액세스 제어 목록 설명서에 나와 있습니다.
+예를 들어 100.100.0.0~100.100.255.255 범위의 IP만 HTTPS 끝점에 액세스하도록 허용하려는 경우의 규칙은 다음과 같습니다.
 
     <AccessControl name="Retricted">
       <Rule action="permit" description="Some" order="1" remoteSubnet="100.100.0.0/16"/>
@@ -116,7 +150,7 @@ For example, to allow only IPs in the range 100.100.0.0 to 100.100.255.255 to ac
 
 ## <a name = "denial-of-service-prevention"></a>서비스 거부 방지
 
-서비스 거부 공격을 검색하도록 지원하는 메커니즘이 두 가지 있습니다.
+서비스 거부 공격을 검색 및 방지할 수 있도록 지원하는 메커니즘이 두 가지 있습니다.
 
 *    원격 호스트당 동시 요청 수 제한(기본적으로 해제됨)
 *    원격 호스트당 액세스 속도 제한(기본적으로 설정됨)
@@ -133,7 +167,7 @@ For example, to allow only IPs in the range 100.100.0.0 to 100.100.255.255 to ac
     <Setting name="DynamicIpRestrictionDenyByConcurrentRequests" value="false" />
     <Setting name="DynamicIpRestrictionMaxConcurrentRequests" value="20" />
 
-Change DynamicIpRestrictionDenyByConcurrentRequests to true to enable this protection.
+이 보호를 사용하도록 설정하려면 DynamicIpRestrictionDenyByConcurrentRequests를 true로 변경합니다.
 
 ## 액세스 속도 제한
 
@@ -151,13 +185,13 @@ Change DynamicIpRestrictionDenyByConcurrentRequests to true to enable this prote
 기타 지원되는 값에 대해서는 IIS의 동적 IP 보안에 대한 설명서를 참조하세요.
 
 ## 서비스 인증서 구성 작업
-이 항목은 참조용일 뿐입니다. 다음에 설명된 구성 단계를 수행하세요.
+이 항목은 참조용일 뿐입니다. 아래 항목에 나와 있는 구성 단계를 수행하세요.
 
 * SSL 인증서 구성
 * 클라이언트 인증서 구성
 
 ## <a name = "create-self-signed-cert"></a>자체 서명된 인증서 만들기
-다음을 실행합니다.
+다음 코드를 실행합니다.
 
     makecert ^
       -n "CN=myservice.cloudapp.net" ^
@@ -168,13 +202,13 @@ Change DynamicIpRestrictionDenyByConcurrentRequests to true to enable this prote
 
 사용자 지정하려면:
 
-*    -n 및 서비스 URL. 와일드 카드("CN = *.cloudapp.net") 및 대체 이름("CN=myservice1.cloudapp.net, CN=myservice2.cloudapp.net")이 지원됩니다.
-*    -e 및 인증서 만료 날짜
+*    -n을 서비스 URL로 바꿉니다. 와일드카드("CN=*.cloudapp.net") 및 대체 이름("CN=myservice1.cloudapp.net, CN=myservice2.cloudapp.net")이 지원됩니다.
+*    -e를 인증서 만료 날짜로 바꿉니다.
 강력한 암호를 만들고 메시지가 표시되면 해당 암호를 지정합니다.
 
 ## <a name="create-pfx-for-self-signed-cert"></a>자체 서명된 SSL 인증서용 PFX 파일 만들기
 
-다음을 실행합니다.
+다음 코드를 실행합니다.
 
         pvk2pfx -pvk MySSL.pvk -spc MySSL.cer
 
@@ -213,7 +247,7 @@ SSL 키 쌍이 포함된 기존 또는 생성된 .PFX 파일을 업로드합니�
 
 ## <a name="turn-off-client-cert"></a>클라이언트 인증서 기반 인증 해제
 
-클라이언트 인증서 기반 인증만 지원되며, 이를 사용하지 않으면 다른 메커니즘(예: Microsoft Azure 가상 네트워크)이 없는 한 서비스 끝점에 대한 공용 액세스가 허용됩니다.
+클라이언트 인증서 기반 인증만 지원됩니다. 이 인증을 사용하지 않도록 설정하는 경우 Microsoft Azure 가상 네트워크 등의 다른 네트워크가 없으면 서비스 끝점에 대한 공용 액세스가 허용됩니다.
 
 서비스 구성 파일에서 이러한 설정을 false로 변경하여 기능을 해제합니다.
 
@@ -235,14 +269,14 @@ SSL 키 쌍이 포함된 기존 또는 생성된 .PFX 파일을 업로드합니�
       -sr localmachine -ss my ^
       MyCA.cer
 
-이를 사용자 지정하려면
+이 코드를 사용자 지정하려면 다음을 수행합니다.
 
 *    -e 및 인증 만료 날짜
 
 
 ## <a name="find-ca-public-key"></a>CA 공개 키 찾기
 
-모든 클라이언트 인증서는 서비스에서 신뢰하는 인증 기관에서 발급해야 합니다. 클라우드 서비스에 업로드하기 위해 인증에 사용할 클라이언트 인증서를 발급한 인증 기관의 공용 키를 찾습니다.
+모든 클라이언트 인증서는 서비스에서 신뢰하는 인증 기관에서 발급해야 합니다. 클라우드 서비스에 업로드할 수 있도록 인증에 사용할 클라이언트 인증서를 발급한 인증 기관의 공용 키를 찾습니다.
 
 공용 키가 포함된 파일을 사용할 수 없는 경우 인증서 저장소에서 이 파일을 내보냅니다.
 
@@ -291,8 +325,8 @@ CA 공개 키가 포함된 기존 또는 생성된 .CER 파일과 함께 인증�
 
 사용자 지정:
 
-* -n 및 이 인증서로 인증할 클라이언트의 ID
-* -e 및 인증서 만료 날짜
+* -n을 이 인증서로 인증할 클라이언트의 ID로 바꿉니다.
+* -e를 인증서 만료 날짜로 바꿉니다.
 * MyID.pvk 및 MyID.cer과 이 클라이언트 인증서의 고유한 파일 이름
 
 이 명령은 암호를 만들어 한 번 사용하라는 메시지를 표시합니다. 강력한 암호를 사용하세요.
@@ -305,7 +339,7 @@ CA 공개 키가 포함된 기존 또는 생성된 .CER 파일과 함께 인증�
 
 사용자 지정:
 
-    • MyID.pvk 및 MyID.cer와 클라이언트 인증서의 파일 이름
+    MyID.pvk and MyID.cer with the filename for the client certificate
 
 암호를 입력하고 다음 옵션을 사용하여 인증서를 내보냅니다.
 
@@ -315,19 +349,19 @@ CA 공개 키가 포함된 기존 또는 생성된 .CER 파일과 함께 인증�
 
 ## <a name="import-client-cert"></a>클라이언트 인증서 가져오기
 
-클라이언트 인증서를 발급한 각 개인이 서비스와 통신하는 데 사용할 컴퓨터의 키 쌍을 가져와야 합니다.
+클라이언트 인증서를 발급받은 개별 사용자는 서비스와 통신하는 데 사용할 컴퓨터의 키 쌍을 가져와야 합니다.
 
 * Windows 탐색기에서 .PFX 파일을 두 번 클릭합니다.
 * 적어도 다음 옵션을 사용하여 개인 저장소에 인증서를 가져옵니다.
     * 확장된 속성 모두 포함 옵션 선택
 
-## <a name=copy-client-cert"> </a> 클라이언트 인증서 지문 복사
+## <a name="copy-client-cert"> </a> 클라이언트 인증서 지문 복사
 클라이언트 인증서를 발급한 각 개인이 서비스 구성 파일에 추가할 인증서의 지문을 가져오려면 다음 단계를 따라야 합니다.
 * Certmgr.exe 실행
 * 개인 탭 선택
 * 인증에 사용할 클라이언트 인증서를 두 번 클릭합니다.
-* 표시되는 인증서 대화 상자에서 세부 정보 탭을 선택합니다.
-* 표시가 모두를 나타내는지 확인합니다.
+* 인증서 대화 상자가 열리면 세부 정보 탭을 선택합니다.
+* 표시가 모두로 설정되어 있는지 확인합니다.
 * 목록에서 지문이라는 필드를 선택합니다.
 * 지문 값을 복사합니다.
 ** 첫 번째 숫자 앞에 표시 되지 않는 유니코드 문자를 삭제합니다.
@@ -341,14 +375,50 @@ CA 공개 키가 포함된 기존 또는 생성된 .CER 파일과 함께 인증�
 
 ## <a name="configure-client-revocation"></a>클라이언트 인증서 해지 확인 구성
 
-기본 설정은 인증 기관으로 클라이언트 인증서 해지 상태를 확인하지 않습니다. 확인을 설정하려면 클라이언트 인증서를 발급한 인증 기관에서 이러한 검사를 지원하는 경우 X509RevocationMode 열거형에 정의된 값 중 하나로 다음 설정을 변경합니다.
+기본 설정은 인증 기관으로 클라이언트 인증서 해지 상태를 확인하지 않습니다. 확인을 설정하려면 클라이언트 인증서를 발급한 인증 기관에서 이러한 확인을 지원하는 경우 X509RevocationMode 열거에 정의된 값 중 하나로 다음 설정을 변경합니다.
 
     <Setting name="ClientCertificateRevocationCheck" value="NoCheck" />
 
+## <a name="create-pfx-files-encryption"></a>자체 서명된 암호화 인증서용 PFX 파일 만들기
+
+암호화 인증서에 대해 다음을 실행합니다.
+
+    pvk2pfx -pvk MyID.pvk -spc MyID.cer
+
+사용자 지정:
+
+    MyID.pvk and MyID.cer with the filename for the encryption certificate
+
+암호를 입력하고 다음 옵션을 사용하여 인증서를 내보냅니다.
+*	예, 개인 키를 내보냅니다.
+*	확장된 속성 모두 내보내기
+*	클라우드 서비스에 인증서를 업로드할 때 암호가 필요합니다.
+
+## <a name="export-encryption-from-store"></a>인증서 저장소에서 암호화 인증서 내보내기
+
+*	인증서를 찾습니다.
+*	작업-> 모든 작업 -> 내보내기를 클릭합니다.
+*	다음 옵션을 사용하여 .PFX 파일로 인증서를 내보냅니다. 
+  *	예, 개인 키를 내보냅니다.
+  *	가능하면 인증 경로에 있는 인증서 모두 포함 
+*	확장된 속성 모두 내보내기
+
+## <a name="upload-encryption-cert"></a> 클라우드 서비스에 암호화 인증서 업로드
+
+암호화 키 쌍이 포함된 기존 또는 생성된 .PFX 파일을 업로드합니다.
+
+* 개인 키 정보를 보호하는 암호를 입력합니다.
+
+## <a name="update-encryption-in-csft"></a>서비스 구성 파일에서 암호화 인증서 업데이트
+
+클라우드 서비스에 업로드된 인증서의 지문으로 서비스 구성 파일의 다음 설정에 대한 지문 값을 업데이트합니다.
+
+    <Certificate name="DataEncryptionPrimary" thumbprint="" thumbprintAlgorithm="sha1" />
+
 ## 일반 인증서 작업
 
-• SSL 인증서 구성
-• 클라이언트 인증서 구성
+* SSL 인증서 구성
+* 클라이언트 인증서 구성
 
 ## 인증서를 찾습니다.
 
@@ -387,23 +457,23 @@ CA 공개 키가 포함된 기존 또는 생성된 .CER 파일과 함께 인증�
 인증서 가져오기 마법사에서:
 
 1. 저장소 위치를 선택합니다.
-    1. 현재 사용자 - 현재 사용자 계정으로 실행되는 프로세스만 서비스에 액세스하는 경우
-    2. 로컬 컴퓨터 - 이 컴퓨터의 다른 프로세스에서 서비스에 액세스하는 경우
+    1.     현재 사용자 - 현재 사용자 계정으로 실행되는 프로세스만 서비스에 액세스하는 경우
+    2.     로컬 컴퓨터 - 이 컴퓨터의 다른 프로세스에서 서비스에 액세스하는 경우
 2. 다음을 클릭합니다.
 3. 파일에서 가져오는 경우 파일 경로를 확인합니다.
 4. .PFX 파일을 가져오는 경우:
-    1. 개인 키를 보호하는 암호를 입력합니다.
-    2. 가져오기 옵션을 선택합니다.
+    1.     개인 키를 보호하는 암호를 입력합니다.
+    2.     가져오기 옵션을 선택합니다.
 5.     다음 저장소에 인증서 저장을 선택합니다.
 6.     찾아보기를 클릭합니다.
 7.     원하는 저장소를 선택합니다.
 8.     마침을 클릭합니다.
-    1. 신뢰할 수 있는 루트 인증 기관 저장소를 선택한 경우 예를 클릭합니다.
+    1.     신뢰할 수 있는 루트 인증 기관 저장소를 선택한 경우 예를 클릭합니다.
 9.     모든 대화 상자 창에서 확인을 클릭합니다.
 
 ## <a name="upload-certificate"></a>인증서 업로드
 
-[Azure 관리 포털에서](http://manage.windowsazure.com/)에서
+[Azure 관리 포털](http://manage.windowsazure.com/)에서 다음 단계를 수행합니다.
 
 1. 클라우드 서비스를 선택합니다.
 2. 클라우드 서비스를 선택합니다.
@@ -419,7 +489,7 @@ CA 공개 키가 포함된 기존 또는 생성된 .CER 파일과 함께 인증�
 
     <Setting name="ElasticScaleMetadata" value="Server=..." />
 
-이 데이터베이스에 저장 된 데이터는 암호화되지 않습니다. 자격 증명 또는 서비스 요청의 다른 중요한 정보를 공개하지 않으려면 이 데이터베이스를 보호하고 해당 데이터베이스에 대한 액세스를 항상 보안 상태로 유지하세요. 또한, 서비스 배포의 웹 및 작업자 역할은 메타데이터 데이터베이스에 대한 액세스 권한을 가지므로 두 역할 모두가 안전하며 최신 상태로 유지되는지 확인합니다. 
+이 데이터베이스에 저장된 자격 증명은 암호화됩니다. 그러나 서비스 배포의 웹 역할과 작업자 역할 모두 최신 상태를 유지하고 저장된 자격 증명의 암호화 및 암호 해독에 사용되는 인증서와 메타데이터 데이터베이스에 액세스할 때 보안을 유지해야 합니다. 
 
 [AZURE.INCLUDE [elastic-scale-include](../includes/elastic-scale-include.md)]
 
@@ -449,3 +519,9 @@ CA 공개 키가 포함된 기존 또는 생성된 .CER 파일과 함께 인증�
 [SSL 인증서를 구성하려면]:#to-configure-ssl-cert
 [기타 보안 고려 사항]:#other-security 
 [인증서 업로드]:#upload-certificate
+[자체 서명된 암호화 인증서용 PFX 파일 만들기]:#create-pfx-files-encryption
+[클라우드 서비스에 암호화 인증서 업로드]:#upload-encryption-cert 
+[서비스 구성 파일에서 암호화 인증서 업데이트]:#update-encryption-in-csft
+[인증서 저장소에서 암호화 인증서 내보내기]:#export-encryption-from-store
+
+<!--HONumber=47-->

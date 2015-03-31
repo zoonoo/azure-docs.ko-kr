@@ -10,9 +10,9 @@
 	>
 	> Android 에뮬레이터에서 프로젝트를 실행하려면 AVD(Android Virtual Device)를 하나 이상 정의해야 합니다. AVD Manager를 사용하여 이러한 장치를 만들고 관리합니다.
 
-3. 앱에서 _Complete the tutorial_ 등의 의미 있는 텍스트를 입력하고 **Add**를 클릭합니다.
+3. 앱에서 _자습서 완료_와 같이 의미 있는 텍스트를 입력하고 **추가**를 클릭합니다.
 
    	![](./media/download-android-sample-code/mobile-quickstart-startup-android.png)
 
    	메모리 내 컬렉션에 저장된 텍스트가 저장되고 아래 목록에 표시됩니다.
-<!--HONumber=45--> 
+<!--HONumber=47-->

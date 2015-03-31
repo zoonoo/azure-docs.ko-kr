@@ -27,55 +27,55 @@
 	    {
 	        public Task Register(ApiServices services, HttpRequestContext context,
             NotificationRegistration registration)
-        {
-            try
-            {
-                // Perform a check here for user ID tags, which are not allowed.
-                if(!ValidateTags(registration))
-                {
-                    throw new InvalidOperationException(
-                        "You cannot supply a tag that is a user ID.");                    
-                }
-
-                // Get the logged-in user.
-                var currentUser = context.Principal as ServiceUser;
-
-                // Add a new tag that is the user ID.
-                registration.Tags.Add(currentUser.Id);
-
-                services.Log.Info("Registered tag for userId: " + currentUser.Id);
-            }
-            catch(Exception ex)
-            {
-                services.Log.Error(ex.ToString());
-            }
-                return Task.FromResult(true);
-        }
-
-        private bool ValidateTags(NotificationRegistration registration)
-        {
-            // Create a regex to search for disallowed tags.
-            System.Text.RegularExpressions.Regex searchTerm =
-            new System.Text.RegularExpressions.Regex(@"facebook:|google:|twitter:|microsoftaccount:",
-                System.Text.RegularExpressions.RegexOptions.IgnoreCase);
-
-            foreach (string tag in registration.Tags)
-            {
-                if (searchTerm.IsMatch(tag))
-                {
-                    return false;
-                }
-            }
-            return true;
-        }
+	        {
+	            try
+	            {
+	                // Perform a check here for user ID tags, which are not allowed.
+	                if(!ValidateTags(registration))
+	                {
+	                    throw new InvalidOperationException(
+	                        "You cannot supply a tag that is a user ID.");                    
+	                }
 	
-        public Task Unregister(ApiServices services, HttpRequestContext context, 
-            string deviceId)
-        {
-            // This is where you can hook into registration deletion.
-            return Task.FromResult(true);
-        }
-    }
+	                // Get the logged-in user.
+	                var currentUser = context.Principal as ServiceUser;
+	
+	                // Add a new tag that is the user ID.
+	                registration.Tags.Add(currentUser.Id);
+	
+	                services.Log.Info("Registered tag for userId: " + currentUser.Id);
+	            }
+	            catch(Exception ex)
+	            {
+	                services.Log.Error(ex.ToString());
+	            }
+	                return Task.FromResult(true);
+	        }
+	
+	        private bool ValidateTags(NotificationRegistration registration)
+	        {
+	            // Create a regex to search for disallowed tags.
+	            System.Text.RegularExpressions.Regex searchTerm =
+	            new System.Text.RegularExpressions.Regex(@"facebook:|google:|twitter:|microsoftaccount:",
+	                System.Text.RegularExpressions.RegexOptions.IgnoreCase);
+	
+	            foreach (string tag in registration.Tags)
+	            {
+	                if (searchTerm.IsMatch(tag))
+	                {
+	                    return false;
+	                }
+	            }
+	            return true;
+	        }
+		
+	        public Task Unregister(ApiServices services, HttpRequestContext context, 
+	            string deviceId)
+	        {
+	            // This is where you can hook into registration deletion.
+	            return Task.FromResult(true);
+	        }
+	    }
 
 	등록하는 동안 **Register** 메서드가 호출됩니다. 이를 통해 로그인된 사용자의 ID인 태그를 등록에 추가할 수 있습니다. 제공된 태그는 사용자가 다른 사용자의 ID를 등록하지 못하도록 하기 위해 유효성이 확인됩니다. 이 사용자에게 알림이 전송되면 이 장치와 사용자가 등록한 다른 모든 장치에 알림이 수신됩니다. 
 
@@ -90,4 +90,5 @@
 7. 모바일 서비스 프로젝트를 다시 게시합니다.
 
 이제 서비스에서 사용자 ID 태그를 사용하여 로그인된 사용자가 만든 모든 등록에 푸시 알림(삽입된 항목의 텍스트 포함)을 보냅니다.
- <!--HONumber=42-->
+ 
+<!--HONumber=47-->

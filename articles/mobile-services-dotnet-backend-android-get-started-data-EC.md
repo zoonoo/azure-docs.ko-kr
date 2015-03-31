@@ -38,7 +38,7 @@
 5. [게시된 모바일 서비스에 대해 앱 테스트]
 
 
-> [AZURE.IMPORTANT] 이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fko-kr%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started-data%2F"%20target="_blank)을 참조하세요. 
+> [AZURE.IMPORTANT] 이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fko-kr%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started-data%2F"%20target="_blank)을 참조하세요. 
 
 
 <h2><a name="create-service"></a>새 모바일 서비스 만들기</h2>
@@ -60,16 +60,16 @@
 
 <h2><a name="download-app"></a>GetStartedWithData 프로젝트 다운로드</h2>
 
-### 샘플 코드 가져오기
+###샘플 코드 가져오기
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-create-new-service](../includes/download-android-sample-code-EC.md)]
 
-### Android SDK 버전 확인
+###Android SDK 버전 확인
 
 [AZURE.INCLUDE [mobile-services-verify-android-sdk-version](../includes/mobile-services-verify-android-sdk-version-EC.md)]
 
 
-### 샘플 코드 검사 및 실행
+###샘플 코드 검사 및 실행
 
 [AZURE.INCLUDE [mobile-services-android-run-sample-code](../includes/mobile-services-android-run-sample-code-EC.md)]
 
@@ -111,15 +111,15 @@
 
 이 자습서에서는 Android 앱에서 모바일 서비스의 데이터로 작업하기 위한 기본 사항에 대해 설명했습니다. 
 
-<!--다음에는 이 자습서에서 만든 GetStartedWithData 앱을 기반으로 하는 다음 자습서 중 하나를 완료해보세요.
+<!--Next, consider completing one of the following tutorials that is based on the GetStartedWithData app that you created in this tutorial:
 
-* [스크립트를 사용하여 데이터 유효성 검사 및 수정]
-  <br/>모바일 서비스에서 서버 스크립트를 사용하여 앱에서 전송된 데이터의 유효성을 검사하고 변경하는 방법에 대해 자세히 알아봅니다.
+* [Validate and modify data with scripts]
+  <br/>Learn more about using server scripts in Mobile Services to validate and change data sent from your app.
 
-* [페이징을 사용하여 쿼리 구체화]
-  <br/>쿼리에 페이징을 사용하여 단일 요청으로 처리되는 데이터 양을 제어하는 방법을 알아봅니다.
+* [Refine queries with paging]
+  <br/>Learn how to use paging in queries to control the amount of data handled in a single request.
 
-데이터 시리즈를 완료했으므로 다음을 시도합니다.
+Once you have completed the data series, try
 -->
 
 다른 자습서도 시도해보세요.
@@ -176,19 +176,19 @@
 
 
 <!-- URLs. -->
-[스크립트를 사용하여 데이터 유효성 검사 및 수정]: /ko-kr/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
-[페이징을 사용하여 쿼리 구체화]: /ko-kr/develop/mobile/tutorials/add-paging-to-data-dotnet
-[모바일 서비스 시작]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/
-[인증 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-users-android
-[푸시 알림 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-push-android
-[JavaScript 및 HTML]: /ko-kr/develop/mobile/tutorials/get-started-with-data-js
-[JavaScript 백 엔드 버전]: /ko-kr/develop/mobile/tutorials/get-started-with-data-android
+[스크립트를 사용하여 데이터 유효성 검사 및 수정]: /develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
+[페이징을 사용하여 쿼리 구체화]: /develop/mobile/tutorials/add-paging-to-data-dotnet
+[모바일 서비스 시작]: /documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/
+[인증 시작]: /develop/mobile/tutorials/get-started-with-users-android
+[푸시 알림 시작]: /develop/mobile/tutorials/get-started-with-push-android
+[JavaScript 및 HTML]: /develop/mobile/tutorials/get-started-with-data-js
+[JavaScript 백 엔드 버전]: /develop/mobile/tutorials/get-started-with-data-android
 
 [Azure 관리 포털]: https://manage.windowsazure.com/
 [관리 포털]: https://manage.windowsazure.com/
 [모바일 서비스 SDK]: http://go.microsoft.com/fwlink/p/?LinkId=257545
-[개발자 코드 샘플 사이트(영문)]:  http://go.microsoft.com/fwlink/p/?LinkId=328660
-[모바일 서비스 .NET 방법 개념 참조]: /ko-kr/develop/mobile/how-to-guides/work-with-net-client-library
-[MobileServiceClient 클래스(영문)]: http://go.microsoft.com/fwlink/p/?LinkId=302030
-[모바일 서비스 .NET 방법 개념 참조]: /ko-kr/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library  
-<!--HONumber=45--> 
+[개발자 코드 샘플 사이트]:  http://go.microsoft.com/fwlink/p/?LinkId=328660
+[모바일 서비스 .NET 방법 개념 참조]: /develop/mobile/how-to-guides/work-with-net-client-library
+[MobileServiceClient 클래스]: http://go.microsoft.com/fwlink/p/?LinkId=302030
+[모바일 서비스 .NET 방법 개념 참조]: /documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library  
+<!--HONumber=47-->

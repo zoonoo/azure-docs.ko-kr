@@ -7,7 +7,8 @@
 
 	![Set up source control](./media/mobile-services-enable-source-control/mobile-setup-source-control.png)
 
-3. **사용자 이름, **, **새 암호**를 제공하고 암호를 확인한 후 확인 단추를 클릭합니다. 
+
+3. **사용자 이름**, **새 암호**를 제공하고 암호를 확인한 후 확인 단추를 클릭합니다. 
 
 	![Set source control credentials](./media/mobile-services-enable-source-control/mobile-source-control-credentials.png)
 
@@ -20,4 +21,5 @@
 	Git 리포지토리의 URL이 표시됩니다. 이 URL을 사용하여 리포지토리를 로컬 컴퓨터에 복제합니다.
 
 모바일 서비스에서 원본 제어를 사용하도록 설정하면 Git를 사용하여 리포지토리를 로컬 컴퓨터에 복제할 수 있습니다.
- <!--HONumber=42-->
+ 
+<!--HONumber=47-->

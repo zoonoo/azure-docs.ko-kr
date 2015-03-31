@@ -10,18 +10,18 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="Mobile-Android" 
-	ms.devlang="Java" 
+	ms.tgt_pltfrm="mobile-android" 
+	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="11/17/2014" 
+	ms.date="02/03/2015" 
 	ms.author="ricksal"/>
 
 # 모바일 서비스 앱에 인증 추가
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-users](../includes/mobile-services-selector-get-started-users.md)]
 
-<div class="dev-onpage-video-clear clearfix">
-<div class="dev-onpage-left-content">
+
+## 요약
 
 <p>이 항목은 앱에서 Azure 모바일 서비스의 사용자를 인증하는 방법을 보여 줍니다. 이 자습서에서는 모바일 서비스가 지원하는 ID 공급자를 사용하여 퀵 스타트 프로젝트에 인증을 추가합니다. 모바일 서비스에서 인증되고 권한이 부여된 후 사용자 ID 값이 표시됩니다.</p>
 </div>
@@ -31,17 +31,8 @@
 
 이 자습서에서는 앱에서 인증을 사용하도록 설정하는 다음 기본 단계를 단계별로 안내합니다.
 
-1. [인증을 위해 앱 등록 및 모바일 서비스 구성]
-2. [테이블 사용 권한을 인증된 사용자로 제한]
-3. [앱에 인증 추가]
-4. [클라이언트에 인증 토큰 저장]
-5. [만료된 토큰 새로 고침]
 
- 
-
->[AZURE.NOTE] 완성된 앱의 소스 코드를 참조하려는 경우 <a href="https://github.com/RickSaling/mobile-services-samples/tree/futures/GettingStartedWithAuth/Android" target="_blank">여기</a>로 이동하세요.
-
-##필수 조건
+## 필수 조건
 
 [AZURE.INCLUDE [mobile-services-android-prerequisites](../includes/mobile-services-android-prerequisites.md)]
 
@@ -53,9 +44,9 @@
 
 [AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)] 
 
-3. Eclipse에서 [모바일 서비스 시작] 자습서를 완료했을 때 생성된 프로젝트를 엽니다. 
+3. Android Studio에서 [모바일 서비스 시작] 자습서를 완료했을 때 생성된 프로젝트를 엽니다. 
 
-4. **실행** 메뉴에서 **실행**을 클릭하여 앱을 시작하고 앱이 시작된 후 상태 코드 401(인증되지 않음)의 처리되지 않은 예외가 발생하는지 확인합니다. 
+4. **실행** 메뉴에서 **실행**을 클릭하여 앱이 시작된 후 상태 코드 401(인증되지 않음)의 처리되지 않은 예외가 발생하는지 확인합니다. 
 
 	 이는 앱이 인증되지 않은 사용자로 모바일 서비스에 액세스하려고 시도하지만 _TodoItem_ 테이블에서 이제 인증을 요구하기 때문에 발생합니다.
 
@@ -65,7 +56,7 @@
 
 [AZURE.INCLUDE [mobile-services-android-authenticate-app](../includes/mobile-services-android-authenticate-app.md)]
 
-## <a name="cache-tokens"></a>클라이언트에 인증 토큰 캐시
+## <a name="cache-tokens"></a>클라이언트에 인증 토큰 저장
 
 [AZURE.INCLUDE [mobile-services-android-authenticate-app-with-token](../includes/mobile-services-android-authenticate-app-with-token.md)] 
 
@@ -103,8 +94,7 @@
 
 [13]: ./media/mobile-services-android-get-started-users/mobile-identity-tab.png
 [14]: ./media/mobile-services-android-get-started-users/mobile-portal-data-tables.png
-[15]: ./media/mobile-services-android-get-started-users/mobile-portal-change-table-per
-	ms.png
+[15]: ./media/mobile-services-android-get-started-users/mobile-portal-change-table-perms.png
 
 
 <!-- URLs. -->
@@ -112,14 +102,13 @@
 [앱 제출 페이지]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [내 응용 프로그램]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Windows용 Live SDK]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Live Connect를 사용한 Windows 스토어 앱의 Single Sign-On]: /ko-kr/develop/mobile/tutorials/single-sign-on-windows-8-dotnet
-[모바일 서비스 시작]: /ko-kr/develop/mobile/tutorials/get-started-android
-[기존 앱에 모바일 서비스 추가]: /ko-kr/develop/mobile/tutorials/get-started-with-data-android
-[인증 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-users-android
-[푸시 알림 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-push-android
-[스크립트를 통해 사용자 권한 부여]: /ko-kr/develop/mobile/tutorials/authorize-users-in-scripts-android
+[Live Connect를 사용한 Windows 스토어 앱의 Single Sign-On]: /develop/mobile/tutorials/single-sign-on-windows-8-dotnet
+[모바일 서비스 시작]: /develop/mobile/tutorials/get-started-android
+[기존 앱에 모바일 서비스 추가]: /develop/mobile/tutorials/get-started-with-data-android
+[인증 시작]: /develop/mobile/tutorials/get-started-with-users-android
+[푸시 알림 시작]: /develop/mobile/tutorials/get-started-with-push-android
+[스크립트를 통해 사용자 권한 부여]: /develop/mobile/tutorials/authorize-users-in-scripts-android
 
 [Azure 관리 포털]: https://manage.windowsazure.com/
 
-
-<!--HONumber=42-->
+<!--HONumber=47-->

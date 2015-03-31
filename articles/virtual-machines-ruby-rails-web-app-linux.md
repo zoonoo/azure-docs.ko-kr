@@ -3,7 +3,7 @@
 	description="Azure에서 Linux 가상 컴퓨터를 사용하여 Ruby on Rails 기반 웹 사이트를 호스트하는 방법에 대해 알아봅니다." 
 	services="virtual-machines" 
 	documentationCenter="ruby" 
-	authors="blackmist" 
+	authors="wpickett" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="ruby" 
 	ms.topic="article" 
-	ms.date="09/17/2014" 
-	ms.author="larryfr"/>
+	ms.date="02/19/2015" 
+	ms.author="wpickett"/>
 
 
 
 
 
-#Azure VM의 Ruby on Rails 웹 응용 프로그램
+# Azure VM의 Ruby on Rails 웹 응용 프로그램
 
 이 자습서에서는 Azure에서 Linux 가상 컴퓨터를 사용하여 Ruby on Rails 기반 웹 사이트를 호스트하는 방법을 설명합니다. 이 자습서에서는 이전에 Azure를 사용한 경험이 없다고 가정합니다. 이 자습서를 완료하면 클라우드에서 Ruby on Rails 기반 응용 프로그램을 실행할 수 있게 됩니다.
 
@@ -38,27 +38,12 @@
 
 ![a browser displaying Listing Posts][blog-rails-cloud]
 
-##이 문서의 내용
 
-* [개발 환경 설정](#setup)
-
-* [Rails 응용 프로그램 만들기](#create)
-
-* [응용 프로그램 테스트](#test)
-
-* [Azure 가상 컴퓨터 만들기](#createvm)
-
-* [VM으로 응용 프로그램 복사](#copy)
-
-* [gem 설치 및 응용 프로그램 시작](#start)
-
-* [다음 단계](#next)
-
-##<a id="setup"></a>개발 환경 설정
+## <a id="setup"></a>개발 환경 설정
 
 1. 개발 환경에 Ruby를 설치합니다. 운영 체제에 따라 아래 단계는 달라질 수 있습니다.
 
-	* **Apple OS X** - OS X용 Ruby 배포가 몇 가지 있습니다. OS X에 대한 이 자습서 내용은 [Homebrew](http://brew.sh/) 를 사용하여 **rbenv** 및 **ruby-build**를 설치함으로써 유효성이 검사되었습니다. 설치 정보는 [https://github.com/sstephenson/rbenv/](https://github.com/sstephenson/rbenv/) 에서 볼 수 있습니다.
+	* **Apple OS X** - OS X용 Ruby 배포가 몇 가지 있습니다. OS X에 대한 이 자습서 내용은 [Homebrew](http://brew.sh/)를 사용하여 **rbenv** 및 **ruby-build**를 설치함으로써 유효성이 검사되었습니다. 설치 정보는 [https://github.com/sstephenson/rbenv/](https://github.com/sstephenson/rbenv/)에서 볼 수 있습니다.
 
 	* **Linux** - 배포 패키지 관리 시스템을 사용합니다. Ubuntu 12.10에 대한 이 자습서 내용은 ruby1.9.1 및 ruby1.9.1-dev 패키지를 사용하여 유효성이 검사되었습니다.
 
@@ -68,19 +53,19 @@
 
 		gem install rails --no-rdoc --no-ri
 
-	> [AZURE.NOTE] 일부 운영 체제에서 이 명령을 사용하려면 관리자 또는 루트 권한이 필요할 수 있습니다. 이 명령을 실행하는 동안 오류가 발생한 경우 다음과 같이  'sudo'를 사용해 보세요.
+	> [AZURE.NOTE] 일부 운영 체제에서 이 명령을 사용하려면 관리자 또는 루트 권한이 필요할 수 있습니다. 이 명령을 실행하는 동안 오류가 발생한 경우 다음과 같이 'sudo'를 사용해 보세요.
 	>
 	>````` 
 	sudo gem install rails
 	`````
+	>
+	> 이 자습서에서는 Rails gem의 버전 3.2.12를 사용했습니다.
 
-	> [AZURE.NOTE] 이 자습서에서는 Rails gem의 버전 3.2.12를 사용했습니다.
-
-3. 또한 JavaScript 인터프리터를 설치해야 합니다. Rails에서 Rails 응용 프로그램에 사용되는 CoffeeScript 자산을 컴파일하는 데 이 인터프리터를 사용합니다. 지원되는 인터프리터의 목록은 [https://github.com/sstephenson/execjs#readme](https://github.com/sstephenson/execjs#readme) 에서 확인할 수 있습니다.
+3. 또한 JavaScript 인터프리터를 설치해야 합니다. Rails에서 Rails 응용 프로그램에 사용되는 CoffeeScript 자산을 컴파일하는 데 이 인터프리터를 사용합니다. 지원되는 인터프리터의 목록은 [https://github.com/sstephenson/execjs#readme](https://github.com/sstephenson/execjs#readme)에서 확인할 수 있습니다.
 	
 	[Node.js](http://nodejs.org/)는 OS X, Linux 및 Windows 운영 체제에 사용할 수 있으므로, 이 자습서 내용의 유효성 검사 중 사용되었습니다.
 
-##<a id="create"></a>Rails 응용 프로그램 만들기
+## <a id="create"></a>Rails 응용 프로그램 만들기
 
 1. 명령줄 또는 터미널 세션에서 다음 명령을 사용하여 "blog_app"이라는 새 Rails 응용 프로그램을 만듭니다.
 
@@ -102,7 +87,7 @@
 
 	이 명령은 Rails의 기본 데이터베이스 공급자인 [SQLite3 Database][sqlite3]를 사용합니다. 프로덕션 응용 프로그램에 다른 데이터베이스를 사용할 수도 있지만 이 자습서에서는 SQLite로 충분합니다.
 
-##<a id="test"></a>응용 프로그램 테스트
+## <a id="test"></a>응용 프로그램 테스트
 
 개발 환경에서 Rails 서버를 시작하려면 다음 단계를 수행하세요.
 
@@ -120,23 +105,27 @@
 		[2013-03-12 19:11:31] INFO  ruby 1.9.3 (2012-04-20) [x86_64-linux]
 		[2013-03-12 19:11:31] INFO  WEBrick::HTTPServer#start: pid=9789 port=3000
 
-2. 브라우저를 열고 http://localhost:3000/ 으로 이동합니다. 다음과 유사한 결과가 표시됩니다.
+2. 브라우저를 열고 http://localhost:3000/으로 이동합니다. 다음과 유사한 결과가 표시됩니다.
 
 	![default rails page][default-rails]
 
-	이 페이지는 정적인 시작 페이지입니다. 스캐폴딩 명령으로 생성되는 양식을 보려면 http://localhost:3000/posts 로 이동합니다. 다음과 유사한 결과가 표시됩니다.
+	이 페이지는 정적인 시작 페이지입니다. 스캐폴딩 명령으로 생성되는 양식을 보려면 http://localhost:3000/posts로 이동합니다. 다음과 유사한 결과가 표시됩니다.
 
 	![a page listing posts][blog-rails]
 
 	서버 프로세스를 중지하려면 명령줄에서 Ctrl+C를 누릅니다.
 
-##<a id="createvm"></a>Azure 가상 컴퓨터 만들기
+## <a id="createvm"></a>Azure 가상 컴퓨터 만들기
 
 [여기][vm-instructions]에 나와 있는 지침을 따라 Linux를 호스트하는 Azure 가상 컴퓨터를 만드세요.
 
 > [AZURE.NOTE] 이 자습서의 단계는 Ubuntu 12.10을 호스트하는 Azure 가상 컴퓨터에서 수행되었습니다. 다른 Linux 배포를 사용하는 경우 동일한 작업을 수행하는 데 다른 단계가 필요할 수 있습니다.
 
+ 
+
 > [AZURE.IMPORTANT] 가상 컴퓨터를 만들기**만** 하면 됩니다. SSH를 사용하여 가상 컴퓨터에 연결하는 방법을 알아본 후 중지하세요.
+
+
 
 Azure 가상 컴퓨터를 만든 후 다음 단계를 수행하여 가상 컴퓨터에 Ruby 및 Rails를 설치하세요.
 
@@ -148,7 +137,7 @@ Azure 가상 컴퓨터를 만든 후 다음 단계를 수행하여 가상 컴퓨
 
 		ssh railsdev@railsvm.cloudapp.net -p 61830
 
-	> [AZURE.NOTE] Windows를 개발 환경으로 사용하는 경우 SSH용 **PuTTY** 기능과 같은 유틸리티를 사용할 수 있습니다. PuTTY는 [PuTTY 다운로드 페이지](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) 에서 다운로드할 수 있습니다.
+	> [AZURE.NOTE] Windows를 개발 환경으로 사용하는 경우 SSH용 **PuTTY** 기능과 같은 유틸리티를 사용할 수 있습니다. PuTTY는 [PuTTY 다운로드 페이지](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)에서 다운로드할 수 있습니다.
 
 2. SSH 세션에서 다음 명령을 사용하여 VM에 Ruby를 설치합니다.
 
@@ -160,7 +149,7 @@ Azure 가상 컴퓨터를 만든 후 다음 단계를 수행하여 가상 컴퓨
 
 		ruby -v
 
-	이 명령은 가상 컴퓨터에 설치된 Ruby 버전을 반환합니다. 반환되는 버전은 1.9.1과 다를 수 있습니다. 예를 들어 **ruby 1.9.3p194 (2012-04-20 revision 35410) [x86_64-linux]**일 수 있습니다.
+	이 명령은 가상 컴퓨터에 설치된 Ruby 버전을 반환합니다. 반환되는 버전은 1.9.1과 다를 수 있습니다. 예를 들어 **ruby 1.9.3p194(2012-04-20 revision 35410) [x86_64-linux]**일 수 있습니다.
 
 2. 다음 명령을 사용하여 번들러를 설치합니다.
 
@@ -168,7 +157,7 @@ Azure 가상 컴퓨터를 만든 후 다음 단계를 수행하여 가상 컴퓨
 
 	서버로 복사한 번들러는 Rails 응용 프로그램에 필요한 gem을 설치하는 데 사용됩니다.
 
-##<a id="copy"></a>VM으로 응용 프로그램 복사
+## <a id="copy"></a>VM으로 응용 프로그램 복사
 
 개발 환경에서 새 명령줄 또는 터미널 세션을 열고 **scp** 명령을 사용하여 **blog_app** 디렉터리를 가상 컴퓨터로 복사합니다. 이 명령의 형식은 다음과 같습니다.
 
@@ -178,7 +167,7 @@ Azure 가상 컴퓨터를 만든 후 다음 단계를 수행하여 가상 컴퓨
 
 	scp -r -P 54822 -C ~/blog_app railsdev@railsvm.cloudapp.net:
 
-> [AZURE.NOTE] Windows를 개발 환경으로 사용하는 경우 scp용 **pscp** 기능과 같은 유틸리티를 사용할 수 있습니다. Pscp는 [PuTTY 다운로드 페이지](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) 에서 다운로드할 수 있습니다.
+> [AZURE.NOTE] Windows를 개발 환경으로 사용하는 경우 scp용 **pscp** 기능과 같은 유틸리티를 사용할 수 있습니다. Pscp는 [PuTTY 다운로드 페이지](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)에서 다운로드할 수 있습니다.
 
 이 명령에 사용되는 매개 변수의 결과는 다음과 같습니다.
 
@@ -199,7 +188,7 @@ Azure 가상 컴퓨터를 만든 후 다음 단계를 수행하여 가상 컴퓨
 
 반환되는 파일 목록은 개발 환경의 **blog_app** 디렉터리에 포함된 파일과 일치합니다.
 
-##<a id="start"></a>gem 설치 및 Rails 시작
+## <a id="start"></a>gem 설치 및 Rails 시작
 
 1. 가상 컴퓨터에서 **blog_app** 디렉터리로 변경하고 다음 명령을 사용하여 **Gemfile**에 지정된 gem을 설치합니다.
 
@@ -255,7 +244,7 @@ Azure 가상 컴퓨터를 만든 후 다음 단계를 수행하여 가상 컴퓨
 
 	![posts page][blog-rails-cloud]
 
-##<a id="next"></a>다음 단계
+## <a id="next"></a>다음 단계
 
 이 문서에서는 기본 양식 기반 Rails 응용 프로그램을 만들어 Azure 가상 컴퓨터에 게시하는 방법을 알아보았습니다. 지금까지 대부분의 작업을 수동으로 처리했지만 프로덕션 환경에서는 자동화하는 것이 좋습니다. 또한 대부분의 프로덕션 환경은 Rails 응용 프로그램을 다른 서버 프로세스(예: Apache 또는 NginX)와 함께 호스트하며 이러한 서버 프로세스는 Rails 응용 프로그램의 여러 인스턴스로 라우팅하여 정적 리소스를 제공하는 요청을 처리합니다.
 
@@ -274,17 +263,17 @@ Azure SDK for Ruby를 사용하여 Ruby 응용 프로그램에서 Azure 서비�
 
 
 <!-- WA.com links -->
-[blobs]: /ko-kr/documentation/articles/storage-ruby-how-to-use-blob-storage
+[blobs]: /documentation/articles/storage-ruby-how-to-use-blob-storage
 
-[cdn-howto]: /ko-kr/develop/ruby/app-services/
+[cdn-howto]: /develop/ruby/app-services/
 
 [management-portal]: https://manage.windowsazure.com/
 
-[tables]: /ko-kr/develop/ruby/how-to-guides/table-service/
+[tables]: /develop/ruby/how-to-guides/table-service/
 
-[unicorn-nginx-capistrano]: /ko-kr/documentation/articles/virtual-machines-ruby-deploy-capistrano-host-nginx-unicorn/
+[unicorn-nginx-capistrano]: /documentation/articles/virtual-machines-ruby-deploy-capistrano-host-nginx-unicorn/
 
-[vm-instructions]: /ko-kr/documentation/articles/virtual-machines-linux-tutorial
+[vm-instructions]: /documentation/articles/virtual-machines-linux-tutorial
 
 
 <!-- External Links -->
@@ -308,5 +297,4 @@ Azure SDK for Ruby를 사용하여 Ruby 응용 프로그램에서 Azure 서비�
 [new-endpoint]: ./media/virtual-machines-ruby-rails-web-app-linux/newendpoint.png
 
 
-
-<!--HONumber=42-->
+<!--HONumber=47-->

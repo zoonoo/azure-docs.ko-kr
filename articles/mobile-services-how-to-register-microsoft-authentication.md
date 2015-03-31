@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-multiple" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
 	ms.date="11/21/2014" 
@@ -20,9 +20,9 @@
 
 이 항목에서는 Azure 모바일 서비스를 위한 인증 공급자로 Live Connect를 사용할 수 있도록 앱을 등록하는 방법을 보여 줍니다. 
 
->[AZURE.NOTE]공용 Windows 앱에 대한 Microsoft 계정 인증을 구성하거나 Windows 스토어 앱의 Single Sign-On 환경을 제공하려면 [Microsoft 인증을 위해 Windows 스토어 앱 패키지 등록](/ko-kr/documentation/articles/mobile-services-how-to-register-store-app-package-microsoft-authentication)을 참조하세요.
+>[AZURE.NOTE]공용 Windows 앱에 대한 Microsoft 계정 인증을 구성하거나 Windows 스토어 앱의 Single Sign-On 환경을 제공하려면 [Microsoft 인증을 위해 Windows 스토어 앱 패키지 등록](/documentation/articles/mobile-services-how-to-register-store-app-package-microsoft-authentication)을 참조하세요.
 
-1. Live Connect 개발자 센터의 <a href="http://go.microsoft.com/fwlink/p/?LinkId=262039" target="_blank">내 응용 프로그램</a> 페이지로 이동하고 필요한 경우 Microsoft 계정으로 로그온합니다. 
+1. 먼저 <a href="http://go.microsoft.com/fwlink/p/?LinkId=262039" target="_blank">내 응용 프로그램</a> 페이지로 이동하고 필요한 경우 Microsoft 계정으로 로그온합니다. 
 
 2. **응용 프로그램 만들기**를 클릭한 후 **응용 프로그램 이름**을 입력하고 **동의함**을 클릭합니다.
 
@@ -30,9 +30,9 @@
 
    	이를 통해 응용 프로그램이 Live Connect에 등록됩니다.
 
-3. **API 설정**을 클릭하고 **리디렉션 URL**에  `https://<mobile_service>.azure-mobile.net/login/microsoftaccount` 값을 제공하고 **저장**을 클릭합니다.
+3. **API 설정**을 클릭하고 **리디렉션 URL**에 `https://<mobile_service>.azure-mobile.net/login/microsoftaccount` 값을 제공하고 **저장**을 클릭합니다.
 
-	>[AZURE.NOTE]Visual Studio를 사용하여 Azure에 게시된 .NET 백 엔드 모바일 서비스의 경우 리디렉션 URL은 모바일 서비스 URL에 모바일 서비스를 .NET 서비스로 사용한 _signin-microsoft_ 경로를 추가한 것입니다(예: <code>https://todolist.azure-mobile.net/signin-microsoft</code>.  
+	>[AZURE.NOTE]Visual Studio를 사용하여 Azure에 게시된 .NET 백 엔드 모바일 서비스의 경우 리디렉션 URL은 모바일 서비스 URL에 모바일 서비스를 .NET 서비스로 사용한 _signin-microsoft_ 경로를 추가한 것입니다(예: <code>https://todolist.azure-mobile.net/signin-microsoft</code>).  
 
 	![][3]
 
@@ -62,5 +62,4 @@
 
 [Azure 관리 포털]: https://manage.windowsazure.com/
 
-
-<!--HONumber=42-->
+<!--HONumber=47-->

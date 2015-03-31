@@ -1,7 +1,7 @@
 ﻿<properties 
 	pageTitle="Apple 푸시 알림 설정 방법" 
 	description="Azure 모바일 서비스를 사용하여 새 서비스를 만들려면 이 자습서를 따라 작업을 진행합니다." 
-	services="mobile-services, notification-hubs" 
+	services="mobile-services" 
 	documentationCenter="ios" 
 	authors="ggailey777" 
 	manager="dwrede" 
@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-ios" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
 	ms.date="11/21/2014" 
@@ -31,11 +31,10 @@
 
 
 <!-- URLs. -->
-[푸시 알림 시작]: /ko-kr/documentation/articles/mobile-services-javascript-backend-ios-get-started-push/
+[푸시 알림 시작]: /documentation/articles/mobile-services-javascript-backend-ios-get-started-push/
 [모바일 서비스 SDK]: https://go.microsoft.com/fwLink/p/?LinkID=268375
 
 [관리 포털]: https://manage.windowsazure.com/
 
 
-
-<!--HONumber=42-->
+<!--HONumber=47-->

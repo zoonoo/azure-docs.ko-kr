@@ -1,7 +1,7 @@
-<properties 
+﻿<properties 
 	pageTitle="Capistrano를 사용하여 Azure 가상 컴퓨터에 Ruby on Rails 웹 응용 프로그램 배포 - 자습서" 
 	description="Capistrano, Unicorn 및 Nginx를 사용하여 Azure 가상 컴퓨터에 Ruby on Rails 웹 응용 프로그램을 배포하는 방법에 대해 알아봅니다." 
-	authors="blackmist" 
+	authors="wpickett" 
 	manager="wpickett" 
 	editor="" 
 	services="virtual-machines" 
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="ruby" 
 	ms.topic="article" 
-	ms.date="09/17/2014" 
-	ms.author="larryfr"/>
+	ms.date="02/19/2015" 
+	ms.author="wpickett"/>
 
 
-#Capistrano를 사용하여 Azure VM에 Ruby on Rails 웹 응용 프로그램 배포
+# Capistrano를 사용하여 Azure VM에 Ruby on Rails 웹 응용 프로그램 배포
 
 이 자습서에서는 [Capistrano 3](https://github.com/capistrano/capistrano/)을 사용하여 Azure 가상 컴퓨터에 Ruby on Rails 웹 사이트를 배포하는 방법에 대해 설명합니다. 배포한 후에는 [Nginx](http://nginx.org/) 및 [Unicorn](https://github.com/blog/517-unicorn)을 사용하여 웹 사이트를 호스트합니다. [PostgreSQL](https://www.postgresql.org)은 배포된 응용 프로그램의 응용 프로그램 데이터를 저장합니다.
 
@@ -43,7 +43,7 @@
 > 
 > Windows 배포 환경 사용에 대한 구체적인 단계는 설명하지 않습니다. 그러나 이 문서에서 다루지 않은 오류가 배포 중 또는 배포 후 발생한 경우 Linux 기반 개발 환경에서 이 문서의 단계를 다시 시도해 볼 수 있습니다.
 
-##이 문서의 내용
+## 이 문서의 내용
 
 * [개발 환경 설정](#setup)
 
@@ -63,7 +63,7 @@
 
 * [다음 단계](#next)
 
-##<a id="setup"></a>개발 환경 설정
+## <a id="setup"></a>개발 환경 설정
 
 1. 개발 환경에 Ruby를 설치합니다. 운영 체제에 따라 아래 단계는 달라질 수 있습니다.
 
@@ -77,17 +77,17 @@
 
 		gem install rails --no-rdoc --no-ri
 
-	> [AZURE.NOTE] 일부 운영 체제에서 이 명령을 사용하려면 관리자 또는 루트 권한이 필요할 수 있습니다. 이 명령을 실행하는 동안 오류가 발생한 경우 다음과 같이  'sudo'를 사용해 보세요.
+	> [AZURE.NOTE] 일부 운영 체제에서 이 명령을 사용하려면 관리자 또는 루트 권한이 필요할 수 있습니다. 이 명령을 실행하는 동안 오류가 발생한 경우 다음과 같이 'sudo'를 사용해 보세요.
 	> 
 	> `sudo gem install rails`
 
 	> [AZURE.NOTE] 이 자습서에서는 Rails gem의 버전 4.0.4를 사용했습니다.
 
-3. 또한 JavaScript 인터프리터를 설치해야 합니다. Rails에서 Rails 응용 프로그램에 사용되는 CoffeeScript 자산을 컴파일하는 데 이 인터프리터를 사용합니다. 지원되는 인터프리터의 목록은 [https://github.com/sstephenson/execjs#readme](https://github.com/sstephenson/execjs#readme) 에서 확인할 수 있습니다.
+3. 또한 JavaScript 인터프리터를 설치해야 합니다. Rails에서 Rails 응용 프로그램에 사용되는 CoffeeScript 자산을 컴파일하는 데 이 인터프리터를 사용합니다. 지원되는 인터프리터의 목록은 [https://github.com/sstephenson/execjs#readme](https://github.com/sstephenson/execjs#readme)에서 확인할 수 있습니다.
 	
 	> [AZURE.NOTE] [Node.js](http://nodejs.org/)는 OS X, Linux 및 Windows 운영 체제에서 사용할 수 있으므로 이 자습서에서는 Node.js를 사용했습니다.
 
-##<a id="create"></a>Rails 응용 프로그램 만들기
+## <a id="create"></a>Rails 응용 프로그램 만들기
 
 1. 명령줄 또는 터미널 세션에서 다음 명령을 사용하여 "blog_app"이라는 새 Rails 응용 프로그램을 만듭니다.
 
@@ -107,15 +107,15 @@
 
 		rake db:migrate
 
-	이제 Rails용 기본 데이터베이스 공급자를 사용하여 게시물을 저장하는 데이터베이스 스키마인 [SQLite3 Database][sqlite3]가 생성됩니다.
+	이제 Rails용 기본 데이터베이스 공급자를 사용하여 게시물을 저장하는 데이터베이스 스키마인 [SQLite3 Database][sqlite3]가 생성됩니다
 
-4. 게시물의 인덱스를 홈페이지로 표시하려면 **config/routes.rb** 파일을 수정하고  `resources :posts` 줄 뒤에 다음을 추가하세요.
+4. 게시물의 인덱스를 홈페이지로 표시하려면 **config/routes.rb** 파일을 수정하고 `resources :posts` 줄 뒤에 다음을 추가하세요.
 
 		root 'posts#index'
 
 	이제 사용자가 웹 사이트를 방문할 때 게시물의 목록이 표시됩니다.
 
-##<a id="test"></a>응용 프로그램 테스트
+## <a id="test"></a>응용 프로그램 테스트
 
 1. 디렉터리를 아직 변경하지 않은 경우 **blog_app** 디렉터리로 변경하고 다음 명령을 사용하여 Rails 서버를 시작합니다.
 
@@ -137,7 +137,7 @@
 
 	서버 프로세스를 중지하려면 명령줄에서 Ctrl+C를 누릅니다.
 
-##<a id="repository"></a>소스 리포지토리 만들기
+## <a id="repository"></a>소스 리포지토리 만들기
 
 Capistrano를 사용하여 응용 프로그램을 배포할 때 리포지토리에서 파일을 가져옵니다. 이 자습서에서는 버전 제어에 [Git](http://git-scm.com/)를, 리포지토리에 [GitHub](https://github.com/)를 사용합니다.
 
@@ -155,7 +155,7 @@ Capistrano를 사용하여 응용 프로그램을 배포할 때 리포지토리�
 
 다음 섹션에서는 이 응용 프로그램을 배포할 가상 컴퓨터를 만듭니다.
 
-##<a id="createvm"></a>Azure 가상 컴퓨터 만들기
+## <a id="createvm"></a>Azure 가상 컴퓨터 만들기
 
 [여기][vm-instructions]에 나와 있는 지침을 따라 Linux를 호스트하는 Azure 가상 컴퓨터를 만드세요.
 
@@ -183,7 +183,7 @@ Capistrano를 사용하여 응용 프로그램을 배포할 때 리포지토리�
 
 8. 마지막 페이지에서 확인 표시를 선택하여 가상 컴퓨터를 만듭니다.
 
-###Git, Ruby 및 Nginx 설치
+### Git, Ruby 및 Nginx 설치
 
 가상 컴퓨터를 만든 후 SSH를 사용하여 가상 컴퓨터에 연결하고 다음 명령을 사용하여 Ruby 응용 프로그램의 호스팅 환경을 준비합니다.
 
@@ -205,9 +205,8 @@ Capistrano를 사용하여 응용 프로그램을 배포할 때 리포지토리�
 	~/.rbenv/bin/rbenv rehash
 
 > [AZURE.NOTE] 명령을 실행할 때 오타를 방지하기 위해 위의 명령을 스크립트(.sh 파일)에 저장할 수 있습니다.
-
-
-> [AZURE.NOTE] **~/.rbenv/bin/rbenv install 2.0.0-p451** 명령을 완료하는 데 몇 분 정도 걸릴 수 있습니다.
+> 
+> **~/.rbenv/bin/rbenv install 2.0.0-p451** 명령을 완료하는 데 몇 분 정도 걸릴 수 있습니다.
 
 **rbenv-install.sh** 스크립트는 다음 작업을 수행합니다.
 	
@@ -227,7 +226,7 @@ Capistrano를 사용하여 응용 프로그램을 배포할 때 리포지토리�
 
 버전으로 `ruby 2.0.0p451`이 반환되어야 합니다.
 
-###PostgreSQL 설치
+### PostgreSQL 설치
 
 개발을 위해 Rails에 사용되는 기본 데이터베이스는 SQLite입니다. 일반적으로 프로덕션 환경에서는 다른 데이터베이스를 사용합니다. 다음 단계에서는 가상 컴퓨터에 PostgreSQL을 설치한 다음 사용자 및 데이터베이스를 만듭니다. 뒷부분의 단계에서는 배포 중 PostgreSQL을 사용하도록 Rails 응용 프로그램을 구성합니다.
 
@@ -248,9 +247,9 @@ Capistrano를 사용하여 응용 프로그램을 배포할 때 리포지토리�
 
 		psql -U my_username -W my_database
 
-	 `database=>` 프롬프트가 표시됩니다. psql 유틸리티를 종료하려면 프롬프트에서  `\q`를 입력합니다.
+	`database=>` 프롬프트가 표시됩니다. psql 유틸리티를 종료하려면 프롬프트에서 `\q`를 입력합니다.
 
-###<a id="nginx"></a>Nginx 테스트
+### <a id="nginx"></a>Nginx 테스트
 
 가상 컴퓨터를 만드는 동안 추가된 HTTP 끝점에서 포트 80을 통한 HTTP 요청을 허용하도록 합니다. 이를 확인하려면 다음 단계에 따라 Nginx에서 만든 기본 사이트에 액세스할 수 있는지 확인합니다.
 
@@ -268,7 +267,7 @@ Capistrano를 사용하여 응용 프로그램을 배포할 때 리포지토리�
 
 이제 배포를 위해 Ruby, Nginx 및 PostgreSQL이 설치된 Azure 가상 컴퓨터가 준비되었습니다. 다음 섹션에서는 배포를 수행하는 스크립트 및 정보를 추가하도록 Rails 응용 프로그램을 수정합니다.
 
-##<a id="capify"></a>배포 준비
+## <a id="capify"></a>배포 준비
 
 배포 환경에서 Unicorn 웹 서버인 PostgreSQL을 사용하도록 응용 프로그램을 수정하고, 배포에 Capistrano를 사용하도록 설정하고, 응용 프로그램을 배포하고 시작하는 데 사용되는 스크립트를 만듭니다.
 
@@ -307,7 +306,7 @@ Capistrano를 사용하여 응용 프로그램을 배포할 때 리포지토리�
 
 		cap install
 
-	 `cap install` 명령이 완료된 후 다음 파일 및 디렉터리가 응용 프로그램에 추가됩니다.
+	`cap install` 명령이 완료된 후 다음 파일 및 디렉터리가 응용 프로그램에 추가됩니다.
 
 		├── Capfile
 		├── config
@@ -414,7 +413,7 @@ Capistrano를 사용하여 응용 프로그램을 배포할 때 리포지토리�
 
 > [AZURE.NOTE] 더 복잡한 응용 프로그램이나 다른 데이터베이스 또는 응용 프로그램 서버의 경우 추가 구성이나 배포 스크립트가 필요할 수 있습니다.
 
-##<a id="deploy"></a>배포
+## <a id="deploy"></a>배포
 
 2.	로컬 개발 컴퓨터에서 다음 명령을 사용하여 응용 프로그램에 사용되는 구성 파일을 VM에 배포합니다.
 
@@ -424,7 +423,7 @@ Capistrano를 사용하여 응용 프로그램을 배포할 때 리포지토리�
 
 	> [AZURE.NOTE] 배포할 때 **Error reading response length from authentication socket** 오류가 발생하면 개발 환경에서 `ssh-agent` 명령을 사용하여 SSH 에이전트를 시작해야 할 수 있습니다. 예를 들어 ~/.bash_profile 파일에 `eval $(ssh-agent)`를 추가합니다.
 	> 
-	> 또한  `ssh-add` 명령을 사용하여 에이전트 캐시에 SSH 키를 추가해야 할 수도 있습니다.
+	> 또한 `ssh-add` 명령을 사용하여 에이전트 캐시에 SSH 키를 추가해야 할 수도 있습니다.
 
 4.	다음 명령을 사용하여 프로덕션 배포를 수행합니다. 그러면 가상 컴퓨터에 응용 프로그램이 배포되고, Unicorn 서비스가 시작되고, Unicorn으로 트래픽을 라우팅하도록 Nginx가 구성됩니다.
 
@@ -436,7 +435,7 @@ Capistrano를 사용하여 응용 프로그램을 배포할 때 리포지토리�
 
 	> [AZURE.NOTE] 배포 중 일부에서는 '종료 상태 1(실패)'을 반환할 수 있습니다. 배포가 완료된다면 이러한 오류는 일반적으로 무시할 수 있습니다.
 
-	> [AZURE.NOTE] 일부 시스템에서는 GitHub에 인증할 때 SSH 에이전트가 원격 VM에 자격 증명을 전달할 수 없는 상황이 발생할 수 있습니다. 이런 경우 **config/deploy.rb** 파일을 수정하여 오류를 해결하고 Github에 액세스할 때 HTTPS를 사용하도록  `set :repo_url` 줄을 변경할 수 있습니다. HTTPS를 사용할 경우 GitHub 사용자 이름 및 암호(또는 인증 토큰)를 URL의 일부로 지정해야 합니다. 예를 들면 다음과 같습니다.
+	> [AZURE.NOTE] 일부 시스템에서는 GitHub에 인증할 때 SSH 에이전트가 원격 VM에 자격 증명을 전달할 수 없는 상황이 발생할 수 있습니다. 이런 경우 **config/deploy.rb** 파일을 수정하여 오류를 해결하고 Github에 액세스할 때 HTTPS를 사용하도록 `set :repo_url` 줄을 변경할 수 있습니다. HTTPS를 사용할 경우 GitHub 사용자 이름 및 암호(또는 인증 토큰)를 URL의 일부로 지정해야 합니다. 예를 들면 다음과 같습니다.
 	> 
 	> `set :repo_url, 'https://you:yourpassword@github.com/You/yourrepository.git'
 	> 
@@ -444,7 +443,7 @@ Capistrano를 사용하여 응용 프로그램을 배포할 때 리포지토리�
 
 이때 Ruby on Rails 응용 프로그램이 Azure 가상 컴퓨터에서 실행되고 있어야 합니다. 이를 확인하려면 웹 브라우저에서 가상 컴퓨터의 DNS 이름을 입력합니다. 예를 들어 http://railsvm.cloudapp.net을 입력합니다. 게시물 인덱스가 나타나며 게시물을 만들고 편집하고 삭제할 수 있습니다.
 
-##<a id="next"></a>다음 단계
+## <a id="next"></a>다음 단계
 
 이 문서에서는 기본 Rails 응용 프로그램을 만들고 Capistrano를 사용하여 Azure 가상 컴퓨터에 게시하는 방법을 알아보았습니다. 이 문서에 언급된 응용 프로그램과 같은 기본 응용 프로그램을 사용한 작업은 배포에 Capistrano를 사용하여 수행할 수 있는 작업과 비교했을 때 빙산의 일각에 지나지 않습니다. Capistrano 사용에 대한 자세한 내용은 다음을 참조하세요.
 
@@ -452,9 +451,9 @@ Capistrano를 사용하여 응용 프로그램을 배포할 때 리포지토리�
 * [Azure, Ruby on Rails, Capistrano 3 및 PostgreSQL](http://wootstudio.ca/articles/tutorial-windows-azure-ruby-on-rails-capistrano-3-postgresql) - Azure에 배포할 수 있는 다른 방법으로, 사용자 지정 배포 스크립트를 사용합니다.
 * [Capistrano 3 자습서](http://www.talkingquickly.co.uk/2014/01/deploying-rails-apps-to-a-vps-with-capistrano-v3/) - Capistrano 3 사용에 대한 자습서입니다.
 
-SSH만 사용하여 Azure VM에 Rails 응용 프로그램을 만들어 배포하는 추가적인 기본 예제에 대해서는 [Linux 가상 컴퓨터를 사용하여 Ruby on Rails 웹 응용 프로그램 호스트]를 참조하세요[ruby-vm].
+SSH만 사용하여 Azure VM에 Rails 응용 프로그램을 만들어 배포하는 추가적인 기본 예제에 대해서는 [Linux 가상 컴퓨터를 사용하여 Ruby on Rails 웹 응용 프로그램 호스트][ruby-vm]를 참조하세요
 
-Ruby on Rails에 대해 자세히 알아보려면 [Ruby on Rails 가이드]를 참조하세요[rails-guides].
+Ruby on Rails에 대해 자세히 알아보려면 [Ruby on Rails 가이드][rails-guides]를 참조하세요
 
 Azure SDK for Ruby를 사용하여 Ruby 응용 프로그램에서 Azure 서비스에 액세스하려면 다음을 참조하세요.
 
@@ -464,14 +463,14 @@ Azure SDK for Ruby를 사용하여 Ruby 응용 프로그램에서 Azure 서비�
 
 * [콘텐츠 배달 네트워크로 높은 대역폭 콘텐츠 제공][cdn-howto]
 
-[vm-instructions]: /ko-kr/manage/linux/tutorials/virtual-machine-from-gallery/
+[vm-instructions]: /manage/linux/tutorials/virtual-machine-from-gallery/
 
 
 [rails-guides]: http://guides.rubyonrails.org/
-[blobs]: /ko-kr/develop/ruby/how-to-guides/blob-storage/
-[tables]: /ko-kr/develop/ruby/how-to-guides/table-service/
-[cdn-howto]: /ko-kr/develop/ruby/app-services/
-[ruby-vm]: /ko-kr/develop/ruby/tutorials/web-app-with-linux-vm/
+[blobs]: /develop/ruby/how-to-guides/blob-storage/
+[tables]: /develop/ruby/how-to-guides/table-service/
+[cdn-howto]: /develop/ruby/app-services/
+[ruby-vm]: /develop/ruby/tutorials/web-app-with-linux-vm/
  
 [blog-rails]: ./media/virtual-machines-ruby-deploy-capistrano-host-nginx-unicorn/blograilslocal.png
 [blog-rails-cloud]: ./media/virtual-machines-ruby-deploy-capistrano-host-nginx-unicorn/blograilscloud.png 
@@ -487,5 +486,4 @@ Azure SDK for Ruby를 사용하여 Ruby 응용 프로그램에서 Azure 서비�
 [ssh-on-azure]: http://azure.microsoft.com/documentation/articles/linux-use-ssh-key/
 [capistrano]: http://capistranorb.com
 
-
-<!--HONumber=42-->
+<!--HONumber=47-->

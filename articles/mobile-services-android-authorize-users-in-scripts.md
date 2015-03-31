@@ -1,7 +1,7 @@
-<properties 
+﻿<properties 
 	pageTitle="서비스 쪽 권한 부여(Android) | 모바일 개발자 센터" 
 	description="Azure 모바일 서비스의 JavaScript 백 엔드에서 사용자에게 권한을 부여하는 방법에 대해 알아봅니다." 
-	services="" 
+	services="mobile-services" 
 	documentationCenter="android" 
 	authors="ggailey777" 
 	manager="dwrede" 
@@ -10,8 +10,8 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="Mobile-Android" 
-	ms.devlang="Java" 
+	ms.tgt_pltfrm="mobile-android" 
+	ms.devlang="java" 
 	ms.topic="article" 
 	ms.date="09/29/2014" 
 	ms.author="glenga"/>
@@ -22,7 +22,7 @@
 
 이 항목에서는 서버 스크립트를 사용하여 인증된 사용자에게 Android 앱에서 Azure 모바일 서비스의 데이터에 액세스할 수 있는 권한을 부여하는 방법을 보여 줍니다.  이 자습서에서는 모바일 서비스에 스크립트를 등록하여 인증된 사용자의 userId를 기반으로 쿼리를 필터링함으로써 각 사용자가 자신의 고유 데이터만 볼 수 있도록 만듭니다.
 
-##필수 조건
+## 필수 조건
 
 [AZURE.INCLUDE [mobile-services-android-prerequisites](../includes/mobile-services-android-prerequisites.md)]  
 
@@ -43,29 +43,36 @@
 
 4. 기존 스크립트를 다음 함수로 바꾼 후 **저장**을 클릭합니다.
 
-     function insert(item, user, request) {       item.userId = user.userId;           request.execute();     }
+        function insert(item, user, request) {
+          item.userId = user.userId;    
+          request.execute();
+        }
 
- 이 스크립트는 항목에 userId 값을 추가합니다. 이 값은 TodoItem 테이블에 삽입되기 전의 인증된 사용자의 사용자 ID입니다. 
- > [AZURE.NOTE] 이 삽입 스크립트를 처음 실행할 때는 동적 스키마를 사용하도록 설정해야 합니다. 동적 스키마를 사용하도록 설정하면 첫 번째 실행 시 모바일 서비스가 **userId** 열을 **TodoItem** 테이블에 자동으로 추가합니다. 동적 스키마는 기본적으로 새 모바일 서비스에 대해 사용하도록 설정되어 있으며 Windows 스토어에 앱을 게시하기 전에 이 스키마를 사용하지 않도록 설정해야 합니다.
+    이 스크립트는 항목에 userId 값을 추가합니다. 이 값은 TodoItem 테이블에 삽입되기 전의 인증된 사용자의 사용자 ID입니다. 
+
+    > [AZURE.NOTE] 이 삽입 스크립트를 처음 실행할 때는 동적 스키마를 사용하도록 설정해야 합니다. 동적 스키마를 사용하도록 설정하면 첫 번째 실행 시 모바일 서비스가 **userId** 열을 **TodoItem** 테이블에 자동으로 추가합니다. 동적 스키마는 기본적으로 새 모바일 서비스에 대해 사용하도록 설정되어 있으며 Windows 스토어에 앱을 게시하기 전에 이 스키마를 사용하지 않도록 설정해야 합니다.
 
 
 5. 3단계와 4단계를 반복하여 기존 **읽기** 작업을 다음 함수로 바꿉니다.
 
-     function read(query, user, request) {        query.where({ userId: user.userId });            request.execute();     }
+        function read(query, user, request) {
+           query.where({ userId: user.userId });    
+           request.execute();
+        }
 
-   이 스크립트는 반환된 TodoItem 개체를 필터링하여 각 사용자가 자신이 삽입한 항목만 수신하도록 합니다.
+   	이 스크립트는 반환된 TodoItem 개체를 필터링하여 각 사용자가 자신이 삽입한 항목만 수신하도록 합니다.
 
 ## 앱 테스트
 
-1. Eclipse에서 [인증 시작] 자습서를 완료할 때 수정한 프로젝트를 엽니다.
+1. Android Studio에서 [인증 시작] 자습서를 완료할 때 수정한 프로젝트를 엽니다.
 
 2. **실행** 메뉴에서 **실행**을 클릭하여 앱을 시작하고 원하는 ID 공급자에 로그인합니다. 
 
-   이전 자습서의 TodoItem 테이블에 이미 항목이 있지만, 이번에는 항목이 반환되지 않습니다. 이전 항목이 userId 열 없이 삽입되어 지금 null 값을 가지기 때문에 이런 현상이 발생합니다.
+   	이전 자습서의 TodoItem 테이블에 이미 항목이 있지만, 이번에는 항목이 반환되지 않습니다. 이전 항목이 userId 열 없이 삽입되어 지금 null 값을 가지기 때문에 이런 현상이 발생합니다.
 
 3. 앱에서 **Insert a TodoItem**에 텍스트를 입력하고 **저장**을 클릭합니다.
 
-   모바일 서비스에서 TodoItem 테이블의 텍스트 및 userId가 모두 삽입됩니다. 새 항목에 올바른 userId 값이 있기 때문에 값이 모바일 서비스에서 반환되어 두 번째 열에 표시됩니다.
+   	모바일 서비스에서 TodoItem 테이블의 텍스트 및 userId가 모두 삽입됩니다. 새 항목에 올바른 userId 값이 있기 때문에 값이 모바일 서비스에서 반환되어 두 번째 열에 표시됩니다.
 
 5. [관리 포털][Azure 관리 포털]의 **todoitem** 테이블로 돌아가 **찾아보기**를 클릭하고 새로 추가된 각 항목에 관련된 userId 값이 있는지 확인합니다.
 
@@ -96,13 +103,12 @@
 
 <!-- URLs. -->
 [모바일 서비스 서버 스크립트 참조]: http://go.microsoft.com/fwlink/p/?LinkId=262293
-[내 응용 프로그램 대시보드]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[모바일 서비스 시작]: /ko-kr/develop/mobile/tutorials/get-started-android
-[데이터 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-data-android
-[인증 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-users-android
-[푸시 알림 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-push-android
+[내 앱 대시보드]: http://go.microsoft.com/fwlink/p/?LinkId=262039
+[모바일 서비스 시작]: /develop/mobile/tutorials/get-started-android
+[데이터 시작]: /develop/mobile/tutorials/get-started-with-data-android
+[인증 시작]: /develop/mobile/tutorials/get-started-with-users-android
+[푸시 알림 시작]: /develop/mobile/tutorials/get-started-with-push-android
 
 [Azure 관리 포털]: https://manage.windowsazure.com/
 
-
-<!--HONumber=42-->
+<!--HONumber=47-->

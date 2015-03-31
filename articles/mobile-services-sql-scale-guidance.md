@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Azure SQL 데이터베이스에서 지원되는 모바일 서비스 크기 조정 - Azure 모바일 서비스" 
 	description="SQL 데이터베이스에서 지원하는 모바일 서비스에서 확장성 문제를 진단 및 해결하는 방법에 대해 알아봅니다." 
 	services="mobile-services" 
@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-multiple" 
+	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
 	ms.date="11/11/2014" 
@@ -36,7 +36,7 @@ Azure 모바일 서비스를 사용하면 작업을 매우 쉽게 시작하고 S
 - **API 호출** 및 **활성 장치** 측정기를 포함하는 사용량 측정기가 할당량을 넘지 않는지 확인합니다.
 - **끝점 모니터링** 상태는 서비스가 작동 중인지를 나타냅니다(서비스에서 표준 계층을 사용 중이고 끝점 모니터링이 활성화된 경우에만 사용 가능). 
 
-위 조건이 충족되지 않을 경우  *Scale* 탭에서 크기 조정 설정을 조정해야 할 수 있습니다. 그래도 문제가 해결되지 않으면 계속해서 Azure SQL 데이터베이스가 문제의 원인인지 여부를 조사할 수 있습니다. 다음 몇 개의 섹션에서는 발생한 문제를 진단하기 위한 몇 가지 서로 다른 접근 방식에 대해 설명합니다.
+위 조건이 충족되지 않을 경우 *Scale* 탭에서 크기 조정 설정을 조정해야 할 수 있습니다. 그래도 문제가 해결되지 않으면 계속해서 Azure SQL 데이터베이스가 문제의 원인인지 여부를 조사할 수 있습니다. 다음 몇 개의 섹션에서는 발생한 문제를 진단하기 위한 몇 가지 서로 다른 접근 방식에 대해 설명합니다.
 
 ### 올바른 SQL 데이터베이스 계층 선택 
 
@@ -73,9 +73,9 @@ Web 및 Business Edition부터 Basic, Standard 및 Premium Edition을 사용하�
 4. **데이터베이스 설정** 섹션에서 **SQL 데이터베이스**를 선택합니다. 그러면 포털의 Azure SQL 데이터베이스 탭으로 이동됩니다.
 5. **모니터** 탭으로 이동합니다.
 6. **메트릭 추가** 단추를 사용하여 관련 메트릭이 표시되는지 확인합니다. 여기에는 다음이 포함됩니다.
-    - *CPU 비율*(Basic/Standard/Premium 계층에서 만 사용 가능)
-    - *물리적 데이터 읽기 비율*(Basic/Standard/Premium 계층에서 만 사용 가능) 
-    - *로그 쓰기 비율*(Basic/Standard/Premium 계층에서 만 사용 가능)
+    - *CPU 비율*(Basic/Standard/Premium 계층에서만 사용 가능)
+    - *물리적 데이터 읽기 비율*(Basic/Standard/Premium 계층에서만 사용 가능) 
+    - *로그 쓰기 비율*(Basic/Standard/Premium 계층에서만 사용 가능)
     - *저장소* 
 7. 서비스에 문제가 발생한 시기의 시간 창에서 메트릭을 조사합니다. 
 
@@ -105,7 +105,7 @@ Web 및 Business Edition부터 Basic, Standard 및 Premium Edition을 사용하�
 3. 경고에 대해 설정한 메트릭을 선택하고 **규칙 추가**를 선택합니다.
     ![Azure Management Portal - SQL Alert][PortalSqlAddAlert]
 4. 경고의 이름 및 설명을 제공합니다.
-    ![Azure Management Portal - SQL Alert Name and Description][PortalSqlAddAlert2]
+    ![Azure Management Portal - SQL Alert Name and 설명][PortalSqlAddAlert2]
 5. 경고 임계값으로 사용할 값을 지정합니다. 반응 시간을 일부 허용하려면 **80%** 정도로 사용하는 것이 좋습니다. 또한 적극적으로 모니터링하는 메일 주소를 지정해야 합니다. 
     ![Azure Management Portal - SQL Alert Threshold and Email][PortalSqlAddAlert3]
 
@@ -178,7 +178,7 @@ Entity Framework에서 인덱스를 정의하려면 인덱싱하려는 필드에
 다음은 SQL 데이터베이스의 스키마로 변환되는 개체에 대한 데이터 유형을 선택할 때 알고 있어야 하는 몇 가지 문제에 대한 설명입니다. SQL은 여러 데이터 유형에 대한 인덱싱 및 저장소 처리를 위해 최적화된 사용자 지정 방식이 있기 때문에 스키마를 튜닝하면 상당한 성능 개선 효과를 볼 수 있는 경우가 많습니다.
 
 - **제공된 ID 열을 사용합니다**. 모든 모바일 서비스 테이블에는 기본 키로 구성된 기본 ID 열이 포함되며, 여기에 인덱스가 설정되어 있습니다. 추가 ID 열을 만들 필요는 없습니다.
-- **모델에서 올바른 데이터 형식을 사용합니다.** 모델의 특정 속성이 숫자 또는 부울임을 알고 있는 경우 모델에서 문자열 대신 해당 형식으로 정의해야 합니다. JavaScript 백 엔드에서는 `"true"` 대신  `true`, `"5"` 대신 `5`와 같은 리터럴을 사용합니다. .NET 백 엔드에서는 모델의 속성을 선언할 때  `int` 및  `bool`을 사용합니다. 이렇게 하면 SQL에서 해당 형식에 올바른 스키마를 만들어 쿼리를 보다 효율적으로 만들 수 있습니다.  
+- **모델에서 올바른 데이터 형식을 사용합니다.** 모델의 특정 속성이 숫자 또는 부울임을 알고 있는 경우 모델에서 문자열 대신 해당 형식으로 정의해야 합니다. JavaScript 백 엔드에서는 `"true"` 대신 `true`, `"5"` 대신 `5`와 같은 리터럴을 사용합니다. .NET 백 엔드에서는 모델의 속성을 선언할 때 `int` 및 `bool`을 사용합니다. 이렇게 하면 SQL에서 해당 형식에 올바른 스키마를 만들어 쿼리를 보다 효율적으로 만들 수 있습니다.  
 
 <a name="Query"></a>
 ## 쿼리 디자인
@@ -221,36 +221,36 @@ Azure 관리 포털은 보다 제한적이지만 로컬 설치 없이 사용 가
 2. 모바일 서비스 탭에서 사용하려는 서비스를 선택합니다.
 3. **구성** 탭을 선택합니다.
 4. **데이터베이스 설정** 섹션에서 **SQL 데이터베이스**를 선택합니다. 그러면 포털의 Azure SQL 데이터베이스 탭으로 이동됩니다.
-5. **이 IP 주소에 대한 Microsoft Azure 방화벽 규칙 설정**을 선택합니다.
-6. **데이터베이스에 연결** 섹션에서 서버 주소를 확인합니다. 예: *mcml4otbb9.database.windows.net*
+5. **이 IP 주소에 대한 Azure 방화벽 규칙 설정**을 선택합니다.
+6. **데이터베이스에 연결** 섹션에서 서버 주소를 확인합니다(예: *mcml4otbb9.database.windows.net*).
 
 #### SQL Server Management Studio
-1. [SQL Server 버전 - Express](http://www.microsoft.com/ko-kr/server-cloud/products/sql-server-editions/sql-server-express.aspx)로 이동합니다.
+1. [SQL Server 버전 - Express](http://www.microsoft.com/server-cloud/products/sql-server-editions/sql-server-express.aspx)로 이동합니다.
 2. **SQL Server Management Studio** 섹션을 찾아서 바로 아래에 있는 **다운로드** 단추를 선택합니다.
 3. 응용 프로그램을 성공적으로 실행할 수 있을 때까지 설정 단계를 완료합니다.
 
     ![SQL Server Management Studio][SSMS]
 
 4. **서버에 연결** 대화 상자에서 다음 값을 입력합니다.
-    - 서버 이름: *server address you obtained earlier*
-    - 인증: *SQL Server Authentication*
-    - 로그인: *login you picked when creating server*
-    - 암호: *password you picked when creating server*
+    - 서버 이름: *앞에서 확인한 서버 주소*
+    - 인증: *SQL Server 인증*
+    - 로그인: *서버를 만들 때 선택한 로그인*
+    - 암호: *서버를 만들 때 선택한 암호*
 5. 그러면 이제 서버에 연결됩니다.
 
 #### SQL 데이터베이스 관리 포털
 1. 사용자의 데이터베이스에 대한 Azure SQL 데이터베이스 탭에서 **관리** 단추를 선택합니다. 
 2. 다음 값을 사용하여 연결을 구성합니다.
-    - 서버: *should be pre-set to the right value*
-    - 데이터베이스: *leave blank*
-    - 사용자 이름: *login you picked when creating server*
-    - 암호: *password you picked when creating server*
+    - 서버: *올바른 값으로 미리 설정되어 있어야 합니다*
+    - 데이터베이스: *빈 상태로 둡니다*
+    - 사용자 이름: *서버를 만들 때 선택한 로그인*
+    - 암호: *서버를 만들 때 선택한 암호*
 3. 그러면 이제 서버에 연결됩니다.
 
     ![Azure Management Portal - SQL Database][PortalSqlManagement]
 
-<a name="AdvancedDiagnosing" />
-### Advanced Diagnostics
+<a name="AdvancedDiagnosing"></a>
+### 고급 진단
 
 **Azure 관리 포털**에서는 많은 진단 작업을 쉽게 완료할 수 있지만 일부 고급 진단 작업의 경우 **SQL Server Management Studio** 또는 **SQL 데이터베이스 관리 포털**을 통해서만 가능합니다.  여기에서는 데이터베이스에 대한 진단 정보로 자동으로 채워진 일련의 뷰인 동적 관리 뷰를 사용합니다. 이 섹션에서는 다양한 메트릭을 검사하기 위해 이러한 뷰에 대해 실행할 수 있는 쿼리 집합을 제공합니다. 자세한 내용은 [동적 관리 뷰를 사용하여 SQL 데이터베이스 모니터링][]을 참조하세요.
 
@@ -282,7 +282,7 @@ Basic, Standard 및 Premium 계층을 사용 중인 경우 관리 포털에서 �
 
 #### SQL 연결 이벤트
 
-**[sys.event\_log](http://msdn.microsoft.com/library/azure/jj819229.aspx)** 뷰에는 연결 관련 이벤트의 세부 정보가 포함됩니다.
+**[sys.event\_log](http://msdn.microsoft.com/library/azure/jj819229.aspx)** 뷰에는 연결 관련 이벤트에 대한 세부 정보가 포함됩니다.
 
     select * from sys.event_log 
     where database_name = 'todoitem_db'
@@ -292,7 +292,7 @@ Basic, Standard 및 Premium 계층을 사용 중인 경우 관리 포털에서 �
 > [AZURE.NOTE] 
 > 이 쿼리는 서버의 **master** 데이터베이스에서 실행하세요. **sys.event\_log** 뷰는 이 데이터베이스에서 만 제공됩니다.
 
-<a name="AdvancedIndexing" />
+<a name="AdvancedIndexing"></a>
 ### 고급 인덱싱
 
 테이블 또는 뷰에 포함될 수 있는 인덱스 유형은 다음과 같습니다.
@@ -304,7 +304,7 @@ Basic, Standard 및 Premium 계층을 사용 중인 경우 관리 포털에서 �
 실제 비유를 제공하려면 책이나 기술 매뉴얼을 고려해보세요. 각 페이지의 콘텐츠를 레코드라고 할 때 페이지 번호는 클러스터형 인덱스가 되고, 책 뒷면에 있는 색인은 비클러스터형 인덱스가 됩니다. 색인의 각 항목은 클러스터형 인덱스인 페이지 번호를 가리킵니다.
 
 > [AZURE.NOTE] 
-> 기본적으로 Azure 모바일 서비스의 JavaScript 백 엔드는 **\_createdAt**을 클러스터형 인덱스로 설정합니다. 이 열을 제거하거나 다른 클러스터형 인덱스를 원할 경우에는 아래의 클러스터형 인덱스 디자인 지침을 따라야 합니다. .NET 백 엔드에서  `EntityData` 클래스는 `[Index(IsClustered = true)]` 주석을 사용하여  `CreatedAt`을 클러스터형 인덱스로 정의합니다.
+> 기본적으로 Azure 모바일 서비스의 JavaScript 백 엔드는 **\_createdAt**을 클러스터형 인덱스로 설정합니다. 이 열을 제거하거나 다른 클러스터형 인덱스를 원할 경우에는 아래의 [클러스터형 인덱스 디자인 지침](#ClusteredIndexes) 을따라야 합니다. .NET 백 엔드에서 `EntityData` 클래스는 주석 `[Index(IsClustered = true)]`를 사용하여 `[CreatedAt]`를 클러스터형 인덱스로 정의합니다.
 
 <a name="ClusteredIndexes"></a>
 #### 클러스터형 인덱스 디자인 지침
@@ -332,7 +332,7 @@ Basic, Standard 및 Premium 계층을 사용 중인 경우 관리 포털에서 �
 
 #### Entity Framework에서 클러스터형 인덱스 만들기
 
-Entity Framework를 사용하여 .NET 백 엔드에서 클러스터형 인덱스를 설정하려면 주석의  `IsClustered` 속성을 설정합니다. 예를 들어 이 속성은  `Microsoft.WindowsAzure.Mobile.Service.EntityData`에서  `CreatedAt`의 정의입니다.
+Entity Framework를 사용하여 .NET 백 엔드에서 클러스터형 인덱스를 설정하려면 주석의 `IsClustered` 속성을 설정합니다. 예를 들어 이 속성은 `Microsoft.WindowsAzure.Mobile.Service.EntityData`에서 `CreatedAt`의 정의입니다.
 
 	[Index(IsClustered = true)]
 	[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -376,7 +376,7 @@ JavaScript 백 엔드의 경우, SQL Server Management Studio 또는 Azure SQL �
 
 자세한 내용은 [동적 관리 뷰를 사용하여 SQL 데이터베이스 모니터링][] 및 [누락 인덱스 동적 관리 뷰](sys-missing-index-stats)를 참조하세요.
 
-<a name="AdvancedQuery" />
+<a name="AdvancedQuery"></a>
 ### 고급 쿼리 디자인 
 
 데이터베이스에서 가장 비용이 높은 쿼리를 진단하기가 어려운 경우가 많습니다. 
@@ -482,5 +482,4 @@ JavaScript 백 엔드의 경우, SQL Server Management Studio 또는 Azure SQL �
 <!-- BLOG LINKS -->
 [키 비용 확인]: http://www.sqlskills.com/blogs/kimberly/how-much-does-that-key-cost-plus-sp_helpindex9/
 
-
-<!--HONumber=42-->
+<!--HONumber=47-->

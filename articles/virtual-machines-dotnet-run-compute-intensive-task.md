@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="가상 컴퓨터의 계산 집약적 .NET 작업 - Azure" 
 	description="Azure 가상 컴퓨터에서 계산 집약적인 .NET 앱을 배포 및 실행하고 서비스 버스 큐를 사용하여 진행률을 원격으로 모니터링하는 방법에 대해 알아봅니다." 
 	services="virtual-machines" 
@@ -65,7 +65,9 @@ Azure에서는 가상 컴퓨터를 사용하여 계산 집약적인 작업을 �
 
 <h2>서비스 버스 네임스페이스를 만드는 방법</h2>
 
-Azure에서 서비스 버스 큐 사용을 시작하려면 먼저 서비스 네임스페이스를 만들어야 합니다. 서비스 네임스페이스는 응용 프로그램 내에서 서비스 버스 리소스의 주소를 지정하기 위한 범위 컨테이너를 제공합니다.
+Azure에서 서비스 버스 큐 사용을 시작하려면 먼저
+서비스 네임스페이스를 만들어야 합니다. 서비스 네임스페이스는 응용 프로그램
+내에서 서비스 버스 리소스의 범위 지정 컨테이너를 제공합니다.
 
 서비스 네임스페이스를 만들려면
 
@@ -90,7 +92,9 @@ Azure에서 서비스 버스 큐 사용을 시작하려면 먼저 서비스 네�
 
 <h2>네임스페이스에 대한 기본 관리 자격 증명 얻기</h2>
 
-새 네임스페이스에 대해 큐 만들기 등의 관리 작업을 수행하려면 네임스페이스에 대한 관리 자격 증명을 받아야 합니다.
+새 네임스페이스에 대해 큐를 만드는 것과 같은 관리 작업을 수행하려면
+네임스페이스에 대한 관리 자격 증명을
+얻어야 합니다.
 
 1.  왼쪽 탐색 창에서 **서비스 버스** 노드를 클릭하여
     사용 가능한 네임스페이스 목록을 표시합니다.   
@@ -103,9 +107,9 @@ Azure에서 서비스 버스 큐 사용을 시작하려면 먼저 서비스 네�
 
 <h2>계산 집약적인 작업을 수행하는 .NET 응용 프로그램을 만드는 방법</h2>
 
-1. 개발 컴퓨터(직접 생성한 가상 컴퓨터일 필요는 없음)에서 [.NET용 Azure SDK](http://azure.microsoft.com/develop/net/)를 다운로드합니다.
+1. 개발 컴퓨터(직접 생성한 가상 컴퓨터일 필요는 없음)에서 [.NET용 Azure SDK](http://www.windowsazure.com/develop/net/)를 다운로드합니다.
 2. **TSPSolver**라는 프로젝트를 사용하여 .NET 콘솔 응용 프로그램을 만듭니다. 대상 프레임워크가 .**NET Framework 4** 이상(**.NET Framework 4 Client Profile** 아님)용으로 설정되어 있는지 확인합니다. 대상 프레임워크는 다음과 같이 프로젝트를 만든 후에 설정할 수 있습니다. Visual Studio의 메뉴에서 **프로젝트**를 클릭하고 **속성**을 클릭한 후 **응용 프로그램** 탭을 클릭한 다음 **대상 프레임워크** 값을 설정합니다.
-3. Microsoft ServiceBus 라이브러리에 추가합니다. Visual Studio 솔루션 탐색기에서 **TSPSolver**를 마우스 오른쪽 단추로 클릭하고 **참조 추가**, **찾아보기** 탭을 차례로 클릭한 후 Azure .NET SDK(예를 들어 **C:\Program Files\Microsoft SDKs\Azure\.NET SDK\v2.5\ToolsRef ** 위치)로 이동하고 참조로 **Microsoft.ServiceBus.dll**을 선택합니다.
+3. Microsoft ServiceBus 라이브러리에 추가합니다. Visual Studio 솔루션 탐색기에서 **TSPSolver**를 마우스 오른쪽 단추로 클릭하고 **참조 추가**, **찾아보기** 탭을 차례로 클릭한 후 Azure .NET SDK(예를 들어 **C:\Program Files\Microsoft SDKs\Azure\.NET SDK\v2.5\ToolsRef** 위치)로 이동하고 참조로 **Microsoft.ServiceBus.dll**을 선택합니다.
 4. System Runtime Serialization 라이브러리에 추가합니다. Visual Studio 솔루션 탐색기에서 **TSPSolver**를 마우스 오른쪽 단추로 클릭하고 **참조 추가**, **.NET** 탭을 차례로 클릭하고 참조로 **System.Runtime.Serialization**을 선택합니다.
 5. **Program.cs**의 콘텐츠로 이 섹션 끝에 있는 예제 코드를 사용합니다.
 6. 서비스 버스의 **네임스페이스**, **기본 발급자** 및 **기본 키** 값을 각각 사용하도록 **your\_service\_bus\_namespace**, **your\_service\_bus\_owner** 및 **your\_service\_bus\_key** 자리 표시자를 수정합니다.
@@ -564,5 +568,4 @@ TSPSolver를 사용하여 큐를 만들거나 제거하는 대신 [Azure 관리 
 [namespace_list]: ./media/virtual-machines-dotnet-run-compute-intensive-task/NamespaceList.png
 [access_key_button]: ./media/virtual-machines-dotnet-run-compute-intensive-task/AccessKey.png
 
-
-<!--HONumber=42-->
+<!--HONumber=47-->

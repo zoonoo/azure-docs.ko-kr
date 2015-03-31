@@ -4,7 +4,7 @@
 
 2. SDK의 `mobileservices` 폴더에서 GetStartedWithData 프로젝트의 `libs` 폴더로 `.jar` 파일을 복사합니다.
 
-3. Eclipse의 Package Explorer에서 `libs` 폴더를 마우스 오른쪽 단추로 클릭하고 **Refresh**를 클릭하면 복사된 jar 파일이 나타납니다.
+3. Eclipse의 패키지 탐색기에서 `libs` 폴더를 마우스 오른쪽 단추로 클릭하고 **새로 고침**을 클릭하면 복사된 jar 파일이 나타납니다.
 
   	모바일 서비스 SDK 참조가 작업 영역에 추가됩니다.
 
@@ -44,7 +44,7 @@
 		private MobileServiceClient mClient;
 		private private MobileServiceTable<ToDoItem> mToDoTable;
 
-10. 파일 아래쪽에서 *ProgressFilter* 클래스를 찾아 주석 처리를 제거합니다. 이 클래스는 *MobileServiceClient*에서 네트워크 작업을 실행하는 동안  'loading' 표시기를 표시합니다.
+10. 파일 아래쪽에서 *ProgressFilter* 클래스를 찾아 주석 처리를 제거합니다. 이 클래스는 *MobileServiceClient*에서 네트워크 작업을 실행하는 동안 '로드' 표시기를 표시합니다.
 
 
 11. 관리 포털에서 **모바일 서비스**를 클릭한 후 방금 만든 모바일 서비스를 클릭합니다.
@@ -71,9 +71,9 @@
 			createAndShowDialog(new Exception("There was an error creating the Mobile Service. Verify the URL"), "Error");
 		}
 
-  	모바일 서비스에 액세스하는 데 사용되는 새 *MobileServiceClient* 인스턴스가 만들어집니다. 모바일 서비스에서 데이터 저장소에 프록시를 설정하는 데 사용되는 *MobileServiceTable* 인스턴스도 만들어집니다.
+  	모바일 서비스에 액세스하는 데 사용되는 새 *MobileServiceClient*인스턴스가 만들어집니다. 모바일 서비스에서 데이터 저장소에 프록시를 설정하는 데 사용되는 *MobileServiceTable* 인스턴스도 만들어집니다.
 
-14. 위의 코드에서 모바일 서비스의 URL 및 응용 프로그램 키로 `MobileServiceUrl` 및 `AppKey`를 바꿉니다.
+14. 위의 코드에서 `MobileServiceUrl` 및 `AppKey`를 각각 모바일 서비스의 URL과 응용 프로그램 키로 바꿉니다.
 
 
 
@@ -156,4 +156,4 @@
 
 <!-- URLs. -->
 [모바일 서비스 Android SDK]: http://aka.ms/Iajk6q
-<!--HONumber=45--> 
+<!--HONumber=47-->

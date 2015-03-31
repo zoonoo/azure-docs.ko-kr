@@ -27,21 +27,18 @@
 이 자습서에서는 이전에 Azure를 사용한 경험이 없다고 가정합니다. 이는 단계별 예제 구성 작업을 통해 사용자 고유의 가상 네트워크를 만드는 데 필요한 단계에 익숙해지도록 도와주기 위한 것입니다. 특정 구성에 적합한 클라우드 전용 가상 네트워크를 만들려면 [관리 포털에서 클라우드 전용 가상 네트워크 구성](http://msdn.microsoft.com/library/azure/dn631643.aspx)을 참조하세요. 가상 네트워크에 대한 설계 시나리오 및 고급 정보를 찾는다면 [Azure 가상 네트워크 개요](http://msdn.microsoft.com/library/windowsazure/jj156007.aspx)를 참조하세요.
 
 
-<div class="dev-callout"> 
-<b>참고</b> 
-<p>가상 네트워크가 조직 네트워크에 연결된 크로스-프레미스 구성을 만드는 단계는 이 자습서에서 다루지 않습니다. 크로스-프레미스 연결 및 사이트 간 VPN 연결(즉, 회사에 있는 Active Directory 또는 SharePoint에 연결)을 사용하는 가상 네트워크를 만드는 단계를 안내하는 자습서는 <a href="/ko-kr/manage/services/networking/cross-premises-connectivity/">자습서: 사이트 간 연결용 크로스-프레미스 가상 네트워크 만들기</a>를 참조하세요.</p> 
-</div>
+> [AZURE.NOTE] 가상 네트워크가 조직 네트워크에 연결된 크로스-프레미스 구성을 만드는 단계는 이 자습서에서 다루지 않습니다. 크로스-프레미스 연결 및 사이트 간 VPN 연결(즉, 회사에 있는 Active Directory 또는 SharePoint에 연결)을 사용하는 가상 네트워크를 만드는 단계를 안내하는 자습서는 [자습서: 사이트 간 연결용 프레미스 간 가상 네트워크 만들기](/manage/services/networking/cross-premises-connectivity/)를 참조하세요.
 
 
-##  목표
+## 목표
 
 이 자습서에서는 두 개의 서브넷이 있는 기본 Azure 클라우드 전용 가상 네트워크를 설정하는 방법에 대해 알아봅니다.
 
-##  필수 조건
+## 필수 조건
 
 *  유효한 활성 Azure 구독이 하나 이상 있는 Microsoft 계정. Azure 구독이 아직 없는 경우 [Azure 평가판 사용](http://www.windowsazure.com/pricing/free-trial/)에서 무료 평가판에 등록할 수 있습니다. MSDN 구독이 있는 경우에는 [Microsoft Azure 특별 가격: MSDN, MPN 및 Bizspark 혜택](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 참조하세요.
 
-##  이 자습서용 가상 네트워크 만들기
+## 이 자습서용 가상 네트워크 만들기
 
 이 예제 클라우드 전용 가상 네트워크를 만들려면 다음을 수행합니다.
 
@@ -76,7 +73,7 @@
  
 	![][Image7]
 
-가상 네트워크의 주소 공간은 개인 주소 공간 10.0.0.0/8, 172.16.0.0/12 또는 192.168.0.0/16 중 하나여야 하며, CIDR(Classless Inter-Domain Routing) 표기법(네트워크 접두사 표기법이라고도 함)으로 지정되어야 합니다. 이 페이지의 설정에 대한 자세한 내용은 [관리 포털의 가상 네트워크 구성 정보](http://go.microsoft.com/fwlink/?linkid=248092&clcid=0x409)에서 가상 네트워크 주소 공간 페이지를 참조하세요.
+ 가상 네트워크의 주소 공간은 개인 주소 공간 10.0.0.0/8, 172.16.0.0/12 또는 192.168.0.0/16 중 하나여야 하며, CIDR(Classless Inter-Domain Routing) 표기법(네트워크 접두사 표기법이라고도 함)으로 지정되어야 합니다. 이 페이지의 설정에 대한 자세한 내용은 [관리 포털의 가상 네트워크 구성 정보](http://go.microsoft.com/fwlink/?linkid=248092&clcid=0x409)에서 가상 네트워크 주소 공간 페이지를 참조하세요.
 
 
 7. 페이지의 오른쪽 아래에서 확인 표시를 클릭하면 가상 네트워크 만들기가 시작됩니다. 가상 네트워크가 만들어지면 Azure 관리 포털의 **네트워크** 페이지에 있는 상태 아래에 **생성됨**이 나열됩니다.  
@@ -85,9 +82,9 @@
 
 다음을 사용하여 Azure 인프라 서비스에 대해 계속 알아볼 수 있습니다.
 
-- [사용자 지정 가상 컴퓨터를 만드는 방법](http://azure.microsoft.com/manage/windows/how-to-guides/custom-create-a-vm/) 이 항목을 사용하여 가상 네트워크에 가상 컴퓨터를 설치할 수 있습니다. 가상 컴퓨터 및 설치 옵션에 대한 자세한 내용은 [Azure 가상 컴퓨터](http://azure.microsoft.com/manage/windows/)를 참조하세요.
+- [사용자 지정 가상 컴퓨터를 만드는 방법](http://www.windowsazure.com/manage/windows/how-to-guides/custom-create-a-vm/) 이 항목을 사용하여 가상 네트워크에 가상 컴퓨터를 설치할 수 있습니다. 가상 컴퓨터 및 설치 옵션에 대한 자세한 내용은 [Azure 가상 컴퓨터](http://www.windowsazure.com/manage/windows/)를 참조하세요.
 
-- [Azure 가상 네트워크에 새 Active Directory 포리스트 설치](http://azure.microsoft.com/manage/services/networking/active-directory-forest/) - 이 항목을 사용하여 다른 네트워크에 연결하지 않고 새 Windows Server AD(Active Directory) 포리스트를 설치할 수 있습니다. 이 자습서에서는 새 포리스트 설치를 위해 VM(가상 컴퓨터)을 만드는 데 필요한 특정 단계를 설명합니다. 이 자습서를 사용할 경우에는 관리 포털을 사용하여 VM을 만들지 마세요. 자세한 내용은 [Azure 가상 컴퓨터에 Windows Server Active Directory를 배포하기 위한 지침](http://msdn.microsoft.com/library/windowsazure/jj156090.aspx)을 참조하세요.
+- [Azure 가상 네트워크에 새 Active Directory 포리스트 설치](http://www.windowsazure.com/manage/services/networking/active-directory-forest/) - 이 항목을 사용하여 다른 네트워크에 연결하지 않고 새 Windows Server AD(Active Directory) 포리스트를 설치할 수 있습니다. 이 자습서에서는 새 포리스트 설치를 위해 VM(가상 컴퓨터)을 만드는 데 필요한 특정 단계를 설명합니다. 이 자습서를 사용할 경우에는 관리 포털을 사용하여 VM을 만들지 마세요. 자세한 내용은 [Azure 가상 컴퓨터에 Windows Server Active Directory를 배포하기 위한 지침](http://msdn.microsoft.com/library/windowsazure/jj156090.aspx)을 참조하세요.
 
 이 가상 네트워크를 제거하려면 가상 네트워크를 선택하고 **삭제**를 클릭한 후 **예**를 클릭합니다.
 
@@ -118,4 +115,4 @@
 [Image8]: ./media/create-virtual-network/createVNet_07_VNetExampleSpaces.png
 
 
-<!--HONumber=46--> 
+<!--HONumber=47-->

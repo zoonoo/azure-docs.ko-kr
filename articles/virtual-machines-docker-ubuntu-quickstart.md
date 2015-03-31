@@ -82,4 +82,4 @@ Docker 명령을 실행해 보세요. 이 Azure VM의 기본 구성에는 **`sud
 [MSOpenTech]: http://msopentech.com/
 
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

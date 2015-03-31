@@ -2,7 +2,8 @@
 
 ##요약
 
-Azure용 응용 프로그램을 개발할 때 ID 및 액세스 권한과 관련한 기본적인 보안 문제에 유의해야 합니다. 이 항목에서는 클라우드의 ID 및 액세스 권한에 관련된 주요 보안 문제 및 클라우드 응용 프로그램을 가장 잘 보호할 수 있는 방법을 설명합니다.
+Azure용 응용 프로그램을 개발할 때 ID 및 액세스 권한과 관련한 기본적인 보안 문제에 유의해야 합니다.
+이 항목에서는 클라우드의 ID 및 액세스 권한에 관련된 주요 보안 문제 및 클라우드 응용 프로그램을 가장 잘 보호할 수 있는 방법을 설명합니다.
 
 ##개요
 
@@ -11,7 +12,9 @@ Azure용 응용 프로그램을 개발할 때 ID 및 액세스 권한과 관련�
 클라우드로 이동하면 인프라 및 네트워킹이 세계 최고의 보안 규정, 도구, 기술을 사용하는 데이터 센터에서 관리되므로 이를 편리하게 사용할 수 있습니다. 반면, 클라우드에서는 공격자가 잠재적으로 악용할 수 있는 응용 프로그램의 노출 영역이 본질적으로 더 많습니다. 이는 많은 클라우드 기술 및 서비스가 끝점 또는 메모리 내 구성 요소로 노출되기 때문입니다. Azure 저장소, 서비스 버스, SQL
 데이터베이스(이전의 SQL Azure) 및 다른 많은 서비스를 네트워크상의 끝점을 통해 액세스할 수 있습니다.
 
-클라우드 응용 프로그램에서는 공격자의 접근을 막기 위해 높은 보안 수준으로 클라우드 응용 프로그램을 설계, 개발 및 유지 관리하도록 응용 프로그램 개발자에게 더 많은 책임이 주어집니다. 다음 다이어그램을 보면(출처: J.D. Meier의 [Azure 보안 정보 PDF](http://blogs.msdn.com/b/jmeier/archive/2010/08/03/now-available-azure-security-notes-pdf.aspx)(영문)), 클라우드 공급자(이 경우에는 Azure)가 더 많은 보안 작업을 응용 프로그램 개발자에게 맡겨 인프라 부분을 처리하는 방식을 확인할 수 있습니다.
+클라우드 응용 프로그램에서는 공격자의 접근을 막기 위해 높은 보안 수준으로 클라우드 응용 프로그램을 설계, 개발 및 유지 관리하도록 응용 프로그램 개발자에게 더 많은 책임이 주어집니다.
+다음 다이어그램(J.D. Meier의 [Azure 보안
+참고 사항(PDF)](http://blogs.msdn.com/b/jmeier/archive/2010/08/03/now-available-azure-security-notes-pdf.aspx))을 고려해 보세요. 여기서는 Azure 응용 프로그램 개발자에 게 더 많은 보안 작업을 그대로 두고 클라우드 공급자에서 인프라 부분이 처리되는 방법을 보여 줍니다.
 
 ![Securing the application][01]
 
@@ -22,13 +25,17 @@ Azure용 응용 프로그램을 개발할 때 ID 및 액세스 권한과 관련�
 -   부인 방지 위협을 줄이려면 감사 및 로깅을 올바르게 구현해야 합니다.
 -   ID 스푸핑 및 권한 상승 위협을 방지하려면 플랫폼에서 제공되는 입증된 메커니즘을 사용하여 인증 및 권한 부여를 구현해야 합니다.
 
-위협, 공격, 취약성 및 대응 방법에 대한 전체 목록은 [참고 자료: 웹 응용 프로그램 보안 프레임](http://msdn.microsoft.com/library/ff649461.aspx)(영문) 및 [응용 프로그램 인덱스의 보안 가이드](http://msdn.microsoft.com/library/ff650760.aspx)(영문)를 참조하세요.
+위협, 공격, 취약성 및 대응 방법에 대한 전체 목록은 [참고 자료: 웹
+응용 프로그램 보안 프레임](http://msdn.microsoft.com/library/ff649461.aspx) 및 [응용 프로그램 인텍스용 보안 지침](http://msdn.microsoft.com/library/ff650760.aspx)을 참조하세요.
 
-클라우드에서의 인증 및 액세스 제어 메커니즘은 온-프레미스 응용 프로그램에서 사용할 수 있는 메커니즘과 매우 다릅니다. 클라우드 응용 프로그램에서는 혼란을 초래하고 결과적으로 구현 오류를 발생시킬 수 있는 더 많은 인증 및 액세스 옵션이 제공됩니다. 클라우드 응용 프로그램이 무엇인지를 정의할 때 혼란이 가중됩니다. 예를 들어 응용 프로그램을 클라우드에 배포할 수도 있지만 Active Directory에서 관련 인증 메커니즘이 제공될 수 있습니다. 다른 한편으로는, 클라우드에서 인증 메커니즘(예: 이전에 액세스 제어 서비스 또는 ACS로 알려진 Azure Active Directory 액세스 제어)을 사용하여 응용 프로그램을 온-프레미스에 배포할 수 있습니다.
+클라우드에서의 인증 및 액세스 제어 메커니즘은 온-프레미스 응용 프로그램에서 사용할 수 있는 메커니즘과 매우 다릅니다. 클라우드 응용 프로그램에서는 혼란을 초래하고 결과적으로 구현 오류를 발생시킬 수 있는 더 많은 인증 및 액세스 옵션이 제공됩니다. 클라우드 응용 프로그램이 무엇인지를 정의할 때 혼란이 가중됩니다. 예를 들어 응용 프로그램을 클라우드에 배포할 수도 있지만 Active Directory에서 관련 인증 메커니즘이 제공될 수 있습니다. 그러나 예를 들어 Azure Active Directory 액세스 제어(이전의 액세스 제어)에서 클라우드의 인증 메커니즘을
+사용하여 응용 프로그램을 온-프레미스에 배포할 수
+있습니다.
 
 ##위협, 취약성 및 공격
 
-위협은 중요한 정보가 공개되거나 서비스를 사용할 수 없게 되는 등 사용자가 방지하려는 잠재적인 잘못된 결과입니다. 일반적으로 "STRIDE"라는 머리글자어를 사용하여 위협을 분류합니다.
+위협은 중요한 정보가 공개되거나 서비스를 사용할 수 없게 되는 등 사용자가 방지하려는 잠재적인 잘못된 결과입니다.
+일반적으로 "STRIDE"라는 머리글자어를 사용하여 위협을 분류합니다.
 
 -   스푸핑 또는 ID 도용
 -   데이터 훼손
@@ -41,7 +48,7 @@ Azure용 응용 프로그램을 개발할 때 ID 및 액세스 권한과 관련�
 
 공격은 이러한 취약성을 이용하여 응용 프로그램을 손상시킵니다. 예를 들어 Cross Site Scripting 또는 XSS는 정리되지 않은 출력을 이용하는 공격입니다. 다른 예로는 네트워크에서 암호화되지 않은 상태로 보낸 자격 증명을 수집하는 도청이 있습니다. 이러한 공격으로 인해 ID 스푸핑 위협이 발생할 수 있습니다. 간단하게 위협, 취약성 및 공격을 부적절한 상황으로 간주합니다.
 다음은 Azure에 배포된 웹 응용 프로그램과 관련된 부적절한 상황을 전체적으로 설명하는 다이어그램(출처: J.D.
- Meier의 [Azure 보안 정보 PDF)](http://blogs.msdn.com/b/jmeier/archive/2010/08/03/now-available-azure-security-notes-pdf.aspx))입니다.
+Meier의 [Azure 보안 정보 PDF)](http://blogs.msdn.com/b/jmeier/archive/2010/08/03/now-available-azure-security-notes-pdf.aspx))입니다.
 
 ![Threats Vulnerabilities and Attacks][02]
 
@@ -51,34 +58,40 @@ STRIDE 모델에서 ID 및 액세스 관련 취약성은 모든 위협에 노출
 
 -   네트워크에서 Azure 서비스로 암호화되지 않은 자격 증명을 보내나요?
 -   Azure 서비스 자격 증명을 암호화되지 않은 상태로 저장하나요?
--   Azure 서비스 자격 증명이 강력한 암호 정책을 준수하나요?
--   Azure를 기반으로 자격 증명을 확인하나요? 아니면 사용자 지정 확인 메커니즘을 사용하나요?
--   Azure 서비스 인증 세션 또는 토큰 수명을 적절한 기간으로 제한하나요?
--   분산된 클라우드 응용 프로그램의 각 Azure 진입점에 대한 사용 권한을 확인하나요?
--   중요한 정보를 노출하거나 무제한 액세스를 허용하지 않고 권한 부여 메커니즘이 안전하게 실패하나요?
+-   Azure 서비스 자격 증명이 다음의 강력한 암호 정책을 준수합니까?
+-   Azure를 기반으로 자격 증명을 확인합니까? 아니면 사용자 지정 확인 메커니즘을 사용합니까?
+-   Azure 서비스 인증 세션 또는 토큰 수명을 적절한 기간으로 제한합니까?
+-   분산된 클라우드 응용 프로그램의 각 Azure 진입점에 대한 사용 권한을 확인합니까?
+-   중요한 정보를 노출하거나 무제한 액세스를 허용하지 않고 권한 부여 메커니즘이 안전하게 실패합니까?
 
 ##대응 방법
 
 공격에 대한 최상의 대응 방법은 메커니즘을 자체적으로 구현하는 대신 플랫폼에서 제공되는 ID 및 액세스 메커니즘을 사용하는 것입니다. 유명한 ID 및 액세스 기술은 다음과 같습니다.
 
-**WIF(Windows Identity Foundation).** WIF는 .NET Framework 4.5에 포함된 .NET 런타임 라이브러리입니다(.NET 3.5/4.0에 대한 별도의 다운로드로도 사용 가능). WIF는 WS-Federation, WS-Trust 같은 프로토콜 처리 및 SAML(Security Assertion Markup Language) 같은 토큰 처리를 지원하므로 응용 프로그램에서 매우 복잡한 보안 관련 코드를 작성하지 않아도 됩니다. WIF에 대한 자세한 설명은 다음 리소스를 참조하세요.
+**WIF(Windows Identity Foundation).** WIF 는 .NET Framework 4.5 (.NET 3.5/4.0에 대한 별도 다운로드로도 제공)에 포함된 .NET 런타임 라이브러리입니다 . WIF가 WS-Federation, WS-Trust 및 SAML(Security Assertion Markup Language)과 같은 토큰 처리 등의 프로토콜을 처리하기 위한 주요 작업이므로
+응용 프로그램에서 매우 복잡한 보안 관련 코드를 작성할 필요가 없습니다. WIF에 대한 자세한 설명은 다음 리소스를 참조하십시오.
 
--   MSDN 코드 갤러리의 [Windows Identity Foundation 4.5 샘플](http://code.msdn.microsoft.com/site/search?f%5B0%5D.Type=SearchText&f%5B0%5D.Value=wif&f%5B1%5D.Type=Topic&f%5B1%5D.Value=claims-based%20authentication)
--   MSDN 코드 갤러리의 [Visual Studio 11 Beta용 Windows Identity Foundation 4.5 도구](http://visualstudiogallery.msdn.microsoft.com/e21bf653-dfe1-4d81-b3d3-795cb104066e)
--   MSDN의 [Windows Identity Foundation 런타임(.Net 3.5/4.0)](http://www.microsoft.com/ko-kr/download/details.aspx?id=17331)
--   MSDN의 [Windows Identity Foundation 3.5/4.0 샘플 및 Visual Studio 2008/2010 템플릿](http://www.microsoft.com/ko-kr/download/details.aspx?displaylang=en&id=4451)
+-   [Windows Identity Foundation 4.5 샘플](http://code.msdn.microsoft.com/site/search?f%5B0%5D.Type=SearchText&f%5B0%5D.Value=wif&f%5B1%5D.Type=Topic&f%5B1%5D.Value=claims-based%20authentication) MSDN 코드 갤러리에 있습니다.
+-   [Visual Studio 11 Beta용 Windows Identity Foundation 4.5 도구](http://visualstudiogallery.msdn.microsoft.com/e21bf653-dfe1-4d81-b3d3-795cb104066e) MSDN 코드 갤러리에 있습니다.
+-   [Windows Identity Foundation 런타임(.Net 3.5/4.0)](http://www.microsoft.com/download/details.aspx?id=17331) MSDN에 있습니다.
+-   [Windows Identity Foundation 3.5/4.0 샘플 및 Visual Studio 2008/2010 템플릿](http://www.microsoft.com/download/details.aspx?displaylang=en&id=4451) MSDN에 있습니다.
 
 **Azure AD 액세스 제어(이전의 ACS)**.
-Azure AD 액세스 제어는 STS(보안 토큰 서비스)를 제공하고 회사 Active Directory 같은 다양한 ID 공급자(IdP) 또는 Windows Live ID / Microsoft 계정, Facebook, Google, Yahoo! 및 Open ID 2.0 ID 공급자 같은 인터넷 IdP와의 페더레이션을 허용하는 클라우드 서비스입니다. Azure AD 액세스 제어에 대한 자세한 설명은 다음 리소스를 참조하세요.
+Azure AD 액세스 제어는 STS(보안 토큰 서비스)를 제공하고
+Windows Live ID / Microsoft 계정, Facebook, Google, Yahoo!,
+Open ID 2.0 ID 공급자 같은 인터넷 IdP 또는 회사 Active Directory나 인터넷 IdP 같은 다양한 ID 공급자의 페더레이션을 허용하는
+클라우드 서비스입니다. 다음 리소스는 Azure AD 액세스 제어에 대한 자세한 정보를 제공합니다.
 
 -   [액세스 제어 서비스 2.0](http://msdn.microsoft.com/library/gg429786.aspx)
 -   [ACS를 사용하는 시나리오 및 솔루션](http://msdn.microsoft.com/library/gg185920.aspx)
 -   [ACS 사용 방법](http://msdn.microsoft.com/library/windowsazure/gg185939.aspx)
 -   [클레임 기반 ID 및 액세스 제어 가이드](http://msdn.microsoft.com/library/ff423674.aspx)
--   [ID 개발자 교육 키트](http://www.microsoft.com/ko-kr/download/details.aspx?id=14347)
+-   [ID 개발자 교육 키트](http://www.microsoft.com/download/details.aspx?id=14347)
 -   [MSDN에서 주최하는 ID 개발자 교육 코스](http://msdn.microsoft.com/IdentityTrainingCourse)
 
-**AD FS(Active Directory Federation Services).**AD FS(Active Directory Federation Services) 2.0은 Windows Server 및 Active Directory 기술이 포함된 클레임 인식 ID 솔루션에 대한 지원을 제공합니다. AD FS 2.0은 WS-Trust, WS-Federation 및 SAML 프로토콜을 지원합니다. AD FS에 대한 자세한 설명은 다음 리소스를 참조하세요.
+**AD FS(Active Directory Federation Services)입니다.**AD FS(Active Directory
+Federation Services) 2.0 은 Windows Server와 관련된 클레임 인식 ID 솔루션에 대한 지원 및 Active Directory 기술을 지원합니다. AD FS 2.0은 WS-Trust, WS-Federation 및 SAML 프로토콜을 지원합니다. AD FS에 대한 자세한 내용은 다음 리소스를
+참조하세요.
 
 -   [AD FS 2.0 콘텐츠 맵](http://social.technet.microsoft.com/wiki/contents/articles/2735.ad-fs-2-0-content-map.aspx)
 -   [웹 SSO 디자인][웹 SSO 디자인](영문)
@@ -93,21 +106,22 @@ Azure AD 액세스 제어는 STS(보안 토큰 서비스)를 제공하고 회사
 
 ##시나리오 맵
 
-이 섹션에서는 이 항목에서 설명하는 주요 시나리오를 간략하게 설명합니다. 이를 맵으로 활용하여 사용 중인 응용 프로그램에 맞는 올바른 ID 솔루션을 정합니다.
+이 섹션에서는 이 항목에서 설명하는 주요 시나리오를 간략하게 설명합니다.
+이를 맵으로 활용하여 사용 중인 응용 프로그램에 맞는 올바른 ID 솔루션을 정합니다.
 
 -   **페더레이션 인증을 사용하는 ASP.NET 웹 양식 응용 프로그램.** 이 시나리오에서는 Live ID / Microsoft 계정 같은 인터넷 ID 또는 Windows Server Active Directory에서 관리되는 회사 ID를 사용하여 ASP.NET 웹 양식 응용 프로그램에 대한 액세스를 제어합니다.
 -   **페더레이션 인증을 사용하는 WCF(SOAP) 서비스.**이 시나리오에서는 Azure AD 액세스 제어로 관리되는 서비스 ID를 사용하여 WCF(SOAP) 서비스에 대한 액세스를 제어합니다.
 -   **페더레이션 인증(Active Directory의 ID)을 사용하는 WCF(SOAP) 서비스.** 이 시나리오에서는 회사 Windows Server Active Directory로 관리되는 ID를 사용하여 WCF(SOAP) 웹 서비스에 대한 액세스를 제어합니다.
--   **페더레이션 인증을 사용하는 WCF(REST) 서비스.** 이 시나리오에서는 Azure AD 액세스 제어로 관리되는 서비스 ID를 사용하여 WCF(REST) 서비스에 대한 액세스를 제어합니다.
+-   **페더레이션 인증을 사용하는 WCF(REST) 서비스.**이 시나리오에서는 Azure AD 액세스 제어로 관리되는 서비스 ID를 사용하여 WCF(REST) 서비스에 대한 액세스를 제어합니다.
 -   **Live ID / Microsoft 계정, Facebook, Google, Yahoo!, Open ID를 사용하는 WCF(REST) 서비스.** 이 시나리오에서는 Live ID / Microsoft 계정 같은 인터넷 ID를 사용하여 WCF(REST) 서비스에 대한 액세스를 제어합니다.
 -   **공유 SWT 토큰을 사용하는 ASP.NET 웹 응용 프로그램 및 REST WCF 서비스.** 이 시나리오에서는 프런트 엔드 ASP.NET 웹 응용 프로그램 및 다운스트림 REST 서비스를 사용하여 응용 프로그램을 분산한 후 물리적 계층을 통해 최종 사용자의 컨텍스트를 이동합니다.
 -   **클레임 인식 응용 프로그램 및 서비스의 RBAC(역할 기반 액세스 제어) 권한 부여.** 이 시나리오에서는 응용 프로그램에서 역할을 기반으로 권한 부여 논리를 구현합니다.
 -   **클레임 인식 응용 프로그램 및 서비스의 클레임 기반 권한 부여.** 이 시나리오에서는 응용 프로그램에서 복잡한 권한 부여 규칙을 기반으로 권한 부여 논리를 구현합니다.
 -   **Azure 저장소 서비스 ID 및 액세스 시나리오.** 이 시나리오에서는 Azure 저장소 Blob 및 컨테이너에 대한 액세스를 안전하게 공유해야 합니다.
 -   **Azure SQL 데이터베이스 ID 및 액세스 시나리오.** SQL 데이터베이스는 SQL Server 인증만 지원하며 Windows 인증(통합 보안)은 지원하지 않습니다. 사용자는 SQL 데이터베이스에 연결할 때마다 자격 증명(로그인 및 암호)을 제공해야 합니다.
--   **Azure 서비스 버스 ID 및 액세스 시나리오.** 이 시나리오에서는 Azure 서비스 버스 큐에 안전하게 액세스할 수 있어야 합니다.
--   **메모리 내 캐시 ID 및 액세스 시나리오.** 이 시나리오에서는 메모리 내 캐시에서 관리되는 데이터에 안전하게 액세스할 수 있어야 합니다.
--   **Azure 마켓플레이스 ID 및 액세스 시나리오.** 이 시나리오에서는 Azure 마켓플레이스 데이터 집합에 안전하게 액세스할 수 있어야 합니다.
+-   **Azure 서비스 버스 ID 및 액세스 시나리오입니다.**이 시나리오에서 Azure 서비스 버스 큐에 안전하게 엑세스해야 합니다.
+-   **메모리 내 캐시 ID 및 액세스 시나리오입니다.**이 시나리오에서 메모리 내 캐시에서 관리되는 데이터에 안전하게 액세스해야 합니다.
+-   **Azure 마켓 플레이스 ID 및 액세스 시나리오입니다.**이 시나리오에서 Azure 마켓 플레이스 데이터셋에 안전하게 액세스해야 합니다.
 
 ##Azure ID 및 액세스 시나리오
 
@@ -118,7 +132,8 @@ Azure AD 액세스 제어는 STS(보안 토큰 서비스)를 제공하고 회사
 이 응용 프로그램 아키텍처 시나리오에서는 웹 응용 프로그램을 Azure 또는 온-프레미스에 배포할 수 있습니다. 응용 프로그램을 사용하려면 해당 사용자가 회사 Active Directory 또는 인터넷 ID 공급자로부터
 인증을 받아야 합니다.
 
-이 시나리오를 구현하려면 Azure AD 액세스 제어 및 Windows Identity Foundation을 사용합니다.
+이 시나리오를 구현하려면 Azure AD 액세스 제어 및 Windows Identity Foundation을
+사용합니다.
 
 ![Azure Active Directory Access control][03]
 
@@ -135,7 +150,8 @@ Azure AD 액세스 제어는 STS(보안 토큰 서비스)를 제공하고 회사
 
 이 응용 프로그램 아키텍처 시나리오에서는 WCF(SOAP) 서비스를 Azure 또는 온-프레미스에 배포할 수 있습니다. 이 서비스는 웹 응용 프로그램이나 다른 웹 서비스에서도 다운스트림 서비스로 액세스됩니다. 응용 프로그램별 ID를 사용하여 이 서비스에 대한 액세스를 제어해야 합니다. IIS에서 사용한 응용 프로그램 풀 계정 유형의 관점에서 생각해보면, 비록 기술은 다르지만 응용 프로그램 범위 계정이나 최종 사용자 계정을 사용하여 서비스를 액세스하는 방법은 비슷합니다.
 
-Azure AD 액세스 제어에서 서비스 ID 기능을 사용합니다. 이는 Windows Server 및 IIS에 응용 프로그램을 배포할 때 사용하던 IIS 응용 프로그램 풀 응용 프로그램과 비슷합니다. WCF(SOAP) 서비스의
+Azure AD 액세스 제어에서 서비스 ID 기능을 사용합니다.
+이는 Windows Server 및 IIS에 응용 프로그램을 배포할 때 사용하던 IIS 응용 프로그램 풀 응용 프로그램과 비슷합니다. WCF(SOAP) 서비스의
 WIF에서 처리되는 SAML 토큰을 발급하도록 Azure AD 액세스 제어를 구성합니다.
 
 ![WCF (SOAP) Service][04]
@@ -170,11 +186,13 @@ Azure AD 액세스 제어를 사용합니다. 이 경우 Azure AD 액세스 제�
 
 ###서비스 ID를 사용하는 WCF(REST) 서비스
 
-이 시나리오에서는 WCF(REST) 서비스를 Azure 또는 온-프레미스에 배포할 수 있습니다. 이 서비스는 웹 응용 프로그램이나 다른 웹 서비스에서 다운스트림 서비스로 액세스됩니다. 응용 프로그램별 ID를 사용하여 이 서비스에 대한 액세스를 제어해야 합니다. IIS에서 사용한 응용 프로그램 풀 계정 유형의 관점에서 생각해보면, 비록 기술은 다르지만 응용 프로그램 범위 계정이나 최종 사용자 계정을 사용하여 서비스를 액세스하는 방법은 비슷합니다.
+이 시나리오에서는 WCF(REST) 서비스를 
+Azure 또는 온-프레미스에 배포할 수 있습니다. 이 서비스는 웹 응용 프로그램이나 다른 웹 서비스에서 다운스트림 서비스로 액세스됩니다. 응용 프로그램별 ID를 사용하여 이 서비스에 대한 액세스를 제어해야 합니다. IIS에서 사용한 응용 프로그램 풀 계정 유형의 관점에서 생각해보면, 비록 기술은 다르지만 응용 프로그램 범위 계정이나 최종 사용자 계정을 사용하여 서비스를 액세스하는 방법은 비슷합니다.
 
-Azure AD 액세스 제어에서 서비스 ID 기능을 사용합니다. SWT(단순 웹 토큰) 토큰을 발급하도록 Azure AD 액세스 제어를 구성합니다. REST 서비스 쪽에서 SWT 토큰을 처리하려면 사용자 지정 토큰 처리기를 구현하여 토큰을 WIF 파이프라인에 연결하거나 WIF 인프라를 사용하지 않고 이를 "수동으로" 구문 분석할 수 있습니다.
+Azure AD 액세스 제어에서 서비스 ID 기능을 사용합니다.
+SWT(단순 웹 토큰) 토큰을 발급하도록 Azure AD 액세스 제어를 구성합니다. REST 서비스 쪽에서 SWT 토큰을 처리하려면 사용자 지정 토큰 처리기를 구현하여 토큰을 WIF 파이프라인에 연결하거나 WIF 인프라를 사용하지 않고 이를 "수동으로" 구문 분석할 수 있습니다.
 
-다음 다이어그램을 참조하세요.(WIF는 선택 사항임).
+다음 다이어그램을 고려하세요(WIF는 선택 사항).
 
 ![REST Service][06]
 
@@ -188,12 +206,15 @@ Azure AD 액세스 제어에서 서비스 ID 기능을 사용합니다. SWT(단�
 
 ###Live ID / Microsoft 계정, Facebook, Google, Yahoo!, Open ID를 사용하는 WCF(REST) 서비스
 
-이 시나리오에서는 WCF(REST) 서비스를 Azure 또는 온-프레미스에 배포할 수 있습니다. Live ID / Microsoft 계정 또는 Facebook 같은 공용 인터넷 ID를 사용하여 이 서비스에 대한 액세스를 제어해야 합니다.
+이 시나리오에서는 WCF(REST) 서비스를 
+Azure 또는 온-프레미스에 배포할 수 있습니다. Live ID, Microsoft 계정 또는 Facebook 같은 공용 인터넷 ID를 사용하여
+이 서비스에 대한 액세스를 제어해야 합니다.
 
 Azure AD 액세스 제어를 사용하여 SWT 토큰을 발급합니다. REST 서비스 쪽에서
 SWT 토큰을 처리하려면 사용자 지정 토큰 처리기를 구현하여 토큰을 WIF 파이프라인에 연결하거나 WIF 인프라를 사용하지 않고 이를 "수동으로" 구문 분석할 수 있습니다.
 
-이 시나리오를 구현하려면 응용 프로그램에서 웹 브라우저 컨트롤을 사용하여 최종 사용자 자격 증명을 수집해야 합니다. 따라서 ASP.NET 웹 응용 프로그램에서 REST 서비스에 액세스하는 시나리오에서는 적합하지 않으며, Windows Phone 7 응용 프로그램 또는 다양한 기능의 데스크톱 클라이언트 같은 사용자 클라이언트 응용 프로그램에서 REST 서비스에 액세스하는 시나리오에만 적합합니다. 웹 브라우저 컨트롤을 언급하는 주된 이유는 인터넷 ID는 기본적으로 활성 프로필 시나리오(웹 서비스 시나리오)를 지원하지 않기 때문입니다. 인터넷 ID는 주로 브라우저 리디렉션이 필요한 수동 프로필 시나리오(웹 응용 프로그램)를 지원합니다. 이 경우 웹 브라우저 컨트롤이 도움이 됩니다.
+이 시나리오를 구현하려면 응용 프로그램에서 웹 브라우저 컨트롤을 사용하여 최종 사용자 자격 증명을 수집해야 합니다. 따라서 ASP.NET 웹 응용 프로그램에서 REST 서비스에 액세스하는 시나리오에서는 적합하지 않으며, Windows Phone 7 응용 프로그램 또는 다양한 기능의 데스크톱 클라이언트 같은 사용자 클라이언트 응용 프로그램에서 REST 서비스에 액세스하는 시나리오에만 적합합니다. 웹 브라우저 컨트롤이 표시되는 주요 이유는
+인터넷 ID가 기본적으로 활성 프로필 시나리오 웹 서비스 시나리오)를 지원하지 않기 때문입니다. 인터넷 ID는 주로 브라우저 리디렉션이 필요한 수동 프로필 시나리오(웹 응용 프로그램)를 지원합니다. 이 경우 웹 브라우저 컨트롤이 도움이 됩니다.
 
 다음 다이어그램을 참조하세요.(WIF는 선택 사항이므로 표시되지 않음).
 
@@ -234,15 +255,20 @@ SWT 토큰을 발급하도록 Azure AD 액세스 제어를 구성합니다. 프�
 이 시나리오에서는 사용자 역할을 기반으로 웹 응용 프로그램 또는 서비스에서 권한 부여를 구현해야 합니다. 즉, 필요한 역할이 있는 사용자는 액세스할 수 있고 필요한 역할이 없는 사용자는 거부됩니다. 간단히 말해 응용 프로그램이 간단한 문제에 답해야 합니다(X 역할이 있는
 사용자인가요?).
 
-이 시나리오를 구현할 수 있는 몇 가지 방법이 있습니다. Azure AD 액세스 제어, WIF 클레임 인증 관리자, samlSecurityTokenRequirement 매핑 또는 고객 역할 관리자를 사용할 수 있습니다.
+이 시나리오를 구현할 수 있는 몇 가지 방법이 있습니다. Azure
+AD 액세스 제어, WIF 클레임 인증 관리자, samlSecurityTokenRequirement 매핑 또는 고객 역할 관리자를 사용할 수 있습니다.
 
-WIF는 모든 경우에 사용됩니다. WIF는 IPrincipal.IsInRole("MyRole") 메서드를 지원합니다. 대부분의 경우 IsInRole 메서드가 호출될 때 WIF가 역할 구성원을 확인할 수 있도록 토큰에 URI가 http://schemas.microsoft.com/ws/2008/06/identity/claims/role인 역할 유형 클레임이 있는지 확인해야 합니다.
+WIF는 모든 경우에 사용됩니다. WIF는 IPrincipal.IsInRole("MyRole") 메서드를 지원합니다. 대부분의 경우 토큰의 URI( http://schemas.microsoft.com/ws/2008/06/identity/claims/roles)를 통해 키가 역할 유형 클레임에 있는지 확인할 수 있어 IsInRole 메서드가 호출할 때 WIF가 역할 멤버 자격을 확인할 수
+ 있습니다 .
 
-**Azure AD 액세스 제어**. 이 구현에서는 Azure AD 액세스 제어 클레임 변환 규칙 엔진이 사용됩니다. 클레임 변환 규칙 엔진의 규칙을 사용하면 들어오는 클레임을 역할 유형 클레임으로 변환할 수 있습니다. 이를 통해 토큰이 응용 프로그램이나 서비스에 도달할 때 WIF가 이 역할 클레임을 구문 분석하여 IsInRole 메서드를 성공적으로 호출할 수 있습니다.
+**Azure AD 액세스 제어**. 이 구현에서는 
+Azure AD 액세스 제어 클레임 변환 규칙 엔진이 사용됩니다. 클레임 변환 규칙 엔진을 사용하여 들어오는 클레임을 역할 유형 클레임으로 때 변환할 수 있습니다. 토큰이 응용 프로그램이나 서비스 WIF에 도달할 때 이 역할 클레임을 구문 분석할 수 있도록
+IsInRole 메서드를 성공적으로 호출할 수 있습니다.
 
 ![][09]
 
-**WIF ClaimsAuthenticationManager**. 이 구현에서는 WIF의 확장 포인트로 ClaimsAuthenticationManager를 사용합니다. 이 방법을 사용하여 응용 프로그램에서 들어오는 임의 클레임을 역할 클레임 유형으로 변환합니다. 변환의 복잡한 정도는 사용자가 작성하는 코드로만 제한됩니다.
+**WIF ClaimsAuthenticationManager**. 이 구현에서는
+WIF의 확장 포인트로 ClaimsAuthenticationManager를 사용합니다. 이 방법을 사용하여 응용 프로그램에서 들어오는 임의 클레임을 역할 클레임 유형으로 변환합니다. 변환의 복잡한 정도는 사용자가 작성하는 코드로만 제한됩니다.
 
 ![][10]
 
@@ -250,7 +276,8 @@ WIF는 모든 경우에 사용됩니다. WIF는 IPrincipal.IsInRole("MyRole") �
 
 ![][11]
 
-**사용자 지정 RoleManager.** 이 구현에서는 사용자 지정 RoleManger를 구현합니다. GetAllRoles() 같은 사용자 지정 RoleManager 인터페이스 메서드를 구현할 경우 WIF를 사용하여 들어오는 클레임을 검사합니다.
+**사용자 지정 RoleManager입니다.** 이 구현에서는 사용자 지정
+RoleManger를 구현합니다. GetAllRoles() 같은 사용자 지정 RoleManager 인터페이스 메서드를 구현할 경우 WIF를 사용하여 들어오는 클레임을 검사합니다.
 
 ![][12]
 
@@ -258,7 +285,7 @@ WIF는 모든 경우에 사용됩니다. WIF는 IPrincipal.IsInRole("MyRole") �
 
 -   [방법: 클레임 인식 ASP.NET 응용 프로그램에서 WIF 및 ACS를 사용하여 RBAC(역할 기반 액세스 제어) 구현](http://msdn.microsoft.com/library/gg185914.aspx)
 -   [방법: 규칙을 사용하여 토큰 변환 논리 구현](http://msdn.microsoft.com/library/gg185955.aspx)
--   [RoleManager를 사용하여 클레임 인식(WIF) ASP.NET 웹 응용 프로그램에 대한권한 부여](http://blogs.msdn.com/b/alikl/archive/2010/11/18/authorization-with-rolemanager-for-claims-aware-wif-asp-net-web-applications.aspx)
+-   [클레임 인식(WIF) ASP.NET 웹 응용프로그램에 대한 RoleManager 사용 권한 부여](http://blogs.msdn.com/b/alikl/archive/2010/11/18/authorization-with-rolemanager-for-claims-aware-wif-asp-net-web-applications.aspx)
 -   코드 샘플: [Windows Identity Foundation SDK](http://www.microsoft.com/downloads/details.aspx?FamilyID=c148b2df-c7af-46bb-9162-2c9422208504)에서 IsInRole의 클레임 사용
 
 ###클레임 인식 응용 프로그램 및 서비스의 클레임 기반 권한 부여
@@ -326,11 +353,12 @@ SQL 데이터베이스는 SQL Server 인증만 지원하며 Windows
 
 -   [ACS로 서비스 버스 보안](http://channel9.msdn.com/posts/Securing-Service-Bus-with-ACS)(비디오)
 -   [ACS로 서비스 버스 보안](https://skydrive.live.com/view.aspx?cid=123CCD2A7AB10107&resid=123CCD2A7AB10107%211849)(슬라이드)
--   [액세스 제어 서비스를 사용한 서비스 버스 인증 및 권한 부여](http://msdn.microsoft.com/library/hh403962.aspx)
+-   [액세스 제어 서비스로 서비스 버스 인증 및 권한 부여](http://msdn.microsoft.com/library/hh403962.aspx)
 
 ##메모리 내 캐시 ID 및 액세스 시나리오
 
-메모리 내 캐시(이전의 Azure 캐시)는 Azure AD 액세스 제어를 기반으로 인증을 수행합니다. 또한 관리 포털에서 사용할 수 있는 공유 키를 사용합니다. 캐시에 액세스할 때 코드 또는 구성 파일에서 키를 사용합니다. 정보가 공개되지 않도록 키를 안전하게 저장해야 합니다.
+메모리 내 캐시(이전의 Azure 캐시)는 Azure AD 액세스 제어를 기반으로
+인증을 수행합니다. 또한 관리 포털에서 사용할 수 있는 공유 키를 사용합니다. 캐시에 액세스할 때 코드 또는 구성 파일에서 키를 사용합니다. 정보가 공개되지 않도록 키를 안전하게 저장해야 합니다.
 
 ![][17]
 
@@ -347,7 +375,8 @@ SQL 데이터베이스는 SQL Server 인증만 지원하며 Windows
 
 ###내가 내 데이터 집합에 액세스
 
-이 시나리오에서는 마켓플레이스 구독에서 데이터 집합을 사용하는 응용 프로그램을 빌드합니다. 자신이 응용 프로그램의 사용자입니다. 응용 프로그램은 Azure, 온-프레미스 또는 마켓플레이스에 배포할 수 있습니다.
+이 시나리오에서는 마켓플레이스 구독에서 데이터 집합을 사용하는 응용 프로그램을 빌드합니다. 자신이 응용 프로그램의 사용자입니다.
+응용 프로그램은 Azure, 온-프레미스 또는 마켓플레이스에 배포할 수 있습니다.
 
 마켓플레이스 구독에서 사용할 수 있는 공유 키를 사용합니다. 마켓플레이스 포털을 사용하여 공유 키를 얻습니다.
 
@@ -372,11 +401,13 @@ SQL 데이터베이스는 SQL Server 인증만 지원하며 Windows
 
 ###응용 프로그램이 마켓플레이스 API에 액세스
 
-이 시나리오에서는 마켓플레이스 API에 액세스하는 응용 프로그램을 빌드합니다. 마켓플레이스 API에서 호출을 수행하려면 인증이 필요합니다. 응용 프로그램은 Azure 마켓플레이스에 배포됩니다.
+이 시나리오에서는 마켓플레이스 API에 액세스하는
+응용 프로그램을 빌드합니다. 마켓플레이스 API에서 호출을 수행하려면 인증이 필요합니다. 응용 프로그램은 Azure 마켓플레이스에
+배포됩니다.
 
 ![][20]
 
-인증 구현에 대한 자세한 내용은 마켓플레이스 게시 키트를 참조하세요.
+인증 구현에 대한 자세한 내용은 마켓플레이스 게시 키트에 문의하세요.
 
 이 시나리오를 구현하려면 다음 리소스를 참조하세요.
 
@@ -391,14 +422,14 @@ SQL 데이터베이스는 SQL Server 인증만 지원하며 Windows
 ###Windows Identity Foundation
 
 다음은 WIF의 키 보안 노브입니다. 아래 정보는 [WIF 설계 고려 사항](http://msdn.microsoft.com/library/ee517298.aspx) 및 [ASP.NET 웹 응용 프로그램에 대한WIF(Windows Identity Foundation) 보안 - 위협 및 대응 방법](http://blogs.msdn.com/b/alikl/archive/2010/12/02/windows-identity-foundation-wif-security-for-asp-net-web-applications-threats-amp-countermeasures.aspx)
-(영문)을 요약한 것입니다.
+.
 
 -   **IssuerNameRegistry**. 신뢰할 수 있는 STS(Security Token Services)를 지정합니다. 신뢰할 수 있는 STS만 표시됩니다.
 -   **cookieHandler requireSsl="true"**. 세션 쿠키가 SSL 프로토콜을 통해 전송되는지를 지정합니다.
 -   **wsFederation's requireHttps="true"**. ID 공급자와의 페더레이션 프로토콜 통신이 SSL 프로토콜을 통해 수행되는지를 지정합니다.
 -   **tokenReplayDetection enabled="true"**. 토큰 재생 검색 기능을 사용할 수 있는지를 지정합니다. 이 기능은 사용된 토큰의 로컬 복사본을 관리하면서 서버 선호도를 만듭니다.
 -   **audienceUris**. 토큰의 대상 그룹을 지정합니다. 응용 프로그램이 응용 프로그램에 사용할 수 없는 토큰을 받으면 WIF에서 이를 거부합니다.
--   **requestValidation** 및 **httpRuntime requestValidationType**. ASP.NET 유효성 검사 기능을 사용하거나 사용하지 않도록 설정합니다. [WIF(Windows Identity Foundation): 잠재적으로 위험한 Request.Form 값이 클라이언트에서 검색되었음](http://social.technet.microsoft.com/wiki/contents/articles/1725.windows-identity-foundation-wif-a-potentially-dangerous-request-form-value-was-detected-from-the-client-wresult-t-requestsecurityto.aspx)에서 설명하는 지침을 참조하세요.
+-   **requestValidation** 및 **httpRuntime requestValidationType**. ASP.NET 유효성 검사 기능을 사용하거나 사용하지 않도록 설정합니다. [WIF(Windows Identity Foundation): 클라이언트에서 잠재적으로 위험한 Request.Form 값이 발견 되었습니다.](http://social.technet.microsoft.com/wiki/contents/articles/1725.windows-identity-foundation-wif-a-potentially-dangerous-request-form-value-was-detected-from-the-client-wresult-t-requestsecurityto.aspx)
 
 ###Azure AD 액세스 제어
 
@@ -406,15 +437,15 @@ Azure AD 액세스 제어 배포 시 다음 보안 노브를 고려합니다. �
 지침](http://msdn.microsoft.com/library/gg185962.aspx) 및 [인증서 및 키 관리 지침](http://msdn.microsoft.com/library/hh204521.aspx)을 요약한 것입니다.
 
 -   **STS 토큰 만료**. Azure AD 액세스 제어 관리 포털을 사용하여 토큰 만료를 적극적으로 설정합니다.
--   **오류 URL 기능 사용 시 데이터 유효성 검사**. Azure AD 액세스 제어 오류 URL 기능은 오류 메시지를 보낼 때 응용 프로그램 페이지에 익명으로 액세스해야 합니다. 신뢰할 수 없는 원본에서 이 페이지로 들어오는 모든 데이터를 위험한 데이터로 간주합니다.
--   **기밀을 철저하게 유지하기 위해 토큰 암호화**. 토큰에서 사용할 수 있는 정보가 공개될 위협을 줄이려면 토큰을 암호화하는 것이 좋습니다.
+-   **오류 URL 기능을 사용할 때 데이터 유효성 검사**. Azure AD 액세스 제어 오류 URL 기능은 오류 메시지를 보낼 때 응용 프로그램 페이지에 익명으로 액세스해야 합니다. 신뢰할 수 없는 원본에서 이 페이지로 들어오는 모든 데이터를 위험한 데이터로 간주합니다.
+-   **매우 중요한 시나리오에 대한 토큰을 암호화**. 토큰에서 사용할 수 있는 정보가 공개될 위협을 줄이려면 토큰을 암호화하는 것이 좋습니다.
 -   **Azure에 배포할 때 RSA를 사용하여 쿠키 암호화**. WIF는 기본적으로 DPAPI를 사용하여 쿠키를 암호화합니다. 또한 서버 선호도를 만들며 웹 팜 및 Azure 환경에 배포할 때 예외를 발생시킬 수 있습니다. 대신 웹 팜 및 Azure 시나리오에서는 RSA를 사용합니다.
 -   **토큰 서명 인증서**. 서비스 거부를 방지하려면 토큰 서명 인증서를 주기적으로 갱신합니다. Azure AD 액세스 제어는 발급하는 모든 보안 토큰에 서명합니다. ACS에서 발급한 SAML 토큰을 사용하는 응용 프로그램을 작성할 때는 X.509 인증서를 사용하여 서명합니다. 서명 인증서가 만료되면 토큰을 요청할 때 오류가 표시됩니다.
 -   **토큰 서명 키**. 서비스 거부를 방지하려면 토큰 서명 키를 주기적으로 갱신합니다. Azure AD 액세스 제어는 발급하는 모든 보안 토큰에 서명합니다. ACS에서 발급한 SWT 토큰을 사용하는 응용 프로그램을 작성할 때는 256비트 대칭 서명 키가 사용됩니다. 서명 키가 만료되면 토큰을 요청할 때 오류가 표시됩니다.
 -   **토큰 암호화 인증서**. 서비스 거부를 방지하려면 토큰 암호화 인증서를 주기적으로 갱신합니다. 신뢰 당사자 응용 프로그램이 WS-Trust 프로토콜을 통해 소유 증명 토큰을 사용하는 웹 서비스인 경우에는 토큰 암호화가 필요합니다. 그 외 경우에, 토큰 암호화는 선택 사항입니다. 암호화 인증서가 만료되면 토큰을 요청할 때 오류가 표시됩니다.
 -   **토큰 암호 해독 인증서**. 서비스 거부를 방지하려면 토큰 암호 해독 인증서를 주기적으로 갱신합니다. Azure AD 액세스 제어에서는 WS-Federation ID 공급자(예: AD FS 2.0)에서 보낸 암호화된 토큰을 수락할 수 있습니다. 암호 해독에는 Azure AD 액세스 제어에서 호스트되는 X.509 인증서가 사용됩니다. 암호 해독 인증서가 만료되면 토큰을 요청할 때 오류가 표시됩니다.
 -   **서비스 ID 자격 증명**. 서비스 거부를 방지하려면 서비스 ID 자격 증명을 주기적으로 갱신합니다. 서비스 ID는 Azure AD 액세스 제어 네임스페이스에 대해 전역적으로 구성되며, 응용 프로그램 또는 클라이언트가 Azure AD 액세스 제어에 직접 인증하고 토큰을 받을 수 있도록 하는 자격 증명을 사용합니다. Azure AD 액세스 제어 서비스 ID는 대칭 키, 암호, X.509 인증서인 세 가지 유형의 자격 증명에 연결될 수 있습니다. 자격 증명이 만료되면 예외를 받기 시작합니다.
--   **Azure AD 액세스 제어 관리 서비스 계정 자격 증명**. 서비스 거부를 방지하려면 관리 서비스 자격 증명을 주기적으로 갱신합니다. Azure AD 액세스 제어 관리 서비스는 Azure AD 액세스 제어 네임스페이스에서 설정을 프로그래밍 방식으로 관리 및 구성할 수 있도록 하는 주요 구성 요소입니다. 관리 서비스 계정은 세 가지 유형의 자격 증명에 연결될 수 있습니다. 여기에는 대칭 키, 암호 및 X.509 인증서가 있습니다. 자격 증명이 만료되면 예외를 받기 시작합니다.
+-   **Azure AD 액세스 제어 관리 서비스 계정 자격 증명**. 서비스 거부를 방지하려면 관리 서비스 자격 증명을 주기적으로 갱신합니다. Azure AD 액세스 제어 관리 서비스는 프로그래밍 방식으로 관리하고 Azure AD 액세스 제어 네임 스페이스에 대한 설정을 구성할 수 있도록 하는 주요 구성 요소입니다. 관리 서비스 계정은 세 가지 유형의 자격 증명에 연결될 수 있습니다. 여기에는 대칭 키, 암호 및 X.509 인증서가 있습니다. 자격 증명이 만료되면 예외를 받기 시작합니다.
 -   **WS-Federation ID 공급자 서명 및 암호화 인증서**. 서비스 거부를 방지하려면 WS-Federation ID 공급자의 인증서 유효성을 쿼리합니다. WS-Federation ID 공급자 인증서는 해당 메타데이터를 통해 사용 가능합니다. AD FS와 같은 WS-Federation ID 공급자를 구성할 때는 URL이나 파일로 제공되는 WS-Federation 메타데이터를 통해 WS-Federation 서명 인증서를 구성합니다. WS-Federation ID 공급자를 구성한 후에는 Azure AD 액세스 제어 관리 서비스를 사용하여 이 공급자의 인증서 유효성을 쿼리합니다. 인증서가 만료되면 예외를 받기 시작합니다.
 
 ##Azure 웹 사이트를 사용하는 공유 호스팅
@@ -466,4 +497,5 @@ Azure AD 액세스 제어 배포 시 다음 보안 노브를 고려합니다. �
 
 [웹 SSO 디자인]: http://technet.microsoft.com/library/dd807033(WS.10).aspx
 [페더레이션된 웹 SSO 디자인]: http://technet.microsoft.com/library/dd807050(WS.10).aspx
-<!--HONumber=42-->
+
+<!--HONumber=47-->
