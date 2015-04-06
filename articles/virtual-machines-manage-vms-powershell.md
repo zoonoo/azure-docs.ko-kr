@@ -1,4 +1,4 @@
-﻿<properties
+<properties
    pageTitle="manage-vms-azure-powershell"
    description="Azure PowerShell을 사용하여 VM 관리"
    services="virtual-machines"
@@ -18,7 +18,7 @@
 
 # Azure PowerShell을 사용하여 가상 컴퓨터 관리
 
-여기서 설명하는 작업을 수행하기 전에 Azure PowerShell이 설치되어 있는지 확인해야 합니다. 이렇게 하려면 [Azure PowerShell을 설치 및 구성하는 방법]을 참조하세요.(install-configure-powershell)
+여기서 설명하는 작업을 수행하기 전에 Azure PowerShell이 설치되어 있는지 확인해야 합니다. 이렇게 하려면 [Azure PowerShell을 설치 및 구성하는 방법](../install-configure-powershell/)을 참조하세요.
 
 ## 이미지 가져오기
 
