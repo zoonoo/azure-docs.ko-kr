@@ -1,4 +1,4 @@
-﻿<properties umbracoNaviHide="0" pageTitle="응용 프로그램 모델" metaKeywords="Azure, Azure, 응용 프로그램 모델, Azure 응용 프로그램 모델, 개발 모델, Azure 개발 모델, 호스티드 서비스, Azure 호스티드 서비스, 웹 역할, 작업자 역할" description="Azure에서 호스트하는 서비스 응용 프로그램 모델에 대해 알아봅니다. 또한 핵심 개념, 디자인 고려 사항, 응용 프로그램 정의/구성 및 크기 조정에 대해 설명합니다." urlDisplayName="Application Model" headerExpose="" footerExpose="" disqusComments="1" title="Azure Fundamentals - Application Models" authors="timlt" manager="timlt" />
+<properties umbracoNaviHide="0" pageTitle="응용 프로그램 모델" metaKeywords="Azure, Azure, 응용 프로그램 모델, Azure 응용 프로그램 모델, 개발 모델, Azure 개발 모델, 호스티드 서비스, Azure 호스티드 서비스, 웹 역할, 작업자 역할" description="Azure에서 호스트하는 서비스 응용 프로그램 모델에 대해 알아봅니다. 또한 핵심 개념, 디자인 고려 사항, 응용 프로그램 정의/구성 및 크기 조정에 대해 설명합니다." urlDisplayName="Application Model" headerExpose="" footerExpose="" disqusComments="1" title="Azure Fundamentals - Application Models" authors="timlt" manager="timlt" />
 
 <tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/1/2014" ms.author="timlt" />
 
@@ -16,7 +16,7 @@ Azure는 응용 프로그램을 실행하는 데 다른 실행 모델을 제공�
 - [사용해야 하는 모델 선택](#WhatShouldIUse)
 
 <h2><a id="VMachine"></a>가상 컴퓨터</h2>
-Azure 가상 컴퓨터를 사용하여 개발자 및 IT 작업 인원 등이 클라우드에서 가상 컴퓨터를 만들고 사용할 수 있습니다. 이 기술은 "IaaS(Infrastructure as a Service)*를 통해 다양한 방법으로 사용될 수 있습니다. [그림 1]에서는(#Fig1) 기본 구성 요소를 보여 줍니다.
+Azure 가상 컴퓨터를 사용하여 개발자 및 IT 작업 인원 등이 클라우드에서 가상 컴퓨터를 만들고 사용할 수 있습니다. 이 기술은 "IaaS(Infrastructure as a Service)*를 통해 다양한 방법으로 사용될 수 있습니다. [그림 1](#Fig1)에서는 기본 구성 요소를 보여 줍니다.
 
 <a name="Fig1"></a>![01_CreatingVMs][01_CreatingVMs]
 
@@ -78,7 +78,7 @@ OS 디스크 외에도 VM에는 데이터 디스크가 하나 이상 있습니�
 
 ###VM 그룹화: 클라우드 서비스 
 
-Azure 가상 컴퓨터로 새 VM을 만드는 경우 독립 실행형으로 실행되도록 선택하거나 "클라우드 서비스(cloud service)"에서 함께 실행되는 VM 그룹 중 일부로 만들 수 있습니다. (유사한 이름에도 불구하고 이 개념을 Azure의 PaaS 기술 이름인 클라우드 서비스(Cloud Services)와 혼동하지 마세요. 두 가지는 서로 다릅니다.)  각 독립 실행형 VM은 고유한 공용 IP 주소에 할당되지만 동일한 클라우드 서비스의 모든 VM은 하나의 공용 IP 주소를 통해 액세스됩니다. [그림 2]에서는(#Fig2) 표시되는 모양을 보여 줍니다.
+Azure 가상 컴퓨터로 새 VM을 만드는 경우 독립 실행형으로 실행되도록 선택하거나 "클라우드 서비스(cloud service)"에서 함께 실행되는 VM 그룹 중 일부로 만들 수 있습니다. (유사한 이름에도 불구하고 이 개념을 Azure의 PaaS 기술 이름인 클라우드 서비스(Cloud Services)와 혼동하지 마세요. 두 가지는 서로 다릅니다.)  각 독립 실행형 VM은 고유한 공용 IP 주소에 할당되지만 동일한 클라우드 서비스의 모든 VM은 하나의 공용 IP 주소를 통해 액세스됩니다. [그림 2](#Fig2)에서는 표시되는 모양을 보여 줍니다.
  
 <a name="Fig2"></a>![02_CloudServices][02_CloudServices]
 
@@ -92,7 +92,7 @@ Azure 가상 컴퓨터로 새 VM을 만드는 경우 독립 실행형으로 실�
 
 ###시나리오: SQL Server 응용 프로그램 실행
 
-Azure 가상 컴퓨터 작동 방법을 더 이해하려면 몇 개의 시나리오를 좀더 자세히 살펴보는 것이 유용합니다. 예를 들어 Azure에서 실행하는 신뢰할 수 있고 확장 가능한 웹 응용 프로그램을 만든다고 가정합니다. 그 방법 중 하나는 하나 이상의 Azure VM에서 응용 프로그램 논리를 실행한 다음 데이터 관리에 대해 SQL Server를 사용하는 것입니다. [그림 3]에서는(#Fig3) 표시되는 모양을 보여 줍니다.
+Azure 가상 컴퓨터 작동 방법을 더 이해하려면 몇 개의 시나리오를 좀더 자세히 살펴보는 것이 유용합니다. 예를 들어 Azure에서 실행하는 신뢰할 수 있고 확장 가능한 웹 응용 프로그램을 만든다고 가정합니다. 그 방법 중 하나는 하나 이상의 Azure VM에서 응용 프로그램 논리를 실행한 다음 데이터 관리에 대해 SQL Server를 사용하는 것입니다. [그림 3](#Fig3)에서는 표시되는 모양을 보여 줍니다.
 
 <a name="Fig3"></a>![03_AppUsingSQLServer][03_AppUsingSQLServer]
 
@@ -102,7 +102,7 @@ Azure 가상 컴퓨터 작동 방법을 더 이해하려면 몇 개의 시나리
 
 ###시나리오: SharePoint 팜 실행 
 
-조직에서 SharePoint 팜을 만들려고 하나 그 팜을 자체 데이터 센터에서 실행하려고 하지 않는다고 가정합니다. 온-프레미스 데이터 센터의 리소스가 부족하거나 팜을 만드는 사업부에서 내부 IT 그룹과의 거래를 원하지 않을 수 있습니다. 이런 경우 Azure 가상 컴퓨터에서 SharePoint를 실행하는 것이 적합할 수 있습니다. [그림 4]에서는(#Fig4) 표시되는 모양을 보여 줍니다.
+조직에서 SharePoint 팜을 만들려고 하나 그 팜을 자체 데이터 센터에서 실행하려고 하지 않는다고 가정합니다. 온-프레미스 데이터 센터의 리소스가 부족하거나 팜을 만드는 사업부에서 내부 IT 그룹과의 거래를 원하지 않을 수 있습니다. 이런 경우 Azure 가상 컴퓨터에서 SharePoint를 실행하는 것이 적합할 수 있습니다. [그림 4](#Fig4)에서는 표시되는 모양을 보여 줍니다.
 
 <a name="Fig4"></a>![04_SharePointFarm][04_SharePointFarm]
  
@@ -133,12 +133,12 @@ SharePoint 팜에는 여러 개의 구성 요소가 있으며 다른 VHD에서 �
 Azure 웹 사이트는 웹 응용 프로그램 실행에 최적화된 PaaS(Platform as a Service) 솔루션을 만들기 위해 Azure 클라우드 서비스를 기반으로 구축됩니다. 그림에서 볼 수 있듯이 웹 사이트는 개인 사용자에게 속한 표준 VM뿐만 아니라 여러 사용자가 만든 여러 웹 사이트를 포함할 수 있는 단일 VM 집합에서도 실행됩니다. VM은 Azure 웹 사이트에서 관리하는 리소스 풀의 일부이므로 높은 안정성 및 내결함성을 제공합니다.
 시작하기 쉽습니다. 사용자는 Azure 웹 사이트로 다양한 응용 프로그램, 프레임워크 및 템플릿에서 선택할 수 있으며 웹 사이트를 신속하게 만들 수 있습니다. 그런 다음 원하는 개발 도구(WebMatrix, Visual Studio, 기타 편집기) 및 소스 제어 옵션을 사용하여 연속 통합을 설정하고 팀으로 개발할 수 있습니다. MySQL DB가 필요한 응용 프로그램은 Microsoft 파트너인 ClearDB에서 Azure용으로 제공하는 MySQL 서비스를 사용할 수 있습니다.
 개발자는 웹 사이트로 크고 확장 가능한 웹 응용 프로그램을 만들 수 있습니다. ASP.NET, PHP, Node.js 및 Python을 사용하여 응용 프로그램을 만드는 기술이 지원됩니다. 예를 들어 응용 프로그램은 고정 세션을 사용할 수 있으며 기존 웹 응용 프로그램은 변경 사항 없이 이 클라우드 플랫폼으로 이동될 수 있습니다. 웹 사이트에서 구축된 응용 프로그램은 서비스 버스, SQL 데이터베이스 및 Blob 저장소와 같은 Azure의 다른 기능을 무료로 사용할 수 있습니다. 또한 VM의 웹 사이트 자동 부하 분산 요청으로 응용 프로그램의 여러 복사본을 다른 VM에서 실행할 수도 있습니다. 또한 새 웹 사이트 인스턴스가 이미 존재하는 VM에서 만들어졌기 때문에 새 VM을 만드는 것보다 새 응용 프로그램 인스턴스를 시작하는 것이 훨씬 더 빠릅니다.
-[그림 5]에서처럼(#Fig5) 여러 가지 방법을 통해 코드 및 그 밖의 웹 콘텐츠를 웹 사이트에 게시할 수 있습니다. FTP, FTPS 또는 Microsoft의 WebDeploy 기술을 사용할 수 있습니다. 또한 웹 사이트는 Git, GitHub, CodePlex, BitBucket, Dropbox, Mercurial, Team Foundation Server 및 클라우드 기반의 Team Foundation Service를 포함하는 소스 제어 시스템으로부터 코드를 게시할 수 있습니다.
+[그림 5](#Fig5)에서처럼 여러 가지 방법을 통해 코드 및 그 밖의 웹 콘텐츠를 웹 사이트에 게시할 수 있습니다. FTP, FTPS 또는 Microsoft의 WebDeploy 기술을 사용할 수 있습니다. 또한 웹 사이트는 Git, GitHub, CodePlex, BitBucket, Dropbox, Mercurial, Team Foundation Server 및 클라우드 기반의 Team Foundation Service를 포함하는 소스 제어 시스템으로부터 코드를 게시할 수 있습니다.
 
 
 <h2><a id="CloudServices"></a>클라우드 서비스</h2>
 
-Azure 가상 컴퓨터는 IaaS를 제공하고, Azure 웹 사이트는 웹 호스팅을 제공합니다. 세 번째 컴퓨팅 옵션인 클라우드 서비스는 "PaaS(Platform as a Service)"를 제공합니다. 이 기술은 확장 가능하고 신뢰할 수 있으며 작동하기 저렴한 응용 프로그램을 지원하도록 설계되었습니다. 또한 개발자는 자신이 사용하는 플랫폼의 관리에 대한 걱정을 할 필요가 없어서 자신의 응용 프로그램에 완전히 집중할 수 있습니다. [그림 6]에서는(#Fig6) 이 아이디어를 보여 줍니다.
+Azure 가상 컴퓨터는 IaaS를 제공하고, Azure 웹 사이트는 웹 호스팅을 제공합니다. 세 번째 컴퓨팅 옵션인 클라우드 서비스는 "PaaS(Platform as a Service)"를 제공합니다. 이 기술은 확장 가능하고 신뢰할 수 있으며 작동하기 저렴한 응용 프로그램을 지원하도록 설계되었습니다. 또한 개발자는 자신이 사용하는 플랫폼의 관리에 대한 걱정을 할 필요가 없어서 자신의 응용 프로그램에 완전히 집중할 수 있습니다. [그림 6](#Fig6)에서는 이 아이디어를 보여 줍니다.
 
 <a name="Fig6"></a>![06_CloudServices2][06_CloudServices2] 
 
@@ -181,7 +181,7 @@ Azure에서 제공한 초기 실행 모델이었던 클라우드 서비스는 �
 
 세 가지 Azure 실행 모델에는 장단점이 있습니다. 최상의 선택을 하려면 이러한 장단점을 이해하고 달성하려는 목표를 확인한 후 가장 적합한 모델을 선택해야 합니다.
 
-실행 모델이 하나도 적합하지 않은 경우도 있습니다. 이런 경우 옵션을 조합하는 것이 가장 좋습니다. 예를 들어 클라우드 서비스 웹 역할의 관리 혜택을 원하는 위치에 응용 프로그램을 구축하고 있으나 호환성 및 성능 상의 이유로 표준 SQL Server를 사용해야 한다고 가정합니다. 이런 경우에는 [그림 7]에서 보듯이 실행 모델을 조합하는 것이 가장(#Fig7) 좋습니다.
+실행 모델이 하나도 적합하지 않은 경우도 있습니다. 이런 경우 옵션을 조합하는 것이 가장 좋습니다. 예를 들어 클라우드 서비스 웹 역할의 관리 혜택을 원하는 위치에 응용 프로그램을 구축하고 있으나 호환성 및 성능 상의 이유로 표준 SQL Server를 사용해야 한다고 가정합니다. 이런 경우에는 [그림 7](#Fig7)에서 보듯이 실행 모델을 조합하는 것이 가장 좋습니다.
 
 <a name="Fig7"></a>![07_CombineTechnologies][07_CombineTechnologies] 
  

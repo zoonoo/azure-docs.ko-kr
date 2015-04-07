@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="인증된 사용자에게 푸시 알림 보내기" 
 	description="특정 사용자에게 푸시 알림을 보내는 방법에 대해 알아봅니다." 
 	services="mobile-services, notification-hubs" 
@@ -34,7 +34,7 @@
 
 이 자습서를 시작하려면 먼저 다음 모바일 서비스 자습서를 완료해야 합니다.
 
-+ [인증 시작](영문)<br/>TodoList 샘플 앱에 로그인 요구 사항을 추가합니다.
++ [인증 시작][](영문)<br/>TodoList 샘플 앱에 로그인 요구 사항을 추가합니다.
 
 + [푸시 알림 시작]<br/>알림 허브를 사용하여 푸시 알림에 맞게 TodoList 샘플 앱을 구성합니다. 
 
@@ -94,7 +94,7 @@
 
 
 <!-- URLs. -->
-[인증 시작](영문): /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-users/
+[인증 시작]: /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-users/
 [푸시 알림 시작]: /ko-kr/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push/
 
 [Azure 관리 포털]: https://manage.windowsazure.com/

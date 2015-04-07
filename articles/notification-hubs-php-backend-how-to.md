@@ -26,7 +26,7 @@ MSDN 항목 [알림 허브 REST API](http://msdn.microsoft.com/library/dn223264.
 이 항목에서는 다음 방법을 보여 줍니다.
 
 * PHP에서 알림 허브 기능에 대한 REST 클라이언트를 빌드하는 방법
-* 선택한 모바일 플랫폼에 대한 [시작 자습서](http://azure.microsoft.com/ documentation/articles/notification-hubs-ios-get-started/)에 따라 PHP에서 백 엔드 부분을 구현합니다.
+* 선택한 모바일 플랫폼에 대한 [시작 자습서](http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/)에 따라 PHP에서 백 엔드 부분을 구현합니다.
 
 ## 클라이언트 인터페이스
 기본 클라이언트 인터페이스에서는 [.NET 알림 허브 SDK](http://msdn.microsoft.com/library/jj933431.aspx)에서 사용할 수 있는 것과 같은 메서드를 제공할 수 있습니다. 이 인터페이스를 사용하여 현재 이 사이트에서 사용할 수 있고 인터넷의 커뮤니티에서 제공되는 모든 자습서와 샘플을 직접 변환할 수 있습니다.
@@ -204,7 +204,6 @@ iOS 기본 알림을 보내려면 다음을 수행합니다.
 이제 PHP 백 엔드에서 알림을 보내 시작 자습서를 완료할 수 있습니다.
 
 알림 허브 클라이언트를 초기화합니다([시작 자습서]에 설명된 대로 연결 문자열 및 허브 이름 대체).
-
 	$hub = new NotificationHub("connection string", "hubname");	
 
 그리고 대상 모바일 플랫폼에 따라 보내기 코드를 추가합니다.
@@ -258,6 +257,6 @@ iOS 기본 알림을 보내려면 다음을 수행합니다.
 
 
 [PHP REST 래퍼 샘플]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-php
-[시작 자습서]: http://azure.microsoft.com/ documentation/articles/notification-hubs-ios-get-started/
+[시작 자습서]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
 
 <!--HONumber=45--> 
