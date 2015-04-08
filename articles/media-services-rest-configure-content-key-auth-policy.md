@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="REST를 사용하여 콘텐츠 키 인증 정책 구성하기" 
 	description="콘텐츠 키에 대한 인증 정책을 구성하는 방법에 대해 알아봅니다." 
 	services="media-services" 
@@ -21,7 +21,7 @@
 #동적 암호화: 콘텐츠 키 인증 정책 구성 
 [AZURE.INCLUDE [media-services-selector-content-key-auth-policy](../includes/media-services-selector-content-key-auth-policy.md)] 
 
-이 문서는 [워크플로 주문형 미디어 서비스 비디오] 시리즈의(../media-services-video-on-demand-workflow) 및 [미디어 서비스 라이브 스트리밍 워크플로](../media-services-live-streaming-workflow) 일부입니다. 
+이 문서는 [워크플로 주문형 미디어 서비스 비디오](../media-services-video-on-demand-workflow) 시리즈의 및 [미디어 서비스 라이브 스트리밍 워크플로](../media-services-live-streaming-workflow) 일부입니다. 
 
 ##개요
 
@@ -47,8 +47,8 @@ Microsoft Azure 미디어 서비스를 사용하면 128 비트 암호화 키를 
 
 ###다음과 같은 몇 가지 고려 사항이 적용됩니다.
 
-- 동적 패키징 및 동적 암호화를 사용할 수 있으려면 하나 이상의 배율 단위(스트리밍 단위)가 있어야 합니다. 자세한 내용은 [미디어 서비스를 확장하는 방법]을 참조하세요(../media-services-manage-origins#scale_streaming_endpoints). 
-- 자산은 다중 비트 전송률 MP4 또는 다중 비트 전송률 부드러운 스트리밍 파일 집합을 포함해야 합니다. 자세한 내용은 [자산 인코딩]을 참조하세요(../media-services-encode-asset/).  
+- 동적 패키징 및 동적 암호화를 사용할 수 있으려면 하나 이상의 배율 단위(스트리밍 단위)가 있어야 합니다. 자세한 내용은 [미디어 서비스를 확장하는 방법](../media-services-manage-origins#scale_streaming_endpoints)을 참조하세요. 
+- 자산은 다중 비트 전송률 MP4 또는 다중 비트 전송률 부드러운 스트리밍 파일 집합을 포함해야 합니다. 자세한 내용은 [자산 인코딩](../media-services-encode-asset/)을 참조하세요.  
 - **AssetCreationOptions.StorageEncrypted** 옵션을 사용하여 자산을 업로드하고 인코딩합니다.
 - 동일한 정책 구성이 필요한 여러 콘텐츠 키를 사용하려는 경우 단일 인증 정책을 만들고 여러 콘텐츠 키와 함께 다시 사용 하는 것이 좋습니다.
 - 키 배달 서비스는 ContentKeyAuthorizationPolicy 및 관련 개체(정책 옵션 및 제한 사항)를 15분 동안 캐시합니다.  ContentKeyAuthorizationPolicy를 만들고 "Token" 제한을 사용하도록 지정 및 테스트하고 정책의 제한을 "개방"으로 업데이트 하는 경우, 해당 정책이 "개방" 버전으로 전환하는 데 약 15분이 소요됩니다.
@@ -59,9 +59,9 @@ Microsoft Azure 미디어 서비스를 사용하면 128 비트 암호화 키를 
 
 >[AZURE.NOTE] 미디어 서비스 REST API를 사용할 때는 다음 사항을 고려해야 합니다.
 >
->미디어 서비스에서 엔터티에 액세스할 때는 HTTP 요청에서 구체적인 헤더 필드와 값을 설정해야 합니다. 자세한 내용은 [미디어 서비스 REST API 개발 설정]을 참조하세요(../media-services-rest-how-to-use).
+>미디어 서비스에서 엔터티에 액세스할 때는 HTTP 요청에서 구체적인 헤더 필드와 값을 설정해야 합니다. 자세한 내용은 [미디어 서비스 REST API 개발 설정](../media-services-rest-how-to-use)을 참조하세요.
 
->https://media.windows.net에 연결하면 다른 미디어 서비스 URI를 지정하는 301 리디렉션을 받게 됩니다. [미디어 서비스 REST API를 사용하여 미디어 서비스에 연결]에서 설명한 대로 새 URI에 대한 후속 호출을 해야 합니다(../media-services-rest-connect_programmatically/). 
+>https://media.windows.net에 연결하면 다른 미디어 서비스 URI를 지정하는 301 리디렉션을 받게 됩니다. [미디어 서비스 REST API를 사용하여 미디어 서비스에 연결](../media-services-rest-connect_programmatically/)에서 설명한 대로 새 URI에 대한 후속 호출을 해야 합니다. 
 
 
 ###열기 제한
@@ -257,7 +257,7 @@ Microsoft Azure 미디어 서비스를 사용하면 128 비트 암호화 키를 
 	
 ###ContentKeyAuthorizationPolicies 만들기
 
-[여기]에 표시된 대로 "Token Restriction Policy" 생성(#ContentKeyAuthorizationPolicies).
+[여기](#ContentKeyAuthorizationPolicies)에 표시된 대로 "Token Restriction Policy" 생성.
 
 
 ###ContentKeyAuthorizationPolicyOptions 만들기
@@ -301,11 +301,11 @@ Microsoft Azure 미디어 서비스를 사용하면 128 비트 암호화 키를 
 	
 ####ContentKeyAuthorizationPolicies를 옵션과 연결
 
-[여기]에 표시된 대로 ContentKeyAuthorizationPolicies을 옵션과 연결(#ContentKeyAuthorizationPolicies).
+[여기](#ContentKeyAuthorizationPolicies)에 표시된 대로 ContentKeyAuthorizationPolicies을 옵션과 연결.
 
 ####콘텐츠 키에 인증 정책 추가
 
-[여기]에 표시된 대로 AuthorizationPolicy를 ContentKey에 추가(#AddAuthorizationPolicyToKey).
+[여기](#AddAuthorizationPolicyToKey)에 표시된 대로 AuthorizationPolicy를 ContentKey에 추가.
 
 
 ##PlayReady 동적 암호화 
@@ -401,11 +401,11 @@ PlayReady로 콘텐츠를 보호하려는 경우 권한 부여 정책에서 지�
 
 ####ContentKeyAuthorizationPolicies를 옵션과 연결
 
-[여기]에 표시된 대로 ContentKeyAuthorizationPolicies을 옵션과 연결(#ContentKeyAuthorizationPolicies).
+[여기](#ContentKeyAuthorizationPolicies)에 표시된 대로 ContentKeyAuthorizationPolicies을 옵션과 연결.
 
 ####콘텐츠 키에 인증 정책 추가
 
-[여기]에 표시된 대로 AuthorizationPolicy를 ContentKey에 추가(#AddAuthorizationPolicyToKey).
+[여기](#AddAuthorizationPolicyToKey)에 표시된 대로 AuthorizationPolicy를 ContentKey에 추가.
 
 
 ###토큰 제한
@@ -414,7 +414,7 @@ PlayReady로 콘텐츠를 보호하려는 경우 권한 부여 정책에서 지�
 	
 ####ContentKeyAuthorizationPolicies 만들기
 	
-[여기]에 표시된 대로 ContentKeyAuthorizationPolicies 만들기(#ContentKeyAuthorizationPolicies2).
+[여기](#ContentKeyAuthorizationPolicies2)에 표시된 대로 ContentKeyAuthorizationPolicies 만들기.
 
 ####ContentKeyAuthorizationPolicyOptions 만들기
 	
@@ -457,11 +457,11 @@ PlayReady로 콘텐츠를 보호하려는 경우 권한 부여 정책에서 지�
 
 ####ContentKeyAuthorizationPolicies를 옵션과 연결
 
-[여기]에 표시된 대로 ContentKeyAuthorizationPolicies을 옵션과 연결(#ContentKeyAuthorizationPolicies).
+[여기](#ContentKeyAuthorizationPolicies)에 표시된 대로 ContentKeyAuthorizationPolicies을 옵션과 연결.
 
 ####콘텐츠 키에 인증 정책 추가
 
-[여기]에 표시된 대로 AuthorizationPolicy를 ContentKey에 추가(#AddAuthorizationPolicyToKey).
+[여기](#AddAuthorizationPolicyToKey)에 표시된 대로 AuthorizationPolicy를 ContentKey에 추가.
 
 
 ##<a id="types"></a>ContentKeyAuthorizationPolicy를 정의할 때 사용되는 형식
