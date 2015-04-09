@@ -24,7 +24,7 @@
 다음 관련 토픽을 참조할 수도 있습니다.
 
 - 선택적으로 [관리 포털 마법사를 사용하여 사이트 간 VPN을 구성](http://msdn.microsoft.com/library/windowsazure/dn133795.aspx)하고 새 포리스트를 설치하거나 온-프레미스 포리스트를 Azure 가상 네트워크로 확장할 수 있습니다. 이러한 단계는 [Azure 가상 네트워크에서 복제본 Active Directory 도메인 컨트롤러 설치](../virtual-networks-install-replica-active-directory-domain-controller)를 참조하세요.
--  Azure 가상 네트워크에 AD DS(Active Directory 도메인 서비스)를 설치하는 방법에 대한 개념 지침은 [Azure 가상 컴퓨터에 Windows Server Active Directory를 배포하기 위한  지침]을 참조하세요(http://msdn.microsoft.com/library/windowsazure/jj156090.aspx).
+-  Azure 가상 네트워크에 AD DS(Active Directory 도메인 서비스)를 설치하는 방법에 대한 개념 지침은 [Azure 가상 컴퓨터에 Windows Server Active Directory를 배포하기 위한  지침을 참조하세요](http://msdn.microsoft.com/library/windowsazure/jj156090.aspx).
 
 
 ## 온-프레미스와의 차이점

@@ -1,4 +1,4 @@
-﻿1. [Azure 관리 포털]에서 새 모바일 서비스 또는 해당 클라우드 아이콘 탭을 클릭하여 개요 페이지로 이동합니다.
+1. [Azure 관리 포털]에서 새 모바일 서비스 또는 해당 클라우드 아이콘 탭을 클릭하여 개요 페이지로 이동합니다.
 
     ![](./media/mobile-services-dotnet-backend-android-get-started-data/mobile-portal-quickstart-android.png)
 
@@ -25,6 +25,6 @@
 
 <!-- URLs. -->
 [Azure 관리 포털]: https://manage.windowsazure.com/
-[Android SDK](영문): https://go.microsoft.com/fwLink/p/?LinkID=280125
+[Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
 
 <!--HONumber=49-->

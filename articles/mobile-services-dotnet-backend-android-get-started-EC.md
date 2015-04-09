@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Android 앱에 대해 Azure 모바일 서비스 시작" 
 	description="이 자습서에 따라 Azure 모바일 서비스를 사용하여 Android 개발을 시작할 수 있습니다." 
 	services="mobile-services" 
@@ -150,7 +150,7 @@
 [데이터 시작]: /documentation/articles/mobile-services-dotnet-backend-android-get-started-data
 [인증 시작]: /documentation/articles/mobile-services-dotnet-backend-android-get-started-users
 [푸시 알림 시작]: /documentation/articles/mobile-services-dotnet-backend-android-get-started-push
-[Android SDK](영문): https://go.microsoft.com/fwLink/p/?LinkID=280125
+[Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
 [모바일 서비스 Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [모바일 서비스 .NET 백 엔드 문제 해결]: /documentation/articles/mobile-services-dotnet-backend-how-to-troubleshoot/
 

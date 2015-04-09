@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="5분 만에 Azure Blob, 테이블 및 큐 시작" 
 	description="Azure 빠른 시작 및 Visual Studio를 사용하여 Microsoft Azure Blob, 테이블 및 큐의 규모를 신속하게 확장하는 방법에 대해 알아봅니다." 
 	services="storage" 
@@ -66,7 +66,7 @@
 3. Azure 빠른 시작 샘플 프로젝트에 필요하므로 컴퓨터에 [.NET Framework 4.5](http://www.microsoft.com/download/details.aspx?id=30653)가 설치되어 있는지 확인합니다. 컴퓨터에 어떤 .NET Framework 버전이 설치되어 있는지 모를 경우 [방법: 설치된 .NET Framework 버전 확인](https://msdn.microsoft.com/vstudio/hh925568.aspx)을 참조하세요. 또는 **시작** 단추나 Windows 키를 누르고 **제어판**을 입력합니다. 그런 다음 **프로그램** > **프로그램 및 기능**을 클릭합니다. 설치된 모든 프로그램 중에 .NET Framework 4.5가 나열되는지 확인합니다.
 4.	Azure 구독이 아직 없는 경우 하나 만들고 **표준 저장소** 계정도 만듭니다.
 	- Azure 구독을 만들려면 [무료 평가판](http://azure.microsoft.com/pricing/free-trial/), [구입 옵션](http://azure.microsoft.com/pricing/purchase-options/) 및 [회원 제안](http://azure.microsoft.com/pricing/member-offers/)(MSDN, Microsoft 파트너 네트워크, BizSpark 및 기타 Microsoft 프로그램의 회원인 경우)을 참조하세요.
-	- Azure에서 **표준 저장소** 계정을 만들려면 [저장소 계정을 만들거나, 관리하거나, 삭제하는 방법]을 참조하세요(./storage-create-storage-account.md). **참고:** Azure의 저장소 계정 유형 두 가지는 표준 저장소 계정과 프리미엄 저장소 계정입니다. 표준 저장소 계정은 Azure Blob, 테이블 및 큐 저장소에 대한 액세스를 제공합니다. 현재 프리미엄 저장소 계정은 Azure 가상 컴퓨터에서 사용되는 디스크에 데이터를 저장하는 데만 사용할 수 있습니다. 자세한 내용은 [프리미엄 저장소: Azure 가상 컴퓨터 작업을 위한 고성능 저장소]를 참조하세요(./storage-premium-storage-preview-portal.md).
+	- Azure에서 **표준 저장소** 계정을 만들려면 [저장소 계정을 만들거나, 관리하거나, 삭제하는 방법 을 참조하세요](./storage-create-storage-account.md). **참고:** Azure의 저장소 계정 유형 두 가지는 표준 저장소 계정과 프리미엄 저장소 계정입니다. 표준 저장소 계정은 Azure Blob, 테이블 및 큐 저장소에 대한 액세스를 제공합니다. 현재 프리미엄 저장소 계정은 Azure 가상 컴퓨터에서 사용되는 디스크에 데이터를 저장하는 데만 사용할 수 있습니다. 자세한 내용은 [프리미엄 저장소: Azure 가상 컴퓨터 작업을 위한 고성능 저장소를 참조하세요](./storage-premium-storage-preview-portal.md).
 
 이제 Visual Studio에서 Azure 빠른 시작 샘플 프로젝트 중 하나를 사용하여 간단한 Azure 저장소 응용 프로그램을 만듭니다. 이 자습서는 **Azure Blob 저장소**, **Azure 테이블 저장소** 및 **Azure 저장소 큐** 샘플 프로젝트를 중점적으로 다룹니다. 각 샘플 프로젝트에 대해 다음 지침이 적용됩니다. 단, 3.a단계에서 선택하는 템플릿은 각각 다릅니다.
 
@@ -88,7 +88,7 @@
 2.	다음과 같이 Azure 저장소 서비스에 대한 연결 문자열의 주석 처리를 제거하고 App.config 파일에서 저장소 계정 이름과 액세스 키를 제공합니다.
 	`<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]"` 
 
-	저장소 계정 이름과 액세스 키를 찾으려면 [저장소 계정이란?]을 참조하세요(./storage-whatis-account.md). 
+	저장소 계정 이름과 액세스 키를 찾으려면 [저장소 계정이란?을 참조하세요](./storage-whatis-account.md). 
 
 3.	App.config 파일에서 저장소 계정 이름과 액세스 키를 제공한 후 **파일** 메뉴에서 **모두 저장**을 클릭하여 모든 프로젝트 파일을 저장합니다. 
 4.	**빌드** 메뉴에서 **솔루션 빌드**를 클릭합니다. 
@@ -101,12 +101,12 @@
 이에 대한 자세한 내용을 알아보려면 다음 링크를 따라가세요.
 
 * [Microsoft Azure 저장소 소개](./storage-introduction.md)
-* [.NET에서 Blob 저장소를 사용하는 방법](영문)(./storage-dotnet-how-to-use-blobs.md)
-* [.NET에서 테이블 저장소를 사용하는 방법](영문)(./storage-dotnet-how-to-use-tables.md)
-* [.NET에서 큐 저장소를 사용하는 방법](영문)(./storage-dotnet-how-to-use-queues.md)
+* [.NET에서 Blob 저장소를 사용하는 방법](./storage-dotnet-how-to-use-blobs.md)
+* [.NET에서 테이블 저장소를 사용하는 방법](./storage-dotnet-how-to-use-tables.md)
+* [.NET에서 큐 저장소를 사용하는 방법](./storage-dotnet-how-to-use-queues.md)
 * [Azure 저장소 설명서](http://azure.microsoft.com/documentation/services/storage/)
 * [Azure 저장소 MSDN 참조](http://msdn.microsoft.com/library/azure/gg433040.aspx)
-* [Azure 저장소 클라이언트 라이브러리](https://msdn.microsoft.com/library/azure/wa_storage_30_reference_home.aspx)(영문)
+* [Azure 저장소 클라이언트 라이브러리](https://msdn.microsoft.com/library/azure/wa_storage_30_reference_home.aspx)
 * [Azure 저장소 REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 
 [Image1]: ./media/storage-getting-started-guide/QuickStart.png
