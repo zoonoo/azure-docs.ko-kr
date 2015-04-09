@@ -1,23 +1,22 @@
 ﻿<properties 
-	pageTitle="Azure 웹 사이트에 HTTPS 사용 - .NET 개발자 센터" 
-	description="Azure 웹 사이트에서 SSL을 사용하도록 설정하는 방법에 대해 알아봅니다." 
-	services="web-sites" 
+	pageTitle="Azure 앱 서비스에서 웹 앱에 대한 HTTPS를 사용하도록 설정" 
+	description="Azure 앱 서비스에서 SSL을 사용하도록 설정하는 방법에 대해 알아봅니다." 
+	services="app-service\web" 
 	documentationCenter=".net" 
 	authors="cephalin" 
 	manager="wpickett" 
-	editor="mollybos"/>
+	editor="jimbe"/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/14/2014" 
+	ms.date="03/24/2015" 
 	ms.author="cephalin"/>
 
 
 [AZURE.INCLUDE [configure-ssl-web-site](../includes/configure-ssl-web-site.md)]
 
-
-<!--HONumber=42-->
+<!--HONumber=49-->

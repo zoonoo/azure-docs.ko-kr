@@ -1,14 +1,14 @@
 ﻿<properties 
-	pageTitle="Azure에서 Visual Studio Online을 사용한 지속적 전송" 
-	description="자동으로 빌드되어 Azure 웹 사이트 또는 클라우드 서비스에 배포되도록 Visual Studio Online 팀 프로젝트를 구성하는 방법에 대해 알아봅니다." 
-	services="web-sites" 
+	pageTitle="Azure에서 Visual Studio Online을 사용한 연속 배달" 
+	description="자동으로 빌드되어 Azure 웹 사이트 또는 클라우드 서비스에 배포되도록 Visual Studio Online 팀 프로젝트를 구성하는 방법을 알아봅니다." 
+	services="app-service\web" 
 	documentationCenter=".net" 
 	authors="kempb" 
 	manager="douge" 
 	editor="tglee"/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
@@ -17,9 +17,9 @@
 	ms.author="kempb"/>
 
 
-# Visual Studio Online을 사용하여 Azure에 지속적으로 전송
+# Visual Studio Online을 사용하여 Azure에 연속 배달
 
-  Azure 웹 사이트 또는 클라우드 서비스에 자동으로 빌드 및 배포하도록 Visual Studio Online 팀 프로젝트를 구성할 수 있습니다.  *on-premises* Team Foundation Server를 사용하여 연속 빌드 및 배포 시스템을 설정하는 방법에 대한 자세한 내용은 [Azure 클라우드 서비스의 지속적인 전송](../cloud-services-dotnet-continuous-delivery)(영문)을 참조하세요.
+  Azure 웹앱 또는 클라우드 서비스에 자동으로 빌드 및 배포하도록 Visual Studio Online 팀 프로젝트를 구성할 수 있습니다.  *on-premises* Team Foundation Server를 사용하여 연속 빌드 및 배포 시스템을 설정하는 방법에 대한 자세한 내용은 [Azure 클라우드 서비스에 대한 연속 배달](cloud-services-dotnet-continuous-delivery.md)(영문)을 참조하세요.
 
 이 자습서에서는 Visual Studio 2013 및 Azure SDK가 설치되어 있다고 가정합니다. Visual Studio 2013을 아직 설치하지 않은 경우 [www.visualstudio.com](http://www.visualstudio.com)에서 **무료로 시작하기** 링크를 선택하여 다운로드하세요. Azure SDK의 경우 [여기](http://go.microsoft.com/fwlink/?LinkId=239540)에서 설치할 수 있습니다.
 
@@ -52,7 +52,7 @@ Visual Studio Online을 사용하여 Azure에 자동으로 빌드 및 배포하�
 이 연습의 단계에 따라 웹 사이트 또는 클라우드 서비스(Azure 응용 프로그램)를 배포할 수 있습니다.
 새 솔루션을 만들려는 경우 새 Azure 클라우드 서비스 프로젝트
 또는 새 ASP.NET MVC 프로젝트를 만듭니다. 프로젝트의 대상을 .NET Framework 4 또는 4.5로 지정했는지 확인하고, 클라우드 서비스 프로젝트를 만드는 경우 ASP.NET MVC 웹 역할 및 작업자 역할을 추가하고 웹 역할을 위한 인터넷 응용 프로그램을 선택합니다. 메시지가 표시되면 **인터넷 응용 프로그램**을 선택합니다.
-웹 사이트를 만들려는 경우 ASP.NET 웹 응용 프로그램 프로젝트 템플릿을 선택한 후 MVC를 선택합니다. 자세한 내용은 [Azure 및 ASP.NET 시작](http://azure.microsoft.com/documentation/articles/web-sites-dotnet-get-started/)을 참조하세요.
+웹 사이트를 만들려는 경우 ASP.NET 웹 응용 프로그램 프로젝트 템플릿을 선택한 후 MVC를 선택합니다. 자세한 내용은 [Azure 웹 사이트 및 ASP.NET 시작(web-sites-dotnet-get-started.md)을 참조하세요.
 
 2. 솔루션의 상황에 맞는 메뉴를 열고 **소스 제어에 솔루션 추가**를 선택합니다.<br/>
 ![][5]
@@ -137,7 +137,7 @@ Visual Studio Online을 사용하여 Azure에 자동으로 빌드 및 배포하�
 ><tr><td>삭제 안 함</td><td>참인 경우 기존의 관련 없는 배포를 덮어쓰지 않습니다(업그레이드가 허용됨).</td></tr>
 <tr><td>배포 설정의 경로</td><td>보고서의 루트 폴더를 기준으로 웹 사이트의 .pubxml 파일 경로입니다. 클라우드 서비스의 경우 무시됩니다.</td></tr>
 <tr><td>Sharepoint 배포 환경</td><td>서비스 이름과 같음</td></tr>
-<tr><td>Microsoft Azure 배포 환경</td><td>웹 사이트 또는 클라우드 서비스 이름</td></tr>
+<tr><td>Azure 배포 환경</td><td>웹 사이트 또는 클라우드 서비스 이름</td></tr>
 </table>
 <br/>
 
@@ -241,7 +241,7 @@ Visual Studio Online을 사용하여 Azure에 자동으로 빌드 및 배포하�
 
 Visual Studio Online의 단위 테스트에 대한 자세한 내용은 [빌드에서 단위 테스트 실행](http://go.microsoft.com/fwlink/p/?LinkId=510474)을 참조하세요.
 
-자세한 내용은 [Visual Studio Online](http://go.microsoft.com/fwlink/?LinkId=253861)을 참조하세요. Git를 사용하는 경우 [Git에서 코드 공유](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx) 및 [소스 제어에서 Azure 웹 사이트로 게시](http://azure.microsoft.com/documentation/articles/web-sites-publish-source-control)를 참조하세요.
+자세한 내용은 [Visual Studio Online](http://go.microsoft.com/fwlink/?LinkId=253861)을 참조하세요. Git를 사용하는 경우 [Git에서 코드 공유](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx) 및 [Git를 사용하여 Azure 웹 사이트에 게시](web-sites-publish-source-control.md)를 참조하세요.
 
 [1단계: 팀 프로젝트 만들기]: #step1
 [2단계: 소스 제어에 프로젝트 체크 인]: #step2
@@ -302,4 +302,4 @@ Visual Studio Online의 단위 테스트에 대한 자세한 내용은 [빌드�
 [49]: ./media/cloud-services-continuous-delivery-use-vso/TestsFailed.PNG
 [50]: ./media/cloud-services-continuous-delivery-use-vso/TestsResultsFailed.PNG
 
-<!--HONumber=45--> 
+<!--HONumber=49-->

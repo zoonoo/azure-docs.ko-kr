@@ -4,13 +4,13 @@
 
 1. [WindowsAzure.MobileServices.Backend.Security NuGet 패키지](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend.Security)를 설치합니다.
 
-2. Visual Studio에서 App_Start를 확장하고 WebApiConfig.cs를 엽니다. 맨 위에 다음  `using` 문을 추가합니다.
+2. Visual Studio에서 App_Start를 확장하고 WebApiConfig.cs를 엽니다. 맨 위에 다음 `using` 문을 추가합니다.
 
         using Microsoft.WindowsAzure.Mobile.Service.Security.Providers;
 
-3. 또한  `options`가 인스턴스화되는 즉시 WebApiConfig.cs에서 다음 코드를  `Register` 메서드에 추가합니다.
+3. 또한  `options`가 인스턴스화되는 즉시 WebApiConfig.cs에서 다음 코드를 `Register` 메서드에 추가합니다.
 
         options.LoginProviders.Remove(typeof(AzureActiveDirectoryLoginProvider));
         options.LoginProviders.Add(typeof(AzureActiveDirectoryExtendedLoginProvider));
 
-<!--HONumber=47-->
+<!--HONumber=49-->

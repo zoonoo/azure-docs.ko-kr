@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="스케줄러를 사용하여 백 엔드 작업 예약 - 모바일 서비스" 
 	description="Azure 모바일 서비스 스케줄러를 사용하여 모바일 앱에 대한 작업을 예약합니다." 
 	services="mobile-services" 
@@ -19,8 +19,8 @@
 # 모바일 서비스에서 되풀이 작업 예약 
 
 > [AZURE.SELECTOR-LIST(플랫폼 | 백 엔드)]
-- [(모든 |.NET)](/documentation/articles/mobile-services-dotnet-backend-schedule-recurring-tasks/)
-- [(모든 | Javascript)](/documentation/articles/mobile-services-schedule-recurring-tasks/)
+- [(모든 |.NET)](mobile-services-dotnet-backend-schedule-recurring-tasks.md)
+- [(모든 | Javascript)](mobile-services-schedule-recurring-tasks.md)
  
 이 항목에서는 관리 포털의 작업 스케줄러 기능을 사용하여 정의한 일정에 따라 실행되는 서버 스크립트 코드를 정의하는 방법을 보여 줍니다. 이 경우 스크립트는 원격 서비스(이 예에서는 Twitter)를 주기적으로 확인하여 결과를 새 테이블에 저장합니다. 예약할 수 있는 다른 정기 작업에는 다음이 포함됩니다.
 
@@ -34,11 +34,11 @@
 + [새 Updates 테이블 만들기]
 + [새 예약된 작업 만들기]
 
-## <a name="get-oauth-credentials"></a>Twitter v1.1 API 액세스 및 저장 자격 증명 등록
+##<a name="get-oauth-credentials"></a>Twitter v1.1 API 액세스 및 저장 자격 증명 등록
 
 [AZURE.INCLUDE [mobile-services-register-twitter-access](../includes/mobile-services-register-twitter-access.md)]
 
-## <a name="create-table"></a>새 Updates 테이블 만들기
+##<a name="create-table"></a>새 Updates 테이블 만들기
 
 다음으로, 트윗을 저장할 새 테이블을 만들어야 합니다.
 
@@ -46,13 +46,13 @@
 
 3. **테이블 이름**에 _Updates_를 입력한 후 확인 단추를 클릭합니다.
 
-## <a name="add-job"></a>새 예약된 작업 만들기  
+##<a name="add-job"></a>새 예약된 작업 만들기  
 
 이제 Twitter에 액세스하고 새 Updates 테이블에 트윗 데이터를 저장하는 예약된 작업을 만들 수 있습니다.
 
 2. **스케줄러** 탭을 클릭한 후 **+만들기**를 클릭합니다. 
 
-    >[AZURE.NOTE]모바일 서비스를 <em>무료</em> 계층에서 실행하는 경우 한 번에 하나의 예약된 작업만 실행할 수 있습니다. 유료 계층에서는 한 번에 최대 10개의 예약된 작업을 실행할 수 있습니다.
+    >[AZURE.NOTE]<em>무료</em> 계층에서 모바일 서비스를 실행하는 경우 한 번에 하나의 예약된 작업만 실행할 수 있습니다. 유료 계층에서는 한 번에 최대 10개의 예약된 작업을 실행할 수 있습니다.
 
 3. 스케줄러 대화 상자에서 **작업 이름**으로 _getUpdates_를 입력하고 일정 간격 및 단위를 설정한 후 확인 단추를 클릭합니다. 
 
@@ -183,4 +183,4 @@
 [Twitter 개발자]: http://go.microsoft.com/fwlink/p/?LinkId=268300
 [앱 설정]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 
-<!--HONumber=47-->
+<!--HONumber=49-->

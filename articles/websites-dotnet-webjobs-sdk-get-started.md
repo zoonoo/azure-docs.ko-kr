@@ -1,24 +1,26 @@
-﻿<properties 
-	pageTitle="Azure WebJobs SDK 시작" 
-	description="ASP.NET MVC 및 Azure를 사용하여 다중 계층 앱을 만드는 방법에 대해 알아봅니다. 프런트 엔드는 웹 사이트에서 실행되고 백 엔드는 WebJob으로 실행됩니다. 앱에서는 Entity Framework, SQL 데이터베이스 및 Azure 저장소 큐와 Blob를 사용합니다." 
-	services="web-sites, storage" 
+<properties 
+	pageTitle="Azure 앱 서비스에서 .NET WebJob 만들기" 
+	description="ASP.NET MVC 및 Azure를 사용하여 다중 계층 앱을 만드는 방법에 대해 알아봅니다. 프런트 엔드는 Azure 앱 서비스의 웹 앱에서 실행되고 백 엔드는 WebJob으로 실행됩니다. 앱에서는 Entity Framework, SQL 데이터베이스 및 Azure 저장소 큐와 Blob를 사용합니다." 
+	services="app-service\web" 
 	documentationCenter=".net" 
 	authors="tdykstra" 
 	manager="wpickett" 
 	editor="mollybos"/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/12/2014" 
+	ms.date="03/24/2015" 
 	ms.author="tdykstra"/>
 
-# Azure WebJobs SDK 시작
+# Azure 앱 서비스에서 .NET WebJob 만들기
 
-이 자습서에서는 WebJobs SDK를 사용하여 [Azure 웹 사이트](/ko-kr/documentation/services/websites/)에서 [Azure 큐](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) 및 [Azure Blob](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage) 작업을 수행하는 다중 계층 ASP.NET MVC 응용 프로그램을 만드는 방법을 보여 줍니다 또한 이 응용 프로그램은 [Azure SQL 데이터베이스](http://msdn.microsoft.com/library/azure/ee336279)를 사용합니다. 
+## 개요
+
+이 자습서에서는 WebJobs SDK를 사용하여 [Azure 웹 앱 서비스](http://go.microsoft.com/fwlink/?LinkId=529714)에서 [Azure 큐](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) 및 [Azure Blob](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage) 작업을 수행하는 다중 계층 ASP.NET MVC 응용 프로그램을 만드는 방법을 보여 줍니다 또한 이 응용 프로그램은 [Azure SQL 데이터베이스](http://msdn.microsoft.com/library/azure/ee336279)를 사용합니다. 
 
 응용 프로그램 예제는 광고 게시판입니다. 사용자는 텍스트를 입력하고 이미지를 업로드하여 광고를 만듭니다. 사용자는 미리 보기 이미지가 있는 광고 목록을 볼 수 있으며 광고를 선택하여 자세한 내용을 확인할 때 전체 크기 이미지를 볼 수 있습니다. 다음 스크린샷을 참조하세요.
 
@@ -26,18 +28,7 @@
 
 MSDN 코드 갤러리에서 [Visual Studio 프로젝트를 다운로드][download]할 수 있습니다. 
 
-[다운로드]: http://code.msdn.microsoft.com/Simple-Azure-Website-with-b4391eeb
-
-## 목차
-
-- [필수 조건](#prerequisites)
-- [학습할 내용](#learn)
-- [응용 프로그램 아키텍처](#contosoads)
-- [개발 환경 설정](#setupdevenv)
-- [응용 프로그램 빌드, 실행 및 배포](#storage)
-- [처음부터 응용 프로그램 만들기](#create)
-- [응용 프로그램 코드 검토](#code)
-- [다음 단계](#next-steps)
+[download]: http://code.msdn.microsoft.com/Simple-Azure-Website-with-b4391eeb
 
 ## <a id="prerequisites"></a>필수 조건
 
@@ -53,6 +44,8 @@ MSDN 코드 갤러리에서 [Visual Studio 프로젝트를 다운로드][downloa
 
 [AZURE.INCLUDE [free-trial-note](../includes/free-trial-note.md)]
 
+>[AZURE.NOTE] Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 사용](http://go.microsoft.com/fwlink/?LinkId=523751)으로 이동합니다. 앱 서비스에서는 단기 시작 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+
 ## <a id="learn"></a>학습할 내용
 
 이 자습서에서는 다음 작업의 수행 방법을 보여 줍니다.
@@ -60,36 +53,36 @@ MSDN 코드 갤러리에서 [Visual Studio 프로젝트를 다운로드][downloa
 * Azure SDK를 설치하여 사용자 컴퓨터에서 Azure를 개발합니다.
 * 연결된 웹 프로젝트를 배포할 때 Azure WebJob으로 자동 배포되는 콘솔 응용 프로그램 프로젝트를 만듭니다.
 * 개발 컴퓨터에서 로컬로 WebJob SDK 백 엔드를 테스트합니다.
-* WebJob 백 엔드가 있는 응용 프로그램을 Azure 웹 사이트에 게시합니다.
+* 앱 서비스에서 웹 앱에 있는 WebJob 백엔드로 응용 프로그램을 게시합니다.
 * 파일을 업로드하고 Azure Blob 서비스에 저장합니다.
 * Azure WebJob SDK를 사용하여 Azure 저장소 큐 및 Blob으로 작업합니다.
 
 ## <a id="contosoads"></a>응용 프로그램 아키텍처
 
-이 응용 프로그램 예제에서는 [queue-centric work pattern](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern)을 사용하여 미리 보기를 만드는 CPU 사용량이 많은 작업을 백 엔드 프로세스에 오프로드합니다. 
+이 응용 프로그램 예제에서는 [큐 중심 작업 패턴](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern)을 사용하여 미리 보기를 만드는 CPU 사용량이 많은 작업을 백 엔드 프로세스에 오프로드합니다. 
 
 앱은 Entity Framework Code First를 사용해 SQL 데이터베이스에 광고를 저장하여 테이블을 만들고 데이터에 액세스합니다. 광고별로 데이터베이스는 전체 크기 이미지용과 미리 보기용으로 두 개의 URL을 저장합니다.
 
 ![Ad table](./media/websites-dotnet-webjobs-sdk-get-started/adtable.png)
 
-사용자가 이미지를 업로드하면 프런트 엔드 웹 사이트가 [Azure Blob](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage)에 이미지를 저장하며 Blob를 가리키는 URL을 사용하여 데이터베이스에 광고 정보를 저장합니다. 이와 동시에 Azure 큐에 메시지를 기록합니다. Azure WebJob으로 실행되는 백 엔드 프로세스는 WebJobs SDK를 사용하여 큐에서 새 메시지를 폴링합니다. 새 메시지가 나타나면 WebJob은 해당 이미지의 미리 보기를 만들고 광고에 대한 미리 보기 URL 데이터베이스 필드를 업데이트합니다. 다음은 응용 프로그램의 여러 부분이 상호 작용하는 방법을 보여 주는 다이어그램입니다.
+사용자가 이미지를 업로드하면 프런트 엔드 웹 앱이 [Azure Blob](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage)에 이미지를 저장하며 Blob를 가리키는 URL을 사용하여 데이터베이스에 광고 정보를 저장합니다. 이와 동시에 Azure 큐에 메시지를 기록합니다. Azure WebJob으로 실행되는 백 엔드 프로세스는 WebJobs SDK를 사용하여 큐에서 새 메시지를 폴링합니다. 새 메시지가 나타나면 WebJob은 해당 이미지의 미리 보기를 만들고 광고에 대한 미리 보기 URL 데이터베이스 필드를 업데이트합니다. 다음은 응용 프로그램의 여러 부분이 상호 작용하는 방법을 보여 주는 다이어그램입니다.
 
 ![Contoso Ads architecture](./media/websites-dotnet-webjobs-sdk-get-started/apparchitecture.png)
 
-### Alternative architecture
+### 대체 아키텍처
 
-WebJob은 웹 사이트의 컨텍스트에서 실행되며 별도로 확장 가능하지 않습니다. 예를 들어 표준 웹 사이트 인스턴스가 하나 있으면 실행 중인 백그라운드 프로세스 인스턴스가 하나만 있고 웹 콘텐츠를 제공하는 데 사용될 수 있는 일부 서버 리소스(CPU, 메모리 등)를 사용하고 있습니다. 
+WebJob은 웹 앱의 컨텍스트에서 실행되며 별도로 확장 가능하지 않습니다. 예를 들어 표준 웹 앱의 인스턴스가 하나 있으면 실행 중인 백그라운드 프로세스 인스턴스가 하나만 있고 웹 콘텐츠를 제공하는 데 사용될 수 있는 일부 서버 리소스(CPU, 메모리 등)를 사용하고 있습니다. 
 
 트래픽이 하루 중 시간이나 주중 요일별로 다르고 수행해야 하는 백 엔드 처리가 대기될 수 있는 경우 트래픽이 낮은 시간에 WebJob이 실행되도록 예약할 수 있습니다. 해당 솔루션에 대한 부하가 여전히 너무 높은 경우 다음과 같은 백 엔드 프로그램에 대한 대체 환경을 고려할 수 있습니다.
 
-* 프로그램을 해당 용도로만 사용되는 별도의 웹 사이트에서 WebJob으로 실행합니다. 그런 후 프런트 엔드 웹 사이트와는 별도로 백 엔드 웹 사이트를 확장할 수 있습니다.
-* Azure 클라우드 서비스 작업자 역할에서 프로그램을 실행합니다. 이 옵션을 선택하는 경우 클라우드 서비스 웹 역할이나 웹 사이트에서 프런트 엔드를 실행할 수 있습니다.
+* 프로그램을 해당 용도로만 사용되는 별도의 웹 앱에서 WebJob으로 실행합니다. 그런 후 프런트 엔드 웹 앱과는 별도로 백 엔드 웹 앱을 확장할 수 있습니다.
+* Azure 클라우드 서비스 작업자 역할에서 프로그램을 실행합니다. 이 옵션을 선택하는 경우 클라우드 서비스 웹 역할이나 웹 앱에서 프런트 엔드를 실행할 수 있습니다.
 
-이 자습서에서는 프런트 엔드를 웹 사이트에서 실행하고, 백 엔드를 동일한 웹 사이트의 WebJob으로 실행하는 방법을 보여 줍니다. 시나리오에 가장 적합한 환경을 선택하는 방법에 대한 자세한 내용은 [Azure 웹 사이트, 클라우드 서비스 및 가상 컴퓨터 비교](/ko-kr/documentation/articles/choose-web-site-cloud-service-vm/).를 참조하세요
+이 자습서에서는 프런트 엔드를 웹 앱에서 실행하고, 백 엔드를 동일한 웹 앱의 WebJob으로 실행하는 방법을 보여 줍니다. 시나리오에 가장 적합한 환경을 선택하는 방법에 대한 자세한 내용은 [Azure 웹 앱, 클라우드 서비스 및 가상 컴퓨터 비교](../choose-web-site-cloud-service-vm/)를 참조하세요
 
 [AZURE.INCLUDE [install-sdk-2013-only](../includes/install-sdk-2013-only.md)]
 
-자습서 지침은 [Visual Studio 2013 업데이트 4](http://go.microsoft.com/fwlink/?LinkID=510328)의 다음 미리 보기 릴리스를 사용하여 작성되었습니다. Visual Studio 2013 업데이트 3에 대한 차이점은 WebJob 프로젝트를 만드는 처음부터 만들기 섹션뿐입니다. 업데이트 4에서는 WebJobs SDK 패키지가 프로젝트에 자동으로 포함됩니다. 업데이트 4가 없을 경우 패키지를 수동으로 설치해야 합니다.
+자습서 지침은 2.5.1.NET 이상용 Azure SDK를 적용합니다. WebJob 프로젝트를 만드는 처음부터 만들기 섹션에 WebJob SDK 패키지가 자동으로 포함됩니다. 이전 버전의 SDK로 패키지를 수동으로 설치해야 합니다.
 
 ## <a id="storage"></a>Azure 저장소 계정 만들기
 
@@ -101,13 +94,13 @@ Azure 저장소 계정은 큐 및 Blob 데이터를 클라우드에 저장하기
 
 2. **Azure** 노드를 마우스 오른쪽 단추로 클릭한 다음 **Microsoft Azure에 연결**을 클릭합니다.
 
-![Connect to Azure](./media/websites-dotnet-webjobs-sdk-get-started/connaz.png)
+	![Connect to Azure](./media/websites-dotnet-webjobs-sdk-get-started/connaz.png)
 
 3. Azure 자격 증명을 사용하여 로그인합니다.
 
 5. Azure 노드 아래의 **저장소**를 마우스 오른쪽 단추로 클릭한 다음 **저장소 계정 만들기**를 클릭합니다.
 
-![Create Storage Account](./media/websites-dotnet-webjobs-sdk-get-started/createstor.png)
+	![Create Storage Account](./media/websites-dotnet-webjobs-sdk-get-started/createstor.png)
 
 3. **저장소 계정 만들기** 대화 상자에서 저장소 계정의 이름을 입력합니다. 
 
@@ -117,11 +110,11 @@ Azure 저장소 계정은 큐 및 Blob 데이터를 클라우드에 저장하기
 
 5. **지역 또는 선호도 그룹** 드롭다운 목록을 가장 가까운 지역으로 설정합니다.
 
-	이 설정은 저장소 계정을 호스트할 Azure 데이터 센터를 지정합니다. 이 자습서의 경우 어떤 항목을 선택해도 두드러진 차이를 느낄 수 없지만 프로덕션 사이트의 경우에는 대기 시간과 데이터 발신 요금을 최소화하기 위해 웹 서버와 저장소 계정을 동일한 지역에 두기 원할 것입니다. 나중에 만들게 될 웹 사이트는 대기 시간을 최소화하기 위해 사이트에 액세스하는 브라우저에 가능한 한 가깝게 지정합니다.
+	이 설정은 저장소 계정을 호스트할 Azure 데이터 센터를 지정합니다. 이 자습서의 경우 어떤 항목을 선택해도 두드러진 차이를 느낄 수 없습니다. 하지만 프로덕션 웹 앱의 경우에는 대기 시간과 데이터 발신 요금을 최소화하기 위해 웹 서버와 저장소 계정을 동일한 지역에 두기 원할 것입니다. 나중에 만들게 될 웹 앱은 대기 시간을 최소화하기 위해 웹 앱에 액세스하는 브라우저에 가능한 한 가까워야 합니다.
 
 6. **복제** 드롭다운 목록을 **로컬 중복**으로 설정합니다. 
 
-	저장소 계정에 대해 지역에서 복제를 사용하는 경우에는 저장된 콘텐츠가 보조 위치에 복제되어 기본 위치에서 주요 재해가 발생하는 경우 보조 데이터 센터로 장애 조치(Failover)할 수 있도록 합니다. 지역에서 복제는 추가 비용을 발생시킬 수 있습니다. 테스트 및 개발 계정의 경우 일반적으로 지역에서 복제 비용을 지불하지 않는 것이 좋습니다. 자세한 내용은 [저장소 계정 만들기, 관리 또는 삭제]를 참조하세요(../storage-create-storage-account/#replication-options).
+	저장소 계정에 대해 지역에서 복제를 사용하는 경우에는 저장된 콘텐츠가 보조 위치에 복제되어 기본 위치에서 주요 재해가 발생하는 경우 보조 데이터 센터로 장애 조치(Failover)할 수 있도록 합니다. 지역에서 복제는 추가 비용을 발생시킬 수 있습니다. 테스트 및 개발 계정의 경우 일반적으로 지역에서 복제 비용을 지불하지 않는 것이 좋습니다. 자세한 내용은 [저장소 계정 만들기, 관리 또는 삭제](../storage-create-storage-account/#replication-options)를 참조하세요.
 
 5. **만들기**를 클릭합니다. 
 
@@ -129,7 +122,7 @@ Azure 저장소 계정은 큐 및 Blob 데이터를 클라우드에 저장하기
 
 ## <a id="download"></a>응용 프로그램 다운로드
  
-1. [완료된 솔루션][download]을 다운로드하고 압축을 풉니다.
+1. [완성된 솔루션][download]을 다운로드하여 압축을 풉니다.
 
 2. Visual Studio를 시작합니다.
 
@@ -162,7 +155,7 @@ Azure 저장소 계정은 큐 및 Blob 데이터를 클라우드에 저장하기
 
 	![Click Storage Account Properties](./media/websites-dotnet-webjobs-sdk-get-started/storppty.png)	
 
-4. **속성** 창에서 **저장소 계정 키**를 클릭한 다음 줄임표를 클릭합니다.
+4. **속성** 창에서 **저장소 계정 키**를 클릭한 다음 말줄임표를 클릭합니다.
 
 	![New storage account](./media/websites-dotnet-webjobs-sdk-get-started/newstorage.png)	
 
@@ -186,7 +179,7 @@ Azure 저장소 계정은 큐 및 Blob 데이터를 클라우드에 저장하기
     &lt;/startup&gt;
 &lt;/configuration&gt;</pre>
 
-	기본적으로 WebJob SDK는 AzureWebJobsStorage 및 AzureWebJobsDashboard라는 연결 문자열을 찾습니다. 또는 [원하는 연결 문자열을 저장한 후  `JobHost` 개체에 명시적으로 전달](../websites-dotnet-webjobs-sdk-storage-queues-how-to/#config).할 수 있습니다.
+	기본적으로 WebJob SDK는 AzureWebJobsStorage 및 AzureWebJobsDashboard라는 연결 문자열을 찾습니다. 또는 [원하는 연결 문자열을 저장한 후  `JobHost` 개체](websites-dotnet-webjobs-sdk-storage-queues-how-to.md/#config)에 명시적으로 전달할 수 있습니다.
 
 1. 두 저장소 연결 문자열을 앞서 복사한 연결 문자열로 바꿉니다.
 
@@ -226,42 +219,40 @@ Azure 저장소 계정은 큐 및 Blob 데이터를 클라우드에 저장하기
 
 	![Details page](./media/websites-dotnet-webjobs-sdk-get-started/details.png)
 
-로컬 컴퓨터에서 응용 프로그램을 실행하고 있으며, 해당 응용 프로그램은 컴퓨터에 있는 SQL Server 데이터베이스를 사용하고 있지만 클라우드의 큐 및 Blob를 사용하고 있습니다. 다음 섹션에서는 클라우드 데이터베이스와 클라우드 Blob 및 큐를 사용하여 클라우드에서 응용 프로그램을 실행합니다.  
+로컬 컴퓨터에서 응용 프로그램을 실행하고 있으며, 해당 응용 프로그램은 컴퓨터에 있는 SQL Server 데이터베이스를 사용하고 있지만 클라우드의 큐 및 Blob을 사용하고 있습니다. 다음 섹션에서는 클라우드 데이터베이스와 클라우드 Blob 및 큐를 사용하여 클라우드에서 응용 프로그램을 실행합니다.  
 
 ## <a id="runincloud"></a>클라우드에서 응용 프로그램 실행
 
 클라우드에서 응용 프로그램을 실행하려면 다음 단계를 수행합니다.
 
-* Azure 웹 사이트에 배포합니다. Visual Studio는 새 Azure 웹 사이트 및 SQL 데이터베이스 인스턴스를 자동으로 만듭니다.
-* Azure SQL 데이터베이스 및 저장소 계정을 사용하도록 웹 사이트를 구성합니다.
+* 웹 앱에 배포합니다. Visual Studio는 앱 서비스의 새 웹 앱 및 SQL 데이터베이스 인스턴스를 자동으로 만듭니다.
+* Azure SQL 데이터베이스 및 저장소 계정을 사용하도록 웹 앱을 구성합니다.
 
 클라우드에서 실행되는 동안 일부 광고를 만든 후에는 WebJob SDK 대시보드를 확인하면서 이 대시보드가 제공해야 하는 풍부한 모니터링 기능을 확인할 것입니다.
 
-### Azure 웹 사이트 배포
+### 웹 앱에 배포
 
 1. 브라우저 및 콘솔 응용 프로그램 창을 닫습니다.
 
 3. **솔루션 탐색기**에서 ContosoAdsWeb 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다.
 
-3. **웹 게시** 마법사의 **프로필** 단계에서 **Microsoft Azure 웹 사이트**를 클릭합니다.
+3. **웹 게시** 마법사의 **프로필** 단계에서 **Microsoft Azure 웹 앱**을 클릭합니다.
 
-	![Select Azure Website publish target](./media/websites-dotnet-webjobs-sdk-get-started/pubweb.png)	
+	![Select Azure web app publish target](./media/websites-dotnet-webjobs-sdk-get-started/pubweb.png)	
 
-2. **기존 웹 사이트** 선택 상자에서 **로그인**을 클릭합니다.
+2. **기존 웹 앱 선택** 대화 상자에서 아직 로그인되어 있지 않은 경우 **로그인**을 클릭하고 자격 증명을 입력합니다.
  
-	![Click Sign In](./media/websites-dotnet-webjobs-sdk-get-started/signin.png)	
-
-5. 로그인한 후에 새로 만들기를 클릭합니다.
+5. 로그인한 후에 **새로 만들기**를 클릭합니다.
 
 	![Click New](./media/websites-dotnet-webjobs-sdk-get-started/clicknew.png)
 
-9. **Microsoft Azure에서 사이트 만들기** 대화 상자의 **사이트 이름** 상자에 고유 이름을 입력합니다.
+9. **Microsoft Azure에서 사이트 만들기** 대화 상자의 **웹 앱 이름** 상자에 고유 이름을 입력합니다.
 
-	완전한 URL은 여기에 입력한 항목과 .azurewebsites.net(**사이트 이름** 텍스트 상자 옆에 표시된 대로)으로 구성됩니다. 예를 들어 사이트 이름이 ContosoAds이면 URL은 ContosoAds.azurewebsites.net이 됩니다.
+	완전한 URL은 여기에 입력한 항목과 .azurewebsites.net(**웹 앱 이름** 텍스트 상자 옆에 표시된 대로)으로 구성됩니다. 예를 들어 웹 앱 이름이 ContosoAds이면 URL은 ContosoAds.azurewebsites.net이 됩니다.
 
 9. **지역** 드롭다운 목록에서 저장소 계정에 대해 선택한 것과 동일한 지역을 선택합니다.
 
-	이 설정은 웹 사이트가 실행될 Azure 데이터 센터를 지정합니다. 웹 사이트와 저장소 계정을 동일한 데이터 센터에 배치하여 대기 시간과 데이터 발신 요금을 최소화합니다.
+	이 설정은 웹 앱이 실행될 Azure 데이터 센터를 지정합니다. 웹 앱과 저장소 계정을 동일한 데이터 센터에 배치하여 대기 시간과 데이터 발신 요금을 최소화합니다.
 
 9. **데이터베이스 서버** 드롭다운 목록에서 **새 서버 만들기**를 선택합니다.
 
@@ -273,9 +264,9 @@ Azure 저장소 계정은 큐 및 Blob 데이터를 클라우드에 저장하기
 
 1. **만들기**를 클릭합니다.
 
-	![Create site on Microsoft Azure dialog](./media/websites-dotnet-webjobs-sdk-get-started/newdb.png)	
+	![Create web app on Microsoft Azure dialog](./media/websites-dotnet-webjobs-sdk-get-started/newdb.png)	
 
-	Visual Studio는 이 솔루션, 웹 프로젝트, Azure 웹 사이트 및 Azure SQL 데이터베이스 인스턴스를 만듭니다.
+	Visual Studio는 이 솔루션, 웹 프로젝트, Azure 웹 앱 및 Azure SQL 데이터베이스 인스턴스를 만듭니다.
 
 2. **웹 게시** 마법사의 **연결** 단계에서 **다음**을 클릭합니다.
 
@@ -301,7 +292,7 @@ Azure 저장소 계정은 큐 및 Blob 데이터를 클라우드에 저장하기
 
 	데이터베이스가 게시되지 않는다는 내용의 경고는 무시해도 됩니다. Entity Framework Code First에서 게시할 필요가 없는 데이터베이스가 만들어집니다.
 
-	미리 보기 창에는 WebJob 프로젝트의 이진 및 구성 파일이 웹 사이트의  *app_data\jobs\continuous* 폴더로 복사되는 모습이 표시됩니다.
+	미리 보기 창에는 WebJob 프로젝트의 이진 및 구성 파일이 웹 앱의  *app_data\jobs\continuous* 폴더로 복사되는 모습이 표시됩니다.
 
 	![WebJobs files in preview window](./media/websites-dotnet-webjobs-sdk-get-started/previewwjfiles.png)	
 
@@ -309,19 +300,19 @@ Azure 저장소 계정은 큐 및 Blob 데이터를 클라우드에 저장하기
 
 	Visual Studio에서는 응용 프로그램을 배포하고 브라우저에서 홈페이지 URL을 엽니다. 
 
-	다음 섹션에서 Azure 환경에 연결 문자열을 설정할 때까지 사이트를 사용할 수 없습니다. 이전에 선택한 사이트 및 데이터베이스 만들기 옵션에 따라 오류 페이지나 홈페이지가 표시됩니다. 
+	다음 섹션에서 Azure 환경에 연결 문자열을 설정할 때까지 웹 앱을 사용할 수 없습니다. 이전에 선택한 웹 앱 및 데이터베이스 만들기 옵션에 따라 오류 페이지나 홈페이지가 표시됩니다. 
 
-### Azure SQL 데이터베이스 및 저장소 계정을 사용하도록 웹 사이트를 구성합니다.
+### Azure SQL 데이터베이스 및 저장소 계정을 사용하도록 웹 앱을 구성합니다.
 
 [연결 문자열과 같은 중요한 정보를 소스 코드 리포지토리에 저장된 파일에 두지 않는 방식](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#secrets)이 보안 모범 사례입니다. Azure는 이 작업을 수행하는 방법을 제공합니다. Azure 환경에서 연결 문자열 및 기타 설정 값을 지정하면 ASP.NET 구성 API가 앱이 Azure에서 실행될 때 해당 값을 자동으로 선택합니다. 이 섹션에서는 Azure에서 연결 문자열 값을 설정할 것입니다.
 
-7. **서버 탐색기**의 **웹 사이트** 노드에서 해당 웹 사이트를 마우스 오른쪽 단추로 클릭한 다음 **설정 보기**를 클릭합니다.
+7. **서버 탐색기**의 **웹 앱** 노드에서 해당 웹 앱을 마우스 오른쪽 단추로 클릭한 다음 **설정 보기**를 클릭합니다.
 
-	**Azure 웹 사이트** 창이 **구성** 탭에서 열립니다.
+	**Azure 웹 앱** 창이 **구성** 탭에서 열립니다.
 
 9. DefaultConnection connection 문자열의 이름을 ContosoAdsContext로 변경합니다.
 
-	Azure는 연결된 데이터베이스로 이 사이트를 만들 때 이 연결 문자열을 자동으로 만들기 때문에 이미 적절한 연결 문자열 값이 지정되어 있을 것입니다. 코드가 찾는 이름으로 변경하기만 하면 됩니다.
+	Azure는 연결된 데이터베이스로 이 웹 앱을 만들 때 이 연결 문자열을 자동으로 만들기 때문에 이미 적절한 연결 문자열 값이 지정되어 있을 것입니다. 코드가 찾는 이름으로 변경하면 됩니다.
 
 9. AzureWebJobsStorage 및 AzureWebJobsDashboard의 두 연결 문자열을 추가합니다. 유형을 사용자 지정으로 설정하고 연결 문자열 값을 이전에  *Web.config* 및  *App.config* 파일에 사용했던 것과 동일한 값으로 설정합니다. (액세스 키만이 아니라 전체 연결 문자열을 포함해야 하며 따옴표는 제외합니다.)
 
@@ -331,13 +322,13 @@ Azure 저장소 계정은 큐 및 Blob 데이터를 클라우드에 저장하기
 
 	![Connection strings in management portal](./media/websites-dotnet-webjobs-sdk-get-started/azconnstr.png)
 
-10. **서버 탐색기**에서 웹 사이트를 마우스 오른쪽 단추로 클릭하고 **웹 사이트 중지**를 클릭합니다. 
+10. **서버 탐색기**에서 웹 앱을 마우스 오른쪽 단추로 클릭하고 **웹 앱 중지**를 클릭합니다. 
 
-12. 웹 사이트가 중지된 후 웹 사이트를 마우스 오른쪽 단추로 다시 클릭하고 **웹 사이트 시작**을 클릭합니다.
+12. 웹 앱이 중지된 후 웹 앱을 마우스 오른쪽 단추로 다시 클릭하고 **웹 앱 시작**을 클릭합니다.
 
-	WebJob은 게시될 때 자동으로 시작되지만 구성을 변경하면 중지됩니다. WebJob을 다시 시작하려면 Azure 관리 포털에서 사이트를 다시 시작하거나 WebJob을 다시 시작합니다. 일반적으로는 구성을 변경한 후에는 사이트를 다시 시작하는 것이 좋습니다. 
+	WebJob은 게시될 때 자동으로 시작되지만 구성을 변경하면 중지됩니다. WebJob을 다시 시작하려면 [Azure 포털](http://go.microsoft.com/fwlink/?LinkId=529715)에서 웹 앱을 다시 시작하거나 WebJob을 다시 시작합니다. 일반적으로는 구성을 변경한 후에는 웹 앱을 다시 시작하는 것이 좋습니다. 
 
-9. 주소 표시줄에 사이트 URL이 표시되는 브라우저 창을 새로 고칩니다.
+9. 주소 표시줄에 웹 앱 URL이 표시되는 브라우저 창을 새로 고칩니다.
 
 	홈페이지가 나타납니다.
 
@@ -352,7 +343,7 @@ Azure 저장소 계정은 큐 및 Blob 데이터를 클라우드에 저장하기
 
 ### WebJob SDK 대시보드 보기
 
-1. [Azure 관리 포털](http://manage.windowsazure.com/)에서 웹 사이트를 선택합니다.
+1. Azure 포털에서 웹 앱을 선택 합니다.
 
 2. **WebJob** 탭을 클릭합니다.
 
@@ -370,13 +361,13 @@ Azure 저장소 계정은 큐 및 Blob 데이터를 클라우드에 저장하기
 
 	이 페이지의 **함수 재생** 단추를 클릭하면 WebJob SDK 프레임워크가 해당 함수를 다시 호출하며 처음에 함수에 전달된 데이터를 변경할 기회가 제공됩니다.
 
->[AZURE.NOTE] 테스트를 마치면 웹 사이트 및 SQL 데이터베이스 인스턴스를 삭제합니다. 이 웹 사이트는 무료이지만 SQL 데이터베이스 인스턴스와 저장소 계정은 요금이 부과됩니다(크기가 작으므로 소량 부과됨). 또한 이 사이트를 실행 중인 채로 두는 경우에는 누군가가 URL을 발견하면 광고를 만들고 볼 수 있습니다. Azure 관리 포털에서 웹 사이트에 대한 **대시보드** 탭으로 이동한 후 페이지 아래에서 **삭제** 단추를 클릭합니다. 그런 후 SQL 데이터베이스 인스턴스를 동시에 삭제하기 위한 확인란을 선택할 수 있습니다. 임시로 다른 사람이 사이트에 액세스하지 못하도록 만들려면 대신 **중지**를 클릭합니다. 이 경우에는 SQL 데이터베이스 및 저장소 계정에 대해 요금이 계속해서 발생합니다. 더 이상 필요 없는 경우 비슷한 절차에 따라 SQL 데이터베이스 및 저장소 계정을 삭제할 수 있습니다.
+>[AZURE.NOTE] 테스트를 마치면 웹 앱 및 SQL 데이터베이스 인스턴스를 삭제합니다. 이 웹 앱은 무료이지만 SQL 데이터베이스 인스턴스와 저장소 계정은 요금이 부과됩니다(크기가 작으므로 소량 부과됨). 또한 이 앱을 실행 중인 채로 두는 경우에는 누군가가 URL을 발견하면 광고를 만들고 볼 수 있습니다. Azure 관리 포털에서 웹 앱에 대한 **대시보드** 탭으로 이동한 후 페이지 아래에서 **삭제** 단추를 클릭합니다. 그런 후 SQL 데이터베이스 인스턴스를 동시에 삭제하기 위한 확인란을 선택할 수 있습니다. 임시로 다른 사람이 앱에 액세스하지 못하도록 만들려면 대신 **중지**를 클릭합니다. 이 경우에는 SQL 데이터베이스 및 저장소 계정에 대해 요금이 계속해서 발생합니다. 더 이상 필요 없는 경우 비슷한 절차에 따라 SQL 데이터베이스 및 저장소 계정을 삭제할 수 있습니다.
 
 ### 장기 실행 프로세스에 AlwaysOn 사용
 
-이 응용 프로그램 예제의 경우 큐 메시지를 만들기 전에 항상 웹 사이트 작업이 수행되므로 오랜 시간 동안 활동이 없어 웹 사이트가 절전 모드로 전환되고 WebJob을 종료하는 경우에도 문제가 발생하지 않습니다. 요청을 받으면 사이트가 절전 모드에서 해제되고 WebJob이 다시 시작됩니다.
+이 응용 프로그램 예제의 경우 큐 메시지를 만들기 전에 항상 웹 앱 작업이 수행되므로 오랜 시간 동안 활동이 없어 웹 앱이 절전 모드로 전환되고 WebJob을 종료하는 경우에도 문제가 발생하지 않습니다. 요청을 받으면 웹 앱이 절전 모드에서 해제되고 WebJob이 다시 시작됩니다.
 
-웹 사이트 자체가 오랜 시간 동안 비활성 상태인 경우에도 계속 실행하려는 WebJob에 대해 Azure 웹 사이트의 [AlwaysOn](http://weblogs.asp.net/scottgu/archive/2014/01/16/windows-azure-staging-publishing-support-for-web-sites-monitoring-improvements-hyper-v-recovery-manager-ga-and-pci-compliance.aspx) 기능을 사용할 수 있습니다.
+웹 앱 자체가 오랜 시간 동안 비활성 상태인 경우에도 계속 실행하려는 WebJob에 대해 Azure 웹 앱의 [AlwaysOn](http://weblogs.asp.net/scottgu/archive/2014/01/16/windows-azure-staging-publishing-support-for-web-sites-monitoring-improvements-hyper-v-recovery-manager-ga-and-pci-compliance.aspx) 기능을 사용할 수 있습니다.
 
 ## <a id="create"></a>처음부터 응용 프로그램 만들기 
 
@@ -402,7 +393,7 @@ Azure 저장소 계정은 큐 및 Blob 데이터를 클라우드에 저장하기
 
 5. **새 ASP.NET 프로젝트** 대화 상자에서 MVC 템플릿을 선택하고 **Microsoft Azure** 아래의 **클라우드의 호스트** 확인란을 선택 취소합니다.
 
-	**클라우드의 호스트**를 선택하면 Visual Studio에서 새 Azure 웹 사이트와 SQL 데이터베이스를 자동으로 만들 수 있습니다. 이러한 항목을 이전에 이미 만들었으므로 프로젝트를 만드는 동안 이 작업을 수행할 필요는 없습니다. 새 항목을 만들려면 해당 확인란을 선택합니다. 그런 후 이전에 응용 프로그램을 배포했을 때 수행했던 것과 같은 방식으로 새 웹 사이트와 SQL 데이터베이스를 구성할 수 있습니다.
+	**클라우드의 호스트**를 선택하면 Visual Studio에서 새 Azure 웹 앱과 SQL 데이터베이스를 자동으로 만들 수 있습니다. 이러한 항목을 이전에 이미 만들었으므로 프로젝트를 만드는 동안 이 작업을 수행할 필요는 없습니다. 새 항목을 만들려면 해당 확인란을 선택합니다. 그런 후 이전에 응용 프로그램을 배포했을 때 수행했던 것과 같은 방식으로 새 웹 앱과 SQL 데이터베이스를 구성할 수 있습니다.
 
 5. **인증 변경**을 클릭합니다.
 
@@ -440,7 +431,7 @@ Azure 저장소 계정은 큐 및 Blob 데이터를 클라우드에 저장하기
 	* 웹 프로젝트 속성 폴더에  *webjobs-list.json* 파일을 추가했습니다.
 	* WebJob 프로젝트에 Microsoft.Web.WebJobs.Publish NuGet 패키지를 설치했습니다.
 	 
-	이러한 변경에 대한 자세한 내용은 [Visual Studio를 사용하여 WebJob을 배포하는 방법](/ko-kr/documentation/articles/websites-dotnet-deploy-webjobs/).을 참조하세요.
+	이러한 변경에 대한 자세한 내용은 [Visual Studio를 사용하여 WebJob을 배포하는 방법](websites-dotnet-deploy-webjobs.md)을 참조하세요
 
 ### NuGet 패키지 추가
 
@@ -456,7 +447,7 @@ WebJob 프로젝트에서 자동으로 설치되는 WebJobs SDK 종속성 중 �
 
 13. **프로젝트 선택** 상자에서 **ContosoAdsWeb** 확인란을 선택하고 **확인**을 클릭합니다. 
 
-이러한 세 프로젝트는 SQL 데이터베이스의 데이터를 사용하기 위해 Entity Framework를 사용합니다.
+	이러한 세 프로젝트는 SQL 데이터베이스의 데이터를 사용하기 위해 Entity Framework를 사용합니다.
 
 12. 왼쪽 창에서 **온라인**을 선택합니다.
    
@@ -471,7 +462,7 @@ WebJob 프로젝트에서 자동으로 설치되는 WebJobs SDK 종속성 중 �
 
 11. ContosoAdsWebJob 프로젝트에서 ContosAdsCommon 프로젝트에 대한 참조를 설정합니다.
 
-WebJob 프로젝트는 이미지를 사용하고 연결 문자열에 액세스하기 위해 참조가 필요합니다.
+	WebJob 프로젝트는 이미지를 사용하고 연결 문자열에 액세스하기 위해 참조가 필요합니다.
 
 11. ContosoAdsWebJob 프로젝트에서  `System.Drawing` 및  `System.Configuration`에 대한 참조를 설정합니다.
 
@@ -491,22 +482,22 @@ WebJob 프로젝트는 이미지를 사용하고 연결 문자열에 액세스�
 
 	- *Web.config*
 	- *Global.asax.cs*  
-	- In the *Controllers* folder: *AdController.cs* 
-	- In the *Views\Shared* folder: <em>_Layout.cshtml</em> file. 
-	- In the *Views\Home* folder: *Index.cshtml*. 
-	- In the *Views\Ad* folder (create the folder first): five *.cshtml* files.<br/><br/>
+	-  *Controllers* 폴더: *AdController.cs*. 
+	-  *Views\Shared* 폴더: <em>_Layout.cshtml</em> 파일. 
+	-  *Views\Home* 폴더: *Index.cshtml*. 
+	-  *Views\Ad* 폴더(먼저 폴더 생성): .cshtml 파일 5개.<br/><br/>
 
 3. ContosoAdsWebJob 프로젝트에서 다운로드한 프로젝트에서 가져온 다음 파일을 추가합니다.
 
-	- *App.config* (change the file type filter to **All Files**)
+	- *App.config*(파일 형식 필터를 **모든 파일**로 변경)
 	- *Program.cs*
 	- *Functions.cs*
 
-이제 자습서의 앞부분에 설명된 대로 응용 프로그램을 빌드, 실행 및 배포할 수 있습니다. 이 작업을 수행하기 전에 배포한 첫 번째 웹 사이트에서 여전히 실행되고 있는 WebJob을 중지합니다. 그렇지 않으면 모두가 동일한 저장소 계정을 사용하고 있으므로 해당 WebJob이 로컬로 만들어졌거나 새 웹 사이트에서 실행되고 있는 앱에 의해 만들어진 큐 메시지를 처리하게 됩니다.
+이제 자습서의 앞부분에 설명된 대로 응용 프로그램을 빌드, 실행 및 배포할 수 있습니다. 이 작업을 수행하기 전에 배포한 첫 번째 웹 앱에서 여전히 실행되고 있는 WebJob을 중지합니다. 그렇지 않으면 모두가 동일한 저장소 계정을 사용하고 있으므로 해당 WebJob이 로컬로 만들어졌거나 새 웹 앱에서 실행되고 있는 앱에 의해 만들어진 큐 메시지를 처리하게 됩니다.
 
 ## <a id="code"></a>응용 프로그램 코드 검토
 
-다음 섹션에서는 WebJob SDK 및 Azure 저장소 Blob와 큐 작업과 관련된 코드에 대해 설명합니다. WebJob SDK 관련 코드의 경우는 [Program.cs 섹션]을 참조하세요(#programcs).
+다음 섹션에서는 WebJob SDK 및 Azure 저장소 Blob과 큐 작업과 관련된 코드에 대해 설명합니다. WebJob SDK 관련 코드의 경우는 [Program.cs 섹션]을 참조하세요(#programcs).
 
 ### ContosoAdsCommon - Ad.cs
 
@@ -604,7 +595,7 @@ ContosoAdsContext 클래스는 DbSet 컬렉션에서 Ad 클래스가 사용된�
 		var storageAccount = CloudStorageAccount.Parse
 		    (ConfigurationManager.ConnectionStrings["AzureWebJobsStorage"].ToString());
 
-그런 다음  *images* Blob 컨테이너에 대한 참조를 가져오고 컨테이너를 만들고(아직 없는 경우) 새 컨테이너에 대한 액세스 권한을 설정합니다. 기본적으로 새 컨테이너는 저장소 계정 자격 증명이 있는 클라이언트만 Blob에 액세스할 수 있게 허용합니다. 이미지 Blob를 가리키는 URL을 사용하여 이미지를 표시할 수 있도록 웹 사이트는 Blob를 공개로 설정해야 합니다.
+그런 다음  *images* Blob 컨테이너에 대한 참조를 가져오고 컨테이너를 만들고(아직 없는 경우) 새 컨테이너에 대한 액세스 권한을 설정합니다. 기본적으로 새 컨테이너는 저장소 계정 자격 증명이 있는 클라이언트만 Blob에 액세스를 허용합니다. 이미지 Blob를 가리키는 URL을 사용하여 이미지를 표시할 수 있도록 웹 앱은 Blob을 공개로 설정해야 합니다.
 
 		var blobClient = storageAccount.CreateCloudBlobClient();
 		var imagesBlobContainer = blobClient.GetContainerReference("images");
@@ -640,7 +631,7 @@ ContosoAdsContext 클래스는 DbSet 컬렉션에서 Ad 클래스가 사용된�
 
  *AdController.cs* 파일에서 생성자는  `InitializeStorage` 메서드를 호출하여 Blob 및 큐 작업을 위한 API를 제공하는 Azure 저장소 클라이언트 라이브러리 개체를 만듭니다. 
 
-그런 다음, 코드는 앞서  *Global.asax.cs*에서 확인한  *images* Blob 컨테이너에 대한 참조를 가져옵니다. 그 과정에서 웹앱에 해당하는 기본 [재시도 정책](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling)을 설정합니다. 기본 지수 백오프 재시도 정책은 일시적 오류에 대해 반복적으로 재시도하는 경우 1분 넘게 웹앱을 중지시킬 수 있습니다. 여기서 지정된 재시도 정책은 시도 횟수 최대 3회까지 각 시도 이후에 3초 동안 대기합니다.
+그런 다음, 코드는 앞서  *Global.asax.cs*에서 확인한  *images* Blob 컨테이너에 대한 참조를 가져옵니다. 그 과정에서 웹 앱에 해당하는 기본 [재시도 정책](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling)을 설정합니다. 기본 지수 백오프 재시도 정책은 일시적 오류에 대해 반복적으로 재시도하는 경우 1분 넘게 웹앱을 중지시킬 수 있습니다. 여기서 지정된 재시도 정책은 시도 횟수 최대 3회까지 각 시도 이후에 3초 동안 대기합니다.
 
 		var blobClient = storageAccount.CreateCloudBlobClient();
 		blobClient.DefaultRequestOptions.RetryPolicy = new LinearRetry(TimeSpan.FromSeconds(3), 3);
@@ -660,7 +651,7 @@ ContosoAdsContext 클래스는 DbSet 컬렉션에서 Ad 클래스가 사용된�
 		    [Bind(Include = "Title,Price,Description,Category,Phone")] Ad ad,
 		    HttpPostedFileBase imageFile)
 
-사용자가 업로드할 파일을 선택한 경우 코드는 파일을 업로드하고 Blob에 저장하며 광고 데이터베이스 레코드를 Blob를 가리키는 URL로 업데이트합니다.
+사용자가 업로드할 파일을 선택한 경우 코드는 파일을 업로드하고 Blob에 저장하며 광고 데이터베이스 레코드를 Blob을 가리키는 URL로 업데이트합니다.
 
 		if (imageFile != null && imageFile.ContentLength != 0)
 		{
@@ -740,29 +731,22 @@ HttpPost  `Edit` 메서드의 코드도 비슷하지만, 사용자가 새 이미
 
 ### <a id="programcs"></a>ContosoAdsWebJob - Program.cs
 
-WebJob이 시작되면  `Main` 메서드는  `Initialize`를 호출하여 Entity Framework 데이터베이스 컨텍스트를 인스턴스화합니다. 그런 후 WebJobs SDK  `JobHost.RunAndBlock` 메서드를 호출하여 현재 스레드에서 트리거된 함수의 단일 스레드 실행을 시작합니다.
+WebJob이 시작되면  `Main` 메서드가 WebJob SDK `JobHost.RunAndBlock` 메서드를 호출하여 현재 스레드에서 트리거한 함수의 실행을 시작합니다.
 
 		static void Main(string[] args)
 		{
-		    Initialize();
-		
 		    JobHost host = new JobHost();
 		    host.RunAndBlock();
-		}
-		
-		private static void Initialize()
-		{
-		    db = new ContosoAdsContext();
 		}
 
 ### <a id="generatethumbnail"></a>ContosoAdsWebJob - Functions.cs - GenerateThumbnail method
 
-WebJobs SDK는 큐 메시지가 수신될 때 이 메서드를 호출합니다. 이 메서드는 미리 보기를 만든 후 데이터베이스에 미리 보기 URL을 추가합니다.
+WebJob SDK는 큐 메시지가 수신될 때 이 메서드를 호출합니다. 이 메서드는 미리 보기를 만든 후 데이터베이스에 미리 보기 URL을 추가합니다.
 
 		public static void GenerateThumbnail(
 		[QueueTrigger("thumbnailrequest")] BlobInformation blobInfo,
 		[Blob("images/{BlobName}", FileAccess.Read)] Stream input,
-		[Blob("images/{BlobNameWithoutExtension}_thumbnail.jpg"), FileAccess.Write] CloudBlockBlob outputBlob)
+		[Blob("images/{BlobNameWithoutExtension}_thumbnail.jpg")] CloudBlockBlob outputBlob)
 		{
 		    using (Stream output = outputBlob.OpenWrite())
 		    {
@@ -770,14 +754,19 @@ WebJobs SDK는 큐 메시지가 수신될 때 이 메서드를 호출합니다. 
 		        outputBlob.Properties.ContentType = "image/jpeg";
 		    }
 		
-		    var id = blobInfo.AdId;
-		    Ad ad = Program.db.Ads.Find(id);
-		    if (ad == null)
+		    // Entity Framework context class is not thread-safe, so it must
+		    // be instantiated and disposed within the function.
+		    using (ContosoAdsContext db = new ContosoAdsContext())
 		    {
-		        throw new Exception(String.Format("AdId {0} not found, can't create thumbnail", id.ToString()));
+		        var id = blobInfo.AdId;
+		        Ad ad = db.Ads.Find(id);
+		        if (ad == null)
+		        {
+		            throw new Exception(String.Format("AdId {0} not found, can't create thumbnail", id.ToString()));
+		        }
+		        ad.ThumbnailURL = outputBlob.Uri.ToString();
+		        db.SaveChanges();
 		    }
-		    ad.ThumbnailURL = outputBlob.Uri.ToString();
-		    Program.db.SaveChanges();
 		}
 
 *  `QueueTrigger` 특성은 thumbnailrequest 큐에 새 메시지가 수신될 때 WebJob SDK가 이 메서드를 호출하도록 합니다.
@@ -791,29 +780,33 @@ WebJobs SDK는 큐 메시지가 수신될 때 이 메서드를 호출합니다. 
 		[Blob("images/{BlobName}", FileAccess.Read)] Stream input,
 		[Blob("images/{BlobNameWithoutExtension}_thumbnail.jpg")] CloudBlockBlob outputBlob)
 
-	Blob 이름은 큐 메시지(`BlobName` 및  `BlobNameWithoutExtension`)에 수신된  `BlobInformation` 개체의 속성을 기반으로 합니다. 저장소 클라이언트 라이브러리의 전기능을 사용하려는 경우  `CloudBlockBlob` 클래스를 사용하여 Blob를 작동할 수 있습니다.  `Stream` 개체 사용을 위해 작성한 코드를 다시 사용하려면  `Stream` 클래스를 사용할 수 있습니다. 
+	Blob 이름은 큐 메시지('BlobName' 및  `BlobNameWithoutExtension`)에 수신된  `BlobInformation` 개체의 속성을 기반으로 합니다. 저장소 클라이언트 라이브러리의 전기능을 사용하려는 경우  `CloudBlockBlob` 클래스를 사용하여 Blob를 작동할 수 있습니다.  `Stream` 개체 사용을 위해 작성한 코드를 다시 사용하려면  `Stream` 클래스를 사용할 수 있습니다. 
 
 WebJobs SDK 특성을 사용하는 함수를 작성하는 방법에 대한 자세한 내용은 다음 리소스를 참조하세요.
 
-* [WebJobs SDK를 사용하여 Azure 큐 저장소로 작업하는 방법](../websites-dotnet-webjobs-sdk-storage-queues-how-to)
-* [WebJobs SDK를 사용하여 Azure Blob 저장소로 작업하는 방법](../websites-dotnet-webjobs-sdk-storage-blobs-how-to)
-* [WebJobs SDK를 사용하여 Azure 테이블 저장소로 작업하는 방법](../websites-dotnet-webjobs-sdk-storage-tables-how-to)
-* [WebJobs SDK를 사용하여 Azure 서비스 버스로 작업하는 방법](../websites-dotnet-webjobs-sdk-service-bus)
+* [WebJob SDK를 사용하여 Azure 큐 저장소로 작업하는 방법](websites-dotnet-webjobs-sdk-storage-queues-how-to.md)
+* [WebJob SDK를 사용하여 Azure Blob 저장소로 작업하는 방법](websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
+* [WebJob SDK를 사용하여 Azure 테이블 저장소로 작업하는 방법](websites-dotnet-webjobs-sdk-storage-tables-how-to.md)
+* [WebJob SDK를 사용하여 Azure 서비스 버스로 작업하는 방법](websites-dotnet-webjobs-sdk-service-bus.md)
 
 >[AZURE.NOTE] 
->* 웹 사이트가 여러 VM에서 실행되는 경우 이 프로그램은 각 컴퓨터에서 실행되고, 각 컴퓨터는 트리거를 기다렸다가 함수 실행을 시도합니다. 일부 시나리오에서는 이로 인해 일부 함수가 동일한 데이터를 두 번 처리하게 될 수 있으므로 함수는 역등원이어야 합니다(같은 입력 데이터로 반복 호출해도 중복된 결과가 나오지 않도록 작성).
->* * 정상 종료를 구현하는 방법에 대한 자세한 내용은 [정상 종료](../websites-dotnet-webjobs-sdk-storage-queues-how-to/#graceful).   를 참조하세요
+>* 웹 앱이 여러 VM에서 실행되는 경우 이 프로그램은 각 컴퓨터에서 실행되고, 각 컴퓨터는 트리거를 기다렸다가 함수 실행을 시도합니다. 일부 시나리오에서는 이로 인해 일부 함수가 동일한 데이터를 두 번 처리하게 될 수 있으므로 함수는 역등원이어야 합니다(같은 입력 데이터로 반복 호출해도 중복된 결과가 나오지 않도록 작성).
+>* 정상 종료를 구현하는 방법에 대한 자세한 내용은 [정상 종료](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#graceful)를 참조하세요   
 >*  `ConvertImageToThumbnailJPG` 메서드의 코드(표시되지 않음)는 간소화를 위해  `System.Drawing` 네임스페이스의 클래스를 사용합니다. 하지만 이 네임스페이스의 클래스는 Windows Forms에서 사용하도록 설계되었습니다. Windows 또는 ASP.NET 서비스에서 사용할 수 있도록 지원되지 않습니다.
 
-### WebJobs SDK 및 WebJobs SDK가 없는 클라우드 서비스 작업자 역할
+### WebJob SDK 및 WebJob SDK가 없는 클라우드 서비스 작업자 역할
 
-이 샘플 응용 프로그램에 포함된  `GenerateThumbnails` 메서드의 코드 양과 [클라우드 서비스 버전의 응용 프로그램](/ko-kr/documentation/articles/cloud-services-dotnet-get-started/)의 작업자 역할 코드를 비교하면 WebJob SDK가 알아서 수행하는 작업의 양을 확인할 수 있습니다. 장점은 보이는 것보다 더 큽니다. 클라우드 서비스 응용 프로그램 예제 코드는 프로덕션 응용 프로그램에서 이러한 모든 작업(예: 포이즌 메시지 처리)을 수행하지는 못하지만 WebJob SDK는 이러한 작업을 수행합니다.
+이 샘플 응용 프로그램에 포함된  `GenerateThumbnails` 메서드의 코드 양과 [클라우드 서비스 버전의 응용 프로그램](cloud-services-dotnet-get-started.md)의 작업자 역할 코드를 비교하면 WebJob SDK가 알아서 수행하는 작업의 양을 확인할 수 있습니다. 장점은 보이는 것보다 더 큽니다. 클라우드 서비스 응용 프로그램 예제 코드는 프로덕션 응용 프로그램에서 이러한 모든 작업(예: 포이즌 메시지 처리)을 수행하지는 못하지만 WebJob SDK는 이러한 작업을 수행합니다.
 
-클라우드 서비스 버전의 응용 프로그램에서 레코드 ID는 큐 메시지의 유일한 정보이며 백그라운드 프로세스가 데이터베이스에서 이미지 URL을 가져옵니다. WebJob SDK 버전의 응용 프로그램에서는 큐 메시지에 이미지 URL이 포함되므로  `Blob` 특성에 제공될 수 있습니다. 큐 메시지에 Blob URL이 없는 경우 [서드 서명 대신 메서드 본문에 Blob 특성을 사용](../websites-dotnet-webjobs-sdk-storage-queues-how-to/#blobbody).할 수 있습니다
+클라우드 서비스 버전의 응용 프로그램에서 레코드 ID는 큐 메시지의 유일한 정보이며 백그라운드 프로세스가 데이터베이스에서 이미지 URL을 가져옵니다. WebJob SDK 버전의 응용 프로그램에서는 큐 메시지에 이미지 URL이 포함되므로  `Blob` 특성에 제공될 수 있습니다. 큐 메시지에 Blob URL이 없는 경우 [메서드 서명 대신 메서드 본문에 Blob 특성을 사용](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#blobbody)할 수 있습니다
 
-### WebJobs 외부에서 WebJobs SDK 사용
+### WebJob 외부에서 WebJob SDK 사용
 
-WebJob SDK를 사용하는 프로그램은 WebJob의 Azure에서 실행될 필요가 없습니다. 로컬로 실행될 수 있으며, 클라우드 서비스 작업자 역할 또는 Windows 서비스와 같은 다른 환경에서 실행될 수도 있습니다. 그렇지만 WebJob SDK 대시보드에는 Azure 웹 사이트를 통해서만 액세스할 수 있습니다. 이 대시보드를 사용하려면 관리 포털의 **구성** 탭에서 AzureWebJobsDashboard 연결 문자열을 설정하여 사용 중인 저장소 계정에 웹 사이트를 연결해야 합니다. 그런 후 다음 URL을 사용하여 대시보드로 이동할 수 있습니다. https://{websitename}.scm.azurewebsites.net/azurejobs/#/functions. 자세한 내용은 [WebJob SDK를 사용한 로컬 개발을 위해 대시보드 가져오기](http://blogs.msdn.com/b/jmstall/archive/2014/01/27/getting-a-dashboard-for-local-development-with-the-webjobs-sdk.aspx)를 참조하세요. 단 여기에는 이전 연결 문자열 이름이 표시됩니다. 
+WebJob SDK를 사용하는 프로그램은 WebJob의 Azure에서 실행될 필요가 없습니다. 로컬로 실행될 수 있으며, 클라우드 서비스 작업자 역할 또는 Windows 서비스와 같은 다른 환경에서 실행될 수도 있습니다. 하지만 WebJob SDK 대시보드에는 Azure 웹 앱을 통해서만 액세스할 수 있습니다. 이 대시보드를 사용하려면 관리 포털의 **구성** 탭에서 AzureWebJobsDashboard 연결 문자열을 설정하여 사용 중인 저장소 계정에 웹 앱을 연결해야 합니다. 그런 후 다음 URL을 사용하여 대시보드로 이동할 수 있습니다.
+
+https://{webappname}.scm.azurewebsites.net/azurejobs/#/functions
+
+자세한 내용은 [WebJob SDK를 사용한 로컬 개발을 위해 대시보드 가져오기](http://blogs.msdn.com/b/jmstall/archive/2014/01/27/getting-a-dashboard-for-local-development-with-the-webjobs-sdk.aspx)를 참조하세요. 단 여기에는 이전 연결 문자열 이름이 표시됩니다. 
 
 ## 다음 단계
 
@@ -821,5 +814,8 @@ WebJob SDK를 사용하는 프로그램은 WebJob의 Azure에서 실행될 필�
 
 자세한 내용은 [Azure WebJob 권장 리소스](http://go.microsoft.com/fwlink/?LinkId=390226)를 참조하세요.
 
+## 변경 내용
+* 웹 사이트에서 앱 서비스로의 변경에 대한 가이드는 다음을 참조: [Azure 앱 서비스 및 기존 Azure 서비스에 대한 영향](http://go.microsoft.com/fwlink/?LinkId=529714)
+* 이전 포털에서 새 포털로의 변경에 대한 가이드는 다음을 참조: [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)
 
-<!--HONumber=42-->
+<!--HONumber=49-->

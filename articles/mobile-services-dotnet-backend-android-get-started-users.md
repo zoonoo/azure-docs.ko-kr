@@ -1,6 +1,6 @@
 ﻿<properties 
 	pageTitle="인증 시작(Android) | 모바일 개발자 센터" 
-	description="모바일 서비스를 사용하여 Google, Facebook, Twitter, Microsoft 등의 다양한 ID 공급자를 통해 Windows 스토어 앱 사용자를 인증하는 방법에 대해 알아봅니다." 
+	description="모바일 서비스를 사용하여 Google, Facebook, Twitter, Microsoft 등의 다양한 ID 공급자를 통해 Windows 스토어 앱 사용자를 인증하는 방법을 알아봅니다." 
 	services="mobile-services" 
 	documentationCenter="android" 
 	authors="mattchenderson" 
@@ -28,13 +28,13 @@
 
 이 자습서는 모바일 서비스 퀵 스타트를 기반으로 합니다. 먼저 [모바일 서비스 시작] 자습서를 완료해야 합니다. 
 
-## <a name="register"></a>인증을 위해 앱 등록 및 모바일 서비스 구성
+##<a name="register"></a>인증을 위해 앱 등록 및 모바일 서비스 구성
 
 [AZURE.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)] 
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-aad-server-extension](../includes/mobile-services-dotnet-backend-aad-server-extension.md)] 
 
-## <a name="permissions"></a>사용 권한을 인증된 사용자로 제한
+##<a name="permissions"></a>사용 권한을 인증된 사용자로 제한
 
 [AZURE.INCLUDE [mobile-services-restrict-permissions-dotnet-backend](../includes/mobile-services-restrict-permissions-dotnet-backend.md)] 
 
@@ -46,7 +46,7 @@
 
 다음에는 모바일 서비스의 리소스를 요청하기 전에 사용자를 인증하도록 앱을 업데이트합니다.
 
-## <a name="add-authentication"></a>앱에 인증 추가
+##<a name="add-authentication"></a>앱에 인증 추가
 
 [AZURE.INCLUDE [mobile-services-android-authenticate-app](../includes/mobile-services-android-authenticate-app.md)]
 
@@ -58,7 +58,7 @@
 
 [AZURE.INCLUDE [mobile-services-android-authenticate-app-refresh-token](../includes/mobile-services-android-authenticate-app-refresh-token.md)] 
 
-## <a name="next-steps"></a>다음 단계
+##<a name="next-steps"></a>다음 단계
 
 다음 자습서인 [모바일 서비스 사용자의 서비스 쪽 권한 부여][스크립트를 통해 사용자 권한 부여]에서는 인증된 사용자를 기반으로 모바일 서비스에서 제공된 사용자 ID 값을 사용하여 모바일 서비스에서 반환되는 데이터를 필터링합니다. 
 
@@ -72,14 +72,14 @@
 [다음 단계]:#next-steps
 
 <!-- URLs. -->
-[모바일 서비스 시작]: /documentation/articles/mobile-services-dotnet-backend-android-get-started/
-[데이터 시작]: /documentation/articles/mobile-services-dotnet-backend-android-get-started-data/
-[인증 시작]: /documentation/articles/mobile-services-dotnet-backend-android-get-started-users/
-[푸시 알림 시작]: /documentation/articles/mobile-services-dotnet-backend-android-get-started-push/
-[스크립트를 통해 사용자 권한 부여]: /documentation/articles/mobile-services-dotnet-backend-android-authorize-users-in-scripts
+[모바일 서비스 시작]: mobile-services-dotnet-backend-android-get-started.md
+[데이터 시작]: mobile-services-dotnet-backend-android-get-started-data.md
+[인증 시작]: mobile-services-dotnet-backend-android-get-started-users.md
+[푸시 알림 시작]: mobile-services-dotnet-backend-android-get-started-push.md
+[스크립트를 통해 사용자 권한 부여]: mobile-services-dotnet-backend-android-authorize-users-in-scripts.md
 
 [Azure 관리 포털]: https://manage.windowsazure.com/
 [모바일 서비스 .NET 방법 개념 참조]: /develop/mobile/how-to-guides/work-with-net-client-library
-[Microsoft 인증을 위해 Windows 스토어 앱 패키지 등록]: /documentation/articles/mobile-services-how-to-register-store-app-package-microsoft-authentication
+[Microsoft 인증을 위해 Windows 스토어 앱 패키지 등록]: mobile-services-how-to-register-store-app-package-microsoft-authentication.md
 
-<!--HONumber=47-->
+<!--HONumber=49-->

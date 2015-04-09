@@ -1,4 +1,4 @@
-﻿MongoLab 데이터베이스를 프로비전하면 MongoLab에서 MongoDB의 표준 연결 문자열 형식으로 연결 URI를 Azure에 전송합니다. 이 값은 선택한 MongoDB 드라이버를 통해 MongoDB 연결을 시작하는 데 사용됩니다. 연결 문자열에 대한 자세한 내용은 [연결](http://www.mongodb.org/display/DOCS/Connections) (영문)을 참조하세요. mongodb.org에서 찾을 수 있습니다.
+﻿MongoLab 데이터베이스를 프로비전하면 MongoLab에서 MongoDB의 표준 연결 문자열 형식으로 연결 URI를 Azure에 전송합니다. 이 값은 선택한 MongoDB 드라이버를 통해 MongoDB 연결을 시작하는 데 사용됩니다. 연결 문자열에 대한 자세한 내용은 mongodb.org의 [연결](http://www.mongodb.org/display/DOCS/Connections)을 참조하세요.
 
 **이 URI에는 데이터베이스 사용자 이름과 암호가 포함되어 있습니다.  중요한 정보로 처리하고 공유하지 마세요.**
 
@@ -19,4 +19,5 @@
 [button-connectioninfo]: ./media/howto-get-connectioninfo-mongolab/button-connectioninfo.png
 [screen-connectioninfo]: ./media/howto-get-connectioninfo-mongolab/dialog-mongolab_connectioninfo.png
 [button-addons]: ./media/howto-get-connectioninfo-mongolab/button-addons.png
-<!--HONumber=42-->
+
+<!--HONumber=49-->

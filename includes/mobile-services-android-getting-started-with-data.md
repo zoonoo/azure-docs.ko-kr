@@ -19,7 +19,7 @@
 
 		<uses-permission android:name="android.permission.INTERNET" />
 
-5. Package Explorer에서 **GetStartedWithData => app => src => java** 폴더에 있는 TodoActivity.java 파일을 열고 다음 코드 줄의 주석 처리를 제거합니다. 
+5. Package Explorer에서 **GetStartedWithData => app => src => java** 폴더에 있는 TodoActivity.java 파일을 열고 다음 코드 행의 주석 처리를 제거합니다. 
 
 
 
@@ -53,7 +53,7 @@
 		private MobileServiceClient mClient;
 		private private MobileServiceTable<ToDoItem> mToDoTable;
 
-9. 파일 아래쪽에서  *ProgressFilter* 클래스를 찾아 주석 처리를 제거합니다. 이 클래스는  *MobileServiceClient*에서 네트워크 작업을 실행하는 동안  'loading' 표시기를 표시합니다.
+9. 파일 아래쪽에서 *ProgressFilter* 클래스를 찾아 주석 처리를 제거합니다. 이 클래스는  *MobileServiceClient*에서 네트워크 작업을 실행하는 동안 'loading' 표시기를 표시합니다.
 
 
 10. 관리 포털에서 **모바일 서비스**를 클릭한 후 방금 만든 모바일 서비스를 클릭합니다.
@@ -80,9 +80,9 @@
 			createAndShowDialog(new Exception("There was an error creating the Mobile Service. Verify the URL"), "Error");
 		}
 
-  	모바일 서비스에 액세스하는 데 사용되는 새  *MobileServiceClient* 인스턴스가 만들어집니다. 모바일 서비스에서 데이터 저장소에 프록시를 설정하는 데 사용되는  *MobileServiceTable* 인스턴스도 만들어집니다.
+  	모바일 서비스에 액세스하는 데 사용되는 새 *MobileServiceClient* 인스턴스가 만들어집니다. 모바일 서비스에서 데이터 저장소에 프록시를 설정하는 데 사용되는 *MobileServiceTable* 인스턴스도 만들어집니다.
 
-13. 위의 코드에서 모바일 서비스의 URL 및 응용 프로그램 키로  `MobileServiceUrl` 및  `AppKey`를 바꿉니다.
+13. 위의 코드에서 모바일 서비스의 URL 및 응용 프로그램 키로 `MobileServiceUrl` 및  `AppKey`를 바꿉니다.
 
 
 
@@ -165,4 +165,5 @@
 
 <!-- URLs. -->
 [모바일 서비스 Android SDK]: http://aka.ms/Iajk6q
-<!--HONumber=47-->
+
+<!--HONumber=49-->

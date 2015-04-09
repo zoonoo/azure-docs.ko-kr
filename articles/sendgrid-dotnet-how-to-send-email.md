@@ -1,19 +1,19 @@
 ﻿<properties 
 	pageTitle="SendGrid 메일 서비스를 사용하는 방법(.NET) - Azure" 
-	description="Azure에서 SendGrid 전자 메일 서비스를 사용하여 전자 메일을 보내는 방법에 대해 알아봅니다. 코드 샘플은 C#으로 작성되었으며 .NET API를 사용합니다." 
-	services="" 
+	description="Azure에서 SendGrid 메일 서비스를 사용하여 메일을 보내는 방법을 알아봅니다. 코드 샘플은 C#으로 작성되었으며 .NET API를 사용합니다." 
+	services="app-service\web" 
 	documentationCenter=".net" 
 	authors="thinkingserious" 
 	manager="sendgrid" 
 	editor="erikre"/>
 
 <tags 
-	ms.service="multiple" 
+	ms.service="app-service-web" 
 	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="10/29/2014" 
+	ms.date="02/24/2015" 
 	ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork"/>
 
 
@@ -22,21 +22,13 @@
 
 # Azure에서 SendGrid를 사용하여 메일을 보내는 방법
 
-마지막 업데이트: 2014년 10월 27일
+마지막 업데이트: 2015년 2월 24일
 
-이 가이드에서는 Azure에서 SendGrid 전자 메일 서비스로 일반 프로그래밍 작업을 수행하는 방법을 보여 줍니다. 샘플은 C#으로 작성되었으며 .NET API를 사용합니다. **메일 작성**, **메일 보내기**, **첨부 파일 추가**, **필터 사용** 등의 시나리오를 다룹니다. SendGrid 및 메일 보내기에 대한 자세한 내용은 [다음 단계][] 섹션을 참조하세요.
+<h2><a name="overview"></a><span  class="short-header">개요</span></h2>
 
-<h2><a name="toc"></a>목차</h2>
-
-[SendGrid 메일 서비스 정의][]   
-[SendGrid 계정 만들기][]   
-[SendGrid .NET 클래스 라이브러리 참조][]   
-[방법: 전자 메일 만들기][]   
-[방법: 전자 메일 보내기][]   
-[방법: 첨부 파일 추가][]   
-[방법: 앱을 사용하여 바닥글, 추적 및 분석을 사용하도록 설정][]   
-[방법: 추가 SendGrid 서비스 사용][]   
-[다음 단계][]
+이 가이드에서는 Azure에서 SendGrid 메일 서비스로 일반 프로그래밍 작업을
+수행하는 방법을 보여 줍니다. 샘플은 C#으로 작성되었으며 .NET API를 사용합니다. **메일 작성**, **메일 보내기**, **첨부 파일 추가**, **필터 사용** 등의 시나리오를 다룹니다. SendGrid 및 메일 보내기에 대한 자세한 내용은
+[다음 단계][] 섹션을 참조하세요.
 
 <h2><a name="whatis"></a><span  class="short-header">SendGrid 메일 서비스 정의</span></h2>
 
@@ -53,18 +45,14 @@ SendGrid는 사용자 지정 통합을 쉽게 만드는 유연한 API와 함께 
 
 <h2><a name="createaccount"></a>SendGrid 계정 만들기</h2>
 
-[WACOM.INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
+[AZURE.INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
 
 <h2><a name="reference"></a>SendGrid .NET 클래스 라이브러리 참조</h2>
 
-[SendGrid NuGet 패키지](https://www.nuget.org/packages/Sendgrid)는 SendGrid API를 가져오고 응용 프로그램에서 종속성을 모두 갖도록 구성하는 가장 쉬운 방법입니다. NuGet은 Microsoft Visual Studio 2012에 포함된 Visual Studio 확장 프로그램으로서 라이브러리 및 도구를 쉽게 설치하고 업데이트할 수 있습니다. 
+[SendGrid NuGet 패키지](https://www.nuget.org/packages/Sendgrid)는 SendGrid API를 가져오고 응용 프로그램에서 종속성을 모두 갖도록 구성하는 가장 쉬운 방법입니다. NuGet은
+Microsoft Visual Studio 2012에 포함된 Visual Studio 확장 프로그램으로서 라이브러리 및 도구를 쉽게 설치하고 업데이트할 수 있습니다. 
 
-<div class="dev-callout">
-<b>참고</b>
-<p>Visual
-Studio 2012보다 이전 버전의 Visual Studio를 실행 중인 경우 NuGet을 설치하려면 <a href="http://www.nuget.org">http://www.nuget.org</a>로 이동하여 <b>설치
-NuGet</b> 단추를 클릭합니다.</p>
-</div>
+> [AZURE.NOTE] Visual Studio 2012보다 이전 버전의 Visual Studio를 실행 중인 경우 NuGet을 설치하려면 [http://www.nuget.org](http://www.nuget.org)로 이동하여 **Install NuGet** 단추를 클릭합니다.
 
 응용 프로그램에서 SendGrid NuGet 패키지를 설치하려면 다음을 수행합니다.
 
@@ -81,21 +69,21 @@ NuGet</b> 단추를 클릭합니다.</p>
 SendGrid의 .NET 클래스 라이브러리는 **SendGridMail**이라고 합니다. 다음 네임스페이스가 포함되어 있습니다.
 
 -   **SendGridMail** - 메일 항목 작성 및 작업
--   **SendGridMail.Transport** - **SMTP** 프로토콜과 **Web/REST**를 사용한 HTTP 1.1 프로토콜 중 하나를 사용하여 메일 발송
+-   **SendGridMail.Transport** - **SMTP** 프로토콜과 **Web/REST**를 사용한 HTTP 1.1 프로토콜 중 하나를 사용하여 메일 전송
 
-프로그래밍 방식으로 SendGrid 메일 서비스에 액세스하려는 C# 파일의 맨 위에 다음과 같은 코드 네임스페이스 선언을 추가합니다. **System.Net**과 **System.Net.Mail**은 포함되는 .NET Framework 네임스페이스이며, 형식을 포함하므로 일반적으로 SendGrid API와 함께 사용됩니다.
+프로그래밍 방식으로 SendGrid 메일 서비스에 액세스하려는 C# 파일의 맨 위에 다음과 같은 코드 네임스페이스 선언을 추가합니다.
+**System.Net**과 **System.Net.Mail**은 포함되는 .NET Framework 네임스페이스이며, 형식을 포함하므로 일반적으로 SendGrid API와 함께 사용됩니다.
 
     using System;
     using System.Net;
     using System.Net.Mail;
     using SendGrid;
 
-<h2><a name="createemail"></a>방법: 전자 메일 만들기</h2>
+<h2><a name="createemail"></a>방법: 메일 만들기</h2>
 
-정적 **SendGrid.GetInstance** 메서드를 사용하여 형식이 **SendGrid**인 메일 메시지를 만듭니다. 일단 메시지가 만들어지면 **SendGrid** 속성 및 메서드를 사용하여 메일 보낸 사람, 메일 받는 사람, 메일 제목 및 본문을 포함한 값을 설정할 수 있습니다.
+**SendGridMessage** 개체를 사용하여 메일 메시지를 만듭니다. 일단 메시지 개체가 만들어지면 메일 보낸 사람, 메일 받는 사람, 메일 제목 및 본문을 포함하여 속성과 메서드를 설정할 수 있습니다.
 
-다음 예에서는 완전히 채워진 메일
-개체를 만드는 방법을 보여 줍니다.
+다음 예제에서는 완전히 채워진 메일 개체를 만드는 방법을 보여 줍니다.
 
     // Create the email object first, then add the properties.
     var myMessage = new SendGridMessage();
@@ -119,14 +107,15 @@ SendGrid의 .NET 클래스 라이브러리는 **SendGridMail**이라고 합니�
     myMessage.Html = "<p>Hello World!</p>";
     myMessage.Text = "Hello World plain text!";
 
-**SendGrid** 형식에서 지원하는 모든 속성 및 메서드에 대한 자세한 내용은 GitHub의 [sendgrid-csharp][]를 참조하세요.
+**SendGrid** 유형이 지원하는 모든 속성과 메서드에 대한 자세한 내용은
+GitHub에서 [sendgrid-csharp][]을 참조하세요
 
-<h2><a name="sendemail"></a>방법: 전자 메일 보내기</h2>
+<h2><a name="sendemail"></a>방법: 메일 보내기</h2>
 
 메일 메시지를 만든 후에는 SMTP 또는 SendGrid에서 제공하는 Web API를 사용하여 해당 메시지를 보낼 수 있습니다. 또는 [.NET의 기본 제공 라이브러리](https://sendgrid.com/docs/Code_Examples/csharp.html)를 사용할 수도 있습니다.
 
 메일을 보내려면
-SendGrid 계정 자격 증명(사용자 이름 및 암호)을 제공해야 합니다. 다음 코드에서는 **NetworkCredential** 개체에서 자격 증명을 래핑하는 방법을 보여줍니다.
+SendGrid 계정 자격 증명(사용자 이름 및 암호)을 제공해야 합니다. 다음 코드는 **NetworkCredential** 개체에서 자격 증명을 래핑하는 방법을 보여줍니다.
     
     // Create network credentials to access your SendGrid account
     var username = "your_sendgrid_username";
@@ -162,7 +151,8 @@ SendGrid 계정 자격 증명(사용자 이름 및 암호)을 제공해야 합�
 
 <h2><a name="addattachment"></a>방법: 첨부 파일 추가</h2>
 
-**AddAttachment** 메서드를 호출하고 첨부할 파일의 이름과 경로를 지정하여 첨부 파일을 메시지에 추가할 수 있습니다. 첨부할 파일마다 이 메서드를 한 번씩 호출하여 여러 개의 첨부 파일을 포함할 수 있습니다. 다음 예에서는 메시지에 첨부 파일을 추가하는 방법을 보여 줍니다.
+**AddAttachment** 메서드를 호출하고 첨부할 파일의 이름과 경로를 지정하여 첨부 파일을 메시지에 추가할 수 있습니다.
+첨부할 파일마다 이 메서드를 한 번씩 호출하여 여러 개의 첨부 파일을 포함할 수 있습니다. 다음 예제에서는 메시지에 첨부 파일을 추가하는 방법을 보여 줍니다.
 
     SendGridMessage myMessage = new SendGridMessage();
     myMessage.AddTo("anna@example.com");
@@ -172,7 +162,7 @@ SendGrid 계정 자격 증명(사용자 이름 및 암호)을 제공해야 합�
 
     myMessage.AddAttachment(@"C:\file1.txt");
     
-또한 데이터의 **Stream**에서 첨부 파일을 추가할 수도 있습니다. 이렇게 하려면 위의 메서드와 동일한 메서드(**AddAttachment**)를 호출하되 데이터의 Stream과 메시지에서처럼 표시하려는 파일 이름을 전달해야 합니다. 여기서는 System.IO 라이브러리를 추가해야 합니다.
+데이터의 **Stream**에서 첨부 파일을 추가할 수도 있습니다. 이렇게 하려면 위의 메서드와 동일한 메서드(**AddAttachment**)를 호출하되 데이터의 Stream과 메시지처럼 표시할 파일 이름을 전달해야 합니다. 여기서는 System.IO 라이브러리를 추가해야 합니다.
 
     SendGridMessage myMessage = new SendGridMessage();
     myMessage.AddTo("anna@example.com");
@@ -188,11 +178,12 @@ SendGrid 계정 자격 증명(사용자 이름 및 암호)을 제공해야 합�
 
 <h2><a name="usefilters"></a><span  class="short-header">방법: 앱을 사용하여 바닥글, 추적 및 분석을 사용하도록 설정</span></h2>
 
-SendGrid는 앱 사용을 통해 추가 메일 기능을 제공합니다. 클릭 추적, Google 분석, 구독 추적 등과 같은 특정 기능을 사용할 수 있도록 전자 메일 메시지에 추가할 수 있는 설정입니다. 전체 앱 목록은 [앱 설정(영문)][]을 참조하세요.
+SendGrid는 앱 사용을 통해 추가 메일 기능을 제공합니다. 클릭 추적, Google 분석, 구독 추적 등과 같은 특정 기능을 사용할 수 있도록 메일 메시지에 추가할 수 있는 설정입니다. 전체 앱 목록은
+[앱 설정][](영문)을 참조하세요.
 
 **SendGrid** 클래스의 일부로 구현되는 메서드를 사용하여 앱을 **SendGrid** 메일 메시지에 적용할 수 있습니다.
 
-다음 예에서는 바닥글 및 클릭 추적 필터를 보여 줍니다.
+다음 예제에서는 바닥글 및 클릭 추적 필터를 보여 줍니다.
 
 ### 바닥글
 
@@ -222,7 +213,7 @@ SendGrid는 앱 사용을 통해 추가 메일 기능을 제공합니다. 클릭
 
 <h2><a name="useservices"></a>방법: 추가 SendGrid 서비스 사용</h2>
 
-SendGrid는 Azure 응용 프로그램에서 추가 SendGrid 기능을 활용하는 데 사용할 수 있는 웹 기반 API 및 웹 후크를 제공합니다. 자세한 내용은 [SendGrid API 설명서][](영문)를 참조하세요.
+SendGrid는 Azure 응용 프로그램에서 추가 SendGrid 기능을 활용하는 데 사용할 수 있는 웹 기반 API 및 웹 후크를 제공합니다. 자세한 내용은 [SendGrid API 설명서][]를 참조하세요.
 
 <h2><a name="nextsteps"></a>다음 단계</h2>
 
@@ -236,8 +227,8 @@ SendGrid 메일 서비스에 관한 기본적인 사항들을 익혔으며 자�
   [SendGrid 메일 서비스 정의]: #whatis
   [SendGrid 계정 만들기]: #createaccount
   [SendGrid .NET 클래스 라이브러리 참조]: #reference
-  [방법: 전자 메일 만들기]: #createemail
-  [방법: 전자 메일 보내기]: #sendemail
+  [방법: 메일 만들기]: #createemail
+  [방법: 메일 보내기]: #sendemail
   [방법: 첨부 파일 추가]: #addattachment
   [방법: 필터를 사용하여 바닥글, 추적 및 분석을 사용하도록 설정]: #usefilters
   [방법: 추가 SendGrid 서비스 사용]: #useservices
@@ -253,9 +244,7 @@ SendGrid 메일 서비스에 관한 기본적인 사항들을 익혔으며 자�
   [앱 설정]: https://sendgrid.com/docs/API_Reference/SMTP_API/apps.html
   [SendGrid API 설명서]: https://sendgrid.com/docs
   
-  [클라우드 기반 메일 서비스]: https://sendgrid.com/email-solutions
+  [cloud-based email service]: https://sendgrid.com/email-solutions
   [트랜잭션 메일 배달]: https://sendgrid.com/transactional-email
 
-<!--HONumber=35.2-->
-
-<!--HONumber=46--> 
+<!--HONumber=49-->

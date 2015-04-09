@@ -1,6 +1,6 @@
 ﻿<properties 
 	pageTitle="DocumentDB 계정 관리 | Azure" 
-	description="DocumentDB 계정을 관리하는 방법에 대해 알아봅니다." 
+	description="DocumentDB 계정을 관리하는 방법을 알아봅니다." 
 	services="documentdb" 
 	documentationCenter="" 
 	authors="stephbaron" 
@@ -13,24 +13,23 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/12/2015" 
+	ms.date="03/23/2015" 
 	ms.author="stbaro"/>
 
 #DocumentDB 계정을 관리하는 방법
 
-키, 일관성 설정, 용량 설정을 사용하는 방법을 배우고 계정을 삭제하는 방법에 대해 알아봅니다.
+키, 일관성 설정, 용량 설정을 사용하는 방법을 배우고 계정을 삭제하는 방법을 알아봅니다.
 
 ## <a id="keys"></a>액세스 키 보기, 복사 및 다시 생성
 DocumentDB 계정을 만들면 해당 서비스에서 DocumentDB 계정에 액세스할 때 인증에 사용할 수 있는 2개의 마스터 액세스 키가 생성됩니다. DocumentDB에서는 2개의 액세스 키를 제공해서 사용자가 DocumentDB 계정에 대한 중단 없이 키를 다시 생성할 수 있습니다.
 
-[Azure 관리 미리 보기 포털](https://portal.azure.com/)에서 DocumentDB 계정에 액세스하는 데 사용되는 액세스 키를 표시, 복사 및 다시 생성하려면 **DocumentDB 계정** 블레이드에서 **키** 부분에 액세스합니다.
-표시됩니다.
+[Azure Preview 포털](https://portal.azure.com/)에서 DocumentDB 계정에 액세스하는 데 사용되는 액세스 키를 표시, 복사 및 다시 생성하려면 **DocumentDB 계정** 블레이드에서 **키** 부분에 액세스합니다.
 
-![](./media/documentdb-manage-account/image002.jpg)
+![](../includes/media/documentdb-keys/keys.png)
 
 ### 액세스 키 보기 및 복사
 
-1.      [Azure Preview 포털](https://portal.azure.com/)에서 DocumentDB 계정에 액세스합니다. 
+1.      [Azure Preview 포털](https://portal.azure.com/)에서 DocumentDB 계정에 액세스합니다.
 
 2.      **요약** 렌즈에서 **키**를 클릭합니다.
 
@@ -48,8 +47,7 @@ DocumentDB 계정을 사용하는 웹 응용 프로그램이나 클라우드 서
 
 1.      DocumentDB 계정의 보조 액세스 키를 참조하도록 응용 프로그램 코드의 액세스 키를 업데이트합니다.
 
-2.      DocumentDB 계정의 기본 액세스 키를 다시 생성합니다.
-[Azure 관리 미리 보기 포털](https://portal.azure.com/)에서 DocumentDB 계정에 액세스합니다.
+2.      DocumentDB 계정의 기본 액세스 키를 다시 생성합니다. [Azure Preview 포털](https://portal.azure.com/)에서 DocumentDB 계정에 액세스합니다.
 
 3.      요약 렌즈에서 **키**를 클릭합니다.
 
@@ -61,8 +59,7 @@ DocumentDB 계정을 사용하는 웹 응용 프로그램이나 클라우드 서
 
 *새로 생성된 키를 사용하여 DocumentDB 계정에 액세스할 수 있을 때까지 몇 분 정도 걸릴 수 있습니다.*
 
-## <a id="consistency"></a>DocumentDB 일관성 설정 관리
-DocumentDB는 개발자가 일관성, 가용성 및 대기 시간을 예측 가능하게 절충할 수 있도록 효율적으로 정의된 네 가지 사용자 구성 가능 데이터 일관성 수준을 지원합니다.
+## <a id="consistency"></a>DocumentDB 일관성 설정 관리 DocumentDB는 개발자가 일관성, 가용성 및 대기 시간을 예측 가능하게 절충할 수 있도록 효율적으로 정의된 네 가지 사용자 구성 가능 데이터 일관성 수준을 지원합니다.
 
 - **강력**: 이 일관성 수준에서는 읽기 작업이 항상 마지막으로 기록된 값을 반환하도록 보장합니다.
 
@@ -72,12 +69,11 @@ DocumentDB는 개발자가 일관성, 가용성 및 대기 시간을 예측 가�
 
 - **최종**: 이 일관성 수준에서는 읽기 작업이 항상 유효한 쓰기 하위 집합을 읽으며 최종적으로는 수렴되도록 보장합니다.
 
-*기본적으로 DocumentDB 계정은 세션 수준 일관성을 사용해서 프로비전됩니다.  DocumentDB 일관성 설정에 대한 추가 정보는 [일관성
-수준](http://go.microsoft.com/fwlink/p/?LinkId=402365) 섹션을 참조하세요.*
+*기본적으로 DocumentDB 계정은 세션 수준 일관성을 사용해서 프로비전됩니다. DocumentDB 일관성 설정에 대한 추가 정보는 [일관성 수준](http://go.microsoft.com/fwlink/p/?LinkId=402365) 섹션을 참조하세요.*
 
 ### DocumentDB 계정의 기본 일관성을 지정하려면
 
-1.      [Azure 관리 미리 보기 포털](https://portal.azure.com/)에서 DocumentDB 계정에 액세스합니다. 
+1.      [Azure Preview 포털](https://portal.azure.com/)에서 DocumentDB 계정에 액세스합니다.
 
 2.      **구성** 렌즈에서 l**기본 일관성**을 클릭합니다.
 
@@ -89,16 +85,17 @@ DocumentDB는 개발자가 일관성, 가용성 및 대기 시간을 예측 가�
 
 4.      **저장**을 클릭합니다.
 
-5.      Azure 관리 미리 보기 포털 알림 허브를 통해 작업 진행률을 모니터링할 수 있습니다.
+5.      Azure Preview 포털 알림 허브를 통해 작업 진행률을 모니터링할 수 있습니다.
 
 *기본 일관성 설정 변경 내용이 DocumentDB 계정에 적용될 때까지 몇 분 정도 걸릴 수 있습니다.*
 
-## <a id="capacity"></a>Manage DocumentDB 용량 설정 Microsoft Azure DocumentDB는 수명 주기 전체에 걸쳐 응용 프로그램의 수요 변경에 맞추어 탄력적으로 크기를 조정할 수 있도록 합니다. DocumentDB의 크기를 조정할 때는 Azure 관리 미리 보기 포털을 통해 DocumentDB 데이터베이스 계정의 용량을 늘립니다.
+## <a id="capacity"></a>DocumentDB 용량 설정 관리 Microsoft Azure DocumentDB를 사용하면 전체 수명 주기 동안 응용 프로그램의 수요 변경에 맞춰 탄력적으로 크기를 조정할 수 있습니다. DocumentDB의 크기를 조정할 때는 Azure Preview 포털을 통해 DocumentDB 데이터베이스 계정의 용량을 늘립니다.
 
-데이터베이스 계정을 만들면 데이터베이스 저장소 및 예약된 처리량을 사용하여 계정이 프로비전됩니다. 언제든지 Azure 관리 미리 보기 포털을 통해 용량 단위를 추가하거나 제거하여 계정에 대해 프로비전된 데이터베이스 저장소 및 처리량을 변경할 수 있습니다. 
+데이터베이스 계정을 만들면 데이터베이스 저장소 및 예약된 처리량을 사용하여 계정이 프로비전됩니다. 언제든지 Azure Preview 포털을 통해 용량 단위를 추가하거나 제거하여 계정에 대해 프로비전된 데이터베이스 저장소 및 처리량을 변경할 수 있습니다.
 
 ### 용량 단위를 추가하거나 제거하려면
-1.      [Azure 관리 미리 보기 포털](https://portal.azure.com/)에서 DocumentDB 계정에 액세스합니다. 
+
+1.      [Azure Preview 포털](https://portal.azure.com/)에서 DocumentDB 계정에 액세스합니다.
 
 2.      **사용량** 렌즈에서 **크기 조정**을 클릭합니다.
 
@@ -107,18 +104,19 @@ DocumentDB는 개발자가 일관성, 가용성 및 대기 시간을 예측 가�
 
 ![](./media/documentdb-manage-account/image007.png)
 
-4.      **저장**을 클릭합니다. 크기 조정 작업이 완료되려면 몇 분 정도 걸릴 수 있습니다. Azure 관리 미리 보기 포털 알림 허브를 통해 진행률을 모니터링할 수 있습니다.
+4.      **저장**을 클릭합니다. 크기 조정 작업이 완료되려면 몇 분 정도 걸릴 수 있습니다. Azure Preview 포털 알림 허브를 통해 진행률을 모니터링할 수 있습니다.
 
- *DocumentDB 미리 보기에서는 DocumentDB 계정당 용량 단위를 5개까지 지원합니다.*
- 
+ *DocumentDB 미리 보기에서는 DocumentDB 계정당 용량 단위를 5개까지
+지원합니다.*
+
 
 ## <a id="delete"></a> 방법: DocumentDB 계정 삭제 더 이상 사용하지 않는 DocumentDB 계정을 제거하려면 **DocumentDB 계정** 블레이드에서** 삭제** 명령을 사용합니다.
 
-> [AZURE.WARNING] 미리 보기 릴리스에서는 삭제된 DocumentDB 계정에서 콘텐츠를 복원할 수 있는 방법이 없습니다.  DocumentDB 계정을 삭제하면 데이터베이스, 컬렉션, 문서 및 첨부 파일을 포함해서 해당 계정의 모든 리소스가 삭제됩니다.*
+> [AZURE.WARNING] 미리 보기 릴리스에서는 삭제된 DocumentDB 계정에서 콘텐츠를 복원할 수 있는 방법이 없습니다. DocumentDB 계정을 삭제하면 데이터베이스, 컬렉션, 문서 및 첨부 파일을 포함해서 해당 계정의 모든 리소스가 삭제됩니다.
 
 ![](./media/documentdb-manage-account/image009.png)
 
-1.      [Azure 관리 미리 보기 포털](https://portal.azure.com/)에서 삭제할 DocumentDB 계정에 액세스합니다. 
+1.      [Azure Preview 포털](https://portal.azure.com/)에서 삭제할 DocumentDB 계정에 액세스합니다.
 
 2.      **DocumentDB 계정** 블레이드에서 **삭제** 명령을 클릭합니다.
 
@@ -128,10 +126,12 @@ DocumentDB는 개발자가 일관성, 가용성 및 대기 시간을 예측 가�
 
 ## <a id="next"></a>다음 단계
 
-[DocumentDB 계정 사용을 시작하는 방법](http://go.microsoft.com/fwlink/p/?LinkId=402364)에 대해 알아봅니다.
+[DocumentDB 계정 사용을 시작하는 방법](http://go.microsoft.com/fwlink/p/?LinkId=402364)을 알아봅니다.
 
-DocumentDB에 대한 자세한 내용은 [azure.com](http://go.microsoft.com/fwlink/?LinkID=402319&clcid=0x409)에서 Azure DocumentDB 설명서를 참조하세요.
+DocumentDB에 대한 자세한 내용은
+
+[azure.com](http://go.microsoft.com/fwlink/?LinkID=402319&clcid=0x409)에서 Azure DocumentDB 설명서를 참조하세요.
 
  
 
-<!--HONumber=47-->
+<!--HONumber=49-->

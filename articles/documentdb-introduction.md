@@ -1,6 +1,6 @@
 ﻿<properties 
 	pageTitle="Microsoft Azure DocumentDB 소개 | Azure" 
-	description="Azure DocumentDB, NoSQL 문서 데이터베이스 및 클라우드와 모바일 응용 프로그램에서 DocumentDB를 활용하는 방법에 대해 알아봅니다. DocumentDB에서 데이터를 관리하는 방법과 응용 프로그램 개발에 DocumentDB를 사용하는 방법에 대해서도 살펴봅니다." 
+	description="Azure DocumentDB, NoSQL 문서 데이터베이스 및 클라우드와 모바일 응용 프로그램에서 DocumentDB를 활용하는 방법을 알아봅니다. DocumentDB에서 데이터를 관리하는 방법과 응용 프로그램 개발에 DocumentDB를 사용하는 방법에 대해서도 살펴봅니다." 
 	services="documentdb" 
 	authors="mimig1" 
 	manager="jhubbard" 
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/18/2015" 
+	ms.date="03/20/2015" 
 	ms.author="mimig"/>
 
 #Microsoft Azure DocumentDB 소개
 
 이 문서에서는 개발자, IT 전문가 및 비즈니스 의사 결정자를 위한 NoSQL 문서 데이터베이스 서비스인 Microsoft Azure DocumentDB를 소개합니다. 
 
-Ryan CrawCour와 Scott Hanselman이 Azure DocumentDB를 소개하는 다음 동영상을 보는 것으로 시작하는 것이 좋습니다. 
+먼저 Ryan CrawCour 및 Scott Hanselman이 Azure DocumentDB를 소개하는 다음 동영상을 보고, DocumentDB를 사용해보고 데이터 집합에 대해 SQL 쿼리를 실행하는 [쿼리 실습](http://www.documentdb.com/sql/demo)을 시도하는 것이 좋습니다.
 
 > [AZURE.VIDEO documentdb-101-with-ryan-crawcour]
 
@@ -43,13 +43,13 @@ Azure DocumentDB는 다음과 같은 주요 기능 및 이점을 제공합니다
 
 -	**익숙한 SQL 구문을 사용한 임시 쿼리:** DocumentDB 내에 다른 유형의 JSON 문서를 저장하고 익숙한 SQL 구문을 통해 해당 문서를 쿼리합니다. DocumentDB는 동시성이 높고 잠금이 없으며 로그 구조화된 인덱싱 기술을 활용하여 모든 문서 콘텐츠를 자동으로 인덱싱합니다. 따라서 스키마 힌트, 보조 인덱스 또는 뷰를 지정할 필요 없이 다양한 실시간 쿼리를 사용할 수 있습니다.
 
--	**데이터베이스 내의 JavaScript 실행:** 표준 JavaScript를 사용하여 응용 프로그램 논리를 저장 프로시저, 트리거 및 UDF(사용자 정의 함수)로 표현합니다. 이렇게 하면 응용 프로그램과 데이터베이스 스키마 간의 불일치에 관계없이 응용 프로그램 논리가 JSON 데이터에서 작동할 수 있습니다. DocumentDB는 데이터베이스 엔진 내에서 직접 JavaScript 응용 프로그램 논리의 전체 트랜잭션 실행을 제공합니다. JavaScript가 전체 통합되므로 JavaScript 프로그램 내에서 격리된 트랜잭션으로 INSERT, REPLACE, DELETE 및 SELECT 작업을 실행할 수 있습니다. 
+-	**데이터베이스 내의 JavaScript 실행:** 표준 JavaScript를 사용하여 응용 프로그램 논리를 저장 프로시저, 트리거 및 UDF(사용자 정의 함수)로 표현합니다. 이렇게 하면 응용 프로그램과 데이터베이스 스키마 간의 불일치에 관계없이 응용 프로그램 논리가 JSON 데이터에서 작동할 수 있습니다. DocumentDB는 데이터베이스 엔진 내에서 직접 JavaScript 응용 프로그램 논리의 전체 트랜잭션 실행을 제공합니다. JavaScript가 전체 통합되므로 JavaScript 프로그램 내에서 격리된 트랜잭션으로 INSERT, REPLACE, DELETE 및 SELECT 작업을 실행할 수 있습니다.  
 
--	**튜닝 가능한 일관성 수준:** 잘 정의된 네 가지 일관성 수준에서 선택하여 일관성과 성능 간의 최적 절충을 실현합니다. 쿼리 및 읽기 작업에 대해 DocumentDB는 강력, 제한된 부실, 세션, 최종 등의 네 가지 일관성 수준을 제공합니다. 이러한 잘 정의된 세부적인 일관성 수준을 통해 일관성, 가용성 및 성능 간에 타당한 절충을 수행할 수 있습니다. 
+-	**튜닝 가능한 일관성 수준:** 잘 정의된 네 가지 일관성 수준에서 선택하여 일관성과 성능을 최적으로 절충합니다. 쿼리 및 읽기 작업에 대해 DocumentDB는 강력, 제한된 부실, 세션, 최종 등의 네 가지 일관성 수준을 제공합니다. 이러한 잘 정의된 세부적인 일관성 수준을 통해 일관성, 가용성 및 대기 시간 간에 타당한 절충을 수행할 수 있습니다.  
 
 -	**완전히 관리:** 데이터베이스 및 컴퓨터 리소스를 관리할 필요가 없습니다. 완전히 관리되는 Microsoft Azure 서비스의 경우 가상 컴퓨터를 관리하거나 소프트웨어를 배포 및 구성하거나 복잡한 데이터 계층 업그레이드를 처리할 필요가 없습니다. 모든 데이터베이스가 자동으로 백업되고 지역적 실패로부터 보호됩니다. 필요 시 쉽게 DocumentDB 계정을 추가하고 용량을 프로비전할 수 있으므로 데이터베이스를 운영하고 관리하는 업무 대신에 응용 프로그램에 집중할 수 있습니다.
 
--	**탄력적으로 확장 가능한 처리량 및 저장소:** 응용 프로그램 요구를 충족하기 위해 쉽게 DocumentDB를 확장 또는 축소합니다. 크기 조정은 예약된 SSD 지원 저장소 및 처리량의 세분화된 단위를 통해 수행됩니다. 응용 프로그램 증가에 따라 용량 단위를 더 구매하여 탄력적으로 DocumentDB를 확장하고 예측 가능한 성능을 얻을 수 있습니다. 
+-	**탄력적으로 확장 가능한 처리량 및 저장소:** 응용 프로그램 요구를 충족하기 위해 쉽게 DocumentDB를 확장 또는 축소합니다. 크기 조정은 예약된 SSD 지원 저장소 및 처리량의 세분화된 단위를 통해 수행됩니다. 응용 프로그램 증가에 따라 용량 단위를 더 구매하여 탄력적으로 DocumentDB를 확장하고 예측 가능한 성능을 얻을 수 있습니다.  
 
 -	**의도적인 개방성:** 기존 기술과 도구를 사용하여 빠르게 시작할 수 있습니다. DocumentDB에 대해 프로그래밍하는 것은 간단하고 이해하기 쉬우며 새로운 도구를 채택하거나 JSON 또는 JavaScript에 대한 사용자 지정 확장을 준수할 필요가 없습니다. CRUD, 쿼리 및 간단한 RESTful HTTP 인터페이스를 통한 JavaScript 처리를 비롯한 모든 데이터베이스 기능에 액세스할 수 있습니다. DocumentDB는 기존 형식, 언어 및 표준을 수용할 뿐만 아니라 유용한 데이터베이스 기능도 제공합니다.
 
@@ -93,12 +93,13 @@ DocumentDB 내의 JavaScript 실행은 JavaScript를 T-SQL의 최신 대체로 �
 ##<a name="next-steps"></a>다음 단계
 Azure DocumentDB를 시작하려면 다음 리소스를 탐색하세요.
 
-- [지금 DocumentDB 사용해 보기](https://portal.azure.com/#gallery/Microsoft.DocumentDB)
--	[DocumentDB 리소스 모델 및 개념](/documentation/articles/documentdb-resources/)
--	[DocumentDB 리소스 조작](/documentation/articles/documentdb-interactions-with-resources/)
--	[DocumentDB 데이터베이스 계정 만들기](/documentation/articles/documentdb-create-account/)
--	[DocumentDB .NET SDK 시작](/documentation/articles/documentdb-get-started/)
+-   [지금 DocumentDB 사용해 보기](https://portal.azure.com/#gallery/Microsoft.DocumentDB)
+-   [쿼리 실습](http://www.documentdb.com/sql/demo)
+-	[DocumentDB 리소스 모델 및 개념](documentdb-resources.md)
+-	[DocumentDB 리소스 조작](documentdb-interactions-with-resources.md)
+-	[DocumentDB 데이터베이스 계정 만들기](documentdb-create-account.md)
+-	[DocumentDB .NET SDK 시작](documentdb-get-started.md)
 
 [1]: ./media/documentdb-introduction/intro.png
 
-<!--HONumber=47-->
+<!--HONumber=49-->

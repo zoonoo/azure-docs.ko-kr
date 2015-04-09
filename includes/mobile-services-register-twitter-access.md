@@ -1,19 +1,17 @@
-﻿
+﻿새 Twitter v1.1 API에서는 앱이 리소스에 액세스하기 전에 인증해야 합니다. 먼저 OAuth 2.0을 사용하여 액세스를 요청하는 데 필요한 자격 증명을 가져와야 합니다. 그런 다음 모바일 서비스의 앱 설정에 자격 증명을 안전하게 저장합니다.
 
-새 Twitter v1.1 API에서는 앱이 리소스에 액세스하기 전에 인증해야 합니다. 먼저 OAuth 2.0을 사용하여 액세스를 요청하는 데 필요한 자격 증명을 가져와야 합니다. 그런 다음 모바일 서비스의 앱 설정에 자격 증명을 안전하게 저장합니다.
+1. 아직 그렇게 저장하지 않은 경우 <a href="../articles/mobile-services-how-to-register-twitter-authentication.md/" target="_blank">모바일 서비스에서 Twitter 로그인을 사용하기 위해 앱 등록</a> 항목의 단계를 완료합니다. 
 
-1. 아직 그렇게 하지 않은 경우 <a href="/documentation/articles/mobile-services-how-to-register-twitter-authentication/" target="_blank">모바일 서비스에 Twitter 로그인을 사용하기 위해 앱 등록</a> 항목의 단계를 완료합니다. 
-  
   	Twitter에서는 Twitter v1.1 API에 액세스하는 데 필요한 자격 증명을 생성합니다. Twitter 개발자 웹 사이트에서 세 가지 자격 증명을 가져올 수 있습니다. 
 
-2. 탐색하는 <a href="http://go.microsoft.com/fwlink/p/?LinkId=268300" target="_blank">Twitter 개발자</a> 웹사이트, 로그인 Twitter 계정 자격 증명을 사용하고 Twitter 앱을 선택합니다.
+2. <a href="http://go.microsoft.com/fwlink/p/?LinkId=268300" target="_blank">Twitter 개발자</a> 웹 사이트로 이동하고 Twitter 계정 자격 증명을 사용하고 Twitter 앱을 선택합니다.
 
-3. 앱의 **키 및 액세스 토근** 탭에서 다음 값을 기록해 둡니다.
+3. 앱의 **키 및 액세스 토큰** 탭에서 다음 값을 기록해 둡니다.
 
 	+ **Consumer key**
 	+ **Consumer secret**
 	+ **Access token**
-	+ **Access token**
+	+ **Access token secret**
 
 4. [Microsoft Azure 관리 포털]에 로그온하여 **모바일 서비스**를 클릭한 후 해당 모바일 서비스를 클릭합니다.
 
@@ -28,13 +26,14 @@
 
 	![](./media/mobile-services-register-twitter-access/mobile-schedule-job-app-settings.png)
 
-	그러면 앱 설정에 Twitter 액세스 토큰이 저장됩니다. 소비자 자격 증명과 같은 **Identity** 탭의 앱 설정에 암호화된 액세스 자격 증명이 저장되어 있고, 스트립트 파일에서 하드 코딩하지 않은 서버 스크립트에서 액세스할 수 있습니다. 자세한 내용은 [앱 설정]을 참조하세요.
+	그러면 앱 설정에 Twitter 액세스 토큰이 저장됩니다. **ID** 탭의 소비자 자격 증명과 마찬가지로, 액세스 자격 증명은 앱 설정에 암호화되어 저장되며, 스크립트 파일에서 하드 코딩하지 않은 서버 스크립트로 액세스할 수 있습니다. 자세한 내용은 [앱 설정]을 참조하세요.
 
 <!-- URLs. -->
 [모바일 서비스 서버 스크립트 참조]: http://go.microsoft.com/fwlink/?LinkId=262293
 [WindowsAzure.com]: http://www.windowsazure.com/
 [Microsoft Azure 관리 포털]: https://manage.windowsazure.com/
-[모바일 서비스를 사용해 Twitter 로그인에 대한 앱을 등록]: /documentation/articles/mobile-services-how-to-register-twitter-authentication
+[모바일 서비스에서 Twitter 로그인하기 위해 앱 등록]: ../articles/mobile-services-how-to-register-twitter-authentication.md
 [Twitter 개발자]: http://go.microsoft.com/fwlink/p/?LinkId=268300
 [앱 설정]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
-<!--HONumber=47-->
+
+<!--HONumber=49-->

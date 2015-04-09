@@ -5,7 +5,7 @@
 	documentationCenter=".net"
 	authors="sethmanheim"
 	manager="timlt"
-	editor="mattshel"/>
+	editor=""/>
 
 <tags
 	ms.service="service-bus"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="02/26/2015"
+	ms.date="03/17/2015"
 	ms.author="sethm"/>
 
 
@@ -24,7 +24,7 @@
 
 ## 소개
 
-Visual Studio 2013 및 무료로 제공되는 Azure SDK for .NET을 사용하면 Azure용 개발이 간단합니다. 아직 Visual Studio 2013이 없는 경우 SDK에서 Visual Studio Express를 자동으로 설치하므로 Azure용 개발을 무료로 시작할 수 있습니다. 이 가이드에서는 이전에 Azure를 사용한 경험이 없다고 가정합니다. 이 가이드를 완료하면 로컬 환경에서 실행되고 다중 계층 응용 프로그램의 작동 방식을 보여 주는 여러 가지 Azure 리소스를 사용하는 응용 프로그램을 갖게 됩니다.
+Visual Studio 2013 및 무료로 제공되는 Azure SDK for .NET을 사용하면 Microsoft Azure용 개발이 간단합니다. 아직 Visual Studio 2013이 없는 경우 SDK에서 Visual Studio Express를 자동으로 설치하므로 Azure용 개발을 무료로 시작할 수 있습니다. 이 가이드에서는 이전에 Azure를 사용한 경험이 없는 개발자를 대상으로 합니다. 이 자습서를 완료하면 로컬 환경에서 실행되고 다중 계층 응용 프로그램의 작동 방식을 보여 주는 여러 가지 Azure 리소스를 사용하는 응용 프로그램을 갖게 됩니다.
 
 다음 내용을 배웁니다.
 
@@ -35,7 +35,7 @@ Visual Studio 2013 및 무료로 제공되는 Azure SDK for .NET을 사용하면
 
 [AZURE.INCLUDE [create-account-note](../includes/create-account-note.md)]
 
-이 자습서에서는 Azure 클라우드 서비스에서 다중 계층 응용 프로그램을 빌드하고 실행합니다. 프런트 엔드는 ASP.NET MVC 웹 역할이고 백 엔드는 작업자 역할입니다. 클라우드 서비스가 아닌 Azure 웹 사이트에 배포되는 웹 프로젝트와 동일한 다중 계층 응용 프로그램(프런트 엔드 포함)을 만들 수 있습니다. Azure 웹 사이트 프런트 엔드를 다르게 수행할 작업에 대한 지침은 [다음 단계](#nextsteps) 섹션을 참조하세요.
+이 자습서에서는 Azure 클라우드 서비스에서 다중 계층 응용 프로그램을 빌드하고 실행합니다. 프런트 엔드는 ASP.NET MVC 웹 역할이고 백 엔드는 작업자 역할입니다. 클라우드 서비스가 아닌 Azure 웹 사이트에 배포되는 웹 프로젝트와 동일한 다중 계층 응용 프로그램(프런트 엔드 포함)을 만들 수 있습니다. Azure 웹 사이트 프런트 엔드를 다르게 수행할 작업에 대한 자세한 내용은 [다음 단계](#nextsteps) 섹션을 참조하세요.
 
 아래에는 완성된 응용 프로그램의 스크린샷이 표시되어 있습니다.
 
@@ -49,7 +49,7 @@ Visual Studio 2013 및 무료로 제공되는 Azure SDK for .NET을 사용하면
 
 웹과 중간 계층 간에 조정된 메시징을 사용하면 두 구성 요소가 분리됩니다. 직접 메시징(즉, TCP 또는 HTTP)과 달리 웹 계층은 중간 계층에 직접 연결되지 않고 작업 단위를 메시지로 서비스 버스에 푸시하여 중간 계층에서 사용하고 처리할 준비가 될 때까지 안정적으로 유지합니다.
 
-서비스 버스는 조정된 메시징을 지원하는 두 개의 엔터티인 큐와 토픽을 제공합니다. 큐를 사용하면 큐로 전송된 각 메시지가 단일 수신기에서 사용됩니다. 토픽은 게시된 각 메시지를 토픽에 등록된 각 구독에서 사용할 수 있게 하는 게시/구독 패턴을 지원합니다. 각 구독은 메시지의 고유한 큐를 논리적으로 유지 관리합니다. 또한 구독은 구독 큐에 전달되는 메시지 집합을 필터와 일치하는 메시지로 제한하는 필터 규칙을 사용하여 구성할 수 있습니다. 이 예에서는 서비스 버스 큐를 사용합니다.
+서비스 버스는 조정된 메시징을 지원하는 두 개의 엔터티인 큐와 토픽을 제공합니다. 큐를 사용하면 큐로 전송된 각 메시지가 단일 수신기에서 사용됩니다. 토픽은 게시된 각 메시지를 토픽에 등록된 구독에서 사용할 수 있게 하는 게시/구독 패턴을 지원합니다. 각 구독은 메시지의 고유한 큐를 논리적으로 유지 관리합니다. 또한 구독은 구독 큐에 전달되는 메시지 집합을 필터와 일치하는 메시지로 제한하는 필터 규칙을 사용하여 구성할 수 있습니다. 이 예제에서는 서비스 버스 큐를 사용합니다.
 
 ![][1]
 
@@ -57,9 +57,9 @@ Visual Studio 2013 및 무료로 제공되는 Azure SDK for .NET을 사용하면
 
 -   **일시적 분리.** 비동기 메시징 패턴을 사용하는 경우 생산자와 소비자는 동시에 온라인 상태가 아니어도 됩니다. 서비스 버스는 소비하는 쪽이 수신할 준비가 될 때까지 메시지를 안정적으로 저장합니다. 따라서 분산 응용 프로그램의 구성 요소가 시스템에 전체적으로 영향을 주지 않고도 유지 관리를 위해 자발적으로 또는 구성 요소 크래시 등으로 인해 연결이 끊어질 수 있습니다. 또한 소비하는 응용 프로그램은 하루 중 특정 시간 동안에만 온라인 상태가 되면 됩니다.
 
--   **부하 평준화**. 많은 응용 프로그램에서 시스템 부하는 시간에 따라 다르지만 각 작업 단위에 필요한 처리 시간은 일반적으로 일정합니다. 큐를 사용한 메시지 생산자와 소비자 조정은 최대 부하가 아닌 평균 부하를 수용하려면 소비 응용 프로그램(작업자)만 프로비전해야 함을 의미합니다. 수신 부하가 변경됨에 따라 큐의 깊이가 증가하고 축소됩니다. 따라서 응용 프로그램 부하를 제공하는 데 필요한 인프라의 크기와 관련하여 비용이 직접적으로 절약됩니다.
+-   **부하 평준화.** 많은 응용 프로그램에서 시스템 부하는 시간에 따라 다르지만 각 작업 단위에 필요한 처리 시간은 일반적으로 일정합니다. 큐를 사용한 메시지 생산자와 소비자 조정은 최대 부하가 아닌 평균 부하를 수용하려면 소비 응용 프로그램(작업자)만 프로비전해야 함을 의미합니다. 수신 부하가 변경됨에 따라 큐의 깊이가 증가하고 축소됩니다. 따라서 응용 프로그램 부하를 제공하는 데 필요한 인프라의 크기와 관련하여 비용이 직접적으로 절약됩니다.
 
--   **부하 평준화.** 부하가 증가하면 큐에서 읽을 작업자 프로세스가 추가될 수 있습니다. 각 메시지는 작업자 프로세스 중 하나에 의해서만 처리됩니다. 또한 이 풀 기반 부하 분산은 작업자 컴퓨터가 최대 속도로 메시지를 끌어올 때 처리 능력이 다른 경우에도 작업자 컴퓨터의 사용률을 최적화할 수 있도록 해줍니다. 이 패턴을 경쟁 소비자 패턴이라고도 합니다.
+-   **부하 분산.** 부하가 증가하면 큐에서 읽을 작업자 프로세스가 추가될 수 있습니다. 각 메시지는 작업자 프로세스 중 하나에 의해서만 처리됩니다. 또한 이 풀 기반 부하 분산은 작업자 컴퓨터가 최대 속도로 메시지를 끌어올 때 처리 능력이 다른 경우에도 작업자 컴퓨터의 사용률을 최적화할 수 있도록 해줍니다. 이 패턴을 경쟁 소비자 패턴이라고도 합니다.
 
     ![][2]
 
@@ -71,7 +71,7 @@ Azure 응용 프로그램 개발을 시작하려면 먼저 도구를 다운로�
 
 1.  Azure SDK for .NET을 설치하려면 아래 단추를 클릭합니다.
 
-    [도구 및 SDK 얻기(영문)][]
+    [도구 및 SDK 얻기][]
 
 2. 	사용하고 있는 Visual Studio 버전에 대한 링크를 클릭합니다. 이 자습서의 단계에서는 Visual Studio 2013을 사용합니다.
 
@@ -126,16 +126,11 @@ Visual Studio 서버 탐색기를 사용하여 네임스페이스 및 서비스 
 
     ![][35]
 
-10.  키를 적어 두거나 클립보드에 복사해 둡니다.
+10.  이러한 자격 증명을 적어 두거나 클립보드에 복사해 둡니다.
 
 ## Visual Studio 서버 탐색기를 사용하여 네임스페이스 및 메시징 엔터티 관리
 
-<<<<<<< HEAD
-관리 포털 대신 Visual Studio를 사용하여 네임스페이스를 관리하고 연결 정보를 가져오려면 **Visual Studio에서 Azure에 연결하려면** 섹션([Azure Tools for Visual Studio](http://msdn.microsoft.com/library/ff687127.aspx) 페이지)에서 설명하는 절차를 따르세요. **서버 탐색기**에서 Azure에 로그인하면 **Microsoft Azure** 트리 아래의 **서비스 버스** 노드가 구독에서 이미 만든 네임스페이스로 자동으로 채워집니다. 네임스페이스를 마우스 오른쪽 단추로 클릭한 후 **속성**을 클릭하여 연결 문자열 및 
-Visual Studio **속성** 창에 이 네임스페이스와 관련하여 표시되는 다른 메타데이터를 표시합니다.
-=======
-관리 포털 대신 Visual Studio를 사용하여 네임스페이스를 관리하고 연결 정보를 가져오려면 [여기](http://msdn.microsoft.com/library/ff687127.aspx) 나오는 **Visual Studio에서 Azure에 연결하려면** 섹션에서 설명하는 절차를 따르세요. Azure에 로그인하면 서버 탐색기의 **Microsoft Azure** 트리 아래에 있는 **Service Bus** 노드에 이미 만들어진 네임스페이스가 자동으로 채워집니다. 네임스페이스를 마우스 오른쪽 단추로 클릭한 후 **속성**을 클릭하여 연결 문자열 및 Visual Studio **속성** 창에 이 네임스페이스와 관련하여 표시되는 다른 메타데이터를 표시합니다.
->>>>>>> 2076695a45ab90a31cffe94a32399a2407565b39
+Azure 관리 포털 대신 Visual Studio를 사용하여 네임스페이스를 관리하고 연결 정보를 가져오려면 [여기](http://msdn.microsoft.com/library/ff687127.aspx) 나오는 **Visual Studio에서 Azure에 연결하려면** 섹션에서 설명하는 절차를 따르세요. Azure에 로그인하면 서버 탐색기의 **Microsoft Azure** 트리 아래에 있는 **Service Bus** 노드에 이미 만들어진 네임스페이스가 자동으로 채워집니다. 네임스페이스를 마우스 오른쪽 단추로 클릭한 후 **속성**을 클릭하여 연결 문자열 및 Visual Studio **속성** 창에 이 네임스페이스와 관련하여 표시되는 다른 메타데이터를 표시합니다.
 
 **SharedAccessKey** 값을 적어 두거나 클립보드에 복사해 둡니다.
 
@@ -155,8 +150,7 @@ Visual Studio **속성** 창에 이 네임스페이스와 관련하여 표시되
 
 ## 웹 역할 만들기
 
-이 섹션에서는 응용 프로그램의 프런트 엔드를 빌드합니다. 먼저 응용 프로그램에서 표시하는 다양한 페이지를 만듭니다.
-그런 다음 서비스 버스 큐에 항목을 제출하고 큐에 대한 상태 정보를 표시하기 위한 코드를 추가합니다.
+이 섹션에서는 응용 프로그램의 프런트 엔드를 빌드합니다. 먼저 응용 프로그램에서 표시하는 다양한 페이지를 만듭니다. 그런 다음 서비스 버스 큐에 항목을 제출하고 큐에 대한 상태 정보를 표시하는 코드를 추가합니다.
 
 ### 프로젝트 만들기
 
@@ -191,11 +185,12 @@ Visual Studio **속성** 창에 이 네임스페이스와 관련하여 표시되
 
 8.  이제 필요한 클라이언트 어셈블리가 참조되고 몇 가지 새 코드 파일이 추가되었습니다.
 
-9.  **솔루션 탐색기**에서 **모델**을 마우스 오른쪽 단추로 클릭하고 **추가**를 클릭한 다음 **클래스**를 클릭합니다. 이름 상자에 **OnlineOrder.cs** 이름을 입력합니다. 그런 다음 **추가**를 클릭합니다.
+9.  **솔루션 탐색기**에서 **모델**을 마우스 오른쪽 단추로 클릭하고 **추가**를 클릭한 다음 **클래스**를 클릭합니다. **이름** 상자에 **OnlineOrder.cs** 이름을 입력합니다. 그런 다음 **추가**를 클릭합니다.
 
 ### 웹 역할에 대한 코드 작성
 
-이 섹션에서는 응용 프로그램에서 표시하는 다양한 페이지를 만듭니다.
+이 섹션에서는 응용 프로그램에서 표시하는 다양한 페이지를
+만듭니다.
 
 1.  Visual Studio의 **OnlineOrder.cs** 파일에서 기존 네임스페이스 정의를 다음 코드로 바꿉니다.
 
@@ -279,28 +274,26 @@ Visual Studio **속성** 창에 이 네임스페이스와 관련하여 표시되
 
 8.  이제 응용 프로그램의 표시 이름을 변경합니다. **솔루션 탐색기**에서 **Views\Shared\_Layout.cshtml** 파일을 두 번 클릭하여 Visual Studio 편집기에서 엽니다.
 
-9.  **내 ASP.NET 응용 프로그램**의 모든 항목을 **LITWARE 제품**으로 바꿉니다.
+9.  **내 ASP.NET 응용 프로그램**과 일치하는 모든 항목을 **LITWARE 제품**으로 바꿉니다.
 
-11. **홈**, **정보** 및 **연락처** 링크를 제거합니다. 강조 표시된 코드를 삭제합니다.
+10. **홈**, **정보** 및 **연락처** 링크를 제거합니다. 강조 표시된 코드를 삭제합니다.
 
 	![][28]
 
-
-12. 마지막으로 큐에 대한 일부 정보를 포함하도록 제출 페이지를 수정합니다. **솔루션 탐색기**에서 **Views\Home\Submit.cshtml** 파일을 두 번 클릭하여 Visual Studio 편집기에서 엽니다. **&lt;h2>Submit&lt;/h2>** 뒤에 다음 줄을 추가합니다. 지금은 **ViewBag.MessageCount**가 비어 있습니다. 나중에 채웁니다.
+11. 끝으로, 큐에 대한 일부 정보를 포함하도록 제출 페이지를 수정합니다. **솔루션 탐색기**에서 **Views\Home\Submit.cshtml** 파일을 두 번 클릭하여 Visual Studio 편집기에서 엽니다. **&lt;h2>Submit&lt;/h2>** 뒤에 다음 줄을 추가합니다. 지금은 **ViewBag.MessageCount**가 비어 있습니다. 나중에 채웁니다.
 
         <p>Current Number of Orders in Queue Waiting to be Processed: @ViewBag.MessageCount</p>
 
 
-13. 이제 UI를 구현했습니다. **F5** 키를 눌러 응용 프로그램을 실행하고 예상대로 나타나는지 확인할 수 있습니다.
+12. 이제 UI를 구현했습니다. **F5** 키를 눌러 응용 프로그램을 실행하고 예상대로 나타나는지 확인할 수 있습니다.
 
     ![][17]
 
 ### 서비스 버스 큐에 항목을 제출하는 코드 작성
 
-이제 큐에 항목을 제출하는 코드를 추가합니다. 먼저 서비스 버스 큐 연결 정보를 포함하는 클래스를 만듭니다. 그런 다음
-**Global.aspx.cs**에서 연결을 초기화합니다. 마지막으로 앞에서 만든 제출 코드를 **HomeController.cs**에서 업데이트하여 항목을 서비스 버스 큐에 실제로 제출합니다.
+이제 큐에 항목을 제출하는 코드를 추가합니다. 먼저 서비스 버스 큐 연결 정보를 포함하는 클래스를 만듭니다. 그런 다음 **Global.aspx.cs**에서 연결을 초기화합니다. 끝으로, 앞에서 만든 제출 코드를 **HomeController.cs**에서 업데이트하여 항목을 서비스 버스 큐에 실제로 제출합니다.
 
-1.  솔루션 탐색기에서 **FrontendWebRole**(역할이 아닌 프로젝트를 마우스 오른쪽 단추로 클릭)을 마우스 오른쪽 단추로 클릭합니다. **추가**를 클릭한 후 **클래스**를 클릭합니다.
+1.  솔루션 탐색기에서 **FrontendWebRole**(역할이 아닌 프로젝트를 마우스 오른쪽 단추로 클릭)을 마우스 오른쪽 단추로 클릭합니다. **추가**를 클릭한 다음 **클래스**를 클릭합니다.
 
 2.  클래스 이름을 **QueueConnector.cs**로 지정합니다. **추가**를 클릭하여 클래스를 만듭니다.
 
@@ -364,7 +357,8 @@ Visual Studio **속성** 창에 이 네임스페이스와 관련하여 표시되
             }
         }
 
-    **참고** 이 자습서의 뒷부분에서 **네임스페이스** 이름 및 SAS 키 값을 구성 파일에 저장하는 방법을 알아봅니다.
+    **참고** 이 자습서의 뒷부분에서는
+    **네임스페이스**의 이름 및 SAS 키 값을 구성 파일에 저장하는 방법을 알아보겠습니다.
 
 4.  이제 **Initialize** 메서드를 호출합니다. **솔루션 탐색기**에서 **Global.asax\Global.asax.cs**를 두 번 클릭합니다.
 
@@ -372,14 +366,14 @@ Visual Studio **속성** 창에 이 네임스페이스와 관련하여 표시되
 
         FrontendWebRole.QueueConnector.Initialize();
 
-6.  마지막으로 앞에서 만든 웹 코드를 업데이트하여 항목을 큐에 제출합니다. **솔루션 탐색기**에서, 앞에서 만든 **Controllers\HomeController.cs**를 두 번 클릭합니다.
+6.  끝으로, 앞에서 만든 웹 코드를 업데이트하여 항목을 큐에 제출합니다. **솔루션 탐색기**에서, 앞에서 만든 **Controllers\HomeController.cs**를 두 번 클릭합니다.
 
 7.  **Submit()** 메서드를 다음과 같이 업데이트하여 큐에 대한 메시지 수를 가져옵니다.
 
         public ActionResult Submit()
         {
             // Get a NamespaceManager which allows you to perform management and
-            // diagnostic operations on your Service Bus Queues.
+            // diagnostic operations on your Service Bus queues.
             var namespaceManager = QueueConnector.CreateNamespaceManager();
 
             // Get the queue, and obtain the message count.
@@ -408,7 +402,7 @@ Visual Studio **속성** 창에 이 네임스페이스와 관련하여 표시되
             }
         }
 
-9.  이제 응용 프로그램을 다시 실행할 수 있습니다. 명령을 제출할 때마다 메시지 수가 증가합니다.
+9.  이제 응용 프로그램을 다시 실행할 수 있습니다. 주문을 제출할 때마다 메시지 수가 증가합니다.
 
     ![][18]
 
@@ -420,7 +414,7 @@ Visual Studio **속성** 창에 이 네임스페이스와 관련하여 표시되
 
 ### 연결 문자열
 
-클라이언트(예: 서비스 버스 **QueueClient**)를 인스턴스화하려면 구성 정보를 연결 문자열로 나타낼 수 있습니다. 클라이언트 쪽에는 해당 연결 문자열을 사용하여 해당 클라이언트 유형을 인스턴스화하는 **CreateFromConnectionString()** 메서드가 있습니다. 예를 들어 다음과 같은 구성 섹션을 지정합니다.
+클라이언트(예: 서비스 버스 **QueueClient**)를 인스턴스화하려면 구성 정보를 연결 문자열로 나타낼 수 있습니다. 클라이언트 쪽에는 해당 연결 문자열을 사용하여 해당 클라이언트 유형을 인스턴스화하는 `CreateFromConnectionString()` 메서드가 있습니다. 예를 들어 다음과 같은 구성 섹션을 지정합니다.
 
 	<ConfigurationSettings>
     ...
@@ -451,11 +445,11 @@ Visual Studio **속성** 창에 이 네임스페이스와 관련하여 표시되
 
 이제 주문 제출을 처리하는 작업자 역할을 만듭니다. 이 예제에서는 **Worker Role with Service Bus Queue** Visual Studio 프로젝트 템플릿을 사용합니다. 먼저 Visual Studio의 서버 탐색기를 사용하여 필요한 자격 증명을 얻습니다.
 
-1. [Visual Studio 서버 관리자를 사용하여 네임스페이스 및 메시징 엔터티 관리](./cloud-services-dotnet-multi-tier-app-using-service-bus-queues/#manage-namespaces-and-messaging-entities-using-the-visual-studio-server-explorer) 섹션에 설명된 대로 Visual Studio를 Azure 계정에 연결했는지 확인합니다.
+1. "Visual Studio 서버 탐색기를 사용하여 네임스페이스 및 메시징 엔터티 관리" 섹션에 설명된 대로 Visual Studio를 Azure 계정에 연결했는지 확인합니다.
 
 2.  Visual Studio의 **솔루션 탐색기**에서 **MultiTierApp** 프로젝트 아래의 **역할** 폴더를 마우스 오른쪽 단추로 클릭합니다.
 
-3.  **추가**를 클릭한 후 **새 작업자 역할 프로젝트**를 클릭합니다. **새 역할 프로젝트** 추가 대화 상자가 나타납니다.
+3.  **추가**를 클릭한 후 **새 작업자 역할 프로젝트**를 클릭합니다. **새 역할 프로젝트 추가** 대화 상자가 나타납니다.
 
 	![][26]
 
@@ -465,21 +459,21 @@ Visual Studio **속성** 창에 이 네임스페이스와 관련하여 표시되
 
 5.  **이름** 상자에서 프로젝트 이름을 **OrderProcessingRole**로 지정합니다. 그런 다음 **추가**를 클릭합니다.
 
-6.  서버 탐색기에서 서비스 네임스페이스 이름을 마우스 오른쪽 단추로 클릭한 다음 **속성**을 클릭합니다. Visual Studio **속성** 창의 첫 번째 항목에는 필요한 권한 부여 자격 증명을 포함하는 서비스 네임스페이스 끝점으로 채워지는 연결 문자열이 포함됩니다. 예를 들어 다음 그림을 참조하세요. **ConnectionString**을 두 번 클릭한 다음 **Ctrl+C**를 눌러 이 문자열을 클립보드에 복사합니다.
+6.  서버 탐색기에서 서비스 네임스페이스 이름을 마우스 오른쪽 단추로 클릭한 다음 **속성**을 클릭합니다. Visual Studio **속성** 창의 첫 번째 항목에는 필요한 권한 부여 자격 증명을 포함하는 네임스페이스 끝점으로 채워지는 연결 문자열이 포함됩니다. 예를 들어 다음 그림을 참조하세요. **ConnectionString**을 두 번 클릭한 다음 **Ctrl+C**를 눌러 이 문자열을 클립보드에 복사합니다.
 
 	![][24]
 
 7.  솔루션 탐색기에서, 5단계에서 만든 **OrderProcessingRole**을 마우스 오른쪽 단추로 클릭합니다. 이때 클래스가 아니라 **역할** 아래의 **OrderProcessingRole**을 마우스 오른쪽 단추로 클릭해야 합니다. 그런 다음 **속성**을 클릭합니다.
 
-8.  **속성** 대화 상자의 **설정** 탭에서 **Microsoft.ServiceBus.ConnectionString**에 대한 **값** 상자 내부를 클릭한 다음 6단계에서 복사한 끝점 값을 붙여 넣습니다.
+8.  **속성** 대화 상자의 **설정** 탭에서 **Microsoft.ServiceBus.ConnectionString**에 대한 **값** 상자 내부를 클릭한 다음 6단계에서 복사한 끝점 값을 붙여넣습니다.
 
 	![][25]
 
-9.  **OnlineOrder** 클래스를 만들어 큐에서 처리할 때 주문을 나타냅니다. 이미 만든 클래스를 다시 사용할 수 있습니다. 솔루션 탐색기에서 **OrderProcessingRole** 프로젝트(역할이 아닌 프로젝트를 마우스 오른쪽 단추로 클릭)를 마우스 오른쪽 단추로 클릭합니다. **추가**를 클릭한 후 **기존 항목**을 클릭합니다.
+9.  **OnlineOrder** 클래스를 만들어 큐에서 처리할 때 주문을 나타냅니다. 이미 만든 클래스를 다시 사용할 수 있습니다. 솔루션 탐색기에서 **OrderProcessingRole** 프로젝트(역할이 아닌 프로젝트를 마우스 오른쪽 단추로 클릭)를 마우스 오른쪽 단추로 클릭합니다. **추가**를 클릭한 다음 **기존 항목**을 클릭합니다.
 
 10. **FrontendWebRole\Models**에 대한 하위 폴더로 이동하고 **OnlineOrder.cs**를 두 번 클릭하여 이 프로젝트에 추가합니다.
 
-11. 다음 코드와 같이, **WorkerRole.cs**의 **QueueName** 변수 값을 `"ProcessingQueue"`에서 `"OrdersQueue"`로 바꿉니다.
+11. 다음 코드와 같이, WorkerRole.cs에서 **WorkerRole.cs**의 **QueueName** 변수 값을 `"ProcessingQueue"`에서 `"OrdersQueue"`로 바꿉니다.
 
 		// The name of your queue
 		const string QueueName = "OrdersQueue";
@@ -488,7 +482,7 @@ Visual Studio **속성** 창에 이 네임스페이스와 관련하여 표시되
 
 		using FrontendWebRole.Models;
 
-13.  `OnMessage` 호출 내의  `Run()` 함수에서  `try` 절 내에 다음 코드를 추가합니다.
+13. `OnMessage` 호출 내의 `Run()` 함수에서 `try` 절 내에 다음 코드를 추가합니다.
 
 		Trace.WriteLine("Processing", receivedMessage.SequenceNumber.ToString());
 		// View the message as an OnlineOrder
@@ -507,7 +501,7 @@ Visual Studio **속성** 창에 이 네임스페이스와 관련하여 표시되
 서비스 버스에 대한 자세한 내용은 다음 리소스를 참조하세요.  
 
 * [Azure 서비스 버스][sbmsdn]  
-* [서비스 버스 사용 방법][sbwacom]  
+* [서비스 버스 서비스 페이지][sbwacom]  
 * [서비스 버스 큐 사용 방법][sbwacomqhowto]  
 
 다중 계층 시나리오에 대해 자세히 알아보거나 클라우드 서비스에 응용 프로그램을 배포하는 방법을 알아보려면 다음을 참조하세요.  
@@ -531,14 +525,12 @@ Azure 웹 사이트에 프런트 엔드를 배포하는 방법에 대한 자세�
   [1]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-100.png
   [sbqueuecomparison]: http://msdn.microsoft.com/library/hh767287.aspx
   [2]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-101.png
-  [도구 및 SDK 얻기(영문)]: http://go.microsoft.com/fwlink/?LinkId=271920
   [도구 및 SDK 얻기]: http://go.microsoft.com/fwlink/?LinkId=271920
   [3]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-3.png
 
 
 
   [Azure Management Portal]: http://manage.windowsazure.com
-  [Azure 관리 포털]: http://manage.windowsazure.com
   [6]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/sb-queues-03.png
   [7]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/sb-queues-04.png
   [8]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-09.png
@@ -575,4 +567,4 @@ Azure 웹 사이트에 프런트 엔드를 배포하는 방법에 대한 자세�
   [mutitierstorage]: /develop/net/tutorials/multi-tier-web-site/1-overview/
   [executionmodels]: http://azure.microsoft.com/develop/net/fundamentals/compute/
 
-<!--HONumber=47-->
+<!--HONumber=49-->

@@ -1,6 +1,6 @@
 ﻿<properties 
 	pageTitle="데이터베이스 계정 만들기 | Azure" 
-	description="Azure Preview 포털에서 DocumentDB NoSQL 문서 데이터베이스 계정을 만들고 계정 설정을 선택하는 방법에 대해 알아봅니다." 
+	description="Azure Preview 포털에서 DocumentDB NoSQL 문서 데이터베이스 계정을 만들고 계정 설정을 선택하는 방법을 알아봅니다."
 	services="documentdb" 
 	documentationCenter="" 
 	authors="mimig1" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/05/2014" 
+	ms.date="03/05/2015" 
 	ms.author="mimig"/>
 
 #데이터베이스 계정 만들기
@@ -24,12 +24,12 @@ Microsoft Azure DocumentDB를 사용하려면 DocumentDB 계정을 만들어야 
 ##<a id="NextSteps"></a>다음 단계
 Azure DocumentDB를 시작하려면 다음 리소스를 탐색하세요.
 
--	[DocumentDB 학습 가이드](/documentation/articles/documentdb-learning-map/)(영문)
--	[DocumentDB 리소스 모델 및 개념](/documentation/articles/documentdb-resources/)
--	[DocumentDB 리소스와 RESTful 상호 작용](/documentation/articles/documentdb-interactions-with-resources/)
--	[DocumentDB .NET SDK 시작](/documentation/articles/documentdb-get-started/)
+-	[DocumentDB 학습 가이드](documentdb-learning-map.md)(영문)
+-	[DocumentDB 리소스 모델 및 개념](documentdb-resources.md)
+-	[DocumentDB 리소스와 RESTful 상호 작용](documentdb-interactions-with-resources.md)
+-	[DocumentDB .NET SDK 시작](documentdb-get-started.md)
 
-DocumentDB에 대한 자세한 내용은 [azure.com]의 Azure DocumentDB 설명서를 참조하세요(http://go.microsoft.com/fwlink/p/?LinkID=402319).
+DocumentDB에 대한 자세한 내용은 [azure.com](http://go.microsoft.com/fwlink/p/?LinkID=402319)에서 Azure DocumentDB 설명서를 참조하세요.
 
 
-<!--HONumber=47-->
+<!--HONumber=49-->

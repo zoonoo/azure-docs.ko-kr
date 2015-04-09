@@ -1,6 +1,6 @@
-<properties 
+﻿<properties 
 	pageTitle="인증 시작(Android) | 모바일 개발자 센터" 
-	description="모바일 서비스를 사용하여 Google, Facebook, Twitter, Microsoft 등의 다양한 ID 공급자를 통해 Android 앱 사용자를 인증하는 방법에 대해 알아봅니다." 
+	description="모바일 서비스를 사용하여 Google, Facebook, Twitter, Microsoft 등의 다양한 ID 공급자를 통해 Android 앱 사용자를 인증하는 방법을 알아봅니다." 
 	services="mobile-services" 
 	documentationCenter="android" 
 	authors="RickSaling" 
@@ -20,19 +20,21 @@
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-users](../includes/mobile-services-selector-get-started-users.md)]
 
+<div class="dev-onpage-video-clear clearfix">
+<div class="dev-onpage-left-content">
 
 ## 요약
 
 <p>이 항목은 앱에서 Azure 모바일 서비스의 사용자를 인증하는 방법을 보여 줍니다. 이 자습서에서는 모바일 서비스가 지원하는 ID 공급자를 사용하여 퀵 스타트 프로젝트에 인증을 추가합니다. 모바일 서비스에서 인증되고 권한이 부여된 후 사용자 ID 값이 표시됩니다.</p>
 </div>
 
-<div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Getting-Started-with-Authentication-in-Windows-Azure-Mobile-Services" target="_blank" class="label">자습서 보기</a> <a style="background-image: url('/media/devcenter/mobile/videos/mobile-android-get-started-authentication-180x120.png') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Getting-Started-with-Authentication-in-Windows-Azure-Mobile-Services" target="_blank" class="dev-onpage-video"><span class="icon">비디오 재생</span></a><span class="time">오전 10:42</span></div>
+<div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Getting-Started-with-Authentication-in-Windows-Azure-Mobile-Services" target="_blank" class="label">자습서 보기</a> <a style="background-image: url('/media/devcenter/mobile/videos/mobile-android-get-started-authentication-180x120.png') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Getting-Started-with-Authentication-in-Windows-Azure-Mobile-Services" target="_blank" class="dev-onpage-video"><span class="icon">비디오 재생</span></a><span class="time">10:42</span></div>
 </div> 
 
 이 자습서에서는 앱에서 인증을 사용하도록 설정하는 다음 기본 단계를 단계별로 안내합니다.
 
 
-## 필수 조건
+##필수 조건
 
 [AZURE.INCLUDE [mobile-services-android-prerequisites](../includes/mobile-services-android-prerequisites.md)]
 
@@ -104,11 +106,11 @@
 [Windows용 Live SDK]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 [Live Connect를 사용한 Windows 스토어 앱의 Single Sign-On]: /develop/mobile/tutorials/single-sign-on-windows-8-dotnet
 [모바일 서비스 시작]: /develop/mobile/tutorials/get-started-android
-[기존 앱에 모바일 서비스 추가]: /develop/mobile/tutorials/get-started-with-data-android
+[기존 앱에 모바일 서비스 추가](영문): /develop/mobile/tutorials/get-started-with-data-android
 [인증 시작]: /develop/mobile/tutorials/get-started-with-users-android
 [푸시 알림 시작]: /develop/mobile/tutorials/get-started-with-push-android
 [스크립트를 통해 사용자 권한 부여]: /develop/mobile/tutorials/authorize-users-in-scripts-android
 
 [Azure 관리 포털]: https://manage.windowsazure.com/
 
-<!--HONumber=47-->
+<!--HONumber=49-->

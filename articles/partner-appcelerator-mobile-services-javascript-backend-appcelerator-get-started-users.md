@@ -1,6 +1,6 @@
 ﻿<properties 
 	pageTitle="인증 시작(Appcelerator) | 모바일 개발자 센터" 
-	description="모바일 서비스를 사용하여 Google, Facebook, Twitter, Microsoft 등의 다양한 ID 공급자를 통해 iOS 앱 사용자를 인증하는 방법에 대해 알아봅니다." 
+	description="모바일 서비스를 사용하여 Google, Facebook, Twitter, Microsoft 등의 다양한 ID 공급자를 통해 iOS 앱 사용자를 인증하는 방법을 알아봅니다." 
 	services="mobile-services" 
 	documentationCenter="" 
 	authors="mattchenderson" 
@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-appcelerator" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
 	ms.date="11/24/2014" 
@@ -20,7 +20,7 @@
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-users](../includes/mobile-services-selector-get-started-users.md)]
 
-이 항목에서는 앱에서 Microsoft Azure 모바일 서비스의 사용자를 인증하는 방법을 보여 줍니다. 이 자습서에서는 모바일 서비스가 지원하는 ID 공급자를 사용하여 빠른 시작 프로젝트에 인증을 추가합니다. 모바일 서비스에서 인증되고 권한이 부여된 후 사용자 ID 값이 표시됩니다.
+이 항목에서는 앱에서 Microsoft Azure 모바일 서비스의 사용자를 인증하는 방법을 보여 줍니다. 이 자습서에서는 모바일 서비스가 지원하는 ID 공급자를 사용하여 퀵 스타트 프로젝트에 인증을 추가합니다. 모바일 서비스에서 인증되고 권한이 부여된 후 사용자 ID 값이 표시됩니다.
 
 이 자습서에서는 앱에서 인증을 사용하도록 설정하는 다음 기본 단계를 단계별로 안내합니다.
 
@@ -28,7 +28,7 @@
 2.  [테이블 사용 권한을 인증된 사용자로 제한]
 3.  [앱에 인증 추가]
 
-이 자습서는 모바일 서비스 빠른 시작을 기반으로 합니다. 먼저 [모바일 서비스 시작] 자습서를 완료해야 합니다.
+이 자습서는 모바일 서비스 퀵 스타트를 기반으로 합니다. 먼저 [모바일 서비스 시작] 자습서를 완료해야 합니다.
 
 이 자습서를 완료하려면 Appcelerator Titanium Studio 3.2.1 이상, iOS 7.0 이상 및 Android 4.3 이상이 필요합니다.
 
@@ -110,6 +110,7 @@
 <!-- Images. -->
 
 <!-- URLs. -->
-[모바일 서비스 시작]: /ko-kr/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started
+[모바일 서비스 시작]: partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started.md
+<!--HONumber=49--> 
 
-<!--HONumber=42-->
+<!--HONumber=49-->

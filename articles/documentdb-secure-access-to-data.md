@@ -18,7 +18,7 @@
 
 # DocumentDB 데이터에 대한 액세스 보호 #
 
-이 문서에서는 [Microsoft Azure DocumentDB](../../services/documentdb/)에 저장된 데이터에 대한 액세스를 보호하는 방법에 대한 개요를 제공합니다. 
+이 문서에서는 [Microsoft Azure DocumentDB](../../services/documentdb/)에 저장된 데이터에 대한 액세스를 보호하는 방법을 개괄적으로 설명합니다. 
 
 이 개요를 읽은 다음에는 다음과 같은 질문에 답할 수 있습니다.  
 
@@ -160,7 +160,7 @@ DocumentDB 권한 리소스는 DocumentDB 사용자와 연관됩니다.  각 사
 ##<a name="NextSteps"></a>다음 단계
 
 - DocumentDB에 대해 자세히 알아보려면 [여기](http://azure.com/docdb)를 클릭하세요.
-- 마스터 및 읽기 전용 키 관리에 대해 자세히 알아보려면 [여기](http://azure.microsoft.com/documentation/articles/documentdb-manage-account/)를 클릭합니다.
+- 마스터 및 읽기 전용 키 관리에 대해 자세히 알아보려면 [여기](documentdb-manage-account.md)를 클릭합니다.
 - DocumentDB 권한 부여 토큰을 생성하는 방법에 대해 자세히 알아보려면 [여기](https://msdn.microsoft.com/library/azure/dn783368.aspx)를 클릭합니다.
 
-<!--HONumber=47-->
+<!--HONumber=49-->

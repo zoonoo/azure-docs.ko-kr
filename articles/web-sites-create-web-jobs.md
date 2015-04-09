@@ -1,39 +1,31 @@
 ﻿<properties 
-	pageTitle="WebJob을 사용하여 Microsoft Azure 웹 사이트에서 백그라운드 작업 실행" 
-	description="Microsoft Azure 웹 사이트에서 백그라운드 작업을 실행하는 방법에 대해 알아봅니다." 
-	services="web-sites" 
+	pageTitle="웹 작업으로 백그라운드 작업을 실행합니다." 
+	description="Azure 웹 앱에서 백그라운드 작업을 실행하는 방법에 대해 알아봅니다." 
+	services="app-service\web" 
 	documentationCenter="" 
-	authors="cephalin" 
-	writer="timamm" 
+	authors="tdykstra" 
+	writer="tdykstra" 
 	manager="wpickett" 
-	editor="mollybos"/>
+	editor="jimbe"/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/12/2014" 
-	ms.author="cephalin"/>
+	ms.date="03/24/2015" 
+	ms.author="tdykstra"/>
 
-#WebJob을 사용하여 Azure 웹 사이트에서 백그라운드 작업 실행
+# 웹 작업으로 백그라운드 작업을 실행합니다.
 
-Azure 웹 사이트를 사용하면 사용자 웹 사이트에서 프로그램 또는 스크립트를 세 가지 방식, 즉 주문형, 연속형, 예약형 중 하나로 실행할 수 있습니다. Microsoft Azure WebJob을 사용하는 데는 별도의 비용이 들지 않습니다.
+## 개요
 
-이 문서에서는 Azure 관리 포털을 사용하여 WebJob을 배포하는 방법을 보여 줍니다. Visual Studio 또는 지속적인 전송 프로세스를 사용하여 배포하는 방법에 대한 자세한 내용은 [Azure WebJob을 Azure 웹 사이트에 배포하는 방법](http://azure.microsoft.com/documentation/articles/websites-dotnet-deploy-webjobs)을 참조하세요.
+[앱 서비스](http://go.microsoft.com/fwlink/?LinkId=529714) 웹 앱에서 세 가지 방법, 요청 시, 계속 실행 또는 일정에 따라 웹 작업에서 프로그램이나 스크립트를 실행할 수 있습니다. 웹 작업을 사용하는 데 추가 비용은 없습니다.
 
-Azure WebJobs SDK는 많은 WebJob 프로그래밍 작업을 간소화합니다. 자세한 내용은 [WebJobs SDK란?](../websites-dotnet-webjobs-sdk).을 참조하세요.
+이 문서에서는 [Azure 포털](http://go.microsoft.com/fwlink/?LinkId=529715)에서 웹 작업을 배포하는 방법을 보여줍니다. Visual Studio 또는 지속적인 전송 프로세스를 사용하여 배포하는 방법에 대한 자세한 내용은 [Azure 웹 작업을 웹 앱에 배포하는 방법](websites-dotnet-deploy-webjobs.md)을 참조하세요.
 
-## 목차 ##
-- [스크립트에 허용 가능한 파일 형식](#acceptablefiles)
-- [주문형 작업 만들기](#CreateOnDemand)
-- [연속형 작업 만들기](#CreateContinuous)
-- [예약형 작업 만들기](#CreateScheduled)
-	- [예약형 작업 및 Azure 스케줄러](#Scheduler)
-- [작업 기록 보기](#ViewJobHistory)
-- [참고](#WHPNotes)
-- [다음 단계](#NextSteps)
+Azure WebJobs SDK는 많은 웹 작업 프로그래밍 작업을 간소화합니다. 자세한 내용은 [WebJobs SDK 정의](websites-dotnet-webjobs-sdk.md)를 참조하세요.
 
 ## <a name="acceptablefiles"></a>스크립트 또는 프로그램에 허용 가능한 파일 형식
 
@@ -46,136 +38,147 @@ Azure WebJobs SDK는 많은 WebJob 프로그래밍 작업을 간소화합니다.
 * .py(python 사용)
 * .js(node 사용)
 
-## <a name="CreateOnDemand"></a>주문형 작업 만들기
+## <a name="CreateOnDemand"></a>포털에서 요청 시 웹 작업 만들기
 
-1. **WebJob** 페이지의 명령 모음에서 **추가**를 클릭합니다. **새 작업** 대화 상자가 나타납니다.
+1. [Azure 포털](http://portal.azure.com)의 **웹 앱** 블레이드에서 **모든 설정 > 웹 작업**을 클릭하여 **웹 작업** 블레이드를 표시합니다.
 	
-	![주문형 작업][OnDemandWebJob]
+	![WebJob blade](./media/web-sites-create-web-jobs/wjblade.png)
 	
-2. **이름**에 작업 이름을 지정합니다. 이름은 문자 또는 숫자로 시작해야 하며 "-" 및 "_"을 제외한 다른 특수 문자를 포함할 수 없습니다.
+5. **추가**를 클릭합니다. **웹 작업 추가** 대화 상자가 나타납니다.
 	
-3. **Content (Zip Files - 100MB Max)** 상자에서 스크립트가 포함된 zip 파일로 이동합니다. zip 파일에는 실행 파일(.exe .cmd .bat .sh .php .py .js)과 더불어 프로그램 또는 스크립트를 실행하는 데 필요한 지원 파일이 포함되어 있어야 합니다.
+	![Add WebJob blade](./media/web-sites-create-web-jobs/addwjblade.png)
+	
+2. **이름**에 웹 작업의 이름을 입력합니다. 이름은 문자 또는 숫자로 시작해야 하며 "-" 및 "_"을 제외한 다른 특수 문자를 포함할 수 없습니다.
 	
 4. **실행 방법** 상자에서 **요청 시 실행**을 선택합니다.
 	
-5. 웹 사이트에 스크립트를 업로드하려면 대화 상자의 오른쪽 아래에 확인 표시가 있는지 확인합니다. 작업에 지정한 이름이 목록에 나타납니다.
+3. **파일 업로드** 상자에서 폴더 아이콘을 클릭하고 스크립트가 포함된 zip 파일을 찾습니다. zip 파일에는 실행 파일(.exe .cmd .bat .sh .php .py .js)과 더불어 프로그램 또는 스크립트를 실행하는 데 필요한 지원 파일이 포함되어 있어야 합니다.
 	
-	![작업 목록][WebJobsList]
+5. **만들기**를 선택하여 웹 앱에 스크립트를 업로드합니다. 
 	
-6. 스크립트를 실행하려면 목록에서 이름을 선택하고 포털 페이지 아래의 명령 모음에서 **한 번 실행**을 클릭합니다.
+	웹 작업에 지정된 이름은 **웹 작업** 블레이드의 목록에 표시됩니다.
 	
-	![한 번 실행][RunOnce]
-
-## <a name="CreateContinuous"></a>연속형 작업 만들기
-
-1. 연속형 작업을 만들려면 한 번 실행되는 작업을 만드는 단계를 그대로 따르고 **실행 방법** 상자에서 **계속 실행**을 선택합니다.
+6. 웹 작업을 실행하려면 목록에서 해당 이름을 마우스 오른쪽 단추로 클릭하고 **실행**을 클릭합니다.
 	
-	![새로운 연속형 작업][NewContinuousJob]
+	![Run WebJob](./media/web-sites-create-web-jobs/runondemand.png)
 	
-2. 연속형 작업을 시작 또는 중지하려면 목록에서 작업을 선택하고 명령 모음에서 **시작** 또는 **중지**를 클릭합니다.
+## <a name="CreateContinuous"></a>지속적으로 실행 중인 웹 작업 만들기
 
-> [AZURE.NOTE]  웹 사이트가 둘 이상의 인스턴스에서 실행되는 경우 연속형 작업은 모든 인스턴스에서 실행됩니다. 주문형 작업 및 예약형 작업은 Microsoft Azure의 부하 분산에 따라 선택된 단일 인스턴스에서 실행됩니다.
+1. 지속적으로 실행하는 웹 작업을 만들려면, 한 번 실행되는 웹 작업을 만드는 단계를 그대로 따르고 **실행 방법** 상자에서 **계속 실행**을 선택합니다.
 
-> [AZURE.NOTE]
-> 연속형 작업의 경우 웹 사이트의 구성 페이지에서 **무중단**을 사용하도록 설정하는 것이 좋습니다. 기본 및 표준 모드에서 사용할 수 있는 무중단 기능은 웹 사이트가 일정 시간 동안 유휴 상태인 경우라도 언로드되는 것을 방지합니다. 웹 사이트가 항상 로드된 상태이면 연속형 작업은 좀 더 안정적으로 실행될 수 있습니다. 
-
-## <a name="CreateScheduled"></a>예약형 작업 만들기
-
-1. 예약형 작업을 만들려면 이전과 동일한 단계를 따르고 **실행 방법** 상자에서 **일정에 따라 실행**을 선택합니다.
+2. 지속적인 웹 작업을 시작하거나 중지하려면 목록에서 웹 작업을 마우스 오른쪽 단추로 클릭하고 **시작** 또는 **중지**를 클릭합니다.
 	
-	![새 예약형 작업][NewScheduledJob]
+> [AZURE.NOTE] 웹 앱이 둘 이상의 인스턴스에서 실행되는 경우 계속 실행되는 웹 작업은 모든 인스턴스에서 실행됩니다. 주문형 작업 및 예약형 작업은 Microsoft Azure의 부하 분산에 따라 선택된 단일 인스턴스에서 실행됩니다.
+	
+> [AZURE.NOTE] 연속 실행되는 웹 작업의 경우, 웹 앱에 대해 **무중단**을 사용 가능하도록 설정하는 것이 좋습니다. 기본 및 표준 모드에서 사용할 수 있는 무중단 기능은 웹 앱이 일정 시간 동안 유휴 상태인 경우라도 언로드되지 않도록 합니다. 웹 앱이 항상 로드된 상태이면 계속 실행되는 웹 작업은 좀 더 안정적으로 실행될 수 있습니다. 
+
+## <a name="CreateScheduled"></a>예약된 웹 작업 만들기
+
+Azure 관리 포털에서 예약된 웹 작업을 만들 수 없지만 해당 기능이 추가될 때까지 [이전 포털](http://manage.windowsazure.com)을 사용하여 만들 수 있습니다.
+
+1. [이전 포털](http://manage.windowsazure.com)에서 웹 작업 페이지로 이동하고 **추가**를 클릭합니다.
+
+1. **실행 방법** 상자에서 **일정에 따라 실행**을 선택합니다.
+	
+	![New Scheduled Job][NewScheduledJob]
 	
 2. 작업에 대해 **스케줄러 지역**을 선택하고 대화 상자의 오른쪽 아래에 있는 화살표를 클릭하여 다음 화면으로 진행합니다.
 
 3. **작업 만들기** 대화 상자에서 **되풀이** 유형으로 **일회성 작업** 또는 **되풀이 작업** 중 하나를 선택합니다.
 	
-	![되풀이 예약][SchdRecurrence]
+	![Schedule Recurrence][SchdRecurrence]
 	
 4. 또한 **시작** 시간으로 **지금** 또는 **특정 기간** 중에서 선택합니다.
 	
-	![시작 시간 예약][SchdStart]
+	![Schedule Start Time][SchdStart]
 	
 5. 특정 시간에 시작하려면 **시작 지점**에서 시작 시간 값을 선택합니다.
 	
-	![특정 시간에 시작 예약][SchdStartOn]
+	![Schedule Start at a Specific Time][SchdStartOn]
 	
 6. 되풀이 작업을 선택한 경우 발생 빈도를 지정하는 **되풀이 주기** 옵션과 종료 시간을 지정하는 **종료 지점** 옵션이 나타납니다.
 	
-	![되풀이 예약][SchdRecurEvery]
+	![Schedule Recurrence][SchdRecurEvery]
 	
 7. **주**를 선택하는 경우 **특정 일정에서** 상자를 선택하고 작업을 실행하려는 요일을 지정합니다.
 	
-	![요일 예약][SchdWeeksOnParticular]
+	![Schedule Days of the Week][SchdWeeksOnParticular]
 	
 8. **월**을 선택하고 **특정 일정에서** 상자를 선택한 경우 한 달 중 특정 **일**에 실행하도록 작업을 설정할 수 있습니다. 
 	
-	![한 달 중 특정 날짜 예약][SchdMonthsOnPartDays]
+	![Schedule Particular Dates in the Month][SchdMonthsOnPartDays]
 	
 9. **요일**을 선택하면 작업을 실행하려는 해당 달의 요일을 하나 이상 선택할 수 있습니다.
 	
-	![한 달 중 특정 요일 예약][SchdMonthsOnPartWeekDays]
+	![Schedule Particular Week Days in a Month][SchdMonthsOnPartWeekDays]
 	
 10. 마지막으로 **발생 빈도** 옵션을 사용하면 작업을 실행하도록 지정한 요일이 한 달 중 몇 번째 주(첫째, 둘째, 셋째 등)에 해당하는지를 선택할 수 있습니다.
 	
-	![한 달 중 특정 주의 특정 요일 예약][SchdMonthsOnPartWeekDaysOccurences]
+	![Schedule Particular Week Days on Particular Weeks in a Month][SchdMonthsOnPartWeekDaysOccurences]
 	
-11. 하나 이상의 작업을 만들면 WebJobs 탭에 작업의 상태, 일정 유형 및 기타 정보와 함께 이름이 나타납니다. 최근 30개 작업의 기록 정보가 유지됩니다.
+11. 하나 이상의 작업을 만들면 WebJobs 탭에 작업의 상태, 일정 유형 및 기타 정보와 함께 이름이 나타납니다. 최근 30개의 웹 작업 기록 정보가 유지됩니다.
 	
-	![작업 기록][WebJobsListWithSeveralJobs]
+	![Jobs list][WebJobsListWithSeveralJobs]
 	
 ### <a name="Scheduler"></a>예약형 작업 및 Azure 스케줄러
 
-예약형 작업을 Azure 스케줄러 포털에서 추가로 구성할 수 있습니다.
+예약된 작업은 [이전 포털](http://manage.windowsazure.com)의 Azure 스케줄러 페이지에서 추가로 구성할 수 있습니다.
 
 1.	Azure 스케줄러 포털 페이지로 이동하려면 WebJob 페이지에서 작업의 **일정** 링크를 클릭합니다. 
 	
-	![Azure 스케줄러 링크][LinkToScheduler]
+	![Link to Azure Scheduler][LinkToScheduler]
 	
 2. 스케줄러 페이지에서 작업을 클릭합니다.
 	
-	![스케줄러 포털 페이지의 작업][SchedulerPortal]
+	![Job on the Scheduler portal page][SchedulerPortal]
 	
 3. 작업을 추가로 구성할 수 있는 **작업 동작** 페이지가 열립니다. 
 	
-	![스케줄러의 작업 동작 페이지][JobActionPageInScheduler]
+	![Job Action PageInScheduler][JobActionPageInScheduler]
 	
 ## <a name="ViewJobHistory"></a>작업 기록 보기
 
-1. WebJobs SDK로 만든 작업을 포함하여 작업 실행 기록을 보려면 **Logs** 열에서 해당 링크를 클릭합니다. 원하는 경우 클립보드 아이콘을 사용하여 로그 파일 페이지의 URL을 클립보드로 복사할 수 있습니다.
+1. WebJobs SDK로 만든 작업을 포함하여 작업 실행 기록을 보려면 웹 작업 블레이드의 **로그** 열에서 해당 링크를 클릭합니다. 원하는 경우 클립보드 아이콘을 사용하여 로그 파일 페이지의 URL을 클립보드로 복사할 수 있습니다.
 	
-	![Logs 링크][WebJobLogs]
+	![로그 링크](./media/web-sites-create-web-jobs/wjbladelogslink.png)
 		
-2. 링크를 클릭하면 작업에 대한 WebJob 세부 정보 페이지가 열립니다. 이 페이지에는 명령 실행 이름, 마지막으로 실행한 시간 및 명령 성공/실패 여부가 표시됩니다. **Recent job runs**에서 시간을 클릭하면 추가 세부 정보를 볼 수 있습니다.
+2. 링크를 클릭하면 웹 작업에 대한 세부 정보 페이지가 열립니다. 이 페이지에는 명령 실행 이름, 마지막으로 실행한 시간 및 명령 성공/실패 여부가 표시됩니다. **Recent job runs**에서 시간을 클릭하면 추가 세부 정보를 볼 수 있습니다.
 	
 	![WebJobDetails][WebJobDetails]
 	
-3. **WebJob Run Details** 페이지가 나타납니다. 로그 내용의 텍스트를 보려면 **Toggle Output**을 클릭합니다. 출력 로그는 텍스트 형식으로 되어 있습니다. 
+3. **WebJob Run Details** 페이지가 나타납니다. 로그 콘텐츠의 텍스트를 보려면 **출력 토글**을 클릭합니다. 출력 로그는 텍스트 형식으로 되어 있습니다. 
 	
-	![Web job 실행 세부 작업][WebJobRunDetails]
+	![Web job run details][WebJobRunDetails]
 	
 4. 별도의 브라우저 창에서 출력 텍스트를 보려면 **다운로드** 링크를 클릭합니다. 텍스트 자체를 다운로드하려면 링크를 마우스 오른쪽 단추로 클릭하고 브라우저 옵션을 사용하여 파일 내용을 저장합니다.
 	
-	![로그 출력 다운로드][DownloadLogOutput]
+	![Download log output][DownloadLogOutput]
 	
-5. 페이지 맨 위의 **WebJobs** 링크를 사용하면 기록 대시보드의 웹 작업 목록을 편리하게 이용할 수 있습니다.
+5. 페이지 맨 위의 **웹 작업** 링크를 사용하면 기록 대시보드의 웹 작업 목록을 편리하게 이용할 수 있습니다.
 	
-	![웹 작업 목록 링크][WebJobsLinkToDashboardList]
+	![Link to WebJobs list][WebJobsLinkToDashboardList]
 	
-	![기록 대시보드의 작업 목록][WebJobsListInJobsDashboard]
+	![List of WebJobs in history dashboard][WebJobsListInJobsDashboard]
 	
-	이러한 링크 중 하나를 클릭하면 선택한 작업의 WebJob Details 페이지로 이동합니다.
+	이러한 링크 중 하나를 클릭하면 선택한 작업의 웹 작업 세부 정보 페이지로 이동합니다.
 
 
 ## <a name="WHPNotes"></a>참고
 	
-- 2014년 3월부터 무료 모드의 웹 사이트는 SCM(배포) 사이트에 대한 요청이 없는 경우 20분 후 시간 초과되고 웹 사이트의 포털이 Azure에서 열리지 않을 수도 있습니다. 실제 사이트에 대한 요청이 있어도 이는 다시 설정되지 않습니다.
+- 2014년 3월부터 무료 모드의 웹 앱은 SCM(배포) 사이트에 대한 요청이 없는 경우 20분 후 시간 초과되고 웹 앱의 포털이 Azure에서 열리지 않을 수 있습니다. 실제 사이트에 대한 요청이 있어도 이는 다시 설정되지 않습니다.
 - 연속 작업을 위한 코드는 무한 반복으로 실행되도록 작성되어야 합니다.
-- 연속 작업은 사이트가 실행되고 있는 경우에만 계속 실행됩니다.
-- 기본 및 표준 모드에는 무중단 기능이 제공되며, 이 기능을 사용하도록 설정하면 사이트가 유휴 상태로 전환되는 것이 방지됩니다.
+- 연속 작업은 웹 앱이 실행되고 있는 경우에만 계속 실행됩니다.
+- 기본 및 표준 모드에는 무중단 기능이 제공되며, 이 기능을 사용하도록 설정하면 웹 앱이 유휴 상태로 전환되지 않습니다.
+
+>[AZURE.NOTE] Azure 계정에 등록하기 전에 Azure 앱 서비스를 시작하려는 경우 [앱 서비스 시도](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동하십시오. 여기서 앱 서비스에서 수명이 짧은 스타터 웹 앱을 바로 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
 ## <a name="NextSteps"></a>다음 단계
  
 자세한 내용은 [Azure WebJob 권장 리소스][WebJobsRecommendedResources]를 참조하세요.
+
+## 변경된 내용
+* 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 다음을 참조하세요. [Azure 앱 서비스 및 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)
+* 이전 포털에서 새 포털로의 변경에 대한 지침은 다음을 참조하세요. [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 [PSonWebJobs]:http://blogs.msdn.com/b/nicktrog/archive/2014/01/22/running-powershell-web-jobs-on-azure-websites.aspx
 [WebJobsRecommendedResources]:http://go.microsoft.com/fwlink/?LinkId=390226
@@ -204,5 +207,4 @@ Azure WebJobs SDK는 많은 WebJob 프로그래밍 작업을 간소화합니다.
 [SchedulerPortal]: ./media/web-sites-create-web-jobs/32SchedulerPortal.png
 [JobActionPageInScheduler]: ./media/web-sites-create-web-jobs/33JobActionPageInScheduler.png
 
-
-<!--HONumber=42-->
+<!--HONumber=49-->

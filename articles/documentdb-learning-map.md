@@ -23,4 +23,4 @@ Azure DocumentDB는 데이터베이스 엔진 내에서 직접 JSON과 JavaScrip
 <object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/DocumentDB.Content.Flow.svg" width="100%" height="100%">
 </object>
 
-<!--HONumber=47-->
+<!--HONumber=49-->

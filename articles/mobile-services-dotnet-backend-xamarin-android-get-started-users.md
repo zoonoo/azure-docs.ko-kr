@@ -1,6 +1,6 @@
 ﻿<properties 
 	pageTitle="Xamarin Android 앱용 모바일 서비스에서 인증 시작 - Azure 모바일 서비스" 
-	description="모바일 서비스를 사용하여 Google, Facebook, Twitter, Microsoft 등의 다양한 ID 공급자를 통해 Xamarin Android 앱 사용자를 인증하는 방법에 대해 알아봅니다." 
+	description="모바일 서비스를 사용하여 Google, Facebook, Twitter, Microsoft 등의 다양한 ID 공급자를 통해 Xamarin Android 앱 사용자를 인증하는 방법을 알아봅니다." 
 	services="mobile-services" 
 	documentationCenter="xamarin" 
 	authors="lindydonna" 
@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-xamarin-android" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.date="09/23/2014" 
@@ -88,9 +88,9 @@
    	로그인하고 나면 앱이 오류 없이 실행되며 모바일 서비스를 쿼리하고 데이터를 업데이트할 수 있게 됩니다.
 
 
-<!-- ## <a name="next-steps"> </a>다음 단계
+<!-- ## <a name="next-steps"> </a>Next steps
 
-다음 자습서인 [모바일 서비스 사용자의 서비스 쪽 권한 부여][스크립트를 통해 사용자 권한 부여]에서는 인증된 사용자를 기반으로 모바일 서비스에서 제공된 사용자 ID 값을 사용하여 모바일 서비스에서 반환되는 데이터를 필터링합니다. 
+In the next tutorial, [Service-side authorization of Mobile Services users][Authorize users with scripts], you will take the user ID value provided by Mobile Services based on an authenticated user and use it to filter the data returned by Mobile Services. 
  -->
  
 <!-- Anchors. -->
@@ -104,13 +104,12 @@
 [앱 제출 페이지]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [내 응용 프로그램]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Windows용 Live SDK]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[모바일 서비스 시작](영문): /ko-kr/documentation/articles/mobile-services-dotnet-backend-xamarin-android-get-started/
-[인증 시작](영문): /ko-kr/documentation/articles/mobile-services-dotnet-backend-xamarin-android-get-started-users/
-[푸시 알림 시작]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-xamarin-android-get-started-push/
-[스크립트를 통해 사용자 권한 부여]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-authorize-users-in-scripts
-[JavaScript 및 HTML]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-users/
+[모바일 서비스 시작]: mobile-services-dotnet-backend-xamarin-android-get-started.md
+[인증 시작]: mobile-services-dotnet-backend-xamarin-android-get-started-users.md
+[푸시 알림 시작]: mobile-services-dotnet-backend-xamarin-android-get-started-push.md
+[스크립트를 통해 사용자 권한 부여]: mobile-services-dotnet-backend-windows-store-dotnet-authorize-users-in-scripts.md
+[JavaScript 및 HTML]: mobile-services-dotnet-backend-windows-store-javascript-get-started-users.md
 
 [Azure 관리 포털]: https://manage.windowsazure.com/
 
-
-<!--HONumber=42-->
+<!--HONumber=49-->

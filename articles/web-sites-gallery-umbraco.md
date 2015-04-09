@@ -1,6 +1,6 @@
 ﻿<properties 
 	pageTitle="Microsoft Azure의 갤러리에서 Umbraco 웹 사이트 만들기" 
-	description="필수" 
+	description="Umbraco 콘텐츠 관리 시스템을 만들고 Azure 웹 사이트에 배포합니다." 
 	services="web-sites" 
 	documentationCenter="" 
 	authors="tfitzmac" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/21/2014" 
+	ms.date="02/25/2015" 
 	ms.author="tomfitz"/>
 
 #Microsoft Azure의 갤러리에서 Umbraco 웹 사이트 만들기#
@@ -43,7 +43,7 @@ Umbraco CMS는 소규모 응용 프로그램에서 복잡한 응용 프로그램
 	
 	![Click Create][03UmbracoCMS]
 	
-5. 다음 단계는 Umbraco CMS와 연결된 모든 리소스를 구성하는 것입니다. 이 경우 리소스는 웹 사이트와 SQL Server 데이터베이스입니다. 먼저 **웹 사이트**를 선택하여 **URL**, **웹 호스팅 계획**, **웹앱 설정** 및 **위치**와 같은 웹 사이트 설정을 구성합니다. 
+5. 다음 단계는 Umbraco CMS와 연결된 모든 리소스를 구성하는 것입니다. 이 경우 리소스는 웹 사이트와 SQL Server 데이터베이스입니다. 먼저 **웹 사이트**를 선택하여 **URL**, **웹 호스팅 계획**, **웹 앱 설정** 및 **위치**와 같은 웹 사이트 설정을 구성합니다. 
 	
 	![Configure resources][04AppSettings]
 	
@@ -73,7 +73,7 @@ Umbraco CMS는 소규모 응용 프로그램에서 복잡한 응용 프로그램
 	
 	![Configure your database][10ConfigureYourDatabase] 
 	
-4. Umbraco CMS를 처음 사용하는 경우에는 시작 웹 사이트 키트를 선택할 수 있습니다. 그렇지 않은 경우 *No thanks, I do not want to install a starter website**를 클릭합니다.
+4. Umbraco CMS를 처음 사용하는 경우에는 시작 웹 사이트 키트를 선택할 수 있습니다. 그렇지 않은 경우 **No thanks, I do not want to install a starter website**를 클릭합니다.
 	
 	![Install a starter website][11InstallAStarterWebsite]
 	
@@ -81,7 +81,7 @@ Umbraco CMS는 소규모 응용 프로그램에서 복잡한 응용 프로그램
 	
 	![Umbraco CMS dashboard][14FriendlyCMS]
 	
-6. 이제 게시할 샘플 텍스트 페이지가 만듭니다. **콘텐츠**, **오버플로**, **TextPage**를 차례로 선택합니다.
+6. 이제 게시할 샘플 텍스트 페이지가 만들어집니다. **Content**, **Overflow**, 및 **TextPage**를 차례로 선택합니다.
 	
 	![Create a text page][15CreateItemUnderOverflow]
 	
@@ -98,15 +98,15 @@ Umbraco CMS는 소규모 응용 프로그램에서 복잡한 응용 프로그램
 
 ##추가 리소스
 
-[Umbraco 설명서(영문)](http://our.umbraco.org/documentation)
+[Umbraco 설명서](http://our.umbraco.org/documentation)
 
-[Umbraco 비디오 자습서(영문)](https://umbraco.com/help-and-support/video-tutorials.aspx)
+[Umbraco 비디오 자습서](https://umbraco.com/help-and-support/video-tutorials.aspx)
 
 [Microsoft Azure 미리 보기 포털 개요](http://azure.microsoft.com/overview/preview-portal/)
 
 [Microsoft Azure 미리 보기 포털 설명서](http://azure.microsoft.com/documentation/preview-portal/)
 
-[Azure 미리 보기 포털(채널 9)](http://channel9.msdn.com/Blogs/Windows-Azure/Azure-Preview-portal)(영문) 
+[Azure 미리 보기 포털(채널 9)](http://channel9.msdn.com/Blogs/Windows-Azure/Azure-Preview-portal) 
 
 [Microsoft Azure 웹 사이트 설명서](http://azure.microsoft.com/documentation/services/web-sites/)
 
@@ -129,4 +129,4 @@ Umbraco CMS는 소규모 응용 프로그램에서 복잡한 응용 프로그램
 [16EnterAName]: ./media/web-sites-gallery-umbraco/16EnterAName.PNG
 [17MyPage]: ./media/web-sites-gallery-umbraco/17MyPage.PNG
 
-<!--HONumber=46--> 
+<!--HONumber=49-->

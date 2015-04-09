@@ -1,8 +1,8 @@
 ﻿<properties 
-	pageTitle="DocumentDB를 사용하여 ASP.NET MVC로 웹 응용 프로그램 작성 | Azure" 
-	description="DocumentDB와 .NET을 사용하여 할 일 모음 웹 응용 프로그램을 빌드하는 방법에 대해 알아봅니다. Azure 웹 사이트에서 호스트되는 ASP.NET MVC 웹 응용 프로그램의 데이터를 저장하고 액세스합니다." 
+	pageTitle="DocumentDB를 사용하여 ASP.NET MVC로 웹 응용 프로그램 빌드 | Azure" 
+	description="DocumentDB와 .NET을 사용하여 할 일 모음 웹 응용 프로그램을 빌드하는 방법을 알아봅니다. Azure 웹 사이트에서 호스트되는 ASP.NET MVC 웹 응용 프로그램의 데이터를 저장하고 액세스합니다." 
 	services="documentdb" 
-	documentationCenter="" 
+	documentationCenter=".net" 
 	authors="ryancrawcour" 
 	manager="jhubbard" 
 	editor="cgronlun"/>
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
-	ms.date="02/26/2015" 
+	ms.date="03/23/2015" 
 	ms.author="ryancraw"/>
 
 #<a name="_Toc395809351"></a>DocumentDB를 사용하여 ASP.NET MVC로 웹 응용 프로그램 빌드
@@ -25,7 +25,7 @@ Azure DocumentDB를 효율적으로 활용하여 JSON 문서를 저장 및 쿼�
 
 이 연습에서는 Azure에서 제공하는 DocumentDB 서비스를 사용하여 Azure에서 호스트되는 ASP.NET MVC 웹 응용 프로그램의 데이터를 저장하고 액세스하는 방법을 보여 줍니다.
 
-> [AZURE.TIP] 이 자습서에서는 이전에 ASP.NET MVC 및 Azure 웹 사이트를 사용해 본 경험이 있다고 가정합니다. ASP.NET이나 [필수 조건 도구]를 처음 사용하는 경우(#_Toc395637760)[GitHub](https://github.com/Azure/azure-documentdb-net)(영문)에서 전체 [todo](https://github.com/Azure/azure-documentdb-net/tree/master/tutorials/todo)(영문) 자습서 프로젝트를 다운로드하고 [이 문서의 끝에 있는 지침]을 사용하여 이 프로젝트를 빌드하는 것이 좋습니다(#GetProject). 프로젝트를 빌드하고 나면 이 문서를 검토하여 프로젝트의 컨텍스트에서 코드를 이해할 수 있습니다.
+> [AZURE.TIP] 이 자습서에서는 이전에 ASP.NET MVC 및 Azure 웹 사이트를 사용해 본 경험이 있다고 가정합니다. ASP.NET 또는 [필수 도구](#_Toc395637760)를 처음 사용하는 경우 [GitHub](https://github.com/Azure/azure-documentdb-net)(영문)에서 전체 [todo](https://github.com/Azure/azure-documentdb-net/tree/master/tutorials/todo)(영문) 자습서 프로젝트를 다운로드하고 [이 문서의 끝에 있는 지침](#GetProject)을 사용하여 이 프로젝트를 빌드하는 것이 좋습니다. 프로젝트를 빌드하고 나면 이 문서를 검토하여 프로젝트의 컨텍스트에서 코드를 이해할 수 있습니다.
 
 ## <a name="_Toc395637760"></a>필수 조건
 
@@ -39,7 +39,7 @@ Azure DocumentDB를 효율적으로 활용하여 JSON 문서를 저장 및 쿼�
 
 ## <a name="_Toc395637761"></a>1단계: DocumentDB 데이터베이스 계정 만들기
 
-먼저 DocumentDB 계정을 만듭니다. 계정이 이미 있는 경우를 [새 ASP.NET MVC 응용 프로그램 만들기]로 건너뛸 수 있습니다(#_Toc395637762).
+먼저 DocumentDB 계정을 만듭니다. 계정이 이미 있는 경우를 [새 ASP.NET MVC 응용 프로그램 만들기](#_Toc395637762)로 건너뛸 수 있습니다.
 
 [AZURE.INCLUDE [documentdb-create-dbaccount](../includes/documentdb-create-dbaccount.md)]
 
@@ -92,7 +92,7 @@ Azure DocumentDB를 효율적으로 활용하여 JSON 문서를 저장 및 쿼�
 
 2. **온라인 검색** 상자에 "Azure DocumentDB"를 입력합니다. 결과에서 **Microsoft Azure DocumentDB Client Libraries** 패키지를 설치합니다. 그러면 DocumentDB 패키지 및 모든 종속성(예: Newtonsoft.Json)이 다운로드되어 설치됩니다.
 
-  	> [AZURE.NOTE] 서비스가 아직 미리 보기로 제공되므로 NuGet 패키지는 "시험판"으로 표시됩니다. "시험판 포함" 옵션을 포함해야 합니다. 그렇지 않으면 패키지를 찾을 수 없습니다.  
+  	> [AZURE.NOTE] 서비스가 아직 미리 보기로 제공되므로 NuGet 패키지는 "시험판"으로 표시됩니다. "시험판 포함" 옵션을 포함해야 합니다. 그렇지 않으면 패키지를 찾을 수 없습니다. 
 
   	또는 Package Command Console을 사용하여 다음을 입력하면 패키지를 설치할 수 있습니다.
 
@@ -169,7 +169,7 @@ Azure DocumentDB를 효율적으로 활용하여 JSON 문서를 저장 및 쿼�
 
 ### <a name="_Toc395637766"></a>뷰 추가
 
-마지막으로 MVC의 **V**인 뷰를 만듭니다.
+끝으로, MVC의 **V**인 뷰를 만듭니다.
 
 - [항목 인덱스 뷰 추가](#AddItemIndexView).
 - [새 항목 뷰 추가](#AddNewIndexView).
@@ -586,7 +586,7 @@ Azure DocumentDB를 효율적으로 활용하여 JSON 문서를 저장 및 쿼�
 
 시간을 절약하면서 전체 todo 솔루션을 빌드하고 코드를 스스로 추가하지 않으려는 경우 간단한 방법이 있습니다. GitHub에서 전체 솔루션을 제공하므로 다음 지침에 따라 몇 분 만에 솔루션을 빌드하여 배포할 수 있습니다.
 
-1. [필수 조건 소프트웨어](Visual Studio 및 Azure SDK for .NET 버전 2.3 이상)가(#_Toc395637760) 설치되어 있는지 확인합니다.
+1. Visual Studio 및 Azure SDK for .NET 버전 2.3 이상을 포함하는 [필수 소프트웨어](#_Toc395637760)가 설치되어 있는지 확인합니다.
 
 2. Git for Windows([http://www.git-scm.com/](http://www.git-scm.com/)(영문))를 사용하여 azure-documentdb-net 리포지토리를 복제하거나 [GitHub](https://github.com/Azure/azure-documentdb-net/)(영문)에서 zip 파일을 다운로드합니다.
 
@@ -597,9 +597,9 @@ Azure DocumentDB를 효율적으로 활용하여 JSON 문서를 저장 및 쿼�
 4. [Azure Preview 포털](https://portal.azure.com/)에서 DocumentDB 계정의 **키** 블레이드에서 **URI** 및 **기본 키** 또는 **보조 키** 값을 검색합니다. 
 
 	
-	계정이 없는 경우 [데이터베이스 계정 만들기](/documentation/articles/documentdb-create-account/)를 참조하여 계정을 설정합니다.
+	계정이 없는 경우 [데이터베이스 계정 만들기](documentdb-create-account.md)를 참조하여 계정을 설정합니다.
 
-	![Screen shot of the Azure Preview portal, showing a DocumentDB account, with the ACTIVE hub highlighted, the KEYS tile highlighted on the DocumentDB account blade, and the URI, PRIMARY KEY and SECONDARY KEY values highlighted on the Keys blade](./media/documentdb-dotnet-application/keys.png)
+	![Screen shot of the Azure Preview portal, showing a DocumentDB account, with the ACTIVE hub highlighted, the Keys button highlighted on the DocumentDB account blade, and the URI, PRIMARY KEY and SECONDARY KEY values highlighted on the Keys blade](../includes/media/documentdb-keys/keys.png)
 
 5. Web.config 파일에서 **endpoint** 및 **authKey** 키의 기본값을 업데이트합니다.
 
@@ -611,14 +611,14 @@ Azure DocumentDB를 효율적으로 활용하여 JSON 문서를 저장 및 쿼�
 	
 
 
-7. 이제 [로컬에서 응용 프로그램을 실행]한 후(#_Toc395637773) [Azure 웹 사이트에 배포]할 수 있습니다(#_Toc395637774).
+7. 이제 [로컬에서 응용 프로그램을 실행](#_Toc395637773)한 다음 [Azure 웹 사이트에 배포](#_Toc395637774)할 수 있습니다.
 
 
 [\*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError
 [Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx
 [Microsoft 웹 플랫폼 설치 관리자]: http://www.microsoft.com/web/downloads/platform.aspx
-[Github]: http://go.microsoft.com/fwlink/?LinkID=509838&clcid=0x409
+[GitHub]: http://go.microsoft.com/fwlink/?LinkID=509838&clcid=0x409
 [교차 사이트 요청 위조 방지]: http://go.microsoft.com/fwlink/?LinkID=517254
 [ASP.NET MVC의 기본 CRUD 작업]: http://go.microsoft.com/fwlink/?LinkId=317598
 
-<!--HONumber=47-->
+<!--HONumber=49-->

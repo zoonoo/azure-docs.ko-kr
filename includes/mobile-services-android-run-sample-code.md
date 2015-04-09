@@ -1,9 +1,9 @@
-﻿1. Project Explorer에서 **app** => **java** => **com.example.GetStartedWithData**, **src**, **.com.example.GetStartedWithData**를 차례로 확장하고  *ToDoActivity.java* 파일을 엽니다.
+﻿1. Project Explorer에서 **app** => **java** => **com.example.GetStartedWithData**, **src**, **.com.example.GetStartedWithData**를 차례로 확장하고 *ToDoActivity.java* 파일을 엽니다.
 
    	![](./media/download-android-sample-code/mobile-services-android-studio-project.png)
 
 
-   	이 앱이 모바일 서비스에서 작동하기 위해 수행해야 하는 단계를 지정하는  `//TODO` 주석이 있습니다.
+   	이 앱이 모바일 서비스에서 작동하기 위해 수행해야 하는 단계를 지정하는 `//TODO` 주석이 있습니다.
 
 2. **Run** 메뉴에서 **Run app**을 클릭합니다.
 
@@ -24,4 +24,5 @@
    	![](./media/download-android-sample-code/mobile-quickstart-startup-android.png)
 
    	메모리 내 컬렉션에 저장된 텍스트가 저장되고 아래 목록에 표시됩니다.
-<!--HONumber=47-->
+
+<!--HONumber=49-->

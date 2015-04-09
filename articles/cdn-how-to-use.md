@@ -1,6 +1,6 @@
 ﻿<properties 
 	pageTitle="CDN 사용 방법 - Azure 기능 가이드" 
-	description="Azure CDN(콘텐츠 배달 네트워크)을 사용하여 Blob 및 정적 콘텐츠를 캐시해 고대역폭 콘텐츠를 배달하는 방법에 대해 알아봅니다." 
+	description="Azure CDN(콘텐츠 배달 네트워크)을 사용하여 Blob 및 정적 콘텐츠를 캐시해 고대역폭 콘텐츠를 배달하는 방법을 알아봅니다." 
 	services="cdn" 
 	documentationCenter=".net" 
 	authors="" 
@@ -20,9 +20,6 @@
 
 
 
+[AZURE.INCLUDE [cdn](../includes/cdn.md)]
 
-[WACOM.INCLUDE [cdn](../includes/cdn.md)]
-
-<!--HONumber=35.2-->
-
-<!--HONumber=46--> 
+<!--HONumber=49-->

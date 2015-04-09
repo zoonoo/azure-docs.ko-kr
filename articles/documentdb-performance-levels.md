@@ -1,6 +1,6 @@
 ﻿<properties 
 	pageTitle="DocumentDB의 성능 수준 | Azure" 
-	description="DocumentDB의 성능 수준을 통해 컬렉션별 기준에 따라 처리량을 예약하는 방법에 대해 알아봅니다." 
+	description="DocumentDB의 성능 수준을 통해 컬렉션별 기준에 따라 처리량을 예약하는 방법을 알아봅니다." 
 	services="documentdb" 
 	authors="johnfmacintyre" 
 	manager="jhubbard" 
@@ -18,7 +18,7 @@
 
 # DocumentDB의 성능 수준 #
 
-이 문서에서는 [Microsoft Azure DocumentDB](http://azure.microsoft.com/services/documentdb/)에서 성능 수준 개요를 제공합니다. 
+이 문서에서는 [Microsoft Azure DocumentDB](http://azure.microsoft.com/services/documentdb/)의 성능 수준에 대해 개괄적으로 설명합니다. 
 
 > [AZURE.IMPORTANT] 성능 수준은 Azure DocumentDB의 일반적 가용성에 따라 제공됩니다. 이 릴리스는 2015년 4월로 예약되었습니다.
 
@@ -69,7 +69,7 @@ DocumentDB에서는 쿼리, UDF(사용자 정의 함수)를 포함하는 쿼리,
 
 컬렉션을 만든 다음에는 DocumentDB SDK 또는 Azure 관리 포털을 통해 성능 수준을 수정할 수 있습니다. 
 
-> [AZURE.IMPORTANT] DocumentDB 표준 컬렉션은 시간 단위로 요금이 청구되며, 생성되는 각 컬렉션은 최소 1시간 사용량을 기준으로 청구됩니다. 
+> [AZURE.IMPORTANT] DocumentDB 표준 컬렉션은 시간 단위로 요금이 청구되며, 생성되는 각 컬렉션은 최소 1시간 사용량을 기준으로 청구됩니다.  
 
 한 시간 내에 컬렉션의 성능 수준을 조정할 경우, 해당 시간 중에 설정된 가장 높은 성능 수준을 기준으로 요금이 청구됩니다. 예를 들어 오전 8:53분에 컬렉션의 성능 수준을 늘린 경우, 오전 8:00부터 새로운 수준에 대한 요금이 청구됩니다. 마찬가지로, 오전 8:53분에 성능 수준을 낮춘 경우, 새 요금은 오전 9:00부터 적용됩니다.
 
@@ -78,7 +78,7 @@ DocumentDB에서는 쿼리, UDF(사용자 정의 함수)를 포함하는 쿼리,
 > [AZURE.NOTE] 응용 프로그램이 하나 이상의 컬렉션에 대한 성능 수준을 초과할 경우 컬렉션당 기준에 따라 요청이 제한됩니다. 즉, 응용 프로그램 요청이 경우에 따라 성공하거나 제한될 수도 있습니다.
 
 ##<a id="Sub3"></a>성능 수준 작업##
-DocumentDB 컬렉션을 사용하면 응용 프로그램의 쿼리 패턴 및 성능 요구를 기준으로 데이터를 분할할 수 있습니다. DocumentDB에서 데이터 분할에 대한 자세한 내용은 [데이터 분할 설명서](http://azure.microsoft.com/documentation/articles/documentdb-partition-data/)를 참조하세요. DocumentDB의 자동 인덱싱 및 쿼리 지원을 통해 동일한 컬렉션 내에서 이기종 문서를 수집하는 것이 상당히 일반적입니다. 데이터에 대해 개별 컬렉션을 사용할지 여부를 결정할 때는 다음과 같은 주요 사항을 고려해야 합니다.
+DocumentDB 컬렉션을 사용하면 응용 프로그램의 쿼리 패턴 및 성능 요구를 기준으로 데이터를 분할할 수 있습니다. DocumentDB를 사용한 데이터 분할에 대한 자세한 내용은 [데이터 분할 설명서](documentdb-partition-data.md)를 참조하세요. DocumentDB의 자동 인덱싱 및 쿼리 지원을 통해 동일한 컬렉션 내에서 이기종 문서를 수집하는 것이 상당히 일반적입니다. 데이터에 대해 개별 컬렉션을 사용할지 여부를 결정할 때는 다음과 같은 주요 사항을 고려해야 합니다.
 
 - 쿼리 - 컬렉션은 쿼리 실행을 위한 범위입니다. 문서 집합에 대해 쿼리를 수행해야 할 경우, 가장 효율적인 읽기 패턴은 문서를 단일 컬렉션에 배치하는 것으로부터 시작됩니다.
 - 트랜잭션 - 컬렉션은 저장 프로시저 및 트리거에 대한 트랜잭션 도메인입니다. 모든 트랜잭션은 단일 컬렉션으로 범위가 지정됩니다. 
@@ -93,12 +93,12 @@ DocumentDB 컬렉션을 사용하면 응용 프로그램의 쿼리 패턴 및 �
 Azure DocumentDB에서 가격 책정 및 데이터 관리에 대해 자세히 알아보려면 다음 리소스를 참조하세요.
  
 - [DocumentDB 가격 책정](http://azure.microsoft.com/pricing/details/documentdb/)
-- [DocumentDB 용량 관리](http://azure.microsoft.com/documentation/articles/documentdb-manage/) 
-- [DocumentDB에서 데이터 모델링](http://azure.microsoft.com/documentation/articles/documentdb-modeling-data/)
-- [DocumentDB에서 데이터 분할](http://azure.microsoft.com/documentation/articles/documentdb-partition-data/)
+- [DocumentDB 용량 관리](documentdb-manage.md) 
+- [DocumentDB에서 데이터 모델링](documentdb-modeling-data.md)
+- [DocumentDB에서 데이터 분할](documentdb-partition-data.md)
 
 DocumentDB에 대해 자세히 알아보려면 Azure DocumentDB [설명서](http://azure.microsoft.com/documentation/services/documentdb/)를 참조하세요. 
 
 
 
-<!--HONumber=47-->
+<!--HONumber=49-->

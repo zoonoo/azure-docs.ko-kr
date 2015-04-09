@@ -1,6 +1,6 @@
 ﻿<properties 
 	pageTitle="인증 시작(JavaScript) | 모바일 개발자 센터" 
-	description="모바일 서비스를 사용하여 Google, Facebook, Twitter, Microsoft 등의 다양한 ID 공급자를 통해 Windows 스토어 JavaScript 앱 사용자를 인증하는 방법에 대해 알아봅니다." 
+	description="모바일 서비스를 사용하여 Google, Facebook, Twitter, Microsoft 등의 다양한 ID 공급자를 통해 Windows 스토어 JavaScript 앱 사용자를 인증하는 방법을 알아봅니다." 
 	services="mobile-services" 
 	documentationCenter="windows" 
 	authors="ggailey777" 
@@ -10,10 +10,10 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="09/23/2014" 
+	ms.date="02/26/2015" 
 	ms.author="glenga"/>
 
 # 모바일 서비스 앱에 인증 추가
@@ -33,12 +33,12 @@
 
 >[AZURE.NOTE]이 자습서는 다양한 ID 공급자를 사용하여 모바일 서비스에서 관리하는 인증 흐름을 보여 줍니다. 이 방법은 간편하게 구성할 수 있으며 여러 공급자를 지원합니다. 대신 Live Connect와 클라이언트 관리 인증을 사용하고 Windows Phone 앱에서 Single Sign-On 환경을 제공하려면 [Live Connect를 사용한 Windows 스토어 앱의 Single Sign-On] 항목을 참조하세요. 클라이언트 관리 인증을 사용하는 경우 앱은 ID 공급자가 유지 관리하는 추가 사용자 데이터에 액세스할 수 있습니다. 서버 스크립트에서 **user.getIdentities()** 함수를 호출하면 모바일 서비스에서 와 같은 사용자 데이터를 가져올 수 있습니다. 자세한 내용은 [이 게시물](http://go.microsoft.com/fwlink/p/?LinkId=506605)(영문)을 참조하세요.
 
-##<a name="register"></a>인증을 위해 앱 등록 및 모바일 서비스 구성
+##<a name="register"></a> 인증을 위해 앱 등록 및 모바일 서비스 구성
 
 [AZURE.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)] 
 
 <ol start="5">
-<li><p>(선택 사항) <a href="/ko-kr/documentation/articles/mobile-services-how-to-register-store-app-package-microsoft-authentication/">Microsoft 인증을 위해 Windows 스토어 앱 패키지 등록</a>의 단계를 완료합니다.</p>
+<li><p>(선택 사항) <a href="/documentation/articles/mobile-services-how-to-register-store-app-package-microsoft-authentication/">Microsoft 인증을 위해 Windows 스토어 앱 패키지 등록</a>의 단계를 완료합니다.</p>
 
     
 	<p>이 단계는 Microsoft 계정 로그인 공급자에만 적용되기 때문에 선택 사항입니다. 모바일 서비스에 Windows 스토어 앱 패키지 정보를 등록하는 경우 클라이언트에서 Single Sign-On 환경을 위해 Microsoft 계정 로그인 자격 증명을 다시 사용할 수 있습니다. 그렇지 않으면 로그인 메서드가 호출될 때마다 Microsoft 계정 로그인 사용자에게 로그인 프롬프트가 표시됩니다. Microsoft 계정 ID 공급자를 사용하려는 경우 이 단계를 완료합니다.</p>
@@ -51,7 +51,7 @@
 [AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)] 
 
 <ol start="3">
-<li><p>Visual Studio 2012 Express for Windows 8에서 <a href="/ko-kr/develop/mobile/tutorials/get-started/">모바일 서비스 시작</a> 자습서를 완료할 때 만든 프로젝트를 엽니다.</p></li> 
+<li><p>Visual Studio 2012 Express for Windows 8에서 <a href="/develop/mobile/tutorials/get-started/">모바일 서비스 시작</a> 자습서를 완료할 때 만든 프로젝트를 엽니다.</p></li> 
 <li><p>F5 키를 눌러 이 퀵 스타트 기반 앱을 실행합니다. 앱이 시작된 후 상태 코드 401(인증되지 않음)의 처리되지 않은 예외가 발생하는지 확인합니다.</p>
    
    	<p>이는 앱이 인증되지 않은 사용자로 모바일 서비스에 액세스하려고 시도하지만 <em>TodoItem</em> 테이블에서 이제 인증을 요구하기 때문에 발생합니다.</p></li>
@@ -59,7 +59,7 @@
 
 다음에는 모바일 서비스의 리소스를 요청하기 전에 사용자를 인증하도록 앱을 업데이트합니다.
 
-##<a name="add-authentication"></a>앱에 인증 추가
+##<a name="add-authentication"></a> 앱에 인증 추가
 
 [AZURE.INCLUDE [mobile-services-windows-store-javascript-authenticate-app](../includes/mobile-services-windows-store-javascript-authenticate-app.md)] 
 
@@ -83,15 +83,14 @@
 <!-- URLs. -->
 [내 응용 프로그램]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Windows용 Live SDK]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Live Connect를 사용한 Windows 스토어 앱의 Single Sign-On]: /ko-kr/documentation/articles/mobile-services-windows-store-javascript-single-sign-on
-[모바일 서비스 시작](영문): /ko-kr/documentation/articles/mobile-services-windows-store-get-started/
-[데이터 시작]: /ko-kr/documentation/articles/mobile-services-windows-store-javascript-get-started-data/
-[인증 시작](영문): /ko-kr/documentation/articles/mobile-services-windows-store-javascript-get-started-users/
-[푸시 알림 시작]: /ko-kr/documentation/articles/mobile-services-windows-store-javascript-get-started-push/
-[스크립트를 통해 사용자 권한 부여]: /ko-kr/documentation/articles/mobile-services-windows-store-javascript-authorize-users-in-scripts
+[Live Connect를 사용한 Windows 스토어 앱의 Single Sign-On]: mobile-services-windows-store-javascript-single-sign-on.md
+[모바일 서비스 시작]: mobile-services-windows-store-get-started.md
+[데이터 시작]: mobile-services-windows-store-javascript-get-started-data.md
+[인증 시작]: mobile-services-windows-store-javascript-get-started-users.md
+[푸시 알림 시작]: mobile-services-windows-store-javascript-get-started-push.md
+[스크립트를 통해 사용자 권한 부여]: mobile-services-windows-store-javascript-authorize-users-in-scripts.md
 
 [Azure 관리 포털]: https://manage.windowsazure.com/
-[Microsoft 인증을 위해 Windows 스토어 앱 패키지 등록]: /ko-kr/develop/mobile/how-to-guides/register-windows-store-app-package
+[Microsoft 인증을 위해 Windows 스토어 앱 패키지 등록]: /develop/mobile/how-to-guides/register-windows-store-app-package
 
-
-<!--HONumber=42-->
+<!--HONumber=49-->

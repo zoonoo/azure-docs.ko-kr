@@ -10,14 +10,14 @@
         import android.content.SharedPreferences;
         import android.content.SharedPreferences.Editor;
 
-2. 다음 멤버를  `ToDoActivity` 클래스에 추가합니다.
+2. 다음 멤버를 `ToDoActivity` 클래스에 추가합니다.
 
     	public static final String SHAREDPREFFILE = "temp";	
 	    public static final String USERIDPREF = "uid";	
     	public static final String TOKENPREF = "tkn";	
 
 
-3. ToDoActivity.java 파일에  `cacheUserToken` 메서드에 대한 다음 정의를 추가합니다.
+3. ToDoActivity.java 파일에 `cacheUserToken` 메서드에 대한 다음 정의를 추가합니다.
  
     	private void cacheUserToken(MobileServiceUser user)
 	    {
@@ -33,7 +33,7 @@
     >[AZURE.NOTE]데이터에 대한 토큰 액세스가 매우 중요하며 다른 사람이 장치에 액세스할 수 있는 경우 암호화를 사용하여 토큰을 추가로 보호할 수 있습니다. 그러나 완전히 안전한 솔루션은 이 자습서의 범위를 벗어나며 보안 요구 사항에 따라 달라집니다.
 
 
-4. ToDoActivity.java 파일에  `loadUserTokenCache` 메서드에 대한 다음 정의를 추가합니다.
+4. ToDoActivity.java 파일에 `loadUserTokenCache` 메서드에 대한 다음 정의를 추가합니다.
 
     	private boolean loadUserTokenCache(MobileServiceClient client)
 	    {
@@ -54,7 +54,7 @@
 
 
 
-5.  *ToDoActivity.java* 파일에서  `authenticate` 메서드를 토큰 캐시가 사용되는 다음 메서드로 바꿉니다. Microsoft 계정이 아닌 다른 계정을 사용하려는 경우 로그인 공급자를 변경합니다.
+5.  *ToDoActivity.java* 파일에서 `authenticate` 메서드를 토큰 캐시가 사용되는 다음 메서드로 바꿉니다. Microsoft 계정이 아닌 다른 계정을 사용하려는 경우 로그인 공급자를 변경합니다.
 
 		private void authenticate() {
 			// We first try to load a token cache if one exists.
@@ -90,4 +90,4 @@
 
 
 
-<!--HONumber=47-->
+<!--HONumber=49-->

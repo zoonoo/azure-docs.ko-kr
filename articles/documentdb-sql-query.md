@@ -13,11 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/24/2015" 
+	ms.date="03/24/2015" 
 	ms.author="mimig"/>
 
 #DocumentDB 쿼리
 Microsoft Azure DocumentDB는 계층적 JSON 문서에 대해 SQL(구조적 쿼리 언어)을 사용한 문서 쿼리를 지원합니다. DocumentDB는 스키마가 없습니다. DocumentDB는 데이터베이스 엔진 내에 직접 JSON 데이터 모델을 커밋하므로 명시적 스키마나 보조 인덱스 생성을 요구하지 않고 JSON 문서의 자동 인덱싱을 제공합니다. 
+
 DocumentDB용 쿼리 언어를 설계할 때 다음 두 가지 목표를 고려했습니다.
 
 -	<strong>SQL 수용</strong> - 새 쿼리 언어를 고안하는 대신 SQL 언어를 수용하려고 했습니다. 어쨌든 SQL은 가장 익숙하고 많이 사용하는 쿼리 언어 중 하나입니다. DocumentDB SQL 쿼리 언어는 JSON 문서에 대한 풍부한 쿼리를 위한 공식 프로그래밍 모델을 제공합니다.
@@ -25,9 +26,11 @@ DocumentDB용 쿼리 언어를 설계할 때 다음 두 가지 목표를 고려�
 
 이러한 기능은 응용 프로그램과 데이터베이스 간의 충돌을 줄이는 데 도움이 되며 개발자 생산성에 중요합니다.
 
-DocumentDB 쿼리 언어 기능 및 문법에 대해 자세히 알아보려면 다음 비디오를 시청하거나 이 문서의 뒤에 오는 자습서를 완료합니다. 
+먼저 Aravind Ramachandran이 DocumentDB의 쿼리 기능을 보여 주는 다음 동영상을 보고, DocumentDB를 사용해보고 데이터 집합에 대해 SQL 쿼리를 실행하는 [쿼리 실습](http://www.documentdb.com/sql/demo)을 방문하는 것이 좋습니다.
 
 > [AZURE.VIDEO dataexposedqueryingdocumentdb]
+
+그런 다음 이 문서로 돌아와 몇 가지 간단한 JSON 문서와 쿼리를 연습하세요.
 
 ## 시작하기
 DocumentDB SQL 작동 방식을 살펴보기 위해 몇 개의 간단한 JSON 문서로 시작하고 몇 개의 단순한 쿼리를 연습하겠습니다. 두 가족에 대한 다음 두 개의 JSON 문서를 고려해 보세요. DocumentDB를 사용하면 스키마나 보조 인덱스를 명시적으로 만들 필요가 없습니다. DocumentDB 컬렉션에 JSON 문서를 삽입한 후 쿼리하면 됩니다. 
@@ -150,7 +153,7 @@ DocumentDB SQL 작동 방식을 살펴보기 위해 몇 개의 간단한 JSON �
 
 지금까지 확인한 예제를 통해 DocumentDB 쿼리 언어의 몇 가지 중요한 측면을 살펴보겠습니다.  
  
--	DocumentDB SQL은 JSON 값에 대해 작동하므로 행과 열 대신 트리 모양의 엔터티를 다룹니다. 따라서 이 언어를 사용하면 임의 깊이의 트리 노드(예:  `Node1.Node2.Node3.....Nodem`)를 참조할 수 있습니다. 이는 `<table>.<column>`의 두 부분을 참조하는 관계형 SQL과 유사합니다.   
+-	DocumentDB SQL은 JSON 값에 대해 작동하므로 행과 열 대신 트리 모양의 엔터티를 다룹니다. 따라서 이 언어를 사용하면 임의 깊이의 트리 노드를 참조할 수 있습니다(예: `Node1.Node2.Node3.....Nodem`). 이는 `<table>.<column>`의 두 부분을 참조하는 관계형 SQL과 유사합니다.   
 -	이 언어는 스키마 없는 데이터로 작업합니다. 따라서 형식 시스템을 동적으로 바인딩해야 합니다. 문서에 따라 동일한 식이 다른 형식을 생성할 수 있습니다. 쿼리 결과는 유효한 JSON 값이지만 고정 스키마가 아닐 수 있습니다.  
 -	DocumentDB는 엄격한 JSON 문서만 지원합니다. 즉, 형식 시스템과 식이 JSON 형식만 처리하도록 제한됩니다. 자세한 내용은 [JSON 사양](http://www.json.org/)(영문)을 참조하세요.  
 -	DocumentDB 컬렉션은 JSON 문서의 스키마 없는 컨테이너입니다. 컬렉션의 문서 내 및 문서 간 데이터 엔터티의 관계는 기본 키 및 외래 키 관계가 아니라 포함을 통해 암시적으로 캡처됩니다. 이것은 이 문서의 뒷부분에서 설명하는 문서 내 조인과 관련해서 주의할 중요한 측면입니다.
@@ -187,12 +190,12 @@ ANSI-SQL 표준에 따라 모든 쿼리는 SELECT 절과 선택적 FROM 및 WHER
 ##FROM 절
 쿼리의 뒷부분에서 소스를 필터링/프로젝션하지 않을 경우 `FROM <from_specification>` 절은 선택 사항입니다. 이 절의 목적은 쿼리가 작동해야 하는 데이터 소스를 지정하는 것입니다. 일반적으로 전체 컬렉션이 소스이지만 컬렉션의 하위 집합을 대신 지정할 수 있습니다. 
 
- `SELECT * FROM Families`와 같은 쿼리는 전체 Families 컬렉션이 열거할 소스임을 나타냅니다. 컬렉션 이름을 사용하는 대신 특수 식별자 ROOT를 사용하여 컬렉션을 나타낼 수 있습니다. 
+`SELECT * FROM Families`와 유사한 쿼리는 전체 Families 컬렉션이 열거할 소스임을 나타냅니다. 컬렉션 이름을 사용하는 대신 특수 식별자 ROOT를 사용하여 컬렉션을 나타낼 수 있습니다. 
 다음 목록은 쿼리 단위로 적용되는 규칙입니다.
 
-- 컬렉션의 별칭을 `SELECT f.id FROM Families AS f` 또는 간단히 `SELECT f.id FROM Families f`로 지정할 수 있습니다. 여기서 `f` 는 `Families`와 동일합니다. `AS`는 식별자를 별칭으로 지정하는 선택적 키워드입니다.
+- 컬렉션을 별칭으로 `SELECT f.id FROM Families AS f` 또는 간단히 `SELECT f.id FROM Families f`로 지정할 수 있습니다. 여기서 `f` is the equivalent of `Families`. `AS`는 식별자를 별칭으로 지정하는 선택적 키워드입니다.
 
--	별칭으로 지정한 후에는 원본 소스를 바인딩할 수 없습니다. 예를 들면 `SELECT Familes.id FROM Families f`는 "Families" 식별자를 더 이상 예약할 수 없으므로 구문이 잘못되었습니다.
+-	별칭으로 지정한 후에는 원본 소스를 바인딩할 수 없습니다. 예를 들어 `SELECT Familes.id FROM Families f`는 "Families" 식별자를 더 이상 예약할 수 없으므로 구문이 잘못되었습니다.
 
 -	참조해야 하는 모든 속성을 정규화해야 합니다. 엄격한 스키마 준수가 없을 경우 모호한 바인딩을 방지하기 위해 적용됩니다. 따라서 `SELECT id FROM Families f`는 `id` 속성이 바인딩되지 않았으므로 구문이 잘못되었습니다.
 	
@@ -325,7 +328,7 @@ WHERE 절(**`WHERE <filter_condition>`**)은 선택 사항입니다. 소스에�
 
 
 
-이항 및 단항 연산자뿐 아니라 속성 참조도 허용됩니다. 예를 들면 `SELECT * FROM Families f WHERE f.isRegistered`는 `isRegistered` 속성을 포함하고 속성 값이 JSON `true` 값과 같은 JSON 문서를 반환합니다. 다른 모든 값(false, null, Undefined, `<number>`, `<string>`, `<object>`, `<array>` 등)이면 소스 문서가 결과에서 제외됩니다. 
+이항 및 단항 연산자뿐 아니라 속성 참조도 허용됩니다. 예를 들어 `SELECT * FROM Families f WHERE f.isRegistered`는 `isRegistered` 속성을 포함하고 속성 값이 JSON `true` 값과 같은 JSON 문서를 반환합니다. 다른 값(false, null, Undefined, `<number>`, `<string>`, `<object>`, `<array>` 등)이면 소스 문서가 결과에서 제외됩니다. 
 
 ###같음 및 비교 연산자
 다음 표는 DocumentDB SQL에서 두 JSON 형식 간의 같음 비교 결과를 보여 줍니다.
@@ -894,7 +897,7 @@ SELECT 절(**`SELECT <select_list>`**)은 필수이며 ANSI-SQL과 같이 쿼리
 	}]
 
 
-여기서 `$1`의 역할을 살펴보겠습니다.  `SELECT` 절은 JSON 개체를 만들어야 하며 키가 제공되지 않았으므로 `$1`로 시작하는 암시적 인수 변수 이름을 사용합니다. 예를 들어 이 쿼리는 `$1` 및 `$2` 레이블이 지정된 두 개의 암시적 인수 변수를 반환합니다.
+여기서 `$1`의 역할을 살펴보겠습니다. `SELECT` 절은 JSON 개체를 만들어야 하며 키가 제공되지 않았으므로 `$1`로 시작하는 암시적 인수 변수 이름을 사용합니다. 예를 들어 이 쿼리는 `$1` 및 `$2` 레이블이 지정된 두 개의 암시적 인수 변수를 반환합니다.
 
 **쿼리**
 
@@ -1014,7 +1017,7 @@ DocumentDB SQL의 다른 주요 기능은 배열/개체 만들기입니다. 앞�
 	]
 
 ###VALUE 키워드
-**VALUE** 키워드는 JSON 값을 반환하는 방법을 제공합니다. 예를 들어 아래 표시된 쿼리는 `{$1: "Hello World"}` 대신 스칼라 `"Hello World"`를 반환합니다.
+**VALUE** 키워드는 JSON 값을 반환하는 방법을 제공합니다. 예를 들어 아래 표시된 쿼리는 `{$1: "Hello World"}` 대신에 스칼라 `"Hello World"`를 반환합니다.
 
 **쿼리**
 
@@ -1065,7 +1068,7 @@ DocumentDB SQL의 다른 주요 기능은 배열/개체 만들기입니다. 앞�
 
 
 ###* 연산자
-문서를 있는 그대로 프로젝션하는 특수 연산자(*)를 지원합니다. 사용할 경우 프로젝션되는 유일한 필드여야  `SELECT * FROM Families f` 같은 쿼리는 유효하지만 `SELECT VALUE * FROM Families f ` 및 `SELECT *, f.id FROM Families f `는 유효하지 않습니다.
+문서를 있는 그대로 프로젝션하는 특수 연산자(*)를 지원합니다. 사용할 경우 프로젝션되는 유일한 필드여야 `SELECT * FROM Families f` 와 같은 쿼리는 유효하지만 `SELECT VALUE * FROM Families f ` 및  `SELECT *, f.id FROM Families f`는 잘못된 쿼리입니다.
 
 **쿼리**
 
@@ -1235,7 +1238,7 @@ JSON 배열 반복을 지원하기 위해 DocumentDB SQL의 **IN** 키워드를 
 
 
 
-확인할 첫 번째 사항은 **JOIN** 절의 `from_source`가 반복자라는 것입니다. 따라서 이 경우의 흐름은 다음과 같습니다.  
+확인할 첫 번째 사항은 **JOIN** 절의 `from_source`가 반복기라는 것입니다. 따라서 이 경우의 흐름은 다음과 같습니다.  
 
 -	배열의 각 자식 요소 **c**를 확장합니다.
 -	문서 루트 **f**와 첫 번째 단계에서 평면화된 각 자식 요소 **c**의 교차곱을 적용합니다.
@@ -1294,7 +1297,7 @@ JOIN의 진정한 유용성은 다른 방식으로 프로젝션하기 어려운 
 		}
 	}
 
-`AndersenFamily`에는 애완 동물 한 마리를 키우는 자식 한 명이 있습니다. 따라서 이 가족의 교차곱은 하나의 행(1*1*1)을 생성합니다. 그러나 WakefieldFamily에는 자녀 두 명이 있지만 그 중에 "Jesse"만 애완 동물을 두 마리 키우고 있습니다. 따라서 이 가족의 교차곱은 1*1*2 = 2개의 행을 생성합니다.
+`AndersenFamily`의 한 자녀가 반려동물 한 마리를 키우고 있습니다. 따라서 이 가족의 교차곱은 하나의 행(1*1*1)을 생성합니다. 그러나 WakefieldFamily에는 자녀 두 명이 있지만 그 중에 "Jesse"만 애완 동물을 두 마리 키우고 있습니다. 따라서 이 가족의 교차곱은 1*1*2 = 2개의 행을 생성합니다.
 
 다음 예제에서는 `pet`에 대한 추가 필터가 있습니다. 이 필터는 애완 동물 이름이 "Shadow"가 아닌 튜플을 모두 제외합니다. 배열에서 튜플을 작성하고, 튜플 요소를 필터링한 다음 요소 조합을 프로젝션할 수 있습니다. 
 
@@ -1349,7 +1352,9 @@ DocumentDB는 저장 프로시저 및 트리거 측면에서 컬렉션에 대해
 위 예제에서는 이름이 `SQRT`인 UDF를 만듭니다. 단일 JSON 값 `number`를 수락하고 수학 라이브러리를 사용하여 숫자의 제곱근을 계산합니다.
 
 
-이제 이 UDF를 프로젝트의 쿼리에 사용할 수 있습니다.
+이제 이 UDF를 프로젝트의 쿼리에 사용할 수 있습니다. 쿼리 내에서 호출하는 경우 대/소문자를 구분하는 접두사 "udf."를 사용하여 UDF를 한정해야 합니다. 
+
+>[AZURE.NOTE] 2015년 3월 17일 이전에는 DocumentDB가 SELECT SQRT(5)와 같이 "udf." 접두사가 없는 UDF 호출을 지원했습니다. 이 호출 패턴은 더 이상 사용되지 않습니다.  
 
 **쿼리**
 
@@ -1370,7 +1375,7 @@ DocumentDB는 저장 프로시저 및 트리거 측면에서 컬렉션에 대해
 	  }
 	]
 
-아래 예제와 같이 필터 내부에 UDF를 사용할 수도 있습니다.
+아래 예제와 같이 "udf." 접두사로 한정된 UDF를 필터 내부에 사용할 수도 있습니다.
 
 **쿼리**
 
@@ -1464,6 +1469,137 @@ DocumentDB는 익숙한 @ 표기법으로 표현된 매개 변수가 있는 쿼�
     }
 
 매개 변수 값은 유효한 모든 JSON(문자열, 숫자, 부울, null, 짝수 배열 또는 중첩된 JSON)일 수 있습니다. 또한 DocumentDB는 스키마가 없으므로 모든 형식에 대해 매개 변수의 유효성이 검사되지 않습니다.
+
+##기본 제공 함수
+DocumentDB는 일반적인 작업을 위해 많은 기본 제공 함수도 지원하며, UDF(사용자 정의 함수)처럼 쿼리 내에서 이러한 함수를 사용할 수 있습니다.
+
+<table>
+<tr>
+<td>수치 연산 함수</td>	
+<td>ABS, CEILING, EXP, FLOOR, LOG, LOG10, POWER, ROUND, SIGN, SQRT, SQUARE 및 TRUNC</td>
+</tr>
+<tr>
+<td>형식 검사 함수</td>	
+<td>IS_ARRAY, IS_BOOL, IS_NULL, IS_NUMBER, IS_OBJECT 및 IS_STRING</td>
+</tr>
+</table>  
+
+현재 기본 제공 함수가 제공되는 UDF(사용자 정의 함수)를 사용 중인 경우 더 빨리 실행되고 더 효율적이므로 해당하는 기본 제공 함수를 사용해야 합니다. 
+
+###수치 연산 함수
+수치 연산 함수는 각각 인수로 제공된 입력 값에 따라 계산을 수행하고 숫자 값을 반환합니다. 다음은 지원되는 기본 제공 수치 연산 함수 표입니다.
+
+<table>
+<tr>
+<td><strong>사용법</strong></td>
+<td><strong>설명</strong></td>
+</tr>
+<tr>
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_abs">ABS (num_expr)</a></td>	
+<td>지정한 숫자 식의 절대(양수) 값을 반환합니다.</td>
+</tr>
+<tr>
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_ceiling">CEILING (num_expr)</a></td>	
+<td>지정한 숫자 식보다 크거나 같은 가장 작은 정수 값을 반환합니다.</td>
+</tr>
+<tr>
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_floor">FLOOR (num_expr)</a></td>	
+<td>지정한 숫자 식보다 작거나 같은 가장 큰 정수 값을 반환합니다.</td>
+</tr>
+<tr>
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_exp">EXP (num_expr)</a></td>	
+<td>지정한 숫자 식의 지수를 반환합니다.</td>
+</tr>
+<tr>
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_log">LOG (num_expr [,base])</a></td>	
+<td>지정한 숫자 식의 자연 로그 또는 지정한 밑을 사용하는 로그를 반환합니다.</td>
+</tr>
+<tr>
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_log10">LOG10 (num_expr)</a></td>	
+<td>지정한 숫자 식의 상용 로그를 반환합니다.</td>
+</tr>
+<tr>
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_round">ROUND (num_expr)</a></td>	
+<td>가장 가까운 정수 값으로 반올림한 숫자 값을 반환합니다.</td>
+</tr>
+<tr>
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_trunc">TRUNC (num_expr)</a></td>	
+<td>가장 가까운 정수 값으로 버린 숫자 값을 반환합니다.</td>
+</tr>
+<tr>
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_sqrt">SQRT (num_expr)</a></td>	
+<td>지정한 숫자 식의 제곱근을 반환합니다.</td>
+</tr>
+<tr>
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_square">SQUARE (num_expr)</a></td>	
+<td>지정한 숫자 식의 거듭제곱을 반환합니다.</td>
+</tr>
+<tr>
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_power">POWER (num_expr, num_expr)</a></td>	
+<td>지정한 값까지 지정한 숫자 식의 거듭제곱을 반환합니다.</td>
+</tr>
+<tr>
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_sign">SIGN (num_expr)</a></td>	
+<td>지정한 숫자 식의 부호 값(-1, 0, 1)을 반환합니다.</td>
+</tr>
+</table> 
+
+예를 들어 이제 다음과 같은 쿼리를 실행할 수 있습니다.
+
+**쿼리**
+
+    SELECT VALUE ABS(-4)
+
+**결과**
+
+    [4]
+
+DocumentDB 함수와 ANSI SQL 간의 주요 차이점은 스키마가 없는 데이터 및 혼합된 스키마 데이터에서 잘 작동하도록 설계되었다는 것입니다. 예를 들어 Size 속성이 없거나 "unknown"과 같은 숫자가 아닌 값을 가진 문서가 있는 경우 오류를 반환하는 대신 문서를 건너뜁니다.
+
+###형식 검사 함수
+형식 검사 함수를 통해 SQL 쿼리 내에서 식의 형식을 검사할 수 있습니다. 형식 검사 함수를 사용하여 변수이거나 알 수 없는 경우 문서 내의 속성 형식을 즉시 확인할 수 있습니다. 다음은 지원되는 기본 제공 형식 검사 함수 표입니다.
+
+<table>
+<tr>
+  <td><strong>사용법</strong></td>
+  <td><strong>설명</strong></td>
+</tr>
+<tr>
+  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_array">IS_ARRAY (expr)</a></td>
+  <td>값의 형식이 배열인지 여부를 나타내는 부울을 반환합니다.</td>
+</tr>
+<tr>
+  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_bool">IS_BOOL (expr)</a></td>
+  <td>값의 형식이 부울인지 여부를 나타내는 부울을 반환합니다.</td>
+</tr>
+<tr>
+  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_null">IS_NULL (expr)</a></td>
+  <td>값의 형식이 null인지 여부를 나타내는 부울을 반환합니다.</td>
+</tr>
+<tr>
+  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_number">IS_NUMBER (expr)</a></td>
+  <td>값의 형식이 숫자인지 여부를 나타내는 부울을 반환합니다.</td>
+</tr>
+<tr>
+  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_object">IS_OBJECT (expr)</a></td>
+  <td>값의 형식이 JSON 개체인지 여부를 나타내는 부울을 반환합니다.</td>
+</tr>
+<tr>
+  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_string">IS_STRING (expr)</a></td>
+  <td>값의 형식이 문자열인지 여부를 나타내는 부울을 반환합니다.</td>
+</tr>
+</table>
+
+이러한 함수를 사용하여 이제 다음과 같은 쿼리를 실행할 수 있습니다.
+
+**쿼리**
+
+    SELECT VALUE IS_NUMBER(-4)
+
+**결과**
+
+    [true]
+
 
 ##LINQ to DocumentDB SQL
 LINQ는 개체 스트림에 대한 쿼리로 계산을 표현하는 .NET 프로그래밍 모델입니다. DocumentDB는 JSON 및 .NET 개체 간의 변환과 LINQ 쿼리 하위 집합에서 DocumentDB 쿼리로의 매핑을 용이하게 하여 LINQ와 인터페이스할 클라이언트 쪽 라이브러리를 제공합니다. 
@@ -1680,7 +1816,7 @@ DocumentDB 쿼리 공급자는 LINQ 쿼리에서 DocumentDB SQL 쿼리로 매핑
 
 ####연결 
 
-구문은 `input(.|.SelectMany())(.Select()|.Where())*`입니다. 연결된 쿼리는 선택적 `SelectMany` 쿼리로 시작하며 그 뒤에 여러 `Select` 또는 `Where` 연산자가 올 수 있습니다.
+구문은 `input(.|.SelectMany())(.Select()|.Where())*`입니다. A concatenated query can start with an optional `SelectMany` 쿼리 뒤에 여러 개의 `Select` 또는 `Where` 연산자가 옵니다.
 
 
 **LINQ 람다 식**
@@ -1789,7 +1925,7 @@ DocumentDB는 HTTP를 통해 개방형 RESTful 프로그래밍 모델을 제공�
 
 이러한 리소스를 사용한 기본 조작 모델은 HTTP 동사인 GET, PUT, POST 및 DELETE와 표준 해석을 활용합니다. POST 동사는 새 리소스를 만들거나 저장 프로시저를 실행하거나 DocumentDB 쿼리를 실행하는 데 사용됩니다. 쿼리는 항상 파생 작업이 없는 읽기 전용 작업입니다.
 
-다음 예제에서는 지금까지 검토한 두 개의 샘플 문서가 포함된 컬렉션에 대한 DocumentDB 쿼리의 POST를 보여 줍니다. 이 쿼리는 JSON 이름 속성에 단순한 필터가 있습니다.  `x-ms-documentdb-isquery` 및 Content-Type: `application/query+json` 헤더를 사용하여 작업이 쿼리임을 나타냅니다.
+다음 예제에서는 지금까지 검토한 두 개의 샘플 문서가 포함된 컬렉션에 대한 DocumentDB 쿼리의 POST를 보여 줍니다. 이 쿼리는 JSON 이름 속성에 단순한 필터가 있습니다. `x-ms-documentdb-isquery` 및 Content-Type: `application/query+json` 헤더를 사용하여 작업이 쿼리임을 나타냅니다.
 
 
 **요청**
@@ -1912,9 +2048,9 @@ DocumentDB는 HTTP를 통해 개방형 RESTful 프로그래밍 모델을 제공�
 	}
 
 
-쿼리 결과가 단일 결과 페이지에 모두 들어가지 않는 경우 REST API에서 `x-ms-continuation-token` 응답 헤더를 통해 연속 토큰을 반환합니다. 클라이언트는 후속 결과에 헤더를 포함하여 결과에 페이지를 매길 수 있습니다.  `x-ms-max-item-count` 자 헤더를 통해 페이지당 결과 수를 제어할 수도 있습니다.
+쿼리 결과가 단일 결과 페이지에 모두 들어가지 않는 경우 REST API에서 `x-ms-continuation-token` 응답 헤더를 통해 연속 토큰을 반환합니다. 클라이언트는 후속 결과에 헤더를 포함하여 결과에 페이지를 매길 수 있습니다. `x-ms-max-item-count` 숫자 헤더를 통해 페이지당 결과 수를 제어할 수도 있습니다.
 
-쿼리에 대한 데이터 일관성 정책을 관리하려면 모든 REST API 요청과 마찬가지로 `x-ms-consistency-level` 헤더를 사용합니다. 세션 일관성을 사용하려면 쿼리 요청에 최신 `x-ms-session-token` 쿠키 헤더도 에코해야 합니다. 쿼리된 컬렉션의 인덱싱 정책이 쿼리 결과의 일관성에 영향을 줄 수도 있습니다. 컬렉션에 기본 인덱싱 정책 설정을 사용할 경우 인덱스가 항상 문서 콘텐츠로 최신 상태를 유지하며 쿼리 결과가 데이터에 대해 선택한 일관성과 일치합니다. 인덱싱 정책을 지연으로 완화하면 쿼리에서 오래된 결과가 반환될 수 있습니다. 자세한 내용은 [DocumentDB 일관성 수준]을[] 참조하세요.
+쿼리에 대한 데이터 일관성 정책을 관리하려면 모든 REST API 요청처럼 `x-ms-consistency-level`헤더를 사용합니다. 세션 일관성을 사용하려면 쿼리 요청에 최신 `x-ms-session-token` 쿠키 헤더도 에코해야 합니다. 쿼리된 컬렉션의 인덱싱 정책이 쿼리 결과의 일관성에 영향을 줄 수도 있습니다. 컬렉션에 기본 인덱싱 정책 설정을 사용할 경우 인덱스가 항상 문서 콘텐츠로 최신 상태를 유지하며 쿼리 결과가 데이터에 대해 선택한 일관성과 일치합니다. 인덱싱 정책을 지연으로 완화하면 쿼리에서 오래된 결과가 반환될 수 있습니다. 자세한 내용은 [DocumentDB 일관성 수준][consistency-levels]을 참조하세요.
 
 컬렉션에 구성된 인덱싱 정책이 지정된 쿼리를 지원할 수 없는 경우 DocumentDB 서버에서 400 "잘못된 요청"이 반환됩니다. 해시(같음) 조회에 구성된 경로 및 인덱싱에서 명시적으로 제외된 경로의 범위 쿼리에 대해 반환됩니다. 인덱스를 사용할 수 없는 경우 쿼리에서 스캔을 수행할 수 있도록 `x-ms-documentdb-query-enable-scan` 헤더를 지정할 수 있습니다.
 
@@ -2008,7 +2144,7 @@ DocumentDB는 HTTP를 통해 개방형 RESTful 프로그래밍 모델을 제공�
 
 .NET 클라이언트는 위에 표시된 대로 foreach 블록에서 쿼리 결과의 모든 페이지를 자동으로 반복합니다. REST API 섹션에서 소개한 쿼리 옵션은 CreateDocumentQuery 메서드의 `FeedOptions` 및 `FeedResponse` 클래스를 통해 .NET SDK에서도 사용할 수 있습니다. 페이지 수는 `MaxItemCount` 설정을 사용하여 제어할 수 있습니다. 
 
-개발자는 `IQueryable` 개체를 사용하여 `IDocumentQueryable`를 만든 다음 ` ResponseContinuationToken` 값을 읽고 `FeedOptions`의 `RequestContinuationToken`으로 다시 전달하여 페이징을 명시적으로 제어할 수도 있습니다. `EnableScanInQuery`를 설정하여 구성된 인덱싱 정책에서 쿼리를 지원할 수 없는 경우 스캔을 사용하도록 할 수 있습니다.
+개발자는 `IQueryable` 개체를 사용하여 `IDocumentQueryable`을 만든 다음 `ResponseContinuationToken` 값을 읽고 `FeedOptions`의 `RequestContinuationToken`으로 다시 전달하여 페이징을 명시적으로 제어할 수도 있습니다. `EnableScanInQuery`를 설정하여 구성된 인덱싱 정책에서 쿼리를 지원할 수 없는 경우 스캔을 사용하도록 할 수 있습니다.
 
 쿼리가 포함된 추가 샘플은 [DocumentDB .NET 샘플](http://code.msdn.microsoft.com/Azure-DocumentDB-NET-Code-6b3da8af#content)(영문)을 참조하세요. 
 
@@ -2050,10 +2186,10 @@ DocumentDB는 저장 프로시저 및 트리거를 사용하여 컬렉션에 대
 
 
 ##참조
-1.	[Azure DocumentDB 소개][소개]
+1.	[Azure DocumentDB 소개][introduction]
 2.	[DocumentDB SQL 언어 사양](http://go.microsoft.com/fwlink/p/?LinkID=510612)(영문)
 3.	[DocumentDB .NET 샘플](http://code.msdn.microsoft.com/Azure-DocumentDB-NET-Code-6b3da8af#content)(영문)
-4.	[DocumentDB 일관성 수준][일관성 수준]
+4.	[DocumentDB 일관성 수준][consistency-levels]
 5.	ANSI SQL 2011 [http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681](http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
 6.	JSON [http://json.org/](http://json.org/)(영문)
 7.	Javascript 사양 [http://www.ecma-international.org/publications/standards/Ecma-262.htm](http://www.ecma-international.org/publications/standards/Ecma-262.htm)(영문) 
@@ -2066,7 +2202,7 @@ DocumentDB는 저장 프로시저 및 트리거를 사용하여 컬렉션에 대
 
 
 [1]: ./media/documentdb-sql-query/sql-query1.png
-[소개]: ../documentdb-introduction
-[일관성 수준]: ../documentdb-consistency-levels
+[introduction]: documentdb-introduction.md
+[consistency-levels]: documentdb-consistency-levels.md
 
-<!--HONumber=47-->
+<!--HONumber=49-->

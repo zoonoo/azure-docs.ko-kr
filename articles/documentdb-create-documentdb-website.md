@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/09/2015" 
+	ms.date="03/23/2015" 
 	ms.author="stbaro"/>
 
 # Azure 리소스 관리자 템플릿을 사용하여 DocumentDB 및 Azure 웹 사이트 배포 #
 
-이 자습서에서는 Azure 리소스 관리자 템플릿을 사용하여 [Microsoft Azure DocumentDB](http://azure.microsoft.com/services/documentdb/), [Azure 웹 사이트](http://azure.microsoft.com/services/websites/) 및 샘플 웹 응용 프로그램을 배포 및 통합하는 방법을 보여 줍니다.
+이 자습서에서는 Azure 리소스 관리자 템플릿을 사용하여 [Microsoft Azure DocumentDB](http://azure.microsoft.com/services/documentdb/), [Azure 웹 사이트](http://azure.microsoft.com/services/websites/) 및 샘플 웹 응용 프로그램을 배포 및 통합하는 방법을 설명합니다.
 
 이 자습서를 완료하고 나면 다음을 알게 됩니다.  
 
@@ -30,9 +30,9 @@
 
 이 자습서의 지침을 따르기 전에 다음이 있는지 확인하세요.
 
-- Azure 구독. Azure는 구독 기반 플랫폼입니다.  구독을 예약하는 방법에 대한 자세한 내용은 [구매 옵션](http://azure.microsoft.com/pricing/purchase-options/), [구성원 제공 항목](http://azure.microsoft.com/pricing/member-offers/) 또는 [무료 평가판](http://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
-- Azure 저장소 계정. 자세한 내용은 [Azure 저장소 계정 정보]를 참조하세요(../storage-whatis-account/).
-- Azure PowerShell이 포함된 워크스테이션. 자세한 내용은 [Azure PowerShell 설치 및 구성](영문)을 참조하세요(http://azure.microsoft.com/documentation/articles/install-configure-powershell/).
+- Azure 구독. Azure는 구독 기반 플랫폼입니다.  구독 가져오기에 대한 자세한 내용은 [구매 옵션](http://azure.microsoft.com/pricing/purchase-options/), [구성원 제공 항목](http://azure.microsoft.com/pricing/member-offers/) 또는 [무료 평가판](http://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
+- Azure 저장소 계정. 자세한 내용은 [Azure 저장소 계정 정보](storage-whatis-account.md)를 참조하세요.
+- Azure PowerShell이 포함된 워크스테이션. 자세한 내용은 [Azure PowerShell 설치 및 구성](install-configure-powershell.md)을 참조하세요.
 
 ##<a id="CreateDB"></a>1단계: 샘플 파일 다운로드 및 압축 풀기 ##
 먼저 이 자습서에서 사용할 샘플 파일을 다운로드합니다.
@@ -69,7 +69,7 @@
 
     	PS C:\DocumentDBTemplates\CreateDocDBWebsiteTodo> .\CreateDocDBWebsiteTodo.ps1 -WebSiteName "mydemodocdbwebsite" -ResourceGroupName "myDemoResourceGroup" -docDBAccountName "mydemodocdbaccount" -location "West US"
 
-	> [AZURE.TIP] 스크립트 실행의 일부로 Azure 계정 사용자 이름 및 암호를 입력하라는 메시지가 표시됩니다.  전체 배포를 완료하는 데 10~15분이 걸립니다.  	
+	> [AZURE.TIP] 스크립트 실행의 일부로 Azure 계정 사용자 이름 및 암호를 입력하라는 메시지가 표시됩니다. 전체 배포를 완료하는 데 10~15분이 걸립니다.  	
 
 4. 다음은 결과 출력의 예입니다. 
 
@@ -200,4 +200,4 @@
 - Azure 웹 사이트에 대해 자세히 알아보려면 [여기](http://go.microsoft.com/fwlink/?LinkId=325362)를 클릭하세요.
 - Azure 리소스 관리자 템플릿에 대해 자세히 알아보려면 [여기](https://msdn.microsoft.com/library/azure/dn790549.aspx)를 클릭하세요.
 
-<!--HONumber=47-->
+<!--HONumber=49-->

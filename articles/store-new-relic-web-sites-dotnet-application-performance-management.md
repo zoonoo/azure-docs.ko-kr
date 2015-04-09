@@ -1,34 +1,42 @@
 ﻿<properties 
 	pageTitle="Azure에서 New Relic 앱 성능 관리" 
-	description="Azure에서 New Relic의 성능 모니터링을 사용하는 방법에 대해 알아봅니다." 
-	services="web-sites" 
+	description="Azure에서 New Relic의 성능 모니터링을 사용하는 방법을 알아봅니다." 
+	services="app-service\web" 
 	documentationCenter=".net" 
 	authors="stepsic-microsoft-com" 
 	manager="carolz" 
 	editor=""/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/25/2014" 
+	ms.date="03/16/2015" 
 	ms.author="stepsic"/>
 
 
 
-#Azuren 웹 사이트에서 New Relic 응용 프로그램 성능 관리
+#Azure 웹앱에서 New Relic 응용 프로그램 성능 관리
 
-이 가이드에서는 Azure 웹 사이트에 세계 최고 수준의 New Relic 성능 모니터링을 추가하는 방법에 대해 설명합니다. 응용 프로그램에 New Relic을 빠르고 간단하게 추가하는 프로세스를 다루며 New Relic의 일부 기능을
-소개합니다. New Relic을 사용하는 방법에 대한 자세한 내용은 [New Relic 사용]을 참조하세요(#using-new-relic).
+이 가이드에서는
+Azure 웹앱에 세계 최고 수준의 New Relic 성능 모니터링을 추가하는 방법을 설명합니다. 응용 프로그램에
+New Relic을 빠르고 간단하게 추가하는 프로세스를 다루며 New Relic의 일부 기능을
+소개합니다. New Relic 사용에 대한 자세한 내용은 [New Relic 사용]을 참조하세요(#using-new-relic).
 
 New Relic 정의
 --
 
-New Relic은 개발자에 초점을 맞춘 도구로 프로덕션 응용 프로그램을 모니터링하고 성능 및 안정성에 대한 깊은 통찰력을 제공하는 도구입니다. 성능 문제를 확인하고 진단할 때 시간을 절약할 수 있도록 설계되었으며, 성능 문제를 해결하는 데 필요한 정보를 즉시 제공합니다.
+New Relic은 개발자에 초점을 맞춘 도구로 프로덕션 응용 프로그램을 모니터링하고
+성능 및 안정성에 대한 깊은 통찰력을 제공하는 도구입니다. 성능
+문제를 확인하고 진단할 때 시간을 절약할 수 있도록 설계되었으며,
+성능 문제를 해결하는 데 필요한 정보를 즉시 제공합니다.
 
-New Relic은 서버 및 사용자 브라우저의 웹 트랜잭션에 대한 부하 시간 및 처리량을 추적합니다. 그리고 데이터베이스 사용 시간을 보여 주고, 느린 쿼리 및 웹 요청을 분석하고, 가동 시간 모니터링 및 경고를 제공하고, 응용 프로그램 예외를 추적하는 등의 다양한 기능을 제공합니다.
+New Relic은 서버 및 사용자 브라우저의 웹 트랜잭션에 대한 부하 시간 및
+처리량을 추적합니다. 데이터베이스 사용 시간을 보여 주고,
+느린 쿼리 및 웹 요청을 분석하고, 가동 시간 모니터링 및 경고를 제공하고,
+응용 프로그램 예외를 추적하는 등의 다양한 기능을 제공합니다.
 
 Azure 스토어에서 제공하는 New Relic의 특별 가격
 --
@@ -36,7 +44,7 @@ Azure 스토어에서 제공하는 New Relic의 특별 가격
 New Relic Standard는 Azure 사용자에게 무료입니다.
 New Relic Pro는 사용 중인 웹 사이트 모드에 따라 여러 패키지로 제공되며 reserved 모드에서 실행 중인 경우에는 인스턴스 크기에 따라 제공됩니다.
 
-가격 책정 정보는 [Azure 스토어의 New Relic 페이지](http://azure.microsoft.com/gallery/store/new-relic/new-relic/)를 참조하세요.
+가격 책정 정보는 [Azure 스토어의 New Relic 페이지](http://azure.microsoft.com/marketplace/partners/newrelic/newrelic)를 참조하세요.
 
 > [AZURE.NOTE] 최대 10개의 계산 인스턴스에 대해서만 가격이 책정됩니다. 인스턴스가 11개 이상인 경우에는 New Relic(sales@newrelic.com)에 볼륨 가격을 문의하세요.
 
@@ -51,15 +59,18 @@ Azure 스토어에서 직접 New Relic에 등록하려면 다음과 같이 간�
 
 ### 1단계. Azure 스토어를 통해 등록
 
-1. [Azure 관리 포털](https://manage.windowsazure.com)에 로그인합니다.
+1. [Azure 관리 포털[https://manage.windowsazure.com)에 로그인합니다.
 2. 관리 포털의 아래쪽 창에서 **새로 만들기**를 클릭합니다.
 3. **스토어**를 클릭합니다.
 4. **추가 기능 선택** 대화 상자에서 **New Relic**을 선택하고 **다음**을 클릭합니다.
 5. **추가 기능 개인 설정** 대화 상자에서 원하는 New Relic 플랜을 선택합니다.
-7. Azure 설정에 New Relic 서비스를 표시할 이름을 입력하거나 기본값인 **NewRelic**을 사용합니다. 이 이름은 가입한 Azure 스토어 항목 목록에서 고유해야 합니다.
+7. Azure 설정에 New Relic 서비스를 표시할 이름을 입력하거나
+   기본값인 **NewRelic**을 사용합니다. 이 이름은
+   가입한 Azure 스토어 항목 목록에서 고유해야 합니다.
 8. 지역 값(예: **미국 서부**)을 선택합니다.
 9. **다음**을 클릭합니다.
-10. **구입 검토** 대화 상자에서 플랜 및 가격 정보를 검토하고 약관을 확인합니다. 약관에 동의하는 경우 **구입**을 클릭합니다.
+10. **구입 검토** 대화 상자에서 플랜 및 가격 정보를 검토하고
+    약관을 확인합니다. 약관에 동의하는 경우 **구입**을 클릭합니다.
 11. **구입**을 클릭하면 New Relic 계정을 만드는 프로세스가 시작됩니다. 이제 Azure 관리 포털에서 상태를 모니터링할 수 있습니다.
 12. New Relic 라이선스 키를 가져오려면 방금 만든 추가 기능을 클릭한 다음 **연결 정보**를 클릭합니다. 
 13. 표시되는 라이선스 키를 복사합니다. New Relic Nuget 패키지를 설치할 때 이 키를 입력해야 합니다.
@@ -74,7 +85,9 @@ New Relic Websites Agent는 NuGet 패키지로 분산되고 Visual Studio나 Web
 
 1. Visual Studio 웹 사이트 솔루션을 엽니다.
 
-2. **도구 > 라이브러리 패키지 관리자 > 패키지 관리자 콘솔**을 선택하여 패키지 관리자 콘솔을 엽니다. 프로젝트가 패키지 관리자 콘솔 창의 맨 위에서 기본 프로젝트가 되도록 설정합니다.
+2. **도구 > 라이브러리 패키지 관리자 > 
+   패키지 관리자 콘솔**을 선택하여 패키지 관리자 콘솔을 엽니다. 프로젝트가 패키지 관리자 콘솔 창의 맨 위에서
+   기본 프로젝트가 되도록 설정합니다.
 
 	![Package manager console](./media/store-new-relic-web-sites-dotnet-application-performce-management/NewRelicAzureNuget04.png)
 
@@ -86,7 +99,8 @@ New Relic Websites Agent는 NuGet 패키지로 분산되고 Visual Studio나 Web
 
 	![enter license key][vslicensekey]
 
-<!--5. 옵션: 응용 프로그램 이름 프롬프트에서 New Relic 대시보드에 표시할 앱 이름을 입력합니다. 또는 솔루션 이름을 기본값으로 사용합니다.
+<!--5. 옵션: 응용 프로그램 이름 프롬프트에서
+   New Relic 대시보드에 표시할 앱 이름을 입력합니다. 또는 솔루션 이름을 기본값으로 사용합니다.
 
 	![enter application name](./media/store-new-relic-web-sites-dotnet-application-performce-management/NewRelicAzureNuget08.png)-->
 
@@ -116,7 +130,7 @@ New Relic Websites Agent는 NuGet 패키지로 분산되고 Visual Studio나 Web
 
 1. [Azure 관리 포털](https://manage.windowsazure.com)에 로그인하고 웹 사이트로 이동합니다.
 
-2. 웹 사이트에서 **구성**을 선택합니다. **개발자 분석** 섹션에서 **추가 기능**이나 **사용자 지정**을 선택합니다. 두 메서드는 출력은 동일하지만 입력은 약간 다릅니다. **추가 기능**에서는 현재 New-Relic 라이선스가 표시되어 그중 하나를 선택할 수 있으며, **사용자 지정**에서는 수동으로 라이선스 키를 지정해야 합니다.
+2. 웹 사이트에서 **구성**을 선택합니다. **개발자 분석** 섹션에서 **추가 기능**이나 **사용자 지정**을 선택합니다. 두 메서드는 출력은 동일하지만 입력은 약간 다릅니다. **추가 기능**에서는 현재 New-Relic 라이선스가 표시되어 그 중 하나를 선택할 수 있으며, **사용자 지정**에서는 수동으로 라이선스 키를 지정해야 합니다.
 
 	**추가 기능**을 선택한 경우 **추가 기능 선택** 필드를 사용하여 New-Relic 라이선스를 선택합니다.
 
@@ -149,7 +163,7 @@ New Relic Websites Agent는 NuGet 패키지로 분산되고 Visual Studio나 Web
 	<td>NEWRELIC\_HOME</td><td>C:\Home\site\wwwroot\newrelic</td>
 	</tr>
 	<tr>
-	<td>NEWRELIC\_LICENSEKEY</td><td>자신의 라이선스 키</td>
+	<td>NEWRELIC\_LICENSEKEY</td><td>Your license key</td>
 	</tr>
 	</tbody>
 	</table><br/>
@@ -164,7 +178,7 @@ New Relic Websites Agent는 NuGet 패키지로 분산되고 Visual Studio나 Web
 New Relic 대시보드를 보려면 다음을 수행합니다.
 
 1. Azure 포털에서 **관리** 단추를 클릭합니다.
-2. New Relic 계정 전자 메일 및 암호로 로그인합니다.
+2. New Relic 계정 메일 및 암호로 로그인합니다.
 3. New Relic 메뉴 모음에서 **Applications > (응용 프로그램 이름)**을 선택합니다.
 
 	**Monitoring > Overview** 대시보드가 자동으로 나타납니다.
@@ -234,12 +248,13 @@ Applications Overview 대시보드에는 <a href="https://newrelic.com/docs/site
 New Relic UI, 사용자 권한 및 프로필 설정, 표준 기능 및 대시보드 드릴다운 세부 정보 사용 등에 대한 개요
  * [Applications Overview](https://newrelic.com/docs/site/applications-overview): New Relic의 Applications Overview 대시보드에서 사용할 수 있는 기능
  * [Apdex](https://newrelic.com/docs/site/apdex): Apdex에서 응용 프로그램에 대한 최종 사용자의 만족도를 측정하는 방법에 대한 개요
- * [실제 사용자 모니터링](https://newrelic.com/docs/features/real-user-monitoring): RUM에서 사용자의 브라우저가 웹 페이지를 로드하는 데 걸리는 시간, 사용자의 위치 및 사용하는 브라우저의 종류를 자세히 표시하는 방법에 대한 개요
+ * [실제 사용자 모니터링](https://newrelic.com/docs/features/real-user-monitoring): RUM 사용자의 브라우저에서 웹 페이지를 로드하는 데 걸리는 시간, 시작되는 위치, 
+사용하는 브라우저 등에 대한 세부 정보를 RUM에 표시하는 방법에 대한 개요
  * [도움말 찾기](https://newrelic.com/docs/site/finding-help): New Relic의 온라인 도움말 센터를 통해 사용 가능한 리소스
 
 
-[webmatrixwebsite]: http://azure.microsoft.com/develop/net/tutorials/website-with-webmatrix/
-[vswebsite]: http://azure.microsoft.com/develop/net/tutorials/get-started/
+[webmatrixwebsite]: http://www.windowsazure.com/develop/net/tutorials/website-with-webmatrix/
+[vswebsite]: http://www.windowsazure.com/develop/net/tutorials/get-started/
 
 [wmnugetbutton]: ./media/store-new-relic-web-sites-dotnet-application-performce-management/nrwmnugetbutton.png
 [wmnugetgallery]: ./media/store-new-relic-web-sites-dotnet-application-performce-management/nrwmnugetgallery.png
@@ -249,5 +264,4 @@ New Relic UI, 사용자 권한 및 프로필 설정, 표준 기능 및 대시보
 [add-on]: ./media/store-new-relic-web-sites-dotnet-application-performce-management/nraddon.png
 [custom]: ./media/store-new-relic-web-sites-dotnet-application-performce-management/nrcustom.png
 
-
-<!--HONumber=42-->
+<!--HONumber=49-->

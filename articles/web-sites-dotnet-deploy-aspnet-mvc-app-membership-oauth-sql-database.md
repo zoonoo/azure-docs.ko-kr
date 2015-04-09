@@ -1,27 +1,27 @@
 ﻿<properties 
-	pageTitle="Azure 웹 사이트에 멤버 자격, OAuth 및 SQL 데이터베이스를 포함한 보안 ASP.NET MVC 앱 배포" 
-	description="SQL 데이터베이스 백 엔드를 사용하여 Azure에 배포할 ASP.NET MVC 5 웹 사이트를 개발하는 방법에 대해 알아봅니다." 
-	services="web-sites, sql-database" 
+	pageTitle="인증 및 SQL DB를 사용하여 ASP.NET MVC 앱을 만들고 Azure 앱 서비스에 배포" 
+	description="SQL 데이터베이스 백엔드로 ASP.NET MVC 5 앱을 개발하고, 인증 및 권한 부여를 추가하고 Azure에 배포하는 방법에 알아봅니다." 
+	services="app-service\web" 
 	documentationCenter=".net" 
 	authors="Rick-Anderson" 
 	writer="Rick-Anderson" 
-	manager="wpickett" 
+	manager="wpickett" 	
 	editor="mollybos"/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="1/28/2015" 
+	ms.date="03/24/2015" 
 	ms.author="riande"/> 
 
 
 
-# Azure 웹 사이트에 멤버 자격, OAuth 및 SQL 데이터베이스를 포함한 ASP.NET MVC 5 앱 배포
+# 인증 및 SQL DB를 사용하여 ASP.NET MVC 앱을 만들고 Azure 앱 서비스에 배포
 
-이 자습서는 사용자가 Facebook 또는 Google 자격 증명을 사용하여 로그인할 수 있는 보안 ASP.NET MVC 5 웹앱을 빌드하는 방법을 보여 줍니다. 또한 Azure에 응용 프로그램을 배포합니다.
+이 자습서는 사용자가 Facebook 또는 Google 자격 증명을 사용하여 로그인할 수 있는 보안 ASP.NET MVC 5 웹앱을 빌드하는 방법을 보여줍니다. 또한 응용 프로그램을 [앱 서비스](http://go.microsoft.com/fwlink/?LinkId=529714)에 배포합니다.
 
 Azure 계정은 무료로 개설할 수 있으며, Visual Studio 2013이 아직 없는 경우 SDK에서 Web Express용 Visual Studio 2013을 자동으로 설치합니다. Azure용 개발을 무료로 시작할 수 있습니다.
 
@@ -29,27 +29,17 @@ Azure 계정은 무료로 개설할 수 있으며, Visual Studio 2013이 아직 
 
 학습할 내용:
 
-* 보안 ASP.NET MVC 5 프로젝트를 만들고 Azure 웹 사이트에 게시하는 방법
+* 보안 ASP.NET MVC 5 프로젝트를 만들고 Azure 앱 서비스의 [앱 서비스 웹 앱](http://go.microsoft.com/fwlink/?LinkId=529714)에 게시하는 방법.
 * [OAuth](http://oauth.net/ "http://oauth.net/") 및 ASP.NET 멤버 자격 데이터베이스를 사용하여 응용 프로그램 보안을 유지하는 방법
 * SQL 데이터베이스를 사용하여 Azure에 데이터를 저장하는 방법
 
-ASP.NET MVC 5에서 빌드되고 데이터베이스 액세스에 ADO.NET Entity Framework를 사용하는 간단한 연락처 목록 웹앱을 빌드합니다. 다음 그림은 완성된 응용 프로그램에 대한 로그인 페이지를 보여 줍니다:
+ASP.NET MVC 5에서 빌드되고 데이터베이스 액세스에 ADO.NET Entity Framework를 사용하는 간단한 연락처 목록 웹앱을 빌드합니다. 다음 그림은 완성된 응용 프로그램에 대한 로그인 페이지를 보여 줍니다.
 
-![로그인 페이지][rxb]
+![login page][rxb]
 
->[AZURE.NOTE] 이 자습서를 완료하려면 Microsoft Azure 계정이 필요합니다. 계정이 없는 경우 <a href="/ko-kr/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F" target="_blank">MSDN 구독자 혜택을 활성화</a>하거나 <a href="/ko-kr/pricing/free-trial/?WT.mc_id=A261C142F" target="_blank">무료 평가판을 등록</a>할 수 있습니다. 계정을 등록하기 전에 Azure 웹 사이트를 시작하려면 <a href="https://trywebsites.azurewebsites.net/">https://trywebsites.azurewebsites.net</a>으로 이동합니다. Azure 웹 사이트에서는 무료로 단기 ASP.NET 시작 사이트를 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+>[AZURE.NOTE] 이 자습서를 완료하려면 Microsoft Azure 계정이 필요합니다. 계정이 없는 경우, <a href="/ko-kr/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F" target="_blank">MSDN 구독자 혜택을 활성화</a>하거나 <a href="/ko-kr/pricing/free-trial/?WT.mc_id=A261C142F" target="_blank">무료 평가판을 등록</a>할 수 있습니다.
 
-
-자습서 내용:
-
-- [개발 환경 설정](#setupdevenv)
-- [ASP.NET MVC 5 응용 프로그램 만들기][createapplication]
-- [Azure에 응용 프로그램 배포][deployapp1]
-- [응용 프로그램에 데이터베이스 추가][adddb]
-- [OAuth 공급자 추가][]
-- [Azure에 앱 배포][deployapp11]
-- [다음 단계][]
-
+>[AZURE.NOTE] Azure 계정에 등록하기 전에 Azure 앱 서비스를 시작하려는 경우 [앱 서비스 시도](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동하십시오. 여기서 앱 서비스에서 수명이 짧은 스타터 웹 앱을 바로 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
 [AZURE.INCLUDE [install-sdk-2013-only](../includes/install-sdk-2013-only.md)]
 
@@ -61,37 +51,37 @@ localhost에 새 SSL 인증서를 사용하려면 [Visual Studio 2013 업데이�
 
 1. **파일** 메뉴에서 **새 프로젝트**를 클릭합니다.
 
-	![파일 메뉴의 새 프로젝트](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/gs13newproj.png)
+	![New Project in File menu](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/gs13newproj.png)
 
 1. **새 프로젝트** 대화 상자에서 **C#**을 확장하고 **설치된 템플릿** 아래의 **웹**을 선택한 다음 **ASP.NET 웹 응용 프로그램**을 선택합니다.
 
 1. 응용 프로그램 이름을 **ContactManager**로 지정하고 **확인**을 클릭합니다.
 
-	![새 프로젝트 대화 상자](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/GS13newprojdb.png)
+	![New Project dialog box](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/GS13newprojdb.png)
  
-	**참고:** "ContactManager"를 입력해야 합니다. 나중에 복사할 코드 블록에서는 프로젝트 이름을 ContactManager로 가정합니다. 
+	**참고:** "ContactManager"를 입력 해야 합니다. 나중에 복사할 코드 블록에서 프로젝트 이름을 ContactManager라고 가정합니다.
 
-1. **새 ASP.NET 프로젝트** 대화 상자에서 **MVC** 템플릿을 선택합니다. **인증**이 **개별 사용자 계정*으로 설정되고 **Host in the cloud(클라우드에 호스트)**가 선택되고 **웹 사이트**가 선택되었는지 확인합니다.
+1. **새 ASP.NET 프로젝트** 대화 상자에서 **MVC** 템플릿을 선택합니다. **인증**이 **개별 사용자 계정**으로 설정되고 **클라우드에 호스트**가 선택되고 **웹 앱**이 선택되었는지 확인합니다.
 
-	![새 ASP.NET 프로젝트 대화 상자](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss1.PNG)
+	![New ASP.NET Project dialog box](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss1.PNG)
 
 1. 구성 마법사에서  *ContactManager*를 기준으로 고유한 이름을 제안합니다(아래 이미지 참조). 근처 지역을 선택합니다. [azurespeed.com](http://www.azurespeed.com/ "AzureSpeed.com")을 사용하여 대기 시간이 가장 낮은 데이터 센터를 찾습니다. 
 2. 이전에 데이터베이스 서버를 만들지 않은 경우 **새 서버 만들기**를 선택하고 데이터베이스 사용자 이름과 암호를 입력합니다.
 
-	![Azure 웹 사이트 구성](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/configAz.PNG)
+	![Configure an Azure web app](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/configAz.PNG)
 
-데이터베이스 서버가 있는 경우 해당 서버를 사용하여 새 데이터베이스를 만듭니다. 데이터베이스 서버는 중요한 리소스이며, 데이터베이스당 데이터베이스 서버를 만드는 대신 테스트 및 개발을 위해 동일한 서버에 여러 데이터베이스를 만드는 것이 일반적입니다. 웹 사이트 및 데이터베이스가 동일한 지역에 있어야 합니다.
+데이터베이스 서버가 있는 경우 해당 서버를 사용하여 새 데이터베이스를 만듭니다. 데이터베이스 서버는 중요한 리소스이며, 데이터베이스당 데이터베이스 서버를 만드는 대신 테스트 및 개발을 위해 동일한 서버에 여러 데이터베이스를 만드는 것이 일반적입니다. 웹 앱 및 데이터베이스가 동일한 지역에 있어야 합니다.
 
-![Azure 웹 사이트 구성](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/configWithDB.PNG)
+![Configure an Azure web app](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/configWithDB.PNG)
 
 ### 페이지 머리글 및 바닥글 설정
 
 
-1. **솔루션 탐색기**에서  *Views\Shared* 폴더의 *Layout.cshtml* 파일을 엽니다.
+1. **솔루션 탐색기**에서  *Views\Shared* 폴더의  *Layout.cshtml* 파일을 엽니다.
 
-	![솔루션 탐색기의 _Layout.cshtml][newapp004]
+	![_Layout.cshtml in Solution Explorer][newapp004]
 
-1. *Layout.cshtml* 파일의 태그를 다음 코드로 바꿉니다. 변경 내용이 아래에 강조 표시됩니다.
+1.  *Layout.cshtml* 파일의 태그를 다음 코드로 바꿉니다. 변경 내용이 아래에 강조 표시됩니다.
 
 <pre>
 			&lt;!DOCTYPE html&gt;
@@ -140,78 +130,74 @@ localhost에 새 SSL 인증서를 사용하려면 [Visual Studio 2013 업데이�
 			&lt;/html&gt;
 </pre>
 
-
-![코드 변경 내용](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rs3.png)
-
-
 ### 로컬에서 응용 프로그램 실행
 
 1. Ctrl+F5를 눌러 앱을 실행합니다.
 
 	응용 프로그램 홈페이지가 기본 브라우저에 나타납니다.
 
-	![로컬에서 실행 중인 웹 사이트](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rr2.png)
+	![Web app running locally](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rr2.png)
 
 Azure에 배포할 응용 프로그램을 만들기 위해 지금 수행해야 하는 작업은 이것뿐입니다. 
 
 ## 프로젝트에 SSL 사용 ##
 
-1. SSL을 사용하도록 설정합니다. 솔루션 탐색기에서 **ContactManager** 프로젝트를 클릭한 다음 F4 키를 클릭하여 속성 대화 상자를 표시합니다. **SSL 사용**을 true로 변경합니다. **SSL URL**을 복사합니다. 이전에 SSL 웹 사이트를 만들지 않은 경우 SSL URL은 https://localhost:44300/입니다.
+1. SSL을 사용하도록 설정합니다. 솔루션 탐색기에서 **ContactManager** 프로젝트를 클릭한 다음 F4 키를 클릭하여 속성 대화 상자를 표시합니다. **SSL 사용**을 true로 변경합니다. **SSL URL**을 복사합니다. 이전에 SSL 웹 앱을 만들지 않은 경우 SSL URL은 https://localhost:44300/입니다.
 
-	![SSL 사용][rxSSL]
+	![enable SSL][rxSSL]
  
 1. 솔루션 탐색기에서 **Contact Manager** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **속성**을 클릭합니다.
 1. 왼쪽 탭에서 **웹**을 클릭합니다.
-1. **SSL URL**을 사용하도록 **프로젝트 URL**을 변경하여 페이지를 저장합니다(Ctrl S).
+1. **SSL URL**을 사용하도록 **프로젝트 URL**을 변경하고 페이지를 저장합니다(Ctrl S).
 
-	![SSL 사용](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rrr1.png)
+	![enable SSL](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rrr1.png)
  
-1. 다음 이미지와 같이 Internet Explorer가 Visual Studio가 시작되는 브라우저인지 확인합니다:
+1. 다음 이미지와 같이 Internet Explorer가 Visual Studio가 시작되는 브라우저인지 확인합니다.
 
-	![기본 브라우저](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss12.PNG)
+	![default browser](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss12.PNG)
 
 	브라우저 선택기에서 Visual Studio가 시작되는 브라우저를 지정할 수 있습니다.
 
- 	![브라우저 선택기](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss13.png)
+ 	![browser selector](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss13.png)
 
-	여러 개의 브라우저를 선택할 수 있으며, 변경 사항이 있을 경우 Visual Studio에서 각 브라우저를 업데이트하도록 할 수 있습니다. 자세한 내용은 [Visual Studio 2013에서 브라우저 링크 사용]을 참조하세요.(http://www.asp.net/visual-studio/overview/2013/using-browser-link).
+	여러 개의 브라우저를 선택할 수 있으며, 변경 사항이 있을 경우 Visual Studio에서 각 브라우저를 업데이트하도록 할 수 있습니다. 자세한 내용은 [Visual Studio 2013에서 브라우저 링크 사용](http://www.asp.net/visual-studio/overview/2013/using-browser-link)을 참조하세요.
 
 
 1. Ctrl+F5를 눌러 응용 프로그램을 실행합니다. 지침에 따라 IIS Express에서 생성한 자체 서명된 인증서를 신뢰합니다.
 
-	 ![IIS Express에서 생성한 자체 서명된 인증서를 신뢰하는 지침](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss26.PNG)
+	 ![instructions to trust the self-signed certificate that IIS Express has generated](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss26.PNG)
 
-1. **보안 경고** 대화 상자를 읽고 **localhost**를 나타내는 인증서를 설치하려면 **예**를 클릭합니다.
+1. **보안 경고** 대화 상자를 읽고 ****localhost*를 나타내는 인증서를 설치하려면 *예**를 클릭합니다.
 
- 	![localhost IIS Express 인증서 경고 ](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss27.PNG)
+ 	![localhost IIS Express certificate warning ](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss27.PNG)
 
-1. IE에 *Home* 페이지가 표시되며 SSL 경고가 없습니다.
+1. IE에  *Home* 페이지가 표시되며 SSL 경고가 없습니다.
 
-	 ![localhost SSL이 표시되고 경고가 없는 IE](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss28.PNG)
+	 ![IE with localhost SSL and no warnings](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss28.PNG)
 
 	Google Chrome도 인증서를 수락하고 경고 없이 HTTPS 콘텐츠를 표시합니다. Firefox는 자체 인증서 저장소를 사용하므로 경고가 표시됩니다.
 
-	 ![FireFox 인증서 경고](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss30.PNG)
+	 ![FireFox Cert Warning](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss30.PNG)
 
 <h2><a name="bkmk_deploytowindowsazure1"></a>Azure에 응용 프로그램 배포</h2>
 
 1. Visual Studio의 **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 상황에 맞는 메뉴에서 **게시**를 선택합니다.
 
-	![프로젝트 상황에 맞는 메뉴의 게시](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/GS13publish.png)
+	![Publish in project context menu](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/GS13publish.png)
 	
    **웹 게시** 마법사가 열립니다.
 
 1. **웹 게시** 대화 상자에서 **게시**를 클릭합니다.
 
-	![게시](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rr3.png)
+	![Publish](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rr3.png)
 
 	만든 응용 프로그램이 이제 클라우드에서 실행되고 있습니다. 다음에 응용 프로그램을 배포할 때는 변경된(또는 새) 파일만 배포됩니다.
 
-	![클라우드에서 실행 중](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss4.PNG)
+	![Running in Cloud](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss4.PNG)
 
 <h2><a name="bkmk_addadatabase"></a>응용 프로그램에 데이터베이스 추가</h2>
 
-이제 앱을 업데이트하여 연락처를 표시 및 업데이트하고 데이터베이스에 데이터를 저장하는 기능을 추가하겠습니다. 앱에서는 EF(Entity Framework)를 사용하여 데이터베이스를 만들고 데이터를 읽고 업데이트합니다.
+이제 앱을 업데이트하여 연락처를 표시 및 업데이트하고 데이터베이스에 데이터를 저장하는 기능을 추가하겠습니다. 앱은 EF(Entity Framework)를 사용하여 데이터베이스를 만들며 데이터를 읽고 업데이트합니다.
 
 ### 연락처에 대한 데이터 모델 클래스 추가
 
@@ -219,11 +205,11 @@ Azure에 배포할 응용 프로그램을 만들기 위해 지금 수행해야 �
 
 1. **솔루션 탐색기**에서 모델 폴더를 마우스 오른쪽 단추로 클릭하고 **추가**를 클릭한 후 **클래스**를 클릭합니다.
 
-	![모델 폴더 상황에 맞는 메뉴의 클래스 추가](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rr5.png)
+	![Add Class in Models folder context menu](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rr5.png)
 
 2. **새 항목 추가** 대화 상자에서 새 클래스 파일의 이름을  *Contact.cs*로 지정하고 **추가**를 클릭합니다.
 
-	![새 항목 추가 대화 상자][adddb002]
+	![Add New Item dialog box][adddb002]
 
 3. Contacts.cs 파일 내용을 다음 코드로 바꿉니다.
 
@@ -243,7 +229,7 @@ Azure에 배포할 응용 프로그램을 만들기 위해 지금 수행해야 �
                 public string Email { get; set; }
             }
         }
-**Contacts** 클래스는 각 연락처에 대해 저장할 데이터와 데이터베이스에 필요한 기본 키인 *ContactID*를 정의합니다.
+**Contacts** 클래스는 각 연락처에 대해 저장할 데이터와 데이터베이스에 필요한 기본 키인  *ContactID*를 정의합니다.
 
 ### 앱 사용자가 연락처 작업을 수행할 수 있는 웹 페이지 만들기
 
@@ -254,18 +240,18 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 1. 프로젝트를 빌드합니다**(Ctrl+Shift+B)**. (스캐폴딩 메커니즘을 사용하기 전에 프로젝트를 빌드해야 합니다.) 
 1. **솔루션 탐색기**에서 Controllers 폴더를 마우스 오른쪽 단추로 클릭한 다음 **추가**, **컨트롤러**를 차례로 클릭합니다.
 
-	![컨트롤러 폴더 상황에 맞는 메뉴의 컨트롤러 추가][addcode001]
+	![Add Controller in Controllers folder context menu][addcode001]
 
 5. **스캐폴드 추가** 대화 상자에서 **MVC 5 컨트롤러(뷰 포함), EF 사용**을 선택하고 **추가**를 클릭합니다.
 	
-	![스캐폴드 추가 대화 상자](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rr6.png)
+	![Add Scaffold dlg](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rr6.png)
 
 
-1. **모델 클래스** 드롭다운 상자에서 **Contact(ContactManager.Models))**를 선택합니다. (아래 이미지를 참조하세요.)
-1. **데이터 컨텍스트 클래스**에서 **ApplicationDbContext(ContactManager.Models))**를 선택합니다. **ApplicationDbContext**는 멤버 자격 DB 및 연락처 데이터 둘 다에 사용됩니다.
+1. **모델 클래스** 드롭다운 상자에서 **Contact (ContactManager.Models)**를 선택합니다. 아래 이미지를 참조하세요.
+1. **데이터 컨텍스트 클래스**에서, **ApplicationDbContext (ContactManager.Models)**를 선택합니다. **ApplicationDbContext**는 멤버 자격 DB 및 연락처 데이터 둘 다에 사용됩니다.
 1. **컨트롤러 이름** 입력란에 컨트롤러 이름으로 "CmController"를 입력합니다. 
 
-	![새 데이터 CTX 대화 상자](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss5.PNG)
+	![New data ctx dlg](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss5.PNG)
 
 1. **추가**를 클릭합니다.
 
@@ -273,31 +259,31 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 
 ## 마이그레이션 사용, 데이터베이스 만들기, 샘플 데이터 및 데이터 이니셜라이저 추가 ##
 
-다음 작업은 만든 데이터 모델에 따라 데이터베이스를 만들기 위해 [Code First 마이그레이션](http://msdn.microsoft.com/library/hh770484.aspx) 기능을 사용하도록 설정하는 것입니다.
+다음 작업은 사용자가 만든 데이터 모델에 따라 데이터베이스를 만들기 위해 [Code First 마이그레이션](http://msdn.microsoft.com/library/hh770484.aspx) 기능을 사용하도록 설정하는 것입니다.
 
 1. **도구** 메뉴에서 **NuGet 패키지 관리자**, **패키지 관리자 콘솔**을 차례로 선택합니다.
-	![도구 메뉴의 패키지 관리자 콘솔](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/SS6.png)
+	![Package Manager Console in Tools menu](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/SS6.png)
 
-2. **패키지 관리자 콘솔** 창에서 다음 명령을 입력합니다:
+2. **패키지 관리자 콘솔** 창에서 다음 명령을 입력합니다.
 
 		enable-migrations
-	**enable-migrations** 명령은 *Migrations* 폴더를 만들고 해당 폴더에 *Configuration.cs* 파일을 넣습니다. 이 파일을 편집하여 데이터베이스를 시드하고 마이그레이션을 구성할 수 있습니다. 
+	**enable-migrations** 명령은  *Migrations* 폴더를 만들고 해당 폴더에  *Configuration.cs* 파일을 넣습니다. 이 파일을 편집하여 데이터베이스를 시드하고 마이그레이션을 구성할 수 있습니다. 
 
-2. **패키지 관리자 콘솔** 창에서 다음 명령을 입력합니다:
+2. **패키지 관리자 콘솔** 창에서 다음 명령을 입력합니다.
 
 		add-migration Initial
 
 
-	**add-migration Initial** 명령은 데이터베이스를 만든 *Migrations* 폴더에 **&lt;date_stamp&gt;Initial**이라는 파일을 생성합니다. 첫 번째 매개 변수(**Initial** )는 임의이며 파일 이름을 만드는 데 사용됩니다. **솔루션 탐색기**에서 새 클래스 파일을 볼 수 있습니다.
-	**Initial** 클래스의 **Up** 메서드는 Contacts 테이블을 만들고 **Down** 메서드(이전 상태로 돌아가려는 경우에 사용됨)는 테이블을 삭제합니다.
-3. *Migrations\Configuration.cs* 파일을 엽니다. 
+	**add-migration Initial** 명령은 데이터베이스를 만든  *Migrations* 폴더에 **&lt;date_stamp&gt;Initial**이라는 파일을 생성합니다. 첫 번째 매개변수(**Initial**)는 임의이며 파일의 이름을 만드는 데 사용됩니다. **솔루션 탐색기**에서 새 클래스 파일을 볼 수 있습니다.
+	**Initial** 클래스의 **Up** 메서드는 Contacts 테이블을 만들고 이전 상태로 돌아가려는 경우 사용되는 **Down** 메서드는 테이블을 삭제합니다.
+3.  *Migrations\Configuration.cs* 파일을 엽니다. 
 4. 다음 네임스페이스를 추가합니다. 
 
     	 using ContactManager.Models;
 
 
 
-5. *Seed* 메서드를 다음 코드로 바꿉니다.
+5.  *Seed* 메서드를 다음 코드로 바꿉니다.
 
         protected override void Seed(ContactManager.Models.ApplicationDbContext context)
         {
@@ -350,14 +336,14 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
                 );
         }
 
-	이 코드는 연락처 정보를 사용하여 데이터베이스를 초기화(시드)합니다. 데이터베이스 시드에 대한 자세한 내용은 [EF(Entity Framework) DB 시드 및 디버그](http://blogs.msdn.com/b/rickandy/archive/2013/02/12/seeding-and-debugging-entity-framework-ef-dbs.aspx)를 참조하세요.
+	이 코드는 연락처 정보를 사용하여 데이터베이스를 초기화(시드)합니다. 데이터베이스 시드에 대한 자세한 내용은 [EF(Entity Framework) DB 시드 및 디버그](http://blogs.msdn.com/b/rickandy/archive/2013/02/12/seeding-and-debugging-entity-framework-ef-dbs.aspx)(영문)를 참조하세요.
 
 
-6. **패키지 관리자 콘솔**에서 다음 명령을 입력합니다:
+6. **패키지 관리자 콘솔**에서 다음 명령을 입력합니다.
 
 		update-database
 
-	![패키지 관리자 콘솔 명령][addcode009]
+	![Package Manager Console commands][addcode009]
 
 	**update-database**는 데이터베이스를 만드는 첫 번째 마이그레이션을 실행합니다. 기본적으로 데이터베이스는 SQL Server Express LocalDB 데이터베이스로 생성됩니다. 
 
@@ -365,7 +351,7 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 
 	응용 프로그램에서 시드 데이터를 표시하고 편집, 세부 정보 및 삭제 링크를 제공합니다. 데이터를 만들고, 편집, 삭제 및 표시할 수 있습니다.
 
-	![MVC 데이터 뷰][rx2]
+	![MVC view of data][rx2]
 
 
 
@@ -373,19 +359,19 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 
 [OAuth](http://oauth.net/ "http://oauth.net/")는 웹, 모바일 및 데스크톱 응용 프로그램에서 간단한 표준 메서드로 보안 권한 부여를 허용하는 개방형 프로토콜입니다. ASP.NET MVC 인터넷 템플릿은 OAuth를 사용하여 Facebook, Twitter, Google 및 Microsoft를 인증 공급자로 표시합니다. 이 자습서에서는 인증 공급자로 Google만 사용하지만 이러한 공급자를 사용하도록 코드를 쉽게 수정할 수 있습니다. 다른 공급자를 구현하는 단계도 이 자습서에 표시되는 단계와 매우 비슷합니다. Facebook을 인증 공급자로 사용하려면 내 자습서 [Facebook, Twitter, LinkedIn 및 Google OAuth2 로그온을 사용하는 MVC 5 앱](http://www.asp.net/mvc/tutorials/mvc-5/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on)을 참조하세요.
 
-자습서에서는 인증 외에도 역할을 사용하여 권한 부여를 구현합니다. *canEdit* 역할에 추가한 사용자만 데이터를 변경할 수 있습니다(즉, 연락처 만들기, 편집 또는 삭제).
+자습서에서는 인증 외에도 역할을 사용하여 권한 부여를 구현합니다.  *canEdit* 역할에 추가한 사용자만 데이터를 변경할 수 있습니다(즉, 연락처 만들기, 편집 또는 삭제).
 
 내 자습서 [Facebook, Twitter, LinkedIn 및 Google OAuth2 로그온을 사용하는 MVC 5 앱](http://www.asp.net/mvc/tutorials/mvc-5/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on#goog)에서 **OAuth 2용 Google 앱을 만들어 OAuth2용 Google 앱 설정**의 지침을 따릅니다. 앱을 실행 및 테스트하여 Google 인증으로 로그온할 수 있는지 확인합니다.
 
 <h2><a name="mbrDB"></a>멤버 자격 API 사용</h2>
-이 섹션에서는 멤버 자격 데이터베이스에 로컬 사용자와 *canEdit* 역할을 추가합니다. *canEdit* 역할의 사용자만 데이터를 편집할 수 있습니다. 수행하는 작업별로 역할의 이름을 지정하는 것이 좋으므로 *admin* 역할보다 *canEdit*가 우선합니다. 응용 프로그램이 발전함에 따라 설명이 부족한 *superAdmin*보다 *canDeleteMembers* 등의 새 역할을 추가할 수 있습니다.
+이 섹션에서는 멤버 자격 데이터베이스에 로컬 사용자와  *canEdit* 역할을 추가합니다.  *canEdit* 역할의 사용자만 데이터를 편집할 수 있습니다. 수행할 수 있는 작업별로 역할의 이름을 지정하는 것이 좋으므로  *admin* 역할보다  *canEdit*가 우선합니다. 응용 프로그램이 발전함에 따라 설명이 부족한  *superAdmin*보다  *canDeleteMembers* 등의 새 역할을 추가할 수 있습니다.
 
-1. *migrations\configuration.cs* 파일을 열고 다음  `using` 문을 추가합니다:
+1.  *migrations\configuration.cs* 파일을 열고 다음  `using` 문을 추가합니다
 
         using Microsoft.AspNet.Identity;
         using Microsoft.AspNet.Identity.EntityFramework;
 
-1. 클래스에 다음과 같은 **AddUserAndRole** 메서드를 추가합니다:
+1. 클래스에 다음과 같은 **AddUserAndRole** 메서드를 추가합니다.
 
     
          bool AddUserAndRole(ContactManager.Models.ApplicationDbContext context)
@@ -407,7 +393,7 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
             return ir.Succeeded;
          }
 
-1. **Seed** 메서드에서 새 메서드를 호출합니다:
+1. **Seed** 메서드에서 새 메서드를 호출합니다.
 	<pre>
         protected override void Seed(ContactManager.Models.ApplicationDbContext context)
         {
@@ -417,37 +403,72 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
         }
 	</pre>  
 <span></span>
-	다음 이미지에서는 *Seed* 메서드 변경을 보여 줍니다:
+	다음 이미지에서는 *Seed* 메서드 변경을 보여줍니다
 
-	![코드 이미지](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss24.PNG)
+	![code image](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss24.PNG)
 
-   이 코드는 *canEdit*라는 새 역할을 만들고, 새 로컬 사용자 *user1@contoso.com*을 만든 다음 *canEdit* 역할에 *user1@contoso.com*을 추가합니다. 자세한 내용은 [ASP.NET ID 리소스 페이지](http://curah.microsoft.com/55636/aspnet-identity)를 참조하세요.
+   이 코드는  *canEdit*라는 새 역할을 만들고, 새 로컬 사용자  *user1@contoso.com*을 만든 다음  *canEdit* 역할에  *user1@contoso.com*을 추가합니다. 자세한 내용은 내 [ASP.NET Identity 자습서](http://www.asp.net/identity/overview/features-api)를 참조하세요.
 
 ## 임시 코드를 사용하여 canEdit 역할에 새 소셜 로그인 사용자 추가 ##
-이 섹션에서는 Account 컨트롤러의 **ExternalLoginConfirmation** 메서드를 임시로 수정하여 OAuth 공급자로 등록하는 새 사용자를 *canEdit* 역할에 추가합니다. **ExternalLoginConfirmation** 메서드를 임시로 수정하여 관리 역할에 새 사용자를 자동으로 추가합니다. 역할을 추가하고 관리할 도구를 제공할 때까지 아래의 임시 자동 등록 코드를 사용하겠습니다. 앞으로 사용자 계정 및 역할을 만들고 편집할 수 있는 [WSAT](http://msdn.microsoft.com/library/ms228053.aspx)와 유사한 도구를 제공하려고 합니다. **서버 탐색기**를 사용하여 역할에 사용자를 추가하는 방법은 자습서 뒷부분에 보여 드리겠습니다.  
+이 섹션에서는 Account 컨트롤러의 **ExternalLoginConfirmation** 메서드를 임시로 수정하여 OAuth 공급자로 등록하는 새 사용자를  *canEdit* 역할에 추가합니다. **ExternalLoginConfirmation** 메서드를 임시로 수정하여 관리 역할에 새 사용자를 자동으로 추가합니다. 역할을 추가하고 관리할 도구를 제공할 때까지 아래의 임시 자동 등록 코드를 사용하겠습니다. 앞으로 사용자 계정 및 역할을 만들고 편집할 수 있는 [WSAT](http://msdn.microsoft.com/library/ms228053.aspx)와 유사한 도구를 제공하려고 합니다. 
 
 1. **Controllers\AccountController.cs** 파일을 열고 **ExternalLoginConfirmation** 메서드로 이동합니다.
 1. **AddToRoleAsync**에서 **SignInAsync** 호출 바로 앞에 다음 호출을 추가합니다.
 
                 await UserManager.AddToRoleAsync(user.Id, "canEdit");
 
-   위의 코드는 새로 등록된 사용자를 "canEdit" 역할에 추가하여 데이터를 변경(편집)하는 작업 메서드에 액세스할 수 있도록 합니다. 아래에는 코드 변경 이미지가 표시되어 있습니다.
+   위의 코드는 새로 등록된 사용자를 "canEdit" 역할에 추가하여 데이터를 변경(편집)하는 작업 메서드에 액세스할 수 있도록 합니다.
+	<pre>
+	      // POST: /Account/ExternalLoginConfirmation
+	      [HttpPost]
+	      [AllowAnonymous]
+	      [ValidateAntiForgeryToken]
+	      public async Task<ActionResult> ExternalLoginConfirmation(ExternalLoginConfirmationViewModel model, string returnUrl)
+	      {
+	         if (User.Identity.IsAuthenticated)
+	         {
+	            return RedirectToAction("Index", "Manage");
+	         }
+	         if (ModelState.IsValid)
+	         {
+	            // Get the information about the user from the external login provider
+	            var info = await AuthenticationManager.GetExternalLoginInfoAsync();
+	            if (info == null)
+	            {
+	               return View("ExternalLoginFailure");
+	            }
+	            var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+	            var result = await UserManager.CreateAsync(user);
+	            if (result.Succeeded)
+	            {
+	               result = await UserManager.AddLoginAsync(user.Id, info.Login);
+	               if (result.Succeeded)
+	               {
+	                  <mark>await UserManager.AddToRoleAsync(user.Id, "canEdit");</mark>
+	                  await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+	                  return RedirectToLocal(returnUrl);
+	               }
+	            }
+	            AddErrors(result);
+	         }
+	         ViewBag.ReturnUrl = returnUrl;
+	         return View(model);
+	      }
+	</pre>
 
-   ![코드](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss9.PNG)
+자습서의 뒷부분에서 응용 프로그램을 Azure에 배포합니다. 여기서 Google 또는 다른 타사 인증 공급자를 사용하여 로그온합니다. 이렇게 하면 새로 등록된 계정이  *canEdit* 역할에 추가됩니다. Google ID가 있고 이 앱의 URL을 찾은 모든 사용자는 데이터베이스를 등록하고 업데이트할 수 있습니다. 다른 사용자가 등록 및 업데이트할 수 없게 하려면 사이트를 중지합니다. 데이터베이스를 검사하여  *canEdit* 역할에 있는 사용자를 확인할 수 있습니다.
 
-자습서의 뒷부분에서 응용 프로그램을 Azure에 배포합니다. 여기서 Google 또는 다른 타사 인증 공급자를 사용하여 로그온합니다. 이렇게 하면 새로 등록된 계정이 *canEdit* 역할에 추가됩니다. Google ID가 있고 이 사이트 URL을 찾은 모든 사용자는 등록하고 데이터베이스를 업데이트할 수 있습니다. 다른 사용자가 등록 및 업데이트할 수 없게 하려면 사이트를 중지합니다. 데이터베이스를 검사하여 *canEdit* 역할에 있는 사용자를 확인할 수 있습니다.
-
-**패키지 관리자 콘솔** 창에서 위쪽 화살표 키를 눌러 다음 명령을 표시합니다:
+**패키지 관리자 콘솔** 창에서 위쪽 화살표 키를 눌러 다음 명령을 표시합니다.
 
 		Update-Database
 
-**Update-Database** 명령을 실행합니다. 이 명령은 **Seed** 메서드를 실행하고, 이 메서드가 방금 추가한 **AddUserAndRole**을 실행합니다. **AddUserAndRole**은 사용자 *user1@contoso.com*을 만들고 *canEdit* 역할에 추가합니다.
+**Update-Database** 명령을 실행합니다. 이 명령은 **Seed** 메서드를 실행하고 방금 추가한 **AddUserAndRole**을 실행합니다. **AddUserAndRole**은 사용자 *user1@contoso.com*를 만들고  *canEdit* 역할에 추가합니다.
 
 ## SSL 및 Authorize 특성을 사용하여 응용 프로그램 보호 ##
 
 이 섹션에서는 [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) 특성을 적용하여 작업 메서드에 대한 액세스를 제한합니다. 익명 사용자는 home 컨트롤러의 **인덱스** 작업 메서드만 볼 수 있습니다. 등록된 사용자는 연락처 데이터(Cm 컨트롤러의 **인덱스** 및 **세부 정보** 페이지), 정보 및 연락처 페이지를 볼 수 있습니다.  *canEdit* 역할의 사용자만 데이터를 변경하는 작업 메서드에 액세스할 수 있습니다.
 
-1. 응용 프로그램에 [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) 필터와 [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) 필터를 추가합니다. 또 다른 방법은 각 컨트롤러에 [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) 특성과 [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) 특성을 추가하는 것이지만 전체 응용 프로그램에 적용하는 것이 보안상 더 좋은 모범 사례입니다. 전체적으로 추가하면 새로 추가된 모든 컨트롤러와 작업 메서드가 자동으로 보호되므로 따로 적용할 필요가 없습니다. 자세한 내용은 [ASP.NET MVC 앱 및 새 AllowAnonymous 특성 보안 유지](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx)를 참조하세요. *App_Start\FilterConfig.cs* 파일을 열고  *RegisterGlobalFilters* 메서드를 다음 내용(두 개의 필터 추가):으로 바꿉니다.
+1. 응용 프로그램에 [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) 필터와 [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) 필터를 추가합니다. 또 다른 방법은 각 컨트롤러에 [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) 특성과 [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) 특성을 추가하는 것이지만 전체 응용 프로그램에 적용하는 것이 보안상 더 좋은 모범 사례입니다. 전체적으로 추가하면 새로 추가된 모든 컨트롤러와 작업 메서드가 자동으로 보호되므로 따로 적용할 필요가 없습니다. 자세한 내용은 [ASP.NET MVC 앱 및 새 AllowAnonymous 특성 보안 유지](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx)를 참조하세요.  *App_Start\FilterConfig.cs* 파일을 열고  *RegisterGlobalFilters* 메서드를 다음 내용으로 대체합니다(두 개의 필터 추가).
 		<pre>
         public static void
         RegisterGlobalFilters(GlobalFilterCollection filters)
@@ -461,28 +482,72 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 
 
 
-	위의 코드에 적용된 [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) 필터는 익명 사용자가 응용 프로그램의 메서드에 액세스할 수 없도록 합니다. [AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) 특성을 사용하여 몇 개 메서드의 권한 부여 요구 사항을 옵트아웃(opt out)하므로 익명 사용자가 로그인하고 홈페이지를 볼 수 있습니다. [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx)는 웹앱에 대한 모든 액세스가 HTTPS를 통해 이루어져야 합니다.
+	위의 코드에 적용된 [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) 필터는 익명 사용자가 응용 프로그램의 메서드에 액세스할 수 없도록 합니다. [AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) 특성을 사용하여 몇 개 메서드의 권한 부여 요구 사항을 옵트아웃(opt out)하므로 익명 사용자가 로그인하고 홈페이지를 볼 수 있습니다. [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx)는 웹 앱에 대한 모든 액세스가 HTTPS를 통해 이루어져야 합니다.
 
-1. Home 컨트롤러의 **Index** 메서드에 [AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) 특성을 추가합니다. [AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) 특성을 사용하여 권한 부여에서 옵트아웃(opt out)하려는 메서드를 허용 목록에 추가할 수 있습니다. 아래에는 HomeController 일부의 이미지가 표시되어 있습니다:	
+1. [AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) 특성을 Home 컨트롤러의 **Index** 메소드에 추가합니다. [AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) 특성을 사용하여 권한 부여에서 옵트아웃(opt out)하려는 메서드를 허용 목록에 추가할 수 있습니다. 
+		<pre>
+	public class HomeController : Controller
+   {
+      <mark>[AllowAnonymous]</mark>
+      public ActionResult Index()
+      {
+         return View();
+      }
+	</pre>
 
-  	![코드](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss11.PNG)
-
-2. *AllowAnonymous*에 대한 전체 검색을 수행합니다. Account 컨트롤러의 로그인 및 등록 메서드에서 사용되는 것을 확인할 수 있습니다.
-1. *CmController.cs*에서 *Cm* 컨트롤러의 데이터를 변경하는 HttpGet 및 HttpPost 메서드(Index, Details를 제외한 모든 작업 메서드, Create, Edit 및 Delete)에 `[Authorize(Roles = "canEdit")]`를 추가합니다. 아래에는 완성된 코드의 일부가 표시되어 있습니다: 
-
-   	![코드 이미지](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rr11.png)
-
-
+2.  *AllowAnonymous*에 대한 전체 검색을 수행합니다. Account 컨트롤러의 로그인 및 등록 메서드에서 사용되는 것을 확인할 수 있습니다.
+1.  *CmController.cs*에서, `[Authorize(Roles = "canEdit")]`를  *Cm* 컨트롤러에서 데이터를 변경하는 HttpGet 및 HttpPost 메서드( Index 및 Details를 제외한 모든 작업 메서드 Create, Edit, Delete,)에 추가합니다. 아래에는 완성된 코드의 일부가 표시되어 있습니다. 
+		<pre>
+	// GET: Cm/Create
+       <mark>[Authorize(Roles = "canEdit")]</mark>
+        public ActionResult Create()
+        {
+           return View(new Contact { Address = "123 N 456 W",
+            City="Great Falls", Email = "ab@cd.com", Name="Joe Smith", State="MT",
+           Zip = "59405"});
+        }
+        // POST: Cm/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+         <mark>[Authorize(Roles = "canEdit")]</mark>
+        public ActionResult Create([Bind(Include = "ContactId,Name,Address,City,State,Zip,Email")] Contact contact)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Contacts.Add(contact);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(contact);
+        }
+        // GET: Cm/Edit/5
+       <mark>[Authorize(Roles = "canEdit")]</mark>
+        public ActionResult Edit(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Contact contact = db.Contacts.Find(id);
+            if (contact == null)
+            {
+                return HttpNotFound();
+            }
+            return View(contact);
+        }
+		</pre>
 
 1. 이전 세션에서 로그인되어 있는 경우 **로그아웃** 링크를 누릅니다.
 1. **정보** 또는 **연락처** 링크를 클릭합니다. 익명 사용자는 해당 페이지를 볼 수 없으므로 로그인 페이지로 리디렉션됩니다. 
-1. **새 사용자로 등록** 링크를 클릭하고 메일 *joe@contoso.com*을 사용하는 로컬 사용자를 추가합니다. *Joe*가 홈, 정보 및 연락처 페이지를 볼 수 있는지 확인합니다. 
+1. **새 사용자로 등록** 링크를 클릭하고 메일 *joe@contoso.com*을 사용하는 로컬 사용자를 추가합니다.  *Joe*가 홈, 정보 및 연락처 페이지를 볼 수 있는지 확인합니다. 
 
-	![로그인](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss14.PNG)
+	![login](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss14.PNG)
 
-1. *CM Demo* 링크를 클릭하고 데이터가 표시되는지 확인합니다. 
-1. 페이지의 편집 링크를 클릭하면 로그인 페이지로 리디렉션됩니다(새 로컬 사용자가 *canEdit* 역할에 추가되지 않았으므로).
-1. 암호 "P_assw0rd1"("word"의 "0"은 숫자 0임)을 사용하여 *user1@contoso.com*으로 로그인합니다. 이전에 선택한 편집 페이지로 리디렉션됩니다. <br/>
+1.  *CM Demo* 링크를 클릭하고 데이터가 표시되는지 확인합니다. 
+1. 페이지의 편집 링크를 클릭하면 로그인 페이지로 리디렉션됩니다(새 로컬 사용자는  *canEdit* 역할에 추가되지 않기 때문).
+1. 암호가 "P_assw0rd1"("word"에서 "0"은 숫자 0임)인  *user1@contoso.com*로 로그인합니다. 이전에 선택한 편집 페이지로 리디렉션됩니다. <br/>
    해당 계정과 암호를 사용하여 로그인할 수 없는 경우 소스 코드에서 암호를 복사하여 붙여 넣습니다. 그래도 로그인할 수 없으면 **AspNetUsers** 테이블의 **UserName** 열을 검사하여  *user1@contoso.com*이 추가되었는지 확인합니다. 
 
 1. 데이터를 변경할 수 있는지 확인합니다.
@@ -491,68 +556,68 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 
 1. Visual Studio의 **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 상황에 맞는 메뉴에서 **게시**를 선택합니다.
 
-	![프로젝트 상황에 맞는 메뉴의 게시][firsdeploy003]
+	![Publish in project context menu][firsdeploy003]
 
 	**웹 게시** 마법사가 열립니다.
 
 1. **웹 게시** 대화 상자 왼쪽에 있는 **설정** 탭을 클릭합니다. **v** 아이콘을 클릭하여 **ApplicationDbContext**에 대한 **원격 연결 문자열**을 선택한 다음 **ContactManagerNN_db**를 선택합니다.
 
    
-	![설정](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rrc2.png)
+	![settings](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rrc2.png)
 
 1. **ContactManagerContext**에서 **Code First 마이그레이션 실행**을 선택합니다.
 
-	![설정](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rrc3.png)
+	![settings](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rrc3.png)
 
 1. **게시**를 클릭합니다.
-1. *user1@contoso.com*(암호 "P_assw0rd1")으로 로그인하고 데이터를 편집할 수 있는지 확인합니다.
+1.  *user1@contoso.com*으로 로그인하고(암호가 "P_assw0rd1") 데이터를 편집할 수 있는지 확인합니다.
 1. 로그아웃합니다.
 1. [Google Developers Console](https://console.developers.google.com/)로 이동한 다음 **Credentials** 탭에서 Azure URL을 사용하도록 리디렉션 URIS 및 JavaScript Orgins를 업데이트합니다.
-1. Google 또는 Facebook을 사용하여 로그인합니다. 이렇게 하면 Google 또는 Facebook 계정이 **canEdit** 역할에 추가됩니다. *요청의 리디렉션 URI이: https://contactmanager{my version}.azurewebsites.net/signin-google 등록된 리디렉션 URI와 일치하지 않습니다.*라는 메시지와 함께 HTTP 400 오류가 표시될 경우 변경 내용이 전파될 때까지 기다려야 합니다. 이 오류가 1분 넘게 표시되면 URI가 올바른지 확인하세요.
+1. Google 또는 Facebook을 사용하여 로그인합니다. 이렇게 하면 Google 또는 Facebook 계정이 **canEdit** 역할에 추가됩니다. 메시지와 함께 HTTP 400 오류가 발생한 경우 * 요청에 리디렉션 URI: https://contactmanager {my version}.azurewebsites.net/signin-google은 등록된 리디렉션 URI와 일치하지 않습니다.* 변경 내용을 전파 할 때까지 대기해야 합니다. 몇 분 후에 이 오류가 발생하면 URI가 올바른지 확인하세요.
 
-### 다른 사용자가 등록할 수 없도록 웹 사이트 중지  
+### 다른 사용자가 등록할 수 없도록 웹 앱 중지  
 
-1. 이 시나리오에서는 **서버 탐색기**에서 **웹 사이트**로 이동합니다.
-4. 각 웹 사이트 인스턴스를 마우스 오른쪽 단추로 클릭하고 **웹 사이트 중지**를 선택합니다.. 
+1. **서버 탐색기**에서 **웹 앱**으로 이동합니다.
+4. 웹 앱을 마우스 오른쪽 단추로 클릭하고 **중지**를 선택합니다. 
 
-	![웹 사이트 중지](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rrr2.png) 
+	![stop web app](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/s1.png) 
 
-	또는 Azure 관리 포털에서 웹 사이트를 선택한 후 페이지 아래쪽에 있는 **중지** 아이콘을 클릭합니다.
+	또는 [Azure 포털](http://go.microsoft.com/fwlink/?LinkId=529715)에서, 웹 앱을 선택한 다음 페이지의 맨 아래에서 **중지** 아이콘을 클릭합니다.
 
-	![웹 사이트 중지](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rrr3.png)
+	![stop web app](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rrr3.png)
 
 ### AddToRoleAsync 제거, 게시 및 테스트
 
-1. Account 컨트롤러의 **ExternalLoginConfirmation** 메서드에서 다음 코드를 주석으로 처리하거나 제거합니다: 
+1. Account 컨트롤러의 **ExternalLoginConfirmation** 메서드에서 다음 코드를 주석으로 처리하거나 제거합니다. 
                 `await UserManager.AddToRoleAsync(user.Id, "canEdit");`
-1. 프로젝트를 빌드합니다(그러면 파일 변경 내용이 저장되고 컴파일 오류가 없는지 확인됨).
+1. 프로젝트를 빌드하여 파일 변경 내용을 저장하고 컴파일 오류가 없는지 확인합니다.
 5. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다.
 
-	   ![프로젝트 상황에 맞는 메뉴의 게시](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/GS13publish.png)
+	   ![Publish in project context menu](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/GS13publish.png)
 	
 4. **미리 보기 시작** 단추를 클릭합니다. 업데이트해야 하는 파일만 배포됩니다.
-5. Visual Studio 또는 포털에서 웹 사이트를 시작합니다. **웹 사이트가 중지된 동안에는 게시할 수 없습니다**.
+5. Visual Studio 또는 포털에서 웹 앱을 시작합니다. **웹 앱이 중지된 동안에는 게시할 수 없습니다**.
 
-	![웹 사이트 시작](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss15.png)
+	![start web app](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss15.png)
 
 5. Visual Studio로 돌아가서 **게시**를 클릭합니다.
 3. Azure 앱이 기본 브라우저에서 열립니다. 로그인되어 있으면 익명 사용자로 홈페이지를 볼 수 있도록 로그아웃합니다.  
 4. **정보** 링크를 클릭합니다. 로그인 페이지로 리디렉션됩니다.
-5. 로그인 페이지에서 **등록** 링크를 클릭하고 로컬 계정을 만듭니다. 이 로컬 계정을 사용하여 읽기 전용 페이지에는 액세스할 수 있지만 데이터 변경 페이지(*canEdit* 역할로 보호됨)에는 액세스할 수 없는 것을 확인할 것입니다. 자습서의 뒷부분에서 로컬 계정 액세스를 제거하겠습니다. 
+5. 로그인 페이지에서 **등록** 링크를 클릭하고 로컬 계정을 만듭니다. 이 로컬 계정을 사용하여 읽기 전용 페이지에는 액세스할 수 있지만 데이터를 변경하는 페이지에 액세스할 수 없습니다( *canEdit* 역할로 보호됨). 자습서의 뒷부분에서 로컬 계정 액세스를 제거합니다. 
 
-	![등록](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss16.PNG)
+	![Register](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss16.PNG)
 
-1. *About* 및 *Contact* 페이지로 이동할 수 있는지 확인합니다.
+1.  *About* 및  *Contact* 페이지로 이동할 수 있는지 확인합니다.
 
-	![로그오프](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss17.PNG)
+	![Log off](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss17.PNG)
 
-1. **CM Demo** 링크를 클릭하여 **Cm** 컨트롤러로 이동합니다. 또는 URL에 *Cm*을 추가할 수 있습니다. 
+1. **CM Demo** 링크를 클릭하여 **Cm** 컨트롤러로 이동합니다. 또는 URL에  *Cm*을 추가할 수 있습니다. 
 
-	![CM 페이지](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rrr4.png)
+	![CM page](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rrr4.png)
  
-1. 편집 링크를 클릭합니다. 로그인 페이지로 리디렉션됩니다. **다른 서비스를 사용하여 로그인**에서 Google 또는 Facebook을 클릭하고 이전에 등록한 계정으로 로그인합니다. (신속하게 작업하는 동안 세션 쿠키가 시간 초과되지 않으면 이전에 사용한 Google 또는 Facebook 계정을 사용하여 자동으로 로그인됩니다.)
+1. 편집 링크를 클릭합니다. 로그인 페이지로 리디렉션됩니다. **다른 서비스를 사용하여 로그인**에서 Google 또는 Facebook을 클릭하고 이전에 등록한 계정으로 로그인합니다. 신속하게 작업하는 동안 세션 쿠키가 시간 초과되지 않으면 이전에 사용한 Google 또는 Facebook 계정을 사용하여 자동으로 로그인됩니다.
 2. 해당 계정에 로그인되어 있는 동안 데이터를 편집할 수 있는지 확인합니다.
- 	**참고:** 이 앱을 통해 Google에서 로그아웃한 다음 동일한 브라우저에서 다른 Google 계정으로 로그인할 수는 없습니다. 브라우저 한 개를 사용하는 경우 Google로 이동해서 로그아웃해야 합니다. 다른 브라우저에서는 동일한 타사 인증자(예: Google)의 다른 계정으로 로그온할 수 있습니다.
+ 	**참고:** 이 앱에서 Google에서 로그아웃하고 같은 브라우저에서 다른 google 계정으로 로그인할 수 없습니다. 브라우저 한 개를 사용하는 경우 Google로 이동해야 합니다. 다른 브라우저를 사용하여 동일한 타사 인증자(예: Google)에서 다른 계정으로 로그온할 수 있습니다.
 
 Google 계정 정보의 이름과 성을 채우지 않은 경우 NullReferenceException이 발생합니다.
 
@@ -562,57 +627,57 @@ Google 계정 정보의 이름과 성을 채우지 않은 경우 NullReferenceEx
 1. **서버 탐색기**에서 **ContactDB**로 이동합니다.
 2. **ContactDB**를 마우스 오른쪽 단추로 클릭하고 **SQL Server 개체 탐색기에서 열기**를 선택합니다.
  
-	![SSOX에서 열기](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rrr12.png)
+	![open in SSOX](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rrr12.png)
  
-**참고:** **SQL 데이터베이스**를 확장할 수 없고 Visual Studio에서 **ContactDB**를 볼 수 *can't* 경우 아래 지침에 따라 방화벽 포트나 포트 범위를 열어야 합니다. **Azure 방화벽 규칙 설정**의 지침을 따릅니다. 방화벽 규칙을 추가한 후 데이터베이스에 액세스하기 위해 몇 분 정도 기다려야 할 수도 있습니다.
+**참고:** **SQL 데이터베이스**를 확장할 수 없고  *can't***ContactDB**를 Visual Studio에서 참조하는 경우, 방화벽 포트나 포트 범위를 열려면 다음 지침에 따라야 합니다. **Azure 방화벽 규칙 설정**의 지침에 따르세요. 방화벽 규칙을 추가한 후 데이터베이스에 액세스하는 데 몇 분의 시간을 기다릴 수 있습니다.
  
 1. **AspNetUsers** 테이블을 마우스 오른쪽 단추로 클릭하고 **데이터 보기**를 선택합니다.
 
-	![CM 페이지](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rrr8.png)
+	![CM page](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rrr8.png)
  
-1. **canEdit** 역할에 추가되도록 등록한 Google 계정의 ID와 *user1@contoso.com*의 ID를 확인합니다. **canEdit** 역할에 포함된 유일한 사용자여야 합니다. (다음 단계에서 확인하겠습니다.)
+1. **canEdit** 역할 및  *user1@contoso.com*의 ID가 되도록 등록한 Google 계정의 ID를 확인합니다. **canEdit** 역할에 포함된 유일한 사용자여야 합니다. 다음 단계에서 확인하겠습니다.
 
-	![CM 페이지](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rrr9.png)
+	![CM page](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/s2.png)
  
 2. **SQL Server 개체 탐색기**에서 **AspNetUserRoles**를 마우스 오른쪽 단추로 클릭하고 **데이터 보기**를 선택합니다.
 
-	![CM 페이지](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rs1.png)
+	![CM page](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rs1.png)
  
-**UserId**가 *user1@contoso.com* 및 등록한 Google 계정의 ID인지 확인합니다. 
+**UserId**가 *user1@contoso.com*이며 등록한 Google 계정인지 확인합니다. 
 
 
 ## Azure 방화벽 규칙 설정 ##
 
 Visual Studio에서 SQL Azure에 연결할 수 없거나 "서버를 열 수 없음"이라는 오류 대화 상자가 표시되면 이 섹션의 단계를 수행합니다.
 
-![방화벽 오류](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rx5.png)
+![firewall error](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rx5.png)
 
 허용된 IP에 IP 주소를 추가해야 합니다.
 
 1. Azure 포털의 왼쪽 탭에서 **SQL 데이터베이스**를 선택합니다.
 
-	![SQL 선택][rx6]
+	![Select SQL][rx6]
 
 1. **ContactDB**를 클릭합니다.
 
-1. **이 IP 주소에 대한 Azure 방화벽 규칙 설정** 링크를 클릭합니다.
+1. **이 주소에 대한 Azure 방화벽 규칙 설정** 링크를 클릭합니다.
 
-	![방화벽 규칙][rx7]
+	![firewall rules][rx7]
 
 1. "현재 IP 주소 xxx.xxx.xxx.xxx이(가) 기존 방화벽 규칙에 포함되어 있지 않습니다. 방화벽 규칙을 업데이트하시겠나요?"라는 메시지가 표시되면 **예**를 클릭합니다. 일부 회사 방화벽 뒤에 이 주소를 추가하는 것으로 충분하지 않은 경우가 많습니다. IP 주소 범위를 추가해야 합니다.
 
 다음 단계는 허용된 IP 주소 범위를 추가하는 것입니다.
 
 1. Azure 포털에서 **SQL 데이터베이스**를 클릭합니다.
-1. **서버** 탭을 선택한 다음 구성하려는 서버를 클릭합니다.
+1. **서버** 탭을 선택한 다음 구성할 서버를 클릭합니다.
 
-	![Azure의 서버 탭 ](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss25.PNG)
+	![Servers tab in Azure ](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss25.PNG)
 
 1. **구성** 탭을 클릭합니다.
 
 1. 규칙 이름, 시작 및 끝 IP 주소를 추가합니다.
 
-	![ip 범위][rx9]
+	![ip range][rx9]
 
 1. 페이지 맨 아래에 있는 **저장**을 클릭합니다.
 1. 의견을 남기고, 연결할 IP 주소 범위를 추가해야 하는 경우 알려주세요.
@@ -621,53 +686,39 @@ Visual Studio에서 SQL Azure에 연결할 수 없거나 "서버를 열 수 없�
 
 1. 보기 메뉴에서 **SQL Server 개체 탐색기**를 클릭합니다.
 1. **SQL Server**를 마우스 오른쪽 단추로 클릭하고 **SQL Server 추가**를 선택합니다.
-1. **서버에 연결 대화** 상자에서 **인증**을 **SQL Server 인증**으로 설정합니다. Azure 포털에서 **서버 이름** 및 **로그인**을 가져옵니다.
+1. **서버에 연결** 대화 상자에서 **인증**을 **SQL Server 인증**으로 설정합니다. Azure 포털에서 **서버 이름** 및 **로그인**을 가져옵니다.
 1. 브라우저에서 포털로 이동한 다음 **SQL 데이터베이스**를 선택합니다.
-1. **ContactDB**를 선택하고 **SQL 데이터베이스 연결 문자열 보기**를 클릭합니다.
+1. **ContactDB**를 선택한 다음 **SQL 데이터베이스 연결 문자열 보기**를 클릭합니다.
 1. **연결 문자열** 페이지에서 **서버** 및 **사용자 ID**를 복사합니다.
  
-	![연결 문자열](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss21.PNG)
+	![con string](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss21.PNG)
 1. **서버** 및 **사용자 ID** 값을 Visual Studio의 **서버에 연결** 대화 상자에 전달합니다. **사용자 ID** 값이 **로그인** 항목으로 이동합니다. SQL DB를 만드는 데 사용한 암호를 입력합니다.
 
-	![서버에 연결 대화 상자](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rss1.png)
+	![Connect to Server DLG](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rss1.png)
 
 이제 앞에 제공된 지침에 따라 연락처 DB로 이동할 수 있습니다.
 
-
-## 데이터베이스 테이블을 편집하여 canEdit 역할에 사용자를 추가하려면
-
-자습서 앞부분에서는 코드를 사용하여 canEdit 역할에 사용자를 추가했습니다. 대체 방법은 멤버 자격 테이블의 데이터를 직접 조작하는 것입니다. 다음 단계에서는 이 대체 방법을 사용하여 역할에 사용자를 추가하는 방법을 보여 줍니다.
-
-2. **SQL Server 개체 탐색기**에서 **AspNetUserRoles**를 마우스 오른쪽 단추로 클릭하고 **데이터 보기**를 선택합니다.
-
-	![CM 페이지](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rs1.png)
-
-1. *RoleId*를 복사하여 빈(새) 행에 붙여 넣습니다.
-	
-	![CM 페이지](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rs2.png)
-	
-2. **AspNetUsers** 테이블에서 역할에 추가할 사용자를 찾아 사용자 *Id*를 복사한 다음 **AspNetUserRoles** 테이블의 **UserId** 열에 붙여 넣습니다.
-
-사용자 및 역할 관리를 도와줄 도구를 개발 중입니다.
-
-
 <h2><a name="nextsteps"></a>다음 단계</h2>
 
-이 샘플을 기반으로 하는 내 자습서를 수행합니다:
+이 샘플을 기반으로 하는 내 자습서를 수행합니다.
 
-1.	[로그인, 메일 확인 및 암호 다시 설정을 포함한 보안 ASP.NET MVC 5 웹앱 만들기](http://www.asp.net/mvc/overview/getting-started/create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset)
+1.	[로그인, 메일 확인 및 암호 다시 설정을 포함한 보안 ASP.NET MVC 5 웹 앱 만들기](http://www.asp.net/mvc/overview/getting-started/create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset)
 2.	[SMS 및 메일 2단계 인증이 포함된 ASP.NET MVC 5 앱](http://www.asp.net/mvc/overview/getting-started/aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication)
 3.	[암호 및 기타 중요한 데이터를 ASP.NET 및 Azure에 배포하는 모범 사례](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure)
 4.	[Facebook과 Google OAuth2를 사용하여 ASP.NET MVC 5 앱 만들기](http://www.asp.net/mvc/tutorials/mvc-5/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on ) 이 문서에는 사용자 등록 DB에 프로필 데이터를 추가하는 방법 및 Facebook을 인증 공급자로 사용하는 방법에 대한 자세한 내용이 포함되어 있습니다.
 5.	[ASP.NET MVC 5 시작](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started)
 
-To enable the social login buttons 이 자습서의 맨 위에 표시된 소셜 로그인 단추를 사용하도록 설정하려면 [ASP.NET MVC 5의 소셜 로그인 단추](http://www.beabigrockstar.com/pretty-social-login-buttons-for-asp-net-mvc-5/)를 참조하세요.
+이 자습서의 맨 위에 표시된 소셜 로그인 단추를 사용하도록 설정하려면 [ASP.NET MVC 5의 소셜 로그인 단추](http://www.beabigrockstar.com/pretty-social-login-buttons-for-asp-net-mvc-5/)를 참조하세요.
 
 Tom Dykstra의 뛰어난 [EF 및 MVC 시작](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application)에서는 고급 MVC 및 EF 프로그래밍을 보여 줍니다.
 
-이 자습서 및 응용 프로그램 예제는 [Rick Anderson](http://blogs.msdn.com/b/rickandy/)(Twitter [@RickAndMSFT](https://twitter.com/RickAndMSFT))에 의해 작성되었으며, Tom Dykstra 및 Barry Dorrans(Twitter [@blowdart](https://twitter.com/blowdart))의 도움을 받았습니다. 
+이 자습서 및 샘플 응용프로그램은 [Rick Anderson](http://blogs.msdn.com/b/rickandy/) (Twitter [@RickAndMSFT](https://twitter.com/RickAndMSFT))이 Tom Dykstra 및 Barry Dorrans(Twitter [@blowdart](https://twitter.com/blowdart))의 도움을 받아 작성했습니다. 
 
 자습서 자체뿐 아니라 설명된 제품과 관련해서 좋아한 사항이나 바라는 개선 사항에 대한 ***의견을 남겨주세요***. 사용자 의견은 개선 사항의 우선 순위를 지정하는 데 도움이 됩니다. [코드 사용 방법 보기](http://aspnet.uservoice.com/forums/228522-show-me-how-with-code)에서 새 항목을 요청하고 투표할 수도 있습니다.
+
+## 변경된 내용
+* 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 다음을 참조하세요. [Azure 앱 서비스 및 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)
+* 이전 포털에서 새 포털로의 변경에 대한 지침은 다음을 참조하세요. [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 <!-- bookmarks -->
 [OAuth 공급자 추가]: #addOauth
@@ -722,34 +773,9 @@ Tom Dykstra의 뛰어난 [EF 및 MVC 시작](http://www.asp.net/mvc/tutorials/ge
 [addcode009]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/dntutmobile-migrations-package-manager-console.png
 
 
-[Azure 웹 사이트의 ASP.NET에 대한 중요한 정보]: #aspnetwindowsazureinfo
+[Azure 웹 사이트의 ASP.NET에 대한 중요 정보]: #aspnetwindowsazureinfo
 [다음 단계]: #nextsteps
 
 [ImportPublishSettings]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ImportPublishSettings.png
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!--HONumber=42-->
+<!--HONumber=49-->

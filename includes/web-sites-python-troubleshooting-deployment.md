@@ -7,4 +7,5 @@
 **로그 보기**를 클릭하여 사용자 지정 배포 스크립트의 출력을 확인합니다.
 
 ![](./media/web-sites-python-troubleshoot-deployment/portal-deployment-log.png)
-<!--HONumber=42-->
+
+<!--HONumber=49-->

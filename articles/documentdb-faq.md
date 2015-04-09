@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="DocumentDB에 대한 질문과 대답 | Azure" 
 	description="Azure DocumentDB nosql 문서 데이터베이스 서비스에 대한 질문과 대답을 제공합니다. 용량 및 요청 단위에 대해 알아보고 응용 프로그램 요구 사항에 맞게 크기를 조정하는 방법을 이해합니다." 
 	services="documentdb" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/22/2014" 
+	ms.date="03/20/2015" 
 	ms.author="mimig"/>
 
 
@@ -24,13 +24,13 @@
 ###Microsoft Azure DocumentDB란 무엇인가요? 
 Microsoft Azure DocumentDB는 확장 가능성이 높은 NoSQL 문서 DaaS(Database-as-a-Service)로, Microsoft Azure의 성능과 범위로 지원되는 관리 플랫폼을 통해 스키마 제약이 없는 데이터에 대해 다양한 쿼리를 제공하고, 구성 가능하며 안정적인 성능을 제공하고, 신속한 개발을 지원합니다. 예측 가능한 처리량, 짧은 대기 시간 및 스키마 제약이 없는 데이터 모델이 핵심 요구 사항인 경우 DocumentDB는 웹 및 모바일 응용 프로그램의 적합한 솔루션입니다. DocumentDB는 네이티브 JSON 데이터 모델을 통해 스키마 유연성과 다양한 인덱싱을 제공하며, 통합된 JavaScript로 다중 문서 트랜잭션도 지원합니다.  
   
-서비스 배포 및 사용에 대한 지침은 [DocumentDB 설명서 페이지](http://go.microsoft.com/fwlink/p/?LinkID=402319)를 참조하세요.
+서비스 배포 및 사용에 대한 자세한 내용은 [DocumentDB 설명서 페이지](http://go.microsoft.com/fwlink/p/?LinkID=402319)를 참조하세요.
 
 ###DocumentDB는 어떤 종류의 데이터베이스인가요?
 DocumentDB는 JSON 형식으로 데이터를 저장하는 NoSQL 문서 지향 데이터베이스입니다.  DocumentDB는 다양한 DocumentDB SQL 쿼리 문법을 통해 쿼리할 수 있는 자체 포함된 중첩 데이터 구조를 지원합니다. DocumentDB는 저장 프로시저, 트리거 및 사용자 정의 함수를 통해 서버 쪽 JavaScript의 고성능 트랜잭션 처리를 제공합니다. 또한 데이터베이스는 연결된 성능 수준으로 개발자가 조정할 수 있는 일관성 수준을 지원합니다.
  
 ###DocumentDB 데이터베이스에 RDBMS와 같은 테이블이 있나요?
-아니요, DocumentDB는 JSON 문서의 컬렉션에 데이터를 저장합니다.  DocumentDB 리소스에 대한 자세한 내용은 [DocumentDB 리소스 모델 및 개념](../documentdb-resources/) 문서를 참조하세요. 
+아니요, DocumentDB는 JSON 문서의 컬렉션에 데이터를 저장합니다.  DocumentDB 리소스에 대한 자세한 내용은 [DocumentDB 리소스 모델 및 개념](documentdb-resources.md) 문서를 참조하세요. 
 
 ###DocumentDB 데이터베이스에서 스키마 제약이 없는 데이터를 지원하나요?
 예, DocumentDB를 통해 응용 프로그램은 스키마 정의 또는 힌트 없이 임의의 JSON 문서를 저장할 수 있습니다. DocumentDB SQL 쿼리 인터페이스를 통해 쿼리에 즉시 데이터를 사용할 수 있습니다.   
@@ -42,7 +42,7 @@ DocumentDB는 JSON 형식으로 데이터를 저장하는 NoSQL 문서 지향 �
 DocumentDB는 스키마 제약이 없는 데이터에 대한 크기 조정, 성능 및 쿼리 기능이 중요한 새로운 웹 및 모바일 응용 프로그램에 적합한 옵션입니다. DocumentDB는 응용 프로그램 데이터 모델의 신속한 개발 및 연속적인 반복 지원에 적합합니다. 사용자 생성 콘텐츠 및 데이터를 관리하는 응용 프로그램은 DocumentDB의 일반적인 사용 사례입니다.  
 
 ###크기 조정 및 용량 제한은 무엇인가요?
-각 Azure DocumentDB 계정은 Azure 포털을 통해 구성할 수 있는 최대 용량 단위 수를 지원합니다. 용량 단위가 추가적으로 필요한 경우 지원 담당자에게 문의하여 계정 할당량을 늘리세요.  리소스 할당량에 대한 자세한 내용은 [DocumentDB 미리 보기 릴리스의 한도](../documentdb-limits/)를 참조하세요. 
+각 Azure DocumentDB 계정은 Azure 포털을 통해 구성할 수 있는 최대 용량 단위 수를 지원합니다. 용량 단위가 추가적으로 필요한 경우 지원 담당자에게 문의하여 계정 할당량을 늘리세요.  리소스 할당량에 대한 자세한 내용은 [DocumentDB 미리 보기 릴리스의 한도](documentdb-limits.md)를 참조하세요.
 
 
 ###Microsoft Azure DocumentDB 비용은 얼마인가요?
@@ -63,7 +63,7 @@ DocumentDB SDK 중 하나를 사용하거나 REST API를 통해 데이터베이�
 컬렉션은 JSON 문서 및 관련 JavaScript 응용 프로그램 논리의 컨테이너입니다. 쿼리와 트랜잭션의 범위는 컬렉션으로 지정됩니다. 단일 컬렉션 내에서 다른 유형의 JSON 문서 집합을 저장할 수 있으며, 모든 문서는 자동으로 인덱싱됩니다.   
 
 ###데이터베이스 및 컬렉션에는 어떤 제한이 있나요?
-구매한 각 용량 단위는 데이터베이스 저장소 및 프로비전된 처리량이 할당된 상태로 제공됩니다. 또한 할당량은 서비스에서 관리하는 각 리소스에 적합합니다. 자세한 내용은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건] 문서의(../azure-subscription-service-limits/) DocumentDB 미리 보기 제한 섹션을 참조하세요.  
+구매한 각 용량 단위는 데이터베이스 저장소 및 프로비전된 처리량이 할당된 상태로 제공됩니다. 또한 할당량은 서비스에서 관리하는 각 리소스에 적합합니다. 자세한 내용은 [DocumentDB 미리 보기 릴리스의 한도](documentdb-limits.md)를 참조하세요.  
 
 ###사용자 및 사용 권한을 어떻게 설정하나요?
 DocumentDB SDK 중 하나를 사용하거나 REST API를 통해 사용자 및 사용 권한을 만들 수 있습니다. 응용 프로그램을 개발하는 방법에 대한 자세한 내용은 [DocumentDB 설명서 페이지](http://go.microsoft.com/fwlink/p/?LinkID=402319)의 개발 섹션을 참조하세요.  
@@ -96,6 +96,6 @@ DocumentDB는 효율적으로 일괄 삽입할 수 있는 저장 프로시저를
 
 
 [preview-portal]: https://portal.azure.com
-[query]: ../documentdb-sql-query/
+[query]: documentdb-sql-query.md
 
-<!--HONumber=47-->
+<!--HONumber=49-->

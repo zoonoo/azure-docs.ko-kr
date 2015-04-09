@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Microsoft Azure를 사용하여 Linux 가상 컴퓨터에 Tomcat7을 설치하는 방법" 
 	description="Linux를 실행하는 Azure VM(가상 컴퓨터)에서 Microsoft Azure를 사용하여 Tomcat7을 설치하는 방법에 대해 알아봅니다." 
 	services="virtual-machines" 
@@ -98,7 +98,7 @@ tomcat이 수신 대기하는 기본 포트 번호는 TCP 포트 8080입니다. 
 **SSH** 필드에서 SSH 연결의 포트 번호를 가져옵니다. 다음은 예제입니다.  
 ![][8]
  
-[여기](http://www.putty.org/) 에서 Putty를 다운로드합니다.  
+[여기](http://www.putty.org/)서 Putty를 다운로드합니다.  
 
 다운로드한 후 실행 파일 PUTTY.EXE를 클릭합니다. 가상 컴퓨터의 속성에서 가져온 호스트 이름과 포트 번호를 사용하여 기본 옵션을 구성합니다. 다음은 예제입니다.  
 ![][9]
@@ -157,7 +157,7 @@ oracle-jdk
 ####테스트
 다음과 같은 명령을 사용하여 Java Runtime Environment가 올바르게 설치되었는지 테스트할 수 있습니다.  
 
-	java -version  
+	java -버전  
 
 open-jdk를 설치한 경우 다음과 같은 메시지가 표시되어야 합니다.
 ![][14] 
@@ -197,11 +197,11 @@ tomcat7을 중지하려면 다음을 실행합니다.
 
 	sudo /etc/init.d/tomcat7 stop 
 
-tomcat7의 상태를 보려면 다음을 실행합니다.  
+tomcat7의 상태를 보려면:  
 
 	sudo /etc/init.d/tomcat7 status
 
-tomcat 서비스를 다시 시작하려면 다음을 실행합니다.  
+tomcat 서비스를 다시 시작하려면：  
 
 	sudo /etc/init.d/tomcat7 restart
 
@@ -243,7 +243,7 @@ Tomcat이 실행되고 있지만 브라우저에서 Tomcat 기본 페이지를 �
 
 			sudo vi /etc/default/tomcat7  
 
-		그런 다음 마지막 줄 주석 처리를 제거 하 고 "no"을 "yes"로 변경 합니다.
+		그런 다음 마지막 줄에 주석 처리를 제거하고 "아니요"를 "예"로 변경합니다.  
 
 			AUTHBIND=yes
 
@@ -270,7 +270,7 @@ Tomcat이 실행되고 있지만 브라우저에서 Tomcat 기본 페이지를 �
 
 		iptables를 다시 로드하려면 다음 명령을 실행합니다.  
 
-			service iptables restart  
+			iptables 서비스를 다시 시작  
 
 		CentOS 6.3에서 테스트되었습니다.
 
@@ -279,10 +279,10 @@ Tomcat이 실행되고 있지만 브라우저에서 Tomcat 기본 페이지를 �
 -	**증상**  
 SFTP 클라이언트(예: FileZilla)를 사용하여 가상 컴퓨터에 연결한 다음 /var/lib/tomcat7/webapps/로 이동하여 사이트를 게시하는 경우 다음과 유사한 오류 메시지가 표시됩니다.  
 
-		status:	Listing directory /var/lib/tomcat7/webapps
-		Command:	put "C:\Users\liang\Desktop\info.jsp" "info.jsp"
-		Error:	/var/lib/tomcat7/webapps/info.jsp: open for write: permission denied
-		Error:	File transfer failed
+		상태:	Listing directory /var/lib/tomcat7/webapps
+		명령:	put "C:\Users\liang\Desktop\info.jsp" "info.jsp"
+		오류:	/var/lib/tomcat7/webapps/info.jsp: open for write: permission denied
+		오류:	파일 전송이 실패했습니다.
 
 -	**가능한 근본 원인** 
 /var/lib/tomcat7/webapps 폴더에 액세스할 수 있는 권한이 없습니다.  
@@ -324,4 +324,4 @@ SFTP 클라이언트(예: FileZilla)를 사용하여 가상 컴퓨터에 연결�
 [17]: ./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-17.png
 [18]: ./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-18.png
 
-<!--HONumber=42-->
+<!--HONumber=49-->

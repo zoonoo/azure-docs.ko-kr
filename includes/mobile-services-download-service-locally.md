@@ -6,7 +6,7 @@
 
     ![](./media/mobile-services-dotnet-backend-android-get-started-data/download-service-project.png)
 
-3. 아직 [Visual Studio Professional 2013] 이상의 버전을 다운로드하여 설치하지 않은 경우(https://go.microsoft.com/fwLink/p/?LinkID=391934)다운로드하여 설치합니다.
+3. 아직 하지 않은 경우 [Visual Studio Professional 2013](https://go.microsoft.com/fwLink/p/?LinkID=391934) 이상 버전을 다운로드하여 설치합니다.
 
 4. **서비스를 다운로드하고 클라우드에 게시** 아래의 **다운로드**를 클릭합니다.
 
@@ -27,4 +27,4 @@
 [Azure 관리 포털]: https://manage.windowsazure.com/
 [Android SDK](영문): https://go.microsoft.com/fwLink/p/?LinkID=280125
 
-<!--HONumber=47-->
+<!--HONumber=49-->

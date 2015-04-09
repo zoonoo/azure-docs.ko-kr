@@ -18,7 +18,7 @@
 
 # DocumentDB 문서 탐색기를 사용하여 JSON 문서 보기, 편집, 만들기 및 업로드 #
 
-이 문서에서는 DocumentDB를 사용하여 JSON 문서를 보고, 편집하며, 만들고, 업로드할 수 있는 Azure Preview 포털 도구인 [Microsoft Azure DocumentDB](http://azure.microsoft.com/services/documentdb/) 문서 탐색기에 대한 개요를 제공합니다. 
+이 문서에서는 DocumentDB를 사용하여 JSON 문서를 보고, 편집하며, 만들고, 업로드할 수 있는 Azure Preview 포털 도구인 [Microsoft Azure DocumentDB](http://azure.microsoft.com/services/documentdb/) 문서 탐색기에 대해 개괄적으로 설명합니다. 
 
 이 자습서를 완료하면 다음 질문에 대답할 수 있습니다.  
 
@@ -68,7 +68,7 @@
 
 	![Screenshot of Document Explorer create document experience](./media/documentdb-view-JSON-document-explorer/createdocument.png) 
 
-- 만들려는 문서의 JSON 콘텐츠를 입력하거나 붙여 넣고 **저장** 명령을 클릭하여 문서를 커밋하면 됩니다.
+- 만들려는 문서의 JSON 콘텐츠를 입력하거나 붙여넣고 **저장** 명령을 클릭하여 문서를 커밋하면 됩니다.
 
 	![Screenshot of Document Explorer save command](./media/documentdb-view-JSON-document-explorer/savedocument1.png)
 
@@ -94,7 +94,7 @@
 
 	![Screenshot of Document Explorer invalid JSON save error](./media/documentdb-view-JSON-document-explorer/invalidjson2.png)
 
-- 마지막으로 문서 탐색기에서는 **속성** 명령을 클릭하여 현재 로드된 문서의 시스템 속성을 쉽게 볼 수 있습니다.
+- 끝으로, 문서 탐색기에서는 **속성** 명령을 클릭하여 현재 로드된 문서의 시스템 속성을 쉽게 볼 수 있습니다.
 
 	![Screenshot of Document Explorer document properties view](./media/documentdb-view-JSON-document-explorer/documentproperties.png)
 
@@ -124,4 +124,4 @@
 
 DocumentDB에 대해 자세히 알아보려면 [여기](http://azure.com/docdb)를 클릭하세요.
 
-<!--HONumber=47-->
+<!--HONumber=49-->

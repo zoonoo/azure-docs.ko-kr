@@ -1,6 +1,6 @@
-<properties 
+﻿<properties 
 	pageTitle="Live Connect로 Windows 스토어 앱 인증" 
-	description="Windows 스토어 응용 프로그램에서 Azure 모바일 서비스의 Live Connect Single Sign-On을 사용하는 방법에 대해 알아봅니다." 
+	description="Windows 스토어 응용 프로그램에서 Azure 모바일 서비스의 Live Connect Single Sign-On을 사용하는 방법을 알아봅니다." 
 	services="mobile-services" 
 	documentationCenter="windows" 
 	authors="ggailey777" 
@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.date="11/22/2014" 
@@ -18,12 +18,12 @@
 
 # Live Connect Single Sign-On으로 Windows 스토어 앱 인증
 <div class="dev-center-tutorial-selector sublanding"> 
-	<a href="/ko-kr/documentation/articles/mobile-services-windows-store-dotnet-single-sign-on/" title="Windows Store C#" class="current">Windows 스토어 C#</a><a href="/ko-kr/documentation/articles/mobile-services-windows-store-javascript-single-sign-on/" title="Windows Store JavaScript">Windows 스토어 JavaScript</a><a href="/ko-kr/documentation/articles/mobile-services-windows-phone-single-sign-on/" title="Windows Phone">Windows Phone</a>
+	<a href="/documentation/articles/mobile-services-windows-store-dotnet-single-sign-on/" title="Windows Store C#" class="current">Windows 스토어 C#</a><a href="/documentation/articles/mobile-services-windows-store-javascript-single-sign-on/" title="Windows Store JavaScript">Windows 스토어 JavaScript</a><a href="/documentation/articles/mobile-services-windows-phone-single-sign-on/" title="Windows Phone">Windows Phone</a>
 </div>	
 
 이 항목에서는 Windows 스토어 또는 Windows Phone 8.1 스토어 앱에서 Live Connect Single Sign-On을 사용하여 Azure 모바일 서비스의 사용자를 인증하는 방법을 보여 줍니다.  이 자습서에서는 Live Connect를 사용하여 퀵 스타트 프로젝트에 인증을 추가합니다. Live Connect에 의해 인증되고 나면 로그인한 사용자는 이름과 함께 환영의 메시지를 보게 되고 사용자 ID 값이 표시됩니다.  
 
->[AZURE.NOTE]이 자습서에서는 Windows 스토어 앱용 Live Connect에서 제공되는 Single Sign-On 환경을 사용할 때 얻는 이점을 보여 줍니다. 이 환경에서는 모바일 서비스를 사용해 이미 로그온한 사용자를 더 쉽게 인증할 수 있습니다. 여러 인증 공급자를 지원하는 보다 일반화된 인증 환경을 알아보려면 <a href="/ko-kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-users/">인증 시작</a> 항목을 참조하세요. 
+>[AZURE.NOTE]이 자습서에서는 Windows 스토어 앱용 Live Connect에서 제공되는 Single Sign-On 환경을 사용할 때 얻는 이점을 보여 줍니다. 이 환경에서는 모바일 서비스를 사용해 이미 로그온한 사용자를 더 쉽게 인증할 수 있습니다. 여러 인증 공급자를 지원하는 보다 일반화된 인증 환경을 알아보려면 <a href="mobile-services-windows-store-dotnet-get-started-users.md/">인증 시작</a> 항목을 참조하세요. 
 
 이 자습서에서는 Live Connect 인증을 사용하도록 설정하는 다음 기본 단계를 안내합니다.
 
@@ -31,7 +31,7 @@
 2. [테이블 사용 권한을 인증된 사용자로 제한]
 3. [앱에 인증 추가]
 
-이 자습서를 사용하려면 다음이 필요합니다.
+이 자습서의 작업을 수행하려면 다음이 필요합니다.
 
 + [Windows용 Live SDK]
 + Microsoft Visual Studio 2012 Express for Windows 8 RC 이상 버전
@@ -48,7 +48,7 @@
 [AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)] 
 
 <ol start="3">
-<li><p>Visual Studio 2012 Express for Windows 8에서 <a href="/ko-kr/documentation/articles/mobile-services-windows-store-get-started">모바일 서비스 시작</a> 자습서를 완료할 때 만든 프로젝트를 엽니다.</p></li> 
+<li><p>Visual Studio 2012 Express for Windows 8에서 <a href="/documentation/articles/mobile-services-windows-store-get-started">모바일 서비스 시작</a> 자습서를 완료할 때 만든 프로젝트를 엽니다.</p></li> 
 <li><p>F5 키를 눌러 이 퀵 스타트 기반 앱을 실행합니다. 앱이 시작된 후 상태 코드 401(인증되지 않음)의 처리되지 않은 예외가 발생하는지 확인합니다.</p>
    
    	<p>이는 앱이 인증되지 않은 사용자로 모바일 서비스에 액세스하려고 시도하지만 <em>TodoItem</em> 테이블에서 이제 인증을 요구하기 때문에 발생합니다.</p></li>
@@ -60,7 +60,7 @@
 
 1. [Windows용 Live SDK]를 다운로드하여 설치합니다.
 
-2. Visual Studio의 **프로젝트** 메뉴에서 **참조 추가**를 클릭한 후 **Windows**를 확장하고 **확장**을 클릭한 다음 **Live SDK**를 선택하고 **확인**을 클릭합니다. 
+2. Visual Studio의 **프로젝트** 메뉴에서 **참조 추가**를 클릭하고 **Windows**를 확장한 다음 **확장**을 클릭합니다. **Live SDK**를 선택하고 **확인**을 클릭합니다. 
 
   	![][16]
 
@@ -110,12 +110,12 @@
 
     현재 Live Connect 세션을 저장하기 위한 멤버 변수와 인증 프로세스를 처리할 메서드가 만들어집니다. 이 코드는 가능한 경우 로그아웃을 실행하며 응용 프로그램이 실행될 때마다 사용자에게 자격 증명을 요구하는 메시지가 표시되도록 합니다. 인증이 올바르게 작동하는지 확인하기 위해 다양한 Microsoft 계정을 사용하여 응용 프로그램을 테스트하기 쉬워집니다. 이 메커니즘은 로그인한 사용자에게 연결된 Microsoft 계정이 없는 경우에만 작동합니다. 
 
-	>[AZURE.NOTE]앱이 실행될 때마다 Live Connection 인증 토큰 또는 모바일 서비스 권한 부여 토큰을 요청해야 하는 것은 아닙니다. 이 방법은 비효율적일 뿐 아니라 많은 고객이 동시에 앱을 시작하려고 할 경우 사용 관련 문제가 발생할 수도 있습니다. 보다 나은 접근 방법은 토큰을 캐시하고 **LoginWithMicrosoftAccountAsync**를 호출하기 전에 캐시된 모바일 서비스의 사용을 시도하는 것입니다. 이 토큰을 캐시하는 방법에 대한 예제는 [인증 시작](/ko-kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-users/#tokens)을 참조하세요.
+	>[AZURE.NOTE]앱이 실행될 때마다 Live Connection 인증 토큰 또는 모바일 서비스 권한 부여 토큰을 요청해야 하는 것은 아닙니다. 이 방법은 비효율적일 뿐 아니라 많은 고객이 동시에 앱을 시작하려고 할 경우 사용 관련 문제가 발생할 수도 있습니다. 보다 나은 접근 방법은 토큰을 캐시하고 **LoginWithMicrosoftAccountAsync**를 호출하기 전에 캐시된 모바일 서비스의 사용을 시도하는 것입니다. 이 토큰을 캐시하는 방법에 대한 예제는 [인증 시작]을 참조하세요.(mobile-services-windows-store-dotnet-get-started-users.md#tokens)
 	
 
-7. 이전 단계의 _<< INSERT REDIRECT DOMAIN HERE >>_ 문자열을 Live Connect에서 앱을 구성할 때 지정된 **https://_service-name_.azure-mobile.net/**. 형식의 리디렉션 도메인으로 업데이트합니다.
+7. 이전 단계의 _<< INSERT REDIRECT DOMAIN HERE >>_ 문자열을 Live Connect에서 앱을 구성할 때 지정된 **https://_service-name_.azure-mobile.net/** 형식의 리디렉션 도메인으로 업데이트합니다.
 
-    > [AZURE.NOTE] Windows 스토어 앱에서 리디렉션 도메인 URI 값을 클래스 생성자에 전달하여 <strong>LiveAuthClient</strong> 클래스 인스턴스가 만들어집니다. [Windows Phone 8 앱](/ko-kr/develop/mobile/tutorials/single-sign-on-wp8/)에서 클라이언트 ID를 전달하여 동일한 클래스가 인스턴스화됩니다.
+    > [AZURE.NOTE] Windows 스토어 앱에서 리디렉션 도메인 URI 값을 클래스 생성자에 전달하여 <strong>LiveAuthClient</strong> 클래스 인스턴스가 만들어집니다. [Windows Phone 8 앱]에서는(/develop/mobile/tutorials/single-sign-on-wp8/)클라이언트 ID를 전달하여 동일한 클래스가 인스턴스화됩니다.
 
 8. 기존 **OnNavigatedTo** 이벤트 처리기를 새 **Authenticate** 메서드를 호출하는 처리기로 바꿉니다.
 
@@ -162,12 +162,11 @@
 [앱 제출 페이지]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [내 응용 프로그램]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Windows용 Live SDK]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[기존 앱에 모바일 서비스 추가]: /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-data/
-[인증 시작]: /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-users
-[스크립트를 통해 사용자 권한 부여]: /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-authorize-users-in-scripts/
+[기존 앱에 모바일 서비스 추가](영문): mobile-services-windows-store-dotnet-get-started-data.md
+[인증 시작]: mobile-services-windows-store-dotnet-get-started-users.md
+[스크립트를 통해 사용자 권한 부여]: mobile-services-windows-store-dotnet-authorize-users-in-scripts.md
 
 [Azure 관리 포털]: https://manage.windowsazure.com/
-[모바일 서비스 .NET 방법 개념 참조]: /ko-kr/develop/mobile/how-to-guides/work-with-net-client-library
+[모바일 서비스 .NET 방법 개념 참조]: /develop/mobile/how-to-guides/work-with-net-client-library
 
-
-<!--HONumber=42-->
+<!--HONumber=49-->

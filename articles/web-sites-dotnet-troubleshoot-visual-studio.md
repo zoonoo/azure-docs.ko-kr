@@ -1,57 +1,41 @@
-﻿<properties 
-	pageTitle="Visual Studio에서 Azure 웹 사이트 문제 해결" 
-	description="Visual Studio 2013에서 기본 제공되는 원격 디버깅, 추적 및 로깅 도구를 사용하여 Azure 웹 사이트 문제를 해결하는 방법에 대해 알아봅니다." 
-	services="web-sites" 
+<properties 
+	pageTitle="Visual Studio를 사용하여 Azure 앱 서비스에서 웹 앱 문제 해결" 
+	description="Visual Studio 2013에서 기본 제공되는 원격 디버깅, 추적 및 로깅 도구를 사용하여 Azure 웹 앱 문제를 해결하는 방법에 대해 알아봅니다." 
+	services="app-service\web" 
 	documentationCenter=".net" 
 	authors="tdykstra" 
 	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/13/2014" 
+	ms.date="03/24/2015" 
 	ms.author="tdykstra"/>
 
-# Visual Studio에서 Azure 웹 사이트 문제 해결
+# Visual Studio를 사용하여 Azure 앱 서비스에서 웹 앱 문제 해결
 
-이 자습서에서는 응용 프로그램을 Azure 웹 사이트에서 실행할 때 디버그할 수 있도록 지원하는 Visual Studio 도구를 사용하여 원격에서 [디버그 모드](http://www.visualstudio.com/ko-kr/get-started/debug-your-app-vs.aspx)를 실행하는 방법 또는 응용 프로그램 로그 및 웹 서버 로그를 보는 방법을 보여 줍니다.
+## 개요
 
-다음 내용을 배웁니다.
+이 자습서에서는 웹 앱을 [앱 서비스](http://go.microsoft.com/fwlink/?LinkId=529714)에서 실행할 때 디버그할 수 있도록 지원하는 Visual Studio 도구를 사용하여 원격에서 [디버그 모드](http://www.visualstudio.com/ko-kr/get-started/debug-your-app-vs.aspx)를 실행하는 방법 또는 응용 프로그램 로그 및 웹 서버 로그를 보는 방법을 보여 줍니다.
 
-* Visual Studio에서 사용할 수 있는 Azure 사이트 관리 기능
-* Visual Studio 원격 뷰를 사용하여 원격 웹 사이트에서 빠르게 변경하는 방법
-* Azure에서 프로젝트를 실행하면서 원격으로 디버그 모드를 실행하는 방법
+학습할 내용:
+
+* Visual Studio에서 사용할 수 있는 Azure 웹 앱 관리 기능
+* Visual Studio 원격 뷰를 사용하여 원격 웹 앱에서 빠르게 변경하는 방법
+* 웹 응용 및 WebJob에 대한 프로젝트를 Azure에서 실행하는 동안 원격으로 디버그 모드를 실행하는 방법
 * 응용 프로그램 추적 로그를 만드는 방법 및 해당 로그가 생성될 때 이를 보는 방법
 * 자세한 오류 메시지 및 실패한 요청 추적을 포함하여 웹 서버 로그를 보는 방법
 * 진단 로그를 Azure 저장소 계정으로 보내고 해당 위치에서 로그를 보는 방법
 
 Visual Studio Ultimate가 있는 경우 [IntelliTrace](http://msdn.microsoft.com/library/vstudio/dd264915.aspx)를 디버그에 사용할 수도 있습니다. IntelliTrace는 이 자습서에서 다루지 않습니다.
 
-### 자습서 세그먼트
-
-- [필수 조건](#prerequisites)
-- [사이트 구성 및 관리](#sitemanagement)
-- [서버 탐색기에서 웹 사이트 파일 액세스](#remoteview)
-- [원격 디버깅](#remotedebug)
-	- 웹 사이트 원격 디버깅
-	- WebJob 원격 디버깅
-	- 원격 디버깅 관련 참고 사항 
-- [진단 로그 개요](#logsoverview)
-- [응용 프로그램 추적 로그 만들기 및 보기](#apptracelogs)
-- [웹 서버 로그 보기](#webserverlogs)
-- [자세한 오류 메시지 로그 보기](#detailederrorlogs)
-- [파일 시스템 로그 다운로드](#downloadlogs)
-- [저장소 로그 보기](#storagelogs)
-- [실패한 요청 로그 보기](#failedrequestlogs)
-- [다음 단계](#nextsteps)
-
 <h2><a name="prerequisites"></a>필수 조건</h2>
 
-이 자습서에서는 [Azure 및 ASP.NET 시작][GetStarted]에서 설정한 Azure 웹 사이트, 개발 환경 및 웹 프로젝트를 사용합니다. WebJob 섹션의 경우 [Azure WebJobs SDK 시작][GetStartedWJ]에서 만든 응용 프로그램이 필요합니다.
+이 자습서에서는 [Azure 및 ASP.NET 시작][GetStarted]에서 설정한 Azure 웹 앱, 개발 환경 및 웹 프로젝트를 사용합니다. WebJob 섹션의 경우 [Azure WebJobs SDK 시작][GetStartedWJ]에서 만든 응용 프로그램이 필요합니다.
 
 이 자습서에 제시된 코드 샘플은 C# MVC 웹 응용 프로그램용이지만 문제 해결 절차는 Visual Basic 및 Web Forms 응용 프로그램에도 동일하게 적용됩니다.
 
@@ -59,38 +43,38 @@ Visual Studio Ultimate가 있는 경우 [IntelliTrace](http://msdn.microsoft.com
 
 로그 스트리밍 기능은 .NET Framework 4 이상을 대상으로 하는 응용 프로그램에 대해서만 작동합니다.
 
-<h2><a name="sitemanagement"></a>사이트 구성 및 관리</h2>
+<h2><a name="sitemanagement"></a>웹 앱 구성 및 관리</h2>
 
-Visual Studio를 사용하면 관리 포털에서 사용할 수 있는 사이트 관리 기능 및 구성 설정의 일부에 액세스할 수 있습니다. 이 섹션에서는 사용할 수 있는 기능이 무엇인지 살펴보겠습니다.
+Visual Studio를 사용하면 [Azure 포털](http://go.microsoft.com/fwlink/?LinkId=529715)에서 사용할 수 있는 웹 앱 관리 기능 및 구성 설정의 일부에 액세스할 수 있습니다. 이 섹션에서는 사용할 수 있는 기능이 무엇인지 살펴보겠습니다.
 
 1. Visual Studio에서 Azure에 아직 로그인하지 않았으면 **서버 탐색기**에서 **Azure에 연결** 단추를 클릭합니다.
 
-	계정에 액세스할 수 있게 해 주는 또 다른 방법은 관리 인증서를 설치하는 것입니다. 관리 인증서는 추가 Azure 서비스(SQL 데이터베이스 및 모바일 서비스)에 대한 액세스 권한을 **서버 탐색기**에 부여합니다. 인증서를 설치하도록 선택한 경우 **서버 탐색기**에서 **Azure** 노드를 마우스 오른쪽 단추로 클릭한 후 상황에 맞는 메뉴에서 **구독 관리**를 클릭합니다. **Azure 구독 관리** 대화 상자에서 **인증서** 탭을 클릭한 후 **가져오기**를 클릭합니다. 지침에 따라 Azure 계정에 대한 구독 파일(*.publishsettings* 파일이라고도 함)을 다운로드하고 가져옵니다.
+	계정에 액세스할 수 있게 해 주는 또 다른 방법은 관리 인증서를 설치하는 것입니다. 인증서를 설치하도록 선택한 경우 **서버 탐색기**에서 **Azure** 노드를 마우스 오른쪽 단추로 클릭한 후 상황에 맞는 메뉴에서 **구독 관리**를 클릭합니다. **Azure 구독 관리** 대화 상자에서 **인증서** 탭을 클릭한 후 **가져오기**를 클릭합니다. 지침에 따라 Azure 계정에 대한 구독 파일(*.publishsettings* 파일이라고도 함)을 다운로드하고 가져옵니다.
 
 	> [AZURE.NOTE]
 	> 구독 파일을 다운로드한 경우 소스 코드 디렉터리 외부 폴더(예: Downloads 폴더)에 구독 파일을 저장한 다음 가져오기가 완료되면 해당 파일을 삭제해야 합니다. 악의적인 사용자가 구독 파일에 액세스할 경우 Azure 서비스를 편집, 생성 및 삭제할 수 있습니다.
 
 	Visual Studio에서 Azure 리소스에 연결하는 방법에 대한 자세한 내용은 [계정, 구독 및 관리 역할 관리](http://go.microsoft.com/fwlink/?LinkId=324796#BKMK_AccountVCert)를 참조하세요.
 
-2. **서버 탐색기**에서 **Azure**를 확장한 후 **웹 사이트**를 확장합니다.
+2. **서버 탐색기**에서 **Azure**를 확장한 후 **웹 앱**을 확장합니다.
 
-3. [Azure 및 ASP.NET 시작][GetStarted]에서 만든 웹 사이트의 노드를 마우스 오른쪽 단추로 클릭한 후 **설정 보기**를 클릭합니다.
+3. [Azure 및 ASP.NET 시작][GetStarted]에서 만든 웹 앱의 노드를 마우스 오른쪽 단추로 클릭한 후 **설정 보기**를 클릭합니다.
 
 	![View Settings in Server Explorer](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-viewsettings.png)
 
-	**Azure 웹 사이트** 탭이 나타나면 이 탭에서 Visual Studio에서 사용할 수 있는 사이트 관리 및 구성 작업이 무엇인지 확인할 수 있습니다.
+	**Azure 웹 앱** 탭이 나타나면 이 탭에서 Visual Studio에서 사용할 수 있는 웹 앱 관리 및 구성 작업이 무엇인지 확인할 수 있습니다.
 
-	![Azure Website window](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-configtab.png)
+	![Azure Web App window](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-configtab.png)
 
-	이 자습서에서는 로깅 및 추적 드롭다운을 사용합니다.	원격 디버깅도 사용하지만 이를 사용하도록 설정하는 방법은 다른 방법을 사용하게 될 것입니다.
+	이 자습서에서는 로깅 및 추적 드롭다운을 사용합니다. 원격 디버깅도 사용하지만 이를 사용하도록 설정하는 방법은 다른 방법을 사용하게 될 것입니다.
    
-	이 창에 있는 응용 프로그램 설정 및 연결 문자열 상자에 대한 자세한 내용은 [Azure 웹 사이트: 응용 프로그램 설정 및 연결 문자열 작동 방식](http://blogs.msdn.com/b/windowsazure/archive/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work.aspx)을 참조하세요.
+	이 창에 있는 응용 프로그램 설정 및 연결 문자열 상자에 대한 자세한 내용은 [Azure 웹 앱: 응용 프로그램 문자열 및 연결 문자열 작동 방식](http://blogs.msdn.com/b/windowsazure/archive/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work.aspx)을 참조하세요.
 
-	이 창에서 지원하지 않는 사이트 관리 작업을 수행하려는 경우 **Full Website Settings(전체 웹 사이트 설정)**를 클릭하여 브라우저 창에서 관리 포털을 열 수 있습니다. 자세한 내용은 [웹 사이트를 구성하는 방법](/ko-kr/manage/services/web-sites/how-to-configure-websites/#howtochangeconfig).을 참조하세요
+	이 창에서 지원하지 않는 웹 앱 관리 작업을 수행하려는 경우 **Full Website Settings(전체 웹 사이트 설정)**를 클릭하여 브라우저 창에서 관리 포털을 열 수 있습니다. 자세한 내용은 [웹 앱을 구성하는 방법](/ko-kr/manage/services/web-sites/how-to-configure-websites/#howtochangeconfig)을 참조하세요
 
-<h2><a name="remoteview"></a>서버 탐색기에서 웹 사이트 파일 액세스</h2>
+<h2><a name="remoteview"></a>서버 탐색기에서 웹 앱 파일 액세스</h2>
 
-일반적으로 Web.config 파일에서  `customErrors` 플래그를  `On` 또는  `RemoteOnly`로 설정한 상태로 사이트가 배포되기 때문에 문제가 발생한 경우 유용한 오류 메시지를 받지 못합니다. 받을 수 있는 대부분의 오류는 모두 다음 중 하나와 유사합니다.
+일반적으로 Web.config 파일에서  `customErrors` 플래그를  `On` 또는  `RemoteOnly`로 설정한 상태로 웹 프로젝트가 배포되기 때문에 문제가 발생한 경우 유용한 오류 메시지를 받지 못합니다. 받을 수 있는 대부분의 오류는 모두 다음 중 하나와 유사합니다.
 
 **'/' 응용 프로그램 서버 오류:**
 
@@ -104,11 +88,11 @@ Visual Studio를 사용하면 관리 포털에서 사용할 수 있는 사이트
 
 ![Unhelpful error page](./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror2.png)
 
-오류의 원인을 찾는 가장 쉬운 방법은 주로 자세한 오류 메시지를 사용하도록 설정하는 것입니다. 이전 스크린샷 중 첫 번째 스크린샷에 그 방법이 설명되어 있습니다. 자세한 오류 메시지를 사용하도록 설정하려면 배포된 Web.config 파일의 내용을 변경해야 합니다. 프로젝트에서  *Web.config* 파일을 편집한 후 프로젝트를 다시 배포하거나 [Web.config 변환](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/web-config-transformations)을 만들고 디버그 빌드를 배포할 수도 있지만 더 빠른 방법이 있습니다. **솔루션 탐색기**에서  *remote view* 기능을 사용하면 원격 사이트의 파일을 직접 보고 편집할 수 있습니다.
+오류의 원인을 찾는 가장 쉬운 방법은 주로 자세한 오류 메시지를 사용하도록 설정하는 것입니다. 이전 스크린샷 중 첫 번째 스크린샷에 그 방법이 설명되어 있습니다. 자세한 오류 메시지를 사용하도록 설정하려면 배포된 Web.config 파일의 내용을 변경해야 합니다. 프로젝트에서  *Web.config* 파일을 편집한 후 프로젝트를 다시 배포하거나 [Web.config 변환](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/web-config-transformations)을 만들고 디버그 빌드를 배포할 수도 있지만 더 빠른 방법이 있습니다. **솔루션 탐색기**에서  *remote view* 기능을 사용하면 원격 웹 앱의 파일을 직접 보고 편집할 수 있습니다.
 
-1. **서버 탐색기**에서 **Azure**, **웹 사이트**를 차례로 확장한 후 프로젝트를 배포할 웹 사이트의 노드를 확장합니다.
+1. **서버 탐색기**에서 **Azure**, **웹 앱**을 차례로 확장한 후 프로젝트를 배포할 웹 앱의 노드를 확장합니다.
 
-	표시되는 노드를 통해 웹 사이트의 콘텐츠 파일 및 로그 파일에 액세스할 수 있습니다.
+	표시되는 노드를 통해 웹 앱의 콘텐츠 파일 및 로그 파일에 액세스할 수 있습니다.
 
 	![File and log files](./media/web-sites-dotnet-troubleshoot-visual-studio/fileandlogfiles.png)
 
@@ -116,7 +100,7 @@ Visual Studio를 사용하면 관리 포털에서 사용할 수 있는 사이트
 
 	![Open Web.config](./media/web-sites-dotnet-troubleshoot-visual-studio/webconfig.png)
 
-	원격 사이트의 Visual Studio에서 Web.config 파일이 열리고 제목 표시줄의 파일 이름 옆에 [원격]이 표시됩니다.
+	원격 앱의 Visual Studio에서 Web.config 파일이 열리고 제목 표시줄의 파일 이름 옆에 [원격]이 표시됩니다.
 
 3.  `system.web` 요소에 다음 줄을 추가합니다.
 
@@ -130,7 +114,7 @@ Visual Studio를 사용하면 관리 포털에서 사용할 수 있는 사이트
 
 	(표시된 오류는 빨간색으로 표시된 줄이  *Views\Home\Index.cshtml*에 추가되어 생성됨)
 
-Web.config 파일을 편집하는 방법은 문제를 더 쉽게 해결할 수 있도록 Azure 웹 사이트의 파일 읽기/편집 기능을 사용하는 한 가지 예에 지나지 않습니다.
+Web.config 파일을 편집하는 방법은 문제를 더 쉽게 해결할 수 있도록 Azure 웹 앱의 파일 읽기/편집 기능을 사용하는 한 가지 예에 지나지 않습니다.
 
 <h2><a name="remotedebug"></a>원격 디버깅</h2>
 
@@ -138,7 +122,7 @@ Web.config 파일을 편집하는 방법은 문제를 더 쉽게 해결할 수 �
 
 원격 디버깅은 Visual Studio의 Express Edition에서 작동하지 않습니다.
 
-### 웹 사이트 원격 디버깅
+### 원격 디버깅 웹 앱
 
 이 섹션에서는 [Azure 및 ASP.NET 시작][GetStarted]에서 만든 프로젝트를 사용하여 원격으로 디버그하는 방법을 보여 줍니다.
 
@@ -155,7 +139,7 @@ Web.config 파일을 편집하는 방법은 문제를 더 쉽게 해결할 수 �
             return View();
         }
 
-2.  `ViewBag.Message` 줄에 [중단점을 설정](http://www.visualstudio.com/ko-kr/get-started/debug-your-app-vs.aspx)합니다.
+2.  `ViewBag.Message` 줄에 [중단점을 설정](http://www.visualstudio.com/get-started/debug-your-app-vs.aspx)합니다.
 
 1. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 클릭합니다.
 
@@ -165,35 +149,33 @@ Web.config 파일을 편집하는 방법은 문제를 더 쉽게 해결할 수 �
 
 	![Publish in debug mode](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-publishdebug.png)
 
-4. 배포를 마치고 브라우저에 사이트의 Azure URL이 열리면 브라우저를 닫습니다.
+4. 배포를 마치고 브라우저에 웹 앱의 Azure URL이 열리면 브라우저를 닫습니다.
 
-5. Visual Studio 2013의 경우: **서버 탐색기**에서 **Azure**, **웹 사이트**를 차례로 확장하고 웹 사이트를 마우스 오른쪽 단추로 클릭한 다음 **디버거 연결**을 클릭합니다. 
+5. Visual Studio 2013의 경우: **서버 탐색기**에서 **Azure**, **웹 앱**을 차례로 확장하고 웹 앱을 마우스 오른쪽 단추로 클릭한 다음 **디버거 연결**을 클릭합니다. 
 
 	![Attach debugger](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-attachdebugger.png)
 
-	브라우저에 Azure에서 실행되는 홈페이지가 자동으로 열립니다. Azure에서 디버깅용 서버를 설정할 때까지 약 20초 정도 기다려야 할 수 있습니다. 이 지연은 웹 사이트에서 디버그 모드를 처음 실행하는 경우에만 발생합니다. 이후 48시간 내에 디버그를 다시 시작하면 지연이 발생하지 않습니다.
+	브라우저에 Azure에서 실행되는 홈페이지가 자동으로 열립니다. Azure에서 디버깅용 서버를 설정할 때까지 약 20초 정도 기다려야 할 수 있습니다. 이 지연은 웹 앱에서 디버그 모드를 처음 실행하는 경우에만 발생합니다. 이후 48시간 내에 디버그를 다시 시작하면 지연이 발생하지 않습니다.
 
 6. Visual Studio 2012 Update 4의 경우:<a id="vs2012"></a>
 
-	* Azure 관리 포털에서 사용자 웹 사이트의 **구성** 탭으로 이동하고 **사이트 진단** 섹션까지 아래로 스크롤합니다.
+	* Azure 관리 포털에서 사용자 웹 앱의 **설정 > 응용 프로그램 설정**으로 이동하고 **디버깅** 섹션까지 아래로 스크롤합니다.
 
 	* **원격 디버깅**을 **켜기**로 설정하고 **원격 디버깅 Visual Studio 버전**을 **2012**로 설정합니다.
 
-	![Set remote debugging in management portal](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-debuginportal.png)
-   
 	* Visual Studio **디버그** 메뉴에서 **프로세스에 연결**을 클릭합니다.
 
-	* **한정자** 상자에서 웹 사이트의 URL을 `http://` 접두사 없이 입력합니다. 
+	* **한정자** 상자에서 웹 앱의 URL을 `http://` 접두사 없이 입력합니다. 
 
 	* **모든 사용자의 프로세스 표시**를 선택합니다.
 
-	* 자격 증명을 묻는 메시지가 표시되면 웹 사이트 게시에 대한 사용 권한이 있는 사용자 이름 및 암호를 입력합니다. 이러한 자격 증명을 확인하려면 관리 포털에서 사용자의 웹 사이트에 대한 대시보드 탭으로 이동한 후 **게시 프로필 다운로드**를 클릭합니다. 텍스트 편집기에서 파일을 열고 첫 번째로 검색되는 **userName=** 및 **userPWD=** 다음의 사용자 이름과 암호를 찾습니다. 
+	* 자격 증명을 묻는 메시지가 표시되면 웹 앱에 콘텐츠 배포에 대한 사용 권한이 있는 사용자 이름 및 암호를 입력합니다. 이러한 자격 증명을 확인하려면 관리 포털에서 사용자의 웹 사이트에 대한 대시보드 탭으로 이동한 후 **게시 프로필 다운로드**를 클릭합니다. 텍스트 편집기에서 파일을 열고 첫 번째로 검색되는 **userName=** 및 **userPWD=** 다음의 사용자 이름과 암호를 찾습니다. 
 
 	* **사용 가능한 프로세스** 테이블에 프로세스가 나타나는 경우 **w3wp.exe**를 선택하고 **연결**을 클릭합니다.
 
-	* 브라우저에서 사이트 URL을 엽니다.
+	* 웹 앱의 URL로 브라우저를 엽니다.
 
-	Azure에서 디버깅용 서버를 설정할 때까지 약 20초 정도 기다려야 할 수 있습니다. 이 지연은 웹 사이트에서 디버그 모드를 처음 실행하는 경우에만 발생합니다. 이후 48시간 내에 디버그를 다시 시작하면 지연이 발생하지 않습니다.
+	Azure에서 디버깅용 서버를 설정할 때까지 약 20초 정도 기다려야 할 수 있습니다. 이 지연은 웹 앱에서 디버그 모드를 처음 실행하는 경우에만 발생합니다. 이후 48시간 내에 디버그를 다시 시작하면 지연이 발생하지 않습니다.
 
 6. 메뉴에서 **정보**를 클릭합니다.
 
@@ -215,31 +197,31 @@ Web.config 파일을 편집하는 방법은 문제를 더 쉽게 해결할 수 �
 
 ### <a name="remotedebugwj"></a> WebJob 원격 디버깅
 
-이 섹션에서는 [Azure WebJobs SDK 시작](../websites-dotnet-webjobs-sdk)에서 만든 프로젝트 및 웹 사이트를 사용하여 원격으로 디버그하는 방법을 보여 줍니다 이 섹션에 표시된 기능은 Visual Studio 2013 업데이트 4에서만 사용할 수 있습니다.
+이 섹션에서는 [Azure WebJob SDK 시작](websites-dotnet-webjobs-sdk.md)에서 만든 프로젝트 및 웹 앱을 사용하여 원격으로 디버그하는 방법을 보여 줍니다 이 섹션에 표시된 기능은 Visual Studio 2013 업데이트 4에서만 사용할 수 있습니다.
 
 1. [Azure WebJobs SDK 시작][GetStartedWJ]에서 만든 웹 프로젝트를 엽니다.
 
 1. ContosoAdsWebJob 프로젝트에서  *Functions.cs*를 엽니다.
 
-2.  `GnerateThumbnail` 메서드의 첫 번째 문에 [중단점을 설정](http://www.visualstudio.com/ko-kr/get-started/debug-your-app-vs.aspx)합니다.
+2.  `GnerateThumbnail` 메서드의 첫 번째 문에 [중단점을 설정](http://www.visualstudio.com/get-started/debug-your-app-vs.aspx)합니다.
 
 	![Set breakpoint](./media/web-sites-dotnet-troubleshoot-visual-studio/wjbreakpoint.png)
 
-1. **솔루션 탐색기**에서 WebJob 프로젝트가 아니라 웹 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 클릭합니다.
+1. **솔루션 탐색기**, 에서 WebJob 프로젝트가 아니라 웹 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 클릭합니다.
 
-2. [Azure WebJobs SDK 시작](../websites-dotnet-webjobs-sdk)에서 사용한 프로필과 동일한 프로필을 **프로필** 드롭다운 목록에서 선택합니다
+2. [Azure WebJobs SDK 시작](websites-dotnet-webjobs-sdk.md)에서 사용한 프로필과 동일한 프로필을 **프로필** 드롭다운 목록에서 선택합니다.
 
 3. **설정** 탭을 클릭하고 **구성**을 **디버그**로 변경한 후 **게시**를 클릭합니다.
 
-	Visual Studio에서 웹 프로젝트와 WebJob 프로젝트를 배포하며 브라우저에서 사이트의 Azure URL이 열립니다.
+	Visual Studio에서 웹 및 WebJob 프로젝트를 배포하며 브라우저에서 웹 앱의 Azure URL이 열립니다.
 
-5. **서버 탐색기**에서 **Azure** > **웹 사이트** > 해당 웹 사이트 > **WebJobs** > **연속**을 확장하고 **ContosoAdsWebJob**을 마우스 오른쪽 단추로 클릭합니다.
+5. **서버 탐색기**에서 **Azure** > **웹 앱** > 해당 웹 앱 > **WebJob** > **연속**을 확장하고 **ContosoAdsWebJob**을 마우스 오른쪽 단추로 클릭합니다.
 
 7. **디버거 연결**을 클릭합니다. 
 
 	![Attach debugger](./media/web-sites-dotnet-troubleshoot-visual-studio/wjattach.png)
 
-	브라우저에 Azure에서 실행되는 홈페이지가 자동으로 열립니다. Azure에서 디버깅용 서버를 설정할 때까지 약 20초 정도 기다려야 할 수 있습니다. 이 지연은 웹 사이트에서 디버그 모드를 처음 실행하는 경우에만 발생합니다. 48시간 이내에 수행하는 경우 다음에 디버거를 연결할 때는 지연이 발생하지 않습니다.
+	브라우저에 Azure에서 실행되는 홈페이지가 자동으로 열립니다. Azure에서 디버깅용 서버를 설정할 때까지 약 20초 정도 기다려야 할 수 있습니다. 이 지연은 웹 앱에서 디버그 모드를 처음 실행하는 경우에만 발생합니다. 48시간 이내에 수행하는 경우 다음에 디버거를 연결할 때는 지연이 발생하지 않습니다.
 
 6. Contoso Ads 홈페이지로 열리는 웹 브라우저에서 새 광고를 만듭니다. 
 
@@ -271,15 +253,15 @@ Web.config 파일을 편집하는 방법은 문제를 더 쉽게 해결할 수 �
 
 	![Function details](./media/web-sites-dotnet-troubleshoot-visual-studio/funcdetails.png)
 
-함수에서 [로그가 작성](../websites-dotnet-webjobs-sdk-storage-queues-how-to/#logs)되었으면 **ToggleOutput**을 클릭하여 확인할 수 있습니다.
+함수에서 [로그가 작성](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#logs)되었으면 **ToggleOutput**을 클릭하여 확인할 수 있습니다.
 
 ### 원격 디버깅 관련 참고 사항
 
-* 프로덕션 사이트에서 디버그 모드로 실행하는 것은 권장되지 않습니다. 프로덕션 사이트가 여러 서버 인스턴스로 확장되지 않은 경우 디버깅으로 인해 웹 서버에서 다른 요청에 응답할 수 없습니다. 여러 웹 서버 인스턴스를 배포하여 이들을 디버거에 연결한 경우 디버깅은 임의 인스턴스에서 실행되므로 후속 브라우저 요청이 해당 인스턴스로 이동하도록 보장할 수 있는 방법이 없습니다. 또한 일반적으로는 프로덕션 사이트에 디버그 빌드를 배포하지 않는데 이는 릴리스 빌드용 컴파일러 최적화로 인해 현재 진행되는 상황이 소스 코드에 자세히 표시되는 것이 불가능하기 때문입니다. 프로덕션 문제를 해결하는 데는 응용 프로그램 추적 및 웹 서버 로그가 최적의 리소스입니다.
+* 프로덕션 사이트에서 디버그 모드로 실행하는 것은 권장되지 않습니다. 프로덕션 웹 앱이 여러 서버 인스턴스로 확장되지 않은 경우 디버깅으로 인해 웹 서버에서 다른 요청에 응답할 수 없습니다. 여러 웹 서버 인스턴스를 배포하여 이들을 디버거에 연결한 경우 디버깅은 임의 인스턴스에서 실행되므로 후속 브라우저 요청이 해당 인스턴스로 이동하도록 보장할 수 있는 방법이 없습니다. 또한 일반적으로는 프로덕션 사이트에 디버그 빌드를 배포하지 않는데 이는 릴리스 빌드용 컴파일러 최적화로 인해 현재 진행되는 상황이 소스 코드에 자세히 표시되는 것이 불가능하기 때문입니다. 프로덕션 문제를 해결하는 데는 응용 프로그램 추적 및 웹 서버 로그가 최적의 리소스입니다.
 
 * 원격 디버깅 시 중단점에서 장시간 중지하지 않도록 합니다. 몇 분 이상 중지된 프로세스는 Azure에서 응답하지 않는 프로세스로 간주되어 종료되기 때문입니다.
 
-* 디버그하는 동안 서버는 데이터를 Visual Studio로 보내며, 이로 인해 대역폭 사용 요금에 영향을 줄 수 있습니다. 대역폭 요금에 대한 자세한 내용은 [Azure 가격 책정](/ko-kr/pricing/calculator/)을 참조하세요
+* 디버그하는 동안 서버는 데이터를 Visual Studio로 보내며, 이로 인해 대역폭 사용 요금에 영향을 줄 수 있습니다. 대역폭 요금에 대한 자세한 내용은 [Azure 가격 책정](/pricing/calculator/)을 참조하세요
 
 *  *Web.config* 파일에서  `compilation` 요소의  `debug`  특성이 true로 설정되어 있어야 합니다. 디버그 빌드 구성을 게시하면 기본적으로 true로 설정됩니다.
 
@@ -292,24 +274,24 @@ Web.config 파일을 편집하는 방법은 문제를 더 쉽게 해결할 수 �
 
 * 원격 디버깅 기능을 사용하도록 설정하면 서버의 타이머가 시작되고 48시간 후 기능이 자동으로 꺼집니다. 이 48시간 제한은 보안 및 성능상의 이유로 제한됩니다. 원하는 횟수만큼 기능을 쉽게 다시 켤 수 있습니다. 디버깅을 활발히 사용하지 않는 경우 이를 사용하지 않는 상태로 두는 것이 좋습니다.
 
-* 웹 사이트 프로세스(w3wp.exe)뿐만 아니라 모든 프로세스에 디버거를 수동으로 연결할 수 있습니다. Visual Studio에서 디버그 모드를 사용하는 방법에 대한 자세한 내용은 [Visual Studio의 디버깅](http://msdn.microsoft.com/library/vstudio/sc65sadd.aspx)을 참조하세요.
+* 웹 앱 프로세스(w3wp.exe)뿐만 아니라 모든 프로세스에 디버거를 수동으로 연결할 수 있습니다. Visual Studio에서 디버그 모드를 사용하는 방법에 대한 자세한 내용은 [Visual Studio의 디버깅](http://msdn.microsoft.com/library/vstudio/sc65sadd.aspx)을 참조하세요.
 
 <h2><a name="logsoverview"></a>진단 로그 개요</h2>
 
-Azure 웹 사이트에서 실행하는 ASP.NET 응용 프로그램은 다음과 같은 종류의 로그를 생성할 수 있습니다.
+Azure 웹 앱에서 실행하는 ASP.NET 응용 프로그램은 다음과 같은 종류의 로그를 생성할 수 있습니다.
 
 * **응용 프로그램 추적 로그**<br/>
   응용 프로그램은 [System.Diagnostics.Trace](http://msdn.microsoft.com/library/system.diagnostics.trace.aspx) 클래스의 메서드를 호출하여 추적 로그를 생성합니다.
 * **웹 서버 로그**<br/>
-  웹 서버는 사이트에 대한 모든 HTTP 요청에 대해 로그 항목을 생성합니다.
+  웹 서버는 웹 앱에 대한 모든 HTTP 요청에 대해 로그 항목을 생성합니다.
 * **자세한 오류 메시지 로그**<br/>
   웹 서버는 실패한 HTTP 요청(상태 코드 400 이상으로 인해 발생한 오류)에 대해 일부 추가 정보가 수록된 HTML 페이지를 생성합니다. 
 * **실패한 요청 추적 로그**<br/>
   웹 서버는 실패한 HTTP 요청에 대한 자세한 추적 정보가 수록된 XML 파일을 생성합니다. 또한 웹 서버는 브라우저에서 XML 파일 형식으로 지정할 수 있도록 XSL 파일도 제공합니다.
   
-로깅 기능을 사용하면 사이트 성능에 영향을 미칠 수 있으므로 Azure에서는 필요에 따라 각 로그 유형을 사용 또는 사용하지 않도록 설정할 수 있는 기능이 제공됩니다. 응용 프로그램 로그의 경우 특정 심각도 수준 이상의 로그만 작성되도록 지정할 수 있습니다. 새 웹 사이트를 만들 때 기본적으로 모든 로깅은 사용하지 않도록 설정됩니다.
+로깅 기능을 사용하면 웹 앱 성능에 영향을 미칠 수 있으므로 Azure에서는 필요에 따라 각 로그 유형을 사용 또는 사용하지 않도록 설정할 수 있는 기능이 제공됩니다. 응용 프로그램 로그의 경우 특정 심각도 수준 이상의 로그만 작성되도록 지정할 수 있습니다. 새 웹 앱을 만들 때 기본적으로 모든 로깅은 사용하지 않도록 설정됩니다.
 
-로그 파일은 웹 사이트의 파일 시스템에 있는  *LogFiles* 폴더의 파일에 기록되며 FTP를 통해 액세스할 수 있습니다. 웹 서버 로그 및 응용 프로그램 로그는 또한 Azure 저장소 계정에도 기록될 수 있습니다. 저장소 계정에서는 파일 시스템에서 보존할 수 있는 로그보다 훨씬 많은 볼륨의 로그를 보존할 수 있습니다. 파일 시스템을 사용하는 경우 최대 100MB의 로그로 제한됩니다. 참고로, 파일 시스템 로그는 단기 보존용입니다. 제한값에 도달한 경우 Azure는 새 로그를 위한 공간을 만들기 위해 오래된 로그 파일을 삭제합니다.  
+로그 파일은 웹 앱의 파일 시스템에 있는  *LogFiles* 폴더의 파일에 기록되며 FTP를 통해 액세스할 수 있습니다. 웹 서버 로그 및 응용 프로그램 로그는 또한 Azure 저장소 계정에도 기록될 수 있습니다. 저장소 계정에서는 파일 시스템에서 보존할 수 있는 로그보다 훨씬 많은 볼륨의 로그를 보존할 수 있습니다. 파일 시스템을 사용하는 경우 최대 100MB의 로그로 제한됩니다. 참고로, 파일 시스템 로그는 단기 보존용입니다. 제한값에 도달한 경우 Azure는 새 로그를 위한 공간을 만들기 위해 오래된 로그 파일을 삭제합니다.  
 
 <h2><a name="apptracelogs"></a>응용 프로그램 추적 로그 만들기 및 보기</h2>
 
@@ -319,7 +301,7 @@ Azure 웹 사이트에서 실행하는 ASP.NET 응용 프로그램은 다음과 
 * 프로젝트를 로컬로 실행하는 경우 로그 보기
 * Azure에서 실행하는 응용 프로그램에서 생성된 로그 보기 
 
-WebJob에서 응용 프로그램을 만드는 방법에 대한 자세한 내용은 [WebJobs SDK를 사용하여 Azure 큐 저장소 작업을 하는 방법 - 로그를 쓰는 방법](../websites-dotnet-webjobs-sdk-storage-queues-how-to/#logs)을 참조하세요. 로그를 보고 로그가 Azure에 저장되는 방식을 제어하는 다음 지침은 WebJobs에서 만든 응용 프로그램 로그에도 적용됩니다. 
+WebJob에서 응용 프로그램 로그를 만드는 방법에 대한 자세한 내용은 [WebJob SDK를 사용하여 Azure 큐 저장소 작업을 하는 방법 - 로그를 쓰는 방법](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#logs)을 참조하세요. 로그를 보고 로그가 Azure에 저장되는 방식을 제어하는 다음 지침은 WebJob에서 만든 응용 프로그램 로그에도 적용됩니다. 
 
 ### 응용 프로그램에 추적 문 추가
 
@@ -377,7 +359,7 @@ WebJob에서 응용 프로그램을 만드는 방법에 대한 자세한 내용�
 
 	다음 단계는 디버그 모드에서 컴파일하지 않고 웹 페이지에서 추적 출력을 보는 방법을 보여 줍니다.
 
-2. 프로젝트 폴더에 위치한 응용 프로그램 Web.config 파일을 열고 파일 끝에 있는 닫는 `</configuration>` 요소 바로 앞에 `<system.diagnostics>` 요소를 추가합니다.
+2. 프로젝트 폴더에 위치한 응용 프로그램 Web.config 파일을 열고 파일 끝에 있는 닫는 '</configuration>' 요소 바로 앞에 '<system.diagnostics>' 요소를 추가합니다.
 
   		<system.diagnostics>
 		    <trace>
@@ -400,7 +382,7 @@ WebJob에서 응용 프로그램을 만드는 방법에 대한 자세한 내용�
 
 3. Ctrl+F5를 눌러 응용 프로그램을 실행합니다.
 
-4. 브라우저 창의 주소 표시줄에서  *trace.axd*를 URL에 추가한 후 Enter 키를 누릅니다. URL은 http://localhost:53370/trace.axd와 유사해집니다.
+4. 브라우저 창의 주소 표시줄에서  *trace.axd*를 URL에 추가한 후 Enter 키를 누릅니다.(URL은 http://localhost:53370/trace.axd와 유사해집니다.)
 
 5. **응용 프로그램 추적** 페이지에서 BrowserLink 줄이 아니라 첫 번째 줄에 있는 **자세히 보기**를 클릭합니다.
 
@@ -410,11 +392,11 @@ WebJob에서 응용 프로그램을 만드는 방법에 대한 자세한 내용�
 
 	![trace.axd](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd2.png)
 
-	기본적으로  `trace.axd`는 로컬에서만 사용할 수 있습니다. 원격 사이트에서 사용할 수 있도록 만들려면 다음 예에 표시된 것처럼  *Web.config* 파일의  `trace` 요소에 'localOnly="false"'를 추가하면 됩니다.
+	기본적으로  `trace.axd`는 로컬에서만 사용할 수 있습니다. 원격 웹 앱에서 사용할 수 있도록 만들려면 다음 예에 표시된 것처럼  *Web.config* 파일의  `localOnly="false"` to the `trace` 요소에 'localOnly="false"'를 추가하면 됩니다.
 
 		<trace enabled="true" writeToDiagnosticsTrace="true" localOnly="false" mostRecent="true" pageOutput="false" />
 
-	하지만 보안상의 이유로 프로덕션 사이트에서  `trace.axd`를 사용하도록 설정하는 것은 일반적으로 권장되지 않습니다. 다음 섹션에서는 Azure 웹 사이트의 추적 로그를 더 쉽게 읽을 수 있는 방법을 확인할 수 있습니다.
+	하지만 보안상의 이유로 프로덕션 웹 앱에서  `trace.axd`를 사용하도록 설정하는 것은 일반적으로 권장되지 않습니다. 다음 섹션에서는 Azure 웹 앱의 추적 로그를 더 쉽게 읽을 수 있는 방법을 확인할 수 있습니다.
 
 ### Azure에서 추적 출력 보기
 
@@ -424,7 +406,7 @@ WebJob에서 응용 프로그램을 만드는 방법에 대한 자세한 내용�
 
 	**연결** 탭의 **대상 URL**을 선택 취소하지 않은 경우 Visual Studio에서 업데이트가 게시된 후 브라우저 창이 열리고 해당 홈페이지가 표시됩니다.
 
-3. **서버 탐색기**에서 웹 사이트를 마우스 오른쪽 단추로 클릭하고 **스트리밍 로그 보기**를 선택합니다. 
+3. **서버 탐색기**에서 웹 앱을 마우스 오른쪽 단추로 클릭하고 **스트리밍 로그 보기**를 선택합니다. 
 
 	![View Streaming Logs in context menu](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-viewlogsmenu.png)
 
@@ -438,14 +420,14 @@ WebJob에서 응용 프로그램을 만드는 방법에 대한 자세한 내용�
 
 	![Error trace in Output window](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-errortrace.png)
 
-	로그 모니터링 서비스를 사용하도록 설정하는 경우 오류 수준의 추적이 기본 설정이므로 Visual Studio에는 오류 수준의 추적만 표시됩니다. 새 Azure 웹 사이트를 만드는 경우 이전에 사이트 설정 페이지를 열고 확인한 것처럼 모든 로깅은 기본적으로 사용하지 않도록 설정됩니다.
+	로그 모니터링 서비스를 사용하도록 설정하는 경우 오류 수준의 추적이 기본 설정이므로 Visual Studio에는 오류 수준의 추적만 표시됩니다. 새 Azure 웹 앱을 만드는 경우 이전에 사이트 설정 페이지를 열고 확인한 것처럼 모든 로깅은 기본적으로 사용하지 않도록 설정됩니다.
 
 	![Application Logging off](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-apploggingoff.png)
 
 
 	하지만 **스트리밍 로그 보기**를 선택한 경우 Visual Studio에서 자동으로 **응용 프로그램 로깅(파일 시스템)**을 **오류**로 변경합니다. 이는 오류 수준의 로그가 보고된다는 의미입니다. 추적 로그를 모두 보려면 이 설정을 **자세한 정보 표시**로 변경할 수 있습니다. 심각도 수준을 오류보다 낮은 수준으로 선택하면 그보다 더 높은 심각도 수준의 모든 로그가 보고됩니다. 따라서 자세한 정보 표시를 선택하는 경우 정보, 경고 및 오류 로그도 볼 수 있습니다.  
 
-4. **서버 탐색기**에서 웹 사이트를 마우스 오른쪽 단추로 클릭하고 이전과 마찬가지로 **설정 보기**를 클릭합니다.
+4. **서버 탐색기**에서 웹 앱을 마우스 오른쪽 단추로 클릭하고 이전과 마찬가지로 **설정 보기**를 클릭합니다.
 
 5. **응용 프로그램 로깅(파일 시스템)**을 **자세한 정보 표시**로 변경하고 **저장**을 클릭합니다.
  
@@ -457,7 +439,7 @@ WebJob에서 응용 프로그램을 만드는 방법에 대한 자세한 내용�
 
 	![Verbose trace output](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-verbosetraces.png)
 
-	이 섹션에서는 Azure 웹 사이트 설정을 사용하여 로깅을 사용 및 사용하지 않도록 설정했습니다. 또한 Web.config 파일을 수정하여 추적 수신기를 사용 또는 사용하지 않도록 설정할 수도 있습니다. 하지만 Web.config 파일을 수정하면 앱 도메인이 재순환할 수 있습니다. 반면에 웹 사이트를 통해 로깅을 사용하도록 설정하면 재순환하지 않습니다. 문제를 재현하는 데 오랜 시간이 걸리는 경우 또는 문제가 일시적인 경우 앱 도메인을 재순환하면 문제가 "수정"되고 문제가 다시 발생할 때까지 강제로 대기해야 합니다. Azure에서 진단을 사용하도록 설정하면 이러한 상황이 발생하지 않으므로 오류 정보를 즉시 캡처하기 시작할 수 있습니다.
+	이 섹션에서는 Azure 웹 앱 설정을 사용하여 로깅을 사용 및 사용하지 않도록 설정했습니다. 또한 Web.config 파일을 수정하여 추적 수신기를 사용 또는 사용하지 않도록 설정할 수도 있습니다. 하지만 Web.config 파일을 수정하면 앱 도메인이 재순환할 수 있습니다. 반면에 웹 앱 구성을 통해 로깅을 사용하도록 설정하면 재순환하지 않습니다. 문제를 재현하는 데 오랜 시간이 걸리는 경우 또는 문제가 일시적인 경우 앱 도메인을 재순환하면 문제가 "수정"되고 문제가 다시 발생할 때까지 강제로 대기해야 합니다. Azure에서 진단을 사용하도록 설정하면 이러한 상황이 발생하지 않으므로 오류 정보를 즉시 캡처하기 시작할 수 있습니다.
 
 ### 출력 창 기능
 
@@ -479,9 +461,9 @@ WebJob에서 응용 프로그램을 만드는 방법에 대한 자세한 내용�
 
 <h2><a name="webserverlogs"></a>웹 서버 로그 보기</h2>
 
-웹 서버 로그는 사이트의 모든 HTTP 작업을 기록합니다. **출력** 창에서 웹 서버 로그를 보려면 사이트에서 이를 사용하도록 설정하고 Visual Studio에서 이들의 모니터링을 명시적으로 지정해야 합니다. 
+웹 서버 로그는 웹 앱의 모든 HTTP 작업을 기록합니다. **출력** 창에서 웹 서버 로그를 보려면 웹 앱에서 이를 사용하도록 설정하고 Visual Studio에서 이들의 모니터링을 명시적으로 지정해야 합니다. 
 
-1. **서버 탐색기**에서 열었던 **Azure 웹 사이트 구성** 탭에서 웹 서버 로깅을 **켜기**로 변경하고 **저장**을 클릭합니다.
+1. **서버 탐색기**에서 열었던 **Azure 웹 앱 구성** 탭에서 웹 서버 로깅을 **켜기**로 변경하고 **저장**을 클릭합니다.
 
 	![Enable web server logging](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-webserverloggingon.png)
 
@@ -493,22 +475,22 @@ WebJob에서 응용 프로그램을 만드는 방법에 대한 자세한 내용�
 
 	![Monitor web server logs](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-monitorwslogson.png)
 
-4. 웹 사이트가 표시되는 브라우저 창에서 **홈**을 클릭하고 **정보**를 클릭한 후 **연락처**를 클릭합니다.
+4. 웹 앱이 표시되는 브라우저 창에서 **홈**을 클릭하고 **정보**를 클릭한 후 **연락처**를 클릭합니다.
 
 	일반적으로 응용 프로그램 로그가 나타나고 다음으로 웹 서버 로그가 나타납니다. 로그가 나타날 때까지 잠시 기다려야 할 수 있습니다. 
 
 	![Web server logs in Output window](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-wslogs.png)
 
 
-기본적으로 Visual Studio를 사용하여 웹 서버 로그를 사용하도록 처음 설정하는 경우 Azure는 로그를 파일 시스템에 기록합니다. 또는, 관리 포털을 사용하여 웹 서버 로그가 저장소 계정의 Blob 컨테이너에 기록되도록 지정할 수 있습니다. 자세한 내용은 [웹 사이트를 구성하는 방법](/ko-kr/manage/services/web-sites/how-to-configure-websites/#howtochangeconfig)의 **사이트 진단** 섹션을 참조하세요. 
+기본적으로 Visual Studio를 사용하여 웹 서버 로그를 사용하도록 처음 설정하는 경우 Azure는 로그를 파일 시스템에 기록합니다. 또는, 관리 포털을 사용하여 웹 서버 로그가 저장소 계정의 Blob 컨테이너에 기록되도록 지정할 수 있습니다. 자세한 내용은 [웹 사이트를 구성하는 방법](/manage/services/web-sites/how-to-configure-websites/#howtochangeconfig)의 **사이트 진단** 섹션을 참조하십시오. 
 
 관리 포털을 사용하여 Azure 저장소 계정에 기록하도록 웹 서버 로깅을 설정한 후 Visual Studio에서 로깅을 사용하지 않도록 설정하면 Visual Studio에서 로깅을 사용하도록 다시 설정할 때 저장소 계정 설정이 복원됩니다. 
 
 <h2><a name="detailederrorlogs"></a>자세한 오류 메시지 로그 보기</h2>
 
-자세한 오류 로그에서는 오류 응답 코드(400 이상)를 유발한 HTTP 요청과 관련된 일부 추가 정보가 제공됩니다. **출력** 창에서 웹 서버 로그를 보려면 사이트에서 이를 사용하도록 설정하고 Visual Studio에서 이들의 모니터링을 명시적으로 지정해야 합니다.
+자세한 오류 로그에서는 오류 응답 코드(400 이상)를 유발한 HTTP 요청과 관련된 일부 추가 정보가 제공됩니다. **출력** 창에서 웹 서버 로그를 보려면 웹 앱에서 이를 사용하도록 설정하고 Visual Studio에서 이들의 모니터링을 명시적으로 지정해야 합니다.
 
-1. **서버 탐색기**에서 열었던 **Azure 웹 사이트 구성** 탭에서 **자세한 오류 메시지**를 **켜기**로 변경하고 **저장**을 클릭합니다.
+1. **서버 탐색기**에서 열었던 **Azure 웹 앱 구성** 탭에서 **자세한 오류 메시지**를 **켜기**로 변경하고 **저장**을 클릭합니다.
 
 	![Enable detailed error messages](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-detailedlogson.png)
 
@@ -545,14 +527,14 @@ WebJob에서 응용 프로그램을 만드는 방법에 대한 자세한 내용�
 	![Downloaded file](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-logfilefolders.png)
 
 	* 응용 프로그램 추적 로그는  *LogFiles\Application* 폴더에 *.txt* 파일로 기록됩니다.
-	* 웹 서버 로그는  *LogFiles\http\RawLogs* 폴더에 *.log* 파일로 기록됩니다. [Log Parser](http://www.microsoft.com/ko-kr/download/details.aspx?displaylang=en&id=24659) 같은 도구를 사용하여 이들 파일을 보고 조작할 수 있습니다.
+	* 웹 서버 로그는  *LogFiles\http\RawLogs* 폴더에 *.log* 파일로 기록됩니다. [Log Parser](http://www.microsoft.com/download/details.aspx?displaylang=en&id=24659) 같은 도구를 사용하여 이들 파일을 보고 조작할 수 있습니다.
 	* 자세한 오류 메시지 로그는  *LogFiles\DetailedErrors* 폴더에 *.html* 파일로 기록됩니다.
 
 	참고로,  *deployments* 폴더는 소스 제어 게시로 생성되는 파일용이며 Visual Studio 게시와는 전혀 관계가 없습니다.  *Git* 폴더는 소스 제어 게시 및 로그 파일 스트리밍 서비스와 관련된 추적 로그용입니다.  
 
 <h2><a name="storagelogs"></a>저장소 로그 보기</h2>
 
-응용 프로그램 추적 로그를 Azure 저장소 계정으로 보낼 수 있고 이들 로그를 Visual Studio에서 볼 수도 있습니다. 그러려면 저장소 계정을 만들고 관리 포털에서 저장소 로그를 사용하도록 설정한 후 **Azure 웹 사이트** 창의 **로그** 탭에서 보면 됩니다.
+응용 프로그램 추적 로그를 Azure 저장소 계정으로 보낼 수 있고 이들 로그를 Visual Studio에서 볼 수도 있습니다. 그러려면 저장소 계정을 만들고 관리 포털에서 저장소 로그를 사용하도록 설정한 후 **Azure 웹 앱** 창의 **로그** 탭에서 보면 됩니다.
 
 다음 세 대상 모두 또는 일부에 로그를 보낼 수 있습니다.
 
@@ -580,21 +562,22 @@ WebJob에서 응용 프로그램을 만드는 방법에 대한 자세한 내용�
 
 5. **지역 또는 선호도 그룹** 드롭다운 목록을 가장 가까운 지역으로 설정합니다.
 
-	이 설정은 저장소 계정을 호스트할 Azure 데이터 센터를 지정합니다. 이 자습서의 경우 어떤 항목을 선택해도 두드러진 차이를 느낄 수 없지만 프로덕션 사이트의 경우에는 대기 시간과 데이터 발신 요금을 최소화하기 위해 웹 서버와 저장소 계정을 동일한 지역에 두기 원할 것입니다. 나중에 만들게 될 웹 사이트는 대기 시간을 최소화하기 위해 사이트에 액세스하는 브라우저에 가능한 한 가깝게 지정합니다.
+	이 설정은 저장소 계정을 호스트할 Azure 데이터 센터를 지정합니다. 이 자습서의 경우 어떤 항목을 선택해도 두드러진 차이를 느낄 수 없지만 프로덕션 웹 앱의 경우에는 대기 시간과 데이터 발신 요금을 최소화하기 위해 웹 서버와 저장소 계정을 동일한 지역에 두기 원할 것입니다. 나중에 만들게 될 웹 앱은 대기 시간을 최소화하기 위해 웹 앱에 액세스하는 브라우저에 가능한 한 가까운 지역에서 실행합니다.
 
 6. **복제** 드롭다운 목록을 **로컬 중복**으로 설정합니다. 
 
-	저장소 계정에 대해 지역에서 복제를 사용하는 경우에는 저장된 콘텐츠가 보조 위치에 복제되어 기본 위치에서 주요 재해가 발생하는 경우 보조 데이터 센터로 장애 조치(Failover)할 수 있도록 합니다. 지역에서 복제는 추가 비용을 발생시킬 수 있습니다. 테스트 및 개발 계정의 경우 일반적으로 지역에서 복제 비용을 지불하지 않는 것이 좋습니다. 자세한 내용은 [저장소 계정 만들기, 관리 또는 삭제]를 참조하세요(../storage-create-storage-account/#replication-options).
+	저장소 계정에 대해 지역에서 복제를 사용하는 경우에는 저장된 콘텐츠가 보조 위치에 복제되어 기본 위치에서 주요 재해가 발생하는 경우 보조 데이터 센터로 장애 조치(Failover)할 수 있도록 합니다. 지역에서 복제는 추가 비용을 발생시킬 수 있습니다. 테스트 및 개발 계정의 경우 일반적으로 지역에서 복제 비용을 지불하지 않는 것이 좋습니다. 자세한 내용은 [저장소 계정 만들기, 관리 또는 삭제](../storage-create-storage-account/#replication-options)를 참조하세요.
 
 5. **만들기**를 클릭합니다. 
 
 	![New storage account](./media/web-sites-dotnet-troubleshoot-visual-studio/newstorage.png)	
 
-1. Visual Studio **Azure 웹 사이트** 창에서 **로그** 탭을 클릭한 다음 **관리 포털에서 로깅 구성**을 클릭합니다.
+1. Visual Studio **Azure 웹 앱** 창에서 **로그** 탭을 클릭한 다음 **관리 포털에서 로깅 구성**을 클릭합니다.
 
+    <!-- todo:screenshot of new portal if the VS page link goes to new portal -->
 	![Configure logging](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-configlogging.png)
 
-	웹 사이트에 대한 관리 포털에서 **구성** 탭이 열립니다. 여기로 이동하는 또 다른 방법은 **웹 사이트** 탭을 클릭하고, 웹 사이트를 클릭한 후 **구성** 탭을 클릭하는 것입니다.
+	웹 앱에 대한 관리 포털에서 **구성** 탭이 열립니다. 또는 **웹 앱** 탭을 클릭하고 사용자의 웹 앱을 클릭한 후 **구성** 탭을 클릭하여 구성 탭을 열 수도 있습니다.
 
 2. 관리 포털의 **구성** 탭에서 응용 프로그램 진단 섹션까지 아래로 스크롤한 후 **응용 프로그램 로깅(테이블 저장소)**을 **켜기**로 변경합니다.
 
@@ -612,11 +595,11 @@ WebJob에서 응용 프로그램을 만드는 방법에 대한 자세한 내용�
 
 6. 관리 포털의 **구성** 탭에서 **저장**을 클릭합니다.
 
-7. 응용 프로그램 웹 사이트가 표시되는 브라우저 창에서 **홈**을 클릭하고 **정보**를 클릭한 후 **연락처**를 클릭합니다.
+7. 응용 프로그램 웹 앱이 표시되는 브라우저 창에서 **홈**을 클릭하고 **정보**를 클릭한 후 **연락처**를 클릭합니다.
 
 	이들 웹 페이지를 탐색하는 동안 생성된 로깅 정보가 저장소 계정에 기록됩니다.
 
-8. Visual Studio의 **Azure 웹 사이트** 창에 있는 **로그** 탭에서 **진단 요약** 아래의 **새로 고침**을 클릭합니다.
+8. Visual Studio의 **Azure 웹 앱** 창에 있는 **로그** 탭에서 **진단 요약** 아래의 **새로 고침**을 클릭합니다.
 
 	![Click Refresh](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-refreshstorage.png)
 
@@ -634,11 +617,9 @@ WebJob에서 응용 프로그램을 만드는 방법에 대한 자세한 내용�
    
 	참고로, "시퀀스에 요소가 없습니다" 오류가 나타나면 **서버 탐색기**를 열고 **Azure** 노드 아래에서 해당 저장소 계정의 노드를 확장한 후 **테이블**을 마우스 오른쪽 단추로 클릭하고 **새로 고침**을 클릭합니다.
 
-	![서버 탐색기에서 추적 테이블](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-tracetableinse.png)
-
 	![Storage logs in table view](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-tracelogtableview.png)
 
-	이 보기에는 다른 보기에서 볼 수 없는 추가 필드가 표시됩니다. 이 보기에서는 또한 쿼리를 작성하는 특수 쿼리 작성기 UI를 사용하여 로그를 필터링할 수 있습니다. 자세한 내용은 [서버 탐색기를 사용하여 저장소 리소스 탐색](http://msdn.microsoft.com/library/windowsazure/ff683677.aspx)에서 "테이블 리소스 사용 - 엔터티 필터링"을 참조하세요.
+	이 보기에는 다른 보기에서 볼 수 없는 추가 필드가 표시됩니다. 이 보기에서는 또한 쿼리를 작성하는 특수 쿼리 작성기 UI를 사용하여 로그를 필터링할 수 있습니다. 자세한 내용은 [서버 탐색기를 사용하여 저장소 리소스 탐색](http://msdn.microsoft.com/library/ff683677.aspx)에서 "테이블 리소스 사용 - 엔터티 필터링"을 참조하세요.
 
 7. 단일 행에 대한 세부 정보를 보려면 행 중 하나를 두 번 클릭합니다.
 
@@ -648,37 +629,35 @@ WebJob에서 응용 프로그램을 만드는 방법에 대한 자세한 내용�
 
 실패한 요청 추적 로그는 URL 다시 쓰기 또는 인증 문제 등이 발생하는 경우 IIS에서 HTTP 요청이 처리되는 방식을 자세히 이해해야 하는 경우에 유용합니다. 
 
-Azure 웹 사이트는 IIS 7.0 이상 버전에서 사용할 수 있는 실패한 요청 추적 기능을 똑같이 사용합니다. 하지만 기록될 오류를 구성하는 IIS 설정에 대한 액세스 권한이 없습니다. 실패한 요청 추적을 사용하도록 설정하면 모든 오류가 캡처됩니다. 
+Azure 웹 앱은 IIS 7.0 이상 버전에서 사용할 수 있는 실패한 요청 추적 기능을 똑같이 사용합니다. 하지만 기록될 오류를 구성하는 IIS 설정에 대한 액세스 권한이 없습니다. 실패한 요청 추적을 사용하도록 설정하면 모든 오류가 캡처됩니다. 
 
 Visual Studio를 사용하여 실패한 요청 추적을 사용하도록 설정할 수 있지만 Visual Studio에서 해당 로그를 볼 수는 없습니다. 이러한 로그는 XML 파일입니다. 로그 스트리밍 서비스는 일반 텍스트 모드인  *.txt*, *.html* 및 *.log* 파일로 읽을 수 있는 것으로 간주되는 파일만 모니터링합니다.
 
 실패한 요청 추적 로그는 FTP를 통해 브라우저에서 직접 보거나 로컬에서 FTP 도구를 사용하여 로컬 컴퓨터에 다운로드한 후 볼 수 있습니다. 이 섹션에서는 브라우저에서 직접 보겠습니다.
 
-1. **서버 탐색기**에서 열었던 **Azure 웹 사이트** 창의 **구성** 탭에서 **실패한 요청 추적**을 **켜기**로 변경하고 **저장**을 클릭합니다.
+1. **서버 탐색기**에서 열었던 **Azure 웹 앱** 창의 **구성** 탭에서 **실패한 요청 추적**을 **켜기**로 변경하고 **저장**을 클릭합니다.
 
 	![Enable failed request tracing](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-failedrequeston.png)
 
-4. 웹 사이트가 표시된 브라우저 창의 주소 표시줄에서 추가 문자를 URL에 추가하고 Enter 키를 눌러 404 오류를 발생시킵니다.
+4. 웹 앱이 표시된 브라우저 창의 주소 표시줄에서 추가 문자를 URL에 추가하고 Enter 키를 눌러 404 오류를 발생시킵니다.
 
-	그러면 실패한 요청 추적 로그가 만들어집니다. 다은 단계는 로그를 보거나 다운로드하는 방법을 보여 줍니다.
+	그러면 실패한 요청 추적 로그가 만들어집니다. 다음 단계는 로그를 보거나 다운로드하는 방법을 보여 줍니다.
 
-2. Visual Studio의 **Azure 웹 사이트** 창에 있는 **구성** 탭에서 **관리 포털에서 열기**를 클릭합니다.
+2. Visual Studio의 **Azure 웹 앱** 창에 있는 **구성** 탭에서 **관리 포털에서 열기**를 클릭합니다.
 
-3. 관리 포털에서 **대시보드**를 클릭한 후 **빠른 보기** 섹션의 **배포 자격 증명 재설정**을 클릭합니다.
-
-	![Reset FTP credentials link in Dashboard](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-resetftpcredentials.png)
+3. 웹 앱에 대한 관리 포털 블레이드에서 **모든 설정 > 배포 자격 증명**을 클릭하고 **배포 자격 증명 재설정**을 클릭합니다.
 
 4. 새 사용자 이름 및 암호를 입력합니다.
 
 	![New FTP user name and password](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-enterftpcredentials.png)
 
-5. 관리 포털의 **대시보드** 탭에서 F5 키를 눌러 페이지를 새로 고치고 **배포/FTP 사용자**가 표시될 때까지 아래로 스크롤합니다. 사이트 이름이 사용자 이름 앞에 있습니다. **여기에 표시된 것처럼 로그인할 때 앞에 사이트 이름이 있는 상태로 전체 사용자 이름을 사용해야 합니다.**
+5. 관리 포털의 **대시보드** 탭에서 F5 키를 눌러 페이지를 새로 고치고 **배포/FTP 사용자**가 표시될 때까지 아래로 스크롤합니다. 웹 앱 이름이 사용자 이름 앞에 있습니다. **여기에 표시된 것처럼 로그인할 때 앞에 웹 앱 이름이 있는 상태로 전체 사용자 이름을 사용해야 합니다.**
 
-5. 사용자 웹 사이트에 대한 관리 포털 페이지의 **대시보드** 탭에서 **FTP 호스트 이름** 아래에 표시된 URL로 새 브라우저 창을 사용하여 이동합니다. **FTP 호스트 이름**은 **빠른 보기** 섹션의 **배포/FTP 사용자** 근처에 있습니다.
+5. 사용자 웹 앱에 대한 관리 포털 페이지의 **대시보드** 탭에서 **FTP 호스트 이름** 아래에 표시된 URL로 새 브라우저 창을 사용하여 이동합니다. **FTP 호스트 이름**은 **빠른 보기** 섹션의 **배포/FTP 사용자** 근처에 있습니다.
 
-6. 이전에 만든 FTP 자격 증명을 사용하여 로그인합니다(사용자 이름 앞에 사이트 이름 포함).
+6. 이전에 만든 FTP 자격 증명을 사용하여 로그인합니다(사용자 이름 앞에 웹 앱 이름 포함).
 
-	브라우저에 사이트의 루트 폴더가 표시됩니다.
+	브라우저에 웹 앱의 루트 폴더가 표시됩니다.
 
 6.  *LogFiles* 폴더를 엽니다.
 
@@ -701,9 +680,9 @@ Visual Studio를 사용하여 실패한 요청 추적을 사용하도록 설정�
 
 <h2><a name="nextsteps"></a>다음 단계</h2>
 
-Visual Studio를 사용하여 Azure 웹 사이트에서 생성된 로그를 쉽게 보는 방법을 확인했습니다. 다음 섹션에서는 관련 항목에 대한 기타 리소스 링크를 제공합니다.
+Visual Studio를 사용하여 Azure 웹 앱에서 생성된 로그를 쉽게 보는 방법을 확인했습니다. 다음 섹션에서는 관련 항목에 대한 기타 리소스 링크를 제공합니다.
 
-* Azure 웹 사이트 문제 해결
+* Azure 웹 앱 문제 해결
 * Visual Studio의 디버깅 
 * Azure에서 원격 디버깅
 * ASP.NET 응용 프로그램의 추적
@@ -711,13 +690,13 @@ Visual Studio를 사용하여 Azure 웹 사이트에서 생성된 로그를 쉽�
 * 실패한 요청 추적 로그 분석
 * 클라우드 서비스 디버깅
 
-### Azure 웹 사이트 문제 해결
+### Azure 웹 앱 문제 해결
 
-Azure 웹 사이트(WAWS) 문제 해결에 대한 자세한 내용은 다음 리소스를 참조하십시오.
+Azure 앱 서비스에서 웹 앱 문제 해결에 대한 자세한 내용은 다음 리소스를 참조하십시오.
 
-* [웹 사이트를 모니터링하는 방법](/ko-kr/manage/services/web-sites/how-to-monitor-websites/)
-* [Visual Studio 2013을 사용하여 Azure 웹 사이트에서 메모리 누수 검사](http://blogs.msdn.com/b/visualstudioalm/archive/2013/12/20/investigating-memory-leaks-in-azure-web-sites-with-visual-studio-2013.aspx) 관리되는 메모리 문제를 분석하는 데 사용되는 Visual Studio 기능에 대한 Microsoft ALM 블로그 게시물입니다.
-* [알아 두면 도움이 되는 Microsoft Azure 웹 사이트 온라인 도구](/blog/2014/03/28/windows-azure-websites-online-tools-you-should-know-about-2/) Amit Apple의 블로그 게시물입니다.
+* [웹 앱을 모니터링 하는 방법](/manage/services/web-sites/how-to-monitor-websites/)
+* [Visual Studio 2013을 사용하여 Azure 웹 앱에서 메모리 누수 검사](http://blogs.msdn.com/b/visualstudioalm/archive/2013/12/20/investigating-memory-leaks-in-azure-web-sites-with-visual-studio-2013.aspx) 관리되는 메모리 문제를 분석하는 데 사용되는 Visual Studio 기능에 대한 Microsoft ALM 블로그 게시물입니다.
+* [알아 두면 도움이 되는 Azure 웹 앱 온라인 도구](/blog/2014/03/28/windows-azure-websites-online-tools-you-should-know-about-2/) Amit Apple의 블로그 게시물입니다.
 
 특정 문제 해결 질문과 관련하여 도움이 필요한 경우 다음 포럼 중 하나에서 게시물을 작성하십시오.
 
@@ -731,14 +710,14 @@ Visual Studio에서 디버그 모드를 사용하는 방법에 대한 자세한 
 
 ### Azure에서 원격 디버깅
 
-Azure 웹 사이트 및 WebJob의 원격 디버깅에 대한 자세한 내용은 다음 리소스를 참조하세요.
+Azure 웹 앱 및 WebJob의 원격 디버깅에 대한 자세한 내용은 다음 리소스를 참조하세요.
 
-* [Azure 웹 사이트의 원격 디버깅 소](/blog/2014/05/06/introduction-to-remote-debugging-on-azure-web-sites/).
-* [Azure 웹 사이트의 원격 디버깅 소개 2부 - 원격 디버깅 세부 정보](/blog/2014/05/07/introduction-to-remote-debugging-azure-web-sites-part-2-inside-remote-debugging/)
-* [Azure 웹 사이트의 원격 디버깅 소개 3부 - 다중 인스턴스 환경 및 GIT](/blog/2014/05/08/introduction-to-remote-debugging-on-azure-web-sites-part-3-multi-instance-environment-and-git/)
+* [Azure 앱 서비스 웹 앱의 원격 디버깅 소개](/blog/2014/05/06/introduction-to-remote-debugging-on-azure-web-sites/).
+* [Azure 앱 서비스 웹 앱의 원격 디버깅 소개 2부 - 원격 디버깅 세부 정보](/blog/2014/05/07/introduction-to-remote-debugging-azure-web-sites-part-2-inside-remote-debugging/)
+* [Azure 앱 서비스 웹 앱의 원격 디버깅 소개 3부 - 다중 인스턴스 환경 및 GIT](/blog/2014/05/08/introduction-to-remote-debugging-on-azure-web-sites-part-3-multi-instance-environment-and-git/)
 * [WebJobs 디버깅(동영상)](https://www.youtube.com/watch?v=ncQm9q5ZFZs&list=UU_SjTh-ZltPmTYzAybypB-g&index=1)
 
-웹 사이트에 Azure 웹 API 또는 모바일 서비스 백 엔드가 사용되는 경우 이들을 디버그해야 하면 [Visual Studio에서 .NET 백 엔드 디버깅](http://blogs.msdn.com/b/azuremobile/archive/2014/03/14/debugging-net-backend-in-visual-studio.aspx)을 참조하세요.
+웹 앱에 Azure 웹 API 또는 모바일 서비스 백 엔드가 사용되는 경우 이들을 디버그해야 하면 [Visual Studio에서 .NET 백 엔드 디버깅](http://blogs.msdn.com/b/azuremobile/archive/2014/03/14/debugging-net-backend-in-visual-studio.aspx)을 참조하세요.
 
 ### ASP.NET 응용 프로그램의 추적
 
@@ -767,18 +746,18 @@ Azure 웹 사이트 및 WebJob의 원격 디버깅에 대한 자세한 내용은
 
 * [Azure 명령줄에서 진단 추적 로깅 스트리밍(Glimpse 포함)](http://www.hanselman.com/blog/StreamingDiagnosticsTraceLoggingFromTheAzureCommandLinePlusGlimpse.aspx)<br/>
   이 자습서에서 설명한 Visual Studio 관련 작업을 명령줄로 수행하는 방법을 설명합니다. [Glimpse](http://www.hanselman.com/blog/IfYoureNotUsingGlimpseWithASPNETForDebuggingAndProfilingYoureMissingOut.aspx)는 ASP.NET 응용 프로그램을 디버그하는 데 사용하는 도구입니다. 
-* [David Ebbo와 함께 하는 Azure 웹 사이트 로깅 및 진단](http://azure.microsoft.com/documentation/videos/azure-web-site-logging-and-diagnostics/) 및 [David Ebbo와 함께 하는 Azure 웹 사이트에서 로그 스트리밍](http://azure.microsoft.com/documentation/videos/log-streaming-with-azure-web-sites/)<br>
-  Scott Hanselman과 David Ebbo가 제작한 동영상입니다.
+* [David Ebbo와 함께 하는 Azure 웹 앱 로깅 및 진단](/documentation/videos/azure-web-site-logging-and-diagnostics/) 및 [David Ebbo와 함께 하는 Azure 웹 앱에서 로그 스트리밍](/documentation/videos/log-streaming-with-azure-web-sites/)<br>
+  Scott Hanselman과 David Ebbo가 제작한 비디오입니다.
 
 오류 로깅과 관련하여, 사용자 자신의 추적 코드를 기록하는 또 다른 방법은 [ELMAH](http://nuget.org/packages/elmah/) 같은 오픈 소스 로깅 프레임워크를 사용하는 것입니다. 자세한 내용은 [Scott Hanselman의 ELMAH 관련 블로그 게시물](http://www.hanselman.com/blog/NuGetPackageOfTheWeek7ELMAHErrorLoggingModulesAndHandlersWithSQLServerCompact.aspx)을 참조하세요.
 
-또한 Azure에서 로그를 스트리밍하려면 ASP.NET 또는 System.Diagnostics 추적 기능을 사용할 필요가 없습니다. Azure 웹 사이트 로그 스트리밍 서비스는  *LogFiles* 폴더에 위치한 *.txt*, *.html* 또는 *.log* 파일로 스트리밍합니다. 따라서 웹 사이트의 파일 시스템에 기록하는 사용자 자신의 로깅 시스템을 만들 수 있습니다. 그러면 파일이 자동으로 스트리밍되어 다운로드됩니다. 그러려면  *d:\home\logfiles* 폴더에 파일을 만드는 응용 프로그램 코드만 작성하면 됩니다. 
+또한 Azure에서 로그를 스트리밍하려면 ASP.NET 또는 System.Diagnostics 추적 기능을 사용할 필요가 없습니다. Azure 웹 앱 로그 스트리밍 서비스는  *LogFiles* 폴더에 위치한 *.txt*, *.html* 또는 *.log* 파일로 스트리밍합니다. 따라서 웹 앱의 파일 시스템에 기록하는 사용자 자신의 로깅 시스템을 만들 수 있습니다. 그러면 파일이 자동으로 스트리밍되어 다운로드됩니다. 그러려면  *d:\home\logfiles* 폴더에 파일을 만드는 응용 프로그램 코드만 작성하면 됩니다. 
 
 ### 웹 서버 로그 분석
 
 웹 서버 로그 분석에 대한 자세한 내용은 다음 리소스를 참조하십시오.
 
-* [LogParser](http://www.microsoft.com/ko-kr/download/details.aspx?id=24659)<br/>
+* [LogParser](http://www.microsoft.com/download/details.aspx?id=24659)<br/>
   웹 서버 로그(*.log* 파일)의 데이터를 보는 데 사용하는 도구입니다.
 * [LogParser를 사용하여 IIS 성능 문제 또는 응용 프로그램 오류 문제 해결 ](http://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
   웹 서버 로그를 분석하는 데 사용할 수 있는 로그 파서 도구를 소개합니다.
@@ -787,18 +766,19 @@ Azure 웹 사이트 및 WebJob의 원격 디버깅에 대한 자세한 내용은
 
 ### 실패한 요청 추적 로그 분석
 
-Microsoft TechNet 웹 사이트에 포함된 [실패한 요청 추적 사용](http://www.iis.net/learn/troubleshoot/using-failed-request-tracing) 섹션은 이러한 로그 사용 방법을 이해하는 데 유용할 수 있습니다. 하지만 이 설명서에서는 IIS에서 실패한 요청 추적을 구성하는 방법을 중점적으로 다루며, 이는 Azure 웹 사이트에서 수행할 수 없습니다.
+Microsoft TechNet 웹 사이트에 포함된 [실패한 요청 추적 사용](http://www.iis.net/learn/troubleshoot/using-failed-request-tracing) 섹션은 이러한 로그 사용 방법을 이해하는 데 유용할 수 있습니다. 하지만 이 설명서에서는 IIS에서 실패한 요청 추적을 구성하는 방법을 중점적으로 다루며, 이는 Azure 웹 앱에서 수행할 수 없습니다.
 
 ### 클라우드 서비스 디버깅
 
-웹 사이트가 아닌 Azure 클라우드 서비스를 디버그하려면 [클라우드 서비스 디버깅](http://msdn.microsoft.com/library/windowsazure/ee405479.aspx)을 참조하세요.
+웹 앱이 아닌 Azure 클라우드 서비스를 디버그하려면 [클라우드 서비스 디버깅](http://msdn.microsoft.com/library/windowsazure/ee405479.aspx)을 참조하세요.
 
+>[AZURE.NOTE] Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 사용](http://go.microsoft.com/fwlink/?LinkId=523751)으로 이동합니다. 앱 서비스에서는 단기 시작 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
+## 변경 내용
+* 웹 사이트에서 앱 서비스로의 변경에 대한 가이드는 다음을 참조: [Azure 앱 서비스 및 기존 Azure 서비스에 대한 영향](http://go.microsoft.com/fwlink/?LinkId=529714)
+* 이전 포털에서 새 포털로의 변경에 대한 가이드는 다음을 참조: [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)
 
+[GetStarted]: web-sites-dotnet-get-started.md
+[GetStartedWJ]: websites-dotnet-webjobs-sdk.md
 
-[GetStarted]: ../web-sites-dotnet-get-started/
-[GetStartedWJ]: ../websites-dotnet-webjobs-sdk/
-
-
-
-<!--HONumber=42-->
+<!--HONumber=49-->

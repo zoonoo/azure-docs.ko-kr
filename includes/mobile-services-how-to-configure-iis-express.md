@@ -1,17 +1,19 @@
-
+﻿
 1. 모바일 서비스가 IIS Express에서 실행 중이면 중지해야 합니다. IIS Express 트레이 아이콘을 마우스 오른쪽 단추로 클릭하고 모바일 서비스에 대해 **중지**를 클릭합니다.
 
     ![](./media/mobile-services-how-to-configure-iis-express/iis-express-tray-stop-site.png)
 
-2. 명령 프롬프트 창에서 **ipconfig** 명령을 실행하여 워크스테이션에 대해 유효한 로컬 IP 주소를 찾습니다.
+
+2. 명령 프롬프트 창에서 **ipconfig** 명령을 실행하여 워크스테이션에 유효한 로컬 IP 주소를 찾습니다.
 
     ![](./media/mobile-services-how-to-configure-iis-express/ipconfig.png)
+
 
 3. Visual Studio에서 IIS Express의 applicationhost.config 파일을 엽니다. 이 파일은 사용자 프로필 디렉터리의 다음 하위 디렉터리에 있습니다.
 
         C:\Users\<your profile name>\Documents\IISExpress\config\applicationhost.config
 
-4. 서비스에 대해 원격 연결 요청을 허용하도록 IIS Express를 구성합니다. 이렇게 하려면 applicationhost.config 파일에서 모바일 서비스의 사이트 요소를 찾아 위에 기록해 둔 IP 주소를 사용하는 포트에 대해 새  `binding` 요소를 추가합니다. 그런 다음 applicationhost.config 파일을 저장합니다. 
+4. 서비스에 대해 원격 연결 요청을 허용하도록 IIS Express를 구성합니다. 이렇게 하려면 applicationhost.config 파일에서 모바일 서비스의 사이트 요소를 찾아 위에 기록해 둔 IP 주소를 사용하는 포트에 대해 새 `binding` 요소를 추가합니다. 그런 다음 applicationhost.config 파일을 저장합니다. 
 
     업데이트된 사이트 요소는 다음과 유사합니다.
 
@@ -36,4 +38,5 @@
 
 <!-- URLs. -->
 [새 Windows 방화벽 포트 규칙을 추가하는 방법]:  http://go.microsoft.com/fwlink/?LinkId=392240
-<!--HONumber=42-->
+
+<!--HONumber=49-->

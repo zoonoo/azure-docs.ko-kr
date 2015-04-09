@@ -1,6 +1,6 @@
 ﻿<properties 
 	pageTitle="DocumentDB 계정 모니터링 | Azure" 
-	description="성능 메트릭(예: 요청 및 서버 오류) 및 사용 현황 메트릭(예: 저장소 사용량)에 대해 DocumentDB 계정을 모니터링하는 방법에 대해 알아봅니다." 
+	description="성능 메트릭(예: 요청 및 서버 오류) 및 사용 현황 메트릭(예: 저장소 사용량)에 대해 DocumentDB 계정을 모니터링하는 방법을 알아봅니다." 
 	services="documentdb" 
 	documentationCenter="" 
 	authors="mimig1" 
@@ -52,7 +52,7 @@
 ## <a id="create"></a>병렬 성능 메트릭 차트 만들기
 Azure Preview 포털에서 병렬 메트릭 차트를 만들 수 있습니다.  
 
-1.	우선 복제 및 수정하려는 차트를 마우스 오른쪽 단추로 클릭하고 **사용자 지정**을 선택합니다.. 
+1.	먼저, 복제 및 수정할 차트를 마우스 오른쪽 단추로 클릭하고 **사용자 지정**을 선택합니다. 
 
 	![](./media/documentdb-monitor-accounts/madocdb6.png)
 
@@ -61,7 +61,7 @@ Azure Preview 포털에서 병렬 메트릭 차트를 만들 수 있습니다.
 	![](./media/documentdb-monitor-accounts/madocdb7.png)  
 
 
-이제 파트에 표시되는 메트릭 및 시간 범위를 사용자 지정하면서 이 파트를 다른 메트릭 파트로 처리할 수 있습니다.  그렇게 하면 두 가지 다른 메트릭 차트를 동시에 병렬로 볼 수 있습니다.  
+이제 파트에 표시되는 메트릭 및 시간 범위를 사용자 지정하면서 이 파트를 다른 메트릭 파트로 처리할 수 있습니다.  이렇게 하면 두 가지 다른 메트릭 차트를 동시에 병렬로 볼 수 있습니다.  
 	![](./media/documentdb-monitor-accounts/madocdb8.png)  
 
 ## <a id="view"></a>DocumentDB 계정의 사용량 메트릭 보기
@@ -77,7 +77,7 @@ Azure Preview 포털에서 병렬 메트릭 차트를 만들 수 있습니다.
 	![](./media/documentdb-monitor-accounts/madocdb9.png)
  
 ## <a id="setup"></a>DocumentDB 계정의 성능 메트릭 경고 설정
-1.	[Azure Preview 포털](https://portal.azure.com/)에서 **찾아보기**, **DocumentDB 계정**을 클릭하고 성능 메트릭 경고를 설정하려는 DocumentDB 계정의 이름을 클릭합니다.
+1.	[Azure Preview 포털](https://portal.azure.com/)에서 **찾아보기**, **DocumentDB 계정**을 클릭하고 성능 메트릭 경고를 설정할 DocumentDB 계정의 이름을 클릭합니다.
 2.	**작업** 렌즈에서 **경고 규칙** 파트를 클릭합니다.  
 	![](./media/documentdb-monitor-accounts/madocdb10.png)
 
@@ -95,7 +95,7 @@ Azure Preview 포털에서 병렬 메트릭 차트를 만들 수 있습니다.
 
  
 ## <a id="next"></a>다음 단계
-DocumentDB 용량 및 성능에 대한 자세한 내용은 [DocumentDB 용량 및 성능 관리](../documentdb-manage/)를 참조하세요. 
+DocumentDB 용량 및 성능에 대한 자세한 내용은 [DocumentDB 용량 및 성능 관리](documentdb-manage.md)를 참조하세요. 
 
 <!--Anchors-->
 [DocumentDB 계정의 성능 메트릭을 보는 방법]: #How-to-view-performance-metrics-for-a-DocumentDB-account
@@ -105,4 +105,4 @@ DocumentDB 용량 및 성능에 대한 자세한 내용은 [DocumentDB 용량 �
 [DocumentDB 계정에 대해 성능 메트릭 경로를 설정하는 방법]: #How-to-setup-performance-metric-alerts-for-a-DocumentDB-account
 [다음 단계]: #Next-steps
 
-<!--HONumber=47-->
+<!--HONumber=49-->

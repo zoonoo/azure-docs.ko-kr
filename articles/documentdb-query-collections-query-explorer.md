@@ -18,7 +18,7 @@
 
 # 쿼리 탐색기를 사용해서 DocumentDB 컬렉션에 대해 SQL 쿼리 만들기, 편집 및 실행 #
 
-이 문서에서는 DocumentDB 컬렉션에 대해 쿼리를 만들고, 편집 및 실행할 수 있게 해주는 Azure Preview 도구인 [Microsoft Azure DocumentDB](http://azure.microsoft.com/services/documentdb/) 쿼리 탐색기에 대한 개요를 제공합니다. 
+이 문서에서는 DocumentDB 컬렉션에 대해 쿼리를 만들고, 편집 및 실행할 수 있게 해주는 Azure Preview 도구인 [Microsoft Azure DocumentDB](http://azure.microsoft.com/services/documentdb/) 쿼리 탐색기에 대해 개괄적으로 설명합니다. 
 
 이 자습서를 완료하면 다음 질문에 대답할 수 있습니다.  
 
@@ -44,7 +44,7 @@
 
 쿼리 탐색기를 사용하면 DocumentDB 컬렉션에 대해 쿼리를 쉽게 만들고, 편집 및 실행할 수 있으며, 쿼리 탐색기에는 쿼리 작성 환경을 향상시킬 수 있도록 기본적인 키워드 및 값이 강조 표시됩니다.  
 
-- 쿼리 탐색기를 처음에 열면 SELECT * FROM c의 기본 쿼리가 제공됩니다.  기본 쿼리를 사용하거나 고유 쿼리를 생성한 후 **쿼리 실행** 단추를 클릭하여 결과를 볼 수 있습니다. 쿼리 탐색기에서는 [쿼리 DocumentDB](../documentdb-sql-query/)에 설명된 대로 DocumentDB SQL 쿼리 언어가 지원됩니다.
+- 쿼리 탐색기를 처음에 열면 SELECT * FROM c의 기본 쿼리가 제공됩니다.  기본 쿼리를 사용하거나 고유 쿼리를 생성한 후 **쿼리 실행** 단추를 클릭하여 결과를 볼 수 있습니다. 쿼리 탐색기에서는 [쿼리 DocumentDB](documentdb-sql-query.md)에 설명된 대로 DocumentDB SQL 쿼리 언어가 지원됩니다.
 
 	![Screenshot of Query Explorer query results](./media/documentdb-query-collections-query-explorer/queryresults1.png) 
 
@@ -63,6 +63,6 @@
 ##<a name="NextSteps"></a>다음 단계
 
 - DocumentDB에 대해 자세히 알아보려면 [여기](http://azure.com/docdb)를 클릭하세요.
-- 쿼리 탐색기에서 지원되는 DocumentDB SQL 문법에 대해 자세히 알아보려면 [여기](../documentdb-sql-query/)를 클릭합니다.
+- 쿼리 탐색기에서 지원되는 DocumentDB SQL 문법에 대해 자세히 알아보려면 [여기](documentdb-sql-query.md)를 클릭하세요.
 
-<!--HONumber=47-->
+<!--HONumber=49-->

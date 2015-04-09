@@ -1,6 +1,6 @@
-<properties 
+﻿<properties 
 	pageTitle="Live Connect로 앱 인증(Windows Phone) | 모바일 개발자 센터" 
-	description="Windows Phone 응용 프로그램에서 Azure 모바일 서비스의 Live Connect Single Sign-On을 사용하는 방법에 대해 알아봅니다." 
+	description="Windows Phone 응용 프로그램에서 Azure 모바일 서비스의 Live Connect Single Sign-On을 사용하는 방법을 알아봅니다." 
 	services="mobile-services" 
 	documentationCenter="windows" 
 	authors="ggailey777" 
@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-phone" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.date="11/22/2014" 
@@ -19,12 +19,12 @@
 # Live Connect Single Sign-On으로 Windows Phone 8 앱 인증
 
 <div class="dev-center-tutorial-selector sublanding"> 
-	<a href="/ko-kr/documentation/articles/mobile-services-windows-store-dotnet-single-sign-on/" title="Windows Store C#">Windows 스토어 C#</a><a href="/ko-kr/documentation/articles/mobile-services-windows-store-javascript-single-sign-on/" title="Windows Store JavaScript">Windows 스토어 JavaScript</a><a href="/ko-kr/documentation/articles/mobile-services-windows-phone-single-sign-on/" title="Windows Phone" class="current">Windows Phone</a>
+	<a href="/documentation/articles/mobile-services-windows-store-dotnet-single-sign-on/" title="Windows Store C#">Windows 스토어 C#</a><a href="/documentation/articles/mobile-services-windows-store-javascript-single-sign-on/" title="Windows Store JavaScript">Windows 스토어 JavaScript</a><a href="/documentation/articles/mobile-services-windows-phone-single-sign-on/" title="Windows Phone" class="current">Windows Phone</a>
 </div>	
 
 이 항목에서는 Windows Phone 8 앱에서 Live Connect Single Sign-On을 사용하여 Azure 모바일 서비스의 사용자를 인증하는 방법을 보여 줍니다.  이 자습서에서는 Live Connect를 사용하여 퀵 스타트 프로젝트에 인증을 추가합니다. Live Connect에 의해 인증되고 나면 로그인한 사용자는 이름과 함께 환영의 메시지를 보게 되고 사용자 ID 값이 표시됩니다.  
 
->[AZURE.NOTE]이 자습서에서는 Windows Phone 앱용 Live Connect에서 제공되는 Single Sign-On 환경을 사용할 때 얻는 이점을 보여 줍니다. 이 환경에서는 모바일 서비스를 사용해 이미 로그온한 사용자를 더 쉽게 인증할 수 있습니다. 여러 인증 공급자를 지원하는 보다 일반화된 인증 환경을 알아보려면 <a href="/ko-kr/documentation/articles/mobile-services-windows-phone-get-started-users">앱에 인증 추가</a> 항목을 참조하세요. 
+>[AZURE.NOTE]이 자습서에서는 Windows Phone 앱용 Live Connect에서 제공되는 Single Sign-On 환경을 사용할 때 얻는 이점을 보여 줍니다. 이 환경에서는 모바일 서비스를 사용해 이미 로그온한 사용자를 더 쉽게 인증할 수 있습니다. 여러 인증 공급자를 지원하는 보다 일반화된 인증 환경을 알아보려면 <a href="mobile-services-windows-phone-get-started-users.md">앱에 인증 추가</a> 항목을 참조하세요. 
 
 이 자습서에서는 Live Connect 인증을 사용하도록 설정하는 다음 기본 단계를 안내합니다.
 
@@ -32,7 +32,7 @@
 2. [테이블 사용 권한을 인증된 사용자로 제한]
 3. [앱에 인증 추가]
 
-이 자습서를 사용하려면 다음이 필요합니다.
+이 자습서의 작업을 수행하려면 다음이 필요합니다.
 
 + [Windows 및 Windows Phone용 Live SDK]
 + Microsoft Visual Studio 2012 Express for Windows Phone
@@ -140,7 +140,7 @@
 
 7. 이전 단계의 _<< INSERT CLIENT ID HERE >>_ 문자열을 Live Connect에 앱을 등록할 때 생성된 클라이언트 ID 값으로 업데이트합니다.
 
-    > [AZURE.NOTE] Windows Phone 8 앱에서는 클라이언트 ID 값을 클래스 생성자에 전달하여 **LiveAuthClient** 클래스 인스턴스가 만들어집니다. [Windows 스토어 앱](/ko-kr/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/)에서는 동일한 클래스가 리디렉션 도메인 URI를 전달하여 인스턴스화됩니다.
+    > [AZURE.NOTE] Windows Phone 8 앱에서는 클라이언트 ID 값을 클래스 생성자에 전달하여 **LiveAuthClient** 클래스 인스턴스가 만들어집니다. [Windows 스토어 앱]에서는(/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/)리디렉션 도메인 URI를 전달하여 동일한 클래스가 인스턴스화됩니다.
 
 8. 기존 **OnNavigatedTo** 메서드 재정의를 삭제하거나 주석으로 처리하고 페이지의 **Loaded** 이벤트를 처리하는 다음 메서드로 바꿉니다. 
 
@@ -191,11 +191,10 @@
 <!-- URLs. -->
 [내 응용 프로그램]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Windows 및 Windows Phone용 Live SDK]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[기존 앱에 모바일 서비스 추가]: /ko-kr/documentation/articles/mobile-services-windows-phone-get-started-data/
-[인증 시작]: /ko-kr/documentation/articles/mobile-services-windows-phone-get-started-users
-[스크립트를 통해 사용자 권한 부여]: /ko-kr/documentation/articles/mobile-services-windows-phone-authorize-users-in-scripts/
+[기존 앱에 모바일 서비스 추가](영문): mobile-services-windows-phone-get-started-data.md
+[인증 시작]: mobile-services-windows-phone-get-started-users.md
+[스크립트를 통해 사용자 권한 부여]: mobile-services-windows-phone-authorize-users-in-scripts.md
 
 [Azure 관리 포털]: https://manage.windowsazure.com/
 
-
-<!--HONumber=42-->
+<!--HONumber=49-->

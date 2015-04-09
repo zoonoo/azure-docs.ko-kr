@@ -1,35 +1,34 @@
-﻿<properties 
-	pageTitle="Web API를 사용하는 .NET REST 서비스 - Azure 자습서" 
-	description="Visual Studio를 사용하여 Azure 웹 사이트에 ASP.NET Web API를 사용하는 앱을 배포하는 방법에 대해 설명하는 자습서입니다." 
-	services="web-sites" 
+<properties 
+	pageTitle="Azure 앱 서비스에서 ASP.NET Web API 및 SQL 데이터베이스를 사용하여 REST 서비스 만들기" 
+	description="Visual Studio를 사용하여 Azure 웹 앱에 ASP.NET Web API를 사용하는 앱을 배포하는 방법에 대해 설명하는 자습서입니다." 
+	services="app-service\web" 
 	documentationCenter=".net" 
-	authors="riande" 
+	authors="Rick-Anderson" 
+	writer="Rick-Anderson" 
 	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/06/2014" 
+	ms.date="03/24/2015" 
 	ms.author="riande"/>
 
-# ASP.NET Web API 및 SQL 데이터베이스를 사용한 REST 서비스 
+# Azure 앱 서비스에서 ASP.NET Web API 및 SQL 데이터베이스를 사용하여 REST 서비스 만들기
 
-***작성자: [Rick Anderson](https://twitter.com/RickAndMSFT) 및 Tom Dykstra***
-
-이 자습서에서는 Visual Studio 2013 또는 Visual Studio 2013 Express for Web의 웹 게시 마법사를 사용하여 ASP.NET 웹 응용 프로그램을 Azure 웹 사이트에 배포하는 방법을 보여 줍니다. 
+이 자습서에서는 Visual Studio 2013 또는 Visual Studio 2013 Express for Web의 웹 게시 마법사를 사용하여 ASP.NET 웹 앱을 [Azure 앱 서비스](http://go.microsoft.com/fwlink/?LinkId=529714)에 배포하는 방법을 보여 줍니다. 
 
 Azure 계정은 무료로 개설할 수 있으며, Visual Studio 2013이 아직 없는 경우 SDK에서 Web Express용 Visual Studio 2013을 자동으로 설치합니다. 따라서 Azure용 개발을 무료로 시작할 수 있습니다.
 
-이 자습서에서는 이전에 Azure를 사용한 경험이 없다고 가정합니다. 이 자습서를 완료하면 클라우드에서 간단한 웹 응용 프로그램을 실행할 수 있습니다.
+이 자습서에서는 이전에 Azure를 사용한 경험이 없다고 가정합니다. 이 자습서를 완료하면 클라우드에서 간단한 웹 앱을 실행할 수 있습니다.
  
-다음 내용을 배웁니다.
+학습할 내용:
 
 * Azure SDK를 설치하여 사용자 컴퓨터에서 Azure를 개발할 수 있도록 하는 방법
-* Visual Studio ASP.NET MVC 5 프로젝트를 만들고 Azure 웹 사이트에 게시하는 방법
+* Visual Studio ASP.NET MVC 5 프로젝트를 만들고 Azure 웹 앱에 게시하는 방법
 * ASP.NET Web API를 사용하여 RESTful API 호출을 사용하도록 설정하는 방법
 * SQL 데이터베이스를 사용하여 Azure에 데이터를 저장하는 방법
 * 응용 프로그램 업데이트를 Azure에 게시하는 방법
@@ -38,106 +37,51 @@ ASP.NET MVC 5에서 빌드되고 데이터베이스 액세스에 ADO.NET Entity 
 
 ![screenshot of web site][intro001]
 
-이 자습서에서는 다음을 수행합니다.
-
-* [개발 환경 설정][setupdbenv]
-* [Azure 환경 설정][setupwindowsazureenv]
-* [ASP.NET MVC 5 응용 프로그램 만들기][createapplication]
-* [Azure에 응용 프로그램 배포][deployapp1]
-* [응용 프로그램에 데이터베이스 추가][adddb]
-* [데이터에 대한 컨트롤러 및 뷰 추가][addcontroller]
-* [Web API RESTful 인터페이스 추가][addwebapi]
-* [XSRF 보호 추가][]
-* [Azure 및 SQL 데이터베이스에 응용 프로그램 업데이트 게시][deploy2]
-
 <a name="bkmk_setupdevenv"></a>
-<!-- the next line produces the "Set up the development environment" section as see at http://azure.microsoft.com/documentation/articles/web-sites-dotnet-get-started/ -->
+<!-- 다음 줄은 http://azure.microsoft.com/documentation/articles/web-sites-dotnet-get-started/에서 볼 수 있는 대로 "개발 환경 설정" 섹션을 생성합니다. -->
 [AZURE.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
-
-<h2><a name="bkmk_setupwindowsazure"></a>Azure 환경 설정</h2>
-
-이제 Azure 웹 사이트와 SQL 데이터베이스를 만들어 Azure 환경을 설정합니다.
-
-### Azure에서 웹 사이트 및 SQL 데이터베이스 만들기
-
-다음 단계는 응용 프로그램에 사용할 Azure 웹 사이트 및 SQL 데이터베이스를 만드는 것입니다.
-
-Azure 웹 사이트는 공유 호스팅 환경에서 실행되므로 다른 Azure 클라이언트와 공유되는 VM(가상 컴퓨터)에서 실행됩니다. 공유 호스팅 환경은 클라우드를 시작하는 저비용 방법입니다. 나중에 웹 트래픽이 증가하면 응용 프로그램이 전용 VM에서 실행되어 요구에 맞게 확장될 수 있습니다. 더 복잡한 아키텍처가 필요한 경우 Azure 클라우드 서비스로 마이그레이션할 수 있습니다. 클라우드 서비스는 요구에 따라 구성할 수 있는 전용 VM에서 실행됩니다.
-
-SQL 데이터베이스는 SQL Server 기술로 구축된 클라우드 기반의 관계형 데이터베이스 서비스입니다. SQL Server에서 작동하는 도구와 응용 프로그램은 SQL 데이터베이스에서도 작동합니다.
-
-1. [Azure 관리 포털](https://manage.windowsazure.com)의 왼쪽 탭에서 **웹 사이트**를 클릭한 다음 **새로 만들기**를 클릭합니다.
-
-2. **사용자 지정 만들기**를 클릭합니다.
-
-	![관리 포털의 데이터베이스 링크를 사용하여 만들기](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr6.PNG)
-
-	**새 웹 사이트 - 사용자 지정 만들기** 마법사가 열립니다. 
-
-3. 마법사의 **새 웹 사이트** 단계에서 응용 프로그램의 고유 URL로 사용할 문자열을 **URL** 상자에 입력합니다. 전체 URL은 여기에 입력한 문자열과 텍스트 상자 아래에 표시되는 접미사로 구성됩니다. 그림에는 "contactmgr11"이 표시되지만 이 URL은 이미 사용되고 있을 수 있으므로 다른 URL을 선택해야 합니다.
-
-1. **지역** 드롭다운 목록에서 가장 가까운 지역을 선택합니다.
-
-1. **데이터베이스** 드롭다운 목록에서 **무료 20MB SQL 데이터베이스 만들기**를 선택합니다.
-
-	![새 웹 사이트 - 데이터베이스를 사용하여 만들기 마법사의 새 웹 사이트 만들기 단계](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rrCWS.png)
-
-6. 상자 맨 아래에서 오른쪽을 가리키는 화살표를 클릭합니다.
-
-	마법사의 **데이터베이스 설정** 단계로 이동됩니다.
-
-7. **이름** 상자에  *ContactDB*를 입력합니다.
-
-8. **서버** 상자에서 **새 SQL 데이터베이스** 서버를 선택합니다. 또는 이전에 SQL Server 데이터베이스를 만든 경우 드롭다운 컨트롤에서 SQL Server를 선택할 수 있습니다.
-
-9. 상자 맨 아래에서 오른쪽을 가리키는 화살표를 클릭합니다.
-
-10. 관리자 **로그인 이름** 및 **암호**를 입력합니다. **새 SQL 데이터베이스 서버**를 선택한 경우 여기서 기존 이름과 암호를 입력하지 않고 나중에 데이터베이스에 액세스할 때 사용하기 위해 지금 정의하는 새 이름과 암호를 입력합니다. 이전에 만든 SQL Server를 선택한 경우 이전에 만든 SQL Server 계정 이름의 암호를 묻는 메시지가 표시됩니다. 이 자습서에서는 **고급** 확인란을 선택하지 않습니다. **고급** 확인란을 사용하면 DB 크기 및 데이터 정렬을 설정할 수 있습니다. 참고로, DB 크기 기본값은 1GB이지만 이는 150GB로 높일 수 있습니다.
-
-11. 상자 아래쪽에 있는 확인 표시를 클릭하여 마쳤음을 표시합니다.
-
-	![새 웹 사이트의 데이터베이스 설정 단계 - 데이터베이스 마법사를 사용하여 만들기][setup007]
-
-	 다음 이미지는 기존 SQL Server와 로그인 사용을 보여 줍니다.
-	
-	![새 웹 사이트의 데이터베이스 설정 단계 - 데이터베이스 마법사를 사용하여 만들기][rxPrevDB]
-
-	관리 포털이 웹 사이트 페이지로 돌아가고 **상태** 열에 사이트를 만드는 중이라고 표시됩니다. 잠시(일반적으로 1분 미만) 후에 **상태** 열에 사이트를 만들었다고 표시됩니다. 왼쪽의 탐색 모음에서 계정에 보유한 사이트 수가 **웹 사이트** 아이콘 옆에 표시되고 데이터베이스 수가 **SQL 데이터베이스** 아이콘 옆에 표시됩니다.
-
-<!-- [Websites page of Management Portal, website created][setup009] -->
-
-<h2><a name="bkmk_createmvc4app"></a>ASP.NET MVC 5 응용 프로그램 만들기</h2>
-
-Azure 웹 사이트를 만들었지만 아직 콘텐츠가 없습니다. 다음 단계에서는 Azure에 게시할 Visual Studio 웹 응용 프로그램 프로젝트를 만듭니다.
 
 ### 프로젝트 만들기
 
 1. Visual Studio 2013을 시작합니다.
 1. **파일** 메뉴에서 **새 프로젝트**를 클릭합니다.
-3. **새 프로젝트** 대화 상자에서 **Visual C#**를 확장한 후 **웹**을 선택하고 **ASP.NET MVC 5  웹 응용 프로그램**을 선택합니다. 기본값인 **.NET Framework 4.5**를 그대로 유지합니다. 응용 프로그램 이름을 **ContactManager**로 지정하고 **확인**을 클릭합니다.
-	![새 프로젝트 대화 상자](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr4.PNG)]
+3. **새 프로젝트** 대화 상자에서 **Visual C#**를 확장한 후 **웹**을 선택하고 **ASP.NET MVC 5  웹 응용 프로그램**을 선택합니다. 응용 프로그램 이름을 **ContactManager**로 지정하고 **확인**을 클릭합니다.
+
+	![New Project dialog box](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr4.PNG)
+
 1. **새 ASP.NET 프로젝트** 대화 상자에서 **MVC** 템플릿을 선택하고 **웹 API**를 선택한 후 **인증 변경**을 클릭합니다.
 
-	![새 ASP.NET 프로젝트 대화 상자](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rt3.PNG)
+	![New ASP.NET Project dialog box](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rt3.PNG)
 
 1. **인증 변경** 대화 상자에서 **인증 없음**, **확인**을 차례로 클릭합니다.
 
-	![인증 없음](./media/web-sites-dotnet-get-started-vs2013/GS13noauth.png)
+	![No Authentication](./media/web-sites-dotnet-get-started-vs2013/GS13noauth.png)
 
 	만드는 샘플 응용 프로그램에는 사용자 로그인을 요구하는 기능이 없습니다. 인증 및 권한 부여 기능을 구현하는 방법에 대한 자세한 내용은 이 자습서 끝에 있는 [다음 단계](#nextsteps) 섹션을 참조하세요. 
 
 1. **새 ASP.NET 프로젝트** 대화 상자에서 **확인**을 클릭합니다.
 
-	![새 ASP.NET 프로젝트 대화 상자](./media/web-sites-dotnet-get-started-vs2013/GS13newaspnetprojdb.png)
+	![New ASP.NET Project dialog box](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rt3.PNG)
+
+이전에 Azure에 로그인한 적이 없는 경우 로그인하라는 메시지가 나타납니다.
+
+1. 구성 마법사에서  *ContactManager*를 기준으로 고유한 이름을 제안합니다(아래 이미지 참조). 근처 지역을 선택합니다. [azurespeed.com](http://www.azurespeed.com/ "AzureSpeed.com")을 사용하여 대기 시간이 가장 낮은 데이터 센터를 찾습니다. 
+2. 이전에 데이터베이스 서버를 만들지 않은 경우 **새 서버 만들기**를 선택하고 데이터베이스 사용자 이름과 암호를 입력합니다.
+
+	![Configure Azure Website](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/configAz.PNG)
+
+데이터베이스 서버가 있는 경우 해당 서버를 사용하여 새 데이터베이스를 만듭니다. 데이터베이스 서버는 중요한 리소스이며, 데이터베이스당 데이터베이스 서버를 만드는 대신 테스트 및 개발을 위해 동일한 서버에 여러 데이터베이스를 만드는 것이 일반적입니다. 웹 사이트 및 데이터베이스가 동일한 지역에 있어야 합니다.
+
+![Configure Azure Website](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/configWithDB.PNG)
 
 ### 페이지 머리글 및 바닥글 설정
 
 
 1. **솔루션 탐색기**에서  *Views\Shared* 폴더를 확장하고 *_Layout.cshtml* 파일을 엽니다.
 
-	![솔루션 탐색기의 _Layout.cshtml][newapp004]
+	![_Layout.cshtml in Solution Explorer][newapp004]
 
-1. *_Layout.cshtml* 파일 내용을 다음 코드로 바꿉니다.
+1.  *Views\Shared_Layout.cshtml* 파일 내용을 다음 코드로 바꿉니다.
 
 
 		<!DOCTYPE html>
@@ -182,7 +126,7 @@ Azure 웹 사이트를 만들었지만 아직 콘텐츠가 없습니다. 다음 
 
 1. Ctrl+F5를 눌러 응용 프로그램을 실행합니다.
 응용 프로그램 홈페이지가 기본 브라우저에 나타납니다.
-	![할 일 모음 홈페이지](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr5.PNG)
+	![To Do List home page](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr5.PNG)
 
 Azure에 배포할 응용 프로그램을 만들기 위해 지금 수행해야 하는 작업은 이것뿐입니다. 나중에 데이터베이스 기능을 추가하겠습니다.
 
@@ -190,45 +134,13 @@ Azure에 배포할 응용 프로그램을 만들기 위해 지금 수행해야 �
 
 1. Visual Studio의 **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 상황에 맞는 메뉴에서 **게시**를 선택합니다.
 
-	![프로젝트 상황에 맞는 메뉴의 게시][PublishVSSolution]
+	![Publish in project context menu][PublishVSSolution]
 
 	**웹 게시** 마법사가 열립니다.
 
-2. **웹 게시** 마법사의 **프로필** 탭에서 **가져오기**를 클릭합니다.
-
-	![Import publish settings][ImportPublishSettings]
-
-	**게시 프로필 가져오기** 대화 상자가 나타납니다.
-
- 3.	Azure 웹 사이트에서 가져오기를 선택합니다. 아직 로그인하지 않은 경우 먼저 로그인해야 합니다. **로그인**을 클릭합니다. 구독에 연결된 사용자를 입력하고 로그인 단계를 따릅니다.
-
-	![sign in](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr7.png)
-
-	드롭다운 목록에서 웹 사이트를 선택하고 **확인**을 클릭합니다.
-
-	![Import Publish Profile](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr8.png)
-
-8. **연결** 탭에서 **연결 유효성 검사**를 클릭하여 설정이 올바른지 확인합니다.
-
-	![Validate connection][ValidateConnection]
-
-9. 연결 유효성이 검사되면 **연결 유효성 검사** 단추 옆에 녹색 확인 표시가 나타납니다.
-
-	![connection successful icon and Next button in Connection tab][firsdeploy007]
-
-1. **다음**을 클릭합니다.
-
-	![Settings tab](./media/web-sites-dotnet-get-started-vs2013/GS13SettingsTab.png)
-
-	이 탭에서 기본 설정을 적용할 수 있습니다.  릴리스 빌드 구성을 배포 중이며 대상 서버의 파일을 삭제할 필요가 없는 경우 응용 프로그램을 미리 컴파일하거나 App_Data 폴더의 파일을 제외합니다. 라이브 Azure 사이트에서 디버그를 수행하려면 릴리스 빌드 구성이 아닌 디버그 구성을 배포해야 합니다. 이 자습서 끝에 나오는 [다음 단계](#nextsteps) 섹션을 참조하세요.
-
-12. **미리 보기** 탭에서 **미리 보기 시작**을 클릭합니다.
-
-	이 탭에는 서버로 복사될 파일 목록이 표시됩니다. 미리 보기 표시는 응용 프로그램을 게시하는 데 필요하지 않지만 알아 두면 유용한 기능입니다. 따라서 표시된 파일 목록에 어떤 작업도 수행할 필요가 없습니다. 다음번에 게시할 때 변경된 파일만 미리 보기 목록에 나타납니다.
-
-	![StartPreview button in the Preview tab][firsdeploy009]
-
 12. **게시**를 클릭합니다.
+
+	![Settings tab](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/pw.png)
 
 	Visual Studio에서 Azure 서버로 파일을 복사하는 프로세스를 시작합니다. **출력** 창에 수행된 배포 작업이 표시되고 성공적인 배포 완료가 보고됩니다.
 
@@ -288,7 +200,7 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 
 1. **솔루션 탐색기**에서 컨트롤러 폴더를 확장합니다.
 
-3. 프로젝트를 빌드합니다**(Ctrl+Shift+B)**. 스캐폴딩 메커니즘을 사용하기 전에 프로젝트를 빌드해야 합니다. 
+3. 프로젝트를 빌드합니다**(Ctrl+Shift+B)**. (스캐폴딩 메커니즘을 사용하기 전에 프로젝트를 빌드해야 합니다.) 
 
 4. 컨트롤러 폴더를 마우스 오른쪽 단추로 클릭하고 **추가**를 클릭한 후 **컨트롤러**를 클릭합니다.
 
@@ -298,7 +210,7 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 
  ![Add controller](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rrAC.PNG)
 
-6. 컨트롤러 이름을 **HomeController**로 설정합니다. 모델 클래스로 **Contact**를 선택합니다. **새 데이터 컨텍스트** 단추를 클릭하고 **새 데이터 컨텍스트 형식**기본값인 "ContactManager.Models.ContactManagerContext"를 그대로 사용합니다. **추가**를 클릭합니다.
+6. 컨트롤러 이름을 **HomeController**로 설정합니다. 모델 클래스로 **Contact**를 선택합니다. **새 데이터 컨텍스트** 단추를 클릭하고 **새 데이터 컨텍스트 형식**으로 기본값인 "ContactManager.Models.ContactManagerContext"를 수락합니다. **추가**를 클릭합니다.
 
 	![Add Controller dialog box](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr9.PNG)
 
@@ -308,7 +220,7 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 
 ## 마이그레이션 사용, 데이터베이스 만들기, 샘플 데이터 및 데이터 이니셜라이저 추가 ##
 
-다음 작업은 만든 데이터 모델에 따라 데이터베이스를 만들기 위해 [Code First 마이그레이션](http://curah.microsoft.com/55220)기능을 사용하도록 설정하는 것입니다.
+다음 작업은 사용자가 만든 데이터 모델에 따라 데이터베이스를 만들기 위해 [Code First 마이그레이션](http://curah.microsoft.com/55220) 기능을 사용하도록 설정하는 것입니다.
 
 1. **도구** 메뉴에서 **라이브러리 패키지 관리자**, **패키지 관리자 콘솔**을 차례로 선택합니다.
 
@@ -642,7 +554,7 @@ XSRF 또는 CSRF라고도 하는 교차 사이트 요청 위조는 웹 호스팅
 
 XSRF 공격은 피싱 공격과는 구분됩니다. 피싱 공격에는 피해자의 상호 작용이 필요합니다. 피싱 공격에서 악성 웹 사이트는 대상 웹 사이트를 가장하고 피해자는 공격자에게 중요 정보를 제공하는 실수를 저지르게 됩니다. XSRF 공격에서는 종종 피해자의 상호 작용이 필요하지 않습니다. 대신, 공격자는 대상 웹 사이트에 모든 관련 쿠키를 자동으로 보내는 브라우저를 사용합니다.
 
-자세한 내용은 [OWASP(Open Web Application Security Project)](https://www.owasp.org/index.php/Main_Page)에서 [XSRF](https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)를 참조하세요.
+자세한 내용은 [OWASP(Open Web Application Security Project)](https://www.owasp.org/index.php/Main_Page)에서 [XSRF](https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF))를 참조하세요.
 
 1. **솔루션 탐색기**에서 **ContactManager** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가**를 클릭한 후 **클래스**를 클릭합니다.
 
@@ -720,9 +632,9 @@ XSRF 공격은 피싱 공격과는 구분됩니다. 피싱 공격에는 피해�
 
 	using ContactManager.Filters;
 
-1. XSRF 위협으로부터 보호할 수 있도록 **[ContactsController]**의 Post 메서드에 **ValidateHttpAntiForgeryToken** 특성을 추가합니다. "PutContact",  "PostContact" 및 **DeleteContact** 작업 메서드에 이 특성을 추가하겠습니다.
+1. XSRF 위협으로부터 보호할 수 있도록 **ContactsController**의 Post 메서드에 **[ValidateHttpAntiForgeryToken]** 특성을 추가합니다. "PutContact", "PostContact" 및 **DeleteContact** 작업 메서드에 이 특성을 추가하겠습니다.
 
-	[ValidateHttpAntiForgeryToken]
+		[ValidateHttpAntiForgeryToken]
         public IHttpActionResult PutContact(int id, Contact contact)
         {
 
@@ -813,13 +725,15 @@ XSRF 공격은 피싱 공격과는 구분됩니다. 피싱 공격에는 피해�
 
 입력한 항목이 저장되어 Contact Manager 페이지에 나타나면 해당 항목은 데이터베이스에 저장된 것입니다.
 
-![연락처가 있는 인덱스 페이지][addwebapi004]
+![Index page with contacts][addwebapi004]
 
 이제 응용 프로그램이 클라우드에서 실행되고 데이터를 저장하는 데 SQL 데이터베이스가 사용됩니다. Azure에서 응용 프로그램 테스트를 마치면 해당 응용 프로그램을 삭제해야 합니다. 응용 프로그램이 공개될 뿐 아니라 액세스를 제한할 메커니즘이 없기 때문입니다.
 
+>[AZURE.NOTE] Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 사용](http://go.microsoft.com/fwlink/?LinkId=523751)으로 이동합니다. 앱 서비스에서는 단기 시작 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+
 <h2><a name="nextsteps"></a>다음 단계</h2>
 
-실제 응용 프로그램에는 인증 및 권한 부여가 필요할 수 있으므로 멤버 자격 데이터베이스를 사용할 수 있습니다. [OAuth, 멤버 자격 및 SQL 데이터베이스를 사용하여 안전한 ASP.NET MVC 응용 프로그램 배포](http://azure.microsoft.com/develop/net/tutorials/web-site-with-sql-database/) 자습서는 현재 자습서를 기반으로 작성되었으며, 멤버 자격 데이터베이스를 사용하여 웹 응용 프로그램을 배포하는 방법을 설명합니다.
+실제 응용 프로그램에는 인증 및 권한 부여가 필요할 수 있으므로 멤버 자격 데이터베이스를 사용할 수 있습니다. [OAuth, 멤버 자격 및 SQL 데이터베이스를 사용하여 안전한 ASP.NET MVC 응용 프로그램 배포](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md) 자습서는 현재 자습서를 기반으로 작성되었으며, 멤버 자격 데이터베이스를 사용하여 웹 응용 프로그램을 배포하는 방법을 설명합니다.
 
 Azure 응용 프로그램에 데이터를 저장하는 또 다른 방법은 Azure 저장소를 사용하는 것입니다. Azure 저장소는 비관계형 데이터 저장소를 Blob 및 테이블 형식으로 제공합니다. Web API, ASP.NET MVC 및 Window Azure에 대한 자세한 내용은 다음 링크를 참조하세요.
  
@@ -827,11 +741,15 @@ Azure 응용 프로그램에 데이터를 저장하는 또 다른 방법은 Azur
 * [MVC를 사용하여 Entity Framework 시작][EFCodeFirstMVCTutorial]
 * [ASP.NET MVC 5 소개](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started)
 * [ASP.NET Web API 최초 사용](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api)
-* [WAWS 디버그](http://azure.microsoft.com/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/)
+* [디버깅 WAWS](web-sites-dotnet-troubleshoot-visual-studio.md)
 
 이 자습서 및 응용 프로그램 예제는 [Rick Anderson](http://blogs.msdn.com/b/rickandy/)(Twitter [@RickAndMSFT](https://twitter.com/RickAndMSFT))에 의해 작성되었으며, Tom Dykstra 및 Barry Dorrans(Twitter [@blowdart](https://twitter.com/blowdart))의 도움을 받았습니다. 
 
 자습서 자체뿐 아니라 설명된 제품과 관련해서 좋아한 사항이나 바라는 개선 사항에 대한 의견을 남겨주세요. 사용자 의견은 개선 사항의 우선 순위를 지정하는 데 도움이 됩니다. 특히 멤버 자격 데이터베이스를 구성하고 배포하는 프로세스 자동화에 대한 사용자의 관심도가 어느 정도인지 파악하는 데 유용합니다. 
+
+## 변경 내용
+* 웹 사이트에서 앱 서비스로의 변경에 대한 가이드는 다음을 참조: [Azure 앱 서비스 및 기존 Azure 서비스에 대한 영향](http://go.microsoft.com/fwlink/?LinkId=529714)
+* 이전 포털에서 새 포털로의 변경에 대한 가이드는 다음을 참조: [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 <!-- bookmarks -->
 [OAuth 공급자 추가]: #addOauth
@@ -901,5 +819,4 @@ Azure 응용 프로그램에 데이터를 저장하는 또 다른 방법은 Azur
 [WebPIAzureSdk20NetVS12]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/WebPIAzureSdk20NetVS12.png
 [prevent-csrf-attacks]: http://www.asp.net/web-api/overview/security/preventing-cross-site-request-forgery-(csrf)-attacks
 
-
-<!--HONumber=42-->
+<!--HONumber=49-->

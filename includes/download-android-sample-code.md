@@ -7,7 +7,7 @@
 
 3. Android Studio를 엽니다. 다른 프로젝트로 작업 중인 경우 해당 프로젝트가 나타나면 프로젝트를 닫습니다(**File => Close Project**).
 
-4. **Open an existing Android Studio project**를 선택하고  *GettingStartedWithData*의  *AndroidStudio* 폴더에서 프로젝트 위치를 찾은 후 **OK**를 클릭합니다. 
+4. **기존 Android Studio 프로젝트 열기**를 선택하고,  *GettingStartedWithData*의 *AndroidStudio* 폴더에서 프로젝트 위치를 찾은 다음 **확인**을 클릭합니다. 
 
 
  	![](./media/mobile-services-android-get-started/android-studio-import-project.png)
@@ -18,4 +18,5 @@
 
 <!-- URLs. -->
 [GitHub]:  http://go.microsoft.com/fwlink/p/?LinkID=282122
-<!--HONumber=47-->
+
+<!--HONumber=49-->

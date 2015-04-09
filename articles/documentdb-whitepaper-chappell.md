@@ -36,4 +36,4 @@
 **다운로드:** [DocumentDB 소개 - Microsoft Azure용 NoSQL 데이터베이스](http://go.microsoft.com/fwlink/?LinkId=511318)(영문)
 
 
-<!--HONumber=47-->
+<!--HONumber=49-->

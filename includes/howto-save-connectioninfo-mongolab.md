@@ -18,10 +18,11 @@
 1. 도구 모음에서 **저장**을 클릭합니다.  
 ![SaveWebSite][button-website-save]
 
-**참고:** Azure에서 이 변수에 **CUSTOMCONNSTR\_** 접두사를 추가합니다. 위 코드에서 **CUSTOMCONNSTR\_MONGOLAB_URI**를 참조하는 것은 이 때문입니다.
+**참고:** Azure는 **CUSTOMCONNSTR\_** 접두사를 변수에 추가합니다. 위의 코드에서 **CUSTOMCONNSTR\_MONGOLAB_URI.**를 참조하는 것은 이 때문입니다.
 
 [entry-website]: ./media/howto-save-connectioninfo-mongolab/entry-website.png
 [focus-mongolab-websitedashboard-config]: ./media/howto-save-connectioninfo-mongolab/focus-mongolab-websitedashboard-config.png
 [focus-mongolab-websiteconnectionstring]: ./media/howto-save-connectioninfo-mongolab/focus-mongolab-websiteconnectionstring.png
 [button-website-save]: ./media/howto-save-connectioninfo-mongolab/button-website-save.png
-<!--HONumber=42-->
+
+<!--HONumber=49-->

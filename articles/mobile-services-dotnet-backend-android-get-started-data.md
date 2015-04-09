@@ -1,6 +1,6 @@
 ﻿<properties 
 	pageTitle="데이터 시작(Android) | 모바일 개발자 센터" 
-	description="모바일 서비스를 사용하여 Android 앱에서 데이터를 활용하는 방법에 대해 알아봅니다." 
+	description="모바일 서비스를 사용하여 Android 앱에서 데이터를 활용하는 방법을 알아봅니다.." 
 	services="mobile-services" 
 	documentationCenter="android" 
 	authors="RickSaling" 
@@ -64,16 +64,16 @@
 
 <h2><a name="download-app"></a>GetStartedWithData 프로젝트 다운로드</h2>
 
-### 샘플 코드 가져오기
+###샘플 코드 가져오기
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-create-new-service](../includes/download-android-sample-code.md)]
 
-### Android SDK 버전 확인
+###Android SDK 버전 확인
 
 [AZURE.INCLUDE [mobile-services-verify-android-sdk-version](../includes/mobile-services-verify-android-sdk-version.md)]
 
 
-### 샘플 코드 검사 및 실행
+###샘플 코드 검사 및 실행
 
 [AZURE.INCLUDE [mobile-services-android-run-sample-code](../includes/mobile-services-android-run-sample-code.md)]
 
@@ -94,7 +94,7 @@
 
    	그러면 새 항목이 모바일 서비스에 삽입으로 전송됩니다.
 
-    변경 사항이 Azure의 데이터베이스에서 유지되었는지 확인하려면 앱을 다시 시작할 수 있습니다. 또한 Azure 관리 포털을 사용하여 데이터 집합을 확인할 수 있습니다.  다음 두 단계에서 이 작업을 수행하여 데이터 집합의 변경 내용을 확인합니다.
+    변경 사항이 Azure의 데이터베이스에서 유지되었는지 확인하려면 앱을 다시 시작할 수 있습니다. Azure 관리 포털을 사용하여 데이터베이스를 검토할 수도 있습니다. 다음 두 단계에서 데이터베이스의 변경 내용을 확인할 수 있습니다.
 
 
 4. Azure 관리 포털에서 모바일 서비스와 연결된 데이터베이스에 대해 관리를 클릭합니다.
@@ -115,15 +115,15 @@
 
 이 자습서에서는 Android 앱에서 모바일 서비스의 데이터로 작업하기 위한 기본 사항에 대해 설명했습니다. 
 
-<!--다음에는 이 자습서에서 만든 GetStartedWithData 앱을 기반으로 하는 다음 자습서 중 하나를 완료해 보세요.
+<!--Next, consider completing one of the following tutorials that is based on the GetStartedWithData app that you created in this tutorial:
 
-* [스크립트를 사용하여 데이터 유효성 검사 및 수정]
-  <br/>모바일 서비스에서 서버 스크립트를 사용하여 앱에서 전송된 데이터의 유효성을 검사하고 변경하는 방법에 대해 자세히 알아봅니다.
+* [Validate and modify data with scripts]
+  <br/>Learn more about using server scripts in Mobile Services to validate and change data sent from your app.
 
-* [페이징을 사용하여 쿼리 구체화]
-  <br/>쿼리에 페이징을 사용하여 단일 요청으로 처리되는 데이터 양을 제어하는 방법을 알아봅니다.
+* [Refine queries with paging]
+  <br/>Learn how to use paging in queries to control the amount of data handled in a single request.
 
-데이터 시리즈를 완료했으므로 다음을 시도합니다.
+Once you have completed the data series, try
 -->
 
 다른 자습서도 시도해보세요.
@@ -135,7 +135,7 @@
   <br/>앱에 기본적인 푸시 알림을 보내는 방법을 알아봅니다.
 
 * [모바일 서비스 .NET 방법 개념 참조]
-  <br/>모바일 서비스를 .NET과 함께 사용하는 방법에 대해 알아봅니다.
+  <br/>모바일 서비스를 .NET과 함께 사용하는 방법을 알아봅니다.
   
 <!-- Anchors. -->
 
@@ -180,10 +180,10 @@
 
 
 <!-- URLs. -->
-[데이터 시작(Eclipse)]: /documentation/articles/mobile-services-dotnet-backend-android-get-started-data-EC/
+[데이터 시작(Eclipse)]: mobile-services-dotnet-backend-android-get-started-data-EC.md
 [스크립트를 사용하여 데이터 유효성 검사 및 수정]: /develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
 [페이징을 사용하여 쿼리 구체화]: /develop/mobile/tutorials/add-paging-to-data-dotnet
-[모바일 서비스 시작]: /documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/
+[모바일 서비스 시작]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 [인증 시작]: /develop/mobile/tutorials/get-started-with-users-android
 [푸시 알림 시작]: /develop/mobile/tutorials/get-started-with-push-android
 [JavaScript 및 HTML]: /develop/mobile/tutorials/get-started-with-data-js
@@ -192,8 +192,9 @@
 [Azure 관리 포털]: https://manage.windowsazure.com/
 [관리 포털]: https://manage.windowsazure.com/
 [모바일 서비스 SDK]: http://go.microsoft.com/fwlink/p/?LinkId=257545
-[개발자 코드 샘플 사이트(영문)]:  http://go.microsoft.com/fwlink/p/?LinkId=328660
+[개발자 코드 샘플 사이트]:  http://go.microsoft.com/fwlink/p/?LinkId=328660
 [모바일 서비스 .NET 방법 개념 참조]: /develop/mobile/how-to-guides/work-with-net-client-library
-[MobileServiceClient 클래스(영문)]: http://go.microsoft.com/fwlink/p/?LinkId=302030
-[모바일 서비스 .NET 방법 개념 참조]: /documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library  
-<!--HONumber=47-->
+[MobileServiceClient 클래스]: http://go.microsoft.com/fwlink/p/?LinkId=302030
+[모바일 서비스 .NET 방법 개념 참조]: mobile-services-windows-dotnet-how-to-use-client-library.md  
+
+<!--HONumber=49-->

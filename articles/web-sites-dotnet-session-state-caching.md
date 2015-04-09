@@ -1,55 +1,47 @@
-﻿<properties 
-	pageTitle="Azure 웹 사이트에서 ASP.NET 세션 상태 사용" 
+<properties 
+	pageTitle="Azure 앱 서비스에서 Azure Redis 캐시를 사용하는 세션 상태" 
 	description="Azure 캐시 서비스를 사용하여 ASP.NET 세션 상태 캐싱을 지원하는 방법에 대해 설명합니다." 
-	services="cache" 
+	services="app-service\web" 
 	documentationCenter=".net" 
-	authors="riande" 
+ 	authors="Rick-Anderson" 
 	manager="wpickett" 
-	editor="mollybos"/>
+	editor=""/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="1/13/2015" 
-	ms.author="Rick-Anderson"/>
+	ms.date="03/24/2015" 
+	ms.author="riande"/>
 
 
-# Azure 웹 사이트에서 ASP.NET 세션 상태를 사용하는 방법
+# Azure 앱 서비스에서 Azure Redis 캐시를 사용하는 세션 상태
 
 
-이 항목에서는 세션 상태에 Azure Redis 캐시 서비스(미리 보기)를 사용하는 방법을 설명합니다.
+이 항목에서는 세션 상태에 Azure Redis 캐시 서비스를 사용하는 방법을 설명합니다.
 
 ASP.NET 웹 앱에서 세션 상태를 사용하는 경우 외부 세션 상태 공급자(Redis 캐시 서비스 또는 SQL Server 세션 상태 공급자)를 구성해야 합니다. 세션 상태를 사용하는 경우 외부 공급자를 사용하지 않으면 웹 앱의 인스턴스가 하나로 제한됩니다. Redis 캐시 서비스는 가장 빠르고 간편하게 사용하도록 설정할 수 있습니다.
 
-세션 상태 캐싱에 캐시 서비스(미리 보기)를 사용하는 기본 단계는 다음과 같습니다.
-
-* [캐시를 만듭니다.](#createcache)
-* [웹 앱에 RedisSessionStateProvider NuGet 패키지를 추가합니다.](#configureproject)
-* [web.config 파일을 수정합니다.](#configurewebconfig)
-* [Session 개체를 사용하여 캐시된 항목을 저장 및 검색합니다.](#usesessionobject)
-
 <h2><a id="createcache"></a>캐시 만들기</h2>
-캐시를 만들려면 [다음 지침](http://azure.microsoft.com/documentation/articles/cache-dotnet-how-to-use-azure-redis-cache/#create-cache)을 따르세요.
+[다음 지침](cache-dotnet-how-to-use-azure-redis-cache.md#create-cache)에 따라 캐시를 만듭니다.
 
 <h2><a id="configureproject"></a>웹 앱에 RedisSessionStateProvider NuGet 패키지 추가</h2>
 NuGet  `RedisSessionStateProvider` 패키지를 설치합니다.  다음 명령을 사용하여 패키지 관리자 콘솔에서 설치합니다(**도구** > **NuGet 패키지 관리자** > **패키지 관리자 콘솔**).
 
-  `PM> Install-Package RedisSessionStateProvider -IncludePrerelease`
+  `PM> Install-Package Microsoft.Web.RedisSessionStateProvider`
   
-**도구** > **NuGet 패키지 관리자** > **솔루션의 NuGet 패키지 관리**에서 설치하려면  `RedisSessionStateProvider`를 검색하고 **시험판 포함**을 지정해야 합니다.
+**도구** > **NuGet 패키지 관리자** > **솔루션의 NuGet 패키지 관리**에서 설치하려면  `RedisSessionStateProvider`를 검색합니다.
 
-자세한 내용은 [NuGet RedisSessionStateProvider 페이지](http://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider/ ) 및 [캐시 클라이언트 구성](http://azure.microsoft.com/documentation/articles/cache-dotnet-how-to-use-azure-redis-cache/#NuGet)을 참조하세요.
+자세한 내용은 [NuGet RedisSessionStateProvider 페이지](http://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider/ ) 및 [캐시 클라이언트 구성](cache-dotnet-how-to-use-azure-redis-cache.md#NuGet)을 참조하세요.
 
 <h2><a id="configurewebconfig"></a>Web.Config 파일 수정</h2>
 NuGet 패키지는 캐시에 대한 어셈블리 참조를 만들 뿐 아니라  *web.config* 파일에 스텁 항목을 추가합니다. 
 
 1.  *web.config*를 열고 **sessionState** 요소를 찾습니다.
 
-1.  `host`,  `accessKey`,  `port`(SSL 포트는 6380이어야 함) 값을 입력하고  `SSL`을  `true`로 설정합니다. 이러한 값은 캐시 인스턴스에 대한 Azure 관리 미리 보기 포털 블레이드에서 가져올 수 있습니다. 자세한 내용은 [캐시에 연결](http://azure.microsoft.com/documentation/articles/cache-dotnet-how-to-use-azure-redis-cache/#connect-to-cache)을 참조하세요.
-다음 태그는  *web.config* 파일의 변경 내용을 표시합니다.
+1.  `host`,  `accessKey`,  `port`(SSL 포트는 6380이어야 함) 값을 입력하고  `SSL`을  `true`로 설정합니다. 이러한 값은 캐시 인스턴스에 대한 [Azure 포털](http://go.microsoft.com/fwlink/?LinkId=529715) 블레이드에서 가져올 수 있습니다. 자세한 내용은 [캐시에 연결](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-cache)을 참조하세요. 비 SSL 포트는 기본적으로 새 캐시에 대해 사용하지 않도록 설정됩니다. 비 SSL 포트를 사용하도록 설정하기에 대한 자세한 내용은 [Azure Redis 캐시에서 캐시 구성](https://msdn.microsoft.com/library/azure/dn793612.aspx) 항목의 [액세스 포트](https://msdn.microsoft.com/library/azure/dn793612.aspx#AccessPorts) 섹션을 참조하세요. 다음 태그는  *web.config* 파일의 변경 내용을 표시합니다.
 
 
   <pre class="prettyprint">  
@@ -92,15 +84,21 @@ NuGet 패키지는 캐시에 대한 어셈블리 참조를 만들 뿐 아니라 
 
     object objValue = Session["yourkey"];
     if (objValue != null)
-       strValue = (string)obj;	
+       strValue = (string)objValue;	
 
 Redis 캐시를 사용하여 웹 앱에서 개체를 캐시할 수도 있습니다. 자세한 내용은 [Azure Redis 캐시를 사용한 MVC 동영상 앱(15분)](http://azure.microsoft.com/blog/2014/06/05/mvc-movie-app-with-azure-redis-cache-in-15-minutes/)을 참조하세요.
 ASP.NET 세션 상태 사용 방법에 대한 자세한 내용은 [ASP.NET 세션 상태 개요][]를 참조하세요.
 
+>[AZURE.NOTE] Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 사용](http://go.microsoft.com/fwlink/?LinkId=523751)으로 이동합니다. 앱 서비스에서는 단기 시작 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+
+## 변경 내용
+* 웹 사이트에서 앱 서비스로의 변경에 대한 가이드는 다음을 참조: [Azure 앱 서비스 및 기존 Azure 서비스에 대한 영향](http://go.microsoft.com/fwlink/?LinkId=529714)
+* 이전 포털에서 새 포털로의 변경에 대한 가이드는 다음을 참조: [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)
+
   *작성자: [Rick Anderson](https://twitter.com/RickAndMSFT)*
   
-  [installed the latest]: http://azure.microsoft.com/downloads/?sdk=net  
-  [ASP.NET Session State Overview]: http://msdn.microsoft.com/library/ms178581.aspx
+  [최신 설치]: http://www.windowsazure.com/downloads/?sdk=net  
+  [ASP.NET 세션 상태 개요]: http://msdn.microsoft.com/library/ms178581.aspx
 
   [NewIcon]: ./media/web-sites-dotnet-session-state-caching/CacheScreenshot_NewButton.png
   [NewCacheDialog]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_CreateOptions.png
@@ -111,5 +109,4 @@ ASP.NET 세션 상태 사용 방법에 대한 자세한 내용은 [ASP.NET 세�
   [EndpointURL]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_EndpointURL.png
   [ManageKeys]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_ManageAccessKeys.png
 
-
-<!--HONumber=42-->
+<!--HONumber=49-->
