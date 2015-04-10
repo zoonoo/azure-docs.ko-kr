@@ -392,7 +392,7 @@ Linux를 실행하는 컴퓨터를 보호하려는 경우 다음을 수행해야
 
 4. 복제에 사용할 서버와 저장소를 선택합니다. 
 
-	![vCenter server](./media/site-recovery-vmware-to-azure/ASRVMWare_MachinesResources..png)
+	![vCenter server](./media/site-recovery-vmware-to-azure/ASRVMWare_MachinesResources.png)
 
 5. 원본 서버에 대한 사용자 자격 증명을 제공합니다. 이 자격 증명은 원본 컴퓨터에 모바일 서비스를 자동으로 설치하는 데 필요합니다. Windows 서버의 경우 원본 서버에서 계정에 관리자 권한이 있어야 합니다. Linux의 경우 서버에서 계정에 수퍼 사용자 권한이 있어야 합니다.
 
