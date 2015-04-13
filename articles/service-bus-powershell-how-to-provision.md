@@ -1,4 +1,4 @@
-﻿<properties
+<properties
 	pageTitle="PowerShell을 사용하여 서비스 버스 관리"
 	description=".NET 대신 PowerShelll 스크립트를 사용하여 서비스 버스 관리"
 	services="service-bus"
@@ -181,7 +181,7 @@ Write-Output "The consumer group [$ConsumerGroupName] for the [$Path] event hub 
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [powershell-install-configure]: ../install-configure-powershell/
-[Service Bus NuGet package]: http://www.nuget.org/packages/WindowsAzure.ServiceBus/
+[서비스 버스 NuGet 패키지]: http://www.nuget.org/packages/WindowsAzure.ServiceBus/
 [Get-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495122.aspx
 [New-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495165.aspx
 [Get-AzureSBAuthorizationRule]: https://msdn.microsoft.com/library/azure/dn495113.aspx
