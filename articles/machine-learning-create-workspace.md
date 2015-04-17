@@ -17,10 +17,10 @@
 	ms.author="garye"/>
 
 
-# Azure Machine Learning 작업 영역 만들기 
-Microsoft Azure 기계 학습 작업 영역(ML 작업 영역)에는 실험을 관리하고 게시하는 데 필요한 도구가 있습니다. 기계 학습 작업 영역에 대한 자세한 내용은 링크를 참조하세요.
+# Azure 기계 학습 작업 영역 만들기 
+Microsoft Azure 기계 학습 작업 영역에는 실험을 관리하고 게시하는 데 필요한 도구가 있습니다. 기계 학습 작업 영역에 대한 자세한 내용은 링크를 참조하세요.
 ## 작업 영역 만들기 ##
-1. Microsoft Azure 계정으로 로그인합니다.
+1. Microsoft Azure 계정에 로그인합니다.
 2. Microsoft Azure 서비스 패널에서 **기계 학습**을 클릭합니다.
 
 ![][1]
@@ -29,14 +29,14 @@ Microsoft Azure 기계 학습 작업 영역(ML 작업 영역)에는 실험을 �
 1. **기계 학습 작업 영역 만들기**를 클릭합니다.
 2. **빠른 생성** 페이지에서 다음을 수행합니다.
 	1. 작업 영역 정보를 입력합니다.    
-	참고: **작업 영역 소유자**는 Microsoft 계정(name@outlook.com) 또는 조직 계정입니다.
+	> [AZURE.NOTE] **작업 영역 소유자**는 Microsoft 계정 이름(name@outlook.com) 또는 조직 계정 이름입니다.
 	2. **기계 학습 작업 영역 만들기**를 클릭합니다.
 3. 기계 학습 작업 영역이 만들어진 후에는 **기계 학습** 페이지에 나열됩니다.
  
 ![][2]
 
 <!--Anchors-->
-[작업 영역 만들기]: #createworkspace
+[작업 영역을 만들려면]: #createworkspace
 
 <!--Image references-->
 [1]: ./media/machine-learning-create-workspace/cw1.png
@@ -46,4 +46,4 @@ Microsoft Azure 기계 학습 작업 영역(ML 작업 영역)에는 실험을 �
 
 <!--Link references-->
 
-<!--HONumber=46--> 
+<!--HONumber=49-->

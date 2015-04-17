@@ -3,7 +3,7 @@
 	description="Azure 서비스 버스 알림 허브를 사용하여 iOS 장치에 최신 뉴스 알림을 보내는 방법에 대해 알아봅니다." 
 	services="notification-hubs" 
 	documentationCenter="ios" 
-	authors="ysxu" 
+	authors="wesmc7777" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,29 +13,27 @@
 	ms.tgt_pltfrm="" 
 	ms.devlang="objective-c" 
 	ms.topic="article" 
-	ms.date="10/10/2014" 
-	ms.author="yuaxu"/>
+	ms.date="02/26/2015" 
+	ms.author="wesmc"/>
 
 # 알림 허브를 사용하여 속보 보내기
 <div class="dev-center-tutorial-selector sublanding">
-	<a href="/ko-kr/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/" title="Windows Universal" >Windows Universal</a><a href="/ko-kr/documentation/articles/notification-hubs-windows-phone-send-breaking-news/" title="Windows Phone">Windows Phone</a><a href="/ko-kr/documentation/articles/notification-hubs-ios-send-breaking-news/" title="iOS" class="current">iOS</a>
-	<a href="/ko-kr/documentation/articles/notification-hubs-aspnet-backend-android-breaking-news/" title="Android">Android</a>
+	<a href="/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/" title="Windows Universal" >Windows Universal</a><a href="/documentation/articles/notification-hubs-windows-phone-send-breaking-news/" title="Windows Phone">Windows Phone</a><a href="/documentation/articles/notification-hubs-ios-send-breaking-news/" title="iOS" class="current">iOS</a>
+	<a href="/documentation/articles/notification-hubs-aspnet-backend-android-breaking-news/" title="Android">Android</a>
 </div>
+
+##개요
 
 이 항목에서는 Azure 알림 허브를 사용하여 iOS 앱에 속보 알림을 브로드캐스트하는 방법을 보여 줍니다. 완료하면, 관심이 있는 속보 범주를 등록하고 해당 범주의 푸시 알림만 받을 수 있습니다. 이 시나리오는 RSS 수집기, 음악 애호가를 위한 앱 등 이전에 관심을 보인 사용자 그룹에 알림을 보내야 하는 많은 앱에 공통된 패턴입니다.
 
 브로드캐스트 시나리오를 사용하려면 알림 허브에서 등록을 만들 때 하나 이상의 _태그_를 포함하면 됩니다. 태그에 알림이 전송되면 태그에 대해 등록된 모든 장치에서 알림을 받게 됩니다. 태그는 단순히 문자열이므로 사전에 프로비전해야 할 필요가 없습니다. 태그에 대한 자세한 내용은 [알림 허브 지침]을 참조하세요.
 
-이 자습서에서는 이 시나리오를 사용하기 위한 다음 기본 단계를 차례로 안내합니다.
 
-1. [앱에 범주 선택 추가]
-2. [알림 등록]
-3. [백 엔드에서 알림 보내기]
-4. [앱 실행 및 알림 생성]
+##필수 조건
 
-이 항목은 [알림 허브 시작][시작]에서 만든 앱을 기반으로 작성되었습니다. 이 자습서를 시작하기 전에 먼저 [알림 허브 시작][시작]을 완료해야 합니다.
+이 항목은 [알림 허브 시작][get-started]에서 만든 앱을 기반으로 작성되었습니다. 이 자습서를 시작하기 전에 먼저 [알림 허브 시작][get-started]을 완료해야 합니다.
 
-## <a name="adding-categories"></a>앱에 범주 선택 추가
+##앱에 범주 선택 추가
 
 첫 번째 단계는 기존의 스토리보드에 사용자가 등록할 범주를 선택할 수 있도록 하는 UI 요소를 추가하는 것입니다. 사용자가 선택한 범주는 장치에 저장됩니다. 앱을 시작하면 장치 등록이 선택한 범주와 함께 태그로서 알림 허브에 생성됩니다.
 
@@ -92,7 +90,7 @@
 
 	이 클래스는 로컬 저장소를 사용하여, 이 장치에서 받아야 할 뉴스의 범주를 저장합니다. 이러한 범주를 등록하기 위한 메서드도 이 클래스에 포함됩니다.
 
-4. 위 코드에서 `<hub name>`과 `<connection string with listen access>` 자리 표시자를 알림 허브 이름과 앞서 얻었던 *DefaultListenSharedAccessSignature*의 연결 문자열로 바꿉니다.
+4. 위의 코드에서  `<hub name>`  및  `<connection string with listen access>`  자리 표시자를 알림 허브 이름과 앞에서 얻은  *DefaultListenSharedAccessSignature*의 연결 문자열로 바꿔야 합니다.
 
 	> [AZURE.NOTE] 클라이언트 앱과 함께 배포되는 자격 증명은 일반적으로 안전하지 않기 때문에 클라이언트 앱과 함께 listen access용 키만 배포해야 합니다. Listen access를 통해 앱에서 알림을 등록할 수 있지만, 기존 등록을 수정할 수 없으며 알림을 전송할 수도 없습니다. 안전한 백 엔드 서비스에서 알림을 보내고 기존 등록을 변경하는 데에는 모든 액세스 키가 사용됩니다.
 
@@ -154,7 +152,7 @@
 
 이제 사용자가 범주 선택을 변경할 때마다 앱은 범주 집합을 장치의 로컬 저장소에 저장하고 알림 허브에 등록할 수 있습니다.
 
-## <a name="register"></a>알림 등록
+##알림 등록
 
 다음 단계에서는 로컬 저장소에 저장된 범주를 사용하여 시작 시 알림 허브에 등록합니다.
 
@@ -177,7 +175,7 @@
 		    return [[NSSet alloc] initWithArray:categories];
 		}
 
-2. **didRegisterForRemoteNotificationsWithDeviceToken** 메서드에 다음 코드를 추가합니다:
+2. **didRegisterForRemoteNotificationsWithDeviceToken** 메서드에 다음 코드를 추가합니다.
 
 		Notifications* notifications = [(BreakingNewsAppDelegate*)[[UIApplication sharedApplication]delegate] notifications];
 
@@ -207,11 +205,11 @@
 
 이제 앱이 완료되며, 사용자가 범주 선택을 변경할 때마다 알림 허브 등록에 사용된 장치의 로컬 저장소에 범주 집합을 저장할 수 있습니다. 다음에는 범주 알림을 이 앱에 보낼 수 있는 백 엔드를 정의합니다.
 
-<h2><a name="send"></a>백 엔드에서 알림 보내기</h2>
+##백 엔드에서 알림 보내기
 
-[AZURE.INCLUDE [알림 허브-백 엔드](../includes/notification-hubs-back-end.md)]
+[AZURE.INCLUDE [notification-hubs-back-end](../includes/notification-hubs-back-end.md)]
 
-## <a name="test-app"></a>앱 실행 및 알림 생성
+##앱 실행 및 알림 생성
 
 1. 실행 단추를 눌러 프로젝트를 빌드하고 앱을 시작합니다.
 
@@ -231,7 +229,7 @@
 
 5. 선택한 범주에 대한 알림이 알림 메시지로 나타납니다.
 
-## <a name="next-steps"> </a>다음 단계
+## 다음 단계
 
 이 자습서에서는 범주별로 속보를 브로드캐스트하는 방법에 대해 알아보았습니다. 이제 기타 고급 알림 허브 시나리오를 다루는 다음 자습서 중 하나를 완료해 보세요.
 
@@ -243,12 +241,7 @@
 
 	인증된 특정 사용자에게 알림을 푸시하는 방법에 대해 알아보세요. 이 방법은 특정 사용자에게만 알림을 보내기 위한 훌륭한 솔루션입니다.
 
-<!-- Anchors. -->
-[앱에 범주 선택 추가]: #adding-categories
-[알림 등록]: #register
-[백 엔드에서 알림 보내기]: #send
-[앱 실행 및 알림 생성]: #test-app
-[다음 단계]: #next-steps
+
 
 <!-- Images. -->
 [2]: ./media/notification-hubs-ios-send-breaking-news/notification-hub-breakingnews-ios1.png
@@ -263,13 +256,13 @@
 
 <!-- URLs. -->
 [방법: 서비스 버스 알림 허브(iOS 앱)]: http://msdn.microsoft.com/library/jj927168.aspx
-[알림 허브를 사용하여 지역화된 속보 브로드캐스트]: /ko-kr/manage/services/notification-hubs/breaking-news-localized-dotnet/
-[모바일 서비스]: /ko-kr/develop/mobile/tutorials/get-started
-[알림 허브를 통해 사용자에게 알림]: /ko-kr/manage/services/notification-hubs/notify-users/
+[알림 허브를 사용하여 지역화된 속보 브로드캐스트]: /manage/services/notification-hubs/breaking-news-localized-dotnet/
+[모바일 서비스]: /develop/mobile/tutorials/get-started
+[알림 허브를 통해 사용자에게 알림]: /manage/services/notification-hubs/notify-users/
 
 [Azure 관리 포털]: https://manage.windowsazure.com/
 [알림 허브 지침]: http://msdn.microsoft.com/library/jj927170.aspx
 [iOS용 알림 허브 사용 방법]: http://msdn.microsoft.com/library/jj927168.aspx
-[시작]: /ko-kr/manage/services/notification-hubs/get-started-notification-hubs-ios/
+[get-started]: /manage/services/notification-hubs/get-started-notification-hubs-ios/
 
-<!--HONumber=45--> 
+<!--HONumber=49-->

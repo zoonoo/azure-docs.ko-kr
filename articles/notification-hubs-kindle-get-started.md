@@ -1,34 +1,38 @@
-<properties 
+﻿<properties 
 	pageTitle="Azure 알림 허브 시작" 
 	description="Azure 알림 허브를 사용하여 푸시 알림을 보내는 방법에 대해 알아봅니다." 
 	services="notification-hubs" 
 	documentationCenter="" 
-	authors="piyushjo" 
+	authors="wesmc7777" 
 	manager="dwrede" 
 	editor=""/>
 
 <tags 
 	ms.service="notification-hubs" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-kindle" 
 	ms.devlang="Java" 
 	ms.topic="hero-article" 
-	ms.date="09/24/2014" 
-	ms.author="piyushjo"/>
+	ms.date="03/16/2015" 
+	ms.author="wesmc"/>
 
 # 알림 허브 시작
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/ko-kr/documentation/articles/notification-hubs-windows-store-dotnet-get-started/" title="Windows Universal">Windows Universal</a><a href="/ko-kr/documentation/articles/notification-hubs-windows-phone-get-started/" title="Windows Phone">Windows Phone</a><a href="/ko-kr/documentation/articles/notification-hubs-ios-get-started/" title="iOS">iOS</a><a href="/ko-kr/documentation/articles/notification-hubs-android-get-started/" title="Android">Android</a><a href="/ko-kr/documentation/articles/notification-hubs-kindle-get-started/" title="Kindle" class="current">Kindle</a><a href="/ko-kr/documentation/articles/notification-hubs-baidu-get-started/" title="Baidu">Baidu</a><a href="/ko-kr/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/" title="Xamarin.iOS">Xamarin.iOS</a><a href="/ko-kr/documentation/articles/partner-xamarin-notification-hubs-android-get-started/" title="Xamarin.Android">Xamarin.Android</a></div>
+[AZURE.INCLUDE [notification-hubs-selector-get-started](../includes/notification-hubs-selector-get-started.md)]
+
+##개요
 
 이 항목에서는 Azure 알림 허브를 사용하여 Kindle 응용 프로그램에 푸시 알림을 보내는 방법을 보여 줍니다. 
 이 자습서에서는 ADM(Amazon Device Messaging)을 사용하여 푸시 알림을 받는 빈 Kindle 앱을 만듭니다.
+
+##필수 조건
 
 이 자습서의 작업을 수행하려면 다음이 필요합니다.
 
 + Android SDK(Eclipse를 사용하는 것으로 가정) - <a href="http://go.microsoft.com/fwlink/?LinkId=389797">여기</a>서 다운로드 가능
 + <a href="https://developer.amazon.com/appsandservices/resources/development-tools/ide-tools/tech-docs/01-setting-up-your-development-environment">여기</a>에 나와 있는 단계에 따라 Kindle에 대한 개발 환경을 설정합니다.
 
-## 개발자 포털에 새 앱 추가
+##개발자 포털에 새 앱 추가
 
 1. 먼저 [개발자 포털]에서 앱을 만듭니다.
 
@@ -63,7 +67,7 @@
 4.  **키 저장소** 암호로 **android**를 입력합니다.
 
 5.  **MD5** 지문을 복사합니다.
-6.  개발자 포털로 돌아가서 **메시징** 탭에서 **Android/Kindle**을 클릭하고 앱에 대한 패키지 이름(예: **com.sample.notificationhubtest**)과 **MD5** 값을 입력한 다음 **API 키 생성**을 클릭합니다.
+6.  개발자 포털로 돌아가서 **메시징** 탭에서 **Android/Kindle**을 클릭하고 앱에 대한 패키지 이름(예: **com.sample.notificationhubtest)**과 **MD5** 값을 입력한 다음 **API 키 생성**을 클릭합니다.
 
 ## 허브에 자격 증명 추가
 
@@ -76,7 +80,7 @@
 Eclipse 프로젝트에 ADM 라이브러리를 추가합니다.
 
 1. ADM 라이브러리를 가져오려면 [SDK를 다운로드]합니다. SDK zip 파일의 압축을 풉니다.
-2. Eclipse에서 프로젝트를 마우스 오른쪽 단추로 클릭한 후 **속성**을 클릭합니다. 왼쪽에서 **Java 빌드 경로**를 선택한 다음 위쪽에서 **라이브러리** 탭을 선택합니다. **외부 Jar 추가**를 클릭하고 Amazon SDK의 압축을 푼 디렉터리에서 `\SDK\Android\DeviceMessaging\lib\amazon-device-messaging-*.jar` 파일을 선택합니다.
+2. Eclipse에서 프로젝트를 마우스 오른쪽 단추로 클릭한 후 **속성**을 클릭합니다. 왼쪽에서 **Java 빌드 경로**를 선택한 다음 위쪽에서 **라이브러리** 탭을 선택합니다. **외부 Jar 추가**를 클릭하고 Amazon SDK의 압축을 푼 디렉터리에서  `\SDK\Android\DeviceMessaging\lib\amazon-device-messaging-*.jar` 파일을 선택합니다.
 3. NotificationHubs Android SDK(링크)를 다운로드합니다.
 4. 패키지의 압축을 푼 후 `notification-hubs-sdk.jar` 파일을 Eclipse의 `libs` 폴더로 끌어옵니다.
 
@@ -267,7 +271,7 @@ ADM을 지원하도록 앱 매니페스트를 편집합니다.
 
 <!-- URLs. -->
 [개발자 포털]: https://developer.amazon.com/home.html
-[SDK를 다운로드]: https://developer.amazon.com/public/resources/development-tools/sdk
+[SDK 다운로드]: https://developer.amazon.com/public/resources/development-tools/sdk
 
 [0]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-portal1.png
 [1]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-portal2.png
@@ -278,4 +282,4 @@ ADM을 지원하도록 앱 매니페스트를 편집합니다.
 [6]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-new-java-class.png
 [7]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-notification.png
 
-<!--HONumber=45--> 
+<!--HONumber=49-->

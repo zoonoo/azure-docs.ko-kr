@@ -1,0 +1,5 @@
+﻿>[AZURE.NOTE(Azure 기계 학습 무료 평가)]
+>
+>신용 카드 또는 Azure 구독이 필요 없습니다. <a href="https://studio.azureml.net/Home" target="_blank">**지금 시작하기 >**</a>
+
+<!--HONumber=49-->

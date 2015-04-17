@@ -3,7 +3,7 @@
 	description="Java 백 엔드에서 Azure 알림 허브를 사용하는 방법에 대해 알아봅니다." 
 	services="notification-hubs" 
 	documentationCenter="" 
-	authors="piyushjo" 
+	authors="yuaxu" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -14,11 +14,11 @@
 	ms.devlang="java" 
 	ms.topic="article" 
 	ms.date="01/12/2015" 
-	ms.author="piyushjo"/>
+	ms.author="yuaxu"/>
 
 # Java에서 알림 허브를 사용하는 방법
 <div class="dev-center-tutorial-selector sublanding"> 
-    	<a href="/ko-kr/documentation/articles/notification-hubs-java-backend-how-to/" title="Java" class="current">Java</a><a href="/ko-kr/documentation/articles/notification-hubs-php-backend-how-to/" title="PHP">PHP</a><a href="/ko-kr/documentation/articles/notification-hubs-python-backend-how-to/" title="Python">Python</a>
+    	<a href="/documentation/articles/notification-hubs-java-backend-how-to/" title="Java" class="current">Java</a><a href="/documentation/articles/notification-hubs-php-backend-how-to/" title="PHP">PHP</a><a href="/documentation/articles/notification-hubs-python-backend-how-to/" title="Python">Python</a><a href="/documentation/articles/notification-hubs-nodejs-how-to-use-notification-hubs/" title="Node.js">Node.js</a>
 </div>
 
 이 항목에서는 완전히 지원되는 새 공식 Azure 알림 허브 Java SDK의 주요 기능에 대해 설명합니다. 
@@ -127,15 +127,15 @@
 	
 		hub.getRegistration(regid);
 	
-* 	**허브의 모든 등록 가져오기:**
+* 	**허브에서 모든 등록 가져오기:**
 	
 		hub.getRegistrations();
 	
-* 	**태그를 사용하여 등록 가져오기:**
+* 	**태그가 포함된 등록 가져오기:**
 	
 		hub.getRegistrationsByTag("myTag");
 	
-* 	**채널로 등록 가져오기:**
+* 	**채널별 등록 가져오기:**
 	
 		hub.getRegistrationsByChannel("devicetoken");
 
@@ -229,10 +229,10 @@ CreateOrUpdate, Patch 및 Delete의 최종 결과는 Get과 동일합니다. 요
 **SAS 서명이 포함된 URI:**
 특정 Blob 파일이나 Blob 컨테이너의 URL에 사용 권한, 만료 시간 등의 매개 변수 집합과 계정 SAS 키를 사용하여 작성된 이러한 모든 항목의 서명이 결합된 URI입니다. Azure 저장소 Java SDK에는 이러한 종류의 URI 만들기를 비롯하여 다양한 기능이 포함되어 있습니다. 작업을 간단하게 수행하려는 경우 github 위치에서 매우 기본적이고 간단한 서명 알고리즘 구현을 포함하는 ImportExportE2E 테스트 클래스를 살펴보세요.
 
-### 알림 보내기
+###알림 보내기
 알림 개체는 헤더, 네이티브 코드 작성 시 사용되는 몇 가지 유틸리티 메서드 및 템플릿 알림 개체를 포함하는 본문입니다.
 
-* **Windows 스토어 및 Windows Phone 8.1(Silverlight 이외)**
+* **Windows 스토어 및 Windows Phone 8.1(비 Silverlight)**
 
 		String toast = "<toast><visual><binding template=\"ToastText01\"><text id=\"1\">Hello from Java!</text></binding></visual></toast>";
 		Notification n = Notification.createWindowsNotification(toast);
@@ -288,7 +288,7 @@ CreateOrUpdate, Patch 및 Delete의 최종 결과는 Get과 동일합니다. 요
 
 이제 Java 코드를 실행하면 대상 장치에 나타나는 알림이 생성되어야 합니다.
 
-## <a name="next-steps"></a>다음 단계
+##<a name="next-steps"></a>다음 단계
 이 항목에서는 알림 허브에 대한 단순한 Java REST 클라이언트를 만드는 방법을 알아보았습니다. 여기에서 다음을 할 수 있습니다.
 
 * 전체 SDK 코드가 포함된 전체 [Java SDK]를 다운로드합니다. 
@@ -300,12 +300,12 @@ CreateOrUpdate, Patch 및 Delete의 최종 결과는 Get과 동일합니다. 요
 	- [인증된 사용자에게 플랫폼 간 알림 보내기]
 
 [Java SDK]: https://github.com/Azure/azure-notificationhubs-java-backend
-[시작 자습서]: http://azure.microsoft.com/ documentation/articles/notification-hubs-ios-get-started/
-[알림 허브 시작]: http://azure.microsoft.com/manage/services/notification-hubs/getting-started-windows-dotnet/
-[속보 보내기]: http://azure.microsoft.com/manage/services/notification-hubs/breaking-news-dotnet/
-[지역화된 속보 보내기]: http://azure.microsoft.com/manage/services/notification-hubs/breaking-news-localized-dotnet/
-[인증된 사용자에게 알림 보내기]: http://azure.microsoft.com/manage/services/notification-hubs/notify-users/
-[인증된 사용자에게 플랫폼 간 알림 보내기]: http://azure.microsoft.com/manage/services/notification-hubs/notify-users-xplat-mobile-services/
+[시작 자습서]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
+[알림 허브 시작]: http://www.windowsazure.com/manage/services/notification-hubs/getting-started-windows-dotnet/
+[속보 보내기]: http://www.windowsazure.com/manage/services/notification-hubs/breaking-news-dotnet/
+[지역화된 속보 보내기]: http://www.windowsazure.com/manage/services/notification-hubs/breaking-news-localized-dotnet/
+[인증된 사용자에게 알림 보내기]: http://www.windowsazure.com/manage/services/notification-hubs/notify-users/
+[인증된 사용자에게 플랫폼 간 알림 보내기]: http://www.windowsazure.com/manage/services/notification-hubs/notify-users-xplat-mobile-services/
 [Maven]: http://maven.apache.org/
 
-<!--HONumber=45--> 
+<!--HONumber=49-->

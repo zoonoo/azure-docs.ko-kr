@@ -1,4 +1,11 @@
-﻿<properties pageTitle="Python과 함께 알림 허브를 사용하는 방법" description="Python 백 엔드에서 Azure 알림 허브를 사용하는 방법에 대해 알아봅니다." services="notification-hubs" documentationCenter="" authors="piyushjo" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Python과 함께 알림 허브를 사용하는 방법" 
+	description="Python 백 엔드에서 Azure 알림 허브를 사용하는 방법에 대해 알아봅니다." 
+	services="notification-hubs" 
+	documentationCenter="" 
+	authors="yuaxu" 
+	manager="dwrede" 
+	editor=""/>
 
 <tags 
 	ms.service="notification-hubs" 
@@ -7,14 +14,14 @@
 	ms.devlang="php" 
 	ms.topic="article" 
 	ms.date="12/09/2014" 
-	ms.author="piyushjo"/>
+	ms.author="yuaxu"/>
 
 # Python에서 알림 허브를 사용하는 방법
 <div class="dev-center-tutorial-selector sublanding"> 
-    	<a href="/ko-kr/documentation/articles/notification-hubs-java-backend-how-to/" title="Java">Java</a><a href="/ko-kr/documentation/articles/notification-hubs-php-backend-how-to/" title="PHP">PHP</a><a href="/ko-kr/documentation/articles/notification-hubs-python-backend-how-to/" title="Python" class="current">Python</a>
+    	<a href="/documentation/articles/notification-hubs-java-backend-how-to/" title="Java">Java</a><a href="/documentation/articles/notification-hubs-php-backend-how-to/" title="PHP">PHP</a><a href="/documentation/articles/notification-hubs-python-backend-how-to/" title="Python" class="current">Python</a><a href="/documentation/articles/notification-hubs-nodejs-how-to-use-notification-hubs/" title="Node.js">Node.js</a>
 </div>
 
-MSDN 항목 [알림 허브 REST API](http://msdn.microsoft.com/library/dn223264.aspx)에 설명된 대로 알림 허브 REST 인터페이스를 사용하여 Java/PHP/Python/Ruby 백 엔드에서 모든 알림 허브 기능에 액세스할 수 있습니다.
+MSDN 항목 [알림 허브 REST API](http://msdn.microsoft.com/library/dn223264.aspx)에서 설명하는 것처럼 알림 허브 REST 인터페이스를 사용하여 Java/PHP/Python/Ruby 백 엔드에서 모든 알림 허브 기능에 액세스할 수 있습니다.
 
 > [AZURE.NOTE] 이는 Python에서 알림 보내기를 구현하기 위한 샘플 참조 구현이며 공식적으로 지원되는 알림 허브 Python SDK가 아닙니다.
 
@@ -26,7 +33,7 @@ MSDN 항목 [알림 허브 REST API](http://msdn.microsoft.com/library/dn223264.
 * Python 인터페이스를 사용하여 알림 허브 REST API에 알림을 보냅니다. 
 * 디버그/교육 용도로 HTTP REST 요청/응답의 덤프를 가져옵니다. 
 
-선택한 모바일 플랫폼에 대한 [시작 자습서](http://azure.microsoft.com/ documentation/articles/notification-hubs-windows-store-dotnet-get-started/)에 따라 Python에서 백 엔드 부분을 구현할 수 있습니다.
+선택한 모바일 플랫폼에 대한 [시작 자습서]에 따라(notification-hubs-windows-store-dotnet-get-started.md) Python에서 백 엔드 부분을 구현합니다.
 
 > [AZURE.NOTE] 샘플 범위는 알림 보내기로만 제한되며 등록 관리는 수행하지 않습니다.
 
@@ -44,8 +51,8 @@ Windows 알림 메시지를 보내려면
 	wns_payload = """<toast><visual><binding template=\"ToastText01\"><text id=\"1\">Hello world!</text></binding></visual></toast>"""
 	hub.send_windows_notification(wns_payload)
 	
-## 구현
-아직 수행하지 않은 경우 백 엔드를 구현해야 하는 마지막 섹션까지 [시작 자습서]를 따라 진행합니다.
+## Implementation
+아직 하지 않았으면 백 엔드를 구현해야 하는 [시작 자습서]의 마지막 섹션까지 수행하세요.
 
 전체 REST 래퍼를 구현하는 방법에 대한 자세한 내용은 [MSDN](http://msdn.microsoft.com/library/dn530746.aspx)을 참조하세요. 이 섹션에서는 알림 허브 REST 끝점에 액세스하고 알림을 보내는 데 필요한 기본 단계의 Python 구현에 대해 설명합니다.
 
@@ -80,7 +87,7 @@ Windows 알림 메시지를 보내려면
 
 
 ### 보안 토큰 만들기
-보안 토큰을 만드는 방법에 대한 자세한 내용은 [여기](http://msdn.microsoft.com/library/dn495627.aspx)를 참조하세요.
+보안 토큰 만들기에 대한 자세한 내용은 [여기](http://msdn.microsoft.com/library/dn495627.aspx)를 참조하세요.
 현재 요청의 URI 및 연결 문자열에서 추출된 자격 증명에 따라 토큰을 만들려면 **NotificationHub** 클래스에 다음 메서드를 추가해야 합니다.
 
 	@staticmethod
@@ -295,7 +302,7 @@ Windows 클라이언트로 브로드캐스트 알림 메시지를 보낼 때 전
 
 ### 태그(또는 태그 식)를 지정하여 알림 보내기
 
-HTTP 요청에 추가되는 태그 HTTP 헤더를 확인합니다. 아래 예제에서는  'sports' 페이로드가 있는 등록에만 알림을 보냅니다.
+HTTP 요청에 추가되는 태그 HTTP 헤더를 확인합니다. 아래 예제에서는  '스포츠' 페이로드가 있는 등록에만 알림을 보냅니다.
 
 	hub.send_windows_notification(wns_payload, "sports")
 
@@ -314,12 +321,12 @@ HTTP 요청에 추가되는 태그 HTTP 헤더를 확인합니다. 아래 예제
 
 형식 HTTP 헤더가 변경되고 페이로드 본문이 HTTP 요청 본문의 일부로 전송됩니다.
 
-**클라이언트측 - 등록된 템플릿**
+**클라이언트 측 - 등록된 템플릿**
 
 		var template =
 		                @"<toast><visual><binding template=""ToastText01""><text id=""1"">$(greeting_en)</text></binding></visual></toast>";
             
-**서버측 - 페이로드 보내기**
+**서버 측 - 페이로드 보내기**
 		
 		template_payload = {'greeting_en': 'Hello', 'greeting_fr': 'Salut'}
 		hub.send_template_notification(template_payload)
@@ -336,9 +343,9 @@ HTTP 요청에 추가되는 태그 HTTP 헤더를 확인합니다. 아래 예제
 
 <!-- URLs -->
 [Python REST 래퍼 샘플]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-python
-[시작 자습서]: http://azure.microsoft.com/ documentation/articles/notification-hubs-windows-store-dotnet-get-started/
-[속보 자습서]: http://azure.microsoft.com/ documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/
-[지역화 뉴스 자습서]: http://azure.microsoft.com/ documentation/articles/notification-hubs-windows-store-dotnet-send-localized-breaking-news/
+[시작 자습서]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
+[속보 자습서]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/
+[지역화 뉴스 자습서]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-send-localized-breaking-news/
 
 <!-- Images. -->
 [1]: ./media/notification-hubs-python-backend-how-to/DetailedLoggingInfo.png
@@ -347,4 +354,4 @@ HTTP 요청에 추가되는 태그 HTTP 헤더를 확인합니다. 아래 예제
 [4]: ./media/notification-hubs-python-backend-how-to/SendWithMultipleTags.png
 [5]: ./media/notification-hubs-python-backend-how-to/TemplatedNotification.png
 
-<!--HONumber=45--> 
+<!--HONumber=49-->

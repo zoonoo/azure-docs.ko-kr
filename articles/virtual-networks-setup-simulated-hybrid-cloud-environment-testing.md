@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="테스트용 시뮬레이션된 하이브리드 클라우드 환경 설정" 
-	description="Azure 가상 네트워크 두 개와 VNet 간 연결을 사용하여 IT 전문가 또는 개발 테스트용 시뮬레이션된 하이브리드 클라우드 환경을 만드는 방법에 대해 알아봅니다." 
+	pageTitle="테스트용 시뮬레이션된 하이브리드 클라우드 환경 설정 "
+	description="Azure 가상 네트워크 두 개와 VNet 간 연결을 사용하여 IT 전문가 또는 개발 테스트용 시뮬레이션된 하이브리드 클라우드 환경을 만드는 방법에 대해 알아봅니다. "
 	services="virtual-network" 
 	documentationCenter="" 
 	authors="JoeDavies-MSFT" 
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/17/2015" 
+	ms.date="03/18/2015" 
 	ms.author="josephd"/>
 
-#테스트용 시뮬레이션된 하이브리드 클라우드 환경 설정
+# 테스트용 시뮬레이션된 하이브리드 클라우드 환경 설정
 
 이 항목에서는 별도의 Azure 가상 네트워크 두 개를 사용하여 Microsoft Azure에서 테스트용 시뮬레이션된 하이브리드 클라우드 환경을 만드는 과정을 안내합니다. 인터넷에 직접 연결되어 있지 않거나 사용 가능한 공용 IP 주소가 없는 경우 
-[테스트용 하이브리드 클라우드 환경 설정](http://azure.microsoft.com/documentation/articles/virtual-networks-setup-hybrid-cloud-environment-testing/)의 대안으로 이 구성을 사용합니다. 다음은 결과 구성입니다.
+[테스트용 하이브리드 클라우드 환경 설정](virtual-networks-setup-hybrid-cloud-environment-testing.md) 이 구성을 대안으로 사용합니다. 다음은 결과 구성입니다.
 
 ![](./media/virtual-networks-set-up-simulated-hybrid-cloud-environment-for-testing/CreateSimHybridCloud_4.png)
 
@@ -42,13 +42,12 @@
 3.	VNet 간 VPN 연결 만들기
 4.	DC2 구성 
 
-Azure 구독이 아직 없는 경우 [Azure 평가판 사용](http://www.windowsazure.com/pricing/free-trial/)에서 무료 평가판에 등록할 수 있습니다. MSDN 구독이 있는 경우 [MSDN 구독자를 위한 Azure 혜택](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 참조하세요.
+Azure 구독이 아직 없는 경우 [Azure 평가판 사용](http://azure.microsoft.com/pricing/free-trial/)에서 무료 평가판에 등록할 수 있습니다. MSDN 구독이 있는 경우 [MSDN 구독자를 위한 Azure 혜택](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 참조하세요.
 
->[AZURE.NOTE] Azure의 가상 컴퓨터 및 가상 네트워크 게이트웨이는 실행 중인 동안 지속적인 비용이 부과됩니다. 이 비용은 무료 평가판, MSDN 구독 또는 유료 구독에 대해 청구됩니다. 이 테스트 환경을 사용하지 않을 때 실행 비용을 절감하려면 이 항목의 [이 환경의 지속적인 비용 최소화](#costs) 참조하세요.
+>[AZURE.NOTE] Azure의 가상 컴퓨터 및 가상 네트워크 게이트웨이는 실행 중인 동안 지속적인 비용이 부과됩니다. 이 비용은 무료 평가판, MSDN 구독 또는 유료 구독에 대해 청구됩니다. 이 테스트 환경을 사용하지 않을 때 실행 비용을 절감하려면 이 항목의 [이 환경의 지속적인 비용 최소화]를(#costs) 참조하세요.
 
 
-
-##단계 1: TestLab 가상 네트워크 구성
+## 단계 1: TestLab 가상 네트워크 구성
 
 [테스트 랩 가이드: Azure의 기본 구성](http://www.microsoft.com/download/details.aspx?id=41684)에 설명된 지침을 사용하여 TestLab이라는 Azure 가상 네트워크에서 DC1, APP1 및 CLIENT1 컴퓨터를 구성합니다. 
 
@@ -63,7 +62,7 @@ Azure 구독이 아직 없는 경우 [Azure 평가판 사용](http://www.windows
 
 ![](./media/virtual-networks-set-up-simulated-hybrid-cloud-environment-for-testing/CreateSimHybridCloud_1.png)
  
-##단계 2: TestVNET 가상 네트워크 만들기
+## 단계 2: TestVNET 가상 네트워크 만들기
 
 먼저 TestVNET이라는 새 가상 네트워크를 만듭니다.
 
@@ -78,7 +77,7 @@ Azure 구독이 아직 없는 경우 [Azure 평가판 사용](http://www.windows
 	- TestSubnet에 대한 **CIDR(주소 수)** 열에서 **/24(256)**를 클릭합니다.
 7.	완료 아이콘을 클릭합니다. 가상 네트워크가 만들어질 때까지 기다렸다가 계속 진행합니다.
 
-이제 [Azure PowerShell을 설치 및 구성하는 방법](../install-configure-powershell/)의 지침을 사용하여 로컬 컴퓨터에 Azure PowerShell을 설치합니다.
+이제 [Azure PowerShell을 설치 및 구성하는 방법]의 지침을 사용하여 로컬 컴퓨터에 Azure PowerShell을 설치합니다(install-configure-powershell.md).
 
 그런 다음 TestVNET 가상 네트워크에 대한 새 클라우드 서비스를 만듭니다. 고유한 이름을 선택해야 합니다. 예를 들어 이름을 **TestVNET-***UniqueSequence*로 지정할 수 있습니다(여기서 *UniqueSequence*는 조직의 약어). 예를 들어 조직의 이름이 Tailspin Toys인 경우 클라우드 서비스 이름을 **TestVNET-Tailspin**으로 지정할 수 있습니다.
 
@@ -114,11 +113,11 @@ VPN 장치 IP 주소 131.107.0.1 및 131.107.0.2는 두 가상 네트워크에 �
 1.	로컬 컴퓨터의 Azure 관리 포털에서 왼쪽 창에 있는 **네트워크**를 클릭한 다음 **TestLab**의 **상태** 열이 **생성됨**으로 설정되어 있는지 확인합니다.
 2.	**TestLab**을 클릭한 후 **구성**을 클릭합니다. TestLab 페이지의 **사이트 간 연결** 섹션에서 **로컬 네트워크에 연결**을 클릭합니다. 
 3.	**로컬 네트워크**에서 **TestVNETLNet**을 선택합니다.
-4.	작업 표시줄에서 **저장**을 클릭합니다.
+4.	작업 표시줄에서 **저장**을 클릭합니다. 경우에 따라 **게이트웨이 서브넷 추가**를 클릭하여 Azure VPN 게이트웨이에서 사용하는 서브넷을 만들어야 할 수도 있습니다.
 5.	왼쪽 창에서 **네트워크**를 클릭한 다음 TestVNET의 **상태** 열이 **생성됨**으로 설정되어 있는지 확인합니다.
 6.	**TestVNET**을 클릭한 후 **구성**을 클릭합니다. TestVNET 페이지의 **사이트 간 연결** 섹션에서 **로컬 네트워크에 연결**을 클릭합니다. 
 7.	**로컬 네트워크**에서 **TestLabLNet**을 선택합니다.
-8.	작업 표시줄에서 **저장**을 클릭합니다.
+8.	작업 표시줄에서 **저장**을 클릭합니다. 경우에 따라 **게이트웨이 서브넷 추가**를 클릭하여 Azure VPN 게이트웨이에서 사용하는 서브넷을 만들어야 할 수도 있습니다.
 
 그런 다음 두 가상 네트워크에 대한 가상 네트워크 게이트웨이를 만듭니다.
 
@@ -140,7 +139,7 @@ VPN 장치 IP 주소 131.107.0.1 및 131.107.0.2는 두 가상 네트워크에 �
 6.	로컬 네트워크 세부 정보 지정 페이지에서 **VPN 장치 IP 주소(선택)**에 TestVNET 가상 네트워크에 대한 가상 네트워크 게이트웨이의 IP 주소(위 절차의 7단계)를 입력하고 오른쪽 화살표를 클릭합니다.
 7.	주소 공간 지정 페이지에서 확인 표시를 클릭합니다.
 
-그런 다음 동일한 값(Azure 관리 포털에서 확인한 TestLab 가상 네트워크의 키 값)을 사용하도록 두 게이트웨이의 사전 공유 키를 구성합니다. TestLab 사전 공유 키 값을 입력하여 로컬 컴퓨터의 관리자 수준 Azure PowerShell 명령 프롬프트에서 다음 명령을 실행합니다.
+그런 다음 동일한 값(Azure 관리 포털에서 확인한 TestLab 가상 네트워크의 키 값)을 사용하도록 두 게이트웨이의 사전 공유 키를 구성합니다. TestLab 사전 공유 키 값을 입력하여 로컬 컴퓨터의 Azure PowerShell 명령 프롬프트에서 다음 명령을 실행합니다.
 
 	$preSharedKey="<The preshared key for the TestLab virtual network>"
 	Set-AzureVNetGatewayKey -VNetName TestVNET -LocalNetworkSiteName TestLabLNet -SharedKey $preSharedKey
@@ -151,16 +150,15 @@ VPN 장치 IP 주소 131.107.0.1 및 131.107.0.2는 두 가상 네트워크에 �
 
 ![](./media/virtual-networks-set-up-simulated-hybrid-cloud-environment-for-testing/CreateSimHybridCloud_3.png)
  
-##단계 4: DC2 구성
+## 단계 4: DC2 구성
 
 먼저 DC2용 Azure 가상 컴퓨터를 만듭니다. 로컬 컴퓨터의 Azure PowerShell 명령 프롬프트에서 다음 명령을 실행합니다.
 
 	$ServiceName="<Your cloud service name from Phase 2>"
-	$LocalAdminName="<A local administrator account name>" 
-	$LocalAdminPW="<A password for the local administrator account>"
-	$image= Get-AzureVMImage | where { $_.ImageFamily -eq "Windows Server 2012 R2 Datacenter" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
+	$cred=Get-Credential -Message "Type the name and password of the local administrator account for DC2."
+	$image = Get-AzureVMImage | where { $_.ImageFamily -eq "Windows Server 2012 R2 Datacenter" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 	$vm1=New-AzureVMConfig -Name DC2 -InstanceSize Medium -ImageName $image
-	$vm1 | Add-AzureProvisioningConfig -Windows -AdminUsername $LocalAdminName -Password $LocalAdminPW
+	$vm1 | Add-AzureProvisioningConfig -Windows -AdminUsername $cred.GetNetworkCredential().Username -Password $cred.GetNetworkCredential().Password
 	$vm1 | Set-AzureSubnet -SubnetNames TestSubnet
 	$vm1 | Set-AzureStaticVNetIP -IPAddress 192.168.0.4
 	$vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB 20 -DiskLabel ADFiles -LUN 0 -HostCaching None
@@ -169,7 +167,7 @@ VPN 장치 IP 주소 131.107.0.1 및 131.107.0.2는 두 가상 네트워크에 �
 그런 다음 새 DC2 가상 컴퓨터에 로그온합니다.
 
 1.	Azure 관리 포털의 왼쪽 창에서 **가상 컴퓨터**를 클릭한 다음 DC2에 대한 **상태** 열에서 **실행 중**을 클릭합니다.
-2.	작업 표시줄에서 **연결**을 클릭합니다. 
+2.	In 작업 표시줄에서 **연결**을 클릭합니다. 
 3.	DC2.rdp를 열라는 메시지가 나타나면 **열기**를 클릭합니다.
 4.	원격 데스크톱 연결 메시지 상자가 포함된 메시지가 나타나면 **연결**을 클릭합니다.
 5.	자격 증명을 묻는 메시지가 나타나면 다음을 사용합니다.
@@ -220,20 +218,20 @@ TestVNET 가상 네트워크에는 고유한 DNS 서버(DC2)가 있으므로 이
 
 이 테스트 환경에서 다음 구성을 빌드할 수도 있습니다.
 
-- [SharePoint 인트라넷 팜](../virtual-networks-setup-sharepoint-hybrid-cloud-testing/)
-- [웹 기반 LOB 응용 프로그램](../virtual-networks-setup-lobapp-hybrid-cloud-testing/)
-- [Office 365 디렉터리 동기화(DirSync) 서버](../virtual-networks-setup-dirsync-hybrid-cloud-testing/)
+- [SharePoint 인트라넷 팜](virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)
+- [웹 기반 LOB 응용 프로그램](virtual-networks-setup-lobapp-hybrid-cloud-testing.md)
+- [Office 365 디렉터리 동기화(DirSync) 서버](virtual-networks-setup-dirsync-hybrid-cloud-testing.md)
 
-##추가 리소스
+## 추가 리소스
 
-[테스트용 하이브리드 클라우드 환경 설정](../virtual-networks-setup-hybrid-cloud-environment-testing/)
+[테스트용 하이브리드 클라우드 환경 설정](virtual-networks-setup-hybrid-cloud-environment-testing.md)
 
 [VNet 간의 연결 구성](http://msdn.microsoft.com/library/azure/dn690122.aspx)
 
 
-##<a id="costs"></a>이 환경의 지속적인 비용 최소화
+## <a id="costs"></a>이 환경의 지속적인 비용 최소화
 
-이 환경에서 가상 컴퓨터를 실행하는 데 드는 비용을 최소화하려면 가능한 신속하게 필요한 테스트 및 데모를 수행한 다음 가상 컴퓨터를 삭제하거나, 사용하지 않을 때 가상 컴퓨터를 종료합니다. 예를 들어 Azure 자동화 및 Runbook을 사용하여 업무 시간이 끝날 때마다 TestLab 및 Test_VNET 가상 네트워크의 가상 컴퓨터를 자동으로 종료할 수 있습니다. 자세한 내용은 [Azure 자동화 시작](../automation-create-runbook-from-samples/)을 참조하세요. Corpnet 서브넷의 가상 컴퓨터를 다시 시작할 때는 DC1을 먼저 시작하세요.
+이 환경에서 가상 컴퓨터를 실행하는 데 드는 비용을 최소화하려면 가능한 신속하게 필요한 테스트 및 데모를 수행한 다음 가상 컴퓨터를 삭제하거나, 사용하지 않을 때 가상 컴퓨터를 종료합니다. 예를 들어 Azure 자동화 및 Runbook을 사용하여 업무 시간이 끝날 때마다 TestLab 및 Test_VNET 가상 네트워크의 가상 컴퓨터를 자동으로 종료할 수 있습니다. 자세한 내용은 [Azure 자동화 시작](automation-create-runbook-from-samples.md)을 참조하세요. Corpnet 서브넷의 가상 컴퓨터를 다시 시작할 때는 DC1을 먼저 시작하세요.
 
 Azure VPN 게이트웨이는 지속적인 비용이 발생하는 두 개의 Azure 가상 컴퓨터 집합으로 구현됩니다. 자세한 내용은 [가격 - 가상 네트워크](http://azure.microsoft.com/pricing/details/virtual-network/)를 참조하세요. 두 VPN 게이트웨이(각각 TestLab과 TestVNET의 VPN 게이트웨이)의 비용을 최소화하려면 테스트 환경을 만들고 가능한 신속하게 필요한 테스트 및 데모를 수행하거나 다음 단계를 사용하여 게이트웨이를 삭제합니다.
  
@@ -262,11 +260,11 @@ Azure VPN 게이트웨이는 지속적인 비용이 발생하는 두 개의 Azur
 6.	로컬 네트워크 세부 정보 지정 페이지에서 **VPN 장치 IP 주소(선택)**에 TestVNET 가상 네트워크에 대한 가상 네트워크 게이트웨이의 IP 주소(위 절차의 7단계)를 입력하고 오른쪽 화살표를 클릭합니다.
 7.	주소 공간 지정 페이지에서 확인 표시를 클릭합니다.
 
-그런 다음 동일한 값(Azure 관리 포털에서 확인한 TestLab 가상 네트워크의 키 값)을 사용하도록 두 게이트웨이의 사전 공유 키를 구성합니다. TestLab 사전 공유 키 값을 입력하여 로컬 컴퓨터의 관리자 수준 Azure PowerShell 명령 프롬프트에서 다음 명령을 실행합니다.
+그런 다음 동일한 값(Azure 관리 포털에서 확인한 TestLab 가상 네트워크의 키 값)을 사용하도록 두 게이트웨이의 사전 공유 키를 구성합니다. TestLab 사전 공유 키 값을 입력하여 로컬 컴퓨터의 Azure PowerShell 명령 프롬프트에서 다음 명령을 실행합니다.
 
 	$preSharedKey="<The preshared key for the TestLab virtual network>"
 	Set-AzureVNetGatewayKey -VNetName TestVNET -LocalNetworkSiteName TestLabLNet -SharedKey $preSharedKey
 
 그런 다음 Azure 관리 포털의 네트워크 페이지에서 **TestLab** 가상 네트워크를 클릭한 후 작업 표시줄에서 **연결**을 클릭합니다. TestLab 가상 네트워크가 TestVNET 로컬 네트워크에 연결된 상태로 표시될 때까지 기다립니다.
 
-<!--HONumber=45--> 
+<!--HONumber=49-->
