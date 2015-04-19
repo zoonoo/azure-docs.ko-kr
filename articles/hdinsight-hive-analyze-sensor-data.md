@@ -31,7 +31,7 @@ HDInsight(Hadoop)에서 Hive를 사용하여 센서 데이터를 분석한 다�
 
 ## 필수 조건:
 
-* HDInsight(Hadoop) 클러스터 - 클러스터를 만드는 방법에 대한 자세한 내용은 [HDInsight에서 Hadoop 클러스터 프로비전](/ko-kr/documentation/articles/hdinsight-provision-clusters/)을 참조하세요.
+* HDInsight(Hadoop) 클러스터 - 클러스터를 만드는 방법에 대한 자세한 내용은 [HDInsight에서 Hadoop 클러스터 프로비전](hdinsight-provision-clusters.md)을 참조하세요.
 
 * Microsoft Excel 2013
 

@@ -29,11 +29,11 @@
 ![Live workflow][live-overview]
 
 
-자세한 내용은 [미디어 서비스 개요]를 참조하세요(../media-services-overview).
+자세한 내용은 [미디어 서비스 개요]를 참조하세요(media-services-overview.md).
 
 ##미디어 서비스 계정 만들기
 
-**Azure 관리 포털**을 이용하여 [Azure Media Services 계정]을 만듭니다(../media-services-create-account/).
+**Azure 관리 포털**을 이용하여 [Azure Media Services 계정]을 만듭니다(media-services-create-account.md).
 
 ##스트리밍 끝점 구성
 
@@ -82,7 +82,7 @@ Azure Media Services에 프로그래밍 방식으로 연결할 **.NET** 또는 *
 
 계정을 프로비전하려는 **스트리밍 예약 단위**의 수를 지정하여 **Media Services** 크기를 조정할 수 있습니다. 
 
-스트리밍 단위 크기 조정에 대한 자세한 내용은 [스트리밍 단위 크기를 조정하는 방법](../media-services-manage-origins#scale_streaming_endpoints)을 참조하세요.
+스트리밍 단위 크기 조정에 대한 자세한 내용은 [스트리밍 단위 크기를 조정하는 방법](media-services-manage-origins#scale_streaming_endpoints.md)을 참조하세요.
 
 
 

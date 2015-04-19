@@ -19,13 +19,13 @@
 
 #REST를 사용하여 Contentkey 만들기
 
-이 문서는 [워크플로 주문형 미디어 서비스 비디오](../media-services-video-on-demand-workflow) 시리즈의 및 [미디어 서비스 라이브 스트리밍 워크플로](../media-services-live-streaming-workflow) 일부입니다.  
+이 문서는 [워크플로 주문형 미디어 서비스 비디오](media-services-video-on-demand-workflow.md) 시리즈의 및 [미디어 서비스 라이브 스트리밍 워크플로](media-services-live-streaming-workflow.md) 일부입니다.  
 
 미디어 서비스를 사용하면 암호화된 자산을 새로 만들어서 제공할 수 있습니다. **ContentKey**는 **자산**에 대한 보안 액세스를 제공합니다. 
 
-새 자산을 만들 때(예: [파일을 업로드](../media-services-rest-upload-files/)하기 전) 다음과 같은 암호화 옵션을 지정할 수 있습니다. **StorageEncrypted**, **CommonEncryptionProtected** 또는 **EnvelopeEncryptionProtected** 
+새 자산을 만들 때(예: [파일을 업로드](media-services-rest-upload-files.md)하기 전) 다음과 같은 암호화 옵션을 지정할 수 있습니다. **StorageEncrypted**, **CommonEncryptionProtected** 또는 **EnvelopeEncryptionProtected** 
 
-클라이언트에 자산을 전달할 때 다음 두 암호화 중 하나를 사용하여 [자산이 동적으로 암호화되도록 구성](../media-services-rest-configure-asset-delivery-policy) 할 수 있습니다. **DynamicEnvelopeEncryption** 또는 **DynamicCommonEncryption**
+클라이언트에 자산을 전달할 때 다음 두 암호화 중 하나를 사용하여 [자산이 동적으로 암호화되도록 구성](media-services-rest-configure-asset-delivery-policy.md) 할 수 있습니다. **DynamicEnvelopeEncryption** 또는 **DynamicCommonEncryption**
 
 암호화된 자산은 **ContentKey**와 연관되어야 합니다. 이 문서에서는 콘텐츠 키를 만드는 방법을 설명합니다.
 
@@ -67,9 +67,9 @@ AES 키 생성, 키 암호화 및 체크섬을 계산하는 예제는 이 항목
 
 >[AZURE.NOTE] 미디어 서비스 REST API로 사용할 때는 다음 사항을 고려해야 합니다.
 >
->미디어 서비스에서 엔터티에 액세스할 때는 HTTP 요청에서 구체적인 헤더 필드와 값을 설정해야 합니다. 자세한 내용은 [미디어 서비스 REST API 개발 설정](../media-services-rest-how-to-use)을 참조하세요.
+>미디어 서비스에서 엔터티에 액세스할 때는 HTTP 요청에서 구체적인 헤더 필드와 값을 설정해야 합니다. 자세한 내용은 [미디어 서비스 REST API 개발 설정](media-services-rest-how-to-use.md)을 참조하세요.
 
->https://media.windows.net에 연결하면 다른 미디어 서비스 URI를 지정하는 301 리디렉션을 받게 됩니다. [미디어 서비스 REST API를 사용하여 미디어 서비스에 연결](../media-services-rest-connect_programmatically/)에서 설명한 대로 새 URI에 대한 후속 호출을 해야 합니다. 
+>https://media.windows.net에 연결하면 다른 미디어 서비스 URI를 지정하는 301 리디렉션을 받게 됩니다. [미디어 서비스 REST API를 사용하여 미디어 서비스에 연결](media-services-rest-connect_programmatically.md)에서 설명한 대로 새 URI에 대한 후속 호출을 해야 합니다. 
 
 ##ProtectionKeyId 검색 
  

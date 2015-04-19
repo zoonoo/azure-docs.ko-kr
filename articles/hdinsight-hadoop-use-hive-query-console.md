@@ -78,13 +78,13 @@ Hive 쿼리 콘솔을 사용하는 방법에 대한 자세한 내용을 보려�
 
 HDInsight Hive에 대한 일반적인 내용입니다.
 
-* [HDInsight에서 Hadoop과 Hive 사용](../hdinsight-use-hive/)
+* [HDInsight에서 Hadoop과 Hive 사용](hdinsight-use-hive.md)
 
 HDInsight에서 Hadoop으로 작업하는 다른 방법에 관한 내용입니다.
 
-* [HDInsight에서 Hadoop과 Pig 사용](../hdinsight-use-pig/)
+* [HDInsight에서 Hadoop과 Pig 사용](hdinsight-use-pig.md)
 
-* [HDInsight에서 Hadoop과 MapReduce 사용](../hdinsight-use-mapreduce/)
+* [HDInsight에서 Hadoop과 MapReduce 사용](hdinsight-use-mapreduce.md)
 
 [1]: ../hdinsight-hadoop-visual-studio-tools-get-started/
 

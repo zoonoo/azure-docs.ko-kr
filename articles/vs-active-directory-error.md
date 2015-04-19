@@ -16,15 +16,14 @@
 	ms.date="02/02/2015" 
 	ms.author="kempb"/>
 
-# 인증 검색 중 오류 발생
-
+###인증 검색 중 오류 발생 
 이전 인증 코드를 검색하는 동안 마법사에서 호환되지 않는 인증 유형을 검색했습니다.   
 
 ###무엇을 확인합니까?
 
 ####프로젝트 형식
 
-이 마법사는 프로젝트에 올바른 인증 논리를 삽입할 수 있도록 사용자가 개발 중인 프로젝트 형식을 확인합니다.  프로젝트의  `ApiController`에서 파생되는 컨트롤러가 있으면 WebAPI 프로젝트로 간주됩니다.  프로젝트의  `MVC.Controller`에서 파생되는 컨트롤러만 있으면 MVC 프로젝트로 간주됩니다.  다른 항목은 이 마법사에서 지원되지 않는 것으로 간주됩니다.  현재는 WebForms 프로젝트가 지원되지 않습니다.
+이 마법사는 프로젝트에 올바른 인증 논리를 삽입할 수 있도록 사용자가 개발 중인 프로젝트 형식을 확인합니다.  프로젝트의 `ApiController`에서 파생되는 컨트롤러가 있으면 WebAPI 프로젝트로 간주됩니다.  프로젝트의 `MVC.Controller`에서 파생되는 컨트롤러만 있으면 MVC 프로젝트로 간주됩니다.  다른 항목은 이 마법사에서 지원되지 않는 것으로 간주됩니다.  현재는 WebForms 프로젝트가 지원되지 않습니다.
 
 #####호환 가능한 인증 코드
 
@@ -52,7 +51,7 @@ MVC 프로젝트에서 이 마법사는 이전에 마법사를 사용한 결과�
 * 조직 계정 
  
 
-MVC 프로젝트에서 Windows 인증을 감지하기 위해 마법사는 사용자의 **web.config** 파일에서  `authentication` 요소를 찾습니다.
+MVC 프로젝트에서 Windows 인증을 감지하기 위해 마법사는 사용자의 **web.config** 파일에서 `authentication` 요소를 찾습니다.
 
 <PRE class="prettyprint">
 	&lt;configuration&gt;
@@ -62,7 +61,7 @@ MVC 프로젝트에서 Windows 인증을 감지하기 위해 마법사는 사용
 	&lt;/configuration&gt;
 </pre>
 
-Web API 프로젝트에서 Windows 인증을 감지하기 위해 마법사는 사용자 프로젝트의 **.csproj** 파일에서  `IISExpressWindowsAuthentication` 요소를 찾습니다.
+Web API 프로젝트에서 Windows 인증을 감지하기 위해 마법사는 사용자 프로젝트의 **.csproj** 파일에서 `IISExpressWindowsAuthentication` 요소를 찾습니다.
 
 <PRE class="prettyprint">
 	&lt;Project&gt;
@@ -94,4 +93,4 @@ Web API 프로젝트에서 Windows 인증을 감지하기 위해 마법사는 �
 
 자세한 내용은 [Azure AD의 인증 시나리오](http://msdn.microsoft.com/library/azure/dn499820.aspx)를 참조하세요.
 
-<!--HONumber=49-->
+<!--HONumber=46--> 

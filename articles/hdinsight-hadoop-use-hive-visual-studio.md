@@ -89,17 +89,17 @@
 
 HDInsight Hive에 대한 일반적인 내용입니다.
 
-* [HDInsight에서 Hadoop과 Hive 사용](../hdinsight-use-hive/)
+* [HDInsight에서 Hadoop과 Hive 사용](hdinsight-use-hive.md)
 
 HDInsight에서 Hadoop으로 작업하는 다른 방법에 관한 내용입니다.
 
-* [HDInsight에서 Hadoop과 Pig 사용](../hdinsight-use-pig/)
+* [HDInsight에서 Hadoop과 Pig 사용](hdinsight-use-pig.md)
 
-* [HDInsight에서 Hadoop과 MapReduce 사용](../hdinsight-use-mapreduce/)
+* [HDInsight에서 Hadoop과 MapReduce 사용](hdinsight-use-mapreduce.md)
 
 Visual Studio용 HDInsight 도구에서 자세한 내용을 참조하세요.
 
-* [Visual Studio용 HDInsight 도구 시작](../hdinsight-hadoop-visual-studio-tools-get-started/)
+* [Visual Studio용 HDInsight 도구 시작](hdinsight-hadoop-visual-studio-tools-get-started.md)
 
 
 [hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx

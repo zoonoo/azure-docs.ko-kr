@@ -20,7 +20,7 @@
 
 이 문서에서는 [Azure 웹 사이트](http://azure.microsoft.com/services/websites/)에서 온-프레미스 [Active Directory Federation Services](http://technet.microsoft.com/ library/hh831502.aspx)를 ID 공급자로 사용하는 ASP.NET MVC LOB(기간 업무) 응용 프로그램을 만드는 방법에 대해 알아봅니다. 이 시나리오는 Azure 웹 사이트에서 LOB 응용 프로그램을 만들 때 조직의 규정에 따라 모든 데이터를 온사이트에 저장해야 하는 경우에 적용될 수 있습니다.
 
-Azure 웹 사이트에 대한 여러 엔터프라이즈 인증 및 권한 부여 옵션의 개요는 [Azure 웹 사이트의 LOB 응용 프로그램에서 사용자 인증 및 권한 부여](./web-sites-authentication-authorization)를 참조하세요.
+Azure 웹 사이트에 대한 여러 엔터프라이즈 인증 및 권한 부여 옵션의 개요는 [Azure 웹 사이트의 LOB 응용 프로그램에서 사용자 인증 및 권한 부여](web-sites-authentication-authorization)를 참조하세요.
 
 <a name="bkmk_build"></a>
 ## 빌드할 내용 ##
@@ -341,8 +341,8 @@ Azure 웹 사이트는 [하이브리드 연결](http://azure.microsoft.com/docum
 ## 추가 리소스
 
 - [SSL 및 Authorize 특성을 사용하여 응용 프로그램 보호](../web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/#protect-the-application-with-ssl-and-the-authorize-attribute)
-- [Azure 웹 사이트에서 LOB 응용 프로그램의 사용자 인증 및 권한 부여 ](../web-sites-authentication-authorization/)
-- [Azure 웹 사이트에서 Azure Active Directory로 인증하는 ASP.NET MVC LOB(기간 업무) 응용 프로그램 만들기](../web-sites-dotnet-lob-application-azure-ad/)
+- [Azure 웹 사이트에서 LOB 응용 프로그램의 사용자 인증 및 권한 부여 ](web-sites-authentication-authorization.md)
+- [Azure 웹 사이트에서 Azure Active Directory로 인증하는 ASP.NET MVC LOB(기간 업무) 응용 프로그램 만들기](web-sites-dotnet-lob-application-azure-ad.md)
 - [Visual Studio 2013의 ASP.NET에서 온-프레미스 조직 인증 옵션(ADFS) 사용](http://www.cloudidentity.com/blog/2014/02/12/use-the-on-premises-organizational-authentication-option-adfs-with-asp-net-in-visual-studio-2013/)
 - [Vittorio Bertocci의 블로그](http://blogs.msdn.com/b/vbertocci/)
 - [WIF에서 Katana로 VS2013 웹 프로젝트 마이그레이션](http://www.cloudidentity.com/blog/2014/09/15/MIGRATE-A-VS2013-WEB-PROJECT-FROM-WIF-TO-KATANA/)

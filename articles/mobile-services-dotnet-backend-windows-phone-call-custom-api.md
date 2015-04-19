@@ -25,13 +25,13 @@
 
 이 항목에서 만드는 사용자 지정 API는 테이블의 모든 todo 항목에 대해 완료 플래그를 `true`로 설정하는 단일 POST 요청을 보내는 기능을 제공합니다. 이 사용자 정의 API가 없으면 클라이언트는 테이블의 각 todo 항목에 대해 플래그를 업데이트하도록 개별 요청을 보내야 합니다.
 
-[기존 앱에 모바일 서비스 추가](영문) 자습서를 완료할 때 만든 앱에 이 기능을(/ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/) 추가합니다: 그러려면 다음 단계를 완료합니다.:
+[기존 앱에 모바일 서비스 추가](영문) 자습서를 완료할 때 만든 앱에 이 기능을(mobile-services-dotnet-backend-windows-phone-get-started-data.md) 추가합니다: 그러려면 다음 단계를 완료합니다.:
 
 1. [사용자 지정 API 정의]
 2. [사용자 지정 API를 호출하도록 앱 업데이트]
 3. [앱 테스트] 
 
-이 자습서는 간단한 TodoList 앱인 GetStartedWithData 샘플을 기반으로 합니다. 이 자습서를 시작하려면 먼저 [기존 앱에 모바일 서비스 추가](영문)를 완료해야(/ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/).
+이 자습서는 간단한 TodoList 앱인 GetStartedWithData 샘플을 기반으로 합니다. 이 자습서를 시작하려면 먼저 [기존 앱에 모바일 서비스 추가](영문)를 완료해야(mobile-services-dotnet-backend-windows-phone-get-started-data.md).
 
 ## <a name="define-custom-api"></a>사용자 지정 API 정의
 

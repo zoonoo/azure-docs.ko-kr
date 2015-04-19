@@ -155,8 +155,8 @@ Eclipse를 사용하지 않는 경우 [여기]에서 지침을 읽어볼 수 있
 
 "항상" 푸시의 이점을 얻으려면 다음과 같이 대상 장치에 따라 네이티브 푸시 서비스를 하나 이상 사용해야 합니다.
 
-  - Google Play 장치: [GCM과 Engagement 통합 방법 가이드]에 따라 [Google Cloud Messaging]을(../mobile-engagement-android-gcm-integrate/) 사용합니다.
-  - Amazon 장치: [ADM과 Engagement 통합 방법 가이드]에 따라 [Amazon Device Messaging]을(../mobile-engagement-android-adm-integrate/) 사용합니다.
+  - Google Play 장치: [GCM과 Engagement 통합 방법 가이드]에 따라 [Google Cloud Messaging]을(mobile-engagement-android-gcm-integrate.md) 사용합니다.
+  - Amazon 장치: [ADM과 Engagement 통합 방법 가이드]에 따라 [Amazon Device Messaging]을(mobile-engagement-android-adm-integrate.md) 사용합니다.
 
 Amazon 및 Google Play 장치를 모두 대상으로 하려는 경우 개발을 위한 단일 AndroidManifest.xml/APK 내에 모든 것을 포함할 수 있습니다. 하지만 Amazon에 제출할 경우 GCM 코드가 발견되면 응용 프로그램이 거부될 수 있습니다. 
 

@@ -56,7 +56,7 @@
 
 ## <a id="setup"> </a>개발 환경 설정
 
-**참고:** Python을 설치해야 하거나 클라이언트 라이브러리를 사용하고 싶으면 [Python 설치 가이드](../python-how-to-install/)를 참조하세요.
+**참고:** Python을 설치해야 하거나 클라이언트 라이브러리를 사용하고 싶으면 [Python 설치 가이드](python-how-to-install.md)를 참조하세요.
 
 Ubuntu Linux VM에는 Python 2.7이 사전 설치되어 있지만, Apache 또는 django는 설치되어 있지 않습니다.  다음 단계에 따라 VM에 연결하고 Apache 및 django를 설치하세요.
 

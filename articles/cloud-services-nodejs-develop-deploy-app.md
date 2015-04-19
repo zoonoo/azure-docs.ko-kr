@@ -29,7 +29,7 @@ Azure에서 확장 가능한 클라우드 응용 프로그램입니다. 분리�
 응용 프로그램의 프론트엔드 및 백엔드 구성 요소의 스케일 아웃을 허용합니다.  클라우드 서비스는 
 각 역할을 안정적으로 호스팅할 수 있는 강력한 전용 가상 컴퓨터를 제공합니다.
 
-클라우드 서비스에 대한 자세한 내용 및 Azure 웹 사이트와 가상 컴퓨터와의 비교에 대한 자세한 내용은 [Azure 웹 사이트, 클라우드 서비스 및 가상 컴퓨터 비교](http://azure.microsoft.com/ documentation/articles/choose-web-site-cloud-service-vm/)를 참조하세요.
+클라우드 서비스에 대한 자세한 내용 및 Azure 웹 사이트와 가상 컴퓨터와의 비교에 대한 자세한 내용은 [Azure 웹 사이트, 클라우드 서비스 및 가상 컴퓨터 비교](http://azure.microsoft.com/documentation/articles/choose-web-site-cloud-service-vm/)를 참조하세요.
 
 >[AZURE.TIP] 간단한 웹 사이트를 빌드하려는 경우 시나리오에 간단한 웹 사이트 프런트 엔드만 포함된 경우 <a href="/ko-kr/documentation/articles/web-sites-nodejs-develop-deploy-mac/">간단한 Azure 웹 사이트를 사용합니다.</a> 그러면 웹 사이트가 커지고 요구 사항이 변경될 때 클라우드 서비스로 쉽게 업그레이드할 수 있습니다.
 

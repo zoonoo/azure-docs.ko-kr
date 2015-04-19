@@ -18,7 +18,7 @@
 
 #Windows Phone 프로젝트에서 Engagement 도달률 SDK를 통합하는 방법
 
-이 가이드의 작업을 수행하기 전에 [Windows Phone에서 Engagement를 통합하는 방법] 문서에서 설명하는 통합 절차를(../mobile-engagement-windows-phone-integrate-engagement/) 수행해야 합니다.
+이 가이드의 작업을 수행하기 전에 [Windows Phone에서 Engagement를 통합하는 방법] 문서에서 설명하는 통합 절차를(mobile-engagement-windows-phone-integrate-engagement.md) 수행해야 합니다.
 
 ##Windows Phone 프로젝트에 Engagement 도달률 SDK 통합
 

@@ -1,6 +1,6 @@
-<properties 
-	pageTitle=".NET 서비스 버스 API와 함께 AMQP 1.0을 사용하는 방법 - Azure "
-	description="Azure .NET Service Bus API와 함께 AMQP(Advanced Message Queuing Protocol) 1.0을 사용하는 방법에 대해 알아봅니다. "
+﻿<properties 
+	pageTitle=".NET 서비스 버스 API와 함께 AMQP 1.0을 사용하는 방법 - Azure" 
+	description="Azure .NET Service Bus API와 함께 AMQP(Advanced Message Queuing Protocol) 1.0을 사용하는 방법에 대해 알아봅니다." 
 	services="service-bus" 
 	documentationCenter=".net" 
 	authors="sethmanheim" 
@@ -316,4 +316,4 @@ Java, C, Python, PHP 등의 다른 언어에서도 서비스 버스 AMQP 1.0을 
 
 [서비스 버스 큐를 사용하는 방법]: http://azure.microsoft.com/develop/net/how-to-guides/service-bus-queues/
 
-<!--HONumber=49-->
+<!--HONumber=47-->

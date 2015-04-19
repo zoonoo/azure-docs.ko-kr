@@ -18,7 +18,7 @@
 
 #Windows Phone에서 Engagement API를 사용하는 방법
 
-이 문서는 [Windows Phone 앱에 Mobile Engagement를 통합하는 방법](../mobile-engagement-windows-phone-integrate-engagement/) 문서를 보완하는 추가 문서로, Engagement API를 사용하여 응용 프로그램 통계를 보고하는 방법을 자세히 설명합니다.
+이 문서는 [Windows Phone 앱에 Mobile Engagement를 통합하는 방법](mobile-engagement-windows-phone-integrate-engagement.md) 문서를 보완하는 추가 문서로, Engagement API를 사용하여 응용 프로그램 통계를 보고하는 방법을 자세히 설명합니다.
 
 Engagement에서 응용 프로그램 세션, 활동, 작동 중단, 기술 정보만 보고하도록 하려는 경우 가장 간단한 방법은 모든 `PhoneApplicationPage` 서브클래스가 `EngagementPage` 클래스에서 상속하도록 지정하는 것입니다.
 

@@ -19,13 +19,13 @@
 
 #.NET을 사용하여 Contentkey 만들기
 
-이 문서는 [워크플로 주문형 미디어 서비스 비디오] 시리즈의(../media-services-video-on-demand-workflow) 및 [미디어 서비스 라이브 스트리밍 워크플로](../media-services-live-streaming-workflow) 일부입니다.  
+이 문서는 [워크플로 주문형 미디어 서비스 비디오] 시리즈의(media-services-video-on-demand-workflow.md) 및 [미디어 서비스 라이브 스트리밍 워크플로](media-services-live-streaming-workflow.md) 일부입니다.  
 
 미디어 서비스를 사용하면 암호화된 자산을 새로 만들어서 제공할 수 있습니다. **ContentKey**는 **자산**에 대한 보안 액세스를 제공합니다. 
 
-새 자산을 만들 때(예: [파일을 업로드]하기 전(../media-services-dotnet-upload-files/)) 다음과 같은 암호화 옵션을 지정할 수 있습니다. **StorageEncrypted**, **CommonEncryptionProtected** 또는 **EnvelopeEncryptionProtected** 
+새 자산을 만들 때(예: [파일을 업로드]하기 전(media-services-dotnet-upload-files.md)) 다음과 같은 암호화 옵션을 지정할 수 있습니다. **StorageEncrypted**, **CommonEncryptionProtected** 또는 **EnvelopeEncryptionProtected** 
 
-클라이언트에 자산을 전달할 때 다음 두 암호화 중 하나를 사용하여 [자산이 동적으로 암호화되도록 구성](../media-services-dotnet-configure-asset-delivery-policy) 할 수 있습니다. **DynamicEnvelopeEncryption** 또는 **DynamicCommonEncryption**
+클라이언트에 자산을 전달할 때 다음 두 암호화 중 하나를 사용하여 [자산이 동적으로 암호화되도록 구성](media-services-dotnet-configure-asset-delivery-policy.md) 할 수 있습니다. **DynamicEnvelopeEncryption** 또는 **DynamicCommonEncryption**
 
 암호화된 자산은 **ContentKey**와 연관되어야 합니다. 이 문서에서는 콘텐츠 키를 만드는 방법을 설명합니다.
 

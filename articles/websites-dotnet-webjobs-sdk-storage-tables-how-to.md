@@ -18,9 +18,9 @@
 
 # WebJobs SDK를 사용하여 Azure 테이블 저장소로 작업하는 방법
 
-이 가이드에서는 [WebJobs SDK](../websites-dotnet-webjobs-sdk/) 버전 1.x를 사용하여 Azure 저장소 테이블을 읽고 쓰는 방법을 보여 주는 C# 코드 샘플을 제공합니다.
+이 가이드에서는 [WebJobs SDK](websites-dotnet-webjobs-sdk.md) 버전 1.x를 사용하여 Azure 저장소 테이블을 읽고 쓰는 방법을 보여 주는 C# 코드 샘플을 제공합니다.
 
-이 가이드에서는 [저장소 계정을 가리키는 연결 문자열을 사용하여 Visual Studio에서 WebJob 프로젝트를 만드는 방법](../websites-dotnet-webjobs-sdk-get-started/).을 알고 있는 것으로 가정합니다.
+이 가이드에서는 [저장소 계정을 가리키는 연결 문자열을 사용하여 Visual Studio에서 WebJob 프로젝트를 만드는 방법](websites-dotnet-webjobs-sdk-get-started.md).을 알고 있는 것으로 가정합니다.
 		
 일부 코드 조각에서는  `Table` 특성이 [수동으로 호출된](../websites-dotnet-webjobs-sdk-storage-queues-how-to/#manual) 함수, 즉 트리거 특성 중 하나를 사용하지 않고 호출된 함수에서 사용됩니다. 
 
@@ -149,11 +149,11 @@ Azure 저장소 API로 직접 작업하려는 경우 메서드 서명에  `Cloud
 		    tableBinding.Execute(insertOperation);
 		}
 
- `CloudTable` 개체를 사용하는 방법에 대한 자세한 내용은 [.NET에서 테이블 저장소를 사용하는 방법]을 참조하세요(../storage-dotnet-how-to-use-tables/). 
+ `CloudTable` 개체를 사용하는 방법에 대한 자세한 내용은 [.NET에서 테이블 저장소를 사용하는 방법]을 참조하세요(storage-dotnet-how-to-use-tables.md). 
 
 ## <a id="queues"></a>큐 방법 문서에서 다루는 관련 항목
 
-큐 메시지에 의해 트리거되는 테이블을 처리하는 방법 또는 테이블 처리에 특정하지 않은 WebJobs SDK 시나리오에 대한 자세한 내용은 [WebJobs SDK를 사용하여 Azure 큐 저장소로 작업하는 방법](../websites-dotnet-webjobs-sdk-storage-queues-how-to/). 을 참조하세요.
+큐 메시지에 의해 트리거되는 테이블을 처리하는 방법 또는 테이블 처리에 특정하지 않은 WebJobs SDK 시나리오에 대한 자세한 내용은 [WebJobs SDK를 사용하여 Azure 큐 저장소로 작업하는 방법](websites-dotnet-webjobs-sdk-storage-queues-how-to.md). 을 참조하세요.
 
 이 문서에서 다루는 항목은 다음과 같습니다.
 

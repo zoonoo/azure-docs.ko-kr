@@ -24,7 +24,7 @@
 
 ## 앱 등록
 
->[AZURE.NOTE] 이 항목에 설명된 단계는 앱에서 [서비스에서 지시하는 로그인 작업](http://msdn.microsoft.com/library/azure/dn283952.aspx)을 사용할 때 [모바일 서비스 앱에 인증 추가](/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users/) 자습서와 함께 사용하기 위해 작성되었습니다. 또는 앱이 Azure Active Directory 및 .NET 백 엔드 서비스에 대해 [클라이언트에서 지시하는 로그인 작업](http://msdn.microsoft.com/library/azure/jj710106.aspx)을 요구하는 경우 [Active Directory 인증 라이브러리 Single Sign-On으로 앱 인증](/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication/) 자습서부터 시작해야 합니다.
+>[AZURE.NOTE] 이 항목에 설명된 단계는 앱에서 [서비스에서 지시하는 로그인 작업](http://msdn.microsoft.com/library/azure/dn283952.aspx)을 사용할 때 [모바일 서비스 앱에 인증 추가](mobile-services-dotnet-backend-windows-store-dotnet-get-started-users.md) 자습서와 함께 사용하기 위해 작성되었습니다. 또는 앱이 Azure Active Directory 및 .NET 백 엔드 서비스에 대해 [클라이언트에서 지시하는 로그인 작업](http://msdn.microsoft.com/library/azure/jj710106.aspx)을 요구하는 경우 [Active Directory 인증 라이브러리 Single Sign-On으로 앱 인증](mobile-services-windows-store-dotnet-adal-sso-authentication.md) 자습서부터 시작해야 합니다.
 
 
 1. [Azure 관리 포털]에 로그온하여 **모바일 서비스**를 클릭한 후 해당 모바일 서비스를 클릭합니다.

@@ -107,7 +107,7 @@
 - 이제 미디어 서비스에서 라이브 부드러운 스트리밍(FMP4) 콘텐츠를 SSL 연결을 통해 수집할 수 있습니다. SSL을 통해 수집하려면 수집 URL을 HTTPS로 업데이트해야 합니다.  라이브 스트리밍에 대한 자세한 내용은 [Azure 미디어 서비스 라이브 스트리밍 사용]을 참조하세요.
 - 현재, SSL 연결을 통해 RTMP 라이브 스트림을 수집할 수 없습니다.
 - SSL 연결을 통해 콘텐츠를 스트리밍할 수도 있습니다. 이렇게 하려면 스트리밍 URL이 HTTPS로 시작해야 합니다.
-- 콘텐츠를 배달하는 출발점이 될 스트리밍 끝점이 2014년 9월 10일 이후에 만들어진 경우에만 SSL을 통해 스트리밍할 수 있습니다. 스트리밍 URL이 9월 10일 이후에 만들어진 스트리밍 끝점을 기반으로 하는 경우 URL에는 "streaming.mediaservices.windows.net"(새 형식)이 포함됩니다. "origin.mediaservices.windows.net"(이전 형식)이 포함된 스트리밍 URL은 SSL을 지원하지 않습니다. URL이 이전 형식으로 되어 있으며 SSL을 통해 스트리밍할 수 있도록 만들려면 [새 스트리밍 끝점을 만드세요](http://azure.microsoft.com/ documentation/articles/media-services-manage-origins/). 새 스트리밍 끝점을 기반으로 만들어진 URL을 사용하여 SSL을 통해 콘텐츠를 스트리밍합니다.
+- 콘텐츠를 배달하는 출발점이 될 스트리밍 끝점이 2014년 9월 10일 이후에 만들어진 경우에만 SSL을 통해 스트리밍할 수 있습니다. 스트리밍 URL이 9월 10일 이후에 만들어진 스트리밍 끝점을 기반으로 하는 경우 URL에는 "streaming.mediaservices.windows.net"(새 형식)이 포함됩니다. "origin.mediaservices.windows.net"(이전 형식)이 포함된 스트리밍 URL은 SSL을 지원하지 않습니다. URL이 이전 형식으로 되어 있으며 SSL을 통해 스트리밍할 수 있도록 만들려면 [새 스트리밍 끝점을 만드세요](http://azure.microsoft.com/documentation/articles/media-services-manage-origins/). 새 스트리밍 끝점을 기반으로 만들어진 URL을 사용하여 SSL을 통해 콘텐츠를 스트리밍합니다.
    
 ##<a id="october_changes_14"></a>2014년 10월 릴리스
 

@@ -45,7 +45,7 @@ Azure 구독이 아직 없는 경우 [Azure 평가판 사용](http://azure.micro
 
 ## 단계 1: 하이브리드 클라우드 환경 설정
 
-[테스트용 하이브리드 클라우드 환경 설정](../virtual-networks-setup-hybrid-cloud-environment-testing/) 항목의 지침을 사용합니다. 이 테스트 환경에는 APP1 서버가 Corpnet 서브넷에 있을 필요가 없으므로 지금은 종료해도 됩니다.
+[테스트용 하이브리드 클라우드 환경 설정](virtual-networks-setup-hybrid-cloud-environment-testing.md) 항목의 지침을 사용합니다. 이 테스트 환경에는 APP1 서버가 Corpnet 서브넷에 있을 필요가 없으므로 지금은 종료해도 됩니다.
 
 다음은 현재 구성입니다.
 
@@ -195,13 +195,13 @@ Ping 명령을 실행한 경우 IP 주소 10.0.0.1에서 성공적인 회신 4�
 
 [Azure 인프라 서비스의 SharePoint](http://msdn.microsoft.com/library/azure/dn275955.aspx)
 
-[SharePoint Server 팜](../virtual-machines-sharepoint-farm-azure-preview/)
+[SharePoint Server 팜](virtual-machines-sharepoint-farm-azure-preview.md)
 
-[테스트용 하이브리드 클라우드 환경 설정](../virtual-networks-setup-hybrid-cloud-environment-testing/)
+[테스트용 하이브리드 클라우드 환경 설정](virtual-networks-setup-hybrid-cloud-environment-testing.md)
 
-[테스트용 하이브리드 클라우드에 웹 기반 LOB 응용 프로그램 설치](../virtual-networks-setup-lobapp-hybrid-cloud-testing/)
+[테스트용 하이브리드 클라우드에 웹 기반 LOB 응용 프로그램 설치](virtual-networks-setup-lobapp-hybrid-cloud-testing.md)
 
-[테스트용 하이브리드 클라우드에 Office 365 디렉터리 동기화(DirSync) 설치](../virtual-networks-setup-dirsync-hybrid-cloud-testing/)
+[테스트용 하이브리드 클라우드에 Office 365 디렉터리 동기화(DirSync) 설치](virtual-networks-setup-dirsync-hybrid-cloud-testing.md)
 
-[테스트용 시뮬레이션된 하이브리드 클라우드 환경 설정](../virtual-networks-setup-simulated-hybrid-cloud-environment-testing/)
+[테스트용 시뮬레이션된 하이브리드 클라우드 환경 설정](virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md)
 <!--HONumber=47-->

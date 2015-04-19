@@ -34,7 +34,7 @@
 
 ## 대체 아키텍처: 웹 사이트 및 WebJobs
 
-이 자습서에서는 Azure 클라우드 서비스에서 프런트 엔드 및 백 엔드를 실행하는 방법을 보여 줍니다. 대안은 [Azure 웹 사이트](/ko-kr/services/web-sites/)(영문)에서 프런트 엔드를 실행하고 백 엔드에 [WebJobs](http://go.microsoft.com/fwlink/?LinkId=390226)(영문) 기능(현재 미리 보기에서 제공)을 사용하는 것입니다. WebJobs를 사용하는 자습서는 [Azure WebJobs SDK 시작](/ko-kr/documentation/articles/websites-dotnet-webjobs-sdk-get-started/)을 참조하세요 시나리오에 가장 적합한 서비스를 선택하는 방법에 대한 자세한 내용은 [Azure 웹 사이트, 클라우드 서비스 및 가상 컴퓨터 비교](http://azure.microsoft.com/ documentation/articles/choose-web-site-cloud-service-vm/)를 참조하세요.
+이 자습서에서는 Azure 클라우드 서비스에서 프런트 엔드 및 백 엔드를 실행하는 방법을 보여 줍니다. 대안은 [Azure 웹 사이트](/ko-kr/services/web-sites/)(영문)에서 프런트 엔드를 실행하고 백 엔드에 [WebJobs](http://go.microsoft.com/fwlink/?LinkId=390226)(영문) 기능(현재 미리 보기에서 제공)을 사용하는 것입니다. WebJobs를 사용하는 자습서는 [Azure WebJobs SDK 시작](websites-dotnet-webjobs-sdk-get-started.md)을 참조하세요 시나리오에 가장 적합한 서비스를 선택하는 방법에 대한 자세한 내용은 [Azure 웹 사이트, 클라우드 서비스 및 가상 컴퓨터 비교](http://azure.microsoft.com/documentation/articles/choose-web-site-cloud-service-vm/)를 참조하세요.
 
 ## 학습할 내용
 
@@ -47,7 +47,7 @@
 
 ## 필수 조건
 
-이 자습서에서는 *web role* 및 *worker role* 용어와 같이 [Azure 클라우드 서비스에 대한 기본 개념](http://azure.microsoft.com/ documentation/articles/fundamentals-application-models/#CloudServices)을 알고 있다고 가정합니다.  또한 Visual Studio에서 [ASP.NET MVC](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started)(영문) 또는 [Web Forms](http://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview)(영문) 프로젝트를 작업하는 방법도 알고 있다고 가정합니다. 샘플 응용 프로그램은 MVC를 사용하지만, 자습서 내용의 대부분은 Web Forms에도 적용됩니다. 
+이 자습서에서는 *web role* 및 *worker role* 용어와 같이 [Azure 클라우드 서비스에 대한 기본 개념](http://azure.microsoft.com/documentation/articles/fundamentals-application-models/#CloudServices)을 알고 있다고 가정합니다.  또한 Visual Studio에서 [ASP.NET MVC](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started)(영문) 또는 [Web Forms](http://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview)(영문) 프로젝트를 작업하는 방법도 알고 있다고 가정합니다. 샘플 응용 프로그램은 MVC를 사용하지만, 자습서 내용의 대부분은 Web Forms에도 적용됩니다. 
 
 Azure 구독 없이도 로컬에서 앱을 실행할 수 있지만 응용 프로그램을 클라우드에 배포하려면 구독이 필요합니다. 계정이 없는 경우 [MSDN 구독자 혜택을 활성화](/ko-kr/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A55E3C668)하거나 [무료 평가판을 등록](/ko-kr/pricing/free-trial/?WT.mc_id=A55E3C668)할 수 있습니다.
 
@@ -795,7 +795,7 @@ Contoso Ads 응용 프로그램은 시작 자습서용으로 의도적으로 단
 다음은 더 실질적인 코딩 방식을 보여 주는 몇 가지 클라우드 서비스 샘플 응용 프로그램입니다. 복잡성이 낮은 것부터 높은 것 순서로 나열되었습니다.
 
 * [PhluffyFotos](http://code.msdn.microsoft.com/PhluffyFotos-Sample-7ecffd31)(영문). 개념이 Contoso Ads와 비슷하지만, 더 많은 기능과 더 실질적인 코딩 방식을 구현합니다.
-* [테이블, 큐 및 Blob이 포함된 Azure 클라우드 서비스 다중 계층 응용 프로그램](http://code.msdn.microsoft.com/windowsazure/Windows-Azure-Multi-Tier-eadceb36)(영문). Azure 저장소 테이블뿐만 아니라 Blob 및 큐에 대해 소개합니다. [단계별 자습서 시리즈](http://azure.microsoft.com/ documentation/articles/cloud-services-dotnet-multi-tier-app-storage-1-overview/)(영문)와 함께 제공됩니다.
+* [테이블, 큐 및 Blob이 포함된 Azure 클라우드 서비스 다중 계층 응용 프로그램](http://code.msdn.microsoft.com/windowsazure/Windows-Azure-Multi-Tier-eadceb36)(영문). Azure 저장소 테이블뿐만 아니라 Blob 및 큐에 대해 소개합니다. [단계별 자습서 시리즈](http://azure.microsoft.com/documentation/articles/cloud-services-dotnet-multi-tier-app-storage-1-overview/)(영문)와 함께 제공됩니다.
 * [Microsoft Azure의 클라우드 서비스 기본 사항](http://code.msdn.microsoft.com/Cloud-Service-Fundamentals-4ca72649)(영문). 다양한 모범 사례를 보여 주는 포괄적인 샘플이며 Microsoft 패턴 및 작업 방식 그룹에서 제작했습니다.
 
 클라우드용 개발 관련 일반 정보는 [Microsoft Azure에서 실제 클라우드 앱 빌드](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction)(영문)를 참조하세요.
@@ -807,7 +807,7 @@ Azure 저장소 모범 사례 및 패턴에 대한 비디오 소개는 [Microsof
 * [Azure 클라우드 서비스 1 부: 소개](http://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
 * [Azure 클라우드 서비스](/ko-kr/documentation/services/cloud-services/)
 * [Azure 저장소](/ko-kr/documentation/services/storage/)
-* [.NET에서 Blob 저장소를 사용하는 방법](/ko-kr/documentation/articles/storage-dotnet-how-to-use-blobs/)
-* [.NET에서 큐 저장소를 사용하는 방법](/ko-kr/documentation/articles/storage-dotnet-how-to-use-queues/)
+* [.NET에서 Blob 저장소를 사용하는 방법](storage-dotnet-how-to-use-blobs.md)
+* [.NET에서 큐 저장소를 사용하는 방법](storage-dotnet-how-to-use-queues.md)
 
 <!--HONumber=45--> 

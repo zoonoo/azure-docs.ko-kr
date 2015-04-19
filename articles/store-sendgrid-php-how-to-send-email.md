@@ -404,7 +404,7 @@ SendGrid 메일 서비스에 관한 기본적인 사항들을 익혔으며 자�
   [https://sendgrid.com]: https://sendgrid.com
   [https://sendgrid.com/transactional-email/pricing]: https://sendgrid.com/transactional-email/pricing
   [특별 제공]: https://www.sendgrid.com/windowsazure.html
-  [Azure용 PHP 응용 프로그램 패키징 및 배포]: http://msdn.microsoft.com/ko-kr/library/windowsazure/hh674499(v=VS.103).aspx
+  [Azure용 PHP 응용 프로그램 패키징 및 배포]: http://msdn.microsoft.com/library/windowsazure/hh674499(v=VS.103).aspx
   [http://swiftmailer.org/download]: http://swiftmailer.org/download
   [curl 함수]: http://php.net/curl
   [클라우드 기반 메일 서비스]: https://sendgrid.com/email-solutions

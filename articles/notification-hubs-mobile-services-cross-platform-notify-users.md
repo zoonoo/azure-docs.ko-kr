@@ -18,5 +18,5 @@
 
 # 알림 허브를 통해 사용자에게 크로스 플랫폼 알림 보내기
 
-이 항목은 대체되었으며 더 이상 유효하지 않습니다. Azure 모바일 서비스와 함께 Azure 알림 허브를 사용하여 특정 사용자에게 알림을 보내는 방법에 대한 자세한 내용은 [인증된 사용자에게 푸시 알림 보내기] 항목을 참조하세요(/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users/). 
+이 항목은 대체되었으며 더 이상 유효하지 않습니다. Azure 모바일 서비스와 함께 Azure 알림 허브를 사용하여 특정 사용자에게 알림을 보내는 방법에 대한 자세한 내용은 [인증된 사용자에게 푸시 알림 보내기] 항목을 참조하세요(mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users.md). 
 <!--HONumber=47-->

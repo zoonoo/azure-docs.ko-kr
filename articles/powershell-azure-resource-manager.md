@@ -487,18 +487,18 @@ AzureResourceManager 모듈에는 오류를 방지하는 데 유용한 cmdlet이
   [Windows Management Framework 3.0]: http://www.microsoft.com/ko-KR/download/details.aspx?id=34595
   [Windows Management Framework 4.0]: http://www.microsoft.com/ko-KR/download/details.aspx?id=40855
   [Azure PowerShell 설치 및 구성 방법]: http://www.windowsazure.com/ko-KR/documentation/articles/install-configure-powershell/
-  [Windows PowerShell 시작]: http://technet.microsoft.com/ko-KR/library/hh857337.aspx
+  [Windows PowerShell 시작]: http://technet.microsoft.com/library/hh857337.aspx
   [Azure Powershell 모듈 정보]: #about
   [리소스 그룹 만들기]: #create
   [리소스 그룹 관리]: #manage
   [리소스 그룹 문제 해결]: #troubleshoot
   [다음 단계]: #next
-  [ACS 서비스 관리 Cmdlet]: http://msdn.microsoft.com/ko-KR/library/jj152841.aspx
+  [ACS 서비스 관리 Cmdlet]: http://msdn.microsoft.com/library/jj152841.aspx
   [Azure 리소스 관리자 Cmdlet]: http://go.microsoft.com/fwlink/?LinkID=394765
   [Azure 프로필 Cmdlet]: http://go.microsoft.com/fwlink/?LinkID=394766
   [Switch-AzureMode]: http://go.microsoft.com/fwlink/?LinkID=394398
   [1]: http://go.microsoft.com/fwlink/?LinkID=394765&clcid=0x409
-  [리소스 그룹을 사용하여 Azure 리소스 관리]: http://azure.microsoft.com/ko-KR/documentation/articles/azure-preview-portal-using-resource-groups
+  [리소스 그룹을 사용하여 Azure 리소스 관리]: http://azure.microsoft.com/documentation/articles/azure-preview-portal-using-resource-groups
   [리소스 관리자와 함께 Azure 플랫폼 간 명령줄 인터페이스 사용]: http://www.windowsazure.com/ko-KR/documentation/articles/xplat-cli-azure-resource-manager/
   [Azure 블로그]: http://blogs.msdn.com/windowsazure
   [Windows PowerShell 블로그]: http://blogs.msdn.com/powershell

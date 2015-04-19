@@ -53,7 +53,7 @@ Azure의 가상 컴퓨터는 제어 및 관리할 수 있는 클라우드의 서
 
 [AZURE.INCLUDE [virtual-machines-Linux-tutorial-log-on-attach-disk](../includes/virtual-machines-Linux-tutorial-log-on-attach-disk.md)]
 
-> [AZURE.NOTE] SSH 키를 식별에 사용하여 Linux 가상 컴퓨터에 연결할 수도 있습니다. SSH 키를 구성하고 연결하는 방법에 대한 자세한 내용은 [Azure에서 Linux와 함께 SSH를 사용 하는 방법](./virtual-machines-linux-use-ssh-key/)을 참조하세요.
+> [AZURE.NOTE] SSH 키를 식별에 사용하여 Linux 가상 컴퓨터에 연결할 수도 있습니다. SSH 키를 구성하고 연결하는 방법에 대한 자세한 내용은 [Azure에서 Linux와 함께 SSH를 사용 하는 방법](virtual-machines-linux-use-ssh-key)을 참조하세요.
 
 ##다음 단계 
 
@@ -65,7 +65,7 @@ Azure의 Linux에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 - [Azure VM 구성 설정 정보](http://msdn.microsoft.com/library/azure/dn763935.aspx)
 
-- [Azure의 Linux용 Docker 가상 컴퓨터 확장](../virtual-machines-docker-vm-extension/)
+- [Azure의 Linux용 Docker 가상 컴퓨터 확장](virtual-machines-docker-vm-extension.md)
 
 
 [다음 단계]: #next

@@ -30,7 +30,7 @@
 
 이 **갤러리에서** 옵션은 가상 컴퓨터 설치에 도움이 되는 마법사를 엽니다. 마법사 마지막 페이지에서 VM 에이전트 및 Symantec 보안 확장을 설치합니다. 
 
-일반적인 지침은 [Windows Server를 실행하는 가상 컴퓨터 만들기](../virtual-machines-windows-tutorial/)를 참조하세요. 마법사 마지막 페이지가 되면 다음을 수행합니다.
+일반적인 지침은 [Windows Server를 실행하는 가상 컴퓨터 만들기](virtual-machines-windows-tutorial.md)를 참조하세요. 마법사 마지막 페이지가 되면 다음을 수행합니다.
 
 1.	VM 에이전트 아래에 **VM 에이전트 설치**가 이미 선택되어 있어야 합니다.
 
@@ -45,7 +45,7 @@
 
 이 작업을 수행하려면 다음이 필요합니다.
 
-- Azure PowerShell 모듈, 버전 0.8.2 이상. 설치한 Azure PowerShell의 버전은 **Get-Module azure | format-table version** 명령을 사용하여 확인할 수 있습니다. 지침 및 최신 버전으로 연결되는 링크를 보려면 [Azure PowerShell을 설치 및 구성하는 방법](../install-configure-powershell/)을 참조하세요.  
+- Azure PowerShell 모듈, 버전 0.8.2 이상. 설치한 Azure PowerShell의 버전은 **Get-Module azure | format-table version** 명령을 사용하여 확인할 수 있습니다. 지침 및 최신 버전으로 연결되는 링크를 보려면 [Azure PowerShell을 설치 및 구성하는 방법](install-configure-powershell.md)을 참조하세요.  
 
 - VM 에이전트. 
 
@@ -67,13 +67,13 @@ VM 에이전트가 설치된 경우 이러한 명령을 실행하여 Symantec En
 
 Symantec 보안 확장이 설치되고 최신 상태인지 확인하려면 다음을 수행합니다.
 
-1.	가상 컴퓨터에 로그온합니다. 자세한 내용은 [Windows Server를 실행하는 가상 컴퓨터에 로그온하는 방법](../virtual-machines-log-on-windows-server/)을 참조하세요.
+1.	가상 컴퓨터에 로그온합니다. 자세한 내용은 [Windows Server를 실행하는 가상 컴퓨터에 로그온하는 방법](virtual-machines-log-on-windows-server.md)을 참조하세요.
 2.	Windows Server 2008 R2의 경우 **시작 > Symantec Endpoint Protection**을 클릭합니다. Windows Server 2012 또는 Windows Server 2012 R2의 경우 시작 화면에서 **Symantec**을 입력하고 **Symantec Endpoint Protection**을 클릭합니다.
 3.	**상태-Symantec Endpoint Protection** 창의 **상태** 탭에서 필요한 경우 업데이트를 적용하거나 다시 시작합니다.
 
 ## 추가 리소스
 
-[Windows Server를 실행하는 가상 컴퓨터에 로그온하는 방법](../virtual-machines-log-on-windows-server/)
+[Windows Server를 실행하는 가상 컴퓨터에 로그온하는 방법](virtual-machines-log-on-windows-server.md)
 
 [확장 관리](https://msdn.microsoft.com/library/dn606311.aspx)
 

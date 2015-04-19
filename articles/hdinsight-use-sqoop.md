@@ -82,7 +82,7 @@ HDInsight 클러스터에서 지원되는 Sqoop 버전을 보려면 [HDInsight�
 
 		* **Azure 가상 컴퓨터**에서 SQL Server를 사용할 때는 SQL Server를 호스트하는 가상 컴퓨터가 HDInsight와 같은 가상 네트워크의 멤버이면 모든 가상 네트워크 구성을 사용할 수 있습니다.
 
-	* **가상 네트워크에 HDInsight 클러스터를 프로비전**하려면 [사용자 지정 옵션을 사용하여 HDInsight의 Hadoop 클러스터 프로비전](/ko-kr/documentation/articles/hdinsight-provision-clusters/)을 참조하세요.
+	* **가상 네트워크에 HDInsight 클러스터를 프로비전**하려면 [사용자 지정 옵션을 사용하여 HDInsight의 Hadoop 클러스터 프로비전](hdinsight-provision-clusters.md)을 참조하세요.
 
 	> [AZURE.NOTE] SQL Server는 SQL 인증도 허용해야 합니다. 이 문서의 단계에서는 SQL 로그인을 사용해야 합니다.
 
@@ -363,7 +363,7 @@ SQL 데이터베이스 또는 SQL Server에 테이블 두 개를 만듭니다. �
 > [AZURE.NOTE] 연결 문자열 정보를 제외하면 이 섹션의 단계는 Azure SQL 데이터베이스 또는 SQL Server에 대해 작동합니다. 이러한 단계는 다음 구성에 대해 테스트되었습니다.
 > 
 > * **Azure 가상 네트워크 지점 및 사이트 간 구성** - 개인 데이터 센터에서 HDInsight 클러스터를 SQL Server에 연결하는 가상 네트워크입니다. 자세한 내용은 [관리 포털에서 지점 및 사이트 간 VPN 구성](http://msdn.microsoft.com/library/azure/dn133792.aspx)을 참조하세요.
-> * **Azure HDInsight 3.1** - 가상 네트워크에서 클러스터를 만드는 방법에 대한 자세한 내용은 [사용자 지정 옵션을 사용하여 HDInsight의 Hadoop 클러스터 프로비전](/ko-kr/documentation/articles/hdinsight-provision-clusters/)을 참조하세요.
+> * **Azure HDInsight 3.1** - 가상 네트워크에서 클러스터를 만드는 방법에 대한 자세한 내용은 [사용자 지정 옵션을 사용하여 HDInsight의 Hadoop 클러스터 프로비전](hdinsight-provision-clusters.md)을 참조하세요.
 > * **SQL Server 2014** - SQL 인증을 허용하고 VPN 클라이언트 구성 패키지를 실행하여 가상 네트워크에 안전하게 연결할 수 있도록 구성됩니다.
 
 **log4j 로그 파일을 내보내려면**

@@ -232,7 +232,7 @@ execute를 호출할 때 **success** 처리기를 전달하면 쿼리 결과를 
 +  인쇄 가능한 문자: **"**(0x0022), **\+** (0x002B), **/** (0x002F), **?** (0x003F), **\\** (0x005C), **`** (0x0060)
 +  ID "." 및 ".."
 
-또한 테이블에 정수 ID를 사용할 수 있습니다. 정수 ID를 사용하려면 `mobile table create` 명령으로 `--integerId` 옵션을 사용하여 테이블을 만들어야 합니다. 이 명령은 Azure용 CLI(명령줄 인터페이스)와 함께 사용됩니다. CLI 사용에 대한 자세한 내용은 [모바일 서비스 테이블 관리를 위한 CLI](/documentation/articles/virtual-machines-command-line-tools/#Mobile_Tables)를 참조하세요.
+또한 테이블에 정수 ID를 사용할 수 있습니다. 정수 ID를 사용하려면 `mobile table create` 명령으로 `--integerId` 옵션을 사용하여 테이블을 만들어야 합니다. 이 명령은 Azure용 CLI(명령줄 인터페이스)와 함께 사용됩니다. CLI 사용에 대한 자세한 내용은 [모바일 서비스 테이블 관리를 위한 CLI](virtual-machines-command-line-tools.md/#Mobile_Tables)를 참조하세요.
 
 
 ### <a name="access-headers"></a>방법: 사용자 지정 매개 변수 액세스

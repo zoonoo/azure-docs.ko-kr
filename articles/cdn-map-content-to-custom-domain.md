@@ -88,7 +88,7 @@
 #참고 항목
 
 
-[Azure에 대해 CDN(콘텐츠 배달 네트워크)을 사용하도록 설정하는 방법](./cdn-create-new-endpoint.md)  
+[Azure에 대해 CDN(콘텐츠 배달 네트워크)을 사용하도록 설정하는 방법](cdn-create-new-endpoint.md)  
 **Azure CDN 개요**
 
 

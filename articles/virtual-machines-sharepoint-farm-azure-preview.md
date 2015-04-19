@@ -32,7 +32,7 @@ SharePoint Server 팜을 사용하여 Microsoft Azure 미리 보기 포털은 �
 
 이 팜 구성을 사용하여 SharePoint 팜에 대해 보다 과도한 클라이언트 부하, 외부 SharePoint 사이트의 고가용성 및 SQL Server AlwaysOn을 테스트할 수 있습니다. 또한 고가용성 환경에서 SharePoint app 개발에 이 구성을 사용할 수 있습니다.
  
-이러한 두 가지 팜에 대한 구성 세부 사항에 대해서는 [SharePoint 서버 팜 구성 세부 정보](../virtual-machines-sharepoint-farm-config-azure-preview/)를 참조하세요.
+이러한 두 가지 팜에 대한 구성 세부 사항에 대해서는 [SharePoint 서버 팜 구성 세부 정보](virtual-machines-sharepoint-farm-config-azure-preview.md)를 참조하세요.
 
 ## 연결 단계별 실행##
 
@@ -87,7 +87,7 @@ SharePoint 서버 팜은 Azure 리소스 관리자 및 스크립트를 사용하
 
 [Azure 인프라 서비스의 SharePoint](http://msdn.microsoft.com/library/azure/dn275955.aspx)
 
-[SharePoint 서버 팜 구성 정보](../virtual-machines-sharepoint-farm-config-azure-preview/)
+[SharePoint 서버 팜 구성 정보](virtual-machines-sharepoint-farm-config-azure-preview.md)
 
 [테스트용 하이브리드 클라우드에 SharePoint 인트라넷 팜 설치](http://azure.microsoft.com/documentation/articles/virtual-networks-setup-sharepoint-hybrid-cloud-testing/)
 

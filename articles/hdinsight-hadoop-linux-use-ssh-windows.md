@@ -20,7 +20,7 @@
 
 HDInsight 클러스터 Linux 기반 암호 또는 SSH 키를 사용하여 SSH 액세스 보안의 옵션을 제공합니다. 이 문서에서는 PuTTY SSH 클라이언트를 사용하여 Windows 클라이언트에서 HDInsight에 연결하는 방법을 설명합니다.
 
-> [AZURE.NOTE] 이 문서의 단계에서는 Windows 클라이언트를 사용한다고 가정합니다. Linux, Unix 또는 OS X 클라이언트를 사용하는 경우 [Linux, Unix 또는 OS X에서 HDInsight의 Linux 기반 Hadoop과 SSH 사용](/documentation/articles/hdinsight-hadoop-linux-use-ssh-unix/)을 참조하세요.
+> [AZURE.NOTE] 이 문서의 단계에서는 Windows 클라이언트를 사용한다고 가정합니다. Linux, Unix 또는 OS X 클라이언트를 사용하는 경우 [Linux, Unix 또는 OS X에서 HDInsight의 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
 ##필수 조건
 
@@ -224,10 +224,10 @@ SSH 터널을 만들고 브라우저를 구성하여 클러스터에 연결하�
 
 이제 SSH 키를 사용하여 인증하는 방법을 배웠으므로 HDInsight에서 Hadoop과 MapReduce를 함께 사용하는 방법에 알아봅니다.
 
-* [HDInsight에서 Hive 사용](../hdinsight-use-hive/)
+* [HDInsight에서 Hive 사용](hdinsight-use-hive.md)
 
-* [HDInsight에서 Pig 사용](../hdinsight-use-pig/)
+* [HDInsight에서 Pig 사용](hdinsight-use-pig.md)
 
-* [HDInsight에서 MapReduce 작업 사용](../hdinsight-use-mapreduce/)
+* [HDInsight에서 MapReduce 작업 사용](hdinsight-use-mapreduce.md)
  
 <!--HONumber=47-->

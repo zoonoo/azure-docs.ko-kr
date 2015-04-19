@@ -165,11 +165,11 @@ MapReduce 작업의 출력은 *part-r-#####* 이름으로 파일에 저장됩니
 
 HDInsight에서 MapReduce 작업의 일반적인 내용.
 
-* [HDInsight Hadoop에서 MapReduce 사용](../hdinsight-use-mapreduce/)
+* [HDInsight Hadoop에서 MapReduce 사용](hdinsight-use-mapreduce.md)
 
 HDInsight에서 Hadoop으로 작업하는 다른 방법에 관한 내용입니다.
 
-* [HDInsight에서 Hadoop과 Hive 사용](../hdinsight-use-hive/)
+* [HDInsight에서 Hadoop과 Hive 사용](hdinsight-use-hive.md)
 
-* [HDInsight에서 Hadoop과 Pig 사용](../hdinsight-use-pig/)
+* [HDInsight에서 Hadoop과 Pig 사용](hdinsight-use-pig.md)
 <!--HONumber=47-->

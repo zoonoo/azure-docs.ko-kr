@@ -27,9 +27,9 @@ Hadoop 또는 BigData에 대해 이야기할 때마다 클러스터를 언급한
 
 ![HDInsight Cluster][img-hdi-cluster]
 
-HDInsight 클러스터는 Hadoop 구현 세부 정보를 추출하므로 여러 다른 클러스터 노드와 통신하는 방법을 걱정할 필요가 없습니다. HDInsight 클러스터를 프로비전할 때는 Hadoop과 관련 응용 프로그램을 포함하는 Azure 계산 리소스를 프로비전합니다. 자세한 내용은 [HDInsight의 Hadoop 소개](../hdinsight-hadoop-introduction/)(영문)을 참조하세요. 변동 대상 데이터는 HDInsight의 컨텍스트에서 Azure Blob 저장소( *Azure 저장소 - Blob* 또는 WASB라고도 함)에 저장됩니다. 자세한 내용은 [HDInsight에서 Azure Blob 저장소 사용](../hdinsight-use-blob-storage/)을 참조하세요.
+HDInsight 클러스터는 Hadoop 구현 세부 정보를 추출하므로 여러 다른 클러스터 노드와 통신하는 방법을 걱정할 필요가 없습니다. HDInsight 클러스터를 프로비전할 때는 Hadoop과 관련 응용 프로그램을 포함하는 Azure 계산 리소스를 프로비전합니다. 자세한 내용은 [HDInsight의 Hadoop 소개](hdinsight-hadoop-introduction.md)(영문)을 참조하세요. 변동 대상 데이터는 HDInsight의 컨텍스트에서 Azure Blob 저장소( *Azure 저장소 - Blob* 또는 WASB라고도 함)에 저장됩니다. 자세한 내용은 [HDInsight에서 Azure Blob 저장소 사용](hdinsight-use-blob-storage.md)을 참조하세요.
 
-이 문서에서는 클러스터를 프로비전하는 여러 다른 방법에 대한 지침을 제공합니다. 클러스터를 프로비전하는 빠른 시작 접근 방법을 살펴보려면 [Linux에서 Azure HDInsight 시작](../hdinsight-hadoop-linux-get-started)(영문)을 참조하세요.
+이 문서에서는 클러스터를 프로비전하는 여러 다른 방법에 대한 지침을 제공합니다. 클러스터를 프로비전하는 빠른 시작 접근 방법을 살펴보려면 [Linux에서 Azure HDInsight 시작](hdinsight-hadoop-linux-get-started.md)(영문)을 참조하세요.
 
 **필수 조건:**
 
@@ -37,14 +37,14 @@ HDInsight 클러스터는 Hadoop 구현 세부 정보를 추출하므로 여러 
 
 - Azure 구독. Azure는 구독 기반 플랫폼입니다. HDInsight PowerShell cmdlet은 구독을 사용하여 작업을 수행합니다. 구독을 예약하는 방법에 대한 자세한 내용은 <a href="http://azure.microsoft.com/pricing/purchase-options/" target="_blank">구매 옵션</a>, <a href="http://azure.microsoft.com/pricing/member-offers/" target="_blank">구성원 제공 항목</a> 또는 <a href="http://azure.microsoft.com/pricing/free-trial/" target="_blank">무료 평가판</a>을 참조하세요.
 - SSH 키. 암호 대신 키가 있는 SSH를 사용하여 Linux 클러스터에 원격으로 연결하려는 경우 키를 사용하는 방법이 더 안전하므로 권장됩니다. SSH 키를 생성하는 방법에 대한 지침은 다음 문서를 참조
-	-  Linux 컴퓨터 - [Linux, Unix 또는 OS X에서 Linux 기반 HDInsight(Hadoop)와 SSH 사용](../hdinsight-hadoop-linux-use-ssh-unix).
-	-  Windows 컴퓨터 - [Windows에서 Linux 기반 HDInsight(Hadoop)와 SSH 사용](../hdinsight-hadoop-linux-use-ssh-windows).
+	-  Linux 컴퓨터 - [Linux, Unix 또는 OS X에서 Linux 기반 HDInsight(Hadoop)와 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md).
+	-  Windows 컴퓨터 - [Windows에서 Linux 기반 HDInsight(Hadoop)와 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows.md).
 
 ## <a id="configuration"></a>구성 옵션
 
 ### Linux 기반 클러스터
 
-HDInsight는 Azure에서 Linux 클러스터를 프로비전의 옵션을 제공합니다. Linux 기반으로 작성된 Hadoop 에코 시스템 구성 요소와 쉽게 통합 또는 Linux 또는 Unix를 사용하고 기존 Hadoop Linux 기반 솔루션에서 마이그레이션에 익숙한 경우에 Linux 클러스터를 프로비전합니다. Linux의 Azure HDInsight에 대한 자세한 내용은 [HDInsight의 Hadoop 소개]를 참조하세요(../hdinsight-hadoop-introduction). 
+HDInsight는 Azure에서 Linux 클러스터를 프로비전의 옵션을 제공합니다. Linux 기반으로 작성된 Hadoop 에코 시스템 구성 요소와 쉽게 통합 또는 Linux 또는 Unix를 사용하고 기존 Hadoop Linux 기반 솔루션에서 마이그레이션에 익숙한 경우에 Linux 클러스터를 프로비전합니다. Linux의 Azure HDInsight에 대한 자세한 내용은 [HDInsight의 Hadoop 소개]를 참조하세요(hdinsight-hadoop-introduction.md). 
 
 ### 저장소 추가
 
@@ -72,7 +72,7 @@ Windows | [여기] 클릭(#portal) |[여기 ]클릭(#cli) |[여기 ]클릭(#sdk)
 
 ### <a id="portal"></a> Azure 관리 포털 사용
 
-HDInsight 클러스터는 Azure Blob 저장소 컨테이너를 기본 파일 시스템으로 사용합니다. HDInsight 클러스터를 만들려면 먼저 동일한 데이터 센터에 위치한 Azure 저장소 계정이 필요합니다. 자세한 내용은 [HDInsight에서 Azure Blob 저장소 사용](../hdinsight-use-blob-storage/)을 참조하세요. Azure 저장소 계정 만들기에 대한 자세한 내용은 [저장소 계정을 만드는 방법][azure-create-storageaccount]을 참조하세요.
+HDInsight 클러스터는 Azure Blob 저장소 컨테이너를 기본 파일 시스템으로 사용합니다. HDInsight 클러스터를 만들려면 먼저 동일한 데이터 센터에 위치한 Azure 저장소 계정이 필요합니다. 자세한 내용은 [HDInsight에서 Azure Blob 저장소 사용](hdinsight-use-blob-storage.md)을 참조하세요. Azure 저장소 계정 만들기에 대한 자세한 내용은 [저장소 계정을 만드는 방법][azure-create-storageaccount]을 참조하세요.
 
 
 > [WACOM.NOTE] 현재 **동아시아**, **동남아시아**, **북유럽**, **서유럽**, **미국 동부**, **미국 서부**, **미국 북중부**, **미국 남중부** 지역에서만 HDInsight 클러스터를 호스트할 수 있습니다.
@@ -526,12 +526,12 @@ Visual Studio에 응용 프로그램이 열려 있을 때 **F5** 키를 눌러 �
 ##<a id="nextsteps"></a> 다음 단계
 이 문서에서는 Linux에서 HDInsight Hadoop 클러스터를 프로비전하는 여러 가지 방법에 대해 알아보았습니다. 자세한 내용은 다음 문서를 참조하세요.
 
-- [Linux에서 HDInsight 작업](../hdinsight-hadoop-linux-information). Linux에서 HDInsight 클러스터 관련 작업의 미묘한 차이를 알 수 있습니다.
-- [Ambari를 사용하여 HDInsight 클러스터 관리](../hdinsight-hadoop-manage-ambari). Ambari 웹 또는 Ambari REST API를 사용하여 HDInsight 클러스터의 Linux 기반 Hadoop을 모니터링하고 관리하는 방법에 대해 알아봅니다. 
+- [Linux에서 HDInsight 작업](hdinsight-hadoop-linux-information.md). Linux에서 HDInsight 클러스터 관련 작업의 미묘한 차이를 알 수 있습니다.
+- [Ambari를 사용하여 HDInsight 클러스터 관리](hdinsight-hadoop-manage-ambari.md). Ambari 웹 또는 Ambari REST API를 사용하여 HDInsight 클러스터의 Linux 기반 Hadoop을 모니터링하고 관리하는 방법에 대해 알아봅니다. 
 - [HDInsight에서 MapReduce 사용][hdinsight-use-mapreduce]. 클러스터에서 MapReduce 작업을 실행하는 다양한 방법에 대해 알아봅니다.
 - [HDInsight에서 Hive 사용][hdinsight-use-hive]. 클러스터에서 Hive 쿼리를 실행하는 다양한 방법에 대해 알아봅니다.
 - [HDInsight에서 Pig 사용][hdinsight-use-pig]. 클러스터에서 Pig 작업 실행의 다양한 방법에 대해 알아봅니다.
-- [HDInsight에서 Azure Blob 저장소 사용](../hdinsight-use-blob-storage). HDInsight가 HDInsight 클러스터에서 데이터를 저장하는데 Azure Blob 저장소를 사용하는 방법에 대해 알아봅니다.
+- [HDInsight에서 Azure Blob 저장소 사용](hdinsight-use-blob-storage.md). HDInsight가 HDInsight 클러스터에서 데이터를 저장하는데 Azure Blob 저장소를 사용하는 방법에 대해 알아봅니다.
 - [HDInsight에 데이터 업로드][hdinsight-upload-data]. HDInsight 클러스터에서 Azure Blob 저장소에 저장된 데이터로 작업하는 방법에 대해 알아봅니다.
 
 [hdinsight-use-mapreduce]: ../hdinsight-use-mapreduce/

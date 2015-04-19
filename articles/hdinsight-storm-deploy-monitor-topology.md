@@ -114,7 +114,7 @@ Storm UI의 기본 페이지는 다음 정보를 제공합니다.
 
 ##Visual Studio용 HDInsight 도구
 
-HDInsight 도구는 Storm 클러스터에 C# 또는 하이브리드 토폴로지를 제출하는 데 사용할 수 있습니다. 다음 단계는 샘플 응용 프로그램을 사용합니다. HDInsight 도구를 사용하여 자신만의 토폴로지 만들기에 대한 자세한 내용은 [Visual Studio용 HDInsight 도구를 사용하여 C# 토폴로지 개발]을 참조하세요(../hdinsight-storm-develop-csharp-visual-studio-topology/).
+HDInsight 도구는 Storm 클러스터에 C# 또는 하이브리드 토폴로지를 제출하는 데 사용할 수 있습니다. 다음 단계는 샘플 응용 프로그램을 사용합니다. HDInsight 도구를 사용하여 자신만의 토폴로지 만들기에 대한 자세한 내용은 [Visual Studio용 HDInsight 도구를 사용하여 C# 토폴로지 개발]을 참조하세요(hdinsight-storm-develop-csharp-visual-studio-topology.md).
 
 다음 단계를 통해 HDInsight 클러스터에서 Storm에 샘플을 배포한 다음 토폴로지를 보고 관리할 수 있습니다.
 
@@ -166,7 +166,7 @@ REST API에서 반환되는 정보는 클러스터와 동일한 Azure 가상 네
 
 ##다음 단계
 
-Storm 대시보드를 사용하여 토폴로지를 배포 및 모니터링하는 방법에 대해 배웠음으로 [Visual Studio용 HDInsight 도구를 사용하여 C# 토폴로지를 개발]하는 방법(../hdinsight-storm-develop-csharp-visual-studio-topology/)또는 [Maven을 사용하여 Java 기반 토폴로지를 개발]하는 방법에 대해 알아봅니다(../hdinsight-storm-develop-java-topology/).
+Storm 대시보드를 사용하여 토폴로지를 배포 및 모니터링하는 방법에 대해 배웠음으로 [Visual Studio용 HDInsight 도구를 사용하여 C# 토폴로지를 개발]하는 방법(hdinsight-storm-develop-csharp-visual-studio-topology.md)또는 [Maven을 사용하여 Java 기반 토폴로지를 개발]하는 방법에 대해 알아봅니다(hdinsight-storm-develop-java-topology.md).
 
 
 [hdinsight-dashboard]: ./media/hdinsight-storm-deploy-monitor/dashboard-link.png

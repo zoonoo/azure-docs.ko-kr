@@ -25,7 +25,7 @@ TodoItem 클래스는 데이터 개체를 정의하고, 클라이언트에서 �
 
 	이러한 속성은 SAS를 생성하고 이미지 정보를 저장하는 데 사용됩니다. 이러한 속성에 대한 대/소문자 구분은 JavaScript 백 엔드 버전과 일치합니다. 
 
-	>[AZURE.NOTE] 기본 데이터베이스 이니셜라이저를 사용할 경우 Entity Framework에서는 Code First 모델 정의에서 데이터 모델 변경이 감지될 때 데이터베이스를 삭제하고 다시 만듭니다. 이 데이터 모델을 변경하고 데이터베이스에서 기존 데이터를 유지하려면 Code First 마이그레이션을 사용해야 합니다. Azure에서는 SQL 데이터베이스에 대해 기본 이니셜라이저를 사용할 수 없습니다. 자세한 내용은 [Code First 마이그레이션을 사용하여 데이터 모델을 업데이트하는 방법](/ko-kr/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations).을 참조하세요.
+	>[AZURE.NOTE] 기본 데이터베이스 이니셜라이저를 사용할 경우 Entity Framework에서는 Code First 모델 정의에서 데이터 모델 변경이 감지될 때 데이터베이스를 삭제하고 다시 만듭니다. 이 데이터 모델을 변경하고 데이터베이스에서 기존 데이터를 유지하려면 Code First 마이그레이션을 사용해야 합니다. Azure에서는 SQL 데이터베이스에 대해 기본 이니셜라이저를 사용할 수 없습니다. 자세한 내용은 [Code First 마이그레이션을 사용하여 데이터 모델을 업데이트하는 방법](mobile-services-dotnet-backend-how-to-use-code-first-migrations.md).을 참조하세요.
 
 ##<a name="update-scripts"></a>TodoItem 컨트롤러를 업데이트하여 공유 액세스 서명 생성 
 

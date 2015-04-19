@@ -23,7 +23,7 @@
 
 이 절차에서는 Windows Phone 응용 프로그램에서 Engagement의 분석 및 모니터링 기능을 활성화하는 가장 간단한 방법을 설명합니다.
 
-다음 단계만 수행하면 사용자, 세션, 활동, 작동 중단 및 기술과 관련된 모든 통계를 계산하는 데 필요한 로그 보고를 활성화할 수 있습니다. 이벤트, 오류, 작업 등의 기타 통계는 응용 프로그램별로 다르므로, 해당 통계를 계산하는 데 필요한 로그 보고는 Engagement API를 사용하여 수동으로 수행해야 합니다. 관련 설명은 아래의 [Windows Phone 앱에서 고급 Mobile Engagement 태깅 API를 사용하는 방법](../mobile-engagement-windows-phone-use-engagement-api/) 을 참조하세요.
+다음 단계만 수행하면 사용자, 세션, 활동, 작동 중단 및 기술과 관련된 모든 통계를 계산하는 데 필요한 로그 보고를 활성화할 수 있습니다. 이벤트, 오류, 작업 등의 기타 통계는 응용 프로그램별로 다르므로, 해당 통계를 계산하는 데 필요한 로그 보고는 Engagement API를 사용하여 수동으로 수행해야 합니다. 관련 설명은 아래의 [Windows Phone 앱에서 고급 Mobile Engagement 태깅 API를 사용하는 방법](mobile-engagement-windows-phone-use-engagement-api.md) 을 참조하세요.
 
 ##지원되는 버전
 
@@ -209,7 +209,7 @@ PhoneApplicationPage 페이지의 `OnNavigatedTo` 메서드 내에서 `StartActi
 
 필요에 따라 응용 프로그램 관련 이벤트, 오류 및 작업을 보고할 수 있습니다. 이렇게 하려면 `EngagementAgent` 클래스에 포함된 다른 메서드를 사용합니다. Engagement API에서는 Engagement의 모든 고급 기능을 사용할 수 있습니다.
 
-자세한 내용은 [Windows Phone 앱에서 고급 Mobile Engagement 태깅 API를 사용하는 방법]을 참조하세요(../mobile-engagement-windows-phone-use-the-engagement-api/).
+자세한 내용은 [Windows Phone 앱에서 고급 Mobile Engagement 태깅 API를 사용하는 방법]을 참조하세요(mobile-engagement-windows-phone-use-the-engagement-api.md).
 
 ##고급 구성
 

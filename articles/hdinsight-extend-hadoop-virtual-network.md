@@ -62,7 +62,7 @@ Azure 가상 네트워크를 사용하면 SQL Server와 같은 내부 리소스�
 >
 > 각 클러스터에 단일 서브넷을 지정하는 것이 좋습니다.
 
-가상 네트워크에서 HDInsight 클러스터를 프로비전하는 방법에 대한 자세한 내용은 [HDInsight에서 Hadoop 클러스터 프로비전](/documentation/articles/hdinsight-provision-clusters/)을 참조하세요.
+가상 네트워크에서 HDInsight 클러스터를 프로비전하는 방법에 대한 자세한 내용은 [HDInsight에서 Hadoop 클러스터 프로비전](hdinsight-provision-clusters.md)을 참조하세요.
 
 ##<a id="tasks"></a>작업 및 정보
 
@@ -74,7 +74,7 @@ HDInsight 클러스터는 가상 네트워크 인터페이스에 대한 특정 F
 
 	https://<clustername>.azurehdinsight.net/ambari/api/v1/clusters/<clustername>.azurehdinsight.net/services/<servicename>/components/<componentname>
 
-> [AZURE.NOTE] HDInsight과 함께 Ambari를 사용하는 방법에 대한 자세한 내용은 [Ambari API를 사용하여 HDInsight에서 Hadoop 클러스터 모니터링](/documentation/articles/hdinsight-monitor-use-ambari-api/)을 참조하세요.
+> [AZURE.NOTE] HDInsight과 함께 Ambari를 사용하는 방법에 대한 자세한 내용은 [Ambari API를 사용하여 HDInsight에서 Hadoop 클러스터 모니터링](hdinsight-monitor-use-ambari-api.md)을 참조하세요.
 
 클러스터 이름, 서비스 및 YARN 리소스 관리자와 같은 클러스터에서 실행 중인 구성 요소를 지정해야 합니다.
 
@@ -82,7 +82,7 @@ HDInsight 클러스터는 가상 네트워크 인터페이스에 대한 특정 F
 
 예를 들어, HDInsight Hadoop 클러스터에서 FQDN을 반환하려면 다음 방법 중 하나를 사용하여 YARN 리소스 관리자에 대한 데이터를 검색할 수 있습니다.
 
-* [Azure PowerShell](/documentation/articles/install-configure-powershell/)
+* [Azure PowerShell](install-configure-powershell.md)
 
 		$ClusterDnsName = <clustername>
 		$Username = <cluster admin username>
@@ -109,7 +109,7 @@ Java API를 사용하여 원격으로 HBase에 연결하려면 HBase 클러스�
 
 Zookeeper 쿼럼 주소를 얻으려면 다음 방법 중 하나를 사용하여 Ambari 관리 서비스를 찾습니다.
 
-* [Azure PowerShell](/documentation/articles/install-configure-powershell/)
+* [Azure PowerShell](install-configure-powershell.md)
 
 		$ClusterDnsName = <clustername>
 		$Username = <cluster admin username>
@@ -129,7 +129,7 @@ Zookeeper 쿼럼 주소를 얻으려면 다음 방법 중 하나를 사용하여
 
 		curl -G -u <username>:<password> "https://<clustername>.azurehdinsight.net/ambari/api/v1/clusters/<clustername>.azurehdinsight.net/configurations?type=hbase-site&tag=default&fields=items/properties/hbase.zookeeper.quorum" | jq .items[0].properties[]
 
-> [AZURE.NOTE] HDInsight과 함께 Ambari를 사용하는 방법에 대한 자세한 내용은 [Ambari API를 사용하여 HDInsight에서 Hadoop 클러스터 모니터링](/documentation/articles/hdinsight-monitor-use-ambari-api/)을 참조하세요.
+> [AZURE.NOTE] HDInsight과 함께 Ambari를 사용하는 방법에 대한 자세한 내용은 [Ambari API를 사용하여 HDInsight에서 Hadoop 클러스터 모니터링](hdinsight-monitor-use-ambari-api.md)을 참조하세요.
 
 쿼럼 정보를 만든 후 클라이언트 응용 프로그램에서 사용합니다.
 
@@ -162,13 +162,13 @@ HDInsight에서 서비스에 액세스하는 문제가 발생하는 경우 네�
 
 다음 예에서는 Azure 가상 네트워크와 HDInsight를 사용하는 방법을 보여 줍니다.
 
-* [HDInsight에서 Storm 및 HBase를 사용하여 센서 데이터 분석](/documentation/articles/hdinsight-storm-sensor-data-analysis/) - 가상 네트워크에서 Storm 및 HBase 클러스터를 구성하는 방법과 Storm에서 HBase로 데이터를 원격으로 작성하는 방법을 보여 줍니다.
+* [HDInsight에서 Storm 및 HBase를 사용하여 센서 데이터 분석](hdinsight-storm-sensor-data-analysis.md) - 가상 네트워크에서 Storm 및 HBase 클러스터를 구성하는 방법과 Storm에서 HBase로 데이터를 원격으로 작성하는 방법을 보여 줍니다.
 
-* [Azure 가상 네트워크의 HBase 클러스터 프로비전](/documentation/articles/hdinsight-hbase-provision-vnet/)  - Azure 가상 네트워크에서 HBase 클러스터를 프로비전하는 방법에 대한 정보를 제공합니다.
+* [Azure 가상 네트워크의 HBase 클러스터 프로비전](hdinsight-hbase-provision-vnet.md)  - Azure 가상 네트워크에서 HBase 클러스터를 프로비전하는 방법에 대한 정보를 제공합니다.
 
-* [HDInsight에서 Hadoop 클러스터 프로비전](/documentation/articles/hdinsight-provision-clusters/) - Azure 가상 네트워크를 사용하는 정보를 포함하여 Hadoop 클러스터를 프로비전하는 방법에 대한 정보를 제공합니다.
+* [HDInsight에서 Hadoop 클러스터 프로비전](hdinsight-provision-clusters.md) - Azure 가상 네트워크를 사용하는 정보를 포함하여 Hadoop 클러스터를 프로비전하는 방법에 대한 정보를 제공합니다.
 
-* [HDInsight에서 Hadoop과 함께 Sqoop 사용](/documentation/articles/hdinsight-use-sqoop/)  - Sqoop을 사용하여 가상 네트워크를 통해 SQL Server로 데이터를 전송하는 방법에 대한 정보를 제공합니다.
+* [HDInsight에서 Hadoop과 함께 Sqoop 사용](hdinsight-use-sqoop.md)  - Sqoop을 사용하여 가상 네트워크를 통해 SQL Server로 데이터를 전송하는 방법에 대한 정보를 제공합니다.
 
 Azure 가상 네트워크에 대한 자세한 내용은 [Azure 가상 네트워크 개요](http://msdn.microsoft.com/library/azure/jj156007.aspx)(영문)를 참조하세요.
 

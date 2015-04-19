@@ -28,7 +28,7 @@
 
 샘플 응용 프로그램은 Visual Studio 2013을 사용하여 C#으로 작성됩니다. 기존에 사용 중인 Visual Studio가 없다면 무료 [Visual Studio 2013 Express Edition](http://www.visualstudio.com/ko-kr/products/visual-studio-express-vs.aspx)을 사용해 보세요.
 
-자습서를 완료하려면 Azure 구독 및 Azure 검색 서비스가 필요합니다. 서비스 설정에 대한 자세한 내용은 [Azure 검색 시작](../search-get-started/)을 참조하세요.
+자습서를 완료하려면 Azure 구독 및 Azure 검색 서비스가 필요합니다. 서비스 설정에 대한 자세한 내용은 [Azure 검색 시작](search-get-started.md)을 참조하세요.
 
 [WACOM.INCLUDE [이 자습서를 완료하려면 Azure 계정이 있어야 합니다.](../includes/free-trial-note.md)]
 

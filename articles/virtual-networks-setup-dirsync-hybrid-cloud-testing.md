@@ -45,7 +45,7 @@ Azure 구독이 아직 없는 경우 [Azure 평가판 사용](http://azure.micro
 
 ## 단계 1: 하이브리드 클라우드 환경 설정
 
-[테스트용 하이브리드 클라우드 환경 설정](../virtual-networks-setup-hybrid-cloud-environment-testing/)항목의 지침을 사용합니다. 이 테스트 환경에는 APP1 서버가 Corpnet 서브넷에 있을 필요가 없으므로 지금은 종료해도 됩니다.
+[테스트용 하이브리드 클라우드 환경 설정](virtual-networks-setup-hybrid-cloud-environment-testing.md)항목의 지침을 사용합니다. 이 테스트 환경에는 APP1 서버가 Corpnet 서브넷에 있을 필요가 없으므로 지금은 종료해도 됩니다.
 
 다음은 현재 구성입니다.
 
@@ -180,12 +180,12 @@ CLIENT1의 **Active Directory 동기화 설정 및 관리** 페이지에서 이 
 
 [Office Server 및 클라우드를 사용하는 솔루션](http://technet.microsoft.com/library/dn262744.aspx)
 
-[테스트용 하이브리드 클라우드 환경 설정](../virtual-networks-setup-hybrid-cloud-environment-testing/)
+[테스트용 하이브리드 클라우드 환경 설정](virtual-networks-setup-hybrid-cloud-environment-testing.md)
 
-[테스트용 하이브리드 클라우드에 SharePoint 인트라넷 팜 설치](../virtual-networks-setup-sharepoint-hybrid-cloud-testing/)
+[테스트용 하이브리드 클라우드에 SharePoint 인트라넷 팜 설치](virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)
 
-[테스트용 하이브리드 클라우드에 웹 기반 LOB 응용 프로그램 설치](../virtual-networks-setup-lobapp-hybrid-cloud-testing/)
+[테스트용 하이브리드 클라우드에 웹 기반 LOB 응용 프로그램 설치](virtual-networks-setup-lobapp-hybrid-cloud-testing.md)
 
-[테스트용 시뮬레이션된 하이브리드 클라우드 환경 설정](../virtual-networks-setup-simulated-hybrid-cloud-environment-testing/)
+[테스트용 시뮬레이션된 하이브리드 클라우드 환경 설정](virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md)
 
 <!--HONumber=47-->

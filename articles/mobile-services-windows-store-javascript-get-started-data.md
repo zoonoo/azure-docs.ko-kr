@@ -29,7 +29,7 @@
 
 이 항목에서는 Azure 모바일 서비스를 사용하여 Windows 스토어 앱에서 데이터를 활용하는 방법을 보여 줍니다. 이 자습서에서는 데이터를 메모리에 저장하는 앱용 Visual Studio 2013 프로젝트를 다운로드하여 새 모바일 서비스를 만들고 모바일 서비스를 앱과 통합한 후 Azure 관리 포털에 로그인하여 앱을 실행할 때 변경된 데이터를 확인합니다.
 
->[AZURE.NOTE]이 항목에서는 Visual Studio 2013을 사용하여 Windows 스토어 프로젝트에 Azure 모바일 서비스를 추가하는 방법을 보여 줍니다. 동일한 JavaScript 백 엔드 모바일 서비스를 범용 Windows 앱 프로젝트에 추가할 수 있습니다. 자세한 내용은 이 자습서의 [범용 Windows 앱 버전](/ko-kr/documentation/articles/mobile-services-javascript-backend-windows-universal-javascript-get-started-data)을 참조하세요.
+>[AZURE.NOTE]이 항목에서는 Visual Studio 2013을 사용하여 Windows 스토어 프로젝트에 Azure 모바일 서비스를 추가하는 방법을 보여 줍니다. 동일한 JavaScript 백 엔드 모바일 서비스를 범용 Windows 앱 프로젝트에 추가할 수 있습니다. 자세한 내용은 이 자습서의 [범용 Windows 앱 버전](mobile-services-javascript-backend-windows-universal-javascript-get-started-data.md)을 참조하세요.
 
 이 자습서에서는 다음 기본 단계를 단계별로 안내합니다.
 

@@ -18,7 +18,7 @@
 
 # Entity Framework와 함께 탄력적인 확장 사용 
  
-Microsoft의 EF(Entity Framework)와 함께 Azure SQL 데이터베이스의 탄력적인 확장을 사용하여 응용 프로그램을 빌드할 수 있습니다. 탄력적인 확장을 사용하면 응용 프로그램의 데이터 계층에 대한 분할 및 확장을 통해 용량을 확장 및 축소할 수 있습니다. 이 문서에서는 탄력적인 확장 기능을 통합하는 데 필요한 Entity Framework 응용 프로그램의 변경 내용을 보여 줍니다. 여기서는 [탄력적인 확장 분할된 데이터베이스 관리](http://go.microsoft.com/?linkid=9862595) 및 [데이터 종속 라우팅](./sql-database-elastic-scale-data-dependent-routing.md) 을 작성하는 방법에 대해 중점적으로 설명합니다. 이때 Entity Framework **Code First** 방식을 사용합니다. 이 문서 전체에서는 EF용 [Code First - 새 데이터베이스](http://msdn.microsoft.com/data/jj193542.aspx) 자습서를 실행 예제로 사용합니다. 이 문서와 함께 제공되는 샘플 코드는 Visual Studio 코드 샘플에 포함된 탄력적인 확장 샘플의 일부입니다.
+Microsoft의 EF(Entity Framework)와 함께 Azure SQL 데이터베이스의 탄력적인 확장을 사용하여 응용 프로그램을 빌드할 수 있습니다. 탄력적인 확장을 사용하면 응용 프로그램의 데이터 계층에 대한 분할 및 확장을 통해 용량을 확장 및 축소할 수 있습니다. 이 문서에서는 탄력적인 확장 기능을 통합하는 데 필요한 Entity Framework 응용 프로그램의 변경 내용을 보여 줍니다. 여기서는 [탄력적인 확장 분할된 데이터베이스 관리](http://go.microsoft.com/?linkid=9862595) 및 [데이터 종속 라우팅](sql-database-elastic-scale-data-dependent-routing.md) 을 작성하는 방법에 대해 중점적으로 설명합니다. 이때 Entity Framework **Code First** 방식을 사용합니다. 이 문서 전체에서는 EF용 [Code First - 새 데이터베이스](http://msdn.microsoft.com/data/jj193542.aspx) 자습서를 실행 예제로 사용합니다. 이 문서와 함께 제공되는 샘플 코드는 Visual Studio 코드 샘플에 포함된 탄력적인 확장 샘플의 일부입니다.
   
 ## 샘플 코드 다운로드 및 실행
 이 기사의 코드를 다운로드하려면:
@@ -53,7 +53,7 @@ Entity Framework 개발자는 다음 4개의 워크플로 중 하나를 사용�
 
 ## 탄력적인 확장 가정 
 
-용어 정의는 [탄력적인 확장 용어집](./sql-database-elastic-scale-glossary.md)을참조하세요.
+용어 정의는 [탄력적인 확장 용어집](sql-database-elastic-scale-glossary.md)을참조하세요.
 
 Azure SQL 데이터베이스의 탄력적인 확장을 사용하여 shardlet이라고 하는 응용 프로그램 데이터의 파티션을 정의합니다.  Shardlet은 분할 키로 식별되며 특정 데이터베이스에 매핑됩니다. 응용 프로그램은 필요한 만큼 많은 데이터베이스를 포함하고 shardlet을 배포하여 현재 비즈니스 요구 사항에 따른 용량이나 성능을 충분히 제공할 수 있습니다. 탄력적인 확장 API에서 제공하는 분할된 데이터베이스 맵을 통해 데이터베이스에 대한 분할 키 값의 매핑이 저장됩니다. 이 기능을 분할된 데이터베이스 맵 관리 또는 줄여서 SMM이라고 합니다. 분할된 데이터베이스 맵은 분할 키를 전송하는 요청에 대한 데이터베이스 연결의 브로커 역할도 합니다. 이 기능을 데이터 종속 라우팅이라고 합니다. 
  

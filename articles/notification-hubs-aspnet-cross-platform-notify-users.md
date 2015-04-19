@@ -1,5 +1,4 @@
-<properties 
-	pageTitle="알림 허브를 통해 사용자에게 크로스 플랫폼 알림 보내기(ASP.NET)" description="알림 허브 템플릿을 사용하여 모든 플랫폼을 대상으로 하는 플랫폼 중립적인 알림을 단일 요청으로 보내는 방법을 보여 줍니다." services="notification-hubs" documentationCenter="" authors="ggailey777" manager="dwrede" editor=""/>
+﻿<properties pageTitle="알림 허브를 통해 사용자에게 크로스 플랫폼 알림 보내기(ASP.NET)" description="알림 허브 템플릿을 사용하여 모든 플랫폼을 대상으로 하는 플랫폼 중립적인 알림을 단일 요청으로 보내는 방법을 보여 줍니다." services="notification-hubs" documentationCenter="" authors="ggailey777" manager="dwrede" editor=""/>
 
 <tags 
 	ms.service="notification-hubs" 
@@ -16,11 +15,11 @@
 
 > [AZURE.NOTE] 알림 허브를 사용하면 장치가 동일한 태그로 여러 템플릿을 등록할 수 있습니다. 이 경우 해당 태그를 대상으로 들어오는 메시지가 있으면 각 템플릿에 대해 하나씩 여러 개의 알림이 장치에 전달됩니다. 이런 방식으로 Windows 스토어 앱에 알림 메시지와 배지 둘 다로 표시하는 등 여러 시각적 알림에 동일한 메시지를 표시할 수 있습니다.
 
-템플릿을 사용하여 크로스 플랫폼 알림을 보내려면 다음 단계를 따르세요.
+템플릿을 사용하여 크로스 플랫폼 알림을 보내려면 다음 단계를 따르십시오.
 
 1. Visual Studio의 솔루션 탐색기에서 **컨트롤러** 폴더를 확장한 다음 RegisterController.cs 파일을 엽니다. 
 
-2. **Post** 메서드에서 새 등록을 만드는 코드 블록을 찾아서  `switch`의 내용을 다음 코드로 바꿉니다.
+2. **Post** 메서드에서 새 등록을 만드는 코드 블록을 찾아서 `switch`의 내용을 다음 코드로 바꿉니다.
 
 		switch (deviceUpdate.Platform)
         {
@@ -64,7 +63,7 @@
             return Request.CreateResponse(HttpStatusCode.OK);
         }
 
-	이 코드는 네이티브 페이로드를 지정할 필요 없이 동시에 모든 플랫폼에 알림을 보냅니다. 알림 허브는 등록된 템플릿에 지정된 대로 올바른 페이로드를 작성하고 제공된 _태그_ 값을 가진 모든 장치에 전달합니다.
+	이 코드는 네이티브 페이로드를 지정할 필요 없이 동시에 모든 플랫폼에 알림을 보냅니다. 알림 허브는 등록된 템플릿에 지정된 대로 올바른 페이로드를 작성하여 제공된 _tag_ 값을 가진 모든 장치에 전달합니다.
 
 4. WebApi 백 엔드 프로젝트를 다시 게시합니다.
 
@@ -94,15 +93,15 @@
 
 
 <!-- URLs. -->
-[사용자에게 푸시 알림 보내기(ASP.NET)]: /manage/services/notification-hubs/notify-users-aspnet
-[사용자에게 푸시 알림 보내기(모바일 서비스)]: /manage/services/notification-hubs/notify-users/
+[사용자에게 푸시 알림 보내기(ASP.NET)]: /ko-kr/manage/services/notification-hubs/notify-users-aspnet
+[사용자에게 푸시 알림 보내기(모바일 서비스)]: /ko-kr/manage/services/notification-hubs/notify-users/
 [Visual Studio 2012 Express for Windows 8]: http://go.microsoft.com/fwlink/?LinkId=257546
 
 [관리 포털]: https://manage.windowsazure.com/
-[알림 허브를 사용하여 속보 보내기]: notification-hubs-windows-store-dotnet-send-breaking-news.md
+[알림 허브를 사용하여 속보 보내기]: /ko-kr/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/
 [Azure 알림 허브]: http://go.microsoft.com/fwlink/p/?LinkId=314257
-[알림 허브를 통해 사용자에게 알림]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
+[알림 허브를 통해 사용자에게 알림]: /ko-kr/documentation/articles/notification-hubs-aspnet-backend-windows-dotnet-notify-users/
 [템플릿]: http://go.microsoft.com/fwlink/p/?LinkId=317339
 [Windows 스토어에 대한 알림 허브 방법]: http://msdn.microsoft.com/library/windowsazure/jj927172.aspx
 
-<!--HONumber=49-->
+<!--HONumber=45--> 

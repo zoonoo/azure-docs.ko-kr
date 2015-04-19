@@ -19,7 +19,7 @@
 
 #Azure 미디어 인코더를 사용하여 자산을 인코딩하는 방법
 
-이 문서는 [워크플로 주문형 미디어 서비스 비디오] 시리즈의(../media-services-video-on-demand-workflow) 일부입니다. 
+이 문서는 [워크플로 주문형 미디어 서비스 비디오] 시리즈의(media-services-video-on-demand-workflow.md) 일부입니다. 
 
 ##개요
 
@@ -207,7 +207,7 @@ Azure 미디어 인코더로 인코딩할 때 [여기](https://msdn.microsoft.co
 
 
 ##다음 단계
-자산을 인코드하는 작업을 만드는 방법을 알아보았습니다. 이제 [미디어 서비스를 사용하여 작업 진행 상태를 확인하는 방법](../media-services-check-job-progress/) 항목으로 이동하세요.
+자산을 인코드하는 작업을 만드는 방법을 알아보았습니다. 이제 [미디어 서비스를 사용하여 작업 진행 상태를 확인하는 방법](media-services-check-job-progress.md) 항목으로 이동하세요.
 
 [Azure 마켓플레이스]: https://datamarket.azure.com/
 [인코더 기본 설정]: http://msdn.microsoft.com/library/dn619392.aspx

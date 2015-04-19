@@ -65,7 +65,7 @@ Azure SQL 데이터베이스 페더레이션 기능은 2015년 9월부터 Web/Bu
 
     USE FEDERATION CustomerFederation(cid=100) WITH RESET, FILTERING=OFF`
 
-탄력적인 확장 API에서는 특정 분할된 데이터베이스에 대한 연결이 [데이터 종속 라우팅](./sql-database-elastic-scale-data-dependent-routing.md)을 통해 설정됩니다 이때 **RangeShardMap** 클래스의 **OpenConnectionForKey** 메서드를 사용합니다. 
+탄력적인 확장 API에서는 특정 분할된 데이터베이스에 대한 연결이 [데이터 종속 라우팅](sql-database-elastic-scale-data-dependent-routing.md)을 통해 설정됩니다 이때 **RangeShardMap** 클래스의 **OpenConnectionForKey** 메서드를 사용합니다. 
 
     //Connect and issue queries on the shard with key=100 
     using (SqlConnection conn = rangeShardMap.OpenConnectionForKey(100, csb))  
@@ -82,7 +82,7 @@ Azure SQL 데이터베이스 페더레이션 기능은 2015년 9월부터 Web/Bu
         } 
     }
 
-이 섹션의 단계는 필요하지만 발생하는 마이그레이션 시나리오를 모두 해결할 수는 없습니다. 자세한 내용은 [탄력적인 확장에 대한 개념 개요](./sql-database-elastic-scale-introduction.md) 및 [API 참조](http://go.microsoft.com/?linkid=9862604)를 참조하세요.
+이 섹션의 단계는 필요하지만 발생하는 마이그레이션 시나리오를 모두 해결할 수는 없습니다. 자세한 내용은 [탄력적인 확장에 대한 개념 개요](sql-database-elastic-scale-introduction.md) 및 [API 참조](http://go.microsoft.com/?linkid=9862604)를 참조하세요.
 
 ## 기존 페더레이션 멤버 외부 전환 
 
@@ -102,7 +102,7 @@ Azure SQL 데이터베이스 페더레이션 기능은 2015년 9월부터 Web/Bu
 
 
 ## 기능 비교  
-탄력적인 확장에서는 여러 추가 기능(예: [다중 분할된 데이터베이스 쿼리](./sql-database-elastic-scale-multishard-querying.md), [분할된 데이터베이스 병합 및 분할](./sql-database-elastic-scale-overview-split-and-merge.md), [분할된 데이터베이스 탄력성](./sql-database-elastic-scale-elasticity.md), [클라이언트 쪽 캐싱](./sql-database-elastic-scale-shard-map-management.md))을 제공합니다.등)을 제공하지만, 다음과 같은 몇 가지 중요한 페더레이션 기능이 탄력적인 확장에서 지원되지 않습니다.
+탄력적인 확장에서는 여러 추가 기능(예: [다중 분할된 데이터베이스 쿼리](sql-database-elastic-scale-multishard-querying.md), [분할된 데이터베이스 병합 및 분할](sql-database-elastic-scale-overview-split-and-merge.md), [분할된 데이터베이스 탄력성](sql-database-elastic-scale-elasticity.md), [클라이언트 쪽 캐싱](sql-database-elastic-scale-shard-map-management.md))을 제공합니다.등)을 제공하지만, 다음과 같은 몇 가지 중요한 페더레이션 기능이 탄력적인 확장에서 지원되지 않습니다.
   
 
 - **FILTERING=ON** 사용. 탄력적인 확장은 현재 행 수준 필터링을 지원하지 않습니다. 이 문제를 해결하는 한 가지 방법은 다음과 같이 분할된 데이터베이스에 대해 실행된 쿼리에 필터링 논리를 작성하는 것입니다. 

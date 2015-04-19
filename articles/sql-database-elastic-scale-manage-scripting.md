@@ -73,7 +73,7 @@ PowerShell 예제 스크립트를 실행하면 구독 소유자에게 실제 비
 ## Runbook을 로드하려면 
 
 1. **ShardElasticity.zip** 파일을 다운로드하여 해당 내용을 추출합니다.
-2. [NuGet을 사용하여 탄력적인 확장 이진 파일에 대한 참조를 추가합니다.](./sql-database-elastic-scale-add-references-visual-studio.md)
+2. [NuGet을 사용하여 탄력적인 확장 이진 파일에 대한 참조를 추가합니다.](sql-database-elastic-scale-add-references-visual-studio.md)
 3. 탄력적인 확장 클라이언트 이진 파일(**Microsoft.Azure.SqlDatabase.ElasticScale.Client.dll**)을 찾습니다.
 4. ShardElasticityModule 폴더에 DLL을 저장하고 폴더를 압축합니다. 
 3. Azure 자동화 계정에서 ShardElasticityModule.zip 파일을 **자산**으로 업로드합니다. 

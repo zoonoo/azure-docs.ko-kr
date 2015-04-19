@@ -523,7 +523,7 @@
 	
 	npm install azure-cli -g
 
-> [AZURE.NOTE] 자세한 내용은 [Azure 플랫폼 간 명령줄 인터페이스 설치 및 구성](/ko-kr/documentation/articles/xplat-cli/)을 참조하세요.;
+> [AZURE.NOTE] 자세한 내용은 [Azure 플랫폼 간 명령줄 인터페이스 설치 및 구성](xplat-cli.md)을 참조하세요.;
 
 > [AZURE.NOTE] 명령줄 도구는 주로 Mac 및 Linux 사용자를 위해 만들어졌으나 Node.js를 기반으로 하며 Node를 실행할 수 있는 모든 시스템에서 작동해야 합니다.
 

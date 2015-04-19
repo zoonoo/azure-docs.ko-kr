@@ -104,7 +104,7 @@ JavaScript 백 엔드의 기존 테이블에 대해 일시 삭제를 사용하�
         }
     }
 
-.NET 백 엔드 모바일 서비스의 예약된 작업에 대한 자세한 내용은 다음 항목을 참조하세요. [JavaScript 백 엔드 모바일 서비스에서 반복 작업 예약](/documentation/articles/mobile-services-dotnet-backend-schedule-recurring-tasks/) 
+.NET 백 엔드 모바일 서비스의 예약된 작업에 대한 자세한 내용은 다음 항목을 참조하세요. [JavaScript 백 엔드 모바일 서비스에서 반복 작업 예약](mobile-services-dotnet-backend-schedule-recurring-tasks.md) 
 
 
 
@@ -145,7 +145,7 @@ HTTP 요청을 통해 삭제된 레코드를 검색하려면 "__includedeleted=t
         }});
     }
 
-JavaScript 백 엔드 모바일 서비스의 예약된 작업에 대한 자세한 내용은 [JavaScript 백 엔드 모바일 서비스에서 반복 작업 예약](/documentation/articles/mobile-services-schedule-recurring-tasks/)
+JavaScript 백 엔드 모바일 서비스의 예약된 작업에 대한 자세한 내용은 [JavaScript 백 엔드 모바일 서비스에서 반복 작업 예약](mobile-services-schedule-recurring-tasks.md)
 
 
 

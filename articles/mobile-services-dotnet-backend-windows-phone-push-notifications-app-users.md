@@ -28,7 +28,7 @@
 + [등록 전에 로그인하도록 앱 업데이트]
 + [앱 테스트]
  
-이 자습서에서는 Windows Phone 8.0 및 Windows Phone 8.1("Silverlight") 앱이 지원됩니다. Windows Phone 8.1 스토어 앱의 경우 [이 항목의 Windows 스토어 버전]을 참조하세요(/ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users).
+이 자습서에서는 Windows Phone 8.0 및 Windows Phone 8.1("Silverlight") 앱이 지원됩니다. Windows Phone 8.1 스토어 앱의 경우 [이 항목의 Windows 스토어 버전]을 참조하세요(mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users.md).
 
 ##필수 조건 
 

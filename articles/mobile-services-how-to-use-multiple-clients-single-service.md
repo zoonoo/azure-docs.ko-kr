@@ -46,7 +46,7 @@
 
 .NET 백 엔드 모바일 서비스에서는 [ApiServices.Push](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.apiservices.push.aspx) 속성에서 가져온 [PushClient](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.notifications.pushclient.aspx) 개체에 [SendAsync] 메서드를 호출함으로써 알림을 보냅니다. 보낸 푸시 알림(기본 또는 템플릿)은 다음 표에서와 같이 [SendAsync] 메서드에 전달된 특정 [IPushMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.notifications.ipushmessage.aspx) 파생 개체에 따라 다릅니다. 
 
-|플랫폼 |[APNS](/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push)|[GCM](/documentation/articles/mobile-services-dotnet-backend-android-get-started-push) |[WNS](/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push) |[MPNS](/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push)|
+|플랫폼 |[APNS](mobile-services-dotnet-backend-ios-get-started-push.md)|[GCM](mobile-services-dotnet-backend-android-get-started-push.md) |[WNS](mobile-services-dotnet-backend-windows-store-dotnet-get-started-push.md) |[MPNS](mobile-services-dotnet-backend-windows-phone-get-started-push.md)|
 |-----|-----|----|----|-----|
 |기본|[ApplePushMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.applepushmessage.aspx)   |[GooglePushMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.googlepushmessage.aspx)     |[WindowsPushMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.windowspushmessage.aspx) | [MpnsPushMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.mpnspushmessage.aspx) |
 
@@ -81,7 +81,7 @@
 
 JavaScript 백 엔드 모바일 서비스에서는 다음 표에서 와 같이 전역 [push 개체]에서 가져온 플랫폼별 개체에 **send** 메서드를 호출하여 알림을 보냅니다. 
 
-|플랫폼 |[APNS](/documentation/articles/mobile-services-javascript-backend-ios-get-started-push)|[GCM](/documentation/articles/mobile-services-javascript-backend-android-get-started-push) |[WNS](/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push) |[MPNS](/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push)|
+|플랫폼 |[APNS](mobile-services-javascript-backend-ios-get-started-push.md)|[GCM](mobile-services-javascript-backend-android-get-started-push.md) |[WNS](mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md) |[MPNS](mobile-services-javascript-backend-windows-phone-get-started-push.md)|
 |-----|-----|----|----|-----|
 |기본|[apns 개체](http://msdn.microsoft.com/library/azure/jj839711.aspx)   |[gcm 개체](http://msdn.microsoft.com/library/azure/dn126137.aspx)     |[wns 개체](http://msdn.microsoft.com/library/azure/jj860484.aspx) | [mpns 개체](http://msdn.microsoft.com/library/azure/jj871025.aspx) |
 
@@ -162,7 +162,7 @@ JavaScript 백 엔드 모바일 서비스에서는 다음 표에서 와 같이 �
 
 Visual Studio 2013 업데이트 2는 범용 Windows 앱 프로젝트에 대한 지원을 추가합니다. 범용 앱은 Windows Store 8.1 및 Windows Phone Store 8.1 앱 프로젝트를 공유 코드 프로젝트와 함께 포함하고 있는 솔루션입니다. 이러한 종류의 프로젝트에서 공유 코드는 Windows Store 및 Windows Phone 프로젝트 모두에 속한 것처럼 취급됩니다. 자세한 내용은 [모든 Windows 장치용 범용 Windows 앱 빌드]를 참조하세요. 범용 Windows 앱은 C#/XAML 및 JavaScript/HTML로 작성할 수 있습니다. 
 
-기본적으로, [Azure 관리 포털]에 있는 모바일 서비스 퀵 스타트 탭은 처음 시작할 때 사용할 수 있는 TodoList 샘플 앱의 범용 Windows 앱 버전을 생성합니다. C#/XAML 또는 JavaScript/HTML 버전의 프로젝트를 다운로드할 수 있습니다. 자세한 내용은 [모바일 서비스 시작](/documentation/articles/mobile-services-windows-store-get-started/)을 참조하세요. 
+기본적으로, [Azure 관리 포털]에 있는 모바일 서비스 퀵 스타트 탭은 처음 시작할 때 사용할 수 있는 TodoList 샘플 앱의 범용 Windows 앱 버전을 생성합니다. C#/XAML 또는 JavaScript/HTML 버전의 프로젝트를 다운로드할 수 있습니다. 자세한 내용은 [모바일 서비스 시작](mobile-services-windows-store-get-started.md)을 참조하세요. 
 
 >[AZURE.NOTE]포털에서 제공하는 빠른 시작 앱 프로젝트의 C# 버전은 MainPage.xaml.cs 코드 숨김 페이지를 공유하지만 뷰 모델을 사용하지 않습니다. C#에서 MVVM을 사용하는 범용 Windows 앱 프로젝트로서의 TodoList 앱에 대한 예를 보려면 [MVVM을 사용하는 Azure 모바일 서비스의 범용 Windows 앱 프로젝트](영문)를 참조하세요. 
 
@@ -170,7 +170,7 @@ Visual Studio 2013 업데이트 2는 범용 Windows 앱 프로젝트에 대한 �
 
 Xamarin 및 Visual Studio 또는 Xamarin Studio를 사용하여 iOS 및 Android용 앱을 개발함으로써 Visual Studio 및 C# 개발 환경을 활용할 수 있습니다. Xamarin은 C# 코드를 사용하여 iOS 및 Android 앱을 개발할 수 있게 해 주는 .NET Framework의 플랫폼 간 구현을 사용합니다. Xamarin을 사용하면 Windows 프로젝트에서 모바일 서비스 .NET 클라이언트 라이브러리를 사용하는 기존 코드를 활용하여 모바일 서비스에 액세스할 수 있습니다.  자세한 내용은 [Visual Studio에서 플랫폼 간 개발](http://msdn.microsoft.com/library/dn771552.aspx)을 참조하세요.
 
-모바일 서비스를 사용하는 Xamarin 앱을 만들기 시작하려면 Xamarin 빠른 시작 자습서([iOS](/documentation/articles/partner-xamarin-mobile-services-ios-get-started)/[Android](/documentation/articles/partner-xamarin-mobile-services-android-get-started))를 참조하세요.
+모바일 서비스를 사용하는 Xamarin 앱을 만들기 시작하려면 Xamarin 빠른 시작 자습서([iOS](partner-xamarin-mobile-services-ios-get-started.md)/[Android](partner-xamarin-mobile-services-android-get-started.md))를 참조하세요.
 
 
 ### Windows 스토어 및 Windows Phone Silverlight 앱

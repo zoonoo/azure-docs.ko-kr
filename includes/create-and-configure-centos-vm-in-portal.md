@@ -74,6 +74,6 @@ Windows 컴퓨터를 사용하는 경우 PuTTY를 사용하여 VM에 연결합�
 
   [Azure 가상 네트워크 개요]: http://go.microsoft.com/fwlink/p/?LinkID=294063
   [새 가상 컴퓨터 만들기]: ./media/create-and-configure-centos-vm-in-portal/CreateVM.png
-  [강력한 암호]: http://msdn.microsoft.com/ko-kr/library/ms161962.aspx
+  [강력한 암호]: http://msdn.microsoft.com/library/ms161962.aspx
   [PuTTY 다운로드 페이지]: http://www.puttyssh.org/download.html
   [PuTTY 화면]: ./media/create-and-configure-centos-vm-in-portal/putty.png

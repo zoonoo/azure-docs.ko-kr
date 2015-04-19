@@ -125,11 +125,11 @@ Pig 명령을 사용하여 파일에 포함된 Pig Latin을 실행할 수도 있
 
 HDInsight에서 Pig에 대한 일반 정보.
 
-* [HDInsight에서 Hadoop과 Pig 사용](../hdinsight-use-pig/)
+* [HDInsight에서 Hadoop과 Pig 사용](hdinsight-use-pig.md)
 
 HDInsight에서 Hadoop으로 작업하는 다른 방법에 관한 내용입니다.
 
-* [HDInsight에서 Hadoop과 Hive 사용](../hdinsight-use-hive/)
+* [HDInsight에서 Hadoop과 Hive 사용](hdinsight-use-hive.md)
 
-* [HDInsight에서 Hadoop과 MapReduce 사용](../hdinsight-use-mapreduce/)
+* [HDInsight에서 Hadoop과 MapReduce 사용](hdinsight-use-mapreduce.md)
 <!--HONumber=47-->

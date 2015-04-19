@@ -339,8 +339,8 @@ HTTP 기반 웹 서비스를 사용하면 모바일 클라이언트를 포함하
 
 3개 웹 호스팅 옵션에 대한 자세한 내용은 다음 리소스를 참조하세요.
 
-* [Azure 소개](../fundamentals-introduction-to-azure/)
-* [Azure에서 제공하는 계산 호스팅 옵션](../fundamentals-application-models/)
+* [Azure 소개](fundamentals-introduction-to-azure.md)
+* [Azure에서 제공하는 계산 호스팅 옵션](fundamentals-application-models.md)
 
 응용 프로그램에 대해 선택한 옵션 사용을 시작하려면 다음 리소스를 참조하세요.
 

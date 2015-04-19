@@ -41,7 +41,7 @@ Azure 가상 컴퓨터를 사용하여 개발자 및 IT 작업 인원 등이 클
 
 
 
-HD와 더불어 새 VM의 크기를 지정합니다.  각 크기의 전체 통계는 [Azure 라이브러리](http://msdn.microsoft.com/ko-kr/library/windowsazure/dn197896.aspx)에 나열되어 있습니다.  
+HD와 더불어 새 VM의 크기를 지정합니다.  각 크기의 전체 통계는 [Azure 라이브러리](http://msdn.microsoft.com/library/windowsazure/dn197896.aspx)에 나열되어 있습니다.  
 
 -	**아주 작음** - 공유 코어 및 768MB 메모리
 -	**작읍** - 코어 1개와 1.75GB 메모리

@@ -132,7 +132,7 @@ Azure로 시작하려면, [Microsoft Azure 무료 평가판](/pricing/free-trial
 
 [저장소 계정 정의](storage-whatis-account.md)
 
-[방법: 저장소 계정 만들기](../storage-create-storage-account/)
+[방법: 저장소 계정 만들기](storage-create-storage-account.md)
 
 [저장소 계정을 모니터링하는 방법](storage-monitor-storage-account.md)
 

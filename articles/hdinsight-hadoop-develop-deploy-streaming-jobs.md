@@ -525,7 +525,7 @@ Hadoop 스트리밍 작업 제출에 대한 HDInsight .NET SDK 샘플을 보려�
 ##<a id="nextsteps"></a>다음 단계
 이 자습서에서는 Hadoop 스트리밍 MapReduce 작업을 개발하는 방법, HDInsight Emulator에서 응용 프로그램을 테스트하는 방법 및 HDInsight 클러스터를 프로비전하고 클러스터에서 MapReduce를 실행하도록 PowerShell 스크립트를 작성하는 방법에 대해 알아보았습니다. 자세한 내용은 다음 문서를 참조하세요.
 
-- [Azure HDInsight 시작](../hdinsight-get-started/)
+- [Azure HDInsight 시작](hdinsight-get-started.md)
 - [HDInsight Emulator 시작][hdinsight-get-started-emulator]
 - [HDInsight용 Java MapReduce 프로그램 개발][hdinsight-develop-mapreduce]
 - [HDInsight에서 Azure Blob 저장소 사용][hdinsight-storage]

@@ -31,7 +31,7 @@
 
 이 자습서는 모바일 서비스 퀵 스타트를 기반으로 합니다. 이 자습서를 시작하기 전에 먼저 [모바일 서비스 시작] 또는 [데이터 시작]을 완료하여 프로젝트를 모바일 서비스에 연결해야 합니다. 모바일 서비스가 연결되지 않은 경우 푸시 알림 추가 마법사에서 대신 연결해줍니다. 
 
->[AZURE.NOTE]Windows Phone 8.1 스토어 앱으로 푸시 알림을 보내려면 이 자습서의 [Windows 스토어 앱](/ko-kr/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push) 버전을 따릅니다.
+>[AZURE.NOTE]Windows Phone 8.1 스토어 앱으로 푸시 알림을 보내려면 이 자습서의 [Windows 스토어 앱](mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md) 버전을 따릅니다.
 
 ##<a id="update-app"></a> 알림 등록을 위해 앱 업데이트
 

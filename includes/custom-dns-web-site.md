@@ -301,8 +301,8 @@ A 레코드를 만들려면 먼저 웹 사이트의 IP 주소를 찾아야 합�
 [digweb]: http://www.digwebinterface.com/
 [cloudservicedns]: ../custom-dns/
 [trafficmanager]: /ko-kr/documentation/articles/web-sites-traffic-manager/
-[addendpoint]: http://msdn.microsoft.com/ko-kr/library/windowsazure/hh744839.aspx
-[createprofile]: http://msdn.microsoft.com/ko-kr/library/windowsazure/dn339012.aspx
+[addendpoint]: http://msdn.microsoft.com/library/windowsazure/hh744839.aspx
+[createprofile]: http://msdn.microsoft.com/library/windowsazure/dn339012.aspx
 
 <!-- images -->
 

@@ -20,7 +20,7 @@
  
 동적 수요는 오늘날의 응용 프로그램에서 현실입니다.  주기적이며 가변적인 수요부터 예기치 않은 소셜 미디어 경향에 이르기까지, 현대 응용 프로그램은 불확실하면서도 예측할 수 있는 로드 증가를 적절하게 처리해야 합니다. Azure 서비스 버스의 PaaS(Platform as a Service) 특성을 통해 쉽게 확장하고 구성 요소의 로드 증가 또는 순간적인 작동 중단으로부터 복구할 수 있는 응용 프로그램을 만들 수 있습니다.  
  
-[서비스 버스 큐를 사용하여 .NET 다중 계층 응용 프로그램 빌드](/documentation/articles/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/)
+[서비스 버스 큐를 사용하여 .NET 다중 계층 응용 프로그램 빌드](cloud-services-dotnet-multi-tier-app-using-service-bus-queues.md)
  
 ## 탐색
 - [Mcrosoft Azure 서비스 버스 기본 사항](http://azure.microsoft.com/documentation/articles/fundamentals-service-bus-hybrid-solutions/)

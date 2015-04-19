@@ -72,14 +72,14 @@ Twilio 계정을 사용할 준비가 되었다면 [Twilio 체험 ][try_twilio]�
 Twilio 계정을 등록하면 계정 ID 및 인증 토큰을 받게 됩니다. 둘 다 Twilio API 통화를 하는 데 필요합니다. 계정에 대한 무단 액세스를 방지하려면 인증 토큰을 안전하게 유지하세요. 계정 ID 및 인증 토큰은 [Twilio 계정 페이지][twilio_account]의 **ACCOUNT SID** 및 **AUTH TOKEN** 필드에서 각각 확인할 수 있습니다.
 
 <h2><a id="create_app"></a>모바일 서비스 만들기</h2>
-Twilio 사용 응용 프로그램을 호스트하는 모바일 서비스도 다른 모바일 서비스와 동일합니다. 모바일 서비스 사용자 지정 API 스크립트에서 참조하기 위해 Twilio node.js 라이브러리를 추가하면 됩니다. 최초 모바일 서비스 만들기에 대한 내용은 [모바일 서비스 시작](/ko-kr/documentation/articles/mobile-services-ios-get-started/)을 참조하세요.
+Twilio 사용 응용 프로그램을 호스트하는 모바일 서비스도 다른 모바일 서비스와 동일합니다. 모바일 서비스 사용자 지정 API 스크립트에서 참조하기 위해 Twilio node.js 라이브러리를 추가하면 됩니다. 최초 모바일 서비스 만들기에 대한 내용은 [모바일 서비스 시작](mobile-services-ios-get-started.md)을 참조하세요.
 
 <h2><a id="ConfigureMobileService"></a>Twilio Node.js 라이브러리를 사용하도록 모바일 서비스 구성</h2>
 Twilio는 Node.js 라이브러리를 제공하며, 이 라이브러리는 Twilio의 여러 가지 요소를 래핑함으로써 Twilio REST API 및 Twilio 클라이언트를 간단하고 쉽게 조작해서 TwiML 응답을 생성하는 방법을 제공합니다.
 
 모바일 서비스에서 Twilio node.js 라이브러리를 사용하려면 모바일 서비스 npm 모듈 지원을 사용해야 합니다. 이는 소스 제어에서 스크립트를 저장함으로써 사용할 수 있습니다. 
 
-1. [소스 제어에 스크립트 저장l](/ko-kr/documentation/articles/mobile-services-store-scripts-source-control/) 자습서를 완료하세요. 이 자습서에서는 모바일 서비스에 대한 소스 제어를 설정하고 서버 스크립트를 Git 리포지토리에 저장하는 방법을 안내합니다.
+1. [소스 제어에 스크립트 저장l](mobile-services-store-scripts-source-control.md) 자습서를 완료하세요. 이 자습서에서는 모바일 서비스에 대한 소스 제어를 설정하고 서버 스크립트를 Git 리포지토리에 저장하는 방법을 안내합니다.
 
 2. 모바일 서비스에 대해 소스 제어를 설정했으면 로컬 컴퓨터에서 리포지토리를 열고  `\services` 하위 폴더로 이동하고 텍스트 편집기에서 package.json 파일을 연 후 **dependencies** 개체에 다음 필드를 추가합니다.
 

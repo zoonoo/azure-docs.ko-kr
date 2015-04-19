@@ -38,7 +38,7 @@
 
 Azure 관리 포털에서 Linux 가상 컴퓨터를 만들 경우 사용자 이름, 암호 및 SSH 공개 키(선택적으로)를 지정해야 합니다. Azure에 Linux 가상 컴퓨터를 배포할 때 선택하는 사용자 이름에는 다음과 같은 제약이 있습니다. 가상 컴퓨터에 이미 존재하던 시스템 계정의 이름(UID <100)(예:  'root')은 허용되지 않습니다.
 
- - [Azure에서 Linux와 함께 SSH를 사용하는 방법](../linux-use-ssh-key/) 참조
+ - [Azure에서 Linux와 함께 SSH를 사용하는 방법](linux-use-ssh-key.md) 참조
 
 
 ### <a id="keygeneration"></a>SSH 키 생성
@@ -92,14 +92,14 @@ Azure에서 가상 컴퓨터 인스턴스를 배포하는 동안 지정한 사�
 
 선택적으로 **sudo -s**를 사용하여 루트 셸을 얻을 수 있습니다.
 
-- [Azure의 Linux 가상 컴퓨터에서 루트 권한 사용](../virtual-machines-linux-use-root-privileges/) 참조
+- [Azure의 Linux 가상 컴퓨터에서 루트 권한 사용](virtual-machines-linux-use-root-privileges.md) 참조
 
 
 ## <a id="firewallconfiguration"></a>방화벽 구성
 
 Azure는 관리 포털에서 지정한 포트에 대한 연결을 제한하는 인바운드 패킷 필터를 제공합니다. 기본적으로 허용되는 유일한 포트는 SSH입니다. 관리 포털에서 끝점을 구성하여 Linux 가상 컴퓨터의 추가 포트에 액세스할 수 있습니다.
 
- - 다음을 참조하세요. [가상 컴퓨터에 끝점을 설정하는 방법](../virtual-machines-set-up-endpoints/)
+ - 다음을 참조하세요. [가상 컴퓨터에 끝점을 설정하는 방법](virtual-machines-set-up-endpoints.md)
 
 Azure 갤러리의 Linux 이미지는 기본적으로  *iptables* 방화벽을 사용하도록 설정하지 않습니다. 원하는 경우 추가 필터링을 제공하도록 이 방화벽을 구성할 수 있습니다.
 
@@ -114,7 +114,7 @@ Linux 이미지의 인스턴스를 처음 배포할 때 가상 컴퓨터의 호�
 
 Azure Linux 에이전트에는 이 이름 변경을 자동으로 검색하여 이 변경 내용을 기억하도록 가상 컴퓨터를 적절히 구성하고 플랫폼 DNS 서버에 이 변경 내용을 게시하는 기능이 포함되어 있습니다.
 
- - [Azure Linux 에이전트 사용자 가이드](../virtual-machines-linux-agent-user-guide/)
+ - [Azure Linux 에이전트 사용자 가이드](virtual-machines-linux-agent-user-guide.md)
 
 ### Ubuntu 이미지
 Ubuntu 이미지는 cloud-init를 활용하여 가상 컴퓨터를 부트스트랩하기 위한 추가 기능을 제공합니다.
@@ -132,7 +132,7 @@ Azure는 기존 가상 컴퓨터의 상태를 이미지로 캡처하는 기능�
 
 3. 관리 포털에서  *Capture*를 클릭하거나 Powershell 또는 CLI 도구를 사용하여 가상 컴퓨터를 이미지로 캡처합니다.
 
- - 다음을 참조하세요. [Linux 가상 컴퓨터를 캡처하여 템플릿으로 사용하는 방법](../virtual-machines-linux-capture-image/)
+ - 다음을 참조하세요. [Linux 가상 컴퓨터를 캡처하여 템플릿으로 사용하는 방법](virtual-machines-linux-capture-image.md)
 
 
 ## <a id="attachingdisks"></a>디스크 연결
@@ -143,9 +143,9 @@ Linux에서 리소스 디스크는 일반적으로 Azure Linux 에이전트에 �
 
 >[AZURE.NOTE] 리소스 디스크는 **임시** 디스크이며 VM의 프로비전을 해제할 때 비워질 수 있습니다.
 
-Linux에서 데이터 디스크 이름은 커널에 의해  `/dev/sdc`로 지정될 수 있으며 사용자는 해당 리소스를 파티셔닝, 형식 지정 및 마운트해야 합니다. 이 내용은 자습서의 다음 부분에서 단계별로 설명됩니다. [가상 컴퓨터에 데이터 디스크를 연결하는 방법](../virtual-machines-linux-how-to-attach-disk/).
+Linux에서 데이터 디스크 이름은 커널에 의해  `/dev/sdc`로 지정될 수 있으며 사용자는 해당 리소스를 파티셔닝, 형식 지정 및 마운트해야 합니다. 이 내용은 자습서의 다음 부분에서 단계별로 설명됩니다. [가상 컴퓨터에 데이터 디스크를 연결하는 방법](virtual-machines-linux-how-to-attach-disk.md).
 
- - 참고 항목: [Linux에서 소프트웨어 RAID 구성](../virtual-machines-linux-configure-raid/)
+ - 참고 항목: [Linux에서 소프트웨어 RAID 구성](virtual-machines-linux-configure-raid.md)
 
 
 

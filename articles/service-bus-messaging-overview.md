@@ -31,10 +31,10 @@ Microsoft Azure 서비스 버스 메시징은 안정적인 정보 배달 서비�
 
 서비스 버스 메시징에 대한 자세한 내용은 다음 항목을 참조하세요.
 
-- [Azure 서비스 버스 아키텍처 개요](../fundamentals-service-bus-hybrid-solutions/)
+- [Azure 서비스 버스 아키텍처 개요](fundamentals-service-bus-hybrid-solutions.md)
 
-- [서비스 버스 큐를 사용하는 방법](../service-bus-dotnet-how-to-use-queues)
+- [서비스 버스 큐를 사용하는 방법](service-bus-dotnet-how-to-use-queues.md)
 
-- [서비스 버스 토픽을 사용하는 방법](../service-bus-dotnet-how-to-use-topics-subscriptions)
+- [서비스 버스 토픽을 사용하는 방법](service-bus-dotnet-how-to-use-topics-subscriptions.md)
 
 <!--HONumber=47-->

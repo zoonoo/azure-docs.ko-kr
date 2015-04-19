@@ -454,16 +454,16 @@ Trident 응용 프로그램은 위와 동일한 기본 단계를 거치는 Maven
 
 Trident에 대한 자세한 내용은 <a href="http://storm.apache.org/documentation/Trident-API-Overview.html" target="_blank">Trident API 개요</a>를 참조하세요.
 
-Trident 응용 프로그램의 예제는 [HDInsight에서 Apache Storm을 사용하는 Twitter 추세 항목]을 참조하세요.(../hdinsight-storm-twitter-trending/)
+Trident 응용 프로그램의 예제는 [HDInsight에서 Apache Storm을 사용하는 Twitter 추세 항목]을 참조하세요.(hdinsight-storm-twitter-trending.md)
 
 ##다음 단계
 
 Java를 사용하여 Storm 토폴로지를 만드는 방법을 배웠으므로 이제 다음으로 이동합니다.
 
-* [HDInsight에서 Apache Storm 토폴로지 배포 및 관리](../hdinsight-storm-deploy-monitor-topology/)
+* [HDInsight에서 Apache Storm 토폴로지 배포 및 관리](hdinsight-storm-deploy-monitor-topology.md)
 
-* [Visual Studio를 사용하여 HDInsight에서 Apache Storm에 대한 C# 토폴로지 개발](../hdinsight-storm-develop-csharp-visual-studio-topology/)
+* [Visual Studio를 사용하여 HDInsight에서 Apache Storm에 대한 C# 토폴로지 개발](hdinsight-storm-develop-csharp-visual-studio-topology.md)
 
-* [HDInsight에서 Apache Storm을 사용하는 Twitter 추세 항목 분석](../hdinsight-storm-twitter-trending)
+* [HDInsight에서 Apache Storm을 사용하는 Twitter 추세 항목 분석](hdinsight-storm-twitter-trending.md)
 
 <!--HONumber=47-->

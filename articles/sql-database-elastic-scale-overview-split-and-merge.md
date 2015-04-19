@@ -20,9 +20,9 @@ authors="torsteng"/>
 
 해당 데이터나 프로세스 요구가 더 이상 Azure SQL 데이터베이스의 단일 배율 단위에 맞지 않을 경우 Azure SQL 데이터베이스를 기반으로 하는 응용 프로그램은 도전 과제에 직면합니다. 해당하는 예로는 메일이나 소셜 네트워크를 통해 확산되는 응용 프로그램이나 특정 테넌트 집합이 단일 Azure SQL DB 데이터베이스의 제한을 초과하는 응용 프로그램이 있습니다. 탄력적인 확장 **분할/병합 서비스**를 사용하면 이러한 문제를 크게 줄일 수 있습니다. 
 
-이 문서에서 설명하는 분할/병합 서비스는 Azure DB 데이터베이스의 수를 변경하고 해당 데이터베이스 간에 **shardlet**을 균형 있게 분산시켜 규모 확장 및 감축을 관리합니다. 용어 정의는 [탄력적인 확장 용어집]을(./sql-database-elastic-scale-glossary.md)참조하세요. 
+이 문서에서 설명하는 분할/병합 서비스는 Azure DB 데이터베이스의 수를 변경하고 해당 데이터베이스 간에 **shardlet**을 균형 있게 분산시켜 규모 확장 및 감축을 관리합니다. 용어 정의는 [탄력적인 확장 용어집]을(sql-database-elastic-scale-glossary.md)참조하세요. 
 
-Azure SQL DB 버전 간의 최신 선택 항목을 사용하면 단일 Azure SQL DB 데이터베이스의 용량을 확장하거나 감축하여 용량을 관리할 수도 있습니다. 탄력적인 용량 관리의 확대/축소 차원은 분할/병합에서 다루지 않습니다. [탄력적인 확장의 분할된 데이터베이스 확장성](./sql-database-elastic-scale-elasticity.md)이 아닌 분할된 데이터베이스 탄력성을참조하세요. 
+Azure SQL DB 버전 간의 최신 선택 항목을 사용하면 단일 Azure SQL DB 데이터베이스의 용량을 확장하거나 감축하여 용량을 관리할 수도 있습니다. 탄력적인 용량 관리의 확대/축소 차원은 분할/병합에서 다루지 않습니다. [탄력적인 확장의 분할된 데이터베이스 확장성](sql-database-elastic-scale-elasticity.md)이 아닌 분할된 데이터베이스 탄력성을참조하세요. 
  
 ## 분할/병합의 새로운 기능
 
@@ -65,7 +65,7 @@ Azure SQL DB 버전 간의 최신 선택 항목을 사용하면 단일 Azure SQL
 
 ## 개념 및 주요 기능
 
-**고객 호스트 서비스**: 분할/병합은 고객 호스트 서비스로 제공됩니다. Microsoft Azure 구독에서 서비스를 배포하고 호스트해야 합니다. NuGet에서 다운로드하는 패키지에는 특정 배포에 대한 정보를 완료하기 위한 구성 템플릿이 있습니다. 자세한 내용은 [분할/병합 자습서](./sql-database-elastic-scale-configure-deploy-split-and-merge.md)를 참조하세요. 서비스가 Azure 구독에서 실행되므로 서비스의 대부분 보안 측면을 제어하고 구성할 수 있습니다. 기본 템플릿에는 SSL, 인증서 기반 클라이언트 인증, 저장된 자격 증명에 대한 암호화, DoS 보호 및 IP 제한 사항을 구성할 수 있는 옵션이 있습니다. [탄력적인 확장의 보안 고려 사항](./sql-database-elastic-scale-configure-security.md) 문서에서 보안 측면에 대한 자세한 내용을 찾아볼 수있습니다.
+**고객 호스트 서비스**: 분할/병합은 고객 호스트 서비스로 제공됩니다. Microsoft Azure 구독에서 서비스를 배포하고 호스트해야 합니다. NuGet에서 다운로드하는 패키지에는 특정 배포에 대한 정보를 완료하기 위한 구성 템플릿이 있습니다. 자세한 내용은 [분할/병합 자습서](sql-database-elastic-scale-configure-deploy-split-and-merge.md)를 참조하세요. 서비스가 Azure 구독에서 실행되므로 서비스의 대부분 보안 측면을 제어하고 구성할 수 있습니다. 기본 템플릿에는 SSL, 인증서 기반 클라이언트 인증, 저장된 자격 증명에 대한 암호화, DoS 보호 및 IP 제한 사항을 구성할 수 있는 옵션이 있습니다. [탄력적인 확장의 보안 고려 사항](sql-database-elastic-scale-configure-security.md) 문서에서 보안 측면에 대한 자세한 내용을 찾아볼 수있습니다.
 
 배포된 기본 서비스는 하나의 작업자 및 하나의 웹 역할로 실행됩니다. 각 서비스는 Azure 클라우드 서비스에서 A1 VM 크기를 사용합니다. 패키지를 배포할 때 이러한 설정을 수정할 수 없지만 Azure 포털을 통해 실행 중인 클라우드 서비스에 배포한 후에는 변경할 수 있습니다. 기술적인 이유로 두 개 이상의 인스턴스에 대해 작업자 역할을 구성하지 않아야 합니다. 
 
@@ -109,7 +109,7 @@ Azure SQL DB 버전 간의 최신 선택 항목을 사용하면 단일 Azure SQL
 
 ## 서비스 바이너리 가져오기
 
-분할/병합용 서비스 바이너리는 [Nuget](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge/)을 통해 제공됩니다. 이진 다운로드에 대한 자세한 내용은 단계별 [분할/병합 자습서](./sql-database-elastic-scale-configure-deploy-split-and-merge.md)를 참조하세요.
+분할/병합용 서비스 바이너리는 [Nuget](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge/)을 통해 제공됩니다. 이진 다운로드에 대한 자세한 내용은 단계별 [분할/병합 자습서](sql-database-elastic-scale-configure-deploy-split-and-merge.md)를 참조하세요.
 
 ## 분할/병합 사용자 인터페이스
 
@@ -203,9 +203,9 @@ Azure SQL DB 버전 간의 최신 선택 항목을 사용하면 단일 Azure SQL
 
 ## 참조 
 
-* [분할/병합 자습서](./sql-database-elastic-scale-configure-deploy-split-and-merge.md)
+* [분할/병합 자습서](sql-database-elastic-scale-configure-deploy-split-and-merge.md)
 
-* [탄력적인 확장 보안 고려 사항](./sql-database-elastic-scale-configure-security.md)  
+* [탄력적인 확장 보안 고려 사항](sql-database-elastic-scale-configure-security.md)  
 
 
 <!--Anchors-->

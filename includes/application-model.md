@@ -269,7 +269,7 @@ XML 파일이며, 호스티드 서비스에 대한 배포 옵션을
 앞에서 언급했듯이, 서비스 정의(CSDEF) 파일은
 전체 응용 프로그램을 구성하는 다양한 역할을 설명하는
 XML 파일입니다. XML 파일의 전체 스키마는
-[http://msdn.microsoft.com/ko-kr/library/windowsazure/ee758711.aspx][]에서 확인할 수 있습니다.
+[http://msdn.microsoft.com/library/windowsazure/ee758711.aspx][]에서 확인할 수 있습니다.
 CSDEF 파일에는 응용 프로그램에서 사용하려는 각 역할에 대한
 WebRole 또는 WorkerRole 요소가 포함되어 있습니다. WebRole 요소를 사용하여 역할을
 웹 역할로 배포하면 Windows Server 2008 및 IIS(Internet Information Server)가
@@ -486,7 +486,7 @@ SSL을 지원하는 경우 인증서를 사용합니다. Azure에 인증서를 �
 서비스 구성(CSCFG) 파일은 응용 프로그램을 다시 배포하지 않고도
 변경할 수 있는 설정을 설명하는 XML 파일입니다. 
 XML 파일의 전체 스키마는
-[http://msdn.microsoft.com/ko-kr/library/windowsazure/ee758710.aspx][]에서 확인할 수 있습니다.
+[http://msdn.microsoft.com/library/windowsazure/ee758710.aspx][]에서 확인할 수 있습니다.
 CSCFG 파일에는 응용 프로그램의 각 역할에 대한 Role 요소가
 포함되어 있습니다. 다음은 CSCFG 파일에 지정할 수 있는 항목 중
 일부입니다.
@@ -503,7 +503,7 @@ CSCFG 파일에는 응용 프로그램의 각 역할에 대한 Role 요소가
     osVersion 특성을
     "WA-GUEST-OS-2.8\_201109-01" 값으로 설정하면
     모든 역할 인스턴스가
-    [http://msdn.microsoft.com/ko-kr/library/hh560567.aspx][] 웹 페이지에 설명된 항목을 얻게 됩니다. 게스트
+    [http://msdn.microsoft.com/library/hh560567.aspx][] 웹 페이지에 설명된 항목을 얻게 됩니다. 게스트
 OS 버전에 대한 자세한 내용은 [Azure 게스트 OS에 대한
 업그레이드 관리]를 참조하세요.
 
@@ -585,14 +585,14 @@ Azure 서비스 관리 API를 사용하여 CSPKG 및 CSCFG 파일을
   [4]: ./media/application-model/application-model-7.jpg
   
   [Azure 가격 책정]: http://www.windowsazure.com/ko-kr/pricing/calculator/
-  [Azure에서 인증서 관리]: http://msdn.microsoft.com/ko-kr/library/windowsazure/gg981929.aspx
-  [http://msdn.microsoft.com/ko-kr/library/windowsazure/ee758710.aspx]: http://msdn.microsoft.com/ko-kr/library/windowsazure/ee758710.aspx
-  [http://msdn.microsoft.com/ko-kr/library/hh560567.aspx]: http://msdn.microsoft.com/ko-kr/library/hh560567.aspx
-  [Azure 게스트 OS에 대한 업그레이드 관리]: http://msdn.microsoft.com/ko-kr/library/ee924680.aspx
+  [Azure에서 인증서 관리]: http://msdn.microsoft.com/library/windowsazure/gg981929.aspx
+  [http://msdn.microsoft.com/library/windowsazure/ee758710.aspx]: http://msdn.microsoft.com/library/windowsazure/ee758710.aspx
+  [http://msdn.microsoft.com/library/hh560567.aspx]: http://msdn.microsoft.com/library/hh560567.aspx
+  [Azure 게스트 OS에 대한 업그레이드 관리]: http://msdn.microsoft.com/library/ee924680.aspx
   [Azure 관리 포털]: http://manage.windowsazure.com/
   [5]: ./media/application-model/application-model-8.jpg
   [Azure 응용 프로그램 배포 및 업데이트]: http://www.windowsazure.com/ko-kr/develop/net/fundamentals/deploying-applications/
-  [Azure에 대한 호스팅 서비스 만들기]: http://msdn.microsoft.com/ko-kr/library/gg432967.aspx
-  [Azure에서 호스팅 서비스 관리]: http://msdn.microsoft.com/ko-kr/library/gg433038.aspx
-  [응용 프로그램을 Azure로 마이그레이션]: http://msdn.microsoft.com/ko-kr/library/gg186051.aspx
-  [Azure 응용 프로그램 구성]: http://msdn.microsoft.com/ko-kr/library/windowsazure/ee405486.aspx
+  [Azure에 대한 호스팅 서비스 만들기]: http://msdn.microsoft.com/library/gg432967.aspx
+  [Azure에서 호스팅 서비스 관리]: http://msdn.microsoft.com/library/gg433038.aspx
+  [응용 프로그램을 Azure로 마이그레이션]: http://msdn.microsoft.com/library/gg186051.aspx
+  [Azure 응용 프로그램 구성]: http://msdn.microsoft.com/library/windowsazure/ee405486.aspx

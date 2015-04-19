@@ -29,7 +29,7 @@
 
 **갤러리에서** 옵션을 사용하여 가상 컴퓨터를 만들 경우 [Azure 관리 포털](http://manage.windowsazure.com)을 사용하여 VM 에이전트 및 Trend Micro 보안 확장을 설치할 수 있습니다. 이 방법을 사용하면 단일 가상 컴퓨터를 만들 때 Trend Micro의 보호 기능을 쉽게 추가할 수 있습니다.
 
-이 **갤러리에서** 옵션은 가상 컴퓨터 설치에 도움이 되는 마법사를 엽니다. 마법사 마지막 페이지에서 VM 에이전트 및 Trend Micro 보안 확장을 설치합니다. 일반적인 지침은 [Windows Server를 실행하는 가상 컴퓨터 만들기](../virtual-machines-windows-tutorial/)를 참조하세요. 마법사 마지막 페이지가 되면 다음을 수행합니다.
+이 **갤러리에서** 옵션은 가상 컴퓨터 설치에 도움이 되는 마법사를 엽니다. 마법사 마지막 페이지에서 VM 에이전트 및 Trend Micro 보안 확장을 설치합니다. 일반적인 지침은 [Windows Server를 실행하는 가상 컴퓨터 만들기](virtual-machines-windows-tutorial.md)를 참조하세요. 마법사 마지막 페이지가 되면 다음을 수행합니다.
 
 1.	VM 에이전트에서 **VM 에이전트 설치**를 선택합니다.
 
@@ -43,7 +43,7 @@
 
 이 작업을 수행하려면 다음이 필요합니다.
 
-- Azure PowerShell 모듈 버전 0.8.2 이상이 로컬 컴퓨터에 설치되어 있어야 합니다. 설치한 Azure PowerShell의 버전은 **Get-Module azure | format-table version** 명령을 사용하여 확인할 수 있습니다. 지침 및 최신 버전으로 연결되는 링크를 보려면 [Azure PowerShell을 설치 및 구성하는 방법](../install-configure-powershell/)을 참조하세요. 
+- Azure PowerShell 모듈 버전 0.8.2 이상이 로컬 컴퓨터에 설치되어 있어야 합니다. 설치한 Azure PowerShell의 버전은 **Get-Module azure | format-table version** 명령을 사용하여 확인할 수 있습니다. 지침 및 최신 버전으로 연결되는 링크를 보려면 [Azure PowerShell을 설치 및 구성하는 방법](install-configure-powershell.md)을 참조하세요. 
 
 - VM 에이전트가 대상 가상 컴퓨터에 설치되어 있어야 합니다. 
 

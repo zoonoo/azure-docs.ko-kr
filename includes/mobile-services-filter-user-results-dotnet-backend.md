@@ -12,7 +12,7 @@ TodoItem 테이블의 데이터에 액세스하는 데 인증이 필요하므로
 
 		public string UserId { get; set; }
 
-	>[AZURE.NOTE] 기본 데이터베이스 이니셜라이저를 사용할 경우 Entity Framework에서는 Code First 모델 정의에서 데이터 모델 변경이 감지될 때마다 데이터베이스를 삭제하고 다시 만듭니다. 이 데이터 모델을 변경하고 데이터베이스에서 기존 데이터를 유지하려면 Code First 마이그레이션을 사용해야 합니다. Azure에서는 SQL 데이터베이스에 대해 기본 이니셜라이저를 사용할 수 없습니다. 자세한 내용은 [Code First 마이그레이션을 사용하여 데이터 모델을 업데이트하는 방법](/ko-kr/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations)을 참조하세요.
+	>[AZURE.NOTE] 기본 데이터베이스 이니셜라이저를 사용할 경우 Entity Framework에서는 Code First 모델 정의에서 데이터 모델 변경이 감지될 때마다 데이터베이스를 삭제하고 다시 만듭니다. 이 데이터 모델을 변경하고 데이터베이스에서 기존 데이터를 유지하려면 Code First 마이그레이션을 사용해야 합니다. Azure에서는 SQL 데이터베이스에 대해 기본 이니셜라이저를 사용할 수 없습니다. 자세한 내용은 [Code First 마이그레이션을 사용하여 데이터 모델을 업데이트하는 방법](mobile-services-dotnet-backend-how-to-use-code-first-migrations.md)을 참조하세요.
 
 3. 솔루션 탐색기에서 Controllers 폴더를 확장하고 TodoItemController.cs 프로젝트 파일을 열어 다음 **using** 문을 추가합니다.
 

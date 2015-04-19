@@ -35,7 +35,7 @@
 
 > [AZURE.NOTE] 완료된 앱의 소스 코드를 보려면 <a href="https://github.com/RickSaling/mobile-services-samples/tree/futures/GettingStartedWithData/Android/GetStartedWithData">여기</a>를 참조하세요.
 
-이 자습서의 Eclipse 버전을 참조하려면 [Eclipse를 사용하여 데이터 시작](/documentation/articles/mobile-services-android-get-started-data-EC/)으로 이동하세요.
+이 자습서의 Eclipse 버전을 참조하려면 [Eclipse를 사용하여 데이터 시작](mobile-services-android-get-started-data-EC.md)으로 이동하세요.
 
 > [AZURE.NOTE] 이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AED8DE357" target="_blank">Azure 무료 평가판</a>을 참조하세요.
 

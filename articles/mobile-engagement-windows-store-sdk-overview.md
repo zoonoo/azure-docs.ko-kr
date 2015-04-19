@@ -18,17 +18,17 @@
 
 #2.0.0
 
-이 문서에서는 Windows 스토어 앱에 Azure Mobile Engagement를 통합하는 방법에 대한 모든 세부 사항을 확인할 수 있습니다. 먼저 통합을 연습해 보려면 [15분 자습서]의 단계를 진행하세요(../mobile-engagement-windows-store-dotnet-get-started/).
+이 문서에서는 Windows 스토어 앱에 Azure Mobile Engagement를 통합하는 방법에 대한 모든 세부 사항을 확인할 수 있습니다. 먼저 통합을 연습해 보려면 [15분 자습서]의 단계를 진행하세요(mobile-engagement-windows-store-dotnet-get-started.md).
 
-[SDK 콘텐츠를 보려면 클릭하세요.](../mobile-engagement-windows-store-sdk-content/)
+[SDK 콘텐츠를 보려면 클릭하세요.](mobile-engagement-windows-store-sdk-content.md)
 
 ##통합 절차
 
-1. 시작: [Windows 스토어 앱에서 Mobile Engagement를 통합하는 방법](../mobile-engagement-windows-store-integrate-engagement/)
+1. 시작: [Windows 스토어 앱에서 Mobile Engagement를 통합하는 방법](mobile-engagement-windows-store-integrate-engagement.md)
 
-2. 알림: [Windows 스토어 앱에서 도달률(알림)을 통합하는 방법](../mobile-engagement-windows-store-integrate-engagement-reach/)
+2. 알림: [Windows 스토어 앱에서 도달률(알림)을 통합하는 방법](mobile-engagement-windows-store-integrate-engagement-reach.md)
 
-3. 태그 계획 구현: [Windows 스토어 앱에서 고급 Mobile Engagement 태깅 API를 사용하는 방법](../mobile-engagement-windows-store-use-engagement-api/)
+3. 태그 계획 구현: [Windows 스토어 앱에서 고급 Mobile Engagement 태깅 API를 사용하는 방법](mobile-engagement-windows-store-use-engagement-api.md)
 
 ##릴리스 정보
 
@@ -39,13 +39,13 @@
 -   appId/sdkKey 구성이 연결 문자열 구성으로 바뀌었습니다.
 -   보안이 개선되었습니다.
 
-이전 버전에 대한 내용은 [전체 릴리스 정보]를 참조하세요.(../mobile-engagement-windows-store-release-notes/)
+이전 버전에 대한 내용은 [전체 릴리스 정보]를 참조하세요.(mobile-engagement-windows-store-release-notes.md)
 
 ##업그레이드 절차
 
 이전 버전의 Engagement를 응용 프로그램에 이미 통합한 경우에는 SDK를 업그레이드할 때 다음 사항을 고려해야 합니다.
 
-여러 SDK 버전을 건너뛴 경우에는 여러 절차를 수행해야 할 수 있습니다. 관련 정보는 전체 [업그레이드 절차]를 참조하세요(../mobile-engagement-windows-store-upgrade-procedure/). 예를 들어 0.10.1에서 0.11.0으로 마이그레이션하는 경우에는 먼저 "0.9.0에서 0.10.1로 마이그레이션" 절차를 수행한 후에 "0.10.1에서 0.11.0으로 마이그레이션" 절차를 수행해야 합니다.
+여러 SDK 버전을 건너뛴 경우에는 여러 절차를 수행해야 할 수 있습니다. 관련 정보는 전체 [업그레이드 절차]를 참조하세요(mobile-engagement-windows-store-upgrade-procedure.md). 예를 들어 0.10.1에서 0.11.0으로 마이그레이션하는 경우에는 먼저 "0.9.0에서 0.10.1로 마이그레이션" 절차를 수행한 후에 "0.10.1에서 0.11.0으로 마이그레이션" 절차를 수행해야 합니다.
 
 ##1.1.1에서 2.0.0으로 마이그레이션
 

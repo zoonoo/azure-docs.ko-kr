@@ -65,8 +65,8 @@
 
 Azure PowerShell 명령을 사용하여 Azure VM을 만들고 새 또는 기존 가용성 집합에 추가하려면 다음을 참조하세요.
 
-- [Azure PowerShell을 사용하여 Windows 기반 가상 컴퓨터 만들기 및 미리 구성](../virtual-machines-ps-create-preconfigure-windows-vms/)
-- [Azure PowerShell을 사용하여 Linux 기반 가상 컴퓨터 만들기 및 미리 구성](../virtual-machines-ps-create-preconfigure-linux-vms/)
+- [Azure PowerShell을 사용하여 Windows 기반 가상 컴퓨터 만들기 및 미리 구성](virtual-machines-ps-create-preconfigure-windows-vms.md)
+- [Azure PowerShell을 사용하여 Linux 기반 가상 컴퓨터 만들기 및 미리 구성](virtual-machines-ps-create-preconfigure-linux-vms.md)
 
 <<<<<<< HEAD
 	>[AZURE.NOTE] 구독에 적용되는 모든 이미지 목록을 가져오려면 매개 변수 없이 `Get-AzureVMImage`를 실행합니다. 이렇게 하면 큰 목록이 반환될 수 있습니다. 이 목록을 간단히 줄이려면 이미지 패밀리 이름과 같은 속성을 사용합니다. 이 작업을 수행하여 특정 이미지를 찾는 방법을 보여 주는 팁 및 예제를 보려면 [Windows PowerShell을 사용하여 이미지 관리](http://msdn.microsoft.com/library/azure/dn790330.aspx)를 참조하세요.

@@ -40,7 +40,7 @@
 <h2 id="sub-1">필수 조건</h2>
 
 +	ASP.NET MVC 4 및 SQL Server가 설치된 Visual Studio 2012 이상 버전. 소프트웨어를 아직 설치하지 않았다면 무료 Express 버전인 [Visual Studio 2013 Express](http://www.visualstudio.com/ko-kr/products/visual-studio-express-vs.aspx) 및 [Microsoft SQL Server 2014 Express](http://msdn.microsoft.com/evalcenter/dn434042.aspx)를 다운로드할 수 있습니다.
-+	Azure 검색 서비스. 검색 서비스 이름과 관리 키가 필요합니다. 자세한 내용은 [Azure 검색 시작](../search-get-started/)을 참조하세요.
++	Azure 검색 서비스. 검색 서비스 이름과 관리 키가 필요합니다. 자세한 내용은 [Azure 검색 시작](search-get-started.md)을 참조하세요.
 +	Bing 지도 서비스 및 서비스 액세스용 키. 관련 지침은 다음 섹션에 나와 있습니다.
 +	[CodePlex의 Azure 검색 지리적 검색 샘플](https://azuresearchgeospatial.codeplex.com/). 소스 탭에서 **다운로드**를 클릭하여 솔루션 zip 파일을 다운로드하세요. 
 

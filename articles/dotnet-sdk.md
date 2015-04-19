@@ -51,9 +51,9 @@ Azure SDK for .NET은 다음 제품을 설치합니다.
 
 이 제품을 사용하면 Azure 웹 사이트에서 다음 작업을 수행할 수 있습니다.
 
-* [Azure 웹 사이트에 웹 프로젝트 게시](../web-sites-dotnet-get-started/)
-* [Azure WebJobs에 콘솔 응용 프로그램 프로젝트 게시](../websites-dotnet-deploy-webjobs/)
-* [새 웹 프로젝트를 만드는 동안 또는 웹 프로젝트를 게시하는 동안 Azure 웹 사이트 및 SQL 데이터베이스 리소스 만들기](../web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/)
+* [Azure 웹 사이트에 웹 프로젝트 게시](web-sites-dotnet-get-started.md)
+* [Azure WebJobs에 콘솔 응용 프로그램 프로젝트 게시](websites-dotnet-deploy-webjobs.md)
+* [새 웹 프로젝트를 만드는 동안 또는 웹 프로젝트를 게시하는 동안 Azure 웹 사이트 및 SQL 데이터베이스 리소스 만들기](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md)
 * [새 웹 사이트를 만드는 동안 PowerShell 배포 스크립트 만들기](http://msdn.microsoft.com/library/dn642480.aspx)
 * [서버 탐색기에서 Azure 웹 사이트 관리 및 문제 해결](../web-sites-dotnet-troubleshoot-visual-studio/#sitemanagement)
 * [웹 사이트 및 WebJobs에 대해 원격으로 디버그 모드에서 실행](../web-sites-dotnet-troubleshoot-visual-studio/#remotedebug) 
@@ -64,9 +64,9 @@ Azure SDK for .NET은 다음 제품을 설치합니다.
 
 이 제품을 사용하면 Azure 클라우드 서비스 및 가상 컴퓨터에서 다음 작업을 수행할 수 있습니다.
 
-* [클라우드 서비스 프로젝트 만들기, 열기 및 게시](../cloud-services-dotnet-get-started/)
+* [클라우드 서비스 프로젝트 만들기, 열기 및 게시](cloud-services-dotnet-get-started.md)
 * [클라우드 서비스 프로젝트에 대한 배포 패키지 만들기](http://msdn.microsoft.com/library/ff683672.aspx)
-* [새 웹 프로젝트를 만드는 동안 Azure 가상 컴퓨터 만들기](../virtual-machines-dotnet-create-visual-studio-powershell/)
+* [새 웹 프로젝트를 만드는 동안 Azure 가상 컴퓨터 만들기](virtual-machines-dotnet-create-visual-studio-powershell.md)
 * [새 가상 컴퓨터를 만드는 동안 PowerShell 스크립트 만들기](http://msdn.microsoft.com/library/dn642480.aspx)
 * [Visual Studio 프로젝트 속성 창에서 클라우드 서비스 프로젝트 설정 보기 및 관리](http://msdn.microsoft.com/library/ee405486.aspx)
 * 서버 탐색기에서 [클라우드 서비스](http://msdn.microsoft.com/library/ff683675.aspx), [가상 컴퓨터](http://msdn.microsoft.com/library/jj131259.aspx) 및 [서비스 버스](http://msdn.microsoft.com/library/jj149828.aspx) 보기 및 관리 
@@ -113,13 +113,13 @@ SDK를 설치할 때 포함되지 않지만 Azure 개발에 유용할 수 있는
 
   	**클라이언트 라이브러리의 로컬 복사본.** Azure SDK for .NET은 저장소, 서비스 버스, 캐싱 등 일부 Azure 클라이언트 라이브러리에 대한 NuGet 패키지를 사용자 컴퓨터에 복사합니다. 이러한 클라이언트 라이브러리는 새 클라우드 서비스 프로젝트에 자동으로 포함되므로 로컬 NuGet 패키지를 사용하면 인터넷에 연결되지 않은 경우에도 Visual Studio에서 프로젝트를 만들 수 있습니다. 클라이언트 라이브러리는 일반적으로 새 SDK 버전 릴리스보다 자주 업데이트되므로 NuGet.org의 클라이언트 라이브러리가 SDK와 함께 설치되는 버전보다 최신인 경우가 많습니다. 
 
-	**클라이언트 라이브러리가 포함된 프로젝트 템플릿.** [Azure 클라우드 서비스](../cloud-services-dotnet-get-started/) 및 [Azure 모바일 서비스](../mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/) 프로젝트 템플릿에는 일부 클라이언트 라이브러리가 자동으로 포함됩니다. 다른 라이브러리 또는 다른 템플릿을 사용하려면 필요한 [클라이언트 라이브러리 NuGet 패키지](http://go.microsoft.com/fwlink/?LinkId=510472)를 설치합니다.
+	**클라이언트 라이브러리가 포함된 프로젝트 템플릿.** [Azure 클라우드 서비스](cloud-services-dotnet-get-started.md) 및 [Azure 모바일 서비스](mobile-services-dotnet-backend-windows-store-dotnet-leaderboard.md) 프로젝트 템플릿에는 일부 클라이언트 라이브러리가 자동으로 포함됩니다. 다른 라이브러리 또는 다른 템플릿을 사용하려면 필요한 [클라이언트 라이브러리 NuGet 패키지](http://go.microsoft.com/fwlink/?LinkId=510472)를 설치합니다.
 
-* [Azure PowerShell](../install-configure-powershell/) 
+* [Azure PowerShell](install-configure-powershell.md) 
 
 	Azure PowerShell을 사용하면 [Azure 환경 만들기 및 배포를 자동화](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything)할 수 있습니다.
 
-* [Azure 모바일 서비스 프로젝트 템플릿](../mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/)
+* [Azure 모바일 서비스 프로젝트 템플릿](mobile-services-dotnet-backend-windows-store-dotnet-leaderboard.md)
 
 	모바일 서비스 템플릿은 Visual Studio 2013 업데이트 2 이상에서만 사용할 수 있습니다. Visual Studio 2012 이전 버전과 Visual Studio 2013 업데이트 1 이전에서는 Azure SDK for .NET을 설치한 경우에도 사용할 수 없습니다.
 

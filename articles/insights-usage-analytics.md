@@ -18,7 +18,7 @@
 
 사이트를 방문한 사람의 수가 궁금하십니까?  평균 페이지 로드 시간은 얼마인지 또는 어느 브라우저가 사용되는지 궁금하십니까?  웹 페이지에서 스크립트 몇 줄을 삽입하면 고객이 웹 사이트를 사용하는 방식에 대한 데이터를 수집할 수 있습니다. 
 
-*비 Azure 웹 사이트에 대해서도 이렇게 할 수 있습니다. [Application Insights를 사용하여 웹 앱 사용을 모니터링합니다](../app-insights-web-track-usage/).*
+*비 Azure 웹 사이트에 대해서도 이렇게 할 수 있습니다. [Application Insights를 사용하여 웹 앱 사용을 모니터링합니다](app-insights-web-track-usage.md).*
 
 ![End User Analytics](./media/insights-usage-analytics/Insights_ConfiguredExperience.png)
 

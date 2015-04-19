@@ -17,8 +17,8 @@
 	ms.author="kempb"/>
 
 > [AZURE.SELECTOR]
-> - [시작](/documentation/articles/vs-mobile-services-javascript-getting-started/)
-> - [변경된 내용](/documentation/articles/vs-mobile-services-javascript-what-happened/)
+> - [시작](vs-mobile-services-javascript-getting-started.md)
+> - [변경된 내용](vs-mobile-services-javascript-what-happened.md)
 
 ###<span id="whathappened">내 프로젝트에서 무엇이 변경되었나요?</id>
 

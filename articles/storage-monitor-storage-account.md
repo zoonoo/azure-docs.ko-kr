@@ -24,7 +24,7 @@ Azure 관리 포털에서 저장소 계정을 모니터링할 수 있습니다. 
 
 > Azure 파일 서비스는 현재 저장소 분석을 지원하지 않습니다.
 
-> 저장소 분석 및 기타 도구를 사용하여 Azure 저장소 관련 문제를 식별, 진단 및 해결하는 방법에 대한 자세한 가이드는 [Microsoft Azure 저장소 모니터링, 진단 및 문제 해결](../storage-monitoring-diagnosing-troubleshooting/)을 참조하세요.
+> 저장소 분석 및 기타 도구를 사용하여 Azure 저장소 관련 문제를 식별, 진단 및 해결하는 방법에 대한 자세한 가이드는 [Microsoft Azure 저장소 모니터링, 진단 및 문제 해결](storage-monitoring-diagnosing-troubleshooting.md)을 참조하세요.
 
 
 ##목차##

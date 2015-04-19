@@ -89,7 +89,7 @@ Azure 웹 사이트 대시보드에서 웹 사이트의 현재 성능 메트릭 
 ## 추가 리소스
 
 - [Azure 웹 사이트 설명서](/ko-kr/documentation/services/websites/)
-- [Azure 웹 사이트 학습 맵](/ko-kr/documentation/articles/websites-learning-map/)
+- [Azure 웹 사이트 학습 맵](websites-learning-map.md)
 - [Azure 웹 블로그](/blog/topics/web/)
 
 

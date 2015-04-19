@@ -25,7 +25,7 @@
 
 클라이언트 앱에서는 Blob 저장소 서비스에 데이터를 안전하게 업로드하는 데 필요한 자격 증명을 안전하게 배포할 수 없습니다. 대신 이러한 자격 증명을 모바일 서비스에 저장하고, 이를 사용하여 새로운 이미지 업로드에 사용되는 SAS(공유 액세스 서명)를 생성해야 합니다. 만료 기간이 짧은&mdash;(이 경우 5분) 자격 증명인 SAS는 모바일 서비스에 의해 클라이언트 앱으로 안전하게 반환됩니다. 그러면 앱은 이 임시 자격 증명을 사용하여 이미지를 업로드합니다. 이 예제에서 Blob 서비스의 다운로드 파일은 공개 파일입니다.
 
-이 자습서에서는 사진을 찍고 모바일 서비스에서 생성된 SAS를 사용하여 Azure에 이미지를 업로드하는 기능을 [GetStartedWithData 샘플 앱 프로젝트](/ko-kr/documentation/articles/mobile-services-windows-phone-get-started-data/)에 추가합니다. 이 자습서에서는 간단한 TodoList 앱을 업데이트하여 Blob 저장소 서비스에 이미지를 업로드하는 다음과 같은 기본 단계를 안내합니다.
+이 자습서에서는 사진을 찍고 모바일 서비스에서 생성된 SAS를 사용하여 Azure에 이미지를 업로드하는 기능을 [GetStartedWithData 샘플 앱 프로젝트](mobile-services-windows-phone-get-started-data.md)에 추가합니다. 이 자습서에서는 간단한 TodoList 앱을 업데이트하여 Blob 저장소 서비스에 이미지를 업로드하는 다음과 같은 기본 단계를 안내합니다.
 
 1. [저장소 클라이언트 라이브러리 설치]
 2. [삽입 스크립트를 업데이트하여 SAS 생성]
@@ -38,7 +38,7 @@
 + [Windows Phone SDK 8.0] 이상
 + Microsoft Visual Studio용 Nuget 패키지 관리자 설치
 + [Azure 저장소 계정][저장소 계정을 만드는 방법]
-+ [기존 앱에 모바일 서비스 추가](/ko-kr/documentation/articles/mobile-services-windows-phone-get-started-data/) 자습서 완료  
++ [기존 앱에 모바일 서비스 추가](mobile-services-windows-phone-get-started-data.md) 자습서 완료  
 
 
 ##<a name="install-storage-client"></a>Windows Phone 앱용 저장소 클라이언트 설치

@@ -1,48 +1,57 @@
 <properties 
-	pageTitle="Node.js에서 알림 허브를 사용하는 방법" 
-	description="알림 허브를 사용하여 Node.js 응용 프로그램에 푸시 알림을 보내는 방법에 대해 알아봅니다." 
+	pageTitle="알림 허브 - Node.js 개발자 센터" 
+	description="알림 허브를 사용하여 푸시 알림을 보내는 방법에 대해 알아봅니다. 코드 샘플은 Node.js 응용 프로그램용으로 작성되었습니다." 
 	services="notification-hubs" 
 	documentationCenter="nodejs" 
-	authors="MikeWasson" 
-	manager="wpickett" 
+	authors="ggailey777" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
 	ms.service="notification-hubs" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="02/26/2015" 
-	ms.author="mwasson"/>
+	ms.date="09/17/2014" 
+	ms.author="glenga"/>
 
-# Node.js에서 알림 허브를 사용하는 방법
-<div class="dev-center-tutorial-selector sublanding"> 
-    	<a href="/documentation/articles/notification-hubs-java-backend-how-to/" title="Java">Java</a><a href="/documentation/articles/notification-hubs-php-backend-how-to/" title="PHP">PHP</a><a href="/documentation/articles/notification-hubs-python-backend-how-to/" title="Python">Python</a><a href="/documentation/articles/notification-hubs-nodejs-how-to-use-notification-hubs/" title="Node.js" class="current">Node.js</a>
-</div>
 
-##개요
+
+
+
+
+# 알림 허브를 사용하는 방법
 
 이 가이드에서는 Node.js 응용 프로그램에서 알림 허브를 사용하는 방법을 보여 줍니다. 여기서 다루는 시나리오에는 **Android, iOS, Windows Phone 및 Windows 스토어 응용 프로그램에 알림 보내기**가 포함됩니다. 알림 허브에 대한 자세한 내용은 [다음 단계] 섹션을(#next) 참조하세요.
 
-##알림 허브 정의
+## 목차
+
+-   [알림 허브 정의](#hub)
+-   [Node.js 응용 프로그램 만들기](#create)
+-   [알림 허브를 사용하도록 응용 프로그램 구성](#config)
+-   [방법: 알림 보내기](#send)
+-   [다음 단계](#next)
+
+## <a id="hub"></a> 알림 허브 정의
 
 Azure 알림 허브는 모바일 서비스에 푸시 알림을 보내는 사용하기 쉽고 확장 가능한 다중 플랫폼 인프라를 제공합니다. 자세한 내용은 [Azure 알림 허브](http://msdn.microsoft.com/library/windowsazure/jj927170.aspx)를 참조하세요.
 
-##Node.js 응용 프로그램 만들기
+## <a id="create"></a> Node.js 응용 프로그램 만들기
 
 빈 Node.js 응용 프로그램을 만듭니다. Node.js 응용 프로그램을 만드는 방법에 대한 지침은 [Node.js 응용 프로그램을 만들어 Azure 웹 사이트에 배포][nodejswebsite], [Node.js 클라우드 서비스][Node.js 클라우드 서비스](Windows PowerShell 사용) 또는 [WebMatrix를 사용하는 웹 사이트]를 참조하세요.
 
-##알림 허브를 사용하도록 응용 프로그램 구성
+## <a id="config"></a> 알림 허브를 사용하도록 응용 프로그램 구성
 
-Azure 알림 허브를 사용하려면 Node.js Azure 패키지를다운로드하여 사용해야 합니다. 이 패키지에는
-REST 서비스와 통신하는 편리한 라이브러리 집합이 포함되어 있습니다.
+Azure 알림 허브를 사용하려면
+다운로드하여 사용해야 합니다. 이 패키지에는 REST 서비스와 통신하는 편의 라이브러리 집합이 포함되어 있습니다.
 
 ### NPM(Node Package Manager)을 사용하여 패키지 가져오기
 
 1.  **PowerShell**(Windows), **Terminal**(Mac), **Bash**(Unix) 등과 같은 명령줄 인터페이스를 사용하여 응용 프로그램 예제를 만든 폴더로 이동합니다.
 
-2.  명령 창에 **npm install azure**를 입력합니다. 그러면 다음과 같이 출력됩니다.
+2.  명령 창에 **npm install azure**를 입력합니다. 그러면
+    다음과 같이 출력됩니다.
 
         azure@0.7.0 node_modules\azure
 		|-- dateformat@1.0.2-1.2.3
@@ -82,7 +91,7 @@ REST 서비스와 통신하는 편리한 라이브러리 집합이 포함되어 
 
 </div>
 
-##알림을 보내는 방법
+## <a id="send"></a>알림을 보내는 방법
 
 **NotificationHubService** 개체는 특정 장치 및 응용 프로그램에 알림을 보내는 다음 개체 인스턴스를 표시합니다.
 
@@ -141,7 +150,7 @@ REST 서비스와 통신하는 편리한 라이브러리 집합이 포함되어 
 
 * Tags - 태그 식별자. 태그를 제공하지 않은 경우 모든 클라이언트에게 알림이 전송됩니다.
 * Payload - 메시지의 XML 페이로드
-* TargetName - 'toast'는 알림 메시지를 나타내고, 'token'은 타일 알림을 나타냅니다.
+* TargetName - 알림 메시지의 경우 'toast'이고 타일 알림의 경우 'token'입니다.
 * NotificationClass - 알림 우선 순위. 유효한 값은 [서버의 푸시 알림](http://msdn.microsoft.com/library/hh221551.aspx)의 HTTP 헤더 요소 섹션을 참조하세요.
 * Options - 선택적 요청 헤더
 * Callback - 콜백 함수
@@ -178,11 +187,11 @@ REST 서비스와 통신하는 편리한 라이브러리 집합이 포함되어 
 	  }
 	});
 
-## 다음 단계
+## <a id="next"></a> 다음 단계
 
 이제 알림 허브 사용에 대한 기본 사항을 익혔으므로 다음 링크를 따라 이동하여 자세한 내용을 확인할 수 있습니다.
 
--   다음 MSDN 참조를 확인하세요. [Azure 알림 허브][]
+-   다음 MSDN 참조를 확인하세요. [Azure 알림 허브](http://msdn.microsoft.com/library/windowsazure/jj927170.aspx)
 -   GitHub에서 [Azure SDK for Node] 리포지토리를 방문하세요.
 
   [Azure SDK for Node]: https://github.com/WindowsAzure/azure-sdk-for-node
@@ -201,7 +210,7 @@ REST 서비스와 통신하는 편리한 라이브러리 집합이 포함되어 
   [1]: #Next_Steps
   [토픽 개념]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-topics-01.png
   [Azure 관리 포털]: http://manage.windowsazure.com
-  [이미지]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-03.png
+  [image]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-03.png
   [2]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-04.png
   [3]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-05.png
   [4]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-06.png
@@ -209,12 +218,11 @@ REST 서비스와 통신하는 편리한 라이브러리 집합이 포함되어 
   [SqlFilter.SqlExpression]: http://msdn.microsoft.com/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
   [Azure 서비스 버스 알림 허브]: http://msdn.microsoft.com/library/windowsazure/jj927170.aspx
   [SqlFilter]: http://msdn.microsoft.com/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx
-  [WebMatrix를 사용한 웹 사이트]: /develop/nodejs/tutorials/web-site-with-webmatrix/
-  [Node.js 클라우드 서비스]: cloud-services-nodejs-develop-deploy-app.md
+  [WebMatrix를 사용하는 웹 사이트]: /ko-kr/develop/nodejs/tutorials/web-site-with-webmatrix/
+  [Node.js 클라우드 서비스]: /ko-kr/documentation/articles/cloud-services-nodejs-develop-deploy-app/
 [이전 관리 포털]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/previous-portal.png
-  [nodejswebsite]: /develop/nodejs/tutorials/create-a-website-(mac)/
-  [저장소를 사용하는 Node.js 클라우드 서비스]: /develop/nodejs/tutorials/web-app-with-storage/
-  [저장소를 사용하는 Node.js 웹 응용 프로그램]: /develop/nodejs/tutorials/web-site-with-storage/
+  [nodejswebsite]: /ko-kr/develop/nodejs/tutorials/create-a-website-(mac)/
+  [저장소를 사용하는 Node.js 클라우드 서비스]: /ko-kr/develop/nodejs/tutorials/web-app-with-storage/
+  [저장소를 사용하는 Node.js 웹 응용 프로그램]: /ko-kr/develop/nodejs/tutorials/web-site-with-storage/
 
-
-<!--HONumber=49-->
+<!--HONumber=45--> 

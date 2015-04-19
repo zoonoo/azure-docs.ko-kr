@@ -19,7 +19,7 @@
 
 # Azure Media Encoder를 사용하여 자산을 인코딩하는 방법
 
-이 문서는 [워크플로 주문형 미디어 서비스 비디오](../media-services-video-on-demand-workflow) 시리즈의 일부입니다. 
+이 문서는 [워크플로 주문형 미디어 서비스 비디오](media-services-video-on-demand-workflow.md) 시리즈의 일부입니다. 
 
 ## 개요
 인터넷을 통해 디지털 비디오를 배달하려면 미디어를 압축해야 합니다. 디지털 비디오 파일은 크기가 상당히 크며 및 인터넷을 통해 전송하거나 고객의 장치에 전송하여 제대로 표시하기에는 너무 클 수 있습니다. 인코딩은 고객이 미디어를 볼 수 있도록 비디오 및 오디오를 압축하는 과정입니다.
@@ -206,7 +206,7 @@ Azure Media Encoder로 인코딩할 때 [여기](https://msdn.microsoft.com/ko-k
 
 
 ## 다음 단계
-자산을 인코드하는 작업을 만드는 방법을 알아보았습니다. 이제 [미디어 서비스 작업 진행 상태를 확인하는 방법](../media-services-check-job-progress/) 항목으로 이동하세요.
+자산을 인코드하는 작업을 만드는 방법을 알아보았습니다. 이제 [미디어 서비스 작업 진행 상태를 확인하는 방법](media-services-check-job-progress.md) 항목으로 이동하세요.
 
 [Azure 마켓플레이스]: https://datamarket.azure.com/
 [인코더 사전 설정]: http://msdn.microsoft.com/library/dn619392.aspx

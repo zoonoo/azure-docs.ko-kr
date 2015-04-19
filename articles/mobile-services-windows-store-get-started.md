@@ -19,7 +19,7 @@
 
 # <a name="getting-started"> </a>모바일 서비스 시작
 
-이 항목은 더 이상 지원되지 않습니다. 독립 실행형 Windows 스토어 프로젝트는 포털에서 더 이상 다운로드할 수 없습니다. 대신 범용 Windows 프로젝트를 다운로드할 수 있습니다. 자세한 내용은 [모바일 서비스 시작]을 참조하세요(/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started/). 
+이 항목은 더 이상 지원되지 않습니다. 독립 실행형 Windows 스토어 프로젝트는 포털에서 더 이상 다운로드할 수 없습니다. 대신 범용 Windows 프로젝트를 다운로드할 수 있습니다. 자세한 내용은 [모바일 서비스 시작]을 참조하세요(mobile-services-javascript-backend-windows-store-dotnet-get-started.md). 
 
-기존 Windows 스토어 앱에 모바일 서비스를 추가하는 방법에 대한 지침은 [기존 앱에 모바일 서비스 추가]를 참조하세요(/documentation/articles/mobile-services-windows-store-dotnet-get-started-data/).
+기존 Windows 스토어 앱에 모바일 서비스를 추가하는 방법에 대한 지침은 [기존 앱에 모바일 서비스 추가]를 참조하세요(mobile-services-windows-store-dotnet-get-started-data.md).
 <!--HONumber=47-->

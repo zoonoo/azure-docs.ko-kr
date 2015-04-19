@@ -1,7 +1,7 @@
 ﻿> [AZURE.SELECTOR]
-- [개요](/documentation/articles/hdinsight-use-mapreduce/)
-- [SSH](/documentation/articles/hdinsight-hadoop-use-mapreduce-ssh/)
-- [PowerShell](/documentation/articles/hdinsight-hadoop-use-mapreduce-powershell/)
-- [원격 데스크톱](/documentation/articles/hdinsight-hadoop-use-mapreduce-remote-desktop/)
-- [Curl](/documentation/articles/hdinsight-hadoop-use-mapreduce-curl/)
+- [개요](hdinsight-use-mapreduce.md)
+- [SSH](hdinsight-hadoop-use-mapreduce-ssh.md)
+- [PowerShell](hdinsight-hadoop-use-mapreduce-powershell.md)
+- [원격 데스크톱](hdinsight-hadoop-use-mapreduce-remote-desktop.md)
+- [Curl](hdinsight-hadoop-use-mapreduce-curl.md)
 <!--HONumber=47-->

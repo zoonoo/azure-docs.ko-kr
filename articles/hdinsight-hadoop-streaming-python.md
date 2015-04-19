@@ -196,7 +196,7 @@ mapper 및 reducer는 텍스트 파일이며 이 경우 **mapper.py** 및 **redu
 
 이제 HDInsight에서 스트리밍 MapRedcue 작업을 사용하는 방법을 배웠으며 Azure HDInsight에서 작업하는 다른 방법을 보려면 아래 링크를 사용합니다.
 
-* [HDInsight에서 Hive 사용](../hdinsight-use-hive/)
-* [HDInsight에서 Pig 사용](../hdinsight-use-pig/)
-* [HDInsight에서 MapReduce 작업 사용](../hdinsight-use-mapreduce)
+* [HDInsight에서 Hive 사용](hdinsight-use-hive.md)
+* [HDInsight에서 Pig 사용](hdinsight-use-pig.md)
+* [HDInsight에서 MapReduce 작업 사용](hdinsight-use-mapreduce.md)
 <!--HONumber=47-->

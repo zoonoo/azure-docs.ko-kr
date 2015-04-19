@@ -259,7 +259,7 @@ REST API를 사용하여 리소스 작업을 수행하는 방법에 대한 자�
 -	엔터티 태그 [http://en.wikipedia.org/wiki/HTTP_ETag](http://en.wikipedia.org/wiki/HTTP_ETag)
 -	[DocumentDB 쿼리](documentdb-sql-query.md)
 -	[DocumentDB SQL 참조](https://msdn.microsoft.com/library/azure/dn782250.aspx)(영문)
--	[DocumentDB 프로그래밍: 저장 프로시저, 트리거 및 UDF](../documentdb-programming/)
+-	[DocumentDB 프로그래밍: 저장 프로시저, 트리거 및 UDF](documentdb-programming.md)
 -	[DocumentDB 참조 설명서](https://msdn.microsoft.com/library/azure/dn781482.aspx)(영문)
 
 

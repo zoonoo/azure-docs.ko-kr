@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
     pageTitle="DocumentDB를 사용하여 Python 및 Flask로 웹앱 작성 | Azure" 
     description="DocumentDB를 사용하여 Azure에 호스팅되는 Python 및 Flask(MVC) 웹 응용 프로그램의 데이터를 저장하고 액세스하는 방법을 알아봅니다." 
     services="documentdb" 
@@ -340,7 +340,7 @@ templates 폴더 아래에 다음 html 파일을 추가합니다. create.html, r
 
 응용 프로그램에 다른 기능을 추가하려면 [DocumentDB Python SDK](https://pypi.python.org/pypi/pydocumentdb)에서 사용할 수 있는 API를 검토하세요.
 
-  [Flask 자습서에 액세스하려면 여기를 클릭하세요.]: http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world
+  [Flask 자습서에 액세스하려면 여기를 클릭하세요]: http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world
   [Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx
   [여기]: http://aka.ms/ptvs
   [1]: http://go.microsoft.com/fwlink/?linkid=254281&clcid=0x409

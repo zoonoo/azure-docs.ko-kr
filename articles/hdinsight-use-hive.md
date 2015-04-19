@@ -209,11 +209,11 @@ Hive를 사용하면 SQL과 유사한 쿼리 언어로 손쉽게 데이터를 �
 * [Visual Studio용 HDInsight Hadoop 도구 사용 시작][1]
 * [HDInsight에서 Oozie 사용][hdinsight-use-oozie]
 * [프로그래밍 방식으로 Hadoop 작업 제출][hdinsight-submit-jobs]
-* [HDInsight와 함께 Pig 사용](../hdinsight-use-pig/)
+* [HDInsight와 함께 Pig 사용](hdinsight-use-pig.md)
 * [HDInsight를 사용하여 비행 지연 데이터 분석][hdinsight-analyze-flight-data]
 * [Azure HDInsight SDK 설명서][hdinsight-sdk-documentation]
 * [HDInsight에 데이터 업로드][hdinsight-upload-data]
-* [Azure HDInsight 시작](../hdinsight-get-started/)
+* [Azure HDInsight 시작](hdinsight-get-started.md)
 
 
 [1]: ../hdinsight-hadoop-visual-studio-tools-get-started/

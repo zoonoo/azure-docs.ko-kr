@@ -21,7 +21,7 @@
 #콘텐츠 키 인증 정책을 구성하기 
 [AZURE.INCLUDE [media-services-selector-content-key-auth-policy](../includes/media-services-selector-content-key-auth-policy.md)]
 
-이 문서는 [워크플로 주문형 미디어 서비스 비디오] 시리즈의(../media-services-video-on-demand-workflow) 및 [미디어 서비스 라이브 스트리밍 워크플로](../media-services-live-streaming-workflow) 일부입니다. 
+이 문서는 [워크플로 주문형 미디어 서비스 비디오] 시리즈의(media-services-video-on-demand-workflow.md) 및 [미디어 서비스 라이브 스트리밍 워크플로](media-services-live-streaming-workflow.md) 일부입니다. 
 
 
 ##개요
@@ -35,14 +35,14 @@ Microsoft Azure 미디어 서비스를 사용하면 128 비트 암호화 키를 
 
 여러 콘텐츠 키를 가지거나 미디어 서비스 키 배달 서비스가 아닌 **키\라이선스 배달 서비스** URL을 지정하려면 미디어 서비스 키 배달 서비스 미디어 서비스 .NET SDK 또는 REST API를 사용하십시오.
 
-[미디어 서비스 .NET SDK를 사용하여 콘텐츠 키 권한 부여 정책 구성](../media-services-dotnet-configure-content-key-auth-policy/)
+[미디어 서비스 .NET SDK를 사용하여 콘텐츠 키 권한 부여 정책 구성](media-services-dotnet-configure-content-key-auth-policy.md)
 
-[미디어 서비스 REST API를 사용하여 콘텐츠 키 권한 부여 정책 구성](../media-services-rest-configure-content-key-auth-policy/)
+[미디어 서비스 REST API를 사용하여 콘텐츠 키 권한 부여 정책 구성](media-services-rest-configure-content-key-auth-policy.md)
 
 ###다음과 같은 몇 가지 고려 사항이 적용됩니다.
 
-- 동적 패키징 및 동적 암호화를 사용할 수 있으려면 하나 이상의 배율 단위(스트리밍 단위)가 있어야 합니다. 자세한 내용은 [미디어 서비스를 확장하는 방법]을 참조하세요(../media-services-manage-origins#scale_streaming_endpoints). 
-- 사용자의 자산은 적응 비트 전송률 MP4 또는 적응 비트 전송률 부드러운 스트리밍 파일 집합을 포힘해야 합니다. 자세한 내용은 [자산 인코딩]을 참조하세요(../media-services-encode-asset/).  
+- 동적 패키징 및 동적 암호화를 사용할 수 있으려면 하나 이상의 배율 단위(스트리밍 단위)가 있어야 합니다. 자세한 내용은 [미디어 서비스를 확장하는 방법]을 참조하세요(media-services-manage-origins#scale_streaming_endpoints.md). 
+- 사용자의 자산은 적응 비트 전송률 MP4 또는 적응 비트 전송률 부드러운 스트리밍 파일 집합을 포힘해야 합니다. 자세한 내용은 [자산 인코딩]을 참조하세요(media-services-encode-asset.md).  
 - 키 배달 서비스는 ContentKeyAuthorizationPolicy 및 관련 개체(정책 옵션 및 제한 사항)를 15분 동안 캐시합니다.  ContentKeyAuthorizationPolicy를 만들고 "Token" 제한을 사용하도록 지정 및 테스트하고 정책의 제한을 "개방"으로 업데이트 하는 경우, 해당 정책이 "개방" 버전으로 전환하는 데 약 15분이 소요됩니다.
 
 
@@ -87,7 +87,7 @@ Microsoft Azure 미디어 서비스를 사용하면 128 비트 암호화 키를 
 **정책 xml 가져오기** 단추를 클릭하고 [여기](https://msdn.microsoft.com/library/azure/dn783459.aspx)에 정의된 XML 스키마를 준수하는 다른 XML을 제공할 수 있습니다.
 
 ##다음 단계
-이제 사용자가 콘텐츠 키 인증 정책을 구성을 완료하였으므로, [다음으로 이동하십시오. Azure 관리 포털을 사용하여 암호화를 사용하도록 설정](../media-services-manage-content#encrypt/) 항목으로 이동합니다.
+이제 사용자가 콘텐츠 키 인증 정책을 구성을 완료하였으므로, [다음으로 이동하십시오. Azure 관리 포털을 사용하여 암호화를 사용하도록 설정](media-services-manage-content#encrypt.md) 항목으로 이동합니다.
 
 
 [open_policy]: ./media/media-services-key-authorization-policy/media-services-protect-content-with-open-restriction.png

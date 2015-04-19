@@ -49,7 +49,7 @@
 
 하이브리드 연결을 사용하여 온-프레미스 SQL Server 또는 SQL Server Express 데이터베이스를 사용하려면 TCP/IP를 고정 포트에서 사용할 수 있어야 합니다. SQL Server의 기본 인스턴스에서는 고정 포트 1433을 사용하는 반면 명명된 인스턴스에서는 이 포트를 사용하지 않습니다. 
 
-위에서 설명한 조건을 충족하도록 SQL Server를 구성하는 방법에 대한 자세한 내용은 [온-프레미스에서 SQL Server Express 설치, TCP/IP 사용 및 SQL Server 데이터베이스를 만들기](/ko-kr/documentation/articles/web-sites-hybrid-connection-connect-on-premises-sql-server#InstallSQL).를 참조하세요. SQL Server가 위에 설명된 조건을 충족하는 구성 및 환경에 이미 설치되어 있는 경우 건너뛴 후 [온-프레미스에서 SQL Server 데이터베이스 만들기](/ko-kr/documentation/articles/web-sites-hybrid-connection-connect-on-premises-sql-server#CreateSQLDB). 를 시작할 수 있습니다.
+위에서 설명한 조건을 충족하도록 SQL Server를 구성하는 방법에 대한 자세한 내용은 [온-프레미스에서 SQL Server Express 설치, TCP/IP 사용 및 SQL Server 데이터베이스를 만들기](web-sites-hybrid-connection-connect-on-premises-sql-server#InstallSQL.md).를 참조하세요. SQL Server가 위에 설명된 조건을 충족하는 구성 및 환경에 이미 설치되어 있는 경우 건너뛴 후 [온-프레미스에서 SQL Server 데이터베이스 만들기](web-sites-hybrid-connection-connect-on-premises-sql-server#CreateSQLDB.md). 를 시작할 수 있습니다.
 
 이 자습서에서는 데이터베이스 이름이 **OnPremisesDB**이고, 이 데이터베이스는 포트 **1433**에서 실행하며 컴퓨터의 호스트 이름은 **onPremisesServer**라고 가정합니다.
 
@@ -115,7 +115,7 @@
 ### 하이브리드 연결과 서비스 연계
 1. 포털의 **모바일 서비스** 탭에서 기존 모바일 서비스를 선택하거나 새로운 서비스를 만듭니다. 
 
-	>[AZURE.NOTE].NET 백 엔드를 사용하여 생성된 서비스를 선택하거나 새 .NET 백 엔드 모바일 서비스를 만들어야 합니다. 새 .NET 백 엔드 모바일 서비스를 만드는 방법에 대한 자세한 내용은 [모바일 서비스 시작](/ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/) 을 참조하세요.
+	>[AZURE.NOTE].NET 백 엔드를 사용하여 생성된 서비스를 선택하거나 새 .NET 백 엔드 모바일 서비스를 만들어야 합니다. 새 .NET 백 엔드 모바일 서비스를 만드는 방법에 대한 자세한 내용은 [모바일 서비스 시작](mobile-services-dotnet-backend-windows-store-dotnet-get-started.md) 을 참조하세요.
 
 2. 모바일 서비스의 **구성** 탭에서 **하이브리드 연결** 섹션을 찾아 **하이브리드 연결 추가**를 선택합니다.
 
@@ -140,7 +140,7 @@
 
 3. Visual Studio 2013에서 .NET 기반 모바일 서비스를 정의하는 프로젝트를 엽니다. 
 
-	.NET 백 엔드 프로젝트를 다운로드하는 방법에 대해서는 [모바일 서비스 시작](/ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/) .을 참조하세요.
+	.NET 백 엔드 프로젝트를 다운로드하는 방법에 대해서는 [모바일 서비스 시작](mobile-services-dotnet-backend-windows-store-dotnet-get-started.md) .을 참조하세요.
  
 4. 솔루션 탐색기에서 **Models** 폴더를 확장하여  *Context.cs*로 끝나는 데이터 모델 파일을 엽니다.
 

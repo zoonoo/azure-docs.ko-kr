@@ -92,7 +92,7 @@
 
     WebApiConfig.cs 파일에서 기본 데이터베이스 이니셜라이저 클래스가 `DropCreateDatabaseIfModelChanges` 클래스에서 파생되는지 확인합니다. 즉, 모델을 변경하면 테이블이 삭제되고 새 모델을 수용하는 테이블이 다시 생성됩니다. 테이블의 데이터가 손실되고 테이블이 다시 시드됩니다.  `Seed()` 초기화 함수가 새 DueDate 열을 초기화하도록 데이터베이스 이니셜라이저의 Seed 메서드를 수정합니다. WebApiConfig.cs 파일을 저장합니다.
 
-    >[AZURE.NOTE] 기본 데이터베이스 이니셜라이저를 사용할 경우 Entity Framework에서는 Code First 모델 정의에서 데이터 모델 변경이 감지될 때마다 데이터베이스를 삭제하고 다시 만듭니다. 이 데이터 모델을 변경하고 데이터베이스에서 기존 데이터를 유지하려면 Code First 마이그레이션을 사용해야 합니다. 자세한 내용은 [Code First 마이그레이션을 사용하여 데이터 모델을 업데이트하는 방법](/ko-kr/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations)을 참조하세요.
+    >[AZURE.NOTE] 기본 데이터베이스 이니셜라이저를 사용할 경우 Entity Framework에서는 Code First 모델 정의에서 데이터 모델 변경이 감지될 때마다 데이터베이스를 삭제하고 다시 만듭니다. 이 데이터 모델을 변경하고 데이터베이스에서 기존 데이터를 유지하려면 Code First 마이그레이션을 사용해야 합니다. 자세한 내용은 [Code First 마이그레이션을 사용하여 데이터 모델을 업데이트하는 방법](mobile-services-dotnet-backend-how-to-use-code-first-migrations.md)을 참조하세요.
 
 
         new TodoItem { Id = "1", Text = "First item", Complete = false, DueDate = DateTime.Today },

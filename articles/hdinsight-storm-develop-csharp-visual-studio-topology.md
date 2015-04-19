@@ -533,7 +533,7 @@ Visual Studio용 HDInsight 도구는 다른 구성 요소가 Java일 때 일부 
 
 ##다음 단계
 
-Visual Studio용 HDInsight 도구에서 Storm 토폴로지를 개발하고 배포하는 방법을 배웠으므로 [HDInsight의 Storm으로 Azure 이벤트 허브에서 이벤트를 처리](../hdinsight-storm-develop-csharp-event-hub-topology/)하는 방법을 알아봅니다.
+Visual Studio용 HDInsight 도구에서 Storm 토폴로지를 개발하고 배포하는 방법을 배웠으므로 [HDInsight의 Storm으로 Azure 이벤트 허브에서 이벤트를 처리](hdinsight-storm-develop-csharp-event-hub-topology.md)하는 방법을 알아봅니다.
 
 C# 토폴로지를 만들기에 대한 자세한 정보를 검색하려면 [https://github.com/hdinsight/hdinsight-storm-examples/blob/master/SCPNet-GettingStarted.md](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/SCPNet-GettingStarted.md)를 방문하세요.
 
@@ -541,26 +541,26 @@ Hdinsight 사용 방법 및 HDinsight의 Storm 샘플에 대한 자세한 내용
 
 **HDInsight의 Apache Storm**
 
-* [HDInsight에서 Apache Storm을 사용하는 토폴로지 배포 및 모니터링](../hdinsight-storm-deploy-monitor-topology/)
+* [HDInsight에서 Apache Storm을 사용하는 토폴로지 배포 및 모니터링](hdinsight-storm-deploy-monitor-topology.md)
 
-* [HDInsight의 Storm으로 Azure 이벤트 허브에서 이벤트 처리](../hdinsight-storm-develop-csharp-event-hub-topology/)
+* [HDInsight의 Storm으로 Azure 이벤트 허브에서 이벤트 처리](hdinsight-storm-develop-csharp-event-hub-topology.md)
 
-* [HDInsight에서 Apache Storm에 대한 Java 기반 토폴로지 개발](../hdinsight-storm-develop-java-topology/)
+* [HDInsight에서 Apache Storm에 대한 Java 기반 토폴로지 개발](hdinsight-storm-develop-java-topology.md)
 
-* [HDInsight에서 Apache Storm을 사용하는 Twitter 추세](../hdinsight-storm-twitter-trending/)
+* [HDInsight에서 Apache Storm을 사용하는 Twitter 추세](hdinsight-storm-twitter-trending.md)
 
 * [HDInsight의 Storm 예](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/SCPNet-GettingStarted.md)
 
 **HDInsight의 Apache Hadoop**
 
-* [HDInsight에서 Hadoop과 Hive 사용](../hdinsight-use-hive/)
+* [HDInsight에서 Hadoop과 Hive 사용](hdinsight-use-hive.md)
 
-* [HDInsight에서 Hadoop과 Pig 사용](../hdinsight-use-pig/)
+* [HDInsight에서 Hadoop과 Pig 사용](hdinsight-use-pig.md)
 
-* [HDInsight에서 Hadoop과 MapReduce 사용](../hdinsight-use-mapreduce/)
+* [HDInsight에서 Hadoop과 MapReduce 사용](hdinsight-use-mapreduce.md)
 
 **HDInsight의 Apache HBase**
 
-* [HDInsight에서 HBase 시작](../hdinsight-hbase-get-started/)
+* [HDInsight에서 HBase 시작](hdinsight-hbase-get-started.md)
 
 <!--HONumber=47-->

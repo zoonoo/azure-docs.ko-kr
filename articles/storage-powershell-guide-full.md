@@ -659,7 +659,7 @@ PowerShell을 사용하여 저장소 로깅 데이터를 사용하도록 설정�
 - **애드혹 SAS**: 애드혹 SAS를 만들 때 SAS의 시작 시간, 만료 시간 및 사용 권한이 SAS URI에 모두 지정됩니다. 이 유형의 SAS는 컨테이너, Blob, 테이블 또는 큐에서 만들 수 있으며, 취소할 수 없습니다.
 - **저장된 액세스 정책을 사용하는 SAS**: 저장된 액세스 정책은 리소스 컨테이너(Blob 컨테이너, 테이블 또는 큐)에서 정의되며, 하나 이상의 공유 액세스 서명에 대한 제약 조건을 관리하는 데 사용할 수 있습니다. SAS를 공유 액세스 정책과 연결할 경우 SAS는 저장된 액세스 정책에 대해 정의된 제약 조건(시작 시간, 만료 시간 및 사용 권한)을 상속합니다. 이 유형의 SAS는 취소할 수 있습니다.
 
-자세한 내용은 [공유 액세스 서명](./storage-dotnet-shared-access-signature-part-1.md/), [1부: SAS 모델 이해](./storage-dotnet-shared-access-signature-part-1.md/)및 [Azure 저장소 리소스에 대한 액세스 관리](http://msdn.microsoft.com/library/azure/ee393343.aspx)를 참조하세요.
+자세한 내용은 [공유 액세스 서명](storage-dotnet-shared-access-signature-part-1.md), [1부: SAS 모델 이해](storage-dotnet-shared-access-signature-part-1.md)및 [Azure 저장소 리소스에 대한 액세스 관리](http://msdn.microsoft.com/library/azure/ee393343.aspx)를 참조하세요.
 
 다음 섹션에서는 Azure 테이블에 대한 공유 액세스 서명 토큰 및 저장된 액세스 정책을 만드는 방법을 배웁니다. Azure PowerShell은 컨테이너, Blob, 큐에 대해 유사한 cmdlet을 제공합니다. 이 섹션의 스크립트를 실행하려면 [Azure PowerShell 버전 0.8.14](http://go.microsoft.com/?linkid=9811175&clcid=0x409) 이상을 다운로드하세요.
 
@@ -721,7 +721,7 @@ AzureChinaCloud와 함께 Azure 저장소를 사용하려면 AzureChinaCloud와 
 
 자세한 내용은 다음을 참조하세요.
 
-- [Microsoft Azure Government 개발자 가이드](../azure-government-developer-guide/). 
+- [Microsoft Azure Government 개발자 가이드](azure-government-developer-guide.md). 
 - [글로벌 Azure용 AzureCloud와 중국의 21Vianet에서 운영하는 Azure용 AzureChinaCloud 간의 차이점](https://msdn.microsoft.com/library/azure/dn578439.aspx)
 
 ## <a name="next"></a>다음 단계

@@ -98,7 +98,7 @@ In-Role Cache는 역할 인스턴스를 호스트하는 가상 컴퓨터의 메�
 
 캐시의 크기를 결정하는 구성 요소는 역할의 VM 크기, 역할의 인스턴스 개수, 캐시 클러스터가 전용 역할과 공동 배치된 역할 중 무엇으로 구성되어 있는가 등입니다.
 
->이 섹션에서는 캐시 크기 구성에 대한 간단한 개요를 제공합니다. 캐시 크기 및 기타 용량 계획 고려 사항에 대한 자세한 내용은 [In-Role Cache 캐시 용량 고려 사항][]을 참조하세요.
+>이 섹션에서는 캐시 크기 구성에 대한 간단한 개요를 제공합니다. 캐시 크기 및 기타 용량 계획 고려 사항에 대한 자세한 내용은 [In-Role Cache 용량 계획 고려 사항][]을 참조하세요.
 
 가상 컴퓨터 크기 및 역할 인스턴스의 수를 구성하려면 **솔루션 탐색기**에서 역할 속성을 마우스 오른쪽 단추로 클릭하고 **속성**을 선택합니다.
 
@@ -388,7 +388,7 @@ In-Role Cache에 출력 캐시 공급자를 사용하는 방법에 대한 자세
 [RoleCache10]: ./media/cache-dotnet-how-to-use-in-role/cache17.png
   
 <!-- LINKS -->
-[가상 컴퓨터 크기를 구성하는 방법]: http://go.microsoft.com/fwlink/?LinkId=164387
+[가상 컴퓨터 크기 구성 방법]: http://go.microsoft.com/fwlink/?LinkId=164387
 [방법: 프로그래밍 방식으로 캐시 클라이언트 구성]: http://msdn.microsoft.com/library/windowsazure/gg618003.aspx
 [방법: 프로그래밍 방식으로 페이지의 캐시 가능성 설정]: http://msdn.microsoft.com/library/z852zf6b.aspx
 [방법: 선언적으로 ASP.NET 페이지의 캐시 가능성 설정]: http://msdn.microsoft.com/library/zd1ysf1y.aspx

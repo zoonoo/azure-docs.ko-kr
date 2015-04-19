@@ -125,9 +125,9 @@ HDInsight은 클러스터와 여러 개의 Blob 저장소 계정을 연결할 �
 
 ##다음 단계
 
-* [HDInsight에서 Hive 사용](../hdinsight-use-hive/)
-* [HDInsight에서 Pig 사용](../hdinsight-use-pig/)
-* [HDInsight에서 MapReduce 작업 사용](../hdinsight-use-mapreduce)
+* [HDInsight에서 Hive 사용](hdinsight-use-hive.md)
+* [HDInsight에서 Pig 사용](hdinsight-use-pig.md)
+* [HDInsight에서 MapReduce 작업 사용](hdinsight-use-mapreduce.md)
 
 
 <!--HONumber=47-->

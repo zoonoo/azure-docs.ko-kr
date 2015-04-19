@@ -21,7 +21,7 @@
 이 자습서는 Linux에서 HDInsight Hadoop 클러스터를 프로비전하고 구조화 되지 않은 데이터에서 의미 있는 정보를 추출할 Hive 쿼리를 실행하는 방법을 표시하여 Linux의 HDInsight 에서 신속하게 시작할 수 있도록 해줍니다. 그런 다음 Tableau와 같은 BI (비즈니스 인텔리전스) 도구 내에서 결과를 분석할 수 있습니다.
 
 
-> [AZURE.NOTE] Hadoop과 빅데이터를 처음 사용하는 경우 <a href="http://go.microsoft.com/fwlink/?LinkId=510084" target="_blank">Apache Hadoop</a>, <a href="http://go.microsoft.com/fwlink/?LinkId=510086" target="_blank">MapReduce</a>, <a href="http://go.microsoft.com/fwlink/?LinkId=510087" target="_blank">HDFS</a> 및 <a href="http://go.microsoft.com/fwlink/?LinkId=510085" target="_blank">Hive</a> 용어에 대해 자세히 알아볼 수 있습니다. HDInsight를 통해 Azure에서 Hadoop을 사용하도록 설정하는 방법을 이해하려면[HDInsight의 Hadoop 소개](../hdinsight-hadoop-introduction/)(영문)를 참조하세요.
+> [AZURE.NOTE] Hadoop과 빅데이터를 처음 사용하는 경우 <a href="http://go.microsoft.com/fwlink/?LinkId=510084" target="_blank">Apache Hadoop</a>, <a href="http://go.microsoft.com/fwlink/?LinkId=510086" target="_blank">MapReduce</a>, <a href="http://go.microsoft.com/fwlink/?LinkId=510087" target="_blank">HDFS</a> 및 <a href="http://go.microsoft.com/fwlink/?LinkId=510085" target="_blank">Hive</a> 용어에 대해 자세히 알아볼 수 있습니다. HDInsight를 통해 Azure에서 Hadoop을 사용하도록 설정하는 방법을 이해하려면[HDInsight의 Hadoop 소개](hdinsight-hadoop-introduction.md)(영문)를 참조하세요.
 
 
 ## 이 자습서의 목적 ##
@@ -49,11 +49,11 @@
 
 ## <a name="storage"></a>Azure 저장소 계정 만들기
 
-HDInsight는 데이터 저장을 위해 Azure Blob 저장소를 사용합니다. 이를  *WASB* 또는 *Azure 저장소 - Blob*이라고 합니다. WASB는 Azure Blob 저장소에 구현한 Microsoft의 HDFS입니다. 자세한 내용은 [HDInsight에서 Azure Blob 저장소 사용](../hdinsight-use-blob-storage/)을 참조하세요.
+HDInsight는 데이터 저장을 위해 Azure Blob 저장소를 사용합니다. 이를  *WASB* 또는 *Azure 저장소 - Blob*이라고 합니다. WASB는 Azure Blob 저장소에 구현한 Microsoft의 HDFS입니다. 자세한 내용은 [HDInsight에서 Azure Blob 저장소 사용](hdinsight-use-blob-storage.md)을 참조하세요.
 
 HDInsight 클러스터를 프로비전할 때 Azure 저장소 계정을 지정합니다. HDFS의 경우처럼 해당 계정의 특정 Blob 저장소 컨테이너는 기본 파일 시스템으로 지정됩니다. HDInsight 클러스터는 기본적으로 사용자가 지정한 저장소 계정과 동일한 데이터 센터에 프로비전됩니다.
 
-사용자 지정 방식으로 HDInsight 클러스터를 구성할 때는 이 저장소 계정 외에 다른 저장소 계정을 추가할 수 있습니다. 이 추가 저장소 계정은 동일한 Azure 구독에서 가져오거나 다른 Azure 구독에서 가져올 수 있습니다. 자세한 내용은 [사용자 지정 옵션을 사용하여 HDInsight 클러스터 프로비전](../hdinsight-hadoop-provision-linux-clusters)을 참조하세요. 
+사용자 지정 방식으로 HDInsight 클러스터를 구성할 때는 이 저장소 계정 외에 다른 저장소 계정을 추가할 수 있습니다. 이 추가 저장소 계정은 동일한 Azure 구독에서 가져오거나 다른 Azure 구독에서 가져올 수 있습니다. 자세한 내용은 [사용자 지정 옵션을 사용하여 HDInsight 클러스터 프로비전](hdinsight-hadoop-provision-linux-clusters.md)을 참조하세요. 
 
 이 자습서와 과정을 간소화하기 위해 기본 Blob 컨테이너와 기본 저장소 계정만 사용됩니다. 실제로는 데이터 파일이 보통 지정된 저장소 계정에 저장됩니다.
 
@@ -74,13 +74,13 @@ HDInsight 클러스터를 프로비전할 때 Azure 저장소 계정을 지정�
 
 
 자세한 내용은
-[저장소 계정을 만드는 방법](../storage-create-storage-account/) 및 [HDInsight에서 Azure Blob 저장소 사용](../hdinsight-use-blob-storage/)을 참조하세요.
+[저장소 계정을 만드는 방법](storage-create-storage-account.md) 및 [HDInsight에서 Azure Blob 저장소 사용](hdinsight-use-blob-storage.md)을 참조하세요.
 	
 ## <a name="provision"></a>Linux에서 HDInsight 클러스터 프로비전
 
 HDInsight 클러스터를 프로비전할 때는 Hadoop과 관련 응용 프로그램을 포함하는 Azure 계산 리소스를 프로비전합니다. 이 섹션에서는 quick-create 옵션을 사용하여 Linux에서 HDInsight 클러스터를 프로비전합니다. 이 옵션 기본 사용자 이름 및 Azure 저장소 컨테이너를 사용 하 여 HDInsight 버전 3.2 (Hadoop 버전 2.5, HDP 버전 2.2)는 클러스터를 구성하고 Ubuntu 12.04 LTS를 실행 합니다. 여러 다른 HDInsight 버전 및 해당 SLA에 대한 [HDInsight 구성 요소 버전 관리](http://azure.microsoft.com/documentation/articles/hdinsight-component-versioning/) 페이지를 참조하세요.
 
->[AZURE.NOTE]  Windows Server OS를 실행하는 Hadoop 클러스터를 만들 수 있습니다. 자세한 지침은 [Windows에서 HDInsight 사용 시작](../hdinsight-get-started/)을 참조하세요.
+>[AZURE.NOTE]  Windows Server OS를 실행하는 Hadoop 클러스터를 만들 수 있습니다. 자세한 지침은 [Windows에서 HDInsight 사용 시작](hdinsight-get-started.md)을 참조하세요.
 
 
 **HDInsight 클러스터를 프로비전하려면**
@@ -112,7 +112,7 @@ HDInsight 클러스터를 프로비전할 때는 Hadoop과 관련 응용 프로�
 	
 5. **HDInsight 클러스터 만들기**를 클릭합니다. 프로비전이 완료되면 상태 열에 **실행 중**이 표시됩니다.
 
-	>[AZURE.NOTE] 위 절차가 기본 SSH 사용자 이름 및 Azure 저장소 컨테이너를 사용하여 quick-create 옵션으로 Linux 클러스터를 만듭니다. 인증에서 SSH 키를 사용하거나 추가 저장소 계정을 사용하는 등의 사용자 지정 옵션으로 클러스터를 만들려면 [사용자 지정 옵션을 사용하여 HDInsight Linux 클러스터 프로비전](../hdinsight-hadoop-provision-linux-clusters)을 참조하세요.
+	>[AZURE.NOTE] 위 절차가 기본 SSH 사용자 이름 및 Azure 저장소 컨테이너를 사용하여 quick-create 옵션으로 Linux 클러스터를 만듭니다. 인증에서 SSH 키를 사용하거나 추가 저장소 계정을 사용하는 등의 사용자 지정 옵션으로 클러스터를 만들려면 [사용자 지정 옵션을 사용하여 HDInsight Linux 클러스터 프로비전](hdinsight-hadoop-provision-linux-clusters.md)을 참조하세요.
 
 
 ## <a name="hivequery"></a>클러스터에서 Hive 작업 제출
@@ -240,13 +240,13 @@ SSH를 사용하여 클러스터에 연결되면 다음 명령을 사용하여 H
 ## <a name="nextsteps"></a>다음 단계
 이 자습서에서 HDInsight를 사용하여 Hadoop Linux 클러스터를 프로비전하는 방법과 SSH를 사용하여 Hive 쿼리를 실행하는 방법을 배웠습니다. 자세한 내용은 다음 문서를 참조하세요.
 
-- [사용자 지정 옵션을 사용하여 Linux에서 HDInsight 프로비전](../hdinsight-hadoop-provision-linux-clusters)
-- [Linux에서 HDInsight 작업](../hdinsight-hadoop-linux-information)
-- [Ambari를 사용하여 HDInsight 클러스터 관리](../hdinsight-hadoop-manage-ambari)
+- [사용자 지정 옵션을 사용하여 Linux에서 HDInsight 프로비전](hdinsight-hadoop-provision-linux-clusters.md)
+- [Linux에서 HDInsight 작업](hdinsight-hadoop-linux-information.md)
+- [Ambari를 사용하여 HDInsight 클러스터 관리](hdinsight-hadoop-manage-ambari.md)
 - [HDInsight에서 MapReduce 사용][hdinsight-use-mapreduce]
 - [HDInsight에서 Hive 사용][hdinsight-use-hive]
 - [HDInsight에서 Pig 사용][hdinsight-use-pig]
-- [HDInsight에서 Azure Blob 저장소 사용](../hdinsight-use-blob-storage)
+- [HDInsight에서 Azure Blob 저장소 사용](hdinsight-use-blob-storage.md)
 - [HDInsight에 데이터 업로드][hdinsight-upload-data]
 
 

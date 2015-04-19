@@ -622,12 +622,12 @@ Bootstrap [연결된 목록 그룹][] 스타일은 각 링크의 전체 상자�
 [CompletedProject]: http://go.microsoft.com/fwlink/?LinkID=398781&clcid=0x409
 [BootstrapSite]: http://getbootstrap.com/
 [WebPIAzureSdk23NetVS13]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/WebPIAzureSdk23NetVS13.png
-[linked list group]: http://getbootstrap.com/components/#list-group-linked
+[연결된 목록 그룹]: http://getbootstrap.com/components/#list-group-linked
 [glyphicon]: http://getbootstrap.com/components/#glyphicons
-[panels]: http://getbootstrap.com/components/#panels
+[패널]: http://getbootstrap.com/components/#panels
 [custom linked list group]: http://getbootstrap.com/components/#list-group-custom-content
 [그리드 시스템]: http://getbootstrap.com/css/#grid
-[응답성이 뛰어난 유틸리티]: http://getbootstrap.com/css/#responsive-utilities
+[반응형 유틸리티]: http://getbootstrap.com/css/#responsive-utilities
 [공식 Bootstrap 블로그]: http://blog.getbootstrap.com/
 [Tutorial Republic의 Twitter Bootstrap 자습서]: http://www.tutorialrepublic.com/twitter-bootstrap-tutorial/
 [The Bootstrap 놀이터]: http://www.bootply.com/

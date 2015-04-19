@@ -78,7 +78,7 @@
 * [푸시 알림 시작] 
   <br/>앱에 기본적인 푸시 알림을 보내는 방법을 알아봅니다.
 
-범용 Windows 앱에 대한 자세한 내용은 [단일 모바일 서비스에서 여러 장치 플랫폼 지원](/ko-kr/documentation/articles/mobile-services-how-to-use-multiple-clients-single-service#shared-vs)을 참조하세요.
+범용 Windows 앱에 대한 자세한 내용은 [단일 모바일 서비스에서 여러 장치 플랫폼 지원](mobile-services-how-to-use-multiple-clients-single-service#shared-vs.md)을 참조하세요.
 
 <!-- Anchors. -->
 [모바일 서비스 시작]:#getting-started

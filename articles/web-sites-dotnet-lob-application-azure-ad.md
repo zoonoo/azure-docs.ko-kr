@@ -22,7 +22,7 @@
 
 사용하는 AAD 테넌트에는 Azure 전용 디렉터리가 있거나, 온-프레미스 AD(Active Directory)와의 디렉터리 동기화를 통해 온-프레미스 또는 원격에 있는 작업자를 위한 SSO(Single Sign-On) 환경을 만들 수 있습니다.
 
-Azure 웹 사이트에 대한 여러 엔터프라이즈 인증 및 권한 부여 옵션의 개요는 [Azure 웹 사이트의 LOB 응용 프로그램에서 사용자 인증 및 권한 부여](../web-sites-authentication-authorization)를 참조하세요.
+Azure 웹 사이트에 대한 여러 엔터프라이즈 인증 및 권한 부여 옵션의 개요는 [Azure 웹 사이트의 LOB 응용 프로그램에서 사용자 인증 및 권한 부여](web-sites-authentication-authorization.md)를 참조하세요.
 
 <a name="bkmk_build"></a>
 ## 빌드할 내용 ##
@@ -339,8 +339,8 @@ Azure 웹 사이트에서 다음 기능을 통해 작업 항목을 추적하는 
 ## 추가 리소스
 
 - [SSL 및 Authorize 특성을 사용하여 응용 프로그램 보호](../web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/#protect-the-application-with-ssl-and-the-authorize-attribute)
-- [Azure 웹 사이트에서 LOB 응용 프로그램의 사용자 인증 및 권한 부여 ](../web-sites-authentication-authorization/)
-- [Azure 웹 사이트에서 AD FS로 인증하는 ASP.NET MVC LOB(기간 업무) 응용 프로그램 만들기](../web-sites-dotnet-lob-application-adfs/)
+- [Azure 웹 사이트에서 LOB 응용 프로그램의 사용자 인증 및 권한 부여 ](web-sites-authentication-authorization.md)
+- [Azure 웹 사이트에서 AD FS로 인증하는 ASP.NET MVC LOB(기간 업무) 응용 프로그램 만들기](web-sites-dotnet-lob-application-adfs.md)
 - [Microsoft Azure Active Directory 샘플 및 설명서](https://github.com/AzureADSamples)
 - [Vittorio Bertocci의 블로그](http://blogs.msdn.com/b/vbertocci/)
 - [WIF에서 Katana로 VS2013 웹 프로젝트 마이그레이션](http://www.cloudidentity.com/blog/2014/09/15/MIGRATE-A-VS2013-WEB-PROJECT-FROM-WIF-TO-KATANA/)

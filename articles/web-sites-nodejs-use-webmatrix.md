@@ -100,7 +100,7 @@
 
 ##다음 단계
 
-Azure에 제공되는 Node.js 버전에 대한 정보 및 응용 프로그램에 사용할 버전 지정 방법에 대한 자세한 내용은 [Azure 응용 프로그램에서 Node.js 버전 지정](/ko-kr/documentation/articles/nodejs-specify-node-version-azure-apps/).을 참조하세요
+Azure에 제공되는 Node.js 버전에 대한 정보 및 응용 프로그램에 사용할 버전 지정 방법에 대한 자세한 내용은 [Azure 응용 프로그램에서 Node.js 버전 지정](nodejs-specify-node-version-azure-apps.md).을 참조하세요
 
 응용 프로그램을 Azure에 배포한 후 문제가 발생하는 경우 [Azure 웹 사이트에서 Node.js 응용 프로그램 디버그 방법](http://azure.microsoft.com/develop/nodejs/how-to-guides/Debug-Website/)에서 문제를 진단하는 방법에 대한 정보를 참조하세요.
 

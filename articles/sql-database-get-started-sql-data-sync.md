@@ -179,9 +179,9 @@ Azure SQL 데이터 동기화에서는 동기화할 테이블과 열을 선택�
 ## 다음 단계
 SQL 데이터베이스와 SQL 데이터 동기화에 대한 자세한 내용은 다음을 참조하세요.
 
-* [SQL 데이터베이스에 프리미엄 서비스 등록] (../sign-up-for-sql-database-premium/)
+* [SQL 데이터베이스에 프리미엄 서비스 등록] (sign-up-for-sql-database-premium.md)
 * [SQL 데이터 동기화(WA 포털)](http://msdn.microsoft.com/library/windowsazure/jj856263.aspx)
-* [Azure SQL 데이터베이스 시작](../getting-started-w-sql-databases/)
+* [Azure SQL 데이터베이스 시작](getting-started-w-sql-databases.md)
 * [SQL Server 데이터베이스 수명 주기](http://go.microsoft.com/fwlink/?LinkId=275193)
 
 

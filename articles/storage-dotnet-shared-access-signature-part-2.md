@@ -19,7 +19,7 @@
 
 # 공유 액세스 서명, 2부: Blob 서비스를 통해 SAS 만들기 및 사용
 
-이 자습서의 [1부](../storage-dotnet-shared-access-signature-part-1/)에서는 SAS(공유 액세스 서명)에 대해 설명하고 SAS 사용을 위한 모범 사례를 살펴보았습니다. 2부에서는 Azure Blob 서비스를 사용하여 공유 액세스 서명을 생성한 다음 사용하는 방법에 대해 살펴봅니다. 예제는 C#으로 작성되었으며 Azure Storage Client Library for .NET을 사용합니다. 시나리오에서는 공유 액세스 서명 작업의 다음과 같은 측면을 다룹니다.
+이 자습서의 [1부](storage-dotnet-shared-access-signature-part-1.md)에서는 SAS(공유 액세스 서명)에 대해 설명하고 SAS 사용을 위한 모범 사례를 살펴보았습니다. 2부에서는 Azure Blob 서비스를 사용하여 공유 액세스 서명을 생성한 다음 사용하는 방법에 대해 살펴봅니다. 예제는 C#으로 작성되었으며 Azure Storage Client Library for .NET을 사용합니다. 시나리오에서는 공유 액세스 서명 작업의 다음과 같은 측면을 다룹니다.
 
 - 컨테이너에서 공유 액세스 서명 생성
 - Blob에서 공유 액세스 서명 생성
@@ -533,7 +533,7 @@ Blob에서 만든 공유 액세스 서명을 모두 사용하여 **UseBlobSAS()*
 
 # 다음 단계 #
 
-[공유 액세스 서명, 1부: SAS 모델 이해](../storage-dotnet-shared-access-signature-part-1/)
+[공유 액세스 서명, 1부: SAS 모델 이해](storage-dotnet-shared-access-signature-part-1.md)
 
 [Azure 저장소 리소스에 대한 액세스 관리](http://msdn.microsoft.com/library/windowsazure/ee393343.aspx)
 

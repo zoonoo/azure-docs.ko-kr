@@ -127,17 +127,17 @@ Trident는 조인, 집계, 그룹화, 함수 및 필터와 같은 도구를 제�
 
 ##다음 단계
 
-로컬에서 토폴로지를 테스트했으므로 [HDInsight의 Strom에서 이 토폴로지를 배포](../hdinsight-storm-deploy-monitor-topology/)하는 방법을 알아봅니다.
+로컬에서 토폴로지를 테스트했으므로 [HDInsight의 Strom에서 이 토폴로지를 배포](hdinsight-storm-deploy-monitor-topology.md)하는 방법을 알아봅니다.
 
 다음 스톰 항목을 참조할 수도 있습니다.
 
-* [Maven을 사용하여 HDInsight에서 Storm에 대한 Java 토폴로지 개발](../hdinsight-storm-develop-java-topology/)
+* [Maven을 사용하여 HDInsight에서 Storm에 대한 Java 토폴로지 개발](hdinsight-storm-develop-java-topology.md)
 
-* [Visual Studio를 사용하여 HDInsight에서 Storm에 대한 C# 토폴로지 개발](../hdinsight-storm-develop-csharp-visual-studio-topology/)
+* [Visual Studio를 사용하여 HDInsight에서 Storm에 대한 C# 토폴로지 개발](hdinsight-storm-develop-csharp-visual-studio-topology.md)
 
 HDinsight에 대한 추가 Storm 예제:
 
 * [HDInsight의 Storm 예](https://github.com/hdinsight/hdinsight-storm-examples)
 
-* [HDInsight의 Storm을 사용하여 이벤트 허브 센서 데이터 분석](../hdinsight-storm-sensor-data-analysis/)
+* [HDInsight의 Storm을 사용하여 이벤트 허브 센서 데이터 분석](hdinsight-storm-sensor-data-analysis.md)
 <!--HONumber=47-->

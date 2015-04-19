@@ -26,7 +26,7 @@ Azure SQL 데이터베이스의 탄력적인 확장(현재 미리 보기 상태)
 
 탄력적인 확장의 작동 방식에 대한 자세한 내용은 [탄력적인 확장 개요](http://go.microsoft.com/?linkid=9862592)를 참조하세요.
 
-탄력적인 확장과 관련된 모든 항목의 목록은 [탄력적인 확장 설명서 맵](./sql-database-elastic-scale-documentation-map.md)을 참조하세요.
+탄력적인 확장과 관련된 모든 항목의 목록은 [탄력적인 확장 설명서 맵](sql-database-elastic-scale-documentation-map.md)을 참조하세요.
 
 ## 탄력적인 확장 샘플 응용 프로그램
 
@@ -92,7 +92,7 @@ Azure SQL 데이터베이스의 탄력적인 확장(현재 미리 보기 상태)
 ## 다음 단계
 탄력적인 확장 기능에 대한 자세한 내용은 다음 항목을 참조하세요.
 
-* [탄력적인 확장 학습 페이지](./sql-database-elastic-scale-documentation-map.md) 
+* [탄력적인 확장 학습 페이지](sql-database-elastic-scale-documentation-map.md) 
 -    코드 샘플: 
     -    [Azure SQL 데이터베이스의 탄력적인 확장 - 시작](http://code.msdn.microsoft.com/Elastic-Scale-with-Azure-a80d8dc6?SRC=VSIDE)
     -    [Azure SQL 데이터베이스의 탄력적인 확장 - Entity Framework와 통합](http://code.msdn.microsoft.com/Elastic-Scale-with-Azure-bae904ba?SRC=VSIDE)

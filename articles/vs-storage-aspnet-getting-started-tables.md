@@ -17,15 +17,15 @@
 	ms.author="kempb"/>
 
 > [AZURE.SELECTOR]
-> - [시작하기](/documentation/articles/vs-storage-aspnet-getting-started-tables/)
-> - [변경된 내용](/documentation/articles/vs-storage-aspnet-what-happened/)
+> - [시작하기](vs-storage-aspnet-getting-started-tables.md)
+> - [변경된 내용](vs-storage-aspnet-what-happened.md)
 
 ## Azure 저장소 시작(ASP.NET 프로젝트)
 
 > [AZURE.SELECTOR]
-> - [Blob](/documentation/articles/vs-storage-aspnet-getting-started-blobs/)
-> - [큐](/documentation/articles/vs-storage-aspnet-getting-started-queues/)
-> - [테이블](/documentation/articles/vs-storage-aspnet-getting-started-tables/)
+> - [Blob](vs-storage-aspnet-getting-started-blobs.md)
+> - [큐](vs-storage-aspnet-getting-started-queues.md)
+> - [테이블](vs-storage-aspnet-getting-started-tables.md)
 
 Azure 테이블 저장소 서비스를 사용하면 많은 양의 구조화된 데이터를 저장할 수 있습니다. 이 서비스는 Azure 클라우드 내부 및 외부에서 인증된 호출을 수락하는 NoSQL 데이터 저장소입니다. Azure 테이블은 구조화된 비관계형 데이터를 저장하는 데 적합합니다.  자세한 내용은 [.NET에서 테이블 저장소를 사용하는 방법](http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-tables/#create-table "How to use Table Storage from .NET")(영문)을 참조하세요.
 

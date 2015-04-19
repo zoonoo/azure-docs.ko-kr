@@ -22,7 +22,7 @@
 
 #Azure 인증 배포의 Linux
 
-다양한 Linux 커뮤니티와의 작업을 통해 좀더 인증된 배포를 제공하며, Azure 갤러리의 배포 이미지는 다음 파트너를 통해 제공됩니다. 그러는 동안 이 갤러리에서 사용할 수 없는 배포의 경우, [이 페이지]의 지침에 따라 자신만의 Linux를 언제든지 가져올 수 있습니다(../virtual-machines-linux-create-upload-vhd/).
+다양한 Linux 커뮤니티와의 작업을 통해 좀더 인증된 배포를 제공하며, Azure 갤러리의 배포 이미지는 다음 파트너를 통해 제공됩니다. 그러는 동안 이 갤러리에서 사용할 수 없는 배포의 경우, [이 페이지]의 지침에 따라 자신만의 Linux를 언제든지 가져올 수 있습니다(virtual-machines-linux-create-upload-vhd.md).
 
 ## Canonical ##
  

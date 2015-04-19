@@ -63,7 +63,7 @@
 ## 다음 단계
 
  
-* [Azure의 오픈 소스 컴퓨팅 및 Linux](../virtual-machines-linux-opensource/)
-* [Linux를 실행하는 가상 컴퓨터에 로그온하는 방법](../virtual-machines-linux-how-to-log-on/)
+* [Azure의 오픈 소스 컴퓨팅 및 Linux](virtual-machines-linux-opensource.md)
+* [Linux를 실행하는 가상 컴퓨터에 로그온하는 방법](virtual-machines-linux-how-to-log-on.md)
 
 <!--HONumber=47-->

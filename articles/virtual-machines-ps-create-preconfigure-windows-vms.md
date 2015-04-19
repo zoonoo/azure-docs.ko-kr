@@ -26,7 +26,7 @@ Linux 기반 가상 컴퓨터에 대한 관련 항목은 [Azure PowerShell을 �
 
 ## 1단계: Azure PowerShell 설치
 
-[Azure PowerShell을 설치 및 구성하는 방법](../install-configure-powershell/)의 지침을 사용하여 로컬 컴퓨터에 Azure PowerShell을 설치합니다(아직 설치하지 않은 경우). 그런 다음 Azure PowerShell 명령 프롬프트를 엽니다.
+[Azure PowerShell을 설치 및 구성하는 방법](install-configure-powershell.md)의 지침을 사용하여 로컬 컴퓨터에 Azure PowerShell을 설치합니다(아직 설치하지 않은 경우). 그런 다음 Azure PowerShell 명령 프롬프트를 엽니다.
 
 ## 2단계: 구독 및 저장소 계정 설정
 
@@ -265,8 +265,8 @@ Active Directory 도메인 컨트롤러에 대해 $hcaching을 "None"으로 설�
 
 [Azure 가상 컴퓨터 개요](http://msdn.microsoft.com/library/azure/jj156143.aspx)
 
-[Azure PowerShell을 설치 및 구성하는 방법](../install-configure-powershell/)
+[Azure PowerShell을 설치 및 구성하는 방법](install-configure-powershell.md)
 
-[Azure PowerShell을 사용하여 Linux 기반 가상 컴퓨터 만들기 및 미리 구성](../virtual-machines-ps-create-preconfigure-linux-vms/)
+[Azure PowerShell을 사용하여 Linux 기반 가상 컴퓨터 만들기 및 미리 구성](virtual-machines-ps-create-preconfigure-linux-vms.md)
 
 <!--HONumber=47-->

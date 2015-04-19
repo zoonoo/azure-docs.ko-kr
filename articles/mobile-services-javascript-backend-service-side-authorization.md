@@ -17,8 +17,8 @@
 # 모바일 서비스에서 사용자의 서비스 쪽 권한 부여
 
 > [AZURE.SELECTOR-LIST(플랫폼 | 백 엔드)]
-- [(모든 |.NET)](/ko-kr/documentation/articles/mobile-services-dotnet-backend-service-side-authorization/)
-- [(모든 | Javascript)](/ko-kr/documentation/articles/mobile-services-javascript-backend-service-side-authorization/)
+- [(모든 |.NET)](mobile-services-dotnet-backend-service-side-authorization.md)
+- [(모든 | Javascript)](mobile-services-javascript-backend-service-side-authorization.md)
 
 이 항목에서는 사용자에게 권한을 부여하기 위해 서버 쪽 스크립트를 사용하는 방법을 보여줍니다. 이 자습서에서는 Azure 모바일 서비스로 스크립트를 등록하고 필터 쿼리 사용자 ID를 기반으로 쿼리를 필터링하며 사용자에게 자신의 데이터에 대한 액세스만 제공합니다.
 

@@ -51,7 +51,7 @@ Azure 검색은 사용자 지정 검색 응용 프로그램에서 사용할 수 
 +	[한도 및 제약 조건](http://msdn.microsoft.com/library/dn798934.aspx)
 +	[가격 정보](http://go.microsoft.com/fwlink/p/?LinkdID=509792)
 
-등록할 준비가 되면 [Azure 검색 시작](../search-get-started/)을 참조하세요.
+등록할 준비가 되면 [Azure 검색 시작](search-get-started.md)을 참조하세요.
 
 
 <h2 id="sub-2">관리 작업</h2>

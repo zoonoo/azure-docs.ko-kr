@@ -68,7 +68,7 @@ Azure 저장소 계정은 Azure 저장소의 서비스에 대한 액세스 권�
 
 ![Azure Storage Resources](./media/storage-introduction/storage-concepts.png)
 
-표준 저장소 계정을 만들 준비가 되면 [저장소 계정 만들기, 관리 또는 삭제](../storage-create-storage-account/)를 참조하세요.
+표준 저장소 계정을 만들 준비가 되면 [저장소 계정 만들기, 관리 또는 삭제](storage-create-storage-account.md)를 참조하세요.
 
 ### 프리미엄 저장소 계정(미리 보기)
 
@@ -128,7 +128,7 @@ Azure 가상 컴퓨터나 클라우드 서비스에서 실행되는 응용 프�
 
 생성 시 저장소 계정에 인증을 위해 사용되는 2개의 개인 액세스 키가 할당됩니다. 2개의 키는 일반 보안 키 관리 방법의 일환으로 키를 정기적으로 다시 생성할 때 응용 프로그램을 계속 사용할 수 있도록 합니다.
 
-저장소 리소스에 대한 제어된 액세스를 사용자에게 허용할 필요가 없는 경우 [공유 액세스 서명](../storage-dotnet-shared-access-signature-part-1/)을 만들 수 있습니다. 공유 액세스 서명은 컨테이너, Blob, 테이블 또는 큐에 대한 위임된 액세스를 허용하는 URL에 추가할 수 있는 토큰입니다. 토큰을 소유한 사람은 토큰 유효 기간 동안 토큰이 가리키는 리소스에 토큰이 지정하는 권한으로 액세스할 수 있습니다. 현재 Azure 파일 저장소에서는 공유 액세스 서명을 지원하지 않습니다.
+저장소 리소스에 대한 제어된 액세스를 사용자에게 허용할 필요가 없는 경우 [공유 액세스 서명](storage-dotnet-shared-access-signature-part-1.md)을 만들 수 있습니다. 공유 액세스 서명은 컨테이너, Blob, 테이블 또는 큐에 대한 위임된 액세스를 허용하는 URL에 추가할 수 있는 토큰입니다. 토큰을 소유한 사람은 토큰 유효 기간 동안 토큰이 가리키는 리소스에 토큰이 지정하는 권한으로 액세스할 수 있습니다. 현재 Azure 파일 저장소에서는 공유 액세스 서명을 지원하지 않습니다.
 
 마지막으로, 컨테이너 및 해당 Blob 또는 특정 Blob을 공개적으로 액세스할 수 있게 지정할 수 있습니다. 컨테이너 또는 Blob을 공개로 지정하면 모든 사용자가 이 컨테이너 또는 Blob을 익명으로 읽을 수 있으며 인증이 필요 없습니다.  공용 컨테이너 및 Blob은 웹 사이트에서 호스트되는 미디어 및 문서와 같은 리소스를 노출하는 데 유용합니다.  전 세계의 대상을 위한 네트워크 대기 시간을 줄이려면 Azure CDN으로 웹 사이트에서 사용되는 Blob 데이터를 캐시할 수 있습니다.
 
@@ -183,38 +183,38 @@ Azure 저장소를 시작하려면 다음 리소스를 탐색하세요.
 <h3>.NET 개발자</h3>
 
 - [.NET 클라이언트 라이브러리 참조](http://msdn.microsoft.com/library/wa_storage_30_reference_home.aspx)
-- [.NET에서 Blob 저장소를 사용하는 방법](../storage-dotnet-how-to-use-blobs/)
-- [.NET에서 테이블 저장소를 사용하는 방법](../storage-dotnet-how-to-use-tables/)
-- [.NET에서 큐 저장소를 사용하는 방법](../storage-dotnet-how-to-use-queues/)
+- [.NET에서 Blob 저장소를 사용하는 방법](storage-dotnet-how-to-use-blobs.md)
+- [.NET에서 테이블 저장소를 사용하는 방법](storage-dotnet-how-to-use-tables.md)
+- [.NET에서 큐 저장소를 사용하는 방법](storage-dotnet-how-to-use-queues.md)
 
 <h3>Java/Android 개발자</h3>
 
 - [Java 클라이언트 라이브러리 참조]()
-- [Java/Android에서 Blob 저장소를 사용하는 방법](../storage-java-how-to-use-blob-storage/)
-- [Java/Android에서 테이블 저장소를 사용하는 방법](../storage-java-how-to-use-table-storage/)
-- [Java/Android에서 큐 저장소를 사용하는 방법](../storage-java-how-to-use-queue-storage/)
+- [Java/Android에서 Blob 저장소를 사용하는 방법](storage-java-how-to-use-blob-storage.md)
+- [Java/Android에서 테이블 저장소를 사용하는 방법](storage-java-how-to-use-table-storage.md)
+- [Java/Android에서 큐 저장소를 사용하는 방법](storage-java-how-to-use-queue-storage.md)
 
 <h3>Node.js 개발자</h3>
 
-- [Node.js에서 Blob 저장소를 사용하는 방법](../storage-nodejs-how-to-use-blob-storage/)
-- [Node.js에서 테이블 저장소를 사용하는 방법](../storage-nodejs-how-to-use-table-storage/)
-- [Node.js에서 큐 저장소를 사용하는 방법](../storage-nodejs-how-to-use-queues/)
+- [Node.js에서 Blob 저장소를 사용하는 방법](storage-nodejs-how-to-use-blob-storage.md)
+- [Node.js에서 테이블 저장소를 사용하는 방법](storage-nodejs-how-to-use-table-storage.md)
+- [Node.js에서 큐 저장소를 사용하는 방법](storage-nodejs-how-to-use-queues.md)
 
 <h3>PHP 개발자</h3>
 
-- [PHP에서 Blob 저장소를 사용하는 방법](../storage-php-how-to-use-blobs/)
-- [PHP에서 테이블 저장소를 사용하는 방법](../storage-php-how-to-use-table-storage/)
-- [PHP에서 큐 저장소를 사용하는 방법](../storage-php-how-to-use-queues/)
+- [PHP에서 Blob 저장소를 사용하는 방법](storage-php-how-to-use-blobs.md)
+- [PHP에서 테이블 저장소를 사용하는 방법](storage-php-how-to-use-table-storage.md)
+- [PHP에서 큐 저장소를 사용하는 방법](storage-php-how-to-use-queues.md)
 
 <h3>Ruby 개발자</h3>
 
-- [Ruby에서 Blob 저장소를 사용하는 방법](../storage-ruby-how-to-use-blob-storage/)
-- [Ruby에서 테이블 저장소를 사용하는 방법](../storage-ruby-how-to-use-table-storage/)
-- [Ruby에서 큐 저장소를 사용하는 방법](../storage-ruby-how-to-use-queue-storage/)
+- [Ruby에서 Blob 저장소를 사용하는 방법](storage-ruby-how-to-use-blob-storage.md)
+- [Ruby에서 테이블 저장소를 사용하는 방법](storage-ruby-how-to-use-table-storage.md)
+- [Ruby에서 큐 저장소를 사용하는 방법](storage-ruby-how-to-use-queue-storage.md)
 
 <h3>Python 개발자</h3>
 
-- [Python에서 Blob 저장소를 사용하는 방법](../storage-python-how-to-use-blob-storage/)
-- [Python에서 테이블 저장소를 사용하는 방법](../storage-python-how-to-use-table-storage/)
-- [Python에서 큐 저장소를 사용하는 방법](../storage-python-how-to-use-queue-storage/)
+- [Python에서 Blob 저장소를 사용하는 방법](storage-python-how-to-use-blob-storage.md)
+- [Python에서 테이블 저장소를 사용하는 방법](storage-python-how-to-use-table-storage.md)
+- [Python에서 큐 저장소를 사용하는 방법](storage-python-how-to-use-queue-storage.md)
 <!--HONumber=42-->

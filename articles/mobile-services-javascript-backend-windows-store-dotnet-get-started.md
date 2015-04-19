@@ -26,7 +26,7 @@
 
 >[AZURE.NOTE]이 항목에서는 Azure 관리 포털을 사용하여 새 모바일 서비스 프로젝트 및 범용 Windows 앱을 만드는 방법을 보여 줍니다. Visual Studio 2013을 사용하면 기존 Visual Studio 솔루션에 새 모바일 서비스 프로젝트를 추가할 수도 있습니다. 자세한 내용은 [퀵 스타트: 모바일 서비스 추가(JavaScript 백 엔드)](http://msdn.microsoft.com/library/windows/apps/xaml/dn263180.aspx)를 참조하세요.
 
->Windows Phone 8.0 또는 Windows Phone 스토어 8.1 앱 프로젝트에 모바일 서비스를 추가하려면 [Windows Phone에 대한 데이터로 시작](/ko-kr/documentation/articles/mobile-services-windows-phone-get-started-data)을 참조하세요.
+>Windows Phone 8.0 또는 Windows Phone 스토어 8.1 앱 프로젝트에 모바일 서비스를 추가하려면 [Windows Phone에 대한 데이터로 시작](mobile-services-windows-phone-get-started-data.md)을 참조하세요.
 
 [AZURE.INCLUDE [mobile-services-windows-universal-get-started](../includes/mobile-services-windows-universal-get-started.md)]
 
@@ -85,7 +85,7 @@
 * [푸시 알림 시작] 
   <br/>앱에 기본적인 푸시 알림을 보내는 방법을 알아봅니다.
 
-범용 Windows 앱에 대한 자세한 내용은 [단일 모바일 서비스에서 여러 장치 플랫폼 지원](/ko-kr/documentation/articles/mobile-services-how-to-use-multiple-clients-single-service#shared-vs)을 참조하세요.
+범용 Windows 앱에 대한 자세한 내용은 [단일 모바일 서비스에서 여러 장치 플랫폼 지원](mobile-services-how-to-use-multiple-clients-single-service#shared-vs.md)을 참조하세요.
 
 <!-- Anchors. -->
 [모바일 서비스 시작]:#getting-started

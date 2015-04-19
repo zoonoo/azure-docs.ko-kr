@@ -18,11 +18,11 @@
 
 # WebJobs SDK를 사용하여 Azure Blob 저장소로 작업하는 방법
 
-이 가이드에서는 Azure Blob를 만들거나 업데이트할 때 프로세스를 트리거하는 방법을 보여 주는 Azure Blob C# 코드 샘플을 제공합니다. 코드 샘플에서는 [WebJobs SDK](../websites-dotnet-webjobs-sdk/) 버전 1.x를 사용합니다.
+이 가이드에서는 Azure Blob를 만들거나 업데이트할 때 프로세스를 트리거하는 방법을 보여 주는 Azure Blob C# 코드 샘플을 제공합니다. 코드 샘플에서는 [WebJobs SDK](websites-dotnet-webjobs-sdk.md) 버전 1.x를 사용합니다.
 
-Blob를 만드는 방법을 보여 주는 코드 샘플은 [WebJobs SDK를 사용하여 Azure 큐 저장소로 작업하는 방법](../websites-dotnet-webjobs-sdk-storage-queues-how-to/). 을 참조하세요.
+Blob를 만드는 방법을 보여 주는 코드 샘플은 [WebJobs SDK를 사용하여 Azure 큐 저장소로 작업하는 방법](websites-dotnet-webjobs-sdk-storage-queues-how-to.md). 을 참조하세요.
 		
-이 가이드에서는 [저장소 계정을 가리키는 연결 문자열을 사용하여 Visual Studio에서 WebJob 프로젝트를 만드는 방법](../websites-dotnet-webjobs-sdk-get-started/).을 알고 있는 것으로 가정합니다.
+이 가이드에서는 [저장소 계정을 가리키는 연결 문자열을 사용하여 Visual Studio에서 WebJob 프로젝트를 만드는 방법](websites-dotnet-webjobs-sdk-get-started.md).을 알고 있는 것으로 가정합니다.
 
 ## 목차
 
@@ -223,7 +223,7 @@ Blob를 강제로 처리하려면  *azure-webjobs-hosts* 컨테이너에서 해�
 
 ## <a id="queues"></a>큐 문서에서 다루는 관련 항목
 
-큐 메시지에 의해 트리거되는 Blob를 처리하는 방법 또는 Blob 처리에 특정하지 않은 WebJobs SDK 시나리오에 대한 자세한 내용은 [WebJobs SDK를 사용하여 Azure 큐 저장소로 작업하는 방법](../websites-dotnet-webjobs-sdk-storage-queues-how-to/). 을 참조하세요.
+큐 메시지에 의해 트리거되는 Blob를 처리하는 방법 또는 Blob 처리에 특정하지 않은 WebJobs SDK 시나리오에 대한 자세한 내용은 [WebJobs SDK를 사용하여 Azure 큐 저장소로 작업하는 방법](websites-dotnet-webjobs-sdk-storage-queues-how-to.md). 을 참조하세요.
 
 이 문서에서 다루는 관련 항목은 다음과 같습니다.
 

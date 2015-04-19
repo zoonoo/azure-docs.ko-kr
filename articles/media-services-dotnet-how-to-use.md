@@ -25,7 +25,7 @@
 
 ## 필수 조건
 
--   신규 또는 기존 Azure 구독의 미디어 서비스 계정. [미디어 서비스 계정을 만드는 방법](../media-services-create-account/)(영문)을 참조하세요.
+-   신규 또는 기존 Azure 구독의 미디어 서비스 계정. [미디어 서비스 계정을 만드는 방법](media-services-create-account.md)(영문)을 참조하세요.
 -   운영 체제: Windows 7, Windows 2008 R2 또는 Windows 8
 -   .NET Framework 4.5
 -   Visual Studio 2013, Visual Studio 2012 또는 Visual Studio 2010 SP1(Professional, Premium, Ultimate 또는 Express) 

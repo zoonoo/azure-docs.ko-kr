@@ -42,7 +42,7 @@ Apache Storm은 데이터 스트림 처리용 확장 가능한 분산형 실시�
 
 * Microsoft Azure PowerShell
 
-* Apache Storm을 사용해 본 적이 없으면 먼저 [HDInsight Storm 개요](/ko-kr/documentation/articles/hdinsight-storm-overview) 문서를 확인해야 합니다.
+* Apache Storm을 사용해 본 적이 없으면 먼저 [HDInsight Storm 개요](hdinsight-storm-overview.md) 문서를 확인해야 합니다.
 
 ## <a id="provision"></a>Azure 포털에서 Storm 클러스터 프로비전
 
@@ -72,7 +72,7 @@ Apache Storm은 데이터 스트림 처리용 확장 가능한 분산형 실시�
 
 	![storage account](./media/hdinsight-storm-getting-started/wizard4.png)
 
-8. **스크립트 작업** 페이지에서 **스크립트 작업 추가**를 클릭하여 클러스터가 생성될 때 클러스터를 사용자 지정하기 위해 실행할 사용자 지정 스크립트에 대한 세부 정보를 제공합니다. 예를 들어 스크립트 작업을 사용하여 <a href="http://spark.apache.org/docs/latest/index.html" target="_blank">Apache Spark</a>를 설치할 클러스터를 사용자 지정할 수 있습니다. 자세한 내용은 [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정(영문)](/ko-kr/documentation/articles/hdinsight-hadoop-customize-cluster/)을 참조하세요. 
+8. **스크립트 작업** 페이지에서 **스크립트 작업 추가**를 클릭하여 클러스터가 생성될 때 클러스터를 사용자 지정하기 위해 실행할 사용자 지정 스크립트에 대한 세부 정보를 제공합니다. 예를 들어 스크립트 작업을 사용하여 <a href="http://spark.apache.org/docs/latest/index.html" target="_blank">Apache Spark</a>를 설치할 클러스터를 사용자 지정할 수 있습니다. 자세한 내용은 [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정(영문)](hdinsight-hadoop-customize-cluster.md)을 참조하세요. 
 	
 	![Configure Script Action to customize an HDInsight HBase cluster](./media/hdinsight-storm-getting-started/wizard5.png "Use Script Action to customize an HDInsight cluster") 
 
@@ -197,9 +197,9 @@ WordCountTopology 샘플은 디렉터리에 출력을 쓰지 않지만 Storm UI 
 
 	> [AZURE.NOTE] Java 문서는 웹 페이지로 구성됩니다. 추출 후에는 브라우저를 사용하여 **index.html** 파일을 확인합니다.
 
-* [Storm 및 HDInsight로 센서 데이터 분석](/ko-kr/documentation/articles/hdinsight-storm-sensor-data-analysis)
+* [Storm 및 HDInsight로 센서 데이터 분석](hdinsight-storm-sensor-data-analysis.md)
 
-* [HDInsight에서 Storm에 대해 SCP.NET 및 C#을 사용하여 스트리밍 데이터 처리 응용 프로그램 개발](/ko-kr/documentation/articles/hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application)
+* [HDInsight에서 Storm에 대해 SCP.NET 및 C#을 사용하여 스트리밍 데이터 처리 응용 프로그램 개발](hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application.md)
 
 [apachestorm]: https://storm.incubator.apache.org
 [stormdocs]: http://storm.incubator.apache.org/documentation/Documentation.html

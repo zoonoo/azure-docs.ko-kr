@@ -18,18 +18,18 @@
 
 
 #Azure Mobile Engagement v3.0.0용 Android SDK
-Android 앱에서 Azure Mobile Engagement를 통합하는 방법에 대한 모든 자세한 내용을 보려면 여기에서 시작하세요. 먼저 시도해보려는 경우 [15분 자습서]를 수행해 보세요(../mobile-engagement-android-get-started/).
+Android 앱에서 Azure Mobile Engagement를 통합하는 방법에 대한 모든 자세한 내용을 보려면 여기에서 시작하세요. 먼저 시도해보려는 경우 [15분 자습서]를 수행해 보세요(mobile-engagement-android-get-started.md).
 
-[SDK 콘텐츠]를 보려면 클릭하세요.(../mobile-engagement-android-sdk-content)
+[SDK 콘텐츠]를 보려면 클릭하세요.(mobile-engagement-android-sdk-content.md)
 
 ##통합 절차
-1. 여기서 시작합니다. [Android 앱에서 Mobile Engagement를 통합하는 방법](../mobile-engagement-android-integrate-engagement/)
+1. 여기서 시작합니다. [Android 앱에서 Mobile Engagement를 통합하는 방법](mobile-engagement-android-integrate-engagement.md)
 
-2. 알림의 경우: [Android 앱에서 도달률(알림)을 통합하는 방법](../mobile-engagement-android-integrate-engagement-reach/)
-	1. GCM(Google Cloud Messaging): [GCM과 Mobile Engagement를 통합하는 방법](../mobile-engagement-android-gcm-integrate/)
-	2. ADM(Amazon 장치 메시징): [ADM와 Mobile Engagement를 통합하는 방법](../mobile-engagement-android-adm-integrate/)
+2. 알림의 경우: [Android 앱에서 도달률(알림)을 통합하는 방법](mobile-engagement-android-integrate-engagement-reach.md)
+	1. GCM(Google Cloud Messaging): [GCM과 Mobile Engagement를 통합하는 방법](mobile-engagement-android-gcm-integrate.md)
+	2. ADM(Amazon 장치 메시징): [ADM와 Mobile Engagement를 통합하는 방법](mobile-engagement-android-adm-integrate.md)
 
-3. 태그 계획 구현: [Android 앱에서 고급 Mobile Engagement API 태깅을 사용하는 방법](../mobile-engagement-android-use-engagement-api/)
+3. 태그 계획 구현: [Android 앱에서 고급 Mobile Engagement API 태깅을 사용하는 방법](mobile-engagement-android-use-engagement-api.md)
 
 
 ##릴리스 정보
@@ -43,13 +43,13 @@ Android 앱에서 Azure Mobile Engagement를 통합하는 방법에 대한 모�
 -   보안이 향상되었습니다.
 -   Google Play 및 SmartAd 추적을 제거했습니다.
 
-이전 버전에 대해서는 [전체 릴리스 정보]를 참조하세요.(../mobile-engagement-android-release-notes/)
+이전 버전에 대해서는 [전체 릴리스 정보]를 참조하세요.(mobile-engagement-android-release-notes.md)
 
 ##업그레이드 절차
 
 이전 버전의 SDK를 응용 프로그램에 이미 통합한 경우 SDK를 업그레이드할 때 다음 사항을 고려해야 합니다.
 
-여러 버전의 SDK를 업그레이드하지 않은 경우 몇 개의 절차를 수행해야 할 수 있습니다. 전체 [업그레이드 절차]를 참조하세요(../mobile-engagement-android-upgrade-procedure/). 예를 들어 1.4.0에서 1.6.0으로 마이그레이션하는 경우 먼저 "1.4.0에서 1.5.0으로" 절차를 따른 다음 "1.5.0에서 1.6.0으로" 절차를 따라야 합니다.
+여러 버전의 SDK를 업그레이드하지 않은 경우 몇 개의 절차를 수행해야 할 수 있습니다. 전체 [업그레이드 절차]를 참조하세요(mobile-engagement-android-upgrade-procedure.md). 예를 들어 1.4.0에서 1.6.0으로 마이그레이션하는 경우 먼저 "1.4.0에서 1.5.0으로" 절차를 따른 다음 "1.5.0에서 1.6.0으로" 절차를 따라야 합니다.
 
 업그레이드를 수행하려는 원본 버전이 무엇이든, 모든 `mobile-engagement-VERSION.jar`을 새로운 파일로 바꾸세요.
 

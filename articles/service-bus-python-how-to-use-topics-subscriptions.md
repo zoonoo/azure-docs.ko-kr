@@ -26,7 +26,7 @@
 
 [AZURE.INCLUDE [howto-service-bus-topics](../includes/howto-service-bus-topics.md)]
 
-**참고:** Python 또는 [Python Azure 패키지][]를 설치해야 하는 경우 [Python 설치 가이드](../python-how-to-install/)를 참조하세요.
+**참고:** Python 또는 [Python Azure 패키지][]를 설치해야 하는 경우 [Python 설치 가이드](python-how-to-install.md)를 참조하세요.
 
 
 ## 토픽을 만드는 방법

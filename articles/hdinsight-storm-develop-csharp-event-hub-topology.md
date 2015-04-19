@@ -511,7 +511,7 @@ spout 및 bolt는 **eventhubs-storm-spout-0.9-jar-with-dependencies.jar**라는 
 
 이 문서에서는 C# 토폴로지에서 Java 이벤트 허브 Spout 및 Bolt를 사용하여 Azure 이벤트 허브의 데이터로 작업하는 방법을 배웠습니다. C# 토폴로지 만들기에 대해 자세히 알아보려면 다음을 참조하세요.
 
-* [Visual Studio를 사용하여 HDInsight에서 Apache Storm에 대한 C# 토폴로지 개발](../hdinsight-storm-develop-csharp-visual-studio-topology/)
+* [Visual Studio를 사용하여 HDInsight에서 Apache Storm에 대한 C# 토폴로지 개발](hdinsight-storm-develop-csharp-visual-studio-topology.md)
 
 * [HDInsight Storm 예](https://github.com/hdinsight/hdinsight-storm-examples)
 

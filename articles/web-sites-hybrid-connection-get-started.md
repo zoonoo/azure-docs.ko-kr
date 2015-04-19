@@ -175,7 +175,7 @@ Azure 앱 서비스의 웹 앱을 정적 TCP 포트를 사용하는 온-프레�
 
 [하이브리드 연결 웹 사이트](http://azure.microsoft.com/services/biztalk-services/)
 
-[BizTalk 서비스: 대시보드, 모니터, 크기 조정, 구성 및 하이브리드 연결 탭](../biztalk-dashboard-monitor-scale-tabs/)
+[BizTalk 서비스: 대시보드, 모니터, 크기 조정, 구성 및 하이브리드 연결 탭](biztalk-dashboard-monitor-scale-tabs.md)
 
 [원활한 응용 프로그램 이식성으로 실시간 하이브리드 연결 클라우드 구축(채널 9 비디오)](http://channel9.msdn.com/events/TechEd/NorthAmerica/2014/DCIM-B323#fbid=)
 

@@ -20,7 +20,7 @@
 
 # 공유 액세스 서명, 1부: SAS 모델 이해
 
-SAS(공유 액세스 서명)를 사용하면 계정 키를 노출하지 않고 다른 클라이언트에게 저장소 계정의 Blob, 테이블 및 큐에 대한 제한된 액세스 권한을 확실히 부여할 수 있습니다. 공유 액세스 서명에 관한 이 자습서의 1부에서는 SAS 모델의 개요를 제공하고 SAS 모범 사례를 검토합니다. [자습서의 2부](../storage-dotnet-shared-access-signature-part-2/)에서는 Blob 서비스를 통해 공유 액세스 서명을 만드는 프로세스를 안내합니다.
+SAS(공유 액세스 서명)를 사용하면 계정 키를 노출하지 않고 다른 클라이언트에게 저장소 계정의 Blob, 테이블 및 큐에 대한 제한된 액세스 권한을 확실히 부여할 수 있습니다. 공유 액세스 서명에 관한 이 자습서의 1부에서는 SAS 모델의 개요를 제공하고 SAS 모범 사례를 검토합니다. [자습서의 2부](storage-dotnet-shared-access-signature-part-2.md)에서는 Blob 서비스를 통해 공유 액세스 서명을 만드는 프로세스를 안내합니다.
 
 ## 공유 액세스 서명 정의 ##
 
@@ -223,7 +223,7 @@ https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2012-02-12&s
 
 ## Next Steps ##
 
-[공유 액세스 서명, 2부: Blob 서비스를 통해 SAS 만들기 및 사용](../storage-dotnet-shared-access-signature-part-2/)
+[공유 액세스 서명, 2부: Blob 서비스를 통해 SAS 만들기 및 사용](storage-dotnet-shared-access-signature-part-2.md)
 
 [Azure 저장소 리소스에 대한 액세스 관리](http://msdn.microsoft.com/library/windowsazure/ee393343.aspx)
 

@@ -27,7 +27,7 @@
 
 >[AZURE.NOTE]이 항목에서는 Azure 관리 포털을 사용하여 새 모바일 서비스 프로젝트 및 범용 Windows 앱을 만드는 방법을 보여 줍니다. Visual Studio 2013 업데이트 3를 사용하면 기존 Visual Studio 솔루션에 새 모바일 서비스 프로젝트를 추가할 수도 있습니다. 자세한 내용은 [퀵 스타트: 모바일 서비스 추가(.NET backend)](http://msdn.microsoft.com/library/windows/apps/dn629482.aspx)를 참조하세요.
 
->Windows Phone 8.0 또는 Windows Phone Silverlight 8.1 앱 프로젝트에 모바일 서비스를 추가하려면 [Windows Phone에 대한 데이터로 시작](/ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data) 을 참조하세요.
+>Windows Phone 8.0 또는 Windows Phone Silverlight 8.1 앱 프로젝트에 모바일 서비스를 추가하려면 [Windows Phone에 대한 데이터로 시작](mobile-services-dotnet-backend-windows-phone-get-started-data.md) 을 참조하세요.
 
 [AZURE.INCLUDE [mobile-services-windows-universal-get-started](../includes/mobile-services-windows-universal-get-started.md)]
 
@@ -109,7 +109,7 @@
 * [모바일 서비스 .NET 백 엔드 문제 해결]
   <br/> 모바일 서비스 .NET 백 엔드에서 발생할 수 있는 문제를 진단하고 해결하는 방법에 알아봅니다. 
 
-범용 Windows 앱에 대한 자세한 내용은 [단일 모바일 서비스에서 여러 장치 플랫폼 지원](/ko-kr/documentation/articles/mobile-services-how-to-use-multiple-clients-single-service#shared-vs) 을 참조하세요.
+범용 Windows 앱에 대한 자세한 내용은 [단일 모바일 서비스에서 여러 장치 플랫폼 지원](mobile-services-how-to-use-multiple-clients-single-service#shared-vs.md) 을 참조하세요.
 
 <!-- Anchors. -->
 [모바일 서비스 시작]:#getting-started

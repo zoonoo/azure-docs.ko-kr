@@ -218,7 +218,7 @@ Azure는 Hadoop을 직접 지원하며 기타 기술의 사용도 지원합니�
 
 * [빅 데이터](/ko-kr/solutions/big-data/) 
 * [Azure HDInsight Service](/ko-kr/documentation/services/hdinsight/)
-* [Azure HDInsight Service 시작](/ko-kr/documentation/articles/hdinsight-get-started/)
+* [Azure HDInsight Service 시작](hdinsight-get-started.md)
 
 다양한 noSQL 저장 방법과 관련된 문제를 다룬 다음과 같은 문서를 참조하십시오. 
 

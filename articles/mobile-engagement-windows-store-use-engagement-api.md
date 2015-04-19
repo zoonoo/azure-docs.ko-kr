@@ -18,7 +18,7 @@
 
 #Windows에서 Engagement API를 사용하는 방법
 
-이 문서는 [Windows에 Engagement를 통합하는 방법](../mobile-engagement-windows-store-integrate-engagement/) 문서를 보완하는 추가 문서로, Engagement API를 사용하여 응용 프로그램 통계를 보고하는 방법을 자세히 설명합니다.
+이 문서는 [Windows에 Engagement를 통합하는 방법](mobile-engagement-windows-store-integrate-engagement.md) 문서를 보완하는 추가 문서로, Engagement API를 사용하여 응용 프로그램 통계를 보고하는 방법을 자세히 설명합니다.
 
 Engagement에서 응용 프로그램 세션, 활동, 작동 중단 및 기술 정보만 보고하도록 하려는 경우 가장 간단한 방법은 모든 `Page` 서브클래스가 `EngagementPage` 클래스에서 상속하도록 지정하는 것입니다.
 
@@ -30,7 +30,7 @@ Engagement API는 `EngagementAgent` 클래스를 통해 제공됩니다. 해당 
 
 ##Engagement 개념
 
-다음 요소는 Windows 플랫폼과 관련된 일반적인 [Mobile Engagement 개념](../mobile-engagement-concepts/) 을 구체화합니다.
+다음 요소는 Windows 플랫폼과 관련된 일반적인 [Mobile Engagement 개념](mobile-engagement-concepts.md) 을 구체화합니다.
 
 ### `세션` 및 `활동`
 

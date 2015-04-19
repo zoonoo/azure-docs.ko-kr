@@ -86,7 +86,7 @@ HDInsight의 Storm 클러스터는 .NET, Java 및 Python을 기본적으로 지�
 
 SCP는 .NET 개발자가 토폴로지(Spout 및 Bolt 포함)를 디자인하고 구현할 수 있도록 하는 프로젝트입니다. Storm 클러스터에서는 SCP가 기본적으로 지원됩니다.
 
-SCP를 사용한 개발에 대한 자세한 내용은 [HDInsight에서 Storm에 대해 SCP.NET 및 C#을 사용하여 스트리밍 데이터 처리 응용 프로그램 개발](/ko-kr/documentation/articles/hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application)을 참조하세요.
+SCP를 사용한 개발에 대한 자세한 내용은 [HDInsight에서 Storm에 대해 SCP.NET 및 C#을 사용하여 스트리밍 데이터 처리 응용 프로그램 개발](hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application.md)을 참조하세요.
 
 ### Java
 
@@ -120,7 +120,7 @@ Storm은 다양한 수준에서 메시지 처리를 보장할 수 있습니다. 
 
 여러 가지 방법으로 일괄 처리를 수행할 수 있습니다. 기본 Storm Java 토폴로지에서는 간단한 카운터를 사용하여 X개의 튜플을 내보내기 전에 일괄 처리하거나 틱 튜플이라는 내부 타이밍 메커니즘을 사용하여 X초마다 배치를 내보낼 수 있습니다.
 
-틱 튜플 사용 예제는 [Storm 및 HDInsight를 사용하여 센서 데이터 분석](/ko-kr/documentation/articles/hdinsight-storm-sensor-data-analysis.md)을 참조하세요.
+틱 튜플 사용 예제는 [Storm 및 HDInsight를 사용하여 센서 데이터 분석](hdinsight-storm-sensor-data-analysis.md.md)을 참조하세요.
 
 Trident를 사용하는 경우에는 튜플 배치 처리를 기준으로 일괄 처리가 수행됩니다.
 
@@ -138,9 +138,9 @@ Trident를 사용하는 경우에는 튜플 배치 처리를 기준으로 일괄
 
 * [HDInsight에서 Storm 시작][gettingstarted]
 
-* [Storm 및 HDInsight로 센서 데이터 분석](/ko-kr/documentation/articles/hdinsight-storm-sensor-data-analysis)
+* [Storm 및 HDInsight로 센서 데이터 분석](hdinsight-storm-sensor-data-analysis.md)
 
-* [HDInsight에서 Storm에 대해 SCP.NET 및 C#을 사용하여 스트리밍 데이터 처리 응용 프로그램 개발](/ko-kr/documentation/articles/hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application)
+* [HDInsight에서 Storm에 대해 SCP.NET 및 C#을 사용하여 스트리밍 데이터 처리 응용 프로그램 개발](hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application.md)
 
 [apachestorm]: https://storm.incubator.apache.org
 [stormtrident]: https://storm.incubator.apache.org/documentation/Trident-API-Overview.html

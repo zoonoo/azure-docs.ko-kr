@@ -22,7 +22,7 @@
 
 <h1>방법: Apple HLS 스트리밍 콘텐츠 제공</h1>
 
-이 문서는 Azure 미디어 서비스 프로그래밍을 소개하는 시리즈 중 하나입니다. 이전 항목은 [방법: 스트리밍 콘텐츠 제공](../media-services-deliver-streaming-content/).
+이 문서는 Azure 미디어 서비스 프로그래밍을 소개하는 시리즈 중 하나입니다. 이전 항목은 [방법: 스트리밍 콘텐츠 제공](media-services-deliver-streaming-content.md).
 
 이 항목에서는 미디어 서비스 원본 서버의 Apple HLS(HTTP 라이브 스트리밍) 콘텐츠에 대한 로케이터를 만드는 방법을 보여 줍니다. 이 방법을 사용하여 Apple HLS 콘텐츠에 대한 URL을 빌드하고 재생을 위해 Apple iOS 장치에 제공할 수 있습니다. 로케이터 URL을 빌드하는 기본 방법은 동일합니다. 원본 서버의 Apple HLS 스트리밍 자산 경로에 대한 로케이터를 빌드한 후 스트리밍 콘텐츠에 대한 매니페스트에 연결하는 전체 URL을 빌드합니다.
 
@@ -92,8 +92,8 @@ static ILocator GetStreamingHLSOriginLocator( string targetAssetID)
 -   [Media Services SDK for .NET을 사용하여 응용 프로그램 빌드][]
 -   [Azure Media Services REST API를 사용하여 응용 프로그램 빌드][]
 -   [미디어 서비스 포럼][]
--	[미디어 서비스 계정을 모니터링하는 방법](../media-services-monitor-services-account/)
--	[미디어 서비스에서 콘텐츠를 관리하는 방법](../media-services-manage-content/)
+-	[미디어 서비스 계정을 모니터링하는 방법](media-services-monitor-services-account.md)
+-	[미디어 서비스에서 콘텐츠를 관리하는 방법](media-services-manage-content.md)
 
 [Azure 미디어 서비스 설명서]: http://go.microsoft.com/fwlink/?linkid=245437
 [Media Services SDK for .NET 시작]: http://go.microsoft.com/fwlink/?linkid=252966

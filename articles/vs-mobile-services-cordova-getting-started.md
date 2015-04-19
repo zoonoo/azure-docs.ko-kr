@@ -17,8 +17,8 @@
 	ms.author="kempb"/>
 
 > [AZURE.SELECTOR]
-> - [시작](/documentation/articles/vs-mobile-services-cordova-getting-started/)
-> - [변경된 내용](/documentation/articles/vs-mobile-services-cordova-what-happened/)
+> - [시작](vs-mobile-services-cordova-getting-started.md)
+> - [변경된 내용](vs-mobile-services-cordova-what-happened.md)
 
 ## 모바일 서비스 시작(Cordova 프로젝트)
 

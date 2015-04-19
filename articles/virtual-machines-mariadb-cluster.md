@@ -368,8 +368,8 @@ Azure CLI를 사용하여 컴퓨터에서 아래 명령을 실행합니다.
 [Azure CLI]: http://azure.microsoft.com/documentation/articles/xplat-cli/
 [Azure CLI 명령 참조]: http://azure.microsoft.com/documentation/articles/virtual-machines-command-line-tools/
 [인증에 사용할 SSH 키를 만들고]:http://www.jeff.wilcox.name/2013/06/secure-linux-vms-with-ssh-certificates/
-[성능 조정 전략]: http://azure.microsoft.com/sv-se/documentation/articles/virtual-machines-linux-optimize-mysql-perf/
-[Azure Linux VM에서 MySQL 성능 최적화 및 테스트]:http://azure.microsoft.com/sv-se/documentation/articles/virtual-machines-linux-optimize-mysql-perf/
+[성능 조정 전략]: http://azure.microsoft.com/documentation/articles/virtual-machines-linux-optimize-mysql-perf/
+[Azure Linux VM에서 MySQL 성능 최적화 및 테스트]:http://azure.microsoft.com/documentation/articles/virtual-machines-linux-optimize-mysql-perf/
 [Azure CLI 도구의 문제 #1268]:https://github.com/Azure/azure-xplat-cli/issues/1268
 [Linux에서 MySQL을 클러스터링하는 다른 방법]: http://azure.microsoft.com/documentation/articles/virtual-machines-linux-mysql-cluster/
 

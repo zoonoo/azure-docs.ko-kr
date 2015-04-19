@@ -35,7 +35,7 @@ Application Insights를 아직 프로젝트에 추가하지 않은 경우(프로
 
 * [Visual Studio의 앱 프로젝트에 Application Insights 추가][greenbrown] - 권장 방법입니다. 이 방식을 사용하면 수동 성능 모니터링을 수행할 수 있을 뿐 아니라 진단 로깅을 삽입하고 사용 현황을 추적할 수도 있습니다.
 * [라이브 웹 사이트의 성능 모니터링][redfield] - 이 방식을 사용하는 경우 응용 프로그램 프로젝트를 업데이트하거나 웹 사이트를 다시 배포하지 않아도 됩니다.
-* [Microsoft Azure 웹 사이트의 경우](../insights-how-to-customize-monitoring/)  웹 사이트의 모니터링 렌즈에서 이미 메트릭을 볼 수 있습니다. 
+* [Microsoft Azure 웹 사이트의 경우](insights-how-to-customize-monitoring.md)  웹 사이트의 모니터링 렌즈에서 이미 메트릭을 볼 수 있습니다. 
 
 
 ## <a name="view"></a>보고서 보기

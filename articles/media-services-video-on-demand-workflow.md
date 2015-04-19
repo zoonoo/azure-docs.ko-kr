@@ -28,11 +28,11 @@
 다음 다이어그램에서는 주문형 워크플로 관련 비디오에 관련된 미디어 서비스 플랫폼의 주요 부분을 보여 줍니다.
 ![VoD workflow][vod-overview]
 
-자세한 내용은 [미디어 서비스 개요]를 참조하세요(../media-services-overview).
+자세한 내용은 [미디어 서비스 개요]를 참조하세요(media-services-overview.md).
 
 ##미디어 서비스 계정 만들기
 
-**Azure 관리 포털**을 이용하여 [Azure Media Services 계정]을 만듭니다(../media-services-create-account/). 
+**Azure 관리 포털**을 이용하여 [Azure Media Services 계정]을 만듭니다(media-services-create-account.md). 
 
 ##스트리밍 끝점 구성
 
@@ -82,7 +82,7 @@ Azure Media Services에 프로그래밍 방식으로 연결할 **.NET** 또는 *
 
 ###인코딩 
 
-[Azure 미디어 서비스로 인코딩]을 참조하세요(../media-services-encode-asset).
+[Azure 미디어 서비스로 인코딩]을 참조하세요(media-services-encode-asset.md).
 
 ##콘텐츠 키 인증 정책 구성 
 
@@ -108,12 +108,12 @@ Azure Media Services에 프로그래밍 방식으로 연결할 **.NET** 또는 *
 
 또한 저장소 계정을 추가하여 미디어 서비스 계정을 확장할 수 있습니다. 각 저장소 계정은 500TB로 제한됩니다. 여러 저장소 계정을 단일 미디어 서비스 계정에 연결하여 기본 제한 이상으로 저장소를 확장할 수 있습니다.
 
-[이](../media-services-how-to-scale) 항목은 관련 항목으로 연결됩니다.
+[이](media-services-how-to-scale.md) 항목은 관련 항목으로 연결됩니다.
 
 
 ##콘텐츠 재생
 
-자세한 내용은 [기존 플레이어를 사용하여 콘텐츠 재생]을 참조하세요(../media-services-playback-content).
+자세한 내용은 [기존 플레이어를 사용하여 콘텐츠 재생]을 참조하세요(media-services-playback-content.md).
 
 [vod-overview]: ./media/media-services-overview/media-services-video-on-demand.png
 <!--HONumber=47-->

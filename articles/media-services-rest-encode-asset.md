@@ -19,7 +19,7 @@
 
 #Azure 미디어 인코더를 사용하여 자산을 인코딩하는 방법
 
-이 문서는 [워크플로 주문형 미디어 서비스 비디오] 시리즈의(../media-services-video-on-demand-workflow) 일부입니다. 
+이 문서는 [워크플로 주문형 미디어 서비스 비디오] 시리즈의(media-services-video-on-demand-workflow.md) 일부입니다. 
 
 ##개요
 인터넷을 통해 디지털 비디오를 배달하려면 미디어를 압축해야 합니다. 디지털 비디오 파일은 크기가 상당히 크기 때문에 인터넷을 통해 전달하거나 고객의 장치에서 제대로 표시하지 못할 수 있습니다. 인코딩은 고객이 미디어를 볼 수 있도록 비디오 및 오디오를 압축하는 과정입니다.
@@ -32,9 +32,9 @@
 
 >[AZURE.NOTE] 미디어 서비스 REST API를 사용할 때는 다음 사항을 고려해야 합니다.
 >
->미디어 서비스에서 엔터티에 액세스할 때는 HTTP 요청에서 구체적인 헤더 필드와 값을 설정해야 합니다. 자세한 내용은 [미디어 서비스 REST API 개발 설정]을 참조하세요(../media-services-rest-how-to-use).
+>미디어 서비스에서 엔터티에 액세스할 때는 HTTP 요청에서 구체적인 헤더 필드와 값을 설정해야 합니다. 자세한 내용은 [미디어 서비스 REST API 개발 설정]을 참조하세요(media-services-rest-how-to-use.md).
 
->https://media.windows.net에 연결하면 다른 미디어 서비스 URI를 지정하는 301 리디렉션을 받게 됩니다. [미디어 서비스 REST API를 사용하여 미디어 서비스에 연결]에서 설명한 대로 새 URI에 대한 후속 호출을 해야 합니다(../media-services-rest-connect_programmatically/). 
+>https://media.windows.net에 연결하면 다른 미디어 서비스 URI를 지정하는 301 리디렉션을 받게 됩니다. [미디어 서비스 REST API를 사용하여 미디어 서비스에 연결]에서 설명한 대로 새 URI에 대한 후속 호출을 해야 합니다(media-services-rest-connect_programmatically.md). 
 
 
 다음 예제에서는 특정 해상도와 품질로 비디오를 인코딩하기 위해 하나의 작업 집합으로 작업을 만들어 게시하는 방법을 보여 줍니다. Azure 미디어 인코더로 인코딩할 때 [여기](https://msdn.microsoft.com/library/azure/dn619389.aspx)에 지정된 작업 구성 기본 설정을 사용할 수 있습니다.
@@ -110,7 +110,7 @@
 
 
 ##다음 단계
-자산을 인코드하는 작업을 만드는 방법을 알아보았습니다. 이제 [미디어 서비스를 사용하여 작업 진행 상태를 확인하는 방법](../media-services-rest-check-job-progress/) 항목으로 이동하세요.
+자산을 인코드하는 작업을 만드는 방법을 알아보았습니다. 이제 [미디어 서비스를 사용하여 작업 진행 상태를 확인하는 방법](media-services-rest-check-job-progress.md) 항목으로 이동하세요.
 
 [Azure 마켓플레이스]: https://datamarket.azure.com/
 [인코더 기본 설정]: http://msdn.microsoft.com/library/dn619392.aspx

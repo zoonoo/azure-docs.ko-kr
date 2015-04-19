@@ -192,7 +192,7 @@ SendGrid 기능을 활용하는 데 사용할 수 있는 웹 기반 API를 제�
 SendGrid 메일 서비스에 관한 기본적인 사항들을 익혔으며 자세한 내용을 보려면
 다음 링크를 따라가세요.
 
-* Azure 배포에서 SendGrid를 사용하는 방법을 보여 주는 샘플: [Azure 배포에서 Java의 SendGrid를 사용하여 메일을 보내는 방법](../store-sendgrid-java-how-to-send-email-example/)
+* Azure 배포에서 SendGrid를 사용하는 방법을 보여 주는 샘플: [Azure 배포에서 Java의 SendGrid를 사용하여 메일을 보내는 방법](store-sendgrid-java-how-to-send-email-example.md)
 * SendGrid Java SDK: <https://sendgrid.com/docs/Code_Examples/java.html>
 * SendGrid API 설명서: <https://sendgrid.com/docs/API_Reference/index.html>
 * Azure 고객을 위한 SendGrid 특별 제공: <https://sendgrid.com/windowsazure.html>

@@ -30,11 +30,11 @@ Azure 포털, PowerShell 또는 Azure 플랫폼 간 명령줄 인터페이스(xp
 
 또한 Azure 저장소 계정과 해당 계정에 액세스하는 데 사용할 키도 필요합니다. 계정 및 키는 Azure 포털에서 다운로드할 수 있습니다.
 
-Azure에서 Linux VM을 만들 때 도움이 필요하면 [Linux를 실행하는 가상 컴퓨터 만들기를 참조하세요](../virtual-machines-linux-tutorial/).
+Azure에서 Linux VM을 만들 때 도움이 필요하면 [Linux를 실행하는 가상 컴퓨터 만들기를 참조하세요](virtual-machines-linux-tutorial.md).
 
 여기서 사용하는 구체적인 설치 명령은 Ubuntu를 사용한다고 가정하지만 지원되는 모든 배포판에 맞게 일반 단계를 조정할 수 있습니다.
 
- *script-vm* VM에는 xplat-cli가 설치되어 있어야 하며 Azure에 대한 정상적인 연결이 설정되어 있어야 합니다. 이와 같이 설정하는 과정에서 도움이 필요하면 [Azure 플랫폼 간 명령줄 인터페이스 설치 및 구성을 참조하세요](../xplat-cli/).
+ *script-vm* VM에는 xplat-cli가 설치되어 있어야 하며 Azure에 대한 정상적인 연결이 설정되어 있어야 합니다. 이와 같이 설정하는 과정에서 도움이 필요하면 [Azure 플랫폼 간 명령줄 인터페이스 설치 및 구성을 참조하세요](xplat-cli.md).
 
 ## 스크립트 업로드
 
@@ -104,6 +104,6 @@ CustomScript 확장 실행이 완료되면 앞에서 만든 PHP 페이지를 찾
 
 [Azure Linux 확장(GitHub)](https://github.com/Azure/azure-linux-extensions)
 
-[Azure의 오픈 소스 컴퓨팅 및 Linux](../virtual-machines-linux-opensource/)
+[Azure의 오픈 소스 컴퓨팅 및 Linux](virtual-machines-linux-opensource.md)
 
 <!--HONumber=47-->

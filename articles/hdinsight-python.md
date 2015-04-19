@@ -171,7 +171,7 @@ HDInsight 클러스터에서 이 예제를 실행하는 방법에 대해서는 [
 
 	이 스크립트는 HDInsight 클러스터의 정보를 검색한 후 계정 및 기본 저장소 계정의 키를 추출하고 컨테이너의 루트에 파일을 업로드합니다.
 
-	> [AZURE.NOTE] 그 외에 스크립트를 업로드하는 방법은 [HDInsight에서 Hadoop 작업용 데이터 업로드](/ko-kr/documentation/articles/hdinsight-upload-data/) 문서에서 찾아볼 수 있습니다.
+	> [AZURE.NOTE] 그 외에 스크립트를 업로드하는 방법은 [HDInsight에서 Hadoop 작업용 데이터 업로드](hdinsight-upload-data.md) 문서에서 찾아볼 수 있습니다.
 
 ###Hive 대시보드 사용(Hive 예제만)
 
@@ -267,10 +267,9 @@ HDInsight 클러스터에서 이 예제를 실행하는 방법에 대해서는 [
 <tr>
 <td>이 작업의 경우</td><td>Blob 컨테이너에서 이러한 파일을 찾습니다.</td>
 </tr>
-<tr>
-<td>Hive</td><td>/HivePython/stderr<br />/HivePython/stdout</td>
+<td>Hive</td><td>/HivePython/stderr</br>/HivePython/stdout</td>
 </tr>
-<td>Pig</td><td>/PigPython/stderr<br />/PigPython/stdout</td>
+<td>Pig</td><td>/PigPython/stderr</br>/PigPython/stdout</td>
 </tr>
 </table>
 

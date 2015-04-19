@@ -17,15 +17,15 @@
 	ms.author="kempb"/>
 
 > [AZURE.SELECTOR]
-> - [시작하기](/documentation/articles/vs-storage-aspnet-getting-started-blobs/)
-> - [변경된 내용](/documentation/articles/vs-storage-aspnet-what-happened/)
+> - [시작하기](vs-storage-aspnet-getting-started-blobs.md)
+> - [변경된 내용](vs-storage-aspnet-what-happened.md)
 
 ## Azure 저장소 시작(ASP.NET 프로젝트)
 
 > [AZURE.SELECTOR]
-> - [Blob](/documentation/articles/vs-storage-aspnet-getting-started-blobs/)
-> - [큐](/documentation/articles/vs-storage-aspnet-getting-started-queues/)
-> - [테이블](/documentation/articles/vs-storage-aspnet-getting-started-tables/)
+> - [Blob](vs-storage-aspnet-getting-started-blobs.md)
+> - [큐](vs-storage-aspnet-getting-started-queues.md)
+> - [테이블](vs-storage-aspnet-getting-started-tables.md)
 
 Azure Blob 저장소는 HTTP 또는 HTTPS를 통해 전 세계 어디에서나 액세스할 수 있는 다량의 구조화되지 않은 데이터를 저장하기 위한 서비스입니다. 단일 Blob은 임의의 크기일 수 있습니다. Blob은 이미지, 오디오 및 비디오 파일, 원시 데이터, 문서 파일 등일 수 있습니다.
 

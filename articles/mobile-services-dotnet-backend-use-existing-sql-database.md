@@ -32,7 +32,7 @@
 <a name="ExistingModel"></a>
 ## 기존 데이터베이스 모델 내보내기
 
-이 자습서에서는 모바일 서비스에서 생성된 데이터베이스를 사용하지만 생성된 기본 모델을 사용하지 않습니다. 대신 사용자가 이미 갖고 있을 수 있는 기존 응용 프로그램을 나타내는 임의의 모델을 수동으로 만듭니다. 대신 온-프레미스 데이터베이스에 연결하는 방법에 대한 자세한 내용은 [하이브리드 연결을 사용하여 Azure 모바일 서비스에서 온-프레미스 SQL Server에 연결](/ko-kr/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started/)을 참조하세요.
+이 자습서에서는 모바일 서비스에서 생성된 데이터베이스를 사용하지만 생성된 기본 모델을 사용하지 않습니다. 대신 사용자가 이미 갖고 있을 수 있는 기존 응용 프로그램을 나타내는 임의의 모델을 수동으로 만듭니다. 대신 온-프레미스 데이터베이스에 연결하는 방법에 대한 자세한 내용은 [하이브리드 연결을 사용하여 Azure 모바일 서비스에서 온-프레미스 SQL Server에 연결](mobile-services-dotnet-backend-hybrid-connections-get-started.md)을 참조하세요.
 
 1. 시작하려면 **Visual Studio 2013 업데이트 2**에서 모바일 서비스 서버 프로젝트를 만들거나 [Azure 관리 포털](http://manage.windowsazure.com)의 모바일 서비스 탭에서 다운로드할 수 있는 퀵 스타트 프로젝트를 사용합니다. 이 자습서에서는 서버 프로젝트 이름이 **ShoppingService**라고 가정합니다.
 

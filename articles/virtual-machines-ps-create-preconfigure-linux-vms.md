@@ -22,11 +22,11 @@
 
 다음 단계에서는 빈 칸 채우기 접근 방식에 따라 Azure PowerShell 명령 집합을 만듭니다. 이 접근 방식은 PowerShell을 처음 접하거나 성공적인 구성을 위해 지정할 값만 알기를 원하는 경우에 유용할 수 있습니다. 고급 PowerShell 사용자는 명령을 가져와 고유한 변수 값("$"로 시작하는 줄)을 대체할 수 있습니다.
 
-Windows 기반 가상 컴퓨터에 대한 관련 항목은 [Azure PowerShell을 사용하여 Windows 기반 가상 컴퓨터 만들기 및 미리 구성](../virtual-machines-ps-create-preconfigure-windows-vms/)을 참조하세요.
+Windows 기반 가상 컴퓨터에 대한 관련 항목은 [Azure PowerShell을 사용하여 Windows 기반 가상 컴퓨터 만들기 및 미리 구성](virtual-machines-ps-create-preconfigure-windows-vms.md)을 참조하세요.
 
 ## 1단계: Azure PowerShell 설치
 
-[Azure PowerShell을 설치 및 구성하는 방법](../install-configure-powershell/)의 지침을 사용하여 로컬 컴퓨터에 Azure PowerShell을 설치합니다(아직 설치하지 않은 경우). 그런 다음 Azure PowerShell 명령 프롬프트를 엽니다.
+[Azure PowerShell을 설치 및 구성하는 방법](install-configure-powershell.md)의 지침을 사용하여 로컬 컴퓨터에 Azure PowerShell을 설치합니다(아직 설치하지 않은 경우). 그런 다음 Azure PowerShell 명령 프롬프트를 엽니다.
 
 ## 2단계: 구독 및 저장소 계정 설정
 
@@ -89,7 +89,7 @@ D 시리즈, DS 시리즈 또는 G 시리즈 가상 컴퓨터의 InstanceSize �
 
 	$vm1 | Add-AzureProvisioningConfig -Linux -SSHKeyPairs "<SSH key pairs>"
 
-자세한 내용은 [Azure에서 Linux와 함께 SSH를 사용하는 방법](../virtual-machines-linux-use-ssh-key/)을 참조하세요.
+자세한 내용은 [Azure에서 Linux와 함께 SSH를 사용하는 방법](virtual-machines-linux-use-ssh-key.md)을 참조하세요.
 
 선택적으로 구독에 이미 배포된 SSH 공개 키 쌍 목록을 지정합니다.
 
@@ -157,7 +157,7 @@ Linux 기반 가상 컴퓨터에 대한 추가 사전 구성 옵션은 [Add-Azur
 
 클립보드에 명령 집합을 복사한 다음 열려 있는 Azure PowerShell 명령 프롬프트를 마우스 오른쪽 버튼으로 클릭합니다. 그러면 명령 집합이 일련의 PowerShell 명령으로 실행되고 Azure 가상 컴퓨터가 만들어집니다. 잘못된 구독, 저장소 계정, 클라우드 서비스, 가용성 집합, 가상 네트워크 또는 서브넷에서 가상 컴퓨터를 만든 경우 가상 컴퓨터를 삭제하고 명령 블록 구문을 수정한 다음 수정된 명령 집합을 실행합니다. 
 
-가상 컴퓨터를 만든 후 [Linux를 실행하는 가상 컴퓨터에 로그온하는 방법](../virtual-machines-linux-how-to-log-on/)을 참조하세요. 
+가상 컴퓨터를 만든 후 [Linux를 실행하는 가상 컴퓨터에 로그온하는 방법](virtual-machines-linux-how-to-log-on.md)을 참조하세요. 
 
 이 가상 컴퓨터 또는 이와 유사한 가상 컴퓨터를 다시 만들려는 경우 다음과 같이 할 수 있습니다. 
 
@@ -260,11 +260,11 @@ Linux 기반 가상 컴퓨터에 대한 추가 사전 구성 옵션은 [Add-Azur
 
 [Azure 가상 컴퓨터 개요](http://msdn.microsoft.com/library/azure/jj156143.aspx)
 
-[Azure PowerShell을 설치 및 구성하는 방법](../install-configure-powershell/)
+[Azure PowerShell을 설치 및 구성하는 방법](install-configure-powershell.md)
 
-[Linux를 실행하는 가상 컴퓨터에 로그온하는 방법](../virtual-machines-linux-how-to-log-on/)
+[Linux를 실행하는 가상 컴퓨터에 로그온하는 방법](virtual-machines-linux-how-to-log-on.md)
 
-[Azure PowerShell을 사용하여 Windows 기반 가상 컴퓨터 만들기 및 미리 구성](../virtual-machines-ps-create-preconfigure-windows-vms/)
+[Azure PowerShell을 사용하여 Windows 기반 가상 컴퓨터 만들기 및 미리 구성](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
 
 <!--HONumber=47-->

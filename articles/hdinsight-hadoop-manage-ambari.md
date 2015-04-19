@@ -20,7 +20,7 @@
 
 Ambari를 사용하여 Linux 기반 HDInsight 클러스터를 관리하고 모니터링하는 방법에 대해 알아봅니다.
 
-> [AZURE.NOTE] 이 문서에 있는 정보의 대부분은 Linux 기반 HDInsight 클러스터에만 적용됩니다. Windows 기반 HDInsight 클러스터에서는 Ambari REST API를 통한 모니터링만 사용할 수 있습니다. [Ambari API를 사용하여 HDInsight에서 Windows 기반 Hadoop 모니터링](../hdinsight-monitor-use-ambari-api/)을 참조하세요.
+> [AZURE.NOTE] 이 문서에 있는 정보의 대부분은 Linux 기반 HDInsight 클러스터에만 적용됩니다. Windows 기반 HDInsight 클러스터에서는 Ambari REST API를 통한 모니터링만 사용할 수 있습니다. [Ambari API를 사용하여 HDInsight에서 Windows 기반 Hadoop 모니터링](hdinsight-monitor-use-ambari-api.md)을 참조하세요.
 
 ##<a id="whatis"></a>Ambari 정의
 

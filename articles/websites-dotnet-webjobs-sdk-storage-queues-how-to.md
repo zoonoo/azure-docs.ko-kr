@@ -20,7 +20,7 @@
 
 이 가이드에서는 Azure 큐 저장소 서비스에서 Azure WebJobs SDK 버전 1.x를 사용하는 방법을 보여 주는 C# 코드 샘플을 제공합니다.
 
-이 가이드에서는 [저장소 계정을 가리키는 연결 문자열을 사용하여 Visual Studio에서 WebJob 프로젝트를 만드는 방법](../websites-dotnet-webjobs-sdk-get-started/)을 알고 있는 것으로 가정합니다.
+이 가이드에서는 [저장소 계정을 가리키는 연결 문자열을 사용하여 Visual Studio에서 WebJob 프로젝트를 만드는 방법](websites-dotnet-webjobs-sdk-get-started.md)을 알고 있는 것으로 가정합니다.
 
 대부분의 코드 조각은 다음 예제와 같이  `JobHost` 개체를 만드는 코드가 아니라 함수만 보여 줍니다.
 
@@ -294,7 +294,7 @@ SDK에서 자동으로 개체를 JSON으로 serialize합니다. 개체가 null�
 
 ## <a id="blobs"></a> 큐 메시지를 처리하는 동안 Blob 및 테이블을 읽고 쓰는 방법
 
- `Blob` 및  `Table` 특성을 사용하여 Blob 및 테이블을 읽고 쓸 수 있습니다. 이 섹션의 샘플은 Blob에 적용됩니다. Blob가 생성되거나 업데이트될 때 프로세스를 트리거하는 방법을 보여 주는 코드 샘플은 [WebJobs SDK를 사용하여 Azure Blob 저장소로 작업하는 방법](../websites-dotnet-webjobs-sdk-storage-blobs-how-to/)을 참조하고, 테이블을 읽고 쓰는 코드 샘플은 [WebJobs SDK를 사용하여 Azure 테이블 저장소로 작업하는 방법](../websites-dotnet-webjobs-sdk-storage-tables-how-to/)을 참조하세요.
+ `Blob` 및  `Table` 특성을 사용하여 Blob 및 테이블을 읽고 쓸 수 있습니다. 이 섹션의 샘플은 Blob에 적용됩니다. Blob가 생성되거나 업데이트될 때 프로세스를 트리거하는 방법을 보여 주는 코드 샘플은 [WebJobs SDK를 사용하여 Azure Blob 저장소로 작업하는 방법](websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)을 참조하고, 테이블을 읽고 쓰는 코드 샘플은 [WebJobs SDK를 사용하여 Azure 테이블 저장소로 작업하는 방법](websites-dotnet-webjobs-sdk-storage-tables-how-to.md)을 참조하세요.
 
 ### Blob 작업을 트리거하는 문자열 큐 메시지
 
@@ -310,7 +310,7 @@ SDK에서 자동으로 개체를 JSON으로 serialize합니다. 개체가 null�
 		    blobInput.CopyTo(blobOutput, 4096);
 		}
 
- `Blob` 특성 생성자는 컨테이너 및 Blob 이름을 지정하는  `blobPath` 매개 변수를 가져옵니다. 이 자리 표시자에 대한 자세한 내용은 [WebJobs SDK를 사용하여 Azure Blob 저장소로 작업하는 방법](../websites-dotnet-webjobs-sdk-storage-blobs-how-to/), 을 참조하세요.
+ `Blob` 특성 생성자는 컨테이너 및 Blob 이름을 지정하는  `blobPath` 매개 변수를 가져옵니다. 이 자리 표시자에 대한 자세한 내용은 [WebJobs SDK를 사용하여 Azure Blob 저장소로 작업하는 방법](websites-dotnet-webjobs-sdk-storage-blobs-how-to.md), 을 참조하세요.
 
 특성이  `Stream` 개체를 데코레이팅하는 경우 또 다른 생성자 매개 변수가  `FileAccess` 모드를 읽기, 쓰기 또는 읽기/쓰기로 지정합니다. 
 

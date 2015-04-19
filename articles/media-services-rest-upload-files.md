@@ -21,7 +21,7 @@
 #REST API를 사용하여 미디어 서비스 계정에 파일 업로드
 [AZURE.INCLUDE [media-services-selector-upload-files](../includes/media-services-selector-upload-files.md)]
 
-이 문서는 [워크플로 주문형 미디어 서비스 비디오] 시리즈의(../media-services-video-on-demand-workflow) 일부입니다. 
+이 문서는 [워크플로 주문형 미디어 서비스 비디오] 시리즈의(media-services-video-on-demand-workflow.md) 일부입니다. 
 
 미디어 서비스에서 자산에 디지털 파일을 업로드합니다. [자산](https://msdn.microsoft.com/library/azure/hh974277.aspx) 엔터티에는 비디오, 오디오, 이미지, 미리 보기 컬렉션, 텍스트 트랙 및 선택 캡션 파일(및 이 파일에 대한 메타데이터)이 포함될 수 있습니다.  자산에 파일이 업로드되면 이후 처리 및 스트리밍을 위해 콘텐츠가 클라우드에 안전하게 저장됩니다. 
 
@@ -39,9 +39,9 @@
 
 >[AZURE.NOTE] 미디어 서비스 REST API를 사용할 때는 다음 사항을 고려해야 합니다.
 >
->미디어 서비스에서 엔터티에 액세스할 때는 HTTP 요청에서 구체적인 헤더 필드와 값을 설정해야 합니다. 자세한 내용은 [미디어 서비스 REST API 개발 설정]을 참조하세요(../media-services-rest-how-to-use).
+>미디어 서비스에서 엔터티에 액세스할 때는 HTTP 요청에서 구체적인 헤더 필드와 값을 설정해야 합니다. 자세한 내용은 [미디어 서비스 REST API 개발 설정]을 참조하세요(media-services-rest-how-to-use.md).
 
->https://media.windows.net에 연결하면 다른 미디어 서비스 URI를 지정하는 301 리디렉션을 받게 됩니다. [미디어 서비스 REST API를 사용하여 미디어 서비스에 연결]에서 설명한 대로 새 URI에 대한 후속 호출을 해야 합니다(../media-services-rest-connect_programmatically/). 
+>https://media.windows.net에 연결하면 다른 미디어 서비스 URI를 지정하는 301 리디렉션을 받게 됩니다. [미디어 서비스 REST API를 사용하여 미디어 서비스에 연결]에서 설명한 대로 새 URI에 대한 후속 호출을 해야 합니다(media-services-rest-connect_programmatically.md). 
  
 자산은 여러 유형이나 비디오, 오디오, 이미지, 미리 보기 컬렉션, 텍스트 트랙 및 선택된 캡션 파일을 포함한 미디어 서비스의 개체 집합에 대한 컨테이너입니다. REST API에서 자산을 만들려면 미디어 서비스에 POST 요청을 보내고 자산에 대한 속성 정보를 요청 본문에 배치해야 합니다.
 
@@ -56,7 +56,7 @@
 
 - **EnvelopeEncryptionProtected** = **4**: AES로 암호화된 HLS 파일을 업로드하는 경우 지정합니다. 파일을 Transform Manager로 인코딩 및 암호화해야 합니다.
 
->[AZURE.NOTE]자산이 암호화를 사용하는 경우 **ContentKey**를 만들어서 이를 [ContentKey 만드는 방법] 항목에서 설명한 대로 자산에 연결해야 합니다(../media-services-rest-create-contentkey). 자산에 파일을 업로드한 후에는 **자산**을 암호화하는 동안 얻은 값으로 **AssetFile** 엔터티의 암호화 속성을 업데이트해야 합니다. **MERGE** HTTP 요청을 사용하여 이를 수행합니다. 
+>[AZURE.NOTE]자산이 암호화를 사용하는 경우 **ContentKey**를 만들어서 이를 [ContentKey 만드는 방법] 항목에서 설명한 대로 자산에 연결해야 합니다(media-services-rest-create-contentkey.md). 자산에 파일을 업로드한 후에는 **자산**을 암호화하는 동안 얻은 값으로 **AssetFile** 엔터티의 암호화 속성을 업데이트해야 합니다. **MERGE** HTTP 요청을 사용하여 이를 수행합니다. 
 
 
 다음 예제에서는 자산을 만드는 방법을 보여 줍니다.

@@ -17,8 +17,8 @@
 	ms.author="kempb"/>
 
 > [AZURE.SELECTOR]
-> - [시작하기](/documentation/articles/vs-storage-aspnet5-getting-started-blobs/)
-> - [변경된 내용](/documentation/articles/vs-storage-aspnet5-what-happened/)
+> - [시작하기](vs-storage-aspnet5-getting-started-blobs.md)
+> - [변경된 내용](vs-storage-aspnet5-what-happened.md)
 
 ### <span id="whathappened">내 프로젝트에서 무엇이 변경되었나요?</span>
 

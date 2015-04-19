@@ -23,7 +23,7 @@
 
 다음 관련 토픽을 참조할 수도 있습니다.
 
-- 선택적으로 [관리 포털 마법사를 사용하여 사이트 간 VPN을 구성](http://msdn.microsoft.com/library/windowsazure/dn133795.aspx)하고 새 포리스트를 설치하거나 온-프레미스 포리스트를 Azure 가상 네트워크로 확장할 수 있습니다. 이러한 단계는 [Azure 가상 네트워크에서 복제본 Active Directory 도메인 컨트롤러 설치](../virtual-networks-install-replica-active-directory-domain-controller)를 참조하세요.
+- 선택적으로 [관리 포털 마법사를 사용하여 사이트 간 VPN을 구성](http://msdn.microsoft.com/library/windowsazure/dn133795.aspx)하고 새 포리스트를 설치하거나 온-프레미스 포리스트를 Azure 가상 네트워크로 확장할 수 있습니다. 이러한 단계는 [Azure 가상 네트워크에서 복제본 Active Directory 도메인 컨트롤러 설치](virtual-networks-install-replica-active-directory-domain-controller.md)를 참조하세요.
 -  Azure 가상 네트워크에 AD DS(Active Directory 도메인 서비스)를 설치하는 방법에 대한 개념 지침은 [Azure 가상 컴퓨터에 Windows Server Active Directory를 배포하기 위한  지침을 참조하세요](http://msdn.microsoft.com/library/windowsazure/jj156090.aspx).
 
 
@@ -65,7 +65,7 @@ Azure에 도메인 컨트롤러를 설치할 때와 온-프레미스에 설치�
 	**가상 컴퓨터 구성**  | <p>클라우드 서비스: 첫 번째 VM에 대해 <b>새 클라우드 서비스 만들기</b>를 선택한 다음 DC 역할을 호스트할 추가 VM을 만들 때는 동일한 클라우드 서비스 이름을 선택합니다.</p><p>클라우드 서비스 DNS 이름: 전역적으로 고유한 이름을 지정합니다.</p><p>지역/선호도 그룹/가상 네트워크: 가상 네트워크 이름을 지정합니다(예: WestUSVNet).</p><p>저장소 계정: 첫 번째 VM에 대해 <b>자동으로 생성된 저장소 계정 사용</b>을 선택한 다음 DC 역할을 호스트할 추가 VM을 만들 때는 동일한 클라우드 서비스 이름을 선택합니다.</p><p>가용성 집합: <b>가용성 집합 만들기</b>를 선택합니다.</p><p>가용성 집합 이름: 첫 번째 VM을 만들 때 가용성 집합의 이름을 입력한 다음 추가 VM을 만들 때는 동일한 이름을 선택합니다.</p>
 	**가상 컴퓨터 구성**  | <p><b>VM 에이전트 설치</b> 및 필요한 다른 확장을 선택합니다.</p>
 2. DC 서버 역할을 실행할 각 VM에 디스크를 연결합니다. AD 데이터베이스, 로그 및 SYSVOL을 저장하려면 추가 디스크가 필요합니다. 디스크 크기(예: 10GB)를 지정하고 **호스트 캐시 기본 설정**을 **없음**으로 설정된 채로 둡니다. VM에 처음 로그인한 후 **서버 관리자** > **파일 및 저장소 서비스**를 열어 NTFS를 사용하여 이 디스크에 볼륨을 만듭니다.
-3. DC 역할을 실행할 VM에 대해 고정 IP 주소를 예약합니다. 고정 IP 주소를 예약하려면 Microsoft 웹 플랫폼 설치 관리자 및 [Azure PowerShell 설치](../powershell-install-configure) 을 다운로드하고 Set-AzureStaticVNetIP cmdlet을 실행합니다. 예를 들면 다음과 같습니다.
+3. DC 역할을 실행할 VM에 대해 고정 IP 주소를 예약합니다. 고정 IP 주소를 예약하려면 Microsoft 웹 플랫폼 설치 관리자 및 [Azure PowerShell 설치](powershell-install-configure.md) 을 다운로드하고 Set-AzureStaticVNetIP cmdlet을 실행합니다. 예를 들면 다음과 같습니다.
 
     'Get-AzureVM -ServiceName AzureDC1 -Name AzureDC1 | Set-AzureStaticVNetIP -IPAddress 10.0.0.4 | 업데이트-AzureVM
 
@@ -115,7 +115,7 @@ Windows PowerShell 사용에 대한 자세한 내용은 [Azure Cmdlet 시작](ht
 
 -  [관리 포털에서 사이트 간 VPN 구성](https://msdn.microsoft.com/library/dn133795.aspx)
 
--  [Azure 가상 네트워크에서 복제본 Active Directory 도메인 컨트롤러 설치](../virtual-networks-install-replica-active-directory-domain-controller)
+-  [Azure 가상 네트워크에서 복제본 Active Directory 도메인 컨트롤러 설치](virtual-networks-install-replica-active-directory-domain-controller.md)
 
 -  [Microsoft Azure IT Pro IaaS: (01) 가상 컴퓨터 기본 사항](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/01)
 
@@ -123,7 +123,7 @@ Windows PowerShell 사용에 대한 자세한 내용은 [Azure Cmdlet 시작](ht
 
 -  [가상 네트워크 개요](https://msdn.microsoft.com/library/azure/jj156007.aspx)
 
--  [Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure/)
+-  [Azure PowerShell을 설치 및 구성하는 방법](powershell-install-configure.md)
 
 -  [Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx)
 

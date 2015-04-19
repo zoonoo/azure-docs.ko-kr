@@ -17,15 +17,15 @@
 	ms.author="kempb"/>
 
 > [AZURE.SELECTOR]
-> - [시작하기](/documentation/articles/vs-storage-aspnet-getting-started-queues/)
-> - [변경된 내용](/documentation/articles/vs-storage-aspnet-what-happened/)
+> - [시작하기](vs-storage-aspnet-getting-started-queues.md)
+> - [변경된 내용](vs-storage-aspnet-what-happened.md)
 
 ## Azure 저장소 시작(ASP.NET 프로젝트)
 
 > [AZURE.SELECTOR]
-> - [Blob](/documentation/articles/vs-storage-aspnet-getting-started-blobs/)
-> - [큐](/documentation/articles/vs-storage-aspnet-getting-started-queues/)
-> - [테이블](/documentation/articles/vs-storage-aspnet-getting-started-tables/)
+> - [Blob](vs-storage-aspnet-getting-started-blobs.md)
+> - [큐](vs-storage-aspnet-getting-started-queues.md)
+> - [테이블](vs-storage-aspnet-getting-started-tables.md)
 
 Azure 큐 저장소는 HTTP 또는 HTTPS를 사용하여 인증된 호출을 통해 전 세계 어디에서나 액세스할 수 있는 다수의 메시지를 저장하기 위한 서비스입니다. 단일 큐 메시지의 크기는 최대 64KB일 수 있으며, 하나의 큐에 저장소 계정의 총 용량 제한까지 수백만 개의 메시지가 포함될 수 있습니다. 자세한 내용은 [.NET에서 큐 저장소를 사용하는 방법](http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-queues/)(영문)을 참조하세요.
 

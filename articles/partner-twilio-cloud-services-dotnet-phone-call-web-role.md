@@ -174,7 +174,7 @@ TwiML에 대한 자세한 내용은 [http://www.twilio.com/docs/api/twiml][twiml
 * [https://www.twilio.com/docs][twilio_docs]에서 Twilio에 대해 자세히 알아보세요.
 
 ##<a name="seealso"></a>참고 항목
-* [Azure에서 음성 및 SMS 기능을 위해 Twilio를 사용하는 방법](../twilio-dotnet-how-to-use-for-voice-sms/)
+* [Azure에서 음성 및 SMS 기능을 위해 Twilio를 사용하는 방법](twilio-dotnet-how-to-use-for-voice-sms.md)
 
 [twilio_pricing]: http://www.twilio.com/pricing
 [try_twilio]: http://www.twilio.com/try-twilio

@@ -46,7 +46,7 @@ HDInsight는 보조 헤드 노드(헤드 노드 1)를 추가하여 이러한 단
 
 초대규모 VM은 Azure PowerShell cmdlet 또는 HDInsight SDK를 사용하여 구성할 수 있습니다.
 
-PowerShell을 사용하는 클러스터의 생성 및 프로비전은 [PowerShell을 사용하여 HDInsight 관리](../hdinsight-administer-use-powershell/)(영문)에 설명되어 있습니다. 초대규모 헤드 노드를 구성하려면 `-HeadNodeVMSize ExtraLarge` 매개 변수를 이 코드에 사용되는 `New-AzureHDInsightcluster` cmdlet에 추가해야 합니다.
+PowerShell을 사용하는 클러스터의 생성 및 프로비전은 [PowerShell을 사용하여 HDInsight 관리](hdinsight-administer-use-powershell.md)(영문)에 설명되어 있습니다. 초대규모 헤드 노드를 구성하려면 `-HeadNodeVMSize ExtraLarge` 매개 변수를 이 코드에 사용되는 `New-AzureHDInsightcluster` cmdlet에 추가해야 합니다.
 
     # Create a new HDInsight cluster in Azure PowerShell
 	# Configured with an ExtraLarge Headnode VM

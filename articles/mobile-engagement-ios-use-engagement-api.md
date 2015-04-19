@@ -31,7 +31,7 @@ API를 호출하기 전에 `[EngagementAgent init:@"Endpoint={YOUR_APP_COLLECTIO
 
 ##Engagement 개념
 
-다음 요소는 iOS 플랫폼과 관련된 일반적인 [Mobile Engagement 개념]을(../mobile-engagement-concepts/) 구체화합니다.
+다음 요소는 iOS 플랫폼과 관련된 일반적인 [Mobile Engagement 개념]을(mobile-engagement-concepts.md) 구체화합니다.
 
 ### `세션` 및 `활동`
 

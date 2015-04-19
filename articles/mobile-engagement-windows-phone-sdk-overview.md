@@ -17,17 +17,17 @@
 	ms.author="kapiteir" />
 
 #Azure Mobile Engagement용 Windows Phone SDK v2.0.0
-이 문서에서는 Windows Phone 앱에 Azure Mobile Engagement를 통합하는 방법에 대한 모든 세부 사항을 확인할 수 있습니다. 먼저 통합을 연습해 보려면 [15분 자습서](../mobile-engagement-windows-phone-get-started/)의 단계를 진행하세요.
+이 문서에서는 Windows Phone 앱에 Azure Mobile Engagement를 통합하는 방법에 대한 모든 세부 사항을 확인할 수 있습니다. 먼저 통합을 연습해 보려면 [15분 자습서](mobile-engagement-windows-phone-get-started.md)의 단계를 진행하세요.
 
-[SDK 콘텐츠를 보려면 클릭하세요.](../mobile-engagement-windows-phone-sdk-content/)
+[SDK 콘텐츠를 보려면 클릭하세요.](mobile-engagement-windows-phone-sdk-content.md)
 
 ##통합 절차
 
-1. 시작: [Windows Phone 앱에서 Mobile Engagement를 통합하는 방법](../mobile-engagement-windows-phone-integrate-engagement/)
+1. 시작: [Windows Phone 앱에서 Mobile Engagement를 통합하는 방법](mobile-engagement-windows-phone-integrate-engagement.md)
 
-2. 알림: [Windows Phone 앱에서 도달률(알림)을 통합하는 방법](../mobile-engagement-windows-phone-integrate-engagement-reach/)
+2. 알림: [Windows Phone 앱에서 도달률(알림)을 통합하는 방법](mobile-engagement-windows-phone-integrate-engagement-reach.md)
 
-3. 태그 계획 구현: [Windows Phone 앱에서 고급 Mobile Engagement 태깅 API를 사용하는 방법](../mobile-engagement-windows-phone-use-engagement-api/)
+3. 태그 계획 구현: [Windows Phone 앱에서 고급 Mobile Engagement 태깅 API를 사용하는 방법](mobile-engagement-windows-phone-use-engagement-api.md)
 
 ##릴리스 정보
 
@@ -36,7 +36,7 @@
 -   appId/sdkKey 구성이 연결 문자열 구성으로 바뀌었습니다.
 -   보안이 개선되었습니다.
 
-이전 버전에 대한 내용은 [전체 릴리스 정보](../mobile-engagement-windows-phone-release-notes/)를 참조하세요.
+이전 버전에 대한 내용은 [전체 릴리스 정보](mobile-engagement-windows-phone-release-notes.md)를 참조하세요.
 
 ##업그레이드 절차
 
