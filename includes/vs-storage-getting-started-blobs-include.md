@@ -93,4 +93,6 @@ Blob을 삭제하려면 먼저 Blob 참조를 가져온 다음 Delete() 메서�
 
 [Azure 저장소에 대한 자세한 정보](http://azure.microsoft.com/documentation/services/storage/)
 또한 [서버 탐색기로 저장소 리소스 탐색](http://msdn.microsoft.com/library/azure/ff683677.aspx)(영문)을 참조하세요.
-\<!--HONumber=42-->
+
+
+<!--HONumber=42-->

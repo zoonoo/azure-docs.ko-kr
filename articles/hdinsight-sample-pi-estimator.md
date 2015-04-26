@@ -482,4 +482,5 @@ Azure PowerShell로 Azure HDInsight에서 Pig, Hive 및 MapReduce 작업을 사�
 [hdinsight-use-pig]: ../hdinsight-use-pig/
  
 
+
 <!--HONumber=42-->

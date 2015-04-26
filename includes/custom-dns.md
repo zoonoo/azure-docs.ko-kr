@@ -1,4 +1,4 @@
-# Azure 클라우드 서비스에 대한 사용자 지정 도메인 이름 구성
+﻿# Azure 클라우드 서비스에 대한 사용자 지정 도메인 이름 구성
 
 > [AZURE.NOTE]
 > 새로운 Azure의 [안내 방식 연습](http://support.microsoft.com/kb/2990804)을 사용하면 작업을 보다 빠르게 수행할 수 있습니다.  이 연습을 통해 사용자 지정 도메인 이름을 연결하고 SSL을 사용하여 Azure 클라우드 서비스 또는 Azure 웹 사이트와의 통신을 보호하는 등의 작업을 매우 쉽게 완료할 수 있습니다.
@@ -6,7 +6,7 @@
 Azure에서 응용 프로그램을 만들면 Azure에서는 사용자가 http://&lt;*myapp*>.cloudapp.net 등의 URL에서 응용 프로그램에 액세스할 수 있도록 cloudapp.net 도메인에 하위 도메인을 제공합니다. 그러나 contoso.com 등의 고유한 도메인 이름에도 응용 프로그램을 표시할 수 있습니다.
 
 > [AZURE.NOTE] 
-> 이 작업의 절차는 Azure 클라우드 서비스에 적용됩니다. 저장소 계정의 경우 [Azure 저장소 계정에 대한 사용자 지정 도메인 이름 구성](../articles/storage-custom-domain-name.md)을 참조하세요. 웹 사이트의 경우 [Azure 웹 사이트에 대한 사용자 지정 도메인 이름 구성](../articles/web-sites-custom-domain-name.md).
+> 이 작업의 절차는 Azure 클라우드 서비스에 적용됩니다. 저장소 계정의 경우 [Azure 저장소 계정에 대한 사용자 지정 도메인 이름 구성]을 참조하세요(../articles/storage-custom-domain-name.md). 웹 사이트의 경우 [Azure 웹 사이트에 대한 사용자 지정 도메인 이름 구성](../articles/web-sites-custom-domain-name.md).
 
 
 ## CNAME 및 A 레코드 이해
@@ -27,7 +27,7 @@ A 레코드는 **contoso.com**, **www.contoso.com** 등의 도메인이나 **\.c
 > [AZURE.NOTE]
 > A 레코드는 고정 IP 주소에 매핑되므로 변경 내용을 클라우드 서비스의 IP 주소로 자동으로 확인할 수 없습니다. 빈 슬롯(프로덕션 또는 스테이징)에 처음 배포할 때 클라우드 서비스에서 사용되는 IP 주소가 할당됩니다. 슬롯에 대한 배포를 삭제하면 Azure에서 IP 주소를 해제하며, 나중에 슬롯에 배포할 때 새 IP 주소가 지정될 수 있습니다.
 > 
-> 편의상, 스테이징 배포와 프로덕션 배포 간에 전환하거나 기존 배포의 바로 업그레이드를 수행하는 경우 주어진 배포 슬롯(프로덕션 또는 스테이징)의 IP 주소가 지속됩니다. 이러한 작업을 수행하는 방법에 대한 자세한 내용은 [클라우드 서비스를 관리하는 방법](../articles/cloud-services-how-to-manage.md)을 참조하세요..
+> 편의상, 스테이징 배포와 프로덕션 배포 간에 전환하거나 기존 배포의 바로 업그레이드를 수행하는 경우 주어진 배포 슬롯(프로덕션 또는 스테이징)의 IP 주소가 지속됩니다. 이러한 작업을 수행하는 방법에 대한 자세한 내용은 [클라우드 서비스를 관리하는 방법]을 참조하세요.(../articles/cloud-services-how-to-manage.md).
 
 
 ## 사용자 지정 도메인에 대한 CNAME 레코드 추가
@@ -40,7 +40,7 @@ CNAME 레코드를 만들려면 등록 기관에서 제공한 도구를 사용�
 
   		  ![사이트 URL을 표시하는 빠른 보기 섹션][csurl]
 
-  * [Azure Powershell](../articles/install-configure-powershell.md)을 설치 및 구성한후 다음 명령을 사용합니다.
+  * [Azure Powershell]을 설치 및 구성한(../articles/install-configure-powershell.md)후 다음 명령을 사용합니다.
 
     Get-AzureDeployment -ServiceName yourservicename | Select Url
 
@@ -85,7 +85,7 @@ A 레코드를 만들려면 먼저 클라우드 서비스의 가상 IP 주소를
 
    		 ![VIP를 표시하는 빠른 보기 섹션][vip]
 
-  * [Azure Powershell](../articles/install-configure-powershell.md)을 설치 및 구성한후 다음 명령을 사용합니다.
+  * [Azure Powershell]을 설치 및 구성한(../articles/install-configure-powershell.md)후 다음 명령을 사용합니다.
 
       get-azurevm -servicename yourservicename | get-azureendpoint -VM {$_.VM} | select Vip
 

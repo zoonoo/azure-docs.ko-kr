@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="알림 허브 지역화된 속보 자습서" 
 	description="Azure 서비스 버스 알림 허브를 사용하여 지역화된 최신 뉴스 알림을 보내는 방법에 대해 알아봅니다." 
 	services="notification-hubs" 
@@ -18,7 +18,7 @@
 # 알림 허브를 사용하여 지역화된 속보 보내기
 
 <div class="dev-center-tutorial-selector sublanding"> 
-    	<a href="/ko-kr/documentation/articles/notification-hubs-windows-store-dotnet-send-localized-breaking-news/" title="Windows Store C#" class="current">Windows 스토어 C#</a><a href="/ko-kr/documentation/articles/notification-hubs-ios-send-localized-breaking-news/" title="iOS">iOS</a>
+    	<a href="/documentation/articles/notification-hubs-windows-store-dotnet-send-localized-breaking-news/" title="Windows Store C#" class="current">Windows 스토어 C#</a><a href="/documentation/articles/notification-hubs-ios-send-localized-breaking-news/" title="iOS">iOS</a>
 </div>
 
 이 항목에서는 Azure 알림 허브의 **템플릿** 기능을 사용하여 언어 및 장치별로 지역화된 속보 알림을 브로드캐스트하는 방법을 보여 줍니다. 이 자습서에서는 [알림 허브를 사용하여 속보 보내기]에서 만든 Windows 스토어 앱으로 시작합니다. 이 자습서를 완료하면 관심 있는 범주를 등록하고, 알림을 받을 언어를 지정하고, 선택한 범주에 대한 푸시 알림만 해당 언어로 받을 수 있습니다.
@@ -39,7 +39,7 @@
 
 
 
-## 필수 조건 ##
+##필수 조건 ##
 
 이미 [알림 허브를 사용하여 속보 보내기] 자습서를 완료한 상태여야 하며 사용 가능한 코드가 있어야 합니다. 이 자습서에서는 해당 코드를 기반으로 직접 빌드하기 때문입니다. 
 
@@ -82,7 +82,7 @@ Visual Studio 2012도 필요합니다.
 이제 [알림 허브를 사용하여 속보 보내기] 항목에서 만든 속보 앱을 수정하고 템플릿을 사용하여 지역화된 속보를 보냅니다.
 
 
-지역화된 메시지를 받도록 클라이언트 앱을 조정하려면 *native* 등록(템플릿을 지정하는 등록)을 템플릿 등록으로 바꿔야 합니다.
+지역화된 메시지를 받도록 클라이언트 앱을 조정하려면  *네이티브* 등록(즉, 템플릿을 지정하는 등록)을 템플릿 등록으로 바꿔야 합니다.
 
 
 Windows 스토어 앱에서
@@ -215,26 +215,26 @@ Windows 스토어 앱에서
 
 
 <!-- URLs. -->
-[모바일 서비스]: /ko-kr/develop/mobile/tutorials/get-started
-[알림 허브를 통해 사용자에게 알림: ASP.NET]: /ko-kr/manage/services/notification-hubs/notify-users-aspnet
-[알림 허브를 통해 사용자에게 알림: 모바일 서비스]: /ko-kr/manage/services/notification-hubs/notify-users
-[알림 허브를 사용하여 속보 보내기]: /ko-kr/manage/services/notification-hubs/breaking-news-dotnet 
+[모바일 서비스]: /develop/mobile/tutorials/get-started
+[알림 허브를 통해 사용자에게 알림: ASP.NET]: /manage/services/notification-hubs/notify-users-aspnet
+[알림 허브를 통해 사용자에게 알림: 모바일 서비스]: /manage/services/notification-hubs/notify-users
+[알림 허브를 사용하여 속보 보내기]: /manage/services/notification-hubs/breaking-news-dotnet 
 
 [앱 제출 페이지]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [내 응용 프로그램]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Windows용 Live SDK]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[모바일 서비스 시작]: /ko-kr/develop/mobile/tutorials/get-started/#create-new-service
-[데이터 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-data-dotnet
-[인증 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-users-dotnet
-[푸시 알림 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-push-dotnet
-[앱 사용자에 대한 푸시 알림]: /ko-kr/develop/mobile/tutorials/push-notifications-to-app-users-dotnet
-[스크립트를 통해 사용자 권한 부여]: /ko-kr/develop/mobile/tutorials/authorize-users-in-scripts-dotnet
-[JavaScript 및 HTML]: /ko-kr/develop/mobile/tutorials/get-started-with-push-js
+[모바일 서비스 시작]: /develop/mobile/tutorials/get-started/#create-new-service
+[데이터 시작]: /develop/mobile/tutorials/get-started-with-data-dotnet
+[인증 시작]: /develop/mobile/tutorials/get-started-with-users-dotnet
+[푸시 알림 시작]: /develop/mobile/tutorials/get-started-with-push-dotnet
+[앱 사용자에 대한 푸시 알림]: /develop/mobile/tutorials/push-notifications-to-app-users-dotnet
+[스크립트를 통해 사용자 권한 부여]: /develop/mobile/tutorials/authorize-users-in-scripts-dotnet
+[JavaScript 및 HTML]: /develop/mobile/tutorials/get-started-with-push-js
 
 [Azure 관리 포털]: https://manage.windowsazure.com/
 [wns 개체]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 [알림 허브 지침]: http://msdn.microsoft.com/library/jj927170.aspx
 [iOS용 알림 허브 사용 방법]: http://msdn.microsoft.com/library/jj927168.aspx
-[Windows 스토어용 알림 허브 사용 방법]: http://msdn.microsoft.com/library/jj927172.aspx
+[Windows 스토어용 알림 허브 방법]: http://msdn.microsoft.com/library/jj927172.aspx
 
-<!--HONumber=45--> 
+<!--HONumber=49-->

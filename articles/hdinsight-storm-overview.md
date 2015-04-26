@@ -148,4 +148,5 @@ Trident를 사용하는 경우에는 튜플 배치 처리를 기준으로 일괄
 [apachetutorial]: https://storm.incubator.apache.org/documentation/Tutorial.html
 [poweredby]: https://storm.incubator.apache.org/documentation/Powered-By.html
 [gettingstarted]: /ko-kr/documentation/articles/hdinsight-storm-getting-started
+
 <!--HONumber=42-->

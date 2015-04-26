@@ -21,7 +21,7 @@
 이 항목에서는 Azure에 사용자 지정 Java 웹 사이트를 업로드하는 방법을 설명합니다. 이 항목에는 모든 Java 웹 사이트에 적용되는 정보와 특정 응용 프로그램의 일부 예제도 포함되어 있습니다.
 
 Azure에서는 [Azure 웹 사이트 및 Java 시작
-](../web-sites-java-get-started)에서 설명한 대로 Azure 포털의 구성 UI 및 Azure 응용 프로그램 갤러리를 사용하여 Java 웹 사이트를 만드는 방법을 제공합니다. 이 자습서는 Azure 구성 UI 또는 Azure 응용 프로그램 갤러리를 사용하지 않는 시나리오용입니다.  
+](web-sites-java-get-started.md)에서 설명한 대로 Azure 포털의 구성 UI 및 Azure 응용 프로그램 갤러리를 사용하여 Java 웹 사이트를 만드는 방법을 제공합니다. 이 자습서는 Azure 구성 UI 또는 Azure 응용 프로그램 갤러리를 사용하지 않는 시나리오용입니다.  
 
 # 구성 지침
 
@@ -231,6 +231,7 @@ tomcat-7.0.40 폴더와 동일한 디렉터리 수준에서 다음 내용을 포
 이러한 내용을 변경하면 Liferay를 실행하는 웹 사이트를 다시 시작한 후 http://yoursite를 엽니다.  Liferay 포털은 웹 사이트 루트에서 사용할 수 있습니다. 
 
 Liferay에 대한 자세한 내용은 [http://www.liferay.com](http://www.liferay.com)을 참조하세요.
+
 
 
 

@@ -286,11 +286,13 @@ PowerShell 콘솔을 열고 프로젝트를 저장한 위치로 이동하고 프
 ## <a name="seeAlso"></a>참고 항목
 
 - [HDInsight 클러스터에 Spark 설치 및 사용][hdinsight-install-spark](영문) - 클러스터 사용자 지정을 사용하여 HDInsight Hadoop 클러스터에서 Spark를 설치하고 사용하는 방법에 대한 지침을 제공합니다. Spark는 메모리 내 처리를 지원하여 빅데이터 분석 응용 프로그램의 성능을 향상하는 오픈 소스 병렬 처리 프레임워크입니다.
-- [HDInsight 클러스터에 Giraph 설치](../hdinsight-hadoop-giraph-install)(영문). 클러스터 사용자 지정을 사용하여 HDInsight Hadoop 클러스터에 Giraph를 설치합니다. Giraph를 통해 Hadoop을 사용하여 그래프 처리를 수행할 수 있으며, Azure HDInsight에서 이를 사용할 수도 있습니다.
-- [HDInsight 클러스터에 Solr 설치](../hdinsight-hadoop-solr-install)(영문). 클러스터 사용자 지정을 사용하여 HDInsight Hadoop 클러스터에 Solr을 설치합니다. Solr을 사용하면 저장된 데이터에서 강력한 검색 작업을 수행할 수 있습니다.
+- [HDInsight 클러스터에 Giraph 설치](hdinsight-hadoop-giraph-install.md)(영문). 클러스터 사용자 지정을 사용하여 HDInsight Hadoop 클러스터에 Giraph를 설치합니다. Giraph를 통해 Hadoop을 사용하여 그래프 처리를 수행할 수 있으며, Azure HDInsight에서 이를 사용할 수도 있습니다.
+- [HDInsight 클러스터에 Solr 설치](hdinsight-hadoop-solr-install.md)(영문). 클러스터 사용자 지정을 사용하여 HDInsight Hadoop 클러스터에 Solr을 설치합니다. Solr을 사용하면 저장된 데이터에서 강력한 검색 작업을 수행할 수 있습니다.
 
 
 [hdinsight-provision]: ../hdinsight-provision-clusters/
 [hdinsight-cluster-customize]: ../hdinsight-hadoop-customize-cluster
 [hdinsight-install-spark]: ../hdinsight-hadoop-spark-install/
-\<!--HONumber=42-->
+
+
+<!--HONumber=42-->

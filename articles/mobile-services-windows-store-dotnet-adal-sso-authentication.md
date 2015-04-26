@@ -227,4 +227,5 @@ Azure Active Directory에 앱을 등록하려면 Windows 스토어에 앱을 연
 [모바일 서비스 시작](영문): /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/
 [Windows 개발자 센터 대시보드]: http://go.microsoft.com/fwlink/p/?LinkID=266734
 
+
 <!--HONumber=42-->

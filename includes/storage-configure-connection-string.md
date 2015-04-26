@@ -62,4 +62,5 @@ Azure 클라우드 서비스가 아닌 응용 프로그램을 작성하는 경�
 [connection-string4]: ./media/storage-configure-connection-string/connection-string4.png
 [connection-string5]: ./media/storage-configure-connection-string/connection-string5.png
 
-[연결 문자열 구성]: http://msdn.microsoft.com/library/windowsazure/ee758697.aspx<!--HONumber=42-->
+[연결 문자열 구성]: http://msdn.microsoft.com/library/windowsazure/ee758697.aspx
+<!--HONumber=42-->

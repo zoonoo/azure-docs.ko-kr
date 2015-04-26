@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="푸시 알림 시작(Windows 스토어) | 모바일 개발자 센터" 
 	description="Azure 모바일 서비스와 알림 허브를 사용하여 Windows 스토어 앱에 푸시 알림을 보내는 방법에 대해 알아봅니다." 
 	services="mobile-services, notification-hubs" 
@@ -193,11 +193,11 @@
 [앱 제출 페이지]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [내 응용 프로그램]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Windows용 Live SDK]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[모바일 서비스 시작](영문): /ko-kr/documentation/articles/mobile-services-windows-phone-get-started
+[모바일 서비스 시작]: /ko-kr/documentation/articles/mobile-services-windows-phone-get-started
 [데이터 시작]: /ko-kr/documentation/articles/mobile-services-windows-phone-get-started-data
-[인증 시작](영문): /ko-kr/documentation/articles/mobile-services-windows-phone-get-started-users
+[인증 시작]: /ko-kr/documentation/articles/mobile-services-windows-phone-get-started-users
 
-[Windows Phone용 푸시 알림을 보내도록 인증된 웹 서비스 설정]: http://msdn.microsoft.com/library/windowsphone/develop/ff941099(v=vs.105).aspx
+[Windows Phone의 푸시 알림을 보내도록 인증된 웹 서비스 설정]: http://msdn.microsoft.com/library/windowsphone/develop/ff941099(v=vs.105).aspx
 
 [모바일 서비스 서버 스크립트 참조]: http://go.microsoft.com/fwlink/?LinkId=262293
 [모바일 서비스 .NET 방법 개념 참조]: /ko-kr/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library
@@ -208,6 +208,7 @@
 [알림 허브 정의]: /ko-kr/documentation/articles/notification-hubs-overview/
 [구독자에게 브로드캐스트 알림 보내기]: /ko-kr/documentation/articles/notification-hubs-windows-phone-send-breaking-news/
 [구독자에게 템플릿 기반 알림 보내기]: /ko-kr/documentation/articles/notification-hubs-windows-phone-send-localized-breaking-news/
+
 
 
 <!--HONumber=42-->

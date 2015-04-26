@@ -83,4 +83,5 @@
 이제 미디어 서비스 프로그래밍을 위해 컴퓨터를 설정하고 Visual Studio 솔루션을 만들었습니다. [암호화된 자산을 만들어 저장소에 업로드하는 방법][] 항목으로 이동하세요.
 [미디어 서비스 계정을 만드는 방법]: ../media-services-create-account/
 [암호화된 자산을 만들어 저장소에 업로드하는 방법]: ../media-services-create-encrypted-asset-upload-storage/
+
 <!--HONumber=42-->

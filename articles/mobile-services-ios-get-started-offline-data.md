@@ -295,4 +295,5 @@ Azure 모바일 서비스의 오프라인 동기화를 사용하면 최종 사�
 [Azure Friday: Azure 모바일 서비스의 오프라인 지원 앱]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
 
 
+
 <!--HONumber=42-->

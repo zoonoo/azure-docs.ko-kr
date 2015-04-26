@@ -368,8 +368,8 @@ PowerShell 콘솔을 열고 Visual Studio 프로젝트를 저장한 위치로 �
 
 ## 참고 항목##
 - [HDInsight 클러스터에서 R 설치][hdinsight-install-r](영문) - 클러스터 사용자 지정을 사용하여 HDInsight Hadoop 클러스터에 R을 설치하고 사용하는 방법에 대한 지침을 제공합니다. R은 통계 계산을 위한 오픈 소스 언어 및 환경으로, 수백 개의 통계 함수를 기본 제공하고 기능적인 측면과 개체 지향 프로그래밍이 결합된 프로그래밍 언어를 자체 제공합니다. 또한 광범위한 그래픽 기능도 제공합니다.
-- [HDInsight 클러스터에 Giraph 설치](../hdinsight-hadoop-giraph-install)(영문). 클러스터 사용자 지정을 사용하여 HDInsight Hadoop 클러스터에 Giraph를 설치합니다. Giraph를 통해 Hadoop을 사용하여 그래프 처리를 수행할 수 있으며, Azure HDInsight에서 이를 사용할 수도 있습니다.
-- [HDInsight 클러스터에 Solr 설치](../hdinsight-hadoop-solr-install)(영문). 클러스터 사용자 지정을 사용하여 HDInsight Hadoop 클러스터에 Solr을 설치합니다. Solr을 사용하면 저장된 데이터에서 강력한 검색 작업을 수행할 수 있습니다.
+- [HDInsight 클러스터에 Giraph 설치](hdinsight-hadoop-giraph-install.md)(영문). 클러스터 사용자 지정을 사용하여 HDInsight Hadoop 클러스터에 Giraph를 설치합니다. Giraph를 통해 Hadoop을 사용하여 그래프 처리를 수행할 수 있으며, Azure HDInsight에서 이를 사용할 수도 있습니다.
+- [HDInsight 클러스터에 Solr 설치](hdinsight-hadoop-solr-install.md)(영문). 클러스터 사용자 지정을 사용하여 HDInsight Hadoop 클러스터에 Solr을 설치합니다. Solr을 사용하면 저장된 데이터에서 강력한 검색 작업을 수행할 수 있습니다.
 
 
 
@@ -379,4 +379,6 @@ PowerShell 콘솔을 열고 Visual Studio 프로젝트를 저장한 위치로 �
 [hdinsight-install-r]: ../hdinsight-hadoop-r-scripts/
 [hdinsight-cluster-customize]: ../hdinsight-hadoop-customize-cluster
 [powershell-install-configure]: ../install-configure-powershell/
-\<!--HONumber=42-->
+
+
+<!--HONumber=42-->

@@ -19,19 +19,19 @@
 
 # <a id="nonendorsed"> </a>보증되지 않는 배포에 대한 정보 #
 
-**중요**: [보증 배포판](../virtual-machines-linux-endorsed-distributions) 중 하나를 사용하는 경우에만 Linux OS를 실행하는 가상 컴퓨터에 Azure 플랫폼 SLA가 적용됩니다. Azure 이미지 갤러리에 제공된 모든 Linux 배포는 필요한 구성이 포함된 보증 배포판입니다.
+**중요**: [보증 배포판](virtual-machines-linux-endorsed-distributions.md) 중 하나를 사용하는 경우에만 Linux OS를 실행하는 가상 컴퓨터에 Azure 플랫폼 SLA가 적용됩니다. Azure 이미지 갤러리에 제공된 모든 Linux 배포는 필요한 구성이 포함된 보증 배포판입니다.
 
-- [Azure의 Linux - 보증 배포판](../virtual-machines-linux-endorsed-distributions)
+- [Azure의 Linux - 보증 배포판](virtual-machines-linux-endorsed-distributions.md)
 - [Microsoft Azure의 Linux 이미지 지원](http://support2.microsoft.com/kb/2941892)
 
 Azure에서 실행되는 모든 배포가 플랫폼에서 올바르게 실행되려면 여러 가지 필수 구성 요소가 충족되어야 합니다.  모든 배포는 서로 다르므로 이 문서에는 모든 필수 구성 요소가 포함되어 있지는 않습니다. 아래 기준이 모두 충족되어도 플랫폼에서 올바르게 실행되도록 하려면 여전히 Linux 시스템을 상당히 조정해야 할 수 있습니다.
 
 따라서 가능한 경우 [Azure 보증 배포판의 Linux](../linux-endorsed-distributions 중 하나를 사용하여 시작하는 것이 좋습니다. 다음 문서에서는 Azure에서 지원되는 다양한 Linux 보증 배포판을 준비하는 방법을 안내합니다.
 
-- **[CentOS 기반 배포](../virtual-machines-linux-create-upload-vhd-centos)**
-- **[Oracle Linux](../virtual-machines-linux-create-upload-vhd-oracle)**
-- **[SLES 및 openSUSE](../virtual-machines-linux-create-upload-vhd-suse)**
-- **[Ubuntu](../virtual-machines-linux-create-upload-vhd-ubuntu)**
+- **[CentOS 기반 배포](virtual-machines-linux-create-upload-vhd-centos.md)**
+- **[Oracle Linux](virtual-machines-linux-create-upload-vhd-oracle.md)**
+- **[SLES 및 openSUSE](virtual-machines-linux-create-upload-vhd-suse.md)**
+- **[Ubuntu](virtual-machines-linux-create-upload-vhd-ubuntu.md)**
 
 이 문서의 나머지 부분에서는 Azure에서 Linux 배포를 실행하기 위한 일반 지침을 주로 제공합니다.
 
@@ -40,7 +40,7 @@ Azure에서 실행되는 모든 배포가 플랫폼에서 올바르게 실행되
 
 - 새 VHDX 형식은 Azure에서 지원되지 않습니다. Hyper-V 관리자 또는 convert-vhd cmdlet을 사용하여 디스크를 VHD 형식으로 변환할 수 있습니다.
 
-- Linux 시스템 설치 시에는 LVM(설치 기본값인 경우가 많음)이 아닌 표준 파티션을 사용하는 것이 좋습니다. 이렇게 하면 특히 문제 해결을 위해 OS 디스크를 다른 VM에 연결해야 하는 경우 복제된 VM과 LVM 이름이 충돌하지 않도록 방지합니다.  원하는 경우에는 데이터 디스크에서 LVM 또는 [RAID](../virtual-machines-linux-configure-raid)를 사용할 수 있습니다.
+- Linux 시스템 설치 시에는 LVM(설치 기본값인 경우가 많음)이 아닌 표준 파티션을 사용하는 것이 좋습니다. 이렇게 하면 특히 문제 해결을 위해 OS 디스크를 다른 VM에 연결해야 하는 경우 복제된 VM과 LVM 이름이 충돌하지 않도록 방지합니다.  원하는 경우에는 데이터 디스크에서 LVM 또는 [RAID](virtual-machines-linux-configure-raid.md)를 사용할 수 있습니다.
 
 - 2.6.37보다 낮은 Linux 커널 버전의 버그 때문에 더 큰 VM 크기에서는 NUMA가 지원되지 않습니다. 이 문제는 주로 업스트림 Red Hat 2.6.32 커널을 사용하는 분산에 영향을 줍니다. Azure Linux 에이전트(waagent)를 수동으로 설치하면 Linux 커널의 GRUB 구성에서 NUMA가 자동으로 사용하지 않도록 설정됩니다.
 
@@ -103,7 +103,7 @@ Windows 환경에서 실행 중이지 않은 경우 qemu-img를 사용하여 VHD
 
 ## Linux 커널 요구 사항 ##
 
-Hyper-V 및 Azure용 LIS(Linux 통합 서비스) 드라이버는 업스트림 Linux 커널로 직접 제공됩니다. 최신 Linux 커널 버전(예: 3.x)을 포함하는 대부분의 배포에서는 이러한 드라이버가 이미 제공되거나 이러한 드라이버의 백 포트 버전이 커널과 함께 제공됩니다.  이러한 드라이버는 업스트림 커널에서 새로운 수정 사항과 기능이 적용되어 지속적으로 업데이트되므로 가능하면 이러한 수정 사항과 업데이트를 포함하는 [보증 배포판](../linux-endorsed-distributions)을 실행하는 것이 좋습니다.
+Hyper-V 및 Azure용 LIS(Linux 통합 서비스) 드라이버는 업스트림 Linux 커널로 직접 제공됩니다. 최신 Linux 커널 버전(예: 3.x)을 포함하는 대부분의 배포에서는 이러한 드라이버가 이미 제공되거나 이러한 드라이버의 백 포트 버전이 커널과 함께 제공됩니다.  이러한 드라이버는 업스트림 커널에서 새로운 수정 사항과 기능이 적용되어 지속적으로 업데이트되므로 가능하면 이러한 수정 사항과 업데이트를 포함하는 [보증 배포판](linux-endorsed-distributions.md)을 실행하는 것이 좋습니다.
 
 Red Hat Enterprise Linux 버전 **6.0~6.3**의 변형을 실행하는 경우에는 Hyper-V용 최신 LIS 드라이버를 설치해야 합니다. 이러한 드라이버는 [이 위치](http://go.microsoft.com/fwlink/p/?LinkID=254263&clcid=0x409)에서 찾을 수 있습니다. RHEL **6.4 이상** 및 파생 버전에서는 LIS 드라이버가 커널에 이미 포함되어 있으므로 Azure에서 해당 시스템을 실행하기 위해 추가 설치 패키지가 필요하지 않습니다.
 
@@ -129,7 +129,7 @@ Red Hat Enterprise Linux 버전 **6.0~6.3**의 변형을 실행하는 경우에�
 
 ## Azure Linux 에이전트 ##
 
-Azure에서 Linux 가상 컴퓨터를 올바르게 프로비전하려면 [Azure Linux 에이전트](../virtual-machines-linux-agent-user-guide)(waagent)가 필요합니다. [Linux Agent GitHub 리포지토리](https://github.com/Azure/WALinuxAgent)에서 최신 버전을 가져오거나 문제를 보고하거나 끌어오기 요청을 제출할 수 있습니다.
+Azure에서 Linux 가상 컴퓨터를 올바르게 프로비전하려면 [Azure Linux 에이전트](virtual-machines-linux-agent-user-guide.md)(waagent)가 필요합니다. [Linux Agent GitHub 리포지토리](https://github.com/Azure/WALinuxAgent)에서 최신 버전을 가져오거나 문제를 보고하거나 끌어오기 요청을 제출할 수 있습니다.
 
 - Linux 에이전트는 Apache 2.0 라이선스 하에서 릴리스되었습니다. 대부분의 배포에서는 에이전트의 RPM 또는 deb 패키지가 이미 제공되므로 매우 간편하게 이러한 패키지를 설치 및 업데이트할 수 있는 경우도 있습니다.
 
@@ -158,7 +158,7 @@ Azure에서 Linux 가상 컴퓨터를 올바르게 프로비전하려면 [Azure 
 
 - Azure Linux 에이전트 설치
 
-	Azure에서 Linux 이미지를 프로비전하려면 Azure Linux 에이전트가 필요합니다. 대부분의 배포에서는 에이전트를 RPM 또는 Deb 패키지로 제공합니다. 패키지의 이름은 보통  'WALinuxAgent' 또는  'walinuxagent'입니다. [Linux 에이전트 가이드]의 단계를 수행하여 에이전트를 수동으로 설치할 수도 있습니다(../virtual-machines-linux-agent-user-guide).
+	Azure에서 Linux 이미지를 프로비전하려면 Azure Linux 에이전트가 필요합니다. 대부분의 배포에서는 에이전트를 RPM 또는 Deb 패키지로 제공합니다. 패키지의 이름은 보통  'WALinuxAgent' 또는  'walinuxagent'입니다. [Linux 에이전트 가이드]의 단계를 수행하여 에이전트를 수동으로 설치할 수도 있습니다(virtual-machines-linux-agent-user-guide.md).
 
 - SSH 서버가 설치되어 부팅 시 시작되도록 구성되어 있는지 확인합니다. 보통 SSH 서버는 기본적으로 이와 같이 구성되어 있습니다.
 
@@ -184,6 +184,7 @@ Azure에서 Linux 가상 컴퓨터를 올바르게 프로비전하려면 [Azure 
 		# logout
 
 - 그런 다음 가상 컴퓨터를 종료하고 VHD를 Azure에 업로드해야 합니다.
+
 
 
 <!--HONumber=42-->

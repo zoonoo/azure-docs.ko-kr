@@ -787,8 +787,8 @@ Visual Studio **서버 탐색기**에서 wadexample 저장소 계정으로 이�
 [Azure 응용 프로그램 디버깅]: http://msdn.microsoft.com/library/windowsazure/ee405479.aspx   
 [Azure 진단을 사용하여 로깅 데이터 수집]: http://msdn.microsoft.com/library/windowsazure/gg433048.aspx
 [Azure 응용 프로그램 개발 문제 해결 모범 사례]: http://msdn.microsoft.com/library/windowsazure/hh771389.aspx
-[무료 평가판]: http://azure.microsoft.com/pricing/free-trial/
-[Azure PowerShell 버전 0.8.7 이상을 설치 및 구성]: http://azure.microsoft.com/documentation/articles/install-configure-powershell/
+[무료 평가판]: http://azure.microsoft.com/ pricing/free-trial/
+[Azure PowerShell 버전 0.8.7 이상을 설치 및 구성]: http://azure.microsoft.com/ documentation/articles/install-configure-powershell/
 [Azure 진단 1.2 구성 스키마]: http://msdn.microsoft.com/library/azure/dn782207.aspx
 [Azure 서비스 진단 확장 세트]: http://msdn.microsoft.com/library/dn495270.aspx
 [Azure 서비스 진단 확장 얻기]: http://msdn.microsoft.com/library/dn495145.aspx

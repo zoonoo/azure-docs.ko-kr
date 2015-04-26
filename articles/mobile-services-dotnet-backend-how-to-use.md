@@ -35,4 +35,5 @@
 이 프로그래밍 모델의 근본에는 CRUD 데이터 액세스 패턴에 대해 사용자 지정된 정규 Web API [**ApiController**](http://msdn.microsoft.com/library/system.web.http.apicontroller.aspx) 인 [**TableController<T>**](http://msdn.microsoft.com/library/dn643359.aspx) 클래스가 있습니다. **TableController**는 SQL([Entity Framework](http://msdn.microsoft.com/data/ef.aspx) 사용), [Azure 테이블 저장소](http://azure.microsoft.com/documentation/services/storage/), [MongoDB](http://www.mongodb.org) 또는 사용자 고유의 사용자 지정 저장소를 포함하여 다양한 데이터 저장소를 사용할 수 있습니다.
 
 
+
 <!--HONumber=42-->

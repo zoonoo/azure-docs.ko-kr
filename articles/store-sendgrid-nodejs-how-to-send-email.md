@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="SendGrid 메일 서비스를 사용하는 방법(Node.js) - Azure" 
 	description="Azure에서 SendGrid 전자 메일 서비스를 사용하여 전자 메일을 보내는 방법에 대해 알아봅니다. 코드 샘플은 Node.js API를 사용하여 작성되었습니다." 
 	services="" 
@@ -186,8 +186,7 @@ SendGrid는 필터를 사용 하 여 추가 전자 메일 기능을 제공합니
 일부 메일 속성은 **set*Property***를 사용하여 덮어쓰거나 **add*Property***를 사용하여 추가할 수 있습니다. 예를 들어 다음을 사용하여 받는 사람을 더 추가할 수 있습니다.
 
     email.addTo('jeff@contoso.com');
-
-또는 다음을 사용하여 필터를 설정할 수 있습니다
+    or set a filter by using
 
     email.addFilter('footer', 'enable', 1);
     email.addFilter('footer', 'text/html', '<strong>boo</strong>');

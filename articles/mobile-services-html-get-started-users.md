@@ -30,11 +30,11 @@
 
 이 자습서는 모바일 서비스 퀵 스타트를 기반으로 합니다. 먼저 [모바일 서비스 시작] 자습서를 완료해야 합니다. 
 
-##<a name="register"></a>인증을 위해 앱 등록 및 모바일 서비스 구성
+## <a name="register"></a>인증을 위해 앱 등록 및 모바일 서비스 구성
 
 [AZURE.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)] 
 
-##<a name="permissions"></a>사용 권한을 인증된 사용자로 제한
+## <a name="permissions"></a>사용 권한을 인증된 사용자로 제한
 
 [AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)] 
 
@@ -57,7 +57,7 @@
 
 다음에는 모바일 서비스의 리소스를 요청하기 전에 인증을 허용하도록 앱을 업데이트합니다.
 
-##<a name="add-authentication"></a>앱에 인증 추가
+## <a name="add-authentication"></a>앱에 인증 추가
 
 >[AZURE.NOTE]팝업에서 로그인이 이루어지기 때문에 단추 클릭 이벤트에서 <strong>login</strong> 메서드를 호출해야 합니다. 그렇지 않으면 많은 브라우저에서 로그인 창이 표시되지 않습니다.
 

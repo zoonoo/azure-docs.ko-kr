@@ -109,4 +109,5 @@
 [Visual Studio 2012를 사용하여 모바일 서비스에서 데이터 시작]: /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-data-vs2012
 
 
+
 <!--HONumber=42-->

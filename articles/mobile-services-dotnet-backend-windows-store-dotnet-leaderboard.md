@@ -776,4 +776,5 @@ App.xaml.cs 파일을 열고 **MobileServiceClient** 인스턴스를 `App` 클�
 [인증 시작](영문): /ko-kr/develop/mobile/tutorials/get-started-with-users-dotnet
 
 
+
 <!--HONumber=42-->

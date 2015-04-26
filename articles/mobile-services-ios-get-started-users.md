@@ -24,21 +24,21 @@
 
 이 자습서는 먼저 완료해야 하는 [모바일 서비스 퀵 스타트 자습서]를 기반으로 합니다.
 
-##<a name="register"></a>인증을 위해 앱 등록 및 모바일 서비스 구성
+## <a name="register"></a>인증을 위해 앱 등록 및 모바일 서비스 구성
 
 [AZURE.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)]
 
-##<a name="permissions"></a>사용 권한을 인증된 사용자로 제한
+## <a name="permissions"></a>사용 권한을 인증된 사용자로 제한
 
 [AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)]
 
 Xcode에서 프로젝트를 엽니다. **실행** 단추를 눌러 앱을 시작합니다. 앱이 시작된 후 상태 코드 401(인증되지 않음)의 예외가 발생하는지 확인합니다. 이는 앱이 인증되지 않은 사용자로 모바일 서비스에 액세스하려고 시도하지만 _TodoItem_ 테이블에서 이제 인증을 요구하기 때문에 발생합니다.
 
-##<a name="add-authentication"></a>앱에 인증 추가
+## <a name="add-authentication"></a>앱에 인증 추가
 
 [AZURE.INCLUDE [mobile-services-ios-authenticate-app](../includes/mobile-services-ios-authenticate-app.md)]
 
-##<a name="store-authentication"></a>앱에 인증 토큰 저장
+## <a name="store-authentication"></a>앱에 인증 토큰 저장
 
 [AZURE.INCLUDE [mobile-services-ios-authenticate-app-with-token](../includes/mobile-services-ios-authenticate-app-with-token.md)]
 

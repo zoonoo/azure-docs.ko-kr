@@ -19,4 +19,5 @@
 복제 옵션에 대한 자세한 내용은 [Azure 저장소 팀 블로그](http://blogs.msdn.com/b/windowsazurestorage/)(영문) 및 [Azure 저장소 중복 옵션](http://msdn.microsoft.com/library/azure/dn727290.aspx)을 참조하세요.
 	
 다양한 복제 옵션 간의 가격 차이는 [저장소 가격 정보](/ko-kr/pricing/details/storage/) 페이지에서 확인할 수 있습니다.
+
 <!--HONumber=42-->

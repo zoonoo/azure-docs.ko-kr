@@ -129,4 +129,5 @@ Azure에서 실행 중인 모바일 서비스에 대해 새 클라이언트 앱�
 [JavaScript 백 엔드 버전]: /ko-kr/documentation/articles/mobile-services-ios-get-started
 
 
+
 <!--HONumber=42-->

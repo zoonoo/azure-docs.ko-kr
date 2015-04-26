@@ -317,4 +317,5 @@ RBAC(역할 기반 액세스 제어)는 사용자가 가질 수 있는 역할에
 [그래프 클라이언트 라이브러리]: http://go.microsoft.com/fwlink/?LinkId=510536
 [IsMemberOf]: http://msdn.microsoft.com/library/azure/dn151601.aspx
 
+
 <!--HONumber=42-->

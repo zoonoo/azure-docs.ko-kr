@@ -756,4 +756,5 @@ Windows Phone 앱의 경우 [ProtectedData] 클래스를 사용하여 데이터�
 [InvokeApiAsync]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx
 
 
+
 <!--HONumber=42-->

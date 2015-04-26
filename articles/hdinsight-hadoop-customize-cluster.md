@@ -141,8 +141,8 @@ HDInsight는 시작하는 데 도움을 주기 위해 HDInsight 클러스터에�
 
 - **Spark를 설치합니다**. [HDInsight 클러스터에 Spark 설치][hdinsight-install-spark]를 참조하세요.
 - **R을 설치합니다**. [HDInsight 클러스터에서 R 설치][hdinsight-install-r]를 참조하세요.
-- **Solr을 설치합니다**. [HDInsight 클러스터에 Solr 설치 및 사용](../hdinsight-hadoop-solr-install)
-- **Giraph를 설치합니다**. [HDInsight 클러스터에 Giraph 설치 및 사용](../hdinsight-hadoop-giraph-install)
+- **Solr을 설치합니다**. [HDInsight 클러스터에 Solr 설치 및 사용](hdinsight-hadoop-solr-install.md)
+- **Giraph를 설치합니다**. [HDInsight 클러스터에 Giraph 설치 및 사용](hdinsight-hadoop-giraph-install.md)
 
 ## <a name="support"></a>HDInsight 클러스터에서 사용하는 오픈 소스 소프트웨어에 대한 지원
 Microsoft Azure HDInsight 서비스는 Hadoop에 형성된 오픈 소스 기술의 에코시스템을 사용하여 클라우드에 빅 데이터 응용 프로그램을 빌드할 수 있는 유연한 플랫폼입니다. Microsoft Azure는 <a href="http://azure.microsoft.com/support/faq/" target="_blank">Azure 지원 FAQ 웹 사이트의 지원 범위 섹션</a>에서 설명된 것처럼 오픈 소스 기술에 대해 일반적인 수준의 지원을 제공합니다. 또한 HDInsight 서비스는 아래에 설명된 일부 구성 요소에 대해 추가 수준의 지원을 제공합니다.
@@ -174,4 +174,5 @@ HDInsight 서비스는 사용자 지정 구성 요소를 사용하는 여러 방
 
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster/HDI-Cluster-state.png "Stages during cluster provisioning"
+
 <!--HONumber=42-->

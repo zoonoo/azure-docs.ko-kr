@@ -23,7 +23,7 @@
 
 이 자습서에서는 Azure 웹 사이트에서 Python을 실행하는 방법을 설명합니다.  Azure 웹 사이트는 제한된 무료 호스팅 및 신속한 배포 기능을 제공하며, Python을 사용할 수 있습니다!  앱이 증가하면 유료 호스팅으로 전환하여 다른 모든 Azure 서비스와 통합할 수도 있습니다.
 
-먼저 Bottle 웹 프레임워크([Django](../web-sites-python-create-deploy-django-app) 및 [Flask](../web-sites-python-create-deploy-flask-app))는 이 자습서의 다른 버전 참조)를 사용하여 응용 프로그램을 만듭니다.  Azure 갤러리에서 웹 사이트를 만들고, Git 배포를 설치하고, 리포지토리를 로컬로 복제합니다.  그런 다음 응용 프로그램을 로컬로 실행하고, 변경한 다음, 이를 커밋하여 Azure에 푸시합니다.  이 자습서에서는 Windows 또는 Mac/Linux에서 이 작업을 수행하는 방법을 보여 줍니다.
+먼저 Bottle 웹 프레임워크([Django](web-sites-python-create-deploy-django-app.md) 및 [Flask](web-sites-python-create-deploy-flask-app.md))는 이 자습서의 다른 버전 참조)를 사용하여 응용 프로그램을 만듭니다.  Azure 갤러리에서 웹 사이트를 만들고, Git 배포를 설치하고, 리포지토리를 로컬로 복제합니다.  그런 다음 응용 프로그램을 로컬로 실행하고, 변경한 다음, 이를 커밋하여 Azure에 푸시합니다.  이 자습서에서는 Windows 또는 Mac/Linux에서 이 작업을 수행하는 방법을 보여 줍니다.
 
 [AZURE.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
@@ -423,6 +423,7 @@ Azure 테이블 저장소 및 MongoDB에 대한 자세한 정보:
 <!--External Link references-->
 [Python Tools for Visual Studio 설명서] : http://pytools.codeplex.com/documentation 
 [Bottle 설명서]: http://bottlepy.org/docs/dev/index.html
+
 
 
 <!--HONumber=42-->

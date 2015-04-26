@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Live Connect로 앱 인증(Windows Phone) | 모바일 개발자 센터" 
 	description="Windows Phone 응용 프로그램에서 Azure 모바일 서비스의 Live Connect Single Sign-On을 사용하는 방법을 알아봅니다." 
 	services="mobile-services" 
@@ -140,7 +140,7 @@
 
 7. 이전 단계의 _<< INSERT CLIENT ID HERE >>_ 문자열을 Live Connect에 앱을 등록할 때 생성된 클라이언트 ID 값으로 업데이트합니다.
 
-    > [AZURE.NOTE] Windows Phone 8 앱에서는 클라이언트 ID 값을 클래스 생성자에 전달하여 **LiveAuthClient** 클래스 인스턴스가 만들어집니다. [Windows 스토어 앱](/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/)에서는리디렉션 도메인 URI를 전달하여 동일한 클래스가 인스턴스화됩니다.
+    > [AZURE.NOTE] Windows Phone 8 앱에서는 클라이언트 ID 값을 클래스 생성자에 전달하여 **LiveAuthClient** 클래스 인스턴스가 만들어집니다. [Windows 스토어 앱]에서는(/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/)리디렉션 도메인 URI를 전달하여 동일한 클래스가 인스턴스화됩니다.
 
 8. 기존 **OnNavigatedTo** 메서드 재정의를 삭제하거나 주석으로 처리하고 페이지의 **Loaded** 이벤트를 처리하는 다음 메서드로 바꿉니다. 
 
@@ -191,7 +191,7 @@
 <!-- URLs. -->
 [내 응용 프로그램]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Windows 및 Windows Phone용 Live SDK]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[기존 앱에 모바일 서비스 추가]: mobile-services-windows-phone-get-started-data.md
+[기존 앱에 모바일 서비스 추가](영문): mobile-services-windows-phone-get-started-data.md
 [인증 시작]: mobile-services-windows-phone-get-started-users.md
 [스크립트를 통해 사용자 권한 부여]: mobile-services-windows-phone-authorize-users-in-scripts.md
 

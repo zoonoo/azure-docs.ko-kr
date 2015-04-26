@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
    pageTitle="Azure에서 docker-machine을 사용하는 방법" 
    description="Ubuntu의 docker-machine을 Azure에서 작동 및 실행하는 방법을 설명합니다." 
    services="virtual-machines" 
@@ -53,7 +53,8 @@ Linux가 배포된 환경을 사용하는 경우에는 이러한 파일이 컴�
 		openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout mycert.pem -out mycert.pem
 		openssl pkcs12 -export -out mycert.pfx -in mycert.pem -name "My Certificate"
 
-	Be ready here to enter the export password for your certificate and capture it for future usage. Then type:
+	인증서용 내보내기 암호를 입력하고 나중에 사용할 수 있도록 캡처할 준비를 합니다. 그런 다음 아래와 같이 입력합니다.
+
 
 		openssl x509 -inform pem -in mycert.pem -outform der -out mycert.cer
 

@@ -20,4 +20,6 @@
 	![](./media/mobile-services-windows-universal-dotnet-download-project/mobile-quickstart-startup-wp8.png)
 
 7. 3단계와 4단계를 반복하여 샘플이 같은 방식으로 동작하는지 확인합니다.
-\<!--HONumber=42-->
+
+
+<!--HONumber=42-->

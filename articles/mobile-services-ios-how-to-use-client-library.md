@@ -530,4 +530,5 @@ _(선택 사항) 이 섹션에서는 특성을 사용하여 데이터 형식이 
 [모바일 서비스 테이블 관리를 위한 CLI]: http://azure.microsoft.com/manage/linux/other-resources/command-line-tools/#Mobile_Tables
 
 
+
 <!--HONumber=42-->

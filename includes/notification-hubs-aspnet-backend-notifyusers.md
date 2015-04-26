@@ -1,6 +1,6 @@
-﻿## WebAPI 프로젝트 만들기
+## WebAPI 프로젝트 만들기
 
-아래 단계에 따라 새 ASP.NET WebAPI 백 엔드를 만들어 클라이언트를 인증하고 알림을 생성하거나 이전 프로젝트 또는 [인증된 사용자에게 푸시 알림 보내기](http://azure.microsoft.com/documentation/articles/mobile-services-dotnet-backend-ios-push-notifications-app-users/) 자습서의 기존 백 엔드를 수정합니다.
+아래 단계에 따라 새 ASP.NET WebAPI 백 엔드를 만들어 클라이언트를 인증하고 알림을 생성하거나 이전 프로젝트 또는 [인증된 사용자에게 푸시 알림 보내기](../articles/mobile-services-dotnet-backend-ios-push-notifications-app-users.md) 자습서의 기존 백 엔드를 수정합니다.
 
 > [AZURE.NOTE] **중요**: 이 자습서를 시작하기 전에 최신 버전의 NuGet 패키지 관리자를 설치했는지 확인하세요. 확인하려면 Visual Studio를 시작합니다. **도구** 메뉴에서 **확장 및 업데이트**를 클릭합니다. **Visual Studio 2013용 NuGet 패키지 관리자**를 검색하고 버전이 2.8.50313.46 이상인지 확인합니다. 그렇지 않은 경우 제거한 다음, NuGet 패키지 관리자를 다시 설치합니다.
 > 
@@ -116,7 +116,7 @@
 
 		config.MessageHandlers.Add(new AuthenticationTestHandler());
 
-15. 그런 다음 **RegisterController** 컨트롤러를 새로 만듭니다. 솔루션 탐색기에서 **Controllers** 폴더를 마우스 오른쪽 단추로 클릭하고 **추가**와 **컨트롤러**를 차례로 클릭합니다. **웹 API 2 컨트롤러 -- 비어 있음** 항목을 클릭한 다음 **추가**를 클릭합니다. 새 클래스 이름을 **RegisterController**로 지정한 다음 **추가**를 다시 클릭하여 컨트롤러를 생성합니다.
+15. Next we create a new controller **RegisterController**. In Solution Explorer, right-click the **Controllers** folder, then click **Add**, then click **Controller**. Click the **Web API 2 Controller -- Empty** item, and then click **Add**. Name the new class **RegisterController**, and then click **Add** again to generate the controller.
 
 	![][7]
 
@@ -250,21 +250,17 @@
             var user = HttpContext.Current.User.Identity.Name;
             var userTag = "username:"+user;
 
-
             // windows
             var toast = @"<toast><visual><binding template=""ToastText01""><text id=""1"">Hello, " + user + "</text></binding></visual></toast>";
             await Notifications.Instance.Hub.SendWindowsNativeNotificationAsync(toast, userTag);
-
 
             // apns
             var alert = "{\"aps\":{\"alert\":\"Hello\"}}";
             await Notifications.Instance.Hub.SendAppleNativeNotificationAsync(alert, userTag);
 
-
             // gcm
             var notif = "{ \"data\" : {\"msg\":\"Hello\"}}";
             await Notifications.Instance.Hub.SendGcmNativeNotificationAsync(notif, userTag);
-
 
             return Request.CreateResponse(HttpStatusCode.OK);
         }
@@ -299,4 +295,4 @@
 [B16]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users16.PNG
 [B18]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users18.PNG
 
-<!--HONumber=45--> 
+<!--HONumber=49-->

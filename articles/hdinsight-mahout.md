@@ -420,4 +420,5 @@ PowerShell에서 사용하는 경우 다음 클래스를 사용하는 Mahout 작
 [connect]: ./media/hdinsight-mahout/connect.png
 [hadoopcli]: ./media/hdinsight-mahout/hadoopcli.png
 [tools]: https://github.com/Blackmist/hdinsight-tools
+
 <!--HONumber=42-->

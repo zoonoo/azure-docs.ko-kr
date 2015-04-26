@@ -22,4 +22,5 @@
 
 Windows Phone Store 8.1 앱용 퀵 스타트 프로젝트 다운로드는 범용 Windows 프로젝트의 일부로 다운로드할 수 있습니다. 자세한 내용은 [모바일 서비스 시작](mobile-services-javascript-backend-windows-store-dotnet-get-started.md)을 참조하세요. 
 
+
 <!--HONumber=42-->

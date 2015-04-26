@@ -38,7 +38,7 @@ Azure의 가상 컴퓨터는 가상 컴퓨터를 만들 때 선택한 이미지�
 
 	**중요**: 새 VHDX 형식은 Azure에서 지원되지 않습니다. Hyper-V 관리자 또는 convert-vhd cmdlet을 사용하여 디스크를 VHD 형식으로 변환할 수 있습니다.
 
-	보증 배포판 목록은 [Azure의 Linux-보증 배포판](../linux-endorsed-distributions)을 참조하세요. 또한 [보증되지 않는 배포](../virtual-machines-linux-create-upload-vhd-generic)에 대한 정보는 이 문서의 끝에 있는 섹션을 참조하세요.
+	보증 배포판 목록은 [Azure의 Linux-보증 배포판](linux-endorsed-distributions.md)을 참조하세요. 또한 [보증되지 않는 배포](virtual-machines-linux-create-upload-vhd-generic.md)에 대한 정보는 이 문서의 끝에 있는 섹션을 참조하세요.
 
 - **Linux Azure 명령줄 도구** - Linux 운영 체제를 사용하여 이미지를 만드는 경우에는 [Linux 및 Mac용 Azure 명령줄 도구](http://go.microsoft.com/fwlink/?LinkID=253691&clcid=0x409)를 사용하여 VHD를 업로드합니다.
 
@@ -54,13 +54,13 @@ Azure의 가상 컴퓨터는 가상 컴퓨터를 만들 때 선택한 이미지�
 
 ## <a id="prepimage"> </a>1단계: 업로드할 이미지 준비 ##
 
-Microsoft Azure에서는 다양한 Linux 배포를 지원합니다([보증 배포판](../linux-endorsed-distributions) 참조). 다음 문서에서는 Azure에서 지원되는 다양한 Linux 배포를 준비하는 방법을 안내합니다.
+Microsoft Azure에서는 다양한 Linux 배포를 지원합니다([보증 배포판](linux-endorsed-distributions.md) 참조). 다음 문서에서는 Azure에서 지원되는 다양한 Linux 배포를 준비하는 방법을 안내합니다.
 
-- **[CentOS 기반 배포](../virtual-machines-linux-create-upload-vhd-centos)**
-- **[Oracle Linux](../virtual-machines-linux-create-upload-vhd-oracle)**
-- **[SLES 및 openSUSE](../virtual-machines-linux-create-upload-vhd-suse)**
-- **[Ubuntu](../virtual-machines-linux-create-upload-vhd-ubuntu)**
-- **[기타 - 보증되지 않는 배포](../virtual-machines-linux-create-upload-vhd-generic)**
+- **[CentOS 기반 배포](virtual-machines-linux-create-upload-vhd-centos.md)**
+- **[Oracle Linux](virtual-machines-linux-create-upload-vhd-oracle.md)**
+- **[SLES 및 openSUSE](virtual-machines-linux-create-upload-vhd-suse.md)**
+- **[Ubuntu](virtual-machines-linux-create-upload-vhd-ubuntu.md)**
+- **[기타 - 보증되지 않는 배포](virtual-machines-linux-create-upload-vhd-generic.md)**
 
 또한 Azure용 Linux 이미지를 준비하는 방법에 대한 추가 팁은 **[Linux 설치 참고 사항](../virtual-machines-linux-create-upload-vhd-generic/#linuxinstall)**을 참조하세요.
 
@@ -143,6 +143,7 @@ Microsoft Azure에서는 다양한 Linux 배포를 지원합니다([보증 배�
 [2단계: Azure에서 저장소 계정 만들기]: #createstorage
 [3단계: Azure 연결 준비]: #connect
 [4단계: Azure에 이미지 업로드]: #upload
+
 
 
 

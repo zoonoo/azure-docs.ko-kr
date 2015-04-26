@@ -120,8 +120,8 @@ Microsoft에서는 HDInsight 클러스터에 구성 요소를 설치하는 샘�
 
 - [HDInsight 클러스터에 Spark 1.0 설치 및 사용][hdinsight-install-spark]
 - [HDInsight Hadoop 클러스터에 R 설치 및 사용][hdinsight-r-scripts]
-- [HDInsight 클러스터에 Solr 설치 및 사용](../hdinsight-hadoop-solr-install)
-- [HDInsight클러스터에 Giraph 설치 및 사용](../hdinsight-hadoop-giraph-install)  
+- [HDInsight 클러스터에 Solr 설치 및 사용](hdinsight-hadoop-solr-install.md)
+- [HDInsight클러스터에 Giraph 설치 및 사용](hdinsight-hadoop-giraph-install.md)  
 
 > [AZURE.NOTE] 샘플 스크립트는 HDInsight 클러스터 버전 3.1 이상에서만 작동합니다. HDInsight 클러스터 버전에 대한 자세한 내용은 [HDInsight 클러스터 버전](http://azure.microsoft.com/documentation/articles/hdinsight-component-versioning/)을 참조하세요.
 
@@ -214,4 +214,6 @@ Spark 및 R 클러스터를 사용할 때 필요한 데이터 파일이 HDInsigh
 [hdinsight-install-spark]: ../hdinsight-hadoop-spark-install/
 [hdinsight-r-scripts]: ../hdinsight-hadoop-r-scripts/
 [powershell-install-configure]: ../install-configure-powershell/
-\<!--HONumber=42-->
+
+
+<!--HONumber=42-->

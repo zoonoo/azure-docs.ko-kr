@@ -505,4 +505,5 @@ Xamarin Component 클라이언트는 강력한 형식의 시나리오에 맞게 
 [MobileServiceAuthenticationToken]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.mobileserviceauthenticationtoken.aspx
 
 
+
 <!--HONumber=42-->

@@ -277,4 +277,5 @@ Azure 환경 내의 전체 연습은 [Azure 미리 보기 포털에서 Windows�
 [MSDN 참조](http://msdn.microsoft.com/library/azure/gg433040.aspx)
 
 [Image1]: ./media/storage-premium-storage-preview-portal/Azure_pricing_tier.png
+
 <!--HONumber=42-->

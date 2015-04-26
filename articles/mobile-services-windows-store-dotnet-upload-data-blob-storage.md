@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="모바일 서비스를 사용하여 Blob 저장소에 이미지 업로드(Windows 스토어) | 모바일 서비스" 
 	description="모바일 서비스를 사용하여 Azure Blob 저장소에 이미지를 업로드하고 Windows 스토어 앱에서 이미지에 액세스하는 방법에 대해 알아봅니다. 
 	services="mobile-services, storage" 
@@ -39,7 +39,7 @@
 
 이 자습서는 모바일 서비스 퀵 스타트를 기반으로 합니다. 이 자습서를 시작하기 전에 먼저 [모바일 서비스 시작]을 완료해야 합니다. 
 
-##<a name="install-storage-client"></a>Windows 스토어 앱용 저장소 클라이언트 설치
+## <a name="install-storage-client"></a>Windows 스토어 앱용 저장소 클라이언트 설치
 
 SAS를 사용하여 Blob 저장소에 이미지를 업로드하려면 먼저 Windows 스토어 앱용 저장소 클라이언트 라이브러리를 설치하는 NuGet 패키지를 추가해야 합니다.
 
@@ -53,7 +53,7 @@ SAS를 사용하여 Blob 저장소에 이미지를 업로드하려면 먼저 Win
 
 다음 단계에서는 이미지를 캡처하고 업로드하도록 퀵 스타트 앱을 업데이트합니다.
 
-##<a name="update-scripts"></a>관리 포털에서 등록된 삽입 스크립트 업데이트
+## <a name="update-scripts"></a>관리 포털에서 등록된 삽입 스크립트 업데이트
 
 [AZURE.INCLUDE [mobile-services-configure-blob-storage](../includes/mobile-services-configure-blob-storage.md)]
 
@@ -97,13 +97,14 @@ SAS를 사용하여 Blob 저장소에 이미지를 업로드하려면 먼저 Win
 [모바일 서비스에서 백 엔드 작업 예약]: /ko-kr/documentation/articles/mobile-services-schedule-recurring-tasks
 [.NET 백 엔드에서 서비스 버스를 사용하여 Windows 스토어 앱에 푸시 알림 보내기]: http://go.microsoft.com/fwlink/?LinkId=277073&clcid=0x409
 [모바일 서비스 서버 스크립트 참조]: http://go.microsoft.com/fwlink/p/?LinkId=262293
-[모바일 서비스 시작](영문): /ko-kr/documentation/articles/mobile-services-windows-store-get-started
+[모바일 서비스 시작]: /ko-kr/documentation/articles/mobile-services-windows-store-get-started
 
 [Azure 관리 포털]: https://manage.windowsazure.com/
 [저장소 계정을 만드는 방법]: /ko-kr/manage/services/storage/how-to-create-a-storage-account
 [스토어 앱용 Azure 저장소 클라이언트 라이브러리]: http://go.microsoft.com/fwlink/p/?LinkId=276866 
 [모바일 서비스 .NET 방법 개념 참조]: /ko-kr/develop/mobile/how-to-guides/work-with-net-client-library
 [앱 설정]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
+
 
 
 <!--HONumber=42-->

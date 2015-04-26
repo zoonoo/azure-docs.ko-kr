@@ -68,7 +68,7 @@ Azure에서는 클라우드 서비스를 위한 인프라를 자동으로 유지
 
 [HTMonitorCloudServices]:http://azure.microsoft.com/ manage/services/cloud-services/how-to-monitor-a-cloud-service/
 [SLA]: http://azure.microsoft.com/ support/legal/sla/
-[CloudServicesDiagnostics]: http://azure.microsoft.com/documentation/articles/cloud-services-dotnet-diagnostics/
-[Comparison]: http://azure.microsoft.com/documentation/articles/choose-web-site-cloud-service-vm/
+[CloudServicesDiagnostics]: http://azure.microsoft.com/ documentation/articles/cloud-services-dotnet-diagnostics/
+[Comparison]: http://azure.microsoft.com/ documentation/articles/choose-web-site-cloud-service-vm/
 
 <!--HONumber=45--> 

@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="SendGrid 메일 서비스를 사용하는 방법(.NET) - Azure" 
 	description="Azure에서 SendGrid 메일 서비스를 사용하여 메일을 보내는 방법을 알아봅니다. 코드 샘플은 C#으로 작성되었으며 .NET API를 사용합니다." 
 	services="app-service\web" 
@@ -244,7 +244,7 @@ SendGrid 메일 서비스에 관한 기본적인 사항들을 익혔으며 자�
   [앱 설정]: https://sendgrid.com/docs/API_Reference/SMTP_API/apps.html
   [SendGrid API 설명서]: https://sendgrid.com/docs
   
-  [클라우드 기반 메일 서비스]: https://sendgrid.com/email-solutions
+  [cloud-based email service]: https://sendgrid.com/email-solutions
   [트랜잭션 메일 배달]: https://sendgrid.com/transactional-email
 
 <!--HONumber=49-->

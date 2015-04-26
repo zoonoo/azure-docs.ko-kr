@@ -34,7 +34,7 @@ Azure에서는 이 템플릿이 이미지로 취급되고 **내 이미지**에 �
 
 1. 명령 모음에서 **연결**을 클릭하여 가상 컴퓨터에 연결합니다. 자세한 내용은 [Linux를 실행하는 가상 컴퓨터에 로그온하는 방법][]을 참조하세요.
 
-2. SSH 창에서 다음 명령을 입력하고 가상 컴퓨터에서 만든 계정의 암호를 입력합니다.   `waagent`의 출력은 이 유틸리티의 버전에 따라 약간씩 다를 수 있습니다.
+2. SSH 창에서 다음 명령을 입력하고 가상 컴퓨터에서 만든 계정의 암호를 입력합니다.  `waagent`의 출력은 이 유틸리티의 버전에 따라 약간씩 다를 수 있습니다.
 
 	`sudo waagent -deprovision`
 
@@ -53,7 +53,7 @@ Azure에서는 이 템플릿이 이미지로 취급되고 **내 이미지**에 �
 
 7.	**이미지 이름**에 새 이미지의 이름을 입력합니다.
 
-8.	모든 Linux 이미지는 `-deprovision` 옵션으로  `waagent` 명령을 실행하여  *deprovisioned*되어야 합니다. **I have run waagent-deprovision on the virtual machine**을 클릭하여 운영 체제가 이미지로 캡처될 준비가 되었음을 나타냅니다.
+8.	모든 Linux 이미지는 `-deprovision` 옵션으로 `waagent` 명령을 실행하여 *deprovisioned*되어야 합니다. **I have run waagent-deprovision on the virtual machine**을 클릭하여 운영 체제가 이미지로 캡처될 준비가 되었음을 나타냅니다.
 
 9.	확인 표시를 클릭하여 이미지를 캡처합니다.
 
@@ -64,11 +64,10 @@ Azure에서는 이 템플릿이 이미지로 취급되고 **내 이미지**에 �
 ##다음 단계##
 가상 컴퓨터를 만들기 위한 템플릿으로 사용할 이미지가 마련됩니다. 이렇게 하려면 **갤러리에서** 방법을 사용하여 사용자 지정 가상 컴퓨터를 만들고 위에서 만든 이미지를 선택합니다. 자세한 내용은 [사용자 지정 가상 컴퓨터를 만드는 방법][]을 참조하세요.
 	
-[Linux를 실행하는 가상 컴퓨터에 로그온하는 방법]: ../virtual-machines-linux-how-to-log-on
+[Linux를 실행하는 가상 컴퓨터에 로그온하는 방법]: virtual-machines-linux-how-to-log-on.md
 [Azure의 가상 컴퓨터 이미지 정보]: http://msdn.microsoft.com/library/azure/dn790290.aspx
-[사용자 지정 가상 컴퓨터를 만드는 방법]: ../virtual-machines-create-custom/
-[가상 컴퓨터에 데이터 디스크를 연결하는 방법]: ../storage-windows-attach-disk/
+[사용자 지정 가상 컴퓨터를 만드는 방법]: virtual-machines-create-custom.md
+[가상 컴퓨터에 데이터 디스크를 연결하는 방법]: storage-windows-attach-disk.md
 
 
-
-<!--HONumber=42-->
+<!--HONumber=45--> 

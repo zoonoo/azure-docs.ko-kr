@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="온-프레미스 VMWare 가상 컴퓨터 또는 물리적 서버와 Azure 간의 보호 설정" 
 	description="Azure Site Recovery는 온-프레미스 VMWare 서버와 Azure 사이 및 물리적 온-프레미스 서버와 Azure 사이에 있는 가상 컴퓨터의 복제, 장애 조치(Failover) 및 복구를 조정합니다." 
 	services="site-recovery" 
@@ -381,7 +381,7 @@ Linux를 실행하는 컴퓨터를 보호하려는 경우 다음을 수행해야
 
 1. **보호된 항목** > **보호 그룹** > **컴퓨터** 탭을 열고 검색된 vCenter 서버가 관리하는 가상 컴퓨터 또는 물리적 컴퓨터를 추가합니다. 특정 응용 프로그램을 실행하는 컴퓨터를 동일한 그룹에 추가하도록 보호 그룹이 작업을 미러링하는 것이 좋습니다.
 
-	![Add machines](./media/site-recovery-vmware-to-azure/ASRVMWare_PushCredentials.png)
+	![Add machines](./media/site-recovery-vmware-to-azure/ASRVMWare_PushCredentials..png)
 
 2. **가상 컴퓨터 추가**의 **가상 컴퓨터 선택** 페이지에서 V-Center 서버를 선택한 다음 해당 서버의 컴퓨터를 선택합니다.
 
@@ -392,7 +392,7 @@ Linux를 실행하는 컴퓨터를 보호하려는 경우 다음을 수행해야
 
 4. 복제에 사용할 서버와 저장소를 선택합니다. 
 
-	![vCenter server](./media/site-recovery-vmware-to-azure/ASRVMWare_MachinesResources.png)
+	![vCenter server](./media/site-recovery-vmware-to-azure/ASRVMWare_MachinesResources..png)
 
 5. 원본 서버에 대한 사용자 자격 증명을 제공합니다. 이 자격 증명은 원본 컴퓨터에 모바일 서비스를 자동으로 설치하는 데 필요합니다. Windows 서버의 경우 원본 서버에서 계정에 관리자 권한이 있어야 합니다. Linux의 경우 서버에서 계정에 수퍼 사용자 권한이 있어야 합니다.
 

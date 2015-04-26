@@ -38,4 +38,6 @@
 <!-- URLs. -->
 [Azure Active Directory에 등록하는 방법]: /ko-kr/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
 [Azure 관리 포털]: https://manage.windowsazure.com/
-\<!--HONumber=42-->
+
+
+<!--HONumber=42-->

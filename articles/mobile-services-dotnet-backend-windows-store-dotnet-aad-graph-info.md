@@ -203,4 +203,5 @@
 [모바일 서비스에서 AAD로 역할 기반 액세스 제어]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac/
 
 
+
 <!--HONumber=42-->
