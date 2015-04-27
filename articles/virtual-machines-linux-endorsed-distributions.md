@@ -22,7 +22,7 @@
 
 #Azure 인증 배포의 Linux
 
-다양한 Linux 커뮤니티와의 작업을 통해 좀더 인증된 배포를 제공하며, Azure 갤러리의 배포 이미지는 다음 파트너를 통해 제공됩니다. 그러는 동안 이 갤러리에서 사용할 수 없는 배포의 경우, [이 페이지]의 지침에 따라 자신만의 Linux를 언제든지 가져올 수 있습니다(virtual-machines-linux-create-upload-vhd.md).
+다양한 Linux 커뮤니티와의 작업을 통해 좀더 인증된 배포를 제공하며, Azure 갤러리의 배포 이미지는 다음 파트너를 통해 제공됩니다. 그러는 동안 이 갤러리에서 사용할 수 없는 배포의 경우, [이 페이지](virtual-machines-linux-create-upload-vhd.md)의 지침에 따라 자신만의 Linux를 언제든지 가져올 수 있습니다.
 
 ## Canonical ##
  
@@ -68,22 +68,21 @@ SUSE Linux Enterprise Server on Azure는 클라우드 컴퓨팅에 대해 우수
 		<td> Ubuntu 12.04.1 이상, 14.04 및 14.10 </td>
 		<td>커널에 있음</td>
 		<td><a href="http://go.microsoft.com/fwlink/?LinkID=275152&amp;clcid=0x409">12.04 또는 12.04.01에만 필요함</a></td>
-		<td>패키지: walinuxagent의 패키지 리포지토리에 있음  <br />
+		<td>패키지: walinuxagent의 패키지 리포지토리에 있음 <br />
 			원본: <a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
 			</tr>
 	<tr>
 		<th> OpenLogic의 CentOS </th>
 		<td> CentOS 6.3 이상</td>
-	    <td>CentOS 6.3: <a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409">LIS 드라이버</a>, CentOS 6.4+ 이상 드라이버: 커널에 있음</td>
+	    <td>CentOS 6.3: <a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409">LIS 드라이버</a>, CentOS 6.4 이상 드라이버: 커널에 있음</td>
 		<td><a href="http://go.microsoft.com/fwlink/?LinkID=275153&amp;clcid=0x409">6.3에만 필요함</a></td>
-		<td>패키지: walinuxagent의 <a href="http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/">Open Logic 패키지 리포지토리</a>에 있음<br />
+		<td>패키지: <a href="http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/">walinuxagent 아래의 Open Logic 패키지 리포지토리에 </a> 있음<br />
 			원본: <a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
  		
-
 	</tr>
 	<tr>
 		<th> <a href="https://coreos.com/docs/running-coreos/cloud-providers/azure/">CoreOS</a> </th>
-		<td> 494.4.0+ </td>
+		<td> 494.4.0 이상 </td>
         <td> 커널에 있음 </td>
 		<td> 해당 없음 </td>
 		<td> 원본: <a href="https://github.com/coreos/coreos-overlay/tree/master/app-emulation/wa-linux-agent">GitHub</a></td>
@@ -91,7 +90,7 @@ SUSE Linux Enterprise Server on Azure는 클라우드 컴퓨팅에 대해 우수
 	</tr>
 	<tr>
 		<th> Oracle Linux </th>
-		<td> 6.4+</td>
+		<td> 6.4 이상</td>
         <td>커널에 있음</td>
 		<td>해당 없음</td>
 		<td>패키지: 리포지토리에 있음. 이름: WALinuxAgent<br />
@@ -103,7 +102,7 @@ SUSE Linux Enterprise Server on Azure는 클라우드 컴퓨팅에 대해 우수
 		<td> SLES 11 SP3 이상</td>
         <td>커널에 있음</td>
 		<td>해당 없음</td>
-		<td>패키지: <a href="https://build.opensuse.org/project/show/Cloud:Tools" >Cloud:Tools</a> 리포지토리에 있음, 이름: WALinuxAgent<br />
+		<td>패키지: 이 패키지는 <a href="https://build.opensuse.org/project/show/Cloud:Tools" >Cloud:Tools</a> 리포지토리에 있음, 이름: WALinuxAgent<br />
 			소스 코드: <a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
 		
 	</tr>
@@ -112,13 +111,11 @@ SUSE Linux Enterprise Server on Azure는 클라우드 컴퓨팅에 대해 우수
 		<td> OpenSUSE 13.1 이상</td>
 		<td>커널에 있음</td>
 		<td>해당 없음</td>
-		<td>패키지: <a href="https://build.opensuse.org/project/show/Cloud:Tools" >Cloud:Tools</a> 리포지토리에 있음, 이름: WALinuxAgent<br />
+		<td>패키지: 이 패키지는 <a href="https://build.opensuse.org/project/show/Cloud:Tools" >Cloud:Tools</a> 리포지토리에 있음, 이름: WALinuxAgent<br />
 			소스 코드: <a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
 		
 	</tr>
 </table>
 
 
-
-
-<!--HONumber=42-->
+<!--HONumber=45--> 

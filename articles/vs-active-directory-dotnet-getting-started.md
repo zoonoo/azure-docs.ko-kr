@@ -1,12 +1,12 @@
-﻿<properties 
-	pageTitle="Azure Active Directory 시작(.NET 프로젝트)" 
+<properties 
+	pageTitle="Azure Active Directory 시작(.NET 프로젝트))" 
 	description="Visual Studio에서 Azure Active Directory를 사용하는 방법" 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="kempb" 
 	manager="douge" 
 	editor="tglee"/>
-  
+ 
 <tags 
 	ms.service="active-directory" 
 	ms.workload="web" 
@@ -16,11 +16,11 @@
 	ms.date="02/02/2015" 
 	ms.author="kempb"/>
 
-> [AZURE.SELECTOR]
-> - [시작하기](vs-active-directory-dotnet-getting-started.md)
-> - [변경된 내용](vs-active-directory-dotnet-what-happened.md)
+# Azure Active Directory 시작(.NET 프로젝트)
 
-## Azure Active Directory 시작(.NET 프로젝트)
+> [AZURE.SELECTOR]
+> - [시작](vs-active-directory-dotnet-getting-started.md)
+> - [변경된 내용](vs-active-directory-dotnet-what-happened.md)
  
 #####컨트롤러에 액세스하려면 인증 필요 
 
@@ -77,4 +77,4 @@
 
 [Azure Active Directory에 대한 자세한 정보](http://azure.microsoft.com/services/active-directory/)
 
-<!--HONumber=46--> 
+<!--HONumber=49-->

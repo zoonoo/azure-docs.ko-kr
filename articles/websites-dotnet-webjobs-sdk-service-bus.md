@@ -18,11 +18,13 @@
 
 # WebJobs SDK를 사용하여 Azure 서비스 버스로 작업하는 방법
 
+## 개요
+
 이 가이드에서는 Azure Blob를 만들거나 업데이트할 때 프로세스를 트리거하는 방법을 보여 주는 Azure Blob C# 코드 샘플을 제공합니다. 코드 샘플에서는 [WebJobs SDK](websites-dotnet-webjobs-sdk.md) 버전 1.x를 사용합니다.
 
 이 가이드에서는 [저장소 계정을 가리키는 연결 문자열을 사용하여 Visual Studio에서 WebJob 프로젝트를 만드는 방법](websites-dotnet-webjobs-sdk-get-started.md)을 알고 있는 것으로 가정합니다.
 
-코드 조각은 다음 예제와 같이  `JobHost` 개체를 만드는 코드가 아니라 함수만 보여 줍니다.
+코드 조각은 다음 예제와 같이 `JobHost` 개체를 만드는 코드가 아니라 함수만 보여 줍니다.
 
 		static void Main(string[] args)
 		{
@@ -30,28 +32,19 @@
 		    host.RunAndBlock();
 		}
 		
-## 목차
-
--   [필수 조건](#prerequisites)
--   [큐 메시지가 수신될 때 함수를 트리거하는 방법](#trigger)
--   [큐 메시지를 만드는 방법](#create)
--   [서비스 버스 항목으로 작업하는 방법](#topics)
--   [저장소 큐 문서에서 다루는 관련 항목](#queues)
--   [다음 단계](#nextsteps)
-
 ## <a id="prerequisites"></a> 필수 조건
 
 서비스 버스로 작업하려면 다른 WebJobs SDK 패키지와 함께 [Microsoft.Azure.WebJobs.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus/) NuGet 패키지를 설치해야 합니다. 
 
 또한 저장소 연결 문자열과 함께 AzureWebJobsServiceBus 연결 문자열을 설정해야 합니다.
 
-## <a id="trigger"></a>서비스 버스 큐 메시지가 수신될 때 함수를 트리거하는 방법
+## <a id="trigger"></a> 서비스 버스 큐 메시지가 수신될 때 함수를 트리거하는 방법
 
-큐 메시지가 수신될 때 WebJobs SDK에서 호출하는 함수를 작성하려면  `ServiceBusTrigger` 특성을 사용합니다. 특성 생성자는 폴링할 큐의 이름을 지정하는 매개 변수를 사용합니다.
+큐 메시지가 수신될 때 WebJobs SDK에서 호출하는 함수를 작성하려면 `ServiceBusTrigger` 특성을 사용합니다. 특성 생성자는 폴링할 큐의 이름을 지정하는 매개 변수를 사용합니다.
 
 ### ServiceBusTrigger 작동 방식
 
-SDK는  `PeekLock` 모드로 메시지를 받아 함수가 성공적으로 완료된 경우 메시지에서  `Complete`를 호출하고, 함수가 실패한 경우  `Abandon`을 호출합니다. 함수가  `PeekLock` 시간 제한보다 오래 실행되는 경우 잠금이 자동으로 갱신됩니다.
+SDK는 `PeekLock` 모드로 메시지를 받아 함수가 성공적으로 완료된 경우 메시지에서 `Complete`를 호출하고, 함수가 실패한 경우 `Abandon`을 호출합니다. 함수가 `PeekLock` 시간 제한보다 오래 실행되는 경우 잠금이 자동으로 갱신됩니다.
 
 서비스 버스는 자체 포이즌 큐 처리를 수행하므로 WebJobs SDK에서 제어되지도 않고 구성할 수도 없습니다. 
 
@@ -69,7 +62,7 @@ SDK는  `PeekLock` 모드로 메시지를 받아 함수가 성공적으로 완�
 
 ### POCO 큐 메시지
 
-SDK에서는 POCO[(Plain Old CLR Object](http://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) 유형에 대한 JSON이 포함된 큐 메시지를 자동으로 deserialize합니다. 다음 코드 샘플은  `BlobName` 속성을 가진  `BlobInformation` 개체가 포함된 큐 메시지를 읽습니다.
+SDK에서는 POCO[(Plain Old CLR Object](http://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) 유형에 대한 JSON이 포함된 큐 메시지를 자동으로 deserialize합니다. 다음 코드 샘플은 `BlobName` 속성을 가진 `BlobInformation` 개체가 포함된 큐 메시지를 읽습니다.
 
 		public static void WriteLogPOCO([ServiceBusTrigger("inputqueue")] BlobInformation blobInfo,
 		    TextWriter logger)
@@ -77,15 +70,15 @@ SDK에서는 POCO[(Plain Old CLR Object](http://en.wikipedia.org/wiki/Plain_Old_
 		    logger.WriteLine("Queue message refers to blob: " + blobInfo.BlobName);
 		}
 
-POCO 속성을 사용하여 동일한 함수의 Blob 및 테이블로 작업하는 방법을 보여 주는 코드 샘플은 [이 문서의 저장소 큐 버전](../websites-dotnet-webjobs-sdk-storage-queues-how-to/#pocoblobs).을 참조하세요.
+POCO 속성을 사용하여 동일한 함수의 Blob 및 테이블로 작업하는 방법을 보여 주는 코드 샘플은 [이 문서의 저장소 큐 버전](../websites-dotnet-webjobs-sdk-storage-queues-how-to/#pocoblobs)을 참조하세요.
 
 ### ServiceBusTrigger가 작동하는 유형
 
- `string` 및 POCO 유형 외에 바이트 배열 또는  `BrokeredMessage` 개체에서  `ServiceBusTrigger` 특성을 사용할 수 있습니다.
+ `string` 및 POCO  유형 외에 바이트 배열 또는 `BrokeredMessage` 개체에서 `ServiceBusTrigger` 특성을 사용할 수 있습니다.
 
 ## <a id="create"></a> 서비스 버스 큐 메시지를 만드는 방법
 
-새 큐 메시지를 만드는 함수를 작성하려면  `ServiceBus` 특성을 사용하고 특성 생성자로 큐 이름을 전달합니다. 
+새 큐 메시지를 만드는 함수를 작성하려면 `ServiceBus` 특성을 사용하고 특성 생성자로 큐 이름을 전달합니다. 
 
 
 ### 비동기가 아닌 함수로 단일 큐 메시지를 만들기
@@ -110,7 +103,7 @@ POCO 유형 매개 변수의 경우 함수가 종료되면 큐 메시지가 항�
 
 ### 여러 큐 메시지 만들기 또는 비동기 함수로 큐 메시지 만들기
 
-여러 메시지를 만들려면 다음 코드 샘플과 같이  `ICollector<T>` 또는  `IAsyncCollector<T>`에서  `ServiceBus` 특성을 사용합니다.
+여러 메시지를 만들려면 다음 코드 샘플과 같이 `ICollector<T>` 또는 `IAsyncCollector<T>`에서 `ServiceBus` 특성을 사용합니다.
 
 		public static void CreateQueueMessages(
 		    [ServiceBusTrigger("inputqueue")] string queueMessage,
@@ -122,11 +115,11 @@ POCO 유형 매개 변수의 경우 함수가 종료되면 큐 메시지가 항�
 		    outputQueueMessage.Add(queueMessage + "2");
 		}
 
- `Add` 메서드를 호출하면 각 큐 메시지가 즉시 생성됩니다.
+`Add` 메서드를 호출하면 각 큐 메시지가 즉시 생성됩니다.
 
 ## <a id="topics"></a>서비스 버스 항목으로 작업하는 방법
 
-서비스 버스 항목에 메시지가 수신될 때 SDK에서 호출하는 함수를 작성하려면 다음 코드 샘플과 같이 항목 이름 및 구독 이름을 가져오는 생성자와 함께  `ServiceBusTrigger` 특성을 사용합니다.
+서비스 버스 항목에 메시지가 수신될 때 SDK에서 호출하는 함수를 작성하려면 다음 코드 샘플과 같이 항목 이름 및 구독 이름을 가져오는 생성자와 함께 `ServiceBusTrigger` 특성을 사용합니다.
 
 		public static void WriteLog([ServiceBusTrigger("outputtopic","subscription1")] string message,
 		    TextWriter logger)
@@ -134,11 +127,11 @@ POCO 유형 매개 변수의 경우 함수가 종료되면 큐 메시지가 항�
 		    logger.WriteLine("Topic message: " + message);
 		}
 
-항목에 대한 메시지를 만들려면 큐 이름과 동일한 방식으로 항목 이름에서  `ServiceBus` 특성을 사용합니다.
+항목에 대한 메시지를 만들려면 큐 이름과 동일한 방식으로 항목 이름에서 `ServiceBus` 특성을 사용합니다.
 
 ## <a id="queues"></a>저장소 큐 방법 문서에서 다루는 관련 항목
 
-서비스 버스에 특정하지 않은 WebJobs SDK 시나리오에 대한 자세한 내용은 [WebJobs SDK를 사용하여 Azure 큐 저장소로 작업하는 방법](websites-dotnet-webjobs-sdk-storage-queues-how-to.md). 을 참조하세요.
+서비스 버스에 특정하지 않은 WebJobs SDK 시나리오에 대한 자세한 내용은 [WebJobs SDK를 사용하여 Azure 큐 저장소로 작업하는 방법](websites-dotnet-webjobs-sdk-storage-queues-how-to.md)을 참조하세요. 
 
 이 문서에서 다루는 항목은 다음과 같습니다.
 
@@ -155,6 +148,4 @@ POCO 유형 매개 변수의 경우 함수가 종료되면 큐 메시지가 항�
 
 이 가이드에서는 Azure 서비스 버스로 작업하는 일반적인 시나리오를 처리하는 방법을 보여 주는 코드 샘플을 제공했습니다. Azure WebJobs 및 WebJobs SDK를 사용하는 방법에 대한 자세한 내용은 [Azure WebJobs 권장 리소스](http://go.microsoft.com/fwlink/?linkid=390226)를 참조하세요.
 
-
-
-<!--HONumber=42-->
+<!--HONumber=45--> 

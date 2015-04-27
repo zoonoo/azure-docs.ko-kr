@@ -16,11 +16,13 @@
 	ms.date="02/02/2015" 
 	ms.author="kempb"/>
 
+# 내 프로젝트에서 무엇이 변경되었나요?
+
 > [AZURE.SELECTOR]
-> - [시작하기](vs-active-directory-dotnet-getting-started.md)
+> - [시작](vs-active-directory-dotnet-getting-started.md)
 > - [변경된 내용](vs-active-directory-dotnet-what-happened.md)
 
-###<span id="whathappened">내 프로젝트에서 무엇이 변경되었습니까?</span>
+###<span id="whathappened">내 프로젝트에서 무엇이 변경되었나요?</span>
  
 참조가 추가되었습니다.
 
@@ -53,11 +55,11 @@
 
 #####프로젝트에 코드 파일이 추가됨 
 
-Azure AD 인증에 대한 시작 논리가 포함된 인증 시작 클래스 `App_Start/Startup.Auth.cs`가 프로젝트에 추가되었습니다. 또한 `SignIn()` 및 `SignOut()` 메서드를 포함하는 컨트롤러 클래스 Controllers/AccountController.cs가 추가되었습니다. 마지막으로 SignIn/SignOut에 대한 작업 링크를 포함하는 부분 뷰 `Views/Shared/_LoginPartial.cshtml`이 추가되었습니다. 
+Azure AD 인증에 대한 시작 논리가 포함된 인증 시작 클래스  `App_Start/Startup.Auth.cs`가 프로젝트에 추가되었습니다. 또한  `SignIn()` 및  `SignOut()` 메서드를 포함하는 컨트롤러 클래스 Controllers/AccountController.cs가 추가되었습니다. 마지막으로 SignIn/SignOut에 대한 작업 링크를 포함하는 부분 뷰  `Views/Shared/_LoginPartial.cshtml`이 추가되었습니다. 
 
 #####프로젝트에 시작 코드가 추가됨
  
-프로젝트에 시작 클래스가 이미 있는 경우 **Configuration** 메서드가 업데이트되어 `ConfigureAuth(app)`에 대한 호출이 해당 메서드에 추가되었습니다. 그렇지 않으면 시작 클래스가 프로젝트에 추가되었습니다. 
+프로젝트에 시작 클래스가 이미 있는 경우 **Configuration** 메서드가 업데이트되어  `ConfigureAuth(app)`에 대한 호출이 해당 메서드에 추가되었습니다. 그렇지 않으면 시작 클래스가 프로젝트에 추가되었습니다. 
 
 #####app.config 또는 web.config에 새 구성 값이 추가됨 
 
@@ -75,4 +77,4 @@ Azure AD 인증에 대한 시작 논리가 포함된 인증 시작 클래스 `Ap
 
 [Azure Active Directory에 대한 자세한 정보](http://azure.microsoft.com/services/active-directory/)
 
-<!--HONumber=46--> 
+<!--HONumber=49-->

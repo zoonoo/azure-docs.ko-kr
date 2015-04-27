@@ -20,7 +20,7 @@
 
 Azure 관리 포털에서 이미지 갤러리를 사용하면 Linux를 실행하는 가상 컴퓨터를 쉽게 만들 수 있습니다. 이 가이드에서는 Azure를 사용해 본 적이 없다고 가정하여 해당 작업을 수행하는 방법을 설명합니다.
 
-> [AZURE.NOTE] 이전에 Azure VM에서 이 자습서를 완료한 적은 없어도 되지만 Azure 계정은 있어야 합니다. 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 계정 만들기](http://azure.microsoft.com/develop/php/tutorials/create-a-windows-azure-account/)를 참조하세요. 
+> [AZURE.NOTE] 이전에 Azure VM에서 이 자습서를 완료한 적은 없어도 되지만 Azure 계정은 있어야 합니다. 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 계정 만들기](http://azure.microsoft.com/develop/php/tutorials/create-a-windows-azure-account/)(영문)를 참조하세요. 
 
 이 자습서에서는 다음 내용을 다룹니다.
 
@@ -53,7 +53,7 @@ Azure의 가상 컴퓨터는 제어 및 관리할 수 있는 클라우드의 서
 
 [AZURE.INCLUDE [virtual-machines-Linux-tutorial-log-on-attach-disk](../includes/virtual-machines-Linux-tutorial-log-on-attach-disk.md)]
 
-> [AZURE.NOTE] SSH 키를 식별에 사용하여 Linux 가상 컴퓨터에 연결할 수도 있습니다. SSH 키를 구성하고 연결하는 방법에 대한 자세한 내용은 [Azure에서 Linux와 함께 SSH를 사용 하는 방법](virtual-machines-linux-use-ssh-key)을 참조하세요.
+> [AZURE.NOTE] SSH 키를 식별에 사용하여 Linux 가상 컴퓨터에 연결할 수도 있습니다. SSH 키를 구성하고 연결하는 방법에 대한 자세한 내용은 [Azure에서 Linux와 함께 SSH를 사용하는 방법](virtual-machines-linux-use-ssh-key)을 참조하세요.
 
 ##다음 단계 
 
@@ -74,6 +74,4 @@ Azure의 Linux에 대한 자세한 내용은 다음 문서를 참조하세요.
 [가상 컴퓨터를 만든 후 로그온하는 방법]: #logon
 [새 가상 컴퓨터에 데이터 디스크를 연결하는 방법]: #attachdisk
 
-
-
-<!--HONumber=42-->
+<!--HONumber=45--> 

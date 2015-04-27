@@ -13,27 +13,38 @@
 	ms.tgt_pltfrm="" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/22/2014" 
-	ms.author="glenga"/>
+	ms.date="2/16/2015" 
+	ms.author="wesmc"/>
 
-# Azure 알림 허브 사용자에게 알림
+#Azure 알림 허브 사용자에게 알림
 
 <div class="dev-center-tutorial-selector sublanding"> 
-    	<a href="/ko-kr/documentation/articles/notification-hubs-windows-dotnet-notify-users/" title="Windows Universal" class="current">Windows Universal</a><a href="/ko-kr/documentation/articles/notification-hubs-aspnet-backend-ios-notify-users/" title="iOS">iOS</a>
-		<a href="/ko-kr/documentation/articles/notification-hubs-aspnet-backend-android-notify-users/" title="Android">Android</a>
+    	<a href="/documentation/articles/notification-hubs-windows-dotnet-notify-users/" title="Windows Universal" class="current">Windows Universal</a><a href="/documentation/articles/notification-hubs-aspnet-backend-ios-notify-users/" title="iOS">iOS</a>
+		<a href="/documentation/articles/notification-hubs-aspnet-backend-android-notify-users/" title="Android">Android</a>
 </div>
 
-Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플랫폼 및 규모 확장 푸시 인프라에 액세스할 수 있어, 모바일 플랫폼용 소비자 응용 프로그램 및 엔터프라이즈 응용 프로그램 모두에 대한 푸시 알림을 매우 간단하게 구현할 수 있습니다. 이 자습서에서는 Azure 알림 허브를 사용하여 특정 장치에서 특정 앱 사용자에게 푸시 알림을 보내는 방법을 보여 줍니다. 지침 항목 [앱 백 엔드에서 등록](http://msdn.microsoft.com/library/dn743807.aspx)에 나와 있는 대로 ASP.NET WebAPI 백 엔드는 클라이언트를 인증하고 알림을 생성하는 데 사용됩니다. 이 자습서는 **알림 허브 시작** 자습서에서 만든 알림 허브를 기반으로 합니다.
+##개요
 
-이 자습서는 **보안 푸시** 자습서의 필수 조건이기도 합니다. 이 **사용자에게 알림** 자습서의 단계를 완료해야 푸시 알림을 안전하게 보내도록 **사용자에게 알림** 코드를 수정하는 방법을 보여 주는 **보안 푸시** 자습서를 진행할 수 있습니다. 
+Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플랫폼 및 규모 확장 푸시 인프라에 액세스할 수 있어, 모바일 플랫폼용 소비자 응용 프로그램 및 엔터프라이즈 응용 프로그램 모두에 대한 푸시 알림을 매우 간단하게 구현할 수 있습니다. 이 자습서에서는 Azure 알림 허브를 사용하여 특정 장치에서 특정 앱 사용자에게 푸시 알림을 보내는 방법을 보여 줍니다. 지침 항목 [앱 백 엔드에서 등록](http://msdn.microsoft.com/library/dn743807.aspx)에 나와 있는 대로 ASP.NET WebAPI 백 엔드는 클라이언트를 인증하고 알림을 생성하는 데 사용됩니다. 이 자습서는 [알림 허브 시작[ 자습서에서 만든 알림 허브를 기반으로 합니다.
 
-> [AZURE.NOTE] 이 자습서에서는 [알림 허브 시작(Windows 스토어)](http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/)에 설명된 대로 알림 허브를 만들고 구성했다고 가정합니다.
-> 모바일 서비스를 백 엔드 서비스로 사용 중인 경우 이 자습서의 [모바일 서비스 버전](mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users.md)을 참조하세요.
->또한 이 자습서에서는 Windows Phone 스토어 8.1 앱을 만듭니다. Windows 스토어 및 Windows Universal 앱에도 같은 코드를 사용할 수 있습니다. 이러한 앱은 모두 Windows(Windows Phone이 아님) 자격 증명을 사용합니다.
+이 자습서는 [보안 푸시] 자습서의 필수 조건이기도 합니다. 이 자습서의 단계를 완료해야 푸시 알림을 안전하게 보내도록 이 자습서의 코드를 수정하는 방법을 보여 주는 [보안 푸시] 자습서를 진행할 수 있습니다. 
+
+
+##필수 조건 
+
+이 자습서를 시작하려면 먼저 다음 모바일 서비스 자습서를 완료해야 합니다.
+
++ [알림 허브 시작]<br/>알림 허브를 만들고 앱 이름을 예약하고 이 자습서의 알림을 받도록 등록합니다.
+
+
+
+
+> [AZURE.NOTE] 모바일 서비스를 백 엔드 서비스로 사용 중인 경우 이 자습서의 [모바일 서비스 버전]을(mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users.md) 참조하세요.
+
 
 ## 알림 허브 만들기 및 구성
 
-이 자습서를 시작하기 전에 응용 프로그램 이름을 예약하고 Azure 알림 허브를 만들고 나서 해당 응용 프로그램에 연결해야 합니다. [알림 허브 시작(Windows 스토어)](http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/), 특히 [Windows 스토어에 앱 등록](http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/#register) 및 [알림 허브 구성](http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/#configure-hub) 섹션의 단계를 수행하세요. 특히 알림 허브의 **구성** 탭에서 포털의 **패키지 SID** 및 **클라이언트 암호** 값을 입력했는지 확인합니다. 이 구성 절차는 [알림 허브 구성](http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/#configure-hub) 섹션에서 설명합니다. 이는 중요한 단계입니다. 포털의 자격 증명이 선택한 앱 이름에 대해 지정된 자격 증명과 일치하지 않으면 푸시 알림이 실패합니다.
+이 자습서를 시작하기 전에 응용 프로그램 이름을 예약하고 Azure 알림 허브를 만들고 나서 해당 응용 프로그램에 연결해야 합니다. [알림 허브 시작(Windows 스토어)](http://azure.microsoft.comnotification-hubs-windows-store-dotnet-get-started.md), 특히 [Windows 스토어용 앱 등록](notification-hubs-windows-store-dotnet-get-started.md#register) 및 [알림 허브 구성](notification-hubs-windows-store-dotnet-get-started.md#configure-hub) 섹션에 설명된 단계를 따르세요. 특히 알림 허브의 **구성** 탭에서 포털의 **패키지 SID** 및 **클라이언트 암호** 값을 입력했는지 확인합니다. 이 구성 절차는 [알림 허브 구성] 섹션에서 설명합니다(notification-hubs-windows-store-dotnet-get-started.md#configure-hub). 이는 중요한 단계입니다. 포털의 자격 증명이 선택한 앱 이름에 대해 지정된 자격 증명과 일치하지 않으면 푸시 알림이 실패합니다.
 
 [AZURE.INCLUDE [notification-hubs-aspnet-backend-notifyusers](../includes/notification-hubs-aspnet-backend-notifyusers.md)]
 
@@ -43,14 +54,14 @@ Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플랫폼 및
 
 1. 솔루션 탐색기에서 솔루션의 최상위 노드(여기서는 **Solution NotifyUsers**)를 마우스 오른쪽 단추로 클릭하고 **추가**, **새 프로젝트**를 차례로 클릭합니다.
 
-2. **스토어 앱**을 확장하고 **Windows Phone 앱**, **빈 앱(Windows Phone)**을 차례로 클릭합니다.
+2. *스토어 앱*을 확장하고 *Windows Phone 앱*, *빈 앱(Windows Phone)**을 차례로 클릭합니다.
 
 	![][9]
 
 3. **이름** 상자에 **NotifyUserWindowsPhone**을 입력하고 **확인**을 클릭하여 프로젝트를 생성합니다.
 
  
-4. 이 응용 프로그램을 Windows Phone 스토어와 연결합니다. 솔루션 탐색기에서 **NotifyUserWindowsPhone (Windows Phone 8.1)**을 마우스 오른쪽 단추로 클릭하고 **스토어**, **앱을 스토어에 연결...**을 차례로 클릭합니다.
+4. 이 응용 프로그램을 Windows Phone 스토어와 연결합니다. 솔루션 탐색기에서 **NotifyUserWindowsPhone (Windows Phone 8.1)**을 마우스 오른쪽 단추로 클릭하고 **스토어**, **응용 프로그램을 스토어에 연결...**을 차례로 클릭합니다.
 
 	![][10]
  
@@ -58,7 +69,7 @@ Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플랫폼 및
 
 	![][11]
 	
-	> [AZURE.NOTE] 이 절차 중에 선택하는 응용 프로그램 이름을 기록해 두세요. 이 특정 예약된 앱 이름에 대해 [Windows 개발자 센터](http://go.microsoft.com/fwlink/p/?linkid=266582&clcid=0x409)에서 얻은 자격 증명을 사용하여 포털에서 알림 허브를 구성해야 합니다. 이 구성 절차는 [알림 허브 구성](http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/#configure-hub)에서 설명합니다. 이는 중요한 단계입니다. 포털의 자격 증명이 선택한 앱 이름에 대해 지정된 자격 증명과 일치하지 않으면 푸시 알림이 실패합니다.
+	> [AZURE.NOTE] 이 절차 중에 선택하는 응용 프로그램 이름을 기록해 두세요. 이 특정 예약된 앱 이름에 대해 [Windows 개발자 센터](http://go.microsoft.com/fwlink/p/?linkid=266582&clcid=0x409)에서 얻은 자격 증명을 사용하여 포털에서 알림 허브를 구성해야 합니다. 이 구성 절차는 [알림 허브 구성]에서 설명합니다(notification-hubs-windows-store-dotnet-get-started.md#configure-hub). 이는 중요한 단계입니다. 포털의 자격 증명이 선택한 앱 이름에 대해 지정된 자격 증명과 일치하지 않으면 푸시 알림이 실패합니다.
 
 6. 솔루션 탐색기에서 **NotifyUserWindowsPhone (Windows Phone 8.1)** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 클릭합니다.
 
@@ -105,9 +116,9 @@ Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플랫폼 및
     	</Grid>
 
 
-13. 솔루션 탐색기에서 **NotifyUserWindowsPhone (Windows Phone 8.1)** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가**, **클래스**를 차례로 클릭합니다. 클래스 이름을 **RegisterClient.cs**로 지정하고 **확인**을 클릭하여 클래스를 생성합니다. 이 구성 요소는 푸시 알림을 등록하기 위해 앱 백 엔드에 접속하는 데 필요한 REST 호출을 구현합니다. 또한 [앱 백 엔드에서 등록](http://msdn.microsoft.com/library/dn743807.aspx)에 설명된 대로 알림 허브에서 생성된 *registrationIds*를 로컬로 저장합니다. 이 구성 요소는 **로그인 및 등록** 단추를 클릭할 때 로컬 저장소에 저장된 인증 토큰을 사용합니다.
+13. 솔루션 탐색기에서 **NotifyUserWindowsPhone (Windows Phone 8.1)** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가**, **클래스**를 차례로 클릭합니다. 클래스 이름을 **RegisterClient.cs**로 지정하고 **확인**을 클릭하여 클래스를 생성합니다. 이 구성 요소는 푸시 알림을 등록하기 위해 앱 백 엔드에 접속하는 데 필요한 REST 호출을 구현합니다. 또한 [앱 백 엔드에서 등록](http://msdn.microsoft.com/library/dn743807.aspx)에 설명된 대로 알림 허브에서 생성된  *registrationId*를 로컬로 저장합니다. 이 구성 요소는 **로그인 및 등록** 단추를 클릭할 때 로컬 저장소에 저장된 인증 토큰을 사용합니다.
 
-14. 다음 코드를 `RegisterClient` 클래스 정의 내에 추가합니다. 여기서 `{backend endpoint}`는 이전 섹션에서 얻은 백 엔드 끝점으로 바꿔야 합니다.
+14. 다음 코드를  `RegisterClient` 클래스 정의 내에 추가합니다. 여기서 `{backend endpoint}`는 이전 섹션에서 얻은 백 엔드 끝점으로 바꿔야 합니다.
 
 		private string POST_URL = "{backend endpoint}/api/register";
 
@@ -198,7 +209,7 @@ Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플랫폼 및
 		
 16. MainPage.xaml.cs에 단추에 대한 코드를 추가합니다. **로그인 및 등록**에 대한 콜백은 기본 인증 토큰(이는 인증 체계에서 사용하는 모든 토큰을 나타냄)을 로컬 저장소에 저장하고  `RegisterClient`를 사용하여 백 엔드를 호출합니다. **AppBackend**에 대한 콜백은 백 엔드를 호출하여 이 사용자의 모든 장치로 보안 알림을 트리거합니다. 
 
-	MainPage.xaml.cs의 `OnNavigatedTo()` 메서드 뒤에 다음 코드를 추가합니다. 여기서 `{backend endpoint}`를 이전 섹션에서 얻은 백 엔드 끝점으로 바꿔야 합니다.
+	MainPage.xaml.cs의  `OnNavigatedTo()` 메서드 뒤에 다음 코드를 추가합니다. 여기서 `{backend endpoint}`를 이전 섹션에서 얻은 백 엔드 끝점으로 바꿔야 합니다.
 
 		private async void PushClick(object sender, RoutedEventArgs e)
         {
@@ -251,7 +262,7 @@ Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플랫폼 및
 
 2. **NotifyUserWindowsPhone** 앱 UI에서 사용자 이름과 암호를 입력합니다. 이는 임의 문자열일 수 있지만 같은 값이어야 합니다.
 
-3. **NotifyUserWindowsPhone** 앱 UI에서 **로그인 및 등록**을 클릭합니다. 그리고 나서 **푸시 보내기**를 클릭합니다.
+3. **NotifyUserWindowsPhone** 앱 UI에서 **로그인 및 등록**을 클릭합니다. 그런 다음 **푸시 보내기**를 클릭합니다.
 
 
 [9]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-secure-push9.png
@@ -260,4 +271,10 @@ Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플랫폼 및
 [12]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-secure-push12.png
 [13]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-secure-push13.png
 
-<!--HONumber=45--> 
+
+
+<!-- URLs. -->
+[알림 허브 시작]: notification-hubs-windows-store-dotnet-get-started.md
+[보안 푸시]: notification-hubs-aspnet-backend-windows-dotnet-secure-push.md
+
+<!--HONumber=49-->

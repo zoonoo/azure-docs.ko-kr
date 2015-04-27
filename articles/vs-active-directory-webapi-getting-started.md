@@ -1,6 +1,6 @@
 ﻿<properties 
 	pageTitle="" 
-	description="Azure Active Directory(Web API 프로젝트) 마법사 시작에 대한 정보." 
+	description="Azure Active Directory(Web API 프로젝트) 시작 마법사 정보" 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="kempb" 
@@ -16,12 +16,11 @@
 	ms.date="02/02/2015" 
 	ms.author="kempb"/>
 
+# Azure Active Directory 시작(Web API 프로젝트)
+
 > [AZURE.SELECTOR]
-> - [시작하기](vs-active-directory-webapi-getting-started.md)
+> - [시작](vs-active-directory-webapi-getting-started.md)
 > - [변경된 내용](vs-active-directory-webapi-what-happened.md)
-
-
-##Azure Active Directory 시작(Web API 프로젝트)
 
 #####컨트롤러에 액세스하려면 인증 필요
  
@@ -29,4 +28,4 @@
 
 [Azure Active Directory에 대한 자세한 정보](http://azure.microsoft.com/services/active-directory/)
 
-<!--HONumber=46--> 
+<!--HONumber=49-->

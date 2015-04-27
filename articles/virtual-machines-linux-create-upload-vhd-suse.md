@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Azure에서 SUSE Linux VHD 만들기 및 업로드" 
 	description="SUSE Linux 운영 체제가 포함된 Azure VHD(가상 하드 디스크)를 만들고 업로드하는 방법에 대해 알아봅니다." 
 	services="virtual-machines" 
@@ -65,7 +65,7 @@
 
 	이렇게 하면 모든 콘솔 메시지가 첫 번째 직렬 포트로 전송되므로 Azure 지원에서 문제를 디버깅하는 데 도움이 될 수 있습니다.
 
-7.	"/etc/sysconfig/network/dhcp" 파일을 편집하여  `DHCLIENT_SET_HOSTNAME` 매개 변수를 다음과 같이 변경하는 것이 좋습니다.
+7.	"/etc/sysconfig/network/dhcp" 파일을 편집하여 `DHCLIENT_SET_HOSTNAME` 매개 변수를 다음과 같이 변경하는 것이 좋습니다.
 
 		DHCLIENT_SET_HOSTNAME="no"
 
@@ -78,7 +78,7 @@
 
 10.	OS 디스크에 스왑 공간을 만들지 마세요.
 
-	Azure Linux 에이전트는 Azure에서 프로비전한 후 VM에 연결된 로컬 리소스 디스크를 사용하여 자동으로 스왑 공간을 구성할 수 있습니다. 로컬 리소스 디스크는  *임시* 디스크이며 VM의 프로비전을 해제할 때 비워질 수 있습니다. Azure Linux 에이전트를 설치한 후(이전 단계 참조) /etc/waagent.conf에서 다음 매개 변수를 적절하게 수정합니다.
+	Azure Linux 에이전트는 Azure에서 프로비전한 후 VM에 연결된 로컬 리소스 디스크를 사용하여 자동으로 스왑 공간을 구성할 수 있습니다. 리소스 디스크는 *temporary* 디스크이며 VM의 프로비전을 해제할 때 비워질 수 있습니다. Azure Linux 에이전트를 설치한 후(이전 단계 참조) /etc/waagent.conf에서 다음 매개 변수를 적절하게 수정합니다.
 
 		ResourceDisk.Format=y
 		ResourceDisk.Filesystem=ext4
@@ -97,7 +97,7 @@
 
 ----------
 
-## <a id="osuse"> </a>OpenSUSE 13.1 이상 준비 ##
+## <a id="osuse"> </a>openSUSE 13.1+ 준비 ##
 
 1. Hyper-V 관리자의 가운데 창에서 가상 컴퓨터를 선택합니다.
 
@@ -128,7 +128,7 @@
 
 		# sudo zypper up kernel-default
 
-	또는 모든 최신 패치로 시스템을 업데이트합니다.
+	또는 모든 최신 패치로 시스템을 업데이트합니다:
 
 		# sudo zypper update
 
@@ -144,7 +144,7 @@
 
 		libata.atapi_enabled=0 reserve=0x1f0,0x8
 
-7.	"/etc/sysconfig/network/dhcp" 파일을 편집하여  `DHCLIENT_SET_HOSTNAME` 매개 변수를 다음과 같이 변경하는 것이 좋습니다.
+7.	"/etc/sysconfig/network/dhcp" 파일을 편집하여 `DHCLIENT_SET_HOSTNAME` 매개 변수를 다음과 같이 변경하는 것이 좋습니다.
 
 		DHCLIENT_SET_HOSTNAME="no"
 
@@ -157,7 +157,7 @@
 
 10.	OS 디스크에 스왑 공간을 만들지 마세요.
 
-	Azure Linux 에이전트는 Azure에서 프로비전한 후 VM에 연결된 로컬 리소스 디스크를 사용하여 자동으로 스왑 공간을 구성할 수 있습니다. 로컬 리소스 디스크는  *임시* 디스크이며 VM의 프로비전을 해제할 때 비워질 수 있습니다. Azure Linux 에이전트를 설치한 후(이전 단계 참조) /etc/waagent.conf에서 다음 매개 변수를 적절하게 수정합니다.
+	Azure Linux 에이전트는 Azure에서 프로비전한 후 VM에 연결된 로컬 리소스 디스크를 사용하여 자동으로 스왑 공간을 구성할 수 있습니다. 리소스 디스크는 *temporary* 디스크이며 VM의 프로비전을 해제할 때 비워질 수 있습니다. Azure Linux 에이전트를 설치한 후(이전 단계 참조) /etc/waagent.conf에서 다음 매개 변수를 적절하게 수정합니다.
 
 		ResourceDisk.Format=y
 		ResourceDisk.Filesystem=ext4
@@ -179,6 +179,4 @@
 
 
 
-
-
-<!--HONumber=42-->
+<!--HONumber=45--> 
