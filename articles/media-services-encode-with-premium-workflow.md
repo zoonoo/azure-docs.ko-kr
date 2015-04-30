@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="미디어 인코더 Premium 워크플로를 사용한 고급 인코딩" 
 	description="미디어 인코더 Premium 워크플로를 사용하여 인코딩하는 방법에 대해 알아봅니다. 코드 샘플은 C#으로 작성되었으며 Media Services SDK for .NET을 사용합니다." 
 	services="media-services" 
@@ -16,25 +16,25 @@
 	ms.date="03/03/2015" 
 	ms.author="juliako"/>
 
-#미디어 인코더 Premium 워크플로를 사용한 고급 인코딩(공개 미리 보기)
+# 미디어 인코더 Premium 워크플로를 사용한 고급 인코딩(공개 미리 보기)
 
 **참고** 중국에서는 이 항목에서 설명하는 미디어 인코더 Premium 워크플로 미디어 프로세서를 사용할 수 없습니다.
 
-##개요
+## 개요
 
 Microsoft Azure 미디어 서비스는 **미디어 인코더 Premium 워크플로** 미디어 프로세서를 소개합니다. 이 프로세서는 프리미엄 주문형 워크플로에 고급 인코딩 기능을 제공합니다. 
 
 다음 항목에서는 **미디어 인코더 Premium 워크플로**와 관련된 세부 정보를 간력하게 설명합니다. 
 
-- [미디어 인코더 Premium 워크플로에서 지원하는 형식](../media-services-premium-workflow-encoder-formats) - **미디어 인코더 Premium 워크플로**에서 지원하는 파일 형식 및 코덱에 대해 설명합니다.
+- [미디어 인코더 Premium 워크플로에서 지원하는 형식](media-services-premium-workflow-encoder-formats.md) - **미디어 인코더 Premium 워크플로**에서 지원하는 파일 형식 및 코덱에 대해 설명합니다.
 
-- [인코더 비교](../media-services-encode-asset#compare_encoders) 섹션에서는 **미디어 인코더 Premium 워크플로**와 **Azure 미디어 인코더**의 인코딩 기능을 비교합니다.
+- [인코더 비교](media-services-encode-asset.md#compare_encoders) 섹션에서는 **미디어 인코더 Premium 워크플로**와 **Azure 미디어 인코더**의 인코딩 기능을 비교합니다.
 
 이 항목에서는 .NET을 사용하여 **미디어 인코더 Premium 워크플로**로 인코딩하는 방법을 보여 줍니다.
 
-##인코딩
+## 인코딩
 
-**미디어 인코더 Premium 워크플로**의 인코딩 태스크에는 워크플로 파일이라는 별도의 구성 파일이 필요합니다. 이러한 파일은 확장명이 .workflow이고 [Workflow Designer](../media-services-workflow-designer) 도구를 사용하여 만듭니다.
+**미디어 인코더 Premium 워크플로**의 인코딩 태스크에는 워크플로 파일이라는 별도의 구성 파일이 필요합니다. 이 파일의 확장명은 .workflow 확장명이며 [워크플로 디자이너](media-services-workflow-designer.md) 도구를 사용하여 작성됩니다.
 
 [여기](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows)에서 기본 워크플로 파일을 가져올 수도 있습니다. 폴더에는 이러한 파일에 대한 설명도 포함되어 있습니다.
 
@@ -50,16 +50,16 @@ Microsoft Azure 미디어 서비스는 **미디어 인코더 Premium 워크플�
 4. 작업 및 태스크를 만듭니다.
 5. 태스크에 입력 자산 두 개를 추가합니다.
 	
-	a. 첫 번째 - 워크플로 자산입니다.
+	a. 첫 번째 - 워크플로 자산.
 
-	b. 두 번째 - 비디오 자산입니다.
+	b. 두 번째 - 비디오 자산.
 	
 	**참고**: 워크플로 자산은 미디어 자산보다 먼저 태스크에 추가되어야 합니다. 
 이 태스크에 대한 구성 문자열은 비어 있어야 합니다. 
 
 6. 인코딩 작업을 제출합니다.
 
-다음은 전체 예제입니다. 미디어 서비스 .NET 개발을 설정하는 방법에 대한 자세한 내용은 [.NET을 사용한 미디어 서비스 개발](../media-services-dotnet-how-to-use)을 참조하세요.
+다음은 전체 예제입니다. 미디어 서비스 .NET 개발을 설정하는 방법에 대한 자세한 내용은 [.NET을 사용한 미디어 서비스 개발](media-services-dotnet-how-to-use.md)을 참조하세요.
 
 
  	using System; 
@@ -156,9 +156,9 @@ Microsoft Azure 미디어 서비스는 **미디어 인코더 Premium 워크플�
 	
 	            // Specify the input asset to be encoded.
 	            task.InputAssets.Add(workflow);
-	            task.InputAssets.Add(video); // we add one asset
+	            task.InputAssets.Add(video); // 자산 하나 추가
 	            // Add an output asset to contain the results of the job. 
-	            // This output is specified as AssetCreationOptions.None, which 
+	            // 이 출력은 다음으로 지정됩니다. AssetCreationOptions.None, which 
 	            // means the output asset is not encrypted. 
 	            task.OutputAssets.AddNew("Output asset",
 	                AssetCreationOptions.None);
@@ -260,4 +260,10 @@ Microsoft Azure 미디어 서비스는 **미디어 인코더 Premium 워크플�
 	        }
 	    }
 	}
-<!--HONumber=47-->
+
+
+## 알려진 문제
+
+입력된 비디오에 자막이 없는 경우, 출력 자산은 빈 TTML 파일을 포함합니다.
+
+<!--HONumber=52-->

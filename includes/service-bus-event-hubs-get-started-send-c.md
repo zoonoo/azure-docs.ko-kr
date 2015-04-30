@@ -1,19 +1,20 @@
-﻿## 이벤트 허브에 메시지 보내기
+## 이벤트 허브에 메시지 보내기
 이 섹션에서는 이벤트 허브로 이벤트를 보내는 C 응용 프로그램을 작성합니다. 여기서는 [Apache Qpid 프로젝트](http://qpid.apache.org/)(영문)의 Proton AMQP 라이브러리를 사용합니다. 이는 [여기](https://code.msdn.microsoft.com/windowsazure/Using-Apache-Qpid-Proton-C-afd76504)(영문)에 나온 C에서 AMQP와 함께 서비스 버스 큐와 토픽을 사용하는 방법과 유사합니다. 자세한 내용은 [Qpid Proton 설명서](http://qpid.apache.org/proton/index.html)(영문)를 참조하세요.
 
-1. [Qpid AMQP Messenger 페이지](http://qpid.apache.org/components/messenger/index.html)(영문)에서 **Installing Qpid Proton** 링크를 클릭하고 환경에 맞는 지침을 따릅니다. 여기서는 [Azure Linux VM](http://azure.microsoft.com/documentation/articles/virtual-machines-linux-tutorial/)과 Ubuntu 14.04를 사용하는 Linux 환경을 가정합니다.
+1. [Qpid AMQP Messenger 페이지](http://qpid.apache.org/components/messenger/index.html)(영문)에서 **Installing Qpid Proton** 링크를 클릭하고 환경에 맞는 지침을 따릅니다. 여기서는 [Azure Linux VM](../articles/virtual-machines-linux-tutorial.md)과 Ubuntu 14.04를 사용하는 Linux 환경을 가정합니다.
 
 2. Proton 라이브러리를 컴파일하려면 다음 패키지를 설치합니다.
 
 		sudo apt-get install build-essential cmake uuid-dev openssl libssl-dev
 
 3. [Qpid Proton 라이브러리](http://qpid.apache.org/proton/index.html)(영문) 라이브러리를 다운로드하고 다음과 같이 압축을 풉니다.
-		
+
 		wget http://apache.fastbull.org/qpid/proton/0.7/qpid-proton-0.7.tar.gz
-		tar xvfz qpid-proton-0.6.tar.gz
+		tar xvfz qpid-proton-0.7.tar.gz
 
 4. 빌드 디렉터리를 만들고 컴파일하고 설치합니다.
 
+		cd qpid-proton-0.7
 		mkdir build
 		cd build
 		cmake -DCMAKE_INSTALL_PREFIX=/usr ..
@@ -23,80 +24,80 @@
 
 		#include "proton/message.h"
 		#include "proton/messenger.h"
-		
+
 		#include <getopt.h>
 		#include <proton/util.h>
 		#include <sys/time.h>
 		#include <stddef.h>
-		
+
 		#include <stdio.h>
 		#include <string.h>
 		#include <unistd.h>
 		#include <stdlib.h>
-		
+
 		#define check(messenger)                                                     \
 		  {                                                                          \
 		    if(pn_messenger_errno(messenger))                                        \
 		    {                                                                        \
-		      printf("check\n");													 \
+		      printf("확인\n");													 \
 		      die(__FILE__, __LINE__, pn_error_text(pn_messenger_error(messenger))); \
 		    }                                                                        \
 		  }  
-		  
+
 		pn_timestamp_t time_now(void)
 		{
 		  struct timeval now;
 		  if (gettimeofday(&now, NULL)) pn_fatal("gettimeofday failed\n");
 		  return ((pn_timestamp_t)now.tv_sec) * 1000 + (now.tv_usec / 1000);
 		}  
-		
+
 		void die(const char *file, int line, const char *message)
 		{
 		  printf("Dead\n");
 		  fprintf(stderr, "%s:%i: %s\n", file, line, message);
 		  exit(1);
 		}
-		
+
 		int sendMessage(pn_messenger_t * messenger) {
 			char * address = (char *) "amqps://SendRule:{Send Rule key}@{namespace name}.servicebus.windows.net/{event hub name}";
 			char * msgtext = (char *) "Hello from C!";
-				
+
 			pn_message_t * message;
 			pn_data_t * body;
 			message = pn_message();
-		
+
 			pn_message_set_address(message, address);
 			pn_message_set_content_type(message, (char*) "application/octect-stream");
 			pn_message_set_inferred(message, true);
-			
+
 			body = pn_message_body(message);
 			pn_data_put_binary(body, pn_bytes(strlen(msgtext), msgtext));
-			
+
 			pn_messenger_put(messenger, message);
 			check(messenger);
 			pn_messenger_send(messenger, 1);
 			check(messenger);
-		
+
 			pn_message_free(message);
 		}
-		
+
 		int main(int argc, char** argv) {
-			printf("Press Ctrl-C to stop the sender process\n");
-			
+			printf("Sender 프로세스를 중단하려면 Ctrl-C를 누르세요\n");
+
 			pn_messenger_t *messenger = pn_messenger(NULL);
 			pn_messenger_set_outgoing_window(messenger, 1);
 			pn_messenger_start(messenger);
-			
+
 			while(true) {
 				sendMessage(messenger);
-				printf("Sent message\n");
+				printf("메시지 보내기\n");
 				sleep(1);
 			}
-			
-			// release messenger resources
+
+			// 메신저 리소스 릴리스
 			pn_messenger_stop(messenger);
 			pn_messenger_free(messenger);
-			
+
 			return 0;
 		}
 
@@ -105,4 +106,4 @@
 		gcc sender.c -o sender -lqpid-proton
 
 > [AZURE.NOTE] 위의 코드에서 발신 창 1을 사용하여 메시지가 최대한 빨리 출력되게 합니다. 일반적 응용 프로그램에서는 메시지를 일괄 처리하여 처리량을 늘려야 합니다. 이 환경과 다른 환경 및 바인딩이 제공되는 플랫폼(현재 Perl, PHP, Python 및 Ruby)에서 Qpid Proton 라이브러리를 사용하는 방법에 대한 자세한 내용은 [Qpid AMQP Messenger 페이지](http://qpid.apache.org/components/messenger/index.html)(영문)를 참조하세요.
-<!--HONumber=47-->
+<!--HONumber=52--> 

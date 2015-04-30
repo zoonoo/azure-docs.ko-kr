@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Azure 미디어 인덱서를 사용하여 미디어 파일 인덱싱" 
 	description="Azure 미디어 인덱서를 사용하면 미디어 파일 콘텐츠를 검색 가능하게 만들고 선택 캡션 및 키워드용 전체 텍스트 기록을 생성할 수 있습니다. 이 항목에서는 미디어 인덱서를 사용하는 방법을 보여 줍니다." 
 	services="media-services" 
@@ -10,18 +10,18 @@
 <tags 
 	ms.service="media-services" 
 	ms.workload="media" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/04/2015" 
+	ms.date="03/25/2015" 
 	ms.author="juliako"/>
 
 
 # Azure 미디어 인덱서를 사용하여 미디어 파일 인덱싱
 
-이 문서는 [워크플로 주문형 미디어 서비스 비디오] 시리즈의(../media-services-video-on-demand-workflow) 일부입니다. 
+이 문서는 [미디어 서비스 주문형 비디오 워크플로](media-services-video-on-demand-workflow.md) 시리즈의 일부입니다. 
 
-Azure 미디어 인덱서를 사용하면 미디어 파일 콘텐츠를 검색 가능하게 만들고 선택 캡션 및 키워드용 전체 텍스트 기록을 생성할 수 있습니다. 하나의 미디어 파일 또는 일괄 처리에서 여러 미디어 파일을 처리할 수 있습니다. 또한 매니페스트 파일에는 파일의 URL을 지정하여 인터넷에서 공개적으로 사용할 수 있는 파일을 인덱싱할 수 있습니다.
+Azure 미디어 인덱서를 사용하면 미디어 파일 콘텐츠를 검색 가능하게 만들고 선택 캡션 및 키워드용 전체 텍스트 기록을 생성할 수 있습니다. 하나의 미디어 파일 또는 일괄 처리에서 여러 미디어 파일을 처리할 수 있습니다.  
 
 >[AZURE.NOTE] 콘텐츠를 인덱싱할 때, 음성이 매우 분명한(배경 음악, 소음, 효과 또는 마이크 소음) 미디어 파일을 사용해야 합니다. 적절한 콘텐츠의 예: 회의, 강의 또는 프레젠테이션 녹음. 인덱싱에 적합하지 않을 수 있는 콘텐츠: 영화, TV 프로그램, 오디오 및 사운드 효과가 혼합된 콘텐츠, 배경 소음(기계 소음)이 들어간 녹음 품질이 좋지 않은 콘텐츠.
 
@@ -38,11 +38,11 @@ Azure 미디어 인덱서를 사용하면 미디어 파일 콘텐츠를 검색 �
 	자세한 내용은 [Azure 미디어 인덱서 및 SQL Server에서 AIB 파일 사용](http://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/)(영문)을 참조하세요.
 
 
-이 항목에서는 **자산 인덱스**, **여러 파일 인덱스** 및 **인터넷에서 공개적으로 사용할 수 있는 파일**에 인덱싱 작업을 만드는 방법을 보여 줍니다.
+이 항목에서는 **자산 인덱스** 및 **여러 파일 색인**에 대한.인덱싱 작업을 만드는 방법을 보여줍니다.
 
 최신 Azure 미디어 인덱서 업데이트는 [미디어 서비스 블로그](http://azure.microsoft.com/blog/topics/media-services/)(영문)를 참조하세요.
 
-##인덱싱 태스크에 대한 구성 및 매니페스트 파일 사용
+## 인덱싱 태스크에 대한 구성 및 매니페스트 파일 사용
 
 태스크 구성을 사용하여 인덱싱 태스크에 대한 세부 사항을 지정할 수 있습니다. 예를 들어, 미디어 파일에 사용할 메타데이터를 지정할 수 있습니다. 이 메타데이터는 그 언어의 어휘를 확장하고 음성 인식 정확성을 크게 향상하기 위해 언어 엔진이 사용합니다.
 
@@ -50,7 +50,7 @@ Azure 미디어 인덱서를 사용하면 미디어 파일 콘텐츠를 검색 �
 
 자세한 내용은 [Azure 미디어 인덱서의 태스크 사전 설정](https://msdn.microsoft.com/library/azure/dn783454.aspx)(영문)을 참조하세요.
 
-##자산 인덱스
+## 자산 인덱스
 
 다음 메서드는 미디어 파일을 자산으로 업로드하고 자산을 인덱스하기 위해 작업을 만듭니다.
 
@@ -143,7 +143,7 @@ Azure 미디어 인덱서를 사용하면 미디어 파일 콘텐츠를 검색 �
 	    return processor;
 	} 
 	
-###<a id="output_files"></a>출력 파일
+### <a id="output_files"></a>출력 파일
 
 인덱싱 작업은 다음 출력 파일을 생성합니다. 다음 파일은 첫 번째 출력 자산에 저장됩니다.
 
@@ -174,9 +174,9 @@ SAMI과 TTML 둘 다 <b>Recognizability</b>라는 태그를 포함합니다. 이
 음성 분석을 수행하거나, Bing, Google 또는 Microsoft SharePoint와 같은 검색 엔진에 노출하여 미디어 파일을 보다 검색하기 쉽게 하거나, 보다 관련있는 광고를 제공하는 데 사용하는 등의 여러 가지 목적을 위해 이 파일을 사용할 수 있습니다.</td></tr>
 </table>
 
-모든 입력 미디어 파일이 성공적으로 인덱스되지 않은 경우, 오류 코드 4000으로 인덱싱 작업이 실패합니다. 자세한 내용은 [오류 코드]를(#error_codes)참조하세요.
+모든 입력 미디어 파일이 성공적으로 인덱스되지 않은 경우, 오류 코드 4000으로 인덱싱 작업이 실패합니다. 자세한 내용은 [오류 코드](#error_codes)를 참조하세요.
 
-##여러 파일 인덱스
+## 여러 파일 인덱스
 
 다음 메서드는 여러 파일을 한 자산으로 업로드하고 이러한 모든 파일을 일괄로 인덱스하기 위해 작업을 만듭니다.
 
@@ -184,12 +184,12 @@ SAMI과 TTML 둘 다 <b>Recognizability</b>라는 태그를 포함합니다. 이
 	
 	static bool RunBatchIndexingJob(string[] inputMediaFiles, string outputFolder)
 	{
-	    // Create an asset and upload to storage.
+	    // 자산을 만들고 저장소에 업로드합니다.
 	    IAsset asset = CreateAssetAndUploadMultipleFiles(inputMediaFiles,
 	        "My Indexing Input Asset - Batch Mode",
 	        AssetCreationOptions.None);
 	
-	    // Create a manifest file that contains all the asset file names and upload to storage.
+	    // 모든 자산 파일 이름을 포함하는 매니페스트 파일을 만들고 저장소에 업로드합니다.
 	    string manifestFile = "input.lst";            
 	    File.WriteAllLines(manifestFile, asset.AssetFiles.Select(f => f.Name).ToArray());
 	    var assetFile = asset.AssetFiles.Create(Path.GetFileName(manifestFile));
@@ -256,11 +256,11 @@ SAMI과 TTML 둘 다 <b>Recognizability</b>라는 태그를 포함합니다. 이
 	}
 
 
-###출력 파일
+### 출력 파일
 
 하나 이상의 입력 미디어 파일이 있을 때, WAMI는 'JobResult.txt'라는 작업 출력을 위한 매니페스트 파일을 생성합니다. 각각의 입력 미디어 파일의 경우, AIB, SAMI, TTML 및 키워드 파일의 결과는 아래 나열된 대로 순차적으로 번호가 매겨집니다.
 
-출력 파일 설명은 [출력 파일]을(#output_files)참조하세요. 
+출력 파일 설명은 [출력 파일](#output_files)을 참조하세요. 
 
 
 <table border="1">
@@ -296,90 +296,15 @@ Error: 이 미디어 파일이 성공적으로 인덱스되었음을 나타냅�
 <td>File #1 - 오디오 인덱싱 blob 파일.</td></tr>
 </table>
 
-모든 입력 미디어 파일이 성공적으로 인덱스되지 않은 경우, 오류 코드 4000으로 인덱싱 작업이 실패합니다. 자세한 내용은 [오류 코드]를(#error_codes)참조하세요.
+모든 입력 미디어 파일이 성공적으로 인덱스되지 않은 경우, 오류 코드 4000으로 인덱싱 작업이 실패합니다. 자세한 내용은 [오류 코드](#error_codes)를 참조하세요.
 
-###부분적으로 성공된 작업
+### 부분적으로 성공된 작업
 
-모든 입력 미디어 파일이 성공적으로 인덱스되지 않은 경우, 오류 코드 4000으로 인덱싱 작업이 실패합니다. 자세한 내용은 [오류 코드]를(#error_codes)참조하세요.
+모든 입력 미디어 파일이 성공적으로 인덱스되지 않은 경우, 오류 코드 4000으로 인덱싱 작업이 실패합니다. 자세한 내용은 [오류 코드](#error_codes)를 참조하세요.
 
 
 동일한 출력(성공된 작업)이 생성됩니다. 출력 매니페스트 파일을 참조하여 오류 열 값에 따라 실패한 입력 파일을 알아볼 수 있습니다. 실패한 입력 파일의 경우, AIB, SAMI, TTML 및 키워드 파일의 결과가 생성되지 않습니다.
 
-##인터넷에서 파일 인덱스
-
-인터넷에서 공개적으로 사용할 수 있는 미디어 파일의 경우, Azure 저장소로 복사하지 않고 인덱스할 수도 있습니다. 매니페스트 파일을 사용하여 미디어 파일의 URL을 지정할 수 있습니다. 자세한 내용은 [Azure 미디어 인덱서의 태스크 사전 설정](https://msdn.microsoft.com/library/azure/dn783454.aspx)(영문)을 참조하세요.
-
-HTTP 및 HTTPS URL 프로토콜이 지원됩니다.
-
-다음 메서드 및 구성은 인터넷에서 미디어 파일을 인덱스하기 위해 작업을 만듭니다.
-	
-	static bool RunIndexingJobWithPublicUrl(string inputMediaUrl, string outputFolder)
-	{
-	    // Create the manifest file that contains the input media URL
-	    string manifestFile = "input.lst";
-	    File.WriteAllLines(manifestFile, new string[] { inputMediaUrl });
-	
-	    // Create an asset and upload the manifest file to storage.
-	    IAsset asset = CreateAssetAndUploadSingleFile(manifestFile,
-	        "My Indexing Input Asset - Public URL",
-	        AssetCreationOptions.None);
-	
-	    // Declare a new job.
-	    IJob job = _context.Jobs.Create("My Indexing Job - Public URL");
-	
-	    // Get a reference to the Azure Media Indexer.
-	    IMediaProcessor processor = GetLatestMediaProcessorByName(MediaProcessorName);
-	
-	    // Read configuration.
-	    string configuration = File.ReadAllText("public.config");
-	
-	    // Create a task with the encoding details, using a string preset.
-	    ITask task = job.Tasks.AddNew("My Indexing Task - Public URL",
-	        processor,
-	        configuration,
-	        TaskOptions.None);
-	
-	    // Specify the input asset to be indexed.
-	    task.InputAssets.Add(asset);
-	
-	    // Add an output asset to contain the results of the job.
-	    task.OutputAssets.AddNew("My Indexing Output Asset - Public URL", AssetCreationOptions.None);
-	
-	    // Use the following event handler to check job progress.  
-	    job.StateChanged += new EventHandler<JobStateChangedEventArgs>(StateChanged);
-	
-	    // Launch the job.
-	    job.Submit();
-	
-	    // Check job execution and wait for job to finish. 
-	    Task progressJobTask = job.GetExecutionProgressTask(CancellationToken.None);
-	    progressJobTask.Wait();
-	
-	    // If job state is Error, the event handling 
-	    // method for job progress should log errors.  Here we check 
-	    // for error state and exit if needed.
-	    if (job.State == JobState.Error)
-	    {
-	        Console.WriteLine("Exiting method due to job error.");
-	        return false;
-	    }
-	
-	    // Download the job outputs.
-	    DownloadAsset(task.OutputAssets.First(), outputFolder);
-	
-	    return true;
-	}
-
-###출력 파일
-
-출력 파일 설명은 [출력 파일]을(#output_files)참조하세요. 
-
-
-##보호된 파일 처리
-
-인덱서는 http 또는 https를 통해 인터넷 파일을 다운로드할 때 사용자 이름 및 암호로 기본 인증을 지원합니다.
-
-[Azure 미디어 인덱스의 태스크 사전 설정](https://msdn.microsoft.com/library/azure/dn783454.aspx)(영문)에 설명된 대로 태스크 구성에서 **사용자 이름** 및 **암호**를 지정할 수 있습니다.
 
 ### <a id="error_codes"></a>오류 코드
 
@@ -404,11 +329,11 @@ HTTP 및 HTTPS URL 프로토콜이 지원됩니다.
 </table>
 
 
-##<a id="supported_languages"></a>지원되는 언어
+## <a id="supported_languages"></a>지원되는 언어
 
 현재 영어만 지원됩니다.
 
-##관련 링크
+## 관련 링크
 
 [Azure 미디어 인덱서 및 SQL Server에서 AIB 파일 사용](http://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/)(영문)
 
@@ -418,4 +343,4 @@ HTTP 및 HTTPS URL 프로토콜이 지원됩니다.
 
 <!-- URLs. -->
 
-<!--HONumber=47-->
+<!--HONumber=52-->

@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="PhoneGap에서 모바일 서비스 시작 | 모바일 개발자 센터" 
 	description="이 자습서에 따라 Azure 모바일 서비스를 사용하여 iOS, Android 및 Windows Phone용 PhoneGap 개발을 시작할 수 있습니다." 
 	services="mobile-services" 
@@ -10,9 +10,9 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-phonegap" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="multiple" 
-	ms.topic="article" 
+	ms.topic="hero-article" 
 	ms.date="11/21/2014" 
 	ms.author="glenga"/>
 
@@ -59,7 +59,7 @@ PhoneGap은 다중 플랫폼용 개발을 지원합니다. PhoneGap 도구 자�
 
 3. 아직 하지 않은 경우 PhoneGap 및 플랫폼 개발 도구(Windows Phone, iOS 또는 Android) 중 적어도 하나를 다운로드하여 설치합니다.
 
-4. **TodoItems 테이블 만들기**를 클릭하여 앱 데이터를 저장할 테이블을 만듭니다.
+4. **TodoItem 테이블 만들기**를 클릭하여 앱 데이터를 저장할 테이블을 만듭니다.
 
 5. **앱 다운로드 및 실행** 아래에서 **다운로드**를 클릭합니다. 
 
@@ -108,7 +108,7 @@ PhoneGap은 다중 플랫폼용 개발을 지원합니다. PhoneGap 도구 자�
 
 	> [AZURE.IMPORTANT] PhoneGap 도구로 기본 프로젝트를 다시 빌드하는 경우 이 플랫폼 프로젝트에 대한 변경 사항을 덮어쓰게 됩니다. 대신 아래의 섹션에서 설명하는 것처럼 프로젝트의 루트 www 디렉터리에서 변경하세요.
 
-4. 관리 포털로 돌아가서 <strong>데이터</strong> 탭을 클릭한 후 <strong>TodoItems</strong> 테이블을 클릭합니다.
+4. 관리 포털로 돌아가서 <strong>데이터</strong> 탭을 클릭한 후 <strong>TodoItem</strong> 테이블을 클릭합니다.
 
 	![](./media/mobile-services-javascript-backend-phonegap-get-started/mobile-data-tab.png)
 
@@ -154,7 +154,7 @@ PhoneGap은 다중 플랫폼용 개발을 지원합니다. PhoneGap 도구 자�
 * [데이터 시작]
   <br/>모바일 서비스를 사용하여 데이터를 저장 및 쿼리하는 방법에 대해 자세히 알아봅니다.
 
-* [인증 시작](영문)
+* [인증 시작]
   <br/>ID 공급자를 사용하여 앱 사용자를 인증하는 방법을 알아봅니다.
   
 <!-- Images. -->
@@ -165,15 +165,14 @@ PhoneGap은 다중 플랫폼용 개발을 지원합니다. PhoneGap 도구 자�
 [4]: ./media/mobile-services-javascript-backend-phonegap-get-started/mobile-portal-quickstart-android.png
 
 <!-- URLs. -->
-[데이터 시작]: /ko-kr/documentation/articles/mobile-services-html-get-started-data
-[인증 시작](영문): /ko-kr/documentation/articles/mobile-services-html-get-started-users
-[푸시 알림 시작]: /ko-kr/develop/mobile/tutorials/mobile-services-html-get-started-push
-[Android SDK](영문): https://go.microsoft.com/fwLink/p/?LinkID=280125
+[데이터 시작]: mobile-services-html-get-started-data.md
+[인증 시작]: mobile-services-html-get-started-users.md
+[푸시 알림 시작]: /develop/mobile/tutorials/mobile-services-html-get-started-push
+[Android SDK(영문)]: https://go.microsoft.com/fwLink/p/?LinkID=280125
+[Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
 [관리 포털]: https://manage.windowsazure.com/
 [Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Visual Studio 2012 Express for Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374
 
 
-
-
-<!--HONumber=42-->
+<!--HONumber=52-->

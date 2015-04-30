@@ -86,7 +86,7 @@
 다음 리소스는 이벤트 허브와 Storm을 통합하는 응용 프로그램을 개발할 때 사용할 수 있습니다.
 
 - [Storm 및 HDInsight를 사용하여 센서 데이터 분석]은 이벤트 허브, Storm 및 HBase를 사용하여 센서 데이터를 Hadoop 클러스터에 수집하는 방법을 보여 주는 전체 시나리오 자습서입니다.
-- [HDInsight 및 Storm에서 SCP.NET 및 C#을 사용하여 스트리밍 데이터 처리 응용 프로그램 개발]은 C#을 사용하여 Storm 파이프라인을 작성하는 방법을 보여 주는 자습서입니다.
+- [Storm 및 HDInsight에서 SCP.NET 및 C#을 사용하여 스트리밍 데이터 처리 응용 프로그램 개발]은 C#을 사용하여 Storm 파이프라인을 작성하는 방법을 보여 주는 자습서입니다.
 
 <!-- Images. -->
 [1]: ./media/service-bus-event-hubs-getstarted/create-event-hub1.png
@@ -108,4 +108,6 @@
 [HDInsight Storm 개요]: http://azure.microsoft.com/documentation/articles/hdinsight-storm-overview/
 [Storm 및 HDInsight를 사용하여 센서 데이터 분석]: http://azure.microsoft.com/documentation/articles/hdinsight-storm-sensor-data-analysis/
 [HDInsight 및 Storm에서 SCP.NET 및 C#을 사용하여 스트리밍 데이터 처리 응용 프로그램 개발]: http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application/
-<!--HONumber=47-->
+[Storm 및 HDInsight에서 SCP.NET 및 C#을 사용하여 스트리밍 데이터 처리 응용 프로그램 개발]: http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application/
+
+<!--HONumber=52-->

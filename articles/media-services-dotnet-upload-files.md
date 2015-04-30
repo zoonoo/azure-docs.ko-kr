@@ -1,6 +1,6 @@
-﻿<properties 
+<properties 
 	pageTitle=".NET을 사용하여 Media Services 계정에 파일 업로드" 
-	description="자산을 만들고 업로드하여 Media Services로 미디어 콘텐츠를 가져오는 방법에 대해 알아봅니다." 
+	description="자산을 만들고 업로드하여 미디어 서비스에 미디어 콘텐츠를 가져오는 방법에 대해 알아봅니다." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako" 
@@ -18,14 +18,14 @@
 
 
 
-#.NET을 사용하여 Media Services 계정에 파일 업로드
+# .NET을 사용하여 Media Services 계정에 파일 업로드
 [AZURE.INCLUDE [media-services-selector-upload-files](../includes/media-services-selector-upload-files.md)]
 
-이 문서는 [워크플로 주문형 미디어 서비스 비디오] 시리즈의(../media-services-video-on-demand-workflow) 일부입니다. 
+이 문서는 [미디어 서비스 주문형 비디오 워크플로](media-services-video-on-demand-workflow.md) 시리즈의일부입니다. 
 
 미디어 서비스에서 자산에 디지털 파일을 업로드(수집)합니다. **자산** 엔터티에는 비디오, 오디오, 이미지, 미리 보기 컬렉션, 텍스트 트랙 및 선택 캡션 파일(및 이 파일에 대한 메타데이터)이 포함될 수 있습니다.  파일이 업로드되면 이후 처리 및 스트리밍을 위해 콘텐츠가 클라우드에 안전하게 저장됩니다.
 
-자산에 포함된 파일을 **자산 파일**이라고 합니다. **AssetFile** 인스턴스 및 실제 미디어 파일은 별개의 두 개체입니다. 미디어 파일에 실제 미디어 콘텐츠가 포함되어 있지만 AssetFile 인스턴스는 해당 미디어 파일에 대한 메타데이터를 포함합니다.
+자산에 포함된 파일을 **자산 파일**이라고 합니다. **AssetFile** 인스턴스 및 실제 미디어 파일은 별개의 두 개체입니다. AssetFile 인스턴스는 미디어 파일에 대한 메타데이터를 포함하는 반면 미디어 파일은 실제 미디어 콘텐츠를 포함합니다.
 
 자산을 만들 때 다음 암호화 옵션을 지정할 수 있습니다. 
 
@@ -37,11 +37,13 @@ MP4를 배달하려는 경우 이 옵션을 사용하세요.
 
 	미디어 서비스는 DRM(Digital Rights Manager)처럼 네트워크상이 아니라 자산에 대해 디스크상의 저장소 암호화 기능을 제공합니다.
 
-**CommonEncrypted** 옵션 또는 **EnvelopeEncypted** 옵션을 사용하여 암호화할 자산을 지정하는 경우, **ContentKey**로 자산을 연결해야 합니다. 자세한 내용은 [ContentKey를 만드는 방법]을 참조하세요(../media-services-dotnet-create-contentkey). 
+	자산이 암호화된 저장소인 경우 자산 배달 정책을 구성해야 합니다. 자세한 내용은 [자산 배달 정책 구성](media-services-dotnet-configure-asset-delivery-policy.md)을 참조하세요.
+
+**CommonEncrypted** 옵션 또는 **EnvelopeEncypted** 옵션을 사용하여 암호화할 자산을 지정하는 경우, **ContentKey**로 자산을 연결해야 합니다. 자세한 내용은 [ContentKey를 만드는 방법](media-services-dotnet-create-contentkey.md) 을 참조하세요을 참조하세요. 
 
 **StorageEncrypted** 옵션을 사용하여 암호화할 자산을 지정하는 경우, .NET용 Media Services SDK가 자산을 위해 **StorateEncrypted** **ContentKey**를 만듭니다.
 
->[AZURE.NOTE]미디어 서비스는 스트리밍 콘텐트에 대해 URL을 작성할 때 IAssetFile.Name 속성의 값을 사용합니다(예: http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters). 이러한 이유로 퍼센트 인코딩은 허용되지 않습니다. **Name** 속성의 값에는 [퍼센트 인코딩 예약 문자](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters)인 !*'();:@&=+$,/?%#[]"를 사용할 수 없습니다. 또한 파일 이름 확장명에는 '.' 하나만 사용할 수 있습니다.
+>[AZURE.NOTE]Media Services는 스트리밍 콘텐츠(예: http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.)를 위해 URL을 작성할 때 IAssetFile.Name 속성 값을 사용합니다. 이러한 이유로 퍼센트 인코딩은 허용되지 않습니다. **Name** 속성 값에는 다음 [퍼센트 인코딩 예약 문자](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#[]"가 있을 수 없습니다. 또한 파일 이름 확장명에는 '.' 하나만 사용할 수 있습니다.
 
 이 항목에서는 Media Services 자산으로 파일을 업로드하기 위해 Media Services .NET SDK extensions는 물론 Media Services .NET SDK를 사용하는 방법을 보여 줍니다.
 
@@ -54,8 +56,8 @@ MP4를 배달하려는 경우 이 옵션을 사용하세요.
 
 - 빈 자산을 만듭니다.
 - 자산과 연결하려는 AssetFile 인스턴스를 생성합니다.
-- 자산에 대한 액세스 권한과 기간을 정의하는 AccessPolicy 인스턴스를 생성합니다.
-- 자산에 액세스 권한을 제공하는 Locator 인스턴스를 생성합니다.
+- 자산에 액세스할 수 있는 권한 및 기간을 정의하는 AccessPolicy 인스턴스를 만듭니다.
+- 자산에 액세스를 제공하는 Locator 인스턴스를 만듭니다.
 - 단일 미디어 파일을 미디어 서비스로 업로드합니다. 
 
 		
@@ -92,7 +94,7 @@ MP4를 배달하려는 경우 이 옵션을 사용하세요.
             return inputAsset;
 		}
 
-###여러 파일 업로드
+### 여러 파일 업로드
 
 다음 코드는 자산을 만들고 여러 파일을 업로드하는 방법을 보여 줍니다.
 
@@ -179,7 +181,7 @@ MP4를 배달하려는 경우 이 옵션을 사용하세요.
  
 - 기본 값 10으로 ParallelTransferThreadCount를 유지합니다.
  
-###대량으로 자산 수집 
+### 대량으로 자산 수집 
 
 큰 자산 파일을 업로드하면 자산을 만드는 동안 병목 상태가 될 수 있습니다. 대량 또는 "대량 수집"으로 자산을 수집하면 업로드 과정에서 자산 만들기를 분리하는 작업이 포함됩니다. 대량 수집 방식을 사용하려면 자산 및 연결된 파일을 설명하는 매니페스트(IngestManifest)를 만듭니다. 그런 다음 매니페스트의 blob 컨테이너에 연결된 파일을 업로드하기 위해 선택한 업로드 방식을 사용합니다. Microsoft Azure Media Services는 매니페스트와 연결된 blob 컨테이너를 감시합니다. blob 컨테이너에 파일을 업로드하면, Microsoft Azure Media Services가 매니페스트(IngestManifestAsset)의 자산 구성에 기반하여 자산 만들기를 완료합니다.
 
@@ -190,7 +192,7 @@ MP4를 배달하려는 경우 이 옵션을 사용하세요.
 
 대량 IngestManifest와 연결되는 자산을 만듭니다. 대량 수집을 위해 자산에 원하는 암호화 옵션을 구성합니다.
 
-	// Create the assets that will be associated with this bulk ingest manifest
+	// 대량 수집 매니페스트와 연관된 자산 만들기
 	IAsset destAsset1 = _context.Assets.Create(name + "_asset_1", AssetCreationOptions.None);
 	IAsset destAsset2 = _context.Assets.Create(name + "_asset_2", AssetCreationOptions.None);
 
@@ -276,7 +278,7 @@ IngestManifest의 **IIngestManifest.BlobStorageUriForUpload** 속성이 제공�
 	
 
 
-##.NET SDK Extensions를 사용하여 파일 업로드 
+## .NET SDK Extensions를 사용하여 파일 업로드 
 
 아래 예제는 .NET SDK Extensions를 사용하여 단일 파일을 업로드하는 방법을 보여 줍니다. 이 경우, **CreateFromFile** 메서드가 사용되지만 비동기 버전도 사용됩니다(**CreateFromFileAsync**). **CreateFromFile** 메서드를 사용하면 파일 이름, 암호화 옵션 및 파일의 업로드 과정을 보고하기 위한 콜백을 지정할 수 있습니다.
 
@@ -302,9 +304,9 @@ IngestManifest의 **IIngestManifest.BlobStorageUriForUpload** 속성이 제공�
 	var asset = UploadFile(@"C:\VideoFiles\BigBuckBunny.mp4", AssetCreationOptions.StorageEncrypted);
 
 
-##다음 단계
+## 다음 단계
 이제 미디어 서비스에 자산을 업로드했으므로 [미디어 프로세서를 가져오는 방법][] 항목으로 이동합니다.
 
-[미디어 프로세서를 가져오는 방법]: ../media-services-get-media-processor/
+[미디어 프로세서를 가져오는 방법]: media-services-get-media-processor.md
 
-<!--HONumber=47-->
+<!--HONumber=52-->

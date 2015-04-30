@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Apple HLS(HTTP 라이브 스트리밍) 제공 방법 - Azure" 
 	description="미디어 서비스 원본 서버의 Apple HLS(HTTP 라이브 스트림) 콘텐츠에 대한 로케이터를 만드는 방법에 대해 알아봅니다. 코드 샘플은 C#으로 작성되었으며 Media Services SDK for .NET을 사용합니다." 
 	services="media-services" 
@@ -99,6 +99,6 @@ static ILocator GetStreamingHLSOriginLocator( string targetAssetID)
 [Media Services SDK for .NET 시작]: http://go.microsoft.com/fwlink/?linkid=252966
 [Azure Media Services REST API를 사용하여 응용 프로그램 빌드]: http://go.microsoft.com/fwlink/?linkid=252967
 [Media Services SDK for .NET을 사용하여 응용 프로그램 빌드]: http://go.microsoft.com/fwlink/?linkid=247821
-[미디어 서비스 포럼]: http://social.msdn.microsoft.com/Forums/en-US/MediaServices/threads
+[미디어 서비스 포럼]: http://social.msdn.microsoft.com/Forums/MediaServices/threads
 
-<!--HONumber=45--> 
+<!--HONumber=52-->

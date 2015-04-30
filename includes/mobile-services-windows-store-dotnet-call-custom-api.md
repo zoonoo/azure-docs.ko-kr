@@ -1,7 +1,7 @@
-﻿
-##<a name="update-app"></a>사용자 지정 API를 호출하도록 앱 업데이트
 
-1. Visual Studio에서 퀵 스타트 프로젝트의 MainPage.xaml 파일을 열고 이름이  `ButtonRefresh`인 **Button** 요소를 찾아 다음 XAML 코드로 바꿉니다. 
+## <a name="update-app"></a>사용자 지정 API를 호출하도록 앱 업데이트
+
+1. Visual Studio에서 퀵 스타트 프로젝트의 MainPage.xaml 파일을 열고 이름이 `ButtonRefresh`인 **Button** 요소를 찾아 다음 XAML 코드로 바꿉니다. 
 
 		<StackPanel Orientation="Horizontal">
 	        <Button Margin="72,0,0,0" Name="ButtonRefresh" 
@@ -67,4 +67,4 @@
 
 	완료 표시된 항목 수를 나타내는 메시지 대화 상자가 표시되고 필터링된 쿼리가 다시 실행되어 목록에서 모든 항목을 지웁니다.
 
-<!--HONumber=42-->
+<!--HONumber=52-->

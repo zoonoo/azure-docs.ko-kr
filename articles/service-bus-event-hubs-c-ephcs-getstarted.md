@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="이벤트 허브 시작" 
 	description="이 자습서에 따라 Azure 이벤트 허브를 사용하여 C로 이벤트를 보내고 EventProcessorHost를 통해 C#으로 이벤트를 받을 수 있습니다." 
 	services="service-bus" 
@@ -30,7 +30,7 @@
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-+ C 개발 환경. 이 자습서에서는 Ubuntu 14.04를 사용하는 [Azure Linux VM](http://azure.microsoft.com/documentation/articles/virtual-machines-linux-tutorial/)에 gcc 스택이 있다고 가정합니다. 다른 환경에 대한 지침은 외부 링크에서 제공됩니다.
++ C 개발 환경. 이 자습서에서는 Ubuntu 14.04를 사용하는 [Azure Linux VM](virtual-machines-linux-tutorial.md)에 gcc 스택이 있다고 가정합니다. 다른 환경에 대한 지침은 외부 링크에서 제공됩니다.
 
 + Microsoft Visual Studio Express 2013 for Windows
 
@@ -56,7 +56,7 @@
 
    	![][4]
 
-6. 페이지 위쪽의 **구성** 탭을 클릭하고 *Send* 권한이 있는 **SendRule** 규칙과 *관리, 보내기, 수신 대기* 권한이 있는 **ReceiveRule** 규칙을 추가한 후에 **저장**을 클릭합니다.
+6. 페이지 위쪽의 **구성** 탭을 클릭하고 *Send* 권한이 있는 **SendRule** 규칙과 *Manage, Send, Listen* 권한이 있는 **ReceiveRule** 규칙을 추가한 후에 **저장**을 클릭합니다.
 
    	![][5]
 
@@ -104,4 +104,5 @@
 [Azure 관리 포털]: https://manage.windowsazure.com/
 [이벤트 프로세서 호스트]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
 [이벤트 허브 개요]: http://msdn.microsoft.com/library/azure/dn836025.aspx
-<!--HONumber=47-->
+
+<!--HONumber=52-->

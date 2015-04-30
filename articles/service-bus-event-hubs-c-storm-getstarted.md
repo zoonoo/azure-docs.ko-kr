@@ -30,11 +30,11 @@
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-+ C 개발 환경. 이 자습서에서는 Ubuntu 14.04를 사용하는 [Azure Linux VM](http://azure.microsoft.com/documentation/articles/virtual-machines-linux-tutorial/)에 gcc 스택이 있다고 가정합니다. 다른 환경에 대한 지침은 외부 링크에서 제공됩니다.
++ C 개발 환경. 이 자습서에서는 Ubuntu 14.04를 사용하는 [Azure Linux VM](virtual-machines-linux-tutorial.md)에 gcc 스택이 있다고 가정합니다. 다른 환경에 대한 지침은 외부 링크에서 제공됩니다.
 
 + [Maven](http://maven.apache.org/)을 실행하도록 구성된 Java 개발 환경. 이 자습서에서는 [Eclipse](https://www.eclipse.org/)를 사용한다고 가정합니다.
 
-+ 활성 Azure 계정. <br/>계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fko-kr%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure 무료 평가판</a>을 참조하세요.
++ 활성 Azure 계정. <br/>계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fko-kr%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure 무료 평가판</a>을 참조하세요
 
 ## 이벤트 허브 만들기
 
@@ -88,7 +88,7 @@
 다음 리소스는 이벤트 허브와 Storm을 통합하는 응용 프로그램을 개발할 때 사용할 수 있습니다.
 
 - [Storm 및 HDInsight를 사용하여 센서 데이터 분석]은 이벤트 허브, Storm 및 HBase를 사용하여 센서 데이터를 Hadoop 클러스터에 수집하는 방법을 보여 주는 전체 시나리오 자습서입니다.
-- [HDInsight 및 Storm에서 SCP.NET 및 C#을 사용하여 스트리밍 데이터 처리 응용 프로그램 개발]은 C#을 사용하여 Storm 파이프라인을 작성하는 방법을 보여 주는 자습서입니다.
+- [Storm 및 HDInsight에서 SCP.NET 및 C#을 사용하여 스트리밍 데이터 처리 응용 프로그램 개발]은 C#을 사용하여 Storm 파이프라인을 작성하는 방법을 보여 주는 자습서입니다.
 
 <!-- Images. -->
 [1]: ./media/service-bus-event-hubs-getstarted/create-event-hub1.png
@@ -110,4 +110,6 @@
 [HDInsight Storm 개요]: http://azure.microsoft.com/documentation/articles/hdinsight-storm-overview/
 [Storm 및 HDInsight를 사용하여 센서 데이터 분석]: http://azure.microsoft.com/documentation/articles/hdinsight-storm-sensor-data-analysis/
 [HDInsight 및 Storm에서 SCP.NET 및 C#을 사용하여 스트리밍 데이터 처리 응용 프로그램 개발]: http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application/
-<!--HONumber=47-->
+[Storm 및 HDInsight에서 SCP.NET 및 C#을 사용하여 스트리밍 데이터 처리 응용 프로그램 개발]: http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application/
+
+<!--HONumber=52-->

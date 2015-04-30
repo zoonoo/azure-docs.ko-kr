@@ -1,22 +1,24 @@
-﻿<properties 
-	pageTitle="WebJobs SDK를 사용하여 Azure 큐 저장소로 작업하는 방법" 
+<properties 
+	pageTitle="WebJob SDK를 사용하여 Azure 큐 저장소로 작업하는 방법" 
 	description="WebJobs SDK를 사용하여 Azure 큐 저장소로 작업하는 방법에 대해 알아봅니다. 큐 만들기 및 삭제, 큐 메시지 삽입, 미리 보기, 가져오기 및 삭제 등의 작업을 알아봅니다." 
-	services="web-sites, storage" 
+	services="app-service\web, storage" 
 	documentationCenter=".net" 
 	authors="tdykstra" 
 	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/15/2014" 
+	ms.date="04/03/2015" 
 	ms.author="tdykstra"/>
 
-# WebJobs SDK를 사용하여 Azure 큐 저장소로 작업하는 방법
+# WebJob SDK를 사용하여 Azure 큐 저장소로 작업하는 방법
+
+## 개요
 
 이 가이드에서는 Azure 큐 저장소 서비스에서 Azure WebJobs SDK 버전 1.x를 사용하는 방법을 보여 주는 C# 코드 샘플을 제공합니다.
 
@@ -30,7 +32,7 @@
 		    host.RunAndBlock();
 		}
 		
-## 목차
+이 가이드에는 다음 항목이 포함되어 있습니다.
 
 -   [큐 메시지가 수신될 때 함수를 트리거하는 방법](#trigger)
 	- 문자열 큐 메시지
@@ -65,7 +67,7 @@
 
 ## <a id="trigger"></a> 큐 메시지가 수신될 때 함수를 트리거하는 방법
 
-큐 메시지가 수신될 때 WebJobs SDK에서 호출하는 함수를 작성하려면  `QueueTrigger` 특성을 사용합니다. 특성 생성자는 폴링할 큐의 이름을 지정하는 문자열 매개 변수를 사용합니다. [큐 이름을 동적으로 설정]할 수도 있습니다(#config).
+큐 메시지가 수신될 때 WebJobs SDK에서 호출하는 함수를 작성하려면  `QueueTrigger` 특성을 사용합니다. 특성 생성자는 폴링할 큐의 이름을 지정하는 문자열 매개 변수를 사용합니다. [큐 이름을 동적으로 설정](#config)할 수도 있습니다.
 
 ### 문자열 큐 메시지
 
@@ -125,11 +127,11 @@ Blob을 복사하는 다음 예제와 같이 비동기 함수는 [취소 토큰]
 
 ### <a id="polling"></a> 폴링 알고리즘
 
-이 SDK는 임의 지수 백오프 알고리즘을 구현하여 유휴 큐 폴링이 저장소 트랜잭션 비용에 미치는 영향을 줄입니다.  메시지가 있으면 SDK는 2초 동안 기다린 후 다른 메시지를 확인합니다. 메시지가 없으면 4초 정도 기다린 후 다시 시도합니다. 큐 메시지를 가져오려는 후속 시도가 실패한 후 대기 시간은 최대 대기 시간(기본적으로 1분으로 설정됨)에 도달할 때까지 계속 증가합니다. [최대 대기 시간은 구성 가능합니다](#config).
+SDK는 무작위 지수 백오프 알고리즘을 구현하여 유휴 큐 폴링이 저장소 트랜잭션 비용에 미치는 영향을 줄입니다.  메시지가 있으면 SDK는 2초 동안 기다린 후 다른 메시지를 확인합니다. 메시지가 없으면 4초 정도 기다린 후 다시 시도합니다. 큐 메시지를 가져오려는 후속 시도가 실패한 후 대기 시간은 최대 대기 시간(기본적으로 1분으로 설정됨)에 도달할 때까지 계속 증가합니다. [최대 대기 시간은 구성 가능합니다](#config).
 
 ### <a id="instances"></a> 여러 인스턴스
 
-웹 사이트가 여러 인스턴스에서 실행되는 경우 연속적인 WebJob이 각 컴퓨터에서 실행되고, 각 컴퓨터는 트리거를 기다렸다가 함수 실행을 시도합니다. 일부 시나리오에서는 이로 인해 일부 함수가 동일한 데이터를 두 번 처리하게 될 수 있으므로 함수는 역등원이어야 합니다(같은 입력 데이터로 반복 호출해도 중복된 결과가 나오지 않도록 작성).  
+웹 앱이 여러 인스턴스에서 실행되는 경우 연속적인 WebJob이 각 컴퓨터에서 실행되고, 각 컴퓨터는 트리거를 기다렸다가 함수 실행을 시도합니다. 일부 시나리오에서는 이로 인해 일부 함수가 동일한 데이터를 두 번 처리하게 될 수 있으므로 함수는 역등원이어야 합니다(같은 입력 데이터로 반복 호출해도 중복된 결과가 나오지 않도록 작성).  
 
 ### <a id="parallel"></a> 병렬 실행
 
@@ -144,7 +146,7 @@ Blob을 복사하는 다음 예제와 같이 비동기 함수는 [취소 토큰]
 * `DateTimeOffset` expirationTime
 * `DateTimeOffset` insertionTime
 * `DateTimeOffset` nextVisibleTime
-* `string` queueTrigger(메시지 텍스트 포함)
+* `string` queueTrigger (contains message text)
 * `string` id
 * `string` popReceipt
 * `int` dequeueCount
@@ -219,7 +221,7 @@ Azure 저장소 API로 직접 작업하려는 경우  `CloudStorageAccount` 매�
 
 ## <a id="createqueue"></a> 큐 메시지를 처리하는 동안 큐 메시지를 만드는 방법
 
-새 큐 메시지를 만드는 함수를 작성하려면  `Queue` 특성을 사용합니다.  `QueueTrigger`와 마찬가지로 큐 이름을 문자열로 전달하거나, [동적으로 큐 이름을 설정]할 수 있습니다(#config).
+새 큐 메시지를 만드는 함수를 작성하려면  `Queue` 특성을 사용합니다.  `QueueTrigger`와 마찬가지로 큐 이름을 문자열로 전달하거나, [동적으로 큐 이름을 설정](#config)할 수 있습니다.
 
 ### 문자열 큐 메시지
 
@@ -294,7 +296,7 @@ SDK에서 자동으로 개체를 JSON으로 serialize합니다. 개체가 null�
 
 ## <a id="blobs"></a> 큐 메시지를 처리하는 동안 Blob 및 테이블을 읽고 쓰는 방법
 
- `Blob` 및  `Table` 특성을 사용하여 Blob 및 테이블을 읽고 쓸 수 있습니다. 이 섹션의 샘플은 Blob에 적용됩니다. Blob가 생성되거나 업데이트될 때 프로세스를 트리거하는 방법을 보여 주는 코드 샘플은 [WebJobs SDK를 사용하여 Azure Blob 저장소로 작업하는 방법](websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)을 참조하고, 테이블을 읽고 쓰는 코드 샘플은 [WebJobs SDK를 사용하여 Azure 테이블 저장소로 작업하는 방법](websites-dotnet-webjobs-sdk-storage-tables-how-to.md)을 참조하세요.
+ `Blob` 및  `Table` 특성을 사용하여 Blob 및 테이블을 읽고 쓸 수 있습니다. 이 섹션의 샘플은 Blob에 적용됩니다. blob이 만들어지거나 업데이트될 때 트리거를 처리하는 방법을 보여주는 코드 샘플은 [WebJob SDK를 사용하여 Azure Blob 저장소로 작업하는 방법](websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)을 참조하세요.테이블을 읽고 쓰는 코드 샘플은 [WebJob SDK를 사용하여 Azure 테이블 저장소로 작업하는 방법](websites-dotnet-webjobs-sdk-storage-tables-how-to.md)을 참조하세요.
 
 ### Blob 작업을 트리거하는 문자열 큐 메시지
 
@@ -310,7 +312,7 @@ SDK에서 자동으로 개체를 JSON으로 serialize합니다. 개체가 null�
 		    blobInput.CopyTo(blobOutput, 4096);
 		}
 
- `Blob` 특성 생성자는 컨테이너 및 Blob 이름을 지정하는  `blobPath` 매개 변수를 가져옵니다. 이 자리 표시자에 대한 자세한 내용은 [WebJobs SDK를 사용하여 Azure Blob 저장소로 작업하는 방법](websites-dotnet-webjobs-sdk-storage-blobs-how-to.md), 을 참조하세요.
+ `Blob` 특성 생성자는 컨테이너 및 Blob 이름을 지정하는  `blobPath` 매개 변수를 가져옵니다. 이 자리 표시자에 대한 자세한 내용은 [WebJob SDK를 사용하여 Azure Blob 저장소로 작업하는 방법](websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)을 참조하세요. 
 
 특성이  `Stream` 개체를 데코레이팅하는 경우 또 다른 생성자 매개 변수가  `FileAccess` 모드를 읽기, 쓰기 또는 읽기/쓰기로 지정합니다. 
 
@@ -325,7 +327,7 @@ SDK에서 자동으로 개체를 JSON으로 serialize합니다. 개체가 null�
 
 ### <a id="pocoblobs"></a> POCO[(Plain Old CLR Object](http://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) 큐 메시지
 
-큐 메시지에 JSON으로 저장된 POCO의 경우 개체 속성의 이름을 지정하는 자리 표시자를  `Queue` 특성의  `blobPath` 매개 변수에 사용할 수 있습니다. [큐 메타데이터 속성 이름]을(#queuemetadata) 자리 표시자로 사용할 수도 있습니다. 
+큐 메시지에 JSON으로 저장된 POCO의 경우 개체 속성의 이름을 지정하는 자리 표시자를  `Queue` 특성의  `blobPath` 매개 변수에 사용할 수 있습니다. [큐 메타데이터 속성 이름](#queuemetadata)을 자리 표시자로 사용할 수도 있습니다. 
 
 다음 예제에서는 Blob를 확장명이 다른 새 Blob에 복사합니다. 큐 메시지는  `BlobName` 및  `BlobNameWithoutExtension` 속성이 포함된  `BlobInformation` 개체입니다. 속성 이름은  `Blob` 특성에 대한 Blob 경로에서 자리 표시자로 사용됩니다. 
  
@@ -343,7 +345,7 @@ SDK에서 자동으로 개체를 JSON으로 serialize합니다. 개체가 null�
 		var queueMessage = new CloudQueueMessage(JsonConvert.SerializeObject(blobInfo));
 		logQueue.AddMessage(queueMessage);
 
-Blob을 개체에 바인딩하기 전에 함수에서 일부 작업을 수행해야 하는 경우 [앞의 Queue 특성처럼] 함수 본문에 특성을 사용할 수 있습니다(#ibinder).
+Blob을 개체에 바인딩하기 전에 함수에서 일부 작업을 수행해야 하는 경우 [앞의 Queue 특성처럼](#ibinder) 함수 본문에 특성을 사용할 수 있습니다.
 
 ### <a id="blobattributetypes"></a> Blob 특성을 사용할 수 있는 유형
  
@@ -389,7 +391,7 @@ SDK는 최대 5회까지 함수를 호출하여 큐 메시지를 처리합니다
 
 다음 그림에서는 포이즌 메시지를 처리할 때 이러한 함수의 콘솔 출력을 보여 줍니다.
 
-![Console output for poison message handling](./media/websites-dotnet-webjobs-sdk-storage-queues-how-to/poison.png)
+![포이즌 메시지 처리에 대한 콘솔 출력](./media/websites-dotnet-webjobs-sdk-storage-queues-how-to/poison.png)
 
 ### 수동 포이즌 메시지 처리
 
@@ -475,7 +477,7 @@ SDK는 최대 5회까지 함수를 호출하여 큐 메시지를 처리합니다
 		    Console.WriteLine(logMessage);
 		}
 
-그런 다음  `NameResolver` 클래스가 다음 예제와 같이  `appSettings`에서 큐 이름을 가져올 수 있습니다.
+그런 다음 `NameResolver` 클래스가 다음 예제와 같이 `appSettings`에서 큐 이름을 가져올 수 있습니다.
 
 		public class QueueNameResolver : INameResolver
 		{
@@ -524,19 +526,19 @@ SDK는 최대 5회까지 함수를 호출하여 큐 메시지를 처리합니다
 
 대시보드의 두 곳, 즉 WebJob의 페이지 및 특정 WebJob 호출의 페이지에 로그가 표시됩니다. 
 
-![Logs in WebJob page](./media/websites-dotnet-webjobs-sdk-storage-queues-how-to/dashboardapplogs.png)
+![WebJob 페이지에서 로그](./media/websites-dotnet-webjobs-sdk-storage-queues-how-to/dashboardapplogs.png)
 
-![Logs in function invocation page](./media/websites-dotnet-webjobs-sdk-storage-queues-how-to/dashboardlogs.png)
+![함수 호출 페이지에서 로그](./media/websites-dotnet-webjobs-sdk-storage-queues-how-to/dashboardlogs.png)
 
-함수 또는  `Main()` 메서드에서 호출한 콘솔 메서드의 출력은 특정 메서드 호출에 대한 페이지가 아니라 WebJob에 대한 대시보드 페이지에 표시됩니다. 메서드 서명의 매개 변수에서 가져오는 TextWriter 개체의 출력은 메서드 호출에 대한 대시보드 페이지에 표시됩니다.
+함수 또는 `Main()` 메서드에서 호출한 콘솔 메서드의 출력은 특정 메서드 호출에 대한 페이지가 아니라 WebJob에 대한 대시보드 페이지에 표시됩니다. 메서드 서명의 매개 변수에서 가져오는 TextWriter 개체의 출력은 메서드 호출에 대한 대시보드 페이지에 표시됩니다.
 
 많은 작업 기능이 동시에 실행될 수 있지만 콘솔은 단일 스레드이므로 콘솔 출력을 특정 메서드 호출에 연결할 수 없습니다. 따라서 SDK에서는 각 함수 호출에 고유한 로그 작성기 개체를 제공합니다.
 
-[응용 프로그램 추적 로그](../web-sites-dotnet-troubleshoot-visual-studio/#logsoverview)를 기록하려면 INFO로 표시되는 로그를 만드는  `Console.Out` 및 ERROR로 표시되는 로그를 만드는  `Console.Error`를 사용합니다. 그렇지 않으면 Info 및 Error 외에 Verbose, Warning 및 Critical 수준을 제공하는 [추적 또는 TraceSource](http://blogs.msdn.com/b/mcsuksoldev/archive/2014/09/04/adding-trace-to-azure-web-sites-and-web-jobs.aspx)를 사용합니다. 응용 프로그램 추적 로그는 Azure 웹 사이트를 구성한 방식에 따라 웹 사이트 로그 파일, Azure 테이블 또는 Azure Blob에 표시됩니다. 모든 콘솔 출력과 마찬가지로 가장 최근 100개의 응용 프로그램 로그도 함수 호출에 대한 페이지가 아니라 WebJob에 대한 대시보드 페이지에 표시됩니다. 
+[응용 프로그램 추적 로그](web-sites-dotnet-troubleshoot-visual-studio.md#logsoverview)를 작성하려면 `Console.Out`(INFO로 표시되는 로그 만들기) 및 `Console.Error`(ERROR로 표시되는 로그 만들기)를 사용합니다. 그렇지 않으면 Info 및 Error 외에 Verbose, Warning 및 Critical 수준을 제공하는 [추적 또는 TraceSource](http://blogs.msdn.com/b/mcsuksoldev/archive/2014/09/04/adding-trace-to-azure-web-sites-and-web-jobs.aspx)를 사용합니다. 응용 프로그램 추적 로그는 Azure 웹 앱을 구성한 방식에 따라 웹 앱 로그 파일, Azure 테이블 또는 Azure Blob에 표시됩니다. 모든 콘솔 출력과 마찬가지로 가장 최근 100개의 응용 프로그램 로그도 함수 호출에 대한 페이지가 아니라 WebJob에 대한 대시보드 페이지에 표시됩니다. 
 
 콘솔 출력은 프로그램이 Azure WebJob에서 실행되는 경우에만 대시보드에 표시되고, 프로그램이 로컬로 실행되거나 다른 환경에서 실행되는 경우에는 표시되지 않습니다.
 
-[대시보드 연결 문자열을 null로 설정]하여 로깅을 사용하지 않도록 설정할 수 있습니다(#config).
+[대시보드 연결 문자열을 null로 설정](#config)하여 로깅을 사용하지 않도록 설정할 수 있습니다.
 
 다음 예제에서는 로그를 작성하는 여러 가지 방법을 보여 줍니다.
 
@@ -552,35 +554,34 @@ SDK는 최대 5회까지 함수를 호출하여 큐 메시지를 처리합니다
 
 WebJobs SDK 대시보드에서  `TextWriter` 개체 출력은 특정 함수 호출에 대한 페이지로 이동하여 **Toggle Output**을 클릭할 때 표시됩니다.
 
-![Click function invocation link](./media/websites-dotnet-webjobs-sdk-storage-queues-how-to/dashboardinvocations.png)
+![함수 호출 링크 클릭](./media/websites-dotnet-webjobs-sdk-storage-queues-how-to/dashboardinvocations.png)
 
-![Logs in function invocation page](./media/websites-dotnet-webjobs-sdk-storage-queues-how-to/dashboardlogs.png)
+![함수 호출 페이지에서 로그](./media/websites-dotnet-webjobs-sdk-storage-queues-how-to/dashboardlogs.png)
 
 WebJobs SDK 대시보드에서 콘솔 출력의 최근 100줄은 함수 호출이 아니라 WebJob에 대한 페이지로 이동하여 **Toggle Output**을 클릭할 때 표시됩니다.
  
-![Click Toggle Output](./media/websites-dotnet-webjobs-sdk-storage-queues-how-to/dashboardapplogs.png)
+![출력 설정/해제 클릭](./media/websites-dotnet-webjobs-sdk-storage-queues-how-to/dashboardapplogs.png)
 
-연속 WebJob에서는 응용 프로그램 로그가 웹 사이트 파일 시스템의 /data/jobs/continuous/*{webjobname}*/job_log.txt에 표시됩니다.
+연속 WebJob에서는 응용 프로그램 로그가 웹 앱 파일 시스템의 /data/jobs/continuous/*{webjobname}*/job_log.txt에 표시됩니다.
 
 		[09/26/2014 21:01:13 > 491e54: INFO] Console.Write - Hello world!
 		[09/26/2014 21:01:13 > 491e54: ERR ] Console.Error - Hello world!
 		[09/26/2014 21:01:13 > 491e54: INFO] Console.Out - Hello world!
 
 Azure Blob에서 응용 프로그램 로그는 다음과 같이 표시됩니다.
+
 		2014-09-26T21:01:13,Information,contosoadsnew,491e54,635473620738373502,0,17404,17,Console.Write - Hello world!,
 		2014-09-26T21:01:13,Error,contosoadsnew,491e54,635473620738373502,0,17404,19,Console.Error - Hello world!,
 		2014-09-26T21:01:13,Information,contosoadsnew,491e54,635473620738529920,0,17404,17,Console.Out - Hello world!,
 
 또한 Azure 테이블에서  `Console.Out` 및  `Console.Error` 로그는 다음과 같이 표시됩니다.
 
-![Info log in table](./media/websites-dotnet-webjobs-sdk-storage-queues-how-to/tableinfo.png)
+![테이블에 대한 정보 로그](./media/websites-dotnet-webjobs-sdk-storage-queues-how-to/tableinfo.png)
 
-![Error log in table](./media/websites-dotnet-webjobs-sdk-storage-queues-how-to/tableerror.png)
+![테이블에 대한 오류 로그](./media/websites-dotnet-webjobs-sdk-storage-queues-how-to/tableerror.png)
 
 ## <a id="nextsteps"></a> 다음 단계
 
 이 가이드에서는 Azure 큐 작업에 대한 일반적인 시나리오를 처리하는 방법을 보여 주는 코드 샘플을 제공했습니다. Azure WebJob 및 WebJob SDK를 사용하는 방법에 대한 자세한 내용은 [Azure WebJob - 권장 리소스](http://go.microsoft.com/fwlink/?linkid=390226)를 참조하세요.
 
-
-
-<!--HONumber=42-->
+<!--HONumber=52-->

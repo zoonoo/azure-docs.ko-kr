@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="미디어 서비스에서 자산을 관리하는 방법 - Azure" 
 	description="미디어 서비스에서 자산을 관리하는 방법에 대해 알아봅니다. 또한 작업을 관리하고 정책과 로케이터에 액세스하는 방법에 대해서도 설명합니다. 코드 샘플은 C#으로 작성되었으며 Media Services SDK for .NET을 사용합니다." 
 	services="media-services" 
@@ -19,7 +19,7 @@
 
 # 방법: 저장소의 자산 관리
 
-이 기사는 [필요 시 워크플로 관련 미디어 서비스 비디오](../media-services-video-on-demand-workflow) 및 [미디어 서비스 라이브 스트리밍 워크플로](../media-services-live-streaming-workflow) 시리즈의 일부입니다.  
+이 문서는 [미디어 서비스 주문형 비디오 워크플로](media-services-video-on-demand-workflow.md) 및 [미디어 서비스 라이브 스트리밍 워크플로](media-services-live-streaming-workflow.md) 시리즈의 일부입니다.  
 
 
 미디어 자산을 만든 후에 서버에서 자산에 액세스하여 관리할 수 있습니다. 서버에서 미디어 서비스의 일부인 작업, 태스크, 액세스 정책, 로케이터 등의 다른 개체도 관리할 수 있습니다.
@@ -85,4 +85,4 @@
 	}
 
 
-<!--HONumber=45--> 
+<!--HONumber=52-->

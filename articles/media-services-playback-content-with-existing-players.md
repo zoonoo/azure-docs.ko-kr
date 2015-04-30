@@ -1,9 +1,9 @@
 ﻿<properties 
 	pageTitle="콘텐츠 재생" 
-	description="이 항목에서는 콘텐츠를 재생하는 방법을 설명합니다." 
+	description="이 항목에서는 콘텐츠를 재생하는 데 사용할 수 있는 기존 플레이어를 나열합니다." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako" 
+	authors="Juliako" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,26 +13,21 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/16/2015" 
+	ms.date="04/08/2015" 
 	ms.author="juliako"/>
 
 
-#콘텐츠 재생
+# 기존 플레이어를 사용하여 콘텐츠 재생
 
 Azure Media Services는 부드러운 스트리밍, HTTP 라이브 스트리밍 및 Mpeg-dash와 같은 여러 인기 있는 스트리밍 형식을 지원합니다. 이 주제는 이 항목 스트림을 테스트하는 데 사용할 수 있는 기존 플레이어를 설명합니다.  
 
-##기존 플레이어를 사용하여 콘텐츠 재생
+>[AZURE.NOTE]동적으로 패키징되거나 동적으로 암호화된 콘텐츠를 재생하려면 콘텐츠를 배달하려는 스트리밍 끝점에 대해 하나 이상의 스트리밍 단위를 가져와야 합니다. 스트리밍 단위 크기 조정에 대한 자세한 내용은 [스트리밍 단위 크기를 조정하는 방법](media-services-manage-origins.md#scale_streaming_endpoints).
 
-이 항목에서는 콘텐츠를 재생하는 데 사용할 수 있는 기존 플레이어를 보여 줍니다.
-
->[AZURE.NOTE]동적으로 패키징되거나 동적으로 암호화된 콘텐츠를 재생하려면 콘텐츠를 배달하려는 스트리밍 끝점에 대해 하나 이상의 스트리밍 단위를 가져와야 합니다. 스트리밍 단위 크기 조정에 대한 자세한 내용은 [스트리밍 단위 크기를 조정하는 방법](../media-services-manage-origins#scale_streaming_endpoints)을 참조하세요.
-
-
-###Azure 관리 포털 미디어 서비스 콘텐츠 플레이어
+### Azure 관리 포털 미디어 서비스 콘텐츠 플레이어
 
 **Azure 관리 포털**에서는 비디오를 테스트하는 데 사용할 수 있는 콘텐츠 플레이어를 제공합니다.
 
-원하는 비디오를 클릭하여 [게시]되었는지 확인하고(../media-services-manage-content#publish)포털 아래쪽에 있는 **재생** 단추를 클릭합니다. 
+원하는 비디오([게시](media-services-manage-content.md#publish)된 것이어야 함)를 클릭하고 포털 맨 아래에 있는 **재생** 단추를 클릭합니다. 
  
 다음과 같은 몇 가지 고려 사항이 적용됩니다.
 
@@ -41,14 +36,49 @@ Azure Media Services는 부드러운 스트리밍, HTTP 라이브 스트리밍 �
 
 ![AMSPlayer][AMSPlayer]
 
-###Azure 미디어 서비스 플레이어
+### Azure 미디어 서비스 플레이어
 
-[Azure 미디어 서비스 플레이어](http://amsplayer.azurewebsites.net/azuremediaplayer.html)를 사용하여 콘텐츠를 재생합니다.
+[Azure 미디어 서비스 플레이어](http://amsplayer.azurewebsites.net/azuremediaplayer.html)를 사용하여 다음 형식 중 하나로 콘텐츠(일반 또는 보호됨)를 재생합니다.
+
+- 부드러운 스트리밍
+- MPEG DASH
+- HLS
+- 프로그레시브 MP4
 
 
-##비디오 플레이어 개발
+### Flash Player
 
-사용자 고유의 플레이어를 개발하는 방법에 대한 자세한 내용은 [비디오 플레이어 개발]을 참조하세요.(../media-services-develop-video-players)
+#### AES 암호화 토큰 
+
+[http://aestoken.azurewebsites.net]("http://aestoken.azurewebsites.net)
+
+### Silverlight 플레이어
+
+#### 모니터링
+
+[http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor)
+
+#### PlayReady 토큰
+
+[http://sltoken.azurewebsites.net](http://sltoken.azurewebsites.net)
+
+### DASH 플레이어
+
+[http://dashplayer.azurewebsites.net](http://dashplayer.azurewebsites.net)
+
+[http://dashif.org](http://dashif.org)
+
+### 기타
+
+다음을 이용하여 HLS URL을 테스트할 수도 있습니다.
+
+- iOS 장비의 **Safari** 또는
+- Windows의 **3ivx HLS 플레이어**
+
+## 비디오 플레이어 개발
+
+사용자 고유의 플레이어를 개발하는 방법에 대한 자세한 내용은 [비디오 플레이어 개발](media-services-develop-video-players.md)을 참조하세요.
  
 [AMSPlayer]: ./media/media-services-players/media-services-portal-player.png
-<!--HONumber=47-->
+
+<!--HONumber=52-->

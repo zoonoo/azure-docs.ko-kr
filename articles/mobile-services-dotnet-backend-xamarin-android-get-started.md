@@ -1,7 +1,7 @@
 ﻿<properties 
 	pageTitle="Xamarin Android 앱용 모바일 서비스 시작 - Azure 모바일 서비스" 
 	description="이 자습서에 따라 Azure 모바일 서비스를 사용하여 Xamarin Android 개발을 시작할 수 있습니다." 
-	services="" 
+	services="mobile-services" 
 	documentationCenter="xamarin" 
 	authors="lindydonna" 
 	manager="dwrede" 
@@ -10,9 +10,9 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-xamarin-android" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="dotnet" 
-	ms.topic="article" 
+	ms.topic="hero-article" 
 	ms.date="11/11/2014" 
 	ms.author="donnam"/>
 
@@ -30,7 +30,7 @@
 
 이 자습서를 완료해야 다른 모든 Xamarin Android 앱용 모바일 서비스 자습서를 진행할 수 있습니다. 
 
->[AZURE.NOTE]이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 Azure 평가판을 등록하고 최대 10개의 무료 모바일 서비스를 사용할 수 있습니다. 이러한 서비스는 평가판 사용 기간이 끝난 후에도 계속 사용할 수 있습니다. 자세한 내용은 <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fko-kr%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-xamarin-android-get-started" target="_blank">Azure 무료 평가판</a>을 참조하세요.<br />이 자습서를 완료하려면 <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a>이 필요합니다. 무료 평가판을 이용할 수 있습니다.
+>[AZURE.NOTE]이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 Azure 평가판을 등록하고 최대 10개의 무료 모바일 서비스를 사용할 수 있습니다. 이러한 서비스는 평가판 사용 기간이 끝난 후에도 계속 사용할 수 있습니다. 자세한 내용은 <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fko-kr%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-xamarin-android-get-started" target="_blank">Azure 무료 평가판</a>을 참조하세요.<br />이 자습서를 완료하려면 <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a>이 필요합니다. 무료 평가판을 이용할 수 있습니다.
 
 ## 새 모바일 서비스 만들기
 
@@ -44,7 +44,7 @@
 
 1. 관리 포털에서 **모바일 서비스**를 클릭한 후 방금 만든 모바일 서비스를 클릭합니다.
    
-2. 퀵 스타트 탭에서 **플랫폼 선택** 아래의 **Xamarin**를 클릭하고 **새 Xamarin 앱 만들기**를 확장합니다.
+2. 퀵 스타트 탭에서 **플랫폼 선택** 아래의 **Xamarin**을 클릭하고 **새 Xamarin 앱 만들기**를 확장합니다.
 
    	![][6]
 
@@ -52,13 +52,13 @@
 
   	![][7]
 
-3. 아직 하지 않은 경우 로컬 컴퓨터나 가상 컴퓨터에 <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a>을 다운로드하여 설치합니다.  
+3. 아직 수행하지 않은 경우 로컬 컴퓨터나 가상 컴퓨터에 <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a>을 다운로드하여 설치합니다.  
 
 4. 아직 하지 않은 경우 [Xamarin Studio] 또는 Visual Studio용 Xamarin을 다운로드하여 설치합니다.
 
 5. **서비스를 다운로드하고 클라우드에 게시** 아래에서 **Android**를 선택하고 **다운로드**를 클릭합니다. 
 
-  	모바일 서비스 및 여기에 연결된 샘플 _To do list_ 응용 프로그램 모두를 위한 프로젝트가 포함된 솔루션이 다운로드됩니다. 압축된 프로젝트 파일을 로컬 컴퓨터에 저장하고 저장 위치를 기록해 둡니다.
+  	모바일 서비스 및 여기에 연결된 샘플 _할 일 모음_ 응용 프로그램 모두를 위한 프로젝트가 포함된 솔루션이 다운로드됩니다. 압축된 프로젝트 파일을 로컬 컴퓨터에 저장하고 저장 위치를 기록해 둡니다.
 
 6. 게시 프로필을 다운로드하고, 다운로드한 파일을 로컬 컴퓨터에 저장한 다음 저장 위치를 기록해 둡니다.
 
@@ -91,15 +91,15 @@
 	Azure에 호스트된 새 모바일 서비스에 POST 요청이 전송됩니다. 요청의 데이터가 TodoItem 테이블에 삽입됩니다. TodoItem 테이블에 저장된 항목이 모바일 서비스에서 반환된 후 데이터가 목록에 표시됩니다.
 
 	> [AZURE.NOTE] 
-   	모바일 서비스에 액세스하는 코드를 검토하여 데이터를 쿼리 및 삽입할 수 있습니다(ToDoActivity.cs C# 파일에 있음).
+   	> 모바일 서비스에 액세스하여 데이터를 쿼리 및 삽입하는 코드를 검토할 수 있습니다. 이 코드는 ToDoActivity.cs C# 파일에 있습니다.
     
 ## 다음 단계
 이제 퀵 스타트를 완료했으며 모바일 서비스에서 중요한 추가 작업을 수행하는 방법을 알아보겠습니다. 
 
 * [오프라인 데이터 동기화 시작]
-  <br/>퀵 스타트에서 오프라인 데이터 동기화를 사용하여 앱의 응답성과 견고성을 향상시키기 방법을 알아봅니다.
+  <br/>퀵 스타트에서 오프라인 데이터 동기화를 사용하여 앱의 응답성과 견고성을 향상하는 방법을 알아봅니다.
 
-* [인증 시작](영문)
+* [인증 시작]
   <br/>ID 공급자를 사용하여 앱 사용자를 인증하는 방법을 알아봅니다.
 
 * [푸시 알림 시작] 
@@ -124,22 +124,20 @@
 [10]: ./media/mobile-services-dotnet-backend-xamarin-android-get-started/mobile-quickstart-startup-android.png
 
 <!-- URLs. -->
-[오프라인 데이터 동기화 시작]: /ko-kr/documentation/articles/mobile-services-xamarin-android-get-started-offline-data
-[인증 시작](영문): /ko-kr/documentation/articles/mobile-services-dotnet-backend-xamarin-android-get-started-users
-[푸시 알림 시작]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-xamarin-android-get-started-push
+[오프라인 데이터 동기화 시작]: mobile-services-xamarin-android-get-started-offline-data.md
+[인증 시작]: mobile-services-dotnet-backend-xamarin-android-get-started-users.md
+[푸시 알림 시작]: mobile-services-dotnet-backend-xamarin-android-get-started-push.md
 [Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=257546
 [모바일 서비스 SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [JavaScript 및 HTML]: mobile-services-win8-javascript/
 [관리 포털]: https://manage.windowsazure.com/
-[JavaScript 백 엔드 버전]: /ko-kr/documentation/articles/partner-xamarin-mobile-services-android-get-started
-[Visual Studio 2012를 사용하여 모바일 서비스에서 데이터 시작]: /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-data-vs2012
-[모바일 서비스 .NET 백 엔드 문제 해결]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-how-to-troubleshoot/
+[JavaScript 백 엔드 버전]: partner-xamarin-mobile-services-android-get-started.md
+[Visual Studio 2012를 사용하여 모바일 서비스에서 데이터 시작]: mobile-services-windows-store-dotnet-get-started-data-vs2012.md
+[모바일 서비스 .NET 백 엔드 문제 해결]: mobile-services-dotnet-backend-how-to-troubleshoot.md
 
 
-[Xamarin Studio](영문): http://xamarin.com/download
+[Xamarin Studio]: http://xamarin.com/download
 [Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532&clcid=0x409
 [Windows용 Xamarin]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409
 
-
-
-<!--HONumber=42-->
+<!--HONumber=52-->

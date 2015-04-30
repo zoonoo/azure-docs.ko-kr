@@ -1,0 +1,189 @@
+﻿<properties 
+	pageTitle="폴링 장기 실행 작업" 
+	description="이 항목에서는 장기 실행 작업을 폴링하는 방법을 보여줍니다." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="dwrede" 
+	editor=""/>
+
+<tags 
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="03/16/2015" 
+	ms.author="juliako"/>
+
+
+# Azure 미디어 서비스를 사용하여 라이브 스트리밍을 제공합니다.
+
+## 개요
+
+Microsoft Azure 미디어 서비스는 작업(예: 채널 만들기, 시작, 중지 또는 삭제)을 시작하도록 미디어 서비스에 요청을 보내는 API를 제공합니다. 이러한 작업은 장기 실행됩니다.
+
+미디어 서비스 .NET SDK는 요청을 보내고 작업이 완료되기를 기다리는 API를 제공합니다(내부적으로 API는 일정 간격으로 작업 진행을 폴링함). 예를 들어 channel.Start()를 호출하면, 채널이 시작된 후 메서드가 반환됩니다. 비동기 버전: await channel.StartAsync()를 사용할 수도 있습니다(작업 기반 비동기 패턴에 대한 내용은 [TAP](https://msdn.microsoft.com/library/hh873175(v=vs.110).aspx) 참조). 작업 요청을 보낸 다음 작업이 완료될 때까지 상태에 대해 폴링하는 API를 "폴링 메서드"라고 합니다. 리치 클라이언트 응용 프로그램 및/또는 상태 저장 서비스에 이 메서드 (특히 비동기 버전)를 사용하는 것이 좋습니다.
+
+응용 프로그램이 장기 실행하는 http 요청을 기다릴 수 없는 시나리오가 있으며 수동으로 작업 진행 상태를 폴링하려는 경우도 있습니다. 전형적인 예는 상태 비저장 웹 서비스와 상호작용하는 브라우저입니다. 브라우저가 채널을 만들도록 요청하면 웹 서비스는 장기 실행 작업을 시작하고 브라우저에 작업 ID를 반환합니다. 브라우저는 ID에 따라 작업 상태를 가져오도록 웹 서비스에 요청할 수 있습니다. 미디어 서비스 .NET SDK는 이 시나리오에 유용한 API를 제공합니다. 이 API를 "비 폴링 메서드"라고 합니다.
+"비 폴링 메서드"에는 다음 이름 지정 패턴이 있습니다. 보내기*OperationName*작업(예: SendCreateOperation)입니다. 보내기*OperationName*작업 메서드는 **IOperation** 개체를 반환합니다. 반환된 개체는 작업을 추적하는데 사용할 수 있는 정보를 포함합니다. 보내기*OperationName*OperationAsync 메서드는 **Task<IOperation>**을 반환합니다.
+
+현재, 다음 클래스가 비 폴링 메서드를 지원합니다.  **Channel**, **StreamingEndpoint** 및 **Program**.
+
+작업 상태에 대해 폴링하려면, **GetOperation** 메서드를 **OperationBaseCollection** 클래스에서 사용합니다. **Channel** 및 **StreamingEndpoint** 작업에 대한 작업 상태를 다음 간격으로 확인하려면, 30초를 사용합니다. **Program** 작업에 대해서는 10초를 사용합니다.
+
+
+## 예제
+
+다음 예제에서는 **ChannelOperations**이라는 클래스를 정의합니다. 이 클래스 정의는 웹 서비스 클래스 정의 시작 지점이 될 수 있습니다. 간단히 하기 위해 다음 예제에서는 메서드의 비동기 버전을 사용합니다.
+
+또한 이 예제에서는 클라이언트에서 이 클래스를 사용하는 방법을 보여줍니다.
+
+### ChannelOperations 클래스 정의
+
+	/// <summary> 
+	/// ChannelOperations 클래스만 구현 
+	/// 채널의 만들기 작업. 
+	/// </summary> 
+	public class ChannelOperations
+	{
+	    // App.config 파일에서 값 읽기.
+	    private static readonly string _mediaServicesAccountName =
+	        ConfigurationManager.AppSettings["MediaServicesAccountName"];
+	    private static readonly string _mediaServicesAccountKey =
+	        ConfigurationManager.AppSettings["MediaServicesAccountKey"];
+	
+	    // 서비스 컨텍스트 필드
+	    private static CloudMediaContext _context = null;
+	    private static MediaServicesCredentials _cachedCredentials = null;
+	
+	    public ChannelOperations()
+	    {
+	            _cachedCredentials = new MediaServicesCredentials(_mediaServicesAccountName,
+	                _mediaServicesAccountKey);
+	
+	            _context = new CloudMediaContext(_cachedCredentials);    }
+	
+	    /// <summary>  
+	    /// 새 채널 만들기 시작.  
+	    /// </summary>  
+	    /// <param name="channelName">새 채널에 제공될 이름</param>  
+	    /// <returns>  
+	    /// 미디어 서비스에서 실행되는 장기 실행 작업의 작업 ID. 
+	    /// 이 작업 ID를 사용하여 채널 만들기 상태 폴링. 
+	    /// </returns> 
+	    public string StartChannelCreation(string channelName)
+	    {
+	        var operation = _context.Channels.SendCreateOperation(
+	            new ChannelCreationOptions
+	            {
+	                Name = channelName,
+	                Input = CreateChannelInput(),
+	                Preview = CreateChannelPreview(),
+	                Output = CreateChannelOutput()
+	            });
+	
+	        return operation.Id;
+	    }
+	
+	    /// <summary> 
+	    /// 작업이 완료된 경우 확인. 
+	    /// 작업이 성공하는 경우 만든 채널 ID가 출력 매개변수에 반환됨.
+	    /// </summary> 
+	    /// <param name="operationId">작업 ID.</param> 
+	    /// <param name="channel">
+	    /// 작업이 성공하는 경우, 
+	    /// 만든 채널 ID가 출력 매개변수에 반환됨.</param>
+	    /// <returns>작업이 계속 진행 중인 경우 false를 반환하고 그렇지 않은 경우 true를 반환.</returns> 
+	    public bool IsCompleted(string operationId, out string channelId)
+	    {
+	        IOperation operation = _context.Operations.GetOperation(operationId);
+	        bool completed = false;
+	
+	        channelId = null;
+	
+	        switch (operation.State)
+	        {
+	            case OperationState.Failed:
+	                // 오류 처리. 
+	                // 예를 들어, 예외 처리. 
+					// 예외: operationId, operation.ErrorMessage에서 다음 정보 사용.
+	                break;
+	            case OperationState.Succeeded:
+	                completed = true;
+	                channelId = operation.TargetEntityId;
+	                break;
+	            case OperationState.InProgress:
+	                completed = false;
+	                break;
+	        }
+	        return completed;
+	    }
+	
+	
+	    private static ChannelInput CreateChannelInput()
+	    {
+	        return new ChannelInput
+	        {
+	            StreamingProtocol = StreamingProtocol.RTMP,
+	            AccessControl = new ChannelAccessControl
+	            {
+	                IPAllowList = new List<IPRange>
+	                {
+	                    new IPRange
+	                    {
+	                        Name = "TestChannelInput001",
+	                        Address = IPAddress.Parse("0.0.0.0"),
+	                        SubnetPrefixLength = 0
+	                    }
+	                }
+	            }
+	        };
+	    }
+	
+	    private static ChannelPreview CreateChannelPreview()
+	    {
+	        return new ChannelPreview
+	        {
+	            AccessControl = new ChannelAccessControl
+	            {
+	                IPAllowList = new List<IPRange>
+	                {
+	                    new IPRange
+	                    {
+	                        Name = "TestChannelPreview001",
+	                        Address = IPAddress.Parse("0.0.0.0"),
+	                        SubnetPrefixLength = 0
+	                    }
+	                }
+	            }
+	        };
+	    }
+	
+	    private static ChannelOutput CreateChannelOutput()
+	    {
+	        return new ChannelOutput
+	        {
+	            Hls = new ChannelOutputHls { FragmentsPerSegment = 1 }
+	        };
+	    }
+	}
+
+### The client code
+
+	ChannelOperations channelOperations = new ChannelOperations();
+	string opId = channelOperations.StartChannelCreation("MyChannel001");
+	
+	string channelId = null;
+	bool isCompleted = false;
+	
+	while (isCompleted == false)
+	{
+	    System.Threading.Thread.Sleep(TimeSpan.FromSeconds(30));
+	    isCompleted = channelOperations.IsCompleted(opId, out channelId);
+	}
+	
+	// 여기에서 새로 만든 채널 ID가 있어야 합니다.
+	Console.WriteLine(channelId);
+
+<!--HONumber=52-->

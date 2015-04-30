@@ -1,30 +1,30 @@
-﻿<properties 
-	pageTitle="Xamarin iOS 앱에 대해 모바일 서비스 시작" 
-	description="이 자습서에 따라 Azure 모바일 서비스를 사용하여 Xamarin iOS 개발을 시작할 수 있습니다." 
-	services="mobile-services" 
-	documentationCenter="xamarin" 
-	authors="conceptdev" 
-	manager="dwrede" 
+﻿<properties
+	pageTitle="Xamarin iOS 앱에 대해 모바일 서비스 시작"
+	description="이 자습서에 따라 Azure 모바일 서비스를 사용하여 Xamarin iOS 개발을 시작할 수 있습니다."
+	services="mobile-services"
+	documentationCenter="xamarin"
+	authors="conceptdev"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-xamarin-ios" 
-	ms.devlang="dotnet" 
-	ms.topic="hero-article" 
-	ms.date="11/22/2014" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm=""
+	ms.devlang="dotnet"
+	ms.topic="hero-article"
+	ms.date="11/22/2014"
 	ms.author="craig.dunn@xamarin.com"/>
 
 # <a name="getting-started"> </a>모바일 서비스 시작
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
 
-이 자습서에서는 Azure 모바일 서비스를 사용하여 Xamarin.iOS 앱에 클라우드 기반 백 엔드 서비스를 추가하는 방법을 보여 줍니다. 이 자습서에서는 새 모바일 서비스와 새 모바일 서비스에 앱 데이터를 저장하는 간단한 <em>할 일 모음</em> 앱을 둘 다 만듭니다.
+이 자습서에서는 Azure 모바일 서비스를 사용하여 Xamarin.iOS 앱에 클라우드 기반 백 엔드 서비스를 추가하는 방법을 보여 줍니다. 이 자습서에서는 새 모바일 서비스뿐만 아니라 새 모바일 서비스에 앱 데이터를 저장하는 간단한 <em>할 일 모음</em> 앱도 만듭니다.
 
 동영상을 시청하려는 경우 아래쪽의 클립은 이 자습서와 동일한 단계를 따릅니다.
 
-비디오: "Xamarin 및 Azure 모바일 서비스 시작". 진행: Craig Dunn, Xamarin 개발자(시간: 10분 5초)
+비디오: "Xamarin 및 Azure 모바일 서비스 시작". 진행: Craig Dunn, Xamarin 개발자(시간: 10:05분)
 
 > [AZURE.VIDEO getting-started-with-xamarin-and-mobile-services]
 
@@ -36,7 +36,7 @@
 
 이 자습서를 완료하려면 OS X용 XCode와 [Xamarin Studio] 또는 Windows의 Visual Studio용 Xamarin Visual Studio 플러그 인이 필요합니다. 샘플은 iOS 5.0 이상에서 실행됩니다.
 
-> [AZURE.IMPORTANT] 이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 Azure 평가판을 등록하고 최대 10개의 무료 모바일 서비스를 사용할 수 있습니다. 이러한 서비스는 평가판 사용 기간이 끝난 후에도 계속 사용할 수 있습니다. 자세한 내용은 [Azure 무료 평가판](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fko-kr%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-xamarin-ios%2F"%20target="_blank)을 참조하세요.
+> [AZURE.IMPORTANT] 이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 Azure 평가판을 등록하고 최대 10개의 무료 모바일 서비스를 사용할 수 있습니다. 이러한 서비스는 평가판 사용 기간이 끝난 후에도 계속 사용할 수 있습니다. 자세한 내용은 [Azure 무료 평가판](http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fko-kr%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-xamarin-ios%2F"%20target="_blank)을 참조하세요.
 
 ## <a name="create-new-service"> </a>새 모바일 서비스 만들기
 
@@ -44,7 +44,7 @@
 
 <h2>새 Xamarin.iOS 앱 만들기</h2>
 
-모바일 서비스를 만든 후 관리 포털에서 쉬운 빠른 시작을 따라 모바일 서비스에 연결할 새 앱을 만들거나 기존 앱을 수정할 수 있습니다. 
+모바일 서비스를 만든 후 관리 포털에서 쉬운 퀵 스타트를 따라 모바일 서비스에 연결할 새 앱을 만들거나 기존 앱을 수정할 수 있습니다.
 
 이 섹션에서는 모바일 서비스에 연결된 새 Xamarin.iOS 앱을 만듭니다.
 
@@ -62,7 +62,7 @@
 
 4. **TodoItems 테이블 만들기**를 클릭하여 앱 데이터를 저장할 테이블을 만듭니다.
 
-5. **앱 다운로드 및 실행**에서 **다운로드**를 클릭합니다. 
+5. **앱 다운로드 및 실행**에서 **다운로드**를 클릭합니다.
 
 	그러면 모바일 서비스에 연결되고 Xamarin.iOS에 대한 Azure 모바일 서비스 구성 요소를 참조하는 샘플 _할 일 모음_ 응용 프로그램에 대한 프로젝트가 다운로드됩니다. 압축된 프로젝트 파일을 로컬 컴퓨터에 저장하고 저장 위치를 기록해 둡니다.
 
@@ -94,19 +94,17 @@
 
 	![][12]
 
-## <a name="next-steps"> </a>다음 단계
-이제 빠른 시작을 완료했으므로 모바일 서비스에서 중요한 추가 작업을 수행하는 방법을 알아보겠습니다. 
 
 ## 다음 단계
-이제 빠른 시작을 완료했으므로 모바일 서비스에서 중요한 추가 작업을 수행하는 방법을 알아보겠습니다. 
+이제 퀵 스타트를 완료했으며 모바일 서비스에서 중요한 추가 작업을 수행하는 방법을 알아보겠습니다.
 
 * [오프라인 데이터 동기화 시작]
-  <br/>빠른 시작에서 오프라인 데이터 동기화를 사용하여 앱의 응답성과 견고성을 향상하는 방법을 알아봅니다.
+  <br/>퀵 스타트에서 오프라인 데이터 동기화를 사용하여 앱의 응답성과 견고성을 향상하는 방법을 알아봅니다.
 
 * [인증 시작]
   <br/>ID 공급자를 사용하여 앱 사용자를 인증하는 방법을 알아봅니다.
 
-* [푸시 알림 시작] 
+* [푸시 알림 시작]
   <br/>앱에 기본적인 푸시 알림을 보내는 방법을 알아봅니다.
 
 <!-- Anchors. -->
@@ -127,16 +125,14 @@
 
 
 <!-- URLs. -->
-[데이터 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-data-xamarin-ios
-[오프라인 데이터 동기화 시작]: /ko-kr/develop/mobile/tutorials/mobile-services-xamarin-ios-get-started-offline-data
-[인증 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-users-xamarin-ios
-[푸시 알림 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-push-xamarin-ios
+[데이터 시작]: /develop/mobile/tutorials/get-started-with-data-xamarin-ios
+[오프라인 데이터 동기화 시작]: /develop/mobile/tutorials/mobile-services-xamarin-ios-get-started-offline-data
+[인증 시작]: /develop/mobile/tutorials/get-started-with-users-xamarin-ios
+[푸시 알림 시작]: /develop/mobile/tutorials/get-started-with-push-xamarin-ios
 
 [Xamarin Studio]: http://xamarin.com/download
 [모바일 서비스 iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 
 [관리 포털]: https://manage.windowsazure.com/
 
-
-
-<!--HONumber=42-->
+<!--HONumber=52-->

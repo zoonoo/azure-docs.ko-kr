@@ -6,24 +6,24 @@
 
 3. **Open an existing Android Studio project**를 선택하고 프로젝트 위치를 찾은 후 **OK**를 클릭합니다. 
 
- 	![][14]
+ 	![](./media/mobile-services-android-get-started/android-studio-import-project.png)
 
 4. 왼쪽 **Project Explorer** 창에서  *Project* 탭이 선택되어 있는지 확인하고 **app**, **src**, **java**를 연 후 **ToDoactivity**를 두 번 클릭합니다.
 
-   	![][8]
+   	![](./media/mobile-services-android-get-started/Android-Studio-quickstart.png)
 
 
-4. 2.0 버전의 SDK를 다운로드한 경우 코드를 모바일 서비스의 URL 및 키로 업데이트해야 합니다.
+5. 2.0 버전의 SDK를 다운로드한 경우 코드를 모바일 서비스의 URL 및 키로 업데이트해야 합니다.
 	- 	**TodoActivity.java**에서 **OnCreate** 메서드를 찾은 후 모바일 서비스 클라이언트를 인스턴스화하는 코드를 찾습니다. 이 코드는 이전 이미지에서 확인할 수 있습니다.
 	- 	"MobileServiceUrl"을 모바일 서비스의 실제 URL로 바꿉니다.
 	- 	"AppKey"를 모바일 서비스의 키로 바꿉니다.
-	- 	자세한 내용은 <a href="http://azure.microsoft.com/documentation/articles/mobile-services-android-get-started-data/">기존 앱에 모바일 서비스 추가</a> 자습서를 참조하세요. 
+	- 	자세한 내용은 [기존 앱에 모바일 서비스 추가](../articles/mobile-services-android-get-started-data.md) 자습서를 참조하세요. 
 
-5. **실행** 메뉴에서 **실행**을 클릭하여 Android 에뮬레이터에서 프로젝트를 시작합니다.
+6. **실행** 메뉴에서 **실행**을 클릭하여 Android 에뮬레이터에서 프로젝트를 시작합니다.
 
 	> [AZURE.IMPORTANT] Android 에뮬레이터에서 프로젝트를 실행할 수 있으려면 AVD(Android Virtual Device)를 하나 이상 정의해야 합니다. AVD Manager를 사용하여 이러한 장치를 만들고 관리합니다.
 
-6. 앱에서 _Complete the tutorial_ 등의 의미 있는 텍스트를 입력하고 **Add**를 클릭합니다.
+7. 앱에서 _자습서 완료_와 같이 의미 있는 텍스트를 입력하고 **추가**를 클릭합니다.
 
    	![][10]
 
@@ -31,13 +31,13 @@
 
 	> [AZURE.NOTE] 모바일 서비스에 액세스하여 데이터를 쿼리 및 삽입하는 코드를 검토할 수 있습니다. 이 코드는 ToDoActivity.java 파일에 있습니다.
 
-6. 관리 포털로 돌아가서 **데이터** 탭을 클릭한 후 **TodoItems** 테이블을 클릭합니다.
+8. 관리 포털로 돌아가서 **데이터** 탭을 클릭한 후 **TodoItems** 테이블을 클릭합니다.
 
-   	![][11]
+   	![](./media/mobile-services-android-get-started/mobile-data-tab1.png)
 
    	이를 통해 앱에서 테이블로 삽입된 데이터를 찾을 수 있습니다.
 
-   	![][12]
+   	![](./media/mobile-services-android-get-started/mobile-data-browse.png)
 
 
 <!-- Images. -->
@@ -52,10 +52,13 @@
 [15]: ./media/mobile-services-android-get-started/mobile-services-import-android-project.png
 
 <!-- URLs. -->
-[데이터 시작]: /documentation/articles/mobile-services-android-get-started-data/
+[기존 앱에 모바일 서비스 추가]: ../articles/mobile-services-android-get-started-data.md
+[인증 시작]: ../articles/mobile-services-android-get-started-users.md
+[푸시 알림 시작]: ../articles/mobile-services-javascript-backend-android-get-started-push.md
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
 [Android Studio]: https://developer.android.com/sdk/index.html
 [모바일 서비스 Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 
 [관리 포털]: https://manage.windowsazure.com/
-<!--HONumber=47-->
+
+<!--HONumber=52-->

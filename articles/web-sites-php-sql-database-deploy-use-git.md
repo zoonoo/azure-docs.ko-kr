@@ -1,98 +1,101 @@
-﻿<properties 
-	pageTitle="SQL 데이터베이스 및 Git를 사용한 PHP 웹 사이트 - Azure 자습서" 
-	description="SQL 데이터베이스에 데이터를 저장하는 PHP 웹 사이트를 만들고 Git를 사용하여 Azure에 배포하는 방법을 보여 주는 자습서입니다." 
-	services="web-sites, sql-database" 
+<properties 
+	pageTitle="PHP-SQL 웹 앱 만들기 및 Git를 사용하여 Azure 앱 서비스에 배포하기" 
+	description="Azure SQL 데이터베이스에 데이터를 저장하는 PHP 웹 앱을 만들고 Git를 사용하여 Azure 앱 서비스에 배포하는 방법을 보여 주는 자습서입니다." 
+	services="app-service\web, sql-database" 
 	documentationCenter="php" 
 	authors="tfitzmac" 
 	manager="wpickett" 
 	editor="mollybos"/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="11/18/2014" 
+	ms.date="04/07/2015" 
 	ms.author="tomfitz"/>
 
-#SQL 데이터베이스를 사용하여 PHP 웹 사이트 만들기 및 Git를 사용하여 배포
+# PHP-SQL 웹 앱 만들기 및 Git를 사용하여 Azure 앱 서비스에 배포하기
 
-이 자습서에서는 Azure SQL 데이터베이스를 사용하여 PHP Azure 웹 사이트를 만들고 Git를 사용하여 배포하는 방법을 설명합니다. 이 자습서는 컴퓨터에 [PHP][install-php], [SQL Server Express][install-SQLExpress], [PHP용 SQL Server를 위한 Microsoft 드라이버][install-drivers], 웹 서버 및 [Git][install-git]가 설치되어 있다고 가정합니다. 이 가이드를 완료하면 Azure에서 실행하는 PHP-SQL 데이터베이스 웹 사이트가 완성됩니다.
+이 자습서에서는 Azure SQL 데이터베이스에 연결하는 [Azure 앱 서비스](http://go.microsoft.com/fwlink/?LinkId=529714)에서 PHP 웹 앱을 만들고 Git를 사용하여 배포하는 방법을 설명합니다. 이 자습서에서는 컴퓨터에 [PHP][install-php], [SQL Server Express][install-SQLExpress], [Microsoft Drivers for SQL Server for PHP][install-drivers], 웹 서버 및 [Git][install-git]가 설치되어 있다고 전제합니다. 이 가이드를 완료하면 Azure에서 실행하는 PHP-SQL 웹 앱이 완성됩니다.
 
 > [AZURE.NOTE]
-> PHP, SQL Server Express, PHP용 SQL Server를 위한 Microsoft 드라이버 및 IIS(인터넷 정보 서비스)는 <a href="http://www.microsoft.com/web/downloads/platform.aspx">Microsoft 웹 플랫폼 설치 관리자</a>를 사용하여 설치하고 구성할 수 있습니다.
+> PHP, SQL Server Express, PHP용 SQL Server를 위한 Microsoft 드라이버 및 IIS(인터넷 정보 서비스)는 [Microsoft 웹 플랫폼 설치 관리자](http://www.microsoft.com/web/downloads/platform.aspx)를 사용하여 설치하고 구성할 수 있습니다.
 
 다음 내용을 배웁니다.
 
-* Azure 관리 포털을 사용하여 Azure 웹 사이트 및 SQL 데이터베이스를 만드는 방법. PHP는 Azure 웹 사이트에서 기본적으로 사용하도록 설정되어 있으므로 PHP 코드를 실행하기 위해 특별한 조치를 취할 필요가 없습니다.
+* [Azure 포털](http://go.microsoft.com/fwlink/?LinkId=529715)을 사용하여 Azure 웹 앱 및 SQL 데이터베이스를 만드는 방법. PHP는 앱 서비스 웹 앱에서 기본적으로 사용하도록 설정되어 있으므로 PHP 코드를 실행하기 위해 특별한 조치를 취할 필요가 없습니다.
 * Git를 사용하여 응용 프로그램을 Azure에 게시 및 다시 게시하는 방법
  
 이 자습서의 지침에 따라 PHP에서 간단한 등록 웹 응용 프로그램을 빌드할 수 있습니다. 응용 프로그램은 Azure 웹 사이트에 호스트됩니다. 아래에는 완성된 응용 프로그램의 스크린샷이 표시되어 있습니다.
 
-![Azure PHP Web Site][running-app]
+![Azure PHP Web Site](./media/web-sites-php-sql-database-deploy-use-git/running_app_3.png)
 
-> [AZURE.NOTE]
-> 이 자습서를 완료하려면 Azure 계정이 필요합니다. <a href="http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/">MSDN 구독자 혜택을 활성화</a>하거나 <a href="http://azure.microsoft.com/pricing/free-trial/">무료 평가판을 등록</a>할 수 있습니다.
-> 
-> 계정을 등록하기 전에 Azure 웹 사이트를 시작하려면 <a href="https://trywebsites.azurewebsites.net/?language=php">https://trywebsites.azurewebsites.net</a>으로 이동합니다. Azure 웹 사이트에서는 무료로 단기 ASP.NET 시작 사이트를 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+[AZURE.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
-##Azure 웹 사이트 만들기 및 Git 게시 설정
+>[AZURE.NOTE] Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 응용 프로그램을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
-Azure 웹 사이트 및 SQL 데이터베이스를 만들려면 다음 단계를 따르세요.
+## Azure 웹 앱 만들기 및 Git 게시 설정
 
-1. [Azure 관리 포털][management-portal]에 로그인합니다.
-2. 포털의 왼쪽 아래에서 **새로 만들기** 아이콘을 클릭합니다.
-![Create New Azure Web Site][new-website]
+Azure 웹 앱 및 SQL 데이터베이스를 만들려면 다음 단계를 따르십시오.
 
-3. **웹 사이트**를 클릭한 후 **사용자 지정 만들기**를 클릭합니다.
+1. [Azure 포털][management-portal]에 로그인합니다.
 
-	![Custom Create a new Web Site][custom-create]
-
-	**URL** 값을 입력하고 **데이터베이스** 드롭다운에서 **새 SQL 데이터베이스 만들기**를 선택한 후 **소스 제어에서 게시**를 선택합니다. 대화 상자 아래쪽의 화살표를 클릭합니다.
-
-	![Fill in web site details][website-details-sqlazure]
-
-4. 데이터베이스의 **이름** 값을 입력하고 **새 SQL 데이터베이스 서버**를 선택한 후 로그인 자격 증명을 제공하고 지역을 선택합니다. 대화 상자 아래쪽의 화살표를 클릭합니다.
-
-	![Fill in SQL Database settings][database-settings]
-
-5. 소스 코드에 대해 **로컬 Git 리포지토리**를 선택합니다.
-
-	![where is your source code][where-is-code]
-
-	이전에 Git 리포지토리를 설정하지 않았으면 사용자 이름과 암호를 제공해야 합니다.
-
-6. 웹 사이트가 만들어지면 사이트의 대시보드를 열고 **배포 보기**를 선택합니다.
-
-	![Web site dashboard][go-to-dashboard]
-
-9. 응용 프로그램 파일을 리포지토리에 푸시하는 지침이 표시됩니다. 이러한 지침은 나중에 필요하므로 기록해 둡니다.
-
-	![Git instructions][git-instructions]
-
-##SQL 데이터베이스 연결 정보 가져오기
-
-Azure 웹 사이트에서 실행되는 SQL 데이터베이스 인스턴스에 연결하려면 연결 정보가 필요합니다. SQL 데이터베이스 연결 정보를 가져오려면 다음 단계를 따르세요.
-
-1. Azure 관리 포털에서 **연결된 리소스**를 클릭한 후 데이터베이스 이름을 클릭합니다.
-
-	![Linked Resources][linked-resources]
-
-2. **연결 문자열 보기**를 클릭합니다.
-
-	![Connection string][connection-string]
+2. **마켓플레이스** 아이콘을 클릭하거나 대시보드 왼쪽 아래에 있는 **새로 만들기** 아이콘을 클릭하고 맨 아래에서 **웹 + 모바일**, **Azure 마켓플레이스**를 순서대로 선택하여 Azure 마켓플레이스를 여십시오.
 	
-3. 나타나는 대화 상자의 **PHP** 섹션에서  `SERVER`, `DATABASE` 및  `USERNAME`의 값을 기록해 놓습니다.
+3. 마켓플레이스에서 **웹 앱**을 선택합니다.
 
-##로컬에서 응용 프로그램 빌드 및 테스트
+4. **웹 앱 + SQL** 아이콘을 클릭합니다.
+
+5. 웹 앱 + SQL 앱에 대한 설명을 읽은 후 **만들기**를 선택합니다.
+
+6. 각 부분(**리소스 그룹**, **웹 앱**, **데이터베이스** 및 **구독**)을 클릭하고 필수 필드에 대한 값을 입력하거나 선택합니다.
+	
+	- 선택한 URL 이름을 입력합니다.	
+	- 데이터베이스 서버 자격 증명 구성
+	- 가장 가까운 지역을 선택합니다.
+
+	![configure your app](./media/web-sites-php-sql-database-deploy-use-git/configure-db-settings.png)
+
+7. 웹 앱 정의를 완료하면 **만들기**를 클릭합니다.
+
+	웹 앱이 만들어지면 **알림** 단추가 녹색 **성공**으로 깜박이며 그룹에서 웹 앱 및 SQL 데이터베이스를 모두 보여주는 리소스 그룹 블레이드가 열립니다.
+
+4. 리소스 그룹 블레이드에서 웹 앱 아이콘을 클릭하여 웹 앱 블레이드를 엽니다.
+
+	![web app's resource group](./media/web-sites-php-sql-database-deploy-use-git/resource-group-blade.png)
+
+5. **연속 배포 설정** > **소스 선택**을 클릭합니다. **로컬 Git 리포지토리**를 선택하고 **확인**을 클릭합니다.
+
+	![where is your source code](./media/web-sites-php-sql-database-deploy-use-git/setup-local-git.png)
+
+	이전에 Git 리포지토리를 설정하지 않았으면 사용자 이름과 암호를 제공해야 합니다. 이를 위해서는 웹 앱 블레이드에서 **배포 자격 증명 설정**을 클릭합니다.
+
+	![](./media/web-sites-php-sql-database-deploy-use-git/deployment-credentials.png)
+
+6. **연속 배포 설정**은 **배포 없음**이 됩니다. 나중에 PHP 앱을 배포하는 데 사용할 Git 원격 URL을 보려면 클릭합니다.
+
+## SQL 데이터베이스 연결 정보 가져오기
+
+웹 앱에 연결되는 SQL 데이터베이스 인스턴스에 연결하려면 데이터베이스를 만들었을 때 지정한 연결 정보가 필요합니다. SQL 데이터베이스 연결 정보를 가져오려면 다음 단계를 따르세요.
+
+1. 리소스 그룹 블레이드에서 다시 SQL 데이터베이스 아이콘을 클릭합니다.
+
+2. SQL 데이터베이스 블레이드에서 **속성**을 클릭하고 **데이터베이스 연결 문자열 표시**를 클릭합니다. 
+
+	![View database properties](./media/web-sites-php-sql-database-deploy-use-git/view-database-properties.png)
+	
+3. 나타나는 대화 상자의 **PHP** 섹션에서  `Server`, `SQL Database` 및  `User Name`의 값을 기록해 놓습니다. PHP 웹 앱을 Azure 앱 서비스에 게시할 때 나중에 이러한 값을 사용합니다.
+
+## 로컬에서 응용 프로그램 빌드 및 테스트
 
 등록 응용 프로그램은 이름과 메일 주소를 지정하여 이벤트에 등록하는 데 사용할 수 있는 간단한 PHP 응용 프로그램입니다. 이전 등록자에 대한 정보가 테이블에 표시되어 있습니다. 등록 정보는 SQL 데이터베이스 인스턴스에 저장되어 있습니다. 응용 프로그램은 다음과 같은 두 파일로 구성되어 있습니다(아래에서 사용할 수 있는 코드 복사/붙여넣기).
 
 * **index.php**: 등록 양식 및 등록자 정보가 포함된 테이블을 표시합니다.
 * **createtable.php**: 응용 프로그램용 SQL 데이터베이스 테이블을 만듭니다. 이 파일은 한 번만 사용됩니다.
 
-응용 프로그램을 로컬에서 실행하려면 아래 단계를 따릅니다. 이러한 단계는 로컬 컴퓨터에 PHP, SQL Server Express 및 웹 서버가 설정되어 있으며 [SQL Server용 PDO 확장][pdo-sqlsrv]이 사용하도록 설정되어 있다는 것을 전제로 합니다.
+응용 프로그램을 로컬에서 실행하려면 아래 단계를 따릅니다. 이러한 단계는 로컬 컴퓨터에 PHP, SQL Server Express 및 웹 서버가 설정되어 있으며 [SQL Server용 PDO 확장][pdo-sqlsrv]이 사용되도록 설정되어 있다는 것을 전제로 합니다.
 
 1.  `registration`이라는 SQL Server 데이터베이스를 만듭니다. 이는  `sqlcmd` 명령 프롬프트에서 다음 명령으로 수행할 수 있습니다.
 
@@ -128,9 +131,9 @@ Azure 웹 사이트에서 실행되는 SQL 데이터베이스 인스턴스에 �
 		echo "<h3>Table created.</h3>";
 		?>
 
-	이제 <code>$user</code> 및 <code>$pwd</code> 값을 로컬 SQL Server 사용자 이름 및 암호로 업데이트해야 합니다.
+	<code>$user</code> 및 <code>$pwd</code>의 값을 로컬 SQL Server 사용자 이름 및 암호로 업데이트해야 합니다.
 
-4. 웹 브라우저를 열고 **http://localhost/registration/createtable.php**으로 이동합니다. 그러면 데이터베이스에  `registration_tbl` 테이블이 만들어집니다.
+4. 웹 브라우저를 열고 **http://localhost/registration/createtable.php**로 이동합니다. 그러면 데이터베이스에  `registration_tbl` 테이블이 만들어집니다.
 
 5. 텍스트 편집기 또는 IDE에서 **index.php** 파일을 열고 페이지의 기본 HTML 및 CSS 코드를 추가합니다(PHP 코드는 이후 단계에서 추가 예정).
 
@@ -181,7 +184,7 @@ Azure 웹 사이트에서 실행되는 SQL 데이터베이스 인스턴스에 �
 			die(var_dump($e));
 		}
 
-    다시 <code>$user</code> 및 <code>$pwd</code> 값을 로컬 MySQL 사용자 이름 및 암호로 업데이트해야 합니다.
+    다시, <code>$user</code> 및 <code>$pwd</code>의 값을 로컬 MySQL 사용자 이름 및 암호로 업데이트해야 합니다.
 
 7. 데이터베이스 연결 코드 다음에 등록 정보를 데이터베이스에 삽입하는 데 필요한 코드를 추가합니다.
 
@@ -228,27 +231,27 @@ Azure 웹 사이트에서 실행되는 SQL 데이터베이스 인스턴스에 �
 
 이제 **http://localhost/registration/index.php**로 이동하여 응용 프로그램을 테스트할 수 있습니다.
 
-##응용 프로그램 게시
+## 응용 프로그램 게시
 
-응용 프로그램을 로컬에서 테스트한 후 Git를 사용하여 Azure 웹 사이트에 게시할 수 있습니다. 하지만 먼저 응용 프로그램의 데이터베이스 연결 정보를 업데이트해야 합니다. 이전에 **SQL 데이터베이스 연결 정보 가져오기** 섹션에서 가져온 데이터베이스 연결 정보를 사용하여  `createdatabase.php` 및  `index.php` 파일 **둘 다**에서 다음 정보를 적합한 값으로 업데이트합니다.
+응용 프로그램을 로컬에서 테스트한 후 Git를 사용하여 앱 서비스 웹 앱에 게시할 수 있습니다. 하지만 먼저 응용 프로그램의 데이터베이스 연결 정보를 업데이트해야 합니다. 이전에 **SQL 데이터베이스 연결 정보 가져오기** 섹션에서 가져온 데이터베이스 연결 정보를 사용하여  `createdatabase.php` 및  `index.php` 파일 **둘 다**에서 다음 정보를 적합한 값으로 업데이트합니다.
 
 	// DB connection info
-	$host = "tcp:<value of SERVER>";
-	$user = "<value of USERNAME>@<server ID>";
+	$host = "tcp:<value of Server>";
+	$user = "<value of User Name>";
 	$pwd = "<your password>";
-	$db = "<value of DATABASE>";
+	$db = "<value of SQL Database>";
 
 > [AZURE.NOTE]
-> 그런 다음 <code>$host</code>에서 SERVER 값 앞에 <code>tcp:</code>를 붙여야 하며 <code>$user</code> 값은 USERNAME, '@' 및 서버 ID가 연결되어 형성됩니다. 서버 ID는 SERVER 값의 처음 10개 문자입니다.
+> <code>$host</code>에서 서버의 값은 <code>tcp:</code>가 추가되어야 합니다.
 
 
 이제 Git 게시를 설정하고 응용 프로그램을 게시할 수 있습니다.
 
 > [AZURE.NOTE]
-> 이러한 단계는 앞서 "Azure 웹 사이트 만들기 및 Git 게시 설정" 섹션의 끝에서 설명한 단계와 동일합니다.
+> 이러한 단계는 위의 **Azure 웹 앱 만들기 및 Git 게시 설정** 섹션 끝에서 설명한 단계와 동일합니다.
 
 
-1. GitBash를 열거나 Git가  `PATH`에 있는 경우 터미널을 열고 응용 프로그램의 루트 디렉터리로 이동한 후 다음 명령을 실행합니다.
+1. GitBash(또는 Git가  `PATH`에 있는 경우 터미널)을 열고 응용 프로그램의 루트 디렉터리(**등록** 디렉터리)로 디렉터리를 변경한 후 다음 명령을 실행합니다.
 
 		git init
 		git add .
@@ -258,12 +261,12 @@ Azure 웹 사이트에서 실행되는 SQL 데이터베이스 인스턴스에 �
 
 	이전에 만든 암호를 입력하라는 메시지가 나타납니다.
 
-2. **http://[사이트 이름].azurewebsites.net/createtable.php**로 이동하여 응용 프로그램용 MySQL 테이블을 만듭니다.
-3. **http://[사이트 이름].azurewebsites.net/index.php**로 이동하여 응용 프로그램을 사용합니다.
+2. **http://[웹 앱 이름].azurewebsites.net/createtable.php**으로 이동하여 응용 프로그램에 대한 SQL 데이터베이스를 만듭니다.
+3. **http://[웹 앱 이름].azurewebsites.net/index.php**으로 이동하여 응용 프로그램 사용을 시작합니다.
 
 응용 프로그램을 게시한 후 변경을 시작하고 Git를 사용하여 변경 내용을 게시할 수 있습니다. 
 
-##응용 프로그램의 변경 내용 게시
+## 응용 프로그램의 변경 내용 게시
 
 응용 프로그램에 변경 내용을 게시하려면 다음 단계를 따르세요.
 
@@ -276,31 +279,19 @@ Azure 웹 사이트에서 실행되는 SQL 데이터베이스 인스턴스에 �
 
 	이전에 만든 암호를 입력하라는 메시지가 나타납니다.
 
-3. **http://[사이트 이름].azurewebsites.net/index.php**로 이동하여 변경 내용을 확인합니다.
+3. **http://[웹 앱 이름].azurewebsites.net/index.php**로 이동하여 변경 내용을 확인합니다.
+
+## 변경된 내용
+* 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 다음을 참조하세요. [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)
+* 이전 포털에서 새 포털로의 변경에 대한 지침은 다음을 참조하세요. [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)
+
+
+
 
 [install-php]: http://www.php.net/manual/en/install.php
-[install-SQLExpress]: http://www.microsoft.com/ko-kr/download/details.aspx?id=29062
-[install-Drivers]: http://www.microsoft.com/ko-kr/download/details.aspx?id=20098
+[install-SQLExpress]: http://www.microsoft.com/download/details.aspx?id=29062
+[install-drivers]: http://www.microsoft.com/download/details.aspx?id=20098
 [install-git]: http://git-scm.com/
 [pdo-sqlsrv]: http://php.net/pdo_sqlsrv
-[running-app]: ./media/web-sites-php-sql-database-deploy-use-git/running_app_3.png
-[new-website]: ./media/web-sites-php-sql-database-deploy-use-git/new_website.jpg
-[custom-create]: ./media/web-sites-php-sql-database-deploy-use-git/custom_create.png
-[website-details-sqlazure]: ./media/web-sites-php-sql-database-deploy-use-git/createphpgitsite.png
-[database-settings]: ./media/web-sites-php-sql-database-deploy-use-git/setupdb.png
-[create-server]: ./media/web-sites-php-sql-database-deploy-use-git/create_server.jpg
-[go-to-dashboard]: ./media/web-sites-php-sql-database-deploy-use-git/viewdeploy.png
-[setup-git-publishing]: ./media/web-sites-php-sql-database-deploy-use-git/setup_git_publishing.png
-[credentials]: ./media/web-sites-php-sql-database-deploy-use-git/git-deployment-credentials.png
 
-
-[git-instructions]: ./media/web-sites-php-sql-database-deploy-use-git/gitsettings.png
-[linked-resources]: ./media/web-sites-php-sql-database-deploy-use-git/linked_resources.jpg
-[connection-string]: ./media/web-sites-php-sql-database-deploy-use-git/connection_string.jpg
-[management-portal]: https://manage.windowsazure.com/
-[sql-database-editions]: http://msdn.microsoft.com/library/windowsazure/ee621788.aspx
-[where-is-code]: ./media/web-sites-php-sql-database-deploy-use-git/setupgit.png
-
-
-
-<!--HONumber=42-->
+<!--HONumber=52-->

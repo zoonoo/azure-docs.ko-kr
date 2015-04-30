@@ -10,9 +10,9 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-appcelerator" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="multiple" 
-	ms.topic="article" 
+	ms.topic="hero-article" 
 	ms.date="11/24/2014" 
 	ms.author="mahender"/>
 
@@ -40,7 +40,7 @@ Android용으로 빌드할 경우 Android 4.3 이상 SDK도 필요합니다.
 
 2. **테이블 추가**를 클릭하고 **TodoItem**이라는 새 테이블을 만듭니다.
 
-3. 새 new Appcelerator [Todolist 응용 프로그램]을 다운로드하고 프로젝트의 압축을 풉니다.
+3. 새 Appcelerator [Todolist 응용 프로그램]을 다운로드하고 프로젝트의 압축을 풉니다.
 
 4. 아직 하지 않은 경우 [Appcelerator Titanium Studio][Appcelerator Titanium] 및 SDK v3.2.1 이상을 다운로드하여 설치합니다. 프로젝트를 실행하려면 Xcode(v 5.0 이상) 및/또는 Android SDK(v 4.3 이상)도 필요합니다.
 
@@ -78,7 +78,7 @@ Android용으로 빌드할 경우 Android 4.3 이상 SDK도 필요합니다.
 
     ![][5]
 
-8.	다음 화면에서 더하기(+) 아이콘을 클릭하고 의미 있는 전체 텍스트(예: &quot;Complete this tutorial&quot;)를 입력하고 Save 단추를 클릭합니다.<br />
+8.	다음 화면에서 더하기(+) 아이콘을 클릭하고 &quot;이 자습서 완료&quot;와 같이 의미 있는 전체 텍스트를 입력하고 저장 단추를 클릭합니다.<br />
 
     ![][6]
 
@@ -101,7 +101,7 @@ Microsoft Azure에 호스트된 새 모바일 서비스에 POST 요청이 전송
 
 
 ## <a name="next-steps"> </a>다음 단계
-이제 빠른 시작을 완료했으므로 모바일 서비스에서 중요한 추가 작업을 수행하는 방법을 알아보겠습니다. 
+이제 퀵 스타트를 완료했으며 모바일 서비스에서 중요한 추가 작업을 수행하는 방법을 알아보겠습니다. 
 
 * [인증 시작]
   <br/>ID 공급자를 사용하여 앱 사용자를 인증하는 방법을 알아봅니다.
@@ -127,9 +127,7 @@ Microsoft Azure에 호스트된 새 모바일 서비스에 POST 요청이 전송
 <!-- URLs. -->
 [Todolist 응용 프로그램]: http://go.microsoft.com/fwlink/p/?LinkId=506859
 [Appcelerator Titanium]: http://go.microsoft.com/fwlink/p/?LinkID=509987
-[인증 시작]: /ko-kr/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-users
-[푸시 알림 시작]: /ko-kr/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push
+[인증 시작]: partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-users.md
+[푸시 알림 시작]: partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push.md
 
-
-
-<!--HONumber=42-->
+<!--HONumber=52-->

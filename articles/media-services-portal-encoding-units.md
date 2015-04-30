@@ -17,11 +17,11 @@
 	ms.author="juliako"/>
 
 
-#인코딩 크기를 조정하는 방법
+# 인코딩 크기를 조정하는 방법
 
-이 문서는 [워크플로 주문형 미디어 서비스 비디오] 시리즈의(../media-services-video-on-demand-workflow) 일부입니다.
+이 문서는 [미디어 서비스 주문형 비디오 워크플로](media-services-video-on-demand-workflow.md) 시리즈의 일부입니다.
 
-##개요
+## 개요
 
 미디어 서비스 계정은 인코딩 작업을 처리하는 속도를 결정하는 예약 단위 유형에 연관됩니다. 다음 예약 단위 유형 중에서 선택할 수 있습니다. **Basic**, **Standard** 또는 **Premium**. 예를 들어 **Standard** 예약 단위 유형을 사용하는 경우 **Basic** 유형에 비해 동일한 인코딩 작업이 더 빠르게 실행됩니다. 자세한 내용은 [인코딩 예약 단위 유형](http://azure.microsoft.com/blog/author/milanga)(영문)을 참조하세요.
 
@@ -38,7 +38,7 @@
 	선택한 예약 단위 유형에 대한 예약 단위 수를 변경하려면 **인코딩** 슬라이더를 사용합니다. 
 	
 	
-	![Processors page](./media/media-services-how-to-scale/media-services-encoding-scale.png)
+	![프로세서 페이지](./media/media-services-how-to-scale/media-services-encoding-scale.png)
 
 	  
 	>[Azure.Note] 다음 데이터 센터는 프리미엄 예약 단위 유형을 제공 하지 않습니다. 프리미엄 예약 단위 유형을 제공하지 않습니다.
@@ -49,12 +49,12 @@
 
 	>[Azure.Note] 24시간 동안 가장 많은 단위 수가 비용 계산에 사용됩니다.
 
-##할당량 및 제한 사항
+## 할당량 및 제한 사항
 
-할당량 및 제한 사항과 지원 티켓을 여는 방법에 대한 자세한 내용은 [할당량 및 제한 사항]을(../media-services-quotas-and-limitations)참조하세요.
-
-
+할당량 및 제한 사항과 지원 티켓을 여는 방법에 대한 자세한 내용은 [할당량 및 제한 사항](media-services-quotas-and-limitations.md)을 참조하세요.
 
 
 
-<!--HONumber=47-->
+
+
+<!--HONumber=52-->

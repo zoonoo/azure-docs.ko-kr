@@ -1,20 +1,21 @@
 ﻿<properties 
 	pageTitle="Azure 웹 사이트를 사용하여 Python 구성" 
 	description="이 자습서에서는 Azure 웹 사이트에서 기본 WSGI(Web Server Gateway Interface) 규격 Python 응용 프로그램을 제작 및 구성하는 옵션을 설명합니다." 
-	services="web-sites" 
+	services="app-service\web" 
 	documentationCenter="python" 
+	tags="python"
 	authors="huguesv" 
 	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="12/17/2014" 
-	ms.author="huvalo"/>
+	ms.date="02/09/2015" 
+	ms.author="huguesv"/>
 
 
 
@@ -25,22 +26,8 @@
 
 또한 가상 환경 및 requirements.txt를 사용한 패키지 설치 등 Git 배포의 추가 기능에 대해 설명합니다.
 
-+ [Bottle, Django 또는 Flask](#bottle-django-flask)
-+ [포털에서 웹 사이트 만들기](#website-creation-on-portal)
-+ [Git 게시](#git-publishing)
-+ [응용 프로그램 개요](#application-overview)
-+ [WSGI 처리기](#wsgi-handler)
-+ [가상 환경](#next-steps)
-+ [패키지 관리](#next-steps)
-+ [Python 버전](#next-steps)
-+ [가상 환경 프록시](#virtual-environment-proxy)
-+ [Git 배포 사용자 지정](#customize-git-deployment)
-+ [문제 해결 - 배포](#troubleshooting-deployment)
-+ [문제 해결 - 패키지 설치](#troubleshooting-package-installation)
-+ [문제 해결 - 가상 환경](#troubleshooting-virtual-environment)
 
-
-<h2><a name="bottle-django-flask"></a>Bottle, Django 또는 Flask</h2>
+## Bottle, Django 또는 Flask
 
 Azure 갤러리에는 Bottle, Django 및 Flask 프레임워크용 템플릿이 들어 있습니다.  Azure 웹 사이트를 처음 개발하거나 Git에 익숙하지 않은 경우 다음 자습서 중 하나를 따르는 것이 좋습니다. 이러한 자습서에는 Windows 또는 Mac에서 Git 배포를 사용하여 갤러리를 통해 작업 응용 프로그램을 빌드하는 방법에 대한 단계별 지침이 포함되어 있습니다.
 
@@ -49,7 +36,7 @@ Azure 갤러리에는 Bottle, Django 및 Flask 프레임워크용 템플릿이 �
 - [Flask를 사용하여 웹 사이트 만들기][]
 
 
-<h2><a name="website-creation-on-portal"></a>포털에서 웹 사이트 만들기</h2>
+## 포털에서 웹 사이트 만들기
 
 이 자습서에서는 기존 Azure 구독 및 Azure 관리 포털에 대한 액세스 권한이 있다고 가정합니다.
 
@@ -58,16 +45,16 @@ Azure 갤러리에는 Bottle, Django 및 Flask 프레임워크용 템플릿이 �
 ![](./media/web-sites-python-configure/configure-python-create-website.png)
 
 
-<h2><a name="git-publishing"></a>Git 게시</h2>
+## Git 게시
 
-새로 만든 웹 사이트에 대해 빠른 시작 또는 대시보드 탭을 사용하여 Git 게시를 구성합니다.  이 자습서에서는 Git를 사용하여 Python 웹 사이트를 만들고 관리하며 Azure 웹 사이트에 게시합니다.
+새로 만든 웹 사이트에 대해 퀵 스타트 또는 대시보드 탭을 사용하여 Git 게시를 구성합니다.  이 자습서에서는 Git를 사용하여 Python 웹 사이트를 만들고 관리하며 Azure 웹 사이트에 게시합니다.
 
 ![](./media/web-sites-python-configure/configure-python-git.png)
 
 Git 게시가 설정되면 Git 리포지토리가 생성되고 웹 사이트와 연결됩니다.  리포지토리의 URL이 표시되고 로컬 개발 환경에서 클라우드로 데이터를 보내는 데 사용할 수 있습니다. Git를 통해 응용 프로그램을 게시하려면 Git 클라이언트가 설치되어 있는지 확인하고 제공된 지침에 따라 웹 사이트 콘텐츠를 Azure 웹 사이트에 게시합니다.
 
 
-<h2><a name="application-overview"></a>응용 프로그램 개요</h2>
+## 응용 프로그램 개요
 
 다음 섹션에서는 다음 파일을 만듭니다.  이러한 파일은 Git 리포지토리의 루트에 배치해야 합니다.
 
@@ -78,7 +65,7 @@ Git 게시가 설정되면 Git 리포지토리가 생성되고 웹 사이트와 
     ptvs_virtualenv_proxy.py
 
 
-<h2><a name="wsgi-handler"></a>WSGI 처리기</h2>
+## WSGI 처리기
 
 WSGI는 웹 서버와 Python 간 인터페이스를 정의하는 [PEP 3333](http://www.python.org/dev/peps/pep-3333/)에 설명된 Python 표준입니다. WSGI는 Python을 사용하여 다양한 웹 응용 프로그램 및 프레임워크 쓰기에 대해 표준화된 인터페이스를 제공합니다.  오늘날 인기 있는 Python 웹 프레임워크는 WSGI를 사용합니다.  Azure 웹 사이트는 그러한 프레임워크에 대한 지원을 제공하며, 고급 사용자는 사용자 지정 처리기가 WSGI 사양 지침을 따르는 경우 고유한 프레임워크를 제작할 수도 있습니다.
 
@@ -100,7 +87,7 @@ WSGI는 웹 서버와 Python 간 인터페이스를 정의하는 [PEP 3333](http
  `python app.py`를 사용하여 이 응용 프로그램을 로컬로 실행한 다음 웹 브라우저에서 `http://localhost:5555`로 이동합니다.
 
 
-<h2><a name="virtual-environment"></a>가상 환경</h2>
+## 가상 환경
 
 위 예제 앱에는 외부 패키지가 필요 없지만 응용 프로그램에 일부 외부 패키지가 필요할 수 있습니다.
 
@@ -111,7 +98,7 @@ Azure에서는 리포지토리의 루트에서 requirements.txt를 발견한 경
 개발을 위해 가상 환경을 로컬로 만들 수 있지만 이를 Git 리포지토리에 포함하지 마세요.
 
 
-<h2><a name="package-management"></a>패키지 관리</h2>
+## 패키지 관리
 
 requirements.txt에 나열된 패키지는 pip를 사용하여 가상 환경에 자동으로 설치됩니다.  이는 모든 배포에서 발생하지만 패키지가 이미 설치된 경우에는 pip에서 설치를 건너뜁니다.
 
@@ -120,7 +107,7 @@ requirements.txt에 나열된 패키지는 pip를 사용하여 가상 환경에 
     azure==0.8.4
 
 
-<h2><a name="python-version"></a>Python 버전</h2>
+## Python 버전
 
 [AZURE.INCLUDE [web-sites-python-customizing-runtime](../includes/web-sites-python-customizing-runtime.md)]
 
@@ -129,7 +116,7 @@ requirements.txt에 나열된 패키지는 pip를 사용하여 가상 환경에 
     python-2.7
 
 
-<h2><a name="web-config"></a>Web.config</h2>
+## Web.config
 
 web.config 파일을 만들어 서버에서 요청을 처리하는 방법을 지정해야 합니다.
 
@@ -244,12 +231,12 @@ URL 내의 위치와 다른 디스크 위치에서 파일을 제공하도록  `S
       <action type="Rewrite" url="^/FlaskWebProject/static/.*" appendQueryString="true" />
     </rule>
 
-`WSGI_ALT_VIRTUALENV_HANDLER`는 지정한 WSGI 처리기의 위치입니다.  위 예제에서는 처리기가 루트 폴더의  `app.py`에 있는  `wsgi_app`이라는 함수이므로  `app.wsgi_app`입니다.
+`WSGI_ALT_VIRTUALENV_HANDLER`는 WSGI 처리기를 지정하는 위치입니다.  위 예제에서는 처리기가 루트 폴더의  `app.py`에 있는  `wsgi_app`이라는 함수이므로  `app.wsgi_app`입니다.
 
 `PYTHONPATH`를 사용자 지정할 수 있지만 requirements.txt에서 모든 종속성을 지정하여 가상 환경에 설치한 경우에는 변경해서는 안 됩니다.
 
 
-<h2><a name="virtual-environment-proxy"></a>가상 환경 프록시</h2>
+## 가상 환경 프록시
 
 다음 스크립트는 WSGI 처리기를 검색하고 가상 환경을 활성화하며 오류를 기록하는 데 사용됩니다. 이 스크립트는 수정 없이 범용적으로 사용됩니다.
 
@@ -259,13 +246,13 @@ URL 내의 위치와 다른 디스크 위치에서 파일을 제공하도록  `S
      #
      # Copyright (c) Microsoft Corporation. 
      #
-     # This source code is subject to terms and conditions of the Apache License, Version 2.0. A 
-     # copy of the license can be found in the License.html file at the root of this distribution. If 
-     # you cannot locate the Apache License, Version 2.0, please send an email to 
-     # vspython@microsoft.com. By using this source code in any fashion, you are agreeing to be bound 
-     # by the terms of the Apache License, Version 2.0.
+     # 이 소스 코드는 Apache 라이선스 Version 2.0 사용 약관의 대상입니다. 문자열(UTF-8 형식) 또는 
+     # 이 배포의 루트에 있는 License.html 파일에서 라이선스의 복사본을 찾을 수 있습니다. If 
+     # Apache 라이선스 버전 2.0을 찾을 수 없는 경우, 
+     # vspython@microsoft.com으로 이메일을 보내주세요. 어떤 방식으로든 이 소스 코드를 사용하는 것은 
+     # Apache 라이선스 버전 2.0의 약관에 동의하는 것입니다.
      #
-     # You must not remove this notice, or any other, from this software.
+     # 그렇지 않으면 이 소프트웨어에서 이 공지를 제거해서는 안 됩니다.
      #
      # ###########################################################################
 
@@ -375,31 +362,29 @@ URL 내의 위치와 다른 디스크 위치에서 파일을 제공하도록  `S
         return handler
 
 
-<h2><a name="customize-git-deployment"></a>Git 배포 사용자 지정</h2>
+## Git 배포 사용자 지정
 
 [AZURE.INCLUDE [web-sites-python-customizing-runtime](../includes/web-sites-python-customizing-deployment.md)]
 
 
-<h2><a name="troubleshooting-deployment"></a>문제 해결 - 배포</h2>
+## 문제 해결 - 배포
 
 [AZURE.INCLUDE [web-sites-python-troubleshooting-deployment](../includes/web-sites-python-troubleshooting-deployment.md)]
 
 
-<h2><a name="troubleshooting-package-installation"></a>문제 해결 - 패키지 설치</h2>
+## 문제 해결 - 패키지 설치
 
 [AZURE.INCLUDE [web-sites-python-troubleshooting-package-installation](../includes/web-sites-python-troubleshooting-package-installation.md)]
 
 
-<h2><a name="troubleshooting-virtual-environment"></a>문제 해결 - 가상 환경</h2>
+## 문제 해결 - 가상 환경
 
 [AZURE.INCLUDE [web-sites-python-troubleshooting-virtual-environment](../includes/web-sites-python-troubleshooting-virtual-environment.md)]
 
 
 
-[Bottle을 사용하여 웹 사이트 만들기]: ../web-sites-python-create-deploy-bottle-app
-[Django를 사용하여 웹 사이트 만들기]: ../web-sites-python-create-deploy-django-app
-[Flask를 사용하여 웹 사이트 만들기]: ../web-sites-python-create-deploy-flask-app
+[Bottle을 사용하여 웹 사이트 만들기]: web-sites-python-create-deploy-bottle-app.md
+[Django를 사용하여 웹 사이트 만들기]: web-sites-python-create-deploy-django-app.md
+[Flask를 사용하여 웹 사이트 만들기]: web-sites-python-create-deploy-flask-app.md
 
-
-
-<!--HONumber=42-->
+<!--HONumber=52-->

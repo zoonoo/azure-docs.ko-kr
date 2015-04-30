@@ -19,7 +19,7 @@
 
 # .NET용 Media Services SDK을 사용하여 미디어 서비스 계정에 연결하기
 
-이 문서는 [워크플로 주문형 미디어 서비스 비디오] 시리즈의(../media-services-video-on-demand-workflow) 및 [미디어 서비스 라이브 스트리밍 워크플로](../media-services-live-streaming-workflow) 일부입니다. 
+이 문서는 [워크플로 주문형 미디어 서비스 비디오] 시리즈의(media-services-video-on-demand-workflow.md) 및 [미디어 서비스 라이브 스트리밍 워크플로](media-services-live-streaming-workflow.md) 일부입니다. 
 
 이 항목에서는.NET용 Media Services SDK를 프로그래밍할 때 Microsoft Azure Media Services에 프로그래밍 방식의 연결을 가져오는 방법을 설명합니다.
 
@@ -65,7 +65,7 @@ CloudMediaContext에는 5개의 생성자 오버로드가 있습니다. **MediaS
 
 Media Services SDK를 사용하여 개발할 때 SDK 코드가 이를 관리하기 때문에 토큰을 처리하지 않도록 선택할 수 있습니다. 하지만 SDK가 불필요한 토큰 요청으로 이어지는 ACS 토큰을 완벽하게 관리하도록 할 수 있습니다. 토큰 요청은 시간이 걸리며 클라이언트 및 서버 리소스를 소모합니다. 뿐만 아니라, 속도가 너무 높은 경우 ACS 서버가 요청을 제한합니다. 제한은 초당 30개 요청이며, 자세한 내용은 [ACS 서비스 제한](https://msdn.microsoft.com/library/gg185909.aspx)을 참조하세요.
 
-Media Services SDK 버전 3.0.0.0부터 ACS 토큰을 다시 사용할 수 있습니다. **MediaServicesCredentials**을 매개 변수로 사용하는 **CloudMediaContext** 생성자는 여러 컨텍스트 사이에서 ACS 토큰을 공유할 수 있습니다. MediaServicesCredentials 클래스는 Media Services 자격 증명을 캡슐화합니다. ACS 토큰을 사용할 수 있으며 해당 만료 시간을 알고 있는 경우, 토큰으로 새 MediaServicesCredentials 인스턴스를 만들고 CloudMediaContext 생성자에 전달할 수 있습니다. 만료될 때마다 Media Services SDK가 토큰을 자동으로 새로 고칩니다. 아래 예에서 보이는 것처럼 ACS 토큰을 다시 사용한느 두 가지 방법이 있습니다.
+Media Services SDK 버전 3.0.0.0부터 ACS 토큰을 다시 사용할 수 있습니다. **MediaServicesCredentials**을 매개 변수로 사용하는 **CloudMediaContext** 생성자는 여러 컨텍스트 사이에서 ACS 토큰을 공유할 수 있습니다. MediaServicesCredentials 클래스는 Media Services 자격 증명을 캡슐화합니다. ACS 토큰을 사용할 수 있으며 해당 만료 시간을 알고 있는 경우, 토큰으로 새 MediaServicesCredentials 인스턴스를 만들고 CloudMediaContext 생성자에 전달할 수 있습니다. 만료될 때마다 Media Services SDK가 토큰을 자동으로 새로 고칩니다. 아래 예에서 보이는 것처럼 ACS 토큰을 다시 사용하는 두 가지 방법이 있습니다.
 
 - 메모리에서 **MediaServicesCredentials** 개체를 캐시할 수 있습니다(예: 정적 클래스 변수). 그런 다음 CloudMediaContext 생성자에 캐시된 개체를 전달합니다. MediaServicesCredentials 개체는 여전히 유효한 경우에 다시 사용할 수 있는 ACS 토큰을 포함합니다. 토큰이 유효하지 않은 경우, MediaServicesCredentials 생성자에 주어진 자격 증명을 사용하여 Media Services SDK를 통해 새로 고침됩니다.
 
@@ -83,7 +83,7 @@ Media Services SDK 버전 3.0.0.0부터 ACS 토큰을 다시 사용할 수 있�
 		
 		CloudMediaContext context = new CloudMediaContext(_cachedCredentials);
 
-- AccessToken 문자열 및 TokenExpiration 값도 캐시할 수 있습니다. 값은 캐시된 토큰 데이터를 새 MediaServicesCredentials 개체로 만들기 위해 나중에 사용할 수 있습니다.  여러 프로세스 또는 컴퓨터 사이에서 토큰이 안전하게 공유되는 시나리오에 특히 유용합니다.
+- AccessToken 문자열 및 TokenExpiration 값도 캐시할 수 있습니다. 값은 캐시된 토큰 데이터를 새 MediaServicesCredentials 개체로 만들기 위해 나중에 사용할 수 있습니다.  여러 프로세스 또는 컴퓨터 사이에서 토큰을 안전하게 공유할 수 있는 시나리오에 특히 유용합니다.
 
 	다음 코드 조각은 이 예에서 정의되지 않은 SaveTokenDataToExternalStorage, GetTokenDataFromExternalStorage 및 UpdateTokenDataInExternalStorageIfNeeded 메서드를 호출합니다. 외부 저장소에서 토큰 데이터를 저장, 검색 및 업데이트하기 위해 이러한 메서드를 정의할 수 있습니다. 
 
@@ -191,4 +191,4 @@ Media Services SDK 버전 3.0.0.0부터 ACS 토큰을 다시 사용할 수 있�
 
 <!-- URLs. -->
 
-<!--HONumber=47-->
+<!--HONumber=52-->

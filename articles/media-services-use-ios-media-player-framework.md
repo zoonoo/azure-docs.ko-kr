@@ -42,7 +42,7 @@ SDK에는 이러한 기능을 사용하여 즉석에서 콘텐츠 스트림을 �
 
     `git clone https://github.com/WindowsAzure/azure-media-player-framework`
 
-2. `azure-media-player-framework/src/iOS/HLSClient/`에 있는 **SamplePlayer.xcodeproj** 프로젝트를 엽니다.
+2. `azure-media-player-framework/src/iOS/HLSClient/`에 열려 있는 프로젝트: **SamplePlayer.xcodeproj** 프로젝트를 엽니다.
 
  
 3. 샘플 플레이어의 구조는 다음과 같습니다.
@@ -51,7 +51,7 @@ SDK에는 이러한 기능을 사용하여 즉석에서 콘텐츠 스트림을 �
 
 4. iPad 폴더 아래에는 두 개의 .xib 파일 **SeekbarViewController** 및 **SamplePlayerViewController**가 있습니다. 두 파일은 iPad 응용 프로그램 UI 레이아웃을 만듭니다. 마찬가지로, iPhone 폴더 아래에는 검색 표시줄과 컨트롤러를 정의하는 두 개의 .xib 파일이 있습니다. 
 
-6. 주요 응용 프로그램 논리는 `Shared` 폴더 아래의 **SamplePlayerViewController.m**에 있습니다. 아래 설명된 코드 조각은 대부분 이 파일에 있습니다. 
+6. 주요 응용 프로그램 논리는  `Shared` 폴더 아래의 **SamplePlayerViewController.m**에 있습니다. 아래 설명된 코드 조각은 대부분 이 파일에 있습니다. 
 
 ## UI 레이아웃 이해
 플레이어 인터페이스를 정의하는 두 개의 .xib 파일이 있습니다. 다음 논의에서는 iPad 레이아웃을 예로 사용하지만 iPhone 레이아웃도 유사하며 원칙은 동일합니다.
@@ -59,7 +59,7 @@ SDK에는 이러한 기능을 사용하여 즉석에서 콘텐츠 스트림을 �
 ![Sample Player Address Bar](http://mingfeiy.com/wp-content/uploads/2013/01/addressbar.png)
 
 * **미디어 URL**은 미디어 스트림을 로드하는 데 사용되는 URL입니다. 응용 프로그램에는 URL 선택 단추를 통해 사용할 수 있는 미리 채워진 미디어 URL 목록이 있습니다. 또는 고유한 HLS(HTTP 라이브 스트리밍) 콘텐츠 URL을 입력할 수 있습니다. 이 미디어 콘텐츠는 첫 번째 주요 콘텐츠로 사용됩니다. 
-**참고: 이 URL은 비워두지 마세요.**
+**참고: 이 URL을 비워 두지 마세요.**
 
 * **URL 선택** 단추를 통해 미디어 URL 목록에서 대체 URL을 선택할 수 있습니다.
 
@@ -97,10 +97,10 @@ SDK에는 이러한 기능을 사용하여 즉석에서 콘텐츠 스트림을 �
 * **MediaTime** 개체는 주요 콘텐츠로 예약할 비디오 클립을 제어합니다. 이전 예제에서 비디오 클립은 80초 기간(0초부터 80초까지)으로 예약됩니다.
 * **clipBeginMediaTime**은 비디오 재생이 시작되는 시작 시간을 나타냅니다. 예를 들어 **clipBeginMediaTime** = 5인 경우 이 비디오 클립은 비디오 클립 시작부터 5초 후에 시작됩니다.
 * **clipEndMediaTime**은 비디오 재생 종료 시간을 나타냅니다. **clipEndMediaTime**=100인 경우 비디오 클립 시작부터 100초 후에 비디오 재생이 종료됩니다.
-*프레임워크에 **appendContentClip**을 요청하여 **MediaTime**을 예약합니다. 이전 예제에서 주요 콘텐츠 URL은 `[NSURL URLWithString:url]`로 제공되며 **withMedia**를 사용하여 해당 미디어의 예약이 설정됩니다.
- `[framework appendContentClip:[NSURL URLWithString:url] withMediaTime:mediaTime andGetClipId:&clipId])` .
+*프레임워크에 **appendContentClip**을 요청하여 **MediaTime**을 예약합니다. 이전 예에서 주요 콘텐츠 URL은 `[NSURL URLWithString:url]`로 제공되며 **withMedia**를 사용하여 해당 미디어의 예약이 설정됩니다.
+ `[framework appendContentClip:[NSURL URLWithString:url] withMediaTime:mediaTime andGetClipId:&clipId])`.
 
-**참고:** 항상 프리롤 광고를 비롯한 광고 일정보다 빠른 일정을 주요 콘텐츠에 지정합니다. 
+**참고:** 항상 프리롤 광고를 비롯한 광고 일정보다 빠른 일정을 주요 콘텐츠에 지정합니다.
 
 ### 변형: 두 개의 주요 콘텐츠 클립을 재생하는 경우 다음 코드를 사용하여 첫 번째 클립 후에 두 번째 클립이 재생되도록 예약할 수도 있습니다.
 
@@ -209,7 +209,7 @@ SDK에는 이러한 기능을 사용하여 즉석에서 콘텐츠 스트림을 �
     }
 
 여기서 확인할 몇 가지 사항은 다음과 같습니다.
-* 첫 번째 클립에서 **appendTo**는 -1입니다. `[framework scheduleClip:adpodInfo1 atTime:adLinearTime forType:PlaylistEntryType_Media andGetClipId:&adIndex]`를 호출할 때 `adIndex`는 광고 포드에서 첫 번째 클립의 끝을 나타내는 고유한 값을 받습니다. 광고 포드의 두 번째 클립에서 **appendTo**를 `adpodInfo2.appendTo = adIndex;`로 설정하여 두 번째 광고의 시작을 첫 번째 광고의 끝과 일치시킵니다. 이 경우 첫 번째 클립의 끝 위치가 두 번째 클립의 시작 위치로 지정됩니다. 
+* 첫 번째 클립에서 **appendTo**는 -1입니다. 그리고 `[framework scheduleClip:adpodInfo1 atTime:adLinearTime forType:PlaylistEntryType_Media andGetClipId:&adIndex]`를 호출할 때, `adIndex`는 광고 포드에서 이 첫 번째 클립의 마지막을 나타내는 고유한 값을 받습니다. 광고 포드의 두 번째 클립은 **appendTo**를 `adpodInfo2.appendTo = adIndex;`로 설정하여 두 번째 광고의 시작을 첫 번째의 마지막과 맞춥니다. 이 경우 첫 번째 클립의 끝 위치가 두 번째 클립의 시작 위치로 지정됩니다. 
 * 유형을 `AdType_Pod`로 설정하여 광고 포드임을 나타내야 합니다. 
 
 ### 한 번 재생 또는 "고정" 광고를 예약하는 방법
@@ -219,4 +219,4 @@ SDK에는 이러한 기능을 사용하여 즉석에서 콘텐츠 스트림을 �
 이전 코드 예제와 같이 **deleteAfterPlay**를 **YES**로 설정하면 이 광고가 한 번만 재생됩니다. **deleteAfterPlay**를 **NO**로 설정하면 이 광고가 계속 재생되며 "고정 광고"라고 합니다.
 ### 자세한 내용은 [Azure 미디어 플레이어 프레임워크 위키](https://github.com/WindowsAzure/azure-media-player-framework/wiki)(영문)를 참조하세요.
 
-<!--HONumber=45--> 
+<!--HONumber=52-->

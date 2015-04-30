@@ -3,7 +3,7 @@
 	description="이 항목에서는 REST API를 사용하여 미디어 서비스에 연결하는 방법을 보여 줍니다." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako" 
+	authors="Juliako" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/03/2015" 
+	ms.date="04/13/2015" 
 	ms.author="juliako"/>
 
 
 # 미디어 서비스 REST API를 사용하여 미디어 서비스 계정에 연결
 
-이 문서는 [워크플로 주문형 미디어 서비스 비디오] 시리즈의(../media-services-video-on-demand-workflow) 및 [미디어 서비스 라이브 스트리밍 워크플로](../media-services-live-streaming-workflow) 일부입니다. 
+이 기사는 [미디어 서비스 주문형 비디오 워크플로](media-services-video-on-demand-workflow.md) 및 [미디어 서비스 라이브 스트리밍 워크플로](media-services-live-streaming-workflow.md) 시리즈의 일부입니다. 
 
 이 항목에서는 미디어 서비스 REST API로 프로그래밍할 때 Microsoft Azure 미디어 서비스에 대 한 프로그래밍 방식의 연결을 가져오는 방법을 설명 합니다.
 
@@ -37,33 +37,33 @@ Microsoft Azure 미디어 서비스에 액세스할 때 다음 두 가지 요소
 
 	예를 들어 연결을 시도한 후 다음 항목을 받은 경우.
 
-		HTTP/1.1 301 Moved Permanently
-		Location: https://wamsbayclus001rest-hs.cloudapp.net/api/
+		HTTP/1.1 301 영구적으로 이동됨
+		위치: https://wamsbayclus001rest-hs.cloudapp.net/api/
 
-	https://wamsbayclus001rest-hs.cloudapp.net/api/에 대한 후속 API 호출을 게시해야 합니다.
+	https://wamsbayclus001rest-hs.cloudapp.net/api/.에 대한 후속 API 호출을 게시해야 합니다.
 
-##액세스 토큰 가져오기
+## 액세스 토큰 가져오기
 
 REST API를 통해 바로 미디어 서비스에 액세스하려면 ACS에서 액세스 토큰을 검색하여 서비스에 HTTP 요청을 할 때마다 이를 사용합니다. 이 토큰은 HTTP 요청 헤더에서 제공하는 액세스 클레임을 기반으로 하고 OAuth v2 프로토콜을 사용하는 ACS에서 제공하는 다른 토큰과 비슷합니다. 미디어 서비스에 직접 연결하기 전에는 다른 필수 조건은 필요하지 않습니다.
 
-다음 예제에서는 HTTP 요청 헤더와 토큰을 검색하는 데 사용되는 본문을 보여 줍니다.
+다음 예제에서는 HTTP 요청 헤더와 토큰을 검색하는 데 사용되는 본문을 보여줍니다.
 
 **헤더**:
 
 	POST https://wamsprodglobal001acs.accesscontrol.windows.net/v2/OAuth2-13 HTTP/1.1
-	Content-Type: application/x-www-form-urlencoded
-	Host: wamsprodglobal001acs.accesscontrol.windows.net
-	Content-Length: 120
-	Expect: 100-continue
-	Connection: Keep-Alive
-	Accept: application/json
+	콘텐츠 유형: application/x-www-form-urlencoded
+	호스트: wamsprodglobal001acs.accesscontrol.windows.net
+	콘텐츠 길이: 120
+	예상: 100-continue
+	연결: Keep-Alive
+	수락: application/json
 
 	
 **본문**:
 
 이 요청의 본문에 있는 client_id와 client_secret 값을 입증해야 합니다. client_id와 client_secret은 각각 AccountName과 AccountKey 값에 해당합니다. 이러한 값은 계정을 설정할 때 미디어 서비스에서 제공합니다. 
 
-미디어 서비스 계정에 대한 AccountKey는 액세스 토큰 요청에서 client_secret 값으로 사용하는 경우 URL로 인코딩되어야 합니다.
+미디어 서비스 계정에 대한 AccountKey는 액세스 토큰 요청에서 client_secret 값으로 사용하는 경우 URL로 인코딩되어야 합니다([퍼센트 인코딩](http://tools.ietf.org/html/rfc3986#section-2.1) 참조).
 
 	grant_type=client_credentials&client_id=ams_account_name&client_secret=URL_encoded_ams_account_key&scope=urn%3aWindowsAzureMediaServices
 
@@ -88,7 +88,7 @@ REST API를 통해 바로 미디어 서비스에 액세스하려면 ACS에서 �
 	
 	{  
 	   "token_type":"http://schemas.xmlsoap.org/ws/2009/11/swt-token-profile-1.0",
-	   "access_token":"http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=f7f09258-6753-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421330840&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=uf69n82KlqZmkJDNxhJkOxpyIpA2HDyeGUTtSnq1vlE%3d",
+	   "access_token":"http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f19258-2233-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421330840&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=uf69n82KlqZmkJDNxhJkOxpyIpA2HDyeGUTtSnq1vlE%3d",
 	   "expires_in":"21600",
 	   "scope":"urn:WindowsAzureMediaServices"
 	}
@@ -99,7 +99,7 @@ REST API를 통해 바로 미디어 서비스에 액세스하려면 ACS에서 �
 
 액세스 토큰의 "expires_in" 값을 모니터링하고 필요에 따라 REST API 호출을 새 토큰으로 업데이트해야 합니다.
 
-###미디어 서비스 URI에 연결
+### 미디어 서비스 URI에 연결
 
 미디어 서비스의 루트 URI는 https://media.windows.net/입니다. 이 URI에 처음으로 연결해야 하며 응답으로 301 리디렉션을 받은 경우 새 URI에 대한 후속 호출을 해야합니다. 또한 요청에서 자동 리디렉션/팔로우 논리를 사용하지 마세요 HTTP 동사와 요청 본문은 새 URI로 전달되지 않습니다.
 
@@ -110,8 +110,8 @@ REST API를 통해 바로 미디어 서비스에 액세스하려면 ACS에서 �
 **HTTP 요청**:
 	
 	GET https://media.windows.net/ HTTP/1.1
-	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=f7f09258-6753-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421500579&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=ElVWXOnMVggFQl%2ft9vhdcv1qH1n%2fE8l3hRef4zPmrzg%3d
-	x-ms-version: 2.8
+	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f19258-6753-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421500579&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=ElVWXOnMVggFQl%2ft9vhdcv1qH1n%2fE8l3hRef4zPmrzg%3d
+	x-ms-version: 2.9
 	Accept: application/json
 	Host: media.windows.net
 
@@ -136,8 +136,8 @@ REST API를 통해 바로 미디어 서비스에 액세스하려면 ACS에서 �
 **HTTP 요청**(새 URI 사용):
 			
 	GET https://wamsbayclus001rest-hs.cloudapp.net/api/ HTTP/1.1
-	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=f7f09258-6753-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421500579&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=ElVWXOnMVggFQl%2ft9vhdcv1qH1n%2fE8l3hRef4zPmrzg%3d
-	x-ms-version: 2.8
+	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f19258-2233-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421500579&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=ElVWXOnMVggFQl%2ft9vhdcv1qH1n%2fE8l3hRef4zPmrzg%3d
+	x-ms-version: 2.9
 	Accept: application/json
 	Host: wamsbayclus001rest-hs.cloudapp.net
 
@@ -169,4 +169,4 @@ REST API를 통해 바로 미디어 서비스에 액세스하려면 ACS에서 �
 
 <!-- URLs. -->
 
-<!--HONumber=47-->
+<!--HONumber=52-->

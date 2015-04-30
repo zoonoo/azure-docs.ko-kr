@@ -10,10 +10,10 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="08/18/2014" 
+	ms.topic="hero-article" 
+	ms.date="02/10/2015" 
 	ms.author="glenga"/>
 
 
@@ -21,20 +21,20 @@
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
 
-이 자습서에서는 Azure 모바일 서비스를 사용하여 범용 Windows 앱에 클라우드 기반 백 엔드 서비스를 추가하는 방법을 보여 줍니다. 범용 Windows 앱 솔루션에는 Windows 스토어 8.1 및 Windows Phone 스토어 8.1 앱용 프로젝트와 공통 공유 프로젝트가 포함됩니다. 자세한 내용은 [Windows 및 Windows Phone을 대상으로 하는 범용 Windows 앱 작성](http://msdn.microsoft.com/library/windows/apps/xaml/dn609832.aspx) 을 참조하세요.
+이 자습서에서는 Azure 모바일 서비스를 사용하여 범용 Windows 앱에 클라우드 기반 백 엔드 서비스를 추가하는 방법을 보여 줍니다. 범용 Windows 앱 솔루션에는 Windows 스토어 8.1 및 Windows Phone 스토어 8.1 앱용 프로젝트와 공통 공유 프로젝트가 포함됩니다. 자세한 내용은 [Windows 및 Windows Phone을 대상으로 하는 범용 Windows 앱 작성](http://msdn.microsoft.com/library/windows/apps/xaml/dn609832.aspx)을 참조하세요.
 
-이 자습서에서는 새 모바일 서비스와 새 모바일 서비스에 앱 데이터를 저장하는 간단한  *To do list* 앱을 둘 다 만듭니다. 생성되는 모바일 서비스에서는 Visual Studio에서 지원되는 .NET 언어를 서버 쪽 비즈니스 논리와 모바일 서비스 관리에 사용합니다. JavaScript에서 서버 쪽 비즈니스 논리를 작성하는 데 사용할 수 있는 모바일 서비스를 만들려면 이 항목의 JavaScript 백 엔드 버전을 참조하세요.
+이 자습서에서는 새 모바일 서비스뿐만 아니라 새 모바일 서비스에 앱 데이터를 저장하는 간단한 *할 일 모음* 앱도 만듭니다. 생성되는 모바일 서비스에서는 Visual Studio에서 지원되는 .NET 언어를 서버 쪽 비즈니스 논리와 모바일 서비스 관리에 사용합니다. JavaScript에서 서버 쪽 비즈니스 논리를 작성하는 데 사용할 수 있는 모바일 서비스를 만들려면 이 항목의 JavaScript 백 엔드 버전을 참조하세요.
 
->[AZURE.NOTE]이 항목에서는 Azure 관리 포털을 사용하여 새 모바일 서비스 프로젝트 및 범용 Windows 앱을 만드는 방법을 보여 줍니다. Visual Studio 2013 업데이트 3를 사용하면 기존 Visual Studio 솔루션에 새 모바일 서비스 프로젝트를 추가할 수도 있습니다. 자세한 내용은 [퀵 스타트: 모바일 서비스 추가(.NET backend)](http://msdn.microsoft.com/library/windows/apps/dn629482.aspx)를 참조하세요.
+>[AZURE.NOTE]이 항목에서는 Azure 관리 포털을 사용하여 새 모바일 서비스 프로젝트 및 범용 Windows 앱을 만드는 방법을 보여 줍니다. Visual Studio 2013 업데이트 3를 사용하면 기존 Visual Studio 솔루션에 새 모바일 서비스 프로젝트를 추가할 수도 있습니다. 자세한 내용은 [기존 앱에 모바일 서비스 추가](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-data.md)를 참조하세요.
 
->Windows Phone 8.0 또는 Windows Phone Silverlight 8.1 앱 프로젝트에 모바일 서비스를 추가하려면 [Windows Phone에 대한 데이터로 시작](mobile-services-dotnet-backend-windows-phone-get-started-data.md) 을 참조하세요.
+>Windows Phone 8.0 또는 Windows Phone Silverlight 8.1 앱 프로젝트에 모바일 서비스를 추가하려면 [기존 Windows Phone 앱에 모바일 서비스 추가](mobile-services-dotnet-backend-windows-phone-get-started-data.md)를 참조하세요.
 
 [AZURE.INCLUDE [mobile-services-windows-universal-get-started](../includes/mobile-services-windows-universal-get-started.md)]
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-* 활성 Azure 계정. 계정이 없는 경우 Azure 평가판을 등록하고 최대 10개의 무료 모바일 서비스를 사용할 수 있습니다. 이러한 서비스는 평가판 사용 기간이 끝난 후에도 계속 사용할 수 있습니다. 자세한 내용은 [Azure 무료 평가판](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fko-kr%2Fdocumentation%2Farticles%2Fmobile-services-javascript-backend-windows-store-javascript-get-started%2F)을 참조하세요.
-* <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a>. 무료 평가판을 이용할 수 있습니다.
+* 활성 Azure 계정. 계정이 없는 경우 Azure 평가판을 등록하고 최대 10개의 무료 모바일 서비스를 사용할 수 있습니다. 이러한 서비스는 평가판 사용 기간이 끝난 후에도 계속 사용할 수 있습니다. 자세한 내용은 [Azure 무료 평가판](http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fko-kr%2Fdocumentation%2Farticles%2Fmobile-services-javascript-backend-windows-store-javascript-get-started%2F)을 참조하세요.
+* <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a>. 
 
 ## 새 모바일 서비스 만들기
 
@@ -50,13 +50,11 @@
    
 2. 퀵 스타트 탭에서 **플랫폼 선택** 아래의 **Windows**를 클릭하고 **새 Windows 스토어 앱 만들기**를 확장합니다.
 
-   	![][6]
-
    	모바일 서비스에 연결된 Windows 스토어 앱을 만드는 간편한 세 가지 단계가 표시됩니다.
 
-  	![][7]
+  	![모바일 서비스 퀵 스타트 단계](./media/mobile-services-dotnet-backend-windows-store-dotnet-get-started/mobile-quickstart-steps.png)
 
-3. 아직 하지 않은 경우 로컬 컴퓨터나 가상 컴퓨터에 <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a>을 다운로드하여 설치합니다.
+3. 아직 수행하지 않은 경우 로컬 컴퓨터나 가상 컴퓨터에 <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a>을 다운로드하여 설치합니다.
 
 4. **앱 및 서비스를 로컬로 다운로드 및 실행**에서 Windows 스토어 앱의 언어를 선택하고 **다운로드**를 클릭합니다. 
 
@@ -94,22 +92,22 @@
 ## 다음 단계
 이제 퀵 스타트를 완료했으며 모바일 서비스에서 중요한 추가 작업을 수행하는 방법을 알아보겠습니다. 
 
-* [데이터 시작]
+* [기존 앱에 모바일 서비스 추가][데이터 시작]
   <br/>모바일 서비스를 사용하여 데이터를 저장 및 쿼리하는 방법에 대해 자세히 알아봅니다.
 
 * [오프라인 데이터 동기화 시작]
   <br/>오프라인 데이터 동기화를 활용하여 앱의 응답성과 견고성을 향상하는 방법을 알아봅니다.
 
-* [인증 시작 (영문)]
+* [모바일 서비스 앱에 인증 추가][인증 시작]
   <br/>ID 공급자를 사용하여 앱 사용자를 인증하는 방법을 알아봅니다.
 
-* [푸시 알림 시작] 
+* [앱에 푸시 알림 추가][푸시 알림 시작] 
   <br/>앱에 기본적인 푸시 알림을 보내는 방법을 알아봅니다.
 
 * [모바일 서비스 .NET 백 엔드 문제 해결]
   <br/> 모바일 서비스 .NET 백 엔드에서 발생할 수 있는 문제를 진단하고 해결하는 방법에 알아봅니다. 
 
-범용 Windows 앱에 대한 자세한 내용은 [단일 모바일 서비스에서 여러 장치 플랫폼 지원](mobile-services-how-to-use-multiple-clients-single-service#shared-vs.md) 을 참조하세요.
+범용 Windows 앱에 대한 자세한 내용은 [단일 모바일 서비스에서 여러 장치 플랫폼 지원](mobile-services-how-to-use-multiple-clients-single-service.md#shared-vs)을 참조하세요.
 
 <!-- Anchors. -->
 [모바일 서비스 시작]:#getting-started
@@ -118,30 +116,21 @@
 [다음 단계]:#next-steps
 
 <!-- Images. -->
-[0]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-get-started/mobile-quickstart-completed.png
-
-[6]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-get-started/mobile-portal-quickstart.png
-[7]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-get-started/mobile-quickstart-steps.png
-[8]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-get-started/mobile-service-startup.png
-
-[10]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-get-started/mobile-quickstart-startup.png
 
 
 
 <!-- URLs. -->
-[데이터 시작]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-data
-[데이터 시작]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data
-[오프라인 데이터 동기화 시작]: /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data
-[인증 시작 (영문)]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users
-[푸시 알림 시작]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push
+[데이터 시작]: mobile-services-dotnet-backend-windows-universal-dotnet-get-started-data.md
+[데이터 시작]: mobile-services-dotnet-backend-windows-store-dotnet-get-started-data.md
+[오프라인 데이터 동기화 시작]: mobile-services-windows-store-dotnet-get-started-offline-data.md
+[인증 시작]: mobile-services-dotnet-backend-windows-store-dotnet-get-started-users.md
+[푸시 알림 시작]: mobile-services-dotnet-backend-windows-store-dotnet-get-started-push.md
 [Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=257546
 [모바일 서비스 SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [JavaScript 및 HTML]: mobile-services-win8-javascript/
 [관리 포털]: https://manage.windowsazure.com/
-[JavaScript 백 엔드 버전]: /ko-kr/documentation/articles/mobile-services-windows-store-get-started
-[Visual Studio 2012를 사용하여 모바일 서비스에서 데이터 시작]: /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-data-vs2012
-[모바일 서비스 .NET 백 엔드 문제 해결]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-how-to-troubleshoot/
+[JavaScript 백 엔드 버전]: mobile-services-windows-store-get-started.md
+[Visual Studio 2012를 사용하여 모바일 서비스에서 데이터 시작]: mobile-services-windows-store-dotnet-get-started-data-vs2012.md
+[모바일 서비스 .NET 백 엔드 문제 해결]: mobile-services-dotnet-backend-how-to-troubleshoot.md
 
-
-
-<!--HONumber=42-->
+<!--HONumber=52-->

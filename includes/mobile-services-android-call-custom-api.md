@@ -1,7 +1,7 @@
 
 ## <a name="update-app"></a>사용자 지정 API를 호출하도록 앱 업데이트
 
-1. 기존 단추 옆에 "Complete All" 레이블의 단추를 추가하고 두 개의 단추를 한 줄 아래로 이동합니다. Android Studio에서 퀵 스타트 프로젝트의  *res\layout\activity_to_do.xml* 파일을 열고 이름이  `buttonAddToDo`인 **Button** 요소가 포함된 **LinearLayout** 요소를 찾습니다. **LinearLayout**을 복사하여 원래 요소 바로 뒤에 붙여넣습니다. 첫 번째 **LinearLayout**에서 **Button** 요소를 삭제합니다.
+1. 기존 단추 옆에 "Complete All" 레이블의 단추를 추가하고 두 개의 단추를 한 줄 아래로 이동합니다. Android Studio에서 퀵 스타트 프로젝트의 *res\layout\activity_to_do.xml* 파일을 열고 이름이 `buttonAddToDo`인 **Button** 요소가 포함된 **LinearLayout** 요소를 찾습니다. **LinearLayout**을 복사하여 원래 요소 바로 뒤에 붙여넣습니다. 첫 번째 **LinearLayout**에서 **Button** 요소를 삭제합니다.
 
 2. 두 번째 **LinearLayout**에서 **EditText** 요소를 삭제하고 다음 코드를 기존 **Button** 요소 바로 뒤에 추가합니다. 
 
@@ -36,13 +36,13 @@
 	    </LinearLayout>
 	
 
-4. res\values\string.xml 파일을 열고 다음 코드 줄을 추가합니다.
+4. res\values\string.xml 파일을 열고 코드의 다음 줄을 추가합니다.
 
     	<string name="complete_button_text">Complete All</string>
 
 
 
-5. Project Explorer에서  *src* 폴더(`com.example.{your projects name}`)의 프로젝트 이름을 마우스 오른쪽 단추로 클릭하고 **New**, **Class**를 차례로 선택합니다. 대화 상자의 클래스 이름 필드에 **MarkAllResult**를 입력하고 OK를 선택한 후 결과 클래스 정의를 다음 코드로 바꿉니다.
+5. 프로젝트 탐색기에서 *src* 폴더(`com.example.{your projects name}`)의 프로젝트 이름을 마우스 오른쪽 단추로 클릭하고 **New**, **Class**를 차례로 선택합니다. 대화 상자의 클래스 이름 필드에 **MarkAllResult**를 입력하고 OK를 선택한 후 결과 클래스 정의를 다음 코드로 바꿉니다.
 
 		import com.google.gson.annotations.SerializedName;
 		
@@ -61,7 +61,7 @@
 
 	이 클래스는 사용자 지정 API에서 반환한 행 개수 값을 유지하는 데 사용됩니다. 
 
-6. **ToDoActivity.java** 파일에서 **refreshItemsFromTable** 메서드를 찾아  `try` 블록에 있는 코드의 첫 줄이 다음과 유사하게 시작하는지 확인합니다.
+6. **ToDoActivity.java** 파일에서 **refreshItemsFromTable** 메서드를 찾아 `try` 블록에 있는 코드의 첫 줄이 다음과 유사하게 시작하는지 확인합니다.
 
         final MobileServiceList<ToDoItem> result = mToDoTable.where().field("complete").eq(false).execute().get();
 
@@ -75,7 +75,7 @@
 
 8. **ToDoActivity.java** 파일에서 다음 메서드를 추가합니다.
 
-		public void completeItem(View view) {
+	    public void completeItem(View view) {
 	    
 	    ListenableFuture<MarkAllResult> result = mClient.invokeApi( "completeAll2", MarkAllResult.class ); 
 	    	
@@ -111,4 +111,5 @@
   	![](./media/mobile-services-android-call-custom-api/mobile-custom-api-android-completed.png)
 
 	완료 표시된 항목 수를 나타내는 메시지 대화 상자가 표시되고 필터링된 쿼리가 다시 실행되어 목록에서 모든 항목을 지웁니다.
-<!--HONumber=47-->
+
+<!--HONumber=52-->

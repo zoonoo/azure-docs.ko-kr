@@ -12,15 +12,19 @@
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
-	ms.topic="article" 
+	ms.topic="hero-article" 
 	ms.date="2/19/2015" 
 	ms.author="tdykstra"/>
 
 # Azure 클라우드 서비스 및 ASP.NET 시작
 
+> [AZURE.SELECTOR]
+- [Node.js](cloud-services-nodejs-develop-deploy-app.md)
+- [.NET](cloud-services-dotnet-get-started.md)
+
 ## 개요
 
-이 자습서에서는 ASP.NET MVC 프런트 엔드를 사용하여 다중 계층 .NET 응용 프로그램을 만들어 [Azure 클라우드 서비스](/ko-kr/documentation/articles/fundamentals-application-models/#CloudServices)에 배포하는 방법을 보여 줍니다. 이 응용 프로그램에서는 [Azure SQL 데이터베이스](http://msdn.microsoft.com/library/azure/ee336279), [Azure Blob 서비스](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage)(영문) 및 [Azure 큐 서비스](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern)(영문)를 사용합니다. MSDN 코드 갤러리에서 [Visual Studio 프로젝트를 다운로드](http://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4)할 수 있습니다. 
+이 자습서에서는 ASP.NET MVC 프런트 엔드를 사용하여 다중 계층 .NET 응용 프로그램을 만들어 [Azure 클라우드 서비스](fundamentals-application-models.md#CloudServices)에 배포하는 방법을 보여 줍니다. 이 응용 프로그램에서는 [Azure SQL 데이터베이스](http://msdn.microsoft.com/library/azure/ee336279), [Azure Blob 서비스](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage)(영문) 및 [Azure 큐 서비스](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern)(영문)를 사용합니다. MSDN 코드 갤러리에서 [Visual Studio 프로젝트를 다운로드](http://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4)할 수 있습니다. 
 
 이 자습서에서는 응용 프로그램을 구축하고 로컬에서 실행하는 방법, 응용 프로그램을 Azure에 배포하고 클라우드에서 실행하는 방법, 그리고 마지막으로 응용 프로그램을 처음부터 구축하는 방법을 보여 줍니다. 처음부터 구축하는 방법으로 시작한 다음 원하는 경우 나중에 테스트 및 배포 단계를 수행할 수 있습니다.
 
@@ -34,7 +38,7 @@
 
 ## 대체 아키텍처: 웹 사이트 및 WebJobs
 
-이 자습서에서는 Azure 클라우드 서비스에서 프런트 엔드 및 백 엔드를 실행하는 방법을 보여 줍니다. 대안은 [Azure 웹 사이트](/ko-kr/services/web-sites/)(영문)에서 프런트 엔드를 실행하고 백 엔드에 [WebJobs](http://go.microsoft.com/fwlink/?LinkId=390226)(영문) 기능(현재 미리 보기에서 제공)을 사용하는 것입니다. WebJobs를 사용하는 자습서는 [Azure WebJobs SDK 시작](websites-dotnet-webjobs-sdk-get-started.md)을 참조하세요 시나리오에 가장 적합한 서비스를 선택하는 방법에 대한 자세한 내용은 [Azure 웹 사이트, 클라우드 서비스 및 가상 컴퓨터 비교](http://azure.microsoft.com/documentation/articles/choose-web-site-cloud-service-vm/)를 참조하세요.
+이 자습서에서는 Azure 클라우드 서비스에서 프런트 엔드 및 백 엔드를 실행하는 방법을 보여 줍니다. 다른 아키텍처는 프런트 엔드를 [Azure 웹 사이트](/services/web-sites/) 에서 실행하고 백엔드에 [WebJobs](http://go.microsoft.com/fwlink/?LinkId=390226)(영문) 기능(현재 미리 보기)을 사용하는 것입니다. WebJobs를 사용하는 자습서는 [Azure WebJobs SDK 시작](websites-dotnet-webjobs-sdk-get-started.md) 을 참조하세요. 시나리오에 가장 적합한 서비스를 선택하는 방법에 대한 자세한 내용은 [Azure 웹 사이트, 클라우드 서비스 및 가상 컴퓨터 비교](http://azure.microsoft.com/documentation/articles/choose-web-site-cloud-service-vm/)를 참조하세요.
 
 ## 학습할 내용
 
@@ -47,9 +51,9 @@
 
 ## 필수 조건
 
-이 자습서에서는 *web role* 및 *worker role* 용어와 같이 [Azure 클라우드 서비스에 대한 기본 개념](http://azure.microsoft.com/documentation/articles/fundamentals-application-models/#CloudServices)을 알고 있다고 가정합니다.  또한 Visual Studio에서 [ASP.NET MVC](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started)(영문) 또는 [Web Forms](http://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview)(영문) 프로젝트를 작업하는 방법도 알고 있다고 가정합니다. 샘플 응용 프로그램은 MVC를 사용하지만, 자습서 내용의 대부분은 Web Forms에도 적용됩니다. 
+이 자습서에서는 [Azure 클라우드 서비스에 대한 기본 개념](fundamentals-application-models.md#CloudServices) ( *web role* 및  *worker role* 용어)을 이해한다고 가정합니다.  또한 [ASP.NET MVC](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started)(영문) 또는 [Web Forms](http://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview)(영문) 프로젝트를 Visual Studio에서 작업하는 방법을 알고 있다고 가정합니다. 응용 프로그램 예제는 MVC를 사용하지만, 자습서 내용의 대부분은 Web Forms에도 적용됩니다. 
 
-Azure 구독 없이도 로컬에서 앱을 실행할 수 있지만 응용 프로그램을 클라우드에 배포하려면 구독이 필요합니다. 계정이 없는 경우 [MSDN 구독자 혜택을 활성화](/ko-kr/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A55E3C668)하거나 [무료 평가판을 등록](/ko-kr/pricing/free-trial/?WT.mc_id=A55E3C668)할 수 있습니다.
+Azure 구독 없이도 로컬에서 앱을 실행할 수 있지만 응용 프로그램을 클라우드에 배포하려면 구독이 필요합니다. 계정이 없는 경우 [MSDN 구독자 혜택을 활성화](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A55E3C668) 하거나 [무료 평가판에 등록](/pricing/free-trial/?WT.mc_id=A55E3C668) 할 수 있습니다.
 
 자습서의 지침은 다음 제품 중 하나에 적용됩니다.
 
@@ -66,7 +70,7 @@ Azure 구독 없이도 로컬에서 앱을 실행할 수 있지만 응용 프로
 
 사용자가 이미지를 업로드하면 웹 역할로 실행 중인 프런트 엔드가 [Azure Blob](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage)(영문)에 이미지를 저장하며 Blob을 가리키는 URL을 사용하여 데이터베이스에 광고 정보를 저장합니다. 이와 동시에 Azure 큐에 메시지를 기록합니다. 작업자 역할로 실행되는 백 엔드 프로세스는 정기적으로 큐를 폴링하여 새 메시지를 확인합니다. 새 메시지가 나타나면 작업자 역할은 해당 이미지의 미리 보기를 만들고 광고에 대한 미리 보기 URL 데이터베이스 필드를 업데이트합니다. 다음은 응용 프로그램의 여러 부분이 상호 작용하는 방법을 보여 주는 다이어그램입니다.
 
-![Contoso Ads architecture](./media/cloud-services-dotnet-get-started/apparchitecture.png)
+![Contoso Ads 아키텍처](./media/cloud-services-dotnet-get-started/apparchitecture.png)
 
 [AZURE.INCLUDE [install-sdk-2013-only](../includes/install-sdk-2013-only.md)]
 
@@ -86,7 +90,7 @@ Azure 구독 없이도 로컬에서 앱을 실행할 수 있지만 응용 프로
 
 1. Ctrl+F5를 눌러 응용 프로그램을 실행합니다.
 
-	클라우드 서비스 프로젝트를 로컬에서 실행하면 Visual Studio는 Azure *compute emulator* 및 Azure *storage emulator*를 자동으로 호출합니다. 계산 에뮬레이터는 컴퓨터의 리소스를 사용하여 웹 역할 및 작업자 역할 환경을 시뮬레이션합니다. 저장소 에뮬레이터는 [SQL Server Express LocalDB](http://msdn.microsoft.com/library/hh510202.aspx) 데이터베이스를 사용하여 Azure 클라우드 저장소를 시뮬레이션합니다. 
+	클라우드 서비스 프로젝트를 로컬에서 실행하면, Visual Studio는 Azure *compute emulator* 및 Azure *storage emulator*를 자동으로 호출합니다. 계산 에뮬레이터는 컴퓨터의 리소스를 사용하여 웹 역할 및 작업자 역할 환경을 시뮬레이션합니다. 저장소 에뮬레이터는 [SQL Server Express LocalDB](http://msdn.microsoft.com/library/hh510202.aspx) 데이터베이스를 사용하여 Azure 클라우드 저장소를 시뮬레이션합니다. 
 
 	클라우드 서비스 프로젝트를 처음 실행하면 에뮬레이터가 시작되는 데 1분 정도 걸립니다. 에뮬레이터 시작이 완료되면 기본 브라우저가 열려 응용 프로그램 홈페이지가 표시됩니다.
 
@@ -191,7 +195,7 @@ Azure 저장소 계정은 큐 및 Blob 데이터를 클라우드에 저장하기
 
 	이 접두사와 상자 아래에 표시되는 텍스트가 저장소 계정의 고유 URL이 됩니다. 입력한 접두사를 이미 다른 사람이 사용하는 경우 다른 접두사를 선택해야 합니다.
 
-5. **지역** 드롭다운 목록을 클라우드 서비스에 대해 선택한 것과 동일한 지역을 설정합니다.
+5. **지역** 드롭다운 목록을 클라우드 서비스에 대해 선택한 것과 동일한 지역으로 설정합니다.
 
 	클라우드 서비스와 저장소 계정이 서로 다른 데이터 센터, 즉 서로 다른 지역에 있는 경우 대기 시간이 길어지고 데이터 센터 외부 대역폭에 대한 요금이 발생합니다. 데이터 센터 내부 대역폭은 무료입니다.
 
@@ -205,7 +209,7 @@ Azure 저장소 계정은 큐 및 Blob 데이터를 클라우드에 저장하기
 
 	![New storage account](./media/cloud-services-dotnet-get-started/newstorage.png)	
 
-	이미지에서는 `contosoads.core.windows.net` URL을 사용하여 저장소 계정이 생성되었습니다.
+	이미지에서  `contosoads.core.windows.net` URL을 사용하여 저장소 계정이 생성됩니다.
 
 ### Azure에서 실행될 때 Azure SQL 데이터베이스를 사용하도록 솔루션 구성
 
@@ -215,7 +219,7 @@ Azure 저장소 계정은 큐 및 Blob 데이터를 클라우드에 저장하기
 
 >[AZURE.NOTE] 이 섹션 및 다음 섹션에서는 프로젝트 파일에 자격 증명을 저장합니다. [중요한 데이터를 공개 소스 코드 리포지토리에 저장하지 마세요](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#secrets)(영문).
 
-1. ContosoAdsWeb 프로젝트에서 응용프로그램 *Web.config* 파일에 대한 *Web.Release.config* 변환 파일을 열고 `<connectionStrings>` 요소가 포함된 주석 블록을 삭제한 후 그 자리에 다음 코드를 붙여 넣습니다. 
+1. ContosoAdsWeb 프로젝트에서 응용 프로그램  *Web.config* 파일에 대한  *Web.Release.config* 변환 파일을 열고, `<connectionStrings>` 요소가 포함된 주석 블록을 삭제한 후 그 자리에 다음 코드를 붙여넣습니다. 
 
 		<connectionStrings>
 	        <add name="ContosoAdsContext" connectionString="{connectionstring}"
@@ -232,9 +236,9 @@ Azure 저장소 계정은 큐 및 Blob 데이터를 클라우드에 저장하기
 
 	![Connection strings](./media/cloud-services-dotnet-get-started/connstrings.png)	
 
-4.  *Web.Release.config* 변환 파일에서 `{connectionstring}`을 삭제한 후 그 자리에 관리 포털에서 가져온 ADO.NET 연결 문자열을 붙여 넣습니다.
+4.  *Web.Release.config* 변환 파일에서  `{connectionstring}`을 삭제한 후 그 자리에 관리 포털에서 가져온 ADO.NET 연결 문자열을 붙여넣습니다.
 
-5.  *Web.Release.config* 변환 파일에 붙여 넣은 연결 문자열에서  `{your_password_here}` 대신 새 SQL 데이터베이스에 대해 만든 암호로 바꿉니다.
+5.  *Web.Release.config* 변환 파일에 붙여 넣은 연결 문자열에서,  `{your_password_here}` 대신 새 SQL 데이터베이스에 대해 만든 암호로 바꿉니다.
 
 7. 파일을 저장합니다.  
 
@@ -248,7 +252,7 @@ Azure 저장소 계정은 큐 및 Blob 데이터를 클라우드에 저장하기
 
 7. **서비스 구성**을 **클라우드**로 변경합니다.
 
-7. 텍스트를 `ContosoAdsDbConnectionString` 설정에서 선택한 후, 자습서의 이전 섹션에서 복사한 연결 문자열을 붙여 넣습니다.
+7. 텍스트를  `ContosoAdsDbConnectionString` 설정에서 선택한 후, 자습서의 이전 섹션에서 복사한 연결 문자열을 붙여넣습니다.
 
 	![Database connection string for worker role](./media/cloud-services-dotnet-get-started/workerdbcs.png)	
 
@@ -266,7 +270,7 @@ Azure 저장소 계정은 큐 및 Blob 데이터를 클라우드에 저장하기
 
 	![Cloud configuration](./media/cloud-services-dotnet-get-started/sccloud.png)	
 
-6. **StorageConnectionString** 항목을 선택하면 오른쪽 끝에 줄임표(**...**) 단추가 표시됩니다. 줄임표 단추를 클릭하여 **저장소 계정 연결 문자열 만들기** 대화 상자를 엽니다.
+6. **StorageConnectionString** 항목을 선택하면 오른쪽 끝 줄에 줄임표(**...**) 단추가 표시됩니다. 줄임표 단추를 클릭하여 **저장소 계정 연결 문자열 만들기** 대화 상자를 엽니다.
 
 	![Open Connection String Create box](./media/cloud-services-dotnet-get-started/opencscreate.png)	
 
@@ -276,7 +280,7 @@ Azure 저장소 계정은 큐 및 Blob 데이터를 클라우드에 저장하기
 
 1. 변경 내용을 저장합니다.
 
-2. 앞서 `StorageConnectionString` 연결 문자열에 사용한 것과 동일한 절차에 따라 `Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString` 연결 문자열을 설정합니다.
+2.  `StorageConnectionString` 연결 문자열에 사용한 것과 동일한 절차에 따라  `Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString` 연결 문자열을 설정합니다.
 
 	이 연결 문자열은 로깅에 사용됩니다.
 
@@ -295,7 +299,7 @@ Visual Studio UI를 사용하여 구성한 역할 환경 설정은 ContosoAdsClo
 		  <Setting name="ContosoAdsDbConnectionString" />
 		</ConfigurationSettings>
 
-그리고 *ServiceConfiguration.Cloud.cscfg* 파일에는 Visual Studio에서 해당 설정에 입력한 값이 포함됩니다.
+그리고  *ServiceConfiguration.Cloud.cscfg* 파일에는 Visual Studio에서 해당 설정에 입력한 값이 포함됩니다.
 
 		<Role name="ContosoAdsWorker">
 		  <Instances count="1" />
@@ -315,7 +319,7 @@ Visual Studio UI를 사용하여 구성한 역할 환경 설정은 ContosoAdsClo
 
 	![Publish menu](./media/cloud-services-dotnet-get-started/pubmenu.png)	
 
-2. **Windows Azure 응용 프로그램 게시** 마법사의 **로그인** 단계에서 **다음**을 클릭합니다.
+2. In the **Azure 응용 프로그램 게시** 마법사의 **로그인** 단계에서 **다음**을 클릭합니다.
 
 	![Sign in step](./media/cloud-services-dotnet-get-started/pubsignin.png)	
 
@@ -323,7 +327,7 @@ Visual Studio UI를 사용하여 구성한 역할 환경 설정은 ContosoAdsClo
 
 	![Settings step](./media/cloud-services-dotnet-get-started/pubsettings.png)	
 
-	**고급** 탭의 기본 설정은 이 자습서 내용에 적합합니다. 고급 탭에 대한 자세한 내용은 [Azure 응용 프로그램 게시 마법사](http://msdn.microsoft.com/library/windowsazure/hh535756.aspx)를 참조하세요.
+	**고급** 탭의 기본 설정은 이 자습서 내용에 적합합니다. 고급 탭에 대한 자세한 내용은 [Azure 응용 프로그램 게시 마법사](http://msdn.microsoft.com/library/hh535756.aspx)를 참조하세요.
 
 2. **요약** 단계에서 **게시**를 클릭합니다.
 
@@ -362,7 +366,7 @@ Contoso Ads 응용 프로그램을 만드는 데는 다음 단계가 필요합�
 
 1. Visual Studio의 **파일** 메뉴에서 **새 프로젝트**를 선택합니다.
 
-2. **새 프로젝트** 대화 상자의 왼쪽 창에서 **Visual C#**을 확장하고 **클라우드** 템플릿을 선택한 후 **Windows Azure 클라우드 서비스** 템플릿을 선택합니다.
+2. **새 프로젝트** 대화 상자의 왼쪽 창에서 **Visual C#**를 확장하고 **클라우드** 템플릿을 선택한 후, **Azure 클라우드 서비스** 템플릿을 선택합니다.
 
 3. 프로젝트 및 솔루션의 이름을 ContosoAdsCloudService로 지정한 다음 **확인**을 클릭합니다.
 
@@ -386,7 +390,7 @@ Contoso Ads 응용 프로그램을 만드는 데는 다음 단계가 필요합�
 
 11. **새 프로젝트 추가** 대화 상자의 왼쪽 창에서 **Visual C#** 아래에 있는 **Windows 데스크톱**을 선택한 다음 **클래스 라이브러리** 템플릿을 클릭합니다.  
 
-10. 프로젝트의 이름을  *ContosoAdsCommon*로 지정한 다음 **확인**을 클릭합니다.
+10. 프로젝트의 이름을 지정한 후  *ContosoAdsCommon*, **확인**을 클릭합니다.
 
 	Entity Framework 컨텍스트 및 웹 역할 프로젝트와 작업자 역할 프로젝트의 데이터 모델을 참조해야 합니다. 또는 웹 역할 프로젝트에서 EF 관련 클래스를 정의하고 작업자 역할 프로젝트에서 이 프로젝트를 참조할 수 있습니다. 하지만 이 경우 작업자 역할 프로젝트에는 필요 없는 웹 어셈블리 참조가 포함됩니다.
 
@@ -396,7 +400,7 @@ Contoso Ads 응용 프로그램을 만드는 데는 다음 단계가 필요합�
 
 12. 왼쪽 창에서 **업데이트**를 선택합니다.
    
-13.  *Azure Storage* 패키지를 찾습니다. 이 패키지가 목록에 있는 경우 **업데이트**를 클릭하여 최신 버전의 저장소 클라이언트 라이브러리를 가져옵니다.
+13.  *Azure Storage* 패키지를 찾고 이 패키지가 목록에 있는 경우 **업데이트**를 클릭하여 최신 버전의 저장소 클라이언트 라이브러리를 가져옵니다.
 
 	![Update SCL](./media/cloud-services-dotnet-get-started/updstg.png)	
 
@@ -422,7 +426,7 @@ Contoso Ads 응용 프로그램을 만드는 데는 다음 단계가 필요합�
 
 이 섹션에서는 로컬 테스트를 위해 Azure 저장소 및 SQL 연결 문자열을 구성합니다. 자습서 앞부분의 배포 지침에서는 앱이 클라우드에서 실행되는 경우를 위한 연결 문자열을 설정하는 방법을 설명합니다.
 
-3. ContosoAdsWeb 프로젝트에서 응용 프로그램 Web.config 파일을 열고 다음 `connectionStrings` 요소를 `configSections` 요소 뒤에 삽입합니다.
+3. ContosoAdsWeb 프로젝트에서 응용 프로그램 Web.config 파일을 열고 다음 `connectionStrings` 요소를  `configSections` 요소 뒤에 삽입합니다.
 
 		<connectionStrings>
 		  <add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;" providerName="System.Data.SqlClient" />
@@ -438,7 +442,7 @@ Contoso Ads 응용 프로그램을 만드는 데는 다음 단계가 필요합�
 
 	**서비스 구성**을 **모든 구성**으로 설정해 둡니다.
 
-4. 이름이 *StorageConnectionString*인 새 설정을 추가합니다. **유형**을 *ConnectionString*으로 설정하고 **값**을 *UseDevelopmentStorage=true*으로 설정합니다.
+4. 이름이  *StorageConnectionString*인 새 설정을 추가합니다. **유형**을  *ConnectionString*로 설정하고 **값**을  *UseDevelopmentStorage=true*으로 설정합니다.
 
 	![New connection string](./media/cloud-services-dotnet-get-started/scall.png)	
 
@@ -448,8 +452,8 @@ Contoso Ads 응용 프로그램을 만드는 데는 다음 단계가 필요합�
 
 5. 계속 **ContosoAdsWorker [역할]** 속성 창에서 다른 연결 문자열을 추가합니다.
 
-	* 이름: ContosoAdsDbConnectionString
-	* 형식: String
+	* Name: ContosoAdsDbConnectionString
+	* Type: String
 	* Value: 웹 역할 프로젝트에 사용한 것과 동일한 연결 문자열을 붙여 넣습니다.
 	
 			Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;
@@ -467,7 +471,7 @@ Contoso Ads 응용 프로그램을 만드는 데는 다음 단계가 필요합�
 	-  *Views\Shared* 폴더: <em>_Layout.cshtml</em>.
 	-  *Views\Home* 폴더: *Index.cshtml*.
 	-  *Controllers* 폴더: *AdController.cs*.
-	-  *Views\Ad* 폴더(먼저 폴더 생성): *.cshtml* 파일 5개.
+	-  *Views\Ad* 폴더(먼저 폴더 생성): .cshtml 파일 5개.
 
 3. ContosoAdsWorker 프로젝트에서 다운로드한 프로젝트에서 가져온 *WorkerRole.cs*를 추가합니다.
 
@@ -542,14 +546,14 @@ ContosoAdsContext 클래스는 DbSet 컬렉션에서 Ad 클래스가 사용된�
 
 ### ContosoAdsWeb - Global.asax.cs
 
- `Application_Start` 메서드에서 호출되는 코드는 *images* Blob 컨테이너 및 *images* 큐를 만듭니다(아직 없는 경우). 따라서 새 저장소 계정을 사용하기 시작하거나 새 컴퓨터에서 저장소 에뮬레이터를 사용하기 시작할 때마다 필수 Blob 컨테이너와 큐가 자동으로 만들어집니다.
+ `Application_Start` 메서드에서 호출되는 코드는  *images* Blob 컨테이너 및  *images* 큐를 만듭니다(아직 없는 경우). 따라서 새 저장소 계정을 사용하기 시작하거나 새 컴퓨터에서 저장소 에뮬레이터를 사용하기 시작할 때마다 필수 Blob 컨테이너와 큐가 자동으로 만들어집니다.
 
 이 코드는 *.cscfg* 파일의 저장소 연결 문자열을 사용하여 저장소 계정에 액세스합니다.
 
 		var storageAccount = CloudStorageAccount.Parse
 		    (RoleEnvironment.GetConfigurationSettingValue("StorageConnectionString"));
 
-그런 다음 *images* Blob 컨테이너에 대한 참조를 가져오고 컨테이너를 만들고(아직 없는 경우) 새 컨테이너에 대한 액세스 권한을 설정합니다. 기본적으로 새 컨테이너는 저장소 계정 자격 증명이 있는 클라이언트만 Blob에 액세스할 수 있게 허용합니다. 이미지 Blob를 가리키는 URL을 사용하여 이미지를 표시할 수 있도록 웹 사이트는 Blob를 공개로 설정해야 합니다.
+그런 다음  *images* Blob 컨테이너에 대한 참조를 가져오고 컨테이너를 만들고(아직 없는 경우) 새 컨테이너에 대한 액세스 권한을 설정합니다. 기본적으로 새 컨테이너는 저장소 계정 자격 증명이 있는 클라이언트만 Blob에 액세스할 수 있게 허용합니다. 이미지 Blob를 가리키는 URL을 사용하여 이미지를 표시할 수 있도록 웹 사이트는 Blob를 공개로 설정해야 합니다.
 
 		var blobClient = storageAccount.CreateCloudBlobClient();
 		var imagesBlobContainer = blobClient.GetContainerReference("images");
@@ -562,7 +566,7 @@ ContosoAdsContext 클래스는 DbSet 컬렉션에서 Ad 클래스가 사용된�
 		        });
 		}
 
-비슷한 코드가 *images* 큐에 대한 참조를 가져오고 새 큐를 만듭니다. 이 경우에는 권한을 변경할 필요가 없습니다.
+비슷한 코드가  *images* 큐에 대한 참조를 가져오고 새 큐를 만듭니다. 이 경우에는 권한을 변경할 필요가 없습니다.
 
 		CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 		var imagesQueue = queueClient.GetQueueReference("images");
@@ -574,7 +578,7 @@ ContosoAdsContext 클래스는 DbSet 컬렉션에서 Ad 클래스가 사용된�
 
 ### ContosoAdsWeb - Views\Home\Index.cshtml
 
- *Views\Home\Index.cshtml* 파일은 홈페이지에 범주 링크를 표시합니다. 이 링크는 쿼리 문자열 변수의 `Category` 열거형 정수 값을 광고 인덱스 페이지에 전달합니다.
+ *Views\Home\Index.cshtml* 파일은 홈페이지에 범주 링크를 표시합니다. 이 링크는 쿼리 문자열 변수의  `Category` 열거형 정수 값을 광고 인덱스 페이지에 전달합니다.
 	
 		<li>@Html.ActionLink("Cars", "Index", "Ad", new { category = (int)Category.Cars }, null)</li>
 		<li>@Html.ActionLink("Real estate", "Index", "Ad", new { category = (int)Category.RealEstate }, null)</li>
@@ -583,9 +587,9 @@ ContosoAdsContext 클래스는 DbSet 컬렉션에서 Ad 클래스가 사용된�
 
 ### ContosoAdsWeb - AdController.cs
 
- *AdController.cs* 파일에서 생성자는 `InitializeStorage` 메서드를 호출하여 Blob 및 큐 작업을 위한 API를 제공하는 Azure 저장소 클라이언트 라이브러리 개체를 만듭니다. 
+ *AdController.cs* 파일에서 생성자는  `InitializeStorage` 메서드를 호출하여 Blob 및 큐 작업을 위한 API를 제공하는 Azure 저장소 클라이언트 라이브러리 개체를 만듭니다. 
 
-그런 다음, 코드는 앞서 *Global.asax.cs*에서 확인한 *images* Blob 컨테이너에 대한 참조를 가져옵니다. 그 과정에서 웹앱에 해당하는 기본 [재시도 정책](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling)을 설정합니다. 기본 지수 백오프 재시도 정책은 일시적 오류에 대해 반복적으로 재시도하는 경우 1분 넘게 웹앱을 중지시킬 수 있습니다. 여기서 지정된 재시도 정책은 시도 횟수 최대 3회까지 각 시도 이후에 3초 동안 대기합니다.
+그런 다음, 코드는 앞서  *Global.asax.cs*에서 확인한  *images* Blob 컨테이너에 대한 참조를 가져옵니다. 그 과정에서 웹 앱에 해당하는 기본 [재시도 정책](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling)을 설정합니다. 기본 지수 백오프 재시도 정책은 일시적 오류에 대해 반복적으로 재시도하는 경우 1분 넘게 웹앱을 중지시킬 수 있습니다. 여기서 지정된 재시도 정책은 시도 횟수 최대 3회까지 각 시도 이후에 3초 동안 대기합니다.
 
 		var blobClient = storageAccount.CreateCloudBlobClient();
 		blobClient.RetryPolicy = new LinearRetry(TimeSpan.FromSeconds(3), 3);
@@ -605,7 +609,7 @@ ContosoAdsContext 클래스는 DbSet 컬렉션에서 Ad 클래스가 사용된�
 		    [Bind(Include = "Title,Price,Description,Category,Phone")] Ad ad,
 		    HttpPostedFileBase imageFile)
 
-사용자가 업로드할 파일을 선택한 경우 코드는 파일을 업로드하고 Blob에 저장하며 광고 데이터베이스 레코드를 Blob를 가리키는 URL로 업데이트합니다.
+사용자가 업로드할 파일을 선택한 경우 코드는 파일을 업로드하고 Blob에 저장하며 광고 데이터베이스 레코드를 Blob을 가리키는 URL로 업데이트합니다.
 
 		if (imageFile != null && imageFile.ContentLength != 0)
 		{
@@ -613,7 +617,7 @@ ContosoAdsContext 클래스는 DbSet 컬렉션에서 Ad 클래스가 사용된�
 		    ad.ImageURL = blob.Uri.ToString();
 		}
 
-업로드를 수행하는 코드는 `UploadAndSaveBlobAsync` 메서드에 있습니다. Blob에 대한 GUID 이름을 만들고, 파일을 업로드 및 저장하며, 저장된 Blob에 대한 참조를 반환합니다.
+업로드를 수행하는 코드는  `UploadAndSaveBlobAsync` 메서드에 있습니다. Blob에 대한 GUID 이름을 만들고, 파일을 업로드 및 저장하며, 저장된 Blob에 대한 참조를 반환합니다.
 
 		private async Task<CloudBlockBlob> UploadAndSaveBlobAsync(HttpPostedFileBase imageFile)
 		{
@@ -626,7 +630,7 @@ ContosoAdsContext 클래스는 DbSet 컬렉션에서 Ad 클래스가 사용된�
 		    return imageBlob;
 		}
 
-HttpPost `Create` 메서드가 Blob을 업로드하고 데이터베이스를 업데이트한 후에는 이미지를 미리 보기로 변환할 수 있는 백 엔드 프로세스에 대해 알리는 큐 메시지를 만듭니다.
+HttpPost `Create` 메서드가 Blob을 업로드하고 데이터베이스를 업데이트한 후에는 이미지를 미리 보기로 변환할 수 있는 백엔드 프로세스에 대해 알리는 큐 메시지를 만듭니다.
 
 		string queueMessageString = ad.AdId.ToString();
 		var queueMessage = new CloudQueueMessage(queueMessageString);
@@ -641,7 +645,7 @@ HttpPost `Edit` 메서드의 코드도 비슷하지만, 사용자가 새 이미�
 		    ad.ImageURL = imageBlob.Uri.ToString();
 		}
 
-다음은 광고를 삭제하면 Blob을 삭제하는 코드입니다.
+다음은 광고를 삭제하면 Blob를 삭제하는 코드입니다.
 
 		private async Task DeleteAdBlobsAsync(Ad ad)
 		{
@@ -675,7 +679,7 @@ HttpPost `Edit` 메서드의 코드도 비슷하지만, 사용자가 새 이미�
 
 ### ContosoAdsWeb - Views\Ad\Create.cshtml 및 Edit.cshtml
 
- *Create.cshtml* 및 *Edit.cshtml* 파일은 컨트롤러가  `HttpPostedFileBase` 개체를 가져올 수 있게 하는 양식 인코딩을 지정합니다.
+ *Create.cshtml* 및  *Edit.cshtml* 파일은 컨트롤러가  `HttpPostedFileBase` 개체를 가져올 수 있게 하는 양식 인코딩을 지정합니다.
 
 		@using (Html.BeginForm("Create", "Ad", FormMethod.Post, new { enctype = "multipart/form-data" }))
 
@@ -685,7 +689,7 @@ HttpPost `Edit` 메서드의 코드도 비슷하지만, 사용자가 새 이미�
 
 ### ContosoAdsWorker - WorkerRole.cs - OnStart 메서드
 
-Azure 작업자 역할 환경은 작업자 역할이 시작될 때 `OnStart` 메서드( `WorkerRole`클래스에 있음)를 호출하고 `Run` 메서드를 호출합니다( `OnStart` 메서드가 완료되는 경우).
+Azure 작업자 역할 환경은 작업자 역할이 시작될 때 `OnStart` 메서드( `WorkerRole` 클래스에 있음)를 호출하고  `Run` 메서드를 호출합니다( `OnStart` 메서드가 완료되는 경우).
 
  `OnStart` 메서드는 *.cscfg* 파일에서 데이터베이스 연결 문자열을 가져와 Entity Framework DbContext 클래스에 전달합니다. SQLClient 공급자는 기본적으로 사용되므로, 이 공급자를 지정할 필요가 없습니다.
 
@@ -770,9 +774,9 @@ Azure 작업자 역할 환경은 작업자 역할이 시작될 때 `OnStart` 메
 
 ### ServiceRuntime.RoleEnvironmentException
 
-Azure에서 응용 프로그램을 실행하거나 Azure 계산 에뮬레이터를 사용하여 로컬에서 실행하면 `RoleEnvironment` 개체가 Azure에서 제공됩니다.  로컬에서 실행할 때 이 오류가 나타나는 경우 ContosoAdsCloudService 프로젝트를 시작 프로젝트로 설정해야 합니다. 그러면 Azure 계산 에뮬레이터를 사용하여 실행되도록 프로젝트가 설정됩니다.
+Azure에서 응용 프로그램을 실행하거나 Azure 계산 에뮬레이터를 사용하여 로컬에서 실행하면  `RoleEnvironment` 개체가 Azure에서 제공됩니다.  로컬에서 실행할 때 이 오류가 나타나는 경우 ContosoAdsCloudService 프로젝트를 시작 프로젝트로 설정해야 합니다. 그러면 Azure 계산 에뮬레이터를 사용하여 실행되도록 프로젝트가 설정됩니다.
 
-응용 프로그램이 Azure RoleEnvironment를 사용하는 이유 중 하나는 *.cscfg* 파일에서 저장된 연결 문자열 값을 가져오는 것이므로, 이 예외를 일으키는 또 다른 원인은 누락된 연결 문자열입니다. ContosoAdsWeb 프로젝트에서 클라우드 및 로컬 구성으로 StorageConnectionString 설정을 만들어야 하며, ContosoAdsWorker 프로젝트에서 두 구성 모두에 대해 두 연결 문자열을 만들어야 합니다. 전체 솔루션에서 StorageConnectionString에 대해 **모두 찾기**로 검색하는 경우 6개 파일에서 9번 표시됩니다.
+응용 프로그램이 Azure RoleEnvironment를 사용하는 이유 중 하나는 *.cscfg* 파일에 저장된 연결 문자열 값을 가져오는 것이므로, 이 예외를 일으키는 또 다른 원인은 누락된 연결 문자열입니다. ContosoAdsWeb 프로젝트에서 클라우드 및 로컬 구성으로 StorageConnectionString 설정을 만들어야 하며, ContosoAdsWorker 프로젝트에서 두 구성 모두에 대해 두 연결 문자열을 만들어야 합니다. 전체 솔루션에서 StorageConnectionString에 대해 **모두 찾기**로 검색하는 경우 6개 파일에서 9번 표시됩니다.
 
 ### xxx 포트로 재정할 수 없음. 프로토콜 http에 대한 최소 허용 값 8080 미만의 새 포트
 
@@ -794,20 +798,20 @@ Contoso Ads 응용 프로그램은 시작 자습서용으로 의도적으로 단
 
 다음은 더 실질적인 코딩 방식을 보여 주는 몇 가지 클라우드 서비스 샘플 응용 프로그램입니다. 복잡성이 낮은 것부터 높은 것 순서로 나열되었습니다.
 
-* [PhluffyFotos](http://code.msdn.microsoft.com/PhluffyFotos-Sample-7ecffd31)(영문). 개념이 Contoso Ads와 비슷하지만, 더 많은 기능과 더 실질적인 코딩 방식을 구현합니다.
-* [테이블, 큐 및 Blob이 포함된 Azure 클라우드 서비스 다중 계층 응용 프로그램](http://code.msdn.microsoft.com/windowsazure/Windows-Azure-Multi-Tier-eadceb36)(영문). Azure 저장소 테이블뿐만 아니라 Blob 및 큐에 대해 소개합니다. [단계별 자습서 시리즈](http://azure.microsoft.com/documentation/articles/cloud-services-dotnet-multi-tier-app-storage-1-overview/)(영문)와 함께 제공됩니다.
+* [PhluffyFotos](http://code.msdn.microsoft.com/PhluffyFotos-Sample-7ecffd31). 개념이 Contoso Ads와 비슷하지만, 더 많은 기능과 더 실질적인 코딩 방식을 구현합니다.
+* [테이블, 큐 및 Blob이 포함된 Azure 클라우드 서비스 다중 계층 응용 프로그램](http://code.msdn.microsoft.com/windowsazure/Windows-Azure-Multi-Tier-eadceb36)(영문). Azure 저장소 테이블뿐만 아니라 Blob 및 큐에 대해 소개하며, [단계별 자습서 시리즈](영문)와 함께 제공됩니다(cloud-services-dotnet-multi-tier-app-storage-1-overview.md).
 * [Microsoft Azure의 클라우드 서비스 기본 사항](http://code.msdn.microsoft.com/Cloud-Service-Fundamentals-4ca72649)(영문). 다양한 모범 사례를 보여 주는 포괄적인 샘플이며 Microsoft 패턴 및 작업 방식 그룹에서 제작했습니다.
 
-클라우드용 개발 관련 일반 정보는 [Microsoft Azure에서 실제 클라우드 앱 빌드](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction)(영문)를 참조하세요.
+클라우드용 개발 관련 일반 정보는 [Azure에서 실제 클라우드 앱 빌드](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction)(영문)를 참조하세요.
 
 Azure 저장소 모범 사례 및 패턴에 대한 비디오 소개는 [Microsoft Azure 저장소 - 새로운 기능, 모범 사례 및 패턴](http://channel9.msdn.com/Events/Build/2014/3-628)(영문)을 참조하세요.
 
 자세한 내용은 다음 리소스를 참조하세요.
 
 * [Azure 클라우드 서비스 1 부: 소개](http://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
-* [Azure 클라우드 서비스](/ko-kr/documentation/services/cloud-services/)
-* [Azure 저장소](/ko-kr/documentation/services/storage/)
+* [Azure 클라우드 서비스](/documentation/services/cloud-services/)
+* [Azure 저장소](/documentation/services/storage/)
 * [.NET에서 Blob 저장소를 사용하는 방법](storage-dotnet-how-to-use-blobs.md)
 * [.NET에서 큐 저장소를 사용하는 방법](storage-dotnet-how-to-use-queues.md)
 
-<!--HONumber=45--> 
+<!--HONumber=52-->

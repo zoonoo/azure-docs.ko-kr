@@ -6,7 +6,7 @@
 
 이 자습서에서는 이미 사용할 수 있는 이벤트 허브 spout와 함께 제공되는 [HDInsight Storm] 설치를 사용합니다.
 
-1. [HDInsight Storm - 시작](http://azure.microsoft.com/documentation/articles/hdinsight-storm-getting-started/) 절차에 따라 새 HDInsight 클러스터를 만들고 원격 데스크톱을 통해 이 클러스터에 연결합니다.
+1. [HDInsight Storm - 시작](../articles/hdinsight-storm-getting-started.md) 절차에 따라 새 HDInsight 클러스터를 만들고 원격 데스크톱을 통해 이 클러스터에 연결합니다.
 
 2.  `%STORM_HOME%\examples\eventhubspout\eventhubs-storm-spout-0.9-jar-with-dependencies.jar` 파일을 로컬 개발 환경에 복사합니다. 이 파일에는 events-storm-spout가 포함되어 있습니다.
 
@@ -25,7 +25,7 @@
 7. **GroupId** 및 **ArtifactId**를 삽입하고 **마침**을 클릭합니다.
 
 8. **pom.xml**에서 `<dependency>` 노드에 다음 종속성을 추가합니다.
-		
+
 		<dependency>
 			<groupId>org.apache.storm</groupId>
 			<artifactId>storm-core</artifactId>
@@ -57,20 +57,20 @@
 9. **src** 폴더에 **Config.properties**라는 파일을 만들고 다음 내용을 복사하여 다음 값으로 대체합니다.
 
 		eventhubspout.username = ReceiveRule
-		
+
 		eventhubspout.password = {receive rule key}
-		
+
 		eventhubspout.namespace = ioteventhub-ns
-		
+
 		eventhubspout.entitypath = {event hub name}
-		
+
 		eventhubspout.partitions.count = 16
-		
+
 		# if not provided, will use storm's zookeeper settings
 		# zookeeper.connectionstring=localhost:2181
-		
+
 		eventhubspout.checkpoint.interval = 10
-		
+
 		eventhub.receiver.credits = 10
 
 	**eventhub.receiver.credits**의 값에 따라 이벤트를 Storm 파이프라인으로 릴리스하기 전에 얼마나 많은 수의 이벤트가 일괄 처리되는지 결정됩니다. 간단히 하기 위해 이 예에서는 이 값을 10으로 설정합니다. 프로덕션 환경에서 일반적으로 더 높게(예: 1024) 설정해야 합니다.
@@ -85,31 +85,31 @@
 		import backtype.storm.topology.OutputFieldsDeclarer;
 		import backtype.storm.topology.base.BaseRichBolt;
 		import backtype.storm.tuple.Tuple;
-		
+
 		public class LoggerBolt extends BaseRichBolt {
 			private OutputCollector collector;
 			private static final Logger logger = LoggerFactory
 				      .getLogger(LoggerBolt.class);
-		
+
 			@Override
-			public void execute(Tuple tuple) {				
+			public void execute(Tuple tuple) {
 				String value = tuple.getString(0);
 				logger.info("Tuple value: " + value);
-				
+
 				collector.ack(tuple);
 			}
-		
+
 			@Override
 			public void prepare(Map map, TopologyContext context, OutputCollector collector) {
 				this.collector = collector;
 				this.count = 0;
 			}
-		
+
 			@Override
 			public void declareOutputFields(OutputFieldsDeclarer declarer) {
-				// no output fields
+				// 출력 필드 없음
 			}
-		
+
 		}
 
 	이 Storm 볼트는 수신된 이벤트의 콘텐츠를 기록합니다. 튜플을 저장소 서비스에 저장하도록 간단히 확장할 수 있습니다. [HDInsight 센서 분석 자습서]에서는 동일한 방법을 사용하여 데이터를 HBase에 저장합니다.
@@ -126,11 +126,11 @@
 		import com.microsoft.eventhubs.samples.EventCount;
 		import com.microsoft.eventhubs.spout.EventHubSpout;
 		import com.microsoft.eventhubs.spout.EventHubSpoutConfig;
-		
+
 		public class LogTopology {
 			protected EventHubSpoutConfig spoutConfig;
 			protected int numWorkers;
-		
+
 			protected void readEHConfig(String[] args) throws Exception {
 				Properties properties = new Properties();
 				if (args.length > 1) {
@@ -139,7 +139,7 @@
 					properties.load(EventCount.class.getClassLoader()
 							.getResourceAsStream("Config.properties"));
 				}
-		
+
 				String username = properties.getProperty("eventhubspout.username");
 				String password = properties.getProperty("eventhubspout.password");
 				String namespaceName = properties
@@ -153,32 +153,32 @@
 						.getProperty("eventhubspout.checkpoint.interval"));
 				int receiverCredits = Integer.parseInt(properties
 						.getProperty("eventhub.receiver.credits")); // prefetch count
-																	// (opt)
+																	// (옵션)
 				System.out.println("Eventhub spout config: ");
 				System.out.println("  partition count: " + partitionCount);
 				System.out.println("  checkpoint interval: "
 						+ checkpointIntervalInSeconds);
 				System.out.println("  receiver credits: " + receiverCredits);
-		
+
 				spoutConfig = new EventHubSpoutConfig(username, password,
 						namespaceName, entityPath, partitionCount, zkEndpointAddress,
 						checkpointIntervalInSeconds, receiverCredits);
-		
-				// set the number of workers to be the same as partition number.
-				// the idea is to have a spout and a logger bolt co-exist in one
-				// worker to avoid shuffling messages across workers in storm cluster.
+
+				// 작업자 수를 파티션 번호와 동일하게 설정합니다.
+				// spout 및 로거 볼트가 하나에 존재하도록 합니다.
+				// storm 클러스터에서 작업자 간에 메시지가 유실되지 않도록 방지합니다.
 				numWorkers = spoutConfig.getPartitionCount();
-		
+
 				if (args.length > 0) {
-					// set topology name so that sample Trident topology can use it as
-					// stream name.
+					// 샘플 Trident 토폴로지를 스트림 이름으로 사용하도록 토폴로지 이름을
+					// 설정합니다.
 					spoutConfig.setTopologyName(args[0]);
 				}
 			}
-		
+
 			protected StormTopology buildTopology() {
 				TopologyBuilder topologyBuilder = new TopologyBuilder();
-		
+
 				EventHubSpout eventHubSpout = new EventHubSpout(spoutConfig);
 				topologyBuilder.setSpout("EventHubsSpout", eventHubSpout,
 						spoutConfig.getPartitionCount()).setNumTasks(
@@ -190,14 +190,14 @@
 						.setNumTasks(spoutConfig.getPartitionCount());
 				return topologyBuilder.createTopology();
 			}
-		
+
 			protected void runScenario(String[] args) throws Exception {
 				boolean runLocal = true;
 				readEHConfig(args);
 				StormTopology topology = buildTopology();
 				Config config = new Config();
 				config.setDebug(false);
-		
+
 				if (runLocal) {
 					config.setMaxTaskParallelism(2);
 					LocalCluster localCluster = new LocalCluster();
@@ -209,7 +209,7 @@
 				    StormSubmitter.submitTopology(args[0], config, topology);
 				}
 			}
-		
+
 			public static void main(String[] args) throws Exception {
 				LogTopology topology = new LogTopology();
 				topology.runScenario(args);
@@ -220,7 +220,7 @@
 	이 클래스는 새 이벤트 허브 spout를 만들고, 구성 파일의 속성을 사용하여 spout를 인스턴스화합니다. 이 예에서는 이벤트 허브에서 허용되는 최대 병렬 처리를 사용하기 위해 이벤트 허브의 파티션 수만큼 spout 작업을 많이 만듭니다.
 
 <!-- Links -->
-[이벤트 허브 개요]: http://msdn.microsoft.com/library/azure/dn821413.aspx
+[이벤트 허브 개요]: http://msdn.microsoft.com/library/azure/dn836025.aspx
 [HDInsight Storm]: http://azure.microsoft.com/documentation/articles/hdinsight-storm-overview/
 [HDInsight 센서 분석 자습서]: http://azure.microsoft.com/documentation/articles/hdinsight-storm-sensor-data-analysis/
 
@@ -229,4 +229,4 @@
 [12]: ./media/service-bus-event-hubs-getstarted/create-storm1.png
 [13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
 [14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
-<!--HONumber=47-->
+<!--HONumber=52--> 

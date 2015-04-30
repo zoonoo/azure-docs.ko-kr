@@ -1,39 +1,41 @@
-﻿<properties 
-	pageTitle="테이블 저장소를 사용한 PHP 웹 사이트 - Azure 자습서" 
-	description="이 자습서에서는 PHP 웹 사이트를 만들고 백 엔드에서 Azure 테이블 저장소 서비스를 사용하는 방법을 설명합니다." 
-	services="web-sites, storage" 
+<properties 
+	pageTitle="Azure 저장소를 사용하는 Azure 앱 서비스에서 PHP 웹 앱 만들기" 
+	description="이 자습서에서는 Azure 앱 서비스에서 PHP 웹 앱을 만들고 백 엔드에서 Azure 테이블 저장소 서비스를 사용하는 방법을 설명합니다." 
+	services="app-service\web, storage" 
 	documentationCenter="php" 
 	authors="tfitzmac" 
 	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="11/21/2014" 
+	ms.date="04/07/2015" 
 	ms.author="tomfitz"/>
 
-#Azure 저장소를 사용하여 PHP 웹 사이트 만들기
+# Azure 저장소를 사용하는 Azure 앱 서비스에서 PHP 웹 앱 만들기
 
-이 자습서에서는 PHP 웹 사이트를 만들고 백 엔드에서 Azure 테이블 저장소 서비스를 사용하는 방법을 설명합니다. 이 자습서의 내용은 컴퓨터에 [PHP][install-php] 및 웹 서버가 설치되어 있다는 것을 전제로 합니다. 이 자습서의 지침은 Windows, Mac 및 Linux를 포함하여 모든 운영 체제에 적용될 수 있습니다. 이 가이드를 완료하면 Azure에서 실행하고 테이블 저장소 서비스에 액세스하는 PHP 웹 사이트가 완성됩니다.
+이 자습서에서는 [Azure 앱 서비스](http://go.microsoft.com/fwlink/?LinkId=529714)에서 PHP 웹 앱을 만들고 백 엔드에서 Azure 테이블 저장소 서비스를 사용하는 방법을 설명합니다. 이 자습서의 내용은 컴퓨터에 [PHP][install-php] 및 웹 서버가 설치되어 있다는 것을 전제로 합니다. 이 자습서의 지침은 Windows, Mac 및 Linux를 포함하여 모든 운영 체제에 적용될 수 있습니다. 이 가이드를 완료하면 Azure에서 실행하고 테이블 저장소 서비스에 액세스하는 PHP 웹 앱이 완성됩니다.
  
 다음 내용을 배웁니다.
 
 * Azure 클라이언트 라이브러리를 설치하고 응용 프로그램에 포함하는 방법
 * 클라이언트 라이브러리를 사용하여 테이블을 생성하고 테이블 엔터티를 생성, 쿼리 및 삭제하는 방법
 * Azure 저장소 계정을 만들고 응용 프로그램을 설정하여 사용하는 방법
-* Azure 웹 사이트를 만들고 Git를 사용하여 배포하는 방법
+* Azure 웹 앱을 만들고 Git를 사용하여 배포하는 방법
  
 PHP에서 간단한 작업 목록 응용 프로그램을 빌드할 것입니다. 아래에는 완성된 응용 프로그램의 스크린샷이 표시되어 있습니다.
 
-![Azure PHP web site][ws-storage-app]
+![Azure PHP 웹 앱][ws-storage-app]
 
 [AZURE.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
-##Azure 클라이언트 라이브러리 설치
+>[AZURE.NOTE] Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 응용 프로그램을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+
+## Azure 클라이언트 라이브러리 설치
 
 작성기를 통해 Azure용 PHP 클라이언트 라이브러리를 설치하려면 다음 단계를 따르세요.
 
@@ -63,7 +65,7 @@ PHP에서 간단한 작업 목록 응용 프로그램을 빌드할 것입니다.
 
 		php composer.phar install
 
-##클라이언트 라이브러리 시작
+## 클라이언트 라이브러리 시작
 
 라이브러리를 사용하여 Azure API에 대해 호출하기 전 수행해야 할 기본적인 네 가지 단계가 있습니다. 이러한 단계를 수행할 초기화 스크립트를 작성할 것입니다.
 
@@ -97,7 +99,7 @@ PHP에서 간단한 작업 목록 응용 프로그램을 빌드할 것입니다.
 
 		$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
 	
-	`$tableRestProxy` contains a method for every REST call available on Azure Tables.
+	`$tableRestProxy` 에는 Azure 테이블에서 사용할 수 있는 모든 REST 호출에 대한 메서드가 포함됩니다.
 
 
 ## 테이블 만들기
@@ -126,7 +128,7 @@ PHP에서 간단한 작업 목록 응용 프로그램을 빌드할 것입니다.
 	다음에서 오류 코드 및 메시지 검색을 찾을 수 있습니다. [http://msdn.microsoft.com/library/windowsazure/dd179438.aspx][msdn-errors]
 
 
-##테이블 쿼리
+## 테이블 쿼리
 
 작업 목록 응용 프로그램의 홈페이지에는 기존 작업이 모두 나열되어야 하며 새 작업을 삽입할 수 있어야 합니다.
 
@@ -154,7 +156,7 @@ PHP에서 간단한 작업 목록 응용 프로그램을 빌드할 것입니다.
 		<?php		
 		require_once "init.php";
 
-*  *tasks* 테이블에 저장되는 **모든 엔터티**에 대해 Azure 테이블을 쿼리하기 위해 테이블 이름만 전달하는  *queryEntities* 메서드를 호출합니다. 아래 **엔터티 업데이트** 섹션에 특정 엔터티를 쿼리하는 필터를 전달하는 방법도 나와 있습니다.
+*  *tasks* 테이블에 저장되는 **모든 엔터티**에 대해 Azure 테이블을 쿼리하기 위해 테이블 이름만 전달하는 *queryEntities* 메서드를 호출합니다. 아래 **엔터티 업데이트** 섹션에 특정 엔터티를 쿼리하는 필터를 전달하는 방법도 나와 있습니다.
 
 		try {
 		    $result = $tableRestProxy->queryEntities('tasks');
@@ -203,7 +205,7 @@ PHP에서 간단한 작업 목록 응용 프로그램을 빌드할 것입니다.
 			echo "<h3>No items on list.</h3>";
 		?>
 
-* Last, you must insert the form that feeds data into the task insertion script and complete the HTML:
+* 마지막으로, 작업 삽입 스크립트에 데이터를 공급하는 형식을 삽입하고 HTML을 완성해야 합니다.
 
 			<hr/>
 			<form action="additem.php" method="post">
@@ -249,7 +251,7 @@ PHP에서 간단한 작업 목록 응용 프로그램을 빌드할 것입니다.
 		$entity->addProperty('date', EdmType::STRING, $_POST['date']);
 		$entity->addProperty('complete', EdmType::BOOLEAN, false);
 
-* 그런 다음 방금 만든 `$entity`를  `insertEntity` 메서드에 전달할 수 있습니다.
+* 그런 다음 방금 만든 `$entity`를 `insertEntity` 메서드에 전달할 수 있습니다.
 
 		try{
 			$tableRestProxy->insertEntity('tasks', $entity);
@@ -267,7 +269,7 @@ PHP에서 간단한 작업 목록 응용 프로그램을 빌드할 것입니다.
 	
 ## 엔터티 업데이트
 
-작업 목록 응용 프로그램에는 항목을 완료로 표시하고 표시 해제하는 기능이 있습니다. 홈 페이지는 엔터티의  *RowKey* 및  *PartitionKey* 및 대상 상태(marked==1, unmarked==0를 전달합니다.
+작업 목록 응용 프로그램에는 항목을 완료로 표시하고 표시 해제하는 기능이 있습니다. 홈페이지는 엔터티의 *RowKey* 및 *PartitionKey* 및 대상 상태(표시==1, 표시 해제==0)를 전달합니다.
 
 * **markitem.php**라는 파일을 만들고 초기화 부분을 추가합니다.
 
@@ -281,7 +283,7 @@ PHP에서 간단한 작업 목록 응용 프로그램을 빌드할 것입니다.
 		$entities = $result->getEntities();		
 		$entity = $entities[0];
 
-	표시된 것처럼, 쿼리 필터에 전달된 형식은 `Key eq 'Value'`입니다. 쿼리 구문에 대한 전체 설명은 [여기][msdn-table-query-syntax]에서 볼 수 있습니다.
+	표시된 것처럼 쿼리 필터에 전달된 형식은 `Key eq 'Value'`입니다. 쿼리 구문에 대한 전체 설명은 [여기][msdn-table-query-syntax]에서 볼 수 있습니다.
 
 * 그런 다음 속성을 변경할 수 있습니다.
 
@@ -321,80 +323,47 @@ PHP에서 간단한 작업 목록 응용 프로그램을 빌드할 것입니다.
 
 응용 프로그램에서 데이터를 클라우드에 저장하도록 만들려면 먼저 Azure에 저장소 계정을 만든 다음 적절한 인증 정보를  *Configuration* 클래스에 전달해야 합니다.
 
-1. [Azure 관리 포털][management-portal]에 로그인합니다.
+1. [Azure 포털][management-portal]에 로그인합니다.
 
-2. 포털의 왼쪽 아래에서 **+ 새로 만들기** 아이콘을 클릭합니다.
+2. 포털의 왼쪽 아래에서 **새로 만들기** 아이콘을 클릭한 다음 **데이터 + 저장소** > **저장소**를 클릭합니다. 저장소 계정에 고유한 이름을 지정하고 이를 위한 새 [리소스 그룹](azure-preview-portal-using-resource-groups.md)을 만듭니다.
 
-	![Create New Azure web site][new-website]
-
-3. **데이터 서비스**, **저장소**, **빠른 생성**을 차례로 클릭합니다.
-
-	![Custom Create a new web site][storage-quick-create]
+	![새 저장소 계정 만들기][storage-quick-create]
 	
-	**URL**에 값을 입력하고 **지역** 드롭다운에서 웹 사이트의 데이터 센터를 선택합니다. 대화 상자 하단에 있는 **저장소 계정 만들기** 단추를 클릭합니다.
+	저장소 계정이 만들어지면 **알림** 단추가 녹색 **성공**으로 깜박이고 저장소 계정의 블레이드가 열려 새로 만든 리소스 그룹에 속한 것을 보여줍니다.
 
-	![Fill in web site details][storage-quick-create-details]
+5. 저장소 계정 블레이드에서 **설정** 부분을 클릭합니다. 계정 이름 및 기본 키를 기록해 둡니다.
 
-	저장소 계정이 만들어지면 **저장소 계정 '[NAME]' 생성이 완료되었습니다.** 텍스트가 표시됩니다.
+	![키 관리 선택][storage-access-keys]
 
-4. **저장소** 탭이 선택되어 있는지 확인한 다음 목록에서 방금 만든 저장소 계정을 선택합니다.
+7. **init.php**를 열고 `[YOUR_STORAGE_ACCOUNT_NAME]` 및 `[YOUR_STORAGE_ACCOUNT_KEY]`를 마지막 단계에서 적어둔 계정 이름과 키로 바꿉니다. 파일을 저장합니다.
 
-5. 하단 앱 바에서 **액세스 키 관리**를 클릭합니다.
+## Azure 웹 앱 만들기 및 Git 게시 설정
 
-	![Select Manage Keys][storage-manage-keys]
+다음 단계에 따라 Azure 웹 앱을 만듭니다.
 
-6. 만든 저장소 계정 및 기본 키의 이름을 메모합니다.
+1. [Azure 포털][management-portal]에 로그인합니다.
 
-	![Select Manage Keys][storage-access-keys]
+2. 다음 지침을 참조하여 빈 웹 앱을 만듭니다. [방법: Azure 포털을 사용하여 웹 앱 만들기](web-sites-create-deploy.md#createawebsiteportal). 새 [앱 서비스 계획](azure-web-sites-web-hosting-plans-in-depth-overview)을 만들고 저장소 계정을 위해 이미 만든 리소스 그룹을 선택해야 합니다.
 
-7. **init.php**를 열고 `[YOUR_STORAGE_ACCOUNT_NAME]` 및 `[YOUR_STORAGE_ACCOUNT_KEY]`를 마지막 단계에서 메모한 계정 이름 및 키로 바꿉니다. 파일을 저장합니다.
+	웹 앱이 만들어지면 **알림** 단추가 녹색 **성공**으로 깜박이고 웹 앱 블레이드가 열려 새로 만든 리소스 그룹에 속한 것을 보여줍니다.
 
+6. 웹 앱 블레이드에서 **연속 배포 설정**을 클릭하고 **로컬 Git 리포지토리**를 선택합니다. **확인**을 클릭합니다.
 
-## Azure 웹 사이트 만들기 및 Git 게시 설정
+	![Git 게시 설정][setup-git-publishing]
 
-다음 단계에 따라 Azure 웹 사이트를 만듭니다.
+7. 로컬 Git 리포지토리를 Azure에 배포하려면 배포 자격 증명도 설정해야 합니다. 웹 앱 블레이드에서 **모든 설정** > **배포 자격 증명**을 클릭하여 자격 증명을 구성합니다. 완료되면 **저장**을 클릭합니다.
 
-1. [Azure 관리 포털][management-portal]에 로그인합니다.
-2. 포털의 왼쪽 아래에서 **+ 새로 만들기** 아이콘을 클릭합니다.
-
-	![Create New Azure Web Site][new-website]
-
-3. **계산**, **웹 사이트**, **빠른 생성**을 차례로 클릭합니다.
-
-	![Custom Create a new web site][website-quick-create]
-	
-	**URL**에 값을 입력하고 **지역** 드롭다운에서 웹 사이트의 데이터 센터를 선택합니다. 대화 상자 하단에 있는 **새 웹 사이트 만들기** 단추를 클릭합니다.
-
-	![Fill in web site details][website-quick-create-details]
-
-	웹 사이트가 만들어지면 **'[SITENAME]' 웹 사이트 만들기가 완료되었습니다.**라는 텍스트가 표시됩니다. 이제 Git 게시를 사용하도록 설정할 수 있습니다.
-
-5. 웹 사이트 목록에 표시된 웹 사이트 이름을 클릭하여 웹 사이트의 **빠른 시작** 대시보드를 엽니다.
-
-	![Open web site dashboard][go-to-dashboard]
-
-
-6. 빠른 시작 페이지의 오른쪽 아래에서 **소스 제어에서 배포 설정**을 선택합니다.
-
-	![Set up Git publishing][setup-git-publishing]
-
-6. "소스 코드 위치?" 질문이 나타나면 **로컬 Git 리포지토리**를 선택하고 화살표를 클릭합니다.
-
-	![where is your source code][where-is-code]
-
-7. Git 게시를 사용하도록 설정하려면 사용자 이름 및 암호를 지정해야 합니다. 만든 사용자 이름 및 암호를 기록해 둡니다. 이전에 Git 리포지토리를 설정한 경우 이 단계를 건너뜁니다.
-
-	![Create publishing credentials][credentials]
+	![게시 자격 증명 만들기][credentials]
 
 	리포지토리를 설정하는 데 몇 초 정도 걸립니다.
 
-8. Git 리포지토리가 준비되면 로컬 리포지토리를 설정하고 파일을 Azure에 푸시하는 데 사용할 수 있는 Git 명령 관련 지침이 제공됩니다.
+8. Git 리포지토리가 준비되면 이제 변경 내용을 푸시합니다. 웹 앱 블레이드에서 동일한 배포 부분을 클릭하여 리포지토리 URL을 찾을 수 있습니다. 
 
-	![Git deployment instructions returned after creating a repository for the website.][git-instructions]
+	![웹 앱용 리포지토리 생성 후 반환된 Git 배포 지침.][git-instructions]
 
 	다음 섹션에서 응용 프로그램을 게시할 때에도 사용되므로 위 지침을 메모하세요.
 
-##응용 프로그램 게시
+## 응용 프로그램 게시
 
 Git를 사용하여 응용 프로그램을 게시하려면 아래 단계를 따르세요.
 
@@ -405,7 +374,7 @@ Git를 사용하여 응용 프로그램을 게시하려면 아래 단계를 따�
 			
 	작성기 패키지 관리자가 Azure 클라이언트 라이브러리 및 종속성을 다운로드할 때 이들이 있는 GitHub 리포지토리를 복제하여 다운로드합니다. 다음 단계에서 응용 프로그램의 루트 폴더 밖에 리포지토리를 생성하여 Git를 통해 응용 프로그램이 배포됩니다. Git는 리포지토리별 파일이 제거되지 않는 한, 클라이언트 라이브러리가 있는 하위 리포지토리를 무시합니다.
 
-2. GitBash(또는 Git가  `PATH`에 있는 경우 터미널)를 열고 디렉터리를 응용 프로그램의 루트 디렉터리로 변경한 후 다음 명령을 실행합니다(**참고:** **Azure 웹 사이트 만들기 및 Git 게시 설정** 섹션 끝에 명시된 것과 동일한 단계 사용).
+2. GitBash를 열거나 Git가  `PATH`에 있는 경우 터미널을 열고 응용 프로그램의 루트 디렉터리로 이동한 후 다음 명령을 실행합니다.
 
 		git init
 		git add .
@@ -415,12 +384,12 @@ Git를 사용하여 응용 프로그램을 게시하려면 아래 단계를 따�
 
 	이전에 만든 암호를 입력하라는 메시지가 나타납니다.
 
-3. **http://[웹 사이트 도메인]/createtable.php**로 이동하여 응용 프로그램의 테이블을 만듭니다.
-4. **http://[웹 사이트 도메인]/index.php**로 이동하여 응용 프로그램을 사용하기 시작합니다.
+3. **http://[웹 앱 도메인]/createtable.php**로 이동하여 응용 프로그램의 테이블을 만듭니다.
+4. **http://[웹 앱 도메인]/index.php**로 이동하여 응용 프로그램을 사용하기 시작합니다.
 
 응용 프로그램을 게시한 후 변경을 시작하고 Git를 사용하여 변경 내용을 게시할 수 있습니다. 
 
-##응용 프로그램의 변경 내용 게시
+## 응용 프로그램의 변경 내용 게시
 
 응용 프로그램에 변경 내용을 게시하려면 다음 단계를 따르세요.
 
@@ -433,38 +402,30 @@ Git를 사용하여 응용 프로그램을 게시하려면 아래 단계를 따�
 
 	이전에 만든 암호를 입력하라는 메시지가 나타납니다.
 
-3. **http://[웹 사이트 도메인]/index.php**로 이동하여 변경 내용을 확인합니다. 
+3. **http://[웹 앱 도메인]/index.php**로 이동하여 변경 내용을 표시합니다. 
+
+## 변경된 내용
+* 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 다음을 참조하세요. [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)
+* 이전 포털에서 새 포털로의 변경에 대한 지침은 다음을 참조하세요. [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)
+
+
+
 
 [install-php]: http://www.php.net/manual/en/install.php
-
-
 [install-git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 [composer-phar]: http://getcomposer.org/composer.phar
-
 [msdn-errors]: http://msdn.microsoft.com/library/windowsazure/dd179438.aspx
-
-
 
 [msdn-table-query-syntax]: http://msdn.microsoft.com/library/windowsazure/dd894031.aspx
 [ws-storage-app]: ./media/web-sites-php-storage/ws-storage-app.png
-[management-portal]: https://manage.windowsazure.com
-[new-website]: ./media/web-sites-php-storage/new_website.jpg
+[management-portal]: https://portal.azure.com
 
-[website-quick-create]: ./media/web-sites-php-storage/createsite.png
-[website-quick-create-details]: ./media/web-sites-php-storage/sitedetails.png
 [storage-quick-create]: ./media/web-sites-php-storage/createstorage.png
-[storage-quick-create-details]: ./media/web-sites-php-storage/provideurl.png
-[storage-manage-keys]: ./media/web-sites-php-storage/accesskeys.png
 [storage-access-keys]: ./media/web-sites-php-storage/keydetails.png
 
-[go-to-dashboard]: ./media/web-sites-php-storage/selectsite.png
 [setup-git-publishing]: ./media/web-sites-php-storage/setup_git_publishing.png
 [credentials]: ./media/web-sites-php-storage/git-deployment-credentials.png
 
-
 [git-instructions]: ./media/web-sites-php-storage/git-instructions.png
-[where-is-code]: ./media/web-sites-php-storage/where_is_code.png
 
-
-
-<!--HONumber=42-->
+<!--HONumber=52-->

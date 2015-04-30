@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle=".NET을 사용하여 미디어 서비스 개발을 위한 컴퓨터를 설정하는 방법" 
 	description="미디어 서비스 .NET SDK를 사용하는 미디어 서비스에 대한 일반적인 필수 구성 요소에 대해 알아봅니다. 또한 Visual Studio 앱을 만드는 방법에 대해서도 알아봅니다." 
 	services="media-services" 
@@ -25,7 +25,7 @@
 
 ## 필수 조건
 
--   신규 또는 기존 Azure 구독의 미디어 서비스 계정. [미디어 서비스 계정을 만드는 방법](media-services-create-account.md)(영문)을 참조하세요.
+-   신규 또는 기존 Azure 구독의 미디어 서비스 계정. [미디어 서비스 계정을 만드는 방법](media-services-create-account.md). 항목(영문)을 참조하세요.
 -   운영 체제: Windows 7, Windows 2008 R2 또는 Windows 8
 -   .NET Framework 4.5
 -   Visual Studio 2013, Visual Studio 2012 또는 Visual Studio 2010 SP1(Professional, Premium, Ultimate 또는 Express) 
@@ -37,7 +37,7 @@
 
 이 섹션에서는 미디어 서비스 .NET SDK 추가를 위한 **NuGet**을 사용하는 방법과 기타 종속된 라이브러리를 보여줍니다. 
 
-또는 GitHub에서 최신 미디어 서비스 .NET SDK 비트를 가져올 수 있습니다([github.com/Azure/azure-sdk-for-media-services](https://github.com/Azure/azure-sdk-for-media-services) 및 [github.com/Azure/azure-sdk-for-media-services-extensions](https://github.com/Azure/azure-sdk-for-media-services-extensions)). 솔루션을 빌드하고 클라이언트 프로젝트에 대한 참조를 추가합니다. 자동으로 모든 필수적인 종속을 다운로드 및 추출하려면 참고합니다.   
+또는, GitHub에서 최신 미디어 서비스 .NET SDK 비트를 가져오고([github.com/Azure/azure-sdk-for-media-services](https://github.com/Azure/azure-sdk-for-media-services) 및 [github.com/Azure/azure-sdk-for-media-services-extensions](https://github.com/Azure/azure-sdk-for-media-services-extensions)), 솔루션을 빌드하고 클라이언트 프로젝트에 대한 참조를 추가합니다. 자동으로 모든 필수적인 종속을 다운로드 및 추출하려면 참고합니다.   
 
 1. Visual Studio 2013, Visual Studio 2012 또는 Visual Studio 2010 SP1에서 새 C# 콘솔 응용 프로그램을 만듭니다. **이름**, **위치** 및 **솔루션 이름**을 입력하고 확인을 클릭합니다. 
 
@@ -48,15 +48,15 @@
 	
 	2. 솔루션 탐색기에서 프로젝트의 이름을 마우스 오른쪽 단추를 클릭하고 NuGet 패키지 관리...를 선택합니다.
 	
-		The Manage NuGet Packages dialog box appears.
+		NuGet 패키지 관리 대화 상자가 나타납니다.
 
 	3. 온라인 갤러리에서 Azure 미디어 서비스 확장에 대한 검색하여 Azure 미디어 서비스 .NET SDK 확장을 선택한 다음 설치 단추를 클릭합니다.
  
-		프로젝트가 수정되고 미디어 서비스 .NET SDK 확장, 미디어 서비스 .NET SDK 및 기타 종속 어셈블리에 대한 참조가 추가 됩니다.
+		프로젝트가 수정되고 미디어 서비스 .NET SDK 확장, 미디어 서비스 .NET SDK 및 기타 종속 어셈블리에 대한 참조가 추가됩니다.
 
-	4. 클리너 개발 환경의 수준을 올릴 NuGet 패키지 복원을 사용하도록 설정하는 것이 좋습니다. 자세한 내용은 [NuGet 패키지 복원 "](http://docs.nuget.org/consume/package-restore)을 참조하십시오.
+	4. 클리너 개발 환경의 수준을 올릴 NuGet 패키지 복원을 사용하도록 설정하는 것이 좋습니다. 자세한 내용은 [NuGet 패키지 복원"](http://docs.nuget.org/consume/package-restore)을 참조하세요.
 
-3. **System.Configuration** 어셈블리에 참조를 추가합니다. 이 어셈블리는 System.Configuration를 포함합니다.**ConfigurationManager** 구성 파일 (예: App.config)에 액세스하는 데 사용되는 클래스입니다. 
+3. **System.Configuration** 어셈블리에 참조를 추가합니다. 이 어셈블리는 구성 파일(예: App.config)에 액세스하는 데 사용되는 시스템 구성.**ConfigurationManager** 클래스를 포함합니다. 
 
 	참조 관리 대화 상자를 사용하여 참조를 추가하려면 다음과 같이 합니다. 
 
@@ -70,7 +70,7 @@
 
 4. App.config 파일을 열고(기본적으로 추가되지 않은 경우 프로젝트에 파일 추가) *appSettings* 섹션을 파일에 추가합니다. Azure 미디어 서비스 계정 이름 및 계정 키의 값을 다음 예제와 같이 설정합니다. 
 	
-	**계정 이름 **및 **계정 키** 정보를 얻으려면 **Azure 관리 포털**을 열고, 미디어 서비스 계정을 선택한 후 **키 관리** 단추를 클릭합니다.
+	**계정 이름**및 **계정 키** 정보를 얻으려면 **Azure 관리 포털**을 열고, 미디어 서비스 계정을 선택한 후 **키 관리** 단추를 클릭합니다.
 
 
 	<pre><code>
@@ -97,4 +97,4 @@
 
 이제 미디어 서비스 응용 프로그램 개발을 시작할 준비가 되었습니다.    
 
-<!--HONumber=45--> 
+<!--HONumber=52-->

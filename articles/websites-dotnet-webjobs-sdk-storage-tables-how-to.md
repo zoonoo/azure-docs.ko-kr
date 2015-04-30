@@ -1,44 +1,36 @@
-﻿<properties 
-	pageTitle="WebJobs SDK를 사용하여 Azure 테이블 저장소로 작업하는 방법" 
+<properties 
+	pageTitle="WebJob SDK를 사용하여 Azure 테이블 저장소로 작업하는 방법" 
 	description="WebJobs SDK를 사용하여 Azure 테이블 저장소로 작업하는 방법에 대해 알아봅니다. 테이블을 만들고, 테이블에 엔터티를 추가하고, 기존 테이블을 읽습니다." 
-	services="web-sites, storage" 
+	services="app-service\web, storage" 
 	documentationCenter=".net" 
 	authors="tdykstra" 
 	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/15/2014" 
+	ms.date="04/03/2015" 
 	ms.author="tdykstra"/>
 
-# WebJobs SDK를 사용하여 Azure 테이블 저장소로 작업하는 방법
+# WebJob SDK를 사용하여 Azure 테이블 저장소로 작업하는 방법
+
+## 개요
 
 이 가이드에서는 [WebJobs SDK](websites-dotnet-webjobs-sdk.md) 버전 1.x를 사용하여 Azure 저장소 테이블을 읽고 쓰는 방법을 보여 주는 C# 코드 샘플을 제공합니다.
 
-이 가이드에서는 [저장소 계정을 가리키는 연결 문자열을 사용하여 Visual Studio에서 WebJob 프로젝트를 만드는 방법](websites-dotnet-webjobs-sdk-get-started.md).을 알고 있는 것으로 가정합니다.
+이 가이드에서는 [저장소 계정을 가리키는 연결 문자열을 사용하여 Visual Studio에서 WebJob 프로젝트를 만드는 방법](websites-dotnet-webjobs-sdk-get-started.md)을 알고 있는 것으로 가정합니다.
 		
-일부 코드 조각에서는  `Table` 특성이 [수동으로 호출된](../websites-dotnet-webjobs-sdk-storage-queues-how-to/#manual) 함수, 즉 트리거 특성 중 하나를 사용하지 않고 호출된 함수에서 사용됩니다. 
-
-## 목차
-
--   [테이블에 엔터티를 추가하는 방법](#ingress)
--   [실시간 모니터링](#monitor)
--   [테이블에서 여러 엔터티를 읽는 방법](#multiple)
--   [테이블에서 단일 엔터티를 읽는 방법](#readone)
--   [.NET 저장소 API를 직접 사용하여 테이블로 작업하는 방법](#readone)
--   [큐 방법 문서에서 다루는 관련 항목](#queues)
--   [다음 단계](#nextsteps)
+일부 코드 조각은 [수동으로 호출](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#manual)되는 함수에서 사용되는 `Table` 특성을 보여줍니다.즉, 트리거 특성 중 하나로 사용되지 않습니다. 
 
 ## <a id="ingress"></a> 테이블에 엔터티를 추가하는 방법
 
-테이블에 엔터티를 추가하려면  `ICollector<T>` 또는  `IAsyncCollector<T>` 매개 변수와 함께  `Table` 특성을 사용합니다(여기서  `T` specifies the schema of the entities you want to add. The attribute constructor takes a string parameter that specifies the name of the table. ).
+테이블에 엔터티를 추가하려면  `ICollector<T>` 또는  `IAsyncCollector<T>` 매개 변수와 함께  `Table` 특성을 사용합니다(여기서  `T` 추가하려는 스키마 엔터티를 지정합니다. 특성 생성자는 표 이름을 지정하는 문자열 매개 변수를 가져옵니다.).
 
-The following code sample adds `Person` 엔터티를  *Ingress*라는 테이블에.
+다음 코드 샘플은 `Person` 엔터티를  *Ingress*라는 테이블에.
 
 		[NoAutomaticTrigger]
 		public static void IngressDemo(
@@ -75,15 +67,15 @@ Azure 저장소 API로 직접 작업하려는 경우 메서드 서명에  `Cloud
 
 데이터 수신 함수는 많은 양의 데이터를 처리하는 경우가 많기 때문에 WebJobs SDK 대시보드에서는 실시간 모니터링 데이터를 제공합니다. **호출 로그** 섹션에 함수가 여전히 실행 중인지 표시됩니다.
 
-![Ingress function running](./media/websites-dotnet-webjobs-sdk-storage-tables-how-to/ingressrunning.png)
+![수신 함수 실행](./media/websites-dotnet-webjobs-sdk-storage-tables-how-to/ingressrunning.png)
 
 **호출 세부 정보** 페이지에는 실행 중인 함수의 진행률(작성된 엔터티 수)이 보고되고 실행을 중단할 수 있는 기능을 제공합니다. 
 
-![Ingress function running](./media/websites-dotnet-webjobs-sdk-storage-tables-how-to/ingressprogress.png)
+![수신 함수 실행](./media/websites-dotnet-webjobs-sdk-storage-tables-how-to/ingressprogress.png)
 
 함수가 완료되면 **호출 세부 정보** 페이지에 작성된 행 수가 보고됩니다.
 
-![Ingress function finished](./media/websites-dotnet-webjobs-sdk-storage-tables-how-to/ingresssuccess.png)
+![수신 함수 완료](./media/websites-dotnet-webjobs-sdk-storage-tables-how-to/ingresssuccess.png)
 
 ## <a id="multiple"></a> 테이블에서 여러 엔터티를 읽는 방법
 
@@ -149,11 +141,11 @@ Azure 저장소 API로 직접 작업하려는 경우 메서드 서명에  `Cloud
 		    tableBinding.Execute(insertOperation);
 		}
 
- `CloudTable` 개체를 사용하는 방법에 대한 자세한 내용은 [.NET에서 테이블 저장소를 사용하는 방법]을 참조하세요(storage-dotnet-how-to-use-tables.md). 
+ `CloudTable` 개체를 사용하는 방법에 대한 자세한 내용은 [.NET에서 테이블 저장소를 사용하는 방법](storage-dotnet-how-to-use-tables.md)을 참조하세요. 
 
 ## <a id="queues"></a>큐 방법 문서에서 다루는 관련 항목
 
-큐 메시지에 의해 트리거되는 테이블을 처리하는 방법 또는 테이블 처리에 특정하지 않은 WebJobs SDK 시나리오에 대한 자세한 내용은 [WebJobs SDK를 사용하여 Azure 큐 저장소로 작업하는 방법](websites-dotnet-webjobs-sdk-storage-queues-how-to.md). 을 참조하세요.
+큐 메시지에 의해 트리거되는 테이블을 처리하는 방법 또는 테이블 처리에 특정하지 않은 WebJobs SDK 시나리오에 대한 자세한 내용은 [WebJobs SDK를 사용하여 Azure 큐 저장소로 작업하는 방법](websites-dotnet-webjobs-sdk-storage-queues-how-to.md)을 참조하세요. 
 
 이 문서에서 다루는 항목은 다음과 같습니다.
 
@@ -170,6 +162,4 @@ Azure 저장소 API로 직접 작업하려는 경우 메서드 서명에  `Cloud
 
 이 가이드에서는 Azure 테이블 작업에 대한 일반적인 시나리오를 처리하는 방법을 보여 주는 코드 샘플을 제공했습니다. Azure WebJob 및 WebJob SDK를 사용하는 방법에 대한 자세한 내용은 [Azure WebJob - 권장 리소스](http://go.microsoft.com/fwlink/?linkid=390226)를 참조하세요.
 
-
-
-<!--HONumber=42-->
+<!--HONumber=52-->

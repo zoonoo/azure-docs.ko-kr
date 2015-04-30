@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="이벤트 허브 시작" 
 	description="이 자습서에 따라 Azure 이벤트 허브를 사용하여 Java로 이벤트를 보내고 EventProcessorHost를 통해 C#으로 이벤트를 받을 수 있습니다." 
 	services="service-bus" 
@@ -56,7 +56,7 @@
 
    	![][4]
 
-6. 페이지 위쪽의 **구성** 탭을 클릭하고 *Send* 권한이 있는 **SendRule** 규칙과 *관리, 보내기, 수신 대기* 권한이 있는 **ReceiveRule** 규칙을 추가한 후에 **저장**을 클릭합니다.
+6. 페이지 위쪽의 **구성** 탭을 클릭하고 *Send* 권한이 있는 **SendRule** 규칙과 *Manage, Send, Listen* 권한이 있는 **ReceiveRule** 규칙을 추가한 후에 **저장**을 클릭합니다.
 
    	![][5]
 
@@ -105,4 +105,4 @@
 [이벤트 프로세서 호스트]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
 [이벤트 허브 개요]: http://msdn.microsoft.com/library/azure/dn836025.aspx
 
-<!--HONumber=47-->
+<!--HONumber=52-->

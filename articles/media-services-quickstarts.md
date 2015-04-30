@@ -16,18 +16,18 @@
 	ms.date="02/18/2015" 
 	ms.author="juliako"/>
 
-#미디어 서비스 빠른 시작
+# 미디어 서비스 빠른 시작
 
-##<a id="vod_quickstart"></a>주문형 비디오 
+## <a id="vod_quickstart"></a>주문형 비디오 
 
 .NET 또는 REST를 사용하여 구현된 빠른 시작을 보려면 선택합니다.
  
 [AZURE.INCLUDE [media-services-selector-get-started](../includes/media-services-selector-get-started.md)]
 
 
-##<a id="live_quickstart"></a>라이브 스트리밍
+## <a id="live_quickstart"></a>라이브 스트리밍
  
 [.NET 시작](http://msdn.microsoft.com/library/azure/dn783465.aspx)
 
 
-<!--HONumber=47-->
+<!--HONumber=52-->

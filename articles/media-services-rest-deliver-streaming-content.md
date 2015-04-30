@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="미디어 서비스에서 스트리밍 콘텐츠를 제공하는 방법" 
 	description="스트리밍 URL을 작성하는 데 사용되는 로케이터를 만드는 방법에 대해 알아봅니다. REST API를 사용하는 코드입니다." 
-	authors="juliako" 
+	authors="Juliako" 
 	manager="dwrede" 
 	editor="" 
 	services="media-services" 
@@ -17,14 +17,14 @@
 	ms.author="juliako"/>
 
 
-#방법: 스트리밍 콘텐츠 제공
+# 방법: 스트리밍 콘텐츠 제공
 
-이 문서는 [워크플로 주문형 미디어 서비스 비디오](../media-services-video-on-demand-workflow) 시리즈의 및 [미디어 서비스 라이브 스트리밍 워크플로](../media-services-live-streaming-workflow) 일부입니다.  
+이 문서는 [미디어 서비스 주문형 비디오 워크플로](media-services-video-on-demand-workflow.md) 및 [미디어 서비스 라이브 스트리밍 워크플로](media-services-live-streaming-workflow.md) 시리즈의 일부입니다.  
 
-##개요
+## 개요
 
 
-적응 비트 전송률 MP4 집합은 주문형 스트리밍 로케이터를 만들고 스트리밍 URL을 작성하여 스트리밍할 수 있습니다. [자산 인코딩](../media-services-rest-encode-asset) 항목에서는 적응 비트 전송률 MP4 집합으로 인코딩하는 방법을 보여 줍니다. [이](../media-services-rest-configure-asset-delivery-policy) 항목에서 설명한 대로 로케이터를 만들기 전에 자산 배달 정책을 구성해야 합니다. 
+적응 비트 전송률 MP4 집합은 주문형 스트리밍 로케이터를 만들고 스트리밍 URL을 작성하여 스트리밍할 수 있습니다. [자산 인코딩](media-services-rest-encode-asset.md) 항목에서는 적응 비트 전송률 MP4 집합으로 인코딩하는 방법을 보여줍니다. 로케이터를 만들기 전에 [이](media-services-rest-configure-asset-delivery-policy.md) 항목에서 설명한 대로 자산 배달 정책을 구성해야 합니다. 
 
 주문형 스트리밍 로케이터는 점진적으로 다운로드할 수 있는 MP4 파일을 가리키는 URL을 작성하는 데 사용할 수도 있습니다.  
 
@@ -32,7 +32,7 @@
 
 [다음](#types) 섹션에서는 REST 호출에 사용되는 값을 가진 열거형 유형을 보여 줍니다.   
   
-##주문형 스트리밍 로케이터 만들기
+## 주문형 스트리밍 로케이터 만들기
 
 주문형 스트리밍 로케이터를 만들고 URL을 가져오려면 다음을 수행해야 합니다.
 
@@ -45,7 +45,7 @@
    4. 매니페스트 파일 또는 MP4 파일에 URL을 작성합니다. 
 
 
-###액세스 정책 만들기
+### 액세스 정책 만들기
 
 요청:
 		
@@ -55,7 +55,7 @@
 	MaxDataServiceVersion: 3.0;NetFx
 	Accept: application/json
 	Accept-Charset: UTF-8
-	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstest1&urn%3aSubscriptionId=bbbef702-e769-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1424263184&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=NWE%2f986Hr5lZTzVGKtC%2ftzHm9n6U%2fxpTFULItxKUGC4%3d
+	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstest1&urn%3aSubscriptionId=zbbef702-e769-2233-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1424263184&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=NWE%2f986Hr5lZTzVGKtC%2ftzHm9n6U%2fxpTFULItxKUGC4%3d
 	x-ms-version: 2.8
 	x-ms-client-request-id: 6bcfd511-a561-448d-a022-a319a89ecffa
 	Host: media.windows.net
@@ -82,7 +82,7 @@
 	
 	{"odata.metadata":"https://media.windows.net/api/$metadata#AccessPolicies/@Element","Id":"nb:pid:UUID:69c80d98-7830-407f-a9af-e25f4b0d3e5f","Created":"2015-02-18T06:52:09.8862191Z","LastModified":"2015-02-18T06:52:09.8862191Z","Name":"access policy","DurationInMinutes":43200.0,"Permissions":1}
 
-###주문형 스트리밍 로케이터 만들기
+### 주문형 스트리밍 로케이터 만들기
 
 지정된 자산 및 자산 정책에 대한 로케이터를 만듭니다.
 
@@ -94,7 +94,7 @@
 	MaxDataServiceVersion: 3.0;NetFx
 	Accept: application/json
 	Accept-Charset: UTF-8
-	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstest1&urn%3aSubscriptionId=bbbef702-e769-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1424263184&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=NWE%2f986Hr5lZTzVGKtC%2ftzHm9n6U%2fxpTFULItxKUGC4%3d
+	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstest1&urn%3aSubscriptionId=zbbef702-e769-2233-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1424263184&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=NWE%2f986Hr5lZTzVGKtC%2ftzHm9n6U%2fxpTFULItxKUGC4%3d
 	x-ms-version: 2.8
 	x-ms-client-request-id: ac159492-9a0c-40c3-aacc-551b1b4c5f62
 	Host: media.windows.net
@@ -121,7 +121,7 @@
 	
 	{"odata.metadata":"https://media.windows.net/api/$metadata#Locators/@Element","Id":"nb:lid:UUID:be245661-2bbd-4fc6-b14f-9cf9a1492e5e","ExpirationDateTime":"2015-03-20T06:34:47.267872+00:00","Type":2,"Path":"http://amstest1.streaming.mediaservices.windows.net/be245661-2bbd-4fc6-b14f-9cf9a1492e5e/","BaseUri":"http://amstest1.streaming.mediaservices.windows.net","ContentAccessComponent":"be245661-2bbd-4fc6-b14f-9cf9a1492e5e","AccessPolicyId":"nb:pid:UUID:1480030d-c481-430a-9687-535c6a5cb272","AssetId":"nb:cid:UUID:cc1e445d-1500-80bd-538e-f1e4b71b465e","StartTime":"2015-02-18T06:34:47.267872+00:00","Name":null}
 
-###스트리밍 URL 작성
+### 스트리밍 URL 작성
 
 로케이터를 만든 후 반환된 **경로** 값을 사용하여 부드러운 HLS 및 MPEG DASH URL을 작성합니다. 
 
@@ -146,7 +146,7 @@ HLS: **경로** + 매니페스트 파일 이름 + "/ manifest(format=m3u8-aapl)"
 	http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny.ism/manifest(format=mpd-time-csf)
 
 
-###점진적 다운로드 URL 작성
+### 점진적 다운로드 URL 작성
 
 로케이터를 만든 후 반환된 **경로** 값을 사용하여 점진적 다운로드 URL을 작성합니다.   
 
@@ -156,7 +156,7 @@ URL: **경로** + 자산 파일 mp4 이름
 
 	http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4
 
-##<a id="types"></a>열거형 유형
+## <a id="types"></a>열거형 형식
 
     [Flags]
     public enum AccessPermissions
@@ -174,4 +174,5 @@ URL: **경로** + 자산 파일 mp4 이름
         Sas = 1,
         OnDemandOrigin = 2,
     }
-<!--HONumber=47-->
+
+<!--HONumber=52-->

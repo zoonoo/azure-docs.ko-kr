@@ -56,7 +56,7 @@
 
    	![][4]
 
-6. 페이지 위쪽의 **구성** 탭을 클릭하고 *Send* 권한이 있는 **SendRule** 규칙과 *Listen* 권한이 있는 **ReceiveRule** 규칙을 추가한 후에 **저장**을 클릭합니다.
+6. 페이지 위쪽의 **구성** 탭을 클릭하고 *Send* 권한이 있는 **SendRule** 규칙과 *Listenn* 권한이 있는 **ReceiveRule** 규칙을 추가한 후에 **저장**을 클릭합니다.
 
    	![][5]
 
@@ -101,4 +101,4 @@
 [이벤트 프로세서 호스트]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
 [이벤트 허브 개요]: http://msdn.microsoft.com/library/azure/dn836025.aspx
 
-<!--HONumber=47-->
+<!--HONumber=52-->

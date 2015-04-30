@@ -1,26 +1,26 @@
-﻿<properties pageTitle="미디어 서비스 할당량 및 제한 사항" description="이 항목은 할당량 및 Microsoft Azure 미디어 서비스와 관련된 제한 사항에 설명 합니다." services="media-services" documentationCenter="" authors="Juliako" manager="dwrede" />
+﻿<properties pageTitle="미디어 서비스 할당량 및 제한 사항" description="이 항목에서는 Microsoft Azure 미디어 서비스와 관련된 할당량 및 제한 사항에 대해 설명합니다.." services="media-services" documentationCenter="" authors="Juliako" manager="dwrede" />
 
 <tags ms.service="media-services" ms.devlang="" ms.topic="article" ms.tgt_pltfrm="" ms.workload="media" ms.date="01/23/2015" ms.author="juliako" />
 
-#할당량 및 제한 사항
+# 할당량 및 제한 사항
 
 이 항목은 할당량 및 Microsoft Azure 미디어 서비스와 관련된 제한 사항에 설명 합니다.
 
 ## 할당량 및 제한 사항
 
-- 미디어 서비스 계정에 허용 되는 자산의 최대 수: 1,000,000 
+- 미디어 서비스 계정에 허용 되는 자산의 최대 수: 1,000,000. 
 
-- 작업당 연결 된 작업의 최대 수: 30
+- 작업당 연결 된 작업의 최대 수: 30.
 
 - 작업에 허용 되는 자산의 최대 수: 작업당 50개의 자산
  
-- 작업당 자산의 최대 수: 100
+- 작업당 자산의 최대 수: 100.
  
 - 큐에 대기 중, 완료, 활성 및 취소 된 작업도 포함 됩니다. 삭제된 작업은 포함 되지 않습니다.
  
 - 계정의 최대 작업 수는 50,000을 초과해서는 안됩니다.
  
-- **IJob.Delete** 또는 **DELETE** HTTP 요청을 사용하여 이전 작업을 삭제합니다. 자세한 내용은 [Azure Media Encoder의 작업 레코드 제한](http://blogs.msdn.com/b/randomnumber/archive/2014/05/05/job-record-limit-for-windows-azure-media-encoder.aspx) 및 [자산 관리](https://msdn.microsoft.com/ko-kr/library/azure/dn642436.aspx)를 참조하세요. 
+- **IJob.Delete** 또는 **DELETE** HTTP 요청을 사용하여 이전 작업을 삭제합니다. 자세한 내용은 [Azure Media Encoder의 작업 레코드 제한](http://blogs.msdn.com/b/randomnumber/archive/2014/05/05/job-record-limit-for-windows-azure-media-encoder.aspx) 및 [자산 관리](https://msdn.microsoft.com/library/azure/dn642436.aspx)를 참조하세요. 
  
 - 작업 엔터티 목록을 요청할 때 요청당 최대 1,000개가 반환됩니다. 제출된 모든 작업을 추적하는 경우 [OData 시스템 쿼리 옵션](http://msdn.microsoft.com/library/gg309461.aspx)에서 설명한 대로 위쪽/건너뛰기를 사용할 수 있습니다.  
 
@@ -32,7 +32,7 @@
 
 - 단일 구독에서 미디어 서비스 계정은 25개를 초과할 수 없습니다.
 
-- 미디어 서비스 제한 메커니즘은 서비스에 과도한 요청을 보내는 응용 프로그램의 리소스 사용을 제한합니다. 해당 서비스에서 서비스를 사용할 수 없음(503) HTTP 상태 코드가 반환될 수 있습니다. 자세한 내용은 [Azure Media Services 오류 코드](http://msdn.microsoft.com/library/azure/dn168949.aspx)에서 503 오류에 대한 설명을 참조하세요.
+- 미디어 서비스 제한 메커니즘은 서비스에 과도한 요청을 보내는 응용 프로그램의 리소스 사용을 제한합니다. 해당 서비스에서 서비스를 사용할 수 없음(503) HTTP 상태 코드가 반환될 수 있습니다. 자세한 내용은 [Azure Media Services 오류 코드](http://msdn.microsoft.com/library/azure/dn168949.aspx) 항목에서 503 오류에 대한 설명을 참조하세요.
 
 - 기본적으로 최대 5개의 라이브 채널을 미디어 서비스 계정에 추가할 수 있습니다. 
 
@@ -51,12 +51,12 @@
 
 - 기본적으로 모든 미디어 서비스 계정은 최대 25개의 인코딩 단위까지 확장할 수 있습니다. 자세한 내용은 미디어 서비스를 확장하는 방법을 참조하세요. 제한을 상향하려면 업데이트할 수 있는 할당량의 제한을 상향 요청하는 방법을 참조하세요.
 	
-	**Important**
+	**중요**
 	제한을 증가하려면 미디어 서비스 계정을 추가로 만들지 말고 지원 티켓을 제출 하십시오.
 
-##업데이트할 수 있는 할당량의 제한을 상향 요청하는 방법
+## 업데이트할 수 있는 할당량의 제한을 상향 요청하는 방법
 
-###업데이트할 수 있는 할당량
+### 업데이트할 수 있는 할당량
 
 다음 할당량에 대 한 제한을 지원 티켓을 열어 업데이트를 요청할 수 있습니다.
 - 인코딩 단위
@@ -67,7 +67,7 @@
  
 - 스트리밍 단위
 
-###지원 티켓 열기
+### 지원 티켓 열기
 
 지원 티켓을 열려면 다음을 수행합니다.
 
@@ -89,4 +89,5 @@
  
 1. 제출을 클릭하여 티켓을 엽니다.
  
-<!--HONumber=45--> 
+
+<!--HONumber=52-->

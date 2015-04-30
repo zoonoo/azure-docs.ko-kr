@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Android 앱에 대해 Azure 모바일 서비스 시작" 
 	description="이 자습서에 따라 Azure 모바일 서비스를 사용하여 Android 개발을 시작할 수 있습니다." 
 	services="mobile-services" 
@@ -14,7 +14,7 @@
 	ms.devlang="java" 
 	ms.topic="hero-article" 
 	ms.date="02/13/2015" 
-	ms.author="ricksal,glenga"/>
+	ms.author="ricksal;glenga"/>
 
 # <a name="getting-started"> </a>모바일 서비스 시작
 
@@ -34,7 +34,7 @@
 
 다운로드한 퀵 스타트 프로젝트에는 Android용 모바일 서비스 SDK가 포함되어 있습니다. 이 프로젝트에는 Android 4.2 이상 버전이 필요하지만 모바일 서비스 SDK에는 Android 2.2 이상 버전만 있으면 됩니다.
 
-> [AZURE.IMPORTANT] 이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28"%20target="_blank)을 참조하세요.
+> [AZURE.IMPORTANT] 이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28"%20target="_blank)을 참조하세요.
 
 <!-- -->
 
@@ -116,7 +116,7 @@
    	![][12]
 
 ## <a name="next-steps"> </a>다음 단계
-이제 빠른 시작을 완료했으므로 모바일 서비스에서 중요한 추가 작업을 수행하는 방법을 알아보겠습니다. 
+이제 퀵 스타트를 완료했으며 모바일 서비스에서 중요한 추가 작업을 수행하는 방법을 알아보겠습니다. 
 
 * [데이터 시작]
   <br/>모바일 서비스를 사용하여 데이터를 저장 및 쿼리하는 방법에 대해 자세히 알아봅니다.
@@ -152,12 +152,13 @@
 [15]: ./media/mobile-services-android-get-started/mobile-services-import-android-project.png
 
 <!-- URLs. -->
-[데이터 시작]: /documentation/articles/mobile-services-android-get-started-data/
-[인증 시작]: /documentation/articles/mobile-services-android-get-started-users/
-[푸시 알림 시작]: /documentation/articles/mobile-services-javascript-backend-android-get-started-push/
-[Android SDK](영문): https://go.microsoft.com/fwLink/p/?LinkID=280125
+[데이터 시작]: mobile-services-android-get-started-data.md
+[인증 시작]: mobile-services-android-get-started-users.md
+[푸시 알림 시작]: mobile-services-javascript-backend-android-get-started-push.md
+[Android SDK(영문)]: https://go.microsoft.com/fwLink/p/?LinkID=280125
+[Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
 [모바일 서비스 Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 
 [관리 포털]: https://manage.windowsazure.com/
 
-<!--HONumber=47-->
+<!--HONumber=52-->

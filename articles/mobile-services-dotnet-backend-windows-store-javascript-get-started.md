@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Windows 스토어 앱에 대한 모바일 서비스 시작 | 모바일 개발자 센터" 
 	description="이 자습서에 따라 Azure 모바일 서비스를 사용하여 C#, VB 또는 JavaScript로 Windows 스토어 개발을 시작할 수 있습니다." 
 	services="mobile-services" 
@@ -10,9 +10,9 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="javascript" 
-	ms.topic="article" 
+	ms.topic="hero-article" 
 	ms.date="11/21/2014" 
 	ms.author="glenga"/>
 
@@ -21,7 +21,7 @@
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
 
-이 자습서에서는 Azure 모바일 서비스를 사용하여 범용 Windows 앱에 클라우드 기반 백 엔드 서비스를 추가하는 방법을 보여 줍니다. 이 자습서에서는 새 모바일 서비스와 새 모바일 서비스에 앱 데이터를 저장하는 HTML 및 JavaScript의 간단한  *To do list* 앱을 둘 다 만듭니다. 생성되는 모바일 서비스에서는 Visual Studio에서 지원되는 .NET 언어를 서버 쪽 비즈니스 논리와 모바일 서비스 관리에 사용합니다. JavaScript에서 서버 쪽 비즈니스 논리를 작성할 수 있게 해 주는 모바일 서비스를 만들려면 이 항목의 JavaScript 버전을 참조하세요.
+이 자습서에서는 Azure 모바일 서비스를 사용하여 범용 Windows 앱에 클라우드 기반 백 엔드 서비스를 추가하는 방법을 보여 줍니다. 이 자습서에서는 새 모바일 서비스와 새 모바일 서비스에 앱 데이터를 저장하는 간단한 *할 일 모음* 앱을 HTML 및 JavaScript로 만듭니다. 생성되는 모바일 서비스에서는 Visual Studio에서 지원되는 .NET 언어를 서버 쪽 비즈니스 논리와 모바일 서비스 관리에 사용합니다. JavaScript에서 서버 쪽 비즈니스 논리를 작성할 수 있게 해 주는 모바일 서비스를 만들려면 이 항목의 JavaScript 버전을 참조하세요.
 
 [AZURE.INCLUDE [mobile-services-windows-universal-get-started](../includes/mobile-services-windows-universal-get-started.md)]
 
@@ -51,7 +51,7 @@
 
   	![][7]
 
-3. 아직 하지 않은 경우 로컬 컴퓨터나 가상 컴퓨터에 <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a>을 다운로드하여 설치합니다.
+3. 아직 수행하지 않은 경우 로컬 컴퓨터나 가상 컴퓨터에 <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a>을 다운로드하여 설치합니다.
 
 4. **앱 및 서비스를 로컬로 다운로드 및 실행**에서 Windows 스토어 앱의 언어를 선택하고 **다운로드**를 클릭합니다. 
 
@@ -89,20 +89,7 @@
 	<p>앱이 시작된 후 이전 단계에서 저장한 데이터가 모바일 서비스에서 로드됩니다.</p></li>
 </ol>
 
-
-## 다음 단계
-이제 퀵 스타트를 완료했으며 모바일 서비스에서 중요한 추가 작업을 수행하는 방법을 알아보겠습니다. 
-
-* [데이터 시작]
-  <br/>모바일 서비스를 사용하여 데이터를 저장 및 쿼리하는 방법에 대해 자세히 알아봅니다.
-
-* [인증 시작](영문)
-  <br/>ID 공급자를 사용하여 앱 사용자를 인증하는 방법을 알아봅니다.
-
-* [푸시 알림 시작]
-  <br/>앱에 기본적인 푸시 알림을 보내는 방법을 알아봅니다.
-
-범용 Windows 앱에 대한 자세한 내용은 [단일 모바일 서비스에서 여러 장치 플랫폼 지원](mobile-services-how-to-use-multiple-clients-single-service#shared-vs.md).을 참조하세요.
+범용 Windows 앱에 대한 자세한 내용은 [단일 모바일 서비스에서 여러 장치 플랫폼 지원](mobile-services-how-to-use-multiple-clients-single-service.md#shared-vs)을 참조하세요.
 
 <!-- Anchors. -->
 [모바일 서비스 시작]:#getting-started
@@ -123,16 +110,14 @@
 
 
 <!-- URLs. -->
-[데이터 시작]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-universal-javascript-get-started-data
-[인증 시작](영문): /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-users
-[푸시 알림 시작]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push
+[데이터 시작]: mobile-services-dotnet-backend-windows-universal-javascript-get-started-data.md
+[인증 시작]: mobile-services-dotnet-backend-windows-store-javascript-get-started-users.md
+[푸시 알림 시작]: mobile-services-dotnet-backend-windows-store-javascript-get-started-push.md
 [Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=257546
 [모바일 서비스 SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [JavaScript 및 HTML]: mobile-services-win8-javascript/
 [관리 포털]: https://manage.windowsazure.com/
-[JavaScript 버전]: /ko-kr/documentation/articles/mobile-services-windows-store-get-started
-[Visual Studio 2012를 사용하여 모바일 서비스에서 데이터 시작]: /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-data-vs2012
+[JavaScript 버전]: mobile-services-windows-store-get-started.md
+[Visual Studio 2012를 사용하여 모바일 서비스에서 데이터 시작]: mobile-services-windows-store-dotnet-get-started-data-vs2012.md
 
-
-
-<!--HONumber=42-->
+<!--HONumber=52-->

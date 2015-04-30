@@ -19,7 +19,7 @@
 
 # 방법: 미디어 프로세서 인스턴스 가져오기
 
-이 기사는 [필요 시 워크플로 관련 미디어 서비스 비디오](../media-services-video-on-demand-workflow) 시리즈의 일부입니다. 
+이 문서는 [미디어 서비스 주문형 비디오 워크플로](media-services-video-on-demand-workflow.md) 시리즈의 일부입니다. 
 
 ## 개요
 
@@ -37,24 +37,29 @@
   </thead>
   <tbody>
     <tr>
-       <td>Azure Media Encoder</td>
-       <td>Media Encoder를 사용하여 인코딩 작업을 실행할 수 있습니다.</td>
-       <td><a href="http://msdn.microsoft.com/library/jj129582.aspx"> Azure Media Encoder용 태스크 기본 설정 문자열</a></td>
+       <td>Azure 미디어 인코더</td>
+       <td>Azure 미디어 인코더를 사용하여 인코딩 작업을 실행할 수 있습니다.</td>
+       <td><a href="http://msdn.microsoft.com/library/jj129582.aspx"> Azure 미디어 인코더용 작업 기본 설정 문자열</a></td>
+    </tr>
+    <tr>
+       <td>미디어 인코더 Premium 워크플로</td>
+       <td>미디어 인코더 Premium 워크플로를 사용하여 인코딩 작업을 실행할 수 있습니다.</td>
+       <td><a href="http://azure.microsoft.com/documentation/articles/media-services-encode-with-premium-workflow/">미디어 인코더 Premium 워크플로를 사용하여 인코딩합니다.</a></td>
+    </tr>    
+	<tr>
+        <td>Azure 미디어 인덱서</td>
+        <td>미디어 파일과 콘텐츠를 검색 가능하도록 설정할 수 있으며 선택 캡션 트랙과 키워드를 생성할 수 있습니다.</td>
+		<td><a href="http://azure.microsoft.com/documentation/articles/media-services-index-content/">Azure 미디어 인덱서를 사용하여 미디어 파일 인덱싱</a>.</td>
     </tr>
     <tr>
         <td>Microsoft Azure Media Packager</td>
         <td>미디어 자산을 .mp4에서 부드러운 스트리밍 형식으로 변환할 수 있습니다. 또한 미디어 자산을 부드러운 스트리밍에서 Apple HLS(HTTP 라이브 스트리밍) 형식으로 변환할 수 있습니다.</td>
-		<td><a href="http://msdn.microsoft.com/library/hh973635.aspx">Azure Media Packager용 태스크 기본 설정 문자열</a></td>
+		<td><a href="http://msdn.microsoft.com/library/hh973635.aspx">Azure Media Packager용 작업 기본 설정 문자열</a></td>
     </tr>
     <tr>
-        <td>Microsoft Azure Media Encryptor</td>
+        <td>Windows Azure Media Encryptor</td>
         <td>PlayReady Protection을 사용하여 미디어 자산을 암호화할 수 있습니다.</td>
-        <td><a href="http://msdn.microsoft.com/library/hh973610.aspx">Azure Media Packager용 태스크 기본 설정 문자열</a></td>
-    </tr>
-    <tr>
-        <td>Azure 미디어 인덱서</td>
-        <td>미디어 파일과 콘텐츠를 검색 가능하도록 설정할 수 있으며 선택 캡션 트랙과 키워드를 생성할 수 있습니다.</td>
-		<td>해당 없음</td>
+        <td><a href="http://msdn.microsoft.com/library/hh973610.aspx">Azure Media Packager용 작업 기본 설정 문자열</a></td>
     </tr>
     <tr>
         <td>저장소 암호 해독</td>
@@ -81,9 +86,10 @@
 	}
 
 ## 다음 단계
-미디어 프로세서 인스턴스를 가져오는 방법을 알아보았으므로 이제 Azure Media Encoder를 사용하여 자산을 인코드하는 방법을 보여 주는 [자산을 인코드하는 방법][](영문) 항목으로 이동합니다.
+미디어 프로세서 인스턴스를 가져오는 방법을 알아보았으므로 이제 Azure 미디어 인코더를 사용하여 자산을 인코드하는 방법을 보여 주는 [자산을 인코드하는 방법][](영문) 항목으로 이동합니다.
 
-[자산을 인코드하는 방법]: ../media-services-encode-asset/
-[Azure Media Encoder용 태스크 기본 설정 문자열]: http://msdn.microsoft.com/library/jj129582.aspx
+[자산을 인코드하는 방법]: media-services-encode-asset.md
+[Azure 미디어 인코더용 작업 기본 설정 문자열]: http://msdn.microsoft.com/library/jj129582.aspx
 [방법: 프로그래밍 방식으로 미디어 서비스에 연결]: ../media-services-set-up-computer/
-<!--HONumber=45--> 
+
+<!--HONumber=52-->

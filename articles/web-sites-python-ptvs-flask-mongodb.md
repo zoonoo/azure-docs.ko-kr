@@ -1,27 +1,28 @@
-<properties 
+﻿<properties 
 	pageTitle="Python Tools 2.1 for Visual Studio가 있는 Azure의 Flask 및 MongoDB" 
 	description="Python Tools for Visual Studio를 사용하여 MongoDB 데이터베이스 인스턴스에 데이터를 저장하고 웹 사이트에 배포할 수 있는 Flask 응용 프로그램을 만드는 방법에 대해 알아봅니다." 
-	services="" 
+	services="app-service\web" 
+	tags="python"
 	documentationCenter="python" 
 	authors="huguesv" 
 	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="10/10/2014" 
-	ms.author="huvalo"/>
+	ms.date="02/09/2015" 
+	ms.author="huguesv"/>
 
 
 
 
 # Python Tools 2.1 for Visual Studio가 있는 Azure의 Flask 및 MongoDB
 
-이 자습서에서는 PTVS 샘플 템플릿 중 하나를 사용하여 간단한 설문 조사 응용 프로그램을 만들어 보겠습니다. 이 자습서는 [비디오](https://www.youtube.com/watch?v=eql-crFgrAE)로도 제공됩니다.
+이 자습서에서는 PTVS 샘플 템플릿 중 하나를 사용하여 간단한 설문 조사 응용 프로그램을 만들기 위해 [Python Tools for Visual Studio][]를 사용해 보겠습니다. 이 자습서는 [비디오](https://www.youtube.com/watch?v=eql-crFgrAE)로도 제공됩니다.
 
 설문 조사 응용 프로그램은 리포지토리의 추상화를 정의하므로 여러 다른 유형의 리포지토리(메모리 내, Azure 테이블 저장소, MongoDB) 간을 쉽게 전환할 수 있습니다.
 
@@ -29,16 +30,7 @@ Azure에서 호스트된 MongoDB 서비스 중 하나를 사용하는 방법, Mo
 
 Bottle, Flask 및 Django 웹 프레임워크, MongoDB, Azure 테이블 저장소, MySQL 및 SQL 데이터베이스 서비스를 사용하여 PTVS로 Azure 웹 사이트를 개발하는 내용을 다루는 추가 문서에 대해서는 [Python 개발자 센터][]를 참조하세요.  이 문서는 Azure 웹 사이트를 중점적으로 다루지만 포함된 단계는 [Azure 클라우드 서비스][]를 개발할 때와 비슷합니다.
 
-+ [필수 조건](#prerequisites)
-+ [프로젝트 만들기](#create-the-project)
-+ [MongoDB 데이터베이스 만들기](#create-a-mongodb-database)
-+ [프로젝트 구성](#configure-the-project)
-+ [MongoDB 데이터베이스 탐색](#explore-the-mongodb-database)
-+ [Azure 웹 사이트에 게시](#publish-to-an-azure-website)
-+ [Azure 웹 사이트 구성](#configure-the-azure-website)
-+ [다음 단계](#next-steps)
-
-##<a name="prerequisites"></a>필수 조건
+## 필수 조건
 
  - Visual Studio 2012 또는 2013
  - [Python Tools 2.1 for Visual Studio][]
@@ -49,31 +41,31 @@ Bottle, Flask 및 Django 웹 프레임워크, MongoDB, Azure 테이블 저장소
 
 [AZURE.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
-##<a name="create-the-project"></a>프로젝트 만들기
+## 프로젝트 만들기
 
 이 섹션에서는 샘플 템플릿을 사용하여 Visual Studio 프로젝트를 만듭니다.  가상 환경을 만들고 필요한 패키지를 설치합니다.  그런 후 기본 메모리 내 리포지토리를 사용하여 로컬로 응용 프로그램을 실행합니다.
 
 1.  Visual Studio에서 **파일**, **새 프로젝트**를 선택합니다. 
 
-1.  PTVS 샘플 VSIX의 프로젝트 테플릿은 **Python**, **샘플**에서 사용할 수 있습니다.  **Polls Flask Web Project**를 선택하고 확인을 클릭하여 프로젝트를 만듭니다.
+1.  PTVS 샘플 VSIX의 프로젝트 템플릿은 **Python**, **샘플**에서 사용할 수 있습니다.  **Polls Flask Web Project**를 선택하고 확인을 클릭하여 프로젝트를 만듭니다.
 
-  	![New Project Dialog](./media/web-sites-python-ptvs-flask-mongodb/PollsFlaskNewProject.png)
+  	![새 프로젝트 대화 상자](./media/web-sites-python-ptvs-flask-mongodb/PollsFlaskNewProject.png)
 
 1.  외부 패키지를 설치할지 묻는 메시지가 표시됩니다.  **가상 환경에 설치**를 선택합니다.
 
-  	![External Packages Dialog](./media/web-sites-python-ptvs-flask-mongodb/PollsFlaskExternalPackages.png)
+  	![외부 패키지 대화 상자](./media/web-sites-python-ptvs-flask-mongodb/PollsFlaskExternalPackages.png)
 
 1.  기본 해석기로 **Python 2.7** 또는 **Python 3.4**를 선택합니다.
 
-  	![Add Virtual Environment Dialog](./media/web-sites-python-ptvs-flask-mongodb/PollsCommonAddVirtualEnv.png)
+  	![가상 환경 추가 대화 상자](./media/web-sites-python-ptvs-flask-mongodb/PollsCommonAddVirtualEnv.png)
 
 1.  <kbd>F5</kbd> 키를 눌러 응용 프로그램이 작동하는지 확인합니다.  기본적으로 응용 프로그램은 구성이 필요하지 않은 메모리 내 리포지토리를 사용합니다.  따라서 웹 서버가 중지되면 모든 데이터가 손실됩니다.
 
 1.  **Create Sample Polls**를 클릭하고 poll and vote를 클릭합니다.
 
-  	![Web Browser](./media/web-sites-python-ptvs-flask-mongodb/PollsFlaskInMemoryBrowser.png)
+  	![웹 브라우저](./media/web-sites-python-ptvs-flask-mongodb/PollsFlaskInMemoryBrowser.png)
 
-##<a name="create-a-mongodb-database"></a>MongoDB 데이터베이스 만들기
+## MongoDB 데이터베이스 만들기
 
 데이터베이스로, Azure에 MongoLab 호스트 데이터베이스를 만듭니다.
 
@@ -85,21 +77,21 @@ Bottle, Flask 및 Django 웹 프레임워크, MongoDB, Azure 테이블 저장소
 
 1.  탐색 창 맨 아래에 있는 **새로 만들기**를 클릭합니다.
 
-  	![New Button](./media/web-sites-python-ptvs-flask-mongodb/PollsCommonAzurePlusNew.png)
+  	![새 단추](./media/web-sites-python-ptvs-flask-mongodb/PollsCommonAzurePlusNew.png)
 
 1.  **스토어**, **MongoLab**을 차례로 클릭합니다.
 
-  	![Choose Add-on Dialog](./media/web-sites-python-ptvs-flask-mongodb/PollsCommonMongoLabAddon1.png)
+  	![추가 기능 대화 상자 선택](./media/web-sites-python-ptvs-flask-mongodb/PollsCommonMongoLabAddon1.png)
 
 1.  이름에 데이터베이스 서비스에 사용할 이름을 입력합니다.
 
 1.  데이터베이스 서비스를 찾을 영역/선호도 그룹을 선택합니다. Azure 응용 프로그램에서 데이터베이스를 사용하는 경우 응용 프로그램을 배포할 영역과 동일한 영역을 선택합니다.
 
-  	![Personalize Add-on Dialog](./media/web-sites-python-ptvs-flask-mongodb/PollsCommonMongoLabAddon2.png)
+  	![추가 기능 대화 상자 개인 설정](./media/web-sites-python-ptvs-flask-mongodb/PollsCommonMongoLabAddon2.png)
 
 1.  **구입**을 클릭합니다.
 
-##<a name="configure-the-project"></a>프로젝트 구성
+## 프로젝트 구성
 
 이 섹션에서는 방금 만든 MongoDB 데이터베이스를 사용하도록 응용 프로그램을 구성합니다.  Azure 포털에서 연결 설정을 가져오는 방법을 알아봅니다.  그런 후 응용 프로그램을 로컬로 실행합니다.
 
@@ -107,11 +99,11 @@ Bottle, Flask 및 Django 웹 프레임워크, MongoDB, Azure 테이블 저장소
 
 1.  **연결 정보**를 클릭합니다.  복사 단추를 사용하여 **MONGOLAB\_URI** 값을 클립보드에 저장합니다.
 
-  	![Connection Info Dialog](./media/web-sites-python-ptvs-flask-mongodb/PollsCommonMongoLabConnectionInfo.png)
+  	![연결 정보 대화 상자](./media/web-sites-python-ptvs-flask-mongodb/PollsCommonMongoLabConnectionInfo.png)
 
 1.  Visual Studio의 솔루션 탐색기에서 프로젝트 노드를 마우스 오른쪽 단추로 클릭하고 **속성**을 선택합니다.  **디버그** 탭을 클릭합니다.
 
-  	![Project Debug Settings](./media/web-sites-python-ptvs-flask-mongodb/PollsFlaskMongoDBProjectDebugSettings.png)
+  	![프로젝트 디버그 설정](./media/web-sites-python-ptvs-flask-mongodb/PollsFlaskMongoDBProjectDebugSettings.png)
 
 1.  **서버 명령 디버그**, **환경**에서 응용 프로그램에 필요한 환경 변수 값을 설정합니다.
 
@@ -129,9 +121,9 @@ Bottle, Flask 및 Django 웹 프레임워크, MongoDB, Azure 테이블 저장소
 
 1.  **정보** 페이지로 가서 응용 프로그램이 **MongoDB** 리포지토리를 사용하고 있는지 확인합니다.
 
-  	![Web Browser](./media/web-sites-python-ptvs-flask-mongodb/PollsFlaskMongoDBAbout.png)
+  	![웹 브라우저](./media/web-sites-python-ptvs-flask-mongodb/PollsFlaskMongoDBAbout.png)
 
-##<a name="explore-the-mongodb-database"></a>MongoDB 데이터베이스 탐색
+## MongoDB 데이터베이스 탐색
 
 [RoboMongo][]와 같은 응용 프로그램을 사용하여 MongoDB 데이터베이스를 쿼리하고 편집할 수 있습니다.  이 섹션에서는 RoboMongo를 사용하여 설문 조사 응용 프로그램 데이터베이스의 내용을 확인합니다.
 
@@ -143,23 +135,23 @@ Bottle, Flask 및 Django 웹 프레임워크, MongoDB, Azure 테이블 저장소
 
 1.  연결 페이지에서 **이름**을 연결에 사용할 아무 이름으로 설정합니다.  또한 **주소** 및 **포트** 필드를 **MONGOLAB\_URI**의  *address* 및  *port*로 설정합니다.
 
-  	![Connection Settings Dialog](./media/web-sites-python-ptvs-flask-mongodb/PollsCommonRobomongoCreateConnection1.png)
+  	![연결 설정 대화 상자](./media/web-sites-python-ptvs-flask-mongodb/PollsCommonRobomongoCreateConnection1.png)
 
 1.  인증 페이지에서 **데이터베이스** 및 **사용자 이름**을 **MONGOLAB\_URI**의  *name*으로 설정합니다.  또한 **암호**를 **MONGOLAB\_URI**의  *password*로 설정합니다.
 
-  	![Connection Settings Dialog](./media/web-sites-python-ptvs-flask-mongodb/PollsCommonRobomongoCreateConnection2.png)
+  	![연결 설정 대화 상자](./media/web-sites-python-ptvs-flask-mongodb/PollsCommonRobomongoCreateConnection2.png)
 
 1.  저장한 후 데이터베이스에 연결합니다.  이제 설문 조사 컬렉션을 쿼리할 수 있습니다.
 
-  	![RoboMongo Query Results](./media/web-sites-python-ptvs-flask-mongodb/PollsCommonRobomongoQuery.png)
+  	![RoboMongo 쿼리 결과](./media/web-sites-python-ptvs-flask-mongodb/PollsCommonRobomongoQuery.png)
 
-##<a name="publish-to-an-azure-website"></a>Azure 웹 사이트에 게시
+## Azure 웹 사이트에 게시
 
 PTVS는 Azure 웹 사이트에 웹 응용 프로그램을 배포하는 쉬운 방법을 제공합니다.
 
 1.  **솔루션 탐색기**에서 프로젝트 노드를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다.
 
-  	![Publish Web Dialog](./media/web-sites-python-ptvs-flask-mongodb/PollsCommonPublishWebSiteDialog.png)
+  	![웹 게시 대화 상자](./media/web-sites-python-ptvs-flask-mongodb/PollsCommonPublishWebSiteDialog.png)
 
 1.  **Microsoft Azure 웹 사이트**를 클릭합니다.
 
@@ -167,7 +159,7 @@ PTVS는 Azure 웹 사이트에 웹 응용 프로그램을 배포하는 쉬운 �
 
 1.  **사이트 이름** 및 **지역**을 선택하고 **만들기**를 클릭합니다.
 
-  	![Create Site on Microsoft Azure Dialog](./media/web-sites-python-ptvs-flask-mongodb/PollsCommonCreateWebSite.png)
+  	![Microsoft Azure에서 사이트 만들기 대화 상자](./media/web-sites-python-ptvs-flask-mongodb/PollsCommonCreateWebSite.png)
 
 1.  다른 모든 기본값을 그대로 적용하고 **게시**를 클릭합니다.
 
@@ -175,7 +167,7 @@ PTVS는 Azure 웹 사이트에 웹 응용 프로그램을 배포하는 쉬운 �
 
     환경 변수가 Azure 웹 사이트에 설정되어 있지 않아서 **settings.py**에 지정된 기본값을 사용하기 때문입니다.
 
-##<a name="configure-the-azure-website"></a>Azure 웹 사이트 구성
+## Azure 웹 사이트 구성
 
 이 섹션에서는 사이트에 대한 환경 변수를 구성합니다.
 
@@ -183,23 +175,23 @@ PTVS는 Azure 웹 사이트에 웹 응용 프로그램을 배포하는 쉬운 �
 
 1.  위쪽 메뉴에서 **구성**을 클릭합니다.
 
-  	![Top Menu](./media/web-sites-python-ptvs-flask-mongodb/PollsCommonWebSiteTopMenu.png)
+  	![최상위 메뉴](./media/web-sites-python-ptvs-flask-mongodb/PollsCommonWebSiteTopMenu.png)
 
 1.  **앱 설정** 섹션으로 스크롤한 후 **REPOSITORY\_NAME**, **MONGODB\_HOST** 및 **MONGODB\_DATABASE** 값을 위 섹션에 설명된 대로 설정합니다.
 
-  	![App Settings](./media/web-sites-python-ptvs-flask-mongodb/PollsCommonWebSiteConfigureSettingsMongoDB.png)
+  	![앱 설정](./media/web-sites-python-ptvs-flask-mongodb/PollsCommonWebSiteConfigureSettingsMongoDB.png)
 
 1.  아래쪽 메뉴에서 **저장**을 클릭하고 **다시 시작**을 클릭한 후 **찾아보기**를 클릭합니다.
 
-  	![Bottom Menu](./media/web-sites-python-ptvs-flask-mongodb/PollsCommonWebSiteConfigureBottomMenu.png)
+  	![하위 메뉴](./media/web-sites-python-ptvs-flask-mongodb/PollsCommonWebSiteConfigureBottomMenu.png)
 
 1.  **MongoDB** 리포지토리를 사용하여 예상한 대로 응용 프로그램이 작동하는지 확인합니다.
 
     축하합니다.
 
-  	![Web Browser](./media/web-sites-python-ptvs-flask-mongodb/PollsFlaskAzureBrowser.png)
+  	![웹 브라우저](./media/web-sites-python-ptvs-flask-mongodb/PollsFlaskAzureBrowser.png)
 
-##<a name="next-steps"></a>다음 단계
+## 다음 단계
 
 Python Tools for Visual Studio, Flask 및 MongoDB에 대해 자세히 알아보려면 다음 링크를 참조하세요.
 
@@ -214,12 +206,13 @@ Python Tools for Visual Studio, Flask 및 MongoDB에 대해 자세히 알아보�
 
 
 <!--Link references-->
-[Python 개발자 센터]: /ko-kr/develop/python/
-[Azure 클라우드 서비스]: ../cloud-services-python-ptvs/
+[Python 개발자 센터]: /develop/python/
+[Azure 클라우드 서비스]: cloud-services-python-ptvs.md
 
 <!--External Link references-->
 [Azure 관리 포털]: https://manage.windowsazure.com
 [RoboMongo]: http://robomongo.org/
+[Python Tools for Visual Studio]: http://aka.ms/ptvs
 [Python Tools 2.1 for Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
 [Python Tools 2.1 for Visual Studio 샘플 VSIX]: http://go.microsoft.com/fwlink/?LinkId=517189
 [Azure SDK Tools for VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
@@ -235,6 +228,4 @@ Python Tools for Visual Studio, Flask 및 MongoDB에 대해 자세히 알아보�
 [웹 프로젝트]: http://pytools.codeplex.com/wikipage?title=Features%20Web%20Project
 [클라우드 서비스 프로젝트]: http://pytools.codeplex.com/wikipage?title=Features%20Cloud%20Project
 
-
-
-<!--HONumber=42-->
+<!--HONumber=52-->

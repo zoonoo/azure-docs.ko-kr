@@ -1,5 +1,5 @@
 ﻿## 이벤트 허브에 메시지 보내기
-이 섹션에서는 이벤트 허브로 이벤트를 보내는 Windows 콘솔 응용 프로그램을 작성합니다.
+이 섹션에서는 이벤트 허브로 이벤트를 보내는 Windows 콘솔 앱을 작성합니다.
 
 1. Visual Studio에서 **콘솔 응용 프로그램** 프로젝트 템플릿을 사용하여 Visual C# 데스크톱 응용 프로그램 프로젝트를 새로 만듭니다. 프로젝트의 이름을 **Sender**로 지정합니다.
 
@@ -19,7 +19,7 @@
 
 		using Microsoft.ServiceBus.Messaging;
 
-5. **Program** 클래스에 다음 `static` 필드를 추가하고, 이전 섹션에서 만든 이벤트 허브 이름과 **보내기** 권한이 있는 연결 문자열로 값을 대체합니다.
+5. **Program** 클래스에 다음 필드를 추가하고, 이전 섹션에서 만든 이벤트 허브 이름과 **보내기** 권한이 있는 연결 문자열로 위치 지정자 값을 대체합니다.
 
 		static string eventHubName = "{event hub name}";
         static string connectionString = "{send connection string}";
@@ -60,5 +60,4 @@
 
 <!-- Images -->
 [7]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
-[8]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp2.png
-<!--HONumber=47-->
+[8]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp2.png<!--HONumber=52--> 

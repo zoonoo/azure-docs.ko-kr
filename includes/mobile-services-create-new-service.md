@@ -24,5 +24,4 @@
 
 <!-- URLs. -->
 [관리 포털]: https://manage.windowsazure.com/
-
-<!--HONumber=47-->
+<!--HONumber=52--> 

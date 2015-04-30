@@ -1,43 +1,34 @@
-﻿<properties 
+<properties 
 	pageTitle="Azure WebJobs SDK 정의" 
 	description="Azure WebJobs SDK에 대해 소개하고 SDK의 정의, SDK가 유용한 일반적인 시나리오 및 코드 샘플에 대해 설명합니다." 
-	services="web-sites, storage" 
+	services="app-service\web, storage" 
 	documentationCenter=".net" 
 	authors="tdykstra" 
 	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/12/2014" 
+	ms.date="04/03/2015" 
 	ms.author="tdykstra"/>
 
 # Azure WebJobs SDK 정의
 
-이 문서에서는 WebJobs SDK의 정의에 대해 설명하고 이 SDK가 유용한 몇 가지 일반적인 시나리오를 검토하며 코드에서 SDK를 사용하는 방법을 간략하게 제공합니다.
-
-## 목차
-
-- [개요](#overview)
-- [시나리오](#scenarios)
-- [코드 샘플](#code)
-- [WebJobs 외부에서 WebJobs SDK 사용](#workerrole)
-- [WebJobs SDK를 사용하여 함수 호출](#nostorage)
-- [다음 단계](#nextsteps)
-
 ## <a id="overview"></a>개요
 
-[WebJobs](web-sites-create-web-jobs.md)는 웹 사이트와 동일한 컨텍스트에서 프로그램이나 스크립트를 실행할 수 있도록 하는 Azure 웹 사이트의 기능입니다. WebJobs SDK는 WebJob으로 실행되며 Azure 저장소 큐, Blob 및 테이블과 서비스 버스 큐에 사용 가능한 코드를 작성하는 작업을 간소화하기 위한 도구입니다.
+이 문서에서는 WebJobs SDK의 정의에 대해 설명하고 이 SDK가 유용한 몇 가지 일반적인 시나리오를 검토하며 코드에서 SDK를 사용하는 방법을 간략하게 제공합니다.
+
+[WebJobs](web-sites-create-web-jobs.md) 웹 앱과 동일한 컨텍스트에서 프로그램이나 스크립트를 실행할 수 있도록 하는 Azure 앱 서비스의 기능입니다. WebJobs SDK는 WebJob으로 실행되며 Azure 저장소 큐, Blob 및 테이블과 서비스 버스 큐에 사용 가능한 코드를 작성하는 작업을 간소화하기 위한 도구입니다.
 
 WebJob SDK에는 다음 구성 요소가 포함되어 있습니다.
 
 * **NuGet 패키지**. Visual Studio 콘솔 응용 프로그램 프로젝트에 추가하는 NuGet 패키지는 코드가 Azure 저장소 서비스 또는 서비스 버스 큐를 작동하기 위해 사용하는 프레임워크를 제공합니다.   
   
-* **대시보드**. WebJobs SDK의 일부분은 Azure 웹 사이트에 포함되어 있으며 NuGet 패키지를 사용하여 작성하는 프로그램에 풍부한 모니터링 및 진단을 제공합니다. 이러한 모니터링 및 진단 기능을 사용하기 위해 코드를 작성할 필요는 없습니다.
+* **대시보드**. WebJobs SDK의 일부분은 Azure 앱 서비스에 포함되어 있으며 NuGet 패키지를 사용하여 작성하는 프로그램에 풍부한 모니터링 및 진단을 제공합니다. 이러한 모니터링 및 진단 기능을 사용하기 위해 코드를 작성할 필요는 없습니다.
 
 ## <a id="scenarios"></a>시나리오
 
@@ -45,7 +36,7 @@ WebJob SDK에는 다음 구성 요소가 포함되어 있습니다.
 
 * 이미지 처리 또는 기타 CPU 집중 작업. 웹 사이트의 일반적인 기능은 이미지나 비디오를 업로드하는 것입니다. 업로드한 후에 콘텐츠를 조작하려는 경우도 많지만 이 작업을 수행하기 위해 사용자를 기다리게 하고 싶지는 않을 것입니다.
 
-* 큐 처리. 웹 프런트 엔드가 백 엔드 서비스와 통신하는 일반적인 방법은 큐를 사용하는 것입니다. 웹 사이트가 작업을 끝내야 할 경우 큐에 메시지를 푸시합니다. 백 엔드 서비스는 큐에서 메시지를 풀한 후 해당 작업을 수행합니다. 이미지 처리에 큐를 사용할 수 있습니다. 예를 들어 사용자가 많은 수의 파일을 업로드하면 백 엔드에서 처리를 위해 선택할 수 있게 파일 이름을 큐 메시지에 넣습니다. 또는 큐를 사용하여 사이트 응답성을 향상시킬 수 있습니다. 예를 들어 SQL 데이터베이스에 직접 쓰는 대신, 큐에 쓰고 사용자에게 작업이 완료되었다고 알린 후에 백 엔드 서비스가 지연 시간이 긴 관계형 데이터베이스 작업을 처리할 수 있도록 합니다. 이미지 프로세스가 포함된 큐 처리의 예제는 [WebJobs SDK 시작 자습서](websites-dotnet-webjobs-sdk-get-started.md).를 참조하세요.
+* 큐 처리. 웹 프런트 엔드가 백 엔드 서비스와 통신하는 일반적인 방법은 큐를 사용하는 것입니다. 웹 사이트가 작업을 끝내야 할 경우 큐에 메시지를 푸시합니다. 백 엔드 서비스는 큐에서 메시지를 풀한 후 해당 작업을 수행합니다. 이미지 처리에 큐를 사용할 수 있습니다. 예를 들어 사용자가 많은 수의 파일을 업로드하면 백 엔드에서 처리를 위해 선택할 수 있게 파일 이름을 큐 메시지에 넣습니다. 또는 큐를 사용하여 사이트 응답성을 향상시킬 수 있습니다. 예를 들어 SQL 데이터베이스에 직접 쓰는 대신, 큐에 쓰고 사용자에게 작업이 완료되었다고 알린 후에 백 엔드 서비스가 지연 시간이 긴 관계형 데이터베이스 작업을 처리할 수 있도록 합니다. 이미지 프로세스가 포함된 큐 처리의 예제는 [WebJobs SDK 시작 자습서](websites-dotnet-webjobs-sdk-get-started.md)를 참조하세요.
 
 * RSS 집계. RSS 피드 목록을 유지 관리하는 사이트가 있는 경우 백그라운드 프로세스에서 피드의 모든 문서를 풀할 수 있습니다.
 
@@ -93,11 +84,11 @@ WebJobs SDK의 트리거 및 바인더 기능은 Azure 저장소 개체 및 서�
 
 WebJob SDK는 Azure 저장소를 사용하는 다양한 방법을 제공합니다. 예를 들어  `QueueTrigger` 특성으로 데코레이트하는 매개 변수가 바이트 배열이거나 사용자 지정 형식인 경우 JSON에서 자동으로 역직렬화됩니다. 또한 Azure 저장소 계정에서 새 Blob을 만들 때마다  `BlobTrigger` 특성을 사용하여 프로세스를 트리거할 수 있습니다. ( `QueueTrigger`는 몇 초 안에 새 큐 메시지를 찾지만  `BlobTrigger`는 새 Blob를 검색하는 데 최대 20분이 걸릴 수 있습니다.  `BlobTrigger`는  `JobHost`가 시작될 때마다 Blob를 검색한 다음 Azure 저장소 로그를 주기적으로 확인하여 새 Blob를 검색합니다.)
 
-## <a id="workerrole"></a>WebJobs 외부에서 WebJobs SDK 사용
+## <a id="workerrole"></a>WebJob 외부에서 WebJob SDK 사용
 
 WebJobs SDK를 사용하는 프로그램은 표준 콘솔 응용 프로그램이며 WebJob으로 실행할 필요 없이 어디서나 실행할 수 있습니다. 개발 컴퓨터에서는 로컬로 프로그램을 테스트하고, 프로덕션에서는 클라우드 서비스 작업자 역할 또는 Windows 서비스 중 원하는 환경에서 프로그램을 실행할 수 있습니다. 
 
-그렇지만 대시보드는 Azure 웹 사이트에 대한 사이트 확장으로만 사용할 수 있습니다. WebJob 외부에서 실행하되 대시보드는 계속 사용하려는 경우 WebJobs SDK 대시보드 연결 문자열이 참조하는 것과 같은 저장소 계정을 사용하도록 Azure 웹 사이트를 구성할 수 있습니다. 그러면 해당 사이트의 WebJobs 대시보드에 다른 위치에서 실행 중인 프로그램의 함수 실행에 대한 데이터가 표시됩니다. URL https://*{websitename}*.scm.azurewebsites.net/azurejobs/#/functions를 사용하여 대시보드로 이동할 수 있습니다. 자세한 내용은 [WebJob SDK를 사용한 로컬 개발을 위해 대시보드 가져오기](http://blogs.msdn.com/b/jmstall/archive/2014/01/27/getting-a-dashboard-for-local-development-with-the-webjobs-sdk.aspx)를 참조하세요. 단, 이 블로그 게시물에는 이전 연결 문자열 이름이 표시됩니다. 
+그러나 대시보드는 Azure 앱 서비스 웹 앱에 대한 확장으로만 사용할 수 있습니다. WebJob 외부에서 실행하되 대시보드는 계속 사용하려는 경우 WebJobs SDK 대시보드 연결 문자열이 참조하는 것과 같은 저장소 계정을 사용하도록 웹 앱을 구성할 수 있습니다. 그러면 해당 웹 앱의 WebJobs 대시보드에 다른 위치에서 실행 중인 프로그램의 함수 실행에 대한 데이터가 표시됩니다. URL https://*{webappname}*.scm.azurewebsites.net/azurejobs/#/functions를 사용하여 대시보드로 이동할 수 있습니다. 자세한 내용은 [WebJob SDK를 사용한 로컬 개발을 위해 대시보드 가져오기](http://blogs.msdn.com/b/jmstall/archive/2014/01/27/getting-a-dashboard-for-local-development-with-the-webjobs-sdk.aspx)를 참조하세요. 단, 이 블로그 게시물에는 이전 연결 문자열 이름이 표시됩니다. 
 
 ## <a id="nostorage"></a>WebJobs SDK를 사용하여 함수 호출
 
@@ -105,14 +96,12 @@ Azure 저장소 큐, 테이블, Blob 또는 서비스 버스 큐를 직접 사�
 
 * 대시보드에서 함수를 호출할 수 있습니다.
 * 대시보드에서 함수를 재생할 수 있습니다.
-* 특정 WebJob에 연결된 로그(응용 프로그램 로그) 또는 로그가 생성된 특정 함수 호출에 연결된 로그(`TextWriter` 매개 변수 로그)를 대시보드에서 확인할 수 있습니다. 
+* 특정 WebJob에 연결되거나(Console.Out, Console.Error, Trace 등을 사용하여 작성된 응용 프로그램 로그) 로그를 생성한 특정 함수 호출에 연결된(SKD가 매개 변수로 함수에 전달하는  `TextWriter` 개체를 사용하여 작성된 로그) 대시보드에서 로그를 볼 수 있습니다. 
 
-* 자세한 내용은 [함수를 수동으로 호출하는 방법](../websites-dotnet-webjobs-sdk-storage-queues-how-to/#manual) 및 [로그를 작성하는 방법](../websites-dotnet-webjobs-sdk-storage-queues-how-to/#logs) 을 참조하세요.
+* 자세한 내용은 [수동으로 함수를 트리거하는 방법](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#manual) 및 [로그를 작성하는 방법](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#logs)을 참조하세요. 
 
 ## <a id="nextsteps"></a>다음 단계
 
 WebJobs SDK에 대한 자세한 내용은 [Azure WebJobs 권장 리소스](http://go.microsoft.com/fwlink/?linkid=390226)를 참조하세요.
 
-
-
-<!--HONumber=42-->
+<!--HONumber=52-->

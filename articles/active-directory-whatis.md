@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Azure Active Directory란?" 
 	description="Microsoft에서 뛰어난 확장성, 고가용성 및 통합 재해 복구 기능을 제공하는 클라우드에서 Active Directory를 실행하는 동안 Azure Active Directory를 사용하여 기존 온-프레미스 ID를 클라우드로 확장해 관리자 및 최종 사용자 환경을 향상시킬 수 있습니다. 또는 사용자의 조직이나 다른 조직을 위해 Azure AD 통합 응용 프로그램을 개발할 수 있습니다." 
 	services="active-directory" 
@@ -46,4 +46,4 @@ Azure AD에는 응용 프로그램에 액세스할 수 있는 클라우드 디�
 * [Azure ID](/manage/windows/fundamentals/identity/)
 * [MSDN의 Azure AD 라이브러리](http://go.microsoft.com/fwlink/?LinkId=293425)
 
-<!--HONumber=47-->
+<!--HONumber=52-->

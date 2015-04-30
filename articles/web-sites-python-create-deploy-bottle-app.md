@@ -1,20 +1,21 @@
-﻿<properties 
+<properties 
 	pageTitle="Bottle을 사용하는 Python 웹 사이트 - Azure 자습서" 
 	description="Azure에서 Python 웹 사이트를 실행하는 방법을 소개하는 자습서입니다." 
-	services="web-sites" 
+	services="app-service\web" 
 	documentationCenter="python" 
+	tags="python"
 	authors="huguesv" 
-	manager="" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="12/17/2014" 
-	ms.author="huvalo"/>
+	ms.date="02/09/2015" 
+	ms.author="huguesv"/>
 
 
 
@@ -23,48 +24,35 @@
 
 이 자습서에서는 Azure 웹 사이트에서 Python을 실행하는 방법을 설명합니다.  Azure 웹 사이트는 제한된 무료 호스팅 및 신속한 배포 기능을 제공하며, Python을 사용할 수 있습니다!  앱이 증가하면 유료 호스팅으로 전환하여 다른 모든 Azure 서비스와 통합할 수도 있습니다.
 
-먼저 Bottle 웹 프레임워크([Django](web-sites-python-create-deploy-django-app.md) 및 [Flask](web-sites-python-create-deploy-flask-app.md))는 이 자습서의 다른 버전 참조)를 사용하여 응용 프로그램을 만듭니다.  Azure 갤러리에서 웹 사이트를 만들고, Git 배포를 설치하고, 리포지토리를 로컬로 복제합니다.  그런 다음 응용 프로그램을 로컬로 실행하고, 변경한 다음, 이를 커밋하여 Azure에 푸시합니다.  이 자습서에서는 Windows 또는 Mac/Linux에서 이 작업을 수행하는 방법을 보여 줍니다.
+Bottle 웹 프레임워크를 사용하여 응용프로그램을 만들게 됩니다([Django](web-sites-python-create-deploy-django-app.md) 및 [Flask](web-sites-python-create-deploy-flask-app.md) 에 대한 이 자습서의 대체 버전 참조).  Azure 갤러리에서 웹 사이트를 만들고, Git 배포를 설치하고, 리포지토리를 로컬로 복제합니다.  그런 다음 응용 프로그램을 로컬로 실행하고, 변경한 다음, 이를 커밋하여 Azure에 푸시합니다.  이 자습서에서는 Windows 또는 Mac/Linux에서 이 작업을 수행하는 방법을 보여 줍니다.
 
 [AZURE.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 
-+ [필수 조건](#prerequisites)
-+ [포털에서 웹 사이트 만들기](#website-creation-on-portal)
-+ [응용 프로그램 개요](#application-overview)
-+ 웹 사이트 개발
-  + [Windows - Python Tools for Visual Studio](#website-development-windows-ptvs)
-  + [Windows - 명령줄](#website-development-windows-command-line)
-  + [Mac/Linux - 명령줄](#website-development-mac-linux-command-line)
-+ [문제 해결 - 배포](#troubleshooting-deployment)
-+ [문제 해결 - 패키지 설치](#troubleshooting-package-installation)
-+ [문제 해결 - 가상 환경](#troubleshooting-virtual-environment)
-+ [다음 단계](#next-steps)
-
-
-<h2><a name="prerequisites"></a>필수 조건</h2>
+## 필수 조건
 
 - Windows, Mac 또는 Linux
 - Python 2.7 또는 3.4
 - setuptools, pip, virtualenv(Python 2.7 전용)
 - Git
-- Python Tools for Visual Studio(옵션)
+- [Python Tools 2.1 for Visual Studio][](선택 사항)
 
 **참고**: 현재 Python 프로젝트에서는 TFS 게시를 사용할 수 없습니다.
 
 ### Windows
 
-Python 2.7 또는 3.4(32비트)를 아직 설치하지 않은 경우 웹 플랫폼 설치 관리자를 사용하여 [Azure SDK for Python 2.7](http://go.microsoft.com/fwlink/?linkid=254281&clcid=0x409) 또는 [Azure SDK for Python 3.4](http://go.microsoft.com/fwlink/?LinkID=516990&clcid=0x409)를 설치하는 것이 좋습니다.  그러면 32비트 버전의 Python, setuptools, pip, virtualenv 등(32비트 Python은 Azure 호스트 컴퓨터에 설치되는 버전)이 설치됩니다.  또는 [python.org](http://www.python.org/)에서 Python을 다운로드할 수 있습니다.
+Python 2.7 또는 3.4(32비트)를 아직 설치하지 않은 경우 웹 플랫폼 설치 관리자를 사용하여 [Azure SDK for Python 2.7][] 또는 [Azure SDK for Python 3.4][]를 설치하는 것이 좋습니다.  그러면 32비트 버전의 Python, setuptools, pip, virtualenv 등(32비트 Python은 Azure 호스트 컴퓨터에 설치되는 버전)이 설치됩니다.  또는 [python.org][]에서 Python을 다운로드할 수 있습니다.
 
-Git의 경우 [Windows용 Git](http://msysgit.github.io/) 또는 [Windows용 GitHub](https://windows.github.com/)를 설치하는 것이 좋습니다.  Visual Studio를 사용하는 경우 통합 Git 지원을 사용할 수 있습니다.
+Git의 경우 [Windows용 Git][] 또는 [Windows용 GitHub][]를 설치하는 것이 좋습니다.  Visual Studio를 사용하는 경우 통합 Git 지원을 사용할 수 있습니다.
 
-또한 [Python Tools for Visual Studio](http://pytools.codeplex.com)를 설치하는 것이 좋습니다.  이는 선택 사항이지만 [Visual Studio](http://www.visualstudio.com/)(무료 Visual Studio Express 2013 for Web 포함)가 있으면 Python IDE가 향상됩니다.
+또한 [Python Tools 2.1 for Visual Studio][]를 설치하는 것이 좋습니다.  이는 선택 사항이지만 [Visual Studio][](Visual Studio Community 2013 또는 Visual Studio Express 2013 for Web 포함)가 있으면 Python IDE가 향상됩니다.
 
 ### Mac/Linux
 
 Python 및 Git를 이미 설치했어야 하지만 Python 버전은 2.7 또는 3.4여야 합니다.
 
 
-<h2><a name="website-creation-on-portal"></a>포털에서 웹 사이트 만들기</h2>
+## 포털에서 웹 사이트 만들기
 
 앱을 만드는 첫 번째 단계는 Azure 관리 포털을 통해 웹 사이트를 만드는 것입니다.  이렇게 하려면 포털에 로그인하여 왼쪽 아래 모서리에서 **새로 만들기** 단추를 클릭해야 합니다. 창이 나타납니다. **계산**, **웹 사이트**, **갤러리에서**를 차례로 클릭합니다.
 
@@ -80,7 +68,7 @@ Python 및 Git를 이미 설치했어야 하지만 Python 버전은 2.7 또는 3
 
 ![](./media/web-sites-python-create-deploy-bottle-app/portal-website-bottle.png)
  
-그런 다음 Git를 통해 게시를 손쉽게 진행합니다.  **소스 제어에서 배포 설정**을 선택하면 됩니다.
+그런 다음 Git를 통해 게시를 손쉽게 진행합니다.  이 작업은 **소스 제어에서 배포 설정**하여 완료할 수 있습니다.
 
 ![](./media/web-sites-python-create-deploy-bottle-app/portal-site-created.png)
 
@@ -95,7 +83,7 @@ Git 게시를 설정한 후 리포지토리가 만들어지고 있다고 알리�
 다음 섹션에서 이러한 지침을 따릅니다.
 
 
-<h2><a name="application-overview"></a>응용 프로그램 개요</h2>
+## 응용 프로그램 개요
 
 ### Git 리포지토리 콘텐츠
 
@@ -119,7 +107,7 @@ Git 게시를 설정한 후 리포지토리가 만들어지고 있다고 알리�
     \BottleWebProject.pyproj
     \BottleWebProject.sln
 
-[Python Tools for Visual Studio](http://pytools.codeplex.com)에서 사용되는 프로젝트 파일
+[Python Tools for Visual Studio][]에서 사용되는 프로젝트 파일
 
     \ptvs_virtualenv_proxy.py
 
@@ -161,7 +149,7 @@ Python 가상 환경.  호환되는 가상 환경이 사이트에 없는 경우 
 - Mac/Linux, 명령줄 사용
 
 
-<h2><a name="website-development-windows-ptvs"></a>웹 사이트 배포 - Windows - Python Tools for Visual Studio</h2>
+## 웹 사이트 배포 - Windows - Python Tools for Visual Studio
 
 ### 리포지토리 복제
 
@@ -193,7 +181,7 @@ F5 키를 눌러 디버깅을 시작하면 웹 브라우저에서 로컬로 실�
 
 ![](./media/web-sites-python-create-deploy-bottle-app/windows-browser-bottle.png)
 
-소스에서 중단점을 설정하고, 조사식 창을 사용할 수 있습니다. 여러 기능에 대한 자세한 내용은 [PTVS 설명서](http://pytools.codeplex.com/documentation)를 참조하세요.
+소스에서 중단점을 설정하고, 조사식 창을 사용할 수 있습니다. 여러 기능에 대한 자세한 내용은 [PTVS 설명서][]를 참조하세요.
 
 ### 변경 작업
 
@@ -225,12 +213,12 @@ pip를 사용하여 추가 패키지를 설치할 수 있습니다.  패키지�
 
 첫 배포에서는 가상 환경 만들기, 패키지 설치 등의 작업이 수행되므로 약간의 시간이 걸립니다.
 
-Visual Studio에는 배포 진행률이 표시되지 않습니다.  출력을 검토하려면 [문제 해결 - 배포] 섹션을 참조하세요(#troubleshooting-deployment).
+Visual Studio에는 배포 진행률이 표시되지 않습니다.  출력을 검토하려면 [문제 해결 - 배포](#troubleshooting-deployment) 섹션을 참조하세요.
 
 Azure URL로 이동하여 변경 내용을 확인합니다.
 
 
-<h2><a name="website-development-windows-command-line"></a>웹 사이트 배포 - Windows - 명령줄</h2>
+## 웹 사이트 배포 - Windows - 명령줄
 
 ### 리포지토리 복제
 
@@ -309,7 +297,7 @@ requirements.txt를 업데이트합니다.
 Azure URL로 이동하여 변경 내용을 확인합니다.
 
 
-<h2><a name="website-development-mac-linux-command-line"></a>웹 사이트 배포 - Mac/Linux - 명령줄</h2>
+## 웹 사이트 배포 - Mac/Linux - 명령줄
 
 ### 리포지토리 복제
 
@@ -388,22 +376,22 @@ requirements.txt를 업데이트합니다.
 Azure URL로 이동하여 변경 내용을 확인합니다.
 
 
-<h2><a name="troubleshooting-deployment"></a>문제 해결 - 배포</h2>
+## Troubleshooting - Deployment
 
 [AZURE.INCLUDE [web-sites-python-troubleshooting-deployment](../includes/web-sites-python-troubleshooting-deployment.md)]
 
 
-<h2><a name="troubleshooting-package-installation"></a>문제 해결 - 패키지 설치</h2>
+## 문제 해결 - 패키지 설치
 
 [AZURE.INCLUDE [web-sites-python-troubleshooting-package-installation](../includes/web-sites-python-troubleshooting-package-installation.md)]
 
 
-<h2><a name="troubleshooting-virtual-environment"></a>문제 해결 - 가상 환경</h2>
+## 문제 해결 - 가상 환경
 
 [AZURE.INCLUDE [web-sites-python-troubleshooting-virtual-environment](../includes/web-sites-python-troubleshooting-virtual-environment.md)]
 
 
-<h2><a name="next-steps"></a>다음 단계</h2>
+## 다음 단계
 
 Bottle 및 Python Tools for Visual Studio에 대한 자세한 내용은 다음 링크를 참조하세요. 
  
@@ -417,13 +405,20 @@ Azure 테이블 저장소 및 MongoDB에 대한 자세한 정보:
 
 
 <!--Link references-->
-[Python Tools 2.1 for Visual Studio가 있는 Azure의 Bottle 및 MongoDB]: ../web-sites-python-ptvs-bottle-table-storage
-[Python Tools 2.1 for Visual Studio가 있는 Azure의 Bottle 및 Azure 테이블 저장소]: ../web-sites-python-ptvs-bottle-mongodb
+[Python Tools 2.1 for Visual Studio가 있는 Azure의 Bottle 및 MongoDB]: web-sites-python-ptvs-bottle-table-storage.md
+[Python Tools 2.1 for Visual Studio가 있는 Azure의 Bottle 및 Azure 테이블 저장소]: web-sites-python-ptvs-bottle-mongodb.md
 
 <!--External Link references-->
-[Python Tools for Visual Studio 설명서] : http://pytools.codeplex.com/documentation 
+[Azure SDK for Python 2.7]: http://go.microsoft.com/fwlink/?linkid=254281
+[Azure SDK for Python 3.4]: http://go.microsoft.com/fwlink/?linkid=516990
+[python.org]: http://www.python.org/
+[Windows용 Git]: http://msysgit.github.io/
+[Windows용 GitHub]: https://windows.github.com/
+[Python Tools for Visual Studio]: http://aka.ms/ptvs
+[Python Tools 2.1 for Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
+[Visual Studio]: http://www.visualstudio.com/
+[PTVS 설명서]: http://pytools.codeplex.com/documentation
+[Python Tools for Visual Studio 설명서]: http://pytools.codeplex.com/documentation 
 [Bottle 설명서]: http://bottlepy.org/docs/dev/index.html
 
-
-
-<!--HONumber=42-->
+<!--HONumber=52-->
