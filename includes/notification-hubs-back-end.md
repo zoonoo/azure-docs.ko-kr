@@ -1,6 +1,6 @@
 
 이 섹션에서는 .NET 콘솔 앱 및 다른 위치에서 알림을 보내는 방법을 보여 줍니다.
-모바일 서비스를 사용하는 경우 [푸시 시작]자습서를](../articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push.md) 참조하세요. Java 또는 PHP를 사용하려는 경우 [Java/PHP에서 알림 허브를 사용하는 방법](notification-hubs-java-backend-how-to.md)을 참조하세요. [알림 허브 REST 인터페이스]를 사용하여 아무 백 엔드에서나 알림을 보낼 수 있습니다.
+모바일 서비스를 사용하는 경우 [푸시 시작](../articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push.md)자습서를 참조하세요. Java 또는 PHP를 사용하려는 경우 [Java/PHP에서 알림 허브를 사용하는 방법](notification-hubs-java-backend-how-to.md)을 참조하세요. [알림 허브 REST 인터페이스]를 사용하여 아무 백 엔드에서나 알림을 보낼 수 있습니다.
 
 다음 코드는 Windows 스토어, Windows Phone, iOS 및 Android 장치에 알림을 보냅니다. 
 
@@ -12,7 +12,7 @@
 
 2. Visual Studio 주 메뉴에서 **도구**, **라이브러리 패키지 관리자**, **패키지 관리자 콘솔**을 차례로 클릭한 후 콘솔 창에서 다음을 입력하고 **Enter** 키를 누릅니다.
 
-       Install-Package WindowsAzure.ServiceBus
+        Install-Package WindowsAzure.ServiceBus
  	
 	이 코드는 <a href="http://nuget.org/packages/WindowsAzure.ServiceBus/">WindowsAzure.ServiceBus NuGet 패키지</a>를 사용하여 Azure 서비스 버스 SDK에 참조를 추가합니다. 
 

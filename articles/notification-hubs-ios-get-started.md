@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Azure 알림 허브 시작" 
 	description="Azure 알림 허브를 사용하여 알림을 푸시하는 방법에 대해 알아봅니다." 
 	services="notification-hubs" 
@@ -279,6 +279,7 @@ Apple [로컬 및 푸시 알림 프로그래밍 가이드]에서 가능한 모�
 
 [알림 허브를 사용하여 사용자에게 푸시 알림 보내기]: notification-hubs-ios-mobile-services-register-user-push-notifications.md
 [알림 허브를 사용하여 속보 보내기]: notification-hubs-ios-send-breaking-news.md
+[알림 허브를 통해 속보 보내기]: notification-hubs-ios-send-breaking-news.md
 
 [로컬 및 푸시 알림 프로그래밍 가이드]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 

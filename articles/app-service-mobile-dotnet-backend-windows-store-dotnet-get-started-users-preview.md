@@ -24,11 +24,11 @@
 
 이 자습서는 모바일 앱 퀵 스타트를 기반으로 합니다. 먼저 [모바일 앱 시작] 자습서를 완료해야 합니다. 
 
-##<a name="register"></a>인증을 위해 앱 등록 및 앱 서비스 구성
+## <a name="register"></a>인증을 위해 앱 등록 및 앱 서비스 구성
 
 [AZURE.INCLUDE [app-service-mobile-register-authentication](../includes/app-service-mobile-register-authentication.md)] 
 
-##<a name="permissions"></a>사용 권한을 인증된 사용자로 제한
+## <a name="permissions"></a>사용 권한을 인증된 사용자로 제한
 
 [AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)] 
 
@@ -41,7 +41,7 @@
 
 다음에는 앱 서비스에서 리소스를 요청하기 전에 사용자를 인증하도록 앱을 업데이트합니다.
 
-##<a name="add-authentication"></a>앱에 인증 추가
+## <a name="add-authentication"></a>앱에 인증 추가
 
 [AZURE.INCLUDE [app-service-mobile-windows-universal-dotnet-authenticate-app](../includes/app-service-mobile-windows-universal-dotnet-authenticate-app.md)] 
 
@@ -49,7 +49,7 @@
 [AZURE.NOTE] 앱 서비스에 Windows 스토어 앱 패키지 정보를 등록한 경우 <em>useSingleSignOn</em> 매개 변수에 <strong>true</strong> 값을 제공하여 <a href="http://go.microsoft.com/fwlink/p/?LinkId=311594" target="_blank">LoginAsync</a> 메서드를 호출해야 합니다. 그렇지 않으면 로그인 메서드가 호출될 때마다 사용자에게 로그인 프롬프트가 표시됩니다.
 
 
-##<a name="tokens"></a>클라이언트에 인증 토큰 저장
+## <a name="tokens"></a>클라이언트에 인증 토큰 저장
 
 [AZURE.INCLUDE [app-service-mobile-windows-store-dotnet-authenticate-app-with-token](../includes/app-service-mobile-windows-store-dotnet-authenticate-app-with-token.md)] 
 

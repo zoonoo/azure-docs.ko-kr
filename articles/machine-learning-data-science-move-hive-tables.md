@@ -19,7 +19,7 @@
 	ms.author="hangzh;bradsev" />
 
  
-#데이터를 만들어서 Azure blob 저장소의 Hive 테이블에 로드
+# 데이터를 만들어서 Azure blob 저장소의 Hive 테이블에 로드
  
 이 문서에서는 Hive 테이블을 만들고 Azure blob 저장소의 데이터를 로드하는 일반 Hive 쿼리를 보여 줍니다. 또한 Hive 테이블을 분할하고 ORC(Optimized Row Columnar) 형식을 사용하여 쿼리 성능을 개선하는 방법에 대한 지침도 제공됩니다.
 
@@ -141,7 +141,7 @@ Hive 테이블 분할 외에도 Hive 데이터를 ORC(Optimized Row Columnar) �
 
 		INSERT OVERWRITE TABLE <database name>.<ORC table name> SELECT * FROM <database name>.<external textfile table name>;
 
->[AZURE.NOTE] TEXTFILE 테이블 `<database name>.<external textfile table name>`에 파티션이 있으면 3단계의 `SELECT * FROM <database name>.<external textfile table name>`에서는 반환된 데이터 집합의 필드로 파티션 변수를 선택할 것입니다. 이 필드를 `<database name>.<ORC table name>`에 삽입하면 오류가 발생할 것입니다. `<database name>.<ORC table name>`은 테이블 스키마의 필드로 해당 파티션 변수를 갖고 있지 않기 때문입니다. 이 경우 사용자는 `<database name>.<ORC table name>`에 삽입할 필드를 다음과 같이 구체적으로 선택해야 합니다.
+[AZURE.NOTE] TEXTFILE 테이블 `<database name>.<external textfile table name>`에 파티션이 있으면 3단계의 `SELECT * FROM <database name>.<external textfile table name>`에서는 반환된 데이터 집합의 필드로 파티션 변수를 선택할 것입니다. 이 필드를 `<database name>.<ORC table name>`에 삽입하면 오류가 발생할 것입니다. `<database name>.<ORC table name>`은 테이블 스키마의 필드로 해당 파티션 변수를 갖고 있지 않기 때문입니다. 이 경우 사용자는 `<database name>.<ORC table name>`에 삽입할 필드를 다음과 같이 구체적으로 선택해야 합니다.
 
 		INSERT OVERWRITE TABLE <database name>.<ORC table name> PARTITION (<partition variable>=<partition value>)
 		      SELECT field1, field2, ..., fieldN

@@ -6,7 +6,7 @@
 
 2. 게이트웨이를 선택하고 **속성** 아래의 **URL** 값을 적어 둡니다. 앱을 등록할 때 이 값을 ID 공급자에게 제공해야 할 수도 있습니다.
 
-   ![](./media/app-service-mobile-register-authentication/gateway-uri.png)
+   	![](./media/app-service-mobile-register-authentication/gateway-uri.png)
 
 3. 아래 목록에서 지원되는 ID 공급자를 선택하고 해당 공급자에 앱을 구성하는 단계를 따릅니다.
 

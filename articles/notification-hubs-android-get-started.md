@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Azure 알림 허브 시작" 
 	description="Azure 알림 허브를 사용하여 알림을 푸시하는 방법에 대해 알아봅니다." 
 	services="notification-hubs" 
@@ -39,7 +39,7 @@
 
 이 자습서를 완료해야 다른 모든 Android 앱용 알림 허브 자습서를 진행할 수 있습니다. 
 
-> [AZURE.NOTE] 이 자습서를 완료하려면 활성 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판]을 참조하세요(http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fko-kr%2Fdocumentation%2Farticles%2Fnotification-hubs-android-get-started%2F).
+> [AZURE.NOTE] 이 자습서를 완료하려면 활성 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fko-kr%2Fdocumentation%2Farticles%2Fnotification-hubs-android-get-started%2F)을 참조하세요.
 
 ##<a id="register"></a>Google Cloud Messaging 사용
 
@@ -200,7 +200,7 @@
 
 ##<a name="send"></a>앱에 알림을 보내는 방법
 
->[AZURE.NOTE]<a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">REST 인터페이스</a>를 사용하는 모든 백 엔드에서 알림 허브를 사용하여 알림을 보낼 수 있습니다. 이 자습서에서는 .NET 콘솔 응용 프로그램을 사용하여 알림을 보냅니다. 알림 허브와 통합된 Azure 모바일 서비스 백 엔드에서 알림을 보내는 방법에 대한 예제는 [모바일 서비스에서 푸시 알림 시작]을 참조하세요(mobile-services-javascript-backend-android-get-started-push.md).  REST API를 사용하여 알림을 보내는 방법의 예제는 [Java에서 알림 허브를 사용하는 방법](notification-hubs-java-backend-how-to.md) 또는 [PHP에서 알림 허브를 사용하는 방법]을 참조하세요.(notification-hubs-php-backend-how-to.md).
+>[AZURE.NOTE]<a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">REST 인터페이스</a>를 사용하는 모든 백 엔드에서 알림 허브를 사용하여 알림을 보낼 수 있습니다. 이 자습서에서는 .NET 콘솔 응용 프로그램을 사용하여 알림을 보냅니다. 알림 허브와 통합된 Azure 모바일 서비스 백 엔드에서 알림을 보내는 방법에 대한 예제는 [모바일 서비스에서 푸시 알림 시작](mobile-services-javascript-backend-android-get-started-push.md)을 참조하세요.  REST API를 사용하여 알림을 보내는 방법의 예제는 [Java에서 알림 허브를 사용하는 방법](notification-hubs-java-backend-how-to.md) 또는 [PHP에서 알림 허브를 사용하는 방법](notification-hubs-php-backend-how-to.md)을 참조하세요.
 
 1. Visual Studio의 **파일** 메뉴에서 **새로 만들기**, **프로젝트...**를 차례로 선택하고 **Visual C#** 아래에서 **Windows**, **콘솔 응용 프로그램**, **확인**을 차례로 클릭합니다.  
 
@@ -308,6 +308,7 @@
 
 [알림 허브를 사용하여 사용자에게 푸시 알림 보내기]: notification-hubs-aspnet-backend-android-notify-users.md
 [알림 허브를 사용하여 속보 보내기]: notification-hubs-aspnet-backend-android-breaking-news.md
+[알림 허브를 통해 속보 보내기]: notification-hubs-aspnet-backend-android-breaking-news.md
 
 
 <!--HONumber=49-->

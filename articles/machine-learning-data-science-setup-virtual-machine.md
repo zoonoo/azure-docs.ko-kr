@@ -107,7 +107,7 @@ IPython Notebook은 사용자가 로컬 컴퓨터에 있는 기존 IPython Noteb
 ![Create workspace][23]
 
 
-##<a name="shutdown"></a>사용하지 않을 때 가상 컴퓨터 종료 및 할당 해제
+## <a name="shutdown"></a>사용하지 않을 때 가상 컴퓨터 종료 및 할당 해제
 
 Azure 가상 컴퓨터는 **종량제**로 비용이 청구됩니다. 가상 컴퓨터를 사용하지 않을 때 비용이 청구되지 않도록 하려면 **중지(할당 해제)** 상태에 있어야 합니다.
 
