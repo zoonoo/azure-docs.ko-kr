@@ -120,4 +120,5 @@
 [JavaScript 버전]: mobile-services-windows-store-get-started.md
 [Visual Studio 2012를 사용하여 모바일 서비스에서 데이터 시작]: mobile-services-windows-store-dotnet-get-started-data-vs2012.md
 
+
 <!--HONumber=52-->

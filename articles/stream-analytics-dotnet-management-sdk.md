@@ -357,4 +357,5 @@ Azure 스트림 분석은 완전히 관리되는 서비스로, 클라우드의 �
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
+
 <!--HONumber=52-->

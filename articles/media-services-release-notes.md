@@ -495,4 +495,5 @@ Azure 미디어 서비스 .NET SDK Extensions는 코드를 단순화하고 Azure
 [여러 저장소 계정에서 미디어 서비스 자산 관리]: http://msdn.microsoft.com/library/azure/dn271889.aspx
 [미디어 서비스 작업 알림 처리]: http://msdn.microsoft.com/library/azure/dn261241.aspx
 
+
 <!--HONumber=52-->

@@ -126,4 +126,5 @@ GRS를 활성화 하는 저장소 계정의 경우, 먼저 업데이트가 기�
 - [RA-GRS를 포함한 Microsoft Azure 저장소 에뮬레이터 3.1 ](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/08/microsoft-azure-storage-emulator-3-1-with-ra-grs.aspx)
 - [Azure 저장소 SOSP ](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)  
 
+
 <!--HONumber=52-->

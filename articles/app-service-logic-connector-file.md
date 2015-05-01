@@ -93,4 +93,5 @@ API 앱을 만들고 나면 이제 파일 커넥터를 논리 앱에 대한 동�
 [새 논리 앱 만들기]: app-service-logic-create-a-logic-app.md
 [파일 커넥터 API 정의]: https://msdn.microsoft.com/en-US/library/dn936296.aspx
 
+
 <!--HONumber=52-->

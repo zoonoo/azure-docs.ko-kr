@@ -65,4 +65,5 @@ Azure 미디어 서비스는 Windows 미디어 플랫폼을 통해 광고 삽입
 
 라이브 스트리밍 비디오에서 캡션 및 광고 지원에 대한 정보는 [지원되는 캡션 및 Ad 삽입 표준](https://msdn.microsoft.com/library/c49e0b4d-357e-4cca-95e5-2288924d1ff3#caption_ad)을 참조하세요.
 
+
 <!--HONumber=52-->

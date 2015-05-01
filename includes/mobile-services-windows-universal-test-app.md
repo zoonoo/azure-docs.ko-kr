@@ -12,4 +12,5 @@
 	![](./media/mobile-services-windows-universal-test-app/mobile-quickstart-completed-wp8.png)
 	
 	앱이 시작된 후 이전 단계에서 저장한 데이터가 모바일 서비스에서 로드됩니다.
+
 <!--HONumber=52--> 

@@ -56,4 +56,5 @@ Microsoft SQL Server 2008 R2를 실행하고 Operations Manager 에이전트를 
 서비스 팩을 설치한 후 서버에 대한 Operational Insights 데이터가 24시간 내에 표시되어야 합니다.
 
 
+
 <!--HONumber=52-->

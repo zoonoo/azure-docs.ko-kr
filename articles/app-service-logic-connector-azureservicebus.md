@@ -79,4 +79,5 @@ API 앱을 만들고 나면 이제 Azure 서비스 버스 커넥터를 논리 �
 [7]: ./media/app-service-logic-connector-azureservicebus/img7.PNG
 [8]: ./media/app-service-logic-connector-azureservicebus/img8.PNG
 
+
 <!--HONumber=52-->

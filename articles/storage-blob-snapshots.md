@@ -116,4 +116,5 @@ Blob의 읽기 전용 복사본인 스냅숏을 만들면 계정에 데이터 �
 
 ![Azure Storage Resources](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-4.png)
 
+
 <!--HONumber=52-->

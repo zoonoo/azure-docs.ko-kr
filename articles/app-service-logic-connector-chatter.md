@@ -95,4 +95,5 @@ API 앱을 만들고 나면 이제 Chatter Connector를 논리 앱에 대한 트
 [10]: ./media/app-service-logic-connector-chatter/img10.PNG
 [11]: ./media/app-service-logic-connector-chatter/img11.PNG
 
+
 <!--HONumber=52-->

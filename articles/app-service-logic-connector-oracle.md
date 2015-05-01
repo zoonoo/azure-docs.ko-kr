@@ -171,4 +171,5 @@ Oracle 테이블에서 데이터를 폴링하는 단순한 논리 앱을 사용�
 [Oracle 클라이언트 구성]: https://msdn.microsoft.com/ko-kr/library/dd787872.aspx
 
 
+
 <!--HONumber=52-->

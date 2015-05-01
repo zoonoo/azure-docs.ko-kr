@@ -216,4 +216,5 @@ Python Tools for Visual Studio, Flask 및 Azure 테이블 저장소에 대해 �
 [Azure 저장소]: http://azure.microsoft.com/documentation/services/storage/
 [Azure SDK for Python]: https://github.com/Azure/azure-sdk-for-python
 
+
 <!--HONumber=52-->

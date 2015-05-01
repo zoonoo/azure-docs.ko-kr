@@ -46,4 +46,5 @@ RemoteApp은 사용자 액세스를 허용하도록 Azure Active Directory(Azure
 
 이제 새 Azure AD 테넌트를 사용하여 Azure 구독에 대한 액세스를 제어하고 RemoteApp에 대한 사용자 액세스를 구성할 수 있습니다.
 
+
 <!--HONumber=52-->

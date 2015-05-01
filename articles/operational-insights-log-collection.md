@@ -94,4 +94,5 @@ Operational Insights의 **개요** 페이지의 **로그 관리** 타일을 사�
 - [Azure Operational Insights의 IIS 로그 형식 요구 사항](http://blogs.technet.com/b/momteam/archive/2014/09/19/iis-log-format-requirements-in-system-center-advisor.aspx)
 - [피드백 포럼](http://feedback.azure.com/forums/267889-azure-operational-insights/category/88086-log-management-and-log-collection-policy) 에서 커뮤니티에서 구현하도록 요청하는 로그 유형과 기타 데이터 소스가 무엇인지 참조하세요.
 
+
 <!--HONumber=52-->

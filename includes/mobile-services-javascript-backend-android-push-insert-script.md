@@ -37,4 +37,5 @@
 
    	이 코드는 새 삽입 스크립트를 등록하며, 삽입 성공 후 [gcm 개체](http://go.microsoft.com/fwlink/p/?LinkId=282645)를 사용하여 등록된 모든 장치에 푸시 알림을 보냅니다. 
 
+
 <!--HONumber=52-->

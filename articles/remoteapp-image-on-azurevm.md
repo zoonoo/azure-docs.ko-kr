@@ -58,4 +58,5 @@ Azure VM을 기반으로 이미지를 만들려면 이 단계를 사용합니다
 
 이제, 사용자의 요구에 따라 [클라우드](remoteapp-create-cloud-deployment.md) 컬렉션 또는 [하이브리드](remoteapp-create-hybrid-deployment.md)의 새로운 컬렉션을 만들 준비가 되었습니다.
 
+
 <!--HONumber=52-->

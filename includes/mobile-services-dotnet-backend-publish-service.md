@@ -15,4 +15,5 @@
 	![](./media/mobile-services-dotnet-backend-publish-service/mobile-quickstart-publish-2.png)
 
 	게시가 성공하면 이때 Azure에서 모바일 서비스가 실행 중이라는 확인 페이지가 다시 표시됩니다.
+
 <!--HONumber=52--> 

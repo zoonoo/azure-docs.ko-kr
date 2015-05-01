@@ -46,4 +46,5 @@ Azure AD에는 응용 프로그램에 액세스할 수 있는 클라우드 디�
 * [Azure ID](/manage/windows/fundamentals/identity/)
 * [MSDN의 Azure AD 라이브러리](http://go.microsoft.com/fwlink/?LinkId=293425)
 
+
 <!--HONumber=52-->

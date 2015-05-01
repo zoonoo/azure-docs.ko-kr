@@ -274,4 +274,5 @@ Azure 모바일 앱 오프라인 기능을 사용하면 오프라인 시나리�
 [Azure Mobile App SDK Nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices/2.0.0-beta
 [SQLite 저장소 nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.2
 
+
 <!--HONumber=52-->

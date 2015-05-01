@@ -92,4 +92,5 @@
 [Azure 미디어 인코더용 작업 기본 설정 문자열]: http://msdn.microsoft.com/library/jj129582.aspx
 [방법: 프로그래밍 방식으로 미디어 서비스에 연결]: ../media-services-set-up-computer/
 
+
 <!--HONumber=52-->

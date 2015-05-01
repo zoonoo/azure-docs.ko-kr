@@ -82,4 +82,5 @@
 - [블로그 게시물: Azure 가상 컴퓨터에 대한 Operational Insights를 사용하도록 설정](http://azure.microsoft.com/updates/easily-enable-operational-insights-for-azure-virtual-machines/)
 
 
+
 <!--HONumber=52-->

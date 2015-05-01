@@ -42,4 +42,5 @@ Azure 자동화의 기본 사항과 Azure 자동화를 사용하여 Azure Remote
 
 * Azure 자동화 [시작 자습서](automation-create-runbook-from-samples.md) 를 참조하세요.
 
+
 <!--HONumber=52-->

@@ -130,4 +130,5 @@ Microsoft Azure에 호스트된 새 모바일 서비스에 POST 요청이 전송
 [인증 시작]: partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-users.md
 [푸시 알림 시작]: partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push.md
 
+
 <!--HONumber=52-->

@@ -90,4 +90,5 @@ API 앱을 만들고 나면 이제 SMTP 커넥터를 논리 앱에 대한 동작
 [5]: ./media/app-service-logic-connector-smtp/img5.PNG
 [6]: ./media/app-service-logic-connector-smtp/img6.PNG
 
+
 <!--HONumber=52-->

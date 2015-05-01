@@ -422,4 +422,5 @@ Azure 테이블 저장소 및 MongoDB에 대한 자세한 정보:
 [Python Tools for Visual Studio 설명서]: http://pytools.codeplex.com/documentation 
 [Flask 설명서]: http://flask.pocoo.org/ 
 
+
 <!--HONumber=52-->

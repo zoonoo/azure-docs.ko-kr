@@ -116,4 +116,5 @@ API 앱을 만들고 나면 이제 SFTP 커넥터를 논리 앱에 대한 트리
 [11]: ./media/app-service-logic-connector-sftp/img11.PNG
 [12]: ./media/app-service-logic-connector-sftp/img12.PNG
 
+
 <!--HONumber=52-->

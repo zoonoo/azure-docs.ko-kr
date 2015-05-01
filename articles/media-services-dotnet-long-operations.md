@@ -186,4 +186,5 @@ Microsoft Azure 미디어 서비스는 작업(예: 채널 만들기, 시작, 중
 	// 여기에서 새로 만든 채널 ID가 있어야 합니다.
 	Console.WriteLine(channelId);
 
+
 <!--HONumber=52-->

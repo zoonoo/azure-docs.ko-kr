@@ -245,4 +245,5 @@ StorSimple는 StorSimple 솔루션의 구성 요소 간 이동되는 또는 저�
 
 [물리적 장치 시작](https://msdn.microsoft.com/library/azure/dn772410.aspx)
 
+
 <!--HONumber=52-->

@@ -97,4 +97,5 @@ Azure IaaS(Windows) 진단 패키지를 실행할 수 없거나 실행해도 문
 [RDP 또는 SSH를 사용하여 Azure 가상 컴퓨터에 연결](http://msdn.microsoft.com/library/azure/dn535788.aspx)
 
 
+
 <!--HONumber=52-->

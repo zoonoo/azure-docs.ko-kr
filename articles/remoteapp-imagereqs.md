@@ -37,4 +37,5 @@ Azure RemoteApp은 Windows Server 2012 R2 이미지를 사용하여 사용자와
 - 이미지에 **/oobe /generalize /shutdown** 매개 변수를 사용하여 sysprep을 실행해야 합니다. **/mode:vm** 매개 변수는 사용하지 마세요.
 - 스냅숏 체인으로부터의 VHD 업로드는 지원되지 않습니다.
 
+
 <!--HONumber=52-->

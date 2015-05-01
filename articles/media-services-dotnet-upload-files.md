@@ -309,4 +309,5 @@ IngestManifest의 **IIngestManifest.BlobStorageUriForUpload** 속성이 제공�
 
 [미디어 프로세서를 가져오는 방법]: media-services-get-media-processor.md
 
+
 <!--HONumber=52-->

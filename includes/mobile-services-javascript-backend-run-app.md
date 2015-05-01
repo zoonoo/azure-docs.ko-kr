@@ -18,4 +18,5 @@
    	이를 통해 앱에서 테이블로 삽입된 데이터를 찾을 수 있습니다.
 
    	![](./media/mobile-services-javascript-backend-run-app/mobile-data-browse.png)
+
 <!--HONumber=52--> 

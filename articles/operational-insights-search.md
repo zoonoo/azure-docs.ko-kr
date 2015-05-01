@@ -52,4 +52,5 @@ Azure Operational Insights의 **검색** 기능을 사용하여 검색 중인 �
 - [IIS 관리 팩 이벤트-경고 규칙의 OpInsights 검색과 동일](http://blogs.msdn.com/b/dmuscett/archive/2014/11/05/iis-mp-event-alerting-rules-s-opinsights-searches-equivalents.aspx)
 - [유용한 Operational Insights 검색 쿼리 컬렉션](http://blogs.msdn.com/b/dmuscett/archive/2014/10/19/advisor-searches-collection.aspx)
 
+
 <!--HONumber=52-->

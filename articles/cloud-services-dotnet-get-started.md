@@ -814,4 +814,5 @@ Azure 저장소 모범 사례 및 패턴에 대한 비디오 소개는 [Microsof
 * [.NET에서 Blob 저장소를 사용하는 방법](storage-dotnet-how-to-use-blobs.md)
 * [.NET에서 큐 저장소를 사용하는 방법](storage-dotnet-how-to-use-queues.md)
 
+
 <!--HONumber=52-->

@@ -137,4 +137,5 @@ Azure CDN 통합을 사용함으로 설정하는 데에는 최대 90분 가량 �
 [configure-origin]: ./media/media-services-manage-origins/media-services-origins-configure.png
 [configure-origin-configure-custom-host-names]: ./media/media-services-manage-origins/media-services-configure-custom-host-names.png
 
+
 <!--HONumber=52-->

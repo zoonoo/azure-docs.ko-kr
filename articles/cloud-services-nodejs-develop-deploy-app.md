@@ -215,4 +215,5 @@ Azure SDK가 설치된 도구 중 하나인 Azure 계산 에뮬레이터는
 [Azure 구독에서 저장소 계정을 삭제하는 방법]: https://www.windowsazure.com/manage/services/storage/how-to-manage-a-storage-account/
 [powershell-menu]: ./media/cloud-services-nodejs-develop-deploy-app/azure-powershell-start.png
 
+
 <!--HONumber=52-->
