@@ -1,5 +1,5 @@
-﻿<properties 
-	pageTitle="<MORAVIA_TRANSLATEAzure API 관리에서 개발자 포털 사용자 지정" 
+<properties 
+	pageTitle="Azure API 관리에서 개발자 포털 사용자 지정" 
 	description="Azure API 관리에서 개발자 포털을 사용자 지정하는 방법에 대해 알아봅니다." 
 	services="api-management" 
 	documentationCenter="" 

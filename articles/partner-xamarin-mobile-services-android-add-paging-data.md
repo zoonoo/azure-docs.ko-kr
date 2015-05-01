@@ -1,6 +1,6 @@
-﻿<properties 
+<properties 
 	pageTitle="데이터에 페이징 추가(Xamarin Android) | 모바일 개발자 센터" 
-	description="페이징을 사용하여 모바일 서비스에서 Xamarin Android 앱에 반환되는 데이터의 양을 관리하는 방법에 대해 알아봅니다. 
+	description="페이징을 사용하여 모바일 서비스에서 Xamarin Android 앱에 반환되는 데이터의 양을 관리하는 방법에 대해 알아봅니다." 
 	services="mobile-services" 
 	documentationCenter="xamarin" 
 	authors="lindydonna" 

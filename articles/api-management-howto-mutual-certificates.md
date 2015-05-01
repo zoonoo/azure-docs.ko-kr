@@ -1,6 +1,6 @@
-﻿<properties 
+<properties 
 	pageTitle="Azure API 관리에서 상호 인증서 인증을 사용하여 백 엔드 서비스를 보호하는 방법" 
-	description="<MORAVIA_TRANSLATEAzure API 관리에서 상호 인증서 인증을 사용하여 백 엔드 서비스를 보호하는 방법에 대해 알아봅니다." 
+	description="Azure API 관리에서 상호 인증서 인증을 사용하여 백 엔드 서비스를 보호하는 방법에 대해 알아봅니다." 
 	services="api-management" 
 	documentationCenter="" 
 	authors="steved0x" 

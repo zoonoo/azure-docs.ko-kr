@@ -1,6 +1,6 @@
-﻿<properties 
+<properties 
 	pageTitle="Azure 마켓플레이스에 Azure 기계 학습 웹 서비스 게시 | Azure" 
-	description="<MORAVIA_TRANSLATEAzure 마켓플레이스에 Azure 기계 학습 웹 서비스를 게시하는 방법" 
+	description="Azure 마켓플레이스에 Azure 기계 학습 웹 서비스를 게시하는 방법" 
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="luisca" 

@@ -1,30 +1,26 @@
-﻿<properties 
-   authors="danielceckert" 
-   documentationCenter="dev-center-name" 
-   editor=""
-   manager="jefco" 
-   pageTitle="관리: 부하 분산 장치 배포 모드(원본 IP 선호도)" 
-   description="Azure 부하 분산 장치 배포 모드용 관리 기능" 
-   services="virtual-network" 
-   />
+<properties 
+	authors="danielceckert" 
+	documentationCenter="dev-center-name" 
+	editor=""
+	manager="jefco" 
+	pageTitle="관리: 부하 분산 장치 배포 모드(원본 IP 선호도)" 
+	description="Azure 부하 분산 장치 배포 모드용 관리 기능" 
+	services="virtual-network" 
+/>
 
 <tags
-   ms.author="danecke"
-   ms.date="02/20/2015"
-   ms.devlang="na"
-   ms.service="virtual-network"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-<<<<<<< HEAD:articles/virtual-networks-load-balancer-manage-distribution-mode.md
-   />
+	ms.author="danecke"
+	ms.date="02/20/2015"
+	ms.devlang="na"
+	ms.service="virtual-network"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+/>
+<!-- HEAD:articles/virtual-networks-load-balancer-manage-distribution-mode.md -->
    
 # 가상 네트워크 관리: 부하 분산 장치 배포 모드(원본 IP 선호도)
-=======
-   /> 
-   
-# 가상 네트워크 관리: 부하 분산 장치 배포 모드(원본 IP 선호도)
->>>>>>> 5781a6382194f50134d2a16bd9d72a6cca290f3d:articles/virtual-networks-load-balancer-manage-distribution-mode-source-ip.md
+
 
 **원본 IP 선호도**는 **세션 선호도** 또는 **클라이언트 IP 선호도**라고도 하며, 각 클라이언트 연결을 여러 Azure 호스팅 서버에 동적으로 분산시키는 기본 부하 분산 장치 동작을 사용하는 대신 단일 클라이언트의 연결을 단일 Azure 호스팅 서버에 연결하는 Azure 부하 분산 장치 배포 모드입니다.
 

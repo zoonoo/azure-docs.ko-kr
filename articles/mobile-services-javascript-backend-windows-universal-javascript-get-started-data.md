@@ -1,7 +1,8 @@
-﻿<properties 
+<properties 
 	pageTitle="데이터 시작(Windows 스토어 JavaScript) | 모바일 개발자 센터" 
-	description="모바일 서비스를 사용하여 Windows 스토어 JavaScript 앱에서 데이터를 활용하는 방법에 대해 알아봅니다. 
-	services="mobile-services" documentationCenter = "windows" 
+	description="모바일 서비스를 사용하여 Windows 스토어 JavaScript 앱에서 데이터를 활용하는 방법에 대해 알아봅니다." 
+	services="mobile-services" 
+	documentationCenter="windows" 
 	authors="ggailey777" 
 	manager="dwrede" 
 	editor=""/>

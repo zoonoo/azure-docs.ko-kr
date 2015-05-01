@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="모바일 서비스를 사용하여 Blob 저장소에 이미지 업로드(Windows 스토어) | 모바일 서비스" 
-	description="모바일 서비스를 사용하여 Azure Blob 저장소에 이미지를 업로드하고 Windows 스토어 앱에서 이미지에 액세스하는 방법에 대해 알아봅니다. 
+	description="모바일 서비스를 사용하여 Azure Blob 저장소에 이미지를 업로드하고 Windows 스토어 앱에서 이미지에 액세스하는 방법에 대해 알아봅니다." 
 	services="mobile-services, storage" 
 	documentationCenter="windows" 
 	authors="ggailey777" 

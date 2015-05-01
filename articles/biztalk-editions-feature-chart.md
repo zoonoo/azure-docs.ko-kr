@@ -1,5 +1,5 @@
-﻿<properties 
-	pageTitle="<MORAVIA_TRANSLATEBizTalk 서비스의 발급자 이름 및 발급자 키 | Azure" 
+<properties 
+	pageTitle="BizTalk 서비스의 발급자 이름 및 발급자 키 | Azure" 
 	description="BizTalk 서비스에서 서비스 버스 또는 액세스 제어(ACS)에 대한 발급자 이름 및 발급자 키를 검색하는 방법에 대해 알아봅니다. MABS, WABS" 
 	services="biztalk-services" 
 	documentationCenter="" 
