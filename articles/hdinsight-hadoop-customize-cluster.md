@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정| Azure" 
 	description="스크립트 작업을 사용하여 HDInsight 클러스터를 사용자 지정하는 방법을 알아봅니다." 
 	services="hdinsight" 
@@ -18,7 +18,7 @@
 
 # 스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정
 
-Azure HDInsight 클러스터를 사용자 지정하여 클러스터에 소프트웨어를 추가로 설치하거나 클러스터에서 응용 프로그램 구성을 변경할 수 있습니다. HDInsight는 클러스터에서 수행할 사용자 지정을 정의하는 사용자 지정 스크립트를 호출하는 **스크립트 작업**이라는 구성 옵션을 제공합니다. 이러한 스크립트는  *as it is being deployed* 클러스터를 사용자 지정하는 데 사용될 수 있습니다.  
+Azure HDInsight 클러스터를 사용자 지정하여 클러스터에 소프트웨어를 추가로 설치하거나 클러스터에서 응용 프로그램 구성을 변경할 수 있습니다. HDInsight는 클러스터에서 수행할 사용자 지정을 정의하는 사용자 지정 스크립트를 호출하는 **스크립트 작업**이라는 구성 옵션을 제공합니다. 이러한 스크립트를 사용하여 클러스터를 *배포할 때* 사용자 지정할 수 있습니다.  
 
 HDInsight 클러스터를 사용자 지정하는 방법은 그 밖에도 추가 저장소 계정 포함, hadoop 구성 파일(core-site.xml, hive-site.xml 등) 변경, 클러스터의 공통 위치에 공유 라이브러리(예: Hive, Oozie) 추가 등을 비롯해 다양합니다. 이러한 사용자 지정은 HDInsight PowerShell, .NET SDK 또는 Azure 관리 포털을 사용하여 수행할 수 있습니다. 자세한 내용은 [사용자 지정 옵션을 사용하여 HDInsight에서 Hadoop 클러스터 프로비전][hdinsight-provision-cluster](영문)을 참조하세요.
 
@@ -174,5 +174,4 @@ HDInsight 서비스는 사용자 지정 구성 요소를 사용하는 여러 방
 
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster/HDI-Cluster-state.png "Stages during cluster provisioning"
-
 <!--HONumber=42-->

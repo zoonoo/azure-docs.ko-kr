@@ -198,7 +198,7 @@ WorkerRole.cs 내용을 다음 코드로 바꿉니다. [EventSource 클래스][]
 3.	**Microsoft Azure 게시 설정** 대화 상자에서 **<새로 만들기...>**를 선택합니다.
 4.	**클라우드 서비스 및 저장소 계정 만들기** 대화 상자에서 **이름**(예: "WadExample")을 입력하고 지역 또는 선호도 그룹을 선택합니다.
 5.	**환경**을 **스테이징**으로 설정합니다.
-6.	Modify any other **Settings** as appropriate and click **Publish**.
+6.	다른 **설정**을 적절히 수정하고 **게시**를 클릭합니다.
 7.	배포가 완료되면 Azure 포털에서 클라우드 서비스가 **실행 중** 상태인지 확인합니다.
 
 <h3>4단계: 진단 구성 파일 만들기 및 확장 설치</h3>
@@ -271,6 +271,7 @@ Visual Studio **서버 탐색기**에서 wadexample 저장소 계정으로 이�
 <h3>2단계: 응용 프로그램 만들기</h3>
 1.	개발 컴퓨터에서 Visual Studio 2013을 실행합니다.
 2.	.NET Framework 4.5를 대상으로 하는 새 Visual C# 콘솔 응용 프로그램을 만듭니다. 프로젝트 이름을 "WadExampleVM"으로 지정합니다.
+
 	![CloudServices_diag_new_project](./media/cloud-services-dotnet-diagnostics/NewProject.png)
 3.	Program.cs 내용을 다음 코드로 바꿉니다. **SampleEventSourceWriter** 클래스는 네 가지 로깅 방법이 있습니다. **SendEnums**, **MessageMethod**, **SetOther** 및 **HighFreq**입니다. 첫 번째 매개 변수는 WriteEvent 메서드는 각 이벤트에 대한 ID를 정의합니다. Run 메서드는 **SampleEventSourceWriter** 클래스에 구현된 각각의 로깅 메서드를 10초마다 호출하는 무한 루프를 구현합니다.
 
@@ -787,8 +788,8 @@ Visual Studio **서버 탐색기**에서 wadexample 저장소 계정으로 이�
 [Azure 응용 프로그램 디버깅]: http://msdn.microsoft.com/library/windowsazure/ee405479.aspx   
 [Azure 진단을 사용하여 로깅 데이터 수집]: http://msdn.microsoft.com/library/windowsazure/gg433048.aspx
 [Azure 응용 프로그램 개발 문제 해결 모범 사례]: http://msdn.microsoft.com/library/windowsazure/hh771389.aspx
-[무료 평가판]: http://azure.microsoft.com/ pricing/free-trial/
-[Azure PowerShell 버전 0.8.7 이상을 설치 및 구성]: http://azure.microsoft.com/ documentation/articles/install-configure-powershell/
+[무료 평가판]: http://azure.microsoft.com/pricing/free-trial/
+[Azure PowerShell 버전 0.8.7 이상을 설치 및 구성]: http://azure.microsoft.com/documentation/articles/install-configure-powershell/
 [Azure 진단 1.2 구성 스키마]: http://msdn.microsoft.com/library/azure/dn782207.aspx
 [Azure 서비스 진단 확장 세트]: http://msdn.microsoft.com/library/dn495270.aspx
 [Azure 서비스 진단 확장 얻기]: http://msdn.microsoft.com/library/dn495145.aspx

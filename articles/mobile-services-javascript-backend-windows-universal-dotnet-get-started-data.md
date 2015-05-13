@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="데이터 시작(Windows Universal) | 모바일 개발자 센터" 
 	description="모바일 서비스를 사용하여 범용 Windows 앱에서 데이터를 활용하는 방법에 대해 알아봅니다." 
 	services="mobile-services" 
@@ -106,7 +106,7 @@
 
 데이터 계열을 완료한 후에는 다음 자습서 중 하나를 시도해 보세요.
 
-* [인증 시작](영문)
+* [인증 시작]\(영문)
   <br/>앱 사용자를 인증하는 방법을 알아봅니다.
 
 * [푸시 알림 시작] 
@@ -118,6 +118,7 @@
 <!-- Anchors. -->
 
 [Windows 스토어 앱 다운로드]: #download-app
+[Windows 스토어 앱 가져오기]: #download-app
 [Visual Studio에서 모바일 서비스 만들기]: #create-service
 [저장소로 사용할 데이터 테이블 추가]: #add-table
 [모바일 서비스를 사용하도록 앱 업데이트]: #update-app
@@ -130,19 +131,18 @@
 <!-- URLs. -->
 [스크립트를 사용하여 데이터 유효성 검사 및 수정]: /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-validate-modify-data-server-scripts/
 [페이징을 사용하여 쿼리 구체화]: /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-add-paging-data/
-[모바일 서비스 시작](영문): /ko-kr/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started/
+[모바일 서비스 시작]: /ko-kr/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started/
 [데이터 시작]: /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-data/
-[인증 시작](영문): /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-users/
+[인증 시작]: /ko-kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-users/
 [푸시 알림 시작]: /ko-kr/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push/
 [모바일 서비스 .NET 방법 개념 참조]: /ko-kr/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library/
 
 [Azure 관리 포털]: https://manage.windowsazure.com/
 [관리 포털]: https://manage.windowsazure.com/
 [모바일 서비스 SDK]: http://go.microsoft.com/fwlink/p/?LinkId=257545
-[개발자 코드 샘플 사이트](영문):  http://go.microsoft.com/fwlink/p/?LinkID=510826
+[개발자 코드 샘플 사이트]:  http://go.microsoft.com/fwlink/p/?LinkID=510826
 
-[MobileServiceClient 클래스](영문): http://go.microsoft.com/fwlink/p/?LinkId=302030
-
+[MobileServiceClient 클래스]: http://go.microsoft.com/fwlink/p/?LinkId=302030
 
 
 <!--HONumber=42-->

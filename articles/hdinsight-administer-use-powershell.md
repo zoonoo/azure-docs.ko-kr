@@ -70,7 +70,7 @@ publishsettings 파일을 가져온 후 다음 명령을 사용하여 저장소 
 
 
 
-관리 포털을 사용하여 Azure 저장소 계정을 만드는 방법에 대한 자세한 내용은 [저장소 계정 만들기, 관리 또는 삭제]를(storage-create-storage-account.md)참조하세요.
+관리 포털을 사용하여 Azure 저장소 계정을 만드는 방법에 대한 자세한 내용은 [저장소 계정 만들기, 관리 또는 삭제](storage-create-storage-account.md)를참조하세요.
 
 저장소 계정이 이미 있지만 계정 이름과 계정 키를 모르는 경우 다음 명령을 사용하여 정보를 검색할 수 있습니다.
 
@@ -79,7 +79,7 @@ publishsettings 파일을 가져온 후 다음 명령을 사용하여 저장소 
 	# List the keys for a storage account
 	Get-AzureStorageKey <StorageAccountName>
 
-관리 포털을 사용하여 정보를 가져오는 방법에 대한 자세한 내용은 [저장소 계정 만들기, 관리 또는 삭제]의 *방법: 저장소 액세스 키 보기, 복사 및 다시 생성* 섹션을(storage-create-storage-account.md)참조하세요.
+관리 포털을 사용하여 정보를 가져오는 방법에 대한 자세한 내용은 [저장소 계정 만들기, 관리 또는 삭제](storage-create-storage-account.md)의 *방법: 저장소 액세스 키 보기, 복사 및 다시 생성* 섹션을참조하세요.
 
 **Azure 저장소 컨테이너를 만들려면**
 
@@ -295,7 +295,6 @@ Hive 사용에 대한 자세한 내용은 [HDInsight와 함께 Hive 사용][hdin
 [Powershell-install-configure]: ../install-configure-powershell/
 
 [image-hdi-ps-provision]: ./media/hdinsight-administer-use-powershell/HDI.PS.Provision.png
-
 
 
 <!--HONumber=42-->

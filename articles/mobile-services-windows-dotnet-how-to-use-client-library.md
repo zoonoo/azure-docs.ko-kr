@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="모바일 서비스 .NET 클라이언트 라이브러리 사용" 
 	description="Azure 모바일 서비스에 .NET 클라이언트를 사용하는 방법에 대해 알아봅니다." 
 	services="" 
@@ -670,13 +670,13 @@ Windows Phone 앱의 경우 [ProtectedData] 클래스를 사용하여 데이터�
 
 이 방법 개념 참조 항목을 마쳤습니다. 이제 모바일 서비스에서 중요한 작업을 수행하는 방법을 자세히 알아보겠습니다.
 
-* [모바일 서비스 시작](영문)
+* [모바일 서비스 시작(영문)]
   <br/>모바일 서비스 사용 방법에 대한 기본 사항을 알아봅니다.
 
 * [데이터 시작]
   <br/>모바일 서비스를 사용하여 데이터를 저장 및 쿼리하는 방법에 대해 자세히 알아봅니다.
 
-* [인증 시작](영문)
+* [인증 시작(영문)]
   <br/>ID 공급자를 사용하여 앱 사용자를 인증하는 방법을 알아봅니다.
 
 * [스크립트를 사용하여 데이터 유효성 검사 및 수정]
@@ -721,7 +721,7 @@ Windows Phone 앱의 경우 [ProtectedData] 클래스를 사용하여 데이터�
 
 
 <!-- URLs. -->
-[모바일 서비스 시작](영문): /ko-kr/develop/mobile/tutorials/get-started
+[모바일 서비스 시작(영문)]: /ko-kr/develop/mobile/tutorials/get-started
 [모바일 서비스 SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [Windows 스토어 퀵 스타트 자습서]: http://azure.microsoft.com/develop/mobile/tutorials/get-started/
 [Windows Phone 퀵 스타트 자습서]: http://azure.microsoft.com/develop/mobile/tutorials/get-started-wp8/
@@ -734,7 +734,7 @@ Windows Phone 앱의 경우 [ProtectedData] 클래스를 사용하여 데이터�
 [ProtectedData]: http://msdn.microsoft.com/library/system.security.cryptography.protecteddata%28VS.95%29.aspx
 [모바일 서비스 SDK]: http://nuget.org/packages/WindowsAzure.MobileServices/
 [데이터 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-data-dotnet/
-[인증 시작](영문): /ko-kr/develop/mobile/tutorials/get-started-with-users-dotnet
+[인증 시작(영문)]: /ko-kr/develop/mobile/tutorials/get-started-with-users-dotnet
 [스크립트를 사용하여 데이터 유효성 검사 및 수정]: /ko-kr/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
 [페이징을 사용하여 쿼리 구체화]: /ko-kr/develop/mobile/tutorials/add-paging-to-data-dotnet
 [스크립트를 통해 사용자 권한 부여]: /ko-kr/develop/mobile/tutorials/authorize-users-in-scripts-dotnet
@@ -754,7 +754,6 @@ Windows Phone 앱의 경우 [ProtectedData] 클래스를 사용하여 데이터�
 [Azure 모바일 서비스 클라이언트 SDK의 사용자 지정 API]: http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx
 [클라이언트에서 사용자 지정 API 호출]: /ko-kr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-call-custom-api/
 [InvokeApiAsync]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx
-
 
 
 <!--HONumber=42-->

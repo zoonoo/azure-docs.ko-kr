@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="모바일 서비스에서 오프라인 데이터 사용(Windows Phone) | 모바일 개발자 센터" 
 	description="Azure 모바일 서비스를 사용하여 Windows Phone 응용 프로그램에서 오프라인 데이터를 동기화하는 방법에 대해 알아봅니다." 
 	documentationCenter="windows" 
@@ -59,7 +59,7 @@ Azure 모바일 서비스의 오프라인 기능을 사용하면 오프라인 �
 
     >[AZURE.NOTE] Internet Explorer를 사용하는 경우 SQLite를 설치하기 위해 링크를 클릭하면 .vsix를 .zip 파일로 다운로드할지를 묻는 메시지가 표시될 수 있습니다. 파일을 하드 드라이브의 원하는 위치에 .zip 대신 .vsix 확장명으로 저장합니다. Windows 탐색기에서 .vsix 파일을 두 번 클릭하여 설치를 실행합니다.
 
-2. Visual Studio에서 [모바일 서비스 시작](영문) 또는 [데이터 시작] 자습서에서 완료한 프로젝트를 엽니다. 솔루션 탐색기의 프로젝트에서 **참조**를 마우스 오른쪽 단추로 클릭하고 **Windows Phone**>**확장**에서 **SQLite for Windows Phone**에 대한 참조를 추가합니다. 
+2. Visual Studio에서 [모바일 서비스 시작]\(영문) 또는 [데이터 시작] 자습서에서 완료한 프로젝트를 엽니다. 솔루션 탐색기의 프로젝트에서 **참조**를 마우스 오른쪽 단추로 클릭하고 **Windows Phone**>**확장**에서 **SQLite for Windows Phone**에 대한 참조를 추가합니다. 
 
     ![][1]
 
@@ -243,9 +243,9 @@ Azure 모바일 서비스의 오프라인 기능을 사용하면 오프라인 �
     ![][10] 
   
 
-##요약
+## 요약
 
-##요약
+## 요약
 
 [AZURE.INCLUDE [mobile-services-offline-summary-csharp](../includes/mobile-services-offline-summary-csharp.md)]
 
@@ -280,15 +280,14 @@ Azure 모바일 서비스의 오프라인 기능을 사용하면 오프라인 �
 <!-- URLs. -->
 [모바일 서비스에 대한 오프라인 지원을 통해 충돌 처리]: /ko-kr/documentation/articles/mobile-services-windows-phone-handling-conflicts-offline-data/ 
 [Windows Phone용 오프라인 샘플 시작]: http://go.microsoft.com/fwlink/?LinkId=397952
-[모바일 서비스 시작](영문): /ko-kr/documentation/articles/mobile-services-windows-phone-get-started/
+[모바일 서비스 시작]: /ko-kr/documentation/articles/mobile-services-windows-phone-get-started/
 [데이터 시작]: /ko-kr/documentation/articles/mobile-services-windows-phone-get-started-data/
 [SQLite for Windows Phone 8]: http://go.microsoft.com/fwlink/?LinkId=397953
 [Windows Phone 8 SDK]: http://go.microsoft.com/fwlink/p/?linkid=268374
 [일시 삭제]: /ko-kr/documentation/articles/mobile-services-using-soft-delete/
 
-[모바일 서비스 SDK Nuget](영문): http://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.0
-[SQLite 저장소 nuget](영문): http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0
-
+[모바일 서비스 SDK Nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.0
+[SQLite 저장소 nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0
 
 
 <!--HONumber=42-->

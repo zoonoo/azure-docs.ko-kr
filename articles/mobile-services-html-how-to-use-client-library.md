@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="HTML 클라이언트를 사용하는 방법 - Azure 모바일 서비스" 
 	description="Azure 모바일 서비스에 HTML 클라이언트를 사용하는 방법에 대해 알아봅니다." 
 	services="mobile-services" 
@@ -639,6 +639,7 @@ Promise는 완료할 작업을 아직 계산되지 않은 값으로 예약하는
 [then]: http://msdn.microsoft.com/library/windows/apps/br229728.aspx
 [done]: http://msdn.microsoft.com/library/windows/apps/hh701079.aspx
 [then과 done의 차이에 대해 자세히 알아보기]: http://msdn.microsoft.com/library/windows/apps/hh700334.aspx
+[then과 done의 차이에 대해 자세히 알아봅니다]: http://msdn.microsoft.com/library/windows/apps/hh700334.aspx
 [Promise의 오류 처리 방법]: http://msdn.microsoft.com/library/windows/apps/hh700337.aspx
 
 [sessionStorage]: http://msdn.microsoft.com/library/cc197062(v=vs.85).aspx
@@ -646,9 +647,11 @@ Promise는 완료할 작업을 아직 계산되지 않은 값으로 예약하는
 
 [ListView]: http://msdn.microsoft.com/library/windows/apps/br211837.aspx
 [데이터 바인딩(JavaScript 및 HTML을 사용하는 Windows 스토어 앱)]: http://msdn.microsoft.com/library/windows/apps/hh758311.aspx
+[데이터 바인딩(JavaScript 및 HTML을 사용한 Windows 스토어 앱)]: http://msdn.microsoft.com/library/windows/apps/hh758311.aspx
 [Windows 스토어 JavaScript 퀵 스타트]: http://azure.microsoft.com/develop/mobile/tutorials/get-started
 [HTML 퀵 스타트]: http://azure.microsoft.com/develop/mobile/tutorials/get-started-html
 [Windows 스토어 JavaScript에서 데이터 시작]: http://azure.microsoft.com/develop/mobile/tutorials/get-started-with-data-js
+[JavaScript에서 데이터 시작]: http://azure.microsoft.com/develop/mobile/tutorials/get-started-with-data-js
 [HTML/JavaScript에서 데이터 시작]: http://azure.microsoft.com/develop/mobile/tutorials/get-started-with-data-html/
 [이 시나리오를 설정하는 방법에 대한 전체 예제]: http://azure.microsoft.com/develop/mobile/tutorials/single-sign-on-windows-8-js/
 [데이터 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-data-html
@@ -660,7 +663,6 @@ Promise는 완료할 작업을 아직 계산되지 않은 값으로 예약하는
 [ASCII 제어 코드 C0 및 C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [모바일 서비스 테이블 관리를 위한 CLI]: http://azure.microsoft.com/manage/linux/other-resources/command-line-tools/#Mobile_Tables
 [OData 시스템 쿼리 옵션 참조]: http://go.microsoft.com/fwlink/p/?LinkId=444502
-
 
 
 <!--HONumber=42-->

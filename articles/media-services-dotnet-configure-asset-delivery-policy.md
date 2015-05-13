@@ -19,13 +19,13 @@
 #방법: 자산 배달 정책 구성
 [AZURE.INCLUDE [media-services-selector-asset-delivery-policy](../includes/media-services-selector-asset-delivery-policy.md)]
 
-이 문서는 [워크플로 주문형 미디어 서비스 비디오] 시리즈의(media-services-video-on-demand-workflow.md) 및 [미디어 서비스 라이브 스트리밍 워크플로](media-services-live-streaming-workflow.md) 일부입니다. 
+이 문서는 [워크플로 주문형 미디어 서비스 비디오](media-services-video-on-demand-workflow.md) 시리즈의 및 [미디어 서비스 라이브 스트리밍 워크플로](media-services-live-streaming-workflow.md) 일부입니다. 
 
 미디어 서비스 콘텐츠 배달 워크플로의 단계 중 하나는 스트리밍하려는 자산에 대한 배달 정책을 구성하는 것입니다. 자산 배달 정책은 어떤 스트리밍 프로토콜(예: MPEG DASH, HLS, 부드러운 스트리밍 또는 모두)로 사용자의 자산을 동적으로 패키지할 지와 같은 사용자가 원하는 자산 배달 방법과 사용자의 자산을 동적으로 암호화할 지 여부 및 방법(봉투 또는 일반 암호화)를 미디어 서비스에 알려줍니다. 
 
 이 항목에서는 자산 배달을 정책을 만들어야하는 이유와 방법을 설명합니다. 
 
->[AZURE.NOTE]동적 패키징 및 동적 암호화를 사용할 수 있으려면 하나 이상의 배율 단위(스트리밍 단위)가 있어야 합니다. 자세한 내용은 [미디어 서비스를 확장하는 방법]을 참조하세요](media-services-manage-origins.md#scale_streaming_endpoints). 
+>[AZURE.NOTE]동적 패키징 및 동적 암호화를 사용할 수 있으려면 하나 이상의 배율 단위(스트리밍 단위)가 있어야 합니다. 자세한 내용은 [미디어 서비스를 확장하는 방법 을 참조하세요](media-services-manage-origins.md#scale_streaming_endpoints). 
 >
 >또한 자산은 적응 비트 전송률 MP4 또는 적응 비트 전송률 부드러운 스트리밍 파일 집합을 포함해야 합니다.      
 
@@ -59,7 +59,7 @@ HDS
 
 다음 **ConfigureClearAssetDeliveryPolicy** 메서드는 동적 암호화를 적용하지 않고 다음 프로토콜에 있는 스트림에 배포하도록 지정합니다.  MPEG DASH, HLS 및 부드러운 스트리밍 프로토콜 
   
-AssetDeliveryPolicy을 만들 때 사용자가 지정하는 값에 대한 자세한 정보는 [AssetDeliveryPolicy 정의할 때 사용 되는 형식]을 참조하세요.(#types) 섹션으로 바로 이동할 수 있습니다. 
+AssetDeliveryPolicy을 만들 때 사용자가 지정하는 값에 대한 자세한 정보는 [AssetDeliveryPolicy 정의할 때 사용 되는 형식](#types)을 참조하세요. 섹션으로 바로 이동할 수 있습니다. 
 
     static public void ConfigureClearAssetDeliveryPolicy(IAsset asset)
     {
@@ -110,7 +110,7 @@ AssetDeliveryPolicy을 만들 때 사용자가 지정하는 값에 대한 자세
 다음 **CreateAssetDeliveryPolicy** 메서드는 HLS 및 DASH 프로토콜(다른 프로토콜은 스트리밍에서 차단됨)에 동적 봉투 암호화(**DynamicEnvelopeEncryption**)를 적용하도록 구성된 **AssetDeliveryPolicy**를 만듭니다. 이 메서드는 다음과 같은 두 매개 변수를 사용합니다. **자산**(배포 정책을 적용하려는 자산) 및 **IContentKey**(**EnvelopeEncryption** 유형의 콘텐츠 키, 자세한 내용은 [콘텐츠 키 만들기](media-services-dotnet-create-contentkey.md#envelope_contentkey)를)참조하세요.
 
 
-AssetDeliveryPolicy을 만들 때 사용자가 지정하는 값에 대한 자세한 정보는 [AssetDeliveryPolicy 정의할 때 사용 되는 형식]을 참조하세요.(#types) 섹션으로 바로 이동할 수 있습니다.   
+AssetDeliveryPolicy을 만들 때 사용자가 지정하는 값에 대한 자세한 정보는 [AssetDeliveryPolicy 정의할 때 사용 되는 형식](#types)을 참조하세요. 섹션으로 바로 이동할 수 있습니다.   
 
     private static void CreateAssetDeliveryPolicy(IAsset asset, IContentKey key)
     {
@@ -290,6 +290,5 @@ AssetDeliveryPolicy을 만들 때 사용자가 지정하는 값에 대한 자세
         /// </summary>
         EnvelopeEncryptionIV,
     }
-
 
 <!--HONumber=52-->
