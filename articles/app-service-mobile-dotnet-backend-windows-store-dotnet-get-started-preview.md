@@ -1,4 +1,4 @@
-<properties
+﻿<properties
 	pageTitle="Windows 스토어 앱에 대한 모바일 앱 백 엔드 시작 | 모바일 개발자 센터"
 	description="이 자습서에 따라 Azure 모바일 앱 백 엔드를 사용하여 C#, VB 또는 JavaScript로 Windows 스토어 개발을 시작할 수 있습니다."
 	services="app-service\mobile"
@@ -27,10 +27,10 @@
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-* 활성 Azure 계정. 계정이 없는 경우 Azure 평가판을 등록하고 최대 10개의 무료 모바일 앱을 가져올 수 있습니다. 이러한 앱은 평가판 사용 기간이 끝난 후에도 계속 사용할 수 있습니다. 자세한 내용은 [Azure 무료 체험](http://azure.microsoft.com/pricing/free-trial/)을 참조하십시오.
+* 활성 Azure 계정. 계정이 없는 경우 Azure 평가판을 등록하고 최대 10개의 무료 모바일 앱을 가져올 수 있습니다. 이러한 앱은 평가판 사용 기간이 끝난 후에도 계속 사용할 수 있습니다. 자세한 내용은 [Azure 무료 평가판](http://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 * <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a>.
 
->[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 체험](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile)으로 이동합니다. 여기서 앱 서비스에 단기 시작 모바일 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+>[AZURE.NOTE] Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 체험](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile)으로 이동합니다. 여기서 앱 서비스에 단기 시작 모바일 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
 ## <a name="create-new-service"> </a>새 모바일 앱 백 엔드 만들기
 
@@ -44,13 +44,13 @@
 
 1. Azure 포털에서 **모바일 앱**을 클릭한 다음 방금 만든 모바일 앱을 클릭합니다.
 
-2. 블레이드 맨 위에서 **클라이언트 추가**를 클릭하고 **Windows\(C\#\)**를 확장합니다.
+2. 블레이드 맨 위에서 **클라이언트 추가**를 클릭하고 **Windows(C#)**를 확장합니다.
 
-   ![모바일 앱 빠른 시작 단계](./media/app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview/windows-quickstart.png)
+   ![Mobile App quickstart steps](./media/app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview/windows-quickstart.png)
 
    모바일 앱 백 엔드에 연결된 Windows 스토어 앱을 만들기 위한 쉬운 3단계가 표시됩니다.
 
-3. 아직 하지 않은 경우 로컬 컴퓨터나 가상 컴퓨터에 <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a>을 다운로드하여 설치합니다.
+3. 아직 수행하지 않은 경우 로컬 컴퓨터나 가상 컴퓨터에 <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a>을 다운로드하여 설치합니다.
 
 4. **앱 및 서비스를 로컬로 다운로드 및 실행**에서 Windows 스토어 앱의 언어를 선택하고 **다운로드**를 클릭합니다.
 
@@ -72,19 +72,19 @@
 
 <!-- Anchors. -->
 
-[Getting started with mobile app backends]: #getting-started
-[Create a new mobile app backend]: #create-new-service
-[Define the mobile app backend instance]: #define-mobile-app-backend-instance
-[Next Steps]: #next-steps
+[모바일 앱 백 엔드 시작]:#getting-started
+[새 모바일 앱 백 엔드 만들기]:#create-new-service
+[모바일 앱 백 엔드 인스턴스 정의]:#define-mobile-app-backend-instance
+[다음 단계]:#next-steps
 
 <!-- Images. -->
 
 
 
 <!-- URLs. -->
-[Get started with authentication]: app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-users-preview.md
+[인증 시작]: app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-users-preview.md
 [Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=257546
-[Mobile App SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
-[Azure Portal]: https://portal.azure.com/
+[모바일 앱 SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
+[Azure 포털]: https://portal.azure.com/
 
-<!--HONumber=52-->
+<!--HONumber=49-->

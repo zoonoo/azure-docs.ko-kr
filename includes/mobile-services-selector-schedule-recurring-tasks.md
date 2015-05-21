@@ -1,4 +1,3 @@
-> [AZURE.SELECTOR-LIST (Platform | Backend)]
-- [(Any | .NET)](../articles/mobile-services-dotnet-backend-schedule-recurring-tasks.md)
-- [(Any | Javascript)](../articles/mobile-services-schedule-recurring-tasks.md)
-<!--HONumber=52-->
+﻿> [AZURE.SELECTOR-LIST (백 엔드)]
+- [(.NET)](mobile-services-dotnet-backend-schedule-recurring-tasks.md)
+- [(Javascript)](mobile-services-schedule-recurring-tasks.md)

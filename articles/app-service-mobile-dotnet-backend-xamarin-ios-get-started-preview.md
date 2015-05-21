@@ -1,4 +1,4 @@
-<properties
+﻿<properties
 	pageTitle="Xamarin iOS에서 모바일 앱 시작"
 	description="Azure 앱 서비스를 통해 Xamarin iOS를 사용하여 Azure 모바일 앱 빌드를 시작합니다."
 	services="app-service\mobile"
@@ -25,10 +25,10 @@
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-* 활성 Azure 계정. 계정이 없는 경우 Azure 평가판을 등록하고 최대 10개의 무료 모바일 앱을 가져올 수 있습니다. 이러한 앱은 평가판 사용 기간이 끝난 후에도 계속 사용할 수 있습니다. 자세한 내용은 [Azure 무료 체험](http://azure.microsoft.com/pricing/free-trial/)을 참조하십시오.
+* 활성 Azure 계정. 계정이 없는 경우 Azure 평가판을 등록하고 최대 10개의 무료 모바일 앱을 가져올 수 있습니다. 이러한 앱은 평가판 사용 기간이 끝난 후에도 계속 사용할 수 있습니다. 자세한 내용은 [Azure 무료 평가판](http://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 * <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a>.
 
->[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 체험](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile)으로 이동합니다. 여기서 앱 서비스에 단기 시작 모바일 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+>[AZURE.NOTE] Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 체험](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile)으로 이동합니다. 여기서 앱 서비스에 단기 시작 모바일 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
 ## 새 모바일 앱 백 엔드 만들기
 
@@ -48,7 +48,7 @@
 
 	모바일 앱 백 엔드에 연결된 Xamarin iOS 앱을 만들기 위한 쉬운 3단계가 표시됩니다.
 
-3. 아직 하지 않은 경우 로컬 컴퓨터나 가상 컴퓨터에 <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a>을 다운로드하여 설치합니다.
+3. 아직 하지 않은 경우 <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a> 을 로컬 컴퓨터나 가상 컴퓨터에 다운로드하여 설치합니다.  
 
 4. [Xcode] v4.4 이상 버전 및 [Xamarin Studio]를 다운로드하고 설치합니다. 또한 Visual Studio용 Xamarin을 사용할 수도 있습니다.
 
@@ -78,19 +78,19 @@
 
 2. **실행** 단추를 눌러 클라이언트 프로젝트를 빌드하고 iPhone 에뮬레이터에서 앱을 시작합니다.
 
-3. 앱에서 _자습서 완료_ 등의 의미 있는 텍스트를 입력한 후 더하기\(**+**\) 아이콘을 클릭합니다.
+3. 앱에서 _Complete the tutorial_ 등의 의미 있는 텍스트를 입력한 후 더하기(**+**) 아이콘을 클릭합니다.
 
 	![][10]
 
-	Azure에 호스트된 새 모바일 앱 백 엔드에 POST 요청이 전송됩니다. 요청에서 데이터가 TodoItem 테이블에 삽입됩니다. TodoItem 테이블에 저장된 항목이 모바일 앱 백 엔드에서 반환된 후 데이터가 목록에 표시됩니다.
+	Azure에 호스트된 새 모바일 앱 백 엔드에 POST 요청이 전송됩니다. 요청의 데이터가 TodoItem 테이블에 삽입됩니다. TodoItem 테이블에 저장된 항목이 모바일 앱 백 엔드에서 반환된 후 데이터가 목록에 표시됩니다.
 
->[AZURE.NOTE]모바일 앱 백 엔드에 액세스하여 QSTodoService.cs C\# 파일에서 데이터를 쿼리 및 삽입하는 코드를 검토할 수 있습니다.
+>[AZURE.NOTE]모바일 앱 백 엔드에 액세스하여 QSTodoService.cs C# 파일에서 데이터를 쿼리 및 삽입하는 코드를 검토할 수 있습니다.
 
 
 <!-- Anchors. -->
-[Getting started with mobile app backends]: #getting-started
-[Create a new mobile app backend]: #create-new-service
-[Next Steps]: #next-steps
+[모바일 앱 백 엔드 시작]:#getting-started
+[새 모바일 앱 백 엔드 만들기]:#create-new-service
+[다음 단계]:#next-steps
 
 
 
@@ -101,19 +101,19 @@
 [10]: ./media/app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview/mobile-quickstart-startup-ios.png
 
 <!-- URLs. -->
-[Get started with offline data sync]: app-service-mobile-xamarin-ios-get-started-offline-data-preview.md
-[Get started with authentication]: app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview-users.md
-[Get started with push notifications]: app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview-push.md
+[오프라인 데이터 동기화 시작]: app-service-mobile-xamarin-ios-get-started-offline-data-preview.md
+[인증 시작]: app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview-users.md
+[푸시 알림 시작]: app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview-push.md
 [Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=257546
-[Mobile app SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
-[Azure Portal]: https://portal.azure.com/
-[JavaScript backend version]: partner-xamarin-mobile-services-ios-get-started.md
-[Get started with data in app services using Visual Studio 2012]: app-service-mobile-windows-store-dotnet-get-started-data-vs2012-preview.md
-[Troubleshoot a mobile app .NET backend]: app-service-mobile-dotnet-backend-how-to-troubleshoot-preview.md
+[모바일 앱 SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
+[Azure 포털]: https://portal.azure.com/
+[JavaScript 백 엔드 버전]: partner-xamarin-mobile-services-ios-get-started.md
+[Visual Studio 2012를 사용하여 앱 서비스에서 데이터 시작]: app-service-mobile-windows-store-dotnet-get-started-data-vs2012-preview.md
+[모바일 앱 .NET 백 엔드 문제 해결]: app-service-mobile-dotnet-backend-how-to-troubleshoot-preview.md
 
 
 [Xamarin Studio]: http://xamarin.com/download
 [Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532&clcid=0x409
-[Xamarin for Windows]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409
+[Windows용 Xamarin]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409
 
-<!--HONumber=52-->
+<!--HONumber=49-->
