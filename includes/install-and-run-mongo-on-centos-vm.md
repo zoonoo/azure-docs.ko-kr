@@ -1,11 +1,8 @@
-﻿다음 단계에 따라 CentOS Linux에서 실행 중인 가상 컴퓨터에 MongoDB를 설치하고 실행하세요.
+다음 단계에 따라 CentOS Linux에서 실행 중인 가상 컴퓨터에 MongoDB를 설치하고 실행하십시오.
 
-<div class="dev-callout">
-<b>경고</b>
-<p>인증 및 IP 주소 바인딩과 같은 MongoDB 보안 기능은 기본적으로 사용하도록 설정되어 있지 않습니다. MongoDB를 프로덕션 환경에 배포하기 전에 보안 기능을 사용하도록 설정해야 합니다.  자세한 내용은 <a href="http://www.mongodb.org/display/DOCS/Security+and+Authentication">보안 및 인증</a> 을 참조하세요.</p>
-</div>
+> [AZURE.WARNING]인증 및 IP 주소 바인딩과 같은 MongoDB 보안 기능은 기본적으로 사용하도록 설정되어 있지 않습니다. MongoDB를 프로덕션 환경에 배포하기 전에 보안 기능을 사용하도록 설정해야 합니다. 자세한 내용은 [보안 및 인증](http://www.mongodb.org/display/DOCS/Security+and+Authentication)\(영문\)을 참조하십시오.
 
-1. MongoDB를 설치할 수 있도록 패키지 관리 시스템(YUM)을 구성합니다. */etc/yum.repos.d/10gen.repo* 파일을 작성하여 저장소 정보를 저장하고 다음 내용을 추가합니다.
+1. MongoDB를 설치할 수 있도록 패키지 관리 시스템\(YUM\)을 구성합니다. */etc/yum.repos.d/10gen.repo* 파일을 작성하여 저장소 정보를 저장하고 다음 내용을 추가합니다.
 
 		[10gen]
 		name=10gen Repository
@@ -23,12 +20,12 @@
 
 	MongoDB가 다운로드되어 설치될 때까지 기다립니다.
 
-4. 데이터 디렉터리를 만듭니다. 기본적으로 MongoDB는 */data/db* 디렉터리에 데이터를 보관하지만 디렉터리는 사용자가 만들어야 합니다. 디렉터리를 만들려면 다음을 실행하세요.
+4. 데이터 디렉터리를 만듭니다. 기본적으로 MongoDB는 */data/db* 디렉터리에 데이터를 보관하지만 디렉터리는 사용자가 만들어야 합니다. 디렉터리를 만들려면 다음을 실행하십시오.
 
 		$ sudo mkdir -p /srv/datadrive/data
 		$ sudo chown `id -u` /srv/datadrive/data
 
-	Linux에 MongoDB를 설치하는 방법에 대한 자세한 정보는 [Unix 퀵 스타트][QuickstartUnix](영문)을 참조하세요.
+	Linux에 MongoDB를 설치하는 방법에 대한 자세한 정보는 [Quickstart Unix][QuickstartUnix](영문\)를 참조하십시오.
 
 5. 데이터베이스를 시작하려면 다음을 실행합니다.
 
@@ -50,20 +47,20 @@
 
 	이렇게 하면 데이터베이스가 만들어집니다.
 
-7. MongoDB가 설치되면 MongoDB에 원격으로 액세스할 수 있도록 끝점을 구성해야 합니다. 관리 포털에서 **가상 컴퓨터**를 클릭한 후 새로운 가상 컴퓨터의 이름과 **끝점**을 차례로 클릭합니다.
+7. MongoDB가 설치되면 MongoDB에 원격으로 액세스할 수 있도록 끝점을 구성해야 합니다. 관리 포털에서 **Virtual Machines**를 클릭한 후 새로운 가상 컴퓨터의 이름과 **Endpoints**를 차례로 클릭합니다.
 	
-	![Endpoints][Image7]
+	![끝점][Image7]
 
-8. 페이지 맨 아래에 있는 **끝점 추가**를 클릭합니다.
+8. 페이지 맨 아래에 있는 **Add Endpoint**를 클릭합니다.
 	
-	![Endpoints][Image8]
+	![끝점][Image8]
 
 9. 다음 설정을 사용하여 끝점을 추가합니다.
 
  - **이름**: Mongo
- - **프로토콜**: TCP
- - **공용 포트**: 27017
- - **개인 포트**: 27017
+ - **프로토콜**: - TCP
+ - **공용 포트**: - 27017
+ - **개인 포트**: - 27017
  
  이렇게 하면 MongoDB에 원격으로 액세스할 수 있습니다.
 
@@ -75,4 +72,4 @@
 [Image7]: ./media/install-and-run-mongo-on-centos-vm/LinuxVmAddEndpoint.png
 [Image8]: ./media/install-and-run-mongo-on-centos-vm/LinuxVmAddEndpoint2.png
 
-<!--HONumber=35.1-->
+<!--HONumber=52-->
