@@ -135,11 +135,11 @@ Azure ML 권장 사항과 사이트를 통합하는 과정은 다음 두 단계�
 
 ####3.2.3. Add Shopping Cart 이벤트
 이 이벤트는 사용자가 장바구니에 항목을 추가할 때 사용해야 합니다. 매개 변수:
-- event(문자열, 필수) - “addshopcart” 
-- item(문자열, 필수) - 항목의 고유 식별자 
-- itemName(문자열, 선택 사항) - 항목의 이름 
-- itemDescription(문자열, 선택 사항) - 항목에 대한 설명 
-- itemCategory(문자열, 선택 사항) - 항목의 범주
+* event(문자열, 필수) - “addshopcart” 
+* item(문자열, 필수) - 항목의 고유 식별자 
+* itemName(문자열, 선택 사항) - 항목의 이름 
+* itemDescription(문자열, 선택 사항) - 항목에 대한 설명 
+* itemCategory(문자열, 선택 사항) - 항목의 범주
 		
 		<script>
 			if (typeof AzureMLRecommendationsEvent == "undefined") { AzureMLRecommendationsEvent = []; }
@@ -150,12 +150,12 @@ Azure ML 권장 사항과 사이트를 통합하는 과정은 다음 두 단계�
 이 이벤트는 사용자가 장바구니에서 항목을 제거할 때 사용해야 합니다.
 
 매개 변수: 
-- event(문자열, 필수) 
-- “removeshopcart” 
-- item(문자열, 필수) - 항목의 고유 식별자 
-- itemName(문자열, 선택 사항) - 항목의 이름 
-- itemDescription(문자열, 선택 사항) - 항목에 대한 설명 
-- itemCategory(문자열, 선택 사항) - 항목의 범주
+* event(문자열, 필수) 
+* “removeshopcart” 
+* item(문자열, 필수) - 항목의 고유 식별자 
+* itemName(문자열, 선택 사항) - 항목의 이름 
+* itemDescription(문자열, 선택 사항) - 항목에 대한 설명 
+* itemCategory(문자열, 선택 사항) - 항목의 범주
 		
 		<script>
 			if (typeof AzureMLRecommendationsEvent=="undefined") { AzureMLRecommendationsEvent = []; }
@@ -166,8 +166,8 @@ Azure ML 권장 사항과 사이트를 통합하는 과정은 다음 두 단계�
 이 이벤트는 사용자가 장바구니를 구매했을 때 사용해야 합니다.
 
 매개 변수: 
-- event(문자열) - “purchase” 
-- items( Purchased[] ) - 구매한 각 항목에 대한 항목을 포함하는 배열<br><br> Purchased 형식: 
+* event(문자열) - “purchase” 
+* items( Purchased[] ) - 구매한 각 항목에 대한 항목을 포함하는 배열<br><br> Purchased 형식: 
 	- item(문자열) - 항목의 고유 식별자 
 	- count(int 또는 문자열) - 구매한 항목 수 
 	- price(float 또는 문자열) - 선택 사항 필드 - 항목의 가격
@@ -185,8 +185,12 @@ Azure ML 권장 사항 이벤트 라이브러리는 동일한 브라우저에서
 이 이벤트는 사용자가 사이트에 로그인한 후에 사용해야 합니다.
 
 매개 변수: 
-- event(문자열) - “userlogin” 
-- user(문자열) - 사용자의 고유 ID. <script> if (typeof AzureMLRecommendationsEvent=="undefined") { AzureMLRecommendationsEvent = []; } AzureMLRecommendationsEvent.push({event: "userlogin", user: “ABCD10AA” }); </script>
+* event(문자열) - “userlogin” 
+* user(문자열) - 사용자의 고유 ID. 
+	<script> 
+		if (typeof AzureMLRecommendationsEvent=="undefined") { AzureMLRecommendationsEvent = []; } 
+		AzureMLRecommendationsEvent.push({event: "userlogin", user: “ABCD10AA” }); 
+	</script>
 
 ##4. JavaScript 통해 권장 사항 사용
 권장 사항을 사용하는 코드는 클라이언트 웹 페이지의 일부 JavaScript 이벤트에 의해 트리거됩니다. 권장 사항 응답에는 권장 항목 ID, 이름 및 해당 등급이 포함됩니다. 권장 항목의 목록 표시에만 이 옵션을 사용하는 것이 좋습니다. 더 복잡한 처리(예: 항목의 메타데이터 추가)는 서버 쪽 통합에서 수행해야 합니다.
@@ -212,7 +216,7 @@ Azure ML 권장 사항 이벤트 라이브러리는 동일한 브라우저에서
  			var reco = AzureMLRecommendationsGetI2IRecommendation(["64f6eb0d-947a-4c18-a16c-888da9e228ba"], 8, false, function (reco) {
  				var buff = "";
  				for (var ii = 0; ii < reco.length; ii++) {
-   					buff += reco[ii].item + "," + reco[ii].name + "," + reco[ii].rating + "n";
+   					buff += reco[ii].item + "," + reco[ii].name + "," + reco[ii].rating + "\n";
  				}
  				alert(buff);
 			});
