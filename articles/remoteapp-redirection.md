@@ -47,7 +47,7 @@ SDK와 함께 Microsoft Azure PowerShell을 사용하여 컬렉션에 대한 장
 
 	Set-AzureRemoteAppCollection -CollectionName <collection name>  -CustomRdpProperty "drivestoredirect:s:*`nusbdevicestoredirect:s:*"
     
-*\`n*은 개별 속성 사이의 구분 기호로 사용됩니다.
+*`n*은 개별 속성 사이의 구분 기호로 사용됩니다.
 
 구성된 사용자 지정 RDP 속성 목록을 가져오려면 다음 cmdlet을 실행합니다. 사용자 지정 속성만 출력 결과로 표시되고 기본 속성은 표시되지 않습니다.
 
@@ -77,7 +77,8 @@ RemoteApp에 연결하는 컴퓨터에서 USB 리디렉션을 사용하려는 �
 > [AZURE.NOTE]Azure RemoteApp을 사용한 USB 리디렉션은 Windows 컴퓨터에서만 지원됩니다.
 
 ### RemoteApp 컬렉션에 대해 USB 리디렉션 사용
-컬렉션 수준에서 USB 리디렉션을 사용하도록 설정하려면 다음 cmdlet을 사용합니다. Set-AzureRemoteAppCollection -CollectionName <collection_name> -CustomRdpProperty "nusbdevicestoredirect:s:\*"
+컬렉션 수준에서 USB 리디렉션을 사용하도록 설정하려면 다음 cmdlet을 사용합니다.
+    Set-AzureRemoteAppCollection -CollectionName <collection_name> -CustomRdpProperty "nusbdevicestoredirect:s:*"
 
 ### 클라이언트 컴퓨터에 대해 USB 리디렉션 사용
 
@@ -102,4 +103,5 @@ RemoteApp에 연결하는 컴퓨터에서 USB 리디렉션을 사용하려는 �
 6. **이 컴퓨터에서 지원되는 기타 RemoteFX USB 장치의 RDP 리디렉션 허용**을 두 번 클릭합니다.
 7. **사용**을 선택한 다음 **RemoteFX USB 리디렉션 액세스 권한의 관리자 및 사용자**를 선택합니다.
 8. **확인**을 클릭합니다. 
+
 <!--HONumber=54-->
