@@ -1,7 +1,21 @@
 
-<properties pageTitle="Blob 저장소에 대한 속성 및 메타 데이터 설정 및 검색 | Microsoft Azure" description="Azure 저장소 컨테이너 및 Blob에 대한 속성 및 메타 데이터를 설정하고 검색하는 방법에 대해 알아봅니다." services="storage" documentationCenter="" authors="tamram" manager="adinah" editor=""\>
+<properties 
+pageTitle="Blob 저장소에 대한 속성 및 메타 데이터 설정 및 검색 | Microsoft Azure" 
+description="Azure 저장소 컨테이너 및 Blob에 대한 속성 및 메타 데이터를 설정하고 검색하는 방법에 대해 알아봅니다." 
+services="storage" 
+documentationCenter="" 
+authors="tamram" 
+manager="adinah" 
+editor=""/>
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="04/21/2015" ms.author="tamram"\>
+<tags 
+ms.service="storage" 
+ms.workload="storage" 
+ms.tgt_pltfrm="na" 
+ms.devlang="na" 
+ms.topic="article" 
+ms.date="04/21/2015" 
+ms.author="tamram"/>
 
 
 # 속성 및 메타 데이터 설정 및 검색 #
