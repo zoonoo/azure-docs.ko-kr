@@ -1,9 +1,9 @@
-﻿<properties 
-   pageTitle="Azure SDK for .NET 릴리스 정보" 
-   description="Azure SDK for .NET 릴리스 정보" 
+<properties 
+   pageTitle="Azure SDK for .NET 2.5.1 릴리스 정보" 
+   description="Azure SDK for .NET 2.5.1 릴리스 정보" 
    services="app-service" 
    documentationCenter=".net,nodejs,java" 
-   authors="adgoda" 
+   authors="Juliako" 
    manager="dwrede" 
    editor=""/>
 
@@ -17,15 +17,15 @@
    ms.author="juliako"/>
 
 
-# Azure SDK for .NET 릴리스 정보
+# Azure SDK for .NET 2.5.1 릴리스 정보
 
-이 문서에는 Azure SDK for .NET 2.5.1 릴리스의 릴리스 정보가 포함되어 있습니다. 
+이 문서에는 Azure SDK for .NET 2.5.1 릴리스의 릴리스 정보가 포함되어 있습니다.
 
 ##Azure SDK for .NET 2.5.1 릴리스 정보
 
 다음은 Azure SDK for .NET 2.5.1의 새로운 기능 및 업데이트입니다.
 
-- **웹 도구 확장**과 관련된 새로운 기능\시나리오. 
+- **웹 도구 확장**과 관련된 새로운 기능\\시나리오. 
 
 	- Azure 웹 사이트의 이름이 Azure 앱 서비스로 바뀌었습니다. 자세한 내용은 [Azure 앱 서비스 및 기존 Azure 서비스](app-service-changes-existing-services.md)를 참조하세요.
 	- Azure API 앱(미리 보기) 지원은 고객이 ASP.NET 프로젝트를 API 앱으로 게시한 다음 C# 프로젝트에서 추가 > Azure API 앱 클라이언트 제스처를 사용하여 배포된 API 앱의 구조에 따라 코드를 생성할 수 있도록 추가되었습니다. 
@@ -38,7 +38,7 @@
 	Azure SDK .NET 2.5.1의 알려진 문제와 현재 제한은 아래의 [이](app-service-release-notes.md#known_issues_2_5_1) 섹션을 참조하세요.
 
 
-- 이 릴리스에서는 Visual Studio의 **HDInsight Tools**와 관련된 새로운 기능\시나리오를 사용할 수 있습니다. 
+- 이 릴리스에서는 Visual Studio의 **HDInsight Tools**와 관련된 새로운 기능\\시나리오를 사용할 수 있습니다.
 	- 하이브 스크립트의 로컬 유효성 검사. 스크립트에 오류가 있는지 확인하려면 도구 모음에서 스크립트 유효성 검사 단추를 클릭합니다. 
 	- 향상된 하이브 작업 디버그. 이제 Visual Studio에서 Yarn 로그에 액세스하여 하이브 작업을 디버그할 수 있습니다. 응용 프로그램에 성능 문제가 있는 경우 YARN 로그를 조사하면 유용한 정보가 제공됩니다.
 	- (공개 미리 보기) 하이브에 대한 키워드 자동 완성 및 IntelliSense 지원. 하이브 스크립트 작성을 돕기 위해 HDInsight Tools for Visual Studio에 하이브에 대한 키워드 자동 완성 및 IntelliSense 지원이 추가되었습니다.
@@ -67,4 +67,4 @@
 - "Azure API 앱 클라이언트 추가" 상황에 맞는 메뉴를 통한 API 앱 사용은 C#에서만 지원됩니다.
 
 
-<!--HONumber=49-->
+<!--HONumber=54-->

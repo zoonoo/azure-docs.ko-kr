@@ -1,7 +1,7 @@
-﻿<properties 
+<properties 
 	pageTitle="FTP Connector"
 	description="FTP Connector 시작"
-	authors="rajeshramabathiran" 
+	authors="anuragdalmia" 
 	manager="dwrede" 
 	editor="" 
 	services="app-service\logic" 
@@ -16,9 +16,9 @@
 	ms.date="03/05/2015"
 	ms.author="rajeshramabathiran"/>
 
-# FTP Connector
+#FTP Connector
 
-## 개요
+##개요
 FTP Connector를 사용하면 FTP 서버에서/로 데이터를 이동할 수 있습니다. FTP Connector의 주요 기능은 다음과 같습니다.
 
 - 요청 시 FTP 서버에서 파일 끌어오기
@@ -28,27 +28,30 @@ FTP Connector를 사용하면 FTP 서버에서/로 데이터를 이동할 수 �
 - 요청 시 보내기를 실행하는 기능
 - 요청 시 FTP 서버에서 파일을 삭제하는 기능
 
-## 새 FTP Connector 만들기
-새 FTP Connector를 만들려면 아래에 설명된 단계를 따르세요.
-- Azure 포털을 시작합니다.
+##새 FTP Connector 만들기
+새 FTP 커넥터를 만들려면 아래에 설명된 단계를 따르세요. 
+- Azure 포털을 시작합니다. 
 - +새로 만들기(페이지 아래쪽에 있음) -> 웹 + 모바일 -> Azure 마켓플레이스를 사용하여 Azure 마켓플레이스를 엽니다.
 
-![Launch Azure Marketplace][1]
-- API 앱을 클릭합니다.
-- FTP를 검색하고 FTP Connector를 선택합니다.
+![Azure 마켓플레이스 시작][1]
 
-![Select FTP Connector][2]
-- 만들기를 클릭합니다.
-- 열리는 FTP Connector 블레이드에서 다음 데이터를 입력합니다.
+ - API 앱을 클릭합니다. 
+ - FTP를 검색하고 FTP 커넥터를 선택합니다.
 
-![Create FTP Connector][3]
+![FTP 커넥터 선택][2]
+
+ - 만들기를 클릭합니다. 
+ - 열리는 FTP 커넥터 블레이드에서 다음 데이터를 입력합니다.
+
+
+![FTP 커넥터 만들기][3]
 
 - **위치** - 커넥터를 배포할 지리적 위치를 선택합니다.
 - **구독** - 이 커넥터를 만들 구독을 선택합니다.
 - **리소스 그룹** - 커넥터가 상주할 리소스 그룹을 선택하거나 만듭니다.
 - **웹 호스팅 계획** - 웹 호스팅 계획을 선택하거나 만듭니다.
 - **가격 책정 계층** - 커넥터에 대한 가격 책정 계층을 선택합니다.
-- **이름** - FTP Connector의 이름을 지정합니다.
+- **이름** - FTP 커넥터의 이름을 지정합니다.
 - **패키지 설정** 
 	- **서버 주소** - FTP 서버 이름 또는 IP 주소를 지정합니다.
 	- **사용자 이름** - FTP 서버에 연결할 때 사용할 사용자 이름을 지정합니다.
@@ -59,59 +62,50 @@ FTP Connector를 사용하면 FTP 서버에서/로 데이터를 이동할 수 �
 	- **서버 포트** - FTP 서버 포트 번호를 지정합니다.
 - 만들기를 클릭합니다. 새 FTP Connector가 만들어집니다.
 
-## 논리 앱에 FTP Connector 사용
+##논리 앱에 FTP Connector 사용
 FTP Connector를 만든 후 흐름에서 사용할 수 있습니다.
 
-+새로 만들기 -> 웹 + 모바일 -> 논리 앱을 통해 새 흐름을 만듭니다. 리소스 그룹을 비롯하여 흐름에 대한 메타데이터를 입력합니다.
+\+새로 만들기 -> 웹 + 모바일 -> 논리 앱을 통해 새 흐름을 만듭니다. 리소스 그룹을 비롯하여 흐름에 대한 메타데이터를 입력합니다.
 
-![Create Logic App][4]
+![논리 앱 만들기][4]
 
- *triggers and actions트리거 및 동작*을 클릭합니다. 흐름 디자이너가 열립니다.
+*트리거 및 동작*을 클릭합니다. 흐름 디자이너가 열립니다.
 
-![Logic App empty flow designer][5]
+![논리 앱 빈 흐름 디자이너][5]
 
-FTP Connector는 트리거와 동작 둘 다로 사용할 수 있습니다. 
+FTP Connector는 트리거와 동작 둘 다로 사용할 수 있습니다.
 
-### 트리거
+###트리거
 빈 흐름 디자이너의 오른쪽 갤러리 창에서 FTP Connector를 클릭합니다.
 
-![Choose FTP Trigger][6]
+![FTP 트리거 선택][6]
 
-FTP Connector에는 트리거 하나 TriggerOnFileAvailable이 있습니다. 이 트리거는 FTP 서버의 특정 폴더에 새 파일이 업로드될 때마다 트리거됩니다.
-
- 'TriggerOnFileAvailable' 트리거를 클릭합니다.
-
-![Basic inputs FTP Trigger][7]
-
-입력은 예약된 빈도로 폴링되도록 특정 폴더 경로를 구성하는 데 도움이 됩니다. 기본 입력은 다음과 같습니다.
-- Frequency(빈도) - FTP 폴링의 빈도를 지정합니다.
-- Interval(간격) - 예약된 빈도에 대한 간격을 지정합니다.
-- Folder Path(폴더 경로) - FTP 서버의 폴더 경로를 지정합니다.
-- Type of file(파일 형식) - 파일 형식이 텍스트인지 또는 이진인지를 지정합니다.
-
-...를 클릭하면 고급 입력이 표시됩니다. 
-
-![Basic inputs FTP Trigger][8]
-
-고급 입력은 다음과 같습니다.
-- File mask(파일 마스크) - 폴링하는 동안 파일 마스크를 지정합니다.
-- Exclude file mask(파일 마스크 제외) - 폴링하는 동안 제외할 파일 마스크를 지정합니다.
-
-입력을 입력하고 확인 표시를 클릭하여 입력 구성을 완료합니다.
-
-![Basic inputs FTP Trigger][9]
-
-구성된 FTP 트리거에는 구성된 입력 매개 변수와 FTP 트리거의 출력이 둘 다 표시되어 있습니다. 
-
-논리 앱을 만들고 나면 FTP 트리거가 다음을 수행합니다. 
-
+FTP Connector에는 트리거 하나 TriggerOnFileAvailable이 있습니다. 이 트리거는
 
 - 새 파일에 대한 폴더 경로를 폴링합니다.
 - 새 파일이 만들어질 때마다 논리 흐름을 인스턴스화합니다.
 - 논리 흐름이 인스턴스화된 후 폴더 경로에서 파일을 삭제합니다.
 
-#### 후속 동작에 FTP 트리거의 출력 사용
-FTP Connector의 출력을 흐름에 있는 다른 동작의 입력으로 사용할 수 있습니다. 
+'TriggerOnFileAvailable' 트리거를 클릭합니다.
+
+![기본 입력 FTP 트리거][7]
+
+입력은 예약된 빈도로 폴링되도록 특정 폴더 경로를 구성하는 데 도움이 됩니다. 기본 입력은 다음과 같습니다. - Frequency(빈도) - FTP 폴링의 빈도를 지정합니다. - Interval(간격) - 예약된 빈도에 대한 간격을 지정합니다. - Folder Path(폴더 경로) - FTP 서버의 폴더 경로를 지정합니다. - Type of file(파일 형식) - 파일 형식이 텍스트인지 또는 이진인지를 지정합니다.
+
+...를 클릭하면 고급 입력이 표시됩니다.
+
+![기본 입력 FTP 트리거][8]
+
+고급 입력은 다음과 같습니다. - File mask(파일 마스크) - 폴링하는 동안 파일 마스크를 지정합니다. - Exclude file mask(파일 마스크 제외) - 폴링하는 동안 제외할 파일 마스크를 지정합니다.
+
+입력을 입력하고 확인 표시를 클릭하여 입력 구성을 완료합니다.
+
+![기본 입력 FTP 트리거][9]
+
+구성된 FTP 트리거에는 구성된 입력 매개 변수와 FTP 트리거의 출력이 둘 다 표시되어 있습니다.
+
+####후속 동작에 FTP 트리거의 출력 사용
+FTP Connector의 출력을 흐름에 있는 다른 동작의 입력으로 사용할 수 있습니다.
 
 동작의 입력 대화 상자에서 +를 클릭하고 드롭다운 상자에서 직접 FTP의 출력을 선택할 수 있습니다.
 
@@ -119,10 +113,10 @@ FTP Connector의 출력을 흐름에 있는 다른 동작의 입력으로 사용
 
 	@triggers('ftpconnector').outputs.body.Content
 
-### 동작
+###동작
 오른쪽 창에서 FTP Connector를 클릭합니다. FTP Connector에 지원되는 동작이 나열됩니다.
 
-![List of FTP Actions][10]
+![FTP 동작 목록][10]
 
 FTP Connector는 4가지 동작을 지원합니다. 이러한 동작은 다음과 같습니다.
 
@@ -135,7 +129,7 @@ FTP Connector는 4가지 동작을 지원합니다. 이러한 동작은 다음�
 
 기본 입력이 먼저 표시됩니다.
 
-![Basic inputs of Upload File action][11]
+![파일 업로드 동작의 기본 입력][11]
 
 
 - **Content(내용)** - 업로드할 파일의 내용을 지정합니다.
@@ -144,19 +138,19 @@ FTP Connector는 4가지 동작을 지원합니다. 이러한 동작은 다음�
 
 ...를 클릭하면 고급 입력이 표시됩니다.
 
-![Basic inputs of Upload File action][12]
+![파일 업로드 동작의 기본 입력][12]
 
 
-- **Append If Exists(있는 경우 추가)** -  'Append If Exist'를 사용하거나 사용하지 않도록 설정합니다. 사용하도록 설정하는 경우, 파일이 있으면 데이터가 파일에 추가됩니다. 사용하지 않도록 설정하는 경우, 파일이 있으면 덮어씁니다.
-- **Temporary Folder(임시 폴더)** - 선택 사항입니다. 이 입력을 입력하면 어댑터가 파일을  'Temporary Folder Path'에 업로드하고 업로드가 완료되면 파일이  'Folder Path'로 이동합니다. 이동 작업이 원자성을 지니도록 하려면  'Temporary Folder Path'가  'Folder Path'와 동일한 실제 디스크에 있어야 합니다. 임시 폴더는  'Append If Exist' 속성을 사용하지 않도록 설정한 경우에만 사용할 수 있습니다.
+- **Append If Exists(있는 경우 추가)** - ‘Append If Exists(있는 경우 추가)’를 사용하거나 사용하지 않도록 설정합니다. 사용하도록 설정하는 경우, 파일이 있으면 데이터가 파일에 추가됩니다. 사용하지 않도록 설정하는 경우, 파일이 있으면 덮어씁니다.
+- **Temporary Folder(임시 폴더)** - 선택 사항입니다. 제공되는 경우, 어댑터가 해당 파일을 ‘임시 폴더 경로’로 업로드하고 업로드가 완료되면 해당 파일이 ‘폴더 경로’로 이동됩니다. 이동 작업이 원자성을 지니도록 하려면 ‘임시 폴더 경로’가 ‘폴더 경로’와 동일한 실제 디스크에 있어야 합니다. 임시 폴더는 ‘있는 경우 추가’ 속성을 사용하지 않도록 설정한 경우에만 사용할 수 있습니다.
 
 입력을 입력하고 확인 표시를 클릭하여 입력 구성을 완료합니다.
 
-![Configured Upload File action][13]
+![구성된 파일 업로드 동작][13]
 
 구성된 FTP 파일 업로드 동작에는 입력 매개 변수와 출력 매개 변수가 둘 다 표시되어 있습니다.
 
-#### 이전 동작의 출력을 FTP 동작에 대한 입력으로 사용
+####이전 동작의 출력을 FTP 동작에 대한 입력으로 사용
 구성된 스크린샷에서 Content는 식으로 설정된 값입니다.
 
 	@triggers().outputs.body.Content
@@ -182,4 +176,4 @@ Content를 원하는 값으로 설정할 수 있습니다. 이것은 예로 든 
 [12]: ./media/app-service-logic-connector-FTP/AdvancedInputsUploadFile.PNG
 [13]: ./media/app-service-logic-connector-FTP/ConfiguredUploadFile.PNG
 
-<!--HONumber=49-->
+<!--HONumber=54-->

@@ -1,4 +1,4 @@
-##<a name="setupdevenv"></a>개발 환경 설정
+## <a name="setupdevenv"></a>개발 환경 설정
 
 시작하려면 [Azure SDK for Visual Studio 2013][]을 설치하여 개발 환경 설정을 설정합니다.
 
@@ -8,4 +8,4 @@ Visual Studio를 설치하지 않은 경우 Visual Studio Express for Web이 SDK
 
 [Azure SDK for Visual Studio 2013]: http://go.microsoft.com/fwlink/?LinkID=324322
 
-<!--HONumber=52-->
+<!--HONumber=54-->

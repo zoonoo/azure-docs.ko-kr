@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Azure Mobile Engagement Android SDK 통합" 
 	description="Azure Mobile Engagement용 Android SDK의 최신 업데이트 및 절차"
 	services="mobile-engagement" 
@@ -19,27 +19,27 @@
 
 #업그레이드 절차
 
-이전 버전의 SDK를 응용 프로그램에 이미 통합한 경우 SDK를 업그레이드할 때 다음 사항을 고려해야 합니다.
+이전 버전의 SDK를 응용 프로그램에 이미 통합한 경우에는 SDK를 업그레이드할 때 다음 사항을 고려해야 합니다.
 
-여러 버전의 SDK를 업그레이드하지 않은 경우 몇 개의 절차를 수행해야 할 수 있습니다. 예를 들어 1.4.0에서 1.6.0으로 마이그레이션하는 경우 먼저 "1.4.0에서 1.5.0으로" 절차를 따른 다음 "1.5.0에서 1.6.0으로" 절차를 따라야 합니다.
+여러 SDK 버전을 건너뛴 경우에는 여러 절차를 수행해야 할 수 있습니다. 예를 들어 1.4.0에서 1.6.0으로 마이그레이션하는 경우 먼저 "1.4.0에서 1.5.0으로" 절차를 따른 다음 "1.5.0에서 1.6.0으로" 절차를 따라야 합니다.
 
-업그레이드를 수행하려는 원본 버전이 무엇이든, 모든 `mobile-engagement-VERSION.jar`을 새로운 파일로 바꾸세요.
+업그레이드를 수행하려는 원본 버전이 무엇이든, 모든 `mobile-engagement-VERSION.jar`을(를) 새로운 파일로 바꾸세요.
 
-###2.4.0에서 3.0.0으로
+###2.4.0에서 3.0.0으로 마이그레이션
 
-다음에서는 Capptain SAS에 의해 제공되는 Capptain 서비스에서 Azure Mobile Engagement에 의해 제공되는 앱으로 SDK 통합을 마이그레이션하는 방법을 설명합니다. 
+아래에서는 SDK 통합을 Capptain SAS 제공 Capptain 서비스에서 Azure Mobile Engagement 구동 앱으로 마이그레이션하는 방법을 설명합니다.
 
->[AZURE.IMPORTANT] Capptain과 Mobile Engagement는 동일한 서비스가 아니며, 아래에 나와 있는 절차에서는 클라이언트 앱을 마이그레이션하는 방법만 강조합니다. 앱에서 SDK 마이그레이션해도 Capptain 서버의 데이터가 Mobile Engagement로 마이그레이션되지 않습니다.
+>[AZURE.IMPORTANT]Capptain과 Mobile Engagement는 같은 서비스가 아니며, 아래에서 제공하는 절차에서는 클라이언트 앱을 마이그레이션하는 방법만 중점적으로 설명합니다. 앱에서 SDK를 마이그레이션해도 데이터가 Capptain 서버에서 Mobile Engagement 서버로 마이그레이션되지는 않습니다.
 
 이전 버전에서 마이그레이션하는 경우 Capptain 웹 사이트를 참조하여 먼저 2.4로 마이그레이션한 후 다음 절차를 적용하세요.
 
 #### JAR 파일
 
-`libs`  폴더에서 `capptain.jar` 을 `mobile-engagement-VERSION.jar` 로 바꿉니다.
+`libs` 폴더에서 `capptain.jar`을(를) `mobile-engagement-VERSION.jar`로 바꿉니다.
 
 #### 리소스 파일
 
-제공하는 모든 리소스 파일(`capptain_`이 접두사로 지정됨)을 새 파일(`engagement_`가 접두사로 지정됨)로 바꿔야 합니다.
+제공하는 모든 리소스 파일(`capptain_`이(가) 접두사로 지정됨)을 새 파일(`engagement_`이(가) 접두사로 지정됨)로 바꿔야 합니다.
 
 해당 파일을 사용자 지정한 경우 새 파일에 대해 모든 사용자 지정 내용을 다시 적용해야 하며, **리소스 파일의 모든 식별자 이름이 바뀝니다**.
 
@@ -47,7 +47,7 @@
 
 이제 Engagement에서 연결 문자열을 사용하여 응용 프로그램 식별자와 같은 SDK 식별자를 구성합니다.
 
-다음과 같은 시작 관리자 작업에서 `EngagementAgent.init`  메서드를 사용해야 합니다.
+다음과 같은 시작 관리자 작업에서 `EngagementAgent.init` 메서드를 사용해야 합니다.
 
 			EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
 			engagementConfiguration.setConnectionString("Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}");
@@ -55,9 +55,9 @@
 
 응용 프로그램의 연결 문자열은 Azure 포털에 표시됩니다.
 
-`EngagementAgent.init`가 해당 메서드를 대체하므로, `CapptainAgent.configure`에 대한 모든 호출을 제거하세요.
+`EngagementAgent.init`이(가) 해당 메서드를 대체하므로, `CapptainAgent.configure`에 대한 모든 호출을 제거하세요.
 
-`appId`는 더 이상 `AndroidManifest.xml`을 사용하여 구성할 수 없습니다.
+`appId`은(는) 더 이상 `AndroidManifest.xml`을(를) 사용하여 구성할 수 없습니다.
 
 다음 섹션이 있는 경우 `AndroidManifest.xml`에서 이 섹션을 제거하세요.
 
@@ -65,17 +65,17 @@
 
 #### Java API
 
-SDK의 모든 Java 클래스를 호출할 때마다 이름을 바꿔야 합니다. 예를 들어  `CapptainAgent.getInstance(this)`의 이름은  `EngagementAgent.getInstance(this)`로 바꿔야 하고, `extends CapptainActivity`의 이름은  `extends EngagementActivity`로 바꿔야 하는 식입니다.
+SDK의 모든 Java 클래스를 호출할 때마다 이름을 바꿔야 합니다. 예를 들어 `CapptainAgent.getInstance(this)`의 이름은 `EngagementAgent.getInstance(this)`(으)로 바꿔야 하고, `extends CapptainActivity`의 이름은 `extends EngagementActivity`(으)로 바꿔야 하는 식입니다.
 
-기본 에이전트 기본 설정 파일과 통합된 경우 기본 파일 이름은 이제 `engagement.agent`이고 키는  `engagement:agent`입니다.
+기본 에이전트 기본 설정 파일과 통합된 경우 기본 파일 이름은 이제 `engagement.agent`이고 키는 `engagement:agent`입니다.
 
-웹 공지를 만들 때 Javascript 바인더는 이제  `engagementReachContent`입니다.
+웹 공지를 만들 때 Javascript 바인더는 이제 `engagementReachContent`입니다.
 
 #### AndroidManifest.xml
 
 많은 변경이 발생했으며, 서비스가 더 이상 공유되지 않고 많은 수신기를 더 이상 탐색할 수 없습니다.
 
-서비스 선언은 더욱 간단합니다. 의도 필터 및 그 안의 모든 메타데이터를 제거한 다음  `exportable=false`를 추가합니다.
+서비스 선언은 더욱 간단합니다. 의도 필터 및 그 안의 모든 메타데이터를 제거한 다음 `exportable=false`을(를) 추가합니다.
 
 또한 모든 항목이 Engagement를 사용하도록 이름이 바뀝니다.
 
@@ -183,9 +183,9 @@ Google Play 및 SmartAd 추적이 SDK에서 제거되었습니다. 대체하지 
 			  </intent-filter>
 			</activity>
 			
-사용자 지정 도달률 활동이 있는 경우  `com.microsoft.azure.engagement.reach.intent.action.ANNOUNCEMENT` 또는  `com.microsoft.azure.engagement.reach.intent.action.POLL`과 일치하도록 의도 작업을 변경하기만 하면 됩니다.
+사용자 지정 도달률 활동이 있는 경우 `com.microsoft.azure.engagement.reach.intent.action.ANNOUNCEMENT` 또는 `com.microsoft.azure.engagement.reach.intent.action.POLL`와(과) 일치하도록 의도 작업을 변경하기만 하면 됩니다.
 
-브로드캐스트 수신기 이름이 바뀌었으며, 이제  `exported=false`를 추가합니다. 새 사양이 포함된 수신기의 전체 목록은 다음과 같습니다(이름 바꾸기에서는 사용자가 사용하는 이름만 사용함).
+브로드캐스트 수신기 이름이 바뀌었으며, 이제 `exported=false`을(를) 추가합니다. 새 사양이 포함된 수신기의 전체 목록은 다음과 같습니다(이름 바꾸기에서는 사용자가 사용하는 이름만 사용함).
 
 			<receiver android:name="com.microsoft.azure.engagement.reach.EngagementReachReceiver"
 			  android:exported="false">
@@ -273,11 +273,11 @@ Google Play 및 SmartAd 추적이 SDK에서 제거되었습니다. 대체하지 
 		    </intent-filter>
 		  </receiver>
 
-브로드캐스트 수신기의 구현 선언 **EngagementMessageReceiver**가  `AndroidManifest.xml`에서 변경되었습니다. 즉, XMPP 엔터티 및 API에서 임의의 XMPP 보내고 제거하는 API와 장치 간의 메시지를 주고받는 API가 제거되었기 때문입니다. 따라서 **EngagementMessageReceiver** 구현에서 다음 콜백을 삭제해야 합니다.
+브로드캐스트 수신기의 구현 선언 **EngagementMessageReceiver**가 `AndroidManifest.xml`에서 변경되었습니다. 즉, XMPP 엔터티 및 API에서 임의의 XMPP 보내고 제거하는 API와 장치 간의 메시지를 주고받는 API가 제거되었기 때문입니다. 따라서 **EngagementMessageReceiver** 구현에서 다음 콜백을 삭제해야 합니다.
 
 			protected void onDeviceMessageReceived(android.content.Context context, java.lang.String deviceId, java.lang.String payload)
 
-및
+and
 
 			protected void onXMPPMessageReceived(android.content.Context context, android.os.Bundle message)
 
@@ -285,7 +285,7 @@ Google Play 및 SmartAd 추적이 SDK에서 제거되었습니다. 대체하지 
 
 			sendMessageToDevice(java.lang.String deviceId, java.lang.String payload, java.lang.String packageName)
 
-및
+and
 
 			sendXMPPMessage(android.os.Bundle msg)
 
@@ -301,4 +301,4 @@ Proguard 구성은 브랜드 재지정의 영향을 받을 수 있으며, 규칙
 			  <methods>;
 			}
 
-<!--HONumber=47-->
+<!--HONumber=54-->

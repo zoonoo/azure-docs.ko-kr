@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="푸시 알림 시작(Appcelerator) | 모바일 개발자 센터" 
 	description="Azure 모바일 서비스를 사용하여 Appcelerator 앱에 푸시 알림을 보내는 방법에 대해 알아봅니다." 
 	services="mobile-services" 
@@ -10,27 +10,27 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-appcelerator" 
+	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
 	ms.date="11/24/2014" 
 	ms.author="mahender"/>
 
-# 모바일 서비스에서 푸시 알림 시작(레거시 푸시)
+# 모바일 서비스에서 푸시 알림 시작(기존 푸시)
 <div class="dev-center-tutorial-selector sublanding">
-	<a href="/ko-kr/documentation/articles/mobile-services-windows-store-dotnet-get-started-push" title="Windows Store C#">Windows 스토어 C#</a>
-	<a href="/ko-kr/documentation/articles/mobile-services-windows-store-javascript-get-started-push" title="Windows Store JavaScript">Windows 스토어 JavaScript</a>
-	<a href="/ko-kr/documentation/articles/mobile-services-windows-phone-get-started-push" title="Windows Phone">Windows Phone</a>
-	<a href="/ko-kr/documentation/articles/mobile-services-ios-get-started-push" title="iOS">iOS</a>
-	<a href="/ko-kr/documentation/articles/mobile-services-android-get-started-push" title="Android">Android</a>
-<!--    <a href="/ko-kr/documentation/articles/partner-xamarin-mobile-services-ios-get-started-push" title="Xamarin.iOS">Xamarin.iOS</a>
-    <a href="/ko-kr/documentation/articles/partner-xamarin-mobile-services-android-get-started-push" title="Xamarin.Android">Xamarin.Android</a> -->
-	<a href="/ko-kr/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push" title="Appcelerator" class="current">Appcelerator</a>
+	<a href="/documentation/articles/mobile-services-windows-store-dotnet-get-started-push" title="Windows 스토어 C#">Windows 스토어 C#</a> 
+	<a href="/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push" title="Windows 스토어 JavaScript">Windows 스토어 JavaScript</a> 
+	<a href="/documentation/articles/mobile-services-windows-phone-get-started-push" title="Windows Phone">Windows Phone</a> 
+	<a href="/documentation/articles/mobile-services-ios-get-started-push" title="iOS">iOS</a> 
+	<a href="/documentation/articles/mobile-services-android-get-started-push" title="Android">Android</a> 
+<!--    <a href="/documentation/articles/partner-xamarin-mobile-services-ios-get-started-push" title="Xamarin.iOS">Xamarin.iOS</a>
+    <a href="/documentation/articles/partner-xamarin-mobile-services-android-get-started-push" title="Xamarin.Android">Xamarin.Android</a> --> 
+	<a href="partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started.md-push" title="Appcelerator" class="current">Appcelerator</a>
 </div>
 
-이 항목에서는 Microsoft Azure 모바일 서비스를 사용하여 Appcelerator Titanium Studio를 통해 개발된 iOS 및 Android 앱에 푸시 알림을 보내는 방법을 보여 줍니다. 이 자습서에서는 APNS(Apple 푸시 알림 서비스) 및 Google Cloud Messaging을 사용하여 빠른 시작 프로젝트에 푸시 알림을 추가합니다. 이 작업을 완료하면 레코드가 삽입될 때마다 모바일 서비스에서 푸시 알림을 전송합니다.
+이 항목에서는 Microsoft Azure 모바일 서비스를 사용하여 Appcelerator Titanium Studio를 통해 개발된 iOS 및 Android 앱에 푸시 알림을 보내는 방법을 보여 줍니다. 이 자습서에서는 APNS(Apple 푸시 알림 서비스) 및 Google Cloud Messaging을 사용하여 quickstart 프로젝트에 푸시 알림을 추가합니다. 이 작업을 완료하면 레코드가 삽입될 때마다 모바일 서비스에서 푸시 알림을 전송합니다.
 
->[AZURE.NOTE] 모바일 서비스가 Azure 알림 허브와 통합되어 템플릿, 다중 플랫폼, 향상된 확장 등 추가적인 푸시 알림 기능을 지원합니다. 이 항목에서는 아직 알림 허브 통합을 사용하도록 업그레이드되지 않은 기존 모바일 서비스를 지원합니다. 새 모바일 서비스를 만들 때 이 통합 기능이 자동으로 사용하도록 설정됩니다. 가능하면 알림 허브를 사용하도록 서비스를 업그레이드해야 합니다. **Appcelerator를 사용한 알림 허브 푸시에 대한 자습서가 곧 제공될 예정입니다.**
+>[AZURE.NOTE]모바일 서비스가 Azure 알림 허브와 통합되어 템플릿, 다중 플랫폼, 향상된 확장 등 추가적인 푸시 알림 기능을 지원합니다. 이 항목에서는 아직 알림 허브 통합을 사용하도록 업그레이드되지 않은 기존 모바일 서비스를 지원합니다. 새 모바일 서비스를 만들 때 이 통합 기능이 자동으로 사용하도록 설정됩니다. 가능하면 알림 허브를 사용하도록 서비스를 업그레이드해야 합니다. **Appcelerator를 사용한 알림 허브 푸시에 대한 자습서가 곧 제공될 예정입니다.**
 
 1.	[인증서 서명 요청 생성]
 2.	[앱을 등록하고 푸시 알림을 사용하도록 설정]
@@ -50,9 +50,9 @@
 * iOS 개발자 프로그램 멤버 자격
 * 활성 Google 계정
 
-> [AZURE.NOTE] 푸시 알림 구성 요구 사항 때문에 에뮬레이터 대신 iOS 지원 장치(iPhone 또는 iPad)에서 푸시 알림을 배포 및 테스트해야 합니다.
+> [AZURE.NOTE]푸시 알림 구성 요구 사항 때문에 에뮬레이터 대신 iOS 지원 장치(iPhone 또는 iPad)에서 푸시 알림을 배포 및 테스트해야 합니다.
 
-이 자습서는 모바일 서비스 빠른 시작을 기반으로 합니다. 이 자습서를 시작하기 전에 먼저 [모바일 서비스 시작]을 완료해야 합니다.
+이 자습서는 모바일 서비스 quickstart를 기반으로 합니다. 이 자습서를 시작하기 전에 먼저 [모바일 서비스 시작하기]를 완료해야 합니다.
 
 [AZURE.INCLUDE [Apple 푸시 알림 사용](../includes/enable-apple-push-notifications.md)]
 
@@ -63,13 +63,13 @@
 [AZURE.INCLUDE [GCM 사용](../includes/mobile-services-enable-Google-cloud-messaging.md)]
 
 
-##  <a name="gcm-module"></a>Titanium에 대한 GCM 모듈 만들기
+## <a name="gcm-module"></a>Titanium에 대한 GCM 모듈 만들기
 
 ### 모듈 만들기를 위한 Appcelerator Titanium Studio 준비
 
 Android 모듈을 만들려면 Appcelerator Titanium Studio 내부에 Java 지원을 설치해야 합니다. 아직 설치하지 않은 경우 간략한 단계는 Appcelerator의 [Java 개발 도구 설치]를 참조하세요.
 
-Android NDK를 설치해야 합니다. [http://developer.android.com/sdk/ndk/index.html](http://developer.android.com/sdk/ndk/index.html)에서 해당 .zip 파일을 다운로드하고 디스크의 특정 위치에 추출합니다. 이 위치를 기억해두세요. 
+Android NDK를 설치해야 합니다. [http://developer.android.com/sdk/ndk/index.html](http://developer.android.com/sdk/ndk/index.html)에서 해당 .zip 파일을 다운로드하고 디스크의 특정 위치에 추출합니다. 이 위치를 기억해두세요.
 
 ### 새 모듈 만들기
 
@@ -79,15 +79,15 @@ Android NDK를 설치해야 합니다. [http://developer.android.com/sdk/ndk/ind
 
     ![][0]
 
-3. 다음 창에서 프로젝트 설정 데이터를 입력합니다. 
+3. 다음 창에서 프로젝트 설정 데이터를 입력합니다.
 
-    * **Project name:** 이 예제에서는 &quot;notificationhub&quot;를 사용합니다(같을 수 있음).
+    * **프로젝트 이름:** 이 경우 &quot;notificationhub&quot;를 사용합니다(같을 수 있음).
 
-    * **Module Id:** 이 예제에서는 &quot;com.winwire.notificationhub&quot;를 사용합니다. 이 ID도 "응용 프로그램 ID"와 일치해야 합니다.
+    * **모듈 ID:** 이 경우 &quot;com.winwire.notificationhub&quot;를 사용합니다. 이 값은 "application Id"와도 일치해야 합니다.
 
-    * **Deployment Targets:** 이 예제에서는 Android를 선택합니다.
+    * **개발 대상:** 이 경우 Android를 선택합니다.
 
-    > [AZURE.NOTE] 작업 영역 이름에 공백이 포함되지 않아야 합니다. 공백이 포함되면 컴파일된 모듈을 만들 때 문제가 발생합니다.
+    > [AZURE.NOTE]작업 영역 이름에 공백이 포함되지 않아야 합니다. 공백이 포함되면 컴파일된 모듈을 만들 때 문제가 발생합니다.
 
     ![][1]
 
@@ -137,11 +137,11 @@ Android NDK를 설치해야 합니다. [http://developer.android.com/sdk/ndk/ind
 
 
 
-> [AZURE.NOTE] 위의 코드에서 텍스트  *com.winwire.notificationhub*의 모든 인스턴스를 응용 프로그램 패키지 이름(모듈 ID)으로 바꿔야 합니다.
+> [AZURE.NOTE]위의 코드에서 텍스트 *com.winwire.notificationhub*의 모든 인스턴스를 응용 프로그램 패키지 이름(모듈 ID)으로 바꿔야 합니다.
 
 7. 알림 허브 모듈에서 &quot;src&quot; 폴더를 마우스 오른쪽 단추로 클릭하고 &quot;New&quot;로 이동하여 &quot;folder&quot;를 선택합니다. 폴더 이름을 com.google.android.gcm으로 지정합니다.
 
-> [AZURE.NOTE] &quot;New&quot; 옵션에 &quot;folder&quot;가 표시되지 않으면 &quot;Other&quot;를 선택하고 General을 확장하고 나서 &quot;Folder&quot;를 선택합니다.
+> [AZURE.NOTE]&quot;New&quot; 옵션에서 &quot;folder&quot;가 표시되지 않으면 &quot;Other&quot;를 선택하고 General 확장하고 나서 &quot;Folder&quot;를 선택합니다.
 
 8. 이제 여기에서 &quot;.java&quot; 파일(gcm.zip)을 다운로드하고 해당 파일을 새로 만든 폴더(com.google.android.gcm)로 복사합니다.
 
@@ -216,23 +216,23 @@ Android NDK를 설치해야 합니다. [http://developer.android.com/sdk/ndk/ind
 
 12. 이제 module.zip을 다운로드하고 파일을 모듈 ID를 이름으로 사용한 폴더로 복사합니다.
 
-> [AZURE.NOTE] 위의 파일에서 텍스트  *com.winwire.notificationhub*의 모든 인스턴스를 응용 프로그램 패키지 이름(모듈 ID)으로 바꿔야 합니다. 또한 &quot;NotificationhubModule&quot;을 프로젝트 이름+모듈(예: &quot;NotificationhubModule&quot;)로 바꿔야 합니다.
+> [AZURE.NOTE]위의 파일에서 텍스트 *com.winwire.notificationhub*의 모든 인스턴스를 응용 프로그램 패키지 이름(모듈 ID)으로 바꿔야 합니다. &quot;NotificationhubModule&quot;도 프로젝트 이름+모듈(예: &quot;NotificationhubModule&quot;)로 바꿔야 합니다.
 
 ### 모듈 빌드/패키징
 
-**Deploy > Package - Android Module**을 선택합니다. Studio를 사용하여 BlackBerry 모듈을 빌드할 수는 없습니다. BlackBerry NDK CLI 도구나 Momentics IDE를 사용하세요. 
+**Deploy > Package - Android Module**을 선택합니다. Studio를 사용하여 BlackBerry 모듈을 빌드할 수는 없습니다. BlackBerry NDK CLI 도구나 Momentics IDE를 사용하세요.
 
 ![][3]
 
 
-모든 프로젝트 또는 특정 프로젝트에 대해 모듈을 배포하도록 선택할 수 있습니다. 이 작업은 [Titanium 모듈 사용]에 설명된 설치 규칙에 따라 수행됩니다. 요약하면 다음과 같습니다.
+모든 프로젝트 또는 특정 프로젝트에 대해 모듈을 배포하도록 선택할 수 있습니다. 이 작업은 [Titanium 모듈 사용]에 설명된 설치 규칙을 따르세요. 요약하면 다음과 같습니다.
 
 - 모든 프로젝트: 모듈 .zip 파일이 Titanium SDK 설치 위치의 루트에서 삭제됩니다. 
 
-- 특정 프로젝트: 모듈 .zip 파일이 프로젝트의 루트에서 삭제됩니다. 
+- 특정 프로젝트: 모듈 .zip 파일이 프로젝트의 루트에서 삭제됩니다.
 
 
-## <a name="configure"></a>푸시 요청을 보내도록 모바일 서비스 구성
+## <a name="configure"></a>푸시 요청을 전송하도록 모바일 서비스 구성
 
 
 [AZURE.INCLUDE [mobile-services-apns-configure-push](../includes/mobile-services-apns-configure-push.md)]
@@ -245,7 +245,7 @@ Android NDK를 설치해야 합니다. [http://developer.android.com/sdk/ndk/ind
 
 ## <a name="add-push"></a>앱에 푸시 알림 추가
 
-1.	tiapp.xml에서 tiapp.xml 탭을 선택하고(&quot;Overview&quot; 탭 옆의 아래쪽에 있음) `<android>` 태그를 찾습니다. 태그 아래에 다음 코드를 추가합니다.
+1.	tiapp.xml에서 tiapp.xml 탭(&quot;Overview&quot; 탭 옆의 아래쪽에 있음)을 선택하고 `<android>` 태그를 찾습니다. 태그 아래에 다음 코드를 추가합니다.
 
         <modules>
             <module platform="android">ModuleId</module>
@@ -254,7 +254,7 @@ Android NDK를 설치해야 합니다. [http://developer.android.com/sdk/ndk/ind
         <property name="ApplicationId.icon type="int">2130837504</property>
         <property name="ApplicationId.component" type="string">ApplicationId/ApplicationId.AppNameActivity</property>
 
->[AZURE.NOTE] 위 코드에서 **ModuleId** 및 **ApplicationId**를 각각 GCM 모듈을 만들 때 입력한 모듈 ID 및 프로젝트를 만들 때 입력한 응용 프로그램 ID로 바꿔야 합니다.  **ModuleId** 및 **ApplicationId**는 둘 다 같아야 합니다. 또한 **ApplicationId.AppNameActivity**를 변경해야 합니다. com.winwire.notificationhub/ com.winwire.notificationhub.NotificationhubActivity 같이 표시되어야 합니다.
+>[AZURE.NOTE]위의 코드에서 **ModuleId**, **ApplicationId**를 바꿔야 합니다. GCM 모듈을 만들 때 입력한 모듈 ID 및 프로젝트를 만들 때 입력한 응용 프로그램 ID로 바꿔야 합니다. **ModuleId** 및 **ApplicationId**는 둘 다 같아야 합니다. 또한 **ApplicationId.AppNameActivity**를 변경해야 합니다. com.winwire.notificationhub/ com.winwire.notificationhub.NotificationhubActivity 같이 표시되어야 합니다.
 
 
 2.	앞에서 만든 GCM 모듈을 복사하고 아래 위치에 저장합니다.	
@@ -279,10 +279,10 @@ Android NDK를 설치해야 합니다. [http://developer.android.com/sdk/ndk/ind
     </td>
     </tr>
     </tr>
-    
+
     </table>
 
->[AZURE.NOTE]  Mac OS에서 라이브러리는 숨겨진 폴더입니다. 이 폴더를 표시하려면 다음 명령을 실행하고 파인더를 다시 시작합니다. `**defaults write com.apple.finder AppleShowAllFiles TRUE**`
+>[AZURE.NOTE]Mac OS에서 라이브러리는 숨겨진 폴더입니다. 이 폴더를 표시하려면 다음 명령을 실행하고 파인더를 다시 시작합니다. `**defaults write com.apple.finder AppleShowAllFiles TRUE**`
 
 3.	Appcelerator Titanium Studio에서 index.js 파일을 열고 맨 아래에 다음 코드를 추가합니다. 이 코드는 푸시 알림에 대한 장치를 등록합니다.
 
@@ -372,11 +372,11 @@ Android NDK를 설치해야 합니다. [http://developer.android.com/sdk/ndk/ind
 
 5.	Android의 경우 위의 코드를 다음 코드로 바꿉니다.
 
-       var request = {
-    	'text' : alertTextField.getValue(),
-    	'complete' : false,
-    	'handle' : Alloy.Globals.tempRegId
-    }; 
+           var request = {
+    	    'text' : alertTextField.getValue(),
+    	    'complete' : false,
+    	    'handle' : Alloy.Globals.tempRegId
+        };
     
     
 
@@ -391,11 +391,11 @@ Android NDK를 설치해야 합니다. [http://developer.android.com/sdk/ndk/ind
 
 7.	iOS의 경우 위의 코드를 다음 코드로 바꿉니다.
 
-       var request = {
-    	'text' : alertTextField.getValue(),
-    	'complete' : false,
-    	'deviceToken' : Alloy.Globals.tempRegId
-    };
+           var request = {
+    	    'text' : alertTextField.getValue(),
+    	    'complete' : false,
+    	    'deviceToken' : Alloy.Globals.tempRegId
+        };
     
  
 이제 iOS 및 Android 플랫폼에서 푸시 알림을 지원하도록 앱이 업데이트됩니다.
@@ -407,7 +407,7 @@ Android NDK를 설치해야 합니다. [http://developer.android.com/sdk/ndk/ind
 
     ![][5]
 
-2.	todoitem에서 스크립트 탭을 클릭하고 삽입을 선택합니다.
+2.	TodoItem에서 스크립트 탭을 클릭하고 삽입을 선택합니다.
 
     ![][6]
 
@@ -431,7 +431,7 @@ Android NDK를 설치해야 합니다. [http://developer.android.com/sdk/ndk/ind
             }, 2500);
         }
   
-   	> [AZURE.NOTE] 이 스크립트는 앱을 닫고 푸시 알림을 수신할 수 있는 시간을 주기 위해 알림 전송을 지연시킵니다.  
+   	> [AZURE.NOTE] This script delays sending the notification to give you time to close the app to receive a push notification.  
 
 **Android:**
 
@@ -477,12 +477,10 @@ Android NDK를 설치해야 합니다. [http://developer.android.com/sdk/ndk/ind
 [알림을 받기 위한 데이터 삽입]: #test
 
 <!-- URLs. -->
-[모바일 서비스 시작]: /ko-kr/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started
+[모바일 서비스 시작하기]: partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started.md
 [Titanium 모듈 사용]: http://docs.appcelerator.com/titanium/latest/#!/guide/Using_Titanium_Modules
-[Microsoft Azure 관리 포털]: https://manage.windowsazure.com/
+[Microsoft Azure Management Portal]: https://manage.windowsazure.com/
 [모바일 서비스 push 개체]: http://go.microsoft.com/fwlink/p/?linkid=272333&clcid=0x409
 [Java 개발 도구 설치]: http://docs.appcelerator.com/titanium/latest/#!/guide/Installing_the_Java_Development_Tools
 
-
-
-<!--HONumber=42-->
+<!--HONumber=54-->

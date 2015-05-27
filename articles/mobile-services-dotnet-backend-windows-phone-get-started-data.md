@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="기존 앱에 모바일 서비스 추가(Windows Phone) | 모바일 개발자 센터" 
 	description="모바일 서비스를 사용하여 Windows Phone 앱에서 데이터를 활용하는 방법을 알아봅니다." 
 	services="mobile-services" 
@@ -16,33 +16,33 @@
 	ms.date="02/20/2015" 
 	ms.author="wesmc"/>
 
-# 기존 앱에 모바일 서비스 추가(영문)
+# 기존 앱에 모바일 서비스 추가
 
-##개요
+## 개요
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-data-legacy](../includes/mobile-services-selector-get-started-data-legacy.md)]
 
-이 항목에서는 Azure 모바일 서비스를 Windows Phone 8.1 Silverlight 앱에 대한 백 엔드 데이터 소스로 추가하는 방법을 보여 줍니다. 이 자습서에서는 데이터를 메모리에 저장하는 앱용 Visual Studio 프로젝트를 다운로드하고, 새 모바일 서비스를 만들고, 모바일 서비스를 앱과 통합하고, 앱을 실행할 때 변경된 데이터를 확인합니다.
+이 항목에서는 Azure 모바일 서비스를 Windows Phone 8.1 Silverlight 앱에 대한 백 엔드 데이터 소스로 추가하는 방법을 보여 줍니다. 이 자습서에서는 데이터를 메모리에 저장하는 앱용 Visual Studio 프로젝트를 다운로드하고, 새 모바일 서비스를 만들고, 모바일 서비스를 앱과 통합하고, 앱을 실행할 때 수행된 데이터 변경 내용을 확인합니다.
 
-이 자습서에서 만드는 모바일 서비스는 모바일 서비스의 .NET 런타임을 지원합니다. 따라서 사용자는 모바일 서비스에서 서버 쪽 비즈니스 논리에 .NET 언어 및 Visual Studio를 사용할 수 있습니다. JavaScript에서 서버 쪽 비즈니스 논리를 작성하는 데 사용할 수 있는 모바일 서비스를 만들려면 이 항목의 [JavaScript 백 엔드 버전]을 참조하세요.
+이 자습서에서 만드는 모바일 서비스는 모바일 서비스의 .NET 런타임을 지원합니다. 따라서 사용자는 모바일 서비스에서 서버 쪽 비즈니스 논리에 .NET 언어 및 Visual Studio를 사용할 수 있습니다. JavaScript에서 서버 쪽 비즈니스 논리를 작성할 수 있게 해 주는 모바일 서비스를 만들려면 이 항목의 [JavaScript 백 엔드 버전]을 참조하세요.
 
 
-##필수 조건
+## 필수 조건
 
-이 자습서의 작업을 수행하려면 다음이 필요합니다.
+이 자습서를 사용하려면 다음이 필요합니다.
 
 + Visual Studio 2013 업데이트 2 이상 버전
 + Microsoft Azure 계정. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fko-kr%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started-data%2F" target="_blank">Azure 무료 평가판</a>을 참조하세요.</p></div> 
 
-##GetStartedWithData 프로젝트 다운로드
+## GetStartedWithData 프로젝트 다운로드
 
-이 자습서는 Visual Studio 2013용 Windows Phone Silverlight 8.1 앱 프로젝트인 [GetStartedWithData 앱][개발자 코드 샘플 사이트]를 기반으로 합니다.  
+이 자습서는 Visual Studio 2013용 Windows Phone Silverlight 8.1 앱 프로젝트인 [GetStartedWithMobileServices 앱][Developer Code Samples site]을 기반으로 합니다.
 
 1. [개발자 코드 샘플 사이트](영문)에서 GetStartedWithMobileServices 샘플 앱의 C# 버전을 다운로드합니다. 
 
    	![][1]
 
-	>[AZURE.NOTE]Windows Phone Silverlght 8.1 앱을 만들려면 다운로드한 Windows Phone Silverlight 8 앱 프로젝트의 대상 OS를 Windows Phone 8.1로 변경하기만 하면 됩니다. Windows Phone 스토어 앱을 만들려면 GetStartedWithData 샘플 앱 프로젝트의 [Windows Phone 스토어 앱 버전](http://go.microsoft.com/fwlink/p/?LinkId=397372)(영문)을 다운로드합니다.
+	>[AZURE.NOTE]Windows Phone Silverlght 8.1 앱을 만들려면 다운로드한 Windows Phone Silverlight 8 앱 프로젝트의 대상 OS를 Windows Phone 8.1로 변경하기만 하면 됩니다. Windows Phone 스토어 앱을 만들려면 GetStartedWithData 샘플 앱 프로젝트의 [Windows Phone 스토어 앱 버전](http://go.microsoft.com/fwlink/p/?LinkId=397372)을 다운로드합니다.
 
 2. Visual Studio를 마우스 오른쪽 단추로 클릭하고 **관리자 권한으로 실행**을 클릭하여 Visual Studio를 관리자 권한으로 실행합니다.
 
@@ -58,33 +58,33 @@
 
 6. 앱에서 텍스트 상자에 텍스트를 입력하고 **저장**을 클릭하여 앱의 메모리에 몇몇 항목을 저장합니다.
 
-   	![][0]  
+   	![][0]
 
    	각 `TodoItem`에 대한 텍스트가 항목 완료를 표시할 수 있는 확인란과 함께 새로 고침 단추 아래에 표시됩니다.
 
-##새 모바일 서비스 만들기
+## 새 모바일 서비스 만들기
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-create-new-service](../includes/mobile-services-dotnet-backend-create-new-service.md)]
 
 
-##모바일 서비스 프로젝트 다운로드 및 솔루션에 추가
+## 모바일 서비스 프로젝트 다운로드 및 솔루션에 추가
 
 1. [Azure 관리 포털]에서 새 모바일 서비스 또는 해당 클라우드 아이콘 탭을 클릭하여 개요 페이지로 이동합니다.
 
     ![][2]
 
-2. **Windows Phone 8** 플랫폼을 클릭합니다. **시작 섹션** 아래에서 **기존 Windows Phone 8 앱** 연결을 클릭하고 **다운로드** 단추를 클릭하여 모바일 서비스의 개인화된 시작 프로젝트를 다운로드합니다. 
+2. **Windows Phone 8** 플랫폼을 클릭합니다. **시작** 섹션 아래에서 **기존 Windows Phone 8 앱 연결**을 클릭하고 **다운로드** 단추를 클릭하여 모바일 서비스의 개인화된 시작 프로젝트를 다운로드합니다.
 
     ![][3]
 
-3. 같은 곳에서 아래의 스크린샷에 보이는 링크를 클릭하여 방금 다운로드한 모바일 서비스용 게시 프로필 파일을 다운로드합니다. 
+3. 같은 곳에서 아래의 스크린샷에 보이는 링크를 클릭하여 방금 다운로드한 모바일 서비스용 게시 프로필 파일을 다운로드합니다.
 
-    > [AZURE.NOTE] Azure 계정과 관련된 중요한 정보가 포함되어 있으므로 파일을 안전한 장소에 보관하세요. 이 자습서 뒤쪽에서 모바일 서비스를 게시한 후 이 파일을 삭제할 것입니다. 
+    > [AZURE.NOTE]Azure 계정과 관련된 중요한 정보가 포함되어 있으므로 파일을 안전한 장소에 보관하세요. 이 자습서 뒤쪽에서 모바일 서비스를 게시한 후 이 파일을 삭제할 것입니다.
 
     ![][5]
 
 
-4. 방금 다운로드한 개인화된 서비스 시작 프로젝트의 압축을 풉니다. 압축 파일에 있던 폴더를 데이터 시작 솔루션 파일(.sln)이 있는 **C#** 디렉터리로 복사합니다. 이렇게 하면 NuGet 패키지 관리자에서 모든 패키지의 동기화를 더욱 쉽게 유지할 수 있습니다.
+4. 방금 다운로드한 개인화된 서비스 시작 프로젝트의 압축을 풉니다. 압축 파일에 있던 폴더를 Getting Started with Data 솔루션 파일(.sln)이 있는 **C#** 디렉터리로 복사합니다. 이렇게 하면 NuGet 패키지 관리자에서 모든 패키지의 동기화를 더욱 쉽게 유지할 수 있습니다.
 
     ![][26]
 
@@ -114,7 +114,7 @@
     ![][23]
 
 
-##모바일 서비스를 사용하도록 Windows Phone 앱 업데이트
+## 모바일 서비스를 사용하도록 Windows Phone 앱 업데이트
 
 이 섹션에서는 모바일 서비스를 응용 프로그램용 백 엔드 서비스로 사용하기 위해 Windows Phone 앱을 업데이트합니다.
 
@@ -127,24 +127,24 @@
 
     ![][8]
 
-3. 다시 Azure 관리 포털로 돌아와서 **앱 연결 및 서비스에 데이터 저장**이라는 레이블의 단계를 찾습니다.  `MobileServiceClient` 연결을 만드는 코드 조각을 복사합니다.
+3. 다시 Azure 관리 포털로 돌아와서 **앱 연결 및 서비스에 데이터 저장**이라는 레이블의 단계를 찾습니다. `MobileServiceClient` 연결을 만드는 코드 조각을 복사합니다.
 
     ![][9]
 
-4. Visual Studio에서 App.xaml.cs를 엽니다.  `App` 클래스 정의의 시작 부분에 코드 조각을 붙여넣습니다. 또한 다음 `using` 문을 이 파일 맨 위에 추가하고 파일을 저장합니다.
+4. Visual Studio에서 App.xaml.cs를 엽니다. `App` 클래스 정의의 시작 부분에 코드 조각을 붙여넣습니다. 또한 다음 `using` 문을 이 파일 위에 추가하고 파일을 저장합니다.
 
 		using Microsoft.WindowsAzure.MobileServices;
 
     ![][10]
 
 
-5. Visual Studio에서 MainPage.xaml.cs를 열고 파일 맨 위에 다음 using 문을 추가합니다. 
+5. Visual Studio에서 MainPage.xaml.cs를 열고 파일 맨 위에 다음 using 문을 추가합니다.
 
 		using Microsoft.WindowsAzure.MobileServices;
 
-6. Visual Studio의 MainPage.xaml.cs에서 `MainPage` 클래스 정의를 다음 정의와 교체하고 파일을 저장합니다.
+6. Visual Studio의 MainPage.xaml.cs에서 `MainPage` 클래스 정의를 다음 정의와 바꾸고 파일을 저장합니다.
 
-    이 코드는 앱이 데이터를 로컬의 메모리 내에 저장하는 대신 서비스에서 제공하는 테이블에 저장하도록 모바일 서비스 SDK를 사용합니다. 세 가지 기본 메서드는 `InsertTodoItem`, `RefreshTodoItems` 및 `UpdateCheckedTodoItem`입니다. 이 세 가지 메서드를 사용하면 데이터 컬렉션을 Azure의 테이블에 비동기로 삽입하고 쿼리하며 업데이트할 수 있습니다. 
+    이 코드는 앱이 데이터를 로컬의 메모리 내에 저장하는 대신 서비스에서 제공하는 테이블에 저장하도록 모바일 서비스 SDK를 사용합니다. 세 가지 기본 메서드는 `InsertTodoItem`. `RefreshTodoItems` 및 `UpdateCheckedTodoItem`입니다. 이 세 가지 메서드를 사용하면 데이터 컬렉션을 Azure의 테이블에 비동기로 삽입하고 쿼리하며 업데이트할 수 있습니다.
 
         public sealed partial class MainPage : PhoneApplicationPage
         {
@@ -195,7 +195,7 @@
 
 
 
-##로컬로 호스트한 서비스에 대해 Windows Phone 앱 테스트</h2>
+## 로컬로 호스트한 서비스에 대해 Windows Phone 앱 테스트</h2>
 
 이 섹션에서는 Visual Studio를 사용하여 개발용 워크스테이션에서 로컬로 앱과 모바일 서비스를 테스트합니다. IIS Express에 로컬로 호스트한 모바일 서비스를 Windows Phone 장치 또는 Windows Phone 에뮬레이터 중 하나에서 테스트하려면 워크스테이션의 IP 주소 및 포트에 연결할 수 있도록 IIS Express와 워크스테이션을 구성해야 합니다. Windows Phone 장치와 에뮬레이터는 비 로컬 네트워크 클라이언트로서 연결됩니다.
 
@@ -205,7 +205,7 @@
 
 #### IIS Express에서 모바일 서비스에 대해 앱 테스트
 
-6. Visual Studio에서 App.xaml.cs 파일을 열고 방금 파일에 붙여넣은 `MobileService` 정의를 주석으로 처리합니다. 워크스테이션에서 구성한 IP 주소와 포트를 기반으로 연결할 수 있도록 새 정의를 추가합니다. 그런 다음 파일을 저장합니다. 코드는 다음과 유사합니다.
+6. Visual Studio에서 App.xaml.cs 파일을 열고 방금 파일에 붙여 넣은 `MobileService` 정의를 주석으로 처리합니다. 워크스테이션에서 구성한 IP 주소와 포트를 기반으로 연결할 수 있도록 새 정의를 추가합니다. 그런 다음 파일을 저장합니다. 코드는 다음과 유사합니다.
 
         public static MobileServiceClient MobileService = new MobileServiceClient(
             "http://192.168.111.11:54321");
@@ -220,14 +220,14 @@
 
     ![][11]
 
-8. Visual Studio에서 F5 키를 누르거나 디버그 메뉴에서 **디버깅 시작**을 클릭하여 IIS Express에서 로컬로 앱을 실행하고 모바일 서비스를 호스트합니다. 
+8. Visual Studio에서 F5 키를 누르거나 디버그 메뉴에서 **디버깅 시작**을 클릭하여 IIS Express에서 로컬로 앱을 실행하고 모바일 서비스를 호스트합니다.
 
-    >[AZURE.NOTE] **관리자 권한으로 실행** 옵션을 사용하여 Visual Studio를 실행해야 합니다. 그렇지 않으면 IIS Express에서 applicationhost.config 변경 사항을 로드하지 못할 수 있습니다.
+    >[AZURE.NOTE]**관리자 권한으로 실행** 옵션을 사용하여 Visual Studio를 실행해야 합니다. 그렇지 않으면 IIS Express에서 applicationhost.config 변경 사항을 로드하지 못할 수 있습니다.
 
     ![][12]
 
 
-9. 새 todoitem의 텍스트를 입력합니다. 그런 다음 **저장**을 클릭합니다. IIS Express에서 로컬로 호스트한 모바일 서비스에서 만든 데이터베이스에 새 todoItem이 삽입됩니다. 항목 중 하나의 확인란을 클릭하여 완료로 표시합니다.
+9. 새 todoitem의 텍스트를 입력합니다. 그런 다음 **Save**를 클릭합니다. IIS Express에서 로컬로 호스트한 모바일 서비스에서 만든 데이터베이스에 새 todoItem이 삽입됩니다. 항목 중 하나의 확인란을 클릭하여 완료로 표시합니다.
 
     ![][15]
 
@@ -238,14 +238,14 @@
 11. 로컬에서 호스트한 모바일 서비스의 테스트를 완료했으면 전에 만든, 워크스테이션에서 포트를 여는 Windows 방화벽 규칙을 삭제합니다.
 
 
-##Azure에 모바일 서비스 게시
+## Azure에 모바일 서비스 게시
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-publish-service](../includes/mobile-services-dotnet-backend-publish-service.md)]
 
 
-##<a name="test-azure-hosted"></a>Azure에 게시된 모바일 서비스 테스트
+## <a name="test-azure-hosted"></a>Azure에 게시된 모바일 서비스 테스트
 
-1. Visual Studio에서 App.xaml.cs를 엽니다.  로컬로 호스트한 모바일 서비스에 연결되는 `MobileServiceClient`를 만드는 코드를 주석으로 처리합니다. Azure의 서비스에 연결되는 `MobileServiceClient`를 만드는 코드의 주석 처리를 제거합니다. 파일 변경 사항을 저장합니다.
+1. Visual Studio에서 App.xaml.cs를 엽니다. 로컬로 호스팅된 모바일 서비스에 연결하는 `MobileServiceClient`을(를) 만드는 코드를 주석으로 처리합니다. Azure의 서비스에 연결되는 `MobileServiceClient`을(를) 만드는 코드의 주석 처리를 제거합니다. 파일 변경 사항을 저장합니다.
 
         sealed partial class App : Application
         {
@@ -259,11 +259,11 @@
             );        
             ....
 
-2. Visual Studio에서 F5 키를 누르거나 디버그 메뉴에서 **디버깅 시작**을 클릭합니다. Azure에서 원격으로 호스트한 모바일 서비스에 연결하기 위해 앱을 실행하기 전에, 이전 변경 사항으로 앱이 다시 빌드됩니다. 
+2. Visual Studio에서 F5 키를 누르거나 디버그 메뉴에서 **디버깅 시작**을 클릭합니다. Azure에서 원격으로 호스트한 모바일 서비스에 연결하기 위해 앱을 실행하기 전에, 이전 변경 사항으로 앱이 다시 빌드됩니다.
 
     ![][12]
 
-3. 새 todoitem을 몇 개 입력하고 각각에 대해 **저장**을 클릭합니다. 확인란을 클릭하여 몇몇 새 항목을 완료합니다. Azure 관리 포털에서 모바일 서비스에 대해 이전에 구성한 SQL 데이터베이스에서 새 todoItem이 각각 저장되고 업데이트됩니다. 
+3. 새 todoitem을 몇 개 입력하고 각각에 대해 **저장**을 클릭합니다. 확인란을 클릭하여 몇몇 새 항목을 완료합니다. 각각의 새 todoItem이 저장되고, Azure 관리 포털에서 모바일 서비스에 대해 전에 구성한 SQL 데이터베이스에서 업데이트됩니다.
 
     ![][16]
 
@@ -274,36 +274,32 @@
 
     ![][17]
 
-5. 관리 포털에서 앱에 의해 변경된 내용을 표시하는 쿼리를 실행합니다. 쿼리는 다음과 유사하지만 `todolist` 대신 데이터베이스 이름을 사용하게 됩니다.
+5. 관리 포털에서 앱에서 변경한 내용을 표시하는 쿼리를 실행합니다. 쿼리는 다음 쿼리와 유사하지만 `todolist` 대신 데이터베이스 이름을 사용하게 됩니다.
 
         SELECT * FROM [todolist].[todoitems]
 
     ![][18]
 
-이제 **데이터 시작 자습서**를 마쳤습니다.
+이제 **데이터 시작** 자습서를 마쳤습니다.
 
-##다음 단계
+## 다음 단계
 
-이 자습서에서는 Windows Phone 8 앱이 .Net 런타임을 사용해 빌드한 모바일 서비스의 데이터로 작업하도록 하는 과정의 기본 사항을 설명했습니다. 다음에는 이 자습서에서 만든 GetStartedWithData 앱을 기반으로 하는 다음 자습서 중 하나를 완료해보세요.
+이 자습서에서는 Windows Phone 8 앱이 .Net 런타임을 사용해 빌드한 모바일 서비스의 데이터로 작업하도록 하는 과정의 기본 사항을 설명했습니다. 다음에는 이 자습서에서 만든 GetStartedWithData 앱을 기반으로 하는 다음 자습서 중 하나를 완료해보십시오.
 
-* [스크립트를 사용하여 데이터 유효성 검사 및 수정]
-  <br/>모바일 서비스에서 서버 스크립트를 사용하여 앱에서 전송된 데이터의 유효성을 검사하고 변경하는 방법을 자세히 알아봅니다.
+* [스크립트를 사용하여 데이터 유효성 검사 및 수정] <br/>모바일 서비스에서 서버 스크립트를 사용하여 앱에서 전송된 데이터의 유효성을 검사하고 변경하는 방법을 자세히 알아봅니다.
 
-* [페이징을 사용하여 쿼리 구체화]
-  <br/>쿼리에 페이징을 사용하여 단일 요청으로 처리되는 데이터 양을 제어하는 방법을 알아봅니다.
+* [페이징을 사용하여 쿼리 구체화] <br/>쿼리에 페이징을 사용하여 단일 요청으로 처리되는 데이터 양을 제어하는 방법을 알아봅니다.
 
-데이터 계열을 완료한 후에는 다음 자습서 중 하나를 시도해 보세요.
+데이터 시리즈를 완료한 후에는 다음 자습서 중 하나를 시도해 보십시오.
 
-* [인증 시작]
-  <br/>앱 사용자를 인증하는 방법을 알아봅니다.
+* [인증 시작] <br/>앱 사용자를 인증하는 방법을 알아봅니다.
 
 <!--
 * [Get started with push notifications] 
   <br/>Learn how to send a very basic push notification to your app.
 -->
 
-* [모바일 서비스 .NET 방법 개념 참조]
-  <br/>모바일 서비스를 .NET과 함께 사용하는 방법을 알아봅니다.
+* [모바일 서비스 .NET 방법 개념 참조] <br/>.NET과 함께 모바일 서비스를 사용하는 방법을 자세히 알아봅니다.
   
 
 
@@ -339,21 +335,20 @@
 <!-- URLs. -->
 [스크립트를 사용하여 데이터 유효성 검사 및 수정]: /develop/mobile/tutorials/validate-modify-and-augment-data-wp8
 [페이징을 사용하여 쿼리 구체화]: /develop/mobile/tutorials/add-paging-to-data-wp8
-[모바일 서비스 시작]: mobile-services-dotnet-backend-windows-phone-get-started.md
-[데이터 시작]: mobile-services-dotnet-backend-windows-phone-get-started-data.md
+[Get started with Mobile Services]: mobile-services-dotnet-backend-windows-phone-get-started.md
+[Get started with data]: mobile-services-dotnet-backend-windows-phone-get-started-data.md
 [인증 시작]: mobile-services-dotnet-backend-windows-phone-get-started-users.md
-[푸시 알림 시작]: mobile-services-dotnet-backend-windows-phone-get-started-push.md
-[JavaScript 및 HTML]: /develop/mobile/tutorials/get-started-with-data-js
+[Get started with push notifications]: mobile-services-dotnet-backend-windows-phone-get-started-push.md
+[JavaScript and HTML]: /develop/mobile/tutorials/get-started-with-data-js
 [JavaScript 백 엔드 버전]: /develop/mobile/tutorials/get-started-with-data-wp8
 
 [Windows Phone 8 SDK]: http://go.microsoft.com/fwlink/p/?linkid=268374
 [Azure 관리 포털]: https://manage.windowsazure.com/
-[관리 포털]: https://manage.windowsazure.com/
-[모바일 서비스 SDK]: http://go.microsoft.com/fwlink/p/?LinkId=257545
-[개발자 코드 샘플 사이트]:  https://code.msdn.microsoft.com/Add-Azure-Mobile-to-a-8b906f72
+[Management Portal]: https://manage.windowsazure.com/
+[Mobile Services SDK]: http://go.microsoft.com/fwlink/p/?LinkId=257545
+[Developer Code Samples site]: https://code.msdn.microsoft.com/Add-Azure-Mobile-to-a-8b906f72
+[개발자 코드 샘플 사이트]: https://code.msdn.microsoft.com/Add-Azure-Mobile-to-a-8b906f72
 [모바일 서비스 .NET 방법 개념 참조]: /develop/mobile/how-to-guides/work-with-net-client-library
-[MobileServiceClient 클래스]: http://go.microsoft.com/fwlink/p/?LinkId=302030
-[새 Windows 방화벽 포트 규칙을 추가하는 방법]:  http://go.microsoft.com/fwlink/?LinkId=392240
-  
-
-<!--HONumber=49-->
+[MobileServiceClient class]: http://go.microsoft.com/fwlink/p/?LinkId=302030
+[How to add a new Windows Firewall port rule]: http://go.microsoft.com/fwlink/?LinkId=392240
+<!--HONumber=54-->

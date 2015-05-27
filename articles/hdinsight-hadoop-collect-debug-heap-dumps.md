@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="디버깅 및 분석을 위해 힙 덤프 수집 | Azure" 
 	description="디버깅 및 분석을 위해 힙 덤프 수집" 
 	services="hdinsight" 
@@ -13,47 +13,38 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/08/2014" 
+	ms.date="03/31/2015" 
 	ms.author="bradsev"/>
 
 # 디버깅 및 분석을 위해 힙 덤프 수집
 
-Hadoop 서비스의 힙 덤프가 자동으로 수집되어 사용자 Blob 저장소 계정 내의 HDInsightHeapDumps/ 아래에 저장될 수 있습니다.  힙을 사용하는 서비스의 덤프 파일에는 응용 프로그램 메모리의 스냅숏이 포함됩니다. 이 스냅숏에는 덤프가 생성될 당시의 변수 값이 포함됩니다.
+Hadoop 서비스의 힙 덤프가 자동으로 수집되어 사용자 Azure Blob 저장소 계정 내의 HDInsightHeapDumps/ 아래에 저장될 수 있습니다. 힙을 사용하는 서비스의 덤프 파일에는 응용 프로그램 메모리의 스냅숏이 포함됩니다. 이 스냅숏에는 덤프가 생성될 당시의 변수 값이 포함됩니다.
 
 개별 클러스터의 서비스에 대해 다양한 서비스의 힙 덤프 수집을 사용하도록 설정해야 합니다. 이 기능은 클러스터에 대해 기본적으로 해제됩니다. 이러한 힙 덤프는 크기가 클 수 있으므로 수집을 사용하도록 설정했으면 힙 덤프가 저장되는 Blob 저장소 계정을 모니터링하는 것이 좋습니다.
 
-## 이 문서의 내용
 
-- [힙 덤프를 사용하도록 설정할 수 있는 서비스](#whichServices)
-- [힙 덤프를 사용하도록 설정하는 구성 요소](#configuration)
-- [Azure HDInsight PowerShell을 사용하여 힙 덤프를 사용하도록 설정하는 방법](#powershell)
-- [HDInsight .NET SDK를 사용하여 힙 덤프를 사용하도록 설정하는 방법](#sdk)
+## <a name="whichServices"></a>힙 덤프에 적합한 서비스
 
+요청 시 힙 덤프를 사용하도록 설정할 수 있는 서비스는 다음과 같습니다.
 
-## <a name="whichServices"></a>힙 덤프를 사용하도록 설정할 수 있는 서비스
-
-요청 시 힙 덤프를 사용하도록 설정할 수 있는 서비스는 다음과 같습니다. 
-
-*  **hcatalog**: tempelton
-*  **hive**: hiveserver2, metastore, derbyserver 
-*  **mapreduce**: jobhistoryserver 
-*  **yarn**: resourcemanager, nodemanager, timelineserver 
-*  **hdfs**: datanode, secondarynamenode, namenode
+*  **hcatalog** - tempelton
+*  **hive** - hiveserver2, metastore, derbyserver 
+*  **mapreduce** - jobhistoryserver 
+*  **yarn** - resourcemanager, nodemanager, timelineserver 
+*  **hdfs** - datanode, secondarynamenode, namenode
 
 ## <a name="configuration"></a>힙 덤프를 사용하도록 설정하는 구성 요소
 
-서비스에 대해 힙 덤프를 설정하려면 사용자가 service_name에 지정된 해당 서비스의 섹션에 적절한 구성 요소를 설정해야 합니다.
+서비스에 대해 힙 덤프를 설정하려면 사용자가 **service_name**에 지정된 해당 서비스의 섹션에 적절한 구성 요소를 설정해야 합니다.
 
 	"javaargs.<service_name>.XX:+HeapDumpOnOutOfMemoryError" = "-XX:+HeapDumpOnOutOfMemoryError",
-	"javaargs.<service_name>.XX:HeapDumpPath" = "-XX:HeapDumpPath=c:\Dumps\<service_name>_%date:~4,2%%date:~7,2%%date:~10,2%%time:~0,2%%time:~3,2%%time:~6,2%.hprof" 
+	"javaargs.<service_name>.XX:HeapDumpPath" = "-XX:HeapDumpPath=c:\Dumps<service_name>_%date:~4,2%%date:~7,2%%date:~10,2%%time:~0,2%%time:~3,2%%time:~6,2%.hprof" 
 
-<service_name> 값은 위에 나열된 tempelton, hiveserver2, metastore, derbyserver, jobhistoryserver, resourcemanager, nodemanager, timelineserver, datanode, secondarynamenode 또는 namenode 서비스 중 하나일 수 있습니다.
+**service_name**의 값은 위에 나열된 tempelton, hiveserver2, metastore, derbyserver, jobhistoryserver, resourcemanager, nodemanager, timelineserver, datanode, secondarynamenode 또는 namenode 서비스 중 하나일 수 있습니다.
 
-## <a name="powershell"></a>Azure HDInsight PowerShell을 사용하여 힙 덤프를 사용하도록 설정하는 방법
+## <a name="powershell"></a>Azure PowerShell을 사용하여 힙 덤프를 사용하도록 설정하는 방법
 
-예를 들어 jobhistoryserver에 대해 PowerShell을 사용하여 힙 덤프를 설정하려면 사용자는 다음을 수행합니다.
-
-powershell sdk를 사용하는 경우:
+예를 들어 jobhistoryserver에 대해 Azure PowerShell을 사용하여 힙 덤프를 설정하려면 다음을 수행합니다.
 
 	$MapRedConfigValues = new-object 'Microsoft.WindowsAzure.Management.HDInsight.Cmdlet.DataObjects.AzureHDInsightMapReduceConfiguration'
 
@@ -61,9 +52,7 @@ powershell sdk를 사용하는 경우:
 
 ## <a name="sdk"></a>Azure HDInsight .NET SDK를 사용하여 힙 덤프를 사용하도록 설정하는 방법
 
-예를 들어 jobhistoryserver에 대해 .NET SDK를 사용하여 힙 덤프를 설정하려면 사용자는 다음을 수행합니다.
-
-c# sdk를 사용하는 경우:
+예를 들어 jobhistoryserver에 대해 Azure HDInsight .NET SDK를 사용하여 힙 덤프를 설정하려면 다음을 수행합니다.
 
 	clusterInfo.MapReduceConfiguration.ConfigurationCollection.Add(new KeyValuePair<string, string>("javaargs.jobhistoryserver.XX:+HeapDumpOnOutOfMemoryError", "-XX:+HeapDumpOnOutOfMemoryError"));
 
@@ -72,4 +61,4 @@ c# sdk를 사용하는 경우:
 
 
 
-<!--HONumber=42-->
+<!--HONumber=54-->

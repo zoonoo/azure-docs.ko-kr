@@ -1,5 +1,5 @@
-﻿<properties 
-	pageTitle="웹 작업으로 백그라운드 작업을 실행합니다." 
+<properties 
+	pageTitle="WebJob으로 백그라운드 작업 실행" 
 	description="Azure 웹 앱에서 백그라운드 작업을 실행하는 방법에 대해 알아봅니다." 
 	services="app-service\web" 
 	documentationCenter="" 
@@ -17,7 +17,7 @@
 	ms.date="03/24/2015" 
 	ms.author="tdykstra"/>
 
-# 웹 작업으로 백그라운드 작업을 실행합니다.
+# WebJob으로 백그라운드 작업 실행
 
 ## 개요
 
@@ -37,30 +37,31 @@ Azure WebJobs SDK는 많은 웹 작업 프로그래밍 작업을 간소화합니
 * .php(php 사용)
 * .py(python 사용)
 * .js(node 사용)
+* .jar(java 사용)
 
 ## <a name="CreateOnDemand"></a>포털에서 요청 시 웹 작업 만들기
 
 1. [Azure 포털](http://portal.azure.com)의 **웹 앱** 블레이드에서 **모든 설정 > 웹 작업**을 클릭하여 **웹 작업** 블레이드를 표시합니다.
 	
-	![WebJob blade](./media/web-sites-create-web-jobs/wjblade.png)
+	![WebJob 블레이드](./media/web-sites-create-web-jobs/wjblade.png)
 	
 5. **추가**를 클릭합니다. **웹 작업 추가** 대화 상자가 나타납니다.
 	
-	![Add WebJob blade](./media/web-sites-create-web-jobs/addwjblade.png)
+	![WebJob 블레이드 추가](./media/web-sites-create-web-jobs/addwjblade.png)
 	
 2. **이름**에 웹 작업의 이름을 입력합니다. 이름은 문자 또는 숫자로 시작해야 하며 "-" 및 "_"을 제외한 다른 특수 문자를 포함할 수 없습니다.
 	
-4. **실행 방법** 상자에서 **요청 시 실행**을 선택합니다.
+4. **How to Run** 상자에서 **Run on Demand**를 선택합니다.
 	
 3. **파일 업로드** 상자에서 폴더 아이콘을 클릭하고 스크립트가 포함된 zip 파일을 찾습니다. zip 파일에는 실행 파일(.exe .cmd .bat .sh .php .py .js)과 더불어 프로그램 또는 스크립트를 실행하는 데 필요한 지원 파일이 포함되어 있어야 합니다.
 	
-5. **만들기**를 선택하여 웹 앱에 스크립트를 업로드합니다. 
+5. **만들기**를 선택하여 웹 앱에 스크립트를 업로드합니다.
 	
 	웹 작업에 지정된 이름은 **웹 작업** 블레이드의 목록에 표시됩니다.
 	
 6. 웹 작업을 실행하려면 목록에서 해당 이름을 마우스 오른쪽 단추로 클릭하고 **실행**을 클릭합니다.
 	
-	![Run WebJob](./media/web-sites-create-web-jobs/runondemand.png)
+	![WebJob 실행](./media/web-sites-create-web-jobs/runondemand.png)
 	
 ## <a name="CreateContinuous"></a>지속적으로 실행 중인 웹 작업 만들기
 
@@ -68,9 +69,9 @@ Azure WebJobs SDK는 많은 웹 작업 프로그래밍 작업을 간소화합니
 
 2. 지속적인 웹 작업을 시작하거나 중지하려면 목록에서 웹 작업을 마우스 오른쪽 단추로 클릭하고 **시작** 또는 **중지**를 클릭합니다.
 	
-> [AZURE.NOTE] 웹 앱이 둘 이상의 인스턴스에서 실행되는 경우 계속 실행되는 웹 작업은 모든 인스턴스에서 실행됩니다. 주문형 작업 및 예약형 작업은 Microsoft Azure의 부하 분산에 따라 선택된 단일 인스턴스에서 실행됩니다.
+> [AZURE.NOTE]웹 앱이 둘 이상의 인스턴스에서 실행되는 경우 계속 실행되는 웹 작업은 모든 인스턴스에서 실행됩니다. 주문형 작업 및 예약형 작업은 Microsoft Azure의 부하 분산에 따라 선택된 단일 인스턴스에서 실행됩니다.
 	
-> [AZURE.NOTE] 연속 실행되는 웹 작업의 경우, 웹 앱에 대해 **무중단**을 사용 가능하도록 설정하는 것이 좋습니다. 기본 및 표준 모드에서 사용할 수 있는 무중단 기능은 웹 앱이 일정 시간 동안 유휴 상태인 경우라도 언로드되지 않도록 합니다. 웹 앱이 항상 로드된 상태이면 계속 실행되는 웹 작업은 좀 더 안정적으로 실행될 수 있습니다. 
+> 연속 실행되는 웹 작업의 경우, 웹 앱에 대해 **Always On**을 사용 가능하도록 설정하는 것이 좋습니다. 기본 및 표준 모드에서 사용할 수 있는 무중단 기능은 웹 앱이 일정 시간 동안 유휴 상태인 경우라도 언로드되지 않도록 합니다. 웹 앱이 항상 로드된 상태이면 계속 실행되는 웹 작업은 좀 더 안정적으로 실행될 수 있습니다.
 
 ## <a name="CreateScheduled"></a>예약된 웹 작업 만들기
 
@@ -80,61 +81,61 @@ Azure 관리 포털에서 예약된 웹 작업을 만들 수 없지만 해당 �
 
 1. **실행 방법** 상자에서 **일정에 따라 실행**을 선택합니다.
 	
-	![New Scheduled Job][NewScheduledJob]
+	![새 예약형 작업][NewScheduledJob]
 	
-2. 작업에 대해 **스케줄러 지역**을 선택하고 대화 상자의 오른쪽 아래에 있는 화살표를 클릭하여 다음 화면으로 진행합니다.
+2. 작업에 대해 **Scheduler Region**을 선택하고 대화 상자의 오른쪽 아래에 있는 화살표를 클릭하여 다음 화면으로 진행합니다.
 
-3. **작업 만들기** 대화 상자에서 **되풀이** 유형으로 **일회성 작업** 또는 **되풀이 작업** 중 하나를 선택합니다.
+3. **작업 만들기** 대화 상자에서 **일회성 작업** 또는 **작업 되풀이** 중 원하는 **되풀이** 유형을 선택합니다.
 	
-	![Schedule Recurrence][SchdRecurrence]
+	![되풀이 예약][SchdRecurrence]
 	
-4. 또한 **시작** 시간으로 **지금** 또는 **특정 기간** 중에서 선택합니다.
+4. 또한 **지금** 또는 **특정 시간** 중에 **시작** 시간을 선택합니다.
 	
-	![Schedule Start Time][SchdStart]
+	![시작 시간 예약][SchdStart]
 	
-5. 특정 시간에 시작하려면 **시작 지점**에서 시작 시간 값을 선택합니다.
+5. 특정 시간에 시작하려면 **Starting On**에서 시작 시간 값을 선택합니다.
 	
-	![Schedule Start at a Specific Time][SchdStartOn]
+	![특정 시간에 시작 예약][SchdStartOn]
 	
-6. 되풀이 작업을 선택한 경우 발생 빈도를 지정하는 **되풀이 주기** 옵션과 종료 시간을 지정하는 **종료 지점** 옵션이 나타납니다.
+6. 되풀이 작업을 선택한 경우 발생 빈도를 지정하는 **Recur Every** 옵션과 종료 시간을 지정하는 **Ending On** 옵션이 나타납니다.
 	
-	![Schedule Recurrence][SchdRecurEvery]
+	![되풀이 예약][SchdRecurEvery]
 	
-7. **주**를 선택하는 경우 **특정 일정에서** 상자를 선택하고 작업을 실행하려는 요일을 지정합니다.
+7. **Weeks**를 선택하는 경우 **On a Particular Schedule** 상자를 선택하고 작업을 실행하려는 요일을 지정합니다.
 	
-	![Schedule Days of the Week][SchdWeeksOnParticular]
+	![요일 예약][SchdWeeksOnParticular]
 	
-8. **월**을 선택하고 **특정 일정에서** 상자를 선택한 경우 한 달 중 특정 **일**에 실행하도록 작업을 설정할 수 있습니다. 
+8. **Months**를 선택하고 **On a Particular Schedule** 상자를 선택한 경우 한 달 중 특정 **Days**에 실행하도록 작업을 설정할 수 있습니다.
 	
-	![Schedule Particular Dates in the Month][SchdMonthsOnPartDays]
+	![한 달 중 특정 날짜 예약][SchdMonthsOnPartDays]
 	
-9. **요일**을 선택하면 작업을 실행하려는 해당 달의 요일을 하나 이상 선택할 수 있습니다.
+9. **Week Days**를 선택하면 작업을 실행하려는 해당 달의 요일을 하나 이상 선택할 수 있습니다.
 	
-	![Schedule Particular Week Days in a Month][SchdMonthsOnPartWeekDays]
+	![한 달 중 특정 요일 예약][SchdMonthsOnPartWeekDays]
 	
-10. 마지막으로 **발생 빈도** 옵션을 사용하면 작업을 실행하도록 지정한 요일이 한 달 중 몇 번째 주(첫째, 둘째, 셋째 등)에 해당하는지를 선택할 수 있습니다.
+10. 마지막으로 **Occurrences** 옵션을 사용하면 작업을 실행하도록 지정한 요일이 한 달 중 몇 번째 주(첫째, 둘째, 셋째 등)에 해당하는지를 선택할 수 있습니다.
 	
-	![Schedule Particular Week Days on Particular Weeks in a Month][SchdMonthsOnPartWeekDaysOccurences]
+	![한 달 중 특정 주의 특정 요일 예약][SchdMonthsOnPartWeekDaysOccurences]
 	
 11. 하나 이상의 작업을 만들면 WebJobs 탭에 작업의 상태, 일정 유형 및 기타 정보와 함께 이름이 나타납니다. 최근 30개의 웹 작업 기록 정보가 유지됩니다.
 	
-	![Jobs list][WebJobsListWithSeveralJobs]
+	![작업 목록][WebJobsListWithSeveralJobs]
 	
-### <a name="Scheduler"></a>예약형 작업 및 Azure 스케줄러
+### <a name="Scheduler"></a>예약된 작업 및 Azure 스케줄러
 
 예약된 작업은 [이전 포털](http://manage.windowsazure.com)의 Azure 스케줄러 페이지에서 추가로 구성할 수 있습니다.
 
-1.	Azure 스케줄러 포털 페이지로 이동하려면 WebJob 페이지에서 작업의 **일정** 링크를 클릭합니다. 
+1.	Azure 스케줄러 포털 페이지로 이동하려면 WebJobs 페이지에서 작업의 **일정** 링크를 클릭합니다. 
 	
-	![Link to Azure Scheduler][LinkToScheduler]
+	![Azure 스케줄러 링크][LinkToScheduler]
 	
 2. 스케줄러 페이지에서 작업을 클릭합니다.
 	
-	![Job on the Scheduler portal page][SchedulerPortal]
+	![스케줄러 포털 페이지의 작업][SchedulerPortal]
 	
-3. 작업을 추가로 구성할 수 있는 **작업 동작** 페이지가 열립니다. 
+3. 작업을 추가로 구성할 수 있는 **Job Action** 페이지가 열립니다.
 	
-	![Job Action PageInScheduler][JobActionPageInScheduler]
+	![스케줄러의 작업 동작 페이지][JobActionPageInScheduler]
 	
 ## <a name="ViewJobHistory"></a>작업 기록 보기
 
@@ -144,44 +145,45 @@ Azure 관리 포털에서 예약된 웹 작업을 만들 수 없지만 해당 �
 		
 2. 링크를 클릭하면 웹 작업에 대한 세부 정보 페이지가 열립니다. 이 페이지에는 명령 실행 이름, 마지막으로 실행한 시간 및 명령 성공/실패 여부가 표시됩니다. **Recent job runs**에서 시간을 클릭하면 추가 세부 정보를 볼 수 있습니다.
 	
-	![WebJobDetails][WebJobDetails]
+	![WebJob 세부 정보][WebJobDetails]
 	
-3. **WebJob Run Details** 페이지가 나타납니다. 로그 콘텐츠의 텍스트를 보려면 **출력 토글**을 클릭합니다. 출력 로그는 텍스트 형식으로 되어 있습니다. 
+3. **WebJob Run Details** 페이지가 나타납니다. 로그 내용의 텍스트를 보려면 **Toggle Output**을 클릭합니다. 출력 로그는 텍스트 형식으로 되어 있습니다.
 	
-	![Web job run details][WebJobRunDetails]
+	![WebJob 실행 세부 작업][WebJobRunDetails]
 	
 4. 별도의 브라우저 창에서 출력 텍스트를 보려면 **다운로드** 링크를 클릭합니다. 텍스트 자체를 다운로드하려면 링크를 마우스 오른쪽 단추로 클릭하고 브라우저 옵션을 사용하여 파일 내용을 저장합니다.
 	
-	![Download log output][DownloadLogOutput]
+	![로그 출력 다운로드][DownloadLogOutput]
 	
 5. 페이지 맨 위의 **웹 작업** 링크를 사용하면 기록 대시보드의 웹 작업 목록을 편리하게 이용할 수 있습니다.
 	
-	![Link to WebJobs list][WebJobsLinkToDashboardList]
+	![WebJobs 목록 링크][WebJobsLinkToDashboardList]
 	
-	![List of WebJobs in history dashboard][WebJobsListInJobsDashboard]
+	![기록 대시보드의 작업 목록][WebJobsListInJobsDashboard]
 	
-	이러한 링크 중 하나를 클릭하면 선택한 작업의 웹 작업 세부 정보 페이지로 이동합니다.
+	이러한 링크 중 하나를 클릭하면 선택한 작업의 WebJob Details 페이지로 이동합니다.
 
 
-## <a name="WHPNotes"></a>참고
+## <a name="WHPNotes"></a>참고 사항
 	
 - 2014년 3월부터 무료 모드의 웹 앱은 SCM(배포) 사이트에 대한 요청이 없는 경우 20분 후 시간 초과되고 웹 앱의 포털이 Azure에서 열리지 않을 수 있습니다. 실제 사이트에 대한 요청이 있어도 이는 다시 설정되지 않습니다.
 - 연속 작업을 위한 코드는 무한 반복으로 실행되도록 작성되어야 합니다.
 - 연속 작업은 웹 앱이 실행되고 있는 경우에만 계속 실행됩니다.
 - 기본 및 표준 모드에는 무중단 기능이 제공되며, 이 기능을 사용하도록 설정하면 웹 앱이 유휴 상태로 전환되지 않습니다.
+- 계속 실행되는 웹 작업만을 디버깅할 수 있습니다. 예약된 또는 주문형 웹 작업 디버깅이 지원되지 않습니다.
 
->[AZURE.NOTE] Azure 계정에 등록하기 전에 Azure 앱 서비스를 시작하려는 경우 [앱 서비스 시도](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동하십시오. 여기서 앱 서비스에서 수명이 짧은 스타터 웹 앱을 바로 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+>[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
 ## <a name="NextSteps"></a>다음 단계
  
 자세한 내용은 [Azure WebJob 권장 리소스][WebJobsRecommendedResources]를 참조하세요.
 
 ## 변경된 내용
-* 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 다음을 참조하세요. [Azure 앱 서비스 및 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)
-* 이전 포털에서 새 포털로의 변경에 대한 지침은 다음을 참조하세요. [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)
+* 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.
+* 이전 포털에서 새 포털로의 변경에 대한 지침은 [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
 
-[PSonWebJobs]:http://blogs.msdn.com/b/nicktrog/archive/2014/01/22/running-powershell-web-jobs-on-azure-websites.aspx
-[WebJobsRecommendedResources]:http://go.microsoft.com/fwlink/?LinkId=390226
+[PSonWebJobs]: http://blogs.msdn.com/b/nicktrog/archive/2014/01/22/running-powershell-web-jobs-on-azure-websites.aspx
+[WebJobsRecommendedResources]: http://go.microsoft.com/fwlink/?LinkId=390226
 
 [OnDemandWebJob]: ./media/web-sites-create-web-jobs/01aOnDemandWebJob.png
 [WebJobsList]: ./media/web-sites-create-web-jobs/02aWebJobsList.png
@@ -207,4 +209,4 @@ Azure 관리 포털에서 예약된 웹 작업을 만들 수 없지만 해당 �
 [SchedulerPortal]: ./media/web-sites-create-web-jobs/32SchedulerPortal.png
 [JobActionPageInScheduler]: ./media/web-sites-create-web-jobs/33JobActionPageInScheduler.png
 
-<!--HONumber=49-->
+<!--HONumber=54-->

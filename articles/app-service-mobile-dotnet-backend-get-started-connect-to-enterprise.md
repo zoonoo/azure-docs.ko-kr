@@ -18,7 +18,7 @@
 
 # SaaS API에 모바일 앱 연결
 
-이 자습서에서는 모바일 앱을 엔터프라이즈 SaaS(Software-as-a-Service) 솔루션에 연결합니다. 새 TodoItem이 추가될 때마다 SharePoint Online에서 Word 문서를 만들도록 [Active Directory 인증 라이브러리 Single Sign-On으로 앱 인증]에 따라 앱을 업데이트합니다.
+이 자습서에서는 모바일 앱을 엔터프라이즈 SaaS(Software-as-a-Service) 솔루션에 연결합니다. 새 TodoItem이 추가될 때마다 SharePoint Online에서 Word 문서를 만들도록 [Active Directory 인증 라이브러리 Single Sign-On을 사용하여 앱 인증]에 따라 앱을 업데이트합니다.
 
 이 자습서를 사용하려면 다음이 필요합니다.
 
@@ -29,9 +29,9 @@
 ## <a name="configure-permissions"></a>SharePoint에 대한 위임된 액세스를 위한 응용 프로그램 구성
 기본적으로 AAD로부터 받은 토큰은 권한이 제한되어 있습니다. 타사 리소스 또는 SharePoint Online과 같은 SaaS 응용 프로그램에 액세스하려면 이를 명시적으로 허용해야 합니다.
 
-1. [Azure 관리 포털]의 **Active Directory** 섹션에서 테넌트를 선택합니다. 앱 서비스용으로 만든 웹 응용 프로그램으로 이동합니다.
+1. **Azure 관리 포털**의 [Active Directory] 섹션에서 테넌트를 선택합니다. 앱 서비스용으로 만든 웹 응용 프로그램으로 이동합니다.
 
-2. **구성** 탭에서 페이지를 다른 응용 프로그램에 대한 권한 섹션으로 스크롤합니다. **Office 365 SharePoint Online**을 선택하고 **사용자 파일 편집 또는 삭제** 위임된 권한을 부여합니다. 그런 다음 **저장**을 클릭합니다.
+2. **구성** 탭에서 페이지를 다른 응용 프로그램에 대한 권한 섹션으로 스크롤합니다. **Office 365 SharePoint Online**을 선택하고 **사용자 파일 편집 또는 삭제** 위임된 권한을 부여합니다. 그런 다음 **Save**를 클릭합니다.
 
     ![][1]
 
@@ -63,7 +63,9 @@ SharePoint에 액세스하려면 대상으로서 SharePoint에 대한 특별 액
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-adal-install-nuget](../includes/app-service-mobile-dotnet-adal-install-nuget.md)]
 
-2. 모바일 앱 코드 프로젝트에서 SharePointUploadContext라는 새로운 클래스를 만듭니다. 여기에서 다음을 추가합니다.
+2. NuGet 패키지 관리자에서 **온라인**을 클릭합니다. **Microsoft.Azure.Mobile.Server.AppService**를 검색 단어로 입력합니다. **설치**를 클릭하여 [모바일 앱 .NET 백 엔드 앱 서비스 확장] 패키지를 설치합니다. 이 패키지는 현재 로그인한 사용자에 대한 정보를 사용하기 위한 확장 메서드를 제공합니다.
+
+2. 모바일 앱 코드 프로젝트에서 SharePointUploadContext라는 새로운 클래스를 만듭니다. `using Microsoft.Azure.Mobile.Server.AppService;` 문을 파일에 추가합니다. 그런 다음 클래스에 다음 코드를 추가합니다.
 
         private String accessToken;
         private String mySiteApiPath;
@@ -151,7 +153,7 @@ Word 문서를 만들려면 OpenXML NuGet 패키지를 사용합니다. NuGet �
             return document;
         }
 
-2. PostTodoItem을 다음 코드로 바꿉니다.
+2. PostTodoItem을 다음으로 바꿉니다.
 
         public async Task<IHttpActionResult> PostTodoItem(TodoItem item)
         {
@@ -178,9 +180,11 @@ Word 문서를 만들려면 OpenXML NuGet 패키지를 사용합니다. NuGet �
 
 <!-- URLs. -->
 
-[Preview Azure 관리 포털]: https://portal.azure.com/
-[Azure 관리 포털]: https://manage.windowsazure.com/
+[Preview Azure Management Portal]: https://portal.azure.com/
+[Active Directory]: https://manage.windowsazure.com/
 [SharePoint Online]: http://office.microsoft.com/ko-kr/sharepoint/
 [Active Directory 인증 라이브러리 Single Sign-On으로 앱 인증]: app-service-mobile-dotnet-backend-ios-aad-sso-preview.md
+[Active Directory 인증 라이브러리 Single Sign-On을 사용하여 앱 인증]: app-service-mobile-dotnet-backend-ios-aad-sso-preview.md
+[모바일 앱 .NET 백 엔드 앱 서비스 확장]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.AppService/
 
-<!--HONumber=49-->
+<!--HONumber=54-->

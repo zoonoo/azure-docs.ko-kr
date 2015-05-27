@@ -1,47 +1,47 @@
-﻿<properties 
-	pageTitle="SQL 데이터베이스 및 WebMatrix를 사용한 PHP 웹 사이트 - Azure 자습서" 
-	description="무료 WebMatrix IDE를 사용하여 SQL 데이터베이스에 데이터를 저장하는 PHP 웹 사이트를 만들고 배포하는 방법을 보여 주는 자습서입니다." 
-	services="web-sites" 
+<properties 
+	pageTitle="WebMatrix를 사용하여 Azure 앱 서비스에서 PHP-SQL 웹앱 만들기 및 배포" 
+	description="무료 WebMatrix IDE를 사용하여 SQL 데이터베이스에 데이터를 저장하는 Azure 앱 서비스의 PHP 웹앱을 만들고 배포하는 방법을 보여 주는 자습서입니다." 
+	tags="azure-portal"
+	services="app-service\web" 
 	documentationCenter="" 
 	authors="tfitzmac" 
 	manager="wpickett" 
 	editor="mollybos"/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="11/17/2014" 
+	ms.date="04/29/2015" 
 	ms.author="tomfitz"/>
 
 
 
 
 
-#WebMatrix를 사용하여 PHP 웹 사이트 및 SQL 데이터베이스 만들기 및 배포
+# WebMatrix를 사용하여 Azure 앱 서비스에서 PHP-SQL 웹앱 만들기 및 배포
 
-이 자습서에서는 WebMatrix를 사용하여, Azure SQL 데이터베이스를 사용하는 PHP 응용 프로그램을 개발하고 Azure 웹 사이트에 배포하는 방법을 설명합니다. WebMatrix는 웹 사이트 개발에 필요한 모든 기능이 포함된 Microsoft의 무료 웹 개발 도구입니다. WebMatrix는 PHP를 지원하며 PHP 개발에 필요한 IntelliSense를 포함하고 있습니다. 
+이 자습서에서는 WebMatrix를 사용하여 Azure SQL 데이터베이스를 사용하는 PHP 응용 프로그램을 개발하고 [Azure 앱 서비스](http://go.microsoft.com/fwlink/?LinkId=529714) 웹앱에 배포하는 방법을 보여 줍니다. WebMatrix는 웹앱 개발에 필요한 모든 기능이 포함된 Microsoft의 무료 웹 개발 도구입니다. WebMatrix는 PHP를 지원하며 PHP 개발에 필요한 IntelliSense를 포함하고 있습니다.
 
-이 자습서의 내용은 컴퓨터에 [SQL Server Express][install-SQLExpress]가 설치되어 있어서 로컬로 응용 프로그램을 테스트할 수 있다는 것을 전제로 합니다. 하지만 SQL Server Express를 설치하지 않은 상태로 자습서를 완료할 수 있습니다. 대신 응용 프로그램을 Azure 웹 사이트에 직접 배포할 수 있습니다.
+이 자습서의 내용은 컴퓨터에 [SQL Server Express][install-SQLExpress]가 설치되어 있어서 로컬로 응용 프로그램을 테스트할 수 있다는 것을 전제로 합니다. 하지만 SQL Server Express를 설치하지 않은 상태로 자습서를 완료할 수 있습니다. 대신 Azure 앱 서비스 웹앱에 응용 프로그램을 직접 배포할 수 있습니다.
 
-이 가이드를 완료하면 Azure에서 실행하는 PHP-SQL 데이터베이스 웹 사이트가 완성됩니다.
+이 가이드를 완료하면 Azure에서 실행하는 PHP-SQL 데이터베이스 웹앱이 완성됩니다.
  
 다음 내용을 배웁니다.
 
-* 관리 포털을 사용하여 Azure 웹 사이트 및 SQL 데이터베이스를 만드는 방법. PHP는 Azure 웹 사이트에서 기본적으로 사용하도록 설정되어 있으므로 PHP 코드를 실행하기 위해 특별한 조치를 취할 필요가 없습니다.
+* [Azure Preview 포털](http://go.microsoft.com/fwlink/?LinkId=529715)을 사용하여 앱 서비스 웹앱의 웹앱 및 SQL 데이터베이스를 만드는 방법. PHP는 웹 앱에서 기본적으로 사용하도록 설정되어 있으므로 PHP 코드를 실행하기 위해 특별한 조치를 취할 필요가 없습니다.
 * WebMatrix를 사용하여 PHP 응용 프로그램을 개발하는 방법
 * WebMatrix를 사용하여 응용 프로그램을 Azure에 게시 및 다시 게시하는 방법
  
-이 자습서의 지침에 따라 PHP에서 간단한 작업 목록 웹 응용 프로그램을 빌드할 수 있습니다. 응용 프로그램은 Azure 웹 사이트에 호스트됩니다. 아래에는 실행 중인 응용 프로그램의 스크린샷이 표시되어 있습니다.
+이 자습서의 지침에 따라 PHP에서 간단한 작업 목록 웹 응용 프로그램을 빌드할 수 있습니다. 응용 프로그램은 앱 서비스 웹앱에서 호스트됩니다. 아래에는 실행 중인 응용 프로그램의 스크린샷이 표시되어 있습니다.
 
-![Azure PHP Web Site][running-app]
+![Azure PHP 웹 사이트][running-app]
 
-> [AZURE.NOTE]
-> 이 자습서를 완료하려면 Azure 계정이 필요합니다. <a href="http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/">MSDN 구독자 혜택을 활성화</a>하거나 <a href="http://azure.microsoft.com/pricing/free-trial/">무료 평가판을 등록</a>할 수 있습니다.
-> 
-> 계정을 등록하기 전에 Azure 웹 사이트를 시작하려면 <a href="https://trywebsites.azurewebsites.net/?language=php">https://trywebsites.azurewebsites.net</a>으로 이동합니다. Azure 웹 사이트에서는 무료로 단기 ASP.NET 시작 사이트를 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+[AZURE.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
+
+>[AZURE.NOTE] Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 시작 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
 ##필수 조건
 
@@ -50,12 +50,12 @@
 	* **index.php**: 작업을 표시하고 항목을 목록에 추가하는 데 필요한 양식을 제공합니다.
 	* **additem.php**: 목록에 항목을 추가합니다.
 	* **getitems.php**: 데이터베이스의 모든 항목을 가져옵니다.
-	* **markitemcomplete.php**: 완료한 항목의 상태를 변경합니다.
+	* **markitemcomplete.php**: 완료할 항목의 상태를 변경합니다.
 	* **deleteitem.php**: 항목을 삭제합니다.
 	* **taskmodel.php**: 데이터베이스의 항목에 대한 추가, 가져오기, 업데이트, 삭제 등의 기능을 포함하고 있습니다.
 	* **createtable.php**: 응용 프로그램용 SQL 데이터베이스 테이블을 만듭니다. 이 파일은 한 번만 호출됩니다.
 
-2.  `tasklist`라는 SQL Server 데이터베이스를 만듭니다. 이는  `sqlcmd` 명령 프롬프트에서 다음 명령으로 수행할 수 있습니다.
+2. `tasklist`이라는 SQL Server 데이터베이스를 만듭니다. 이는 `sqlcmd` 명령 프롬프트에서 다음 명령으로 수행할 수 있습니다.
 
 		>sqlcmd -S <server name>\sqlexpress -U <user name> -P <password>
 		1> create database tasklist
@@ -63,74 +63,84 @@
 
 	이 단계는 응용 프로그램을 로컬로 테스트하는 경우에만 필요합니다.
 
-## 웹 사이트 및 SQL 데이터베이스 만들기
+## 웹앱 및 SQL 데이터베이스 만들기
 
-1. [관리 포털][preview-portal]에 로그인합니다.
-2. 포털의 왼쪽 아래에서 **+ 새로 만들기** 아이콘을 클릭합니다.
+Azure 웹 앱 및 SQL 데이터베이스를 만들려면 다음 단계를 따르십시오.
 
-	![Create New Azure Web Site][NewWebSite1]
+1. [Azure Preview 포털](https://portal.azure.com)에 로그인합니다.
 
-3. **웹 사이트**를 클릭한 후 **사용자 지정 만들기**를 클릭합니다.
-
-	![Custom Create a new Web Site][NewWebSite2]
-
-	**URL**에 대한 값을 입력하고 **데이터베이스** 드롭다운에서 **새 SQL 데이터베이스 만들기**를 선택한 후 **지역** 드롭다운에서 웹 사이트에 대한 데이터 센터를 선택합니다. 대화 상자 아래쪽의 화살표를 클릭합니다.
-
-	![Fill in web site details][NewWebSite3_SQL]
-
-4. 데이터베이스의 **이름** 값을 입력하고 **새 SQL 데이터베이스 서버**를 선택합니다. 서버 로그인 이름과 암호를 입력하고 암호를 확인합니다. 새 SQL 데이터베이스 서버를 생성할 지역을 선택합니다.
-
-	![Fill in SQL Database settings][NewWebSite4_SQL]
-
-	웹 사이트가 만들어지면 **"[SITENAME]" 웹 사이트 만들기가 완료되었습니다.**라는 텍스트가 표시됩니다. 다음으로 데이터베이스 연결 정보를 가져옵니다.
-
-5. **연결된 리소스**를 클릭하고 데이터베이스 이름을 클릭합니다.
-
-	![Linked Resources][NewWebSite6_SQL]
-
-6. **연결 문자열 보기**를 클릭합니다.
-
-	![Connection string][NewWebSite7]
+2. **마켓플레이스** 아이콘을 클릭하거나 대시보드 왼쪽 아래에 있는 **새로 만들기** 아이콘을 클릭하고 맨 아래에서 **웹 + 모바일**, **Azure 마켓플레이스**를 순서대로 선택하여 Azure 마켓플레이스를 엽니다.
 	
-나타나는 대화 상자의 **PHP** 섹션에서  `UID`,  `PWD`,  `Database` 및 `$serverName`의 값을 기록해 놓습니다. 이 정보는 이후에 사용할 예정입니다.
+3. 마켓플레이스에서 **웹앱**을 선택합니다.
 
-##WebMatrix 설치
+4. **웹앱 + SQL** 아이콘을 클릭합니다.
 
-[관리 포털][preview-portal]에서 WebMatrix를 설치할 수 있습니다. 
+5. 웹앱 + SQL 앱에 대한 설명을 읽은 후 **만들기**를 선택합니다.
 
-1. 로그인한 후 웹 사이트의 빠른 시작 페이지로 이동하고 페이지 맨 아래에서 WebMatrix 아이콘을 클릭합니다.
+6. 각 부분(**리소스 그룹**, **웹앱**, **데이터베이스** 및 **구독**)을 클릭하고 필수 필드에 대한 값을 입력하거나 선택합니다.
+	
+	- 선택한 URL 이름을 입력합니다.	
+	- 데이터베이스 서버 자격 증명 구성
+	- 가장 가까운 지역을 선택합니다.
 
-	![Install WebMatrix][InstallWebMatrix]
+	![앱 구성](./media/web-sites-php-sql-database-use-webmatrix/configure-db-settings.png)
 
-	프롬프트에 따라 WebMatrix를 설치합니다.
+7. 웹앱 정의를 완료하면 **만들기**를 클릭합니다.
 
-2. WebMatrix를 설치하면 사이트가 WebMatrix 프로젝트로 열립니다. 라이브 사이트를 직접 편집하거나 로컬 복사본을 다운로드하도록 선택할 수 있습니다. 이 자습서에서는  'Edit local copy'를 선택합니다. 
+	웹앱이 만들어지면 **알림** 단추가 녹색의 **성공**으로 깜박이며 그룹에서 웹 앱 및 SQL 데이터베이스를 모두 보여주는 리소스 그룹 블레이드가 열립니다.
 
-3. 사이트를 다운로드할지를 묻는 메시지가 나타나면 **Yes, install from the Template Gallery**를 선택합니다.
+4. 리소스 그룹 블레이드에서 웹 앱 아이콘을 클릭하여 웹 앱 블레이드를 엽니다.
 
-	![Download web site][download-site]
+	![웹앱의 리소스 그룹](./media/web-sites-php-sql-database-use-webmatrix/resource-group-blade.png)
 
-4. 사용할 수 있는 템플릿에서 **PHP**를 선택합니다.
+##SQL 데이터베이스 연결 정보 가져오기
 
-	![Site from template][site-from-template]
+웹 앱에 연결되는 SQL 데이터베이스 인스턴스에 연결하려면 데이터베이스를 만들었을 때 지정한 연결 정보가 필요합니다. SQL 데이터베이스 연결 정보를 가져오려면 다음 단계를 따르세요.
 
-5. **Empty Site** 템플릿을 선택합니다. 사이트 이름을 지정하고 **NEXT**를 클릭합니다.
+1. 리소스 그룹 블레이드에서 다시 SQL 데이터베이스 아이콘을 클릭합니다.
 
-	![Provide name for site][site-from-template-2]
+2. SQL 데이터베이스 블레이드에서 **속성**을 클릭하고 **데이터베이스 연결 문자열 표시**를 클릭합니다.
 
-일부 기본값이 채워진 상태로 사이트가 WebMatrix에서 열립니다.
+	![데이터베이스 속성 보기](./media/web-sites-php-sql-database-use-webmatrix/view-database-properties.png)
+	
+3. 결과 대화 상자의 **PHP** 섹션에서 `Server`, `SQL Database` 및 `User Name` 값을 기록해 놓습니다. PHP 웹 앱을 Azure 앱 서비스에 게시할 때 나중에 이러한 값을 사용합니다.
 
-##응용 프로그램 개발
+## WebMatrix에서 응용 프로그램 만들기
 
 다음 몇 단계에서는 이전에 다운로드한 파일을 추가하고 몇 가지를 수정하여 작업 목록 응용 프로그램을 개발합니다. 하지만 사용자 자신의 기존 파일을 추가하거나 새 파일을 만들 수 있습니다.
 
-1. 사이트가 WebMatrix에서 열린 상태에서 **기존 항목 추가**를 클릭하여 응용 프로그램 파일을 추가합니다.
+1. [Microsoft WebMatrix](http://www.microsoft.com/web/webmatrix/)를 시작합니다. 아직 설치하지 않은 경우 지금 설치합니다.
+2. 이번에 처음으로 WebMatrix 3을 사용하는 경우 Azure에 로그인하라는 메시지가 표시됩니다. 또는 **로그인** 단추를 클릭하고 **계정 추가**를 선택할 수 있습니다. Microsoft 계정을 사용하여 **로그인**하도록 선택합니다.
 
-	![WebMatrix - Add existing files][edit_addexisting]
+	![계정 추가](./media/web-sites-php-sql-database-use-webmatrix/webmatrix-add-account.png)
 
-	나타나는 대화 상자에서 이전에 다운로드한 파일로 이동하고 파일을 모두 선택한 후 열기를 클릭합니다. 메시지가 표시되면  `index.php` 파일을 바꾸도록 선택합니다. 
+3. Azure 계정을 등록한 경우 Microsoft 계정을 사용하여 로그인할 수 있습니다.
 
-2. 다음으로, 로컬 SQL Server 데이터베이스 연결 정보를  `taskmodel.php` 파일에 추가해야 합니다.  `taskmodel.php` 파일을 두 번 클릭하여 열고  `connect` 함수에서 데이터베이스 연결 정보를 업데이트합니다. (**참고**: 응용 프로그램을 로컬에서 테스트하지 않는 대신 Azure 웹 사이트에 직접 게시하려는 경우 [응용 프로그램 게시](#Publish) 로 이동합니다.
+	![Azure에 로그인](./media/web-sites-php-sql-database-use-webmatrix/webmatrix-sign-in.png)
+
+1. 시작 화면에서 **새로 만들기** 단추를 클릭하고 **템플릿 갤러리**를 선택하여 템플릿 갤러리에서 새 사이트를 만듭니다.
+
+	![템플릿 갤러리에서 새 사이트 만들기](./media/web-sites-php-sql-database-use-webmatrix/webmatrix-site-from-template.png)
+
+4. 사용할 수 있는 템플릿에서 **PHP**를 선택합니다.
+
+	![템플릿의 사이트][site-from-template]
+
+5. **Empty Site** 템플릿을 선택합니다. 사이트 이름을 지정하고 **다음**을 클릭합니다.
+
+	![사이트 이름 지정][site-from-template-2]
+
+3. Azure에 로그인한 경우 로컬 사이트에 대한 Azure 앱 서비스 웹앱을 만들 수 있는 옵션이 제공됩니다. 지금은 **건너뛰기**를 선택합니다.
+
+	![Azure에서 사이트 만들기](./media/web-sites-php-sql-database-use-webmatrix/webmatrix-site-from-template-azure.png)
+
+1. WebMatrix에서 로컬 사이트 빌드를 완료하면 WebMatrix IDE가 표시됩니다. **기존 항목 추가**를 클릭하여 응용 프로그램 파일을 추가합니다.
+
+	![WebMatrix - 기존 파일 추가][edit_addexisting]
+
+	나타나는 대화 상자에서 이전에 다운로드한 파일로 이동하고 파일을 모두 선택한 후 열기를 클릭합니다. 메시지가 표시되면 `index.php` 파일을 바꾸도록 선택합니다.
+
+2. 다음으로, 로컬 SQL Server 데이터베이스 연결 정보를 `taskmodel.php` 파일에 추가해야 합니다. `taskmodel.php` 파일을 두 번 클릭하여 열고 `connect` 함수에서 데이터베이스 연결 정보를 업데이트합니다. **참고**: 응용 프로그램을 로컬로 테스트하지 않고 대신 Azure 앱 서비스 웹앱에 직접 게시하려면 [응용 프로그램 게시](#Publish)로 바로 이동합니다.
 
 		// DB connection info
 		$host = "localhost\sqlexpress";
@@ -138,68 +148,74 @@
 		$pwd = "your password";
 		$db = "tasklist";
 
-	 `taskmodel.php` 파일을 저장합니다.
+	`taskmodel.php` 파일을 저장합니다.
 
-3. 응용 프로그램이 실행할 수 있도록  `items` 테이블을 만들어야 합니다.  `createtable.php` 파일을 마우스 오른쪽 단추로 클릭하고 **브라우저에서 시작**을 선택합니다. 그러면 브라우저에서  `createtable.php`가 시작되고  `tasklist` 데이터베이스에  `items` 테이블을 만드는 코드가 실행됩니다.
+3. 응용 프로그램을 실행하려면 `items` 테이블을 만들어야 합니다. `createtable.php` 파일을 마우스 오른쪽 단추로 클릭하고 **브라우저에서 시작**을 선택합니다. 그러면 브라우저에서 `createtable.php`가 시작되고 `tasklist` 데이터베이스에 `items` 테이블을 만드는 코드가 실행됩니다.
 
-	![WebMatrix - Launch createtable.php in browser][edit_run]
+	![WebMatrix - 브라우저에서 createtable.php 시작][edit_run]
 
-4. 이제 응용 프로그램을 로컬로 테스트할 수 있습니다.  `index.php` 파일을 마우스 오른쪽 단추로 클릭하고 **브라우저에서 시작**을 선택합니다. 항목을 추가하고, 완료 상태로 표시하고, 삭제하는 등 응용 프로그램을 테스트합니다.   
+4. 이제 응용 프로그램을 로컬로 테스트할 수 있습니다. `index.php` 파일을 마우스 오른쪽 단추로 클릭하고 **브라우저에서 시작**을 선택합니다. 항목을 추가하고, 완료 상태로 표시하고, 삭제하는 등 응용 프로그램을 테스트합니다.
 
+<a id="Publish"></a>
+## 응용 프로그램 게시
 
-<h2><a id="Publish"></a>응용 프로그램 게시</h2>
+응용 프로그램을 앱 서비스 웹앱에 게시하려면 `taskmodel.php`의 데이터베이스 연결 정보를 이전에 [웹앱 및 SQL 데이터베이스 만들기](#CreateWebsite) 섹션에서 확보한 연결 정보로 업데이트해야 합니다.
 
-응용 프로그램을 Azure 웹 사이트에 게시하기 전에  `taskmodel.php`의 데이터베이스 연결 정보를 이전에 [Azure 웹 사이트 및 SQL 데이터베이스 만들기](#CreateWebsite) 섹션에서 확보한 연결 정보로 업데이트해야 합니다.
-
-1.  `taskmodel.php` 파일을 두 번 클릭하여 열고  `connect` 함수에서 데이터베이스 연결 정보를 업데이트합니다.
+1. `taskmodel.php` 파일을 두 번 클릭하여 열고 `connect` 함수에서 데이터베이스 연결 정보를 업데이트합니다.
 
 		// DB connection info
 		$host = "value of $serverName";
 		$user = "value of UID";
-		$pwd = "the SQL password you created when creating the website";
+		$pwd = "the SQL password you created when creating the web app";
 		$db = "value of Database";
 	
-	Save the `taskmodel.php` file.
+	`taskmodel.php` 파일을 저장합니다.
 
-2. WebMatrix에서 **게시**를 클릭하고 **게시 미리 보기** 대화 상자에서 **계속**을 클릭합니다.
+2. WebMatrix에서 **게시**를 클릭합니다.
 
-	![WebMatrix - Publish][edit_publish]
+	![WebMatrix - 게시][edit_publish]
 
-3. http://[웹 사이트 이름].azurewebsites.net/createtable.php로 이동하여  `items` 테이블을 만듭니다.
+3. **Microsoft Azure에서 기존 사이트 선택**을 클릭합니다.
 
-4. 마지막으로 http://[웹 사이트 이름].azurewebsites.net/index.php로 이동하여 응용 프로그램을 시작합니다.
+	![](./media/web-sites-php-sql-database-use-webmatrix/webmatrix-publish-existing-site.png)
+
+3. 앞에서 만든 앱 서비스 웹앱을 선택합니다.
+
+	![](./media/web-sites-php-sql-database-use-webmatrix/webmatrix-publish-existing-site-choose.png)
+
+3. WebMatrix에서 Azure 앱 서비스 웹앱에 사이트를 게시할 때까지 계속해서 **계속**을 클릭합니다.
+
+3. http://[your 웹 사이트 이름].azurewebsites.net/createtable.php로 이동하여 `items` 테이블을 만듭니다.
+
+4. 마지막으로 http://[your 웹 사이트 이름].azurewebsites.net/index.php로 이동하여 응용 프로그램을 시작합니다.
 	
 ##응용 프로그램 수정 및 다시 게시
 
-이전에 다운로드한 사이트의 로컬 복사본을 편집하여 응용 프로그램을 쉽게 수정하고 다시 게시하거나, 원격 모드에서 직접 편집할 수 있습니다. 여기서는 간단히  `index.php` 파일의 제목을 변경하고 이를 라이브 사이트에 직접 저장하겠습니다.
+사이트의 로컬 복사본을 편집하여 응용 프로그램을 쉽게 수정하고 다시 게시하거나, **원격** 모드에서 직접 편집할 수 있습니다. 여기서는 간단히 `index.php` 파일의 제목을 변경하고 이를 라이브 앱 서비스 웹앱에 직접 저장하겠습니다.
 
-1. WebMatrix에서 사이트의 원격 탭을 클릭하고 **Open Remote View**를 선택합니다. 그러면 직접 편집할 수 있는 원격 사이트가 열립니다.
-	 ![WebMatrix - Open Remote View][OpenRemoteView]
+1. WebMatrix에서 사이트의 **원격** 탭을 클릭하고 **Open Remote View**를 선택합니다. 그러면 직접 편집할 수 있는 원격 파일(웹앱에서 호스트됨)이 열립니다. ![WebMatrix - 원격 뷰 열기][OpenRemoteView]
  
-2.  `index.php` 파일을 두 번 클릭하여 엽니다.
-	![WebMatrix - Open index file][Remote_editIndex]
+2. `index.php` 파일을 두 번 클릭하여 엽니다. ![WebMatrix - index 파일 열기][Remote_editIndex]
 
-3. **제목** 및 **h1** 태그에서 **My ToDo List**를 **My Task List**로 변경하고 파일을 저장합니다.
+3. **제목** 및 **h1** 태그에서 **My ToDo List**을 **My Task List**로 변경하고 파일을 저장합니다.
 
 
-4. 저장이 완료되면 실행 단추를 클릭하여 라이브 사이트에서 변경 내용을 봅니다.
-	![WebMatrix - Launch site in Remote][Remote_run]
+4. 저장이 완료되면 실행 단추를 클릭하여 라이브 앱 서비스 웹앱에서 변경 내용을 확인합니다. ![WebMatrix - 원격에서 사이트 시작][Remote_run]
 
 
 
 ## 다음 단계
 
-WebMatrix에서 웹 사이트를 만들어 Azure에 배포하는 방법을 학습했습니다. WebMatrix에 대한 자세한 내용은 다음 리소스를 참조하세요.
+WebMatrix에서 웹앱을 만들어 Azure 앱 서비스 웹앱에 배포하는 방법을 학습했습니다. WebMatrix에 대한 자세한 내용은 [WebMatrix 웹 사이트](http://www.microsoft.com/click/services/Redirect2.ashx?CR_CC=200106398)를 참조하세요.
 
-* [Azure용 WebMatrix](http://go.microsoft.com/fwlink/?LinkID=253622&clcid=0x409)
-
-* [WebMatrix 웹 사이트](http://www.microsoft.com/click/services/Redirect2.ashx?CR_CC=200106398)
-
-
+## 변경된 내용
+* 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.
+* 포털에서 미리 보기 포털로의 변경에 대한 지침은 [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
 
 
 
-[install-SQLExpress]: http://www.microsoft.com/ko-kr/download/details.aspx?id=29062
+
+[install-SQLExpress]: http://www.microsoft.com/download/details.aspx?id=29062
 [running-app]: ./media/web-sites-php-sql-database-use-webmatrix/tasklist_app_windows.png
 [tasklist-sqlazure-download]: http://go.microsoft.com/fwlink/?LinkId=252504
 [NewWebSite1]: ./media/web-sites-php-sql-database-use-webmatrix/NewWebSite1.jpg
@@ -221,26 +237,6 @@ WebMatrix에서 웹 사이트를 만들어 Azure에 배포하는 방법을 학�
 [Remote_editIndex]: ./media/web-sites-php-sql-database-use-webmatrix/Remote_editIndex.png
 [Remote_run]: ./media/web-sites-php-sql-database-use-webmatrix/Remote_run.png
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 [preview-portal]: https://manage.windowsazure.com
 
 
@@ -251,6 +247,4 @@ WebMatrix에서 웹 사이트를 만들어 Azure에 배포하는 방법을 학�
 
 
 
-
-
-<!--HONumber=42-->
+<!--HONumber=54-->

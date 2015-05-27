@@ -1,48 +1,31 @@
-﻿<properties 
+<properties 
    pageTitle="Azure Mobile Engagement 사용자 인터페이스 - 대시보드" 
-   description="Azure Mobile Engagement의 사용자 인터페이스 개요" 
+   description="Azure Mobile Engagement를 사용하여 응용 프로그램에 대한 데이터의 차트를 보고 관리하는 방법 알아보기" 
    services="mobile-engagement" 
-   documentationCenter="mobile" 
-   authors="v-micada" 
-   manager="mattgre" 
+   documentationCenter="" 
+   authors="piyushjo" 
+   manager="dwrede" 
    editor=""/>
 
 <tags
    ms.service="mobile-engagement"
-   ms.devlang="Java"
+   ms.devlang="na"
    ms.topic="article"
-   ms.tgt_pltfrm="mobile"
-   ms.workload="required" 
+   ms.tgt_pltfrm="mobile-multiple"
+   ms.workload="mobile" 
    ms.date="02/17/2015"
-   ms.author="v-micada"/>
+   ms.author="piyushjo"/>
 
-# Azure Mobile Engagement - 사용자 인터페이스
-
-<div class="dev-center-tutorial-selector sublanding">
-<a href="../mobile-engagement-user-interface" title="Introduction">소개</a>
-<a href="../mobile-engagement-user-interface-navigation" title="Navigation">탐색</a>
-<a href="../mobile-engagement-user-interface-home/" title="Home">홈</a>
-<a href="../mobile-engagement-user-interface-my-account" title="My Account">내 계정</a>
-<a href="../mobile-engagement-user-interface-analytics" title="Analytics">분석</a>
-<a href="../mobile-engagement-user-interface-monitor" title="Monitor">모니터</a>
-<a href="../mobile-engagement-user-interface-reach" title="Reach">도달률</a>
-<a href="../mobile-engagement-user-interface-segments" title="Segments">세그먼트</a>
-<a href="../mobile-engagement-user-interface-dashboard" title="Dashboard">대시보드</a>
-<a href="../mobile-engagement-user-interface-settings" title="Settings">설정</a>
-</div>
-
-# 대시보드
-
+# 응용 프로그램에 대한 데이터의 차트를 보고 관리하는 방법
 분석 섹션에서 정보를 검색하는 대신 원하는 정확한 정보를 제공하는 방식으로 고객은 UI의 대시보드 섹션을 통해 사용자 지정된 차트를 만들어 작업 시간을 최대한 활용할 수 있습니다. 대시보드에는 지정된 시간(시간/일/주/월/사용자 지정) 동안의 각 응용 프로그램 버전별 활성 사용자 수와 응용 프로그램의 추세가 표시됩니다. 지난 7일 동안의 추세가 표시됩니다.
 
-**참고 항목:**
+### 참고 항목
+-  [문제 해결 가이드 - 분석][Link 21]
 
--  [문제 해결 가이드 - 분석][Link 2]
- 
-## 대시보드:
+## 대시보드
 - UI의 분석 섹션에서 대시보드에 표시하려는 차트의 기어 메뉴에 있는 "대시보드로 보내기" 작업을 선택하면 빈 대시보드에 차트를 추가할 수 있습니다.
  
-## +  (대시보드에 추가)
+## + (대시보드 추가)
 - "+" 리본 메뉴 항목을 사용하여 리본 메뉴에 표시할 새 대시보드를 만들 수 있습니다.
  
 ## 기어 메뉴
@@ -70,20 +53,20 @@
 [17]: ./media/mobile-engagement-user-interface-monitor/monitor4.png
 [18]: ./media/mobile-engagement-user-interface-reach/reach1.png
 [19]: ./media/mobile-engagement-user-interface-reach/reach2.png
-[20]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign1.png
-[21]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign2.png
-[22]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign3.png
-[23]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign4.png
-[24]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign5.png
-[25]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign6.png
-[26]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign7.png
-[27]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign8.png
-[28]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign9.png
-[29]: ./media/mobile-engagement-user-interface-reach/Reach-Criterion1.png
-[30]: ./media/mobile-engagement-user-interface-reach/Reach-Content1.png
-[31]: ./media/mobile-engagement-user-interface-reach/Reach-Content2.png
-[32]: ./media/mobile-engagement-user-interface-reach/Reach-Content3.png
-[33]: ./media/mobile-engagement-user-interface-reach/Reach-Content4.png
+[20]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign1.png
+[21]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign2.png
+[22]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign3.png
+[23]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign4.png
+[24]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign5.png
+[25]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign6.png
+[26]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign7.png
+[27]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign8.png
+[28]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign9.png
+[29]: ./media/mobile-engagement-user-interface-reach-criterion/Reach-Criterion1.png
+[30]: ./media/mobile-engagement-user-interface-reach-content/Reach-Content1.png
+[31]: ./media/mobile-engagement-user-interface-reach-content/Reach-Content2.png
+[32]: ./media/mobile-engagement-user-interface-reach-content/Reach-Content3.png
+[33]: ./media/mobile-engagement-user-interface-reach-content/Reach-Content4.png
 [34]: ./media/mobile-engagement-user-interface-dashboard/dashboard1.png
 [35]: ./media/mobile-engagement-user-interface-segments/segments1.png
 [36]: ./media/mobile-engagement-user-interface-segments/segments2.png
@@ -111,9 +94,9 @@
 [58]: ./media/mobile-engagement-user-interface-settings/settings13.png
 
 <!--Link references-->
-[Link 1]: ../mobile-engagement-user-interface/
-[Link 2]: ../mobile-engagement-troubleshooting-guide/
-[Link 3]: ../mobile-engagement-how-tos/
+[Link 1]: mobile-engagement-user-interface.md
+[Link 2]: mobile-engagement-troubleshooting-guide.md
+[Link 3]: mobile-engagement-how-tos.md
 [Link 4]: http://go.microsoft.com/fwlink/?LinkID=525553
 [Link 5]: http://go.microsoft.com/fwlink/?LinkID=525554
 [Link 6]: http://go.microsoft.com/fwlink/?LinkId=525555
@@ -122,27 +105,27 @@
 [Link 9]: http://azure.microsoft.com/services/mobile-engagement/
 [Link 10]: http://azure.microsoft.com/documentation/services/mobile-engagement/
 [Link 11]: http://azure.microsoft.com/pricing/details/mobile-engagement/
-[Link 12]: ../mobile-engagement-user-interface-navigation/
-[Link 13]: ../mobile-engagement-user-interface-home/
-[Link 14]: ../mobile-engagement-user-interface-my-account/
-[Link 15]: ../mobile-engagement-user-interface-analytics/
-[Link 16]: ../mobile-engagement-user-interface-monitor/
-[Link 17]: ../mobile-engagement-user-interface-reach/
-[Link 18]: ../mobile-engagement-user-interface-segments/
-[Link 19]: ../mobile-engagement-user-interface-dashboard/
-[Link 20]: ../mobile-engagement-user-interface-settings/
-[Link 21]: ../mobile-engagement-troubleshooting-guide-analytics/
-[Link 22]: ../mobile-engagement-troubleshooting-guide-apis/
-[Link 23]: ../mobile-engagement-troubleshooting-guide-push-reach/
-[Link 24]: ../mobile-engagement-troubleshooting-guide-service/
-[Link 25]: ../mobile-engagement-troubleshooting-guide-sdk/
-[Link 26]: ../mobile-engagement-troubleshooting-guide-sr-info/
-[Link 27]: ../mobile-engagement-how-tos-first-push/
-[Link 28]: ../mobile-engagement-how-tos-test-campaign/
-[Link 29]: ../mobile-engagement-how-tos-personalize-push/
-[Link 30]: ../mobile-engagement-how-tos-differentiate-push/
-[Link 31]: ../mobile-engagement-how-tos-schedule-campaign/
-[Link 32]: ../mobile-engagement-how-tos-text-view/
-[Link 33]: ../mobile-engagement-how-tos-web-view/
+[Link 12]: mobile-engagement-user-interface-navigation.md
+[Link 13]: mobile-engagement-user-interface-home.md
+[Link 14]: mobile-engagement-user-interface-my-account.md
+[Link 15]: mobile-engagement-user-interface-analytics.md
+[Link 16]: mobile-engagement-user-interface-monitor.md
+[Link 17]: mobile-engagement-user-interface-reach.md
+[Link 18]: mobile-engagement-user-interface-segments.md
+[Link 19]: mobile-engagement-user-interface-dashboard.md
+[Link 20]: mobile-engagement-user-interface-settings.md
+[Link 21]: mobile-engagement-troubleshooting-guide-analytics.md
+[Link 22]: mobile-engagement-troubleshooting-guide-apis.md
+[Link 23]: mobile-engagement-troubleshooting-guide-push-reach.md
+[Link 24]: mobile-engagement-troubleshooting-guide-service.md
+[Link 25]: mobile-engagement-troubleshooting-guide-sdk.md
+[Link 26]: mobile-engagement-troubleshooting-guide-sr-info.md
+[Link 27]: mobile-engagement-how-tos-first-push.md
+[Link 28]: mobile-engagement-how-tos-test-campaign.md
+[Link 29]: mobile-engagement-how-tos-personalize-push.md
+[Link 30]: mobile-engagement-how-tos-differentiate-push.md
+[Link 31]: mobile-engagement-how-tos-schedule-campaign.md
+[Link 32]: mobile-engagement-how-tos-text-view.md
+[Link 33]: mobile-engagement-how-tos-web-view.md
 
-<!--HONumber=47-->
+<!--HONumber=54-->

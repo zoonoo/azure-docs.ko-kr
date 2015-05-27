@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Azure 앱 서비스에서 Java 웹 앱 만들기" 
 	description="이 자습서에서는 Azure 앱 서비스에 Java 웹 앱을 배포하는 방법을 보여 줍니다." 
 	services="app-service\web" 
@@ -18,13 +18,13 @@
 
 # Azure 앱 서비스에서 Java 웹 앱 만들기
 
-이 자습서에서는 Azure 마켓플레이스 또는 [앱 서비스 웹 앱](http://go.microsoft.com/fwlink/?LinkId=529714) 구성 UI를 사용하여 Java를 사용하는 Microsoft Azure에서 웹 앱을 만드는 방법을 보여 줍니다. 
+이 자습서에서는 Java, Azure 마켓플레이스 또는 [앱 서비스 웹 앱](http://go.microsoft.com/fwlink/?LinkId=529714) 구성 UI를 사용하여 Microsoft Azure에서 웹 앱을 만드는 방법을 보여 줍니다.
 
 이러한 기술을 사용하지 않으려는 경우 예를 들어 응용 프로그램 컨테이너를 사용자 지정하려는 경우 [Azure에 사용자 지정 Java 웹 앱 업로드](web-sites-java-custom-upload.md)를 참조하세요
 
-> [AZURE.NOTE] 이 자습서를 완료하려면 Microsoft Azure 계정이 필요합니다. 계정이 없는 경우 <a href="/ko-kr/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F" target="_blank">MSDN 구독자 혜택을 활성화</a>하거나 <a href="/ko-kr/pricing/free-trial/?WT.mc_id=A261C142F" target="_blank">무료 평가판을 등록</a>할 수 있습니다. 
+> [AZURE.NOTE]이 자습서를 완료하려면 Microsoft Azure 계정이 필요합니다. 계정이 없는 경우 <a href="/ko-kr/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F" target="_blank">MSDN 구독자 혜택을 활성화</a>하거나 <a href="/ko-kr/pricing/free-trial/?WT.mc_id=A261C142F" target="_blank">무료 평가판을 등록</a>할 수 있습니다.
 
->Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 사용](http://go.microsoft.com/fwlink/?LinkId=523751)으로 이동합니다. 앱 서비스에서는 단기 시작 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+>Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
 # Azure 마켓플레이스를 사용하여 Java 웹 앱 만들기
 
@@ -72,7 +72,7 @@
 12. **응용 프로그램 설정**을 클릭합니다.
 13. 원하는 Java 버전을 클릭합니다.
 14. 웹 컨테이너의 옵션(예: Tomcat 및 Jetty)이 표시됩니다. 원하는 **웹 컨테이너**를 선택합니다. 
-15. **저장**을 클릭합니다. 
+15. **Save**를 클릭합니다. 
 
 잠시 후 웹 앱이 Java 기반이 됩니다. Java 기반임을 확인하려면 해당 웹 앱의 URL을 클릭합니다. 페이지에서 새 웹 앱이 Java 기반 웹 앱이라는 텍스트를 표시합니다.
 
@@ -82,8 +82,8 @@
 
 이제 Azure에서 Java 웹 앱으로 실행되는 Java 응용 프로그램 서버가 생성되었습니다. 고유한 응용 프로그램 또는 웹 페이지를 추가하려면 [Java 웹 앱에 응용 프로그램 또는 웹 페이지 추가](web-sites-java-add-app.md)를 참조하세요
 
-## 변경 내용
-* 웹 사이트에서 앱 서비스로의 변경에 대한 가이드는 다음을 참조: [Azure 앱 서비스 및 기존 Azure 서비스에 대한 영향](http://go.microsoft.com/fwlink/?LinkId=529714)
-* 이전 포털에서 새 포털로의 변경에 대한 가이드는 다음을 참조: [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)
+## 변경된 내용
+* 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.
+* 이전 포털에서 새 포털로의 변경에 대한 지침은 [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
 
-<!--HONumber=49-->
+<!--HONumber=54-->

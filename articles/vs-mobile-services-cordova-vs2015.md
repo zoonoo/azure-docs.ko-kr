@@ -1,26 +1,26 @@
-﻿<properties 
+<properties 
 	pageTitle="" 
-	description="Using mobile services in Cordova projects" 
+	description="Cordova 프로젝트에서 모바일 서비스 사용" 
 	services="mobile-services" 
 	documentationCenter="" 
-	authors="patshea" 
+	authors="patshea123" 
 	manager="douge" 
 	editor=""/>
 
 <tags 
 	ms.service="mobile-services" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="NA" 
+	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="10/11/2014" 
-	ms.author="patshea"/>
+	ms.date="05/06/2015" 
+	ms.author="patshea123"/>
 
-### Visual Studio 2015 Preview의 Cordova 프로젝트에서 모바일 서비스 사용
+# Visual Studio 2015 Preview의 Cordova 프로젝트에서 모바일 서비스 사용
 
 Visual Studio 2015 Preview의 Cordova 프로젝트에서 Azure 모바일 서비스를 사용하려면 다음과 같은 해결 방법을 적용해야 합니다.
 
-1. Visual Studio 2015 Preview Cordova 프로젝트에서 Config.xml을 열고, **플러그 인** 탭 아래에서 **Microsoft Azure 모바일 서비스** 플러그 인을 사용하도록 설정합니다.<br/>
+1. Visual Studio 2015 Preview Cordova 프로젝트에서 Config.xml을 열고, **플러그 인** 탭 아래에서 **Azure 모바일 서비스** 플러그 인을 사용하도록 설정합니다.<br/>
 ![][1]
 
 2. index.html에서는 **MobileServices.Web-1.2.2.min.js**를 참조하는 줄을 삭제합니다.<br/>
@@ -61,7 +61,5 @@ Visual Studio 2015 Preview의 Cordova 프로젝트에서 Azure 모바일 서비�
                     "<your application key>");
 		});
 
-[1]: ./media/vs-mobile-services-cordova-vs2015/AzureMobileServicesPlugIn.png 
-
-
-<!--HONumber=42-->
+[1]: ./media/vs-mobile-services-cordova-vs2015/AzureMobileServicesPlugIn.png
+<!--HONumber=54-->

@@ -1,8 +1,8 @@
-﻿<properties 
+<properties 
 	pageTitle="모바일 서비스 .NET 백 엔드가 포함된 기존 SQL 데이터베이스를 사용해서 서비스 구축 - Azure 모바일 서비스" 
 	description=".NET 기반 모바일 서비스에서 기존 클라우드 또는 온-프레미스 SQL 데이터베이스를 사용하는 방법에 대해 알아봅니다." 
-	services="mobile-services, biztalk-services" 
-	documentationCenter="windows" 
+	services="mobile-services" 
+	documentationCenter="" 
 	authors="ggailey777" 
 	manager="dwrede" 
 	editor="mollybos"/>
@@ -10,16 +10,16 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-multiple" 
+	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="11/22/2014" 
+	ms.date="04/13/2015" 
 	ms.author="glenga"/>
 
 
 # 모바일 서비스 .NET 백 엔드가 포함된 기존 SQL 데이터베이스를 사용해서 서비스 구축
 
-모바일 서비스 .NET 백 엔드를 사용하면 모바일 서비스를 구축할 때 기존 자산을 쉽게 활용할 수 있습니다. 특히 한 가지 흥미로운 시나리오는 다른 응용 프로그램에서 이미 사용 중일 수 있는 기존의 SQL 데이터베이스(온-프레미스 또는 클라우드)를 사용해서 기존 데이터를 모바일 클라이언트에서 도 사용할 수 있다는 점입니다. 이 경우에는 기존 솔루션이 계속 작동할 수 있도록 데이터베이스 모델(또는  *schema*)이 변경되지 않은 상태로 유지되어야 합니다.
+모바일 서비스 .NET 백 엔드를 사용하면 모바일 서비스를 구축할 때 기존 자산을 쉽게 활용할 수 있습니다. 특히 한 가지 흥미로운 시나리오는 다른 응용 프로그램에서 이미 사용 중일 수 있는 기존의 SQL 데이터베이스(온-프레미스 또는 클라우드)를 사용해서 기존 데이터를 모바일 클라이언트에서도 사용할 수 있다는 점입니다. 이 경우에는 기존 솔루션이 계속 작동할 수 있도록 데이터베이스 모델(또는 *스키마*)이 변경되지 않은 상태로 유지되어야 합니다.
 
 이 자습서는 다음과 같은 섹션으로 구성되어 있습니다.
 
@@ -34,7 +34,7 @@
 
 이 자습서에서는 모바일 서비스에서 생성된 데이터베이스를 사용하지만 생성된 기본 모델을 사용하지 않습니다. 대신 사용자가 이미 갖고 있을 수 있는 기존 응용 프로그램을 나타내는 임의의 모델을 수동으로 만듭니다. 대신 온-프레미스 데이터베이스에 연결하는 방법에 대한 자세한 내용은 [하이브리드 연결을 사용하여 Azure 모바일 서비스에서 온-프레미스 SQL Server에 연결](mobile-services-dotnet-backend-hybrid-connections-get-started.md)을 참조하세요.
 
-1. 시작하려면 **Visual Studio 2013 업데이트 2**에서 모바일 서비스 서버 프로젝트를 만들거나 [Azure 관리 포털](http://manage.windowsazure.com)의 모바일 서비스 탭에서 다운로드할 수 있는 퀵 스타트 프로젝트를 사용합니다. 이 자습서에서는 서버 프로젝트 이름이 **ShoppingService**라고 가정합니다.
+1. 시작하려면 **Visual Studio 2013 업데이트 2**에서 모바일 서비스 서버 프로젝트를 만들거나 [Azure 관리 포털](http://manage.windowsazure.com)의 모바일 서비스 탭에서 다운로드할 수 있는 빠른 시작 프로젝트를 사용합니다. 이 자습서에서는 서버 프로젝트 이름이 **ShoppingService**라고 가정합니다.
 
 2. **Models** 폴더 안에 **Customer.cs** 파일을 만들고 다음 구현을 사용합니다. **System.ComponentModel.DataAnnotations**에 대한 어셈블리 참조를 프로젝트에 추가해야 합니다.
 
@@ -79,7 +79,7 @@
             }
         }
 
-    이러한 두 클래스에서 모든 **Order**의  *relationship*:이 단일 **Customer**에 연결되어 있고 단일 **Customer**를 여러 **Orders**에 연결할 수 있습니다. 관계 설정은 기존의 데이터 모델에서 도 일반적인 특성입니다.
+    이러한 두 클래스에 단일 **Customer**에 연결되어 있는 모든 **Order** 및 여러 **Order**에 연결할 수 있는 **Customer**라는 *관계*가 있습니다. 관계 설정은 기존의 데이터 모델에서도 일반적인 특성입니다.
 
 4. **Models** 폴더 안에 **ExistingContext.cs** 파일을 만들고 다음과 같이 구현합니다.
 
@@ -101,7 +101,7 @@
             }
         }
 
-위 구조는 기존 응용 프로그램에 이미 사용 중일 수 있는 기존의 Entity Framework 모델과 비슷하게 만들어졌습니다. 이 단계에서 이 모델은 어떠한 방식으로도 모바일 서비스를 인지하지 못합니다. 
+위 구조는 기존 응용 프로그램에 이미 사용 중일 수 있는 기존의 Entity Framework 모델과 비슷하게 만들어졌습니다. 이 단계에서 이 모델은 어떠한 방식으로도 모바일 서비스를 인지하지 못합니다.
 
 <a name="DTOs"></a>
 ## 모바일 서비스를 위한 DTO(데이터 전송 개체) 만들기
@@ -120,7 +120,7 @@
             }
         }
 
-    이 클래스는 모델에 있는 **Customer** 클래스와 비슷하지만 **Order**에 대한 관계 속성이 제거되어 있는 것이 다릅니다. 모바일 서비스 오프라인 동기화 시 개체가 올바르게 작동하기 위해서는 낙관적 동시성을 위해  *system properties* 집합이 필요하므로 DTO가 해당 속성을 포함하는 [**EntityData**](http://msdn.microsoft.com/library/microsoft.windowsazure.mobile.service.entitydata.aspx)로부터 상속됨을 알 수 있습니다. 원본 모델의 int 기반 **CustomerId** 속성은 모바일 서비스에서 사용할 **Id**가 되는 **EntityData**의 문자열 기반 **Id** 속성으로 바뀝니다.
+    이 클래스는 모델에 있는 **Customer** 클래스와 비슷하지만 **Order**에 대한 관계 속성이 제거되어 있는 것이 다릅니다. 모바일 서비스 오프라인 동기화 시 개체가 올바르게 작동하기 위해서는 낙관적 동시성을 위해 *시스템 속성* 집합이 필요하므로 DTO가 해당 속성을 포함하는 [**EntityData**](http://msdn.microsoft.com/library/microsoft.windowsazure.mobile.service.entitydata.aspx)로부터 상속됨을 알 수 있습니다. 원본 모델의 int 기반 **CustomerId** 속성은 모바일 서비스에서 사용할 **Id**가 되는 **EntityData**의 문자열 기반 **Id** 속성으로 바뀝니다.
 
 2. 서비스 프로젝트의 **DataObjects** 폴더에 **MobileOrder.cs** 파일을 만듭니다.
 
@@ -149,7 +149,7 @@
             }
         }
 
-    **Customer** 관계 속성은 클라이언트에서 관계를 수동으로 모델링하는 데 사용할 수 있는 **Customer** 이름 및 **MobileCustomerId** 속성으로 바뀌었습니다. **CustomerId** 속성은 나중에 사용되므로 지금은 무시해도 됩니다. 
+    **Customer** 관계 속성은 클라이언트에서 관계를 수동으로 모델링하는 데 사용할 수 있는 **Customer** 이름 및 **MobileCustomerId** 속성으로 바뀌었습니다. **CustomerId** 속성은 나중에 사용되므로 지금은 무시해도 됩니다.
 
 3. **EntityData** 기본 클래스에 시스템 속성이 추가되어 DTO에는 이제 모델 유형보다 많은 속성이 포함되었습니다. 확실히 이러한 속성을 저장할 공간이 필요하므로, 원본 데이터베이스에 열을 몇 개 추가해야 합니다. 이렇게 하면 데이터베이스가 변경되긴 해도 변경 사항이 단순히 추가된 항목(스키마에 새로운 열 추가)이므로 기존 응용 프로그램의 작업이 중단되지는 않을 것입니다. 이를 위해서는 **Customer.cs** 및 **Order.cs** 위에 다음 문을 추가합니다.
     
@@ -158,7 +158,7 @@
         using System.ComponentModel.DataAnnotations;
         using System;
 
-    Then, add these extra properties to each of the classes:
+    그런 후 각 클래스에 다음과 같은 속성을 추가합니다.
 
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Index]
@@ -190,7 +190,7 @@
     그런 다음 **ExistingContext** 본문에서 [**OnModelCreating**](http://msdn.microsoft.com/library/system.data.entity.dbcontext.onmodelcreating.aspx)을 재정의합니다.
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {	
+        {
             modelBuilder.Conventions.Add(
                 new AttributeToColumnAnnotationConvention<TableColumnAttribute, string>(
                     "ServiceTableColumn", (property, attributes) => attributes.Single().ColumnType.ToString()));
@@ -263,7 +263,7 @@
         using AutoMapper;
         using ShoppingService.DataObjects;
 
-2. 매핑을 정의하기 위해 **WebApiConfig** 클래스의 **Register** 메서드에 다음을 추가합니다. 
+2. 매핑을 정의하기 위해 **WebApiConfig** 클래스의 **Register** 메서드에 다음을 추가합니다.
 
         Mapper.Initialize(cfg =>
         {
@@ -372,7 +372,7 @@ AutoMapper가 이제 개체를 다른 개체에 매핑합니다. 이름이 일�
             }
         }
 
-    이 클래스에서 중요한 부분은 원본 데이터 모델에서 개체의 ID 속성을 찾는 방법을 나타내는 **GetKey** 메서드입니다. 
+    이 클래스에서 중요한 부분은 원본 데이터 모델에서 개체의 ID 속성을 찾는 방법을 나타내는 **GetKey** 메서드입니다.
 
 2. 프로젝트의 **Models** 폴더에 **MobileOrderDomainManager.cs**를 추가합니다.
 
@@ -537,7 +537,7 @@ AutoMapper가 이제 개체를 다른 개체에 매핑합니다. 이름이 일�
             }
         }
 
-    여기에서는 컨트롤러에서 삽입/업데이트/삭제 작업에 대한 공용 액세스를 제한하기 위해 AuthorizeLevel 특성이 사용된 것을 알 수 있습니다. 이 시나리오에서는 Customers 목록이 읽기 전용이지만 새로운 Orders를 만들고 이를 기존 고객과 연관시킬 수 있도록 허용합니다. 
+    여기에서는 컨트롤러에서 삽입/업데이트/삭제 작업에 대한 공용 액세스를 제한하기 위해 AuthorizeLevel 특성이 사용된 것을 알 수 있습니다. 이 시나리오에서는 Customers 목록이 읽기 전용이지만 새로운 Orders를 만들고 이를 기존 고객과 연관시킬 수 있도록 허용합니다.
 
 2. **Controllers** 폴더에서 **MobileOrderController.cs** 파일을 추가합니다.
 
@@ -591,9 +591,9 @@ AutoMapper가 이제 개체를 다른 개체에 매핑합니다. 이름이 일�
             }
         }
 
-3. 이제 서비스를 실행할 준비가 되었습니다. **F5** 키를 누르고 도움말 페이지에 기본 제공된 테스트 클라이언트를 사용해서 데이터를 수정합니다.
+3. 이제 서비스를 실행할 준비가 되었습니다. **F5**를 누르고 도움말 페이지에 기본 제공된 테스트 클라이언트를 사용해서 데이터를 수정합니다.
 
-두 컨트롤러 구현 모두 **MobileCustomer** 및 **MobileOrder** DTO를 배타적으로 사용하며, 기본 모델을 인지하지 않습니다. 이러한 DTO는 JSON에 즉시 직렬화되며 모든 플랫폼에서 모바일 서비스 클라이언트 SDK와 데이터를 교환하는 데 사용할 수 있습니다. 예를 들어 Windows 스토어 앱을 작성할 때 해당 클라이언트 쪽 유형은 아래 표시된 것과 같습니다. 유형은 다른 클라이언트 플랫폼에서 도 유사합니다. 
+두 컨트롤러 구현 모두 **MobileCustomer** 및 **MobileOrder** DTO를 배타적으로 사용하며, 기본 모델을 인지하지 않습니다. 이러한 DTO는 JSON에 즉시 직렬화되며 모든 플랫폼에서 모바일 서비스 클라이언트 SDK와 데이터를 교환하는 데 사용할 수 있습니다. 예를 들어 Windows 스토어 앱을 작성할 때 해당 클라이언트 쪽 유형은 아래 표시된 것과 같습니다. 유형은 다른 클라이언트 플랫폼에서도 유사합니다.
 
     using Microsoft.WindowsAzure.MobileServices;
     using System;
@@ -621,7 +621,5 @@ AutoMapper가 이제 개체를 다른 개체에 매핑합니다. 이름이 일�
 
     }
 
-다음 단계에서는 서비스에 액세스하기 위한 클라이언트 앱을 작성할 수 있습니다. 
-
-
-<!--HONumber=42-->
+다음 단계에서는 서비스에 액세스하기 위한 클라이언트 앱을 작성할 수 있습니다.
+<!--HONumber=54-->

@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Azure Mobile Engagement iOS SDK 릴리스 정보" 
 	description="Azure Mobile Engagement용 iOS SDK의 최신 업데이트 및 절차"
 	services="mobile-engagement" 
@@ -18,6 +18,13 @@
 
 #릴리스 정보
 
+##2.1.0(2015/04/24)
+
+-   Swift 호환성을 추가하였습니다.
+-   알림을 클릭하면 이제 응용 프로그램을 연 직후에 작업 URL이 실행됩니다.
+-   SDK 패키지에 누락된 헤더 파일을 추가하였습니다.
+-   모바일 고객 관리 크래시 리포터를 사용할 수 없는 문제를 해결하였습니다.
+
 ##2.0.0(2015/02/17)
 
 -   Azure Mobile Engagement의 최초 릴리스입니다.
@@ -28,4 +35,4 @@
 -   SmartAd 추적 기능이 제거되었습니다.
 
 
-<!--HONumber=47-->
+<!--HONumber=54-->

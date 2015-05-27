@@ -10,121 +10,94 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="11/22/2014" 
+	ms.date="04/08/2015" 
 	ms.author="glenga"/>
 
-# Live Connect Single Sign-On으로 Windows 스토어 앱 인증
-<div class="dev-center-tutorial-selector sublanding"> 
-	<a href="/documentation/articles/mobile-services-windows-store-dotnet-single-sign-on/" title="Windows Store C#">Windows 스토어 C#</a><a href="/documentation/articles/mobile-services-windows-store-javascript-single-sign-on/" title="Windows Store JavaScript" class="current">Windows 스토어 JavaScript</a><a href="/documentation/articles/mobile-services-windows-phone-single-sign-on/" title="Windows Phone">Windows Phone</a>
-</div>	
+# Microsoft 계정을 사용하여 클라이언트 관리 인증으로 Windows 스토어 앱 인증
 
+[AZURE.INCLUDE [mobile-services-selector-single-signon](../includes/mobile-services-selector-single-signon.md)] 
 
-이 항목에서는 Windows 스토어 앱에서 Azure 모바일 서비스의 사용자를 인증하는 방법을 보여 줍니다.  이 자습서에서는 Live Connect를 사용하여 퀵 스타트 프로젝트에 인증을 추가합니다. Live Connect에 의해 인증되고 나면 로그인한 사용자는 이름과 함께 환영의 메시지를 보게 되고 사용자 ID 값이 표시됩니다.  
+## 개요
+이 항목에서는 Windows 스토어 앱에서 Azure 모바일 서비스의 사용자를 인증하는 방법을 보여 줍니다. 이 자습서에서는 Live Connect를 사용하여 빠른 시작 프로젝트에 인증을 추가합니다. Live Connect에 의해 인증되고 나면 로그인한 사용자는 이름과 함께 환영의 메시지를 보게 되고 사용자 ID 값이 표시됩니다.
 
->[AZURE.NOTE]이 자습서에서는 Windows 스토어 앱용 Live Connect에서 제공되는 Single Sign-On 환경을 사용할 때 얻는 이점을 보여 줍니다. 이 환경에서는 모바일 서비스를 사용해 이미 로그온한 사용자를 더 쉽게 인증할 수 있습니다. 여러 인증 공급자를 지원하는 보다 일반화된 인증 환경을 알아보려면 <a href="mobile-services-windows-store-javascript-get-started-users.md/">인증 시작</a> 항목을 참조하세요.
+>[AZURE.NOTE]이 자습서에서는 클라이언트 관리 인증 및 Live SDK 사용의 이점을 설명합니다. 이 환경은 모바일 서비스를 사용해 이미 로그온한 사용자를 더 쉽게 인증할 수 있습니다. 추가 범위를 요청하여 앱이 OneDrive와 같은 리소스에도 액세스하도록 설정할 수 있습니다. 
+>서비스 관리 인증은 보다 일반적인 경험을 제공하며 여러 인증 공급자를 지원합니다. 서비스 관리 인증에 대한 자세한 내용은 [앱에 인증 추가](mobile-services-windows-store-javascript-get-started-users.md) 항목을 참조하세요.
 
-이 자습서에서는 Live Connect 인증을 사용하도록 설정하는 다음 기본 단계를 안내합니다.
-
-1. [인증을 위해 앱 등록 및 모바일 서비스 구성]
-2. [테이블 사용 권한을 인증된 사용자로 제한]
-3. [앱에 인증 추가]
-
-이 자습서의 작업을 수행하려면 다음이 필요합니다.
+이 자습서를 사용하려면 다음이 필요합니다.
 
 + [Windows용 Live SDK]
 + Microsoft Visual Studio 2012 Express for Windows 8 RC 이상 버전
 + 먼저 [기존 앱에 모바일 서비스 추가] 자습서도 완료해야 합니다.
 
-##<a name="register"></a>Windows 스토어에 앱 등록
+## 앱을 등록하여 Microsoft 계정을 인증에 사용
 
-사용자를 인증할 수 있으려면 Windows 스토어에 앱을 제출해야 합니다. 그런 다음 Live Connect와 모바일 서비스를 통합하도록 클라이언트 암호를 등록해야 합니다.
+사용자를 인증하려면 먼저 Microsoft 계정 개발자 센터에서 앱을 등록해야 합니다. 그런 다음 모바일 서비스와 이 등록을 연결해야 합니다. Microsoft 계정 등록을 만들고 모바일 서비스에 연결하려면 다음 항목의 단계를 완료하세요.
 
-[AZURE.INCLUDE [mobile-services-register-windows-store-app](../includes/mobile-services-register-windows-store-app.md)]
++ [Microsoft 계정 로그인을 사용하도록 앱 등록](mobile-services-how-to-register-microsoft-authentication.md)
 
-##<a name="permissions"></a>사용 권한을 인증된 사용자로 제한
+## <a name="permissions"></a>사용 권한을 인증된 사용자로 제한
 
-[AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)] 
+이제 *TodoItems* 테이블이 로그인한 사용자만 액세스할 수 있도록 하는 경우, 리소스에 액세스를 제한해야 합니다.
 
-<ol start="3">
-<li><p>Visual Studio 2012 Express for Windows 8에서 <a href="/documentation/articles/mobile-services-windows-store-get-started">모바일 서비스 시작</a> 자습서를 완료할 때 만든 프로젝트를 엽니다.</p></li> 
-<li><p>F5 키를 눌러 이 퀵 스타트 기반 앱을 실행합니다. 앱이 시작된 후 상태 코드 401(인증되지 않음)의 처리되지 않은 예외가 발생하는지 확인합니다.</p>
-   
-   	<p>이는 앱이 인증되지 않은 사용자로 모바일 서비스에 액세스하려고 시도하지만 <em>TodoItem</em> 테이블에서 이제 인증을 요구하기 때문에 발생합니다.</p></li>
-</ol>
+[AZURE.INCLUDE [mobile-services-restrict-permissions-windows](../includes/mobile-services-restrict-permissions-windows.md)] 
 
-다음에는 모바일 서비스의 리소스를 요청하기 전에 사용자를 인증하도록 앱을 업데이트합니다.
+## <a name="add-authentication"></a>앱에 인증 추가
 
-##<a name="add-authentication"></a>앱에 인증 추가
+마지막으로, Live SDK를 추가하고 앱에서 사용자를 인증하는 데 사용합니다.
 
-1. [Windows용 Live SDK]를 다운로드하여 설치합니다.
+1. **솔루션 탐색기**에서 솔루션을 마우스 오른쪽 단추로 클릭한 다음 **NuGet 패키지 관리**를 선택합니다.
 
-2. Visual Studio의 **프로젝트** 메뉴에서 **참조 추가**를 클릭하고 **Windows**를 확장한 다음 **확장**을 클릭합니다. **Live SDK**를 선택하고 **확인**을 클릭합니다. 
+2. 왼쪽 창에서 **온라인** 범주를 선택하고, **LiveSDK**를 검색하고, **Live SDK** 패키지에서 **설치**를 클릭하고, 모든 프로젝트를 선택한 다음 라이선스 계약에 동의합니다.
 
-  	![][16]
+  	이렇게 하면 Live SDK를 솔루션에 추가합니다.
 
-  	Live SDK에 대한 참조가 프로젝트에 추가됩니다.
+3. default.html 프로젝트 파일을 열고 `<script>` 요소에 다음 `<head>` 요소를 추가합니다.
 
-3. default.html 프로젝트 파일을 열고 &lt;head&gt; 요소에 다음 &lt;script&gt; 요소를 추가합니다. 
+        <script src="/js/wl.js"></script>
 
-        <script src="///LiveSDKHTML/js/wl.js"></script>
-
-   	이 요소는 default.html 파일에서 Microsoft IntelliSense를 사용하도록 설정합니다.
-
-
-4. default.js 프로젝트 파일을 열고 파일의 맨 위에 다음 주석을 추가합니다. 
-
-        /// <reference path="///LiveSDKHTML/js/wl.js" />
-
-   	이 주석은 default.js 파일에서 Microsoft IntelliSense를 사용하도록 설정합니다.
-
-5. **app.OnActivated** 메서드 오버로드에서 **refreshTodoItems** 메서드에 대한 호출을 다음 코드로 바꿉니다. 
+5. **app.OnActivated** 메서드 오버로드에서 **refreshTodoItems** 메서드에 대한 호출을 다음 코드로 바꿉니다.
 	
-        var session = null;   
+        // Set the mobileClient variable to client variable generated by the tooling.
+        var mobileClient = <yourClient>;
 
-        var logout = function () {
-            return new WinJS.Promise(function (complete) {
-                WL.getLoginStatus().then(function () {
-                    if (WL.canLogout()) {
-                        WL.logout(complete);                            
-                    }
-                    else {
-                        complete();
-                    }
-                });
-            });
-        };                  
-
+        var session = null;
         var login = function () {
-            return new WinJS.Promise(function (complete) {                    
-                WL.login({ scope: "wl.basic"}).then(function (result) {
+            return new WinJS.Promise(function (complete) {
+                WL.login({ scope: "wl.basic" }).then(function (result) {
                     session = result.session;
 
                     WinJS.Promise.join([
                         WL.api({ path: "me", method: "GET" }),
-                        client.login(result.session.authentication_token)
+                        mobileClient.login(result.session.authentication_token)
                     ]).done(function (results) {
-                        var profile = results[0];
-                        var mobileServicesUser = results[1];
-                        refreshTodoItems();
+                        // Build the welcome message from the Microsoft account info.
+                        var profile = results[0];                            
                         var title = "Welcome " + profile.first_name + "!";
-                        var message = "You are now logged in as: " + mobileServicesUser.userId;
+                        var message = "You are now logged in as: "
+                            + mobileClient.currentUser.userId;
                         var dialog = new Windows.UI.Popups.MessageDialog(message, title);
-                        dialog.showAsync().done(complete);                                
-                    });                       
-                }, function (error) {                        
+                        dialog.showAsync().then(function () {
+                            // Reload items from the mobile service.
+                            refreshTodoItems();
+                        }).done(complete);
+                        
+                    }, function (error) {
+
+                    });
+                }, function (error) {
                     session = null;
                     var dialog = new Windows.UI.Popups.MessageDialog("You must log in.", "Login Required");
-                    dialog.showAsync().done(complete);                        
+                    dialog.showAsync().done(complete);
                 });
             });
         }
 
         var authenticate = function () {
-            // Force a logout to make it easier to test with multiple Microsoft Accounts
-            logout().then(login).then(function () {
+            // Block until sign-in is successful.
+            login().then(function () {
                 if (session === null) {
                     // Authentication failed, try again.
                     authenticate();
@@ -132,59 +105,44 @@
             });
         }
 
+		// Initialize the Live client.
         WL.init({
-            redirect_uri: "<< INSERT REDIRECT DOMAIN HERE >>"
-        });           
-            
+            redirect_uri: mobileClient.applicationUrl
+        });
+
+		// Start the sign-in process.
         authenticate();
 
-    이 코드는 Live Connect 클라이언트를 초기화하고, 로그아웃을 실행하고, Live Connect에 새 로그인 요청을 보내고, 반환된 인증 토큰을 모바일 서비스로 보낸 다음 로그인한 사용자에 대한 정보를 표시합니다. 이 코드는 가능한 경우 로그아웃을 실행하며 응용 프로그램이 실행될 때마다 사용자에게 자격 증명을 요구하는 메시지가 표시되도록 합니다. 인증이 올바르게 작동하는지 확인하기 위해 다양한 Microsoft 계정을 사용하여 응용 프로그램을 테스트하기 쉬워집니다. 이 메커니즘은 로그인한 사용자에게 연결된 Microsoft 계정이 없는 경우에만 작동합니다.
+    이 코드는 Live Connect 클라이언트를 초기화하고, Microsoft 계정에 새 로그인 요청을 보내고, 반환된 인증 토큰을 모바일 서비스로 보낸 다음 로그인한 사용자에 대한 정보를 표시합니다.
 
-	>[AZURE.NOTE]앱이 실행될 때마다 Live Connection 인증 토큰 또는 모바일 서비스 권한 부여 토큰을 요청해야 하는 것은 아닙니다. 이 방법은 비효율적일 뿐 아니라 많은 고객이 동시에 앱을 시작하려고 할 경우 사용 관련 문제가 발생할 수도 있습니다. 보다 나은 접근 방법은 토큰을 캐시하고 **LoginWithMicrosoftAccountAsync**를 호출하기 전에 캐시된 모바일 서비스의 사용을 시도하는 것입니다. 이 토큰을 캐시하는 방법에 대한 예제는 [인증 시작](mobile-services-windows-store-javascript-get-started-users.md#tokens)을 참조하세요.
+	>[AZURE.NOTE]이상적으로는 앱이 실행될 때마다 Live Connection 인증 토큰 또는 모바일 서비스 권한 부여 토큰을 요청해야 하는 것은 아닙니다. 이 방법은 비효율적일 뿐 아니라 많은 고객이 동시에 앱을 시작하려고 할 경우 사용 관련 문제가 발생할 수도 있습니다. 보다 나은 접근 방법은 토큰을 캐시하고 **LoginWithMicrosoftAccountAsync**를 호출하기 전에 캐시된 모바일 서비스의 사용을 시도하는 것입니다. 이 토큰을 캐시하는 방법을 예를 보려면 [인증 시작](mobile-services-windows-store-javascript-get-started-users.md#tokens)을 참조하십시오.
 	
-7. 이전 단계의 _<< INSERT REDIRECT DOMAIN HERE >>_ 문자열을 Live Connect에서 앱을 구성할 때 **https://_service-name_.azure-mobile.net/** 형식으로 지정된 리디렉션 도메인으로 업데이트합니다.
+7. 프로젝트를 모바일 서비스에 연결했을 대 추가된 .js 파일에서 정의된 변수와 위의 코드 첫 번째 줄에서 `<yourClient>` 값을 바꿉니다.
 		
-8. F5 키를 눌러 앱을 실행하고 Microsoft 계정으로 Live Connect에 로그인합니다. 
+8. F5 키를 눌러 앱을 실행하고 Microsoft 계정으로 로그인합니다.
 
    	로그인하고 나면 앱이 오류 없이 실행되며 모바일 서비스를 쿼리하고 데이터를 업데이트할 수 있게 됩니다.
 
 ## <a name="next-steps"> </a>다음 단계
 
-다음 자습서인 [스크립트를 통해 사용자 권한 부여]에서는 인증된 사용자를 기준으로 모바일 서비스에서 제공한 사용자 ID 값을 가져와 모바일 서비스에서 반환된 데이터를 필터링하는 데 사용합니다. 인증을 위해 다른 ID 공급자를 사용하는 방법에 대한 자세한 내용은 [인증 시작]을 참조하세요.
+다음 자습서인 [스크립트를 통해 사용자 권한 부여]에서는 인증된 사용자를 기준으로 모바일 서비스에서 제공한 사용자 ID 값을 가져와 모바일 서비스에서 반환된 데이터를 필터링하는 데 사용합니다. 인증을 위해 다른 ID 공급자를 사용하는 방법에 대한 자세한 내용은 [인증 시작]을 참조하십시오.
 
 <!-- Anchors. -->
-[인증을 위해 앱 등록 및 모바일 서비스 구성]: #register
-[테이블 사용 권한을 인증된 사용자로 제한]: #permissions
-[앱에 인증 추가]: #add-authentication
-[다음 단계]:#next-steps
+[Register your app for authentication and configure Mobile Services]: #register
+[Restrict table permissions to authenticated users]: #permissions
+[Add authentication to the app]: #add-authentication
+[Next Steps]: #next-steps
 
 <!-- Images. -->
-[0]: ./media/mobile-services-windows-store-javascript-single-sign-on/mobile-services-submit-win8-app.png
-[1]: ./media/mobile-services-windows-store-javascript-single-sign-on/mobile-services-win8-app-name.png
-[2]: ./media/mobile-services-windows-store-javascript-single-sign-on/mobile-services-store-association.png
-[3]: ./media/mobile-services-windows-store-javascript-single-sign-on/mobile-services-select-app-name.png
-[4]: ./media/mobile-services-windows-store-javascript-single-sign-on/mobile-services-selection.png
-[5]: ./media/mobile-services-windows-store-javascript-single-sign-on/mobile-service-uri.png
-[6]: ./media/mobile-services-windows-store-javascript-single-sign-on/mobile-live-connect-apps-list.png
-[7]: ./media/mobile-services-windows-store-javascript-single-sign-on/mobile-live-connect-app-api-settings.png
-
-
-
-
-
-[13]: ./media/mobile-services-windows-store-javascript-single-sign-on/mobile-identity-tab-ma-only.png
-[14]: ./media/mobile-services-windows-store-javascript-single-sign-on/mobile-portal-data-tables.png
-[15]: ./media/mobile-services-windows-store-javascript-single-sign-on/mobile-portal-change-table-perms.png
-[16]: ./media/mobile-services-windows-store-javascript-single-sign-on/mobile-add-reference-live-js.png
 
 <!-- URLs. -->
-[앱 제출 페이지]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[내 응용 프로그램]: http://go.microsoft.com/fwlink/p/?LinkId=262039
+[Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Windows용 Live SDK]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 [기존 앱에 모바일 서비스 추가]: mobile-services-windows-store-javascript-get-started-data.md
 [인증 시작]: mobile-services-windows-store-javascript-get-started-users.md
 [스크립트를 통해 사용자 권한 부여]: mobile-services-windows-store-javascript-authorize-users-in-scripts.md
 
-[Azure 관리 포털]: https://manage.windowsazure.com/
+[Azure Management Portal]: https://manage.windowsazure.com/
 
-<!--HONumber=49-->
+<!--HONumber=54-->

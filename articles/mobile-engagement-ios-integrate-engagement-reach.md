@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Azure Mobile Engagement iOS SDK 도달률 통합" 
 	description="Azure Mobile Engagement용 iOS SDK의 최신 업데이트 및 절차"
 	services="mobile-engagement" 
@@ -18,13 +18,13 @@
 
 #iOS에서 Engagement 도달률을 통합하는 방법
 
-> [AZURE.IMPORTANT] 이 가이드의 작업을 수행하기 전에 iOS에서 Engagement를 통합하는 방법 문서에서 설명하는 통합 절차를 수행해야 합니다.
+> [AZURE.IMPORTANT]이 가이드의 작업을 수행하기 전에 iOS에서 Engagement를 통합하는 방법 문서에서 설명하는 통합 절차를 수행해야 합니다.
 
 ##통합 단계
 
 ### iOS 프로젝트에 Engagement 도달률 SDK 포함
 
--   Xcode 프로젝트에 도달률 SDK를 추가합니다. 이렇게 하려면 Xcode에서 **프로젝트 \> 프로젝트에 추가**로 이동하여 `EngagementReach` 폴더를 선택합니다.
+-   Xcode 프로젝트에 도달률 SDK를 추가합니다. 이렇게 하려면 Xcode에서 **프로젝트 > 프로젝트에 추가**로 이동하여 `EngagementReach` 폴더를 선택합니다.
 
 ### 응용 프로그램 대리자 수정
 
@@ -44,7 +44,7 @@
 			}
 
 -   알림 아이콘에 사용할 이미지 이름으로 **'icon.png'** 문자열을 수정합니다.
--   도달률 캠페인에서 *배지 값 업데이트* 옵션을 사용하거나 네이티브 푸시 \</SaaS/도달률 API/캠페인 형식/네이티브 푸시\> 캠페인을 사용하려는 경우에는 도달률 모듈이 배지 아이콘을 자체적으로 관리하도록 허용해야 합니다. 그러면 응용 프로그램을 시작하거나 포그라운드에 표시할 때마다 응용 프로그램 배지가 자동으로 지워지며 Engagement에서 저장한 값도 다시 설정됩니다. 이렇게 하려면 도달률 모듈 초기화 다음에 아래 줄을 추가합니다.
+-   도달률 캠페인에서 *배지 값 업데이트* 옵션을 사용하거나 네이티브 푸시 </SaaS/Reach API/Campaign format/Native Push> 캠페인을 사용하려는 경우에는 도달률 모듈이 배지 아이콘을 자체적으로 관리하도록 허용해야 합니다. 그러면 응용 프로그램을 시작하거나 포그라운드에 표시할 때마다 응용 프로그램 배지가 자동으로 지워지며 Engagement에서 저장한 값도 다시 설정됩니다. 이렇게 하려면 도달률 모듈 초기화 다음에 아래 줄을 추가합니다.
 
 			[reach setAutoBadgeEnabled:YES];
 
@@ -67,7 +67,7 @@
 			   return YES;
 			}
 
-### 범주
+### Category
 
 데이터 푸시 캠페인을 만들 때는 필요에 따라 범주 매개 변수를 포함할 수 있으며, 그러면 데이터 푸시를 필터링할 수 있습니다. 이 매개 변수는 여러 종류의 `Base64` 데이터를 푸시하고 해당 데이터를 구문 분석하기 전에 데이터 형식을 식별하려는 경우에 유용합니다.
 
@@ -81,7 +81,7 @@ Engagement에서는 Apple 푸시 알림 서비스를 사용하여 언제든지 �
 
 ### Apple 푸시 알림을 받도록 응용 프로그램 준비
 
-응용 프로그램을 준비하려면 Apple 푸시 알림을 받도록 응용 프로그램을 준비하는 방법 가이드를 참조하세요.
+Apple 푸시 알림을 받도록 응용 프로그램을 준비하는 방법 가이드를 따르십시오.
 
 ### 필요한 클라이언트 코드 추가
 
@@ -105,7 +105,7 @@ Engagement에서는 Apple 푸시 알림 서비스를 사용하여 언제든지 �
 			    [[EngagementAgent shared] registerDeviceToken:deviceToken];
 			}
 
-마지막으로 응용 프로그램이 원격 알림을 받을 때 Engagement SDK에 알림을 보내야 합니다. 이렇게 하려면 응용 프로그램 대리자에서 `applicationDidReceiveRemoteNotification:` 메서드만 호출하면 됩니다.
+마지막으로 응용 프로그램이 원격 알림을 받을 때 Engagement SDK에 알림을 보내야 합니다. 이렇게 하려면 응용 프로그램 대리자에서 메서드 `applicationDidReceiveRemoteNotification:`만 호출하면 됩니다.
 
 			- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
 			{
@@ -215,9 +215,9 @@ Engagement가 초기화되고 나면 푸시 대리자를 설정해야 합니다.
 
 #### 레이아웃
 
-앱 내 알림의 모양을 수정하려는 경우 `AENotificationView.xib` 파일만 필요한 대로 수정하면 됩니다. 이때 기존 하위 뷰의 태그 값과 형식은 유지해야 합니다.
+앱 내 알림의 모양을 수정하려는 경우 파일 `AENotificationView.xib`만 필요한 대로 수정하면 됩니다. 이때 기존 하위 뷰의 태그 값과 형식은 유지해야 합니다.
 
-기본적으로 앱 내 알림은 화면 맨 아래에 표시됩니다. 앱 내 알림을 화면 맨 위에 표시하려면 제공된 `AENotificationView.xib`를 편집하고 기본 뷰가 상위 뷰의 맨 위에 유지되도록 기본 뷰의 `AutoSizing` 속성을 변경합니다.
+기본적으로 앱 내 알림은 화면 맨 아래에 표시됩니다. 앱 내 알림을 화면 맨 위에 표시하려면 제공된 `AENotificationView.xib`을(를) 편집하고 기본 뷰가 상위 뷰의 맨 위에 유지되도록 기본 뷰의 `AutoSizing` 속성을 변경합니다.
 
 #### 범주
 
@@ -229,9 +229,9 @@ Engagement가 초기화되고 나면 푸시 대리자를 설정해야 합니다.
 			[reach registerNotifier:myNotifier forCategory:@"my_category"];
 			...
 
-`myNotifier`는 `AENotifier` 프로토콜을 따르는 개체 인스턴스여야 합니다.
+`myNotifier`은(는) 프로토콜 `AENotifier`을(를) 따르는 개체 인스턴스여야 합니다.
 
-프로토콜 메서드를 직접 구현할 수도 있고 이미 대부분의 작업을 수행하고 있는 기존 `AEDefaultNotifier` 클래스를 다시 구현할 수도 있습니다.
+프로토콜 메서드를 직접 구현할 수도 있고 이미 대부분의 작업을 수행하고 있는 기존 클래스 `AEDefaultNotifier`을(를) 다시 구현할 수도 있습니다.
 
 예를 들어 특정 범주의 알림 뷰를 다시 정의하려는 경우 다음 예제를 따르면 됩니다.
 
@@ -249,7 +249,7 @@ Engagement가 초기화되고 나면 푸시 대리자를 설정해야 합니다.
 			
 			@end
 
-이 간단한 범주 예제에서는 `MyNotificationView.xib` 파일이 주 응용 프로그램 번들에 포함되어 있다고 가정합니다. 메서드가 해당하는 `.xib`를 찾을 수 없으면 알림이 표시되지 않으며 Engagement에서 콘솔에 메시지를 출력합니다.
+이 간단한 범주 예제에서는 `MyNotificationView.xib` 파일이 주 응용 프로그램 번들에 포함되어 있다고 가정합니다. 메서드가 해당하는 `.xib`을(를) 찾을 수 없으면 알림이 표시되지 않으며 Engagement에서 콘솔에 메시지를 출력합니다.
 
 제공된 nib 파일은 다음 규칙을 따라야 합니다.
 
@@ -257,7 +257,7 @@ Engagement가 초기화되고 나면 푸시 대리자를 설정해야 합니다.
 -   하위 뷰는 제공된 nib 파일 `AENotificationView.xib` 내의 하위 뷰와 같은 형식이어야 합니다.
 -   하위 뷰는 제공된 nib 파일 `AENotificationView.xib` 내의 하위 뷰와 같은 태그를 포함해야 합니다.
 
-> [AZURE.TIP] 제공된 nib 파일 `AENotificationView.xib`를 복사하여 해당 위치에서 작업을 시작하면 됩니다. 그러나 이 nib 파일 내의 뷰는 `AENotificationView` 클래스에 연결되어 있습니다. 이 클래스는 컨텍스트에 따라 하위 뷰를 이동하고 크기를 조정하도록 `layoutSubViews` 메서드를 다시 정의합니다. 해당 메서드를 `UIView` 또는 사용자 지정 뷰 클래스로 바꿀 수 있습니다.
+> [AZURE.TIP]제공된 nib 파일 `AENotificationView.xib`을(를) 복사하여 해당 위치에서 작업을 시작하면 됩니다. 그러나 이 nib 파일 내의 뷰는 클래스 `AENotificationView`에 연결되어 있습니다. 이 클래스는 컨텍스트에 따라 하위 뷰를 이동하고 크기를 조정하도록 메서드 `layoutSubViews`을(를) 다시 정의합니다. 해당 메서드를 `UIView` 또는 사용자 지정 뷰 클래스로 바꿀 수 있습니다.
 
 코드에서 뷰를 직접 로드하려는 등의 경우 알림을 보다 상세하게 사용자 지정하려면 제공된 소스 코드와 `Protocol ReferencesDefaultNotifier` 및 `AENotifier`의 클래스 설명서를 확인하는 것이 좋습니다.
 
@@ -272,16 +272,16 @@ Engagement가 초기화되고 나면 푸시 대리자를 설정해야 합니다.
 
 기본 범주를 사용할 때는 통계를 보고하고 캠페인 상태를 업데이트하기 위해 `AEReachContent` 개체에서 일부 수명 주기 메서드를 호출합니다.
 
--   알림이 응용 프로그램에 표시될 때 `handleNotification:` 이 `YES`를 반환하면 통계를 보고하는 `displayNotification` 메서드가 `AEReachModule`을 통해 호출됩니다.
+-   알림이 응용 프로그램에 표시될 때 `handleNotification:`이(가) `YES`을(를) 반환하면 통계를 보고하는 `displayNotification` 메서드가 `AEReachModule`을(를) 통해 호출됩니다.
 -   알림을 해제하면 `exitNotification` 메서드가 호출되고 통계가 보고되며 다음 캠페인을 처리할 수 있게 됩니다.
--   알림을의 클릭하면 `actionNotification`이 호출되고 통계가 보고되며 연결된 작업이 수행됩니다.
+-   알림을의 클릭하면 `actionNotification`이(가) 호출되고 통계가 보고되며 연결된 작업이 수행됩니다.
 
 만약 `AENotifier` 구현이 기본 동작을 무시하는 경우에는 이러한 수명 주기 메서드를 직접 호출해야 합니다. 다음 예제에서는 기본 동작을 무시하는 몇 가지 경우를 보여 줍니다.
 
--   범주 처리를 처음부터 구현한 경우처럼 `AEDefaultNotifier`를 확장하지 않은 경우
--    `prepareNotificationView:forContent:`를 재정의한 경우. 이 경우에는 `onNotificationActioned` 또는 `onNotificationExited`를 하나 이상 UI 컨트롤에 매핑해야 합니다.
+-   범주 처리를 처음부터 구현한 경우처럼 `AEDefaultNotifier`을(를) 확장하지 않은 경우
+-   `prepareNotificationView:forContent:`을(를) 재정의한 경우. 이 경우에는 `onNotificationActioned` 또는 `onNotificationExited`을(를) 하나 이상 UI 컨트롤에 매핑해야 합니다.
 
-> [AZURE.WARNING]  `handleNotification:`에서 예외를 throw하는 경우 콘텐츠가 삭제되고 `drop`이 호출되며 이 예외가 통계에 보고됩니다. 그리고 나면 다음 캠페인을 처리할 수 있습니다.
+> [AZURE.WARNING]`handleNotification:`에서 예외를 throw하는 경우 콘텐츠가 삭제되고 `drop`이(가) 호출되며 이 예외가 통계에 보고됩니다. 그리고 나면 다음 캠페인을 처리할 수 있습니다.
 
 #### 기존 뷰의 일부로 알림 포함
 
@@ -293,9 +293,9 @@ Engagement가 초기화되고 나면 푸시 대리자를 설정해야 합니다.
 
 1.  인터페이스 작성기를 사용하여 알림 뷰 추가
 
-	-    *인터페이스 작성기*를 엽니다.
-	-   알림을 표시할 320x60(iPad의 경우 768x60) 크기의 `UIView`를 배치합니다.
-	-   이 뷰의 태그 값을 **36822491**로 설정합니다.
+	-   *인터페이스 작성기*를 엽니다.
+	-   알림을 표시할 320x60(iPad의 경우 768x60) 크기의 `UIView`을(를) 배치합니다.
+	-   이 뷰의 태그 값 설정: **36822491**
 
 2.  프로그래밍 방식으로 알림 뷰를 추가합니다. 이렇게 하려면 뷰가 초기화된 후 다음 코드만 추가하면 됩니다.
 
@@ -305,7 +305,7 @@ Engagement가 초기화되고 나면 푸시 대리자를 설정해야 합니다.
 
 `NOTIFICATION_AREA_VIEW_TAG` 매크로는 `AEDefaultNotifier.h`에 있습니다.
 
-> [AZURE.NOTE] 기본 알림 구성 요소는 이 뷰에 알림 레이아웃이 포함되어 있음을 자동으로 검색하여 해당 뷰에 대한 오버레이를 추가하지 않습니다.
+> [AZURE.NOTE]기본 알림 구성 요소는 이 뷰에 알림 레이아웃이 포함되어 있음을 자동으로 검색하여 해당 뷰에 대한 오버레이를 추가하지 않습니다.
 
 ### 알림 및 설문 조사
 
@@ -324,9 +324,9 @@ Engagement가 초기화되고 나면 푸시 대리자를 설정해야 합니다.
 			AEReachModule* reach = [AEReachModule moduleWithNotificationIcon:[UIImage imageNamed:@"icon.png"]];
 			[reach registerAnnouncementController:[MyCustomAnnouncementViewController class] forCategory:@"my_category"];
 
-> [AZURE.NOTE] 사용자가 "my\_category" 범주의 알림에 대한 알림을 클릭하면  `initWithAnnouncement:` 메서드를 호출하여 등록된 뷰 컨트롤러(여기서는 `MyCustomAnnouncementViewController`)를 초기화한 다음 현재 응용 프로그램 창에 뷰를 추가합니다.
+> [AZURE.NOTE]사용자가 "my_category" 범주의 알림에 대한 알림을 클릭하면 메서드 `initWithAnnouncement:`을(를) 호출하여 등록된 뷰 컨트롤러(여기서는 `MyCustomAnnouncementViewController`)를 초기화한 다음 현재 응용 프로그램 창에 뷰를 추가합니다.
 
-`AEAnnouncementViewController` 클래스 구현에서는 하위 뷰를 초기화하려면 `announcement` 속성을 읽어야 합니다. 두 개의 레이블이 `AEReachAnnouncement` 클래스의 `title` 및 `body` 속성을 사용하여 초기화되는 아래 예제를 살펴보세요.
+`AEAnnouncementViewController` 클래스 구현에서는 하위 뷰를 초기화하려면 속성 `announcement`을(를) 읽어야 합니다. 두 개의 레이블이 `AEReachAnnouncement` 클래스의 `title` 및 `body` 속성을 사용하여 초기화되는 아래 예제를 살펴보세요.
 
 			-(void)loadView
 			{
@@ -344,7 +344,7 @@ Engagement가 초기화되고 나면 푸시 대리자를 설정해야 합니다.
 			    [self.view addSubview:bodyLabel];
 			}
 
-뷰를 직접 로드하지 않고 기본 알림 뷰 레이아웃만 다시 사용하려는 경우 사용자 지정 뷰 컨트롤러가 제공된 `AEDefaultAnnouncementViewController` 클래스를 확장하도록 설정하기만 하면 됩니다. 이 경우에는 nib 파일 `AEDefaultAnnouncementView.xib`를 복제한 다음 사용자 지정 뷰 컨트롤러가 로드할 수 있도록 이름을 바꿉니다. `CustomAnnouncementViewController` 컨트롤러의 경우에는 nib 파일 `CustomAnnouncementView.xib`를 호출해야 합니다.
+뷰를 직접 로드하지 않고 기본 알림 뷰 레이아웃만 다시 사용하려는 경우 사용자 지정 뷰 컨트롤러가 제공된 `AEDefaultAnnouncementViewController` 클래스를 확장하도록 설정하기만 하면 됩니다. 이 경우에는 nib 파일 `AEDefaultAnnouncementView.xib`을(를) 복제한 다음 사용자 지정 뷰 컨트롤러가 로드할 수 있도록 이름을 바꿉니다. 컨트롤러 `CustomAnnouncementViewController`의 경우에는 nib 파일 `CustomAnnouncementView.xib`을(를) 호출해야 합니다.
 
 알림의 기본 범주를 바꾸려면 `kAEReachDefaultCategory`에 정의된 범주에 대해 사용자 지정 뷰 컨트롤러를 등록하기만 하면 됩니다.
 
@@ -355,9 +355,9 @@ Engagement가 초기화되고 나면 푸시 대리자를 설정해야 합니다.
 			AEReachModule* reach = [AEReachModule moduleWithNotificationIcon:[UIImage imageNamed:@"icon.png"]];
 			[reach registerPollController:[MyCustomPollViewController class] forCategory:@"my_category"];
 
-이번에는 제공된 `MyCustomPollViewController`가 `AEPollViewController`를 확장해야 합니다. 기본 컨트롤러인 `AEDefaultPollViewController`.에서 확장할 수도 있습니다.
+이번에는 제공된 `MyCustomPollViewController`이(가) `AEPollViewController`을(를) 확장해야 합니다. 기본 컨트롤러인 `AEDefaultPollViewController`에서 확장할 수도 있습니다.
 
-> [AZURE.IMPORTANT] 뷰 컨트롤러가 해제되기 전에 `action`(사용자 지정 설문 조사 뷰 컨트롤러의 경우 `submitAnswers:`) 또는 `exit` 메서드를 호출해야 합니다. 이렇게 하지 않으면 통계가 전송되지 않아 캠페인이 분석되지 않습니다. 또한 응용 프로그램 프로세스를 다시 시작할 때까지 다음 캠페인에 알림이 전달되지 않습니다.
+> [AZURE.IMPORTANT]뷰 컨트롤러가 해제되기 전에 `action`(사용자 지정 설문 조사 뷰 컨트롤러의 경우 `submitAnswers:`) 또는 `exit` 메서드를 호출해야 합니다. 이렇게 하지 않으면 통계가 전송되지 않아 캠페인이 분석되지 않습니다. 또한 응용 프로그램 프로세스를 다시 시작할 때까지 다음 캠페인에 알림이 전달되지 않습니다.
 
 ##### 구현 예제
 
@@ -457,4 +457,4 @@ Engagement가 초기화되고 나면 푸시 대리자를 설정해야 합니다.
 			
 			@end
 
-<!--HONumber=47-->
+<!--HONumber=54-->

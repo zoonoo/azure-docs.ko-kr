@@ -1,8 +1,8 @@
-﻿<properties 
-	pageTitle="푸시 알림 시작 - 모바일 서비스" 
+<properties 
+	pageTitle="모바일 서비스 앱에 푸시 알림 추가 - 모바일 서비스" 
 	description="Azure 모바일 서비스와 함께 Xamarin.Android 앱에서 푸시 알림을 사용하는 방법에 대해 알아봅니다." 
 	documentationCenter="xamarin" 
-	authors="lindydonna" 
+	authors="ggailey777" 
 	manager="dwrede" 
 	services="mobile-services" 
 	editor=""/>
@@ -13,15 +13,82 @@
 	ms.tgt_pltfrm="mobile-xamarin-android" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/24/2014" 
-	ms.author="donnam"/>
+	ms.date="03/12/2015" 
+	ms.author="glenga"/>
 
 # 모바일 서비스 앱에 푸시 알림 추가
 
-[AZURE.INCLUDE [mobile-services-selector-get-started-push-xamarin](../includes/mobile-services-selector-get-started-push-xamarin.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-push](../includes/mobile-services-selector-get-started-push.md)]
 
-모바일 서비스로 푸시 알림을 약간 변경했습니다. Xamarin Android에 대한 업데이트된 자습서를 살펴보세요!
+이 항목에서는 Azure 모바일 서비스를 사용하여 Xamarin.Android 앱에 푸시 알림을 보내는 방법을 보여 줍니다. 이 자습서에서는 GCM(Google Cloud Messaging)을 사용하여 [모바일 서비스 시작] 프로젝트에 푸시 알림을 추가합니다. 이 작업을 완료하면 레코드가 삽입될 때마다 모바일 서비스에서 푸시 알림을 전송합니다.
+
+이 자습서에서는 푸시 알림을 사용하도록 설정하는 다음 기본 단계를 단계별로 안내합니다.
+
+1. [Google Cloud Messaging 사용](#register)
+2. [모바일 서비스 구성](#configure)
+4. [푸시 알림에 대한 프로젝트 구성](#configure-app)
+5. [앱에 푸시 알림 코드 추가](#add-push)
+6. [알림을 받기 위한 데이터 삽입](#test)
+
+이 자습서를 사용하려면 다음이 필요합니다.
+
++ 활성 Google 계정.
++ [Google Cloud Messaging 클라이언트 구성 요소]. 자습서에 이 구성 요소가 추가됩니다.
+
+[모바일 서비스 시작] 또는 [기존 앱에 모바일 서비스 추가]를 완료하면 프로젝트에 [Xamarin.Android] 및 [Azure 모바일 서비스][Azure Mobile Services Component] 구성 요소가 설치되어 있어야 합니다.
+
+## <a id="register"></a>Google Cloud Messaging 사용
+
+[AZURE.INCLUDE [mobile-services-enable-Google-cloud-messaging](../includes/mobile-services-enable-Google-cloud-messaging.md)]
+
+## <a id="configure"></a>푸시 요청을 전송하도록 모바일 서비스 구성
+
+[AZURE.INCLUDE [mobile-services-android-configure-push](../includes/mobile-services-android-configure-push.md)]
+
+## <a id="update-scripts"></a>알림을 보내도록 등록된 삽입 스크립트 업데이트
+
+>[AZURE.NOTE]다음 단계에서는 Azure 관리 포털의 TodoItem 테이블에서 삽입 작업에 등록된 스크립트를 업데이트하는 방법을 보여줍니다. 또한 서버 탐색기의 Azure 노드의 Visual Studio에서 이 모바일 서비스 스크립트에 직접 액세스하여 편집할 수도 있습니다.
+
+[AZURE.INCLUDE [mobile-services-javascript-backend-android-push-insert-script](../includes/mobile-services-javascript-backend-android-push-insert-script.md)]
 
 
+## <a id="configure-app"></a>푸시 알림에 대한 기존 프로젝트 구성
 
-<!--HONumber=42-->
+[AZURE.INCLUDE [mobile-services-xamarin-android-push-configure-project](../includes/mobile-services-xamarin-android-push-configure-project.md)]
+
+## <a id="add-push"></a>앱에 푸시 알림 코드 추가
+
+[AZURE.INCLUDE [mobile-services-xamarin-android-push-add-to-app](../includes/mobile-services-xamarin-android-push-add-to-app.md)]
+
+## <a id="test"></a>앱에서 푸시 알림 테스트
+
+USB 케이블로 Android 휴대폰을 직접 연결하거나 에뮬레이터에서 가상 장치를 사용하여 앱을 테스트할 수 있습니다.
+
+[AZURE.INCLUDE [mobile-services-android-push-notifications-test](../includes/mobile-services-android-push-notifications-test.md)]
+
+이 자습서를 성공적으로 완료했습니다.
+
+## <a name="next-steps"></a>다음 단계
+
+다음 항목에서 모바일 서비스 및 알림 허브에 대해 알아보세요.
+
+* [기존 앱에 모바일 서비스 추가] <br/>모바일 서비스를 사용하여 데이터를 저장 및 쿼리하는 방법을 자세히 알아봅니다.
+
+* [인증 시작](partner-xamarin-mobile-services-android-get-started-users.md) <br/>모바일 서비스를 사용하여 서로 다른 계정 유형의 앱 사용자를 인증하는 방법에 대해 알아봅니다.
+
+* [알림 허브 정의](notification-hubs-overview.md) <br/>모든 주요 클라이언트 플랫폼에 걸쳐 알림 허브가 앱에 알림을 전달하는 방법에 대해 알아봅니다.
+
+* [알림 허브 응용 프로그램 디버깅](http://go.microsoft.com/fwlink/p/?linkid=386630) </br>알림 허브 솔루션 문제를 해결하고 디버깅하기 위한 지침을 얻습니다.
+
+* [모바일 서비스에 Android 클라이언트 라이브러리를 사용하는 방법](mobile-services-windows-dotnet-how-to-use-client-library.md) <br/>.NET과 함께 모바일 서비스를 사용하는 방법을 자세히 알아봅니다.
+
+* [모바일 서비스 서버 스크립트 참조](mobile-services-how-to-use-server-scripts.md) <br/>모바일 서비스에서 비즈니스 논리를 구현하는 방법에 대해 자세히 알아봅니다.
+
+<!-- URLs. -->
+[모바일 서비스 시작]: partner-xamarin-mobile-services-ios-get-started.md
+[기존 앱에 모바일 서비스 추가]: partner-xamarin-mobile-services-android-get-started-data.md
+
+[Google Cloud Messaging 클라이언트 구성 요소]: http://components.xamarin.com/view/GCMClient/
+[Xamarin.Android]: http://xamarin.com/download/
+[Azure Mobile Services Component]: http://components.xamarin.com/view/azure-mobile-services/
+<!--HONumber=54-->

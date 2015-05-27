@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="HDInsight의 Hadoop에서 Twitter 데이터 분석 | Azure" 
+	pageTitle="HDInsight의 Hadoop을 사용하여 Twitter 데이터 분석 | Microsoft Azure" 
 	description="Hive를 사용하여 HDInsight의 Hadoop에서 Twitter 데이터를 분석해 특정 단어의 사용 빈도를 확인하는 방법에 대해 알아봅니다." 
 	services="hdinsight" 
 	documentationCenter="" 
@@ -13,31 +13,22 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="1/29/2015" 
+	ms.date="04/09/2015" 
 	ms.author="jgao"/>
 
 # HDInsight의 Hadoop에서 Twitter 데이터 분석
 
-소셜 웹 사이트는 빅 데이터 채택의 주요 추진력 중 하나입니다. Twitter와 같은 사이트에서 제공하는 공개 API는 대중적인 추세를 분석하고 이해하는 데 유용한 데이터 원본입니다. 이 자습서에서는 Twitter 스트리밍 API를 사용해 트윗을 가져옵니다. 그런 다음 HDInsight에서 Apache Hive를 사용하여 특정 단어가 포함된 트윗을 가장 많이 보낸 Twitter 사용자의 목록을 가져옵니다.
+##개요
+소셜 웹 사이트는 빅데이터 채택의 주요 추진력 중 하나입니다. Twitter와 같은 사이트에서 제공하는 공개 API는 대중적인 추세를 분석하고 이해하는 데 유용한 데이터 원본입니다. 이 자습서에서는 Twitter 스트리밍 API를 사용해 트윗을 가져온 다음 Azure HDInsight의 Apache Hive를 사용하여 특정 단어가 포함된 트윗을 가장 많이 보낸 Twitter 사용자 목록을 가져옵니다.
 
-> [WACOM.NOTE] 비슷한 샘플이 HDInsight 샘플 갤러리에 추가됩니다. 다음 Channel 9 비디오에서는 샘플을 실행하는 방법을 보여줍니다.
+> [AZURE.NOTE]비슷한 샘플이 HDInsight 샘플 갤러리에 있습니다. Channel 9 동영상 보기: <a href="http://channel9.msdn.com/Series/Getting-started-with-Windows-Azure-HDInsight-Service/Analyze-Twitter-trend-using-Apache-Hive-in-HDInsight" target="_blank">HDInsight의 Apache Hive를 사용하여 Twitter 추세를 분석합니다</a>.
 
-<center><iframe width="854" height="510" src="https://www.youtube.com/embed/7ePbHot1SN4" frameborder="0" allowfullscreen></iframe></center>
-
-##이 문서의 내용
-
-- [필수 조건](#prerequisites)
-- [Twitter 피드 가져오기](#feed)
-- [HiveQL 스크립트 만들기](#script)
-- [Hive를 사용하여 데이터 처리](#process)
-- [다음 단계](#nextsteps)
-
-##<a id="prerequisites"></a>필수 조건
+##필수 조건
 이 자습서를 시작하기 전에 다음이 있어야 합니다.
 
-- Azure PowerShell이 설치 및 구성된 **워크스테이션**. 자세한 내용은 [Azure PowerShell 설치 및 구성][powershell-install]을 참조하세요. PowerShell 스크립트를 실행하려면 관리자로 Azure PowerShell을 실행하고 실행 정책을  *RemoteSigned*로 설정해야 합니다. [Windows PowerShell 스크립트 실행][powershell-script](영문)을 참조하세요.
+- Azure PowerShell이 설치 및 구성된 **워크스테이션**. 자세한 내용은 [Azure PowerShell 설치 및 구성][powershell-install]을 참조하세요. Windows PowerShell 스크립트를 실행하려면 관리자로 Azure PowerShell을 실행하고 실행 정책을 *RemoteSigned*로 설정해야 합니다. [Windows PowerShell 스크립트 실행][powershell-script](영문)을 참조하세요.
 
-	PowerShell 스크립트를 실행하기 전에 cmdlet을 사용하여 Azure 구독에 연결되어 있는지 확인합니다.
+	Windows PowerShell 스크립트를 실행하기 전에 cmdlet을 사용하여 Azure 구독에 연결되어 있는지 확인합니다.
 
 		Add-AzureAccount
 
@@ -51,21 +42,21 @@
 
 **HDInsight 저장소 이해**
 
-HDInsight는 데이터 저장소로 Azure Blob 저장소를 사용합니다.  이름은 *WASB* 또는  *Azure Storage - Blob*입니다. WASB는 Azure Blob 저장소에 구현한 Microsoft의 HDFS입니다. 자세한 내용은 [HDInsight에서 Azure Blob 저장소 사용][hdinsight-storage]을 참조하세요. 
+HDInsight는 데이터 저장소로 Azure Blob 저장소를 사용합니다. Azure Blob 저장소는 Microsoft의 HDFS(Hadoop Distributed File System) 구현입니다. 자세한 내용은 [HDInsight에서 Azure Blob 저장소 사용][hdinsight-storage]을 참조하세요.
 
-HDInsight 클러스터를 프로비전하면 HDFS의 경우처럼 Blob 저장소 컨테이너가 기본 파일로 지정됩니다. 프로비전 프로세스 중에 이 컨테이너 외에도 동일한 Azure 저장소 계정 또는 다른 Azure 저장소 계정에서 컨테이너를 추가할 수 있습니다. 저장소 계정 추가에 대한 지침은 [HDInsight 클러스터 프로비전][hdinsight-provision]을 참조하세요. 
+HDInsight 클러스터를 프로비전하면 HDFS의 경우처럼 Blob 저장소 컨테이너가 기본 파일로 지정됩니다. 프로비전 중에 이 컨테이너 외에도 동일한 Azure 저장소 계정 또는 다른 Azure 저장소 계정에서 컨테이너를 추가할 수 있습니다. 저장소 계정 추가에 대한 지침은 [HDInsight 클러스터 프로비전][hdinsight-provision]을 참조하세요.
 
-> [AZURE.NOTE] 이 자습서에서 사용되는 PowerShell 스크립트를 간소화하기 위해 모든 파일이 */tutorials/twitter*에 위치한 기본 파일 시스템 컨테이너에 저장됩니다. 기본적으로 이 컨테이너 이름은 HDInsight 클러스터 이름과 동일합니다. 다른 컨테이너를 사용하여 이러한 파일을 저장하는 경우에는 그에 따라 스크립트를 업데이트하세요.
+> [AZURE.NOTE]이 자습서에서 사용되는 Windows PowerShell 스크립트를 간소화하기 위해 모든 파일이 */tutorials/twitter*에 위치한 기본 파일 시스템 컨테이너에 저장됩니다. 기본적으로 이 컨테이너 이름은 HDInsight 클러스터 이름과 동일합니다. 다른 컨테이너를 사용하여 이러한 파일을 저장하는 경우에는 그에 따라 스크립트를 업데이트하세요.
 
-WASB 구문은 다음과 같습니다.
+Azure Blob 저장소 구문은 다음과 같습니다.
 
 	wasb[s]://<ContainerName>@<StorageAccountName>.blob.core.windows.net/<path>/<filename>
 
-> [AZURE.NOTE] HDInsight 클러스터 버전 3.0에서는 *wasb://* 구문만 지원됩니다. 이전 *asv://* 구문은 HDInsight 2.1 및 1.6 클러스터에서 지원되지만, HDInsight 3.0 클러스터에서는 지원되지 않으며 이후 버전에서도 지원되지 않습니다.
+> [AZURE.NOTE]HDInsight 클러스터 버전 3.0에서는 *wasb://* 구문만 지원됩니다. 이전 *asv://* 구문은 HDInsight 2.1 및 1.6 클러스터에서 지원되지만, HDInsight 3.0 클러스터에서는 지원되지 않으며 이후 버전에서도 지원되지 않습니다.
 
-> WASB 경로는 가상 경로입니다.  자세한 내용은 [HDInsight에서 Azure Blob 저장소 사용][hdinsight-storage]을 참조하세요. 
+> Azure Blob 저장소 경로는 가상 경로입니다. 자세한 내용은 [HDInsight에서 Azure Blob 저장소 사용][hdinsight-storage]을 참조하세요.
 
-기본 파일 시스템 컨테이너에 저장된 파일의 경우 HDInsight에서 다음 URI를 사용하여 이 파일에 액세스할 수 있습니다(tweets.txt를 예로 사용함).
+기본 파일 시스템 컨테이너에 저장된 파일은 다음 URI(Uniform Resource Identifier) 중 하나를 사용하여 HDInsight에서 액세스할 수 있습니다. 이러한 URI는 tweets.txt를 예로 사용합니다.
 
 	wasb://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/twitter/tweets.txt
 	wasb:///tutorials/twitter/tweets.txt
@@ -80,56 +71,56 @@ WASB 구문은 다음과 같습니다.
 <table border="1">
 <tr><th>파일</th><th>설명</th></tr>
 <tr><td>/tutorials/twitter/data/tweets.txt</td><td>Hive 작업의 원본 데이터입니다.</td></tr>
-<tr><td>/tutorials/twitter/output</td><td>Hive 작업의 출력 폴더입니다. 기본 파일 Hive 작업 출력 파일 이름은 <strong>000000_0</strong>입니다. </td></tr>
+<tr><td>/tutorials/twitter/output</td><td>Hive 작업의 출력 폴더입니다. 기본 Hive 작업 출력 파일 이름은 <strong>000000_0</strong>입니다. </td></tr>
 <tr><td>tutorials/twitter/twitter.hql</td><td>HiveQL 스크립트 파일입니다.</td></tr>
 <tr><td>/tutorials/twitter/jobstatus</td><td>Hadoop 작업 상태입니다.</td></tr>
 </table>
 
-##<a id="feed"></a>Twitter 피드 가져오기
+##Twitter 피드 가져오기
 
-이 자습서에는 [Twitter 스트리밍 API][twitter-streaming-ap](영문)를 사용합니다. 사용할 특정 Twitter 스트리밍 API는 [상태/필터][twitter-statuses-filter](영문)입니다.
+이 자습서에는 [Twitter 스트리밍 API][twitter-streaming-api](영문)를 사용합니다. 사용할 특정 Twitter 스트리밍 API는 [상태/필터][twitter-statuses-filter](영문)입니다.
 
->[WACOM.NOTE] 트윗 10,000개와 Hive 스크립트 파일(다음 섹션에서 설명됨)을 포함하는 파일이 공용 Blob 컨테이너에 업로드되었습니다. 업로드된 파일을 사용하려는 경우 이 섹션을 건너뛸 수 있습니다. 
+>[AZURE.NOTE]트윗 10,000개와 Hive 스크립트 파일(다음 섹션에서 설명됨)을 포함하는 파일이 공용 Blob 컨테이너에 업로드되었습니다. 업로드된 파일을 사용하려는 경우 이 섹션을 건너뛸 수 있습니다.
 
-[트윗 데이터](https://dev.twitter.com/docs/platform-objects/tweets)(영문)는 복잡한 중첩 구조를 포함하는 JSON 형식으로 저장됩니다. 기존의 프로그래밍 언어를 사용하여 여러 줄의 코드를 작성하는 대신, 이 중첩 구조를 Hive 테이블로 변환하여 HiveQL이라고 하는 SQL 같은 언어로 쿼리할 수 있습니다. 
+[트윗 데이터](https://dev.twitter.com/docs/platform-objects/tweets)(영문)는 복잡한 중첩 구조를 포함하는 JSON(JavaScript Object Notation) 형식으로 저장됩니다. 기존의 프로그래밍 언어를 사용하여 여러 줄의 코드를 작성하는 대신, 이 중첩 구조를 Hive 테이블로 변환하여 HiveQL이라는 SQL(구조적 쿼리 언어)과 유사한 언어로 쿼리할 수 있습니다.
 
-Twitter는 OAuth를 사용하여 API에 대한 권한 있는 액세스를 제공합니다. OAuth은 사용자가 암호를 공유하지 않아도 사용자를 대신하여 응용 프로그램 작동을 승인할 수 있게 하는 인증 프로토콜입니다. 자세한 내용은 [oauth.net](http://oauth.net/)(영문) 또는 Hueniverse가 제공하는 유용한 [OAuth 초보자 가이드](http://hueniverse.com/oauth/)(영문)를 참조하세요.
+Twitter는 OAuth를 사용하여 API에 대한 권한 있는 액세스를 제공합니다. OAuth는 사용자가 암호를 공유하지 않아도 사용자를 대신하여 응용 프로그램 작동을 승인할 수 있게 하는 인증 프로토콜입니다. 자세한 내용은 [oauth.net](http://oauth.net/)(영문) 또는 Hueniverse가 제공하는 유용한 [OAuth 초보자 가이드](http://hueniverse.com/oauth/)(영문)를 참조하세요.
 
 OAuth를 사용하는 첫 단계는 Twitter 개발자 사이트에서 새 응용 프로그램을 만드는 것입니다.
 
 **Twitter 응용 프로그램을 만들려면**
 
-1. [https://apps.twitter.com/](https://apps.twitter.com/)(영문)에 로그인합니다. Twitter 계정이 없는 경우 **지금 가입하세요** 링크를 클릭합니다.
+1. [https://apps.twitter.com/](https://apps.twitter.com/) (영문)에 로그인합니다. Twitter 계정이 없는 경우 **Sign up now** 링크를 클릭합니다.
 2. **Create New App**을 클릭합니다.
-3. **Name**, **Description**, **Website**를 입력합니다. 웹 사이트 필드의 URL을 구성할 수 있습니다. 다음 표는 사용할 샘플 값을 보여 줍니다.
+3. **Name**, **Description**, **Website**를 입력합니다. **Website** 필드의 URL을 구성할 수 있습니다. 다음 표는 사용할 샘플 값을 보여 줍니다.
 
 	<table border="1">
-	<tr><th>필드</th><th>값</th></tr>
-	<tr><td>이름</td><td>MyHDInsightApp</td></tr>
-	<tr><td>설명</td><td>MyHDInsightApp</td></tr>
-	<tr><td>웹 사이트</td><td>http://www.myhdinsightapp.com</td></tr>
-	</table>
+<tr><th>필드</th><th>값</th></tr>
+<tr><td>이름</td><td>MyHDInsightApp</td></tr>
+<tr><td>설명</td><td>MyHDInsightApp</td></tr>
+<tr><td>웹 사이트</td><td>http://www.myhdinsightapp.com</td></tr>
+</table>
 4. **Yes, I agree**를 선택한 후 **Create your Twitter application**을 클릭합니다.
 5. **Permissions** 탭을 클릭합니다. 기본 권한은 **Read only**입니다. 이 자습서에는 이 권한이면 충분합니다. 
 6. **Keys and Access Tokens** 탭을 클릭합니다.
 7. **Create my access token**을 클릭합니다.
-8. 페이지의 오른쪽 위 모서리에서 **Test OAuth**를 클릭합니다.
+8. 페이지의 오른쪽 위에서 **Test OAuth**를 클릭합니다.
 9. **consumer key**, **Consumer secret**, **Access token** 및 **Access token secret**을 기록해 둡니다. 이 값은 자습서의 뒷부분에서 필요합니다.
 
-이 자습서에서는 PowerShell을 사용하여 웹 서비스를 호출합니다. .NET C# 샘플의 경우 [HDInsight에서 HBase를 사용하여 Twitter 데이터 실시간 분석][hdinsight-hbase-twitter-sentiment]을 참조하세요. 웹 서비스 호출에 많이 사용되는 다른 도구는 [*Curl*][curl]입니다. Curl은 [여기][curl-download](영문)에서 다운로드할 수 있습니다.
+이 자습서에서는 Windows PowerShell을 사용하여 웹 서비스를 호출합니다. .NET C# 샘플의 경우 [HDInsight에서 HBase를 사용하여 Twitter 데이터 실시간 분석][hdinsight-hbase-twitter-sentiment]을 참조하세요. 웹 서비스 호출에 많이 사용되는 다른 도구는 [*Curl*][curl]입니다. Curl은 [여기][curl-download](영문)에서 다운로드할 수 있습니다.
 
->[AZURE.NOTE] Windows에서 curl 명령을 사용할 때는 옵션 값에 작은따옴표 대신 큰따옴표를 사용합니다.
+>[AZURE.NOTE]Windows에서 curl 명령을 사용할 때는 옵션 값에 작은따옴표 대신 큰따옴표를 사용합니다.
 
 **트윗을 가져오려면**
 
-1. Windows PowerShell ISE를 엽니다. Windows 8 시작 화면에서 **PowerShell_ISE**를 입력한 후 **Windows PowerShell ISE**를 클릭하면 됩니다. [Windows 8 및 Windows에서 Windows PowerShell 시작][powershell-start](영문)을 참조하세요.
+1. Windows PowerShell ISE(통합 스크립팅 환경)를 엽니다. Windows 8 시작 화면에서 **PowerShell_ISE**를 입력하고 **Windows PowerShell ISE**를 클릭하면 됩니다. [Windows 8 및 Windows에서 Windows PowerShell 시작][powershell-start](영문)을 참조하세요.
 
 2. 스크립트 창에서 다음 스크립트를 복사합니다.
 
 		#region - variables and constants
 		$clusterName = "<HDInsightClusterName>" # Enter the HDInsight cluster name
 		
-		# Enter the Oauth information for your Twitter application
+		# Enter the OAuth information for your Twitter application
 		$oauth_consumer_key = "<TwitterAppConsumerKey>";
 		$oauth_consumer_secret = "<TwitterAppConsumerSecret>";
 		$oauth_token = "<TwitterAppAccessToken>";
@@ -147,7 +138,7 @@ OAuth를 사용하는 첫 단계는 Twitter 개발자 사이트에서 새 응용
 		Add-AzureAccount
 		#endregion
 			
-		#region - Create a block blob object for writting Tweets into Blob storage
+		#region - Create a block blob object for writing tweets into Blob storage
 		Write-Host "Get the default storage account name and Blob container name using the cluster name ..." -ForegroundColor Green
 		$myCluster = Get-AzureHDInsightCluster -Name $clusterName
 		$storageAccountName = $myCluster.DefaultStorageAccount.StorageAccountName.Replace(".blob.core.windows.net", "")	
@@ -167,7 +158,7 @@ OAuth를 사용하는 첫 단계는 Twitter 개발자 사이트에서 새 응용
 		$destBlob = $storageContainer.GetBlockBlobReference($destBlobName)
 		#end region
 				
-		# region - Format oauth strings	
+		# region - Format OAuth strings	
 		Write-Host "Format oauth strings ..." -ForegroundColor Green
 		$oauth_nonce = [System.Convert]::ToBase64String([System.Text.Encoding]::ASCII.GetBytes([System.DateTime]::Now.Ticks.ToString()));
 		$ts = [System.DateTime]::UtcNow - [System.DateTime]::ParseExact("01/01/1970", "dd/MM/yyyy", $null)
@@ -249,42 +240,42 @@ OAuth를 사용하는 첫 단계는 Twitter 개발자 사이트에서 새 응용
 		
 		Write-Host "Completed!" -ForegroundColor Green
 
-3. 스크립트에서 첫 번째 5~8개의 변수를 설정합니다.	
+3. 스크립트에서 첫 번째 5\~8개의 변수를 설정합니다.
 
 	<table border="1">
-	<tr><th>변수</th><th>설명</th></tr>
-	<tr><td>$clusterName</td><td>응용 프로그램을 실행하려는 HDInsight 클러스터의 이름입니다.</td></tr><tr><td>$oauth_consumer_key</td><td>앞에서 Twitter 응용 프로그램을 만들 때 기록해 둔 <strong>소비자 키</strong> 입니다.</td></tr>
-	<tr><td>$oauth_consumer_secret</td><td>앞에서 기록해 둔 <strong>소비자 비밀</strong> 입니다.</td></tr>
-	<tr><td>$oauth_token</td><td>앞에서 기록해 둔 Twitter 응용 프로그램 <strong>액세스 토큰</strong> 입니다.</td></tr>
-	<tr><td>$oauth_token_secret</td><td>앞에서 기록해 둔 Twitter 응용 프로그램 <strong>액세스 토큰 비밀</strong> 입니다.</td></tr>	
-	<tr><td>$destBlobName</td><td>출력 Blob 이름입니다.  기본값은 <strong>tutorials/twitter/data/tweets.txt</strong>입니다. 기본값을 변경하는 경우 이에 따라 PowerShell 스크립트를 업데이트해야 합니다.</td></tr>
-	<tr><td>$trackString</td><td>웹 서비스가 이 키워드와 관련된 트윗을 반환합니다.  기본값은 <strong>Azure, Cloud, HDInsight</strong>입니다. 기본값을 변경하는 경우 이에 따라 PowerShell 스크립트를 업데이트합니다.</td></tr>
-	<tr><td>$lineMax</td><td>이 값은 스크립트가 읽는 트윗의 수를 결정합니다. 트윗 100개를 읽는 데 약 3분이 걸립니다. 더 큰 수를 설정할 수 있지만 그러면 다운로드하는 데 더 많은 시간이 걸립니다.</td></tr>
+<tr><th>변수</th><th>설명</th></tr>
+<tr><td>$clusterName</td><td>응용 프로그램을 실행하려는 HDInsight 클러스터의 이름입니다.</td></tr><tr><td>$oauth_consumer_key</td><td>앞에서 Twitter 응용 프로그램을 만들 때 적어 둔 Twitter 응용 프로그램 <strong>consumer key</strong>입니다.</td></tr>
+<tr><td>$oauth_consumer_secret</td><td>앞에서 기록해 둔 Twitter 응용 프로그램 <strong>consumer secret</strong>입니다.</td></tr>
+<tr><td>$oauth_token</td><td>앞에서 기록해 둔 Twitter 응용 프로그램 <strong>access token</strong>입니다.</td></tr>
+<tr><td>$oauth_token_secret</td><td>앞에서 기록해 둔 Twitter 응용 프로그램 <strong>access token secret</strong>입니다.</td></tr>	
+<tr><td>$destBlobName</td><td>출력 Blob 이름입니다. 기본값은 <strong>tutorials/twitter/data/tweets.txt</strong>입니다. 기본값을 변경하는 경우 이에 따라 Windows PowerShell 스크립트를 업데이트해야 합니다.</td></tr>
+<tr><td>$trackString</td><td>웹 서비스가 이 키워드와 관련된 트윗을 반환합니다. 기본값은 <strong>Azure, Cloud, HDInsight</strong>입니다. 기본값을 변경하는 경우 이에 따라 Windows PowerShell 스크립트를 업데이트합니다.</td></tr>
+<tr><td>$lineMax</td><td>이 값은 스크립트가 읽는 트윗의 수를 결정합니다. 트윗 100개를 읽는 데 약 3분이 걸립니다. 더 큰 수를 설정할 수 있지만 그러면 다운로드하는 데 더 많은 시간이 걸립니다.</td></tr>
 
-	</table>
+</table>
 
 5. **F5** 키를 눌러 스크립트를 실행합니다. 문제가 발생하는 경우 해결하려면 모든 줄을 선택하고 **F8** 키를 누릅니다.
 6. 출력 끝부분에 "Complete!"가 표시됩니다. 오류 메시지는 빨간색으로 표시됩니다.
 
-유효성 검사 절차로, Azure 저장소 탐색기 또는 Azure PowerShell을 사용하여 Azure Blob 저장소에서 출력 파일 **/tutorials/twitter/data/tweets.txt**를 확인할 수 있습니다.  파일을 나열하는 샘플 PowerShell 스크립트를 보려면 [HDInsight에서 Blob 저장소 사용][hdinsight-storage-powershell]을 참조하세요. 
+유효성 검사 절차로, Azure 저장소 탐색기 또는 Azure PowerShell을 사용하여 Azure Blob 저장소에서 출력 파일 **/tutorials/twitter/data/tweets.txt**를 확인할 수 있습니다. 파일을 나열하는 샘플 Windows PowerShell 스크립트를 보려면 [HDInsight에서 Blob 저장소 사용][hdinsight-storage-powershell]을 참조하세요.
 
 
 
-##<a id="script"></a>HiveQL 스크립트 만들기
+##HiveQL 스크립트 만들기
 
-Azure PowerShell을 사용하여 여러 HiveQL 문을 한 번에 하나씩 실행하거나 HiveQL 문을 스크립트 파일에 패키지할 수 있습니다. 이 자습서에서는 HiveQL 스크립트를 만듭니다. 스크립트 파일은 WASB에 업로드해야 합니다. 다음 섹션에서는 Azure PowerShell을 사용하여 스크립트 파일을 실행합니다.
+Azure PowerShell을 사용하여 여러 HiveQL 문을 한 번에 하나씩 실행하거나 HiveQL 문을 스크립트 파일에 패키지할 수 있습니다. 이 자습서에서는 HiveQL 스크립트를 만듭니다. 스크립트 파일은 Azure Blob 저장소에 업로드해야 합니다. 다음 섹션에서는 Azure PowerShell을 사용하여 스크립트 파일을 실행합니다.
 
->[WACOM.NOTE] Hive 스크립트 파일 및 트윗 10,000개를 포함하는 파일이 공용 Blob 컨테이너에 업로드되었습니다. 업로드된 파일을 사용하려는 경우 이 섹션을 건너뛸 수 있습니다.
+>[AZURE.NOTE]Hive 스크립트 파일 및 트윗 10,000개를 포함하는 파일이 공용 Blob 컨테이너에 업로드되었습니다. 업로드된 파일을 사용하려는 경우 이 섹션을 건너뛸 수 있습니다.
 
 HiveQL 스크립트는 다음을 수행합니다.
 
 1. 이미 있는 경우 **tweets_raw 테이블을 삭제**합니다.
-2. **weets_raw Hive 테이블을 만듭니다**. 이 임시 Hive 구조적 테이블에는 추가 ETL 처리를 위한 데이터가 저장됩니다.  파티션에 대한 자세한 내용은 [Hive 자습서][apache-hive-tutorial](영문)를 참조하세요.  
-3. 원본 폴더인 /tutorials/twitter/data에서 **데이터를 로드**합니다. 이제 중첩 JSon 형식의 대량 트윗 데이터 집합이 임시 Hive 테이블 구조로 변환되었습니다.
+2. **tweets_raw Hive 테이블을 만듭니다**. 이 임시 Hive 구조적 테이블에는 추가 ETL(추출, 변환 및 로드) 처리를 위한 데이터가 저장됩니다. 파티션에 대한 자세한 내용은 [Hive 자습서][apache-hive-tutorial](영문)을 참조하세요.  
+3. 원본 폴더인 /tutorials/twitter/data에서 **데이터를 로드**합니다. 이제 중첩 JSON 형식의 대량 트윗 데이터 집합이 임시 Hive 테이블 구조로 변환되었습니다.
 3. 이미 있는 경우 **tweets 테이블을 삭제**합니다.
-4. **tweets 테이블을 만듭니다**. Hive를 사용하여 트윗 데이터 집합에 대해 쿼리하려면 먼저, 다른 ETL 프로세스를 실행해야 합니다. 이 ETL 프로세스는 "twitter_raw" 테이블에 저장한 데이터에 대해 더욱 자세한 테이블 스키마를 정의합니다.  
-5. **overwrite 테이블을 삽입**합니다. 이 복잡한 Hive 스크립트는 Hadoop 클러스터로 긴 Map Reduce 작업 집합을 시작합니다.  데이터 집합 및 클러스터의 크기에 따라 이 작업은 약 10분 정도 걸릴 수 있습니다.
-6. **overwrite 디렉터리를 삽입**합니다. 쿼리를 실행하고 데이터 집합을 파일로 출력합니다. 이 쿼리는 "Azure"라는 단어가 포함된 트윗을 가장 많이 보낸 Twitter 사용자의 목록을 반환합니다.
+4. **tweets 테이블을 만듭니다**. Hive를 사용하여 트윗 데이터 집합에 대해 쿼리하려면 먼저 다른 ETL 프로세스를 실행해야 합니다. 이 ETL 프로세스는 "twitter_raw" 테이블에 저장한 데이터에 대해 더욱 자세한 테이블 스키마를 정의합니다.  
+5. **overwrite 테이블을 삽입**합니다. 이 복잡한 Hive 스크립트는 Hadoop 클러스터로 긴 MapReduce 작업 집합을 시작합니다. 데이터 집합 및 클러스터의 크기에 따라 이 작업은 약 10분 정도 걸릴 수 있습니다.
+6. **overwrite 디렉터리 삽입**합니다. 쿼리를 실행하고 데이터 집합을 파일로 출력합니다. 이 쿼리는 "Azure"라는 단어가 포함된 트윗을 가장 많이 보낸 Twitter 사용자의 목록을 반환합니다.
 
 **Hive 스크립트를 만들어 Azure에 업로드하려면**
 
@@ -415,7 +406,7 @@ HiveQL 스크립트는 다음을 수행합니다.
 		Add-AzureAccount
 		#endregion
 			
-		#region - Create a block blob object for writting the Hive script file
+		#region - Create a block blob object for writing the Hive script file
 		Write-Host "Get the default storage account name and container name based on the cluster name ..." -ForegroundColor Green
 		$myCluster = Get-AzureHDInsightCluster -Name $clusterName
 		$storageAccountName = $myCluster.DefaultStorageAccount.StorageAccountName.Replace(".blob.core.windows.net", "")	
@@ -449,31 +440,31 @@ HiveQL 스크립트는 다음을 수행합니다.
 		Write-Host "Completed!" -ForegroundColor Green
 
 
-4. 스크립트에서 첫 2개의 변수를 설정합니다.	
+4. 스크립트에서 첫 2개의 변수를 설정합니다.
 
 	<table border="1">
-	<tr><th>변수</th><th>설명</th></tr>
-	<tr><td>$clusterName</td><td>응용 프로그램을 실행하려는 HDInsight 클러스터 이름을 입력합니다.</td></tr>
-	<tr><td>$sourceDataPath</td><td>Hive 쿼리가 데이터를 읽는 WASB 위치입니다. 이 변수를 변경할 필요가 없습니다.</td></tr>
-	<tr><td>$outputPath</td><td>Hive 쿼리가 결과를 출력하는 WASB 위치입니다. 이 변수를 변경할 필요가 없습니다.</td></tr>
-	<tr><td>$hqlScriptFile</td><td>HiveQL 스크립트 파일의 위치 및 파일 이름입니다. 이 변수를 변경할 필요가 없습니다.</td></tr>
-	</table>
+<tr><th>변수</th><th>설명</th></tr>
+<tr><td>$clusterName</td><td>응용 프로그램을 실행하려는 HDInsight 클러스터 이름을 입력합니다.</td></tr>
+<tr><td>$sourceDataPath</td><td>Hive 쿼리가 데이터를 읽는 Azure Blob 저장소 위치입니다. 이 변수를 변경할 필요가 없습니다.</td></tr>
+<tr><td>$outputPath</td><td>Hive 쿼리가 결과를 출력하는 Azure Blob 저장소 위치입니다. 이 변수를 변경할 필요가 없습니다.</td></tr>
+<tr><td>$hqlScriptFile</td><td>HiveQL 스크립트 파일의 위치 및 파일 이름입니다. 이 변수를 변경할 필요가 없습니다.</td></tr>
+</table>
 
 5. **F5** 키를 눌러 스크립트를 실행합니다. 문제가 발생하는 경우 해결하려면 모든 줄을 선택하고 **F8** 키를 누릅니다.
 6. 출력 끝부분에 "Complete!"가 표시됩니다. 오류 메시지는 빨간색으로 표시됩니다.
 
-유효성 검사 절차로, Azure 저장소 탐색기 또는 Azure PowerShell을 사용하여 Azure Blob 저장소에서 출력 파일 **/tutorials/twitter/twitter.hql**을 확인할 수 있습니다.  파일을 나열하는 샘플 PowerShell 스크립트를 보려면 [HDInsight에서 Blob 저장소 사용][hdinsight-storage-powershell]을 참조하세요.  
+유효성 검사 절차로, Azure 저장소 탐색기 또는 Azure PowerShell을 사용하여 Azure Blob 저장소에서 출력 파일 **/tutorials/twitter/twitter.hql**을 확인할 수 있습니다. 파일을 나열하는 샘플 Windows PowerShell 스크립트를 보려면 [HDInsight에서 Blob 저장소 사용][hdinsight-storage-powershell]을 참조하세요.
 
 
-##<a name="process"></a> Hive를 사용하여 Twitter 데이터 처리
+##Hive를 사용하여 Twitter 데이터 처리
 
 준비 작업을 모두 마쳤습니다. 이제 Hive 스크립트를 호출하고 결과를 확인할 수 있습니다.
 
 ### Hive 작업 제출
 
-다음 PowerShell 스크립트를 사용하여 Hive 스크립트를 실행합니다. 첫 번째 변수를 설정해야 합니다.
+다음 Windows PowerShell 스크립트를 사용하여 Hive 스크립트를 실행합니다. 첫 번째 변수를 설정해야 합니다.
 
->[WACOM.NOTE] 마지막 두 섹션에서 업로드한 HiveQL 스크립트 및 트윗을 사용하려면 $hqlScriptFile을 "/tutorials/twitter/twitter.hql"로 설정합니다. 공용 Blob에 업로드한 HiveQL 스크립트 및 트윗을 사용하려면 $hqlScriptFile을 "wasb://twittertrend@hditutorialdata.blob.core.windows.net/twitter.hql"로 설정합니다.
+>[AZURE.NOTE]마지막 두 섹션에서 업로드한 HiveQL 스크립트 및 트윗을 사용하려면 $hqlScriptFile을 "/tutorials/twitter/twitter.hql"로 설정합니다. 공용 Blob에 업로드한 HiveQL 스크립트 및 트윗을 사용하려면 $hqlScriptFile을 "wasb://twittertrend@hditutorialdata.blob.core.windows.net/twitter.hql"로 설정합니다.
 
 	#region variables and constants
 	$clusterName = "<HDInsightClusterName>"
@@ -491,13 +482,13 @@ HiveQL 스크립트는 다음을 수행합니다.
 	$response = Invoke-Hive -file $hqlScriptFile -StatusFolder $statusFolder -OutVariable $outVariable
 	
 	Write-Host "Display the standard error log ... " -ForegroundColor Green
-	$jobID = ($response | Select-String job_ | Select-Object -First 1) -replace '\s*$' -replace '.*\s'
+	$jobID = ($response | Select-String job_ | Select-Object -First 1) -replace ‘\s*$’ -replace ‘.*\s’
 	Get-AzureHDInsightJobOutput -cluster $clusterName -JobId $jobID -StandardError 
 	#endregion
 
 ### 결과 확인
 
-다음 PowerShell 스크립트를 사용하여 Hive 작업 출력을 확인합니다. 처음 2개의 변수를 설정해야 합니다.
+다음 Windows PowerShell 스크립트를 사용하여 Hive 작업 출력을 확인합니다. 처음 2개의 변수를 설정해야 합니다.
 
 	#region variables and constants
 	$clusterName = "<HDInsightClusterName>"
@@ -505,7 +496,7 @@ HiveQL 스크립트는 다음을 수행합니다.
 	$blob = "tutorials/twitter/output/000000_0" # The name of the blob to be downloaded.
 	#engregion
 	
-	#region - Create an azure storage context object
+	#region - Create an Azure storage context object
 	Write-Host "Get the default storage account name and container name based on the cluster name ..." -ForegroundColor Green
 	$myCluster = Get-AzureHDInsightCluster -Name $clusterName
 	$storageAccountName = $myCluster.DefaultStorageAccount.StorageAccountName.Replace(".blob.core.windows.net", "")	
@@ -529,19 +520,19 @@ HiveQL 스크립트는 다음을 수행합니다.
 	Write-Host "==================================" -ForegroundColor Green
 	#end region
 
-> [AZURE.NOTE] Hive 테이블은 필드 구분 기호로 \001을 사용합니다. 구분 기호는 출력에서 보이지 않습니다. 
+> [AZURE.NOTE]Hive 테이블은 필드 구분 기호로 \\001을 사용합니다. 구분 기호는 출력에서 보이지 않습니다.
 
-분석 결과가 WASB에 배치된 후에는 데이터를 Azure SQL 데이터베이스/SQL Server로 내보내거나, Power Query를 사용하여 데이터를 Excel로 내보내거나, Hive ODBC 드라이버를 사용하여 응용 프로그램을 데이터에 연결할 수 있습니다.  자세한 내용은 [HDInsight에서 Sqoop 사용][hdinsight-use-sqoop] ,[HDInsight를 사용하여 비행 지연 데이터 분석][hdinsight-analyze-flight-delay-data], [파워 쿼리로 HDInsight에 Excel 연결][hdinsight-power-query], 및 [Microsoft Hive ODBC 드라이버로 HDInsight에 Excel 연결][hdinsight-hive-odbc](영문)을 참조하세요.
+분석 결과가 Azure Blob 저장소에 배치된 후에는 데이터를 Azure SQL 데이터베이스/SQL Server로 내보내거나, 파워 쿼리를 사용하여 데이터를 Excel로 내보내거나, Hive ODBC 드라이버를 사용하여 응용 프로그램을 데이터에 연결할 수 있습니다. 자세한 내용은 [HDInsight에서 Sqoop 사용][hdinsight-use-sqoop], [HDInsight를 사용하여 비행 지연 데이터 분석][hdinsight-analyze-flight-delay-data], [파워 쿼리로 HDInsight에 Excel 연결][hdinsight-power-query] 및 [Microsoft Hive ODBC 드라이버로 HDInsight에 Excel 연결][hdinsight-hive-odbc]을 참조하세요.
 
-##<a id="nextsteps"></a>다음 단계
+##다음 단계
 
-이 자습서에서는 비구조적 Json 데이터 집합을 구조적 Hive 테이블로 변환해서 Azure의 HDInsight를 사용하여 Twitter 데이터를 쿼리하고 탐색하고 분석하는 방법에 대해 살펴보았습니다. 자세한 내용은 다음을 참조하세요.
+이 자습서에서는 비구조적 JSON 데이터 집합을 구조적 Hive 테이블로 변환하여 Azure의 HDInsight를 통해 Twitter 데이터를 쿼리하고 탐색하고 분석하는 방법을 살펴보았습니다. 자세한 내용은 다음을 참조하세요.
 
 - [HDInsight 시작][hdinsight-get-started]
 - [HDInsight에서 HBase를 사용하여 Twitter 데이터 실시간 분석][hdinsight-hbase-twitter-sentiment]
 - [HDInsight를 사용하여 비행 지연 데이터 분석][hdinsight-analyze-flight-delay-data]
 - [파워 쿼리로 HDInsight에 Excel 연결][hdinsight-power-query]
-- [Microsoft Hive ODBC 드라이버로 HDInsight에 Excel 연결(영문)][hdinsight-hive-odbc]
+- [Microsoft Hive ODBC 드라이버로 HDInsight에 Excel 연결][hdinsight-hive-odbc]
 - [HDInsight에서 Sqoop 사용][hdinsight-use-sqoop]
 
 [curl]: http://curl.haxx.se
@@ -549,22 +540,22 @@ HiveQL 스크립트는 다음을 수행합니다.
 
 [apache-hive-tutorial]: https://cwiki.apache.org/confluence/display/Hive/Tutorial
 
-[twitter-streaming-ap]: https://dev.twitter.com/docs/streaming-apis
+[twitter-streaming-api]: https://dev.twitter.com/docs/streaming-apis
 [twitter-statuses-filter]: https://dev.twitter.com/docs/api/1.1/post/statuses/filter
 
 [powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
-[powershell-install]: ../install-configure-powershell
+[powershell-install]: install-configure-powershell.md
 [powershell-script]: http://technet.microsoft.com/library/ee176961.aspx
 
 
-[hdinsight-provision]: ../hdinsight-provision-clusters/
-[hdinsight-get-started]: ../hdinsight-get-started/
-[hdinsight-storage-powershell]: ../hdinsight-use-blob-storage/#powershell
-[hdinsight-analyze-flight-delay-data]: ../hdinsight-analyze-flight-delay-data/
-[hdinsight-storage]: ../hdinsight-use-blob-storage/
-[hdinsight-use-sqoop]: ../hdinsight-use-sqoop/
-[hdinsight-power-query]: ../hdinsight-connect-excel-power-query/
-[hdinsight-hive-odbc]: ../hdinsight-connect-excel-hive-ODBC-driver/
-[hdinsight-hbase-twitter-sentiment]: ../hdinsight-hbase-analyze-twitter-sentiment/
+[hdinsight-provision]: hdinsight-provision-clusters.md
+[hdinsight-get-started]: hdinsight-get-started.md
+[hdinsight-storage-powershell]: hdinsight-use-blob-storage.md#powershell
+[hdinsight-analyze-flight-delay-data]: hdinsight-analyze-flight-delay-data.md
+[hdinsight-storage]: hdinsight-use-blob-storage.md
+[hdinsight-use-sqoop]: hdinsight-use-sqoop.md
+[hdinsight-power-query]: hdinsight-connect-excel-power-query.md
+[hdinsight-hive-odbc]: hdinsight-connect-excel-hive-ODBC-driver.md
+[hdinsight-hbase-twitter-sentiment]: hdinsight-hbase-analyze-twitter-sentiment.md
 
-<!--HONumber=42-->
+<!--HONumber=54-->

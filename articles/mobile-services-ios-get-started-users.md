@@ -1,4 +1,4 @@
-﻿<properties
+<properties
 	pageTitle="기존 Azure 모바일 서비스 앱에 인증 추가(iOS) | 모바일 개발자 센터"
 	description="모바일 서비스를 사용하여 Google, Facebook, Twitter, Microsoft 등의 다양한 ID 공급자를 통해 iOS 앱 사용자를 인증하는 방법을 알아봅니다."
 	services="mobile-services"
@@ -47,11 +47,11 @@ Xcode에서 프로젝트를 엽니다. **실행** 단추를 눌러 앱을 시작
 다음 자습서인 [모바일 서비스 사용자의 서비스 쪽 권한 부여]에서는 사용자 ID 값을 사용하여 반환되는 데이터를 필터링합니다.
 
 <!-- Anchors. -->
-[인증을 위해 앱 등록 및 모바일 서비스 구성]: #register
-[테이블 사용 권한을 인증된 사용자로 제한]: #permissions
-[앱에 인증 추가]: #add-authentication
-[다음 단계]:#next-steps
-[앱에 인증 토큰 저장]:#store-authentication
+[Register your app for authentication and configure Mobile Services]: #register
+[Restrict table permissions to authenticated users]: #permissions
+[Add authentication to the app]: #add-authentication
+[Next Steps]: #next-steps
+[Storing authentication tokens in your app]: #store-authentication
 
 <!-- Images. -->
 
@@ -74,16 +74,16 @@ Xcode에서 프로젝트를 엽니다. **실행** 단추를 눌러 앱을 시작
 
 <!-- URLs. -->
 [모바일 서비스 사용자의 서비스 쪽 권한 부여]: mobile-services-javascript-backend-service-side-authorization.md
-[앱 제출 페이지]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[내 응용 프로그램]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Windows용 Live SDK]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Live Connect를 사용한 Windows 스토어 앱의 Single Sign-On]: /develop/mobile/tutorials/single-sign-on-windows-8-dotnet
+[Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
+[Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
+[Single sign-on for Windows Store apps by using Live Connect]: /develop/mobile/tutorials/single-sign-on-windows-8-dotnet
 [모바일 서비스 퀵 스타트 자습서]: /develop/mobile/tutorials/get-started-ios
-[데이터 시작]: /develop/mobile/tutorials/get-started-with-data-ios
-[인증 시작]: /develop/mobile/tutorials/get-started-with-users-ios
-[푸시 알림 시작]: /develop/mobile/tutorials/get-started-with-push-ios
-[스크립트를 통해 사용자 권한 부여]: /develop/mobile/tutorials/authorize-users-in-scripts-ios
+[Get started with data]: /develop/mobile/tutorials/get-started-with-data-ios
+[Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-ios
+[Get started with push notifications]: /develop/mobile/tutorials/get-started-with-push-ios
+[Authorize users with scripts]: /develop/mobile/tutorials/authorize-users-in-scripts-ios
 
-[Azure 관리 포털]: https://manage.windowsazure.com/
+[Azure Management Portal]: https://manage.windowsazure.com/
 
-<!--HONumber=49-->
+<!--HONumber=54-->

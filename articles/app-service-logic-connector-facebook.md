@@ -1,9 +1,9 @@
-﻿<properties 
+<properties 
    pageTitle="Facebook Connector API 앱" 
    description="FacebookConnector 사용 방법" 
    services="app-service\logic" 
    documentationCenter=".net,nodejs,java" 
-   authors="adgoda" 
+   authors="anuragdalmia" 
    manager="dwrede" 
    editor=""/>
 
@@ -19,7 +19,7 @@
 
 # 논리 앱에 Facebook Connector 사용 #
 
-논리 앱은 다양한 데이터 원본을 기반으로 트리거하고 흐름의 일부로 데이터를 가져오고 처리하기 위한 커넥터를 제공할 수 있습니다. 
+논리 앱은 다양한 데이터 원본을 기반으로 트리거하고 흐름의 일부로 데이터를 가져오고 처리하기 위한 커넥터를 제공할 수 있습니다.
 
 Facebook Connector를 사용하면 Facebook 계정에서 "New Post on User Timeline(사용자 타임라인의 새 게시물)", "New Post on Page(페이지의 새 게시물)", "Publish Post(게시물 게시)", "Publish Photo(사진 게시)" 등을 검색할 수 있습니다.
 
@@ -58,9 +58,9 @@ API 앱을 만들고 나면 이제 Facebook Connector를 논리 앱의 트리거
 	![][5]
 5.	"Azure AppService Logic Apps(Azure AppService 논리 앱)"를 허용합니다. 
 
-	![][6]
-	![][7]
-	![][8]     
+	![][6] 
+	![][7] 
+	![][8] 
 6.	트리거를 선택합니다.
  
 	![][9]
@@ -71,8 +71,9 @@ API 앱을 만들고 나면 이제 Facebook Connector를 논리 앱의 트리거
  
 	![][11]
 
+**팁** - Facebook 페이지 ID 또는 Yammer 그룹 ID를 가져오려면 URL에서 숫자 코드를 찾습니다.
 
-	<!--Image references-->
+<!--Image references-->
 [1]: ./media/app-service-logic-connector-facebook/img1.png
 [2]: ./media/app-service-logic-connector-facebook/img2.png
 [3]: ./media/app-service-logic-connector-facebook/img3.png
@@ -85,4 +86,4 @@ API 앱을 만들고 나면 이제 Facebook Connector를 논리 앱의 트리거
 [10]: ./media/app-service-logic-connector-facebook/img10.png
 [11]: ./media/app-service-logic-connector-facebook/img11.png
 
-<!--HONumber=49-->
+<!--HONumber=54-->

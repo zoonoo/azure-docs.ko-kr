@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Azure 앱 서비스에서 웹 앱에 대한 진단 로깅 설정" 
 	description="진단 로그를 사용하도록 설정하는 방법, 응용 프로그램에 계측을 추가하는 방법 및 Azure에서 기록된 정보에 액세스하는 방법에 대해 알아봅니다." 
 	services="app-service\web" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/24/2015" 
+	ms.date="03/29/2015" 
 	ms.author="cephalin"/>
 
 # Azure 앱 서비스에서 웹 앱에 대한 진단 로깅 설정
@@ -22,7 +22,7 @@
 
 Azure는 [앱 서비스](http://go.microsoft.com/fwlink/?LinkId=529714)에 호스팅된 웹 앱을 디버그하는 데 도움이 되는 기본 제공 진단을 제공합니다. 이 문서에서는 진단 로그를 사용하도록 설정하는 방법, 응용 프로그램에 계측을 추가하는 방법 및 Azure에서 기록된 정보에 액세스하는 방법을 설명합니다.
 
-> [AZURE.NOTE] 이 문서에서는 [Azure 포털](http://go.microsoft.com/fwlink/?LinkId=529715), Azure PowerShell 및 Azure 플랫폼 간 명령줄 인터페이스를 사용하여 진단 로그로 작업하는 방법을 사용합니다. Visual Studio를 사용하여 진단 로그로 작업하는 방법에 대한 자세한 내용은 [Visual Studio에서 Azure 문제 해결](troubleshoot-web-sites-in-visual-studio.md)을 참조하세요.
+> [AZURE.NOTE]이 문서에서는 [Azure preview 포털](http://go.microsoft.com/fwlink/?LinkId=529715), Azure PowerShell 및 Azure 플랫폼 간 명령줄 인터페이스를 사용하여 진단 로그로 작업하는 방법을 사용합니다. Visual Studio를 사용하여 진단 로그로 작업하는 방법에 대한 자세한 내용은 [Visual Studio에서 Azure 문제 해결](troubleshoot-web-sites-in-visual-studio.md)을 참조하세요.
 
 ## <a name="whatisdiag"></a>웹 서버 진단 및 응용 프로그램 진단
 
@@ -46,7 +46,7 @@ Azure는 [앱 서비스](http://go.microsoft.com/fwlink/?LinkId=529714)에 호�
 
 Visual Studio를 사용하여 응용 프로그램 진단으로 작업하는 방법에 대한 자세한 내용은 [Visual Studio에서 Azure 웹 앱 문제 해결](troubleshoot-web-sites-in-visual-studio.md)을 참조하세요.
 
-> [AZURE.NOTE] web.config 파일을 변경하는 것과 달리, 응용 프로그램 진단을 사용하도록 설정하거나 진단 로그 수준을 변경하면 응용 프로그램이 실행되는 앱 도메인이 재순환되지 않습니다.
+> [AZURE.NOTE]web.config 파일을 변경하는 것과 달리, 응용 프로그램 진단을 사용하도록 설정하거나 진단 로그 수준을 변경하면 응용 프로그램이 실행되는 앱 도메인이 재순환되지 않습니다.
 
 웹 앱에 콘텐츠를 게시하는 경우 Azure 웹 앱은 배포 정보도 로깅합니다. 이는 자동으로 수행되며 배포 로깅에 대한 구성 설정은 없습니다. 배포 로깅을 사용하면 배포가 실패한 이유를 확인할 수 있습니다. 예를 들어 사용자 지정 배포 스크립트를 사용하는 경우 스크립트가 실패한 이유를 확인하는 데 배포 로깅을 사용할 수 있습니다.
 
@@ -55,25 +55,25 @@ Visual Studio를 사용하여 응용 프로그램 진단으로 작업하는 방�
 [Azure 관리 포털](https://portal.azure.com)에서 진단을 사용하도록 설정하려면 웹 앱에 대한 블레이드로 이동하여 **모든 설정 > 진단 로그**를 클릭합니다.
 
 <!-- todo:cleanup dogfood addresses in screenshot -->
-![Logs part](./media/web-sites-enable-diagnostic-log/logspart.png)
+![로그 부분](./media/web-sites-enable-diagnostic-log/logspart.png)
 
-**응용 프로그램 로깅**을 사용하도록 설정하는 경우 **로깅 수준**을 선택해야 하고 **파일 시스템**, **테이블 저장소** 또는 **Blob 저장소**에 로깅을 사용하도록 설정할지 여부를 선택해야 합니다. 세 저장소 위치 모두는 로깅된 이벤트에 대해 동일한 기본 정보를 제공하는 반면 **테이블 저장소** 및 **Blob 저장소**는 **파일 시스템**에 기록하는 것보다 인스턴스 ID, 스레드 ID 및 좀 더 세부적인 타임스탬프(눈금 형식) 등 추가 정보를 로깅합니다.
+**응용 프로그램 로깅**을 사용하도록 설정하는 경우 **로깅 수준**을 선택해야 하고 **파일 시스템**, ** 테이블 저장소** 또는 **Blob 저장소**에 로깅을 사용하도록 설정할지 여부를 선택해야 합니다. 세 저장소 위치 모두는 로깅된 이벤트에 대해 동일한 기본 정보를 제공하는 반면 **테이블 저장소** 및 **Blob 저장소**는 **파일 시스템**에 기록하는 것보다 인스턴스 ID, 스레드 ID 및 좀 더 세부적인 타임스탬프(눈금 형식) 등 추가 정보를 로깅합니다.
 
 **사이트 진단**을 사용하도록 설정하는 경우 **웹 서버 로깅**에 대해 **저장소** 또는 **파일 시스템**을 선택해야 합니다. **저장소**를 선택하면 저장소 계정을 선택하고 로그를 기록할 Blob 컨테이너를 선택할 수 있습니다. **사이트 진단**에 대한 기타 모든 로그는 파일 시스템에만 기록됩니다.
 
-> [AZURE.NOTE] **테이블 저장소** 또는 **Blob 저장소**에 저장된 정보는 이러한 저장소 시스템에서 바로 작업할 수 있는 저장소 클라이언트 또는 응용 프로그램을 사용해서만 액세스할 수 있습니다. 예를 들어 Visual Studio 2013에는 테이블 또는 Blob 저장소를 탐색하는 데 사용할 수 있는 저장소 탐색기를 포함하고 있으며, HDInsight는 Blob 저장소에 저장된 데이터에 액세스하는 데 사용될 수 있습니다. 또한 [Azure SDK](/downloads/#) 중 하나를 사용하여 Azure 저장소에 액세스하는 응용 프로그램을 작성할 수도 있습니다.
+> [AZURE.NOTE]**테이블 저장소** 또는 **Blob 저장소**에 저장된 정보는 이러한 저장소 시스템에서 바로 작업할 수 있는 저장소 클라이언트 또는 응용 프로그램을 사용해서만 액세스할 수 있습니다. 예를 들어 Visual Studio 2013에는 테이블 또는 Blob 저장소를 탐색하는 데 사용할 수 있는 저장소 탐색기를 포함하고 있으며, HDInsight는 Blob 저장소에 저장된 데이터에 액세스하는 데 사용될 수 있습니다. 또한 [Azure SDK](/downloads/#) 중 하나를 사용하여 Azure 저장소에 액세스하는 응용 프로그램을 작성할 수도 있습니다.
 
 다음은 **응용 프로그램 진단**을 사용하도록 설정한 경우에 사용할 수 있는 설정입니다.
 
-* **로깅 수준** - 이 옵션을 통해 **정보**, **경고** 또는 **오류** 정보에 캡처된 정보를 필터링할 수 있습니다. 이를 **자세한 정보 표시**로 설정하면 응용 프로그램에서 생성된 모든 정보가 로깅됩니다. **로깅 수준**은 **파일 시스템**, **테이블 저장소** 및 **Blob 저장소** 로깅별로 다르게 설정할 수 있습니다.
+* **로깅 수준** - 이 옵션을 통해 **정보**, **경고** 또는 **오류** 정보에 캡처된 정보를 필터링할 수 있습니다. 이를 **세부 정보 표시**로 설정하면 응용 프로그램에서 생성된 모든 정보가 로깅됩니다. **로깅 수준**은 **파일 시스템**, **테이블 저장소** 및 **Blob 저장소** 로깅별로 다르게 설정할 수 있습니다.
 * **파일 시스템** - 웹 앱 파일 시스템에 응용 프로그램 진단 정보를 저장합니다. 이러한 파일은 FTP로 액세스하거나, Azure PowerShell 또는 Azure 명령줄 도구를 사용하여 Zip 보관 파일로 다운로드할 수 있습니다.
 * **테이블 저장소** - 지정된 Azure 저장소 계정 및 테이블 이름에 응용 프로그램 진단 정보를 저장합니다.
 * **Blob 저장소** - 지정된 Azure 저장소 계정 및 Blob 컨테이너에 응용 프로그램 진단 정보를 저장합니다.
-* **보존 기간** - 기본적으로 로그는 **Blob 저장소**에서 자동으로 삭제되지 않습니다. 자동으로 로그를 삭제하려면 **보존 설정**을 선택하고 로그를 보관할 기간(일)을 입력합니다.
+* **보존 기간** - 기본적으로 로그는 **Blob 저장소**에서 자동으로 삭제되지 않습니다. 자동으로 로그를 삭제하려면 **set retention**을 선택하고 로그를 보관할 기간(일)을 입력합니다.
 
-> [AZURE.NOTE] 파일 시스템, 테이블 저장소 또는 Blob 저장소를 원하는 방식으로 결합하여 동시에 사용하도록 설정할 수 있으며 로그 수준은 개별적으로 구성할 수 있습니다. 예를 들어 장기적인 로깅 솔루션으로 Blob 저장소에 오류 및 경고를 기록하면서 파일 시스템 로깅은 세부 정보 표시 수준으로 사용할 수 있습니다.
+> [AZURE.NOTE]파일 시스템, 테이블 저장소 또는 Blob 저장소를 원하는 방식으로 결합하여 동시에 사용하도록 설정할 수 있으며 로그 수준은 개별적으로 구성할 수 있습니다. 예를 들어 장기적인 로깅 솔루션으로 Blob 저장소에 오류 및 경고를 기록하면서 파일 시스템 로깅은 세부 정보 표시 수준으로 사용할 수 있습니다.
 
-> [AZURE.NOTE] Azure PowerShell에서 **Set-AzureWebsite** cmdlet을 사용해서도 진단을 사용하도록 설정할 수 있습니다. Azure PowerShell을 설치하지 않았거나 Azure 구독을 사용하도록 Azure PowerShell을 구성하지 않은 경우 [Azure PowerShell 사용 방법](/develop/nodejs/how-to-guides/powershell-cmdlets/)을 참조하세요.
+> [AZURE.NOTE]Azure PowerShell에서 **Set-AzureWebsite** cmdlet을 사용해서도 진단을 사용하도록 설정할 수 있습니다. Azure PowerShell을 설치하지 않았거나 Azure 구독을 사용하도록 이를 구성하지 않은 경우 [Azure PowerShell을 사용하는 방법](/develop/nodejs/how-to-guides/powershell-cmdlets/)(영문)을 참조하십시오.
 
 ##<a name="download"></a> 방법: 로그 다운로드
 
@@ -81,21 +81,21 @@ Visual Studio를 사용하여 응용 프로그램 진단으로 작업하는 방�
 
 로그가 저장되는 디렉터리 구조는 다음과 같습니다.
 
-* **응용 프로그램 로그** - /LogFiles/Application/. 이 폴더에는 응용 프로그램 로깅으로 생성된 정보가 포함된 하나 이상의 텍스트 파일이 포함됩니다.
+* **응용 프로그램 로그** - /LogFiles/Application/입니다. 이 폴더에는 응용 프로그램 로깅으로 생성된 정보가 포함된 하나 이상의 텍스트 파일이 포함됩니다.
 
-* **실패한 요청 추적** - /LogFiles/W3SVC#########/. 이 폴더에는 하나의 XSL 파일 및 하나 이상의 XML 파일이 포함되어 있습니다. XSL 파일은 XML 파일을 Internet Explorer에서 볼 때 XML 파일의 내용에 서식을 지정하고 필터링하는 기능을 제공하므로 XSL 파일은 XML 파일과 동일한 디렉터리에 다운로드해야 합니다.
+* **실패한 요청 추적** - /LogFiles/W3SVC#########/입니다. 이 폴더에는 하나의 XSL 파일 및 하나 이상의 XML 파일이 포함되어 있습니다. XSL 파일은 XML 파일을 Internet Explorer에서 볼 때 XML 파일의 내용에 서식을 지정하고 필터링하는 기능을 제공하므로 XSL 파일은 XML 파일과 동일한 디렉터리에 다운로드해야 합니다.
 
-* **자세한 오류 로그** - /LogFiles/DetailedErrors/. 이 폴더에는 발생한 HTTP 오류에 대해 방대한 정보를 제공하는 하나 이상의 .htm 파일이 포함되어 있습니다. 
+* **Detailed Error Logs** - /LogFiles/DetailedErrors/입니다. 이 폴더에는 발생한 HTTP 오류에 대해 방대한 정보를 제공하는 하나 이상의 .htm 파일이 포함되어 있습니다.
 
-* **웹 서버 로그** - /LogFiles/http/RawLogs. 이 폴더에는 [W3C 확장 로그 파일 형식](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx)을 사용하여 서식이 지정된 하나 이상의 텍스트 파일이 포함되어 있습니다. 
+* **웹 서버 로그** - /LogFiles/http/RawLogs입니다. 이 폴더에는 [W3C 확장 로그 파일 형식](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx)을 사용하여 서식이 지정된 하나 이상의 텍스트 파일이 포함되어 있습니다.
 
-* **배포 로그** - /LogFiles/Git. 이 폴더에는 Azure 웹 앱에서 사용된 내부 배포 프로세스에서 생성된 로그와 Git 배포용 로그가 포함되어 있습니다.
+* **Deployment logs** - /LogFiles/Git입니다. 이 폴더에는 Azure 웹 앱에서 사용된 내부 배포 프로세스에서 생성된 로그와 Git 배포용 로그가 포함되어 있습니다.
 
 ### FTP
 
-FTP를 사용하여 진단 정보에 액세스하려면 Azure 관리 포털에서 웹 앱의 **대시보드**를 방문합니다. **빠른 보기** 섹션에서 **FTP 진단 로그** 링크를 사용하여 FTP를 통해 로그 파일에 액세스할 수 있습니다. **배포/FTP 사용자** 항목은 FTP 사이트에 액세스하는 데 사용해야 하는 사용자 이름을 나열합니다.
+FTP를 사용하여 진단 정보에 액세스하려면 Azure 관리 포털에서 웹 앱의 **대시보드**를 방문합니다. **간략 상태** 섹션에서 **FTP Diagnostic Logs** 링크를 사용하여 FTP를 통해 로그 파일에 액세스할 수 있습니다. **Deployment/FTP User** 항목은 FTP 사이트에 액세스하는 데 사용해야 하는 사용자 이름을 나열합니다.
 
-> [AZURE.NOTE] **배포/FTP 사용자** 항목이 설정되지 않은 경우 또는 이 사용자의 암호를 잊은 경우 **대시보드**의 **빠른 보기** 섹션에서 **배포 자격 증명 재설정** 링크를 사용하여 새 사용자 및 암호를 만들 수 있습니다.
+> [AZURE.NOTE]**배포/FTP 사용자** 항목이 설정되지 않은 경우 또는 이 사용자의 암호를 잊은 경우 **대시보드**의 **간략 상태** 섹션에서 **Reset deployment credentials** 링크를 사용하여 새 사용자 및 암호를 만들 수 있습니다.
 
 ### Azure PowerShell로 다운로드
 
@@ -105,7 +105,7 @@ FTP를 사용하여 진단 정보에 액세스하려면 Azure 관리 포털에�
 
 이 명령을 실행하면 **-Name** 매개 변수로 지정된 웹 앱이 로그가 현재 디렉터리의 **logs.zip**이라는 파일에 저장됩니다.
 
-> [AZURE.NOTE] Azure PowerShell을 설치하지 않았거나 Azure 구독을 사용하도록 Azure PowerShell을 구성하지 않은 경우 [Azure PowerShell 사용 방법](/develop/nodejs/how-to-guides/powershell-cmdlets/)을 참조하십시오.
+> [AZURE.NOTE]Azure PowerShell을 설치하지 않았거나 Azure 구독을 사용하도록 이를 구성하지 않은 경우 [Azure PowerShell을 사용하는 방법](/develop/nodejs/how-to-guides/powershell-cmdlets/)(영문)을 참조하십시오.
 
 ### Azure 명령줄 도구로 다운로드
 
@@ -113,17 +113,30 @@ Azure 명령줄 도구를 사용하여 로그 파일을 다운로드하려면 �
 
 	azure site log download webappname
 
-이 명령을 실행하면  'webappname'이라는 웹 앱의 로그가 현재 디렉터리의 **diagnostics.zip**이라는 파일에 저장됩니다.
+이 명령을 실행하면 'webappname'이라는 웹 앱의 로그가 현재 디렉터리의 **diagnostics.zip**이라는 파일에 저장됩니다.
 
-> [AZURE.NOTE] Azure 명령줄 도구를 설치하지 않았거나 Azure 구독을 사용하도록 Azure 명령줄 도구를 구성하지 않은 경우 [Azure 명령줄 도구 사용 방법](xplat-cli.md)을 참조하세요.
+> [AZURE.NOTE]Azure 명령줄 도구를 설치하지 않았거나 Azure 구독을 사용하도록 Azure 명령줄 도구를 구성하지 않은 경우 [Azure 명령줄 사용 방법](xplat-cli.md)을 참조하세요.
+
+## 방법: Application Insights에서 로그 보기
+
+Visual Studio Application Insights는 로그 필터링과 검색을 위한 도구, 및 요청과 다른 이벤트와 로그를 연결하기 위한 도구를 제공합니다.
+
+1. Visual Studio의 프로젝트에 Application Insights SDK 추가 
+ * 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 Application Insights 추가를 선택합니다. Application Insights 리소스 만들기를 포함 하는 단계를 안내합니다. [자세히 알아보기](app-insights-start-monitoring-app-health-usage.md)
+2. 추적 수신기 패키지를 프로젝트에 추가 합니다.
+ * 프로젝트를 마우스 오른쪽 단추로 클릭하고 NuGet 패키지 관리를 선택합니다. `Microsoft.ApplicationInsights.TraceListener` [자세히 알아보기](app-insights-asp-net-trace-logs.md) 선택
+3. 프로젝트를 업로드하고 실행하여 로그 데이터를 생성합니다.
+4. [Azure preview 포털](http://portal.azure.com/)에서, 새  Application Insights 리소스를 찾고 **검색**을 엽니다. 요청, 사용법 및 다른 원격 분석와 함께 로그 데이터가 표시됩니다. 일부 원격 분석에 몇 분 정도 걸릴 수 있습니다. 새로 고침을 클릭합니다. [자세히 알아보기](app-insights-diagnostic-search.md)
+
+[Application Insights로 추적되는 성능에 대해 알아보기](insights-perf-analytics.md)
 
 ##<a name="streamlogs"></a> 방법: 스트림 로그
 
 응용 프로그램을 개발하는 동안 거의 실시간의 로깅 정보를 보는 것이 종종 유용합니다. 이는 Azure PowerShell 또는 Azure 명령줄 도구 중 하나를 사용하여 개발 환경에 로깅 정보를 스트리밍하도록 하면 가능합니다.
 
-> [AZURE.NOTE] 일부 유형의 로깅 버퍼는 로그 파일에 기록하고 이로 인해 이벤트가 작동하지 않을 수 있습니다. 예를 들어 사용자가 페이지를 방문할 때 발생한 응용 프로그램 로그 항목이 페이지 요청에 대한 해당 HTTP 로그 항목보다 먼저 스트림에 표시될 수 있습니다.
+> [AZURE.NOTE]일부 유형의 로깅 버퍼는 로그 파일에 기록하고 이로 인해 스크림에서 이벤트가 작동하지 않을 수 있습니다. 예를 들어 사용자가 페이지를 방문할 때 발생한 응용 프로그램 로그 항목이 페이지 요청에 대한 해당 HTTP 로그 항목보다 먼저 스트림에 표시될 수 있습니다.
 
-> [AZURE.NOTE] 로그 스트리밍은 **D:\\home\\LogFiles\\** 폴더에 저장된 모든 텍스트 파일에 기록된 정보를 스트리밍할 수도 있습니다.
+> [AZURE.NOTE]로그 스트리밍은 **D:\\home\\LogFiles\** 폴더에 저장된 모든 텍스트 파일에 기록된 정보를 스트리밍할 수도 있습니다.
 
 ### Azure PowerShell로 스트리밍
 
@@ -143,7 +156,7 @@ HTTP와 같은 특정 로그 유형을 필터링하려면 **-Path** 매개 변�
 
 사용 가능한 경로 목록을 보려면 -ListPath 매개 변수를 사용합니다.
 
-> [AZURE.NOTE] Azure PowerShell을 설치하지 않았거나 Azure 구독을 사용하도록 Azure PowerShell을 구성하지 않은 경우 [Azure PowerShell 사용 방법](/develop/nodejs/how-to-guides/powershell-cmdlets/)을 참조하십시오.
+> [AZURE.NOTE]Azure PowerShell을 설치하지 않았거나 Azure 구독을 사용하도록 이를 구성하지 않은 경우 [Azure PowerShell을 사용하는 방법](/develop/nodejs/how-to-guides/powershell-cmdlets/)(영문)을 참조하십시오.
 
 ### Azure 명령줄 도구로 스트리밍
 
@@ -151,17 +164,17 @@ HTTP와 같은 특정 로그 유형을 필터링하려면 **-Path** 매개 변�
 
 	azure site log tail webappname
 
-이 명령을 실행하면  'webappname'이라는 웹 앱에 연결되고 로그 이벤트가 웹 앱에서 발생하면 창으로 정보가 스트리밍되기 시작합니다. /LogFiles 디렉터리(d:/home/logfiles)에 저장된 .txt, .log 또는 .htm으로 끝나는 파일에 기록된 정보는 로컬 콘솔로 스트리밍됩니다.
+이 명령을 실행하면 'webappname'이라는 웹 앱에 연결되고 로그 이벤트가 웹 앱에서 발생하면 창으로 정보가 스트리밍되기 시작합니다. /LogFiles 디렉터리(d:/home/logfiles)에 저장된 .txt, .log 또는 .htm으로 끝나는 파일에 기록된 정보는 로컬 콘솔로 스트리밍됩니다.
 
 오류와 같은 특정 이벤트를 필터링하려면 **--Filter** 매개 변수를 사용합니다. 예를 들면 다음과 같습니다.
 
 	azure site log tail webappname --filter Error
 
-HTTP와 같은 특정 로그 유형을 필터링하려면 **--Path** 매개 변수를 사용합니다. 예를 들면 다음과 같습니다.
+HTTP와 같은 특정 로그 유형을 필터링하려면 **-Path** 매개 변수를 사용합니다. 예:
 
 	azure site log tail webappname --path http
 
-> [AZURE.NOTE] Azure 명령줄 도구를 설치하지 않았거나 Azure 구독을 사용하도록 Azure 명령줄 도구를 구성하지 않은 경우 [Azure 명령줄 도구 사용 방법](xplat-cli.md)을 참조하세요.
+> [AZURE.NOTE]Azure 명령줄 도구를 설치하지 않았거나 Azure 구독을 사용하도록 Azure 명령줄 도구를 구성하지 않은 경우 [Azure 명령줄 사용 방법](xplat-cli.md)을 참조하세요.
 
 ##<a name="understandlogs"></a> 방법: 진단 로그 이해
 
@@ -213,7 +226,7 @@ __테이블 저장소__
 <td style="border:1px solid black;vertical-align:top">웹 앱 이름</td>
 </tr>
 <tr>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Level</td>
+<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">수준</td>
 <td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">이벤트 수준(예: 오류, 경고, 정보)</td>
 </tr>
 <tr>
@@ -233,7 +246,7 @@ __테이블 저장소__
 <td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">이벤트가 생성된 스레드의 스레드 ID</td>
 </tr>
 <tr>
-<td style="border:1px solid black;vertical-align:top">메시지</td>
+<td style="border:1px solid black;vertical-align:top">Message</td>
 <td style="border:1px solid black;vertical-align:top">이벤트 세부 정보 메시지</td>
 </tr>
 </table>
@@ -282,7 +295,7 @@ Blob 저장소에 로깅하는 경우 데이터는 쉼표로 구분된 값(CSV) 
 <td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">이벤트가 생성된 스레드의 스레드 ID</td>
 </tr>
 <tr>
-<td style="border:1px solid black;vertical-align:top">메시지</td>
+<td style="border:1px solid black;vertical-align:top">Message</td>
 <td style="border:1px solid black;vertical-align:top">이벤트 세부 정보 메시지</td>
 </tr>
 </table>
@@ -292,13 +305,13 @@ Blob에 저장된 데이터는 다음과 비슷합니다.
 	date,level,applicationName,instanceId,eventTickCount,eventId,pid,tid,message
 	2014-01-30T16:36:52,Error,mywebapp,6ee38a,635266966128818593,0,3096,9,An error occurred
 
-> [AZURE.NOTE] 로그의 첫 번째 줄에는 이 예에 나타난 대로 열 헤더가 포함됩니다.
+> [AZURE.NOTE]로그의 첫 번째 줄에는 이 예에 나타난 대로 열 헤더가 포함됩니다.
 
 ### 실패한 요청 추적
 
-실패한 추적 요청은 __fr######.xml__이라는 XML 파일에 저장됩니다. 로깅된 정보를 더 쉽게 볼 수 있도록 __freb.xsl__라는 XSL 스타일시트가 XML 파일과 동일한 디렉터리에 제공됩니다. Internet Explorer에서 XML 파일 중 하나를 열면 XSL 스타일시트를 사용하여 추적 정보에 서식이 지정되어 표시됩니다. 이는 다음과 비슷하게 나타납니다.
+실패한 요청 추적은 __fr######.xml__이라는 XML 파일에 저장됩니다. 로깅된 정보를 더 쉽게 볼 수 있도록 __freb.xsl__라는 XSL 스타일시트가 XML 파일과 동일한 디렉터리에 제공됩니다. Internet Explorer에서 XML 파일 중 하나를 열면 XSL 스타일시트를 사용하여 추적 정보에 서식이 지정되어 표시됩니다. 이는 다음과 비슷하게 나타납니다.
 
-![failed request viewed in the browser](./media/web-sites-enable-diagnostic-log/tws-failedrequestinbrowser.png)
+![브라우저에 표시된 실패한 요청](./media/web-sites-enable-diagnostic-log/tws-failedrequestinbrowser.png)
 
 ### 자세한 오류 로그
 
@@ -308,19 +321,19 @@ Blob에 저장된 데이터는 다음과 비슷합니다.
 
 웹 서버 로그는 [W3C 확장 로그 파일 형식](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx)을 사용하여 서식이 지정됩니다. 이 정보는 텍스트 편집기를 사용하여 읽거나 [Log Parser](http://go.microsoft.com/fwlink/?LinkId=246619)와 같은 유틸리티를 사용하여 구문 분석할 수 있습니다.
 
-> [AZURE.NOTE] Azure 웹 앱에서 생성된 로그는 __s-computername__, __s-ip__ 또는 __cs-version__ 필드를 지원하지 않습니다.
+> [AZURE.NOTE]Azure 웹 앱에서 생성된 로그는 __s-computername__, __s-ip__ 또는 __cs-버전__ 필드를 지원하지 않습니다.
 
->[AZURE.NOTE] Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 사용](http://go.microsoft.com/fwlink/?LinkId=523751)으로 이동합니다. 앱 서비스에서는 단기 시작 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+>[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
 ##<a name="nextsteps"></a> 다음 단계
 
-- [웹 앱을 모니터링 하는 방법](/ko-kr/manage/services/web-sites/how-to-monitor-websites/)
+- [웹 앱을 모니터링하는 방법](/ko-kr/manage/services/web-sites/how-to-monitor-websites/)
 - [자습서 - 웹 앱 문제 해결](/ko-kr/develop/net/best-practices/troubleshooting-web-sites/)
 - [Visual Studio에서 Azure 웹 앱 문제 해결](/ko-kr/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/)
 - [HDInsight에서 웹 앱 로그 분석](http://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)
 
-## 변경 내용
-* 웹 사이트에서 앱 서비스로의 변경에 대한 가이드는 다음을 참조: [Azure 앱 서비스 및 기존 Azure 서비스에 대한 영향](http://go.microsoft.com/fwlink/?LinkId=529714)
-* 이전 포털에서 새 포털로의 변경에 대한 가이드는 다음을 참조: [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)
+## 변경된 내용
+* 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.
+* 이전 포털에서 새 포털로의 변경에 대한 지침은 [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
 
-<!--HONumber=49-->
+<!--HONumber=54-->

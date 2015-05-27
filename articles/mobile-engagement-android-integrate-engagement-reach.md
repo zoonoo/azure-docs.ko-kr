@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Azure Mobile Engagement Android SDK 통합" 
 	description="Azure Mobile Engagement용 Android SDK의 최신 업데이트 및 절차"
 	services="mobile-engagement" 
@@ -18,13 +18,13 @@
 
 #Android에서 Engagement 도달률을 통합하는 방법
 
-> [AZURE.IMPORTANT] 이 가이드를 수행하기 전에 Android 문서의 Engagement를 통합하는 방법에 설명된 통합 절차를 따라야 합니다.
+> [AZURE.IMPORTANT]이 가이드를 수행하기 전에 Android 문서의 Engagement를 통합하는 방법에 설명된 통합 절차를 따라야 합니다.
 
 ##표준 통합
 
 Reach SDK에는 **Android 지원 라이브러리(v4)**가 필요합니다.
 
-**Eclipse**의 프로젝트에 라이브러리를 추가하는 가장 빠른 방법은 `Right click on your project -> Android Tools -> Add Support Library...`.
+**Eclipse**의 프로젝트에 라이브러리를 추가하는 가장 빠른 방법은 `Right click on your project -> Android Tools -> Add Support Library...`입니다.
 
 Eclipse를 사용하지 않는 경우 [여기]에서 지침을 읽어볼 수 있습니다.
 
@@ -78,7 +78,7 @@ Eclipse를 사용하지 않는 경우 [여기]에서 지침을 읽어볼 수 있
 
 			<meta-data android:name="engagement:reach:notification:icon" android:value="<name_of_icon_WITHOUT_file_extension_and_WITHOUT_'@drawable/'>" />
 
-> [AZURE.IMPORTANT] 도달률 캠페인을 만들 때 시스템 알림을 사용하려는 경우 이 섹션은 **필수**입니다. Android는 아이콘이 없는 시스템 알림이 표시되지 않도록 방지합니다. 따라서 이 섹션을 누락하는 경우 최종 사용자가 해당 시스템 알림을 받을 수 없게 됩니다.
+> [AZURE.IMPORTANT]도달률 캠페인을 만들 때 시스템 알림을 사용하려는 경우 이 섹션은 **필수**입니다. Android는 아이콘이 없는 시스템 알림이 표시되지 않도록 방지합니다. 따라서 이 섹션을 누락하는 경우 최종 사용자가 해당 시스템 알림을 받을 수 없게 됩니다.
 
 -   큰 그림을 사용하는 시스템 알림이 있는 캠페인을 만드는 경우 다음 권한을 `</application>` 태그 뒤에 추가해야 합니다(누락된 경우).
 
@@ -102,7 +102,7 @@ Eclipse를 사용하지 않는 경우 [여기]에서 지침을 읽어볼 수 있
 
 ### 통합
 
-응용 프로그램을 통해 도달률 데이터 푸시를 받으려면 다음과 같이  `com.microsoft.azure.engagement.reach.EngagementReachDataPushReceiver`의 하위 클래스를 생성하여  `AndroidManifest.xml` 파일에서 해당 클래스를 참조해야 합니다(`<application>` 및/또는 `</application>` 태그 사이).
+응용 프로그램을 통해 도달률 데이터 푸시를 받으려면 다음과 같이 `com.microsoft.azure.engagement.reach.EngagementReachDataPushReceiver`의 하위 클래스를 생성하여 `AndroidManifest.xml` 파일에서 해당 클래스를 참조해야 합니다(`<application>` 및/또는 `</application>` 태그 사이).
 
 			<receiver android:name="<your_sub_class_of_com.microsoft.azure.engagement.reach.EngagementReachDataPushReceiver>"
 			  android:exported="false">
@@ -131,23 +131,23 @@ Eclipse를 사용하지 않는 경우 [여기]에서 지침을 읽어볼 수 있
 			  }
 			}
 
-### 범주
+### Category
 
-범주 매개 변수는 데이터 푸시 캠페인을 만들 경우 선택 사항이며, 이 범주 매개 변수를 통해 데이터 푸시를 필터링할 수 있습니다. 범주 매개 변수는 여러 유형의 데이터 푸시를 처리하는 여러 브로드캐스트 수신기가 있는 경우 또는 다른 종류의 'Base64' 데이터를 푸시하면서 구문 분석하기 전에 해당 유형을 식별하려는 경우에 유용합니다.
+데이터 푸시 캠페인을 만들 때는 필요에 따라 범주 매개 변수를 포함할 수 있으며, 그러면 데이터 푸시를 필터링할 수 있습니다. 범주 매개 변수는 여러 유형의 데이터 푸시를 처리하는 여러 브로드캐스트 수신기가 있는 경우 또는 다른 종류의 `Base64` 데이터를 푸시하면서 구문 분석하기 전에 해당 유형을 식별하려는 경우에 유용합니다.
 
 ### 콜백의 반환 매개 변수
 
-다음은  `onDataPushStringReceived` 및 `onDataPushBase64Received`의 반환 매개 변수를 올바르게 처리하기 위한 몇 가지 지침입니다.
+다음은 `onDataPushStringReceived` 및 `onDataPushBase64Received`의 반환 매개 변수를 올바르게 처리하기 위한 몇 가지 지침입니다.
 
--   브로드캐스트 수신기가 데이터 푸시의 처리 방법을 모르는 경우 콜백에서  `null`을 반환해야 합니다. 범주를 사용하여 브로드캐스트 수신기가 데이터 푸시를 처리해야 하는지 여부를 확인해야 합니다.
--   브로드캐스트 수신기 중 하나가 데이터 푸시를 허용하는 경우 콜백에서  `true`를 반환해야 합니다.
--   브로드캐스트 수신기 중 하나가 데이터 푸시를 인식하지만 어떤 이유로든 무시한 경우 콜백에서  `false`를 반환해야 합니다. 예를 들어 수신한 데이터가 잘못된 경우  `false`를 반환합니다.
--   하나의 브로드캐스트 수신기가  `true`를 반환하는데 다른 브로드캐스트 수신기가 동일한 데이터 푸시에 대해  `false`를 반환하는 경우 동작이 정의되지 않습니다. 따라서 그렇게 해서는 안됩니다.
+-   브로드캐스트 수신기가 데이터 푸시의 처리 방법을 모르는 경우 콜백에서 `null`을(를) 반환해야 합니다. 범주를 사용하여 브로드캐스트 수신기가 데이터 푸시를 처리해야 하는지 여부를 확인해야 합니다.
+-   브로드캐스트 수신기 중 하나가 데이터 푸시를 허용하는 경우 콜백에서 `true`을(를) 반환해야 합니다.
+-   브로드캐스트 수신기 중 하나가 데이터 푸시를 인식하지만 어떤 이유로든 무시한 경우 콜백에서 `false`을(를) 반환해야 합니다. 예를 들어 수신한 데이터가 잘못된 경우 `false`을(를) 반환합니다.
+-   하나의 브로드캐스트 수신기가 `true`을(를) 반환하는데 다른 브로드캐스트 수신기가 동일한 데이터 푸시에 대해 `false`을(를) 반환하는 경우 동작이 정의되지 않습니다. 따라서 그렇게 해서는 안됩니다.
 
 반환 형식은 다음과 같이 도달률 통계에서만 사용됩니다.
 
--   `Replied`는 브로드캐스트 수신기 중 하나가  `true` 또는  `false`를 반환한 경우에 증가됩니다.
--   `Actioned`는 브로드캐스트 수신기 중 하나가  `true`를 반환한 경우에만 증가됩니다.
+-   `Replied`은(는) 브로드캐스트 수신기 중 하나가 `true` 또는 `false`을(를) 반환한 경우에 증가됩니다.
+-   `Actioned`은(는) 브로드캐스트 수신기 중 하나가 `true`을(를) 반환한 경우에만 증가됩니다.
 
 ##항상 캠페인을 수신하는 방법
 
@@ -155,10 +155,10 @@ Eclipse를 사용하지 않는 경우 [여기]에서 지침을 읽어볼 수 있
 
 "항상" 푸시의 이점을 얻으려면 다음과 같이 대상 장치에 따라 네이티브 푸시 서비스를 하나 이상 사용해야 합니다.
 
-  - Google Play 장치: [GCM과 Engagement 통합 방법 가이드]에 따라 [Google Cloud Messaging]을(mobile-engagement-android-gcm-integrate.md) 사용합니다.
-  - Amazon 장치: [ADM과 Engagement 통합 방법 가이드]에 따라 [Amazon Device Messaging]을(mobile-engagement-android-adm-integrate.md) 사용합니다.
+  - Google Play 장치: [GCM과 Engagement 통합 방법](mobile-engagement-android-gcm-integrate.md) 가이드에 따라 [Google Cloud Messaging] 사용
+  - Amazon 장치: [ADM과 Engagement 통합 방법 가이드](mobile-engagement-android-adm-integrate.md)에 따라 [Amazon Device Messaging] 사용
 
-Amazon 및 Google Play 장치를 모두 대상으로 하려는 경우 개발을 위한 단일 AndroidManifest.xml/APK 내에 모든 것을 포함할 수 있습니다. 하지만 Amazon에 제출할 경우 GCM 코드가 발견되면 응용 프로그램이 거부될 수 있습니다. 
+Amazon 및 Google Play 장치를 모두 대상으로 하려는 경우 개발을 위한 단일 AndroidManifest.xml/APK 내에 모든 것을 포함할 수 있습니다. 하지만 Amazon에 제출할 경우 GCM 코드가 발견되면 응용 프로그램이 거부될 수 있습니다.
 
 이러한 경우에는 여러 APK를 사용해야 합니다.
 
@@ -174,21 +174,21 @@ Amazon 및 Google Play 장치를 모두 대상으로 하려는 경우 개발을 
 
 #### 시스템 알림
 
-시스템 알림을 사용자 지정하려면 **범주**를 사용해야 합니다. [범주]로 이동할 수(#categories)있습니다.
+시스템 알림을 사용자 지정하려면 **범주**를 사용해야 합니다. [범주](#categories)로 이동할 수 있습니다.
 
 #### 앱 내 알림
 
-기본적으로 앱 내 알림은 Android 메서드 `addContentView()` 덕분에 현재 작업의 사용자 인터페이스에 동적으로 추가되는 뷰입니다. 이를 알림 오버레이라고 합니다. 알림 오버레이는 응용 프로그램에서 레이아웃을 수정하지 않아도 되므로 빠른 통합에 적절합니다.
+기본적으로 앱 내 알림은 Android 메서드 `addContentView()` 덕분에 현재 작업의 사용자 인터페이스에 동적으로 추가되는 뷰입니다. 이 보기를 알림 오버레이라고 합니다. 알림 오버레이는 응용 프로그램에서 레이아웃을 수정하지 않아도 되므로 빠른 통합에 적절합니다.
 
-알림 오버레이의 모양을 수정하려면 요구에 맞게 간단히  `engagement_notification_area.xml` 파일을 수정하면 됩니다.
+알림 오버레이의 모양을 수정하려면 요구에 맞게 간단히 파일 `engagement_notification_area.xml`을(를) 수정하면 됩니다.
 
-> [AZURE.NOTE]  `engagement_notification_overlay.xml` 파일은 알림 오버레이를 만드는 데 사용되는 파일이며, 이 파일에는  `engagement_notification_area.xml` 파일이 포함되어 있습니다. 또한 요구에 맞게 사용자 지정할 수도 있습니다(예: 오버레이 내에서 알림 영역 위치 지정).
+> [AZURE.NOTE]파일 `engagement_notification_overlay.xml`은(는) 알림 오버레이를 만드는 데 사용되는 파일이며, 이 파일에는 파일`engagement_notification_area.xml`이(가) 포함되어 있습니다. 또한 요구에 맞게 사용자 지정할 수도 있습니다(예: 오버레이 내에서 알림 영역 위치 지정).
 
 ##### 작업 레이아웃의 일부로 알림 레이아웃 포함
 
 오버레이는 빠른 통합에 적절하지만 특수한 경우에는 불편해지거나 부작용이 있을 수 있습니다. 오버레이 시스템을 작업 수준에서 사용자 지정할 수 있으며 특수한 작업의 부작용을 쉽게 예방할 수 있습니다.
 
-Android의 **include** 문 덕분에 기존 레이아웃에서 알림 레이아웃을 포함하도록 결정할 수 있습니다. 다음은  `ListView`를 포함하는 수정된  `ListActivity` 레이아웃의 예입니다.
+Android의 **include** 문 덕분에 기존 레이아웃에서 알림 레이아웃을 포함하도록 결정할 수 있습니다. 다음은 `ListView`을(를) 포함하는 수정된 `ListActivity` 레이아웃의 예입니다.
 
 **Engagement 통합 이전:**
 
@@ -218,15 +218,15 @@ Android의 **include** 문 덕분에 기존 레이아웃에서 알림 레이아�
 			
 			</LinearLayout>
 
-이 예제에서는 원래 레이아웃이 최상위 요소로 목록 보기를 사용하므로 부모 컨테이너를 추가했습니다. 또한 `android:layout_weight="1"`을 추가했으므로 `android:layout_height="fill_parent"`로 구성한 목록 보기 아래에 뷰를 추가할 수 있습니다.
+이 예제에서는 원래 레이아웃이 최상위 요소로 목록 보기를 사용하므로 부모 컨테이너를 추가했습니다. 또한 `android:layout_weight="1"`을(를) 추가했으므로 `android:layout_height="fill_parent"`(으)로 구성한 목록 보기 아래에 뷰를 추가할 수 있습니다.
 
 Engagement Reach SDK는 알림 레이아웃이 이 작업에 포함되었으며 이 작업의 오버레이를 추가하지 않을 것임을 자동으로 검색합니다.
 
-> [AZURE.TIP] 응용 프로그램에서 ListActivity를 사용하는 경우 표시되는 도달률 오버레이는 목록 보기의 클릭된 항목에 더 이상 반응하지 못하도록 방지합니다. 이는 알려진 문제입니다. 이 문제를 해결하려면 앞의 샘플에서와 같이 고유한 목록 작업 레이아웃에 알림 레이아웃을 포함하는 것이 좋습니다.
+> [AZURE.TIP]응용 프로그램에서 ListActivity를 사용하는 경우 표시되는 도달률 오버레이는 목록 보기의 클릭된 항목에 더 이상 반응하지 못하도록 방지합니다. 이는 알려진 문제입니다. 이 문제를 해결하려면 앞의 샘플에서와 같이 고유한 목록 작업 레이아웃에 알림 레이아웃을 포함하는 것이 좋습니다.
 
 ##### 작업별 응용 프로그램 알림 비활성화
 
-작업에 오버레이를 추가하지 않으려는 경우와 고유 레이아웃에 알림 레이아웃을 포함하지 않은 경우 다음 예제와 같이  `meta-data` 섹션을 추가하여  `AndroidManifest.xml`에서 이 작업의 오버레이를 비활성화하도록 설정할 수 있습니다.
+작업에 오버레이를 추가하지 않으려는 경우와 고유 레이아웃에 알림 레이아웃을 포함하지 않은 경우 다음 예제와 같이 `meta-data` 섹션을 추가하여 `AndroidManifest.xml`에서 이 작업의 오버레이를 비활성화하도록 설정할 수 있습니다.
 
 			<activity android:name="SplashScreenActivity">
 			  <meta-data android:name="engagement:notification:overlay" android:value="false"/>
@@ -234,13 +234,13 @@ Engagement Reach SDK는 알림 레이아웃이 이 작업에 포함되었으며 
 
 #### <a name="categories"></a> 범주
 
-제공된 레이아웃을 수정할 경우 모든 알림 모양을 수정하게 됩니다. 범주를 사용하면 알림에 대한 다양한 대상 모양(가능한 동작)을 정의할 수 있습니다. 도달률 캠페인을 만들 때 범주를 지정할 수 있습니다. 또한 범주를 통해 알림 및 설문 조사를 사용자 지정할 수 있으며, 이 내용은 본 문서의 뒷부분에 설명되어 있습니다.
+제공된 레이아웃을 수정할 경우 모든 알림 모양을 수정하게 됩니다. 범주를 사용하면 알림의 여러 대상 모양을 정의할 수 있으며 경우에 따라서는 동작도 정의할 수 있습니다. 도달률 캠페인을 만들 때 범주를 지정할 수 있습니다. 범주를 사용하면 알림과 설문 조사도 사용자 지정할 수 있습니다. 여기에 대해서는 이 문서의 뒷부분에서 설명합니다.
 
 알림의 범주 처리기를 등록하려면 응용 프로그램이 초기화될 때 호출을 추가해야 합니다.
 
-> [AZURE.IMPORTANT] 계속하기 전에 Android에서 Engagement를 통합하는 방법 항목에서 android:process attribute \<android-sdk-engagement-process\>에 관한 경고를 읽어보세요.
+> [AZURE.IMPORTANT]계속하기 전에 Android에서 Engagement를 통합하는 방법 항목에서 android:process attribute<android-sdk-engagement-process>에 관한 경고를 읽어보세요.
 
-다음 예제에서는 이전 경고를 확인하였고  `EngagementApplication`의 하위 클래스를 사용한다고 가정합니다.
+다음 예제에서는 이전 경고를 확인하였고 `EngagementApplication`의 하위 클래스를 사용한다고 가정합니다.
 
 			public class MyApplication extends EngagementApplication
 			{
@@ -253,7 +253,7 @@ Engagement Reach SDK는 알림 레이아웃이 이 작업에 포함되었으며 
 			  }
 			}
 
- `MyNotifier` 개체는 알림 범주 처리기의 구현입니다. 이 개체는  `EngagementNotifier` 인터페이스의 구현이거나 기본 구현인  `EngagementDefaultNotifier`의 하위 클래스입니다.
+`MyNotifier` 개체는 알림 범주 처리기의 구현입니다. 이 개체는 `EngagementNotifier` 인터페이스의 구현이거나 기본 구현인 `EngagementDefaultNotifier`의 하위 클래스입니다.
 
 동일한 알림으로 여러 범주를 처리할 수 있습니다. 또한 다음과 같이 해당 범주를 등록할 수 있습니다.
 
@@ -272,11 +272,11 @@ Engagement Reach SDK는 알림 레이아웃이 이 작업에 포함되었으며 
 			  }
 			}
 
-처리기에서 사용된 현재 범주는  `EngagementDefaultNotifier`에서 재정의할 수 있는 대다수 메서드의 매개 변수로 전달됩니다.
+처리기에서 사용된 현재 범주는 `EngagementDefaultNotifier`에서 재정의할 수 있는 대다수 메서드의 매개 변수로 전달됩니다.
 
-그 범주는  `String` 매개 변수로 전달되거나 `getCategory()` 메서드가 있는  `EngagementReachContent` 개체에서 간접적으로 전달됩니다.
+그 범주는`String`  매개 변수로 전달되거나 `getCategory()` 메서드가 있는 `EngagementReachContent` 개체에서 간접적으로 전달됩니다.
 
-또한  `EngagementDefaultNotifier`에서 메서드를 다시 정의하여 알림 생성 프로세스의 대부분을 변경할 수 있습니다. 고급 사용자 지정을 더 수행하려면 기술 문서 및 소스 코드를 살펴보세요.
+또한 `EngagementDefaultNotifier`에서 메서드를 다시 정의하여 알림 생성 프로세스의 대부분을 변경할 수 있습니다. 고급 사용자 지정을 더 수행하려면 기술 문서 및 소스 코드를 살펴보세요.
 
 ##### 앱 내 알림
 
@@ -309,7 +309,7 @@ Engagement Reach SDK는 알림 레이아웃이 이 작업에 포함되었으며 
 			  }
 			}
 
-** `my_notification_overlay.xml`의 예제:**
+**`my_notification_overlay.xml`의 예제:**
 
 			<?xml version="1.0" encoding="utf-8"?>
 			<RelativeLayout
@@ -324,7 +324,7 @@ Engagement Reach SDK는 알림 레이아웃이 이 작업에 포함되었으며 
 
 여기에서 알 수 있듯이 오버레이 뷰 식별자는 표준 식별자와 다릅니다. 각 레이아웃에서 오버레이에 고유 식별자를 사용하는 것이 중요합니다.
 
-** `my_notification_area.xml`의 예제:**
+**`my_notification_area.xml`의 예제:**
 
 			<?xml version="1.0" encoding="utf-8"?>
 			<merge
@@ -408,13 +408,13 @@ Engagement Reach SDK는 알림 레이아웃이 이 작업에 포함되었으며 
 
 이 간단한 범주 예제는 화면 상단에 표시되는 응용 프로그램(또는 앱 내) 알림을 만듭니다. 알림 영역 자체에 사용되는 표준 식별자는 변경하지 않았습니다.
 
-해당 식별자를 변경하려는 경우  `EngagementDefaultNotifier.prepareInAppArea` 메서드를 다시 정의해야 합니다. 이러한 고급 사용자 지정 수준을 원하는 경우  `EngagementNotifier` 및  `EngagementDefaultNotifier`의 기술 문서와 소스 코드를 살펴보는 것이 좋습니다.
+해당 식별자를 변경하려는 경우 `EngagementDefaultNotifier.prepareInAppArea` 메서드를 다시 정의해야 합니다. 이러한 고급 사용자 지정 수준을 원하는 경우 `EngagementNotifier` 및 `EngagementDefaultNotifier`의 기술 문서와 소스 코드를 살펴보는 것이 좋습니다.
 
 ##### 시스템 알림
 
-기본 구현에서 준비한 알림을 변경하려면  `EngagementDefaultNotifier`를 확장하여  `onNotificationPrepared`를 재정의할 수 있습니다.
+기본 구현에서 준비한 알림을 변경하려면 `EngagementDefaultNotifier`을(를) 확장하여 `onNotificationPrepared`을(를) 재정의할 수 있습니다.
 
-예를 들면 다음과 같습니다.
+예:
 
 			@Override
 			protected boolean onNotificationPrepared(Notification notification, EngagementReachInteractiveContent content)
@@ -427,7 +427,7 @@ Engagement Reach SDK는 알림 레이아웃이 이 작업에 포함되었으며 
 
 이 예제는 "진행 중" 범주를 사용할 때 진행 중인 이벤트로 표시되는 내용에 대한 시스템 알림을 만듭니다.
 
- `Notification` 개체를 처음부터 빌드하려는 경우 메서드에  `false`를 반환하고  `NotificationManager`에서  `notify`를 직접 호출할 수 있습니다. 그런 경우에는 `contentIntent`,  `deleteIntent` 및  `EngagementReachReceiver`에 사용되는 알림 식별자를 유지하는 것이 중요합니다.
+`Notification` 개체를 처음부터 빌드하려는 경우 메서드에 `false`을(를) 반환하고 `NotificationManager`에서 `notify`을(를) 직접 호출할 수 있습니다. 그런 경우에는 `contentIntent`, `deleteIntent` 및 `EngagementReachReceiver`에 사용되는 알림 식별자를 유지하는 것이 중요합니다.
 
 다음은 그러한 구현에 대한 올바른 예제입니다.
 
@@ -458,9 +458,9 @@ Engagement Reach SDK는 알림 레이아웃이 이 작업에 포함되었으며 
 
 ##### 공지만 알림
 
-공지만 알림에 대한 클릭 관리는  `EngagementDefaultNotifier.onNotifAnnouncementIntentPrepared`를 재정의하여 준비된  `Intent`를 수정함으로써 사용자 지정할 수 있습니다. 이 메서드를 사용하면 플래그를 쉽게 조정할 수 있습니다.
+공지만 알림에 대한 클릭 관리는 `EngagementDefaultNotifier.onNotifAnnouncementIntentPrepared`을(를) 재정의하여 준비된 `Intent`을(를) 수정함으로써 사용자 지정할 수 있습니다. 이 메서드를 사용하면 플래그를 쉽게 조정할 수 있습니다.
 
-다음은  `SINGLE_TOP` 플래그를 추가하는 예제입니다.
+다음은 `SINGLE_TOP` 플래그를 추가하는 예제입니다.
 			
 			@Override
 			protected Intent onNotifAnnouncementIntentPrepared(EngagementNotifAnnouncement notifAnnouncement,
@@ -472,41 +472,41 @@ Engagement Reach SDK는 알림 레이아웃이 이 작업에 포함되었으며 
 
 레거시 Engagement 사용자의 경우 실행 URL이 없는 시스템 알림은 응용 프로그램이 백그라운드에 있으면 해당 응용 프로그램을 시작하므로 이 메서드는 실행 URL이 없는 알림과 함께 호출될 수 있습니다. 의도를 사용자 지정할 때 이런 점을 고려해야 합니다.
 
-또한  `EngagementNotifier.executeNotifAnnouncementAction`을 처음부터 구현할 수도 있습니다.
+또한 `EngagementNotifier.executeNotifAnnouncementAction`을(를) 처음부터 구현할 수도 있습니다.
 
 ##### 알림 수명 주기
 
-기본 범주를 사용할 경우 다음과 같이 일부 수명 주기 메서드가  `EngagementReachInteractiveContent` 개체에서 호출되어 통계를 보고하고 캠페인 상태를 업데이트합니다.
+기본 범주를 사용할 때는 통계를 보고하고 캠페인 상태를 업데이트하기 위해 `EngagementReachInteractiveContent` 개체에서 일부 수명 주기 메서드를 호출합니다.
 
--   알림이 응용 프로그램에 표시되거나 상태 표시줄에 나타나는 경우  `handleNotification`이  `true`를 반환하면  `displayNotification` 메서드가  `EngagementReachAgent`에서 호출되어 통계를 보고합니다.
--   알림을 해제하면  `exitNotification` 메서드가 호출되고 통계가 보고되며 이제 다음 캠페인을 처리할 수 있습니다.
--   알림을 클릭하면  `actionNotification`이 호출되고 통계가 보고되며 연결된 의도가 시작됩니다.
+-   알림이 응용 프로그램에 표시되거나 상태 표시줄에 나타나는 경우 `handleNotification`이(가) `true`을(를) 반환하면 `displayNotification` 메서드가 `EngagementReachAgent`에서 호출되어 통계를 보고합니다.
+-   알림을 해제하면 `exitNotification` 메서드가 호출되고 통계가 보고되며 다음 캠페인을 처리할 수 있게 됩니다.
+-   알림을 클릭하면 `actionNotification`이(가) 호출되고 통계가 보고되며 연결된 의도가 시작됩니다.
 
- `EngagementNotifier`의 구현이 기본 동작을 건너뛰는 경우 이러한 수명 주기 메서드를 직접 호출해야 합니다. 다음 예제는 기본 동작을 건너뛰는 몇몇 경우를 보여 줍니다.
+만약 `EngagementNotifier` 구현이 기본 동작을 무시하는 경우에는 이러한 수명 주기 메서드를 직접 호출해야 합니다. 다음 예제에서는 기본 동작을 무시하는 몇 가지 경우를 보여 줍니다.
 
--   예를 들어 처음부터 범주 처리를 구현한 경우와 같이  `EngagementDefaultNotifier`를 확장하지 않았습니다.
--   시스템 알림의 경우  `onNotificationPrepared`를 재정의하고  `Notification` 개체에서  `contentIntent` 또는  `deleteIntent`를 수정했습니다.
--   앱 내 알림의 경우  `prepareInAppArea`를 재정의합니다. U.I 컨트롤 중 하나에 적어도  `actionNotification`를 매핑합니다.
+-   범주 처리를 처음부터 구현한 경우처럼 `EngagementDefaultNotifier`을(를) 확장하지 않은 경우
+-   시스템 알림의 경우 `onNotificationPrepared`을(를) 재정의하고 `Notification` 개체에서 `contentIntent` 또는 `deleteIntent`을(를) 수정했습니다.
+-   앱 내 알림의 경우 `prepareInAppArea`을(를) 재정의합니다. U.I 컨트롤 중 하나에 적어도 `actionNotification`을(를) 매핑합니다.
 
-> [AZURE.NOTE]  `handleNotification`에서 예외가 throw되는 경우 콘텐츠는 삭제되고  `dropContent`가 호출됩니다. 이 사항은 통계로 보고되며 이제 다음 캠페인을 처리할 수 있습니다.
+> [AZURE.NOTE]`handleNotification`에서 예외가 throw되는 경우 콘텐츠는 삭제되고 `dropContent`이(가) 호출됩니다. 이 사항은 통계로 보고되며 이제 다음 캠페인을 처리할 수 있습니다.
 
 ### 알림 및 설문 조사
 
 #### 레이아웃
 
- `engagement_text_announcement.xml`,  `engagement_web_announcement.xml`,  `engagement_poll.xml` 파일을 수정하여 텍스트 알림, 웹 알림 및 설문 조사를 사용자 지정할 수 있습니다.
+`engagement_text_announcement.xml`, `engagement_web_announcement.xml`, `engagement_poll.xml` 파일을 수정하여 텍스트 알림, 웹 알림 및 설문 조사를 사용자 지정할 수 있습니다.
 
-이러한 파일은 제목 영역 및 단추 영역의 두 가지 일반 레이아웃을 공유합니다. 제목의 레이아웃은  `engagement_content_title.xml`이며, 배경에 대해 제목과 동일한 이름의 그릴 수 있는 파일을 사용합니다. 실행 및 종료 단추의 레이아웃은  `engagement_button_bar.xml`이며, 배경에 대해 제목과 동일한 이름의 그릴 수 있는 파일을 사용합니다.
+이러한 파일은 제목 영역 및 단추 영역의 두 가지 일반 레이아웃을 공유합니다. 제목의 레이아웃은 `engagement_content_title.xml`이며, 배경에 대해 제목과 동일한 이름의 그릴 수 있는 파일을 사용합니다. 실행 및 종료 단추의 레이아웃은 `engagement_button_bar.xml`이며, 배경에 대해 제목과 동일한 이름의 그릴 수 있는 파일을 사용합니다.
 
-설문 조사에서 질문 레이아웃 및 선택 항목은 질문에  `engagement_question.xml` 레이아웃 파일을 사용하고 선택 항목에  `engagement_choice.xml` 파일을 여러 번 사용하여 동적으로 팽창됩니다.
+설문 조사에서 질문 레이아웃 및 선택 항목은 질문에 `engagement_question.xml` 레이아웃 파일을 사용하고 선택 항목에 `engagement_choice.xml` 파일을 여러 번 사용하여 동적으로 팽창됩니다.
 
 #### 범주
 
 ##### 대체 레이아웃
 
-알림과 마찬가지로 캠페인의 범주는 알림 및 설문 조사에 대한 대체 레이아웃을 마련하는 데 사용할 수 있습니다.
+알림과 마찬가지로 캠페인의 경우에도 범주를 사용하여 알림 및 설문 조사의 대체 레이아웃을 적용할 수 있습니다.
 
-예를 들어 텍스트 알림의 범주를 생성하려면 다음과 같이  `EngagementTextAnnouncementActivity`를 확장하고  `AndroidManifest.xml` 파일에서 참조할 수 있습니다.
+예를 들어 텍스트 알림의 범주를 생성하려면 다음과 같이 `EngagementTextAnnouncementActivity`을(를) 확장하고 `AndroidManifest.xml` 파일에서 참조할 수 있습니다.
 
 			<activity android:name="com.your_company.MyCustomTextAnnouncementActivity">
 			  <intent-filter>
@@ -520,7 +520,7 @@ Engagement Reach SDK는 알림 레이아웃이 이 작업에 포함되었으며 
 
 Reach SDK는 의도 시스템을 사용하여 특정 범주에 대해 올바른 작업을 확인하고, 확인에 실패하는 경우 기본 범주에 의존합니다.
 
-그런 다음  `MyCustomTextAnnouncementActivity`를 구현해야 하며, 레이아웃을 변경하지만 동일한 뷰 식별자를 유지하려는 경우 다음 예제와 같이 클래스를 정의해야 합니다.
+그런 다음 `MyCustomTextAnnouncementActivity`을(를) 구현해야 하며, 레이아웃을 변경하지만 동일한 뷰 식별자를 유지하려는 경우 다음 예제와 같이 클래스를 정의해야 합니다.
 
 			public class MyCustomTextAnnouncementActivity extends EngagementTextAnnouncementActivity
 			{
@@ -531,11 +531,11 @@ Reach SDK는 의도 시스템을 사용하여 특정 범주에 대해 올바른 
 			  }
 			}
 
-텍스트 알림의 기본 범주를 바꾸려면 단지  `android:name="com.microsoft.azure.engagement.reach.activity.EngagementTextAnnouncementActivity"`를 고유한 구현으로 바꾸면 됩니다.
+텍스트 알림의 기본 범주를 바꾸려면 단지 `android:name="com.microsoft.azure.engagement.reach.activity.EngagementTextAnnouncementActivity"`을(를) 고유한 구현으로 바꾸면 됩니다.
 
 웹 알림 및 설문 조사는 유사한 방식으로 사용자 지정할 수 있습니다.
 
-웹 알림의 경우  `EngagementWebAnnouncementActivity`를 확장하고 다음 예제와 같이  `AndroidManifest.xml`에서 작업을 선언할 수 있습니다.
+웹 알림의 경우 `EngagementWebAnnouncementActivity`을(를) 확장하고 다음 예제와 같이 `AndroidManifest.xml`에서 작업을 선언할 수 있습니다.
 
 			<activity android:name="com.your_company.MyCustomWebAnnouncementActivity">
 			  <intent-filter>
@@ -545,7 +545,7 @@ Reach SDK는 의도 시스템을 사용하여 특정 범주에 대해 올바른 
 			  </intent-filter>
 			</activity>
 
-설문 조사의 경우  `EngagementPollActivity`를 확장하고 다음 예제와 같이  `AndroidManifest.xml`에서 작업을 선언할 수 있습니다.
+설문 조사의 경우 `EngagementPollActivity`을(를) 확장하고 다음 예제와 같이 `AndroidManifest.xml`에서 작업을 선언할 수 있습니다.
 
 			<activity android:name="com.your_company.MyCustomPollActivity">
 			  <intent-filter>
@@ -556,9 +556,9 @@ Reach SDK는 의도 시스템을 사용하여 특정 범주에 대해 올바른 
 			
 ##### 처음부터 구현
 
-Reach SDK에서 제공하는  `Engagement*Activity` 클래스 중 하나를 확장하지 않고 알림(및 설문 조사) 작업에 대한 범주를 구현할 수 있습니다. 이 작업은, 예를 들어 동일한 뷰를 표준 레이아웃으로 사용하지 않는 레이아웃을 정의하려는 경우에 유용합니다.
+Reach SDK에서 제공하는 `Engagement*Activity` 클래스 중 하나를 확장하지 않고 알림(및 설문 조사) 작업에 대한 범주를 구현할 수 있습니다. 이 작업은, 예를 들어 동일한 뷰를 표준 레이아웃으로 사용하지 않는 레이아웃을 정의하려는 경우에 유용합니다.
 
-고급 알림 사용자 지정의 경우와 같이 표준 구현의 소스 코드를 살펴보는 것이 좋습니다.
+고급 알림 사용자 지정과 마찬가지로 표준 구현의 소스 코드를 확인하는 것이 좋습니다.
 
 이때 Reach는 콘텐츠 식별자인 추가 매개 변수와 함께 특정 의도(의도 필터에 해당)를 사용하여 작업을 시작한다는 점 등 몇 가지 사항에 유의해야 합니다.
 
@@ -599,11 +599,11 @@ Reach SDK에서 제공하는  `Engagement*Activity` 클래스 중 하나를 확�
 			 super.onResume();
 			}
 
-그런 다음 작업이 백그라운드로 전환되기 전에 잊지 말고 콘텐츠 개체에서  `actionContent(this)` 또는  `exitContent(this)`를 호출해야 합니다.
+그런 다음 작업이 백그라운드로 전환되기 전에 잊지 말고 콘텐츠 개체에서 `actionContent(this)` 또는 `exitContent(this)`을(를) 호출해야 합니다.
 
- `actionContent` 또는 `exitContent`를 호출하지 않은 경우 통계가 전송되지 않으며(즉, 캠페인에 대한 분석이 없음), 무엇보다도 응용 프로그램 프로세스가 다시 시작될 때까지 다음 캠페인을 알리지 못합니다.
+`actionContent` 또는 `exitContent`을(를) 호출하지 않은 경우 통계가 전송되지 않으며(즉, 캠페인에 대한 분석이 없음), 무엇보다도 응용 프로그램 프로세스가 다시 시작될 때까지 다음 캠페인을 알리지 못합니다.
 
-방향 또는 기타 구성을 변경하면 코드에서 작업을 백그라운드로 전환할지 여부를 결정하는 것이 어려워질 수 있습니다. 표준 구현에서는 사용자가  `HOME` 또는 `BACK`을 눌러 작업을 떠나지만 방향이 변경되지 않은 경우 콘텐츠가 종료된 것으로 보고되도록 합니다.
+방향 또는 기타 구성을 변경하면 코드에서 작업을 백그라운드로 전환할지 여부를 결정하는 것이 어려워질 수 있습니다. 표준 구현에서는 사용자가 `HOME` 또는 `BACK`을(를) 눌러 작업을 떠나지만 방향이 변경되지 않은 경우 콘텐츠가 종료된 것으로 보고되도록 합니다.
 
 다음은 구현의 흥미로운 부분입니다.
 
@@ -627,14 +627,14 @@ Reach SDK에서 제공하는  `Engagement*Activity` 클래스 중 하나를 확�
 			  super.onPause();
 			}
 
-여기에서 알 수 있듯이  `actionContent(this)`를 호출한 후 작업을 완료하는 경우  `exitContent(this)`가 영향을 받지 않고 안전하게 호출될 수 있습니다.
+여기에서 알 수 있듯이 `actionContent(this)`을(를) 호출한 후 작업을 완료하는 경우 `exitContent(this)`이(가) 영향을 받지 않고 안전하게 호출될 수 있습니다.
 
 ##테스트
 
 이제 Android에서 Engagement 통합을 테스트하는 방법을 읽어보고 통합을 확인하세요.
 
-[여기]:http://developer.android.com/tools/extras/support-library.html#Downloading
-[Google Cloud Messaging]:http://developer.android.com/guide/google/gcm/index.html
-[Amazon Device Messaging]:https://developer.amazon.com/sdk/adm.html
+[여기]: http://developer.android.com/tools/extras/support-library.html#Downloading
+[Google Cloud Messaging]: http://developer.android.com/guide/google/gcm/index.html
+[Amazon Device Messaging]: https://developer.amazon.com/sdk/adm.html
 
-<!--HONumber=47-->
+<!--HONumber=54-->

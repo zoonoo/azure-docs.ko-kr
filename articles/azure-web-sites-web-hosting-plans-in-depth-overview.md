@@ -1,9 +1,9 @@
-﻿<properties 
+<properties 
 	pageTitle="Azure 앱 서비스 계획의 포괄 개요" 
 	description="Azure 앱 서비스에 대한 앱 서비스 계획의 작동 방식 및 이러한 계획을 통해 관리 환경을 향상시킬 수 있는 방법을 알아봅니다." 
 	services="app-service" 
 	documentationCenter="" 
-	authors="btardif" 
+	authors="cephalin" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/24/2014" 
+	ms.date="03/24/2015" 
 	ms.author="byvinyal"/>
 
 #Azure 앱 서비스 계획의 포괄 개요#
@@ -24,7 +24,7 @@
 
 ##앱 및 앱 서비스 계획
 
-앱 서비스의 앱은 주어진 시간에 항상 하나의 앱 서비스 계획에만 연결될 수 있습니다. 
+앱 서비스의 앱은 주어진 시간에 항상 하나의 앱 서비스 계획에만 연결될 수 있습니다.
 
 앱과 계획은 둘 다 리소스 그룹에 포함됩니다. 리소스 그룹은 그룹 내에 포함된 모든 리소스에 대한 수명 주기 경계 역할을 합니다. 리소스 그룹을 사용하면 응용 프로그램의 모든 부분을 함께 관리할 수 있습니다.
 
@@ -46,39 +46,37 @@
  
 마지막으로, 다른 지역에 새 앱을 만들려고 하며 해당 지역에 기존 계획이 없는 경우 이 지역에서 새 계획을 만들어야 앱을 호스트할 수 있습니다.
 
-##앱 서비스 계획 F.A.Q.
+## 앱 서비스 계획 만들기
 
-**질문**: 앱 서비스 계획을 만들려면 어떻게 해야 하나요?
-
-**대답**: 빈 앱 서비스 계획을 만들 수는 없습니다. 그러나 앱을 만드는 중에 새 계획을 명시적으로 만들 수 있습니다.
+빈 앱 서비스 계획을 만들 수는 없습니다. 그러나 앱을 만드는 동안 새 계획을 명시적으로 만들 수 있습니다.
 
 [Azure 포털](http://go.microsoft.com/fwlink/?LinkId=529715)에서 새 계획을 만들려면 **새로 만들기**를 클릭하고 **웹+모바일**을 선택한 다음 **웹앱**, **모바일 앱**, **논리 앱** 또는 **API 앱**을 선택합니다. 그런 다음 새 앱에 대한 앱 서비스 계획을 선택하거나 만들 수 있습니다.
  
-![App Service Plan F.A.Q.](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview01.png)
+![앱 서비스 계획 F.A.Q.](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview01.png)
 
-**질문**: **앱 서비스 계획**에 앱을 할당하려면 어떻게 해야 하나요?
+##앱 서비스 계획에 앱 할당
 
-**대답**: 앱을 만드는 중에 기존 계획에 앱을 할당할 수 있습니다.
+앱을 만드는 중에 기존 계획에 앱을 할당할 수 있습니다.
 
 [Azure 포털](http://portal.azure.com)에서 새 계획을 만들려면 **새로 만들기**를 클릭하고 **웹+모바일**을 선택한 다음 **웹앱**, **모바일 앱**, **논리 앱** 또는 **API 앱**을 선택합니다. 그런 다음 새 앱에 대한 앱 서비스 계획을 선택하거나 만들 수 있습니다. **또는 기존 계획 선택**을 클릭하면 선택할 수 있는 기존 계획 목록이 나타납니다.
 
-![App Service Plan F.A.Q.](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview02.png)
+![앱 서비스 계획 F.A.Q.](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview02.png)
  
-**질문**: 다른 앱 서비스 계획으로 앱을 이동하려면 어떻게 해야 하나요?
+## 다른 앱 서비스 계획으로 앱 이동
 
-**대답**: [Azure 포털](http://portal.azure.com)에서 앱을 다른 앱 서비스 계획으로 이동할 수 있습니다. 동일한 지역의 계획 간에 앱을 이동할 수 있습니다.
+[Azure 포털](http://portal.azure.com)에서 앱을 다른 앱 서비스 계획으로 이동할 수 있습니다. 동일한 지역의 계획 간에 앱을 이동할 수 있습니다.
 
 앱을 다른 계획으로 이동하려면 이동할 앱을 탐색하고 **앱 서비스 계획 변경**을 클릭합니다.
  
 앱 서비스 계획 블레이드가 열립니다. 이때 기존 계획을 선택하거나 새 계획을 만들 수 있습니다. 다른 지리적 위치의 계획은 회색으로 표시되어 선택할 수 없습니다.
 
-![App Service Plan F.A.Q.](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview03.png)
+![앱 서비스 계획 F.A.Q.](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview03.png)
 
 각 계획에는 고유한 가격 책정 계층이 있습니다. **무료** 계층에서 **표준** 계층으로 사이트를 이동하는 경우 앱이 **표준** 계층의 모든 기능과 리소스를 활용할 수 있습니다.
 
-**질문**: 앱 서비스 계획의 크기를 조정하려면 어떻게 해야 하나요?
+## 앱 서비스 계획 크기 조정
 
-**대답**: 계획의 크기를 조정하는 세 가지 방법이 있습니다.
+계획의 크기를 조정하는 세 가지 방법이 있습니다.
 
 - 계획의 **가격 책정 계층**을 변경합니다. 예를 들어 **기본** 계층의 계획을 **표준** 또는 **프리미엄** 계층으로 변환할 수 있으며 해당 계획과 연결된 모든 앱이 새 서비스 계층에 제공된 기능을 활용할 수 있습니다.
 - 계획의 **인스턴스 크기**를 변경합니다. 예를 들어 **작은** 인스턴스를 사용하는 **기본** 계층의 계획을 **큰** 인스턴스를 사용하도록 변경할 수 있습니다. 해당 계획과 연결된 모든 앱이 큰 인스턴스 크기에서 제공하는 추가 메모리 및 CPU 리소스를 활용할 수 있습니다.
@@ -86,15 +84,15 @@
 
 아래 이미지에서는 **앱 서비스 계획** 블레이드 및 **가격 책정 계층** 블레이드를 볼 수 있습니다. **앱 서비스 계획** 블레이드에서 **가격 책정 계층** 파트를 클릭하면 계획의 가격 책정 계층과 인스턴스 크기를 변경할 수 있는 **가격 책정 계층** 블레이드가 확장됩니다.
  
-![App Service Plan F.A.Q.](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview04.png)
+![앱 서비스 계획 F.A.Q.](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview04.png)
 
 ##요약
 
-앱 서비스 계획은 앱에서 공유할 수 있는 기능 및 용량 집합을 나타냅니다. 앱 서비스 계획은 주어진 리소스 집합에 특정 앱을 할당하고 Azure 리소스 사용률을 더욱 최적화하는 유연성을 제공합니다. 따라서 테스트 환경에서 비용을 절약하려는 경우 여러 앱에서 계획을 공유할 수 있습니다. 여러 지역과 계획에 걸쳐 크기를 조정하여 프로덕션 환경의 생산량을 최대화할 수도 있습니다.
+앱 서비스 계획은 앱 간에 공유할 수 있는 기능 및 용량 집합을 나타냅니다. 앱 서비스 계획은 주어진 리소스 집합에 특정 앱을 할당하고 Azure 리소스 사용률을 더욱 최적화하는 유연성을 제공합니다. 따라서 테스트 환경에서 비용을 절약하려는 경우 여러 앱에서 계획을 공유할 수 있습니다. 여러 지역과 계획에 걸쳐 크기를 조정하여 프로덕션 환경의 생산량을 최대화할 수도 있습니다.
 
-## 변경 내용
+## 변경된 내용
 
-* 웹 사이트에서 앱 서비스로의 변경에 대한 가이드는 다음을 참조하세요. [Azure 앱 서비스 및 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)
-* 이전 포털에서 새 포털로의 변경에 대한 가이드는 다음을 참조하세요. [미리 보기 포털 탐색을 위한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)
+* 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.
+* 이전 포털에서 새 포털로의 변경에 대한 지침은 [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
 
-<!--HONumber=49-->
+<!--HONumber=54-->

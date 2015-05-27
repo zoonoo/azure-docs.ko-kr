@@ -1,26 +1,26 @@
-﻿<properties 
-	pageTitle="푸시 알림 시작(Xamarin.iOS) - 모바일 서비스" 
-	description="Azure 모바일 서비스와 함께 Xamarin.iOS 앱에서 푸시 알림을 사용하는 방법에 대해 알아봅니다." 
-	documentationCenter="xamarin" 
-	authors="ysxu" 
-	manager="dwrede" 
-	services="mobile-services" 
+<properties
+	pageTitle="모바일 서비스 앱에 푸시 알림 추가(Xamarin.iOS) - 모바일 서비스"
+	description="Azure 모바일 서비스와 함께 Xamarin.iOS 앱에서 푸시 알림을 사용하는 방법에 대해 알아봅니다."
+	documentationCenter="xamarin"
+	authors="ysxu"
+	manager="dwrede"
+	services="mobile-services"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-xamarin-ios" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="10/20/2014" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm=""
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="3/10/2015"
 	ms.author="yuaxu"/>
 
 # 모바일 서비스 앱에 푸시 알림 추가
 
-[AZURE.INCLUDE [mobile-services-selector-get-started-push-xamarin](../includes/mobile-services-selector-get-started-push-xamarin.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-push](../includes/mobile-services-selector-get-started-push.md)]
 
-<p>이 항목에서는 Azure 모바일 서비스를 사용하여 Xamarin.iOS 8 앱에 푸시 알림을 보내는 방법을 보여 줍니다. 이 자습서에서는 APNS(Apple 푸시 알림 서비스)를 사용하여 [모바일 서비스 시작] 프로젝트에 푸시 알림을 추가합니다. 이 작업을 완료하면 레코드가 삽입될 때마다 모바일 서비스에서 푸시 알림을 전송합니다.</p>
+이 항목에서는 Azure 모바일 서비스를 사용하여 Xamarin.iOS 8 앱에 푸시 알림을 보내는 방법을 보여 줍니다. 이 자습서에서는 APNS(Apple 푸시 알림 서비스)를 사용하여 [모바일 서비스 시작] 프로젝트에 푸시 알림을 추가합니다. 이 작업을 완료하면 레코드가 삽입될 때마다 모바일 서비스에서 푸시 알림을 전송합니다.
 
 이 자습서에서는 푸시 알림을 사용하도록 설정하는 다음 기본 단계를 단계별로 안내합니다.
 
@@ -35,16 +35,16 @@
 
 이 자습서를 사용하려면 다음이 필요합니다.
 
-+ iOS 8 장치
++ iOS 8 장치(iOS 시뮬레이터에서에서 푸시 알림을 테스트할 수 없음)
 + iOS 개발자 프로그램 멤버 자격
 + [Xamarin.iOS Studio]
 + [Azure 모바일 서비스 구성 요소]
 
-   > [AZURE.NOTE] 푸시 알림 구성 요구 사항 때문에 에뮬레이터 대신 iOS 지원 장치(iPhone 또는 iPad)에서 푸시 알림을 배포 및 테스트해야 합니다.
+   >[AZURE.NOTE]푸시 알림 구성 요구 사항 때문에 에뮬레이터 대신 iOS 지원 장치(iPhone 또는 iPad)에서 푸시 알림을 배포 및 테스트해야 합니다.
 
-APNS(Apple 푸시 알림 서비스)는 인증서를 사용하여 모바일 서비스를 인증합니다. 필요한 인증서를 만들어 모바일 서비스에 업로드하려면 해당 지침을 따르세요. 공식 APNS 기능 설명서는 [Apple 푸시 알림 서비스]를 참조하세요.
+APNS(Apple Push Notification Service)는 인증서를 사용하여 모바일 서비스를 인증합니다. 필요한 인증서를 만들어 모바일 서비스에 업로드하려면 해당 지침을 따르세요. 공식 APNS 기능 설명서는 [Apple Push Notification Service](영문)를 참조하세요.
 
-## <a name="certificates"></a>인증서 서명 요청 생성
+## <a name="certificates"></a>인증서 서명 요청 파일 생성
 
 먼저, 서명된 인증서를 생성하기 위해 Apple에서 사용하는 CSR(인증서 서명 요청) 파일을 생성해야 합니다.
 
@@ -54,65 +54,65 @@ APNS(Apple 푸시 알림 서비스)는 인증서를 사용하여 모바일 서�
 
     ![][5]
 
-3. **User Email Address**를 입력하고, **Common Name** 값을 입력한 다음, **Saved to disk**가 선택되었는지 확인하고, **Continue**를 클릭합니다.
+3. **User Email Address**를 입력하고 **Common Name** 값을 입력한 다음 **Saved to disk**가 선택되었는지 확인하고 **Continue**를 클릭합니다.
 
     ![][6]
 
 4. **Save As**에 CSR(인증서 서명 요청) 파일의 이름을 입력하고, **Where**에서 위치를 선택한 후 **Save**를 클릭합니다.
 
     ![][7]
-  
+
     선택한 위치를 기억해 두세요.
 
-이제 Apple에 앱을 등록하고, 푸시 알림을 사용하도록 설정한 다음, 내보낸 CSR을 업로드하여 푸시 인증서를 만들 것입니다.
+이제 Apple에 앱을 등록하고, 푸시 알림을 사용하도록 설정하고, 내보낸 CSR을 업로드하여 푸시 인증서를 만들 것입니다.
 
 ## <a name="register"></a>푸시 알림에 대해 앱 등록
 
-모바일 서비스에서 iOS 앱으로 푸시 알림을 보내려면 Apple에 앱을 등록하고 푸시 알림을 등록해야 합니다. 
+모바일 서비스에서 iOS 앱으로 푸시 알림을 보내려면 Apple에 앱을 등록하고 푸시 알림을 등록해야 합니다.
 
-1. 아직 앱을 등록하지 않은 경우 Apple Developer Center의 <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">iOS Provisioning Portal</a>로 이동하여 Apple ID로 로그온하고 **Identifiers**와 **App IDs**를 클릭한 다음에 **+** 기호를 클릭하여 앱의 앱 ID를 만듭니다.
-    
+1. 아직 앱을 등록하지 않은 경우 Apple 개발자 센터의 <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">iOS Provisioning Portal</a>로 이동하여 Apple ID로 로그온하고 **Identifiers**와 **App IDs**를 클릭한 다음에 **+** 기호를 클릭하여 앱의 앱 ID를 만듭니다.
+
     ![][102]
 
-2. **Description**에 앱의 이름을 입력하고, 고유한 **Bundle Identifier**를 입력한 후 기억해 둔 다음, "App Services" 섹션에서 "Push Notifications" 옵션을 선택하고, **Continue**를 클릭합니다. 이 예제에서는 **MobileServices.Quickstart ID**를 사용하지만 실제로 이 ID를 사용해서는 안 됩니다. 모든 사용자는 고유한 앱 ID를 사용해야 하기 때문입니다. 사용자의 전체 이름 또는 이니셜을 앱 이름 뒤에 추가하는 것이 좋습니다. 
+2. **Description**에 앱의 이름을 입력하고 고유한 **Bundle Identifier**를 입력한 후 기억해 둔 다음 "App Services" 섹션에서 "Push Notifications" 옵션을 선택하고 **Continue**를 클릭합니다. 이 예제에서는 **MobileServices.Quickstart** ID를 사용하지만 실제로 이 ID를 사용해서는 안 됩니다. 모든 사용자는 고유한 앱 ID를 사용해야 하기 때문입니다. 사용자의 전체 이름 또는 이니셜을 앱 이름 뒤에 추가하는 것이 좋습니다.
 
     ![][103]
-   
-    앱 ID가 생성되고 정보를 **제출**하도록 요청됩니다. **Submit**을 클릭합니다.
-   
-    ![][104] 
-   
-    **Submit**을 클릭하면 아래와 같은 **Registration complete** 화면이 표시됩니다. **Done**을 클릭합니다.
-   
-    ![][105]    
 
-3. 방금 만든 앱 ID를 찾아 해당 행을 클릭합니다. 
+    앱 ID가 생성되고 정보를 **제출**하도록 요청됩니다. **Submit**를 클릭합니다.
+
+    ![][104]
+
+    **Submit**를 클릭하면 아래와 같은 **Registration complete** 화면이 표시됩니다. **Done**을 클릭합니다.
+
+    ![][105]
+
+3. 방금 만든 앱 ID를 찾아 해당 행을 클릭합니다.
 
     ![][106]
-   
+
     앱 ID를 클릭하면 앱 및 앱 ID에 대한 세부 정보가 표시됩니다. **Settings** 단추를 클릭합니다.
-   
-    ![][107] 
-   
+
+    ![][107]
+
 4. 화면 아래로 스크롤하여 **Development Push SSL Certificate** 섹션에서 **Create Certificate...** 단추를 클릭합니다.
 
-    ![][108] 
+    ![][108]
 
-    "Add iOS Certificate" Assistant가 표시됩니다.
-   
+    "Add iOS Certificate" assistant가 표시됩니다.
+
     참고: 이 자습서에서는 개발 인증서를 사용합니다. 프로덕션 인증서를 등록할 때에도 동일한 프로세스가 사용됩니다. 모바일 서비스로 인증서를 업로드할 때 동일한 인증서 유형을 설정해야 합니다.
 
-5. **Choose File**을 클릭하고, 이전에 CSR 파일을 저장한 위치로 이동하고, **Generate**를 클릭합니다. 
+5. **Choose File**을 클릭하고 이전에 CSR 파일을 저장한 위치로 이동하여 **Generate**를 클릭합니다.
 
     ![][110]
-  
+
 6. 포털에서 인증서가 생성되면 **Download** 단추를 클릭하고 **Done**을 클릭합니다.
- 
-    ![][111]  
 
-    서명 인증서가 다운로드되어 컴퓨터의 Downloads 폴더에 저장됩니다. 
+    ![][111]
 
-    ![][9] 
+    서명 인증서가 다운로드되어 컴퓨터의 다운로드 폴더에 저장됩니다.
+
+    ![][9]
 
     참고: 기본적으로 다운로드된 개발 증명서 파일은 이름이 <strong>aps_development.cer</strong>로 지정됩니다.
 
@@ -122,19 +122,19 @@ APNS(Apple 푸시 알림 서비스)는 인증서를 사용하여 모바일 서�
 
     ![][10]
 
-    참고: 인증서의 이름은 다를 수 있지만 <strong>Apple Development iOS Push Notification Services:</strong>가 앞에 옵니다.
+    인증서의 이름은 다를 수 있지만 <strong>Apple Development iOS Push Notification Services:</strong>가 앞에 옵니다.
 
 나중에 이 인증서를 사용하여 .p12 파일을 생성하고 모바일 서비스에 업로드하여 APNS에서의 인증에 사용하게 됩니다.
 
 ## <a name="profile"></a>앱용 프로비저닝 프로필 만들기
- 
-1. <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">iOS Provisioning Portal</a>로 돌아가, **Provisioning Profiles**와 **All**을 차례로 선택하고 **+** 단추를 클릭하여 새 프로필을 만듭니다. **Add iOS Provisioning Profile** 마법사가 실행됩니다.
+
+1. <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">iOS Provisioning Portal</a>로 돌아가서 **Provisioning Profiles**와 **All**을 차례로 선택하고 **+** 단추를 클릭하여 새 프로필을 만듭니다. **Add iOS Provisioning Profile** 마법사가 실행됩니다.
 
     ![][112]
 
 2. **Development**에서 프로비저닝 프로필 유형으로 **iOS App Development**를 선택하고 **Continue**를 클릭합니다.
 
-3. **App ID** 드롭다운 목록에서 모바일 서비스 빠른 시작 앱의 앱 ID를 선택하고 **Continue**를 클릭합니다.
+3. **App ID** 드롭다운 목록에서 모바일 서비스 Quickstart 앱의 앱 ID를 선택하고 **Continue**를 클릭합니다.
 
     ![][113]
 
@@ -143,10 +143,10 @@ APNS(Apple 푸시 알림 서비스)는 인증서를 사용하여 모바일 서�
     ![][114]
 
 5. 테스트에 사용할 **Devices**를 선택하고 **Continue**를 클릭합니다.
-  
+
     ![][115]
 
-6. 마지막으로, **Profile Name**에서 프로필의 이름을 선택하고 **Generate**와 **Done**을 차례로 클릭합니다.
+6. 끝으로, **Profile Name**에서 프로필의 이름을 선택하고 **Generate**와 **Done**을 차례로 클릭합니다.
 
     ![][116]
 
@@ -154,11 +154,11 @@ APNS(Apple 푸시 알림 서비스)는 인증서를 사용하여 모바일 서�
 
     ![][117]
 
-## <a name="configure-mobileServices"></a>푸시 요청을 보내도록 모바일 서비스 구성
+## <a name="configure-mobileServices"></a>푸시 요청을 전송하도록 모바일 서비스 구성
 
 APNS에 앱을 등록하고 프로젝트를 구성했으면 APNS와 통합되도록 모바일 서비스를 구성해야 합니다.
 
-1. Keychain Access에서 새 인증서를 마우스 오른쪽 단추로 클릭하여 **Export**를 클릭하고, QuickstartPusher 파일의 이름을 지정한 다음, **.p12** 형식을 선택하고, **Save**를 클릭합니다.
+1. Keychain Access에서 새 인증서를 마우스 오른쪽 단추로 클릭하여 **Export**를 클릭하고, 파일의 이름을 지정한 다음, **.p12** 형식을 선택하고, **Save**를 클릭합니다.
 
     ![][28]
 
@@ -176,7 +176,7 @@ APNS에 앱을 등록하고 프로젝트를 구성했으면 APNS와 통합되도
 
 4. **파일**을 클릭하고, 내보낸 인증서 .p12 파일을 선택한 다음, **암호**를 입력하고, 올바른 **모드**가 선택되었는지 확인합니다. 그런 다음 확인 아이콘을 클릭한 후 **저장**을 클릭합니다.
 
-    ![][20] 
+    ![][20]
 
 모바일 서비스가 이제 APNS와 작동하도록 구성됩니다.
 
@@ -186,13 +186,13 @@ APNS에 앱을 등록하고 프로젝트를 구성했으면 APNS와 통합되도
 
     ![][121]
 
-2. 아래의 **Background Modes**로 스크롤하여 **Enable Background Modes** 상자와 **Remote notifications** 상자를 선택합니다. 
+2. 아래의 **Background Modes**로 스크롤하여 **Enable Background Modes** 상자와 **Remote notifications** 상자를 선택합니다.
 
     ![][122]
 
 3. Solution Panel에서 프로젝트를 두 번 클릭하여 **Project Options**를 엽니다.
 
-4.  **Build**에서 **iOS Bundle Signing**을 선택하고 방금 이 프로젝트에 대해 설정한 해당 **ID** 및 **프로비저닝 프로필**을 선택합니다. 
+4.  **Build**에서 **iOS Bundle Signing**을 선택하고 방금 이 프로젝트에 대해 설정한 해당 **ID** 및 **프로비저닝 프로필**을 선택합니다.
 
     ![][120]
 
@@ -210,29 +210,29 @@ APNS에 앱을 등록하고 프로젝트를 구성했으면 APNS와 통합되도
         public string DeviceToken { get; set; }
 
 3. **QSTodoService**에서 기존 클라이언트 선언을 다음으로 재정의합니다.
-        
+
         public MobileServiceClient client { get; private set; }
 
 4. 그런 다음 **AppDelegate**가 나중에 클라이언트를 얻어 푸시 알림을 등록할 수 있도록 다음 메서드를 추가합니다.
 
         public MobileServiceClient GetClient {
-            get{ 
+            get{
                 return client;
             }
         }
 
-5. **AppDelegate**에서 **FinishedLaunching** 이벤트를 재정의합니다. 
+5. **AppDelegate**에서 **FinishedLaunching** 이벤트를 재정의합니다.
 
         public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
         {
             // registers for push for iOS8
             var settings = UIUserNotificationSettings.GetSettingsForTypes(
-                UIUserNotificationType.Alert 
-                | UIUserNotificationType.Badge 
-                | UIUserNotificationType.Sound, 
+                UIUserNotificationType.Alert
+                | UIUserNotificationType.Badge
+                | UIUserNotificationType.Sound,
                 new NSSet());
 
-            UIApplication.SharedApplication.RegisterUserNotificationSettings(settings); 
+            UIApplication.SharedApplication.RegisterUserNotificationSettings(settings);
             UIApplication.SharedApplication.RegisterForRemoteNotifications();
 
             return true;
@@ -275,9 +275,9 @@ APNS에 앱을 등록하고 프로젝트를 구성했으면 APNS와 통합되도
 
         string deviceToken = ((AppDelegate)UIApplication.SharedApplication.Delegate).DeviceToken;
 
-        var newItem = new TodoItem() 
+        var newItem = new TodoItem()
         {
-            Text = itemText.Text, 
+            Text = itemText.Text,
             Complete = false,
             DeviceToken = deviceToken
         };
@@ -286,12 +286,12 @@ APNS에 앱을 등록하고 프로젝트를 구성했으면 APNS와 통합되도
 
 ## <a name="update-scripts"></a>관리 포털에서 등록된 삽입 스크립트 업데이트
 
-1. 관리 포털에서 **데이터** 탭을 클릭한 후 **TodoItem** 테이블을 클릭합니다. 
+1. 관리 포털에서 **데이터** 탭을 클릭한 후 **TodoItem** 테이블을 클릭합니다.
 
     ![][21]
 
-2. **todoitem**에서 **스크립트** 탭을 클릭하고 **삽입**을 선택합니다.
-   
+2. **TodoItem**에서 **스크립트** 탭을 클릭하고 **삽입**을 선택합니다.
+
     ![][22]
 
     **TodoItem** 테이블에 삽입 시 호출되는 함수가 표시됩니다.
@@ -300,7 +300,7 @@ APNS에 앱을 등록하고 프로젝트를 구성했으면 APNS와 통합되도
 
         function insert(item, user, request) {
             request.execute();
-            // Set timeout to delay the notification, to provide time for the 
+            // Set timeout to delay the notification, to provide time for the
             // app to be closed on the device to demonstrate toast notifications
             setTimeout(function() {
                 push.apns.send("uniqueTag", {
@@ -312,19 +312,19 @@ APNS에 앱을 등록하고 프로젝트를 구성했으면 APNS와 통합되도
             }, 2500);
         }
 
-    새 삽입 스크립트가 등록되며, 이 스크립트는 [apns 개체]를 사용하여 삽입 요청에 제공된 장치에 푸시 알림(삽입된 텍스트)을 보냅니다. 
+    새 삽입 스크립트가 등록되며, 이 스크립트는 [apns 개체]를 사용하여 삽입 요청에 제공된 장치에 푸시 알림(삽입된 텍스트)을 보냅니다.
 
-   > [AZURE.NOTE] 이 스크립트는 앱을 닫고 알림 메시지를 수신할 수 있는 시간을 주기 위해 알림 전송을 지연시킵니다.
+    >[AZURE.NOTE]이 스크립트는 앱을 닫고 알림 메시지를 수신할 수 있는 시간을 주기 위해 알림 전송을 지연시킵니다.
 
 ## <a name="test"></a>앱에서 푸시 알림 테스트
 
-1. **실행** 단추를 눌러 프로젝트를 빌드하고 iOS 지원 장치에서 앱을 시작한 다음 **확인**을 클릭하여 푸시 알림을 수락합니다.
+1. **실행** 단추를 눌러 프로젝트를 빌드하고 iOS 지원 장치에서 앱을 시작한 다음, **확인**을 클릭하여 푸시 알림을 수락합니다.
 
     ![][23]
 
-   > [AZURE.NOTE] 앱에서 푸시 알림을 명시적으로 수락해야 합니다. 이 요청은 앱을 처음 실행할 때만 발생합니다.
+    >[AZURE.NOTE]앱에서 푸시 알림을 명시적으로 수락해야 합니다. 이 요청은 앱을 처음 실행할 때만 수행됩니다.
 
-2. 앱에서 _A new Mobile Services task_와 같은 의미 있는 텍스트를 입력하고 더하기(**+**) 아이콘을 클릭합니다.
+2. 앱에서 _새 모바일 서비스 작업_과 같은 의미 있는 텍스트를 입력하고 더하기(**+**) 아이콘을 클릭합니다.
 
     ![][24]
 
@@ -387,29 +387,28 @@ APNS에 앱을 등록하고 프로젝트를 구성했으면 APNS와 통합되도
 [116]: ./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-services-ios-push-16.png
 [117]: ./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-services-ios-push-17.png
 
-[120]:./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-services-ios-push-20.png
-[121]:./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-services-ios-push-21.png
-[122]:./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-services-ios-push-22.png
+[120]: ./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-services-ios-push-20.png
+[121]: ./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-services-ios-push-21.png
+[122]: ./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-services-ios-push-22.png
 
 [Xamarin.iOS Studio]: http://xamarin.com/platform
-[Xcode 설치]: https://go.microsoft.com/fwLink/p/?LinkID=266532
+[Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
-[모바일 서비스 iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
-[Apple 푸시 알림 서비스]: http://go.microsoft.com/fwlink/p/?LinkId=272584
-[모바일 서비스 시작]: /ko-kr/develop/mobile/tutorials/get-started-xamarin-ios
-[데이터 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-data-xamarin-ios
-[인증 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-users-xamarin-ios
-[푸시 알림 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-push-xamarin-ios
-[앱 사용자에 대한 푸시 알림]: /ko-kr/develop/mobile/tutorials/push-notifications-to-users-ios
-[스크립트를 통해 사용자 권한 부여]: /ko-kr/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-ios
+[Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
+[Apple Push Notification Service]: http://go.microsoft.com/fwlink/p/?LinkId=272584
+[모바일 서비스 시작]: /develop/mobile/tutorials/get-started-xamarin-ios
+[Get started with data]: /develop/mobile/tutorials/get-started-with-data-xamarin-ios
+[Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-xamarin-ios
+[Get started with push notifications]: /develop/mobile/tutorials/get-started-with-push-xamarin-ios
+[Push notifications to app users]: /develop/mobile/tutorials/push-notifications-to-users-ios
+[Authorize users with scripts]: /develop/mobile/tutorials/authorize-users-in-scripts-xamarin-ios
 [Xamarin 장치 프로비저닝]: http://developer.xamarin.com/guides/ios/getting_started/installation/device_provisioning/
 
 
 [Azure 관리 포털]: https://manage.windowsazure.com/
 [apns 개체]: http://go.microsoft.com/fwlink/p/?LinkId=272333
 [Azure 모바일 서비스 구성 요소]: http://components.xamarin.com/view/azure-mobile-services/
-[완성된 예제 프로젝트]: http://go.microsoft.com/fwlink/p/?LinkId=331303
+[completed example project]: http://go.microsoft.com/fwlink/p/?LinkId=331303
+[Xamarin.iOS]: http://xamarin.com/download
 
-
-
-<!--HONumber=42-->
+<!--HONumber=54-->

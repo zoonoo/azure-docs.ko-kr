@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
    pageTitle="Microsoft Azure 앱 서비스에서 거래 업체 규약 만들기" 
    description="거래 업체 규약 만들기" 
    services="app-service\logic" 
@@ -19,7 +19,7 @@
 
 # 거래 업체 규약 만들기   
 
-거래 업체는 B2B(Business to Business) 통신과 관련된 엔터티입니다. 두 파트너가 관계를 설정하는 경우 이를 *Agreement*이라고 합니다. 정의된 규약은 두 파트너가 수행하려고 하는 통신을 기반으로 하며 특정 프로토콜 또는 전송입니다. 다양한 B2B 프로토콜 및 전송 지원  Azure 앱 서비스는 다음과 같습니다.
+거래 업체는 B2B(Business to Business) 통신과 관련된 엔터티입니다. 두 파트너가 관계를 설정하는 경우 이를 *규약*이라고 합니다. 정의된 규약은 두 파트너가 수행하려고 하는 통신을 기반으로 하며 특정 프로토콜 또는 전송입니다. 다양한 B2B 프로토콜 및 전송 지원 Azure 앱 서비스는 다음과 같습니다.
 
 - AS2(Applicability Statement 2)
 - EDIFACT(United Nations/Electronic Data Interchange For Administration, Commerce and Transport(UN/EDIFACT))
@@ -77,5 +77,4 @@
 [2]: ./media/app-service-logic-create-a-trading-partner-agreement/ProtocolSelection.jpg
 [3]: ./media/app-service-logic-create-a-trading-partner-agreement/X12AgreementCreation.jpg
 
-
-<!--HONumber=49-->
+<!--HONumber=54-->

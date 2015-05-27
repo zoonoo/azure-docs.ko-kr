@@ -1,7 +1,7 @@
-﻿<properties 
+<properties 
 	pageTitle="Pusher를 사용하여 실시간 앱 빌드(iOS) - 모바일 서비스" 
 	description="Pusher를 사용하여 iOS에서 Azure 미디어 서비스에 알림을 보내는 방법에 대해 알아봅니다." 
-	services="" 
+	services="mobile-services" 
 	documentationCenter="ios" 
 	authors="lindydonna" 
 	manager="dwrede" 
@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-ios" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="objective-c" 
 	ms.topic="article" 
 	ms.date="10/10/2014" 
@@ -26,7 +26,7 @@
 
 [사용자에게 푸시 알림][] 자습서에서는 푸시 알림을 사용하여 할 일 목록의 새 항목을 사용자에게 알리는 방법을 보여 줍니다. 푸시 알림은 가끔 발생하는 변경 내용을 표시하는 데 유용한 방법입니다. 그러나 앱에 빈번한 실시간 알림이 필요한 경우도 있습니다. Pusher API를 사용하여 모바일 서비스에 실시간 알림을 추가할 수 있습니다. 이 자습서에서는 모바일 서비스와 함께 Pusher를 사용하여 실행 중인 앱 인스턴스에서 변경 시 할 일 목록을 동기화된 상태로 유지합니다.
 
-Pusher는 모바일 서비스처럼 실시간 앱을 쉽게 빌드할 수 있게 해주는 클라우드 기반 서비스입니다. Pusher를 사용하여 라이브 설문 조사, 채팅방, 멀티플레이어 게임, 공동 작업 앱을 빠르게 빌드하고 라이브 데이터와 콘텐츠를 브로드캐스트하며 그 밖의 여러 작업을 수행할 수 있습니다. 자세한 내용은 [http://pusher.com](http://pusher.com)을 참조하세요.
+Pusher는 모바일 서비스처럼 실시간 앱을 쉽게 빌드할 수 있게 해주는 클라우드 기반 서비스입니다. Pusher를 사용하여 라이브 설문 조사, 채팅방, 멀티플레이어 게임, 공동 작업 앱을 빠르게 빌드하고 라이브 데이터와 콘텐츠를 브로드캐스트하며 그 밖의 여러 작업을 수행할 수 있습니다. 자세한 내용은 [http://pusher.com](http://pusher.com)을 참조하십시오.
 
 이 자습서에서는 할 일 목록 응용 프로그램에 실시간 공동 작업을 추가하기 위한 기본 단계를 단계별로 안내합니다.
 
@@ -35,7 +35,7 @@ Pusher는 모바일 서비스처럼 실시간 앱을 쉽게 빌드할 수 있게
 3. [서버 스크립트 설치][]
 4. [앱 테스트][]
 
-이 자습서는 모바일 서비스 퀵 스타트를 기반으로 합니다. 이 자습서를 시작하기 전에 먼저 [모바일 서비스 시작][]을 완료해야 합니다.
+이 자습서는 모바일 서비스 quickstart를 기반으로 합니다. 이 자습서를 시작하기 전에 먼저 [모바일 서비스 시작하기][]를 완료해야 합니다.
 
 ## <a name="sign-up"></a>새 Pusher 계정 만들기
 
@@ -45,7 +45,7 @@ Pusher는 모바일 서비스처럼 실시간 앱을 쉽게 빌드할 수 있게
 
 이제 Pusher 계정이 설정되었으므로 다음 단계는 새 기능을 위해 iOS 앱 코드를 수정하는 것입니다.
 
-###libPusher 라이브러리 설치
+### libPusher 라이브러리 설치
 
 [libPusher][] 라이브러리를 사용하면 iOS에서 Pusher에 액세스할 수 있습니다.
 
@@ -54,33 +54,33 @@ Pusher는 모바일 서비스처럼 실시간 앱을 쉽게 빌드할 수 있게
 2. 프로젝트에 _libPusher_라는 그룹을 만듭니다.
 
 3. Finder에서 다운로드한 zip 파일의 압축을 풀고 **libPusher-combined.a** 및 **/headers** 폴더를 선택한 후 프로젝트의 **libPusher** 그룹으로 끌어 놓습니다.
-	
-4. **대상 그룹의 폴더로 항목 복사**를 선택하고 **마침**을 클릭합니다.
+
+4. **Copy items into destination group's folder**를 선택하고 **Finish**를 클릭합니다.
 
 	![][add-files-to-group]
 
    libPusher 파일이 프로젝트에 복사됩니다.
 
-5. 프로젝트 탐색기의 프로젝트 루트에서 **빌드 단계**를 클릭한 후 **빌드 단계 추가** 및 **복사본 파일 추가**를 클릭합니다.
+5. Project Explorer의 프로젝트 루트에서 **Build Phases**를 클릭한 후 **Add Build Phase** 및 **Add Copy Files**를 클릭합니다.
 
-6. 프로젝트 탐색기에서 새 빌드 단계로 **libPusher-combined.a** 파일을 끌어 놓습니다.
+6. Project Explorer에서 새 빌드 단계로 **libPusher-combined.a** 파일을 끌어 놓습니다.
 
-7. **대상**을 **프레임워크**로 변경하고 **설치할 때만 복사**를 클릭합니다.
+7. **Destination**을 **Frameworks**로 변경하고 **Copy only when installing**을 클릭합니다.
 
 	![][add-build-phase]
 
-8. **이진 파일을 라이브러리에 연결** 영역 내에 다음 라이브러리를 추가합니다.
+8. **Link Binary With Libraries** 영역 내에 다음 라이브러리를 추가합니다.
 
 	- libicucore.dylib
 	- CFNetwork.framework
 	- Security.framework
 	- SystemConfiguration.framework
 
-9. 마지막으로, **빌드 설정** 내에서 대상 빌드 설정 **기타 링커 플래그**를 찾은 후 **-all_load** 플래그를 추가합니다.
+9. 마지막으로, **Build Settings** 내에서 대상 빌드 설정 **Other Linker Flags**를 찾은 후 **-all_load** 플래그를 추가합니다.
 
 	![][add-linker-flag]
 
-	빌드 대상 디버그에 대해 **-all_load** 플래그가 설정됩니다.
+	Debug build target에 대해 **-all_load** 플래그가 설정됩니다.
 
 이제 라이브러리가 설치되고 사용할 준비가 되었습니다.
 
@@ -334,9 +334,9 @@ Pusher는 모바일 서비스처럼 실시간 앱을 쉽게 빌드할 수 있게
 
 5. 위 스크립트의 자리 표시자를 이전에 연결 정보 대화 상자에서 복사한 값으로 바꿉니다.
 
-	- **`**your_app_id**`**: app&#95;id value
-	- **`**your_app_key**`**: app&#95;key value
-	- **`**your_app_key_secret**`**: app&#95;key&#95;secret
+	- **`**your_app_id**`**: the app&#95;id value
+	- **`**your_app_key**`**: the app&#95;key value
+	- **`**your_app_key_secret**`**: the app&#95;key&#95;secret
 
 
 6. **저장** 단추를 클릭합니다. 이제 **TodoItem** 테이블에 새 항목이 삽입될 때마다 Pusher에 이벤트를 게시하도록 스크립트를 구성했습니다.
@@ -411,12 +411,12 @@ Pusher는 모바일 서비스처럼 실시간 앱을 쉽게 빌드할 수 있게
 
 ## <a name="nextsteps"> </a>다음 단계
 
-지금까지 모바일 서비스와 함께 Pusher 서비스를 사용하는 것이 얼마나 쉬운지 살펴보았습니다. 이제 다음 링크를 따라 Pusher에 대해 자세히 알아보세요.
+지금까지 모바일 서비스와 함께 Pusher 서비스를 사용하는 것이 얼마나 쉬운지 살펴보았습니다. 이제 다음 링크를 따라 Pusher에 대해 자세히 알아보십시오.
 
 -   Pusher API 설명서: <http://pusher.com/docs>
 -   Pusher 자습서: <http://pusher.com/tutorials>
 
-서버 스크립트 등록 및 사용에 대한 자세한 내용은 [모바일 서비스 서버 스크립트 참조]를 참조하세요.
+서버 스크립트 등록 및 사용에 대한 자세한 내용은 [모바일 서비스 서버 스크립트 참조](영문)를 참조하십시오.
 
 <!-- Anchors. -->
 [Pusher 계정 만들기]: #sign-up
@@ -433,8 +433,8 @@ Pusher는 모바일 서비스처럼 실시간 앱을 쉽게 빌드할 수 있게
 [add-linker-flag]: ./media/mobile-services-ios-build-realtime-apps-pusher/pusher-ios-add-linker-flag.png
 
 <!-- URLs. -->
-[사용자에게 알림 푸시]: /ko-kr/develop/mobile/tutorials/push-notifications-to-users-ios
-[모바일 서비스 시작](영문): /ko-kr/develop/mobile/tutorials/get-started
+[사용자에게 푸시 알림]: /develop/mobile/tutorials/push-notifications-to-users-ios
+[모바일 서비스 시작하기]: /develop/mobile/tutorials/get-started
 [libPusher]: http://go.microsoft.com/fwlink/p?LinkId=276999
 [libPusherDownload]: http://go.microsoft.com/fwlink/p/?LinkId=276998
 
@@ -443,6 +443,4 @@ Pusher는 모바일 서비스처럼 실시간 앱을 쉽게 빌드할 수 있게
 
 [모바일 서비스 서버 스크립트 참조]: http://go.microsoft.com/fwlink/p/?LinkId=262293
 
-
-
-<!--HONumber=42-->
+<!--HONumber=54-->

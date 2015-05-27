@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Facebook 인증 등록 - 모바일 서비스" 
 	description="Azure 모바일 서비스 앱에서 Facebook 인증을 사용하는 방법에 대해 알아봅니다." 
 	services="mobile-services" 
@@ -10,23 +10,23 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="11/21/2014" 
+	ms.date="04/13/2015" 
 	ms.author="glenga"/>
 
 # 모바일 서비스에 Facebook 인증을 사용하기 위해 앱 등록
 
-이 항목에서는 Facebook을 사용하여 Azure 모바일 서비스에 인증할 수 있도록 앱을 등록하는 방법을 보여 줍니다. 
+이 토픽에서는 Facebook을 사용하여 Azure 모바일 서비스에 인증할 수 있도록 앱을 등록하는 방법을 보여 줍니다.
 
-> [AZURE.NOTE] 이 자습서에서는 플랫폼에 구애받지 않는 확장 가능한 모바일 응용 프로그램을 손쉽게 빌드할 수 있도록 하는 솔루션인 [Azure 모바일 서비스]에 대해 다룹니다. 모바일 서비스를 사용하면 데이터 동기화, 사용자 인증, 푸시 알림 보내기 작업을 간편하게 수행할 수 있습니다. 이 페이지는 사용자가 앱에 로그인하게 하는 방법을 보여 주는 <a href="http://azure.microsoft.com/documentation/articles/mobile-services-ios-get-started-users/">인증 시작</a> (영문) 자습서를 보완합니다. 모바일 서비스를 처음 사용하는 경우 <a href="http://azure.microsoft.com/documentation/articles/mobile-services-ios-get-started/">모바일 서비스 시작</a>(영문) 자습서를 완료할 때 만든 프로젝트를 엽니다.
+> [AZURE.NOTE]이 자습서에서는 플랫폼에 구애받지 않는 확장 가능한 모바일 응용 프로그램을 손쉽게 빌드할 수 있도록 하는 솔루션인 [Azure 모바일 서비스]에 대해 다룹니다. 모바일 서비스를 사용하면 데이터 동기화, 사용자 인증, 푸시 알림 보내기 작업을 간편하게 수행할 수 있습니다. 이 페이지는 <a href="http://azure.microsoft.com/documentation/articles/mobile-services-ios-get-started-users/">인증 시작</a> 자습서를 보완하는 역할을 하며, 사용자를 앱에 기록하는 방법을 설명합니다. 모바일 서비스를 처음 사용하는 경우 <a href="http://azure.microsoft.com/documentation/articles/mobile-services-ios-get-started/">모바일 서비스 시작</a> 자습서를 완료하는 것이 좋습니다.
 	
-이 항목의 절차를 완료하려면 검증된 메일 주소와 휴대폰 번호가 포함된 Facebook 계정이 있어야 합니다. 새 Facebook 계정을 만들려면 <a href="http://go.microsoft.com/fwlink/p/?LinkId=268285" target="_blank">facebook.com</a>으로 이동합니다.
+이 토픽의 절차를 완료하려면 검증된 전자 메일 주소와 휴대폰 번호가 포함된 Facebook 계정이 있어야 합니다. 새 Facebook 계정을 만들려면 <a href="http://go.microsoft.com/fwlink/p/?LinkId=268285" target="_blank">facebook.com</a>으로 이동하세요.
 
-1. 먼저 <a href="http://go.microsoft.com/fwlink/p/?LinkId=268286" target="_blank">Facebook 개발자</a> 웹 사이트로 이동하여 Facebook 계정 자격 증명으로 로그인합니다.
+1. <a href="http://go.microsoft.com/fwlink/p/?LinkId=268286" target="_blank">Facebook 개발자</a> 웹 사이트로 이동한 다음 Facebook 계정 자격 증명으로 로그인합니다.
 
-2. (선택 사항) 아직 등록하지 않은 경우 **Apps**, **Register as a Developer**를 차례로 클릭하고 정책에 동의한 후 등록 단계를 따릅니다. 
+2. (옵션) 아직 등록하지 않은 경우 **Apps**, **Register as a Developer**를 차례로 클릭하고 정책에 동의한 후 등록 단계를 따릅니다.
 
    	![][0]
 
@@ -38,9 +38,9 @@
 
    	![][2]
 
-	앱이 Facebook에 등록됩니다. 
+	앱이 Facebook에 등록됩니다.
 
-5. **Settings**을 클릭하고 **App Domains**에 모바일 서비스의 도메인을 입력합니다. 또한 **Contact Email**을 입력한 후 **Add Platform**를 클릭하고 **Website**를 선택합니다.
+5. **Settings**를 클릭하고 **App Domains**에 모바일 서비스의 도메인을 입력합니다. 또한 **Contact Email**을 입력한 후 **Add Platform**을 클릭하고 **Website**를 선택합니다.
 
    	![][3]
 
@@ -48,17 +48,16 @@
 
 	![][4]
 
-7. **Show**를 클릭하고 요청될 경우 암호를 제공한 후 **App ID** 및 **App Secret** 값을 기록해 둡니다. 
+7. **Show**를 클릭하고 요청될 경우 암호를 제공한 후 **App ID** 및 **App Secret** 값을 기록해 둡니다.
 
    	![][5]
 
-	> [AZURE.NOTE] **보안 정보**
-	앱 암호는 중요한 보안 자격 증명입니다. 다른 사람과 이 암호를 공유하거나 앱과 함께 배포하지 마세요.
+	> [AZURE.NOTE]**보안 정보** 앱 암호는 중요한 보안 자격 증명입니다. 다른 사람과 이 암호를 공유하거나 앱과 함께 배포하지 마십시오.
 
 
-8. **Advanced** 탭을 클릭하고 **Valid OAuth redirect URIs**에 경로 _/login/facebook_이 뒤에 추가되는 모바일 서비스의 URL을 입력한 후 **Save Changes**를 클릭합니다. 
+8. **Advanced** 탭을 클릭하고 _Valid OAuth redirect URIs_에 경로 **/login/facebook**이 뒤에 추가되는 모바일 서비스의 URL을 입력한 후 **Save Changes**를 클릭합니다.
 
-	> [AZURE.NOTE] Visual Studio를 사용하여 Azure에 게시된 .NET 백 엔드 모바일 서비스의 경우 리디렉션 URL은 모바일 서비스 URL에 모바일 서비스를 .NET 서비스로 사용한 _signin-facebook_ 경로를 추가한 것입니다(예: <code>https://todolist.azure-mobile.net/signin-facebook</code>).  
+	> [AZURE.NOTE]Visual Studio를 사용하여 Azure에 게시된 .NET 백 엔드 모바일 서비스의 경우 리디렉션 URL은 모바일 서비스 URL에 모바일 서비스를 .NET 서비스로 사용한 _signin-facebook_ 경로를 추가한 것입니다(예: <code>https://todolist.azure-mobile.net/signin-facebook</code>).
 	
 	![][7]
 
@@ -68,7 +67,7 @@
 
 
 
-이제 모바일 서비스에 앱 ID 및 앱 암호 값을 제공하여 앱에서 Facebook 로그인을 인증에 사용할 준비가 되었습니다.  
+이제 모바일 서비스에 앱 ID 및 앱 암호 값을 제공하여 앱에서 Facebook 로그인을 인증에 사용할 준비가 되었습니다.
 
 <!-- Anchors. -->
 
@@ -83,9 +82,9 @@
 [7]: ./media/mobile-services-how-to-register-facebook-authentication/mobile-services-facebook-configure-app-3.png
 
 <!-- URLs. -->
-[Facebook 개발자]: http://go.microsoft.com/fwlink/p/?LinkId=268286
-[인증 시작]: /develop/mobile/tutorials/get-started-with-users-dotnet/
-[Azure 관리 포털]: https://manage.windowsazure.com/
+[Facebook Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268286
+[Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-dotnet/
+[Azure Management Portal]: https://manage.windowsazure.com/
 [Azure 모바일 서비스]: http://azure.microsoft.com/services/mobile-services/
 
-<!--HONumber=47-->
+<!--HONumber=54-->

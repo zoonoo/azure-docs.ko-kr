@@ -1,29 +1,29 @@
-﻿<properties 
+<properties 
 	pageTitle="모바일 서비스에서 오프라인 데이터를 사용하여 충돌 처리(iOS) | 모바일 개발자 센터" 
-	description="iOS 응용 프로그램에서 오프라인 데이터를 동기화할 때 Azure 모바일 서비스를 사용하여 충돌을 처리하는 방법에 대해 알아봅니다." 
+	description="iOS 응용 프로그램에서 오프라인 데이터를 동기화할 때 Azure 모바일 서비스를 사용하여 충돌을 처리하는 방법에 대해 알아보기" 
 	documentationCenter="ios" 
 	authors="krisragh" 
 	manager="dwrede" 
 	editor="" 
-	services=""/>
+	services="mobile-services"/>
 
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="mobile-ios" 
-	ms.devlang="dotnet" 
+	ms.devlang="objective-c" 
 	ms.topic="article" 
-	ms.date="01/26/2015" 
-	ms.author="krisragh,donnam"/>
+	ms.date="04/16/2015" 
+	ms.author="krisragh;donnam"/>
 
 
 # 모바일 서비스에서 오프라인 데이터 동기화를 사용하여 충돌 처리
 
-[WACOM.INCLUDE [mobile-services-selector-offline-conflicts](../includes/mobile-services-selector-offline-conflicts.md)]
+[AZURE.INCLUDE [mobile-services-selector-offline-conflicts](../includes/mobile-services-selector-offline-conflicts.md)]
 
 이 항목에서는 Azure 모바일 서비스의 오프라인 기능을 사용할 때 데이터를 동기화하고 충돌을 처리하는 방법을 보여 줍니다. 이 자습서는 이전 자습서인 [오프라인 데이터 시작]의 단계 및 샘플 앱을 기반으로 합니다. 이 자습서를 시작하기 전에 먼저 [오프라인 데이터 시작]을 완료해야 합니다.
 
->[AZURE.NOTE] 이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Azure 무료 평가판</a>을 참조하세요.
+>[AZURE.NOTE]이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Azure 무료 평가판</a>을 참조하세요.
 
 이 자습서에서는 다음 기본 단계를 단계별로 안내합니다.
 
@@ -47,7 +47,7 @@
 
 항목을 편집할 수 있도록 [오프라인 데이터 시작]에서 완료한 프로젝트를 업데이트해 보겠습니다. 현재 두 휴대폰에서 같은 앱을 실행하는 경우 같은 항목을 두 휴대폰에서 로컬로 변경한 다음 변경 내용을 서버로 다시 푸시하면 충돌이 발생하고 작업이 실패합니다.
 
-SDK의 오프라인 동기화 기능을 사용하면 코드를 통해 이러한 충돌을 처리하고 충돌하는 항목에 대해 수행할 작업을 동적으로 결정할 수 있습니다. 퀵 스타트 프로젝트를 변경하여 이 기능을 사용해 볼 수 있습니다.
+SDK의 오프라인 동기화 기능을 사용하면 코드를 통해 이러한 충돌을 처리하고 충돌하는 항목에 대해 수행할 작업을 동적으로 결정할 수 있습니다. 빠른 시작 프로젝트를 변경하여 이 기능을 사용해 볼 수 있습니다.
 
 ### <a name="update-list-view"></a>할 일 목록 보기 컨트롤러 업데이트
 
@@ -147,9 +147,9 @@ SDK의 오프라인 동기화 기능을 사용하면 코드를 통해 이러한 
 
 1. 프로젝트 탐색기를 사용하여 **MainStoryboard_iPhone.storyboard** 파일로 돌아옵니다.
 
-2. 스토리보드에서 기존 **할 일 목록 보기 컨트롤러**의 오른쪽에 할 일 항목에 대한 새 보기 컨트롤러를 추가합니다. 이 새 보기 컨트롤러의 사용자 지정 클래스를 **QSItemViewController**로 설정합니다. 자세한 내용은 [스토리보드에 장면 추가](영문)를 참조하세요.
+2. 스토리보드에서 기존 **Todo List View Controller**의 오른쪽에 할 일 항목에 대한 새 보기 컨트롤러를 추가합니다. 이 새 보기 컨트롤러의 사용자 지정 클래스를 **QSItemViewController**로 설정합니다. 자세한 내용은 [스토리보드에 장면 추가]를 참조하세요.
 
-3. **할 일 목록 보기 컨트롤러**에서 **할 일 항목 보기 컨트롤러**로 **표시** Segue를 추가합니다. 그런 다음 특성 검사기에서 segue 식별자를 **detailSegue**로 설정합니다. 
+3. **할 일 목록 보기 컨트롤러**에서 **할 일 항목 보기 컨트롤러**로 **표시** Segue를 추가합니다. 그런 다음 특성 검사기에서 segue 식별자를 **detailSegue**로 설정합니다.
 
     원래 보기 컨트롤러의 셀이나 단추에서 이 Segue를 만들지 말고, Ctrl 키를 누른 상태로 스토리보드 인터페이스의 **할 일 목록 보기 컨트롤러** 위의 보기 컨트롤러 아이콘에서 **할 일 항목 보기 컨트롤러**로 끕니다.
 
@@ -159,23 +159,23 @@ SDK의 오프라인 동기화 기능을 사용하면 코드를 통해 이러한 
 
         Nested push animation can result in corrupted navigation bar
 
-    segue에 대한 자세한 내용은 [스토리보드에서 장면 간에 Segue 추가]를 참조하세요. 
+    segue에 대한 자세한 내용은 [스토리보드에서 장면 간에 Segue 추가]를 참조하세요.
 
-4. 완료 상태 표시를 위한 분할된 컨트롤과 항목 텍스트용 텍스트 필드를 새 **할 일 항목 보기 컨트롤러**에 레이블과 함께 추가합니다. 분할된 컨트롤에서 **세그먼트 0**의 제목을 **예**로 설정하고 **세그먼트 1**의 제목을 **아니요**로 설정합니다. 이러한 새 필드를 코드의 출선에 연결합니다. 자세한 내용은 [사용자 인터페이스 빌드](영문) 및 [분할된 컨트롤](영문)을 참조하세요.
+4. 완료 상태 표시를 위한 분할된 컨트롤과 항목 텍스트용 텍스트 필드를 새 **할 일 항목 보기 컨트롤러**에 레이블과 함께 추가합니다. 분할된 컨트롤에서 **세그먼트 0**의 제목을 **예**로 설정하고 **세그먼트 1**의 제목을 **아니요**로 설정합니다. 이러한 새 필드를 코드의 출선에 연결합니다. 자세한 내용은 [사용자 인터페이스 빌드] 및 [분할된 컨트롤]을 참조하세요.
 
       ![][add-todo-item-view-controller-3]
 
-5. **QSItemViewController.m**에 이미 추가한 해당 출선에 이러한 새 필드를 연결합니다. 항목 텍스트 필드는 **itemText** 출선에 연결하고 완료 상태 분할된 컨트롤은 **itemComplete** 출선에 연결합니다. 자세한 내용은 [출선 연결 만들기](영문)를 참조하세요.
+5. **QSItemViewController.m**에 이미 추가한 해당 출선에 이러한 새 필드를 연결합니다. 항목 텍스트 필드는 **itemText** 출선에 연결하고 완료 상태 분할된 컨트롤은 **itemComplete** 출선에 연결합니다. 자세한 내용은 [출선 연결 만들기]를 참조하세요.
 
 6. 텍스트 필드의 대리자를 보기 컨트롤러로 설정합니다. Ctrl 키를 누른 상태로 텍스트 필드에서 스토리보드 인터페이스의 **할 일 항목 보기 컨트롤러** 아래 보기 컨트롤러 아이콘으로 끈 다음 대리자 출선을 선택합니다. 그러면 스토리보드에서 해당 텍스트 필드의 대리자가 이 보기 컨트롤러로 지정됩니다.
 
 7. 지금까지 적용한 모든 변경 내용이 앱에서 작동하는지 확인합니다. 이렇게 하려면 시뮬레이터에서 앱을 실행하고 할 일 목록에 항목을 추가한 다음 클릭해 봅니다. 그러면 현재는 비어 있는 항목 보기 컨트롤러가 표시됩니다.
 
-      ![][add-todo-item-view-controller-4]          ![][add-todo-item-view-controller-5]
+      ![][add-todo-item-view-controller-4] ![][add-todo-item-view-controller-5]
 
 ### <a name="add-item-details"></a>할 일 항목 보기 컨트롤러에 항목 세부 정보 추가
 
-1. 이 단계에서는 **QSTodoListViewController.m**의 **QSTodoItemViewController**를 참조합니다. **QSTodoListViewController.m**에서 **QSItemViewController.h**를 가져오는 줄을 추가해 보겠습니다.
+1. 이 단계에서는 **QSTodoListViewController.m**의 **QSItemViewController**를 참조합니다. **QSTodoListViewController.m**에서 **QSItemViewController.h**를 가져오는 줄을 추가해 보겠습니다.
 
         #import "QSItemViewController.h"
 
@@ -269,7 +269,7 @@ SDK의 오프라인 동기화 기능을 사용하면 코드를 통해 이러한 
 
 2. 마찬가지로 **QSTodoService.m**에서 동기화 컨텍스트 대리자를 매개 변수로 받도록 **init** 줄을 아래에 나와 있는 것처럼 변경합니다.
 
-€
+        -(QSTodoService *)initWithDelegate:(id)syncDelegate
 
 3. **QSTodoService.m**에서 **defaultServiceWithDelegate**의 **init** 호출을 **initWithDelegate**로 변경합니다.
 
@@ -283,7 +283,7 @@ SDK의 오프라인 동기화 기능을 사용하면 코드를 통해 이러한 
 
 1. 충돌 발생 시 사용자가 유지할 버전을 선택할 수 있도록 지정해 보겠습니다.
   * 클라이언트 버전 유지(서버의 버전이 재정의됨)
-  * 서버 버전 유지(클라이언트 로컬 테이블이 업데이트됨) 또는 
+  * 서버 버전 유지(클라이언트 로컬 테이블이 업데이트됨) 또는
   * 두 버전을 모두 유지하지 않음(푸시가 취소되고 작업이 보류 중 상태로 유지됨)
 
   메시지를 표시하는 동안 다른 업데이트도 수행될 수 있으므로 서버에서 실패 응답을 더 이상 반환하지 않을 때까지는 옵션이 계속 표시되도록 지정합니다. 이를 위해 코드에서 경고 보기를 표시하고 해당 경고 보기가 표시될 때 호출되는 대리자를 가져오는 도우미 클래스를 사용하겠습니다. 먼저 **QSUIAlertViewWithBlock** 도우미 클래스를 정의합니다.
@@ -360,7 +360,7 @@ SDK의 오프라인 동기화 기능을 사용하면 코드를 통해 이러한 
 
         self.todoService = [QSTodoService defaultServiceWithDelegate:self];
 
-2. **QSTodoListViewController.h**에서 **MSSyncContextDelegate** 프로토콜을 구현하도록 **&lt;MSSyncContextDelegate&gt;**를 인터페이스 선언에 추가합니다.
+2. **QSTodoListViewController.h**에서 **&lt;MSSyncContextDelegate&gt;** 프로토콜을 구현하도록 **MSSyncContextDelegate**를 인터페이스 선언에 추가합니다.
 
         @interface QSTodoListViewController : UITableViewController<MSSyncContextDelegate, NSFetchedResultsControllerDelegate>
 
@@ -415,7 +415,7 @@ SDK의 오프라인 동기화 기능을 사용하면 코드를 통해 이러한 
 
 ### <a name="test-app"></a>앱 테스트
 
-이제 충돌이 발생하는 응용 프로그램을 테스트해 보겠습니다. 동시에 실행 중인 앱의 서로 다른 두 인스턴스에서 같은 항목을 편집하거나 해당 앱과 REST 클라이언트를 사용하여 편집합니다. 
+이제 충돌이 발생하는 응용 프로그램을 테스트해 보겠습니다. 동시에 실행 중인 앱의 서로 다른 두 인스턴스에서 같은 항목을 편집하거나 해당 앱과 REST 클라이언트를 사용하여 편집합니다.
 
 앱의 맨 위에서 끌어 앱 인스턴스에서 새로 고침 제스처를 수행합니다. 그러면 충돌을 조정하라는 메시지가 표시됩니다.
 
@@ -457,20 +457,18 @@ SDK의 오프라인 동기화 기능을 사용하면 코드를 통해 이러한 
 [conflict-ui]: ./media/mobile-services-ios-handling-conflicts-offline-data/conflict-ui.png
 
 
-[분할된 컨트롤](영문): https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/UIKitUICatalog/UISegmentedControl.html
-[Core Data Model Editor 도움말](영문): https://developer.apple.com/library/mac/recipes/xcode_help-core_data_modeling_tool/Articles/about_cd_modeling_tool.html
-[출선 연결 만들기](영문): https://developer.apple.com/library/mac/recipes/xcode_help-interface_builder/articles-connections_bindings/CreatingOutlet.html
-[사용자 인터페이스 빌드](영문): https://developer.apple.com/library/mac/documentation/ToolsLanguages/Conceptual/Xcode_Overview/Edit_User_Interfaces/edit_user_interface.html
-[스토리보드에서 장면 간에 Segue 추가](영문): https://developer.apple.com/library/ios/recipes/xcode_help-IB_storyboard/chapters/StoryboardSegue.html#//apple_ref/doc/uid/TP40014225-CH25-SW1
-[스토리보드에 장면 추가](영문): https://developer.apple.com/library/ios/recipes/xcode_help-IB_storyboard/chapters/StoryboardScene.html
-[Core Data](영문): https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/CoreData/cdProgrammingGuide.html
-[미리 보기 SDK 다운로드](영문): http://aka.ms/Gc6fex
-[iOS용 모바일 서비스 클라이언트 라이브러리를 사용하는 방법]: /ko-kr/documentation/articles/mobile-services-ios-how-to-use-client-library/
-[오프라인 iOS 샘플 시작](영문): https://github.com/Azure/mobile-services-samples/tree/master/TodoOffline/iOS/blog20140611
-[오프라인 데이터 시작]: /ko-kr/documentation/articles/mobile-services-ios-get-started-offline-data/
-[모바일 서비스 시작](영문): /ko-kr/documentation/articles/mobile-services-ios-get-started/
-[데이터 시작]: /ko-kr/documentation/articles/mobile-services-ios-get-started-data/
+[분할된 컨트롤]: https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/UIKitUICatalog/UISegmentedControl.html
+[Core Data Model Editor Help]: https://developer.apple.com/library/mac/recipes/xcode_help-core_data_modeling_tool/Articles/about_cd_modeling_tool.html
+[출선 연결 만들기]: https://developer.apple.com/library/mac/recipes/xcode_help-interface_builder/articles-connections_bindings/CreatingOutlet.html
+[사용자 인터페이스 빌드]: https://developer.apple.com/library/mac/documentation/ToolsLanguages/Conceptual/Xcode_Overview/Edit_User_Interfaces/edit_user_interface.html
+[스토리보드에서 장면 간에 Segue 추가]: https://developer.apple.com/library/ios/recipes/xcode_help-IB_storyboard/chapters/StoryboardSegue.html#//apple_ref/doc/uid/TP40014225-CH25-SW1
+[스토리보드에 장면 추가]: https://developer.apple.com/library/ios/recipes/xcode_help-IB_storyboard/chapters/StoryboardScene.html
+[Core Data]: https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/CoreData/cdProgrammingGuide.html
+[Download the preview SDK here]: http://aka.ms/Gc6fex
+[How to use the Mobile Services client library for iOS]: mobile-services-ios-how-to-use-client-library.md
+[Getting Started Offline iOS Sample]: https://github.com/Azure/mobile-services-samples/tree/master/TodoOffline/iOS/blog20140611
+[오프라인 데이터 시작]: mobile-services-ios-get-started-offline-data.md
+[Get started with Mobile Services]: mobile-services-ios-get-started.md
+[Get started with data]: mobile-services-ios-get-started-data.md
 
-
-
-<!--HONumber=42-->
+<!--HONumber=54-->

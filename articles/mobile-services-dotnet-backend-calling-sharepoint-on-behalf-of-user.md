@@ -1,19 +1,19 @@
-﻿<properties 
+<properties 
 	pageTitle="사용자 대신 SharePoint 액세스 | 모바일 개발자 센터" 
 	description="사용자를 대신해 SharePoint를 호출하는 방법에 대해 알아봅니다." 
-	documentationCenter="windows" 
+	documentationCenter="" 
 	authors="mattchenderson" 
 	manager="dwrede" 
 	editor="" 
-	services=""/>
+	services="mobile-services"/>
 
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-multiple" 
+	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="11/21/2014" 
+	ms.date="04/13/2015" 
 	ms.author="mahender"/>
 
 # 사용자 대신 SharePoint 액세스
@@ -23,7 +23,7 @@
 <p>이 항목에서는 현재 로그인한 사용자를 대신해서 SharePoint API에 액세스하는 방법을 보여 줍니다.</p>
 <p>동영상을 시청하려는 경우 오른쪽에 있는 클립은 이 자습서와 동일한 단계를 따릅니다. 동영상에서 Mat Velloso는 SharePoint Online으로 조작하기 위해 Windows 스토어 앱을 업데이트하는 과정을 단계별로 안내합니다.</p>
 </div>
-<div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Azure-Mobile-Services-AAD-O365-Authentication-identity-across-services" target="_blank" class="label">자습서 보기</a> <a style="background-image: url('http://media.ch9.ms/ch9/f217/3f8cbf94-f36b-4162-b3da-1c00339ff217/AzureMobileServicesAADO365AuthenticationIdentityA_960.jpg') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Azure-Mobile-Services-AAD-O365-Authentication-identity-across-services" target="_blank" class="dev-onpage-video"><span class="icon">비디오 재생</span></a> <span class="time">오후 12:51</span></div>
+<div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Azure-Mobile-Services-AAD-O365-Authentication-identity-across-services" target="_blank" class="label">자습서 보기</a> <a style="background-image: url('http://media.ch9.ms/ch9/f217/3f8cbf94-f36b-4162-b3da-1c00339ff217/AzureMobileServicesAADO365AuthenticationIdentityA_960.jpg') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Azure-Mobile-Services-AAD-O365-Authentication-identity-across-services" target="_blank" class="dev-onpage-video"><span class="icon">동영상 재생</span></a> <span class="time">오후 12:51:00</span></div>
 </div>
 
 이 자습서에서는 새 TodoItem이 추가되었을 때 SharePoint Online에서 Word 문서를 만들 수 있도록 Active Directory 인증 라이브러리 Single Sign-On 자습서를 사용해서 앱 인증 자습서에 따라 앱을 업데이트합니다.
@@ -45,11 +45,11 @@
 ## <a name="configure-permissions"></a>SharePoint에 대한 위임된 액세스를 위한 응용 프로그램 구성
 기본적으로 AAD로부터 받은 토큰은 권한이 제한되어 있습니다. 타사 리소스 또는 SharePoint Online과 같은 SaaS 응용 프로그램에 액세스하려면 이를 명시적으로 허용해야 합니다.
 
-1. [Azure 관리 포털]의 **Active Directory** 섹션에서 테넌트를 선택합니다. 모바일 서비스용으로 만든 웹 응용 프로그램으로 이동합니다.
+1. **Azure 관리 포털**의 [Active Directory] 섹션에서 테넌트를 선택합니다. 모바일 서비스용으로 만든 웹 응용 프로그램으로 이동합니다.
 
     ![][0]
 
-2. **구성** 탭에서 페이지를 다른 응용 프로그램에 대한 권한 섹션으로 스크롤합니다. **Office 365 SharePoint Online**을 선택하고 **사용자 파일 편집 또는 삭제** 위임된 권한을 부여합니다. 그런 다음 **저장**을 클릭합니다.
+2. **구성** 탭에서 페이지를 다른 응용 프로그램에 대한 권한 섹션으로 스크롤합니다. **Office 365 SharePoint Online**을 선택하고 **사용자 파일 편집 또는 삭제** 위임된 권한을 부여합니다. 그런 다음 **Save**를 클릭합니다.
 
     ![][1]
 
@@ -69,11 +69,11 @@ SharePoint를 호출하려면 모바일 서비스가 연결할 끝점을 지정�
 
     ![][3]
 
-4. SP_Authority를 AAD 테넌트에 대한 기관 끝점으로 설정합니다. 이 항목은 클라이언트 앱에 사용되는 기관 값과 동일해야 합니다. 형식은 https://login.windows.net/contoso.onmicrosoft.com입니다.
+4. SP_Authority를 AAD 테넌트에 대한 기관 끝점으로 설정합니다. 이 항목은 클라이언트 앱에 사용되는 기관 값과 동일해야 합니다. https://login.windows.net/contoso.onmicrosoft.com 형식이 됩니다.
 
 5. SP_ClientSecret를 이전에 얻은 클라이언트 암호 값으로 설정합니다.
 
-6. SP_SharePointURL을 SharePoint 사이트에 대한 URL로 설정합니다. 형식은 https://contoso-my.sharepoint.com이어야 합니다.
+6. SP_SharePointURL을 SharePoint 사이트에 대한 URL로 설정합니다. https://contoso-my.sharepoint.com 형식이어야 합니다.
 
 이러한 값은 ApiServices.Settings를 사용하여 코드에서 다시 가져올 수 있습니다.
 
@@ -214,9 +214,8 @@ Word 문서를 만들려면 OpenXML NuGet 패키지를 사용합니다. NuGet �
 [응용 프로그램 테스트]: #test-application
 
 <!-- URLs. -->
-[Azure 관리 포털]: https://manage.windowsazure.com/
-[SharePoint Online]: http://office.microsoft.com/ko-kr/sharepoint/
+[Active Directory]: https://manage.windowsazure.com/
+[SharePoint Online]: http://office.microsoft.com/sharepoint/
 [Active Directory 인증 라이브러리 Single Sign-On으로 앱 인증]: http://azure.microsoft.com/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication/
 
-
-<!--HONumber=42-->
+<!--HONumber=54-->

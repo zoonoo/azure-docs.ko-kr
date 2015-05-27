@@ -1,13 +1,11 @@
-﻿
+
 이제 등록이 시도되기 전에 사용자가 인증되도록 푸시 알림이 등록되는 방법을 변경해야 합니다. 클라이언트 앱 업데이트는 푸시 알림을 구현한 방법에 따라 달라집니다.
 
 ###Visual Studio 2013 업데이트 2 이상 버전에서 푸시 알림 추가 마법사 사용
 
 이 방법에서는 마법사가 프로젝트에 새 push.register.cs 파일을 생성합니다.
 
->[AZURE.NOTE]푸시 알림 추가 마법사는 현재 .NET 백 엔드 모바일 장치에서만 지원됩니다.
-
-1. Visual Studio 솔루션 탐색기에서 app.xaml.cs 프로젝트 파일을 열고 **OnLaunched** 이벤트 처리기에서 **UploadChannel** 메서드에 대한 호출을 주석으로 처리하거나 삭제합니다. 
+1. Visual Studio 솔루션 탐색기에서 app.xaml.cs 프로젝트 파일을 열고 **OnLaunched** 이벤트 처리기에서 **UploadChannel** 메서드에 대한 호출을 주석 처리하거나 삭제합니다. 
 
 2. push.register.cs 프로젝트 파일을 열고 **UploadChannel** 메서드를 다음 코드로 바꿉니다.
 
@@ -46,9 +44,9 @@
 
 이 방법에서는 사용자가 app.xaml.cs 프로젝트 파일에 자습서의 등록 코드를 직접 추가합니다.
 
-1. Visual Studio 솔루션 탐색기에서 app.xaml.cs 프로젝트 파일을 열고 **OnLaunched** 이벤트 처리기에서 **InitNotificationsAsync** 메서드에 대한 호출을 주석으로 처리하거나 삭제합니다. 
+1. Visual Studio 솔루션 탐색기에서 app.xaml.cs 프로젝트 파일을 열고 **OnLaunched** 이벤트 처리기에서 **InitNotificationsAsync** 메서드에 대한 호출을 주석 처리하거나 삭제합니다. 
  
-2. **InitNotificationsAsync** 메서드의 액세스 가능성을  `private`에서  `public`으로 변경하고  `static` 한정자를 추가합니다. 
+2. **InitNotificationsAsync** 메서드의 액세스 가능성을 `private`에서 `public`(으)로 변경하고 `static` 한정자를 추가합니다.
 
 3. MainPage.xaml.cs 프로젝트 파일을 열고 **OnNavigatedTo** 메서드 재정의를 다음 코드로 바꿉니다.
 
@@ -58,6 +56,4 @@
             App.InitNotificationsAsync();
             RefreshTodoItems();
         }
-
-
-<!--HONumber=42-->
+<!--HONumber=54-->

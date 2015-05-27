@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="클라우드 서비스를 만들고 배포하는 방법 - Azure" 
 	description="Azure에서 빨리 만들기 방법을 사용하여 클라우드 서비스를 만들고 배포하는 방법에 대해 알아봅니다." 
 	services="cloud-services" 
@@ -13,71 +13,59 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/23/2014" 
+	ms.date="03/24/2015" 
 	ms.author="adegeo"/>
-
-
 
 
 
 # 클라우드 서비스를 만들고 배포하는 방법
 
-Azure 관리 포털은 클라우드 서비스를 만들고 배포하는 두 가지 방법으로 **빠른 생성**과 **사용자 지정 만들기**를 제공합니다. 
+Azure 관리 포털은 클라우드 서비스를 만들고 배포하는 두 가지 방법으로 **빠른 생성** 및 **사용자 지정 만들기**를 제공합니다.
 
-이 항목에서는 빠른 생성 방법을 사용하여 새 클라우드 서비스를 만든 다음 **업로드**를 사용하여 Azure에서 클라우드 서비스 패키지를 업로드하고 배포하는 방법에 대해 설명합니다. 이 방법을 사용하는 경우 Azure 관리 포털은 진행하면서 모든 요구 사항을 완료하는 데 사용할 수 있는 편리한 링크를 제공합니다. 클라우드 서비스를 만들 때 배포할 준비가 되면 **사용자 지정 만들기**를 사용하여 동시에 둘 다를 수행할 수 있습니다. 
+이 토픽에서는 빠른 생성 방법을 사용하여 새 클라우드 서비스를 만든 다음 **업로드**를 사용하여 Azure에서 클라우드 서비스 패키지를 업로드하고 배포하는 방법에 대해 설명합니다. 이 방법을 사용하는 경우 Azure 관리 포털은 진행하면서 모든 요구 사항을 완료하는 데 사용할 수 있는 편리한 링크를 제공합니다. 클라우드 서비스를 만들 때 배포할 준비가 되면 **사용자 지정 만들기**를 사용하여 동시에 둘 다를 수행할 수 있습니다.
 
-**참고**   Windows TFS(Team Foundation Service)에서 클라우드 서비스를 게시하려는 경우 빠른 생성을 사용한 다음 **빠른 시작** 또는 대시보드에서 TFS 게시를 설정합니다. 자세한 내용은 [Visual Studio Online을 사용하여 Azure에 지속적인 전송][TFSTutorialForCloudService](영문)을 참조하거나 **빠른 시작** 페이지에 대한 도움말을 참조하세요.
+> [AZURE.NOTE]Windows TFS(Team Foundation Service)에서 클라우드 서비스를 게시하려는 경우 빠른 생성을 사용한 다음 **빠른 시작** 또는 대시보드에서 TFS 게시를 설정합니다. 자세한 내용은 [Visual Studio Online을 사용하여 Azure에 지속적인 전송][TFSTutorialForCloudService](영문)을 참조하거나 **빠른 시작** 페이지에 대한 도움말을 참조하세요.
 
-## 목차##
-
-* [개념](#concepts)
-* [앱 준비](#prepare)
-* [시작하기 전에](#begin)
-* [방법: 빠른 생성을 사용하여 클라우드 서비스 만들기](#quick)
-* [방법: 클라우드 서비스에 대한 인증서 업로드](#uploadcertificate)
-* [방법: 클라우드 서비스 배포](#deploy)
-
-
-<h2><a id="concepts"></a>개념</h2>
+## 개념
 Azure에서 응용 프로그램을 클라우드 서비스로 배포하려면 다음과 같은 세 가지 구성 요소가 필요합니다.
 
->- **서비스 정의 파일**   클라우드 서비스 정의 파일(.csdef)은 역할 수를 포함하여 서비스 모델을 정의합니다.
+- **서비스 정의**<br/> 클라우드 서비스 정의 파일(.csdef)은 역할 수를 포함하여 서비스 모델을 정의합니다.
 
->- **서비스 구성 파일**   클라우드 서비스 구성 파일(.cscfg)은 역할 인스턴스 수를 포함하여 클라우드 서비스 및 개별 역할에 대한 구성 설정을 제공합니다.
+- **서비스 구성**<br/> 클라우드 서비스 구성 파일(.cscfg)은 역할 인스턴스 수를 포함하여 클라우드 서비스 및 개별 역할에 대한 구성 설정을 제공합니다.
 
->- **서비스 패키지**   서비스 패키지(.cspkg)에는 응용 프로그램 코드와 서비스 정의 파일이 포함됩니다.
+- **서비스 패키지**<br/> 서비스 패키지(.cspkg)에는 응용 프로그램 코드와 서비스 정의 파일이 포함됩니다.
 
-<h2><a id="prepare"></a>앱 준비</h2>
+## 앱 준비
 클라우드 서비스를 배포하려면 먼저 응용 프로그램 코드 및 클라우드 서비스 구성 파일(.cscfg)에서 클라우드 서비스 패키지(.cspkg)를 만들어야 합니다. 각 클라우드 서비스 패키지에는 응용 프로그램 파일과 구성이 포함됩니다. 서비스 구성 파일은 구성 설정을 제공합니다.
 
-Azure SDK는 필요한 배포 파일을 준비하는 도구를 제공합니다. [Azure 다운로드](http://azure.microsoft.com/develop/downloads/) 페이지에서 응용 프로그램 코드를 개발하려는 언어로 SDK를 설치할 수 있습니다.
+Azure SDK는 필요한 배포 파일을 준비하는 도구를 제공합니다. [Azure 다운로드](http://azure.microsoft.com/downloads/) 페이지에서 응용 프로그램 코드를 개발하려는 언어로 SDK를 설치할 수 있습니다.
 
 세 가지 클라우드 서비스 기능은 서비스 패키지를 내보내기 전에 특별히 구성해야 합니다.
 
-- 데이터 암호화에 SSL(Secure Sockets Layer)을 사용하는 클라우드 서비스를 배포하려는 경우 SSL에 맞게 응용 프로그램을 구성합니다. 자세한 내용은 [HTTPS 끝점에서 SSL 인증서를 구성하는 방법](http://msdn.microsoft.com/library/windowsazure/ff795779.aspx)을 참조하세요.
+- 데이터 암호화에 SSL(Secure Sockets Layer)을 사용하는 클라우드 서비스를 배포하려는 경우 SSL에 맞게 응용 프로그램을 구성합니다. 자세한 내용은 [HTTPS 끝점에서 SSL 인증서를 구성하는 방법](http://msdn.microsoft.com/library/azure/ff795779.aspx)을 참조하세요.
 
 - 역할 인스턴스에 대한 원격 데스크톱 연결을 구성하려면 원격 데스크톱에 대한 역할을 구성합니다. 원격 액세스를 위한 서비스 정의 파일 준비에 대한 자세한 내용은 [Azure에서 역할에 대한 원격 데스크톱 연결 설정](http://msdn.microsoft.com/library/hh124107.aspx)을 참조하세요.
 
-- 클라우드 서비스에 대해 자세한 모니터링을 구성하려면 클라우드 서비스에 Azure 진단을 사용하도록 설정합니다. *Minimal monitoring* (기본 모니터링 수준)에서는 역할 인스턴스(가상 컴퓨터)에 대해 호스트 운영 체제에서 수집된 성능 카운터를 사용합니다. "자세한 모니터링*에서는 역할 인스턴스 내 성능 데이터를 기반으로 추가 메트릭을 수집하여 응용 프로그램 처리 중 발생하는 문제를 보다 자세히 분석할 수 있습니다. Azure 진단을 사용하도록 설정하는 방법에 대해 알아보려면 [Azure에서 진단 사용](http://azure.microsoft.com/develop/net/common-tasks/diagnostics/)(영문)을 참조하세요.
+- 클라우드 서비스에 대해 자세한 모니터링을 구성하려면 클라우드 서비스에 Azure 진단을 사용하도록 설정합니다. *최소 모니터링*(기본 모니터링 수준)에서는 역할 인스턴스(가상 컴퓨터)에 대해 호스트 운영 체제에서 수집된 성능 카운터를 사용합니다. "자세한 모니터링*에서는 역할 인스턴스 내 성능 데이터를 기반으로 추가 메트릭을 수집하여 응용 프로그램 처리 중 발생하는 문제를 보다 자세히 분석할 수 있습니다. Azure 진단을 사용하도록 설정하는 방법에 대해 알아보려면 [Azure에서 진단 사용](cloud-services-dotnet-diagnostics.md)(영문)을 참조하세요.
 
-- 웹 역할 또는 작업자 역할 배포를 통해 클라우드 서비스를 만들려면 서비스 패키지를 만들어야 합니다. 패키지 관련 파일에 대한 자세한 내용은 [Azure의 클라우드 서비스 설정](http://msdn.microsoft.com/library/hh124108.aspx)을 참조하세요. 패키지 파일을 만들려면 [Microsoft Azure 응용 프로그램 패키지](http://msdn.microsoft.com/library/hh403979.aspx)를 참조하세요. Visual Studio를 사용하여 응용 프로그램을 개발하는 경우에는 [Azure Tools를 사용하여 클라우드 서비스 게시](http://msdn.microsoft.com/library/ff683672.aspx)를 참조하세요.
+- 웹 역할 또는 작업자 역할 배포를 통해 클라우드 서비스를 만들려면 서비스 패키지를 만들어야 합니다. 패키지 관련 파일에 대한 자세한 내용은 [Azure의 클라우드 서비스 설정](http://msdn.microsoft.com/library/hh124108.aspx)을 참조하세요. 패키지 파일을 만들려면 [Azure 응용 프로그램 패키지](http://msdn.microsoft.com/library/hh403979.aspx)를 참조하세요. Visual Studio를 사용하여 응용 프로그램을 개발하는 경우에는 [Azure Tools를 사용하여 클라우드 서비스 게시](http://msdn.microsoft.com/library/ff683672.aspx)를 참조하세요.
 
-<h2><a id="begin"></a>시작하기 전에</h2>
+## 시작하기 전에
 
-- Azure SDK를 설치하지 않은 경우 **Azure SDK 설치**를 클릭하여 [Azure 다운로드 페이지](http://azure.microsoft.com/develop/downloads/)를 열고 코드를 개발하려는 언어의 SDK를 다운로드합니다. 이 작업은 나중에 수행할 수 있습니다.
+- Azure SDK를 설치하지 않은 경우 **Azure SDK 설치**를 클릭하여 [Azure 다운로드 페이지](http://azure.microsoft.com/downloads/)를 열고 코드를 개발하려는 언어의 SDK를 다운로드합니다. 이 작업은 나중에 수행할 수 있습니다.
 
 - 역할 인스턴스에 인증서가 필요한 경우 인증서를 만듭니다. 클라우드 서비스에는 개인 키가 포함된 .pfx 파일이 필요합니다. 클라우드 서비스를 만들고 배포할 때 Azure에 인증서를 업로드할 수 있습니다. 인증서에 대한 자세한 내용은 [인증서 관리](http://msdn.microsoft.com/library/gg981929.aspx)를 참조하세요.
 
-- 클라우드 서비스를 선호도 그룹에 배포하려면 선호도 그룹을 만듭니다. 선호도 그룹을 사용하면 클라우드 서비스 및 다른 Azure 서비스를 지역의 동일한 위치에 배포할 수 있습니다. 선호도 그룹은 관리 포털의 **네트워크** 영역에 있는 **선호도 그룹** 페이지에서 만들 수 있습니다. 자세한 내용은 관리 포털에서 [선호도 그룹 만들기](http://msdn.microsoft.com/library/jj156209.aspx)를 참조하세요.
+- 클라우드 서비스를 선호도 그룹에 배포하려면 선호도 그룹을 만듭니다. 선호도 그룹을 사용하면 클라우드 서비스 및 다른 Azure 서비스를 지역의 동일한 위치에 배포할 수 있습니다. 선호도 그룹은 관리 포털의 **네트워크** 영역에 있는 **선호도 그룹** 페이지에서 만들 수 있습니다. 자세한 내용은 [관리 포털에서 선호도 그룹 만들기](http://msdn.microsoft.com/library/jj156209.aspx)를 참조하세요.
 
 
-<h2><a id="quick"></a>방법: 빠른 생성을 사용하여 클라우드 서비스 만들기</h2>
+## 방법: 빠른 생성을 사용하여 클라우드 서비스 만들기
 
 1. [관리 포털](http://manage.windowsazure.com/)에서 **새로 만들기**>**계산**>**클라우드 서비스**>**빨리 만들기**를 차례로 클릭합니다.
 
 	![CloudServices_QuickCreate](./media/cloud-services-how-to-create-deploy/CloudServices_QuickCreate.png)
 
-2. **URL**에서 프로덕션 배포의 클라우드 서비스에 액세스하기 위한 공용 URL에 사용할 하위 도메인을 입력합니다. 프로덕션 배포의 URL 형식은: http://*myURL*.cloudapp.net.
+2. **URL**에서 프로덕션 배포의 클라우드 서비스에 액세스하기 위한 공용 URL에 사용할 하위 도메인을 입력합니다. 프로덕션 배포의 URL 형식은 http://*myURL*.cloudapp.net입니다.
 
 3. **지역 또는 선호도 그룹**에서 클라우드 서비스를 배포할 지역 또는 선호도 그룹을 선택합니다. 클라우드 서비스를 지역 내의 다른 Azure 서비스와 동일한 위치에 배포하려면 선호도 그룹을 선택합니다.
 
@@ -92,7 +80,7 @@ Azure SDK는 필요한 배포 파일을 준비하는 도구를 제공합니다. 
 	![CloudServices_CloudServicesPage](./media/cloud-services-how-to-create-deploy/CloudServices_CloudServicesPage.png)
 
 
-<h2><a id="uploadcertificate"></a>방법: 클라우드 서비스에 대한 인증서 업로드</h2>
+## 방법: 클라우드 서비스에 대한 인증서 업로드
 
 1. [관리 포털](http://manage.windowsazure.com/)에서 **클라우드 서비스**, 클라우드 서비스의 이름, **인증서**를 차례로 클릭합니다.
 
@@ -113,7 +101,7 @@ Azure SDK는 필요한 배포 파일을 준비하는 도구를 제공합니다. 
 
 	![CloudServices_CertificateProgress](./media/cloud-services-how-to-create-deploy/CloudServices_CertificateProgress.png)
 
-<h2><a id="deploy"></a>방법: 클라우드 서비스 배포</h2>
+## 방법: 클라우드 서비스 배포
 
 1. [관리 포털](http://manage.windowsazure.com/)에서 **클라우드 서비스**, 클라우드 서비스의 이름, **대시보드**를 차례로 클릭합니다.
 
@@ -122,13 +110,13 @@ Azure SDK는 필요한 배포 파일을 준비하는 도구를 제공합니다. 
 	 
 2. **새 프로덕션 배포 업로드** 또는 **업로드**를 클릭합니다.
 
-3. **배포 레이**에 새 배포의 이름(예: MyCloudServicev4)을 입력합니다.
+3. **배포 레이블**에 새 배포의 이름(예: MyCloudServicev4)을 입력합니다.
 
 3. **패키지**에서 **찾아보기**를 사용하여 사용할 서비스 패키지 파일(.cspkg)을 선택합니다.
 
 4. **구성**에서 **찾아보기**를 사용하여 사용할 서비스 구성 파일(.cscfg)을 선택합니다.
 
-5. 클라우드 서비스에 인스턴스가 하나만 있는 역할이 포함되어 있으면 **단일 인스턴스가 포함된 역할이 하나 이상 있는 경우에도 배포합니다.** 확인란을 선택하여 배포가 계속 진행되도록 합니다.
+5. 클라우드 서비스에 인스턴스가 하나만 있는 역할이 포함되어 있으면 **Deploy even if one or more roles contain a single instance** 확인란을 선택하여 배포가 계속 진행되도록 합니다.
 
  Azure는 모든 역할에 둘 이상의 인스턴스가 있는 경우에만 유지 관리 및 서비스 업데이트 중 클라우드 서비스에 대한 99.95%의 액세스를 보장할 수 있습니다. 필요한 경우 클라우드 서비스를 배포한 후 **크기 조정** 페이지에서 추가 역할 인스턴스를 추가할 수 있습니다. 자세한 내용은 [서비스 수준 계약](http://azure.microsoft.com/support/legal/sla/)을 참조하세요.
 
@@ -141,9 +129,9 @@ Azure SDK는 필요한 배포 파일을 준비하는 도구를 제공합니다. 
 
 	![CloudServices_UploadProgress](./media/cloud-services-how-to-create-deploy/CloudServices_UploadProgress.png)
 
-### 배포가 완료되었는지 확인하려면###
+## 배포가 완료되었는지 확인
 
-1. **대시보드**를 클릭합니다.
+1. **Dashboard**를 클릭합니다.
 
 	서비스가 **실행 중** 상태로 표시됩니다.
 
@@ -151,7 +139,7 @@ Azure SDK는 필요한 배포 파일을 준비하는 도구를 제공합니다. 
 
 [TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796&clcid=0x409
 
-	![CloudServices_QuickGlance](./media/cloud-services-how-to-create-deploy/CloudServices_QuickGlance.png)
+![CloudServices_QuickGlance](./media/cloud-services-how-to-create-deploy/CloudServices_QuickGlance.png)
 
 
-<!--HONumber=45--> 
+<!--HONumber=54-->

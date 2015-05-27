@@ -60,7 +60,7 @@
 		<Button Name="ButtonLogin" Click="ButtonLogin_Click" 
                         Visibility="Visible">Sign in</Button>
 
-6. 위의 단계를 Windows Phone 스토어 앱 프로젝트에 대해 반복하되 이번에는 **TitlePanel**에서 **TextBlock 요소** 다음에 Button****을 추가합니다.
+6. 위의 단계를 Windows Phone 스토어 앱 프로젝트에 대해 반복하되 이번에는 **TitlePanel**에서 **TextBlock** 요소 다음에 **Button**을 추가합니다.
 
 7. 공유 App.xaml.cs 프로젝트 파일을 열고 다음 using 문이 없으면 추가합니다.
 
@@ -85,10 +85,9 @@
 
 	**OnActivated** 메서드가 이미 있으면 `#if...#endif` 코드 블록만 추가합니다.
 
-9. F5 키를 눌러 Windows 스토어 앱을 실행하고 **로그인** 단추를 클릭한 다음 선택한 ID 공급자로 앱에 로그인합니다. 
+9. F5 키를 눌러 Windows 스토어 앱을 실행하고 **로그인** 단추를 클릭한 다음 선택한 ID 공급자로 앱에 로그인합니다.
 
    	로그인하고 나면 앱이 오류 없이 실행되며 모바일 앱을 쿼리하고 데이터를 업데이트할 수 있게 됩니다.
 
-10. Windows Phone 스토어 앱 프로젝트를 마우스 오른쪽 단추로 클릭하고 **시작 프로젝트로 설정**을 클릭한 다음 위의 단계를 반복하여 Windows Phone 스토어 앱도 올바르게 실행되는지 확인합니다.  
-
-<!--HONumber=49-->
+10. Windows Phone 스토어 앱 프로젝트를 마우스 오른쪽 단추로 클릭하고 **시작 프로젝트로 설정**을 클릭한 다음 위의 단계를 반복하여 Windows Phone 스토어 앱도 올바르게 실행되는지 확인합니다.
+<!--HONumber=54-->

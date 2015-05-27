@@ -1,25 +1,25 @@
 
 1. [Azure 관리 포털]에 로그온하고 **모바일 서비스**를 클릭하고 모바일 서비스를 클릭하고 나서 **대시보드** 탭을 클릭합니다.
 
-	![Select your mobile service](./media/mobile-services-enable-source-control/mobile-services-selection.png)
+	![모바일 서비스 선택](./media/mobile-services-enable-source-control/mobile-services-selection.png)
 
-2. (선택 사항) Azure 구독을 위한 모바일 서비스 또는 웹 사이트 원본 제어 자격 증명을 이미 설정했으면 4단계로 건너뛸 수 있습니다. 그렇지 않으면 **간략 상태**에서 **원본 제어 설정**을 클릭하고 **예**를 클릭하여 확인합니다.
+2. (선택 사항) Azure 구독을 위한 모바일 서비스 또는 웹 사이트 원본 제어 자격 증명을 이미 설정했으면 4단계로 건너뛸 수 있습니다. 그렇지 않으면 **간략 상태**에서 **소스 제어 설정**을 클릭하고 **예**를 클릭하여 확인합니다.
 
-	![Set up source control](./media/mobile-services-enable-source-control/mobile-setup-source-control.png)
+	![소스 제어 설정](./media/mobile-services-enable-source-control/mobile-setup-source-control.png)
 
 
-3. **사용자 이름**, **새 암호**를 제공하고 암호를 확인한 후 확인 단추를 클릭합니다. 
+3. **사용자 이름**, **새 암호**를 제공하고 암호를 확인한 후 확인 단추를 클릭합니다.
 
-	![Set source control credentials](./media/mobile-services-enable-source-control/mobile-source-control-credentials.png)
+	![소스 제어 자격 증명 설정](./media/mobile-services-enable-source-control/mobile-source-control-credentials.png)
 
 	모바일 서비스에서 Git 리포지토리가 만들어집니다. 방금 제공한 자격 증명을 기록해 둡니다. 이 자격 증명은 구독에서 이 리포지토리와 다른 모바일 서비스 리포지토리에 액세스하는 데 사용합니다.
 
-4. **구성** 탭을 클릭하면 **원본 제어** 필드가 나타납니다.
+4. **구성** 탭을 클릭하면 **소스 제어** 필드가 나타납니다.
 
-	![Configure source control](./media/mobile-services-enable-source-control/mobile-source-control-configure.png)
+	![소스 제어 구성](./media/mobile-services-enable-source-control/mobile-source-control-configure.png)
 
 	Git 리포지토리의 URL이 표시됩니다. 이 URL을 사용하여 리포지토리를 로컬 컴퓨터에 복제합니다.
 
 모바일 서비스에서 원본 제어를 사용하도록 설정하면 Git를 사용하여 리포지토리를 로컬 컴퓨터에 복제할 수 있습니다.
  
-<!--HONumber=47-->
+<!--HONumber=54-->

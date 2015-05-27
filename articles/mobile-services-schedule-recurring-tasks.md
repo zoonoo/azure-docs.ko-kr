@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="스케줄러를 사용하여 백 엔드 작업 예약 - 모바일 서비스" 
 	description="Azure 모바일 서비스 스케줄러를 사용하여 모바일 앱에 대한 작업을 예약합니다." 
 	services="mobile-services" 
@@ -18,9 +18,9 @@
 
 # 모바일 서비스에서 되풀이 작업 예약 
 
-> [AZURE.SELECTOR-LIST(플랫폼 | 백 엔드)]
-- [(모든 |.NET)](mobile-services-dotnet-backend-schedule-recurring-tasks.md)
-- [(모든 | Javascript)](mobile-services-schedule-recurring-tasks.md)
+> [AZURE.SELECTOR-LIST (Platform | Backend)]
+- [(Any | .NET)](mobile-services-dotnet-backend-schedule-recurring-tasks.md)
+- [(Any | Javascript)](mobile-services-schedule-recurring-tasks.md)
  
 이 항목에서는 관리 포털의 작업 스케줄러 기능을 사용하여 정의한 일정에 따라 실행되는 서버 스크립트 코드를 정의하는 방법을 보여 줍니다. 이 경우 스크립트는 원격 서비스(이 예에서는 Twitter)를 주기적으로 확인하여 결과를 새 테이블에 저장합니다. 예약할 수 있는 다른 정기 작업에는 다음이 포함됩니다.
 
@@ -28,17 +28,17 @@
 + 트윗, RSS 항목, 위치 정보 등의 외부 데이터 요청 및 저장
 + 저장된 이미지 처리 또는 크기 조정
 
-이 자습서에서는 작업 스케줄러를 사용하여, Twitter에서 트윗 데이터를 요청하고 트윗을 새 Updates 테이블에 저장하는 예약된 작업을 만드는 단계를 안내합니다.
+이 자습서에서는 Twitter에 트윗 데이터를 요청하고 이 트윗을 새 Updates 테이블에 저장하는 예약된 작업을 작업 스케줄러를 사용하여 만드는 단계를 안내합니다.
 
 + [Twitter 액세스 및 저장 자격 증명 등록]
 + [새 Updates 테이블 만들기]
 + [새 예약된 작업 만들기]
 
-##<a name="get-oauth-credentials"></a>Twitter v1.1 API 액세스 및 저장 자격 증명 등록
+## <a name="get-oauth-credentials"></a>Twitter v1.1 API 액세스 및 저장 자격 증명 등록
 
 [AZURE.INCLUDE [mobile-services-register-twitter-access](../includes/mobile-services-register-twitter-access.md)]
 
-##<a name="create-table"></a>새 Updates 테이블 만들기
+## <a name="create-table"></a>새 Updates 테이블 만들기
 
 다음으로, 트윗을 저장할 새 테이블을 만들어야 합니다.
 
@@ -46,7 +46,7 @@
 
 3. **테이블 이름**에 _Updates_를 입력한 후 확인 단추를 클릭합니다.
 
-##<a name="add-job"></a>새 예약된 작업 만들기  
+## <a name="add-job"></a>새 예약된 작업 만들기  
 
 이제 Twitter에 액세스하고 새 Updates 테이블에 트윗 데이터를 저장하는 예약된 작업을 만들 수 있습니다.
 
@@ -54,9 +54,9 @@
 
     >[AZURE.NOTE]<em>무료</em> 계층에서 모바일 서비스를 실행하는 경우 한 번에 하나의 예약된 작업만 실행할 수 있습니다. 유료 계층에서는 한 번에 최대 10개의 예약된 작업을 실행할 수 있습니다.
 
-3. 스케줄러 대화 상자에서 **작업 이름**으로 _getUpdates_를 입력하고 일정 간격 및 단위를 설정한 후 확인 단추를 클릭합니다. 
+3. 스케줄러 대화 상자에서 _작업 이름_으로 **getUpdates**를 입력하고 일정 간격 및 단위를 설정한 후 확인 단추를 클릭합니다.
 
-   	**getUpdates**라는 새 작업 이름이 만들어집니다. 
+   	이를 통해 **getUpdates**라는 새 작업이 만들어집니다.
 
 4. 방금 만든 새 작업을 클릭한 후 **스크립트** 탭을 클릭하고 자리 표시자 함수 **getUpdates**를 다음 코드로 바꿉니다.
 
@@ -134,11 +134,11 @@
 		}
 
 
-   	이 스크립트에서는 해시태그 `#mobileservices`를 포함한 최근 트윗을 요청하기 위해 저장된 자격 증명을 사용하여 Twitter 쿼리 API를 호출합니다. 중복 트윗 및 회신은 테이블에 저장되기 전에 결과에서 제거됩니다.
+   	이 스크립트에서는 `#mobileservices` 해시태그를 포함한 최근 트윗을 요청하기 위해 저장된 자격 증명을 사용하여 Twitter 쿼리 API를 호출합니다. 중복 트윗 및 회신은 테이블에 저장되기 전에 결과에서 제거됩니다.
 
-    >[AZURE.NOTE]이 샘플에서는 각 예약 실행 도중에 몇 개의 행만 테이블에 삽입된다고 가정합니다. 반복해서 많은 행이 삽입되는 경우에는 무료 계층에서 실행할 때 연결이 끊어질 수 있습니다. 이런 경우 일괄 처리로 삽입해야 합니다. 자세한 내용은 <a href="/develop/mobile/how-to-guides/work-with-server-scripts/#bulk-inserts">방법: 대량 삽입 수행</a>
+    >[AZURE.NOTE]이 샘플에서는 각 예약 실행 도중에 몇 개의 행만 테이블에 삽입된다고 가정합니다. 반복해서 많은 행이 삽입되는 경우에는 무료 계층에서 실행할 때 연결이 끊어질 수 있습니다. 이런 경우 일괄 처리로 삽입해야 합니다. 자세한 내용은 <a href="/develop/mobile/how-to-guides/work-with-server-scripts/#bulk-inserts">방법: 대량 삽입 수행</a>을 참조하세요.
 
-6. **Run Once**를 클릭하여 스크립트를 테스트합니다. 
+6. **Run Once**를 클릭하여 스크립트를 테스트합니다.
 
    	그러면 작업이 저장되고 스케줄러에서 사용할 수 없는 상태로 유지되면서 실행됩니다.
 
@@ -152,14 +152,13 @@
 
 ## <a name="nextsteps"> </a>다음 단계
 
-* [모바일 서비스 서버 스크립트 참조]
-  <br/>서버 스크립트의 등록 및 사용에 대해 자세히 알아봅니다.
+* [모바일 서비스 서버 스크립트 참조] <br/>서버 스크립트의 등록 및 사용에 대해 자세히 알아봅니다.
 
 <!-- Anchors. -->
 [Twitter 액세스 및 저장 자격 증명 등록]: #get-oauth-credentials
 [새 Updates 테이블 만들기]: #create-table
 [새 예약된 작업 만들기]: #add-job
-[다음 단계]: #next-steps
+[Next steps]: #next-steps
 
 <!-- Images. -->
 [0]: ./media/mobile-services-schedule-recurring-tasks/mobile-twitter-my-apps.png
@@ -178,9 +177,9 @@
 <!-- URLs. -->
 [모바일 서비스 서버 스크립트 참조]: http://go.microsoft.com/fwlink/?LinkId=262293
 [WindowsAzure.com]: http://www.windowsazure.com/
-[Azure 관리 포털]: https://manage.windowsazure.com/
-[모바일 서비스에 Twitter 로그인을 사용하기 위해 앱 등록]: /develop/mobile/how-to-guides/register-for-twitter-authentication
-[Twitter 개발자]: http://go.microsoft.com/fwlink/p/?LinkId=268300
-[앱 설정]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
+[Azure Management Portal]: https://manage.windowsazure.com/
+[Register your apps for Twitter login with Mobile Services]: /develop/mobile/how-to-guides/register-for-twitter-authentication
+[Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
+[App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 
-<!--HONumber=49-->
+<!--HONumber=54-->

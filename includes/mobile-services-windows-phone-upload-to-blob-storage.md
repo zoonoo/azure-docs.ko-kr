@@ -1,13 +1,13 @@
 
-##<a name="add-select-images"></a>빠른 시작 클라이언트 앱을 업데이트하여 이미지 캡처 및 업로드
+##<a name="add-select-images"></a>퀵 스타트 클라이언트 앱을 업데이트하여 이미지 캡처 및 업로드
 
-이 섹션에서는 [모바일 서비스 시작] 자습서의 프로젝트를 업데이트하여 사진을 찍고 해당 사진을 Azure Blob 저장소에 업로드합니다. 이 자습서에서는  `Microsoft.Phone.Tasks` 네임스페이스의 [CameraCaptureTask]를 사용하여 이미지를 캡처합니다. 이 클래스는 Windows Phone 장치에서 카메라 UI를 시작하여 사진을 캡처하고 이미지를 Windows Phone 장치의 카메라 앨범에 자동으로 저장합니다. 이미지를 카메라 앨범에 저장하지 않으려는 경우  `Microsoft.Devices` 네임스페이스의 [PhotoCamera] 클래스를 사용하세요.
+이 섹션에서는 [모바일 서비스 시작] 자습서의 프로젝트를 업데이트하여 사진을 찍고 해당 사진을 Azure Blob 저장소에 업로드합니다. 이 자습서에서는 `Microsoft.Phone.Tasks` 네임스페이스의 [CameraCaptureTask]를 사용하여 이미지를 캡처합니다. 이 클래스는 Windows Phone 장치에서 카메라 UI를 시작하여 사진을 캡처하고 이미지를 Windows Phone 장치의 카메라 앨범에 자동으로 저장합니다. 이미지를 카메라 앨범에 저장하지 않으려는 경우 `Microsoft.Devices` 네임스페이스의 [PhotoCamera] 클래스를 사용하십시오.
 
-1. Visual Studio의 솔루션 탐색기에서 프로젝트의 **속성**을 확장합니다. 그런 다음, WMAppManifest.xml 파일을 열고 **기능** 탭에서 **ID\_CAP\_ISV\_CAMERA**를 클릭하여 카메라를 사용하도록 설정합니다. 파일을 닫아 변경 내용을 저장합니다.
+1. Visual Studio의 솔루션 탐색기에서 프로젝트의 **속성**을 확장합니다. WMAppManifest.xml 파일이 열리면 **기능** 탭에서 **ID_CAP_ISV_CAMERA**를 클릭하여 카메라를 사용하도록 설정합니다. 파일을 닫아 변경 내용을 저장합니다.
 
-   	![](./media/mobile-services-windows-phone-upload-to-blob-storage/mobile-upload-blob-app-WMAppmanifest-wp8.png)
+	![](./media/mobile-services-windows-phone-upload-to-blob-storage/mobile-upload-blob-app-WMAppmanifest-wp8.png)
 
-   	이제 앱에서 컴퓨터에 연결된 카메라를 사용할 수 있습니다. 앱을 처음으로 실행하면 카메라 액세스를 허용하라는 메시지가 표시됩니다.
+   이제 앱에서 컴퓨터에 연결된 카메라를 사용할 수 있습니다. 앱을 처음으로 실행하면 카메라 액세스를 허용하라는 메시지가 표시됩니다.
 
 2. MainPage.xaml 파일을 열고 이름이 **ContentPanel**인 **Grid** 요소를 다음 코드로 바꿉니다.
 
@@ -43,7 +43,8 @@
             </phone:LongListSelector>
         </Grid>
 
-   	이 코드는 [CameraCaptureTask]를 시작하는 새 단추를 추가하고, **ItemTemplate**에 이미지를 추가하고, 바인딩 소스를 Blob 저장소 서비스에 업로드된 이미지 URI로 설정합니다.
+
+   이 코드는 [CameraCaptureTask]를 시작하는 새 단추를 추가하고, **ItemTemplate**에 이미지를 추가하고, 바인딩 소스를 Blob 저장소 서비스에 업로드된 이미지 URI로 설정합니다.
 
 3. MainPage.xaml.cs 프로젝트 파일을 열고 다음 **using** 문을 추가합니다.
 	
@@ -97,7 +98,8 @@
             cameraCaptureTask.Show();
         }
 
-8. MainPage.xaml.cs 프로젝트 파일에서 MainPage 클래스를 업데이트합니다. 기존  `InsertTodoItem` 메서드를 다음 코드로 바꿉니다.
+
+8. MainPage.xaml.cs 프로젝트 파일에서 MainPage 클래스를 업데이트합니다. 기존 `InsertTodoItem` 메서드를 다음 코드로 바꿉니다.
  
         private async void InsertTodoItem(TodoItem todoItem)
         {
@@ -144,7 +146,7 @@
         }
 
 
-	이 코드는 요청을 모바일 서비스로 전송하여 이미지 파일 이름을 비롯한 새 TodoItem을 삽입합니다. 응답에는 SAS가 포함되며 이는 Blob 저장소의 이미지 및 데이터 바인딩의 이미지 URI를 삽입하는 데 사용됩니다.
+   이 코드는 요청을 모바일 서비스로 전송하여 이미지 파일 이름을 비롯한 새 TodoItem을 삽입합니다. 응답에는 SAS가 포함되며 이는 Blob 저장소의 이미지 및 데이터 바인딩의 이미지 URI를 삽입하는 데 사용됩니다.
 
 마지막 단계로, 앱을 테스트하고 제대로 업로드되었는지 확인합니다.
 		
@@ -154,13 +156,13 @@
 
 2. 텍스트 상자에 일부 텍스트를 입력한 후 **Capture Image**를 클릭합니다.
 
-   	![](./media/mobile-services-windows-phone-upload-to-blob-storage/mobile-upload-blob-app-view-wp8.png)
+	![](./media/mobile-services-windows-phone-upload-to-blob-storage/mobile-upload-blob-app-view-wp8.png)
 
-  	그러면 카메라 캡처 UI가 표시됩니다. 
+  	그러면 카메라 캡처 UI가 표시됩니다.
 
 3. 휴대폰에서 이미지 또는 스냅숏 단추를 클릭하여 사진을 찍습니다.
   
-   	![](./media/mobile-services-windows-phone-upload-to-blob-storage/mobile-upload-blob-app-view-camera-wp8.png)
+	![](./media/mobile-services-windows-phone-upload-to-blob-storage/mobile-upload-blob-app-view-camera-wp8.png)
 
 4. **accept**를 클릭하여 이미지를 허용하고 카메라 UI를 종료합니다.
 
@@ -174,11 +176,11 @@
 
 	![](./media/mobile-services-windows-phone-upload-to-blob-storage/mobile-upload-blob-app-view-final-wp8.png)
 
-   >[AZURE.NOTE]새 항목의 <code>imageUri</code> 속성이 <strong>Image</strong> 컨트롤에 바인딩되면 이미지가 Blob 저장소 서비스에서 자동으로 다운로드됩니다.
+   >[AZURE.NOTE]이미지는 새 항목의 <code>imageUri</code> 속성이 <strong>이미지</strong> 컨트롤에 연결될 때 Blob 저장소 서비스에서 자동으로 다운로드됩니다.
 
 
-[모바일 서비스 시작]: /ko-kr/documentation/articles/mobile-services-windows-phone-get-started
+[모바일 서비스 시작]: ../articles/mobile-services-windows-phone-get-started.md
 [CameraCaptureTask]: http://msdn.microsoft.com/library/windowsphone/develop/microsoft.phone.tasks.cameracapturetask(v=vs.105).aspx
 [PhotoCamera]: http://msdn.microsoft.com/library/windowsphone/develop/microsoft.devices.photocamera(v=vs.105).aspx
 
-<!--HONumber=42-->
+<!--HONumber=54-->

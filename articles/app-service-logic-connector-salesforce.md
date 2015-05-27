@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
    pageTitle="Salesforce 커넥터" 
    description="Salesforce 커넥터를 사용하는 방법" 
    services="app-service\logic" 
@@ -17,7 +17,7 @@
    ms.author="sutalasi"/>
 
 
-# 논리 앱에서 Saleforce 커넥터 사용#
+#논리 앱에서 Saleforce 커넥터 사용#
 
 논리 앱은 다양한 데이터 원본을 기반으로 트리거하고 흐름의 일부로 데이터를 가져오고 처리하기 위한 커넥터를 제공할 수 있습니다. Salesforce 커넥터를 사용하여 다양한 엔터티(예: 계정, 잠재 고객 등)를 만들고 수정할 수 있습니다. 다음은 Salesforce와 관련된 일반적인 통합 시나리오입니다.
 
@@ -30,7 +30,7 @@
  
 - 엔터티 만들기- 계정 및 사례와 같은 새 Salesforce 엔터티를 만들려면 이 작업을 사용합니다.
 
-- 엔터티 업데이트 - 기존 Salesforce 엔터티를 업데이트하려면 이 작업을 사용합니다. 
+- 엔터티 업데이트 - 기존 Salesforce 엔터티를 업데이트하려면 이 작업을 사용합니다.
 
 - Upsert 엔터티 - 기존 Salesforce 엔터티를 업데이트하거나 존재하지 않는 경우 새로 만들려면 이 작업을 사용합니다.
 
@@ -39,8 +39,19 @@
 - 쿼리 실행 - SOQL(Salesforce 개체 쿼리 언어)로 작성된 SELECT 쿼리를 실행하려면 이 작업을 사용합니다.
 
 
-## 논리 앱 만들기##
-논리 앱에서 Salesforce 커넥터를 사용하려면 커넥터 API 앱이 이미 생성되어 있어야 합니다. 또는 즉시 논리 앱을 만들 수 있습니다. Salesforce에서 계정을 만들고 동일한 계정의 청구 주소 정보를 업데이트하는 간단한 논리 앱을 만들겠습니다.
+##SalesForce 커넥터 API 앱 만들기##
+1.	Azure 포털의 오른쪽 아래에 있는 + 새로 만들기 옵션을 사용하여 Azure 마켓플레이스를 엽니다.
+2.	"웹 및 모바일 > API 앱"으로 이동하여 "SalesForce"를 검색합니다.
+3.	호스팅 계획, 리소스 그룹에 대한 세부 정보를 제공하고 API 앱의 이름을 선택하여 SalesForce 커넥터를 구성합니다.
+
+	![][15]
+4. ‘패키지 설정’에서 읽기/쓰기에 관련된 SalesForce 엔터티를 구성합니다.
+
+이제 이를 통해 SalesForce 커넥터 API 앱을 만들 수 있습니다.
+
+
+##논리 앱 만들기##
+Salesforce에서 계정을 만들고 동일한 계정의 청구 주소 정보를 업데이트하는 간단한 논리 앱을 만들겠습니다.
 
 1.	Azure 포털에 로그인하고 '새로 만들기 -> 웹 + 모바일 -> 논리 앱'을 클릭합니다.
 
@@ -58,16 +69,12 @@
 
     ![][4]
 
-5.	갤러리에서 '새로 만들기'를 확장하여 사용 가능한 모든 API 앱을 표시합니다. 갤러리에서 'Salesforce'를 선택하면 'Salesforce 커넥터'가 흐름에 추가됩니다.
+5.	갤러리에서 ‘이 리소스 그룹의 API 앱’을 확장하여 사용할 수 있는 모든 API 앱을 확인합니다. 갤러리에서 'Salesforce'를 선택하면 'Salesforce 커넥터'가 흐름에 추가됩니다.
 
-
-6.	'Salesforce 엔터티'의 기본값은 '계정, 잠재 고객, 영업 기회, 사례, 연락처'입니다. Salesforce 계정에서 사용할 수 있는 사용자 지정 엔터티를 포함하여 다른 엔터티를 추가하고 ✓를 클릭할 수 있습니다.
 
 	![][5]
 
-7.	그러면 논리 앱과 동일한 리소스 그룹에 새 'Salesforce 커넥터' API 앱이 생성됩니다. API 앱을 만드는 데 30초 정도 걸립니다.
-
-8.	앱이 생성된 후 '승인'을 클릭하여 Salesforce 로그인 자격 증명을 제공합니다.
+8.	SalesForce 계정에 액세스할 수 있는 권한을 논리 앱에 부여하려면 '권한 부여’를 클릭하여 Salesforce 로그인 자격 증명을 제공합니다.
 
 	![][6]
 
@@ -85,7 +92,7 @@
 
 	![][10]
 
-12.	'계정 이름'을 제공하고 ✓를 클릭합니다. 
+12.	'계정 이름'을 제공하고 ✓를 클릭합니다.
 
 	![][11]
 
@@ -95,7 +102,7 @@
 
 	![][12]
 
-15.	'레코드 ID' 옆에 있는 '+'를 클릭하여 '계정 만들기' 작업의 출력에서 ID 값을 선택합니다. 
+15.	'레코드 ID' 옆에 있는 '+'를 클릭하여 '계정 만들기' 작업의 출력에서 ID 값을 선택합니다.
 
 	![][13]
 
@@ -103,11 +110,11 @@
 
 	![][14]
 
-17. 논리 앱 편집기 화면에서 확인을 클릭한 다음  'Create'를 클릭합니다. 만들기를 완료하는 데 30초 정도 걸립니다.
+17. 논리 앱 편집기 화면에서 확인을 클릭한 다음 '만들기'를 클릭합니다. 만들기를 완료하는 데 30초 정도 걸립니다.
 
-18. 새로 만든 논리 앱을 찾아 'Run'을 클릭하여 실행을 시작할 수 있습니다.
+18. 새로 만든 논리 앱을 찾아 ‘Run’을 클릭하여 실행을 시작합니다.
 
-19. Salesforce 계정에서 'Contoso' 이름 옆에 새 계정이 생성된 것을 확인할 수 있습니다.
+19. Salesforce 계정에 새 계정이 'Contoso'란 이름으로 만들어진 것을 확인할 수 있습니다.
 
 <!--Image references-->
 [1]: ./media/app-service-logic-connector-salesforce/1_New_Logic_App.png
@@ -124,7 +131,8 @@
 [12]: ./media/app-service-logic-connector-salesforce/12_Salesforce_Update_Account.png
 [13]: ./media/app-service-logic-connector-salesforce/13_Record_ID_from_Create.png
 [14]: ./media/app-service-logic-connector-salesforce/14_Update_Account_Address.png
+[15]: ./media/app-service-logic-connector-salesforce/15_Create_new_salesforce_connector.png
 
 
 
-<!--HONumber=49-->
+<!--HONumber=54-->

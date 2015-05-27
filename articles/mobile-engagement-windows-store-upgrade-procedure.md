@@ -1,9 +1,9 @@
-﻿<properties 
-	pageTitle="Azure Mobile Engagement Windows 스토어 SDK 업그레이드 절차" 
-	description="Azure Mobile Engagement용 Windows 스토어 SDK의 최신 업데이트 및 절차" 					
+<properties 
+	pageTitle="Windows 유니버설 앱 SDK 업그레이드 절차" 
+	description="Azure Mobile Engagement용 Windows 유니버설 앱 SDK 업그레이드 절차" 					
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
-	authors="kpiteira" 
+	authors="piyushjo" 
 	manager="dwrede" 
 	editor="" />
 
@@ -11,36 +11,41 @@
 	ms.service="mobile-engagement" 
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="mobile-windows-store" 
-	ms.devlang="" 
+	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/12/2015" 
-	ms.author="kapiteir" />
+	ms.date="04/02/2015" 
+	ms.author="piyushjo" />
 
-#업그레이드 절차
+# Windows 유니버설 앱 SDK 업그레이드 절차
 
 이전 버전의 Engagement를 응용 프로그램에 이미 통합한 경우에는 SDK를 업그레이드할 때 다음 사항을 고려해야 합니다.
 
 여러 SDK 버전을 건너뛴 경우에는 여러 절차를 수행해야 할 수 있습니다. 예를 들어 0.10.1에서 0.11.0으로 마이그레이션하는 경우에는 먼저 "0.9.0에서 0.10.1로 마이그레이션" 절차를 수행한 후에 "0.10.1에서 0.11.0으로 마이그레이션" 절차를 수행해야 합니다.
 
-##1.1.1에서 2.0.0으로 마이그레이션
+## 2.0.0에서 3.0.0으로
 
-아래에서는 SDK 통합을 Capptain SAS 제공 Capptain 서비스에서 Azure Mobile Engagement 구동 앱으로 마이그레이션하는 방법을 설명합니다. 
+### 리소스
+이 단계는 사용자 지정된 리소스에만 관련됩니다. SDK(html, 이미지, 오버레이)에서 제공되는 리소스를 사용자 지정한 경우 업그레이드된 리소스에서 사용자 지정한 내용을 업그레이드 및 다시 적용하기 전에 백업해야 합니다.
 
->[Azure.IMPORTANT] Capptain과 Mobile Engagement는 같은 서비스가 아니며, 아래에서 제공하는 절차에서는 클라이언트 앱을 마이그레이션하는 방법만 중점적으로 설명합니다. 앱에서 SDK를 마이그레이션해도 데이터가 Capptain 서버에서 Mobile Engagement 서버로 마이그레이션되지는 않습니다.
+## 1.1.1에서 2.0.0으로 마이그레이션
+
+아래에서는 SDK 통합을 Capptain SAS 제공 Capptain 서비스에서 Azure Mobile Engagement 구동 앱으로 마이그레이션하는 방법을 설명합니다.
+
+> [Azure.IMPORTANT]Capptain과 Mobile Engagement는 같은 서비스가 아니며, 아래에서 제공하는 절차에서는 클라이언트 앱을 마이그레이션하는 방법만 중점적으로 설명합니다. 앱에서 SDK를 마이그레이션해도 데이터가 Capptain 서버에서 Mobile Engagement 서버로 마이그레이션되지는 않습니다.
 
 이전 버전에서 마이그레이션하는 경우에는 Capptain 웹 사이트를 참조하여 1.1.1로 먼저 마이그레이션한 후에 다음 절차를 따르세요.
 
 ### NuGet 패키지
 
-Capptain.WindowsPhone.nupkg를 보관 패키지 lib 폴더에 있는 azuresdk-mobileengagement-windows-VERSION.nupkg로 바꿉니다.
+**Capptain.WindowsPhone**을 **MicrosoftAzure.MobileEngagement** Nuget 패키지로 대체합니다.
 
 ### Mobile Engagement 적용
 
-SDK에서는 `Engagement`라는 용어를 사용합니다. 이 변경 내용에 맞게 프로젝트를 업데이트해야 합니다.
+SDK에서는 `Engagement`(이)라는 용어를 사용합니다. 이 변경 내용에 맞게 프로젝트를 업데이트해야 합니다.
 
 현재 Capptain NuGet 패키지는 제거해야 합니다. Capptain 리소스 폴더의 모든 변경 내용도 제거됩니다. 해당 폴더의 파일을 보존하려면 복사본을 만드세요.
 
-그런 다음 새 Microsoft Azure Engagement NuGet 패키지를 프로젝트에 설치합니다. 해당 패키지는 [NuGet 웹 사이트]에서 직접 다운로드할 수도 있고 이 문서의 인덱스에서 찾을 수도 있습니다. 이 작업을 수행하면 Engagement에서 사용하는 모든 리소스 파일이 바뀌며 프로젝트 참조에 새 Engagement DLL이 추가됩니다.
+그런 다음 새 Microsoft Azure Engagement NuGet 패키지를 프로젝트에 설치합니다. [NuGet 웹 사이트]에서 직접 찾거나 여기에서 인덱스할 수 있습니다. 이 작업을 수행하면 Engagement에서 사용하는 모든 리소스 파일이 바뀌며 프로젝트 참조에 새 Engagement DLL이 추가됩니다.
 
 Capptain DLL 참조를 삭제하여 프로젝트 참조를 정리해야 합니다. 이렇게 하지 않으면 Capptain 버전이 충돌하여 오류가 발생합니다.
 
@@ -48,83 +53,84 @@ Capptain 리소스를 사용자 지정한 경우 이전 파일 콘텐츠를 복�
 
 해당 단계를 완료한 후에는 이전 Capptain 참조만 새 Engagement 참조로 바꾸면 됩니다.
 
-모든 Capptain 네임스페이스를 업데이트해야 합니다.
+1. 모든 Capptain 네임스페이스를 업데이트해야 합니다.
 
-마이그레이션 전:
+	마이그레이션 전:
+	
+		using Capptain.Agent;
+		using Capptain.Reach;
+	
+	마이그레이션 후:
+	
+		using Microsoft.Azure.Engagement;
 
-			using Capptain.Agent;
-			using Capptain.Reach;
+2. "Capptain"을 포함하는 모든 Capptain 클래스는 이제 "Engagement"를 포함해야 합니다.
 
-마이그레이션 후:
+	마이그레이션 전:
+	
+		public sealed partial class MainPage : CapptainPage
+		{
+		  protected override string GetCapptainPageName()
+		  {
+		    return "Capptain Demo";
+		  }
+		  ...
+		}
+	
+	마이그레이션 후:
+	
+		public sealed partial class MainPage : EngagementPage
+		{
+		  protected override string GetEngagementPageName()
+		  {
+		    return "Engagement Demo";
+		  }
+		  ...
+		}
 
-			using Microsoft.Azure.Engagement;
+3. xaml 파일에서는 Capptain 네임스페이스와 특성도 변경됩니다.
 
-"Capptain"을 포함하는 모든 Capptain 클래스는 이제 "Engagement"를 포함해야 합니다.
+	마이그레이션 전:
+	
+		<capptain:CapptainPage
+		...
+		xmlns:capptain="clr-namespace:Capptain.Agent;assembly=Capptain.Agent.WP"
+		...
+		</capptain:CapptainPage>
+	
+	마이그레이션 후:
+	
+		<engagement:EngagementPage
+		...
+		xmlns:engagement="clr-namespace:Microsoft.Azure.Engagement;assembly=Microsoft.Azure.Engagement.EngagementAgent.WP"
+		...
+		</engagement:EngagementPage>
 
-마이그레이션 전:
+4. 오버레이 페이지 변경
+	> [AZURE.IMPORTANT]오버레이도 변경됩니다. 새 네임스페이스는 `Microsoft.Azure.Engagement.Overlay`입니다. xaml 및 cs 파일에서 모두 이 네임스페이스를 사용해야 합니다. 또한 `CapptainGrid` 이름은 `EngagementGrid`(으)로, `capptain_notification_content` 및 `capptain_announcement_content` 이름은 `engagement_notification_content` 및 `engagement_announcement_content`(으)로 지정됩니다.
+	
+	오버레이의 경우 아래 코드는
+	
+		<capptain:CapptainPageOverlay
+		  xmlns:capptain="using:Capptain.Overlay"
+		  ...
+		</capptain:CapptainPageOverlay>
+	
+	아래와 같이 변경됩니다.
+	
+		<EngagementPageOverlay
+		  engagement="using:Microsoft.Azure.Engagement.Overlay"
+		  ...
+		</engagement:EngagementPageOverlay>
 
-			public sealed partial class MainPage : CapptainPage
-			{
-			  protected override string GetCapptainPageName()
-			  {
-			    return "Capptain Demo";
-			  }
-			  ...
-			}
-
-마이그레이션 후:
-
-			public sealed partial class MainPage : EngagementPage
-			{
-			  protected override string GetEngagementPageName()
-			  {
-			    return "Engagement Demo";
-			  }
-			  ...
-			}
-
-xaml 파일에서는 Capptain 네임스페이스와 특성도 변경됩니다.
-
-마이그레이션 전:
-
-			<capptain:CapptainPage
-			...
-			xmlns:capptain="using:Capptain.Agent"
-			...
-			</capptain:CapptainPage>
-
-마이그레이션 후:
-
-			<engagement:EngagementPage
-			...
-			xmlns:engagement="using:Microsoft.Azure.Engagement"
-			...
-			</engagement:EngagementPage>
-
-> [AZURE.IMPORTANT] 오버레이도 변경됩니다. 새 네임스페이스는 `Microsoft.Azure.Engagement.Overlay`입니다. xaml 및 cs 파일에서 모두 이 네임스페이스를 사용해야 합니다. 또한 `CapptainGrid` 이름은 `EngagementGrid`로,  `capptain_notification_content` 및 `capptain_announcement_content` 이름은 `engagement_notification_content` 및 `engagement_announcement_content`로 지정해야 합니다.
-
-오버레이의 경우 아래 코드는
-
-			<capptain:CapptainPageOverlay
-			  xmlns:capptain="using:Capptain.Overlay"
-			  ...
-			</capptain:CapptainPageOverlay>
-
-아래와 같이 변경됩니다.
-
-			<EngagementPageOverlay
-			  engagement="using:Microsoft.Azure.Engagement.Overlay"
-			  ...
-			</engagement:EngagementPageOverlay>
-
-Capptain 그림 및 HTML 파일과 같은 기타 리소스도 "Engagement"를 사용하도록 이름이 바뀌었습니다.
+5. Capptain 그림 및 HTML 파일과 같은 기타 리소스도 "Engagement"를 사용하도록 이름이 바뀌었습니다.
 
 ### 프로젝트 선언
 
-Package.appxmanifest에서 `File Type Associations`가 다음과 같이 업데이트되었습니다.
+Package.appxmanifest에서 `File Type Associations`이(가) 다음과 같이 업데이트되었습니다.
 
-> -   capptain\_reach\_content to engagement\_reach\_content
-> -   capptain\_log\_file to engagement\_log\_file
+ -   capptain_reach_content to engagement_reach_content
+ -   capptain_log_file to engagement_log_file
 
 ### 응용 프로그램 ID/SDK 키
 
@@ -134,34 +140,32 @@ Engagement 구성은 프로젝트의 `Resources\EngagementConfiguration.xml` 파
 
 이 파일을 편집하여 다음을 지정합니다.
 
--   `<connectionString>` 및 `<\connectionString>` 태그 사이의 응용 프로그램 연결 문자열
+-   `<connectionString>` 및 `<\connectionString>` 태그 사이의 응용 프로그램 연결 문자열입니다.
 
 이 문자열을 런타임에 지정하려는 경우에는 Engagement 에이전트 초기화 전에 다음 메서드를 호출하면 됩니다.
 
-			/* Engagement configuration. */
-			EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
-			engagementConfiguration.Agent.ConnectionString = "Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}";
-			
-			/* Initialize Engagement agent with above configuration. */
-			EngagementAgent.Instance.Init(args, engagementConfiguration);
+	/* Engagement configuration. */
+	EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
+	engagementConfiguration.Agent.ConnectionString = "Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}";
+	
+	/* Initialize Engagement agent with above configuration. */
+	EngagementAgent.Instance.Init(args, engagementConfiguration);
 
-응용 프로그램의 연결 문자열은 Azure 포털에 표시됩니다.
+응용 프로그램의 연결 문자열은 Azure 관리 포털에 표시됩니다.
 
 ### 항목 이름 변경
 
-이름에 ...capptain...이 포함되었던 모든 항목은 ...engagement...를 포함하도록 이름이 바뀌었습니다. 이 변경은 Capptain과 Engagement 둘 다에서 동일하게 적용됩니다.
+이름에 *capptain*이 포함된 모든 항목은 이름에 *engagement*를 포함하도록 지정됩니다. 마찬가지로 *Capptain*은 *Engagement*로 지정됩니다.
 
-일반적으로 사용되는 Capptain 항목의 예제는 다음과 같습니다.
+일반적으로 사용되는 Capptain 항목의 예제:
 
-> -   CapptainConfiguration의 이름은 EngagementConfiguration으로 바뀌었습니다.
-> -   CapptainAgent의 이름은 EngagementAgent로 바뀌었습니다.
-> -   CapptainReach의 이름은 EngagementReach로 바뀌었습니다.
-> -   CapptainHttpConfig의 이름은 EngagementHttpConfig로 바뀌었습니다.
-> -   GetCapptainPageName의 이름은 GetEngagementPageName으로 바뀌었습니다.
+-   CapptainConfiguration의 이름은 EngagementConfiguration으로 바뀌었습니다.
+-   CapptainAgent의 이름은 EngagementAgent로 바뀌었습니다.
+-   CapptainReach의 이름은 EngagementReach로 바뀌었습니다.
+-   CapptainHttpConfig의 이름은 EngagementHttpConfig로 바뀌었습니다.
+-   GetCapptainPageName의 이름은 GetEngagementPageName으로 바뀌었습니다.
 
 이와 같이 바뀐 이름은 재정의되는 메서드에도 영향을 줍니다.
 
-[NuGet 웹 사이트]:http://www.nuget.org/packages/Capptain.WindowsCS
 
-
-<!--HONumber=47-->
+<!--HONumber=54-->

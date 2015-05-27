@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="iOS에서 모바일 앱에 대한 인증 시작" 
 	description="모바일 앱을 사용하여 AAD, Google, Facebook, Twitter, Microsoft 등의 다양한 ID 공급자를 통해 iOS 앱 사용자를 인증하는 방법을 알아봅니다." 
 	services="app-service\mobile" 
@@ -22,7 +22,7 @@
 
 이 항목에서는 클라이언트 응용 프로그램에서 앱 서비스 모바일 앱의 사용자를 인증하는 방법을 보여 줍니다. 이 자습서에서는 앱 서비스가 지원하는 ID 공급자를 사용하여 퀵 스타트 프로젝트에 인증을 추가합니다. 모바일 앱에서 인증되고 권한이 부여된 후 사용자 ID 값이 표시됩니다.
 
-이 자습서는 모바일 앱 퀵 스타트를 기반으로 합니다. 또한 [iOS 앱 만들기] 자습서를 먼저 완료해야 합니다. 
+이 자습서는 모바일 앱 퀵 스타트를 기반으로 합니다. 또한 [iOS 앱 만들기] 자습서를 먼저 완료해야 합니다.
 
 ##<a name="register"></a>인증을 위해 앱 등록 및 앱 서비스 구성
 
@@ -53,6 +53,5 @@
 
 [iOS 앱 만들기]: app-service-mobile-dotnet-backend-ios-get-started-preview.md
 
-[Azure 관리 포털]: https://portal.azure.com
-
-<!--HONumber=49-->
+[Azure Management Portal]: https://portal.azure.com
+<!--HONumber=54-->

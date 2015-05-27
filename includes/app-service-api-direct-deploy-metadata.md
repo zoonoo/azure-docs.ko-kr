@@ -1,4 +1,8 @@
-*apiapp.json* 파일의 속성과 *Metadata* 폴더의 파일은 대부분 API 앱 패키지가 Azure 마켓플레이스에 표시되는 방식에 영향을 줍니다. 다음 섹션에서는 마켓플레이스에서 API 앱을 설치하지 않고 코드를 직접 배포할 때 API 앱에 영향을 주는 속성 및 파일에 대해 설명합니다.
+## API 앱 메타데이터
+
+이 섹션에서는 사용자 지정할 수 있는 API 앱 메타데이터에 대한 추가 정보를 제공합니다.
+
+*apiapp.json* 파일의 속성과 *Metadata* 폴더의 파일은 대부분 API 앱 패키지가 Azure 마켓플레이스에 표시되는 방식에 영향을 줍니다. 다음 섹션에서는 Azure 구독의 API 앱에 코드를 배포할 때 API 앱에 영향을 주는 속성 및 파일에 대해 설명합니다.
 
 ### API 앱 ID 
 
@@ -35,4 +39,4 @@
 *apiapp.json* 파일 및 *Metadata* 폴더에 대한 자세한 내용은 [API 앱 패키지 만들기](app-service-api-create-package.md)를 참조하세요.
 
 
-<!--HONumber=52-->
+<!--HONumber=54-->

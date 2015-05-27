@@ -8,7 +8,7 @@
 	editor=""/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
@@ -30,7 +30,7 @@
 
 ![Azure PHP 웹 사이트][running-app]
 
->[AZURE.NOTE] 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 사용](http://go.microsoft.com/fwlink/?LinkId=523751)으로 이동합니다. 앱 서비스에서는 단기 시작 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다. 
+>[AZURE.NOTE]계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 시작 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
 
 ##Azure 웹 앱 만들기 및 FTP 게시 설정
@@ -42,7 +42,7 @@
 
 	![새 Azure 웹 사이트 만들기][new-website]
 
-3. **웹 + 모바일** 다음에 **웹 앱 + MySQL**을 클릭합니다.
+3. **웹 + 모바일**, **웹앱 + MySQL**을 차례로 클릭합니다.
 
 	![새 웹 사이트 사용자 지정 만들기][custom-create]
 
@@ -52,7 +52,7 @@
 
 5. 새 웹 앱의 값을 입력합니다.
 
-     ![웹 앱 만들기][new-web-app]
+     ![웹앱 만들기][new-web-app]
 
 6. 약관에 대한 동의를 포함하여 새 데이터베이스의 값을 입력합니다.
 
@@ -60,9 +60,9 @@
 	
 7. 웹 앱이 만들어지면 새 리소스 그룹이 보입니다. 웹 앱의 이름을 클릭하여 해당 설정을 구성합니다.
 
-	![웹 앱 열기][go-to-webapp]
+	![웹앱을 엽니다.][go-to-webapp]
 
-6. **배포 자격 증명 설정**을 찾을 때까지 아래로 스크롤합니다. 
+6. **배포 자격 증명 설정**을 찾을 때까지 아래로 스크롤합니다.
 
 	![배포 자격 증명 설정][set-deployment-credentials]
 
@@ -72,20 +72,20 @@
 
 ##로컬에서 앱 빌드 및 테스트
 
-등록 응용 프로그램은 이름과 메일 주소를 지정하여 이벤트에 등록하는 데 사용할 수 있는 간단한 PHP 응용 프로그램입니다. 이전 등록자에 대한 정보가 테이블에 표시되어 있습니다. 등록 정보는 MySQL 데이터베이스에 저장되어 있습니다. 앱은 다음 두 파일로 구성되어 있습니다.
+등록 응용 프로그램은 이름과 전자 메일 주소를 지정하여 이벤트에 등록하는 데 사용할 수 있는 간단한 PHP 응용 프로그램입니다. 이전 등록자에 대한 정보가 테이블에 표시되어 있습니다. 등록 정보는 MySQL 데이터베이스에 저장되어 있습니다. 앱은 다음 두 파일로 구성되어 있습니다.
 
 * **index.php**: 등록 양식 및 등록자 정보가 포함된 테이블을 표시합니다.
-* **createtable.php**: 응용 프로그램용 MySQL 테이블을 만듭니다. 이 파일은 한 번만 사용됩니다.
+* **createtable.php**: 응용 프로그램에 대한 MySQL 테이블을 만듭니다. 이 파일은 한 번만 사용됩니다.
 
-앱을 빌드하여 로컬에서 실행하려면 아래 단계를 따릅니다. 이러한 단계는 로컬 컴퓨터에 PHP, MySQL 및 웹 서버가 설정되어 있으며 [PDO extension for MySQL][pdo-mysql]을 사용하도록 설정되어 있다는 것을 전제로 합니다.
+앱을 빌드하여 로컬에서 실행하려면 아래 단계를 따릅니다. 이러한 단계는 로컬 컴퓨터에 PHP, MySQL 및 웹 서버가 설정되어 있으며 [PDO Extension for MySQL][pdo-mysql]이 사용하도록 설정되어 있다는 것을 전제로 합니다.
 
-1.  `registration`이라는 MySQL 데이터베이스를 만듭니다. 이는 MySQL 명령 프롬프트에서 다음 명령으로 수행할 수 있습니다.
+1. `registration`이라는 MySQL 데이터베이스를 만듭니다. 이는 MySQL 명령 프롬프트에서 다음 명령으로 수행할 수 있습니다.
 
 		mysql> create database registration;
 
-2. 웹 서버의 루트 디렉터리에서  `registration`이라는 폴더를 만들고 이 폴더 내에  `createtable.php` 및  `index.php`라는 두 파일을 만듭니다.
+2. 웹 서버의 루트 디렉터리에서 `registration`이라는 폴더를 만들고 이 폴더 내에 `createtable.php` 및 `index.php`라는 두 파일을 만듭니다.
 
-3. 텍스트 편집기 또는 IDE에서  `createtable.php` 파일을 열고 아래 코드를 추가합니다. 이 코드는  `registration` 데이터베이스에  `registration_tbl` 테이블을 만드는 데 사용됩니다.
+3. 텍스트 편집기 또는 IDE에서 `createtable.php` 파일을 열고 아래 코드를 추가합니다. 이 코드는 `registration` 데이터베이스에 `registration_tbl` 테이블을 만드는 데 사용됩니다.
 
 		<?php
 		// DB connection info
@@ -110,10 +110,9 @@
 		echo "<h3>Table created.</h3>";
 		?>
 
-	> [AZURE.NOTE] 
-	> <code>$user</code> 및 <code>$pwd</code>의 값을 로컬 MySQL 사용자 이름 및 암호로 업데이트해야 합니다.
+	> [AZURE.NOTE]<code>$user</code> 및 <code>$pwd</code> 값을 로컬 MySQL 사용자 이름 및 암호로 업데이트해야 합니다.
 
-4. 웹 브라우저를 열고 [http://localhost/registration/createtable.php][localhost-createtable]로 이동합니다. 그러면 데이터베이스에  `registration_tbl` 테이블이 만들어집니다.
+4. 웹 브라우저를 열고 [http://localhost/registration/createtable.php][localhost-createtable]로 이동합니다. 그러면 데이터베이스에 `registration_tbl` 테이블이 만들어집니다.
 
 5. 텍스트 편집기 또는 IDE에서 **index.php** 파일을 열고 페이지의 기본 HTML 및 CSS 코드를 추가합니다(PHP 코드는 이후 단계에서 추가 예정).
 
@@ -164,8 +163,7 @@
 			die(var_dump($e));
 		}
 
-	> [AZURE.NOTE]
-	> 다시 <code>$user</code> 및 <code>$pwd</code>의 값을 로컬 MySQL 사용자 이름 및 암호로 업데이트해야 합니다.
+	> [AZURE.NOTE]다시 <code>$user</code> 및 <code>$pwd</code>의 값을 로컬 MySQL 사용자 이름 및 암호로 업데이트해야 합니다.
 
 7. 데이터베이스 연결 코드 다음에 등록 정보를 데이터베이스에 삽입하는 데 필요한 코드를 추가합니다.
 
@@ -214,7 +212,7 @@
 
 ##MySQL 및 FTP 연결 정보 가져오기
 
-웹 앱에서 실행되는 MySQL 데이터베이스에 연결하려면 연결 정보가 필요합니다. MySQL 연결 정보를 가져오려면 다음 단계를 따르세요.
+웹 앱에서 실행되는 MySQL 데이터베이스에 연결하려면 연결 정보가 필요합니다. MySQL 연결 정보를 가져오려면 다음 단계를 따르십시오.
 
 1. 리소스 그룹에서 다음 데이터베이스를 클릭합니다.
 
@@ -224,15 +222,15 @@
 
     ![속성 선택][select-properties]
 	
-2.  `Database`,  `Host`,  `User Id` 및  `Password`의 값을 기록해 둡니다.
+2. `Database`, `Host`, `User Id` 및 `Password` 값을 기록해 둡니다.
 
     ![참고 속성][note-properties]
 
-3. 웹 앱에서 페이지의 오른쪽 맨 아래에 있는 **게시 프로필 다운로드** 링크를 클릭합니다.
+3. 웹앱에서 페이지의 오른쪽 아래에 있는 **게시 프로필 다운로드** 링크를 클릭합니다.
 
 	![게시 프로필 다운로드][download-publish-profile]
 
-4. XML 편집기에서  `.publishsettings` 파일을 엽니다. 
+4. XML 편집기에서 `.publishsettings` 파일을 엽니다.
 
 3. 다음과 유사한 `publishMethod="FTP"`가 있는 `<publishProfile >` 요소를 찾습니다.
 
@@ -240,11 +238,11 @@
 			...
 		</publishProfile>
 	
- `publishUrl`,  `userName` 및  `userPWD` 특성을 기록해 둡니다.
+`publishUrl`, `userName` 및 `userPWD` 특성을 기록해 둡니다.
 
 ##응용 프로그램 게시
 
-앱을 로컬에서 테스트한 후 FTP를 사용하여 웹 앱에 게시할 수 있습니다. 하지만 먼저 응용 프로그램의 데이터베이스 연결 정보를 업데이트해야 합니다. 이전에 **MySQL 및 FTP 연결 정보 가져오기** 섹션에서 가져온 데이터베이스 연결 정보를 사용하여  `createdatabase.php` 및  `index.php` 파일 **모두**에서 다음 정보를 적합한 값으로 업데이트합니다.
+앱을 로컬에서 테스트한 후 FTP를 사용하여 웹 앱에 게시할 수 있습니다. 하지만 먼저 응용 프로그램의 데이터베이스 연결 정보를 업데이트해야 합니다. 이전에 **MySQL 및 FTP 연결 정보 가져오기** 섹션에서 가져온 데이터베이스 연결 정보를 사용하여 `createdatabase.php` 및 `index.php` 파일 **모두**에서 다음 정보를 적합한 값으로 업데이트합니다.
 
 	// DB connection info
 	$host = "value of Data Source";
@@ -256,15 +254,15 @@
 
 1. 원하는 FTP 클라이언트를 엽니다.
 
-2. 앞서 기록한  `publishUrl` 특성의  *host name portion*을 FTP 클라이언트에 입력합니다.
+2. 앞서 기록한 `publishUrl` 특성의 *호스트 이름 부분*을 FTP 클라이언트에 입력합니다.
 
-3. FTP 클라이언트를 변경하지 않고 앞서 기록한  `userName` 및  `userPWD` 특성을 입력합니다.
+3. FTP 클라이언트를 변경하지 않고 앞서 기록한 `userName` 및 `userPWD` 특성을 입력합니다.
 
 4. 연결을 설정합니다.
 
-연결된 후 필요에 따라 파일을 업로드 및 다운로드할 수 있습니다. 루트 디렉터리  `/site/wwwroot`에 파일을 업로드하고 있는지 확인하세요.
+연결된 후 필요에 따라 파일을 업로드 및 다운로드할 수 있습니다. 루트 디렉터리 `/site/wwwroot`에 파일을 업로드하고 있는지 확인하세요.
 
- `index.php` 및  `createtable.php`를 모두 업로드한 후 **http://[사이트 이름].azurewebsites.net/createtable.php**로 이동하여 응용 프로그램용 MySQL 테이블을 만든 다음 **http://[사이트 이름].azurewebsites.net/index.php**로 이동하여 응용 프로그램을 사용하기 시작합니다.
+`index.php` 및 `createtable.php`를 모두 업로드한 후 **http://[site 이름].azurewebsites.net/createtable.php**로 이동하여 응용 프로그램용 MySQL 테이블을 만든 다음 **http://[site 이름].azurewebsites.net/index.php**로 이동하여 응용 프로그램을 사용하기 시작합니다.
  
 
 [install-php]: http://www.php.net/manual/en/install.php
@@ -290,4 +288,4 @@
 [management-portal]: https://portal.azure.com
 [download-publish-profile]: ./media/web-sites-php-web-site-mysql-deploy-use-ftp/download_publish_profile_3.png
 
-<!--HONumber=49-->
+<!--HONumber=54-->

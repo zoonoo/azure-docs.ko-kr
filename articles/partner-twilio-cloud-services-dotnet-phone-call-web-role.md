@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Twilio에서 전화를 거는 방법(.NET) - Azure" 
 	description="Azure에서 Twilio API 서비스를 사용하여 전화를 걸고 SMS 메시지를 보내는 방법에 대해 알아봅니다. 코드 샘플은 .NET으로 작성되었습니다." 
 	services="" 
@@ -23,24 +23,14 @@
 
 이 가이드에서는 Azure에 호스트된 웹 페이지에서 Twilio를 사용하여 전화를 거는 방법을 설명합니다. 다음 스크린샷에 표시된 것처럼 응용 프로그램에서 사용자에게 전화 통화 값을 묻습니다.
 
-![Azure call form using Twilio and ASP.NET][twilio_dotnet_basic_form]
-
-
-
-<h2>목차</h2>
-- [필수 조건](#twilio-prereqs)
-- [방법: 전화 걸기 웹 양식 만들기](#howtocreateform)
-- [방법: 코드를 만들어 전화 걸기](#howtocreatecode)
-- [다음 단계](#nextsteps)
-- [참고 항목](#seealso)
-
+![Twilio 및 ASP.NET을 사용하는 Azure 통화 양식][twilio_dotnet_basic_form]
 
 <h2><a name="twilio-prereqs"></a>필수 조건</h2>
 
 이 항목에서 코드를 사용하려면 다음을 수행해야 합니다.
 
-1. Twilio 계정 및 인증 토큰을 받습니다. Twilio를 시작하려면 [https://www.twilio.com/try-twilio][try_twilio]에서 등록합니다. [http://www.twilio.com/pricing][twilio_pricing]에서 가격을 평가할 수 있습니다. Twilio에서 제공하는 API에 대한 내용은 [http://www.twilio.com/voice/api][twilio_api]를 참조하세요.
-2. Twilio .NET 라이브러리를 웹 역할에 추가합니다. 이 항목의 뒷부분에 나오는 "웹 역할 프로젝트에 Twilio 라이브러리 추가"를 참조하세요.
+1. Twilio 계정 및 인증 토큰을 받습니다. Twilio를 시작하려면 [https://www.twilio.com/try-twilio][try_twilio](영문)에서 등록합니다. [http://www.twilio.com/pricing][twilio_pricing](영문)에서 가격을 평가할 수 있습니다. Twilio에서 제공하는 API에 대한 내용은 [http://www.twilio.com/voice/api][twilio_api](영문)를 참조하십시오.
+2. Twilio .NET 라이브러리를 웹 역할에 추가합니다. 이 항목의 뒷부분에 나오는 "웹 역할 프로젝트에 Twilio 라이브러리 추가"를 참조하십시오.
 
 Azure에서 기본적인 웹 역할 만들기에 익숙해져야 합니다.
 
@@ -52,7 +42,7 @@ Azure에서 기본적인 웹 역할 만들기에 익숙해져야 합니다.
 2.  **참조**를 마우스 오른쪽 단추로 클릭합니다.
 3.  **NuGet 패키지 관리**를 클릭합니다.
 4.  **온라인**을 클릭합니다.
-5.  온라인 검색 상자에  *twilio*를 입력합니다.
+5.  온라인 검색 상자에 *twilio*를 입력합니다.
 6.  Twilio 패키지에서 **설치**를 클릭합니다.
 
 다음 코드는 전화를 걸기 위해 웹 양식을 만들고 사용자 데이터를 검색하는 방법을 보여 줍니다. 이 예제에서는 **TwilioCloud**라는 ASP.NET 웹 역할이 생성됩니다.
@@ -80,7 +70,7 @@ Azure에서 기본적인 웹 역할 만들기에 익숙해져야 합니다.
     </asp:Content>
 
 <h2><a id="howtocreatecode"></a>방법: 코드를 만들어 전화 걸기</h2>
-사용자가 양식을 다 작성하면 호출되는 다음 코드는 통화 메시지를 만들고 통화를 생성합니다. 이 예제에서는 코드가 양식 단추의 onclick 이벤트 처리기에서 실행됩니다. 아래 코드에서 **accountSID** 및 **authToken**에 할당된 자리 표시자 값 대신 Twilio 계정 및 인증 토큰을 사용하세요.
+사용자가 양식을 다 작성하면 호출되는 다음 코드는 통화 메시지를 만들고 통화를 생성합니다. 이 예제에서는 코드가 양식 단추의 onclick 이벤트 처리기에서 실행됩니다. (아래 코드에서 **accountSID** 및 **authToken**에 할당된 자리 표시자 값 대신 Twilio 계정 및 인증 토큰을 사용하십시오.)
 
     using System;
     using System.Collections.Generic;
@@ -161,19 +151,19 @@ Azure에서 기본적인 웹 역할 만들기에 익숙해져야 합니다.
 
 전화가 걸리고 Twilio 끝점, API 버전 및 통화 상태가 표시됩니다. 다음 스크린샷은 샘플 실행의 결과를 보여 줍니다.
 
-![Azure call response using Twilio and ASP.NET][twilio_dotnet_basic_form_output]
+![Twilio 및 ASP.NET을 사용하는 Azure 통화 응답][twilio_dotnet_basic_form_output]
 
-TwiML에 대한 자세한 내용은 [http://www.twilio.com/docs/api/twiml][twiml]에서 찾을 수 있습니다. &lt;Say&gt; 및 기타 Twilio 동사에 대한 정보는 [http://www.twilio.com/docs/api/twiml/say][twilio_say]에서 찾을 수 있습니다.
+TwiML에 대한 자세한 내용은 [http://www.twilio.com/docs/api/twiml][twiml](영문)에서 찾을 수 있습니다. &lt;Say&gt; 및 기타 Twilio 동사에 대한 정보는 [http://www.twilio.com/docs/api/twiml/say][twilio_say]에서 찾을 수 있습니다.
 
 <h2><a id="nextsteps"></a>다음 단계</h2>
 이 코드는 Azure에서 ASP.NET 웹 역할의 Twilio를 사용하는 기본 기능을 보여 줍니다. Azure를 프로덕션에 배포하기 전에 더 많은 오류 처리 또는 기타 기능을 추가할 수 있습니다. 예를 들면 다음과 같습니다.
 
-* 웹 양식을 사용하는 대신, Azure Blob 저장소 또는 Azure SQL 데이터베이스 인스턴스를 사용하여 전화 번호 및 통화 텍스트를 저장할 수 있습니다. Azure에서 Blob 사용에 대한 자세한 내용은 [.NET에서 Azure Blob 저장소 서비스를 사용하는 방법][howto_blob_storage_dotnet]을 참조하세요. SQL 데이터베이스 사용에 대한 자세한 내용은 [.NET 응용 프로그램에서 Azure SQL 데이터베이스를 사용하는 방법][howto_sql_azure_dotnet]을 참조하세요.
-* 양식에서 값을 하드 코딩하는 대신, RoleEnvironment.getConfigurationSettings를 사용하여 배포 구성 설정에서 Twilio 계정 ID 및 인증 토큰을 검색할 수 있습니다. RoleEnvironment 클래스에 대한 자세한 내용은 [Microsoft.WindowsAzure.ServiceRuntime 네임스페이스][azure_runtime_ref_dotnet]를 참조하세요.
-* [https://www.twilio.com/docs/security][twilio_docs_security]에서 Twilio 보안 지침을 읽으세요.
-* [https://www.twilio.com/docs][twilio_docs]에서 Twilio에 대해 자세히 알아보세요.
+* 웹 양식을 사용하는 대신, Azure Blob 저장소 또는 Azure SQL 데이터베이스 인스턴스를 사용하여 전화 번호 및 통화 텍스트를 저장할 수 있습니다. Azure에서 Blob 사용에 대한 자세한 내용은 [.NET에서 Azure Blob 저장소 서비스를 사용하는 방법][howto_blob_storage_dotnet](영문)을 참조하십시오. SQL 데이터베이스 사용에 대한 자세한 내용은 [.NET 응용 프로그램에서 Azure SQL 데이터베이스를 사용하는 방법][howto_sql_azure_dotnet](영문)을 참조하십시오.
+* 양식에서 값을 하드 코딩하는 대신, RoleEnvironment.getConfigurationSettings를 사용하여 배포 구성 설정에서 Twilio 계정 ID 및 인증 토큰을 검색할 수 있습니다. RoleEnvironment 클래스에 대한 자세한 내용은 [Microsoft.WindowsAzure.ServiceRuntime 네임스페이스][azure_runtime_ref_dotnet](영문)를 참조하십시오.
+* [https://www.twilio.com/docs/security][twilio_docs_security](영문)에서 Twilio 보안 지침을 읽으십시오.
+* [https://www.twilio.com/docs][twilio_docs](영문)에서 Twilio에 대해 자세히 알아보십시오.
 
-##<a name="seealso"></a>참고 항목
+## <a name="seealso"></a>참고 항목
 * [Azure에서 음성 및 SMS 기능을 위해 Twilio를 사용하는 방법](twilio-dotnet-how-to-use-for-voice-sms.md)
 
 [twilio_pricing]: http://www.twilio.com/pricing
@@ -188,11 +178,11 @@ TwiML에 대한 자세한 내용은 [http://www.twilio.com/docs/api/twiml][twiml
 
 
 
-[howto_twilio_voice_sms_dotnet]: /ko-kr/develop/net/how-to-guides/twilio/
+[howto_twilio_voice_sms_dotnet]: /develop/net/how-to-guides/twilio/
 
-[howto_blob_storage_dotnet]: https://www.windowsazure.com/ko-kr/develop/net/how-to-guides/blob-storage/
+[howto_blob_storage_dotnet]: https://www.windowsazure.com/develop/net/how-to-guides/blob-storage/
 
-[howto_sql_azure_dotnet]: https://www.windowsazure.com/ko-kr/develop/net/how-to-guides/sql-database/
+[howto_sql_azure_dotnet]: https://www.windowsazure.com/develop/net/how-to-guides/sql-database/
 
 
 [twilio_docs_security]: http://www.twilio.com/docs/security
@@ -202,6 +192,4 @@ TwiML에 대한 자세한 내용은 [http://www.twilio.com/docs/api/twiml][twiml
 
 [azure_runtime_ref_dotnet]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.serviceruntime.aspx
 
-
-
-<!--HONumber=42-->
+<!--HONumber=54-->

@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="스케줄러를 사용하여 백 엔드 작업 예약 - 모바일 서비스" 
 	description="Azure 모바일 서비스 스케줄러를 사용하여 모바일 앱에 대한 작업을 예약합니다." 
 	services="mobile-services" 
@@ -19,9 +19,9 @@
 
 # 모바일 서비스에서 되풀이 작업 예약 
 
-> [AZURE.SELECTOR-LIST(플랫폼 | 백 엔드)]
-- [(임의 | .NET)](mobile-services-dotnet-backend-schedule-recurring-tasks.md)
-- [(임의 | Javascript)](mobile-services-schedule-recurring-tasks.md)
+> [AZURE.SELECTOR-LIST (Platform | Backend)]
+- [(Any | .NET)](mobile-services-dotnet-backend-schedule-recurring-tasks.md)
+- [(Any | Javascript)](mobile-services-schedule-recurring-tasks.md)
  
 이 항목에서는 관리 포털의 작업 스케줄러 기능을 사용하여 정의한 일정에 따라 실행되는 서버 스크립트 코드를 정의하는 방법을 보여 줍니다. 이 경우 스크립트는 원격 서비스(이 예에서는 Twitter)를 주기적으로 확인하여 결과를 새 테이블에 저장합니다. 예약할 수 있는 다른 정기 작업에는 다음이 포함됩니다.
 
@@ -29,7 +29,7 @@
 + 트윗, RSS 항목, 위치 정보 등의 외부 데이터 요청 및 저장
 + 저장된 이미지 처리 또는 크기 조정
 
-이 자습서에서는 작업 스케줄러를 사용하여, Twitter에서 트윗 데이터를 요청하고 트윗을 새 Updates 테이블에 저장하는 예약된 작업을 만드는 단계를 안내합니다.
+이 자습서에서는 Twitter에 트윗 데이터를 요청하고 이 트윗을 새 Updates 테이블에 저장하는 예약된 작업을 작업 스케줄러를 사용하여 만드는 단계를 안내합니다.
 
 1. [Twitter 액세스 및 저장 자격 증명 등록]
 2. [LINQ to Twitter 라이브러리 다운로드 및 설치]
@@ -38,9 +38,9 @@
 5. [로컬에서 예약된 작업 테스트]
 6. [서비스 게시 및 작업 등록]
 
->[AZURE.NOTE]이 자습서에서는 타사 LINQ to Twitter 라이브러리를 사용하여 OAuth 2.0에서 의 Twitter v1.1. API 액세스를 간소화합니다. 이 자습서를 완료하려면 LINQ to Twitter NuGet 패키지를 다운로드하여 설치해야 합니다. 자세한 내용은 [LINQ to Twitter CodePlex 프로젝트]를 참조하세요.
+>[AZURE.NOTE]이 자습서에서는 타사 LINQ to Twitter 라이브러리를 사용하여 OAuth 2.0에서 의 Twitter v1.1. API 액세스를 간소화합니다. 이 자습서를 완료하려면 LINQ to Twitter NuGet 패키지를 다운로드하여 설치해야 합니다. 자세한 내용은 [LINQ to Twitter CodePlex 프로젝트](영문)를 참조하십시오.
 
-##<a name="get-oauth-credentials"></a>Twitter v1.1 API 액세스 및 저장 자격 증명 등록
+## <a name="get-oauth-credentials"></a>Twitter v1.1 API 액세스 및 저장 자격 증명 등록
 
 [AZURE.INCLUDE [mobile-services-register-twitter-access](../includes/mobile-services-register-twitter-access.md)]
 
@@ -49,17 +49,17 @@
 
 <li><p>동일한 섹션에서 다음과 같은 새 앱 설정을 추가하고 자리 표시자를 포털에서 앱 설정으로 지정한 Twitter 액세스 토큰 및 액세스 토큰 암호 값으로 바꿉니다.</p>
 
-<pre><code>&lt;add key="TWITTER_ACCESS_TOKEN" value="**your_access_token**" /&gt;
-&lt;add key="TWITTER_ACCESS_TOKEN_SECRET" value="**your_access_token_secret**" /&gt;</code></pre>
+<pre><code>&lt;add key="TWITTER_ACCESS_TOKEN" value="**your_access_token**" />
+&lt;add key="TWITTER_ACCESS_TOKEN_SECRET" value="**your_access_token_secret**" /></code></pre>
 
-<p>모바일 서비스를 로컬 컴퓨터에서 실행하면 이러한 저장된 설정을 사용하여 예약된 작업을 게시하기 전에 테스트할 수 있습니다. Azure에서 실행 중인 모바일 서비스에서는 포털에 설정된 값을 대신 사용하고 이 프로젝트 설정은 무시합니다.  </p></li>
+<p>모바일 서비스를 로컬 컴퓨터에서 실행하면 이러한 저장된 설정을 사용하여 예약된 작업을 게시하기 전에 테스트할 수 있습니다. Azure에서 실행 중인 경우 모바일 서비스에서는 포털에 설정된 값을 대신 사용하고 이 프로젝트 설정은 무시합니다.  </p></li>
 </ol>
 
-##<a name="install-linq2twitter"></a>LINQ to Twitter 라이브러리 다운로드 및 설치
+## <a name="install-linq2twitter"></a>LINQ to Twitter 라이브러리 다운로드 및 설치
 
 1. Visual Studio의 **솔루션 탐색기**에서 프로젝트 이름을 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 선택합니다.
 
-2. 왼쪽 창에서 **온라인** 범주를 선택하고  `linq2twitter`를 검색하고, **linqtotwitter** 패키지에서 **설치**를 클릭한 다음 라이선스 계약을 읽고 동의합니다. 
+2. 왼쪽 창에서 **온라인** 범주를 선택하고, `linq2twitter`를 검색하고, **linqtotwitter** 패키지에서 **설치**를 클릭한 다음 라이선스 계약을 읽고 동의합니다.
 
   	![][1]
 
@@ -67,13 +67,13 @@
 
 다음으로, 트윗을 저장할 새 테이블을 만들어야 합니다.
 
-##<a name="create-table"></a>새 Updates 테이블 만들기
+## <a name="create-table"></a>새 Updates 테이블 만들기
 
-1. Visual Studio의 솔루션 탐색기에서 DataObjects 폴더를 마우스 오른쪽 단추로 클릭하고 **추가**를 확장한 다음 **클래스**를 클릭합니다.   **이름**에  `Updates`를 입력하고 **추가**를 클릭합니다.
+1. Visual Studio의 솔루션 탐색기에서 DataObjects 폴더를 마우스 오른쪽 단추로 클릭하고 **추가**를 확장하여 **클래스**를 클릭하고 **이름**에 `Updates`을(를) 입력한 다음 **추가**를 클릭합니다.
 
 	Updates 클래스에 대한 새 프로젝트 파일이 만들어집니다.
 
-2. **참조**를 마우스 오른쪽 단추로 클릭하고 **참조 추가...**를 클릭한 다음 **어셈블리** 아래의 **프레임워크**를 선택합니다. **System.ComponentModel.DataAnnotations**를 선택하고 **확인**을 클릭합니다.
+2. **참조**를 마우스 오른쪽 단추로 클릭하고 **참조 추가...**를 클릭하고 **어셈블리**에서 **프레임워크**를 선택하고 **System.ComponentModel.DataAnnotations**를 선택한 후 **확인**을 클릭합니다.
 
 	![][7]
 
@@ -96,17 +96,17 @@
 	        public DateTime Date { get; set; }
     	}
 
-4. Models 폴더를 확장하고 <em>service_name</em>이라는 데이터 모델 컨텍스트 파일을 연 후 입력한 **DbSet**를 반환하는 다음 속성을 추가합니다.
+4. Models 폴더를 확장하고 <em>service_name</em>Context.cs라는 데이터 모델 컨텍스트 파일을 열여 입력한 **DbSet**를 반환하는 다음 속성을 추가합니다.
 
 		public DbSet<Updates> Updates { get; set; }
 
-	DbSet에 처음 액세스할 때 생성되는 Updates 테이블은 서비스에서 트윗 데이터를 저장하는 데 사용됩니다.  
+	DbSet에 처음 액세스할 때 생성되는 Updates 테이블은 서비스에서 트윗 데이터를 저장하는 데 사용됩니다.
 
-	>[AZURE.NOTE] 기본 데이터베이스 이니셜라이저를 사용할 경우 Entity Framework에서는 Code First 모델 정의에서 데이터 모델 변경이 감지될 때마다 데이터베이스를 삭제하고 다시 만듭니다. 이 데이터 모델을 변경하고 데이터베이스에서 기존 데이터를 유지하려면 Code First 마이그레이션을 사용해야 합니다. Azure에서는 SQL 데이터베이스에 대해 기본 이니셜라이저를 사용할 수 없습니다. 자세한 내용은 [Code First 마이그레이션을 사용하여 데이터 모델을 업데이트하는 방법]을 참조하세요.(mobile-services-dotnet-backend-use-code-first-migrations.md).  
+	>[AZURE.NOTE]기본 데이터베이스 이니셜라이저를 사용할 경우 Entity Framework에서는 Code First 모델 정의에서 데이터 모델 변경이 감지될 때마다 데이터베이스를 삭제하고 다시 만듭니다. 이 데이터 모델을 변경하고 데이터베이스에서 기존 데이터를 유지하려면 Code First 마이그레이션을 사용해야 합니다. Azure에서는 SQL 데이터베이스에 대해 기본 이니셜라이저를 사용할 수 없습니다. 자세한 내용은 [Code First 마이그레이션을 사용하여 데이터 모델을 업데이트하는 방법](mobile-services-dotnet-backend-use-code-first-migrations.md)을 참조하십시오.
 
 이제 Twitter에 액세스하고 새 Updates 테이블에 트윗 데이터를 저장하는 예약된 작업을 만듭니다.
 
-##<a name="add-job"></a>새 예약된 작업 만들기  
+## <a name="add-job"></a>새 예약된 작업 만들기  
 
 1. ScheduledJobs 폴더를 확장하고 SampleJob.cs 프로젝트 파일을 엽니다.
 
@@ -222,33 +222,33 @@
 		    }
 		}
 
-	위의 코드에서 문자열 _todolistService_ 및 _todolistContext_를 각각 <em>mobile&#95;service&#95;name</em> 서비스 및 <em>mobile&#95;service&#95;name</em> 컨텍스트에 해당하는 다운로드한 프로젝트의 네임스페이스와 DbContext로 바꿔야 합니다.  
+	위의 코드에서 _todolistService_ 및 _todolistContext_ 문자열을각각  <em>mobile&#95;service&#95;name</em>Service 및 <em>mobile&#95;service&#95;name</em>Context에 해당하는 다운로드한 프로젝트의 네임스페이스 및 DbContext로 바꾸어야 합니다.
    	
-	위의 코드에서 **ExecuteAsync** 재정의 메서드는 해시태그 `#mobileservices`를 포함하는 최근 트윗을 요청하기 위해 저장된 자격 증명을 사용하여 Twitter 쿼리 API를 호출합니다. 중복 트윗 및 회신은 테이블에 저장되기 전에 결과에서 제거됩니다.
+	위의 코드에서 **ExecuteAsync** 재정의 메서드는 `#mobileservices` 해시태그를 포함한 최근 트윗을 요청하기 위해 저장된 자격 증명을 사용하여 Twitter 쿼리 API를 호출합니다. 중복 트윗 및 회신은 테이블에 저장되기 전에 결과에서 제거됩니다.
 
-##<a name="run-job-locally"></a>로컬에서 예약된 작업 테스트
+## <a name="run-job-locally"></a>로컬에서 예약된 작업 테스트
 
-Azure에 게시하고 포털에 등록하기 전에 로컬에서 작업 예약을 테스트할 수 있습니다. 
+Azure에 게시하고 포털에 등록하기 전에 로컬에서 작업 예약을 테스트할 수 있습니다.
 
 1. Visual Studio에서 모바일 서비스 프로젝트를 시작 프로젝트로 설정하고 F5 키를 누릅니다.
 
 	모바일 서비스 프로젝트가 시작되고 새 브라우저 창에 시작 페이지가 표시됩니다.
 
-2. **사용해보기**를 클릭한 후 **POST 작업/{jobName}**을 클릭합니다.
+2. **체험**을 클릭한 후 **POST 작업/{jobName}**을 클릭합니다.
 
 	![][8]
  
-4. **사용해보기**를 클릭하고 **{jobName}** 매개 변수 값으로 `Sample`을 입력한 다음 **보내기**를 클릭합니다.
+4. **사용해보기**를 클릭하고 **{jobName}** 매개 변수 값으로 `Sample`을(를) 입력한 후 **보내기**를 클릭합니다.
 
 	![][9]
 
-	이렇게 하면 Sample 작업 끝점으로 새 POST 요청이 전송됩니다. 로컬 서비스에서 **ExecuteAsync** 메서드가 시작됩니다. 코드를 디버그하기 위해 이 메서드에 중단점을 설정할 수 있습니다.
+	이렇게 하면 Sample 작업 끝점으로 새 POST 요청이 전송됩니다. 로컬 서비스에서 **ExecuteAsync** 메서드가 시작됩니다. 코드를 디버깅하기 위해 이 메서드에 중단점을 설정할 수 있습니다.
 
 3. 서버 탐색기에서 **데이터 연결**, **MSTableConnectionString** 및 **테이블**을 확장하고 **업데이트**를 마우스 오른쪽 단추로 클릭한 다음 **테이블 데이터 표시**를 클릭합니다.
 
 	새 트윗이 데이터 테이블에 행으로 입력됩니다.
 
-##<a name="register-job"></a>서비스 게시 및 새 작업 등록 
+## <a name="register-job"></a>서비스 게시 및 새 작업 등록 
 
 모바일 서비스에서 정의된 일정에 따라 작업을 실행할 수 있도록 **스케줄러** 탭에서 작업을 등록해야 합니다.
 
@@ -256,27 +256,27 @@ Azure에 게시하고 포털에 등록하기 전에 로컬에서 작업 예약�
 
 4. [Azure 관리 포털]에서 모바일 서비스를 클릭한 후 앱을 클릭합니다.
 
-2. **스케줄러** 탭을 클릭한 후 **+만들기**를 클릭합니다. 
+2. **스케줄러** 탭을 클릭한 후 **+만들기**를 클릭합니다.
 
-    >[AZURE.NOTE]모바일 서비스를 <em>무료</em> 계층에서 실행하는 경우 한 번에 하나의 예약된 작업만 실행할 수 있습니다. 유료 계층에서는 한 번에 최대 10개의 예약된 작업을 실행할 수 있습니다.
+    >[AZURE.NOTE]<em>무료</em> 계층에서 모바일 서비스를 실행하는 경우 한 번에 하나의 예약된 작업만 실행할 수 있습니다. 유료 계층에서는 한 번에 최대 10개의 예약된 작업을 실행할 수 있습니다.
 
-3. 스케줄러 대화 상자에서 **작업 이름**으로 _Sample_을 입력하고 일정 간격 및 단위를 설정한 후 확인 단추를 클릭합니다. 
+3. 스케줄러 대화 상자에서 **작업 이름**으로 _Sample_을 입력하고 일정 간격 및 단위를 설정한 후 확인 단추를 클릭합니다.
    
    	![][4]
 
-   	이를 통해 **Sample**이라는 새 작업이 만들어집니다. 
+   	이를 통해 **Sample**이라는 새 작업이 만들어집니다.
 
-4. 방금 만든 새 작업을 클릭한 후 **한 번 실행**을 클릭하여 스크립트를 테스트합니다. 
+4. 방금 만든 새 작업을 클릭한 후 **한 번 실행**을 클릭하여 스크립트를 테스트합니다.
 
    	그러면 작업이 스케줄러에서 사용할 수 없는 상태로 유지되면서 실행됩니다. 이 페이지에서 작업을 사용하도록 설정하고 언제든지 일정을 변경할 수 있습니다.
 
 	>[AZURE.NOTE]POST 요청을 사용하여 예약된 작업을 시작할 수도 있습니다. 하지만 권한 부여 기본값은 사용자로 설정되므로 요청의 헤더에 응용 프로그램 키를 포함해야 합니다.
 
-4. (선택 사항) [Azure 관리 포털]에서 모바일 서비스에 연결된 데이터베이스에 대한 관리를 클릭합니다.
+4. (옵션) [Azure 관리 포털]에서 모바일 서비스에 연결된 데이터베이스에 대한 관리를 클릭합니다.
 
     ![][6]
 
-5. 관리 포털에서 앱에 의해 변경된 내용을 표시하는 쿼리를 실행합니다. 쿼리는 다음 쿼리와 비슷하지만, 모바일 서비스 이름을 `todolist` 대신 스키마 이름으로 사용합니다.
+5. 관리 포털에서 앱에서 변경한 내용을 표시하는 쿼리를 실행합니다. 쿼리는 다음 쿼리와 비슷하지만 모바일 서비스 이름을 `todolist` 대신 스키마 이름으로 사용합니다.
 
         SELECT * FROM [todolist].[Updates]
 
@@ -289,7 +289,7 @@ Azure에 게시하고 포털에 등록하기 전에 로컬에서 작업 예약�
 [새 예약된 작업 만들기]: #add-job
 [로컬에서 예약된 작업 테스트]: #run-job-locally
 [서비스 게시 및 작업 등록]: #register-job
-[다음 단계]: #next-steps
+[Next steps]: #next-steps
 
 <!-- Images. -->
 [1]: ./media/mobile-services-dotnet-backend-schedule-recurring-tasks/add-linq2twitter-nuget-package.png
@@ -304,9 +304,8 @@ Azure에 게시하고 포털에 등록하기 전에 로컬에서 작업 예약�
 
 <!-- URLs. -->
 [Azure 관리 포털]: https://manage.windowsazure.com/
-[모바일 서비스에 Twitter 로그인을 사용하기 위해 앱 등록]: mobile-services-how-to-register-twitter-authentication.md
-[Twitter 개발자]: http://go.microsoft.com/fwlink/p/?LinkId=268300
-[앱 설정]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
+[Register your apps for Twitter login with Mobile Services]: mobile-services-how-to-register-twitter-authentication.md
+[Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
+[App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 [LINQ to Twitter CodePlex 프로젝트]: http://linqtotwitter.codeplex.com/
-
-<!--HONumber=49-->
+<!--HONumber=54-->
