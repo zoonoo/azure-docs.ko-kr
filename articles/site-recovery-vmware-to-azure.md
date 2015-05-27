@@ -381,7 +381,7 @@ Linux를 실행하는 컴퓨터를 보호하려는 경우 다음을 수행해야
 
 1. **보호된 항목** > **보호 그룹** > **컴퓨터** 탭을 열고 검색된 vCenter 서버가 관리하는 가상 컴퓨터 또는 물리적 컴퓨터를 추가합니다. 특정 응용 프로그램을 실행하는 컴퓨터를 동일한 그룹에 추가하도록 보호 그룹이 작업을 미러링하는 것이 좋습니다.
 
-	![Add machines](./media/site-recovery-vmware-to-azure/ASRVMWare_PushCredentials..png)
+	![Add machines](./media/site-recovery-vmware-to-azure/ASRVMWare_PushCredentials.png)
 
 2. **가상 컴퓨터 추가**의 **가상 컴퓨터 선택** 페이지에서 V-Center 서버를 선택한 다음 해당 서버의 컴퓨터를 선택합니다.
 
