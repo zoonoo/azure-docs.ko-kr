@@ -32,9 +32,9 @@ Azure를 사용하여 작업 영역을 만드는 방법을 자세히 알아보�
 ## 필요한 작업 영역 수
 작업 영역은 Azure 관리 포털 내에서 Azure 리소스로 표시됩니다.
 
-System Center Operations Manager에서 사용하기 위해 새 작업 영역을 만들 수도 있고, 이전에 열었지만 Azure 구독\(대금 청구에 필요\)에 아직 연결하지 않은 기존 미리 보기 작업 영역에 연결할 수도 있습니다. 작업 영역은 Operational Insights 포털에서 데이터가 수집, 집계, 분석 및 표시되는 수준을 나타냅니다. 여러 작업 영역을 통해 다양한 환경 및 시스템의 데이터를 구분할 수 있습니다. 각 Operations Manager 관리 그룹\(및 모든 에이전트\) 또는 개별 VM/에이전트가 하나의 작업 영역에 연결될 수 있습니다.
+System Center Operations Manager에서 사용하기 위해 새 작업 영역을 만들 수도 있고, 이전에 열었지만 Azure 구독(대금 청구에 필요)에 아직 연결하지 않은 기존 미리 보기 작업 영역에 연결할 수도 있습니다. 작업 영역은 Operational Insights 포털에서 데이터가 수집, 집계, 분석 및 표시되는 수준을 나타냅니다. 여러 작업 영역을 통해 다양한 환경 및 시스템의 데이터를 구분할 수 있습니다. 각 Operations Manager 관리 그룹(및 모든 에이전트) 또는 개별 VM/에이전트가 하나의 작업 영역에 연결될 수 있습니다.
 
-각 작업 영역에는 여러 사용자 계정이 연결될 수 있으며, 각 사용자 계정\(Microsoft 계정 또는 조직 계정\)이 여러 개의 Operational Insights 작업 영역에 액세스할 수 있습니다. 기본적으로 작업 영역을 만드는 데 사용된 Microsoft 계정 또는 조직 계정이 작업 영역의 관리자가 됩니다. 관리자는 추가 Microsoft 계정을 초대하거나 자신의 Azure Active Directory에서 사용자를 선택할 수 있습니다.
+각 작업 영역에는 여러 사용자 계정이 연결될 수 있으며, 각 사용자 계정(Microsoft 계정 또는 조직 계정)이 여러 개의 Operational Insights 작업 영역에 액세스할 수 있습니다. 기본적으로 작업 영역을 만드는 데 사용된 Microsoft 계정 또는 조직 계정이 작업 영역의 관리자가 됩니다. 관리자는 추가 Microsoft 계정을 초대하거나 자신의 Azure Active Directory에서 사용자를 선택할 수 있습니다.
 
 ##<a id="linkworkspace"></a>Azure 구독에 기존 작업 영역 연결
 
@@ -53,7 +53,7 @@ System Center Operations Manager에서 사용하기 위해 새 작업 영역을 
 
 ## 작업 영역을 유료 요금제로 업그레이드
 
-Operational Insights에 대한 작업 영역 요금제 유형에는 **무료**, **표준** 및 **프리미엄**의 세 가지가 있습니다. *무료* 요금제를 사용하는 경우 500MB의 데이터 상한에 적중했을 수 있습니다. 이 제한을 초과하여 데이터를 수집하려면 작업 영역을 '\*\*종량제 요금제\*\*'로 업그레이드해야 합니다. 언제든지 요금제 유형을 변환할 수 있습니다. Operational Insights 가격 책정에 대한 자세한 내용은 [가격 책정 세부 정보](http://azure.microsoft.com/pricing/operational-insights/)를 참조하세요.
+Operational Insights에 대한 작업 영역 요금제 유형에는 **무료**, **표준** 및 **프리미엄**의 세 가지가 있습니다. *무료* 요금제를 사용하는 경우 500MB의 데이터 상한에 적중했을 수 있습니다. 이 제한을 초과하여 데이터를 수집하려면 작업 영역을 '**종량제 요금제**'로 업그레이드해야 합니다. 언제든지 요금제 유형을 변환할 수 있습니다. Operational Insights 가격 책정에 대한 자세한 내용은 [가격 책정 세부 정보](http://azure.microsoft.com/pricing/operational-insights/)를 참조하세요.
 
 >[AZURE.IMPORTANT]작업 영역 요금제는 Azure 구독에 *연결된* 경우에만 변경할 수 있습니다. Azure에서 작업 영역을 만든 경우 또는 작업 영역을 *이미* 연결한 경우 이 메시지를 무시할 수 있습니다. [opinsights.azure.com](http://opinsights.azure.com)에서 작업 영역을 만든 경우 [Azure 구독에 기존 작업 영역 연결](#linkworkspace)의 단계를 따라야 합니다.
 
@@ -126,7 +126,7 @@ Operational Insights 작업 영역에 사용자 또는 그룹을 추가하려면
     >[AZURE.NOTE]<p>![사용자 계정 유형 추가](./media/operational-insights-setup-workspace/manage-users02.png)<p>
 6. Microsoft 계정 또는 조직 계정에 대한 새 사용자 정보를 입력합니다. 조직 계정을 추가하는 경우 사용자 또는 그룹 이름 또는 메일 별칭의 일부를 입력하고 **이름 확인**을 클릭하여 특정 사용자 또는 그룹을 찾을 수 있습니다.
  
-    >[AZURE.NOTE]최상의 성능 결과를 얻으려면 단일 Operational Insights 계정과 연결된 Active Directory 그룹 수를 두 개\(관리자용 그룹 및 사용자용 그룹\)로 제한합니다. 더 많은 그룹을 사용하면 Operational Insights의 성능에 영향을 줄 수 있습니다.
+    >[AZURE.NOTE]최상의 성능 결과를 얻으려면 단일 Operational Insights 계정과 연결된 Active Directory 그룹 수를 두 개(관리자용 그룹 및 사용자용 그룹)로 제한합니다. 더 많은 그룹을 사용하면 Operational Insights의 성능에 영향을 줄 수 있습니다.
 
 7. 이 새로운 사용자의 역할을 **관리자** 또는 **사용자** 중에서 선택합니다. <p> ![사용자 작업 영역 역할 추가](./media/operational-insights-setup-workspace/manage-users03.png) <p>
 8. **확인**을 클릭합니다.

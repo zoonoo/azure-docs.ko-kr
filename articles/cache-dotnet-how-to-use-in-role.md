@@ -197,7 +197,7 @@ ASP.NET 웹 역할인 경우에는 다음 어셈블리 참조도 추가됩니다
 
 -	Microsoft.Web.DistributedCache.dll.
 
->이러한 어셈블리는 C:\\Program Files\\Microsoft SDKs\\Windows Azure\\.NET SDK\\2012-10\\ref\\Caching\\ 폴더에 있습니다.
+>이러한 어셈블리는 C:\\Program Files\\Microsoft SDKs\\Windows Azure.NET SDK\\2012-10\\ref\\Caching\\ 폴더에 있습니다.
 
 클라이언트 프로젝트의 캐싱을 구성했으면 캐시 작업에 대해 다음 섹션에서 설명하는 기술을 사용할 수 있습니다.
 

@@ -21,7 +21,7 @@
 
 ## Azure CLI
 
-`azure vm quick-create`와 함께 사용하거나 리소스 그룹 템플릿 파일을 만들 이미지를 찾는 가장 쉽고 빠른 방법은 `azure vm image list` 명령을 호출하고 위치, 게시자 이름\(대/소문자 구분 없음\) 및 제안\(제안을 알고 있는 경우\)을 전달하는 것입니다. 예를 들어 다음 목록은 "UbuntuServer" 제안에 대한 게시자가 “Canonical"임을 알고 있는 경우의 간단한 예제일 뿐이며, 대부분의 목록은 매우 깁니다.
+`azure vm quick-create`와 함께 사용하거나 리소스 그룹 템플릿 파일을 만들 이미지를 찾는 가장 쉽고 빠른 방법은 `azure vm image list` 명령을 호출하고 위치, 게시자 이름(대/소문자 구분 없음) 및 제안(제안을 알고 있는 경우)을 전달하는 것입니다. 예를 들어 다음 목록은 "UbuntuServer" 제안에 대한 게시자가 “Canonical"임을 알고 있는 경우의 간단한 예제일 뿐이며, 대부분의 목록은 매우 깁니다.
 
     azure vm image list westus canonical ubuntuserver
     info:    Executing command vm image list
@@ -40,7 +40,7 @@
     
  **Urn** 열은 `azure vm quick-create`에 전달되는 양식입니다.
     
-하지만 사용 가능한 항목은 아직 알 수 없습니다. 이 경우 `azure vm image list-publishers`를 사용하여 게시자를 검색한 다음 리소스 그룹에 사용할 데이터 센터 위치로 위치 프롬프트에 응답하여 이미지를 탐색할 수 있습니다. 예를 들어 다음은 미국 서부 위치의 모든 이미지 게시자를 나열합니다\(소문자로 표시하고 표준 위치에서 공백을 제거하여 위치 인수 전달\).
+하지만 사용 가능한 항목은 아직 알 수 없습니다. 이 경우 `azure vm image list-publishers`를 사용하여 게시자를 검색한 다음 리소스 그룹에 사용할 데이터 센터 위치로 위치 프롬프트에 응답하여 이미지를 탐색할 수 있습니다. 예를 들어 다음은 미국 서부 위치의 모든 이미지 게시자를 나열합니다(소문자로 표시하고 표준 위치에서 공백을 제거하여 위치 인수 전달).
 
     azure vm image list-publishers
     info:    Executing command vm image list-publishers
@@ -54,7 +54,7 @@
     data:    AlertLogic.Extension                            westus  
 
     
-이러한 목록은 매우 길 수 있으며 위의 예제 목록은 일부에 불과합니다. 미국 서부 위치의 이미지 게시자가 Canonical임을 알고 있다고 가정합니다. 이제 다음 예제와 같이 \`azure vm image list-offers’를 호출하여 제안을 찾은 다음 프롬프트에 위치와 게시자를 전달할 수 있습니다.
+이러한 목록은 매우 길 수 있으며 위의 예제 목록은 일부에 불과합니다. 미국 서부 위치의 이미지 게시자가 Canonical임을 알고 있다고 가정합니다. 이제 다음 예제와 같이 `azure vm image list-offers’를 호출하여 제안을 찾은 다음 프롬프트에 위치와 게시자를 전달할 수 있습니다.
 
     azure vm image list-offers           
     info:    Executing command vm image list-offers
@@ -149,8 +149,8 @@ PowerShell에서 이 작업을 수행하려면 먼저 Azure PowerShell의 리소
 
 다음은 예제입니다.
 
-	PS C:\> $locName="West US"
-	PS C:\> Get-AzureVMImagePublisher -Location $locName | Select PublisherName
+	PS C:> $locName="West US"
+	PS C:> Get-AzureVMImagePublisher -Location $locName | Select PublisherName
 	
 	PublisherName
 	-------------
@@ -168,8 +168,8 @@ PowerShell에서 이 작업을 수행하려면 먼저 Azure PowerShell의 리소
 
 게시자가 "MicrosoftWindowsServer"인 경우:
 
-	PS C:\> $pubName="MicrosoftWindowsServer"
-	PS C:\> Get-AzureVMImageOffer -Location $locName -Publisher $pubName | Select Offer
+	PS C:> $pubName="MicrosoftWindowsServer"
+	PS C:> Get-AzureVMImageOffer -Location $locName -Publisher $pubName | Select Offer
 	
 	Offer
 	-----
@@ -177,8 +177,8 @@ PowerShell에서 이 작업을 수행하려면 먼저 Azure PowerShell의 리소
 
 제안이 "WindowsServer"인 경우:
 
-	PS C:\> $offerName="WindowsServer"
-	PS C:\> Get-AzureVMImageSku -Location $locName -Publisher $pubName -Offer $offerName | Select Skus
+	PS C:> $offerName="WindowsServer"
+	PS C:> Get-AzureVMImageSku -Location $locName -Publisher $pubName -Offer $offerName | Select Skus
 	
 	Skus
 	----

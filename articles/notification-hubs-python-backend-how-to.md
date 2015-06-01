@@ -48,7 +48,7 @@ MSDN 항목 [알림 허브 REST API](http://msdn.microsoft.com/library/dn223264.
 	
 Windows 알림 메시지를 보내려면
 	
-	wns_payload = """<toast><visual><binding template=\"ToastText01\"><text id=\"1\">Hello world!</text></binding></visual></toast>"""
+	wns_payload = """<toast><visual><binding template="ToastText01"><text id="1">Hello world!</text></binding></visual></toast>"""
 	hub.send_windows_notification(wns_payload)
 	
 ## Implementation
@@ -230,7 +230,7 @@ Windows 알림 메시지를 보내려면
 
 ### Windows 스토어 및 Windows Phone 8.1(비 Silverlight)
 
-	wns_payload = """<toast><visual><binding template=\"ToastText01\"><text id=\"1\">Test</text></binding></visual></toast>"""
+	wns_payload = """<toast><visual><binding template="ToastText01"><text id="1">Test</text></binding></visual></toast>"""
 	hub.send_windows_notification(wns_payload)
 
 ### Windows Phone 8.0 및 8.1 Silverlight

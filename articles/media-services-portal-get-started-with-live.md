@@ -28,8 +28,8 @@
 
 2.  스트리밍 끝점 구성
 3.  채널 만들기
-1.  라이브 인코더를 구성하고 라이브 스트림을 채널에 수집\(이 단계에서는 Wirecast가 사용됨\)
-1.  프로그램\(및 자산\) 만들기
+1.  라이브 인코더를 구성하고 라이브 스트림을 채널에 수집(이 단계에서는 Wirecast가 사용됨)
+1.  프로그램(및 자산) 만들기
 1.  자산을 게시하고 스트리밍 URL 가져오기  
 1.  콘텐츠 재생 
 2.  정리
@@ -44,9 +44,9 @@
 	 
 ##포털을 사용하여 스트리밍 끝점 구성
 
-Azure 미디어 서비스 작업 시 가장 일반적인 시나리오 중 하나는 클라이언트에 적응 비트 전송률 스트리밍을 제공하는 것입니다. 적응 비트 전송률 스트리밍을 사용하면 현재 네트워크 대역폭, CPU 사용률 및 기타 요인에 따라 비디오가 표시되므로 클라이언트는 더 높거나 낮은 비트 전송률 스트림으로 전환할 수 있습니다. 미디어 서비스에서 지원하는 적응 비트 전송률 스트리밍 기술은 HLS\(HTTP 라이브 스트리밍\), 부드러운 스트리밍, MPEG DASH 및 HDS\(Adobe PrimeTime/Access 정식 사용자만 해당\)입니다.
+Azure 미디어 서비스 작업 시 가장 일반적인 시나리오 중 하나는 클라이언트에 적응 비트 전송률 스트리밍을 제공하는 것입니다. 적응 비트 전송률 스트리밍을 사용하면 현재 네트워크 대역폭, CPU 사용률 및 기타 요인에 따라 비디오가 표시되므로 클라이언트는 더 높거나 낮은 비트 전송률 스트림으로 전환할 수 있습니다. 미디어 서비스에서 지원하는 적응 비트 전송률 스트리밍 기술은 HLS(HTTP 라이브 스트리밍), 부드러운 스트리밍, MPEG DASH 및 HDS(Adobe PrimeTime/Access 정식 사용자만 해당)입니다.
 
-라이브 스트리밍으로 작업하는 경우 온-프레미스 라이브 인코더\(이 경우에는 Wirecast\)는 다중 비트 전송률 라이브 스트림을 채널에 수집합니다. 사용자가 스트림을 요청하면 미디어 서비스는 동적 패키징을 사용하여 원본 스트림을 요청된 적응 비트 전송률 스트림\(HLS, DASH 또는 부드러운 스트림\)으로 다시 패키지합니다.
+라이브 스트리밍으로 작업하는 경우 온-프레미스 라이브 인코더(이 경우에는 Wirecast)는 다중 비트 전송률 라이브 스트림을 채널에 수집합니다. 사용자가 스트림을 요청하면 미디어 서비스는 동적 패키징을 사용하여 원본 스트림을 요청된 적응 비트 전송률 스트림(HLS, DASH 또는 부드러운 스트림)으로 다시 패키지합니다.
 
 동적 패키징을 이용하려면 콘텐츠를 배달할 계획인 **스트리밍 끝점**에 대한 스트리밍 단위를 하나 이상 가져와야 합니다.
 
@@ -97,7 +97,7 @@ Azure 관리 포털에서 **채널** 페이지를 선택합니다. 그런 다음
 
 Wirecast를 구성하고 스트림 수집을 시작하는 방법에 대한 자세한 내용은 [Wirecast 구성](http://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/)을 참조하세요.
 
->[AZURE.NOTE]인코더를 중지한 다음 다시 시작해야 하는 경우 먼저 Azure 관리 포털에서 **RESET\(다시 설정\)** 명령을 클릭하여 채널을 다시 설정해야 합니다.
+>[AZURE.NOTE]인코더를 중지한 다음 다시 시작해야 하는 경우 먼저 Azure 관리 포털에서 **RESET(다시 설정)** 명령을 클릭하여 채널을 다시 설정해야 합니다.
 
 
 ##프로그램 만들기 및 관리
@@ -161,7 +161,7 @@ Wirecast를 구성하고 스트림 수집을 시작하는 방법에 대한 자�
 
 ##콘텐츠 재생
 
-콘텐츠를 스트리밍하는 데 사용할 수 있는 URL을 사용자에게 제공하려면 먼저 로케이터를 만들어\(포털을 사용하여 자산을 게시하는 경우에는 로케이터가 자동으로 만들어짐\) 자산을 "게시”해야 합니다\(이전 섹션에 설명되어 있음\). 로케이터는 자산에 포함된 파일에 대한 액세스를 제공합니다.
+콘텐츠를 스트리밍하는 데 사용할 수 있는 URL을 사용자에게 제공하려면 먼저 로케이터를 만들어(포털을 사용하여 자산을 게시하는 경우에는 로케이터가 자동으로 만들어짐) 자산을 "게시”해야 합니다(이전 섹션에 설명되어 있음). 로케이터는 자산에 포함된 파일에 대한 액세스를 제공합니다.
 
 콘텐츠를 재생하는 데 사용하려는 스트리밍 프로토콜에 따라 채널\\프로그램의 **게시 URL** 링크에서 가져오는 URL을 수정해야 할 수 있습니다.
 
@@ -171,11 +171,11 @@ Wirecast를 구성하고 스트림 수집을 시작하는 방법에 대한 자�
 
 	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest
 
-HLS 스트리밍 URL을 작성하려면 URL에 \(format=m3u8-aapl\)을 추가합니다.
+HLS 스트리밍 URL을 작성하려면 URL에 (format=m3u8-aapl)을 추가합니다.
 
 	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
 
-MPEG DASH 스트리밍 URL을 작성하려면 URL에 \(format=mpd-time-csf\)를 추가합니다.
+MPEG DASH 스트리밍 URL을 작성하려면 URL에 (format=mpd-time-csf)를 추가합니다.
 
 	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)
 

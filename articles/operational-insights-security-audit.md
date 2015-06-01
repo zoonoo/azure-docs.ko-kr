@@ -34,7 +34,7 @@ Operational Insights Security and Audit 인텔리전스 팩은 주의가 필요�
 3. **보안 및 감사** 페이지에서 **주목할 만한 문제** 블레이드에 표시된 정보를 검토합니다. 예제 이미지에는 오늘 주목할 만한 문제 6개와 어제 주목할 만한 문제 2개가 표시됩니다. 이 예제에서는 의심스러운 실행 파일 1개가 있습니다. **주목할 만한 문제** 블레이드에서 **의심스러운 실행 파일**을 클릭합니다. ![보안 및 감사 페이지 이미지](./media/operational-insights-security-audit/sec-audit-dash03.png)
 4. 검색하면 클릭한 의심스러운 실행 파일에 대한 쿼리 및 결과가 표시됩니다. 예제에서는 1개의 결과가 있으며 파일 해시가 표시됩니다. **FILEHASH** ID를 클릭합니다. ![검색 결과 파일 해시 이미지](./media/operational-insights-security-audit/sec-audit-search01.png) 
 5. 검색하면 파일 경로 및 프로세스 이름을 포함하여 실행 파일에 대한 추가 정보가 표시됩니다. **프로세스 &lt;파일 이름&gt;**을 클릭합니다. 예제에서는 HEXEDIT.EXE입니다. ![검색 결과 프로세스 이미지](./media/operational-insights-security-audit/sec-audit-search02.png) 
-6. 검색하면 따옴표로 묶인 프로세스 이름이 쿼리에 추가됩니다. 이 예제에서는 "\*\*HEXEDIT.EXE"\*\*입니다. ![검색 쿼리 이미지](./media/operational-insights-security-audit/sec-audit-search03.png)
+6. 검색하면 따옴표로 묶인 프로세스 이름이 쿼리에 추가됩니다. 이 예제에서는 "**HEXEDIT.EXE"**입니다. ![검색 쿼리 이미지](./media/operational-insights-security-audit/sec-audit-search03.png)
 7. 검색 쿼리 상자에서 프로세스 이름과 따옴표를 제외한 모든 내용을 제거하고 검색 아이콘을 클릭합니다. ![자세한 검색 정보 이미지](./media/operational-insights-security-audit/sec-audit-search04.png)
 8. 검색하면 프로세스가 실행된 컴퓨터, 프로세스를 실행한 사용자 계정, 프로세스에 대해 이벤트가 생성된 날짜 및 시간을 포함하여 프로세스에 대한 자세한 정보가 표시됩니다.
 9. 찾은 정보를 사용하여 필요에 따라 수정 작업을 수행할 수 있습니다. 예를 들어 실행 파일이 맬웨어로 확인되면 영향을 주는 모든 컴퓨터 시스템에서 제거하는 작업을 수행하는 것이 좋습니다. 실행 파일이 제거되고 Operational Insights가 컴퓨터 시스템에 대한 업데이트된 로그 및 감사 이벤트를 받은 후 그 다음날에 주목할 만한 문제 블레이드의 값이 변경됩니다.
@@ -91,7 +91,7 @@ Windows 컴퓨팅 환경은 보안 관련 레코드의 캡처 수준을 구성�
 
 **그룹 정책을 사용하여 감사 데이터 수집**
 
-수집하여 Operational Insights로 보내려는 모든 감사 데이터는 그룹 정책을 통해 완전히 관리됩니다. 사이트, 도메인 및 조직 구성 단위와 같은 Active Directory 컨테이너에 연결된 GPO\(그룹 정책 개체\)의 일부로 보안 구성을 정의하는 데 사용되며, 보안 설정을 관리하는 데 도움이 됩니다. 정책 데이터가 기록되고 나중에 Operational Insights 서비스로 전송됩니다.
+수집하여 Operational Insights로 보내려는 모든 감사 데이터는 그룹 정책을 통해 완전히 관리됩니다. 사이트, 도메인 및 조직 구성 단위와 같은 Active Directory 컨테이너에 연결된 GPO(그룹 정책 개체)의 일부로 보안 구성을 정의하는 데 사용되며, 보안 설정을 관리하는 데 도움이 됩니다. 정책 데이터가 기록되고 나중에 Operational Insights 서비스로 전송됩니다.
 
 **AppLocker를 사용하여 감사 데이터 수집**
 

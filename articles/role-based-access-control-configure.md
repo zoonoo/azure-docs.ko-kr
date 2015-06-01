@@ -107,7 +107,7 @@ Brock Prod 리소스 그룹의 참가자 역할에 추가 하려면 클릭 리�
 
 Windows PowerShell용 Microsoft Azure 모듈을 사용하여 역할 할당을 관리할 수도 있습니다. 아래에는 포털이 아닌 New-AzureRoleAssignment cmdlet을 사용하여 Brock의 계정을 추가하는 예제가 나와 있습니다.
 
-	PS C:\> New-AzureRoleAssignment -Mail brockh@contoso.com -RoleDefinitionName Contributor -ResourceGroupName ProdDB
+	PS C:> New-AzureRoleAssignment -Mail brockh@contoso.com -RoleDefinitionName Contributor -ResourceGroupName ProdDB
 
 Windows PowerShell을 사용 하 여 추가 하 고 액세스를 제거 하는 방법에 대 한 자세한 내용은 참조 [Windows PowerShell을 사용한 역할 기반 액세스 제어 관리](http://azure.microsoft.com/documentation/articles/role-based-access-control-powershell/). 
 
@@ -119,7 +119,7 @@ Windows PowerShell을 사용 하 여 추가 하 고 액세스를 제거 하는 �
 
 아래에는 Remove-AzureRoleAssignment cmdlet을 사용하여 Brad Adams를 제거하는 방법의 예가 나와 있습니다.
 
-	PS C:\> Remove-AzureRoleAssignment -Mail badams@contoso.com -RoleDefinitionName Reader -ResourceGroupName TestDB
+	PS C:> Remove-AzureRoleAssignment -Mail badams@contoso.com -RoleDefinitionName Reader -ResourceGroupName TestDB
 
 <h3><a id="addremoveext"></a>추가 또는 외부 사용자에 대 한 액세스를 제거 합니다.</h3>
 

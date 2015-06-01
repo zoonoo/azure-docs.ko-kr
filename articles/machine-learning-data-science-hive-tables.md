@@ -23,7 +23,7 @@
  
 이 문서에서는 Hive 테이블을 만들고 Azure blob 저장소의 데이터를 로드하는 일반 Hive 쿼리를 보여 줍니다. 이러한 Hive 쿼리는 GitHub 리포지토리에 공유되어 있습니다. [Github 리포지토리](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_db_tbls_load_data_generic.hql). 
 
-"IPython Notebook 서버를 사용하여 Azure 가상 컴퓨터 설정"의 지침에 따라 Azure 가상 컴퓨터를 만드는 경우 이 스크립트 파일이 가상 컴퓨터의 `C:\Users\<user name>\Documents\Data Science Scripts` 디렉터리에 다운로드됩니다. 사용자는 이러한 쿼리의 해당 필드에서 사용자 고유의 데이터 스키마와 Azure blob 저장소 구성을 연결해야 하고 이러한 Hive 쿼리를 제출할 준비가 완료되어야 합니다. 
+"IPython Notebook 서버를 사용하여 Azure 가상 컴퓨터 설정"의 지침에 따라 Azure 가상 컴퓨터를 만드는 경우 이 스크립트 파일이 가상 컴퓨터의 `C:\Users<user name>\Documents\Data Science Scripts` 디렉터리에 다운로드됩니다. 사용자는 이러한 쿼리의 해당 필드에서 사용자 고유의 데이터 스키마와 Azure blob 저장소 구성을 연결해야 하고 이러한 Hive 쿼리를 제출할 준비가 완료되어야 합니다. 
 
 Hive 테이블의 데이터가 **압축되지 않은** 테이블 형식이고 Hadoop 클러스터에서 사용하는 저장소 계정의 기본 또는 추가 컨테이너에 데이터가 업로드된 것으로 가정합니다. _NYC Taxi Trip Data_를 연습하고 싶다면 사용자는 먼저 [24개 파일을 다운로드](http://www.andresmh.com/nyctaxitrips/)(Trip 파일 12개, Fair 파일 12개)하고, .csv 파일로 **압축을 풀고**, [Azure HDInsight Hadoop 클러스터가 사용자 지정된 경우](machine-learning-data-science-customize-hadoop-cluster.html)에 사용되는 Azure 저장소 계정의 기본 또는 추가 컨테이너에 파일을 업로드해야 합니다. 
 

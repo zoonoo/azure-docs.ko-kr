@@ -24,13 +24,13 @@
 
 Azure Preview 포털의 [SharePoint Server 팜](virtual-machines-sharepoint-farm-azure-preview.md) 템플릿을 사용하여 인터넷 연결 SharePoint 웹 사이트에 대한 기본 개발/테스트 팜을 만들 수 있습니다.
 
-자동으로 만들어진 환경은 클라우드 전용 Azure 가상 네트워크에 있는 3개의 서버\(각각 도메인 컨트롤러, SQL Server 및 SharePoint Server용\)로 구성됩니다.
+자동으로 만들어진 환경은 클라우드 전용 Azure 가상 네트워크에 있는 3개의 서버(각각 도메인 컨트롤러, SQL Server 및 SharePoint Server용)로 구성됩니다.
 
 ## 항상 사용 가능한 SharePoint 개발/테스트 팜
 
 또한 Azure Preview 포털의 [SharePoint Server 팜](virtual-machines-sharepoint-farm-azure-preview.md) 템플릿을 사용하여 인터넷 연결 SharePoint 웹 사이트에 대한 고가용성 SharePoint 개발/테스트 팜을 만들 수 있습니다.
 
-자동으로 만들어진 환경은 클라우드 전용 Azure 가상 네트워크에 있는 9개의 서버\(도메인 컨트롤러용 2개, SQL Server 클러스터용 3개, 응용 프로그램 계정 SharePoint Server용 2개 및 웹 계층 SharePoint Server용 2개\)로 구성됩니다.
+자동으로 만들어진 환경은 클라우드 전용 Azure 가상 네트워크에 있는 9개의 서버(도메인 컨트롤러용 2개, SQL Server 클러스터용 3개, 응용 프로그램 계정 SharePoint Server용 2개 및 웹 계층 SharePoint Server용 2개)로 구성됩니다.
 
 ## 하이브리드 클라우드 개발/테스트 팜
 

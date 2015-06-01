@@ -56,7 +56,7 @@ Azure 서비스 버스를 사용하려면 Node.js Azure 패키지를 다운로�
 		└── request@2.21.0 (json-stringify-safe@4.0.0, forever-agent@0.5.0, aws-sign@0.3.0, tunnel-agent@0.3.0, oauth-sign@0.3.0, qs@0.6.5, cookie-jar@0.3.0, node-uuid@1.4.0, http-signature@0.9.11, form-data@0.0.8, hawk@0.13.1)
 
 3.  **ls** 명령을 수동으로 실행하여
-    **node\_modules** 폴더가 만들어졌는지 확인할 수 있습니다. 이 폴더에서 서비스 버스 토픽에 액세스하는 데 필요한 라이브러리가 포함된
+    **node_modules** 폴더가 만들어졌는지 확인할 수 있습니다. 이 폴더에서 서비스 버스 토픽에 액세스하는 데 필요한 라이브러리가 포함된
     **azure** 패키지를
     찾습니다.
 
@@ -68,7 +68,7 @@ Azure 서비스 버스를 사용하려면 Node.js Azure 패키지를 다운로�
 
 ### Azure 서비스 버스 연결 설정
 
-Azure 모듈은 Azure 서비스 버스에 연결하는 데 필요한 정보를 얻기 위해 환경 변수 AZURE\_SERVICEBUS\_NAMESPACE 및 AZURE\_SERVICEBUS\_ACCESS\_KEY를 읽습니다. 이러한 환경 변수가 설정되지 않은 경우 **createServiceBusService** 호출 시 계정 정보를 지정해야 합니다.
+Azure 모듈은 Azure 서비스 버스에 연결하는 데 필요한 정보를 얻기 위해 환경 변수 AZURE_SERVICEBUS_NAMESPACE 및 AZURE_SERVICEBUS_ACCESS_KEY를 읽습니다. 이러한 환경 변수가 설정되지 않은 경우 **createServiceBusService** 호출 시 계정 정보를 지정해야 합니다.
 
 Azure 클라우드 서비스의 구성 파일에서 환경 변수를 설정하는 방법에 대한 예제는 [저장소를 사용하는 Node.js 클라우드 서비스]를 참조하세요.
 

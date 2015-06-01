@@ -37,7 +37,7 @@
 - 80: 앱 서비스 환경의 앱 서비스 계획에서 실행되는 앱에 대한 인바운드 HTTP 트래픽의 기본 포트입니다.
 - 443: 앱 서비스 환경의 앱 서비스 계획에서 실행되는 앱에 대한 인바운드 SSL 트래픽의 기본 포트입니다.
 - 21: FTP에 대한 컨트롤 채널입니다. FTP를 사용하지 않는 경우 이 포트를 안전하게 차단할 수 있습니다.
-- 10001\~10020: FTP에 대한 데이터 채널입니다. 컨트롤 채널과 마찬가지로 FTP를 사용하지 않는 경우 이러한 포트를 안전하게 차단할 수 있습니다\(\*\*참고:\*\* FTP 데이터 채널은 미리 보기 중 변경될 수 있음\).
+- 10001~10020: FTP에 대한 데이터 채널입니다. 컨트롤 채널과 마찬가지로 FTP를 사용하지 않는 경우 이러한 포트를 안전하게 차단할 수 있습니다(**참고:** FTP 데이터 채널은 미리 보기 중 변경될 수 있음).
 - 4016: Visual Studio 2012를 통한 원격 디버깅에 사용됩니다. 이 기능을 사용하지 않는 경우 이 포트를 안전하게 차단할 수 있습니다.
 - 4018: Visual Studio 2013을 통한 원격 디버깅에 사용됩니다. 이 기능을 사용하지 않는 경우 이 포트를 안전하게 차단할 수 있습니다.
 - 4020: Visual Studio 2015를 통한 원격 디버깅에 사용됩니다. 이 기능을 사용하지 않는 경우 이 포트를 안전하게 차단할 수 있습니다.
@@ -59,14 +59,14 @@
     Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Set-AzureNetworkSecurityRule -Name "ALLOW AzureMngmt" -Type Inbound -Priority 100 -Action Allow -SourceAddressPrefix 'INTERNET'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '454-455' -Protocol TCP
     
 
-포트 80 및 443에 대한 액세스를 잠가 업스트림 장치 또는 서비스 뒤의 앱 서비스 환경을 “숨길" 경우 업스트림 IP 주소를 알아야 합니다. 예를 들어 WAF\(웹 응용 프로그램 방화벽\)를 사용하는 경우 WAF에는 다운스트림 앱 서비스 환경으로 트래픽을 프록시할 때 사용하는 고유한 IP 주소가 있습니다. 이 IP 주소를 네트워크 보안 규칙의 *SourceAddressPrefix* 매개 변수에서 사용해야 합니다.
+포트 80 및 443에 대한 액세스를 잠가 업스트림 장치 또는 서비스 뒤의 앱 서비스 환경을 “숨길" 경우 업스트림 IP 주소를 알아야 합니다. 예를 들어 WAF(웹 응용 프로그램 방화벽)를 사용하는 경우 WAF에는 다운스트림 앱 서비스 환경으로 트래픽을 프록시할 때 사용하는 고유한 IP 주소가 있습니다. 이 IP 주소를 네트워크 보안 규칙의 *SourceAddressPrefix* 매개 변수에서 사용해야 합니다.
 
 아래 예제에서는 특정 업스트림 IP 주소의 인바운드 트래픽이 명시적으로 허용됩니다. 주소 *1.2.3.4*는 업스트림 WAF의 IP 주소에 대한 자리 표시자로 사용됩니다. 업스트림 장치 또는 서비스에서 사용하는 주소와 일치하도록 값을 변경합니다.
 
     Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Set-AzureNetworkSecurityRule -Name "RESTRICT HTTP" -Type Inbound -Priority 200 -Action Allow -SourceAddressPrefix '1.2.3.4/32'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '80' -Protocol TCP
     Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Set-AzureNetworkSecurityRule -Name "RESTRICT HTTPS" -Type Inbound -Priority 300 -Action Allow -SourceAddressPrefix '1.2.3.4/32'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '443' -Protocol TCP
     
-FTP 지원이 필요한 경우 다음 규칙을 템플릿으로 사용하여 FTP 제어 포트 및 데이터 채널 포트에 대한 액세스 권한을 부여할 수 있습니다. FTP는 상태 저장 프로토콜이므로 기존 HTTP/HTTPS 방화벽 또는 프록시 장치를 통해 FTP 트래픽을 라우팅하지 못할 수 있습니다. 이 경우 *SourceAddressPrefix*를 다른 값\(예: FTP 클라이언트가 실행되는 개발자 또는 배포 컴퓨터의 IP 주소 범위\)으로 설정해야 합니다.
+FTP 지원이 필요한 경우 다음 규칙을 템플릿으로 사용하여 FTP 제어 포트 및 데이터 채널 포트에 대한 액세스 권한을 부여할 수 있습니다. FTP는 상태 저장 프로토콜이므로 기존 HTTP/HTTPS 방화벽 또는 프록시 장치를 통해 FTP 트래픽을 라우팅하지 못할 수 있습니다. 이 경우 *SourceAddressPrefix*를 다른 값(예: FTP 클라이언트가 실행되는 개발자 또는 배포 컴퓨터의 IP 주소 범위)으로 설정해야 합니다.
 
     Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Set-AzureNetworkSecurityRule -Name "RESTRICT FTPCtrl" -Type Inbound -Priority 400 -Action Allow -SourceAddressPrefix '1.2.3.4/32'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '21' -Protocol TCP
     Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Set-AzureNetworkSecurityRule -Name "RESTRICT FTPDataRange" -Type Inbound -Priority 500 -Action Allow -SourceAddressPrefix '1.2.3.4/32'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '10001-10020' -Protocol TCP
@@ -89,7 +89,7 @@ Visual Studio를 통한 원격 디버깅을 사용하는 경우 다음과 같은
 
     Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Set-AzureNetworkSecurityGroupToSubnet -VirtualNetworkName 'testVNet' -SubnetName 'Subnet-test'
 
-네트워크 보안 그룹 할당에 성공하면\(할당은 장기 실행 작업이며 완료되는 데 몇 분 정도 걸릴 수 있음\) *허용* 규칙과 일치하는 인바운드 트래픽만 앱 서비스 환경의 앱에 성공적으로 도달합니다.
+네트워크 보안 그룹 할당에 성공하면(할당은 장기 실행 작업이며 완료되는 데 몇 분 정도 걸릴 수 있음) *허용* 규칙과 일치하는 인바운드 트래픽만 앱 서비스 환경의 앱에 성공적으로 도달합니다.
 
 완전성을 위해 다음 예제에는 서브넷에서 네트워크 보안 그룹을 제거하고 연결을 해제하는 방법을 보여 줍니다.
 

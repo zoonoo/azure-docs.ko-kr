@@ -138,7 +138,7 @@ ACS에 대한 자세한 내용은 [다음 단계](#next_steps) 섹션을 참조�
 					                 for (i=0; i < nChild; i++)
 				                     {
 					                    Node temp = list.item(i);
-					                    displaySAMLInfo(temp, parent + nodeName + "\\", out);
+					                    displaySAMLInfo(temp, parent + nodeName + "", out);
 				                     }
 				               }
 			              }

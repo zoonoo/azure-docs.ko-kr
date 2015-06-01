@@ -95,7 +95,7 @@ Azure를 쿼리하여 특정 VM 또는 역할 인스턴스에 대해 적용된 �
 
 [사용자 정의 경로 및 IP 전달 개요](../virtual-networks-udr-overview)
 
-[ILIP\(인스턴스 수준 공용 IP\)](../virtual-networks-instance-level-public-ip)
+[ILIP(인스턴스 수준 공용 IP)](../virtual-networks-instance-level-public-ip)
 
 [가상 네트워크 개요](https://msdn.microsoft.com/library/azure/jj156007.aspx) 
 

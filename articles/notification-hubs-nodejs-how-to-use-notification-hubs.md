@@ -56,7 +56,7 @@ REST 서비스와 통신하는 편리한 라이브러리 집합이 포함되어 
 		|-- xml2js@0.2.6 (sax@0.4.2)
 		|-- request@2.16.6 (forever-agent@0.2.0, aws-sign@0.2.0, tunnel-agent@0.2.0, oauth-sign@0.2.0, json-stringify-safe@3.0.0, cookie-jar@0.2.0, node-uuid@1.4.0, qs@0.5.5, hawk@0.10.2, form-data@0.0.7)
 
-3.  **ls** 또는 **dir** 명령을 수동으로 실행하여 **node\_modules** 폴더가 만들어졌는지 확인할 수 있습니다. 이 폴더에서 알림 허브에 액세스하는 데 필요한 라이브러리가 들어 있는 **azure** 패키지를 찾습니다.
+3.  **ls** 또는 **dir** 명령을 수동으로 실행하여 **node_modules** 폴더가 만들어졌는지 확인할 수 있습니다. 이 폴더에서 알림 허브에 액세스하는 데 필요한 라이브러리가 들어 있는 **azure** 패키지를 찾습니다.
 
 ### 모듈 가져오기
 

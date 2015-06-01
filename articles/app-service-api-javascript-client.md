@@ -32,11 +32,11 @@
 
 ## CORS 사용
 
-일반적으로 CORS\(크로스-원본 자원 공유\)는 API 자체와 다른 호스트에서 제공되는 HTML 응용 프로그램에 필요합니다. API 앱에서 CORS를 사용하도록 설정하는 데에는 두 가지 이상의 옵션이 있습니다. 이 섹션에서는 이러한 옵션에 대해 간략히 설명합니다.
+일반적으로 CORS(크로스-원본 자원 공유)는 API 자체와 다른 호스트에서 제공되는 HTML 응용 프로그램에 필요합니다. API 앱에서 CORS를 사용하도록 설정하는 데에는 두 가지 이상의 옵션이 있습니다. 이 섹션에서는 이러한 옵션에 대해 간략히 설명합니다.
 
 ### API 앱 게이트웨이에 대해 CORS 설정
 
-Azure Preview 포털에서 CORS를 사용하도록 API 앱 게이트웨이를 구성할 수 있습니다. **MS\_CrossDomainOrigins** *appSetting*을 추가하면 API 앱을 호출할 수 있는 URL을 지정할 수 있습니다. 이 섹션에서는 이 *appSetting*을 사용하여 API 게이트웨이 수준에서 CORS를 사용하도록 설정하는 방법을 설명합니다.
+Azure Preview 포털에서 CORS를 사용하도록 API 앱 게이트웨이를 구성할 수 있습니다. **MS_CrossDomainOrigins** *appSetting*을 추가하면 API 앱을 호출할 수 있는 URL을 지정할 수 있습니다. 이 섹션에서는 이 *appSetting*을 사용하여 API 게이트웨이 수준에서 CORS를 사용하도록 설정하는 방법을 설명합니다.
 
 1. CORS를 사용하도록 설정할 API 앱의 Azure Preview 포털 블레이드로 이동합니다. 여기에서 API 앱에 대한 *게이트웨이* 아이콘을 클릭합니다. 
 
@@ -54,7 +54,7 @@ Azure Preview 포털에서 CORS를 사용하도록 API 앱 게이트웨이를 �
 
 	![게이트웨이 응용 프로그램 설정](./media/app-service-api-javascript-client/22-gateway-app-settings-blade.png)
 
-1. **MS\_CrossDomainOrigins** 응용 프로그램 설정을 추가합니다. 설정 값을 API 앱에 대한 액세스를 제공할 HTTP 호스트의 쉼표로 구분된 목록으로 지정합니다. 여러 호스트에 대한 액세스를 제공하려는 경우 *appSetting* 값을 아래 코드와 같이 설정할 수 있습니다.
+1. **MS_CrossDomainOrigins** 응용 프로그램 설정을 추가합니다. 설정 값을 API 앱에 대한 액세스를 제공할 HTTP 호스트의 쉼표로 구분된 목록으로 지정합니다. 여러 호스트에 대한 액세스를 제공하려는 경우 *appSetting* 값을 아래 코드와 같이 설정할 수 있습니다.
 
 		http://foo.azurewebsites.net, https://foo.azurewebsites.net, http://contactlistwebapp.azurewebsites.net
 
@@ -66,7 +66,7 @@ Azure Preview 포털에서 CORS를 사용하도록 API 앱 게이트웨이를 �
 
 	![](./media/app-service-api-javascript-client/23-app-settings-set.png)
 
-**MS\_CrossDomainOrigins** 응용 프로그램 설정은 [Azure 모바일 서비스 .NET 업데이트](http://azure.microsoft.com/blog/2014/07/28/azure-mobile-services-net-updates/) 블로그 게시물에 자세히 설명되어 있으므로 설정에 대한 자세한 내용은 이 게시물을 참조하세요.
+**MS_CrossDomainOrigins** 응용 프로그램 설정은 [Azure 모바일 서비스 .NET 업데이트](http://azure.microsoft.com/blog/2014/07/28/azure-mobile-services-net-updates/) 블로그 게시물에 자세히 설명되어 있으므로 설정에 대한 자세한 내용은 이 게시물을 참조하세요.
 
 ### Web API 코드에서 CORS 설정
 
@@ -80,7 +80,7 @@ Web API에서 CORS를 사용하도록 설정하는 프로세스는 ASP.NET 문�
 
 	![솔루션 탐색기의 apiapp.json 및 Metadata](./media/app-service-api-javascript-client/01-cors-installed.png)
 
-1. *App\_Start/WebApiConfig.cs* 파일을 엽니다. 이 파일에서 **WebApiConfig** 클래스의 **Register** 메서드에 아래 코드 줄을 추가합니다.
+1. *App_Start/WebApiConfig.cs* 파일을 엽니다. 이 파일에서 **WebApiConfig** 클래스의 **Register** 메서드에 아래 코드 줄을 추가합니다.
 
 		config.EnableCors();
 
@@ -143,7 +143,7 @@ Web API에서 CORS를 사용하도록 설정하는 프로세스는 ASP.NET 문�
 
 이 섹션에서는 비어 있는 새 웹 응용 프로그램을 만들고 여기에 AngularJS를 설치하고 사용하며 간단한 HTML 프런트 엔드를 API 앱에 바인딩합니다. 사용하는 웹앱을 Azure 앱 서비스에 배포합니다. HTML 웹앱은 API 앱에 바인딩되고 API 앱에서 검색한 데이터를 표시하며, 사용자에게 Contacts API에 대한 간단한 UI를 제공합니다.
 
-1. 솔루션을 마우스 오른쪽 단추로 클릭하고 **추가 \> 새 프로젝트**를 선택합니다.
+1. 솔루션을 마우스 오른쪽 단추로 클릭하고 **추가 > 새 프로젝트**를 선택합니다.
 
 	![솔루션 탐색기의 apiapp.json 및 Metadata](./media/app-service-api-javascript-client/02-add-project.png)
 
@@ -171,7 +171,7 @@ Web API에서 CORS를 사용하도록 설정하는 프로세스는 ASP.NET 문�
 
 	![솔루션 탐색기의 apiapp.json 및 Metadata](./media/app-service-api-javascript-client/07-index-html.png)
 
-1. 부트스트랩 CSS 및 AngularJS JavaScript 파일을 HTML 페이지에 추가하고 간단한 부트스트랩 템플릿\([참조 예제](http://getbootstrap.com/examples/starter-template/)\)을 사용하며 빈 스크립트 태그를 만들어 페이지를 준비합니다.
+1. 부트스트랩 CSS 및 AngularJS JavaScript 파일을 HTML 페이지에 추가하고 간단한 부트스트랩 템플릿([참조 예제](http://getbootstrap.com/examples/starter-template/))을 사용하며 빈 스크립트 태그를 만들어 페이지를 준비합니다.
 	
 	> 참고: 아래 HTML 및 JavaScript 코드의 주석은 이 섹션의 후속 단계를 나타냅니다.
 

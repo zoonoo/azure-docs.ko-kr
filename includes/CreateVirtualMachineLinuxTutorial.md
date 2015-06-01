@@ -37,7 +37,7 @@ Don't use this file. It's deprecated and will be removed. Instead use, virtual-m
 
 만들어진 각 가상 컴퓨터에는 임시 로컬 *리소스 디스크*도 연결되어 있습니다. 리소스 디스크의 데이터는 다시 부팅 후 지속되지 않을 수도 있으므로 가상 컴퓨터에서 실행되는 응용 프로그램 및 프로세스에서 임시 데이터 저장소에 사용되는 경우가 많습니다. 또한 운영 체제의 페이지 또는 스왑 파일을 저장하는 데 사용됩니다.
 
-Linux에서 리소스 디스크는 일반적으로 Azure Linux 에이전트에 의해 관리되며 **/mnt/resource**\(또는 Ubuntu 이미지의 **/mnt**\)에 자동으로 탑재됩니다. 리소스 디스크는 *임시* 디스크이며 VM의 프로비전을 해제할 때 비워질 수 있습니다. 반면, Linux에서 데이터 디스크 이름은 커널에 의해 `/dev/sdc`로 지정될 수 있으며 사용자는 해당 리소스를 파티셔닝, 형식 지정 및 마운트해야 합니다. 자세한 내용은 [Azure Linux 에이전트 사용자 가이드](http://www.windowsazure.com/manage/linux/how-to-guides/linux-agent-guide/)\(영문\)를 참조하세요.
+Linux에서 리소스 디스크는 일반적으로 Azure Linux 에이전트에 의해 관리되며 **/mnt/resource**(또는 Ubuntu 이미지의 **/mnt**)에 자동으로 탑재됩니다. 리소스 디스크는 *임시* 디스크이며 VM의 프로비전을 해제할 때 비워질 수 있습니다. 반면, Linux에서 데이터 디스크 이름은 커널에 의해 `/dev/sdc`로 지정될 수 있으며 사용자는 해당 리소스를 파티셔닝, 형식 지정 및 마운트해야 합니다. 자세한 내용은 [Azure Linux 에이전트 사용자 가이드](http://www.windowsazure.com/manage/linux/how-to-guides/linux-agent-guide/)(영문)를 참조하세요.
 
 
 
@@ -128,7 +128,7 @@ Linux에서 리소스 디스크는 일반적으로 Azure Linux 에이전트에 �
 
 11. /etc/fstab에 새 드라이브를 추가합니다.
 
-	다시 부팅 후 드라이브가 자동으로 다시 탑재되도록 하려면 /etc/fstab 파일에 추가해야 합니다. 또한 /etc/fstab에 UUID\(Universally Unique IDentifier\)를 사용하여 장치 이름\(즉, /dev/sdc1\) 대신 드라이브를 가리키는 것이 좋습니다. 새 드라이브의 UUID를 찾으려면 **blkid** 유틸리티를 사용할 수 있습니다.
+	다시 부팅 후 드라이브가 자동으로 다시 탑재되도록 하려면 /etc/fstab 파일에 추가해야 합니다. 또한 /etc/fstab에 UUID(Universally Unique IDentifier)를 사용하여 장치 이름(즉, /dev/sdc1) 대신 드라이브를 가리키는 것이 좋습니다. 새 드라이브의 UUID를 찾으려면 **blkid** 유틸리티를 사용할 수 있습니다.
 	
 		`sudo -i blkid`
 

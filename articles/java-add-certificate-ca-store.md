@@ -28,7 +28,7 @@ JDK를 압축하고 Azure 프로젝트의 **approot** 폴더에 추가하기 전
 	`keytool -list -keystore cacerts`
 
 	저장소 암호를 묻는 메시지가 표시됩니다. 기본 암호는 **changeit**입니다. 암호를 변경하려면 <http://docs.oracle.com/javase/7/docs/technotes/tools/windows/keytool.html>에서 keytool 설명서를 참조하세요. 이 예제에서는 MD5 지문 67:CB:9D:C0:13:24:8A:82:9B:B2:17:1E:D1:1B:EC:D4가 포함된 인증서가 나열되지 않아서 해당 인증서를 가져오려 한다고 가정합니다(이 특정 인증서는 Twilio API 서비스에 필요함).
-2. [GeoTrust 루트 인증서](http://www.geotrust.com/resources/root-certificates/)(영문)에 나열된 인증서 목록에서 인증서를 얻습니다. 일련 번호가 35:DE:F4:CF인 인증서 링크를 마우스 오른쪽 단추로 클릭하고 **jdk\jre\lib\security** 폴더에 저장합니다. 이 예제에서는 **Equifax\_Secure\_Certificate\_Authority.cer**이라는 파일에 저장되었습니다.
+2. [GeoTrust 루트 인증서](http://www.geotrust.com/resources/root-certificates/)(영문)에 나열된 인증서 목록에서 인증서를 얻습니다. 일련 번호가 35:DE:F4:CF인 인증서 링크를 마우스 오른쪽 단추로 클릭하고 **jdk\jre\lib\security** 폴더에 저장합니다. 이 예제에서는 **Equifax_Secure_Certificate_Authority.cer**이라는 파일에 저장되었습니다.
 3. 다음 명령을 통해 인증서를 가져옵니다.
 
 	`keytool -keystore cacerts -importcert -alias equifaxsecureca -file Equifax_Secure_Certificate_Authority.cer`

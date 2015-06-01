@@ -56,8 +56,8 @@ Azure에서 Linux VM을 만들 때 도움이 필요하면 [Linux를 실행하는
 	apt-get -y install apache2 mysql-server php5 php5-mysql  
 
 	# write some PHP
-	echo \<center\>\<h1\>My Demo App\</h1\>\<br/\>\</center\> > /var/www/html/phpinfo.php
-	echo \<\?php phpinfo\(\)\; \?\> >> /var/www/html/phpinfo.php
+	echo <center><h1>My Demo App</h1><br/></center> > /var/www/html/phpinfo.php
+	echo <\?php phpinfo()\; \?> >> /var/www/html/phpinfo.php
 
 	# restart Apache
 	apachectl restart

@@ -46,17 +46,17 @@ NYC Taxi Trip 데이터는 1억 7,300만 개가 넘는 개별 여정 및 각 여
 		DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:54:15,CSH,5,0.5,0.5,0,0,6
 		DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:25:03,CSH,9.5,0.5,0.5,0,0,10.5
 
-trip\_data와 trip\_fare를 조인할 고유 키는 medallion, hack\_licence 및 pickup\_datetime 필드로 구성됩니다.
+trip_data와 trip_fare를 조인할 고유 키는 medallion, hack_licence 및 pickup_datetime 필드로 구성됩니다.
 
 각각 12개의 여정  'trip_data' 및 'trip_fare' 파일이 있습니다. 파일 이름의 숫자 1~12는 여정이 이루어진 월을 나타냅니다. 
 
 ## <a name="mltasks"></a>예측 작업의 예제
 데이터에 접근할 때 분석을 기반으로 수행할 예측의 종류를 결정하면 프로세스에 포함해야 하는 작업을 명확하게 확인할 수 있습니다.
-다음은 이 연습에서 우리가 해결할 예측 문제에 대한 3가지 예제입니다. 예제의 공식은 *tip\_amount*를 기반으로 합니다.
+다음은 이 연습에서 우리가 해결할 예측 문제에 대한 3가지 예제입니다. 예제의 공식은 *tip_amount*를 기반으로 합니다.
 
-1. **이진 분류**: 여정에 대해 팁이 지불되었는지 여부를 예측합니다. 즉, *tip\_amount*가 $0보다 크면 지불된 것이고, *tip\_amount*가 $0이면 지불되지 않은 것입니다.
+1. **이진 분류**: 여정에 대해 팁이 지불되었는지 여부를 예측합니다. 즉, *tip_amount*가 $0보다 크면 지불된 것이고, *tip_amount*가 $0이면 지불되지 않은 것입니다.
 
-2. **다중 클래스 분류**: 여정에 대해 지불된 팁 금액의 범위를 예측합니다. *tip\_amount*를  5개의 bin 또는 클래스로 나눕니다.
+2. **다중 클래스 분류**: 여정에 대해 지불된 팁 금액의 범위를 예측합니다. *tip_amount*를  5개의 bin 또는 클래스로 나눕니다.
 	
 		Class 0 : tip_amount = $0
 		Class 1 : tip_amount > $0 and tip_amount <= $5
@@ -85,7 +85,7 @@ Azure HDInsight Hadoop 클러스터를 사용하는, 보다 구체적으로 말�
 
 3. [데이터 과학 **Windows** 가상 컴퓨터 프로비전](machine-learning-data-science-setup-virtual-machine.md).
 
-	> [AZURE.NOTE] 가상 컴퓨터 설정 프로세스가 진행되는 동안 샘플 스크립트가 데이터 과학 가상 컴퓨터에 다운로드됩니다. VM 설치 후 스크립트가 완료되면 *C:\Users\<user_name>\Documents\Data Science Scripts*의 VM 문서 라이브러리에 샘플이 있을 것입니다.  아래의 **Sample Scripts**가 바로 이 폴더입니다. **Sample Scripts** 폴더에 있는 파일 중 확장명이 .hql인 파일에 샘플 Hive 쿼리가 들어 있습니다. 이 폴더의 경로에서 참조되는 *<user_name>*은 Azure 사용자 이름이 아니라 VM의 Windows 로그인 이름입니다.
+	> [AZURE.NOTE] 가상 컴퓨터 설정 프로세스가 진행되는 동안 샘플 스크립트가 데이터 과학 가상 컴퓨터에 다운로드됩니다. VM 설치 후 스크립트가 완료되면 *C:\Users<user_name>\Documents\Data Science Scripts*의 VM 문서 라이브러리에 샘플이 있을 것입니다.  아래의 **Sample Scripts**가 바로 이 폴더입니다. **Sample Scripts** 폴더에 있는 파일 중 확장명이 .hql인 파일에 샘플 Hive 쿼리가 들어 있습니다. 이 폴더의 경로에서 참조되는 *<user_name>*은 Azure 사용자 이름이 아니라 VM의 Windows 로그인 이름입니다.
 
 4. [데이터 과학용 Azure HDInsight Hadoop 클러스터 사용자 지정](machine-learning-data-science-customize-hadoop-cluster.md). 이 단계에서는 모든 노드에 64비트 Anaconda Python 2.7이 설치된 Azure HDInsight Hadoop 클러스터를 만듭니다. 사용자 지정된 Hadoop 클러스터를 만든 후에는 이 사용자 지정 항목에 설명된 절차에 따라 Azure 포털에서 Hadoop 클러스터의 헤드 노드에 대한 원격 액세스를 설정합니다.
 
@@ -211,7 +211,7 @@ Hive 테이블에 로드된 데이터에 대한 데이터 탐색 및 기능 엔�
 - 두 테이블의 상위 10개 레코드를 봅니다.
 - 다양한 기간에 걸쳐 몇몇 필드의 데이터 분포를 탐색합니다.
 - 경도 및 위도 필드의 데이터 품질을 조사합니다.
-- **tip\_amount**에 따라 이진 및 다중 클래스 분류 레이블을 생성합니다.
+- **tip_amount**에 따라 이진 및 다중 클래스 분류 레이블을 생성합니다.
 - 직접 여정 거리를 계산하여 기능을 생성합니다.
 - 두 테이블을 조인하고 모델을 빌드하는 데 사용할 무작위 샘플을 추출합니다.
 
@@ -363,7 +363,7 @@ Hadoop 명령줄 콘솔에서 다음 명령을 실행합니다.
 	
 ### 모델 구축에 사용할 데이터를 준비합니다.
 
-이 섹션에 제공된 쿼리는 **nyctaxidb.trip**과 **nyctaxidb.fare**를 조인하고, 이진 분류 레이블 **tipped** 및 다중 클래스 분류 레이블 **tip\_class**를 생성합니다. 이 쿼리를 복사하여 [Azure 기계 학습 스튜디오](https://studio.azureml.net) 판독기 모듈에 직접 붙여 넣으면 Azure에서 **Hive 쿼리**로 직접 데이터를 수집할 수 있습니다. 또한 이 쿼리는 위도 및 경도 좌표가 잘못된 레코드를 제외합니다.
+이 섹션에 제공된 쿼리는 **nyctaxidb.trip**과 **nyctaxidb.fare**를 조인하고, 이진 분류 레이블 **tipped** 및 다중 클래스 분류 레이블 **tip_class**를 생성합니다. 이 쿼리를 복사하여 [Azure 기계 학습 스튜디오](https://studio.azureml.net) 판독기 모듈에 직접 붙여 넣으면 Azure에서 **Hive 쿼리**로 직접 데이터를 수집할 수 있습니다. 또한 이 쿼리는 위도 및 경도 좌표가 잘못된 레코드를 제외합니다.
 
 이 쿼리는 Hive에 포함된 UDF를 직접 적용하여 Hive 레코드로 _pickup_datetime_ 필드의 시간, 주, 평일(1은 월요일, 7은 일요일을 나타냄)을 포함한 여러 기능을 생성합니다. Hive에 포함된 UDF 전체 목록은 [LanguageManual UDF](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF)에서 확인할 수 있습니다.
 
@@ -496,7 +496,7 @@ Hadoop 명령줄 콘솔에서 다음 명령을 실행하여 쿼리를 제출합�
 
 ![Create workspace][12]
 
-> [AZURE.IMPORTANT] 이전 섹션에 제공된 모델링 데이터 추출 및 샘플링 쿼리 예제에서는 **세 가지 모델링 연습에 대한 모든 레이블이 쿼리에 포함되어 있습니다**. 각 모델링 연습의 중요한(필수) 단계는 다른 두 문제에 대한 필요 없는 레이블 및 다른 모든 **목표 누설**을 **제외**하는 것입니다. 예를 들어 이진 분류를 사용할 때는 레이블 **tipped**를 사용하고, **tip\_class**, **tip\_amount** 및 **total\_amount** 필드를 제외합니다. 이러한 필드는 지불된 팁을 의미하므로 목표 누설입니다.
+> [AZURE.IMPORTANT] 이전 섹션에 제공된 모델링 데이터 추출 및 샘플링 쿼리 예제에서는 **세 가지 모델링 연습에 대한 모든 레이블이 쿼리에 포함되어 있습니다**. 각 모델링 연습의 중요한(필수) 단계는 다른 두 문제에 대한 필요 없는 레이블 및 다른 모든 **목표 누설**을 **제외**하는 것입니다. 예를 들어 이진 분류를 사용할 때는 레이블 **tipped**를 사용하고, **tip_class**, **tip_amount** 및 **total_amount** 필드를 제외합니다. 이러한 필드는 지불된 팁을 의미하므로 목표 누설입니다.
 
 > 이 실험에서 첫 번째 **메타데이터 편집기** 모듈은 판독기 모듈의 출력 데이터에 열 이름을 추가합니다. Hive 쿼리에서 데이터를 읽는 판독기 모듈은 출력 데이터에 대한 열 이름을 만들지 않기 때문에 이 모듈이 필요합니다.. 
 

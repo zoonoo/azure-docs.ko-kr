@@ -22,13 +22,13 @@
 
 ##개요
 
-이 항목에서는 Azure 알림 허브를 사용하여 Kindle 응용 프로그램에 푸시 알림을 보내는 방법을 보여 줍니다. 이 자습서에서는 ADM\(Amazon Device Messaging\)을 사용하여 푸시 알림을 받는 빈 Kindle 앱을 만듭니다.
+이 항목에서는 Azure 알림 허브를 사용하여 Kindle 응용 프로그램에 푸시 알림을 보내는 방법을 보여 줍니다. 이 자습서에서는 ADM(Amazon Device Messaging)을 사용하여 푸시 알림을 받는 빈 Kindle 앱을 만듭니다.
 
 ##필수 조건
 
 이 자습서를 사용하려면 다음이 필요합니다.
 
-+ Android SDK\(Eclipse를 사용하는 것으로 가정\) - <a href="http://go.microsoft.com/fwlink/?LinkId=389797">여기</a>서 다운로드 가능
++ Android SDK(Eclipse를 사용하는 것으로 가정) - <a href="http://go.microsoft.com/fwlink/?LinkId=389797">여기</a>서 다운로드 가능
 + <a href="https://developer.amazon.com/appsandservices/resources/development-tools/ide-tools/tech-docs/01-setting-up-your-development-environment">이</a> 단계에 따라 Kindle에 대한 개발 환경 설정
 
 ##개발자 포털에 새 앱 추가
@@ -45,7 +45,7 @@
 
 	![][2]
 
-4. **Create a New Security Profile**를 클릭한 다음 새 보안 프로필\(예: **TestAdm 보안 프로필**\)을 만듭니다. 그런 다음 **Save**를 클릭합니다.
+4. **Create a New Security Profile**를 클릭한 다음 새 보안 프로필(예: **TestAdm 보안 프로필**)을 만듭니다. 그런 다음 **Save**를 클릭합니다.
 
 	![][3]
 
@@ -66,7 +66,7 @@
 4.  **keystore** 암호에 **android**를 입력합니다.
 
 5.  **MD5** 지문을 복사합니다.
-6.  개발자 포털로 돌아가서 **메시징** 탭에서 **Android/Kindle**을 클릭하고 앱에 대한 패키지 이름\(예: **com.sample.notificationhubtest**\)과 **MD5** 값을 입력한 다음 **Generate API Key**을 클릭합니다.
+6.  개발자 포털로 돌아가서 **메시징** 탭에서 **Android/Kindle**을 클릭하고 앱에 대한 패키지 이름(예: **com.sample.notificationhubtest**)과 **MD5** 값을 입력한 다음 **Generate API Key**을 클릭합니다.
 
 ## 허브에 자격 증명 추가
 
@@ -79,7 +79,7 @@
 Eclipse 프로젝트에 ADM 라이브러리를 추가합니다.
 
 1. ADM 라이브러리를 가져오려면 [SDK를 다운로드합니다]. SDK zip 파일의 압축을 풉니다.
-2. Eclipse에서 프로젝트를 마우스 오른쪽 단추로 클릭한 후 **Properties**를 클릭합니다. 왼쪽에서 **Java Build Path**를 선택한 다음 맨 위에 있는 **Libraries** 탭을 선택합니다. **Add External Jar**을 클릭하고, Amazon SDK의 압축을 푼 디렉터리에서 `\SDK\Android\DeviceMessaging\lib\amazon-device-messaging-*.jar` 파일을 선택합니다. 3. NotificationHubs Android SDK\(링크\)를 다운로드합니다.
+2. Eclipse에서 프로젝트를 마우스 오른쪽 단추로 클릭한 후 **Properties**를 클릭합니다. 왼쪽에서 **Java Build Path**를 선택한 다음 맨 위에 있는 **Libraries** 탭을 선택합니다. **Add External Jar**을 클릭하고, Amazon SDK의 압축을 푼 디렉터리에서 `\SDK\Android\DeviceMessaging\lib\amazon-device-messaging-*.jar` 파일을 선택합니다. 3. NotificationHubs Android SDK(링크)를 다운로드합니다.
 4. 패키지의 압축을 푼 후 `notification-hubs-sdk.jar` 파일을 Eclipse의 `libs ` 폴더로 끌어옵니다.
 
 ADM을 지원하도록 앱 매니페스트를 편집합니다.
@@ -106,7 +106,7 @@ ADM을 지원하도록 앱 매니페스트를 편집합니다.
 		<!-- ADM uses WAKE_LOCK to keep the processor from sleeping when a message is received. -->
 		<uses-permission android:name="android.permission.WAKE_LOCK" />
 
-3. 응용 프로그램 요소의 첫 번째 자식으로 다음 요소를 삽입합니다. **[YOUR SERVICE NAME]**을 다음 섹션에서 만드는 ADM 메시지 처리기의 이름\(패키지 포함\)으로 대체하고, **[YOUR PACKAGE NAME]**을 앱을 만들 때 사용한 패키지 이름으로 바꿔야 합니다.
+3. 응용 프로그램 요소의 첫 번째 자식으로 다음 요소를 삽입합니다. **[YOUR SERVICE NAME]**을 다음 섹션에서 만드는 ADM 메시지 처리기의 이름(패키지 포함)으로 대체하고, **[YOUR PACKAGE NAME]**을 앱을 만들 때 사용한 패키지 이름으로 바꿔야 합니다.
 
 		<amazon:enable-feature
 		      android:name="com.amazon.device.messaging"
@@ -147,7 +147,7 @@ ADM을 지원하도록 앱 매니페스트를 편집합니다.
 		import com.amazon.device.messaging.ADMMessageReceiver;
 		import com.microsoft.windowsazure.messaging.NotificationHub
 
-3. 만든 클래스에 다음 코드를 추가합니다. 허브 이름 및 연결 문자열\(수신\)을 바꿉니다.
+3. 만든 클래스에 다음 코드를 추가합니다. 허브 이름 및 연결 문자열(수신)을 바꿉니다.
 
 		public static final int NOTIFICATION_ID = 1;
 		private NotificationManager mNotificationManager;
@@ -242,7 +242,7 @@ ADM을 지원하도록 앱 매니페스트를 편집합니다.
 
 ## 앱에 API 키 추가
 
-1. Eclipse에서 프로젝트의 디렉터리 자산에 **api\_key.txt**라는 새 파일을 만듭니다.
+1. Eclipse에서 프로젝트의 디렉터리 자산에 **api_key.txt**라는 새 파일을 만듭니다.
 2. 파일을 열고 Amazon 개발자 포털에서 생성한 **API 키**를 복사합니다.
 
 ## 앱 실행
@@ -263,7 +263,7 @@ ADM을 지원하도록 앱 매니페스트를 편집합니다.
         {
             NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString("[conn string]", "[hub name]");
 
-            hub.SendAdmNativeNotificationAsync("{\"data\":{\"msg\" : \"Hello from .NET!\"}}").Wait();
+            hub.SendAdmNativeNotificationAsync("{"data":{"msg" : "Hello from .NET!"}}").Wait();
         }
 
 ![][7]

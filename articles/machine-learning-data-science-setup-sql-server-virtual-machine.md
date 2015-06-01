@@ -140,7 +140,7 @@ SQL Server 데이터베이스 엔진은 도메인 환경에서만 Windows 인증
 
     처음으로 Management Studio를 열 때 사용자 Management Studio 환경이 만들어져야 합니다. 어느 정도 시간이 걸릴 수 있습니다.
 
-2.  Management Studio를 열면 **서버에 연결** 대화 상자가 표시됩니다. **서버 이름** 상자에, 개체 탐색기를 사용하여 데이터베이스 엔진에 연결할 가상 컴퓨터의 이름을 입력합니다. 가상 컴퓨터 이름 대신 **(로컬)** 또는 단일 기간을 **서버 이름**으로 사용할 수도 있습니다. **Windows 인증**을 선택하고 **사용자 이름** 상자의 ***your\_VM\_name*\\your\_local\_administrator**를 그대로 둡니다. **연결**을 클릭합니다.
+2.  Management Studio를 열면 **서버에 연결** 대화 상자가 표시됩니다. **서버 이름** 상자에, 개체 탐색기를 사용하여 데이터베이스 엔진에 연결할 가상 컴퓨터의 이름을 입력합니다. 가상 컴퓨터 이름 대신 **(로컬)** 또는 단일 기간을 **서버 이름**으로 사용할 수도 있습니다. **Windows 인증**을 선택하고 **사용자 이름** 상자의 ***your_VM_name*\\your_local_administrator**를 그대로 둡니다. **연결**을 클릭합니다.
 
     ![Connect to Server][6]
 
@@ -177,7 +177,7 @@ SQL Server 데이터베이스 엔진은 도메인 환경에서만 Windows 인증
 
 다른 컴퓨터에서 데이터베이스 엔진에 연결하려면 SQL Server 인증 로그인을 하나 이상 만들어야 합니다.  
 
-> [AZURE.TIP] SQL Server Management Studio를 사용하거나 프로그래밍 방식으로 새 SQL Server 로그인을 만들 수 있습니다. SQL 인증을 사용하는 새 sysadmin 사용자를 프로그래밍 방식으로 만들려면 **새 쿼리**를 시작하고 다음 스크립트를 실행합니다. <new user name\> 및 <new password\>를 원하는 사용자 이름 및 암호로 바꿉니다. 필요에 따라 암호 정책을 조정합니다(샘플 코드에서는 정책 확인 및 암호 만료를 해제함). SQL Server 로그인에 대한 자세한 내용은 [로그인 만들기](http://msdn.microsoft.com/library/aa337562.aspx)를 참조하세요.  
+> [AZURE.TIP] SQL Server Management Studio를 사용하거나 프로그래밍 방식으로 새 SQL Server 로그인을 만들 수 있습니다. SQL 인증을 사용하는 새 sysadmin 사용자를 프로그래밍 방식으로 만들려면 **새 쿼리**를 시작하고 다음 스크립트를 실행합니다. <new user name> 및 <new password>를 원하는 사용자 이름 및 암호로 바꿉니다. 필요에 따라 암호 정책을 조정합니다(샘플 코드에서는 정책 확인 및 암호 만료를 해제함). SQL Server 로그인에 대한 자세한 내용은 [로그인 만들기](http://msdn.microsoft.com/library/aa337562.aspx)를 참조하세요.  
 	
     USE master
     go

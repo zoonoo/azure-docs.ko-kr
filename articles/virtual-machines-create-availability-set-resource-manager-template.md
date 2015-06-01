@@ -33,17 +33,17 @@ Azure PowerShell 또는 xplat-cli 및 리소스 관리자 템플릿을 사용하
 
 ### 1단계: JSON 파일 다운로드
 
-로컬 폴더를 JSON 템플릿 파일의 위치로 지정하고 해당 폴더\(예: C:\\Azure\\Templates\[thing\]\)를 만듭니다.
+로컬 폴더를 JSON 템플릿 파일의 위치로 지정하고 해당 폴더(예: C:\\Azure\\Templates[thing])를 만듭니다.
 
 폴더 이름을 바꾸고 다음 명령을 복사한 후 실행합니다.
 
-	$folderName="<folder name, such as C:\Azure\Templates\[thing]>"
+	$folderName="<folder name, such as C:\Azure\Templates[thing]>"
 	$webclient = New-Object System.Net.WebClient
 	$url = "[Writers: add the URL to the RAW version of the target template in GitHub]"
 	$filePath = $folderName + "\azuredeploy.json"
 	$webclient.DownloadFile($url,$filePath) 
 
-### 2단계: \(선택 사항\) 매개 변수 보기
+### 2단계: (선택 사항) 매개 변수 보기
 
 템플릿으로 [do something] 경우 구성 매개 변수 집합을 지정해야 합니다. 가상 컴퓨터를 만드는 명령을 실행하기 전에 로컬 JSON 파일에서 템플릿을 지정하는 데 필요한 매개 변수를 확인하려면 선택한 도구 또는 텍스트 편집기에서 JSON 파일을 엽니다. 파일의 위쪽에 있는 "parameters" 섹션을 찾습니다. 이 섹션은 템플릿에서 가상 컴퓨터를 구성하는 데 필요한 매개 변수 집합을 나열합니다. 다음은 azuredeploy.json 템플릿의 **"parameters"** 섹션입니다.
 
@@ -60,7 +60,7 @@ Azure 배포 이름, 리소스 그룹 이름, Azure 위치 및 저장된 JSON �
 	$deployName="<deployment name>"
 	$RGName="<resource group name>"
 	$locName="<Azure location, such as West US>"
-	$folderName="<folder name, such as C:\Azure\Templates\[thing]>" 
+	$folderName="<folder name, such as C:\Azure\Templates[thing]>" 
 	$templateFile= $folderName + "\azuredeploy.json"
 	New-AzureResourceGroup –Name $RGName –Location $locName
 	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateFile $templateFile
@@ -72,7 +72,7 @@ Azure 배포 이름, 리소스 그룹 이름, Azure 위치 및 저장된 JSON �
 	$deployName="TestDeployment"
 	$RGName="TestRG"
 	$locname="West US"
-	$folderName="C:\Azure\Templates\[thing]"
+	$folderName="C:\Azure\Templates[thing]"
 	$templateFile= $folderName + "\azuredeploy.json"
 	New-AzureResourceGroup –Name $RGName –Location $locName
 	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateFile $templateFile
@@ -91,7 +91,7 @@ Azure 배포 이름, 리소스 그룹 이름, Azure 위치 및 저장된 JSON �
 	vmSourceImageName: a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-R2-201503.01-en.us-127GB.vhd
 	...
 
-이 리소스 그룹과 모든 해당 리소스\(저장소 계정, 가상 컴퓨터 및 가상 네트워크\)를 제거하려면 다음 명령을 사용합니다.
+이 리소스 그룹과 모든 해당 리소스(저장소 계정, 가상 컴퓨터 및 가상 네트워크)를 제거하려면 다음 명령을 사용합니다.
 
 	Remove-AzureResourceGroup –Name "<resource group name>"
 
@@ -102,13 +102,13 @@ Azure 배포 이름, 리소스 그룹 이름, Azure 위치 및 저장된 JSON �
 
 ### 1단계: 템플릿의 JSON 파일 다운로드
 
-로컬 폴더를 JSON 템플릿 파일의 위치로 지정하고 해당 폴더\(예: C:\\Azure\\Templates\[thing\]\)를 만듭니다.
+로컬 폴더를 JSON 템플릿 파일의 위치로 지정하고 해당 폴더(예: C:\\Azure\\Templates[thing])를 만듭니다.
 
 폴더 이름을 입력하고 다음 명령을 실행합니다.
 
 [템플릿 파일을 다운로드하는 xplat 명령]
 
-### 2단계: \(선택 사항\) 템플릿의 매개 변수 보기
+### 2단계: (선택 사항) 템플릿의 매개 변수 보기
 
 템플릿으로 [do something] 경우 구성 매개 변수 집합을 지정해야 합니다. 가상 컴퓨터를 만드는 명령을 실행하기 전에 로컬 JSON 파일에서 템플릿을 지정하는 데 필요한 매개 변수를 확인하려면 선택한 도구 또는 텍스트 편집기에서 JSON 파일을 엽니다. 파일의 위쪽에 있는 "parameters" 섹션을 찾습니다. 이 섹션은 템플릿에서 가상 컴퓨터를 구성하는 데 필요한 매개 변수 집합을 나열합니다. 다음은 azuredeploy.json 템플릿의 **"parameters"** 섹션입니다.
 
@@ -120,7 +120,7 @@ Azure 배포 이름, 리소스 그룹 이름, Azure 위치 및 저장된 JSON �
 
 ### 4단계: 템플릿으로 [do the thing]
 
-\[needed info} 정보를 입력하고 다음 명령을 실행합니다.
+[needed info} 정보를 입력하고 다음 명령을 실행합니다.
 
 [템플릿 파일을 실행하는 xplat 명령]
 
@@ -136,7 +136,7 @@ Azure 배포 이름, 리소스 그룹 이름, Azure 위치 및 저장된 JSON �
 [작성자를 위한 참고 사항: 메시지가 표시된 처음 몇 개의 매개 변수에 대한 xplat 화면에 붙여 넣습니다.]
 
 
-이 리소스 그룹과 모든 해당 리소스\([리소스 그룹의 항목]\)를 제거하려면 다음 명령을 사용합니다.
+이 리소스 그룹과 모든 해당 리소스([리소스 그룹의 항목])를 제거하려면 다음 명령을 사용합니다.
 
 [xplat 명령]
 

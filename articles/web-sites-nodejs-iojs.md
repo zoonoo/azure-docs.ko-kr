@@ -36,7 +36,7 @@ Node.js 앱을 배포하면 앱 서비스 웹앱에서 몇 가지 간단한 명�
 <a id="manualinstallation"></a>
 ## 수동 설치 사용
 
-사용자 지정 io.js 버전의 수동 설치는 두 단계만으로 구성됩니다. 첫째, [io.js distribution]에서 직접 **win-x64** 이진 파일을 다운로드합니다. **iojs.exe** 및 **iojs.lib** 파일이 필요합니다. 두 파일 모두 웹앱 내의 폴더\(예: **bin/iojs**\)에 저장합니다.
+사용자 지정 io.js 버전의 수동 설치는 두 단계만으로 구성됩니다. 첫째, [io.js distribution]에서 직접 **win-x64** 이진 파일을 다운로드합니다. **iojs.exe** 및 **iojs.lib** 파일이 필요합니다. 두 파일 모두 웹앱 내의 폴더(예: **bin/iojs**)에 저장합니다.
 
 미리 설치된 Node 버전 대신 **iojs.exe**를 사용하도록 웹앱을 구성하려면 응용 프로그램의 루트에 **IISNode.yml** 파일을 만들고 다음 줄을 추가합니다.
 

@@ -23,7 +23,7 @@
 ## 개요
 
 이 가이드에서는 Azure Blob 서비스를 사용하여
-일반 시나리오를 수행하는 방법을 보여 줍니다. 샘플은 C\# 코드로 작성되었으며 Azure Storage Client for .NET을 사용합니다. 여기서 다루는 시나리오에는 큐 메시지 **삽입**,
+일반 시나리오를 수행하는 방법을 보여 줍니다. 샘플은 C# 코드로 작성되었으며 Azure Storage Client for .NET을 사용합니다. 여기서 다루는 시나리오에는 큐 메시지 **삽입**,
 **보기**, **가져오기** 및 **삭제**와
 **큐 만들기 및 삭제**가 포함됩니다. 
 
@@ -40,10 +40,10 @@
 ### 어셈블리 가져오기
 NuGet을 사용하여 `Microsoft.WindowsAzure.Storage.dll` 어셈블리를 가져올 수 있습니다. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 선택합니다.  온라인에서 "WindowsAzure.Storage"를 검색하고 **설치**를 클릭하여 Azure 저장소 패키지와 종속성을 설치합니다.
 
-`Microsoft.WindowsAzure.Storage.dll`은 <a href="http://azure.microsoft.com/develop/net/#">.NET 개발자 센터</a>(영문)에서 다운로드할 수 있는 Azure SDK for .NET에도 포함되어 있습니다. 이 어셈블리는 `%Program Files%\Microsoft SDKs\Azure\.NET SDK\<sdk-version>\ref\` 디렉터리에 설치됩니다.
+`Microsoft.WindowsAzure.Storage.dll`은 <a href="http://azure.microsoft.com/develop/net/#">.NET 개발자 센터</a>(영문)에서 다운로드할 수 있는 Azure SDK for .NET에도 포함되어 있습니다. 이 어셈블리는 `%Program Files%\Microsoft SDKs\Azure.NET SDK<sdk-version>\ref` 디렉터리에 설치됩니다.
 
 ### 네임스페이스 선언
-프로그래밍 방식으로 Azure 저장소에 액세스하려는 C\# 파일의 맨 위에 다음과 같은 코드 네임스페이스 선언을 추가합니다.
+프로그래밍 방식으로 Azure 저장소에 액세스하려는 C# 파일의 맨 위에 다음과 같은 코드 네임스페이스 선언을 추가합니다.
 
     using Microsoft.WindowsAzure.Storage;
     using Microsoft.WindowsAzure.Storage.Auth;

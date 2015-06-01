@@ -69,7 +69,7 @@ Postman을 구성하려면 다음 단계를 따릅니다.
 ![][4]
  
 ## Postman을 사용하여 Azure 검색 인덱스에 문서 게시 ##
-이제 인덱스를 만들었으므로 문서를 로드할 수 있습니다. 이렇게 하려면 USGS\(United States Geological Survey\) 데이터 집합에서 5개의 도로에 대한 데이터를 사용하여 문서 그룹을 일괄적으로 게시합니다.
+이제 인덱스를 만들었으므로 문서를 로드할 수 있습니다. 이렇게 하려면 USGS(United States Geological Survey) 데이터 집합에서 5개의 도로에 대한 데이터를 사용하여 문서 그룹을 일괄적으로 게시합니다.
 
 1. 검색 서비스 이름을 사용하여 URL을 `https://[SEARCH SERVICE].windows.net/indexes/trails/docs/index?api-version=2015-02-28`로 변경합니다. URL에 방금 만든 인덱스의 경로가 포함되었습니다.
 2. HTTP 형식을 `POST`로 변경합니다.
@@ -104,7 +104,7 @@ Azure 검색에서 반환된 JSON 검색 결과가 응답에 표시됩니다.
 Postman에서 Azure 검색을 사용하는 방법에 대한 모든 기본 사항을 살펴보았으므로 다음 단계를 통해 몇 가지 유용한 정보를 얻을 수 있습니다.
 
 1. Postman은 자주 실행되는 요청을 저장하는 편리한 방법인 `Collections`를 지원합니다. 다른 사용자가 자신의 Postman 복사본에서 실행할 수 있도록 컬렉션을 공유할 수 있습니다.
-2. Azure 검색 설명서에서 각 호출과 관련된 HTTP 요청 형식\(`GET`, `PUT` 등\)을 확인하고 Postman에서 적절하게 변경하세요.
+2. Azure 검색 설명서에서 각 호출과 관련된 HTTP 요청 형식(`GET`, `PUT` 등)을 확인하고 Postman에서 적절하게 변경하세요.
 
 REST API에 대한 설명서는 [MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx)에서 확인할 수 있습니다.
 

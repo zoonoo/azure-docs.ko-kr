@@ -135,7 +135,7 @@ Azure 서비스 클라이언트를 만들려면 **ServicesBuilder** 클래스를
 		echo $code.": ".$error_message."<br />";
 	}
 
-**setPublicAccess(PublicAccessType::CONTAINER\_AND\_BLOBS)**를 호출하면 익명 요청을 통해 컨테이너 및 Blob 데이터에 액세스할 수 있습니다. **setPublicAccess(PublicAccessType::BLOBS_ONLY)**를 호출하면 익명 요청을 통해 Blob 데이터에만 액세스할 수 있습니다. 컨테이너 ACL에 대한 자세한 내용은 [컨테이너 ACL 설정(REST API)][container-acl]을 참조하세요.
+**setPublicAccess(PublicAccessType::CONTAINER_AND_BLOBS)**를 호출하면 익명 요청을 통해 컨테이너 및 Blob 데이터에 액세스할 수 있습니다. **setPublicAccess(PublicAccessType::BLOBS_ONLY)**를 호출하면 익명 요청을 통해 Blob 데이터에만 액세스할 수 있습니다. 컨테이너 ACL에 대한 자세한 내용은 [컨테이너 ACL 설정(REST API)][container-acl]을 참조하세요.
 
 Blob 서비스 오류 코드에 대한 자세한 내용은 [Blob 서비스 오류 코드][error-codes]를 참조하세요.
 
@@ -168,7 +168,7 @@ Blob 서비스 오류 코드에 대한 자세한 내용은 [Blob 서비스 오�
 		echo $code.": ".$error_message."<br />";
 	}
 
-위의 예제에서는 Blob을 스트림으로 업로드합니다. 그러나 Blob은 예를 들어 [file\_get\_contents][file_get_contents] 함수를 사용하여 문자열로 업로드될 수도 있습니다. 이렇게 하려면 위의 예제에서 `$content = fopen("c:\myfile.txt", "r");`을 `$content = file_get_contents("c:\myfile.txt");`로 변경하세요.
+위의 예제에서는 Blob을 스트림으로 업로드합니다. 그러나 Blob은 예를 들어 [file_get_contents][file_get_contents] 함수를 사용하여 문자열로 업로드될 수도 있습니다. 이렇게 하려면 위의 예제에서 `$content = fopen("c:\myfile.txt", "r");`을 `$content = file_get_contents("c:\myfile.txt");`로 변경하세요.
 
 ## 방법: 컨테이너의 Blob 나열
 
@@ -230,7 +230,7 @@ Blob을 다운로드하려면 **BlobRestProxy->getBlob** 메서드를 호출한 
 		echo $code.": ".$error_message."<br />";
 	}
 
-위의 예제에서는 Blob을 스트림 리소스로 가져옵니다(기본 동작). 그러나 [stream\_get\_contents][stream-get-contents] 함수를 사용하여 반환된 스트림을 문자열로 변환할 수 있습니다.
+위의 예제에서는 Blob을 스트림 리소스로 가져옵니다(기본 동작). 그러나 [stream_get_contents][stream-get-contents] 함수를 사용하여 반환된 스트림을 문자열로 변환할 수 있습니다.
 
 ## 방법: Blob 삭제
 

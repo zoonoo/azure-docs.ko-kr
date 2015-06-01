@@ -18,7 +18,7 @@
 
 # Azure 데이터 팩터리에서 복사 작업을 사용하는 고급 시나리오 
 ## 개요
-파이프라인에서 **복사 작업**을 사용하여 원본에서 배치의 싱크\(대상\)로 데이터를 복사할 수 있습니다. 이 항목에서는 복사 작업이 지원하는 고급 시나리오를 설명합니다. 복사 작업 및 이를 지원하는 핵심 시나리오의 자세한 개요는 [Azure 데이터 팩터리를 사용하여 데이터 복사][adf-copyactivity]를 참조하세요.
+파이프라인에서 **복사 작업**을 사용하여 원본에서 배치의 싱크(대상)로 데이터를 복사할 수 있습니다. 이 항목에서는 복사 작업이 지원하는 고급 시나리오를 설명합니다. 복사 작업 및 이를 지원하는 핵심 시나리오의 자세한 개요는 [Azure 데이터 팩터리를 사용하여 데이터 복사][adf-copyactivity]를 참조하세요.
 
 
 ## 구조 정의를 사용한 열 필터링
@@ -136,9 +136,9 @@
 		}
 	}	
 
-**출력 테이블**의 **fileName**을 지정하지 않는 경우, **folderPath**에 생성되는 파일의 이름은 다음과 같은 형식으로 지정됩니다. Data.<Guid>.txt \(예: : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.\).
+**출력 테이블**의 **fileName**을 지정하지 않는 경우, **folderPath**에 생성되는 파일의 이름은 다음과 같은 형식으로 지정됩니다. Data.<Guid>.txt (예: : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
 
-**SliceStart** 시간을 기반으로 **folderPath** 및 **fileName**을 설정하려면, **partitionedBy** 속성을 사용합니다. 다음 예제에서 **folderPath**는 SliceStart\(처리 중인 조각의 시작 시간\)의 Year, Month 및 Day를 사용하고 fileName은 SliceStart의 Hour를 사용합니다. 예를 들어 조각이 2014-10-20T08:00:00에 생성되는 경우 folderName은 wikidatagateway/wikisampledataout/2014/10/20으로 설정되고 fileName은 08.csv로 설정됩니다.
+**SliceStart** 시간을 기반으로 **folderPath** 및 **fileName**을 설정하려면, **partitionedBy** 속성을 사용합니다. 다음 예제에서 **folderPath**는 SliceStart(처리 중인 조각의 시작 시간)의 Year, Month 및 Day를 사용하고 fileName은 SliceStart의 Hour를 사용합니다. 예를 들어 조각이 2014-10-20T08:00:00에 생성되는 경우 folderName은 wikidatagateway/wikisampledataout/2014/10/20으로 설정되고 fileName은 08.csv로 설정됩니다.
 
   	"folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
     "fileName": "{Hour}.csv",
@@ -151,7 +151,7 @@
     ],
 
 #### 샘플 – 열 매핑 정의
-이 샘플에서는 파이프라인의 작업을 다음과 같이 정의합니다. 원본의 열과 싱크\(**columnMappings**\)의 열 간 매핑은 **Translator** 속성을 사용하여 이루어집니다.
+이 샘플에서는 파이프라인의 작업을 다음과 같이 정의합니다. 원본의 열과 싱크(**columnMappings**)의 열 간 매핑은 **Translator** 속성을 사용하여 이루어집니다.
 
 	{
 		"name": "CopyActivity",
@@ -193,7 +193,7 @@
 			"source":
 			{
 				"type": "SqlSource",
-				"SqlReaderQuery": "$$Text.Format('SELECT * FROM MyTable WHERE StartDateTime = \\'{0:yyyyMMdd-HH}\\'', SliceStart)"
+				"SqlReaderQuery": "$$Text.Format('SELECT * FROM MyTable WHERE StartDateTime = \'{0:yyyyMMdd-HH}\'', SliceStart)"
 			},
 			"sink":
 			{
@@ -263,7 +263,7 @@
 ## SQL 싱크에 대한 저장 프로시저 호출
 SQL Server 또는 Azure SQL 데이터베이스로 데이터를 복사할 때 사용자 지정 저장 프로시저를 구성하고 추가 매개 변수로 호출할 수 있습니다.
 ### 예
-1. 출력 테이블의 JSON 정의를 다음과 같이 정의합니다\(Azure SQL 데이터베이스 테이블 예로 설명\).
+1. 출력 테이블의 JSON 정의를 다음과 같이 정의합니다(Azure SQL 데이터베이스 테이블 예로 설명).
 
     	{
     		"name": "MyAzureSQLTable",
@@ -320,7 +320,7 @@ SQL Server 또는 Azure SQL 데이터베이스로 데이터를 복사할 때 사
 저장된 프로시저 기능은 [테이블 값 매개 변수][table-valued-parameters]을 이용합니다.
 
 ## 텍스트 파일의 인코딩을 지정합니다.
-UTF-8 인코딩을 많이 사용하지만, 기록 이유로 인해 Azure Blob의 시간 텍스트 파일은 다른 인코딩을 따릅니다. **encodingName** 속성을 사용하면 TextFormat 형식의 테이블에 대한 코드 페이지 이름으로 인코딩을 지정할 수 있습니다. 올바른 인코딩 이름 목록은 Encoding.EncodingName 속성을 참조하세요. 예: windows-1250 또는 shift\_jis 기본값은 UTF-8입니다. 올바른 인코딩 이름은 [인코딩 클래스](https://msdn.microsoft.com/library/system.text.encoding(v=vs.110).aspx)를 참조하세요.
+UTF-8 인코딩을 많이 사용하지만, 기록 이유로 인해 Azure Blob의 시간 텍스트 파일은 다른 인코딩을 따릅니다. **encodingName** 속성을 사용하면 TextFormat 형식의 테이블에 대한 코드 페이지 이름으로 인코딩을 지정할 수 있습니다. 올바른 인코딩 이름 목록은 Encoding.EncodingName 속성을 참조하세요. 예: windows-1250 또는 shift_jis 기본값은 UTF-8입니다. 올바른 인코딩 이름은 [인코딩 클래스](https://msdn.microsoft.com/library/system.text.encoding(v=vs.110).aspx)를 참조하세요.
 
 ## 참고 항목
 

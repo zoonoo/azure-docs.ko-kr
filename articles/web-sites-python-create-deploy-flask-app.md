@@ -89,7 +89,7 @@ Git 게시를 설정한 후 리포지토리가 만들어지고 있다고 알리�
 
 다음은 초기 Git 리포지토리에 표시되는 파일의 개요입니다(다음 섹션에서 복제).
 
-    \FlaskWebProject\__init__.py
+    \FlaskWebProject__init__.py
     \FlaskWebProject\views.py
     \FlaskWebProject\static\content\
     \FlaskWebProject\static\fonts\

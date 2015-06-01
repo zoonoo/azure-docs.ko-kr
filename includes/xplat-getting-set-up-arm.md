@@ -9,7 +9,7 @@
    ms.date="04/13/2015"
    ms.author="rasquill" />
 
-## ARM\(Azure 리소스 관리자\)에서 xplat-cli 사용
+## ARM(Azure 리소스 관리자)에서 xplat-cli 사용
 
 리소스 관리자 명령 및 템플릿에서 xplat-cli를 사용하여 리소스 그룹을 통해 Azure 리소스 및 작업을 배포하려면 먼저 Azure 계정이 필요합니다. 계정이 없는 경우 [여기에서 무료 Azure 평가판](http://azure.microsoft.com/pricing/free-trial/)을 얻을 수 있습니다.
 
@@ -41,11 +41,11 @@ xplat-cli의 버전을 업데이트하려면 [xplat cli](https://github.com/Azur
     +
     info:    login command OK
     
-이러한 결과가 표시되지 않으면 Microsoft 계정 ID를 사용하여 새 테넌트\(또는 서비스 사용자\)를 만들어야 합니다. 이는 개인 MSDN 구독 또는 무료 평가판 구독에서 일반적인 경우입니다. Microsoft ID를 사용하여 만든 Azure 계정에서 회사 또는 학교 ID를 만들려면 [새 Azure 구독에 Azure AD Directory 연결](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant)을 참조하세요. 조직 ID가 이미 있다고 생각되는 경우 계정을 만든 사람에게 문의해야 할 수 있습니다.
+이러한 결과가 표시되지 않으면 Microsoft 계정 ID를 사용하여 새 테넌트(또는 서비스 사용자)를 만들어야 합니다. 이는 개인 MSDN 구독 또는 무료 평가판 구독에서 일반적인 경우입니다. Microsoft ID를 사용하여 만든 Azure 계정에서 회사 또는 학교 ID를 만들려면 [새 Azure 구독에 Azure AD Directory 연결](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant)을 참조하세요. 조직 ID가 이미 있다고 생각되는 경우 계정을 만든 사람에게 문의해야 할 수 있습니다.
 
 ### 3단계: Azure 구독 선택
 
-Azure 계정에 구독이 하나뿐인 경우 xplat-cli 자체가 기본적으로 해당 구독에 연결됩니다. 구독이 두 개 이상인 경우에는 `azure account set <subscription id or name> true`\(여기서 _subscription id or name_은 현재 세션에서 사용할 구독 ID 또는 구독 DLFMA\)를 입력하여 사용할 구독을 선택해야 합니다.
+Azure 계정에 구독이 하나뿐인 경우 xplat-cli 자체가 기본적으로 해당 구독에 연결됩니다. 구독이 두 개 이상인 경우에는 `azure account set <subscription id or name> true`(여기서 _subscription id or name_은 현재 세션에서 사용할 구독 ID 또는 구독 DLFMA)를 입력하여 사용할 구독을 선택해야 합니다.
 
 다음과 유사한 출력이 표시됩니다.
 
@@ -57,7 +57,7 @@ Azure 계정에 구독이 하나뿐인 경우 xplat-cli 자체가 기본적으�
     
 ### 4단계: ARM 모드에서 xplat cli 배치
 
-ARM\(Azure 리소스 관리\) 모드에서 xplat-cli를 사용하려면 `azure config mode arm`을 입력합니다. 다음과 유사한 출력이 표시됩니다.
+ARM(Azure 리소스 관리) 모드에서 xplat-cli를 사용하려면 `azure config mode arm`을 입력합니다. 다음과 유사한 출력이 표시됩니다.
 
     $ azure config mode arm
     info:    New mode is arm

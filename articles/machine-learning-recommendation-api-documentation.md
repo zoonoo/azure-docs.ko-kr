@@ -23,12 +23,12 @@
 
 [AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)]
 
-## 1\. 일반 개요
+## 1. 일반 개요
 이 문서는 API 참조입니다. “Azure 기계 학습 권장 사항 – 빠른 시작” 문서로 시작해야 합니다.
 
 Azure 기계 학습 권장 사항 API는 다음 8개 그룹으로 나뉩니다.
 
-1.	<ins>모델 기본</ins> – 모델에 대한 기본 작업\(예: 모델 만들기, 업데이트 및 삭제\)을 수행할 수 있는 API입니다.
+1.	<ins>모델 기본</ins> – 모델에 대한 기본 작업(예: 모델 만들기, 업데이트 및 삭제)을 수행할 수 있는 API입니다.
 2.	<ins>모델 고급</ins> – 모델에 대한 고급 데이터 정보를 얻을 수 있는 API입니다.
 3.	<ins>모델 비즈니스 규칙</ins> – 모델 권장 사항 결과에서 비즈니스 규칙을 관리할 수 있는 API입니다.
 4.	<ins>카탈로그</ins> – 모델 카탈로그에 대한 기본 작업을 수행할 수 있는 API입니다. 카탈로그에는 사용 데이터의 항목에 대한 메타데이터 정보가 포함되어 있습니다.
@@ -37,47 +37,47 @@ Azure 기계 학습 권장 사항 API는 다음 8개 그룹으로 나뉩니다.
 7.	<ins>권장 사항</ins> – 모델 빌드가 종료되면 권장 사항을 사용할 수 있는 API입니다.
 8.	<ins>알림</ins> - API 작업과 관련된 문제에 대한 알림을 받을 수 있는 API입니다. 예를 들어 데이터 취득을 통해 사용 데이터를 보고하고 대부분의 이벤트 처리에 실패한 경우 오류 알림이 발생합니다.
 
-## 2\. 고급 항목
+## 2. 고급 항목
 
-### 2\.1. 권장 사항 품질
+### 2.1. 권장 사항 품질
 
-권장 사항 모델 만들기는 일반적으로 시스템에서 권장 사항을 제공하도록 하는 데 충분합니다. 그러나 권장 사항 품질은 처리한 사용 현황 및 카탈로그의 적용 범위에 따라 달라집니다. 예를 들어 콜드 항목\(중요한 사용 현황이 없는 항목\)이 많은 경우에는 시스템에서 해당 항목에 대한 권장 사항을 제공하거나 해당 항목을 권장 항목으로 사용하기 어렵습니다. 콜드 항목 문제를 해결하기 위해 시스템에서는 항목의 메타데이터를 사용하여 권장 사항을 개선할 수 있도록 합니다. 이 메타데이터를 기능이라고 합니다. 일반적인 기능은 책의 저자 또는 동영상의 배우입니다. 기능은 키/값 문자열 형식으로 카탈로그를 통해 제공됩니다. 카탈로그 파일의 전체 형식은 [카탈로그 가져오기 섹션](#81-import-catalog-data)을 참조하세요. 다음 섹션에서는 기능을 사용한 권장 사항 모델 개선에 대해 설명합니다.
+권장 사항 모델 만들기는 일반적으로 시스템에서 권장 사항을 제공하도록 하는 데 충분합니다. 그러나 권장 사항 품질은 처리한 사용 현황 및 카탈로그의 적용 범위에 따라 달라집니다. 예를 들어 콜드 항목(중요한 사용 현황이 없는 항목)이 많은 경우에는 시스템에서 해당 항목에 대한 권장 사항을 제공하거나 해당 항목을 권장 항목으로 사용하기 어렵습니다. 콜드 항목 문제를 해결하기 위해 시스템에서는 항목의 메타데이터를 사용하여 권장 사항을 개선할 수 있도록 합니다. 이 메타데이터를 기능이라고 합니다. 일반적인 기능은 책의 저자 또는 동영상의 배우입니다. 기능은 키/값 문자열 형식으로 카탈로그를 통해 제공됩니다. 카탈로그 파일의 전체 형식은 [카탈로그 가져오기 섹션](#81-import-catalog-data)을 참조하세요. 다음 섹션에서는 기능을 사용한 권장 사항 모델 개선에 대해 설명합니다.
 
-### 2\.2. 순위 빌드
+### 2.2. 순위 빌드
 
-기능은 권장 사항 모델을 개선할 수 있지만 그러려면 의미 있는 기능을 사용해야 합니다. 이를 위해 순위 빌드라는 새 빌드가 도입되었습니다. 이 빌드는 기능의 유용성 순위를 매깁니다. 의미 있는 기능은 순위 점수가 2 이상인 기능입니다. 의미 있는 기능을 이해한 후에는 의미 있는 기능 목록\(또는 하위 목록\)으로 권장 사항 빌드를 트리거합니다. 이러한 기능을 사용하여 웜 항목과 콜드 항목 모두를 개선할 수 있습니다. 웜 항목에 사용하려면 `UseFeatureInModel` 빌드 매개 변수를 설정해야 합니다. 콜드 항목에 사용하려면 `AllowColdItemPlacement` 빌드 매개 변수를 설정해야 합니다. 참고: `UseFeatureInModel`을 설정하지 않고 `AllowColdItemPlacement`를 사용할 수 없습니다.
+기능은 권장 사항 모델을 개선할 수 있지만 그러려면 의미 있는 기능을 사용해야 합니다. 이를 위해 순위 빌드라는 새 빌드가 도입되었습니다. 이 빌드는 기능의 유용성 순위를 매깁니다. 의미 있는 기능은 순위 점수가 2 이상인 기능입니다. 의미 있는 기능을 이해한 후에는 의미 있는 기능 목록(또는 하위 목록)으로 권장 사항 빌드를 트리거합니다. 이러한 기능을 사용하여 웜 항목과 콜드 항목 모두를 개선할 수 있습니다. 웜 항목에 사용하려면 `UseFeatureInModel` 빌드 매개 변수를 설정해야 합니다. 콜드 항목에 사용하려면 `AllowColdItemPlacement` 빌드 매개 변수를 설정해야 합니다. 참고: `UseFeatureInModel`을 설정하지 않고 `AllowColdItemPlacement`를 사용할 수 없습니다.
 
-### 2\.3. 권장 사항 추론
+### 2.3. 권장 사항 추론
 
-권장 사항 추론은 기능 사용의 또 다른 측면입니다. 실제로 Azure 기계 학습 권장 사항 엔진은 기능을 사용하여 권장 사항 설명\(추론이라고도 함\)을 제공할 수 있으며, 이는 권장 소비자에게 권장 항목에 대한 확신을 심어 줍니다. 추론을 사용하려면 권장 사항 빌드를 요청하기 전에 `AllowFeatureCorrelation` 및 `ReasoningFeatureList` 매개 변수를 설정해야 합니다.
+권장 사항 추론은 기능 사용의 또 다른 측면입니다. 실제로 Azure 기계 학습 권장 사항 엔진은 기능을 사용하여 권장 사항 설명(추론이라고도 함)을 제공할 수 있으며, 이는 권장 소비자에게 권장 항목에 대한 확신을 심어 줍니다. 추론을 사용하려면 권장 사항 빌드를 요청하기 전에 `AllowFeatureCorrelation` 및 `ReasoningFeatureList` 매개 변수를 설정해야 합니다.
 
-## 3\. 제한 사항
+## 3. 제한 사항
 
 - 구독당 최대 모델 수는 10개입니다.
 - 카탈로그에 포함할 수 있는 최대 항목 수는 100,000개입니다.
 - 유지되는 사용 포인트의 최대 수는 5,000,000개입니다. 새 포인트가 업로드되거나 보고되면 가장 오래된 포인트가 삭제됩니다.
-- POST로 전송할 수 있는 최대 데이터 크기\(예: 카탈로그 데이터 가져오기, 사용 데이터 가져오기\)는 200MB입니다.
+- POST로 전송할 수 있는 최대 데이터 크기(예: 카탈로그 데이터 가져오기, 사용 데이터 가져오기)는 200MB입니다.
 - 활성화되지 않은 권장 사항 모델 빌드에 대한 초당 트랜잭션 수는 최대 2TPS입니다. 활성화된 권장 사항 모델 빌드는 최대 20TPS를 유지할 수 있습니다.
 
-## 4\. API – 일반 정보
+## 4. API – 일반 정보
 
-### 4\.1. 인증
+### 4.1. 인증
 인증과 관련된 Microsoft Azure 마켓플레이스 지침을 따르세요. 마켓플레이스에서는 기본 또는 OAuth 인증 방법을 지원합니다.
 
-### 4\.2. 서비스 URI
+### 4.2. 서비스 URI
 Azure 기계 학습 권장 사항 API에 대한 서비스 루트 URI는 [여기](https://api.datamarket.azure.com/amla/recommendations/v2/)입니다.
 
 전체 서비스 URI는 OData 사양의 요소를 사용하여 표현됩니다.
 
-### 4\.3. API 버전
+### 4.3. API 버전
 각 API 호출은 1.0으로 설정해야 하는 apiVersion이라는 쿼리 매개 변수 종료 시 포함됩니다.
 
-### 4\.4. ID 대/소문자 구분
+### 4.4. ID 대/소문자 구분
 API에서 반환되는 ID는 대/소문자를 구분하며, 후속 API 호출에서 매개 변수로 전달될 때에도 마찬가지입니다. 예를 들어 모델 ID와 카탈로그 ID는 대/소문자를 구분합니다.
 
-## 5\. 모델 기본
+## 5. 모델 기본
 
-### 5\.1. 모델 만들기
+### 5.1. 모델 만들기
 "모델 만들기" 요청을 만듭니다.
 
 | HTTP 메서드 | URI |
@@ -86,8 +86,8 @@ API에서 반환되는 ID는 대/소문자를 구분하며, 후속 API 호출에
 
 |	매개 변수 이름 |	유효한 값						|
 |:--------			|:--------								|
-|	modelName	|	문자\(A-Z, a-z\), 숫자\(0-9\), 하이픈\(-\) 및 밑줄\(\_\)만 사용할 수 있습니다.<br>최대 길이: 20 |
-|	apiVersion | 1\.0 |
+|	modelName	|	문자(A-Z, a-z), 숫자(0-9), 하이픈(-) 및 밑줄(_)만 사용할 수 있습니다.<br>최대 길이: 20 |
+|	apiVersion | 1.0 |
 |||
 | 요청 본문 | 없음 |
 
@@ -128,7 +128,7 @@ OData XML
 	  </entry>
 	</feed>
 
-### 5\.2. 모델 가져오기
+### 5.2. 모델 가져오기
 "모델 가져오기" 요청을 만듭니다.
 
 | HTTP 메서드 | URI |
@@ -137,8 +137,8 @@ OData XML
 
 |	매개 변수 이름 |	유효한 값 |
 |:--------			|:--------								|
-|	id |	모델의 고유 식별자\(대/소문자 구분\) |
-|	apiVersion | 1\.0 |
+|	id |	모델의 고유 식별자(대/소문자 구분) |
+|	apiVersion | 1.0 |
 |||
 | 요청 본문 | 없음 |
 
@@ -156,7 +156,7 @@ HTTP 상태 코드: 200
 	- ReadyForBuild – 모델이 생성되었으며 카탈로그 및 사용 현황을 포함함
 - `feed/entry/content/properties/HasActiveBuild` – 모델이 성공적으로 빌드된 경우를 나타냄
 - `feed/entry/content/properties/BuildId` – 모델 활성 빌드 ID
-- `feed/entry/content/properties/Mpr` – 모델 평균 백분위수 순위\(MPR - 자세한 내용은 ModelInsight 참조\)
+- `feed/entry/content/properties/Mpr` – 모델 평균 백분위수 순위(MPR - 자세한 내용은 ModelInsight 참조)
 - `feed/entry/content/properties/UserName` – 모델 내부 사용자 이름
 
 OData XML
@@ -192,7 +192,7 @@ OData XML
 	  </entry>
 	</feed>
 
-### 5\.3. 모든 모델 가져오기
+### 5.3. 모든 모델 가져오기
 현재 사용자의 모든 모델을 검색합니다.
 
 | HTTP 메서드 | URI |
@@ -201,7 +201,7 @@ OData XML
 
 |	매개 변수 이름 |	유효한 값 |
 |:--------			|:--------								|
-|	apiVersion | 1\.0 |
+|	apiVersion | 1.0 |
 |||
 | 요청 본문 | 없음 |
 
@@ -217,7 +217,7 @@ HTTP 상태 코드: 200
   - ReadyForBuild – 모델이 생성되었으며 카탈로그 및 사용 현황을 포함함
 - `feed/entry/content/properties/HasActiveBuild` – 모델이 성공적으로 빌드된 경우를 나타냄
 - `feed/entry/content/properties/BuildId` – 모델 활성 빌드 ID
-- `feed/entry/content/properties/Mpr` – 모델 MPR\(자세한 내용은 ModelInsight 참조\)
+- `feed/entry/content/properties/Mpr` – 모델 MPR(자세한 내용은 ModelInsight 참조)
 - `feed/entry/content/properties/UserName` – 모델 내부 사용자 이름
 - `feed/entry/content/properties/UsageFileNames` – 쉼표로 구분된 모델 사용 파일 목록
 - `feed/entry/content/properties/CatalogId` – 모델 카탈로그 ID
@@ -258,7 +258,7 @@ OData XML
 		</entry>
 	</feed>
 
-### 5\.4. 모델 업데이트
+### 5.4. 모델 업데이트
 
 모델 설명 또는 활성 빌드 ID를 업데이트할 수 있습니다.<br> <ins>활성 빌드 ID</ins> - 모든 모델에 대한 모든 빌드에는 "빌드 ID"가 있습니다. 활성 빌드 ID는 모든 새 모델 중 처음 성공한 빌드입니다. 활성 빌드 ID가 있는데 같은 모델에 대한 추가 빌드를 수행하려면 이 활성 빌드 ID를 기본 빌드 ID로 명시적으로 설정해야 합니다. 권장 사항을 소비할 때 사용할 빌드 ID를 지정하지 않으면 자동으로 기본 빌드 ID가 사용됩니다.<br> 이 메커니즘을 사용하면 프로덕션에 권장 사항 모델을 포함하고 나서 새 모델을 빌드하고 프로덕션으로 수준을 올리기 전에 테스트할 수 있습니다.
 
@@ -269,16 +269,16 @@ OData XML
 
 |	매개 변수 이름 |	유효한 값						|
 |:--------			|:--------								|
-|	id		| 모델의 고유 식별자\(대/소문자 구분\)  |
+|	id		| 모델의 고유 식별자(대/소문자 구분)  |
 |	apiVersion		| 1.0 |
 |||
-| 요청 본문 | `<ModelUpdateParams xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">`<br>`<Description>New Description</Description>`<br>`<ActiveBuildId>-1</ActiveBuildId>`<br>` </ModelUpdateParams>`<br><br>XML 태그 Description 및 ActiveBuildId는 선택 사항입니다. Description 또는 ActiveBuildId를 설정하지 않으려면 전체 태그를 제거합니다.\|
+| 요청 본문 | `<ModelUpdateParams xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">`<br>`<Description>New Description</Description>`<br>`<ActiveBuildId>-1</ActiveBuildId>`<br>` </ModelUpdateParams>`<br><br>XML 태그 Description 및 ActiveBuildId는 선택 사항입니다. Description 또는 ActiveBuildId를 설정하지 않으려면 전체 태그를 제거합니다.|
 
 **응답**:
 
 HTTP 상태 코드: 200
 
-### 5\.5. 모델 삭제
+### 5.5. 모델 삭제
 ID별로 기존 모델을 삭제합니다.
 
 | HTTP 메서드 | URI |
@@ -287,8 +287,8 @@ ID별로 기존 모델을 삭제합니다.
 
 |	매개 변수 이름 |	유효한 값 |
 |:--------			|:--------								|
-|	id |	모델의 고유 식별자\(대/소문자 구분\) |
-|	apiVersion | 1\.0 |
+|	id |	모델의 고유 식별자(대/소문자 구분) |
+|	apiVersion | 1.0 |
 |||
 | 요청 본문 | 없음 |
 
@@ -318,9 +318,9 @@ OData XML
 	  </entry>
 	</feed>
 
-## 6\. 모델 고급
+## 6. 모델 고급
 
-### 6\.1. 모델 데이터 정보
+### 6.1. 모델 데이터 정보
 이 모델을 빌드할 때 사용된 사용 데이터에 대한 통계 데이터를 반환합니다.
 
 권장 사항 빌드에만 사용할 수 있습니다.
@@ -332,7 +332,7 @@ OData XML
 |	매개 변수 이름 |	유효한 값 |
 |:--------			|:--------								|
 |	modelId |	모델의 고유 식별자 |
-|	apiVersion | 1\.0 |
+|	apiVersion | 1.0 |
 |||
 | 요청 본문 | 없음 |
 
@@ -556,8 +556,8 @@ OData XML
     </entry>
     </feed>
 
-### 6\.2. 모델 정보
-활성 빌드 또는 특정 빌드\(지정된 경우\)에 대한 모델 정보를 반환합니다.
+### 6.2. 모델 정보
+활성 빌드 또는 특정 빌드(지정된 경우)에 대한 모델 정보를 반환합니다.
 
 권장 사항 빌드에만 사용할 수 있습니다.
 
@@ -568,8 +568,8 @@ OData XML
 |	매개 변수 이름 |	유효한 값 |
 |:--------			|:--------								|
 |	modelId |	모델의 고유 식별자 |
-|	buildId |	\(선택 사항\) - 성공적인 빌드를 식별하는 번호 |
-|	apiVersion | 1\.0 |
+|	buildId |	(선택 사항) - 성공적인 빌드를 식별하는 번호 |
+|	apiVersion | 1.0 |
 |||
 | 요청 본문 | 없음 |
 
@@ -639,7 +639,7 @@ OData XML
 	</entry>
 	</feed>
 
-### 6\.3. 모델 샘플 가져오기
+### 6.3. 모델 샘플 가져오기
 권장 사항 모델의 샘플을 가져옵니다.
 
 | HTTP 메서드 | URI |
@@ -649,7 +649,7 @@ OData XML
 |	매개 변수 이름 |	유효한 값 |
 |:--------			|:--------								|
 |	modelId |	모델의 고유 식별자 |
-|	apiVersion | 1\.0 |
+|	apiVersion | 1.0 |
 |||
 | 요청 본문 | 없음 |
 
@@ -790,11 +790,11 @@ d5358189-d70f-4e35-8add-34b83b4942b3, Pigs in Heaven
 
 </pre>
 
-## 7\. 모델 비즈니스 규칙
-4가지 유형의 규칙이 있습니다. <strong>BlockList</strong> - 권장 사항 결과에서 반환하지 않을 항목 목록을 제공할 수 있습니다. <strong>Upsale</strong> - 권장 사항 결과에서 항목을 강제로 반환할 수 있습니다. <strong>WhiteList</strong> - 권장 사항 결과로 반환할 수 있는 항목 목록만 제공할 수 있습니다\(BlockList와 반대\). <strong>PerSeedBlockList</strong> - 권장 사항 결과로 반환할 수 없는 항목 목록을 항목별로 제공할 수 있습니다.
+## 7. 모델 비즈니스 규칙
+4가지 유형의 규칙이 있습니다. <strong>BlockList</strong> - 권장 사항 결과에서 반환하지 않을 항목 목록을 제공할 수 있습니다. <strong>Upsale</strong> - 권장 사항 결과에서 항목을 강제로 반환할 수 있습니다. <strong>WhiteList</strong> - 권장 사항 결과로 반환할 수 있는 항목 목록만 제공할 수 있습니다(BlockList와 반대). <strong>PerSeedBlockList</strong> - 권장 사항 결과로 반환할 수 없는 항목 목록을 항목별로 제공할 수 있습니다.
 
 
-### 7\.1. 모델 규칙 가져오기
+### 7.1. 모델 규칙 가져오기
 
 | HTTP 메서드 | URI |
 |:--------|:--------|
@@ -803,7 +803,7 @@ d5358189-d70f-4e35-8add-34b83b4942b3, Pigs in Heaven
 |	매개 변수 이름 |	유효한 값 |
 |:--------			|:--------								|
 |	modelId |	모델의 고유 식별자 |
-|	apiVersion | 1\.0 |
+|	apiVersion | 1.0 |
 |||
 | 요청 본문 | 없음 |
 
@@ -852,7 +852,7 @@ OData XML
 	</entry>
 	</feed>
 
-### 7\.2. 규칙 추가
+### 7.2. 규칙 추가
 
 | HTTP 메서드 | URI |
 |:--------|:--------|
@@ -860,9 +860,9 @@ OData XML
 
 |	매개 변수 이름 |	유효한 값 |
 |:--------			|:--------								|
-|	apiVersion | 1\.0 |
+|	apiVersion | 1.0 |
 |||
-| 요청 본문 | <ins>BlockList 규칙을 추가할 경우:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>BlockList</Type><Value>{"ItemsToExclude":["2406E770-769C-4189-89DE-1C9283F93A96","3906E110-769C-4189-89DE-1C9283F98888"]}</Value></ApiFilter>`<br><br><ins>Upsale 규칙을 추가할 경우:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"]}</Value></ApiFilter>`<br><br><ins>WhiteList 규칙을 추가할 경우:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>WhiteList</Type><Value>{"ItemsToInclude":["2406E770-769C-4189-89DE-1C9283F93A96","1116E770-769C-4189-89DE-1C9283F88888"]}</Value></ApiFilter>`<br><br><ins>PerSeedBlockList 규칙을 추가할 경우:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>PerSeedBlockList</Type><Value>{"SeedItems":["9949"],"ItemsToExclude":["9862","8158","8244"]}</Value></ApiFilter>`\|
+| 요청 본문 | <ins>BlockList 규칙을 추가할 경우:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>BlockList</Type><Value>{"ItemsToExclude":["2406E770-769C-4189-89DE-1C9283F93A96","3906E110-769C-4189-89DE-1C9283F98888"]}</Value></ApiFilter>`<br><br><ins>Upsale 규칙을 추가할 경우:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"]}</Value></ApiFilter>`<br><br><ins>WhiteList 규칙을 추가할 경우:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>WhiteList</Type><Value>{"ItemsToInclude":["2406E770-769C-4189-89DE-1C9283F93A96","1116E770-769C-4189-89DE-1C9283F88888"]}</Value></ApiFilter>`<br><br><ins>PerSeedBlockList 규칙을 추가할 경우:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>PerSeedBlockList</Type><Value>{"SeedItems":["9949"],"ItemsToExclude":["9862","8158","8244"]}</Value></ApiFilter>`|
 
 **응답**:
 
@@ -898,7 +898,7 @@ OData XML
 	</entry>
 	</feed>
 
-### 7\.3. 규칙 삭제
+### 7.3. 규칙 삭제
 
 | HTTP 메서드 | URI |
 |:--------|:--------|
@@ -908,7 +908,7 @@ OData XML
 |:--------			|:--------								|
 |	modelId |	모델의 고유 식별자 |
 |	filterId |	필터의 고유 식별자 |
-|	apiVersion | 1\.0 |
+|	apiVersion | 1.0 |
 |||
 | 요청 본문 | 없음 |
 
@@ -916,7 +916,7 @@ OData XML
 
 HTTP 상태 코드: 200
 
-### 7\.4. 모든 규칙 삭제
+### 7.4. 모든 규칙 삭제
 
 | HTTP 메서드 | URI |
 |:--------|:--------|
@@ -925,7 +925,7 @@ HTTP 상태 코드: 200
 |	매개 변수 이름 |	유효한 값 |
 |:--------			|:--------								|
 |	modelId |	모델의 고유 식별자 |
-|	apiVersion | 1\.0 |
+|	apiVersion | 1.0 |
 |||
 | 요청 본문 | 없음 |
 
@@ -933,9 +933,9 @@ HTTP 상태 코드: 200
 
 HTTP 상태 코드: 200
 
-## 8\. 카탈로그
+## 8. 카탈로그
 
-### 8\.1. 카탈로그 데이터 가져오기
+### 8.1. 카탈로그 데이터 가져오기
 
 여러 번 호출하여 여러 카탈로그 파일을 같은 모델에 업로드하면 새 카탈로그 항목만 삽입됩니다. 기존 항목은 원래 값으로 유지됩니다. 이 메서드를 사용하여 카탈로그 데이터를 업데이트할 수 없습니다.
 
@@ -951,11 +951,11 @@ HTTP 상태 코드: 200
 
 | 이름 | 필수 | 형식 | 설명 |
 |:---|:---|:---|:---|
-| 항목 ID |예 | [A-z], [a-z], [0-9], \[\_\] &\#40;밑줄&\#41;, [\-] &\#40;대시&\#41;<br> 최대 길이: 50 | 항목의 고유 식별자 |
+| 항목 ID |예 | [A-z], [a-z], [0-9], [_] &#40;밑줄&#41;, [\-] &#40;대시&#41;<br> 최대 길이: 50 | 항목의 고유 식별자 |
 | Item Name | 예 | 영숫자 문자<br> 최대 길이: 255 | 항목 이름 | 
-| Item Category | 예 | 영숫자 문자 <br> 최대 길이: 255 | 이 항목이 속하는 범주\(예: 요리책, 드라마...\). 비어 있을 수 있습니다. |
-| 설명 | 아니요, 기능이 없는 경우\(그러나 비어 있을 수 있음\) | 영숫자 문자 <br> 최대 길이: 4000 | 이 항목에 대한 설명 |
-| Features list | 아니요 | 영숫자 문자 <br> 최대 길이: 4000 | 쉼표로 구분된 기능 이름 목록=모델 권장 사항을 개선하는 데 사용할 수 있는 기능 값\([고급 항목](#2-advanced-topics) 섹션 참조\) |
+| Item Category | 예 | 영숫자 문자 <br> 최대 길이: 255 | 이 항목이 속하는 범주(예: 요리책, 드라마...). 비어 있을 수 있습니다. |
+| 설명 | 아니요, 기능이 없는 경우(그러나 비어 있을 수 있음) | 영숫자 문자 <br> 최대 길이: 4000 | 이 항목에 대한 설명 |
+| Features list | 아니요 | 영숫자 문자 <br> 최대 길이: 4000 | 쉼표로 구분된 기능 이름 목록=모델 권장 사항을 개선하는 데 사용할 수 있는 기능 값([고급 항목](#2-advanced-topics) 섹션 참조) |
 
 
 | HTTP 메서드 | URI |
@@ -965,10 +965,10 @@ HTTP 상태 코드: 200
 |	매개 변수 이름 |	유효한 값 |
 |:--------			|:--------								|
 |	modelId |	모델의 고유 식별자 |
-| filename | 카탈로그의 텍스트 식별자.<br>문자\(A-Z, a-z\), 숫자\(0-9\), 하이픈\(-\) 및 밑줄\(\_\)만 사용할 수 있습니다.<br>최대 길이: 50 |
-|	apiVersion | 1\.0 |
+| filename | 카탈로그의 텍스트 식별자.<br>문자(A-Z, a-z), 숫자(0-9), 하이픈(-) 및 밑줄(_)만 사용할 수 있습니다.<br>최대 길이: 50 |
+|	apiVersion | 1.0 |
 |||
-| 요청 본문 | 예\(기능 사용\):<br/>`2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book,the book description,author=Richard Wright,publisher=Harper Flamingo Canada,year=2001<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction \(Byzantium Book\),Book,,author=Nick Bantock,publisher=Harpercollins,year=1997<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book,,author=Timothy Findley, publisher=HarperFlamingo Canada, year=2001<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book,the book description,author=Magnus Mills, publisher=Arcade Publishing, year=1998</pre> `|
+| 요청 본문 | 예(기능 사용):<br/>`2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book,the book description,author=Richard Wright,publisher=Harper Flamingo Canada,year=2001<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction (Byzantium Book),Book,,author=Nick Bantock,publisher=Harpercollins,year=1997<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book,,author=Timothy Findley, publisher=HarperFlamingo Canada, year=2001<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book,the book description,author=Magnus Mills, publisher=Arcade Publishing, year=1998</pre> `|
 
 
 **응답**:
@@ -1002,7 +1002,7 @@ OData XML
 	</entry>
 	</feed>
 
-### 8\.2. 카탈로그 가져오기
+### 8.2. 카탈로그 가져오기
 모든 카탈로그 항목을 검색합니다.
 
 | HTTP 메서드 | URI |
@@ -1012,7 +1012,7 @@ OData XML
 |	매개 변수 이름 |	유효한 값 |
 |:--------			|:--------								|
 |	modelId |	모델의 고유 식별자 |
-|	apiVersion | 1\.0 |
+|	apiVersion | 1.0 |
 |||
 | 요청 본문 | 없음 |
 
@@ -1105,7 +1105,7 @@ OData XML
 	</entry>
 	</feed>
 
-### 8\.3. 토큰별 카탈로그 항목 가져오기
+### 8.3. 토큰별 카탈로그 항목 가져오기
 
 | HTTP 메서드 | URI |
 |:--------|:--------|
@@ -1115,7 +1115,7 @@ OData XML
 |:--------			|:--------								|
 |	modelId |	모델의 고유 식별자 |
 |	token |	카탈로그 항목 이름의 토큰 3자 이상 포함해야 합니다. |
-|	apiVersion | 1\.0 |
+|	apiVersion | 1.0 |
 |||
 | 요청 본문 | 없음 |
 
@@ -1159,9 +1159,9 @@ OData XML
 		</entry>
 	</feed>
 
-## 9\. 사용 데이터
-### 9\.1. 사용 데이터 가져오기
-#### 9\.1.1. 파일 업로드
+## 9. 사용 데이터
+### 9.1. 사용 데이터 가져오기
+#### 9.1.1. 파일 업로드
 이 섹션에서는 파일을 사용하여 사용 데이터를 업로드하는 방법을 보여 줍니다. 사용 데이터를 사용하여 이 API를 여러 번 호출할 수 있습니다. 모든 호출에 대한 모든 사용 데이터가 저장됩니다.
 
 | HTTP 메서드 | URI |
@@ -1171,10 +1171,10 @@ OData XML
 |	매개 변수 이름 |	유효한 값 |
 |:--------			|:--------								|
 |	modelId |	모델의 고유 식별자 |
-| filename | 카탈로그의 텍스트 식별자.<br>문자\(A-Z, a-z\), 숫자\(0-9\), 하이픈\(-\) 및 밑줄\(\_\)만 사용할 수 있습니다.<br>최대 길이: 50 |
-|	apiVersion | 1\.0 |
+| filename | 카탈로그의 텍스트 식별자.<br>문자(A-Z, a-z), 숫자(0-9), 하이픈(-) 및 밑줄(_)만 사용할 수 있습니다.<br>최대 길이: 50 |
+|	apiVersion | 1.0 |
 |||
-| 요청 본문 | 사용 데이터 형식:<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Name</th><th>필수</th><th>유형</th><th>설명</th></tr><tr><td>User Id</td><td>예</td><td>[A-z], [a-z], [0-9], [&#95;] &#40;밑줄&#41;, [-] &#40;대시&#41;</td><td>사용자의 고유 식별자</td></tr><tr><td>Item Id</td><td>예</td><td>[A-z], [a-z], [0-9], [_] &#40;밑줄&#41;, [-] &#40;대시&#41;<br> 최대 길이: 50</td><td>항목의 고유 식별자</td></tr><tr><td>Time</td><td>아니요</td><td>다음 형식의 날짜: YYYY/MM/DDTHH:MM:SS\(예: 2013/06/20T10:00:00\)</td><td>데이터의 시간</td></tr><tr><td>Event</td><td>아니요, 제공한 경우 날짜도 입력해야 함</td><td>다음 중 하나:<br>• Click<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>최대 파일 크기: 200MB<br><br>예:<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
+| 요청 본문 | 사용 데이터 형식:<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Name</th><th>필수</th><th>유형</th><th>설명</th></tr><tr><td>User Id</td><td>예</td><td>[A-z], [a-z], [0-9], [&#95;] &#40;밑줄&#41;, [-] &#40;대시&#41;</td><td>사용자의 고유 식별자</td></tr><tr><td>Item Id</td><td>예</td><td>[A-z], [a-z], [0-9], [_] &#40;밑줄&#41;, [-] &#40;대시&#41;<br> 최대 길이: 50</td><td>항목의 고유 식별자</td></tr><tr><td>Time</td><td>아니요</td><td>다음 형식의 날짜: YYYY/MM/DDTHH:MM:SS(예: 2013/06/20T10:00:00)</td><td>데이터의 시간</td></tr><tr><td>Event</td><td>아니요, 제공한 경우 날짜도 입력해야 함</td><td>다음 중 하나:<br>• Click<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>최대 파일 크기: 200MB<br><br>예:<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
 
 **응답**:
 
@@ -1209,7 +1209,7 @@ OData XML
 	</feed>
 
 
-#### 9\.1.2. 데이터 취득 사용
+#### 9.1.2. 데이터 취득 사용
 이 섹션에서는 일반적으로 웹 사이트에서 Azure 기계 학습 권장 사항에 실시간으로 이벤트를 전송하는 방법을 보여 줍니다.
 
 | HTTP 메서드 | URI |
@@ -1218,7 +1218,7 @@ OData XML
 
 |	매개 변수 이름 |	유효한 값 |
 |:--------			|:--------								|
-|	apiVersion | 1\.0 |
+|	apiVersion | 1.0 |
 |요청 본문| Event data entry for each event you want to send. SessionId 필드에서 같은 사용자 또는 브라우저 세션에 대해 같은 ID를 전송해야 합니다. 아래 이벤트 본문 샘플을 참조하세요.|
 
 
@@ -1315,7 +1315,7 @@ OData XML
 
 **응답**: HTTP 상태 코드: 200
 
-### 9\.2. 모델 사용 파일 나열
+### 9.2. 모델 사용 파일 나열
 모든 모델 사용 파일의 메타데이터를 검색합니다.
 
 | HTTP 메서드 | URI |
@@ -1325,7 +1325,7 @@ OData XML
 |	매개 변수 이름 |	유효한 값 |
 |:--------			|:--------								|
 |	forModelId |	모델의 고유 식별자 |
-|	apiVersion | 1\.0 |
+|	apiVersion | 1.0 |
 |||
 | 요청 본문 | 없음 |
 
@@ -1336,7 +1336,7 @@ HTTP 상태 코드: 200
 응답은 사용 파일당 하나의 항목을 포함합니다. 각 항목에는 다음과 같은 데이터가 있습니다.
 
 - `feed\entry\content\properties\Id` – 사용 파일 ID
-- `feed\entry\content\properties\Length` – 사용 파일 길이\(MB\)
+- `feed\entry\content\properties\Length` – 사용 파일 길이(MB)
 - `feed\entry\content\properties\DateModified` – 사용 파일이 만들어진 날짜
 - `feed\entry\content\properties\UseInModel` – 사용 파일이 모델에서 사용되는지 여부
 
@@ -1379,7 +1379,7 @@ OData XML
 	</entry>
 </feed>
 
-### 9\.3. 사용 통계 가져오기
+### 9.3. 사용 통계 가져오기
 사용 통계를 가져옵니다.
 
 | HTTP 메서드 | URI |
@@ -1391,8 +1391,8 @@ OData XML
 | modelId |	모델의 고유 식별자 |
 | startDate |	시작 날짜 형식: yyyy/MM/ddTHH:mm:ss |
 | endDate |	종료 날짜 형식: yyyy/MM/ddTHH:mm:ss |
-| eventTypes |	쉼표로 구분된 이벤트 유형 문자열이거나 null\(모든 이벤트를 가져오려는 경우\) |
-| apiVersion | 1\.0 |
+| eventTypes |	쉼표로 구분된 이벤트 유형 문자열이거나 null(모든 이벤트를 가져오려는 경우) |
+| apiVersion | 1.0 |
 |||
 | 요청 본문 | 없음 |
 
@@ -1402,7 +1402,7 @@ HTTP 상태 코드: 200
 
 키/값 요소의 컬렉션입니다. 각 컬렉션은 시간별로 그룹화된 특정 이벤트 유형에 대한 이벤트 합계를 포함합니다.
 
-- `feed\entry[i]\content\properties\Key` – 시간\(시간별로 그룹화\) 및 이벤트 유형 포함
+- `feed\entry[i]\content\properties\Key` – 시간(시간별로 그룹화) 및 이벤트 유형 포함
 - `feed\entry[i]\content\properties\Value` - 총 이벤트 수
 
 OData XML
@@ -1464,7 +1464,7 @@ OData XML
 	</entry>
 	</feed>
 
-### 9\.4. 사용 파일 샘플 가져오기
+### 9.4. 사용 파일 샘플 가져오기
 사용 파일 내용의 처음 2KB를 검색합니다.
 
 | HTTP 메서드 | URI |
@@ -1475,7 +1475,7 @@ OData XML
 |:--------			|:--------								|
 | modelId |	모델의 고유 식별자 |
 | fileId |	모델 사용 파일의 고유 식별자 |
-| apiVersion | 1\.0 |
+| apiVersion | 1.0 |
 |||
 | 요청 본문 | 없음 |
 
@@ -1503,7 +1503,7 @@ Response is returned in raw text format:
 </pre>
 
 
-### 9\.5. 모델 사용 파일 가져오기
+### 9.5. 모델 사용 파일 가져오기
 사용 파일의 전체 내용을 검색합니다.
 
 | HTTP 메서드 | URI |
@@ -1515,7 +1515,7 @@ Response is returned in raw text format:
 | mId |	모델의 고유 식별자 |
 | fid |	모델 사용 파일의 고유 식별자 |
 | 다운로드 | 1 |
-| apiVersion | 1\.0 |
+| apiVersion | 1.0 |
 |||
 | 요청 본문 | 없음 |
 
@@ -1559,7 +1559,7 @@ HTTP 상태 코드: 200
 144717,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
 </pre>
 
-### 9\.6. 사용 파일 삭제
+### 9.6. 사용 파일 삭제
 지정한 모델 사용 파일을 삭제합니다.
 
 | HTTP 메서드 | URI |
@@ -1570,7 +1570,7 @@ HTTP 상태 코드: 200
 |:--------			|:--------								|
 | modelId |	모델의 고유 식별자 |
 | fileId | 삭제할 파일의 고유 식별자 |
-| apiVersion | 1\.0 |
+| apiVersion | 1.0 |
 |||
 | 요청 본문 | 없음 |
 
@@ -1579,7 +1579,7 @@ HTTP 상태 코드: 200
 HTTP 상태 코드: 200
 
 
-### 9\.7. 모든 사용 파일 삭제
+### 9.7. 모든 사용 파일 삭제
 모든 모델 사용 파일을 삭제합니다.
 
 | HTTP 메서드 | URI |
@@ -1589,7 +1589,7 @@ HTTP 상태 코드: 200
 | 매개 변수 이름 |	유효한 값 |
 |:--------			|:--------								|
 | modelId |	모델의 고유 식별자 |
-| apiVersion | 1\.0 |
+| apiVersion | 1.0 |
 |||
 | 요청 본문 | 없음 |
 
@@ -1597,10 +1597,10 @@ HTTP 상태 코드: 200
 
 HTTP 상태 코드: 200
 
-## 10\. 기능
-이 섹션에서는 가져온 기능과 해당 값, 해당 순위 및 이 순위가 할당된 시점 등 기능 정보를 검색하는 방법을 보여 줍니다. 기능은 카탈로그 데이터의 일부로 가져오며, 순위 빌드가 완료되면 해당 순위가 연결됩니다. 기능 순위는 사용 데이터의 패턴 및 항목 유형에 따라 변경될 수 있습니다. 그러나 일관된 사용/항목을 위해 순위는 조금만 변동되어야 합니다. 기능의 순위는 음수가 아닌 숫자입니다. 숫자 0은 기능의 순위가 매겨지지 않았음을 의미합니다\(첫 번째 순위 빌드가 완료되기 전에 이 API를 호출한 경우에 발생\). 순위가 지정된 날짜를 점수 유효 시간이라고 합니다.
+## 10. 기능
+이 섹션에서는 가져온 기능과 해당 값, 해당 순위 및 이 순위가 할당된 시점 등 기능 정보를 검색하는 방법을 보여 줍니다. 기능은 카탈로그 데이터의 일부로 가져오며, 순위 빌드가 완료되면 해당 순위가 연결됩니다. 기능 순위는 사용 데이터의 패턴 및 항목 유형에 따라 변경될 수 있습니다. 그러나 일관된 사용/항목을 위해 순위는 조금만 변동되어야 합니다. 기능의 순위는 음수가 아닌 숫자입니다. 숫자 0은 기능의 순위가 매겨지지 않았음을 의미합니다(첫 번째 순위 빌드가 완료되기 전에 이 API를 호출한 경우에 발생). 순위가 지정된 날짜를 점수 유효 시간이라고 합니다.
 
-### 10\.1. 기능 정보 가져오기\(마지막 순위 빌드\)
+### 10.1. 기능 정보 가져오기(마지막 순위 빌드)
 마지막으로 성공한 순위 빌드에 대해 순위를 포함한 기능 정보를 검색합니다.
 
 | HTTP 메서드 | URI |
@@ -1611,7 +1611,7 @@ HTTP 상태 코드: 200
 |:--------			|:--------								|
 | modelId |	모델의 고유 식별자 |
 |samplingSize| 카탈로그에 있는 데이터에 따라 각 기능에 대해 포함할 값 수 <br/>가능한 값은 다음과 같습니다.<br> -1 - 모든 샘플 <br>0 - 샘플링 없음 <br>N - 각 기능 이름별로 N개의 샘플 반환|
-| apiVersion | 1\.0 |
+| apiVersion | 1.0 |
 |||
 | 요청 본문 | 없음 |
 
@@ -1623,8 +1623,8 @@ HTTP 상태 코드: 200
 응답은 기능 정보 항목의 목록을 포함합니다. 각 항목에는 다음이 포함됩니다.
 
 - `feed/entry/content/m:properties/d:Name` - 기능 이름
-- `feed/entry/content/m:properties/d:RankUpdateDate` - 이 기능에 순위가 할당된 날짜\(점수 유효 시간이라고도 함\). 과거 날짜\('0001-01-01T00:00:00'\)는 순위 빌드가 수행되지 않았음을 나타냅니다.
-- `feed/entry/content/m:properties/d:Rank` - 기능 순위\(부동 소수점\). 2.0 이상의 순위가 유용한 기능으로 간주됩니다.
+- `feed/entry/content/m:properties/d:RankUpdateDate` - 이 기능에 순위가 할당된 날짜(점수 유효 시간이라고도 함). 과거 날짜('0001-01-01T00:00:00')는 순위 빌드가 수행되지 않았음을 나타냅니다.
+- `feed/entry/content/m:properties/d:Rank` - 기능 순위(부동 소수점). 2.0 이상의 순위가 유용한 기능으로 간주됩니다.
 - `feed/entry/content/m:properties/d:SampleValues` - 요청한 샘플링 크기까지의 쉼표로 구분된 값 목록
 
 OData XML
@@ -1681,7 +1681,7 @@ OData XML
 </feed>
 
 
-### 10\.2. 기능 정보 가져오기\(특정 순위 빌드\)
+### 10.2. 기능 정보 가져오기(특정 순위 빌드)
 
 특정 순위 빌드에 대해 순위를 포함한 기능 정보를 검색합니다.
 
@@ -1694,7 +1694,7 @@ OData XML
 | modelId |	모델의 고유 식별자 |
 |samplingSize| 카탈로그에 있는 데이터에 따라 각 기능에 대해 포함할 값 수<br/> 가능한 값은 다음과 같습니다.<br> -1 - 모든 샘플 <br>0 - 샘플링 없음 <br>N - 각 기능 이름별로 N개의 샘플 반환|
 |rankBuildId| 순위 빌드의 고유 식별자 또는 마지막 순위 빌드의 경우 -1|
-| apiVersion | 1\.0 |
+| apiVersion | 1.0 |
 |||
 | 요청 본문 | 없음 |
 
@@ -1706,8 +1706,8 @@ HTTP 상태 코드: 200
 응답은 기능 정보 항목의 목록을 포함합니다. 각 항목에는 다음이 포함됩니다.
 
 - `feed/entry/content/m:properties/d:Name` - 기능 이름
-- `feed/entry/content/m:properties/d:RankUpdateDate` - 이 기능에 순위가 할당된 날짜\(점수 유효 시간이라고도 함\). 과거 날짜\('0001-01-01T00:00:00'\)는 순위 빌드가 수행되지 않았음을 나타냅니다.
-- `feed/entry/content/m:properties/d:Rank` - 기능 순위\(부동 소수점\). 2.0 이상의 순위가 유용한 기능으로 간주됩니다.
+- `feed/entry/content/m:properties/d:RankUpdateDate` - 이 기능에 순위가 할당된 날짜(점수 유효 시간이라고도 함). 과거 날짜('0001-01-01T00:00:00')는 순위 빌드가 수행되지 않았음을 나타냅니다.
+- `feed/entry/content/m:properties/d:Rank` - 기능 순위(부동 소수점). 2.0 이상의 순위가 유용한 기능으로 간주됩니다.
 - `feed/entry/content/m:properties/d:SampleValues` - 요청한 샘플링 크기까지의 쉼표로 구분된 값 목록
 
 OData
@@ -1764,38 +1764,38 @@ OData
 	</feed>
 
 
-## 11\. 빌드
+## 11. 빌드
 
-  이 섹션에서는 빌드와 관련된 다른 API를 설명합니다. 세 가지 유형의 빌드\(권장 사항 빌드, 순위 빌드 및 FBT 빌드\)가 있습니다.
+  이 섹션에서는 빌드와 관련된 다른 API를 설명합니다. 세 가지 유형의 빌드(권장 사항 빌드, 순위 빌드 및 FBT 빌드)가 있습니다.
 
 권장 빌드는 예측에 사용되는 권장 사항 모델을 생성하는 데 사용됩니다.
 
 순위 빌드는 기능의 유용성에 대해 알아볼 수 있는 기술 빌드입니다. 일반적으로 기능과 관련된 권장 사항 모델에 대한 최상의 결과를 얻으려면 다음 단계를 수행해야 합니다.
- - 순위 빌드를 트리거\(기능 점수가 안정적이지 않은 경우\)하고 기능 점수를 얻을 때까지 기다립니다.
+ - 순위 빌드를 트리거(기능 점수가 안정적이지 않은 경우)하고 기능 점수를 얻을 때까지 기다립니다.
  - [기능 정보 가져오기](#101-get-features-info-for-last-rank-build) API를 호출하여 기능의 순위를 검색합니다.
  - 다음 매개 변수를 사용하여 권장 사항 빌드를 구성합니다.
 	- `useFeatureInModel` - True로 설정합니다.
-	- `ModelingFeatureList` - 점수가 2.0 이상인 기능의 쉼표로 구분된 목록으로 설정합니다\(이전 단계에서 검색한 순위에 따름\).
+	- `ModelingFeatureList` - 점수가 2.0 이상인 기능의 쉼표로 구분된 목록으로 설정합니다(이전 단계에서 검색한 순위에 따름).
 	- `AllowColdItemPlacement` - True로 설정합니다.
-	- 필요한 경우 `EnableFeatureCorrelation`을 True로 설정하고 `ReasoningFeatureList`를 설명에 사용할 기능 목록\(일반적으로 모델링에 사용된 기능 목록 또는 하위 목록과 동일\)으로 설정합니다. - 구성된 매개 변수를 사용하여 권장 사항 빌드를 트리거합니다.
+	- 필요한 경우 `EnableFeatureCorrelation`을 True로 설정하고 `ReasoningFeatureList`를 설명에 사용할 기능 목록(일반적으로 모델링에 사용된 기능 목록 또는 하위 목록과 동일)으로 설정합니다. - 구성된 매개 변수를 사용하여 권장 사항 빌드를 트리거합니다.
 
-참고: 매개 변수를 구성하지 않은 경우\(예: 매개 변수 없이 권장 사항 빌드를 호출한 경우\) 또는 기능 사용을 명시적으로 해제하지 않은 경우\(예: `UseFeatureInModel`을 False로 설정\) 순위 빌드가 있으면 기능 관련 매개 변수가 위에 설명된 값으로 자동으로 설정됩니다.
+참고: 매개 변수를 구성하지 않은 경우(예: 매개 변수 없이 권장 사항 빌드를 호출한 경우) 또는 기능 사용을 명시적으로 해제하지 않은 경우(예: `UseFeatureInModel`을 False로 설정) 순위 빌드가 있으면 기능 관련 매개 변수가 위에 설명된 값으로 자동으로 설정됩니다.
 
 같은 모델에 대해 순위 빌드와 권장 사항 빌드를 동시에 실행하는 것에 대한 제한 사항은 없습니다. 그러나 같은 모델에서 동일한 유형의 두 빌드를 동시에 실행할 수는 없습니다.
 
-FBT\(자주 함께 구매됨\) 빌드는 유형이 다른\(같은 유형: 책, 영화, 일부 음식, 패션, 다른 유형: 컴퓨터와 장치, 크로스 도메인, 고도로 다양\) 카탈로그에 적합한 “보수적인" 추천이라고도 하는 다른 권장 사항 알고리즘입니다.
+FBT(자주 함께 구매됨) 빌드는 유형이 다른(같은 유형: 책, 영화, 일부 음식, 패션, 다른 유형: 컴퓨터와 장치, 크로스 도메인, 고도로 다양) 카탈로그에 적합한 “보수적인" 추천이라고도 하는 다른 권장 사항 알고리즘입니다.
 
 참고: 업로드한 사용 파일에 선택적 필드 "event type"이 포함된 경우에는 FBT 모델링에 "Purchase" 이벤트만 사용됩니다. 이벤트 유형이 제공되지 않은 경우에는 모든 이벤트가 모델링됩니다.
 
 
-#### 11\.1 빌드 매개 변수
+#### 11.1 빌드 매개 변수
 
-각 빌드 형식은 매개 변수 집합\(아래 설명\)을 통해 구성될 수 있습니다. 매개 변수를 구성하지 않으면 빌드를 트리거할 때 존재한 정보에 따라 매개 변수 값이 자동으로 할당됩니다.
+각 빌드 형식은 매개 변수 집합(아래 설명)을 통해 구성될 수 있습니다. 매개 변수를 구성하지 않으면 빌드를 트리거할 때 존재한 정보에 따라 매개 변수 값이 자동으로 할당됩니다.
 
-##### 11\.1.1. 사용 콘덴서
+##### 11.1.1. 사용 콘덴서
 사용 포인트가 거의 없는 사용자 또는 항목은 정보보다 노이즈를 더 많이 포함할 수 있습니다. 시스템에서는 모델에서 사용할 사용자/항목당 최소 사용 포인트 수를 예측합니다. 이 수는 항목의 경우 ItemCutoffLowerBound 및 ItemCutoffUpperBound 매개 변수로 정의되는 범위 내에 속하며, 사용자의 경우 UserCutOffLowerBound 및 UserCutoffUpperBound 매개 변수로 정의되는 범위 내에 속합니다. 항목 또는 사용자에 대한 콘덴서 효과는 해당 경계 중 하나 이상을 0으로 설정하여 최소화할 수 있습니다.
 
-##### 11\.1.2. 순위 빌드 매개 변수
+##### 11.1.2. 순위 빌드 매개 변수
 
 아래 표에서는 순위 빌드에 대한 빌드 매개 변수를 설명합니다.
 
@@ -1803,40 +1803,40 @@ FBT\(자주 함께 구매됨\) 빌드는 유형이 다른\(같은 유형: 책, �
 |:-----|:----|:----|:---|
 |NumberOfModelIterations | 모델에서 수행하는 반복 횟수는 전체 계산 시간과 모델 정확도로 반영됩니다. 숫자가 높을수록 정확도는 높지만 계산 시간이 더 오래 걸립니다.| Integer | 10-50 |
 | NumberOfModelDimensions | 차원 수는 모델이 데이터 내에서 찾으려는 '기능' 수와 관련이 있습니다. 차원 수를 늘리면 결과를 더 작은 클러스터로 미세 조정할 수 있습니다. 그러나 차원 수가 너무 많으면 모델이 항목 간의 상관 관계를 찾지 못하게 됩니다. | Integer | 10-40 |
-|ItemCutOffLowerBound| 콘덴서의 항목 하한을 정의합니다. 위의 사용 콘덴서를 참조하세요. | Integer | 2 이상\(0 - 콘덴서 사용 안 함\) |
-|ItemCutOffUpperBound| 콘덴서의 항목 상한을 정의합니다. 위의 사용 콘덴서를 참조하세요. | Integer | 2 이상\(0 - 콘덴서 사용 안 함\) |
-|UserCutOffLowerBound| 콘덴서의 사용자 하한을 정의합니다. 위의 사용 콘덴서를 참조하세요. | Integer | 2 이상\(0 - 콘덴서 사용 안 함\) |
-|UserCutOffUpperBound| 콘덴서의 사용자 상한을 정의합니다. 위의 사용 콘덴서를 참조하세요. | Integer | 2 이상\(0 - 콘덴서 사용 안 함\) |
+|ItemCutOffLowerBound| 콘덴서의 항목 하한을 정의합니다. 위의 사용 콘덴서를 참조하세요. | Integer | 2 이상(0 - 콘덴서 사용 안 함) |
+|ItemCutOffUpperBound| 콘덴서의 항목 상한을 정의합니다. 위의 사용 콘덴서를 참조하세요. | Integer | 2 이상(0 - 콘덴서 사용 안 함) |
+|UserCutOffLowerBound| 콘덴서의 사용자 하한을 정의합니다. 위의 사용 콘덴서를 참조하세요. | Integer | 2 이상(0 - 콘덴서 사용 안 함) |
+|UserCutOffUpperBound| 콘덴서의 사용자 상한을 정의합니다. 위의 사용 콘덴서를 참조하세요. | Integer | 2 이상(0 - 콘덴서 사용 안 함) |
 
-##### 11\.1.3. 권장 사항 빌드 매개 변수
+##### 11.1.3. 권장 사항 빌드 매개 변수
 아래 표에서는 권장 사항 빌드에 대한 빌드 매개 변수를 설명합니다.
 
 |키|설명|형식|유효한 값|
 |:-----|:----|:----|:---|
 |NumberOfModelIterations | 모델에서 수행하는 반복 횟수는 전체 계산 시간과 모델 정확도로 반영됩니다. 숫자가 높을수록 정확도는 높지만 계산 시간이 더 오래 걸립니다.| Integer | 10-50 |
 | NumberOfModelDimensions | 차원 수는 모델이 데이터 내에서 찾으려는 '기능' 수와 관련이 있습니다. 차원 수를 늘리면 결과를 더 작은 클러스터로 미세 조정할 수 있습니다. 그러나 차원 수가 너무 많으면 모델이 항목 간의 상관 관계를 찾지 못하게 됩니다. | Integer | 10-40 |
-|ItemCutOffLowerBound| 콘덴서의 항목 하한을 정의합니다. 위의 사용 콘덴서를 참조하세요. | Integer | 2 이상\(0 - 콘덴서 사용 안 함\) |
-|ItemCutOffUpperBound| 콘덴서의 항목 상한을 정의합니다. 위의 사용 콘덴서를 참조하세요. | Integer | 2 이상\(0 - 콘덴서 사용 안 함\) |
-|UserCutOffLowerBound| 콘덴서의 사용자 하한을 정의합니다. 위의 사용 콘덴서를 참조하세요. | Integer | 2 이상\(0 - 콘덴서 사용 안 함\) |
-|UserCutOffUpperBound| 콘덴서의 사용자 상한을 정의합니다. 위의 사용 콘덴서를 참조하세요. | Integer | 2 이상\(0 - 콘덴서 사용 안 함\) |
+|ItemCutOffLowerBound| 콘덴서의 항목 하한을 정의합니다. 위의 사용 콘덴서를 참조하세요. | Integer | 2 이상(0 - 콘덴서 사용 안 함) |
+|ItemCutOffUpperBound| 콘덴서의 항목 상한을 정의합니다. 위의 사용 콘덴서를 참조하세요. | Integer | 2 이상(0 - 콘덴서 사용 안 함) |
+|UserCutOffLowerBound| 콘덴서의 사용자 하한을 정의합니다. 위의 사용 콘덴서를 참조하세요. | Integer | 2 이상(0 - 콘덴서 사용 안 함) |
+|UserCutOffUpperBound| 콘덴서의 사용자 상한을 정의합니다. 위의 사용 콘덴서를 참조하세요. | Integer | 2 이상(0 - 콘덴서 사용 안 함) |
 | 설명 | 빌드 설명 | String | 모든 텍스트, 최대 512자 |
 | EnableModelingInsights | 권장 사항 모델에 대한 메트릭을 계산할 수 있습니다. | Boolean | True/False |
 | UseFeaturesInModel | 기능을 사용하여 권장 사항 모델을 개선할 수 있는지 나타냅니다. | Boolean | True/False |
 | ModelingFeatureList | 권장 사항을 개선하기 위해 권장 사항 빌드에서 사용할 기능 이름의 쉼표로 구분된 목록입니다. | String | 기능 이름, 최대 512자 |
 | AllowColdItemPlacement | 권장 사항에서 기능 유사성을 통해 콜드 항목을 푸시해야 하는지 나타냅니다. | Boolean | True/False |
 | EnableFeatureCorrelation | 추론에서 기능을 사용할 수 있는지 나타냅니다. | Boolean | True/False |
-| ReasoningFeatureList | 추론 문장\(예: 권장 사항 설명\)에 사용할 기능 이름의 쉼표로 구분된 목록입니다. | String | 기능 이름, 최대 512자 |
+| ReasoningFeatureList | 추론 문장(예: 권장 사항 설명)에 사용할 기능 이름의 쉼표로 구분된 목록입니다. | String | 기능 이름, 최대 512자 |
 
-##### 11\.1.4. FBT 빌드 매개 변수
+##### 11.1.4. FBT 빌드 매개 변수
 아래 표에서는 권장 사항 빌드에 대한 빌드 매개 변수를 설명합니다.
 
-|키|설명|형식|유효한 값\(기본값\)|
+|키|설명|형식|유효한 값(기본값)|
 |:-----|:----|:----|:---|
-|FbtSupportThreshold | 모델의 보수적인 정도입니다. 모델링 시 고려할 항목의 공동 발생 횟수입니다.| Integer | 3-50 \(6\) |
-|FbtMaxItemSetSize | FBT 집합의 항목 수를 제한합니다.| Integer | 2-3\(2\) |
-|FbtMinimalScore | 반환된 결과에 포함하기 위해 필요한 FBT 집합의 최소 점수입니다. 높을수록 좋습니다.| Double | 0 이상\(0\) |
+|FbtSupportThreshold | 모델의 보수적인 정도입니다. 모델링 시 고려할 항목의 공동 발생 횟수입니다.| Integer | 3-50 (6) |
+|FbtMaxItemSetSize | FBT 집합의 항목 수를 제한합니다.| Integer | 2-3(2) |
+|FbtMinimalScore | 반환된 결과에 포함하기 위해 필요한 FBT 집합의 최소 점수입니다. 높을수록 좋습니다.| Double | 0 이상(0) |
 
-### 11\.2. 권장 사항 빌드 트리거
+### 11.2. 권장 사항 빌드 트리거
 
   기본적으로 이 API는 권장 사항 모델 빌드를 트리거합니다. 기능의 점수를 매기기 위해 순위 빌드를 트리거하려면 빌드 형식 매개 변수가 있는 빌드 API 변형을 사용해야 합니다.
 
@@ -1849,7 +1849,7 @@ FBT\(자주 함께 구매됨\) 빌드는 유형이 다른\(같은 유형: 책, �
 |:--------			|:--------								|
 | modelId |	모델의 고유 식별자 |
 | userDescription | 카탈로그의 텍스트 식별자 공백을 사용하는 경우 대신 %20을 사용하여 인코드해야 합니다. 위 예제를 참조하세요.<br>최대 길이: 50 |
-| apiVersion | 1\.0 |
+| apiVersion | 1.0 |
 |||
 | 요청 본문 | 왼쪽이 비어 있으면 빌드가 기본 빌드 매개 변수로 실행됩니다.<br><br>빌드 매개 변수를 설정하려면 다음 샘플과 같이 매개 변수를 본문에 XML로 보내야 합니다. 매개 변수에 대한 설명은 "빌드 매개 변수" 섹션을 참조하세요.`<NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance><EnableModelingInsights>true</EnableModelingInsights><UseFeaturesInModel>false</UseFeaturesInModel><ModelingFeatureList>feature_name_1,feature_name_2,...</ModelingFeatureList><AllowColdItemPlacement>false</AllowColdItemPlacement><EnableFeatureCorrelation>false</EnableFeatureCorrelation><ReasoningFeatureList>feature_name_a,feature_name_b,...</ReasoningFeatureList></BuildParametersList>` |
 
@@ -1913,7 +1913,7 @@ OData XML
   	</entry>
 	</feed>
 
-### 11\.3. 빌드\(권장 사항, 순위 또는 FBT\) 트리거
+### 11.3. 빌드(권장 사항, 순위 또는 FBT) 트리거
 
 | HTTP 메서드 | URI |
 |:--------|:--------|
@@ -1924,7 +1924,7 @@ OData XML
 | modelId |	모델의 고유 식별자 |
 | userDescription | 카탈로그의 텍스트 식별자 공백을 사용하는 경우 대신 %20을 사용하여 인코드해야 합니다. 위 예제를 참조하세요.<br>최대 길이: 50 |
 | buildType | 호출할 빌드의 형식: <br/> - 권장 사항 빌드의 경우 'Recommendation' <br> - 순위 빌드의 경우 'Ranking' <br/> - FBT 빌드의 경우 'Fbt'
-| apiVersion | 1\.0 |
+| apiVersion | 1.0 |
 |||
 | 요청 본문 | 왼쪽이 비어 있으면 빌드가 기본 빌드 매개 변수로 실행됩니다.<br><br>빌드 매개 변수를 설정하려면 다음 샘플과 같이 매개 변수를 본문에 XML로 보내야 합니다. 매개 변수에 대한 설명은 "빌드 매개 변수" 섹션을 참조하세요.`<BuildParametersList><NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance></BuildParametersList>` |
 
@@ -1991,7 +1991,7 @@ OData XML
 
 
 
-### 11\.4. 모델의 빌드 상태 가져오기
+### 11.4. 모델의 빌드 상태 가져오기
 지정된 모델의 빌드 및 해당 상태를 검색합니다.
 
 | HTTP 메서드 | URI |
@@ -2003,7 +2003,7 @@ OData XML
 |:--------			|:--------								|
 |	modelId |	모델의 고유 식별자 |
 |	onlyLastBuild |	모델의 빌드 기록을 모두 반환할지 또는 최신 빌드의 상태만 반환할지를 나타냅니다. |
-|	apiVersion |	1\.0 |
+|	apiVersion |	1.0 |
 
 
 **응답**:
@@ -2015,12 +2015,12 @@ HTTP 상태 코드: 200
 - `feed/entry/content/properties/UserName` - 사용자의 이름
 - `feed/entry/content/properties/ModelName` - 모델의 이름
 - `feed/entry/content/properties/ModelId` – 모델의 고유 식별자
-- `feed/entry/content/properties/IsDeployed` – 빌드 배포 여부\(활성 빌드라고도 함\)
+- `feed/entry/content/properties/IsDeployed` – 빌드 배포 여부(활성 빌드라고도 함)
 - `feed/entry/content/properties/BuildId` – 빌드의 고유 식별자
 - `feed/entry/content/properties/BuildType` - 빌드의 형식
 - `feed/entry/content/properties/Status` – 빌드 상태 다음 중 하나일 수 있음: Error, Building, Queued, Cancelling, Cancelled, Success
-- `feed/entry/content/properties/StatusMessage` – 자세한 상태 메시지\(특정 상태에만 적용\)
-- `feed/entry/content/properties/Progress` – 빌드 진행률\(%\)
+- `feed/entry/content/properties/StatusMessage` – 자세한 상태 메시지(특정 상태에만 적용)
+- `feed/entry/content/properties/Progress` – 빌드 진행률(%)
 - `feed/entry/content/properties/StartTime` – 빌드 시작 시간
 - `feed/entry/content/properties/EndTime` – 빌드 종료 시간
 - `feed/entry/content/properties/ExecutionTime` – 빌드 기간
@@ -2067,7 +2067,7 @@ OData XML
 	</feed>
 
 
-### 11\.5. 빌드 상태 가져오기
+### 11.5. 빌드 상태 가져오기
 사용자의 모든 모델에 대한 빌드 상태를 검색합니다.
 
 | HTTP 메서드 | URI |
@@ -2078,7 +2078,7 @@ OData XML
 |	매개 변수 이름 |	유효한 값 |
 |:--------			|:--------								|
 |	onlyLastBuild |	모델의 빌드 기록을 모두 반환할지 또는 최신 빌드의 상태만 반환할지를 나타냅니다. |
-|	apiVersion |	1\.0 |
+|	apiVersion |	1.0 |
 
 
 **응답**:
@@ -2094,8 +2094,8 @@ HTTP 상태 코드: 200
 - `feed/entry/content/properties/BuildId` – 빌드의 고유 식별자
 - `feed/entry/content/properties/BuildType` - 빌드의 형식
 - `feed/entry/content/properties/Status` – 빌드 상태 다음 중 하나일 수 있음: Error, Building, Queued, Cancelled, Cancelling, Success
-- `feed/entry/content/properties/StatusMessage` – 자세한 상태 메시지\(특정 상태에만 적용\)
-- `feed/entry/content/properties/Progress` – 빌드 진행률\(%\)
+- `feed/entry/content/properties/StatusMessage` – 자세한 상태 메시지(특정 상태에만 적용)
+- `feed/entry/content/properties/Progress` – 빌드 진행률(%)
 - `feed/entry/content/properties/StartTime` – 빌드 시작 시간
 - `feed/entry/content/properties/EndTime` – 빌드 종료 시간
 - `feed/entry/content/properties/ExecutionTime` – 빌드 기간
@@ -2143,7 +2143,7 @@ OData XML
 	</feed>
 
 
-### 11\.6. 빌드 삭제
+### 11.6. 빌드 삭제
 빌드를 삭제합니다.
 
 참고: <br>활성 빌드는 삭제할 수 없습니다. 활성 빌드를 삭제하려면 먼저 모델을 다른 활성 빌드로 업데이트해야 합니다.<br>진행 중인 빌드는 삭제할 수 없습니다. 먼저 <strong>빌드 취소</strong>를 호출하여 빌드를 취소해야 합니다.
@@ -2155,13 +2155,13 @@ OData XML
 |	매개 변수 이름 |	유효한 값 |
 |:--------			|:--------								|
 | buildId | 빌드의 고유 식별자 |
-| apiVersion | 1\.0 |
+| apiVersion | 1.0 |
 
 **응답:**
 
 HTTP 상태 코드: 200
 
-### 11\.7. 빌드 취소
+### 11.7. 빌드 취소
 빌드 중 상태인 빌드를 취소합니다.
 
 | HTTP 메서드 | URI |
@@ -2171,13 +2171,13 @@ HTTP 상태 코드: 200
 |	매개 변수 이름 |	유효한 값 |
 |:--------			|:--------								|
 | buildId | 빌드의 고유 식별자 |
-| apiVersion | 1\.0 |
+| apiVersion | 1.0 |
 
 **응답:**
 
 HTTP 상태 코드: 200
 
-### 11\.8. 빌드 매개 변수 가져오기
+### 11.8. 빌드 매개 변수 가져오기
 빌드 매개 변수를 검색합니다.
 
 | HTTP 메서드 | URI |
@@ -2187,7 +2187,7 @@ HTTP 상태 코드: 200
 |	매개 변수 이름 |	유효한 값 |
 |:--------			|:--------								|
 | buildId | 빌드의 고유 식별자 |
-| apiVersion | 1\.0 |
+| apiVersion | 1.0 |
 
 **응답:**
 
@@ -2203,17 +2203,17 @@ HTTP 상태 코드: 200
 |:-----|:----|:----|:---|
 |NumberOfModelIterations | 모델에서 수행하는 반복 횟수는 전체 계산 시간과 모델 정확도로 반영됩니다. 숫자가 높을수록 정확도는 높지만 계산 시간이 더 오래 걸립니다.| Integer | 10-50 |
 | NumberOfModelDimensions | 차원 수는 모델이 데이터 내에서 찾으려는 '기능' 수와 관련이 있습니다. 차원 수를 늘리면 결과를 더 작은 클러스터로 미세 조정할 수 있습니다. 그러나 차원 수가 너무 많으면 모델이 항목 간의 상관 관계를 찾지 못하게 됩니다. | Integer | 10-40 |
-|ItemCutOffLowerBound| 콘덴서의 항목 하한을 정의합니다. 위의 사용 콘덴서를 참조하세요. | Integer | 2 이상\(0 - 콘덴서 사용 안 함\) |
-|ItemCutOffUpperBound| 콘덴서의 항목 상한을 정의합니다. 위의 사용 콘덴서를 참조하세요. | Integer | 2 이상\(0 - 콘덴서 사용 안 함\) |
-|UserCutOffLowerBound| 콘덴서의 사용자 하한을 정의합니다. 위의 사용 콘덴서를 참조하세요. | Integer | 2 이상\(0 - 콘덴서 사용 안 함\) |
-|UserCutOffUpperBound| 콘덴서의 사용자 상한을 정의합니다. 위의 사용 콘덴서를 참조하세요. | Integer | 2 이상\(0 - 콘덴서 사용 안 함\) |
+|ItemCutOffLowerBound| 콘덴서의 항목 하한을 정의합니다. 위의 사용 콘덴서를 참조하세요. | Integer | 2 이상(0 - 콘덴서 사용 안 함) |
+|ItemCutOffUpperBound| 콘덴서의 항목 상한을 정의합니다. 위의 사용 콘덴서를 참조하세요. | Integer | 2 이상(0 - 콘덴서 사용 안 함) |
+|UserCutOffLowerBound| 콘덴서의 사용자 하한을 정의합니다. 위의 사용 콘덴서를 참조하세요. | Integer | 2 이상(0 - 콘덴서 사용 안 함) |
+|UserCutOffUpperBound| 콘덴서의 사용자 상한을 정의합니다. 위의 사용 콘덴서를 참조하세요. | Integer | 2 이상(0 - 콘덴서 사용 안 함) |
 | 설명 | 빌드 설명 | String | 모든 텍스트, 최대 512자 |
 | EnableModelingInsights | 권장 사항 모델에 대한 메트릭을 계산할 수 있습니다. | Boolean | True/False |
 | UseFeaturesInModel | 기능을 사용하여 권장 사항 모델을 개선할 수 있는지 나타냅니다. | Boolean | True/False |
 | ModelingFeatureList | 권장 사항을 개선하기 위해 권장 사항 빌드에서 사용할 기능 이름의 쉼표로 구분된 목록입니다. | String | 기능 이름, 최대 512자 |
 | AllowColdItemPlacement | 권장 사항에서 기능 유사성을 통해 콜드 항목을 푸시해야 하는지 나타냅니다. | Boolean | True/False |
 | EnableFeatureCorrelation | 추론에서 기능을 사용할 수 있는지 나타냅니다. | Boolean | True/False |
-| ReasoningFeatureList | 추론 문장\(예: 권장 사항 설명\)에 사용할 기능 이름의 쉼표로 구분된 목록입니다. | String | 기능 이름, 최대 512자 |
+| ReasoningFeatureList | 추론 문장(예: 권장 사항 설명)에 사용할 기능 이름의 쉼표로 구분된 목록입니다. | String | 기능 이름, 최대 512자 |
 
 
 OData XML
@@ -2383,8 +2383,8 @@ OData XML
 		</entry>
 	</feed>
 
-## 12\. 권장 사항
-### 12\.1. 권장 사항 가져오기
+## 12. 권장 사항
+### 12.1. 권장 사항 가져오기
 
 활성 빌드 형식이 "Recommendation" 또는 "Fbt"인 권장 사항을 가져옵니다.
 
@@ -2398,7 +2398,7 @@ OData XML
 | itemIds | 권장할 항목의 쉼표로 구분된 목록입니다. <br>활성 빌드가 FBT 형식인 경우에는 항목을 하나만 보낼 수 있습니다. <br>최대 길이: 1024 |
 | numberOfResults | 필요한 결과 수 |
 | includeMetatadata | 나중에 사용, 항상 false |
-| apiVersion | 1\.0 |
+| apiVersion | 1.0 |
 
 **응답**:
 
@@ -2408,8 +2408,8 @@ HTTP 상태 코드: 200
 응답은 권장 항목당 하나의 항목을 포함합니다. 각 항목에는 다음 데이터가 있습니다.
  - `Feed\entry\content\properties\Id` – 권장 항목 ID
  - `Feed\entry\content\properties\Name` – 항목의 이름
- - `Feed\entry\content\properties\Rating` – 권장 사항의 순위\(숫자가 클수록 신뢰도가 높음\)
- - `Feed\entry\content\properties\Reasoning` – 권장 사항 추론\(예: 권장 사항 설명\)
+ - `Feed\entry\content\properties\Rating` – 권장 사항의 순위(숫자가 클수록 신뢰도가 높음)
+ - `Feed\entry\content\properties\Reasoning` – 권장 사항 추론(예: 권장 사항 설명)
 
 아래 예제 응답은 10개의 권장 항목을 포함합니다.
 
@@ -2564,7 +2564,7 @@ OData XML
  	 </entry>
 	</feed>
 
-### 12\.2. 권장 사항 가져오기\(특정 빌드\)
+### 12.2. 권장 사항 가져오기(특정 빌드)
 
 특정 빌드 형식 "Recommendation" 또는 "Fbt"의 권장 사항을 가져옵니다.
 
@@ -2579,7 +2579,7 @@ OData XML
 | numberOfResults | 필요한 결과 수 |
 | includeMetatadata | 나중에 사용, 항상 false
 | buildId | 이 권장 사항 요청에 사용할 빌드 ID |
-| apiVersion | 1\.0 |
+| apiVersion | 1.0 |
 
 **응답**:
 
@@ -2589,19 +2589,19 @@ HTTP 상태 코드: 200
 응답은 권장 항목당 하나의 항목을 포함합니다. 각 항목에는 다음 데이터가 있습니다.
  - `Feed\entry\content\properties\Id` – 권장 항목 ID
  - `Feed\entry\content\properties\Name` – 항목의 이름
- - `Feed\entry\content\properties\Rating` – 권장 사항의 순위\(숫자가 클수록 신뢰도가 높음\)
- - `Feed\entry\content\properties\Reasoning` – 권장 사항 추론\(예: 권장 사항 설명\)
+ - `Feed\entry\content\properties\Rating` – 권장 사항의 순위(숫자가 클수록 신뢰도가 높음)
+ - `Feed\entry\content\properties\Reasoning` – 권장 사항 추론(예: 권장 사항 설명)
 
-12\.1의 응답 예제 참조
+12.1의 응답 예제 참조
 
-## 13\. 알림
+## 13. 알림
 Azure 기계 학습 권장 사항에서는 시스템에서 영구적 오류가 발생한 경우 알림을 생성합니다. 다음과 같은 세 가지 유형의 알림이 있습니다.
  1. 빌드 오류 – 이 알림은 모든 빌드 오류에 대해 트리거됩니다.
  2. 데이터 취득 처리 오류 - 이 알림은 지난 5분간의 사용 이벤트 처리에서 모델당 오류가 100개가 넘는 경우 트리거됩니다.
  3. 권장 사항 소비 오류 - 이 알림은 지난 5분간의 권장 사항 요청 처리에서 모델당 오류가 100개가 넘는 경우 트리거됩니다.
 
 
-### 13\.1. 알림 가져오기
+### 13.1. 알림 가져오기
 모든 모델 또는 단일 모델에 대한 모든 알림을 검색합니다.
 
 | HTTP 메서드 | URI |
@@ -2612,7 +2612,7 @@ Azure 기계 학습 권장 사항에서는 시스템에서 영구적 오류가 �
 |	매개 변수 이름 |	유효한 값 |
 |:--------			|:--------								|
 | modelId | 선택적 매개 변수. 생략한 경우 모든 모델에 대한 모든 알림을 가져옵니다. <br>유효한 값: 모델의 고유 식별자|
-| apiVersion | 1\.0 |
+| apiVersion | 1.0 |
 |||
 | 요청 본문 | 없음 |
 
@@ -2653,7 +2653,7 @@ OData XML
 		</entry>
 	</feed>
 
-### 13\.2. 모델 알림 삭제
+### 13.2. 모델 알림 삭제
 모델에 대한 읽은 알림을 모두 삭제합니다.
 
 | HTTP 메서드 | URI |
@@ -2664,7 +2664,7 @@ OData XML
 |	매개 변수 이름 |	유효한 값 |
 |:--------			|:--------								|
 | modelId | 모델의 고유 식별자 |
-| apiVersion | 1\.0 |
+| apiVersion | 1.0 |
 |||
 | 요청 본문 | 없음 |
 
@@ -2672,7 +2672,7 @@ OData XML
 
 HTTP 상태 코드: 200
 
-### 13\.3. 사용자 알림 삭제
+### 13.3. 사용자 알림 삭제
 모든 모델에 대한 모든 알림을 삭제합니다.
 
 | HTTP 메서드 | URI |
@@ -2682,7 +2682,7 @@ HTTP 상태 코드: 200
 
 |	매개 변수 이름 |	유효한 값 |
 |:--------			|:--------								|
-| apiVersion | 1\.0 |
+| apiVersion | 1.0 |
 |||
 | 요청 본문 | 없음 |
 
@@ -2690,7 +2690,7 @@ HTTP 상태 코드: 200
 
 HTTP 상태 코드: 200
 
-## 14\. 법적 정보
+## 14. 법적 정보
 이 문서는 "있는 그대로" 제공됩니다. URL 및 기타 인터넷 웹 사이트 참조를 포함하여 본 문서에 명시된 정보 및 뷰는 통지 없이 변경될 수 있습니다.<br><br> 여기에서 설명하는 일부 예는 설명 목적으로만 제공되는 가상의 예이며, 어떠한 실제 사례와도 연관시킬 의도가 없으며 그렇게 유추해서도 안 됩니다.<br><br> 이 문서는 Microsoft 제품의 지적 소유권에 대한 법적 권한을 사용자에게 제공하지 않습니다. 이 문서는 내부 참조용으로만 복사 및 사용할 수 있습니다.<br><br> © 2015 Microsoft. All rights reserved.
 
 <!--HONumber=52-->

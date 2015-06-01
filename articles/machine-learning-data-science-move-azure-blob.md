@@ -106,10 +106,10 @@ Azure SDK에 제공되는 Python API를 사용하여 다음을 수행할 수 있
 
 다음 메서드를 사용하여 blob에 데이터를 업로드합니다.
  
-1. put\_block\_blob\_from\_path(지정된 경로의 파일 콘텐츠를 업로드)
-2. put\_block_blob\_from\_file(이미 열려 있는 파일/스트림의 콘텐츠를 업로드)
-3. put\_block\_blob\_from\_bytes(바이트 배열을 업로드)
-4. put\_block\_blob\_from\_text(지정된 인코딩을 사용하여 지정된 텍스트 값을 업로드)
+1. put_block_blob_from_path(지정된 경로의 파일 콘텐츠를 업로드)
+2. put_block_blob_from_file(이미 열려 있는 파일/스트림의 콘텐츠를 업로드)
+3. put_block_blob_from_bytes(바이트 배열을 업로드)
+4. put_block_blob_from_text(지정된 인코딩을 사용하여 지정된 텍스트 값을 업로드)
  
 다음은 로컬 파일을 컨테이너에 업로드하는 샘플 코드입니다.
 	
@@ -143,10 +143,10 @@ Azure SDK에 제공되는 Python API를 사용하여 다음을 수행할 수 있
 ###Blob에서 데이터 다운로드
 
 다음 메서드를 사용하여 blob에서 데이터를 다운로드합니다.
-1. get\_blob\_to\_path
-2. get\_blob\_to\_file
-3. get\_blob\_to\_bytes
-4. get\_blob\_to\_text 
+1. get_blob_to_path
+2. get_blob_to_file
+3. get_blob_to_bytes
+4. get_blob_to_text 
 
 데이터의 크기가 64MB를 초과할 경우 필요한 청크를 수행하는 메서드입니다. 
 
@@ -154,7 +154,7 @@ Azure SDK에 제공되는 Python API를 사용하여 다음을 수행할 수 있
 
 	blob_service.get_blob_to_path("<your_container_name>", "<your_blob_name>", "<your_local_file_name>")
 
-다음은 컨테이너의 모든 blob를 다운로드하는 샘플 코드입니다. 이 샘플 코드는 list\_blobs를 사용하여 컨테이너의 사용 가능한 blob 목록을 가져오고 로컬 디렉터리에 다운로드합니다. 
+다음은 컨테이너의 모든 blob를 다운로드하는 샘플 코드입니다. 이 샘플 코드는 list_blobs를 사용하여 컨테이너의 사용 가능한 blob 목록을 가져오고 로컬 디렉터리에 다운로드합니다. 
 
 	from azure.storage import BlobService
 	from os.path import join

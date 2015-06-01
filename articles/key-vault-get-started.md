@@ -18,7 +18,7 @@
 # Azure 키 자격 증명 모음 시작 #
 
 ## 소개  
-이 자습서를 사용하면 Azure 키 자격 증명 모음을 시작하는 데 도움이 되며, 현재 확정된 컨테이너\(자격 증명\)를 Azure에 만들고 Azure에 암호화 키와 비밀을 저장하고 관리합니다. Azure 응용 프로그램과 함께 사용할 수 있는 키 또는 암호를 포함하는 자격 증명 모음을 만드는 Windows PowerShell을 사용하는 과정을 안내합니다. 응용 프로그램이 수 해당 키 또는 암호를 사용할 수 있는 방법을 나타냅니다.
+이 자습서를 사용하면 Azure 키 자격 증명 모음을 시작하는 데 도움이 되며, 현재 확정된 컨테이너(자격 증명)를 Azure에 만들고 Azure에 암호화 키와 비밀을 저장하고 관리합니다. Azure 응용 프로그램과 함께 사용할 수 있는 키 또는 암호를 포함하는 자격 증명 모음을 만드는 Windows PowerShell을 사용하는 과정을 안내합니다. 응용 프로그램이 수 해당 키 또는 암호를 사용할 수 있는 방법을 나타냅니다.
 
 **예상 완료 시간:** 20분
 
@@ -37,7 +37,7 @@ Azure 키 자격 증명 모음에 대한 개요는 [Azure 키 자격 증명 모�
 - 이 자습서에서 만드는 키 또는 암호를 사용하여 구성되는 응용 프로그램입니다. 샘플 응용 프로그램은 [Microsoft 다운로드 센터](http://www.microsoft.com/ko-kr/download/details.aspx?id=45343)에서 사용할 수 있습니다. 자세한 내용은 해당 추가 정보 파일을 참조하세요.
 
 
-이 자습서는 Windows PowerShell 초보자용으로 설계되었지만, 모듈, cmdlet, 세션 등과 같은 기본 개념을 잘 알고 있다고 가정합니다. Windows PowerShell에 대한 자세한 내용은 [Windows PowerShell 시작](https://technet.microsoft.com/library/hh857337.aspx)\(영문\)을 참조하십시오.
+이 자습서는 Windows PowerShell 초보자용으로 설계되었지만, 모듈, cmdlet, 세션 등과 같은 기본 개념을 잘 알고 있다고 가정합니다. Windows PowerShell에 대한 자세한 내용은 [Windows PowerShell 시작](https://technet.microsoft.com/library/hh857337.aspx)(영문)을 참조하십시오.
 
 이 설명서에 나오는 cmdlet에 대한 자세한 도움말을 보려면 Get-Help cmdlet을 사용합니다.
 
@@ -154,7 +154,7 @@ Azure 계정은 이제 이 키 자격 증명 모음에서 모든 작업을 수�
 자격 증명 모음 키를 사용하는 응용 프로그램은 Azure Active Directory에서 토큰을 사용하여 인증해야 합니다. 이렇게 하려면 응용 프로그램의 소유자가 Azure Active Directory에 먼저 응용 프로그램을 등록해야 합니다. 등록 끝에 응용 프로그램 소유자는 다음 값을 가져옵니다.
 
 
--  **응용 프로그램 ID**\(클라이언트 ID라고도 함\) 및 **인증 키**\(공유 비밀이라고도 함\). 응용 프로그램은 토큰을 가져올 Azure Active Directory에 이 두 값 모두가 있어야 합니다. 응용 프로그램 구성 방식은 응용 프로그램에 따라 달라집니다. 키 자격 증명 모음 샘플 응용 프로그램의 경우, 응용 프로그램 소유자는 app.config 파일에서 이러한 값을 설정합니다.
+-  **응용 프로그램 ID**(클라이언트 ID라고도 함) 및 **인증 키**(공유 비밀이라고도 함). 응용 프로그램은 토큰을 가져올 Azure Active Directory에 이 두 값 모두가 있어야 합니다. 응용 프로그램 구성 방식은 응용 프로그램에 따라 달라집니다. 키 자격 증명 모음 샘플 응용 프로그램의 경우, 응용 프로그램 소유자는 app.config 파일에서 이러한 값을 설정합니다.
 
 
 
@@ -165,11 +165,11 @@ Azure Active Directory에 응용 프로그램을 등록하려면:
 
 3. **APPLICATIONS**를 클릭합니다. 디렉터리에 추가한 앱이 없는 경우,이 페이지는 **앱 추가** 링크만을 표시합니다. 링크를 클릭하거나 명령 모음에서 **추가**를 클릭할 수 있습니다.
 4.	**응용 프로그램 추가** 마법사에서 **무엇을 하고 싶나요?** 페이지를 클릭하고, **조직에서 개발 중인 응용 프로그램 추가**를 클릭합니다.
-5.	**응용 프로그램에 대해 알려주세요** 페이지에서, 응용 프로그램 이름을 지정하고 **웹 응용 프로그램 및/또는 웹 API** \(기본값\)을 선택합니다. 다음 아이콘을 클릭합니다.
-6.	**앱 속성** 페이지에서 웹 응용 프로그램에 대한 **로그인 URL** 및 **앱 ID URI**를 지정합니다. 응용 프로그램에 이러한 값이 없는 경우이 단계에서 만들 수 있습니다\(예를 들어, 두 상자에 대해 http://test1.contoso.com를 지정할 수 있음\). 이러한 사이트가 존재하는 지가 중요하지 않습니다. 사용자 디렉토리의 각 응용 프로그램에 대해 각 응용 프로그램의 앱 ID URI가 다르다는 것이 중요합니다. 디렉터리는 이 문자열을 사용하여 앱을 식별합니다.
+5.	**응용 프로그램에 대해 알려주세요** 페이지에서, 응용 프로그램 이름을 지정하고 **웹 응용 프로그램 및/또는 웹 API** (기본값)을 선택합니다. 다음 아이콘을 클릭합니다.
+6.	**앱 속성** 페이지에서 웹 응용 프로그램에 대한 **로그인 URL** 및 **앱 ID URI**를 지정합니다. 응용 프로그램에 이러한 값이 없는 경우이 단계에서 만들 수 있습니다(예를 들어, 두 상자에 대해 http://test1.contoso.com를 지정할 수 있음). 이러한 사이트가 존재하는 지가 중요하지 않습니다. 사용자 디렉토리의 각 응용 프로그램에 대해 각 응용 프로그램의 앱 ID URI가 다르다는 것이 중요합니다. 디렉터리는 이 문자열을 사용하여 앱을 식별합니다.
 7.	마법사에서 변경 내용을 저장하려면 전체 아이콘을 클릭합니다.
 8.	빠른 시작 페이지에서 **CONFIGURE**를 클릭합니다. 
-9.	**키** 섹션으로 스크롤하고 기간을 선택한 다음 **저장**을 클릭합니다. 페이지가 새로 고쳐지고 이제 키 값을 표시합니다. 이 키 값 및 **클라이언트 ID**가 있는 응용 프로그램을 구성해야 합니다. \(이 구성에 대한 지침은 응용 프로그램에 특정된 것입니다.\)
+9.	**키** 섹션으로 스크롤하고 기간을 선택한 다음 **저장**을 클릭합니다. 페이지가 새로 고쳐지고 이제 키 값을 표시합니다. 이 키 값 및 **클라이언트 ID**가 있는 응용 프로그램을 구성해야 합니다. (이 구성에 대한 지침은 응용 프로그램에 특정된 것입니다.)
 10.	사용자 자격 증명 모음에 사용 권한을 설정하려면 다음 단계에서 사용하는 이 페이지에서 클라이언트 ID 값을 복사 합니다.
 
 
@@ -186,9 +186,9 @@ Azure Active Directory에 응용 프로그램을 등록하려면:
 
 
 
-## <a id="HSM"></a>하드웨어 보안 모듈\(HSM\)을 사용하려는 경우 ##
+## <a id="HSM"></a>하드웨어 보안 모듈(HSM)을 사용하려는 경우 ##
 
-추가된 보증을 위해, HSM 경계를 절대로 떠나지 않는 하드웨어 보안 모듈\(HSMs\)에서 키를 가져오거나 생성할 수 있습니다. HSM은 FIPS 140-2 Level 2로 인증됩니다. 이 요구 사항이 사용자에게 적용되지 않는 경우, 이 섹션을 건너뛰고 [키 자격 증명 모음 및 연결된 키와 암호 삭제](#delete)로 이동합니다.
+추가된 보증을 위해, HSM 경계를 절대로 떠나지 않는 하드웨어 보안 모듈(HSMs)에서 키를 가져오거나 생성할 수 있습니다. HSM은 FIPS 140-2 Level 2로 인증됩니다. 이 요구 사항이 사용자에게 적용되지 않는 경우, 이 섹션을 건너뛰고 [키 자격 증명 모음 및 연결된 키와 암호 삭제](#delete)로 이동합니다.
 
 이러한 HSM 보호되는 키를 만들려면, [HSM 보호되는 키를 지원하는 자격 증명 모음 구독](../../../pricing/free-trial)이 있어야 합니다.
 
@@ -197,7 +197,7 @@ Azure Active Directory에 응용 프로그램을 등록하려면:
 
 	New-AzureKeyVault -VaultName 'ContosoKeyVaultHSM' -ResourceGroupName 'ContosoResourceGroup' -Location 'East Asia' -SKU 'Premium'
 
-이 자격 증명이 모음에 소프트웨어 보호 키\(이전에 표시된 대로\)와 HSM 보호되는 키를 추가할 수 있습니다. HSM으로 보호되는 키를 만들려면, 대상 매개 변수를 'HSM'으로 설정합니다.
+이 자격 증명이 모음에 소프트웨어 보호 키(이전에 표시된 대로)와 HSM 보호되는 키를 추가할 수 있습니다. HSM으로 보호되는 키를 만들려면, 대상 매개 변수를 'HSM'으로 설정합니다.
 
 	$key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMKey' -Destination 'HSM'
 
@@ -205,7 +205,7 @@ Azure Active Directory에 응용 프로그램을 등록하려면:
 
 	$key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMKey' -KeyFilePath 'c:\softkey.pfx' -KeyFilePassword $securepfxpwd -Destination 'HSM'
 
-다음 명령은 "bring your own key"\(BYOK\) 패키지를 가져옵니다. 이렇게 하면 로컬 HSM에 키를 생성하고 키가 HSM 경계를 벗어나지 않고 이를 키 자격 증명 모음 서비스의 HSM에 전달합니다.
+다음 명령은 "bring your own key"(BYOK) 패키지를 가져옵니다. 이렇게 하면 로컬 HSM에 키를 생성하고 키가 HSM 경계를 벗어나지 않고 이를 키 자격 증명 모음 서비스의 HSM에 전달합니다.
 
 	$key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMKey' -KeyFilePath 'c:\ITByok.byok' -Destination 'HSM'
 
@@ -241,7 +241,7 @@ Azure 키 자격 증명 모음을 관리하기 위해 유용할 수 있는 기�
 
 Azure 키 자격 증명 모음에 대한 Windows PowerShell cmdlet의 목록은 [Azure 키 자격 증명 모음 Cmdlet](https://msdn.microsoft.com/library/azure/dn868052.aspx)을 참조하세요.
 
-프로그래밍 참조의 경우, [Azure 키 자격 증명 모음 REST API 참조](https://msdn.microsoft.com/library/azure/dn903609.aspx) 및 [Azure 키 자격 증명 모음 C\# 클라이언트 API 참조](https://msdn.microsoft.com/library/azure/dn903628.aspx)를 참조하세요.
+프로그래밍 참조의 경우, [Azure 키 자격 증명 모음 REST API 참조](https://msdn.microsoft.com/library/azure/dn903609.aspx) 및 [Azure 키 자격 증명 모음 C# 클라이언트 API 참조](https://msdn.microsoft.com/library/azure/dn903628.aspx)를 참조하세요.
 
 
 

@@ -24,7 +24,7 @@
 
 ##언어
 
-+ [C\#, VB](app-insights-start-monitoring-app-health-usage.md)
++ [C#, VB](app-insights-start-monitoring-app-health-usage.md)
 + [JavaScript 웹 페이지](app-insights-web-track-usage.md)
 + [Windows 스토어 JavaScript 앱](#cordova)
 + [Java](app-insights-java.md)

@@ -33,7 +33,7 @@ Azure 가상 네트워크 사이트 간 연결에서는 VPN 게이트웨이를 �
 
 이 자습서는 HBase 지역에서 복제 만들기에 대한 [시리즈][hdinsight-hbase-replication]의 한 부분입니다.
 
-- 두 가상 네트워크 간의 VPN 연결 구성\(이 자습서\)
+- 두 가상 네트워크 간의 VPN 연결 구성(이 자습서)
 - [가상 네트워크에 대한 DNS 구성][hdinsight-hbase-geo-replication-DNS]
 - [HBase 지역에서 복제 구성][hdinsight-hbase-geo-replication]
 
@@ -74,18 +74,18 @@ Azure 가상 네트워크 사이트 간 연결에서는 VPN 게이트웨이를 �
 	- **이름**: Contoso-VNet-EU
 	- **위치**: North Europe
 
-		This tutorial uses North Europe and East US datacenters. You can choose your own datacenters.
+		이 자습서에서는 북유럽 및 미국 동부 데이터 센터를 사용합니다. 고유한 데이터 센터를 선택할 수 있습니다.
 4.	다음을 입력합니다.
 
-	- **DNS 서버**:\(빈 상태로 둠\) 
+	- **DNS 서버**:(빈 상태로 둠) 
 	
-		You will need your own DNS server for name resolution within virtual networks. For more information on when to use Azure-provided name resolution and when to use your own DNS server, see [Name Resolution (DNS)](https://msdn.microsoft.com/library/azure/jj156088.aspx). For instructions to configure name resolution between VNets, see [Configure DNS between two Azure virtual networks][hdinsight-hbase-dns].
+		가상 네트워크 내에서 이름을 확인하기 위해 고유한 DNS 서버가 필요합니다. Azure 제공 이름 확인을 사용해야 하는 경우 및 고유한 DNS 서버를 사용해야 하는 경우에 대한 자세한 내용은 [이름 확인(DNS)](https://msdn.microsoft.com/library/azure/jj156088.aspx)을 참조하세요. Vnet 간에 이름 확인을 구성하는 방법에 대한 자세한 내용은 [두 개의 Azure 가상 네트워크 간에 DNS 구성][hdinsight-hbase-dns]을 참조하세요.
   
-	- **지점 및 사이트 간 VPN 구성**:\(선택 안 함\)
+	- **지점 및 사이트 간 VPN 구성**:(선택 안 함)
 
 		Point-to-site doesn't apply to this scenario.
 
- 	- **사이트 간 VPN 구성**:\(선택 안 함\)
+ 	- **사이트 간 VPN 구성**:(선택 안 함)
  	
 		You will configure the site-to-site VPN connection to the Azure virtual network in the East U.S. datacenter.
 5.	다음을 입력합니다.
@@ -104,9 +104,9 @@ Azure 가상 네트워크 사이트 간 연결에서는 VPN 게이트웨이를 �
 	- **이름**: Contoso-VNet-US
 	- **위치**: East US
 	 
-	- **DNS 서버**: \(빈 상태로 둠\)
-	- **지점 및 사이트 간 VPN 구성**:\(선택 안 함\)
-	- **사이트 간 VPN 구성**: \(선택 안 함\)
+	- **DNS 서버**: (빈 상태로 둠)
+	- **지점 및 사이트 간 VPN 구성**:(선택 안 함)
+	- **사이트 간 VPN 구성**: (선택 안 함)
 	 
 	- **주소 공간 시작 IP**: 10.2.0.0
 	- **주소 공간 CIDR**: /16
@@ -144,7 +144,7 @@ VNet 간 구성을 만드는 경우 서로를 로컬 네트워크 사이트로 �
 3. 다음을 입력합니다.
 
 	- **이름**: Contoso-LNet-EU
-	- **VPN 장치 IP 주소**: 192.168.0.1\(이 주소는 나중에 업데이트됨\)
+	- **VPN 장치 IP 주소**: 192.168.0.1(이 주소는 나중에 업데이트됨)
 
 		Typically, you’d use the actual external IP address for a VPN device. For VNet to VNet configurations, you will use the VPN gateway IP address. Given that you have not created the VPN gateways for the two VNets yet, you enter an arbitary IP address and come back to fix it.
 4.	다음을 입력합니다.
@@ -159,7 +159,7 @@ VNet 간 구성을 만드는 경우 서로를 로컬 네트워크 사이트로 �
 - 다음 매개 변수를 사용하여 마지막 절차를 반복합니다.
 
 	- **이름**: Contoso-LNet-US
-	- **VPN 장치 IP 주소**: 192.168.0.1\(이 주소는 나중에 업데이트됨\)
+	- **VPN 장치 IP 주소**: 192.168.0.1(이 주소는 나중에 업데이트됨)
 	 
 	- **주소 공간 시작 IP**: 10.2.0.0
 	- **주소 공간 CIDR**: /16

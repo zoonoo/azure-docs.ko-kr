@@ -20,7 +20,7 @@
 
 이 자습서에는 Visual Studio 2013 이상에서 검색 환경에 Azure 검색을 사용하는 사용자 지정 웹 검색 응용 프로그램을 빌드합니다. 이 자습서에서는 [Azure 검색 .NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx)를 사용하여 샘플에서 사용되는 개체 및 작업에 대한 클래스를 만듭니다.
 
-[USGS 데이터를 사용하는 Azure 검색 데모](https://azsearchdemos.codeplex.com/SourceControl/latest)에서 Codeplex의 샘플을 다운로드하여 이 자습서의 단계를 따를 수 있습니다. 샘플 응용 프로그램에서는 Washington 주에 대해 필터링된 [USGS\(United States Geological Services\)](http://geonames.usgs.gov/domestic/download_data.htm)의 데이터를 사용합니다. 이 데이터를 사용하여 병원 및 학교와 같은 랜드마크 빌딩뿐만 아니라 강, 호수, 산 등의 지질학적 특징에 대한 데이터를 기반으로 검색 응용 프로그램을 빌드합니다.
+[USGS 데이터를 사용하는 Azure 검색 데모](https://azsearchdemos.codeplex.com/SourceControl/latest)에서 Codeplex의 샘플을 다운로드하여 이 자습서의 단계를 따를 수 있습니다. 샘플 응용 프로그램에서는 Washington 주에 대해 필터링된 [USGS(United States Geological Services)](http://geonames.usgs.gov/domestic/download_data.htm)의 데이터를 사용합니다. 이 데이터를 사용하여 병원 및 학교와 같은 랜드마크 빌딩뿐만 아니라 강, 호수, 산 등의 지질학적 특징에 대한 데이터를 기반으로 검색 응용 프로그램을 빌드합니다.
 
 이 샘플을 실행하려면 Azure 검색 서비스가 있어야 합니다. 이 서비스는 [Azure 포털](https://portal.azure.com)에서 등록할 수 있습니다.
 
@@ -30,7 +30,7 @@
 
 ##인덱스 작성##
 
-1. [Azure 포털](https://portal.azure.com)에서 서비스 이름과 관리 키를 복사하여 **DataIndexer** \| **App.config**에 붙여 넣습니다.
+1. [Azure 포털](https://portal.azure.com)에서 서비스 이름과 관리 키를 복사하여 **DataIndexer** | **App.config**에 붙여 넣습니다.
 1. **DataIndexer** 프로젝트를 마우스 오른쪽 단추로 클릭하여 시작 프로젝트로 설정합니다.
 1. 프로젝트를 빌드 및 실행합니다.
 
@@ -45,7 +45,7 @@
 ##응용 프로그램 빌드##
 
 
-1. [Azure 포털](https://portal.azure.com)에서 서비스 이름과 관리 키를 복사하여 **SimpleSearchMVCApp** \| **Web.config**에 붙여 넣습니다.
+1. [Azure 포털](https://portal.azure.com)에서 서비스 이름과 관리 키를 복사하여 **SimpleSearchMVCApp** | **Web.config**에 붙여 넣습니다.
 1. **SimpleSearchMVCApp** 프로젝트를 마우스 오른쪽 단추로 클릭하여 시작 프로젝트로 설정합니다.
 1. 프로젝트를 빌드 및 실행합니다.
 
@@ -66,7 +66,7 @@ USGS 데이터 집합에는 Washington 주와 관련된 레코드가 포함되�
 - Seattle
 - Rainier
 - Seattle and Rainier
-- Seattle +Rainier -Mount\(Seattle이라는 도시 내에 있는 Rainier avenue 또는 Rainier club의 랜드마크에 대한 결과를 가져옴\)
+- Seattle +Rainier -Mount(Seattle이라는 도시 내에 있는 Rainier avenue 또는 Rainier club의 랜드마크에 대한 결과를 가져옴)
 
 ##코드 탐색##
 
@@ -76,7 +76,7 @@ USGS 데이터 집합에는 Washington 주와 관련된 레코드가 포함되�
 
 **DataIndexer 프로젝트**
 
-단순화하기 위해 데이터가 [USGS\(United States Geological Services\) 웹 사이트](http://geonames.usgs.gov/domestic/download_data.htm)의 데이터에서 생성된 텍스트 파일로 솔루션에 포함되어 있습니다.
+단순화하기 위해 데이터가 [USGS(United States Geological Services) 웹 사이트](http://geonames.usgs.gov/domestic/download_data.htm)의 데이터에서 생성된 텍스트 파일로 솔루션에 포함되어 있습니다.
 
 데이터를 포함하는 대신 [DocumentDB용 인덱서](documentdb-search-indexer.md) 또는 [Azure SQL 데이터베이스용 인덱서](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)를 사용할 수도 있습니다. 인덱서는 데이터를 Azure 검색 인덱스로 가져오므로 작성 및 유지 관리해야 하는 코드를 크게 간소화할 수 있습니다.
 
@@ -96,7 +96,7 @@ Azure 검색에 대한 연결 및 쿼리 요청 실행은 **FeatureSearch.cs** �
 
 이것은 USGS 데이터 집합을 기반으로 하는 첫 번째 Azure 검색 자습서입니다. 앞으로 이 자습서를 확장하고 사용자 지정 솔루션에서 사용할 수 있는 검색 기능을 보여 주는 새 자습서를 만들 예정입니다.
 
-Azure 검색에 대한 약간의 배경 지식이 이미 있는 경우 이 샘플을 기반으로 suggesters\(사전 입력 또는 자동 완성 쿼리\), 필터 및 패싯 탐색을 시작할 수 있습니다. 또한 사용자가 결과 페이지를 차례로 탐색할 수 있도록 개수를 추가하고 문서를 일괄 처리하여 검색 결과 페이지를 개선할 수 있습니다.
+Azure 검색에 대한 약간의 배경 지식이 이미 있는 경우 이 샘플을 기반으로 suggesters(사전 입력 또는 자동 완성 쿼리), 필터 및 패싯 탐색을 시작할 수 있습니다. 또한 사용자가 결과 페이지를 차례로 탐색할 수 있도록 개수를 추가하고 문서를 일괄 처리하여 검색 결과 페이지를 개선할 수 있습니다.
 
 Azure 검색을 처음 사용하세요? 다른 자습서를 통해 만들 수 있는 항목에 대한 이해를 높여 보세요. 더 많은 리소스를 보려면 [설명서 페이지](http://azure.microsoft.com/documentation/services/search/)를 방문하세요. [비디오 및 자습서](https://msdn.microsoft.com/library/azure/dn798933.aspx)의 링크를 통해 추가 정보를 확인할 수도 있습니다.
 

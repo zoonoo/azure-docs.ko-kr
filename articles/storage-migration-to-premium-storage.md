@@ -21,13 +21,13 @@
 
 ## 개요
 
-프리미엄 저장소는 최신 기술 SSD\(Solid State Drives\)에 데이터를 저장하며, Azure 가상 컴퓨터에서 실행되는 I/O 사용량이 많은 작업을 지원하는 짧은 대기 시간의 고성능 디스크를 제공합니다. 프리미엄 저장소를 사용할 경우 응용 프로그램이 VM당 최대 32TB의 저장소를 사용할 수 있으며, 읽기 작업의 대기 시간이 매우 짧은 상태로 VM당 50,000 IOPS\(초당 입/출력 작업 수\)를 얻을 수 있습니다. 이 문서에서는 디스크, 가상 컴퓨터 \(VM\)를 온-프레미스 또는 표준 저장소 또는 다른 클라우드 플랫폼에서 Azure 프리미엄 저장소로 마이그레이션하는 방법에 대한 지침을 제공합니다. 프리미엄 저장소를 제공하는 Azure 프리미엄 저장소의 자세한 개요를 보려면 [Azure 가상 컴퓨터 작업에 대 한 고성능 저장소](storage-premium-storage-preview-portal.md)를 확인하세요.
+프리미엄 저장소는 최신 기술 SSD(Solid State Drives)에 데이터를 저장하며, Azure 가상 컴퓨터에서 실행되는 I/O 사용량이 많은 작업을 지원하는 짧은 대기 시간의 고성능 디스크를 제공합니다. 프리미엄 저장소를 사용할 경우 응용 프로그램이 VM당 최대 32TB의 저장소를 사용할 수 있으며, 읽기 작업의 대기 시간이 매우 짧은 상태로 VM당 50,000 IOPS(초당 입/출력 작업 수)를 얻을 수 있습니다. 이 문서에서는 디스크, 가상 컴퓨터 (VM)를 온-프레미스 또는 표준 저장소 또는 다른 클라우드 플랫폼에서 Azure 프리미엄 저장소로 마이그레이션하는 방법에 대한 지침을 제공합니다. 프리미엄 저장소를 제공하는 Azure 프리미엄 저장소의 자세한 개요를 보려면 [Azure 가상 컴퓨터 작업에 대 한 고성능 저장소](storage-premium-storage-preview-portal.md)를 확인하세요.
 
 ## 시작하기 전에 
 
 ### 필수 조건
 - Azure 구독이 필요합니다. 구독할 수 없다면, 한 달의 [무료 평가판](http://azure.microsoft.com/pricing/free-trial/)을 구독하거나 [Azure 가격 책정](http://azure.microsoft.com/pricing/)을 방문하여 추가 옵션을 참고합니다. 
-- PowerShell cmdlet을 실행하려면 Microsoft Azure PowerShell 모듈이 필요합니다. 모듈을 다운로드하려면 [Microsoft Azure 다운로드](http://azure.microsoft.com/downloads/)\(영문\)를 참조하세요.
+- PowerShell cmdlet을 실행하려면 Microsoft Azure PowerShell 모듈이 필요합니다. 모듈을 다운로드하려면 [Microsoft Azure 다운로드](http://azure.microsoft.com/downloads/)(영문)를 참조하세요.
 - 프리미엄 저장소에서 실행되는 Azure VM을 사용하려는 경우 DS 시리즈 VM을 사용해야 합니다. DS 시리즈 VM에는 표준 및 프리미엄 저장소 디스크를 모두 사용할 수 있습니다. 프리미엄 저장소 디스크를 나중에 더 많은 VM 형식으로 사용할 수 있습니다. 사용 가능한 Azure VM 디스크 유형 및 크기에 대한 자세한 내용은 [Azure용 가상 컴퓨터 및 클라우드 서비스 크기](http://msdn.microsoft.com/library/azure/dn197896.aspx)를 참조하세요. 
 
 ### 고려 사항 
@@ -37,21 +37,21 @@ DS 시리즈 VM 크기 및 특징은 아래에 요약합니다. 이러한 제공
 
 |VM 크기|CPU 코어|최대 IOPS|최대 디스크 대역폭|
 |:---:|:---:|:---:|:---:|
-|**STANDARD\_DS1**|1|3,200|초당 32MB|
-|**STANDARD\_DS2**|2|6,400|초당 64MB|
-|**STANDARD\_DS3**|4|12,800|초당 128MB|
-|**STANDARD\_DS4**|8|25,600|초당 256MB|
-|**STANDARD\_DS11**|2|6,400|초당 64MB|
-|**STANDARD\_DS12**|4|12,800|초당 128MB|
-|**STANDARD\_DS13**|8|25,600|초당 256MB|
-|**STANDARD\_DS14**|16|50,000|초당 512MB|
+|**STANDARD_DS1**|1|3,200|초당 32MB|
+|**STANDARD_DS2**|2|6,400|초당 64MB|
+|**STANDARD_DS3**|4|12,800|초당 128MB|
+|**STANDARD_DS4**|8|25,600|초당 256MB|
+|**STANDARD_DS11**|2|6,400|초당 64MB|
+|**STANDARD_DS12**|4|12,800|초당 128MB|
+|**STANDARD_DS13**|8|25,600|초당 256MB|
+|**STANDARD_DS14**|16|50,000|초당 512MB|
 
 #### 디스크 크기 
 VM에서 사용할 수 있는 디스크에는 세 종류가 있으며 각 종류에는 특정 IOP가 있으며 제한됩니다. 용량, 성능, 확장성 및 최대 로드 측면에서 응용 프로그램의 필요에 따라 VM에 대한 디스크 유형을 선택할 때 이 제한을 고려해야 합니다.
 
 |프리미엄 저장소 디스크 유형|P10|P20|P30|
 |:---:|:---:|:---:|:---:|
-|디스크 크기|128GB|512GB|1024GB\(1TB\)|
+|디스크 크기|128GB|512GB|1024GB(1TB)|
 |디스크당 IOPS|500|2300|5000|
 |디스크당 처리량|초당 100MB|초당 150MB|초당 200MB|
 
@@ -69,7 +69,7 @@ VM에서 사용할 수 있는 디스크에는 세 종류가 있으며 각 종류
 사용자 작업에 따라 추가 데이터 디스크가 VM에 필요한 경우를 결정합니다. VM에 여러 영구 데이터 디스크를 연결할 수 있습니다. 필요한 경우, 볼륨의 성능과 용량을 늘리도록 디스크에 걸쳐 스트라이핑 할 수 있습니다. [저장소 공간](http://technet.microsoft.com/library/hh831739.aspx)을 사용하여 프리미엄 저장소 데이터 디스크를 스트라이프하는 경우, 사용되는 각 디스크에 대해 하나의 열로 구성해야 합니다. 그렇지 않은 경우, 디스크에서의 고르지 못한 트래픽 분배로 스트라이프 볼륨의 전반적인 성능이 예상보다 저하될 수 있습니다. Linux VM의 경우, mdadm 유틸리티를 사용하여 동일한 작업을 수행할 수 있습니다. 자세한 내용은 [Linux에서 소프트웨어 RAID 구성](virtual-machines-linux-configure-raid.md) 문서를 참조하세요.
 
 #### 디스크 캐싱 정책 
-기본적으로 디스크 캐싱 정책은 VM에 연결된 프리미엄 운영 체제 디스크에 대한 "읽기 / 쓰기" 및 모든 프리미엄 데이터 디스크에 대한 "읽기 전용"입니다. 응용 프로그램의 IO에 대한 최적의 성능을 얻으려면 이 구성 설정이 좋습니다. 쓰기가 많거나 쓰기 전용인 디스크의 경우\(예: SQL Server 로그 파일\) 더 나은 응용 프로그램 성능을 얻기 위해 디스크 캐싱을 사용하지 않도록 설정합니다. Azure 포털 또는 *Set-AzureDataDisk* cmdlet의 *-HostCaching* 매개 변수를 사용하여 기존 데이터 디스크에 대한 캐시 설정을 업데이트할 수 있습니다. 
+기본적으로 디스크 캐싱 정책은 VM에 연결된 프리미엄 운영 체제 디스크에 대한 "읽기 / 쓰기" 및 모든 프리미엄 데이터 디스크에 대한 "읽기 전용"입니다. 응용 프로그램의 IO에 대한 최적의 성능을 얻으려면 이 구성 설정이 좋습니다. 쓰기가 많거나 쓰기 전용인 디스크의 경우(예: SQL Server 로그 파일) 더 나은 응용 프로그램 성능을 얻기 위해 디스크 캐싱을 사용하지 않도록 설정합니다. Azure 포털 또는 *Set-AzureDataDisk* cmdlet의 *-HostCaching* 매개 변수를 사용하여 기존 데이터 디스크에 대한 캐시 설정을 업데이트할 수 있습니다. 
 
 #### 위치 
 Azure 프리미엄 저장소를 사용할 수 있는 위치를 선택합니다. 사용 가능한 위치에 대한 최신 정보는 [프리미엄 저장소에 대해 알아야할 중요한 사항](storage-premium-storage-preview-portal.md#important-things-to-know-about-premium-storage)을 참조하세요. VM에 대한 디스크를 저장하는 저장소 계정과 동일한 지역에 있는 VM은 별도 영역에 있는 경우보다 뛰어난 성능을 제공합니다.
@@ -97,7 +97,7 @@ Azure VM을 만들 때 특정 VM 설정을 구성해야 합니다. 나중에 다
 
 |시나리오|단계|
 |:---|:---|
-|여러 VM 인스턴스를 만드는 일반화된 운영 체제 VHD|**여러 일반 Azure VM 인스턴스를 만드는데 사용할 VHD**를 <p>업로드하는 경우 , sysprep 유틸리티를 사용하여 VHD를 먼저 일반화해야 합니다. 온-프레미스 또는 클라우드에 있는 VHD에 적용됩니다. Sysprep는 VHD에서 모든 컴퓨터의 특정 정보를 제거합니다.</p><p>\*\*중요:\*\* 일반화하기 전에 VM의 스냅숏을 만들거나 백업합니다. Sysprep를 실행하면 VM 인스턴스를 삭제합니다.</p> Windows OS VHD를 sysprep하는 다음 단계를 수행합니다. <br />Sysprep 명령을 실행하려면 가상 컴퓨터를 종료해야 합니다. Sysprep에 대한 자세한 내용은 [Sysprep 개요](http://technet.microsoft.com/library/hh825209.aspx) 또는 [Sysprep 기술 참조](http://technet.microsoft.com/library/cc766049(v=ws.10).aspx)의 내용을 참조하세요. <ul><li>관리자로 명령 프롬프트 창을 엽니다.</li><li>Sysprep를 열려면 다음 명령을 입력합니다.<br />\*\*%windir%\\system32\\sysprep\\sysprep.exe\*\*</li><li>시스템 준비 도구에서 시스템 OOBE\(첫 실행\)를 선택하고, 일반화 확인란을 선택하고, **종료**를 선택한 다음 **확인**을 클릭합니다.</li><li>그러면 운영 체제를 일반화하고 시스템을 종료합니다.![][1]</li></ul>Ubuntu VM은 virt-sysprep를 사용하여 동일한 작업을 수행합니다. 자세한 내용은 [virt-sysprep](http://manpages.ubuntu.com/manpages/precise/man1/virt-sysprep.1.html)를 참조하세요. 다른 Linux 운영 체제는 공개 소스 [Linux 서버 프로비전 소프트웨어](http://www.cyberciti.biz/tips/server-provisioning-software.html)의 일부도 참조하세요.|
+|여러 VM 인스턴스를 만드는 일반화된 운영 체제 VHD|**여러 일반 Azure VM 인스턴스를 만드는데 사용할 VHD**를 <p>업로드하는 경우 , sysprep 유틸리티를 사용하여 VHD를 먼저 일반화해야 합니다. 온-프레미스 또는 클라우드에 있는 VHD에 적용됩니다. Sysprep는 VHD에서 모든 컴퓨터의 특정 정보를 제거합니다.</p><p>**중요:** 일반화하기 전에 VM의 스냅숏을 만들거나 백업합니다. Sysprep를 실행하면 VM 인스턴스를 삭제합니다.</p> Windows OS VHD를 sysprep하는 다음 단계를 수행합니다. <br />Sysprep 명령을 실행하려면 가상 컴퓨터를 종료해야 합니다. Sysprep에 대한 자세한 내용은 [Sysprep 개요](http://technet.microsoft.com/library/hh825209.aspx) 또는 [Sysprep 기술 참조](http://technet.microsoft.com/library/cc766049(v=ws.10).aspx)의 내용을 참조하세요. <ul><li>관리자로 명령 프롬프트 창을 엽니다.</li><li>Sysprep를 열려면 다음 명령을 입력합니다.<br />**%windir%\\system32\\sysprep\\sysprep.exe**</li><li>시스템 준비 도구에서 시스템 OOBE(첫 실행)를 선택하고, 일반화 확인란을 선택하고, **종료**를 선택한 다음 **확인**을 클릭합니다.</li><li>그러면 운영 체제를 일반화하고 시스템을 종료합니다.![][1]</li></ul>Ubuntu VM은 virt-sysprep를 사용하여 동일한 작업을 수행합니다. 자세한 내용은 [virt-sysprep](http://manpages.ubuntu.com/manpages/precise/man1/virt-sysprep.1.html)를 참조하세요. 다른 Linux 운영 체제는 공개 소스 [Linux 서버 프로비전 소프트웨어](http://www.cyberciti.biz/tips/server-provisioning-software.html)의 일부도 참조하세요.|
 |단일 VM 인스턴스를 만드는 고유 운영 체제 VHD|컴퓨터 특정 데이터를 필요로 하는 VM에서 실행 중인 응용 프로그램이 있는 경우 VHD를 일반화하지 않습니다. **일반화되지 않은 VHD는 고유한 Azure VM 인스턴스를 만드는 데 사용될 수 있습니다.** 예를들어 VHD에 도메인 컨트롤러가 있는 경우, sysprep를 실행하면 도메인 컨트롤러가 비효율적이게 됩니다. VHD를 일반화하기 전에 sysprep에 미치는 영향을 확인하고 VM에서 실행 중인 응용 프로그램을 검토합니다.|
 |VM 인스턴스에 연결될 데이터 디스크 VHD|데이터 디스크가 마이그레이션할 클라우드 저장소에 있는 경우, 이 데이터 디스크를 사용하는 VM이 종료되었는지 확인해야 합니다. 온-프레미스에 있는 데이터 디스크의 경우, 일관된 VHD를 만듭니다.|
 이제 VHD 준비되었으므로 다음 섹션에 설명된 단계에 따라 Azure 저장소에 VHD를 업로드하고 운영 체제 이미지, 프로비전된 운영 체제 디스크 또는 프로비전된 데이터 디스크로 등록합니다.
@@ -108,8 +108,8 @@ Azure VM을 만들 때 특정 VM 설정을 구성해야 합니다. 나중에 다
 
 |시나리오|단계|
 |:---|:---|
-|Azure 저장소에서 VHD 복사|표준 Azure 저장소 계정에서 프리미엄 Azure 저장소 계정으로 VHD를 마이그레이션하는 경우, VHD 컨테이너의 원본 경로, VHD 파일 이름 및 원본 저장소 계정의 저장소 계정 키를 복사해야 합니다.<ul><li>Azure 포털 \> 가상 컴퓨터 \> 디스크로 이동하고</li><li>위치 열에서 VHD의 컨테이너 URL을 저장합니다.https://*AccountName*.blob.core.windows.net/*ContainerName*/</li></ul>|
-|비-Azure 클라우드에서 VHD 복사|비-Azure 클라우드 저장소에서 Azure로 VHD를 마이그레이션하는 경우, 먼저 VHD를 로컬 디렉터리로 내보내야 합니다. VHD가 저장된 로컬 디렉터리의 전체 소스 경로를 복사합니다. <ul><li>AWS를 사용하는 경우, EC2 인스턴스를 Amazon S3 버킷의 VHD로 내보냅니다. [Amazon EC2 인스턴스 내보내기](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ExportingEC2Instances.html)에 설명된 단계에 따라 Amazon EC2 명령줄 인터페이스\(CLI\) 도구를 설치하고 명령을 실행하여 VHD 파일에 EC2 인스턴스를 내보냅니다. 명령 실행 시 DISK\_IMAGE\_FORMAT 변수로 **VHD**를 사용해야 합니다. 내보낸된 VHD 파일은 해당 프로세스 중 지정된 Amazon S3 버킷에 저장됩니다.</li></ul>![][2]<ul><li>S3 버킷에서 VHD 파일을 다운로드합니다. VHD 파일 \> **작업** \> **다운로드**를 선택합니다.</li></ul>![][3]|
+|Azure 저장소에서 VHD 복사|표준 Azure 저장소 계정에서 프리미엄 Azure 저장소 계정으로 VHD를 마이그레이션하는 경우, VHD 컨테이너의 원본 경로, VHD 파일 이름 및 원본 저장소 계정의 저장소 계정 키를 복사해야 합니다.<ul><li>Azure 포털 > 가상 컴퓨터 > 디스크로 이동하고</li><li>위치 열에서 VHD의 컨테이너 URL을 저장합니다.https://*AccountName*.blob.core.windows.net/*ContainerName*/</li></ul>|
+|비-Azure 클라우드에서 VHD 복사|비-Azure 클라우드 저장소에서 Azure로 VHD를 마이그레이션하는 경우, 먼저 VHD를 로컬 디렉터리로 내보내야 합니다. VHD가 저장된 로컬 디렉터리의 전체 소스 경로를 복사합니다. <ul><li>AWS를 사용하는 경우, EC2 인스턴스를 Amazon S3 버킷의 VHD로 내보냅니다. [Amazon EC2 인스턴스 내보내기](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ExportingEC2Instances.html)에 설명된 단계에 따라 Amazon EC2 명령줄 인터페이스(CLI) 도구를 설치하고 명령을 실행하여 VHD 파일에 EC2 인스턴스를 내보냅니다. 명령 실행 시 DISK_IMAGE_FORMAT 변수로 **VHD**를 사용해야 합니다. 내보낸된 VHD 파일은 해당 프로세스 중 지정된 Amazon S3 버킷에 저장됩니다.</li></ul>![][2]<ul><li>S3 버킷에서 VHD 파일을 다운로드합니다. VHD 파일 > **작업** > **다운로드**를 선택합니다.</li></ul>![][3]|
 |온-프레미스에서 VHD 복사|온-프레미스 환경에서 VHD를 마이그레이션하는 경우, VHD가 저장된 전체 소스 경로가 필요합니다. 이 경로는 서버 위치 또는 파일 공유일 수 있습니다.
 
 ### 대상 
@@ -134,7 +134,7 @@ AzCopy를 사용하여 인터넷을 통해 VHD를 쉽게 업로드할 수 있습
  - *&lt;Source-Storage-Key&gt;:* 대상 저장소 계정의 저장소 계정 키입니다.
  - BlobType:page:는 대상이 블록 Blob임을 지정합니다.
  - *&lt;File-Name&gt;*: 복사 하려는 VHD 파일의 이름입니다.
- - Pattern:\*&lt;File-Name&gt;:\*는 복사 하는 VHD의 파일 이름을 지정합니다.
+ - Pattern:*&lt;File-Name&gt;:*는 복사 하는 VHD의 파일 이름을 지정합니다.
    
 이 명령은 *&lt;Source&gt;*의 모든 파일을 *&lt;Destination&gt;* 컨테이너에 복사합니다. AzCopy 사용에 대한 자세한 내용은 [AzCopy 명령줄 유틸리티](storage-use-azcopy.md)로 시작하기를 참조하세요.
 ### VHD를 업로드하기 위한 기타 옵션 
@@ -173,7 +173,7 @@ OS VHD에서 VM을 만들거나 새 VM에 데이터 VHD를 연결하려면 먼�
 
 ### DS 시리즈 Azure VM 만들기  
 
-OS 이미지나 OS 디스크가 등록되면, 새 DS 시리즈 Azure VM 인스턴스를 만들 수 있습니다. 등록된 운영 체제 이미지 또는 운영 체제 디스크 이름을 사용합니다. 프리미엄 저장소 계층에서 VM 종류를 선택합니다. 아래 예제에서는 "Standard\_DS2" VM 크기를 사용 중입니다.
+OS 이미지나 OS 디스크가 등록되면, 새 DS 시리즈 Azure VM 인스턴스를 만들 수 있습니다. 등록된 운영 체제 이미지 또는 운영 체제 디스크 이름을 사용합니다. 프리미엄 저장소 계층에서 VM 종류를 선택합니다. 아래 예제에서는 "Standard_DS2" VM 크기를 사용 중입니다.
 
 >[AZURE.NOTE]디스크 크기를 업데이트하여 용량, 성능 요구 사항 및 사용 가능한 Azure 디스크 크기가 일치하는지 확인합니다.
 

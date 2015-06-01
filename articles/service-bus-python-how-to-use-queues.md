@@ -55,9 +55,9 @@ SAS 키 이름 및 값에 대한 값은 Azure 포털 연결 정보 또는 Visual
 
 ## 큐에 메시지를 보내는 방법
 
-서비스 버스 큐에 메시지를 보내기 위해 응용 프로그램은 **ServiceBusService** 개체에 대해 **send\_queue\_message()** 메서드를 호출합니다.
+서비스 버스 큐에 메시지를 보내기 위해 응용 프로그램은 **ServiceBusService** 개체에 대해 **send_queue_message()** 메서드를 호출합니다.
 
-아래 예제에서는 *taskqueue using* **send\_queue\_message** 큐에 테스트 메시지를 보내는 방법을 보여 줍니다.
+아래 예제에서는 *taskqueue using* **send_queue_message** 큐에 테스트 메시지를 보내는 방법을 보여 줍니다.
 
 	msg = Message(b'Test Message')
 	bus_service.send_queue_message('taskqueue', msg)
@@ -66,17 +66,17 @@ SAS 키 이름 및 값에 대한 값은 Azure 포털 연결 정보 또는 Visual
 
 ## 큐에서 메시지를 받는 방법
 
-**ServiceBusService** 개체의 **receive\_queue\_message** 메서드를 사용하여 큐에서 메시지를 받습니다.
+**ServiceBusService** 개체의 **receive_queue_message** 메서드를 사용하여 큐에서 메시지를 받습니다.
 
 	msg = bus_service.receive_queue_message('taskqueue', peek_lock=False)
 	print(msg.body)
 
-**peek\_lock** 매개 변수가 **False**로 설정된 경우 메시지를 읽으면 큐에서 해당 메시지가 삭제됩니다. **peek\_lock** 매개 변수를 **True**로 설정하여 큐에서 삭제되지 않도록 메시지를 읽은(peek) 후 잠글 수 있습니다.
+**peek_lock** 매개 변수가 **False**로 설정된 경우 메시지를 읽으면 큐에서 해당 메시지가 삭제됩니다. **peek_lock** 매개 변수를 **True**로 설정하여 큐에서 삭제되지 않도록 메시지를 읽은(peek) 후 잠글 수 있습니다.
 
 받기 작업의 일부로 메시지를 읽고 삭제하는 동작은 가장 단순한 모델이며, 실패할 경우 응용 프로그램이 메시지를 처리하지 않아도 되는 시나리오에서 가장 효과적입니다. 이 모드를 파악하려면 소비자가 수신 요청을 실행했는데 요청이 처리되기 전에 응용 프로그램 작동이 중지되는 시나리오를 고려할 수 있습니다. 서비스 버스는 메시지를 이용되는 것으로 표시하기 때문에 응용 프로그램이 다시 시작되고 메시지 소비를 다시 시작할 경우 크래시 전에 소비된 메시지가 누락됩니다.
 
 
-**peek\_lock** 매개 변수를 **True**로 설정하면 수신은 2단계 작업이 되므로, 메시지 누락을 허용하지 않는 응용 프로그램을 지원할 수 있습니다. 서비스 버스는 요청을 받으면 소비할 다음 메시지를 찾아서 다른 소비자가 수신할 수 없도록 잠근 후 응용 프로그램에 반환합니다.
+**peek_lock** 매개 변수를 **True**로 설정하면 수신은 2단계 작업이 되므로, 메시지 누락을 허용하지 않는 응용 프로그램을 지원할 수 있습니다. 서비스 버스는 요청을 받으면 소비할 다음 메시지를 찾아서 다른 소비자가 수신할 수 없도록 잠근 후 응용 프로그램에 반환합니다.
 응용 프로그램은 메시지 처리를 완료하거나 추가 처리를 위해 안전하게 저장한 후 **Message** 개체에 대해 **delete** 메서드를 호출하여 수신 프로세스의 두 번째 단계를 완료합니다. **delete** 메서드는 메시지를 사용 중인 것으로 표시하고 큐에서 제거합니다.
 
 	msg = bus_service.receive_queue_message('taskqueue', peek_lock=True)

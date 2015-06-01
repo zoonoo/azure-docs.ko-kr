@@ -137,7 +137,7 @@ Azure 저장소 계정에 대한 자세한 내용은 [저장소 계정을 관리
 
 - 웹 루트를 기준으로 하여 응용 프로그램 로그가 저장되는 위치입니다.
 
-- 기본값: ..\..\\LogFiles\\Application
+- 기본값: ....\\LogFiles\\Application
 
 **DIAGNOSTICS_TEXTTRACEMAXBUFFERSIZEBYTES**
 

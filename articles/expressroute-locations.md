@@ -17,10 +17,10 @@
 # Express 경로 파트너 및 피어링 위치
 이 테이블에 다음에 대한 자세한 정보를 제공합니다.
 
-1. Express 경로 연결 공급자\(EXP 및 NSP\)
+1. Express 경로 연결 공급자(EXP 및 NSP)
 2. Express 경로 지역 범위
 3. Express 경로를 통해 지원되는 Microsoft 클라우드 서비스
-4. Express 경로 시스템 통합 업체\(SI\)
+4. Express 경로 시스템 통합 업체(SI)
 
 ## Express 경로 연결 공급자
 Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 아래 맵에 Azure 지역 및 Express 경로 위치 목록을 제공합니다. Express 경로 위치는 Microsoft가 여러 서비스 공급자와 피어링하는 위치를 말합니다.
@@ -41,11 +41,11 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 아래 �
 지역에 걸친 연결은 지원되지 않습니다. 해당 네트워크를 사용하여 지역에 걸쳐 연결을 확장하여 연결 공급자를 작업할 수 있습니다.
 
 
-### Exchange 공급자\(EXP\) 위치
+### Exchange 공급자(EXP) 위치
 - 지원되는 Exchange 공급자 및 위치 목록은 이 [테이블](https://msdn.microsoft.com/library/azure/4da69a0f-8f52-49ea-a990-dacd4202150a#BKMK_EXP)을 참조하세요.
 -  연결을 설정하는 단계는 [EXP 연결 구성](expressroute-configuring-exps.md)을 방문하세요.
 
-### 네트워크 서비스 공급자\(NSP\) 위치
+### 네트워크 서비스 공급자(NSP) 위치
 - 지원되는 네트워크 서비스 공급자 및 위치 목록은 이 [테이블](https://msdn.microsoft.com/library/azure/4da69a0f-8f52-49ea-a990-dacd4202150a#BKMK_NSP)을 참조하세요.
 - 연결을 설정하는 단계는 [NSP 연결 구성](expressroute-configuring-nsps.md)을 방문하세요.
 
@@ -58,7 +58,7 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 아래 �
 	- [TeleCity CloudIX](http://www.telecitygroup.com/colocation-services/cloud-ix.htm)
 - 연결 공급자가 선택한 Exchange 위치로 네트워크를 확장합니다.
 	- 연결 공급자는 단일 실패 지점이 없도록 항상 사용 가능한 방식으로 연결을 확장하는지 확인합니다.
-	- 연결 공급자\(특히 이더넷 공급자\)는 높은 가용성을 보장하려면 한 쌍의 회로를 이더넷 교환에 조달해야 할 수 있습니다. 
+	- 연결 공급자(특히 이더넷 공급자)는 높은 가용성을 보장하려면 한 쌍의 회로를 이더넷 교환에 조달해야 할 수 있습니다. 
 - Azure에 연결하려면 Exchange 공급자를 통해 Express 경로 회로를 주문합니다.
 	- [EXP 연결 구성](expressroute-configuring-exps.md)의 단계에 따라 연결을 설정합니다.
 
@@ -70,7 +70,7 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 아래 �
 ## Express 경로 및 Microsoft 클라우드 서비스
 다음 표에서 지원하는 Microsoft 클라우드 서비스의 목록과 연결 공급자에 대한 세부 정보를 제공합니다. 서비스 공급자에게 문의
 
-**Exchange 공급자\(EXP\)**
+**Exchange 공급자(EXP)**
 
 |**서비스 공급자**|**Microsoft Azure 서비스**|**Office 365 서비스**|
 |---|---|---|
@@ -82,7 +82,7 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 아래 �
 |**TeleCity 그룹**|지원됨||
 |**Zayo 그룹**|지원됨||
 
-**네트워크 서비스 공급자\(NSP\)**
+**네트워크 서비스 공급자(NSP)**
 
 |**서비스 공급자**|**Microsoft Azure 서비스**|**Office 365 서비스**|
 |---|---|---|

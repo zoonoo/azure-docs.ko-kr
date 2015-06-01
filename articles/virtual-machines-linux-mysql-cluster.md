@@ -152,7 +152,7 @@ NBD Cluster, Percona 및 Galera를 비롯하여 MySQL에 대해 사용 가능한
     CREATE DATABASE azureha;
     CREATE TABLE things ( id SERIAL, name VARCHAR(255) );
     INSERT INTO things VALUES (1, "Yet another entity");
-    GRANT ALL ON things.\* TO root;
+    GRANT ALL ON things.* TO root;
 
 **경고**: 이 마지막 문은 이 표의 루트 사용자에 대한 인증을 사용할 수 없게 설정합니다. 이 문은 프로덕션급 GRANT 문으로 바꾼 후 예시 용도로만 포함해야 합니다.
 

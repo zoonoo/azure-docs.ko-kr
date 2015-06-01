@@ -81,7 +81,7 @@ Microsoft azure의 끝점은 공용 포트 및 개인 포트와 함께 프로토
 
    ![이미지](./media/virtual-machines-linux-install-mysql/virtual-machines-linux-install-mysql-p06.png)
  
-- 열기를 선택하기 전에 연결 \> SSH \> 인증 탭을 클릭하여 Puttygen에서 생성한 파일을 찾고 개인 키를 포함합니다. 채울 필드는 아래 스크린샷을 참조하세요.
+- 열기를 선택하기 전에 연결 > SSH > 인증 탭을 클릭하여 Puttygen에서 생성한 파일을 찾고 개인 키를 포함합니다. 채울 필드는 아래 스크린샷을 참조하세요.
 
    ![이미지](./media/virtual-machines-linux-install-mysql/virtual-machines-linux-install-mysql-p07.png)
  
@@ -126,19 +126,19 @@ MySQL에는 이진 패키지, rpm 패키지 및 원본 패키지라는 세 가�
     
     로그온하여 MySQL 서비스가 실행되고 있는지 확인한 후 다음 명령을 사용하여 서비스를 시작/다시 시작할 수 있습니다.
 
-    \(a\) MySQL 서비스의 상태를 가져옵니다.
+    (a) MySQL 서비스의 상태를 가져옵니다.
 
              #sudo service mysql status
 
-    \(b\) MySQL 서비스를 시작합니다.
+    (b) MySQL 서비스를 시작합니다.
 
              #sudo service mysql start
 
-    \(c\) MySQL 서비스를 중지합니다.
+    (c) MySQL 서비스를 중지합니다.
 
              #sudo service mysql stop
 
-    \(d\) MySQL 서비스를 다시 시작합니다.
+    (d) MySQL 서비스를 다시 시작합니다.
 
              #sudo service mysql restart
 
@@ -156,7 +156,7 @@ MySQL에는 이진 패키지, rpm 패키지 및 원본 패키지라는 세 가�
 
     파일에 있는 릴리스 시리즈의 하위 리포지토리에 대한 일반적인 항목입니다.
 
-        \# *Enable to use MySQL 5.6*
+        # *Enable to use MySQL 5.6*
 
         [mysql56-community]
         name=MySQL 5.6 Community Server

@@ -36,7 +36,7 @@ Azure 구독에 대해 cmdlet을 사용할 수 있도록 [이 가이드](powersh
 
     New-AzureRemoteAppCollection -Collectionname RAppO365Col1 -ImageName "Office 365 ProPlus (Subscription required)" -Plan Basic -Location "West US" - Description "Office 365 Collection."
 
-위의 명령은 Microsoft Office 365 응용 프로그램\(Excel, OneNote, Outlook, PowerPoint, Visio, Word\)을 자동으로 게시합니다.
+위의 명령은 Microsoft Office 365 응용 프로그램(Excel, OneNote, Outlook, PowerPoint, Visio, Word)을 자동으로 게시합니다.
 
 컬렉션을 만드는 데 30분 이상 걸릴 수 있습니다. 따라서 이 명령은 다음과 같이 사용할 수 있는 추적 ID를 반환합니다.
 

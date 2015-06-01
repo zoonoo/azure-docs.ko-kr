@@ -30,7 +30,7 @@
 다음은 일반적인 게시 흐름입니다.
 
 1. [API 앱 패키지 만들기](app-service-api-create-package) 자습서의 지침에 따라 API 앱에 대한 Nuget 패키지를 만듭니다.
-2. Nuget 지원 갤러리\(https://apiapps.nuget.org) 에 게시합니다.
+2. Nuget 지원 갤러리(https://apiapps.nuget.org) 에 게시합니다.
 3. 그러면 [Azure 마켓플레이스](http://azure.microsoft.com/marketplace/api-apps/)에 자동으로 동기화됩니다.
 4. [Azure 마켓플레이스](http://azure.microsoft.com/marketplace/api-apps/) 및 [Azure Preview 포털](https://portal.azure.com)로 이동하여 종단 간 환경을 확인합니다.
 
@@ -58,7 +58,7 @@
 
 ## Azure Preview 포털에서 API 앱 패키지 배포
 
-Azure 계정\(API 앱 패키지를 게시하는 데 사용하는 것과 다른 계정일 수 있음\)을 사용하여 [Azure Preview 포털](https://portal.azure.com)에 로그인할 수도 있습니다. 여기에서 Azure Preview 포털의 API 앱 패키지 만들기 환경을 확인할 수 있습니다. 변경해야 하는 사항이 있는 경우 API 앱 패키지에서 변경하고 다시 게시하면 됩니다.
+Azure 계정(API 앱 패키지를 게시하는 데 사용하는 것과 다른 계정일 수 있음)을 사용하여 [Azure Preview 포털](https://portal.azure.com)에 로그인할 수도 있습니다. 여기에서 Azure Preview 포털의 API 앱 패키지 만들기 환경을 확인할 수 있습니다. 변경해야 하는 사항이 있는 경우 API 앱 패키지에서 변경하고 다시 게시하면 됩니다.
 
 Azure 포털에서 API 앱 패키지를 배포하는 방법에 대한 자세한 내용은 [여기](app-service-api-connnect-your-app-to-saas-connector.md)에서 DropboxConnector 배포 예제를 참조하세요.
 

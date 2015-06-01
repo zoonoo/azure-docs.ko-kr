@@ -25,35 +25,35 @@
 
 ### 문제
 - 분석, 모니터링, 구분 또는 대시보드의 UI 데이터 수집 오류
-- 푸시 오류\(푸시가 앱 내부 또는 외부나 두 위치에서 모두 작동하지 않음\)
-- 고급 기능 오류\(추적, 지리적 위치 또는 플랫폼별 푸시 미작동\)
-- API 오류\(API에서 자동 오류가 자주 발생하며 오류 메시지가 표시되지 않음\)
-- 서비스 오류\(Azure Mobile Engagement 기능이 응용 프로그램에서 작동하지 않음\)
+- 푸시 오류(푸시가 앱 내부 또는 외부나 두 위치에서 모두 작동하지 않음)
+- 고급 기능 오류(추적, 지리적 위치 또는 플랫폼별 푸시 미작동)
+- API 오류(API에서 자동 오류가 자주 발생하며 오류 메시지가 표시되지 않음)
+- 서비스 오류(Azure Mobile Engagement 기능이 응용 프로그램에서 작동하지 않음)
 
 ### 원인
 
 - Azure Mobile Engagement SDK를 사용하여 해결해야 하는 대부분의 문제는 UI 데이터 수집 오류, 푸시 오류, 고급 기능 오류, API 오류, 응용 프로그램 작동 중단, 명백한 서비스 중단과 같은 응용 프로그램의 오류를 통해 검색됩니다.  
 - Azure Mobile Engagement의 특정 기능이 앱에서 한 번도 정상적으로 작동한 적이 없다면 통합을 완료해야 합니다. 
-- Azure Mobile Engagement의 특정 기능이 작동하다가 중지되는 경우에는 Azure Mobile Engagement SDK를 사용하여 최신 버전으로 업그레이드해야 할 수 있습니다. Azure Mobile Engagement에서 지원하는 각 플랫폼\(Android, iOS, 웹, Windows, Windows Phone\)에 대해 다른 버전의 Azure Mobile Engagement SDK가 제공됩니다.
+- Azure Mobile Engagement의 특정 기능이 작동하다가 중지되는 경우에는 Azure Mobile Engagement SDK를 사용하여 최신 버전으로 업그레이드해야 할 수 있습니다. Azure Mobile Engagement에서 지원하는 각 플랫폼(Android, iOS, 웹, Windows, Windows Phone)에 대해 다른 버전의 Azure Mobile Engagement SDK가 제공됩니다.
 
 #### SDK 통합
 
-- Azure Mobile Engagement가 SDK에 올바르게 통합되지 않았습니다\(분석\).
-- 도달률이 SDK에 올바르게 통합되지 않았습니다\(앱 내 푸시/앱 외부 푸시\).
-- 인증서가 만료되었거나 프로덕션/개발 버전이 잘못되었습니다\(iOS에만 해당\).
-- GCM 또는 ADM이 SDK에 올바르게 통합되지 않았습니다\(Android에만 해당 - 서비스별 푸시\).
-- 추적이 SDK에 올바르게 통합되지 않았습니다\(설치 스토어 추적\).
-- 지연 위치 또는 GPS 위치가 SDK에 올바르게 통합되지 않았습니다\(지리적 위치 기준 대상 지정\). [SDK 설명서 - 통합 가이드][Link 5], [문제 해결 가이드 - 푸시][Link 23]
+- Azure Mobile Engagement가 SDK에 올바르게 통합되지 않았습니다(분석).
+- 도달률이 SDK에 올바르게 통합되지 않았습니다(앱 내 푸시/앱 외부 푸시).
+- 인증서가 만료되었거나 프로덕션/개발 버전이 잘못되었습니다(iOS에만 해당).
+- GCM 또는 ADM이 SDK에 올바르게 통합되지 않았습니다(Android에만 해당 - 서비스별 푸시).
+- 추적이 SDK에 올바르게 통합되지 않았습니다(설치 스토어 추적).
+- 지연 위치 또는 GPS 위치가 SDK에 올바르게 통합되지 않았습니다(지리적 위치 기준 대상 지정). [SDK 설명서 - 통합 가이드][Link 5], [문제 해결 가이드 - 푸시][Link 23]
 
 #### SDK 업그레이드
 
-- SDK를 업그레이드하여 이전 버전 SDK의 문제를 해결해야 합니다\(대개 최신 버전 장치 OS와 관련이 있음\).
-- 모든 이전 버전 앱을 장치에서 제거한 다음 최신 버전 앱을 다시 설치하고 Azure Mobile Engagement UI에서 장치 ID를 다시 등록하여 장치에서 최신 버전의 앱을 사용 중임을 확인합니다. [SDK 설명서 - 릴리스 정보](http://go.microsoft.com/fwlink/?LinkId= 525554\), [SDK 설명서 - 업그레이드 가이드](http://go.microsoft.com/fwlink/?LinkId= 525554\), [UI 설명서 - 설정][Link 20]
+- SDK를 업그레이드하여 이전 버전 SDK의 문제를 해결해야 합니다(대개 최신 버전 장치 OS와 관련이 있음).
+- 모든 이전 버전 앱을 장치에서 제거한 다음 최신 버전 앱을 다시 설치하고 Azure Mobile Engagement UI에서 장치 ID를 다시 등록하여 장치에서 최신 버전의 앱을 사용 중임을 확인합니다. [SDK 설명서 - 릴리스 정보](http://go.microsoft.com/fwlink/?LinkId= 525554), [SDK 설명서 - 업그레이드 가이드](http://go.microsoft.com/fwlink/?LinkId= 525554), [UI 설명서 - 설정][Link 20]
 
 #### 기타 SDK 관련 문제
 
 - Azure Mobile Engagement 관련 코드 섹션의 오류로 인해 Azure Mobile Engagement가 작동하지 않습니다.
-- 응용 프로그램 매니페스트 "AndroidManifest.xml"의 오류로 인해 Azure Mobile Engagement가 작동하지 않습니다\(Android에만 해당\).
+- 응용 프로그램 매니페스트 "AndroidManifest.xml"의 오류로 인해 Azure Mobile Engagement가 작동하지 않습니다(Android에만 해당).
 - SDK 통합과 API 사용에 관한 일반적인 문제는 
 - SDK 키와 API 키를 혼동한다는 점입니다. [개념 - 용어집][Link 6]
 
@@ -65,17 +65,17 @@
 ### 원인
 
 - Azure Mobile Engagement의 고급 코딩 문제는 대부분 Azure Mobile Engagement와 직접적인 관련이 없는 플랫폼별 코드를 잘못 작성하는 경우 발생합니다. 이 경우에는 Android, iOS, 웹, Windows, Windows Phone 등 개발을 진행 중인 플랫폼과 관련된 설명서 및 Azure Mobile Engagement 설명서를 모두 확인해야 합니다.
-- "범주"를 잘못 구성하면 알림에서 앱 내부나 외부의 다른 위치로 연결하지 못하게 됩니다\(Android에만 해당\). 
-- iOS 코드에서 "UIKit.framework"를 "optional"로 설정하지 않으면 "기호를 찾을 수 없음" 오류가 표시되거나 이전 버전의 iOS 장치 작동이 중단됩니다\(iOS에만 해당\).
-- 인증서가 잘못되었거나 인증서의 개발 버전 또는 프로덕션 버전을 잘못 사용하면 푸시 문제가 발생합니다\(iOS에만 해당\).
+- "범주"를 잘못 구성하면 알림에서 앱 내부나 외부의 다른 위치로 연결하지 못하게 됩니다(Android에만 해당). 
+- iOS 코드에서 "UIKit.framework"를 "optional"로 설정하지 않으면 "기호를 찾을 수 없음" 오류가 표시되거나 이전 버전의 iOS 장치 작동이 중단됩니다(iOS에만 해당).
+- 인증서가 잘못되었거나 인증서의 개발 버전 또는 프로덕션 버전을 잘못 사용하면 푸시 문제가 발생합니다(iOS에만 해당).
 - Android 및 iOS에서 시스템 센터가 앱 외부 푸시에 대해 작동하는 방식 등 Azure Mobile Engagement에서 제어할 수 없는 플랫폼의 기본적인 제한이 있습니다.
 - Azure Mobile Engagement는 iOS 및 Android에 대해 참조용으로 Azure Mobile Engagement에서 사용하는 내부 패키지의 전체 목록을 게시합니다. Azure Mobile Engagement의 일부 기능은 Android, iOS, 웹, Windows, Windows Phone 등의 특정 플랫폼에만 제공됩니다.
 - 각 플랫폼용 SDK는 다음 프로그래밍 언어로 작성됩니다.
     -     Android SDK - Java
     -     iOS SDK - objective C
     -     웹 SDK - JavaScript
-    -     Windows SDK - C\# 및 JavaScript
-    -     Windows Phone SDK - C\# 및 JavaScript
+    -     Windows SDK - C# 및 JavaScript
+    -     Windows Phone SDK - C# 및 JavaScript
 
 ### 참고 항목
 

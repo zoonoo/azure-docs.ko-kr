@@ -227,7 +227,7 @@
         private static async void SendNotificationAsync()
         {
             NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString("<connection string with full access>", "<hub name>");
-            await hub.SendGcmNativeNotificationAsync("{ \"data\" : {\"msg\":\"Hello from Azure!\"}}");
+            await hub.SendGcmNativeNotificationAsync("{ "data" : {"msg":"Hello from Azure!"}}");
         }
 
    	"허브 이름" 자리 표시자는 포털의 **알림 허브** 탭에 표시되는 알림 허브의 이름으로 바꿉니다. 또한 연결 문자열 자리 표시자는 "알림 허브 구성" 섹션에서 확인한 **DefaultFullSharedAccessSignature** 연결 문자열로 바꿉니다. 

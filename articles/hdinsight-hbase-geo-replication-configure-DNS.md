@@ -29,7 +29,7 @@ Azure 가상 네트워크에 DNS 서버를 추가하고 구성하여 가상 네�
 이 자습서는 HBase 지역에서 복제 만들기에 대한 [시리즈][hdinsight-hbase-geo-replication]의 두 번째 부분입니다.
 
 - [두 가상 네트워크 간의 VPN 연결 구성][hdinsight-hbase-geo-replication-vnet]
-- 가상 네트워크에 대한 DNS 구성\(이 자습서\)
+- 가상 네트워크에 대한 DNS 구성(이 자습서)
 - [HBase 지역에서 복제 구성][hdinsight-hbase-geo-replication]
 
 
@@ -61,7 +61,7 @@ Azure 가상 네트워크에 DNS 서버를 추가하고 구성하여 가상 네�
 
 **Contoso-VNet-EU 내에서 Contoso-DNS-EU라는 가상 컴퓨터를 만들려면**
 
-1.	**새로 만들기** \> **계산** \> **가상 컴퓨터** \> **갤러리에서**를 클릭합니다.
+1.	**새로 만들기** > **계산** > **가상 컴퓨터** > **갤러리에서**를 클릭합니다.
 2.	**Windows Server 2012 R2 Datacenter**를 선택합니다.
 3.	다음을 입력합니다.
 	- **가상 컴퓨터 이름**: Contoso-DNS-EU
@@ -69,14 +69,14 @@ Azure 가상 네트워크에 DNS 서버를 추가하고 구성하여 가상 네�
 	- **새 암호**: 
 4.	다음을 입력합니다.
 	- **클라우드 서비스**: 새 클라우드 서비스를 만듭니다.
-	- **지역/선호도 그룹/가상 네트워크**:\(Contoso-VNet-EU 선택\)
+	- **지역/선호도 그룹/가상 네트워크**:(Contoso-VNet-EU 선택)
 	- **가상 네트워크 서브넷**: 서브넷-1
 	- **저장소 계정**: 자동으로 생성된 저장소 계정 사용
 	
-		The cloud service name will be the same as the virtual machine name. In this case, that is Contoso-DNS-EU. For subsequent virtual machines, I can choose to use the same cloud service.  All the virtual machines under the same cloud service share the same virtual network and domain suffix.
+		클라우드 서비스 이름은 가상 컴퓨터 이름과 같습니다. 이 경우 Contoso-DNS-EU입니다. 이후 가상 컴퓨터에 대해 동일한 클라우드 서비스를 사용하도록 선택할 수 있습니다. 동일한 클라우드 서비스 아래의 모든 가상 컴퓨터는 동일한 가상 네트워크 및 도메인 접미사를 공유합니다.
 
-		The storage account is used to store the virtual machine image file. 
-	- **끝점**:\(아래로 스크롤하여 **DNS** 선택\) 
+		저장소 계정은 가상 컴퓨터 이미지 파일을 저장하는 데 사용됩니다. 
+	- **끝점**:(아래로 스크롤하여 **DNS** 선택) 
 
 가상 컴퓨터를 만든 후 내부 IP 및 외부 IP를 확인합니다.
 
@@ -94,7 +94,7 @@ Azure 가상 네트워크에 DNS 서버를 추가하고 구성하여 가상 네�
 	- 지역/선호도 그룹/가상 네트워크: Contoso-VNET-US 선택
 	- 가상 네트워크 서브넷: 서브넷-1
 	- 저장소 계정: 자동으로 생성된 저장소 계정 사용
-	- 끝점:\(DNS 선택\)
+	- 끝점:(DNS 선택)
 
 ## 두 가상 컴퓨터에 대한 고정 IP 주소 설정
 
@@ -129,7 +129,7 @@ DNS 서버에는 고정 IP 주소가 필요합니다. 이 단계는 Azure 포털
 4.	**역할 및 기능 추가**를 클릭합니다.
 5.	**다음**를 클릭합니다.
 6.	**역할 기반 또는 기능 기반 설치**를 선택하고 **다음**을 클릭합니다.
-7.	DNS 가상 컴퓨터\(이미 강조 표시되어 있음\)를 선택하고 **다음**을 클릭합니다.
+7.	DNS 가상 컴퓨터(이미 강조 표시되어 있음)를 선택하고 **다음**을 클릭합니다.
 8.	**DNS 서버**를 선택합니다.
 9.	**기능 추가**를 클릭하고 **계속**을 클릭합니다.
 10.	**다음**을 세 번 클릭한 후 **설치**를 클릭합니다. 
@@ -202,7 +202,7 @@ DNS 서버 구성을 업데이트하려면 가상 네트워크에 배포된 모�
 
 ## 가상 네트워크에서 이름 확인 테스트
 
-이제 가상 네트워크에서 이름 확인을 테스트할 수 있습니다. Ping은 기본적으로 방화벽에 의해 차단됩니다. nslookup을 사용하여 피어 네트워크에서 DNS 서버 가상 컴퓨터\(FQDN을 사용해야 함\)를 확인할 수 있습니다.
+이제 가상 네트워크에서 이름 확인을 테스트할 수 있습니다. Ping은 기본적으로 방화벽에 의해 차단됩니다. nslookup을 사용하여 피어 네트워크에서 DNS 서버 가상 컴퓨터(FQDN을 사용해야 함)를 확인할 수 있습니다.
 
 
 ## 다음 단계

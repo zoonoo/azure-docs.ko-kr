@@ -326,7 +326,7 @@ MongoDB C# 드라이버를 설치하려면
 	}
 
 ## 스타일 설정 ##
-페이지 위쪽에 있는 제목을 변경하려면 *솔루션 탐색기*에서 **Views\\Shared\\_Layout.cshtml** 파일을 열고 탐색 모음 헤더에 있는 "Application name"을 "My Task List Application"으로 바꿉니다. 다음과 같습니다.
+페이지 위쪽에 있는 제목을 변경하려면 *솔루션 탐색기*에서 **Views\\Shared\_Layout.cshtml** 파일을 열고 탐색 모음 헤더에 있는 "Application name"을 "My Task List Application"으로 바꿉니다. 다음과 같습니다.
 
  	@Html.ActionLink("My Task List Application", "Index", "Home", null, new { @class = "navbar-brand" })
 
@@ -367,7 +367,7 @@ MongoDB C# 드라이버를 설치하려면
 	<div>  @Html.Partial("Create", new MyTaskListApp.Models.MyTask())</div>
 
 
-새 작업을 만드는 기능을 추가하려면 *Views\\Home\* 폴더를 마우스 오른쪽 단추로 클릭하고 **보기**를 **추가**합니다. 보기 이름을 *Create*로 지정합니다. 코드를 다음으로 바꿉니다.
+새 작업을 만드는 기능을 추가하려면 *Views\\Home* 폴더를 마우스 오른쪽 단추로 클릭하고 **보기**를 **추가**합니다. 보기 이름을 *Create*로 지정합니다. 코드를 다음으로 바꿉니다.
 
 	@model MyTaskListApp.Models.MyTask
 	

@@ -42,7 +42,7 @@
 	* **ServerName** - 데이터베이스의 위치입니다.
 	* **DatabaseName** - 복원할 데이터베이스의 이름입니다.	
 
-	`PS C:\>$Database = Get-AzureSqlDatabase -ServerName "myserver" -DatabaseName "mydb"`
+	`PS C:>$Database = Get-AzureSqlDatabase -ServerName "myserver" -DatabaseName "mydb"`
 
 2. [Start-AzureSqlDatabaseRestore](http://msdn.microsoft.com/library/azure/dn720218.aspx) cmdlet을 사용하여 복원을 시작합니다. 이때 다음 매개 변수를 지정합니다.	
 	* **SourceDatabase** - 복원 원본 데이터베이스입니다.
@@ -51,14 +51,14 @@
 
 	**$RestoreRequest** 변수로 반환되는 결과를 저장합니다. 이 변수는 복원 상태를 모니터링하는 데 사용되는 복원 요청 ID를 포함합니다. 
 
-	`PS C:\>$RestoreRequest = Start-AzureSqlDatabaseRestore -SourceDatabase $Database -TargetDatabaseName "myrestoredDB" -PointInTime "2015-01-01 06:00:00"`
+	`PS C:>$RestoreRequest = Start-AzureSqlDatabaseRestore -SourceDatabase $Database -TargetDatabaseName "myrestoredDB" -PointInTime "2015-01-01 06:00:00"`
 
 복원을 완료하려면 다소 시간이 걸릴 수 있습니다. 복원 상태를 모니터링하려면 다음 매개 변수를 지정하여 [Get AzureSqlDatabaseOperation](http://msdn.microsoft.com/library/azure/dn546738.aspx) cmdlet을 사용합니다.
 
 * **ServerName** - 복원 대상 데이터베이스의 서버 이름입니다.
 * **OperationGuid** - 2단계의 **$RestoreRequest** 변수에 저장된 복원 요청 ID입니다.
 
-	`PS C:\>Get-AzureSqlDatabaseOperation -ServerName "myserver" -OperationGuid $RestoreRequest.RequestID`
+	`PS C:>Get-AzureSqlDatabaseOperation -ServerName "myserver" -OperationGuid $RestoreRequest.RequestID`
 
 **State** 및 **PercentComplete** 필드에 복원 상태가 표시됩니다. 
 

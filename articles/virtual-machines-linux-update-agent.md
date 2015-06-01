@@ -48,7 +48,7 @@ SSH를 사용하여 VM에 로그인합니다.
 
 ## 최신 버전 다운로드
 
-웹 페이지에서 [Github의 Azure Linux 에이전트 릴리스](https://github.com/Azure/WALinuxAgent/releases)를 열고 최신 버전 번호\(예: 2.0.12\)를 확인합니다. `#waagent --version`을 입력하면 현재 버전을 찾을 수 있습니다.
+웹 페이지에서 [Github의 Azure Linux 에이전트 릴리스](https://github.com/Azure/WALinuxAgent/releases)를 열고 최신 버전 번호(예: 2.0.12)를 확인합니다. `#waagent --version`을 입력하면 현재 버전을 찾을 수 있습니다.
 
     #wget https://raw.githubusercontent.com/Azure/WALinuxAgent/WALinuxAgent-[version]/waagent  
 

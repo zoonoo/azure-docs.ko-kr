@@ -44,7 +44,7 @@
 
 1. Azure 포털에서 **모바일 앱**을 클릭한 다음 방금 만든 모바일 앱을 클릭합니다.
 
-2. 블레이드 맨 위에서 **클라이언트 추가**를 클릭하고 **Windows\(C\#\)**를 확장합니다.
+2. 블레이드 맨 위에서 **클라이언트 추가**를 클릭하고 **Windows(C#)**를 확장합니다.
 
    ![모바일 앱 빠른 시작 단계](./media/app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview/windows-quickstart.png)
 

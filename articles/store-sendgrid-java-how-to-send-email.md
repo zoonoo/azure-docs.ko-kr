@@ -124,7 +124,7 @@ SendGrid는 사용자 지정 통합을 쉽게 만드는 유연한 API와 함께 
 
     // Local file name and path.
     String attachmentName = "myfile.zip";
-    String attachmentPath = "c:\\myfiles\\"; 
+    String attachmentPath = "c:\\myfiles"; 
     MimeBodyPart attachmentPart = new MimeBodyPart();
     // Specify the local file to attach.
     DataSource source = new FileDataSource(attachmentPath + attachmentName);
@@ -141,11 +141,11 @@ SendGrid는 *필터 사용*을 통해 추가 메일 기능을 제공합니다. �
 -   다음은 HTML 텍스트를 보내는 메일 맨 아래에 표시하는 바닥글 필터 삽입 방법을 보여 줍니다.
 
         message.addHeader("X-SMTPAPI", 
-			"{\"filters\": 
-			{\"footer\": 
-			{\"settings\": 
-        	{\"enable\":1,\"text/html\": 
-			\"<html><b>Thank you</b> for your business.</html>\"}}}}");
+			"{"filters": 
+			{"footer": 
+			{"settings": 
+        	{"enable":1,"text/html": 
+			"<html><b>Thank you</b> for your business.</html>"}}}}");
 
 -   필터에 대한 또 다른 예제는 클릭 추적입니다. 메일 텍스트에 다음과 같은 하이퍼링크가 포함되어 있고 클릭률을 추적하려 한다고 가정하겠습니다.
 
@@ -159,10 +159,10 @@ SendGrid는 *필터 사용*을 통해 추가 메일 기능을 제공합니다. �
 -   To enable the click tracking, use the following code:
 
         message.addHeader("X-SMTPAPI", 
-			"{\"filters\": 
-			{\"clicktrack\": 
-			{\"settings\": 
-        	{\"enable\":1}}}}");
+			"{"filters": 
+			{"clicktrack": 
+			{"settings": 
+        	{"enable":1}}}}");
 
 ## <a name="bkmk_HowToUpdateEmail"> </a>방법: 전자 메일 속성 업데이트
 

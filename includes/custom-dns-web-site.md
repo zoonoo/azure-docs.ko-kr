@@ -1,6 +1,6 @@
 #Azure 웹 사이트에 대한 사용자 지정 도메인 이름 구성
 
-웹 사이트를 만들 때 Azure에서 azurewebsites.net 도메인에 친숙한 하위 도메인을 제공하므로, 사용자는 http://&lt;mysite\>.azurewebsites.net과 같은 URL을 사용하여 웹 사이트에 액세스할 수 있습니다. 그러나 공유 또는 표준 모드에 대해 웹 사이트를 구성하는 경우 웹 사이트를 고유한 도메인 이름에 매핑할 수 있습니다.
+웹 사이트를 만들 때 Azure에서 azurewebsites.net 도메인에 친숙한 하위 도메인을 제공하므로, 사용자는 http://&lt;mysite>.azurewebsites.net과 같은 URL을 사용하여 웹 사이트에 액세스할 수 있습니다. 그러나 공유 또는 표준 모드에 대해 웹 사이트를 구성하는 경우 웹 사이트를 고유한 도메인 이름에 매핑할 수 있습니다.
 
 선택적으로, Azure 트래픽 관리자를 사용하여 웹 사이트로 들어오는 트래픽의 부하를 분산할 수도 있습니다. 웹 사이트에서 트래픽 관리자를 사용하는 방법에 대한 자세한 내용은 [Azure 트래픽 관리자를 사용하여 Azure 웹 사이트 트래픽 제어][trafficmanager]를 참조하세요.
 
@@ -18,17 +18,17 @@
 
 <h2><a name="understanding-records"></a>CNAME 및 A 레코드 이해</h2>
 
-CNAME\(또는 별칭 레코드\) 및 A 레코드는 둘 다 도메인 이름을 웹 사이트에 연결할 수 있게 해 주지만 각각 다르게 작동합니다.
+CNAME(또는 별칭 레코드) 및 A 레코드는 둘 다 도메인 이름을 웹 사이트에 연결할 수 있게 해 주지만 각각 다르게 작동합니다.
 
 ###CNAME 또는 별칭 레코드
 
-CNAME 레코드는 *contoso.com*, **www.contoso.com** 등의 **특정** 도메인을 정식 도메인 이름에 매핑합니다. 이 경우 정식 도메인 이름은 Azure 웹 사이트의 **&lt;myapp\>.azurewebsites.net** 도메인 이름 또는 트래픽 관리자 프로필의 **&lt;myapp\>.trafficmgr.com** 도메인 이름입니다. CNAME을 만들면 **&lt;myapp\>.azurewebsites.net** 또는 **&lt;myapp\>.trafficmgr.com** 도메인 이름에 대한 별칭이 만들어집니다. CNAME 항목은 **&lt;myapp\>.azurewebsites.net** 또는 **&lt;myapp\>.trafficmgr.com** 도메인 이름의 IP 주소로 자동으로 확인되므로 웹 사이트의 IP 주소가 변경될 경우 특별한 조치를 수행할 필요가 없습니다.
+CNAME 레코드는 *contoso.com*, **www.contoso.com** 등의 **특정** 도메인을 정식 도메인 이름에 매핑합니다. 이 경우 정식 도메인 이름은 Azure 웹 사이트의 **&lt;myapp>.azurewebsites.net** 도메인 이름 또는 트래픽 관리자 프로필의 **&lt;myapp>.trafficmgr.com** 도메인 이름입니다. CNAME을 만들면 **&lt;myapp>.azurewebsites.net** 또는 **&lt;myapp>.trafficmgr.com** 도메인 이름에 대한 별칭이 만들어집니다. CNAME 항목은 **&lt;myapp>.azurewebsites.net** 또는 **&lt;myapp>.trafficmgr.com** 도메인 이름의 IP 주소로 자동으로 확인되므로 웹 사이트의 IP 주소가 변경될 경우 특별한 조치를 수행할 필요가 없습니다.
 
 > [AZURE.NOTE]www.contoso.com과 같은 CNAME 레코드를 사용하고 contoso.com과 같은 비루트 이름을 사용하면 일부 도메인 등록 기관에서 하위 도메인만 매핑할 수 있습니다. CNAME 레코드에 대한 자세한 내용은 등록 기관에서 제공하는 설명서인 <a href="http://en.wikipedia.org/wiki/CNAME_record">CNAME 레코드에 대한 Wikipedia 항목</a> 또는 <a href="http://tools.ietf.org/html/rfc1035">IETF 도메인 이름 - 구현 및 사양</a> 문서를 참조하세요.
 
 ###A 레코드
 
-A 레코드는 **contoso.com**, **www.contoso.com** 등의 도메인이나 *\*.contoso.com* 등의 **와일드카드 도메인**을 IP 주소에 매핑합니다. Azure 웹 사이트의 경우 서비스의 가상 IP 또는 웹 사이트용으로 구입한 특정 IP 주소입니다. 따라서 A 레코드가 CNAME 레코드보다 나은 주요 장점은 ***.contoso.com**과 같이 와일드카드를 사용하는 항목을 사용할 수 있다는 것입니다. 이러한 항목은 **mail.contoso.com**, **login.contoso.com**, **www.contso.com** 등의 여러 하위 도메인에 대한 요청을 처리합니다.
+A 레코드는 **contoso.com**, **www.contoso.com** 등의 도메인이나 **.contoso.com* 등의 **와일드카드 도메인**을 IP 주소에 매핑합니다. Azure 웹 사이트의 경우 서비스의 가상 IP 또는 웹 사이트용으로 구입한 특정 IP 주소입니다. 따라서 A 레코드가 CNAME 레코드보다 나은 주요 장점은 ***.contoso.com**과 같이 와일드카드를 사용하는 항목을 사용할 수 있다는 것입니다. 이러한 항목은 **mail.contoso.com**, **login.contoso.com**, **www.contso.com** 등의 여러 하위 도메인에 대한 요청을 처리합니다.
 
 > [AZURE.NOTE]A 레코드는 고정 IP 주소에 매핑되므로 변경 내용을 웹 사이트의 IP 주소로 자동으로 확인할 수 없습니다. A 레코드에 사용할 IP 주소는 웹 사이트에 대한 사용자 지정 도메인 이름 설정을 구성할 때 제공됩니다. 그러나 웹 사이트를 삭제하고 다시 만들거나 웹 사이트 모드를 다시 무료로 변경할 경우 이 값이 변경될 수도 있습니다.
 
@@ -55,13 +55,13 @@ Azure 웹 사이트의 공유 및 표준 모드에서만 웹 사이트의 사용
 	> [AZURE.NOTE]이 웹 사이트에서 트래픽 관리자를 사용하려면 공유 대신 표준 코드를 선택해야 합니다.
 
 5. **Save**를 클릭합니다.
-6. 공유 모드\(또는 표준을 선택한 경우 표준 모드\) 시 비용 증가에 대한 메시지가 표시될 때 동의하면 **Yes**를 클릭합니다.
+6. 공유 모드(또는 표준을 선택한 경우 표준 모드) 시 비용 증가에 대한 메시지가 표시될 때 동의하면 **Yes**를 클릭합니다.
 
 	<!--![][standardmode4]-->
 
 	**참고**<br /> “‘웹 사이트 이름’ 웹 사이트에 대한 규모 구성 실패” 오류가 표시되는 경우 자세히 단추를 사용하여 추가 정보를 확인할 수 있습니다.
 
-<a name="trafficmanager"></a><h2>\(옵션\) 트래픽 관리자에 웹 사이트 추가</h2>
+<a name="trafficmanager"></a><h2>(옵션) 트래픽 관리자에 웹 사이트 추가</h2>
 
 트래픽 관리자에서 웹 사이트를 사용하려면 다음 단계를 수행하세요.
 
@@ -92,9 +92,9 @@ Azure 웹 사이트의 공유 및 표준 모드에서만 웹 사이트의 사용
 </tr>
 </table>
 
-**www.contoso.com**의 방문자에게는 실제 호스트\(contoso.azurewebsite.net\)가 표시되지 않으므로 최종 사용자가 전달 프로세스를 볼 수 없습니다.
+**www.contoso.com**의 방문자에게는 실제 호스트(contoso.azurewebsite.net)가 표시되지 않으므로 최종 사용자가 전달 프로세스를 볼 수 없습니다.
 
-> [AZURE.NOTE]웹 사이트에 트래픽 관리자를 사용하는 경우 '\*\*사용자 지정 도메인에 대한 CNAME 추가\*\*' 및 '\*\*사용자 지정 도메인에 대한 A 레코드 추가\*\*' 섹션의 단계를 따를 필요가 없습니다. 이전 단계에서 만들어진 CNAME 레코드는 들어오는 트래픽을 트래픽 관리자로 라우팅하고, 트래픽 관리자는 웹 사이트 끝점으로 트래픽을 라우팅합니다.
+> [AZURE.NOTE]웹 사이트에 트래픽 관리자를 사용하는 경우 '**사용자 지정 도메인에 대한 CNAME 추가**' 및 '**사용자 지정 도메인에 대한 A 레코드 추가**' 섹션의 단계를 따를 필요가 없습니다. 이전 단계에서 만들어진 CNAME 레코드는 들어오는 트래픽을 트래픽 관리자로 라우팅하고, 트래픽 관리자는 웹 사이트 끝점으로 트래픽을 라우팅합니다.
 
 <a name="bkmk_configurecname"></a><h2>사용자 지정 도메인에 대한 CNAME 추가</h2>
 
@@ -135,7 +135,7 @@ CNAME 레코드를 만들려면 등록 기관에서 제공한 도구를 사용�
 </tr>
 </table>
 
-**www.contoso.com**의 방문자에게는 실제 호스트\(contoso.azurewebsite.net\)가 표시되지 않으므로 최종 사용자가 전달 프로세스를 볼 수 없습니다.
+**www.contoso.com**의 방문자에게는 실제 호스트(contoso.azurewebsite.net)가 표시되지 않으므로 최종 사용자가 전달 프로세스를 볼 수 없습니다.
 
 > [AZURE.NOTE]위 예제는 __www__ 하위 도메인의 트래픽에만 적용됩니다. CNAME 레코드와 함께 와일드카드를 사용할 수 없으므로 각 도메인/하위 도메인에 대해 하나의 CNAME을 만들어야 합니다. *.contoso.com 등의 하위 도메인에서 azurewebsite.net 주소로 트래픽을 보내려는 경우 DNS 설정에서 __URL 리디렉션__ 또는 __URL 전달__ 항목을 구성하거나 A 레코드를 만들 수 있습니다.
 

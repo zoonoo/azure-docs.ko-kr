@@ -42,11 +42,11 @@
 
 ![진단 검색 열기](./media/app-insights-diagnostic-search/10-detail.png)
 
-필드의 전체 집합을 찾으려면 일반 문자열\(와일드 카드 없이\)을 사용합니다. 사용할 수 있는 필드는 원격 분석 유형에 따라 다릅니다.
+필드의 전체 집합을 찾으려면 일반 문자열(와일드 카드 없이)을 사용합니다. 사용할 수 있는 필드는 원격 분석 유형에 따라 다릅니다.
 
 ##이벤트 유형 필터링
 
-필터 블레이드를 열고 확인하려는 이벤트 유형을 선택합니다. \(나중에 열었던 블레이드로 필터를 복원하려는 경우 재설정을 클릭합니다.\)
+필터 블레이드를 열고 확인하려는 이벤트 유형을 선택합니다. (나중에 열었던 블레이드로 필터를 복원하려는 경우 재설정을 클릭합니다.)
 
 
 ![필터 선택 및 원격 분석 유형 선택](./media/app-insights-diagnostic-search/02-filter-req.png)
@@ -57,8 +57,8 @@
 * **추적** - TrackTrace, log4Net, NLog 및 System.Diagnostic.Trace 호출을 포함한 진단 로그입니다.
 * **요청** - 페이지, 스크립트, 이미지, 스타일 파일 및 데이터를 포함하는 서버 응용 프로그램이 수신하는 HTTP 요청입니다. 이러한 이벤트는 요청을 만들고 개요 차트에 응답하는 데 사용됩니다.
 * **페이지 보기** - 웹 클라이언트가 전송한 원격 분석이며, 페이지 보기 보고서를 만드는 데 사용됩니다. 
-* **사용자 지정 이벤트** - [사용량을 모니터링][track]하기 위해 TrackEvent\(\)에 호출을 삽입한 경우 여기에서 검색할 수 있습니다.
-* **예외 사항** - 서버에서 확인할 수 없는 예외 사항이며 TrackException\(\)을 사용하여 로그합니다.
+* **사용자 지정 이벤트** - [사용량을 모니터링][track]하기 위해 TrackEvent()에 호출을 삽입한 경우 여기에서 검색할 수 있습니다.
+* **예외 사항** - 서버에서 확인할 수 없는 예외 사항이며 TrackException()을 사용하여 로그합니다.
 
 ##속성 값에서 필터링
 
@@ -101,7 +101,7 @@
 
 ##메트릭 값을 기준으로 검색
 
-5초 미만인 요청 응답 시간을 모두 가져옵니다. 시간은 틱 단위로 나타납니다\(10,000틱 = 1ms\).
+5초 미만인 요청 응답 시간을 모두 가져옵니다. 시간은 틱 단위로 나타납니다(10,000틱 = 1ms).
 
 !["Response time":(threshold TO *)](./media/app-insights-diagnostic-search/11-responsetime.png)
 
@@ -115,13 +115,13 @@
 
 ![진단 검색 열기](./media/appinsights/appinsights-311search.png)
 
-문자열의 일부가 아닌 용어를 검색합니다. 용어는 '.' 및 '\_'과 같은 문장 부호를 포함하는 영숫자 문자열입니다. 예를 들면 다음과 같습니다.
+문자열의 일부가 아닌 용어를 검색합니다. 용어는 '.' 및 '_'과 같은 문장 부호를 포함하는 영숫자 문자열입니다. 예를 들면 다음과 같습니다.
 
 용어|해당 용어가 검색되지 *않는* 문자열|해당 용어가 검색되는 문자열
 ---|---|---
-HomeController.About|about<br/>home|h\*about<br/>home\*
-IsLocal|local<br/>is<br/>\*local|isl\*<br/>islocal<br/>i\*l\*
-New Delay|w d|new<br/>delay<br/>n\* AND d\*
+HomeController.About|about<br/>home|h*about<br/>home*
+IsLocal|local<br/>is<br/>*local|isl*<br/>islocal<br/>i*l*
+New Delay|w d|new<br/>delay<br/>n* AND d*
 
 
 다음은 사용할 수 있는 검색 식입니다.
@@ -130,12 +130,12 @@ New Delay|w d|new<br/>delay<br/>n\* AND d\*
 ---|---
 slow|지정된 날짜 범위의 필드에 "slow" 용어가 포함된 모든 이벤트를 찾습니다.
 database??|Matches database01, databaseAB, ...<br/>?와 같이 검색 용어를 시작할 수 없습니다.
-database\*|Matches database, database01, databaseNNNN<br/>\*과 같이 검색 용어를 시작할 수 없음
+database*|Matches database, database01, databaseNNNN<br/>*과 같이 검색 용어를 시작할 수 없음
 apple AND banana|두 용어를 모두 포함하는 이벤트를 찾습니다. "and"가 아닌 대문자 "AND"를 사용하세요.
 apple OR banana<br/>apple banana|둘 중 한 용어를 포함하는 이벤트를 찾습니다. "or"가 아닌 "OR"를 사용하세요.</br/>약식입니다.
 apple NOT banana<br/>apple -banana|한 용어를 포함하지만 다른 용어는 포함하지 않는 이벤트를 찾습니다.<br/>약식입니다.
-app\* AND banana -\(grape pear\)|논리적 연산자 및 괄호 사용
-"Metric": 0 TO 500<br/>"Metric" : 500 TO \* | 값의 범위 내에서 명명된 측정을 포함하는 이벤트를 찾습니다.
+app* AND banana -(grape pear)|논리적 연산자 및 괄호 사용
+"Metric": 0 TO 500<br/>"Metric" : 500 TO * | 값의 범위 내에서 명명된 측정을 포함하는 이벤트를 찾습니다.
 
 
 ##검색 저장

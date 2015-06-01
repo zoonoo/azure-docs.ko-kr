@@ -31,7 +31,7 @@
 
 여기에는 단일 Docker 컨테이너에서 실행되는 간단한 "Hello World" 응용 프로그램이 있습니다. 이는 [BusyBox Docker Hub 이미지]를 사용합니다.
 
-Linux 클라이언트 컴퓨터에서 원하는 텍스트 편집기를 사용하여 다음 **systemd** 단위 파일을 만들고 이름을 `helloworld.service`로 지정합니다. \(구문에 대한 세부 정보는 [단위 파일]을 참조하십시오.\)
+Linux 클라이언트 컴퓨터에서 원하는 텍스트 편집기를 사용하여 다음 **systemd** 단위 파일을 만들고 이름을 `helloworld.service`로 지정합니다. (구문에 대한 세부 정보는 [단위 파일]을 참조하십시오.)
 
 ```
 [Unit]
@@ -60,7 +60,7 @@ fleetctl --tunnel coreos-cluster.cloudapp.net:22 start helloworld.service
 Unit helloworld.service launched on 62f0f66e.../100.79.86.62
 ```
 
->[AZURE.NOTE]**-tunnel** 매개 변수 없이 원격 **fleetctl** 명령을 실행하려면 필요에 따라 FLEETCTL\_TUNNEL 환경 변수를 설정하여 요청을 터널링합니다. 예제: `export FLEETCTL_TUNNEL=coreos-cluster.cloudapp.net:22`.
+>[AZURE.NOTE]**-tunnel** 매개 변수 없이 원격 **fleetctl** 명령을 실행하려면 필요에 따라 FLEETCTL_TUNNEL 환경 변수를 설정하여 요청을 터널링합니다. 예제: `export FLEETCTL_TUNNEL=coreos-cluster.cloudapp.net:22`.
 
 
 컨테이너에 연결하여 서비스의 출력을 볼 수 있습니다.
@@ -92,7 +92,7 @@ fleetctl --tunnel coreos-cluster.cloudapp.net:22 unload helloworld.service
 
 CoreOS, Docker 및 **fleet** 사용 시 한 가지 이점은 가용성이 높은 방식으로 손쉽게 서비스를 실행할 수 있다는 것입니다. 이 예제에서는 Apache 웹 서버를 실행하는 동일한 컨테이너 3개로 구성된 서비스를 배포합니다. 컨테이너는 클러스터의 세 VM에서 실행됩니다. 이 예제는 [fleet로 컨테이너 시작]과 유사하며 [CoreOS Apache Docker Hub 이미지]를 사용합니다.
 
->[AZURE.NOTE]가용성이 높은 Apache 서버를 실행하려면 가상 컴퓨터\(공용 포트 80, 개인 포트 80\)에서 부하 분산된 HTTP 끝점을 구성해야 합니다. 이렇게 하려면 Azure 관리 포털 또는 **azure vm endpoint** 명령을 사용하여 CoreOS 클러스터를 만들어야 합니다. 자세한 내용은 [부하 분산된 집합 구성]을 참조하십시오.
+>[AZURE.NOTE]가용성이 높은 Apache 서버를 실행하려면 가상 컴퓨터(공용 포트 80, 개인 포트 80)에서 부하 분산된 HTTP 끝점을 구성해야 합니다. 이렇게 하려면 Azure 관리 포털 또는 **azure vm endpoint** 명령을 사용하여 CoreOS 클러스터를 만들어야 합니다. 자세한 내용은 [부하 분산된 집합 구성]을 참조하십시오.
 
 클라이언트 컴퓨터에서 원하는 텍스트 편집기를 사용하여 apache@.service라는 이름의 **systemd** 템플릿 단위 파일을 만드십시오. 이 템플릿은 apache@1.service, apache@2.service 및 apache@3.service라고 명명된 세 가지 개별 인스턴스를 시작하는 데 사용됩니다.
 
@@ -133,10 +133,10 @@ unit apache@2.service launched on df85f2d1.../100.78.126.15
 Apache 서버에서 다음과 비슷한 기본 텍스트가 반환됩니다.
 
 ```
-\<htm\l>\<body\>\<h1\>It works!\</h1\>
-\<p\>This is the default web page for this server.\</p\>
-\<p\>The web server software is running but no content has been added, yet.\</p\>
-\</body\>\</html\>
+<htm\l><body><h1>It works!</h1>
+<p>This is the default web page for this server.</p>
+<p>The web server software is running but no content has been added, yet.</p>
+</body></html>
 ```
 
 클러스터에 있는 하나 이상의 가상 컴퓨터를 종료하면 Apache 서비스가 계속 실행되는지 확인할 수 있습니다.

@@ -188,7 +188,7 @@ Blob을 다운로드하려면 Blob 참조를 가져오기 위해 Blob을 업로�
 	       if (blobItem instanceof CloudBlob) {
 	           // Download the item and save it to a file with the same name.
     	        CloudBlob blob = (CloudBlob) blobItem;
-    	        blob.download(new FileOutputStream("C:\\mydownloads\\" + blob.getName()));
+    	        blob.download(new FileOutputStream("C:\\mydownloads" + blob.getName()));
     	    }
     	}
     }

@@ -22,7 +22,7 @@ StorSimple 업데이트 기능을 사용하면 쉽게 StorSimple 장치를 최�
 
 두 종류의 장치 업데이트를 적용할 수 있습니다.
 
-- 일반\(또는 표준 모드\) 업데이트
+- 일반(또는 표준 모드) 업데이트
 - 유지 관리 모드 업데이트
 
 관리 포털 또는 Windows PowerShell;을 통해 정기적으로 업데이트를 설치할 수 있습니다. 그러나 Windows PowerShell을 사용하여 유지 관리 모드 업데이트를 설치해야 합니다.
@@ -55,13 +55,13 @@ StorSimple 업데이트 기능을 사용하면 쉽게 StorSimple 장치를 최�
 
 ## StorSimple용 Windows PowerShell을 통해 일반 업데이트 설치
 
-또는, StorSimple 용 Windows PowerShell을 사용하여 일반\(표준 모드\) 업데이트를 적용할 수 있습니다.
+또는, StorSimple 용 Windows PowerShell을 사용하여 일반(표준 모드) 업데이트를 적용할 수 있습니다.
 
 [AZURE.INCLUDE [storsimple-install-regular-updates-powershell](../includes/storsimple-install-regular-updates-powershell.md)]
 
 ## StorSimple 용 Windows PowerShell을 통해 유지 관리 모드 업데이트 설치
 
-StorSimple용 Windows PowerShell을 사용하여 유지 관리 모드 업데이트를 StorSimple 장치에 적용합니다. 모든 I/O 요청은 이 모드에서 일시 중지됩니다. 비휘발성 임의 액세스 메모리 \(NVRAM\) 등의 서비스 또는 클러스터링 서비스도 중지됩니다. 이 모드를 종료하거나 입력하면 두 컨트롤러 모두 다시 부팅됩니다. 이 모드를 종료하면 모든 서비스가 다시 시작되고 정상 상태여야 합니다. \(몇 분이 걸릴 수 있습니다.\)
+StorSimple용 Windows PowerShell을 사용하여 유지 관리 모드 업데이트를 StorSimple 장치에 적용합니다. 모든 I/O 요청은 이 모드에서 일시 중지됩니다. 비휘발성 임의 액세스 메모리 (NVRAM) 등의 서비스 또는 클러스터링 서비스도 중지됩니다. 이 모드를 종료하거나 입력하면 두 컨트롤러 모두 다시 부팅됩니다. 이 모드를 종료하면 모든 서비스가 다시 시작되고 정상 상태여야 합니다. (몇 분이 걸릴 수 있습니다.)
 
 유지 관리 모드 업데이트를 적용해야 하는 경우, 설치해야 하는 업데이트가 있다는 경고를 관리 포털을 통해 수신합니다. 이 경고는 StorSimple용 Windows PowerShell을 사용하여 업데이트를 설치하기 위한 지침을 포함합니다. 장치를 업데이트한 후, 동일한 절차에 따라 장치를 일반 모드로 변경합니다. 단계별 지침은 [유지 관리 모드를 종료하려면](#to-exit-maintenance-mode)을 참조하세요.
 

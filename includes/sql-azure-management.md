@@ -183,7 +183,7 @@ master 데이터베이스에 대한 쿼리를 실행하여 전체 서버에서
 
             CREATE USER login1User FROM LOGIN login1;
 
--   데이터베이스에서 적절한 수준의 권한을 사용자 계정에 부여하려면 **sp\_addrolemember** 저장 프로시저를
+-   데이터베이스에서 적절한 수준의 권한을 사용자 계정에 부여하려면 **sp_addrolemember** 저장 프로시저를
     사용하세요. 자세한
     내용은 [sp_addrolemember(Transact-SQL)][]를 참조하세요. 아래 문은 **db_datareader**
     역할에 **login1User**를 추가하여
@@ -213,7 +213,7 @@ master 데이터베이스에 대한 쿼리를 실행하여 전체 서버에서
 
         DROP LOGIN login1;
 
--   master 데이터베이스에는 로그인을 볼 수 있는 **sys.sql\_logins** 뷰가
+-   master 데이터베이스에는 로그인을 볼 수 있는 **sys.sql_logins** 뷰가
     있습니다. 기존 로그인을 모두 보려면 다음 문을
     실행하세요.
 
@@ -234,8 +234,8 @@ SQL 데이터베이스는 개별 데이터베이스를 모니터링할 수 있�
 
         GRANT VIEW DATABASE STATE TO login1User;
 
--   데이터베이스 크기를 계산하려면**sys.dm\_db\_partition\_stats**
-    뷰를 사용하세요. **sys.dm\_db\_partition\_stats** 뷰는
+-   데이터베이스 크기를 계산하려면**sys.dm_db_partition_stats**
+    뷰를 사용하세요. **sys.dm_db_partition_stats** 뷰는
     데이터베이스에 있는 모든 파티션의 페이지 및 행 개수 정보를 반환하며,
     데이터베이스 크기를 계산할 수 있습니다. 다음 쿼리는
     데이터베이스 크기(MB)를 반환합니다.
@@ -243,7 +243,7 @@ SQL 데이터베이스는 개별 데이터베이스를 모니터링할 수 있�
         SELECT SUM(reserved_page_count)*8.0/1024
         FROM sys.dm_db_partition_stats;   
 
--   현재 사용자 연결 및 데이터베이스와 연결된 내부 작업에 대한 정보를 검색하려면 **sys.dm\_exec\_connections** 및 **sys.dm\_exec\_sessions**
+-   현재 사용자 연결 및 데이터베이스와 연결된 내부 작업에 대한 정보를 검색하려면 **sys.dm_exec_connections** 및 **sys.dm_exec_sessions**
     뷰를
     사용하세요. 다음 쿼리는
     현재 연결에 대한 정보를 반환합니다.
@@ -259,7 +259,7 @@ SQL 데이터베이스는 개별 데이터베이스를 모니터링할 수 있�
             INNER JOIN sys.dm_exec_connections e
               ON s.session_id = e.session_id;
 
--   캐시된 쿼리 계획의 성능 통계를 집계하려면 **sys.dm\_exec\_query\_stats** 뷰를
+-   캐시된 쿼리 계획의 성능 통계를 집계하려면 **sys.dm_exec_query_stats** 뷰를
     사용하세요. 다음 쿼리는
     평균 CPU 시간별로 상위 5개의 쿼리에 대한 정보를
     반환합니다.

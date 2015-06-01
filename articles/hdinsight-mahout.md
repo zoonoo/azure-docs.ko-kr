@@ -84,7 +84,7 @@ Mahout에서 제공하는 기능 중 하나가 추천 엔진입니다. 이 엔�
 	# So dynamically grab it using Hive.
 	$mahoutPath = Invoke-Hive -Query '!${env:COMSPEC} /c dir /b /s ${env:MAHOUT_HOME}\examples\target*-job.jar' | where {$_.startswith("C:\apps\dist")}
 	$noCRLF = $mahoutPath -replace "`r`n", ""
-	$cleanedPath = $noCRLF -replace "\", "/"
+	$cleanedPath = $noCRLF -replace "", "/"
 	$jarFile = "file:///$cleanedPath"
     #
 	# If you are using an earlier version of HDInsight,

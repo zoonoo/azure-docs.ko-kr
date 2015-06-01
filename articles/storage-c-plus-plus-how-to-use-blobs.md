@@ -36,7 +36,7 @@
 Azure Storage Client Library for C++를 설치하려면 다음 메서드를 사용할 수 있습니다.
 
 -	**Linux:** [Azure Storage Client Library for C++ README](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) 페이지의 지침을 따릅니다.  
--	**Windows:** Visual Studio에서 **도구 \> NuGet 패키지 관리자 \> 패키지 관리자 콘솔**을 클릭합니다. [NuGet 패키지 관리자 콘솔](http://docs.nuget.org/docs/start-here/using-the-package-manager-console)에 다음 명령을 입력하고 **ENTER**를 누릅니다.  
+-	**Windows:** Visual Studio에서 **도구 > NuGet 패키지 관리자 > 패키지 관리자 콘솔**을 클릭합니다. [NuGet 패키지 관리자 콘솔](http://docs.nuget.org/docs/start-here/using-the-package-manager-console)에 다음 명령을 입력하고 **ENTER**를 누릅니다.  
 
 		Install-Package wastorage -Pre
 
@@ -62,12 +62,12 @@ Azure 저장소 에뮬레이터를 시작하려면 **시작** 단추를 선택�
 다음 샘플에서는 저장소 연결 문자열을 가져오기 위해 위의 두 메서드 중 하나를 사용한 것으로 가정합니다.
 
 ## 연결 문자열 검색
-**cloud\_storage\_account** 클래스를 사용하여 저장소 계정 정보를 나타낼 수 있습니다. 저장소 연결 문자열에서 저장소 계정 정보를 검색하려면 **구문 분석** 메서드를 사용할 수 있습니다.
+**cloud_storage_account** 클래스를 사용하여 저장소 계정 정보를 나타낼 수 있습니다. 저장소 연결 문자열에서 저장소 계정 정보를 검색하려면 **구문 분석** 메서드를 사용할 수 있습니다.
 
 	// Retrieve storage account from connection string.
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
 
-다음으로, Blob 저장소 서비스에 저장된 Blob과 컨테이너를 나타내는 개체를 검색할 수 있도록 **cloud\_blob\_client** 클래스에 대한 참조를 가져옵니다. 다음 코드는 위에서 검색한 저장소 계정 개체를 사용하여 **cloud\_blob\_client** 개체를 만듭니다.
+다음으로, Blob 저장소 서비스에 저장된 Blob과 컨테이너를 나타내는 개체를 검색할 수 있도록 **cloud_blob_client** 클래스에 대한 참조를 가져옵니다. 다음 코드는 위에서 검색한 저장소 계정 개체를 사용하여 **cloud_blob_client** 개체를 만듭니다.
 
 	// Create the blob client.
 	azure::storage::cloud_blob_client blob_client = storage_account.create_cloud_blob_client();  
@@ -77,15 +77,15 @@ Azure 저장소의 모든 Blob는 컨테이너에 있어야 합니다. 이 예�
 
 	try 
 	{
-	// 연결 문자열에서 저장소 계정을 검색합니다. azure::storage::cloud\_storage\_account storage\_account = azure::storage::cloud\_storage\_account::parse\(storage\_connection\_string\);
+	// 연결 문자열에서 저장소 계정을 검색합니다. azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
 
-	// Blob 클라이언트를 만듭니다. azure::storage::cloud\_blob\_client blob\_client = storage\_account.create\_cloud\_blob\_client\(\);
+	// Blob 클라이언트를 만듭니다. azure::storage::cloud_blob_client blob_client = storage_account.create_cloud_blob_client();
 
-	// 컨테이너에 대한 참조를 검색합니다. azure::storage::cloud\_blob\_container container = blob\_client.get\_container\_reference\(U\("my-sample-container"\)\);
+	// 컨테이너에 대한 참조를 검색합니다. azure::storage::cloud_blob_container container = blob_client.get_container_reference(U("my-sample-container"));
 
-	// 이미 존재하지 않는 경우에 컨테이너를 만듭니다. container.create\_if\_not\_exists\(\); } catch \(const std::exception& e\) { std::wcout \<\< U\("Error: "\) \<\< e.what\(\) \<\< std::endl; }
+	// 이미 존재하지 않는 경우에 컨테이너를 만듭니다. container.create_if_not_exists(); } catch (const std::exception& e) { std::wcout << U("Error: ") << e.what() << std::endl; }
 
-기본적으로 새 컨테이너는 전용이며, 이 컨테이너에서 Blob을 다운로드하려면 저장소 액세스 키를 지정해야 합니다. 컨테이너 내의 파일\(Blob\)을 모든 사용자가 사용할 수 있게 하려는 경우 다음 코드를 사용하여 컨테이너를 공용으로 설정할 수 있습니다.
+기본적으로 새 컨테이너는 전용이며, 이 컨테이너에서 Blob을 다운로드하려면 저장소 액세스 키를 지정해야 합니다. 컨테이너 내의 파일(Blob)을 모든 사용자가 사용할 수 있게 하려는 경우 다음 코드를 사용하여 컨테이너를 공용으로 설정할 수 있습니다.
 
 	// Make the blob container publicly accessible.
 	azure::storage::blob_container_permissions permissions;
@@ -97,7 +97,7 @@ Azure 저장소의 모든 Blob는 컨테이너에 있어야 합니다. 이 예�
 ## 방법: 컨테이너에 Blob 업로드
 Azure Blob 저장소는 블록 Blob 및 페이지 Blob을 지원합니다. 대부분의 경우 블록 Blob을 사용하는 것이 좋습니다.
 
-블록 Blob에 파일을 업로드하려면 컨테이너 참조를 가져온 다음 이 참조를 사용하여 블록 Blob 참조를 가져옵니다. Blob 참조가 있는 경우 **upload\_from\_stream** 메서드를 호출하여 데이터 스트림을 업로드할 수 있습니다. 이 작업은 Blob이 없는 경우 새로 만들고, Blob이 있는 경우 덮어씁니다. 다음 예제에서는 컨테이너에 Blob을 업로드하는 방법을 보여 주며, 컨테이너가 이미 만들어져 있다고 가정합니다.
+블록 Blob에 파일을 업로드하려면 컨테이너 참조를 가져온 다음 이 참조를 사용하여 블록 Blob 참조를 가져옵니다. Blob 참조가 있는 경우 **upload_from_stream** 메서드를 호출하여 데이터 스트림을 업로드할 수 있습니다. 이 작업은 Blob이 없는 경우 새로 만들고, Blob이 있는 경우 덮어씁니다. 다음 예제에서는 컨테이너에 Blob을 업로드하는 방법을 보여 주며, 컨테이너가 이미 만들어져 있다고 가정합니다.
 
 	// Retrieve storage account from connection string.
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
@@ -125,10 +125,10 @@ Azure Blob 저장소는 블록 Blob 및 페이지 Blob을 지원합니다. 대�
 	azure::storage::cloud_block_blob blob3 = container.get_block_blob_reference(U("my-directory/my-sub-directory/my-blob-3"));
 	blob3.upload_text(U("other text"));  
 
-또는, **upload\_from\_file** 메서드를 사용하여 블록 Blob에 파일을 업로드할 수 있습니다.
+또는, **upload_from_file** 메서드를 사용하여 블록 Blob에 파일을 업로드할 수 있습니다.
 
 ## 방법: 컨테이너에 Blob 나열
-컨테이너의 Blob을 나열하려면 먼저 컨테이너 참조를 가져옵니다. 컨테이너의 **list\_blobs\_segmented** 메서드를 사용하여 컨테이너 내의 Blob 및/또는 디렉터리를 검색할 수 있습니다. 반환된 **blob\_result\_segment**에 대한 다양한 속성 및 메서드에 액세스하려면, **blob\_result\_segment.blobs** 속성을 호출하여 **cloud\_blob** 개체를 가져오거나 **blob\_result\_segment.directories** 속성을 호출하여 cloud\_blob\_directory 개체를 가져와야 합니다. 다음 코드는 **my-sample-container** 컨테이너에 있는 각 항목의 URI를 검색하고 출력하는 방법을 보여 줍니다.
+컨테이너의 Blob을 나열하려면 먼저 컨테이너 참조를 가져옵니다. 컨테이너의 **list_blobs_segmented** 메서드를 사용하여 컨테이너 내의 Blob 및/또는 디렉터리를 검색할 수 있습니다. 반환된 **blob_result_segment**에 대한 다양한 속성 및 메서드에 액세스하려면, **blob_result_segment.blobs** 속성을 호출하여 **cloud_blob** 개체를 가져오거나 **blob_result_segment.directories** 속성을 호출하여 cloud_blob_directory 개체를 가져와야 합니다. 다음 코드는 **my-sample-container** 컨테이너에 있는 각 항목의 URI를 검색하고 출력하는 방법을 보여 줍니다.
 
 	// Retrieve storage account from connection string.
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
@@ -143,17 +143,17 @@ Azure Blob 저장소는 블록 Blob 및 페이지 Blob을 지원합니다. 대�
 	azure::storage::continuation_token token;
 	do
 	{
-	azure::storage::blob\_result\_segment result = container.list\_blobs\_segmented\(token\); std::vector\<azure::storage::cloud\_blob\> blobs = result.blobs\(\);
+	azure::storage::blob_result_segment result = container.list_blobs_segmented(token); std::vector<azure::storage::cloud_blob> blobs = result.blobs();
 
-	for \(std::vector\<azure::storage::cloud\_blob\>::const\_iterator it = blobs.cbegin\(\); it != blobs.cend\(\); ++it\) { std::wcout \<\< U\("Blob: "\) \<< it->uri\(\).primary\_uri\(\).to\_string\(\) \<\< std::endl; }
+	for (std::vector<azure::storage::cloud_blob>::const_iterator it = blobs.cbegin(); it != blobs.cend(); ++it) { std::wcout << U("Blob: ") << it->uri().primary_uri().to_string() << std::endl; }
 
-	std::vector\<azure::storage::cloud\_blob\_directory\> directories = result.directories\(\);
+	std::vector<azure::storage::cloud_blob_directory> directories = result.directories();
 
-	for \(std::vector\<azure::storage::cloud\_blob\_directory\>::const\_iterator it = directories.cbegin\(\); it != directories.cend\(\); ++it\) { std::wcout \<\< U\("Directory: "\) \<< it->uri\(\).primary\_uri\(\).to\_string\(\) \<\< std::endl; } token = result.continuation\_token\(\); } while \(!token.empty\(\)\);
+	for (std::vector<azure::storage::cloud_blob_directory>::const_iterator it = directories.cbegin(); it != directories.cend(); ++it) { std::wcout << U("Directory: ") << it->uri().primary_uri().to_string() << std::endl; } token = result.continuation_token(); } while (!token.empty());
 
 
 ## 방법: Blob 다운로드
-Blob을 다운로드하려면 먼저 Blob 참조를 검색한 다음 **download\_to\_stream** 메서드를 호출합니다. 다음 예제에서는 **download\_to\_stream** 메서드를 사용하여 Blob 콘텐츠를 스트림 개체로 전송한 다음 이 개체를 로컬 파일에 저장할 수 있습니다.
+Blob을 다운로드하려면 먼저 Blob 참조를 검색한 다음 **download_to_stream** 메서드를 호출합니다. 다음 예제에서는 **download_to_stream** 메서드를 사용하여 Blob 콘텐츠를 스트림 개체로 전송한 다음 이 개체를 로컬 파일에 저장할 수 있습니다.
 
 	// Retrieve storage account from connection string.
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
@@ -178,7 +178,7 @@ Blob을 다운로드하려면 먼저 Blob 참조를 검색한 다음 **download\
 	outfile.write((char *)&data[0], buffer.size());
 	outfile.close();  
 
-또는, **download\_to\_file** 메서드를 사용하여 Blob의 콘텐츠를 파일에 다운로드 합니다. 또한, **download\_text** 메서드를 사용하여 Blob 콘텐츠를 텍스트 문자열로 다운로드할 수도 있습니다.
+또는, **download_to_file** 메서드를 사용하여 Blob의 콘텐츠를 파일에 다운로드 합니다. 또한, **download_text** 메서드를 사용하여 Blob 콘텐츠를 텍스트 문자열로 다운로드할 수도 있습니다.
 
 	// Retrieve storage account from connection string.
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
@@ -196,7 +196,7 @@ Blob을 다운로드하려면 먼저 Blob 참조를 검색한 다음 **download\
 	utility::string_t text = text_blob.download_text();
 
 ## 방법: Blob 삭제
-Blob을 삭제하려면 먼저 Blob 참조를 가져온 다음 **delete\_blob** 메서드를 호출합니다.
+Blob을 삭제하려면 먼저 Blob 참조를 가져온 다음 **delete_blob** 메서드를 호출합니다.
 
 	// Retrieve storage account from connection string.
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);

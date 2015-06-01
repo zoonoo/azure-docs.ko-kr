@@ -17,7 +17,7 @@
 
 #Application Insights에서 Java 추적 로그 탐색
 
-추적에 Logback 또는 Log4J\(v1.2 또는 v2.0\)를 사용하는 경우 추적 로그를 탐색 및 검색할 수 있는 Application Insights에 추적 로그를 자동으로 전송할 수 있습니다.
+추적에 Logback 또는 Log4J(v1.2 또는 v2.0)를 사용하는 경우 추적 로그를 탐색 및 검색할 수 있는 Application Insights에 추적 로그를 자동으로 전송할 수 있습니다.
 
 아직 수행하지 않은 경우 [Java용 Application Insights SDK][java]를 설치합니다.
 
@@ -89,7 +89,7 @@
 ----|----|----
 Logback|[Logback 어펜더를 사용한 SDK](http://dl.msopentech.com/applicationinsights/javabin/logbackAppender.zip)|applicationinsights-logging-logback
 Log4J v2.0|[Log4J v2 어펜더를 사용한 SDK](http://dl.msopentech.com/applicationinsights/javabin/log4j2Appender.zip)|applicationinsights-logging-log4j2 
-Log4j v1.2|[Log4J v1.2 어펜더를 사용한 SDK](http://dl.msopentech.com/applicationinsights/javabin/log4j1_2Appender.zip)|applicationinsights-logging-log4j1\_2 
+Log4j v1.2|[Log4J v1.2 어펜더를 사용한 SDK](http://dl.msopentech.com/applicationinsights/javabin/log4j1_2Appender.zip)|applicationinsights-logging-log4j1_2 
 
 
 
@@ -130,7 +130,7 @@ Log4j v1.2|[Log4J v1.2 어펜더를 사용한 SDK](http://dl.msopentech.com/appl
       <appender-ref ref="aiAppender" />
     </root>
 
-Application Insights 어펜더는 루트 로거만이 아니라 구성된 모든 로거에 의해 참조될 수 있습니다\(위의 코드 샘플에 표시\).
+Application Insights 어펜더는 루트 로거만이 아니라 구성된 모든 로거에 의해 참조될 수 있습니다(위의 코드 샘플에 표시).
 
 ##Application Insights 포털에서 추적 탐색
 

@@ -59,7 +59,7 @@ SQL 데이터베이스로 빅 데이터를 로드/전송할 때 _분할된 테�
 
 **파티션 테이블을 만들려면 다음을 수행해야 합니다.**
 
-- 각 파티션 테이블에 포함될 값/경계 범위를 정의하는 [파티션 함수를 만듭니다](https://msdn.microsoft.com/library/ms187802.aspx). 예를 들어 아래는 2013년 월별로(some\_datetime\_field) 파티션을 제한합니다.
+- 각 파티션 테이블에 포함될 값/경계 범위를 정의하는 [파티션 함수를 만듭니다](https://msdn.microsoft.com/library/ms187802.aspx). 예를 들어 아래는 2013년 월별로(some_datetime_field) 파티션을 제한합니다.
 
 	    CREATE PARTITION FUNCTION <DatetimeFieldPFN>(<datetime_field>)  
 	    AS RANGE RIGHT FOR VALUES (
@@ -135,13 +135,13 @@ SQL 데이터베이스로 빅 데이터를 로드/전송할 때 _분할된 테�
     # BCP example using Windows authentication
     $ScriptBlock1 = {
        param($dbname, $tbname, $basename, $fmtfile, $indir, $logdir, $num)
-       bcp ($dbname + ".." + $tbname) in ($indir + "\" + $basename + "_" + $num + ".csv") -o ($logdir + "\" + $tbname + "_" + $num + ".txt") -h "TABLOCK" -F 2 -C "RAW" -f ($fmtfile) -T -b 2500 -t "," -r \n
+       bcp ($dbname + ".." + $tbname) in ($indir + "" + $basename + "_" + $num + ".csv") -o ($logdir + "" + $tbname + "_" + $num + ".txt") -h "TABLOCK" -F 2 -C "RAW" -f ($fmtfile) -T -b 2500 -t "," -r \n
     }
     
     # BCP example using SQL authentication
     $ScriptBlock2 = {
        param($dbname, $tbname, $basename, $fmtfile, $indir, $logdir, $num, $sqlusr, $server, $pass)
-       bcp ($dbname + ".." + $tbname) in ($indir + "\" + $basename + "_" + $num + ".csv") -o ($logdir + "\" + $tbname + "_" + $num + ".txt") -h "TABLOCK" -F 2 -C "RAW" -f ($fmtfile) -U $sqlusr -S $server -P $pass -b 2500 -t "," -r \n
+       bcp ($dbname + ".." + $tbname) in ($indir + "" + $basename + "_" + $num + ".csv") -o ($logdir + "" + $tbname + "_" + $num + ".txt") -h "TABLOCK" -F 2 -C "RAW" -f ($fmtfile) -U $sqlusr -S $server -P $pass -b 2500 -t "," -r \n
     }
     
     # Background processing of all partitions

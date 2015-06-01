@@ -20,7 +20,7 @@
 
 이 자습서에서는 [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) 및 [DocumentDB .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)를 사용하여 시작하는 방법을 보여 줍니다. DocumentDB 리소스를 만들고 쿼리하는 콘솔 응용 프로그램을 빌드한 후 콘솔 창에 출력을 기록합니다.
 
-DocumentDB는 NoSQL 문서 데이터베이스 서비스로서, [사용할 수 있는 여러 API 및 SDK](https://msdn.microsoft.com/library/dn781482.aspx)를 포함하고 있습니다. 이 문서의 코드는 C\#으로 작성되었으며, NuGet 패키지로 패키지되고 배포되는 DocumentDB .NET SDK를 사용합니다.
+DocumentDB는 NoSQL 문서 데이터베이스 서비스로서, [사용할 수 있는 여러 API 및 SDK](https://msdn.microsoft.com/library/dn781482.aspx)를 포함하고 있습니다. 이 문서의 코드는 C#으로 작성되었으며, NuGet 패키지로 패키지되고 배포되는 DocumentDB .NET SDK를 사용합니다.
 
 이 문서에서 다루는 시나리오는 다음과 같습니다.
 
@@ -51,7 +51,7 @@ DocumentDB는 NoSQL 문서 데이터베이스 서비스로서, [사용할 수 �
 
 1. 컴퓨터에서 **Visual Studio**를 엽니다.
 2. **파일** 메뉴에서 **새로 만들기**를 선택하고 **프로젝트**를 선택합니다.
-3. **새 프로젝트 대화 상자**에서 **템플릿**/**Visual C\#**/**콘솔 응용 프로그램**을 선택하고 프로젝트 이름을 지정한 후 **추가**를 클릭합니다.
+3. **새 프로젝트 대화 상자**에서 **템플릿**/**Visual C#**/**콘솔 응용 프로그램**을 선택하고 프로젝트 이름을 지정한 후 **추가**를 클릭합니다.
 4. **솔루션 탐색기**에서 Visual Studio 솔루션 아래에 있는 새 콘솔 응용 프로그램을 마우스 오른쪽 단추로 클릭합니다.
 5. 그런 다음 메뉴를 종료하지 않고 **NuGet 패키지 관리...**를 클릭합니다.
 6. **NuGet 패키지 관리** 창의 맨 왼쪽 패널에서 **온라인**/**nuget.org**를 클릭합니다.
@@ -62,7 +62,7 @@ DocumentDB는 NoSQL 문서 데이터베이스 서비스로서, [사용할 수 �
 
 ## <a id="Connect"></a> 3단계: DocumentDB 계정에 연결
 
-DocumentDB 계정에 대한 연결을 설정하기 위해 먼저 [DocumentClient](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.aspx) 클래스의 새 인스턴스를 만듭니다. C\# 응용 프로그램의 시작 부분에 다음 참조가 필요합니다.
+DocumentDB 계정에 대한 연결을 설정하기 위해 먼저 [DocumentClient](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.aspx) 클래스의 새 인스턴스를 만듭니다. C# 응용 프로그램의 시작 부분에 다음 참조가 필요합니다.
 
     using Microsoft.Azure.Documents;
     using Microsoft.Azure.Documents.Client;
@@ -131,7 +131,7 @@ DocumentDB 계정에 연결하여 **DocumentClient** 클래스의 인스턴스�
   		    });
     
 ## <a id="CreateDoc"></a>6단계: 문서 만들기
-**DocumentClient** 클래스의 [CreateDocumentAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) 메서드를 사용하여 [문서](documentdb-resources.md#documents)를 만들 수 있습니다. 문서는 사용자 정의\(임의\) JSON 콘텐츠입니다. 위의 단계에서 생성된 컬렉션은 몇 가지 속성을 포함하며 그중 한 가지가 [DocumentsLink](https://msdn.microsoft.com/library/microsoft.azure.documents.documentcollection.documentslink.aspx) 속성입니다. 이러한 정보를 사용하여 이제 하나 이상의 문서를 삽입할 수 있습니다.
+**DocumentClient** 클래스의 [CreateDocumentAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) 메서드를 사용하여 [문서](documentdb-resources.md#documents)를 만들 수 있습니다. 문서는 사용자 정의(임의) JSON 콘텐츠입니다. 위의 단계에서 생성된 컬렉션은 몇 가지 속성을 포함하며 그중 한 가지가 [DocumentsLink](https://msdn.microsoft.com/library/microsoft.azure.documents.documentcollection.documentslink.aspx) 속성입니다. 이러한 정보를 사용하여 이제 하나 이상의 문서를 삽입할 수 있습니다.
 
 먼저 **Parent**, **Child**, **Pet**, **Address** 및 **Family** 클래스를 만들어야 합니다. 다음 내부 하위 클래스를 추가하여 이러한 클래스를 만듭니다.
 
@@ -244,7 +244,7 @@ DocumentDB는 각 컬렉션에 저장된 JSON 문서에 대해 다양한 [쿼리
     var families = client.CreateDocumentQuery(documentCollection.DocumentsLink,
         "SELECT * " +
         "FROM Families f " +
-        "WHERE f.id = \"AndersenFamily\"");
+        "WHERE f.id = "AndersenFamily"");
 
     foreach (var family in families)
     {
@@ -305,7 +305,7 @@ DocumentDB 쿼리는 이미 단일 컬렉션으로 범위가 지정되었기 때
 
 ## <a id="DeleteDatabase"></a>8단계: 데이터베이스 삭제
 
-만든 데이터베이스를 삭제하면 데이터베이스와 모든 자식 리소스\(컬렉션, 문서 등\)가 제거됩니다. 다음 코드 조각을 **GetStartedDemo** 비동기 메서드 끝에 추가하여 데이터베이스 및 문서 클라이언트를 삭제할 수 있습니다.
+만든 데이터베이스를 삭제하면 데이터베이스와 모든 자식 리소스(컬렉션, 문서 등)가 제거됩니다. 다음 코드 조각을 **GetStartedDemo** 비동기 메서드 끝에 추가하여 데이터베이스 및 문서 클라이언트를 삭제할 수 있습니다.
 
     // Clean up/delete the database
     await client.DeleteDatabaseAsync(database.SelfLink);
@@ -356,7 +356,7 @@ DocumentDB 쿼리는 이미 단일 컬렉션으로 범위가 지정되었기 때
 	  "_rid": "ybVlALUoqAEBAAAAAAAAAA==",
 	  "_ts": 1428372205,
 	  "_self": "dbs/ybVlAA==/colls/ybVlALUoqAE=/docs/ybVlALUoqAEBAAAAAAAAAA==/",
-	  "_etag": "\"0000400c-0000-0000-0000-55233aed0000\"",
+	  "_etag": ""0000400c-0000-0000-0000-55233aed0000"",
 	  "_attachments": "attachments/"
 	} from SQL
 	Read {
@@ -394,7 +394,7 @@ DocumentDB 쿼리는 이미 단일 컬렉션으로 범위가 지정되었기 때
 	  "_rid": "ybVlALUoqAEBAAAAAAAAAA==",
 	  "_ts": 1428372205,
 	  "_self": "dbs/ybVlAA==/colls/ybVlALUoqAE=/docs/ybVlALUoqAEBAAAAAAAAAA==/",
-	  "_etag": "\"0000400c-0000-0000-0000-55233aed0000\"",
+	  "_etag": ""0000400c-0000-0000-0000-55233aed0000"",
 	  "_attachments": "attachments/"
 	} from LINQ
 	Read {
@@ -432,7 +432,7 @@ DocumentDB 쿼리는 이미 단일 컬렉션으로 범위가 지정되었기 때
 	  "_rid": "ybVlALUoqAEBAAAAAAAAAA==",
 	  "_ts": 1428372205,
 	  "_self": "dbs/ybVlAA==/colls/ybVlALUoqAE=/docs/ybVlALUoqAEBAAAAAAAAAA==/",
-	  "_etag": "\"0000400c-0000-0000-0000-55233aed0000\"",
+	  "_etag": ""0000400c-0000-0000-0000-55233aed0000"",
 	  "_attachments": "attachments/"
 	} from LINQ query
 	{

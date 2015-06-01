@@ -24,7 +24,7 @@
 ## 개요
 
 이 가이드에서는
-Azure Blob 저장소 서비스를 사용하여 일반 시나리오를 수행하는 방법을 설명합니다. 샘플은 C\#으로 작성되었으며 Azure Storage Client Library for .NET을 사용합니다. 여기서 다루는 시나리오에는
+Azure Blob 저장소 서비스를 사용하여 일반 시나리오를 수행하는 방법을 설명합니다. 샘플은 C#으로 작성되었으며 Azure Storage Client Library for .NET을 사용합니다. 여기서 다루는 시나리오에는
 Blob **업로드**, **나열**, **다운로드** 및 **삭제**가 포함됩니다.
 
 > [AZURE.NOTE] 이 가이드는 Azure .NET Storage Client Library 2.x 이상을 대상으로 합니다. 권장되는 버전은 [NuGet](https://www.nuget.org/packages/WindowsAzure.Storage/)을 통해 또는 [Azure SDK for .NET](/downloads/)의 일부로 사용할 수 있는 Storage Client Library 4.x입니다. Storage Client Library 가져오기에 대한 자세한 내용은 아래의 [프로그래밍 방식으로 Blob 저장소 액세스]를(#programmatically-access-blob-storage) 참조하세요.
@@ -40,10 +40,10 @@ Blob **업로드**, **나열**, **다운로드** 및 **삭제**가 포함됩니�
 ### 어셈블리 가져오기
 NuGet을 사용하여 `Microsoft.WindowsAzure.Storage.dll` 어셈블리를 가져오는 것이 좋습니다. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 선택합니다.  온라인에서 "WindowsAzure.Storage"를 검색하고 **설치**를 클릭하여 Azure 저장소 패키지와 종속성을 설치합니다.
 
-`Microsoft.WindowsAzure.Storage.dll`은 <a href="http://azure.microsoft.com/develop/net/#">.NET 개발자 센터</a>(영문)에서 다운로드할 수 있는 Azure SDK for .NET에도 포함되어 있습니다. 이 어셈블리는 `%Program Files%\Microsoft SDKs\Azure\.NET SDK\<sdk-version>\ref\` 디렉터리에 설치됩니다.
+`Microsoft.WindowsAzure.Storage.dll`은 <a href="http://azure.microsoft.com/develop/net/#">.NET 개발자 센터</a>(영문)에서 다운로드할 수 있는 Azure SDK for .NET에도 포함되어 있습니다. 이 어셈블리는 `%Program Files%\Microsoft SDKs\Azure.NET SDK<sdk-version>\ref` 디렉터리에 설치됩니다.
 
 ### 네임스페이스 선언
-프로그래밍 방식으로 Azure 저장소에 액세스하려는 C\# 파일의 맨 위에 다음과 같은 네임스페이스 선언을 추가합니다.
+프로그래밍 방식으로 Azure 저장소에 액세스하려는 C# 파일의 맨 위에 다음과 같은 네임스페이스 선언을 추가합니다.
 
     using Microsoft.WindowsAzure.Storage;
     using Microsoft.WindowsAzure.Storage.Auth;

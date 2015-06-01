@@ -22,16 +22,16 @@
 
 ## 1단계: Azure IaaS 진단 패키지 실행
 
-Microsoft는 원격 데스크톱 연결 설정과 관련된 대부분의 일반적인 문제를 해결하기 위해 [Azure IaaS\(Windows\) 진단 패키지](https://home.diagnostics.support.microsoft.com/SelfHelp?knowledgebaseArticleFilter=2976864)를 만들었습니다.
+Microsoft는 원격 데스크톱 연결 설정과 관련된 대부분의 일반적인 문제를 해결하기 위해 [Azure IaaS(Windows) 진단 패키지](https://home.diagnostics.support.microsoft.com/SelfHelp?knowledgebaseArticleFilter=2976864)를 만들었습니다.
 
-1.	이 페이지에서 **Microsoft Azure IaaS\(Windows\) 진단 패키지**를 클릭하여 새 진단 세션을 만듭니다.
-2.	**다음 중 Azure VM에서 발생하는 문제는 무엇인가요?** 페이지에서 **Azure VM에 대한 RDP 연결\(다시 부팅 필요\)** 문제를 선택합니다. 
+1.	이 페이지에서 **Microsoft Azure IaaS(Windows) 진단 패키지**를 클릭하여 새 진단 세션을 만듭니다.
+2.	**다음 중 Azure VM에서 발생하는 문제는 무엇인가요?** 페이지에서 **Azure VM에 대한 RDP 연결(다시 부팅 필요)** 문제를 선택합니다. 
 
-자세한 내용은 [Microsoft Azure IaaS\(Windows\) 진단 패키지 기술 자료 문서](http://support.microsoft.com/kb/2976864)를 참조하세요.
+자세한 내용은 [Microsoft Azure IaaS(Windows) 진단 패키지 기술 자료 문서](http://support.microsoft.com/kb/2976864)를 참조하세요.
 
 Azure IaaS 진단 패키지를 실행해도 문제가 해결되지 않거나 진단 패키지를 실행할 수 없는 경우 다음 단계에 설명된 더 자세한 문제 해결 과정이 필요할 수 있습니다.
 
-> [AZURE.NOTE]Azure IaaS\(Windows\) 진단 패키지는 Windows 8, Windows 8.1, Windows Server 2012 또는 Windows Server 2012 R2를 실행하는 컴퓨터에서 실행되어야 합니다.
+> [AZURE.NOTE]Azure IaaS(Windows) 진단 패키지는 Windows 8, Windows 8.1, Windows Server 2012 또는 Windows Server 2012 R2를 실행하는 컴퓨터에서 실행되어야 합니다.
 
 ## 2단계: 원격 데스크톱 클라이언트에서 오류 메시지 확인
 
@@ -51,7 +51,7 @@ Azure IaaS 진단 패키지를 실행해도 문제가 해결되지 않거나 진
 
 또한 ["사용 가능하 원격 데스크톱 라이선스 서버가 없음"과 함께 Azure VM이 실패하는 경우](http://blogs.msdn.com/b/wats/archive/2014/01/21/rdp-to-azure-vm-fails-with-quot-no-remote-desktop-license-servers-available-quot.aspx) 블로그 게시물을 참조하십시오.
 
-### 원격 데스크톱 연결 메시지 창: 원격 데스크톱이 컴퓨터 "name"을\(를\) 찾을 수 없습니다.
+### 원격 데스크톱 연결 메시지 창: 원격 데스크톱이 컴퓨터 "name"을(를) 찾을 수 없습니다.
 
 원인: 컴퓨터의 원격 데스크톱 클라이언트가 RDP 파일의 설정에 있는 컴퓨터의 이름을 확인할 수 없습니다.
 
@@ -60,7 +60,7 @@ Azure 관리 포털에서 생성된 RDP 파일의 예는 다음과 같습니다.
 	full address:s:tailspin-azdatatier.cloudapp.net:55919
 	prompt for credentials:i:1
 
-주소 부분은 가상 컴퓨터\(이 예에서는 tailspin azdatatier.cloudapp.net\) 및 원격 데스크톱 트래픽 끝점의 외부 TCP 포트\(55919\)를 포함하는 클라우드 서비스의 정규화된 도메인 이름으로 구성됩니다.
+주소 부분은 가상 컴퓨터(이 예에서는 tailspin azdatatier.cloudapp.net) 및 원격 데스크톱 트래픽 끝점의 외부 TCP 포트(55919)를 포함하는 클라우드 서비스의 정규화된 도메인 이름으로 구성됩니다.
 
 이 문제의 가능한 해결책:
 
@@ -73,8 +73,8 @@ Azure 관리 포털에서 생성된 RDP 파일의 예는 다음과 같습니다.
 
 Windows 기반 컴퓨터는 로컬 계정 또는 도메인 기반 계정 자격 증명의 유효성을 검사할 수 있습니다.
 
-- 로컬 계정의 경우 <computer name>\<account name\> 구문\(예: SQL1\\Admin4798\)을 사용합니다. 
-- 도메인 계정의 경우 <domain name>\<account name\> 구문\(예: CONTOSO\\johndoe\)을 사용합니다.
+- 로컬 계정의 경우 <computer name><account name> 구문(예: SQL1\\Admin4798)을 사용합니다. 
+- 도메인 계정의 경우 <domain name><account name> 구문(예: CONTOSO\\johndoe)을 사용합니다.
 
 새 AD 포리스트의 도메인 컨트롤러로 승격하는 컴퓨터의 경우 승격을 수행할 때 사용자가 로그인된 로컬 관리자 계정이 새 포리스트 및 도메인과 같은 암호를 가진 동일한 계정으로 변환됩니다. 이전 로컬 관리자 계정은 삭제됩니다. 예를 들어 DC1\\DCAdmin 로컬 관리자 계정으로 로그인하고 가상 컴퓨터를 corp.contoso.com 도메인에 대한 새 포리스트의 도메인 컨트롤러로 승격하는 경우 DC1\\DCAdmin 로컬 계정이 삭제되고 같은 암호를 가진 새 도메인 계정 CORP\\DCAdmin이 생성됩니다.
 
@@ -88,7 +88,7 @@ Windows 기반 컴퓨터는 로컬 계정 또는 도메인 기반 계정 자격 
 
 각 Windows 컴퓨터에는 원격 데스크톱 연결을 사용하여 로그온할 권한을 갖고 있는 계정 및 그룹을 포함하는 원격 데스크톱 사용자 로컬 그룹이 있습니다. 로컬 관리자 그룹의 구성원도 액세스 권한을 갖고 있지만 원격 데스크톱 사용자 로컬 그룹의 구성원 목록에 표시되지는 않습니다. 도메인에 가입된 컴퓨터의 경우 해당 도메인의 도메인 관리자도 로컬 관리자 그룹에 포함됩니다.
 
-연결을 초기화하는 데 사용하는 계정에 원격 데스크톱 로그온 권한이 있는지 확인하세요. 임시 방편으로 도메인 관리자 또는 로컬 관리자 계정을 사용하여 원격 데스크톱 연결을 설정하고 컴퓨터 관리 스냅인(**시스템 도구 \> 로컬 사용자 및 그룹 \> 그룹 \> 원격 데스크톱 사용자**)을 사용하여 원격 데스크톱 사용자 로컬 그룹에 원하는 계정을 추가합니다.
+연결을 초기화하는 데 사용하는 계정에 원격 데스크톱 로그온 권한이 있는지 확인하세요. 임시 방편으로 도메인 관리자 또는 로컬 관리자 계정을 사용하여 원격 데스크톱 연결을 설정하고 컴퓨터 관리 스냅인(**시스템 도구 > 로컬 사용자 및 그룹 > 그룹 > 원격 데스크톱 사용자**)을 사용하여 원격 데스크톱 사용자 로컬 그룹에 원하는 계정을 추가합니다.
 
 ### 원격 데스크톱 연결 메시지 창: 이러한 이유 중 하나로 인해 원격 데스크톱을 원격 컴퓨터에 연결할 수 없습니다...
 
@@ -100,7 +100,7 @@ Windows 기반 컴퓨터는 로컬 계정 또는 도메인 기반 계정 자격 
  
 단계별 문제 해결 프로세스를 살펴보기 전에 마지막으로 원격 데스크톱 연결을 성공적으로 설정한 이후로 변경된 사항을 마음속으로 생각해보고 이를 바탕으로 문제를 해결하면 유용합니다. 예:
 
-- 원격 데스크톱 연결을 설정한 후 가상 컴퓨터를 포함하는 클라우드 서비스의 공용 IP 주소\(가상 IP 주소, 즉 [VIP]라고도 함\)를 변경한 경우 DNS 클라이언트 캐시에는 클라우드 서비스의 DNS 이름 및 *이전 IP 주소*에 대한 항목이 있을 수 있습니다. DNS 클라이언트 캐시를 플러시하고 다시 시도하세요. 또는 새 VIP를 사용하여 연결을 설정해 보세요.
+- 원격 데스크톱 연결을 설정한 후 가상 컴퓨터를 포함하는 클라우드 서비스의 공용 IP 주소(가상 IP 주소, 즉 [VIP]라고도 함)를 변경한 경우 DNS 클라이언트 캐시에는 클라우드 서비스의 DNS 이름 및 *이전 IP 주소*에 대한 항목이 있을 수 있습니다. DNS 클라이언트 캐시를 플러시하고 다시 시도하세요. 또는 새 VIP를 사용하여 연결을 설정해 보세요.
 - Azure 관리 포털 또는 Azure Preview 포털을 사용하다가 응용 프로그램을 사용하여 원격 데스크톱 연결을 관리하는 경우 응용 프로그램 구성에 원격 데스크톱 트래픽에 대한 무작위 지정 TCP 포트가 포함되어 있는지 확인하세요. 
 
 다음 섹션에서는 단계별로 이 문제의 다양한 근본 원인을 별도로 확인하고 솔루션 및 해결 방법을 제공합니다.
@@ -121,7 +121,7 @@ Windows 기반 컴퓨터는 로컬 계정 또는 도메인 기반 계정 자격 
 
 - 원격 데스크톱 클라이언트 컴퓨터
 - 조직 인트라넷 에지 장치
-- 클라우드 서비스 끝점 및 액세스 제어 목록\(ACL\)
+- 클라우드 서비스 끝점 및 액세스 제어 목록(ACL)
 - 네트워크 보안 그룹
 - Windows 기반 Azure 가상 컴퓨터
 
@@ -166,8 +166,8 @@ Windows 기반 컴퓨터는 로컬 계정 또는 도메인 기반 계정 자격 
 
 동일한 클라우드 서비스의 가상 컴퓨터와 원격 데스크톱 연결을 설정할 수 있는 경우 다음을 확인합니다.
 
-- 대상 가상 컴퓨터의 원격 데스크톱 트래픽에 대 한 끝점 구성. 끝점의 개인 TCP 포트는 가상 컴퓨터에서 원격 데스크톱 서비스를 수신하는 TCP 포트\(기본값 3389\)와 일치해야 합니다. 
-- 대상 가상 컴퓨터의 원격 데스크톱 트래픽 끝점에 대한 ACL. ACL은 인터넷에서 들어오는 트래픽을 원본 IP 주소에 따라 허용 또는 거부하도록 지정하는 데 사용됩니다. ACL이 잘못 구성될 경우 끝점에 원격 데스크톱 트래픽이 들어오지 못할 수 있습니다. ACL을 살펴보고 프록시 또는 다른 에지 서버의 공용 IP 주소에서 들어오는 트래픽이 허용되어 있는지 확인하세요. 자세한 내용은 [네트워크 ACL\(액세스 제어 목록\) 정보](https://msdn.microsoft.com/library/azure/dn376541.aspx)를 참조하세요.
+- 대상 가상 컴퓨터의 원격 데스크톱 트래픽에 대 한 끝점 구성. 끝점의 개인 TCP 포트는 가상 컴퓨터에서 원격 데스크톱 서비스를 수신하는 TCP 포트(기본값 3389)와 일치해야 합니다. 
+- 대상 가상 컴퓨터의 원격 데스크톱 트래픽 끝점에 대한 ACL. ACL은 인터넷에서 들어오는 트래픽을 원본 IP 주소에 따라 허용 또는 거부하도록 지정하는 데 사용됩니다. ACL이 잘못 구성될 경우 끝점에 원격 데스크톱 트래픽이 들어오지 못할 수 있습니다. ACL을 살펴보고 프록시 또는 다른 에지 서버의 공용 IP 주소에서 들어오는 트래픽이 허용되어 있는지 확인하세요. 자세한 내용은 [네트워크 ACL(액세스 제어 목록) 정보](https://msdn.microsoft.com/library/azure/dn376541.aspx)를 참조하세요.
 
 문제의 발생지인 끝점을 제거하려면 현재 끝점을 제거하고 새 끝점을 만든 후 외부 포트 번호에 49152-65535 범위의 임의 포트를 선택합니다. 자세한 내용은 [Azure의 가상 컴퓨터에 끝점 설정](virtual-machines-set-up-endpoints.md)을 참조하세요.
 
@@ -183,9 +183,9 @@ Windows 기반 컴퓨터는 로컬 계정 또는 도메인 기반 계정 자격 
 
 ![](./media/virtual-machines-troubleshoot-remote-desktop-connections/tshootrdp_5.png)
  
-먼저 **Azure VM에 대한 RDP 연결\(다시 부팅 필요\)** 문제로 인해 [Azure IaaS\(Windows\) 진단 패키지](https://home.diagnostics.support.microsoft.com/SelfHelp?knowledgebaseArticleFilter=2976864)를 실행할 수 없는 경우에는 [Windows 가상 컴퓨터에 대한 원격 데스크톱 서비스 또는 암호를 다시 설정하는 방법](virtual-machines-windows-reset-password.md)의 지침을 따라 가상 컴퓨터에 대한 원격 데스크톱 서비스를 다시 설정합니다. 그러면
+먼저 **Azure VM에 대한 RDP 연결(다시 부팅 필요)** 문제로 인해 [Azure IaaS(Windows) 진단 패키지](https://home.diagnostics.support.microsoft.com/SelfHelp?knowledgebaseArticleFilter=2976864)를 실행할 수 없는 경우에는 [Windows 가상 컴퓨터에 대한 원격 데스크톱 서비스 또는 암호를 다시 설정하는 방법](virtual-machines-windows-reset-password.md)의 지침을 따라 가상 컴퓨터에 대한 원격 데스크톱 서비스를 다시 설정합니다. 그러면
 
-- "원격 데스크톱" Windows 방화벽 기본 규칙\(TCP 포트 3389\)이 활성화됩니다.
+- "원격 데스크톱" Windows 방화벽 기본 규칙(TCP 포트 3389)이 활성화됩니다.
 - HKLM\\System\\CurrentControlSet\\Control\\Terminal Server\\fDenyTSConnections 레지스트리 값이 0으로 설정되어 원격 데스크톱 연결이 활성화됩니다.
 
 컴퓨터에서 연결을 다시 시도하세요. 실패할 경우 다음과 같은 문제 때문일 수 있습니다.
@@ -201,7 +201,7 @@ Windows 기반 컴퓨터는 로컬 계정 또는 도메인 기반 계정 자격 
 
 다음으로, Azure PowerShell 명령 프롬프트를 연 다음 현재 폴더를 **InstallWinRMCertAzureVM.ps1** 스크립트 파일 위치로 변경합니다. PowerShell 스크립트를 실행하려면 올바른 실행 정책을 설정해야 합니다. 현재 정책 수준을 지정하려면 **Get-ExecutionPolicy** 명령을 실행합니다. 적절한 수준을 설정하는 방법에 대한 자세한 내용은 [Set-ExecutionPolicy](https://technet.microsoft.com/library/hh849812.aspx)를 참조하세요.
 
-다음으로, Azure 구독 이름, 클라우드 서비스 이름 및 해당 가상 컴퓨터 이름\(< and > 문자 제거\)을 입력한 다음 이러한 명령을 실행합니다.
+다음으로, Azure 구독 이름, 클라우드 서비스 이름 및 해당 가상 컴퓨터 이름(< and > 문자 제거)을 입력한 다음 이러한 명령을 실행합니다.
 
 	$subscr="<Name of your Azure subscription>"
 	$serviceName="<Name of the cloud service that contains the target virtual machine>"
@@ -210,7 +210,7 @@ Windows 기반 컴퓨터는 로컬 계정 또는 도메인 기반 계정 자격 
 
 **Get-AzureSubscription** 명령 표시의 SubscriptionName 속성에서 올바른 구독 이름을 가져올 수 있습니다. **Get-AzureVM** 명령 표시의 ServiceName 열에서 가상 컴퓨터의 클라우드 서비스 이름을 가져올 수 있습니다.
 
-이 새 인증서가 있는지 확인하려면 현재 사용자에 초점을 맞추고 인증서 스냅인을 열고 **신뢰할 수 있는 루트 인증 기관\\인증서** 폴더를 살펴봅니다. 인증서 발급 대상 열에 클라우드 서비스의 DNS 이름을 가진 인증서가 표시되어야 합니다\(예: cloudservice4testing.cloudapp.net\).
+이 새 인증서가 있는지 확인하려면 현재 사용자에 초점을 맞추고 인증서 스냅인을 열고 **신뢰할 수 있는 루트 인증 기관\\인증서** 폴더를 살펴봅니다. 인증서 발급 대상 열에 클라우드 서비스의 DNS 이름을 가진 인증서가 표시되어야 합니다(예: cloudservice4testing.cloudapp.net).
 
 다음으로, 이러한 명령을 사용하여 원격 PowerShell 세션을 시작합니다.
 
@@ -228,11 +228,11 @@ Windows 기반 컴퓨터는 로컬 계정 또는 도메인 기반 계정 자격 
 
 ### TCP 포트에서 수신 대기하는 원격 데스크톱 서비스를 수동으로 수정하려면
 
-**Azure VM에 대한 RDP 연결\(다시 부팅 필요\)** 문제로 인해 [Azure IaaS\(Windows\) 진단 패키지](https://home.diagnostics.support.microsoft.com/SelfHelp?knowledgebaseArticleFilter=2976864)를 실행할 수 없는 경우 원격 PowerShell 세션 프롬프트에서 이 명령을 실행합니다.
+**Azure VM에 대한 RDP 연결(다시 부팅 필요)** 문제로 인해 [Azure IaaS(Windows) 진단 패키지](https://home.diagnostics.support.microsoft.com/SelfHelp?knowledgebaseArticleFilter=2976864)를 실행할 수 없는 경우 원격 PowerShell 세션 프롬프트에서 이 명령을 실행합니다.
 
 	Get-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" -Name "PortNumber"
 
-PortNumber 속성은 현재 포트 번호를 보여줍니다. 필요한 경우 이 명령을 사용하여 원격 데스크톱 포트 번호를 다시 기본값\(3389\)으로 변경합니다.
+PortNumber 속성은 현재 포트 번호를 보여줍니다. 필요한 경우 이 명령을 사용하여 원격 데스크톱 포트 번호를 다시 기본값(3389)으로 변경합니다.
 
 	Set-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" -Name "PortNumber" -Value 3389
 
@@ -252,7 +252,7 @@ MSDN Azure 또는 스택 오버플로 포럼에 문제를 제출하면 전 세�
 
 ## 6단계: Azure 기술 지원 인시던트 제출
 
-**Azure VM에 대한 RDP 연결\(다시 부팅 필요\)** 문제로 인해 [Azure IaaS\(Windows\) 진단 패키지](https://home.diagnostics.support.microsoft.com/SelfHelp?knowledgebaseArticleFilter=2976864)를 실행했거나 이 문서의 2\~5단계를 수행하고 Azure 지원 포럼에 문제를 제출했지만 여전히 원격 데스크톱에 연결할 수 없는 경우 한 가지 대안은 가상 컴퓨터를 다시 만들 수 있는지 여부를 고려하는 것입니다.
+**Azure VM에 대한 RDP 연결(다시 부팅 필요)** 문제로 인해 [Azure IaaS(Windows) 진단 패키지](https://home.diagnostics.support.microsoft.com/SelfHelp?knowledgebaseArticleFilter=2976864)를 실행했거나 이 문서의 2~5단계를 수행하고 Azure 지원 포럼에 문제를 제출했지만 여전히 원격 데스크톱에 연결할 수 없는 경우 한 가지 대안은 가상 컴퓨터를 다시 만들 수 있는지 여부를 고려하는 것입니다.
 
 가상 컴퓨터를 다시 만들 수 없는 경우 Azure 기술 지원 인시던트를 제출하는 것이 좋을 수 있습니다.
 
@@ -262,7 +262,7 @@ Azure 지원을 사용하는 방법에 대한 자세한 내용은 [Microsoft Azu
 
 ## 추가 리소스
 
-[Azure IaaS\(Windows\) 진단 패키지](https://home.diagnostics.support.microsoft.com/SelfHelp?knowledgebaseArticleFilter=2976864)
+[Azure IaaS(Windows) 진단 패키지](https://home.diagnostics.support.microsoft.com/SelfHelp?knowledgebaseArticleFilter=2976864)
 
 [Windows 가상 컴퓨터에 대한 원격 데스크톱 서비스 또는 암호를 다시 설정하는 방법](virtual-machines-windows-reset-password.md)
 

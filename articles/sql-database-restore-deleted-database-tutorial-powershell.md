@@ -42,13 +42,13 @@
 	* **RestorableDropped** 스위치를 사용하여 데이터베이스를 삭제한 서버의 **ServerName**을 지정합니다.
 	* 다음 명령을 실행하면 결과가 **$RecoverableDBs** 변수에 저장됩니다.
 	
-	`PS C:\>$RecoverableDBs = Get-AzureSqlDatabase -ServerName "myserver" -RestorableDropped`
+	`PS C:>$RecoverableDBs = Get-AzureSqlDatabase -ServerName "myserver" -RestorableDropped`
 
 2. 삭제된 데이터베이스 목록에서 복원할 삭제된 데이터베이스를 선택합니다.
 
 	* **$RecoverableDBs** 목록에서 삭제된 데이터베이스 번호를 입력합니다.  
 
-	`PS C:\>$Database = $RecoverableDBs[<deleted database number>]`
+	`PS C:>$Database = $RecoverableDBs[<deleted database number>]`
 
 	* 복원 가능한 삭제된 데이터베이스 개체를 가져오는 방법에 대한 자세한 내용은 [Get-AzureSqlDatabase](http://msdn.microsoft.com/library/dn546735.aspx)를 참조하세요.
 
@@ -58,14 +58,14 @@
 
 	**$RestoreRequest** 변수로 반환되는 결과를 저장합니다. 이 변수는 복원 상태를 모니터링하는 데 사용되는 복원 요청 ID를 포함합니다.
 	
-	`PS C:\>$RestoreRequest = Start-AzureSqlDatabaseRestore -SourceRestorableDroppedDatabase $Database -TargetDatabaseName "myrestoredDB"`
+	`PS C:>$RestoreRequest = Start-AzureSqlDatabaseRestore -SourceRestorableDroppedDatabase $Database -TargetDatabaseName "myrestoredDB"`
 
 복원을 완료하려면 다소 시간이 걸릴 수 있습니다. 복원 상태를 모니터링하려면 다음 매개 변수를 지정하여 [Get AzureSqlDatabaseOperation](http://msdn.microsoft.com/library/azure/dn546738.aspx) cmdlet을 사용합니다.
 
 * **ServerName** - 복원 대상 데이터베이스의 서버 이름입니다.
 * **OperationGuid** - 3단계의 **$RestoreRequest** 변수에 저장된 복원 요청 ID입니다.
 
-	`PS C:\>Get-AzureSqlDatabaseOperation -ServerName "myserver" -OperationGuid $RestoreRequest.RequestID`
+	`PS C:>Get-AzureSqlDatabaseOperation -ServerName "myserver" -OperationGuid $RestoreRequest.RequestID`
 
 **State** 및 **PercentComplete** 필드에 복원 상태가 표시됩니다.
 

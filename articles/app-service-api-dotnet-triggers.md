@@ -47,7 +47,7 @@ API 앱을 처음 접하는 경우 다음 문서를 통해 시작할 수 있습�
 
 ### 폴링 트리거
 
-폴링 트리거는 일반 REST API로 구현되며, 해당 클라이언트\(예: 논리 앱\)는 알림을 받기 위해 이를 폴링해야 합니다. 클라이언트는 상태를 유지 관리할 수 있지만 폴링 트리거 자체는 상태 비저장입니다.
+폴링 트리거는 일반 REST API로 구현되며, 해당 클라이언트(예: 논리 앱)는 알림을 받기 위해 이를 폴링해야 합니다. 클라이언트는 상태를 유지 관리할 수 있지만 폴링 트리거 자체는 상태 비저장입니다.
 
 요청 및 응답 패킷에 대한 다음 정보는 폴링 트리거 계약의 몇 가지 주요 측면을 보여 줍니다.
 
@@ -95,7 +95,7 @@ API 앱을 처음 접하는 경우 다음 문서를 통해 시작할 수 있습�
 
 이 폴링 트리거를 테스트하려면 다음 단계를 따르세요.
 
-1. **공용\(익명\)** 인증 설정으로 API 앱을 배포합니다.
+1. **공용(익명)** 인증 설정으로 API 앱을 배포합니다.
 2. **touch** 작업을 호출하여 파일을 터치합니다. 다음 그림에서는 Postman을 통한 샘플 요청을 보여 줍니다. ![Postman을 통해 Touch 작업 호출](./media/app-service-api-dotnet-triggers/calltouchfilefrompostman.PNG)
 3. 2단계 이전의 타임스탬프로 설정된 **triggerState** 매개 변수 집합을 사용하여 폴링 트리거를 호출합니다. 다음 그림에서는 Postman을 통한 샘플 요청을 보여 줍니다. ![Postman을 통해 폴링 트리거 호출](./media/app-service-api-dotnet-triggers/callpolltriggerfrompostman.PNG)
 
@@ -108,7 +108,7 @@ API 앱을 처음 접하는 경우 다음 문서를 통해 시작할 수 있습�
 - 요청
     - HTTP 메서드: PUT
     - 매개 변수
-        - triggerId: 필수 - 밀어넣기 트리거의 등록을 나타내는 불투명 문자열\(예: GUID\)입니다.
+        - triggerId: 필수 - 밀어넣기 트리거의 등록을 나타내는 불투명 문자열(예: GUID)입니다.
         - callbackUrl: 필수 - 이벤트가 발생하면 호출할 콜백의 URL입니다. 호출은 간단한 POST HTTP 호출입니다.
         - API 관련 매개 변수
 - 응답
@@ -198,7 +198,7 @@ API 앱을 처음 접하는 경우 다음 문서를 통해 시작할 수 있습�
 
 이 폴링 트리거를 테스트하려면 다음 단계를 따르세요.
 
-1. **공용\(익명\)** 인증 설정으로 API 앱을 배포합니다.
+1. **공용(익명)** 인증 설정으로 API 앱을 배포합니다.
 2. [http://requestb.in/](http://requestb.in/)을 찾아서 콜백 URL로 사용할 RequestBin을 만듭니다.
 3. **triggerId**를 GUID로 사용하고 **callbackUrl**을 RequestBin URL로 사용하여 밀어넣기 트리거를 호출합니다. ![Postman을 통해 밀어넣기 트리거 호출](./media/app-service-api-dotnet-triggers/callpushtriggerfrompostman.PNG)
 4. **touch** 작업을 호출하여 파일을 터치합니다. 다음 그림에서는 Postman을 통한 샘플 요청을 보여 줍니다. ![Postman을 통해 Touch 작업 호출](./media/app-service-api-dotnet-triggers/calltouchfilefrompostman.PNG)

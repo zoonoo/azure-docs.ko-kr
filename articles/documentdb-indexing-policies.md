@@ -74,7 +74,7 @@ DocumentDB에서 문서는 SQL을 사용하여 쿼리될 수 있거나 단일 �
 	           }                                                  
 	        ],                                                               
 	        "ExcludedPaths":[                                                
-	           "/\"nonIndexedContent\"/*"                                 
+	           "/"nonIndexedContent"/*"                                 
 	        ]                                                               
 	     }                                                                 
 	 }                                                                                                                                                
@@ -86,7 +86,7 @@ DocumentDB에서 문서는 SQL을 사용하여 쿼리될 수 있거나 단일 �
 
 **참고:** 컬렉션의 인덱싱 정책은 컬렉션을 만들 때 지정해야 합니다. 컬렉션을 만든 후에는 인덱싱 정책을 수정할 수 없지만 DocumentDB의 이후 릴리스에서는 이러한 수정 기능이 지원될 예정입니다.
 
-**참고:** 기본적으로 DocumentDB는 해시 인덱스를 사용하여 문서 내의 모든 경로를 일관되게 인덱싱합니다. 내부 타임스탬프(\_ts) 경로는 범위 인덱스와 함께 저장됩니다.
+**참고:** 기본적으로 DocumentDB는 해시 인덱스를 사용하여 문서 내의 모든 경로를 일관되게 인덱싱합니다. 내부 타임스탬프(_ts) 경로는 범위 인덱스와 함께 저장됩니다.
 
 ### 자동 인덱싱
 
@@ -285,7 +285,7 @@ DocumentDB는 쓰기 최적화되며 동기 인덱스 유지 관리와 함께 �
 	pathRange.IndexingPolicy.IncludedPaths.Add(
 								new IndexingPath { 
 										IndexType = IndexType.Range, 
-										Path = "/\"CreatedTimestamp\"/?",   
+										Path = "/"CreatedTimestamp"/?",   
 										NumericPrecision = 7   
 							 			}
 									);   
@@ -307,7 +307,7 @@ DocumentDB는 쓰기 최적화되며 동기 인덱스 유지 관리와 함께 �
   	excluded.IndexingPolicy.IncludedPaths.Add(
 	newIndexingPath {  Path = "/" });  
 
-	excluded.IndexingPolicy.ExcludedPaths.Add("/\" nonIndexedContent\"/*");    
+	excluded.IndexingPolicy.ExcludedPaths.Add("/" nonIndexedContent"/*");    
 	excluded = await client.CreateDocumentCollectionAsync(database.SelfLink,excluded);                                                               
 
 
@@ -316,7 +316,7 @@ DocumentDB는 쓰기 최적화되며 동기 인덱스 유지 관리와 함께 �
 
 여러 인덱싱 정책 구성을 평가할 때 DocumentDB API를 통해 정책의 저장소 및 처리량을 측정해야 합니다.
 
-컬렉션의 저장소 할당량 및 사용량을 확인하려면 컬렉션 리소스에 대해 HEAD 또는 GET 요청을 실행하고 x-ms-request-quota 및 x-ms-request-usage 헤더를 검사합니다. .NET SDK에서는 [ResourceResponse<T\>](http://msdn.microsoft.com/library/dn799209.aspx)의 [DocumentSizeQuota](http://msdn.microsoft.com/library/dn850325.aspx) 및 [DocumentSizeUsage](http://msdn.microsoft.com/library/azure/dn850324.aspx) 속성에 이에 해당하는 값이 포함되어 있습니다.
+컬렉션의 저장소 할당량 및 사용량을 확인하려면 컬렉션 리소스에 대해 HEAD 또는 GET 요청을 실행하고 x-ms-request-quota 및 x-ms-request-usage 헤더를 검사합니다. .NET SDK에서는 [ResourceResponse<T>](http://msdn.microsoft.com/library/dn799209.aspx)의 [DocumentSizeQuota](http://msdn.microsoft.com/library/dn850325.aspx) 및 [DocumentSizeUsage](http://msdn.microsoft.com/library/azure/dn850324.aspx) 속성에 이에 해당하는 값이 포함되어 있습니다.
 
 
  	// Measure the document size usage (which includes the index size) against   
@@ -325,7 +325,7 @@ DocumentDB는 쓰기 최적화되며 동기 인덱스 유지 관리와 함께 �
 	 Console.WriteLine("Document size quota: {0}, usage: {1}", collectionInfo.DocumentSizeQuota, collectionInfo.DocumentSizeUsage);                                       
 
 
-각 쓰기 작업(만들기, 업데이트 또는 삭제)에 대한 인덱싱의 오버헤드를 측정하려면 x-ms-request-charge 헤더(또는 .NET SDK의 [ResourceResponse<T\>](http://msdn.microsoft.com/library/dn799209.aspx)에 있는 [RequestCharge](http://msdn.microsoft.com/library/dn799099.aspx) 속성)를 검사하여 이러한 작업에 사용된 요청 단위 수를 측정합니다.
+각 쓰기 작업(만들기, 업데이트 또는 삭제)에 대한 인덱싱의 오버헤드를 측정하려면 x-ms-request-charge 헤더(또는 .NET SDK의 [ResourceResponse<T>](http://msdn.microsoft.com/library/dn799209.aspx)에 있는 [RequestCharge](http://msdn.microsoft.com/library/dn799099.aspx) 속성)를 검사하여 이러한 작업에 사용된 요청 단위 수를 측정합니다.
 
 
  	// Measure the performance (request units) of writes.     

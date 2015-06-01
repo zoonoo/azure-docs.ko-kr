@@ -35,7 +35,7 @@ Application Insights 포털의 응용 프로그램 개요 블레이드에서 연
 ![이벤트 유형 선택 클릭](./media/app-insights-export-telemetry/03-types.png)
 
 
-내보내기를 만들면 진행을 시작합니다. \(내보내기를 만든 후에는 도착하는 데이터만 받습니다.\)
+내보내기를 만들면 진행을 시작합니다. (내보내기를 만든 후에는 도착하는 데이터만 받습니다.)
 
 
 나중에 이벤트 유형을 변경하려는 경우 내보내기를 편집하면 됩니다.
@@ -70,7 +70,7 @@ Application Insights 포털의 응용 프로그램 개요 블레이드에서 연
 
 또는 데이터를 대규모로 관리하기 위해 파이프라인을 설정할 수 있는 [DataFactory](http://azure.microsoft.com/services/data-factory/)를 고려합니다.
 
-매 시간마다 새 blob 작성을 시작합니다\(이벤트를 받은 경우\). 따라서 항상 이전 시간까지 처리해야 하지만 완료하도록 현재 시간 동안 대기해야 합니다.
+매 시간마다 새 blob 작성을 시작합니다(이벤트를 받은 경우). 따라서 항상 이전 시간까지 처리해야 하지만 완료하도록 현재 시간 동안 대기해야 합니다.
 
 [코드 샘플][exportcode]
 
@@ -112,9 +112,9 @@ Application Insights 포털의 응용 프로그램 개요 블레이드에서 연
     }
 
 
-또는 SQL 데이터베이스로 이동할 수 있습니다\([코드 샘플][exportcode] 참조\).
+또는 SQL 데이터베이스로 이동할 수 있습니다([코드 샘플][exportcode] 참조).
 
-더 큰 규모에서는 [HDInsight](http://azure.microsoft.com/services/hdinsight/)\(클라우드의 Hadoop 클러스터\)를 고려합니다. HDInsight는 빅 데이터를 관리 및 분석하는 다양한 기술을 제공합니다.
+더 큰 규모에서는 [HDInsight](http://azure.microsoft.com/services/hdinsight/)(클라우드의 Hadoop 클러스터)를 고려합니다. HDInsight는 빅 데이터를 관리 및 분석하는 다양한 기술을 제공합니다.
 
 ##<a name="delete"></a>이전 데이터 삭제
 필요한 경우 스토리지 용량을 관리하고 오래된 데이터를 삭제해야 합니다.

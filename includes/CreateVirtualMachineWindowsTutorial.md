@@ -4,7 +4,7 @@
 
 이 자습서에서는 Windows Azure 관리 포털의 이미지 갤러리를 사용하여 Windows Server를 실행하는 Azure 가상 컴퓨터를 쉽게 만드는 방법을 보여 줍니다. 이미지 갤러리는 Windows 운영 체제, Linux 기반 운영 체제, 응용 프로그램 이미지 등 다양한 이미지를 제공합니다.
 
-> [AZURE.NOTE]이전에 Azure VM을 사용한 경험이 없어도 이 자습서를 완료할 수 있습니다. 그러나 Azure 계정은 필요합니다. 몇 분 만에 무료 체험 계정을 만들 수 있습니다. 자세한 내용은 [Azure 계정 만들기](http://www.windowsazure.com/develop/php/tutorials/create-a-windows-azure-account/)\(영문\)를 참조하세요.
+> [AZURE.NOTE]이전에 Azure VM을 사용한 경험이 없어도 이 자습서를 완료할 수 있습니다. 그러나 Azure 계정은 필요합니다. 몇 분 만에 무료 체험 계정을 만들 수 있습니다. 자세한 내용은 [Azure 계정 만들기](http://www.windowsazure.com/develop/php/tutorials/create-a-windows-azure-account/)(영문)를 참조하세요.
 
 이 자습서에서는 다음을 보여 줍니다.
 
@@ -91,7 +91,7 @@
 
 	![서버 관리자에서 파일 및 저장소 서비스 확장](./media/CreateVirtualMachineWindowsTutorial/selectdisks.png)
 	
-10. **디스크** 섹션의 목록에는 디스크 0, 디스크 1, 디스크 2, 이렇게 세 개의 디스크가 있습니다. 디스크 0은 OS 디스크이며, 디스크 1은 임시 리소스 디스크\(데이터 저장소에 사용되지 않음\), 디스크 2는 가상 컴퓨터에 연결한 데이터 디스크입니다. 데이터 디스크의 용량은 앞서 지정한 대로 5GB입니다. 디스크 2를 마우스 오른쪽 단추로 클릭한 다음 **초기화**를 선택합니다.
+10. **디스크** 섹션의 목록에는 디스크 0, 디스크 1, 디스크 2, 이렇게 세 개의 디스크가 있습니다. 디스크 0은 OS 디스크이며, 디스크 1은 임시 리소스 디스크(데이터 저장소에 사용되지 않음), 디스크 2는 가상 컴퓨터에 연결한 데이터 디스크입니다. 데이터 디스크의 용량은 앞서 지정한 대로 5GB입니다. 디스크 2를 마우스 오른쪽 단추로 클릭한 다음 **초기화**를 선택합니다.
 
 	![초기화 시작](./media/CreateVirtualMachineWindowsTutorial/initializedisk.png)
 

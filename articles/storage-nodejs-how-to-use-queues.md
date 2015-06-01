@@ -60,7 +60,7 @@ Node.js용 Azure 저장소 SDK가 필요합니다.
 		└── request@2.27.0 (json-stringify-safe@5.0.0, tunnel-agent@0.3.0, aws-sign@0.3.0, forever-agent@0.5.2, qs@0.6.6, oauth-sign@0.3.0, cookie-jar@0.3.0, hawk@1.0.0, form-data@0.1.3, http-signature@0.10.0)
 
 3.  **ls** 명령을 수동으로 실행하여
-    **node\_modules** 폴더가 만들어졌는지 확인할 수 있습니다. 이 폴더에서
+    **node_modules** 폴더가 만들어졌는지 확인할 수 있습니다. 이 폴더에서
     저장소에 액세스하는 데 필요한 라이브러리가 들어 있는 **azure-storage** 패키지를
     찾습니다.
 
@@ -73,7 +73,7 @@ Node.js용 Azure 저장소 SDK가 필요합니다.
 
 ## Azure 저장소 연결 설정
 
-Azure 모듈은 AZURE\_STORAGE\_ACCOUNT 및 AZURE\_STORAGE\_ACCESS\_KEY 또는 AZURE\_STORAGE\_CONNECTION\_STRING 환경 변수에서 Azure 저장소 계정에 연결하는 데 필요한 정보를 읽습니다. 이러한 환경 변수가 설정되지 않은 경우 **createQueueService**를 호출할 때 계정 정보를 지정해야 합니다.
+Azure 모듈은 AZURE_STORAGE_ACCOUNT 및 AZURE_STORAGE_ACCESS_KEY 또는 AZURE_STORAGE_CONNECTION_STRING 환경 변수에서 Azure 저장소 계정에 연결하는 데 필요한 정보를 읽습니다. 이러한 환경 변수가 설정되지 않은 경우 **createQueueService**를 호출할 때 계정 정보를 지정해야 합니다.
 
 Azure 웹 사이트의 관리 포털에서 환경 변수를 설정하는 방법에 대한 예제는 [Node.js 웹 응용 프로그램 및 저장소]를 참조하세요.
 

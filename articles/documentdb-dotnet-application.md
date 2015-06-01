@@ -33,7 +33,7 @@ Azure DocumentDB를 효율적으로 활용하여 JSON 문서를 저장 및 쿼�
 
 - 활성 Azure 계정. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](../../pricing/free-trial/)을 참조하십시오.
 - [Visual Studio 2013](http://www.visualstudio.com/) 업데이트 4 이상
-- Azure SDK for .NET 버전 2.5.1 이상\([Microsoft 웹 플랫폼 설치 관리자][]를 통해 사용 가능\)
+- Azure SDK for .NET 버전 2.5.1 이상([Microsoft 웹 플랫폼 설치 관리자][]를 통해 사용 가능)
 
 이 문서의 모든 스크린샷은 Visual Studio 2013 업데이트 4 및 Azure SDK for .NET 버전 2.5.1을 사용하여 생성되었습니다. 시스템이 다른 버전으로 구성된 경우 화면과 옵션이 일부 달라질 수 있지만 위의 필수 구성 요소를 충족하면 솔루션을 사용할 수 있습니다.
 
@@ -54,7 +54,7 @@ Azure DocumentDB를 효율적으로 활용하여 JSON 문서를 저장 및 쿼�
 1. Visual Studio의 **파일** 메뉴에서 **새로 만들기**를 가리킨 후 **프로젝트**를 클릭합니다.
 
    	**새 프로젝트** 대화 상자가 나타납니다.
-2. **프로젝트 형식** 창에서 **템플릿**, **Visual C\#**, **웹**을 확장한 후 **ASP.NET 웹 응용 프로그램**을 선택합니다.
+2. **프로젝트 형식** 창에서 **템플릿**, **Visual C#**, **웹**을 확장한 후 **ASP.NET 웹 응용 프로그램**을 선택합니다.
 
   ![ASP.NET 웹 응용 프로그램 프로젝트 유형이 강조 표시된 새 프로젝트 대화 상자의 스크린샷](./media/documentdb-dotnet-application/image10.png)
 
@@ -96,7 +96,7 @@ Azure DocumentDB를 효율적으로 활용하여 JSON 문서를 저장 및 쿼�
 
 2. **온라인 검색** 상자에 ***Azure DocumentDB***를 입력합니다. 
     
-    결과에서 **Microsoft Azure DocumentDB Client Library** 패키지를 설치합니다. 그러면 DocumentDB 패키지 및 모든 종속성\(예: Newtonsoft.Json\)이 다운로드되어 설치됩니다.
+    결과에서 **Microsoft Azure DocumentDB Client Library** 패키지를 설치합니다. 그러면 DocumentDB 패키지 및 모든 종속성(예: Newtonsoft.Json)이 다운로드되어 설치됩니다.
 
   ![Microsoft Azure DocumentDB Client Library가 강조 표시된 NuGet 패키지 관리 창의 스크린샷](./media/documentdb-dotnet-application/nuget.png)
 
@@ -200,9 +200,9 @@ Azure DocumentDB를 효율적으로 활용하여 JSON 문서를 저장 및 쿼�
 2. **뷰 추가** 대화 상자에서 다음을 수행합니다.
 	- **뷰 이름** 상자에 ***Index***를 입력합니다.
 	- **템플릿** 상자에서 ***List***를 선택합니다.
-	- **모델 클래스** 상자에서 ***Item \(todo.Models\)***을 선택합니다.
+	- **모델 클래스** 상자에서 ***Item (todo.Models)***을 선택합니다.
 	- **데이터 컨텍스트 클래스** 상자를 빈 상태로 둡니다. 
-	- 레이아웃 페이지 상자에 ***\~/Views/Shared/\_Layout.cshtml***을 입력합니다.
+	- 레이아웃 페이지 상자에 ***~/Views/Shared/_Layout.cshtml***을 입력합니다.
 	
 	![뷰 추가 대화 상자를 보여주는 스크린샷](./media/documentdb-dotnet-application/image18.png)
 
@@ -217,9 +217,9 @@ Azure DocumentDB를 효율적으로 활용하여 JSON 문서를 저장 및 쿼�
 2. **뷰 추가** 대화 상자에서 다음을 수행합니다.
     - **뷰 이름** 상자에 ***Create***를 입력합니다.
     - **템플릿** 상자에서 ***Create***를 선택합니다.
-    - **모델 클래스** 상자에서 ***Item \(todo.Models\)***을 선택합니다.
+    - **모델 클래스** 상자에서 ***Item (todo.Models)***을 선택합니다.
     - **데이터 컨텍스트 클래스** 상자를 빈 상태로 둡니다.
-    - 레이아웃 페이지 상자에 ***\~/Views/Shared/\_Layout.cshtml***을 입력합니다.
+    - 레이아웃 페이지 상자에 ***~/Views/Shared/_Layout.cshtml***을 입력합니다.
     - **추가**를 클릭합니다.
 
 #### <a name="_Toc395888515"></a>항목 편집 뷰 추가
@@ -231,9 +231,9 @@ Azure DocumentDB를 효율적으로 활용하여 JSON 문서를 저장 및 쿼�
 2. **뷰 추가** 대화 상자에서 다음을 수행합니다.
     - **뷰 이름** 상자에 ***Edit***를 입력합니다.
     - **템플릿** 상자에서 ***Edit***를 선택합니다.
-    - **모델 클래스** 상자에서 ***Item \(todo.Models\)***을 선택합니다.
+    - **모델 클래스** 상자에서 ***Item (todo.Models)***을 선택합니다.
     - **데이터 컨텍스트 클래스** 상자를 빈 상태로 둡니다. 
-    - 레이아웃 페이지 상자에 ***\~/Views/Shared/\_Layout.cshtml***을 입력합니다.
+    - 레이아웃 페이지 상자에 ***~/Views/Shared/_Layout.cshtml***을 입력합니다.
     - **추가**를 클릭합니다.
 
 이 작업이 완료되면 나중에 이러한 뷰로 돌아올 것이므로 Visual Studio에서 모든 cshtml 문서를 닫습니다.
@@ -442,13 +442,13 @@ Azure DocumentDB를 효율적으로 활용하여 JSON 문서를 저장 및 쿼�
 
 지금 응용 프로그램을 실행하면 **HomeController** 및 해당 컨트롤러의 **인덱스** 뷰로 이동합니다. 이것은 시작할 때 선택한 MVC 템플릿 프로젝트에 대한 기본 동작이지만 여기서는 사용하지 않습니다. 이 동작을 변경하기 위해 이 MVC 응용 프로그램의 라우팅을 변경하겠습니다.
 
-***App\_Start\\RouteConfig.cs***를 열고 "defaults:"로 시작하는 줄을 찾은 후 다음과 같이 변경합니다.
+***App_Start\\RouteConfig.cs***를 열고 "defaults:"로 시작하는 줄을 찾은 후 다음과 같이 변경합니다.
 
     	defaults: new { controller = "Item", action = "Index", id = UrlParameter.Optional }
 
 이 구문은 이제 ASP.NET MVC에 라우팅 동작을 제어하기 위한 URL에 값이 지정되지 않은 경우 **Home** 대신 **Item**을 컨트롤러로 사용하고 사용자 **인덱스**를 뷰로 사용하라고 지시합니다.
 
-이제 응용 프로그램을 실행하면 응용 프로그램에서 리포지토리 클래스를 호출하는 **ItemController**를 호출하며 GetItems 메서드를 사용하여 완료되지 않은 모든 항목을 **뷰**\\**항목**\\**인덱스** 뷰로 반환합니다.
+이제 응용 프로그램을 실행하면 응용 프로그램에서 리포지토리 클래스를 호출하는 **ItemController**를 호출하며 GetItems 메서드를 사용하여 완료되지 않은 모든 항목을 **뷰****항목****인덱스** 뷰로 반환합니다.
 
 이 프로젝트를 지금 빌드하여 실행하면 이제 다음과 같이 표시됩니다.
 
@@ -570,7 +570,7 @@ DocumentDB에 레코드를 저장하기 위해 DocumentDBRepository 및 ItemCont
 	
 	추가한 두 번째 메서드는 데이터베이스에 저장되도록 업데이트된 개체를 DocumentDB에 전달하는 작업을 처리합니다.
 
-응용 프로그램을 실행하는 데 필요한 모든 작업\(완료되지 않은 **항목** 나열, 새 **항목** 추가 및 **항목** 편집\)이 완료되었습니다.
+응용 프로그램을 실행하는 데 필요한 모든 작업(완료되지 않은 **항목** 나열, 새 **항목** 추가 및 **항목** 편집)이 완료되었습니다.
 
 ## <a name="_Toc395637773"></a>6단계: 로컬에서 응용 프로그램 실행
 
@@ -624,7 +624,7 @@ DocumentDB에 레코드를 저장하기 위해 DocumentDBRepository 및 ItemCont
 
 1. Visual Studio 및 Azure SDK for .NET 버전 2.3 이상을 포함하는 [필수 소프트웨어](#_Toc395637760)가 설치되어 있는지 확인합니다.
 
-2. Git for Windows\([http://www.git-scm.com/](http://www.git-scm.com/)\)를 사용하여 azure-documentdb-net 리포지토리를 복제하거나 [GitHub](https://github.com/Azure/azure-documentdb-net/)에서 zip 파일을 다운로드합니다.
+2. Git for Windows([http://www.git-scm.com/](http://www.git-scm.com/))를 사용하여 azure-documentdb-net 리포지토리를 복제하거나 [GitHub](https://github.com/Azure/azure-documentdb-net/)에서 zip 파일을 다운로드합니다.
 
 2. Visual Studio의 azure-documentdb-net/tutorials/todo 디렉터리에서 todo.sln 파일을 엽니다.
 
@@ -650,7 +650,7 @@ DocumentDB에 레코드를 저장하기 위해 DocumentDBRepository 및 ItemCont
 7. 이제 [로컬에서 응용 프로그램을 실행](#_Toc395637773)한 다음 [Azure 웹 사이트에 배포](#_Toc395637774)할 수 있습니다.
 
 
-[\*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError
+[*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError
 [Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx
 [Microsoft 웹 플랫폼 설치 관리자]: http://www.microsoft.com/web/downloads/platform.aspx
 [GitHub]: http://go.microsoft.com/fwlink/?LinkID=509838&clcid=0x409

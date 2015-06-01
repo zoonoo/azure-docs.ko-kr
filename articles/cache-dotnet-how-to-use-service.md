@@ -95,12 +95,12 @@ PowerShell cmdlet을 호출한 후 캐시가 만들어지는 데 몇 분 정도 
 
 Azure PowerShell 창에서 만들기 진행률을 모니터링할 수 있습니다. 캐시의 사용 준비가 완료되면 [New-AzureManagedCache][] cmdlet에서 다음 예에 표시된 대로 캐시 정보를 표시합니다.
 
-	PS C:\> Add-AzureAccount
+	PS C:> Add-AzureAccount
 	VERBOSE: Account "user@domain.com" has been added.
 	VERBOSE: Subscription "MySubscription" is selected as the default subscription.
 	VERBOSE: To view all the subscriptions, please use Get-AzureSubscription.
 	VERBOSE: To switch to a different subscription, please use Select-AzureSubscription.
-	PS C:\> New-AzureManagedCache -Name contosocache -Location "South Central US" -Sku Basic -Memory 128MB
+	PS C:> New-AzureManagedCache -Name contosocache -Location "South Central US" -Sku Basic -Memory 128MB
 	VERBOSE: Intializing parameters...
 	VERBOSE: Creating prerequisites...
 	VERBOSE: Verify cache service name...
@@ -116,7 +116,7 @@ Azure PowerShell 창에서 만들기 진행률을 모니터링할 수 있습니�
 
 
 
-	PS C:\>
+	PS C:>
 
 
 
@@ -259,7 +259,7 @@ NuGet 패키지는 또한 다음 어셈블리에 참조를 추가합니다.
 
 -	Microsoft.Web.DistributedCache.dll.
 
->이러한 어셈블리는 C:\\Program Files\\Microsoft SDKs\\Windows Azure\\.NET SDK\\[SDK 버전]\\ref\\Caching\\ 폴더에 있습니다.
+>이러한 어셈블리는 C:\\Program Files\\Microsoft SDKs\\Windows Azure.NET SDK[SDK 버전]\\ref\\Caching\\ 폴더에 있습니다.
 
 클라이언트 프로젝트의 캐싱을 구성했으면 캐시 작업에 대해 다음 섹션에서 설명하는 기술을 사용할 수 있습니다.
 

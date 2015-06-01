@@ -351,7 +351,7 @@ public ActionResult Show(string id)
 		...
     }
 
-첫 번째 `bundles.Add()` 문은 가상 디렉터리 `~/bundles/jquery`에 스크립트 번들을 추가합니다. 그런 다음 *Views\Shared\_Layout.cshtml* 파일을 열고 스크립트 번들 태그가 어떻게 렌더링되는지 살펴보세요. 다음과 같은 Razor 코드 줄이 있습니다.
+첫 번째 `bundles.Add()` 문은 가상 디렉터리 `~/bundles/jquery`에 스크립트 번들을 추가합니다. 그런 다음 *Views\Shared_Layout.cshtml* 파일을 열고 스크립트 번들 태그가 어떻게 렌더링되는지 살펴보세요. 다음과 같은 Razor 코드 줄이 있습니다.
 
     @Scripts.Render("~/bundles/jquery")
 
@@ -545,25 +545,25 @@ ASP.NET 묶음 및 축소를 CDN 끝점과 통합하려면 다음 단계를 따�
 	                    }
 	                }
 	                return true;
-	            }())||document.write(&#39;&lt;script src=&quot;/Content/css&quot;&gt;&lt;\/script&gt;&#39;);&lt;/script&gt;</mark>
+	            }())||document.write(&#39;&lt;script src=&quot;/Content/css&quot;&gt;&lt;/script&gt;&#39;);&lt;/script&gt;</mark>
 	
 	    &lt;script src=&quot;http://az673227.vo.msecnd.net/bundles/modernizer?v=1.0.0.25474&quot;&gt;&lt;/script&gt;
-	<mark>&lt;script&gt;(window.Modernizr)||document.write(&#39;&lt;script src=&quot;/bundles/modernizr&quot;&gt;&lt;\/script&gt;&#39;);&lt;/script&gt;</mark>
+	<mark>&lt;script&gt;(window.Modernizr)||document.write(&#39;&lt;script src=&quot;/bundles/modernizr&quot;&gt;&lt;/script&gt;&#39;);&lt;/script&gt;</mark>
 	
 	...	
 	
 	    &lt;script src=&quot;http://az673227.vo.msecnd.net/bundles/jquery?v=1.0.0.25474&quot;&gt;&lt;/script&gt;
-	<mark>&lt;script&gt;(window.jquery)||document.write(&#39;&lt;script src=&quot;/bundles/jquery&quot;&gt;&lt;\/script&gt;&#39;);&lt;/script&gt;</mark>
+	<mark>&lt;script&gt;(window.jquery)||document.write(&#39;&lt;script src=&quot;/bundles/jquery&quot;&gt;&lt;/script&gt;&#39;);&lt;/script&gt;</mark>
 	
 	    &lt;script src=&quot;http://az673227.vo.msecnd.net/bundles/bootstrap?v=1.0.0.25474&quot;&gt;&lt;/script&gt;
-	<mark>&lt;script&gt;($.fn.modal)||document.write(&#39;&lt;script src=&quot;/bundles/bootstrap&quot;&gt;&lt;\/script&gt;&#39;);&lt;/script&gt;</mark>
+	<mark>&lt;script&gt;($.fn.modal)||document.write(&#39;&lt;script src=&quot;/bundles/bootstrap&quot;&gt;&lt;/script&gt;&#39;);&lt;/script&gt;</mark>
 	
 	...
 	</pre>
 
 	CSS 번들의 삽입 스크립트에서 다음 줄에 여전히 `CdnFallbackExpression` 속성의 나머지 잘못된 부분이 포함되어 있습니다.
 
-        }())||document.write('<script src="/Content/css"><\/script>');</script>
+        }())||document.write('<script src="/Content/css"></script>');</script>
 
 	그러나 || 식의 첫 부분이 항상 true를 반환하므로(바로 위의 줄에서) document.write() 함수가 실행되지 않습니다.
 

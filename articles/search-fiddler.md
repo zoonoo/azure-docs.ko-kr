@@ -73,7 +73,7 @@
 
 몇 초 후에 인덱스가 성공적으로 만들어졌음을 나타내는 HTTP 201 응답이 검색 목록에 표시됩니다.
 
-HTTP 504가 표시될 경우 URL이 HTTPS를 지정하는지 확인합니다. HTTP 400 또는 404가 표시되는 경우 요청 본문에서 복사/붙여 넣기 오류가 없는지 확인합니다. HTTP 403은 대개 api-key에 문제가 있음을 나타냅니다\(잘못된 키 또는 api-key 지정 방법과 관련된 구문 문제\).
+HTTP 504가 표시될 경우 URL이 HTTPS를 지정하는지 확인합니다. HTTP 400 또는 404가 표시되는 경우 요청 본문에서 복사/붙여 넣기 오류가 없는지 확인합니다. HTTP 403은 대개 api-key에 문제가 있음을 나타냅니다(잘못된 키 또는 api-key 지정 방법과 관련된 구문 문제).
 
 ## 문서 로드
 
@@ -83,7 +83,7 @@ Composer 탭에서 문서 게시 요청은 다음과 같이 표시됩니다. 요
 
 1. **POST**를 선택합니다.
 
-2.	HTTPS, 서비스 URL, "/indexes/\<'indexname'\>/docs/index?api-version=2015-02-28" 순으로 URL을 입력합니다. 다음 예제와 같은 전체 URL이 표시됩니다.
+2.	HTTPS, 서비스 URL, "/indexes/<'indexname'>/docs/index?api-version=2015-02-28" 순으로 URL을 입력합니다. 다음 예제와 같은 전체 URL이 표시됩니다.
 
         https://my-app.search.windows.net/indexes/hotels/docs/index?api-version=2015-02-28
 
@@ -169,7 +169,7 @@ Composer 탭에서 문서 게시 요청은 다음과 같이 표시됩니다. 요
 
 1.	**GET**을 선택합니다.
 
-2.	HTTPS, 서비스 URL, "/indexes/\<'indexname'\>/docs?", 쿼리 매개 변수 순으로 URL을 입력합니다. 예를 들어 샘플 호스트 이름을 해당 서비스에 유효한 이름으로 바꾸어 다음 URL을 사용합니다.
+2.	HTTPS, 서비스 URL, "/indexes/<'indexname'>/docs?", 쿼리 매개 변수 순으로 URL을 입력합니다. 예를 들어 샘플 호스트 이름을 해당 서비스에 유효한 이름으로 바꾸어 다음 URL을 사용합니다.
 
         https://my-app.search.windows.net/indexes/hotels/docs?search=motel&facet=category&facet=rating,values:1|2|3|4|5&api-version=2015-02-28
 
@@ -186,7 +186,7 @@ Composer 탭에서 문서 게시 요청은 다음과 같이 표시됩니다. 요
  
    ![][4]
 
-다음 예제 쿼리는 MSDN의 [검색 인덱스 작업\(Azure 검색 API\)](http://msdn.microsoft.com/library/dn798927.aspx)에서 가져온 것입니다. 이 항목의 많은 예제 쿼리에는 공백이 포함되어 있으며, 공백은 Fiddler에서 허용되지 않습니다. Fiddler에서 쿼리를 시도하기에 앞서, 쿼리 문자열을 붙여 넣기 전에 각 공백을 + 문자로 바꾸세요.
+다음 예제 쿼리는 MSDN의 [검색 인덱스 작업(Azure 검색 API)](http://msdn.microsoft.com/library/dn798927.aspx)에서 가져온 것입니다. 이 항목의 많은 예제 쿼리에는 공백이 포함되어 있으며, 공백은 Fiddler에서 허용되지 않습니다. Fiddler에서 쿼리를 시도하기에 앞서, 쿼리 문자열을 붙여 넣기 전에 각 공백을 + 문자로 바꾸세요.
 
 **공백을 바꾸기 전:**
 
@@ -219,7 +219,7 @@ Composer 탭에서 문서 게시 요청은 다음과 같이 표시됩니다. 요
 
 5.	**실행**을 클릭합니다. 세션 목록에 HTTP 200 상태 코드가 표시됩니다. 명령에 대해 게시할 항목을 선택합니다.
 
-6.	**Inspectors** 탭 \| **Headers**를 클릭하고 JSON 형식을 선택합니다. 문서 수와 저장소 크기\(KB\)가 표시됩니다.
+6.	**Inspectors** 탭 | **Headers**를 클릭하고 JSON 형식을 선택합니다. 문서 수와 저장소 크기(KB)가 표시됩니다.
 
 ## 다음 단계
 

@@ -33,11 +33,11 @@
 
 2. 포털의 왼쪽 아래에서 **새로 만들기**를 클릭합니다.
 
-3. **웹 + 모바일 \> API 앱**을 클릭합니다.
+3. **웹 + 모바일 > API 앱**을 클릭합니다.
 
 	![][portal-quick-create]
 
-4. **이름** 값\(예: NodejsAPIApp\)을 입력합니다.
+4. **이름** 값(예: NodejsAPIApp)을 입력합니다.
 
 5. 앱 서비스 계획을 선택하거나 새로 만듭니다. 새 계획을 만드는 경우 가격 책정 계층, 위치 및 기타 옵션을 선택합니다.
 
@@ -49,9 +49,9 @@
 
 	**시작 보드에 추가** 확인란을 선택된 상태로 두면 API 앱의 블레이드를 만든 후 포털에서 해당 블레이드가 자동으로 열립니다. 이 확인란의 선택을 취소한 경우 포털 홈 페이지에서 **알림**을 클릭하여 API 앱 만들기 상태를 보고, 알림을 클릭하여 새 API 앱의 블레이드로 이동합니다.
 
-7. **설정 \> 응용 프로그램 설정**을 클릭합니다.
+7. **설정 > 응용 프로그램 설정**을 클릭합니다.
 
-9. 액세스 수준을 **공용\(익명\)**으로 설정합니다.
+9. 액세스 수준을 **공용(익명)**으로 설정합니다.
 
 11. **Save**를 클릭합니다.
 
@@ -71,7 +71,7 @@
 
 	![][deployment-part]
 
-3. **원본 선택 \> 로컬 Git 리포지토리**를 클릭합니다.
+3. **원본 선택 > 로컬 Git 리포지토리**를 클릭합니다.
 
 5. **확인**을 클릭합니다.
 
@@ -87,7 +87,7 @@
 
 	![][deployment-credentials]
 
-1. **API 앱 호스트** 블레이드에서 **설정 \> 속성**을 클릭합니다. 배포할 원격 Git 리포지토리의 URL이 "GIT URL" 아래에 표시됩니다.
+1. **API 앱 호스트** 블레이드에서 **설정 > 속성**을 클릭합니다. 배포할 원격 Git 리포지토리의 URL이 "GIT URL" 아래에 표시됩니다.
 
 2. 이 자습서의 뒷부분에서 사용하기 위해 URL을 복사합니다.
 
@@ -114,7 +114,7 @@
 
 	**apiDefinition** 속성을 확인합니다. 이 URL의 경로는 API의 URL에 상대적이며, Swagger 2.0 끝점을 가리킵니다. Azure 앱 서비스에서는 이 속성을 사용하여 API의 정의를 검색하고 다양한 앱 서비스 API 앱 기능을 사용하도록 설정합니다.
 
-	> [AZURE.NOTE]끝점은 Swagger 2.0 사양이어야 합니다. 이전 버전\(예: 1.2\)은 플랫폼에서 지원되지 않습니다. 샘플 응용 프로그램에서는 swaggerize-express를 사용하여 Swagger 2.0 사양 끝점을 만듭니다.
+	> [AZURE.NOTE]끝점은 Swagger 2.0 사양이어야 합니다. 이전 버전(예: 1.2)은 플랫폼에서 지원되지 않습니다. 샘플 응용 프로그램에서는 swaggerize-express를 사용하여 Swagger 2.0 사양 끝점을 만듭니다.
 
 4. **server.js** 파일을 열고 코드를 검사합니다.
 
@@ -176,7 +176,7 @@
 		git add .
 		git commit -m "Initial commit of the API App"
 
-3. 앞에서 복사한 Git URL을 사용하여 이전에 만든 웹앱\(API 앱 호스트\)에 업데이트를 푸시하기 위한 원격 참조를 만듭니다.
+3. 앞에서 복사한 Git URL을 사용하여 이전에 만든 웹앱(API 앱 호스트)에 업데이트를 푸시하기 위한 원격 참조를 만듭니다.
 
 		git remote add azure [URL for remote repository]
 
@@ -190,7 +190,7 @@
 
 		remote: Deployment successful.
 		To https://user@testsite.scm.azurewebsites.net/testsite.git
-	 	* [new branch] master -\> master
+	 	* [new branch] master -> master
 
 ## Azure Preview 포털에서 API 정의 보기
 

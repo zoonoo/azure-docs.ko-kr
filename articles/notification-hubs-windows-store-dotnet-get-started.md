@@ -22,7 +22,7 @@
 
 ##개요
 
-이 항목은 Azure 알림 허브를 사용하여 Windows 스토어 또는 Windows Phone 8.1\(비 Silverlight\) 응용 프로그램에 푸시 알림을 보내는 방법을 보여 줍니다. Windows Phone 8.1 Silverlight를 대상으로 하는 경우 [Windows Phone](notification-hubs-windows-phone-get-started.md) 버전을 참조하세요. 이 자습서에서는 WNS\(Windows 푸시 알림 서비스\)를 사용하여 푸시 알림을 받는 새 Windows 스토어 앱을 만듭니다. 완료하면 알림 허브를 사용하여 앱을 실행하는 모든 장치로 푸시 알림을 브로드캐스트할 수 있습니다.
+이 항목은 Azure 알림 허브를 사용하여 Windows 스토어 또는 Windows Phone 8.1(비 Silverlight) 응용 프로그램에 푸시 알림을 보내는 방법을 보여 줍니다. Windows Phone 8.1 Silverlight를 대상으로 하는 경우 [Windows Phone](notification-hubs-windows-phone-get-started.md) 버전을 참조하세요. 이 자습서에서는 WNS(Windows 푸시 알림 서비스)를 사용하여 푸시 알림을 받는 새 Windows 스토어 앱을 만듭니다. 완료하면 알림 허브를 사용하여 앱을 실행하는 모든 장치로 푸시 알림을 브로드캐스트할 수 있습니다.
 
 이 자습서에서는 알림 허브를 사용하는 간단한 브로드캐스트 시나리오를 보여 줍니다. 알림 허브를 사용하여 장치의 특정 사용자 및 그룹을 처리하는 방법을 알아보려면 다음 자습서도 함께 완료해야 합니다.
 
@@ -53,7 +53,7 @@
 	
 	   이렇게 하면 앱을 새로 Windows 스토어에 등록하게 됩니다.
 
-3. Visual Studio에서 **새 응용 프로그램** 템플릿을 사용하여 새 Visual C\# 스토어 앱을 만듭니다.
+3. Visual Studio에서 **새 응용 프로그램** 템플릿을 사용하여 새 Visual C# 스토어 앱을 만듭니다.
 
    	![][2]
 
@@ -71,7 +71,7 @@
 
    	이렇게 하면 필요한 Windows 스토어 등록 정보가 응용 프로그램 매니페스트에 추가됩니다.
 
-7. \(옵션\) Windows Phone 스토어 앱 프로젝트에 대해 4\~6단계를 반복합니다.  
+7. (옵션) Windows Phone 스토어 앱 프로젝트에 대해 4~6단계를 반복합니다.  
 
 7. 새 앱의 Windows 개발자 센터 페이지로 돌아가서 **서비스**를 클릭합니다.
 
@@ -81,7 +81,7 @@
 
    	![][17]
 
-9. **앱 설정** 탭에서 **클라이언트 암호** 및 **패키지 SID\(보안 식별자\)**를 적어둡니다. 
+9. **앱 설정** 탭에서 **클라이언트 암호** 및 **패키지 SID(보안 식별자)**를 적어둡니다. 
 
    	![][6]
 
@@ -99,7 +99,7 @@
 
    	![][8]
 
-4. 방금 만든 네임스페이스\(일반적으로 ***알림 허브 이름*-ns**\)를 클릭한 후 맨 위에 있는 **구성** 탭을 클릭합니다.
+4. 방금 만든 네임스페이스(일반적으로 ***알림 허브 이름*-ns**)를 클릭한 후 맨 위에 있는 **구성** 탭을 클릭합니다.
 
    	![][9]
 
@@ -158,7 +158,7 @@
 	
     이 코드는 WNS에서 앱의 ChannelURI를 검색한 후 해당 ChannelURI를 알림 허브에 등록합니다.
 
-    >[AZURE.NOTE]"hub name" 자리 표시자를 포털의 **알림 허브** 탭에 나타나는 알림 허브의 이름으로 바꿔야 합니다\(예: 이전 예제의 **mynotificationhub2**\). 또한 연결 문자열 자리 표시자를 이전 섹션에서 가져온 **DefaultListenSharedAccessSignature** 연결 문자열로 바꿉니다.
+    >[AZURE.NOTE]"hub name" 자리 표시자를 포털의 **알림 허브** 탭에 나타나는 알림 허브의 이름으로 바꿔야 합니다(예: 이전 예제의 **mynotificationhub2**). 또한 연결 문자열 자리 표시자를 이전 섹션에서 가져온 **DefaultListenSharedAccessSignature** 연결 문자열로 바꿉니다.
     
 5. App.xaml.cs에서 **OnLaunched** 이벤트 처리기의 맨 위에 다음과 같은 새 **InitNotificationsAsync** 메서드 호출을 추가합니다.
 
@@ -172,21 +172,21 @@
 
    	**파일** 메뉴에서 **모두 저장**을 클릭합니다.
 
-7. \(옵션\) Windows Phone 스토어 앱 프로젝트에서 이전 단계를 반복합니다.
+7. (옵션) Windows Phone 스토어 앱 프로젝트에서 이전 단계를 반복합니다.
 
 8. **F5** 키를 눌러 앱을 실행합니다. 등록 키가 포함된 팝업 대화 상자가 표시됩니다.
    
    	![][19]
 
-9. \(옵션\) 이전 단계를 반복하여 다른 프로젝트를 실행합니다.
+9. (옵션) 이전 단계를 반복하여 다른 프로젝트를 실행합니다.
 
 이제 앱에서 알림을 받을 수 있습니다.
 
 ##백 엔드에서 알림 보내기
 
-<a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">REST 인터페이스</a>를 사용하는 모든 백 엔드에서 알림 허브를 사용하여 알림을 보낼 수 있습니다. 이 자습서에서는 .NET 콘솔 응용 프로그램을 사용하여 알림을 보냅니다. 알림 허브와 통합된 Azure 모바일 서비스 백 엔드에서 알림을 보내는 방법에 대한 예제는 **모바일 서비스에서 푸시 알림 시작**\([.NET 백 엔드](mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md) \| [JavaScript 백 엔드](mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md)\)을 참조하세요. REST API를 사용하여 알림을 보내는 방법에 대한 예제는 **Java/PHP에서 알림 허브를 사용하는 방법**\([Java](notification-hubs-java-backend-how-to.md) \| [PHP](notification-hubs-php-backend-how-to.md)\)을 참조하세요.
+<a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">REST 인터페이스</a>를 사용하는 모든 백 엔드에서 알림 허브를 사용하여 알림을 보낼 수 있습니다. 이 자습서에서는 .NET 콘솔 응용 프로그램을 사용하여 알림을 보냅니다. 알림 허브와 통합된 Azure 모바일 서비스 백 엔드에서 알림을 보내는 방법에 대한 예제는 **모바일 서비스에서 푸시 알림 시작**([.NET 백 엔드](mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md) | [JavaScript 백 엔드](mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md))을 참조하세요. REST API를 사용하여 알림을 보내는 방법에 대한 예제는 **Java/PHP에서 알림 허브를 사용하는 방법**([Java](notification-hubs-java-backend-how-to.md) | [PHP](notification-hubs-php-backend-how-to.md))을 참조하세요.
 
-1. 솔루션을 마우스 오른쪽 단추로 클릭하고, **추가** 및 **새 프로젝트...**를 선택한 후에 **Visual C\#** 아래에서 **Windows** 및 **콘솔 응용 프로그램**을 클릭하고 **확인**을 클릭합니다. 
+1. 솔루션을 마우스 오른쪽 단추로 클릭하고, **추가** 및 **새 프로젝트...**를 선택한 후에 **Visual C#** 아래에서 **Windows** 및 **콘솔 응용 프로그램**을 클릭하고 **확인**을 클릭합니다. 
 
    	![][13]
 
@@ -235,7 +235,7 @@ MSDN의 [알림 카탈로그], [타일 카탈로그] 및 [배지 개요] 항목�
 
 ##다음 단계
 
-이 간단한 예제에서는 모든 Windows 장치로 브로드캐스트 알림을 보냈습니다. 특정 사용자를 대상으로 하려면 [알림 허브를 사용하여 사용자에게 알림 푸시](영문\) 자습서를 참조하세요. 사용자를 관심 그룹별로 분할하려면 [알림 허브를 사용하여 뉴스 속보 보내기](영문\)를 참조하세요. 알림 허브에 대한 자세한 내용은 [알림 허브 지침]을 참조하세요.
+이 간단한 예제에서는 모든 Windows 장치로 브로드캐스트 알림을 보냈습니다. 특정 사용자를 대상으로 하려면 [알림 허브를 사용하여 사용자에게 알림 푸시](영문) 자습서를 참조하세요. 사용자를 관심 그룹별로 분할하려면 [알림 허브를 사용하여 뉴스 속보 보내기](영문)를 참조하세요. 알림 허브에 대한 자세한 내용은 [알림 허브 지침]을 참조하세요.
 
 
 

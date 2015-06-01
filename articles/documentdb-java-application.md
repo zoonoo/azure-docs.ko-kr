@@ -33,9 +33,9 @@
 이 자습서를 시작하기 전에 다음이 있어야 합니다.
 
 - 활성 Azure 계정. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](../../pricing/free-trial/)을 참조하십시오.
-- [JDK\(Java Development Kit\) 7 이상](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
+- [JDK(Java Development Kit) 7 이상](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 - [Eclipse IDE for Java EE Developers](http://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/lunasr1)
-- [Java 런타임 환경\(예: Tomcat 또는 Jetty\)을 사용하는 Azure 웹 사이트](web-sites-java-get-started.md)
+- [Java 런타임 환경(예: Tomcat 또는 Jetty)을 사용하는 Azure 웹 사이트](web-sites-java-get-started.md)
 
 이러한 도구를 처음 설치하는 경우, coreservlets.com에서 제공되는 단계별 설치 지침을 따르세요. 이 지침은 [자습서: TomCat7 설치 및 Eclipse에서 사용](http://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html) 문서의 빠른 시작 섹션에서 확인할 수 있습니다.
 
@@ -56,13 +56,13 @@ JSP 응용 프로그램을 만들려면 다음을 수행합니다.
 
 	![](./media/documentdb-java-application/image10.png)
 
-2. **Project name** 상자에 프로젝트 이름을 입력하고 **Target Runtime** 드롭다운 메뉴에서 선택적으로 값\(예: Apache Tomcat v7.0\)을 선택한 후 **Finish**를 클릭합니다. 대상 런타임을 선택하면 Eclipse를 통해 프로젝트를 로컬로 실행할 수 있습니다.
+2. **Project name** 상자에 프로젝트 이름을 입력하고 **Target Runtime** 드롭다운 메뉴에서 선택적으로 값(예: Apache Tomcat v7.0)을 선택한 후 **Finish**를 클릭합니다. 대상 런타임을 선택하면 Eclipse를 통해 프로젝트를 로컬로 실행할 수 있습니다.
 3. Eclipse의 Project Explorer 보기에서 프로젝트를 확장합니다. **WebContent**를 마우스 오른쪽 단추로 클릭하고 **New**를 클릭한 후 **JSP File**을 클릭합니다.
 4. **New JSP File** 대화 상자에서 파일 이름을 **index.jsp**로 지정합니다. 다음 그림에 표시된 것처럼 상위 폴더를 **WebContent**로 유지하고 **Next**를 클릭합니다.
 
 	![](./media/documentdb-java-application/image11.png)
 
-5. **Select JSP Template** 대화 상자에서 이 자습서의 목적에 따라, **New JSP File \(html\)**을 선택한 후 **Finish**를 클릭합니다.
+5. **Select JSP Template** 대화 상자에서 이 자습서의 목적에 따라, **New JSP File (html)**을 선택한 후 **Finish**를 클릭합니다.
 
 6. index.jsp 파일이 Eclipse에서 열리면 기존 <body> 요소 안에서 **Hello World!**를 표시하도록 텍스트를 추가합니다. 업데이트된 <body> 콘텐츠는 다음 코드와 같이 나타납니다.
     
@@ -118,7 +118,7 @@ DocumentDB Java SDK 및 해당 종속성을 가져오는 가장 쉬운 방법은
 
 	이 프로젝트에서는 [Project Lombok](http://projectlombok.org/)을 사용해서 생성자, getter, setter 및 작성기를 생성합니다. 또는 이 코드를 수동으로 작성하거나 IDE에서 생성하도록 할 수도 있습니다.
 
-2. **DocumentDB** 서비스를 호출하려면 새 DocumentClient를 인스턴스화해야 합니다. 일반적으로 각 후속 요청에 대해 새 클라이언트를 생성하는 것보다는 **DocumentClient**를 다시 사용하는 것이 가장 좋습니다. **DocumentClientFactory**에 클라이언트를 래핑하면 클라이언트를 다시 사용할 수 있습니다. 또한 여기서는 [1단계](#CreateDB)에서 클립보드에 저장한 URI 및 PRIMARY KEY 값을 붙여넣을 수도 있습니다. [YOUR\\_ENDPOINT\\_HERE]를 해당 URI로 바꾸고 [YOUR\\_KEY\\_HERE]를 해당 PRIMARY KEY로 바꿉니다.
+2. **DocumentDB** 서비스를 호출하려면 새 DocumentClient를 인스턴스화해야 합니다. 일반적으로 각 후속 요청에 대해 새 클라이언트를 생성하는 것보다는 **DocumentClient**를 다시 사용하는 것이 가장 좋습니다. **DocumentClientFactory**에 클라이언트를 래핑하면 클라이언트를 다시 사용할 수 있습니다. 또한 여기서는 [1단계](#CreateDB)에서 클립보드에 저장한 URI 및 PRIMARY KEY 값을 붙여넣을 수도 있습니다. [YOUR_ENDPOINT_HERE]를 해당 URI로 바꾸고 [YOUR_KEY_HERE]를 해당 PRIMARY KEY로 바꿉니다.
 
 	    private static final String HOST = "[YOUR_ENDPOINT_HERE]";
 	    private static final String MASTER_KEY = "[YOUR_KEY_HERE]";
@@ -134,9 +134,9 @@ DocumentDB Java SDK 및 해당 종속성을 가져오는 가장 쉬운 방법은
 	        return documentClient;
 	    }
 
-3. 이제 DAO\(Data Access Object\)를 만들어서 영구적인 ToDo 항목을 DocumentDB로 추상화합니다.
+3. 이제 DAO(Data Access Object)를 만들어서 영구적인 ToDo 항목을 DocumentDB로 추상화합니다.
 
-	ToDo 항목을 컬렉션에 저장하려면 클라이언트는 유지할 데이터베이스 및 컬렉션\(셀프 link로 참조\)을 알고 있어야 합니다. 일반적으로 데이터베이스로의 추가 왕복을 방지할 수 있을 때 데이터베이스 및 컬렉션을 캐시하는 것이 좋습니다.
+	ToDo 항목을 컬렉션에 저장하려면 클라이언트는 유지할 데이터베이스 및 컬렉션(셀프 link로 참조)을 알고 있어야 합니다. 일반적으로 데이터베이스로의 추가 왕복을 방지할 수 있을 때 데이터베이스 및 컬렉션을 캐시하는 것이 좋습니다.
 
 	다음 코드에서는 데이터베이스 및 컬렉션이 있는 경우 검색하고 없는 경우 새로 만드는 방법을 보여 줍니다.
 
@@ -230,7 +230,7 @@ DocumentDB Java SDK 및 해당 종속성을 가져오는 가장 쉬운 방법은
 		    }
 		}
 
-4. 다음 단계에서는 TodoItems를 컬렉션에 저장하는 코드를 작성합니다. 이 예제에서는 [Gson](https://code.google.com/p/google-gson/)을 사용하여 TodoItem POJO\(Plain Old Java Object\)를 JSON 문서에 직렬화하고 역직렬화합니다. [Jackson](http://jackson.codehaus.org/) 또는 사용자 지정 serializer를 사용하여 POJO를 직렬화하는 것도 좋은 대안입니다.
+4. 다음 단계에서는 TodoItems를 컬렉션에 저장하는 코드를 작성합니다. 이 예제에서는 [Gson](https://code.google.com/p/google-gson/)을 사용하여 TodoItem POJO(Plain Old Java Object)를 JSON 문서에 직렬화하고 역직렬화합니다. [Jackson](http://jackson.codehaus.org/) 또는 사용자 지정 serializer를 사용하여 POJO를 직렬화하는 것도 좋은 대안입니다.
 
 	    // We'll use Gson for POJO <=> JSON serialization for this example.
 	    private static Gson gson = new Gson();
@@ -259,7 +259,7 @@ DocumentDB Java SDK 및 해당 종속성을 가져오는 가장 쉬운 방법은
 
 
 
-5. DocumentDB 데이터베이스 및 컬렉션과 마찬가지로 문서도 셀프 link로 참조됩니다. 다음 도우미 함수에서는 셀프 link가 아닌 다른 특성\(예: "id"\)으로 문서를 검색해 보겠습니다.
+5. DocumentDB 데이터베이스 및 컬렉션과 마찬가지로 문서도 셀프 link로 참조됩니다. 다음 도우미 함수에서는 셀프 link가 아닌 다른 특성(예: "id")으로 문서를 검색해 보겠습니다.
 
 	    private Document getDocumentById(String id) {
 	        // Retrieve the document using the DocumentClient.
@@ -736,7 +736,7 @@ DocumentDB Java SDK 및 해당 종속성을 가져오는 가장 쉬운 방법은
 
 ## <a id="Deploy"></a>6단계: Azure 웹 사이트에 응용 프로그램 배포 ##
 
-Azure 웹 사이트에서는 Java 응용 프로그램을 간단히 배포할 수 있습니다. 즉, 응용 프로그램을 WAR 파일로 내보내고 소스 제어\(예: GIT\) 또는 FTP를 통해 업로드하면 됩니다.
+Azure 웹 사이트에서는 Java 응용 프로그램을 간단히 배포할 수 있습니다. 즉, 응용 프로그램을 WAR 파일로 내보내고 소스 제어(예: GIT) 또는 FTP를 통해 업로드하면 됩니다.
 
 1. 응용 프로그램을 WAR로 내보내려면 **프로젝트 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **내보내기**를 클릭한 후 **WAR 파일**을 클릭합니다. 
 2. **WAR 내보내기** 창에서 다음을 수행합니다.
@@ -747,7 +747,7 @@ Azure 웹 사이트에서는 Java 응용 프로그램을 간단히 배포할 수
 3. 이제 WAR 파일이 준비되었으므로 간단히 Azure 웹 사이트의 **webapps** 디렉터리로 업로드하면 됩니다. 파일 업로드에 대한 자세한 내용은 [Azure에서 Java 웹 사이트에 응용 프로그램 추가](web-sites-java-add-app.md)를 참조하세요.
 
 	WAR 파일이 webapps 디렉터리에 업로드되면 런타임 환경에서 이 파일이 추가되었음을 감지하고 자동으로 로드합니다.
-4. 완료된 제품을 보려면 http://YOUR\_SITE\_NAME.azurewebsites.net/azure-documentdb-java-sample/로 이동하고 작업 추가를 시작합니다.
+4. 완료된 제품을 보려면 http://YOUR_SITE_NAME.azurewebsites.net/azure-documentdb-java-sample/로 이동하고 작업 추가를 시작합니다.
 
 ## <a id="GetProject"></a>GitHub에서 프로젝트 가져오기##
 
@@ -763,7 +763,7 @@ Azure 웹 사이트에서는 Java 응용 프로그램을 간단히 배포할 수
 8. **Local Destination** 화면에서 **Browse**를 클릭하여 리포지토리를 복사할 수 있는 폴더를 선택한 후 **Next**를 클릭합니다.
 9. **Select a wizard to use for importing projects** 화면에서 **Import existing projects**가 선택되었는지 확인하고 **Next**를 클릭합니다.
 10. **Import Projects** 화면에서 **DocumentDB** 프로젝트를 선택 취소한 후 **Finish**를 클릭합니다. DocumentDB 프로젝트에는 종속성으로 추가할 DocumentDB Java SDK가 포함됩니다.
-11. **프로젝트 탐색기**에서 azure-documentdb-java-sample\\src\\com.microsoft.azure.documentdb.sample.dao\\DocumentClientFactory.java로 이동하고 HOST 및 MASTER\_KEY 값을 각각 해당 DocumentDB 계정의 URI 및 PRIMARY KEY로 바꾸고 파일을 저장합니다. 자세한 내용은 [1단계. DocumentDB 데이터베이스 계정 만들기](#CreateDB)를 참조하세요.
+11. **프로젝트 탐색기**에서 azure-documentdb-java-sample\\src\\com.microsoft.azure.documentdb.sample.dao\\DocumentClientFactory.java로 이동하고 HOST 및 MASTER_KEY 값을 각각 해당 DocumentDB 계정의 URI 및 PRIMARY KEY로 바꾸고 파일을 저장합니다. 자세한 내용은 [1단계. DocumentDB 데이터베이스 계정 만들기](#CreateDB)를 참조하세요.
 12. **프로젝트 탐색기**에서 **azure-documentdb-java-sample**을 마우스 오른쪽 단추로 클릭하고 **빌드 경로**를 클릭한 후 **빌드 경로 구성**을 클릭합니다.
 13. **Java 빌드 경로** 화면의 오른쪽 창에서 **라이브러리** 탭을 선택한 후 **외부 JAR 추가**를 클릭합니다. lombok.jar 파일의 위치로 이동하고 **열기**를 클릭한 후 **확인**을 클릭합니다.
 14. 12단계를 수행해서 **속성** 창을 다시 열고 왼쪽 창에서 **대상 런타임**을 클릭합니다.

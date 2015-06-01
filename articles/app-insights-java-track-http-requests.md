@@ -99,7 +99,7 @@ Java 웹 응용 프로그램을 실행하는 경우, 요청된 리소스, 실패
 
 Microsoft Azure에서 Application Insights 리소스로 돌아갑니다.
 
-HTTP 요청 데이터가 개요 블레이드에 표시됩니다. \(없는 경우 몇 초 정도 기다린 다음 새로고침을 클릭합니다.\)
+HTTP 요청 데이터가 개요 블레이드에 표시됩니다. (없는 경우 몇 초 정도 기다린 다음 새로고침을 클릭합니다.)
 
 ![](./media/app-insights-java-track-http-requests/5-results.png)
  

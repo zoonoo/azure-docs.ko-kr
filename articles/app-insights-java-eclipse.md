@@ -22,16 +22,16 @@ Application Insights SDK가 Java 웹 응용 프로그램에서 원격 분석을 
 
 ##필수 조건
 
-현재 플러그인은 Eclipse에서 동적 웹 프로젝트를 위해 동작합니다. \([다른 유형의 Java 프로젝트에 Application Insights를 추가합니다][java].\)
+현재 플러그인은 Eclipse에서 동적 웹 프로젝트를 위해 동작합니다. ([다른 유형의 Java 프로젝트에 Application Insights를 추가합니다][java].)
 
 필요한 사항:
 
 * Oracle JRE 1.6 이상
-* [Microsoft Azure](http://azure.microsoft.com/) 구독. \([무료 평가판](http://azure.microsoft.com/pricing/free-trial/)으로 시작할 수 있음.\)
+* [Microsoft Azure](http://azure.microsoft.com/) 구독. ([무료 평가판](http://azure.microsoft.com/pricing/free-trial/)으로 시작할 수 있음.)
 * [Java EE Developers용 Eclipse IDE](http://www.eclipse.org/downloads/), Indigo 이상.
 * Windows 7 이상 또는 Windows Server 2008 이상
 
-##Eclipse에 SDK를 설치합니다\(한 번\).
+##Eclipse에 SDK를 설치합니다(한 번).
 
 컴퓨터당 한 번씩만 수행해야 합니다. 이 단계는 SDK를 각 동적 웹 프로젝트에 추가할 수 있는 도구 키트를 설치합니다.
 
@@ -50,7 +50,7 @@ Application Insights SDK가 Java 웹 응용 프로그램에서 원격 분석을 
 
 사용량 및 성능 분석은 Azure 웹 포털의 Azure 리소스에 표시됩니다. 이 단계에서는 응용 프로그램에 대한 Azure 리소스를 설정합니다.
 
-1. [Microsoft Azure 포털](https://portal.azure.com)에 로그인합니다. \([Azure 구독](http://azure.microsoft.com/)이 필요합니다.\)
+1. [Microsoft Azure 포털](https://portal.azure.com)에 로그인합니다. ([Azure 구독](http://azure.microsoft.com/)이 필요합니다.)
 2. 새 Application Insights 리소스 만들기
 
     ![\+를 클릭하고 Application Insights 선택](./media/app-insights-java-get-started/01-create.png)
@@ -79,7 +79,7 @@ Application Insights SDK가 Java 웹 응용 프로그램에서 원격 분석을 
 
 Microsoft Azure에서 Application Insights 리소스로 돌아갑니다.
 
-HTTP 요청 데이터가 개요 블레이드에 표시됩니다. \(없는 경우 몇 초 정도 기다린 다음 새로고침을 클릭합니다.\)
+HTTP 요청 데이터가 개요 블레이드에 표시됩니다. (없는 경우 몇 초 정도 기다린 다음 새로고침을 클릭합니다.)
 
 ![서버 응답, 요청 횟수 및 오류](./media/app-insights-java-track-http-requests/5-results.png)
  
@@ -120,7 +120,7 @@ Application Insights는 일정한 간격으로 웹 사이트를 테스트하여 
 
 ##진단 로그
 
-추적에 Logback 또는 Log4J\(v1.2 또는 v2.0\)를 사용하는 경우 추적 로그를 탐색 및 검색할 수 있는 Application Insights에 추적 로그를 자동으로 전송할 수 있습니다.
+추적에 Logback 또는 Log4J(v1.2 또는 v2.0)를 사용하는 경우 추적 로그를 탐색 및 검색할 수 있는 Application Insights에 추적 로그를 자동으로 전송할 수 있습니다.
 
 [진단 검색에 대해 자세히 알아보기][javalogs]
 

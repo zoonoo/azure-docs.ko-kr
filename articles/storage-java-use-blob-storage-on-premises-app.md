@@ -53,8 +53,8 @@ Azure 핵심 저장소 클래스, Azure Blob 클라이언트 클래스, Java IO 
 
     public class StorageSample {
 
-**StorageSample** 클래스 내에서 Azure 저장소 계정에 지정된 것과 같이 기본 끝점 프로토콜, 저장소 계정 이름, 저장소 액세스 키가 포함될 문자열 변수를 선언합니다. 자리 표시자 값 **your\_account\_name** 및
-**your\_account\_key**를 각각 고유한 계정 이름 및 계정 키로 바꿉니다.
+**StorageSample** 클래스 내에서 Azure 저장소 계정에 지정된 것과 같이 기본 끝점 프로토콜, 저장소 계정 이름, 저장소 액세스 키가 포함될 문자열 변수를 선언합니다. 자리 표시자 값 **your_account_name** 및
+**your_account_key**를 각각 고유한 계정 이름 및 계정 키로 바꿉니다.
 
     public static final String storageConnectionString = 
            "DefaultEndpointsProtocol=http;" + 
@@ -211,8 +211,8 @@ Azure 저장소의 Blob을 나타냅니다.
 
 다음 닫는 중괄호를 삽입하여 **StorageSample**을 닫습니다. **}**
 
-다음은 이 예제의 완성 코드입니다. 각각 계정 이름 및 계정 키를 사용하도록 자리 표시자 값 **your\_account\_name** 및
-**your\_account\_key**를 수정해야 합니다.
+다음은 이 예제의 완성 코드입니다. 각각 계정 이름 및 계정 키를 사용하도록 자리 표시자 값 **your_account_name** 및
+**your_account_key**를 수정해야 합니다.
 
     import com.microsoft.windowsazure.services.core.storage.*;
     import com.microsoft.windowsazure.services.blob.client.*;

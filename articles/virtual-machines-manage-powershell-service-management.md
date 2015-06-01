@@ -49,7 +49,7 @@ VM에 대한 정보를 가져오려면 이 명령을 실행하고 < and > 문자
 	$svcName="<cloud service name>"
 	$vmName="<virtual machine name>"
 	$localPath="<drive and folder location to store the downloaded RDP file, example: c:\temp >"
-	$localFile=$localPath + "\" + $vmname + ".rdp"
+	$localFile=$localPath + "" + $vmname + ".rdp"
 	Get-AzureRemoteDesktopFile -ServiceName $svcName -Name $vmName -LocalPath $localFile -Launch
 
 ## VM 중지
@@ -58,7 +58,7 @@ VM에 대한 정보를 가져오려면 이 명령을 실행하고 < and > 문자
 
     Stop-AzureVM -ServiceName "<cloud service name>" -Name "<virtual machine name>"
 
->[AZURE.IMPORTANT]해당 클라우드 서비스의 마지막 VM인 경우 **StayProvisioned** 매개 변수를 사용하여 클라우드 서비스의 VIP\(가상 IP\)를 유지합니다. 이 매개 변수를 사용하는 경우 VM에 대한 요금이 청구됩니다.
+>[AZURE.IMPORTANT]해당 클라우드 서비스의 마지막 VM인 경우 **StayProvisioned** 매개 변수를 사용하여 클라우드 서비스의 VIP(가상 IP)를 유지합니다. 이 매개 변수를 사용하는 경우 VM에 대한 요금이 청구됩니다.
 
 ## VM 시작
 
@@ -67,7 +67,7 @@ VM에 대한 정보를 가져오려면 이 명령을 실행하고 < and > 문자
     Start-AzureVM -ServiceName "<cloud service name>" -Name "<virtual machine name>"
 
 ## 데이터 디스크 연결
-이 작업에는 몇 단계가 필요합니다. 먼저 \*\*\*\*Add-AzureDataDisk\*\*\*\* cmdlet을 사용하여 디스크를 $vm 개체에 추가한 다음 Update-AzureVM cmdlet을 사용하여 VM의 구성을 업데이트합니다.
+이 작업에는 몇 단계가 필요합니다. 먼저 ****Add-AzureDataDisk**** cmdlet을 사용하여 디스크를 $vm 개체에 추가한 다음 Update-AzureVM cmdlet을 사용하여 VM의 구성을 업데이트합니다.
 
 또한 새 디스크를 연결할지 데이터를 포함하는 디스크를 연결할지를 결정해야 합니다. 새 디스크의 경우 명령에서 .vhd 파일을 만들고 동일한 명령으로 디스크를 연결합니다.
 

@@ -262,7 +262,7 @@ Hive 테이블에 텍스트 필드가 있고 이 텍스트 필드에 공백으�
 
 이 섹션에 제공된 쿼리를 뉴욕시 택시 여행 데이터에 바로 적용할 수 있습니다. Hive에 포함된 수학 함수를 적용하여 기능을 생성하는 방법을 보여 주는 것이 이 쿼리의 목적입니다. 
 
-이 쿼리에 사용된 필드는 태우는 위치와 내리는 위치의 GPS 좌표이며 이름은 pickup\_longitude, pickup\_latitude, dropoff\_longitude 및 dropoff\_latitude입니다. 태우는 좌표와 내리는 좌표 사이의 직접 거리를 계산하는 쿼리는 다음과 같습니다.
+이 쿼리에 사용된 필드는 태우는 위치와 내리는 위치의 GPS 좌표이며 이름은 pickup_longitude, pickup_latitude, dropoff_longitude 및 dropoff_latitude입니다. 태우는 좌표와 내리는 좌표 사이의 직접 거리를 계산하는 쿼리는 다음과 같습니다.
 
 		set R=3959;
 		set pi=radians(180);

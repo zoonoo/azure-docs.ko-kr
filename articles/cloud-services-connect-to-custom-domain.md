@@ -128,7 +128,7 @@ Azure에서 클라우드 서비스 프로젝트가 배포되면 AD 도메인 확
     #Initialize domain variables
 
     $domain = '<your-domain-name>';
-    $dmuser = '$domain\<your-username>';
+    $dmuser = '$domain<your-username>';
     $dmpswd = '<your-domain-password>';
     $dmspwd = ConvertTo-SecureString $dmpswd -AsPlainText -Force;
     $dmcred = New-Object System.Management.Automation.PSCredential ($dmuser, $dmspwd);

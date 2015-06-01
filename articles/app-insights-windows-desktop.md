@@ -35,7 +35,7 @@ Application Insights를 사용하면 사용량 및 성능을 위해 배포된 �
 
     ![새로 만들기, Application Insights 클릭](./media/app-insights-windows-get-started/01-new.png)
 
-    \(응용 프로그램 종류 선택은 개요 블레이드의 내용 및 [메트릭 탐색기][metrics]에서 사용할 수 있는 속성을 설정합니다.\)
+    (응용 프로그램 종류 선택은 개요 블레이드의 내용 및 [메트릭 탐색기][metrics]에서 사용할 수 있는 속성을 설정합니다.)
 
 2.  계측 키를 복사합니다.
 
@@ -50,9 +50,9 @@ Application Insights를 사용하면 사용량 및 성능을 위해 배포된 �
 
     ![**온라인**, **시험판 포함** 선택 및 "Application Insights" 검색](./media/app-insights-windows-get-started/04-ai-nuget.png)
 
-    \(다른 방법으로 웹 앱에 대한 Application Insights SDK를 선택할 수 있습니다. 이는 일부 기본 제공 성능 카운터 원격 분석을 제공합니다.\)
+    (다른 방법으로 웹 앱에 대한 Application Insights SDK를 선택할 수 있습니다. 이는 일부 기본 제공 성능 카운터 원격 분석을 제공합니다.)
 
-3. ApplicationInsights.config\(NuGet 설치로 추가됨\)를 편집합니다. 닫는 태그 바로 전에 삽입합니다.
+3. ApplicationInsights.config(NuGet 설치로 추가됨)를 편집합니다. 닫는 태그 바로 전에 삽입합니다.
 
     &lt;InstrumentationKey&gt;*복사한 키*&lt;/InstrumentationKey&gt;
 
@@ -66,7 +66,7 @@ Application Insights를 사용하면 사용량 및 성능을 위해 배포된 �
 
 `TelemetryClient` 인스턴스를 만들고 [이를 사용하여 원격 분석을 전송][track]합니다.
 
-`TelemetryClient.Flush`을\(를\) 사용하여 앱을 닫기 전에 메시지를 보냅니다. \(다른 종류의 앱에는 사용하지 않는 것이 좋습니다.\)
+`TelemetryClient.Flush`을(를) 사용하여 앱을 닫기 전에 메시지를 보냅니다. (다른 종류의 앱에는 사용하지 않는 것이 좋습니다.)
 
 예를들어, Windows Forms 응용 프로그램에서는 다음을 작성할 수 있습니다.
 
@@ -96,11 +96,11 @@ Application Insights를 사용하면 사용량 및 성능을 위해 배포된 �
 
 [Application Insights API][track] 중 하나를 사용하여 원격 분석을 보냅니다. Windows 데스크톱 응용 프로그램에서는 원격 분석이 자동으로 전송되지 않습니다. 일반적으로 다음을 사용할 수 있습니다.
 
-* 양식, 페이지 또는 탭 전환 시 TrackPageView\(pageName\)
-* 다른 사용자 동작에 대해서는 TrackEvent\(eventName\)
-* [진단 로깅][diagnostic]에 대해서는 TrackTrace\(logEvent\)
-* Catch 절에서는 TrackException\(exception\)
-* 특정 이벤트에 연결되지 않은 메트릭의 정기적인 보고서를 보내기 위한 배경 작업에서는 TrackMetric\(name, value\)
+* 양식, 페이지 또는 탭 전환 시 TrackPageView(pageName)
+* 다른 사용자 동작에 대해서는 TrackEvent(eventName)
+* [진단 로깅][diagnostic]에 대해서는 TrackTrace(logEvent)
+* Catch 절에서는 TrackException(exception)
+* 특정 이벤트에 연결되지 않은 메트릭의 정기적인 보고서를 보내기 위한 배경 작업에서는 TrackMetric(name, value)
 
 사용자 및 세션의 수를 보려면 컨텍스트 이니셜라이저를 설정합니다.
 

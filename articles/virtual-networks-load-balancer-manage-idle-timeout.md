@@ -58,7 +58,7 @@ IdleTimeoutInMinutes는 선택 사항이며 설정하지 않으면 기본 시간
 
 ### 유휴 시간 제한 구성 검색
 
-    PS C:\> Get-AzureVM -ServiceName "MyService" -Name "MyVM" | Get-AzureEndpoint
+    PS C:> Get-AzureVM -ServiceName "MyService" -Name "MyVM" | Get-AzureEndpoint
     
     VERBOSE: 6:43:50 PM - Completed Operation: Get Deployment
     LBSetName : MyLoadBalancedSet

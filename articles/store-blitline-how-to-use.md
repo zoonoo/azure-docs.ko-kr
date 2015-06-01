@@ -35,7 +35,7 @@ Blitline은 직접 빌드하는 비용보다 훨씬 저렴한 가격으로 엔�
 
 사실 이미지 처리는 반복적으로 이루어지며 보통 각 웹 사이트 및 모든 웹 사이트에 대해 완전히 다시 빌드됩니다. 이미지를 수백만 번 다시 빌드했기 때문에 이러한 사실을 알 수 있었습니다. 그러다 문득 모든 사용자를 위해 이 작업을 수행하기로 했습니다. 작업하는 방법 및 빠르고 효율적으로 하는 방법을 알고 있으며 동시에 모든 작업을 저장합니다.
 
-자세한 내용은 [http://www.blitline.com](http://www.blitline.com)\(영문\)을 참조하십시오.
+자세한 내용은 [http://www.blitline.com](http://www.blitline.com)(영문)을 참조하십시오.
 
 ## <a id="whatisnot"></a>Blitline이 수행할 수 없는 작업
 
@@ -47,7 +47,7 @@ Blitline은 직접 빌드하는 비용보다 훨씬 저렴한 가격으로 엔�
 
 - Blitline은 이미지 업로드를 허용하지 않아 이미지를 Blitline에 직접 푸시할 수 없습니다. 이미지를 Azure 저장소에 푸시하거나 Blitline이 지원하는 다른 위치에 푸시한 다음 Blitline에 그 위치를 알려주어 가져올 수 있게 해야 합니다.
 
-- Blitline은 대량 병렬식이어서 동기식 처리를 하지 않습니다. 즉, postback\_url을 보내주어야 처리가 완료되는 시점을 알려줄 수 있습니다.
+- Blitline은 대량 병렬식이어서 동기식 처리를 하지 않습니다. 즉, postback_url을 보내주어야 처리가 완료되는 시점을 알려줄 수 있습니다.
 
 ## <a id="createaccount"></a>Blitline 계정 만들기
 
@@ -73,7 +73,7 @@ Blitline은 JSON을 사용하여 이미지에 적용할 동작을 정의합니�
 
 응용 프로그램 ID는 Azure의 **연결 정보** 또는 **관리** 탭에서 찾을 수 있는 ID입니다. Blitline에서 작업을 실행할 수 있도록 해주는 비밀 식별자입니다.
 
-"save" 매개 변수는 처리한 이미지를 저장할 위치에 대한 정보를 식별합니다. 간단한 이 경우에서는 정의하지 않았습니다. 위치를 정의하지 않으면 Blitline은 고유 클라우드 위치에 이미지를 로컬로\(및 일시적으로\) 저장합니다. Blitline을 만들 때 Blitline이 반환한 JSON에서 그 위치를 가져올 수 있습니다. "image" 식별자는 필수이며 저장된 이 특정 이미지를 식별할 때 반환됩니다.
+"save" 매개 변수는 처리한 이미지를 저장할 위치에 대한 정보를 식별합니다. 간단한 이 경우에서는 정의하지 않았습니다. 위치를 정의하지 않으면 Blitline은 고유 클라우드 위치에 이미지를 로컬로(및 일시적으로) 저장합니다. Blitline을 만들 때 Blitline이 반환한 JSON에서 그 위치를 가져올 수 있습니다. "image" 식별자는 필수이며 저장된 이 특정 이미지를 식별할 때 반환됩니다.
 
 여기서 지원하는 *함수*에 대한 자세한 정보는 다음에서 찾을 수 있습니다.<http://www.blitline.com/docs/functions>
 
@@ -95,11 +95,11 @@ JSON이 있으면 `http://api.blitline.com/jobs`에 **게시**하기만 하면 �
     }
 
 
-이는 Blitline에서 요청을 받았음을 나타내고 그 요청을 처리 큐에 넣은 후 완료되면 다음에서 이미지를 사용할 수 있습니다.**https://s3.amazonaws.com/dev.blitline/2011110722/YOUR\_APP\_ID/CK3f0xBF_2bV6wf7gEZE8w.jpg**
+이는 Blitline에서 요청을 받았음을 나타내고 그 요청을 처리 큐에 넣은 후 완료되면 다음에서 이미지를 사용할 수 있습니다.**https://s3.amazonaws.com/dev.blitline/2011110722/YOUR_APP_ID/CK3f0xBF_2bV6wf7gEZE8w.jpg**
 
 ## <a id="saveazure"></a>Azure 저장소 계정에 이미지를 저장하는 방법
 
-Azure 저장소 계정이 있으면 Blitline이 처리된 이미지를 쉽게 Azure 컨테이너에 푸시하도록 할 수 있습니다. "azure\_destination"을 추가하여 푸시할 Blitline의 위치와 권한을 정의합니다.
+Azure 저장소 계정이 있으면 Blitline이 처리된 이미지를 쉽게 Azure 컨테이너에 푸시하도록 할 수 있습니다. "azure_destination"을 추가하여 푸시할 Blitline의 위치와 권한을 정의합니다.
 
 다음은 예제입니다.
 

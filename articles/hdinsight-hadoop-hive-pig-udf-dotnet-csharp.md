@@ -17,11 +17,11 @@
 	ms.author="larryfr"/>
 
 
-# HDInsight에서 Hive 및 Pig와 함께 C\# 사용
+# HDInsight에서 Hive 및 Pig와 함께 C# 사용
 
-Hive 및 Pig는 Azure HDInsight의 데이터 작업에 적합하지만 보다 일반적인 언어가 필요한 경우도 있습니다. Hive 및 Pig 모두 사용자 정의 함수\(UDF\) 또는 스트리밍을 통해 외부 코드를 호출할 수 있습니다.
+Hive 및 Pig는 Azure HDInsight의 데이터 작업에 적합하지만 보다 일반적인 언어가 필요한 경우도 있습니다. Hive 및 Pig 모두 사용자 정의 함수(UDF) 또는 스트리밍을 통해 외부 코드를 호출할 수 있습니다.
 
-이 문서에서 Hive 및 Pig와 함께 C\#를 사용 하는 방법에 대해 알아봅니다.
+이 문서에서 Hive 및 Pig와 함께 C#를 사용 하는 방법에 대해 알아봅니다.
 
 ## 필수 조건
 
@@ -41,19 +41,19 @@ Hive 및 Pig는 Azure HDInsight의 데이터 작업에 적합하지만 보다 �
 
 ## HDInsight에서.NET
 
-.NET 공용 언어 런타임\(CLR\) 및 프레임 워크는 Windows 기반 HDInsight 클러스터에 기본적으로 설치됩니다. 이렇게 하면 Hive 및 Pig 스트리밍과 함께 C\# 응용 프로그램을 사용할 수 있습니다 \(stdout/stdin을 통해 Hive/Pig 및 C\# 응용 프로그램 간 데이터가 전달됨\).
+.NET 공용 언어 런타임(CLR) 및 프레임 워크는 Windows 기반 HDInsight 클러스터에 기본적으로 설치됩니다. 이렇게 하면 Hive 및 Pig 스트리밍과 함께 C# 응용 프로그램을 사용할 수 있습니다 (stdout/stdin을 통해 Hive/Pig 및 C# 응용 프로그램 간 데이터가 전달됨).
 
 현재 Linux 기반 HDInsight 클러스터에서 .NET Framework 응용 프로그램 실행에 대 한 지원은 없습니다.
 
 ## .NET 및 스트리밍
 
-스트리밍은 stdout을 통해 외부 응용 프로그램에 데이터를 전달하고 stdin을 통해 결과를 받는 Hive 및 Pig 데이터를 포함합니다. C\# 응용 프로그램의 경우, `Console.ReadLine()` 및 `Console.WriteLine()`을 통해 가장 쉽게 수행됩니다.
+스트리밍은 stdout을 통해 외부 응용 프로그램에 데이터를 전달하고 stdin을 통해 결과를 받는 Hive 및 Pig 데이터를 포함합니다. C# 응용 프로그램의 경우, `Console.ReadLine()` 및 `Console.WriteLine()`을 통해 가장 쉽게 수행됩니다.
 
-Hive 및 Pig가 런타임에 응용 프로그램을 호출해야 하므로 **콘솔 응용 프로그램** 템플릿은 C\# 프로젝트에 대해 사용되어야 합니다.
+Hive 및 Pig가 런타임에 응용 프로그램을 호출해야 하므로 **콘솔 응용 프로그램** 템플릿은 C# 프로젝트에 대해 사용되어야 합니다.
 
 ## Hive 및 C&#35;
 
-### C\# 프로젝트 만들기
+### C# 프로젝트 만들기
 
 1. Visual Studio를 열고 새 솔루션을 만듭니다. 프로젝트 형식의 경우, **콘솔 응용 프로그램**을 선택하고 새 프로젝트의 이름을 **HiveCSharp**로 지정합니다.
 
@@ -146,7 +146,7 @@ Hive 및 Pig가 런타임에 응용 프로그램을 호출해야 하므로 **콘
 		FROM hivesampletable
 		ORDER BY clientid LIMIT 50;
 
-    `hivesampletable`에서 `clientid`, `devicemake`, 및 `devicemodel` 필드를 선택하고 해당 필드를 HiveCSharp.exe 응용 프로그램으로 전달합니다. 쿼리는 응용 프로그램이 3개의 필드를 반환할 것을 예상하며 `clientid`, `phoneLabel`, 및 `phoneHash`로 저장됩니다. 또한 쿼리는 기본 저장소 컨테이너\(`add file wasb:///HiveCSharp.exe`\)의 루트에서 HiveCSharp.exe를 찾는다고 예상합니다.
+    `hivesampletable`에서 `clientid`, `devicemake`, 및 `devicemodel` 필드를 선택하고 해당 필드를 HiveCSharp.exe 응용 프로그램으로 전달합니다. 쿼리는 응용 프로그램이 3개의 필드를 반환할 것을 예상하며 `clientid`, `phoneLabel`, 및 `phoneHash`로 저장됩니다. 또한 쿼리는 기본 저장소 컨테이너(`add file wasb:///HiveCSharp.exe`)의 루트에서 HiveCSharp.exe를 찾는다고 예상합니다.
 
 5. **제출**을 클릭하여 HDInsight 클러스터에 작업을 제출합니다. **Hive 작업 요약** 창이 열립니다.
 
@@ -154,7 +154,7 @@ Hive 및 Pig가 런타임에 응용 프로그램을 호출해야 하므로 **콘
 
 ### Pig 및 C&#35;
 
-### C\# 프로젝트 만들기
+### C# 프로젝트 만들기
 
 1. Visual Studio를 열고 새 솔루션을 만듭니다. 프로젝트 형식의 경우, **콘솔 응용 프로그램**을 선택하고 새 프로젝트의 이름을 **PigUDF**로 지정합니다.
 
@@ -195,7 +195,7 @@ Hive 및 Pig가 런타임에 응용 프로그램을 호출해야 하므로 **콘
 
 1. Pig 스트리밍은 응용 프로그램이 클러스터 파일 시스템에서 로컬일 것이라고 예상합니다. HDInsight 클러스터용 원격 데스크톱을 사용하도록 설정한 다음, RDP</a>를 사용하여 <a href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">HDInsight 클러스터에 연결의 지침에 따라 연결합니다</a>.
 
-2. 복사되면, 로컬 컴퓨터에서 PigUDF 프로젝트용 **bin/debug** 디렉터리에서 **PigUDF.exe**를 복사하고 클러스터의 **%PIG\_HOME%** 디렉터리에 붙여넣습니다.
+2. 복사되면, 로컬 컴퓨터에서 PigUDF 프로젝트용 **bin/debug** 디렉터리에서 **PigUDF.exe**를 복사하고 클러스터의 **%PIG_HOME%** 디렉터리에 붙여넣습니다.
 
 ### Pig Latin에서 응용 프로그램 사용
 
@@ -218,7 +218,7 @@ Hive 및 Pig가 런타임에 응용 프로그램을 호출해야 하므로 **콘
 
 	`DEFINE` 문은 pigudf.exe 응용 프로그램에 대한 `streamer`의 별칭을 만들고 `SHIP` 클러스터의 노드를 분산합니다. 나중에 `streamer`는 `STREAM` 연산자와 함께 사용되어 로그에 포함된 단일 줄을 처리하고 일련의 열로 데이터를 반환합니다.
 
-> [AZURE.NOTE]별칭이 지정된 경우 스트리밍에 사용되는 응용 프로그램 이름은 '\(기호\) 문자로 묶어야 하며 `SHIP`와 함께 사용된 경우 '\(작은따옴표\)로 묶어야 합니다.
+> [AZURE.NOTE]별칭이 지정된 경우 스트리밍에 사용되는 응용 프로그램 이름은 '(기호) 문자로 묶어야 하며 `SHIP`와 함께 사용된 경우 '(작은따옴표)로 묶어야 합니다.
 
 3. 마지막 줄을 입력한 후 작업을 시작해야 합니다. 결국 다음과 유사한 출력이 반환됩니다.
 

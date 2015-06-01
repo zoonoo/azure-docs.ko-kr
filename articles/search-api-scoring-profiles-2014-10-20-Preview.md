@@ -16,7 +16,7 @@
 	ms.date="02/12/2015" 
 	ms.author="heidist"/>
       
-#점수 매기기 프로필\(Azure 검색 REST API 버전 2014-10-20-Preview\)#
+#점수 매기기 프로필(Azure 검색 REST API 버전 2014-10-20-Preview)#
 
 > [AZURE.NOTE]이 문서에서는 2014-10-20-Preview 버전의 REST API에서 제공되는 점수 매기기 프로필을 설명합니다. 이 API의 릴리스 버전은 MSDN의 [검색 인덱스에 점수 매기기 프로필 추가](http://msdn.microsoft.com/library/azure/dn798928.aspx)에서 확인할 수 있습니다. 2014-10-20-Preview 버전에 대한 자세한 내용은 [Azure 검색 서비스 REST API: 2014-10-20-Preview](http://azure.microsoft.com/documentation/articles/search-api-2014-10-20-preview/)를 참조하세요.
 
@@ -52,15 +52,15 @@ Azure 검색에서는 점수를 계산할 때 기본 점수 매기기 기능을 
 
     GET /indexes/hotels/docs?search=inn&scoringProfile=geo&scoringParameter=currentLocation:-122.123,44.77233&api-version=2014-10-20-Preview
 
-이 쿼리는 용어 'inn'을 검색하고 현재 위치를 전달합니다. 이 쿼리에는 `scoringParameter` 등의 다른 매개 변수도 포함되어 있습니다. 쿼리 매개 변수에 대해서는 [문서 검색\(Azure 검색 API\)](search-api-2014-10-20-preview.md#SearchDocs)에서 설명합니다.
+이 쿼리는 용어 'inn'을 검색하고 현재 위치를 전달합니다. 이 쿼리에는 `scoringParameter` 등의 다른 매개 변수도 포함되어 있습니다. 쿼리 매개 변수에 대해서는 [문서 검색(Azure 검색 API)](search-api-2014-10-20-preview.md#SearchDocs)에서 설명합니다.
 
 점수 매기기 프로필에 대한 자세한 예제를 검토하려면 [예제](#example)를 클릭하세요.
 
 ## 기본 점수 매기기 ##
 
-점수 매기기에서는 순위를 기준으로 정렬된 결과 집합의 각 항목에 대한 검색 점수를 계산합니다. 검색 결과 집합의 모든 항목에는 검색 점수가 할당된 다음 점수가 가장 높은 항목부터 가장 낮은 항목으로 순위가 지정됩니다. 그리고 점수가 높은 항목이 응용 프로그램에 반환됩니다. 기본적으로는 상위 50개 항목이 반환되지만 `$top` 매개 변수를 사용하여 반환되는 항목 수를 늘리거나 줄일 수 있습니다\(단일 응답에서 최대 1,000개의 항목 반환 가능\).
+점수 매기기에서는 순위를 기준으로 정렬된 결과 집합의 각 항목에 대한 검색 점수를 계산합니다. 검색 결과 집합의 모든 항목에는 검색 점수가 할당된 다음 점수가 가장 높은 항목부터 가장 낮은 항목으로 순위가 지정됩니다. 그리고 점수가 높은 항목이 응용 프로그램에 반환됩니다. 기본적으로는 상위 50개 항목이 반환되지만 `$top` 매개 변수를 사용하여 반환되는 항목 수를 늘리거나 줄일 수 있습니다(단일 응답에서 최대 1,000개의 항목 반환 가능).
 
-기본적으로 검색 점수는 쿼리와 데이터의 통계 속성에 따라 계산됩니다. Azure 검색에서는 `searchMode`에 따라 쿼리 문자열의 검색 용어를 일부 또는 모두 포함하는 문서를 찾은 다음 검색 용어가 많이 포함된 문서에 높은 점수를 할당합니다. 해당 용어가 데이터 모음에는 거의 없지만 해당 문서 내에서는 자주 나오는 경우 검색 점수가 더 높아집니다. 이와 같은 관련성 계산 방식의 기준을 TF-IDF\(용어 빈도와 문서 빈도 반비례\)라고 합니다.
+기본적으로 검색 점수는 쿼리와 데이터의 통계 속성에 따라 계산됩니다. Azure 검색에서는 `searchMode`에 따라 쿼리 문자열의 검색 용어를 일부 또는 모두 포함하는 문서를 찾은 다음 검색 용어가 많이 포함된 문서에 높은 점수를 할당합니다. 해당 용어가 데이터 모음에는 거의 없지만 해당 문서 내에서는 자주 나오는 경우 검색 점수가 더 높아집니다. 이와 같은 관련성 계산 방식의 기준을 TF-IDF(용어 빈도와 문서 빈도 반비례)라고 합니다.
 
 사용자 지정 정렬이 적용되지 않는다고 가정할 때 결과는 검색 점수를 기준으로 순위가 지정된 다음 호출 응용 프로그램으로 반환됩니다. `$top`을 지정하지 않으면 검색 점수가 가장 높은 항목 50개가 반환됩니다.
 
@@ -148,9 +148,9 @@ Azure 검색에서는 점수를 계산할 때 기본 점수 매기기 기능을 
 
 점수 매기기 프로필의 본문은 가중치가 적용된 필드와 함수에서 생성됩니다.
 
-<font> <table> <thead> <tr><td><b>요소</b></td><td><b>설명</b></td></tr></thead> \<tbody <tr> <td><b>가중치</b></td> <td> 필드에 상대적 가중치를 할당하는 이름-값 쌍을 지정합니다. 예제[\#bkmk\_ex]에서는 albumTitle, genre 및 artistName 필드가 각각 1, 5, null로 상승합니다. genre가 다른 필드보다 훨씬 크게 상승하는 이유는, `musicstoreindex`에서 'genre'의 경우처럼 비교적 비슷한 데이터를 검색하는 경우 상대 가중치의 편차가 더 커야 할 수 있기 때문입니다. 예를 들어 `musicstoreindex`에서 'rock'은 장르로도 표시되고 같은 구를 사용하는 장르 설명에도 표시됩니다. 이 경우 장르 설명보다 장르에 더 높은 가중치를 적용하려면 genre 필드에 훨씬 높은 상대 가중치를 적용해야 합니다. </td> </tr> <tr> <td><b>함수</b></td><td>특정 컨텍스트에 대해 추가 계산을 수행해야 하는 경우 사용합니다. 유효한 값은 `freshness`, `magnitude`, `distance` 및 `tag`입니다. 각 함수에는 고유한 매개 변수가 있습니다. <br> - 항목의 최신 또는 오래된 상태를 기준으로 상승시키려면 `freshness`를 사용해야 합니다. 이 함수는 datetime 필드\(edm.DataTimeOffset\)에만 사용할 수 있습니다. `boostingDuration` 특성은 freshness 함수에서만 사용됩니다. <br> - 숫자 값의 크기를 기준으로 상승시키려면 `magnitude`를 사용해야 합니다. 이 함수를 사용해야 하는 시나리오에는 이익률, 최고 가격, 최저 가격 또는 다운로드 수를 기준으로 상승시키는 경우가 포함됩니다. 이 함수는 double 및 integer 필드에만 사용할 수 있습니다. <br> - 근접도나 지리적 위치를 기준으로 상승시키려면 `distance`를 사용해야 합니다. 이 함수는 `Edm.GeographyPoint` 필드에만 사용할 수 있습니다. <br> - 문서와 검색 쿼리 간에 공통적인 태그를 기준으로 상승시키려면 `tag`를 사용해야 합니다. 이 함수는 `Edm.String` 및 \`\(Collection\(Edm.String\) 필드에만 사용할 수 있습니다. <br> <b>함수 사용 규칙</b> <br> 함수 유형\(freshness, magnitude, distance, tag\)은 소문자여야 합니다. <br> 함수는 null 또는 빈 값을 포함할 수 없습니다. 특히 fieldname를 포함하는 경우에는 값을 설정해야 합니다. <br> 함수는 필터링 가능한 필드에만 적용할 수 있습니다. 필터링 가능한 필드에 대한 자세한 내용은 [인덱스 만들기\(Azure 검색 API\)](search-api-2014-10-20-preview.md#createindex)를 참조하세요. <br> 함수는 인덱스의 필드 컬렉션에 정의된 필드에만 적용할 수 있습니다. <td> </tr> </tbody> </table> </font>
+<font> <table> <thead> <tr><td><b>요소</b></td><td><b>설명</b></td></tr></thead> <tbody <tr> <td><b>가중치</b></td> <td> 필드에 상대적 가중치를 할당하는 이름-값 쌍을 지정합니다. 예제[#bkmk_ex]에서는 albumTitle, genre 및 artistName 필드가 각각 1, 5, null로 상승합니다. genre가 다른 필드보다 훨씬 크게 상승하는 이유는, `musicstoreindex`에서 'genre'의 경우처럼 비교적 비슷한 데이터를 검색하는 경우 상대 가중치의 편차가 더 커야 할 수 있기 때문입니다. 예를 들어 `musicstoreindex`에서 'rock'은 장르로도 표시되고 같은 구를 사용하는 장르 설명에도 표시됩니다. 이 경우 장르 설명보다 장르에 더 높은 가중치를 적용하려면 genre 필드에 훨씬 높은 상대 가중치를 적용해야 합니다. </td> </tr> <tr> <td><b>함수</b></td><td>특정 컨텍스트에 대해 추가 계산을 수행해야 하는 경우 사용합니다. 유효한 값은 `freshness`, `magnitude`, `distance` 및 `tag`입니다. 각 함수에는 고유한 매개 변수가 있습니다. <br> - 항목의 최신 또는 오래된 상태를 기준으로 상승시키려면 `freshness`를 사용해야 합니다. 이 함수는 datetime 필드(edm.DataTimeOffset)에만 사용할 수 있습니다. `boostingDuration` 특성은 freshness 함수에서만 사용됩니다. <br> - 숫자 값의 크기를 기준으로 상승시키려면 `magnitude`를 사용해야 합니다. 이 함수를 사용해야 하는 시나리오에는 이익률, 최고 가격, 최저 가격 또는 다운로드 수를 기준으로 상승시키는 경우가 포함됩니다. 이 함수는 double 및 integer 필드에만 사용할 수 있습니다. <br> - 근접도나 지리적 위치를 기준으로 상승시키려면 `distance`를 사용해야 합니다. 이 함수는 `Edm.GeographyPoint` 필드에만 사용할 수 있습니다. <br> - 문서와 검색 쿼리 간에 공통적인 태그를 기준으로 상승시키려면 `tag`를 사용해야 합니다. 이 함수는 `Edm.String` 및 `(Collection(Edm.String) 필드에만 사용할 수 있습니다. <br> <b>함수 사용 규칙</b> <br> 함수 유형(freshness, magnitude, distance, tag)은 소문자여야 합니다. <br> 함수는 null 또는 빈 값을 포함할 수 없습니다. 특히 fieldname를 포함하는 경우에는 값을 설정해야 합니다. <br> 함수는 필터링 가능한 필드에만 적용할 수 있습니다. 필터링 가능한 필드에 대한 자세한 내용은 [인덱스 만들기(Azure 검색 API)](search-api-2014-10-20-preview.md#createindex)를 참조하세요. <br> 함수는 인덱스의 필드 컬렉션에 정의된 필드에만 적용할 수 있습니다. <td> </tr> </tbody> </table> </font>
 
-인덱스를 정의한 후 인덱스 스키마와 문서를 차례로 업로드하여 인덱스를 작성합니다. 이러한 작업에 대한 지침은 [인덱스 만들기\(Azure 검색 API\)](search-api-2014-10-20-preview.md#createindex) 및 [문서 추가, 업데이트 또는 삭제\(Azure 검색 API\)](search-api-2014-10-20-preview.md#AddOrUpdateDocuments)를 참조하세요. 인덱스가 작성되면 검색 데이터에 사용할 수 있는 점수 매기기 프로필을 만들어야 합니다.
+인덱스를 정의한 후 인덱스 스키마와 문서를 차례로 업로드하여 인덱스를 작성합니다. 이러한 작업에 대한 지침은 [인덱스 만들기(Azure 검색 API)](search-api-2014-10-20-preview.md#createindex) 및 [문서 추가, 업데이트 또는 삭제(Azure 검색 API)](search-api-2014-10-20-preview.md#AddOrUpdateDocuments)를 참조하세요. 인덱스가 작성되면 검색 데이터에 사용할 수 있는 점수 매기기 프로필을 만들어야 합니다.
 
 <a name="bkmk_template"></a>
 ##템플릿##
@@ -292,7 +292,7 @@ Azure 검색에서는 점수를 계산할 때 기본 점수 매기기 기능을 
 
 `boostingDuration`은 freshness 함수의 특성입니다. 이 특성을 사용하여 특정 문서에 대해 상승이 중지되는 만료 기간을 설정합니다. 예를 들어 프로모션 기간 10일 동안 특정 제품 라인이나 브랜드를 상승시키려는 경우 해당 문서에 대해 10일의 기간을 "P10D"로 지정합니다.
 
-`boostingDuration`의 형식은 XSD "dayTimeDuration" 값\(ISO 8601 기간 값의 제한된 하위 집합\)으로 지정해야 합니다. 이 형식의 패턴은 "P[nD][T[nH][nM][nS]]"입니다.
+`boostingDuration`의 형식은 XSD "dayTimeDuration" 값(ISO 8601 기간 값의 제한된 하위 집합)으로 지정해야 합니다. 이 형식의 패턴은 "P[nD][T[nH][nM][nS]]"입니다.
 
 다음 표에 여러 예제가 나와 있습니다.
 
@@ -315,11 +315,11 @@ Azure 검색에서는 점수를 계산할 때 기본 점수 매기기 기능을 
 </tbody>
 </table>
 
-더 많은 예제를 보려면 [XML 스키마: Datatypes\(W3.org 웹 사이트\)](http://www.w3.org/TR/xmlschema11-2/)를 참조하세요.
+더 많은 예제를 보려면 [XML 스키마: Datatypes(W3.org 웹 사이트)](http://www.w3.org/TR/xmlschema11-2/)를 참조하세요.
 
 **참고 항목**
 
-MSDN의 [Azure 검색 서비스 REST API](http://msdn.microsoft.com/library/azure/dn798935.aspx) MSDN의 <br/> [인덱스 만들기\(Azure 검색 API\)](http://msdn.microsoft.com/library/azure/dn798941.aspx) MSDN의<br/> [검색 인덱스에 점수 매기기 프로필 추가](http://msdn.microsoft.com/library/azure/dn798928.aspx) <br/>
+MSDN의 [Azure 검색 서비스 REST API](http://msdn.microsoft.com/library/azure/dn798935.aspx) MSDN의 <br/> [인덱스 만들기(Azure 검색 API)](http://msdn.microsoft.com/library/azure/dn798941.aspx) MSDN의<br/> [검색 인덱스에 점수 매기기 프로필 추가](http://msdn.microsoft.com/library/azure/dn798928.aspx) <br/>
 
 <!--Image references-->
 [1]: ./media/search-api-scoring-profiles-2014-10-20-Preview/scoring_interpolations.png

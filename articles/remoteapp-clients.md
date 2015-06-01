@@ -70,7 +70,7 @@ Google Play 스토어에서 Microsoft 원격 데스크톱 앱을 설치하고 �
 
 ![첫 번째 Azure Active Directory 페이지](./media/remoteapp-clients/Android3.png)
 
-4. 화면의 지침에 따라 Microsoft 계정\(LiveID\) 또는 조직 ID로 로그인합니다. 로그인된 후 수신한 모든 초대를 나열하는 페이지가 표시될 수도 있습니다. 표시되는 경우 신뢰하는 초대를 선택하고 **완료**를 탭합니다.
+4. 화면의 지침에 따라 Microsoft 계정(LiveID) 또는 조직 ID로 로그인합니다. 로그인된 후 수신한 모든 초대를 나열하는 페이지가 표시될 수도 있습니다. 표시되는 경우 신뢰하는 초대를 선택하고 **완료**를 탭합니다.
 
 ![초대 페이지](./media/remoteapp-clients/Android4.png)
 
@@ -98,7 +98,7 @@ Google Play 스토어에서 Microsoft 원격 데스크톱 앱을 설치하고 �
 
 ![로그인 프롬프트](./media/remoteapp-clients/IOS2.png)
 
-3. 화면의 지침에 따라 Microsoft 계정\(LiveID\) 또는 조직 ID로 로그인합니다. 로그인된 후 수신한 모든 초대를 나열하는 페이지가 표시될 수도 있습니다. 표시되는 경우 신뢰하는 초대를 선택하고 **완료**를 탭합니다.
+3. 화면의 지침에 따라 Microsoft 계정(LiveID) 또는 조직 ID로 로그인합니다. 로그인된 후 수신한 모든 초대를 나열하는 페이지가 표시될 수도 있습니다. 표시되는 경우 신뢰하는 초대를 선택하고 **완료**를 탭합니다.
 
 ![초대 페이지](./media/remoteapp-clients/IOS3.png)
 
@@ -130,7 +130,7 @@ Google Play 스토어에서 Microsoft 원격 데스크톱 앱을 설치하고 �
 
 ![첫 번째 Azure Active Directory 페이지](./media/remoteapp-clients/Mac3.png)
 
-4. 화면의 지침에 따라 Microsoft 계정\(LiveID\) 또는 조직 ID로 로그인합니다. 로그인된 후 수신한 모든 초대를 나열하는 페이지가 표시될 수도 있습니다. 표시되는 경우 신뢰하는 초대를 선택하고 대화 상자를 닫습니다.
+4. 화면의 지침에 따라 Microsoft 계정(LiveID) 또는 조직 ID로 로그인합니다. 로그인된 후 수신한 모든 초대를 나열하는 페이지가 표시될 수도 있습니다. 표시되는 경우 신뢰하는 초대를 선택하고 대화 상자를 닫습니다.
 
 ![초대 페이지](./media/remoteapp-clients/Mac4.png)
 
@@ -146,7 +146,7 @@ Google Play 스토어에서 Microsoft 원격 데스크톱 앱을 설치하고 �
 
 ![Azure RemoteApp에 대한 데모 피드](./media/remoteapp-clients/Mac7.png)
 
-## Windows\(Windows Phone을 제외하고 지원되는 모든 버전\)
+## Windows(Windows Phone을 제외하고 지원되는 모든 버전)
 
 설치가 완료되면 클라이언트가 자동으로 시작되지만 나중에 다시 액세스해야 하는 경우 앱 목록의 **Azure RemoteApp** 아래에서 찾을 수 있습니다.
 
@@ -158,7 +158,7 @@ Google Play 스토어에서 Microsoft 원격 데스크톱 앱을 설치하고 �
 
 ![첫 번째 Azure Active Directory 프롬프트](./media/remoteapp-clients/Windows2.png)
 
-3. 화면의 지침에 따라 Microsoft 계정\(LiveID\) 또는 조직 ID로 로그인합니다. 로그인된 후 수신한 모든 초대를 나열하는 페이지가 표시될 수도 있습니다. 표시되는 경우 신뢰하는 초대를 선택하고 **완료**를 클릭합니다.
+3. 화면의 지침에 따라 Microsoft 계정(LiveID) 또는 조직 ID로 로그인합니다. 로그인된 후 수신한 모든 초대를 나열하는 페이지가 표시될 수도 있습니다. 표시되는 경우 신뢰하는 초대를 선택하고 **완료**를 클릭합니다.
 
 ![Azure RemoteApp 클라이언트의 초대 페이지](./media/remoteapp-clients/Windows3.png)
 
@@ -190,7 +190,7 @@ Windows Phone 8.1 스토어에서 Microsoft 원격 데스크톱 앱을 설치하
 
 ![첫 번째 Azure Active Directory 페이지](./media/remoteapp-clients/WinPhone4.png)
 
-5. 화면의 지침에 따라 Microsoft 계정\(LiveID\) 또는 조직 ID로 로그인합니다. 로그인된 후 수신한 모든 초대를 나열하는 페이지가 표시될 수도 있습니다. 표시되는 경우 신뢰하는 초대를 선택하고 **저장**을 탭합니다.
+5. 화면의 지침에 따라 Microsoft 계정(LiveID) 또는 조직 ID로 로그인합니다. 로그인된 후 수신한 모든 초대를 나열하는 페이지가 표시될 수도 있습니다. 표시되는 경우 신뢰하는 초대를 선택하고 **저장**을 탭합니다.
 
 ![초대 페이지](./media/remoteapp-clients/WinPhone5.png)
 

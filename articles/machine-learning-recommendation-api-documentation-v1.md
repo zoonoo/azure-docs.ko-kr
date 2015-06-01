@@ -5,7 +5,8 @@
 	documentationCenter="" 
 	authors="oranms" 
 	manager="paulettm" 
-	editor="cgronlun"/> <tags 
+	editor="cgronlun"/>
+<tags 
 	ms.service="machine-learning" 
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
@@ -17,19 +18,20 @@
 
 #Azure 기계 학습 권장 사항 API 설명서
 
-버전: 1.0<br> 최신 버전은 [여기](machine-learning-recommendation-api-documentation.md)서 확인할 수 있습니다.
+버전: 1.0<br>
+최신 버전은 [여기](machine-learning-recommendation-api-documentation.md)서 확인할 수 있습니다.
 
 이 문서는 Azure ML은 권장 사항 API에 대해 설명합니다.
 
 
 [AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)]
 
-##1\. 일반 개요
+##1. 일반 개요
 이 문서는 API 참조입니다. “Azure ML 권장 사항 – 빠른 시작” 문서로 시작해야 합니다.
 
 Azure ML 권장 사항 API는 다음 8개 그룹으로 나뉩니다.
 
-1.	<ins>모델 기본</ins> - 모델에 대한 기본 작업\(예: 모델 만들기, 업데이트 및 삭제\)을 수행할 수 있는 API입니다.
+1.	<ins>모델 기본</ins> - 모델에 대한 기본 작업(예: 모델 만들기, 업데이트 및 삭제)을 수행할 수 있는 API입니다.
 2.	<ins>모델 고급</ins> - 모델에 대한 고급 데이터 정보를 얻을 수 있는 API입니다.
 3.	<ins>모델 비즈니스 규칙</ins> - 모델 권장 사항 결과에서 비즈니스 규칙을 관리할 수 있는 API입니다.
 4.	<ins>카탈로그</ins> - 모델 카탈로그에 대한 기본 작업을 수행할 수 있는 API입니다. 카탈로그에는 사용 데이터의 항목에 대한 메타 데이터 정보가 포함되어 있습니다.
@@ -39,30 +41,30 @@ Azure ML 권장 사항 API는 다음 8개 그룹으로 나뉩니다.
 8.	<ins>알림</ins> - API 작업과 관련된 문제에 대한 알림을 받을 수 있습니다. 예를 들어 데이터 취득을 통해 사용 데이터를 보고하는 중인데 이벤트 처리가 대부분 실패하는 경우 오류 알림이 발생합니다.
 
 
-##2\. 제한 사항
+##2. 제한 사항
 
 * 구독당 최대 모델 수: 10
 * 카탈로그에 포함할 수 있는 최대 항목 수: 100,000
 * 유지되는 사용 포인트의 최대 수는 500만 개입니다. 새 포인트가 업로드되거나 보고되면 가장 오래된 포인트가 삭제됩니다.
-* POST로 전송할 수 있는 최대 데이터 크기\(예: 카탈로그 데이터 가져오기, 사용 데이터 가져오기\)는 200MB입니다.
+* POST로 전송할 수 있는 최대 데이터 크기(예: 카탈로그 데이터 가져오기, 사용 데이터 가져오기)는 200MB입니다.
 * 활성화되지 않은 권장 사항 모델에 대한 초당 트랜잭션 수는 최대 2TPS이고, 활성화된 권장 사항 모델 빌드에만 최대 20TPS를 포함할 수 있습니다.
 
-##3\. API – 일반 정보
+##3. API – 일반 정보
 
-###3\.1. 인증
+###3.1. 인증
 인증과 관련된 Microsoft Azure 마켓플레이스 지침을 따르세요. 마켓플레이스에서는 기본 또는 OAuth 인증 방법을 지원합니다.
 
-###3\.2. 서비스 URI
-각 Azure ML 권장 사항 API에 대한 서비스 루트 URI는 [여기](https://api.datamarket.azure.com/amla/recommendations/v1/)\(영문\)에 있습니다.
+###3.2. 서비스 URI
+각 Azure ML 권장 사항 API에 대한 서비스 루트 URI는 [여기](https://api.datamarket.azure.com/amla/recommendations/v1/)(영문)에 있습니다.
 
 전체 서비스 URI는 OData 사양의 요소를 사용하여 표현됩니다.
 
-###3\.3. API 버전
+###3.3. API 버전
 각 API 호출은 1.0으로 설정해야 하는 apiVersion이라는 쿼리 매개 변수 종료 시 포함됩니다.
 
-##4\. 모델 기본
+##4. 모델 기본
 
-###4\.1. 모델 만들기
+###4.1. 모델 만들기
 "모델 만들기" 요청 만들기:
 
 | HTTP 메서드 | URI |
@@ -71,9 +73,10 @@ Azure ML 권장 사항 API는 다음 8개 그룹으로 나뉩니다.
 
 |	매개 변수 이름 |	유효한 값 |
 |:--------			|:--------								|
-|	modelName |	문자\(A-Z, a-z\), 숫자\(0-9\), 하이픈\(-\) 및 밑줄\(\_\)만 사용할 수 있습니다.<br>최대 길이: 20 |
+|	modelName |	문자(A-Z, a-z), 숫자(0-9), 하이픈(-) 및 밑줄(_)만 사용할 수 있습니다.<br>최대 길이: 20 |
 |	apiVersion | 1.0 |
-||| | 요청 본문 | 없음 |
+|||
+| 요청 본문 | 없음 |
 
 
 **응답**:
@@ -112,7 +115,7 @@ OData XML
 	  </entry>
 	</feed>
 
-###4\.2. 모델 가져오기
+###4.2. 모델 가져오기
 "모델 가져오기" 요청 만들기:
 
 | HTTP 메서드 | URI |
@@ -123,7 +126,8 @@ OData XML
 |:--------			|:--------								|
 |	id |	모델의 고유 식별자입니다. |
 |	apiVersion | 1.0 |
-||| | 요청 본문 | 없음 |
+|||
+| 요청 본문 | 없음 |
 
 **응답**:
 
@@ -174,7 +178,7 @@ OData XML
 	  </entry>
 	</feed>
 
-###4\.3. 모든 모델 가져오기
+###4.3. 모든 모델 가져오기
 현재 사용자의 모든 모델을 검색합니다.
 
 | HTTP 메서드 | URI |
@@ -184,7 +188,8 @@ OData XML
 |	매개 변수 이름 |	유효한 값 |
 |:--------			|:--------								|
 |	apiVersion | 1.0 |
-||| | 요청 본문 | 없음 |
+|||
+| 요청 본문 | 없음 |
 
 **응답**:
 
@@ -238,9 +243,11 @@ OData XML
 		</entry>
 	</feed>
 
-###4\.4. 모델 업데이트
+###4.4. 모델 업데이트
 
-모델 설명 또는 활성 빌드 ID를 업데이트할 수 있습니다.<br> <ins>활성 빌드 ID</ins> - 모든 모델에 대한 모든 빌드에는 "빌드 ID"가 있습니다. 활성 "빌드 ID"는 모든 새 모델 중 처음 성공한 빌드입니다. 활성 빌드 ID가 있는 동일한 모델에 대한 추가 빌드를 수행하려면 이 활성 빌드 ID를 기본 빌드 ID로 명시적으로 설정해야 합니다. 권장 사항을 소비할 때 사용할 빌드 ID를 지정하지 않으면 자동으로 기본 빌드 ID가 사용됩니다.<br> 이 메커니즘을 사용하면 프로덕션에 권장 사항 모델을 포함하고 나서 새 모델을 빌드하고 프로덕션으로 수준을 올리기 전에 테스트할 수 있습니다.
+모델 설명 또는 활성 빌드 ID를 업데이트할 수 있습니다.<br>
+<ins>활성 빌드 ID</ins> - 모든 모델에 대한 모든 빌드에는 "빌드 ID"가 있습니다. 활성 "빌드 ID"는 모든 새 모델 중 처음 성공한 빌드입니다. 활성 빌드 ID가 있는 동일한 모델에 대한 추가 빌드를 수행하려면 이 활성 빌드 ID를 기본 빌드 ID로 명시적으로 설정해야 합니다. 권장 사항을 소비할 때 사용할 빌드 ID를 지정하지 않으면 자동으로 기본 빌드 ID가 사용됩니다.<br>
+이 메커니즘을 사용하면 프로덕션에 권장 사항 모델을 포함하고 나서 새 모델을 빌드하고 프로덕션으로 수준을 올리기 전에 테스트할 수 있습니다.
 
 
 | HTTP 메서드 | URI |
@@ -251,13 +258,14 @@ OData XML
 |:--------			|:--------								|
 |	id | 모델의 고유 식별자입니다. |
 |	apiVersion | 1.0 |
-||| | 요청 본문 | `<ModelUpdateParams xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">`<br>`<Description>New Description</Description>`<br>`<ActiveBuildId>-1</ActiveBuildId>`<br>` </ModelUpdateParams>`<br><br>xml 태그 Description 및 ActiveBuildId는 선택 사항입니다. Description 또는 ActiveBuildId를 설정하지 않으려면 전체 태그를 제거합니다.\|
+|||
+| 요청 본문 | `<ModelUpdateParams xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">`<br>`<Description>New Description</Description>`<br>`<ActiveBuildId>-1</ActiveBuildId>`<br>` </ModelUpdateParams>`<br><br>xml 태그 Description 및 ActiveBuildId는 선택 사항입니다. Description 또는 ActiveBuildId를 설정하지 않으려면 전체 태그를 제거합니다.|
 
 **응답**:
 
 HTTP 상태 코드: 200
 
-###4\.5. 모델 삭제
+###4.5. 모델 삭제
 ID별로 기존 모델 삭제
 
 | HTTP 메서드 | URI |
@@ -268,7 +276,8 @@ ID별로 기존 모델 삭제
 |:--------			|:--------								|
 |	id |	모델의 고유 식별자입니다. |
 |	apiVersion | 1.0 |
-||| | 요청 본문 | 없음 |
+|||
+| 요청 본문 | 없음 |
 
 **응답**:
 
@@ -296,9 +305,9 @@ OData XML
 	  </entry>
 	</feed>
 
-##5\. 모델 고급
+##5. 모델 고급
 
-###5\.1. 모델 데이터 정보
+###5.1. 모델 데이터 정보
 이 API는 이 모델을 빌드할 때 사용된 사용 데이터에 대한 통계 데이터를 반환합니다.
 
 | HTTP 메서드 | URI |
@@ -309,7 +318,8 @@ OData XML
 |:--------			|:--------								|
 |	modelId |	모델의 고유 식별자입니다. |
 |	apiVersion | 1.0 |
-||| | 요청 본문 | 없음 |
+|||
+| 요청 본문 | 없음 |
 
 **응답**:
 
@@ -317,7 +327,12 @@ HTTP 상태 코드: 200
 
 OData XML
 
-데이터가 <pre> 피드/항목/ID/콘텐츠/속성/키 피드/항목/ID/콘텐츠/속성/값 </pre>의 컬렉션으로 반환됩니다.
+데이터가
+<pre>
+	피드/항목/ID/콘텐츠/속성/키
+	피드/항목/ID/콘텐츠/속성/값
+</pre>
+의 컬렉션으로 반환됩니다.
 
 아래 표에서는 각 키에 대해 키가 나타내는 값을 보여 줍니다. <table> <tr> <th>키</th> <th>설명</th> </tr> <tr> <td>AvgItemLength</td> <td>항목당 평균 개별 사용자 수</td> </tr> <tr> <td>AvgUserLength</td> <td>사용자당 평균 개별 항목 수</td> </tr> <tr> <td>DensificationNumberOfItems</td> <td>모델링할 수 없는 항목을 정리한 후의 항목 수</td> </tr> <tr> <td>DensificationNumberOfUsers</td> <td>모델링할 수 없는 사용자와 항목을 정리한 후의 사용 포인트 수</td> </tr> <tr> <td>DensificationNumberOfRecords</td> <td>모델링할 수 없는 사용자와 항목을 정리한 후의 사용 포인트 수</td> </tr> <tr> <td>MaxItemLength</td> <td>가장 인기 있는 항목에 대한 개별 사용자 수</td> </tr> <tr> <td>MaxUserLength</td> <td>사용자에 대한 최대 개별 항목 수</td> </tr> <tr> <td>MinItemLength</td> <td>항목에 대한 최대 개별 사용자 수</td> </tr> <tr> <td>MinUserLength</td> <td>사용자에 대한 최소 개별 항목 수</td> </tr> <tr> <td>RawNumberOfItems</td> <td>모델링할 수 없는 항목을 정리하기 전의 항목 수</td> </tr> <tr> <td>RawNumberOfUsers</td> <td>정리하기 전의 사용 포인트 수</td> </tr> <tr> <td>RawNumberOfRecords</td> <td>정리하기 전의 사용 포인트 수</td> </tr> <tr> <td>SampelingNumberOfItems</td> <td>샘플링이 켜져 있는 경우 샘플의 항목 수. 그렇지 않으면 무시합니다.</td> </tr> <tr> <td>SampelingNumberOfRecords</td> <td>샘플링이 켜져 있는 경우 사용자 수는 샘플을 가리킵니다. 그렇지 않으면 무시합니다.</td> </tr> <tr> <td>SampelingNumberOfUsers</td> <td>샘플링이 켜져 있는 경우 사용자 수는 샘플을 가리킵니다. 그렇지 않으면 무시합니다.</td> </tr> </table>
 
@@ -510,8 +525,8 @@ OData XML
     </entry>
     </feed>
 
-###5\.2. 모델 정보
-이 API는 활성 빌드 또는 특정 빌드\(지정된 경우\)에 대한 모델 정보를 반환합니다.
+###5.2. 모델 정보
+이 API는 활성 빌드 또는 특정 빌드(지정된 경우)에 대한 모델 정보를 반환합니다.
 
 | HTTP 메서드 | URI |
 |:--------|:--------|
@@ -520,9 +535,10 @@ OData XML
 |	매개 변수 이름 |	유효한 값 |
 |:--------			|:--------								|
 |	modelId |	모델의 고유 식별자입니다. |
-|	buildId |	\(선택 사항\) - 성공적인 빌드를 식별하는 번호입니다. |
+|	buildId |	(선택 사항) - 성공적인 빌드를 식별하는 번호입니다. |
 |	apiVersion | 1.0 |
-||| | 요청 본문 | 없음 |
+|||
+| 요청 본문 | 없음 |
 
 **응답**:
 
@@ -530,7 +546,12 @@ HTTP 상태 코드: 200
 
 OData XML
 
-데이터가 <pre> 피드/항목/ID/콘텐츠/속성/키 피드/항목/ID/콘텐츠/속성/값 </pre>의 컬렉션으로 반환됩니다.
+데이터가
+<pre>
+	피드/항목/ID/콘텐츠/속성/키
+	피드/항목/ID/콘텐츠/속성/값
+</pre>
+의 컬렉션으로 반환됩니다.
 
 아래 표에서는 각 키에 대해 키가 나타내는 값을 보여 줍니다. <table> <tr> <th>키</th> <th>설명</th> </tr> <tr> <td>CatalogCoverage</td> <td>사용 패턴으로 모델링할 수 있는 카탈로그의 부분. 나머지 항목에는 콘텐츠 기반 기능이 필요합니다.</td> </tr> <tr> <td>Mpr</td> <td>모델의 평균 백분위수 순위. 낮을수록 좋습니다.</td> </tr> <tr> <td>NumberOfDimensions</td> <td>행렬 인수 분해 알고리즘에서 사용된 차원 수</td> </tr> </table>
 
@@ -579,7 +600,7 @@ OData XML
 	</entry>
 	</feed>
 
-###5\.3. 모델 샘플 가져오기
+###5.3. 모델 샘플 가져오기
 권장 사항 모델의 샘플을 가져옵니다.
 
 | HTTP 메서드 | URI |
@@ -590,27 +611,148 @@ OData XML
 |:--------			|:--------								|
 |	modelId |	모델의 고유 식별자입니다. |
 |	apiVersion | 1.0 |
-||| | 요청 본문 | 없음 |
+|||
+| 요청 본문 | 없음 |
 
 **응답**:
 
 HTTP 상태 코드: 200
 
-OData XML<br> 원시 텍스트 형식으로 응답이 반환됩니다. <pre>
+OData XML<br>
+원시 텍스트 형식으로 응답이 반환됩니다.
+<pre>
 Level 1
 ---------------
-655fc955-a5a3-4a26-9723-3090859cb27b, Prey: A Novel 655fc955-a5a3-4a26-9723-3090859cb27b, Prey: A Novel 등급: 0.5215 3f471802-f84f-44a0-99c8-6d2e7418eec1, Black Hawk Down: A Story of Modern War 등급: 0.5151 07b10e28-9e7c-4032-90b7-10acab7f2460, Cryptonomicon 등급: 0.5148 6afc18e4-8c2a-43d1-9021-57543d6b11d8, Imajica 등급: 0.5146 e4cc5e69-3567-43ab-b00f-f0d8d0506870, Hit List 등급: 0.514 56b61441-0eed-46cc-a8f6-112775b81892, Life and Death in Shanghai 56b61441-0eed-46cc-a8f6-112775b81892, Life and Death in Shanghai 등급: 0.5218 53156702-cc0c-443d-b718-6fb74b2491d3, Son of \\ 등급: 0.5212 fb8cf7a6-8719-46ee-97d4-92f931d77a3a, Smoke and Mirrors: Short Fictions and Illusions 등급: 0.5188 8f5fe006-79e4-4679-816b-950989d1db4b, A Place I'Ve Never Been \(Contemporary American Fiction\) 등급: 0.5156 d8db4583-cc0f-49ce-bc95-b7fa3491623f, Happiness : A Novel 등급: 0.5156 50471eec-9aeb-4900-84d7-21567ab18546, If the Buddha Dated: A Handbook for Finding Love on a Spiritual Path cfe922a1-7ca0-4f8d-ad9d-b7cc87bfe0ef, Divine Secrets of the Ya-Ya Sisterhood: A Novel 등급: 0.5266 ff91a483-1ce5-4b37-a6fd-5ffcf21f8745, The Poisonwood Bible: A Novel 등급: 0.5252 973f8cbd-0846-4f6b-9d28-4dd0d7dc3a19, Pigs in Heaven 등급: 0.5244 e2cbf7ad-0636-4117-8b30-298da6df7077, Animal Dreams 등급: 0.5227 6c818fd3-5a09-417d-9ab4-7ffe090f0fef, Confessions of an Ugly Stepsister : A Novel 등급: 0.5222 5e97148f-defb-4d74-af2d-80f4763bf531, The Deep End of the Ocean \(Oprah's Book Club\) 5e97148f-defb-4d74-af2d-80f4763bf531, The Deep End of the Ocean \(Oprah's Book Club\) 등급: 0.537 5dcbac37-2946-4f2a-a0b3-bbe710f9409a, Up Island: A Novel 등급: 0.5277 bc5b69db-733b-4346-adde-3927544258f7, Downtown 등급: 0.5275 31fe5c63-3e5a-48d0-802b-d3b0f989a634, Have a Nice Day : A Tale of Blood and Sweatsocks 등급: 0.5252 0adf981a-b65b-4c11-b36b-78aca2f948a2, The Perfect Storm : A True Story of Men Against the Sea 등급: 0.5238 68f97068-ae1a-4163-9e94-396b800b743d, Modoc : The True Story of the Greatest Elephant That Ever Lived 68f97068-ae1a-4163-9e94-396b800b743d, Modoc : The True Story of the Greatest Elephant That Ever Lived 등급: 0.5379 6724862e-e4e7-4022-9614-1468d8b902ff, Little House on the Prairie 등급: 0.5345 cdedb837-1620-496d-94c4-6ccfed888320, Little House in the Big Woods 등급: 0.5325 382164ba-406b-4187-b726-d7a54b9d790d, The Tao of Pooh 등급: 0.5309 6a068d6a-bb74-4ba3-b3f2-a956c4f9d1b5, On the Banks of Plum Creek 등급: 0.5285 37ef8e74-e348-44e5-aabc-1d7f9efcb25b, Men Are from Mars Women Are from Venus: A Practical Guide for Improving Communication and Getting What You Want in Your Relationships 37ef8e74-e348-44e5-aabc-1d7f9efcb25b, Men Are from Mars Women Are from Venus: A Practical Guide for Improving Communication and Getting What You Want in Your Relationships 등급: 0.5397 f2be16d4-5faf-4d32-ab83-7ba74d29261e, Politically Correct Bedtime Stories: Modern Tales for Our Life and Times 등급: 0.5207 ef732c5c-334b-4d6b-ab82-7255eb7286d0, Honor Among Thieves 등급: 0.5195 0b209b8c-7cdd-47fd-b940-05c7ff7c60fc, The Giving Tree 등급: 0.5194 883b360f-8b42-407f-b977-2f44ad840877, Scary Stories to Tell in the Dark : Collected from American Folklore \(Scary Stories\) 등급: 0.5184 ff51b67e-fa8e-4c5e-8f4d-02a928de735d, Men at Work : The Craft of Baseball d008dae9-c73a-40a1-9a9b-96d5cf546f36, The Gulag Archipelago 1918-1956 : An Experiment in Literary Investigation I-II 등급: 0.5416 ff51b67e-fa8e-4c5e-8f4d-02a928de735d, Men at Work : The Craft of Baseball 등급: 0.5403 49dec30e-0adb-411a-b186-48eaabf6f8bc, Fatherland 등급: 0.5394 cc7964fd-d30f-478e-a425-93ddbdf094ed, Magic the Gathering: Arena Vol. 1 등급: 0.5379 8a1e9f36-97af-4614-bed9-24e3940a05f3, More Sniglets: Any Word That Doesn't Appear in the Dictionary but Should 등급: 0.5377 12a6d988-be21-4a09-8143-9d5f4261ba16, A Dream of Eagles 07b10e28-9e7c-4032-90b7-10acab7f2460, Cryptonomicon 등급: 0.5417 e4cc5e69-3567-43ab-b00f-f0d8d0506870, Hit List 등급: 0.5416 1f1a34c4-9781-49f5-a3cc-acec3ae3c71d, The Family 등급: 0.5371 56daeffe-7d48-43cd-8ef8-7dffd0c103d3, Kilo Class 등급: 0.5366 b2fe511e-5cb9-4a56-b823-2801e63e6a96, Legal Tender 등급: 0.5366 df87525b-e435-4bd6-8701-4e60ad344e28, Finding Fish 56d33036-dfda-46b9-8e2a-76cb03921bb0, The X-Files: Ground Zero 등급: 0.5417 0780cde8-6529-4e1d-b6c6-082c1b80e596, Twelve Red Herrings 등급: 0.5416 df87525b-e435-4bd6-8701-4e60ad344e28, Finding Fish 등급: 0.5408 400fe331-2c35-490c-adbc-b28b4b73d56c, Shall We Tell the President? 등급: 0.5383 f86ad7d0-5c03-42b3-aebf-13d44aec8b30, Shades of Grace 등급: 0.5358 de1f62a4-89e6-44d2-aaee-992a4bf093f1, The Map That Changed the World: William Smith and the Birth of Modern Geology de1f62a4-89e6-44d2-aaee-992a4bf093f1, The Map That Changed the World: William Smith and the Birth of Modern Geology 등급: 0.5422 b303538f-e2c6-4a2c-b425-8d21e684fc3e, My Uncle Oswald 등급: 0.5385 34b84627-48af-4a4c-96c4-b26fb3863f56, Midnight In the Garden of Good and Evil 등급: 0.5379 306cbaa7-b1a8-4142-9d55-e11b5018a7a8, The Street Lawyer 등급: 0.5376 e53b4baa-8c09-45c4-95c0-b6a26b98770b, Miss Smillas Feeling for Snow 등급: 0.5367
+655fc955-a5a3-4a26-9723-3090859cb27b, Prey: A Novel
+	655fc955-a5a3-4a26-9723-3090859cb27b, Prey: A Novel 등급: 0.5215
+	3f471802-f84f-44a0-99c8-6d2e7418eec1, Black Hawk Down: A Story of Modern War 등급: 0.5151
+	07b10e28-9e7c-4032-90b7-10acab7f2460, Cryptonomicon 등급: 0.5148
+	6afc18e4-8c2a-43d1-9021-57543d6b11d8, Imajica 등급: 0.5146
+	e4cc5e69-3567-43ab-b00f-f0d8d0506870, Hit List 등급: 0.514
+56b61441-0eed-46cc-a8f6-112775b81892, Life and Death in Shanghai
+	56b61441-0eed-46cc-a8f6-112775b81892, Life and Death in Shanghai 등급: 0.5218
+	53156702-cc0c-443d-b718-6fb74b2491d3, Son of \\ 등급: 0.5212
+	fb8cf7a6-8719-46ee-97d4-92f931d77a3a, Smoke and Mirrors: Short Fictions and Illusions 등급: 0.5188
+	8f5fe006-79e4-4679-816b-950989d1db4b, A Place I'Ve Never Been (Contemporary American Fiction) 등급: 0.5156
+	d8db4583-cc0f-49ce-bc95-b7fa3491623f, Happiness : A Novel 등급: 0.5156
+50471eec-9aeb-4900-84d7-21567ab18546, If the Buddha Dated: A Handbook for Finding Love on a Spiritual Path
+	cfe922a1-7ca0-4f8d-ad9d-b7cc87bfe0ef, Divine Secrets of the Ya-Ya Sisterhood: A Novel 등급: 0.5266
+	ff91a483-1ce5-4b37-a6fd-5ffcf21f8745, The Poisonwood Bible: A Novel 등급: 0.5252
+	973f8cbd-0846-4f6b-9d28-4dd0d7dc3a19, Pigs in Heaven 등급: 0.5244
+	e2cbf7ad-0636-4117-8b30-298da6df7077, Animal Dreams 등급: 0.5227
+	6c818fd3-5a09-417d-9ab4-7ffe090f0fef, Confessions of an Ugly Stepsister : A Novel 등급: 0.5222
+5e97148f-defb-4d74-af2d-80f4763bf531, The Deep End of the Ocean (Oprah's Book Club)
+	5e97148f-defb-4d74-af2d-80f4763bf531, The Deep End of the Ocean (Oprah's Book Club) 등급: 0.537
+	5dcbac37-2946-4f2a-a0b3-bbe710f9409a, Up Island: A Novel 등급: 0.5277
+	bc5b69db-733b-4346-adde-3927544258f7, Downtown 등급: 0.5275
+	31fe5c63-3e5a-48d0-802b-d3b0f989a634, Have a Nice Day : A Tale of Blood and Sweatsocks 등급: 0.5252
+	0adf981a-b65b-4c11-b36b-78aca2f948a2, The Perfect Storm : A True Story of Men Against the Sea 등급: 0.5238
+68f97068-ae1a-4163-9e94-396b800b743d, Modoc : The True Story of the Greatest Elephant That Ever Lived
+	68f97068-ae1a-4163-9e94-396b800b743d, Modoc : The True Story of the Greatest Elephant That Ever Lived 등급: 0.5379
+	6724862e-e4e7-4022-9614-1468d8b902ff, Little House on the Prairie 등급: 0.5345
+	cdedb837-1620-496d-94c4-6ccfed888320, Little House in the Big Woods 등급: 0.5325
+	382164ba-406b-4187-b726-d7a54b9d790d, The Tao of Pooh 등급: 0.5309
+	6a068d6a-bb74-4ba3-b3f2-a956c4f9d1b5, On the Banks of Plum Creek 등급: 0.5285
+37ef8e74-e348-44e5-aabc-1d7f9efcb25b, Men Are from Mars Women Are from Venus: A Practical Guide for Improving Communication and Getting What You Want in Your Relationships
+	37ef8e74-e348-44e5-aabc-1d7f9efcb25b, Men Are from Mars Women Are from Venus: A Practical Guide for Improving Communication and Getting What You Want in Your Relationships 등급: 0.5397
+	f2be16d4-5faf-4d32-ab83-7ba74d29261e, Politically Correct Bedtime Stories: Modern Tales for Our Life and Times 등급: 0.5207
+	ef732c5c-334b-4d6b-ab82-7255eb7286d0, Honor Among Thieves 등급: 0.5195
+	0b209b8c-7cdd-47fd-b940-05c7ff7c60fc, The Giving Tree 등급: 0.5194
+	883b360f-8b42-407f-b977-2f44ad840877, Scary Stories to Tell in the Dark : Collected from American Folklore (Scary Stories) 등급: 0.5184
+ff51b67e-fa8e-4c5e-8f4d-02a928de735d, Men at Work : The Craft of Baseball
+	d008dae9-c73a-40a1-9a9b-96d5cf546f36, The Gulag Archipelago 1918-1956 : An Experiment in Literary Investigation I-II 등급: 0.5416
+	ff51b67e-fa8e-4c5e-8f4d-02a928de735d, Men at Work : The Craft of Baseball 등급: 0.5403
+	49dec30e-0adb-411a-b186-48eaabf6f8bc, Fatherland 등급: 0.5394
+	cc7964fd-d30f-478e-a425-93ddbdf094ed, Magic the Gathering: Arena Vol. 1 등급: 0.5379
+	8a1e9f36-97af-4614-bed9-24e3940a05f3, More Sniglets: Any Word That Doesn't Appear in the Dictionary but Should 등급: 0.5377
+12a6d988-be21-4a09-8143-9d5f4261ba16, A Dream of Eagles
+	07b10e28-9e7c-4032-90b7-10acab7f2460, Cryptonomicon 등급: 0.5417
+	e4cc5e69-3567-43ab-b00f-f0d8d0506870, Hit List 등급: 0.5416
+	1f1a34c4-9781-49f5-a3cc-acec3ae3c71d, The Family 등급: 0.5371
+	56daeffe-7d48-43cd-8ef8-7dffd0c103d3, Kilo Class 등급: 0.5366
+	b2fe511e-5cb9-4a56-b823-2801e63e6a96, Legal Tender 등급: 0.5366
+df87525b-e435-4bd6-8701-4e60ad344e28, Finding Fish
+	56d33036-dfda-46b9-8e2a-76cb03921bb0, The X-Files: Ground Zero 등급: 0.5417
+	0780cde8-6529-4e1d-b6c6-082c1b80e596, Twelve Red Herrings 등급: 0.5416
+	df87525b-e435-4bd6-8701-4e60ad344e28, Finding Fish 등급: 0.5408
+	400fe331-2c35-490c-adbc-b28b4b73d56c, Shall We Tell the President? 등급: 0.5383
+	f86ad7d0-5c03-42b3-aebf-13d44aec8b30, Shades of Grace 등급: 0.5358
+de1f62a4-89e6-44d2-aaee-992a4bf093f1, The Map That Changed the World: William Smith and the Birth of Modern Geology
+	de1f62a4-89e6-44d2-aaee-992a4bf093f1, The Map That Changed the World: William Smith and the Birth of Modern Geology 등급: 0.5422
+	b303538f-e2c6-4a2c-b425-8d21e684fc3e, My Uncle Oswald 등급: 0.5385
+	34b84627-48af-4a4c-96c4-b26fb3863f56, Midnight In the Garden of Good and Evil 등급: 0.5379
+	306cbaa7-b1a8-4142-9d55-e11b5018a7a8, The Street Lawyer 등급: 0.5376
+	e53b4baa-8c09-45c4-95c0-b6a26b98770b, Miss Smillas Feeling for Snow 등급: 0.5367
 
 Level 2
 ---------------
-352aaea1-6b12-454d-a3d5-46379d9e4eb2, The Sinister Pig \(Hillerman Tony\) 352aaea1-6b12-454d-a3d5-46379d9e4eb2, The Sinister Pig \(Hillerman Tony\) 등급: 0.5425 74c49398-bc10-4af5-a658-a996a1201254, Children of the Storm \(Peters Elizabeth\) 등급: 0.5387 9ba80080-196e-43fd-8025-391d963f77e7, The Floating Girl 등급: 0.5372 e68f81d5-7745-4cc7-b943-fedb8fcc2ced, Killer Smile \(Scottoline Lisa\) 등급: 0.5353 b2fe511e-5cb9-4a56-b823-2801e63e6a96, Legal Tender 등급: 0.5332 c65c3995-abf7-4c7b-bb3c-8eb5aa9be7a5, Lake Wobegon days 0adf981a-b65b-4c11-b36b-78aca2f948a2, The Perfect Storm : A True Story of Men Against the Sea 등급: 0.5433 c65c3995-abf7-4c7b-bb3c-8eb5aa9be7a5, Lake Wobegon days 등급: 0.543 a00ae6ad-4a7f-4211-9836-75ce8834eb11, Sniglets \(Snig'lit : Any Word That Doesn't Appear in the Dictionary But Should\) 등급: 0.5327 6f6e192e-0d64-49ca-9b63-f09413ea1ee6, Politically Correct Holiday Stories: For an Enlightened Yuletide Season 등급: 0.5307 798051a8-147d-4d46-b0dc-e836325029e6, AGE OF INNOCENCE \(MOVIE TIE-IN\) 등급: 0.5301 73f3e25a-e996-4162-9ed8-ff3d34075650, O Pioneers! \(Penguin Twentieth-Century Classics\) cba8163f-6536-436b-8130-47b4a43c827f, Trust No One \(The Official Guide to the X-Files Vol. 2\) 등급: 0.5434 5708e4cb-2492-49c0-94a8-cc413eec5d89, Small Gods \(Discworld Novels \(Paperback\)\) 등급: 0.5406 73f3e25a-e996-4162-9ed8-ff3d34075650, O Pioneers! \(Penguin Twentieth-Century Classics\) 등급: 0.5403 d885b0bd-ae4b-452d-bdf2-faa90197dbc9, The Color of Magic 등급: 0.539 b133a9c4-4784-4db3-b100-d0d6dffb94d2, The Truth Is Out There \(The Official Guide to the X-Files Vol. 1\) 등급: 0.5367 271700a5-854a-4d5a-8409-6b57a5ee4de4, Fluke : Or I Know Why the Winged Whale Sings 271700a5-854a-4d5a-8409-6b57a5ee4de4, Fluke : Or I Know Why the Winged Whale Sings 등급: 0.5445 2de1c354-90ff-47c5-a0db-1bad7d88ef94, The Salaryman's Wife \(Children of Violence Series\) 등급: 0.5329 d279416e-19c0-43f8-9ec9-a585947879ca, Zen Attitude 등급: 0.5316 c8f854d7-3de3-4b23-8217-f4f851670fd4, Revenge of the Cootie Girls: A Robin Hudson Mystery \(Robin Hudson Mysteries \(Paperback\)\) 등급: 0.5305 8ef4751c-7074-409e-a3ac-d49b222fc864, Where the Wild Things Are 등급: 0.5289 9ad1b620-0a7b-4543-8673-66d4c3bcb2f1, Their Eyes Were Watching God 9ad1b620-0a7b-4543-8673-66d4c3bcb2f1, Their Eyes Were Watching God 등급: 0.5446 da45c4d5-aba1-413b-a9bd-50df98b1e1d2, The Bean Trees 등급: 0.5389 65ecbdd1-131c-40c3-a3d6-d86ca281377a, The God of Small Things 등급: 0.5387 c78743bf-7947-4a0c-8db7-8a3bfe69ba70, The Stone Diaries 등급: 0.5355 973f8cbd-0846-4f6b-9d28-4dd0d7dc3a19, Pigs in Heaven 등급: 0.5344 5f17d90a-2604-4fe8-8977-1a280b9098b1, One for the Money \(Stephanie Plum Novels \(Paperback\)\) 5f17d90a-2604-4fe8-8977-1a280b9098b1, One for the Money \(Stephanie Plum Novels \(Paperback\)\) 등급: 0.5446 57169b2b-9a8a-486b-9aac-1ed98ce57168, Final Appeal 등급: 0.5332 efcb1bc4-7278-4a8f-b491-befde02070d6, Moment of Truth 등급: 0.5329 1efa91a2-993b-4c43-9f5c-3454fc12612d, Burn Factor 등급: 0.5309 24c59962-458a-4ec8-b95d-d694e861919c, At Home in Mitford \(The Mitford Years\) 등급: 0.5303 4fd48c46-1a20-4c57-bc7f-a02ef123dc52, As Nature Made Him: The Boy Who Was Raised As a Girl 4fd48c46-1a20-4c57-bc7f-a02ef123dc52, As Nature Made Him: The Boy Who Was Raised As a Girl 등급: 0.5449 cd5f2c03-20cb-43be-a1fb-3b4233e63222, Pigs in Heaven 등급: 0.5329 19985fdb-d07a-4a25-ae4a-97b9cb61e5d1, Love in the Time of Cholera \(Penguin Great Books of the 20th Century\) 등급: 0.5267 15689d09-c711-4844-84d8-130a90237b26, Bel Canto 등급: 0.5245 ff91a483-1ce5-4b37-a6fd-5ffcf21f8745, The Poisonwood Bible: A Novel 등급: 0.5235 98df28ec-41e7-4fca-b77f-8b0d3109085d, Star Trek Memories f874b5a3-5d40-4436-94ff-0fa1c090ddf5, The Sun Also Rises \(A Scribner classic\) 등급: 0.5451 98df28ec-41e7-4fca-b77f-8b0d3109085d, Star Trek Memories 등급: 0.5442 0ce0014a-9a48-4013-a08a-7f2c11877930, H.M.S. Unseen 등급: 0.5421 15316ca6-1e38-425f-893d-691944a47000, More Scary Stories To Tell In The Dark 등급: 0.5409 329d5682-3dc3-4206-8aa2-eef4b1032258, Letters from the Earth 등급: 0.54 5b9445d5-c072-419c-8d49-6f669bb1b0a9, Daughter of Fortune : A Novel \(Oprah's Book Club \(Hardcover\)\) 5b9445d5-c072-419c-8d49-6f669bb1b0a9, Daughter of Fortune : A Novel \(Oprah's Book Club \(Hardcover\)\) 등급: 0.5462 ff91a483-1ce5-4b37-a6fd-5ffcf21f8745, The Poisonwood Bible: A Novel 등급: 0.5372 604eb3bd-6026-4f51-bffd-9fb54f180400, Family Pictures: A Novel 등급: 0.5341 8d06d01d-31cd-4678-b6b1-140a67987ce9, Songs in Ordinary Time \(Oprah's Book Club \(Paperback\)\) 등급: 0.5334 da45c4d5-aba1-413b-a9bd-50df98b1e1d2, The Bean Trees 등급: 0.5319 d5358189-d70f-4e35-8add-34b83b4942b3, Pigs in Heaven d5358189-d70f-4e35-8add-34b83b4942b3, Pigs in Heaven 등급: 0.5491 ff91a483-1ce5-4b37-a6fd-5ffcf21f8745, The Poisonwood Bible: A Novel 등급: 0.5401 c78743bf-7947-4a0c-8db7-8a3bfe69ba70, The Stone Diaries 등급: 0.5393 8d06d01d-31cd-4678-b6b1-140a67987ce9, Songs in Ordinary Time \(Oprah's Book Club \(Paperback\)\) 등급: 0.5382 973f8cbd-0846-4f6b-9d28-4dd0d7dc3a19, Pigs in Heaven 등급: 0.5367
+352aaea1-6b12-454d-a3d5-46379d9e4eb2, The Sinister Pig (Hillerman Tony)
+	352aaea1-6b12-454d-a3d5-46379d9e4eb2, The Sinister Pig (Hillerman Tony) 등급: 0.5425
+	74c49398-bc10-4af5-a658-a996a1201254, Children of the Storm (Peters Elizabeth) 등급: 0.5387
+	9ba80080-196e-43fd-8025-391d963f77e7, The Floating Girl 등급: 0.5372
+	e68f81d5-7745-4cc7-b943-fedb8fcc2ced, Killer Smile (Scottoline Lisa) 등급: 0.5353
+	b2fe511e-5cb9-4a56-b823-2801e63e6a96, Legal Tender 등급: 0.5332
+c65c3995-abf7-4c7b-bb3c-8eb5aa9be7a5, Lake Wobegon days
+	0adf981a-b65b-4c11-b36b-78aca2f948a2, The Perfect Storm : A True Story of Men Against the Sea 등급: 0.5433
+	c65c3995-abf7-4c7b-bb3c-8eb5aa9be7a5, Lake Wobegon days 등급: 0.543
+	a00ae6ad-4a7f-4211-9836-75ce8834eb11, Sniglets (Snig'lit : Any Word That Doesn't Appear in the Dictionary But Should) 등급: 0.5327
+	6f6e192e-0d64-49ca-9b63-f09413ea1ee6, Politically Correct Holiday Stories: For an Enlightened Yuletide Season 등급: 0.5307
+	798051a8-147d-4d46-b0dc-e836325029e6, AGE OF INNOCENCE (MOVIE TIE-IN) 등급: 0.5301
+73f3e25a-e996-4162-9ed8-ff3d34075650, O Pioneers! (Penguin Twentieth-Century Classics)
+	cba8163f-6536-436b-8130-47b4a43c827f, Trust No One (The Official Guide to the X-Files Vol. 2) 등급: 0.5434
+	5708e4cb-2492-49c0-94a8-cc413eec5d89, Small Gods (Discworld Novels (Paperback)) 등급: 0.5406
+	73f3e25a-e996-4162-9ed8-ff3d34075650, O Pioneers! (Penguin Twentieth-Century Classics) 등급: 0.5403
+	d885b0bd-ae4b-452d-bdf2-faa90197dbc9, The Color of Magic 등급: 0.539
+	b133a9c4-4784-4db3-b100-d0d6dffb94d2, The Truth Is Out There (The Official Guide to the X-Files Vol. 1) 등급: 0.5367
+271700a5-854a-4d5a-8409-6b57a5ee4de4, Fluke : Or I Know Why the Winged Whale Sings
+	271700a5-854a-4d5a-8409-6b57a5ee4de4, Fluke : Or I Know Why the Winged Whale Sings 등급: 0.5445
+	2de1c354-90ff-47c5-a0db-1bad7d88ef94, The Salaryman's Wife (Children of Violence Series) 등급: 0.5329
+	d279416e-19c0-43f8-9ec9-a585947879ca, Zen Attitude 등급: 0.5316
+	c8f854d7-3de3-4b23-8217-f4f851670fd4, Revenge of the Cootie Girls: A Robin Hudson Mystery (Robin Hudson Mysteries (Paperback)) 등급: 0.5305
+	8ef4751c-7074-409e-a3ac-d49b222fc864, Where the Wild Things Are 등급: 0.5289
+9ad1b620-0a7b-4543-8673-66d4c3bcb2f1, Their Eyes Were Watching God
+	9ad1b620-0a7b-4543-8673-66d4c3bcb2f1, Their Eyes Were Watching God 등급: 0.5446
+	da45c4d5-aba1-413b-a9bd-50df98b1e1d2, The Bean Trees 등급: 0.5389
+	65ecbdd1-131c-40c3-a3d6-d86ca281377a, The God of Small Things 등급: 0.5387
+	c78743bf-7947-4a0c-8db7-8a3bfe69ba70, The Stone Diaries 등급: 0.5355
+	973f8cbd-0846-4f6b-9d28-4dd0d7dc3a19, Pigs in Heaven 등급: 0.5344
+5f17d90a-2604-4fe8-8977-1a280b9098b1, One for the Money (Stephanie Plum Novels (Paperback))
+	5f17d90a-2604-4fe8-8977-1a280b9098b1, One for the Money (Stephanie Plum Novels (Paperback)) 등급: 0.5446
+	57169b2b-9a8a-486b-9aac-1ed98ce57168, Final Appeal 등급: 0.5332
+	efcb1bc4-7278-4a8f-b491-befde02070d6, Moment of Truth 등급: 0.5329
+	1efa91a2-993b-4c43-9f5c-3454fc12612d, Burn Factor 등급: 0.5309
+	24c59962-458a-4ec8-b95d-d694e861919c, At Home in Mitford (The Mitford Years) 등급: 0.5303
+4fd48c46-1a20-4c57-bc7f-a02ef123dc52, As Nature Made Him: The Boy Who Was Raised As a Girl
+	4fd48c46-1a20-4c57-bc7f-a02ef123dc52, As Nature Made Him: The Boy Who Was Raised As a Girl 등급: 0.5449
+	cd5f2c03-20cb-43be-a1fb-3b4233e63222, Pigs in Heaven 등급: 0.5329
+	19985fdb-d07a-4a25-ae4a-97b9cb61e5d1, Love in the Time of Cholera (Penguin Great Books of the 20th Century) 등급: 0.5267
+	15689d09-c711-4844-84d8-130a90237b26, Bel Canto 등급: 0.5245
+	ff91a483-1ce5-4b37-a6fd-5ffcf21f8745, The Poisonwood Bible: A Novel 등급: 0.5235
+98df28ec-41e7-4fca-b77f-8b0d3109085d, Star Trek Memories
+	f874b5a3-5d40-4436-94ff-0fa1c090ddf5, The Sun Also Rises (A Scribner classic) 등급: 0.5451
+	98df28ec-41e7-4fca-b77f-8b0d3109085d, Star Trek Memories 등급: 0.5442
+	0ce0014a-9a48-4013-a08a-7f2c11877930, H.M.S. Unseen 등급: 0.5421
+	15316ca6-1e38-425f-893d-691944a47000, More Scary Stories To Tell In The Dark 등급: 0.5409
+	329d5682-3dc3-4206-8aa2-eef4b1032258, Letters from the Earth 등급: 0.54
+5b9445d5-c072-419c-8d49-6f669bb1b0a9, Daughter of Fortune : A Novel (Oprah's Book Club (Hardcover))
+	5b9445d5-c072-419c-8d49-6f669bb1b0a9, Daughter of Fortune : A Novel (Oprah's Book Club (Hardcover)) 등급: 0.5462
+	ff91a483-1ce5-4b37-a6fd-5ffcf21f8745, The Poisonwood Bible: A Novel 등급: 0.5372
+	604eb3bd-6026-4f51-bffd-9fb54f180400, Family Pictures: A Novel 등급: 0.5341
+	8d06d01d-31cd-4678-b6b1-140a67987ce9, Songs in Ordinary Time (Oprah's Book Club (Paperback)) 등급: 0.5334
+	da45c4d5-aba1-413b-a9bd-50df98b1e1d2, The Bean Trees 등급: 0.5319
+d5358189-d70f-4e35-8add-34b83b4942b3, Pigs in Heaven
+	d5358189-d70f-4e35-8add-34b83b4942b3, Pigs in Heaven 등급: 0.5491
+	ff91a483-1ce5-4b37-a6fd-5ffcf21f8745, The Poisonwood Bible: A Novel 등급: 0.5401
+	c78743bf-7947-4a0c-8db7-8a3bfe69ba70, The Stone Diaries 등급: 0.5393
+	8d06d01d-31cd-4678-b6b1-140a67987ce9, Songs in Ordinary Time (Oprah's Book Club (Paperback)) 등급: 0.5382
+	973f8cbd-0846-4f6b-9d28-4dd0d7dc3a19, Pigs in Heaven 등급: 0.5367
 
 </pre>
 
-##6\. 모델 비즈니스 규칙
+##6. 모델 비즈니스 규칙
 추가할 수 있는 규칙에는 <strong>Blocklist</strong> 및 <strong>Upsale</strong>의 두 가지 유형이 있습니다. BlockList를 사용하면 권장 사항 결과에서 반환하지 않을 항목 목록을 제공할 수 있습니다. Upsale을 사용하면 권장 사항 결과에서 항목을 강제로 반환할 수 있습니다.
 
-###6\.1. 모델 규칙 가져오기
+###6.1. 모델 규칙 가져오기
 
 | HTTP 메서드 | URI |
 |:--------|:--------|
@@ -620,7 +762,8 @@ Level 2
 |:--------			|:--------								|
 |	modelId |	모델의 고유 식별자입니다. |
 |	apiVersion | 1.0 |
-||| | 요청 본문 | 없음 |
+|||
+| 요청 본문 | 없음 |
 
 **응답**:
 
@@ -667,15 +810,16 @@ OData XML
 	</entry>
 	</feed>
 
-###6\.2. 규칙 추가
+###6.2. 규칙 추가
 | HTTP 메서드 | URI |
 |:--------|:--------|
 |POST |`<rootURI>/AddRule?apiVersion=%271.0%27`|
 
-|	매개 변수 이름 |	유효한 값 |
+|	매개 변수 이름 |	유효한 값						|
 |:--------			|:--------								|
 |	apiVersion | 1.0 |
-||| | 요청 본문 | <ins>BlockList 규칙을 추가할 경우:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>BlockList</Type><Value>{"ItemsToExclude":["2406E770-769C-4189-89DE-1C9283F93A96"]}</Value></ApiFilter>`<br><br><ins>Upsale 규칙을 추가할 경우:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"]}</Value></ApiFilter>`|
+|||
+| 요청 본문 | <ins>BlockList 규칙을 추가할 경우:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>BlockList</Type><Value>{"ItemsToExclude":["2406E770-769C-4189-89DE-1C9283F93A96"]}</Value></ApiFilter>`<br><br><ins>Upsale 규칙을 추가할 경우:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"]}</Value></ApiFilter>`|
 
 HTTP 상태 코드: 200
 
@@ -707,7 +851,7 @@ OData XML
 	</entry>
 	</feed>
 
-###6\.3. 규칙 삭제
+###6.3. 규칙 삭제
 | HTTP 메서드 | URI |
 |:--------|:--------|
 |GET |`<rootURI>/DeleteRule?modelId=%27<model_id>%27&filterId=%27<filter_Id>%27&apiVersion=%271.0%27`<br><br>예:<br>`DeleteRule?modelId=%2724024f7e-b45c-419e-bfa2-dfd947e0d253%27&filterId=%271000011%27&apiVersion=%271.0%27`|
@@ -717,13 +861,14 @@ OData XML
 |	modelId |	모델의 고유 식별자입니다. |
 |	filterId |	필터의 고유 식별자입니다. |
 |	apiVersion | 1.0 |
-||| | 요청 본문 | 없음 |
+|||
+| 요청 본문 | 없음 |
 
 **응답**:
 
 HTTP 상태 코드: 200
 
-###6\.4. 모든 규칙 삭제
+###6.4. 모든 규칙 삭제
 
 | HTTP 메서드 | URI |
 |:--------|:--------|
@@ -733,15 +878,16 @@ HTTP 상태 코드: 200
 |:--------			|:--------								|
 |	modelId |	모델의 고유 식별자입니다. |
 |	apiVersion | 1.0 |
-||| | 요청 본문 | 없음 |
+|||
+| 요청 본문 | 없음 |
 
 **응답**:
 
 HTTP 상태 코드: 200
 
-##7\. 카탈로그
+##7. 카탈로그
 
-###7\.1. 카탈로그 데이터 가져오기
+###7.1. 카탈로그 데이터 가져오기
 
 여러 번 호출하여 여러 카탈로그 파일을 같은 모델에 업로드하면 새 카탈로그 항목만 삽입됩니다. 기존 항목은 원래 값으로 유지됩니다. 이 메서드를 사용하여 카탈로그 데이터를 업데이트할 수 없습니다.
 
@@ -749,12 +895,13 @@ HTTP 상태 코드: 200
 |:--------|:--------|
 |POST |`<rootURI>/ImportCatalogFile?modelId=%27<modelId>%27&filename=%27<fileName>%27&apiVersion=%271.0%27`<br><br>예:<br>`<rootURI>/ImportCatalogFile?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&filename=%27catalog10_small.txt%27&apiVersion=%271.0%27`|
 
-|	매개 변수 이름 |	유효한 값 |
+|	매개 변수 이름 |	유효한 값						|
 |:--------			|:--------								|
 |	modelId |	모델의 고유 식별자입니다. |
-| filename | 카탈로그의 텍스트 식별자.<br>문자\(A-Z, a-z\), 숫자\(0-9\), 하이픈\(-\) 및 밑줄\(\_\)만 사용할 수 있습니다.<br>최대 길이: 50 |
+| filename | 카탈로그의 텍스트 식별자.<br>문자(A-Z, a-z), 숫자(0-9), 하이픈(-) 및 밑줄(_)만 사용할 수 있습니다.<br>최대 길이: 50 |
 |	apiVersion | 1.0 |
-||| | 요청 본문 | 카탈로그 데이터. 형식:<br>`<Item Id>,<Item Name>,<Item Category>[,<description>]`<br><br><table><tr><th>이름</th><th>필수</th><th>유형</th><th>설명</th></tr><tr><td>항목 ID</td><td>예</td><td>영숫자, 최대 길이 50</td><td>항목의 고유 식별자</td></tr><tr><td>항목 이름</td><td>예</td><td>영숫자, 최대 길이 255</td><td>항목 이름</td></tr><tr><td>항목 범주</td><td>예</td><td>영숫자, 최대 길이 255</td><td>이 항목이 속해 있는 범주\(예: 요리책, 드라마...\)</td></tr><tr><td>설명</td><td>아니요</td><td>영숫자, 최대 길이 4000</td><td>이 항목에 대한 설명</td></tr></table><br>최대 파일 크기 200MB<br><br>예:<br><pre>2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction \(Byzantium Book\),Book<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book</pre> \|
+|||
+| 요청 본문 | 카탈로그 데이터. 형식:<br>`<Item Id>,<Item Name>,<Item Category>[,<description>]`<br><br><table><tr><th>이름</th><th>필수</th><th>유형</th><th>설명</th></tr><tr><td>항목 ID</td><td>예</td><td>영숫자, 최대 길이 50</td><td>항목의 고유 식별자</td></tr><tr><td>항목 이름</td><td>예</td><td>영숫자, 최대 길이 255</td><td>항목 이름</td></tr><tr><td>항목 범주</td><td>예</td><td>영숫자, 최대 길이 255</td><td>이 항목이 속해 있는 범주(예: 요리책, 드라마...)</td></tr><tr><td>설명</td><td>아니요</td><td>영숫자, 최대 길이 4000</td><td>이 항목에 대한 설명</td></tr></table><br>최대 파일 크기 200MB<br><br>예:<br><pre>2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction (Byzantium Book),Book<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book</pre> |
 
 
 **응답**:
@@ -787,7 +934,7 @@ OData XML
 	</entry>
 	</feed>
 
-###7\.2. 카탈로그 가져오기
+###7.2. 카탈로그 가져오기
 모든 카탈로그 항목을 검색합니다.
 
 | HTTP 메서드 | URI |
@@ -798,7 +945,8 @@ OData XML
 |:--------			|:--------								|
 |	modelId |	모델의 고유 식별자입니다. |
 |	apiVersion | 1.0 |
-||| | 요청 본문 | 없음 |
+|||
+| 요청 본문 | 없음 |
 
 **응답**:
 
@@ -888,7 +1036,7 @@ OData XML
 	</entry>
 	</feed>
 
-###7\.3. 토큰별 카탈로그 항목 가져오기
+###7.3. 토큰별 카탈로그 항목 가져오기
 
 | HTTP 메서드 | URI |
 |:--------|:--------|
@@ -899,7 +1047,8 @@ OData XML
 |	modelId |	모델의 고유 식별자입니다. |
 |	token |	카탈로그 항목 이름의 토큰입니다. 3자 이상 포함해야 합니다. |
 |	apiVersion | 1.0 |
-||| | 요청 본문 | 없음 |
+|||
+| 요청 본문 | 없음 |
 
 **응답**:
 
@@ -941,21 +1090,22 @@ OData XML
 		</entry>
 	</feed>
 
-##8\. 사용 데이터
-###8\.1. 사용 데이터 가져오기
-####8\.1.1. 파일 업로드
+##8. 사용 데이터
+###8.1. 사용 데이터 가져오기
+####8.1.1. 파일 업로드
 이 섹션에서는 파일을 사용하여 사용 데이터를 업로드하는 방법을 보여 줍니다. 사용 데이터를 사용하여 이 API를 여러 번 호출할 수 있습니다. 모든 호출에 대한 모든 사용 데이터가 저장됩니다.
 
 | HTTP 메서드 | URI |
 |:--------|:--------|
 |POST |`<rootURI>/ImportUsageFile?modelId=%27<modelId>%27&filename=%27<fileName>%27&apiVersion=%271.0%27`<br><br>예:<br>`<rootURI>/ImportUsageFile?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&filename=%27ImplicitMatrix10_Guid_small.txt%27&apiVersion=%271.0%27`|
 
-|	매개 변수 이름 |	유효한 값 |
+|	매개 변수 이름 |	유효한 값						|
 |:--------			|:--------								|
 |	modelId |	모델의 고유 식별자입니다. |
-| filename | 카탈로그의 텍스트 식별자.<br>문자\(A-Z, a-z\), 숫자\(0-9\), 하이픈\(-\) 및 밑줄\(\_\)만 사용할 수 있습니다.<br>최대 길이: 50 |
+| filename | 카탈로그의 텍스트 식별자.<br>문자(A-Z, a-z), 숫자(0-9), 하이픈(-) 및 밑줄(_)만 사용할 수 있습니다.<br>최대 길이: 50 |
 |	apiVersion | 1.0 |
-||| | 요청 본문 | 사용 데이터. 형식:<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>이름</th><th>필수</th><th>유형</th><th>설명</th></tr><tr><td>User Id</td><td>예</td><td>영숫자</td><td>사용자의 고유 식별자</td></tr><tr><td>Item Id</td><td>예</td><td>영숫자, 최대 길이 50</td><td>항목의 고유 식별자</td></tr><tr><td>Time</td><td>아니요</td><td>다음 형식의 날짜: YYYY/MM/DDTHH:MM:SS\(예: 2013/06/20T10:00:00\)</td><td>데이터의 시간</td></tr><tr><td>Event</td><td>아니요, 제공된 경우 날짜도 입력해야 함</td><td>다음 중 하나:<br>• Click<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>최대 파일 크기 200MB<br><br>예:<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> \|
+|||
+| 요청 본문 | 사용 데이터. 형식:<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>이름</th><th>필수</th><th>유형</th><th>설명</th></tr><tr><td>User Id</td><td>예</td><td>영숫자</td><td>사용자의 고유 식별자</td></tr><tr><td>Item Id</td><td>예</td><td>영숫자, 최대 길이 50</td><td>항목의 고유 식별자</td></tr><tr><td>Time</td><td>아니요</td><td>다음 형식의 날짜: YYYY/MM/DDTHH:MM:SS(예: 2013/06/20T10:00:00)</td><td>데이터의 시간</td></tr><tr><td>Event</td><td>아니요, 제공된 경우 날짜도 입력해야 함</td><td>다음 중 하나:<br>• Click<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>최대 파일 크기 200MB<br><br>예:<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
 
 **응답**:
 
@@ -991,7 +1141,7 @@ OData XML
 	</feed>
 
 
-####8\.1.2. 데이터 취득 사용
+####8.1.2. 데이터 취득 사용
 이 섹션에서는 일반적으로 웹 사이트에서 Azure 기계 학습 권장 사항에 실시간으로 이벤트를 전송하는 방법을 보여 줍니다.
 
 | HTTP 메서드 | URI |
@@ -1093,9 +1243,10 @@ OData XML
   	</EventData>
 	</Event>
 
-**응답**: HTTP 상태 코드: 200
+**응답**:
+HTTP 상태 코드: 200
 
-###8\.2. 모델 사용 파일 나열
+###8.2. 모델 사용 파일 나열
 모든 모델 사용 파일의 메타데이터를 검색합니다.
 
 | HTTP 메서드 | URI |
@@ -1106,7 +1257,8 @@ OData XML
 |:--------			|:--------								|
 |	forModelId |	모델의 고유 식별자입니다. |
 |	apiVersion | 1.0 |
-||| | 요청 본문 | 없음 |
+|||
+| 요청 본문 | 없음 |
 
 **응답**:
 
@@ -1157,7 +1309,7 @@ OData XML
 	</entry>
 </feed>
 
-###8\.3. 사용 통계 가져오기
+###8.3. 사용 통계 가져오기
 사용 통계를 가져옵니다.
 
 | HTTP 메서드 | URI |
@@ -1169,9 +1321,10 @@ OData XML
 | modelId |	모델의 고유 식별자입니다. |
 | startDate |	시작 날짜입니다. 형식: yyyy/MM/ddTHH:mm:ss |
 | endDate |	종료 날짜입니다. 형식: yyyy/MM/ddTHH:mm:ss |
-| eventTypes |	쉼표로 구분된 이벤트 유형 문자열이거나 null\(모든 이벤트를 가져오려는 경우\)입니다. |
-| apiVersion | 1\.0 |
-||| | 요청 본문 | 없음 |
+| eventTypes |	쉼표로 구분된 이벤트 유형 문자열이거나 null(모든 이벤트를 가져오려는 경우)입니다. |
+| apiVersion | 1.0 |
+|||
+| 요청 본문 | 없음 |
 
 **응답**:
 
@@ -1242,7 +1395,7 @@ OData XML
 	</entry>
 	</feed>
 
-###8\.4. 사용 파일 샘플 가져오기
+###8.4. 사용 파일 샘플 가져오기
 파일 내용을 처음 2KB를 검색합니다.
 
 | HTTP 메서드 | URI |
@@ -1253,16 +1406,33 @@ OData XML
 |:--------			|:--------								|
 | modelId |	모델의 고유 식별자입니다. |
 | fileId |	모델 사용 파일의 고유 식별자입니다. |
-| apiVersion | 1\.0 |
-||| | 요청 본문 | 없음 |
+| apiVersion | 1.0 |
+|||
+| 요청 본문 | 없음 |
 
 **응답**:
 
 HTTP 상태 코드: 200
 
-OData XML<br> 응답은 원시 텍스트 형식으로 반환됨:<pre> 85526,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 210926,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 116866,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 177458,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 274004,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 123883,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 37712,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 152249,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 250948,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 235588,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 158254,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 271195,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 141157,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 171118,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 225087,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 </pre>
+OData XML<br>
+응답은 원시 텍스트 형식으로 반환됨:<pre> 85526,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
+210926,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
+116866,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
+177458,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
+274004,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+123883,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+37712,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+152249,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+250948,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+235588,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+158254,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+271195,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+141157,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+171118,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
+225087,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
+</pre>
 
-###8\.5. 모델 사용 파일 가져오기
+###8.5. 모델 사용 파일 가져오기
 사용 파일의 전체 내용을 검색합니다.
 
 | HTTP 메서드 | URI |
@@ -1274,16 +1444,51 @@ OData XML<br> 응답은 원시 텍스트 형식으로 반환됨:<pre> 85526,2406
 | mid |	모델의 고유 식별자입니다. |
 | fid |	모델 사용 파일의 고유 식별자입니다. |
 | 다운로드 | 1 |
-| apiVersion | 1\.0 |
-||| | 요청 본문 | 없음 |
+| apiVersion | 1.0 |
+|||
+| 요청 본문 | 없음 |
 
 **응답**:
 
 HTTP 상태 코드: 200
 
-OData XML<br> 응답은 원시 텍스트 형식으로 반환됨:<pre> 85526,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 210926,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 116866,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 177458,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 274004,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 123883,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 37712,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 152249,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 250948,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 235588,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 158254,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 271195,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 141157,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 171118,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 225087,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 244881,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 50547,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 213090,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 260655,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 72214,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 189334,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 36326,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 189336,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 189334,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 260655,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 162100,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 54946,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 260965,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 102758,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 112602,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 163925,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 262998,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 144717,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 </pre>
+OData XML<br>
+응답은 원시 텍스트 형식으로 반환됨:<pre> 85526,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
+210926,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
+116866,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
+177458,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
+274004,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+123883,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+37712,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+152249,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+250948,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+235588,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+158254,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+271195,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+141157,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+171118,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
+225087,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
+244881,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
+50547,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
+213090,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
+260655,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
+72214,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
+189334,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
+36326,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
+189336,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
+189334,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
+260655,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
+162100,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
+54946,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
+260965,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
+102758,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
+112602,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
+163925,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
+262998,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
+144717,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
+</pre>
 
-###8\.6. 사용 파일 삭제
+###8.6. 사용 파일 삭제
 지정한 모델 사용 파일을 삭제합니다.
 
 | HTTP 메서드 | URI |
@@ -1294,15 +1499,16 @@ OData XML<br> 응답은 원시 텍스트 형식으로 반환됨:<pre> 85526,2406
 |:--------			|:--------								|
 | modelId |	모델의 고유 식별자입니다. |
 | fileId | 삭제할 파일의 고유 식별자입니다. |
-| apiVersion | 1\.0 |
-||| | 요청 본문 | 없음 |
+| apiVersion | 1.0 |
+|||
+| 요청 본문 | 없음 |
 
 **응답**:
 
 HTTP 상태 코드: 200
 
 
-###8\.7. 모든 사용 파일 삭제
+###8.7. 모든 사용 파일 삭제
 모든 모델 사용 파일을 삭제합니다.
 
 | HTTP 메서드 | URI |
@@ -1312,27 +1518,29 @@ HTTP 상태 코드: 200
 | 매개 변수 이름 |	유효한 값 |
 |:--------			|:--------								|
 | modelId |	모델의 고유 식별자입니다. |
-| apiVersion | 1\.0 |
-||| | 요청 본문 | 없음 |
+| apiVersion | 1.0 |
+|||
+| 요청 본문 | 없음 |
 
 **응답**:
 
 HTTP 상태 코드: 200
 
-##9\. 빌드
+##9. 빌드
 
-###9\.1. 모델 빌드
+###9.1. 모델 빌드
 
 | HTTP 메서드 | URI |
 |:--------|:--------|
 |POST |`<rootURI>/BuildModel?modelId=%27<modelId>%27&userDescription=%27<description>%27&apiVersion=%271.0%27`<br><br>예:<br>`<rootURI>/BuildModel?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&userDescription=%27First%20build%27&apiVersion=%271.0%27`|
 
-|	매개 변수 이름 |	유효한 값 |
+|	매개 변수 이름 |	유효한 값						|
 |:--------			|:--------								|
 | modelId |	모델의 고유 식별자입니다. |
 | userDescription | 카탈로그의 텍스트 식별자입니다. 공백을 사용하는 경우 대신 %20을 사용하여 인코드해야 합니다. 위 예제를 참조하세요.<br>최대 길이: 50 |
-| apiVersion | 1\.0 |
-||| | 요청 본문 | 왼쪽이 비어 있으면 빌드가 기본 빌드 매개 변수로 실행됩니다.<br><br>빌드 매개 변수를 설정하려면 본문으로 다음 XML을 전송합니다\(매개 변수에 대한 설명은 빌드 매개 변수 가져오기 섹션 참조\).<br>`<BuildParametersList xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><UseFeaturesInModel>false</UseFeaturesInModel><AllowColdItemPlacement>false</AllowColdItemPlacement><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance><EnableFeatureCorrelation>false</EnableFeatureCorrelation><RefreshFeatureScoreOnBuild>false</RefreshFeatureScoreOnBuild><ComputeUpd>false</ComputeUpd><EnableModelingInsights>true</EnableModelingInsights><ModelingFeatureList /><ReasoningFeatureList /></BuildParametersList>`\|
+| apiVersion | 1.0 |
+|||
+| 요청 본문 | 왼쪽이 비어 있으면 빌드가 기본 빌드 매개 변수로 실행됩니다.<br><br>빌드 매개 변수를 설정하려면 본문으로 다음 XML을 전송합니다(매개 변수에 대한 설명은 빌드 매개 변수 가져오기 섹션 참조).<br>`<BuildParametersList xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><UseFeaturesInModel>false</UseFeaturesInModel><AllowColdItemPlacement>false</AllowColdItemPlacement><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance><EnableFeatureCorrelation>false</EnableFeatureCorrelation><RefreshFeatureScoreOnBuild>false</RefreshFeatureScoreOnBuild><ComputeUpd>false</ComputeUpd><EnableModelingInsights>true</EnableModelingInsights><ModelingFeatureList /><ReasoningFeatureList /></BuildParametersList>`|
 
 **응답**:
 
@@ -1392,7 +1600,7 @@ OData XML
   	</entry>
 	</feed>
 
-###9\.2. 모델의 빌드 상태 가져오기
+###9.2. 모델의 빌드 상태 가져오기
 지정된 모델의 빌드 및 해당 상태를 검색합니다.
 
 | HTTP 메서드 | URI |
@@ -1404,7 +1612,7 @@ OData XML
 |:--------			|:--------								|
 |	modelId |	모델의 고유 식별자입니다. |
 |	onlyLastBuild |	모델의 빌드 기록을 모두 반환할지 또는 최신 빌드의 상태만 반환할지를 나타냅니다. |
-|	apiVersion |	1\.0 |
+|	apiVersion |	1.0 |
 
 
 **응답**:
@@ -1470,7 +1678,7 @@ OData XML
 	</feed>
 
 
-###9\.3. 사용자의 빌드 상태 가져오기
+###9.3. 사용자의 빌드 상태 가져오기
 사용자의 모든 모델에 대한 빌드 상태를 검색합니다.
 
 | HTTP 메서드 | URI |
@@ -1547,7 +1755,7 @@ OData XML
 	</feed>
 
 
-###9\.4. 빌드 삭제
+###9.4. 빌드 삭제
 빌드를 삭제합니다.
 
 참고: 활성 빌드는 삭제할 수 없습니다. 활성 빌드를 삭제하려면 먼저 모델을 다른 활성 빌드로 업데이트해야 합니다.
@@ -1559,13 +1767,13 @@ OData XML
 |	매개 변수 이름 |	유효한 값 |
 |:--------			|:--------								|
 | buildId | 빌드의 고유 식별자입니다. |
-| apiVersion | 1\.0 |
+| apiVersion | 1.0 |
 
 **응답:**
 
 HTTP 상태 코드: 200
 
-###9\.5. 빌드 취소
+###9.5. 빌드 취소
 빌드 중 상태인 빌드를 취소합니다.
 
 | HTTP 메서드 | URI |
@@ -1575,13 +1783,13 @@ HTTP 상태 코드: 200
 |	매개 변수 이름 |	유효한 값 |
 |:--------			|:--------								|
 | buildId | 빌드의 고유 식별자입니다. |
-| apiVersion | 1\.0 |
+| apiVersion | 1.0 |
 
 **응답:**
 
 HTTP 상태 코드: 200
 
-###9\.6. 빌드 매개 변수 가져오기
+###9.6. 빌드 매개 변수 가져오기
 빌드 매개 변수를 검색합니다.
 
 | HTTP 메서드 | URI |
@@ -1591,7 +1799,7 @@ HTTP 상태 코드: 200
 |	매개 변수 이름 |	유효한 값 |
 |:--------			|:--------								|
 | buildId | 빌드의 고유 식별자입니다. |
-| apiVersion | 1\.0 |
+| apiVersion | 1.0 |
 
 **응답:**
 
@@ -1599,7 +1807,13 @@ HTTP 상태 코드: 200
 
 OData XML
 
-각각 하나의 매개 변수를 포함하는 키/값의 컬렉션입니다. <pre> 키: 피드/항목/콘텐츠/속성/키 - 빌드 매개 변수 이름. 값: 피드/항목/콘텐츠/속성/값 - 빌드 매개 변수 값 </pre>
+각각 하나의 매개 변수를 포함하는 키/값의 컬렉션입니다. 
+<pre>
+키:
+	피드/항목/콘텐츠/속성/키 - 빌드 매개 변수 이름.
+값:
+	피드/항목/콘텐츠/속성/값 - 빌드 매개 변수 값
+</pre>
 
 아래 표에서는 각 키에 대해 키가 나타내는 값을 보여 줍니다. <table> <tr> <th>키</th> <th>설명</th> <th>유형</th> <th>유효한 값</th> </tr> <tr> <td>NumberOfModelIterations</td> <td>모델이 수행하는 반복 횟수는 전반적인 계산 시간과 모델 정확도에 반영됩니다. 숫자가 높을수록 정확도는 높지만 계산 시간이 더 오래 걸립니다.</td> <td>정수</td> <td>10-50</td> </tr> <tr> <td>NumberOfModelDimensions</td> <td>차원 수는 모델이 데이터 내에서 찾으려는 '기능' 수와 관련이 있습니다. 차원 수를 늘리면 결과를 더 작은 클러스터로 미세 조정할 수 있습니다. 그러나 차원 수가 너무 많으면 모델이 항목 간의 상관 관계를 찾지 못하게 됩니다.</td> <td>정수</td> <td>10-40</td> </tr> <tr> <td>MinItemAppearance</td> <td>항목이 모델에 포함되지 않은 최소 발생 횟수를 제어할 수 있습니다. 임계값이 높을수록 모델에서 더 나은 결과를 얻을 수 있습니다. 그러나 임계값이 너무 높으면 사용할 수 있는 항목이 부족할 수 있습니다.</td> <td>정수</td> <td>0 이상</td> </tr> <tr> <td>MinUserAppearance</td> <td>사용자가 모델에 포함되지 않은 최소 발생 횟수를 제어할 수 있습니다. 임계값이 높을수록 모델에서 더 나은 결과를 얻을 수 있습니다. 그러나 임계값이 너무 높으면 사용할 수 있는 항목이 부족할 수 있거나 특정 사용자에게는 권장되지 않습니다.</td> <td>정수</td> <td>0-20</td> </tr> <tr> <td>설명</td> <td>빌드 설명</td> <td>문자열</td> <td>모든 텍스트, 최대 255자</td> </tr> <tr> <td>UseFeaturesInModel</td> <td>나중에 사용</td> <td></td> <td></td> </tr> <tr> <td>AllowColdItemPlacement</td> <td>나중에 사용</td> <td></td> <td></td> </tr> <tr> <td>EnableFeatureCorrelation</td> <td>나중에 사용</td> <td></td> <td></td> </tr> <tr> <td>RefreshFeatureScoreOnBuild</td> <td>나중에 사용</td> <td></td> <td></td> </tr> <tr> <td>ComputeUpd</td> <td>나중에 사용</td> <td></td> <td></td> </tr> <tr> <td>EnableModelingInsights</td> <td>나중에 사용</td> <td></td> <td></td> </tr> <tr> <td>ModelingFeatureList</td> <td>나중에 사용</td> <td></td> <td></td> </tr> <tr> <td>ReasoningFeatureList</td> <td>나중에 사용</td> <td></td> <td></td> </tr> </table>
 
@@ -1768,8 +1982,8 @@ OData XML
       	</entry>
 	</feed>
 
-##10\. 권장 사항
-###10\.1. 권장 사항 가져오기
+##10. 권장 사항
+###10.1. 권장 사항 가져오기
 
 | HTTP 메서드 | URI |
 |:--------|:--------|
@@ -1781,7 +1995,7 @@ OData XML
 | itemIds | 권장할 항목의 쉼표로 구분된 목록입니다.<br>최대 길이: 200 |
 | numberOfResults | 필요한 결과 수입니다. |
 | includeMetatadata | 나중에 사용하기 위한 항목이며 항상 false를 입력합니다. |
-| apiVersion | 1\.0 |
+| apiVersion | 1.0 |
 
 **응답:**
 
@@ -1946,11 +2160,14 @@ OData XML
  	 </entry>
 	</feed>
 
-##11\. 알림
-Azure ML 권장 사항에서는 시스템에서 발생하는 영구적 오류가 있는 경우 알림을 생성합니다. 다음 세 가지 유형의 알림이 있습니다. 1. 빌드 오류 – 이 알림은 모든 빌드 오류에 대해 트리거됩니다. 2. 데이터 취득 처리 오류 - 이 알림은 지난 5분간의 사용 이벤트 처리에서 모델당 오류가 100개가 넘는 경우 트리거됩니다. 3. 권장 사항 소비 오류 - 이 알림은 지난 5분간의 권장 사항 요청 처리에서 모델당 오류가 100개가 넘는 경우 트리거됩니다.
+##11. 알림
+Azure ML 권장 사항에서는 시스템에서 발생하는 영구적 오류가 있는 경우 알림을 생성합니다. 다음 세 가지 유형의 알림이 있습니다.
+1.	빌드 오류 – 이 알림은 모든 빌드 오류에 대해 트리거됩니다.
+2.	데이터 취득 처리 오류 - 이 알림은 지난 5분간의 사용 이벤트 처리에서 모델당 오류가 100개가 넘는 경우 트리거됩니다.
+3.	권장 사항 소비 오류 - 이 알림은 지난 5분간의 권장 사항 요청 처리에서 모델당 오류가 100개가 넘는 경우 트리거됩니다.
 
 
-###11\.1. 알림 가져오기
+###11.1. 알림 가져오기
 모든 모델 또는 단일 모델에 대한 모든 알림을 검색합니다.
 
 | HTTP 메서드 | URI |
@@ -1961,8 +2178,9 @@ Azure ML 권장 사항에서는 시스템에서 발생하는 영구적 오류가
 |	매개 변수 이름 |	유효한 값 |
 |:--------			|:--------								|
 | modelId | 선택적 매개 변수. 생략하는 경우 모든 모델에 대한 모든 알림을 가져옵니다. <br>유효한 값: 모델의 고유 식별자|
-| apiVersion | 1\.0 |
-||| | 요청 본문 | 없음 |
+| apiVersion | 1.0 |
+|||
+| 요청 본문 | 없음 |
 
 **응답:**
 
@@ -2001,7 +2219,7 @@ OData XML
 		</entry>
 	</feed>
 
-###11\.2. 모델 알림 삭제
+###11.2. 모델 알림 삭제
 모델에 대한 읽은 알림을 모두 삭제합니다.
 
 | HTTP 메서드 | URI |
@@ -2012,14 +2230,15 @@ OData XML
 |	매개 변수 이름 |	유효한 값 |
 |:--------			|:--------								|
 | modelId | 모델의 고유 식별자입니다. |
-| apiVersion | 1\.0 |
-||| | 요청 본문 | 없음 |
+| apiVersion | 1.0 |
+|||
+| 요청 본문 | 없음 |
 
 **응답**:
 
 HTTP 상태 코드: 200
 
-###11\.3. 사용자 알림 삭제
+###11.3. 사용자 알림 삭제
 모든 모델에 대한 모든 알림을 삭제합니다.
 
 | HTTP 메서드 | URI |
@@ -2029,8 +2248,9 @@ HTTP 상태 코드: 200
 
 |	매개 변수 이름 |	유효한 값 |
 |:--------			|:--------								|
-| apiVersion | 1\.0 |
-||| | 요청 본문 | 없음 |
+| apiVersion | 1.0 |
+|||
+| 요청 본문 | 없음 |
 
 **응답**:
 

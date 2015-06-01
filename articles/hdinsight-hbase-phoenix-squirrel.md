@@ -102,13 +102,13 @@ SQLLine을 시작하려면 다음이 있어야 합니다.
 
 #### 가상 네트워크 및 동적 라우팅 게이트웨이 구성
 
-Azure 가상 네트워크에서 HBase 클러스터를 프로비전했는지 확인합니다\(이 섹션의 필수 조건 참조\). 다음 단계에서는 지점 및 사이트 간 연결을 구성합니다.
+Azure 가상 네트워크에서 HBase 클러스터를 프로비전했는지 확인합니다(이 섹션의 필수 조건 참조). 다음 단계에서는 지점 및 사이트 간 연결을 구성합니다.
 
 **지점 및 사이트 간 연결을 구성하려면**
 
 1. [Azure 포털][azure-portal]에 로그인합니다.
 2. 왼쪽에서 **네트워크**를 클릭합니다.
-3. 만든 가상 네트워크를 클릭합니다\([Azure 가상 네트워크에 HBase 클러스터 프로비전][hdinsight-hbase-provision-vnet] 참조\).
+3. 만든 가상 네트워크를 클릭합니다([Azure 가상 네트워크에 HBase 클러스터 프로비전][hdinsight-hbase-provision-vnet] 참조).
 4. 위쪽에서 **구성**을 클릭합니다.
 5. **지점 및 사이트 간 연결** 섹션에서 **지점 및 사이트 간 연결 구성**을 선택합니다. 
 6. **시작 IP** 및 **CIDR**을 구성하여 연결된 경우 VPN 클라이언트에서 IP 주소를 받을 IP 주소 범위를 지정합니다. 범위는 온-프레미스 네트워크 및 연결할 Azure 가상 네트워크에 있는 범위와 겹칠 수 없습니다. 예를 들어 가상 네트워크에 대해 10.0.0.0/20을 선택한 경우 클라이언트 주소 공간은 10.1.0.0/24를 선택할 수 있습니다. 자세한 내용은 [지점 및 사이트 간 연결][vnet-point-to-site-connectivity] 페이지를 참조하세요.
@@ -130,7 +130,7 @@ Azure 가상 네트워크에서 HBase 클러스터를 프로비전했는지 확�
 
 #### 인증서 만들기
 
-X.509 인증서를 만드는 한 가지 방법은 [Microsoft Visual Studio Express 2013 for Windows Desktop](https://www.visualstudio.com/products/visual-studio-express-vs.aspx)과 함께 제공되는 인증서 만들기 도구\(makecert.exe\)를 사용하는 것입니다.
+X.509 인증서를 만드는 한 가지 방법은 [Microsoft Visual Studio Express 2013 for Windows Desktop](https://www.visualstudio.com/products/visual-studio-express-vs.aspx)과 함께 제공되는 인증서 만들기 도구(makecert.exe)를 사용하는 것입니다.
 
 
 **자체 서명된 루트 인증서를 만들려면**
@@ -149,17 +149,17 @@ X.509 인증서를 만드는 한 가지 방법은 [Microsoft Visual Studio Expre
 
 **클라이언트 인증서를 만들려면**
 
-- 동일한 명령 프롬프트\(루트 인증서를 만든 것과 동일한 컴퓨터에 있어야 하며, 루트 인증서에서 클라이언트 인증서를 생성해야 함\)에서 다음 명령을 실행합니다.
+- 동일한 명령 프롬프트(루트 인증서를 만든 것과 동일한 컴퓨터에 있어야 하며, 루트 인증서에서 클라이언트 인증서를 생성해야 함)에서 다음 명령을 실행합니다.
 
   		makecert.exe -n "CN=HBaseVnetVPNClientCertificate" -pe -sky exchange -m 96 -ss My -in "HBaseVnetVPNRootCertificate" -is my -a sha1
 
-	HBaseVnetVPNRootCertificate is the root certificate name.  It has to match the root certificate name.  
+	HBaseVnetVPNRootCertificate는 루트 인증서 이름입니다. 루트 인증서 이름과 일치해야 합니다.  
 
-	Both the root certificate and the client certificate are stored in your Personal certificate store on your computer. Use certmgr.msc to verify.
+	루트 인증서와 클라이언트 인증서는 둘 다 컴퓨터의 개인 인증서 저장소에 저장됩니다. certmgr.msc를 사용하여 확인하세요.
 
 	![Azure virtual network point-to-site vpn certificate][img-certificate]
 
-	A client certificate must be installed on each computer that you want to connect to the virtual network. We recommend that you create unique client certificates for each computer that you want to connect to the virtual network. To export the client certificates, use certmgr.msc. 
+	가상 네트워크에 연결하려는 각 컴퓨터에서 클라이언트 인증서를 설치해야 합니다. 가상 네트워크에 연결하려는 각 컴퓨터에 대해 고유한 클라이언트 인증서를 만드는 것이 좋습니다. 클라이언트 인증서를 내보내려면 certmgr.msc를 사용합니다. 
 
 **Azure 포털에 루트 인증서를 업로드하려면**
 
@@ -189,7 +189,7 @@ X.509 인증서를 만드는 한 가지 방법은 [Microsoft Visual Studio Expre
 
 **VPN 연결 및 도메인 이름 확인을 테스트하려면**
 
-- 워크스테이션에서 명령 프롬프트를 열고 다음 이름 중 하나를 ping합니다\(HBase 클러스터의 DNS 접미사는 myhbase.b7.internal.cloudapp.net\).
+- 워크스테이션에서 명령 프롬프트를 열고 다음 이름 중 하나를 ping합니다(HBase 클러스터의 DNS 접미사는 myhbase.b7.internal.cloudapp.net).
 
 		zookeeper0.myhbase.b7.internal.cloudapp.net
 		zookeeper0.myhbase.b7.internal.cloudapp.net
@@ -202,7 +202,7 @@ X.509 인증서를 만드는 한 가지 방법은 [Microsoft Visual Studio Expre
 
 **SQuirrel을 설치하려면**
 
-1. [http://squirrel-sql.sourceforge.net/\#installation](http://squirrel-sql.sourceforge.net/#installation)에서 SQuirrel SQL Client jar 파일을 다운로드합니다.
+1. [http://squirrel-sql.sourceforge.net/#installation](http://squirrel-sql.sourceforge.net/#installation)에서 SQuirrel SQL Client jar 파일을 다운로드합니다.
 2. jar 파일을 엽니다/실행합니다. [Java Runtime Environment](http://www.oracle.com/technetwork/java/javase/downloads/jre7-downloads-1880261.html)가 필요합니다.
 3. **다음**를 두 번 클릭합니다.
 4. 쓰기 권한이 있는 경로를 지정하고 **다음**을 클릭합니다.
@@ -219,7 +219,7 @@ X.509 인증서를 만드는 한 가지 방법은 [Microsoft Visual Studio Expre
 Phoenix 드라이버 jar 파일은 HBase 클러스터에 있습니다. 경로는 버전에 따라 다음과 유사합니다.
 
 	C:\apps\dist\phoenix-4.0.0.2.1.11.0-2316\phoenix-4.0.0.2.1.11.0-2316-client.jar
-워크스테이션의 [SQuirrel 설치 폴더]/lib 경로 아래에 복사해야 합니다. 가장 쉬운 방법은 RDP를 통해 클러스터에 연결한 후 파일 복사/붙여넣기\(Ctrl+C 및 Ctrl+V\)를 사용하여 워크스테이션에 복사하는 것입니다.
+워크스테이션의 [SQuirrel 설치 폴더]/lib 경로 아래에 복사해야 합니다. 가장 쉬운 방법은 RDP를 통해 클러스터에 연결한 후 파일 복사/붙여넣기(Ctrl+C 및 Ctrl+V)를 사용하여 워크스테이션에 복사하는 것입니다.
 
 **SQuirrel에 Phoenix 드라이버를 추가하려면**
 
@@ -270,10 +270,10 @@ Phoenix 드라이버 jar 파일은 HBase 클러스터에 있습니다. 경로는
 ## 다음 단계
 이 문서에서는 HDInsight에서 Apache Phoenix를 사용하는 방법에 대해 알아보았습니다. 자세한 내용은 다음을 참조하세요.
 
-- [HDInsight HBase 개요][hdinsight-hbase-overview]\: HBase는 비구조적/반구조적 대량 데이터에 대해 임의 액세스 및 강력한 일관성을 제공하는 Hadoop 기반의 Apache 오픈 소스 NoSQL 데이터베이스입니다.
-- [Azure 가상 네트워크에서 HBase 클러스터 프로비전][hdinsight-hbase-provision-vnet]\: 가상 네트워크 통합을 사용하면 응용 프로그램이 HBase와 직접 통신할 수 있도록 응용 프로그램과 동일한 가상 네트워크에 HBase 클러스터를 배포할 수 있습니다.
+- [HDInsight HBase 개요][hdinsight-hbase-overview]: HBase는 비구조적/반구조적 대량 데이터에 대해 임의 액세스 및 강력한 일관성을 제공하는 Hadoop 기반의 Apache 오픈 소스 NoSQL 데이터베이스입니다.
+- [Azure 가상 네트워크에서 HBase 클러스터 프로비전][hdinsight-hbase-provision-vnet]: 가상 네트워크 통합을 사용하면 응용 프로그램이 HBase와 직접 통신할 수 있도록 응용 프로그램과 동일한 가상 네트워크에 HBase 클러스터를 배포할 수 있습니다.
 - [HDInsight에서 HBase 복제 구성](hdinsight-hbase-geo-replication.md): 두 Azure 데이터 센터에서 HBase 복제를 구성하는 방법에 대해 알아봅니다. 
-- [HDInsight에서 HBase를 사용하여 Twitter 데이터 분석][hbase-twitter-sentiment]\: HDInsight의 Hadoop 클러스터에서 HBase를 사용하여 빅데이터에 대한 실시간 [데이터 분석](http://en.wikipedia.org/wiki/Sentiment_analysis)을 수행하는 방법에 대해 알아봅니다.
+- [HDInsight에서 HBase를 사용하여 Twitter 데이터 분석][hbase-twitter-sentiment]: HDInsight의 Hadoop 클러스터에서 HBase를 사용하여 빅데이터에 대한 실시간 [데이터 분석](http://en.wikipedia.org/wiki/Sentiment_analysis)을 수행하는 방법에 대해 알아봅니다.
 
 [azure-portal]: https://manage.windowsazure.com
 [vnet-point-to-site-connectivity]: https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNETPT

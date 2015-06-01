@@ -106,7 +106,7 @@ cached content time-to-live 기간이 만료됩니다.
 
 CDN에 캐시된 콘텐츠에 액세스하려면 포털에 제공된 CDN URL을 사용합니다. 캐시된 Blob의 주소는 다음과 유사합니다.
 
-http://<*CDNNamespace*\>.vo.msecnd.net/<*myPublicContainer*\>/<*BlobName*\>
+http://<*CDNNamespace*>.vo.msecnd.net/<*myPublicContainer*>/<*BlobName*>
 
 <a id="Step4"> </a>
 <h2>4단계: CDN에서 콘텐츠 제거</h2>

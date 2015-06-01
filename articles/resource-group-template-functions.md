@@ -22,7 +22,7 @@
 
 ## base64
 
-**base64 \(inputString\)**
+**base64 (inputString)**
 
 입력 문자열의 base64 표현을 반환합니다.
 
@@ -39,7 +39,7 @@
 
 ## concat
 
-**concat \(arg1, arg2, arg3, ...\)**
+**concat (arg1, arg2, arg3, ...)**
 
 여러 문자열 값을 결합하고 결과 문자열 값을 반환합니다. 이 함수는 임의의 수의 인수를 사용할 수 있습니다.
 
@@ -54,7 +54,7 @@
 
 ## listKeys
 
-**listKeys \(resourceName or resourceIdentifier, [apiVersion]\)**
+**listKeys (resourceName or resourceIdentifier, [apiVersion])**
 
 저장소 계정의 키를 반환합니다. [resourceId 함수](./#resourceid) 또는 **providerNamespace/resourceType/resourceName** 형식을 사용하여 resourceId를 지정할 수 있습니다. 이 함수를 사용하여 primaryKey 및 secondaryKey를 가져올 수 있습니다.
   
@@ -74,7 +74,7 @@
 
 ## 지정
 
-**parameters \(parameterName\)**
+**parameters (parameterName)**
 
 매개 변수 값을 반환합니다. 템플릿의 매개 변수 섹션에서 지정된 매개 변수 이름을 정의해야 합니다.
 
@@ -100,7 +100,7 @@
 
 ## provider
 
-**provider \(providerNamespace, [resourceType]\)**
+**provider (providerNamespace, [resourceType])**
 
 리소스 공급자와 지원되는 리소스 유형에 대한 정보를 반환합니다. 유형이 제공되지 않은 경우 모든 지원되는 유형이 반환됩니다.
 
@@ -128,7 +128,7 @@
 
 ## reference
 
-**reference \(resourceName or resourceIdentifier, [apiVersion]\)**
+**reference (resourceName or resourceIdentifier, [apiVersion])**
 
 식을 사용하여 다른 리소스의 런타임 상태에서 해당 값을 파생시킬 수 있습니다.
 
@@ -150,7 +150,7 @@
 
 ## resourceGroup
 
-**resourceGroup\(\)**
+**resourceGroup()**
 
 현재 리소스 그룹을 나타내는 구조화된 개체를 반환합니다. 개체는 다음과 같은 형식입니다.
 
@@ -174,7 +174,7 @@
 
 ## resourceId
 
-**resourceId \([resourceGroupName], resourceType, resourceName1, [resourceName2]...\)**
+**resourceId ([resourceGroupName], resourceType, resourceName1, [resourceName2]...)**
 
 리소스의 고유 식별자를 반환합니다. 리소스 이름이 모호하거나 동일한 템플릿 내에서 프로비전되지 않은 경우 이 함수를 사용합니다. 식별자는 다음 형식으로 반환됩니다.
 
@@ -236,9 +236,9 @@
     }
 
 
-## \(구독당\)
+## (구독당)
 
-**subscription\(\)**
+**subscription()**
 
 구독에 대한 세부 정보를 다음 형식으로 반환합니다.
 
@@ -258,7 +258,7 @@
 
 ## variables
 
-**variables \(variableName\)**
+**variables (variableName)**
 
 변수의 값을 반환합니다. 템플릿의 변수 섹션에서 지정된 변수 이름을 정의해야 합니다.
 

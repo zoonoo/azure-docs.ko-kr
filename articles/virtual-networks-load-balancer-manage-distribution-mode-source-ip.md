@@ -75,9 +75,9 @@ LoadBalancerDistribution의 값은 2개 튜플 선호도의 경우 sourceIP로, 
 ### 끝점 부하 분산 장치 배포 모드 구성 검색
 
 <<<<<<< HEAD:articles/virtual-networks-load-balancer-manage-distribution-mode.md
-    PS C:\> Get-AzureVM -ServiceName "MyService" -Name "MyVM" | Get-AzureEndpoint
+    PS C:> Get-AzureVM -ServiceName "MyService" -Name "MyVM" | Get-AzureEndpoint
 =======
-    PS C:\> Get-AzureVM â€"ServiceName â€œMyServiceâ€� â€"Name â€œMyVMâ€� | Get-AzureEndpoint
+    PS C:> Get-AzureVM â€"ServiceName â€œMyServiceâ€� â€"Name â€œMyVMâ€� | Get-AzureEndpoint
 >>>>>>> 5781a6382194f50134d2a16bd9d72a6cca290f3d:articles/virtual-networks-load-balancer-manage-distribution-mode-source-ip.md
     
     VERBOSE: 6:43:50 PM - Completed Operation: Get Deployment

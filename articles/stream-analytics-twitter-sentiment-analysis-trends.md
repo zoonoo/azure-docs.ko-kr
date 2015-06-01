@@ -31,11 +31,11 @@
 
 ## 이벤트 허브 입력 및 소비자 그룹 만들기
 
-샘플 응용 프로그램은 이벤트를 생성하여 이벤트 허브 인스턴스\(간단히 이벤트 허브라고 함\)에 푸시합니다. 서비스 버스 이벤트 허브는 스트림 분석을 위해 이벤트를 수집하는 기본 방법입니다. 이벤트 허브 설명서는 [서비스 버스 설명서](/documentation/services/service-bus/)를 참조하세요.
+샘플 응용 프로그램은 이벤트를 생성하여 이벤트 허브 인스턴스(간단히 이벤트 허브라고 함)에 푸시합니다. 서비스 버스 이벤트 허브는 스트림 분석을 위해 이벤트를 수집하는 기본 방법입니다. 이벤트 허브 설명서는 [서비스 버스 설명서](/documentation/services/service-bus/)를 참조하세요.
 
 아래 단계에 따라 이벤트 허브를 만듭니다.
 
-1.	Azure 포털에서 **새로 만들기** \> **앱 서비스** \> **서비스 버스** \> **이벤트 허브** \> **빠른 생성**을 클릭하고 이름, 지역 및 새 네임스페이스 또는 기존 네임스페이스를 제공하여 새 이벤트 허브를 만듭니다.  
+1.	Azure 포털에서 **새로 만들기** > **앱 서비스** > **서비스 버스** > **이벤트 허브** > **빠른 생성**을 클릭하고 이름, 지역 및 새 네임스페이스 또는 기존 네임스페이스를 제공하여 새 이벤트 허브를 만듭니다.  
 2.	각 스트림 분석 작업이 단일 이벤트 허브 소비자 그룹에서 읽는 것이 가장 좋습니다. 소비자 그룹을 만드는 프로세스는 다음과 같습니다. 소비자 그룹을 만들려면 새로 만든 이벤트 허브로 이동하여 **소비자 그룹** 탭을 클릭한 다음 페이지 아래쪽에서 **만들기**를 클릭하고 소비자 그룹의 이름을 입력합니다.
 3.	이벤트 허브에 대한 액세스 권한을 부여하려면 공유 액세스 정책을 만들어야 합니다. 이벤트 허브의 **구성** 탭을 클릭합니다.
 4.	**공유 액세스 정책**에서 **관리** 권한을 사용하여 새 정책을 만듭니다.
@@ -49,18 +49,18 @@
 
 ## 이벤트 생성기 응용 프로그램 구성 및 시작
 
-Microsoft에서는 매개 변수화된 항목 집합에 대한 트윗 이벤트를 수집하기 위해 [Twitter의 REST API](https://dev.twitter.com/rest/public)를 통해 Twitter 데이터를 가져오는 클라이언트 응용 프로그램을 제공합니다. 타사 오픈 소스 도구인 [Sentiment140](http://help.sentiment140.com/)은 데이터 값을 각 트윗에 할당\(0: 부정, 2: 중립, 4: 긍정\)하는 데 사용되며, 이 값이 할당되면 트윗 이벤트가 이벤트 허브로 푸시됩니다.
+Microsoft에서는 매개 변수화된 항목 집합에 대한 트윗 이벤트를 수집하기 위해 [Twitter의 REST API](https://dev.twitter.com/rest/public)를 통해 Twitter 데이터를 가져오는 클라이언트 응용 프로그램을 제공합니다. 타사 오픈 소스 도구인 [Sentiment140](http://help.sentiment140.com/)은 데이터 값을 각 트윗에 할당(0: 부정, 2: 중립, 4: 긍정)하는 데 사용되며, 이 값이 할당되면 트윗 이벤트가 이벤트 허브로 푸시됩니다.
 
 다음 단계에 따라 응용 프로그램을 설치합니다.
 
 1.	[TwitterClient 솔루션을 다운로드](https://github.com/streamanalytics/samples/tree/master/TwitterClient)합니다.
-2.	App.config를 열고 oauth\_consumer\_key, oauth\_consumer\_secret, oauth\_token, oauth\_token\_secret을 원하는 값의 Twitter 토큰으로 바꿉니다.  
+2.	App.config를 열고 oauth_consumer_key, oauth_consumer_secret, oauth_token, oauth_token_secret을 원하는 값의 Twitter 토큰으로 바꿉니다.  
 
 	[OAuth 액세스 토큰을 생성하는 단계](https://dev.twitter.com/oauth/overview/application-owner-access-tokens)
 
 	토큰을 생성하는 빈 응용 프로그램을 만들어야 합니다.
 3.	App.config의 EventHubConnectionString 및 EventHubName 값을 이벤트 허브 연결 문자열 및 이름으로 바꿉니다.
-4.	*선택 사항:* 검색할 키워드를 조정합니다. 기본적으로 이 응용 프로그램은 "Azure,Skype,XBox,Microsoft,Seattle"을 찾습니다. 필요한 경우 App.config에서 twitter\_keywords 값을 조정할 수 있습니다.
+4.	*선택 사항:* 검색할 키워드를 조정합니다. 기본적으로 이 응용 프로그램은 "Azure,Skype,XBox,Microsoft,Seattle"을 찾습니다. 필요한 경우 App.config에서 twitter_keywords 값을 조정할 수 있습니다.
 5.	솔루션을 빌드합니다.
 6.	응용 프로그램을 시작합니다. CreatedAt, Topic 및 SentimentScore 값이 이벤트 허브로 전송 중인 트윗 이벤트가 표시됩니다.
 
@@ -72,7 +72,7 @@ Microsoft에서는 매개 변수화된 항목 집합에 대한 트윗 이벤트�
 
 ### 스트림 분석 작업 프로비전
 
-1.	[Azure 포털](https://manage.windowsazure.com/)에서 **새로 만들기** \> **데이터 서비스** \> **스트림 분석** \> **빠른 생성**을 클릭합니다.
+1.	[Azure 포털](https://manage.windowsazure.com/)에서 **새로 만들기** > **데이터 서비스** > **스트림 분석** > **빠른 생성**을 클릭합니다.
 2.	다음 값을 지정하고 **스트림 분석 작업 만들기**를 클릭합니다.
 
 	* **작업 이름**: 작업 이름을 입력합니다.
@@ -90,7 +90,7 @@ Microsoft에서는 매개 변수화된 항목 집합에 대한 트윗 이벤트�
 3.	**이벤트 허브**를 선택한 후 오른쪽 단추를 클릭합니다.
 4.	세 번째 페이지에서 다음 값을 입력하거나 선택합니다.
 
-	* **입력 별칭** - 이 작업 입력의 이름\(예: TwitterStream\)을 입력합니다. 이 이름은 나중에 쿼리에서 사용하게 됩니다. **이벤트 허브**: 만든 이벤트 허브가 스트림 분석 작업과 동일한 구독에 포함된 경우 이벤트 허브가 있는 네임스페이스를 선택합니다.
+	* **입력 별칭** - 이 작업 입력의 이름(예: TwitterStream)을 입력합니다. 이 이름은 나중에 쿼리에서 사용하게 됩니다. **이벤트 허브**: 만든 이벤트 허브가 스트림 분석 작업과 동일한 구독에 포함된 경우 이벤트 허브가 있는 네임스페이스를 선택합니다.
 
 		If your event hub is in a different subscription, select **Use Event Hub from Another Subscription**, and then manually enter information for **SERVICE BUS NAMESPACE**, **EVENT HUB NAME**, **EVENT HUB POLICY NAME**, **EVENT HUB POLICY KEY**, and **EVENT HUB PARTITION COUNT**.
 
@@ -185,7 +185,7 @@ Microsoft에서는 매개 변수화된 항목 집합에 대한 트윗 이벤트�
 
 Blob 저장소의 컨테이너가 없는 경우 아래 단계에 따라 만듭니다.
 
-1.	기존 저장소 계정을 사용하거나, **새로 만들기** \> **데이터 서비스** \> **저장소** \> **빠른 생성**을 클릭하고 화면의 지침에 따라 새 저장소 계정을 만듭니다.
+1.	기존 저장소 계정을 사용하거나, **새로 만들기** > **데이터 서비스** > **저장소** > **빠른 생성**을 클릭하고 화면의 지침에 따라 새 저장소 계정을 만듭니다.
 2.	저장소 계정을 선택하고 페이지 위쪽에서 **컨테이너**를 클릭한 다음 **추가**를 클릭합니다.
 3.	컨테이너 **이름**을 지정하고 해당 **액세스**를 공용 Blob으로 설정합니다.
 

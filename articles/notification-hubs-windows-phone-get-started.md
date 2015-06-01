@@ -19,15 +19,15 @@
 
 [AZURE.INCLUDE [notification-hubs-selector-get-started](../includes/notification-hubs-selector-get-started.md)]
 
-##개요
+## 개요
 
-이 항목에서는 Azure 알림 허브를 사용하여 Windows Phone 8 또는 Windows Phone 8.1 Silverlight 응용 프로그램에 푸시 알림을 보내는 방법을 보여 줍니다. Windows Phone 8.1\(비 Silverlight\)을 대상으로 하는 경우 [Windows 범용](notification-hubs-windows-store-dotnet-get-started.md) 버전을 참조하세요. 이 자습서에서는 MPNS\(Microsoft 푸시 알림 서비스\)를 사용하여 푸시 알림을 받는 새 Windows Phone 8 앱을 만듭니다. 완료하면 알림 허브를 사용하여 앱을 실행하는 모든 장치로 푸시 알림을 브로드캐스트할 수 있습니다.
+이 항목에서는 Azure 알림 허브를 사용하여 Windows Phone 8 또는 Windows Phone 8.1 Silverlight 응용 프로그램에 푸시 알림을 보내는 방법을 보여 줍니다. Windows Phone 8.1(비 Silverlight)을 대상으로 하는 경우 [Windows 범용](notification-hubs-windows-store-dotnet-get-started.md) 버전을 참조하세요. 이 자습서에서는 MPNS(Microsoft 푸시 알림 서비스)를 사용하여 푸시 알림을 받는 새 Windows Phone 8 앱을 만듭니다. 완료하면 알림 허브를 사용하여 앱을 실행하는 모든 장치로 푸시 알림을 브로드캐스트할 수 있습니다.
 
 > [AZURE.NOTE]알림 허브 Windows Phone SDK에서는 Windows Phone 8.1 Silverlight 앱에서의 WNS 사용을 지원하지 않습니다. Windows Phone 8.1 Silverlight 앱에서 MPNS 대신 WNS를 사용하려면 REST API를 사용하는 이 샘플 [알림 허브 - WP Silverlight 자습서]를 따릅니다.
 
 이 자습서에서는 알림 허브를 사용하는 간단한 브로드캐스트 시나리오를 보여 줍니다.
 
-##필수 조건
+## 필수 조건
 
 이 자습서를 사용하려면 다음이 필요합니다.
 
@@ -37,45 +37,46 @@
 
 > [AZURE.NOTE]이 자습서를 완료하려면 활성 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fko-kr%2Fdocumentation%2Farticles%2Fnotification-hubs-windows-phone-get-started%2F)을 참조하세요.
 
-##알림 허브 만들기
+## 알림 허브 만들기
 
 1. [Azure 관리 포털]에 로그온하고 화면 맨 아래에 있는 **+새로 만들기**를 클릭합니다.
 
 2. **앱 서비스**, **서비스 버스**, **알림 허브**, **빠른 생성**을 차례로 클릭합니다.
 
-   ![][7]
+   	![][7]
 
 3. 알림 허브의 이름을 입력하고 원하는 지역을 선택한 후 **Create a new Notification Hub**를 클릭합니다.
 
-   ![][8]
+   	![][8]
 
-4. 방금 만든 네임스페이스\(일반적으로 ***알림 허브 이름*-ns**\)를 클릭한 후 맨 위에 있는 **구성** 탭을 클릭합니다.
+4. 방금 만든 네임스페이스(일반적으로 ***알림 허브 이름*-ns**)를 클릭한 후 맨 위에 있는 **구성** 탭을 클릭합니다.
 
-   ![][9]
+   	![][9]
 
 5. 맨 위에 있는 **알림 허브** 탭을 클릭한 후 방금 만든 알림 허브를 클릭합니다.
 
-   ![][10]
+   	![][10]
 
 6. 맨 아래에 있는 **연결 정보**를 클릭합니다. 두 연결 문자열을 기록해 둡니다.
 
-   ![][12]
+   	![][12]
 
 7. **구성** 탭을 클릭한 후 **Windows Phone 알림 설정** 섹션에서 **인증되지 않은 푸시 알림 사용** 확인란을 클릭합니다.
 
-   ![][15]
+   	![][15]
 
 이제 Windows Phone 8 앱을 등록하고 알림을 보내는 데 필요한 연결 문자열이 있습니다.
 
-> [AZURE.NOTE]이 자습서에서는 인증되지 않은 모드로 MPNS를 사용합니다. MPNS 인증되지 않은 모드에는 각 채널로 보낼 수 있는 알림에 대한 제한이 있습니다. 알림 허브는 [MPNS 인증된 모드](http://msdn.microsoft.com/library/windowsphone/develop/ff941099(v=vs.105).aspx)\)를 지원합니다. <!--Refer to [Notification Hubs How-To for Windows Phone 8] for more information on how to use MPNS authenticated mode.-->
+> [AZURE.NOTE]이 자습서에서는 인증되지 않은 모드로 MPNS를 사용합니다. MPNS 인증되지 않은 모드에는 각 채널로 보낼 수 있는 알림에 대한 제한이 있습니다. 알림 허브는 [MPNS 인증된 모드](http://msdn.microsoft.com/library/windowsphone/develop/ff941099(v=vs.105).aspx))를 지원합니다. 
+<!--Refer to [Notification Hubs How-To for Windows Phone 8] for more information on how to use MPNS authenticated mode.-->
 
-##알림 허브에 앱 연결
+## 알림 허브에 앱 연결
 
 1. Visual Studio에서 새 Windows Phone 8 응용 프로그램을 만듭니다.
 
-   ![][13]
+   	![][13]
 
-	In Visual Studio 2013 Update 2 or later, you instead create a Windows Phone Silverlight application.
+	Visual Studio 2013 업데이트 2 이상에서는 대신 Windows Phone Silverlight 응용 프로그램을 만듭니다.
 	
 	![][11]	
 
@@ -94,7 +95,7 @@
         using Microsoft.Phone.Notification;
         using Microsoft.WindowsAzure.Messaging;
 
-5. App.xaml.cs의 **Application\_Launching** 메서드 맨 위에 있는 다음 코드에서
+5. App.xaml.cs의 **Application_Launching** 메서드 맨 위에 있는 다음 코드에서
 	
 	    var channel = HttpNotificationChannel.Find("MyPushChannel");
         if (channel == null)
@@ -114,9 +115,9 @@
 
 	>[AZURE.NOTE]이 자습서에서는 알림 메시지를 장치로 보냅니다. 타일 알림을 보내는 경우 채널에서 **BindToShellTile** 메서드를 대신 호출해야 합니다. 알림 메시지와 타일 알림을 둘 다 지원하려면 **BindToShellTile** 및 **BindToShellToast**를 둘 다 호출합니다.
     
-6. 솔루션 탐색기에서 **속성**을 확장하고 WMAppManifest.xml 파일을 연 후 **기능** 탭을 클릭하고 **ID\_\_\_CAP\_\_\_PUSH\_NOTIFICATION** 기능이 선택되었는지 확인합니다.
+6. 솔루션 탐색기에서 **속성**을 확장하고 WMAppManifest.xml 파일을 연 후 **기능** 탭을 클릭하고 **ID___CAP___PUSH_NOTIFICATION** 기능이 선택되었는지 확인합니다.
 
-   ![][14]
+   	![][14]
 
    이제 앱이 푸시 알림을 받을 수 있습니다.
 	
@@ -124,15 +125,15 @@
 
 	등록 메시지가 표시됩니다.
 
-##백 엔드에서 알림 보내기
+## 백 엔드에서 알림 보내기
 
-<a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">REST 인터페이스</a>를 사용하는 모든 백 엔드에서 알림 허브를 사용하여 알림을 보낼 수 있습니다. 이 자습서에서는 .NET 콘솔 응용 프로그램을 사용하여 알림을 보냅니다. 알림 허브와 통합된 Azure 모바일 서비스 백 엔드에서 알림을 보내는 방법에 대한 예제는 **모바일 서비스에서 푸시 알림 시작**\([.NET 백 엔드](mobile-services-javascript-backend-windows-phone-get-started-push.md) \| [JavaScript 백 엔드](mobile-services-javascript-backend-windows-phone-get-started-push.md)\)을 참조하세요. REST API를 사용하여 알림을 보내는 방법에 대한 예제는 **Java/PHP에서 알림 허브를 사용하는 방법**\([Java](notification-hubs-java-backend-how-to.md) \| [PHP](notification-hubs-php-backend-how-to.md)\)을 참조하세요.
+<a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">REST 인터페이스</a>를 사용하는 모든 백 엔드에서 알림 허브를 사용하여 알림을 보낼 수 있습니다. 이 자습서에서는 .NET 콘솔 응용 프로그램을 사용하여 알림을 보냅니다. 알림 허브와 통합된 Azure 모바일 서비스 백 엔드에서 알림을 보내는 방법에 대한 예제는 **모바일 서비스에서 푸시 알림 시작**([.NET 백 엔드](mobile-services-javascript-backend-windows-phone-get-started-push.md) | [JavaScript 백 엔드](mobile-services-javascript-backend-windows-phone-get-started-push.md))을 참조하세요. REST API를 사용하여 알림을 보내는 방법에 대한 예제는 **Java/PHP에서 알림 허브를 사용하는 방법**([Java](notification-hubs-java-backend-how-to.md) | [PHP](notification-hubs-php-backend-how-to.md))을 참조하세요.
 
-1. 솔루션을 마우스 오른쪽 단추로 클릭하고, **추가** 및 **새 프로젝트...**를 선택한 후에 **Visual C\#** 아래에서 **Windows** 및 **콘솔 응용 프로그램**을 클릭하고 **확인**을 클릭합니다. 
+1. 솔루션을 마우스 오른쪽 단추로 클릭하고, **추가** 및 **새 프로젝트...**를 선택한 후에 **Visual C#** 아래에서 **Windows** 및 **콘솔 응용 프로그램**을 클릭하고 **확인**을 클릭합니다. 
 
-   ![][6]
+   	![][6]
 
-	This adds a new Visual C# console application to the solution. You can also do this in a separate solution. 
+	그러면 새 Visual C# 콘솔 응용 프로그램이 솔루션에 추가됩니다.별도의 솔루션에서 이 작업을 수행할 수도 있습니다. 
 
 4. 마우스 오른쪽 단추를 클릭하고 **도구**를 클릭하고 **라이브러리 패키지 관리자**를 클릭한 다음 **패키지 관리자 콘솔**을 클릭합니다. 
 
@@ -154,8 +155,8 @@
         {
             NotificationHubClient hub = NotificationHubClient
 				.CreateClientFromConnectionString("<connection string with full access>", "<hub name>");
-            string toast = "<?xml version=\"1.0\" encoding=\"utf-8\"?>" +
-                "<wp:Notification xmlns:wp=\"WPNotification\">" +
+            string toast = "<?xml version="1.0" encoding="utf-8"?>" +
+                "<wp:Notification xmlns:wp="WPNotification">" +
                    "<wp:Toast>" +
                         "<wp:Text1>Hello from a .NET App!</wp:Text1>" +
                    "</wp:Toast> " +
@@ -178,9 +179,9 @@
 
 MSDN의 [알림 카탈로그] 및 [타일 카탈로그] 항목에서 가능한 모든 페이로드를 찾을 수 있습니다.
 
-##다음 단계
+## 다음 단계
 
-이 간단한 예제에서는 모든 Windows Phone 8 장치로 알림을 브로드캐스트했습니다. 특정 사용자를 대상으로 하려면 [알림 허브를 사용하여 사용자에게 알림 푸시](영문\) 자습서를 참조하세요. 사용자를 관심 그룹별로 분할하려면 [알림 허브를 사용하여 뉴스 속보 보내기](영문\)를 참조하세요. [알림 허브 지침]에서 알림 허브 사용 방법을 자세히 알아보세요.
+이 간단한 예제에서는 모든 Windows Phone 8 장치로 알림을 브로드캐스트했습니다. 특정 사용자를 대상으로 하려면 [알림 허브를 사용하여 사용자에게 알림 푸시](영문) 자습서를 참조하세요. 사용자를 관심 그룹별로 분할하려면 [알림 허브를 사용하여 뉴스 속보 보내기](영문)를 참조하세요. [알림 허브 지침]에서 알림 허브 사용 방법을 자세히 알아보세요.
 
 
 

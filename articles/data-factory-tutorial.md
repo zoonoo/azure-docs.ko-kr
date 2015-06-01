@@ -284,7 +284,7 @@ Contoso는 게임 콘솔, 핸드헬드 장치, PC(개인용 컴퓨터) 등 다�
 
 #### 테이블을 만들려면
 
-1.	Azure PowerShell에서 샘플의 압축을 푼 위치의 **Tables** 폴더(**C:\ADFWalkthrough\Tables\**)로 이동합니다. 
+1.	Azure PowerShell에서 샘플의 압축을 푼 위치의 **Tables** 폴더(**C:\ADFWalkthrough\Tables**)로 이동합니다. 
 2.	다음과 같이 **New-AzureDataFactoryTable** cmdlet을 사용하여 **RawGameEventsTable**.json에 대한 테이블을 만듭니다.	
 
 

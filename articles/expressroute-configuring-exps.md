@@ -31,13 +31,13 @@ Exchange 공급자를 통해 ExpressRoute 연결을 구성하려면 올바른 �
 - 최신 버전의 Azure PowerShell 
 - 다음 가상 네트워크 요구 사항: 
 	- Azure의 가상 네트워크에 사용할 IP 주소 접두사의 집합
-	- IP 접두사 온-프레미스 집합\(공용 IP 주소를 포함할 수 있음\)
+	- IP 접두사 온-프레미스 집합(공용 IP 주소를 포함할 수 있음)
 	- 가상 네트워크 게이트웨이는 /28 서브넷으로 생성되어야 합니다.
-	- 가상 네트워크 외부에 있는 IP 접두사의 추가 집합\(/28\)입니다. BGP 피어링을 구성하는 데 사용됩니다.
-	- 네트워크에 대한 AS 숫자. AS 번호에 대한 자세한 내용은 [AS\(자치 시스템\) 번호](http://www.iana.org/assignments/as-numbers/as-numbers.xhtml)를 참조하세요.
+	- 가상 네트워크 외부에 있는 IP 접두사의 추가 집합(/28)입니다. BGP 피어링을 구성하는 데 사용됩니다.
+	- 네트워크에 대한 AS 숫자. AS 번호에 대한 자세한 내용은 [AS(자치 시스템) 번호](http://www.iana.org/assignments/as-numbers/as-numbers.xhtml)를 참조하세요.
 	- 인증된 BGP 세션이 필요한 경우 MD5 해시
 	- 트래픽을 보낼 수 있는 VLAN ID입니다. 각 회로 대한 2개의 VLAN ID가 필요합니다. 가상 네트워크에 대해 하나, 공용 IP 주소에서 호스팅된 서비스에 대해 하나가 필요합니다.
-	- 사용자 네트워크에 대한 [AS\(자치 시스템\) 번호](http://www.iana.org/assignments/as-numbers/as-numbers.xhtml)입니다.
+	- 사용자 네트워크에 대한 [AS(자치 시스템) 번호](http://www.iana.org/assignments/as-numbers/as-numbers.xhtml)입니다.
 	- 두개의 1Gbps / 10Gbps는 Exchange 공급자의 이더넷 교환에 교차 연결합니다.
 	- 라우팅용으로 BGP를 지원할 수 있는 라우터 쌍
 
@@ -59,7 +59,7 @@ Azure PowerShell은 Azure에서 작업의 배포와 관리를 제어하고 자�
 
 	회로를 만들기 전에 각 위치에 대한 서비스 공급자, 지원되는 위치 및 대역폭 옵션 목록이 필요합니다. 다음 PowerShell cmdlet는 이후 단계에서 사용할 이 정보를 반환합니다.
 
-    	PS C:\> Get-AzureDedicatedCircuitServiceProvider
+    	PS C:> Get-AzureDedicatedCircuitServiceProvider
 		**The information returned will look similar to the example below:**
 		
 		
@@ -116,7 +116,7 @@ Azure PowerShell은 Azure에서 작업의 배포와 관리를 제어하고 자�
 
 	언제든지 Get-AzureCircuit cmdlet을 사용 하여 이 정보를 검색할 수 있습니다. 매개 변수 없이 호출을 수행하면 모든 회로가 표시됩니다. 서비스 키는 ServiceKey 필드에 표시됩니다.
 
-		PS C:\> Get-AzureDedicatedCircuit
+		PS C:> Get-AzureDedicatedCircuit
 				 
 		Bandwidth                        : 200
 		CircuitName                      : EquinixSVTest
@@ -135,7 +135,7 @@ Azure PowerShell은 Azure에서 작업의 배포와 관리를 제어하고 자�
 
 	공급자가 회로를 사용하도록 설정하는 시기를 알 수 있습니다. 회로를 사용하도록 설정하면아래 예에서와 같이 *ServiceProviderProvisioningState*가 *Provisioned*로 표시됩니다.
 
-		PS C:\> Get-AzureDedicatedCircuit
+		PS C:> Get-AzureDedicatedCircuit
 				 
 		Bandwidth                        : 200
 		CircuitName                      : EquinixSVTest
@@ -169,7 +169,7 @@ Azure PowerShell은 Azure에서 작업의 배포와 관리를 제어하고 자�
 
 	아래 응답은 다음 단계에 필요한 정보를 제공합니다. 피어 ASN을 사용하여 라우터의 VRF에 BGP를 구성합니다.
                     
-		PS C:\> New-AzureBGPPeering -ServiceKey $ServiceKey -PrimaryPeerSubnet $PriSN -SecondaryPeerSubnet $SecSN -PeerAsn $ASN -VlanId $VLAN –AccessType Private
+		PS C:> New-AzureBGPPeering -ServiceKey $ServiceKey -PrimaryPeerSubnet $PriSN -SecondaryPeerSubnet $SecSN -PeerAsn $ASN -VlanId $VLAN –AccessType Private
 				
 		AzureAsn            : 12076
 		PeerAsn             : 65001
@@ -204,7 +204,7 @@ Azure PowerShell은 Azure에서 작업의 배포와 관리를 제어하고 자�
 
 	아래 응답은 다음 단계에 필요한 정보를 제공합니다. 피어 ASN을 사용하여 라우터의 VRF에 BGP를 구성합니다.
 
-		PS C:\> New-AzureBGPPeering -ServiceKey $ServiceKey -PrimaryPeerSubnet $PriSN -SecondaryPeerSubnet $SecSN -PeerAsn $ASN -VlanId $VLAN –AccessType Private
+		PS C:> New-AzureBGPPeering -ServiceKey $ServiceKey -PrimaryPeerSubnet $PriSN -SecondaryPeerSubnet $SecSN -PeerAsn $ASN -VlanId $VLAN –AccessType Private
 		 
 		AzureAsn            : 12076
 		PeerAsn             : 65001
@@ -223,6 +223,6 @@ Azure PowerShell은 Azure에서 작업의 배포와 관리를 제어하고 자�
 	- ServiceProviderProvisioningState: Provisioned
 	- 상태: Enabled
 	 
-			PS C:\> $Vnet = "MyTestVNet"
+			PS C:> $Vnet = "MyTestVNet"
 			New-AzureDedicatedCircuitLink -ServiceKey $ServiceKey -VNetName $Vnet
 <!--HONumber=54-->

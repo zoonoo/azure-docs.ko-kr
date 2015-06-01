@@ -26,7 +26,7 @@
 
     이렇게 하면 필요한 Windows 스토어 등록 정보가 응용 프로그램 매니페스트에 추가됩니다.
 
-7. \(옵션\) 4\~6단계를 반복하여 범용 Windows 앱의 Windows Phone Store 프로젝트도 등록합니다.
+7. (옵션) 4~6단계를 반복하여 범용 Windows 앱의 Windows Phone Store 프로젝트도 등록합니다.
 
 8. 새 앱의 Windows 개발자 센터 페이지로 돌아가서 **Services**를 클릭합니다.
 
@@ -36,7 +36,7 @@
 
 	![](./media/mobile-services-javascript-backend-register-windows-store-app/mobile-services-win8-edit2-app.png)
 
-10. **Authenticating your service**를 클릭하고 **Client secret** 및 **Package security identifier \(SID\)**를 적어둡니다.
+10. **Authenticating your service**를 클릭하고 **Client secret** 및 **Package security identifier (SID)**를 적어둡니다.
 
   	![](./media/mobile-services-dotnet-backend-notification-hubs-register-windows-store-app/mobile-services-win8-app-push-auth.png)
 

@@ -20,13 +20,13 @@
 
 [AZURE.INCLUDE [notification-hubs-selector-get-started](../includes/notification-hubs-selector-get-started.md)]
 
-##개요
+## 개요
 
-이 항목에서는 Azure 알림 허브를 사용하여 Xamarin.Android 응용 프로그램에 푸시 알림을 보내는 방법을 보여 줍니다. 이 자습서에서는 GCM\(Google Cloud Messaging\)을 사용하여 푸시 알림을 받는 빈 Xamarin.Android 앱을 만듭니다. 완료하면 알림 허브를 사용하여 앱을 실행하는 모든 장치로 푸시 알림을 브로드캐스트할 수 있습니다. 완성된 코드는 [NotificationHubs 앱][GitHub] 샘플에서 확인할 수 있습니다.
+이 항목에서는 Azure 알림 허브를 사용하여 Xamarin.Android 응용 프로그램에 푸시 알림을 보내는 방법을 보여 줍니다. 이 자습서에서는 GCM(Google Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Xamarin.Android 앱을 만듭니다. 완료하면 알림 허브를 사용하여 앱을 실행하는 모든 장치로 푸시 알림을 브로드캐스트할 수 있습니다. 완성된 코드는 [NotificationHubs 앱][GitHub] 샘플에서 확인할 수 있습니다.
 
 이 자습서에서는 알림 허브를 사용하는 간단한 브로드캐스트 시나리오를 보여 줍니다.
 
-##필수 조건
+## 필수 조건
 
 이 자습서를 사용하려면 다음이 필요합니다.
 
@@ -40,19 +40,19 @@
 
 > [AZURE.IMPORTANT]이 자습서를 완료하려면 활성 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A9C9624B5&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fko-kr%2Fdocumentation%2Farticles%2Fpartner-xamarin-notification-hubs-android-get-started%2F)을 참조하세요.
 
-##<a name="register"></a>Google Cloud Messaging 사용
+## <a name="register"></a>Google Cloud Messaging 사용
 
 [AZURE.INCLUDE [mobile-services-enable-Google-cloud-messaging](../includes/mobile-services-enable-Google-cloud-messaging.md)]
 
-##<a name="configure-hub"></a>알림 허브 구성
+## <a name="configure-hub"></a>알림 허브 구성
 
 [AZURE.INCLUDE [notification-hubs-android-configure-push](../includes/notification-hubs-android-configure-push.md)]
 
-##<a name="connecting-app"></a>알림 허브에 앱 연결
+## <a name="connecting-app"></a>알림 허브에 앱 연결
 
 ### 새 프로젝트 만들기
 
-1. Xamarin Studio\(또는 Visual Studio\)에서 **파일**, **새로 만들기**를 차례로 클릭한 다음 **새 솔루션** 대화 상자에서 **Android 응용 프로그램**을 클릭하고 **확인**을 클릭합니다.
+1. Xamarin Studio(또는 Visual Studio)에서 **파일**, **새로 만들기**를 차례로 클릭한 다음 **새 솔루션** 대화 상자에서 **Android 응용 프로그램**을 클릭하고 **확인**을 클릭합니다.
 
    	![][14]
 
@@ -64,7 +64,7 @@
 
 3. **Minimum Android version**을 API Level 8로 설정합니다.
 
-4. **Target Android version**을 대상으로 지정할 API 버전으로 설정합니다\(API Level 8 이상이어야 함\).
+4. **Target Android version**을 대상으로 지정할 API 버전으로 설정합니다(API Level 8 이상이어야 함).
 
 5. **Package name**의 첫 문자는 소문자여야 합니다.
 
@@ -85,7 +85,7 @@ Xamarin Component Store에서 제공되는 Google Cloud Messaging 클라이언�
 
 ### 프로젝트에서 알림 허브 설정
 
-1. **Constants.cs** 클래스를 만들고 다음 상수 값을 정의합니다\(자리 표시자를 값으로 대체\).
+1. **Constants.cs** 클래스를 만들고 다음 상수 값을 정의합니다(자리 표시자를 값으로 대체).
 
         public const string SenderID = "<GoogleProjectNumber>"; // Google API Project Number
 
@@ -115,7 +115,7 @@ Xamarin Component Store에서 제공되는 Google Cloud Messaging 클라이언�
 
 	> [AZURE.NOTE]아래에서는 처음부터 **BroadcastReceiver**를 만드는 과정을 단계별로 안내합니다. 그러나 수동으로 **MyBroadcastReceiver.cs**를 만드는 대신 빠른 대안으로 GitHub의 샘플 Xamarin.Android 프로젝트에 있는 **GcmService.cs** 파일을 참조할 수 있습니다. **GcmService.cs**를 복제하고 클래스 이름을 변경하면 빨리 시작할 수 있습니다.
 
-5. 다음 using 문을 **MyBroadcastReceiver.cs**\(앞에서 만든 구성 요소 및 어셈블리 참조\)에 추가합니다.
+5. 다음 using 문을 **MyBroadcastReceiver.cs**(앞에서 만든 구성 요소 및 어셈블리 참조)에 추가합니다.
 
 		using WindowsAzure.Messaging;
 		using Gcm.Client;
@@ -161,9 +161,9 @@ Xamarin Component Store에서 제공되는 Google Cloud Messaging 클라이언�
         	}
     	}
 
-8. **GcmServiceBase**는 **OnRegistered\(\)**, **OnUnRegistered\(\)**, **OnMessage\(\)**, **OnRecoverableError\(\)** 및 **OnError\(\)** 메서드를 구현합니다. 구현 클래스 **PushHandlerService**는 이러한 메서드를 재정의해야 하며, 해당 메서드는 알림 허브와 상호 작용에 대한 응답으로 발생합니다.
+8. **GcmServiceBase**는 **OnRegistered()**, **OnUnRegistered()**, **OnMessage()**, **OnRecoverableError()** 및 **OnError()** 메서드를 구현합니다. 구현 클래스 **PushHandlerService**는 이러한 메서드를 재정의해야 하며, 해당 메서드는 알림 허브와 상호 작용에 대한 응답으로 발생합니다.
 
-9. **PushHandlerService**의 **OnRegistered\(\)** 메서드를 다음 코드로 재정의합니다.
+9. **PushHandlerService**의 **OnRegistered()** 메서드를 다음 코드로 재정의합니다.
 
         protected override void OnRegistered(Context context, string registrationId)
         {
@@ -196,7 +196,7 @@ Xamarin Component Store에서 제공되는 Google Cloud Messaging 클라이언�
             }
         }
 
-	> [AZURE.NOTE]위의 **OnRegistered\(\)** 코드에서 태그를 지정하여 특정 메시징 채널에 등록하는 기능을 확인해야 합니다.
+	> [AZURE.NOTE]위의 **OnRegistered()** 코드에서 태그를 지정하여 특정 메시징 채널에 등록하는 기능을 확인해야 합니다.
 
 10. **PushHandlerService**의 **OnMessage** 메서드를 다음 코드로 재정의합니다.
 
@@ -247,22 +247,22 @@ Xamarin Component Store에서 제공되는 Google Cloud Messaging 클라이언�
             notificationManager.Notify(1, notification);
         }
 
-12. 코드가 컴파일되도록 추상 멤버 **OnUnRegistered\(\)**, **OnRecoverableError\(\)** 및 **OnError\(\)**를 재정의합니다.
+12. 코드가 컴파일되도록 추상 멤버 **OnUnRegistered()**, **OnRecoverableError()** 및 **OnError()**를 재정의합니다.
 
 
-##<a name="run-app"></a>에뮬레이터에서 앱 실행
+## <a name="run-app"></a>에뮬레이터에서 앱 실행
 
-에뮬레이터에서 이 앱을 실행하는 경우 Google API를 지원하는 AVD\(Android Virtual Device\)를 사용해야 합니다.
+에뮬레이터에서 이 앱을 실행하는 경우 Google API를 지원하는 AVD(Android Virtual Device)를 사용해야 합니다.
 
 	> [AZURE.IMPORTANT] 푸시 알림을 받으려면 Android Virtual Device에서 Google 계정을 설정해야 합니다. 이렇게 하려면 에뮬레이터에서 설정으로 이동하여 계정 추가를 클릭합니다. 에뮬레이터가 인터넷에 연결되어 있어야 합니다.
 
 1. **Tools**에서 **Open Android Emulator Manager**를 클릭하고 해당 장치를 선택한 후 **Edit**를 클릭합니다.
 
-   ![][18]
+   	![][18]
 
 2. **Target**에서 **Google APIs**를 선택하고 **OK**를 클릭합니다.
 
-   ![][19]
+   	![][19]
 
 3. 위쪽 도구 모음에서 **Run**을 클릭하고 앱을 선택합니다. 에뮬레이터가 시작되고 앱이 실행됩니다.
 
@@ -274,7 +274,7 @@ Xamarin Component Store에서 제공되는 Google Cloud Messaging 클라이언�
 
 .NET 앱을 사용하여 알림을 보내려면
 
-1. 새 Visual C\# 콘솔 응용 프로그램을 만듭니다.
+1. 새 Visual C# 콘솔 응용 프로그램을 만듭니다.
 
    	![][20]
 
@@ -293,7 +293,7 @@ Xamarin Component Store에서 제공되는 Google Cloud Messaging 클라이언�
         private static async void SendNotificationAsync()
         {
             NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString("<connection string with full access>", "<hub name>");
-            await hub.SendGcmNativeNotificationAsync("{ \"data\" : {\"msg\":\"Hello from Azure!\"}}");
+            await hub.SendGcmNativeNotificationAsync("{ "data" : {"msg":"Hello from Azure!"}}");
         }
 
 4. 그런 다음 Main 메서드에 다음 줄을 추가합니다.
@@ -305,7 +305,7 @@ Xamarin Component Store에서 제공되는 Google Cloud Messaging 클라이언�
 
    	![][21]
 
-모바일 서비스를 사용하여 알림을 보내려면 [모바일 서비스 시작](영문\)을 따른 후 다음을 수행하세요.
+모바일 서비스를 사용하여 알림을 보내려면 [모바일 서비스 시작](영문)을 따른 후 다음을 수행하세요.
 
 1. [Azure 관리 포털]에 로그온하고 모바일 서비스를 선택합니다.
 

@@ -54,7 +54,7 @@ Azure 저장소를 사용하려면 저장소 REST 서비스와 통신하는 편�
 
 ## Azure 저장소 연결 설정
 
-Azure 모듈은 **AZURE\_STORAGE\_ACCOUNT** 및 **AZURE\_STORAGE\_ACCESS_KEY** 
+Azure 모듈은 **AZURE_STORAGE_ACCOUNT** 및 **AZURE_STORAGE_ACCESS_KEY** 
 환경 변수를 읽고 Azure 저장소 계정에 연결하는 데 필요한 정보를 확인합니다. 이러한 환경 변수가 설정되어 있지 않으면 **Azure::BlobService**를 사용하기 전에 다음 코드로 계정 정보를 지정해야 합니다.
 
 	Azure.config.storage_account_name = "<your azure storage account>"
@@ -70,7 +70,7 @@ Azure 모듈은 **AZURE\_STORAGE\_ACCOUNT** 및 **AZURE\_STORAGE\_ACCESS_KEY**
 
 ## 방법: 컨테이너 만들기
 
-**Azure::BlobService** 개체를 통해 컨테이너 및 Blob에 대한 작업을 할 수 있습니다. 컨테이너를 만들려면 **create\_container()** 메서드를 사용합니다.
+**Azure::BlobService** 개체를 통해 컨테이너 및 Blob에 대한 작업을 할 수 있습니다. 컨테이너를 만들려면 **create_container()** 메서드를 사용합니다.
 
 다음 예제는 컨테이너를 만들거나 컨테이너가 있으면 오류를 출력합니다.
 
@@ -83,19 +83,19 @@ Azure 모듈은 **AZURE\_STORAGE\_ACCOUNT** 및 **AZURE\_STORAGE\_ACCESS_KEY**
 
 컨테이너 파일을 공용으로 지정하려는 경우 컨테이너의 사용 권한을 설정할 수 있습니다. 
 
-<strong>create\_container()</strong> 호출을 수정하여 **:public\_access\_level** 옵션을 전달할 수 있습니다.
+<strong>create_container()</strong> 호출을 수정하여 **:public_access_level** 옵션을 전달할 수 있습니다.
 
 	container = azure_blob_service.create_container("test-container", 
 	  :public_access_level => "<public access level>")
 
 
-**:public\_access\_level** 옵션에 유효한 값은 다음과 같습니다.
+**:public_access_level** 옵션에 유효한 값은 다음과 같습니다.
 
 * **blob:** 컨테이너 및 Blob 데이터에 대한 모든 공용 읽기 권한을 지정합니다. 클라이언트는 익명 요청을 통해 컨테이너 내의 Blob을 열거할 수 있지만 저장소 계정 내의 컨테이너는 열거할 수 없습니다.
 
 * **container:** Blob에 대한 공용 읽기 권한을 지정합니다. 이 컨테이너 내의 Blob 데이터는 익명 요청을 통해 읽을 수 있지만 컨테이너 데이터는 사용할 수 없습니다. 클라이언트는 익명 요청을 통해 컨테이너 내의 Blob을 열거할 수 없습니다.
 
-또는 **set\_container\_acl()** 메서드로 공용 액세스 수준을 지정하여 컨테이너의 공용 액세스 수준을 수정할 수 있습니다.
+또는 **set_container_acl()** 메서드로 공용 액세스 수준을 지정하여 컨테이너의 공용 액세스 수준을 수정할 수 있습니다.
  
 다음 예제에서는 공용 액세스 수준을 **container**로 변경합니다.
 
@@ -103,7 +103,7 @@ Azure 모듈은 **AZURE\_STORAGE\_ACCOUNT** 및 **AZURE\_STORAGE\_ACCESS_KEY**
 
 ## 방법: 컨테이너에 Blob 업로드
 
-Blob에 콘텐츠를 업로드하려면 **create\_block\_blob()** 메서드를 사용하여 Blob을 만들고 Blob의 콘텐츠로 파일이나 문자열을 사용합니다. 
+Blob에 콘텐츠를 업로드하려면 **create_block_blob()** 메서드를 사용하여 Blob을 만들고 Blob의 콘텐츠로 파일이나 문자열을 사용합니다. 
 
 다음 코드는 **test.png** 파일을 "image-blob"이라는 새 Blob으로 컨테이너에 업로드합니다.
 
@@ -115,7 +115,7 @@ Blob에 콘텐츠를 업로드하려면 **create\_block\_blob()** 메서드를 �
 ## 방법: 컨테이너의 Blob 나열
 
 컨테이너를 나열하려면 **list_containers()** 메서드를 사용합니다. 
-컨테이너 내 Blob을 나열하려면 **list\_blobs()** 메서드를 사용합니다. 
+컨테이너 내 Blob을 나열하려면 **list_blobs()** 메서드를 사용합니다. 
 
 이 메서드는 계정에 대해 모든 컨테이너에 있는 모든 Blob의 URL을 출력합니다.
 
@@ -129,15 +129,15 @@ Blob에 콘텐츠를 업로드하려면 **create\_block\_blob()** 메서드를 �
 
 ## 방법: Blob 다운로드
 
-Blob을 다운로드하려면 **get\_blob()** 메서드를 사용하여 콘텐츠를 검색합니다. 
+Blob을 다운로드하려면 **get_blob()** 메서드를 사용하여 콘텐츠를 검색합니다. 
 
-다음 예제에서는 **get\_blob()**을 사용하여 "image-blob"의 콘텐츠를 다운로드하고 해당 콘텐츠를 로컬 파일에 쓰는 방법을 보여 줍니다.
+다음 예제에서는 **get_blob()**을 사용하여 "image-blob"의 콘텐츠를 다운로드하고 해당 콘텐츠를 로컬 파일에 쓰는 방법을 보여 줍니다.
 
 	blob, content = azure_blob_service.get_blob(container.name,"image-blob")
 	File.open("download.png","wb") {|f| f.write(content)}
 
 ## 방법: Blob 삭제
-끝으로, Blob을 삭제하려면 **delete\_blob()** 메서드를 사용합니다. 다음 예제는 Blob을 삭제하는 방법을 보여 줍니다.
+끝으로, Blob을 삭제하려면 **delete_blob()** 메서드를 사용합니다. 다음 예제는 Blob을 삭제하는 방법을 보여 줍니다.
 
 	azure_blob_service.delete_blob(container.name, "image-blob")
 

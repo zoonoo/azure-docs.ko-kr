@@ -35,9 +35,9 @@ Azure Mobile Engagement 서비스 요청을 개설할 때는 다음 정보를 �
 
 
 ## 코드: 문제와 관련된 해당 코딩 정보 제공
-- 앱의 SDK 버전 및 플랫폼\(Android SDK 2.4.1, iOS 1.16.2 등\)
-- 프로덕션 앱\(또는 개발 앱의 APK/TGZ 파일\)의 다운로드 위치
-- "AndroidManifest.xml" 및/또는 Azure Mobile Engagement와 관련된 앱의 코드 조각\(고급 문제 해결용\)
+- 앱의 SDK 버전 및 플랫폼(Android SDK 2.4.1, iOS 1.16.2 등)
+- 프로덕션 앱(또는 개발 앱의 APK/TGZ 파일)의 다운로드 위치
+- "AndroidManifest.xml" 및/또는 Azure Mobile Engagement와 관련된 앱의 코드 조각(고급 문제 해결용)
 
 <!--Link references-->
 [Link 1]: mobile-engagement-user-interface.md

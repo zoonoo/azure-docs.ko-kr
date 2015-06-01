@@ -164,7 +164,7 @@ PTVS는 Azure 웹 사이트에 웹 응용 프로그램을 배포하는 쉬운 �
 
   	![최상위 메뉴](./media/web-sites-python-ptvs-flask-table-storage/PollsCommonWebSiteTopMenu.png)
 
-1.  **앱 설정** 섹션으로 스크롤한 후 위 섹션에 설명된 대로 **REPOSITORY\_NAME**, **STORAGE\_NAME** 및 **STORAGE\_KEY** 값을 설정합니다.
+1.  **앱 설정** 섹션으로 스크롤한 후 위 섹션에 설명된 대로 **REPOSITORY_NAME**, **STORAGE_NAME** 및 **STORAGE_KEY** 값을 설정합니다.
 
   	![앱 설정](./media/web-sites-python-ptvs-flask-table-storage/PollsCommonWebSiteConfigureSettingsTableStorage.png)
 

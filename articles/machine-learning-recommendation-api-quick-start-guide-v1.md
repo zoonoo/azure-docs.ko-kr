@@ -18,7 +18,8 @@
 
 # 기계 학습 권장 사항 API에 대한 빠른 시작 가이드
 
-버전: 1.0<br> 최신 버전은 [여기](machine-learning-recommendation-api-quick-start-guide.md)서 확인할 수 있습니다.
+버전: 1.0<br>
+최신 버전은 [여기](machine-learning-recommendation-api-quick-start-guide.md)서 확인할 수 있습니다.
 
 이 문서에서는 Azure 기계 학습 권장 사항을 사용하도록 서비스나 응용 프로그램을 등록하는 방법에 대해 설명합니다.
 
@@ -30,9 +31,9 @@ Azure 기계 학습 권장 사항을 사용하려면 다음 단계를 수행해�
 
 * 모델 만들기 - 모델은 사용 데이터, 카탈로그 데이터 및 권장 사항 모델의 컨테이너입니다.
 * 카탈로그 데이터 가져오기 - 선택적 단계입니다. 카탈로그에는 항목에 대한 메타데이터 정보가 포함됩니다. 카탈로그 데이터를 업로드하지 않으면 권장 사항 서비스는 사용 데이터에서 묵시적으로 카탈로그에 대해 학습합니다.
-* 사용 데이터 가져오기 - 다음 두 가지 방법의 하나로\(또는 둘 다\) 사용 데이터를 업로드할 수 있습니다.
+* 사용 데이터 가져오기 - 다음 두 가지 방법의 하나로(또는 둘 다) 사용 데이터를 업로드할 수 있습니다.
 	* 사용 데이터를 포함하는 파일을 업로드합니다.
-	* 데이터 취득 이벤트를 전송합니다. 일반적으로 초기 권장 사항 모델\(부트스트랩\)을 만들고 시스템에서 데이터 취득 형식을 사용하여 충분한 데이터를 수집할 때까지 초기 모델을 사용할 수 있도록 사용 파일을 업로드합니다.
+	* 데이터 취득 이벤트를 전송합니다. 일반적으로 초기 권장 사항 모델(부트스트랩)을 만들고 시스템에서 데이터 취득 형식을 사용하여 충분한 데이터를 수집할 때까지 초기 모델을 사용할 수 있도록 사용 파일을 업로드합니다.
 * 권장 사항 모델 작성 - 이 단계는 권장 사항 시스템이 모든 사용 데이터를 이용하여 권장 사항 모델을 만드는 비동기 작업입니다. 이 작업은 데이터 크기 및 빌드 구성 매개 변수에 따라 몇 분이나 몇 시간이 걸릴 수 있습니다. 빌드를 트리거할 때 빌드 ID를 얻고 이를 사용하여 권장 사항 소비를 시작하기 전에 빌드 프로세스가 종료된 시간을 확인합니다. 
 * 권장 사항 사용 - 특정 항목 또는 항목 목록에 대한 권장 사항을 가져옵니다.
 
@@ -43,7 +44,7 @@ Azure 기계 학습 권장 사항을 사용하려면 다음 단계를 수행해�
 * 구독당 최대 모델 수: 10
 * 카탈로그에 포함할 수 있는 최대 항목 수: 100,000
 * 유지되는 사용 포인트의 최대 수는 500만 개입니다. 새 포인트가 업로드되거나 보고되면 가장 오래된 포인트가 삭제됩니다.
-* POST로 전송할 수 있는 최대 데이터 크기\(예: 카탈로그 데이터 가져오기, 사용 데이터 가져오기\)는 200MB입니다.
+* POST로 전송할 수 있는 최대 데이터 크기(예: 카탈로그 데이터 가져오기, 사용 데이터 가져오기)는 200MB입니다.
 * 활성화되지 않은 권장 사항 모델에 대한 초당 트랜잭션 수는 최대 2TPS이고, 활성화된 권장 사항 모델 빌드에만 최대 20TPS를 포함할 수 있습니다.
 
 ##통합
@@ -52,7 +53,7 @@ Azure 기계 학습 권장 사항을 사용하려면 다음 단계를 수행해�
 인증과 관련된 Microsoft Azure 마켓플레이스 지침을 따르세요. 마켓플레이스에서는 기본 또는 OAuth 인증 방법을 지원합니다.
 
 ###서비스 URI 
-각 Azure ML 권장 사항 API에 대한 서비스 루트 URI는 [여기](https://api.datamarket.azure.com/amla/recommendations/v1/)\(영문\)에 있습니다.
+각 Azure ML 권장 사항 API에 대한 서비스 루트 URI는 [여기](https://api.datamarket.azure.com/amla/recommendations/v1/)(영문)에 있습니다.
 
 전체 서비스 URI는 OData 사양의 요소를 사용하여 표현됩니다.
 
@@ -68,9 +69,10 @@ Azure 기계 학습 권장 사항을 사용하려면 다음 단계를 수행해�
 
 |	매개 변수 이름 |	유효한 값 |
 |:--------			|:--------								|
-|	modelName |	문자\(A-Z, a-z\), 숫자\(0-9\), 하이픈\(-\) 및 밑줄\(\_\)만 사용할 수 있습니다.<br>최대 길이: 20 |
+|	modelName |	문자(A-Z, a-z), 숫자(0-9), 하이픈(-) 및 밑줄(_)만 사용할 수 있습니다.<br>최대 길이: 20 |
 |	apiVersion | 1.0 |
-||| | 요청 본문 | 없음 |
+|||
+| 요청 본문 | 없음 |
 
 
 **응답**:
@@ -121,9 +123,10 @@ OData XML
 |	매개 변수 이름 |	유효한 값 |
 |:--------			|:--------								|
 |	modelId |	모델의 고유 식별자입니다. |
-| filename | 카탈로그의 텍스트 식별자.<br>문자\(A-Z, a-z\), 숫자\(0-9\), 하이픈\(-\) 및 밑줄\(\_\)만 사용할 수 있습니다.<br>최대 길이: 50 |
+| filename | 카탈로그의 텍스트 식별자.<br>문자(A-Z, a-z), 숫자(0-9), 하이픈(-) 및 밑줄(_)만 사용할 수 있습니다.<br>최대 길이: 50 |
 |	apiVersion | 1.0 |
-||| | 요청 본문 | 카탈로그 데이터. 형식:<br>`<Item Id>,<Item Name>,<Item Category>[,<description>]`<br><br><table><tr><th>이름</th><th>필수</th><th>유형</th><th>설명</th></tr><tr><td>항목 ID</td><td>예</td><td>영숫자, 최대 길이 50</td><td>항목의 고유 식별자</td></tr><tr><td>항목 이름</td><td>예</td><td>영숫자, 최대 길이 255</td><td>항목 이름</td></tr><tr><td>항목 범주</td><td>예</td><td>영숫자, 최대 길이 255</td><td>이 항목이 속해 있는 범주\(예: 요리책, 드라마...\)</td></tr><tr><td>설명</td><td>아니요</td><td>영숫자, 최대 길이 4000</td><td>이 항목에 대한 설명</td></tr></table><br>최대 파일 크기 200MB<br><br>예:<br><pre>2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction \(Byzantium Book\),Book<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book</pre> \|
+|||
+| 요청 본문 | 카탈로그 데이터. 형식:<br>`<Item Id>,<Item Name>,<Item Category>[,<description>]`<br><br><table><tr><th>이름</th><th>필수</th><th>유형</th><th>설명</th></tr><tr><td>항목 ID</td><td>예</td><td>영숫자, 최대 길이 50</td><td>항목의 고유 식별자</td></tr><tr><td>항목 이름</td><td>예</td><td>영숫자, 최대 길이 255</td><td>항목 이름</td></tr><tr><td>항목 범주</td><td>예</td><td>영숫자, 최대 길이 255</td><td>이 항목이 속해 있는 범주(예: 요리책, 드라마...)</td></tr><tr><td>설명</td><td>아니요</td><td>영숫자, 최대 길이 4000</td><td>이 항목에 대한 설명</td></tr></table><br>최대 파일 크기 200MB<br><br>예:<br><pre>2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction (Byzantium Book),Book<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book</pre> |
 
 
 **응답**:
@@ -169,9 +172,10 @@ OData XML
 |	매개 변수 이름 |	유효한 값 |
 |:--------			|:--------								|
 |	modelId |	모델의 고유 식별자입니다. |
-| filename | 카탈로그의 텍스트 식별자.<br>문자\(A-Z, a-z\), 숫자\(0-9\), 하이픈\(-\) 및 밑줄\(\_\)만 사용할 수 있습니다.<br>최대 길이: 50 |
+| filename | 카탈로그의 텍스트 식별자.<br>문자(A-Z, a-z), 숫자(0-9), 하이픈(-) 및 밑줄(_)만 사용할 수 있습니다.<br>최대 길이: 50 |
 |	apiVersion | 1.0 |
-||| | 요청 본문 | 사용 데이터. 형식:<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>이름</th><th>필수</th><th>유형</th><th>설명</th></tr><tr><td>User Id</td><td>예</td><td>영숫자</td><td>사용자의 고유 식별자</td></tr><tr><td>Item Id</td><td>예</td><td>영숫자, 최대 길이 50</td><td>항목의 고유 식별자</td></tr><tr><td>Time</td><td>아니요</td><td>다음 형식의 날짜: YYYY/MM/DDTHH:MM:SS\(예: 2013/06/20T10:00:00\)</td><td>데이터의 시간</td></tr><tr><td>Event</td><td>아니요, 제공된 경우 날짜도 입력해야 함</td><td>다음 중 하나:<br>• Click<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>최대 파일 크기 200MB<br><br>예:<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> \|
+|||
+| 요청 본문 | 사용 데이터. 형식:<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>이름</th><th>필수</th><th>유형</th><th>설명</th></tr><tr><td>User Id</td><td>예</td><td>영숫자</td><td>사용자의 고유 식별자</td></tr><tr><td>Item Id</td><td>예</td><td>영숫자, 최대 길이 50</td><td>항목의 고유 식별자</td></tr><tr><td>Time</td><td>아니요</td><td>다음 형식의 날짜: YYYY/MM/DDTHH:MM:SS(예: 2013/06/20T10:00:00)</td><td>데이터의 시간</td></tr><tr><td>Event</td><td>아니요, 제공된 경우 날짜도 입력해야 함</td><td>다음 중 하나:<br>• Click<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>최대 파일 크기 200MB<br><br>예:<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
 
 **응답**:
 
@@ -309,7 +313,8 @@ OData XML
   	</EventData>
 	</Event>
 
-**응답**: HTTP 상태 코드: 200
+**응답**:
+HTTP 상태 코드: 200
 
 ###권장 사항 모델 작성
 
@@ -322,7 +327,8 @@ OData XML
 | modelId |	모델의 고유 식별자입니다. |
 | userDescription | 카탈로그의 텍스트 식별자입니다. 공백을 사용하는 경우 대신 %20을 사용하여 인코드해야 합니다. 위 예제를 참조하세요.<br>최대 길이: 50 |
 | apiVersion | 1.0 |
-||| | 요청 본문 | 없음 |
+|||
+| 요청 본문 | 없음 |
 
 **응답**:
 
@@ -621,7 +627,8 @@ HTTP 상태 코드: 200
 	</feed>
 
 ###모델 업데이트
-모델 설명 또는 활성 빌드 ID를 업데이트할 수 있습니다. *활성 빌드 ID* - 모든 모델에 대한 모든 빌드에는 "빌드 ID"가 있습니다. 활성 "빌드 ID"는 모든 새 모델 중 처음 성공한 빌드입니다. 활성 빌드 ID가 있는데 같은 모델에 대한 추가 빌드를 수행하려면 이 활성 빌드 ID를 기본 빌드 ID로 명시적으로 설정해야 합니다. 권장 사항을 소비할 때 사용할 빌드 ID를 지정하지 않으면 자동으로 기본 빌드 ID가 사용됩니다.
+모델 설명 또는 활성 빌드 ID를 업데이트할 수 있습니다. 
+*활성 빌드 ID* - 모든 모델에 대한 모든 빌드에는 "빌드 ID"가 있습니다. 활성 "빌드 ID"는 모든 새 모델 중 처음 성공한 빌드입니다. 활성 빌드 ID가 있는데 같은 모델에 대한 추가 빌드를 수행하려면 이 활성 빌드 ID를 기본 빌드 ID로 명시적으로 설정해야 합니다. 권장 사항을 소비할 때 사용할 빌드 ID를 지정하지 않으면 자동으로 기본 빌드 ID가 사용됩니다.
 
 이 메커니즘을 사용하면 프로덕션에 권장 사항 모델을 포함하고 나서 새 모델을 빌드하고 프로덕션으로 수준을 올리기 전에 테스트할 수 있습니다.
 
@@ -634,7 +641,8 @@ HTTP 상태 코드: 200
 |:--------			|:--------								|
 | id | 모델의 고유 식별자입니다. |
 | apiVersion | 1.0 |
-||| | 요청 본문 | `<ModelUpdateParams xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">`<br>`   <Description>New Description</Description>`<br>`          <ActiveBuildId>-1</ActiveBuildId>`<br>`</ModelUpdateParams>`<br><br>xml 태그 Description 및 ActiveBuildId는 선택 사항입니다. Description 또는 ActiveBuildId를 설정하지 않으려면 전체 태그를 제거합니다. \|
+|||
+| 요청 본문 | `<ModelUpdateParams xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">`<br>`   <Description>New Description</Description>`<br>`          <ActiveBuildId>-1</ActiveBuildId>`<br>`</ModelUpdateParams>`<br><br>xml 태그 Description 및 ActiveBuildId는 선택 사항입니다. Description 또는 ActiveBuildId를 설정하지 않으려면 전체 태그를 제거합니다. |
 
 **응답**:
 
@@ -651,6 +659,9 @@ HTTP 상태 코드: 200
 	</feed>
 
 ##법적 정보
-이 문서는 "있는 그대로" 제공됩니다. URL 및 기타 인터넷 웹 사이트 참조를 포함하여 본 문서에 명시된 정보 및 보기는 통지 없이 변경될 수 있습니다. 여기에서 설명하는 일부 예는 설명 목적으로만 제공되는 가상의 예이며, 어떠한 실제 사례와도 연관시킬 의도가 없으며 그렇게 유추해서도 안 됩니다. 이 문서는 Microsoft 제품의 지적 소유권에 대한 법적 권한을 사용자에게 제공하지 않습니다. 이 문서는 내부 참조용으로만 복사 및 사용할 수 있습니다. © 2014 Microsoft. All rights reserved.
+이 문서는 "있는 그대로" 제공됩니다. URL 및 기타 인터넷 웹 사이트 참조를 포함하여 본 문서에 명시된 정보 및 보기는 통지 없이 변경될 수 있습니다.
+여기에서 설명하는 일부 예는 설명 목적으로만 제공되는 가상의 예이며, 어떠한 실제 사례와도 연관시킬 의도가 없으며 그렇게 유추해서도 안 됩니다.
+이 문서는 Microsoft 제품의 지적 소유권에 대한 법적 권한을 사용자에게 제공하지 않습니다. 이 문서는 내부 참조용으로만 복사 및 사용할 수 있습니다. 
+© 2014 Microsoft. All rights reserved.
 
 <!--HONumber=54-->

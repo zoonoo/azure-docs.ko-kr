@@ -61,7 +61,7 @@ Node.js용 Azure 저장소 SDK가 필요합니다.
 		└── request@2.27.0 (json-stringify-safe@5.0.0, tunnel-agent@0.3.0, aws-sign@0.3.0, forever-agent@0.5.2, qs@0.6.6, oauth-sign@0.3.0, cookie-jar@0.3.0, hawk@1.0.0, form-data@0.1.3, http-signature@0.10.0)
 
 3.  **ls** 명령을 수동으로 실행하여
-    **node\_modules** 폴더가 만들어졌는지 확인할 수 있습니다. 이 폴더에서
+    **node_modules** 폴더가 만들어졌는지 확인할 수 있습니다. 이 폴더에서
     저장소에 액세스하는 데 필요한 라이브러리가 들어 있는 **azure-storage** 패키지를
     찾습니다.
 
@@ -73,7 +73,7 @@ Node.js용 Azure 저장소 SDK가 필요합니다.
 
 ## Azure 저장소 연결 설정
 
-Azure 모듈은 AZURE\_STORAGE\_ACCOUNT 및 AZURE\_STORAGE\_ACCESS\_KEY 또는 AZURE\_STORAGE\_CONNECTION\_STRING 환경 변수에서 Azure 저장소 계정에 연결하는 데 필요한 정보를 읽습니다. 이러한 환경 변수가 설정되지 않은 경우 **TableService**를 호출할 때 계정 정보를 지정해야 합니다.
+Azure 모듈은 AZURE_STORAGE_ACCOUNT 및 AZURE_STORAGE_ACCESS_KEY 또는 AZURE_STORAGE_CONNECTION_STRING 환경 변수에서 Azure 저장소 계정에 연결하는 데 필요한 정보를 읽습니다. 이러한 환경 변수가 설정되지 않은 경우 **TableService**를 호출할 때 계정 정보를 지정해야 합니다.
 
 Azure 웹 사이트의 관리 포털에서 환경 변수를 설정하는 방법에 대한 예제는 [Node.js 웹 응용 프로그램 및 저장소]를 참조하세요.
 
@@ -157,7 +157,7 @@ Azure SDK for Node.js에는 재시도 논리를 구현하는 두 필터 **Expone
 
 예제 응답:
 
-	{ '.metadata': { etag: 'W/"datetime\'2015-02-25T01%3A22%3A22.5Z\'"' } }
+	{ '.metadata': { etag: 'W/"datetime'2015-02-25T01%3A22%3A22.5Z'"' } }
 
 > [AZURE.NOTE] 기본적으로 **insertEntity**는 삽입된 엔터티를 `response` 정보의 일부로 반환하지 않습니다. 이 엔터티에서 다른 작업을 수행할 계획이거나 정보를 캐시하고 싶은 경우 `result`의 일부로 반환하면 유용합니다. 다음과 같이 **echoContent**를 사용하도록 설정하면 됩니다.
 >

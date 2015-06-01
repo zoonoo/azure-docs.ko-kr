@@ -16,7 +16,7 @@
  ms.date="04/28/2015"
  ms.author="larryfr"/>
 
-# Power BI\(미리 보기\)를 사용하여 Storm 토폴로지에서 데이터 시각화
+# Power BI(미리 보기)를 사용하여 Storm 토폴로지에서 데이터 시각화
 
 Power BI 미리 보기를 사용하여 데이터를 보고서 또는 대시보드로 시각적으로 표시할 수 있습니다. Power BI REST API를 사용하면 HDInsight 클러스터의 Apache Storm에서 실행되는 토폴로지의 데이터를 Power BI에서 손쉽게 사용할 수 있습니다.
 
@@ -28,7 +28,7 @@ Power BI 미리 보기를 사용하여 데이터를 보고서 또는 대시보�
 
 * [Power BI](https://powerbi.com) 액세스 권한이 있는 Azure Active Directory 사용자
 
-* Visual Studio\(다음 버전 중 하나\)
+* Visual Studio(다음 버전 중 하나)
 
     * Visual Studio 2012 [업데이트 4](http://www.microsoft.com/download/details.aspx?id=39305)
 
@@ -40,7 +40,7 @@ Power BI 미리 보기를 사용하여 데이터를 보고서 또는 대시보�
 
 ## 작동 방법
 
-이 예제에는 임의로 문장을 생성하고, 문장을 단어로 분할하고, 단어 수를 계산하고, 단어 및 개수를 Power BI REST API로 보내는 C\# Storm 토폴로지가 포함되어 있습니다. [PowerBi.Api.Client](https://github.com/Vtek/PowerBI.Api.Client) Nuget 패키지는 Power BI와 통신하는 데 사용됩니다.
+이 예제에는 임의로 문장을 생성하고, 문장을 단어로 분할하고, 단어 수를 계산하고, 단어 및 개수를 Power BI REST API로 보내는 C# Storm 토폴로지가 포함되어 있습니다. [PowerBi.Api.Client](https://github.com/Vtek/PowerBI.Api.Client) Nuget 패키지는 Power BI와 통신하는 데 사용됩니다.
 
 이 프로젝트의 다음 파일은 Power BI 관련 기능을 구현합니다.
 
@@ -48,7 +48,7 @@ Power BI 미리 보기를 사용하여 데이터를 보고서 또는 대시보�
 
 * **Data.cs**: Power BI로 보낼 데이터 개체/행을 설명합니다.
 
-> [AZURE.WARNING]Power BI는 이름이 같은 여러 데이터 집합의 만들기를 허용하는 것처럼 보입니다. 이는 데이터 집합이 존재하지 않고 토폴로지에서 Power BI Bolt의 여러 인스턴스를 만든 경우에 발생할 수 있습니다. 이를 방지하려면 bolt의 병렬 처리 힌트를 1로 설정\(이 예제와 같이\)하거나 토폴로지를 배포하기 전에 데이터 집합을 만듭니다.
+> [AZURE.WARNING]Power BI는 이름이 같은 여러 데이터 집합의 만들기를 허용하는 것처럼 보입니다. 이는 데이터 집합이 존재하지 않고 토폴로지에서 Power BI Bolt의 여러 인스턴스를 만든 경우에 발생할 수 있습니다. 이를 방지하려면 bolt의 병렬 처리 힌트를 1로 설정(이 예제와 같이)하거나 토폴로지를 배포하기 전에 데이터 집합을 만듭니다.
 >
 > 이 솔루션에 포함된 **CreateDataset** 콘솔 응용 프로그램은 토폴로지 외부에서 데이터 집합을 만드는 방법의 예로 제공됩니다.
 
@@ -62,7 +62,7 @@ Power BI 미리 보기를 사용하여 데이터를 보고서 또는 대시보�
 
 ## 예제 다운로드
 
-[HDInsight C\# Storm Power BI 예제]\](https://github.com/Blackmist/hdinsight-csharp-storm-powerbi)를 다운로드합니다. 다운로드하려면 [git](http://git-scm.com/)를 사용하여 포크/복제하거나, **다운로드** 링크를 사용하여 .zip 보관 파일을 다운로드합니다.
+[HDInsight C# Storm Power BI 예제]](https://github.com/Blackmist/hdinsight-csharp-storm-powerbi)를 다운로드합니다. 다운로드하려면 [git](http://git-scm.com/)를 사용하여 포크/복제하거나, **다운로드** 링크를 사용하여 .zip 보관 파일을 다운로드합니다.
 
 ## 샘플 구성
 
@@ -74,7 +74,7 @@ Power BI 미리 보기를 사용하여 데이터를 보고서 또는 대시보�
 
     * **Password**: Azure Active Directory 계정의 암호입니다.
 
-2. \(선택 사항\). 이 프로젝트에서 사용되는 기본 데이터 집합 이름은 **Words**입니다. 이를 변경하려면 **솔루션 탐색기**에서 **WordCount** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **속성**, **설정**을 차례로 선택합니다. **DatasetName** 항목을 원하는 값으로 변경합니다.
+2. (선택 사항). 이 프로젝트에서 사용되는 기본 데이터 집합 이름은 **Words**입니다. 이를 변경하려면 **솔루션 탐색기**에서 **WordCount** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **속성**, **설정**을 차례로 선택합니다. **DatasetName** 항목을 원하는 값으로 변경합니다.
 
 2. 파일을 저장하고 닫습니다.
 

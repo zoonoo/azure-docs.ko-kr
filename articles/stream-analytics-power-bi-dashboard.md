@@ -18,12 +18,12 @@
 	
 #Azure 스트림 분석 및 Power BI: 스트리밍 데이터의 실시간으로 분석에 대한 라이브 대시보드
 
-Azure 스트림 분석에 대한 일반적인 사용 사례 중 하나는 실시간으로 고용량 스트리밍 데이터를 분석하고\(사용자가 브라우저를 새로 고칠 필요가 없이 실시간으로 업데이트하는 대시보드\) 라이브 대시보드에 대한 통찰력을 확보하는 것입니다. [Microsoft Power BI](https://powerbi.com/)는 단시간에 라이브 대시보드를 빌드하는데 적합합니다. [다음은 시나리오를 설명하기 위한 예제 비디오입니다](https://www.youtube.com/watch?v=SGUpT-a99MA). 이 문서에서는 Azure 스트림 분석 작업에 대한 출력으로 Power BI를 사용하는 방법에 대해 알아봅니다. 비-Azure 스트림 분석은 일반적으로 이 시점에서 사용 가능하지만 Power BI 출력은 Azure 스트림 분석의 미리보기 기능입니다.
+Azure 스트림 분석에 대한 일반적인 사용 사례 중 하나는 실시간으로 고용량 스트리밍 데이터를 분석하고(사용자가 브라우저를 새로 고칠 필요가 없이 실시간으로 업데이트하는 대시보드) 라이브 대시보드에 대한 통찰력을 확보하는 것입니다. [Microsoft Power BI](https://powerbi.com/)는 단시간에 라이브 대시보드를 빌드하는데 적합합니다. [다음은 시나리오를 설명하기 위한 예제 비디오입니다](https://www.youtube.com/watch?v=SGUpT-a99MA). 이 문서에서는 Azure 스트림 분석 작업에 대한 출력으로 Power BI를 사용하는 방법에 대해 알아봅니다. 비-Azure 스트림 분석은 일반적으로 이 시점에서 사용 가능하지만 Power BI 출력은 Azure 스트림 분석의 미리보기 기능입니다.
 
 ##필수 조건
 
-* 조직 ID를 사용하는 Microsoft Azure 계정\(Power BI는 조직 ID와만 동작합니다. 조직 ID는 xyz@mycompany.com과 같은 직장 또는 비즈니스 메일입니다. xyz@hotmail.com과 같은 개인 메일은 조직 ID가 아닙니다. [조직 ID에 대해 더 알아볼 수 있습니다.](https://www.arin.net/resources/request/org.html) \)
-* 스트리밍 데이터를 소비하는 ASA \(Azure 스트림 분석\)의 입력 스트림. 이 시점에서 ASA는 Azure 이벤트 허브 또는 Azure Blob 저장소의 입력을 허용합니다.  
+* 조직 ID를 사용하는 Microsoft Azure 계정(Power BI는 조직 ID와만 동작합니다. 조직 ID는 xyz@mycompany.com과 같은 직장 또는 비즈니스 메일입니다. xyz@hotmail.com과 같은 개인 메일은 조직 ID가 아닙니다. [조직 ID에 대해 더 알아볼 수 있습니다.](https://www.arin.net/resources/request/org.html) )
+* 스트리밍 데이터를 소비하는 ASA (Azure 스트림 분석)의 입력 스트림. 이 시점에서 ASA는 Azure 이벤트 허브 또는 Azure Blob 저장소의 입력을 허용합니다.  
 
 ##Azure 스트림 분석 작업 만들기
 
@@ -72,7 +72,7 @@ Azure 스트림 분석에 대한 일반적인 사용 사례 중 하나는 실시
 
 ![graphic2][graphic2]
 
-> [AZURE.NOTE]참고 - Power BI 출력은 조직 ID를 사용하여 Azure 계정에 대해서만 사용할 수 있습니다. Azure 계정에 대해 조직 ID를 사용하지 않는 경우\(예: 사용자의 라이브 ID / 개인 Microsoft 계정\), Power BI 출력 옵션을 표시하지 않습니다.
+> [AZURE.NOTE]참고 - Power BI 출력은 조직 ID를 사용하여 Azure 계정에 대해서만 사용할 수 있습니다. Azure 계정에 대해 조직 ID를 사용하지 않는 경우(예: 사용자의 라이브 ID / 개인 Microsoft 계정), Power BI 출력 옵션을 표시하지 않습니다.
 
 2.  **Power BI**를 선택한 다음 오른쪽 단추를 클릭합니다.
 3.  다음과 유사한 화면이 표시됩니다.
@@ -130,7 +130,7 @@ Azure 스트림 분석에 대한 일반적인 사용 사례 중 하나는 실시
 
 이 예에서는 "데모 대시보드"라고 레이블을 지정합니다.
 
-이제 ASA 작업에서 만든 데이터 집합을 클릭합니다\(현재 예제에서 pbidemo\). 이 데이터 집합 위에 차트를 만들려면 페이지로 이동합니다. 다음은 만들 수 있는 보고서의 한 예입니다.
+이제 ASA 작업에서 만든 데이터 집합을 클릭합니다(현재 예제에서 pbidemo). 이 데이터 집합 위에 차트를 만들려면 페이지로 이동합니다. 다음은 만들 수 있는 보고서의 한 예입니다.
 
 Σ temp 및 시간 필드를 선택합니다. 자동으로 차트에 대한 값과 축으로 이동됩니다.
 

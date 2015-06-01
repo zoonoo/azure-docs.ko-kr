@@ -42,13 +42,13 @@
 
   1. 대상 장치를 식별합니다. 복제본이 만들어지는 위치입니다. 동일한 장치를 선택하거나 다른 장치를 지정할 수 있습니다.
 
-        >  [AZURE.NOTE] Make sure that the capacity required for the clone is lower than the capacity available on the target device.
+        >  [AZURE.NOTE] 복제본에 필요한 용량이 대상 장치에서 사용 가능한 용량보다 작은지 확인합니다.
   2. 해당 복제본에 대한 고유 볼륨 이름을 지정합니다. 이름은 3자에서 127자 사이여야 합니다.
   3. 화살표 아이콘![화살표 아이콘](./media/storsimple-clone-volume/HCS_ArrowIcon.png)을 클릭하여 다음 페이지로 이동합니다.
 
 5. **이 볼륨을 사용할 수 있는 호스트 지정** 아래:
 
-  1. 복제본에 대한 ACR\(액세스 제어 레코드\)을 지정합니다. 새 ACR을 추가하거나 기존 목록에서 선택할 수 있습니다.
+  1. 복제본에 대한 ACR(액세스 제어 레코드)을 지정합니다. 새 ACR을 추가하거나 기존 목록에서 선택할 수 있습니다.
   2. 확인 아이콘![확인 아이콘](./media/storsimple-clone-volume/HCS_CheckIcon.png)을 클릭하여 작업을 완료합니다.
 
 6. 복제 작업이 시작되며 복제본 성공적으로 만들어지면 알림이 표시됩니다. **작업 보기**를 클릭하여 **작업** 페이지에서 복제 작업을 모니터링합니다.

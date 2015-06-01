@@ -25,7 +25,7 @@
 
 Hive 쿼리는 [Github 리포지토리](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_db_tbls_load_data_generic.hql)에 공유되어 있으며 그곳에서 다운로드할 수 있습니다.
 
-[데이터 과학을 위한 Azure 가상 컴퓨터 설정](machine-learning-data-science-setup-virtual-machine.md)의 지침에 따라 Azure 가상 컴퓨터를 만드는 경우 이 스크립트 파일을 가상 컴퓨터의 *C:\Users\<user name>\Documents\Data Science Scripts* 디렉터리에 다운로드해야 합니다. 이러한 Hive 쿼리는 제출이 가능하도록 적절한 필드에서 사용자 데이터 스키마 및 Azure blob 저장소 구성을 연결하기만 하면 됩니다.
+[데이터 과학을 위한 Azure 가상 컴퓨터 설정](machine-learning-data-science-setup-virtual-machine.md)의 지침에 따라 Azure 가상 컴퓨터를 만드는 경우 이 스크립트 파일을 가상 컴퓨터의 *C:\Users<user name>\Documents\Data Science Scripts* 디렉터리에 다운로드해야 합니다. 이러한 Hive 쿼리는 제출이 가능하도록 적절한 필드에서 사용자 데이터 스키마 및 Azure blob 저장소 구성을 연결하기만 하면 됩니다.
 
 Hive 테이블의 데이터가 **압축되지 않은** 테이블 형식이고 Hadoop 클러스터에서 사용하는 저장소 계정의 기본 또는 추가 컨테이너에 데이터가 업로드된 것으로 가정합니다. _NYC Taxi Trip Data_를 연습하고 싶다면 사용자는 먼저 [24개 파일을 다운로드](http://www.andresmh.com/nyctaxitrips/)(Trip 파일 12개, Fair 파일 12개)하고, .csv 파일로 **압축을 풀고**, 해당 파일을 다음 항목에 나와 있는 절차에서 사용된 Azure 저장소 계정의 기본 컨테이너(또는 적절한 컨테이너)에 업로드합니다.
  [데이터 과학을 위한 Azure HDInsight Hadoop 클러스터 사용자 지정](machine-learning-data-science-customize-hadoop-cluster.md) 항목에 설명된 절차에서 사용된 Azure 저장소 계정의 기본 또는 추가 컨테이너에 파일을 업로드해야 합니다. 

@@ -25,7 +25,7 @@ Application Insights는 사용자 경험을 개선하고 비즈니스 목표를 
  
 프로젝트에 [Application Insights][start]를 추가하면 부수적인 노력 없이 사용자 수를 보여주는 차트를 가져올 수 있습니다.
 
-![Azure에서 찾아보기 \> Application Insights \> 프로젝트를 찾아 아래로 스크롤](./media/app-insights-overview-usage/01-overview.png)
+![Azure에서 찾아보기 > Application Insights > 프로젝트를 찾아 아래로 스크롤](./media/app-insights-overview-usage/01-overview.png)
  
 특정 지점에서 수를 보려면 그래프 위의 빈 부분 위를 가리킵니다. 그 밖에도 숫자는 기간에 걸친 평균, 총계 또는 고유한 사용자의 수와 같이 기간에 걸쳐 집계된 값을 보여줍니다.
 
@@ -37,7 +37,7 @@ Application Insights는 사용자 경험을 개선하고 비즈니스 목표를 
 
 ![개요 블레이드에서 세션 차트 클릭](./media/app-insights-overview-usage/02-sessions.png)
  
-\(이 예제는 웹사이트에서 나온 것이지만 차트 모양은 장치에서 실행되는 앱과 유사합니다.\)
+(이 예제는 웹사이트에서 나온 것이지만 차트 모양은 장치에서 실행되는 앱과 유사합니다.)
 
 사항이 변경되고 있는지 확인하려면 이전 주와 비교합니다.
 
@@ -47,7 +47,7 @@ Application Insights는 사용자 경험을 개선하고 비즈니스 목표를 
 
 ![차트를 선택하고 메트릭을 검색하여 선택 또는 선택 해제합니다.](./media/app-insights-overview-usage/031-dual.png)
 
-브라우저, 운영체제 또는 도시와 같은 속성으로 데이터를 그룹화\(구분\)합니다.
+브라우저, 운영체제 또는 도시와 같은 속성으로 데이터를 그룹화(구분)합니다.
 
 ![단일 메트릭을 보여주는 차트를 선택하고 그룹화로 전환한 다음 속성 선택](./media/app-insights-overview-usage/03-browsers.png)
 
@@ -77,16 +77,16 @@ Application Insights는 사용자 경험을 개선하고 비즈니스 목표를 
 
 응용 프로그램이 사용되는 방식을 이해하기 위해 다양한 방법으로 원격 분석을 사용할 수 있습니다. 하지만 페이지 보기가 포함된 메시지를 항상 혼합하고 싶지는 않습니다. 대신, 사용자 지정 이벤트를 사용합니다. 장치 앱, 웹 페이지 또는 웹 서버에서 이를 전송할 수 있습니다.
 
-\(JavaScript\)
+(JavaScript)
 
     telemetryClient.trackEvent("GameEnd");
 
-\(C\#\)
+(C#)
 
     var tc = new Microsoft.ApplicationInsights.TelemetryClient(); 
     tc.TrackEvent("GameEnd");
 
-\(VB\)
+(VB)
 
     Dim tc = New Microsoft.ApplicationInsights.TelemetryClient()
     tc.TrackEvent("GameEnd")
@@ -130,7 +130,7 @@ Application Insights는 사용자 경험을 개선하고 비즈니스 목표를 
 
 ![](./media/app-insights-overview-usage/10-filter.png)
  
-그리고 이제 단순히 최신 점수를 확인하기 위해 이 사용자가 로그인한 것을 확인할 수 있습니다. 이를 더 쉽게 하기 위해 사용자 스토리 개발을 고려해야 할 수도 있습니다. \(그리고 이 특정 스토리가 발생할 때 보고할 사용자 지정 이벤트를 구현해야 합니다.\)
+그리고 이제 단순히 최신 점수를 확인하기 위해 이 사용자가 로그인한 것을 확인할 수 있습니다. 이를 더 쉽게 하기 위해 사용자 스토리 개발을 고려해야 할 수도 있습니다. (그리고 이 특정 스토리가 발생할 때 보고할 사용자 지정 이벤트를 구현해야 합니다.)
 
 ##속성을 사용하여 데이터를 필터링, 검색 및 분할
 이벤트에 임의의 태그 및 숫자 값을 연결할 수 있습니다.
@@ -145,7 +145,7 @@ Application Insights는 사용자 경험을 개선하고 비즈니스 목표를 
         {Score: currentGame.score, Opponents: currentGame.opponentCount}
     );
 
-서버의 C\#
+서버의 C#
 
     // Set up some properties:
     var properties = new Dictionary <string, string> 
@@ -195,9 +195,9 @@ Application Insights는 사용자 경험을 개선하고 비즈니스 목표를 
 
 이 기술의 경우 사용자 앱의 각 버전이 전송한 모든 원격 분석에 고유 태그를 연결합니다. 활성화된 TelemetryContext에서 속성을 정의하여 수행할 수 있습니다. 이러한 기본 속성은 사용자 지정 메시지뿐 아니라 표준 원격 분석도 응용 프로그램이 전송하는 모든 원격 분석 메시지에 추가됩니다.
 
-그런 다음 Application Insights 포털에서 태그로 데이터를 필터링 및 그룹화\(구분\)할 수 있게 되므로 다른 버전과 비교할 수 있습니다.
+그런 다음 Application Insights 포털에서 태그로 데이터를 필터링 및 그룹화(구분)할 수 있게 되므로 다른 버전과 비교할 수 있습니다.
 
-서버의 C\#
+서버의 C#
 
     using Microsoft.ApplicationInsights.DataContracts;
 

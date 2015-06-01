@@ -34,18 +34,18 @@
 
 ## 데이터 정보
 
-이 샘플 응용 프로그램에서는 데이터 집합 크기를 줄이기 위해 Rhode Island 주에 대해 필터링된 [USGS\(United States Geological Services\)](http://geonames.usgs.gov/domestic/download_data.htm)의 데이터를 사용합니다. 이 데이터를 사용하여 병원 및 학교와 같은 랜드마크 빌딩뿐만 아니라 강, 호수, 산 등의 지질학적 특징을 반환하는 검색 응용 프로그램을 빌드합니다.
+이 샘플 응용 프로그램에서는 데이터 집합 크기를 줄이기 위해 Rhode Island 주에 대해 필터링된 [USGS(United States Geological Services)](http://geonames.usgs.gov/domestic/download_data.htm)의 데이터를 사용합니다. 이 데이터를 사용하여 병원 및 학교와 같은 랜드마크 빌딩뿐만 아니라 강, 호수, 산 등의 지질학적 특징을 반환하는 검색 응용 프로그램을 빌드합니다.
 
 이 응용 프로그램에서 **SearchServlet.java** 프로그램은 [Indexer](https://msdn.microsoft.com/library/azure/dn798918.aspx) 구문을 사용하여 인덱스를 빌드 및 로드하며, 이를 통해 Azure SQL 데이터베이스에서 필터링된 USGS 데이터 집합을 검색합니다. 온라인 데이터 원본에 대한 미리 정의된 자격 증명 및 연결 정보는 프로그램 코드에서 제공됩니다. 데이터 액세스 측면에서 추가 구성은 필요하지 않습니다.
 
-> [AZURE.NOTE]무료 가격 책정 계층의 문서 제한\(10,000개\) 미만으로 유지하기 위해 이 데이터 집합에 필터를 적용했습니다. 표준 계층을 사용하는 경우에는 이 제한이 적용되지 않으며 이 코드를 수정하여 더 큰 데이터 집합을 사용할 수 있습니다. 각 가격 책정 계층의 용량에 대한 자세한 내용은 [제한 및 제약 조건](https://msdn.microsoft.com/library/azure/dn798934.aspx)을 참조하세요.
+> [AZURE.NOTE]무료 가격 책정 계층의 문서 제한(10,000개) 미만으로 유지하기 위해 이 데이터 집합에 필터를 적용했습니다. 표준 계층을 사용하는 경우에는 이 제한이 적용되지 않으며 이 코드를 수정하여 더 큰 데이터 집합을 사용할 수 있습니다. 각 가격 책정 계층의 용량에 대한 자세한 내용은 [제한 및 제약 조건](https://msdn.microsoft.com/library/azure/dn798934.aspx)을 참조하세요.
 
 ## 프로그램 파일 정보
 
 다음 목록에서는 이 샘플과 관련된 파일을 설명합니다.
 
 - Search.jsp: 사용자 인터페이스를 제공합니다.
-- SearchServlet.java: 메서드\(MVC의 컨트롤러와 유사\)를 제공합니다.
+- SearchServlet.java: 메서드(MVC의 컨트롤러와 유사)를 제공합니다.
 - SearchServiceClient.java: HTTP 요청을 처리합니다.
 - SearchServiceHelper.java: 정적 메서드를 제공하는 도우미 클래스입니다.
 - Document.java: 데이터 모델을 제공합니다.
@@ -57,7 +57,7 @@
 
 1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
 
-2. 표시줄에서 **새로 만들기** \| **데이터 + 저장소** \| **검색**을 클릭합니다.
+2. 표시줄에서 **새로 만들기** | **데이터 + 저장소** | **검색**을 클릭합니다.
  
      ![][1]
 
@@ -70,7 +70,7 @@
 	- **가격 책정 계층**은 용량 및 대금 청구를 결정합니다. 두 계층 모두 동일한 기능을 제공하지만 리소스 수준이 다릅니다.
 	
 		- **무료**는 다른 구독자와 공유되는 클러스터에서 실행되며, 자습서를 체험하고 개념 증명 코드를 작성하기에 충분한 용량을 제공하지만 프로덕션 응용 프로그램에 사용할 수 없습니다. 일반적으로 무료 서비스를 배포하는 데 몇 분 정도 걸립니다.
-		- **표준**은 전용 리소스에서 실행되고 확장성이 높습니다. 처음에는 하나의 복제본과 하나의 파티션으로 프로비전되지만 서비스를 만든 후 용량을 조정할 수 있습니다. 표준 서비스를 배포하는 데 더 오래 걸립니다\(일반적으로 약 15분\).
+		- **표준**은 전용 리소스에서 실행되고 확장성이 높습니다. 처음에는 하나의 복제본과 하나의 파티션으로 프로비전되지만 서비스를 만든 후 용량을 조정할 수 있습니다. 표준 서비스를 배포하는 데 더 오래 걸립니다(일반적으로 약 15분).
 	
 	- **리소스 그룹**은 일반적인 목적에 사용되는 서비스 및 리소스의 컨테이너입니다. 예를 들어 Azure 검색, Azure 웹 사이트, Azure BLOB 저장소를 기반으로 하여 사용자 지정 검색 응용 프로그램을 작성하는 경우 포털 관리 페이지에서 해당 서비스를 결합하는 리소스 그룹을 만들 수 있습니다.
 	
@@ -107,7 +107,7 @@
 
 ## 프로젝트 가져오기
 
-1. Eclipse에서 **File** \| **Import** \| **General** \| **Existing Projects into Workspace**를 선택합니다.
+1. Eclipse에서 **File** | **Import** | **General** | **Existing Projects into Workspace**를 선택합니다.
 
     ![][4]
 
@@ -117,7 +117,7 @@
 
 3. **마침**을 클릭합니다.
 
-4. **Project Explorer**를 사용하여 파일을 보고 편집합니다. 이미 열려 있지 않은 경우 **Window** \| **Show View** \| **Project Explorer**를 클릭하거나 바로 가기를 사용하여 엽니다.
+4. **Project Explorer**를 사용하여 파일을 보고 편집합니다. 이미 열려 있지 않은 경우 **Window** | **Show View** | **Project Explorer**를 클릭하거나 바로 가기를 사용하여 엽니다.
 
 ## 서비스 URL 및 Api-key 구성
 
@@ -125,13 +125,13 @@
  
 2. [Azure 포털](https://portal.azure.com)에서 서비스 URL 및 api-key를 찾은 이 문서의 이전 단계를 참조하여 **config.properties**에 입력할 값을 가져옵니다.
 
-3. **config.properties**에서 "Api Key"를 서비스의 api-key로 바꿉니다. 그러면 서비스 이름\(URL http://servicename.search.windows.net의 첫 번째 구성 요소\)이 동일한 파일의 "service name"을 대체합니다.
+3. **config.properties**에서 "Api Key"를 서비스의 api-key로 바꿉니다. 그러면 서비스 이름(URL http://servicename.search.windows.net의 첫 번째 구성 요소)이 동일한 파일의 "service name"을 대체합니다.
 
 	![][5]
 
 ## 프로젝트, 빌드 및 런타임 환경 구성
 
-1. Eclipse의 Project Explorer에서 프로젝트 \| **Properties** \| **Project Facets**을 마우스 오른쪽 단추로 클릭합니다.
+1. Eclipse의 Project Explorer에서 프로젝트 | **Properties** | **Project Facets**을 마우스 오른쪽 단추로 클릭합니다.
 
 2. **Dynamic Web Module**, **Java** 및 **JavaScript**를 선택합니다.
 
@@ -139,7 +139,7 @@
 
 3. **Apply**를 클릭합니다.
 
-4. **Window** \| **Preferences** \| **Server** \| **Runtime Environments** \| **Add..**를 선택합니다.
+4. **Window** | **Preferences** | **Server** | **Runtime Environments** | **Add..**를 선택합니다.
 
 5. Apache를 확장하고 이전에 설치한 Apache Tomcat 서버의 버전을 선택합니다. 예제 시스템에는 버전 8이 설치되어 있습니다.
 
@@ -149,7 +149,7 @@
 
 6. **마침**을 클릭합니다.
  
-7. **Window** \| **Preferences** \| **Java** \| **Installed JREs** \| **Add**를 선택합니다.
+7. **Window** | **Preferences** | **Java** | **Installed JREs** | **Add**를 선택합니다.
 
 8. **Add JRE**에서 **Standard VM**을 선택합니다.
 
@@ -157,13 +157,13 @@
  
 11. JRE 정의의 JRE 홈에서 **Directory**를 클릭합니다.
 
-12. **Program Files** \| **Java**로 이동하여 이전에 설치한 JDK를 선택합니다. JDK를 JRE로 선택해야 합니다.
+12. **Program Files** | **Java**로 이동하여 이전에 설치한 JDK를 선택합니다. JDK를 JRE로 선택해야 합니다.
 
 13. Installed JREs에서 **JDK**를 선택합니다. 설정은 다음 스크린샷과 유사해야 합니다.
 
     ![][9]
 
-14. 필요에 따라 **Window** \| **Web Browser** \| **Internet Explorer**를 선택하여 외부 브라우저 창에서 응용 프로그램을 엽니다. 외부 브라우저를 사용하면 웹 응용 프로그램 환경이 향상됩니다.
+14. 필요에 따라 **Window** | **Web Browser** | **Internet Explorer**를 선택하여 외부 브라우저 창에서 응용 프로그램을 엽니다. 외부 브라우저를 사용하면 웹 응용 프로그램 환경이 향상됩니다.
 
     ![][8]
 
@@ -171,7 +171,7 @@
 
 ## 프로젝트 빌드
  
-1. Project Explorer에서 프로젝트 이름을 마우스 오른쪽 단추로 클릭하고 **Run As** \| **Maven build...**를 선택하여 프로젝트를 구성합니다.
+1. Project Explorer에서 프로젝트 이름을 마우스 오른쪽 단추로 클릭하고 **Run As** | **Maven build...**를 선택하여 프로젝트를 구성합니다.
 
     ![][10]
 
@@ -187,9 +187,9 @@ Eclipse에서 서버 런타임 환경을 아직 지정하지 않은 경우 이 �
 
 1. Project Explorer에서 **WebContent**를 확장합니다.
 
-5. **Search.jsp** \| **Run As** \| **Run on Server**를 마우스 오른쪽 단추로 클릭합니다. Apache Tomcat 서버를 선택하고 **Run**을 클릭합니다.
+5. **Search.jsp** | **Run As** | **Run on Server**를 마우스 오른쪽 단추로 클릭합니다. Apache Tomcat 서버를 선택하고 **Run**을 클릭합니다.
 
-> [AZURE.TIP]기본이 아닌 작업 영역을 사용하여 프로젝트를 저장한 경우 서버 시작 오류를 방지하기 위해 프로젝트 위치를 가리키도록 **Run Configuration**을 수정해야 할 수도 있습니다. Project Explorer에서 **Search.jsp** \| **Run As** \| **Run Configurations**를 마우스 오른쪽 단추로 클릭합니다. Apache Tomcat 서버를 선택합니다. **Arguments**를 클릭합니다. **Workspace** 또는 **File System**을 클릭하여 프로젝트가 포함된 폴더를 설정합니다.
+> [AZURE.TIP]기본이 아닌 작업 영역을 사용하여 프로젝트를 저장한 경우 서버 시작 오류를 방지하기 위해 프로젝트 위치를 가리키도록 **Run Configuration**을 수정해야 할 수도 있습니다. Project Explorer에서 **Search.jsp** | **Run As** | **Run Configurations**를 마우스 오른쪽 단추로 클릭합니다. Apache Tomcat 서버를 선택합니다. **Arguments**를 클릭합니다. **Workspace** 또는 **File System**을 클릭하여 프로젝트가 포함된 폴더를 설정합니다.
 
 응용 프로그램을 실행하면 용어를 입력할 수 있는 검색 상자를 제공하는 브라우저 창이 표시됩니다.
 

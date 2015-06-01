@@ -26,7 +26,7 @@
 - [Azure classic portal](virtual-machines-windows-tutorial-classic-portal.md)
 - [PowerShell](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
-이 자습서에서는 Azure VM\(가상 컴퓨터\)을 간편하게 만드는 방법을 보여 줍니다. 이 자습서에서는 Windows Server 이미지를 사용하지만 이는 Azure를 통해 사용할 수 있는 여러 이미지 중 하나에 불과합니다. 예를 들어 Windows 운영 체제, Linux-based 운영 체제, 설치된 응용 프로그램이 있는 이미지 등이 여기에 해당합니다. 선택할 수 있는 이미지는 소유한 구독 유형에 따라 다릅니다. 예를 들어 데스크톱 이미지는 MSDN 구독자가 사용할 수 있습니다.
+이 자습서에서는 Azure VM(가상 컴퓨터)을 간편하게 만드는 방법을 보여 줍니다. 이 자습서에서는 Windows Server 이미지를 사용하지만 이는 Azure를 통해 사용할 수 있는 여러 이미지 중 하나에 불과합니다. 예를 들어 Windows 운영 체제, Linux-based 운영 체제, 설치된 응용 프로그램이 있는 이미지 등이 여기에 해당합니다. 선택할 수 있는 이미지는 소유한 구독 유형에 따라 다릅니다. 예를 들어 데스크톱 이미지는 MSDN 구독자가 사용할 수 있습니다.
 
 [사용자 고유의 이미지](virtual-machines-create-upload-vhd-windows-server-classic-portal.md)를 사용하여 Windows VM을 만들 수도 있습니다. Azure VM에 대한 자세한 내용은 [Azure 가상 컴퓨터 개요](http://msdn.microsoft.com/library/azure/jj156143.aspx)를 참조하세요.
 

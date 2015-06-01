@@ -116,7 +116,7 @@ Azure에서 네임스페이스를 만들고 활성화합니다.
 
 1. **이름**에 **MvcACS**를 입력하고 **확인**을 클릭합니다.
 1. 다음 대화 상자에서 **인터넷 응용 프로그램**을 선택하고 **확인**을 클릭합니다.
-1.  *Views\Shared\_LoginPartial.cshtml* 파일을 편집하고 파일 내용을 다음 코드로 바꿉니다.
+1.  *Views\Shared_LoginPartial.cshtml* 파일을 편집하고 파일 내용을 다음 코드로 바꿉니다.
 
         @if (Request.IsAuthenticated)
         {

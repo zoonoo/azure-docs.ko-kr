@@ -118,7 +118,7 @@ Azure 구독에 연결하려면 다음을 입력합니다.
 
 - 아래 명령을 입력하면 리소스 그룹 수준에서 역할 할당이 생성됩니다.
 
-    `PS C:\> azure role assignment create --mail <사용자 메일> -o Contributor -g group1`
+    `PS C:> azure role assignment create --mail <사용자 메일> -o Contributor -g group1`
 
 - 아래 명령을 입력하면 리소스 수준에서 역할 할당이 생성됩니다.
 
@@ -128,8 +128,8 @@ Azure 구독에 연결하려면 다음을 입력합니다.
 
 계정에 역할이 할당되었음을 확인한 후에는 다음 명령을 실행하여 이러한 역할 할당을 통해 부여되는 권한을 실제로 확인할 수 있습니다.
 
-    PS C:\> azure group list
-    PS C:\> azure resource list
+    PS C:> azure group list
+    PS C:> azure resource list
 
 이 두 cmdlet은 읽기 권한이 있는 리소스 그룹 또는 리소스만 반환하며, 사용자가 소유한 권한도 표시합니다.
 

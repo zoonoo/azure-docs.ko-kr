@@ -194,13 +194,13 @@ Twilio 제공 URL을 사용하지 않고 HTTP 응답을 반환하는 고유한 �
 
     <?php    
 		header("content-type: text/xml");    
-		echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
+		echo "<?xml version="1.0" encoding="UTF-8"?>\n";
 	?>
 	<Response>    
 		<Say>Hello world.</Say>
 	</Response>
 
-위의 예제와 같이 TwiML 응답은 단지 XML 문서입니다. PHP용 Twilio 라이브러리에는 TwiML을 자동으로 생성하는 클래스가 포함되어 있습니다. 아래의 예제에서는 위에 표시된 것과 동일한 응답을 생성하지만 PHP용 Twilio 라이브러리의 **Services\_Twilio\_Twiml** 클래스를 사용합니다.
+위의 예제와 같이 TwiML 응답은 단지 XML 문서입니다. PHP용 Twilio 라이브러리에는 TwiML을 자동으로 생성하는 클래스가 포함되어 있습니다. 아래의 예제에서는 위에 표시된 것과 동일한 응답을 생성하지만 PHP용 Twilio 라이브러리의 **Services_Twilio_Twiml** 클래스를 사용합니다.
 
 	require_once('Services/Twilio.php');
 	

@@ -34,7 +34,7 @@
 
 ### 소프트웨어 설치
 
-이 문서의 AzureWebDemo 응용 프로그램 코드는 Azure Java SDK 0.7.0를 사용하여 작성되며, [웹 플랫폼 설치 관리자 \(WebPI\)](http://go.microsoft.com/fwlink/?LinkID=252838)를 사용하여 설치할 수 있습니다. 또한, 최신 버전의 [Eclipse용 Azure Toolkit](https://msdn.microsoft.com/library/azure/hh690946.aspx)을 사용해야 합니다. SDK를 설치한 후, **Maven 리포지토리**에서 **인덱스 업데이트**를 실행하여 Eclipse 프로젝트에서 종속성을 업데이트한 다음 **종속성** 창에서 각 패키지의 최신 버전을 다시 추가합니다. **도움말 \> 설치 세부 정보**를 클릭하여 Eclipse에 설치된 소프트웨어의 버전을 확인할 수 있습니다. 다음 버전 이상이 있어야 합니다.
+이 문서의 AzureWebDemo 응용 프로그램 코드는 Azure Java SDK 0.7.0를 사용하여 작성되며, [웹 플랫폼 설치 관리자 (WebPI)](http://go.microsoft.com/fwlink/?LinkID=252838)를 사용하여 설치할 수 있습니다. 또한, 최신 버전의 [Eclipse용 Azure Toolkit](https://msdn.microsoft.com/library/azure/hh690946.aspx)을 사용해야 합니다. SDK를 설치한 후, **Maven 리포지토리**에서 **인덱스 업데이트**를 실행하여 Eclipse 프로젝트에서 종속성을 업데이트한 다음 **종속성** 창에서 각 패키지의 최신 버전을 다시 추가합니다. **도움말 > 설치 세부 정보**를 클릭하여 Eclipse에 설치된 소프트웨어의 버전을 확인할 수 있습니다. 다음 버전 이상이 있어야 합니다.
 
 - Java용 Microsoft Azure 라이브러리 패키지 0.7.0.20150309
 - Java EE Developers용 Eclipse IDE 4.4.2.20150219
@@ -42,14 +42,14 @@
 
 ### Azure에서 클라우드 리소스 만들기 및 구성
 
-이 절차를 시작하기 전에 활성 Azure를 구독하고 Azure에서 기본 AD\(Active Directory\)를 설정해야 합니다.
+이 절차를 시작하기 전에 활성 Azure를 구독하고 Azure에서 기본 AD(Active Directory)를 설정해야 합니다.
 
 
-### Azure에 Active Directory\(AD\) 만들기
+### Azure에 Active Directory(AD) 만들기
 
-Azure 구독에 Active Directory\(AD\)가 없는 경우, Microsoft 계정과 함께 [Azure 클래식 포털](https://manage.windowsazure.com)로 로그인합니다. 다중 구독인 경우, **구독**을 클릭하고 이 프로젝트에 대해 사용 하려는 구독에 대한 기본 디렉터리를 선택합니다. **적용**을 클릭하여 해당 구독 뷰로 전환합니다.
+Azure 구독에 Active Directory(AD)가 없는 경우, Microsoft 계정과 함께 [Azure 클래식 포털](https://manage.windowsazure.com)로 로그인합니다. 다중 구독인 경우, **구독**을 클릭하고 이 프로젝트에 대해 사용 하려는 구독에 대한 기본 디렉터리를 선택합니다. **적용**을 클릭하여 해당 구독 뷰로 전환합니다.
 
-1. 왼쪽 창에서 **Active Directory**를 선택합니다. **새로 만들기 \> 디렉터리 \> 사용자 지정 만들기를 클릭합니다**.
+1. 왼쪽 창에서 **Active Directory**를 선택합니다. **새로 만들기 > 디렉터리 > 사용자 지정 만들기를 클릭합니다**.
 
 2. **디렉터리 추가**에서 **새 디렉터리 만들기**를 선택합니다.
 
@@ -69,7 +69,7 @@ Java용 Azure SDK는 관리 인증서를 사용하여 Azure 구독으로 인증�
 이 절차의 코드는 자체 서명된 인증서를 사용하여 Azure와 인증합니다. 이 절차는 인증서를 만들고 미리 [Azure 클래식 포털](https://manage.windowsazure.com)로 업로드해야 합니다. 다음 단계를 포함합니다.
 
 - 클라이언트 인증서를 나타내는 PFX 파일을 생성하고 로컬로 저장합니다.
-- PFX 파일에서 관리 인증서\(CER 파일\)를 생성합니다.
+- PFX 파일에서 관리 인증서(CER 파일)를 생성합니다.
 - CER 파일을 Azure 구독에 업로드합니다.
 - Java가 해당 형식을 사용하여 인증서를 인증하기 때문에 PFX 파일을 JKS로 변환합니다.
 - 로컬 JKS 파일을 참조하는 응용 프로그램의 인증 코드를 작성합니다.
@@ -81,7 +81,7 @@ Java용 Azure SDK는 관리 인증서를 사용하여 Azure 구독으로 인증�
 
 자체 서명된 인증서를 만들려면, 운영 체제에서 명령 콘솔을 열고 다음 명령을 실행합니다.
 
-> **참고:** 이 명령을 실행하는 컴퓨터에 JDK가 설치되어 있어야 합니다. 또한 keytool 경로는 JDK를 설치한 위치에 따라 달라집니다. 자세한 내용은 Java 온라인 문서의 [키 및 인증서 관리 도구\(keytool\)](http://docs.oracle.com/javase/6/docs/technotes/tools/windows/keytool.html)를 참조하세요.
+> **참고:** 이 명령을 실행하는 컴퓨터에 JDK가 설치되어 있어야 합니다. 또한 keytool 경로는 JDK를 설치한 위치에 따라 달라집니다. 자세한 내용은 Java 온라인 문서의 [키 및 인증서 관리 도구(keytool)](http://docs.oracle.com/javase/6/docs/technotes/tools/windows/keytool.html)를 참조하세요.
 
 .Pfx 파일을 만들려면:
 
@@ -99,9 +99,9 @@ Java용 Azure SDK는 관리 인증서를 사용하여 Azure 구독으로 인증�
 설명:
 
 - `<java-install-dir>` Java를 설치한 디렉터리의 경로입니다.
-- `<keystore-id>` 키 저장소 항목 ID입니다\(예: `AzureRemoteAccess`\).
-- `<cert-store-dir>` 인증서를 저장할 디렉터리의 경로입니다\(예: `C:/Certificates`\).
-- `<cert-file-name>` 인증서의 이름입니다\(예: `AzureWebDemoCert`\).
+- `<keystore-id>` 키 저장소 항목 ID입니다(예: `AzureRemoteAccess`).
+- `<cert-store-dir>` 인증서를 저장할 디렉터리의 경로입니다(예: `C:/Certificates`).
+- `<cert-file-name>` 인증서의 이름입니다(예: `AzureWebDemoCert`).
 - `<password>` 인증서를 보호하기 위해 선택하는 암호입니다. 최소 6자여야 합니다. 권장하지는 않지만 암호 없이 입력할 수 있습니다.
 - `<dname>` 별칭과 연관되는 X.500 고유 이름이며 자체 서명된 인증서의 발급자 및 주제 필드로 사용됩니다.
 
@@ -115,7 +115,7 @@ Java용 Azure SDK는 관리 인증서를 사용하여 Azure 구독으로 인증�
 
 #### PFX 파일을 JKS로 변환
 
-Windows 명령 프롬프트에서\(관리자로 실행\), cd를 사용하여 인증서를 포함한 디렉토리로 이동하고 다음 명령을 실행합니다. 여기서 `<java-install-dir>`은 사용자 컴퓨터에 설치된 디렉터리입니다.
+Windows 명령 프롬프트에서(관리자로 실행), cd를 사용하여 인증서를 포함한 디렉토리로 이동하고 다음 명령을 실행합니다. 여기서 `<java-install-dir>`은 사용자 컴퓨터에 설치된 디렉터리입니다.
 
     <java-install-dir>/bin/keytool.exe -importkeystore
      -srckeystore <cert-store-dir>/<cert-file-name>.pfx
@@ -135,7 +135,7 @@ Windows 명령 프롬프트에서\(관리자로 실행\), cd를 사용하여 인
 
 이 섹션에서는 AzureWebDemo라는 웹 앱 만들기 응용 프로그램을 위한 Maven 프로젝트 및 작업 영역을 만듭니다.
 
-1. 새 Maven 프로젝트를 만듭니다. **파일 \> 새로 만들기 \> Maven 프로젝트**를 클릭합니다. **새 Maven 프로젝트**에서 **간단한 프로젝트 만들기** 및 **기본 작업 영역 위치 사용**을 선택합니다.
+1. 새 Maven 프로젝트를 만듭니다. **파일 > 새로 만들기 > Maven 프로젝트**를 클릭합니다. **새 Maven 프로젝트**에서 **간단한 프로젝트 만들기** 및 **기본 작업 영역 위치 사용**을 선택합니다.
 
 2. **새 Maven 프로젝트**의 두 번째 페이지에서 다음을 지정합니다.
 
@@ -149,7 +149,7 @@ Windows 명령 프롬프트에서\(관리자로 실행\), cd를 사용하여 인
 
 3. 프로젝트 탐색기에서 새 프로젝트의 pom.xml 파일을 엽니다. **종속성** 탭을 선택합니다. 새 프로젝트이면, 아직 패키지가 표시되지 않습니다.
 
-4. Maven 리포지토리 보기를 엽니다. **창 \> 보기 표시 \> 기타 \> Maven \> Maven 리포지토리**를 클릭하고 **확인**을 클릭합니다. **Maven 리포지토리** 보기는 IDE의 아래쪽에 표시됩니다.
+4. Maven 리포지토리 보기를 엽니다. **창 > 보기 표시 > 기타 > Maven > Maven 리포지토리**를 클릭하고 **확인**을 클릭합니다. **Maven 리포지토리** 보기는 IDE의 아래쪽에 표시됩니다.
 
 5. **전역 리포지토리**를 열고 **중앙** 리포지토리를 마우스 오른쪽 단추로 클릭한 다음 **인덱스 다시 작성**을 선택합니다.
 
@@ -171,7 +171,7 @@ Windows 명령 프롬프트에서\(관리자로 실행\), cd를 사용하여 인
 
 다음으로, 앱 서비스 웹 앱을 만드는 Java 용 Azure SDK에서 API를 호출하는 코드를 작성합니다.
 
-1. 기본 진입점 코드를 포함하는 Java 클래스를 만듭니다. 프로젝트 탐색기에서 프로젝트 노드를 마우스 오른쪽 단추로 클릭하고 **새로 만들기 \> 클래스**를 선택합니다.
+1. 기본 진입점 코드를 포함하는 Java 클래스를 만듭니다. 프로젝트 탐색기에서 프로젝트 노드를 마우스 오른쪽 단추로 클릭하고 **새로 만들기 > 클래스**를 선택합니다.
 
 2. **새 Java 클래스**에서, 클래스의 이름을 `WebCreator`로 지정하고 **public static void main** 확인란을 선택합니다. 선택 항목은 다음과 같이 나타나야 합니다.
 
@@ -240,12 +240,12 @@ AzureWebDemo 응용 프로그램의 목적은 웹 서비스 웹 앱을 만드는
 - `webSpaceName` [WebSpaceNames](http://dl.windowsazure.com/javadoc/com/microsoft/windowsazure/management/websites/models/WebSpaceNames.html) 클래스에 정의된 값 중 하나여야 합니다.
 - `appServicePlanName` 위와 같이 지정해야 합니다.
 
-> **참고:** 이 응용 프로그램을 실행할 때마다, 응용 프로그램을 다시 실행하기 전에 `webAppName` 및 `appServicePlanName`의 값을 변경해야 합니다\(또는 Azure 포털에서 웹 앱 삭제\). 그렇지 않은 경우, 동일한 리소스가 Azure에 이미 존재하기 때문에 실행이 실패합니다.
+> **참고:** 이 응용 프로그램을 실행할 때마다, 응용 프로그램을 다시 실행하기 전에 `webAppName` 및 `appServicePlanName`의 값을 변경해야 합니다(또는 Azure 포털에서 웹 앱 삭제). 그렇지 않은 경우, 동일한 리소스가 Azure에 이미 존재하기 때문에 실행이 실패합니다.
 
 
 #### 웹 만들기 메서드 정의
 
-다음으로, 웹 앱을 만드는 메서드를 정의 합니다. 이 메소드, `createWebApp`는 웹 앱 및 웹 공간의 매개 변수를 지정합니다. 웹 서비스 웹 앱 관리 클라이언트도 만들고 구성하며, [WebSiteManagementClient](http://dl.windowsazure.com/javadoc/com/microsoft/windowsazure/management/websites/WebSiteManagementClient.html) 개체로 정의됩니다. 관리 클라이언트는 웹 앱을 작성하는 키입니다. 서비스 관리 API를 호출하여 응용 프로그램이 웹 앱\(만들기, 업데이트 및 삭제와 같은 작업 수행\)을 관리할 수 있는 RESTful 웹 서비스를 제공합니다.
+다음으로, 웹 앱을 만드는 메서드를 정의 합니다. 이 메소드, `createWebApp`는 웹 앱 및 웹 공간의 매개 변수를 지정합니다. 웹 서비스 웹 앱 관리 클라이언트도 만들고 구성하며, [WebSiteManagementClient](http://dl.windowsazure.com/javadoc/com/microsoft/windowsazure/management/websites/WebSiteManagementClient.html) 개체로 정의됩니다. 관리 클라이언트는 웹 앱을 작성하는 키입니다. 서비스 관리 API를 호출하여 응용 프로그램이 웹 앱(만들기, 업데이트 및 삭제와 같은 작업 수행)을 관리할 수 있는 RESTful 웹 서비스를 제공합니다.
 
     private static void createWebApp() throws Exception {
 
@@ -309,9 +309,9 @@ AzureWebDemo 응용 프로그램의 목적은 웹 서비스 웹 앱을 만드는
 코드는 성공 또는 실패를 나타내는 응답의 HTTP 상태를 출력하고 성공하는 경우작성한 웹 앱의 이름을 출력합니다.
 
 
-#### Main \(\) 메서드 정의
+#### Main () 메서드 정의
 
-createWebApp\(\)을 호출하여 웹 앱을 만드는 main \(\) 메서드 코드를 제공합니다.
+createWebApp()을 호출하여 웹 앱을 만드는 main () 메서드 코드를 제공합니다.
 
 마지막으로 `main`에서 `createWebApp`을 호출합니다.
 
@@ -329,7 +329,7 @@ createWebApp\(\)을 호출하여 웹 앱을 만드는 main \(\) 메서드 코드
 
 #### 응용 프로그램을 실행하고 웹 앱 작성을 확인합니다.
 
-응용 프로그램이 실행되는 지를 확인하려면 **실행 \> 실행**을 클릭합니다. 응용 프로그램 실행이 완료되면, Eclipse 콘솔에서 다음 출력이 표시되어야 합니다.
+응용 프로그램이 실행되는 지를 확인하려면 **실행 > 실행**을 클릭합니다. 응용 프로그램 실행이 완료되면, Eclipse 콘솔에서 다음 출력이 표시되어야 합니다.
 
     ----------
     Web app created - HTTP response 200
@@ -345,7 +345,7 @@ Azure 클래식 포털에 로그인하고 **웹 앱**을 클릭합니다. 새 �
 
 ## 웹 앱에 응용 프로그램 배포
 
-AzureWebDemo를 실행하고 새 웹 앱을 만든 후 클래식 포털로 로그인하고 **웹 앱**을 클릭하고 **웹 앱** 목록에서 **WebDemoWebApp**을 선택합니다. 웹 앱의 대시보드 페이지에서 **찾아보기**\(또는 URL, `webdemowebapp.azurewebsites.net`을 클릭하여\) 이동합니다. 아직 웹 앱에 게시된 내용이 없기 때문에 빈 자리 표시자 페이지가 나타납니다.
+AzureWebDemo를 실행하고 새 웹 앱을 만든 후 클래식 포털로 로그인하고 **웹 앱**을 클릭하고 **웹 앱** 목록에서 **WebDemoWebApp**을 선택합니다. 웹 앱의 대시보드 페이지에서 **찾아보기**(또는 URL, `webdemowebapp.azurewebsites.net`을 클릭하여) 이동합니다. 아직 웹 앱에 게시된 내용이 없기 때문에 빈 자리 표시자 페이지가 나타납니다.
 
 다음으로, "Hello World" 응용 프로그램을 만들고 웹 앱에 배포합니다.
 
@@ -356,13 +356,13 @@ AzureWebDemo를 실행하고 새 웹 앱을 만든 후 클래식 포털로 로�
 
 웹 응용 프로그램을 웹에 배포하는 방법을 보여주려면, 다음 절차에서는 간단한 "Hello World" Java 응용 프로그램을 만들고 응용 프로그램에서 만든 웹 서비스 웹 앱에 업로드 하는 방법을 나타냅니다.
 
-1. **파일 \> 새로 만들기 \> 동적 웹 프로젝트**를 클릭합니다. 이름을 `JSPHello`로 지정합니다. 이 대화 상자에서 다른 설정을 변경할 필요가 없습니다. **마침**을 클릭합니다.
+1. **파일 > 새로 만들기 > 동적 웹 프로젝트**를 클릭합니다. 이름을 `JSPHello`로 지정합니다. 이 대화 상자에서 다른 설정을 변경할 필요가 없습니다. **마침**을 클릭합니다.
 
     ![][3]
 
-2. 프로젝트 탐색기에서 **JSPHello** 프로젝트를 확장하고 **WebContent**를 마우스 오른쪽 단추로 클릭한 다음 **새로 만들기 \> JSP 파일**을 클릭합니다. 새 JSP 파일 대화 상자에서 새 파일의 이름을 `index.jsp`로 지정합니다. **다음**을 클릭합니다.
+2. 프로젝트 탐색기에서 **JSPHello** 프로젝트를 확장하고 **WebContent**를 마우스 오른쪽 단추로 클릭한 다음 **새로 만들기 > JSP 파일**을 클릭합니다. 새 JSP 파일 대화 상자에서 새 파일의 이름을 `index.jsp`로 지정합니다. **다음**을 클릭합니다.
 
-3. **Select JSP Template** 대화 상자에서 **New JSP File \(html\)**을 선택하고 **Finish**를 클릭합니다.
+3. **Select JSP Template** 대화 상자에서 **New JSP File (html)**을 선택하고 **Finish**를 클릭합니다.
 
 4. Index.jsp에서, `<head>` 및 `<body>` 섹션 태그에서 다음 코드를 추가합니다.
 
@@ -404,14 +404,14 @@ AzureWebDemo를 실행하고 새 웹 앱을 만든 후 클래식 포털로 로�
 
     **마침**을 클릭합니다.
 
-7. 응용 프로그램을 실행하면 다음 메시지를 표시하는 Eclipse\(`http://localhost:8080/JSPHello/`\)의 localhost 창에 **JSPHello** 페이지가 표시되어야 합니다.
+7. 응용 프로그램을 실행하면 다음 메시지를 표시하는 Eclipse(`http://localhost:8080/JSPHello/`)의 localhost 창에 **JSPHello** 페이지가 표시되어야 합니다.
 
     `Hello World, the time is Tue Mar 24 23:21:10 GMT 2015`
 
 
 #### WAR로 응용 프로그램 내보내기
 
-웹 앱을 배포할 수 있도록 웹 보관 파일 \(WAR\) 파일로 웹 프로젝트 파일을 내보냅니다. 다음 웹 프로젝트 파일은 WebContent 폴더에 저장합니다.
+웹 앱을 배포할 수 있도록 웹 보관 파일 (WAR) 파일로 웹 프로젝트 파일을 내보냅니다. 다음 웹 프로젝트 파일은 WebContent 폴더에 저장합니다.
 
     META-INF
     WEB-INF
@@ -419,7 +419,7 @@ AzureWebDemo를 실행하고 새 웹 앱을 만든 후 클래식 포털로 로�
 
 1. WebContent 폴더를 마우스 오른쪽 단추로 클릭하고 **내보내기**를 선택합니다.
 
-2. **선택 내보내기** 대화 상자에서 **웹 \> WAR** 파일을 클릭한 후 **다음**을 클릭합니다.
+2. **선택 내보내기** 대화 상자에서 **웹 > WAR** 파일을 클릭한 후 **다음**을 클릭합니다.
 
 3. **WAR 내보내기** 대화 상자에서 현재 프로젝트에서 src 디렉터리를 선택하고 끝에 WAR 파일의 이름을 포함합니다. 예:
 
@@ -434,7 +434,7 @@ WAR 파일의 배포에 대한 자세한 내용은 [Java 응용 프로그램을 
 
 > **참고:** Java 2.4를 포함한 Eclipse용 Azure 플러그인은 저장소 계정 및 클라우드 서비스에 대한 배포를 지원하지만, 현재는 웹 앱에 대한 배포를 지원하지 않습니다. [Eclipse에서 Azure용 Hello World 응용 프로그램을 만들기](http://msdn.microsoft.com/library/azure/hh690944.aspx)에서 설명한 대로 Azure 배포 프로젝트를 사용하여 저장소 계정 및 클라우드 서비스를 배포할 수 있지만 웹 앱에는 배포하지 않습니다. FTP 또는 GitHub와 같은 다른 메서드를 사용하여 웹 앱에 파일을 전송합니다.
 
-> **참고:** Windows 명령 프롬프트\(Windows와 함께 제공되는 명령줄 FTP.EXE 유틸리티\)에서 FTP를 사용하는 것은 권장하지 않습니다. FTP.EXE와 같은 활성 FTP를 사용하는 FTP 클라이언트는 방화벽을 통해 작동하는 데 자주 실패합니다. 활성 FTP는 FTP 서버가 연결에 실패할 가능성이 있는 내부 LAN 기반 주소를 지정합니다.
+> **참고:** Windows 명령 프롬프트(Windows와 함께 제공되는 명령줄 FTP.EXE 유틸리티)에서 FTP를 사용하는 것은 권장하지 않습니다. FTP.EXE와 같은 활성 FTP를 사용하는 FTP 클라이언트는 방화벽을 통해 작동하는 데 자주 실패합니다. 활성 FTP는 FTP 서버가 연결에 실패할 가능성이 있는 내부 LAN 기반 주소를 지정합니다.
 
 FTP를 사용하여 웹 서비스 웹 앱에 배포에 대한 자세한 내용은 다음 항목을 참조하세요.
 
@@ -448,7 +448,7 @@ FTP를 사용하여 웹 서비스 웹 앱에 배포에 대한 자세한 내용�
 
 1. 클래식 포털에 로그인하고 **웹 앱**을 클릭합니다. **WebDemoWebApp**은 웹 앱 목록에 표시되며 실행 중인지 확인하세요. **WebDemoWebApp**을 클릭하여 해당 **대시보드** 페이지를 엽니다.
 
-2. **대시보드** 페이지의 **빠른 보기**에서, **배포 자격 증명 설정**\(배포 자격 증명이 이미 있는 경우 **배포 자격 증명 재설정**을 읽음\)을 클릭합니다.
+2. **대시보드** 페이지의 **빠른 보기**에서, **배포 자격 증명 설정**(배포 자격 증명이 이미 있는 경우 **배포 자격 증명 재설정**을 읽음)을 클릭합니다.
 
     배포 자격 증명은 Microsoft 계정과 연결됩니다. Git 및 FTP를 사용하여 배포하는 데 사용할 수 있는 사용자 이름 및 암호를 지정해야 합니다. 이러한 자격 증명을 사용하여 Microsoft 계정에 연결된 모든 Azure 구독에서 모든 웹 앱에 배포할 수 있습니다. 대화 상자에서 Git 및 FTP 배포 자격 증명을 제공하고 나중에 사용할 사용자 이름 및 암호를 기록합니다.
 
@@ -461,7 +461,7 @@ FTP를 사용하여 새로 만든된 웹 앱에 응용 프로그램 파일을 �
 
 1. **Essentials**에서 **FTP 호스트 이름**을 찾아 복사합니다. `ftp://waws-prod-bay-NNN.ftp.azurewebsites.windows.net`와 유사한 URI입니다.
 
-2. **Essentials**에서 **FTP/Deployment username**을 찾아 복사합니다. *webappname\\deployment-username*의 형식이 됩니다\(예: `WebDemoWebApp\deployer77`\).
+2. **Essentials**에서 **FTP/Deployment username**을 찾아 복사합니다. *webappname\\deployment-username*의 형식이 됩니다(예: `WebDemoWebApp\deployer77`).
 
 게시 프로필에서 FTP 연결 정보를 얻으려면:
 
@@ -493,9 +493,9 @@ FTP를 사용하여 새로 만든된 웹 앱에 응용 프로그램 파일을 �
 
 1. 클래식 포털에서 웹 앱의 **대시보드** 페이지로 이동하고 **구성**을 클릭합니다. **구성** 페이지에서 다음 설정을 지정합니다.
 
-2. **Java 버전**에서 기본값은 **Off**입니다. Java 버전을 응용 프로그램 대상에서 선택합니다\(예: 1.7.0\_51\). 이 작업을 수행한 후, **웹 컨테이너**가 Tomcat 서버 버전으로 설정되는지도 확인합니다.
+2. **Java 버전**에서 기본값은 **Off**입니다. Java 버전을 응용 프로그램 대상에서 선택합니다(예: 1.7.0_51). 이 작업을 수행한 후, **웹 컨테이너**가 Tomcat 서버 버전으로 설정되는지도 확인합니다.
 
-3. **기본 문서**에서, index.jsp를 추가하고 위쪽 목록으로 이동합니다. \(웹 앱에 대한 기본 파일은 hostingstart.html입니다.\)
+3. **기본 문서**에서, index.jsp를 추가하고 위쪽 목록으로 이동합니다. (웹 앱에 대한 기본 파일은 hostingstart.html입니다.)
 
 4. **Save**를 클릭합니다.
 
@@ -510,9 +510,9 @@ FTP를 사용하여 새로 만든된 웹 앱에 응용 프로그램 파일을 �
 
     `https://webdemowebapp.scm.azurewebsites.net/DebugConsole`
 
-2. 최상위 메뉴에서 **디버그 콘솔 \> CMD**를 선택합니다.
+2. 최상위 메뉴에서 **디버그 콘솔 > CMD**를 선택합니다.
 
-3. 콘솔 명령줄에서 `/site/wwwroot`로 이동합니다\(페이지 위쪽의 디렉터리 보기에서 `site`, `wwwroot`을 차례로 클릭\).
+3. 콘솔 명령줄에서 `/site/wwwroot`로 이동합니다(페이지 위쪽의 디렉터리 보기에서 `site`, `wwwroot`을 차례로 클릭).
 
     `cd /site/wwwroot`
 
@@ -530,21 +530,21 @@ FTP를 사용하여 새로 만든된 웹 앱에 응용 프로그램 파일을 �
 
   ![][9]
 
-짧은 시간\(약 5분 미만\)에 Tomcat 서버는 JSPHello 압축을 해제한 디렉터리로 WAR 파일의 압축을 해제합니다. ROOT 디렉터리를 클릭하여 Index.jsp의 압축을 해제하고 복사하는 지 확인합니다. 그런 경우, 압축이 해제된 JSPHello 디렉터리가 만들어졌는지 여부를 볼 수 있는 webapps 디렉터리로 다시 이동합니다. 이 항목이 표시되지 않으면 대기하고 반복합니다.
+짧은 시간(약 5분 미만)에 Tomcat 서버는 JSPHello 압축을 해제한 디렉터리로 WAR 파일의 압축을 해제합니다. ROOT 디렉터리를 클릭하여 Index.jsp의 압축을 해제하고 복사하는 지 확인합니다. 그런 경우, 압축이 해제된 JSPHello 디렉터리가 만들어졌는지 여부를 볼 수 있는 webapps 디렉터리로 다시 이동합니다. 이 항목이 표시되지 않으면 대기하고 반복합니다.
 
   ![][10]
 
 
-#### FileZilla를 사용하여 응용 프로그램 게시\(선택 사항\)
+#### FileZilla를 사용하여 응용 프로그램 게시(선택 사항)
 
 응용 프로그램을 게시하는데 사용할 수 있는 다른 도구는 FileZilla로, 편리한 그래픽 UI가 있는 타사 FTP 클라이언트입니다. 없는 경우, [http://filezilla-project.org/](http://filezilla-project.org/)에서 FileZilla를 다운로드하고 설치할 수 있습니다. 클라이언트 사용에 대한 자세한 내용은 [FileZilla 설명서](https://wiki.filezilla-project.org/Documentation) 및 [FTP 클라이언트-파트 4: FileZilla](http://blogs.msdn.com/b/robert_mcmurray/archive/2008/12/17/ftp-clients-part-4-filezilla.aspx)의 이 블로그 항목을 참조하세요.
 
-1. FileZilla에서 **파일 \> 사이트 관리자**를 클릭합니다.
+1. FileZilla에서 **파일 > 사이트 관리자**를 클릭합니다.
 2. **사이트 관리자** 대화 상자에서 **새 사이트**를 클릭합니다. 비어 있는 새 FTP 사이트는 이름을 입력하라는 메시지를 표시하는 **항목 선택**에 나타납니다. 이 절차에 대한 이름을 `AzureWebDemo-FTP`로 지정합니다.
 
     **일반** 탭에서 다음 설정을 지정합니다.
     - **호스트:** 대시보드에서 복사한 **FTP 호스트 이름**을 입력합니다. 
-    - **포트:** \(공백으로 둠, 수동 전송이며 서버는 사용할 포트를 결정함\)-
+    - **포트:** (공백으로 둠, 수동 전송이며 서버는 사용할 포트를 결정함)-
     - **프로토콜:** FTP 파일 전송 프로토콜
     - **암호화:** 일반 FTP 사용
     - **로그온 유형:** 보통
@@ -563,7 +563,7 @@ FTP를 사용하여 새로 만든된 웹 앱에 응용 프로그램 파일을 �
 
 6. JSPHello.war을 `/site/wwwroot/webapps`에 전송합니다. **로컬** 파일 목록에서 JSPHello.war를 선택하고 마우스 오른쪽 단추로 클릭하고 **업로드**를 선택합니다. `/site/wwwroot/webapps`에 보이도록 표시 되어야 합니다.
 
-7. webapps 디렉터리로 JSPHello.war를 복사한 후, Tomcat 서버는 자동으로 파일을 WAR 파일로 압축 해제합니다. Tomcat 서버가 거의 즉시 압축 해제를 시작하더라도, 파일이 FTP 클라이언트에 표시되기 까지는 긴 시간\(몇 시간\)이 걸릴 수 있습니다.
+7. webapps 디렉터리로 JSPHello.war를 복사한 후, Tomcat 서버는 자동으로 파일을 WAR 파일로 압축 해제합니다. Tomcat 서버가 거의 즉시 압축 해제를 시작하더라도, 파일이 FTP 클라이언트에 표시되기 까지는 긴 시간(몇 시간)이 걸릴 수 있습니다.
 
 
 #### 웹 앱에서 Hello World 응용 프로그램 실행

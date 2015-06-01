@@ -42,7 +42,7 @@ AMQP(Advanced Message Queuing Protocol) 1.0은 강력한 크로스 플랫폼 메
 
 서비스 버스를 사용하여 JMS 응용 프로그램을 빌드 및 실행할 때 Apache Qpid JMS AMQP 1.0 배포 보관에 포함된 다음 JAR 파일 4개를 Java CLASSPATH에 추가해야 합니다.
 
-*    geronimo-jms\_1.1\_spec-1.0.jar
+*    geronimo-jms_1.1_spec-1.0.jar
 *    qpid-amqp-1-0-client-[version].jar
 *    qpid-amqp-1-0-client-jms-[version].jar
 *    qpid-amqp-1-0-common-[version].jar
@@ -136,7 +136,7 @@ Qpid 속성 파일 JNDI 공급자에서 destination을 정의하는 데 사용�
 
 	topic.[jndi_name] = [physical_name]
 
-여기서 [jndi\_name] 및 [physical\_name]의 의미는 다음과 같습니다.
+여기서 [jndi_name] 및 [physical_name]의 의미는 다음과 같습니다.
 
 <table>
   <tr>

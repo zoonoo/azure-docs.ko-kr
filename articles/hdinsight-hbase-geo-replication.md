@@ -36,7 +36,7 @@
 
 - [두 가상 네트워크 간의 VPN 연결 구성][hdinsight-hbase-replication-vnet]
 - [가상 네트워크에 대한 DNS 구성][hdinsight-hbase-replication-dns]
-- HBase 지역에서 복제 구성\(이 자습서\)
+- HBase 지역에서 복제 구성(이 자습서)
 
 다음 다이어그램에서는 [두 가상 네트워크 간의 VPN 연결 구성][hdinsight-hbase-geo-replication-vnet] 및 [가상 네트워크에 대한 DNS 구성][hdinsight-hbase-replication-dns]에서 만든 두 가상 네트워크와 네트워크 연결을 보여 줍니다.
 
@@ -223,8 +223,8 @@ Azure 포털은 사용자 지정 구성 옵션을 사용한 HDInsight 클러스�
 
 **Contoso-HBase-US를 복제 피어로 추가하려면**
 
-1. **Contso-HBase\_EU** RDP 창으로 전환합니다.
-2. HBase 셸 창에서 대상 클러스터\(Contoso-HBase-US\)를 피어로 추가합니다. 예를 들면 다음과 같습니다.
+1. **Contso-HBase_EU** RDP 창으로 전환합니다.
+2. HBase 셸 창에서 대상 클러스터(Contoso-HBase-US)를 피어로 추가합니다. 예를 들면 다음과 같습니다.
 
 		add_peer '1', 'zookeeper0.contoso-hbase-us.d4.internal.cloudapp.net,zookeeper1.contoso-hbase-us.d4.internal.cloudapp.net,zookeeper2.contoso-hbase-us.d4.internal.cloudapp.net:2181:/hbase'
 
@@ -290,7 +290,7 @@ Azure 포털은 사용자 지정 구성 옵션을 사용한 HDInsight 클러스�
 - [HDInsight HBase 개요][hdinsight-hbase-overview]
 - [Azure 가상 네트워크에 HBase 클러스터 프로비전][hdinsight-hbase-provision-vnet]
 - [HBase를 사용하여 Twitter 데이터 실시간 분석][hdinsight-hbase-twitter-sentiment]
-- [Storm 및 HDInsight\(Hadoop\)의 HBase를 사용하여 센서 데이터 분석][hdinsight-sensor-data]
+- [Storm 및 HDInsight(Hadoop)의 HBase를 사용하여 센서 데이터 분석][hdinsight-sensor-data]
 
 [hdinsight-hbase-geo-replication-vnet]: hdinsight-hbase-geo-replication-configure-VNets.md
 [hdinsight-hbase-geo-replication-dns]: hdinsight-hbase-geo-replication-configure-VNet.md

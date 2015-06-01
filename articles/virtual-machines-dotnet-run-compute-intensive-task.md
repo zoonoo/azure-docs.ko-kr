@@ -109,10 +109,10 @@ Azure에서 서비스 버스 큐 사용을 시작하려면 먼저
 
 1. 개발 컴퓨터(직접 생성한 가상 컴퓨터일 필요는 없음)에서 [.NET용 Azure SDK](http://www.windowsazure.com/develop/net/)를 다운로드합니다.
 2. **TSPSolver**라는 프로젝트를 사용하여 .NET 콘솔 응용 프로그램을 만듭니다. 대상 프레임워크가 .**NET Framework 4** 이상(**.NET Framework 4 Client Profile** 아님)용으로 설정되어 있는지 확인합니다. 대상 프레임워크는 다음과 같이 프로젝트를 만든 후에 설정할 수 있습니다. Visual Studio의 메뉴에서 **프로젝트**를 클릭하고 **속성**을 클릭한 후 **응용 프로그램** 탭을 클릭한 다음 **대상 프레임워크** 값을 설정합니다.
-3. Microsoft ServiceBus 라이브러리에 추가합니다. Visual Studio 솔루션 탐색기에서 **TSPSolver**를 마우스 오른쪽 단추로 클릭하고 **참조 추가**, **찾아보기** 탭을 차례로 클릭한 후 Azure .NET SDK(예를 들어 **C:\Program Files\Microsoft SDKs\Azure\.NET SDK\v2.5\ToolsRef** 위치)로 이동하고 참조로 **Microsoft.ServiceBus.dll**을 선택합니다.
+3. Microsoft ServiceBus 라이브러리에 추가합니다. Visual Studio 솔루션 탐색기에서 **TSPSolver**를 마우스 오른쪽 단추로 클릭하고 **참조 추가**, **찾아보기** 탭을 차례로 클릭한 후 Azure .NET SDK(예를 들어 **C:\Program Files\Microsoft SDKs\Azure.NET SDK\v2.5\ToolsRef** 위치)로 이동하고 참조로 **Microsoft.ServiceBus.dll**을 선택합니다.
 4. System Runtime Serialization 라이브러리에 추가합니다. Visual Studio 솔루션 탐색기에서 **TSPSolver**를 마우스 오른쪽 단추로 클릭하고 **참조 추가**, **.NET** 탭을 차례로 클릭하고 참조로 **System.Runtime.Serialization**을 선택합니다.
 5. **Program.cs**의 콘텐츠로 이 섹션 끝에 있는 예제 코드를 사용합니다.
-6. 서비스 버스의 **네임스페이스**, **기본 발급자** 및 **기본 키** 값을 각각 사용하도록 **your\_service\_bus\_namespace**, **your\_service\_bus\_owner** 및 **your\_service\_bus\_key** 자리 표시자를 수정합니다.
+6. 서비스 버스의 **네임스페이스**, **기본 발급자** 및 **기본 키** 값을 각각 사용하도록 **your_service_bus_namespace**, **your_service_bus_owner** 및 **your_service_bus_key** 자리 표시자를 수정합니다.
 7. 응용 프로그램을 컴파일합니다. 이렇게 하면 프로젝트의 **bin** 폴더(릴리스를 대상으로 하는지 디버그 빌드를 대상으로 하는지에 따라 **bin\release** 또는 **bin\debug**)에 **TSPSolver.exe**가 만들어집니다. 나중에 이 실행 파일과 Microsoft.ServiceBus.dll을 가상 컴퓨터에 복사합니다.
 
 <p/>
@@ -341,10 +341,10 @@ Azure에서 서비스 버스 큐 사용을 시작하려면 먼저
 <h2>계산 집약적인 작업의 진행 상황을 모니터링하는 .NET 응용 프로그램을 만드는 방법</h2>
 
 1. 개발 컴퓨터에서 프로젝트 이름으로 **TSPClient**를 사용하는 .NET 콘솔 응용 프로그램을 만듭니다. 대상 프레임워크가 .**NET Framework 4** 이상(**.NET Framework 4 Client Profile** 아님)용으로 설정되어 있는지 확인합니다. 대상 프레임워크는 다음과 같이 프로젝트를 만든 후에 설정할 수 있습니다. Visual Studio의 메뉴에서 **프로젝트**를 클릭하고 **속성**을 클릭한 후 **응용 프로그램** 탭을 클릭한 다음 **대상 프레임워크** 값을 설정합니다.
-2. Microsoft ServiceBus 라이브러리에 추가합니다. Visual Studio 솔루션 탐색기에서 **TSPSolver**를 마우스 오른쪽 단추로 클릭하고 **참조 추가**, **찾아보기** 탭을 차례로 클릭한 후 Azure .NET SDK(예를 들어 **C:\Program Files\Microsoft SDKs\Azure\.NET SDK\v2.5\ToolsRef** 위치)로 이동하고 참조로 **Microsoft.ServiceBus.dll**을 선택합니다.
+2. Microsoft ServiceBus 라이브러리에 추가합니다. Visual Studio 솔루션 탐색기에서 **TSPSolver**를 마우스 오른쪽 단추로 클릭하고 **참조 추가**, **찾아보기** 탭을 차례로 클릭한 후 Azure .NET SDK(예를 들어 **C:\Program Files\Microsoft SDKs\Azure.NET SDK\v2.5\ToolsRef** 위치)로 이동하고 참조로 **Microsoft.ServiceBus.dll**을 선택합니다.
 3. System Runtime Serialization 라이브러리에 추가합니다. Visual Studio 솔루션 탐색기에서 **TSPClient**를 마우스 오른쪽 단추로 클릭하고 **참조 추가**, **.NET** 탭을 차례로 클릭하고 참조로 **System.Runtime.Serialization**을 선택합니다.
 4. **Program.cs**의 콘텐츠로 이 섹션 끝에 있는 예제 코드를 사용합니다.
-5. 서비스 버스의 **네임스페이스**, **기본 발급자** 및 **기본 키** 값을 각각 사용하도록 **your\_service\_bus\_namespace**, **your\_service\_bus\_owner** 및 **your\_service\_bus\_key** 자리 표시자를 수정합니다.
+5. 서비스 버스의 **네임스페이스**, **기본 발급자** 및 **기본 키** 값을 각각 사용하도록 **your_service_bus_namespace**, **your_service_bus_owner** 및 **your_service_bus_key** 자리 표시자를 수정합니다.
 5. 응용 프로그램을 컴파일합니다. 이렇게 하면 프로젝트의 **bin** 폴더(릴리스를 대상으로 하는지 디버그 빌드를 대상으로 하는지에 따라 **bin\release** 또는 **bin\debug**)에 **TSPClient.exe**가 만들어집니다. 개발 컴퓨터에서 이 코드를 실행하거나 클라이언트 응용 프로그램(반드시 가상 컴퓨터에 있을 필요는 없음)을 실행할 컴퓨터에 이 실행 파일 및 Microsoft.ServiceBus.dll을 복사합니다.
 
 <p/>

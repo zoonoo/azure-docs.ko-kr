@@ -24,7 +24,7 @@
 AzureResourceManager 모듈에는 명령줄에서 Azure 리소스를 사용할 때 작업에 도움이 되는 도구를 수집하는 cmdlet이 포함되어 있습니다. Azure 리소스 그룹 템플릿은 JSON 문서이고 Azure 리소스 관리 API는 JSON을 수락하고 반환하므로, 리소스에 대한 정보를 탐색하거나 템플릿 및 템플릿 매개 변수 파일을 설계 또는 조작할 때 일반적으로 가장 먼저 사용하는 것은 JSON 구문 분석 도구입니다.
 
 ### Mac, Linux 및 Windows 도구
-Mac, Linux 및 Windows용 Azure 명령줄 인터페이스를 사용하는 경우 표준 다운로드 도구\(예: **[curl](http://curl.haxx.se/)**, **[wget](https://www.gnu.org/software/wget/)**, **[Resty](https://github.com/beders/Resty)**\) 및 JSON 유틸리티\(예: **[jq](http://stedolan.github.io/jq/download/)**, **[jsawk](https://github.com/micha/jsawk)** 및 JSON을 처리하는 언어 라이브러리\)에 대해 잘 알고 있을 것입니다. 이러한 도구는 대부분 Windows용 포트\(예: [wget](http://gnuwin32.sourceforge.net/packages/wget.htm)\)가 있습니다. 실제로 Windows에서 실행 중인 Linux 및 기타 오픈 소스 소프트웨어 도구를 다양한 방법으로 가져올 수 있습니다.
+Mac, Linux 및 Windows용 Azure 명령줄 인터페이스를 사용하는 경우 표준 다운로드 도구(예: **[curl](http://curl.haxx.se/)**, **[wget](https://www.gnu.org/software/wget/)**, **[Resty](https://github.com/beders/Resty)**) 및 JSON 유틸리티(예: **[jq](http://stedolan.github.io/jq/download/)**, **[jsawk](https://github.com/micha/jsawk)** 및 JSON을 처리하는 언어 라이브러리)에 대해 잘 알고 있을 것입니다. 이러한 도구는 대부분 Windows용 포트(예: [wget](http://gnuwin32.sourceforge.net/packages/wget.htm))가 있습니다. 실제로 Windows에서 실행 중인 Linux 및 기타 오픈 소스 소프트웨어 도구를 다양한 방법으로 가져올 수 있습니다.
 
 이 항목에는 원하는 정보를 보다 정확하고 효율적으로 가져오기 위해 **jq**와 함께 사용할 수 있는 일부 Azure CLI 명령이 포함되어 있습니다. Azure 리소스 사용을 쉽게 파악할 수 있도록 잘 알고 있는 도구 집합을 선택해야 합니다.
 
@@ -32,16 +32,16 @@ Mac, Linux 및 Windows용 Azure 명령줄 인터페이스를 사용하는 경우
 
 Windows PowerShell에는 동일한 절차를 수행하는 몇 가지 기본 명령이 있습니다.
 
-- **[Invoke-WebRequest](https://technet.microsoft.com/library/hh849901%28v=wps.640%29)** cmdlet을 사용하여 파일\(예: 리소스 그룹 템플릿 또는 매개 변수 JSON 파일\)을 다운로드합니다.
-- **[ConvertFrom-Json](https://technet.microsoft.com/library/hh849898%28v=wps.640%29.aspx)** cmdlet을 사용하여 JSON 문자열을 JSON 문자열의 각 필드에 대한 속성이 있는 사용자 지정 개체\([PSCustomObject](https://msdn.microsoft.com/library/windows/desktop/system.management.automation.pscustomobject%28v=vs.85%29.aspx)\)로 변환합니다.
+- **[Invoke-WebRequest](https://technet.microsoft.com/library/hh849901%28v=wps.640%29)** cmdlet을 사용하여 파일(예: 리소스 그룹 템플릿 또는 매개 변수 JSON 파일)을 다운로드합니다.
+- **[ConvertFrom-Json](https://technet.microsoft.com/library/hh849898%28v=wps.640%29.aspx)** cmdlet을 사용하여 JSON 문자열을 JSON 문자열의 각 필드에 대한 속성이 있는 사용자 지정 개체([PSCustomObject](https://msdn.microsoft.com/library/windows/desktop/system.management.automation.pscustomobject%28v=vs.85%29.aspx))로 변환합니다.
 
 ## Mac, Linux 및 Windows용 Azure CLI에서 오류 방지
 
 Azure CLI에는 오류를 방지하고 수행 중에 잘못된 사항을 감지하는 데 도움이 되는 여러 가지 명령이 있습니다.
 
-- **azure location list**. 이 명령은 각 리소스 유형\(예: 가상 컴퓨터의 공급자\)을 지원하는 위치를 가져옵니다. 리소스에 대한 위치를 입력하기 전에 이 명령을 사용하여 해당 위치에서 리소스 유형을 지원하는지 확인하세요.
+- **azure location list**. 이 명령은 각 리소스 유형(예: 가상 컴퓨터의 공급자)을 지원하는 위치를 가져옵니다. 리소스에 대한 위치를 입력하기 전에 이 명령을 사용하여 해당 위치에서 리소스 유형을 지원하는지 확인하세요.
 
-    위치 목록이 길 수도 있고 많은 공급자가 있으므로, 아직 사용할 수 없는 위치를 사용하기 전에 도구를 사용하여 공급자와 위치를 검사할 수 있습니다. 다음 스크립트에서는 **jq**를 사용하여 Azure 가상 컴퓨터에 대한 리소스 공급자를 사용할 수 있는 위치를 검색합니다. \(\)
+    위치 목록이 길 수도 있고 많은 공급자가 있으므로, 아직 사용할 수 없는 위치를 사용하기 전에 도구를 사용하여 공급자와 위치를 검사할 수 있습니다. 다음 스크립트에서는 **jq**를 사용하여 Azure 가상 컴퓨터에 대한 리소스 공급자를 사용할 수 있는 위치를 검색합니다. ()
 
         azure location list --json | jq '.[] | select(.name == "Microsoft.Compute/virtualMachines")'
         {
@@ -278,7 +278,7 @@ Azure CLI를 사용하여 공급자가 사용하도록 등록되어 있는지 �
 
 하지만 반드시 리소스 그룹이 **활성 상태이고 사용자를 위해 준비된** 것을 의미하는 것은 아닙니다. 예를 들어 대부분의 배포에서는 업그레이드를 다운로드하거나, 다른 템플릿이 아닌 리소스를 대기하거나, 공급자가 추적하는 활동이 아니므로 Azure에서 알지 못하는 다른 실행 가능한 활동이나 복잡한 스크립트를 설치해야 합니다. 이러한 경우 리소스를 실제로 사용하기 위해 준비하는 데 시간이 걸릴 수 있습니다. 따라서 배포를 사용할 수 있기 이전에 배포 상태가 성공한 것으로 간주해야 합니다.
 
-하지만 전체 배포에서 시스템 전체 준비 상태를 모니터링하는 방법을 알려주고 사용자가 전체 배포를 조작할 수 있는 경우에만 성공적으로 반환되는 사용자 지정 템플릿에 대한 사용자 지정 스크립트를 작성하여\(예: [CustomScriptExtension](http://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/) 사용\) Azure에서 배포 성공을 보고하지 못하도록 차단할 수 있습니다. 확장이 마지막에 실행되도록 하려면 템플릿에서 **dependsOn** 속성을 사용합니다. 예제는 [여기서](https://msdn.microsoft.com/library/azure/dn790564.aspx) 확인할 수 있습니다.
+하지만 전체 배포에서 시스템 전체 준비 상태를 모니터링하는 방법을 알려주고 사용자가 전체 배포를 조작할 수 있는 경우에만 성공적으로 반환되는 사용자 지정 템플릿에 대한 사용자 지정 스크립트를 작성하여(예: [CustomScriptExtension](http://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/) 사용) Azure에서 배포 성공을 보고하지 못하도록 차단할 수 있습니다. 확장이 마지막에 실행되도록 하려면 템플릿에서 **dependsOn** 속성을 사용합니다. 예제는 [여기서](https://msdn.microsoft.com/library/azure/dn790564.aspx) 확인할 수 있습니다.
 
 ## 템플릿 병합
 

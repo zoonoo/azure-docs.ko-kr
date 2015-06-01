@@ -16,15 +16,15 @@
 	ms.date="04/02/2015" 
 	ms.author="spelluru"/>
 
-# Azure 데이터 팩터리를 사용하여 데이터 복사\(복사 작업\)
+# Azure 데이터 팩터리를 사용하여 데이터 복사(복사 작업)
 ## 개요
-파이프라인에서 **복사 작업**을 사용하여 원본에서 배치의 싱크\(대상\)로 데이터를 복사할 수 있습니다. 복사 작업은 다음과 같은 시나리오에서 사용할 수 있습니다.
+파이프라인에서 **복사 작업**을 사용하여 원본에서 배치의 싱크(대상)로 데이터를 복사할 수 있습니다. 복사 작업은 다음과 같은 시나리오에서 사용할 수 있습니다.
 
-- **Azure에 수신**. 이 시나리오에서는 다음 하위 시나리오를 위해 데이터를 온-프레미스 데이터 원본\(예: SQL Server\)에서 Azure 데이터 저장소\(예: Azure blob, Azure 테이블 또는 Azure SQL 데이터베이스\)로 복사합니다.
+- **Azure에 수신**. 이 시나리오에서는 다음 하위 시나리오를 위해 데이터를 온-프레미스 데이터 원본(예: SQL Server)에서 Azure 데이터 저장소(예: Azure blob, Azure 테이블 또는 Azure SQL 데이터베이스)로 복사합니다.
 	- 추가 처리를 위해 Azure의 중앙 위치에 데이터를 수집합니다.
 	- 온-프레미스 또는 Azure가 아닌 클라우드 플랫폼의 데이터를 Azure로 마이그레이션합니다.
 	- 데이터를 Azure에 보관하거나 백업하여 비용 효율적이고 계층화된 저장소를 만듭니다.
-- **Azure에서 송신**. 이 시나리오에서는 다음 하위 시나리오를 위해 데이터를Azure\(예: Azure blob, Azure 테이블 또는 Azure SQL 데이터베이스\)에서 온-프레미스 데이터 마트 및 데이터 웨어하우스\(예: SQL Server\)로 복사합니다.
+- **Azure에서 송신**. 이 시나리오에서는 다음 하위 시나리오를 위해 데이터를Azure(예: Azure blob, Azure 테이블 또는 Azure SQL 데이터베이스)에서 온-프레미스 데이터 마트 및 데이터 웨어하우스(예: SQL Server)로 복사합니다.
 	- 클라우드 데이터 웨어하우스 지원 부족으로 인해 데이터를 온-프레미스로 전송합니다.
 	- 데이터를 온-프레미스로 전송하여 기존 온-프레미스 솔루션 또는 보고 인프라를 활용합니다.
 	- 데이터를 온-프레미스에 보관 또는 백업하여 계층화된 저장소를 만듭니다.
@@ -125,8 +125,8 @@
 
 </table>
 
-### IaaS\(Infrastructure-as-a-Service\)의 SQL
-IaaS에 있는 SQL의 경우 Azure를 IaaS 공급자로 사용할 수 있습니다. 다음과 같은 네트워크 및 VPN 토폴로지가 지원됩니다. 사례 \#2 및 \#3에는 데이터 관리 게이트웨이가 필요하지만 사례 \#1에는 필요하지 않습니다. 데이터 관리 게이트웨이에 대한 자세한 내용은 [파이프라인에서 온-프레미스 데이터에 액세스할 수 있도록 설정][use-onpremises-datasources]을 참조하세요.
+### IaaS(Infrastructure-as-a-Service)의 SQL
+IaaS에 있는 SQL의 경우 Azure를 IaaS 공급자로 사용할 수 있습니다. 다음과 같은 네트워크 및 VPN 토폴로지가 지원됩니다. 사례 #2 및 #3에는 데이터 관리 게이트웨이가 필요하지만 사례 #1에는 필요하지 않습니다. 데이터 관리 게이트웨이에 대한 자세한 내용은 [파이프라인에서 온-프레미스 데이터에 액세스할 수 있도록 설정][use-onpremises-datasources]을 참조하세요.
 
 1.	공용 DNS 이름 및 고정 공용 포트 : 개인 포트 매핑을 사용하는 VM
 2.	표시된 SQL 끝점 없이 공용 DNS 이름을 사용하는 VM
@@ -259,7 +259,7 @@ JSON 속성/태그에 대한 자세한 내용은 [JSON 스크립트 참조][json
     	"properties":
     	"location": { "type": "OnPremisesSqlServerTableLocation", "tableName": "MyTable", "linkedServiceName": "MyOnPremisesSQLDB" }, "availability": { "frequency": "Hour", "interval": 1 } } }
 
-다음 샘플 Azure PowerShell 명령은 위의 스크립트가 포함된 JSON 파일을 사용하는 **New-AzureDataFactoryTable**을 사용하여 Azure 데이터 팩터리 **CopyFactory**에 테이블\(**MyOnPremTable**)을 만듭니다.
+다음 샘플 Azure PowerShell 명령은 위의 스크립트가 포함된 JSON 파일을 사용하는 **New-AzureDataFactoryTable**을 사용하여 Azure 데이터 팩터리 **CopyFactory**에 테이블(**MyOnPremTable**)을 만듭니다.
          
 	New-AzureDataFactoryTable -ResourceGroupName ADF –Name MyOnPremTable –DataFactoryName CopyFactory –File <Filepath>\MyOnPremTable.json.
 
@@ -296,18 +296,18 @@ JSON 속성/태그에 대한 자세한 내용은 [JSON 스크립트 참조][json
 	}
 
 
-다음 샘플 Azure PowerShell 명령은 위의 스크립트가 포함된 JSON 파일을 사용하는 **New-AzureDataFactoryTable**을 사용하여 Azure 데이터 팩터리 **CopyFactory**에 테이블\(**MyDemoBlob**)을 만듭니다.
+다음 샘플 Azure PowerShell 명령은 위의 스크립트가 포함된 JSON 파일을 사용하는 **New-AzureDataFactoryTable**을 사용하여 Azure 데이터 팩터리 **CopyFactory**에 테이블(**MyDemoBlob**)을 만듭니다.
          
 	New-AzureDataFactoryTable -ResourceGroupName ADF -DataFactoryName CopyFactory –File <Filepath>
 
 
-### 파이프라인\(복사 작업 포함\) JSON
+### 파이프라인(복사 작업 포함) JSON
 이 예제에서는 **CopyActivityPipeline** 파이프라인을 다음 속성으로 정의합니다.
 
 - **type** 속성을 **CopyActivity**로 설정합니다.
-- **MyOnPremTable**을 입력으로 지정합니다\(\*\*inputs\*\* 태그\).
-- **MyAzureBlob**을 출력으로 지정합니다\(\*\*outputs\*\* 태그\).
-- **Transformation** 섹션에는 **source** 및 **sink**라는 두 개의 하위 섹션이 있습니다. 원본의 유형을 **SqlSource**로 설정하고 싱크의 유형을 **BlobSink**로 설정합니다. **sqlReaderQuery**는 원본에 대해 수행할 변환\(프로젝션\)을 정의합니다. 모든 속성에 대한 자세한 내용은[ JSON 스크립트 참조][json-script-reference]를 참조하세요.
+- **MyOnPremTable**을 입력으로 지정합니다(**inputs** 태그).
+- **MyAzureBlob**을 출력으로 지정합니다(**outputs** 태그).
+- **Transformation** 섹션에는 **source** 및 **sink**라는 두 개의 하위 섹션이 있습니다. 원본의 유형을 **SqlSource**로 설정하고 싱크의 유형을 **BlobSink**로 설정합니다. **sqlReaderQuery**는 원본에 대해 수행할 변환(프로젝션)을 정의합니다. 모든 속성에 대한 자세한 내용은[ JSON 스크립트 참조][json-script-reference]를 참조하세요.
 
          
 		{
@@ -342,7 +342,7 @@ JSON 속성/태그에 대한 자세한 내용은 [JSON 스크립트 참조][json
 
 
 
- 다음 샘플 Azure PowerShell 명령은 위의 스크립트가 포함된 JSON 파일을 사용하는 **New-AzureDataFactoryPipeline**을 사용하여 Azure 데이터 팩터리 **CopyFactory**에 파이프라인\(**CopyActivityPipeline**)을 만듭니다.
+ 다음 샘플 Azure PowerShell 명령은 위의 스크립트가 포함된 JSON 파일을 사용하는 **New-AzureDataFactoryPipeline**을 사용하여 Azure 데이터 팩터리 **CopyFactory**에 파이프라인(**CopyActivityPipeline**)을 만듭니다.
          
 		New-AzureDataFactoryPipeline -ResourceGroupName ADF –DataFactoryName CopyFactory –File <Filepath>
 

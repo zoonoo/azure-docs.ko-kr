@@ -124,11 +124,11 @@ Azure 모듈에는 인증서를 다운로드하고 가져오는 데 도움이 �
 
 4. 메시지가 표시되면 게시 프로필을 다운로드하여 저장하고 .publishsettings 파일의 경로와 이름을 확인합니다. 이 정보는 **Import-AzurePublishSettingsFile** cmdlet을 실행하여 설정을 가져올 때 필요합니다. 기본 위치 및 파일 이름 형식은 다음과 같습니다.
 
-			C:\\Users\<UserProfile>\\Download\\[*MySubscription*-...]-*downloadDate*-credentials.publishsettings
+			C:\\Users<UserProfile>\\Download[*MySubscription*-...]-*downloadDate*-credentials.publishsettings
 
 5. 자리 표시자를 Windows 계정 이름과 경로 및 파일 이름으로 대체하여 다음과 유사한 명령을 입력합니다.
 
-		Import-AzurePublishSettingsFile C:\Users\<UserProfile>\Downloads\<SubscriptionName>-credentials.publishsettings
+		Import-AzurePublishSettingsFile C:\Users<UserProfile>\Downloads<SubscriptionName>-credentials.publishsettings
 
 > [AZURE.NOTE] 게시 설정을 가져온 후 공동 관리자로 다른 구독에 추가된 경우 이 프로세스를 반복하여 새 .publishsettings 파일을 다운로드한 다음 해당 설정을 가져와야 합니다. 구독 서비스 관리에 도움이 되도록 공동 관리자를 추가하는 방법에 대한 자세한 내용은 [Azure 구독에 대한 공동 관리자 추가 및 제거](http://msdn.microsoft.com/library/windowsazure/gg456328.aspx)를 참조하세요.
 

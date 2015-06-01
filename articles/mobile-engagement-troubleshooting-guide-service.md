@@ -29,10 +29,10 @@
 ### 원인
 - Azure Mobile Engagement 서비스 중단으로 인해 발생한 것으로 나타나는 문제에는 여러 가지 원인이 있을 수 있습니다.
     - 원래 모든 Azure Mobile Engagement에서 전체적으로 발생하는 것으로 확인된 문제
-    - 서버 중단으로 인한 알려진 문제\(서버 상태에 항상 표시되지는 않음\):
+    - 서버 중단으로 인한 알려진 문제(서버 상태에 항상 표시되지는 않음):
 	- 예약 지연, 대상 지정 오류, 배지 업데이트 문제, 통계 수집 중지, 푸시 작동 중지, API 작동 중지, 새 앱이나 사용자 만들기 불가, DNS 오류, 장치의 UI/API/앱 시간 초과 오류
-    - 클라우드 종속성 작동 중단 [Azure 서비스 상태](http://status.azure.com/), [AWS\(Amazon 웹 서비스\) 상태](http://status.aws.amazon.com/) 
-    - PNS\(푸시 알림 서비스\) 종속성 작동 중단 [Google - 서비스](http://www.google.com/appsstatus#hl=en&v=status), [Apple - 서비스](http://www.apple.com/support/systemstatus/), [Android - Google GCM](http://developer.android.com/google/gcm/index.html), [Android - Amazon ADM](https://developer.amazon.com/appsandservices/apis/engage/device-messaging), [Apple - APNS](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html), [Windows Phone - WNS](http://msdn.microsoft.com/library/windows/apps/hh465407.aspx), [Windows Phone - MPNS][LinkMPNS], [Windows - WNS](https://developer.windows.com/)
+    - 클라우드 종속성 작동 중단 [Azure 서비스 상태](http://status.azure.com/), [AWS(Amazon 웹 서비스) 상태](http://status.aws.amazon.com/) 
+    - PNS(푸시 알림 서비스) 종속성 작동 중단 [Google - 서비스](http://www.google.com/appsstatus#hl=en&v=status), [Apple - 서비스](http://www.apple.com/support/systemstatus/), [Android - Google GCM](http://developer.android.com/google/gcm/index.html), [Android - Amazon ADM](https://developer.amazon.com/appsandservices/apis/engage/device-messaging), [Apple - APNS](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html), [Windows Phone - WNS](http://msdn.microsoft.com/library/windows/apps/hh465407.aspx), [Windows Phone - MPNS][LinkMPNS], [Windows - WNS](https://developer.windows.com/)
     - 앱 스토어 작동 중단 [GooglePlay](https://play.google.com/), [iTunes](http://www.apple.com/itunes/charts/), [Windows Phone 스토어](http://www.windowsphone.com/), [Windows 스토어](http://windows.microsoft.com/)
 
 *문제가 Azure Mobile Engagement 전체의 문제인지 테스트하려는 경우 다음의 개별 항목에서 같은 기능을 테스트할 수 있습니다.*
@@ -69,7 +69,7 @@
 		- Download and use Apple Xcode (includes an iOS Simulator)
 		- Download and use Windows Phone SDK (includes a Windows Phone 7, 8 and 8.1 Emulators)
 
-최종 사용자 장치의 OS 업그레이드 관련 문제인지를 테스트하려면 다음을 수행합니다\(문제를 해결하려면 SDK를 업그레이드해야 함\).
+최종 사용자 장치의 OS 업그레이드 관련 문제인지를 테스트하려면 다음을 수행합니다(문제를 해결하려면 SDK를 업그레이드해야 함).
 
 	- Test your application on different devices with different versions of the OS.
 	- Confirm that you are using the most recent version of the SDK.
@@ -92,7 +92,7 @@
     - Azure Mobile Engagement 서비스에서 작동 중단이 보고되지 않았는지 확인합니다.
     - 앱 정보 태그 파일이 다음 규칙을 모두 따르는지 확인합니다.
         - UTF8 문자 집합만 사용합니다. ANSI 문자 집합은 지원되지 않습니다.
-        - 쉼표\(","\)를 구분 기호 문자로 사용합니다. .csv 구문 기호 문자를 쉼표\(","\)에서 세미콜론\(";"\) 등의 다른 문자로 변경하도록 요청하는 서비스 요청을 개설할 수 있습니다.
+        - 쉼표(",")를 구분 기호 문자로 사용합니다. .csv 구문 기호 문자를 쉼표(",")에서 세미콜론(";") 등의 다른 문자로 변경하도록 요청하는 서비스 요청을 개설할 수 있습니다.
         - 부울 값 "true"와 "false"에 소문자만 사용합니다.
         - 최대 파일 크기인 35MB보다 작은 파일을 사용합니다.
 

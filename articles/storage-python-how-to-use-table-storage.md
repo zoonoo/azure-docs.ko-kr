@@ -50,12 +50,12 @@
 **PartitionKey**가 동일한 엔터티는 동일한 노드에 저장됩니다. **RowKey**
 엔터티가 속하는 파티션 내에서 엔터티의 고유한 ID입니다.
 
-테이블에 엔터티를 추가하려면 사전 개체를 **insert\_entity** 메서드에 전달합니다.
+테이블에 엔터티를 추가하려면 사전 개체를 **insert_entity** 메서드에 전달합니다.
 
 	task = {'PartitionKey': 'tasksSeattle', 'RowKey': '1', 'description' : 'Take out the trash', 'priority' : 200}
 	table_service.insert_entity('tasktable', task)
 
-**Entity** 클래스의 인스턴스를 **insert\_entity** 메서드에 전달할 수도 있습니다.
+**Entity** 클래스의 인스턴스를 **insert_entity** 메서드에 전달할 수도 있습니다.
 
 	task = Entity()
 	task.PartitionKey = 'tasksSeattle'
@@ -71,7 +71,7 @@
 	task = {'description' : 'Take out the garbage', 'priority' : 250}
 	table_service.update_entity('tasktable', 'tasksSeattle', '1', task)
 
-업데이트 중인 엔터티가 없는 경우 업데이트 작업이 실패합니다. 엔터티가 있었는지 여부와 상관없이 엔터티를 저장하려면 **insert\_or\_replace_entity**를 사용합니다. 
+업데이트 중인 엔터티가 없는 경우 업데이트 작업이 실패합니다. 엔터티가 있었는지 여부와 상관없이 엔터티를 저장하려면 **insert_or_replace_entity**를 사용합니다. 
 다음 예제에서 첫 번째 호출은 기존 엔터티를 바꿉니다. **PartitionKey**와 **RowKey**가 지정된 엔터티가 테이블에 없으므로 두 번째 호출에서 새 엔터티를 삽입합니다.
 
 	task = {'description' : 'Take out the garbage again', 'priority' : 250}
@@ -82,7 +82,7 @@
 
 ## 엔터티 그룹을 변경하는 방법
 
-서버에서 원자성 처리를 수행하도록 여러 작업을 일괄적으로 제출하는 것이 좋은 경우도 있습니다. 이렇게 하려면 **TableService**에서 **begin\_batch** 메서드를 사용한 다음 평상시처럼 여러 작업을 호출합니다. 일괄 제출하려면 **commit\_batch**를 호출합니다. 일괄 변경하려면 모든 엔터티가 동일한 파티션에 있어야 합니다. 아래 예제는 두 엔터티를 일괄적으로 함께 추가합니다.
+서버에서 원자성 처리를 수행하도록 여러 작업을 일괄적으로 제출하는 것이 좋은 경우도 있습니다. 이렇게 하려면 **TableService**에서 **begin_batch** 메서드를 사용한 다음 평상시처럼 여러 작업을 호출합니다. 일괄 제출하려면 **commit_batch**를 호출합니다. 일괄 변경하려면 모든 엔터티가 동일한 파티션에 있어야 합니다. 아래 예제는 두 엔터티를 일괄적으로 함께 추가합니다.
 
 	task10 = {'PartitionKey': 'tasksSeattle', 'RowKey': '10', 'description' : 'Go grocery shopping', 'priority' : 400}
 	task11 = {'PartitionKey': 'tasksSeattle', 'RowKey': '11', 'description' : 'Clean the bathroom', 'priority' : 100}
@@ -93,7 +93,7 @@
 
 ## 엔터티를 쿼리하는 방법
 
-테이블에서 엔터티를 쿼리하려면 **PartitionKey** 및 **RowKey**를 전달하여 **get\_entity** 메서드를 사용합니다.
+테이블에서 엔터티를 쿼리하려면 **PartitionKey** 및 **RowKey**를 전달하여 **get_entity** 메서드를 사용합니다.
 
 	task = table_service.get_entity('tasktable', 'tasksSeattle', '1')
 	print(task.description)

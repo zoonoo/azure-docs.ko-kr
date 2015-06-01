@@ -31,16 +31,16 @@
 
 이 자습서를 완료하려면 Azure 계정이 있어야 합니다.
 
-* [Azure 계정을 무료로 개설](/pricing/free-trial/?WT.mc_id=A261C142F)할 수 있음 - 유료 Azure 서비스를 사용해볼 수 있는 크레딧을 받게 되며 크레딧을 모두 사용한 후에도 계정을 유지하고 무료 Azure 서비스\(예: 웹 서비스 웹앱\)를 사용할 수 있습니다.
+* [Azure 계정을 무료로 개설](/pricing/free-trial/?WT.mc_id=A261C142F)할 수 있음 - 유료 Azure 서비스를 사용해볼 수 있는 크레딧을 받게 되며 크레딧을 모두 사용한 후에도 계정을 유지하고 무료 Azure 서비스(예: 웹 서비스 웹앱)를 사용할 수 있습니다.
 * [MSDN 구독자 혜택을 활성화](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)할 수 있음 - MSDN 구독은 유료 Azure 서비스에 사용할 수 있는 크레딧을 매달 제공합니다.</li>
 
 다음 그림에서는 완료된 응용 프로그램을 보여 줍니다.
 
 ![웹앱 홈 페이지](./media/web-sites-dotnet-get-started-vs2013/deployedandazure.png)
 
-##<a name="video"></a>Microsoft Azure 등록\(비디오\)
+##<a name="video"></a>Microsoft Azure 등록(비디오)
 
-이 비디오에서 Scott Hanselman은 Microsoft Azure의 무료 평가판 등록이 얼마나 쉬운지 보여 줍니다. \(소요 시간: 1분 58초\)
+이 비디오에서 Scott Hanselman은 Microsoft Azure의 무료 평가판 등록이 얼마나 쉬운지 보여 줍니다. (소요 시간: 1분 58초)
 
 > [AZURE.VIDEO sign-up-for-microsoft-azure]
 
@@ -54,7 +54,7 @@
 
 2. **파일** 메뉴에서 **새 프로젝트**를 클릭합니다.
 
-3. **새 프로젝트** 대화 상자에서 **C\#** \> **웹** \> **ASP.NET 웹 응용 프로그램**을 클릭합니다. 원하는 경우 **Visual Basic**을 선택할 수 있습니다.
+3. **새 프로젝트** 대화 상자에서 **C#** > **웹** > **ASP.NET 웹 응용 프로그램**을 클릭합니다. 원하는 경우 **Visual Basic**을 선택할 수 있습니다.
 
 3. **.NET Framework 4.5**가 대상 프레임워크로 선택되었는지 확인합니다.
 
@@ -94,7 +94,7 @@
  
 	필요한 경우 다른 **웹앱 이름**을 입력할 수 있지만 이름은 *azurewebsites.net* 도메인에서 고유해야 합니다. Visual Studio에서 제공하는 기본 이름을 고유합니다.
 
-	Azure에서는 응용 프로그램의 URL에 대한 접두사로 이 이름을 사용합니다. 전체 URL은 이 이름과 *.azurewebsites.net*\(**웹앱 이름** 텍스트 상자 옆에 표시\)으로 구성됩니다. 예를 들어 이름이 `MyExample6442`이면 URL은 `MyExample6442.azurewebsites.net`이 됩니다. URL은 고유해야 합니다. 입력한 URL을 다른 사용자가 이미 사용한 경우 녹색 확인 표시 대신 오른쪽에 빨간색 느낌표가 표시되며, 다른 이름을 입력해야 합니다.
+	Azure에서는 응용 프로그램의 URL에 대한 접두사로 이 이름을 사용합니다. 전체 URL은 이 이름과 *.azurewebsites.net*(**웹앱 이름** 텍스트 상자 옆에 표시)으로 구성됩니다. 예를 들어 이름이 `MyExample6442`이면 URL은 `MyExample6442.azurewebsites.net`이 됩니다. URL은 고유해야 합니다. 입력한 URL을 다른 사용자가 이미 사용한 경우 녹색 확인 표시 대신 오른쪽에 빨간색 느낌표가 표시되며, 다른 이름을 입력해야 합니다.
 
 4. **앱 서비스 계획** 드롭다운에서 **새 앱 서비스 계획 만들기**를 선택합니다.
 
@@ -172,7 +172,7 @@
 	 
 		대형 응용 프로그램에 대한 최초 요청 준비 시간을 줄일 수 있습니다.
 
-	* App\_Data 폴더에서 파일을 실행합니다. 
+	* App_Data 폴더에서 파일을 실행합니다. 
 	 
 		테스팅을 위해 프로덕션에 배포하지 않을 SQL Server 데이터베이스 파일을 App_Data에 포함하는 경우가 가끔 있습니다.
 	
@@ -230,17 +230,17 @@
 
 	![변경된 웹앱 배포](./media/web-sites-dotnet-get-started-vs2013/deployedandazure.png)
 
-**팁:** 보다 빠른 배포를 위해 **한 번 클릭으로 웹 게시** 도구 모음을 사용할 수 있습니다. **보기** \> **도구 모음**을 클릭한 다음 **한 번 클릭으로 웹 게시**를 선택합니다. 이 도구 모음을 사용하여 프로필을 선택하거나, 단추를 클릭하여 게시하거나, 단추를 클릭하여 **웹 게시** 마법사를 열 수 있습니다.
+**팁:** 보다 빠른 배포를 위해 **한 번 클릭으로 웹 게시** 도구 모음을 사용할 수 있습니다. **보기** > **도구 모음**을 클릭한 다음 **한 번 클릭으로 웹 게시**를 선택합니다. 이 도구 모음을 사용하여 프로필을 선택하거나, 단추를 클릭하여 게시하거나, 단추를 클릭하여 **웹 게시** 마법사를 열 수 있습니다.
 
 ![한 번 클릭으로 웹 게시 도구 모음](./media/web-sites-dotnet-get-started-vs2013/weboneclickpublish.png)
 
 ## 관리 포털에서 웹 응용 프로그램 모니터링 및 관리
 
-[Azure 관리 포털](/services/management-portal/)은 Azure 서비스\(예: 방금 만든 웹 응용 프로그램\)를 관리하고 모니터링하는 데 사용할 수 있는 웹 인터페이스입니다. 자습서의 이 섹션에서는 포털에서 수행할 수 있는 작업 중 일부를 살펴봅니다.
+[Azure 관리 포털](/services/management-portal/)은 Azure 서비스(예: 방금 만든 웹 응용 프로그램)를 관리하고 모니터링하는 데 사용할 수 있는 웹 인터페이스입니다. 자습서의 이 섹션에서는 포털에서 수행할 수 있는 작업 중 일부를 살펴봅니다.
   
 1. 브라우저에서 [http://portal.azure.com]()으로 이동하여 Azure 자격 증명으로 로그인합니다.
 
-2. **찾아보기 \> 웹앱**을 클릭한 다음 웹 응용 프로그램의 이름을 클릭합니다.
+2. **찾아보기 > 웹앱**을 클릭한 다음 웹 응용 프로그램의 이름을 클릭합니다.
 
 	웹앱에 대한 **웹앱** 블레이드에 자주 사용되는 웹앱 관리 기능에 대한 링크 및 사용량 통계가 표시됩니다.
   
@@ -260,7 +260,7 @@
 
 	![포털 웹앱 구성 탭](./media/web-sites-dotnet-get-started-vs2013/portalconfigure2.png)
 
-이러한 기능은 관리 포털의 일부에 지나지 않습니다. 또한 새 웹 응용 프로그램을 만들고, 기존 응용 프로그램을 삭제하고, 웹 응용 프로그램을 중지 및 다시 시작하고, 다른 Azure 서비스\(예: 데이터베이스 및 가상 컴퓨터\)를 관리할 수도 있습니다.
+이러한 기능은 관리 포털의 일부에 지나지 않습니다. 또한 새 웹 응용 프로그램을 만들고, 기존 응용 프로그램을 삭제하고, 웹 응용 프로그램을 중지 및 다시 시작하고, 다른 Azure 서비스(예: 데이터베이스 및 가상 컴퓨터)를 관리할 수도 있습니다.
 
 >[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
@@ -272,7 +272,7 @@
 
 	이 자습서에서는 단일 작업으로 웹 응용 프로그램을 만들고 배포하는 가장 빠른 방법을 확인했습니다. Visual Studio를 사용하거나 [소스 제어 시스템](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control)에서 [배포를 자동화](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery)하여 배포하는 다른 방법에 대한 개요는 [Azure 웹앱을 배포하는 방법](web-sites-deploy.md)을 참조하세요.
 
-	Visual Studio에서 배포를 자동화할 수 있는 Windows PowerShell 스크립트를 생성할 수도 있습니다. 자세한 내용은 [자동화\(Azure에서 실제 클라우드 앱 빌드\)](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything)\(영문\)를 참조하십시오.
+	Visual Studio에서 배포를 자동화할 수 있는 Windows PowerShell 스크립트를 생성할 수도 있습니다. 자세한 내용은 [자동화(Azure에서 실제 클라우드 앱 빌드)](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything)(영문)를 참조하십시오.
 
 * Visual Studio에서 웹 응용 프로그램을 관리하는 방법
 
@@ -288,7 +288,7 @@
 
 * 사용자 지정 도메인 이름 및 SSL을 추가하는 방법
 
-	SSL 및 사용자만의 도메인\(예: contoso.azurewebsites.net가 아닌 www.contoso.com 사용\)을 사용하는 방법에 대한 자세한 내용은 다음 리소스를 참조하세요.
+	SSL 및 사용자만의 도메인(예: contoso.azurewebsites.net가 아닌 www.contoso.com 사용)을 사용하는 방법에 대한 자세한 내용은 다음 리소스를 참조하세요.
 
 	* [Azure 웹 사이트에 대한 사용자 지정 도메인 이름 구성](web-sites-custom-domain-name.md) 
 	* [Azure 웹 사이트에 HTTPS 사용](web-sites-configure-ssl-certificate.md)
@@ -299,11 +299,11 @@
 
 * 채팅과 같은 실시간 기능을 추가하는 방법
 
-	웹앱에 실시간 기능\(예: 채팅 서비스, 게임, 주식 기호 등\)을 포함하는 경우 [WebSocket](/blog/2013/11/14/introduction-to-websockets-on-windows-azure-web-sites/) 전송 방식으로 [ASP.NET SignalR](http://www.asp.net/signalr)을 사용하여 최상의 성과를 얻을 수 있습니다. 자세한 내용은 [Azure 웹앱에서 SignalR 사용](http://www.asp.net/signalr/overview/signalr-20/getting-started-with-signalr-20/using-signalr-with-windows-azure-web-sites)을 참조하세요.
+	웹앱에 실시간 기능(예: 채팅 서비스, 게임, 주식 기호 등)을 포함하는 경우 [WebSocket](/blog/2013/11/14/introduction-to-websockets-on-windows-azure-web-sites/) 전송 방식으로 [ASP.NET SignalR](http://www.asp.net/signalr)을 사용하여 최상의 성과를 얻을 수 있습니다. 자세한 내용은 [Azure 웹앱에서 SignalR 사용](http://www.asp.net/signalr/overview/signalr-20/getting-started-with-signalr-20/using-signalr-with-windows-azure-web-sites)을 참조하세요.
 
 * 웹 응용 프로그램용 앱 서비스, 클라우드 서비스 및 VM을 선택하는 방법
 
-	Azure에서는 앱 서비스 웹 응용 프로그램을 웹 사이트\(이 자습서에 설명됨\), 클라우드 서비스 또는 가상 컴퓨터에서 실행할 수 있습니다. 자세한 내용은 [Azure 실행 모델](/develop/net/fundamentals/compute/) 및 [Azure 웹앱, 클라우드 서비스 및 VM을 사용하는 경우](/manage/services/web-sites/choose-web-app-service/)를 참조하세요.
+	Azure에서는 앱 서비스 웹 응용 프로그램을 웹 사이트(이 자습서에 설명됨), 클라우드 서비스 또는 가상 컴퓨터에서 실행할 수 있습니다. 자세한 내용은 [Azure 실행 모델](/develop/net/fundamentals/compute/) 및 [Azure 웹앱, 클라우드 서비스 및 VM을 사용하는 경우](/manage/services/web-sites/choose-web-app-service/)를 참조하세요.
 
 * [앱 서비스 계획을 선택하거나 만드는 방법](azure-web-sites-web-hosting-plans-in-depth-overview.md)
 

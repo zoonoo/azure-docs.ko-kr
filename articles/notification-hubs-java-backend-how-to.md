@@ -154,15 +154,15 @@ Amazon Kindle Fire의 경우 이 호출은 다음과 같습니다.
 이 호출을 다음과 같이 업데이트할 수도 있습니다. 
 
 	installation.addTag("foo");
-	installation.addTemplate("template1", new InstallationTemplate("{\"data\":{\"key1\":\"$(value1)\"}}","tag-for-template1"));
-	installation.addTemplate("template2", new InstallationTemplate("{\"data\":{\"key2\":\"$(value2)\"}}","tag-for-template2"));
+	installation.addTemplate("template1", new InstallationTemplate("{"data":{"key1":"$(value1)"}}","tag-for-template1"));
+	installation.addTemplate("template2", new InstallationTemplate("{"data":{"key2":"$(value2)"}}","tag-for-template2"));
 	hub.createOrUpdateInstallation(installation);
 
 고급 시나리오용으로 설치 개체의 특정 속성만 수정할 수 있는 부분 업데이트 기능도 제공됩니다. 기본적으로 부분 업데이트는 설치 개체에 대해 실행할 수 있는 JSON 패치 작업의 하위 집합입니다.
 
 	PartialUpdateOperation addChannel = new PartialUpdateOperation(UpdateOperationType.Add, "/pushChannel", "adm-push-channel2");
 	PartialUpdateOperation addTag = new PartialUpdateOperation(UpdateOperationType.Add, "/tags", "bar");
-	PartialUpdateOperation replaceTemplate = new PartialUpdateOperation(UpdateOperationType.Replace, "/templates/template1", new InstallationTemplate("{\"data\":{\"key3\":\"$(value3)\"}}","tag-for-template1")).toJson());
+	PartialUpdateOperation replaceTemplate = new PartialUpdateOperation(UpdateOperationType.Replace, "/templates/template1", new InstallationTemplate("{"data":{"key3":"$(value3)"}}","tag-for-template1")).toJson());
 	hub.patchInstallation("installation-id", addChannel, addTag, replaceTemplate);
 
 설치 삭제:
@@ -234,26 +234,26 @@ CreateOrUpdate, Patch 및 Delete의 최종 결과는 Get과 동일합니다. 요
 
 * **Windows 스토어 및 Windows Phone 8.1(비 Silverlight)**
 
-		String toast = "<toast><visual><binding template=\"ToastText01\"><text id=\"1\">Hello from Java!</text></binding></visual></toast>";
+		String toast = "<toast><visual><binding template="ToastText01"><text id="1">Hello from Java!</text></binding></visual></toast>";
 		Notification n = Notification.createWindowsNotification(toast);
 		hub.sendNotification(n);
 
 * **iOS**
 
-		String alert = "{\"aps\":{\"alert\":\"Hello from Java!\"}}";
+		String alert = "{"aps":{"alert":"Hello from Java!"}}";
 		Notification n = Notification.createAppleNotification(alert);
 		hub.sendNotification(n);
 
 * **Android**
 
-		String message = "{\"data\":{\"msg\":\"Hello from Java!\"}}";
+		String message = "{"data":{"msg":"Hello from Java!"}}";
 		Notification n = Notification.createGcmNotification(message);
 		hub.sendNotification(n);
 
 * **Windows Phone 8.0 및 8.1 Silverlight**
 
-		String toast = "<?xml version=\"1.0\" encoding=\"utf-8\"?>" +
-			        "<wp:Notification xmlns:wp=\"WPNotification\">" +
+		String toast = "<?xml version="1.0" encoding="utf-8"?>" +
+			        "<wp:Notification xmlns:wp="WPNotification">" +
 			           "<wp:Toast>" +
 			                "<wp:Text1>Hello from Java!</wp:Text1>" +
 			           "</wp:Toast> " +
@@ -263,7 +263,7 @@ CreateOrUpdate, Patch 및 Delete의 최종 결과는 Get과 동일합니다. 요
 
 * **Kindle Fire**
 
-		String message = "{\"data\":{\"msg\":\"Hello from Java!\"}}";
+		String message = "{"data":{"msg":"Hello from Java!"}}";
 		Notification n = Notification.createAdmNotification(message);
 		hub.sendNotification(n);
 

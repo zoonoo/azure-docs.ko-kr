@@ -33,15 +33,15 @@
 
 **다음 섹션에서는 몇가지 샘플 시나리오를 제공합니다. 각 시나리오의 경우, 가능한 데이터 과학 흐름 및 지원되는 Azure 리소스가 표시됩니다.**
 
-- [시나리오 \#1: 로컬 파일에서 중간 테이블 형식 데이터 집합보다 작음](#smalllocal)
-- [시나리오 \#2: 처리를 요구하는 로컬 파일의 보통 데이터 집합보다 작음](#smalllocalprocess)
-- [시나리오 \#3: 로컬 파일에서 큰 데이터 집합보다 큼, Azure Blob을 대상으로 함](#largelocal)
-- [시나리오 \#4: 로컬 파일의 보통 데이터 집합보다 작음, Azure VM의 SQL Server를 대상으로 함](#smalllocaltodb)
-- [시나리오 \#5: 로컬 파일의 큰 데이터 집합, Azure VM의 SQL Server를 대상으로 함](#largelocaltodb)
-- [시나리오 \#6: 온-프레미스의 SQL 서버 데이터베이스의 큰 데이터 집합, Azure VM의 SQL Server를 대상으로 함](#largedbtodb)
-- [시나리오 \#7: 로컬 파일의 빅 데이터, Azure HDInsight Hadoop 클러스터의 Hive 데이터베이스를 대상으로 함](#largedbtohive)
+- [시나리오 #1: 로컬 파일에서 중간 테이블 형식 데이터 집합보다 작음](#smalllocal)
+- [시나리오 #2: 처리를 요구하는 로컬 파일의 보통 데이터 집합보다 작음](#smalllocalprocess)
+- [시나리오 #3: 로컬 파일에서 큰 데이터 집합보다 큼, Azure Blob을 대상으로 함](#largelocal)
+- [시나리오 #4: 로컬 파일의 보통 데이터 집합보다 작음, Azure VM의 SQL Server를 대상으로 함](#smalllocaltodb)
+- [시나리오 #5: 로컬 파일의 큰 데이터 집합, Azure VM의 SQL Server를 대상으로 함](#largelocaltodb)
+- [시나리오 #6: 온-프레미스의 SQL 서버 데이터베이스의 큰 데이터 집합, Azure VM의 SQL Server를 대상으로 함](#largedbtodb)
+- [시나리오 #7: 로컬 파일의 빅 데이터, Azure HDInsight Hadoop 클러스터의 Hive 데이터베이스를 대상으로 함](#largedbtohive)
 
-## <a name="smalllocal"></a>시나리오 \#1: 로컬 파일에서 중간 테이블 형식 데이터 집합보다 작음
+## <a name="smalllocal"></a>시나리오 #1: 로컬 파일에서 중간 테이블 형식 데이터 집합보다 작음
 
 ![보통 로컬 파일보다 작음][1]
 
@@ -53,11 +53,11 @@
 
 3.  데이터 집합을 업로드한 Azure 컴퓨터 학습 실험 흐름을 작성합니다.
 
-## <a name="smalllocalprocess"></a>시나리오 \#2: 처리를 요구하는 로컬 파일의 보통 데이터 집합보다 작음
+## <a name="smalllocalprocess"></a>시나리오 #2: 처리를 요구하는 로컬 파일의 보통 데이터 집합보다 작음
 
 ![처리 중인 중간 로컬 파일보다 작음][2]
 
-#### 추가 Azure 리소스: Azure 가상 컴퓨터 \(IPython Notebook 서버\)
+#### 추가 Azure 리소스: Azure 가상 컴퓨터 (IPython Notebook 서버)
 
 1.  IPython Notebook을 실행하는 Azure 가상 컴퓨터를 만듭니다.
 
@@ -75,11 +75,11 @@
 
 8. 수집된 데이터 집합으로 시작하여 Azure 컴퓨터 학습 실험 흐름을 작성합니다.
 
-## <a name="largelocal"></a>시나리오 \#3: 로컬 파일에서 큰 데이터 집합, Azure Blob을 대상으로 함
+## <a name="largelocal"></a>시나리오 #3: 로컬 파일에서 큰 데이터 집합, Azure Blob을 대상으로 함
 
 ![큰 로컬 파일][3]
 
-#### 추가 Azure 리소스: Azure 가상 컴퓨터 \(IPython Notebook 서버\)
+#### 추가 Azure 리소스: Azure 가상 컴퓨터 (IPython Notebook 서버)
 
 1.  IPython Notebook을 실행하는 Azure 가상 컴퓨터를 만듭니다.
 
@@ -102,11 +102,11 @@
 10. 수집된 데이터 집합으로 시작하여 Azure ML 실험 흐름을 작성합니다.
 
 
-## <a name="smalllocaltodb"></a>시나리오 \#4: 로컬 파일의 보통 데이터 집합보다 작음, Azure 가상 컴퓨터의 SQL Server를 대상으로 함
+## <a name="smalllocaltodb"></a>시나리오 #4: 로컬 파일의 보통 데이터 집합보다 작음, Azure 가상 컴퓨터의 SQL Server를 대상으로 함
 
 ![Azure에서 SQL DB보다 중간인 로컬 파일보다 작음][4]
 
-#### 추가 Azure 리소스: Azure 가상 컴퓨터 \(SQL Server / IPython Notebook 서버\)
+#### 추가 Azure 리소스: Azure 가상 컴퓨터 (SQL Server / IPython Notebook 서버)
 
 1.  SQL Server + IPython Notebook을 실행하는 Azure 가상 컴퓨터를 만듭니다.
 
@@ -116,22 +116,22 @@
 
 4.  필요한 경우, 데이터를 정리된 테이블 형식으로 변환합니다.
 
-5.  VM 로컬 파일에 데이터 저장합니다\(IPython Notebook이 VM에서 실행되고, 로컬 드라이브가 VM 드라이브를 참조\).
+5.  VM 로컬 파일에 데이터 저장합니다(IPython Notebook이 VM에서 실행되고, 로컬 드라이브가 VM 드라이브를 참조).
 
 6.  Azure VM에서 실행되는 SQL Server 데이터베이스에 데이터를 로드 합니다.
 
-    a. 옵션 \#1: SQL Server Management Studio 사용.
+    a. 옵션 #1: SQL Server Management Studio 사용.
 
-		i.  Login to SQL Server VM
-        ii. Run SQL Server Management Studio.
-        iii. Create database and target tables.
-        iv. Use one of the bulk import methods to load the data from VM-local files.
+		i.  SQL Server VM에 로그인합니다.
+        ii. SQL Server Management Studio를 실행합니다.
+        iii. 데이터베이스 및 대상 테이블을 만듭니다.
+        iv. 대량 가져오기 방법 중 하나를 사용하여 VM-로컬 파일의 데이터를 로드합니다.
 
-    b. 옵션 \#2: IPython Notebook 사용 – 중간 및 대규모 데이터 집합을 권장하지 않음
+    b. 옵션 #2: IPython Notebook 사용 – 중간 및 대규모 데이터 집합을 권장하지 않음
 
-        i.  Use ODBC connection string to access SQL Server on VM.
-        ii. Create database and target tables.
-        iii. Use one of the bulk import methods to load the data from VM-local files.
+        i.  ODBC 연결 스트링을 사용하여 VM의 SQL 서버에 액세스합니다.
+        ii. 데이터베이스 및 대상 테이블을 만듭니다.
+        iii. 대량 가져오기 방법 중 하나를 사용하여 VM-로컬 파일의 데이터를 로드합니다.
 
 7.  데이터를 탐색하고 필요에 따라 기능을 만듭니다. 기능을 데이터베이스 테이블에 구체화하지 않아도 됩니다. 필요한 쿼리를 기록하여 만들기만 합니다.
 
@@ -143,23 +143,23 @@
 
 11. 수집된 데이터 집합으로 시작하여 Azure ML 실험 흐름을 작성합니다.
 
-## <a name="largelocaltodb"></a>시나리오 \#5: 로컬 파일의 큰 데이터 집합, Azure VM의 SQL Server를 대상으로 함
+## <a name="largelocaltodb"></a>시나리오 #5: 로컬 파일의 큰 데이터 집합, Azure VM의 SQL Server를 대상으로 함
 
 ![Azure의 SQL DB보다 큰 로컬 파일][5]
 
-#### 추가 Azure 리소스: Azure 가상 컴퓨터 \(SQL Server / IPython Notebook 서버\)
+#### 추가 Azure 리소스: Azure 가상 컴퓨터 (SQL Server / IPython Notebook 서버)
 
 1.  SQL Server 및 IPython Notebook 서버를 실행하는 Azure 가상 컴퓨터를 만듭니다.
 
 2.  Azure 저장소 컨테이너에 데이터를 업로드 합니다.
 
-3.  \(선택 사항\) 데이터를 사전 처리하고 정리합니다.
+3.  (선택 사항) 데이터를 사전 처리하고 정리합니다.
 
     a. IPython Notebook에서 데이터를 사전 처리하고 정리하며, Azure Blob에서 데이터에 액세스합니다.
 
     b. 필요한 경우, 데이터를 정리된 테이블 형식으로 변환합니다.
 
-    c. VM 로컬 파일에 데이터 저장합니다\(IPython Notebook이 VM에서 실행되고, 로컬 드라이브가 VM 드라이브를 참조\).
+    c. VM 로컬 파일에 데이터 저장합니다(IPython Notebook이 VM에서 실행되고, 로컬 드라이브가 VM 드라이브를 참조).
 
 4.  Azure VM에서 실행되는 SQL Server 데이터베이스에 데이터를 로드 합니다.
 
@@ -175,7 +175,7 @@
 
     f. 테이블 조인이 필요한 경우, 인덱스를 만들어 조인을 신속하게 처리합니다.
 
- \>[AZURE.NOTE]큰 데이터를 좀 더 빨리 로드하기 위해, 분할된 테이블을 만들고 병렬로 대량 데이터를 가져오는 것이 좋습니다. 자세한 내용은 [SQL 분할된 테이블로 병렬로 데이터 가져오기](machine-learning-data-science-parallel-load-sql-partitioned-tables.md)를 참조하세요.
+ > [AZURE.NOTE]큰 데이터를 좀 더 빨리 로드하기 위해, 분할된 테이블을 만들고 병렬로 대량 데이터를 가져오는 것이 좋습니다. 자세한 내용은 [SQL 분할된 테이블로 병렬로 데이터 가져오기](machine-learning-data-science-parallel-load-sql-partitioned-tables.md)를 참조하세요.
 
 5.  데이터를 탐색하고 필요에 따라 기능을 만듭니다. 기능을 데이터베이스 테이블에 구체화하지 않아도 됩니다. 필요한 쿼리를 기록하여 만들기만 합니다.
 
@@ -187,17 +187,17 @@
 
 9. 업로드된 데이터 집합으로 시작한 간단한 Azure ML 실험 흐름
 
-## <a name="largedbtodb"></a>시나리오 \#6: 온-프레미스의 SQL 서버 데이터베이스의 큰 데이터 집합, Azure 가상 컴퓨터의 SQL Server를 대상으로 함
+## <a name="largedbtodb"></a>시나리오 #6: 온-프레미스의 SQL 서버 데이터베이스의 큰 데이터 집합, Azure 가상 컴퓨터의 SQL Server를 대상으로 함
 
 ![Azure의 SQL DB보다 큰 SQL DB 온-프레미스][6]
 
-#### 추가 Azure 리소스: Azure 가상 컴퓨터 \(SQL Server / IPython Notebook 서버\)
+#### 추가 Azure 리소스: Azure 가상 컴퓨터 (SQL Server / IPython Notebook 서버)
 
 1.  SQL Server 및 IPython Notebook 서버를 실행하는 Azure 가상 컴퓨터를 만듭니다.
 
 2.  데이터 내보내기 메서드 중 하나를 사용하여 SQL Server에서 덤프 파일로 데이터를 내보냅니다.
 
-    a. 참고: 온-프레미스 데이터베이스에서 모든 데이터를 이동하기로 결정한 경우, \(빠른\)메서드로 대체하여 전체 데이터베이스를 Azure의 SQL Server 인스턴스로 이동합니다. 데이터를 내보내고, 데이터베이스를 만들고 대상 데이터베이스로 데이터를 로드/가져오기하는 단계를 건너뛰고 대체 메서드를 따릅니다.
+    a. 참고: 온-프레미스 데이터베이스에서 모든 데이터를 이동하기로 결정한 경우, (빠른)메서드로 대체하여 전체 데이터베이스를 Azure의 SQL Server 인스턴스로 이동합니다. 데이터를 내보내고, 데이터베이스를 만들고 대상 데이터베이스로 데이터를 로드/가져오기하는 단계를 건너뛰고 대체 메서드를 따릅니다.
 
 3.  Azure 저장소 컨테이너로 덤프 파일을 업로드합니다.
 
@@ -231,7 +231,7 @@
 
 ![로컬 DB를 분리하고 Azure의 SQL DB에 첨부][7]
 
-#### 추가 Azure 리소스: Azure 가상 컴퓨터 \(SQL Server / IPython Notebook 서버\)
+#### 추가 Azure 리소스: Azure 가상 컴퓨터 (SQL Server / IPython Notebook 서버)
 
 SQL Server VM에서 전체 SQL Server 데이터베이스를 복제하려면, 한 위치/서버에서 다른 위치/서버로 데이터베이스를 복사해야 하며, 데이터베이스가 일시적으로 오프라인 상태가 될 수 있다고 가정합니다. SQL Server Management Studio 개체 탐색기 GUI 또는 해당하는 TRANSACT-SQL 명령을 사용하여 이 작업을 수행합니다.
 
@@ -241,7 +241,7 @@ SQL Server VM에서 전체 SQL Server 데이터베이스를 복제하려면, 한
 
 [분리 및 첨부(Transact-SQL)을 사용하 여 데이터베이스 이동](https://technet.microsoft.com/library/ms187858(v=sql.110).aspx)
 
-## <a name="largedbtohive"></a>시나리오 \#7: 로컬 파일의 빅 데이터, Azure HDInsight Hadoop 클러스터의 Hive 데이터베이스를 대상으로 함
+## <a name="largedbtohive"></a>시나리오 #7: 로컬 파일의 빅 데이터, Azure HDInsight Hadoop 클러스터의 Hive 데이터베이스를 대상으로 함
 
 ![로컬 대상 Hive의 빅 데이터][9]
 
@@ -251,13 +251,13 @@ SQL Server VM에서 전체 SQL Server 데이터베이스를 복제하려면, 한
 
 2.  Azure HDInsight Hadoop 클러스터를 만듭니다.
 
-3.  \(선택 사항\) 데이터를 사전 처리하고 정리합니다.
+3.  (선택 사항) 데이터를 사전 처리하고 정리합니다.
 
     a. IPython Notebook에서 데이터를 사전 처리하고 정리하며, Azure Blob에서 데이터에 액세스합니다.
 
     b. 필요한 경우, 데이터를 정리된 테이블 형식으로 변환합니다.
 
-    c. VM 로컬 파일에 데이터 저장합니다\(IPython Notebook이 VM에서 실행되고, 로컬 드라이브가 VM 드라이브를 참조\).
+    c. VM 로컬 파일에 데이터 저장합니다(IPython Notebook이 VM에서 실행되고, 로컬 드라이브가 VM 드라이브를 참조).
 
 4.  2단계에서 선택한 Hadoop 클러스터의 기본 컨테이너에 데이터를 업로드합니다.
 

@@ -35,7 +35,7 @@ Visual Studio Application Insights를 사용하면 다음을 위해 게시된 �
 * [Microsoft Azure][azure] 구독.
 * Visual Studio 2013 이상.
 
-## 1\. Application Insights 리소스 만들기 
+## 1. Application Insights 리소스 만들기 
 
 [Azure 포털][portal]에서 새 Application Insights 리소스를 만듭니다.
 
@@ -50,7 +50,7 @@ Azure에서 [리소스][roles]는 서비스의 인스턴스입니다. 이 리소
 ![필수 항목 드롭다운 서랍을 열고 계측 키를 선택합니다.](./media/app-insights-windows-get-started/02-props.png)
 
 
-## 2\. 앱에 Application Insights SDK 추가
+## 2. 앱에 Application Insights SDK 추가
 
 Visual Studio에서 프로젝트에 적합한 SDK를 추가합니다.
 
@@ -68,7 +68,7 @@ Windows 유니버설 앱인 경우 Windows Phone 및 Windows 프로젝트 모두
    * Windows 응용 프로그램용 Application Insights - *Windows 스토어 앱용*
    * Windows Phone 응용 프로그램용 Application Insights
    * 웹 앱용 application Insights - *데스크톱 응용 프로그램에 사용* 
-4. ApplicationInsights.config\(NuGet 설치로 추가됨\)를 편집합니다. 닫는 태그 바로 전에 삽입합니다.
+4. ApplicationInsights.config(NuGet 설치로 추가됨)를 편집합니다. 닫는 태그 바로 전에 삽입합니다.
 
     `<InstrumentationKey>`*복사한 키*`</InstrumentationKey>`
 
@@ -95,7 +95,7 @@ Visual Studio에 수신된 이벤트의 수가 표시됩니다.
 ![프로젝트를 마우스 오른쪽 단추로 클릭하고 Azure 포털을 엽니다.](./media/appinsights/appinsights-04-openPortal.png)
 
 
-처음에는 요소가 1\~2개만 표시됩니다. 예:
+처음에는 요소가 1~2개만 표시됩니다. 예:
 
 ![클릭하여 추가 데이터 확인](./media/appinsights/appinsights-26-devices-01.png)
 
@@ -116,7 +116,7 @@ Visual Studio를 사용하여 설치 단계를 수행하려면 Windows Phone, Wi
 
 새 프로젝트 대화 상자에서 Application Insights를 선택합니다.
 
-로그인할지 묻는 메시지가 표시되면 Azure 계정의 자격 증명을 사용합니다\(Visual Studio Online 계정과 별개\).
+로그인할지 묻는 메시지가 표시되면 Azure 계정의 자격 증명을 사용합니다(Visual Studio Online 계정과 별개).
 
 ![](./media/appinsights/appinsights-d21-new.png)
 

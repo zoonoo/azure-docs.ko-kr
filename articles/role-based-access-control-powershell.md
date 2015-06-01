@@ -61,22 +61,22 @@ Windows PowerShell에서 Azure 리소스 관리자를 설치하고 사용하는 
 
 RBAC는 Azure 리소스 관리자에서만 작동하므로 먼저 Azure 리소스 관리자 모드로 전환해야 합니다. 이렇게 하려면 다음을 입력합니다.
 
-    PS C:\> Switch-AzureMode -Name AzureResourceManager
+    PS C:> Switch-AzureMode -Name AzureResourceManager
 
 자세한 내용은 [리소스 관리자에서 Windows PowerShell 사용](http://azure.microsoft.com/documentation/articles/powershell-azure-resource-manager/)을 참조하세요.
 
 Azure 구독에 연결하려면 다음을 입력합니다.
 
-    PS C:\> Add-AzureAccount
+    PS C:> Add-AzureAccount
 
 팝업 브라우저 컨트롤에 Azure 계정 사용자 이름 및 암호를 입력합니다. PowerShell은 이 계정에 포함된 모든 구독을 가져오며 첫 번째 구독을 기본값으로 사용하도록 구성합니다. RBAC를 사용하는 경우에는 자신이 공동 관리자이거나 역할을 할당받아 특정 권한을 가진 구독만 가져올 수 있습니다. 
 
 구독이 여러 개인 경우 다른 구독으로 전환하려면 다음을 입력합니다.
 
     # 이렇게 하면 계정 아래의 구독이 표시됩니다.
-    PS C:\> Get-AzureSubscription
+    PS C:> Get-AzureSubscription
     # 구독 이름을 사용하여 작업할 구독을 선택합니다.
-    PS C:\> Select-AzureSubscription -SubscriptionName <subscription name>
+    PS C:> Select-AzureSubscription -SubscriptionName <subscription name>
 
 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](http://azure.microsoft.com/documentation/articles/install-configure-powershell/)을 참조하세요.
 
@@ -84,7 +84,7 @@ Azure 구독에 연결하려면 다음을 입력합니다.
 
 구독에 이미 포함되어 있는 역할 할당을 확인해 보겠습니다. 형식:
 
-    PS C:\> Get-AzureRoleAssignment
+    PS C:> Get-AzureRoleAssignment
 
 그러면 구독의 모든 역할 할당이 반환됩니다. 여기서 유의해야 할 점은 다음의 두 가지입니다.
 
@@ -93,7 +93,7 @@ Azure 구독에 연결하려면 다음을 입력합니다.
 
 특정 범위에서 특정 사용자에 대한 특정 역할 정의의 기존 역할 할당을 확인할 수도 있습니다. 형식:
 
-    PS C:\> Get-AzureRoleAssignment -ResourceGroupName group1 -Mail <user email> -RoleDefinitionName Owner
+    PS C:> Get-AzureRoleAssignment -ResourceGroupName group1 -Mail <user email> -RoleDefinitionName Owner
 
 그러면 AD 테넌트에서 리소스 그룹 "group1"에 대해 "Owner" 역할이 할당된 특정 사용자에 대한 모든 역할 할당이 반환됩니다. 역할 할당은 다음의 두 위치에서 수행될 수 있습니다.
 
@@ -108,42 +108,42 @@ Azure 구독에 연결하려면 다음을 입력합니다.
 
 - 역할을 할당할 사람: 다음 Azure Active Directory cmdlet을 사용하여 AD 테넌트에 포함된 사용자, 그룹 및 서비스 사용자를 확인할 수 있습니다.
 
-    `PS C:\> Get-AzureADUser
-    PS C:\> Get-AzureADGroup
-    PS C:\> Get-AzureADGroupMember
-    PS C:\> Get-AzureADServicePrincipal` 
+    `PS C:> Get-AzureADUser
+    PS C:> Get-AzureADGroup
+    PS C:> Get-AzureADGroupMember
+    PS C:> Get-AzureADServicePrincipal` 
 
 - 할당할 역할: 다음 cmdlet을 사용하여 지원되는 역할 정의를 확인할 수 있습니다.
 
-    `PS C:\> Get-AzureRoleDefinition`
+    `PS C:> Get-AzureRoleDefinition`
 
 - 할당할 범위: 범위에는 세 가지 수준이 있습니다.
 
     - 현재 구독
-    - 리소스 그룹. 리소스 그룹 목록을 가져오려면 'PS C:\> Get-AzureResourceGroup'을 입력합니다.
-    - 리소스. 리소스 목록을 가져오려면 'PS C:\> Get-AzureResource'를 입력합니다.
+    - 리소스 그룹. 리소스 그룹 목록을 가져오려면 'PS C:> Get-AzureResourceGroup'을 입력합니다.
+    - 리소스. 리소스 목록을 가져오려면 'PS C:> Get-AzureResource'를 입력합니다.
 
 그런 다음 'New-AzureRoleAssignment'를 사용하여 역할 할당을 만듭니다. 예를 들면 다음과 같습니다.
 
  - 아래 명령을 입력하면 사용자에 대해 읽기 권한자로 현재 구독 수준에 역할 할당이 생성됩니다.
 
-    `PS C:\> New-AzureRoleAssignment -Mail <user's email> -RoleDefinitionName Reader`
+    `PS C:> New-AzureRoleAssignment -Mail <user's email> -RoleDefinitionName Reader`
 
 - 아래 명령을 입력하면 리소스 그룹 수준에서 역할 할당이 생성됩니다.
 
-    `PS C:\> New-AzureRoleAssignment -Mail <user's email> -RoleDefinitionName Contributor -ResourceGroupName group1`
+    `PS C:> New-AzureRoleAssignment -Mail <user's email> -RoleDefinitionName Contributor -ResourceGroupName group1`
 
 - 아래 명령을 입력하면 리소스 수준에서 역할 할당이 생성됩니다.
 
-    `PS C:\> $resources = Get-AzureResource
-    PS C:\> New-AzureRoleAssignment -Mail <user's email> -RoleDefinitionName Owner -Scope $resources[0].ResourceId`
+    `PS C:> $resources = Get-AzureResource
+    PS C:> New-AzureRoleAssignment -Mail <user's email> -RoleDefinitionName Owner -Scope $resources[0].ResourceId`
 
 ## <a id="verify"></a>권한 확인 ##
 
 계정에 역할이 할당되었음을 확인한 후에는 다음 명령을 실행하여 이러한 역할 할당을 통해 부여되는 권한을 실제로 확인할 수 있습니다.
 
-    PS C:\> Get-AzureResourceGroup
-    PS C:\> Get-AzureResource
+    PS C:> Get-AzureResourceGroup
+    PS C:> Get-AzureResource
 
 이 두 cmdlet은 읽기 권한이 있는 리소스 그룹 또는 리소스만 반환하며, 사용자가 소유한 권한도 표시합니다.
 

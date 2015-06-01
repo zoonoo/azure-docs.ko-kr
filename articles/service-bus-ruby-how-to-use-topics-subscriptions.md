@@ -91,7 +91,7 @@ Azure 서비스 버스를 사용하려면 저장소 REST 서비스와 통신하�
 
 ## Azure 서비스 버스 연결 설정
 
-Azure 모듈은 **AZURE\_SERVICEBUS\_NAMESPACE** 및 **AZURE\_SERVICEBUS\_ACCESS\_KEY** 
+Azure 모듈은 **AZURE_SERVICEBUS_NAMESPACE** 및 **AZURE_SERVICEBUS_ACCESS_KEY** 
 환경 변수를 읽고 Azure 서비스 버스 네임스페이스에 연결하는 데 필요한 정보를 확인합니다. 이러한 환경 변수를 설정하지 않은 경우 **Azure::ServiceBusService**를 사용하기 전에 다음 코드로 네임스페이스 정보를 지정해야 합니다.
 
     Azure.config.sb_namespace = "<your azure service bus namespace>"
@@ -101,7 +101,7 @@ Azure 모듈은 **AZURE\_SERVICEBUS\_NAMESPACE** 및 **AZURE\_SERVICEBUS\_ACCESS
 
 ## 토픽을 만드는 방법
 
-**Azure::ServiceBusService** 개체를 사용하면 토픽으로 작업할 수 있습니다. 다음 코드는 **Azure::ServiceBusService** 개체를 만듭니다. 토픽을 만들려면 **create\_topic()** 메서드를 사용합니다. 다음 예제에서는 토픽을 만들거나 오류가 있는 경우 오류를 출력합니다.
+**Azure::ServiceBusService** 개체를 사용하면 토픽으로 작업할 수 있습니다. 다음 코드는 **Azure::ServiceBusService** 개체를 만듭니다. 토픽을 만들려면 **create_topic()** 메서드를 사용합니다. 다음 예제에서는 토픽을 만들거나 오류가 있는 경우 오류를 출력합니다.
 
 	azure_service_bus_service = Azure::ServiceBusService.new
 	begin
@@ -137,11 +137,11 @@ Azure 모듈은 **AZURE\_SERVICEBUS\_NAMESPACE** 및 **AZURE\_SERVICEBUS\_ACCESS
 
 구독에서 지원하는 가장 유연한 유형의 필터는 SQL92 하위 집합을 구현하는 **Azure::ServiceBus::SqlFilter**입니다. SQL 필터는 토픽에 게시된 메시지의 속성에 적용됩니다. SQL 필터와 함께 사용할 수 있는 식에 대한 자세한 내용은 [SqlFilter.SqlExpression](http://msdn.microsoft.com/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx) 구문을 참조하세요.
 
-**Azure::ServiceBusService** 개체의 **create\_rule()** 메서드를 사용하여 구독에 필터를 추가할 수 있습니다. 이 메서드를 사용하면 기존 구독에 새 필터를 추가할 수 있습니다.
+**Azure::ServiceBusService** 개체의 **create_rule()** 메서드를 사용하여 구독에 필터를 추가할 수 있습니다. 이 메서드를 사용하면 기존 구독에 새 필터를 추가할 수 있습니다.
 
-기본 필터는 모든 새로운 구독에 자동으로 적용되므로 먼저 기본 필터를 제거해야 합니다. 그렇지 않으면 **MatchAll**이 지정되어 있을 수 있는 기타 필터를 재정의합니다. **Azure::ServiceBusService** 개체의 **delete\_rule()** 메서드를 사용하여 기본 규칙을 제거할 수 있습니다.
+기본 필터는 모든 새로운 구독에 자동으로 적용되므로 먼저 기본 필터를 제거해야 합니다. 그렇지 않으면 **MatchAll**이 지정되어 있을 수 있는 기타 필터를 재정의합니다. **Azure::ServiceBusService** 개체의 **delete_rule()** 메서드를 사용하여 기본 규칙을 제거할 수 있습니다.
 
-아래 예제에서는 사용자 지정 **message\_number** 속성이 3보다 큰 메시지만 선택하는 **Azure::ServiceBus::SqlFilter**를 사용하여 "high-messages"라는 구독을 만듭니다.
+아래 예제에서는 사용자 지정 **message_number** 속성이 3보다 큰 메시지만 선택하는 **Azure::ServiceBus::SqlFilter**를 사용하여 "high-messages"라는 구독을 만듭니다.
 
 	subscription = azure_service_bus_service.create_subscription("test-topic", 
 	  "high-messages")
@@ -173,7 +173,7 @@ Azure 모듈은 **AZURE\_SERVICEBUS\_NAMESPACE** 및 **AZURE\_SERVICEBUS\_ACCESS
 
 ## 토픽에 메시지를 보내는 방법
 
-서비스 버스 토픽에 메시지를 보내려면 응용 프로그램에서 **Azure::ServiceBusService** 개체의 **send\_topic\_message()** 메서드를 사용해야 합니다. 서비스 버스 토픽으로 전송되는 메시지는 **Azure::ServiceBus::BrokeredMessage** 개체입니다. **Azure::ServiceBus::BrokeredMessage** 개체에는 **label**, **time\_to\_live** 등의 표준 속성 집합과 응용 프로그램별 사용자 지정 속성을 저장하는 데 사용되는 사전, 그리고 문자열 데이터의 본문이 포함되어 있습니다. 응용 프로그램은 문자열 값을 **send\_topic\_message()** 메서드에 전달하여 메시지의 본문을 설정할 수 있습니다. 그러면 필수 표준 속성에 기본값이 입력됩니다.
+서비스 버스 토픽에 메시지를 보내려면 응용 프로그램에서 **Azure::ServiceBusService** 개체의 **send_topic_message()** 메서드를 사용해야 합니다. 서비스 버스 토픽으로 전송되는 메시지는 **Azure::ServiceBus::BrokeredMessage** 개체입니다. **Azure::ServiceBus::BrokeredMessage** 개체에는 **label**, **time_to_live** 등의 표준 속성 집합과 응용 프로그램별 사용자 지정 속성을 저장하는 데 사용되는 사전, 그리고 문자열 데이터의 본문이 포함되어 있습니다. 응용 프로그램은 문자열 값을 **send_topic_message()** 메서드에 전달하여 메시지의 본문을 설정할 수 있습니다. 그러면 필수 표준 속성에 기본값이 입력됩니다.
 
 다음 예제에서는 "test-topic"에 5개의 테스트 메시지를 보내는 방법을 보여 줍니다. 루프가 반복될 때마다 각 메시지의 **message_number** 속성 값이 변경되며 이 값에 따라 해당 메시지를 받는 구독이 결정됩니다.
 
@@ -187,13 +187,13 @@ Azure 모듈은 **AZURE\_SERVICEBUS\_NAMESPACE** 및 **AZURE\_SERVICEBUS\_ACCESS
 
 ## 구독에서 메시지를 받는 방법
 
-**Azure::ServiceBusService** 개체의 **receive\_subscription\_message()** 메서드를 사용하여 구독에서 메시지를 받습니다. 기본적으로 메시지는 구독에서 삭제하지 않고 읽고(피크) 잠급니다. **peek\_lock** 옵션을 **false**로 설정하면 구독에서 메시지를 읽고 삭제할 수 있습니다.
+**Azure::ServiceBusService** 개체의 **receive_subscription_message()** 메서드를 사용하여 구독에서 메시지를 받습니다. 기본적으로 메시지는 구독에서 삭제하지 않고 읽고(피크) 잠급니다. **peek_lock** 옵션을 **false**로 설정하면 구독에서 메시지를 읽고 삭제할 수 있습니다.
 
-기본 동작은 읽기 및 삭제가 2단계 작업으로 수행되도록 하므로 메시지 누락이 허용되지 않는 응용 프로그램을 지원할 수 있습니다. 서비스 버스는 요청을 받으면 소비할 다음 메시지를 찾아서 다른 소비자가 수신할 수 없도록 잠근 후 응용 프로그램에 반환합니다. 응용 프로그램은 메시지 처리를 완료하거나 추가 처리를 위해 안전하게 저장한 후 **delete\_subscription\_message()** 메서드를 호출하고 삭제할 메시지를 매개 변수로 제공하여 수신 프로세스의 두 번째 단계를 완료합니다. **delete\_subscription\_message()** 메서드는 메시지를 사용 중인 것으로 표시하고 구독에서 제거합니다.
+기본 동작은 읽기 및 삭제가 2단계 작업으로 수행되도록 하므로 메시지 누락이 허용되지 않는 응용 프로그램을 지원할 수 있습니다. 서비스 버스는 요청을 받으면 소비할 다음 메시지를 찾아서 다른 소비자가 수신할 수 없도록 잠근 후 응용 프로그램에 반환합니다. 응용 프로그램은 메시지 처리를 완료하거나 추가 처리를 위해 안전하게 저장한 후 **delete_subscription_message()** 메서드를 호출하고 삭제할 메시지를 매개 변수로 제공하여 수신 프로세스의 두 번째 단계를 완료합니다. **delete_subscription_message()** 메서드는 메시지를 사용 중인 것으로 표시하고 구독에서 제거합니다.
 
-**:peek\_lock** 매개 변수를 **false**로 설정하면 메시지 읽기 및 삭제가 가장 간단한 모델로 설정됩니다. 이러한 모델은 오류 발생 시 응용 프로그램이 메시지를 처리하지 않아도 되는 시나리오에 가장 적합합니다 이 모드를 파악하려면 소비자가 수신 요청을 실행했는데 요청이 처리되기 전에 응용 프로그램 작동이 중지되는 시나리오를 고려할 수 있습니다. 서비스 버스는 메시지를 이용되는 것으로 표시하기 때문에 응용 프로그램이 다시 시작되고 메시지 소비를 다시 시작할 경우 크래시 전에 소비된 메시지가 누락됩니다.
+**:peek_lock** 매개 변수를 **false**로 설정하면 메시지 읽기 및 삭제가 가장 간단한 모델로 설정됩니다. 이러한 모델은 오류 발생 시 응용 프로그램이 메시지를 처리하지 않아도 되는 시나리오에 가장 적합합니다 이 모드를 파악하려면 소비자가 수신 요청을 실행했는데 요청이 처리되기 전에 응용 프로그램 작동이 중지되는 시나리오를 고려할 수 있습니다. 서비스 버스는 메시지를 이용되는 것으로 표시하기 때문에 응용 프로그램이 다시 시작되고 메시지 소비를 다시 시작할 경우 크래시 전에 소비된 메시지가 누락됩니다.
 
-아래 예제에서는 **receive\_subscription\_message()**를 사용하여 메시지를 받고 처리하는 방법을 보여 줍니다. 이 예제에서는 먼저 **false**로 설정된 **:peek\_lock**을 사용하여 "low-messages" 구독에서 메시지를 받고 삭제한 후 "high-messages"에서 다른 메시지를 받습니다. 그런 후에 **delete\_subscription\_message()**를 사용하여 해당 메시지를 삭제합니다.
+아래 예제에서는 **receive_subscription_message()**를 사용하여 메시지를 받고 처리하는 방법을 보여 줍니다. 이 예제에서는 먼저 **false**로 설정된 **:peek_lock**을 사용하여 "low-messages" 구독에서 메시지를 받고 삭제한 후 "high-messages"에서 다른 메시지를 받습니다. 그런 후에 **delete_subscription_message()**를 사용하여 해당 메시지를 삭제합니다.
 
     message = azure_service_bus_service.receive_subscription_message(
 	  "test-topic", "low-messages", { :peek_lock => false })
@@ -203,11 +203,11 @@ Azure 모듈은 **AZURE\_SERVICEBUS\_NAMESPACE** 및 **AZURE\_SERVICEBUS\_ACCESS
 
 ## 응용 프로그램 작동 중단 및 읽을 수 없는 메시지를 처리하는 방법
 
-서비스 버스는 응용 프로그램 오류나 메시지 처리 문제를 정상적으로 복구하는 데 유용한 기능을 제공합니다. 어떤 이유로든 수신기 응용 프로그램은 메시지를 처리할 수 없는 경우 **Azure::ServiceBusService** 개체에 대해 **unlock\_subscription\_message()** 메서드를 호출할 수 있습니다. 그러면 서비스 버스에서 구독 내 메시지의 잠금을 해제하므로 동일한 소비 응용 프로그램이나 다른 소비 응용 프로그램에서 메시지를 다시 받을 수 있습니다.
+서비스 버스는 응용 프로그램 오류나 메시지 처리 문제를 정상적으로 복구하는 데 유용한 기능을 제공합니다. 어떤 이유로든 수신기 응용 프로그램은 메시지를 처리할 수 없는 경우 **Azure::ServiceBusService** 개체에 대해 **unlock_subscription_message()** 메서드를 호출할 수 있습니다. 그러면 서비스 버스에서 구독 내 메시지의 잠금을 해제하므로 동일한 소비 응용 프로그램이나 다른 소비 응용 프로그램에서 메시지를 다시 받을 수 있습니다.
 
 구독 내에서 잠긴 메시지와 연결된 제한 시간도 있으며, 응용 프로그램에서 잠금 제한 시간이 만료되기 전에 메시지를 처리하지 못하는 경우(예: 응용 프로그램이 크래시되는 경우) 서비스 버스가 메시지를 자동으로 잠금 해제하여 다시 받을 수 있게 합니다.
 
-응용 프로그램이 메시지를 처리한 후 **delete\_subscription\_message()** 메서드를 호출하기 전에 응용 프로그램 작동이 중단되면 응용 프로그램이 다시 시작될 때 메시지가 응용 프로그램으로 다시 배달됩니다. 이러한 과정을 **한 번 이상 처리**라고 합니다. 즉, 각 메시지가 한 번 이상 처리되지만 특정 상황에서는 동일한 메시지가 다시 배달될 수 있습니다. 중복 처리가 허용되지 않는 시나리오에서는 응용 프로그램 개발자가 중복 메시지 배달을 처리하는 논리를 응용 프로그램에 추가해야 합니다. 이 작업은 배달을 여러 번 시도해도 일정하게 유지되는 **message\_id** 속성을 사용하여 수행하는 경우가 많습니다.
+응용 프로그램이 메시지를 처리한 후 **delete_subscription_message()** 메서드를 호출하기 전에 응용 프로그램 작동이 중단되면 응용 프로그램이 다시 시작될 때 메시지가 응용 프로그램으로 다시 배달됩니다. 이러한 과정을 **한 번 이상 처리**라고 합니다. 즉, 각 메시지가 한 번 이상 처리되지만 특정 상황에서는 동일한 메시지가 다시 배달될 수 있습니다. 중복 처리가 허용되지 않는 시나리오에서는 응용 프로그램 개발자가 중복 메시지 배달을 처리하는 논리를 응용 프로그램에 추가해야 합니다. 이 작업은 배달을 여러 번 시도해도 일정하게 유지되는 **message_id** 속성을 사용하여 수행하는 경우가 많습니다.
 
 ## 토픽과 구독을 삭제하는 방법
 

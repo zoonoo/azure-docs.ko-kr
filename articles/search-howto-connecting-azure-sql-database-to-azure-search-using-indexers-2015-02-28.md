@@ -18,17 +18,17 @@
 
 #인덱서를 사용하여 Azure 검색에 Azure SQL 데이터베이스 연결#
 
-Azure 검색 서비스를 사용하면 뛰어난 검색 환경을 쉽게 제공할 수 있지만 검색하려면 먼저 Azure 검색 인덱스를 데이터로 채워야 합니다. 데이터가 Azure SQL 데이터베이스에 있는 경우 Azure 검색의 새 **Azure SQL 데이터베이스용 Azure 검색 인덱서**\(또는 줄여서 **Azure SQL 인덱서** 줄여서\) 기능을 사용하여 인덱싱 프로세스를 자동화할 수 있습니다. 이는 작성할 코드 및 유지 관리할 인프라가 없음을 의미합니다.
+Azure 검색 서비스를 사용하면 뛰어난 검색 환경을 쉽게 제공할 수 있지만 검색하려면 먼저 Azure 검색 인덱스를 데이터로 채워야 합니다. 데이터가 Azure SQL 데이터베이스에 있는 경우 Azure 검색의 새 **Azure SQL 데이터베이스용 Azure 검색 인덱서**(또는 줄여서 **Azure SQL 인덱서** 줄여서) 기능을 사용하여 인덱싱 프로세스를 자동화할 수 있습니다. 이는 작성할 코드 및 유지 관리할 인프라가 없음을 의미합니다.
 
 현재 인덱서는 Azure SQL 데이터베이스, Azure VM의 SQL Server 및 Azure DocumentDB에서만 작동합니다. 이 문서에서는 Azure SQL 데이터베이스에서 작동하는 인덱서를 중점적으로 살펴봅니다. 추가 데이터 원본에 대한 지원을 확인하려면 [Azure 검색 사용자 의견 포럼](http://feedback.azure.com/forums/263029-azure-search)에 의견을 남겨 주시기 바랍니다.
 
-이 문서에서는 인덱서 사용 원리를 다루지만 SQL 데이터베이스에서만 사용할 수 있는 기능 및 동작\(예: 통합 변경 내용 추적\)에 대해서도 자세히 알아봅니다.
+이 문서에서는 인덱서 사용 원리를 다루지만 SQL 데이터베이스에서만 사용할 수 있는 기능 및 동작(예: 통합 변경 내용 추적)에 대해서도 자세히 알아봅니다.
 
 ## 인덱서 및 데이터 원본 ##
 
 Azure SQL 인덱서를 설정 및 구성하기 위해 [Azure 검색 REST API](http://go.microsoft.com/fwlink/p/?LinkID=528173)를 호출하여 **인덱서** 및 **데이터 원본**을 만들고 관리할 수 있습니다. 향후 Azure 관리 포털 및 Azure 검색 .NET SDK에서도 이 기능을 제공할 예정입니다.
 
-**데이터 원본**은 인덱싱할 데이터, 데이터에 액세스하는 데 필요한 자격 증명, Azure 검색에서 데이터 변경 내용\(예: 수정되거나 삭제된 행\)을 효율적으로 식별할 수 있도록 해주는 정책을 지정합니다. 이는 독립된 리소스로 정의되므로 여러 인덱서에서 사용할 수 있습니다.
+**데이터 원본**은 인덱싱할 데이터, 데이터에 액세스하는 데 필요한 자격 증명, Azure 검색에서 데이터 변경 내용(예: 수정되거나 삭제된 행)을 효율적으로 식별할 수 있도록 해주는 정책을 지정합니다. 이는 독립된 리소스로 정의되므로 여러 인덱서에서 사용할 수 있습니다.
 
 **인덱서**는 데이터 원본을 대상 검색 인덱스에 연결하는 리소스입니다. 인덱서는 다음과 같은 방법으로 사용됩니다.
  
@@ -45,8 +45,8 @@ Azure SQL 인덱서를 설정 및 구성하기 위해 [Azure 검색 REST API](ht
 - 데이터 원본에 사용된 데이터 형식이 인덱서에서 지원됩니다. 전부는 아니지만 대부분의 SQL 형식이 지원됩니다. 자세한 내용은 [Azure 검색에서 데이터 형식 매핑](http://go.microsoft.com/fwlink/p/?LinkID=528105)을 참조하세요. 
 - 행이 변경될 때 인덱스에 대한 실시간 업데이트가 필요 없습니다. 
 	- 인덱서는 최대 5분마다 테이블을 다시 인덱싱할 수 있습니다. 데이터가 자주 변경되고 변경 내용을 몇 초 또는 몇 분 이내에 인덱스에 반영해야 하는 경우에는 [Azure 검색 인덱스 API](https://msdn.microsoft.com/library/azure/dn798930.aspx)를 직접 사용하는 것이 좋습니다. 
-- 데이터 집합이 크고 일정에 따라 인덱서를 실행하려는 경우 사용자의 스키마를 통해 변경된 행\(및 해당되는 경우 삭제된 행\)을 효율적으로 식별할 수 있습니다. 자세한 내용은 아래의 “변경 및 삭제된 행 캡처”를 참조하세요. 
-- 행에서 인덱싱된 필드의 크기가 Azure 검색 인덱싱 요청의 최대 크기\(16MB\)를 초과하지 않습니다. 
+- 데이터 집합이 크고 일정에 따라 인덱서를 실행하려는 경우 사용자의 스키마를 통해 변경된 행(및 해당되는 경우 삭제된 행)을 효율적으로 식별할 수 있습니다. 자세한 내용은 아래의 “변경 및 삭제된 행 캡처”를 참조하세요. 
+- 행에서 인덱싱된 필드의 크기가 Azure 검색 인덱싱 요청의 최대 크기(16MB)를 초과하지 않습니다. 
 
 ## Azure SQL 인덱서 만들기 및 사용 ##
 
@@ -68,7 +68,7 @@ Azure SQL 인덱서를 설정 및 구성하기 위해 [Azure 검색 REST API](ht
 
 그런 다음 대상 Azure 검색 인덱스가 없는 경우 새로 만듭니다. 이 작업은 [포털 UI](https://portal.azure.com) 또는 [인덱스 만들기 API](https://msdn.microsoft.com/library/azure/dn798941.aspx)를 사용하여 수행할 수 있습니다. 대상 인덱스의 스키마가 원본 테이블의 스키마와 호환되는지 확인합니다. SQL 및 Azure 검색 데이터 형식 간의 매핑은 다음 표를 참조하세요.
 
-**SQL 데이터 형식과 Azure 검색 데이터 형식 간의 매핑** <table style="font-size:12"> <tr> <td>SQL 데이터 형식</td> <td>허용되는 대상 인덱스 필드 형식</td> <td>참고</td> </tr> <tr> <td>bit</td> <td>Edm.Boolean, Edm.String</td> <td></td> </tr> <tr> <td>int, smallint, tinyint</td> <td>Edm.Int32, Edm.Int64, Edm.String</td> <td></td> </tr> <tr> <td>bigint</td> <td>Edm.Int64, Edm.String</td> <td></td> </tr> <tr> <td>real, float</td> <td>Edm.Double, Edm.String</td> <td></td> </tr> <tr> <td>smallmoney, money<br/>decimal<br/>numeric </td> <td>Edm.String</td> <td>Azure 검색에서는 decimal 형식을 Edm.Double로 변환하면 정밀도가 떨어지기 때문에 이를 지원하지 않습니다. </td> </tr> <tr> <td>char, nchar, varchar, nvarchar</td> <td>Edm.String<br/>Collection\(Edm.String\)</td> <td>문자열 열을 Collection\(Edm.String\)으로 변환하려면 미리 보기 API 버전 2015-02-28-Preview를 사용해야 합니다. 자세한 내용은 [이 문서](search-api-indexers-2015-02-28-Preview.md#create-indexer)를 참조하세요.</td> </tr> <tr> <td>smalldatetime, datetime, datetime2, date, datetimeoffset</td> <td>Edm.DateTimeOffset, Edm.String</td> <td></td> </tr> <tr> <td>uniqueidentifer</td> <td>Edm.String</td> <td></td> </tr> <tr> <td>geography</td> <td>Edm.GeographyPoint</td> <td>SRID가 4326\(기본값\)인 POINT 형식의 지리 인스턴스만 지원됩니다.</td> </tr> <tr> <td>rowversion</td> <td>N/A</td> <td>행 버전 열은 변경 내용 추적에 사용할 수 있지만 검색 인덱스에 저장할 수는 없습니다.</td> </tr> <tr> <td>time, timespan<br>binary, varbinary, image,<br>xml, geometry, CLR 형식</td> <td>해당 없음</td> <td>지원되지 않음</td> </tr> </table>
+**SQL 데이터 형식과 Azure 검색 데이터 형식 간의 매핑** <table style="font-size:12"> <tr> <td>SQL 데이터 형식</td> <td>허용되는 대상 인덱스 필드 형식</td> <td>참고</td> </tr> <tr> <td>bit</td> <td>Edm.Boolean, Edm.String</td> <td></td> </tr> <tr> <td>int, smallint, tinyint</td> <td>Edm.Int32, Edm.Int64, Edm.String</td> <td></td> </tr> <tr> <td>bigint</td> <td>Edm.Int64, Edm.String</td> <td></td> </tr> <tr> <td>real, float</td> <td>Edm.Double, Edm.String</td> <td></td> </tr> <tr> <td>smallmoney, money<br/>decimal<br/>numeric </td> <td>Edm.String</td> <td>Azure 검색에서는 decimal 형식을 Edm.Double로 변환하면 정밀도가 떨어지기 때문에 이를 지원하지 않습니다. </td> </tr> <tr> <td>char, nchar, varchar, nvarchar</td> <td>Edm.String<br/>Collection(Edm.String)</td> <td>문자열 열을 Collection(Edm.String)으로 변환하려면 미리 보기 API 버전 2015-02-28-Preview를 사용해야 합니다. 자세한 내용은 [이 문서](search-api-indexers-2015-02-28-Preview.md#create-indexer)를 참조하세요.</td> </tr> <tr> <td>smalldatetime, datetime, datetime2, date, datetimeoffset</td> <td>Edm.DateTimeOffset, Edm.String</td> <td></td> </tr> <tr> <td>uniqueidentifer</td> <td>Edm.String</td> <td></td> </tr> <tr> <td>geography</td> <td>Edm.GeographyPoint</td> <td>SRID가 4326(기본값)인 POINT 형식의 지리 인스턴스만 지원됩니다.</td> </tr> <tr> <td>rowversion</td> <td>N/A</td> <td>행 버전 열은 변경 내용 추적에 사용할 수 있지만 검색 인덱스에 저장할 수는 없습니다.</td> </tr> <tr> <td>time, timespan<br>binary, varbinary, image,<br>xml, geometry, CLR 형식</td> <td>해당 없음</td> <td>지원되지 않음</td> </tr> </table>
 
 마지막으로, 이름을 지정하고 데이터 원본 및 대상 인덱스를 참조하여 인덱서는 만듭니다.
 
@@ -89,7 +89,7 @@ Azure SQL 인덱서를 설정 및 구성하기 위해 [Azure 검색 REST API](ht
  
 Azure 서비스에서 데이터베이스에 연결하도록 허용해야 할 수 있습니다. 이 작업을 수행하는 방법에 대한 지침은 [Azure에서 연결](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure)을 참조하세요.
 
-인덱서 상태 및 실행 기록\(인덱싱된 항목 수, 오류 등\)을 모니터링하려면 **indexer status** 요청을 사용합니다.
+인덱서 상태 및 실행 기록(인덱싱된 항목 수, 오류 등)을 모니터링하려면 **indexer status** 요청을 사용합니다.
 
 	GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2015-02-28 
 	api-key: admin-key
@@ -127,7 +127,7 @@ Azure 서비스에서 데이터베이스에 연결하도록 허용해야 할 수
 		]
 	}
 
-실행 기록은 50개의 최근에 완료한 실행까지 포함할 수 있으며, 시간 순서의 반대로 정렬됩니다\(최신 항목이 응답에서 먼저 표시됨\) 응답에 대한 추가 정보는 [인덱서 상태 가져오기](http://go.microsoft.com/fwlink/p/?LinkId=528198)에서 확인할 수 있습니다.
+실행 기록은 50개의 최근에 완료한 실행까지 포함할 수 있으며, 시간 순서의 반대로 정렬됩니다(최신 항목이 응답에서 먼저 표시됨) 응답에 대한 추가 정보는 [인덱서 상태 가져오기](http://go.microsoft.com/fwlink/p/?LinkId=528198)에서 확인할 수 있습니다.
 
 ## 일정에 따라 인덱서 실행 ##
 
@@ -143,7 +143,7 @@ Azure 서비스에서 데이터베이스에 연결하도록 허용해야 할 수
 	    "schedule" : { "interval" : "PT10M", "startTime" : "2015-01-01T00:00:00Z" }
 	}
 
-**interval** 매개 변수는 필수 사항입니다. 두 개의 연속된 인덱서 실행 간의 시작 시간 간격을 나타냅니다. 허용되는 가장 작은 간격은 5분이고 가장 긴 간격은 1일입니다. 형식은 XSD "dayTimeDuration" 값\([ISO 8601 기간](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) 값의 제한된 하위 집합\)이어야 합니다. 해당 패턴은 `P(nD)(T(nH)(nM))`입니다. 예를 들어 15분 간격이면 `PT15M`, 2시간 간격이면 `PT2H`입니다.
+**interval** 매개 변수는 필수 사항입니다. 두 개의 연속된 인덱서 실행 간의 시작 시간 간격을 나타냅니다. 허용되는 가장 작은 간격은 5분이고 가장 긴 간격은 1일입니다. 형식은 XSD "dayTimeDuration" 값([ISO 8601 기간](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) 값의 제한된 하위 집합)이어야 합니다. 해당 패턴은 `P(nD)(T(nH)(nM))`입니다. 예를 들어 15분 간격이면 `PT15M`, 2시간 간격이면 `PT2H`입니다.
 
 선택적 **startTime**은 예약된 실행을 시작해야 하는 시점을 나타냅니다. 생략한 경우 현재 UTC 시간이 사용됩니다. 이 시간은 과거의 시간일 수 있습니다. 이 경우 첫 번째 실행은 인덱서가 startTime 이후에 지속적으로 실행된 것처럼 예약됩니다.
 
@@ -155,10 +155,10 @@ Azure 서비스에서 데이터베이스에 연결하도록 허용해야 할 수
 
 다음과 같은 상황이 발생합니다.
 
-1. 첫 번째 인덱서 실행은 2015년 3월 1일 오전 12시경\(UTC\)에 시작됩니다.
-1. 이 실행에 20분\(또는 1시간 미만의 기간\)이 걸리는 것으로 가정합니다.
+1. 첫 번째 인덱서 실행은 2015년 3월 1일 오전 12시경(UTC)에 시작됩니다.
+1. 이 실행에 20분(또는 1시간 미만의 기간)이 걸리는 것으로 가정합니다.
 1. 두 번째 인덱서 실행은 2015년 3월 1일 오전 1시경에 시작됩니다. 
-1. 이제 이 실행에는 1시간이 넘게 걸리는 것으로 가정합니다\(실제로 이러한 상황이 발생하려면 문서 수가 매우 많아야 하지만 이는 유용한 설명임\). 예를 들어 오전 2시 10분경에 완료되도록 70분이 걸리는 것으로 가정합니다.
+1. 이제 이 실행에는 1시간이 넘게 걸리는 것으로 가정합니다(실제로 이러한 상황이 발생하려면 문서 수가 매우 많아야 하지만 이는 유용한 설명임). 예를 들어 오전 2시 10분경에 완료되도록 70분이 걸리는 것으로 가정합니다.
 1. 세 번째 실행의 시작 시간은 오전 2시입니다. 그러나 오전 1시에 시작된 두 번째 실행이 여전히 실행 중이므로 세 번째 실행을 건너뜁니다. 세 번째 실행은 오전 3시에 시작됩니다.
 
 **PUT indexer** 요청을 사용하여 기존 인덱서에 대한 일정을 추가, 변경 또는 삭제할 수 있습니다.
@@ -173,8 +173,8 @@ SQL 데이터베이스에서 [변경 내용 추적](https://msdn.microsoft.com/l
 
 통합 변경 내용 추적은 다음 SQL Server 데이터베이스 버전부터 지원됩니다.
  
-- SQL Server 2008 R2 이상\(Azure VM의 SQL Server를 사용하는 경우\) 
-- Azure SQL 데이터베이스 V12\(Azure SQL 데이터베이스를 사용하는 경우\)
+- SQL Server 2008 R2 이상(Azure VM의 SQL Server를 사용하는 경우) 
+- Azure SQL 데이터베이스 V12(Azure SQL 데이터베이스를 사용하는 경우)
 
 SQL 통합 변경 내용 추적 정책을 사용할 때는 별도의 데이터 삭제 검색 정책을 지정하지 마세요. 이 정책은 삭제된 행 식별을 기본적으로 지원합니다.
 
@@ -235,7 +235,7 @@ SQL 통합 변경 내용 추적 정책을 사용하는 것이 좋지만 데이�
 
 ## Azure SQL 인덱서 사용자 지정 ##
  
-인덱서 동작의 특정 측면\(예: 일괄 처리 크기, 인덱서 실행에 실패하기 전에 건너뛸 수 있는 문서 수 등\)을 사용자 지정할 수 있습니다. 자세한 내용은 [인덱서 API 설명서](http://go.microsoft.com/fwlink/p/?LinkId=528173)를 참조하세요.
+인덱서 동작의 특정 측면(예: 일괄 처리 크기, 인덱서 실행에 실패하기 전에 건너뛸 수 있는 문서 수 등)을 사용자 지정할 수 있습니다. 자세한 내용은 [인덱서 API 설명서](http://go.microsoft.com/fwlink/p/?LinkId=528173)를 참조하세요.
 
 ## 질문과 대답 ##
 

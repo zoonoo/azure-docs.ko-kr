@@ -77,10 +77,10 @@ JavaScript 백 엔드 모바일 서비스에서 사용자 지정 비즈니스 �
 
 다음은 테이블 작업에 대한 정식 main 함수 서명입니다.
 
-+ [삽입][insert function]\: `function insert (item, user, request) { ... }`
-+ [업데이트][update function]\: `function update (item, user, request) { ... }`
-+ [삭제][delete function]\: `function del (id, user, request) { ... }`
-+ [읽기][read function]\: `function read (query, user, request) { ... }`
++ [삽입][insert function]: `function insert (item, user, request) { ... }`
++ [업데이트][update function]: `function update (item, user, request) { ... }`
++ [삭제][delete function]: `function del (id, user, request) { ... }`
++ [읽기][read function]: `function read (query, user, request) { ... }`
 
 >[AZURE.NOTE]삭제 작업에 등록된 함수는 JavaScript에서 delete가 예약된 키워드이기 때문에 이름이 _del_로 지정되어야 합니다.
 
@@ -228,7 +228,7 @@ execute를 호출할 때 **success** 처리기를 전달하면 쿼리 결과를 
 `id`의 값은 고유해야 하며 다음과 같은 문자를 포함해서는 안 됩니다.
 
 + 제어 문자: [0x0000-0x001F] 및 [0x007F-0x009F]. 자세한 내용은 [ASCII 제어 코드 C0 및 C1](http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set)(영문)을 참조하십시오.
-+  인쇄 가능한 문자: **"**(0x0022), **+** (0x002B), **/** (0x002F), **?** (0x003F), **\** (0x005C), **\`** (0x0060)
++  인쇄 가능한 문자: **"**(0x0022), **+** (0x002B), **/** (0x002F), **?** (0x003F), **\** (0x005C), **`** (0x0060)
 +  ID "." 및 ".."
 
 또한 테이블에 정수 ID를 사용할 수 있습니다. 정수 ID를 사용하려면 `mobile table create` 명령으로 `--integerId` 옵션을 사용하여 테이블을 만들어야 합니다. 이 명령은 Azure용 CLI(명령줄 인터페이스)와 함께 사용됩니다. CLI 사용에 대한 자세한 내용은 [모바일 서비스 테이블 관리 CLI](virtual-machines-command-line-tools.md#Mobile_Tables)(영문)를 참조하십시오.
@@ -537,7 +537,7 @@ npm(Node.js 패키지 관리자)과 함께 소스 제어를 사용하여 모바�
  
 스크립트에서 도우미 함수는 main 함수 뒤에 선언되어야 합니다. 스크립트에서 모든 변수를 선언해야 합니다. 선언되지 않은 변수는 오류를 발생시킵니다.
 
-도우미 함수를 한 번 정의한 후 서버 스크립트 간에 공유할 수도 있습니다. 스크립트 간에 함수를 공유하려면 함수를 내보내야 하며 `.\service\shared\` 디렉터리에 스크립트 파일이 있어야 합니다. 다음은 `.\services\shared\helpers.js` 파일에 공유 함수를 내보내는 방법에 대한 템플릿입니다.
+도우미 함수를 한 번 정의한 후 서버 스크립트 간에 공유할 수도 있습니다. 스크립트 간에 함수를 공유하려면 함수를 내보내야 하며 `.\service\shared` 디렉터리에 스크립트 파일이 있어야 합니다. 다음은 `.\services\shared\helpers.js` 파일에 공유 함수를 내보내는 방법에 대한 템플릿입니다.
 
 		exports.handleUnapprovedItem = function (tables, user, callback) {
 		    
@@ -599,7 +599,7 @@ npm(Node.js 패키지 관리자)과 함께 소스 제어를 사용하여 모바�
 
 이 디렉터리 구조는 소스 제어를 사용할 때의 git 리포지토리와 같습니다.
 
-명령줄 도구에서 스크립트 파일을 업로드하는 경우 먼저 `.\services\` 디렉터리로 이동해야 합니다. 다음 명령은 `table` 하위 디렉터리에서 `todoitem.insert.js`라는 스크립트를 업로드합니다.
+명령줄 도구에서 스크립트 파일을 업로드하는 경우 먼저 `.\services` 디렉터리로 이동해야 합니다. 다음 명령은 `table` 하위 디렉터리에서 `todoitem.insert.js`라는 스크립트를 업로드합니다.
 
 		~$azure mobile script upload todolist table/todoitem.insert.js
 		info:    Executing command mobile script upload

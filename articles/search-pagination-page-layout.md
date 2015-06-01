@@ -30,7 +30,7 @@
 
 ![][1]
  
-Azure 검색에서는 `$count`, `$top`, 및 `$skip` 매개 변수를 사용하여 이러한 값을 반환합니다. 다음 예제에서는 `@OData.count`\(으\)로 반환되는 총 적중 수에 대한 샘플 요청을 보여줍니다.
+Azure 검색에서는 `$count`, `$top`, 및 `$skip` 매개 변수를 사용하여 이러한 값을 반환합니다. 다음 예제에서는 `@OData.count`(으)로 반환되는 총 적중 수에 대한 샘플 요청을 보여줍니다.
 
     	GET /indexes/onlineCatalog/docs?$count=true
 
@@ -38,7 +38,7 @@ Azure 검색에서는 `$count`, `$top`, 및 `$skip` 매개 변수를 사용하�
 
 		GET /indexes/onlineCatalog/docs?search=*$top=15&$skip=0&$count=true
 
-페이지 매김 결과에는 `$top`이\(가\) 일괄적으로 반환할 항목의 수를 지정하고 `$skip`은\(는\) 건너뛸 항목 수를 지정하는 `$top` 및 `$skip`이\(가\) 모두 필요합니다. 다음 예제에서는 각 페이지에서 `$skip` 매개 변수로 증분 점프하여 증가하는 다음 15개 항목을 보여줍니다.
+페이지 매김 결과에는 `$top`이(가) 일괄적으로 반환할 항목의 수를 지정하고 `$skip`은(는) 건너뛸 항목 수를 지정하는 `$top` 및 `$skip`이(가) 모두 필요합니다. 다음 예제에서는 각 페이지에서 `$skip` 매개 변수로 증분 점프하여 증가하는 다음 15개 항목을 보여줍니다.
 
     	GET /indexes/onlineCatalog/docs?search=*$top=15&$skip=0&$count=true
 
@@ -70,7 +70,7 @@ Azure 검색에서는 `$select` 및 조회 명령을 사용하여 이 환경을 
 
  ![][3]
 
-Azure 검색에서는 `"Sortable": true.`\(으\)로 인덱싱되는 모든 필드에 대해 `$orderby` 식에 기반하여 정렬됩니다.
+Azure 검색에서는 `"Sortable": true.`(으)로 인덱싱되는 모든 필드에 대해 `$orderby` 식에 기반하여 정렬됩니다.
 
 관련성은 프로필 점수 매기기와 강력하게 연관됩니다. 검색 단어가 더 많이 또는 더 강력하게 일치되는 문서에 더 높은 점수를 매기는 텍스트 분석 및 통계에 따라 모든 결과의 순서를 정하는 기본 점수를 사용할 수 있습니다.
 
@@ -90,13 +90,13 @@ Azure 검색에서는 `"Sortable": true.`\(으\)로 인덱싱되는 모든 필�
 
 ## 페이지 수준의 필터 ##
 
-솔루션 디자인이 특정 유형의 콘텐츠에 대한 전용 검색 페이지를 포함하는 경우\(예를 들어 페이지 위쪽에 부서 목록이 있는 온라인 소매상 응용 프로그램\), 필터식과 함께 미리 필터링된 상태로 페이지를 여는 **onClick** 이벤트를 삽입할 수 있습니다.
+솔루션 디자인이 특정 유형의 콘텐츠에 대한 전용 검색 페이지를 포함하는 경우(예를 들어 페이지 위쪽에 부서 목록이 있는 온라인 소매상 응용 프로그램), 필터식과 함께 미리 필터링된 상태로 페이지를 여는 **onClick** 이벤트를 삽입할 수 있습니다.
 
 검색 식의 사용 여부에 관계 없이 필터를 보낼 수 있습니다. 예를 들어 다음 요청은 브랜드 이름으로 필터링하고 일치하는 문서만 반환합니다.
 
     	GET /indexes/onlineCatalog/docs?$filter=brandname eq ‘Microsoft’ and category eq ‘Games’
 
-`$filter` 식에 대한 자세한 내용은 [문서 검색\(Azure 검색 API\)](http://msdn.microsoft.com/library/azure/dn798927.aspx)을 참조하십시오.
+`$filter` 식에 대한 자세한 내용은 [문서 검색(Azure 검색 API)](http://msdn.microsoft.com/library/azure/dn798927.aspx)을 참조하십시오.
 
 ## 참고 항목 ##
 

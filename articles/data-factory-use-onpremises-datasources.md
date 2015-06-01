@@ -208,7 +208,7 @@ Azure 데이터 팩터리의 파이프라인에서 온-프레미스 데이터 �
 
 ### 입력 테이블 만들기
 
-1.	SQL Server 데이터베이스의 **emp** 테이블에 있는 데이터를 나타내는 데이터 팩터리 테이블에 대한 JSON 파일을 만듭니다. **메모장**을 시작하고 다음 JSON 스크립트를 복사하여 **EmpOnPremSQLTable.json**으로 C:\ADFGetStarted\**OnPrem** 폴더에 저장합니다. **C:\ADFGetStarted** 폴더에 **OnPrem** 하위 폴더가 없으면 만듭니다. 
+1.	SQL Server 데이터베이스의 **emp** 테이블에 있는 데이터를 나타내는 데이터 팩터리 테이블에 대한 JSON 파일을 만듭니다. **메모장**을 시작하고 다음 JSON 스크립트를 복사하여 **EmpOnPremSQLTable.json**으로 C:\ADFGetStarted**OnPrem** 폴더에 저장합니다. **C:\ADFGetStarted** 폴더에 **OnPrem** 하위 폴더가 없으면 만듭니다. 
 
 
         {
@@ -437,7 +437,7 @@ Azure 데이터 팩터리의 파이프라인에서 온-프레미스 데이터 �
 	**예제 명령 및 출력**:
 
 
-		PS C:\> New-AzureDataFactoryGateway -Name MyGateway -DataFactoryName $df -Location "West US" -ResourceGroupName ADF -Description "gateway for walkthrough"
+		PS C:> New-AzureDataFactoryGateway -Name MyGateway -DataFactoryName $df -Location "West US" -ResourceGroupName ADF -Description "gateway for walkthrough"
 
 		Name            : MyGateway
 		Location        : West US
@@ -459,12 +459,12 @@ Azure 데이터 팩터리의 파이프라인에서 온-프레미스 데이터 �
 	**예제 명령 출력:**
 
 
-		PS C:\> $Key = New-AzureDataFactoryGatewayKey -GatewayName MyGateway -ResourceGroupName ADF -DataFactoryName $df 
+		PS C:> $Key = New-AzureDataFactoryGatewayKey -GatewayName MyGateway -ResourceGroupName ADF -DataFactoryName $df 
 
 	
-4. Azure PowerShell에서 **C:\Program Files\Microsoft Data Management Gateway\1.0\PowerShellScript\** 폴더로 전환하고 다음 명령에 표시된 대로 로컬 변수 **$Key**와 연결된 **RegisterGateway.ps1** 스크립트를 실행하여 컴퓨터에 설치된 클라이언트 에이전트를 앞에서 만든 논리 게이트웨이에 등록합니다.
+4. Azure PowerShell에서 **C:\Program Files\Microsoft Data Management Gateway\1.0\PowerShellScript** 폴더로 전환하고 다음 명령에 표시된 대로 로컬 변수 **$Key**와 연결된 **RegisterGateway.ps1** 스크립트를 실행하여 컴퓨터에 설치된 클라이언트 에이전트를 앞에서 만든 논리 게이트웨이에 등록합니다.
 
-		PS C:\> .\RegisterGateway.ps1 $Key.GatewayKey
+		PS C:> .\RegisterGateway.ps1 $Key.GatewayKey
 		
 		Agent registration is successful!
 

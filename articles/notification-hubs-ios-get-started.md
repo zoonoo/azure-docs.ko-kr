@@ -22,7 +22,7 @@
 
 ##개요
 
-이 항목에서는 Azure 알림 허브를 사용하여 iOS 응용 프로그램에 푸시 알림을 보내는 방법을 보여 줍니다. 이 자습서에서는 APNS\(Apple Push Notification Service\)를 사용하여 푸시 알림을 받는 빈 iOS 앱을 만듭니다. 완료하면 알림 허브를 사용하여 앱을 실행하는 모든 장치로 푸시 알림을 브로드캐스트할 수 있습니다.
+이 항목에서는 Azure 알림 허브를 사용하여 iOS 응용 프로그램에 푸시 알림을 보내는 방법을 보여 줍니다. 이 자습서에서는 APNS(Apple Push Notification Service)를 사용하여 푸시 알림을 받는 빈 iOS 앱을 만듭니다. 완료하면 알림 허브를 사용하여 앱을 실행하는 모든 장치로 푸시 알림을 브로드캐스트할 수 있습니다.
 
 이 자습서에서는 알림 허브를 사용하는 간단한 브로드캐스트 시나리오를 보여 줍니다.
 
@@ -32,10 +32,10 @@
 
 + [모바일 서비스 iOS SDK]
 + [XCode 4.5][Install Xcode]
-+ iOS 5.0\(이상\) 지원 장치
++ iOS 5.0(이상) 지원 장치
 + iOS 개발자 프로그램 멤버 자격
 
-   \>[AZURE.NOTE]푸시 알림 구성 요구 사항 때문에 에뮬레이터 대신 iOS 지원 장치\(iPhone 또는 iPad\)에서 푸시 알림을 배포 및 테스트해야 합니다.
+   >[AZURE.NOTE]푸시 알림 구성 요구 사항 때문에 에뮬레이터 대신 iOS 지원 장치(iPhone 또는 iPad)에서 푸시 알림을 배포 및 테스트해야 합니다.
 
 이 자습서를 완료해야 다른 모든 iOS 앱용 알림 허브 자습서를 진행할 수 있습니다.
 
@@ -63,7 +63,7 @@
 
    ![][28]
 
-5. 방금 만든 네임스페이스\(일반적으로 ***알림 허브 이름*-ns**\)를 클릭한 후 맨 위에 있는 **구성** 탭을 클릭합니다.
+5. 방금 만든 네임스페이스(일반적으로 ***알림 허브 이름*-ns**)를 클릭한 후 맨 위에 있는 **구성** 탭을 클릭합니다.
 
    ![][29]
 
@@ -71,7 +71,7 @@
 
    ![][210]
 
-7. 맨 위에 있는 **구성** 탭을 선택한 다음 Apple 알림 설정에 대해 **업로드**를 클릭합니다. 그런 다음 앞서 내보낸 **.p12** 인증서 및 인증서의 암호를 선택합니다. **프로덕션**\(스토어에서 앱을 구매한 사용자에게 푸시 알림을 보내려는 경우\) 또는 **샌드박스**\(개발 중에\) 중 어떤 푸시 서비스를 사용할지를 선택해야 합니다.
+7. 맨 위에 있는 **구성** 탭을 선택한 다음 Apple 알림 설정에 대해 **업로드**를 클릭합니다. 그런 다음 앞서 내보낸 **.p12** 인증서 및 인증서의 암호를 선택합니다. **프로덕션**(스토어에서 앱을 구매한 사용자에게 푸시 알림을 보내려는 경우) 또는 **샌드박스**(개발 중에) 중 어떤 푸시 서비스를 사용할지를 선택해야 합니다.
 
    ![][211]
 
@@ -126,7 +126,7 @@
 	    	}];
 		}
 
-7. *\(옵션\)* 역시 같은 파일에서, 앱이 활성 상태일 때 알림이 수신되는 경우 **UIAlert**을 표시하려면 다음 메서드를 추가합니다.
+7. *(옵션)* 역시 같은 파일에서, 앱이 활성 상태일 때 알림이 수신되는 경우 **UIAlert**을 표시하려면 다음 메서드를 추가합니다.
 
 
         - (void)application:(UIApplication *)application didReceiveRemoteNotification: (NSDictionary *)userInfo {
@@ -141,9 +141,9 @@
 
 ##백 엔드에서 알림 보내기
 
-[REST 인터페이스](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx)를 사용하는 모든 백 엔드에서 알림 허브를 사용하여 알림을 보낼 수 있습니다. 이 자습서에서는 .NET 콘솔 응용 프로그램을 사용하여 알림을 보냅니다. 알림 허브와 통합된 Azure 모바일 서비스 백 엔드에서 알림을 보내는 방법에 대한 예제는 **모바일 서비스에서 푸시 알림 시작**\([.NET 백 엔드](mobile-services-javascript-backend-ios-get-started-push.md) \| [JavaScript 백 엔드](mobile-services-javascript-backend-ios-get-started-push.md)\)을 참조하세요. REST API를 사용하여 알림을 보내는 방법에 대한 예제는 **Java/PHP에서 알림 허브를 사용하는 방법**\([Java](notification-hubs-java-backend-how-to.md) \| [PHP](notification-hubs-php-backend-how-to.md)\)을 참조하세요.
+[REST 인터페이스](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx)를 사용하는 모든 백 엔드에서 알림 허브를 사용하여 알림을 보낼 수 있습니다. 이 자습서에서는 .NET 콘솔 응용 프로그램을 사용하여 알림을 보냅니다. 알림 허브와 통합된 Azure 모바일 서비스 백 엔드에서 알림을 보내는 방법에 대한 예제는 **모바일 서비스에서 푸시 알림 시작**([.NET 백 엔드](mobile-services-javascript-backend-ios-get-started-push.md) | [JavaScript 백 엔드](mobile-services-javascript-backend-ios-get-started-push.md))을 참조하세요. REST API를 사용하여 알림을 보내는 방법에 대한 예제는 **Java/PHP에서 알림 허브를 사용하는 방법**([Java](notification-hubs-java-backend-how-to.md) | [PHP](notification-hubs-php-backend-how-to.md))을 참조하세요.
 
-1. Visual Studio의 **파일** 메뉴에서 **새로 만들기**, **프로젝트...**를 차례로 선택하고 **Visual C\#** 아래에서 **Windows**, **콘솔 응용 프로그램**, **확인**을 차례로 클릭합니다.  
+1. Visual Studio의 **파일** 메뉴에서 **새로 만들기**, **프로젝트...**를 차례로 선택하고 **Visual C#** 아래에서 **Windows**, **콘솔 응용 프로그램**, **확인**을 차례로 클릭합니다.  
 
    ![][20]
 
@@ -168,7 +168,7 @@
         private static async void SendNotificationAsync()
         {
             NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString("<connection string with full access>", "<hub name>");
-            var alert = "{\"aps\":{\"alert\":\"Hello from .NET!\"}}";
+            var alert = "{"aps":{"alert":"Hello from .NET!"}}";
             await hub.SendAppleNativeNotificationAsync(alert);
         }
 

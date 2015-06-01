@@ -73,7 +73,7 @@ SQL 데이터베이스 연결 정보를 가져오려면 포털에서 **SQL 데�
 
 ## <a id="Connect"></a>방법: SQL 데이터베이스 인스턴스에 연결
 
-다음 예에서는 **SQLSRV** 및 **PDO_SQLSRV** 확장을 사용하여 `testdb`라는 SQL 데이터베이스에 연결하는 방법을 보여 줍니다. **SQLSRV** 및 **PDO\_SQLSRV** API에 대한 자세한 내용은 [Microsoft Drivers for PHP for SQL Server 설명서][driver-docs]를 참조하세요. 앞의 섹션에서 얻은 정보가 필요합니다. 여기서 `SERVER_ID`는 10자로 된 서버 ID(앞의 섹션에서 얻은 서버 값의 처음 10자)로 바꾸고, 올바른 값(사용자 이름 및 암호)을 `$user` 및 `$pwd` 변수에 할당합니다.
+다음 예에서는 **SQLSRV** 및 **PDO_SQLSRV** 확장을 사용하여 `testdb`라는 SQL 데이터베이스에 연결하는 방법을 보여 줍니다. **SQLSRV** 및 **PDO_SQLSRV** API에 대한 자세한 내용은 [Microsoft Drivers for PHP for SQL Server 설명서][driver-docs]를 참조하세요. 앞의 섹션에서 얻은 정보가 필요합니다. 여기서 `SERVER_ID`는 10자로 된 서버 ID(앞의 섹션에서 얻은 서버 값의 처음 10자)로 바꾸고, 올바른 값(사용자 이름 및 암호)을 `$user` 및 `$pwd` 변수에 할당합니다.
 
 ##### SQLSRV
 
@@ -105,7 +105,7 @@ SQL 데이터베이스 연결 정보를 가져오려면 포털에서 **SQL 데�
 
 
 ## <a id="NextSteps"></a>다음 단계
-앞에서 언급했듯이 SQL 데이터베이스 사용은 SQL Server 사용과 매우 유사합니다. 앞에 표시된 것처럼 SQL 데이터베이스에 대한 연결을 설정하고 나면 **SQLSRV** 또는 **PDO\_SQLSRV** API를 사용하여 데이터를 삽입, 검색, 업데이트 및 삭제할 수 있습니다.  그러나 응용 프로그램에 영향을 줄 수 있는 SQL 데이터베이스와 SQL Server 간의 몇 가지 차이점이 있습니다. 자세한 내용은 [지침 및 제한 사항(SQL 데이터베이스)][limitations]을 참조하세요.
+앞에서 언급했듯이 SQL 데이터베이스 사용은 SQL Server 사용과 매우 유사합니다. 앞에 표시된 것처럼 SQL 데이터베이스에 대한 연결을 설정하고 나면 **SQLSRV** 또는 **PDO_SQLSRV** API를 사용하여 데이터를 삽입, 검색, 업데이트 및 삭제할 수 있습니다.  그러나 응용 프로그램에 영향을 줄 수 있는 SQL 데이터베이스와 SQL Server 간의 몇 가지 차이점이 있습니다. 자세한 내용은 [지침 및 제한 사항(SQL 데이터베이스)][limitations]을 참조하세요.
 
 Azure에서 PHP로 SQL 데이터베이스를 사용하는 방법을 보여 주는 샘플은 <https://github.com/WindowsAzure/azure-sdk-for-php-samples/tree/master/tasklist-sqlazure>에서 제공합니다.
 

@@ -57,7 +57,7 @@ Management Studio에는 구문 검사기, 다시 사용하기 위해 스크립�
 
 ## 온-프레미스 서버에 연결
 
-1. Management Studio의 서버에 연결에서 데이터베이스 엔진이 선택되어 있는지 확인한 후 로컬 인스턴스 이름을 *servername*\\*instancename* 형식으로 입력합니다. 서버가 로컬이며 기본 인스턴스인 경우 *localhost*를 입력합니다.
+1. Management Studio의 서버에 연결에서 데이터베이스 엔진이 선택되어 있는지 확인한 후 로컬 인스턴스 이름을 *servername**instancename* 형식으로 입력합니다. 서버가 로컬이며 기본 인스턴스인 경우 *localhost*를 입력합니다.
 
 2. 인증에서 **Windows 인증**을 선택한 후 sysadmin 역할의 멤버인 Windows 계정을 입력합니다.
 

@@ -56,7 +56,7 @@ Microsoft Azure 자동화를 통해 사용자는 일반적으로 클라우드 �
 
 	![Runbook 탭](./media/automation/automation_04_RunbooksTab.png)
   
-6.	**새로 만들기** \> **Runbook** \> **갤러리에서**를 클릭합니다.
+6.	**새로 만들기** > **Runbook** > **갤러리에서**를 클릭합니다.
 
 	![Runbook 갤러리](./media/automation/automation_05_ImportGallery.png)
 

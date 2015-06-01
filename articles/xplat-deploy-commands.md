@@ -21,9 +21,9 @@
 ## curl, wget 또는 기타 다운로드 도구 설치
 이 항목에서는 **curl**을 사용합니다. 운영 체제의 패키지 관리자를 사용하거나 [여기](http://curl.haxx.se/download.html)에서 다운로드하세요.
 
-## 템플릿 매개 변수 파일\(또는 필요한 경우 템플릿\) 다운로드
+## 템플릿 매개 변수 파일(또는 필요한 경우 템플릿) 다운로드
 
-다음 단계를 통해 Azure 템플릿\(복잡한 템플릿 포함\) 하나를 배포할 수 있습니다. 이 항목에서는 하나의 예로 설치된 customscript VM 확장을 사용하여 기본 Ubuntu 서버를 만드는 템플릿을 사용합니다. 참조를 위해 항목 끝에도 파일이 포함되어 있습니다.
+다음 단계를 통해 Azure 템플릿(복잡한 템플릿 포함) 하나를 배포할 수 있습니다. 이 항목에서는 하나의 예로 설치된 customscript VM 확장을 사용하여 기본 Ubuntu 서버를 만드는 템플릿을 사용합니다. 참조를 위해 항목 끝에도 파일이 포함되어 있습니다.
 
 ### azuredeploy-parameters.json 파일 다운로드
 
@@ -33,7 +33,7 @@
     
 ## 리소스 그룹 배포 정보 입력
     
-선호하는 편집기에서 이 파일을 엽니다. 여러 키, 특히 **adminUsername**, **adminPassword**\(복잡성 규칙 기억\) 및 원하는 저장소 계정 이름과 DNS 이름 값을 지정해야 합니다.
+선호하는 편집기에서 이 파일을 엽니다. 여러 키, 특히 **adminUsername**, **adminPassword**(복잡성 규칙 기억) 및 원하는 저장소 계정 이름과 DNS 이름 값을 지정해야 합니다.
     
     {
       "newStorageAccountName": {
@@ -71,7 +71,7 @@
       }
     }
     
-새 값을 추가\(가능한 경우 Azure에서 새 저장소 및 DNS 리소스를 자동으로 만듬\)하거나 이미 만든 리소스를 사용합니다. 다음 azuredeploy-parameters.json 파일은 예제를 보여 줍니다.
+새 값을 추가(가능한 경우 Azure에서 새 저장소 및 DNS 리소스를 자동으로 만듬)하거나 이미 만든 리소스를 사용합니다. 다음 azuredeploy-parameters.json 파일은 예제를 보여 줍니다.
 
 
 
@@ -89,7 +89,7 @@
 템플릿에 직접 해당 매개 변수가 포함되어 있거나 매개 변수 데이터를 직접 추출할 수 있습니다. 템플릿 구조에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿 언어](https://msdn.microsoft.com/library/azure/dn835138.aspx)를 참조하세요.
 
 
-https://github.com/azure/azurermtemplates/raw/master/linux-virtual-machine-with-customdata/azuredeploy.json (또는 azuredeploy-parameters.json 파일\) 템플릿의 parameters 섹션을 추출할 수 있습니다. 이 경우 템플릿 자체 내에 다시 저장하거나 별도의 azuredeploy-parameters.json 파일로 다시 저장해야 합니다. parameters에 배치할 값을 가져와야 합니다.
+https://github.com/azure/azurermtemplates/raw/master/linux-virtual-machine-with-customdata/azuredeploy.json (또는 azuredeploy-parameters.json 파일) 템플릿의 parameters 섹션을 추출할 수 있습니다. 이 경우 템플릿 자체 내에 다시 저장하거나 별도의 azuredeploy-parameters.json 파일로 다시 저장해야 합니다. parameters에 배치할 값을 가져와야 합니다.
 
 ## azuredeploy-templates.json 파일 수정
 

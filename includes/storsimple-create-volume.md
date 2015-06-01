@@ -27,12 +27,12 @@
 
      ![볼륨 추가](./media/storsimple-create-volume/HCS_AddVolume1M-include.png)
 
-3. **추가 설정** 대화 상자에서 새 ACR\(액세스 제어 레코드\)을 추가합니다.
+3. **추가 설정** 대화 상자에서 새 ACR(액세스 제어 레코드)을 추가합니다.
    1. ACR의 **이름**을 지정합니다.
-   2. **iSCSI 초기자 이름**에서 Windows 호스트의 IQN\(정규화된 iSCSI 이름\)을 제공합니다. IQN이 없는 경우 [Windows Server 호스트의 IQN 가져오기](#get-the-iqn-of-a-windows-server-host)로 이동합니다.
-   3. **이 볼륨에 대해 기본 백업하겠습니까?**에서 **사용** 확인란을 선택합니다. 기본 백업은 매일 22:30\(장치 시간\)에 실행되며 이 볼륨의 클라우드 스냅숏을 만드는 정책을 만듭니다.
+   2. **iSCSI 초기자 이름**에서 Windows 호스트의 IQN(정규화된 iSCSI 이름)을 제공합니다. IQN이 없는 경우 [Windows Server 호스트의 IQN 가져오기](#get-the-iqn-of-a-windows-server-host)로 이동합니다.
+   3. **이 볼륨에 대해 기본 백업하겠습니까?**에서 **사용** 확인란을 선택합니다. 기본 백업은 매일 22:30(장치 시간)에 실행되며 이 볼륨의 클라우드 스냅숏을 만드는 정책을 만듭니다.
 
-     \>[AZURE.NOTE]여기서 백업이 활성화된 후에는 되돌릴 수 없습니다. 이 설정을 수정하려면 볼륨을 편집해야 합니다.
+     >[AZURE.NOTE]여기서 백업이 활성화된 후에는 되돌릴 수 없습니다. 이 설정을 수정하려면 볼륨을 편집해야 합니다.
 
      ![볼륨 추가](./media/storsimple-create-volume/HCs_AddVolume2M-include.png)
 

@@ -199,7 +199,7 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다. 
 
 ![Azure Technical Diagram](./media/virtual-machines-command-line-tools/architecturediagram.jpg)
 
-**create-new**는 Blob 저장소에서 드라이브(즉, 다이어그램의 e:\)를 만들고, **연결**은 이미 만들어졌지만 연결되지 않은 디스크를 가상 컴퓨터에 연결합니다.
+**create-new**는 Blob 저장소에서 드라이브(즉, 다이어그램의 e:)를 만들고, **연결**은 이미 만들어졌지만 연결되지 않은 디스크를 가상 컴퓨터에 연결합니다.
 
 **vm create [options] &lt;dns-name> &lt;image> &lt;userName> [password]**
 
@@ -348,7 +348,7 @@ info:   vm shutdown command OK
 
 이 명령은 Azure 가상 컴퓨터 이미지를 파일로 내보냅니다.
 
-	~$ azure vm export "myvm" "C:\"
+	~$ azure vm export "myvm" "C:"
 	info:    Executing command vm export
 	+ Getting virtual machines
 	+ Exporting the VM

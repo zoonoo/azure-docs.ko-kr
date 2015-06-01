@@ -1,8 +1,8 @@
 다음 단계에 따라 CentOS Linux에서 실행 중인 가상 컴퓨터에 MongoDB를 설치하고 실행하십시오.
 
-> [AZURE.WARNING]인증 및 IP 주소 바인딩과 같은 MongoDB 보안 기능은 기본적으로 사용하도록 설정되어 있지 않습니다. MongoDB를 프로덕션 환경에 배포하기 전에 보안 기능을 사용하도록 설정해야 합니다. 자세한 내용은 [보안 및 인증](http://www.mongodb.org/display/DOCS/Security+and+Authentication)\(영문\)을 참조하십시오.
+> [AZURE.WARNING]인증 및 IP 주소 바인딩과 같은 MongoDB 보안 기능은 기본적으로 사용하도록 설정되어 있지 않습니다. MongoDB를 프로덕션 환경에 배포하기 전에 보안 기능을 사용하도록 설정해야 합니다. 자세한 내용은 [보안 및 인증](http://www.mongodb.org/display/DOCS/Security+and+Authentication)(영문)을 참조하십시오.
 
-1. MongoDB를 설치할 수 있도록 패키지 관리 시스템\(YUM\)을 구성합니다. */etc/yum.repos.d/10gen.repo* 파일을 작성하여 저장소 정보를 저장하고 다음 내용을 추가합니다.
+1. MongoDB를 설치할 수 있도록 패키지 관리 시스템(YUM)을 구성합니다. */etc/yum.repos.d/10gen.repo* 파일을 작성하여 저장소 정보를 저장하고 다음 내용을 추가합니다.
 
 		[10gen]
 		name=10gen Repository
@@ -25,7 +25,7 @@
 		$ sudo mkdir -p /srv/datadrive/data
 		$ sudo chown `id -u` /srv/datadrive/data
 
-	Linux에 MongoDB를 설치하는 방법에 대한 자세한 정보는 [Quickstart Unix][QuickstartUnix](영문\)를 참조하십시오.
+	Linux에 MongoDB를 설치하는 방법에 대한 자세한 정보는 [Quickstart Unix][QuickstartUnix](영문)를 참조하십시오.
 
 5. 데이터베이스를 시작하려면 다음을 실행합니다.
 

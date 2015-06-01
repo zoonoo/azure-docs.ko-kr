@@ -20,10 +20,10 @@
 
 ## 개요
 
-이 자습서에서는 앱 서비스 SDK를 사용하여 **공용\(익명\)** 또는 **공용\(인증됨\)** 액세스 수준에 대해 구성된 [API 앱](app-service-api-apps-why-best-platform.md)을 호출하는 코드를 작성하는 방법을 보여 줍니다. 이 문서에서 다루는 예제 시나리오는 다음과 같습니다.
+이 자습서에서는 앱 서비스 SDK를 사용하여 **공용(익명)** 또는 **공용(인증됨)** 액세스 수준에 대해 구성된 [API 앱](app-service-api-apps-why-best-platform.md)을 호출하는 코드를 작성하는 방법을 보여 줍니다. 이 문서에서 다루는 예제 시나리오는 다음과 같습니다.
 
-- 콘솔 응용 프로그램에서 **공용\(익명\)** API 앱 호출
-- Windows 데스크톱 응용 프로그램에서 **공용\(인증됨\)** API 앱 호출 
+- 콘솔 응용 프로그램에서 **공용(익명)** API 앱 호출
+- Windows 데스크톱 응용 프로그램에서 **공용(인증됨)** API 앱 호출 
 
 이러한 자습서 섹션은 각각 독립적입니다. 따라서 첫 번째 섹션의 단계를 완료하지 않고도 두 번째 시나리오에 대한 지침을 따를 수 있습니다.
 
@@ -47,11 +47,11 @@
 
 ### API 앱 설정 및 프로젝트 만들기
 
-1. [API 앱 배포](app-service-dotnet-deploy-api-app.md)에 따라 Azure 구독에서 API 앱에 ContactsList 샘플 프로젝트를 배포합니다\(아직 배포하지 않은 경우\).
+1. [API 앱 배포](app-service-dotnet-deploy-api-app.md)에 따라 Azure 구독에서 API 앱에 ContactsList 샘플 프로젝트를 배포합니다(아직 배포하지 않은 경우).
 
-	이 자습서에서는 Visual Studio 게시 대화 상자에서 액세스 수준을 포털의 **공용\(익명\)**과 동일한 **모든 사용자가 사용 가능**으로 설정하도록 안내합니다. 그러나 그 다음에 [API 앱 보호](app-service-dotnet-add-authentication.md) 자습서를 수행하여 액세스 수준이 **공용\(인증됨\)**으로 설정된 경우에는 다음 단계의 지시에 따라 액세스 수준을 변경해야 합니다.
+	이 자습서에서는 Visual Studio 게시 대화 상자에서 액세스 수준을 포털의 **공용(익명)**과 동일한 **모든 사용자가 사용 가능**으로 설정하도록 안내합니다. 그러나 그 다음에 [API 앱 보호](app-service-dotnet-add-authentication.md) 자습서를 수행하여 액세스 수준이 **공용(인증됨)**으로 설정된 경우에는 다음 단계의 지시에 따라 액세스 수준을 변경해야 합니다.
 
-2. [Azure Preview 포털](https://portal.azure.com/)의 호출한 API 앱에 대한 **API 앱** 블레이드에서 **설정 \> 응용 프로그램 설정**으로 이동하여 **액세스 수준**을 **공용\(익명\)**으로 설정합니다.
+2. [Azure Preview 포털](https://portal.azure.com/)의 호출한 API 앱에 대한 **API 앱** 블레이드에서 **설정 > 응용 프로그램 설정**으로 이동하여 **액세스 수준**을 **공용(익명)**으로 설정합니다.
 
 	![](./media/app-service-api-dotnet-consume/setpublicanon.png)
  
@@ -59,7 +59,7 @@
  
 ### 앱 서비스 SDK에서 생성된 클라이언트 코드 추가
 
-3. **솔루션 탐색기**에서 프로젝트\(솔루션이 아님\)를 마우스 오른쪽 단추로 클릭하고 **추가 \> Azure API 앱 클라이언트**를 선택합니다. 
+3. **솔루션 탐색기**에서 프로젝트(솔루션이 아님)를 마우스 오른쪽 단추로 클릭하고 **추가 > Azure API 앱 클라이언트**를 선택합니다. 
 
 	![](./media/app-service-api-dotnet-consume/03-add-azure-api-client-v3.png)
 	
@@ -120,7 +120,7 @@ Azure API 앱은 클라이언트 인증 흐름도 지원합니다. 클라이언�
 
 ### API 앱 설정 및 프로젝트 만들기
 
-1. [API 앱 보호](app-service-dotnet-add-authentication.md) 자습서에 따라 **공용\(인증\)** 액세스 수준으로 API 앱을 설정합니다.
+1. [API 앱 보호](app-service-dotnet-add-authentication.md) 자습서에 따라 **공용(인증)** 액세스 수준으로 API 앱을 설정합니다.
 
 1. Visual Studio에서 Windows Forms 데스크톱 프로젝트를 만듭니다.
 
@@ -138,7 +138,7 @@ Azure API 앱은 클라이언트 인증 흐름도 지원합니다. 클라이언�
 
 ### 앱 서비스 SDK에서 생성된 클라이언트 코드 추가
 
-3. **솔루션 탐색기**에서 프로젝트\(솔루션이 아님\)를 마우스 오른쪽 단추로 클릭하고 **추가 \> Azure API 앱 클라이언트**를 선택합니다. 
+3. **솔루션 탐색기**에서 프로젝트(솔루션이 아님)를 마우스 오른쪽 단추로 클릭하고 **추가 > Azure API 앱 클라이언트**를 선택합니다. 
 
 3. **Azure API 앱 클라이언트 추가** 대화 상자에서 **Azure API 앱에서 다운로드**를 클릭합니다.
 
@@ -150,7 +150,7 @@ Azure API 앱은 클라이언트 인증 흐름도 지원합니다. 클라이언�
 
 	![](./media/app-service-api-dotnet-consume/gatewayurl.png)
 
-4. *Form1.cs* 소스 코드에서 GATEWAY\_URL 값을 이전 단계에서 복사한 값으로 바꿔 `Form1()` 생성자 앞에 다음 코드를 추가합니다. 후행 슬래시\(/\)를 포함해야 합니다.
+4. *Form1.cs* 소스 코드에서 GATEWAY_URL 값을 이전 단계에서 복사한 값으로 바꿔 `Form1()` 생성자 앞에 다음 코드를 추가합니다. 후행 슬래시(/)를 포함해야 합니다.
 
 		private const string GATEWAY_URL = "https://resourcegroupnameb4f3d966dfa43b6607f30.azurewebsites.net/";
 		private const string URL_TOKEN = "#token=";
@@ -159,7 +159,7 @@ Azure API 앱은 클라이언트 인증 흐름도 지원합니다. 클라이언�
 
 		webBrowser1.Navigate(string.Format(@"{0}login/[authprovider]", GATEWAY_URL));
 
-	"[authprovider]"를 게이트웨이에서 구성한 ID 서비스 공급자\(예: "aad", "twitter", "google", "microsoftaccount" 또는 "facebook"\)에 대한 코드로 바꿉니다. 예:
+	"[authprovider]"를 게이트웨이에서 구성한 ID 서비스 공급자(예: "aad", "twitter", "google", "microsoftaccount" 또는 "facebook")에 대한 코드로 바꿉니다. 예:
 
 		webBrowser1.Navigate(string.Format(@"{0}login/aad", GATEWAY_URL));
 
@@ -198,7 +198,7 @@ Azure API 앱은 클라이언트 인증 흐름도 지원합니다. 클라이언�
 
 ## 다음 단계
 
-이 문서에서는 .NET 클라이언트에서 **공용\(인증됨\)** 및 **공용\(익명\)** 액세스 수준으로 설정된 API 앱을 사용하는 방법을 보여 주었습니다.
+이 문서에서는 .NET 클라이언트에서 **공용(인증됨)** 및 **공용(익명)** 액세스 수준으로 설정된 API 앱을 사용하는 방법을 보여 주었습니다.
 
 .NET 클라이언트에서 API 앱을 호출하는 코드에 대한 추가 예제를 보려면 [Azure Cards](https://github.com/Azure-Samples/API-Apps-DotNet-AzureCards-Sample) 샘플 응용 프로그램을 다운로드하세요.
 

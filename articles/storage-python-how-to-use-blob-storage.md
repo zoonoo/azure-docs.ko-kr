@@ -59,9 +59,9 @@ Azure Blob 저장소 서비스를 사용하여 일반 시나리오를 수행하�
 
 ## 방법: 컨테이너에 Blob 업로드
 
-Blob에 데이터를 업로드하려면 **put\_block\_blob\_from\_path**, **put\_block\_blob\_from\_file**, **put\_block\_blob\_from\_bytes** 또는 **put\_block\_blob\_from\_text** 메서드를 사용합니다. 이러한 메서드는 데이터의 크기가 64MB를 초과할 경우 필요한 청크를 수행하는 고급 메서드입니다.
+Blob에 데이터를 업로드하려면 **put_block_blob_from_path**, **put_block_blob_from_file**, **put_block_blob_from_bytes** 또는 **put_block_blob_from_text** 메서드를 사용합니다. 이러한 메서드는 데이터의 크기가 64MB를 초과할 경우 필요한 청크를 수행하는 고급 메서드입니다.
 
-**put\_block\_blob\_from\_path**는 지정된 경로에서 파일의 내용을 업로드하고, **put\_block\_blob\_from\_file**은 이미 열려 있는 파일/스트림에서 내용을 업로드합니다. **put\_block\_blob\_from\_bytes**는 바이트 배열을 업로드하고, **put\_block\_blob\_from\_text**는 지정된 인코딩(기본값: UTF-8)을 사용하여 지정된 텍스트 값을 업로드합니다.
+**put_block_blob_from_path**는 지정된 경로에서 파일의 내용을 업로드하고, **put_block_blob_from_file**은 이미 열려 있는 파일/스트림에서 내용을 업로드합니다. **put_block_blob_from_bytes**는 바이트 배열을 업로드하고, **put_block_blob_from_text**는 지정된 인코딩(기본값: UTF-8)을 사용하여 지정된 텍스트 값을 업로드합니다.
 
 다음 예제에서는 **task1.txt** 파일의 내용을 **myblob** Blob에 업로드합니다.
 
@@ -74,7 +74,7 @@ Blob에 데이터를 업로드하려면 **put\_block\_blob\_from\_path**, **put\
 
 ## 방법: 컨테이너의 Blob 나열
 
-컨테이너의 Blob을 나열하려면 **list\_blobs** 메서드를
+컨테이너의 Blob을 나열하려면 **list_blobs** 메서드를
 **for** 루프와 함께 사용하여 컨테이너에 있는 각 Blob의 이름을 표시합니다. 다음 코드는 컨테이너에 있는 각 Blob의 **이름** 및 **URL**을 콘솔에 출력합니다.
 
 	blobs = blob_service.list_blobs('mycontainer')
@@ -84,9 +84,9 @@ Blob에 데이터를 업로드하려면 **put\_block\_blob\_from\_path**, **put\
 
 ## 방법: Blob 다운로드
 
-Blob에서 데이터를 다운로드하려면 **get\_blob\_to\_path**, **get\_blob\_to\_file**, **get\_blob\_to\_bytes** 또는 **get\_blob\_to\_text**를 사용합니다. 이러한 메서드는 데이터의 크기가 64MB를 초과할 경우 필요한 청크를 수행하는 고급 메서드입니다.
+Blob에서 데이터를 다운로드하려면 **get_blob_to_path**, **get_blob_to_file**, **get_blob_to_bytes** 또는 **get_blob_to_text**를 사용합니다. 이러한 메서드는 데이터의 크기가 64MB를 초과할 경우 필요한 청크를 수행하는 고급 메서드입니다.
 
-다음 예제에서는 **get\_blob\_to\_path**를 사용하여 **myblob** Blob의 내용을 다운로드하여 **out-sunset.png** 파일에 저장하는 방법을 보여 줍니다.
+다음 예제에서는 **get_blob_to_path**를 사용하여 **myblob** Blob의 내용을 다운로드하여 **out-sunset.png** 파일에 저장하는 방법을 보여 줍니다.
 
 	blob_service.get_blob_to_path('mycontainer', 'myblob', 'out-sunset.png')
 

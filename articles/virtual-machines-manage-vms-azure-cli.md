@@ -50,7 +50,7 @@ JSON 문서로 $vm 변수에 출력을 저장하려면 다음을 실행합니다
 
     azure vm stop <group name> <virtual machine name>
 
->[AZURE.IMPORTANT]해당 클라우드 서비스의 마지막 VM인 경우 이 매개 변수를 사용하여 클라우드 서비스의 VIP\(가상 IP\)를 유지합니다. <br><br> StayProvisioned 매개 변수를 사용하는 경우 VM에 대한 요금이 청구됩니다.
+>[AZURE.IMPORTANT]해당 클라우드 서비스의 마지막 VM인 경우 이 매개 변수를 사용하여 클라우드 서비스의 VIP(가상 IP)를 유지합니다. <br><br> StayProvisioned 매개 변수를 사용하는 경우 VM에 대한 요금이 청구됩니다.
 
 ## VM 시작
 
