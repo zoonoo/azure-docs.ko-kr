@@ -144,7 +144,7 @@ Bootstrap은 ASP.NET MVC 5 전용이 아니므로 어떤 웹 응용 프로그램
 
 이 섹션에서는 모바일 전용 레이아웃 파일을 만듭니다.
 
-시작하려면 *Views\\Shared\_Layout.cshtml*을 *Views\\Shared\_Layout.Mobile.cshtml*로 복사합니다. *_Layout.Mobile.cshtml*을 열고 제목을 **MVC5 Application**에서 **MVC5 Application (Mobile)**로 변경합니다.
+시작하려면 *Views\\Shared\_Layout.cshtml*을 *Views\\Shared\_Layout.Mobile.cshtml*로 복사합니다. *\_Layout.Mobile.cshtml*을 열고 제목을 **MVC5 Application**에서 **MVC5 Application (Mobile)**로 변경합니다.
 
 탐색 모음에 대한 각 `Html.ActionLink` 호출에서 각 링크 *ActionLink*에서 "Browse by"를 제거합니다. 다음 코드는 모바일 레이아웃 파일의 완성된 `<ul class="nav navbar-nav">` 태그를 보여 줍니다.
 
@@ -159,7 +159,7 @@ Bootstrap은 ASP.NET MVC 5 전용이 아니므로 어떤 웹 응용 프로그램
 
     <h2>Tags (M)</h2>
 
-데스크톱 브라우저와 모바일 브라우저 에뮬레이터를 사용하여 태그 페이지로 이동합니다. 모바일 브라우저 에뮬레이터에 두 가지 변경 내용이 표시됩니다(*_Layout.Mobile.cshtml*에서 변경된 제목 및 *AllTags.Mobile.cshtml*에서 변경된 제목).
+데스크톱 브라우저와 모바일 브라우저 에뮬레이터를 사용하여 태그 페이지로 이동합니다. 모바일 브라우저 에뮬레이터에 두 가지 변경 내용이 표시됩니다(*\_Layout.Mobile.cshtml*에서 변경된 제목 및 *AllTags.Mobile.cshtml*에서 변경된 제목).
 
 ![][AllTagsMobile_LayoutMobile]
 
@@ -205,7 +205,7 @@ Bootstrap은 ASP.NET MVC 5 전용이 아니므로 어떤 웹 응용 프로그램
 
 ![][AllTagsIPhone_LayoutIPhone]
 
-모바일 브라우저에서 **Speakers** 링크를 선택합니다. 모바일 뷰(*AllSpeakers.Mobile.cshtml*)가 없으므로 기본 발표자 뷰(*AllSpeakers.cshtml*)는 모바일 레이아웃 뷰(*_Layout.Mobile.cshtml*)를 사용하여 렌더링됩니다. 아래와 같이 **MVC5 Application (Mobile)**이라는 제목이 *_Layout.Mobile.cshtml*에서 정의됩니다.
+모바일 브라우저에서 **Speakers** 링크를 선택합니다. 모바일 뷰(*AllSpeakers.Mobile.cshtml*)가 없으므로 기본 발표자 뷰(*AllSpeakers.cshtml*)는 모바일 레이아웃 뷰(*\_Layout.Mobile.cshtml*)를 사용하여 렌더링됩니다. 아래와 같이 **MVC5 Application (Mobile)**이라는 제목이 *\_Layout.Mobile.cshtml*에서 정의됩니다.
 
 ![][AllSpeakers_LayoutMobile]
 
@@ -216,7 +216,7 @@ Bootstrap은 ASP.NET MVC 5 전용이 아니므로 어떤 웹 응용 프로그램
         DisplayModeProvider.Instance.RequireConsistentDisplayMode = true;
     }
 
-`RequireConsistentDisplayMode`가 `true`로 설정되면 모바일 레이아웃(*_Layout.Mobile.cshtml*)이 모바일 뷰에 대해서만 사용됩니다(예: 뷰 파일이 ***ViewName**.Mobile.cshtml* 형식일 때). 모바일 뷰가 아닌 뷰에서 모바일 레이아웃이 제대로 작동하지 않을 때 `RequireConsistentDisplayMode`를 `true`로 설정할 수도 있습니다. 아래의 스크린샷은 `RequireConsistentDisplayMode`가 `true`로 설정되어 있을 때 *발표자* 페이지가 어떻게 렌더링되는 지를 보여줍니다(맨 위의 탐색 표시줄에 "(Mobile)" 문자열이 없음).
+`RequireConsistentDisplayMode`가 `true`로 설정되면 모바일 레이아웃(*\_Layout.Mobile.cshtml*)이 모바일 뷰에 대해서만 사용됩니다(예: 뷰 파일이 ***ViewName**.Mobile.cshtml* 형식일 때). 모바일 뷰가 아닌 뷰에서 모바일 레이아웃이 제대로 작동하지 않을 때 `RequireConsistentDisplayMode`를 `true`로 설정할 수도 있습니다. 아래의 스크린샷은 `RequireConsistentDisplayMode`가 `true`로 설정되어 있을 때 *발표자* 페이지가 어떻게 렌더링되는 지를 보여줍니다(맨 위의 탐색 표시줄에 "(Mobile)" 문자열이 없음).
 
 ![][AllSpeakers_LayoutMobileOverridden]
 
@@ -262,7 +262,7 @@ Bootstrap은 ASP.NET MVC 5 전용이 아니므로 어떤 웹 응용 프로그램
 
 ![][AllSpeakersFixedDesktop]
 
-모바일 브라우저 뷰가 개선되기는 했지만 긴 발표자 목록을 탐색하기가 힘듭니다. 부트스트랩은 바로 사용 가능한 검색 필터 기능을 제공하지 않지만, 코드 몇 줄을 사용하여 추가할 수 있습니다. 먼저 검색 상자를 뷰에 추가한 후에 JavaScript 코드를 연결하여 필터 기능을 만듭니다. *Views\\Home\\AllSpeakers.cshtml*에서 다음과 같이 <form> 태그를 <h2> 태그 바로 뒤에 추가합니다.
+모바일 브라우저 뷰가 개선되기는 했지만 긴 발표자 목록을 탐색하기가 힘듭니다. 부트스트랩은 바로 사용 가능한 검색 필터 기능을 제공하지 않지만, 코드 몇 줄을 사용하여 추가할 수 있습니다. 먼저 검색 상자를 뷰에 추가한 후에 JavaScript 코드를 연결하여 필터 기능을 만듭니다. *Views\\Home\\AllSpeakers.cshtml*에서 다음과 같이 \<form\> 태그를 \<h2\> 태그 바로 뒤에 추가합니다.
 
     @model IEnumerable<string>
 
