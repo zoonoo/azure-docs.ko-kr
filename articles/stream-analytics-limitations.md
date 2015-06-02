@@ -18,7 +18,8 @@
 
 # Azure 스트림 분석 미리 보기 제한 사항 및 알려진 문제
 
-이 문서에서는 미리 보기 릴리스의 [Azure 스트림 분석][stream.analytics.documentation]에 대한 제한 사항 및 알려진 문제에 대해 설명합니다. 대부분의 경우 이러한 제한은 사용자의 초기 의견을 얻기 위해 또는 현재의 용량 제한을 기반으로 구현됩니다. <!--Table of contents for topic, the words in brackets must match the heading wording exactly-->
+이 문서에서는 미리 보기 릴리스의 [Azure 스트림 분석][stream.analytics.documentation]에 대한 제한 사항 및 알려진 문제에 대해 설명합니다. 대부분의 경우 이러한 제한은 사용자의 초기 의견을 얻기 위해 또는 현재의 용량 제한을 기반으로 구현됩니다.
+<!--Table of contents for topic, the words in brackets must match the heading wording exactly-->
 
 
 ## 제한 사항

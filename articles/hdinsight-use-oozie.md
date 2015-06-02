@@ -79,7 +79,9 @@ Apache Oozie는 Hadoop 작업을 관리하는 워크플로/코디네이션 시�
 <tr><td>SQL 데이터베이스 로그인 이름</td><td>$sqlDatabaseLogin</td><td></td><td>Azure SQL 데이터베이스 로그인 이름.</td></tr>
 <tr><td>SQL 데이터베이스 로그인 암호</td><td>$sqlDatabaseLoginPassword</td><td></td><td>Azure SQL 데이터베이스 로그인 암호.</td></tr>
 <tr><td>SQL 데이터베이스 이름</td><td>$sqlDatabaseName</td><td></td><td>Sqoop에서 데이터를 내보낼 Azure SQL 데이터베이스입니다. </td></tr>
-</table>> [AZURE.NOTE]기본적으로 Azure SQL 데이터베이스는 Azure HDInsight 같은 Azure 서비스로부터의 연결을 허용합니다. 이 방화벽 설정을 사용하지 않도록 설정한 경우 Azure 포털에서 사용하도록 설정해야 합니다. SQL 데이터베이스 만들기 및 방화벽 규칙 구성에 대한 지침은 [Azure SQL 데이터베이스 만들기 및 구성법][sqldatabase-create-configue]을 참조하십시오.
+</table>
+
+	> [AZURE.NOTE]기본적으로 Azure SQL 데이터베이스는 Azure HDInsight 같은 Azure 서비스로부터의 연결을 허용합니다. 이 방화벽 설정을 사용하지 않도록 설정한 경우 Azure 포털에서 사용하도록 설정해야 합니다. SQL 데이터베이스 만들기 및 방화벽 규칙 구성에 대한 지침은 [Azure SQL 데이터베이스 만들기 및 구성법][sqldatabase-create-configue]을 참조하십시오.
 
 
 > [AZURE.NOTE]위의 테이블에 값을 작성하면 이 자습서를 완료하는 데 유용합니다.
