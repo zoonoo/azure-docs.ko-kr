@@ -346,4 +346,6 @@ VPN 게이트웨이의 키 속성은 다음과 같습니다.
 
 [Azure 리소스 관리자에서 태그 사용](https://msdn.microsoft.com/library/azure/dn848368.aspx)
 
-[템플릿 배포](https://msdn.microsoft.com/library/azure/dn790549.aspx) <!--HONumber=52-->
+[템플릿 배포](https://msdn.microsoft.com/library/azure/dn790549.aspx) 
+
+<!--HONumber=52--->
