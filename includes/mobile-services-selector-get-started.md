@@ -1,4 +1,4 @@
-> [AZURE.SELECTOR-LIST(플랫폼 | 백 엔드)]
+> [AZURE.SELECTOR-LIST (플랫폼 | 백 엔드)]
 - [(iOS | .NET)](../articles/mobile-services-dotnet-backend-ios-get-started.md)
 - [(iOS | JavaScript)](../articles/mobile-services-ios-get-started.md)
 - [(Windows 범용 C# | .NET)](../articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started.md)
@@ -16,4 +16,4 @@
 - [(Sencha | Javascript)](../articles/partner-sencha-mobile-services-get-started.md)
 
 
-<!--HONumber=52--> 
+<!---HONumber=52--> 
