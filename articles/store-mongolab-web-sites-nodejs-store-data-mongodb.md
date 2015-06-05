@@ -55,7 +55,7 @@ Azure Store에 어느 정도 익숙한 경우 이 섹션을 사용하여 빠른 
 ![ConnectionInfoButton][button-connectioninfo]  
 4. **MONGOLAB_URI**를 클립보드로 복사합니다.  
 ![ConnectionInfoScreen][screen-connectioninfo]
-  
+
 	>[AZURE.NOTE]이 URI에는 데이터베이스 사용자 이름과 암호가 포함되어 있습니다. 중요한 정보로 처리하고 공유하지 마세요.
 
 5. Azure 웹 응용 프로그램 **구성** 메뉴의 **연결 문자열** 목록에 값을 추가합니다.  
