@@ -384,7 +384,7 @@ Hadoop MapReduce에서는 작업을 일괄 처리 방식으로 실행합니다. 
 
 
 
-\---
+---
 ##<a id="appendix-a"></a>부록 A - Azure Blob 저장소에 비행 지연 데이터 업로드
 데이터 파일과 HiveQL 스크립트 파일을 업로드하려면([부록 B](#appendix-b) 참조) 약간의 계획이 필요합니다. 그 계획은 HDInsight 클러스터를 프로비전하고 Hive 작업을 실행하기 전에 데이터 파일과 HiveQL 파일을 저장하는 것입니다. 다음 두 가지 옵션을 사용할 수 있습니다.
 
@@ -496,7 +496,7 @@ tutorials/flightdelays/data 경로는 파일을 업로드했을 때 만든 가�
 
 > 컨테이너 액세스 권한을 공용으로 구성하거나 저장소 계정을 HDInsight 클러스터에 바인딩해야 합니다. 그렇지 않으면 Hive 쿼리 문자열이 데이터 파일에 액세스할 수 없습니다.
 
-\---
+---
 ##<a id="appendix-b"></a>부록 B - HiveQL 스크립트 만들기 및 업로드
 
 Azure PowerShell을 사용하여 여러 HiveQL 문을 한 번에 하나씩 실행하거나 HiveQL 문을 스크립트 파일에 패키지할 수 있습니다. 이 섹션에서는 HiveQL 스크립트를 만든 다음 Azure PowerShell을 사용하여 Azure Blob 저장소에 업로드하는 방법을 보여 줍니다. Hive에서는 HiveQL 스크립트를 Azure Blob 저장소에 저장해야 합니다.
@@ -677,7 +677,7 @@ HiveQL 명령의 전체 목록을 보려면 [Hive 데이터 정의 언어][hadoo
 	- **$srcDataFolder** 및 **$dstDataFolder** - = "tutorials/flightdelays/data" = "tutorials/flightdelays/output"
 
 
-\---
+---
 ##<a id="appendix-c"></a>부록 C - Azure SQL 데이터베이스에서 Sqoop 작업 출력 준비
 **SQL 데이터베이스를 준비하려면(이 작업을 Sqoop 스크립트와 통합)**
 

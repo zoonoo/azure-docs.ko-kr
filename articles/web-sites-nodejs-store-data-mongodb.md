@@ -38,7 +38,7 @@
 
 > [AZURE.NOTE]아래의 많은 단계에서는 명령줄 사용을 언급합니다. 이러한 단계의 경우 **Windows PowerShell**(Windows) 또는 **Bash**(Unix Shell)와 같은 운영 체제의 명령줄을 사용하십시오. OS X 시스템에서는 터미널 응용 프로그램을 통해 명령줄에 액세스할 수 있습니다.
 
-##필수 조건
+## 필수 조건
 
 이 자습서의 단계에서는 최신 버전의 [Node.js][node]를 개발 환경에서 사용해야 합니다.
 
@@ -48,7 +48,7 @@
 
 >[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 시작 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
-##가상 컴퓨터를 만듭니다.
+## 가상 컴퓨터를 만듭니다.
 
 <!--
 After you have created the virtual machine in Azure and installed MongoDB, be sure to remember the DNS name of the virtual machine ("testlinuxvm.cloudapp.net", for example) and the external port for MongoDB that you specified in the endpoint.  You will need this information later in the tutorial.-->
@@ -105,11 +105,11 @@ After you have created the virtual machine in Azure and installed MongoDB, be su
 	로그에서 오류를 표시하는 경우 문제 해결 단계에 대해서는 [MongoDB 설명서][mongodocs](영문)를 참조하십시오.
 
 
-##설치 모듈 및 스캐폴딩 생성
+## 설치 모듈 및 스캐폴딩 생성
 
 이 섹션에서는 개발 환경에서 새로운 노드 응용 프로그램을 만들고 npm을 사용하여 모듈 패키지를 추가합니다. 작업 목록 응용 프로그램의 경우 [Express] 및 [Mongoose] 모듈을 사용합니다. Express 모듈은 노드에 대한 모델 보기 컨트롤러 프레임워크를 제공하며, Mongoose는 MongoDB와 통신하기 위한 드라이버입니다.
 
-###express 설치 및 스캐폴딩 생성
+### express 설치 및 스캐폴딩 생성
 
 1. 명령줄에서 **tasklist** 디렉터리로 변경합니다. **tasklist** 디렉터리가 없으면 디렉터리를 만듭니다.
 
@@ -173,7 +173,7 @@ After you have created the virtual machine in Azure and installed MongoDB, be su
 
 	이는 **server.js**(이전의 **bin/www**)가 이제 필수 **app.js** 파일과 동일한 폴더에 있기 때문에 필요합니다.
 
-###추가 모듈 설치
+### 추가 모듈 설치
 
 **package.json** 파일은 **express** 명령으로 만들어진 파일 중 하나입니다. 이 파일에는 Express 응용 프로그램에 필요한 추가 모듈 목록이 포함되어 있습니다. 나중에 이 응용 프로그램을 앱 서비스 웹앱에 배포하는 경우 이 파일을 사용하여 응용 프로그램을 지원하기 위해 Azure에 설치해야 할 모듈을 결정합니다.
 	
@@ -245,7 +245,7 @@ After you have created the virtual machine in Azure and installed MongoDB, be su
 
     > [AZURE.NOTE]C++ bson 파서 설치에 대한 메시지는 무시해도 됩니다.
 
-##노드 응용 프로그램에서 MongoDB 사용
+## 노드 응용 프로그램에서 MongoDB 사용
 
 이 섹션에서는 작업에 대한 모듈을 포함하는 **task.js** 파일을 추가하여 **express** 명령으로 만들어진 기본 응용 프로그램을 확장합니다. 또한 해당 모델을 활용하도록 기존 **app.js**를 수정하고 새 **tasklist.js** 컨트롤러 파일을 만들겠습니다.
 
@@ -273,7 +273,7 @@ After you have created the virtual machine in Azure and installed MongoDB, be su
 
 5. **task.js** 파일을 저장하고 닫습니다.
 
-###컨트롤러 만들기
+### 컨트롤러 만들기
 
 1. **tasklist/routes** 디렉터리에서 **tasklist.js**라는 새 파일을 만들고 텍스트 편집기에서 엽니다.
 
@@ -356,7 +356,7 @@ After you have created the virtual machine in Azure and installed MongoDB, be su
 
 4. **app.js** 파일을 저장합니다.
 
-###인덱스 보기 수정
+### 인덱스 보기 수정
 
 1. 디렉터리를 **views** 디렉터리로 변경하고 **index.jade** 파일을 텍스트 편집기에서 엽니다.
 
@@ -435,7 +435,7 @@ To test the application on your local machine, perform the following steps:
 
 7. To stop the node process, go to the command-line and press the **CTRL** and **C** keys. -->
 
-##Azure에 응용 프로그램 배포
+## Azure에 응용 프로그램 배포
 
 이 섹션의 단계에서는 Azure 명령줄 도구를 사용하여 새 Azure 앱 서비스에서 새 웹앱을 만든 후 Git를 사용하여 응용 프로그램을 배포합니다. 이러한 단계를 수행하려면 Azure 구독이 있어야 합니다.
 
@@ -443,11 +443,11 @@ To test the application on your local machine, perform the following steps:
 
 > [AZURE.NOTE]처음으로 앱 서비스 웹앱을 만든 경우 Azure 포털을 사용하여 이 응용 프로그램을 배포해야 합니다.
 
-###Azure 크로스 플랫폼 명령줄 인터페이스 설치
+### Azure 크로스 플랫폼 명령줄 인터페이스 설치
 
 Azure 크로스 플랫폼 명령줄 인터페이스(xplat-cli)에서 Azure 서비스에 대한 관리 작업을 수행할 수 있습니다. 개발 환경에서 xplat-cli를 아직 설치하여 구성하지 않은 경우 [Azure 크로스 플랫폼 명령줄 인터페이스 설치 및 구성][xplatcli]의 지침을 참조하십시오.
 
-###앱 서비스 웹앱 만들기
+### 앱 서비스 웹앱 만들기
 
 1. 명령줄에서 **tasklist** 디렉터리로 변경합니다.
 
@@ -478,7 +478,7 @@ Azure 크로스 플랫폼 명령줄 인터페이스(xplat-cli)에서 Azure 서�
 
 	> [AZURE.NOTE> 구독에 대한 앱 서비스 웹앱을 처음 만드는 경우 포털을 사용하여 웹앱을 만들라는 메시지가 제공됩니다. 자세한 내용은 [Azure 앱 서비스에서 Node.js 웹앱 빌드 및 배포](web-sites-nodejs-develop-deploy-mac.md)를 참조하세요.
 
-###MONGODB_URI 환경 변수 설정
+### MONGODB_URI 환경 변수 설정
 
 MongoDB 인스턴스에 대한 연결 문자열을 MONGODB_URI 환경 변수에서 사용할 수 있어야 합니다. 웹앱에 대한 이 값을 설정하려면 다음 명령을 사용합니다.
 
@@ -486,7 +486,7 @@ MongoDB 인스턴스에 대한 연결 문자열을 MONGODB_URI 환경 변수에�
 
 웹앱에 대한 새 응용 프로그램 설정이 만들어집니다. 이 설정은 웹앱에서 읽는 MONGODB_URI 환경 변수를 채우는 데 사용됩니다. 'mymongodb.cloudapp.net'의 값을 MongoDB가 설치된 가상 컴퓨터의 이름으로 바꾸십시오.
 
-###응용 프로그램 게시
+### 응용 프로그램 게시
 
 1. 터미널 창에서 아직 이동하지 않은 경우 **tasklist** 디렉터리로 변경합니다.
 
@@ -519,7 +519,7 @@ MongoDB 인스턴스에 대한 연결 문자열을 MONGODB_URI 환경 변수에�
  
 4. 푸시 작업이 완료되면 `azure site browse` 명령을 사용해 웹앱으로 이동하여 응용 프로그램을 확인합니다.
 
-##다음 단계
+## 다음 단계
 
 이 문서의 단계에서는 MongoDB를 사용하여 정보를 저장하는 프로세스를 설명하지만 Azure 테이블 서비스도 사용할 수 있습니다. 자세한 내용은 [Azure 테이블 서비스를 사용하는 Node.js 웹앱]을 참조하세요.
 
@@ -527,9 +527,11 @@ MongoLab에서 제공하는 MongoDB의 호스트된 인스턴스를 사용하는
 
 MongoDB를 보호하는 방법을 알아보려면 [MongoDB 보안][mongosecurity]을 참조하십시오.
 
-##추가 리소스
+## 추가 리소스
 
-[Mac 및 Linux용 Azure 명령줄 도구][Build and deploy a Node.js web app in Azure App Service] [Azure 앱 서비스에서 GIT를 사용하여 연속 배포]
+[Mac 및 Linux용 Azure 명령줄 도구][Build and deploy a Node.js web app in Azure App Service] 
+
+[Azure 앱 서비스에서 GIT를 사용하여 연속 배포]
 
 ## 변경된 내용
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.

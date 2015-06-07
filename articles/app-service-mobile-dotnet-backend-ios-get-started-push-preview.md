@@ -52,7 +52,7 @@
 
 [AZURE.INCLUDE [app-service-mobile-apns-configure-push-preview](../includes/app-service-mobile-apns-configure-push-preview.md)]
 
-##<a id="update-server"></a>푸시 알림을 전송하도록 서버 업데이트
+## <a id="update-server"></a>푸시 알림을 전송하도록 서버 업데이트
 
 1. Visual Studio에서 솔루션을 마우스 오른쪽 단추로 클릭한 후 **NuGet 패키지 관리**를 클릭합니다.
 

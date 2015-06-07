@@ -41,7 +41,8 @@
 
 **Maven을 사용하여 프로젝트 만들기**
 
-1. **C:\\Tutorials\\WordCountJava** 디렉터리를 만듭니다.2. 개발 환경의 명령줄에서 방금 만든 위치로 디렉터리를 변경합니다.
+1. **C:\Tutorials\WordCountJava\** 디렉터리를 만듭니다.
+2. 개발 환경의 명령줄에서 방금 만든 위치로 디렉터리를 변경합니다.
 3. Maven과 함께 설치되는 __mvn__ 명령을 사용하여 프로젝트용 스캐폴딩을 생성합니다.
 
 		mvn archetype:generate -DgroupId=org.apache.hadoop.examples -DartifactId=wordcountjava -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false

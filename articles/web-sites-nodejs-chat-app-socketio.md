@@ -111,19 +111,19 @@ Socket.IO는 WebSocket을 사용하여 node.js 서버와 클라이언트 간의 
 
 현재 앱이 Azure에서 실행되고 있으며 Socket.IO를 사용하여 다른 클라이언트 간에 채팅 메시지를 릴레이할 수 있습니다.
 
-##확장
+## 확장
 
 __어댑터__를 사용하여 여러 응용 프로그램 인스턴스 간에 메시지 및 이벤트를 배포하는 방식으로 Socket.IO 응용 프로그램을 확장할 수 있습니다. 사용 가능한 여러 어댑터가 있지만 Azure Redis 캐시 기능에 사용하기 편리한 어댑터는 [socket.io-redis](https://github.com/automattic/socket.io-redis) 어댑터입니다.
 
 > [AZURE.NOTE]Socket.IO 솔루션 확장에 대한 추가 요구 사항은 고정 세션의 지원입니다. 고정 세션은 Azure 요청 라우팅을 통해 Azure 웹 앱에서 기본적으로 사용하도록 설정됩니다. 자세한 내용은 [Azure 웹 사이트의 인스턴스 선호도](http://azure.microsoft.com/blog/2013/11/18/disabling-arrs-instance-affinity-in-windows-azure-web-sites/)를 참조하세요.
 
-###Redis 캐시 만들기
+### Redis 캐시 만들기
 
 [Azure Redis 캐시에서 캐시 만들기](http://go.microsoft.com/fwlink/p/?linkid=398592&clcid=0x409)의 단계를 수행하여 새 캐시를 만듭니다.
 
 > [AZURE.NOTE]캐시의 __호스트 이름__ 및 __기본 키__를 저장합니다. 이러한 정보는 다음 단계에서 필요합니다.
 
-###Redis 및 socket.io-redis 모듈 추가
+### Redis 및 socket.io-redis 모듈 추가
 
 1. 명령줄에서 __\\node\\chat__ 디렉터리로 변경하여 다음 명령을 사용합니다.
 
@@ -149,7 +149,7 @@ __어댑터__를 사용하여 여러 응용 프로그램 인스턴스 간에 메
 
 3. 수정한 __app.js__를 저장합니다.
 
-###변경 내용 커밋 및 다시 배포
+### 변경 내용 커밋 및 다시 배포
 
 __\\node\\chat__ 디렉터리의 명령줄에서 다음 명령을 사용하여 변경 내용을 커밋하고 응용 프로그램을 다시 배포합니다.
 
@@ -167,11 +167,11 @@ __\\node\\chat__ 디렉터리의 명령줄에서 다음 명령을 사용하여 �
 
 ## 문제 해결
 
-###연결 제한
+### 연결 제한
 
 Azure 웹 앱은 여러 SKU에서 사용할 수 있으며, 이러한 SKU에 따라 사이트에 사용 가능한 리소스가 결정됩니다. 여기에는 허용되는 WebSocket 연결 수가 포함됩니다. 자세한 내용은 [웹 앱 가격 책정 페이지][pricing]를 참조하세요.
 
-###메시지가 WebSocket을 사용하여 전송되지 않음
+### 메시지가 WebSocket을 사용하여 전송되지 않음
 
 클라이언트 브라우저에서 WebSocket을 사용하는 대신 긴 폴링으로의 대체를 유지하는 경우 다음 중 하나가 원인일 수 있습니다.
 
@@ -264,7 +264,7 @@ Azure 웹 앱은 여러 SKU에서 사용할 수 있으며, 이러한 SKU에 따�
 
 >[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
-##다음 단계
+## 다음 단계
 
 이 자습서에서는 Azure 웹 앱에 호스트되는 기본 채팅 응용 프로그램을 만드는 방법을 알아보았습니다. 이 응용 프로그램은 Azure 클라우드 서비스로 호스트할 수도 있습니다. 이를 수행하는 방법에 대한 단계는 [Azure 클라우드 서비스에서 Socket.IO를 사용하여 Node.js 채팅 응용 프로그램 빌드][cloudservice]를 참조하십시오.
 

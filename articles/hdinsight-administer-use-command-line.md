@@ -59,7 +59,8 @@ Azure CLI는 오픈 소스입니다. 소스 코드는 GitHub(<a href= "https://g
 
 **Windows Installer를 사용하여 명령줄 인터페이스를 설치하려면**
 
-1.	**http://azure.microsoft.com/downloads/**로 이동합니다.2.	**명령줄 도구** 섹션으로 스크롤하여 **플랫폼 간 명령줄 인터페이스**를 클릭하고 웹 플랫폼 설치 관리자 마법사를 따릅니다.
+1.	**http://azure.microsoft.com/downloads/**로 이동합니다.
+2.	**명령줄 도구** 섹션으로 스크롤하여 **플랫폼 간 명령줄 인터페이스**를 클릭하고 웹 플랫폼 설치 관리자 마법사를 따릅니다.
 
 ##Azure 계정 publishsettings 파일 다운로드 및 가져오기
 

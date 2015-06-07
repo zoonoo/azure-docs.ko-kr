@@ -68,7 +68,7 @@ Azure 포털에서 논리 앱, 웹앱 또는 모바일 앱을 만들 때 엔터�
 2. 커넥터를 선택합니다. 새 블레이드에서 **만들기**를 선택합니다. 
 3. 다음과 같은 속성을 입력합니다. 
 
-속성 | 설명
+	속성 | 설명
 --- | ---
 이름 | 커넥터의 이름을 입력합니다. 예를 들어 이름을 *SAPConnector*, *SalesForceGetAccounts* 또는 *QuickBooksGetItems*로 지정할 수 있습니다.
 패키지 설정 | *SAP User Name* 또는 *SugarCRM Server URL*과 같은 엔터프라이즈 시스템 설정을 입력합니다. 이 항목의 [엔터프라이즈 시스템별 속성](#AddProperties)을 참조하세요. 
@@ -82,9 +82,9 @@ Azure 포털에서 논리 앱, 웹앱 또는 모바일 앱을 만들 때 엔터�
 
 	**<a name="AddProperties"></a>엔터프라이즈 시스템별 속성**
 
-> [AZURE.IMPORTANT]모든 커넥터에는 해당 엔터프라이즈 시스템에 고유한 속성이 있습니다. SAP에 연결할 경우 SAP 관련 속성을 입력합니다. Salesforce에 연결할 경우에는 Salesforce 관련 속성을 입력하는 식으로 해당하는 고유 속성을 입력합니다. 다음 표에는 필수 엔터프라이즈 시스템 속성이 나와 있습니다.
+> [AZURE.IMPORTANT] 모든 커넥터에는 해당 엔터프라이즈 시스템에 고유한 속성이 있습니다. SAP에 연결할 경우 SAP 관련 속성을 입력합니다. Salesforce에 연결할 경우에는 Salesforce 관련 속성을 입력하는 식으로 해당하는 고유 속성을 입력합니다. 다음 표에는 필수 엔터프라이즈 시스템 속성이 나와 있습니다. 
 	
-Enterprise System | Required Properties
+	Enterprise System | Required Properties
 --- | ---
 Marketo | <ul><li>끝점</li><li>공급자 이름</li></ul>
 MongoDB| <ul><li>연결 문자열</li><li>호스트</li><li>포트</li><li>사용자 이름</li><li>암호</li><li>데이터베이스</li><li>SSL 암호화 사용</li><li>온-프레미스: 클라우드 기반인 경우 False를 입력합니다. MongoDb 시스템이 온-프레미스인 경우 True를 입력하고 다음 속성도 입력합니다.<ul><li>공유 액세스 키 이름</li><li>서비스 버스 네임스페이스</li><li>릴레이 경로</li><li>키 전송</li></ul></li></ul>

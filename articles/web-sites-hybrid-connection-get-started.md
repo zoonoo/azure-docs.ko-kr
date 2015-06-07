@@ -90,11 +90,19 @@ Azure 앱 서비스의 웹 앱을 정적 TCP 포트를 사용하는 온-프레�
 	
 	![확인 클릭][CreateBTScomplete]
 	
-6. 프로세스가 완료되면 포털의 알림 영역에서 연결이 설정되었다는 메시지를 표시합니다. <!-- TODO
+6. 프로세스가 완료되면 포털의 알림 영역에서 연결이 설정되었다는 메시지를 표시합니다. 
+<!-- TODO
 
-    모든 것이 이 단계에서 실패합니다. dogfood 포털에서 BizTalk 서비스를 만들 수 없습니다. 이전 포털(전체 포털)로 전환하고 BizTalk 서비스를 만들었지만 연결할 수 없는 것 같습니다. 하이브리드 conn 단계를 완료 하면 하이브리드 연결 RelecIoudHC를 만드는 데 실패했다는 다음 오류가 표시됩니다. 'Microsoft.BizTaIkServices for api version 2014-06-01' 네임스페이스에서 리소스 종류를 찾을 수 없습니다.
+    Everything fails at this step. I can't create a BizTalk service in the dogfood portal. I switch to the old portal
+	(full portal) and created the BizTalk service but it doesn't seem to let you connnect them - When you finish the
+	Create hybrid conn step, you get the following error
+	Failed to create hybrid connection RelecIoudHC. The 
+	resource type could not be found in the namespace 
+	'Microsoft.BizTaIkServices for api version 2014-06-01'.
 	
-	이 오류는 인스턴스가 아닌 유형을 찾지 못했음을 나타냅니다. ![성공 알림][CreateHCSuccessNotification] -->
+	The error indicates it couldn't find the type, not the instance.
+	![Success notification][CreateHCSuccessNotification]
+	-->
 7. 웹 앱 블레이드에서 이제 **하이브리드 연결** 아이콘이 1개의 하이브리드 연결이 설정되었음을 보여 줍니다.
 	
 	![1개의 하이브리드 연결 생성됨][CreateHCOneConnectionCreated]

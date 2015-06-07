@@ -10,19 +10,19 @@ DNS 시스템은 *레코드*를 기반으로 합니다. 레코드는 *contoso.co
 
 ###주소 레코드(A 레코드)
 
-A 레코드는 **contoso.com**, **www.contoso.com** 등의 도메인이나 **.contoso.com* 등의 **와일드카드 도메인**을 IP 주소에 매핑합니다. 앱 서비스에서 웹앱의 경우 서비스의 가상 IP 또는 웹앱용으로 구입한 특정 IP 주소입니다.
+A 레코드는 **contoso.com**, **www.contoso.com** 등의 도메인이나 **\*.contoso.com** 등의 *와일드카드 도메인*을 IP 주소에 매핑합니다. 앱 서비스에서 웹앱의 경우 서비스의 가상 IP 또는 웹앱용으로 구입한 특정 IP 주소입니다.
 
 A 레코드가 CNAME 레코드보다 나은 주요 장점은 다음과 같습니다.
 
 * **contoso.com**과 같은 루트 도메인을 IP 주소로 매핑할 수 있습니다. 많은 등록 기관에서 A 레코드 사용만 허용합니다.
 
-* ***.contoso.com**과 같이 와일드카드를 사용하는 하나의 항목만 지정하고, 이 항목 하나로 **mail.contoso.com**, **blogs.contoso.com** 또는 **www.contso.com**과 같은 여러 하위 도메인에 대한 요청을 처리할 수 있습니다.
+* **\*.contoso.com**과 같이 와일드카드를 사용하는 하나의 항목만 지정하고, 이 항목 하나로 **mail.contoso.com**, **blogs.contoso.com** 또는 **www.contso.com**과 같은 여러 하위 도메인에 대한 요청을 처리할 수 있습니다.
 
 > [AZURE.NOTE]A 레코드는 고정 IP 주소에 매핑되므로 변경 내용을 웹앱의 IP 주소로 자동으로 확인할 수 없습니다. A 레코드에 사용할 IP 주소는 웹앱에 대한 사용자 지정 도메인 이름 설정을 구성할 때 제공됩니다. 그러나 웹앱을 삭제하고 다시 만들거나 앱 서비스 계획 모드를 다시 **무료**로 변경할 경우 이 값이 변경될 수 있습니다.
 
 ###별칭 레코드(CNAME 레코드)
 
-CNAME 레코드는 *mail.contoso.com* 또는 **www.contoso.com**과 같은 **특정** DNS 이름을 다른(정식) 도메인 이름으로 매핑합니다. 앱 서비스 웹앱의 경우 정식 도메인 이름은 웹앱의 **&lt;yourwebappname>.azurewebsites.net** 도메인 이름입니다. CNAME을 만들면 **&lt;yourwebappname>.azurewebsites.net** 도메인 이름에 대한 별칭이 생성됩니다. CNAME 항목은 **&lt;yourwebappname>.azurewebsites.net** 도메인 이름의 IP 주소로 확인되므로 웹앱의 IP 주소가 변경되는 경우에도 특별한 조치를 수행할 필요가 없습니다.
+CNAME 레코드는 **mail.contoso.com** 또는 **www.contoso.com**과 같은 *특정* DNS 이름을 다른(정식) 도메인 이름으로 매핑합니다. 앱 서비스 웹앱의 경우 정식 도메인 이름은 웹앱의 **&lt;yourwebappname>.azurewebsites.net** 도메인 이름입니다. CNAME을 만들면 **&lt;yourwebappname>.azurewebsites.net** 도메인 이름에 대한 별칭이 생성됩니다. CNAME 항목은 **&lt;yourwebappname>.azurewebsites.net** 도메인 이름의 IP 주소로 확인되므로 웹앱의 IP 주소가 변경되는 경우에도 특별한 조치를 수행할 필요가 없습니다.
 
 > [AZURE.NOTE]**www.contoso.com**과 같은 CNAME 레코드를 사용하고 **contoso.com**과 같은 비루트 이름을 사용하면 일부 도메인 등록 기관에서 하위 도메인만 매핑할 수 있습니다. CNAME 레코드에 대한 자세한 내용은 등록 기관에서 제공하는 설명서인 <a href="http://en.wikipedia.org/wiki/CNAME_record">CNAME 레코드에 대한 Wikipedia 항목</a> 또는 <a href="http://tools.ietf.org/html/rfc1035">IETF 도메인 이름 - 구현 및 사양</a> 문서를 참조하세요.
 

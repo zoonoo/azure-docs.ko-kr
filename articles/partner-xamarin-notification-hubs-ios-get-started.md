@@ -42,7 +42,7 @@
 
 > [AZURE.IMPORTANT]이 자습서를 완료하려면 활성 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fko-kr%2Fdocumentation%2Farticles%2Fpartner-xamarin-notification-hubs-ios-get-started)을 참조하세요.
 
-APNS(Apple Push Notification Service)는 인증서를 사용하여 모바일 서비스를 인증합니다. 필요한 인증서를 만들어 모바일 서비스에 업로드하려면 해당 지침을 따르세요. 공식 APNS 기능 설명서는 [Apple Push Notification Service](영문)를 참조하세요.
+APNS(Apple Push Notification Service)는 인증서를 사용하여 모바일 서비스를 인증합니다. 필요한 인증서를 만들어 모바일 서비스에 업로드하려면 해당 지침을 따르세요. 공식 APNS 기능 설명서는 [Apple Push Notification Service](영문\)를 참조하세요.
 
 
 ## <a name="certificates"></a>인증서 서명 요청 파일 생성
@@ -322,7 +322,7 @@ APNS(Apple Push Notification Service)는 인증서를 사용하여 모바일 서
 
 .NET 앱을 사용하여 알림을 보내려면
 
-1. 새 Visual C# 콘솔 응용 프로그램을 만듭니다.
+1. 새 Visual C\# 콘솔 응용 프로그램을 만듭니다.
 
   	![][213]
 
@@ -339,7 +339,7 @@ APNS(Apple Push Notification Service)는 인증서를 사용하여 모바일 서
         private static async void SendNotificationAsync()
         {
             NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString("<connection string with full access>", "<hub name>");
-            var alert = "{"aps":{"alert":"Hello from .NET!"}}";
+            var alert = "{\"aps\":{\"alert\":\"Hello from .NET!\"}}";
             await hub.SendAppleNativeNotificationAsync(alert);
         }
 
@@ -352,7 +352,7 @@ APNS(Apple Push Notification Service)는 인증서를 사용하여 모바일 서
 
 Apple [Local and Push Notification Programming Guide]에서 가능한 모든 페이로드를 찾아볼 수 있습니다.
 
-모바일 서비스를 사용하여 알림을 보내려면 [모바일 서비스 시작](영문)을 따른 후 다음을 수행하세요.
+모바일 서비스를 사용하여 알림을 보내려면 [모바일 서비스 시작](영문\)을 따른 후 다음을 수행하세요.
 
 1. [Azure 관리 포털]에 로그온하고 모바일 서비스를 선택합니다.
 

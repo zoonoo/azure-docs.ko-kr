@@ -40,13 +40,13 @@ APNS(Apple Push Notification Service)는 인증서를 사용하여 모바일 서
 
 	![](./media/enable-apple-push-notifications/mobile-services-ios-push-03.png)
 
-	앱 ID가 생성되고 정보를 **제출**하도록 요청됩니다. **제출**을 클릭합니다.
+   	앱 ID가 생성되고 정보를 **제출**하도록 요청됩니다. **제출**을 클릭합니다.
 
 
     ![](./media/enable-apple-push-notifications/mobile-services-ios-push-04.png)
 
 
-**Submit**를 클릭하면 아래와 같은 **Registration complete** 화면이 표시됩니다. **Done**을 클릭합니다.
+   	**Submit**를 클릭하면 아래와 같은 **Registration complete** 화면이 표시됩니다. **Done**을 클릭합니다.
 
 
     ![](./media/enable-apple-push-notifications/mobile-services-ios-push-05.png)

@@ -274,7 +274,7 @@ Xamarin Component Store에서 제공되는 Google Cloud Messaging 클라이언�
 
 .NET 앱을 사용하여 알림을 보내려면
 
-1. 새 Visual C# 콘솔 응용 프로그램을 만듭니다.
+1. 새 Visual C\# 콘솔 응용 프로그램을 만듭니다.
 
    	![][20]
 
@@ -293,7 +293,7 @@ Xamarin Component Store에서 제공되는 Google Cloud Messaging 클라이언�
         private static async void SendNotificationAsync()
         {
             NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString("<connection string with full access>", "<hub name>");
-            await hub.SendGcmNativeNotificationAsync("{ "data" : {"msg":"Hello from Azure!"}}");
+            await hub.SendGcmNativeNotificationAsync("{ \"data\" : {\"msg\":\"Hello from Azure!\"}}");
         }
 
 4. 그런 다음 Main 메서드에 다음 줄을 추가합니다.
@@ -305,7 +305,7 @@ Xamarin Component Store에서 제공되는 Google Cloud Messaging 클라이언�
 
    	![][21]
 
-모바일 서비스를 사용하여 알림을 보내려면 [모바일 서비스 시작](영문)을 따른 후 다음을 수행하세요.
+모바일 서비스를 사용하여 알림을 보내려면 [모바일 서비스 시작](영문\)을 따른 후 다음을 수행하세요.
 
 1. [Azure 관리 포털]에 로그온하고 모바일 서비스를 선택합니다.
 

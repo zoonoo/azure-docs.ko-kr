@@ -243,16 +243,16 @@ OAuth를 사용하는 첫 단계는 Twitter 개발자 사이트에서 새 응용
 3. 스크립트에서 첫 번째 5\~8개의 변수를 설정합니다.
 
 	<table border="1">
-<tr><th>변수</th><th>설명</th></tr>
-<tr><td>$clusterName</td><td>응용 프로그램을 실행하려는 HDInsight 클러스터의 이름입니다.</td></tr><tr><td>$oauth_consumer_key</td><td>앞에서 Twitter 응용 프로그램을 만들 때 적어 둔 Twitter 응용 프로그램 <strong>consumer key</strong>입니다.</td></tr>
-<tr><td>$oauth_consumer_secret</td><td>앞에서 기록해 둔 Twitter 응용 프로그램 <strong>consumer secret</strong>입니다.</td></tr>
-<tr><td>$oauth_token</td><td>앞에서 기록해 둔 Twitter 응용 프로그램 <strong>access token</strong>입니다.</td></tr>
-<tr><td>$oauth_token_secret</td><td>앞에서 기록해 둔 Twitter 응용 프로그램 <strong>access token secret</strong>입니다.</td></tr>	
-<tr><td>$destBlobName</td><td>출력 Blob 이름입니다. 기본값은 <strong>tutorials/twitter/data/tweets.txt</strong>입니다. 기본값을 변경하는 경우 이에 따라 Windows PowerShell 스크립트를 업데이트해야 합니다.</td></tr>
-<tr><td>$trackString</td><td>웹 서비스가 이 키워드와 관련된 트윗을 반환합니다. 기본값은 <strong>Azure, Cloud, HDInsight</strong>입니다. 기본값을 변경하는 경우 이에 따라 Windows PowerShell 스크립트를 업데이트합니다.</td></tr>
-<tr><td>$lineMax</td><td>이 값은 스크립트가 읽는 트윗의 수를 결정합니다. 트윗 100개를 읽는 데 약 3분이 걸립니다. 더 큰 수를 설정할 수 있지만 그러면 다운로드하는 데 더 많은 시간이 걸립니다.</td></tr>
+	<tr><th>변수</th><th>설명</th></tr>
+	<tr><td>$clusterName</td><td>응용 프로그램을 실행하려는 HDInsight 클러스터의 이름입니다.</td></tr><tr><td>$oauth_consumer_key</td><td>앞에서 Twitter 응용 프로그램을 만들 때 적어 둔 Twitter 응용 프로그램 <strong>consumer key</strong>입니다.</td></tr>
+	<tr><td>$oauth_consumer_secret</td><td>앞에서 기록해 둔 Twitter 응용 프로그램 <strong>consumer secret</strong>입니다.</td></tr>
+	<tr><td>$oauth_token</td><td>앞에서 기록해 둔 Twitter 응용 프로그램 <strong>access token</strong>입니다.</td></tr>
+	<tr><td>$oauth_token_secret</td><td>앞에서 기록해 둔 Twitter 응용 프로그램 <strong>access token secret</strong>입니다.</td></tr>	
+	<tr><td>$destBlobName</td><td>출력 Blob 이름입니다. 기본값은 <strong>tutorials/twitter/data/tweets.txt</strong>입니다. 기본값을 변경하는 경우 이에 따라 Windows PowerShell 스크립트를 업데이트해야 합니다.</td></tr>
+	<tr><td>$trackString</td><td>웹 서비스가 이 키워드와 관련된 트윗을 반환합니다. 기본값은 <strong>Azure, Cloud, HDInsight</strong>입니다. 기본값을 변경하는 경우 이에 따라 Windows PowerShell 스크립트를 업데이트합니다.</td></tr>
+	<tr><td>$lineMax</td><td>이 값은 스크립트가 읽는 트윗의 수를 결정합니다. 트윗 100개를 읽는 데 약 3분이 걸립니다. 더 큰 수를 설정할 수 있지만 그러면 다운로드하는 데 더 많은 시간이 걸립니다.</td></tr>
 
-</table>
+	</table>
 
 5. **F5** 키를 눌러 스크립트를 실행합니다. 문제가 발생하는 경우 해결하려면 모든 줄을 선택하고 **F8** 키를 누릅니다.
 6. 출력 끝부분에 "Complete!"가 표시됩니다. 오류 메시지는 빨간색으로 표시됩니다.
