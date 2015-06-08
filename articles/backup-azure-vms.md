@@ -12,21 +12,21 @@
 	ms.workload="storage-backup-recovery"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="04/30/2015"
+	ms.topic="hero-article"
+	ms.date="05/26/2015"
 	ms.author="aashishr"/>
 
 
-# Azure 가상 컴퓨터 백업
+# Azure 가상 컴퓨터를 백업
 
-이 문서는 Azure 가상 컴퓨터 백업에 대한 필수 가이드입니다. 진행하기 전에 모든 [필수 조건][prereq]이 충족되었는지 확인해야 합니다.
+이 문서는 Azure 가상 컴퓨터 백업에 대한 필수 가이드입니다. 진행하기 전에 모든 [필수 조건](backup-azure-vms-introduction.md#prerequisites)이 충족되었는지 확인해야 합니다.
 
 Azure 가상 컴퓨터 백업에는 3가지 주요 단계가 포함됩니다.
 
-![Azure 가상 컴퓨터를 백업하는 세 단계][three-steps]
+![Azure 가상 컴퓨터를 백업하는 세 단계](./media/backup-azure-vms/3-steps-for-backup.png)
 
-## Azure 가상 컴퓨터 검색
-검색 프로세스는 클라우드 서비스 이름 및 지역과 같은 추가 정보와 함께 구독에서 가상 컴퓨터 목록에 대해 Azure에 쿼리합니다.
+## Azure 가상 컴퓨터를 검색 합니다.
+클라우드 서비스 이름, 지역 등의 추가 정보와 함께 구독에 대 한 가상 컴퓨터의 목록에 대 한 검색 프로세스 쿼리 Azure 합니다.
 
 > [AZURE.NOTE]검색 프로세스는 항상 첫 번째 단계로 실행해야 합니다. 이는 구독에 추가된 새 가상 컴퓨터와 식별하기 위한 것입니다.
 
@@ -34,152 +34,156 @@ Azure 가상 컴퓨터 백업에는 3가지 주요 단계가 포함됩니다.
 
 1. Azure 포털의 **복구 서비스**에서 찾을 수 있는 백업 저장소로 이동하여 **등록된 항목** 탭을 클릭합니다.
 
-2. 드롭다운 메뉴의 작업 유형을 **Azure 가상 컴퓨터**로 선택하고 **선택** 단추를 클릭합니다.
-  	![select workload][select-workload]
+2. 드롭다운 메뉴의 작업 유형을 **Azure 가상 컴퓨터**로 선택하고 **선택** 단추를 클릭합니다. ![작업 선택](./media/backup-azure-vms/discovery-select-workload.png)
 
-3. 페이지 아래쪽에서 **검색** 단추를 클릭합니다.
-  	![discover button][discover-button]
+3. 클릭할는 **DISCOVER** 페이지의 아래쪽 단추입니다. ![검색 단추](./media/backup-azure-vms/discover-button.png)
 
-4. 검색 프로세스는 가상 컴퓨터를 표로 정리하는 동안 몇 분 동안 실행할 수 있습니다. 검색 프로세스가 실행되는 동안 화면 아래쪽에 알림 메시지가 표시됩니다.
-  	![discover vms][discover-vms]
+4. 검색 프로세스는 가상 컴퓨터를 표로 정리하는 동안 몇 분 동안 실행할 수 있습니다. 검색 프로세스가 실행되는 동안 화면 아래쪽에 알림 메시지가 표시됩니다. ![vms 검색](./media/backup-azure-vms/discovering-vms.png)
 
-5. 검색 프로세스가 완료되면 알림 메시지가 표시됩니다.
-  	![discover-done][discover-done]
+5. 검색 프로세스가 완료되면 알림 메시지가 표시됩니다. ![검색-완료](./media/backup-azure-vms/discovery-complete.png)
 
-<br><br>
-## Azure 가상 컴퓨터 등록
-가상 컴퓨터를 보호하려면 Azure 백업 서비스에 등록해야 합니다. 등록 프로세스에는 두 가지 기본 목표가 있습니다.
+
+## Azure 가상 컴퓨터를 등록 합니다.
+가상 컴퓨터를 보호할 수 전에 Azure 백업 서비스를 사용 하 여 등록할 필요 합니다. 등록 프로세스에는 두 가지 기본 목표가 있습니다.
 
 1. 가상 컴퓨터의 VM 에이전트에 백업 확장 연결
 
-2. Azure 백업 서비스와 가상 컴퓨터 연결
+2. Azure 백업 서비스와 가상 컴퓨터를 연결 하려면
 
 등록은 일반적으로 일회성 작업입니다. Azure 백업 서비스가 매끄럽게 업그레이드를 처리하고 다루기 힘든 사용자 간섭 없이 백업 확장을 패치합니다. 이는 일반적으로 백업 제품과 관련된 “에이전트 관리 오버헤드”의 사용자를 안심시킵니다.
 
-### 가상 컴퓨터를 등록하려면
+### 가상 컴퓨터를 등록 하려면
 
-1. Azure 포털의 **복구 서비스**에서 찾을 수 있는 백업 저장소로 이동하여 **등록된 항목** 탭을 클릭합니다.
+1. 아래에서 찾을 수 있는 백업 저장소로 이동 **복구 서비스** 에 를클릭하고 Azure 포털에는 **등록 항목** 탭
 
-2. 드롭다운 메뉴의 작업 유형을 **Azure 가상 컴퓨터**로 선택하고 선택 단추를 클릭합니다.
-  	![select workload][select-workload]
+2. 작업의 유형으로 드롭다운 메뉴에서 선택 **Azure 가상 컴퓨터** 선택 단추를 클릭 합니다. ![작업 선택](./media/backup-azure-vms/discovery-select-workload.png)
 
-3. 페이지 아래쪽에서 **등록** 단추를 클릭합니다.
-  	![register button][register-button]
+3. 클릭할는 **등록** 페이지의 아래쪽 단추입니다. ![등록 단추](./media/backup-azure-vms/register-button.png)
 
-4. **등록 항목** 팝업에서 등록하려는 가상 컴퓨터를 선택합니다. 동일한 이름으로 둘 이상의 가상 컴퓨터가 있는 경우 가상 컴퓨터 사이에서 구별하기 위해 클라우드 서비스를 사용합니다.
+4. **등록 항목** 팝업에서 등록하려는 가상 컴퓨터를 선택합니다. 있으면 동일한 이름 가진 둘 이상의 가상 컴퓨터 클라우드 서비스를 사용 하 여 가상 컴퓨터를 구별할 수 있습니다.
 
-  	**등록** 작업은 대규모로 수행될 수 있으며 이는 여러 가상 컴퓨터를 한 번에 선택하여 등록할 수 있다는 뜻입니다. 백업을 위해 가상 컴퓨터를 준비하는 데 들이는 한 번의 노력을 크게 줄여 줍니다.
+    **등록** 작업은 대규모로 수행될 수 있으며 이는 여러 가상 컴퓨터를 한 번에 선택하여 등록할 수 있다는 뜻입니다. 백업을 위해 가상 컴퓨터를 준비하는 데 들이는 한 번의 노력을 크게 줄여 줍니다.
 
-  	> [AZURE.NOTE]등록되지 않고 백업 저장소와 동일한 지역에 있는 가상 컴퓨터만 여기에 나타납니다.
+    >[AZURE.NOTE]등록 되지 않은 되 고 백업 저장소와 동일한 지역에 있는 가상 컴퓨터만 표시 됩니다.
 
-  	![List of VMs to be registered][register-vms]
+5. 등록해야 하는 각 가상 컴퓨터에 대한 작업이 만들어집니다. 알림 메시지는 이 활동의 상태를 보여줍니다. **작업 보기**를 클릭하여 **작업** 페이지로 이동합니다. ![등록 작업](./media/backup-azure-vms/register-create-job.png)
 
-5. 등록해야 하는 각 가상 컴퓨터에 대한 작업이 만들어집니다. 알림 메시지는 이 활동의 상태를 보여줍니다. **작업 보기**를 클릭하여 **작업** 페이지로 이동합니다.
-   	![register job][register-job]
+6. 가상 컴퓨터가 등록된 항목 목록에도 나타나며 등록 작업의 상태가 표시됩니다. ![등록 상태 1](./media/backup-azure-vms/register-status01.png)
 
-6. 가상 컴퓨터가 등록된 항목 목록에도 나타나며 등록 작업의 상태가 표시됩니다.
-  	![Registering status 1][register-status1]
+7. 작업이 완료되면 포털의 상태가 등록된 상태를 반영하도록 변경됩니다. ![등록 상태 2](./media/backup-azure-vms/register-status02.png)
 
-7. 작업이 완료되면 포털의 상태가 등록된 상태를 반영하도록 변경됩니다.
-  	![Registration status 2][register-status2]
-
-<br><br>
-## Azure 가상 컴퓨터 백업
+## Azure 가상 컴퓨터를 백업
 이 단계에는 가상 컴퓨터의 백업 및 보존 정책 설정이 포함됩니다. 가상 컴퓨터를 보호하려면 다음 단계를 수행합니다.
 
 1. Azure 포털의 **복구 서비스**에서 찾을 수 있는 백업 저장소로 이동하여 **등록된 항목** 탭을 클릭합니다.
+2. 드롭다운 메뉴의 작업 유형을 **Azure 가상 컴퓨터**로 선택하고 **선택** 단추를 클릭합니다. ![포털에서 작업 선택](./media/backup-azure-vms/select-workload.png)
 
-2. 드롭다운 메뉴의 작업 유형을 **Azure 가상 컴퓨터**로 선택하고 선택 단추를 클릭합니다.
-  	![Select workload in portal][select-workload]
+3. 클릭할는 **보호** 페이지의 아래쪽 단추입니다.
 
-3. 페이지 아래쪽에서 **보호** 단추를 클릭합니다.
+4. 이렇게 하면 보호할 가상 컴퓨터를 선택할 수 있는 **항목 보호** 마법사를 불러 옵니다. 있으면 동일한 이름 가진 둘 이상의 가상 컴퓨터 클라우드 서비스를 사용 하 여 가상 컴퓨터를 구별할 수 있습니다.
 
-4. 이렇게 하면 보호할 가상 컴퓨터를 선택할 수 있는 **항목 보호** 마법사를 불러 옵니다. 동일한 이름으로 둘 이상의 가상 컴퓨터가 있는 경우 가상 컴퓨터 사이에서 구별하기 위해 클라우드 서비스를 사용합니다. **보호** 작업은 대규모로 수행될 수 있으며 이는 여러 가상 컴퓨터를 한 번에 선택하여 등록할 수 있다는 뜻입니다. 가상 컴퓨터를 준비하는 데 들이는 노력을 크게 줄여 줍니다.
+    **보호** 작업은 대규모로 수행될 수 있으며 이는 여러 가상 컴퓨터를 한 번에 선택하여 등록할 수 있다는 뜻입니다. 가상 컴퓨터를 준비하는 데 들이는 노력을 크게 줄여 줍니다.
 
-	> [AZURE.NOTE]Azure 백업 서비스에 제대로 등록되었고 백업 저장소와 동일한 지역에 있는 가상 컴퓨터만 여기에 나타납니다.
-
-	![보호할 항목 선택][protect-wizard1]
+    >[AZURE.NOTE]Azure 백업 서비스에 제대로 등록되었고 백업 저장소와 동일한 지역에 있는 가상 컴퓨터만 여기에 나타납니다.
 
 5. **보호 항목** 마법사의 두 번째 화면에서 백업 및 보존 정책을 선택하여 선택한 가상 컴퓨터를 백업합니다. 정책의 기존 집합에서 선택하거나 새로 정의합니다.
 
-	> [AZURE.NOTE]미리 보기는 최대 30일 보존 및 최대 하루에 한 번 백업이 지원됩니다.
+    >[AZURE.NOTE]미리 보기는 최대 30일 보존 및 최대 하루에 한 번 백업이 지원됩니다.
 
-	![보호 정책 선택][protect-wizard2]
+    각 백업 저장소에서 여러 백업 정책을 사용할 수 있습니다. 정책은 백업을 예약 및 보존하는 방법에 대한 세부 정보를 반영합니다. 예를들어 다른 백업 정책이 매주 오전 6시 백업인 반면, 한 백업 정책은 매일 밤 10시 백업일 수 있습니다. 여러 백업 정책을 통해 가상 컴퓨터 인프라에 대한 백업 예약을 유연하게 할 수 있습니다.
 
-	각 백업 저장소에서 여러 백업 정책을 사용할 수 있습니다. 정책은 백업을 예약 및 보존하는 방법에 대한 세부 정보를 반영합니다. 예를들어 다른 백업 정책이 매주 오전 6시 백업인 반면, 한 백업 정책은 매일 밤 10시 백업일 수 있습니다. 여러 백업 정책을 통해 가상 컴퓨터 인프라에 대한 백업 예약을 유연하게 할 수 있습니다. 각 백업 정책 정책에는 해당 정책과 연관된 여러 가상 컴퓨터가 있을 수 있습니다. 가상 컴퓨터는 특정 시간에 한 정책과만 연관될 수 있습니다.
+    각 백업 정책 정책에는 해당 정책과 연관된 여러 가상 컴퓨터가 있을 수 있습니다. 가상 컴퓨터는 특정 시간에 한 정책과만 연관될 수 있습니다.
 
-6. 각 가상 컴퓨터에 대한 작업을 만들어 보호 정책을 구성하고 가상 컴퓨터를 정책과 연결합니다. **작업** 탭을 클릭하고 적합한 필터를 선택하여 **보호 구성** 작업 목록을 봅니다.
- ![Configure protection job][protect-configure]
+6. 각 가상 컴퓨터에 대한 작업을 만들어 보호 정책을 구성하고 가상 컴퓨터를 정책과 연결합니다. **작업** 탭을 클릭하고 적합한 필터를 선택하여 **보호 구성** 작업 목록을 봅니다. ![보호 작업 구성](./media/backup-azure-vms/protect-configureprotection.png)
 
 7. 완료되면 가상 컴퓨터가 정책으로 보호되며 초기 백업에 대해 예약된 백업 시간이 완료될 때까지 기다려야 합니다. 이제 가상 컴퓨터가 **보호된 항목** 탭 아래에 표시되며 *보호됨*의 보호된 상태가 됩니다(초기 백업 보류 중).
+    >[AZURE.NOTE]보호 구성 후 곧바로 초기 백업을 시작하면 오늘 옵션으로 사용할 수 없습니다.
 
-	> [AZURE.NOTE]보호 구성 후 곧바로 초기 백업을 시작하면 오늘 옵션으로 사용할 수 없습니다.
+8. 예약된 시간에 Azure 백업 서비스는 백업이 필요한 각 가상 컴퓨터에 대한 백업 작업을 만듭니다. **작업** 탭을 클릭하여 **백업** 박업 목록을 봅니다. 백업 작업의 일부로 Azure 백업 서비스는 각 가상 컴퓨터에서 백업 확장에 대한 명령을 발행하여 모든 쓰기를 플러시하고 일관된 스냅숏을 찍습니다.![진행 중인 백업](./media/backup-azure-vms/protect-inprogress.png)
 
-8. 예약된 시간에 Azure 백업 서비스는 백업이 필요한 각 가상 컴퓨터에 대한 백업 작업을 만듭니다. **작업** 탭을 클릭하여 **백업** 박업 목록을 봅니다. 백업 작업의 일부로 Azure 백업 서비스는 각 가상 컴퓨터에서 백업 확장에 대한 명령을 발행하여 모든 쓰기를 플러시하고 일관된 스냅숏을 찍습니다.
- ![Backup in progress][protect-inprogress]
-
-9. 완료되면 **보호된 항목** 탭에서 가상 컴퓨터의 보호 상태가 *보호됨*으로 표시됩니다.
- ![Virtual machine is backed up with recovery point][protect-backedup]
-
+9. 완료되면 **보호된 항목** 탭에서 가상 컴퓨터의 보호 상태가 *보호됨*으로 표시됩니다. ![가상 컴퓨터는 복구 지점으로 백업됨](./media/backup-azure-vms/protect-backedupvm.png)
 
 ## 백업 상태 및 세부 정보 보기
-보호되면 가상 컴퓨터 수가 **대시보드** 페이지 요약에서도 증가합니다. 또한 대시보드 페이지에서 지난 24시간 내의 성공 및 실패한 작업 수 및 아직 진행 중인 작업 수를 보여줍니다. 한 범주를 클릭하면 **작업** 페이지에서 해당 범주를 자세히 다루게 됩니다.
-  	![Status of backup in Dashboard page][dashboard]
-
+보호되면 가상 컴퓨터 수가 **대시보드** 페이지 요약에서도 증가합니다. 또한 대시보드 페이지에서 지난 24시간 내의 성공 및 실패한 작업 수 및 아직 진행 중인 작업 수를 보여줍니다. 한 범주를 클릭하면 **작업** 페이지에서 해당 범주를 자세히 다루게 됩니다. ![대시보드 페이지에서 백업 상태](./media/backup-azure-vms/dashboard-protectedvms.png)
 
 ## 문제 해결
-다음 정보를 사용하여 검색 및 등록 문제를 해결할 수 있습니다.
+아래 표에 나열 된 정보와 함께 Azure Backup을 사용 하는 동안 발생 한 오류를 해결할 수 있습니다.
 
 | 백업 작업 | 오류 세부 정보 | 해결 방법 |
 | -------- | -------- | -------|
 | 검색 | 새 항목 검색에 실패했습니다. Microsoft Azure 백업에 내부 오류가 발생했습니다. 몇 분간 기다린 다음 작업을 다시 시도하세요. | 15분 후 검색 프로세스를 다시 시도합니다.
-| 검색 | 새 항목 검색에 실패했습니다. 다른 검색 작업이 이미 진행 중입니다. 현재 검색 작업을 완료할 때까지 잠시 기다려 주세요. | 기존 검색 작업이 완료될 때까지 기다려 주세요. |
+| 검색 | 새 항목 검색에 실패했습니다. 다른 검색 작업이 이미 진행 중입니다. 현재 검색 작업을 완료할 때까지 잠시 기다려 주세요. | 없음 |
 | 등록 | Azure VM 역할이 확장 설치 상태가 아닙니다. VM이 실행 상태에 있는지 확인하세요. Azure 복구 서비스 확장에 VM 실행이 필요합니다. | 가상 컴퓨터를 시작하고 실행 상태에 있을 때 등록 작업을 다시 시도하세요.|
+| 등록 | 가상 컴퓨터에 연결 된 데이터 디스크의 수가 지원 되는 제한을 초과-하십시오이 가상 컴퓨터에 일부 데이터 디스크를 분리 하 고 작업을 다시 시도 합니다. Azure 백업 백업에 대 한 Azure 가상 컴퓨터에 연결 된 최대 5 개의 데이터 디스크를 지원 합니다. | 없음 |
+| 등록 | Microsoft Azure 백업 몇 시간 (분) 및 작업을 다시 시도 대 한 대기에서 내부 오류가 발생 했습니다. 문제가 지속 되 면 Microsoft 지원에 문의 합니다. | 이 오류는 다음과 같은 지원 되지않는 구성 중 하나로 인해 가져올 수 있습니다: <ol><li>프리미엄 LRS <li>다중 NIC <li>부하 분산 장치 </ol> |
+| 등록 | VM 게스트 에이전트 인증서를 찾을 수 없습니다 | 오류를 해결 하려면 다음이 지침에 따라: <ol><li>에서 VM 에이전트의 최신 버전을 다운로드 [여기](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). 다운로드 한 에이전트의 버전을 2.6.1198.718 인지 확인 이상. <li>가상 컴퓨터에 VM 에이전트를 설치 합니다.</ol> [학습](#validating-vm-agent-installation) VM 에이전트의 버전을 확인 하는 방법입니다. |
+| 등록 | 에이전트를 설치 작업 시간 초과를 등록 하지 못했습니다. | 경우에 가상 컴퓨터의 OS 버전이 지원 되는지 확인 합니다. |
+| 등록 | 명령을 실행 하지 못했습니다.-이 항목에 대해 진행 중인 다른 작업이입니다. 이전 작업이 완료 될 때까지 기다리십시오. | 없음 |
+| 백업 | Vhd를 복사할-시간 초과 백업 자격 증명 모음에서 다시 시도 하세요 몇분 후에 작업입니다. 문제가 지속 되 면 Microsoft 지원에 문의 합니다. | 이 너무 많은 데이터를 복사할 때 발생 합니다. 6 보다 작은 데이터 디스크가 있는지 확인 하십시오. |
+| 백업 | 스냅숏 VM 하위 작업이 시간 초과-몇분 후에 다시 시도 하십시오. 문제가 지속 되 면 Microsoft 지원에 문의 | 이 오류는 VM 에이전트에 문제가 있거나 Azure 인프라에 대 한 네트워크 액세스는 어떤 방식으로든에서 차단 하는 경우에 throw 됩니다. <ul><li>에 대 한 자세한 [VM 에이전트 문제를 디버깅](#Troubleshooting-vm-agent-related-issues) <li>알아봅니다 [네트워킹 문제를 디버깅](#troubleshooting-networking-issues) </ul> |
+| 백업 | 내부 오류와 함께 백업 하지 못했습니다.-몇분 후에 다시 시도 하십시오. 문제가 지속 되 면 Microsoft 지원에 문의 | 2의 이유로이 오류가 발생할 수 있습니다: <ol><li> 너무 많은 데이터를 복사할 수 있습니다. 6 보다 작은 디스크 있는지 확인 하십시오. <li>삭제 된 원래 VM 및 따라서 백업을 수행할 수 없습니다. 삭제 된 VM에 대 한 백업 데이터를 유지 하지만 백업 오류를 중지 하기 위해 VM의 보호를 해제 하 고 데이터를 유지 하는 옵션을 선택 합니다. 백업 일정 및 되풀이 오류 메시지를 중지 합니다. |
+| 백업 | Azure 복구 서비스를 설치 하지 못했습니다 VM 에이전트-선택한 항목에 확장 프로그램은 Azure 복구 서비스 확장에 대 한 필수입니다. Azure VM 에이전트를 설치 하 고 등록 작업을 다시 시작 하십시오 | <ol> <li>VM 에이전트가 제대로 설치 된 경우를 확인 합니다. <li>VM 구성에서 플래그 올바르게 설정 되어있는지 확인 합니다.</ol> [자세한](#validating-vm-agent-installation) VM 에이전트 설치 및 VM 에이전트 설치의 유효성을 검사 하는 방법에 대 한 합니다. |
+| 백업 | 명령을 실행 하지 못했습니다.-다른 작업이 현재 진행 중인이 항목에 있습니다. 이전 작업이 완료 될 때까지 잠시 기다려 주세요 한 다음 다시 시도 | 기존 백업 또는 복원 작업을 VM에 대 한 실행 되 고 기존 작업에서 실행 되는 동안 새 작업을 시작할 수 없습니다. <br><br>진행 중인 작업을 취소 하는 옵션을 원하는 경우 추가 하 여 투표의 [Azure 피드백 포럼](http://feedback.azure.com/forums/258995-azure-backup-and-scdpm/suggestions/7941501-add-feature-to-allow-cancellation-of-backup-restor). |
+
+### VM 에이전트 문제해결 관련 문제
+
+#### VM 에이전트를 설정합니다.
+일반적으로 VM 에이전트는 Azure 갤러리에서 만든 Vm에 이미 있습니다. 그러나 온-프레미스 데이터 센터에서 마이그레이션된 가상 컴퓨터는 VM 에이전트를 설치 필요는 없습니다. 이러한 Vm에 대 한 VM 에이전트를 명시적으로 설치 해야 합니다. 에 대해 자세히 알아보십시오 [기존 VM에서 VM 에이전트 설치](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx).
+
+Windows vm의 경우:
+
+- 다운로드 및 설치는 [에이전트 MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). 설치를 완료 하려면 관리자 권한이 필요 합니다.
+- [VM 속성 업데이트](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) 해당 에이전트가 설치 된 나타냅니다.
+
+
+#### VM 에이전트를 업데이트합니다.
+VM 에이전트를 업데이트 하는 것은 다시 설치 처럼 간단할는 [VM 에이전트 바이너리](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). 그러나 VM 에이전트를 업데이트 하는 동안 없는 백업 작업이 실행 되 고 있는지 확인 해야 합니다.
+
+
+#### VM 에이전트 설치 유효성 검사
+Windows Vm에서 VM 에이전트 버전에 대 한 확인 하는 방법:
+
+- Azure 가상 컴퓨터에 로그인 한 폴더로 이동 하 고 *C:\WindowsAzure\Packages*.
+- WaAppAgent.exe 파일이 있는 경우를 찾아야 합니다.
+- 으로 이동 하는 파일을 마우스 오른쪽 단추로 클릭 합니다. **속성**, 를 선택한 다음는 **세부 정보** 탭 합니다.
+- 제품 버전 필드 2.6.1198.718 여야 합니다. 이상
+
+### 네트워킹 문제를 해결합니다.
+마찬가지로 모든 확장명 백업 확장 작업을 위해 공용 인터넷에 대 한 액세스가 필요 합니다. 공용 인터넷에 대 한 액세스를가지고 있지 않은 경우에 나타날 수의 여러가지 방법으로:
+
+- 확장 설치가 실패할 수 있습니다.
+- 백업 작업 (예: 디스크 스냅숏) 실패할 수 있습니다.
+- 백업 작업의 상태를 표시 하지 못할 수 있습니다.
+
+공용 인터넷 주소를 확인 하기 위한 필요성 표시 된 [여기](http://blogs.msdn.com/b/mast/archive/2014/06/18/azure-vm-provisioning-stuck-on-quot-installing-extensions-on-virtual-machine-quot.aspx). VNET에 대 한 DNS 구성을 확인 하 고 Azure Uri를 확인할 수 있는지 확인 해야 합니다.
+
+이름 확인은 올바르게 완료 되 면 Azure Ip에 대 한 액세스도 제공 해야 합니다. Azure 인프라에 대 한 액세스를 차단 해제 하려면 다음이 단계를 따르십시오.
+
+1. 목록을 가져오려면 [Azure 데이터 센터 Ip](https://msdn.microsoft.com/
+2. / library/azure/dn175718.aspx) whitelisted 되도록 합니다.
+2. 사용 하 여 Ip 차단 해제는 [새로 NetRoute](https://technet.microsoft.com/library/hh826148.aspx) commandlet. 관리자 권한 PowerShell 창을 (관리자 권한으로 실행)에서 Azure VM 내에서이 commandlet을 실행 합니다.
 
 
 ## 복구 지점의 일관성
-백업 데이터를 처리할 때 고객은 복원된 후 VM의 동작에 대해 우려합니다. 고객이 문의하는 일반적인 질문은 다음과 같습니다.
+백업 데이터를 처리할 때 고객은 복원 된 후 VM의 동작에 대 한 걱정. 고객이 문의하는 일반적인 질문은 다음과 같습니다.
 
-+ 가상 컴퓨터가 부팅되나요?
-
-+ 해당 데이터를 디스크에서 사용할 수 있나요? (또는) 데이터 손실이 있나요?
-
-+ 응용 프로그램이 데이터를 읽을 수 있나요? (또는) 데이터 손상이 있나요?
-
-+ 응용 프로그램에서 데이터를 이해할 수 있나요? (또는) 응용 프로그램이 데이터를 읽을 때 일관성이 있나요?
+- 가상 컴퓨터가 부팅되나요?
+- 해당 데이터를 디스크에서 사용할 수 있나요? (또는) 데이터 손실이 있나요?
+- 응용 프로그램이 데이터를 읽을 수 있나요? (또는) 데이터 손상이 있나요?
+- 응용 프로그램에서 데이터를 이해할 수 있나요? (또는) 응용 프로그램이 데이터를 읽을 때 일관성이 있나요?
 
 다음 표에서 Azure VM 백업 및 복원 중에 발생하는 일관성 유형을 설명합니다.
 
 | 일관성 | VSS 기반 | 설명 및 세부 정보 |
 |-------------|-----------|---------|
-| 응용 프로그램 일관성 | 예 | 이는 Microsoft 작업에 대해 다음 사항을 확인하는 데 이상적인 장소입니다.<ol><li> VM은 *부팅*됨. <li>*손상 없음*, <li>*데이터 손실* 없음, <li>VSS를 사용하여 백업 시 응용 프로그램을 포함함으로써 데이터를 사용하는 응용 프로그램에 해당 데이터가 일관됨.</ol> VSS(볼륨 스냅숏 서비스)를 통해 데이터가 저장소에 제대로 작성되었음을 확인할 수 있습니다. 대부분의 Microsoft 작업에는 데이터 일관성과 관련된 작업 관련 동작을 수행하는 VSS 작성자가 있습니다. 예를들어 Microsoft SQL Server에는 트랜잭션 로그 파일에 대한 쓰기를 확인하고 데이터베이스가 제대로 수행되었는지 확인하는 VSS 작성자가 있습니다.<br><br> Azure VM 백업의 경우, 응용 프로그램에 일관된 복구 지점이 있다는 것은 백업 확장이 VSS 워크플로를 적용하고 VM 스냅숏을 촬영하기 전에 *제대로* 완료할 수 있었음을 의미합니다. 기본적으로 Azure VM에서 모든 응용 프로그램의 VSS 작성자도 적용되었음을 의미합니다.<br><br>[어떻게 동작하는지](https://technet.microsoft.com/ko-kr/library/cc785914%28v=ws.10%29.aspx)에 대해 자세히 다루어 [VSS의 기본 사항](http://blogs.technet.com/b/josebda/archive/2007/10/10/the-basics-of-the-volume-shadow-copy-service-vss.aspx)에 대해 알아봅니다. |
+| 응용 프로그램 일관성 | 예 | 이는 Microsoft 작업에 대해 다음 사항을 확인하는 데 이상적인 장소입니다.<ol><li> VM은 *부팅*됨. <li>*손상 없음*, <li>*데이터 손실* 없음, <li>VSS를 사용하여 백업 시 응용 프로그램을 포함함으로써 데이터를 사용하는 응용 프로그램에 해당 데이터가 일관됨.</ol> VSS(볼륨 스냅숏 서비스)를 통해 데이터가 저장소에 제대로 작성되었음을 확인할 수 있습니다. 대부분의 Microsoft 작업에는 데이터 일관성과 관련된 작업 관련 동작을 수행하는 VSS 작성자가 있습니다. 예를들어 Microsoft SQL Server에는 트랜잭션 로그 파일에 대한 쓰기를 확인하고 데이터베이스가 제대로 수행되었는지 확인하는 VSS 작성자가 있습니다.<br><br> Azure VM 백업의 경우, 응용 프로그램에 일관된 복구 지점이 있다는 것은 백업 확장이 VSS 워크플로를 적용하고 VM 스냅숏을 촬영하기 전에 *제대로* 완료할 수 있었음을 의미합니다. 기본적으로 Azure VM에서 모든 응용 프로그램의 VSS 작성자도 적용되었음을 의미합니다.<br><br>[어떻게 동작하는지](https://technet.microsoft.com/library/cc785914%28v=ws.10%29.aspx)에 대해 자세히 다루어 [VSS의 기본 사항](http://blogs.technet.com/b/josebda/archive/2007/10/10/the-basics-of-the-volume-shadow-copy-service-vss.aspx)에 대해 알아봅니다. |
 | 파일 시스템 일관성 | 예 - Windows 컴퓨터의 경우 | 파일 시스템이 일관될 수 있는 복구 지점이 있는 두 가지 시나리오가 있습니다.<ul><li>Azure에서 Linux VM 백업, Linux에는 VSS에 해당하는 플랫폼이 없기 때문.<li>Azure에서 Windows VM 백업 중에 VSS 오류.</li></ul> 두 경우 모두 최선의 방법은 다음을 확인하는 것입니다. <ol><li>VM *부팅* <li>*손상 없음*, <li>*데이터 손실* 없음.</ol> 응용 프로그램은 복원된 데이터에 대해 고유한 "수정" 메커니즘을 구현해야 합니다.|
 | 충돌 일관성 | 아니요 | 이 상황은 "충돌"을 경험하는 컴퓨터와 같습니다(소프트 또는 하드 재설정 모두). 저장소 매체에 있는 데이터의 일관성을 보장할 수 없습니다. 백업 시 디스크에 이미 존재 하는 데이터만이 캡처 및 백업된 내용입니다. <ol><li>보장은 없지만 대부분의 경우에 OS는 부팅됩니다.<li>이는 일반적으로 손상 오류를 수정하기 위한 chkdsk와 같은 디스크 검사 과정 이후에 발생합니다.<li> 메모리 내 데이터 또는 완전히 플러시되지 않은 쓰기에서 디스크가 손실됩니다.<li> 일반적으로 응용 프로그램은 데이터 롤백 작업을 수행해야 하는 경우에 고유한 확인 매커니즘을 수행합니다. </ol>Azure VM 백업의 경우, 일관된 복구 지점에 충돌이 있다는 것은 Azure 백업이 저장소의 데이터 일관성을 보장해 주지 않는다는 뜻입니다(OS 관점 또는 응용 프로그램의 관점에서). 일반적으로 백업 시 Azure VM이 종료되는 경우 발생합니다.<br><br>예를들어 트랜잭션 로그에 데이터베이스에 없는 항목이 있는 경우 데이터베이스 소프트웨어는 데이터가 일관성을 찾을 때가지 롤백합니다. 여러 가상 디스크(예: 스팬 볼륨)에 분산된 데이터를 다룰 때 충돌-일관성 복구 지점은 데이터 정확성에 대해 보장하지 않습니다.|
-
-
 
 ## 다음 단계
 Azure 백업 시작하기에 대해 자세히 알아보려면 다음을 참조하세요.
 
 - [가상 컴퓨터 복원](backup-azure-restore-vms.md)
+- [가상 컴퓨터 관리](backup-azure-manage-vms)
 
-[three-steps]: ./media/backup-azure-vms/3-steps-for-backup.png
-[select-workload]: ./media/backup-azure-vms/discovery-select-workload.png
-[discover-button]: ./media/backup-azure-vms/discover-button.png
-[discover-vms]: ./media/backup-azure-vms/discovering-vms.png
-[discover-done]: ./media/backup-azure-vms/discovery-complete.png
-[register-button]: ./media/backup-azure-vms/register-button.png
-[register-job]: ./media/backup-azure-vms/register-create-job.png
-[register-vms]: ./media/backup-azure-vms/register-popup.png
-[register-status1]: ./media/backup-azure-vms/register-status01.png
-[register-status2]: ./media/backup-azure-vms/register-status02.png
-[select-workload]: ./media/backup-azure-vms/select-workload.png
-[protect-wizard1]: ./media/backup-azure-vms/protect-wizard1.png
-[protect-wizard2]: ./media/backup-azure-vms/protect-wizard2.png
-[protect-configure]: ./media/backup-azure-vms/protect-configureprotection.png
-[protect-inprogress]: ./media/backup-azure-vms/protect-inprogress.png
-[protect-backedup]: ./media/backup-azure-vms/protect-backedupvm.png
-[dashboard]: ./media/backup-azure-vms/dashboard-protectedvms.png
-[prereq]: http://azure.microsoft.com/documentation/articles/backup-azure-vms-introduction/#prerequisites
-
-<!--HONumber=54-->
+<!---HONumber=GIT-SubDir-->

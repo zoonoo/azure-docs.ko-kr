@@ -177,7 +177,7 @@
 		}
 	}
 
-![Column Mapping][image-data-factory-column-mapping-1]
+![열 매핑][image-data-factory-column-mapping-1]
 
 ### 예제 2 – SQL 쿼리를 사용하여 SQL Server에서 Azure Blob으로 열 매핑
 이 샘플에서는 이전 샘플의 테이블이 아니라 SQL 쿼리를 사용하여 온-프레미스 SQL Server에서 데이터를 추출하며 쿼리 결과의 열이 원본 아티팩트에 매핑된 다음 대상 아티팩트 매핑됩니다. 이 샘플의 목적에 맞게 쿼리에서는 5개 열을 반환합니다.
@@ -207,7 +207,7 @@
 		}
 	}
 
-![Column Mapping 2][image-data-factory-column-mapping-2]
+![열 매핑 2][image-data-factory-column-mapping-2]
 
 ## 복사 작업에서 데이터 형식 처리
 
@@ -288,7 +288,7 @@ SQL Server 또는 Azure SQL 데이터베이스로 데이터를 복사할 때 사
 		"sink":
 	    {
 			"type": "SqlSink",
-	        "SqlWriterTableType": "MarketingType",
+	        "SqlWriterTableType": "MarketingType",
 		    "SqlWriterStoredProcedureName": "spOverwriteMarketing",	
 			"storedProcedureParameters":
 					{
@@ -313,8 +313,8 @@ SQL Server 또는 Azure SQL 데이터베이스로 데이터를 복사할 때 사
 4. 데이터베이스에서 **SqlWriterTableType**과 동일한 이름으로 테이블 형식을 정의합니다. 테이블 형식의 스키마가 입력 데이터에서 반환된 스키마와 동일해야 합니다.
 
 		CREATE TYPE [dbo].[MarketingType] AS TABLE(
-    	    [ProfileID] [varchar](256) NOT NULL,
-    	    [State] [varchar](256) NOT NULL,
+    	    [ProfileID] [varchar](256) NOT NULL,
+    	    [State] [varchar](256) NOT NULL,
     	)
 
 저장된 프로시저 기능은 [테이블 값 매개 변수][table-valued-parameters]을 이용합니다.
@@ -341,10 +341,10 @@ UTF-8 인코딩을 많이 사용하지만, 기록 이유로 인해 Azure Blob의
 
 [json-script-reference]: http://go.microsoft.com/fwlink/?LinkId=516971
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
-[azure-table-data-type]: https://msdn.microsoft.com/ko-kr/library/azure/dd179338.aspx
+[azure-table-data-type]: https://msdn.microsoft.com/en-us/library/azure/dd179338.aspx
 
 [image-data-factory-copy-actvity]: ./media/data-factory-copy-activity/VPNTopology.png
 [image-data-factory-column-mapping-1]: ./media/data-factory-copy-activity/ColumnMappingSample1.png
 [image-data-factory-column-mapping-2]: ./media/data-factory-copy-activity/ColumnMappingSample2.png
 
-<!--HONumber=54-->
+<!---HONumber=GIT-SubDir-->

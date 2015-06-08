@@ -17,7 +17,7 @@
 	ms.author="spelluru"/>
 
 
-# 연습: 캠페인 효율성 데이터를 온-프레미스 SQL Server 데이터베이스로 복사 
+# 연습: 캠페인 효율성 데이터를 온-프레미스 SQL Server 데이터베이스로 복사
 이 연습에서는 파이프라인에서 온-프레미스 데이터를 사용할 수 있도록 환경을 설정하는 방법을 배웁니다.
  
 분할 -> 보강 -> 분석 워크플로를 사용한 첫 번째 연습에서 로그 처리 시나리오의 마지막 단계에 마케팅 캠페인 효과 출력이 Azure SQL 데이터베이스에 복사되었습니다. 이 데이터를 조직 내에서 분석하기 위해 온-프레미스 SQL Server로 이동할 수도 있습니다.
@@ -51,7 +51,7 @@
 
 사용할 수 있는 기존 데이터 게이트웨이가 있는 경우 이 단계를 건너뜁니다.
 
-1.	논리 데이터 게이트웨이를 만듭니다. **Azure 미리 보기 포털**에서, 데이터 팩터리의 **데이터 팩터리** 블레이드에서 **연결 서비스**를 클릭합니다.
+1.	논리 데이터 게이트웨이를 만듭니다. 에 **Azure 미리 보기 포털**, 를 클릭 하 여 **연결 된 서비스** 에 **데이터 팩터리** 블레이드입니다.
 2.	명령 모음에서 **데이터 게이트웨이 추가(+)**를 클릭합니다.  
 3.	**새 데이터 게이트웨이** 블레이드에서 **만들기**를 클릭합니다.
 4.	**만들기** 블레이드에서, **MyGateway**를 데이터 게이트웨이 **이름**으로 입력하세요.
@@ -97,45 +97,46 @@
 
 ### 연결된 서비스 만들기
 
-1.	**Azure 미리 보기 포털**에서 **LogProcessingFactory**의 **데이터 팩터리** 블레이드에서 **작성자 및 배포** 타일을 클릭합니다.
-2.	**데이터 팩터리 편집기**의 도구 모음에서 **새로운 데이터 저장소**를 클릭하고 **온-프레미스 SQL Server 데이터베이스**를 선택합니다.
-3.	JSON 스크립트에서 다음을 수행합니다. 
-	1.	**<servername>**를 SQL Server 데이터베이스를 호스팅하는 서버의 이름으로 대체합니다.
-	2.	**<databasename>**를 **MarketingCampaigns**로 대체합니다.
-	3.	**SQL 인증**을 사용 중인 경우
-		1.	**connectionString**에 **<username>** 및 **<password>**를 지정합니다.
-		2.	마지막 두 행을 제거합니다(Windows 인증을 사용하는 경우에 **username** 및 **password** JSON 속성이 필요함). 
-		3.	**gatewayName** 행의 끝에서 **,(쉼표)**를 제거합니다. 
-		**Windows 인증을 사용하는 경우:** 1입니다. **통합 보안**의 값을 **connectionString**에서 **True**로 설정합니다. connectionString에서 "**User ID=<username>;Password=<password>;**"를 제거합니다. 2. **username** 속성에 대한 데이터베이스에 액세스할 수 있는 사용자의 이름을 지정합니다. 3. 사용자 계정으로 **password**를 지정합니다.   
-	4. gatewayName 속성으로 게이트웨이의 이름(**MyGateway**)을 지정합니다. 		  	 
-3.	도구 모음에서 **배포**를 클릭하여 연결된 서비스를 배포합니다. 
+1.	에 **Azure 미리 보기 포털**, 클릭 **연결 된 서비스** 타일에 **데이터 팩터리** 블레이드에 대 한 **LogProcessingFactory**.
+2.	에 **연결 된 서비스** 블레이드를 클릭 하 여 **추가 (+) 데이터 저장소**.
+3.	에 **새로운 데이터 저장소** 블레이드, 입력 **OnPremSqlLinkedService** 에 대 한는 **이름**. 
+4.	클릭 하 여 **유형 (설정 필요)** 선택 하 고 **SQL Server**. 표시 되어야는 **데이터 게이트웨이**, **서버**, **데이터베이스**, 및 **자격 증명** 설정에는 **새로운 데이터 저장소** 블레이드 이제. 
+5.	클릭 하 여 **데이터 게이트웨이 (필요한 설정을 구성)** 선택 하 고 **MyGateway** 이전에 만든 했습니다. 
+6.	입력 **이름** 를 호스팅하는 데이터베이스 서버는 **MarketingCampaigns** 데이터베이스입니다. 
+7.	입력 **MarketingCampaigns** 데이터베이스입니다. 
+8.	클릭 하 여 **자격 증명**. 
+9.	에 **자격 증명** 블레이드를 클릭 하 여 **자격 증명을 안전 하 게 설정 하려면 여기를 클릭 합니다.**.
+10.	처음으로 원클릭 응용 프로그램을 설치 하 고 시작의 **자격 증명 설정 **대화 상자. 11.	에 **자격 증명 설정** 대화 상자에 입력 합니다 **사용자 이름** 및 **암호**, 를 클릭 하 고 **확인**. 대화 상자가 닫힐 때까지 기다립니다. 
+12.	클릭 하 여 **확인** 에 **새로운 데이터 저장소** 블레이드입니다. 
+13.	에 **연결 된 서비스** 블레이드를 확인 하는 **OnPremSqlLinkedService** 목록에 표시 및 **상태** 는 연결 된 서비스의 **좋은**.
 
 ## <a name="OnPremStep3"></a> 3단계: 테이블 및 파이프라인을 만듭니다.
 
 ### 온-프레미스 논리 테이블 만들기
 
-1.	**데이터 팩터리 편집기**의 도구 모음에서 **새로운 데이터 저장소**를 클릭하고 **온-프레미스 SQL**을 선택합니다. 
-2. **C:\ADFWalkthrough\OnPremises** 폴더의 **MarketingCampaignEffectivenessOnPremSQLTable.json** 파일에서 오른쪽 창의 JSON을 JSON 스크립트로 대체합니다.
-3. 연결 서비스의 이름(**linkedServiceName** property)을 **OnPremSqlServerLinkedService**에서 **SqlServerLinkedService**로 변경합니다.
-4. 도구 모음에서 **배포**를 클릭하여 테이블을 배포합니다. 
+1.	 **Azure PowerShell**, 전환할는 **C:\ADFWalkthrough\OnPremises** 폴더입니다. 
+2.	Cmdlet을 사용 하 여 **새로 AzureDataFactoryTable** 에 대 한 다음과 같은 테이블을 만들기 위해 **MarketingCampaignEffectivenessOnPremSQLTable.json**.
+
+			
+		New-AzureDataFactoryTable -ResourceGroupName ADF -DataFactoryName $df –File .\MarketingCampaignEffectivenessOnPremSQLTable.json
 	 
 #### Azure Blob에서 SQL Server로 데이터를 복사하는 파이프라인 만들기
 
-1.	1. **데이터 팩터리 편집기**의 도구 모음에서 **새 파이프라인** 단추를 클릭합니다. 단추가 표시되지 않는 경우 도구 모음에서 **... (줄임표)**을 클릭합니다. 또는 트리 뷰에서 **파이프라인**을 마우스 오른쪽 단추로 클릭하고 **새 파이프라인**을 클릭할 수 있습니다.
-2. **C:\ADFWalkthrough\OnPremises** 폴더의 **EgressDataToOnPremPipeline.json** 파일에서 오른쪽 창의 JSON을 JSON 스크립트로 대체합니다.
-3. JSON의 **닫는 대괄호 (']')** 끝에 **쉼표 (',')**를 추가한 다음 닫는 대괄호 후 다음 세 줄을 추가합니다. 
+1.	Cmdlet을 사용 하 여 **새로 AzureDataFactoryPipeline** 에 대 한 파이프라인을 다음과 같이 만들려는 **EgressDataToOnPremPipeline.json**.
 
-        "start": "2014-05-01T00:00:00Z",
-        "end": "2014-05-05T00:00:00Z",
-        "isPaused": false
+			
+		New-AzureDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName $df –File .\EgressDataToOnPremPipeline.json
+	 
+2. Cmdlet을 사용 하 여 **집합 AzureDataFactoryPipelineActivePeriod** 에 대 한 현재 기간을 지정 하려면 **EgressDataToOnPremPipeline**.
 
-	[AZURE.NOTE]이 연습에서 예제 데이터는 2014년 5월 1일부터 2014년 5월 5일까지이기 때문에 시작 시간과 종료 시간이 2014년 5월 1일부터 2014년 5월 5일까지 설정됩니다.
- 
-3. 도구 모음에서 **배포**를 클릭하여 파이프라인을 배포합니다. 편집기의 제목 표시줄에 **파이프라인이 성공적으로 생성됨** 메시지가 표시되는지 확인합니다.
+			
+		Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADF -DataFactoryName $df -StartDateTime 2014-05-01Z -EndDateTime 2014-05-05Z –Name EgressDataToOnPremPipeline
+
+	키를 눌러 **'Y'** 를 계속 합니다.
 	
 ## <a name="OnPremStep4"></a> 4단계: 파이프라인을 모니터링하고 결과를 봅니다.
 
-이제 [기본 자습서][datafactorytutorial]의 **파이프라인 및 데이터 조각을 모니터링** 섹션에 소개된 동일한 단계를 사용하여 새 온-프레미스 ADF 테이블에 대한 새 파이프라인 및 데이터 조각을 모니터링할 수 있습니다.
+에 도입 된 동일한 단계를 이제 사용할 수 있습니다 [6 단계: 테이블 및 파이프라인 모니터링](#MainStep6) 새 파이프라인 및 새 온-프레미스 ADF 테이블에 대 한 데이터 조각이 모니터링할 수 있습니다.
  
 **MarketingCampaignEffectivenessOnPremSQLTable** 테이블의 조각 상태가 Ready로 변경되면 파이프라인이 조각에 대한 실행을 완료했음을 의미합니다. 결과를 보려면 SQL Server의 **MarketingCampaigns** 데이터베이스에서 **MarketingCampaignEffectiveness** 테이블을 쿼리합니다.
  
@@ -147,7 +148,7 @@
 [troubleshoot]: data-factory-troubleshoot.md
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
 
-[datafactorytutorial]: data-factory-tutorial.md
+[datafactorytutorial]: data-factory-tutorial-using-powershell.md
 [adfgetstarted]: data-factory-get-started.md
 [adfintroduction]: data-factory-introduction.md
 [useonpremisesdatasources]: data-factory-use-onpremises-datasources.md
@@ -165,6 +166,6 @@
 [adfwalkthrough-download]: http://go.microsoft.com/fwlink/?LinkId=517495
 [developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
 
-[image-data-factory-datamanagementgateway-configuration-manager]: ./media/data-factory-tutorial-extend-onpremises/DataManagementGatewayConfigurationManager.png
+[image-data-factory-datamanagementgateway-configuration-manager]: ./media/data-factory-tutorial-extend-onpremises-using-powershell/DataManagementGatewayConfigurationManager.png
 
 <!---HONumber=GIT-SubDir-->

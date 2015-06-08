@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/02/2015" 
+	ms.date="06/04/2015" 
 	ms.author="spelluru"/>
 
 # Azure 데이터 팩터리를 사용하여 데이터 복사(복사 작업)
@@ -126,19 +126,17 @@
 </table>
 
 ### IaaS(Infrastructure-as-a-Service)의 SQL
-IaaS에 있는 SQL의 경우 Azure를 IaaS 공급자로 사용할 수 있습니다. 다음과 같은 네트워크 및 VPN 토폴로지가 지원됩니다. 사례 #2 및 #3에는 데이터 관리 게이트웨이가 필요하지만 사례 #1에는 필요하지 않습니다. 데이터 관리 게이트웨이에 대한 자세한 내용은 [파이프라인에서 온-프레미스 데이터에 액세스할 수 있도록 설정][use-onpremises-datasources]을 참조하세요.
+SQL Server IaaS에서 원본 및 싱크를 모두로 지원 됩니다. 데이터 관리 게이트웨이 IaaS에서 SQL Server에 연결 된 서비스를 만들 때 필요 합니다. SQL 서버와 게이트웨이 리소스에 대 한 경쟁으로 인해 성능 저하를 방지 하려면 한 호스팅 SQL Server 이외의 가상 컴퓨터에서 데이터 관리 게이트웨이 설치 하는 것이 좋습니다. 데이터 관리 게이트웨이에 대한 자세한 내용은 [파이프라인에서 온-프레미스 데이터에 액세스할 수 있도록 설정][use-onpremises-datasources]을 참조하세요.
 
 1.	공용 DNS 이름 및 고정 공용 포트 : 개인 포트 매핑을 사용하는 VM
 2.	표시된 SQL 끝점 없이 공용 DNS 이름을 사용하는 VM
-3.	가상 네트워크 
+3.	가상 네트워크
 	<ol type='a'>
-	<li>목록 끝에 다음과 같은 토폴로지가 있는 Azure 클라우드 VPN </li>	
-	<li>Azure 가상 네트워크를 사용하는 온-프레미스에서 클라우드까지 사이트 간 VPN을 포함하는 VM</li>	
-	</ol>  
-	![복사 작업을 사용하는 데이터 팩터리][image-data-factory-copy-actvity]
+<li>목록 끝에 다음과 같은 토폴로지가 있는 Azure 클라우드 VPN </li>	
+<li>Azure 가상 네트워크를 사용하는 온-프레미스에서 클라우드까지 사이트 간 VPN을 포함하는 VM</li>	
+</ol>![복사 작업을 사용하는 데이터 팩터리][image-data-factory-copy-actvity]
 
-
-## 복사 작업 -구성 요소
+## 복사 작업 - 구성 요소
 복사 작업에는 다음과 같은 구성 요소가 포함됩니다.
 
 - **입력 테이블**. 테이블은 스키마가 있는 데이터 집합이며 사각형입니다. 입력 테이블 구성 요소는 테이블 이름, 테이블 유형 및 데이터 원본을 참조하는 연결된 서비스를 포함하는 작업의 입력 데이터를 설명하며, 입력 데이터를 포함합니다.
@@ -257,7 +255,20 @@ JSON 속성/태그에 대한 자세한 내용은 [JSON 스크립트 참조][json
 	{
 		"name": "MyOnPremTable",
     	"properties":
-    	"location": { "type": "OnPremisesSqlServerTableLocation", "tableName": "MyTable", "linkedServiceName": "MyOnPremisesSQLDB" }, "availability": { "frequency": "Hour", "interval": 1 } } }
+   		{
+			"location":
+    		{
+    			"type": "OnPremisesSqlServerTableLocation",
+    			"tableName": "MyTable",
+    			"linkedServiceName": "MyOnPremisesSQLDB"
+    		},
+    		"availability":
+   			{
+    			"frequency": "Hour",
+    			"interval": 1
+   			}
+ 		}
+	}
 
 다음 샘플 Azure PowerShell 명령은 위의 스크립트가 포함된 JSON 파일을 사용하는 **New-AzureDataFactoryTable**을 사용하여 Azure 데이터 팩터리 **CopyFactory**에 테이블(**MyOnPremTable**)을 만듭니다.
          
@@ -294,7 +305,6 @@ JSON 속성/태그에 대한 자세한 내용은 [JSON 스크립트 참조][json
       		}
    		}
 	}
-
 
 다음 샘플 Azure PowerShell 명령은 위의 스크립트가 포함된 JSON 파일을 사용하는 **New-AzureDataFactoryTable**을 사용하여 Azure 데이터 팩터리 **CopyFactory**에 테이블(**MyDemoBlob**)을 만듭니다.
          
@@ -339,7 +349,6 @@ JSON 속성/태그에 대한 자세한 내용은 [JSON 스크립트 참조][json
         		]
     		}
 		}
-
 
 
  다음 샘플 Azure PowerShell 명령은 위의 스크립트가 포함된 JSON 파일을 사용하는 **New-AzureDataFactoryPipeline**을 사용하여 Azure 데이터 팩터리 **CopyFactory**에 파이프라인(**CopyActivityPipeline**)을 만듭니다.
@@ -397,4 +406,4 @@ HTTPS 연결을 제공하는 데이터 저장소의 경우 복사 작업에 대�
 [image-data-factory-column-mapping-1]: ./media/data-factory-copy-activity/ColumnMappingSample1.png
 [image-data-factory-column-mapping-2]: ./media/data-factory-copy-activity/ColumnMappingSample2.png
 
-<!--HONumber=52-->
+<!---HONumber=GIT-SubDir-->

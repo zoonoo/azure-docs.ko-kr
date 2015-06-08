@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Azure 데이터 팩터리에서 Pig 및 Hive 사용" 
 	description="Azure HDInsight 클러스터에서 Azure 데이터 팩터리의 Pig 및 Hive 스크립트를 실행하여 데이터를 처리하는 방법에 대해 알아봅니다." 
 	services="data-factory" 
@@ -13,32 +13,210 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2/10/2015" 
+	ms.date="04/14/2015" 
 	ms.author="spelluru"/>
 
 # Azure 데이터 팩터리에서 Pig 및 Hive 사용
-Azure 데이터 팩터리의 파이프라인은 연결된 저장소 서비스의 데이터를 연결된 계산 서비스를 사용하여 처리합니다. 파이프라인에는 일련의 작업이 포함되며 각 작업에서는 특정 처리 작업을 수행합니다. 
+Azure 데이터 팩터리의 파이프라인은 연결된 저장소 서비스의 데이터를 연결된 계산 서비스를 사용하여 처리합니다. 파이프라인에는 일련의 작업이 포함되며 각 작업에서는 특정 처리 작업을 수행합니다. 이 문서는 Azure 데이터 팩터리 파이프라인에서 Pig/Hive 변환으로 HDInsight 활동을 사용 하 여 설명 합니다. 참조 [데이터 공장에서 MapReduce 프로그램 호출][data-factory-map-reduce] MapReduce를 실행 하는 방법에 대 한 세부 정보에 대 한 Azure 데이터 팩터리 파이프라인에서 클러스터에 HDInsight에서 프로그램입니다.
 
-- **복사 작업**은 원본 저장소의 데이터를 대상 저장소에 복사합니다. 복사 작업에 대한 자세한 내용은 [데이터 팩터리를 사용하여 데이터 복사][data-factory-copy-activity]를 참조하세요. 
-- **HDInsight 작업**은 HDInsight 클러스터에 대해 Hive/Pig 스크립트 또는 MapReduce 프로그램을 실행하여 데이터를 처리합니다. HDInsight 작업은 세 가지 변환 **Hive**, **Pig** 및 **MapReduce**를 지원합니다. HDInsight 작업은 하나 이상의 입력을 사용하고 하나 이상의 출력을 생성할 수 있습니다.
+## 연습: 하이브를 사용 하 여 Azure 데이터 팩터리
+이 연습에서는 데이터 팩터리 파이프라인에서 Hive 변환으로 HDInsight 작업을 사용 하기 위한 단계별 지침을 제공 합니다.
+
+### 필수 구성 요소
+1. 자습서를 완료 [Azure 데이터 팩터리 시작][adfgetstarted] 문서입니다.
+2. 업로드 **emp.txt** 으로 위의 자습서에서 만든 파일 **hiveinput\emp.txt** adftutorial 컨테이너의 blob 저장소에 있습니다.  **hiveinput** 폴더에 자동으로 만들어집니다는 **adftutorial** 이 구문 사용 하 여 emp.txt 파일을 업로드할 때 컨테이너입니다.
+
+	> [AZURE.NOTE]Emp.txt 파일이이 연습에 대 한 한 더미 파일입니다. 실제 입력된 데이터에서 제공 된 **hivesampletable** HDInsight 클러스터에 이미 있는 합니다. 파이프라인은 emp.txt 파일을 전혀 사용 하지 않습니다.
+	
+2. 만들기 **hivequery.hql** 라는 하위 폴더에서 파일 **하이브** 아래 **C:\ADFGetStarted** 다음 내용을 사용 합니다.
+    		
+    	DROP TABLE IF EXISTS adftutorialhivetable; 
+		CREATE EXTERNAL TABLE  adftutorialhivetable
+		(                                  
+ 			country         string,                                   
+ 			state           string,   
+ 			sessioncount int                                 
+		) ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' LINES TERMINATED BY '10' STORED AS TEXTFILE LOCATION '${hiveconf:RESULTOUTPUT}/${hiveconf:Year}/${hiveconf:Month}/${hiveconf:Day}'; 
+
+		INSERT OVERWRITE TABLE adftutorialhivetable 
+		SELECT  country, state, count(*) 
+		FROM hivesampletable 
+		group by country, state;
+
+	> [AZURE.NOTE]사용 하는 **Tez** HQL 파일에서 Hive 쿼리 실행, 추가 하는 엔진 "* * hive.execution.engine=tez**; 설정" 파일의 위쪽에 있습니다.
+		
+3.  업로드는 **hivequery.hql** 에 **adftutorial** blob 저장소에서 컨테이너
+
+
+### 연습
+
+#### 입력 테이블 만들기
+1. 에 **데이터 팩터리** 에 대 한 블레이드는 **ADFTutorialDataFactory**, 클릭 **작성자 및 배포** 데이터 팩터리 편집기를 시작 하려면.
+	
+	![데이터 팩터리 블레이드][data-factory-blade]
+
+2. 에 **데이터 팩터리 편집기**, 를 클릭 하 여 **새 데이터 집합**, 클릭 하 고 **Azure Blob 저장소** 명령 모음에서.
+3. 오른쪽 창에서 JSON 스크립트를 다음 JSON 스크립트 바꿉니다.    
+    		
+		{
+    		"name": "HiveInputBlobTable",
+    		"properties":
+    		{
+        		"location": 
+        		{
+            		"type": "AzureBlobLocation",
+            		"folderPath": "adftutorial/hiveinput",
+            		"linkedServiceName": "StorageLinkedService"
+        		},
+        		"availability": 
+        		{
+            		"frequency": "Day",
+            		"interval": 1,
+            		"waitonexternal": {}
+        		}
+    		}
+		}
+
  
-HDInsight 작업의 MapReduce 변환을 사용하여 Azure 데이터 팩터리 파이프라인에서 HDInsight 클러스터에 대해 MapReduce 프로그램을 실행하는 방법에 대한 자세한 내용은 [데이터 팩터리에서 MapReduce 프로그램 호출][data-factory-map-reduce]을 참조하세요. 이 문서에서는 HDInsight 작업의 Pig/Hive 변환을 사용하는 방법을 설명합니다.
+	**다음 참고:**
+	
+	- 위치 **유형** 로 설정 된 **AzureBlobLocation**.
+	- **linkedServiceName** 로 설정 된 **StorageLinkedService** Azure 저장소 계정 정의입니다.
+	- **folderPath** 입력된 데이터에 대 한 blob container\folder를 지정 합니다. 
+	- **빈도 = 일** 및 **간격 = 1** 조각이 매일 사용할 수 있는 것을 의미
+	- **waitOnExternal** 은이 데이터 다른 파이프라인에 의해 생성 되지 않을, 대신 생성 되는 외부 데이터 팩터리를 의미 합니다. 
+	
 
-## 이 문서의 내용
+	참조 [데이터 팩터리 개발자 참조][developer-reference] JSON 속성에 대 한 설명입니다.
 
-섹션 | 설명
-------- | -----------
-[Pig JSON 예제](#PigJSON) | 이 섹션에서는 Pig 변환을 사용하는 HDInsight 작업을 정의하기 위한 JSON 스키마를 제공합니다. 
-[Hive JSON 예제](#HiveJSON) | 이 섹션에서는 Hive 변환을 사용하는 HDInsight 작업을 정의하기 위한 JSON 스키마를 제공합니다. 
-[Azure Blob 저장소에 저장된 Pig 및 Hive 스크립트 사용](#ScriptInBlob) | Pig/Hive 변환을 사용하여 HDInsight 작업에서 Azure Blob 저장소에 저장된 Pig/Hive 스크립트를 참조하는 방법을 설명합니다.
-[매개 변수가 지정된 Pig 및 Hive 쿼리](#ParameterizeQueries) | Pig 및 Hive 스크립트에서 사용되는 매개 변수의 값을 JSON에서 **extendedProperties** 속성을 사용하여 지정하는 방법을 설명합니다.
-[연습: Azure 데이터 팩터리에서 Hive 사용](#Waltkthrough) | Hive를 사용하여 데이터를 처리하는 파이프라인을 만드는 단계별 지침을 제공합니다.  
+2. 클릭 하 여 **배포** 테이블을 배포 하려면 명령 모음에 있습니다.
+  
+#### 출력 테이블 만들기
+        
+1. 에 **데이터 팩터리 편집기**, 를 클릭 하 여 **새 데이터 집합**, 클릭 하 고 **Azure Blob 저장소** 명령 모음에서.
+2. 오른쪽 창에서 JSON 스크립트를 다음 JSON 스크립트 바꿉니다.
+
+		{
+    		"name": "HiveOutputBlobTable",
+    		"properties":
+    		{
+        		"location": 
+        		{
+            		"type": "AzureBlobLocation",
+	    			"folderPath": "adftutorial/hiveoutput/",
+            		"linkedServiceName": "StorageLinkedService"
+        		},
+        		"availability": 
+        		{
+            		"frequency": "Day",
+            		"interval": 1
+        		}
+    		}
+		}
+
+2. 클릭 하 여 **배포** 테이블을 배포 하려면 명령 모음에 있습니다.
 
 
+### HDInsight 클러스터에 대한 연결된 서비스 만들기
+Azure 데이터 팩터리 서비스는 주문형 클러스터 만들기를 지원하며 이 클러스터를 사용하여 입력을 처리하고 출력 데이터를 생성합니다. 또한 고유한 클러스터를 사용하여 같은 작업을 할 수도 있습니다. 주문형 HDInsight 클러스터를 사용하면 각 조각에 대해 클러스터가 생성됩니다. 반면 고유한 HDInsight 클러스터를 사용하는 경우에는 클러스터에서 조각을 즉시 처리할 수 있습니다. 따라서 주문형 클러스터를 사용하는 경우 출력 데이터가 고유한 클러스터를 사용할 때처럼 빠르게 표시되지 않을 수 있습니다. 샘플을 보여 주기 위해 주문형 클러스터를 사용해 보겠습니다.
 
-파이프라인 JSON에서 Pig 또는 Hive 작업을 정의할 때는 **type** 속성을 **HDInsightActivity**로 설정해야 합니다.
+#### 주문형 HDInsight 클러스터를 사용하려면
+1. 클릭 하 여 **새 계산** 를선택하고 명령 모음에서 **주문형 HDInsight 클러스터** 메뉴에서.
+2. JSON 스크립트에서 다음을 수행 합니다. 
+	1. 에 대 한는 **clusterSize** 속성을 HDInsight 클러스터의 크기를 지정 합니다.
+	2. 에 대 한는 **jobsContainer** 속성, 클러스터 로그를 저장할 기본 컨테이너의 이름을 지정 합니다. 이 자습서에서는 지정 **adfjobscontainer**.
+	3. 에 대 한는 **timeToLive** 속성을 얼마나 오래 클러스터 유휴 상태일 수 있는 삭제 하기 전에 지정 합니다. 
+	4. 에 대 한는 **버전** 속성을 사용 하려는 HDInsight 버전을 지정 합니다. 이 속성을 제외 하는 경우에 최신 버전이 사용 됩니다.  
+	5. 에 대 한는 **linkedServiceName**, 지정 **StorageLinkedService** 가져오기에서 만들었을 자습서를 시작 합니다. 
 
-## <a name="PigJSON"></a> Pig JSON 예제
+			{
+		    	"name": "HDInsightOnDemandLinkedService",
+				    "properties": {
+		    	    "type": "HDInsightOnDemandLinkedService",
+		    	    "clusterSize": "4",
+		    	    "jobsContainer": "adfjobscontainer",
+		    	    "timeToLive": "00:05:00",
+		    	    "version": "3.1",
+		    	    "linkedServiceName": "StorageLinkedService"
+		    	}
+			}
+
+2. 클릭 하 여 **배포** 연결 된 서비스를 배포 하려면 명령 모음에 있습니다.
+   
+   
+#### 고유한 HDInsight 클러스터를 사용하려면 
+
+1. 클릭 하 여 **새 계산** 를선택하고 명령 모음에서 **HDInsight 클러스터** 메뉴에서.
+2. JSON 스크립트에서 다음을 수행 합니다. 
+	1. 에 대 한는 **clusterUri** 속성을 프로그램 HDInsight에 대 한 URL을 입력 합니다. 예: https://<clustername>.azurehdinsight.net/     
+	2. 에 대 한는 **UserName** 속성을 HDInsight 클러스터에 대 한 액세스 권한이 있는 사용자 이름을 입력 합니다.
+	3. 에 대 한는 **암호** 속성을 사용자에 대 한 암호를 입력 합니다. 
+	4. 에 대 한는 **LinkedServiceName** 속성, 입력 **StorageLinkedService**. 시작된 자습서 다운로드에에서 만들 때 연결 된 서비스입니다. 
+
+2. 클릭 하 여 **배포** 연결 된 서비스를 배포 하려면 명령 모음에 있습니다.
+
+### 파이프라인 만들기 및 예약
+   
+1. 클릭 하 여 **새 파이프라인** 명령 모음에서. 명령이 표시 되지 않으면 클릭 **... (줄임표)** 이 확인 합니다. 
+2. 오른쪽 창에서 JSON을 다음 JSON 스크립트 바꿉니다. 만드는 단계를 실행 및 사용자 고유의 클러스터를 사용 하려는 경우는 **HDInsightLinkedService** 서비스에 연결 된 대체 **HDInsightOnDemandLinkedService** 와 **HDInsightLinkedService** 다음 JSON에 있습니다. 
+
+
+    	{
+    		"name": "ADFTutorialHivePipeline",
+    		"properties":
+    		{
+        		"description" : "It runs a HiveQL query and stores the result set in a blob",
+        		"activities":
+        		[
+            		{
+						"name": "RunHiveQuery",
+						"description": "Runs a hive query",
+						"type": "HDInsightActivity",
+						"inputs": [{"name": "HiveInputBlobTable"}],
+						"outputs": [ {"name": "HiveOutputBlobTable"} ],
+						"linkedServiceName": "HDInsightLinkedService",
+						"transformation":
+						{
+                    		"type": "Hive",
+                    		"extendedProperties":
+                    		{
+                        		"RESULTOUTPUT": "wasb://adftutorial@<your storage account>.blob.core.windows.net/hiveoutput/",
+		                        "Year":"$$Text.Format('{0:yyyy}',SliceStart)",
+		                        "Month":"$$Text.Format('{0:%M}',SliceStart)",
+		                        "Day":"$$Text.Format('{0:%d}',SliceStart)"
+		                    },
+		                    "scriptpath": "adftutorial\hivequery.hql",
+						    "scriptLinkedService": "StorageLinkedService"
+						},
+						"policy":
+						{
+							"concurrency": 1,
+							"executionPriorityOrder": "NewestFirst",
+							"retry": 1,
+							"timeout": "01:00:00"
+						}
+            		}
+        		],
+				"start": "2015-02-13T00:00:00Z",
+        		"end": "2015-02-14T00:00:00Z",
+        		"isPaused": false
+
+      		}
+		}
+
+	> [AZURE.NOTE]대체 **시작 날짜 시간** 현재 날짜 전에 3 일을 사용 하 여 값 및 **EndDateTime** 은 현재 날짜를 사용 하 여 값입니다. 시작 날짜 시간 및 EndDateTime 모두에 있어야 [ISO 형식](http://en.wikipedia.org/wiki/ISO_8601). 예: 2014-10-14T16:32:41Z 합니다. 출력 테이블이 매일 생성되도록 예약되었으므로 3개의 조각이 생성됩니다.
+	
+	> [AZURE.NOTE]대체 **저장소 계정의** 저장소 계정의 이름으로 JSON에서.
+	
+	참조 [JSON 스크립팅 참조](http://go.microsoft.com/fwlink/?LinkId=516971) JSON 속성에 대 한 세부 정보에 대 한 합니다.
+2. 클릭 하 여 **배포** 파이프라인을 배포 하려면 명령 모음에 있습니다.
+4. 참조 [모니터링 데이터 집합 및 파이프라인][adfgetstartedmonitoring] 의 섹션 [데이터 팩터리 시작][adfgetstarted] 문서입니다. 
+
+	> [AZURE.NOTE]에 **작업 실행 세부 정보** 출력 테이블의 한 조각에 대 한 블레이드 (출력 테이블을 선택 선택-> 조각에는 포털에서 활동 실행 선택->), HDInsight 클러스터에 의해 생성 된 로그에 대 한 링크가 표시 됩니다. 자체는 포털에서이 검토 하거나 컴퓨터에 다운로드 수 있습니다.
+  
+
+## Pig JSON 예제
+JSON 파이프라인에서 Pig 또는 Hive 활동을 정의 하는 경우는 **유형** 속성 설정 해야 합니다: **HDInsightActivity**.
 
     {
 		"name": "Pig Activity",
@@ -58,16 +236,16 @@ HDInsight 작업의 MapReduce 변환을 사용하여 Azure 데이터 팩터리 �
 		}
 	}
 
-**다음 사항에 유의하세요.**
+**다음 참고:**
 	
-- 작업 **type**을 **HDInsightActivity**로 설정합니다.
-- **linkedServiceName**을 **MyHDInsightLinkedService**로 설정합니다. 
-- **transformation**의 **type**을 **Pig**로 설정합니다.
-- Pig 스크립트를 **script** 속성에 인라인으로 지정할 수도 있고 스크립트 파일을 Azure Blob 저장소에 저장하고 이 문서 뒷부분에서 설명하는 **scriptPath** 속성을 사용하여 파일을 참조할 수도 있습니다. 
-- Pig 스크립트에 대한 매개 변수는 **extendedProperties**를 사용하여 지정합니다. 자세한 내용은 이 문서의 뒷부분에 나와 있습니다. 
+- 활동 **유형** 로 설정 된 **HDInsightActivity**.
+- **linkedServiceName** 로 설정 된 **MyHDInsightLinkedService**. 연결 된 HDInsight 서비스를 만드는 방법에 대 한 자세한 내용은 아래에서 연결 된 HDInsight 서비스 섹션을 참조 하십시오.
+-  **유형** 의 **변환** 로 설정 된 **Pig**.
+- 에 대 한 Pig 스크립트 인라인을 지정할 수는 **스크립트** 속성 또는 저장소 스크립트 파일에는 Azure blob 저장소 및 파일 사용을 참조 하십시오 **scriptPath** 속성을이 문서의 뒷부분에 대해서 설명 합니다. 
+- 사용 하 여 Pig 스크립트에 대 한 매개 변수를 지정 된 **extendedProperties**. 자세한 내용은 이 문서의 뒷부분에 나와 있습니다. 
 
 
-## <a name="HiveJSON"></a> ## Hive JSON 예제
+## Hive JSON 예제
 
 
     {
@@ -88,24 +266,24 @@ HDInsight 작업의 MapReduce 변환을 사용하여 Azure 데이터 팩터리 �
 		}
 	}
 
-**다음 사항에 유의하세요.**
+**다음 참고:**
 	
-- 작업 **type**을 **HDInsightActivity**로 설정합니다.
-- **linkedServiceName**을 **MyHDInsightLinkedService**로 설정합니다. 
-- **transformation**의 **type**을 **Hive**로 설정합니다.
-- Hive 스크립트를 **script** 속성에 인라인으로 지정할 수도 있고 스크립트 파일을 Azure Blob 저장소에 저장하고 이 문서 뒷부분에서 설명하는 **scriptPath** 속성을 사용하여 파일을 참조할 수도 있습니다. 
-- Hive 스크립트에 대한 매개 변수는 **extendedProperties**를 사용하여 지정합니다. 자세한 내용은 이 문서의 뒷부분에 나와 있습니다. 
+- 활동 **유형** 로 설정 된 **HDInsightActivity**.
+- **linkedServiceName** 로 설정 된 **MyHDInsightLinkedService**. 
+-  **유형** 의 **변환** 로 설정 된 **하이브**.
+- 에 대 한 Hive 스크립트 인라인을 지정할 수는 **스크립트** 속성 또는 저장소 스크립트 파일에는 Azure blob 저장소 및 파일 사용을 참조 하십시오 **scriptPath** 속성을이 문서의 뒷부분에 대해서 설명 합니다. 
+- 사용 하 여 Hive 스크립트에 대 한 매개 변수를 지정 된 **extendedProperties**. 자세한 내용은 이 문서의 뒷부분에 나와 있습니다. 
 
-> [WACOM.NOTE] cmdlet, JSON 스키마 및 스키마의 속성에 대한 자세한 내용은 [개발자 참조](http://go.microsoft.com/fwlink/?LinkId=516908)(영문)를 참조하세요. 
+> [AZURE.NOTE]참조 [개발자 참조](http://go.microsoft.com/fwlink/?LinkId=516908) cmdlet, JSON 스키마 및 속성 스키마에 대 한 자세한 내용은 합니다.
 
 
-## <a name="ScriptInBlob"></a>Azure Blob 저장소에 저장된 Pig 및 Hive 스크립트 사용
-HDInsight 클러스터와 연결된 Azure Blob 저장소에 Pig/Hive 스크립트를 저장하고 JSON에 다음 속성을 사용하여 Pig/Hive 작업에서 이 스크립트를 참조할 수 있습니다. 
+## 활동 HDInsight에서에서 Pig 및 Hive 스크립트를 사용 하 여
+HDInsight 클러스터와 연결된 Azure Blob 저장소에 Pig/Hive 스크립트를 저장하고 JSON에 다음 속성을 사용하여 Pig/Hive 작업에서 이 스크립트를 참조할 수 있습니다.
 
-* **scriptPath** - Pig 또는 Hive 스크립트 파일의 경로
-* **scriptLinkedService** - 스크립트 파일을 포함하는 Azure 저장소 계정
+* **scriptPath** – Pig 또는 Hive 스크립트 파일에 대 한 경로
+* **scriptLinkedService** – 스크립트 파일을 포함 하는 Azure 저장소 계정
 
-샘플 파이프라인에 대한 다음 JSON 예제에서는 **StorageLinkedService**가 나타내는 Azure Blob 저장소의 **adfwalkthrough** 컨테이너에 있는 **scripts** 폴더에 저장된 **transformdata.hql** 파일을 참조하는 Hive 작업을 사용합니다.
+샘플 파이프라인에 대 한 다음 JSON 예제를 참조 하는 Hive 작업을 사용 하 여 **transformdata.hql** 파일에 저장 된 **스크립트** 폴더에는 **adfwalkthrough** 나타내는 Azure blob 저장소의 컨테이너는 **StorageLinkedService**.
 
     {
     	"name": "AnalyzeMarketingCampaignPipeline",
@@ -125,7 +303,7 @@ HDInsight 클러스터와 연결된 Azure Blob 저장소에 Pig/Hive 스크립�
 					"transformation":
 					{
     					"type": "Hive",
-    					"scriptpath": "adfwalkthrough\\scripts\\transformdata.hql",    		
+    					"scriptpath": "adfwalkthrough\scripts\transformdata.hql",    		
 						"scriptLinkedService": "StorageLinkedService", 
 						"extendedProperties":
 						{
@@ -143,17 +321,18 @@ HDInsight 클러스터와 연결된 Azure Blob 저장소에 Pig/Hive 스크립�
       	}
 	}
 
-  
 
-> [WACOM.NOTE] cmdlet, JSON 스키마 및 스키마의 속성에 대한 자세한 내용은 [개발자 참조](http://go.microsoft.com/fwlink/?LinkId=516908)(영문)를 참조하세요.
+> [AZURE.NOTE]사용 하는 **Tez** 엔진 하이브 쿼리 실행, 실행을 "* * hive.execution.engine=tez**; 설정" 하이브 쿼리를 실행 하기 전에 합니다.
+> 
+> 참조 [개발자 참조](http://go.microsoft.com/fwlink/?LinkId=516908) cmdlet, JSON 스키마 및 속성 스키마에 대 한 자세한 내용은 합니다.
 
-## <a name="ParameterizeQueries"></a>매개 변수가 지정된 Pig 및 Hive 쿼리
-데이터 팩터리 Pig 및 Hive 작업을 사용하면 Pig 및 Hive 스크립트에 사용되는 매개 변수의 값을 **extendedProperties**를 사용하여 지정할 수 있습니다. extendedProperties 섹션은 매개 변수 이름과 매개 변수 값으로 구성됩니다.
+## 매개 변수가 지정된 Pig 및 Hive 쿼리
+데이터 팩터리 Pig 및 Hive 활동을 사용에 대 한 매개 변수를 사용 하 여 Pig 및 Hive 스크립트에서 사용 되는 값을 지정 하면 **extendedProperties**. extendedProperties 섹션은 매개 변수 이름과 매개 변수 값으로 구성됩니다.
 
-Hive 스크립트의 매개 변수를 **extendedProperties**를 사용하여 지정하는 다음 예제를 참조하세요. 매개 변수가 있는 Hive 스크립트를 사용하려면 다음을 수행합니다.
+다음 예제에서는 사용 하 여 Hive 스크립트에 대 한 매개 변수를 지정 하는 것에 대 한 참조 **extendedProperties**. 매개 변수가 있는 Hive 스크립트를 사용하려면 다음을 수행합니다.
 
-1.	**extendedProperties**에 매개 변수를 정의합니다.
-2.	인라인 Hive 스크립트 또는 Blob 저장소에 저장된 Hive 스크립트에서 **${hiveconf:parameterName}**을 사용하여 매개 변수를 참조합니다.
+1.	매개 변수를 정의 **extendedProperties**.
+2.	인라인 Hive 스크립트 (또는) 블로그 저장소에 저장 된 Hive 스크립트 파일을 사용 하 여 매개 변수를 참조 **${hiveconf:parameterName}**.
 
    
     		
@@ -186,251 +365,36 @@ Hive 스크립트의 매개 변수를 **extendedProperties**를 사용하여 지
 		}
 
 
--  
-
-## <a name="Walkthrough"></a>연습: Azure 데이터 팩터리에서 Hive 사용
-### 필수 구성 요소
-1. [Azure 데이터 팩터리 시작][adfgetstarted] 문서의 자습서를 완료합니다.
-2. 위 자습서에서 만든 **emp.txt** 파일을 Blob 저장소의 adftutorial 컨테이너에 **hiveinput\emp.txt**로 업로드합니다. 이 구문을 사용하여 emp.txt 파일을 업로드하면 **hiveinput** 폴더가 **adftutorial** 컨테이너에 자동으로 생성됩니다. 
-2. 다음과 같은 내용의 **hivequery.hql** 파일을 **C:\ADFGetStarted** 아래의 **Hive**라는 하위 폴더에 만듭니다.
-    		
-    	DROP TABLE IF EXISTS adftutorialhivetable; 
-		CREATE EXTERNAL TABLE  adftutorialhivetable
-		(                                  
- 			country         string,                                   
- 			state           string,   
- 			sessioncount int                                 
-		) ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' LINES TERMINATED BY '10' STORED AS TEXTFILE LOCATION '${hiveconf:RESULTOUTPUT}/${hiveconf:Year}/${hiveconf:Month}/${hiveconf:Day}'; 
-
-		INSERT OVERWRITE TABLE adftutorialhivetable 
-		SELECT  country, state, count(*) 
-		FROM hivesampletable 
-		group by country, state;
-		
-3.  **hivequery.hql**을 Blob 저장소의 **adftutorial** 컨테이너에 업로드합니다.
-
-
-### 연습
-
-#### 입력 테이블 만들기
-1. 다음과 같은 내용의 JSON 파일 **HiveInputBlobTable.json**을 **C:\ADFGetStarted\Hive** 폴더에 만듭니다.
-    		
-		{
-    		"name": "HiveInputBlobTable",
-    		"properties":
-    		{
-        		"location": 
-        		{
-            		"type": "AzureBlobLocation",
-            		"folderPath": "adftutorial/hiveinput",
-            		"linkedServiceName": "MyBlobStore"
-        		},
-        		"availability": 
-        		{
-            		"frequency": "Day",
-            		"interval": 1,
-            		"waitonexternal": {}
-        		}
-    		}
-		}
-
- 
-	**다음 사항에 유의하세요.**
-	
-	- location **type**을 **AzureBlobLocation**으로 설정합니다.
-	- **linkedServiceName**을 Azure 저장소 계정을 정의하는 **MyBlobStore**로 설정합니다.
-	- **folderPath**는 입력 데이터의 Blob 컨테이너\폴더를 지정합니다.
-	- **frequency=Day**와 **interval=1**을 지정하면 조각이 매일 제공됩니다.
-	- **waitOnExternal**을 지정하면 이 데이터가 다른 파이프라인에서 생성되지 않고 대신 데이터 팩터리 외부에서 생성됩니다.
-	
-
-	JSON 속성에 대한 설명은 [데이터 팩터리 개발자 참조][developer-reference](영문)를 참조하세요.  
-
-2. **Azure PowerShell**을 시작하고 필요한 경우 **AzureResourceManager** 모드로 전환합니다.
-    		
-    	Switch-AzureMode AzureResourceManager
-
-5. 폴더 **C:\ADFGetStarted\Hive**로 전환합니다.
-6. 다음 명령을 실행하여 **ADFTutorialDataFactory**에 입력 테이블을 만듭니다.
-
-		New-AzureDataFactoryTable -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -File .\HiveInputBlobTable.json
-
-	데이터 팩터리 cmdlet에 대한 자세한 개요는 [데이터 팩터리 Cmdlet 참조][cmdlet-reference](영문)를 참조하세요. 
-#### 출력 테이블 만들기
-        
-1. 다음과 같은 내용의 JSON 파일 **HiveOutputBlobTable.json**을 만들어 **C:\ADFGetStarted\Hive** 폴더에 저장합니다.
-
-		{
-    		"name": "HiveOutputBlobTable",
-    		"properties":
-    		{
-        		"location": 
-        		{
-            		"type": "AzureBlobLocation",
-	    			"folderPath": "adftutorial/hiveoutput/",
-            		"linkedServiceName": "MyBlobStore"
-        		},
-        		"availability": 
-        		{
-            		"frequency": "Day",
-            		"interval": 1
-        		}
-    		}
-		}
-
-2. 다음 명령을 실행하여 **ADFTutorialDataFactory**에 출력 파일을 만듭니다.
- 
-		New-AzureDataFactoryTable -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -File .\HiveOutputBlobTable.json
-
-### HDInsight 클러스터에 대한 연결된 서비스 만들기
-Azure 데이터 팩터리 서비스는 주문형 클러스터 만들기를 지원하며 이 클러스터를 사용하여 입력을 처리하고 출력 데이터를 생성합니다. 또한 고유한 클러스터를 사용하여 같은 작업을 할 수도 있습니다. 주문형 HDInsight 클러스터를 사용하면 각 조각에 대해 클러스터가 생성됩니다. 반면 고유한 HDInsight 클러스터를 사용하는 경우에는 클러스터에서 조각을 즉시 처리할 수 있습니다. 따라서 주문형 클러스터를 사용하는 경우 출력 데이터가 고유한 클러스터를 사용할 때처럼 빠르게 표시되지 않을 수 있습니다. 샘플을 보여 주기 위해 주문형 클러스터를 사용해 보겠습니다. 
-
-#### 주문형 HDInsight 클러스터를 사용하려면
-1. 다음과 같은 내용의 JSON 파일 **HDInsightOnDemandCluster.json**을 만들어 **C:\ADFGetStarted\Hive** 폴더에 저장합니다.
-
-
-		{
-    		"name": "HDInsightOnDemandCluster",
-    		"properties": 
-    		{
-        		"type": "HDInsightOnDemandLinkedService",
-				"clusterSize": "4",
-        		"timeToLive": "00:05:00",
-        		"linkedServiceName": "MyBlobStore"
-    		}
-		}
-
-2. **Azure PowerShell**을 시작하고 다음 명령을 실행하여 **AzureResourceManager** 모드로 전환합니다. Azure 데이터 팩터리 cmdlet은 **AzureResourceManager** 모드에서 사용할 수 있습니다.
-
-         switch-azuremode AzureResourceManager
-		
-
-3. **C:\ADFGetstarted\Hive** 폴더로 전환합니다.
-4. 다음 명령을 실행하여 주문형 HDInsight 클러스터에 대한 연결된 서비스를 만듭니다.
- 
-		New-AzureDataFactoryLinkedService -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -File .\HDInsightOnDemandCluster.json
-  
-3. 테이블 및 연결된 서비스가 **Azure 미리 보기 포털**의 **데이터 팩터리** 블레이드에 표시됩니다.    
-   
-#### 고유한 HDInsight 클러스터를 사용하려면 
-
-1. 다음과 같은 내용의 JSON 파일 **MyHDInsightCluster.json**을 만들어 **C:\ADFGetStarted\Hive** 폴더에 저장합니다. JSON 파일을 저장하기 전에 clustername, username 및 password를 적절한 값으로 바꿉니다.  
-
-		{
-   			"Name": "MyHDInsightCluster",
-    		"Properties": 
-			{
-        		"Type": "HDInsightBYOCLinkedService",
-	        	"ClusterUri": "https://<clustername>.azurehdinsight.net/",
-    	    	"UserName": "<username>",
-    	    	"Password": "<password>",
-    	    	"LinkedServiceName": "MyBlobStore"
-    		}
-		}
-
-2. **Azure PowerShell**을 시작하고 다음 명령을 실행하여 **AzureResourceManager** 모드로 전환합니다. Azure 데이터 팩터리 cmdlet은 **AzureResourceManager** 모드에서 사용할 수 있습니다.
-
-         switch-azuremode AzureResourceManager
-		
-
-3. **C:\ADFGetstarted\Hive** 폴더로 전환합니다.
-4. 다음 명령을 실행하여 고유한 HDInsight 클러스터에 대한 연결된 서비스를 만듭니다.
- 
-		New-AzureDataFactoryLinkedService -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -File .\MyHDInsightCluster.json
-
-### 파이프라인 만들기 및 예약
-   
-1. 다음과 같은 내용의 JSON 파일 **ADFTutorialHivePipeline.json**을 만들어 **C:\ADFGetStarted\Hive** 폴더에 저장합니다. 고유한 클러스터를 사용하려는 경우 **MyHDInsightCluster** 연결된 서비스를 만드는 단계를 수행했으면 다음 JSON에서 **HDInsightOnDemandCluster**를 **MyHDInsightCluster**로 바꿉니다. 
-
-
-    	{
-    		"name": "ADFTutorialHivePipeline",
-    		"properties":
-    		{
-        		"description" : "It runs a HiveQL query and stores the result set in a blob",
-        		"activities":
-        		[
-            		{
-						"name": "RunHiveQuery",
-						"description": "Runs a hive query",
-						"type": "HDInsightActivity",
-						"inputs": [{"name": "HiveInputBlobTable"}],
-						"outputs": [ {"name": "HiveOutputBlobTable"} ],
-						"linkedServiceName": "HDInsightOnDemandCluster",
-						"transformation":
-						{
-                    		"type": "Hive",
-                    		"extendedProperties":
-                    		{
-                        		"RESULTOUTPUT": "wasb://adftutorial@spestore.blob.core.windows.net/hiveoutput/",
-		                        "Year":"$$Text.Format('{0:yyyy}',SliceStart)",
-		                        "Month":"$$Text.Format('{0:%M}',SliceStart)",
-		                        "Day":"$$Text.Format('{0:%d}',SliceStart)"
-		                    },
-		                    "scriptpath": "adftutorial\\hivequery.hql",
-						    "scriptLinkedService": "MyBlobStore"
-						},
-						"policy":
-						{
-							"concurrency": 1,
-							"executionPriorityOrder": "NewestFirst",
-							"retry": 1,
-							"timeout": "01:00:00"
-						}
-            		}
-        		]
-      		}
-		}
-
-2. 다음 명령을 실행하여 파이프라인을 만듭니다.
-    	
-		New-AzureDataFactoryPipeline -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -File .\ADFTutorialHivePipeline.json
-    	
-3. 파이프라인을 예약합니다.
-    	
-		Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -StartDateTime 2014-09-27 -EndDateTime 2014-09-30 -Name ADFTutorialHivePipeline 
-
-	> [WACOM.NOTE] **StartDateTime** 값을 현재 날짜 3일 전 날짜로, **EndDateTime** 값을 현재 날짜로 바꿉니다. StartDateTime 및 EndDateTime은 UTC 시간이며 [ISO 형식](http://en.wikipedia.org/wiki/ISO_8601)(영문)이어야 합니다. 예를 들면 다음과 같습니다. 2014-10-14T16:32:41Z. 
-	> **EndDateTime**을 지정하지 않는 경우 "**StartDateTime + 48시간**"으로 계산됩니다. 파이프라인을 무기한 실행하려면 **EndDateTime**을 **9/9/9999**로 지정합니다.
-  	
-	출력 테이블이 매일 생성되도록 예약되었으므로 3개의 조각이 생성됩니다. 
-
-4. [데이터 팩터리 시작][adfgetstarted] 문서의 [데이터 집합 및 파이프라인 모니터링][adfgetstartedmonitoring] 섹션을 참조하세요.   
-
 ## 참고 항목
 
 문서 | 설명
 ------ | ---------------
-[Azure 데이터 팩터리 소개][data-factory-introduction] | 이 문서에서는 Azure 데이터 팩터리 서비스, 개념, Azure 데이터 팩터리 서비스가 제공하는 가치 및 지원하는 시나리오에 대해 소개합니다.
-[Azure 데이터 팩터리 시작][adf-getstarted] | 이 문서에서는 Azure Blob에서 Azure SQL 데이터베이스로 데이터를 복사하는 샘플 Azure 데이터 팩터리를 만드는 방법을 보여 주는 종단 간 자습서를 제공합니다.
-[파이프라인에서 온-프레미스 데이터를 사용할 수 있도록 설정][use-onpremises-datasources](영문) | 이 문서의 연습에서는 온-프레미스 SQL Server 데이터베이스에서 Azure Blob으로 데이터를 복사하는 방법을 보여 줍니다.
-[자습서: 데이터 팩터리를 사용하여 로그 파일 이동 및 처리][adf-tutorial](영문) | 이 문서에서는 Azure 데이터 팩터리를 사용하는 실제 시나리오를 구현하여 로그 파일의 데이터에서 통찰력을 얻는 방법을 보여 주는 종단 간 연습을 제공합니다.
-[데이터 팩터리에서 사용자 지정 작업 사용][use-custom-activities](영문) | 이 문서에서는 사용자 지정 작업을 만들어 파이프라인에서 사용하는 방법에 대한 단계별 지침이 포함된 연습을 제공합니다. 
-[데이터 팩터리 문제 해결][troubleshoot](영문) | 이 문서에서는 Azure 데이터 팩터리 문제를 해결하는 방법에 대해 설명합니다.
-[Azure 데이터 팩터리 개발자 참조][developer-reference](영문) | 개발자 참조에는 cmdlet, JSON 스크립트, 함수 등에 대한 포괄적인 참조 콘텐츠가 포함되어 있습니다. 
+[이동 하 고 데이터 팩터리를 사용 하 여 로그 파일을 처리 하는 자습서:][adf-tutorial] | 이 문서를 거의 실시간을 구현 하는 방법을 보여주는 프로그램-종단간 연습을 제공 Azure 데이터 팩터리를 사용 하 여 통찰력으로 로그 파일의에서 데이터를 변환 하는 업무 시나리오입니다.
+[Azure 데이터 팩터리 개발자 참조][developer-reference] | 개발자 참조에는 cmdlet, JSON 스크립트, 함수에 대 한 포괄적인 참조 콘텐츠 중... 
 
 [data-factory-copy-activity]: ..//data-factory-copy-activity
 [data-factory-map-reduce]: ..//data-factory-map-reduce
 
-[adf-getstarted]: ../data-factory-get-started
-[use-onpremises-datasources]: ../data-factory-use-onpremises-datasources
-[adf-tutorial]: ../data-factory-tutorial
-[use-custom-activities]: ../data-factory-use-custom-activities
-[monitor-manage-using-powershell]: ../data-factory-monitor-manage-using-powershell
-[troubleshoot]: ../data-factory-troubleshoot
-[data-factory-introduction]: ../data-factory-introduction
+[adf-getstarted]: data-factory-get-started.md
+[use-onpremises-datasources]: data-factory-use-onpremises-datasources.md
+[adf-tutorial]: data-factory-tutorial.md
+[use-custom-activities]: data-factory-use-custom-activities.md
+[monitor-manage-using-powershell]: data-factory-monitor-manage-using-powershell.md
+[troubleshoot]: data-factory-troubleshoot.md
+[data-factory-introduction]: data-factory-introduction.md
 
 [developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
 
 
-[adfgetstarted]: ../data-factory-get-started
-[adfgetstartedmonitoring]:../data-factory-get-started#MonitorDataSetsAndPipeline 
-[adftutorial]: ../data-factory-tutorial
+[data-factory-blade]: ./media/data-factory-pig-hive-activities/DataFactoryBlade.png
 
-[개발자 참조](영문): http://go.microsoft.com/fwlink/?LinkId=516908
-[Azure 포털]: http://portal.azure.com
 
-<!--HONumber=35.2-->
+[adfgetstarted]: data-factory-get-started.md
+[adfgetstartedmonitoring]: data-factory-get-started.md#MonitorDataSetsAndPipeline
+[adftutorial]: data-factory-tutorial.md
 
-<!--HONumber=46--> 
+[Developer Reference]: http://go.microsoft.com/fwlink/?LinkId=516908
+[Azure Portal]: http://portal.azure.com
+
+<!---HONumber=GIT-SubDir-->

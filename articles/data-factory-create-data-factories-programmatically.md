@@ -1,38 +1,53 @@
-﻿<properties title="Create, monitor, and manage Azure data factories using Data Factory SDK" pageTitle="데이터 팩터리 SDK를 사용하여 Azure 데이터 팩터리 만들기, 모니터링 및 관리" description="프로그래밍 방식으로 만들기, 모니터링 및 데이터 팩터리 SDK를 사용 하 여 Azure 데이터 팩터리를 관리 하는 방법에 알아봅니다." metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
+<properties 
+	pageTitle="데이터 팩터리 SDK를 사용하여 Azure 데이터 팩터리 만들기, 모니터링 및 관리" 
+	description="프로그래밍 방식으로 만들기, 모니터링 및 데이터 팩터리 SDK를 사용 하 여 Azure 데이터 팩터리를 관리 하는 방법에 알아봅니다." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
+	editor="monicar"/>
 
-<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/08/2014" ms.author="spelluru" />
+<tags 
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="04/14/2015" 
+	ms.author="spelluru"/>
 
 # 데이터 팩터리 .NET SDK를 사용하여 Azure 데이터 팩터리 만들기, 모니터링 및 관리
-데이터 팩터리 .NET SDK를 사용하여 프로그래밍 방식으로 Azure 데이터 팩터리를 만들고, 모니터링하며, 관리할 수 있습니다. 이 문서에는 데이터 팩터리를 만들고 모니터링하는 샘플 .NET 콘솔 응용 프로그램을 만들 수 있는 연습이 포함되어 있습니다. 데이터 팩터리 .NET SDK에 대한 자세한 내용은 [데이터 팩터리 클래스 라이브러리 참조][adf-class-library-reference](영문)를 참조하세요. 
+## 개요
+데이터 팩터리 .NET SDK를 사용하여 프로그래밍 방식으로 Azure 데이터 팩터리를 만들고, 모니터링하며, 관리할 수 있습니다. 이 문서에는 데이터 팩터리를 만들고 모니터링하는 샘플 .NET 콘솔 응용 프로그램을 만들 수 있는 연습이 포함되어 있습니다. 참조 [데이터 팩터리 클래스 라이브러리 참조][adf-class-library-reference] 데이터 팩터리.NET SDK에 대 한 세부 정보에 대 한 합니다.
 
-## 연습: 데이터 팩터리 .NET SDK를 사용하여 Azure 데이터 팩터리 만들기
 
-**필수 조건:**
+
+## 필수 조건
 
 - Visual Studio 2012 또는 2013
-- [Microsoft Azure .NET SDK][azure-developer-center] 다운로드 및 설치
+- 다운로드 및 설치 [Azure.NET SDK][azure-developer-center]
 - Azure 데이터 팩터리용 NuGet 패키지 다운로드 및 설치. 지침은 연습에 있습니다.
 
-### 1단계: 데이터 팩터리 .NET SDK를 사용하여 Azure 데이터 팩터리 만들기
+## 연습
 1. Visual Studio 2012 또는 2013을 사용하여 C# .NET 콘솔 응용 프로그램을 만듭니다.
 	<ol type="a">
-		<li> <b>Visual Studio 2012</b> 또는 <b>Visual Studio 2013</b>을 시작합니다.</li>
-		<li> <b>파일</b>을 클릭하고 <b>새로 만들기</b>를 가리킨 다음 <b>프로젝트</b>를 클릭합니다.</li> 
-		<li> <b>템플릿</b>을 확장하고 <b>Visual C#</b>을 선택합니다. 이 연습에서는 C#을 사용하지만 모든 .NET 언어를 사용할 수 있습니다.</li> 
-		<li>오른쪽의 프로젝트 형식 목록에서 <b>Console Application</b> 을 선택합니다.</li>
-		<li> <b>DataFactoryAPITestApp</b> 을 <b>이름</b>으로 입력합니다.</li> 
-		<li> <b>C:\ADFGetStarted</b> 를 <b>위치</b>로 선택합니다.</li>
-		<li> <b>OK</b> 을 클릭하여 프로젝트를 만듭니다.</li>
-	</ol>
-2.  <b>도구</b>를 클릭하고 <b>NuGet 패키지 관리자</b>를 가리킨 다음 <b>패키지 관리자 콘솔</b>을 클릭합니다.
-3.	 <b>패키지 관리자 콘솔</b>에서 다음 명령을 하나씩 실행합니다</b>. 
+	<li>시작 <b>Visual Studio 2012</b> 또는 <b>Visual Studio 2013</b>.</li>
+	<li>클릭 하 여 <b>파일</b>, 가리킨 <b>새로</b>, 클릭 하 고 <b>프로젝트</b>.</li> 
+	<li>확장 하 고 <b>템플릿</b>, 선택 및 <b>Visual C#</b>. 이 연습에서는 C#을 사용하지만 모든 .NET 언어를 사용할 수 있습니다.</li> 
+	<li>선택 <b>콘솔 응용 프로그램</b> 오른쪽에 프로젝트 형식 목록에서.</li>
+	<li>입력 <b>DataFactoryAPITestApp</b> 에 대 한는 <b>이름</b>.</li> 
+	<li>선택 <b>C:\ADFGetStarted</b> 에 대 한는 <b>위치</b>.</li>
+	<li><b>확인</b>을 클릭하여 프로젝트를 만듭니다.</li>
+</ol>
+2. 클릭 하 여 <b>도구</b>, 가리킨 <b>NuGet 패키지 관리자</b>, 를 클릭 하 고 <b>패키지 관리자 콘솔</b>.
+3.	에 <b>패키지 관리자 콘솔</b>, -하나씩에서 다음 명령을 실행 합니다.</b>합니다. 
 
-		Install-Package Microsoft.Azure.Management.DataFactories -Pre
-		Install-Package Microsoft.DataFactories.Runtime -Pre
+		Install-Package Microsoft.Azure.Management.DataFactories –Pre
+		Install-Package Microsoft.DataFactories.Runtime –Pre
 		Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
-6. 다음 **appSetttings** 섹션을 **App.config** 파일에 추가합니다. 이는 도우미 메서드 **GetAuthorizationHeader**에 사용됩니다. 
+6. 다음 추가 **appSetttings** 섹션에 **App.config** 파일입니다. 이러한 도우미 메서드에 의해 사용 됩니다: **GetAuthorizationHeader**. 
 
-	**SubscriptionId**와 **ActiveDirectoryTenantId**의 값을 Azure 구독 및 테넌트 ID로 바꿉니다. Azure PowerShell에서 **Get-AzureAccount**를 실행하여 이러한 값을 가져올 수 있습니다(먼저 Add-AzureAccount를 사용하여 로그인해야 할 수 있음).
+	**SubscriptionId**와 **ActiveDirectoryTenantId**의 값을 Azure 구독 및 테넌트 ID로 바꿉니다. 실행 하 여 이러한 값을 얻을 수 **Get AzureAccount** 에서 Azure PowerShell (해야 Add-azureaccount를 사용 하 여 먼저 로그인)입니다.
  
 		<appSettings>
 		    <!--CSM Prod related values-->
@@ -45,7 +60,7 @@
 		    <add key="SubscriptionId" value="49fb6e5f-3098-4fb2-ba2f-6d6eed843a65" />
     		<add key="ActiveDirectoryTenantId" value="37330244-7828-4a28-99b7-c8c3a437c7ac" />
 		</appSettings>
-6. 프로젝트의 원본 파일(Program.cs)에 다음 **using** 문을 추가합니다.
+6. 다음 추가 **를 사용 하 여** 프로젝트에서 소스 파일 (Program.cs)에 문의 합니다.
 
 		using System.Threading;
 		using System.Configuration;
@@ -54,8 +69,8 @@
 		using Microsoft.Azure.Management.DataFactories;
 		using Microsoft.Azure.Management.DataFactories.Models;
 		using Microsoft.IdentityModel.Clients.ActiveDirectory;
-		using Microsoft.WindowsAzure; 
-6. **DataPipelineManagementClient** 클래스의 인스턴스를 만드는 다음 코드를 **Main** 메서드에 추가합니다. 이 개체를 사용하여 데이터 팩터리, 연결된 서비스, 입력 및 출력 테이블과 파이프라인을 만듭니다. 또한 이 개체를 사용하여 런타임에 테이블의 조각을 모니터링합니다.    
+		using Microsoft.Azure; 
+6. 인스턴스를 만드는 다음 코드를 추가 **DataPipelineManagementClient** 클래스에 **Main** 메서드. 이 개체를 사용하여 데이터 팩터리, 연결된 서비스, 입력 및 출력 테이블과 파이프라인을 만듭니다. 또한 이 개체를 사용하여 런타임에 테이블의 조각을 모니터링합니다.    
 
         // create data pipeline management client
         string resourceGroupName = "ADF";
@@ -69,7 +84,7 @@
         Uri resourceManagerUri = new Uri(ConfigurationManager.AppSettings["ResourceManagerEndpoint"]);
 
         DataPipelineManagementClient client = new DataPipelineManagementClient(aadTokenCredentials, resourceManagerUri);
-7. Add the following code that creates a **data factory** to the **Main** method.
+7. 만드는 다음 코드를 추가 **데이터 팩터리** 에 **Main** 메서드.
 
         // create a data factory
         Console.WriteLine("Creating a data factory");
@@ -84,8 +99,8 @@
                 }
             }
         );
-8. **연결된 서비스**를 만드는 다음 코드를 **Main** 메서드에 추가합니다. 
-	> [WACOM.NOTE] **ConnectionString**에 Azure 저장소 계정의 **계정 이름** 및 **계정 키**를 사용합니다. 
+8. 만드는 다음 코드를 추가 **서비스 연결** 에 **Main** 메서드.
+	> [AZURE.NOTE]**계정 이름****계정 키****ConnectionString** 
 
 		// create a linked service
         Console.WriteLine("Creating a linked service");
@@ -102,11 +117,11 @@
                 }
             }
         );
-9. **입력 및 출력 테이블**을 만드는 다음 코드를 **Main** 메서드에 추가합니다. 
+9. 만드는 다음 코드를 추가 **입력 및 출력 테이블** 에 **Main** 메서드. 
 
-	입력 Blob의 **FolderPath**는 **adftutorial/**로 설정됩니다. 여기서 **adftutorial**은 Blob 저장소에 있는 컨테이너의 이름입니다. Azure Blob 저장소에 이 컨테이너가 없는 경우 이름이 **adftutorial**인 컨테이너를 만들고 텍스트 파일을 컨테이너에 업로드합니다.
+	 **FolderPath** 입력된 blob으로 설정 됩니다 **adftutorial /** 여기서 **adftutorial** blob 저장소에서 컨테이너의 이름입니다. 이 컨테이너에 Azure blob 저장소에 없는 경우이 이름을 가진 컨테이너 만들기: **adftutorial** 및 컨테이너에 텍스트 파일을 업로드 합니다.
 	
-	출력 Blob의 FolderPath는 **adftutorial/apifactoryoutput/{Slice}**로 설정됩니다. 여기서 **Slice**는 **SliceStart**(각 조각의 시작 날짜-시간) 값을 기반으로 동적으로 계산됩니다.  
+	출력 blob에 대 한 FolderPath로 설정 된 참고: **adftutorial/apifactoryoutput {조각화} /** 여기서 **조각** 은 동적으로 계산 된 값에 따라 **SliceStart** (시작 날짜-시간 조각의 각.)
 
  
         // create input and output tables
@@ -180,7 +195,7 @@
                     }
                 }
             });
-10. **파이프라인을 만들고 활성화**하는 다음 코드를 **Main** 메서드에 추가합니다. 이 파이프라인에는 **BlobSource**를 원본으로 사용하고 **BlobSink**를 싱크로 사용하는 **CopyActivity**가 포함되어 있습니다. 
+10. 다음 코드를 추가 **를 만들고 파이프라인 활성화** 에 **Main** 메서드. 이 파이프라인에는 **CopyActivity** 여기에 걸리는 **BlobSource** 소스로 및 **BlobSink** 싱크도 합니다. 
 
         // create a pipeline
         Console.WriteLine("Creating a pipeline");
@@ -252,7 +267,7 @@
                 }
             });
 
-11. **Main** 메서드에 사용되는 다음 도우미 클래스를 **Program** 클래스에 추가합니다. 이 메서드는 Azure 포털에 로그인하는 데 사용하는 **사용자 이름** 및 **암호**를 입력할 수 있는 대화 상자를 표시합니다. 
+11. 다음 도우미 메서드를 사용 하 여 추가 **Main** 메서드는 **프로그램** 클래스. 이 메서드를 사용 하면 제공할 수 있는 대화 상자를 팝 **사용자 이름** 및 **암호** 를 사용 하는 Azure 포털에 로그인 합니다.
  
 		public static string GetAuthorizationHeader()
         {
@@ -288,7 +303,7 @@
             throw new InvalidOperationException("Failed to acquire token");
         }  
  
-13. **Main** 메서드에 다음 코드를 추가하여 출력 테이블의 데이터 조각 상태를 가져옵니다. 이 샘플에서는 조각만 필요합니다.   
+13. 다음 코드를 추가 하는 **Main** 출력 테이블의 데이터 조각의 상태를 가져오려면 메서드. 이 샘플에서는 조각만 필요합니다.
  
         // Pulling status within a timeout threshold
         DateTime start = DateTime.Now;
@@ -319,7 +334,7 @@
             }
         }
 
-14. 데이터 조각의 실행 정보를 가져오는 다음 코드를 **Main** 메서드에 추가합니다.
+14. 다음 코드를 실행 하는 데이터 조각 조각에 대 한 세부 정보 추가 **Main** 메서드.
 
         Console.WriteLine("Getting run details of a data slice");
 
@@ -341,40 +356,35 @@
         Console.ReadKey();
     }
 
-15. 콘솔 응용 프로그램을 빌드합니다. 메뉴에서 **빌드**를 클릭하고 **솔루션 빌드**를 클릭합니다.
+15. 콘솔 응용 프로그램을 빌드합니다. 클릭 하 여 **빌드** 클릭 하 여 확인 하 고 메뉴에서 **솔루션 빌드**.
 16. Azure Blob 저장소의 adftutorial 컨테이너에 하나 이상의 파일이 있는지 확인합니다. 그렇지 않은 경우 메모장에서 다음 내용이 포함된 Emp.txt 파일을 만들어 adftutorial 컨테이너에 업로드합니다.
 
         John, Doe
 		Jane, Doe
 	 
-17. 메뉴에서 **디버그** -> **디버깅 시작**을 클릭하여 샘플을 실행합니다.
-18. Azure 미리 보기 포털을 사용하여 데이터 팩터리를 확인합니다. **다음 아티팩트를 사용하여 APITutorialFactory**를 만들었습니다. 
-	- 연결된 서비스: **LinkedService_AzureStorage** 
-	- Tables: **TableBlobSource** 및 **TableBlobDestination**
+17. 클릭 하 여 샘플을 실행 **디버그** -> **디버깅 시작** 메뉴.
+18. 사용 하 여 Azure 미리 보기 포털 확인 하는 데이터 팩터리: **APITutorialFactory** 다음 아티팩트를 사용 하 여 만들어집니다. 
+	- 서비스 연결: **LinkedService_AzureStorage** 
+	- 테이블: **TableBlobSource** 및 **TableBlobDestination**.
 	- 파이프라인: **PipelineBlobSample** 
-18. 출력 파일이 **adftutorial** 컨테이너의 **apifactoryoutput** 폴더에 만들어졌는지 확인합니다.
+18. 출력 파일에서 만들어졌는지 확인은 **apifactoryoutput** 폴더에는 **adftutorial** 컨테이너입니다.
 
 
 ## 참고 항목
 
 문서 | 설명
 ------ | ---------------
-[Azure 데이터 팩터리 소개][data-factory-introduction] | 이 문서에서는 Azure 데이터 팩터리 서비스, 개념, Azure 데이터 팩터리 서비스가 제공하는 가치 및 지원하는 시나리오에 대해 소개합니다.
-[Azure 데이터 팩터리 시작][adf-getstarted] | 이 문서에서는 Azure Blob에서 Azure SQL 데이터베이스로 데이터를 복사하는 샘플 Azure 데이터 팩터리를 만드는 방법을 보여 주는 종단 간 자습서를 제공합니다.
-[파이프라인에서 온-프레미스 데이터를 사용할 수 있도록 설정][use-onpremises-datasources](영문) | 이 문서의 연습에서는 온-프레미스 SQL Server 데이터베이스에서 Azure Blob으로 데이터를 복사하는 방법을 보여 줍니다.
-[자습서: 데이터 팩터리를 사용하여 로그 파일 이동 및 처리][adf-tutorial](영문) | 이 문서에서는 Azure 데이터 팩터리를 사용하는 실제 시나리오를 구현하여 로그 파일의 데이터에서 통찰력을 얻는 방법을 보여 주는 종단 간 연습을 제공합니다.
-[데이터 팩터리에서 사용자 지정 작업 사용][use-custom-activities](영문) | 이 문서에서는 사용자 지정 작업을 만들어 파이프라인에서 사용하는 방법에 대한 단계별 지침이 포함된 연습을 제공합니다. 
-[Azure 데이터 팩터리 개발자 참조][developer-reference](영문) | 개발자 참조에는 cmdlet, JSON 스크립트, 함수 등에 대한 포괄적인 참조 콘텐츠가 포함되어 있습니다. 
+[Azure 데이터 팩터리 개발자 참조][developer-reference] | 개발자 참조에는.NET 클래스 라이브러리, cmdlet, JSON 스크립트, 함수 등에 대 한 포괄적인 참조 콘텐츠 중... 
 
 
-[data-factory-introduction]: ../data-factory-introduction
-[adf-getstarted]: ../data-factory-get-started
-[use-onpremises-datasources]: ../data-factory-use-onpremises-datasources
-[adf-tutorial]: ../data-factory-tutorial
-[use-custom-activities]: ../data-factory-use-custom-activities
+[data-factory-introduction]: data-factory-introduction.md
+[adf-getstarted]: data-factory-get-started.md
+[use-onpremises-datasources]: data-factory-use-onpremises-datasources.md
+[adf-tutorial]: data-factory-tutorial.md
+[use-custom-activities]: data-factory-use-custom-activities.md
 [developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
  
 [adf-class-library-reference]: http://go.microsoft.com/fwlink/?LinkID=521877
-[azure-developer-center]: http://azure.microsoft.com/ko-kr/downloads/
+[azure-developer-center]: http://azure.microsoft.com/downloads/
 
-<!--HONumber=35.2-->
+<!---HONumber=GIT-SubDir-->

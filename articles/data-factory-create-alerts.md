@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/14/2015" 
+	ms.date="05/15/2015" 
 	ms.author="spelluru"/>
 
 # Azure 이벤트 경고 만들기
@@ -147,24 +147,6 @@ StorageAccountName은 배포된 경고 JSON 파일을 저장하기 위한 저장
 </tr>
 
 <tr>
-<td>CreateTablePublication</td>
-<td>Succeeded</td>
-<td></td>
-</tr>
-
-<tr>
-<td>UpdateTablePublication</td>
-<td>Succeeded</td>
-<td></td>
-</tr>
-
-<tr>
-<td>RemoveTablePublication</td>
-<td>Succeeded</td>
-<td></td>
-</tr>
-
-<tr>
 <td>OnDemandClusterCreateStarted</td>
 <td>시작</td>
 <td></td>
@@ -189,4 +171,4 @@ StorageAccountName은 배포된 경고 JSON 파일을 저장하기 위한 저장
 
 	Get-AzureResourceGroupLog –Name $ResourceGroup -All | Where-Object EventSource -eq "Microsoft.DataFactory"
 
-<!--HONumber=54-->
+<!---HONumber=GIT-SubDir-->
