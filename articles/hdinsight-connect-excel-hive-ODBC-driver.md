@@ -52,26 +52,30 @@ Excel에서 Microsoft Excel용 파워 쿼리 추가 기능을 사용하여 HDIns
 
 5. 다음 값을 입력하거나 선택합니다.
 
-<table border="1">
-<tr><td><strong>속성</strong></td><td><strong>설명</strong></td></tr>
-<tr><td>데이터 원본 이름</td><td>데이터 원본에 이름 지정</td></tr>
-<tr><td>호스트</td><td><HDInsightClusterName>.azurehdinsight.net을 입력합니다. 예를 들면 myHDICluster.azurehdinsight.net과 같습니다.</td></tr>
-<tr><td>포트</td><td><strong>443</strong> 사용 (이 포트는 563에서 443으로 변경됨)</td></tr>
-<tr><td>데이터베이스</td><td><strong>기본값</strong> 사용</td></tr>
-<tr><td>Hive 서버 유형</td><td><strong>Hive 서버 2</strong> 선택</td></tr>
-<tr><td>메커니즘</td><td><strong>Azure HDInsight Service</strong> 선택</td></tr>
-<tr><td>HTTP 경로</td><td>비워 둠</td></tr>
-<tr><td>사용자 이름</td><td>HDInsight 클러스터 사용자의 사용자 이름 입력. 클러스터 프로비전 프로세스 동안 만들어진 사용자 이름입니다. 빠른 생성 옵션을 사용한 경우 기본 사용자 이름은 <strong>admin</strong>입니다.</td></tr>
-<tr><td>암호</td><td>HDInsight 클러스터 사용자 암호 입력</td></tr>
-</table>**고급 옵션**을 클릭할 때 알아야 할 중요한 매개 변수가 몇 가지 있습니다.
+	<table border="1">
+	<tr><td><strong>속성</strong></td><td><strong>설명</strong></td></tr>
+	<tr><td>데이터 원본 이름</td><td>데이터 원본에 이름 지정</td></tr>
+	<tr><td>호스트</td><td><HDInsightClusterName>.azurehdinsight.net을 입력합니다. 예를 들면 myHDICluster.azurehdinsight.net과 같습니다.</td></tr>
+	<tr><td>포트</td><td><strong>443</strong> 사용 (이 포트는 563에서 443으로 변경됨)</td></tr>
+	<tr><td>데이터베이스</td><td><strong>기본값</strong> 사용</td></tr>
+	<tr><td>Hive 서버 유형</td><td><strong>Hive 서버 2</strong> 선택</td></tr>
+	<tr><td>메커니즘</td><td><strong>Azure HDInsight Service</strong> 선택</td></tr>
+	<tr><td>HTTP 경로</td><td>비워 둠</td></tr>
+	<tr><td>사용자 이름</td><td>HDInsight 클러스터 사용자의 사용자 이름 입력. 클러스터 프로비전 프로세스 동안 만들어진 사용자 이름입니다. 빠른 생성 옵션을 사용한 경우 기본 사용자 이름은 <strong>admin</strong>입니다.</td></tr>
+	<tr><td>암호</td><td>HDInsight 클러스터 사용자 암호 입력</td></tr>
+	</table>
+
+	**고급 옵션**을 클릭할 때 알아야 할 중요한 매개 변수가 몇 가지 있습니다.
 
 	<table border="1">
-<tr><td>Use Native Query</td><td>선택하면 ODBC 드라이버가 TSQL을 HiveQL로 변환하지 않습니다. 순수 HiveQL 문을 제출하는 것이 확실한 경우에만 이 옵션을 사용합니다. SQL Server 또는 Azure SQL 데이터베이스에 연결하는 경우에는 이 옵션을 선택 취소한 상태로 둬야 합니다.</td></tr>
-<tr><td>Rows fetched per block</td><td>대량의 레코드를 가져오는 경우 최적의 성능을 위해 이 매개 변수를 조정해야 할 수 있습니다.</td></tr>
-<tr><td>Default string column length, <br/>
+	<tr><td>Use Native Query</td><td>선택하면 ODBC 드라이버가 TSQL을 HiveQL로 변환하지 않습니다. 순수 HiveQL 문을 제출하는 것이 확실한 경우에만 이 옵션을 사용합니다. SQL Server 또는 Azure SQL 데이터베이스에 연결하는 경우에는 이 옵션을 선택 취소한 상태로 둬야 합니다.</td></tr>
+	<tr><td>Rows fetched per block</td><td>대량의 레코드를 가져오는 경우 최적의 성능을 위해 이 매개 변수를 조정해야 할 수 있습니다.</td></tr>
+	<tr><td>Default string column length, <br/>
 		Binary column length,  <br/>
 		Decimal column scale</td><td>데이터 형식 길이 및 정밀도는 데이터가 반환되는 방식에 영향을 줄 수 있습니다. 정밀도 손실 및/또는 잘림으로 인해 잘못된 정보가 반환될 수 있습니다.</td></tr>
-</table>![고급 옵션][img-HiveOdbc-DataSource-AdvancedOptions]
+	</table>
+
+	![고급 옵션][img-HiveOdbc-DataSource-AdvancedOptions]
 
 6. **테스트**를 클릭하여 데이터 원본을 테스트합니다. 원본이 올바르게 구성된 경우 *테스트를 성공적으로 완료했습니다.*가 표시됩니다.
 7. **확인**을 클릭하여 테스트 대화 상자를 닫습니다. 이제 새 데이터 원본이 **ODBC 데이터 원본 관리자**에 나열됩니다. 

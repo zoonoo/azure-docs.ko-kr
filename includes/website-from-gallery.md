@@ -29,11 +29,11 @@ Azure 마켓플레이스에서 Microsoft, 타사 및 오픈 소스 소프트웨�
 
 6. **웹 앱**을 클릭하고 웹 앱을 구성하는 데 필요한 값을 입력합니다.
 	
-	![앱 구성][8]
+   ![앱 구성][8]
 
 7. **데이터베이스**을 클릭하고 MySQL 데이터베이스를 구성하는 데 필요한 값을 입력합니다. 
 
-	![데이터베이스 구성][database]
+   ![데이터베이스 구성][database]
 
 8. 필요한 경우 **구독**을 클릭하고 사용할 구독을 지정합니다. 
 
@@ -41,23 +41,23 @@ Azure 마켓플레이스에서 Microsoft, 타사 및 오픈 소스 소프트웨�
 
    앱이 작성되면 웹 앱과 데이터베이스가 포함된 리소스 그룹이 표시됩니다.
 
-	![그룹 표시][resourcegroup]
+   ![그룹 표시][resourcegroup]
 
 ## WordPress 웹 앱 시작 및 관리
 	
 1. 새 웹 앱을 클릭하여 앱에 대한 세부 정보를 확인합니다.
 
-	![대시보드 시작][10]
+   ![대시보드 시작][10]
 
 2. **Essentials** 페이지에서 **찾아보기**를 클릭하거나 **Url** 아래 링크를 클릭하여 웹 앱 시작 페이지를 엽니다.
 
-	![사이트 URL][browse]
+   ![사이트 URL][browse]
 
 3. WordPress를 설치하지 않은 경우 WordPress에서 필요한 적절한 구성 정보를 입력하고 **WordPress 설치**를 클릭하여 구성을 완료하고 웹 앱의 로그인 페이지를 엽니다.
 
-4. **로그인**을 클릭하고 자격 증명을 입력합니다.
+4. **로그인**을 클릭하고 자격 증명을 입력합니다.  
 
-5. 아래 웹 앱과 유사한 새 WordPress 웹 앱이 만들어집니다.
+5. 아래 웹 앱과 유사한 새 WordPress 웹 앱이 만들어집니다.   
 
 	![사용자 WordPress 사이트][13]
 
@@ -78,4 +78,4 @@ Azure 마켓플레이스에서 Microsoft, 타사 및 오픈 소스 소프트웨�
 [resourcegroup]: ./media/website-from-gallery/showgroup.png
 [browse]: ./media/website-from-gallery/browse.png
 
-<!--HONumber=54-->
+<!---HONumber=54-->
