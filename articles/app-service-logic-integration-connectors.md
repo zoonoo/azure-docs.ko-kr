@@ -40,7 +40,7 @@ BizTalk XPath 추출기 | **동작** API 앱입니다. 특정 XPath를 기준으
 Wait | 입력한 기간 동안 또는 특정 시간까지 실행을 지연합니다. 논리 앱에 추가할 경우 전체 앱의 실행을 지연하는 데 사용할 수 있습니다.
 
 
-> [AZURE.NOTE] If the input xml has a simple node with an attribute (like "<authorid= ”1”>abc</author>"), then the JSON output of the library is { “author”: { “@id” : “1”, “#text”: “abc”}}. To handle the “Id” attribute, a new “#text” key is added for the text content of the node. To handle this kind of node, add a constant key. This is by design in the Newtonsoft.Json library. When you insert this into SQL, use “JSONOutput.Author.#text”; do not use “JsonOutput.Author”.
+	> [AZURE.NOTE] If the input xml has a simple node with an attribute (like "<authorid= ”1”>abc</author>"), then the JSON output of the library is { “author”: { “@id” : “1”, “#text”: “abc”}}. To handle the “Id” attribute, a new “#text” key is added for the text content of the node. To handle this kind of node, add a constant key. This is by design in the Newtonsoft.Json library. When you insert this into SQL, use “JSONOutput.Author.#text”; do not use “JsonOutput.Author”.
 
 이 API 앱을 통해 다양한 메시징 또는 데이터 작업을 완료할 수 있습니다. 예를 들어 BizTalk 규칙 API 앱을 통해 주문을 받고 특정 수량이 주문된 경우 할인을 적용할 수 있습니다. 또는 우편 번호에 따라 특정 세율을 변경할 수 있습니다.
 
@@ -84,7 +84,7 @@ Azure 포털에서 논리 앱, 웹앱 또는 모바일 앱을 만들 때 BizTalk
 ## BizTalk API 앱 구성
 Azure 관리 포털에서 BizTalk API 앱을 엽니다. **구성 요소** 섹션에서 API 앱을 완성하는 데 필요한 기타 구성 요소를 추가할 수 있습니다.
 
-API App | Tasks
+	API App | Tasks
 --- | ---
 BizTalk 플랫 파일 인코더 | XML로 변환할 플랫 파일(예: Excel 또는 csv 파일)을 입력합니다. 또는 플랫 파일로 변환할 XML 파일을 입력합니다.
 BizTalk JSON 인코더 | XML로 변환할 JSON 파일을 입력합니다. 또는 JSON으로 변환할 XML 파일을 입력합니다. 
@@ -124,13 +124,23 @@ Microsoft Azure 앱 서비스는 이러한 통합 API 앱을 사용할 수 있�
 
 
 ## 추가 통합 API 앱 리소스
-[VETR을 사용하여 EAI 논리 앱 만들기](app-service-logic-create-EAI-logic-app-using-VETR.md)<br/> [XML 문서 변환](app-service-logic-transform-xml-documents.md)<br/> [BizTalk 규칙 사용](app-service-logic-use-biztalk-rules.md)<br/> [커넥터 및 BizTalk API 앱 정의](app-service-logic-what-are-biztalk-api-apps.md)
+[VETR을 사용하여 EAI 논리 앱 만들기](app-service-logic-create-EAI-logic-app-using-VETR.md)<br/>
+[XML 문서 변환](app-service-logic-transform-xml-documents.md)<br/>
+[BizTalk 규칙 사용](app-service-logic-use-biztalk-rules.md)<br/>
+[커넥터 및 BizTalk API 앱 정의](app-service-logic-what-are-biztalk-api-apps.md)
 
 
 ## 논리 앱 및 웹앱 알아보기
-[논리 앱 정의](app-service-logic-what-are-logic-apps.md)<br/> [Azure 앱 서비스의 웹 사이트 및 웹앱](app-service-web-app-azure-portal.md)
+[논리 앱 정의](app-service-logic-what-are-logic-apps.md)<br/>
+[Azure 앱 서비스의 웹 사이트 및 웹앱](app-service-web-app-azure-portal.md)
 
 
 ## 추가 커넥터
-[엔터프라이즈 커넥터](app-service-logic-enterprise-connectors.md)<br/> [B2B 커넥터](app-service-logic-b2b-connectors.md)<br/> [소셜 커넥터](app-service-logic-social-connectors.md)<br/> [프로토콜 커넥터](app-service-logic-protocol-connectors.md)<br/> [앱 + 데이터 서비스 커넥터](app-service-logic-data-connectors.md)<br/> [커넥터 및 API 앱 목록](app-service-logic-connectors-list.md)<br/><br/> [커넥터 및 BizTalk API 앱 정의](app-service-logic-what-are-biztalk-api-apps.md)
+[엔터프라이즈 커넥터](app-service-logic-enterprise-connectors.md)<br/>
+[B2B 커넥터](app-service-logic-b2b-connectors.md)<br/>
+[소셜 커넥터](app-service-logic-social-connectors.md)<br/>
+[프로토콜 커넥터](app-service-logic-protocol-connectors.md)<br/>
+[앱 + 데이터 서비스 커넥터](app-service-logic-data-connectors.md)<br/>
+[커넥터 및 API 앱 목록](app-service-logic-connectors-list.md)<br/><br/>
+[커넥터 및 BizTalk API 앱 정의](app-service-logic-what-are-biztalk-api-apps.md)
 <!--HONumber=54-->
