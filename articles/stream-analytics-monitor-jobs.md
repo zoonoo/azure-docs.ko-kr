@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="스트림 분석 모니터 작업 | Azure" 
-	description="프로그래밍 방식으로 스트림 분석 작업을 모니터링합니다." 
+	pageTitle="스트림 분석에 대한 작업을 프로그래밍 방식으로 모니터링 | Microsoft Azure" 
+	description="REST API, Azure SDK 또는 PowerShell을 통해 생성된 스트림 분석 작업을 프로그래밍 방식으로 모니터링하는 방법에 대해 알아봅니다." 
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -13,11 +13,11 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="05/07/2015" 
+	ms.date="05/21/2015" 
 	ms.author="jeffstok"/>
 
 
-# 프로그래밍 방식으로 스트림 분석 작업 모니터링
+# 프로그래밍 방식으로 스트림 분석 작업 모니터링 
 이 문서에서는 스트림 분석 작업에 대한 모니터링을 사용하는 방법을 보여줍니다. REST API, Azure SDK 또는 PowerShell을 통해 생성된 스트림 분석 작업은 기본적으로 모니터링이 설정되어 있지 않습니다. 작업의 모니터 페이지로 이동하고 사용 버튼을 클릭하여 Azure 포털에서 수동으로 설정하거나 이 문서의 단계를 수행하여 이 프로세스를 자동화할 수 있습니다. 모니터링 데이터는 스트림 분석 작업에 대해 Azure 포털의 “모니터” 탭에서 볼 수 있습니다.
 
 ![모니터 작업 탭](./media/stream-analytics-monitor-jobs/stream-analytics-monitor-jobs-tab.png)
@@ -45,6 +45,9 @@
     ```
     <appSettings>
     	<!--CSM Prod related values-->
+    	<add key="ResourceGroupName" value="RESOURCE GROUP NAME" />
+    	<add key="JobName" value="YOUR JOB NAME" />
+    	<add key="StorageAccountName" value="YOUR STORAGE ACCOUNT"/>
     	<add key="ActiveDirectoryEndpoint" value="https://login.windows-ppe.net/" />
     	<add key="ResourceManagerEndpoint" value="https://api-current.resources.windows-int.net/" />
     	<add key="WindowsManagementUri" value="https://management.core.windows.net/" />
@@ -135,11 +138,13 @@
 
 다음 코드는 **기존** 스트림 분석 ㅈ가업에 모니터링을 사용합니다. 코드의 첫 번째 부분은 스트림 분석 서비스에 대해 GET 요청을 수행하여 특정 스트림 분석 작업에 대한 정보를 검색합니다. 스트림 분석 작업에 모니터링을 사용하기 위해 Insights 서비스에 PUT 요청을 보내는 코드의 나머지 부분에서 Put 메서드에 대한 매개 변수로 “Id” 속성(GET 요청에서 검색됨)을 사용합니다.
 
-> [AZURE.WARNING]
-> - Azure 포털을 통해 또는 아래 코드를 통해 프로그래밍 방식으로 다른 스트림 분석 작업에 이미 모니터링을 사용한 경우, **이전에 모니터링을 사용했을 대 수행한 것과 동일한 저장소 계정 이름을 제공하는 것이 좋습니다.** 
-> - 저장소 계정은 특별히 작업 자체가 아니라 스트림 분석 작업을 생성한 지역에 연결되어 있습니다. 
-> - 해당 지역의 모든 스트림 분석 작업(및 기타 모든 Azure 리소스)은 이 저장소 계정을 공유하여 모니터링 데이터를 저장합니다. 사용자가 다른 저장소 계정을 제공하는 경우, 다른 스트림 분석 작업 및/또는 다른 Azure 리소스의 모니터링에 의도치 않은 부작용을 유발할 수 있습니다. 
-> - 아래의 ```“<YOUR STORAGE ACCOUNT NAME>”``` 교체에 사용된 저장소 계정 이름은 모니터링을 사용하고 있는 스트림 분석 작업과 동일한 구독에 있는 저장소 계정이어야 합니다.
+> [AZURE.WARNING]Azure 포털을 통해 또는 아래 코드를 통해 프로그래밍 방식으로 서로 다른 스트림 분석 작업에 대한 모니터링을 이전에 설정한 경우, **이전에 모니터링을 활성화했을 때 했던 동일한 저장소 계정 이름을 제공하는 것이 좋습니다.**
+> 
+> 저장소 계정은 작업 자체에 특정되지 않고 스트림 분석 작업에서 만든 지역에 연결됩니다.
+> 
+> 동일 지역의 모든 스트림 분석 작업(및 다른 모든 Azure 리소스)은 이 저장소 계정을 공유하여 모니터링 데이터를 저장합니다. 사용자가 다른 저장소 계정을 제공하면, 다른 스트림 분석 작업 및/또는 다른 Azure 리소스에 대한 모니터링에 의도하지 않은 부작용이 발생할 수 있습니다.
+> 
+> 아래 ```“<YOUR STORAGE ACCOUNT NAME>”```를 바꾸는데 사용된 저장소 계정 이름은 모니터링을 사용할 스트림 분석 작업과 동일한 구독에 있는 저장소 계정이어야 합니다.
 
     // Get an existing Stream Analytics job
     JobGetParameters jobGetParameters = new JobGetParameters()
@@ -172,4 +177,4 @@
 - [Azure 스트림 분석 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Azure 스트림 분석 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!--HONumber=54-->
+<!---HONumber=58-->

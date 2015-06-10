@@ -1,95 +1,95 @@
-<properties 
-	pageTitle="Azure에서 Linux용 Docker VM 확장 사용" 
-	description="Docker 및 Azure 가상 컴퓨터 확장에 대해 설명하고, azure-cli 명령 인터페이스를 사용하여 명령줄에서 Docker 호스트인 가상 컴퓨터를 Azure에 프로그래밍 방식으로 만드는 방법을 안내합니다." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="squillace" 
-	manager="timlt" 
+<properties
+	pageTitle="Azure에서 Linux용 Docker VM 확장 사용"
+	description="Docker 및 Azure 가상 컴퓨터 확장에 대해 설명하고, Azure CLI를 사용하여 명령줄에서 Docker 호스트인 가상 컴퓨터를 Azure에 프로그래밍 방식으로 만드는 방법을 안내합니다."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="squillace"
+	manager="timlt"
 	editor="tysonn"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="vm-linux" 
-	ms.workload="infrastructure-services" 
-	ms.date="02/02/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-linux"
+	ms.workload="infrastructure-services"
+	ms.date="05/22/2015"
 	ms.author="rasquill"/>
-# Azure 플랫폼 간 명령줄 인터페이스(xplat-cli)에서 Docker VM 확장 사용
-이 항목에서는 모든 플랫폼의 xplat-cli에서 Docker VM 확장을 사용하여 VM을 만드는 방법을 설명합니다. [Docker](https://www.docker.com/)는 공유 리소스의 데이터와 계산을 격리시키는 한 가지 방법으로 가상 컴퓨터 대신 [Linux 컨테이너](http://en.wikipedia.org/wiki/LXC)를 사용하는 가장 많이 사용되는 가상화 방법 중 하나입니다. [Azure Linux 에이전트](http://azure.microsoft.com/documentation/articles/virtual-machines-linux-agent-user-guide/)에 대한 Docker VM 확장을 사용하여 Azure에 응용 프로그램의 컨테이너를 개수에 제한없이 호스트하는 Docker VM을 만들 수 있습니다. 컨테이너와 해당 이점에 대한 간략한 설명을 확인하려면 [Docker 요약 화이트보드](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard)를 참조하세요.
+
+# Azure 명령줄 인터페이스(Azure CLI)에서 Docker VM 확장 사용
+
+이 항목에서는 모든 플랫폼에서 Azure CLI의 서비스 관리(asm) 모드에서 Docker VM 확장을 사용하여 VM을 만드는 방법을 설명합니다. [Docker](https://www.docker.com/)는 공유 리소스의 데이터와 계산을 격리시키는 한 가지 방법으로 가상 컴퓨터 대신 [Linux 컨테이너](http://en.wikipedia.org/wiki/LXC)를 사용하는 가장 많이 사용되는 가상화 방법 중 하나입니다. [Azure Linux 에이전트](virtual-machines-linux-agent-user-guide.md)에 대한 Docker VM 확장을 사용하여 Azure에 응용 프로그램의 컨테이너를 개수에 제한없이 호스트하는 Docker VM을 만들 수 있습니다. 컨테이너와 해당 이점에 대한 간략한 설명을 확인하려면 [Docker 요약 화이트보드](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard)를 참조하세요.
 
 + [Azure와 함께 Docker VM 확장을 사용하는 방법]
-+ [Linux 및 Windows용 가상 컴퓨터 확장] 
++ [Linux 및 Windows용 가상 컴퓨터 확장]
 + [Azure용 컨테이너 및 컨테이너 관리 리소스]
 + [다음 단계]
 
+## <a id='How to use the Docker VM Extension with Azure'>Azure와 함께 Docker VM 확장을 사용하는 방법</a>
+Azure와 함께 Docker VM 확장을 사용하려면 [Azure 명령줄 인터페이스](https://github.com/Azure/azure-sdk-tools-xplat)(Azure CLI) 0.8.6 이상 버전을 설치해야 합니다(이 문서를 작성할 당시 현재 버전은 0.8.10임). Mac, Linux 및 Windows에 Azure CLI를 설치할 수 있습니다.
 
 
-## Azure와 함께 Docker VM 확장을 사용하는 방법
-Azure에서 Docker VM 확장을 사용하려면 [Azure 플랫폼 간 명령줄 인터페이스](https://github.com/Azure/azure-sdk-tools-xplat)(이 항목에서는 **xplat-cli**로 지칭함)의 0.8.6 이상 버전을 설치해야 합니다. 이 문서 작성 당시 최신 버전은 0.8.10입니다. Mac, Linux 및 Windows에 xplat-cli를 설치할 수 있습니다. 
-
-> [AZURE.NOTE] Microsoft Windows에 xplat-cli를 설치할 수는 있지만 Docker는 Linux 관련 커널 종속성을 사용하여 작성되었습니다. 따라서 Windows를 Docker 클라이언트로 사용하려면 Hyper-V 또는 다른 하이퍼바이저 내부에서 전체 Linux 배포를 가상 컴퓨터로 호스트해야 합니다. 작업이 완료되면 xplat-cli 및 이 문서와 Docker 문서에 있는 Docker 명령을 사용할 수 있습니다. Docker 자체에 Windows용 설치 프로그램 [Boot2Docker](https://docs.docker.com/installation/windows/)가 있으며, 동일한 설치를 자동화하는 데 이 프로그램을 사용할 수도 있습니다.
 
 Azure에서 Docker를 사용하는 전체 프로세스는 간단합니다.
 
-+ Azure를 제어하려는 컴퓨터(Windows의 경우 가상 컴퓨터로 실행 중인 Linux 배포임)에 xplat-cli 명령줄 도구와 해당 종속성을 설치합니다.
-+ xplat-cli Docker 명령을 사용하여 Azure에 VM Docker 호스트를 만듭니다.
++ Azure를 제어하려는 컴퓨터(Windows의 경우 가상 컴퓨터로 실행 중인 Linux 배포임)에 Azure CLI와 해당 종속성을 설치합니다.
++ Azure CLI Docker 명령을 사용하여 Azure에 VM Docker 호스트를 만듭니다.
 + 로컬 Docker 명령을 사용하여 Azure의 Docker VM에서 Docker 컨테이너를 관리합니다.
 
-> [AZURE.NOTE] 현재는 Azure에서 Docker 컨테이너를 호스트할 Docker 제어 VM을 만드는 데 사용할 수 있는 방법은 xplat-cli(명령줄 인터페이스)뿐입니다. 
 
-### 플랫폼 간 명령줄 인터페이스(xplat-cli) 설치
-플랫폼 간 명령줄 인터페이스를 설치하고 구성하려면 [Azure 플랫폼 간 명령줄 인터페이스를 설치하는 방법](http://azure.microsoft.com/documentation/articles/xplat-cli/#install)을 참조하세요. 설치를 확인하려면 명령줄에 `azure`를 입력합니다. 잠시 후에 사용 가능한 기본 명령을 나열하는 xplat-cli ASCII 아트가 표시됩니다. 설치가 제대로 작동한 경우 `azure help vm`을 입력하면 나열된 명령 중 하나가 "docker"임을 확인할 수 있습니다.
+### Azure 명령줄 인터페이스(Azure CLI) 설치
 
-> [AZURE.NOTE] Ubuntu 14.04 LTS 설치를 사용하는 경우 이미지에 약간 다른 노드 설치가 있으며 추가 작업이 필요할 수 있습니다. 효과적인 한 가지 제안 사항은 [여기](https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-an-ubuntu-14-04-server)의 **PPA를 사용하여 설치하는 방법** 섹션에 있습니다. 이 섹션에서는 최신 버전의 nodejs를 직접 설치하는 방법을 설명하며 Ubuntu 14.04 LTS 배포에 효과적인 것 같습니다. 
+Azure CLI를 설치하고 구성하려면, [Azure 명령줄 인터페이스를 설치하는 방법](xplat-cli-install.md)을 참조하세요. 설치를 확인하려면 명령줄에 `azure`를 입력합니다. 잠시 후에 사용 가능한 기본 명령을 나열하는 Azure CLI ASCII 아트가 표시됩니다. 설치가 제대로 작동한 경우 `azure help vm`을 입력하면 나열된 명령 중 하나가 "docker"임을 확인할 수 있습니다.
 
-### Azure 계정에 xplat-cli 연결
-xplat-cli를 사용하려면 먼저 Azure 계정 자격 증명을 플랫폼의 xplat-cli에 연결해야 합니다. [Azure 구독에 연결하는 방법](http://azure.microsoft.com/documentation/articles/xplat-cli/#configure) 섹션에서 **.publishsettings** 파일을 다운로드 및 가져오거나 xplat-cli 명령줄을 조직 ID에 연결하는 방법에 대해 설명합니다. 
+> [AZURE.NOTE]Docker에 Windows용 설치 프로그램, [Boot2Docker](https://docs.docker.com/installation/windows/)가 있으며, docker 호스트로 Azure VM과 작업에 사용할 수 있는 docker 클라이언트 작성을 자동화할 수도 있습니다.
 
-> [AZURE.NOTE] 사용하는 인증 방법에 따라 동작에 몇 가지 차이점이 있으므로 위 문서를 읽고 서로 다른 기능을 이해해야 합니다. 
+### Azure CLI를 Azure 계정에 연결
+Azure CLI를 사용하려면 먼저 Azure 계정 자격 증명을 사용자 플랫폼의 Azure CLI에 연결해야 합니다. [Azure 구독에 연결하는 방법](xplat-cli-connect.md) 섹션에서 **.publishsettings** 파일을 다운로드하고 가져오거나 Azure CLI를 조직 ID에 연결하는 방법에 대해 설명합니다.
+
+> [AZURE.NOTE]사용하는 인증 방법에 따라 동작에 몇 가지 차이점이 있으므로 위 문서를 읽고 서로 다른 기능을 이해해야 합니다.
 
 ### Docker 설치 및 Azure용 Docker VM 확장 사용
-사용자 컴퓨터에 Docker를 로컬로 설치하려면 [Docker 설치 지침](https://docs.docker.com/installation/#installation)을 따르세요. 대부분의 운영 체제와 배포에서 `apt-get install docker.io`를 입력하면 됩니다. Docker 버전이 1.0 이상인지 확인합니다.
+사용자 컴퓨터에 Docker를 로컬로 설치하려면 [Docker 설치 지침](https://docs.docker.com/installation/#installation)을 따르세요.
 
-Azure 가상 컴퓨터에서 Docker를 사용하려면 VM에 사용하는 Linux 이미지에 [Azure Linux VM 에이전트](http://azure.microsoft.com/documentation/articles/virtual-machines-linux-agent-user-guide/)가 설치되어 있어야 합니다. 현재 이 에이전트를 설치할 수 있는 이미지의 유형은 다음의 두 가지뿐입니다.
+Azure 가상 컴퓨터에서 Docker를 사용하려면 VM에 사용하는 Linux 이미지에 [Azure Linux VM 에이전트](virtual-machines-linux-agent-user-guide.md)가 설치되어 있어야 합니다. 현재 이 에이전트를 설치할 수 있는 이미지의 유형은 다음의 두 가지뿐입니다.
 
-+ Azure 이미지 갤러리의 Ubuntu 이미지 또는 
++ Azure 이미지 갤러리의 Ubuntu 이미지 또는
 
-+ Azure Linux VM 에이전트를 설치 및 구성하여 만든 사용자 지정 Linux 이미지. Azure VM 에이전트로 사용자 지정 Linux VM을 빌드하는 방법에 대한 자세한 내용은 [Azure Linux VM 에이전트](http://azure.microsoft.com/documentation/articles/virtual-machines-linux-agent-user-guide/)를 참조하세요.
++ Azure Linux VM 에이전트를 설치 및 구성하여 만든 사용자 지정 Linux 이미지. Azure VM 에이전트로 사용자 지정 Linux VM을 빌드하는 방법에 대한 자세한 내용은 [Azure Linux VM 에이전트](virtual-machines-linux-agent-user-guide.md)를 참조하세요.
 
 ### Azure 이미지 갤러리 사용
 
-Bash 또는 터미널 세션에서 다음 xplat-cli 명령을 사용하여 VM 갤러리에서 사용하려는 최신 Ubuntu 이미지를 찾습니다. 이렇게 하려면 다음을 입력하고
+Bash 또는 터미널 세션에서 다음 Azure CLI 명령을 사용하여 VM 갤러리에서 사용하려는 최신 Ubuntu 이미지를 찾아 다음을 입력하여 사용합니다.
 
 `azure vm image list | grep Ubuntu-14_04`
 
-`b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04-LTS-amd64-server-20140724-ko-kr-30GB`와 같은 이미지 이름 중 하나를 선택한 후에 다음 명령을 사용하여 해당 이미지를 사용하는 새 VM을 만듭니다. 
+`b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04-LTS-amd64-server-20140724-ko-kr-30GB`와 같은 이미지 이름 중 하나를 선택한 후에 다음 명령을 사용하여 해당 이미지를 사용하는 새 VM을 만듭니다.
 
 ```
 azure vm docker create -e 22 -l "West US" <vm-cloudservice name> "b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04-LTS-amd64-server-20140724-ko-kr-30GB" <username> <password>
-``` 
+```
 
 설명:
 
-+ *&lt;vm-cloudservice name&gt;*은 Azure에서 Docker 컨테이너 호스트 컴퓨터로 사용할 VM의 이름입니다.
++ *&lt;vm-cloudservice name&gt;*은 Azure에서 Docker 컨테이너 호스트 컴퓨터가 되는 VM의 이름입니다.
 
-+  *&lt;username&gt;*은 VM 기본 루트 사용자의 사용자 이름입니다.
++  *&lt;username&gt;*은 VM의 기본 루트 사용자의 사용자 이름입니다.
 
-+ *&lt;password&gt;*는 Azure의 복잡성 표준을 충족하는 *username* 계정의 암호입니다. 
- 
-> [AZURE.NOTE] 현재 암호는 8자 이상이어야 하며 소문자, 대문자, 숫자 및 다음 문자 중 하나와 같은 특수 문자를 각각 한 개씩 포함해야 합니다. `!@#$%^&+=`. 앞의 문장에서 끝에 있는 마침표는 특수 문자가 아닙니다. 
++ *&lt;password&gt;*는 Azure의 복잡성 표준을 충족하는 *username* 계정의 암호입니다.
+
+> [AZURE.NOTE]현재 암호는 8자 이상이어야 하며 소문자, 대문자, 숫자 및 다음 문자 중 하나와 같은 특수 문자를 각각 한 개씩 포함해야 합니다. `!@#$%^&+=` 앞의 문장에서 끝에 있는 마침표는 특수 문자가 아닙니다.
 
 명령이 성공한 경우 사용한 정확한 인수와 옵션에 따라 다음과 같이 표시됩니다.
 
 ![](./media/virtual-machines-docker/dockercreateresults.png)
 
-> [AZURE.NOTE] 가상 컴퓨터를 만들려면 몇 분 정도 걸릴 수 있습니다. 가상 컴퓨터가 프로비전된 후에는 Docker 데몬(Docker 서비스)이 시작되며 Docker 컨테이너 호스트에 연결할 수 있습니다.
+> [AZURE.NOTE]가상 컴퓨터를 만들려면 몇 분 정도 걸릴 수 있습니다. 가상 컴퓨터가 프로비전된 후에는 Docker 데몬(Docker 서비스)이 시작되며 Docker 컨테이너 호스트에 연결할 수 있습니다.
 
 Azure에 만든 Docker VM을 테스트하려면 다음을 입력합니다.
 
 `docker --tls -H tcp://<vm-name-you-used>.cloudapp.net:4243 info`
 
-여기서 *<vm-name-you-used>*는  `azure vm docker create` 호출에 사용한 가상 컴퓨터의 이름입니다. 다음과 같은 결과가 표시됩니다. 이 결과는 Azure에서 Docker 호스트 VM이 작동하여 실행 중이며 명령을 기다리고 있음을 나타냅니다.
+여기서 *<vm-name-you-used>*는 `azure vm docker create` 호출에 사용한 가상 컴퓨터의 이름입니다. 다음과 같은 결과가 표시됩니다. 이 결과는 Azure에서 Docker 호스트 VM이 작동하여 실행 중이며 명령을 기다리고 있음을 나타냅니다.
 
 ![](./media/virtual-machines-docker/connectingtodockerhost.png)
 
@@ -103,21 +103,21 @@ Docker VM을 만드는 것뿐만 아니라 `azure vm docker create` 명령은 Do
 -dc, --docker-cert-dir [dir]           Directory containing docker certs [.docker/]
 ```
 
-호스트의 Docker 데몬은 `azure vm docker create` 명령에 의해 생성된 인증서를 사용하여 지정된 포트에서 클라이언트 연결을 수신 대기하고 인증하도록 구성됩니다. 클라이언트 컴퓨터가 Docker 호스트에 액세스하려면 해당 인증서가 있어야 합니다. 
+호스트의 Docker 데몬은 `azure vm docker create` 명령에서 생성된 인증서를 사용하여 지정된 포트에서 클라이언트 연결을 수신 대기하고 인증하도록 구성됩니다. 클라이언트 컴퓨터가 Docker 호스트에 액세스하려면 해당 인증서가 있어야 합니다.
 
-> [AZURE.NOTE] 해당 인증서 없이 실행되는 네트워크 호스트는 컴퓨터에 연결할 수 있는 모든 사용자에게 취약합니다. 기본 구성을 수정하기 전에 컴퓨터와 응용 프로그램에 대한 위험을 이해해야 합니다.
+> [AZURE.NOTE]해당 인증서 없이 실행되는 네트워크 호스트는 컴퓨터에 연결할 수 있는 모든 사용자에게 취약합니다. 기본 구성을 수정하기 전에 컴퓨터와 응용 프로그램에 대한 위험을 이해해야 합니다.
 
 
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
+
 ## 다음 단계
 
 이제 [Docker 사용자 가이드]로 이동하여 Docker VM을 사용할 수 있습니다. 새 포털에서 Docker 사용 가능 VM을 만들려면 [포털에서 Docker VM 확장을 사용하는 방법]을 참조하세요.
 
 <!--Anchors-->
-[부제목 1]: #subheading-1
-[부제목 2]: #subheading-2
-[부제목 3]: #subheading-3
+[Subheading 1]: #subheading-1
+[Subheading 2]: #subheading-2
+[Subheading 3]: #subheading-3
 [다음 단계]: #next-steps
 
 [Azure와 함께 Docker VM 확장을 사용하는 방법]: #How-to-use-the-Docker-VM-Extension-with-Azure
@@ -131,11 +131,11 @@ Docker VM을 만드는 것뿐만 아니라 `azure vm docker create` 명령은 Do
 
 
 <!--Link references-->
-[다른 azure.microsoft.com 설명서 항목의 링크 1]: ../virtual-machines-windows-tutorial/
-[다른 azure.microsoft.com 설명서 항목의 링크 2]: ../web-sites-custom-domain-name/
-[다른 azure.microsoft.com 설명서 항목의 링크 3]: ../storage-whatis-account/
+[Link 1 to another azure.microsoft.com documentation topic]: virtual-machines-windows-tutorial.md
+[Link 2 to another azure.microsoft.com documentation topic]: web-sites-custom-domain-name.md
+[Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md
 [포털에서 Docker VM 확장을 사용하는 방법]: http://azure.microsoft.com/documentation/articles/virtual-machines-docker-with-portal/
 
 [Docker 사용자 가이드]: https://docs.docker.com/userguide/
 
-<!--HONumber=47-->
+<!---HONumber=58-->

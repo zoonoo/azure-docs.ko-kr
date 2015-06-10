@@ -1,9 +1,9 @@
-﻿<properties 
-   pageTitle="트래픽 관리자 설정을 테스트"
-   description="이 문서는 트래픽 관리자 설정을 테스트 하는 데 도움이 됩니다 "
+<properties 
+   pageTitle="트래픽 관리자 설정 테스트"
+   description="이 문서는 트래픽 관리자 설정을 테스트 하는 데 도움이 됩니다."
    services="traffic-manager"
    documentationCenter=""
-   authors="cherylmc"
+   authors="joaoma"
    manager="adinah"
    editor="tysonn" />
 <tags 
@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/27/2015"
-   ms.author="cherylmc" />
+   ms.date="05/27/2015"
+   ms.author="joaoma;cherylmc" />
 
 # 트래픽 관리자 설정 테스트
 
@@ -21,17 +21,15 @@
 
 ## 기본 테스트 단계
 
-- 변경이 빨리 전파되도록 **DNS TTL을 매우 낮게 설정** - 예를 들어, 30초.
+- 변경이 신속하게(예: 30초) 전파되도록 **DNS TTL을 매우 낮게 설정**합니다.
 - 테스트 중인 프로필에서 **Azure 클라우드 서비스 및 웹 사이트의 IP 주소를 알고** 있습니다.
-- **DNS 이름을 IP 주소로 확인할 수 있는 도구를 사용**하고 해당 주소를 표시합니다. 회사 도메인 이름이 사용자 프로필에서 끝점의 IP 주소로 확인되는지 검사 중입니다. 트래픽 관리자 프로필의 부하 분산 방법과 일치하는 방식으로 확인되어야 합니다. Windows를 실행하는 컴퓨터에 있는 경우, 명령이 나 Windows PowerShell 프롬프트에서 Nslookup.exe 도구를 사용할 수 있습니다. IP 주소를 확인할 수 있는, 공개적으로 사용 가능한 다른 도구들도 인터넷에서 제공됩니다.
+- **DNS 이름을 IP 주소로 확인할 수 있는 도구를 사용**하여 해당 주소를 표시합니다. 회사 도메인 이름이 사용자 프로필에서 끝점의 IP 주소로 확인되는지 검사 중입니다. 트래픽 관리자 프로필의 부하 분산 방법과 일치하는 방식으로 확인되어야 합니다. Windows를 실행하는 컴퓨터에 있는 경우, 명령이 나 Windows PowerShell 프롬프트에서 Nslookup.exe 도구를 사용할 수 있습니다. IP 주소를 확인할 수 있는, 공개적으로 사용 가능한 다른 도구들도 인터넷에서 제공됩니다.
 
 ### nslookup을 사용하여 트래픽 관리자 프로필을 확인하려면
 
 1. 관리자로 명령 또는 Windows PowerShell 프롬프트를 엽니다.
-2.  `ipconfig /flushdns`를 입력하여 DNS 확인자 캐시를 플러시합니다.
-3.  `nslookup <your Traffic Manager domain name>`를 입력합니다. 예를 들어, 다음 명령은 접두사로 도메인 이름을 확인합니다 *myapp.contoso*.
-    nslookup myapp.contoso.trafficmanager.net
-   일반적인 결과를 다음을 표시합니다.
+2. `ipconfig /flushdns`를 입력하여 DNS 확인자 캐시를 플러시합니다.
+3. `nslookup <your Traffic Manager domain name>`를 입력합니다. 예를 들어 다음 명령은 접두사가 *myapp.contoso*인 도메인 이름, nslookup myapp.contoso.trafficmanager.net을 확인합니다. 일반적인 결과는 다음을 표시합니다.
    - 이 트래픽 관리자 도메인을 확인하기 위해 액세스하는 DNS 서버의 DNS 이름 및 IP 주소입니다.
    - 명령줄에서 "nslookup" 뒤에 입력한 트래픽 관리자 도메인 이름 및 트래픽 관리자 도메인이 확인하는 IP 주소입니다. 두 번째 IP 주소는 중요 확인 사항입니다. 테스트 중인 트래픽 관리자 프로필에서 웹 사이트 또는 클라우드 서비스 중 하나에 대한 공용 가상 IP(VIP) 주소와 일치해야 합니다.
 
@@ -73,9 +71,8 @@
 
 [클라우드 서비스](http://go.microsoft.com/fwlink/p/?LinkId=314074)
 
-[웹 사이트](http://go.microsoft.com/fwlink/p/?LinkId=393327)
+[웹사이트](http://go.microsoft.com/fwlink/p/?LinkId=393327)
 
-[트래픽 관리자 작업(REST API 참조)](http://go.microsoft.com/fwlink/?LinkId=313584)
+[트래픽 관리자에 대한 작업(REST API 참조)](http://go.microsoft.com/fwlink/?LinkId=313584)
 
-
-<!--HONumber=49-->
+<!---HONumber=58-->

@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Azure에서 Linux VHD 만들기 및 업로드" 
 	description="Linux 운영 체제가 포함된 Azure VHD(가상 하드 디스크)를 만들고 업로드하는 방법에 대해 알아봅니다." 
 	services="virtual-machines" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/13/2015" 
+	ms.date="05/15/2015" 
 	ms.author="szarkos"/>
 
 
@@ -24,13 +24,13 @@
 - [Azure의 Linux - 보증 배포판](virtual-machines-linux-endorsed-distributions.md)
 - [Microsoft Azure의 Linux 이미지 지원](http://support2.microsoft.com/kb/2941892)
 
-Azure에서 실행되는 모든 배포가 플랫폼에서 올바르게 실행되려면 여러 가지 필수 구성 요소가 충족되어야 합니다.  모든 배포는 서로 다르므로 이 문서에는 모든 필수 구성 요소가 포함되어 있지는 않습니다. 아래 기준이 모두 충족되어도 플랫폼에서 올바르게 실행되도록 하려면 여전히 Linux 시스템을 상당히 조정해야 할 수 있습니다.
+Azure에서 실행되는 모든 배포가 플랫폼에서 올바르게 실행되려면 여러 가지 필수 구성 요소가 충족되어야 합니다. 모든 배포는 서로 다르므로 이 문서에는 모든 필수 구성 요소가 포함되어 있지는 않습니다. 아래 기준이 모두 충족되어도 플랫폼에서 올바르게 실행되도록 하려면 여전히 Linux 시스템을 상당히 조정해야 할 수 있습니다.
 
 따라서 가능한 경우 [Azure 보증 배포판의 Linux](linux-endorsed-distributions.md) 중 하나를 사용하여 시작하는 것이 좋습니다. 다음 문서에서는 Azure에서 지원되는 다양한 Linux 보증 배포판을 준비하는 방법을 안내합니다.
 
-- **[CentOS 기반 배포](virtual-machines-linux-create-upload-vhd-centos.md)**
+- **[CentOS 기반 배포판](virtual-machines-linux-create-upload-vhd-centos.md)**
 - **[Oracle Linux](virtual-machines-linux-create-upload-vhd-oracle.md)**
-- **[SLES 및 openSUSE](virtual-machines-linux-create-upload-vhd-suse.md)**
+- **[SLES 및 openSUSE](../virtual-machines-linux-create-upload-vhd-suse)**
 - **[Ubuntu](virtual-machines-linux-create-upload-vhd-ubuntu.md)**
 
 이 문서의 나머지 부분에서는 Azure에서 Linux 배포를 실행하기 위한 일반 지침을 주로 제공합니다.
@@ -40,20 +40,20 @@ Azure에서 실행되는 모든 배포가 플랫폼에서 올바르게 실행되
 
 - 새 VHDX 형식은 Azure에서 지원되지 않습니다. Hyper-V 관리자 또는 convert-vhd cmdlet을 사용하여 디스크를 VHD 형식으로 변환할 수 있습니다.
 
-- Linux 시스템 설치 시에는 LVM(설치 기본값인 경우가 많음)이 아닌 표준 파티션을 사용하는 것이 좋습니다. 이렇게 하면 특히 문제 해결을 위해 OS 디스크를 다른 VM에 연결해야 하는 경우 복제된 VM과 LVM 이름이 충돌하지 않도록 방지합니다.  원하는 경우에는 데이터 디스크에서 LVM 또는 [RAID](virtual-machines-linux-configure-raid.md)를 사용할 수 있습니다.
+- Linux 시스템 설치 시에는 LVM(설치 기본값인 경우가 많음)이 아닌 표준 파티션을 사용하는 것이 좋습니다. 이렇게 하면 특히 문제 해결을 위해 OS 디스크를 다른 VM에 연결해야 하는 경우 복제된 VM과 LVM 이름이 충돌하지 않도록 방지합니다. 원하는 경우에는 데이터 디스크에서 LVM 또는 [RAID](virtual-machines-linux-configure-raid.md)를 사용할 수 있습니다.
 
 - 2.6.37보다 낮은 Linux 커널 버전의 버그 때문에 더 큰 VM 크기에서는 NUMA가 지원되지 않습니다. 이 문제는 주로 업스트림 Red Hat 2.6.32 커널을 사용하는 분산에 영향을 줍니다. Azure Linux 에이전트(waagent)를 수동으로 설치하면 Linux 커널의 GRUB 구성에서 NUMA가 자동으로 사용하지 않도록 설정됩니다.
 
-- OS 디스크에 스왑 파티션을 구성하지 마세요. 임시 리소스 디스크에서 스왑 파일을 만들도록 Linux 에이전트를 구성할 수 있습니다.  여기에 대한 자세한 내용은 아래 단계에서 확인할 수 있습니다.
+- OS 디스크에 스왑 파티션을 구성하지 마세요. 임시 리소스 디스크에서 스왑 파일을 만들도록 Linux 에이전트를 구성할 수 있습니다. 여기에 대한 자세한 내용은 아래 단계에서 확인할 수 있습니다.
 
 - 모든 VHD 크기는 1MB의 배수여야 합니다.
 
 
 ### Hyper-V 없이 Linux 설치 ###
 
-경우에 따라 Linux 설치 관리자는 Hyper-V 환경을 실행 중임을 감지하지 않는 한 초기 ramdisk(initrd 또는 initramfs)에 Hyper-V용 드라이버를 포함하지 않을 수 있습니다.  다른 가상화 시스템(예: Virtualbox, KVM 등)을 사용하여 Linux 이미지를 준비할 경우 초기 ramdisk에서 최소한 `hv_vmbus` 및 `hv_storvsc` 커널 모듈을 사용할 수 있도록 initrd를 다시 작성해야 할 수 있습니다.  이는 적어도 업스트림 Red Hat 배포를 기반으로 하는 시스템의 알려진 문제입니다.
+경우에 따라 Linux 설치 관리자는 Hyper-V 환경을 실행 중임을 감지하지 않는 한 초기 ramdisk(initrd 또는 initramfs)에 Hyper-V용 드라이버를 포함하지 않을 수 있습니다. 다른 가상화 시스템(예: Virtualbox, KVM 등)을 사용하여 Linux 이미지를 준비할 경우 초기 ramdisk에서 최소한 `hv_vmbus` 및 `hv_storvsc` 커널 모듈을 사용할 수 있도록 initrd를 다시 작성해야 할 수 있습니다. 이는 적어도 업스트림 Red Hat 배포를 기반으로 하는 시스템의 알려진 문제입니다.
 
-initrd 또는 initramfs 이미지를 다시 작성하는 메커니즘은 배포에 따라 다를 수 있습니다. 올바른 절차는 현재 배포의 설명서를 참조하거나 지원 담당자에게 문의하세요.  다음은 `mkinitrd` 유틸리티를 사용하여 initrd를 다시 작성하는 방법에 대한 한 가지 예입니다.
+initrd 또는 initramfs 이미지를 다시 작성하는 메커니즘은 배포에 따라 다를 수 있습니다. 올바른 절차는 현재 배포의 설명서를 참조하거나 지원 담당자에게 문의하세요. 다음은 `mkinitrd` 유틸리티를 사용하여 initrd를 다시 작성하는 방법에 대한 한 가지 예입니다.
 
 먼저 기존 initrd 이미지를 백업합니다.
 
@@ -67,19 +67,19 @@ initrd 또는 initramfs 이미지를 다시 작성하는 메커니즘은 배포�
 
 ### VHD 크기 조정 ###
 
-Azure의 VHD 이미지는 가상 크기가 1MB 단위로 조정되어야 합니다.  일반적으로 Hyper-V를 사용하여 만든 VHD는 이미 올바르게 조정되어 있습니다.  VHD가 올바르게 조정되어 있지 않으면 VHD에서 *image*를 만들 때 다음과 유사한 오류 메시지가 나타날 수 있습니다.
+Azure의 VHD 이미지는 가상 크기가 1MB 단위로 조정되어야 합니다. 일반적으로 Hyper-V를 사용하여 만든 VHD는 이미 올바르게 조정되어 있습니다. VHD가 올바르게 조정되어 있지 않으면 VHD에서 *이미지*를 만들 때 다음과 유사한 오류 메시지가 나타날 수 있습니다.
 
-	"The VHD http://<mystorageaccount>.blob.core.windows.net/vhds/MyLinuxVM.vhd has an unsupported virtual size of 21475270656 bytes. The size must be a whole number (in MBs)."
+	"The VHD http://<mystorageaccount>.blob.core.windows.net/vhds/MyLinuxVM.vhd has an unsupported virtual size of 21475270656 bytes. The size must be a whole number (in MBs).”
 
-이 문제를 해결하려면 Hyper-V 관리자 콘솔 또는 [Resize-VHD](http://technet.microsoft.com/ library/hh848535.aspx) Powershell cmdlet을 사용하여 VM 크기를 조정하면 됩니다.
+이 문제를 해결하려면 Hyper-V 관리자 콘솔 또는 [Resize-VHD](http://technet.microsoft.com/library/hh848535.aspx) Powershell cmdlet을 사용하여 VM 크기를 조정하면 됩니다.
 
 Windows 환경에서 실행 중이지 않은 경우 qemu-img를 사용하여 VHD를 변환(필요한 경우)하고 크기를 조정하는 것이 좋습니다.
 
- 1. `qemu-img` 또는 `vbox-manage`와 같은 도구를 사용하여 직접 VHD 크기를 조정하면 VHD가 부팅되지 않을 수도 있습니다.  따라서 먼저 VHD를 원시 디스크 이미지로 변환하는 것이 좋습니다.  VM 이미지가 이미 원시 디스크 이미지로 만들어진 경우(KVM과 같은 일부 하이퍼바이저의 경우 기본값)에는 다음 단계를 건너뛸 수 있습니다.
+ 1. `qemu-img` 또는 `vbox-manage`와 같은 도구를 사용하여 직접 VHD 크기를 조정하면 VHD가 부팅되지 않을 수도 있습니다. 따라서 먼저 VHD를 원시 디스크 이미지로 변환하는 것이 좋습니다. VM 이미지가 이미 원시 디스크 이미지로 만들어진 경우(KVM과 같은 일부 하이퍼바이저의 경우 기본값)에는 다음 단계를 건너뛸 수 있습니다.
 
 		# qemu-img convert -f vpc -O raw MyLinuxVM.vhd MyLinuxVM.raw
 
- 2. 가상 크기가 1MB 단위로 조정되도록 디스크 이미지의 필요한 크기를 계산합니다.  다음 bash 셸 스크립트를 사용하여 이 작업을 간편하게 수행할 수 있습니다.  이 스크립트에서는 "`qemu-img info`"를 사용하여 디스크 이미지의 가상 크기를 확인한 후 다음 1MB로 크기를 계산합니다.
+ 2. 가상 크기가 1MB 단위로 조정되도록 디스크 이미지의 필요한 크기를 계산합니다. 다음 bash 셸 스크립트를 사용하여 이 작업을 간편하게 수행할 수 있습니다. 이 스크립트에서는 "`qemu-img info`"를 사용하여 디스크 이미지의 가상 크기를 확인한 후 다음 1MB로 크기를 계산합니다.
 
 		rawdisk="MyLinuxVM.raw"
 		vhddisk="MyLinuxVM.vhd"
@@ -103,11 +103,11 @@ Windows 환경에서 실행 중이지 않은 경우 qemu-img를 사용하여 VHD
 
 ## Linux 커널 요구 사항 ##
 
-Hyper-V 및 Azure용 LIS(Linux 통합 서비스) 드라이버는 업스트림 Linux 커널로 직접 제공됩니다. 최신 Linux 커널 버전(예: 3.x)을 포함하는 대부분의 배포에서는 이러한 드라이버가 이미 제공되거나 이러한 드라이버의 백 포트 버전이 커널과 함께 제공됩니다.  이러한 드라이버는 업스트림 커널에서 새로운 수정 사항과 기능이 적용되어 지속적으로 업데이트되므로 가능하면 이러한 수정 사항과 업데이트를 포함하는 [보증 배포판](linux-endorsed-distributions.md)을 실행하는 것이 좋습니다.
+Hyper-V 및 Azure용 LIS(Linux 통합 서비스) 드라이버는 업스트림 Linux 커널로 직접 제공됩니다. 최신 Linux 커널 버전(예: 3.x)을 포함하는 대부분의 배포에서는 이러한 드라이버가 이미 제공되거나 이러한 드라이버의 백 포트 버전이 커널과 함께 제공됩니다. 이러한 드라이버는 업스트림 커널에서 새로운 수정 사항과 기능이 적용되어 지속적으로 업데이트되므로 가능하면 이러한 수정 사항과 업데이트를 포함하는 [보증 배포판](linux-endorsed-distributions.md)을 실행하는 것이 좋습니다.
 
-Red Hat Enterprise Linux 버전 **6.0~6.3**의 변형을 실행하는 경우에는 Hyper-V용 최신 LIS 드라이버를 설치해야 합니다. 이러한 드라이버는 [이 위치](http://go.microsoft.com/fwlink/p/?LinkID=254263&clcid=0x409)에서 찾을 수 있습니다. RHEL **6.4 이상** 및 파생 버전에서는 LIS 드라이버가 커널에 이미 포함되어 있으므로 Azure에서 해당 시스템을 실행하기 위해 추가 설치 패키지가 필요하지 않습니다.
+Red Hat Enterprise Linux 버전 **6.0-6.3**의 변형을 실행하는 경우에는 Hyper-V용 최신 LIS 드라이버를 설치해야 합니다. 드라이버는 [이 위치](http://go.microsoft.com/fwlink/p/?LinkID=254263&clcid=0x409)에 있습니다. RHEL **6.4 이상** 및 파생 버전에서는 LIS 드라이버가 커널에 이미 포함되어 있으므로 Azure에서 해당 시스템을 실행하기 위해 추가 설치 패키지가 필요하지 않습니다.
 
-사용자 지정 커널이 필요한 경우에는 **3.8 이상**과 같은 최신 커널 버전을 사용하는 것이 좋습니다. 자체 커널을 유지 관리하는 배포나 공급업체의 경우에는 업스트림 커널에서 사용자 지정 커널로 LIS 드라이버를 백 포팅하는 것이 좋습니다.  비교적 최신 커널 버전을 이미 실행 중이더라도 일반적으로 LIS 드라이버의 업스트림 수정 사항을 계속 추적하여 필요한 경우 해당 드라이버를 백 포팅하는 것이 좋습니다. LIS 드라이버 원본 파일의 위치는 Linux 커널 원본 트리의 [MAINTAINERS](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/tree/MAINTAINERS) 파일에서 확인할 수 있습니다.
+사용자 지정 커널이 필요한 경우, 최신 커널 버전(예: **3.8 이상**)을 사용하는 것이 좋습니다. 자체 커널을 유지 관리하는 배포나 공급업체의 경우, 업스트림 커널에서 사용자 지정 커널로 LIS 드라이버를 정기적으로 백포팅하는 데 필요합니다. 비교적 최신 커널 버전을 이미 실행 중이더라도 LIS 드라이버의 업스트림 수정 사항을 계속 추적하여 필요한 경우 백 포팅하는 것이 좋습니다. LIS 드라이버 원본 파일의 위치는 Linux 커널 원본 트리의 [MAINTAINERS](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/tree/MAINTAINERS) 파일에서 확인할 수 있습니다.
 
 	F:	arch/x86/include/asm/mshyperv.h
 	F:	arch/x86/include/uapi/asm/hyperv.h
@@ -125,6 +125,10 @@ Red Hat Enterprise Linux 버전 **6.0~6.3**의 변형을 실행하는 경우에�
 
 - [ata_piix: 기본적으로 Hyper-V 드라이버로 디스크 연기](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/drivers/ata/ata_piix.c?id=cd006086fa5d91414d8ff9ff2b78fbb593878e3c)
 - [storvsc: RESET 경로의 전송 중인 패킷용 계정](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/drivers/scsi/storvsc_drv.c?id=5c1b10ab7f93d24f29b5630286e323d1c5802d5c)
+- [storvsc: WRITE_SAME을 사용하지 마세요.](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=3e8f4f4065901c8dfc51407e1984495e1748c090)
+- [storvsc: RAID 및 가상 호스트 어댑터 드라이버에 대한 WRITE SAME 해제](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=54b2b50c20a61b51199bedb6e5d2f8ec2568fb43)
+- [storvsc: NULL 포인터 역참조 수정](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=b12bb60d6c350b348a4e1460cd68f97ccae9822e)
+- [storvsc: 링 버퍼 오류로 I/O가 중지됨](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=e86fb5e8ab95f10ec5f2e9430119d5d35020c951)
 
 
 ## Azure Linux 에이전트 ##
@@ -148,7 +152,7 @@ Azure에서 Linux 가상 컴퓨터를 올바르게 프로비전하려면 [Azure 
 
 	이렇게 하면 모든 콘솔 메시지가 첫 번째 직렬 포트로 전송되므로 Azure 지원에서 문제를 디버깅하는 데에도 도움이 될 수 있습니다.
 
-	위의 작업을 수행하는 동시에 다음 매개 변수도 있는 경우 *remove*하는 것이 좋습니다.
+	위의 작업을 수행하는 동시에 다음 매개 변수도 있는 경우 *제거*하는 것이 좋습니다.
 
 		rhgb quiet crashkernel=auto
 
@@ -158,13 +162,13 @@ Azure에서 Linux 가상 컴퓨터를 올바르게 프로비전하려면 [Azure 
 
 - Azure Linux 에이전트 설치
 
-	Azure에서 Linux 이미지를 프로비전하려면 Azure Linux 에이전트가 필요합니다.  대부분의 배포에서는 에이전트를 RPM 또는 Deb 패키지로 제공합니다. 패키지의 이름은 보통  'WALinuxAgent' 또는  'walinuxagent'입니다.  [Linux 에이전트 가이드](virtual-machines-linux-agent-user-guide.md)의 단계를 수행하여 에이전트를 수동으로 설치할 수도 있습니다.
+	Azure에서 Linux 이미지를 프로비전하려면 Azure Linux 에이전트가 필요합니다. 대부분의 배포에서는 에이전트를 RPM 또는 Deb 패키지로 제공합니다. 패키지의 이름은 보통 'WALinuxAgent' 또는 'walinuxagent'입니다. [Linux 에이전트 가이드](virtual-machines-linux-agent-user-guide.md)의 단계를 수행하여 에이전트를 수동으로 설치할 수도 있습니다.
 
-- SSH 서버가 설치되어 부팅 시 시작되도록 구성되어 있는지 확인합니다.  보통 SSH 서버는 기본적으로 이와 같이 구성되어 있습니다.
+- SSH 서버가 설치되어 부팅 시 시작되도록 구성되어 있는지 확인합니다. 보통 SSH 서버는 기본적으로 이와 같이 구성되어 있습니다.
 
-- OS 디스크에 스왑 공간을 만들지 마세요.
+- OS 디스크에 스왑 공간을 만들지 마십시오.
 
-	Azure Linux 에이전트는 Azure에서 프로비전한 후 VM에 연결된 로컬 리소스 디스크를 사용하여 자동으로 스왑 공간을 구성할 수 있습니다. 리소스 디스크는 *temporary* 디스크이며 VM의 프로비전을 해제할 때 비워질 수 있습니다. Azure Linux 에이전트를 설치한 후(이전 단계 참조) /etc/waagent.conf에서 다음 매개 변수를 적절하게 수정합니다.
+	Azure Linux 에이전트는 Azure에서 프로비전한 후 VM에 연결된 로컬 리소스 디스크를 사용하여 자동으로 스왑 공간을 구성할 수 있습니다. 로컬 리소스 디스크는 *임시* 디스크이며 VM의 프로비전을 해제할 때 비워질 수 있습니다. Azure Linux 에이전트를 설치한 후(이전 단계 참조) /etc/waagent.conf에서 다음 매개 변수를 적절하게 수정합니다.
 
 		ResourceDisk.Format=y
 		ResourceDisk.Filesystem=ext4
@@ -185,6 +189,4 @@ Azure에서 Linux 가상 컴퓨터를 올바르게 프로비전하려면 [Azure 
 
 - 그런 다음 가상 컴퓨터를 종료하고 VHD를 Azure에 업로드해야 합니다.
 
-
-
-<!--HONumber=45--> 
+<!---HONumber=58-->

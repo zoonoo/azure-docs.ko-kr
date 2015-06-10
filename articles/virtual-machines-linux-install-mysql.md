@@ -75,9 +75,9 @@ Microsoft azure의 끝점은 공용 포트 및 개인 포트와 함께 프로토
 - Putty를 다운로드한 후 실행 파일 “PUTTY.EXE”를 클릭합니다. 다음과 같이 설정합니다.
 
 
-     The “Host Name (or IP address)” is the URL as “DNS NAME” when you create an image.
+     "호스트 이름(또는 IP 주소)"는 이미지를 만들 때 "DNS 이름"으로 URL입니다.
      
-     The “Port” we can chose 22.  This is default port of SSH services.
+     선택할 수 있는 "포트"는 22입니다. SSH 서비스의 기본 포트입니다.
 
    ![이미지](./media/virtual-machines-linux-install-mysql/virtual-machines-linux-install-mysql-p06.png)
  
@@ -237,4 +237,5 @@ MySQL에는 이진 패키지, rpm 패키지 및 원본 패키지라는 세 가�
     시스템이 부팅될 때 MySQL을 시작하도록 설정하려면 다음 명령을 실행합니다.
 
            #mysql-test:~ # insserv mysql
-<!--HONumber=52-->
+
+<!---HONumber=58-->

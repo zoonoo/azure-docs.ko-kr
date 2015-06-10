@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
    authors="danielceckert" 
    documentationCenter="dev-center-name" 
    editor=""
@@ -10,33 +10,33 @@
 
 <tags
    ms.author="danecke"
-   ms.date="02/20/2015"
+   ms.date="05/27/2015"
    ms.devlang="na"
    ms.service="virtual-network"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   /> 
+   />
    
 # 가상 네트워크 관리: 부하 분산 장치 TCP 유휴 시간 제한
 
-개발자는 **TCP 유휴 시간 제한**을 사용하여 Azure 부하 분산 장치와 관련된 클라이언트-서버 세션 중의 비활성 시간에 대해 보장된 임계값을 지정할 수 있습니다.  TCP 유휴 시간 제한 값이 4분(Azure 부하 분산 장치의 기본값)인 경우 Azure 부하 분산 장치를 사용하는 클라이언트-서버 세션 중에 비활성 시간이 4분 넘게 지속되면 연결이 닫힙니다.
+개발자는 **TCP 유휴 시간 제한**을 사용하여 Azure 부하 분산 장치와 관련된 클라이언트-서버 세션 중의 비활성 시간에 대해 보장된 임계값을 지정할 수 있습니다. TCP 유휴 시간 제한 값이 4분(Azure 부하 분산 장치의 기본값)인 경우 Azure 부하 분산 장치를 사용하는 클라이언트-서버 세션 중에 비활성 시간이 4분 넘게 지속되면 연결이 닫힙니다.
 
-클라이언트-서버 연결이 닫히면 클라이언트 응용 프로그램에는 "기본 연결이 닫혔습니다. 유지되어야 할 연결을 서버에서 끊었습니다."와 같은 오류 메시지가 표시됩니다.
+클라이언트-서버 연결이 닫히면 클라이언트 응용 프로그램에는 “기본 연결이 닫혔습니다. 활성 상태로 유지될 것으로 예상된 연결이 서버에서 닫혔습니다.”
 
-[TCP 연결 유지](http://tools.ietf.org/html/rfc1122#page-101)는 오랜 시간 연결을 유지하는 데 일반적으로 사용되는 방식입니다[(MSDN 예제)](http://msdn.microsoft.com/library/system.net.servicepoint.settcpkeepalive.aspx). 이러한 방식을 사용하지 않는 경우 연결이 비활성화됩니다. TCP 연결 유지를 사용하는 경우 클라이언트에서 대개 서버의 유휴 시간 제한 임계값보다 짧은 빈도로 단순 패킷을 주기적으로 전송합니다.  서버는 다른 활동이 수행되지 않더라도 이러한 전송이 계속되면 연결을 활성 상태라고 간주하기 때문에 유휴 시간 제한 값에 도달하지 않으므로 오랫동안 연결을 유지할 수 있습니다.
+[TCP 연결 유지](http://tools.ietf.org/html/rfc1122#page-101)는 오랜 시간 연결을 유지하는 데 일반적으로 사용되는 방식입니다[(MSDN 예제)](http://msdn.microsoft.com/library/system.net.servicepoint.settcpkeepalive.aspx). 이러한 방식을 사용하지 않는 경우 연결이 비활성화됩니다. TCP 연결 유지를 사용하는 경우 클라이언트에서 대개 서버의 유휴 시간 제한 임계값보다 짧은 빈도로 단순 패킷을 주기적으로 전송합니다. 서버는 다른 활동이 수행되지 않더라도 이러한 전송이 계속되면 연결을 활성 상태라고 간주하기 때문에 유휴 시간 제한 값에 도달하지 않으므로 오랫동안 연결을 유지할 수 있습니다.
 
 TCP 연결 유지는 효율적으로 작동하기는 하지만 모바일 응용 프로그램은 모바일 장치에서 제한적인 전원 리소스를 사용하기 때문에 일반적으로 TCP 연결 유지를 사용하지 않습니다. 모바일 응용 프로그램이 TCP 연결 유지를 사용하는 경우 네트워크용으로 전원을 계속 사용하므로 장치 배터리가 더 빨리 소진됩니다.
 
-모바일 장치 시나리오를 지원하기 위해 Azure 부하 분산 장치는 구성 가능한 TCP 유휴 시간 제한을 지원합니다. 개발자는 인바운드 연결의 TCP 유휴 시간 제한을 4분~30분 사이로 설정할 수 있습니다. 아웃바운드 연결에는 구성 가능한 TCP 유휴 시간 제한을 적용할 수 없습니다. 그러므로 클라이언트는 비활성 시간이 길더라도 서버와의 세션을 훨씬 오랫동안 유지할 수 있습니다.  모바일 장치의 응용 프로그램도 TCP 연결 유지 기술을 사용하여 비활성 상태인 시간이 30분보다 긴 연결을 유지할 수 있습니다. 이처럼 TCP 유휴 시간 제한이 길면 응용 프로그램이 TCP 연결 유지 요청을 보내는 빈도가 이전보다 훨씬 낮아지므로 모바일 장치 전원 리소스에 대한 부담이 크게 줄어듭니다.
+모바일 장치 시나리오를 지원하기 위해 Azure 부하 분산 장치는 구성 가능한 TCP 유휴 시간 제한을 지원합니다. 개발자는 인바운드 연결의 TCP 유휴 시간 제한을 4분~30분 사이로 설정할 수 있습니다. 아웃바운드 연결에는 구성 가능한 TCP 유휴 시간 제한을 적용할 수 없습니다. 그러므로 클라이언트는 비활성 시간이 길더라도 서버와의 세션을 훨씬 오랫동안 유지할 수 있습니다. 모바일 장치의 응용 프로그램도 TCP 연결 유지 기술을 사용하여 비활성 상태인 시간이 30분보다 긴 연결을 유지할 수 있습니다. 이처럼 TCP 유휴 시간 제한이 길면 응용 프로그램이 TCP 연결 유지 요청을 보내는 빈도가 이전보다 훨씬 낮아지므로 모바일 장치 전원 리소스에 대한 부담이 크게 줄어듭니다.
 
 ## 구현
 
-다음에 대해 TCP 유휴 시간 제한을 구성할 수 있습니다. 
+다음에 대해 TCP 유휴 시간 제한을 구성할 수 있습니다.
 
 * [인스턴스 수준 공용 IP](http://msdn.microsoft.com/library/azure/dn690118.aspx)
 * [부하 분산된 끝점 집합](http://msdn.microsoft.com/library/azure/dn655055.aspx)
-* [가상 컴퓨터 끝점](http://azure.microsoft.com/documentation/articles/virtual-machines-set-up-endpoints/)
+* [가상 컴퓨터 끝점](virtual-machines-set-up-endpoints.md)
 * [웹 역할](http://msdn.microsoft.com/library/windowsazure/ee758711.aspx)
 * [작업자 역할](http://msdn.microsoft.com/library/windowsazure/ee758711.aspx)
 
@@ -48,7 +48,7 @@ TCP 연결 유지는 효율적으로 작동하기는 하지만 모바일 응용 
 
 ### 인스턴스 수준 공용 IP의 TCP 유휴 시간 제한을 15분으로 구성
 
-    Set-AzurePublicIP -PublicIPName webip -VM MyVM -IdleTimeoutInMinutes 15
+    Set-AzurePublicIP –PublicIPName webip –VM MyVM -IdleTimeoutInMinutes 15
 
 IdleTimeoutInMinutes는 선택 사항이며 설정하지 않으면 기본 시간 제한은 4분으로 설정됩니다. 이제는 해당 값을 4분~30분 사이로 설정할 수 있습니다.
 
@@ -58,7 +58,7 @@ IdleTimeoutInMinutes는 선택 사항이며 설정하지 않으면 기본 시간
 
 ### 유휴 시간 제한 구성 검색
 
-    PS C:> Get-AzureVM -ServiceName "MyService" -Name "MyVM" | Get-AzureEndpoint
+    PS C:> Get-AzureVM –ServiceName “MyService” –Name “MyVM” | Get-AzureEndpoint
     
     VERBOSE: 6:43:50 PM - Completed Operation: Get Deployment
     LBSetName : MyLoadBalancedSet
@@ -110,7 +110,7 @@ Azure SDK for .NET을 사용하여 클라우드 서비스를 업데이트할 수
     
 ## API 예제
 
-개발자는 서비스 관리 API를 사용하여 부하 분산 장치 배포를 구성할 수 있습니다.  이때 x-ms-version 헤더는 버전 2014-06-01 이상으로 설정해야 합니다.
+개발자는 서비스 관리 API를 사용하여 부하 분산 장치 배포를 구성할 수 있습니다. 이때 x-ms-version 헤더는 버전 2014-06-01 이상으로 설정해야 합니다.
 
 ### 배포의 모든 가상 컴퓨터에서 지정한 부하 분산된 입력 끝점의 구성 업데이트
 
@@ -151,4 +151,4 @@ LoadBalancerDistribution의 값은 2개 튜플 선호도의 경우 sourceIP로, 
       </InputEndpoint>
     </LoadBalancedEndpointList>
 
-<!--HONumber=47-->
+<!---HONumber=58-->

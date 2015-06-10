@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="액세스 제어 서비스(Java)에서 반환되는 SAML 보기" 
 	description="Azure에서 호스팅되는 Java 응용 프로그램에서 액세스 제어 서비스에서 반환되는 SAML을 확인하는 방법에 대해 알아봅니다." 
 	services="" 
@@ -20,16 +20,15 @@
 
 이 가이드에서는 Azure ACS(액세스 제어 서비스)에서 응용 프로그램에 반환하는 기본 SAML(Security Assertion Markup Language)을 보는 방법을 안내합니다. 이 가이드는 [Eclipse를 사용하여 Azure 액세스 제어 서비스를 통해 웹 사용자를 인증하는 방법][] 항목의 내용을 바탕으로 하여 SAML 정보를 표시하는 코드를 제공합니다. 완료된 응용 프로그램은 다음과 유사합니다.
 
-![Example SAML output][saml_output]
+![예제 SAML 출력][saml_output]
 
 ACS에 대한 자세한 내용은 [다음 단계](#next_steps) 섹션을 참조하세요.
 
-> [AZURE.NOTE]
-> Azure Access Control Services Filter(Microsoft Open Technologies 제공)는 CTP(Community Technology Preview)입니다. 이 필터는 시험판 소프트웨어로서 Microsoft Open Technologies, Inc.와 Microsoft에서 공식적으로 지원되지 않습니다.
+> [AZURE.NOTE]Azure Access Control Services Filter(Microsoft Open Technologies 제공)는 CTP(Community Technology Preview)입니다. 이 필터는 시험판 소프트웨어로서 Microsoft Open Technologies, Inc.와 Microsoft에서 공식적으로 지원되지 않습니다.
 
 ## 목차
 
--   [필수 조건][]
+-   [필수 구성 요소][]
 -   [빌드 경로 및 배포 어셈블리에 JspWriter 라이브러리 추가][]
 -   [SAML을 표시하도록 JSP 파일 수정][]
 -   [응용 프로그램 실행][]
@@ -38,7 +37,7 @@ ACS에 대한 자세한 내용은 [다음 단계](#next_steps) 섹션을 참조�
 
 ## <a name="pre"></a>필수 조건
 
-이 가이드에서 작업을 완료하려면 [Eclipse를 사용하여 Azure 액세스 제어 서비스를 통해 웹 사용자를 인증하는 방법][]에서 샘플을 완료하고 이 자습서를 시작할 때부터 이 샘플을 사용하십시오.
+이 가이드에서 작업을 완료하려면 [Eclipse를 사용하여 Azure 액세스 제어 서비스를 통해 웹 사용자를 인증하는 방법][]에서 샘플을 완료하고 이 자습서를 시작할 때부터 이 샘플을 사용하세요.
 
 ## <a name="add_library"></a>빌드 경로 및 배포 어셈블리에 JspWriter 라이브러리 추가
 
@@ -48,7 +47,7 @@ ACS에 대한 자세한 내용은 [다음 단계](#next_steps) 섹션을 참조�
 2. **JAR Selection** 대화 상자에서 필요한 JAR로 이동하여 선택한 후 **Open**을 클릭합니다.
 3. **Properties for MyACSHelloWorld** 대화 상자가 열리면 **Deployment Assembly**를 클릭합니다.
 4. **Web Deployment Assembly** 대화 상자에서 **Add**를 클릭합니다.
-5. **새 어셈블리 지시문** 대화 상자에서 **Java 빌드 경로 항목**, **다음**을 차례로 클릭합니다.
+5. **New Assembly Directive** 대화 상자에서 **Java Build Path Entries**를 클릭한 후 **Next**를 클릭합니다.
 6. 적절한 라이브러리를 선택하고 **Finish**를 클릭합니다.
 7. **OK**를 클릭하여 **Properties for MyACSHelloWorld** 대화 상자를 닫습니다.
 
@@ -138,7 +137,7 @@ ACS에 대한 자세한 내용은 [다음 단계](#next_steps) 섹션을 참조�
 					                 for (i=0; i < nChild; i++)
 				                     {
 					                    Node temp = list.item(i);
-					                    displaySAMLInfo(temp, parent + nodeName + "", out);
+					                    displaySAMLInfo(temp, parent + nodeName + "\", out);
 				                     }
 				               }
 			              }
@@ -193,15 +192,15 @@ ACS에 대한 자세한 내용은 [다음 단계](#next_steps) 섹션을 참조�
 
 ## <a name="next_steps"></a>다음 단계
 
-ACS 기능을 자세히 살펴보고 보다 정교한 시나리오를 실험하려면 [액세스 제어 서비스 2.0][]을 참조하세요.
+ACS 기능을 자세히 살펴보고 보다 정교한 시나리오를 실험하려면 [액세스 제어 서비스 2.0][](영문)을 참조하세요.
 
-[필수 조건]: #pre
+[필수 구성 요소]: #pre
 [SAML을 표시하도록 JSP 파일 수정]: #modify_jsp
 [빌드 경로 및 배포 어셈블리에 JspWriter 라이브러리 추가]: #add_library
 [응용 프로그램 실행]: #run_application
 [다음 단계]: #next_steps
 [액세스 제어 서비스 2.0]: http://go.microsoft.com/fwlink/?LinkID=212360
-[Eclipse를 사용하여 Azure 액세스 제어 서비스를 통해 웹 사용자를 인증하는 방법]: ../active-directory-java-authenticate-users-access-control-eclipse
+[Eclipse를 사용하여 Azure 액세스 제어 서비스를 통해 웹 사용자를 인증하는 방법]: active-directory-java-authenticate-users-access-control-eclipse.md
 [saml_output]: ./media/active-directory-java-view-saml-returned-by-access-control/SAML_Output.png
 
-<!--HONumber=47-->
+<!---HONumber=58-->

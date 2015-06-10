@@ -1,19 +1,20 @@
-﻿<properties 
-	pageTitle="Azure에서 OpenSUSE Linux를 실행하는 가상 컴퓨터에 MySQL 설치" 
-	description="Azure에서 가상 컴퓨터에 MySQL을 설치하는 방법에 대해 알아봅니다." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="KBDAzure" 
-	manager="timlt" 
-	editor=""/>
+<properties
+	pageTitle="Azure에서 OpenSUSE Linux를 실행하는 가상 컴퓨터에 MySQL 설치"
+	description="Azure에서 가상 컴퓨터에 MySQL을 설치하는 방법에 대해 알아봅니다."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="KBDAzure"
+	manager="timlt"
+	editor=""
+	tags="mysql"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-linux" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/12/2014" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-linux"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="05/22/2015"
 	ms.author="kathydav"/>
 
 # Azure에서 OpenSUSE Linux를 실행하는 가상 컴퓨터에 MySQL 설치
@@ -35,10 +36,10 @@
 [AZURE.INCLUDE [install-and-run-mysql-on-opensuse-vm](../includes/install-and-run-mysql-on-opensuse-vm.md)]
 
 ##요약
-이 자습서에서는 OpenSUSE Linux를 실행하는 가상 컴퓨터를 만드는 방법 및 SSH 또는 PuTTY를 사용하여 가상 컴퓨터에 원격으로 연결하는 방법에 대해 알아보았습니다.  또한 Linux 가상 컴퓨터에서 MySQL을 설치하고 구성하는 방법에 대해서도 알아보았습니다.  MySQL에 대한 자세한 내용은 [MySQL 설명서][MySQLDocs]를 참조하세요.
+이 자습서에서는 OpenSUSE Linux를 실행하는 가상 컴퓨터를 만드는 방법 및 SSH 또는 PuTTY를 사용하여 가상 컴퓨터에 원격으로 연결하는 방법에 대해 알아보았습니다. 또한 Linux 가상 컴퓨터에서 MySQL을 설치하고 구성하는 방법에 대해서도 알아보았습니다. MySQL에 대한 자세한 정보는 [MySQL Documentation][MySQLDocs](영문)을 참조하십시오.
 
 [MySQLDocs]: http://dev.mysql.com/doc/
 [MySQL]: http://www.mysql.com
 [AzurePortal]: http://manage.windowsazure.com
 
-<!--HONumber=45--> 
+<!---HONumber=58-->

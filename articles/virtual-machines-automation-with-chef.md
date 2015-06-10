@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Chef를 사용하여 Azure 가상 컴퓨터 배포 자동화" 
-   description="Learn the art of Azure Virtual Machine Automation with Chef" 
+   description="Chef를 사용하여 Azure 가상 컴퓨터 자동화의 기술에 대해 알아봅니다." 
    services="virtual-machines" 
    documentationCenter="" 
    authors="diegoviso" 
@@ -11,54 +11,54 @@
 ms.tgt_pltfrm="vm-multiple" 
 ms.devlang="na" 
 ms.topic="article" 
-ms.date="01/29/2015" 
+ms.date="05/19/2015" 
 ms.author="diviso"/>
 
 # Chef를 사용하여 Azure 가상 컴퓨터 배포 자동화
 
-Chef는 자동화 및 필요한 상태 구성을 제공하는 유용한 도구입니다. 
+Chef는 자동화 및 필요한 상태 구성을 제공하는 유용한 도구입니다.
 
 최신 cloud-api 릴리스에서 Chef는 Azure와의 원활한 통합을 통해 단일 명령으로 구성 상태를 프로비전 및 배포할 수 있는 기능을 제공합니다.
 
-이 문서에서는 Chef 환경을 설정하여 Azure 가상 컴퓨터를 프로비전하는 방법을 보여 주고, 정책 또는 "CookBook"을 만든 다음 이 cookbook을 Azure VM에 배포하는 과정을 안내합니다.
+이 문서에서는 Chef 환경을 설정하여 Azure 가상 컴퓨터를 프로비전하는 방법을 보여 주고, 정책 또는 “CookBook”을 만든 다음 이 cookbook을 Azure VM에 배포하는 과정을 안내합니다.
 
 시작해 보겠습니다.
 
 ## Chef 기본 사항
 
-시작하기 전에 Chef의 기본 개념을 알아야 합니다. 유용한 자료가 <a href="http://www.chef.io/chef" target="_blank">여기</a> 있으니 연습에 앞서 빠르게 읽어 보시기 바랍니다. 하지만 시작하기 전에 기본 사항을 요약해 드릴 것입니다.
+시작하기 전에 Chef의 기본 개념을 알아야 합니다. 훌륭한 자료가 <a href="http://www.chef.io/chef" target="_blank">여기</a>에 있으니 연습에 앞서 빠르게 읽어 보시기 바랍니다. 하지만 시작하기 전에 기본 사항을 요약해 드릴 것입니다.
 
 아래 다이어그램에 대략적인 Chef 아키텍처가 나와 있습니다.
 
 ![][2]
 
-Chef에는 세 가지 주요 아키텍처 구성 요소가 있습니다. **Chef Server, Chef Client(노드)** 및 **Chef Workstation**입니다.
+Chef에는 세 가지 주요 아키텍처 구성 요소가 있습니다. **Chef 서버, Chef 클라이언트(노드)** 및 **Chef 워크스테이션.**
 
-**Chef Server**는 관리 지점이며, 호스트 솔루션과 온-프레미스 솔루션의 두 가지 옵션이 있습니다. 여기에서는 호스트 솔루션을 사용합니다.
+**Chef 서버**는 관리 지점이며, Chef 서버에 대해 호스트 솔루션이나 온-프레미스 솔루션의 두 가지 옵션이 있습니다. 여기에서는 호스트 솔루션을 사용합니다.
 
-**Chef Client(노드)**는 관리 중인 서버에 있는 에이전트입니다.
+**Chef 클라이언트(노드)**는 관리 중인 서버에 있는 에이전트입니다.
 
-**Chef Workstation**은 정책을 만들고 관리 명령을 실행하는 관리 워크스테이션입니다. Chef Workstation에서 **"knife"** 명령을 실행하여 인프라를 관리합니다.
+**Chef 워크스테이션**은 정책을 만들고 관리 명령을 실행하는 관리 워크스테이션입니다. Chef 워크스테이션에서 **“knife”** 명령을 실행하여 인프라를 관리합니다.
 
-"Cookbook" 및 "Recipe" 개념도 있습니다. 이는 우리가 정의하고 서버에 적용하는 효과적인 정책입니다.
+“Cookbook” 및 “Recipe” 개념도 있습니다. 이는 우리가 정의하고 서버에 적용하는 효과적인 정책입니다.
 
 ## 워크스테이션 준비
 
 먼저 워크스테이션을 준비하겠습니다. 여기서는 표준 Windows 워크스테이션을 사용합니다. 구성 파일과 cookbook을 저장할 디렉터리를 만들어야 합니다.
 
-먼저 **C:\chef**라는 디렉터리를 만듭니다. 
+먼저 **C:\chef**라는 디렉터리를 만듭니다.
 
 그런 다음 **c:\chef\cookbooks**라는 두 번째 디렉터리를 만듭니다.
 
 이제 Chef가 Azure 구독과 통신할 수 있도록 Azure 설정 파일을 다운로드해야 합니다.
 
-다음 위치에서 게시 설정을 다운로드합니다. <a href="https://manage.windowsazure.com/publishsettings/" target="_blank">https://manage.windowsazure.com/publishsettings/</a>
+다음에서 게시 설정을 다운로드합니다. <a href="https://manage.windowsazure.com/publishsettings/" target="_blank">https://manage.windowsazure.com/publishsettings/</a>
 
 게시 설정 파일을 **C:\chef**에 저장합니다.
 
-## 관리되는 Chef 계정 만들기
+##관리되는 Chef 계정 만들기
 
-호스트되는 Chef 계정에 등록합니다. <a href="https://manage.chef.io/signup" target="_blank">https://manage.chef.io/signup</a>
+호스팅된 Chef 계정에 등록: <a href="https://manage.chef.io/signup" target="_blank">https://manage.chef.io/signup</a>
 
 등록 프로세스 중에 새 조직을 만들지 묻는 메시지가 나타납니다.
 
@@ -68,15 +68,15 @@ Chef에는 세 가지 주요 아키텍처 구성 요소가 있습니다. **Chef 
 
 ![][4]
 
-**참고:** 키가 다시 설정된다는 경고 메시지가 나타나는 경우 아직 구성된 기존 인프라가 없으므로 계속 진행해도 됩니다.
+**참고:** 키가 재설정된다는 경고 메시지가 나타나는 경우, 아직 구성된 기존 인프라가 없으므로 계속 진행해도 됩니다.
 
 이 시작 키트 zip 파일에는 조직 구성 파일 및 키가 포함되어 있습니다.
 
-## Chef 워크스테이션 구성
+##Chef 워크스테이션 구성
 
 chef-starter.zip 내용을 **C:\chef**에 추출합니다.
 
-**chef-starter\chef-repo.chef** 아래의 모든 파일을 **c:\chef**에 복사합니다.
+**chef-starter\chef-repo.chef**의 모든 파일을 **c:\chef**에 복사합니다.
 
 이제 디렉터리가 다음과 같이 표시됩니다.
 
@@ -86,11 +86,11 @@ chef-starter.zip 내용을 **C:\chef**에 추출합니다.
 
 PEM 파일에는 조직 및 관리자의 통신용 개인 키가 들어 있고, **knife.rb** 파일에는 knife 구성이 들어 있습니다. **knife.rb** 파일을 편집해야 합니다.
 
-원하는 편집기에서 파일을 열고 다음과 같이 표시되도록 경로에서 /../를 제거하여 "cookbook_path"를 수정합니다.
+원하는 편집기에서 파일을 열고 다음과 같이 표시되도록 경로에서 /../를 제거하여 “cookbook_path”를 수정합니다.
 
 	cookbook_path  ["#{current_dir}/cookbooks"]
 
-또한 Azure 게시 설정 파일의 이름을 나타내는 다음 줄을 추가합니다.   
+또한 Azure 게시 설정 파일의 이름을 나타내는 다음 줄을 추가합니다.
 
 	knife[:azure_publish_settings_file] = "yourfilename.publishsettings" 
 
@@ -118,13 +118,13 @@ PATH 변수에 C:\opscode\chefdk\bin;C:\opscode\chefdk\embedded\bin;c:\users\you
 
 계속하기 전에 워크스테이션을 다시 부팅하세요.
 
-이제 Knife Azure 확장을 설치합니다. 이는 "Azure 플러그 인"이 포함된 Knife를 제공합니다.
+이제 Knife Azure 확장을 설치합니다. 이는 “Azure 플러그 인”이 포함된 Knife를 제공합니다.
 
 다음 명령을 실행합니다.
 
-	chef gem install knife-azure --pre
+	chef gem install knife-azure ––pre
 
-**참고:** -pre 인수는 최신 API 집합에 대한 액세스를 제공하는 최신 RC 버전의 knife azure 플러그 인을 받을 수 있도록 해줍니다.
+**참고:** –pre 인수는 최신 API 집합에 대한 액세스를 제공하는 최신 RC 버전의 knife azure 플러그인을 받을 수 있도록 해줍니다.
 
 이와 동시에 여러 종속성도 설치될 수 있습니다.
 
@@ -139,7 +139,7 @@ PATH 변수에 C:\opscode\chefdk\bin;C:\opscode\chefdk\embedded\bin;c:\users\you
 
 축하합니다. 워크스테이션이 설치되었습니다.
 
-## Cookbook 만들기
+##Cookbook 만들기
 
 Cookbook은 Chef에서 관리되는 클라이언트를 실행할 명령 집합을 정의하는 데 사용됩니다. Cookbook 만들기는 간단하며, chef generate cookbook 명령을 사용하여 Cookbook 템플릿을 생성할 수 있습니다. 저는 IIS를 자동으로 배포하는 정책을 좋아하므로 저의 Cookbook 웹 서버를 호출해 보겠습니다.
 
@@ -147,9 +147,9 @@ C:\Chef 디렉터리 아래에서 다음 명령을 실행합니다.
 
 	chef generate cookbook webserver
 
-**C:\Chef\cookbooks\webserver** 디렉터리 아래에 파일 집합이 생성됩니다. 이제 관리되는 VM에서 Chef Client를 실행할 명령 집합을 정의해야 합니다.
+**C:\Chef\cookbooks\webserver.** 디렉터리에 파일 집합이 생성됩니다. 이제 관리되는 VM에서 Chef Client를 실행할 명령 집합을 정의해야 합니다.
 
-명령은 **default.rb** 파일에 저장되어 있습니다. 이 파일에서 IIS를 설치하고, IIS를 시작하며, 템플릿 파일을 wwwroot 폴더에 복사하는 명령 집합을 정의합니다.
+명령은 **default.rb.** 파일에 저장됩니다. 이 파일에서 IIS를 설치하고, IIS를 시작하며, 템플릿 파일을 wwwroot 폴더에 복사하는 명령 집합을 정의합니다.
 
 **C:\chef\cookbooks\webserver\recipes\default.rb**를 수정하고 다음 줄을 추가합니다.
 
@@ -179,7 +179,7 @@ C:\Chef 디렉터리 아래에서 다음 명령을 실행합니다.
 
 이제 **C:\chef\cookbooks\webserver\templates\default\Default.htm.erb** 파일로 이동하여 파일을 편집합니다.
 
-간단한 "Hello World" html 코드를 추가하고 파일을 저장합니다.
+간단한 “Hello World” html 코드를 추가하고 파일을 저장합니다.
 
 ## Chef Server에 Cookbook 업로드
 
@@ -191,7 +191,7 @@ C:\Chef 디렉터리 아래에서 다음 명령을 실행합니다.
 
 ## Knife Azure를 사용하여 가상 컴퓨터 배포
 
-이제 Azure 가상 컴퓨터를 배포하고 IIS 웹 서비스 및 기본 웹 페이지를 설치할 "Webserver" Cookbook을 적용합니다.
+이제 Azure 가상 컴퓨터를 배포하고 IIS 웹 서비스 및 기본 웹 페이지를 설치할 “Webserver” Cookbook을 적용합니다.
 
 이 작업을 수행하려면 **knife azure server create** 명령을 사용합니다.
 
@@ -201,7 +201,7 @@ C:\Chef 디렉터리 아래에서 다음 명령을 실행합니다.
 
 매개 변수는 설명이 필요 없습니다. 특정 변수를 대체하고 실행합니다.
 
-**참고:** 명령줄에서 -tcp-endpoints 매개변수를 사용하여 끝점 네트워크 필터 규칙을 자동화해 보겠습니다. 저의 웹 페이지 및 RDP 세션에 대한 액세스를 제공하기 위해 포트 80 및 3389를 열었습니다.
+**참고:** 명령줄에서 –tcp-endpoints 매개변수를 사용하여 끝점 네트워크 필터 규칙을 자동화해 보겠습니다. 포트 80 및 3389를 열어 내 웹 페이지 및 RDP 세션에 대한 액세스를 제공합니다.
 
 명령을 실행하고 나면 Azure 포털로 이동하며 프로비전을 시작할 컴퓨터가 표시됩니다.
 
@@ -221,7 +221,6 @@ C:\Chef 디렉터리 아래에서 다음 명령을 실행합니다.
 
 유익한 정보가 되셨기 바랍니다. 이제 Azure의 Infrastructure as Code 과정을 시작해 보세요.
 
-Diego Viso [MSFT]
 
 <!--Image references-->
 [2]: ./media/virtual-machines-automation-with-chef/2.png
@@ -239,4 +238,4 @@ Diego Viso [MSFT]
 
 <!--Link references-->
 
-<!--HONumber=47-->
+<!---HONumber=58-->

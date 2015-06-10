@@ -20,11 +20,10 @@
 
 [AZURE.INCLUDE [mobile-services-selector-single-signon](../includes/mobile-services-selector-single-signon.md)] 
 
-## 개요
+##개요
 이 항목에서는 Windows 스토어 앱에서 Azure 모바일 서비스의 사용자를 인증하는 방법을 보여 줍니다. 이 자습서에서는 Live Connect를 사용하여 빠른 시작 프로젝트에 인증을 추가합니다. Live Connect에 의해 인증되고 나면 로그인한 사용자는 이름과 함께 환영의 메시지를 보게 되고 사용자 ID 값이 표시됩니다.
 
->[AZURE.NOTE]이 자습서에서는 클라이언트 관리 인증 및 Live SDK 사용의 이점을 설명합니다. 이 환경은 모바일 서비스를 사용해 이미 로그온한 사용자를 더 쉽게 인증할 수 있습니다. 추가 범위를 요청하여 앱이 OneDrive와 같은 리소스에도 액세스하도록 설정할 수 있습니다. 
->서비스 관리 인증은 보다 일반적인 경험을 제공하며 여러 인증 공급자를 지원합니다. 서비스 관리 인증에 대한 자세한 내용은 [앱에 인증 추가](mobile-services-windows-store-javascript-get-started-users.md) 항목을 참조하세요.
+>[AZURE.NOTE]이 자습서에서는 클라이언트 관리 인증 및 Live SDK 사용의 이점을 설명합니다. 이 환경은 모바일 서비스를 사용해 이미 로그온한 사용자를 더 쉽게 인증할 수 있습니다. 추가 범위를 요청하여 앱이 OneDrive와 같은 리소스에도 액세스하도록 설정할 수 있습니다. 서비스 관리 인증은 보다 일반적인 경험을 제공하며 여러 인증 공급자를 지원합니다. 서비스 관리 인증에 대한 자세한 내용은 [앱에 인증 추가](mobile-services-windows-store-javascript-get-started-users.md) 항목을 참조하세요.
 
 이 자습서를 사용하려면 다음이 필요합니다.
 
@@ -32,19 +31,19 @@
 + Microsoft Visual Studio 2012 Express for Windows 8 RC 이상 버전
 + 먼저 [기존 앱에 모바일 서비스 추가] 자습서도 완료해야 합니다.
 
-## 앱을 등록하여 Microsoft 계정을 인증에 사용
+##앱을 등록하여 Microsoft 계정을 인증에 사용
 
 사용자를 인증하려면 먼저 Microsoft 계정 개발자 센터에서 앱을 등록해야 합니다. 그런 다음 모바일 서비스와 이 등록을 연결해야 합니다. Microsoft 계정 등록을 만들고 모바일 서비스에 연결하려면 다음 항목의 단계를 완료하세요.
 
 + [Microsoft 계정 로그인을 사용하도록 앱 등록](mobile-services-how-to-register-microsoft-authentication.md)
 
-## <a name="permissions"></a>사용 권한을 인증된 사용자로 제한
+##<a name="permissions"></a>사용 권한을 인증된 사용자로 제한
 
 이제 *TodoItems* 테이블이 로그인한 사용자만 액세스할 수 있도록 하는 경우, 리소스에 액세스를 제한해야 합니다.
 
 [AZURE.INCLUDE [mobile-services-restrict-permissions-windows](../includes/mobile-services-restrict-permissions-windows.md)] 
 
-## <a name="add-authentication"></a>앱에 인증 추가
+##<a name="add-authentication"></a>앱에 인증 추가
 
 마지막으로, Live SDK를 추가하고 앱에서 사용자를 인증하는 데 사용합니다.
 
@@ -145,4 +144,4 @@
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 
-<!--HONumber=54-->
+<!---HONumber=58-->

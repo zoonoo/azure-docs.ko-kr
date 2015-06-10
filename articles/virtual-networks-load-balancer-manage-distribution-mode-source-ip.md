@@ -1,40 +1,37 @@
 <properties 
-	authors="danielceckert" 
-	documentationCenter="dev-center-name" 
-	editor=""
-	manager="jefco" 
-	pageTitle="관리: 부하 분산 장치 배포 모드(원본 IP 선호도)" 
-	description="Azure 부하 분산 장치 배포 모드용 관리 기능" 
-	services="virtual-network" 
-/>
+   pageTitle="관리: 부하 분산 장치 배포 모드(원본 IP 선호도)"
+   description="Azure 부하 분산 장치 배포 모드용 관리 기능" 
+   services="virtual-network" 
+   documentationCenter="" 
+   authors="telmosampaio" 
+   manager="carolz" 
+   editor=""
+   />
 
 <tags
-	ms.author="danecke"
-	ms.date="02/20/2015"
-	ms.devlang="na"
-	ms.service="virtual-network"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-/>
-<!-- HEAD:articles/virtual-networks-load-balancer-manage-distribution-mode.md -->
+   ms.service="virtual-network"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="05/27/2015"
+   ms.author="telmos"
+   />
    
 # 가상 네트워크 관리: 부하 분산 장치 배포 모드(원본 IP 선호도)
-
-
 **원본 IP 선호도**는 **세션 선호도** 또는 **클라이언트 IP 선호도**라고도 하며, 각 클라이언트 연결을 여러 Azure 호스팅 서버에 동적으로 분산시키는 기본 부하 분산 장치 동작을 사용하는 대신 단일 클라이언트의 연결을 단일 Azure 호스팅 서버에 연결하는 Azure 부하 분산 장치 배포 모드입니다.
 
 원본 IP 선호도를 사용하는 경우 Azure 부하 분산 장치가 2개 튜플 조합(원본 IP, 대상 IP) 또는 3개 튜플 조합(원본 IP, 대상 IP, 프로토콜)을 사용하도록 구성하여, 사용 가능한 Azure 호스팅 서버 풀에 트래픽을 매핑할 수 있습니다. 원본 IP 선호도를 사용할 때는 같은 클라이언트 컴퓨터에서 시작된 연결이 단일 DIP 끝점(단일 Azure 호스팅 서버)에서 처리됩니다.
 
 ## 서비스 원점
 
-원본 IP 선호도를 사용하는 경우 이전에 발생했던 [Azure 부하 분산 장치와 RD 게이트웨이 간의 비호환성](http://go.microsoft.com/fwlink/p/?LinkId=517389)(문서) 문제가 해결됩니다.
+원본 IP 선호도는 이전 [Azure 부하 분산 장치 및 RD 게이트웨이(DOC) 간의 비호환성](http://go.microsoft.com/fwlink/p/?LinkId=517389) 문제를 해결했습니다.
 
 ## 구현
 
-다음에 대해 원본 IP 선호도를 구성할 수 있습니다. 
+다음에 대해 원본 IP 선호도를 구성할 수 있습니다.
 
-* [가상 컴퓨터 끝점](http://azure.microsoft.com/documentation/articles/virtual-machines-set-up-endpoints/)
+* [가상 컴퓨터 끝점](virtual-machines-set-up-endpoints.md)
 * [부하 분산된 끝점 집합](http://msdn.microsoft.com/library/azure/dn655055.aspx)
 * [웹 역할](http://msdn.microsoft.com/library/windowsazure/ee758711.aspx)
 * [작업자 역할](http://msdn.microsoft.com/library/windowsazure/ee758711.aspx)
@@ -53,32 +50,19 @@
 * 원본 IP 선호도를 사용하는 경우 Azure 호스팅 서버 전체에서 트래픽이 불규칙하게 배포될 수 있습니다.
 * 프록시를 통해 트래픽을 라우팅하는 클라이언트는 Azure 부하 분산 장치에서 단일 클라이언트로 표시될 수 있습니다.
 
-<<<<<<< HEAD:articles/virtual-networks-load-balancer-manage-distribution-mode.md
-=======
-## 다음 단계
-* TBD
-   
->>>>>>> 5781a6382194f50134d2a16bd9d72a6cca290f3d:articles/virtual-networks-load-balancer-manage-distribution-mode-source-ip.md
 ## PowerShell 예제
 최상의 결과를 얻으려면 [최신 Azure PowerShell 릴리스](https://github.com/Azure/azure-sdk-tools/releases)를 다운로드하세요.
 
 ### 가상 컴퓨터에 Azure 끝점을 추가하고 부하 분산 장치 배포 모드 설정
 
-<<<<<<< HEAD:articles/virtual-networks-load-balancer-manage-distribution-mode.md
-    Get-AzureVM -ServiceName "mySvc" -Name "MyVM1" | Add-AzureEndpoint -Name "HttpIn" -Protocol "tcp" -PublicPort 80 -LocalPort 8080 -LoadBalancerDistribution "sourceIP"| Update-AzureVM  
-=======
-    Get-AzureVM -ServiceName "mySvc" -Name "MyVM1" | Add-AzureEndpoint -Name "HttpIn" -Protocol "tcp" -PublicPort 80 -LocalPort 8080 â€"LoadBalancerDistribution â€œsourceIPâ€�| Update-AzureVM  
->>>>>>> 5781a6382194f50134d2a16bd9d72a6cca290f3d:articles/virtual-networks-load-balancer-manage-distribution-mode-source-ip.md
+    Get-AzureVM -ServiceName "mySvc" -Name "MyVM1" | Add-AzureEndpoint -Name "HttpIn" -Protocol "tcp" -PublicPort 80 -LocalPort 8080 –LoadBalancerDistribution “sourceIP”| Update-AzureVM  
 
-LoadBalancerDistribution의 값은 2개 튜플 선호도의 경우 sourceIP로, 3개 튜플 선호도의 경우에는 sourceIPProtocol로 설정할 수 있으며 선호도가 없는 경우에는 none으로 설정할 수 있습니다(기본값인 5개 튜플이 사용됨).  
+    Get-AzureVM -ServiceName "mySvc" -Name "MyVM1" | Add-AzureEndpoint -Name "HttpIn" -Protocol "tcp" -PublicPort 80 -LocalPort 8080 â€“LoadBalancerDistribution â€œsourceIPâ€�| Update-AzureVM  
+
+LoadBalancerDistribution의 값은 2개 튜플 선호도의 경우 sourceIP로, 3개 튜플 선호도의 경우에는 sourceIPProtocol로 설정할 수 있으며 선호도가 없는 경우에는 none으로 설정할 수 있습니다(기본값인 5개 튜플이 사용됨).
 
 ### 끝점 부하 분산 장치 배포 모드 구성 검색
-
-<<<<<<< HEAD:articles/virtual-networks-load-balancer-manage-distribution-mode.md
-    PS C:> Get-AzureVM -ServiceName "MyService" -Name "MyVM" | Get-AzureEndpoint
-=======
-    PS C:> Get-AzureVM â€"ServiceName â€œMyServiceâ€� â€"Name â€œMyVMâ€� | Get-AzureEndpoint
->>>>>>> 5781a6382194f50134d2a16bd9d72a6cca290f3d:articles/virtual-networks-load-balancer-manage-distribution-mode-source-ip.md
+    PS C:> Get-AzureVM –ServiceName "mySvc" -Name "MyVM1" | Get-AzureEndpoint
     
     VERBOSE: 6:43:50 PM - Completed Operation: Get Deployment
     LBSetName : MyLoadBalancedSet
@@ -102,11 +86,9 @@ LoadBalancerDistribution 요소가 없으면 Azure 부하 분산 장치는 기�
 
 ### 부하 분산된 끝점 집합에 대한 배포 모드 설정
 
-<<<<<<< HEAD:articles/virtual-networks-load-balancer-manage-distribution-mode.md
-    Set-AzureLoadBalancedEndpoint -ServiceName "MyService" -LBSetName "LBSet1" -Protocol tcp -LocalPort 80 -ProbeProtocolTCP -ProbePort 8080 -LoadBalancerDistribution "sourceIP"
-=======
-    Set-AzureLoadBalancedEndpoint -ServiceName "MyService" -LBSetName "LBSet1" -Protocol tcp -LocalPort 80 -ProbeProtocolTCP -ProbePort 8080 â€"LoadBalancerDistribution "sourceIP"
->>>>>>> 5781a6382194f50134d2a16bd9d72a6cca290f3d:articles/virtual-networks-load-balancer-manage-distribution-mode-source-ip.md
+    Set-AzureLoadBalancedEndpoint -ServiceName "MyService" -LBSetName "LBSet1" -Protocol tcp -LocalPort 80 -ProbeProtocolTCP -ProbePort 8080 –LoadBalancerDistribution "sourceIP"
+
+    Set-AzureLoadBalancedEndpoint -ServiceName "MyService" -LBSetName "LBSet1" -Protocol tcp -LocalPort 80 -ProbeProtocolTCP -ProbePort 8080 â€“LoadBalancerDistribution "sourceIP"
     
 부하 분산된 끝점 집합에 끝점이 포함되어 있으면 부하 분산된 끝점 집합에 대해 배포 모드를 설정해야 합니다.
 
@@ -136,7 +118,7 @@ Azure SDK for .NET을 사용하여 클라우드 서비스를 업데이트할 수
     
 ## API 예제
 
-개발자는 서비스 관리 API를 사용하여 부하 분산 장치 배포를 구성할 수 있습니다.  이때 x-ms-version 헤더는 버전 2014-09-01 이상으로 설정해야 합니다.
+개발자는 서비스 관리 API를 사용하여 부하 분산 장치 배포를 구성할 수 있습니다. 이때 x-ms-version 헤더는 버전 2014-09-01 이상으로 설정해야 합니다.
 
 ### 배포에서 지정한 부하 분산된 집합의 구성 업데이트
 
@@ -166,7 +148,7 @@ Azure SDK for .NET을 사용하여 클라우드 서비스를 업데이트할 수
       </InputEndpoint> 
     </LoadBalancedEndpointList>
 
-LoadBalancerDistribution의 값은 2개 튜플 선호도의 경우 sourceIP, 3개 튜플 선호도의 경우 sourceIPProtocol로 설정할 수 있으며 선호도가 없는 경우에는 none으로 설정할 수 있습니다(선호도가 없으면 5개 튜플 사용).
+LoadBalancerDistribution의 값은 2개 튜플 선호도의 경우 sourceIP로, 3개 튜플 선호도의 경우에는 sourceIPProtocol로 설정할 수 있으며 선호도가 없는 경우에는 none으로 설정할 수 있습니다(기본값인 5개 튜플이 사용됨).
 
 #### 응답
 
@@ -178,4 +160,4 @@ LoadBalancerDistribution의 값은 2개 튜플 선호도의 경우 sourceIP, 3�
     x-ms-request-id: 9c7bda3e67c621a6b57096323069f7af 
     Date: Thu, 16 Oct 2014 22:49:21 GMT
 
-<!--HONumber=47-->
+<!---HONumber=58-->

@@ -18,14 +18,14 @@
 
 # PHP 및 Azure Active Directory를 사용한 웹 Single Sign-On
 
-## <a name="introduction"></a>소개
+##<a name="introduction"></a>소개
 
 이 자습서에서는 PHP 개발자에게 Azure Active Directory를 활용하여 Office 365 고객의 사용자에 대해 Single Sign-On을 사용하도록 설정하는 방법을 보여 줍니다. 다음 방법에 대해 알아봅니다.
 
 * 고객의 테넌트에서 웹 응용 프로그램 프로비전
 * WS-Federation을 사용하여 응용 프로그램 보호
 
-### 필수 조건
+###필수 조건
 이 연습에는 다음과 같은 개발 환경 필수 조건이 필요합니다.
 
 * [Azure Active Directory용 PHP 샘플 코드]
@@ -36,12 +36,12 @@
 * [Office 365 PowerShell Commandlet]
 
 ## 1단계: PHP 응용 프로그램 만들기
-이 단계에서는 보호된 리소스를 나타내는 간단한 PHP 응용 프로그램을 만드는 방법을 설명합니다. 이 리소스에 대한 액세스 권한은 자습서의 뒷부분에 설명된 회사의 STS에 의해 관리되는 페더레이션 인증을 통해 부여됩니다.
+이 단계에서는 보호된 리소스를 나타내는 간단한 PHP 응용 프로그램을 만드는 방법을 설명합니다. 이 리소스에 대한 액세스 권한은 자습서의 뒷부분에 설명되어 있는 회사의 STS에 의해 관리되는 페더레이션 인증을 통해 부여됩니다.
 
 1. Eclipse의 새 인스턴스를 엽니다.
 2. **File** 메뉴에서 **New**를 클릭한 후 **New PHP Project**를 클릭합니다. 
-3. **New PHP Project** 대화 상자에서 프로젝트의 이름을  *phpSample*로 지정한 후 **Finish**를 클릭합니다.
-4. 왼쪽의 **PHP Explorer** 메뉴에서  *phpProject*를 마우스 오른쪽 단추로 클릭하고 **New**를 클릭한 후 **PHP File**을 클릭합니다.
+3. **New PHP Project** 대화 상자에서 프로젝트의 이름을 *phpSample*로 지정한 후 **Finish**를 클릭합니다.
+4. 왼쪽의 **PHP Explorer** 메뉴에서 *phpProject*를 마우스 오른쪽 단추로 클릭하고 **New**를 클릭한 후 **PHP File**을 클릭합니다.
 5. **New PHP File** 대화 상자에서 파일의 이름을 **index.php**로 지정한 후 **Finish**를 클릭합니다.
 6. 생성된 변경 내용을 다음으로 바꾼 후 **index.php**를 저장합니다.
 
@@ -56,17 +56,17 @@
 		</body>
 		</html> 
 
-7. 실행 프롬프트에  *inetmgr*을 입력하고 Enter 키를 눌러 **IIS(인터넷 정보 서비스)** 관리자를 엽니다.
+7. 실행 프롬프트에 **inetmgr**을 입력하고 Enter 키를 눌러 *IIS(인터넷 정보 서비스) 관리자*를 엽니다.
 
 8. IIS 관리자의 왼쪽 메뉴에서 **사이트** 폴더를 확장하고 **기본 웹 사이트**를 마우스 오른쪽 단추로 클릭한 후 **응용 프로그램 추가...**를 클릭합니다.
 
-9. **응용 프로그램 추가** 대화 상자에서 **별칭** 값을  *phpSample*로 설정하고 **실제 경로**를 PHP 프로젝트를 만든 파일 경로로 설정합니다.
+9. **응용 프로그램 추가** 대화 상자에서 **별칭** 값을 *phpSample*로 설정하고 **실제 경로**를 PHP 프로젝트를 만든 파일 경로로 설정합니다.
 
 10. Eclipse의 **Run** 메뉴에서 **Run**을 클릭합니다.
 
 11. **Run PHP Web Application** 메뉴에서 **OK**를 클릭합니다.
 
-12. **index.php** 페이지가 Eclipse의 새 탭에서 열립니다. 이 페이지에는 간단히  *Index Page* 텍스트가 표시됩니다. 
+12. **index.php** 페이지가 Eclipse의 새 탭에서 열립니다. 이 페이지에는 간단히 *Index Page*라는 텍스트만 표시됩니다.
 
 ## 2단계: 회사 디렉터리 테넌트에서 응용 프로그램 프로비전
 이 단계에서는 Azure Active Directory 고객의 관리자가 해당 테넌트에서 PHP 응용 프로그램을 프로비전하고 Single Sign-On을 구성하는 방법을 설명합니다. 이 단계가 완료된 후 회사의 직원은 해당 Office 365 계정을 사용하여 웹 응용 프로그램에 인증할 수 있습니다.
@@ -98,14 +98,13 @@
 		StartDate             : 12/01/2012 08:00:00 a.m.
 		EndDate               : 12/01/2013 08:00:00 a.m.
 		Usage                 : Verify 
-> [AZURE.NOTE] 
-> 이 출력을 저장해야 하며, 특히 생성된 대칭 키를 저장해야 합니다. 이 키는 서비스 사용자를 만드는 동안에만 표시되며 나중에는 이 키를 검색할 수 없습니다. 다른 값은 Graph API를 사용하여 디렉터리에서 정보를 읽고 쓰는 데 필요합니다.
+> [AZURE.NOTE]이 출력을 저장해야 하며, 특히 생성된 대칭 키를 저장해야 합니다. 이 키는 서비스 사용자를 만드는 동안에만 표시되며 나중에는 이 키를 검색할 수 없습니다. 다른 값은 Graph API를 사용하여 디렉터리에서 정보를 읽고 쓰는 데 필요합니다.
 
 6. 마지막 단계는 응용 프로그램의 릴레이 URL을 설정하는 것입니다. 릴레이 URL은 응답이 다음과 같은 인증 시도로 전송되는 위치입니다. 다음 명령을 입력하고 Enter 키를 누릅니다.
 
-		$replyUrl = New-MsolServicePrincipalAddresses -Address "https://localhost/phpSample" 
+		$replyUrl = New-MsolServicePrincipalAddresses –Address "https://localhost/phpSample" 
 
-		Set-MsolServicePrincipal -AppPrincipalId "7829c758-2bef-43df-a685-717089474505" -Addresses $replyUrl 
+		Set-MsolServicePrincipal –AppPrincipalId "7829c758-2bef-43df-a685-717089474505" –Addresses $replyUrl 
 	
 이제 디렉터리에서 웹 응용 프로그램이 프로비전되어 회사 직원이 이를 웹 Single Sign-On에 사용할 수 있습니다.
 
@@ -126,9 +125,9 @@
 		federation.reply=https://localhost/phpSample/index.php 
 
 
-	> [AZURE.NOTE] **audienceuris** 및 **realm** 값은 "spn:"으로 시작되어야 합니다.
+	> [AZURE.NOTE]**audienceuris** 및 **realm** 값은 "spn:"으로 시작되어야 합니다.
 
-4. Eclipse에서 **phpSample** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **New**를 클릭한 후 **PHP File**을 클릭합니다. 
+4. Eclipse에서 **phpSample** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **New**를 클릭한 후 **PHP File**을 클릭합니다.
 
 5. **New PHP File** 대화 상자에서 파일의 이름을 **secureResource.php**로 지정한 후 **Finish**를 클릭합니다.
 
@@ -182,7 +181,7 @@
 		</body>
 		</html> 
 
-8. **Run** 메뉴에서 **Run**을 클릭합니다. 디렉터리 테넌트 자격 증명을 사용하여 로그인할 수 있는 Office 365 ID 공급자 페이지로 자동으로 리디렉션되어야 합니다(예: *john.doe@fabrikam.onmicrosoft.com*.
+8. **Run** 메뉴에서 **Run**을 클릭합니다. 디렉터리 테넌트 자격 증명을 사용하여 로그인할 수 있는 Office 365 ID 공급자 페이지로 자동으로 리디렉션되어야 합니다(예: *john.doe@fabrikam.onmicrosoft.com*).
 
 ## 요약
 이 자습서에서는 Azure Active Directory의 Single Sign-On 기능을 사용하여 단일 테넌트 PHP 응용 프로그램을 만들고 구성하는 방법을 살펴보았습니다.
@@ -190,17 +189,17 @@
 PHP 웹 사이트에 Azure Active Directory 및 Single Sign-On을 사용하는 방법을 보여 주는 샘플은 <https://github.com/WindowsAzure/azure-sdk-for-php-samples/tree/master/WAAD.WebSSO.PHP>에서 제공합니다.
 
 
-[1단계: PHP 응용 프로그램 만들기]: #createapp
-[2단계: 회사 디렉터리 테넌트에서 응용 프로그램 프로비전]: #provisionapp
-[3단계: 직원 로그인을 위해 WS-Federation을 사용하여 응용 프로그램 보호]: #protectapp
-[요약]: #summary
-[소개]: #introduction
-[Azure Active Directory를 사용하여 다중 테넌트 클라우드 응용 프로그램 개발]: http://g.microsoftonline.com/0AX00en/121
+[Step 1: Create a PHP Application]: #createapp
+[Step 2: Provision the Application in a Company's Directory Tenant]: #provisionapp
+[Step 3: Protect the Application Using WS-Federation for Employee Sign In]: #protectapp
+[Summary]: #summary
+[Introduction]: #introduction
+[Developing Multi-Tenant Cloud Applications with Azure Active Directory]: http://g.microsoftonline.com/0AX00en/121
 [Windows Identity Foundation 3.5 SDK]: http://www.microsoft.com/download/details.aspx?id=4451
-[Windows Identity Foundation 1.0 런타임]: http://www.microsoft.com/download/details.aspx?id=17331
+[Windows Identity Foundation 1.0 Runtime]: http://www.microsoft.com/download/details.aspx?id=17331
 [Office 365 PowerShell Commandlet]: http://msdn.microsoft.com/library/azure/jj151815.aspx
 [ASP.NET MVC 3]: http://www.microsoft.com/download/details.aspx?id=4211
 [Eclipse PDT 3.0.x All In Ones]: http://www.eclipse.org/pdt/downloads/
-[Azure Active Directory용 PHP 샘플 코드]: https://github.com/WindowsAzure/azure-sdk-for-php-samples/tree/master/WAAD.WebSSO.PHP 
+[Azure Active Directory용 PHP 샘플 코드]: https://github.com/WindowsAzure/azure-sdk-for-php-samples/tree/master/WAAD.WebSSO.PHP
 
-<!--HONumber=47-->
+<!---HONumber=58-->

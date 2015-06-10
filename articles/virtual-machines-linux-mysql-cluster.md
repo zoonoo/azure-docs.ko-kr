@@ -1,35 +1,35 @@
-﻿<properties 
-	pageTitle="부하 분산 집합을 사용하여 Linux에서 MySQL 클러스터화" 
-	description="MySQL을 예로 사용하여 Azure에서 부하 분산된 고가용성 Linux 클러스터를 설정하는 패턴을 보여 주는 문서입니다." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="bureado" 
-	manager="timlt" 
+<properties
+	pageTitle="부하 분산 집합을 사용하여 Linux에서 MySQL 클러스터화"
+	description="MySQL을 예로 사용하여 Azure에서 부하 분산된 고가용성 Linux 클러스터를 설정하는 패턴을 보여 주는 문서입니다."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="bureado"
+	manager="timlt"
 	editor=""/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-linux" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/23/2014" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-linux"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="04/14/2015" 
 	ms.author="jparrel"/>
 
 # 부하 분산 집합을 사용하여 Linux에서 MySQL 클러스터화
 
 * [준비](#getting-ready)
-* [클러스터 설치](#setting-up-the-cluster)
-* [MySQL 설치](#setting-up-mysql)
-* [Corosync 설치](#setting-up-corosync)
-* [Pacemaker 설치](#setting-up-pacemaker)
+* [클러스터 설정](#setting-up-the-cluster)
+* [MySQL 설정](#setting-up-mysql)
+* [Corosync 설정](#setting-up-corosync)
+* [Pacemaker 설정](#setting-up-pacemaker)
 * [테스트](#testing)
 * [STONITH](#stonith)
 * [제한 사항](#limitations)
 
 ## 소개
 
-이 문서는 Microsoft Azure에서 고가용성 Linux 기반 서비스를 배포하고 MySQL Server 고가용성 기능을 기반으로 활용하기 위한 다양한 접근 방법을 알아보고 보여 주기 위한 것입니다. 이 접근 방법을 보여 주는 비디오는 [채널 9](http://channel9.msdn.com/Blogs/Open/Load-balancing-highly-available-Linux-services-on-Windows-Azure-OpenLDAP-and-MySQL)에서 사용할 수 있습니다.
+이 문서는 Microsoft Azure에서 고가용성 Linux 기반 서비스를 배포하고 MySQL Server 고가용성 기능을 기반으로 활용하기 위한 다양한 접근 방법을 알아보고 보여 주기 위한 것입니다. 이 접근 방법을 보여 주는 비디오는 [채널 9](http://channel9.msdn.com/Blogs/Open/Load-balancing-highly-available-Linux-services-on-Windows-Azure-OpenLDAP-and-MySQL)(영문)에서 사용할 수 있습니다.
 
 여기서는 DRBD, Corosync 및 Pacemaker를 기반으로 하는 비공유 2노드 단일 마스터 MySQL 고가용성 솔루션에 대해 설명합니다. MySQL에서는 한 번에 하나의 노드만 실행됩니다. DRBD 리소스를 쓰고 이 리소스에서 읽는 작업도 한 번에 하나의 노드로 제한됩니다.
 
@@ -68,13 +68,13 @@ NBD Cluster, Percona 및 Galera를 비롯하여 MySQL에 대해 사용 가능한
 
 ### 연결된 저장소
 
-새 디스크를 두 VM에 연결하고 프로세스에서 새 5GB 디스크를 만듭니다. 이러한 디스크는 기본 운영 체제 디스크 용도로 사용될 경우 VHD 컨테이너에 호스트됩니다. 디스크가 만들어지고 연결되면 커널에 새 장치가 보이므로 Linux를 다시 시작할 필요가 없습니다(일반적으로 `/dev/sdc`,  `dmesg`에서 출력 확인 가능)
+새 디스크를 두 VM에 연결하고 프로세스에서 새 5GB 디스크를 만듭니다. 이러한 디스크는 기본 운영 체제 디스크 용도로 사용될 경우 VHD 컨테이너에 호스트됩니다. 디스크가 만들어지고 연결되면 커널에 새 장치가 보이므로 Linux를 다시 시작할 필요가 없습니다(일반적으로 `/dev/sdc`, `dmesg`에서 출력 확인 가능)
 
-각 VM에서 `cfdisk`를 사용하여 새 파티션(기본, Linux 파티션)을 계속 만들고 새 파티션 테이블을 씁니다. **이 파티션에는 파일 시스템을 만들지 않도록 합니다**.
+각 VM에서 `cfdisk`를 사용하여 새 파티션(기본, Linux 파티션)을 계속 만들고 새 파티션 테이블을 씁니다. **이 파티션에는 파일 시스템을 만들지 않도록 합니다** .
 
 ## 클러스터 설치
 
-두 Ubuntu VM에서 APT를 사용하여 Corosync, Pacemaker 및 DRBD를 설치해야 합니다. `apt-get` 사용:
+두 Ubuntu VM에서 APT를 사용하여 Corosync, Pacemaker 및 DRBD를 설치해야 합니다. `apt-get`을 사용할 경우 다음을 실행합니다.
 
     sudo apt-get install corosync pacemaker drbd8-utils.
 
@@ -84,7 +84,7 @@ NBD Cluster, Percona 및 Galera를 비롯하여 MySQL에 대해 사용 가능한
 
 ### DRBD 설치
 
-기본 `/dev/sdc1` 파티션을 사용하여 ext3를 통해 포맷될 수 있고 기본 및 보조 노드 둘 다에서 사용될 수 있는 `/dev/drbd1` 리소스를 생성하는 DRBD 리소스를 만들어 보겠습니다. 이렇게 하려면 `/etc/drbd.d/r0.res`를 열고 다음 리소스 정의를 복사합니다. 이 작업을 두 VM에서 수행하세요.
+기본 `/dev/sdc1` 파티션을 사용하여 ext3을 통해 포맷될 수 있고 기본 및 보조 노드 둘 다에서 사용될 수 있는 `/dev/drbd1` 리소스를 생성하는 DRBD 리소스를 만들어 보겠습니다. 이렇게 하려면 `/etc/drbd.d/r0.res`를 열고 다음 리소스 정의를 복사합니다. 이 작업을 두 VM에서 수행하세요.
 
     resource r0 {
       on `hadb01` {
@@ -110,7 +110,7 @@ NBD Cluster, Percona 및 Galera를 비롯하여 MySQL에 대해 사용 가능한
 
     sudo drbdadm primary --force r0
 
-두 VM에서 /proc/drbd의 내용(`sudo cat /proc/drbd`)을 검토할 경우 지금 진행하는 솔루션과 일관되게  `hadb01`에서는 `Primary/Secondary`를  and  `hadb02`에서는 `Secondary/Primary`을 확인해야 합니다 5GB 디스크는 추가 비용 없이 10.10.10.0/24 네트워크를 통해 고객과 동기화됩니다.
+두 VM에서 /proc/drbd(`sudo cat /proc/drbd`)의 내용을 검토할 경우 여기서 `hadb01`의 `Primary/Secondary`와 `hadb02`의 `Secondary/Primary`가 솔루션과 일치하는 것을 확인할 수 있습니다. 5GB 디스크는 추가 비용 없이 10.10.10.0/24 네트워크를 통해 고객과 동기화됩니다.
 
 디스크가 동기화되면 `hadb01`에서 파일 시스템을 만들 수 있습니다. 테스트 목적으로, ext2를 사용했지만 다음 지침을 수행하면 ext3 파일 시스템이 만들어집니다.
 
@@ -118,7 +118,7 @@ NBD Cluster, Percona 및 Galera를 비롯하여 MySQL에 대해 사용 가능한
 
 ### DRBD 리소스 탑재
 
-이제 `hadb01`에서 DRBD 리소스를 탑재할 준비가 되었습니다. Debian 및 파생 배포판은 `/var/lib/mysql`을 MySQL 데이터 디렉터리로 사용합니다. MySQL을 설치하지 않았으므로 이 디렉터리를 만든 후 DRBD 리소스를 탑재할 것입니다. `hadb01`에서 다음을 실행합니다.
+이제 `hadb01`에서 DRBD 리소스를 탑재할 준비가 되었습니다. Debian 및 파생 배포판은 `/var/lib/mysql`을 MySQL 데이터 디렉터리로 사용합니다. MySQL을 설치하지 않았으므로 이 디렉터리를 만든 후 DRBD 리소스를 탑재할 것입니다. `hadb01`에서:
 
     sudo mkdir /var/lib/mysql
     sudo mount /dev/drbd1 /var/lib/mysql
@@ -129,26 +129,26 @@ NBD Cluster, Percona 및 Galera를 비롯하여 MySQL에 대해 사용 가능한
 
     sudo apt-get install mysql-server
 
-`hadb02`의 경우 두 가지 옵션이 있습니다. 지금 mysql-server를 설치하여 /var/lib/mysql을 만들고 새 데이터 디렉터리로 채운 다음 콘텐츠를 계속 제거합니다. `hadb02`에서 다음을 실행합니다.
+`hadb02`의 경우 두 가지 옵션이 있습니다. 지금 mysql-server를 설치하여 /var/lib/mysql을 만들고 새 데이터 디렉터리로 채운 다음 콘텐츠를 계속 제거합니다. `hadb02`에서:
 
     sudo apt-get install mysql-server
     sudo service mysql stop
-    sudo rm -rf /var/lib/mysql/*
+    sudo rm –rf /var/lib/mysql/*
 
 두 번째 옵션은 `hadb02`로 장애 조치(Failover)한 다음 여기에 mysql-server를 설치하는 것입니다(설치 스크립트는 기존 설치를 감지하지만 변경하지 않음)
 
-`hadb01`에서 다음을 실행합니다.
+`hadb01`에서:
 
-    sudo drbdadm secondary -force r0
+    sudo drbdadm secondary –force r0
 
-`hadb02`에서 다음을 실행합니다.
+`hadb02`에서:
 
-    sudo drbdadm primary -force r0
+    sudo drbdadm primary –force r0
     sudo apt-get install mysql-server
 
 지금 DRBD를 장애 조치(Failover)할 계획이 아닌 경우 첫 번째 옵션이 더 쉽지만 확실히 덜 깔끔합니다. 설정이 완료되면 MySQL 데이터베이스에 대해 작업을 시작할 수 있습니다. `hadb02`(또는 DRBD에 따라 활성 상태인 서버 중 하나)에서 다음을 실행합니다.
 
-    mysql -u root -p
+    mysql –u root –p
     CREATE DATABASE azureha;
     CREATE TABLE things ( id SERIAL, name VARCHAR(255) );
     INSERT INTO things VALUES (1, "Yet another entity");
@@ -160,7 +160,7 @@ NBD Cluster, Percona 및 Galera를 비롯하여 MySQL에 대해 사용 가능한
 
 ### MySQL 부하 분산 집합 만들기
 
-Azure 포털로 돌아가 `hadb01` VM으로 이동한 후 끝점으로 이동합니다. 새 끝점을 만들고 드롭다운에서 MySQL(TCP 3306)을 선택하고  *Create new load balanced set* 상자를 선택합니다. 부하 분산된 끝점을 `lb-mysql`로 지칭합니다. 대부분의 옵션을 그대로 두고 시간만 5(초, 최소한)로 줄입니다.
+Azure 포털로 돌아가 `hadb01` VM으로 이동한 후 끝점으로 이동합니다. 새 끝점을 만들고 드롭다운에서 MySQL(TCP 3306)을 선택하고 *Create new load balanced set* 상자를 선택합니다. 부하 분산된 끝점을 `lb-mysql`로 지칭합니다. 대부분의 옵션을 그대로 두고 시간만 5(초, 최소한)로 줄입니다.
 
 끝점이 만들어진 후에는 끝점 `hadb02`로 이동한 다음 새 끝점을 만듭니다. 그렇지만 이번에는 `lb-mysql`을 선택한 다음 드롭다운 메뉴에서 MySQL을 선택합니다. 이 단계를 위해 Azure CLI를 사용할 수도 있습니다.
 
@@ -170,7 +170,7 @@ Azure 포털로 돌아가 `hadb01` VM으로 이동한 후 끝점으로 이동합
 
 MySQL 클라이언트와 응용 프로그램(예: Azure 웹 사이트로 실행되는 phpMyAdmin)을 사용하여 외부 컴퓨터에서 테스트를 수행할 수 있습니다. 이 경우에는 다른 Linux 상자의 MySQL 명령줄 도구를 사용했습니다.
 
-    mysql azureha -u root -h hadb.cloudapp.net -e "select * from things;"
+    mysql azureha –u root –h hadb.cloudapp.net –e "select * from things;"
 
 ### 수동 장애 조치(Failover)
 
@@ -192,7 +192,7 @@ Corosync는 Pacemaker 작동에 필요한 기본 클러스터 인프라입니다
 
 Azure에서 나타나는 Corosync의 기본적인 제약 조건은 Corosync가 유니캐스트 통신보다는 브로드캐스트를 통한 멀티캐스트 통신 방식을 선호한다는 것입니다. 그렇지만 Microsoft Azure 네트워킹에서는 유니캐스트만 지원합니다.
 
-다행히 Corosync에서 유니캐스트 모드가 지원되며, 유일한 실질적 제약 조건은 모든 노드가 서로 간에 *automagically* 통신하지는 못하므로 노드의 IP 주소를 비롯하여 구성 파일에 노드를 정의해야 한다는 것입니다. 유니캐스트에 대한 Corosync 예제 파일을 사용하고 just change 바인딩 주소, 노드 목록 및 로깅 디렉터리만 변경하고(Ubuntu는 `/var/log/corosync`를 사용하지만 이 예제 파일은 `/var/log/cluster`를 사용함) 쿼럼 도구를 사용하도록 설정하면 됩니다. 
+다행히 Corosync에서 유니캐스트 모드가 지원되며, 유일한 실질적 제약 조건은 모든 노드가 서로 간에 *자연스럽게* 통신하지는 못하므로 노드의 IP 주소를 비롯하여 구성 파일에 노드를 정의해야 한다는 것입니다. 유니캐스트에 대한 Corosync 예제 파일을 사용하고 just change 바인딩 주소, 노드 목록 및 로깅 디렉터리만 변경하고(Ubuntu는 `/var/log/corosync`를 사용하지만 이 예제 파일은 `/var/log/cluster`를 사용함) 쿼럼 도구를 사용하도록 설정하면 됩니다.
 
 **아래의 `transport: udpu` 지시문과 노드에 대해 수동으로 정의한 IP 주소를 적어두세요**.
 
@@ -246,7 +246,7 @@ Azure에서 나타나는 Corosync의 기본적인 제약 조건은 Corosync가 �
 
 서비스를 시작한 직후에 클러스터가 현재 링에 설정되어 있고 쿼럼이 구성되어 있어야 합니다. 로그 또는 다음을 검토하여 이 기능을 확인할 수 있습니다.
 
-    sudo corosync-quorumtool -l
+    sudo corosync-quorumtool –l
 
 아래 이미지와 비슷한 출력이 표시됩니다.
 
@@ -271,7 +271,7 @@ Pacemaker를 처음 설치할 때는 구성이 다음과 같이 단순합니다.
           params drbd_resource="r0" \
           op monitor interval="29s" role="Master" \
           op monitor interval="31s" role="Slave"
-    
+
     ms ms_drbd_mysql drbd_mysql \
           meta master-max="1" master-node-max="1" \
             clone-max="2" clone-node-max="1" \
@@ -306,7 +306,7 @@ Pacemaker를 처음 설치할 때는 구성이 다음과 같이 단순합니다.
 
     sudo update-rc.d pacemaker defaults
 
-몇 초 후에 `sudo crm_mon -L`을 사용하여 노드 중 하나가 클러스터의 마스터가 되어 모든 리소스를 실행하는지 확인합니다. mount 및 ps를 사용하여 리소스가 실행 중인지 확인할 수 있습니다.
+몇 초 후에 `sudo crm_mon –L`을 사용하여 노드 중 하나가 클러스터의 마스터가 되어 모든 리소스를 실행하는지 확인합니다. mount 및 ps를 사용하여 리소스가 실행 중인지 확인할 수 있습니다.
 
 다음 스크린샷에서는 하나의 노드가 중지된 `crm_mon`이 표시됩니다(끝내려면 Ctrl+C 사용).
 
@@ -314,11 +314,11 @@ Pacemaker를 처음 설치할 때는 구성이 다음과 같이 단순합니다.
 
 또한 스크린샷에는 마스터 노드 하나와 슬레이브 노드 하나가 표시됩니다.
 
-![crm_mon operational master/slave](media/virtual-machines-linux-mysql-cluster/image003.png) 
+![crm_mon operational master/slave](media/virtual-machines-linux-mysql-cluster/image003.png)
 
 ## 테스트
 
-자동 장애 조치(Failover) 시뮬레이션 준비가 되었습니다. 이 작업을 수행하는 방법에는 소프트 방법과 하드 방법이 있습니다. 소프트 방법은 클러스터의 종료 함수인 ``crm_standby -U `uname -n` -v on``. 을 사용하는 것입니다. 마스터에서 이 함수를 사용하면 슬레이브가 작업을 인계 받습니다. 이 설정은 반드시 다시 해제해야 합니다(crm_mon은 한 노드가 대기 상태임을 알려줌).
+자동 장애 조치(Failover) 시뮬레이션 준비가 되었습니다. 이 작업을 수행하는 방법에는 소프트 방법과 하드 방법이 있습니다. 소프트 방법은 클러스터의 종료 함수인 ``crm_standby -U `uname -n` -v on``을 사용합니다. 을 사용하는 것입니다. 마스터에서 이 함수를 사용하면 슬레이브가 작업을 인계 받습니다. 이 설정은 반드시 다시 해제해야 합니다(crm_mon은 한 노드가 대기 상태임을 알려줌).
 
 하드 방법은 포털을 통해 기본 VM(hadb01)을 종료하거나 VM에서 실행 수준(즉, 중지, 종료)을 변경하는 것입니다. 그러면 우리가 마스터의 작동 중단을 신호로 알려 Corosync 및 Pacemaker를 지원합니다. 이것을 테스트할 수 있지만(유지 관리 기간에 유용) 단지 VM을 동결하여 이 시나리오를 강제로 실행할 수도 있습니다.
 
@@ -344,7 +344,7 @@ Pacemaker를 처음 설치할 때는 구성이 다음과 같이 단순합니다.
   - 로컬(클러스터화되지 않은) Watchdog를 통해 모든 클러스터 노드에서 `drbdadm up r0` 적용 또는
   - linbit DRBD 스크립트를 편집하여 `/usr/lib/ocf/resource.d/linbit/drbd`에서 `down`이 호출되지 않도록 설정
 - 부하 분산 장치가 응답하는 데 5초 이상 필요하므로 응용 프로그램은 클러스터를 인식할 수 있어야 하고 시간 제한을 좀 더 허용해야 합니다. 앱 내 큐, 쿼리 미들웨어 등의 다른 아키텍처도 도움이 될 수 있습니다.
-- 동일한 간격으로 쓰기가 수행되고 캐시가 메모리 손실을 최소화할 만큼 자주 디스크에 플러시되도록 하기 위해 MySQL 튜닝이 필요합니다.
+- 동일한 간격으로 쓰기가 수행되고 캐시가 메모리 손실을 최소화할만큼 자주 디스크에 플러시되도록 하기 위해 MySQL 튜닝이 필요합니다.
 - 쓰기 성능은 DRBD가 장치 복제에 사용하는 메커니즘인 가상 스위치의 VM 상호 연결에 따라 좌우됩니다.
 
-<!--HONumber=45--> 
+<!---HONumber=58-->

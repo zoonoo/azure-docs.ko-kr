@@ -13,33 +13,53 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/29/2015" 
+	ms.date="05/11/2015" 
 	ms.author="rasquill"/>
 
 # Azure 리소스 관리자 템플릿 및 Azure CLI를 사용하여 가상 컴퓨터 배포 및 관리
 
-이 문서에서는 Azure 리소스 관리자 템플릿 및 Azure CLI를 사용하여 Azure 가상 컴퓨터를 배포하고 관리하는 일반 작업을 자동화하는 방법에 대한 지침뿐만 아니라 가상 컴퓨터의 자동화에 대한 추가 설명서 링크를 제공합니다.
+이 문서에서는 Azure 리소스 관리자 템플릿 및 Azure CLI를 사용하여 Azure 가상 컴퓨터를 배포하고 관리하는 다음 일반 작업을 수행하는 방법을 보여 줍니다. 사용할 수 있는 더 많은 템플릿은 [Azure 빠른 시작 템플릿](http://azure.microsoft.com/documentation/templates/) 및 [앱 프레임 워크](virtual-machines-app-frameworks.md)를 참조하세요.
+
+일반 작업:
+
+- [Azure의 가상 컴퓨터를 빨리 만들기](#quick-create-a-vm-in-azure)
+- [템플릿의 Azure에서 가상 컴퓨터 배포](#deploy-a-vm-in-azure-from-a-template)
+- [사용자 지정 이미지에서 가상 컴퓨터 만들기](#create-a-custom-vm-image) 
+- [가상 네트워크를 및 부하 분산 장치를 사용하여 VM 배포](#deploy-a-multi-vm-application-that-uses-a-virtual-network-and-an-external-load-balancer)
+- [리소스 그룹 제거](#remove-a-resource-group)
+- [리소스 그룹 배포에 대한 로그 표시](#show-the-log-for-a-resource-group-deployment)
+- [가상 컴퓨터에 대한 정보 표시](#display-information-about-a-virtual-machine)
+- [Linux 기반 가상 컴퓨터에 연결](#log-on-to-a-linux-based-virtual-machine)
+- [가상 컴퓨터 중지](#stop-a-virtual-machine)
+- [가상 컴퓨터 시작](#start-a-virtual-machine)
+- [데이터 디스크 연결](#attach-a-data-disk)
+
+
 
 ## 준비
 
 Azure 리소스 그룹에서 Azure CLI를 사용하려면 올바른 Azure CLI 버전 및 회사 또는 학교 ID(조직 ID라고도 함)가 있어야 합니다.
 
-### 1단계: 0.9.0으로 Azure CLI 버전 업데이트
+### 0.9.0 이상으로 Azure CLI 버전 업데이트
 
-0.9.0 버전을 이미 설치했는지 확인하려면 `azure --version`을 입력합니다.
+0.9.0 버전 이상을 이미 설치했는지 확인하려면 `azure --version`을 입력합니다.
 
 	azure --version
     0.9.0 (node: 0.10.25)
 
-버전이 0.9.0이 아닌 경우 [Azure CLI를 설치](xplat-cli-install.md)하거나 기본 설치 관리자 중 하나 또는 **npm**(`npm update -g azure-cli`입력)을 통해 업데이트해야 합니다.
+버전이 0.9.0 이상이 아닌 경우 [Azure CLI를 설치](xplat-cli-install.md)하거나 기본 설치 관리자 중 하나 또는 **npm**(`npm update -g azure-cli`입력)을 통해 업데이트해야 합니다.
 
-### 2단계: Azure 계정 및 구독 설정
+다음을 [Docker 이미지](https://registry.hub.docker.com/u/microsoft/azure-cli/)를 사용하여 Docker 컨테이너로 Azure CLI를 실행할 수도 있습니다. Docker 호스트에서 다음 명령을 실행합니다.
+
+	docker run -it microsoft/azure-cli
+
+### Azure 계정 및 구독 설정
 
 Azure 구독은 아직 없지만 MSDN 구독은 있는 경우 [MSDN 구독자 혜택](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 활성화할 수 있습니다. 또는 [무료 평가판](http://azure.microsoft.com/pricing/free-trial/)에 등록할 수 있습니다.
 
 Azure 리소스 관리 템플릿을 사용하려면 회사 또는 학교 계정이 있어야 합니다. 계정이 있는 경우 `azure login`을 입력하고 사용자 이름 및 암호를 입력하면 로그인됩니다.
 
-> [AZURE.NOTE]계정이 없는 경우 다른 유형의 계정이 필요하다는 오류 메시지가 표시됩니다. 현재 Azure 계정에서 계정을 만들려면 [Azure 계정에 연결](xplat-cli-connect.md)을 참조하세요.
+> [AZURE.NOTE]계정이 없는 경우 다른 유형의 계정이 필요하다는 오류 메시지가 표시됩니다. 현재 Azure 계정에서 하나를 만들려면 [Azure Active Directory에서 회사 또는 학교 ID 만들기](resource-group-create-work-id-from-personal.md)를 참조하세요.
 
 계정에는 둘 이상의 구독이 있을 수 있습니다. `azure account list`를 입력하여 구독을 나열할 수 있으며, 다음과 같이 표시될 수 있습니다.
 
@@ -54,11 +74,11 @@ Azure 리소스 관리 템플릿을 사용하려면 회사 또는 학교 계정�
     
 다음과 같이 입력하여 현재 Azure 구독을 설정할 수 있습니다.
 
-	`azure account set <subscription name or ID> true
+	azure account set <subscription name or ID> true
 
 관리하려는 리소스가 있는 구독 이름 또는 ID와 함께 입력합니다.
 
-### 3단계: Azure CLI 리소스 그룹 모드로 전환
+### Azure CLI 리소스 그룹 모드로 전환
 
 기본적으로 Azure CLI는 서비스 관리 모드(**asm** 모드)로 시작됩니다. 형식
 
@@ -83,7 +103,7 @@ Azure 리소스 관리 템플릿을 사용하려면 회사 또는 학교 계정�
 
 Azure 리소스 그룹 및 기능에 대한 자세한 내용은 [여기](resource-groups-overview.md)에서 확인할 수 있습니다. 템플릿 작성에 관심이 있다면 [Azure 리소스 관리자 템플릿 작성](resource-group-authoring-templates.md)을 참조하세요.
 
-## 일반 작업: Azure에서 VM 빠르게 만들기
+## Azure에서 VM 빠르게 만들기
 
 경우에 따라 필요한 이미지를 알고 있고 해당 이미지로 만든 VM이 당장 필요할 수 있지만 인프라에 대해서는 너무 염려하지 않아도 됩니다. 새 VM에서 테스트할 수도 있습니다. 이때 `azure vm quick-create` 명령을 사용하고 VM 및 해당 인프라를 만드는 데 필요한 인수를 전달하면 됩니다.
 
@@ -105,7 +125,9 @@ Azure 리소스 그룹 및 기능에 대한 자세한 내용은 [여기](resourc
 
 두 번째로 이미지가 필요합니다. Azure CLI를 사용하여 이미지를 찾으려면 [PowerShell 및 Azure CLI를 사용하여 Azure 가상 컴퓨터 이미지 탐색 및 선택](resource-groups-vm-searching.md)을 참조하세요. 그러나 이 빠른 시작에서는 다음과 같이 많이 사용되는 간단한 이미지 목록을 제공합니다. 이 quick-create에서는 CoreOS의 Stable 이미지를 사용합니다.
 
-| 게시자 | ImageOffer | ImageSku | ComputeImageVersion |
+> [AZURE.NOTE]ComputeImageVersion의 경우, 템플릿 언어 및 Azure CLI 모두에서 매개 변수로 단순히 '최신'을 제공할 수도 있습니다. 이렇게 하면 사용자 스크립트 또는 템플릿을 수정하지 않고도 최신 및 패치가 적용된 버전의 이미지를 항상 사용할 수 있습니다. 다음과 같습니다.
+
+| PublisherName | 제안 | SKU | 버전 |
 |:---------------------------------|:-------------------------------------------|:---------------------------------|:--------------------|
 | OpenLogic | CentOS | 7 | 7.0.201503 |
 | OpenLogic | CentOS | 7.1 | 7.1.201504 |
@@ -117,8 +139,10 @@ Azure 리소스 그룹 및 기능에 대한 자세한 내용은 [여기](resourc
 | msopentech | Oracle-Database-12c-Weblogic-Server-12c | Enterprise | 1.0.0 |
 | MicrosoftSQLServer | SQL2014-WS2012R2 | Enterprise-Optimized-for-DW | 12.0.2430 |
 | MicrosoftSQLServer | SQL2014-WS2012R2 | Enterprise-Optimized-for-OLTP | 12.0.2430 |
-| Canonical | UbuntuServer | 14.04.1-LTS | 14.04.201501230 |
+| Canonical | UbuntuServer | 12.04.5-LTS | 12.04.201504230 |
 | Canonical | UbuntuServer | 14.04.2-LTS | 14.04.201503090 |
+| MicrosoftWindowsServer | WindowsServer | 2012-Datacenter | 3.0.201503 |
+| MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter | 4.0.201503 |
 | MicrosoftWindowsServer | WindowsServer | Windows-Server-Technical-Preview | 5.0.201504 |
 | MicrosoftWindowsServerEssentials | WindowsServerEssentials | WindowsServerEssentials | 1.0.141204 |
 | MicrosoftWindowsServerHPCPack | WindowsServerHPCPack | 2012R2 | 4.3.4665 |
@@ -131,7 +155,7 @@ Azure 리소스 그룹 및 기능에 대한 자세한 내용은 [여기](resourc
     Virtual machine name: coreos
     Location name: westus
     Operating system Type [Windows, Linux]: linux
-    ImageURN (format: "publisherName:offer:skus:version"): coreos:coreos:stable:633.1.0
+    ImageURN (format: "publisherName:offer:skus:version"): coreos:coreos:stable:latest
     User name: ops
     Password: *********
     Confirm password: *********
@@ -208,7 +232,7 @@ Azure 리소스 그룹 및 기능에 대한 자세한 내용은 [여기](resourc
     
 이제 새 VM으로 전환하면 됩니다.
 
-## 일반 작업: 템플릿에서 Azure의 VM 배포
+## 템플릿에서 Azure의 VM 배포
 
 Azure CLI 및 템플릿을 사용하여 새 Azure VM을 배포하려면 이러한 섹션의 지침을 사용하세요. 이 템플릿에서는 단일 서브넷을 사용하는 새 가상 네트워크에 단일 가상 컴퓨터를 만들고 `azure vm quick-create`와 달리 원하는 항목을 정확하게 설명하고 오류 없이 반복할 수 있도록 합니다. 다음은 이 템플릿에서 만드는 항목입니다.
 
@@ -449,7 +473,7 @@ JSON 파일의 **"parameters"** 섹션에 매개 변수 값을 제공하라는 �
     adminPassword: password
     dnsNameForPublicIP: newdomainname
     
-다음과 같은 유형의 정보를 받게 됩니다.
+다음과 같은 유형의 정보가 제공됩니다.
 
     + Initializing template configurations and parameters                          
     + Creating a deployment                                                        
@@ -477,7 +501,7 @@ JSON 파일의 **"parameters"** 섹션에 매개 변수 값을 제공하라는 �
     
 
 
-## 일반 작업: 사용자 지정 VM 이미지 만들기
+## 사용자 지정 VM 이미지 만들기
 
 위에서 템플릿의 기본 사용법을 확인했으므로 이제 유사한 지침을 사용하여 Azure의 특정 .vhd 파일에서 Azure CLI를 사용하는 템플릿으로 사용자 지정 VM을 만들 수 있습니다. 여기서 차이점은 이 템플릿의 경우 특정 VHD(가상 하드 디스크)에서 단일 가상 컴퓨터를 만든다는 점입니다.
 
@@ -1198,7 +1222,7 @@ Azure PowerShell 명령과 Github 템플릿 리포지토리의 리소스 관리�
     info:    Executing command vm show
     + Looking up the VM "myVM1"                                                    
     + Looking up the NIC "nic1"                                                    
-    data:    Id                              :/subscriptions/8f2d8c5f-742a-4f1b-a2ed-a2b8b246bcd6/resourceGroups/zoo/providers/Microsoft.Compute/virtualMachines/myVM1
+    data:    Id                              :/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/zoo/providers/Microsoft.Compute/virtualMachines/myVM1
     data:    ProvisioningState               :Failed
     data:    Name                            :myVM1
     data:    Location                        :westus
@@ -1232,7 +1256,7 @@ Azure PowerShell 명령과 Github 템플릿 리포지토리의 리소스 관리�
     data:    Network Profile:
     data:      Network Interfaces:
     data:        Network Interface #1:
-    data:          Id                        :/subscriptions/8f2d8c5f-742a-4f1b-a2ed-a2b8b246bcd6/resourceGroups/zoo/providers/Microsoft.Network/networkInterfaces/nic1
+    data:          Id                        :/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/zoo/providers/Microsoft.Network/networkInterfaces/nic1
     data:          Primary                   :false
     data:          Provisioning State        :Succeeded
     data:          Name                      :nic1
@@ -1241,25 +1265,11 @@ Azure PowerShell 명령과 Github 템플릿 리포지토리의 리소스 관리�
     data:            Private IP address      :10.0.0.5
     data:    
     data:    AvailabilitySet:
-    data:      Id                            :/subscriptions/8f2d8c5f-742a-4f1b-a2ed-a2b8b246bcd6/resourceGroups/zoo/providers/Microsoft.Compute/availabilitySets/MYAVSET
+    data:      Id                            :/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/zoo/providers/Microsoft.Compute/availabilitySets/MYAVSET
     info:    vm show command OK
     
 
 > [AZURE.NOTE]콘솔 명령의 출력을 프로그래밍 방식으로 저장하고 조작하려는 경우 **[jq](https://github.com/stedolan/jq)**, **[jsawk](https://github.com/micha/jsawk)** 또는 작업에 적합한 언어 라이브러리 같은 JSON 구문 분석 도구를 사용할 수 있습니다.
-
-## VM에 대한 정보 표시
-
-자주 사용하게 될 기본 작업입니다. 이 작업을 사용하여 VM에 대한 정보를 가져오거나 VM에서 작업을 수행하거나 변수에 저장할 출력을 가져옵니다.
-
-VM에 대한 정보를 가져오려면 이 명령을 실행하고 < and > 문자를 포함하여 따옴표 안의 모든 항목을 바꿉니다.
-
-     azure vm show -g <group name> -n <virtual machine name>
-
-JSON 문서로 $vm 변수에 출력을 저장하려면 다음을 실행합니다.
-
-    vmInfo=$(azure vm show -g <group name> -n <virtual machine name> --json)
-    
-또는 stdout를 파일에 파이프할 수 있습니다.
 
 ## Linux 기반 가상 컴퓨터에 로그온
 
@@ -1294,6 +1304,8 @@ JSON 문서로 $vm 변수에 출력을 저장하려면 다음을 실행합니다
 
 ## 다음 단계
 
-**arm** 모드의 Azure CLI 사용에 대한 더 많은 예제는 [Azure 리소스 관리에 Mac, Linux 및 Windows용 Microsoft Azure CLI 사용](xplat-cli-resource-manager.md)을 참조하세요. Azure 리소스 및 해당 개념에 대한 자세한 내용은 [Azure 리소스 관리자 개요](resource-group-overview.md)를 참조하세요.
+**arm** 모드의 Azure CLI 사용에 대한 더 많은 예제는 [Azure 리소스 관리에 Mac, Linux 및 Windows용 Microsoft Azure CLI 사용](xplat-cli-azure-resource-manager.md)을 참조하세요. Azure 리소스 및 해당 개념에 대한 자세한 내용은 [Azure 리소스 관리자 개요](resource-group-overview.md)를 참조하세요.
 
-<!--HONumber=52-->
+사용할 수 있는 더 많은 템플릿에 대해서는 [Azure 빠른 시작 템플릿](http://azure.microsoft.com/documentation/templates/) 및 [앱 프레임 워크](virtual-machines-app-frameworks.md)를 참조하세요.
+
+<!---HONumber=58-->

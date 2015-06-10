@@ -1,6 +1,6 @@
-﻿<properties 
+<properties 
 	pageTitle="Azure에서 가상 컴퓨터에 끝점 설정" 
-	description="Azure에서 가상 컴퓨터와의 통신을 설정하는 방법에 대해 알아봅니다." 
+	description="Azure에서 가상 컴퓨터와 통신을 허용하도록 클래식 포털에서 끝점을 설정하는 방법에 대해 알아봅니다." 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="KBDAzure" 
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/12/2015" 
+	ms.date="04/29/2015" 
 	ms.author="kathydav"/>
 
-# 가상 컴퓨터에 끝점을 설정하는 방법
+#가상 컴퓨터에 끝점을 설정하는 방법
 
 Azure에서 만든 모든 가상 컴퓨터는 개인 네트워크 채널을 사용하여 동일한 클라우드 서비스 또는 가상 네트워크에 있는 다른 가상 컴퓨터와 자동으로 통신할 수 있습니다. 그러나 인터넷이나 다른 가상 네트워크의 컴퓨터가 가상 컴퓨터로 인바운드 네트워크 트래픽을 전달하려면 끝점이 필요합니다.
 
-Azure 관리 포털에서 가상 컴퓨터를 만드는 경우 원격 데스크톱, Windows PowerShell 원격 및 SSH(Secure Shell)에 대한 끝점이 자동으로 만들어집니다. 가상 컴퓨터를 만드는 동안 또는 가상 컴퓨터를 만든 후 필요에 따라 추가 끝점을 만들 수 있습니다. 
+Azure 관리 포털에서 가상 컴퓨터를 만드는 경우 원격 데스크톱, Windows PowerShell 원격 및 SSH(Secure Shell)에 대한 끝점이 자동으로 만들어집니다. 가상 컴퓨터를 만드는 동안 또는 가상 컴퓨터를 만든 후 필요에 따라 추가 끝점을 만들 수 있습니다.
 
 각 끝점에는 공용 포트와 개인 포트가 있습니다.
 
@@ -33,15 +33,15 @@ Azure 관리 포털에서 가상 컴퓨터를 만드는 경우 원격 데스크�
 
 **중요**: Azure 가상 컴퓨터에 대한 방화벽 구성은 원격 데스크톱 및 SSH(Secure Shell)와 연결된 포트 및 대부분의 경우 Windows PowerShell 원격에 대해 자동으로 수행됩니다. 다른 모든 끝점에 지정된 포트의 경우 가상 컴퓨터의 방화벽에 대한 구성이 자동으로 수행되지 않습니다. 가상 컴퓨터에 대한 끝점을 만들 때 가상 컴퓨터의 방화벽에서 끝점 구성에 해당하는 프로토콜 및 개인 포트에 대한 트래픽도 허용하도록 해야 합니다.
 
-## 끝점 만들기
+##끝점 만들기
 
 1.	아직 로그인하지 않은 경우 [Azure 관리 포털](http://manage.windowsazure.com/)에 로그인합니다.
 2.	**가상 컴퓨터**를 클릭하고 구성하려는 가상 컴퓨터의 이름을 클릭합니다.
-3.	**끝점**을 클릭합니다. 끝점 페이지에는 가상 컴퓨터에 대한 모든 현재 끝점이 나열됩니다.
+3.	**Endpoints**를 클릭합니다. 끝점 페이지에는 가상 컴퓨터에 대한 모든 현재 끝점이 나열됩니다.
 
-	![Endpoints](./media/virtual-machines-set-up-endpoints/endpointswindows.png)
+	![끝점](./media/virtual-machines-set-up-endpoints/endpointswindows.png)
  
-4.	작업 표시줄에서 **추가**를 클릭합니다. 
+4.	작업 표시줄에서 **추가**를 클릭합니다.
 5.	**가상 컴퓨터에 끝점 추가** 페이지에서 끝점 유형을 선택합니다. 
 
 	- 부하 분산된 집합의 일부가 아니거나 새 부하 분산 집합의 첫 번째 멤버가 아닌 새 끝점을 만드는 경우 **독립 실행형 끝점 추가**를 선택하고 왼쪽 화살표를 클릭합니다.
@@ -55,46 +55,44 @@ Azure 관리 포털에서 가상 컴퓨터를 만드는 경우 원격 데스크�
 
 이제 끝점 페이지에 끝점이 표시됩니다.
 
-![Endpoint creation successful](./media/virtual-machines-set-up-endpoints/endpointwindowsnew.png)
+![끝점 만들기 성공](./media/virtual-machines-set-up-endpoints/endpointwindowsnew.png)
  
-PowerShell 구성은 [Add-AzureEndpoint](https://msdn.microsoft.com/library/azure/dn495300.aspx)를 참조하세요.
+Azure PowerShell cmdlet을 사용하여 이 작업을 설정하려면 [Add-AzureEndpoint](https://msdn.microsoft.com/library/azure/dn495300.aspx)를 참조하세요.
 
-## 끝점에 대한 ACL 관리
+##끝점에 대한 ACL 관리
 
-트래픽을 보낼 수 있는 컴퓨터 집합을 정의하기 위해 끝점의 ACL이 원본 IP 주소에 따라 트래픽을 제한할 수 있습니다. 끝점에 대한 ACL을 추가, 수정 또는 제거하려면 다음 단계를 따르세요.
+트래픽을 보낼 수 있는 컴퓨터 집합을 정의하기 위해 끝점의 ACL이 원본 IP 주소에 따라 트래픽을 제한할 수 있습니다. 끝점에 대한 ACL을 추가, 수정 또는 제거하려면 다음 단계를 따르십시오.
 
-> [AZURE.NOTE] 끝점이 부하 분산 집합의 일부인 경우 끝점에 대한 ACL의 변경 내용이 집합의 모든 끝점에 적용됩니다.
+> [AZURE.NOTE]끝점이 부하 분산 집합의 일부인 경우 끝점에 대한 ACL의 변경 내용이 집합의 모든 끝점에 적용됩니다.
 
 가상 컴퓨터가 Azure 가상 네트워크에 있는 경우에는 대신 네트워크 보안 그룹을 사용해야 합니다. 자세한 내용은 [네트워크 보안 그룹 정보](https://msdn.microsoft.com/library/azure/dn848316.aspx)를 참조하세요.
 
 
 1.	아직 로그인하지 않은 경우 Azure 관리 포털에 로그인합니다.
 2.	**가상 컴퓨터**를 클릭하고 구성하려는 가상 컴퓨터의 이름을 클릭합니다.
-3.	**끝점**을 클릭합니다. 끝점 페이지에는 가상 컴퓨터에 대한 모든 끝점이 나열됩니다.
+3.	**Endpoints**를 클릭합니다. 끝점 페이지에는 가상 컴퓨터에 대한 모든 끝점이 나열됩니다.
 
-    ![ACL list](./media/virtual-machines-set-up-endpoints/EndpointsShowsDefaultEndpointsForVM.png)
+    ![ACL 목록](./media/virtual-machines-set-up-endpoints/EndpointsShowsDefaultEndpointsForVM.png)
  
-4.	목록에서 해당 끝점을 선택합니다. 
-5.	작업 표시줄에서 **ACL 관리**를 클릭합니다. **ACL 세부 정보 지정** 대화 상자가 나타납니다.
+4.	목록에서 해당 끝점을 선택합니다.
+5.	작업 표시줄에서 **ACL 관리**를 클릭합니다. **Specify ACL details** 대화 상자가 나타납니다.
 
-    ![Specify ACL details](./media/virtual-machines-set-up-endpoints/EndpointACLdetails.png)
+    ![ACL 세부 정보 지정](./media/virtual-machines-set-up-endpoints/EndpointACLdetails.png)
  
-6.	목록의 행을 사용하여 ACL에 대한 규칙을 추가, 삭제 또는 편집하고 해당 순서를 변경합니다. **원격 서브넷** 값은 인터넷에서 들어오는 트래픽에 대한 IP 주소 범위로서, Azure 부하 분산 장치는 해당 트래픽의 원본 IP 주소에 따라 이를 허용하거나 거부합니다. 주소 접두사 형식이라고도 하는 CIDR 형식으로 IP 주소 범위를 지정해야 합니다. 예를 들면 131.107.0.0/16과 같습니다. 
+6.	목록의 행을 사용하여 ACL에 대한 규칙을 추가, 삭제 또는 편집하고 해당 순서를 변경합니다. **원격 서브넷** 값은 인터넷에서 들어오는 트래픽에 대한 IP 주소 범위로서, Azure 부하 분산 장치는 해당 트래픽의 원본 IP 주소에 따라 이를 허용하거나 거부합니다. 주소 접두사 형식이라고도 하는 CIDR 형식으로 IP 주소 범위를 지정해야 합니다. 예를 들면 131.107.0.0/16과 같습니다.
 
 규칙을 사용하여 인터넷의 컴퓨터에 해당하는 특정 컴퓨터에서 들어오는 트래픽만 허용하고 알려진 특정 주소 범위에서 들어오는 트래픽을 거부할 수 있습니다.
 
-규칙은 첫 번째 규칙에서 시작하여 마지막 규칙까지 순서대로 평가됩니다. 따라서 가장 제한적인 규칙까지 오름차순으로 규칙의 순서를 지정해야 합니다. 예제 및 자세한 내용은 [네트워크 액세스 제어 목록 정보](http://go.microsoft.com/fwlink/p/?linkid=303816&clcid=0x409)를 참조하세요
+규칙은 첫 번째 규칙에서 시작하여 마지막 규칙까지 순서대로 평가됩니다. 따라서 가장 제한적인 규칙까지 오름차순으로 규칙의 순서를 지정해야 합니다. 예제 및 자세한 내용은 [네트워크 액세스 제어 목록 정보](http://go.microsoft.com/fwlink/p/?linkid=303816)를 참조하십시오.
 
-ACL의 PowerShell 구성은 [PowerShell을 사용하여 끝점에 대한 ACL(액세스 제어 목록) 관리](https://msdn.microsoft.com/library/azure/dn376543.aspx)를 참조하세요.
+Azure PowerShell cmdlet을 사용하여 이 작업을 설정하려면, [PowerShell을 사용하여 끝점에 대한 ACL(액세스 제어 목록) 관리](https://msdn.microsoft.com/library/azure/dn376543.aspx)를 참조하세요.
 
 ## 추가 리소스
 
-[가상 컴퓨터 부하 분산](http://www.windowsazure.com/manage/windows/common-tasks/how-to-load-balance-virtual-machines/)
+[Azure 인프라 서비스를 위한 부하 분산](virtual-machines-load-balance.md)
 
-[네트워크 액세스 제어 목록 정보](http://go.microsoft.com/fwlink/p/?linkid=303816&clcid=0x409)
+[네트워크 액세스 제어 목록 정보](http://go.microsoft.com/fwlink/p/?linkid=303816)
 
 [네트워크 보안 그룹 정보](https://msdn.microsoft.com/library/azure/dn848316.aspx)
 
-
-
-<!--HONumber=47-->
+<!---HONumber=58-->

@@ -3,7 +3,7 @@
 	description="이 문서에서는 Azure 가상 컴퓨터에서 실행되는 SQL Server에서 Azure 프리미엄 저장소 사용을 시작하는 방법에 대한 지침을 제공합니다. 여기에는 IaaS의 기존 SQL Server 배포 마이그레이션 및 새 배포의 예제가 포함됩니다." 
 	services="virtual-machines" 
 	documentationCenter="" 
-	authors="rothja" 
+	authors="danielsollondon" 
 	manager="jeffreyg"
 	editor=""/>
 
@@ -31,6 +31,8 @@ IaaS VM의 SQL Server에서 Azure 프리미엄 저장소를 활용하는 전체 
 - 기존 AlwaysOn 구현 환경의 마이그레이션을 위한 Azure, Windows 및 SQL Server 관련 단계를 전체적으로 보여주는 예제
 
 Azure 가상 컴퓨터의 SQL Server에 대한 추가 배경 정보는 [Azure 가상 컴퓨터의 SQL Server](virtual-machines-sql-server-infrastructure-services.md)를 참조하세요.
+
+**기술 검토자:** Luis Carlos Vargas Herring, Sanjay Mishra, Pravin Mital, Juergen Thomas, Gonzalo Ruiz
 
 ## 프리미엄 저장소 사용을 위한 필수 구성 요소
 
@@ -111,7 +113,7 @@ VHD를 연결한 후에는 캐시 설정을 변경할 수 없습니다. 설정�
 
 1. **Get-AzureVM** 명령을 사용하여 VM에 연결된 디스크 목록을 가져옵니다.
 
-        Get-AzureVM -ServiceName <servicename> -Name <vmname> | Get-AzureDataDisk
+    Get-AzureVM -ServiceName <servicename> -Name <vmname> | Get-AzureDataDisk
 
 1. Diskname과 LUN을 확인합니다.
 
@@ -128,13 +130,13 @@ VHD를 연결한 후에는 캐시 설정을 변경할 수 없습니다. 설정�
 
 2. 각 저장소 풀에 대해 연결된 디스크를 덤프합니다.
 
-        Get-StoragePool -FriendlyName AMS1pooldata | Get-PhysicalDisk
+    Get-StoragePool -FriendlyName AMS1pooldata | Get-PhysicalDisk
 
 	![GetStoragePool][5]
  
 이제 이 정보를 사용하여 연결된 VHD를 저장소 풀의 실제 디스크에 연결할 수 있습니다.
 
-저장소 풀의 실제 디스크에 매핑한 VHD는 분리하여 프리미엄 저장소 계정으로 복사한 다음 올바른 캐시 설정을 사용하여 연결할 수 있습니다. [부록](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage)의 예제에서 8\~12단계를 참조하세요. 이러한 단계에서는 VM에 연결된 VHD 디스크 구성을 CSV파일에 추출하고 VHD를 복사한 다음 디스크 구성 캐시 설정을 변경하고 마지막으로 모든 연결된 디스크와 함께 VM을 DS 시리즈 VM으로 다시 배포하는 방법을 보여 줍니다.
+저장소 풀의 실제 디스크에 매핑한 VHD는 분리하여 프리미엄 저장소 계정으로 복사한 다음 올바른 캐시 설정을 사용하여 연결할 수 있습니다. [부록](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage)의 예제에서 8~12단계를 참조하세요. 이러한 단계에서는 VM에 연결된 VHD 디스크 구성을 CSV파일에 추출하고 VHD를 복사한 다음 디스크 구성 캐시 설정을 변경하고 마지막으로 모든 연결된 디스크와 함께 VM을 DS 시리즈 VM으로 다시 배포하는 방법을 보여 줍니다.
 
 ### VM 저장소 대역폭 및 VHD 저장소 처리량 
 
@@ -459,7 +461,7 @@ IO 처리량을 높이기 위해 VM 내에서 Windows 저장소 풀을 사용하
 - 클라이언트/DNS 구성에 따라 클라이언트 다시 연결이 지연될 수 있습니다.
 - AlwaysOn 클러스터 그룹을 오프라인으로 설정하여 IP 주소를 교환하려는 경우에는 가동 중지 시간이 추가로 발생합니다. 추가되는 IP 주소 리소스에 대해 OR 종속성 및 가능한 소유자를 사용하면 이러한 가동 중지 시간을 방지할 수 있습니다. 자세한 내용은 [부록](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage)의 ‘같은 서브넷에서 IP 주소 리소스 추가' 섹션을 참조하세요.
 
-> [AZURE.NOTE]추가한 노드를 AlwaysOn 장애 조치(failover) 파트너로 사용하려는 경우에는 부하 분산된 집합에 대한 참조와 함께 Azure 끝점을 추가해야 합니다. 이를 위해 **Add-AzureEndpoint** 명령을 실행하면 현재 연결은 계속 열려 있지만 부하 분산 장치를 업데이트할 때까지는 수신기에 대한 새 연결을 설정할 수 있습니다. 테스트에서는 이 시간이 90\~120초로 확인되었지만 실제 환경에서 테스트를 수행해야 합니다.
+> [AZURE.NOTE]추가한 노드를 AlwaysOn 장애 조치(failover) 파트너로 사용하려는 경우에는 부하 분산된 집합에 대한 참조와 함께 Azure 끝점을 추가해야 합니다. 이를 위해 **Add-AzureEndpoint** 명령을 실행하면 현재 연결은 계속 열려 있지만 부하 분산 장치를 업데이트할 때까지는 수신기에 대한 새 연결을 설정할 수 있습니다. 테스트에서는 이 시간이 90~120초로 확인되었지만 실제 환경에서 테스트를 수행해야 합니다.
 
 ##### 장점
 
@@ -491,7 +493,7 @@ IO 처리량을 높이기 위해 VM 내에서 Windows 저장소 풀을 사용하
 	- AlwaysOn 그룹을 오프라인으로 설정하고 새 ILB/ELB IP 주소로 AlwaysOn 수신기를 업데이트합니다. 
 	- PowerShell을 통해 새 클라우드 서비스 iLB/ELB의 IP 주소 리소스를 Windows 클러스터링에 추가합니다. 그런 다음 IP 주소 리소스의 가능한 소유자를 마이그레이션된 노드인 SQL2로 설정하고 네트워크 이름에서 해당 노드를 OR 종속성으로 설정합니다. 자세한 내용은 [부록](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage)의 ‘같은 서브넷에서 IP 주소 리소스 추가' 섹션을 참조하세요.
 - 클라이언트에 대한 DNS 구성/전파 확인
-- SQL1 VM을 마이그레이션하고 2\~4단계 수행
+- SQL1 VM을 마이그레이션하고 2~4단계 수행
 - 5ii단계를 사용하는 경우 추가된 IP 주소 리소스의 가능한 소유자로 SQL1 추가
 - 장애 조치(failover) 테스트
 
@@ -536,7 +538,7 @@ IO 처리량을 높이기 위해 VM 내에서 Windows 저장소 풀을 사용하
 - ILB/ELB를 구성하고 끝점 추가
 - 새 ILB/ELB IP 주소로 AlwaysOn 수신기를 업데이트하고 장애 조치(failover) 테스트
 - DNS 구성 확인
-- AFP를 SQL2로 변경한 다음 SQL1을 마이그레이션하고 2\~5단계 진행
+- AFP를 SQL2로 변경한 다음 SQL1을 마이그레이션하고 2~5단계 진행
 - 장애 조치(failover) 테스트
 - AFP를 다시 SQL1 및 SQL2로 전환
 
@@ -869,7 +871,7 @@ TLOG 볼륨의 경우 디스크 캐싱을 NONE으로 설정해야 합니다.
     
     ####WAIT FOR FULL AlwaysOn RESYNCRONISATION!!!!!!!!!#####
 
-#### 14단계: AlwaysOn 업데이트 
+####14단계: AlwaysOn 업데이트 
     #Code to be executed on a Cluster Node
     $ClusterNetworkNameAmsterdam = "Cluster Network 2" # the azure cluster subnet network name
     $newCloudServiceIPAmsterdam = "192.168.0.25" # IP address of your cloud service 
@@ -1009,15 +1011,7 @@ TLOG 볼륨의 경우 디스크 캐싱을 NONE으로 설정해야 합니다.
     Get-AzureStorageBlobCopyState -Blob "danRegSvcAms-dansqlams1-2014-07-03.vhd" -Container $containerName -Context $xioContext
      
     
-사용하면 모든 VHD의 VHD 복사 상태를 확인할 수 있습니다.
-
-    ForEach ($disk in $diskobjects)
-       {
-       $lun = $disk.Lun
-       $vhdname = $disk.vhdname
-       $cacheoption = $disk.HostCaching
-       $disklabel = $disk.DiskLabel
-       $diskName = $disk.DiskName
+ ForEach ($disk in $diskobjects) { $lun = $disk.Lun $vhdname = $disk.vhdname $cacheoption = $disk.HostCaching $disklabel = $disk.DiskLabel $diskName = $disk.DiskName을 사용하면 모든 VHD의 VHD 복사 상태를 확인할 수 있습니다.
       
        $copystate = Get-AzureStorageBlobCopyState -Blob $vhdname -Container $containerName -Context $xioContextnode2
     Write-Host "Copying Disk Lun $lun, Label : $disklabel, VHD : $vhdname, STATUS = " $copystate.Status 
@@ -1147,4 +1141,4 @@ IP 주소를 추가하려면 [부록](#appendix-migrating-a-multisite-alwayson-c
 [24]: ./media/virtual-machines-sql-server-use-premium-storage/10_Appendix_14.png
 [25]: ./media/virtual-machines-sql-server-use-premium-storage/10_Appendix_15.png
 
-<!--HONumber=54-->
+<!---HONumber=58-->

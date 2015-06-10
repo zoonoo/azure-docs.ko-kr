@@ -1,6 +1,6 @@
-﻿<properties 
+<properties 
 	pageTitle="액세스 제어 사용 방법(.NET) - Azure 기능 가이드" 
-	description="웹 앱에 대한 액세스 권한을 받으려고 하는 경우 Azure 응용 프로그램에서 ACS(액세스 제어 서비스)를 사용해 사용자를 인증하는 방법에 대해 알아봅니다." 
+	description="웹앱에 대한 액세스 권한을 받으려고 하는 경우 Azure 응용 프로그램에서 ACS(액세스 제어 서비스)를 사용해 사용자를 인증하는 방법에 대해 알아봅니다." 
 	services="active-directory" 
 	documentationCenter=".net" 
 	authors="msmbaldwin" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/04/2014" 
+	ms.date="05/20/2015" 
 	ms.author="mbaldwin"/>
 
 
@@ -86,13 +86,13 @@ ACS는 온-프레미스 또는 클라우드에서 실행되는 응용 프로그�
 
 Azure에서 Active Directory 액세스 제어를 사용하려면 액세스 제어 네임스페이스를 만듭니다. 네임스페이스는 응용 프로그램 내에서 ACS 리소스의 주소를 지정하기 위한 고유 범위를 제공합니다.
 
-1.  [Azure 관리 포털][](https://manage.WindowsAzure.com)에 로그인합니다.
+1.  [Azure 관리 포털][](https://manage.WindowsAzure.com))에 로그인합니다.
     
-2.  **Active Directory**를 클릭합니다.  
+2.  **Active Directory**를 클릭합니다.
 
 	![][1]
 
-3.  새 액세스 제어 네임스페이스를 만들려면 **새로 만들기**를 클릭합니다. **앱 서비스** 및 **액세스 제어**가 선택됩니다. **빠른 생성**을 클릭합니다. 
+3.  새 액세스 제어 네임스페이스를 만들려면 **새로 만들기**를 클릭합니다. **앱 서비스** 및 **액세스 제어**가 선택됩니다. **Quick Create**를 클릭합니다.
 
 	![][2]
 
@@ -116,7 +116,7 @@ Azure에서 네임스페이스를 만들고 활성화합니다.
 
 1. **이름**에 **MvcACS**를 입력하고 **확인**을 클릭합니다.
 1. 다음 대화 상자에서 **인터넷 응용 프로그램**을 선택하고 **확인**을 클릭합니다.
-1.  *Views\Shared_LoginPartial.cshtml* 파일을 편집하고 파일 내용을 다음 코드로 바꿉니다.
+1. *Views\Shared_LoginPartial.cshtml* 파일을 편집하고 파일 내용을 다음 코드로 바꿉니다.
 
         @if (Request.IsAuthenticated)
         {
@@ -152,7 +152,7 @@ Azure에서 네임스페이스를 만들고 활성화합니다.
 
 1.	솔루션 탐색기에서 MvcACS 프로젝트를 마우스 오른쪽 단추로 클릭하고 **ID 및 액세스**를 선택합니다.
 
-	**ID 및 액세스** 옵션이 상황에 맞는 메뉴에 표시되지 않는 경우 ID 및 액세스 도구를 설치합니다. 자세한 내용은 [ID 및 액세스 도구]를 참조하세요. 
+	**ID 및 액세스** 옵션이 상황에 맞는 메뉴에 표시되지 않는 경우 ID 및 액세스 도구를 설치합니다. 자세한 내용은 [ID 및 액세스 도구](영문)를 참조하세요.
 
 	![][4]
 
@@ -176,17 +176,17 @@ Azure에서 네임스페이스를 만들고 활성화합니다.
 
 	![][18]
 
-6.	**대칭 키**, **키 표시**를 차례로 클릭하고 키 값을 복사합니다. 그러 다음 **취소**를 클릭하여 변경하지 않고 관리 클라이언트 편집 페이지를 종료합니다. 
+6.	**대칭 키**, **키 표시**를 차례로 클릭하고 키 값을 복사합니다. 그러 다음 **취소**를 클릭하여 변경하지 않고 관리 클라이언트 편집 페이지를 종료합니다.
 
 	![][19]
 
-7.  Visual Studio에서 **네임스페이스에 대한 관리 키** 입력 필드에 키를 붙여 넣고 **관리 키 저장**을 클릭한 후 **확인**을 클릭합니다.
+7.  Visual Studio에서 **네임스페이스에 대한 관리 키 입력** 필드에 키를 붙여 넣고 **관리 키 저장**을 클릭한 후 **확인**을 클릭합니다.
 
 	![][20]
 
 	Visual Studio에서 네임스페이스 정보를 사용하여 ACS 관리 포털에 연결한 후 ID 공급자, 영역, 반환 URL 등의 네임스페이스 설정을 가져옵니다.
 
-8.	**Windows Live ID**(Microsoft 계정)를 선택하고 확인을 클릭합니다. 
+8.	**Windows Live ID**(Microsoft 계정)를 선택하고 확인을 클릭합니다.
 
 	![][5]
 
@@ -204,30 +204,28 @@ Azure에서 네임스페이스를 만들고 활성화합니다.
 
 ## ACS에서 전송된 클레임 보기
 
-이 섹션에서는 ACS에서 전송된 클레임을 보기 위해 응용 프로그램을 수정합니다.  ID 및 액세스 도구는 IP의 모든 클레임을 해당 응용 프로그램으로 전달하는 규칙 그룹을 만들었습니다.  ID 공급자는 각기 다른 클레임을 보냅니다.
+이 섹션에서는 ACS에서 전송된 클레임을 보기 위해 응용 프로그램을 수정합니다. ID 및 액세스 도구는 IP의 모든 클레임을 해당 응용 프로그램으로 전달하는 규칙 그룹을 만들었습니다. ID 공급자는 각기 다른 클레임을 보냅니다.
 
-1.  *Controllers\HomeController.cs* 파일을 엽니다. **System.Threading**에 대한 **using** 문을 추가합니다.
+1. *Controllers\HomeController.cs* 파일을 엽니다. **System.Threading**에 대한 **using** 문을 추가합니다.
 
  	using System.Threading;
 
-1. HomeController 클래스에서  *Claims* 메서드를 추가합니다.
+1. HomeController 클래스에서 *Claims* 메서드를 추가합니다.
 
-    public ActionResult Claims()
-    {
-        ViewBag.Message = "Your claims page.";
+    public ActionResult Claims() { ViewBag.Message = "Your claims page.";
 
         ViewBag.ClaimsIdentity = Thread.CurrentPrincipal.Identity;
 
         return View();
     }
 
-1.  *Claims* 메서드를 마우스 오른쪽 단추로 클릭하고 **보기 추가**를 선택합니다.
+1. *Claims* 메서드를 마우스 오른쪽 단추로 클릭하고 **보기 추가**를 선택합니다.
 
 ![][66]
 
 1. **추가**를 클릭합니다.
 
-1.  *Views\Home\Claims.cshtml* 파일 내용을 다음 코드로 바꿉니다.
+1. *Views\Home\Claims.cshtml* 파일 내용을 다음 코드로 바꿉니다.
 
         @{
             ViewBag.Title = "Claims";
@@ -277,7 +275,7 @@ Azure에서 네임스페이스를 만들고 활성화합니다.
         }
         </table>
 
-1. 응용 프로그램을 실행하고  *Claims* 메서드로 이동합니다.
+1. 응용 프로그램을 실행하고 *Claims* 메서드로 이동합니다.
 
 ![][666]
 
@@ -287,13 +285,13 @@ Azure에서 네임스페이스를 만들고 활성화합니다.
 
 Visual Studio의 ID 및 액세스 도구는 해당 응용 프로그램과 ACS를 자동으로 통합합니다.
 
-Azure 액세스 제어 사용 옵션을 선택하고 응용 프로그램을 실행하면 ID 및 액세스 제어 도구가 해당 응용 프로그램을 신뢰 당사자로 추가하고 선택한 ID 공급자를 사용하도록 구성한 다음 응용 프로그램에 대한 기본 클레임 변환 규칙을 생성 및 선택합니다.
+Use Azure Access Control 옵션을 선택하고 응용 프로그램을 실행하면 ID 및 액세스 제어 도구가 해당 응용 프로그램을 신뢰 당사자로 추가하고 선택한 ID 공급자를 사용하도록 구성한 다음 응용 프로그램에 대한 기본 클레임 변환 규칙을 생성 및 선택합니다.
 
-ACS 관리 포털에서 이러한 구성 설정을 검토 및 변경할 수 있습니다. 포털에서 변경 내용을 검토하려면 다음 단계를 따르십시오.
+ACS 관리 포털에서 이러한 구성 설정을 검토 및 변경할 수 있습니다. 포털에서 변경 내용을 검토하려면 다음 단계를 따르세요.
 
-1.	Microsoft [Azure 관리 포털](http://manage.WindowsAzure.com)에 로그인합니다.
+1.	Windows [Azure 관리 포털](http://manage.WindowsAzure.com)에 로그인합니다.
 
-2.	**Active Directory**를 클릭합니다. 
+2.	**Active Directory**를 클릭합니다.
 
 	![][8]
 
@@ -329,26 +327,26 @@ ACS 관리 포털을 사용하여 MvcACS 응용 프로그램의 인증을 변경
 
 	![][13]
 
-2.	**Google**을 클릭한 후 **다음**을 클릭합니다. 기본적으로 MvcACS 앱 확인란이 선택되어 있습니다. 
+2.	**Google**을 클릭한 후 **다음**을 클릭합니다. 기본적으로 MvcACS 앱 확인란이 선택되어 있습니다.
 
 	![][14]
 
-3. 저장을 클릭합니다. 
+3. 저장을 클릭합니다.
 
 	![][15]
 
 
-완료되었습니다. Visual Studio로 돌아가서 MvcACS 앱 프로젝트를 열고 **ID 및 액세스**를 클릭하면 도구에 Windows Live ID 및 Google ID 공급자가 둘 다 나열됩니다.  
+완료되었습니다. Visual Studio로 돌아가서 MvcACS 앱 프로젝트를 열고 **ID 및 액세스**를 클릭하면 도구에 Windows Live ID 및 Google ID 공급자가 둘 다 나열됩니다.
 
 ![][16]
 
-응용 프로그램을 실행하면 결과를 확인할 수 있습니다. 응용 프로그램이 ID 공급자를 두 개 이상 지원하는 경우 사용자 브라우저가 먼저 ACS에 호스트된 페이지로 이동되며, 사용자에게 ID 공급자를 선택하라는 메시지가 표시됩니다. 
+응용 프로그램을 실행하면 결과를 확인할 수 있습니다. 응용 프로그램이 ID 공급자를 두 개 이상 지원하는 경우 사용자 브라우저가 먼저 ACS에 호스트된 페이지로 이동되며, 사용자에게 ID 공급자를 선택하라는 메시지가 표시됩니다.
 
 ![][7]
 
 사용자가 ID 공급자를 선택하면 브라우저가 ID 공급자 로그인 페이지로 이동합니다.
 
-## 다음 작업
+## 다음 단계
 
 ACS와 통합된 웹 응용 프로그램을 만들었습니다. 그러나 이것은 시작일 뿐입니다. 이 시나리오를 확장할 수 있습니다.
  
@@ -356,20 +354,20 @@ ACS와 통합된 웹 응용 프로그램을 만들었습니다. 그러나 이것
 
 응용 프로그램 비즈니스 논리에서 처리하기 위해 응용 프로그램으로 전송되는 클레임을 결정하는 규칙을 네임스페이스에 추가할 수도 있습니다.
 
-ACS 기능을 자세히 살펴보고 추가 시나리오를 실험하려면 [액세스 제어 서비스 2.0]을 참조하세요.
+ACS 기능을 자세히 살펴보고 추가 시나리오를 실험하려면 [액세스 제어 서비스 2.0](영문)을 참조하세요.
 
 
 
-  [ACS 정의]: #what-is
-  [개념]: #concepts
-  [필수 조건]: #pre
-  [ASP.NET MVC 응용 프로그램 만들기]: #create-web-app
-  [액세스 제어 네임스페이스 만들기]: #create-namespace
-  [ACS와 웹 응용 프로그램 통합]: #Identity-Access
-  [ACS와의 통합 테스트]: #Test-ACS
-  [ACS 관리 포털에서 응용 프로그램 보기]: acs-portal
-  [ID 공급자 추가]: #add-IP
-  [새로운 기능]: #whats-next
+  [What is ACS?]: #what-is
+  [Concepts]: #concepts
+  [Prerequisites]: #pre
+  [Create an ASP.NET MVC Application]: #create-web-app
+  [Create an Access Control Namespace]: #create-namespace
+  [Integrate your Web Application with ACS]: #Identity-Access
+  [Test the Integration with ACS]: #Test-ACS
+  [View the Application in the ACS Management Portal]: acs-portal
+  [Add an Identity Provider]: #add-IP
+  [What's Next]: #whats-next
   [vcsb]: #bkmk_viewClaims
   [vpp]: #bkmk_VP
 
@@ -403,4 +401,4 @@ ACS 기능을 자세히 살펴보고 추가 시나리오를 실험하려면 [액
   [19]: ./media/active-directory-dotnet-how-to-use-access-control/acsShowKey.png
   [20]: ./media/active-directory-dotnet-how-to-use-access-control/acsConfigAcsNamespace2.png
 
-<!--HONumber=47-->
+<!---HONumber=58-->

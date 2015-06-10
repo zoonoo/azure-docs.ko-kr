@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Azure용 Linux 에이전트 사용자 가이드" 
 	description="Linux 에이전트(waagent)를 설치 및 구성하여 가상 컴퓨터와 Azure 패브릭 컨트롤러의 상호 작용을 관리하는 방법에 대해 알아봅니다." 
 	services="virtual-machines" 
@@ -13,10 +13,8 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2014" 
-	ms.author="szarkos"/>
-
-
+	ms.date="04/07/2015" 
+	ms.author="szark"/>
 
 
 
@@ -24,7 +22,7 @@
 
 ##소개
 
-Azure Linux 에이전트(waagent)는 가상 컴퓨터와 Azure 패브릭 컨트롤러 간 상호 작용을 관리합니다. 이 에이전트는 다음을 수행합니다.
+Azure Linux 에이전트(/usr/sbin/waagent)는 가상 컴퓨터와 Azure 패브릭 컨트롤러 간 상호 작용을 관리합니다. 이 에이전트는 다음을 수행합니다.
 
 * **이미지 프로비전**
   - 사용자 계정 만들기
@@ -47,6 +45,12 @@ Azure Linux 에이전트(waagent)는 가상 컴퓨터와 Azure 패브릭 컨트�
   - 직렬 포트로 콘솔 리디렉션
 * **SCVMM 배포**
     - System Center Virtual Machine Manager 2012 R2 환경에서 실행되는 경우 Linux용 VMM 에이전트 검색 및 부트스트랩
+* **VM 확장**
+    - 소프트웨어 및 구성 자동화를 사용하도록 Microsoft 및 Partner에서 작성된 구성 요소를 Linux VM(IaaS)에 삽입
+    - [https://github.com/Azure/azure-linux-extensions](https://github.com/Azure/azure-linux-extensions)에서 VM 확장 참조 구현
+
+
+##통신
 
 플랫폼에서 에이전트로의 정보 흐름은 다음 두 채널을 통해 진행됩니다.
 
@@ -58,43 +62,46 @@ Azure Linux 에이전트(waagent)는 가상 컴퓨터와 Azure 패브릭 컨트�
 최신 Linux 에이전트는 다음에서 직접 가져올 수 있습니다.
 
 - [Azure에서 Linux를 인증하는 다른 배포 공급자](http://support.microsoft.com/kb/2805216)
-- 또는 [Azure Linux 에이전트의 Github 오픈 소스 리포지토리](https://github.com/WindowsAzure/WALinuxAgent)
+- 또는 [Azure Linux 에이전트의 GitHub 오픈 소스 리포지토리](https://github.com/Azure/WALinuxAgent)
 
+
+## 요구 사항
+다음 시스템은 테스트를 거쳐 Azure Linux 에이전트와 동작하는 것으로 알려져 있습니다. [http://support.microsoft.com/kb/2805216](http://support.microsoft.com/kb/2805216)에서 설명한 대로 **Microsoft Azure 플랫폼에서 지원되는 시스템의 공식 목록에서 이 목록은 달라질 수 있습니다.**
 
 ###지원되는 Linux 배포
+
 * CoreOS
 * CentOS 6.2 이상
 * Debian 7.0 이상
 * Ubuntu 12.04 이상
-* OpenSUSE 12.3 이상
+* openSUSE 12.3 이상
 * SLES 11 SP2 이상
 * Oracle Linux 6.4 이상
 
 기타 지원되는 시스템:
 
-* FreeBSD 9 이상(WALinuxAgent v2.0.0 이상)
+* FreeBSD 9 이상(Azure Linux 에이전트 v2.0.10 이상)
 
 
-###요구 사항
+Linux 에이전트는 다음과 같은 일부 시스템 패키지가 있어야 제대로 기능을 수행합니다.
 
-Waagent는 다음과 같은 일부 시스템 패키지가 있어야 제대로 기능을 수행합니다.
-
-* Python 2.5 이상
+* Python 2.6 이상
 * Openssl 1.0 이상
 * Openssh 5.3 이상
-* 파일 시스템 유틸리티: sfdisk, fdisk, mkfs
+* 파일 시스템 유틸리티: sfdisk, fdisk, mkfs, parted
 * 암호 도구: chpasswd, sudo
 * 텍스트 처리 도구: sed, grep
 * 네트워크 도구: ip-route
 
+
 ##설치
 
-배포 패키지 리포지토리의 RPM 또는 DEB 패키지를 사용하여 설치하는 방법이 Azure Linux Azure를 설치 및 업그레이드하는 기본 방법입니다.
+배포 패키지에서 리포지토리의 RPM 또는 DEB 패키지를 사용한 설치는 선호하는 Azure Linux Azure 설치 및 업그레이드 방법입니다.
 
-수동으로 설치하는 경우 waagent를 /usr/sbin/waagent에 복사하고 다음을 실행하여 설치해야 합니다. 
+수동으로 설치하는 경우 'waagent'를 /usr/sbin/waagent에 복사하고 다음을 실행하여 설치해야 합니다.
 
 	# sudo chmod 755 /usr/sbin/waagent
-	# /usr/sbin/waagent -install -verbose
+	# sudo /usr/sbin/waagent -install -verbose
 
 에이전트의 로그 파일은 /var/log/waagent.log에 저장됩니다.
 
@@ -121,7 +128,7 @@ Waagent는 다음과 같은 일부 시스템 패키지가 있어야 제대로 �
 
  * 커널 버전을 검색하고 필요한 경우 VNUMA 해결 방법을 적용합니다.
 
- * /var/lib/waagent/로 네트워킹을 방해할 수 있는 udev 규칙(/lib/udev/rules.d/75-persistent-net-generator.rules, /etc/udev/rules.d/70-persistent-net.rules)을 이동합니다.  
+ * /var/lib/waagent/로 네트워킹을 방해할 수 있는 udev 규칙(/lib/udev/rules.d/75-persistent-net-generator.rules, /etc/udev/rules.d/70-persistent-net.rules)을 이동합니다.
 
 - uninstall: waagent 및 연결된 파일을 제거합니다.
  * 시스템에서 init 스크립트의 등록을 취소하고 삭제합니다.
@@ -149,17 +156,13 @@ Waagent는 다음과 같은 일부 시스템 패키지가 있어야 제대로 �
 
 - version: waagent의 버전을 표시합니다.
 
-- serialconsole: ttyS0(첫 번째 직렬 포트)을 부팅 콘솔로 표시하도록
-   GRUB를 구성합니다. 이 매개 변수는 커널 부팅 로그를 직렬 포트로 보내고
-   디버깅에 사용할 수 있도록 설정합니다.
+- serialconsole: ttyS0(첫 번째 직렬 포트)을 부팅 콘솔로 표시하도록 GRUB를 구성합니다. 이 매개 변수는 커널 부팅 로그를 직렬 포트로 보내고 디버깅에 사용할 수 있도록 설정합니다.
 
-- daemon: waagent를 디먼으로 실행하여 플랫폼에 대한 조작을 관리합니다.
-   이 인수는 waagent init 스크립트에서 waagent에 지정됩니다.
+- daemon: waagent를 디먼으로 실행하여 플랫폼 조작을 관리합니다. 이 인수는 waagent init 스크립트에서 waagent에 지정됩니다.
 
 ##구성
 
-구성 파일(/etc/waagent.conf)은 waagent의 동작을 제어합니다. 
-다음은 샘플 구성 파일입니다.
+구성 파일(/etc/waagent.conf)은 waagent의 동작을 제어합니다. 다음은 샘플 구성 파일입니다.
 	
 	#
 	# Azure Linux Agent Configuration	
@@ -182,50 +185,43 @@ Waagent는 다음과 같은 일부 시스템 패키지가 있어야 제대로 �
 	OS.RootDeviceScsiTimeout=300
 	OS.OpensslPath=None
 
-다양한 구성 옵션이 아래에 자세히 설명되어 있습니다. 
-구성 옵션으로는 부울, 문자열 또는 정수의 세 가지 형식이 있습니다. 
-부울 구성 옵션은 "y" 또는 "n"으로 지정할 수 있습니다. 
-특수 키워드 "None"은 아래에 자세히 설명된 대로 일부 문자열 형식 구성 항목에 사용할 수 있습니다.
+다양한 구성 옵션이 아래에 자세히 설명되어 있습니다. 구성 옵션으로 부울, 문자열 또는 정수의 세 가지 형식이 있습니다. 부울 구성 옵션은 "y" 또는 "n"으로 지정할 수 있습니다. 특수 키워드 "None"은 아래에 자세히 설명된 대로 일부 문자열 형식 구성 항목에 사용할 수 있습니다.
 
 **Role.StateConsumer:**
 
-형식: String  
-기본값: 없음
+형식: 문자열 기본값: 없음
 
 실행 프로그램에 대한 경로가 지정된 경우 waagent에서 이미지를 프로비전한 후 "준비" 상태를 패브릭에 보고하려고 할 때 프로그램이 호출됩니다. 프로그램에 지정되는 인수는 "Ready"입니다. 에이전트는 프로그램이 반환할 때까지 기다리지 않고 진행합니다.
 
 **Role.ConfigurationConsumer:**
 
-형식: String  
-기본값: 없음
+형식: 문자열 기본값: 없음
 
 실행 프로그램에 대한 경로가 지정된 경우 패브릭에서 구성 파일을 가상 컴퓨터에 사용할 수 있음을 나타낼 때 프로그램이 호출됩니다. XML 구성 파일에 대한 경로는 실행 파일에 대한 인수로 제공됩니다. 이 경로는 구성 파일이 변경될 때마다 여러 번 호출될 수 있습니다. 샘플 파일은 부록에 나와 있습니다. 이 파일의 현재 경로는 /var/lib/waagent/HostingEnvironmentConfig.xml입니다.
 
 **Role.TopologyConsumer:**
 
-형식: String  
-기본값: 없음
+형식: 문자열 기본값: 없음
 
 실행 프로그램에 대한 경로가 지정된 경우 패브릭에서 새 네트워크 토폴로지 레이아웃을 가상 컴퓨터에서 사용할 수 있음을 나타낼 때 프로그램이 호출됩니다. XML 구성 파일에 대한 경로는 실행 파일에 대한 인수로 제공됩니다. 이 경로는 네트워크 토폴로지가 변경(예: 서비스 복구로 인해 변경)될 때마다 여러 번 호출될 수 있습니다. 샘플 파일은 부록에 나와 있습니다. 이 파일의 현재 위치는 /var/lib/waagent/SharedConfig.xml입니다.
 
 **Provisioning.Enabled:**
 
-형식: Boolean  
-기본값: y
+형식: 부울 기본값: y
 
 이 옵션을 통해 사용자가 에이전트의 프로비전 기능을 사용하거나 사용하지 않도록 설정할 수 있습니다. 유효한 값은 "y" 또는 "n"입니다. 프로비전을 사용하지 않도록 설정한 경우 이미지의 SSH 호스트 및 사용자 키는 유지되며 Azure 프로비전 API에서 지정한 모든 구성은 무시됩니다.
 
+	Note that this parameter defaults to "n" on Ubuntu Cloud Images that use cloud-init for provisioning.
+
 **Provisioning.DeleteRootPassword:**
 
-형식: Boolean  
-기본값: n
+형식: 부울 기본값: n
 
 설정한 경우 /etc/shadow 파일의 루트 암호가 프로비전 프로세스 중 삭제됩니다.
 
 **Provisioning.RegenerateSshHostKeyPair:**
 
-형식: Boolean  
-기본값: y
+형식: 부울 기본값: y
 
 설정한 경우 모든 SSH 호스트 키 쌍(ecdsa, dsa 및 rsa)이 프로비전 프로세스 중 /etc/ssh/에서 삭제됩니다. 그리고 새로운 단일 키 쌍이 생성됩니다.
 
@@ -233,190 +229,90 @@ Waagent는 다음과 같은 일부 시스템 패키지가 있어야 제대로 �
 
 **Provisioning.SshHostKeyPairType:**
 
-형식: String  
-기본값: rsa
+형식: 문자열 기본값: rsa
 
 이 옵션은 가상 컴퓨터의 SSH 디먼에서 지원하는 암호화 알고리즘 형식으로 설정할 수 있습니다. 일반적으로 지원되는 값은 "rsa", "dsa" 및 "ecdsa"입니다. Windows의 "putty.exe"는 "ecdsa"를 지원하지 않습니다. 따라서 Windows에서 putty.exe를 사용하여 Linux 배포에 연결하려는 경우 "rsa" 또는 "dsa"를 사용하세요.
 
 **Provisioning.MonitorHostName:**
 
-형식: Boolean  
-기본값: y
+형식: 부울 기본값: y
 
 설정한 경우 waagent가 Linux 가상 컴퓨터에서 호스트 이름("hostname" 명령에서 반환하는 이름)의 변경 여부를 모니터링하고, 이미지의 네트워킹 구성을 자동으로 업데이트하여 변경 내용을 반영합니다. DNS 서버로 이름 변경을 푸시하기 위해 가상 컴퓨터에서 네트워킹이 다시 시작됩니다. 이 때문에 인터넷 연결이 잠시 끊어집니다.
 
 **ResourceDisk.Format:**
 
-형식: Boolean  
-기본값: y
+형식: 부울 기본값: y
 
 설정한 경우 "ResourceDisk.Filesystem"에서 사용자가 요청한 파일 시스템 유형이 "ntfs" 이외의 유형이면 플랫폼에서 제공한 리소스 디스크가 waagent로 포맷되어 탑재됩니다. 단일 Linux 파티션 유형(83)을 디스크에서 사용할 수 있습니다. 이 파티션이 탑재될 수 있는 경우에는 포맷되지 않습니다.
 
 **ResourceDisk.Filesystem:**
 
-형식: String  
-기본값: ext4
+형식: 문자열 기본값: ext4
 
 이 옵션은 리소스 디스크의 파일 시스템 유형을 지정합니다. 지원되는 값은 Linux 배포에 따라 달라집니다. 문자열이 X이면 mkfs.X가 Linux 이미지에 표시됩니다. 일반적으로 SLES 11 이미지는 'ext3'을 사용해야 합니다. 여기에서 FreeBSD 이미지는 'ufs2'를 사용해야 합니다.
 
 **ResourceDisk.MountPoint:**
 
-형식: String  
-기본값: /mnt/resource 
+형식: 문자열 기본:/mnt/resource
 
-이 옵션은 리소스 디스크가 탑재되는 경로를 지정합니다. 리소스 디스크는 *temporary* 디스크이며 VM의 프로비전을 해제할 때 비워질 수 있습니다.
+이 옵션은 리소스 디스크가 탑재되는 경로를 지정합니다. 리소스 디스크는 *임시* 디스크이며 VM의 프로비전을 해제할 때 비워질 수 있습니다.
 
 **ResourceDisk.EnableSwap:**
 
-형식: Boolean  
-기본값: n 
+형식: 부울 기본값: n
 
 설정한 경우 스왑 파일(/swapfile)이 리소스 디스크에 만들어져서 시스템 스왑 공간에 추가됩니다.
 
 **ResourceDisk.SwapSizeMB:**
 
-형식: Integer  
-기본값: 0
+유형: 정수 기본값: 0
 
 스왑 파일의 크기(MB)입니다.
 
 **LBProbeResponder:**
 
-형식: Boolean  
-기본값: y
+형식: 부울 기본값: y
 
 설정한 경우 waagent가 플랫폼의 부하 분산 장치 프로브(있는 경우)에 응답합니다.
 
 **Logs.Verbose:**
 
-형식: Boolean  
-기본값: n
+형식: 부울 기본값: n
 
 설정한 경우 로그에 대한 세부 정보 표시가 향상됩니다. Waagent가 /var/log/waagent.log에 로깅하고 시스템 logrotate 기능을 활용하여 로그를 순환시킵니다.
 
 **OS.RootDeviceScsiTimeout:**
 
-형식: Integer  
-기본값: 300
+유형: 정수 기본값: 300
 
 이 옵션은 OS 디스크 및 데이터 드라이브에서 SCSI 시간 제한을 초 단위로 구성합니다. 설정하지 않은 경우 시스템 기본값이 사용됩니다.
 
 **OS.OpensslPath:**
 
-형식: String  
-기본값: 없음
+형식: 문자열 기본값: 없음
 
 이 옵션은 openssl 이진의 대체 경로를 지정하는 데 사용하여 암호화 작업에 사용할 수 있습니다.
 
-##부록
 
-###샘플 Role 구성 파일
 
-	<?xml version="1.0" encoding="utf-8"?>
-	<HostingEnvironmentConfig version="1.0.0.0" goalStateIncarnation="1">
-	  <StoredCertificates>
-	    <StoredCertificate name="Stored0Microsoft.WindowsAzure.Plugins.RemoteAccess.PasswordEncryption" certificateId="sha1:C093FA5CD3AAE057CB7C4E04532B2E16E07C26CA" storeName="My" configurationLevel="System" />
-	  </StoredCertificates>
-	  <Deployment name="a99549a92e38498f98cf2989330cd2f1" guid="{374ef9a2-de81-4412-ac87-e586fc869923}" incarnation="14">
-	    <Service name="LinuxDemo1" guid="{00000000-0000-0000-0000-000000000000}" />
-	    <ServiceInstance name="a99549a92e38498f98cf2989330cd2f1.4" guid="{250ac9df-e14c-4c5b-9cbc-f8a826ced0e7}" />
-	  </Deployment>
-	  <Incarnation number="1" instance="LinuxVM_IN_2" guid="{5c87ab8b-2f6a-4758-9f74-37e68c3e957b}" />
-	  <Role guid="{47a04da2-d0b7-26e2-f039-b1f1ab11337a}" name="LinuxVM" hostingEnvironmentVersion="1" software="" softwareType="ApplicationPackage" entryPoint="" parameters="" settleTimeSeconds="10" />
-	  <HostingEnvironmentSettings name="full" Runtime="rd_fabric_stable.111026-1712.RuntimePackage_1.0.0.9.zip">
-	    <CAS mode="full" />
-	    <PrivilegeLevel mode="max" />
-	    <AdditionalProperties><CgiHandlers></CgiHandlers></AdditionalProperties></HostingEnvironmentSettings>
-	    <ApplicationSettings>
-	      <Setting name="__ModelData" value="&lt;m role=&quot;LinuxVM&quot; xmlns=&quot;urn:azure:m:v1&quot;>&lt;r name=&quot;LinuxVM&quot;>&lt;e name=&quot;HTTP&quot; />&lt;e name=&quot;Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp&quot; />&lt;e name=&quot;Microsoft.WindowsAzure.Plugins.RemoteForwarder.RdpInput&quot; />&lt;e name=&quot;SSH&quot; />&lt;/r>&lt;/m>" />
-	      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountEncryptedPassword" value="..." />
-	      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountExpiration" value="2015-11-06T23:59:59.0000000-08:00" />
-	      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountUsername" value="rdos" />
-	      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.Enabled" value="true" />
-	      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteForwarder.Enabled" value="true" />
-	      <Setting name="startpage" value="Hello World!" />
-	      <Setting name="Certificate|Microsoft.WindowsAzure.Plugins.RemoteAccess.PasswordEncryption" value="sha1:C093FA5CD3AAE057CB7C4E04532B2E16E07C26CA" />
-	    </ApplicationSettings>
-	    <ResourceReferences>
-	      <Resource name="DiagnosticStore" type="directory" request="Microsoft.Cis.Fabric.Controller.Descriptions.ServiceDescription.Data.Policy" sticky="true" size="1" path="a99549a92e38498f98cf2989330cd2f1.LinuxVM.DiagnosticStore" disableQuota="false" />
-	    </ResourceReferences>
-	  </HostingEnvironmentConfig>
+##Ubuntu 클라우드 이미지
 
-###샘플 Role 토폴로지 파일
+Ubuntu 클라우드 이미지는 [cloud-init](https://launchpad.net/ubuntu/+source/cloud-init)을 사용하여 Azure Linux 에이전트에 서 관리되는 여러 구성 작업을 수행할 수 있습니다. 다음과 같은 차이점에 유의하세요.
 
-	<?xml version="1.0" encoding="utf-8"?>
-	<SharedConfig version="1.0.0.0" goalStateIncarnation="2">
-	  <Deployment name="a99549a92e38498f98cf2989330cd2f1" guid="{374ef9a2-de81-4412-ac87-e586fc869923}" incarnation="14">
-	    <Service name="LinuxDemo1" guid="{00000000-0000-0000-0000-000000000000}" />
-	    <ServiceInstance name="a99549a92e38498f98cf2989330cd2f1.4" guid="{250ac9df-e14c-4c5b-9cbc-f8a826ced0e7}" />
-	  </Deployment>
-	  <Incarnation number="1" instance="LinuxVM_IN_1" guid="{a7b94774-db5c-4007-8707-0b9e91fd808d}" />
-	  <Role guid="{47a04da2-d0b7-26e2-f039-b1f1ab11337a}" name="LinuxVM" settleTimeSeconds="10" />
-	  <LoadBalancerSettings timeoutSeconds="32" waitLoadBalancerProbeCount="8">
-	    <Probes>
-	      <Probe name="LinuxVM" />
-	      <Probe name="03F7F19398C4358108B7ED059966EEBD" />
-	      <Probe name="47194D0E3AB3FCAD621CAAF698EC82D8" />
-	    </Probes>
-	  </LoadBalancerSettings>
-	  <OutputEndpoints>
-	    <Endpoint name="LinuxVM:Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp" type="SFS">
-	      <Target instance="LinuxVM_IN_0" endpoint="Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp" />
-	      <Target instance="LinuxVM_IN_1" endpoint="Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp" />
-	      <Target instance="LinuxVM_IN_2" endpoint="Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp" />
-	    </Endpoint>
-	  </OutputEndpoints>
-	  <Instances>
-	    <Instance id="LinuxVM_IN_1" address="10.115.38.202">
-	      <FaultDomains randomId="1" updateId="1" updateCount="2" />
-	      <InputEndpoints>
-	        <Endpoint name="HTTP" address="10.115.38.202:80" protocol="tcp" isPublic="true" loadBalancedPublicAddress="70.37.56.176:80" enableDirectServerReturn="false" isDirectAddress="false" disableStealthMode="false">
-	          <LocalPorts>
-	            <LocalPortRange from="80" to="80" />
-	          </LocalPorts>
-	        </Endpoint>
-	        <Endpoint name="Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp" address="10.115.38.202:3389" protocol="tcp" isPublic="false" enableDirectServerReturn="false" isDirectAddress="false" disableStealthMode="false">
-	          <LocalPorts>
-	            <LocalPortRange from="3389" to="3389" />
-	          </LocalPorts>
-	          <RemoteInstances>
-	            <RemoteInstance instance="LinuxVM_IN_0" />
-	            <RemoteInstance instance="LinuxVM_IN_2" />
-	          </RemoteInstances>
-	        </Endpoint>
-	        <Endpoint name="Microsoft.WindowsAzure.Plugins.RemoteForwarder.RdpInput" address="10.115.38.202:20000" protocol="tcp" isPublic="true" loadBalancedPublicAddress="70.37.56.176:3389" enableDirectServerReturn="false" isDirectAddress="false" disableStealthMode="false">
-	          <LocalPorts>
-	            <LocalPortRange from="20000" to="20000" />
-	          </LocalPorts>
-	        </Endpoint>
-	        <Endpoint name="SSH" address="10.115.38.202:22" protocol="tcp" isPublic="true" loadBalancedPublicAddress="70.37.56.176:22" enableDirectServerReturn="false" isDirectAddress="false" disableStealthMode="false">
-	          <LocalPorts>
-	            <LocalPortRange from="22" to="22" />
-	          </LocalPorts>
-	        </Endpoint>
-	      </InputEndpoints>
-	    </Instance>
-	    <Instance id="LinuxVM_IN_0" address="10.115.58.82">
-	      <FaultDomains randomId="0" updateId="0" updateCount="2" />
-	      <InputEndpoints>
-	        <Endpoint name="Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp" address="10.115.58.82:3389" protocol="tcp" isPublic="false" enableDirectServerReturn="false" isDirectAddress="false" disableStealthMode="false">
-	          <LocalPorts>
-	            <LocalPortRange from="3389" to="3389" />
-	          </LocalPorts>
-	        </Endpoint>
-	      </InputEndpoints>
-	    </Instance>
-	    <Instance id="LinuxVM_IN_2" address="10.115.58.148">
-	      <FaultDomains randomId="0" updateId="2" updateCount="2" />
-	      <InputEndpoints>
-	        <Endpoint name="Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp" address="10.115.58.148:3389" protocol="tcp" isPublic="false" enableDirectServerReturn="false" isDirectAddress="false" disableStealthMode="false">
-	          <LocalPorts>
-	            <LocalPortRange from="3389" to="3389" />
-	          </LocalPorts>
-	        </Endpoint>
-	      </InputEndpoints>
-	    </Instance>
-	  </Instances>
-	</SharedConfig>
 
-<!--HONumber=45--> 
+- **Provisioning.Enabled** 프로비전 작업을 수행하기 위해 cloud-init을 사용하는 Ubuntu 클라우드 이미지에서 기본값은 "n"입니다.
+
+- 다음 구성 매개 변수는 cloud-init을 사용하여 리소스 디스크와 swap 공간을 관리하는 Ubuntu 클라우드 이미지에 적용되지 않습니다.
+
+ - **ResourceDisk.Format**
+ - **ResourceDisk.Filesystem**
+ - **ResourceDisk.MountPoint**
+ - **ResourceDisk.EnableSwap**
+ - **ResourceDisk.SwapSizeMB**
+
+- 프로비전 중 Ubuntu 클라우드 이미지에서 리소스 디스크 탑재 지점 및 swap 공간을 구성하려면 다음 리소스를 참조하세요.
+
+ - [Ubuntu Wiki: Swap 파티션 구성](http://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
+ - [Azure 가상 컴퓨터에 사용자 지정 데이터 삽입](./virtual-machines-how-to-inject-custom-data.md)
+
+<!---HONumber=58-->

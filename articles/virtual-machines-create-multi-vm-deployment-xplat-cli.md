@@ -1,6 +1,6 @@
-﻿<properties
-   pageTitle="Azure x-plat-cli를 사용하여 여러 VM 배포 만들기 | Azure"
-   description="Azure x-plat-cli를 사용하여 여러 VM 배포를 만드는 방법에 대해 알아봅니다."
+<properties
+   pageTitle="Azure CLI를 사용하여 여러 VM 배포 만들기 | Azure"
+   description="Azure CLI를 사용하여 여러 VM 배포를 만드는 방법에 대해 알아봅니다."
    services="virtual-machines"
    documentationCenter="nodejs"
    authors="AlanSt"
@@ -16,9 +16,9 @@
    ms.date="02/20/2015"
    ms.author="alanst;kasing"/>
 
-# Azure x-plat-cli를 사용하여 여러 VM 배포 만들기
+# Azure CLI를 사용하여 여러 VM 배포 만들기
 
-다음 스크립트는 Azure 플랫폼 간 명령줄 인터페이스(xplat-cli)를 사용하여 VNET에서 여러 VM/다중 클라우드 서비스 배포를 구성하는 방법을 보여 줍니다.
+다음 스크립트는 Azure 명령줄 인터페이스(Azure CLI)를 사용하여 VNET에서 여러 VM 다중 클라우드 서비스 배포를 구성하는 방법을 보여 줍니다.
 
 아래 이미지에서는 스크립트 완료 후 표시되는 배포를 보여 줍니다.
 
@@ -29,11 +29,11 @@
 ## 작업 수행용 CLI 스크립트
 위에서 설명한 배포를 설정하는 코드는 비교적 단순합니다.
 
->[AZURE.NOTE] 클라우드 서비스 이름인 servercs 및 workercs는 고유한 클라우드 서비스 이름으로 변경해야 합니다.
+>[AZURE.NOTE]클라우드 서비스 이름인 servercs 및 workercs는 고유한 클라우드 서비스 이름으로 변경해야 합니다.
 
     azure network vnet create samplevnet -l "West US"
     azure vm create -l "West US" -w samplevnet -e 10000 -z Small -n servervm servercs b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20150202-ko-kr-30GB azureuser Password@1
-    azure vm create -l "West US" -w samplevnet -e 10001 -z Small -n clientvm1 clientcs b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20150202-ko-kr-30GB azureuser Password@1
+    azure vm create -l "West US" -w samplevnet -e 10001 -z Small –n clientvm1 clientcs b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20150202-ko-kr-30GB azureuser Password@1
     azure vm create -l "West US" -w samplevnet -e 10002 -c -z Small -n clientvm2 clientcs b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20150202-ko-kr-30GB azureuser Password@1
     azure vm disk attach-new servervm 100
     azure vm disk attach-new servervm 500
@@ -46,7 +46,7 @@
     azure vm delete -b -q clientvm2
     azure network vnet delete -q samplevnet
 
-*-q 옵션을 사용하는 경우 개체 삭제를 위한 대화형 확인을 표시하지 않습니다. -b를 사용하면 VM과 연결된 디스크/Blob을 정리합니다.*
+*–q 옵션을 사용하는 경우 개체 삭제를 위한 대화형 확인을 표시하지 않습니다. -b를 사용하면 VM과 연결된 디스크/Blob을 정리합니다.*
 
 ## 사용되는 명령의 제네릭 형식
 
@@ -62,8 +62,8 @@
 
 ## 다음 단계
 
- 
-* [Azure의 오픈 소스 컴퓨팅 및 Linux](virtual-machines-linux-opensource.md)
+
+* [Azure에서 Linux 및 오픈 소스 컴퓨팅](virtual-machines-linux-opensource.md)
 * [Linux를 실행하는 가상 컴퓨터에 로그온하는 방법](virtual-machines-linux-how-to-log-on.md)
 
-<!--HONumber=47-->
+<!---HONumber=58-->

@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/15/2014" 
-	ms.author="szarkos"/>
+	ms.date="05/15/2015" 
+	ms.author="szark"/>
 
 #Azure에서 Linux와 함께 SSH를 사용하는 방법
 
 현재 버전의 Azure 관리 포털은 X509 인증서에 캡슐화된 SSH 공개 키만 허용합니다. SSH 키를 생성하고 Azure에 사용하려면 아래 단계를 따르세요.
 
-## Linux에서 Microsoft Azure 호환 키 생성 ##
+## Linux에서 Azure 호환 키 생성 ##
 
 1. 필요한 경우 `openssl` 유틸리티를 설치합니다.
 
-	**CentOS/Oracle Linux**
+	**CentOS / Oracle Linux**
 
 		# sudo yum install openssl
 
@@ -45,7 +45,7 @@
 
 		# chmod 600 myPrivateKey.key
 
-4.	Linux 가상 컴퓨터를 만드는 동안`myCert.pem`을 업로드합니다. 프로비전 프로세스에서 가상 컴퓨터의 지정된 사용자에 대한 `authorized_keys` 파일에 이 인증서의 공개 키를 자동으로 설치합니다.
+4.	Linux 가상 컴퓨터를 만드는 동안 `myCert.pem`을 업로드합니다. 프로비전 프로세스에서 가상 컴퓨터의 지정된 사용자에 대한 `authorized_keys` 파일에 이 인증서의 공개 키를 자동으로 설치합니다.
 
 5.	API를 직접 사용하고 관리 포털을 사용하지 않으려는 경우 다음 명령을 사용하여 `myCert.pem`을 `myCert.cer`(DER 인코딩된 X509 인증서)로 변환합니다.
 
@@ -53,7 +53,7 @@
 
 
 ## 기존 OpenSSH 호환 키에서 키 생성
-이전 예제에서는 Azure와 함께 사용할 새 키를 만드는 방법을 설명합니다. 사용자에게 기존의 OpenSSH 호환 공용 키 및 개인 키 쌍이 이미 있고 동일한 키를 Microsoft Azure에 사용하려는 경우도 있을 수 있습니다.
+이전 예제에서는 Azure와 함께 사용할 새 키를 만드는 방법을 설명합니다. 사용자에게 기존의 OpenSSH 호환 공용 키 및 개인 키 쌍이 이미 있고 동일한 키를 Azure에 사용하려는 경우도 있을 수 있습니다.
 
 OpenSSH 개인 키는 `openssl` 유틸리티를 통해 직접 읽을 수 있습니다. 다음 명령은 기존 SSH 개인 키(아래 예제에서는 id_rsa)를 사용하고 Azure에 필요한 `.pem` 공개 키를 만듭니다.
 
@@ -62,7 +62,7 @@ OpenSSH 개인 키는 `openssl` 유틸리티를 통해 직접 읽을 수 있습�
 **myCert.pem** 파일은 Azure에 Linux 가상 컴퓨터를 프로비전하는 데 사용할 수 있는 공개 키입니다. 프로비전하는 동안 `.pem` 파일이 `openssh` 호환 공개 키로 변환되고 `~/.ssh/authorized_keys`에 저장됩니다.
 
 
-## Linux에서 Microsoft Azure 가상 컴퓨터에 연결
+## Linux에서 Azure 가상 컴퓨터에 연결
 
 1. 일부 경우에 Linux 가상 컴퓨터의 SSH 끝점이 기본 포트인 22 이외의 포트에 대해 구성될 수 있습니다. 관리 포털("SSH 세부 정보")의 VM에 대한 대시보드에서 올바른 포트 번호를 찾을 수 있습니다.
 
@@ -70,25 +70,49 @@ OpenSSH 개인 키는 `openssl` 유틸리티를 통해 직접 읽을 수 있습�
 
 		# ssh -i  myPrivateKey.key -p <port> username@servicename.cloudapp.net
 
-3.	(옵션) `myPrivateKey.key`를 `~/.ssh/id_rsa`로 복사할 수 있습니다. 그러면 `-i` 옵션을 사용하지 않아도 OpenSSH 클라이언트가 이 파일을 자동으로 선택할 수 있습니다.
+3.	(선택 사항) `myPrivateKey.key`를 `~/.ssh/id_rsa`로 복사할 수 있습니다. 그러면 `-i` 옵션을 사용하지 않아도 OpenSSH 클라이언트가 이 파일을 자동으로 선택할 수 있습니다.
 
 ## Windows에서 OpenSSL 가져오기 ##
-### msysgit 사용 ###
 
-1.	다음 위치에서 msysgit를 다운로드하여 설치합니다. [http://msysgit.github.com/](http://msysgit.github.com/)
-2.	설치된 디렉터리(예: c:\msysgit\msys.exe)에서 `msys`를 실행합니다.
-3.	`cd bin`을 입력하여 `bin` 디렉터리로 변경합니다.
+Windows용 `openssl`을 포함하는 다양한 유틸리티가 있습니다. 다음은 몇 가지 예입니다.
 
-###Windows용 GitHub 사용###
+### Msysgit 사용 ###
 
-1.	다음 위치에서 Windows용 GitHub를 다운로드하여 설치합니다. [http://windows.github.com/](http://windows.github.com/)
+1.	다음 위치에서 msysgit를 다운로드하고 설치합니다. [http://msysgit.github.com/](http://msysgit.github.com/)
+2.	설치된 디렉터리에서 `msys` 실행(예: c:\msysgit\msys.exe)
+3.	`cd bin`에 입력하여 `bin` 디렉터리로 변경
+
+
+### Windows용 GitHub 사용 ###
+
+1.	다음 위치에서 Windows용 GitHub 다운로드 및 설치: [http://windows.github.com/](http://windows.github.com/)
 2.	시작 메뉴 > 모든 프로그램 > GitHub, Inc에서 Git 셸을 실행합니다.
 
-###cygwin 사용###
+	**참고:** 위의 `openssl` 명령을 실행할 때 다음 오류가 발생할 수 있습니다.
 
-1.	다음 위치에서 Cygwin을 다운로드하여 설치합니다. [http://cygwin.com/](http://cygwin.com/)
+		Unable to load config info from /usr/local/ssl/openssl.cnf
+
+	이를 해결하는 가장 쉬운 방법은 `OPENSSL_CONF` 환경 변수를 설정하는 것입니다. 이 변수를 설정하기 위한 프로세스는 Github에 구성된 셸에 따라 다를 수 있습니다.
+
+	**Powershell:**
+
+		$Env:OPENSSL_CONF="$Env:GITHUB_GIT\ssl\openssl.cnf"
+
+	**CMD:**
+
+		set OPENSSL_CONF=%GITHUB_GIT%\ssl\openssl.cnf
+
+	**Git Bash:**
+
+		export OPENSSL_CONF=$GITHUB_GIT/ssl/openssl.cnf
+
+
+###Cygwin 사용###
+
+1.	다음 위치에서 Cygwin 다운로드 및 설치: [http://cygwin.com/](http://cygwin.com/)
 2.	OpenSSL 패키지와 모든 종속성이 설치되었는지 확인합니다.
-3.	`cygwin`을 실행합니다.
+3.	`cygwin` 실행
+
 
 ## Windows에 개인 키 만들기 ##
 
@@ -102,14 +126,14 @@ OpenSSH 개인 키는 `openssl` 유틸리티를 통해 직접 읽을 수 있습�
 	![linuxwelcomegit](./media/virtual-machines-linux-use-ssh-key/linuxwelcomegit.png)
 
 4.	표시되는 질문에 대답합니다.
-5.	두 개의 파일, 즉 `myPrivateKey.key`와 `myCert.pem`을 만들었습니다.
+5.	`myPrivateKey.key` 및 `myCert.pem`, 2개의 파일을 만들었습니다.
 6.	API를 직접 사용하고 관리 포털을 사용하지 않으려는 경우 다음 명령을 사용하여 `myCert.pem`을 `myCert.cer`(DER 인코딩된 X509 인증서)로 변환합니다.
 
 		# openssl.exe  x509 -outform der -in myCert.pem -out myCert.cer
 
 ## Putty용 PPK 만들기 ##
 
-1. 다음 위치에서 Puttygen을 다운로드하여 설치합니다. [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
+1. 다음 위치에서 Puttygen 다운로드 및 설치: [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
 
 2. Puttygen은 앞에서 만든 개인 키(`myPrivateKey.key`)를 읽지 못할 수도 있습니다. 이 경우 다음 명령을 실행하여 해당 키를 Puttygen이 이해할 수 있는 RSA 개인 키로 변환합니다.
 
@@ -118,9 +142,9 @@ OpenSSH 개인 키는 `openssl` 유틸리티를 통해 직접 읽을 수 있습�
 
 	위의 명령을 실행하면 새 개인 키 myPrivateKey_rsa가 생성됩니다.
 
-3. `puttygen.exe`을 실행합니다.
+3. `puttygen.exe` 실행
 
-4. 메뉴: 파일 > 개인 키 로드를 클릭합니다.
+4. 메뉴 클릭: 파일 > 개인 키 로드
 
 5. 위에서 이름을 `myPrivateKey_rsa`로 지정한 개인 키를 찾습니다. **모든 파일(*.*)**을 표시하도록 파일 필터를 변경해야 합니다.
 
@@ -139,7 +163,7 @@ OpenSSH 개인 키는 `openssl` 유틸리티를 통해 직접 읽을 수 있습�
 
 ## Putty를 사용하여 Linux 컴퓨터에 연결 ##
 
-1.	다음 위치에서 putty를 다운로드하여 설치합니다. [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
+1.	다음 위치에서 putty 다운로드 및 설치: [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
 2.	putty.exe를 실행합니다.
 3.	관리 포털의 IP를 사용하여 호스트 이름을 입력합니다.
 
@@ -151,4 +175,4 @@ OpenSSH 개인 키는 `openssl` 유틸리티를 통해 직접 읽을 수 있습�
 
 5.	**열기**를 클릭하여 가상 컴퓨터에 연결합니다.
 
-<!--HONumber=45--> 
+<!---HONumber=58-->

@@ -1,6 +1,6 @@
-﻿<properties
-	pageTitle="Mac 및 Linux용 Azure 명령줄 도구"
-	description="Azure에서 Mac 및 Linux용 명령줄 도구를 사용하는 방법에 대해 알아봅니다."
+<properties
+	pageTitle="Azure 서비스 관리에서 Mac, Linux 및 Windows용 Azure CLI 사용"
+	description="Mac, Linux 및 Windows에 대한 명령줄 도구를 사용하여 Azure CLI asm 모드에서 Azure를 관리하는 방법을 알아봅니다."
 	services="web-sites, virtual-machines, mobile-services, cloud-services"
 	documentationCenter=""
 	authors="squillace"
@@ -13,39 +13,20 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="2/20/2014" 
+	ms.date="04/23/2015"
 	ms.author="rasquill"/>
 
-#Mac 및 Linux용 Azure 명령줄 도구
+# Azure 서비스 관리에서 Mac, Linux 및 Windows용 Azure CLI 사용
 
-이 도구는 Mac 및 Linux 데스크톱에서 가상 컴퓨터, 웹 사이트 및 Azure 모바일 서비스를 만들고, 배포하고, 관리하는 데 필요한 기능을 제공합니다. 이 기능은 Azure SDK for .NET, Node.JS 및 PHP와 함께 설치되는 Windows PowerShell cmdlet에 제공되는 기능과 비슷합니다.
+이 항목에서는 **asm** 모드에서 Azure CLI를 사용하여 Mac, Linux 및 Windows 컴퓨터의 명령줄에서 서비스를 생성, 관리 및 삭제하는 방법에 대해 설명합니다. 이 기능은 Azure SDK for .NET, Node.JS 및 PHP와 함께 설치되는 Windows PowerShell cmdlet에 제공되는 기능과 비슷합니다.
 
-Mac에서 이 도구를 설치하려면 [Azure SDK 설치 관리자](http://go.microsoft.com/fwlink/?LinkId=252249)를 다운로드하여 실행합니다.
+> [AZURE.NOTE]**asm** 모드로 Azure 서비스를 사용하는 것은 개별 Azure 개념 및 웹사이트, 가상 컴퓨터, 가상 네트워크, 저장소 등과 같은 서비스를 생각하는 것과 개념적으로는 유사합니다. 논리적 그룹화 및 리소스의 계층적 모델로 더 풍부한 기능을 **arm** 모드를 사용하는 명령줄에서 이용할 수 있습니다. 해당 모드로 전환하려면, [리소스 관리자에서 Azure 명령줄 인터페이스 사용](xplat-cli-azure-resource-manager.md)을 참조하세요.
 
-Linux에서 이 도구를 설치하려면 최신 버전의 Node.JS를 설치한 다음 NPM을 사용하여 다음을 설치합니다.
-
-    npm install azure-cli -g
+설치 지침은 [Azure 명령줄 인터페이스 설치 및 구성](xplat-cli-install.md)을 참조하세요.
 
 선택적 매개 변수는 대괄호 안에 표시됩니다(예: [parameter]). 모든 다른 매개 변수는 필수 항목입니다.
 
 여기에 언급된 명령 관련 선택적 매개 변수 이외에 요청 옵션, 상태 코드 등과 같은 자세한 출력을 표시하는 데 사용할 수 있는 세 가지 선택적 매개 변수가 있습니다. -v 매개 변수는 자세한 정보를 출력하고 -vv 매개 변수는 훨씬 더 자세한 정보를 출력합니다. --json 옵션은 결과를 원시 JSON 형식으로 출력합니다.
-
-**목차:**
-
-* [계정 정보 및 게시 설정 관리](#Manage_your_account_information_and_publish_settings)
-* [Azure 가상 컴퓨터를 관리하는 명령](#Commands_to_manage_your_Azure_virtual_machines)
-* [Azure 가상 컴퓨터 끝점을 관리하는 명령](#Commands_to_manage_your_Azure_virtual_machine_endpoints)
-* [Azure 가상 컴퓨터 이미지를 관리하는 명령](#Commands_to_manage_your_Azure_virtual_machine_images)
-* [Azure 가상 컴퓨터 데이터 디스크를 관리하는 명령](#Commands_to_manage_your_Azure_virtual_machine_data_disks)
-* [Azure 클라우드 서비스를 관리하는 명령](#Commands_to_manage_your_Azure_cloud_services)
-* [Azure 인증서를 관리하는 명령](#Commands_to_manage_your_Azure_certificates)
-* [웹 사이트를 관리하는 명령](#Commands_to_manage_your_web_sites)
-* [Azure 모바일 서비스를 관리하는 명령](#Commands_to_manage_mobile_services)
-* [도구 로컬 설정 관리](#Manage_tool_local_settings)
-* [서비스 버스를 관리하는 명령](#Commands_to_manage_service_bus)
-* [저장소 개체를 관리하는 명령](#Commands_to_manage_your_Storage_objects)
-* [SQL 데이터베이스를 관리하는 명령](#Commands_to_manage_sql)
-* [가상 네트워크를 관리하는 명령](#Commands_to_manage_vnet)
 
 ##<a name="Manage_your_account_information_and_publish_settings"></a>계정 정보 및 게시 설정 관리
 Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다. 여기에 설명한 대로 Azure 포털에서 이 정보를 게시 설정 파일로 가져올 수 있습니다. 도구에서 후속 작업에 사용할 영구 로컬 구성 설정으로 게시 설정 파일을 가져올 수 있습니다. 게시 설정을 한 번만 가져와야 합니다.
@@ -75,8 +56,7 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다. 
 	warn:   Remember to delete it now that it has been imported.
 	info:   Account publish settings imported successfully
 
-> [AZURE.NOTE] publishsettings 파일은 여러 구독에 대한 세부 정보(즉, 구독 이름 및 ID)를 포함할 수 있습니다. publishsettings 파일을 가져올 때 첫 번째 구독이 기본 설명으로 사용됩니다. 다른 설명을 사용하려면 다음 명령을 실행합니다.
-<code>~$ azure config set subscription &lt;other-subscription-id&gt;</code>
+> [AZURE.NOTE]publishsettings 파일은 여러 구독에 대한 세부 정보(즉, 구독 이름 및 ID)를 포함할 수 있습니다. publishsettings 파일을 가져올 때 첫 번째 구독이 기본 설명으로 사용됩니다. 다른 구독을 사용하려면 다음 명령을 실행합니다. <code>~$ azure config set subscription &lt;other-subscription-id&gt;</code>
 
 **account clear [options]**
 
@@ -171,7 +151,7 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다. 
 	data:    AzureChinaCloud
 	info:    account env list command OK
 
-**account env show [options] [environment]**
+**account env show [options][environment]**
 
 계정 환경 세부 정보 표시
 
@@ -182,22 +162,22 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다. 
 	data:    Environment portal  http://go.microsoft.com/fwlink/?LinkId=2544
 	info:    account env show command OK
 
-**account env add [options] [environment]**
+**account env add [options][environment]**
 
 이 명령은 계정에 환경을 추가합니다.
 
-**account env set [options] [environment]**
+**account env set [options][environment]**
 
 이 명령은 계정 환경을 설정합니다.
 
-**account env delete [options] [environment]**
+**account env delete [options][environment]**
 
 이 명령은 지정된 환경을 계정에서 삭제합니다.
 
 ##<a name="Commands_to_manage_your_Azure_virtual_machines"></a>Azure 가상 컴퓨터를 관리하는 명령
 다음 다이어그램은 Azure 클라우드 서비스의 프로덕션 배포 환경에서 Azure 가상 컴퓨터가 호스트되는 방법을 보여 줍니다.
 
-![Azure Technical Diagram](./media/virtual-machines-command-line-tools/architecturediagram.jpg)
+![Azure 기술 다이어그램](./media/virtual-machines-command-line-tools/architecturediagram.jpg)
 
 **create-new**는 Blob 저장소에서 드라이브(즉, 다이어그램의 e:)를 만들고, **연결**은 이미 만들어졌지만 연결되지 않은 디스크를 가상 컴퓨터에 연결합니다.
 
@@ -217,20 +197,7 @@ Windows 가상 컴퓨터에서는 포트 3389를 끝점으로 추가하여 나�
 
 이 명령에서 지원되는 선택적 매개 변수는 다음과 같습니다.
 
-**-c, --connect**는 호스팅 서비스에서 이미 만들어진 배포 내에 가상 컴퓨터를 만듭니다. -vmname을 이 옵션과 함께 사용하지 않는 경우 새 가상 컴퓨터의 이름이 자동으로 생성됩니다.<br />
-**-n, --vm-name**은 가상 컴퓨터의 이름을 지정합니다. 이 매개 변수는 기본적으로 호스팅 서비스 이름을 가져옵니다. -vmname을 지정하지 않은 경우 새 가상 컴퓨터의 이름은 &lt;서비스 이름>&lt;id>로 생성됩니다. 여기서 &lt;id>는 서비스에 1을 더한 기존 가상 컴퓨터의 번호입니다. 예를 들어 이 명령을 사용하여 기존 가상 컴퓨터가 하나인 호스팅 서비스 MyService에 새 가상 컴퓨터를 추가할 경우 새 가상 컴퓨터의 이름은 MyService2입니다.<br />
-**-u, --blob-url**은 가상 컴퓨터 시스템 디스크를 만들 원본 Blob 저장소 URL을 지정합니다. <br />
-**-z, --vm-size**는 가상 컴퓨터의 크기를 지정합니다. 유효한 값은 "extrasmall", "small", "medium", "large", "extralarge"입니다. 기본값은 "small"입니다. <br />
-**-r**은 Windows 가상 컴퓨터에 RDP 연결을 추가합니다. <br />
-**-e, --ssh**는 Windows 가상 컴퓨터에 SSH 연결을 추가합니다. <br />
-**-t, --ssh-cert**는 SSH 인증서를 지정합니다. <br />
-**-s** 구독 <br />
-**-o, --community** 지정된 이미지는 커뮤니티 이미지입니다. <br />
-**-w** 가상 네트워크 이름 <br/>
-**-l, --location**은 위치를 지정합니다(예: "North Central US"). <br />
-**-a, --affinity-group**은 선호도 그룹을 지정합니다.<br />
-**-w, --virtual-network-name**은 새 가상 컴퓨터를 추가할 가상 네트워크를 지정합니다. 가상 네트워크는 Azure 포털에서 설정하고 관리할 수 있습니다.<br />
-**-b, --subnet-names** Specifies the subnet names to assign the virtual machine.
+**-c, --connect**는 호스팅 서비스에서 이미 만들어진 배포 내에 가상 컴퓨터를 만듭니다. -vmname을 이 옵션과 함께 사용하지 않는 경우 새 가상 컴퓨터의 이름이 자동으로 생성됩니다.<br /> **-n, --vm-name** 가상 컴퓨터의 이름을 지정합니다. 이 매개 변수는 기본적으로 호스팅 서비스 이름을 가져옵니다. -vmname을 지정하지 않은 경우 새 가상 컴퓨터의 이름은 &lt;service-name>&lt;id>로 생성되며, 여기서 &lt;id>는 서비스에 1을 더한 기존 가상 컴퓨터의 번호입니다. 예를 들어 이 명령을 사용하여 기존 가상 컴퓨터가 하나인 호스팅 서비스 MyService에 새 가상 컴퓨터를 추가할 경우 새 가상 컴퓨터의 이름은 MyService2입니다.<br /> **-u, --blob-url** 가상 컴퓨터 시스템 디스크를 생성할 대상 Blob 저장소 URL을 지정합니다. <br /> **-z, --vm-size** 가상 컴퓨터의 크기를 지정합니다. 유효한 값은 다음과 같습니다. "ExtraSmall", "Small", "Medium", "Large", "ExtraLarge", "A5", "A6", "A7", "A8", "A9", "A10", "A11", "Basic_A0", "Basic_A1", "Basic_A2", "Basic_A3", "Basic_A4", "Standard_D1", "Standard_D2", "Standard_D3", "Standard_D4", "Standard_D11", "Standard_D12", "Standard_D13", "Standard_D14", "Standard_DS1", "Standard_DS2", "Standard_DS3", "Standard_DS4", "Standard_DS11", "Standard_DS12", "Standard_DS13", "Standard_DS14", "Standard_G1", "Standard_G2", "Standard_G3", "Standard_G4", "Standard_G55". 기본값은 "Small"입니다. <br /> **-r** RDP 연결을 Windows 가상 컴퓨터에 추가합니다. <br /> **-e, --ssh** SSH 연결을 Windows 가상 컴퓨터에 추가합니다. <br /> **-t, --ssh-cert** SSH 인증서를 지정합니다. <br /> **-s** 구독 <br /> **-o, --community** 지정된 이미지는 커뮤니티 이미지입니다. <br /> **-w** 가상 네트워크 이름 <br/> **-l,--location**은 위치를 지정합니다(예: "미국 중 북부"). <br /> **-a, --affinity-group**은 선호도 그룹을 지정합니다.<br /> **-w, --virtual-network-name** 새 가상 컴퓨터에 추가할 가상 네트워크를 지정합니다. 가상 네트워크를 설정하고 Azure 포털에서 관리할 수 있습니다.<br /> **-b, --subnet-names** 가상 컴퓨터를 할당할 서브넷 이름을 지정합니다.
 
 이 예에서 MSFT__Win2K8R2SP1-120514-1520-141205-01-ko-kr-30GB는 플랫폼에서 제공되는 이미지입니다. 운영 체제 이미지에 대한 자세한 내용은 vm 이미지 목록을 참조하십시오.
 
@@ -239,7 +206,7 @@ Windows 가상 컴퓨터에서는 포트 3389를 끝점으로 추가하여 나�
 	Enter VM 'my-vm-name' password: ************
 	info:   vm create command OK
 
-**vm create-from &lt;dns-name> &lt;role-file **
+**vm create-from &lt;dns-name> &lt;role-file>**
 
 이 명령은 JSON 역할 파일에서 새 Azure 가상 컴퓨터를 만듭니다.
 
@@ -248,7 +215,7 @@ Windows 가상 컴퓨터에서는 포트 3389를 끝점으로 추가하여 나�
 
 **vm list [options]**
 
-이 명령은 Azure 가상 컴퓨터를 나열합니다. -json 옵션은 결과를 새 JSON 형식으로 반환하도록 지정합니다.
+이 명령은 Azure 가상 컴퓨터를 나열합니다. --json 옵션은 결과를 새 JSON 형식으로 반환하도록 지정합니다.
 
 	~$ azure vm list
 	info:   Executing command vm list
@@ -373,16 +340,16 @@ info:   vm shutdown command OK
 	+ Updating network configuration
 	info:   vm endpoint create command OK
 
-**vm endpoint create-multiple [options] &lt;vm-name> &lt;lb-port>[:&lt;vm-port>[:&lt;protocol>[:&lt;lb-set-name>[:&lt;prob-protocol>:&lt;lb-prob-port>[:&lt;prob-path>]]]]] ]{1-*}**
+**vm endpoint create-multiple [options] &lt;vm-name> &lt;lb-port>[:&lt;vm-port>[:&lt;protocol>[:&lt;enable-direct-server-return>[:&lt;lb-set-name>[:&lt;probe-protocol>[:&lt;probe-port>[:&lt;probe-path>[:&lt;internal-lb-name>]]]]]]]] {1-*}**
 
-여러 vm 끝점을 만듭니다. -u 또는 --enable-direct-server-return을 사용하여 이 끝점에서 직접 서버 반환을 사용하도록 설정할지 여부(기본적으로 사용하지 않도록 설정됨)를 지정할 수도 있습니다.
+여러 vm 끝점을 만듭니다.
 
-**vm endpoint delete &lt;vm-name> &lt;lb-port>**
+**vm endpoint delete [options] &lt;vm-name> &lt;endpoint-name>**
 
 이 명령은 가상 컴퓨터 끝점을 삭제합니다.
 
-	~$ azure vm endpoint delete my-vm 8888
-	azure vm endpoint delete my-vm 8888
+	~$ azure vm endpoint delete my-vm http
+	azure vm endpoint delete my-vm http
 	info:   Executing command vm endpoint delete
 	+ Fetching VM
 	+ Reading network configuration
@@ -391,7 +358,7 @@ info:   vm shutdown command OK
 
 **vm endpoint list &lt;vm-name>**
 
-이 명령은 모든 가상 컴퓨터 끝점을 나열합니다. -json 옵션은 결과를 새 JSON 형식으로 반환하도록 지정합니다.
+이 명령은 모든 가상 컴퓨터 끝점을 나열합니다. --json 옵션은 결과를 새 JSON 형식으로 반환하도록 지정합니다.
 
 	~$ azure vm endpoint list my-linux-vm
 	data:   Name  External Port  Local Port
@@ -439,8 +406,7 @@ info:   vm shutdown command OK
 
 **vm image list [options]**
 
-이 명령은 가상 컴퓨터 이미지 목록을 가져옵니다. 이미지 유형에는 "MSFT" 접두사가 붙은 Microsoft에서 만든 이미지, 일반적으로 공급업체의 이름이 접두사로 붙는 타사에서 만든 이미지, 사용자가 만든 이미지의 세 가지가 있습니다. 이미지를 만들려면 기존 가상 컴퓨터를 캡처하거나 Blob 저장소에 업로드된 사용자 지정 .vhd에서 이미지를 만듭니다. 사용자 지정 .vhd를 사용하는 방법에 대한 자세한 내용은 vm image create를 참조하십시오.
--json 옵션은 결과를 새 JSON 형식으로 반환하도록 지정합니다.
+이 명령은 가상 컴퓨터 이미지 목록을 가져옵니다. 이미지 유형에는 "MSFT" 접두사가 붙은 Microsoft에서 만든 이미지, 일반적으로 공급업체의 이름이 접두사로 붙는 타사에서 만든 이미지, 사용자가 만든 이미지의 세 가지가 있습니다. 이미지를 만들려면 기존 가상 컴퓨터를 캡처하거나 Blob 저장소에 업로드된 사용자 지정 .vhd에서 이미지를 만듭니다. 사용자 지정 .vhd를 사용하는 방법에 대한 자세한 내용은 vm image create를 참조하십시오. --json 옵션은 결과를 새 JSON 형식으로 반환하도록 지정합니다.
 
 	~$ azure vm image list
 	data:   Name                                                                   Category   OS
@@ -489,7 +455,7 @@ info:   vm shutdown command OK
 
 이 명령은 가상 컴퓨터 이미지를 만듭니다. 사용자 지정 .vhd 파일이 Blob 저장소에 업로드된 다음 이 저장소에서 가상 컴퓨터 이미지가 만들어집니다. 그러면 이 가상 컴퓨터 이미지를 사용하여 가상 컴퓨터를 만듭니다. 위치 및 OS 매개 변수는 필수 항목입니다.
 
-일부 시스템에서는 프로세스당 파일 설명자 제한을 부과합니다. 이 제한이 초과되면 도구에서 파일 설명자 제한 오류를 표시합니다. -p &lt;번호> 매개 변수와 함께 명령을 다시 실행하여 최대 병렬 업로드 수를 줄일 수 있습니다. 기본 최대 병렬 업로드 수는 96입니다.
+일부 시스템에서는 프로세스당 파일 설명자 제한을 부과합니다. 이 제한이 초과되면 도구에서 파일 설명자 제한 오류를 표시합니다. -p &lt;number> 매개 변수와 함께 명령을 다시 실행하여 최대 병렬 업로드 수를 줄일 수 있습니다. 기본 최대 병렬 업로드 수는 96입니다.
 
 	~$ azure vm image create mytestimage ./Sample.vhd -o windows -l "West US"
 	info:   Executing command vm image create
@@ -508,7 +474,7 @@ info:   vm shutdown command OK
 
 azure vm disk detach 명령을 사용하여 데이터 디스크를 분리할 경우 &lt;lun&gt; 매개 변수를 사용하여 분리할 디스크를 나타냅니다.
 
-> [AZURE>NOTE] 항상 할당된 LUN 중 번호가 가장 높은 LUN부터 시작하여 데이터 디스크를 역순으로 분리해야 합니다. Linux SCSI 계층에서는 번호가 더 높은 LUN이 연결된 상태에서 더 낮은 번호의 LUN을 분리할 수 없습니다. 예를 들어 LUN 1이 연결된 상태에서 LUN 0을 분리해서는 안 됩니다.
+> [AZURE>참고] 항상 할당된 LUN 중 번호가 가장 높은 LUN부터 시작하여 데이터 디스크를 역순으로 분리해야 합니다. Linux SCSI 계층에서는 번호가 더 높은 LUN이 연결된 상태에서 더 낮은 번호의 LUN을 분리할 수 없습니다. 예를 들어 LUN 1이 연결된 상태에서 LUN 0을 분리해서는 안 됩니다.
 
 **vm disk show [options] &lt;name>**
 
@@ -527,7 +493,7 @@ azure vm disk detach 명령을 사용하여 데이터 디스크를 분리할 경
 	data:   SourceImageName "OpenLogic__OpenLogic-CentOS-62-20120509-ko-kr-30GB.vhd"
 	info:   vm disk show command OK
 
-**vm disk list [options] [vm-name]**
+**vm disk list [options][vm-name]**
 
 이 명령은 Azure 디스크 또는 지정된 가상 컴퓨터에 연결된 디스크를 나열합니다. 가상 컴퓨터 이름 매개 변수를 사용하여 실행하면 가상 컴퓨터에 연결된 모든 디스크를 반환합니다. Lun 1이 가상 컴퓨터와 함께 만들어지고, 모든 다른 나열된 디스크가 개별적으로 연결됩니다.
 
@@ -560,9 +526,9 @@ azure vm disk detach 명령을 사용하여 데이터 디스크를 분리할 경
 
 **vm disk create &lt;name> [source-path]**
 
-이 명령은 Azure 디스크를 업로드하고 등록합니다. --blob-url, --location, or --affinity-group must be specified. 이 명령을 [소스 경로]와 함께 사용할 경우 지정된 .vhd 파일이 업로드되고 새 이미지가 만들어집니다. 그런 다음 vm disk attach를 사용하여 이 이미지를 가상 컴퓨터에 연결할 수 있습니다.
+이 명령은 Azure 디스크를 등록하며, --blob-url, --location 또는 --affinity-group을 지정해야 합니다. 이 명령을 [source-path]와 함께 사용할 경우 지정된 .vhd 파일이 업로드되고 새 이미지가 만들어집니다. 그런 다음 vm disk attach를 사용하여 이 이미지를 가상 컴퓨터에 연결할 수 있습니다.
 
-일부 시스템에서는 프로세스당 파일 설명자 제한을 부과합니다. 이 제한이 초과되면 도구에서 파일 설명자 제한 오류를 표시합니다. -p &lt;번호> 매개 변수와 함께 명령을 다시 실행하여 최대 병렬 업로드 수를 줄일 수 있습니다. 기본 최대 병렬 업로드 수는 96입니다.
+일부 시스템에서는 프로세스당 파일 설명자 제한을 부과합니다. 이 제한이 초과되면 도구에서 파일 설명자 제한 오류를 표시합니다. -p &lt;number> 매개 변수와 함께 명령을 다시 실행하여 최대 병렬 업로드 수를 줄일 수 있습니다. 기본 최대 병렬 업로드 수는 96입니다.
 
 	~$ azure vm disk create my-data-disk ~/test.vhd --location "West US"
 	info:   Executing command vm disk create
@@ -664,7 +630,7 @@ Azure 클라우드 서비스는 웹 역할 및 작업자 역할에 호스트되�
 	info:   Executing command service delete myservice
 	info:   cloud-service delete command OK
 
-강제로 삭제하려면 `-q`  매개 변수를 사용합니다.
+강제로 삭제하려면 `-q` 매개 변수를 사용합니다.
 
 
 ##<a name="Commands_to_manage_your_Azure_certificates"></a>Azure 인증서를 관리하는 명령
@@ -705,13 +671,13 @@ Azure 서비스 인증서는 Azure 계정에 연결된 SSL 인증서입니다. A
 	info:   service cert delete command OK
 
 
-##<a name="Commands_to_manage_your_web_sites"></a>웹 사이트를 관리하는 명령
+##<a name="Commands_to_manage_your_web_sites"></a>웹 앱을 관리하는 명령
 
-Azure 웹 사이트는 URI로 액세스할 수 있는 웹 구성입니다. 웹 사이트는 가상 컴퓨터에 호스트되지만 가상 컴퓨터를 직접 만들어서 배포할 때 세부 정보를 고려할 필요가 없습니다. 이러한 세부 정보는 Azure에서 자동으로 처리됩니다.
+Azure 웹 앱은 URI로 액세스할 수 있는 웹 구성입니다. 웹 앱은 가상 컴퓨터에서 호스팅되지만 가상 컴퓨터 자체를 만들어서 배포할 때 세부 정보를 고려할 필요가 없습니다. 이러한 세부 정보는 Azure에서 자동으로 처리됩니다.
 
 **site list [options]**
 
-이 명령은 웹 사이트를 나열합니다.
+이 명령은 웹 앱을 나열합니다.
 
 	~$ azure site list
 	info:   Executing command site list
@@ -722,9 +688,9 @@ Azure 웹 사이트는 URI로 액세스할 수 있는 웹 구성입니다. 웹 �
 	data:   mydrupalsite36  Running  mydrupalsite36.antdf0.antares.windows.net
 	info:   site list command OK
 
-**site set [options] [name]**
+**site set [options][name]**
 
-이 명령은 웹 사이트 [이름]에 대한 구성 옵션을 설정합니다.
+이 명령은 웹 앱 [이름]에 대한 구성 옵션을 설정합니다.
 
 	~$ azure site set
 	info:    Executing command site set
@@ -743,9 +709,9 @@ Azure 웹 사이트는 URI로 액세스할 수 있는 웹 구성입니다. 웹 �
 	info:    Generated deployment script files
 	info:    site deploymentscript command OK
 
-**site create [options] [name]**
+**site create [options][name]**
 
-이 명령은 새 웹 사이트 및 로컬 디렉터리를 만듭니다.
+이 명령은 새 웹 앱 및 로컬 디렉터리를 만듭니다.
 
 	~$ azure site create mysite
 	info:   Executing command site create
@@ -756,20 +722,20 @@ Azure 웹 사이트는 URI로 액세스할 수 있는 웹 구성입니다. 웹 �
 	info:   Repository initialized
 	info:   site create command OK
 
-> [AZURE.NOTE] 사이트 이름은 고유해야 합니다. 기존 사이트와 같은 DNS 이름을 가진 사이트를 만들 수 없습니다.
+> [AZURE.NOTE]사이트 이름은 고유해야 합니다. 기존 사이트와 같은 DNS 이름을 가진 사이트를 만들 수 없습니다.
 
-**site browse [options] [name]**
+**site browse [options][name]**
 
-이 명령은 브라우저에서 웹 사이트를 엽니다.
+이 명령은 브라우저에서 웹 앱을 엽니다.
 
 	~$ azure site browse mysite
 	info:   Executing command site browse
 	info:   Launching browser to http://mysite.antdf0.antares-test.windows-int.net
 	info:   site browse command OK
 
-**site show [options] [name]**
+**site show [options][name]**
 
-이 명령은 웹 사이트에 대한 세부 정보를 표시합니다.
+이 명령은 웹 앱에 대한 세부 정보를 표시합니다.
 
 	~$ azure site show mysite
 	info:   Executing command site show
@@ -797,9 +763,9 @@ Azure 웹 사이트는 URI로 액세스할 수 있는 웹 구성입니다. 웹 �
 	data:   Repository https://mysite.scm.antdf0.antares-test.windows-int.net/
 	info:   site show command OK
 
-**site delete [options] [name]**
+**site delete [options][name]**
 
-이 명령은 웹 사이트를 삭제합니다.
+이 명령은 웹 앱을 삭제합니다.
 
 	~$ azure site delete mysite
 	info:   Executing command site delete
@@ -807,18 +773,18 @@ Azure 웹 사이트는 URI로 액세스할 수 있는 웹 구성입니다. 웹 �
 	info:   Site mysite has been deleted
 	info:   site delete command OK
 
- **site swap [options] [name]**
+ **site swap [options][name]**
 
-이 명령은 두 웹 사이트 슬롯을 바꿉니다.
+이 명령은 두 웹 앱 슬롯을 바꿉니다.
 
 이 명령은 다음과 같은 추가 옵션을 지원합니다.
 
 **-q 또는 **--quiet**: 확인 프롬프트를 표시하지 않습니다. 자동화된 스크립트에서 이 옵션을 사용합니다.
 
 
-**site start [options] [name]**
+**site start [options][name]**
 
-이 명령은 웹 사이트를 시작합니다.
+이 명령은 웹 앱을 시작합니다.
 
 	~$ azure site start mysite
 	info:   Executing command site start
@@ -826,9 +792,9 @@ Azure 웹 사이트는 URI로 액세스할 수 있는 웹 구성입니다. 웹 �
 	info:   Site mysite has been started
 	info:   site start command OK
 
-**site stop [options] [name]**
+**site stop [options][name]**
 
-이 명령은 웹 사이트를 중지합니다.
+이 명령은 웹 앱을 중지합니다.
 
 	~$ azure site stop mysite
 	info:   Executing command site stop
@@ -836,9 +802,9 @@ Azure 웹 사이트는 URI로 액세스할 수 있는 웹 구성입니다. 웹 �
 	info:   Site mysite has been stopped
 	info:   site stop command OK
 
-**site restart [options] [name]
+**site restart [options][name]
 
-이 명령은 지정된 웹 사이트를 중지하고 시작합니다.
+이 명령은 지정된 웹 앱을 중지한 후 시작합니다.
 
 이 명령은 다음과 같은 추가 옵션을 지원합니다.
 
@@ -847,7 +813,7 @@ Azure 웹 사이트는 URI로 액세스할 수 있는 웹 구성입니다. 웹 �
 
 **site location list [options]**
 
-이 명령은 웹 사이트 위치를 나열합니다.
+이 명령은 웹 앱 위치를 나열합니다.
 
 	~$ azure site location list
 	info:    Executing command site location list
@@ -862,11 +828,11 @@ Azure 웹 사이트는 URI로 액세스할 수 있는 웹 구성입니다. 웹 �
 	data:    East US
 	info:    site location list command OK
 
-###웹 사이트 응용 프로그램 설정을 관리하는 명령
+###웹 앱 응용 프로그램 설정을 관리하는 명령
 
-**site appsetting list [options] [name]**
+**site appsetting list [options][name]**
 
-이 명령은 웹 사이트에 추가된 앱 설정을 나열합니다.
+이 명령은 웹 앱에 추가된 앱 설정을 나열합니다.
 
 	~$ azure site appsetting list
 	info:    Executing command site appsetting list
@@ -880,7 +846,7 @@ Azure 웹 사이트는 URI로 액세스할 수 있는 웹 구성입니다. 웹 �
 
 **site appsetting add [options] &lt;keyvaluepair> [name]**
 
-이 명령은 앱 설정을 웹 사이트에 키 값 쌍으로 추가합니다.
+이 명령은 앱 설정을 웹 앱에 키 값 쌍으로 추가합니다.
 
 	~$ azure site appsetting add test=value
 	info:    Executing command site appsetting add
@@ -892,7 +858,7 @@ Azure 웹 사이트는 URI로 액세스할 수 있는 웹 구성입니다. 웹 �
 
 **site appsetting delete [options] &lt;key> [name]**
 
-이 명령은 지정된 앱 설정을 웹 사이트에서 삭제합니다.
+이 명령은 지정된 앱 설정을 웹 앱에서 삭제합니다.
 
 	~$ azure site appsetting delete test
 	info:    Executing command site appsetting delete
@@ -915,11 +881,11 @@ Azure 웹 사이트는 URI로 액세스할 수 있는 웹 구성입니다. 웹 �
 	data:    Value:  value
 	info:    site appsetting show command OK
 
-###웹 사이트 인증서를 관리하는 명령
+###웹 앱 인증서를 관리하는 명령
 
-**site cert list [options] [name]**
+**site cert list [options][name]**
 
-이 명령은 웹 사이트 인증서 목록을 표시합니다.
+이 명령은 웹 앱 인증서 목록을 표시합니다.
 
 	~$ azure site cert list
 	info:    Executing command site cert list
@@ -955,9 +921,9 @@ Azure 웹 사이트는 URI로 액세스할 수 있는 웹 구성입니다. 웹 �
 	data:    Certificate thumbprint CE1CD65852B38DC32001C2E0E8F7A526A29B541F
 	info:    site cert show command OK
 
-###웹 사이트 연결 문자열을 관리하는 명령
+###웹 앱 연결 문자열을 관리하는 명령
 
-**site connectionstring list [options] [name]**
+**site connectionstring list [options][name]**
 
 **site connectionstring add [options] &lt;connectionname> &lt;value> &lt;type> [name]**
 
@@ -965,52 +931,51 @@ Azure 웹 사이트는 URI로 액세스할 수 있는 웹 구성입니다. 웹 �
 
 **site connectionstring show [options] &lt;connectionname> [name]**
 
-###웹 사이트 기본 문서를 관리하는 명령
+###웹 앱 기본 문서를 관리하는 명령
 
-**site defaultdocument list [options] [name]**
+**site defaultdocument list [options][name]**
 
 **site defaultdocument add [options] &lt;document> [name]**
 
 **site defaultdocument delete [options] &lt;document> [name]**
 
-###웹 사이트 배포를 관리하는 명령
+###웹 앱 배포를 관리하는 명령
 
-**site deployment list [options] [name]**
+**site deployment list [options][name]**
 
 **site deployment show [options] &lt;commitId> [name]**
 
 **site deployment redeploy [options] &lt;commitId> [name]**
 
-**site deployment github [options] [name]**
+**site deployment github [options][name]**
 
-**site deployment user set [options] [username] [pass]**
+**site deployment user set [options][username] [pass]**
 
-###웹 사이트 도메인을 관리하는 명령
+###웹 앱 도메인을 관리하는 명령
 
-**site domain list [options] [name]**
+**site domain list [options][name]**
 
 **site domain add [options] &lt;dn> [name]**
 
 **site domain delete [options] &lt;dn> [name]**
 
-###웹 사이트 처리기 매핑을 관리하는 명령
+###웹 앱 처리기 매핑을 관리하는 명령
 
-**site handler list [options] [name]**
+**site handler list [options][name]**
 
 **site handler add [options] &lt;extension> &lt;processor> [name]**
 
 **site handler delete [options] &lt;extension> [name]**
 
-###웹 사이트 웹 작업을 관리하는 명령
+###웹 작업을 관리하는 명령
 
-**site job list [options] [name]**
+**site job list [options][name]**
 
-이 명령은 웹 사이트 아래에 모든 웹 작업을 나열합니다.
+이 명령은 웹 앱의 모든 웹 작업을 나열합니다.
 
 이 명령은 다음과 같은 추가 옵션을 지원합니다.
 
-+ **--job-type** &lt;job-type>: 선택 사항입니다. 웹 작업 유형입니다. 유효한 값은 "triggered" 또는 "continuous"입니다. 기본적으로
-모든 유형의 웹 작업을 반환합니다.
++ **--job-type** &lt;job-type>: Optional. 웹 작업 유형입니다. 유효한 값은 "triggered" 또는 "continuous"입니다. 기본적으로 모든 종류의 웹 작업을 반환합니다.
 + **--slot** &lt;slot>: 다시 시작할 슬롯의 이름입니다.
 
 **site job show [options] &lt;jobName> &lt;jobType> [name]**
@@ -1019,8 +984,8 @@ Azure 웹 사이트는 URI로 액세스할 수 있는 웹 구성입니다. 웹 �
 
 이 명령은 다음과 같은 추가 옵션을 지원합니다.
 
-+ **--job-name** &lt;job-name>: 필수입니다. 웹 작업의 이름입니다.
-+ **--job-type** &lt;job-type>: 필수입니다. 웹 작업 유형입니다. 유효한 값은 "triggered" 또는 "continuous"입니다.
++ **--job-name** &lt;job-name>: Required. 웹 작업의 이름입니다.
++ **--job-type** &lt;job-type>: Required. 웹 작업 유형입니다. 유효한 값은 "triggered" 또는 "continuous"입니다.
 + **--slot** &lt;slot>: 다시 시작할 슬롯의 이름입니다.
 
 **site job delete [options] &lt;jobName> &lt;jobType> [name]**
@@ -1029,8 +994,8 @@ Azure 웹 사이트는 URI로 액세스할 수 있는 웹 구성입니다. 웹 �
 
 이 명령은 다음과 같은 추가 옵션을 지원합니다.
 
-+ **--job-name** &lt;job-name>    필수입니다. 웹 작업의 이름입니다.
-+ **--job-type** &lt;job-type>    필수입니다. 웹 작업 유형입니다. 유효한 값은 "triggered" 또는 "continuous"입니다.
++ **--job-name** &lt;job-name> required. 웹 작업의 이름입니다.
++ **--job-type** &lt;job-type> required. 웹 작업 유형입니다. 유효한 값은 "triggered" 또는 "continuous"입니다.
 + **-q** 또는 **--quiet**: 확인 프롬프트를 표시하지 않습니다. 자동화된 스크립트에서 이 옵션을 사용합니다.
 + **--slot** &lt;slot>: 다시 시작할 슬롯의 이름입니다.
 
@@ -1040,9 +1005,9 @@ Azure 웹 사이트는 URI로 액세스할 수 있는 웹 구성입니다. 웹 �
 
 이 명령은 다음과 같은 추가 옵션을 지원합니다.
 
-+ **--job-name** &lt;job-name>: 필수입니다. 웹 작업의 이름입니다.
-+ **--job-type** &lt;job-type>: 필수입니다. 웹 작업 유형입니다. 유효한 값은 "triggered" 또는 "continuous"입니다.
-+ **--job-file** &lt;job-file>: 필수입니다. 작업 파일입니다.
++ **--job-name** &lt;job-name>: Required. 웹 작업의 이름입니다.
++ **--job-type** &lt;job-type>: Required. 웹 작업 유형입니다. 유효한 값은 "triggered" 또는 "continuous"입니다.
++ **--job-file** &lt;job-file>: Required. 작업 파일입니다.
 + **--slot** &lt;slot>: 다시 시작할 슬롯의 이름입니다.
 
 **site job start [options] &lt;jobName> &lt;jobType> [name]**
@@ -1051,8 +1016,8 @@ Azure 웹 사이트는 URI로 액세스할 수 있는 웹 구성입니다. 웹 �
 
 이 명령은 다음과 같은 추가 옵션을 지원합니다.
 
-+ **--job-name** &lt;job-name>: 필수입니다. 웹 작업의 이름입니다.
-+ **--job-type** &lt;job-type>: 필수입니다. 웹 작업 유형입니다. 유효한 값은 "triggered" 또는 "continuous"입니다.
++ **--job-name** &lt;job-name>: Required. 웹 작업의 이름입니다.
++ **--job-type** &lt;job-type>: Required. 웹 작업 유형입니다. 유효한 값은 "triggered" 또는 "continuous"입니다.
 + **--slot** &lt;slot>: 다시 시작할 슬롯의 이름입니다.
 
 **site job stop [options] &lt;jobName> &lt;jobType> [name]**
@@ -1061,35 +1026,35 @@ Azure 웹 사이트는 URI로 액세스할 수 있는 웹 구성입니다. 웹 �
 
 이 명령은 다음과 같은 추가 옵션을 지원합니다.
 
-+ **--job-name** &lt;job-name>: 필수입니다. 웹 작업의 이름입니다.
++ **--job-name** &lt;job-name>: Required. 웹 작업의 이름입니다.
 + **--slot** &lt;slot>: 다시 시작할 슬롯의 이름입니다.
 
-###웹 사이트 웹 작업 기록을 관리하는 명령
+###웹 작업 기록을 관리하는 명령
 
-**site job history list [options] [jobName] [name]**
+**site job history list [options][jobName] [name]**
 
 이 명령은 지정된 웹 작업의 실행에 대한 기록을 표시합니다.
 
 이 명령은 다음과 같은 추가 옵션을 지원합니다.
 
-+ **--job-name** &lt;job-name>: 필수입니다. 웹 작업의 이름입니다.
++ **--job-name** &lt;job-name>: Required. 웹 작업의 이름입니다.
 + **--slot** &lt;slot>: 다시 시작할 슬롯의 이름입니다.
 
-**site job history show [options] [jobName] [runId] [name]**
+**site job history show [options][jobName] [runId][name]**
 
 이 명령은 지정된 웹 작업에 대한 실행 작업의 세부 정보를 가져옵니다.
 
 이 명령은 다음과 같은 추가 옵션을 지원합니다.
 
-+ **--job-name** &lt;job-name>: 필수입니다. 웹 작업의 이름입니다.
-+ **--run-id** &lt;run-id>: 선택 사항입니다. 실행 기록의 id입니다. 지정하지 않으면 가장 최근 실행을 표시합니다.
++ **--job-name** &lt;job-name>: Required. 웹 작업의 이름입니다.
++ **--run-id** &lt;run-id>: Optional. 실행 기록의 id입니다. 지정하지 않으면 가장 최근 실행을 표시합니다.
 + **--slot** &lt;slot>: 다시 시작할 슬롯의 이름입니다.
 
-###웹 사이트 진단을 관리하는 명령
+###웹 앱 진단을 관리하는 명령
 
-**site log download [options] [name]**
+**site log download [options][name]**
 
-웹 사이트 진단을 포함하는 .zip 파일을 다운로드합니다.
+웹 앱 진단을 포함하는 .zip 파일을 다운로드합니다.
 
 	~$ azure site log download
 	info:    Executing command site log download
@@ -1099,7 +1064,7 @@ Azure 웹 사이트는 URI로 액세스할 수 있는 웹 구성입니다. 웹 �
 	+ Downloading diagnostic log to diagnostics.zip
 	info:    site log download command OK
 
-**site log tail [options] [name]**
+**site log tail [options][name]**
 
 이 명령은 터미널을 로그 스트리밍 서비스에 연결합니다.
 
@@ -1110,9 +1075,9 @@ Azure 웹 사이트는 URI로 액세스할 수 있는 웹 구성입니다. 웹 �
 	+ Getting site information
 	2013-11-19T17:24:17  Welcome, you are now connected to log-streaming service.
 
-**site log set [options] [name]**
+**site log set [options][name]**
 
-이 명령은 웹 사이트에 대한 진단 옵션을 구성합니다.
+이 명령은 웹 앱에 대한 진단 옵션을 구성합니다.
 
 	~$ azure site log set -a
 	info:    Executing command site log set
@@ -1129,15 +1094,15 @@ Azure 웹 사이트는 URI로 액세스할 수 있는 웹 구성입니다. 웹 �
 	+ Updating diagnostic settings
 	info:    site log set command OK
 
-###웹 사이트 리포지토리를 관리하는 명령
+###웹 앱 리포지토리를 관리하는 명령
 
 **site repository branch [options] &lt;branch> [name]**
 
-**site repository delete [options] [name]**
+**site repository delete [options][name]**
 
-**site repository sync [options] [name]**
+**site repository sync [options][name]**
 
-###웹 사이트 크기 조정을 관리하는 명령
+###웹 앱 크기 조정을 관리하는 명령
 
 **site scale mode [options] &lt;mode> [name]**
 
@@ -1158,7 +1123,7 @@ Azure 모바일 서비스는 앱에서 백엔드 기능을 사용할 수 있도�
 다음은 대부분의 모바일 서비스 명령에 적용되는 옵션입니다.
 
 + **-h** 또는 **--help**: 출력 사용 정보를 표시합니다.
-+ **-s `<id>`** 또는 **--subscription `<id>`**: `<id>`로 지정된 특정 구독을 사용합니다.
++ **-s `<id>`** 또는 **--subscription `<id>`**: `<id>`에서 지정한 특정 구독을 사용합니다.
 + **-v** 또는 **--verbose**: 자세한 정보를 출력합니다.
 + **--json**: JSON 출력을 씁니다.
 
@@ -1174,7 +1139,7 @@ Azure 모바일 서비스는 앱에서 백엔드 기능을 사용할 수 있도�
 	info:    West US
 	info:    North Europe
 
-**mobile create [options] [servicename] [sqlAdminUsername] [sqlAdminPassword]**
+**mobile create [options][servicename] [sqlAdminUsername][sqlAdminPassword]**
 
 이 명령은 SQL 데이터베이스 및 서버와 함께 모바일 서비스를 만듭니다.
 
@@ -1189,12 +1154,12 @@ Azure 모바일 서비스는 앱에서 백엔드 기능을 사용할 수 있도�
 
 이 명령은 다음과 같은 추가 옵션을 지원합니다.
 
-+ **-r `<sqlServer>`** 또는 **--sqlServer `<sqlServer>`**:  '<SqlServer>'로 지정된 기존 SQL 데이터베이스 서버를 사용합니다.
-+ **-d `<sqlDb>`** 또는 **--sqlDb `<sqlDb>`**: `<sqlDb>`로 지정하는 기존 SQL 데이터베이스를 사용합니다.
-+ **-l `<location>`** 또는 **--location `<location>`**: `<location>`으로 지정된 특정 위치에 서비스를 만듭니다. azure mobile locations를 실행하여 사용 가능한 위치를 가져옵니다.
++ **-r `<sqlServer>`** 또는 **--sqlServer `<sqlServer>`**: `<sqlServer>`로 지정된 기존 SQL 데이터베이스 서버를 사용합니다.
++ **-d `<sqlDb>`** 또는 **--sqlDb `<sqlDb>`**: `<sqlDb>`로 지정된 기존 SQL 데이터베이스를 사용합니다.
++ **-l `<location>`** 또는 **--location `<location>`**: `<location>`로 지정된 특정 위치에 서비스를 만듭니다. azure mobile locations를 실행하여 사용 가능한 위치를 가져옵니다.
 + **--sqlLocation `<location>`**: 특정 `<location>`에 SQL Server를 만듭니다. 기본 위치는 모바일 서비스 위치입니다.
 
-**mobile delete [options] [servicename]**
+**mobile delete [options][servicename]**
 
 이 명령은 SQL 데이터베이스 및 서버와 함께 모바일 서비스를 삭제합니다.
 
@@ -1229,7 +1194,7 @@ Azure 모바일 서비스는 앱에서 백엔드 기능을 사용할 수 있도�
 	data:    mymobileapp   Ready  https://mymobileapp.azure-mobile.net/
 	info:    mobile list command OK
 
-**mobile show [options] [servicename]**
+**mobile show [options][servicename]**
 
 이 명령은 모바일 서비스에 대한 세부 정보를 표시합니다.
 
@@ -1255,7 +1220,7 @@ Azure 모바일 서비스는 앱에서 백엔드 기능을 사용할 수 있도�
 	data:    tables TodoItem
 	info:    mobile show command OK
 
-**mobile restart [options] [servicename]**
+**mobile restart [options][servicename]**
 
 이 명령은 모바일 서비스 인스턴스를 다시 시작합니다.
 
@@ -1265,9 +1230,9 @@ Azure 모바일 서비스는 앱에서 백엔드 기능을 사용할 수 있도�
 	info:    Service was restarted.
 	info:    mobile restart command OK
 
-**mobile log [options] [servicename]**
+**mobile log [options][servicename]**
 
-이 명령은  `error`를 제외한 모든 로그 유형을 필터링하여 모바일 서비스 로그를 반환합니다.
+이 명령은 `error`를 제외한 모든 로그 유형을 필터링하여 모바일 서비스 로그를 반환합니다.
 
 	~$ azure mobile log todolist -t error
 	info:    Executing command mobile log
@@ -1282,13 +1247,13 @@ Azure 모바일 서비스는 앱에서 백엔드 기능을 사용할 수 있도�
 이 명령은 다음과 같은 추가 옵션을 지원합니다.
 
 + **-r `<query>`** 또는 **--query `<query>`**: 지정된 로그 쿼리를 실행합니다.
-+ **-t `<type>`** 또는 **--type `<type>`**:  반환된 로그를 항목 '<type>'('정보', '경고' 또는 '오류')별로 필터링합니다.
-+ **-k `<skip>`** 또는 **--skip `<skip>`**: `<skip>`에 지정된 행 수를 건너뜁니다.
-+ **-p `<top>`** 또는 **--top `<top>`**: `<top>`에 지정된 특정 수의 행을 반환합니다.
++ **-t `<type>`** 또는 **--type `<type>`**: 항목 `<type>`로 반환된 로그를 필터링하며, `information`, `warning` 또는 `error`일 수 있습니다.
++ **-k `<skip>`** 또는 **--skip `<skip>`**: `<skip>`로 지정된 행 수를 건너뜁니다.
++ **-p `<top>`** 또는 **--top `<top>`**: `<top>`로 지정된 특정 수의 행을 반환합니다.
 
-> [AZURE.NOTE] **--query** 매개 변수는 **--type**, **--skip** 및 **--top**보다 우선합니다.
+> [AZURE.NOTE]**--query** 매개 변수는 **--type**, **--skip** 및 **--top**보다 우선합니다.
 
-**mobile recover [options] [unhealthyservicename] [healthyservicename]**
+**mobile recover [options][unhealthyservicename] [healthyservicename]**
 
 이 명령은 다른 지역의 정상 모바일 서비스로 이동하는 방식으로 비정상 모바일 서비스를 복구합니다.
 
@@ -1296,7 +1261,7 @@ Azure 모바일 서비스는 앱에서 백엔드 기능을 사용할 수 있도�
 
 **-q** 또는 **--quiet**: 복구 확인 프롬프트를 표시하지 않습니다.
 
-**mobile key regenerate [options] [servicename] [type]**
+**mobile key regenerate [options][servicename] [type]**
 
 이 명령은 모바일 서비스 응용 프로그램 키를 다시 생성합니다.
 
@@ -1305,18 +1270,18 @@ Azure 모바일 서비스는 앱에서 백엔드 기능을 사용할 수 있도�
 	info:    New application key is SmLorAWVfslMcOKWSsuJvuzdJkfUpt40
 	info:    mobile key regenerate command OK
 
-키 유형은  `master` 및 `application`입니다.
+키 유형은 `master` 및 `application`입니다.
 
-> [AZURE.NOTE] 키를 다시 생성하면 이전 키를 사용하는 클라이언트는 모바일 서비스에 액세스할 수 없습니다. 응용 프로그램 키를 다시 생성할 경우 앱을 새 키 값으로 업데이트해야 합니다.
+> [AZURE.NOTE]키를 다시 생성하면 이전 키를 사용하는 클라이언트는 모바일 서비스에 액세스할 수 없습니다. 응용 프로그램 키를 다시 생성할 경우 앱을 새 키 값으로 업데이트해야 합니다.
 
-**mobile key set [options] [servicename] [type] [value]**
+**mobile key set [options][servicename] [type][value]**
 
 이 명령은 모바일 서비스 키를 특정 값으로 설정합니다.
 
 
 ###<a name="Mobile_Configuration"></a>모바일 서비스 구성을 관리하는 명령
 
-**mobile config list [options] [servicename]**
+**mobile config list [options][servicename]**
 
 이 명령은 모바일 서비스에 대한 구성 옵션을 나열합니다.
 
@@ -1338,7 +1303,7 @@ Azure 모바일 서비스는 앱에서 백엔드 기능을 사용할 수 있도�
 	data:    apnsCertifcate Not configured
 	info:    mobile config list command OK
 
-**mobile config get [options] [servicename] [key]**
+**mobile config get [options][servicename] [key]**
 
 이 명령은 모바일 서비스에 대한 특정 구성 옵션(이 경우 동적 스키마)을 가져옵니다.
 
@@ -1347,7 +1312,7 @@ Azure 모바일 서비스는 앱에서 백엔드 기능을 사용할 수 있도�
 	data:    dynamicSchemaEnabled true
 	info:    mobile config get command OK
 
-**mobile config set [options] [servicename] [key] [value]**
+**mobile config set [options][servicename] [key][value]**
 
 이 명령은 모바일 서비스에 대한 특정 구성 옵션(이 경우 동적 스키마)을 설정합니다.
 
@@ -1358,7 +1323,7 @@ Azure 모바일 서비스는 앱에서 백엔드 기능을 사용할 수 있도�
 
 ###<a name="Mobile_Tables"></a>모바일 서비스 테이블을 관리하는 명령
 
-**mobile table list [options] [servicename]**
+**mobile table list [options][servicename]**
 
 이 명령은 모바일 서비스의 모든 테이블을 나열합니다.
 
@@ -1370,7 +1335,7 @@ Azure 모바일 서비스는 앱에서 백엔드 기능을 사용할 수 있도�
 	data:    TodoItem  1        0
 	info:    mobile table list command OK
 
-**mobile table show [options] [servicename] [tablename]**
+**mobile table show [options][servicename] [tablename]**
 
 이 명령은 특정 테이블에 대한 반환 세부 정보를 표시합니다.
 
@@ -1394,7 +1359,7 @@ Azure 모바일 서비스는 앱에서 백엔드 기능을 사용할 수 있도�
 	data:    complete  boolean
 	info:    mobile table show command OK
 
-**mobile table create [options] [servicename] [tablename]**
+**mobile table create [options][servicename] [tablename]**
 
 이 명령은 테이블을 만듭니다.
 
@@ -1405,9 +1370,9 @@ Azure 모바일 서비스는 앱에서 백엔드 기능을 사용할 수 있도�
 
 이 명령은 다음과 같은 추가 옵션을 지원합니다.
 
-+ **-p `&lt;permissions>`** 또는 **--permissions `&lt;permissions>`**: 쉼표로 구분된 `<operation>`=`<permission>` 쌍 목록입니다. 여기서 `<operation>`은 `insert`, `read`, `update` 또는 `delete`이고, `&lt;permissions>`는 `public`, `application`(기본값), `user` 또는 `admin`입니다.
++ **-p `&lt;permissions>`** 또는 **--permissions `&lt;permissions>`**: 쉼표로 구분된 `<operation>`=`<permission>` 쌍이며, 여기서 `<operation>`은 `insert`, `read`, `update` 또는 `delete`이며 `&lt;permissions>`는 `public`, `application`(기본값), `user` 또는 `admin`입니다.
 
-**mobile data read [options] [servicename] [tablename] [query]**
+**mobile data read [options][servicename] [tablename][query]**
 
 이 명령은 테이블에서 데이터를 읽습니다.
 
@@ -1423,11 +1388,11 @@ Azure 모바일 서비스는 앱에서 백엔드 기능을 사용할 수 있도�
 
 이 명령은 다음과 같은 추가 옵션을 지원합니다.
 
-+ **-k `<skip>`** 또는 **--skip `<skip>`**: `<skip>`에 지정된 행 수를 건너뜁니다.
-+ **-t `<top>`** 또는 **--top `<top>`**: `<top>`으로 지정된 특정 수의 행을 반환합니다..
++ **-k `<skip>`** 또는 **--skip `<skip>`**: `<skip>`로 지정된 행 수를 건너뜁니다.
++ **-t `<top>`** 또는 **--top `<top>`**: `<top>`로 지정된 특정 수의 행을 반환합니다.
 + **-l** 또는 **--list**: 데이터를 목록 형식으로 반환합니다.
 
-**mobile table update [options] [servicename] [tablename]**
+**mobile table update [options][servicename] [tablename]**
 
 이 명령은 테이블에 대한 삭제 권한을 관리자만으로 변경합니다.
 
@@ -1439,13 +1404,13 @@ Azure 모바일 서비스는 앱에서 백엔드 기능을 사용할 수 있도�
 
 이 명령은 다음과 같은 추가 옵션을 지원합니다.
 
-+ **-p `&lt;permissions>`** 또는 **--permissions `&lt;permissions>`**: 쉼표로 구분된 `<operation>`=`<permission>` 쌍 목록입니다. 여기서 `<operation>`은 `insert`, `read`, `update` 또는 `delete`이고, `&lt;permissions>`는 `public`, `application`(기본값), `user` 또는 `admin`입니다.
-+ **--deleteColumn `<columns>`**: 쉼표로 구분된 삭제할 열 목록이며, `<columns>`로 지정됩니다.
++ **-p `&lt;permissions>`** 또는 **--permissions `&lt;permissions>`**: 쉼표로 구분된 `<operation>`=`<permission>` 쌍이며, 여기서 `<operation>`은 `insert`, `read`, `update` 또는 `delete`이며 `&lt;permissions>`는 `public`, `application`(기본값), `user` 또는 `admin`입니다.
++ **--deleteColumn `<columns>`**: 쉼표로 구분된 삭제할 열 목록이며 `<columns>`로 지정됩니다.
 + **-q** 또는 **--quiet**: 확인 메시지를 표시하지 않고 열을 삭제합니다.
 + **--addIndex `<columns>`**: 인덱스에 포함할 열의 쉼표로 구분된 목록입니다.
 + **--deleteIndex `<columns>`**: 인덱스에서 제외할 열의 쉼표로 구분된 목록입니다.
 
-**mobile table delete [options] [servicename] [tablename]**
+**mobile table delete [options][servicename] [tablename]**
 
 이 명령은 테이블을 삭제합니다.
 
@@ -1457,7 +1422,7 @@ Azure 모바일 서비스는 앱에서 백엔드 기능을 사용할 수 있도�
 
 확인하지 않고 테이블을 삭제하려면 -q 매개 변수를 지정합니다. 이렇게 하면 자동화 스크립트가 차단되지 않습니다.
 
-**mobile data truncate [options] [servicename] [tablename]**
+**mobile data truncate [options][servicename] [tablename]**
 
 이 명령은 모든 데이터 행을 테이블에서 제거합니다.
 
@@ -1471,9 +1436,9 @@ Azure 모바일 서비스는 앱에서 백엔드 기능을 사용할 수 있도�
 
 ###<a name="Mobile_Scripts"></a>스크립트를 관리하는 명령
 
-이 섹션에 나오는 명령을 사용하여 모바일 서비스에 속하는 서버 스크립트를 관리할 수 있습니다. 자세한 내용은 [모바일 서비스에서 서버 스크립트 작업](http://www.windowsazure.com/develop/mobile/how-to-guides/work-with-server-scripts/)을 참조하세요.
+이 섹션에 나오는 명령을 사용하여 모바일 서비스에 속하는 서버 스크립트를 관리할 수 있습니다. 자세한 내용은 [모바일 서비스에서 서버 스크립트 작업](mobile-services-how-to-use-server-scripts.md)(영문)을 참조하십시오.
 
-**mobile script list [options] [servicename]**
+**mobile script list [options][servicename]**
 
 이 명령은 테이블 스크립트와 스케줄러 스크립트를 포함하여 등록된 스크립트를 나열합니다.
 
@@ -1493,9 +1458,9 @@ Azure 모바일 서비스는 앱에서 백엔드 기능을 사용할 수 있도�
 	data:    scheduler/undefined  undefined  undefined  undefined  undefined
 	info:    mobile script list command OK
 
-**mobile script download [options] [servicename] [scriptname]**
+**mobile script download [options][servicename] [scriptname]**
 
-이 명령은 TodoItem 테이블의 삽입 스크립트를  `table` 하위 폴더의  `todoitem.insert.js` 파일로 다운로드합니다.
+이 명령은 TodoItem 테이블의 삽입 스크립트를 `table` 하위 폴더의 `todoitem.insert.js` 파일로 다운로드합니다.
 
 	~$azure mobile script download todolist table/todoitem.insert.js
 	info:    Executing command mobile script download
@@ -1509,18 +1474,18 @@ Azure 모바일 서비스는 앱에서 백엔드 기능을 사용할 수 있도�
 + **-o** 또는 **--override**: 기존 파일을 덮어씁니다.
 + **-c** 또는 **--console**: 파일 대신 콘솔에 스크립트를 씁니다.
 
-**mobile script upload [options] [servicename] [scriptname]**
+**mobile script upload [options][servicename] [scriptname]**
 
-이 명령은  `table` 하위 폴더에서  `todoitem.insert.js`라는 새 스크립트를 업로드합니다.
+이 명령은 `table` 하위 폴더에서 `todoitem.insert.js`라는 새 스크립트를 업로드합니다.
 
 	~$azure mobile script upload todolist table/todoitem.insert.js
 	info:    Executing command mobile script upload
 	info:    mobile script upload command OK
 
-파일의 이름은 테이블 및 작업 이름으로부터 구성해야 하고, 명령이 실행되는 위치를 기준으로 테이블 하위 폴더에 위치해야 합니다. **-f `<file>`** 또는 **--file `<file>`** 매개 변수를 사용하여 등록할 스크립트가 포함된 파일에 다른 파일 이름 및 경로를 지정할 수 있습니다.
+파일 이름은 테이블 및 작업 이름에서 작성되어야 하며, 명령이 실행되는 위치를 기준으로 table 하위 폴더에 있어야 합니다. **-f `<file>`** 또는 **--file `<file>`** 매개 변수를 사용하여 등록할 스크립트가 포함된 파일에 다른 파일 이름 및 경로를 지정할 수도 있습니다.
 
 
-**mobile script delete [options] [servicename] [scriptname]**
+**mobile script delete [options][servicename] [scriptname]**
 
 이 명령은 기존 삽입 스크립트를 TodoItem 테이블에서 제거합니다.
 
@@ -1530,9 +1495,9 @@ Azure 모바일 서비스는 앱에서 백엔드 기능을 사용할 수 있도�
 
 ###<a name="Mobile_Jobs"></a>예약된 작업을 관리하는 명령
 
-이 섹션에 나오는 명령을 사용하여 모바일 서비스에 속하는 예약된 작업을 관리할 수 있습니다. 자세한 내용은 [작업 예약](http://msdn.microsoft.com/library/windowsazure/jj860528.aspx)을 참조하세요.
+이 섹션에 나오는 명령을 사용하여 모바일 서비스에 속하는 예약된 작업을 관리할 수 있습니다. 자세한 내용은 [작업 예약](http://msdn.microsoft.com/library/windowsazure/jj860528.aspx)을 참조하십시오.
 
-**mobile job list [options] [servicename]**
+**mobile job list [options][servicename]**
 
 이 명령은 예약된 작업을 나열합니다.
 
@@ -1545,9 +1510,9 @@ Azure 모바일 서비스는 앱에서 백엔드 기능을 사용할 수 있도�
 	info:    You can manipulate scheduled job scripts using the 'azure mobile script' command.
 	info:    mobile job list command OK
 
-**mobile job create [options] [servicename] [jobname]**
+**mobile job create [options][servicename] [jobname]**
 
-이 명령은 시간 단위로 실행하도록 예약된  `getUpdates`라는 새 작업을 만듭니다.
+이 명령은 시간 단위로 실행하도록 예약된 `getUpdates`라는 새 작업을 만듭니다.
 
 	~$azure mobile job create -i 1 -u hour todolist getUpdates
 	info:    Executing command mobile job create
@@ -1557,20 +1522,20 @@ Azure 모바일 서비스는 앱에서 백엔드 기능을 사용할 수 있도�
 
 이 명령은 다음과 같은 추가 옵션을 지원합니다.
 
-+ **-i `<number>`** 또는 **--interval `<number>`**: 작업 간격을 정수로 나타냅니다. 기본값은 '15'입니다.
++ **-i `<number>`** 또는 **--interval `<number>`**:작업 간격을 정수로 나타냅니다. 기본값은 `15`입니다.
 + **-u `<unit>`** 또는 **--intervalUnit `<unit>`**: _interval_의 단위이며 다음 값 중 하나일 수 있습니다.
-	+ **minute**(기본값)
-	+ **hour**
-	+ **day**
-	+ **month**
-	+ **none**(주문형 작업)
+	+ **분**(기본값)
+	+ **시간**
+	+ **일**
+	+ **월**
+	+ **없음**(주문형 작업)
 + **-t `<time>`** **--startTime `<time>`** ISO 형식의 스크립트에 대한 첫 번째 실행의 시작 시간입니다. 기본값은 `now`입니다.
 
-> [AZURE.NOTE] 스크립트를 계속 업로드해야 하므로 새 작업은 사용 안 함 상태로 만들어집니다. **mobile script upload** 명령을 사용하여 스크립트를 업로드하고 **mobile job update** 명령을 사용하여 작업을 사용하도록 설정합니다.
+> [AZURE.NOTE]스크립트를 계속 업로드해야 하므로 새 작업은 사용 안 함 상태로 만들어집니다. **mobile script upload** 명령을 사용하여 스크립트를 업로드하고 **mobile job update** 명령을 사용하여 작업을 사용하도록 설정합니다.
 
-**mobile job update [options] [servicename] [jobname]**
+**mobile job update [options][servicename] [jobname]**
 
-다음 명령은 사용하지 않도록 설정된  `getUpdates` 작업을 사용하도록 설정합니다.
+다음 명령은 사용하지 않도록 설정된 `getUpdates` 작업을 사용하도록 설정합니다.
 
 	~$azure mobile job update -a enabled todolist getUpdates
 	info:    Executing command mobile job update
@@ -1578,17 +1543,17 @@ Azure 모바일 서비스는 앱에서 백엔드 기능을 사용할 수 있도�
 
 이 명령은 다음과 같은 추가 옵션을 지원합니다.
 
-+ **-i `<number>`** 또는 **--interval `<number>`**: 작업 간격을 정수로 나타냅니다. 기본값은 '15'입니다.
++ **-i `<number>`** 또는 **--interval `<number>`**:작업 간격을 정수로 나타냅니다. 기본값은 `15`입니다.
 + **-u `<unit>`** 또는 **--intervalUnit `<unit>`**: _interval_의 단위이며 다음 값 중 하나일 수 있습니다.
-	+ **minute**(기본값)
-	+ **hour**
-	+ **day**
-	+ **month**
-	+ **none**(주문형 작업)
+	+ **분**(기본값)
+	+ **시간**
+	+ **일**
+	+ **월**
+	+ **없음**(주문형 작업)
 + **-t `<time>`** **--startTime `<time>`** ISO 형식의 스크립트에 대한 첫 번째 실행의 시작 시간입니다. 기본값은 `now`입니다.
-+ **-a `<status>`** 또는 **--status `<status>`**: 작업 상태를 나타내며  `enabled` 또는 `disabled`입니다.
++ **-a `<status>`** 또는 **--status `<status>`**: 작업 상태를 나타내며 `enabled` 또는 `disabled`입니다.
 
-**mobile job delete [options] [servicename] [jobname]**
+**mobile job delete [options][servicename] [jobname]**
 
 이 명령은 getUpdates 예약된 작업을 TodoList 서버에서 제거합니다.
 
@@ -1596,13 +1561,13 @@ Azure 모바일 서비스는 앱에서 백엔드 기능을 사용할 수 있도�
 	info:    Executing command mobile job delete
 	info:    mobile job delete command OK
 
-> [AZURE.NOTE] 작업을 삭제하면 업로드된 스크립트도 삭제됩니다.
+> [AZURE.NOTE]작업을 삭제하면 업로드된 스크립트도 삭제됩니다.
 
 ###<a name="Mobile_Scale"></a>모바일 서비스의 크기를 조정하는 명령
 
-이 섹션에 나오는 명령을 사용하여 모바일 서비스를 크기 조정할 수 있습니다. 자세한 내용은 [모바일 서비스 확장](http://msdn.microsoft.com/library/windowsazure/jj193178.aspx)을 참조하세요.
+이 섹션에 나오는 명령을 사용하여 모바일 서비스를 크기 조정할 수 있습니다. 자세한 내용은 [모바일 서비스 확장](http://msdn.microsoft.com/library/windowsazure/jj193178.aspx)을 참조하십시오.
 
-**mobile scale show [options] [servicename]**
+**mobile scale show [options][servicename]**
 
 이 명령은 현재 계산 모드, 인스턴스 수를 비롯한 배율 정보를 표시합니다.
 
@@ -1613,7 +1578,7 @@ Azure 모바일 서비스는 앱에서 백엔드 기능을 사용할 수 있도�
 	data:    numberOfInstances 1
 	info:    mobile scale show command OK
 
-**mobile scale change [options] [servicename]**
+**mobile scale change [options][servicename]**
 
 이 명령은 모바일 서비스의 배율을 free 모드에서 premium 모드로 변경합니다.
 
@@ -1627,12 +1592,12 @@ Azure 모바일 서비스는 앱에서 백엔드 기능을 사용할 수 있도�
 + **-c `<mode>`** 또는 **--computeMode `<mode>`**: 계산 모드는 `Free` 또는 `Reserved`여야 합니다.
 + **-i `<count>`** 또는 **--numberOfInstances `<count>`**: reserved 모드에서 실행 중일 때 사용되는 인스턴스 수를 나타냅니다.
 
-> [AZURE.NOTE] 계산 모드를 `Reserved`로 설정한 경우 같은 지역의 모든 모바일 서비스가 premium 모드로 실행됩니다.
+> [AZURE.NOTE]계산 모드를 `Reserved`로 설정한 경우 같은 지역의 모든 모바일 서비스가 premium 모드로 실행됩니다.
 
 
 ###모바일 서비스에 대한 미리 보기 기능을 사용하는 명령
 
-**mobile preview list [options] [servicename]**
+**mobile preview list [options][servicename]**
 
 이 명령은 지정된 서비스에서 사용할 수 있는 미리 보기 기능 및 이 기능이 사용되는지를 표시합니다.
 
@@ -1646,13 +1611,13 @@ Azure 모바일 서비스는 앱에서 백엔드 기능을 사용할 수 있도�
 	info:    You can enable preview features using the 'azure mobile preview enable' command.
 	info:    mobile preview list command OK
 
-**mobile preview enable [options] [servicename] [featurename]**
+**mobile preview enable [options][servicename] [featurename]**
 
 이 명령은 모바일 서비스에 대해 지정된 미리 보기 기능을 사용하도록 설정합니다. 한번 사용하도록 설정한 모바일 서비스는 사용하지 않도록 설정할 수 없습니다.
 
 ###모바일 서비스 API를 관리하는 명령
 
-**mobile api list [options] [servicename]**
+**mobile api list [options][servicename]**
 
 이 명령은 사용자가 모바일 서비스에 대해 만든 모바일 서비스 사용자 지정 API 목록을 표시합니다.
 
@@ -1666,7 +1631,7 @@ Azure 모바일 서비스는 앱에서 백엔드 기능을 사용할 수 있도�
 	info:    You can manipulate API scripts using the 'azure mobile script' command.
 	info:    mobile api list command OK
 
-**mobile api create [options] [servicename] [apiname]**
+**mobile api create [options][servicename] [apiname]**
 
 모바일 서비스 사용자 지정 API를 만듭니다.
 
@@ -1678,9 +1643,9 @@ Azure 모바일 서비스는 앱에서 백엔드 기능을 사용할 수 있도�
 
 이 명령은 다음과 같은 추가 옵션을 지원합니다.
 
-**-p** 또는 **--permissions** &lt;permissions>:  쉼표로 구분된 &lt;method>=&lt;permission> 쌍 목록입니다.
+**-p** 또는 **--permissions** &lt;permissions>: 쉼표로 구분된 &lt;method>=&lt;permission> 쌍 목록입니다.
 
-**mobile api update [options] [servicename] [apiname]**
+**mobile api update [options][servicename] [apiname]**
 
 이 명령은 지정된 모바일 서비스 사용자 지정 API를 업데이트합니다.
 
@@ -1688,10 +1653,10 @@ Azure 모바일 서비스는 앱에서 백엔드 기능을 사용할 수 있도�
 
 이 명령은 다음과 같은 추가 옵션을 지원합니다.
 
-+ **-p** 또는 **--permissions** &lt;permissions>: 쉼표로 구분된 &lt;method>=&lt;permission>  쌍 목록입니다.
++ **-p** 또는 **--permissions** &lt;permissions>: 쉼표로 구분된 &lt;method>=&lt;permission> 쌍 목록입니다.
 + **-f** 또는 **--force**: 사용 권한 메타데이터 파일에 대한 사용자 지정 변경 내용을 재정의합니다.
 
-**mobile api delete [options] [servicename] [apiname]**
+**mobile api delete [options][servicename] [apiname]**
 
 	~$ azure mobile api delete mysite myCustomRetrieveAPI
 	info:    Executing command mobile api delete
@@ -1702,7 +1667,7 @@ Azure 모바일 서비스는 앱에서 백엔드 기능을 사용할 수 있도�
 
 ###모바일 응용 프로그램 앱 설정을 관리하는 명령
 
-**mobile appsetting list [options] [servicename]**
+**mobile appsetting list [options][servicename]**
 
 이 명령은 지정된 서비스에 대한 모바일 응용 프로그램 앱 설정을 표시합니다.
 
@@ -1714,7 +1679,7 @@ Azure 모바일 서비스는 앱에서 백엔드 기능을 사용할 수 있도�
 	data:    enablebetacontent  true
 	info:    mobile appsetting list command OK
 
-**mobile appsetting add [options] [servicename] [name] [value]**
+**mobile appsetting add [options][servicename] [name][value]**
 
 이 명령은 모바일 서비스에 대한 사용자 지정 응용 프로그램 설정을 추가합니다.
 
@@ -1724,7 +1689,7 @@ Azure 모바일 서비스는 앱에서 백엔드 기능을 사용할 수 있도�
 	+ Adding app setting
 	info:    mobile appsetting add command OK
 
-**mobile appsetting delete [options] [servicename] [name]**
+**mobile appsetting delete [options][servicename] [name]**
 
 이 명령은 모바일 서비스에 대한 지정된 응용 프로그램 설정을 제거합니다.
 
@@ -1734,7 +1699,7 @@ Azure 모바일 서비스는 앱에서 백엔드 기능을 사용할 수 있도�
 	+ Removing app setting 'enablebetacontent'
 	info:    mobile appsetting delete command OK
 
-**mobile appsetting show [options] [servicename] [name]**
+**mobile appsetting show [options][servicename] [name]**
 
 이 명령은 모바일 서비스에 대한 지정된 응용 프로그램 설정을 제거합니다.
 
@@ -1900,11 +1865,11 @@ Azure 모바일 서비스는 앱에서 백엔드 기능을 사용할 수 있도�
 이 명령은 다음과 같은 추가 옵션을 지원합니다.
 
 + **-e** 또는 **--label** &lt;label>: 저장소 계정에 대한 레이블입니다.
-+ **-d** 또는 **--description** &lt;description>:  설명 저장소 계정입니다.
++ **-d** 또는 **--description** &lt;description>: 설명 저장소 계정입니다.
 + **-l** 또는 **--location** &lt;name>: 저장소 계정을 만들 지리적 영역입니다.
 + **-a** 또는 **--affinity-group** &lt;name>: 저장소 계정을 연결할 선호도 그룹입니다.
-+ **--geoReplication**:  지역에서 복제가 사용하도록 설정되었는지를 나타냅니다.
-+ **--disable-geoReplication**: 지역에서 복제가 사용하지 않도록 설정되었는지를 나타냅니다.
++ **--geoReplication**: 지역에서 복제가 사용되도록 설정되었는지를 나타냅니다.
++ **--disable-geoReplication**: 지역에서 복제가 사용되도록 설정되었는지를 나타냅니다.
 
 **storage account set [options] <name>**
 
@@ -1918,10 +1883,10 @@ Azure 모바일 서비스는 앱에서 백엔드 기능을 사용할 수 있도�
 이 명령은 다음과 같은 추가 옵션을 지원합니다.
 
 + **-e** 또는 **--label** &lt;label>: 저장소 계정에 대한 레이블입니다.
-+ **-d** 또는 **--description** &lt;description>:  설명 저장소 계정입니다.
++ **-d** 또는 **--description** &lt;description>: 설명 저장소 계정입니다.
 + **-l** 또는 **--location** &lt;name>: 저장소 계정을 만들 지리적 영역입니다.
-+ **--geoReplication**:  지역에서 복제가 사용하도록 설정되었는지를 나타냅니다.
-+ **--disable-geoReplication**: 지역에서 복제가 사용하지 않도록 설정되었는지를 나타냅니다.
++ **--geoReplication**: 지역에서 복제가 사용되도록 설정되었는지를 나타냅니다.
++ **--disable-geoReplication**: 지역에서 복제가 사용되도록 설정되었는지를 나타냅니다.
 
 **storage account delete [options] <name>**
 
@@ -1941,7 +1906,7 @@ Azure 모바일 서비스는 앱에서 백엔드 기능을 사용할 수 있도�
 
 ###저장소 컨테이너를 관리하는 명령
 
-**storage container list [options] [prefix]**
+**storage container list [options][prefix]**
 
 이 명령은 지정된 저장소 계정에 대한 저장소 컨테이너 목록을 표시합니다. 저장소 계정은 연결 문자열이나 저장소 계정 이름 및 계정 키로 지정됩니다.
 
@@ -1953,8 +1918,7 @@ Azure 모바일 서비스는 앱에서 백엔드 기능을 사용할 수 있도�
 + **-c** 또는 **--connection-string** &lt;connectionString>: 저장소 연결 문자열입니다.
 + **--debug**: 디버그 모드에서 저장소 명령을 실행합니다.
 
-**storage container show [options] [container]**
-**storage container create [options] [container]**
+**storage container show [options][container]** **storage container create [options][container]**
 
 이 명령은 지정된 저장소 계정에 대한 저장소 컨테이너를 만듭니다. 저장소 계정은 연결 문자열이나 저장소 계정 이름 및 계정 키로 지정됩니다.
 
@@ -1962,12 +1926,12 @@ Azure 모바일 서비스는 앱에서 백엔드 기능을 사용할 수 있도�
 
 + **--container** &lt;container>: 만들려는 저장소 컨테이너의 이름입니다.
 + **-p** 또는 **-prefix** &lt;prefix>: 저장소 컨테이너 이름 접두사입니다.
-+ **-a** 또는 **--account-name** &lt;accountName>: 저장소 계정 이름은
-+ **-k** 또는 **--account-key** &lt;accountKey>: 저장소 계정 키입니다.
-+ **-c** 또는 **--connection-string** &lt;connectionString>: 저장소 연결 문자열입니다.
++ **-a** 또는 **--account-name** &lt;accountName>: 저장소 계정 이름
++ **-k** 또는 **--account-key** &lt;accountKey>: 저장소 계정 키
++ **-c** 또는 **--connection-string** &lt;connectionString>: 저장소 연결 문자열
 + **--debug**: 디버그 모드에서 저장소 명령을 실행합니다.
 
-**storage container delete [options] [container]**
+**storage container delete [options][container]**
 
 이 명령은 지정된 저장소 컨테이너를 삭제합니다. 저장소 계정은 연결 문자열이나 저장소 계정 이름 및 계정 키로 지정됩니다.
 
@@ -1980,7 +1944,7 @@ Azure 모바일 서비스는 앱에서 백엔드 기능을 사용할 수 있도�
 + **-c** 또는 **--connection-string** &lt;connectionString>: 저장소 연결 문자열입니다.
 + **--debug**: 디버그 모드에서 저장소 명령을 실행합니다.
 
-**storage container set [options] [container]**
+**storage container set [options][container]**
 
 이 명령은 저장소 컨테이너에 대한 액세스 제어 목록을 설정합니다. 저장소 계정은 연결 문자열이나 저장소 계정 이름 및 계정 키로 지정됩니다.
 
@@ -1995,7 +1959,7 @@ Azure 모바일 서비스는 앱에서 백엔드 기능을 사용할 수 있도�
 
 ###저장소 Blob을 관리하는 명령
 
-**storage blob list [options] [container] [prefix]**
+**storage blob list [options][container] [prefix]**
 
 이 명령은 지정된 저장소 컨테이너에 있는 저장소 Blob 목록을 반환합니다.
 
@@ -2008,7 +1972,7 @@ Azure 모바일 서비스는 앱에서 백엔드 기능을 사용할 수 있도�
 + **-c** 또는 **--connection-string** &lt;connectionString>: 저장소 연결 문자열입니다.
 + **--debug**: 디버그 모드에서 저장소 명령을 실행합니다.
 
-**storage blob show [options] [container] [blob]**
+**storage blob show [options][container] [blob]**
 
 이 명령은 지정된 저장소 Blob에 대한 세부 정보를 표시합니다.
 
@@ -2021,58 +1985,58 @@ Azure 모바일 서비스는 앱에서 백엔드 기능을 사용할 수 있도�
 + **-c** 또는 **--connection-string** &lt;connectionString>: 저장소 연결 문자열입니다.
 + **--debug**: 디버그에서 저장소 명령을 실행합니다.
 
-**storage blob delete [options] [container] [blob]**
+**storage blob delete [options][container] [blob]**
 
 이 명령은 다음과 같은 추가 옵션을 지원합니다.
 
-+ **--container** &lt;container>의 format 속성에 따라 다릅니다. 만들려는 저장소 컨테이너의 이름입니다.
-+ **-b** 또는 **--blob** &lt;blobName>의 format 속성에 따라 다릅니다. 삭제할 Blob 저장소의 이름입니다.
++ **--container** &lt;container>: 만들려는 저장소 컨테이너의 이름입니다.
++ **-b** 또는 **--blob** &lt;blobName>: 삭제할 Blob 저장소의 이름입니다.
 + **-q** 또는 **--quiet**: 확인하지 않고 지정된 저장소 Blob을 제거합니다.
-+ **-a** 또는 **--account-name** &lt;accountName>의 format 속성에 따라 다릅니다. 저장소 계정 이름입니다.
-+ **-k** 또는 **--account-key** &lt;accountKey>의 format 속성에 따라 다릅니다. 저장소 계정 키입니다.
-+ **-c** 또는 **--connection-string** &lt;connectionString>의 format 속성에 따라 다릅니다. 저장소 연결 문자열입니다.
++ **-a** 또는 **--account-name** &lt;accountName>: 저장소 계정 이름입니다.
++ **-k** 또는 **--account-key** &lt;accountKey>: 저장소 계정 키입니다.
++ **-c** 또는 **--connection-string** &lt;connectionString>: 저장소 연결 문자열입니다.
 + **--debug**: 디버그에서 저장소 명령을 실행합니다.
 
-**storage blob upload [options] [file] [container] [blob]**
+**storage blob upload [options][file] [container][blob]**
 
 이 명령은 지정된 파일을 지정된 저장소 Blob에 업로드합니다.
 
 이 명령은 다음과 같은 추가 옵션을 지원합니다.
 
-+ **--container** &lt;container>의 format 속성에 따라 다릅니다. 만들려는 저장소 컨테이너의 이름입니다.
-+ **-b** 또는 **--blob** &lt;blobName>의 format 속성에 따라 다릅니다. 업로드할 Blob 저장소의 이름입니다.
-+ **-t** 또는 **--blobtype** &lt;blobtype>의 format 속성에 따라 다릅니다. 저장소 Blob 유형: Page 또는 Block입니다.
-+ **-p** 또는 **--properties** &lt;properties>의 format 속성에 따라 다릅니다. 업로드된 파일에 대한 저장소 Blob 속성입니다. 속성은 키=값 쌍이며 세미콜론 (;)으로 구분합니다. 사용 가능한 속성은 contentType, contentEncoding, contentLanguage, cacheControl입니다.
-+ **-m** 또는 **--metadata** &lt;metadata>의 format 속성에 따라 다릅니다. 업로드된 파일에 대한 저장소 Blob 메타데이터입니다. 메타데이터는 키=값 쌍이며 세미콜론 (;)으로 구분합니다.
-+ **--concurrenttaskcount** &lt;concurrenttaskcount>의 format 속성에 따라 다릅니다. 최대 동시 업로드 요청 수입니다.
++ **--container** &lt;container>: 만들려는 저장소 컨테이너의 이름입니다.
++ **-b** 또는 **--blob** &lt;blobName>: 업로드할 Blob 저장소의 이름입니다.
++ **-t** 또는 **-blobtype** & l t; blobtype >: 저장소 blob 유형, 페이지 또는 블록입니다.
++ **-p** 또는 **--properties** &lt;properties>: 업로드된 파일에 대한 저장소 Blob 속성입니다. 속성은 키=값 쌍이며 세미콜론 (;)으로 구분합니다. 사용 가능한 속성은 contentType, contentEncoding, contentLanguage, cacheControl입니다.
++ **-m** 또는 **--metadata** &lt;metadata>: 업로드된 파일에 대한 저장소 Blob 메타데이터입니다. 메타데이터는 키=값 쌍이며 세미콜론 (;)으로 구분합니다.
++ **--concurrenttaskcount** &lt;concurrenttaskcount>: 최대 동시 업로드 요청 수입니다.
 + **-q** 또는 **--quiet**: 확인하지 않고 지정된 저장소 Blob을 덮어씁니다.
-+ **-a** 또는 **--account-name** &lt;accountName>의 format 속성에 따라 다릅니다. 저장소 계정 이름입니다.
-+ **-k** 또는 **--account-key** &lt;accountKey>의 format 속성에 따라 다릅니다. 저장소 계정 키입니다.
-+ **-c** 또는 **--connection-string** &lt;connectionString>의 format 속성에 따라 다릅니다. 저장소 연결 문자열입니다.
++ **-a** 또는 **--account-name** &lt;accountName>: 저장소 계정 이름입니다.
++ **-k** 또는 **--account-key** &lt;accountKey>: 저장소 계정 키입니다.
++ **-c** 또는 **--connection-string** &lt;connectionString>: 저장소 연결 문자열입니다.
 + **--debug**: 디버그에서 저장소 명령을 실행합니다.
 
-**storage blob download [options] [container] [blob] [destination]**
+**storage blob download [options][container] [blob][destination]**
 
 이 명령은 지정된 저장소 Blob을 다운로드합니다.
 
 이 명령은 다음과 같은 추가 옵션을 지원합니다.
 
-+ **--container** &lt;container>의 format 속성에 따라 다릅니다. 만들려는 저장소 컨테이너의 이름입니다.
-+ **-b** 또는 **--blob** &lt;blobName>의 format 속성에 따라 다릅니다. 저장소 Blob 이름입니다.
++ **--container** &lt;container>: 만들려는 저장소 컨테이너의 이름입니다.
++ **-b** 또는 **--blob** &lt;blobName>: Blob 저장소 이름입니다.
 + **-d** 또는 **--destination** [destination]: 다운로드 대상 파일 또는 디렉터리 경로입니다.
 + **-m** 또는 **--checkmd5**: 다운로드된 파일에 대한 check md5sum입니다.
-+ **--concurrenttaskcount** &lt;concurrenttaskcount>  최대 동시 업로드 요청 수입니다.
++ **--concurrenttaskcount** &lt;concurrenttaskcount> 최대 동시 업로드 요청 수입니다.
 + **-q** 또는 **--quiet**: 확인하지 않고 대상 파일을 덮어씁니다.
-+ **-a** 또는 **--account-name** &lt;accountName>의 format 속성에 따라 다릅니다. 저장소 계정 이름입니다.
-+ **-k** 또는 **--account-key** &lt;accountKey>의 format 속성에 따라 다릅니다. 저장소 계정 키입니다.
-+ **-c** 또는 **--connection-string** &lt;connectionString>의 format 속성에 따라 다릅니다. 저장소 연결 문자열입니다.
++ **-a** 또는 **--account-name** &lt;accountName>: 저장소 계정 이름입니다.
++ **-k** 또는 **--account-key** &lt;accountKey>: 저장소 계정 키입니다.
++ **-c** 또는 **--connection-string** &lt;connectionString>: 저장소 연결 문자열입니다.
 + **--debug**: 디버그에서 저장소 명령을 실행합니다.
 
 ##<a name ="Commands_to_manage_sql"></a>SQL 데이터베이스를 관리하는 명령
 
 이러한 명령을 사용하여 Azure SQL 데이터베이스를 관리할 수 있습니다.
 
-###SQL Server를 관리하는 명령입니다.
+###SQL Server를 관리하는 명령.
 
 이러한 명령을 사용하여 SQL Server를 관리할 수 있습니다.
 
@@ -2376,4 +2340,4 @@ DNS 서버 항목을 네트워크 구성에서 제거합니다.
 	+ Deleting the DNS server entry dns-4 ( 77.88.99.11 )
 	info:    network dnsserver unregister command OK
 
-<!--HONumber=47-->
+<!---HONumber=58-->

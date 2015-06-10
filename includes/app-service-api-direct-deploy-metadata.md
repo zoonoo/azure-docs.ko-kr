@@ -26,6 +26,8 @@
 		    "apiDefinition": "/swagger/docs/v1"
 		}
 
+> **참고:** Swashbuckle을 사용하여 Swagger API 정의를 생성하면 Web API 컨트롤러에서 HTTP 메서드가 오버로드되어 작업 ID가 중복됩니다. 자세한 내용은 [Swashbuckle에서 생성한 작업 식별자 사용자 지정](app-service-api-dotnet-swashbuckle-customize.md)을 참조하세요.
+  
 ### 정적 Swagger API 정의
 
 정적 [Swagger](http://swagger.io/) 2.0 API 정의 파일을 제공하려면 *Metadata* 폴더에 파일을 저장하고 파일 이름을 *apiDefinition.swagger.json*으로 지정합니다.
@@ -34,9 +36,5 @@
 
 *apiapp.json* 파일에서 `endpoints.apiDefinition`을 그대로 두거나 해당 값을 null로 설정합니다. `endpoints.apiDefinition` URL과 *apiDefinition.swagger.json* 파일을 둘 다 포함한 경우에는 URL이 우선적으로 적용되며 파일은 무시됩니다.
  
-### 기타 API 앱 메타데이터
 
-*apiapp.json* 파일 및 *Metadata* 폴더에 대한 자세한 내용은 [API 앱 패키지 만들기](app-service-api-create-package.md)를 참조하세요.
-
-
-<!--HONumber=54-->
+<!---HONumber=58-->

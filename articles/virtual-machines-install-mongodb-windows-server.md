@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/24/2014" 
+	ms.date="03/06/2015" 
 	ms.author="kathydav"/>
 
-# Windows Server를 실행하는 가상 컴퓨터에 MongoDB 설치
+#Windows Server를 실행하는 가상 컴퓨터에 MongoDB 설치
 
-[MongoDB][MongoDB]는 대중적인 오픈 소스의 고성능 NoSQL 데이터베이스입니다.  [Azure 관리 포털][AzureManagementPortal]을 사용하면 Windows Server를 실행하는 가상 컴퓨터를 이미지 갤러리에서 만들 수 있습니다.  그런 다음, MongoDB 데이터베이스를 가상 컴퓨터에 설치하고 구성할 수 있습니다.
+[MongoDB][MongoDB]는 대중적인 오픈 소스의 고성능 NoSQL 데이터베이스입니다. [Azure 관리 포털][AzureManagementPortal]을 사용하면 Windows Server를 실행하는 가상 컴퓨터를 이미지 갤러리에서 만들 수 있습니다. 그런 다음, MongoDB 데이터베이스를 가상 컴퓨터에 설치하고 구성할 수 있습니다.
 
 이 문서에서는 다음 방법에 대해 설명합니다.
 
@@ -42,17 +42,17 @@
 
 [AZURE.INCLUDE [howto-attach-disk-windows-linux](../includes/howto-attach-disk-windows-linux.md)]
 
-디스크 초기화 지침에 대해서는 [Windows 가상 컴퓨터에 데이터 디스크를 연결하는 방법](http://azure.microsoft.com/documentation/articles/storage-windows-attach-disk/)의 "방법: Windows Server에서 새 데이터 디스크 초기화"를 참조하세요.
+디스크 초기화에 관한 지침은 [데이터 디스크를 Windows 가상 컴퓨터에 연결하는 방법](storage-windows-attach-disk.md)에서 "방법: Windows Server에서 새 데이터 디스크 초기화"를 참조하세요.
 
 ## 가상 컴퓨터에서 MongoDB 설치 및 실행 
 
 [AZURE.INCLUDE [install-and-run-mongo-on-win2k8-vm](../includes/install-and-run-mongo-on-win2k8-vm.md)]
 
-## 요약
-이 자습서에서는 Windows Server 가상 컴퓨터를 만들고 가상 컴퓨터에 원격으로 연결하고 데이터 디스크를 연결하는 방법을 배웠습니다.  또한 MongoDB를 Windows 가상 컴퓨터에 설치하고 구성하는 방법도 배웠습니다. MongoDB에 대한 자세한 내용은 [MongoDB 설명서][MongoDocs]를 참조하세요.
+##요약
+이 자습서에서는 Windows Server 가상 컴퓨터를 만들고 가상 컴퓨터에 원격으로 연결하고 데이터 디스크를 연결하는 방법을 배웠습니다. 또한 MongoDB를 Windows 가상 컴퓨터에 설치하고 구성하는 방법도 배웠습니다. MongoDB에 대한 자세한 내용은 [MongoDB 설명서][MongoDocs](영문)를 참조하세요.
 
 [MongoDocs]: http://www.mongodb.org/display/DOCS/Home
 [MongoDB]: http://www.mongodb.org/
 [AzureManagementPortal]: http://manage.windowsazure.com
 
-<!--HONumber=47-->
+<!---HONumber=58-->
