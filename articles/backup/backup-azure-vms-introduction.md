@@ -119,7 +119,7 @@ Azure 가상 컴퓨터를 백업 하려면 백업 자격 증명을 만들려면 
 - 영역 간 백업 및 복원 지원 되지 않습니다.
 - 가상 컴퓨터 사용 하 여 백업을 Azure 백업 서비스는 에서만 지원 영역을 선택 합니다. 목록을 확인 [영역 지원](http://azure.microsoft.com/regions/#services). 원하는 영역을 없는 경우 지원 되는 오늘날 자격 증명 모음을 만드는 동안 드롭다운 목록에 표시 되지 않습니다.
 - Azure 백업 서비스를 사용 하 여 가상 컴퓨터 백업은 선택 하는 운영 체제 버전에 대해서만 지원만 됩니다.
-  - **Linux**: azure 보증 배포판의 목록은 사용 가능한 [여기](virtual-machines-linux-endorsed-distributions.md). 또한 다른 가져오기-Your-소유-Linux 배포판 VM 에이전트는 가상 컴퓨터에서 사용할 수 있는 정상적으로 작동 해야 합니다.
+  - **Linux**: azure 보증 배포판의 목록은 사용 가능한 [여기](../virtual-machines-linux-endorsed-distributions.md). 또한 다른 가져오기-Your-소유-Linux 배포판 VM 에이전트는 가상 컴퓨터에서 사용할 수 있는 정상적으로 작동 해야 합니다.
   - **Windows Server**: Windows Server 2008 r 2 보다 오래 된 버전 지원 되지 않습니다.
 
 모든 기능에 참조를 포함 하려는 경우 [의견 보내기](http://aka.ms/azurebackup_feedback).
@@ -133,4 +133,4 @@ Azure 가상 컴퓨터를 백업 하려면 백업 자격 증명을 만들려면 
 
 + 백업 작업 모니터링
 
-<!---HONumber=GIT-SubDir-->
+<!---HONumber=GIT-SubDir--> 

@@ -94,4 +94,4 @@ Windows Server의 파일과 데이터를 Azure에 백업하려면 데이터를 �
 - Azure 백업에 대한 자세한 내용은 [Azure 백업 개요](http://go.microsoft.com/fwlink/p/?LinkId=222425)를 참조하십시오. 
 - [Azure 백업 포럼](http://go.microsoft.com/fwlink/p/?LinkId=290933)을 방문하십시오.
 
-<!---HONumber=GIT-SubDir-->
+<!---HONumber=GIT-SubDir--> 

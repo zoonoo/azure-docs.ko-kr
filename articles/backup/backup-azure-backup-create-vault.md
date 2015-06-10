@@ -63,4 +63,4 @@ LRS(로컬 중복 저장소)는 데이터의 복제본을 3개 유지 관리합�
 [4]: ./media/backup-azure-backup-create-vault/grs.png
 [5]: ./media/backup-azure-backup-create-vault/lrs.png
 
-<!---HONumber=GIT-SubDir-->
+<!---HONumber=GIT-SubDir--> 

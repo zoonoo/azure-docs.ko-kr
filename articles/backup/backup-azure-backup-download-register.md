@@ -58,4 +58,4 @@ Azure 백업 자격 증명 모음을 만든 후에는 각 온-프레미스 서�
 [5]: ./media/backup-azure-backup-download-register/encryption.png
 [6]: ./media/backup-azure-backup-download-register/change.png
 
-<!---HONumber=GIT-SubDir-->
+<!---HONumber=GIT-SubDir--> 

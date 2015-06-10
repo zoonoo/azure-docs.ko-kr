@@ -41,4 +41,4 @@ Azure 자동화의 기본 사항과 Azure 자동화를 사용하여 Azure 백업
  
 * Azure 자동화 [시작 자습서](http://go.microsoft.com/fwlink/?LinkId=390560)를 참조하세요.
 
-<!---HONumber=GIT-SubDir-->
+<!---HONumber=GIT-SubDir--> 
