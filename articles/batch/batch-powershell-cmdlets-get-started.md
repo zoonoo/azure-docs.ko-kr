@@ -25,11 +25,11 @@
 ## 필수 조건
 
 * **배치 미리 보기** -서비스에서 작업하려면 아직 등록하지 않은 경우 [배치 미리 보기](https://account.windowsazure.com/PreviewFeatures)에 등록합니다.
-* **Azure PowerShell** - 필수 조건과 다운로드 및 설치 지침에 대해서는 [Azure PowerShell 설치 및 구성 방법](powershell-install-configure.md)을 참조하세요. 배치 cmdlet은 버전 0.8.10 이후 버전에서 도입되었습니다.
+* **Azure PowerShell** - 필수 조건과 다운로드 및 설치 지침에 대해서는 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md)을 참조하세요. 배치 cmdlet은 버전 0.8.10 이후 버전에서 도입되었습니다.
 
 ## 배치 cmdlet 사용
 
-Azure PowerShell을 시작하고 [Azure 구독에 연결](powershell-install-configure.md#Connect)하려면 표준 절차를 사용합니다. 또한 다음을 수행할 수도 있습니다.
+Azure PowerShell을 시작하고 [Azure 구독에 연결](../powershell-install-configure.md#Connect)하려면 표준 절차를 사용합니다. 또한 다음을 수행할 수도 있습니다.
 
 * **Azure 구독 선택** - 훨씬 많은 구독이 있는 경우 배치 미리 보기 기능을 추가했던 구독을 선택합니다.
 
@@ -37,7 +37,7 @@ Azure PowerShell을 시작하고 [Azure 구독에 연결](powershell-install-con
     Select-AzureSubscription -SubscriptionName <SubscriptionName>
     ```
 
-* **AzureResourceManage 모드로 전환** - Azure 리소스 관리자 모듈에서 배치 cmdlet을 전달합니다. 자세한 내용은 [리소스 관리자에서 Windows PowerShell 사용](powershell-azure-resource-manager.md)을 참조하세요. 이 모듈을 사용하려면 [Switch-AzureMode](https://msdn.microsoft.com/library/dn722470.aspx) cmdlet을 실행합니다.
+* **AzureResourceManage 모드로 전환** - Azure 리소스 관리자 모듈에서 배치 cmdlet을 전달합니다. 자세한 내용은 [리소스 관리자에서 Windows PowerShell 사용](../powershell-azure-resource-manager.md)을 참조하세요. 이 모듈을 사용하려면 [Switch-AzureMode](https://msdn.microsoft.com/library/dn722470.aspx) cmdlet을 실행합니다.
 
     ```
     Switch-AzureMode -Name AzureResourceManager
