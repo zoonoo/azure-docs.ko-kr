@@ -569,7 +569,7 @@ Azure PowerShell은 Oozie 작업을 정의하는 데 현재 어떤 cmdlet도 제
 
 
 
-[azure-data-factory-pig-hive]: data-factory-pig-hive-activities.md
+[azure-data-factory-pig-hive]: ./data-factory/data-factory-pig-hive-activities.md
 [hdinsight-oozie-coordinator-time]: hdinsight-use-oozie-coordinator-time.md
 [hdinsight-versions]: hdinsight-component-versioning.md
 [hdinsight-storage]: hdinsight-use-blob-storage.md
