@@ -78,4 +78,4 @@ Azure 백업 및 System Center Data Protection Manager 고객은 다음을 수�
 [4]: ./media/backup-azure-backup-cloud-as-tape/samplescreen.png
 [5]: ./media/backup-azure-backup-cloud-as-tape/modify.png
 
-<!---HONumber=GIT-SubDir-->
+<!---HONumber=GIT-SubDir--> 

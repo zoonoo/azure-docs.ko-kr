@@ -57,4 +57,4 @@ Azure 백업 설치 프로그램을 매우 쉽게 하 고 다음 방법-하-비�
 + Azure 백업에 대한 자세한 내용은 [Azure 백업 개요](http://go.microsoft.com/fwlink/p/?LinkId=222425)를 참조하십시오.
 + [Azure 백업 포럼](http://go.microsoft.com/fwlink/p/?LinkId=290933)을 방문하십시오.
 
-<!---HONumber=GIT-SubDir-->
+<!---HONumber=GIT-SubDir--> 

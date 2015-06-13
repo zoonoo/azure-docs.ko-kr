@@ -26,7 +26,7 @@ Azure 백업 및 Azure 가져오기/내보내기를 사용하면 디스크를 �
 
 ## 필수 조건
 
-1. [여기](storage-import-export-service.md)에 나와 있는 Azure 가져오기 내보내기 워크플로를 익히는 것이 중요합니다.
+1. [여기](../storage-import-export-service.md)에 나와 있는 Azure 가져오기 내보내기 워크플로를 익히는 것이 중요합니다.
 
 2. 워크플로를 시작하기 전에 Azure 백업 자격 증명 모음이 생성되었고, 자격 증명 모음 자격 증명이 다운로드되었고, Windows Server/Windows 클라이언트 또는 System Center Data Protection Manager(SCDPM) 서버에 Azure 백업 에이전트가 설치되었고, Azure 백업 자격 증명 모음에 컴퓨터가 등록되었는지 확인합니다.
 
@@ -42,7 +42,7 @@ Azure 백업 및 Azure 가져오기/내보내기를 사용하면 디스크를 �
 
 
 ## 워크플로
-이 섹션에 제공된 정보는 데이터를 Azure 데이터 센터에 배송하고 Azure 저장소에 업로드할 수 있도록 **오프라인 백업** 워크플로를 완료하기 위한 것입니다. 가져오기 서비스 또는 프로세스의 특정 측면에 대 한 질문이 있으면 [위에](storage-import-export-service.md) 언급된 가져오기 서비스 개요를 참조하세요.
+이 섹션에 제공된 정보는 데이터를 Azure 데이터 센터에 배송하고 Azure 저장소에 업로드할 수 있도록 **오프라인 백업** 워크플로를 완료하기 위한 것입니다. 가져오기 서비스 또는 프로세스의 특정 측면에 대 한 질문이 있으면 [위에](../storage-import-export-service.md) 언급된 가져오기 서비스 개요를 참조하세요.
 
 ### 오프라인 백업 시작
 
@@ -119,7 +119,7 @@ SCDPM의 해당 워크플로는 **보호 그룹**을 클릭하고 **복구 지�
 초기 백업 데이터를 저장소 계정에서 사용할 수 있게 되면 Azure 백업 에이전트가 데이터의 내용을 이 계정에서 다중 비분할된 백업 저장소 계정에 복사합니다. 다음 일정 백업 시 Azure 백업 에이전트가 초기 백업 복사본을 통해 증분 백업을 수행합니다.
 
 ## 다음 단계
-+ Azure 가져오기/내보내기 워크플로에 대한 질문이 있으면 이 [문서](storage-import-export-service.md)를 참조하세요.
++ Azure 가져오기/내보내기 워크플로에 대한 질문이 있으면 이 [문서](../storage-import-export-service.md)를 참조하세요.
 
 + 워크플로에 대한 질문이 있으면 Azure 백업 [FAQ](backup-azure-backup-faq.md)의 오프라인 백업 섹션을 참조하세요.
 
@@ -134,4 +134,4 @@ SCDPM의 해당 워크플로는 **보호 그룹**을 클릭하고 **복구 지�
 [8]: ./media/backup-azure-backup-import-export/dpmoffline.png
 [9]: ./media/backup-azure-backup-import-export/dpmbackupnow.png
 
-<!---HONumber=GIT-SubDir-->
+<!---HONumber=GIT-SubDir--> 

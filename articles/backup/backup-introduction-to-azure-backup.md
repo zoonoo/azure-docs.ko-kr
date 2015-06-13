@@ -65,4 +65,4 @@ Azure 백업에 Azure로 온-프레미스 데이터를 백업할 수 있도록 �
 + Azure 백업 서비스에 대 한 질문은 나열 된 질문과 [여기](backup-azure-backup-faq.md).
 + [Azure 백업 포럼](http://go.microsoft.com/fwlink/p/?LinkId=290933)을 방문하십시오.
 
-<!---HONumber=GIT-SubDir-->
+<!---HONumber=GIT-SubDir--> 

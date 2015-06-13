@@ -186,4 +186,4 @@ Azure 백업 시작하기에 대해 자세히 알아보려면 다음을 참조�
 - [가상 컴퓨터 복원](backup-azure-restore-vms.md)
 - [가상 컴퓨터 관리](backup-azure-manage-vms)
 
-<!---HONumber=GIT-SubDir-->
+<!---HONumber=GIT-SubDir--> 
