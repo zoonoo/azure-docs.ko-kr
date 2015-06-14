@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="클라우드로 저장된 데이터를 전송하기 위한 옵션 | Azure" 
 	description="고급 분석을 위해 온-프레미스 기타 클라우드 원본에서 Microsoft Azure로 데이터를 전송하는 최상의 옵션을 선택하기 위한 지침." 
 	services="data-factory, hdinsight, machine-learning, storage, sql-database" 
@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="big-data" 
-	ms.date="1/7/2014" 
+	ms.date="01/07/2014" 
 	ms.author="cgronlun"/>
 
 # Azure 클라우드에 저장된 데이터를 전송하기 위한 옵션
