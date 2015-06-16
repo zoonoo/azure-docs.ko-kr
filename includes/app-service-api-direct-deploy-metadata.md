@@ -26,7 +26,7 @@
 		    "apiDefinition": "/swagger/docs/v1"
 		}
 
-> **참고:** Swashbuckle을 사용하여 Swagger API 정의를 생성하면 Web API 컨트롤러에서 HTTP 메서드가 오버로드되어 작업 ID가 중복됩니다. 자세한 내용은 [Swashbuckle에서 생성한 작업 식별자 사용자 지정](app-service-api-dotnet-swashbuckle-customize.md)을 참조하세요.
+> **참고:** Swashbuckle을 사용하여 Swagger API 정의를 생성하면 Web API 컨트롤러에서 HTTP 메서드가 오버로드되어 작업 ID가 중복됩니다. 자세한 내용은 [Swashbuckle에서 생성한 작업 식별자 사용자 지정](../article/app-service-api/app-service-api-dotnet-swashbuckle-customize.md)을 참조하세요.
   
 ### 정적 Swagger API 정의
 

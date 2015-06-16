@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
    pageTitle="Azure Redis Cache를 Node.js와 함께 사용하는 방법" 
    description="Node.js 및 node_redis를 사용하여 Azure Redis Cache를 시작합니다." 
    services="redis-cache" 
@@ -89,7 +89,7 @@ DNS 호스트 이름을 입력합니다. 이 이름은 `<name>.redis.cache.windo
 [3]: ./media/cache-java-get-started/cache03.png
 [4]: ./media/cache-java-get-started/cache04.png
 
-[Azure 웹 사이트에서 Socket.IO를 사용하여 Node.js 채팅 응용 프로그램 빌드]: web-sites-nodejs-chat-app-socketio.md
+[Azure 웹 사이트에서 Socket.IO를 사용하여 Node.js 채팅 응용 프로그램 빌드]: app-service-web/web-sites-nodejs-chat-app-socketio.md
 
 
 <!--HONumber=49-->

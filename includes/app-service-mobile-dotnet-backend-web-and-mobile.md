@@ -1,4 +1,4 @@
-﻿# Azure 앱 서비스에서 모바일 및 웹 클라이언트로 앱 만들기
+# Azure 앱 서비스에서 모바일 및 웹 클라이언트로 앱 만들기
 
 이 항목에서는 앱을 모바일 및 웹 클라이언트 모두로 만드는 방법을 보여줍니다. 모바일 앱 및 웹 앱을 만들고 모두에 대해 동일한 기본 데이터베이스를 사용합니다.
 
@@ -77,6 +77,6 @@
 <!-- Links -->
 
 [MultiChannelToDo]: https://github.com/Azure/mobile-services-samples/tree/web-mobile/MultiChannelToDo
-[모바일 앱 만들기]: app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview.md
+[모바일 앱 만들기]: ../article/app-service-mobile/app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview.md
 
 <!--HONumber=49-->

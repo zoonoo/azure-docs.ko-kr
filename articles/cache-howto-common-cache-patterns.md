@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
    pageTitle="Azure Redis Cache를 사용하는 일반적인 캐시 패턴" 
    description="Azure Redis Cache를 사용하는 위치 및 이유를 알아봅니다." 
    services="redis-cache" 
@@ -35,7 +35,7 @@ Azure Redis Cache 사용에 대해 자세히 알아보려면 다음을 참조하
  
 - [Redis Azure Cache 설명서](http://azure.microsoft.com/documentation/services/cache/): 이 페이지에서는 Redis Azure Cache 사용에 유용한 많은 링크를 제공합니다.
 - [Azure Redis Cache를 사용한 MVC 동영상 앱(15분)](http://azure.microsoft.com/blog/2014/06/05/mvc-movie-app-with-azure-redis-cache-in-15-minutes/): 이 블로그 게시물은 ASP.NET MVC 앱에서 Azure Redis Cache를 사용하기 위한 빠른 시작을 제공합니다.
-- [Azure 웹 사이트에서 ASP.NET 세션 상태를 사용하는 방법](web-sites-dotnet-session-state-caching.md): 이 항목에서는 세션 상태에 Azure Redis Cache 서비스를 사용하는 방법을 설명합니다.
+- [Azure 웹 사이트에서 ASP.NET 세션 상태를 사용하는 방법](app-service-web/web-sites-dotnet-session-state-caching.md): 이 항목에서는 세션 상태에 Azure Redis Cache 서비스를 사용하는 방법을 설명합니다.
 
 
 

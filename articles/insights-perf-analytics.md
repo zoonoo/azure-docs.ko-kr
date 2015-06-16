@@ -70,5 +70,5 @@ Application Insights는 블레이드로 돌아가면 등 수행할 수 있습니
 * [모니터 서비스 상태 메트릭](insights-how-to-customize-monitoring.md)웹 서비스가 사용 가능하며 응답할 수 있는 상태인지 확인합니다.
 * [모니터링 및 진단을 사용 하도록 설정](insights-how-to-use-diagnostics.md)서비스에서 자세한 고주파 메트릭을 수집 합니다.
 * [경고 알림 받기](insights-receive-alert-notifications.md)작업 이벤트의 발생 때마다 또는 메트릭 임계값을 초과 합니다.
-* 사용[JavaScript 응용 프로그램 및 웹 페이지에 대 한 응용 프로그램 통찰력](app-insights-web-track-usage.md)웹 페이지를 방문 하는 브라우저에 대 한 클라이언트 분석을 가져오려고 합니다.
-* [웹 사이트의 가용성 및 응답성 모니터링](app-insights-monitor-web-app-availability.md)Application Insights를 사용한 페이지 중인지 찾을 수 있도록 작동이 중단 되었습니다.
+* 사용[JavaScript 응용 프로그램 및 웹 페이지에 대 한 응용 프로그램 통찰력](application-insights/app-insights-web-track-usage.md)웹 페이지를 방문 하는 브라우저에 대 한 클라이언트 분석을 가져오려고 합니다.
+* [웹 사이트의 가용성 및 응답성 모니터링](application-insights/app-insights-monitor-web-app-availability.md)Application Insights를 사용한 페이지 중인지 찾을 수 있도록 작동이 중단 되었습니다.

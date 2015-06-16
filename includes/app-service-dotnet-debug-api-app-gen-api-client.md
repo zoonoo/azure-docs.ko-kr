@@ -2,7 +2,7 @@
 
 Visual Studio의 API 앱 도구를 사용하면 데스크톱, 스토어 및 모바일 앱에서 Azure API 앱을 호출하는 C# 코드를 쉽게 생성할 수 있습니다.
 
-1. Visual Studio에서 [API 앱 만들기](app-service-dotnet-create-api-app.md) 항목의 API 앱이 포함된 솔루션을 엽니다. 
+1. Visual Studio에서 [API 앱 만들기](../article/app-service-api/app-service-dotnet-create-api-app.md) 항목의 API 앱이 포함된 솔루션을 엽니다. 
 
 2. **솔루션 탐색기**에서 솔루션을 마우스 오른쪽 단추로 클릭하고 **추가** > **새 프로젝트**를 선택합니다.
 

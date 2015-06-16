@@ -538,7 +538,7 @@
 
 ## <a name="_Toc395783182"></a>7단계: Azure 웹 사이트에 응용 프로그램 배포
 
-1. 아직 Azure 웹 사이트에 대해 git 리포지토리를 사용하도록 설정하지 않은 경우 사용하도록 설정합니다. 작업 방법에 대한 자세한 내용은 [여기](web-sites-publish-source-control-git.md#step4)서 확인할 수 있습니다.
+1. 아직 Azure 웹 사이트에 대해 git 리포지토리를 사용하도록 설정하지 않은 경우 사용하도록 설정합니다. 작업 방법에 대한 자세한 내용은 [여기](app-service-web/web-sites-publish-source-control-git.md#step4)서 확인할 수 있습니다.
 
 2. Azure 웹 사이트를 git 원격으로 추가합니다.
 

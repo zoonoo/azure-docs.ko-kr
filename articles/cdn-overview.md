@@ -51,7 +51,7 @@ Azure 저장소 계정에서 CDN을 사용하도록 설정하면 공용 컨테�
 
 ##Azure 웹 사이트의 콘텐츠 캐시
 
-웹 사이트의 CDN이 이미지, 스크립트 및 스타일시트와 같은 웹 콘텐츠를 캐시하도록 할 수 있습니다. [Azure CDN과 Azure 웹 사이트 통합](cdn-websites-with-cdn.md)을 참조하세요.
+웹 사이트의 CDN이 이미지, 스크립트 및 스타일시트와 같은 웹 콘텐츠를 캐시하도록 할 수 있습니다. [Azure CDN과 Azure 웹 사이트 통합](app-service-web/cdn-websites-with-cdn.md)을 참조하세요.
 
 웹 사이트에 대해 CDN 액세스를 사용하도록 설정하면 관리 포털에서 CDN 도메인 이름을 http://<identifier>.vo.msecnd.net/ 형식으로 제공합니다. 이 도메인 이름을 사용하여 웹 사이트에서 개체를 검색할 수 있습니다. 예를 들어 cdn이라는 공용 컨테이너와 music.png라는 이미지 파일이 있을 경우 사용자는 다음 두 개의 URL 중 하나를 사용하여 개체에 액세스할 수 있습니다.
 

@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Node.js에서 큐 저장소를 사용하는 방법 | Microsoft Azure" 
 	description="Azure 큐 서비스를 사용하여 큐를 작성 및 삭제하고 메시지를 삽입하고 가져오고 삭제하는 방법을 알아봅니다. 샘플은 Node.js로 작성되었습니다." 
 	services="storage" 
@@ -335,9 +335,9 @@ ACL이 설정되고 나면 정책의 ID를 기반으로 SAS를 만들 수 있습
   [Node용 Azure 저장소 SDK]: https://github.com/Azure/azure-storage-node
   [REST API 사용]: http://msdn.microsoft.com/library/azure/hh264518.aspx
   [Azure 관리 포털]: http://manage.windowsazure.com
-  [Node.js 응용 프로그램 빌드 및 Azure 웹 사이트에 배포]: web-sites-nodejs-develop-deploy-mac.md
+  [Node.js 응용 프로그램 빌드 및 Azure 웹 사이트에 배포]: app-service-web/web-sites-nodejs-develop-deploy-mac.md
   [저장소를 사용하는 Node.js 클라우드 서비스]: storage-nodejs-use-table-storage-cloud-service-app.md
-  [저장소를 사용하는 Node.js 웹 응용 프로그램]: storage-nodejs-use-table-storage-web-site.md
+  [저장소를 사용하는 Node.js 웹 응용 프로그램]: app-service-web/storage-nodejs-use-table-storage-web-site.md
 
   
   [Queue1]: ./media/storage-nodejs-how-to-use-queues/queue1.png
@@ -349,6 +349,6 @@ ACL이 설정되고 나면 정책의 ID를 기반으로 SAS를 만들 수 있습
   [Node.js 클라우드 서비스]: cloud-services-nodejs-develop-deploy-app.md
   [Azure에 데이터 저장 및 액세스]: http://msdn.microsoft.com/library/azure/gg433040.aspx
   [Azure 저장소 팀 블로그]: http://blogs.msdn.com/b/windowsazurestorage/
- [WebMatrix를 사용하는 웹 사이트]: web-sites-nodejs-use-webmatrix.md
+ [WebMatrix를 사용하는 웹 사이트]: app-service-web/web-sites-nodejs-use-webmatrix.md
 
 <!--HONumber=49-->

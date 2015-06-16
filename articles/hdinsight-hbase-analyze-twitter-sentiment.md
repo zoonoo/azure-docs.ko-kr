@@ -1315,7 +1315,7 @@ Twitter 스트리밍 API는 [OAuth](http://oauth.net/)를 사용하여 요청 �
 
 
 [hbase-get-started]: hdinsight-hbase-get-started.md
-[website-get-started]: web-sites-dotnet-get-started.md
+[website-get-started]: app-service-web/web-sites-dotnet-get-started.md
 
 
 

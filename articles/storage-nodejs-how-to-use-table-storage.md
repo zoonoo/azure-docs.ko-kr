@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Node.js에서 테이블 저장소를 사용하는 방법 | Microsoft Azure" 
 	description="Azure에서 테이블 저장소 서비스를 사용하는 방법을 알아봅니다. 코드 샘플은 Node.js API를 사용하여 작성되었습니다." 
 	services="storage" 
@@ -430,9 +430,9 @@ ACL이 설정되고 나면 정책의 ID를 기반으로 SAS를 만들 수 있습
   [Node.js 클라우드 서비스]: cloud-services-nodejs-develop-deploy-app.md
   [Azure에 데이터 저장 및 액세스]: http://msdn.microsoft.com/library/azure/gg433040.aspx
   [Visit the Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
-  [WebMatrix를 사용하는 웹 사이트]: web-sites-nodejs-use-webmatrix.md
+  [WebMatrix를 사용하는 웹 사이트]: app-service-web/web-sites-nodejs-use-webmatrix.md
   [저장소를 사용하는 Node.js 클라우드 서비스]: storage-nodejs-use-table-storage-cloud-service-app.md
-  [저장소를 사용하는 Node.js 웹 응용 프로그램]: storage-nodejs-use-table-storage-web-site.md
-  [Node.js 응용 프로그램 빌드 및 Azure 웹 사이트에 배포]: web-sites-nodejs-develop-deploy-mac.md
+  [저장소를 사용하는 Node.js 웹 응용 프로그램]: app-service-web/storage-nodejs-use-table-storage-web-site.md
+  [Node.js 응용 프로그램 빌드 및 Azure 웹 사이트에 배포]: app-service-web/web-sites-nodejs-develop-deploy-mac.md
 
 <!--HONumber=49-->

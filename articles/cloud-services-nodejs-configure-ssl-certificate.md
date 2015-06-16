@@ -23,7 +23,7 @@
 
 SSL(Secure Socket Layer) 암호화는 인터넷을 통해 전송되는 데이터 보호에 가장 일반적으로 사용되는 방법입니다. 이 일반 작업에서는 웹 역할에서 Azure 클라우드 서비스로 호스트되는 Node.js 응용 프로그램의 HTTPS 끝점을 지정하는 방법과 응용 프로그램을 보호하기 위해 SSL 인증서를 업로드하는 방법에 대해 설명합니다.
 
-> [AZURE.NOTE]이 문서의 단계는 웹 역할에서 Azure 클라우드 서비스로 호스트되는 노드 응용 프로그램에만 적용됩니다. 웹 사이트에 대한 자세한 내용은 [Azure 웹 사이트에 대한 SSL 인증서 구성](web-sites-configure-ssl-certificate.md)을 참조하세요.
+> [AZURE.NOTE]이 문서의 단계는 웹 역할에서 Azure 클라우드 서비스로 호스트되는 노드 응용 프로그램에만 적용됩니다. 웹 사이트에 대한 자세한 내용은 [Azure 웹 사이트에 대한 SSL 인증서 구성](app-service-web/web-sites-configure-ssl-certificate.md)을 참조하세요.
 
 이 작업에는 다음 단계가 포함됩니다.
 

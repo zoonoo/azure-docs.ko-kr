@@ -49,7 +49,7 @@
 
 하이브리드 연결을 사용하여 온-프레미스 SQL Server 또는 SQL Server Express 데이터베이스를 사용하려면 TCP/IP를 고정 포트에서 사용할 수 있어야 합니다. SQL Server의 기본 인스턴스에서는 고정 포트 1433을 사용하는 반면 명명된 인스턴스에서는 이 포트를 사용하지 않습니다.
 
-SQL Server를 구성하는 방법에 대한 자세한 내용은 [SQL Server Express 설치, TCP/IP 사용 및 SQL Server 데이터베이스 온-프레미스 만들기](web-sites-hybrid-connection-connect-on-premises-sql-server.md#InstallSQL)를 참조하세요. 위에서 설명한 조건을 충족하는 구성 및 환경으로 SQL Server를 이미 설치한 경우 건너뛰어서 [SQL Server 데이터베이스 온-프레미스](web-sites-hybrid-connection-connect-on-premises-sql-server.md#CreateSQLDB)를 시작할 수 있습니다.
+SQL Server를 구성하는 방법에 대한 자세한 내용은 [SQL Server Express 설치, TCP/IP 사용 및 SQL Server 데이터베이스 온-프레미스 만들기](app-service-web/web-sites-hybrid-connection-connect-on-premises-sql-server.md#InstallSQL)를 참조하세요. 위에서 설명한 조건을 충족하는 구성 및 환경으로 SQL Server를 이미 설치한 경우 건너뛰어서 [SQL Server 데이터베이스 온-프레미스](app-service-web/web-sites-hybrid-connection-connect-on-premises-sql-server.md#CreateSQLDB)를 시작할 수 있습니다.
 
 이 자습서에서는 데이터베이스 이름이 **OnPremisesDB**이고, 이 데이터베이스는 포트 **1433**에서 실행하며 컴퓨터의 호스트 이름은 **onPremisesServer**라고 가정합니다.
 
