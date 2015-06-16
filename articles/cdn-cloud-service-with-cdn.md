@@ -625,7 +625,7 @@ ASP.NET 묶음 및 축소를 CDN 끝점과 통합하려면 다음 단계를 따�
 # 추가 정보 #
 - [Azure CDN(콘텐츠 배달 네트워크) 개요](http://msdn.microsoft.com/library/azure/ff919703.aspx)
 - [웹 응용 프로그램에서 Azure CDN의 콘텐츠 제공](cdn-serve-content-from-cdn-in-your-web-application.md)
-- [Azure CDN과 Azure 웹 사이트 통합](cdn-websites-with-cdn.md)
+- [Azure CDN과 Azure 웹 사이트 통합](app-service-web/cdn-websites-with-cdn.md)
 - [ASP.NET 묶음 및 축소](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification)
 - [Azure에 CDN 사용](cdn-how-to-use.md)
 

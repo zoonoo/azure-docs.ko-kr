@@ -64,7 +64,7 @@ Azure 검색은 우리 프로젝트의 판도를 바꾸어 놓았습니다. Azur
 
 - [Azure 검색](http://azure.microsoft.com/services/search/)
 - [MVC 4를 사용하는 Azure 웹 사이트](http://azure.microsoft.com/services/websites/)
-- [예약된 작업을 위한 Azure WebJobs](websites-webjobs-resources.md)
+- [예약된 작업을 위한 Azure WebJobs](app-service-web/websites-webjobs-resources.md)
 - [Azure SQL 데이터베이스](http://azure.microsoft.com/services/sql-database/)
 - [Azure Blob 저장소](http://azure.microsoft.com/services/storage/)
 - [SendGrid 전자 메일 서비스](http://azure.microsoft.com/marketplace/partners/sendgrid/sendgrid-azure/)
@@ -417,7 +417,7 @@ Azure 검색만 놀라움을 선사한 것이 아니었습니다. 우리는 WebJ
 
 <!--Link references-->
 [Link 1 to another azure.microsoft.com documentation topic]: virtual-machines-windows-tutorial.md
-[Link 2 to another azure.microsoft.com documentation topic]: web-sites-custom-domain-name.md
+[Link 2 to another azure.microsoft.com documentation topic]: app-service-web/web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md
 
 <!--HONumber=54-->

@@ -255,7 +255,7 @@ HDInsight의 Apache Storm을 사용하여 Azure 이벤트 허브에서 센서 �
 
 ### 웹 사이트 대시보드 게시
 
-1. 대시보드를 Azure 웹 사이트에 배포하려면 [Node.js 웹 사이트 빌드 및 Azure에 배포](web-sites-nodejs-develop-deploy-mac.md) 단계를 따릅니다 웹 사이트의 URL(**mywebsite.azurewebsites.net**과 유사함)을 기록해 둡니다.
+1. 대시보드를 Azure 웹 사이트에 배포하려면 [Node.js 웹 사이트 빌드 및 Azure에 배포](app-service-web/web-sites-nodejs-develop-deploy-mac.md) 단계를 따릅니다 웹 사이트의 URL(**mywebsite.azurewebsites.net**과 유사함)을 기록해 둡니다.
 
 2. 웹 사이트가 만들어지면 Azure 포털에서 해당 사이트로 이동하여 **구성** 탭을 선택합니다. **웹 소켓**을 사용하도록 설정하고 페이지 아래쪽에서 **저장**을 클릭합니다.
 

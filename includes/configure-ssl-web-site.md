@@ -1,4 +1,4 @@
-﻿#Azure 앱 서비스에서 웹 앱에 대한 HTTPS를 사용하도록 설정
+#Azure 앱 서비스에서 웹 앱에 대한 HTTPS를 사용하도록 설정
 
 > [AZURE.NOTE]
 > 새로운 Azure의 [안내 방식 연습](http://support.microsoft.com/kb/2990804)을 사용하면 작업을 보다 빠르게 수행할 수 있습니다.  사용자 지정 도메인 이름을 연결하고 SSL을 사용하여 Azure 클라우드 서비스나 [앱 서비스](http://go.microsoft.com/fwlink/?LinkId=529714)와의 통신을 보호하는 작업을 매우 쉽게 완료할 수 있습니다.
@@ -512,8 +512,8 @@ IIS URL 재작성 모듈에 대한 자세한 내용은 [URL 재작성](http://ww
 ## 추가 리소스 ##
 - [Microsoft Azure 보안 센터](/support/trust-center/security/)
 - [Azure 웹 사이트에서 잠금 해제된 구성 옵션](http://azure.microsoft.com/blog/2014/01/28/more-to-explore-configuration-options-unlocked-in-windows-azure-web-sites/)
-- [진단 로깅 사용](../articles/web-sites-enable-diagnostic-log.md)
-- [웹 사이트 구성](../articles/web-sites-configure.md)
+- [진단 로깅 사용](../article/app-service-web/web-sites-enable-diagnostic-log.md)
+- [웹 사이트 구성](../article/app-service-web/web-sites-configure.md)
 - [Azure 관리 포털](https://manage.windowsazure.com)
 
 >[AZURE.NOTE] Azure 계정에 등록하기 전에 Azure 앱 서비스를 시작하려는 경우 [앱 서비스 시도](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동하십시오. 여기서 앱 서비스에서 수명이 짧은 스타터 웹 앱을 바로 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
@@ -522,7 +522,7 @@ IIS URL 재작성 모듈에 대한 자세한 내용은 [URL 재작성](http://ww
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 다음을 참조하세요. [Azure 앱 서비스 및 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)
 * 이전 포털에서 새 포털로의 변경에 대한 지침은 다음을 참조하세요. [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)
 
-[customdomain]: ../articles/web-sites-custom-domain-name.md
+[customdomain]: ../article/app-service-web/web-sites-custom-domain-name.md
 [iiscsr]: http://technet.microsoft.com/library/cc732906(WS.10).aspx
 [cas]: http://go.microsoft.com/fwlink/?LinkID=269988
 [installcertiis]: http://technet.microsoft.com/library/cc771816(WS.10).aspx

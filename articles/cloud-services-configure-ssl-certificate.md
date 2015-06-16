@@ -25,7 +25,7 @@
 
 SSL(Secure Socket Layer) 암호화는 인터넷을 통해 전송되는 데이터 보호에 가장 일반적으로 사용되는 방법입니다. 이 일반 작업에서는 웹 역할에 대해 HTTPS 끝점을 지정하는 방법 및 응용 프로그램 보안을 위해 SSL 인증서를 업로드하는 방법에 대해 설명합니다.
 
-> [AZURE.NOTE]이 작업의 절차는 Azure 클라우드 서비스에 적용됩니다. 웹 사이트의 경우 [Azure 웹 사이트에 대해 SSL 인증서 구성](web-sites-configure-ssl-certificate.md)(영문)을 참조하세요.
+> [AZURE.NOTE]이 작업의 절차는 Azure 클라우드 서비스에 적용됩니다. 웹 사이트의 경우 [Azure 웹 사이트에 대해 SSL 인증서 구성](app-service-web/web-sites-configure-ssl-certificate.md)(영문)을 참조하세요.
 
 이 작업에서는 프로덕션 배포를 사용합니다. 스테이징 배포에 대한 자세한 내용은 이 토픽의 끝 부분에서 제공됩니다.
 

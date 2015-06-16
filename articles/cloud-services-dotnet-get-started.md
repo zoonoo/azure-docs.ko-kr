@@ -38,7 +38,7 @@
 
 ## 대체 아키텍처: 웹 사이트 및 WebJobs
 
-이 자습서에서는 Azure 클라우드 서비스에서 프런트 엔드 및 백 엔드를 실행하는 방법을 보여 줍니다. 다른 아키텍처는 프런트 엔드를 [Azure 웹 사이트](/services/web-sites/) 에서 실행하고 백엔드에 [WebJobs](http://go.microsoft.com/fwlink/?LinkId=390226)(영문) 기능(현재 미리 보기)을 사용하는 것입니다. WebJobs를 사용하는 자습서는 [Azure WebJobs SDK 시작](websites-dotnet-webjobs-sdk-get-started.md) 을 참조하세요. 시나리오에 가장 적합한 서비스를 선택하는 방법에 대한 자세한 내용은 [Azure 웹 사이트, 클라우드 서비스 및 가상 컴퓨터 비교](http://azure.microsoft.com/documentation/articles/choose-web-site-cloud-service-vm/)를 참조하세요.
+이 자습서에서는 Azure 클라우드 서비스에서 프런트 엔드 및 백 엔드를 실행하는 방법을 보여 줍니다. 다른 아키텍처는 프런트 엔드를 [Azure 웹 사이트](/services/web-sites/) 에서 실행하고 백엔드에 [WebJobs](http://go.microsoft.com/fwlink/?LinkId=390226)(영문) 기능(현재 미리 보기)을 사용하는 것입니다. WebJobs를 사용하는 자습서는 [Azure WebJobs SDK 시작](app-service-web/websites-dotnet-webjobs-sdk-get-started.md) 을 참조하세요. 시나리오에 가장 적합한 서비스를 선택하는 방법에 대한 자세한 내용은 [Azure 웹 사이트, 클라우드 서비스 및 가상 컴퓨터 비교](http://azure.microsoft.com/documentation/articles/choose-web-site-cloud-service-vm/)를 참조하세요.
 
 ## 학습할 내용
 

@@ -59,7 +59,7 @@ Visual Studio Online을 사용하여 Azure에 자동으로 빌드 및 배포하�
 1. 팀 편집기의 솔루션 섹션에서 로컬 리포지토리에 새 프로젝트를 만들 수 있는 새 링크를 선택합니다.<br/>
 ![][4]
 
-2. 이 연습의 단계에 따라 웹 사이트 또는 클라우드 서비스(Azure 응용 프로그램)를 배포할 수 있습니다. 새 Azure 클라우드 서비스 프로젝트 또는 새 ASP.NET MVC 프로젝트를 만듭니다. 프로젝트의 대상을 .NET Framework 4 또는 4.5로 지정했는지 확인하고, 클라우드 서비스 프로젝트를 만드는 경우 ASP.NET MVC 웹 역할 및 작업자 역할을 추가합니다. 웹 사이트를 만들려는 경우 ASP.NET 웹 응용 프로그램 프로젝트 템플릿을 선택한 후 MVC를 선택합니다. [Azure 웹 사이트 및 ASP.NET 시작](web-sites-dotnet-get-started.md)을 참조하세요.
+2. 이 연습의 단계에 따라 웹 사이트 또는 클라우드 서비스(Azure 응용 프로그램)를 배포할 수 있습니다. 새 Azure 클라우드 서비스 프로젝트 또는 새 ASP.NET MVC 프로젝트를 만듭니다. 프로젝트의 대상을 .NET Framework 4 또는 4.5로 지정했는지 확인하고, 클라우드 서비스 프로젝트를 만드는 경우 ASP.NET MVC 웹 역할 및 작업자 역할을 추가합니다. 웹 사이트를 만들려는 경우 ASP.NET 웹 응용 프로그램 프로젝트 템플릿을 선택한 후 MVC를 선택합니다. [Azure 웹 사이트 및 ASP.NET 시작](app-service-web/web-sites-dotnet-get-started.md)을 참조하세요.
 
 3. 솔루션의 바로 가기 메뉴를 열고 **커밋**을 선택합니다.<br/>
 ![][7]
@@ -200,7 +200,7 @@ Git을 사용할 경우 보통 작업 분기에서 변경한 다음 개발이 �
 
 11. **빌드** 뷰로 이동하여 작업 분기에 대해 트리거된 빌드를 찾습니다.
 
-자세한 내용은 [Visual Studio Online](http://go.microsoft.com/fwlink/?LinkId=253861)을 참조하세요. Visual Studio Online에서 Git 사용에 대한 추가 팁은 [Git에서 코드 공유](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx)를 참조하고, Visual Studio Online에서 관리하지 않는 Git 리포지토리를 사용하여 Azure에 게시하는 방법에 대한 자세한 내용은 [Git를 사용하여 Azure 웹 사이트에 게시](web-sites-publish-source-control.md)를 참조하세요.
+자세한 내용은 [Visual Studio Online](http://go.microsoft.com/fwlink/?LinkId=253861)을 참조하세요. Visual Studio Online에서 Git 사용에 대한 추가 팁은 [Git에서 코드 공유](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx)를 참조하고, Visual Studio Online에서 관리하지 않는 Git 리포지토리를 사용하여 Azure에 게시하는 방법에 대한 자세한 내용은 [Git를 사용하여 Azure 웹 사이트에 게시](app-service-web/web-sites-publish-source-control.md)를 참조하세요.
 
 [1단계: Git 리포지토리 만들기]: #step1
 [2단계: 프로젝트를 만들어 Git 리포지토리로 푸시]: #step2

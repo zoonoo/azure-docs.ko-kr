@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Azure .NET SDK 정의" 
 	description="Azure .NET SDK에 포함된 항목에 대해 알아봅니다." 
 	documentationCenter=".net" 
