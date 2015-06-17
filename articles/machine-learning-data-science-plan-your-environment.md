@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="클라우드 데이터 과학 환경 계획 | Azure" 
 	description="클라우드 데이터 과학 환경 계획" 
 	metaKeywords="" 
@@ -62,7 +62,7 @@ Azure 기계 학습 데이터 과학 환경을 설정할 때 몇 가지 사항�
 
 시나리오에 따라 다음이 필요할 수 있습니다.
 
-1.  Azure 도구: [Azure PowerShell SDK](install-configure-powershell.md), [Azure 저장소 탐색기](http://azurestorageexplorer.codeplex.com/), [AzCopy](storage-use-azcopy.md) 및 기타 도구
+1.  Azure 도구: [Azure PowerShell SDK](install-configure-powershell.md), [Azure 저장소 탐색기](http://azurestorageexplorer.codeplex.com/), [AzCopy](storage/storage-use-azcopy.md) 및 기타 도구
 2.  SQL Server를 실행하는 Azure 가상 컴퓨터
 3.  Azure HDInsight(Hadoop)
 4.  Azure 파일 공유를 위한 온-프레미스 Azure 가상 네트워크

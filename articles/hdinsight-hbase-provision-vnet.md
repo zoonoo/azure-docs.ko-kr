@@ -395,7 +395,7 @@ Java 응용 프로그램에서 이 정보를 사용하려는 경우 [Maven을 �
 [vm-create]: virtual-machines-windows-tutorial.md
 
 [azure-portal]: https://manage.windowsazure.com
-[azure-create-storageaccount]: storage-create-storage-account.md
+[azure-create-storageaccount]: storage/storage-create-storage-account.md
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/

@@ -79,7 +79,7 @@ Windows | [여기](#portal)를 클릭 | [여기](#cli)를 클릭 | [여기](#sdk
 
 ### <a id="portal"></a> Azure 포털 사용
 
-HDInsight 클러스터는 Azure Blob 저장소 컨테이너를 기본 파일 시스템으로 사용합니다. HDInsight 클러스터를 만들려면 먼저 동일한 데이터 센터에 위치한 Azure 저장소 계정이 필요합니다. 자세한 내용은 [HDInsight에서 Azure Blob 저장소 사용](hdinsight-use-blob-storage.md)을 참조하세요. Azure 저장소 계정 만들기에 대한 자세한 내용은 [저장소 계정을 만드는 방법](storage-create-storage-account.md)을 참조하세요.
+HDInsight 클러스터는 Azure Blob 저장소 컨테이너를 기본 파일 시스템으로 사용합니다. HDInsight 클러스터를 만들려면 먼저 동일한 데이터 센터에 위치한 Azure 저장소 계정이 필요합니다. 자세한 내용은 [HDInsight에서 Azure Blob 저장소 사용](hdinsight-use-blob-storage.md)을 참조하세요. Azure 저장소 계정 만들기에 대한 자세한 내용은 [저장소 계정을 만드는 방법](storage/storage-create-storage-account.md)을 참조하세요.
 
 
 > [AZURE.NOTE]현재 **동남아시아**, **북유럽**, **서유럽** 및 **미국 남중부** 지역에서만 HDInsight Linux 클러스터를 호스트할 수 있습니다.
@@ -353,7 +353,7 @@ HDInsight는 Azure Blob 저장소 컨테이너를 기본 파일 시스템으로 
 	위치를 묻는 메시지가 표시되면 HDInsight Linux 클러스터를 프로비전할 수 있는 위치를 선택합니다. 저장소는 HDInsight 클러스터와 동일한 위치에 있어야 합니다.
 
 
-Azure 포털을 사용하여 Azure 저장소 계정을 만드는 방법에 대한 자세한 내용은 [저장소 계정 만들기, 관리 또는 삭제](storage-create-storage-account.md)를 참조하세요.
+Azure 포털을 사용하여 Azure 저장소 계정을 만드는 방법에 대한 자세한 내용은 [저장소 계정 만들기, 관리 또는 삭제](storage/storage-create-storage-account.md)를 참조하세요.
 
 저장소 계정이 이미 있지만 계정 이름과 계정 키를 모르는 경우 다음 명령을 사용하여 정보를 검색할 수 있습니다.
 
@@ -366,7 +366,7 @@ Azure 포털을 사용하여 Azure 저장소 계정을 만드는 방법에 대�
 	-- Lists the keys for a Storage account
 	azure storage account keys list <StorageAccountName>
 
-Azure 포털을 사용하여 정보를 얻는 방법에 대한 자세한 내용은 [저장소 계정 만들기, 관리 또는 삭제](storage-create-storage-account.md)의 "방법: 저장소 액세스 키 보기, 복사 및 다시 생성" 섹션을 참조하세요.
+Azure 포털을 사용하여 정보를 얻는 방법에 대한 자세한 내용은 [저장소 계정 만들기, 관리 또는 삭제](storage/storage-create-storage-account.md)의 "방법: 저장소 액세스 키 보기, 복사 및 다시 생성" 섹션을 참조하세요.
 
 또한 HDInsight 클러스터를 사용하려면 저장소 계정 내에 컨테이너가 있어야 합니다. 제공한 저장소 계정에 아직 컨테이너가 없는 경우 **azure hdinsight cluster create**를 실행하면 컨테이너 이름을 묻는 메시지가 표시되고 해당 이름으로 컨테이너가 만들어집니다. 그렇지만 미리 컨테이너를 만들려면 다음 명령을 사용할 수 있습니다.
 

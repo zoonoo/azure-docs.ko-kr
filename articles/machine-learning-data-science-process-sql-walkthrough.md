@@ -75,7 +75,7 @@ trip_data와 trip_fare를 조인할 고유 키는 medallion, hack_licence 및 pi
 
 Azure 데이터 과학 환경을 설정하려면
 
-1. [저장소 계정 만들기](storage-create-storage-account.md)
+1. [저장소 계정 만들기](storage/storage-create-storage-account.md)
 
 2. [Azure 기계 학습 작업 영역 만들기](machine-learning-create-workspace.md)
 

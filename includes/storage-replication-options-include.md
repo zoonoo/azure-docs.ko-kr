@@ -16,7 +16,7 @@
 
 - *RA-GRS(읽기 액세스 지역 중복 저장소)*에서는 위에서 설명한 지역 중복 저장소의 모든 이점을 누릴 수 있으며 기본 지역을 사용할 수 없게 되는 경우 보조 지역에서 데이터에 읽기 액세스할 수도 있습니다. 내구성과 최대 가용성을 위해서는 읽기 액세스 지역 중복 저장소를 사용하는 것이 좋습니다.
 
-복제 옵션에 대한 자세한 내용은 [Azure 저장소 팀 블로그](http://blogs.msdn.com/b/windowsazurestorage/)(영문) 및 [Azure 저장소 중복 옵션](storage-redundancy.md)을 참조하세요.
+복제 옵션에 대한 자세한 내용은 [Azure 저장소 팀 블로그](http://blogs.msdn.com/b/windowsazurestorage/)(영문) 및 [Azure 저장소 중복 옵션](../articles/storage/storage-redundancy.md)을 참조하세요.
 	
 다양한 복제 옵션 간의 가격 차이는 [저장소 가격 정보](http://azure.microsoft.com/pricing/details/storage/) 페이지에서 확인할 수 있습니다.
 

@@ -75,7 +75,7 @@
 1. 먼저 명령줄 인터페이스(cmd.exe)를 게시합니다. **게시** 탭에서 **cmd**를 선택한 다음 **게시 > Publish program using path(경로를 사용하여 프로그램 게시)**를 클릭합니다.
 2. 앱의 이름과 경로를 입력합니다. 여기서는 "File Explorer"를 이름으로 사용하고 "%SYSTEMDRIVE%\\windows\\explorer.exe"를 경로로 사용합니다. 
 ![cmd.exe 파일을 게시합니다.](./media/remoteapp-anyapp/ra-publishcmd.png)
-3. 이제 Azure [저장소 계정](storage-create-storage-account.md)을 만들어야 합니다. 현재는 "accessstorage"만 지정되어 있으므로, 원하는 이름을 선택하세요. 
+3. 이제 Azure [저장소 계정](storage/storage-create-storage-account.md)을 만들어야 합니다. 현재는 "accessstorage"만 지정되어 있으므로, 원하는 이름을 선택하세요. 
 ![Azure 저장소 계정](./media/remoteapp-anyapp/ra-anyappazurestorage.png)
 4. 이제 대시보드로 돌아가서 저장소(끝점 위치)에 대한 경로를 가져올 수 있습니다. 한 동안 이 경로를 사용할 것이므로 경로를 다른 곳에 복사해 두세요. 
 ![저장소 계정 경로](./media/remoteapp-anyapp/ra-anyappstoragelocation.png)

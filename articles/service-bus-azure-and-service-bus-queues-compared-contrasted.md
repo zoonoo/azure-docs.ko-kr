@@ -308,7 +308,7 @@ Azure 큐와 서비스 버스 큐는 모두 현재 Microsoft Azure에서 제공�
 다음은 Azure 큐 또는 서비스 버스 큐에 대해 추가적인 지침과 정보를 제공하는 문서입니다.
 
 - [서비스 버스 큐를 사용하는 방법](service-bus-dotnet-how-to-use-queues.md)
-- [큐 저장소 서비스를 사용하는 방법](storage-dotnet-how-to-use-queues.md)
+- [큐 저장소 서비스를 사용하는 방법](storage/storage-dotnet-how-to-use-queues.md)
 - [서비스 버스 조정된 메시징을 사용한 성능 향상의 모범 사례](https://msdn.microsoft.com/library/hh528527.aspx)
 - [Azure 서비스 버스의 큐 및 토픽 소개](http://www.code-magazine.com/article.aspx?quickid=1112041)
 - [서비스 버스에 대한 개발자 가이드](http://www.cloudcasts.net/devguide/)

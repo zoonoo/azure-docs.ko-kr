@@ -80,7 +80,7 @@
 BCP는 SQL Server와 함께 설치되는 명령줄 유틸리티로, 데이터를 이동하는 가장 빠른 방법 중 하나입니다. 모든 SQL Server 버전(온-프레미스 SQL Server, SQL Azure 및 Azure 기반의 SQL Server VM). 
 
 > [AZURE.NOTE] **BCP를 사용하려면 데이터가 어디에 있어야 하나요?**  
-> 필수 사항은 아니지만 원본 데이터가 포함된 파일을 대상 SQL 서버와 같은 컴퓨터에 배치하면 전송 속도가 빨라집니다(네트워크 속도와 로컬 디스크 IO 속도 차이). [AZCopy](storage-use-azcopy.md), [Azure 저장소 탐색기](https://azurestorageexplorer.codeplex.com/), Windows 복사/붙여넣기, RDP(원격 데스크톱 프로토콜) 등 다양한 파일 복사 도구를 사용하여 데이터가 포함된 플랫 파일을 SQL Server가 설치된 컴퓨터로 이동할 수 있습니다.
+> 필수 사항은 아니지만 원본 데이터가 포함된 파일을 대상 SQL 서버와 같은 컴퓨터에 배치하면 전송 속도가 빨라집니다(네트워크 속도와 로컬 디스크 IO 속도 차이). [AZCopy](storage/storage-use-azcopy.md), [Azure 저장소 탐색기](https://azurestorageexplorer.codeplex.com/), Windows 복사/붙여넣기, RDP(원격 데스크톱 프로토콜) 등 다양한 파일 복사 도구를 사용하여 데이터가 포함된 플랫 파일을 SQL Server가 설치된 컴퓨터로 이동할 수 있습니다.
 
 1. 대상 SQL Server 데이터베이스에 데이터베이스 및 테이블이 생성되었는지 확인합니다. 다음은 `Create Database` 및 `Create Table` 명령을 사용하여 이 작업을 수행하는 예제입니다.
 

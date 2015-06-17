@@ -59,7 +59,7 @@
 
     > [AZURE.NOTE]Ctrl + C를 눌러 언제든지 설치 마법사를 종료할 수 있습니다. 이 명령을 실행하기 전에 적용된 모든 설정은 유지됩니다.
 
-12. 장치를 등록한 후 서비스 데이터 암호화 키가 표시됩니다. 이 키를 복사하고 안전한 위치에 저장합니다. **이 키는 StorSimple 관리자 서비스로 추가 장치를 등록하기 위한 서비스 등록 키에 필요합니다.** 이 키에 대한 자세한 내용은 [StorSimple 보안](storsimple-security.md)을 참조하세요.
+12. 장치를 등록한 후 서비스 데이터 암호화 키가 표시됩니다. 이 키를 복사하고 안전한 위치에 저장합니다. **이 키는 StorSimple 관리자 서비스로 추가 장치를 등록하기 위한 서비스 등록 키에 필요합니다.** 이 키에 대한 자세한 내용은 [StorSimple 보안](../articles/storsimple/storsimple-security.md)을 참조하세요.
 
      ![StorSimple 등록 장치 6](./media/storsimple-configure-and-register-device/HCS_RegisterYourDevice6-include.png)
 

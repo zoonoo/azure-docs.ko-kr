@@ -271,7 +271,7 @@ Azure SDK for Ruby를 사용하여 Ruby 응용 프로그램에서 Azure 서비�
 
 
 <!-- WA.com links -->
-[blobs]: storage-ruby-how-to-use-blob-storage.md
+[blobs]: storage/storage-ruby-how-to-use-blob-storage.md
 
 [cdn-howto]: /develop/ruby/app-services/
 

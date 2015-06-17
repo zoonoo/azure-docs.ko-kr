@@ -32,7 +32,7 @@ Azure 포털뿐 아니라 HDInsight 관리에 사용할 수 있는 기타 도구
 이 문서를 시작하기 전에 다음이 있어야 합니다.
 
 - **Azure 구독** - Azure는 구독 기반 플랫폼입니다. 구독을 얻는 방법에 대한 자세한 내용은 [구매 옵션](http://azure.microsoft.com/pricing/purchase-options/), [구성원 제공 항목](http://azure.microsoft.com/pricing/member-offers/) 또는 [무료 평가판](http://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
-- **Azure 저장소 계정** - HDInsight 클러스터는 Azure Blob 저장소 컨테이너를 기본 파일 시스템으로 사용합니다. Azure Blob 저장소가 HDInsight 클러스터에서 매끄럽게 작동하는 방식에 대한 자세한 내용은 [HDInsight에서 Azure Blob 저장소 사용](hdinsight-use-blob-storage.md)을 참조하세요. Azure 저장소 계정 만들기에 대한 자세한 내용은 [저장소 계정을 만드는 방법](storage-create-storage-account.md)을 참조하세요.
+- **Azure 저장소 계정** - HDInsight 클러스터는 Azure Blob 저장소 컨테이너를 기본 파일 시스템으로 사용합니다. Azure Blob 저장소가 HDInsight 클러스터에서 매끄럽게 작동하는 방식에 대한 자세한 내용은 [HDInsight에서 Azure Blob 저장소 사용](hdinsight-use-blob-storage.md)을 참조하세요. Azure 저장소 계정 만들기에 대한 자세한 내용은 [저장소 계정을 만드는 방법](storage/storage-create-storage-account.md)을 참조하세요.
 
 ##HDInsight 클러스터 프로비전
 

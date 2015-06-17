@@ -85,7 +85,7 @@ HBase를 데이터 저장소로 사용하여 HBase 위에서 응용 프로그램
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [azure-management-portal]: https://manage.windowsazure.com/
-[azure-create-storageaccount]: storage-create-storage-account.md
+[azure-create-storageaccount]: storage/storage-create-storage-account.md
 
 [apache-hadoop]: http://hadoop.apache.org/
 
