@@ -2,6 +2,7 @@
 	pageTitle="웹 응용 프로그램에서 사용 현황 추적" 
 	description="사용자 활동을 기록합니다." 
 	services="application-insights" 
+documentationCenter=""
 	authors="alancameronwills" 
 	manager="kamrani"/>
 
@@ -11,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2015-01-09" 
+	ms.date="01/09/2015" 
 	ms.author="awills"/>
  
 # 웹 응용 프로그램에서 사용 현황 추적

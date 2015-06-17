@@ -2,6 +2,7 @@
 	pageTitle="진단 로그 검색" 
 	description="추적, NLog 또는 Log4Net을 사용하여 생성된 로그를 검색합니다." 
 	services="application-insights" 
+documentationCenter=""
 	authors="alancameronwills" 
 	manager="kamrani"/>
 
@@ -11,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2015-01-09" 
+	ms.date="01/09/2015" 
 	ms.author="awills"/>
  
 # Application Insights의 진단 검색

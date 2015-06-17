@@ -1,6 +1,25 @@
+<<<<<<< HEAD:articles/app-insights-data-retention-privacy.md
+﻿<properties 
+	pageTitle="Data retention and storage in Application Insights" 
+	description="Retention and privacy policy statement" 
+	services="application-insights" 
+    documentationCenter=""
+	authors="alancameronwills" 
+	manager="ronmart"/>
+
+<tags 
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/14/2014" 
+	ms.author="awills"/>
+=======
 <properties title="Data retention and storage in Application Insights" pageTitle="Application Insights 데이터 보존 및 저장소" description="보존 및 개인정보 보호 정책 설명" metaKeywords="analytics monitoring application insights" authors="awills"  manager="kamrani" />
 
 <tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-11-14" ms.author="awills" />
+>>>>>>> origin/master:articles/no-service/app-insights-data-retention-privacy.md
 
 # Application Insights 데이터 보존 및 저장소 
 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2/11/2015" 
+	ms.date="02/11/2015" 
 	ms.author="sdanie"/>
 
 # Azure API 관리에서 고급 제품 설정을 만들고 구성하는 방법

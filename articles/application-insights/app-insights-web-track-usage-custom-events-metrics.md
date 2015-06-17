@@ -2,6 +2,7 @@
 	pageTitle="Application Insights API를 사용한 웹 앱의 사용 현황 및 이벤트 추적" 
 	description="코드를 몇 줄 삽입하여 사용 현황을 추적하고 문제를 진단합니다." 
 	services="application-insights" 
+documentationCenter="" 
 	authors="alancameronwills" 
 	manager="kamrani"/>
  
@@ -11,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2015-02-06" 
+	ms.date="02/06/2015" 
 	ms.author="awills"/>
 
 # 웹 앱의 사용자 지정 사용 현황 이벤트 및 메트릭 추적

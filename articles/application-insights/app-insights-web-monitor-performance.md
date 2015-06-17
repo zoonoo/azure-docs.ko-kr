@@ -2,6 +2,7 @@
 	pageTitle="Application Insights로 앱 상태 및 사용 현황 모니터링" 
 	description="Application Insights를 시작합니다. 온-프레미스 또는 Microsoft Azure 웹 응용 프로그램의 사용량, 가용성 및 성능을 분석합니다." 
 	services="application-insights" 
+documentationCenter=""
 	authors="alancameronwills" 
 	manager="kamrani"/>
 
@@ -11,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2014-12-11" 
+	ms.date="12/11/2014" 
 	ms.author="awills"/>
  
 # 웹 응용 프로그램의 성능 모니터링

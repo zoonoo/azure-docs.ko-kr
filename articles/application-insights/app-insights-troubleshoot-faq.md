@@ -11,7 +11,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2015-02-03" 
+	ms.date="02/03/2015" 
 	ms.author="awills"/>
  
 # 문제 해결과 질문 및 답변 - Microsoft Azure 미리 보기의 Application Insights
