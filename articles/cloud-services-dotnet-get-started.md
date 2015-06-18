@@ -811,8 +811,8 @@ Azure 저장소 모범 사례 및 패턴에 대한 비디오 소개는 [Microsof
 * [Azure 클라우드 서비스 1 부: 소개](http://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
 * [Azure 클라우드 서비스](/documentation/services/cloud-services/)
 * [Azure 저장소](/documentation/services/storage/)
-* [.NET에서 Blob 저장소를 사용하는 방법](storage-dotnet-how-to-use-blobs.md)
-* [.NET에서 큐 저장소를 사용하는 방법](storage-dotnet-how-to-use-queues.md)
+* [.NET에서 Blob 저장소를 사용하는 방법](storage/storage-dotnet-how-to-use-blobs.md)
+* [.NET에서 큐 저장소를 사용하는 방법](storage/storage-dotnet-how-to-use-queues.md)
 
 
 <!--HONumber=52-->

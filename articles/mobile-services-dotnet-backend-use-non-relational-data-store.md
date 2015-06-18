@@ -118,7 +118,7 @@
 [모바일 서비스 시작]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 [데이터 시작]: mobile-services-dotnet-backend-windows-store-dotnet-get-started-data.md
 [Azure 관리 포털]: https://manage.windowsazure.com/
-[What is the Table Service]: storage-dotnet-how-to-use-tables.md#what-is
+[What is the Table Service]: storage/storage-dotnet-how-to-use-tables.md#what-is
 [MongoLab 추가 기능 페이지]: /gallery/store/mongolab/mongolab
 
 <!--HONumber=54-->

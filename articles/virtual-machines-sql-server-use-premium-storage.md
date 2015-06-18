@@ -20,7 +20,7 @@
 
 ## 개요
 
-[Azure 프리미엄 저장소](storage-premium-storage-preview-portal.md)는 대기 시간이 짧고 처리량 IO가 높은 차세대 저장소로, IaaS [가상 컴퓨터](http://azure.microsoft.com/services/virtual-machines/)의 SQL Server와 같이 IO를 많이 사용하는 주요 작업에서 매우 효율적입니다. 이 문서에서는 SQL Server를 실행하는 가상 컴퓨터가 프리미엄 저장소를 사용하도록 마이그레이션하기 위한 계획 및 지침을 제공합니다. 여기에는 Azure 인프라(네트워킹, 저장소) 및 게스트 Windows VM 관련 단계가 포함됩니다. [부록](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage)의 예제에서는 PowerShell을 통해 개선된 로컬 SSD 저장소를 활용하도록 대규모 VM을 이동하는 전체 마이그레이션 방법을 보여 줍니다.
+[Azure 프리미엄 저장소](storage/storage-premium-storage-preview-portal.md)는 대기 시간이 짧고 처리량 IO가 높은 차세대 저장소로, IaaS [가상 컴퓨터](http://azure.microsoft.com/services/virtual-machines/)의 SQL Server와 같이 IO를 많이 사용하는 주요 작업에서 매우 효율적입니다. 이 문서에서는 SQL Server를 실행하는 가상 컴퓨터가 프리미엄 저장소를 사용하도록 마이그레이션하기 위한 계획 및 지침을 제공합니다. 여기에는 Azure 인프라(네트워킹, 저장소) 및 게스트 Windows VM 관련 단계가 포함됩니다. [부록](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage)의 예제에서는 PowerShell을 통해 개선된 로컬 SSD 저장소를 활용하도록 대규모 VM을 이동하는 전체 마이그레이션 방법을 보여 줍니다.
 
 IaaS VM의 SQL Server에서 Azure 프리미엄 저장소를 활용하는 전체 프로세스를 이해해야 합니다. 다음 내용이 포함됩니다.
 
@@ -142,7 +142,7 @@ VHD를 연결한 후에는 캐시 설정을 변경할 수 없습니다. 설정�
 
 저장소 성능은 지정한 DS* VM 크기와 VHD 크기에 따라 달라집니다. VM마다 연결할 수 있는 VHD 수와 지원하는 최대 대역폭(MB/s)이 다릅니다. 구체적인 대역폭 수치는 [Azure를 위한 가상 컴퓨터 및 클라우드 서비스 크기](https://msdn.microsoft.com/library/azure/dn197896.aspx)를 참조하세요.
 
-디스크가 클수록 IOPS가 높아집니다. 마이그레이션 경로를 고려할 때는 이 점에 유의해야 합니다. 자세한 내용은 [IOPS 및 디스크 유형 표](storage-premium-storage-preview-portal.md#scalability-and-performance-targets-whko-kring-premium-storage)를 참조하세요.
+디스크가 클수록 IOPS가 높아집니다. 마이그레이션 경로를 고려할 때는 이 점에 유의해야 합니다. 자세한 내용은 [IOPS 및 디스크 유형 표](storage/storage-premium-storage-preview-portal.md#scalability-and-performance-targets-whko-kring-premium-storage)를 참조하세요.
 
 마지막으로, VM이 연결된 모든 디스크에 대해 지원하는 최대 디스크 대역폭이 서로 다르다는 점도 고려해야 합니다. 부하가 높을 때는 해당 VM 역할 크기에 사용 가능한 최대 디스크 대역폭을 모두 사용하게 될 수 있습니다. 예를 들어 Standard_DS14는 최대 512MB/s를 지원하므로 P30 디스크가 3개인 경우 VM의 디스크 대역폭이 모두 사용됩니다. 그러나 이 예제에서는 읽기 및 쓰기 IO 조합에 따라 처리량 제한을 초과할 수도 있습니다.
 
@@ -1110,7 +1110,7 @@ IP 주소를 추가하려면 [부록](#appendix-migrating-a-multisite-alwayson-c
 	![Appendix15][25]
 
 ## 추가 리소스
-- [Azure 프리미엄 저장소](storage-premium-storage-preview-portal.md)
+- [Azure 프리미엄 저장소](storage/storage-premium-storage-preview-portal.md)
 - [가상 컴퓨터](http://azure.microsoft.com/services/virtual-machines/)
 - [Azure 가상 컴퓨터의 SQL Server](virtual-machines-sql-server-infrastructure-services.md)
 

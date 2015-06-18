@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Azure Blob 저장소의  데이터 이동" 
 	description="Azure Blob 저장소의  데이터 이동" 
 	services="machine-learning" 
@@ -26,9 +26,9 @@
 
 
 
-> [AZURE.NOTE] Azure blob 저장소에 대한 전체 지침은 [Azure Blob 기본 사항](storage-dotnet-how-to-use-blobs.md) 및  [Azure Blob 서비스](https://msdn.microsoft.com/library/azure/dd179376.aspx)를 참조하세요. 
+> [AZURE.NOTE] Azure blob 저장소에 대한 전체 지침은 [Azure Blob 기본 사항](storage/storage-dotnet-how-to-use-blobs.md) 및  [Azure Blob 서비스](https://msdn.microsoft.com/library/azure/dd179376.aspx)를 참조하세요. 
 
-데이터를 업로드/다운로드하려면 Azure 저장소 계정 이름 및 계정 키를 알아야 합니다. 이 정보를 확인하는 방법을 알아보려면 [저장소 계정 관리](storage-create-storage-account.md)의 "방법: 저장소 액세스 키 보기, 복사 및 다시 생성" 섹션을 참조하세요. 이 문서에서는 사용자에게 Azure 저장소 계정 및 해당하는 저장소 키가 있다고 가정합니다.
+데이터를 업로드/다운로드하려면 Azure 저장소 계정 이름 및 계정 키를 알아야 합니다. 이 정보를 확인하는 방법을 알아보려면 [저장소 계정 관리](storage/storage-create-storage-account.md)의 "방법: 저장소 액세스 키 보기, 복사 및 다시 생성" 섹션을 참조하세요. 이 문서에서는 사용자에게 Azure 저장소 계정 및 해당하는 저장소 키가 있다고 가정합니다.
 
 <a id="explorer"></a>
 ## Azure 저장소 탐색기 사용 
@@ -52,7 +52,7 @@ Azure 저장소 탐색기는 Azure 저장소 계정의 데이터를 검사하고
 
 AzCopy는 데이터를 업로드 및 다운로드하는 명령줄 유틸리티입니다. 
 
-**경고** 클라우드 데이터 과학 프로세스 초반에 설정된 가상 컴퓨터와 다른 컴퓨터를 사용할 경우 다음 설치 지침에 따라 AzCopy를 설치하세요. [AzCopy를 다운로드하여 설치합니다](storage-use-azcopy.md#install).
+**경고** 클라우드 데이터 과학 프로세스 초반에 설정된 가상 컴퓨터와 다른 컴퓨터를 사용할 경우 다음 설치 지침에 따라 AzCopy를 설치하세요. [AzCopy를 다운로드하여 설치합니다](storage/storage-use-azcopy.md#install).
 
 ####blob에 파일을 업로드/blob의 파일을 다운로드하는 예제:
 
@@ -77,7 +77,7 @@ AzCopy는 데이터를 업로드 및 다운로드하는 명령줄 유틸리티�
 > 2. 파일을 다운로드하는 경우 /S는 지정된 디렉터리 및 하위 디렉터리의 모든 파일 또는 제공된 디렉터리 및 하위 디렉터리에 지정된 패턴과 일치하는 모든 파일이 다운로드될 때까지 컨테이너를 재귀적으로 검색합니다.  
 > 3.  /Source 매개 변수를 사용하여 특정 blob 파일을 다운로드하도록 지정할 수 없습니다. 특정 파일을 다운로드하려면 /Pattern 매개 변수를 사용하여 다운로드할 blob 파일 이름을 지정하세요. /S 매개 변수를 사용하면 AzCopy에서 파일 이름 패턴을 재귀적으로 검색할 수 있습니다. 패턴 매개 변수가 없으면 AzCopy는 해당 디렉터리의 모든 파일을 다운로드합니다. 
 
-AzCopy 사용법에 대한 자세한 내용은 [AzCopy 명령줄 유틸리티 시작하기](storage-use-azcopy.md#install)를 참조하세요.
+AzCopy 사용법에 대한 자세한 내용은 [AzCopy 명령줄 유틸리티 시작하기](storage/storage-use-azcopy.md#install)를 참조하세요.
 
 
 <a id="PythonSDK"></a>
@@ -91,7 +91,7 @@ Azure SDK에 제공되는 Python API를 사용하여 다음을 수행할 수 있
 - 컨테이너의 Blob 나열
 - Blob 삭제
 
-이 섹션에서는 blob를 나열, 업로드 및 다운로드하는 방법을 설명합니다. Python API 사용법에 대한 자세한 내용은 [Python에서 Blob 저장소 서비스를 사용하는 방법](storage-python-how-to-use-blob-storage.md)을 참조하세요. 
+이 섹션에서는 blob를 나열, 업로드 및 다운로드하는 방법을 설명합니다. Python API 사용법에 대한 자세한 내용은 [Python에서 Blob 저장소 서비스를 사용하는 방법](storage/storage-python-how-to-use-blob-storage.md)을 참조하세요. 
 
 > [AZURE.NOTE] 클라우드 데이터 과학 프로세스 초반에 설정된 가상 컴퓨터와 다른 컴퓨터를 사용할 경우 [Python Azure SDK](python-how-to-install.md)를 설치해야만 아래의 샘플 코드를 사용할 수 있습니다.
 

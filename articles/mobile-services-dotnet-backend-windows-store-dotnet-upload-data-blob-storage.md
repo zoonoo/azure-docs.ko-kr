@@ -79,7 +79,7 @@ SAS를 사용하여 앱에서 Blob 저장소에 이미지를 업로드하려면 
 [모바일 서비스 시작하기]: mobile-services-windows-store-dotnet-get-started.md
 
 [Azure Management Portal]: https://manage.windowsazure.com/
-[How To Create a Storage Account]: storage-create-storage-account.md
+[How To Create a Storage Account]: storage/storage-create-storage-account.md
 [Azure Storage Client library for Store apps]: http://go.microsoft.com/fwlink/p/?LinkId=276866
 [Mobile Services .NET How-to Conceptual Reference]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [Windows Phone SDK 8.0]: http://www.microsoft.com/download/details.aspx?id=35471

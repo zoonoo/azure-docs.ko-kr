@@ -326,7 +326,7 @@ Sqoop 사용에 대한 자세한 내용은 [HDInsight에서 Sqoop 사용][hdinsi
 [hdinsight-use-pig]: hdinsight-use-pig.md
 [hdinsight-provision]: hdinsight-provision-clusters.md
 
-[sqldatabase-create-configure]: sql-database-create-configure.md
+[sqldatabase-create-configure]: ../sql-database/sql-database-create-configure.md
 
 [apache-sqoop-guide]: http://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 

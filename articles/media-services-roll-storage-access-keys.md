@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="저장소 액세스 키 롤링 후 미디어 서비스 업데이트" 
 	description="이 문서에서는 저장소 액세스 키를 롤링한 후 미디어 서비스를 업데이트하는 방법에 대한 지침을 제공합니다." 
 	services="media-services" 
@@ -33,7 +33,7 @@
 
 ## 1단계: 보조 저장소 액세스 키 다시 생성
 
-보조 저장소 키 다시 생성을 시작합니다. 기본적으로 보조 키는 미디어 서비스에서 사용됩니다.  저장소 키 롤링 방법에 대한 자세한 내용은 [방법: 저장소 액세스 키 보기, 복사 및 다시 생성](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).을 참조하세요.
+보조 저장소 키 다시 생성을 시작합니다. 기본적으로 보조 키는 미디어 서비스에서 사용됩니다.  저장소 키 롤링 방법에 대한 자세한 내용은 [방법: 저장소 액세스 키 보기, 복사 및 다시 생성](storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).을 참조하세요.
   
 ## <a id="step2"></a>2단계:  미디어 서비스를 업데이트하여 새 보조 저장소 키를 사용합니다.
 
@@ -91,7 +91,7 @@
 
 ## 5단계: 기본 저장소 액세스 키 다시 생성
 
-기본 저장소 액세스 키를 다시 생성합니다. 저장소 키 롤링 방법에 대한 자세한 내용은 [방법: 저장소 액세스 키 보기, 복사 및 다시 생성](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys)을 참조하세요.
+기본 저장소 액세스 키를 다시 생성합니다. 저장소 키 롤링 방법에 대한 자세한 내용은 [방법: 저장소 액세스 키 보기, 복사 및 다시 생성](storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys)을 참조하세요.
 
 ## 6단계: 미디어 서비스를 업데이트하여 새 기본 저장소 키를 사용합니다.
 	

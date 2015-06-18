@@ -167,7 +167,7 @@ Microsoft는 기업 계약의 단일 계정 또는 모든 계정에 대해 다�
  
 Azure에서 사용할 수 있는 두 가지 저장소 유형이 있습니다. 표준 저장소 계정은 Blob 저장소, 테이블 저장소, 큐 저장소 및 파일 저장소에 대한 액세스 권한을 제공합니다. 프리미엄 저장소는 AlwaysOn 클러스터의 SQL Server와 같은 고성능 응용 프로그램용으로 고안되었으며 현재 Azure 가상 컴퓨터 디스크만 지원합니다.
 
-저장소 계정은 확장성 목표로 바인딩됩니다. 현재 Azure 저장소 제한에 익숙해 지려면 [Microsoft Azure 구독 및 서비스 제한, 할당량 및 제약 조건](azure-subscription-service-limits.md#storage-limits)을 참조하세요. [Azure 저장소 확장성 및 성능 목표](storage-scalability-targets.md)도 참조하세요.
+저장소 계정은 확장성 목표로 바인딩됩니다. 현재 Azure 저장소 제한에 익숙해 지려면 [Microsoft Azure 구독 및 서비스 제한, 할당량 및 제약 조건](azure-subscription-service-limits.md#storage-limits)을 참조하세요. [Azure 저장소 확장성 및 성능 목표](storage/storage-scalability-targets.md)도 참조하세요.
 
 Azure는 운영 체제 디스크, 임시 디스크를 및 0개 이상의 선택적 데이터 디스크로 가상 컴퓨터를 만듭니다. 운영 체제 디스크 및 데이터 디스크는 임시 디스크가 컴퓨터가 거주하는 노드에 저장소 로컬로 지원되는 Azure Blob입니다. 이렇게 하면 컴퓨터가 자동으로 한 노드에서 다른 노드로 마이그레이션될 수 있어 해당 디스크의 데이터가 손실되기 때문에 시스템 재순환 도중 유지해야 하는 데이터에 임시 디스크는 적합하지 않게 됩니다. 임시 드라이브에는 아무 것도 저장하지 마십시오.
 
@@ -550,6 +550,6 @@ Contoso는 Azure 가상 컴퓨터에 대해 다음 이름으로 결정했습니�
 
 [Azure를 위한 가상 컴퓨터 및 클라우드 서비스 크기](https://msdn.microsoft.com/library/azure/dn197896.aspx)
 
-[Azure 저장소 확장성 및 성능 목표](storage-scalability-targets.md)
+[Azure 저장소 확장성 및 성능 목표](storage/storage-scalability-targets.md)
 
 <!--HONumber=54-->

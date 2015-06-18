@@ -25,7 +25,7 @@
 이 자습서를 완료하려면 다음이 필요합니다.
 
 - [Visual Studio](http://msdn.microsoft.com/library/dd831853.aspx)
-- [Azure 저장소 계정](storage-create-storage-account.md)
+- [Azure 저장소 계정](storage/storage-create-storage-account.md)
 - [Windows Management Framework 3.0](http://www.microsoft.com/ko-kr/download/details.aspx?id=34595) 또는 [Windows Management Framework 4.0](http://www.microsoft.com/ko-kr/download/details.aspx?id=40855)
 - [Azure PowerShell](install-configure-powershell.md)
 

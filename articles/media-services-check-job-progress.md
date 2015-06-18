@@ -105,7 +105,7 @@
 
 ## <a id="check_progress_with_queues"></a>Azure 큐 저장소를 사용하여 Media Services 작업 알림을 모니터링합니다.
 
-Microsoft Azure 미디어 서비스에는 알림 메시지를 [Azure 큐 저장소](storage-dotnet-how-to-use-queues.md#what-is) 에 제공하는 기능이 있습니다. (미디어 작업 처리 시) 이 항목에서는 큐 저장소에서 이 알림 메시지를 가져오는 방법을 보여줍니다.
+Microsoft Azure 미디어 서비스에는 알림 메시지를 [Azure 큐 저장소](storage/storage-dotnet-how-to-use-queues.md#what-is) 에 제공하는 기능이 있습니다. (미디어 작업 처리 시) 이 항목에서는 큐 저장소에서 이 알림 메시지를 가져오는 방법을 보여줍니다.
 
 세계 어디에서나 큐 저장소에 배달된 메시지에 액세스할 수 있습니다. Azure 큐 메시징 아키텍처는 안정적이고 확장성이 뛰어납니다. 다른 메서드를 사용하는 동안 큐 저장소를 폴링하는 것이 좋습니다. 
 
