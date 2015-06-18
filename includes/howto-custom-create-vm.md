@@ -46,7 +46,7 @@
 
 	**참고**: 가용성 집합의 멤버인 가상 컴퓨터는 각기 다른 장애 도메인에 배포됩니다. 가용성 집합에 여러 가상 컴퓨터를 배치하면 네트워크 오류, 로컬 디스크 하드웨어 오류 및 계획된 가동 중지 시간 중에도 응용 프로그램을 사용할 수 있게 하는 데 도움이 됩니다.
 
-15.  **Endpoints**에서 원격 데스크톱 및 SSH(보안 셸) 클라이언트를 통해서 등 가상 컴퓨터에 대한 연결을 허용하기 위해 만들어지는 새 끝점을 검토합니다. 지금 끝점을 추가하거나 나중에 만들 수도 있습니다. 나중에 끝점을 만드는 방법에 대한 지침은 [가상 컴퓨터로 끝점을 설정하는 방법](../articles/virtual-machines-set-up-endpoints.md)(영문)을 참조하세요.
+15.  **Endpoints**에서 원격 데스크톱 및 SSH(보안 셸) 클라이언트를 통해서 등 가상 컴퓨터에 대한 연결을 허용하기 위해 만들어지는 새 끝점을 검토합니다. 지금 끝점을 추가하거나 나중에 만들 수도 있습니다. 나중에 끝점을 만드는 방법에 대한 지침은 [가상 컴퓨터로 끝점을 설정하는 방법](../articles/virtual-machines/virtual-machines-set-up-endpoints.md)(영문)을 참조하세요.
 
 16.  **VM Agent**에서 VM 에이전트를 설치할지 여부를 결정합니다. 이 에이전트는 가상 컴퓨터를 조작하는 데 유용한 확장을 설치하기 위한 환경을 제공합니다. 자세한 내용은 [확장 관리](http://go.microsoft.com/FWLink/p/?LinkID=390493)를 참조하세요.
 
@@ -58,8 +58,8 @@
 ##다음 단계##
 가상 컴퓨터가 만들어진 후에는 자동으로 시작됩니다. 포털에서 상태가 실행 중으로 표시되면 가상 컴퓨터에 로그인할 수 있습니다. 지침을 확인하려면 다음 문서 중 하나를 참조하십시오.
 
-- [Linux를 실행하는 가상 컴퓨터에 로그온하는 방법](../articles/virtual-machines-linux-how-to-log-on.md)
-- [Windows Server를 실행하는 가상 컴퓨터에 로그온하는 방법](../articles/virtual-machines-log-on-windows-server.md)
+- [Linux를 실행하는 가상 컴퓨터에 로그온하는 방법](../articles/virtual-machines/virtual-machines-linux-how-to-log-on.md)
+- [Windows Server를 실행하는 가상 컴퓨터에 로그온하는 방법](../articles/virtual-machines/virtual-machines-log-on-windows-server.md)
 
 
 

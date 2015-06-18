@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="리소스 관리자에서 Microsoft Azure Platform 간 명령줄 인터페이스 사용" 
 	description="리소스 관리자에서 Microsoft Azure 플랫폼 간 명령줄 인터페이스 사용" 
 	editor="tysonn" 
@@ -185,3 +185,4 @@
 [psrm]: http://go.microsoft.com/fwlink/?LinkId=394760
 
 <!--HONumber=47-->
+ 

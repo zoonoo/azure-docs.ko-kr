@@ -30,7 +30,7 @@
 
 응용 프로그램에서 데이터를 저장해야 할 수도 있습니다. 설정하려면 이전에 만든 가상 컴퓨터에 데이터 디스크를 연결합니다. 가장 쉬운 방법은 컴퓨터에 빈 데이터 디스크를 연결하는 것입니다.
 
-Linux에서 리소스 디스크는 일반적으로 Azure Linux 에이전트에 의해 관리되며 **/mnt/resource**(또는 Ubuntu 이미지의 **/mnt**)에 자동으로 탑재됩니다. 반면, Linux에서 데이터 디스크 이름은 커널에 의해 `/dev/sdc`로 지정될 수 있으며 사용자는 해당 리소스를 파티셔닝, 형식 지정 및 마운트해야 합니다. 자세한 내용은 [Azure Linux 에이전트 사용자 가이드](virtual-machines-linux-agent-user-guide.md)(영문)를 참조하세요.
+Linux에서 리소스 디스크는 일반적으로 Azure Linux 에이전트에 의해 관리되며 **/mnt/resource**(또는 Ubuntu 이미지의 **/mnt**)에 자동으로 탑재됩니다. 반면, Linux에서 데이터 디스크 이름은 커널에 의해 `/dev/sdc`로 지정될 수 있으며 사용자는 해당 리소스를 파티셔닝, 형식 지정 및 마운트해야 합니다. 자세한 내용은 [Azure Linux 에이전트 사용자 가이드](../articles/virtual-machines/virtual-machines-linux-agent-user-guide.md)(영문)를 참조하세요.
 
 >[AZURE.NOTE]리소스 디스크에 데이터를 저장하지 마세요. 리소스 디스크는 응용 프로그램 및 프로세스에 임시 저장소를 제공하며, 스왑 파일과 같이 보관할 필요가 없는 데이터를 저장하는 데 사용됩니다. 데이터 디스크는 Azure 저장소에서 페이지 Blob의 .vhd 파일로 상주하며, 데이터 보호를 위한 중복 저장소를 제공합니다. 자세한 내용은 [Azure의 디스크 및 이미지 정보](http://msdn.microsoft.com/library/jj672979.aspx)를 참조하세요.
 

@@ -53,7 +53,7 @@
 
 ##<a id="attachdisk"> </a>새 가상 컴퓨터에 데이터 디스크를 연결하는 방법 ##
 
-이 섹션에서는 가상 컴퓨터에 빈 데이터 디스크를 연결하는 방법을 보여 줍니다. 빈 디스크 연결 및 기존 디스크를 연결하는 방법에 대한 자세한 내용은 [데이터 디스크 연결 자습서](../articles/storage-windows-attach-disk.md)를 참조하세요.
+이 섹션에서는 가상 컴퓨터에 빈 데이터 디스크를 연결하는 방법을 보여 줍니다. 빈 디스크 연결 및 기존 디스크를 연결하는 방법에 대한 자세한 내용은 [데이터 디스크 연결 자습서](../articles/virtual-machines/storage-windows-attach-disk.md)를 참조하세요.
 
 1. [Azure 관리 포털](http://manage.windowsazure.com)에 로그인합니다.
 
@@ -113,11 +113,11 @@
 
 Azure에서 Windows 가상 컴퓨터를 구성하는 방법에 대한 자세한 내용은 다음 문서를 참조하십시오.
 
-[클라우드 서비스에서 가상 컴퓨터를 연결하는 방법](../articles/cloud-services-connect-virtual-machine.md)
+[클라우드 서비스에서 가상 컴퓨터를 연결하는 방법](../articles/virtual-machines/cloud-services-connect-virtual-machine.md)
 
-[Windows Server 운영 체제를 포함하는 가상 하드 디스크를 만들고 업로드하는 방법](../articles/virtual-machines-create-upload-vhd-windows-server.md)
+[Windows Server 운영 체제를 포함하는 가상 하드 디스크를 만들고 업로드하는 방법](../articles/virtual-machines/virtual-machines-create-upload-vhd-windows-server.md)
 
-[가상 컴퓨터에 데이터 디스크 연결](../articles/storage-windows-attach-disk.md)
+[가상 컴퓨터에 데이터 디스크 연결](../articles/virtual-machines/storage-windows-attach-disk.md)
 
 [가상 컴퓨터의 가용성 관리](../articles/manage-availability-virtual-machines.md)
 

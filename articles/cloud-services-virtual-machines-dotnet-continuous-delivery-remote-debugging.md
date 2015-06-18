@@ -39,7 +39,7 @@
 
 <h2> <a name="virtualmachine"></a>가상 컴퓨터에 원격 디버깅 사용</h2>
 
-1. Azure 가상 컴퓨터를 만듭니다. [Windows Server를 실행하는 가상 컴퓨터 만들기](virtual-machines-windows-tutorial.md) 또는 [Visual Studio에서 Azure 가상 컴퓨터 만들기](http://msdn.microsoft.com/library/azure/dn569263.aspx)를 참조하세요.
+1. Azure 가상 컴퓨터를 만듭니다. [Windows Server를 실행하는 가상 컴퓨터 만들기](virtual-machines/virtual-machines-windows-tutorial.md) 또는 [Visual Studio에서 Azure 가상 컴퓨터 만들기](http://msdn.microsoft.com/library/azure/dn569263.aspx)를 참조하세요.
 2. [Azure 포털 페이지](http://go.microsoft.com/fwlink/p/?LinkID=269851)에서, 가상 컴퓨터 대시보드를 보고 가상 컴퓨터의 "RDP 인증서 지문"을 확인합니다. 이는 확장 구성에서 ServerThumbprint 값에 사용됩니다.
 3. [Azure용 서비스 인증서 만들기](http://msdn.microsoft.com/library/azure/gg432987.aspx)에 간략히 설명된 대로 클라이언트 인증서를 만듭니다(.pfx 및 RDP 인증서 지문 유지).
 4. Microsoft 다운로드 세터에서 [Azure Powershell](http://go.microsoft.com/?linkid=9811175&clcid=0x409)(버전 0.7.4 이상)을 설치합니다.

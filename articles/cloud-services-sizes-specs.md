@@ -78,6 +78,6 @@ Azure 가상 컴퓨터 및 클라우드 서비스는 Azure에서 제공하는 �
 
  [A8, A9, A10 및 A11 계산 집약적 인스턴스 정보](http://go.microsoft.com/fwlink/p/?linkid=328042)
 
- [가상 컴퓨터에 적합한 크기](virtual-machines-size-specs.md)
+ [가상 컴퓨터에 적합한 크기](virtual-machines/virtual-machines-size-specs.md)
 
 <!---HONumber=58-->

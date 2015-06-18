@@ -20,7 +20,7 @@
 
 이 항목에서는 **asm** 모드에서 Azure CLI를 사용하여 Mac, Linux 및 Windows 컴퓨터의 명령줄에서 서비스를 생성, 관리 및 삭제하는 방법에 대해 설명합니다. 이 기능은 Azure SDK for .NET, Node.JS 및 PHP와 함께 설치되는 Windows PowerShell cmdlet에 제공되는 기능과 비슷합니다.
 
-> [AZURE.NOTE]**asm** 모드로 Azure 서비스를 사용하는 것은 개별 Azure 개념 및 웹사이트, 가상 컴퓨터, 가상 네트워크, 저장소 등과 같은 서비스를 생각하는 것과 개념적으로는 유사합니다. 논리적 그룹화 및 리소스의 계층적 모델로 더 풍부한 기능을 **arm** 모드를 사용하는 명령줄에서 이용할 수 있습니다. 해당 모드로 전환하려면, [리소스 관리자에서 Azure 명령줄 인터페이스 사용](xplat-cli-azure-resource-manager.md)을 참조하세요.
+> [AZURE.NOTE]**asm** 모드로 Azure 서비스를 사용하는 것은 개별 Azure 개념 및 웹사이트, 가상 컴퓨터, 가상 네트워크, 저장소 등과 같은 서비스를 생각하는 것과 개념적으로는 유사합니다. 논리적 그룹화 및 리소스의 계층적 모델로 더 풍부한 기능을 **arm** 모드를 사용하는 명령줄에서 이용할 수 있습니다. 해당 모드로 전환하려면, [리소스 관리자에서 Azure 명령줄 인터페이스 사용](virtual-machines/xplat-cli-azure-resource-manager.md)을 참조하세요.
 
 설치 지침은 [Azure 명령줄 인터페이스 설치 및 구성](xplat-cli-install.md)을 참조하세요.
 
