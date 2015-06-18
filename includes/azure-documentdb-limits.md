@@ -106,6 +106,6 @@
 </tr>
 </table>
 
-별표(*)가 표시된 할당량은 [Azure 지원부에 문의하여 조정할 수 있습니다](../articles/documentdb-increase-limits.md).
+별표(*)가 표시된 할당량은 [Azure 지원부에 문의하여 조정할 수 있습니다](../articles/documentdb/documentdb-increase-limits.md).
 
 <!---HONumber=58-->

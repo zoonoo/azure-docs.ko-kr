@@ -78,7 +78,7 @@ USGS 데이터 집합에는 Washington 주와 관련된 레코드가 포함되�
 
 단순화하기 위해 데이터가 [USGS(United States Geological Services) 웹 사이트](http://geonames.usgs.gov/domestic/download_data.htm)의 데이터에서 생성된 텍스트 파일로 솔루션에 포함되어 있습니다.
 
-데이터를 포함하는 대신 [DocumentDB용 인덱서](documentdb-search-indexer.md) 또는 [Azure SQL 데이터베이스용 인덱서](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)를 사용할 수도 있습니다. 인덱서는 데이터를 Azure 검색 인덱스로 가져오므로 작성 및 유지 관리해야 하는 코드를 크게 간소화할 수 있습니다.
+데이터를 포함하는 대신 [DocumentDB용 인덱서](documentdb/documentdb-search-indexer.md) 또는 [Azure SQL 데이터베이스용 인덱서](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)를 사용할 수도 있습니다. 인덱서는 데이터를 Azure 검색 인덱스로 가져오므로 작성 및 유지 관리해야 하는 코드를 크게 간소화할 수 있습니다.
 
 온-프레미스 SQL Server 데이터베이스에서 데이터를 로드할 수도 있습니다. [이 자습서](http://azure.microsoft.com/blog/2014/11/10/how-to-sync-sql-server-data-with-azure-search/)에서는 작업 방법을 보여 줍니다.
 

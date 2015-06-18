@@ -29,7 +29,7 @@
 
    [저장소 계정 만들기](storage-whatis-account.md)
 
-  [Azure ML 작업 영역 만들기](machine-learning-create-workspace.md)
+  [Azure ML 작업 영역 만들기](machine-learning/machine-learning-create-workspace.md)
 
 **다음 섹션에서는 몇가지 샘플 시나리오를 제공합니다. 각 시나리오의 경우, 가능한 데이터 과학 흐름 및 지원되는 Azure 리소스가 표시됩니다.**
 
@@ -175,7 +175,7 @@
 
     f. 테이블 조인이 필요한 경우, 인덱스를 만들어 조인을 신속하게 처리합니다.
 
- > [AZURE.NOTE]큰 데이터를 좀 더 빨리 로드하기 위해, 분할된 테이블을 만들고 병렬로 대량 데이터를 가져오는 것이 좋습니다. 자세한 내용은 [SQL 분할된 테이블로 병렬로 데이터 가져오기](machine-learning-data-science-parallel-load-sql-partitioned-tables.md)를 참조하세요.
+ > [AZURE.NOTE]큰 데이터를 좀 더 빨리 로드하기 위해, 분할된 테이블을 만들고 병렬로 대량 데이터를 가져오는 것이 좋습니다. 자세한 내용은 [SQL 분할된 테이블로 병렬로 데이터 가져오기](machine-learning/machine-learning-data-science-parallel-load-sql-partitioned-tables.md)를 참조하세요.
 
 5.  데이터를 탐색하고 필요에 따라 기능을 만듭니다. 기능을 데이터베이스 테이블에 구체화하지 않아도 됩니다. 필요한 쿼리를 기록하여 만들기만 합니다.
 
@@ -215,7 +215,7 @@
 
 	f. 테이블 조인이 필요한 경우, 인덱스를 만들어 조인을 신속하게 처리합니다.
 
-> [AZURE.NOTE]큰 데이터를 좀 더 빨리 로드하기 위해, 분할된 테이블을 만들고 병렬로 대량 데이터를 가져옵니다. 자세한 내용은 [SQL 분할된 테이블로 병렬로 데이터 가져오기](machine-learning-data-science-parallel-load-sql-partitioned-tables.md)를 참조하세요.
+> [AZURE.NOTE]큰 데이터를 좀 더 빨리 로드하기 위해, 분할된 테이블을 만들고 병렬로 대량 데이터를 가져옵니다. 자세한 내용은 [SQL 분할된 테이블로 병렬로 데이터 가져오기](machine-learning/machine-learning-data-science-parallel-load-sql-partitioned-tables.md)를 참조하세요.
 
 5.  데이터를 탐색하고 필요에 따라 기능을 만듭니다. 기능을 데이터베이스 테이블에 구체화하지 않아도 됩니다. 필요한 쿼리를 기록하여 만들기만 합니다.
 
@@ -300,7 +300,7 @@ SQL Server VM에서 전체 SQL Server 데이터베이스를 복제하려면, 한
 
 ### Azure 데이터 과학 작동 예제
 
-공용 데이터 집합을 사용한 Azure 데이터 과학 프로세스의 종단 간 연습 예제는 [Azure에서 Azure 데이터 과학 프로세스](machine-learning-data-science-process-sql-walkthrough.md)를 참조하세요.
+공용 데이터 집합을 사용한 Azure 데이터 과학 프로세스의 종단 간 연습 예제는 [Azure에서 Azure 데이터 과학 프로세스](machine-learning/machine-learning-data-science-process-sql-walkthrough.md)를 참조하세요.
 
 [1]: ./media/machine-learning-data-science-plan-sample-scenarios/dsp-plan-small-in-aml.png
 [2]: ./media/machine-learning-data-science-plan-sample-scenarios/dsp-plan-local-with-processing.png
