@@ -398,9 +398,9 @@ VM 이미지를 캡처하기 위해 먼저 **capture_vm_image** 메서드를 호
 		role_size='Small',
 		vm_image_name = image_name)
 
-Linux 가상 컴퓨터를 캡처하는 방법에 대한 자세한 내용은 [Linux 가상 컴퓨터를 캡처하는 방법](virtual-machines-linux-capture-image.md)을 참조하세요.
+Linux 가상 컴퓨터를 캡처하는 방법에 대한 자세한 내용은 [Linux 가상 컴퓨터를 캡처하는 방법](virtual-machines/virtual-machines-linux-capture-image.md)을 참조하세요.
 
-Windows 가상 컴퓨터를 캡처하는 방법에 대한 자세한 내용은 [Windows 가상 컴퓨터를 캡처하는 방법](virtual-machines-capture-image-windows-server.md)을 참조하세요.
+Windows 가상 컴퓨터를 캡처하는 방법에 대한 자세한 내용은 [Windows 가상 컴퓨터를 캡처하는 방법](virtual-machines/virtual-machines-capture-image-windows-server.md)을 참조하세요.
 
 ## <a name="What's Next"> </a>다음 단계
 

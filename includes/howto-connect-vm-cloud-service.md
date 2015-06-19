@@ -1,4 +1,4 @@
-﻿<properties authors="kathydav" editor="tysonn" manager="timlt" /> 
+<properties authors="kathydav" editor="tysonn" manager="timlt" /> 
 
 
 #가상 컴퓨터를 가상 네트워크 또는 클라우드 서비스와 연결하는 방법

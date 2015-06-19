@@ -25,7 +25,7 @@
 다음 관련 토픽을 참조할 수도 있습니다.
 
 - 이러한 단계를 보여 주는 동영상을 보려면 [Azure 가상 네트워크에 새 Active Directory 포리스트를 설치하는 방법](http://channel9.msdn.com/Series/Microsoft-Azure-Tutorials/How-to-install-a-new-Active-Directory-forest-on-an-Azure-virtual-network)을 참조하세요.
-- 필요한 경우 [사이트 간 VPN을 구성](https://msdn.microsoft.com/library/azure/dn133795.aspx)한 다음 새 포리스트를 설치하거나 온-프레미스 포리스트를 Azure 가상 네트워크로 확장할 수 있습니다. 이러한 단계는 [Azure 가상 네트워크에 복제 Active Directory 도메인 컨트롤러 설치](virtual-networks-install-replica-active-directory-domain-controller.md)를 참조하세요.
+- 필요한 경우 [사이트 간 VPN을 구성](https://msdn.microsoft.com/library/azure/dn133795.aspx)한 다음 새 포리스트를 설치하거나 온-프레미스 포리스트를 Azure 가상 네트워크로 확장할 수 있습니다. 이러한 단계는 [Azure 가상 네트워크에 복제 Active Directory 도메인 컨트롤러 설치](virtual-network/virtual-networks-install-replica-active-directory-domain-controller.md)를 참조하세요.
 -  Azure 가상 네트워크에 AD DS(Active Directory 도메인 서비스)를 설치하는 방법에 대한 개념 지침은 [Azure 가상 컴퓨터에 Windows Server Active Directory 배포에 대한 지침](https://msdn.microsoft.com/library/azure/jj156090.aspx)을 참조하세요.
 
 ## 시나리오 다이어그램
@@ -63,7 +63,7 @@ Azure에 도메인 컨트롤러를 설치할 때와 온-프레미스에 설치�
  
 필요에 따라 다음 단계를 반복하여 DC 역할을 호스트할 VM을 만듭니다. 내결함성과 중복성을 제공하려면 가상 DC를 두 개 이상 배포해야 합니다. Azure 가상 네트워크에 구성된 것과 유사한 DC가 둘 이상 있는 경우(즉, 둘 다 GC이고, DNS 서버를 실행하며, FSMO 역할을 수행하지 않는 등) 이러한 DC를 실행하는 VM을 가용성 집합에 배치하여 내결함성을 개선합니다.
 
-UI 대신 Windows PowerShell을 사용하여 VM을 만들려면 [Azure PowerShell을 사용하여 Windows 기반 가상 컴퓨터 만들기 및 미리 구성하기](virtual-machines-ps-create-preconfigure-windows-vms.md)를 참조하세요.
+UI 대신 Windows PowerShell을 사용하여 VM을 만들려면 [Azure PowerShell을 사용하여 Windows 기반 가상 컴퓨터 만들기 및 미리 구성하기](virtual-machines/virtual-machines-ps-create-preconfigure-windows-vms.md)를 참조하세요.
 
 1. 클래식 포털에서 **새로 만들기** > **계산** > **가상 컴퓨터** > **갤러리에서**를 클릭합니다. 다음 값을 사용하여 마법사를 완료합니다. 다른 값이 제안되거나 필요하지 않은 한 설정의 기본값을 적용합니다.
 
@@ -73,7 +73,7 @@ UI 대신 Windows PowerShell을 사용하여 VM을 만들려면 [Azure PowerShel
 	**가상 컴퓨터 구성** | <p>가상 컴퓨터 이름: 단일 레이블 이름을 입력합니다(예: AzureDC1).</p><p>새 사용자 이름: 사용자 이름을 입력합니다. 이 사용자는 VM에서 로컬 관리자 그룹의 구성원이 됩니다. VM에 처음 로그인하려면 이 이름이 필요합니다. Administrator라는 기본 제공 계정은 사용할 수 없습니다.</p><p>새 암호/확인: 암호를 입력합니다.</p>
 	**가상 컴퓨터 구성** | <p>클라우드 서비스: 첫 번째 VM에 대해 <b>새 클라우드 서비스 만들기</b>를 선택한 다음 DC 역할을 호스트할 추가 VM을 만들 때는 동일한 클라우드 서비스 이름을 선택합니다.</p><p>클라우드 서비스 DNS 이름: 전역적으로 고유한 이름을 지정합니다.</p><p>지역/선호도 그룹/가상 네트워크: 가상 네트워크 이름을 지정합니다(예: WestUSVNet).</p><p>저장소 계정: 첫 번째 VM에 대해 <b>자동으로 생성된 저장소 계정 사용</b>을 선택한 다음 DC 역할을 호스트할 추가 VM을 만들 때는 동일한 저장소 계정 이름을 선택합니다.</p><p>가용성 집합: <b>가용성 집합 만들기</b>를 선택합니다.</p><p>가용성 집합 이름: 첫 번째 VM을 만들 때 가용성 집합의 이름을 입력한 다음 추가 VM을 만들 때는 동일한 이름을 선택합니다.</p>
 	**가상 컴퓨터 구성** | <p><b>VM 에이전트 설치</b> 및 필요한 다른 확장을 선택합니다.</p>
-2. DC 서버 역할을 실행할 각 VM에 디스크를 연결합니다. AD 데이터베이스, 로그 및 SYSVOL을 저장하려면 추가 디스크가 필요합니다. 디스크 크기(예: 10GB)를 지정하고 **호스트 캐시 기본 설정**을 **없음**으로 설정된 채로 둡니다. 단계를 보려면 [Windows 가상 컴퓨터에 데이터 디스크를 연결하는 방법](storage-windows-attach-disk.md)을 참조하세요.
+2. DC 서버 역할을 실행할 각 VM에 디스크를 연결합니다. AD 데이터베이스, 로그 및 SYSVOL을 저장하려면 추가 디스크가 필요합니다. 디스크 크기(예: 10GB)를 지정하고 **호스트 캐시 기본 설정**을 **없음**으로 설정된 채로 둡니다. 단계를 보려면 [Windows 가상 컴퓨터에 데이터 디스크를 연결하는 방법](virtual-machines/storage-windows-attach-disk.md)을 참조하세요.
 3. VM에 처음 로그인한 후 **서버 관리자** > **파일 및 저장소 서비스**를 열어 NTFS를 사용하여 이 디스크에 볼륨을 만듭니다.
 4. DC 역할을 실행할 VM에 대해 고정 IP 주소를 예약합니다. 고정 IP 주소를 예약하려면 Microsoft 웹 플랫폼 설치 관리자를 다운로드하고 [Azure PowerShell을 설치](powershell-install-configure.md)한 다음 Set-AzureStaticVNetIP cmdlet을 실행합니다. 예:
 
@@ -111,7 +111,7 @@ DC 설치가 완료된 후 VM에 다시 연결하고 DC에 로그온합니다. �
 	**가상 컴퓨터 구성** | <p><b>VM 에이전트 설치</b> 및 필요한 다른 확장을 선택합니다.</p>
 2. 각 VM이 프로비전된 후 로그인하고 VM을 도메인에 가입합니다. **서버 관리자**에서 **로컬 서버** > **작업 그룹** > **변경…**을 클릭하고 **도메인**을 선택한 후 온-프레미스 도메인의 이름을 입력합니다. 도메인 사용자의 자격 증명을 제공한 다음 VM을 다시 시작하여 도메인 가입을 완료합니다.
 
-UI 대신 Windows PowerShell을 사용하여 VM을 만들려면 [Azure PowerShell을 사용하여 Windows 기반 가상 컴퓨터 만들기 및 미리 구성하기](virtual-machines-ps-create-preconfigure-windows-vms.md)를 참조하세요.
+UI 대신 Windows PowerShell을 사용하여 VM을 만들려면 [Azure PowerShell을 사용하여 Windows 기반 가상 컴퓨터 만들기 및 미리 구성하기](virtual-machines/virtual-machines-ps-create-preconfigure-windows-vms.md)를 참조하세요.
 
 Windows PowerShell 사용에 대한 자세한 내용은 [Azure Cmdlets 시작하기](https://msdn.microsoft.com/library/azure/jj554332.aspx) 및 [Azure Cmdlet 참조](https://msdn.microsoft.com/library/azure/jj554330.aspx)를 확인하세요.
 
@@ -122,7 +122,7 @@ Windows PowerShell 사용에 대한 자세한 내용은 [Azure Cmdlets 시작하
 -  [Azure 가상 컴퓨터에 Windows Server Active Directory를 배포하기 위한 지침](https://msdn.microsoft.com/library/azure/jj156090.aspx)
 -  [클라우드 전용 가상 네트워크 구성](https://msdn.microsoft.com/library/dn631643.aspx)
 -  [사이트 간 VPN 구성](https://msdn.microsoft.com/library/dn133795.aspx)
--  [Azure 가상 네트워크에 복제 Active Directory 도메인 컨트롤러 설치](virtual-networks-install-replica-active-directory-domain-controller.md)
+-  [Azure 가상 네트워크에 복제 Active Directory 도메인 컨트롤러 설치](virtual-network/virtual-networks-install-replica-active-directory-domain-controller.md)
 -  [Microsoft Azure IT Pro IaaS: (01) 가상 컴퓨터 기본 사항(영문)](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/01)
 -  [Microsoft Azure IT Pro IaaS: (05) 가상 네트워크 및 프레미스 간 연결 만들기(영문)](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/05)
 -  [가상 네트워크 개요](https://msdn.microsoft.com/library/azure/jj156007.aspx)

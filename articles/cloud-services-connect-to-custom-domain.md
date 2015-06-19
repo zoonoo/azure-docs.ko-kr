@@ -30,7 +30,7 @@
 
 ## 가상 네트워크 만들기
 
-Azure 포털 또는 Powershell을 사용하여 Azure에서 가상 네트워크를 만들 수 있습니다. 이 자습서에서는 Powershell을 사용합니다. Azure 포털을 사용하여 가상 네트워크를 만들려면 [가상 네트워크 만들기](create-virtual-network.md) 를 참조하세요.
+Azure 포털 또는 Powershell을 사용하여 Azure에서 가상 네트워크를 만들 수 있습니다. 이 자습서에서는 Powershell을 사용합니다. Azure 포털을 사용하여 가상 네트워크를 만들려면 [가상 네트워크 만들기](virtual-machines/create-virtual-network.md) 를 참조하세요.
 
     #Create Virtual Network
 
