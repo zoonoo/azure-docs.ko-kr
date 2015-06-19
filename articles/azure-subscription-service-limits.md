@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Microsoft Azure 구독 및 서비스 제한, 할당량 및 제약 조건" 
 	description="일반적인 Azure 구독 및 서비스 제한, 할당량 및 제약 조건 목록을 제공합니다. 여기에는 최대값과 함께 제한을 늘리는 방법에 대한 정보가 포함됩니다."
 	services="" 

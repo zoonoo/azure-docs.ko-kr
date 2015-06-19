@@ -1,4 +1,4 @@
-﻿1.	[Azure 미리 보기 포털](https://portal.azure.com/)에 로그인합니다.
+1.	[Azure 미리 보기 포털](https://portal.azure.com/)에 로그인합니다.
 2.	표시줄에서 **새로 만들기**를 클릭하고 **데이터 + 저장소**를 선택한 후에 **DocumentDB**를 클릭합니다. 
 
 	![만들기 블레이드에서 **새로 만들기** 단추, **데이터 + 저장소**가 강조 표시되며 데이터 + 저장소 블레이드에서 **DocumentDB**가 강조 표시된 Azure 미리 보기 포털의 스크린샷][1]   
@@ -51,6 +51,6 @@
 
 [방법: DocumentDB 계정 만들기]: #Howto
 [다음 단계]: #NextSteps
-[documentdb-manage]:../articles/documentdb-manage.md
+[documentdb-manage]:../articles/documentdb/documentdb-manage.md
 
 <!--HONumber=49-->
