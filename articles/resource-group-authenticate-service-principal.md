@@ -22,7 +22,7 @@
 
 
 ## 개념
-1. AAD(Azure Active Directory) - 클라우드에 대한 ID 및 액세스 관리 서비스입니다. 자세한 내용은 [Azure Active Directory란](./active-directory-whatis.md)을 참조하세요.
+1. AAD(Azure Active Directory) - 클라우드에 대한 ID 및 액세스 관리 서비스입니다. 자세한 내용은 [Azure Active Directory란](active-directory/active-directory-whatis.md)을 참조하세요.
 2. 서비스 사용자 - 디렉터리의 응용 프로그램 인스턴스입니다.
 3. AD 응용 프로그램 - AAD에 응용 프로그램을 식별하는 디렉터리 레코드입니다. 자세한 내용은 [Azure AD의 인증 기본 사항](https://msdn.microsoft.com/library/azure/874839d9-6de6-43aa-9a5c-613b0c93247e#BKMK_Auth)을 참조하세요.
 
@@ -74,7 +74,7 @@ Azure PowerShell을 설치하지 않은 경우 [Azure PowerShell 설치 및 구�
 
    이제 디렉터리에서 서비스 사용자를 만들었지만, 아직은 서비스에 할당된 권한 또는 범위가 없습니다. 서비스 사용자에게 일부 범위에서 작업을 수행할 수 있는 권한을 명시적으로 부여해야 합니다.
 
-4. 서비스 사용자에게 구독에 대한 권한을 부여합니다. 이 샘플에서는 서비스 사용자에게 구독에서 모든 리소스를 읽을 수 있는 권한을 부여합니다. **ServicePrincipalName** 매개 변수의 경우 응용 프로그램을 만들 때 사용한 **ApplicationId** 또는 **IdentifierUris**를 제공합니다. 역할 기반 액세스 제어에 대한 자세한 내용은 [리소스에 대한 액세스 관리 및 감사](./resource-group-rbac.md)를 참조하세요.
+4. 서비스 사용자에게 구독에 대한 권한을 부여합니다. 이 샘플에서는 서비스 사용자에게 구독에서 모든 리소스를 읽을 수 있는 권한을 부여합니다. **ServicePrincipalName** 매개 변수의 경우 응용 프로그램을 만들 때 사용한 **ApplicationId** 또는 **IdentifierUris**를 제공합니다. 역할 기반 액세스 제어에 대한 자세한 내용은 [리소스에 대한 액세스 관리 및 감사](azure-portal/resource-group-rbac.md)를 참조하세요.
 
         PS C:> New-AzureRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $azureAdApplication.ApplicationId
 
@@ -107,7 +107,7 @@ Mac, Linux 및 Windows용 Azure CLI를 설치하지 않은 경우 [Azure CLI 설
 
 이러한 단계를 수행하려면 AD 응용 프로그램 및 서비스 사용자가 이미 있어야 합니다. Azure 클래식 포털을 통해 AD 응용 프로그램 및 서비스 사용자를 설정하는 방법에 대한 자세한 내용은 [Azure 클래식 포털을 사용하여 새 Azure 서비스 사용자 만들기](./resource-group-create-service-principal-portal.md)를 참조하세요.
 
-1. 서비스 사용자에게 구독에 대한 권한을 부여합니다. 이 샘플에서는 서비스 사용자에게 구독에서 모든 리소스를 읽을 수 있는 권한을 부여합니다. **ServicePrincipalName** 매개 변수의 경우 응용 프로그램을 만들 때 사용한 **ApplicationId** 또는 **IdentifierUris**를 제공합니다. 역할 기반 액세스 제어에 대한 자세한 내용은 [리소스에 대한 액세스 관리 및 감사](./resource-group-rbac.md)를 참조하세요.
+1. 서비스 사용자에게 구독에 대한 권한을 부여합니다. 이 샘플에서는 서비스 사용자에게 구독에서 모든 리소스를 읽을 수 있는 권한을 부여합니다. **ServicePrincipalName** 매개 변수의 경우 응용 프로그램을 만들 때 사용한 **ApplicationId** 또는 **IdentifierUris**를 제공합니다. 역할 기반 액세스 제어에 대한 자세한 내용은 [리소스에 대한 액세스 관리 및 감사](azure-portal/resource-group-rbac.md)를 참조하세요.
 
         azure role assignment create --objectId {service-principal-object-id} -o Reader -c /subscriptions/{subscriptionId}/
 
@@ -127,12 +127,12 @@ Mac, Linux 및 Windows용 Azure CLI를 설치하지 않은 경우 [Azure CLI 설
 - [Azure 리소스 관리자 개요](./resource-group-overview.md)  
 - [Azure 리소스 관리자로 Azure PowerShell 사용](./powershell-azure-resource-manager.md)
 - [Azure 리소스 관리에서 Mac, Linux 및 Windows용 Azure CLI 사용](virtual-machines/xplat-cli-azure-resource-manager.md)  
-- [Azure 포털을 사용하여 Azure 리소스 관리](./resource-group-portal.md)  
+- [Azure 포털을 사용하여 Azure 리소스 관리](azure-portal/resource-group-portal.md)  
   
 응용 프로그램 만들기 및 배포
   
 - [Azure 리소스 관리자 템플릿 작성](./resource-group-authoring-templates.md)  
-- [Azure 리소스 관리자 템플릿을 사용하여 응용 프로그램 배포](./resource-group-template-deploy.md)  
+- [Azure 리소스 관리자 템플릿을 사용하여 응용 프로그램 배포](azure-portal/resource-group-template-deploy.md)  
 - [Azure에서 리소스 그룹 배포 문제 해결](virtual-machines/resource-group-deploy-debug.md)  
 - [Azure 리소스 관리자 템플릿 함수](./resource-group-template-functions.md)  
 - [고급 템플릿 작업](./resource-group-advanced-template.md)  
@@ -144,7 +144,7 @@ Mac, Linux 및 Windows용 Azure CLI를 설치하지 않은 경우 [Azure CLI 설
   
 액세스 관리 및 감사
   
-- [리소스에 대한 액세스 관리 및 감사](./resource-group-rbac.md)  
+- [리소스에 대한 액세스 관리 및 감사](azure-portal/resource-group-rbac.md)  
 - [Azure 포털을 사용하여 새 Azure 서비스 사용자 만들기](./resource-group-create-service-principal-portal.md)  
   
 

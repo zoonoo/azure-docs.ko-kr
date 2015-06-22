@@ -99,12 +99,12 @@
 - [Azure 리소스 관리자 개요](./resource-group-overview.md)  
 - [Azure 리소스 관리자로 Azure PowerShell 사용](./powershell-azure-resource-manager.md)
 - [Azure 리소스 관리에서 Mac, Linux 및 Windows용 Azure CLI 사용](virtual-machines/xplat-cli-azure-resource-manager.md)  
-- [Azure 포털을 사용하여 Azure 리소스 관리](./resource-group-portal.md)  
+- [Azure 포털을 사용하여 Azure 리소스 관리](azure-portal/resource-group-portal.md)  
   
 응용 프로그램 만들기 및 배포
   
 - [Azure 리소스 관리자 템플릿 작성](./resource-group-authoring-templates.md)  
-- [Azure 리소스 관리자 템플릿을 사용하여 응용 프로그램 배포](./resource-group-template-deploy.md)  
+- [Azure 리소스 관리자 템플릿을 사용하여 응용 프로그램 배포](azure-portal/resource-group-template-deploy.md)  
 - [Azure에서 리소스 그룹 배포 문제 해결](virtual-machines/resource-group-deploy-debug.md)  
 - [Azure 리소스 관리자 템플릿 함수](./resource-group-template-functions.md)  
 - [고급 템플릿 작업](./resource-group-advanced-template.md)  
@@ -116,7 +116,7 @@
   
 액세스 관리 및 감사
   
-- [리소스에 대한 액세스 관리 및 감사](./resource-group-rbac.md)  
+- [리소스에 대한 액세스 관리 및 감사](azure-portal/resource-group-rbac.md)  
 - [Azure 리소스 관리자를 사용하여 서비스 사용자 인증](./resource-group-authenticate-service-principal.md)  
 
 <!-- Images. -->

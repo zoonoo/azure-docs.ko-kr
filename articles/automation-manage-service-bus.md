@@ -40,7 +40,7 @@ Azure 자동화에서 자동으로 실행되도록 클라우드 관리 작업을
 
 Azure 자동화의 기본 사항과 Azure 자동화를 사용하여 Azure 서비스 버스를 관리하는 방법을 알아보았으므로 이제 다음 링크에 따라 Azure 자동화에 대해 자세히 알아보세요.
 
-* Azure 자동화 [시작 자습서](automation-create-runbook-from-samples.md) 참조
+* Azure 자동화 [시작 자습서](automation/automation-create-runbook-from-samples.md) 참조
 * [PowerShell을 사용하여 서비스 버스 관리](service-bus-powershell-how-to-provision.md) 문서 참조
 
 <!---HONumber=58-->

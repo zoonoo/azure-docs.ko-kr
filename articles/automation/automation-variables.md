@@ -1,0 +1,190 @@
+<properties 
+   pageTitle="Azure 자동화의 변수 자산"
+   description="변수 자산은 Azure 자동화의 모든 Runbook에 사용할 수 있는 값입니다. 이 문서에서는 변수에 대해 자세히 알아보고 텍스트 작성과 그래픽 작성 모두에서 변수를 사용하는 방법을 설명합니다."
+   services="automation"
+   documentationCenter=""
+   authors="bwren"
+   manager="stevenka"
+   editor="tysonn" />
+<tags 
+   ms.service="automation"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="05/21/2015"
+   ms.author="bwren" />
+
+# Azure 자동화의 변수 자산
+
+변수 자산은 자동화 계정의 모든 Runbook에 사용할 수 있는 값입니다. 변수는 Azure 포털, Windows PowerShell 또는 Runbook 내에서 생성, 수정 및 검색할 수 있습니다. 자동화 변수는 다음과 같은 시나리오에 유용합니다.
+
+- 여러 Runbook 간에 값을 공유하는 경우
+
+- 동일한 Runbook의 여러 작업 간에 값을 공유하는 경우
+
+- 포털 또는 Runbook에서 사용되는 Windows PowerShell 명령줄에서 값을 관리하는 경우
+
+자동화 변수는 Runbook이 실패한 경우에도 계속 사용할 수 있도록 유지됩니다. 또한 하나의 Runbook에서 설정한 값을 다른 Runbook에서 사용하거나 다음에 동일한 Runbook을 실행할 때 해당 Runbook에서 사용할 수 있습니다.
+
+변수를 만들 때 암호화된 상태로 저장되도록 지정할 수 있습니다. 변수를 암호화하면 Azure 자동화에 안전하게 저장되며 Azure PowerShell 모듈의 일부로 제공되는 [Get-AzureAutomationVariable](http://msdn.microsoft.com/library/dn913772.aspx) cmdlet에서 해당 값을 검색할 수 없습니다. 암호화된 값을 검색하려면 Runbook에서 **Get-AutomationVariable** 활동을 사용하는 방법밖에 없습니다.
+
+>[AZURE.NOTE]Azure 자동화의 안전한 자산에는 자격 증명, 인증서, 연결, 암호화된 변수 등이 있습니다. 이러한 자산은 각 자동화 계정에 대해 생성되는 고유 키를 사용하여 암호화되고 Azure 자동화에 저장됩니다. 이 키는 마스터 인증서로 암호화되어 Azure 자동화에 저장됩니다. 자동화 계정에 대한 키는 보안 자산을 저장하기 전에 마스터 인증서를 사용하여 암호가 해독된 후 자산을 암호화하는 데 사용됩니다.
+
+## 변수 형식
+
+Azure 포털에서 변수를 만들 때 드롭다운 목록에서 해당 데이터 형식을 지정해야 합니다. 그래야 포털에서 변수 값을 입력할 수 있는 적절한 컨트롤을 표시할 수 있습니다. 변수는 이 데이터 형식으로 제한되지 않으며 다른 형식의 값을 지정하려면 Windows PowerShell을 사용하여 변수를 설정해야 합니다. **정의되지 않음**을 지정하면 변수 값이 **$null**로 설정되므로 [Set-AzureAutomationVariable](http://msdn.microsoft.com/library/dn913767.aspx) cmdlet 또는 **Set-AutomationVariable** 활동을 사용하여 값을 설정해야 합니다. 포털에서는 복잡한 변수 형식의 값을 만들거나 변경할 수 없지만 Windows PowerShell에서는 모든 형식의 값을 제공할 수 있습니다. 복잡한 형식은 [PSCustomObject](http://msdn.microsoft.com/library/system.management.automation.pscustomobject.aspx)로 반환됩니다.
+
+배열 또는 해시 테이블을 만들어 변수에 저장하여 여러 값을 단일 변수에 저장할 수 있습니다.
+
+## Cmdlet 및 워크플로 활동
+
+다음 표에 나와있는 cmdlet은 Windows PowerShell을 사용하여 자동화 변수를 만들고 관리하는 데 사용됩니다. 이러한 cmdlet은 자동화 Runbook에서 사용할 수 있는 [Azure PowerShell 모듈](../powershell-install-configure.md)의 일부로 제공됩니다.
+
+|Cmdlet|설명|
+|:---|:---|
+|[Get-AzureAutomationVariable](http://msdn.microsoft.com/library/dn913772.aspx)|기존 변수의 값을 검색합니다.|
+|[New-AzureAutomationVariable](http://msdn.microsoft.com/library/dn913771.aspx)|새 변수를 만들고 해당 값을 설정합니다.|
+|[Remove-AzureAutomationVariable](http://msdn.microsoft.com/library/dn913775.aspx)|기존 변수를 제거합니다.|
+|[Set-AzureAutomationVariable](http://msdn.microsoft.com/library/dn913767.aspx)|기존 변수의 값을 설정합니다.|
+
+다음 표의 워크플로 활동은 Runbook에서 자동화 변수에 액세스하는 데 사용됩니다. 이러한 활동은 Runbook에서만 사용할 수 있으며, Azure PowerShell 모듈의 일부로 제공되지 않습니다.
+
+|워크플로 활동|설명|
+|:---|:---|
+|Get-AutomationVariable|기존 변수의 값을 검색합니다.|
+|Set-AutomationVariable|기존 변수의 값을 설정합니다.|
+
+>[AZURE.NOTE]Runbook에서 **Get-AutomationVariable**의 –Name 매개 변수에 변수를 사용하지 않는 것이 좋습니다. 변수를 사용하면 디자인 타임에 Runbook과 자동화 변수 간의 종속성 검색이 복잡해질 수 있습니다.
+
+## 새 자동화 변수 만들기
+
+### Azure 포털을 사용하여 새 자격 증명을 만들려면
+
+1. 자동화 계정에서 창의 위쪽에 있는 **자산**을 클릭합니다.
+1. 창의 아래쪽의 **설정 추가**를 클릭합니다.
+1. **변수 추가**를 클릭합니다.
+1. 마법사를 완료하고 새 변수를 저장하는 확인란을 클릭합니다.
+
+
+### Azure Preview 포털을 사용하여 새 변수를 만들려면
+
+1. 자동화 계정에서 **자산** 파트를 클릭하여 **자산** 블레이드를 엽니다.
+1. **변수** 파트를 클릭하여 **변수** 블레이드를 엽니다.
+1. 블레이드의 위쪽에서 **변수 추가**를 클릭합니다.
+1. 양식을 완료하고 **만들기**를 클릭하여 새 변수를 저장합니다.
+
+
+### Windows PowerShell을 사용하여 새 변수를 만들려면
+
+[New-AzureAutomationVariable](http://msdn.microsoft.com/library/dn913771.aspx) cmdlet은 새 변수를 만들고 해당 초기 값을 설정합니다. [Get-AzureAutomationVariable](http://msdn.microsoft.com/library/dn913772.aspx)을 사용하여 값을 검색할 수 있습니다. 값이 단순한 형식이면 동일한 해당 형식이 반환되고, 복잡한 형식이면 **PSCustomObject**가 반환됩니다.
+
+다음 명령 예제에서는 문자열 형식의 변수를 만들고 해당 값을 반환하는 방법을 보여 줍니다.
+
+
+	New-AzureAutomationVariable –AutomationAccountName "MyAutomationAccount" –Name 'MyStringVariable' –Encrypted $false –Value 'My String'
+	$string = (Get-AzureAutomationVariable –AutomationAccountName "MyAutomationAccount" –Name 'MyStringVariable').Value
+
+다음 명령 예제에서는 복잡한 형식의 변수를 만들고 해당 속성을 반환하는 방법을 보여 줍니다. 이 예제에서는 **Get-AzureVM**의 가상 컴퓨터 개체가 사용되었습니다.
+
+	$vm = Get-AzureVM –ServiceName "MyVM" –Name "MyVM"
+	New-AzureAutomationVariable –AutomationAccountName "MyAutomationAccount" –Name "MyComplexVariable" –Encrypted $false –Value $vm
+	
+	$vmValue = (Get-AzureAutomationVariable –AutomationAccountName "MyAutomationAccount" –Name "MyComplexVariable").Value
+	$vmName = $ vmValue.Name
+	$vmIpAddress = $ vmValue.IpAddress
+
+
+
+## Runbook에서 변수 사용
+
+**Set-AutomationVariable** 활동을 사용하여 Runbook에서 자동화 변수의 값을 설정하고 **Get-AutomationVariable**을 사용하여 이를 검색할 수 있습니다. **Set-AzureAutomationVariable** 또는 **Get-AzureAutomationVariable** cmdlet은 Runbook에서 사용해서는 안 됩니다. 이러한 cmdlet은 워크플로 활동보다 효율성이 떨어집니다. 또한 **Get-AzureAutomationVariable**을 사용하여 보안 변수의 값을 검색할 수 없습니다. Runbook 내에서 새 변수를 만드는 방법은 [New-AzureAutomationVariable](http://msdn.microsoft.com/library/dn913771.aspx) cmdlet을 사용하는 방법밖에 없습니다.
+
+
+### 텍스트 Runbook 샘플
+
+#### 변수에서 단순한 값 설정 및 검색
+
+다음 명령 예제에서는 텍스트 Runbook에서 변수를 설정 및 검색하는 방법을 보여 줍니다. 이 예제에서는 *NumberOfIterations* 및 *NumberOfRunnings*라는 정수 형식의 변수와 *SampleMessage*라는 문자열 형식의 변수가 이미 만들어진 것으로 가정합니다.
+
+	$NumberOfIterations = Get-AutomationVariable -Name 'NumberOfIterations'
+	$NumberOfRunnings = Get-AutomationVariable -Name 'NumberOfRunnings'
+	$SampleMessage = Get-AutomationVariable -Name 'SampleMessage'
+	
+	Write-Output "Runbook has been run $NumberOfRunnings times."
+	
+	for ($i = 1; $i -le $NumberOfIterations; $i++) {
+	   Write-Output "$i`: $SampleMessage"
+	}
+	Set-AutomationVariable –Name NumberOfRunnings –Value (NumberOfRunngs += 1)
+
+
+#### 변수에서 복잡한 개체 설정 및 검색
+
+다음 샘플 코드에서는 텍스트 Runbook에서 복잡한 값으로 변수를 업데이트하는 방법을 보여 줍니다. 이 샘플에서는 **Get-AzureVM**을 사용하여 Azure 가상 컴퓨터를 검색하고 기존 자동화 변수에 저장합니다. [변수 형식](#variable-types)에 설명된 대로 이 변수는 PSCustomObject로 저장됩니다.
+
+	$vm = Get-AzureVM -ServiceName "MyVM" -Name "MyVM"
+	Set-AutomationVariable -Name "MyComplexVariable" -Value $vm
+
+
+다음 코드에서는 변수에서 값을 검색하고 이를 사용하여 가상 컴퓨터를 시작합니다.
+
+	$vmObject = Get-AutomationVariable -Name "MyComplexVariable"
+	if ($vmObject.PowerState -eq 'Stopped') {
+	   Start-AzureVM -ServiceName $vmObject.ServiceName -Name $vmObject.Name
+	}
+
+
+#### 변수에서 컬렉션 설정 및 검색
+
+다음 샘플 코드에서는 텍스트 Runbook에서 복잡한 값 컬렉션과 함께 변수를 사용하는 방법을 보여 줍니다. 이 샘플에서는 **Get-AzureVM**을 사용하여 여러 Azure 가상 컴퓨터를 검색하고 기존 자동화 변수에 저장합니다. [변수 형식](#variable-types)에 설명된 대로 이 변수는 PSCustomObject 컬렉션으로 저장됩니다.
+
+	$vms = Get-AzureVM | Where -FilterScript {$_.Name -match "my"}     
+    Set-AutomationVariable -Name 'MyComplexVariable' -Value $vms
+
+다음 코드에서는 변수에서 컬렉션을 검색하고 이를 사용하여 각 가상 컴퓨터를 시작합니다.
+
+	$vmValues = Get-AutomationVariable -Name "MyComplexVariable"
+	ForEach ($vmValue in $vmValues)
+	{
+	   if ($vmValue.PowerState -eq 'Stopped') {
+	      Start-AzureVM -ServiceName $vmValue.ServiceName -Name $vmValue.Name
+	   }
+	}
+
+### 그래픽 Runbook 샘플
+
+그래픽 Runbook에서는 그래픽 편집기의 라이브러리 창에서 변수를 마우스 오른쪽 단추로 클릭하고 원하는 활동을 선택하여 **Get-AutomationVariable** 또는 **Set-AutomationVariable**을 추가합니다.
+
+![캔버스에 변수 추가](media/automation-variables/variable-add-canvas.png)
+
+#### 변수에서 값 설정
+
+다음 그림에서는 그래픽 Runbook에서 단순한 값으로 변수를 업데이트하는 샘플 활동을 보여 줍니다. 이 샘플에서는 **Get-AzureVM**을 사용하여 단일 Azure 가상 컴퓨터를 검색하고 컴퓨터 이름을 문자열 형식의 기존 자동화 변수에 저장합니다. 출력에 단일 개체만 필요하므로 [링크가 파이프라인인지 시퀀스인지](automation-graphical-authoring-intro.md#links-and-workflow)는 중요하지 않습니다.
+
+![단순한 변수 설정](media/automation-variables/set-simple-variable.png)
+
+다음 그림에서는 그래픽 Runbook에서 복잡한 값으로 변수를 업데이트하는 데 사용되는 활동을 보여 줍니다. 이전 예제에서 변경된 사항은 개체의 속성 대신 개체가 저장되도록 **Set-AutomationVariable**의 **Activity output**에 대한 **Field path**를 지정하지 않는다는 점뿐입니다. [변수 형식](#variable-types)에 설명된 대로 이 변수는 PSCustomObject로 저장됩니다.
+
+![복잡한 변수 설정](media/automation-variables/set-complex-variable.png)
+
+다음 그림에서는 여러 가상 컴퓨터가 변수에 저장되는 이전 예와 유사한 기능을 보여 줍니다. 여기에서는 **Set-AutomationVariable** 활동이 전체 가상 컴퓨터 집합을 하나의 컬렉션으로 검색하도록 [시퀀스 링크](automation-graphical-authoring-intro.md#links-and-workflow)를 사용해야 합니다. [파이프라인 링크](automation-graphical-authoring-intro.md#links-and-workflow)를 사용한 경우에는 **Set-AutomationVariable** 활동이 각 개체에 대해 별도로 실행되므로 컬렉션의 마지막 가상 컴퓨터만 저장됩니다. [변수 형식](#variable-types)에 설명된 대로 이 변수는 PSCustomObject 컬렉션으로 저장됩니다.
+
+![복잡한 컬렉션 변수 설정](media/automation-variables/set-complex-variable-collection.png)
+
+#### 변수에서 값 검색
+
+다음 그림에서는 그래픽 Runbook에서 변수를 검색하고 사용하는 샘플 활동을 보여 줍니다. 첫 번째 활동은 이전 예에서 변수에 저장된 가상 컴퓨터를 검색합니다. 링크는 [파이프라인](automation-graphical-authoring-intro.md#links-and-workflow)이어야 합니다. 그래야 **Start-AzureVM** 활동이 **Get-AutomationVariable** 활동에서 전송된 각 개체에 대해 한 번씩 실행됩니다. 이는 변수에 단일 개체가 저장되어 있든, 여러 개체가 저장되어 있든 마찬가지입니다. **Start-AzureVM** 활동은 각 가상 컴퓨터를 나타내는 PSCustomObject의 속성을 사용합니다.
+
+![복잡한 변수 가져오기](media/automation-variables/get-complex-variable.png)
+
+다음 그림에서는 그래픽 Runbook에서 변수에 저장된 개체를 필터링하는 방법을 보여 줍니다. 변수가 설정될 때 중지된 가상 컴퓨터만 필터링하기 위해 이전 예의 링크에 [조건](automation-graphical-authoring-intro.md#links-and-workflow)이 추가되었습니다.
+
+![필터링된 복잡한 변수 가져오기](media/automation-variables/get-complex-variable-filter.png)
+
+
+## 관련된 문서
+
+- [그래픽 작성의 링크](automation-graphical-authoring-intro.md#links-and-workflow)
+
+<!---HONumber=58--> 
