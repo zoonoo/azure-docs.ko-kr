@@ -14,7 +14,7 @@ ms.devlang="NA"
 	ms.author="jhubbard; sstein" 
 	ms.workload="data-services" 
 	ms.topic="article" 
-	ms.tgt_pltfrm=""/>
+	ms.tgt_pltfrm="NA"/>
 
 
 # SQL 데이터베이스 Web 또는 Business 데이터베이스를 새 서비스 계층으로 업그레이드
@@ -172,11 +172,11 @@ DTU 사용률과 작업에 필요한 최대 버전에 따라 데이터베이스 
 
 **샘플 결과:**
 
-![Sample Result](media/sql-database-upgrade-new-service-tiers/CTnjv26.png)
+![Sample Result](media/sql-database-upgrade-new-service-tiers/sample_result.png)
 
 시간 경과에 따른 평균 DTU 사용률 추세를 그래프로 확인할 수 있습니다. 다음은 대부분의 시간 동안 S2 수준 내에 있고 일부 최대 활동이 P1 데이터베이스 수준까지 증가하는 데이터베이스에 대한 예제 그래프입니다.  시간 경과에 따른 DTU 사용은 'Basic' 한도에서 'P1' 한도까지 가변적입니다. 이 데이터베이스를 새 계층에 완전히 맞추려면 'P1' 성능 수준인 프리미엄 서비스 계층 데이터베이스가 필요합니다. 반면, P1 수준으로의 이러한 급증이 드물게 발생하는 경우 S2 수준 데이터베이스를 사용해도 됩니다.
 
-![DTU Usage](media/sql-database-upgrade-new-service-tiers/e4N4ay5.png)
+![DTU Usage](media/sql-database-upgrade-new-service-tiers/DTU_usage.png)
 
 **메모리가 성능에 미치는 영향:** 메모리는 DTU 등급에 기여하는 리소스 차원 중 하나이지만 SQL 데이터베이스는 사용 가능한 모든 메모리를 데이터베이스 작업에 사용하도록 설계되었습니다. 이런 이유로 메모리 사용은 위 쿼리의 평균 DTU 사용에 포함되지 않습니다. 반면, 하위 성능 수준으로 다운사이징하는 경우 데이터베이스에 사용 가능한 메모리가 감소합니다. 이로 인해 높은 IO 사용이 사용되는 DTU에 영향을 줄 수 있습니다. 따라서 하위 성능 수준으로 다운사이징하는 경우 IO 백분율에 충분한 위쪽 공간이 있는지 확인합니다. 이를 모니터링하려면 위에서 언급한 [sys.dm_ db_ resource_stats](http://msdn.microsoft.com/library/azure/dn800981.aspx) DMV를 사용합니다.
 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="2/10/2015"
+	ms.date="02/10/2015"
 	ms.author="ningk"/>
 
 #Microsoft Azure를 사용하여 LAMP 스택을 만드는 방법
