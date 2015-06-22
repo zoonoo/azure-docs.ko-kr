@@ -1,6 +1,6 @@
 
 이 섹션에서는 .NET 콘솔 앱 및 다른 위치에서 알림을 보내는 방법을 보여 줍니다.
-모바일 서비스를 사용하는 경우 [푸시 시작](../articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push.md)자습서를 참조하세요. Java 또는 PHP를 사용하려는 경우 [Java/PHP에서 알림 허브를 사용하는 방법](notification-hubs-java-backend-how-to.md)을 참조하세요. [알림 허브 REST 인터페이스]를 사용하여 아무 백 엔드에서나 알림을 보낼 수 있습니다.
+모바일 서비스를 사용하는 경우 [푸시 시작](../articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push.md)자습서를 참조하세요. Java 또는 PHP를 사용하려는 경우 [Java/PHP에서 알림 허브를 사용하는 방법](../articles/notification-hubs/notification-hubs-java-backend-how-to.md)을 참조하세요. [알림 허브 REST 인터페이스]를 사용하여 아무 백 엔드에서나 알림을 보낼 수 있습니다.
 
 다음 코드는 Windows 스토어, Windows Phone, iOS 및 Android 장치에 알림을 보냅니다. 
 
@@ -92,7 +92,7 @@
 [16]: ./media/notification-hubs-back-end/notification-hub-scheduler2.png
 
 <!-- URLs. -->
-[get-started]: ../articles/notification-hubs-windows-store-dotnet-get-started.md
+[get-started]: ../articles/notification-hubs/notification-hubs-windows-store-dotnet-get-started.md
 [알림 허브를 사용하여 사용자에게 알림 보내기]: ../articles/tutorial-notify-users-mobileservices.md
 [모바일 서비스 시작]: /develop/mobile/tutorials/get-started/#create-new-service
 [Azure 관리 포털]: https://manage.windowsazure.com/

@@ -248,9 +248,9 @@
 
 [인증된 사용자에게 푸시 알림 보내기]: mobile-services-javascript-backend-ios-push-notifications-app-users.md
 
-[알림 허브 정의]: notification-hubs-overview.md
-[구독자에게 브로드캐스트 알림 보내기]: notification-hubs-ios-send-breaking-news.md
-[구독자에게 템플릿 기반 알림 보내기]: notification-hubs-ios-send-localized-breaking-news.md
+[알림 허브 정의]: notification-hubs/notification-hubs-overview.md
+[구독자에게 브로드캐스트 알림 보내기]: notification-hubs/notification-hubs-ios-send-breaking-news.md
+[구독자에게 템플릿 기반 알림 보내기]: notification-hubs/notification-hubs-ios-send-localized-breaking-news.md
 
 [모바일 서비스 Objective-C 방법 개념 참조]: mobile-services-windows-dotnet-how-to-use-client-library.md
 

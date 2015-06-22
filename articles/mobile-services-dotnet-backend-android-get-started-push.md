@@ -116,9 +116,9 @@ USB 케이블로 Android 휴대폰을 직접 연결하거나 에뮬레이터에�
 
 [인증된 사용자에게 푸시 알림 보내기]: mobile-services-dotnet-backend-android-push-notifications-app-users.md
 
-[알림 허브 정의]: notification-hubs-overview.md
-[구독자에게 브로드캐스트 알림 보내기]: notification-hubs-windows-store-dotnet-send-breaking-news.md
-[사용자에게 플랫폼 간 알림 보내기]: notification-hubs-windows-store-dotnet-send-localized-breaking-news.md
+[알림 허브 정의]: notification-hubs/notification-hubs-overview.md
+[구독자에게 브로드캐스트 알림 보내기]: notification-hubs/notification-hubs-windows-store-dotnet-send-breaking-news.md
+[사용자에게 플랫폼 간 알림 보내기]: notification-hubs/notification-hubs-windows-store-dotnet-send-localized-breaking-news.md
 [Azure Management Portal]: https://manage.windowsazure.com/
 
 <!--HONumber=54-->

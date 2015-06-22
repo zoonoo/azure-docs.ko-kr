@@ -757,7 +757,7 @@ MVVM(Model-View-ViewModel)은 MVC(Model-View-Controller)의 변형 중 하나입
 [Azure 모바일 서비스에 대해 자세히 알아보기]: /develop/mobile/resources/
 [Web API에 대해 자세히 알아보기]: http://asp.net/web-api
 [데이터베이스 쓰기 충돌 처리]: mobile-services-windows-store-dotnet-handle-database-conflicts.md
-[푸시 알림 추가]: notification-hubs-windows-store-dotnet-get-started.md
+[푸시 알림 추가]: notification-hubs/notification-hubs-windows-store-dotnet-get-started.md
 [인증 시작]: /develop/mobile/tutorials/get-started-with-users-dotnet
 
 
