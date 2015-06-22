@@ -307,6 +307,6 @@ Visual Studio 솔루션을 웹 앱에 푸시하는 단계는 [이전 섹션]에�
 [Repo 만들기(BitBucket)]: https://confluence.atlassian.com/display/BITBUCKET/Create+an+Account+and+a+Git+Repo
 [빠른 시작 - Mercurial]: http://mercurial.selenic.com/wiki/QuickStart
 [드롭 상자를 사용하여 Git 리포지토리 공유]: https://gist.github.com/trey/2722927
-[Visual Studio Online을 사용하여 Azure에 지속적으로 전송]: ../articles/cloud-services-continuous-delivery-use-vso.md
+[Visual Studio Online을 사용하여 Azure에 지속적으로 전송]: ../articles/cloud-services/cloud-services-continuous-delivery-use-vso.md
 
 <!--HONumber=49-->

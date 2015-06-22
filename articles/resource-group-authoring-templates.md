@@ -254,7 +254,7 @@ Outputs 섹션에서, 배포에서 반환되는 값을 지정합니다. 예를 �
 
 ## 다음 단계
 - [Azure 리소스 관리자 템플릿 함수](./resource-group-template-functions.md)
-- [Azure 리소스 관리자 템플릿을 사용하여 응용 프로그램 배포](./resource-group-template-deploy.md)
+- [Azure 리소스 관리자 템플릿을 사용하여 응용 프로그램 배포](azure-portal/resource-group-template-deploy.md)
 - [고급 템플릿 작업](./resource-group-advanced-template.md)
 - [Azure 리소스 관리자 개요](./resource-group-overview.md)
 

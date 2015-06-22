@@ -210,7 +210,7 @@ REST 서비스와 통신하는 편리한 라이브러리 집합이 포함되어 
   [Azure 서비스 버스 알림 허브]: http://msdn.microsoft.com/library/windowsazure/jj927170.aspx
   [SqlFilter]: http://msdn.microsoft.com/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx
   [WebMatrix를 사용한 웹 사이트]: /develop/nodejs/tutorials/web-site-with-webmatrix/
-  [Node.js 클라우드 서비스]: cloud-services-nodejs-develop-deploy-app.md
+  [Node.js 클라우드 서비스]: cloud-services/cloud-services-nodejs-develop-deploy-app.md
 [이전 관리 포털]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/previous-portal.png
   [nodejswebsite]: /develop/nodejs/tutorials/create-a-website-(mac)/
   [저장소를 사용하는 Node.js 클라우드 서비스]: /develop/nodejs/tutorials/web-app-with-storage/
