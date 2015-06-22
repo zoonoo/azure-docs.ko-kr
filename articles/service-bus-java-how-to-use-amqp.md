@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	urldisplayname="Service Bus AMQP" 
 	headerexpose="" 
 	pageTitle="Java 서비스 버스 API와 함께 AMQP 1.0을 사용하는 방법 - Azure" 
@@ -370,3 +370,4 @@ JMS에서 .NET으로의 메시징을 시연하려면:
 * [서비스 버스 큐를 사용하는 방법](http://azure.microsoft.com/develop/net/how-to-guides/service-bus-queues/)
 
 <!--HONumber=47-->
+ 

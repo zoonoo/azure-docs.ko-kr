@@ -115,7 +115,7 @@ public static MobileServiceClient todolistClient = new MobileServiceClient(
 
 [인증된 사용자에게 푸시 알림 보내기]: mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users.md
 
-[알림 허브 정의]: notification-hubs-overview.md
+[알림 허브 정의]: notification-hubs/notification-hubs-overview.md
 
 [Azure 모바일 서비스용 .NET 클라이언트를 사용하는 방법]: mobile-services-windows-dotnet-how-to-use-client-library.md
 

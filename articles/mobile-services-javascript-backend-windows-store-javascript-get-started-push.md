@@ -124,7 +124,7 @@
 
 [인증된 사용자에게 푸시 알림 보내기]: mobile-services-javascript-backend-windows-store-javascript-push-notifications-app-users.md
 
-[알림 허브 정의]: notification-hubs-overview.md
+[알림 허브 정의]: notification-hubs/notification-hubs-overview.md
 [Send broadcast notifications to subscribers]: notification-hubs-windows-store-javascript-send-breaking-news.md
 [Send template-based notifications to subscribers]: notification-hubs-windows-store-javascript-send-localized-breaking-news.md
 

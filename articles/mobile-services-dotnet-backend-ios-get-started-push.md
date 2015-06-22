@@ -262,8 +262,8 @@
 
 [인증된 사용자에게 푸시 알림 보내기]: mobile-services-dotnet-backend-ios-push-notifications-app-users.md
 
-[알림 허브 정의]: notification-hubs-overview.md
-[Send broadcast notifications to subscribers]: notification-hubs-ios-send-breaking-news.md
-[Send template-based notifications to subscribers]: notification-hubs-ios-send-localized-breaking-news.md
+[알림 허브 정의]: notification-hubs/notification-hubs-overview.md
+[Send broadcast notifications to subscribers]: notification-hubs/notification-hubs-ios-send-breaking-news.md
+[Send template-based notifications to subscribers]: notification-hubs/notification-hubs-ios-send-localized-breaking-news.md
 
 <!--HONumber=54-->
