@@ -2,7 +2,7 @@
 
 새 Twitter v1.1 API에서는 앱이 리소스에 액세스하기 전에 인증해야 합니다. 먼저 OAuth 2.0을 사용하여 액세스를 요청하는 데 필요한 자격 증명을 가져와야 합니다. 그런 다음 모바일 서비스의 앱 설정에 자격 증명을 안전하게 저장합니다.
 
-1. 아직 그렇게 저장하지 않은 경우 <a href="../articles/mobile-services-how-to-register-twitter-authentication.md/" target="_blank">모바일 서비스에서 Twitter 로그인을 사용하기 위해 앱 등록</a> 항목의 단계를 완료합니다. 
+1. 아직 그렇게 저장하지 않은 경우 <a href="../articles/mobile-services/mobile-services-how-to-register-twitter-authentication.md/" target="_blank">모바일 서비스에서 Twitter 로그인을 사용하기 위해 앱 등록</a> 항목의 단계를 완료합니다. 
   
   	Twitter에서는 Twitter v1.1 API에 액세스하는 데 필요한 자격 증명을 생성합니다. Twitter 개발자 웹 사이트에서 세 가지 자격 증명을 가져올 수 있습니다.
 
@@ -34,7 +34,7 @@
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
 [WindowsAzure.com]: http://www.windowsazure.com/
 [Azure 관리 포털]: https://manage.windowsazure.com/
-[Register your apps for Twitter login with Mobile Services]: ../articles/mobile-services-how-to-register-twitter-authentication.md
+[Register your apps for Twitter login with Mobile Services]: ../articles/mobile-services/mobile-services-how-to-register-twitter-authentication.md
 [Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
 [앱 설정]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 <!--HONumber=54-->
