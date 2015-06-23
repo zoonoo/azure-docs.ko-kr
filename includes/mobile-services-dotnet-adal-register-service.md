@@ -36,6 +36,6 @@
 6. Azure 관리 포털에서 응용 프로그램에 대한 **매니페스트 관리**를 다시 클릭하고 **매니페스트 업로드**를 클릭합니다. 방금 업로드한 응용 프로그램 매니페스트의 위치로 이동하여 매니페스트를 업로드합니다.
 
 <!-- URLs. -->
-[Azure Active Directory에 등록하는 방법]: ../articles/mobile-services-how-to-register-active-directory-authentication.md
+[Azure Active Directory에 등록하는 방법]: ../articles/mobile-services/mobile-services-how-to-register-active-directory-authentication.md
 [Azure 관리 포털]: https://manage.windowsazure.com/
 <!--HONumber=54-->

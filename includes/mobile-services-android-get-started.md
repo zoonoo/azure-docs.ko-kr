@@ -17,7 +17,7 @@
 	- 	**TodoActivity.java**에서 **OnCreate** 메서드를 찾아 모바일 서비스 클라이언트를 인스턴스화하는 코드를 찾습니다. 이 코드는 이전 이미지에서 확인할 수 있습니다.
 	- 	"MobileServiceUrl"을 모바일 서비스의 실제 URL로 바꿉니다.
 	- 	"AppKey"를 모바일 서비스의 키로 바꿉니다.
-	- 	자세한 내용은 [기존 앱에 모바일 서비스 추가](../articles/mobile-services-android-get-started-data.md) 자습서를 참조하세요. 
+	- 	자세한 내용은 [기존 앱에 모바일 서비스 추가](../articles/mobile-services/mobile-services-android-get-started-data.md) 자습서를 참조하세요. 
 
 6. **Run** 메뉴에서 **Run**을 클릭하여 Android 에뮬레이터에서 프로젝트를 시작합니다.
 
@@ -52,9 +52,9 @@
 [15]: ./media/mobile-services-android-get-started/mobile-services-import-android-project.png
 
 <!-- URLs. -->
-[Add Mobile Services to an existing app]: ../articles/mobile-services-android-get-started-data.md
-[Get started with authentication]: ../articles/mobile-services-android-get-started-users.md
-[Get started with push notifications]: ../articles/mobile-services-javascript-backend-android-get-started-push.md
+[Add Mobile Services to an existing app]: ../articles/mobile-services/mobile-services-android-get-started-data.md
+[Get started with authentication]: ../articles/mobile-services/mobile-services-android-get-started-users.md
+[Get started with push notifications]: ../articles/mobile-services/mobile-services-javascript-backend-android-get-started-push.md
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
 [Android Studio]: https://developer.android.com/sdk/index.html
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
