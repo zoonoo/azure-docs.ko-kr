@@ -20,7 +20,7 @@
 
 ### 동적 Swagger API 정의
 
-동적 [Swagger](http://swagger.io/) API 정의에 대한 URL 끝점을 제공하려면 GET 요청 시 Swagger 2.0 API 정의를 반환하는 API 앱에 의해 노출된 API의 상대 URL을 `endpoints.apiDefinition` 속성에 저장합니다. 예:
+API 앱이 동적 [Swagger](http://swagger.io/) API 정의를 반환할 수 있는 경우, `endpoints.apiDefinition` 속성에서 API 정의 JSON을 반환하는 GET 요청에 대한 상대 URL을 저장합니다. 예:
 
 		"endpoints": {
 		    "apiDefinition": "/swagger/docs/v1"
@@ -35,6 +35,5 @@
 ![](./media/app-service-api-direct-deploy-metadata/apidefinmetadata.png)
 
 *apiapp.json* 파일에서 `endpoints.apiDefinition`을 그대로 두거나 해당 값을 null로 설정합니다. `endpoints.apiDefinition` URL과 *apiDefinition.swagger.json* 파일을 둘 다 포함한 경우에는 URL이 우선적으로 적용되며 파일은 무시됩니다.
- 
 
-<!---HONumber=58-->
+<!---HONumber=58_postMigration-->

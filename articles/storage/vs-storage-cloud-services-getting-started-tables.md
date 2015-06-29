@@ -3,7 +3,7 @@
 	description="Visual Studio의 클라우드 서비스 프로젝트에서 Azure 테이블 저장소를 사용하는 방법" 
 	services="storage" 
 	documentationCenter="" 
-	authors="kempb" 
+	authors="patshea123" 
 	manager="douge" 
 	editor="tglee"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="04/20/2015" 
-	ms.author="kempb"/>
+	ms.author="patshea123"/>
 
 # Azure 저장소 시작(클라우드 서비스 프로젝트)
 
@@ -83,7 +83,7 @@ Azure 테이블 저장소 서비스를 사용하면 많은 양의 구조화된 �
         public string PhoneNumber { get; set; }
     }
 
-엔터티와 관련된 테이블 작업은 "방법: 테이블 만들기"에서 만든 **CloudTable**  개체를 사용하여 수행됩니다. 수행할 작업은 **TableOperation** 개체로 표시됩니다. 다음 코드 예제에서는 **CloudTable** 개체 생성과 **CustomerEntity** 개체를 보여 줍니다. 작업을 준비하기 위해 고객 엔터티를 테이블에 삽입하는 **TableOperation**이 만들어집니다. 마지막으로, **CloudTable.Execute**를 호출하여 작업이 실행됩니다.
+엔터티와 관련된 테이블 작업은 "방법: 테이블 만들기"에서 만든 **CloudTable** 개체를 사용하여 수행됩니다. 수행할 작업은 **TableOperation** 개체로 표시됩니다. 다음 코드 예제에서는 **CloudTable** 개체 생성과 **CustomerEntity** 개체를 보여 줍니다. 작업을 준비하기 위해 고객 엔터티를 테이블에 삽입하는 **TableOperation**이 만들어집니다. 마지막으로, **CloudTable.Execute**를 호출하여 작업이 실행됩니다.
 
     // Retrieve the storage account from the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -453,4 +453,7 @@ Azure 테이블 저장소 서비스를 사용하면 많은 양의 구조화된 �
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
   [How to: Programmatically access Table Storage]: #tablestorage
 
-<!---HONumber=58--> 
+
+ 
+
+<!---HONumber=58_postMigration-->

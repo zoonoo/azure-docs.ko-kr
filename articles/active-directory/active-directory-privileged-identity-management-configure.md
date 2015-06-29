@@ -18,7 +18,7 @@
 
 # Azure AD 권한 있는 ID 관리
 
-Azure AD 권한 있는 ID 관리를 사용하여 Azure AD 및 기타 Microsoft 온라인 서비스(Office 365 또는 Intune 등)에서 권한 있는 ID 및 리소스에 대한 액세스를 관리, 제어, 모니터링할 수 있습니다.
+Azure AD 권한 있는 ID 관리를 사용하여 Azure AD 및 기타 Microsoft 온라인 서비스(Office 365 또는 Microsoft Intune 등)에서 권한 있는 ID 및 리소스에 대한 액세스를 관리, 제어, 모니터링할 수 있습니다.
 
 사용자가 권한이 필요한 작업을 수행할 수 있도록 조직에서는 Azure AD에서나 Azure 또는 Office 365 리소스에 대해서나 기타 SaaS 앱에 대해 영구 액세스 권한을 해당 사용자에게 자주 제공해야 합니다. 고객이 많은 경우 사용자가 관리자 권한으로 수행하는 작업을 충분히 모니터링할 수 없으므로 클라우드에 호스트된 리소스의 보안 위험이 증가합니다. 또한 액세스 권한이 있는 손상된 사용자 계정이 전반적인 클라우드 보안에 영향을 줄 수 있습니다. Azure AD 권한 있는 ID 관리는 이 위험을 해결하는 데 도움이 됩니다.
 
@@ -105,4 +105,6 @@ Azure AD 권한 있는 ID 관리를 사용하여 권한 있는 역할 할당 및
 [5]: ./media/active-directory-privileged-identity-management-configure/PIM_RequestActivation.png
 [6]: ./media/active-directory-privileged-identity-management-configure/PIM_ActivationHistory.png
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=58_postMigration-->

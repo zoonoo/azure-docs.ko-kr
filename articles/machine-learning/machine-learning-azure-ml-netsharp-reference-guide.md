@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Azure 기계 학습용 Net# 신경망 사양 언어에 대한 가이드" 
+	pageTitle="Azure 기계 학습용 Net# 신경망 사양 언어에 대한 가이드 | Microsoft Azure" 
 	description="Net# 신경망 사양 언어 구문(Net#을 사용하여 Microsoft Azure ML에서 사용자 지정 신경망 모델을 만드는 방법에 대한 예제 포함)" 
 	services="machine-learning" 
 	documentationCenter="" 
@@ -18,7 +18,7 @@
 
 
 
-# Net# 신경망 사양 언어에 대한 가이드
+# Azure 기계 학습용 Net# 신경망 사양 언어에 대한 가이드
 
 ##개요
 Net#은 Microsoft에서 개발된 언어로서, Microsoft Azure 기계 학습에서 신경망 모듈에 대한 신경망 아키텍처를 정의하는 데 사용됩니다. 이 문서에서는 다음에 대해 알아봅니다.
@@ -28,7 +28,7 @@ Net#은 Microsoft에서 개발된 언어로서, Microsoft Azure 기계 학습에
 -	Net# 사양 언어의 구문 및 키워드
 -	Net#을 사용하여 만든 사용자 지정 신경망의 예 
 	
-[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)] 
+[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 ##신경망 기본 사항
 신경망 구조는 ***계층***으로 이루어진 ***노드*** 및 노드 간의 가중 ***연결***(또는 ***에지***)로 구성됩니다. 연결은 방향성이 있고 각 연결에는 ***원본*** 노드와 ***대상*** 노드가 있습니다.
@@ -242,7 +242,7 @@ For example, the following network definition allows the size of all layers to b
 
 -	원본 계층에는 맵 5개가 포함되고 각 맵은 총 노드 수가 1440개인 12x12 차원입니다. 
 -	**KernelShape** 값은 이 계층이 3x3 사각형 환경이 있는 같은 맵 정규화 계층임을 나타냅니다. 
--	**Padding**의 기본값은 False이므로 대상 계층의 각 차원에는 노드가 10개만 있습니다. 원본 계층의 각 노드에 해당하는 단일 노드를 대상 계층에 포함하려면 Padding = [true, true, true];를 추가하고 RN1 크기를 [5, 12, 12]로 변경합니다.  
+-	**Padding**의 기본값은 False이므로 대상 계층의 각 차원에는 노드가 10개만 있습니다. 원본 계층의 각 노드에 해당하는 단일 노드를 대상 계층에 포함하려면 Padding = [true, true, true]를 추가하고 RN1 크기를 [5, 12, 12]로 변경합니다.  
 
 ##공유 선언 
 Net#에서는 선택적으로 공유 가중치를 사용하여 여러 번들을 정의하도록 지원합니다. 구조가 같으면 번들 두 개의 가중치를 공유할 수 있습니다. 다음 구문에서는 공유 가중치를 사용하여 번들을 정의합니다.
@@ -390,9 +390,10 @@ Net#에서는 선택적으로 공유 가중치를 사용하여 여러 번들을 
 	-	**NodeCount**[0] = (5 - 1) / 1 + 1 = 5.
 	-	**NodeCount**[1] = (13 - 5) / 2 + 1 = 5. 
 	-	**NodeCount**[2] = (13 - 5) / 2 + 1 = 5. 
--	총 노드 수는 계층의 선언된 차원인 [50, 5, 5]를 사용하여  **MapCount** * **NodeCount**[0] * **NodeCount**[1] * **NodeCount**[2] = 10 * 5 * 5 * 5와 같이 계산할 수 있습니다.
+-	총 노드 수는 계층의 선언된 차원인 [50, 5, 5]를 사용하여 **MapCount** * **NodeCount**[0] * **NodeCount**[1] * **NodeCount**[2] = 10 * 5 * 5 * 5와 같이 계산할 수 있습니다.
 -	**Sharing**[d]는 d == 0에 대해서만 False이므로 커널 수는 **MapCount** * **NodeCount**[0] = 10 * 5 = 50입니다. 
 
 [1]: ./media/machine-learning-azure-ml-netsharp-reference-guide/formula_large.gif
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

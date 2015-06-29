@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/22/2015" 
+	ms.date="06/11/2015" 
 	ms.author="josephd"/>
 
 # Azure PowerShell을 사용하여 Linux 기반 가상 컴퓨터 만들기 및 미리 구성
@@ -55,14 +55,14 @@ Azure PowerShell 명령 프롬프트에서 다음 명령을 실행하여 Azure �
 - CoreOS Alpha
 - SUSE Linux Enterprise Server 12
 
-선택한 텍스트 편집기의 새 인스턴스를 열고(또는 [ISE](PowerShell Integrated Scripting Environment)의 인스턴스) ImageFamily 값을 대체하는 새 텍스트 파일에 복사합니다.
+선택한 텍스트 편집기 또는 PowerShell ISE(통합 스크립팅 환경)의 새 인스턴스를 엽니다. 새 텍스트 파일 또는 ImageFamily 값을 대체하는 PowerShell ISE에 다음을 복사합니다.
  
 	$family="<ImageFamily value>"
 	$image=Get-AzureVMImage | where { $_.ImageFamily -eq $family } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 
 ## 4단계: 명령 집합 작성
 
-아래에서 해당 블록 집합을 새 텍스트 파일에 복사한 다음 변수 값을 입력하고 < and > 문자를 제거하여 나머지 명령 집합을 작성합니다. 최종 결과의 개념은 이 문서 끝의 두 [예제](#examples)를 참조하세요.
+아래에서 해당 블록 집합을 새 텍스트 파일이나 PowerShell ISE에 복사한 다음 변수 값을 입력하고 < and > 문자를 제거하여 나머지 명령 집합을 작성합니다. 최종 결과의 개념은 이 문서 끝의 두 [예제](#examples)를 참조하세요.
 
 다음 두 명령 블록 중 하나를 선택하여 명령 집합을 시작합니다(필수).
 
@@ -85,8 +85,6 @@ D-, DS- 또는 G-시리즈 가상 컴퓨터에 대한 InstanceSize 값은 [Azure
 
 	$cred=Get-Credential -Message "Type the name and password of the initial Linux account."	
 	$vm1 | Add-AzureProvisioningConfig -Linux -LinuxUser $cred.GetNetworkCredential().Username -Password $cred.GetNetworkCredential().Password
-
-결과 명령 집합을 파일로 저장하려면 안전한 위치에 저장하여 계정 이름과 암호를 보호해야 합니다.
 
 선택적으로 구독에 이미 배포된 SSH 키 쌍 집합을 지정합니다.
 
@@ -148,15 +146,17 @@ Linux 기반 가상 컴퓨터에 대한 추가 사전 구성 옵션은 [Add-Azur
 
 ## 5단계: 명령 집합 실행
 
-텍스트 편집기에서 작성한 Azure PowerShell 명령 집합(4단계의 여러 명령 블록으로 구성)을 검토합니다. 필요한 모든 변수를 지정하고 해당 변수에 올바른 값이 있는지 확인합니다. 또한 < and > 문자를 모두 제거했는지 확인합니다.
+텍스트 편집기 또는 PowerShell ISE에서 작성한 Azure PowerShell 명령 집합(4단계의 여러 명령 블록으로 구성)을 검토합니다. 필요한 모든 변수를 지정하고 해당 변수에 올바른 값이 있는지 확인합니다. 또한 < and > 문자를 모두 제거했는지 확인합니다.
 
-클립보드에 명령 집합을 복사한 다음 열려 있는 Azure PowerShell 명령 프롬프트를 마우스 오른쪽 버튼으로 클릭합니다. 그러면 명령 집합이 일련의 PowerShell 명령으로 실행되고 Azure 가상 컴퓨터가 만들어집니다. 잘못된 구독, 저장소 계정, 클라우드 서비스, 가용성 집합, 가상 네트워크 또는 서브넷에서 가상 컴퓨터를 만든 경우 가상 컴퓨터를 삭제하고 명령 블록 구문을 수정한 다음 수정된 명령 집합을 실행합니다.
+텍스트 편집기를 사용하는 경우 명령 집합을 클립보드로 복사한 다음, 열려 있는 Azure PowerShell 명령 프롬프트를 마우스 오른쪽 단추로 클릭합니다. 그러면 명령 집합이 일련의 PowerShell 명령으로 실행되고 Azure 가상 컴퓨터가 만들어집니다. 또는 PowerShell ISE에서 명령 집합을 실행합니다.
+
+잘못된 구독, 저장소 계정, 클라우드 서비스, 가용성 집합, 가상 네트워크 또는 서브넷에서 가상 컴퓨터를 만든 경우 가상 컴퓨터를 삭제하고 명령 블록 구문을 수정한 다음 수정된 명령 집합을 실행합니다.
 
 가상 컴퓨터를 만든 후 [Linux를 실행하는 가상 컴퓨터에 로그온하는 방법](virtual-machines-linux-how-to-log-on.md)을 참조하세요
 
 이 가상 컴퓨터 또는 이와 유사한 가상 컴퓨터를 다시 만들려는 경우 다음과 같이 할 수 있습니다.
 
-- 이 명령 집합을 텍스트 파일 또는 PowerShell 스크립트 파일(*.ps1)로 저장
+- 이 명령 집합을 PowerShell 스크립트 파일(*.ps1)로 저장
 - Azure 관리 포털의 **자동화** 섹션에서 이 명령을 Azure 자동화 Runbook으로 저장 
 
 ## <a id="examples"></a>예제
@@ -259,4 +259,6 @@ Linux 기반 가상 컴퓨터에 대한 추가 사전 구성 옵션은 [Add-Azur
 
 [Azure PowerShell을 사용하여 Windows 기반 가상 컴퓨터 만들기 및 미리 구성](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=58_postMigration-->

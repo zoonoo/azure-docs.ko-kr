@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/29/2015"
+   ms.date="06/01/2015"
    ms.author="mbaldwin"/>
 
 # Azure AD의 인증 시나리오
@@ -23,9 +23,7 @@ Azure AD(Azure Active Directory)는 Identity-as-a-service를 제공하며 OAuth 
 
 - [Azure AD 인증의 기본 사항](#basics-of-authentication-in-azure-ad)
 
-
 - [Azure AD 보안 토큰의 클레임](#claims-in-azure-ad-security-tokens)
-
 
 - [Azure AD 응용 프로그램 등록의 기본 사항](#basics-of-registering-an-application-in-azure-ad)
 
@@ -47,7 +45,9 @@ Azure AD(Azure Active Directory)는 Identity-as-a-service를 제공하며 OAuth 
 
 Azure AD 인증의 기본 개념을 잘 모른다면 이 섹션을 읽어 보세요. 그렇지 않은 경우에는 [응용 프로그램 종류 및 시나리오](#application-types-and-scenarios)로 건너뛰어도 됩니다.
 
-ID가 필요한 가장 기본적인 시나리오를 가정하겠습니다. 예를 들어 웹 브라우저 사용자가 웹 응용 프로그램에 대한 인증을 받아야 합니다. 이 시나리오에 대해서는 [웹 브라우저-웹 응용 프로그램](#web-browser-to-web-application) 섹션에서 더 자세히 설명하지만, 시작하면서 Azure AD의 기능을 설명하고 시나리오의 작동 방식을 개념화해 두면 유용합니다. 이 시나리오에 대한 다음 다이어그램(웹 응용 프로그램 로그온의 개요)을 살펴보세요.
+ID가 필요한 가장 기본적인 시나리오를 가정하겠습니다. 예를 들어 웹 브라우저 사용자가 웹 응용 프로그램에 대한 인증을 받아야 합니다. 이 시나리오에 대해서는 [웹 브라우저-웹 응용 프로그램](#web-browser-to-web-application) 섹션에서 더 자세히 설명하지만, 시작하면서 Azure AD의 기능을 설명하고 시나리오의 작동 방식을 개념화해 두면 유용합니다. 이 시나리오에 대해 다음 다이어그램을 참조합니다.
+
+![웹 응용 프로그램에 대한 로그온 개요](./media/active-directory-authentication-scenarios/basics_of_auth_in_aad.png)
 
 위의 다이어그램을 고려할 때, 다양한 구성 요소에 대해 알아야 할 사항은 다음과 같습니다.
 
@@ -130,7 +130,7 @@ Azure AD를 사용하여 개발 및 통합할 수 있는 두 가지 범주의 �
 
 - 다중 테넌트 응용 프로그램: 다중 테넌트 응용 프로그램은 하나의 조직뿐만 아니라 다수의 조직에서 사용하기 위한 것입니다. 일반적으로 ISV(Independent Software Vendor)가 작성한SaaS(Software-as-a-Service) 응용 프로그램이 이에 해당합니다. 다중 테넌트 응용 프로그램은 사용될 각 디렉터리에서 프로비저닝해야 하며, 그러려면 사용자나 관리자가 등록에 동의해야 합니다. 이러한 동의 프로세스는 응용 프로그램이 디렉터리에 등록되고 Graph API 또는 다른 웹 API에 대한 액세스 권한이 제공되면 시작됩니다. 다른 조직의 사용자나 관리자가 응용 프로그램을 사용하기 위해 등록할 때는 응용 프로그램에서 요구되는 권한을 표시하는 대화 상자가 표시됩니다. 이 사용자 또는 관리자는 응용 프로그램에 동의할 수 있으며, 이 경우 응용 프로그램에서 주어진 데이터에 액세스할 수 있게 되고 최종적으로 디렉터리에서 응용 프로그램이 등록됩니다. 자세한 내용은 [동의 프레임 워크 개요](https://msdn.microsoft.com/library/azure/b08d91fa-6a64-4deb-92f4-f5857add9ed8#BKMK_Consent)를 참조하세요.
 
-단일 테넌트 응용 프로그램 대신 다중 테넌트 응용 프로그램을 개발할 때 고려할 몇 가지 추가 사항이 있습니다. 예를 들어 여러 디렉터리에 있는 사용자에게 응용 프로그램을 사용할 수 있도록 만들려면 사용자가 속한 테넌트를 확인할 수 있는 메커니즘이 필요합니다. 단일 테넌트 응용 프로그램은 한 사용자에 대한 고유한 자체 디렉터리만 검토하면 되지만, 다중 테넌트 응용 프로그램은 Azure AD의 모든 디렉터리에서 특정 사용자를 식별해야 합니다. 이 작업을 수행할 수 있도록, Azure AD는 테넌트 특정 끝점을 제공하지 않고 다중 테넌트 응용 프로그램이 로그인 요청을 디렉션할 수 있는 공통 인증 끝점을 제공합니다. 이 끝점은 Azure AD의 모든 디렉터리의 경우 https://login.windows.net/common이고 테넌트 특정 끝점의 경우 https://login.windows.net/contoso.onmicrosoft.com일 수 있습니다. 공통 끝점은 응용 프로그램을 개발할 때 특히 중요하게 고려해야 합니다. 로그인, 로그아웃, 토큰 유효성 검사 도중에 다중 테넌트를 처리하는 필수 논리가 있어야 하기 때문입니다.
+단일 테넌트 응용 프로그램 대신 다중 테넌트 응용 프로그램을 개발할 때 고려할 몇 가지 추가 사항이 있습니다. 예를 들어 여러 디렉터리에 있는 사용자에게 응용 프로그램을 사용할 수 있도록 만들려면 사용자가 속한 테넌트를 확인할 수 있는 메커니즘이 필요합니다. 단일 테넌트 응용 프로그램은 한 사용자에 대한 고유한 자체 디렉터리만 검토하면 되지만, 다중 테넌트 응용 프로그램은 Azure AD의 모든 디렉터리에서 특정 사용자를 식별해야 합니다. 이 작업을 수행할 수 있도록, Azure AD는 테넌트 특정 끝점을 제공하지 않고 다중 테넌트 응용 프로그램이 로그인 요청을 디렉션할 수 있는 공통 인증 끝점을 제공합니다. 이 끝점은 Azure AD의 모든 디렉터리의 경우 https://login.microsoftonline.com/common이고 테넌트 특정 끝점의 경우 https://login.microsoftonline.com/contoso.onmicrosoft.com일 수 있습니다. 공통 끝점은 응용 프로그램을 개발할 때 특히 중요하게 고려해야 합니다. 로그인, 로그아웃, 토큰 유효성 검사 도중에 다중 테넌트를 처리하는 필수 논리가 있어야 하기 때문입니다.
 
 현재 단일 테넌트 응용 프로그램을 개발 중이지만 이 응용 프로그램을 다수의 조직에서 사용할 수 있도록 만들려는 경우 Azure AD에서 응용 프로그램 및 해당 구성을 쉽게 변경하여 다중 테넌트를 지원하도록 만들 수 있습니다. 또한 단일 테넌트 응용 프로그램의 인증을 제공하든 아니면 다중 테넌트 응용 프로그램의 인증을 제공하든 상관없이, Azure AD는 모든 디렉터리의 모든 토큰에 동일한 서명 키를 사용합니다.
 
@@ -440,7 +440,7 @@ AD 인증 라이브러리를 사용하는 경우 아래에서 설명하는 브�
 3. Azure AD가 첫 번째 계층 웹 API에 두 번째 웹 API에 액세스할 권한이 있는지 확인하고 요청의 유효성을 검사하여 JWT 액세스 토큰 및 JWT 새로 고침 토큰을 첫 번째 계층 웹 API에 반환합니다.
 
 
-4. HTTPS를 통해 첫 번째 계층 웹 API가 요청의 권한 부여 헤더에 토큰 문자열을 추가하여 두 번째 계층 웹 API를 호출합니다. 액세스 토큰 및 새로 고침 토큰이 유효한 경우 첫 번째 계층 웹 API는  두 번째 계층 웹 API를계속 호출할 수 있습니다.
+4. HTTPS를 통해 첫 번째 계층 웹 API가 요청의 권한 부여 헤더에 토큰 문자열을 추가하여 두 번째 계층 웹 API를 호출합니다. 액세스 토큰 및 새로 고침 토큰이 유효한 경우 첫 번째 계층 웹 API는 두 번째 계층 웹 API를계속 호출할 수 있습니다.
 
 #### 코드 샘플
 
@@ -459,12 +459,11 @@ AD 인증 라이브러리를 사용하는 경우 아래에서 설명하는 브�
 
 ## 참고 항목
 
-
-### 개념
 [Azure Active Directory 코드 샘플](active-directory-code-samples.md)
 
 [Azure AD의 서명 키 롤오버에 대한 중요한 정보](https://msdn.microsoft.com/library/azure/dn641920.aspx)
-
+ 
 [Azure AD의 OAuth 2.0](https://msdn.microsoft.com/library/azure/dn645545.aspx)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

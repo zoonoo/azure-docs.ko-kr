@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="02/20/2015" 
+	ms.date="06/03/2015" 
 	ms.author="robmcm"/>
 
 # 가상 컴퓨터에서 Java로 계산 집약적인 작업을 실행하는 방법
@@ -101,7 +101,7 @@ Azure에서 서비스 버스 큐 사용을 시작하려면 먼저 서비스 네�
 
 ## 계산 집약적인 작업을 수행하는 Java 응용 프로그램을 만드는 방법
 
-1. 개발 컴퓨터(직접 생성한 가상 컴퓨터일 필요는 없음)에서 [Java용 Azure SDK](http://www.windowsazure.com/develop/java/)를 다운로드합니다.
+1. 개발 컴퓨터(직접 생성한 가상 컴퓨터일 필요는 없음)에서 [Java용 Azure SDK](http://azure.microsoft.com/develop/java/)를 다운로드합니다.
 2. 이 섹션의 끝부분에 있는 예제 코드를 사용하여 Java 콘솔 응용 프로그램을 만듭니다. 이 자습서의 목적에 맞춰 Java 파일 이름으로 **TSPSolver.java**를 사용합니다. **your_service_bus_namespace**, **your_service_bus_owner** 및 **your_service_bus_key** 자리 표시자를 각각 서비스 버스의 **네임스페이스**, **기본 발급자** 및 **기본 키** 값을 사용하도록 수정합니다.
 3. 코딩 후에 응용 프로그램을 실행 가능한 Java 아카이브(JAR)로 내보내고 필요한 라이브러리를 생성된 JAR 안에 패키징합니다. 이 자습서의 목적에 맞춰 생성된 JAR의 이름으로 **TSPSolver.jar**를 사용합니다.
 
@@ -265,7 +265,7 @@ Azure에서 서비스 버스 큐 사용을 시작하려면 먼저 서비스 네�
 	                restCities.add(i);
 	            distances = new double[numCities][numCities];
 	            cityNames = new String[numCities];
-	            buildDistances("c:\TSP\cities.txt", numCities);
+	            buildDistances("C:\TSP\cities.txt", numCities);
 	            minDistance = -1;
 	            bestOrder = new int[numCities];
 	            permutation(startCities, 0, restCities);
@@ -413,9 +413,9 @@ Azure에서 서비스 버스 큐 사용을 시작하려면 먼저 서비스 네�
 ### 계산 집약적인 응용 프로그램을 실행하는 방법
 
 1. 가상 컴퓨터에 로그온합니다.
-2. 응용 프로그램을 실행할 폴더(예: **c:\TSP**)를 만듭니다.
-3. **TSPSolver.jar**를 **c:\TSP**에 복사합니다.
-4. 다음과 같은 정보를 포함하는 **c:\TSP\cities.txt**라는 파일을 만듭니다.
+2. 응용 프로그램을 실행할 폴더(예: **C:\TSP**)를 만듭니다.
+3. **TSPSolver.jar**를 **C:\TSP**에 복사합니다.
+4. 다음과 같은 정보를 포함하는 **C:\TSP\cities.txt**라는 파일을 만듭니다.
 
 		City_1, 1002.81, -1841.35
 		City_2, -953.55, -229.6
@@ -468,7 +468,7 @@ Azure에서 서비스 버스 큐 사용을 시작하려면 먼저 서비스 네�
 		City_49, -120.3, -463.13
 		City_50, 588.51, 679.33
 	
-5. 명령 프롬프트에서 디렉터리를 c:\TSP로 변경합니다.
+5. 명령 프롬프트에서 디렉터리를 C:\TSP로 변경합니다.
 6. JRE의 bin 폴더가 PATH 환경 변수에 포함되어 있는지 확인합니다.
 7. TSP 해 찾기 순열을 실행하기 전에 서비스 버스 큐를 먼저 만들어야 합니다. 다음 명령을 실행하여 서비스 버스 큐를 만듭니다.
 
@@ -484,10 +484,10 @@ Azure에서 서비스 버스 큐 사용을 시작하려면 먼저 서비스 네�
  
 ### 모니터링하는 클라이언트 응용 프로그램을 실행하는 방법
 1. 클라이언트 응용 프로그램을 실행할 컴퓨터에 로그온합니다. 이 컴퓨터가 **TSPSolver** 응용 프로그램을 실행하는 컴퓨터와 같을 수도 있지만 반드시 같아야 하는 것은 아닙니다.
-2. 응용 프로그램을 실행할 폴더(예: **c:\TSP**)를 만듭니다.
-3. **TSPClient.jar**를 **c:\TSP**에 복사합니다.
+2. 응용 프로그램을 실행할 폴더(예: **C:\TSP**)를 만듭니다.
+3. **TSPClient.jar**를 **C:\TSP**에 복사합니다.
 4. JRE의 bin 폴더가 PATH 환경 변수에 포함되어 있는지 확인합니다.
-5. 명령 프롬프트에서 디렉터리를 c:\TSP로 변경합니다.
+5. 명령 프롬프트에서 디렉터리를 C:\TSP로 변경합니다.
 6. 다음 명령을 실행합니다.
 
         java -jar TSPClient.jar
@@ -516,4 +516,7 @@ Azure에서 서비스 버스 큐 사용을 시작하려면 먼저 서비스 네�
 [default_key]: ./media/virtual-machines-java-run-compute-intensive-task/SvcBusQueues_07_DefaultKey.jpg
 [add_ca_cert]: ../java-add-certificate-ca-store.md
 
-<!---HONumber=58--> 
+
+ 
+
+<!---HONumber=58_postMigration-->

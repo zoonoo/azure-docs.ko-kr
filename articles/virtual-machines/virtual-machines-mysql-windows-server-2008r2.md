@@ -124,4 +124,7 @@ Azure 가상 컴퓨터에서 실행되는 MySQL Server 서비스에 대한 원�
 
 MySQL에 대한 자세한 내용은 [MySQL 설명서](http://dev.mysql.com/doc/)를 참조하세요.
 
-<!---HONumber=58--> 
+
+ 
+
+<!---HONumber=58_postMigration-->

@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Azure 명령줄 인터페이스에서 로그인(Azure CLI)"
+	pageTitle="Azure 명령줄 인터페이스에서 로그인(Azure CLI) | Microsoft Azure"
 	description="Azure 명령줄 인터페이스(Azure CLI)에서 Azure 구독에 연결"
 	editor="tysonn"
 	manager="timlt"
 	documentationCenter=""
-	authors="dsk-2015"
+	authors="dlepow"
 	services=""/>
 
 <tags
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/29/2015"
-	ms.author="dkshir"/>
+	ms.date="06/09/2015"
+	ms.author="danlep"/>
 
 # Azure 명령줄 인터페이스(Azure CLI)에서 Azure 구독에 연결합니다.
 
-Azure CLI는 Azure 플랫폼 작업을 위한 플랫폼 간 오픈 소스 명령 집합입니다. 이 문서는 xplat-cli에서 Azure 구독에 연결하는 방법을 설명합니다. 설치 지침은 [Azure CLI 설치](xplat-cli-install.md)를 참조하십시오.
+Azure CLI는 Azure 플랫폼 작업을 위한 플랫폼 간 오픈 소스 명령 집합입니다. 이 문서는 Azure CLI에서 Azure 구독에 연결하는 방법을 설명합니다. 설치 지침은 [Azure CLI 설치](xplat-cli-install.md)를 참조하십시오.
 
 <a id="configure"></a>
 ## Azure 구독에 연결하는 방법
@@ -91,7 +91,7 @@ Azure CLI는 Azure 플랫폼 작업을 위한 플랫폼 간 오픈 소스 명령
 
 	azure account import <path to your .publishsettings file>
 
-게시 설정을 가져온 후 `.publishsettings` 파일을 삭제해야 합니다. 더 이상 명령줄 도구에 필요하지 않으며 구독에 액세스하는 데 사용될 수 있으므로 보안상 위험하기 때문입니다.
+게시 설정을 가져온 후 `.publishsettings` 파일을 삭제해야 합니다. 더 이상 Azure CLI에 필요하지 않으며 구독에 액세스하는 데 사용될 수 있으므로 보안상 위험하기 때문입니다.
 
 > [AZURE.NOTE]회사 또는 학교 계정으로 로그인할 때나 게시 설정을 가져올 때나 Azure 구독에 액세스하기 위한 정보가 `user` 디렉터리에 있는 `.azure` 디렉터리에 저장됩니다. `user` 디렉터리는 운영 체제에서 보호됩니다. 그러나 추가 단계를 수행하여 `user` 디렉터리를 암호화하는 것이 좋습니다. 다음과 같은 방법으로 이 작업을 수행할 수 있습니다.
 >
@@ -101,7 +101,7 @@ Azure CLI는 Azure 플랫폼 작업을 위한 플랫폼 간 오픈 소스 명령
 
 ### 여러 구독
 
-Azure 구독이 여러 개 있는 경우 Azure에 연결하면 자격 증명과 연결된 모든 구독에 액세스할 수 있습니다. 한 가지 구독이 기본 구독으로 선택되며,  작업을 수행할 때  xplat-cli에 의해 사용됩니다. 구독 및 기본적으로 사용되는 구독을 볼 수 있지만 `azure account list` 명령을 사용해야 합니다. 이 명령은 다음과 유사한 정보를 반환합니다.
+Azure 구독이 여러 개 있는 경우 Azure에 연결하면 자격 증명과 연결된 모든 구독에 액세스할 수 있습니다. 한 가지 구독이 기본 구독으로 선택되며, 작업을 수행할 때 Azure CLI에서 사용됩니다. 구독 및 기본적으로 사용되는 구독을 볼 수 있지만 `azure account list` 명령을 사용해야 합니다. 이 명령은 다음과 유사한 정보를 반환합니다.
 
 	info:    Executing command account list
 	data:    Name              Id                                    Current
@@ -124,9 +124,9 @@ Azure 구독에 연결하게 되면 Azure CLI 명령을 사용하여 시작할 �
 <a id="additional-resources"></a>
 ## 추가 리소스
 
-* [서비스 관리(또는 ASM 모드) 명령과 함께 Azure CLI 사용하기][xplatasm]
+* [서비스 관리(또는 ASM 모드) 명령과 함께 Azure CLI 사용하기][cliasm]
 
-* [리소스 관리(또는 ASM 모드) 명령과 함께 Azure CLI 사용하기][xplatarm]
+* [리소스 관리(또는 ASM 모드) 명령과 함께 Azure CLI 사용하기][cliarm]
 
 * Azure CLI에 대한 자세한 내용을 보거나, 소스 코드를 다운로드하거나, 문제를 보고하거나, 프로젝트에 기여하려면 [Azure CLI에 대한 GitHub 리포지토리](https://github.com/azure/azure-xplat-cli)를 방문하세요.
 
@@ -142,7 +142,7 @@ Azure 구독에 연결하게 되면 Azure CLI 명령을 사용하여 시작할 �
 [free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [portal]: https://manage.windowsazure.com
 [signuporg]: http://azure.microsoft.com/documentation/articles/sign-up-organization/
-[xplatasm]: virtual-machines-command-line-tools.md
-[xplatarm]: xplat-cli-azure-resource-manager.md
+[cliasm]: virtual-machines-command-line-tools.md
+[cliarm]: xplat-cli-azure-resource-manager.md
 
-<!---HONumber=58-->
+<!---HONumber=58_postMigration-->

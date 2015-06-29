@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/05/2015"
+	ms.date="06/02/2015"
 	ms.author="curtand"/>
 
 
@@ -21,7 +21,8 @@
 # Azure Active Directory는 어떻게 작동하나요?
 
 
-[Azure AD란?](active-directory-whatis.md)<br> [시작](active-directory-get-started.md)<br> [다음 단계](active-directory-next-steps.md)<br> [자세한 정보](active-directory-learn-map.md)
+###이 항목에 대한 다른 문서
+[Azure AD란?](active-directory-whatis.md)<br> [작동 원리](active-directory-works.md)<br> [시작](active-directory-get-started.md)<br> [다음 단계](active-directory-next-steps.md)<br> [자세한 정보](active-directory-learn-map.md)
 
 
 Azure AD는 클라우드에서 사용자가 사용할 ID 환경을 만듭니다. 이 환경을 온-프레미스 ID 시스템에 연결할 수도 있고 독립적으로 사용할 수도 있습니다.
@@ -47,5 +48,6 @@ Azure AD를 관리하는 방법, 디렉터리를 얻는 방법, 디렉터리를 
 
 * [조직으로 Azure 등록](sign-up-organization.md)
 * [Azure ID](fundamentals-identity.md)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

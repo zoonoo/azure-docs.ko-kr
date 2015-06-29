@@ -1,4 +1,4 @@
-﻿
+
 1. 권한을 높이려면 다음을 실행합니다.
 
 		sudo -s
@@ -13,19 +13,19 @@
 3. 시스템이 부팅될 때 MySQL을 시작하도록 설정하려면 다음 명령을 실행합니다.
 
 		# insserv mysql
-4. 이제 다음 명령을 사용하여 MySQL 디먼(mysqld)을 수동으로 시작할 수 있습니다.
+4. 이제 다음 명령을 사용하여 MySQL 데몬(mysqld)을 수동으로 시작할 수 있습니다.
 
 		# rcmysql start
 
-	MySQL 디먼의 상태를 검사하려면 다음을 실행합니다.
+	MySQL 데몬의 상태를 검사하려면 다음을 실행합니다.
 
 		# rcmysql status
 
-	MySQL 디먼을 중지하려면 다음을 실행합니다.
+	MySQL 데몬을 중지하려면 다음을 실행합니다.
 
 		# rcmysql stop
 
-5. 경고! 설치한 후 MySQL 루트 암호는 기본적으로 비어있습니다.  MySQL 보안에 도움이 되는 **mysql_secure_installation** 스크립트를 실행하는 것을 권장합니다. **mysql_secure_installation**을 실행하면 MySQL 루트 암호 변경, 익명 사용자 계정 삭제, 원격 루트 로그인 비활성화, 테스트 데이터베이스 제거, 권한 테이블 다시 로드 등의 작업을 수행하라는 메시지가 표시됩니다. 이러한 옵션에 yes로 답하고 루트 암호를 변경하는 것을 권장합니다. 스크립트를 실행하려면 다음 명령을 실행합니다.
+5. 경고! 설치한 후 MySQL 루트 암호는 기본적으로 비어있습니다. MySQL 보안에 도움이 되는 **mysql_secure_installation** 스크립트를 실행하는 것을 권장합니다. **mysql_secure_installation**을 실행하면 MySQL 루트 암호 변경, 익명 사용자 계정 삭제, 원격 루트 로그인 비활성화, 테스트 데이터베이스 제거, 권한 테이블 다시 로드 등의 작업을 수행하라는 메시지가 표시됩니다. 이러한 옵션에 yes로 답하고 루트 암호를 변경하는 것을 권장합니다. 스크립트를 실행하려면 다음 명령을 실행합니다.
 
 		$ mysql_secure_installation
 
@@ -41,12 +41,12 @@
 
 	줄 끝에 있는 세미콜론(;)은 명령을 끝내는 데 매우 중요한 역할을 합니다.
 
-8. 데이터베이스를 만들어서 `mysqluser` 사용자 권한을 부여하려면 다음 명령을 실행합니다.
+8. 데이터베이스를 만들고 `mysqluser` 사용자에게 사용 권한을 부여하려면 다음 명령을 실행합니다.
 
 		mysql> CREATE DATABASE testdatabase;
 		mysql> GRANT ALL ON testdatabase.* TO 'mysqluser'@'localhost' IDENTIFIED BY 'password';
 
-	데이터베이스 사용자 이름과 암호는 스크립트를 데이터베이스에 연결하는 용도로만 사용되며,  데이터베이스 사용자 계정 이름에 시스템에 있는 실제 사용자 계정을 반영할 필요는 없습니다.
+	데이터베이스 사용자 이름과 암호는 스크립트를 데이터베이스에 연결하는 용도로만 사용되며, 데이터베이스 사용자 계정 이름에 시스템에 있는 실제 사용자 계정을 반영할 필요는 없습니다.
 
 9. 다른 컴퓨터에서 로그인하려면 다음을 실행합니다.
 
@@ -62,11 +62,9 @@
 
 	![Endpoints][Image7]
 
-12. 페이지 맨 아래에 있는 **추가**를 클릭합니다.
-	![Endpoints][Image8]
+12. 페이지 맨 아래에 있는 **추가**를 클릭합니다.![Endpoints][Image8]
 
-13. 프로토콜이 **TCP**이고 **공용** 및 **개인** 포트가 "3306"으로 설정된 "MySQL"이라는 끝점을 추가합니다. 그러면 MySQL에 원격으로 액세스할 수 있습니다.
-	![Endpoints][Image9]
+13. 프로토콜이 **TCP**이고 **공용** 및 **개인** 포트가 "3306"으로 설정된 "MySQL"이라는 끝점을 추가합니다. 그러면 MySQL에 원격으로 액세스할 수 있습니다. ![끝점][Image9]
 
 14. Azure 내의 OpenSUSE 가상 컴퓨터에서 실행되는 MySQL에 원격으로 연결하려면 로컬 컴퓨터에서 다음 명령을 실행합니다.
 
@@ -76,11 +74,11 @@
 
 		mysql -u mysqluser -p -h testlinuxvm.cloudapp.net
 
-15. 이제 성공적으로 MySQL을 구성하고 데이터베이스와 새 사용자를 만들었습니다.  MySQL에 대한 자세한 내용은 [MySQL 설명서][MySQLDocs]를 참조하세요.	
+15. 이제 성공적으로 MySQL을 구성하고 데이터베이스와 새 사용자를 만들었습니다. MySQL에 대한 자세한 정보는 [MySQL Documentation][MySQLDocs](영문)을 참조하십시오.
 
 [MySQLDocs]: http://dev.mysql.com/doc/
 [AzurePreviewPortal]: http://manage.windowsazure.com
 
 [Image9]: ./media/install-and-run-mysql-on-opensuse-vm/LinuxVmAddEndpointMySQL.png
 
-<!--HONumber=45--> 
+<!---HONumber=58_postMigration-->

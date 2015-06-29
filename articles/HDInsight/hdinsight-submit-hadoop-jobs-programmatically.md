@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="HDInsight에서 Hadoop 작업 제출 | Azure" 
+	pageTitle="HDInsight에서 Hadoop 작업 제출 | Microsoft Azure" 
 	description="Azure HDInsight Hadoop에 Hadoop 작업을 제출하는 방법에 대해 알아봅니다." 
 	editor="cgronlun" 
 	manager="paulettm" 
@@ -13,31 +13,38 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/31/2015" 
+	ms.date="06/15/2015" 
 	ms.author="jgao"/>
 
 # HDInsight에서 Hadoop 작업 제출
 
 Azure PowerShell을 사용하여 MapReduce, Hive 작업을 제출하는 방법과 HDInsight.NET SDK를 사용하여 MapReduce, Hadoop 스트리밍 및 Hive 작업을 제출하는 방법을 알아봅니다.
 
+> [AZURE.NOTE]이 문서의 단계는 Windows 클라이언트에서 수행되어야 합니다. HDInsight에서 MapReduce, Hive 또는 Pig 와 작업하도록 Linux, OS X 또는 Unix 클라이언트 사용에 대한 자세한 내용은 다음 문서를 참조하고 각 **SSH** 또는 **Curl** 링크를 선택합니다.
+>
+> - [HDInsight에서 Hive 사용](hdinsight-use-hive.md)
+> - [HDInsight에서 Pig 사용](hdinsight-use-pig.md)
+> - [HDInsight와 함께 MapReduce 사용](hdinsight-use-mapreduce.md)
+
 ##필수 조건
 
 이 문서를 시작하기 전에 다음이 있어야 합니다.
 
-* Azure HDInsight 클러스터를 만듭니다. 자세한 내용은 [HDInsight 시작][hdinsight-get-started] 또는 [HDInsight 클러스터 프로비전][hdinsight-provision]을 참조하십시오.
-* Azure PowerShell. 자세한 내용은 [Azure PowerShell 설치 및 구성][powershell-install-configure]을 참조하세요.
+* **Azure HDInsight 클러스터**. 자세한 내용은 [HDInsight 시작][hdinsight-get-started] 또는 [HDInsight 클러스터 프로비전][hdinsight-provision]을 참조하세요.
+- **Azure PowerShell이 포함된 워크스테이션**. [Azure PowerShell 설치 및 사용](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/)을 참조하세요.
+
 
 
 ##Azure PowerShell을 사용하여 MapReduce 작업 제출
-Azure PowerShell은 Azure에서 작업의 배포와 관리를 제어 및 자동화하기 위해 사용할 수 있는 강력한 스크립팅 환경입니다. HDInsight와 함께 Azure PowerShell을 사용하는 방법에 대한 자세한 내용은 [PowerShell을 사용하여 HDInsight 관리][hdinsight-admin-powershell]를 참조하십시오.
+Azure PowerShell은 Azure에서 작업의 배포와 관리를 제어 및 자동화하기 위해 사용할 수 있는 강력한 스크립팅 환경입니다. HDInsight와 함께 Azure PowerShell을 사용하는 방법에 대한 자세한 내용은 [PowerShell을 사용하여 HDInsight 관리][hdinsight-admin-powershell]를 참조하세요.
 
-Hadoop MapReduce는 방대한 양의 데이터를 처리하는 응용 프로그램을 작성하기 위한 소프트웨어 프레임워크입니다. HDInsight 클러스터는 여러 MapReduce 예제가 포함된 JAR 파일(*\\example\\jars\\hadoop-mapreduce-examples.jar*에 위치함)과 함께 제공됩니다.
+Hadoop MapReduce는 방대한 양의 데이터를 처리하는 응용 프로그램을 작성하기 위한 소프트웨어 프레임워크입니다. HDInsight 클러스터는 여러 MapReduce 예제가 포함된 JAR 파일(*\example\jars\hadoop-mapreduce-examples.jar*에 위치함)과 함께 제공됩니다.
 
-예제 중 하나는 소스 파일에서 단어의 빈도수를 계산하는 것입니다. 이 세션에서는 단어 개수 샘플을 실행하기 위해 워크스테이션에서 Azure PowerShell을 사용하는 방법에 대해 알아봅니다. MapReduce 작업의 개발 및 실행에 대한 자세한 내용은 [HDInsight와 함께 MapReduce 사용][hdinsight-use-mapreduce]을 참조하십시오.
+예제 중 하나는 소스 파일에서 단어의 빈도수를 계산하는 것입니다. 이 세션에서는 단어 개수 샘플을 실행하기 위해 워크스테이션에서 Azure PowerShell을 사용하는 방법에 대해 알아봅니다. MapReduce 작업의 개발 및 실행에 대한 자세한 내용은 [HDInsight와 함께 MapReduce 사용][hdinsight-use-mapreduce]을 참조하세요.
 
 **Azure PowerShell을 사용하여 단어 개수 MapReduce 프로그램을 실행하려면**
 
-1.	**Azure PowerShell**을 엽니다. Azure PowerShell 콘솔 창을 여는 방법에 대한 지침은 [Azure PowerShell 설치 및 구성][powershell-install-configure]을 참조하십시오.
+1.	**Azure PowerShell**을 엽니다. Azure PowerShell 콘솔 창을 여는 방법에 대한 지침은 [Azure PowerShell 설치 및 구성][powershell-install-configure]을 참조하세요.
 
 3. 다음 PowerShell 명령을 실행하여 다음 변수를 설정합니다:
 		
@@ -51,7 +58,7 @@ Hadoop MapReduce는 방대한 양의 데이터를 처리하는 응용 프로그�
 		# Define the word count MapReduce job
 		$wordCountJobDefinition = New-AzureHDInsightMapReduceJobDefinition -JarFile "wasb:///example/jars/hadoop-mapreduce-examples.jar" -ClassName "wordcount" -Arguments "wasb:///example/data/gutenberg/davinci.txt", "wasb:///example/data/WordCountOutput"
 
-	두 개의 인수가 있습니다. 첫 번째 인수는 원본 파일 이름이고, 두 번째 인수는 출력 파일 경로입니다. wasb:// 접두사에 대한 자세한 내용은 [HDInsight와 함께 Azure Blob 저장소 사용][hdinsight-storage]을 참조하십시오.
+	두 개의 인수가 있습니다. 첫 번째 인수는 원본 파일 이름이고, 두 번째 인수는 출력 파일 경로입니다. wasb:// 접두사에 대한 자세한 내용은 [HDInsight와 함께 Azure Blob 저장소 사용][hdinsight-storage]을 참조하세요.
 
 6. 다음 명령을 실행하여 MapReduce 작업을 실행합니다.
 
@@ -104,7 +111,7 @@ Hadoop MapReduce는 방대한 양의 데이터를 처리하는 응용 프로그�
 
 	*example/data/WordCountOutput* 폴더는 MapReduce 작업을 실행할 때 지정된 출력 폴더입니다. *part-r-00000*은 MapReduce 작업 출력의 기본 파일 이름입니다. 로컬 폴더의 동일한 폴더 구조에 파일이 다운로드됩니다. 예를 들어 다음 스크린샷에서 현재 폴더는 C: 루트 폴더입니다. 파일은 다음에 다운로드됩니다:
 
-*C:\\example\\data\\WordCountOutput* 
+*C:\example\data\WordCountOutput* 
 
 5. 다음 명령을 실행하여 MapReduce 작업 출력 파일을 인쇄합니다.
 
@@ -260,7 +267,7 @@ HDInsight 클러스터는 *hivesampletable*이라는 샘플 Hive 테이블과 �
 
 **Azure PowerShell을 사용하여 Hive 작업 실행**
 
-1.	**Azure PowerShell**을 엽니다. Azure PowerShell 콘솔 창을 여는 방법에 대한 지침은 [Azure PowerShell 설치 및 구성][powershell-install-configure]을 참조하십시오.
+1.	**Azure PowerShell**을 엽니다. Azure PowerShell 콘솔 창을 여는 방법에 대한 지침은 [Azure PowerShell 설치 및 구성][powershell-install-configure]을 참조하세요.
 
 2. 다음 명령에서 처음 2개 변수를 설정한 후 명령을 실행합니다.
 		
@@ -281,19 +288,19 @@ HDInsight 클러스터는 *hivesampletable*이라는 샘플 Hive 테이블과 �
 
 	사용자는 Hadoop 분산 파일 시스템 (HDFS)에서 HiveQL 스크립트 파일을 지정 하는 **-파일** 스위치를 사용할 수 있습니다.
 
-Hive에 대한 자세한 내용은 [HDInsight와 함께 Hive 사용][hdinsight-use-hive]을 참조하십시오.
+Hive에 대한 자세한 내용은 [HDInsight와 함께 Hive 사용][hdinsight-use-hive]을 참조하세요.
 
 
 ## Visual Studio를 사용하여 Hive 작업 제출
 
- [Visual Studio용 HDInsight Hadoop 도구 사용 시작][hdinsight-visual-studio-tools]을 참조하십시오.
+[Visual Studio용 HDInsight Hadoop 도구 사용 시작][hdinsight-visual-studio-tools]을 참조하세요.
 
 ##Azure PowerShell을 사용하여 Sqoop 작업 제출
 
-[HDInsight와 함께 Sqoop 사용][hdinsight-use-sqoop]을 참조하십시오.
+[HDInsight와 함께 Sqoop 사용][hdinsight-use-sqoop]을 참조하세요.
 
 ##HDInsight .NET SDK를 사용하여 MapReduce 작업 제출
-HDInsight .NET SDK는 .NET에서 HDInsight 클러스터로 더 쉽게 작업하도록 지원하는 .NET 클라이언트 라이브러리를 제공합니다. HDInsight 클러스터는 여러 MapReduce 예제가 포함된 JAR 파일(*\\example\\jars\\hadoop-mapreduce-examples.jar*에 위치함)과 함께 제공됩니다. 예제 중 하나는 소스 파일에서 단어의 빈도수를 계산하는 것입니다. 이 세션에서는 단어 개수 샘플을 실행하는 .NET 응용 프로그램을 만드는 방법에 대해 알아봅니다. MapReduce 작업의 개발 및 실행에 대한 자세한 내용은 [HDInsight와 함께 MapReduce 사용][hdinsight-use-mapreduce]을 참조하십시오.
+HDInsight .NET SDK는 .NET에서 HDInsight 클러스터로 더 쉽게 작업하도록 지원하는 .NET 클라이언트 라이브러리를 제공합니다. HDInsight 클러스터는 여러 MapReduce 예제가 포함된 JAR 파일(*\example\jars\hadoop-mapreduce-examples.jar*에 위치함)과 함께 제공됩니다. 예제 중 하나는 소스 파일에서 단어의 빈도수를 계산하는 것입니다. 이 세션에서는 단어 개수 샘플을 실행하는 .NET 응용 프로그램을 만드는 방법에 대해 알아봅니다. MapReduce 작업의 개발 및 실행에 대한 자세한 내용은 [HDInsight와 함께 MapReduce 사용][hdinsight-use-mapreduce]을 참조하세요.
 
 
 SDK를 사용하여 HDInsight 클러스터를 프로비전하려면 다음 절차가 필요합니다:
@@ -311,7 +318,7 @@ SDK를 사용하여 HDInsight 클러스터를 프로비전하려면 다음 절�
 
 2. **파일** 메뉴에서 **새로 만들기**를 클릭한 다음 **프로젝트**를 클릭합니다.
 
-3. **새 프로젝트**에서 다음 값을 입력하거나 선택합니다:
+3. **새 프로젝트**에서 다음 값을 입력하거나 선택합니다.
 
 	<table style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse;">
 <tr>
@@ -381,7 +388,7 @@ SDK를 사용하여 HDInsight 클러스터를 프로비전하려면 다음 절�
 	
 	이러한 모든 변수를 프로그램에 대해 설정해야 합니다. [Azure 포털][azure-management-portal]에서 Azure 구독 이름을 가져올 수 있습니다.
 
-	인증서에 대한 정보는 [Azure용 관리 인증서 만들기 및 업로드][azure-certificate]를 참조하십시오. 인증서를 구성하는 손쉬운 방법은 **Get-AzurePublishSettingsFile** 및 **Import-AzurePublishSettingsFile** Azure PowerShell cmdlet을 실행하는 것입니다. 그러면 관리 인증서가 자동으로 생성되어 업로드됩니다. 이러한 cmdlet을 실행한 후 워크스테이션에서 **certmgr.msc**를 열고, **Personal** > **Certificates**를 확장하여 인증서를 찾을 수 있습니다. Azure PowerShell cmdlet으로 만든 인증서에는 **발급 대상** 및 **발급자** 필드 모두에 사용할 수 있는 Azure Tools가 있습니다.
+	인증서에 대한 정보는 [Azure용 관리 인증서 만들기 및 업로드][azure-certificate]를 참조하세요. 인증서를 구성하는 손쉬운 방법은 **Get-AzurePublishSettingsFile** 및 **Import-AzurePublishSettingsFile** Azure PowerShell cmdlet을 실행하는 것입니다. 그러면 관리 인증서가 자동으로 생성되어 업로드됩니다. 이러한 cmdlet을 실행한 후 워크스테이션에서 **certmgr.msc**를 열고, **Personal** > **Certificates**를 확장하여 인증서를 찾을 수 있습니다. Azure PowerShell cmdlet으로 만든 인증서에는 **발급 대상** 및 **발급자** 필드 모두에 사용할 수 있는 Azure Tools가 있습니다.
 
 	Azure 저장소 계정 이름은 HDInsight 클러스터를 프로비전할 때 지정하는 계정입니다. 기본 컨테이너 이름은 HDInsight 클러스터 이름과 동일합니다.
 	
@@ -398,7 +405,7 @@ SDK를 사용하여 HDInsight 클러스터를 프로비전하려면 다음 절�
         mrJobDefinition.Arguments.Add("wasb:///example/data/gutenberg/davinci.txt");
         mrJobDefinition.Arguments.Add("wasb:///example/data/WordCountOutput");
 
-	두 개의 인수가 있습니다. 첫 번째 인수는 원본 파일 이름이고, 두 번째 인수는 출력 파일 경로입니다. wasb:// 접두사에 대한 자세한 내용은 [HDInsight와 함께 Azure Blob 저장소 사용][hdinsight-storage]을 참조하십시오.
+	두 개의 인수가 있습니다. 첫 번째 인수는 원본 파일 이름이고, 두 번째 인수는 출력 파일 경로입니다. wasb:// 접두사에 대한 자세한 내용은 [HDInsight와 함께 Azure Blob 저장소 사용][hdinsight-storage]을 참조하세요.
 		
 12. **Main()** 함수에서 다음 코드를 추가하여 JobSubmissionCertificateCredential 개체를 만듭니다:
 
@@ -447,7 +454,7 @@ Visual Studio에 응용 프로그램이 열려 있을 때 **F5**를 눌러 응�
 ##HDInsight .NET SDK를 사용하여 Hadoop 스트리밍 작업 제출
 HDInsight 클러스터는 C#으로 개발된 단어 수 계산 Hadoop 스트림 프로그램과 함께 제공됩니다. 매퍼 프로그램은 */example/apps/cat.exe*이고 reduce 프로그램은 */example/apps/wc.exe*입니다. 이 세션에서는 단어 개수 샘플을 실행하는 .NET 응용 프로그램을 만드는 방법에 대해 알아봅니다.
 
-MapReduce 작업 제출을 위한 .Net 응용 프로그램을 만드는 방법에 대한 자세한 내용은 [HDInsight .NET SDK를 사용하여 MapReduce 작업 제출](#mapreduce-sdk)을 참조하십시오.
+MapReduce 작업 제출을 위한 .Net 응용 프로그램을 만드는 방법에 대한 자세한 내용은 [HDInsight .NET SDK를 사용하여 MapReduce 작업 제출](#mapreduce-sdk)을 참조하세요.
 
 Hadoop 스트리밍 작업 개발 및 배포에 대한 자세한 내용은 [HDInsight용 C# Hadoop 스트리밍 프로그램 개발][hdinsight-develop-streaming-jobs]을 참조하세요.
 
@@ -548,7 +555,7 @@ Hadoop 스트리밍 작업 개발 및 배포에 대한 자세한 내용은 [HDIn
 
 
 ##HDInsight .NET SDK를 사용하여 Hive 작업 제출 
-HDInsight 클러스터는 *hivesampletable*이라는 샘플 Hive 테이블과 함께 제공됩니다. 이 세션에서는 HDInsight 클러스터에서 만든 Hive 테이블을 나열하기 위한 Hive 작업을 실행하는 .NET 응용 프로그램을 만듭니다. Hive에 대한 자세한 내용은 [HDInsight와 함께 Hive 사용][hdinsight-use-hive]을 참조하십시오.
+HDInsight 클러스터는 *hivesampletable*이라는 샘플 Hive 테이블과 함께 제공됩니다. 이 세션에서는 HDInsight 클러스터에서 만든 Hive 테이블을 나열하기 위한 Hive 작업을 실행하는 .NET 응용 프로그램을 만듭니다. Hive에 대한 자세한 내용은 [HDInsight와 함께 Hive 사용][hdinsight-use-hive]을 참조하세요.
 
 SDK를 사용하여 HDInsight 클러스터를 프로비전하려면 다음 절차가 필요합니다:
 
@@ -565,7 +572,7 @@ SDK를 사용하여 HDInsight 클러스터를 프로비전하려면 다음 절�
 
 2. **파일** 메뉴에서 **새로 만들기**를 클릭한 다음 **프로젝트**를 클릭합니다.
 
-3. **새 프로젝트**에서 다음 값을 입력하거나 선택합니다:
+3. **새 프로젝트**에서 다음 값을 입력하거나 선택합니다.
 
 	<table style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse;">
 <tr>
@@ -627,7 +634,7 @@ SDK를 사용하여 HDInsight 클러스터를 프로비전하려면 다음 절�
 	
 	이러한 모든 변수를 프로그램에 대해 설정해야 합니다. 시스템 관리자로부터 Azure 구독 ID를 얻을 수 있습니다.
 
-	인증서에 대한 정보는 [Azure용 관리 인증서 만들기 및 업로드][azure-certificate]를 참조하십시오. 인증서를 구성하는 손쉬운 방법은 **Get-AzurePublishSettingsFile** 및 **Import-AzurePublishSettingsFile** Azure PowerShell cmdlet을 실행하는 것입니다. 그러면 관리 인증서가 자동으로 생성되어 업로드됩니다. 이러한 cmdlet을 실행한 후 워크스테이션에서 **certmgr.msc**를 열고, **Personal** > **Certificates**를 확장하여 인증서를 찾을 수 있습니다. PowerShell cmdlet으로 만든 인증서에는 **발급 대상** 및 **발급자** 필드 모두에 사용할 수 있는 Azure Tools가 있습니다.
+	인증서에 대한 정보는 [Azure용 관리 인증서 만들기 및 업로드][azure-certificate]를 참조하세요. 인증서를 구성하는 손쉬운 방법은 **Get-AzurePublishSettingsFile** 및 **Import-AzurePublishSettingsFile** Azure PowerShell cmdlet을 실행하는 것입니다. 그러면 관리 인증서가 자동으로 생성되어 업로드됩니다. 이러한 cmdlet을 실행한 후 워크스테이션에서 **certmgr.msc**를 열고, **Personal** > **Certificates**를 확장하여 인증서를 찾을 수 있습니다. PowerShell cmdlet으로 만든 인증서에는 **발급 대상** 및 **발급자** 필드 모두에 사용할 수 있는 Azure Tools가 있습니다.
 	
 11. **Main()** 함수에서 다음 코드를 추가하여 Hive 작업을 정의합니다:
 
@@ -688,7 +695,7 @@ Visual Studio에 응용 프로그램이 열려 있을 때 **F5**를 눌러 응�
 
 
 ##다음 단계
-이 문서에서는 HDInsight 클러스터를 프로비전하는 여러 가지 방법에 대해 알아보았습니다. 자세한 내용은 다음 문서를 참조하십시오.
+이 문서에서는 HDInsight 클러스터를 프로비전하는 여러 가지 방법에 대해 알아보았습니다. 자세한 내용은 다음 문서를 참조하세요.
 
 * [Azure HDInsight 시작][hdinsight-get-started]
 * [HDInsight 클러스터 프로비전][hdinsight-provision]
@@ -712,13 +719,14 @@ Visual Studio에 응용 프로그램이 열려 있을 때 **F5**를 눌러 응�
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
 [hdinsight-develop-streaming-jobs]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
 
-[hdinsight-powershell-reference]: http://msdn.microsoft.com/library/windowsazure/dn479228.aspx
+[hdinsight-powershell-reference]: https://msdn.microsoft.com/library/dn858087.aspx
 
-[Powershell-install-configure]: ../install-configure-powershell.md
+[powershell-install-configure]: ../install-configure-powershell.md
 
 [image-hdi-gettingstarted-runmrjob]: ./media/hdinsight-submit-hadoop-jobs-programmatically/HDI.GettingStarted.RunMRJob.png
 [image-hdi-gettingstarted-mrjoboutput]: ./media/hdinsight-submit-hadoop-jobs-programmatically/HDI.GettingStarted.MRJobOutput.png
 
 [apache-hive]: http://hive.apache.org/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=58_postMigration-->

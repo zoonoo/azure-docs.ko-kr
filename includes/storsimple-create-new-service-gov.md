@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Create a new StorSimple Manager service"
-   description="Describes how to create a new instance of the StorSimple Manager service using the Azure Government Portal."
+   pageTitle="새 StorSimple 관리자 서비스 만들기"
+   description="Azure Government 포털을 사용하여 StorSimple 관리자 서비스의 새 인스턴스를 만드는 방법에 대해 설명합니다."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
@@ -16,24 +16,23 @@
    ms.author="v-sharos" />
 
 
-#### To create a new service
+#### 새 서비스를 만들려면
 
-1. Use your Microsoft account credentials to log on to the [Microsoft Azure Government Portal](https://manage.windowsazure.us/).
+1. Microsoft 계정 자격 증명을 사용하여 [Microsoft Azure Government 포털](https://manage.windowsazure.us/)에 로그온합니다.
 
-2. In the Government Portal, click **New** > **Data Services** > **StorSimple Manager** > **Quick Create**.
+2. Government 포털에서 **새로 만들기** > **데이터 서비스** > **StorSimple 관리자** > **빠른 생성**을 클릭합니다.
 
-3. In the form that is displayed, do the following:
-  1. Supply a unique **Name** for your service. This is a friendly name that can be used to identify the service. The name can have between 2 and 50 characters that can be letters, numbers, and hyphens. The name must start and end with a letter or a number.
-  2. Supply a **Location** for your service. Location refers to the geographical region where you want to deploy your device. Select **US Govt Iowa** or **US Govt Virgina**.
-  3. Choose a **Subscription** from the drop-down list. The subscription is linked to your billing account. This field is not present if you have only one subscription.
-  4. Select **Create a new storage account** to automatically create a storage account with the service. This storage account will have a special name such as "storsimplebwv8c6dcnf."
-  5. Click **Create StorSimple Manager** to create the service.
+3. 표시되는 양식에서 다음을 수행합니다.
+  1. 서비스에 고유한 **이름**을 지정합니다. 이 이름은 서비스를 식별하는 데 사용할 수 있는 친숙한 이름입니다. 이름은 문자, 숫자 및 하이픈이 될 수 있는 2자에서 50자 사이여야 합니다. 이름은 문자 또는 숫자로 시작하고 끝나야 합니다.
+  2. 서비스의 **위치**를 지정합니다. 위치는 장치를 배포하려는 지리적 영역을 가리킵니다. **미국 아이오와주** 또는 **미국 버지니아주**를 선택합니다.
+  3. 드롭다운 목록에서 **구독**을 선택합니다. 구독은 대금 청구 계정에 연결됩니다. 이 필드는 구독이 하나만 있는 경우에는 나타나지 않습니다.
+  4. **새 저장소 계정 만들기**를 선택하여 서비스를 포함하는 저장소 계정을 자동으로 만듭니다. 이 저장소 계정에는 "storsimplebwv8c6dcnf"와 같은 특수한 이름이 주어집니다.
+  5. **StorSimple 관리자 만들기**를 클릭하여 서비스를 만듭니다.
 
-       ![create a service](./media/storsimple-create-new-service-gov/HCS_CreateAService-gov-include.png)
+       ![서비스 만들기](./media/storsimple-create-new-service-gov/HCS_CreateAService-gov-include.png)
 
-     You will be directed to the **Service** landing page. The service creation will take a few minutes. After the service is successfully created, you will be notified appropriately and the status of the service will change to **Active**.
+     **서비스** 방문 페이지로 이동됩니다. 서비스 만들기에는 몇 분 정도 소요됩니다. 서비스가 성공적으로 만들어진 후 적절하게 알림이 표시되며 서비스 상태가 **활성**으로 변경됩니다.
  
-       ![service creation](./media/storsimple-create-new-service-gov/HCS_StorSimpleManagerServicePage-gov-include.png)
+       ![서비스 만들기](./media/storsimple-create-new-service-gov/HCS_StorSimpleManagerServicePage-gov-include.png)
 
-
-
+<!---HONumber=58_postMigration-->

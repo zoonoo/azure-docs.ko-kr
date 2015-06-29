@@ -22,59 +22,59 @@
 - [Using Data Factory Editor](data-factory-get-started-using-editor.md)
 - [Using PowerShell](data-factory-monitor-manage-using-powershell.md)
 
-이 문서에서는 자습서를 사용 하면 Azure 데이터 팩터리 서비스를 사용 하 여를 빠르게 시작할 수 있습니다. 이 자습서에서는 Azure 데이터 팩터리를 만들고 Azure SQL 데이터베이스에는 Azure blob 저장소에서 데이터를 복사 하려면 데이터 공장에서 파이프라인을 만듭니다.
+이 문서의 자습서는 Azure 데이터 팩터리 서비스 사용을 빠르게 시작하는 데 도움이 됩니다. 이 자습서에서는 Azure 데이터 팩터리를 만들고 Azure Blob 저장소에서 Azure SQL 데이터베이스로 데이터를 복사하는 파이프라인을 데이터 팩터리에 만듭니다.
 
-> [AZURE.NOTE]데이터 팩터리 서비스의 자세한 개요를 참조 하십시오.는 [Azure 데이터 팩터리 소개][data-factory-introduction] 문서입니다.
+> [AZURE.NOTE]데이터 팩터리 서비스에 대한 자세한 개요는 [Azure 데이터 팩터리 소개][data-factory-introduction] 문서를 참조하세요.
 
-##이 자습서에 대 한 필수 구성 요소
+##자습서의 필수 조건
 이 자습서를 시작하기 전에 다음이 있어야 합니다.
 
-- **Azure 구독**. 구독이 없는, 몇 시간 (분)에 무료 평가판 계정을 만들 수 있습니다. 참조는 [무료 평가판][azure-free-trial] 세부 정보에 대 한 문서.
-- **Azure 저장소 계정**. Blob 저장소로 사용 합니다는 **소스** 참조 하는 Azure 저장소 계정이 없는 경우이 자습서에서는 데이터 저장소는 [저장소 계정을 만드는][data-factory-create-storage] 을 만드는 단계에 대 한 문서.
-- **Azure SQL 데이터베이스**. 으로 Azure SQL 데이터베이스를 사용 합니다는 **대상** 이 자습서에서는 데이터를 저장 합니다. Azure SQL 데이터베이스 참조는 자습서에서 사용할 수 있는 없는 경우 [는 Azure SQL 데이터베이스 만들기 및 구성 하는 방법][data-factory-create-sql-database] 하나를 만들려고 합니다.
-- **2014/SQL Server 2012 또는 Visual Studio 2013**. 데이터베이스에 결과 데이터를 볼 수 및 샘플 데이터베이스를 만들려면 SQL Server Management Studio 또는 Visual Studio를 사용 합니다.  
+- **Azure 구독**. 구독이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [무료 평가판][azure-free-trial] 문서를 참조하세요.
+- **Azure 저장소 계정**. 이 자습서에서는 Blob 저장소를 **원본** 데이터 저장소로 사용합니다. Azure 저장소 계정이 없는 경우 새로 만드는 단계는 [저장소 계정 만들기][data-factory-create-storage] 문서를 참조하세요.
+- **Azure SQL 데이터베이스**. 이 자습서에서는 Azure SQL 데이터베이스를 **대상** 데이터 저장소로 사용합니다. 자습서에서 사용할 수 있는 Azure SQL 데이터베이스가 없는 경우 [Azure SQL 데이터베이스를 만들고 구성하는 방법][data-factory-create-sql-database]을 참조하여 새로 만드세요.
+- **SQL Server 2012/2014 또는 Visual Studio 2013**. SQL Server Management Studio 또는 Visual Studio를 사용하여 샘플 데이터베이스를 만들고 데이터베이스에서 결과 데이터를 확인합니다.  
 
-### 계정 이름 및 Azure 저장소 계정에 대 한 계정 키를 수집 합니다.
-계정 이름 및이 자습서를 수행 하려면 Azure 저장소 계정의 계정 키 필요 합니다. 기록해 두고는 **계정 이름** 및 **계정 키** 아래 지침에 따라 Azure 저장소 계정에 대해:
+### Azure 저장소 계정의 계정 이름과 계정 키를 수집합니다.
+이 자습서를 수행하려면 Azure 저장소 계정의 계정 이름과 계정 키가 필요합니다. 아래 지침에 따라 Azure 저장소 계정의 **계정 이름**과 **계정 키**를 적어둡니다.
 
-1. 로그인 하는 [Azure 미리 보기 포털][azure-preview-portal].
-2. 클릭 하 여 **찾아보기** 왼쪽 및 선택에 대 한 허브 **저장소 계정은**.
-3. 에 **저장소 계정은** 블레이드를는 **Azure 저장소 계정** 이 자습서에서 사용 하려는 합니다.
-4. 에 **저장소** 블레이드를 클릭 하 여 **키** 바둑판식으로 배열 합니다.
-5. 에 **키 관리** 블레이드를 클릭 하 여 **복사** (이미지) 옆에 있는 단추가 **저장소 계정 이름** 텍스트 상자 및 저장/붙여넣기 것 어딘가에 (예: 텍스트 파일에).  
-6. 복사 하거나 기록해 두고 이전 단계를 반복 하는 **기본 액세스 키**.
-7. 클릭 하 여 모든 블레이드가 닫습니다 **X**.
+1. [Azure Preview 포털][azure-preview-portal]에 로그인합니다.
+2. 왼쪽의 **찾아보기** 허브를 클릭하고 **저장소 계정**을 선택합니다.
+3. **저장소 계정** 블레이드에서, 이 자습서에서 사용하려는 **Azure 저장소 계정**을 선택합니다.
+4. **저장소** 블레이드에서 **키** 타일을 클릭합니다.
+5. **키 관리** 블레이드에서 **저장소 계정 이름** 텍스트 상자 옆에 있는 **복사**(이미지) 단추를 클릭하고 텍스트 파일 등에 저장/붙여넣습니다.  
+6. 이전 단계를 반복하여 **기본 액세스 키**를 복사하거나 적어둡니다.
+7. **X**를 클릭하여 모든 블레이드를 닫습니다.
 
-### 서버 이름, 데이터베이스 이름 및 Azure SQL 데이터베이스에 대 한 사용자 계정을 수집합니다
-SQL Azure 서버, 데이터베이스 및이 자습서를 수행 하는 사용자의 이름이 필요 합니다. 이름 적어둡니다 **서버**, **데이터베이스**, 및 **사용자** 아래 지침에 따라 Azure SQL 데이터베이스에 대 한:
+### Azure SQL 데이터베이스의 서버 이름, 데이터베이스 이름 및 사용자 계정을 수집합니다.
+이 자습서를 수행하려면 Azure SQL Server, 데이터베이스 및 사용자의 이름이 필요합니다. 아래 지침에 따라 Azure SQL 데이터베이스의 **서버**, **데이터베이스** 및 **사용자**의 이름을 적어둡니다.
 
-1. 에 **Azure 미리 보기 포털**, 를 클릭 하 여 **찾아보기** 왼쪽 및 선택에 **SQL 데이터베이스**.
-2. 에 **SQL 데이터베이스 블레이드**, 선택는 **데이터베이스** 이 자습서에서 사용 하려는 합니다. 기록해 두고는 **데이터베이스 이름**.  
-3. 에 **SQL 데이터베이스** 블레이드를 클릭 하 여 **속성** 바둑판식으로 배열 합니다.
-4. 에 대 한 값을 적어둡니다 **서버 이름** 및 **서버 관리자 로그인**.
-5. 클릭 하 여 모든 블레이드가 닫습니다 **X**.
+1. **Azure Preview 포털**에서 왼쪽의 **찾아보기**를 클릭하고 **SQL 데이터베이스**를 선택합니다.
+2. **SQL 데이터베이스 블레이드**에서, 이 자습서에서 사용하려는 **데이터베이스**를 선택합니다. **데이터베이스 이름**을 적어둡니다.  
+3. **SQL 데이터베이스** 블레이드에서 **속성** 타일을 클릭합니다.
+4. **서버 이름** 및 **서버 관리자 로그인**의 값을 적어둡니다.
+5. **X**를 클릭하여 모든 블레이드를 닫습니다.
 
-### SQL Azure 서버에 액세스할 수 있는 Azure 서비스를 허용 합니다.
-되도록 **Azure 서비스에 대 한 액세스를 허용** 설정이 **ON** Azure SQL server에 대 한 데이터 팩터리 서비스는 SQL Azure 서버에 액세스할 수 있도록 합니다. 확인 하 고이 설정을 적용 하려면 다음 절차를 수행 합니다.
+### Azure 서비스가 Azure SQL Server에 액세스하도록 허용
+데이터 팩터리 서비스가 Azure SQL Server에 액세스할 수 있도록 Azure SQL Server에 대해 **Azure 서비스에 대한 액세스 허용** 설정이 **ON**인지 확인합니다. 이 설정을 확인하고 켜려면 다음을 수행합니다.
 
-1. 클릭 하 여 **찾아보기** 를클릭하고 왼쪽에는 허브 **SQL 서버**.
-2. 선택 **서버**, 를 클릭 하 고 **설정을** 에 **SQL SERVER** 블레이드입니다.
-3. 에 **설정을** 블레이드를 클릭 하 여 **방화벽**.
-4. 에 **방화벽 설정을** 블레이드를 클릭 하 여 **ON** 에 대 한 **Azure 서비스에 대 한 액세스를 허용**.
-5. 클릭 하 여 모든 블레이드가 닫습니다 **X**.
+1. 왼쪽의 **찾아보기** 허브를 클릭하고 **SQL Server**를 클릭합니다.
+2. **서버**를 선택하고 **SQL SERVER** 블레이드에서 **설정**을 클릭합니다.
+3. **설정** 블레이드에서 **방화벽**을 클릭합니다.
+4. **방화벽 설정** 블레이드에서 **Azure 서비스에 대한 액세스 허용**에 대해 **ON**을 클릭합니다.
+5. **X**를 클릭하여 모든 블레이드를 닫습니다.
 
 ### 자습서에서 사용할 Azure Blob 저장소 및 Azure SQL 데이터베이스 준비
-이제 Azure blob 저장소 및 Azure SQL 데이터베이스에 자습서 준비 다음 단계를 수행 하 여:
+이제 다음 단계를 수행하여 자습서에서 사용할 Azure Blob 저장소 및 Azure SQL 데이터베이스를 준비합니다.
 
-1. 메모장을 시작 하 고 다음 텍스트를 붙여로 저장 **emp.txt** 를 **C:\ADFGetStarted** 하드 드라이브에 폴더입니다.
+1. 메모장을 시작하고 다음 텍스트를 붙여 넣은 다음 **emp.txt**로 하드 드라이브의 **C:\ADFGetStarted** 폴더에 저장합니다.
 
         John, Doe
 		Jane, Doe
 
-2. 와 같은 도구를 사용 하 여 [Azure 저장소 탐색기](https://azurestorageexplorer.codeplex.com/) 를 만들려면는 **adftutorial** 컨테이너 및 업로드 하는 **emp.txt** 컨테이너에는 파일입니다.
+2. [Azure 저장소 탐색기](https://azurestorageexplorer.codeplex.com/)와 같은 도구를 사용하여 **adftutorial** 컨테이너를 만들고 **emp.txt** 파일을 이 컨테이너에 업로드합니다.
 
     ![Azure 저장소 탐색기][image-data-factory-get-started-storage-explorer]
-3. 다음 SQL 스크립트를 사용 하 여 만들려는 **emp** Azure SQL 데이터베이스의 테이블에에서 있습니다.  
+3. 다음 SQL 스크립트를 사용하여 **emp** 테이블을 Azure SQL 데이터베이스에 만듭니다.  
 
 
         CREATE TABLE dbo.emp
@@ -87,15 +87,15 @@ SQL Azure 서버, 데이터베이스 및이 자습서를 수행 하는 사용자
 
 		CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
 
-	**SQL Server 2012/2014이 컴퓨터에 설치 된 경우:** 에서 지침에 따라 [2 단계: SQL Server Management Studio를 사용 하 여 관리 Azure SQL 데이터베이스의 SQL 데이터베이스에 연결][sql-management-studio] 문서에서는 SQL Azure 서버에 연결 하 고 SQL 스크립트를 실행 합니다. 이 문서에서는 릴리스 관리 포털을 사용 하는 참고 (http://manage.windowsazure.com), 미리 보기 포털 없습니다 (http://portal.azure.com), 한 Azure SQL server에 대 한 방화벽을 구성 하 합니다.
+	**SQL Server 2012/2014가 컴퓨터에 설치된 경우:** [2단계: SQL Server Management Studio를 사용하여 Azure SQL 데이터베이스 관리의 SQL 데이터베이스에 연결][sql-management-studio] 문서의 지침에 따라 Azure SQL Server에 연결하고 SQL 스크립트를 실행합니다. 이 문서에서는 릴리스 관리 포털(http://manage.windowsazure.com), Preview 포털 http://portal.azure.com) 아님)을 사용하여 Azure SQL Server의 방화벽을 구성합니다.
 
-	**컴퓨터에 설치 된 Visual Studio 2013 있으면:** 에 [Azure 미리 보기 포털](http://portal.azure.com), 클릭 **찾아보기** 허브에서 왼쪽된을 클릭 **SQL 서버**, 데이터베이스를 선택 하 고 클릭 **Visual Studio에서 열려있는** Azure SQL server에 연결 하 고 스크립트를 실행할 도구 모음의 단추입니다. SQL Azure 서버에 액세스 하는 클라이언트에 허용 되지 않으면, Azure SQL server 컴퓨터 (IP 주소)에서 액세스를 허용 하도록 방화벽을 구성 해야 합니다. Azure SQL server에 대 한 방화벽을 구성 하는 단계에 대 한 위의 문서를 참조 하십시오.
+	**Visual Studio 2013이 컴퓨터에 설치된 경우:** [Azure Preview 포털](http://portal.azure.com)에서 왼쪽의 **찾아보기** 허브를 클릭하고 **SQL Server**를 클릭한 다음 데이터베이스를 선택하고 도구 모음의 **Visual Studio에서 열기** 단추를 클릭하여 Azure SQL Server에 연결한 다음 스크립트를 실행합니다. 클라이언트가 Azure SQL Server에 액세스할 수 없는 경우 컴퓨터(IP 주소)의 액세스를 허용하도록 Azure SQL Server의 방화벽을 구성해야 합니다. Azure SQL Server의 방화벽을 구성하는 단계는 위의 문서를 참조하세요.
 
 
 다음을 수행합니다.
 
-- 클릭 하 여 [데이터 팩터리 편집기를 사용 하 여](data-factory-get-started-using-editor.md) Azure 포털의 일부인 데이터 팩터리 편집기를 사용 하 여이 자습서를 수행 하려면 맨 위쪽에 링크 합니다.
-- 클릭 하 여 [PowerShell을 사용한](data-factory-monitor-manage-using-powershell.md) Azure PowerShell을 사용 하 여이 자습서를 수행 하려면 맨 위쪽에 링크 합니다.
+- 맨 위의 [데이터 팩터리 편집기 사용](data-factory-get-started-using-editor.md) 링크를 클릭하여 Azure 포털의 일부인 데이터 팩터리 편집기를 통해 자습서를 수행합니다.
+- 맨 위의 [PowerShell 사용](data-factory-monitor-manage-using-powershell.md) 링크를 클릭하여 Azure PowerShell을 통해 자습서를 수행합니다.
 
 
 <!--Link references-->
@@ -216,5 +216,6 @@ SQL Azure 서버, 데이터베이스 및이 자습서를 수행 하는 사용자
 [image-data-factory-sql-management-console-2]: ./media/data-factory-get-started/getstarted-azure-sql-management-console-2.png
 
 [image-data-factory-name-not-available]: ./media/data-factory-get-started/getstarted-data-factory-not-available.png
+ 
 
-<!---HONumber=GIT-SubDir--> 
+<!---HONumber=58_postMigration-->

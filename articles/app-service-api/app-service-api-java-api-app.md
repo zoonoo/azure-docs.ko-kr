@@ -12,7 +12,7 @@
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="java"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.date="04/21/2015"
 	ms.author="pakefali"/>
 
@@ -268,5 +268,6 @@ API 앱 백 엔드를 사용하는 Java 웹 응용 프로그램을 Azure에 배�
 [restart-gateway]: ./media/app-service-api-java-api-app/gatewayrestart.png
 [api-definition-click]: ./media/app-service-api-java-api-app/apidef.png
 [api-definition-blade]: ./media/app-service-api-java-api-app/apidefblade.png
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

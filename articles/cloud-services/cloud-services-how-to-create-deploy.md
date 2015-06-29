@@ -1,20 +1,21 @@
-<properties 
-	pageTitle="클라우드 서비스를 만들고 배포하는 방법 - Azure" 
-	description="Azure에서 빨리 만들기 방법을 사용하여 클라우드 서비스를 만들고 배포하는 방법에 대해 알아봅니다." 
-	services="cloud-services" 
-	documentationCenter="" 
-	authors="Thraka" 
-	manager="timlt" 
+<properties
+	pageTitle="클라우드 서비스를 만들고 배포하는 방법 - Azure"
+	description="Azure에서 빨리 만들기 방법을 사용하여 클라우드 서비스를 만들고 배포하는 방법에 대해 알아봅니다."
+	services="cloud-services"
+	documentationCenter=""
+	authors="Thraka"
+	manager="timlt"
 	editor=""/>
 
-<tags 
-	ms.service="cloud-services" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="03/24/2015" 
+<tags
+	ms.service="cloud-services"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="hero-article"
+	ms.date="06/16/2015"
 	ms.author="adegeo"/>
+
 
 
 
@@ -24,7 +25,7 @@ Azure 관리 포털은 클라우드 서비스를 만들고 배포하는 두 가�
 
 이 토픽에서는 빠른 생성 방법을 사용하여 새 클라우드 서비스를 만든 다음 **업로드**를 사용하여 Azure에서 클라우드 서비스 패키지를 업로드하고 배포하는 방법에 대해 설명합니다. 이 방법을 사용하는 경우 Azure 관리 포털은 진행하면서 모든 요구 사항을 완료하는 데 사용할 수 있는 편리한 링크를 제공합니다. 클라우드 서비스를 만들 때 배포할 준비가 되면 **사용자 지정 만들기**를 사용하여 동시에 둘 다를 수행할 수 있습니다.
 
-> [AZURE.NOTE]Windows TFS(Team Foundation Service)에서 클라우드 서비스를 게시하려는 경우 빠른 생성을 사용한 다음 **빠른 시작** 또는 대시보드에서 TFS 게시를 설정합니다. 자세한 내용은 [Visual Studio Online을 사용하여 Azure에 지속적인 전송][TFSTutorialForCloudService](영문)을 참조하거나 **빠른 시작** 페이지에 대한 도움말을 참조하세요.
+> [AZURE.NOTE]VSO(Visual Studio Online )에서 클라우드 서비스를 게시하려는 경우 빠른 생성을 사용한 다음 **빠른 시작** 또는 대시보드에서 VSO 게시를 설정합니다. 자세한 내용은 [Visual Studio Online을 사용하여 Azure에 지속적인 전송][TFSTutorialForCloudService](영문)을 참조하거나 **빠른 시작** 페이지에 대한 도움말을 참조하세요.
 
 ## 개념
 Azure에서 응용 프로그램을 클라우드 서비스로 배포하려면 다음과 같은 세 가지 구성 요소가 필요합니다.
@@ -33,12 +34,10 @@ Azure에서 응용 프로그램을 클라우드 서비스로 배포하려면 다
 
 - **서비스 구성**<br/> 클라우드 서비스 구성 파일(.cscfg)은 역할 인스턴스 수를 포함하여 클라우드 서비스 및 개별 역할에 대한 구성 설정을 제공합니다.
 
-- **서비스 패키지**<br/> 서비스 패키지(.cspkg)에는 응용 프로그램 코드와 서비스 정의 파일이 포함됩니다.
+- **서비스 패키지**<br/> 서비스 패키지(.cspkg)에는 응용 프로그램 코드와 구성 및 서비스 정의 파일이 포함됩니다.
 
 ## 앱 준비
-클라우드 서비스를 배포하려면 먼저 응용 프로그램 코드 및 클라우드 서비스 구성 파일(.cscfg)에서 클라우드 서비스 패키지(.cspkg)를 만들어야 합니다. 각 클라우드 서비스 패키지에는 응용 프로그램 파일과 구성이 포함됩니다. 서비스 구성 파일은 구성 설정을 제공합니다.
-
-Azure SDK는 필요한 배포 파일을 준비하는 도구를 제공합니다. [Azure 다운로드](http://azure.microsoft.com/downloads/) 페이지에서 응용 프로그램 코드를 개발하려는 언어로 SDK를 설치할 수 있습니다.
+클라우드 서비스를 배포하려면 먼저 응용 프로그램 코드 및 클라우드 서비스 구성 파일(.cscfg)에서 클라우드 서비스 패키지(.cspkg)를 만들어야 합니다. Azure SDK는 필요한 배포 파일을 준비하는 도구를 제공합니다. [Azure 다운로드](http://azure.microsoft.com/downloads/) 페이지에서 응용 프로그램 코드를 개발하려는 언어로 SDK를 설치할 수 있습니다.
 
 세 가지 클라우드 서비스 기능은 서비스 패키지를 내보내기 전에 특별히 구성해야 합니다.
 
@@ -107,7 +106,7 @@ Azure SDK는 필요한 배포 파일을 준비하는 도구를 제공합니다. 
 
 	프로덕션 환경에서 대시보드가 열립니다. 이 시점에서 스테이징을 선택하여 스테이징 환경에서 응용 프로그램을 배포할 수 있습니다. 자세한 내용은 [Azure에서 배포 관리](http://msdn.microsoft.com/library/gg433027.aspx)를 참조하세요.
 
-	 
+
 2. **새 프로덕션 배포 업로드** 또는 **업로드**를 클릭합니다.
 
 3. **배포 레이블**에 새 배포의 이름(예: MyCloudServicev4)을 입력합니다.
@@ -123,7 +122,6 @@ Azure SDK는 필요한 배포 파일을 준비하는 도구를 제공합니다. 
 6. **확인**(확인 표시)을 클릭하여 클라우드 서비스 배포를 시작합니다.
 
 	![CloudServices_UploadaPackage](./media/cloud-services-how-to-create-deploy/CloudServices_UploadaPackage.png)
- 
 
 	메시지 영역에서 배포의 상태를 모니터링할 수 있습니다. 확인을 클릭하여 메시지를 숨깁니다.
 
@@ -140,6 +138,6 @@ Azure SDK는 필요한 배포 파일을 준비하는 도구를 제공합니다. 
 [TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796&clcid=0x409
 
 ![CloudServices_QuickGlance](./media/cloud-services-how-to-create-deploy/CloudServices_QuickGlance.png)
+ 
 
-
-<!--HONumber=54--> 
+<!---HONumber=58_postMigration-->

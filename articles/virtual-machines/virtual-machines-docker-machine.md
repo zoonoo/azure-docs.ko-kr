@@ -135,7 +135,7 @@ Linux가 배포된 환경을 사용하는 경우에는 이러한 파일이 컴�
 	    ID: W3FZ:BCZW:UX24:GDSV:FR4N:N3JW:XOC2:RI56:IWQX:LRTZ:3G4P:6KJK
 	    WARNING: No swap limit support
 
-> [AZURE.NOTE]이 자습서에서는 VM 하나를 만드는  **docker-machine**을 보여 줍니다. 그러나 위의 단계를 반복하여 가상 컴퓨터를 원하는 수만큼 만들 수 있습니다. 이렇게 하는 경우 Docker가 설치된 VM 간을 전환하는 가장 효율적인 방법은 **env** 명령을 인라인으로 사용하여 개별 명령에 대해 **docker** 환경 변수를 설정하는 것입니다. 예를 들어, 다른 VM에서**docker info**를 사용하려면 해당 VM에서 사용할 Docker 연결 정보에 `docker $(docker-machine env <VM name>) info` 및 **env** 명령을 입력합니다.
+> [AZURE.NOTE]이 자습서에서는 VM 하나를 만드는 **docker-machine**을 보여 줍니다. 그러나 위의 단계를 반복하여 가상 컴퓨터를 원하는 수만큼 만들 수 있습니다. 이렇게 하는 경우 Docker가 설치된 VM 간을 전환하는 가장 효율적인 방법은 **env** 명령을 인라인으로 사용하여 개별 명령에 대해 **docker** 환경 변수를 설정하는 것입니다. 예를 들어, 다른 VM에서**docker info**를 사용하려면 해당 VM에서 사용할 Docker 연결 정보에 `docker $(docker-machine env <VM name>) info` 및 **env** 명령을 입력합니다.
 
 ## Docker 및 Docker 허브의 이미지를 사용하여 원격으로 응용 프로그램 실행
 
@@ -208,5 +208,6 @@ Docker가 컨테이너 포트 80을 VM 포트 49153에 할당했음을 확인할
 [Link 1 to another azure.microsoft.com documentation topic]: virtual-machines-windows-tutorial.md
 [Link 2 to another azure.microsoft.com documentation topic]: ../web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

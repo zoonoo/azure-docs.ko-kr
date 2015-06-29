@@ -5,7 +5,7 @@
    documentationCenter="NA"
    authors="SharS"
    manager="adinah"
-   editor="tysonn" /> 
+   editor="tysonn" />
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
@@ -15,7 +15,7 @@
    ms.date="04/01/2015"
    ms.author="v-sharos" />
 
-### 직렬 콘솔을 통해 연결하려면
+#### 직렬 콘솔을 통해 연결하려면
 
 1. 직렬 케이블을 직접 장치에 연결하거나 USB 직렬 어댑터를 통해 연결합니다.
 
@@ -38,10 +38,11 @@
 
     다음 그림에 이러한 설정이 나와 있습니다.
 
-     ![PuTTY 설정](./media/storsimple-use-putty/HCS_ConnectingViaPutty-include.png)
+     ![PuTTY 설정](./media/storsimple-use-putty/HCS_PuttyConfig-include.png)
 
     > [AZURE.NOTE]기본 흐름 제어 설정이 작동하지 않으면 흐름 제어를 XON/XOFF로 설정합니다.
 
 7. **열기**를 클릭하여 직렬 세션을 시작합니다.
  
-<!--HONumber=52-->
+
+<!---HONumber=58_postMigration-->

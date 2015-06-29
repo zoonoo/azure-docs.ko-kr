@@ -1,9 +1,9 @@
 <properties 
-    pageTitle="StorSimple 8000 시리즈 업데이트 1.0 릴리스 정보"
+    pageTitle="StorSimple 8000 시리즈 업데이트 1 릴리스 정보"
     description="StorSimple 8000 시리즈 업데이트 1에 대한 새로운 기능, 문제 및 해결 방법을 설명합니다."
     services="storsimple"
     documentationCenter="NA"
-    authors="alkohli"
+    authors="SharS"
     manager="adinah"
     editor="tysonn" />
  <tags 
@@ -12,10 +12,10 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="05/27/2015"
-    ms.author="alkohli" />
+    ms.date="06/05/2015"
+    ms.author="v-sharos" />
 
-# StorSimple 8000 시리즈 업데이트 1.0 릴리스 정보  
+# StorSimple 8000 시리즈 업데이트 1 릴리스 정보  
 
 ## 개요
 
@@ -27,9 +27,10 @@ StorSimple 솔루션에 업데이트를 배포하기 전에 릴리스 정보에 
 
 >[AZURE.IMPORTANT]
 > 
-- StorSimple용 Windows PowerShell이 아닌 StorSimple 관리자 서비스를 사용하여 업데이트 1.0을 설치합니다.
+- StorSimple용 Windows PowerShell이 아닌 StorSimple 관리자 서비스를 사용하여 업데이트 1을 설치합니다.
 - 이 릴리스에는 장치가 유지 관리 모드에 있을 때에만 적용할 수 있는 디스크 펌웨어 업데이트도 포함합니다. 장치에 대해 작동 중지가 발생하는 강제 업데이트가 있습니다. 계획된 유지 관리 중 이 업데이트를 적용할 수 있습니다.
 - 이 업데이트를 설치하려면 5-10시간 정도 걸립니다(Windows 업데이트 포함). 
+- 새 릴리스의 경우, 업데이트의 단계적 롤아웃을 수행하기 때문에 즉시 업데이트를 볼 수는 없습니다. 곧 사용할 수 있게 되므로 몇 일 후에 업데이트를 스캔합니다.
 
 ## 업데이트 1의 새로운 기능
 
@@ -46,11 +47,11 @@ StorSimple 솔루션에 업데이트를 배포하기 전에 릴리스 정보에 
 
 - **다른 클라우드 서비스 공급자에 대한 지원** – 지원되는 다른 클라우드 서비스 공급자는 Amazon S3, RRS가 있는 Amazon S3, HP 및 OpenStack(베타)입니다.
 
-- **최신 저장소 API에 대한 업데이트** –이 릴리스에서 StorSimple은 최신 Azure 저장소 서비스 API로 업데이트되었습니다. GA를 실행하는 StorSimple 8000 시리즈 장치는 2012년 2월 12일 보다 오래된 Azure 저장소 서비스 API의 버전을 사용 중입니다. [저장소 서비스 버전 제거에 대한 알림](http://azure.microsoft.com/blog/2014/08/04/microsoft-azure-storage-service-version-removal/)에서 설명한 것처럼, 2015년 12월 10일 이 API는 더 이상 사용되지 않습니다. 2015년 12월 9일 전에 StorSimple 8000 시리즈 Update 1.0을 적용하는 것이 매우 중요합니다. 실패한 경우 StorSimple 장치는 정상적으로 작동 중지됩니다.
+- **최신 저장소 API에 대한 업데이트** –이 릴리스에서 StorSimple은 최신 Azure 저장소 서비스 API로 업데이트되었습니다. GA를 실행하는 StorSimple 8000 시리즈 장치는 2012년 2월 12일 보다 오래된 Azure 저장소 서비스 API의 버전을 사용 중입니다. [저장소 서비스 버전 제거에 대한 알림](http://azure.microsoft.com/blog/2014/08/04/microsoft-azure-storage-service-version-removal/)에서 설명한 것처럼, 2015년 12월 10일 이 API는 더 이상 사용되지 않습니다. 2015년 12월 9일 전에 StorSimple 8000 시리즈 Update 1을 적용하는 것이 매우 중요합니다. 실패한 경우 StorSimple 장치는 정상적으로 작동 중지됩니다.
 
 - **영역 중복 저장소(ZRS) 지원** – 최신 버전의 저장소 API에 대한 업데이트로, StorSimple 8000 시리즈는 로컬 중복 저장소(LRS) 및 지역 중복 저장소(GRS) 외에도 영역 중복 저장소(ZRS)를 지원합니다. ZRS 세부 정보는 [Azure 저장소 중복 옵션에 대한 기사](../storage/storage-redundancy.md)를 참조하세요.
 
-- **향상된 초기 배포 및 업데이트 환경** – 이 릴리스에서 설치 및 업데이트 프로세스가 향상되었습니다. 네트워크 구성 및 방화벽 설정이 올바르지 않은 경우 설치 마법사를 통한 설치가 향상되어 사용자에게 피드백을 제공합니다. 추가 진단 cmdlet이 제공되어 장치의 네트워킹 문제를 해결하는 데 도움이 됩니다. 문제 해결에 사용되는 새로운 진단 cmdlet에 대한 자세한 내용은 [배포 문제 해결 문서](storsimple-troubleshoot-deployment/#cmdlets-available-for-troubleshooting.md)를 참조하세요.
+- **향상된 초기 배포 및 업데이트 환경** – 이 릴리스에서 설치 및 업데이트 프로세스가 향상되었습니다. 네트워크 구성 및 방화벽 설정이 올바르지 않은 경우 설치 마법사를 통한 설치가 향상되어 사용자에게 피드백을 제공합니다. 추가 진단 cmdlet이 제공되어 장치의 네트워킹 문제를 해결하는 데 도움이 됩니다. 문제 해결에 사용되는 새로운 진단 cmdlet에 대한 자세한 내용은 [배포 문제 해결 문서](storsimple-troubleshoot-deployment.md)를 참조하세요.
 
 ## 업데이트 1에서 해결된 문제
 
@@ -64,7 +65,7 @@ StorSimple 솔루션에 업데이트를 배포하기 전에 릴리스 정보에 
 | 3 | 공장 재설정 | 이중 컨트롤러 공장 재설정이 실패한 후에도 장치 등록을 진행할 수 있었습니다. 이렇게 되면 지원되지않는 시스템 구성이 됩니다. 업데이트 1에는 오류 메시지가 표시되며 공장 재설정에 실패한 장치에서 차단됩니다. | 예 | 아니요 |
 | 4 | 공장 재설정 | 일부 경우에 false positive 불일치 경고가 생성됩니다. 잘못된 불일치 경고는 업데이트 1을 실행 하는 장치에서 더 이상 생성되지 않습니다. | 예 | 아니요 |
 | 5 | 공장 재설정 | 공장 재설정이 완료되기 전에 중단되면 장치가 복구 모드로 전환하고 StorSimple용 Windows PowerShell에 액세스할 수 없습니다. 이 버그는 이제 수정되었습니다. | 예 | 아니요 |
-| 6 | 재해 복구 | 대상 장치에서 백업 중 DR이 실패되는 재해 복구(DR) 버그가 수정되었습니다.  | 예 | 예 |
+| 6 | 재해 복구 | 대상 장치에서 백업 중 DR이 실패되는 재해 복구(DR) 버그가 수정되었습니다. | 예 | 예 |
 | 7 | 모니터링 LED | 특정 인스턴스에서 기기 뒤에 있는 모니터링 LED는 올바른 상태를 표시하지 않았습니다. 파란색 LED가 꺼졌습니다. 이러한 인터페이스가 구성되지 않더라도 데이터 0 및 데이터 1 LED는 깜박입니다. 문제가 해결되어 이제 모니터링 LED는 올바른 상태를 나타냅니다. | 예 | 아니요 |
 | 8 | 네트워크 인터페이스 | 이전 버전에서는 게이트웨이가 라우팅할 수 없는 StorSimple 장치는 오프라인 상태가 될 수 있었습니다. 이 릴리스에서 데이터 0에 대한 라우팅 메트릭이 가장 낮으므로 다른 네트워크 인터페이스가 클라우드 사용인 경우더라도 데이터 0을 통해 장치의 모든 클라우드 트래픽이 라우팅됩니다. | 예 | 예 | 
 
@@ -82,7 +83,7 @@ StorSimple 솔루션에 업데이트를 배포하기 전에 릴리스 정보에 
 | 6 | 웹 프록시 | 웹 프록시 구성에 지정된 프로토콜로 HTTPS가 있는 경우, 장치 대 서비스의 통신에 영향을 줄 수 있으며 장치는 오프라인 상태가 됩니다. 지원 패키지는 장치에서 중요한 리소스를 소모하는 프로세스에도 생성됩니다. | 웹 프록시 URL에 지정된 프로토콜로 HTTP가 있는지 확인합니다. 자세한 내용은 [장치에 웹 프록시 구성](https://msdn.microsoft.com/library/azure/dn764937.aspx)으로 이동합니다. | 예 | 아니요 |
 | 7 | 웹 프록시 | 등록된 장치에서 웹 프록시를 구성하고 사용하는 경우, 장치에서 활성 컨트롤러를 다시 시작해야 합니다. | | 예 | 아니요 |
 | 8 | 긴 클라우드 대기 시간 및 많은 I/O 작업 | StorSimple 장치에서 클라우드 대기 시간(초 순서)이 매우 길고 I/O 작업이 많으면 장치 볼륨의 성능이 저하되며 "장치가 준비 되지 않았습니다"라는 오류와 함께 I/O가 실패할 수 있습니다. | 이 상황에서 복구하려면 수동으로 장치 컨트롤러를 다시 부팅하거나 장치 장애 조치를 수행해야 합니다. | 예 | 아니요 |
-| 9 | Azure PowerShell | StorSimple cmdlet **Get-AzureStorSimpleStorageAccountCredential &#124; Select-Object -First 1 -Wait**를 사용하여 새 **VolumeContainer** 개체를 만들 수 있도록 첫 번째 개체를 선택한 경우, cmdlet은 모든 개체를 리턴합니다. | 다음과 같이 cmdlet을 괄호로 래핑합니다. **(Get-Azure-StorSimpleStorageAccountCredential) &#124; Select-Object -First 1 -Wait** | 예 | 예 |
+| 9 | Azure PowerShell | StorSimple cmdlet **Get-AzureStorSimpleStorageAccountCredential | Select-Object -First 1 -Wait**를 사용하여 새 **VolumeContainer** 개체를 만들 수 있도록 첫 번째 개체를 선택한 경우, cmdlet은 모든 개체를 리턴합니다. | 다음과 같이 cmdlet을 괄호로 래핑합니다. **(Get-Azure-StorSimpleStorageAccountCredential) | Select-Object -First 1 -Wait** | 예 | 예 |
 | 10| 마이그레이션 | 여러 볼륨 컨테이너가 마이그레이션을 위해 전달되는 경우, 최신 백업에 대한 ETA는 첫 번째 볼륨 컨테이너에 대해서만 정확합니다. 또한 병렬 마이그레이션은 첫 번째 볼륨 컨테이너에서 처음 4개의 백업이 마이그레이션된 후 시작됩니다. | 한번에 하나의 볼륨 컨테이너를 마이그레이션하는 것이 좋습니다. | 예 | 아니요 |
 | 11| 마이그레이션 | 복원 후 볼륨은 백업 정책 또는 가상 디스크 그룹에 추가되지 않습니다. | 백업을 만들기 위해 이러한 볼륨을 백업 정책에 추가해야 합니다. | 예 | 예 |
 | 12| 마이그레이션 | 마이그레이션이 완료되면 5000/7000 시리즈 장치는 마이그레이션된 데이터 컨테이너에 액세스하지 않아야 합니다. | 마이그레이션이 완료되고 커밋된 후 마이그레이션된 데이터 컨테이너를 삭제하는 것이 좋습니다. | 예 | 아니요 |
@@ -97,11 +98,11 @@ StorSimple 솔루션에 업데이트를 배포하기 전에 릴리스 정보에 
 
 이 릴리스는 물리적 장치의 SAS 컨트롤러에서 드라이버 및 펌웨어를 업데이트합니다. 장치에서 디스크 펌웨어도 업데이트합니다.
  
-- SAS 컨트롤러 업데이트에 대한 자세한 내용은 [Microsoft Azure StorSimple 어플라이언스의 LSI SAS 컨트롤러에 대한 업데이트 1](http://bemis.partners.extranet.microsoft.com/203/_layouts/ArticlePages/DisplayArticlePage.aspx?List=27d133d4%2D10ab%2D4795%2Dbb81%2D092dfe8c7866&ID=732454&RootFolder=%2F203%2FLists%2FPssxmlArticles%2F005)을 참조하세요. 
+- SAS 컨트롤러 업데이트에 대한 자세한 내용은 [Microsoft Azure StorSimple 어플라이언스의 LSI SAS 컨트롤러에 대한 업데이트 1](https://support.microsoft.com/kb/3043005)을 참조하세요. 
 
-- 펌웨어 업데이트에 대한 자세한 내용은 [Microsoft Azure StorSimple 어플라이언스용 펌웨어 업데이트 1](http://bemis.partners.extranet.microsoft.com/203/_layouts/ArticlePages/DisplayArticlePage.aspx?List=27d133d4%2D10ab%2D4795%2Dbb81%2D092dfe8c7866&ID=767385&RootFolder=%2F203%2FLists%2FPssxmlArticles%2F414)을 참조하세요.
+- 펌웨어 업데이트에 대한 자세한 내용은 [Microsoft Azure StorSimple 어플라이언스용 펌웨어 업데이트 1](https://support.microsoft.com/kb/3063414)을 참조하세요.
 
-- 디스크 펌웨어 업데이트에 대한 자세한 내용은 [Microsoft Azure StorSimple 어플라이언스용 디스크 펌웨어 업데이트 1](http://bemis.partners.extranet.microsoft.com/203/_layouts/ArticlePages/DisplayArticlePage.aspx?List=27d133d4%2D10ab%2D4795%2Dbb81%2D092dfe8c7866&ID=767387&RootFolder=%2F203%2FLists%2FPssxmlArticles%2F416)을 참조하세요.
+- 디스크 펌웨어 업데이트에 대한 자세한 내용은 [Microsoft Azure StorSimple 어플라이언스용 디스크 펌웨어 업데이트 1](https://support.microsoft.com/ko-kr/kb/3063416)을 참조하세요.
  
 ## 업데이트 1에서 가상 장치 업데이트
 
@@ -110,5 +111,6 @@ StorSimple 솔루션에 업데이트를 배포하기 전에 릴리스 정보에 
 ## 다음 단계
 
 - [장치에 업데이트 1 설치](storsimple-install-update-1.md)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

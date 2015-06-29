@@ -169,7 +169,7 @@ Azure 큐와 서비스 버스 큐는 모두 현재 Microsoft Azure에서 제공�
 
 - 서비스 버스에서 지원하는 “메시지 세션” 개념을 활용하면 특정 논리 그룹에 속한 메시지를 지정된 수신자와 연결하고, 해당 수신자가 메시지와 각각의 수신자 사이에 세션과 유사한 선호도를 만들 수 있습니다. 메시지에서 [SessionID](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.brokeredmessage.sessionid.aspx) 속성을 설정하면 서비스 버스의 이 고급 기능을 사용할 수 있습니다. 수신자가 특정 세션 ID를 수신 대기하고 지정된 세션 식별자를 공유하는 메시지를 수신할 수 있습니다.
 
-- 서비스 버스 큐에서 지원하는 중복 검색 기능은 [MessageID](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.brokeredmessage.messageid.aspx)  속성의 값을 기준으로 큐 또는 토픽으로 발송된 중복 메시지를 자동으로 제거합니다.
+- 서비스 버스 큐에서 지원하는 중복 검색 기능은 [MessageID](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.brokeredmessage.messageid.aspx) 속성의 값을 기준으로 큐 또는 토픽으로 발송된 중복 메시지를 자동으로 제거합니다.
 
 ## 용량 및 할당량
 
@@ -295,7 +295,7 @@ Azure 큐와 서비스 버스 큐는 모두 현재 Microsoft Azure에서 제공�
 
 - 장기 폴링에 대한 지원을 고려할 때, 대기 시간이 짧은 배달이 필요한 상황이라면 서비스 버스 큐를 사용하는 것이 비용 효율적일 수 있습니다.
 
->[AZURE.NOTE]모든 비용은 변경될 수 있습니다. 이 표에는 이 문서의 작성 당시 가격이 반영되어 있으며, 현재 사용 가능할 수 있는 판촉 제품이 포함되어 있지 않습니다. Azure 가격에 대한 최신 정보는 [Azure 가격](http://azure.microsoft.com/pricing/) 페이지를 참조하세요. 서비스 버스 가격에 대한 자세한 내용은 [서비스 버스 가격]((http://azure.microsoft.com/pricing/details/service-bus/)을 참조하세요.
+>[AZURE.NOTE]모든 비용은 변경될 수 있습니다. 이 표에는 이 문서의 작성 당시 가격이 반영되어 있으며, 현재 사용 가능할 수 있는 판촉 제품이 포함되어 있지 않습니다. Azure 가격에 대한 최신 정보는 [Azure 가격](http://azure.microsoft.com/pricing/) 페이지를 참조하세요. 서비스 버스 가격에 대한 자세한 내용은 [서비스 버스 가격((http://azure.microsoft.com/pricing/details/service-bus/)을 참조하세요.
 
 ## 결론
 
@@ -316,5 +316,6 @@ Azure 큐와 서비스 버스 큐는 모두 현재 Microsoft Azure에서 제공�
 - [Azure 저장소 아키텍처](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 - [Azure에서 큐 서비스 사용하기](http://www.developerfusion.com/article/120197/using-the-queuing-service-in-windows-azure/)
 - [Azure 저장소 대금 청구 - 대역폭, 트랜잭션, 용량의 이해](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

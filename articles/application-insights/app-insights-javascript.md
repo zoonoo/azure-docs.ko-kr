@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="JavaScript 앱 및 웹 페이지용 Application Insights" 
-	description="페이지 보기 및 세션 수와 웹 클라이언트 데이터를 가져오고 사용 패턴을 추적합니다. JavaScript 앱 및 웹 페이지의 예외 및 성능 문제를 감지합니다." 
+	pageTitle="JavaScript 웹앱 Application Insights" 
+	description="페이지 보기 및 세션 수와 웹 클라이언트 데이터를 가져오고 사용 패턴을 추적합니다. JavaScript 웹 페이지의 예외 및 성능 문제를 감지합니다." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -12,10 +12,10 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/26/2015" 
+	ms.date="06/03/2015" 
 	ms.author="awills"/>
  
-# JavaScript 앱 및 웹 페이지용 Application Insights
+# JavaScript 웹앱 Application Insights
 
 [AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
 
@@ -44,23 +44,13 @@ Application Insights 리소스는 페이지의 성능 및 사용 현황에 대�
 
 추적하려는 모든 페이지의 &lt;/head&gt; 태그 바로 앞에 스크립트를 삽입합니다. 웹 사이트에 마스터 페이지가 있는 경우 이 페이지에 스크립트를 넣을 수 있습니다. 예:
 
-* ASP.NET MVC 프로젝트에서는 View\Shared\_Layout.cshtml에 추가합니다.
+* ASP.NET MVC 프로젝트에서는 View\Shared_Layout.cshtml에 추가합니다.
 * SharePoint 사이트의 경우 제어판에서 [사이트 설정/마스터 페이지](app-insights-sharepoint.md)를 엽니다.
 
 스크립트에는 Application Insights 리소스에 데이터를 전달하는 계측 키가 포함됩니다.
 
 *(잘 알려진 웹 페이지 프레임워크를 사용하는 경우 Application Insights 어댑터를 찾아보세요. 예를 들어 [AngularJS 모듈](http://ngmodules.org/modules/angular-appinsights)이 있습니다.)*
 
-#### 앱이 웹 페이지가 아닌 경우...
-
-JavaScript 앱이 [Cordova](http://cordova.apache.org/) 앱인 경우 계측 키 뒤에 다음 줄을 추가로 삽입합니다.
-
-    ...{
-        instrumentationKey:"00000000-662d-4479-0000-40c89770e67c",
-        endpointUrl:"https://dc.services.visualstudio.com/v2/track"
-    } ...
-
-앱이 [JavaScript를 사용하는 Windows 런타임 앱](https://msdn.microsoft.com/library/windows/apps/br211385.aspx)인 경우 NuGet 패키지 *Javascript 앱용 Application Insights*를 프로젝트에 추가합니다. (솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 NuGet 패키지 관리를 선택합니다. "시험판 포함"을 선택하고 Application Insights를 검색합니다.)
  
 ## <a name="run"></a>앱 실행
 
@@ -106,7 +96,7 @@ JavaScript 앱이 [Cordova](http://cordova.apache.org/) 앱인 경우 계측 키
 
 ![](./media/app-insights-javascript/14-usage.png)
 
-* **사용자:** 차트의 시간 범위에 따른 고유한 사용자의 수입니다. (쿠키는 다시 방문하는 사용자를 식별하는 데 사용됩니다.)
+* **사용자:** 차트의 시간 범위에 따른 고유한 사용자 수입니다. 쿠키는 다시 방문하는 사용자를 식별하는 데 사용됩니다.
 * **세션:** 사용자가 30분 동안 아무 요청도 하지 않으면 세션이 계산됩니다.
 * **페이지 보기** trackPageView() 호출 수를 계산합니다. 일반적으로 각 웹 페이지에서 한 번 호출됩니다.
 
@@ -185,4 +175,6 @@ JavaScript 앱이 [Cordova](http://cordova.apache.org/) 앱인 경우 계측 키
 [qna]: app-insights-troubleshoot-faq.md
 [track]: app-insights-custom-events-metrics-api.md
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=58_postMigration-->

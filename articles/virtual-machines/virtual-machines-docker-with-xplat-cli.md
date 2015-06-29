@@ -137,5 +137,6 @@ Docker VM을 만드는 것뿐만 아니라 `azure vm docker create` 명령은 Do
 [포털에서 Docker VM 확장을 사용하는 방법]: http://azure.microsoft.com/documentation/articles/virtual-machines-docker-with-portal/
 
 [Docker 사용자 가이드]: https://docs.docker.com/userguide/
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

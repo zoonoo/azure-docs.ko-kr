@@ -54,7 +54,7 @@ Azure에서 사용자 ID에 대한 정보를 검색하여 시작하겠습니다.
 
 다음 몇 단계에서는 [이러한 지침](https://technet.microsoft.com/library/hh967632.aspx#BKMK_1)을 따르지만 특정 예제를 사용합니다.
 
-페이지 맨 아래에서  **+사용자 추가**를 클릭합니다. 표시되는 대화 상자에서 새 사용자 이름을 입력하고 **사용자 유형**을 **조직 내 새 사용자**로 만듭니다. 이 예제에서 새 사용자 이름은 `ahmet`입니다. 위에서 검색한 기본 도메인을 `ahmet`의 전자 메일 주소에 대한 도메인으로 선택했는지 확인합니다. 끝나면 다음 화살표를 클릭합니다.
+페이지 맨 아래에서 **+사용자 추가**를 클릭합니다. 표시되는 대화 상자에서 새 사용자 이름을 입력하고 **사용자 유형**을 **조직 내 새 사용자**로 만듭니다. 이 예제에서 새 사용자 이름은 `ahmet`입니다. 위에서 검색한 기본 도메인을 `ahmet`의 전자 메일 주소에 대한 도메인으로 선택했는지 확인합니다. 끝나면 다음 화살표를 클릭합니다.
 
 ![](./media/resource-group-create-work-id-from-personal/addingauserwithdirectorydropdown.png)
 
@@ -140,4 +140,7 @@ Azure에서 사용자 ID에 대한 정보를 검색하여 시작하겠습니다.
     data:    
     info:    group create command OK
 
-<!---HONumber=58--> 
+
+ 
+
+<!---HONumber=58_postMigration-->

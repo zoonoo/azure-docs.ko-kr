@@ -31,9 +31,11 @@
 * 에뮬레이터 또는 테스트 장치와 Application Insights 포털 사이에 방화벽이 있나요? dc.services.visualstudio.com 및 f5.services.visualstudio.com으로 나가는 트래픽에 대해 TCP 포트 80 및 443을 열어야 할 수 있습니다.
 * Microsoft Azure 시작 보드에서 서비스 상태 맵을 살펴보세요. 어떤 경고 표시가 있는 경우 정상으로 돌아갈 때까지 기다린 후 Application Insights 응용 프로그램 블레이드를 닫고 다시 엽니다.
 
+
 #### 데이터를 보는 데 중지되었습니다.
 
-* [상태 블로그](http://blogs.msdn.com/b/applicationinsights-status/)를 참조하세요.
+* [상태 블로그](http://blogs.msdn.com/b/applicationinsights-status/)를 확인하세요.
+* 데이터 요소의 월간 할당량에 도달했습니까? 설정/할당량 및 가격을 열어 찾아봅니다. 그렇다면 계획을 업그레이드하거나 추가 용량에 대한 비용을 지불할 수 있습니다. [가격 체계](http://azure.microsoft.com/pricing/details/application-insights/)를 참조하세요.
 
 
 ## Application Insights를 유니버설 앱에 추가하려면 어떻게 해야 하나요?
@@ -116,4 +118,6 @@
 [usage]: app-insights-web-track-usage.md
 [windows]: app-insights-windows-get-started.md
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=58_postMigration-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2015" 
+	ms.date="06/03/2015" 
 	ms.author="juliako"/>
 
 
@@ -32,7 +32,7 @@
 - 미디어 콘텐츠는 AMS에 저장됩니다.
 - 콘텐츠 키의 키 ID는 castLabs 및 AMS에 저장됩니다.
 - castLabs 및 AMS에는 모두 내장된 토큰 인증이 있습니다. 다음 섹션에서는 인증 토큰에 대해 설명합니다. 
-- 클라이언트가 비디오 스트리밍을 요청하면 콘텐츠는 **일반 암호화**(CENC)를 통해 동적으로 암호화되며 AMS에서 지정된 프로토콜(부드러운 스트리밍, HLS 또는 DASH) 중 하나로 동적으로 패키징됩니다. 
+- 클라이언트가 비디오 스트리밍을 요청하면 콘텐츠는 **일반 암호화**(CENC)를 통해 동적으로 암호화되며 AMS는 부드러운 스트리밍 및 DASH로 동적으로 패키징됩니다. HLS 스트리밍 프로토콜에 대한 PlayReady M2TS 기본 스트림 암호화를 전달할 수도 있습니다.
 - PlayReady 라이선스는 AMS 라이선스 서버에서 검색되고 Widevine 라이선스는 castLabs 라이선스 서버에서 검색됩니다. 
 - Media Player는 클라이언트 플랫폼 기능에 따라 가져올 라이선스를 자동으로 결정합니다. 
 
@@ -95,7 +95,7 @@ castLabs 및 AMS는 둘 다 라이선스를 인증하는 데 사용되는 JWT(JS
 
 ##비디오 재생
 
-일반 암호화(PlayReady 및 Widevine)를 사용하여 암호화된 비디오를 재생할 때는 [Azure 미디어 플레이어](http://amsplayer.azurewebsites.net/azuremediaplayer.html)를 사용할 수 있습니다. 콘솔 앱을 실행하는 경우 콘텐츠 키 ID와 매니페스트 URL이 화면에 표시됩니다.
+일반 암호화(PlayReady)를 사용하여 암호화된 비디오를 재생할 때는 [Azure 미디어 플레이어](http://amsplayer.azurewebsites.net/azuremediaplayer.html)를 사용할 수 있습니다. 콘솔 앱을 실행하는 경우 콘텐츠 키 ID와 매니페스트 URL이 화면에 표시됩니다.
 
 1.	새 탭을 열고 STS를 시작합니다(http://[yourStsName].azurewebsites.net/api/token/assetid/[yourCastLabsAssetId]/contentkeyid/[thecontentkeyid]).
 2.	[Azure 미디어 플레이어](http://amsplayer.azurewebsites.net/azuremediaplayer.html)로 이동합니다.
@@ -106,10 +106,12 @@ castLabs 및 AMS는 둘 다 라이선스를 인증하는 데 사용되는 JWT(JS
 7.	플레이어를 업데이트합니다.
 8.	비디오가 재생됩니다.
 
-Chrome에서 castLabs 플레이어를 사용하여 HTML5 형식의 보호된 비디오를 재생하려면 castLabs에 문의하여 플레이어에 대한 액세스 권한을 얻어야 합니다. 액세스 권한이 있는 경우는 두 가지를 알아두어야 합니다.
+Chrome에서 castLabs 플레이어를 사용하여 HTML5 형식의 보호된 비디오를 재생하려면 yanmf@microsoft.com에 문의하여 플레이어에 대한 액세스 권한을 얻어야 합니다. 액세스 권한이 있는 경우는 두 가지를 알아두어야 합니다.
 
 1.	castLabs 플레이어는 MPEG-DASH 매니페스트 파일에 대한 액세스 권한이 있어야 하므로 (format=mpd-time-csf)를 사용자의 매니페스트 파일에 추가하여 기본 부드러운 스트리밍 파일 대신 MPEG-DASH 매니페스트 파일을 가져옵니다.
 
 2.	castLab 라이선스 서버는 토큰 앞에 "Bearer =" 접두사가 필요하지 않습니다. 따라서 토큰을 제출하기 전에 제거하세요.
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=58_postMigration-->

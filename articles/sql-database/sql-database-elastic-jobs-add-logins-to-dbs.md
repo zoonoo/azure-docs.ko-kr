@@ -18,7 +18,7 @@
 
 # 탄력적 데이터베이스 풀에 사용자를 추가하는 방법
 
-탄력적 데이터베이스 작업의 경우 [탄력적 데이터베이스 풀](sql-database-elastic-pool.md)에 속한 모든 데이터베이스에 대해 동일한 스크립트를 실행할 수 있습니다. 스크립트를 실행하려면 풀에 있는 모든 데이터베이스에 적절한 권한을 가진 사용자를 추가해야 합니다. 이 사용자는 **탄력적 데이터베이스 작업**을 설치할 때 생성된 것과 동일한 서버 수준 보안 주체일 수 있으며, **제어** 데이터베이스에 있는 메타데이터를 관리하기 위해 **작업 자격 증명**이 제공됩니다. 자세한 내용은 [Azure SQL 데이터베이스에서 데이터베이스 및 로그인 관리](https://msdn.microsoft.com/library/azure/ee336235.aspx?f=255&MSPPError=-2147217396) 또는 [SQL Azure 데이터베이스에 사용자 추가](http://azure.microsoft.com/blog/2010/06/21/adding-users-to-your-sql-azure-database/)를 참조하세요.
+탄력적 데이터베이스 작업의 경우 [탄력적 데이터베이스 풀](sql-database-elastic-pool.md)에 속한 모든 데이터베이스에 대해 동일한 스크립트를 실행할 수 있습니다. 스크립트를 실행하려면 풀에 있는 모든 데이터베이스에 적절한 권한을 가진 사용자를 추가해야 합니다. 자세한 내용은 [Azure SQL 데이터베이스에서 데이터베이스 및 로그인 관리](https://msdn.microsoft.com/library/azure/ee336235.aspx?f=255&MSPPError=-2147217396) 또는 [SQL Azure 데이터베이스에 사용자 추가](http://azure.microsoft.com/blog/2010/06/21/adding-users-to-your-sql-azure-database/)를 참조하세요.
 
 ## 필수 조건
 * [탄력적 데이터베이스 풀(Preview) 만들기](sql-database-elastic-pool-portal.md)
@@ -46,4 +46,4 @@
 [1]: ./media/sql-database-elastic-jobs-overview/elastic-jobs.png
 <!--anchors-->
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

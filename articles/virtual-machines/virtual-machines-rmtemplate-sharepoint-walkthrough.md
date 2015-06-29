@@ -376,4 +376,6 @@ Azure에서 다중 계층 인프라를 구축하는 사용자 고유의 JSON 템
 
 [가상 컴퓨터 설명서](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=58_postMigration-->

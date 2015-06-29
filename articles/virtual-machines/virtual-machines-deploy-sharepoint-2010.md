@@ -266,7 +266,7 @@ Azure에서 완전히 사용자 지정된 SharePoint 웹 사이트를 구현하�
 	- Operations Manager 에이전트 및 새로운 Azure 통합 팩을 사용하여 온-프레미스 System Center를 Azure 가상 컴퓨터에 연결합니다.
 	- 관리 기능을 위해 온-프레미스 App Controller 및 Orchestrator를 사용합니다.
 
-## 결론
+## 요약
 
 Azure 가상 컴퓨터는 SharePoint 배포의 완전한 연속성을 제공합니다. Azure 가상 컴퓨터는 다른 Microsoft 응용 프로그램과의 최적의 환경을 제공하도록 완벽하게 지원되며 테스트되었습니다. 따라서 조직은 Azure에서 SharePoint Server를 쉽게 설치하고 배포하여 새 SharePoint 배포를 위한 인프라를 프로비전하거나 기존 인프라를 확장할 수 있습니다. 비즈니스 작업이 증가함에 따라 조직은 SharePoint 인프라를 빠르게 확장할 수 있습니다. 마찬가지로 작업 요구가 감소하면 조직은 주문형 리소스를 계약하여 사용하는 리소스에 대해서만 결제할 수 있습니다. 이 문서에서 논의한 네 개의 SharePoint 기반 시나리오에서 알 수 있듯이 Azure 가상 컴퓨터는 광범위한 비즈니스 요구 사항에 탁월한 인프라를 제공합니다.
 
@@ -278,8 +278,10 @@ Azure 가상 컴퓨터에서 SharePoint Server를 성공적으로 배포하려�
 
 [Azure 인프라 서비스에서 호스트되는 SharePoint 팜](virtual-machines-sharepoint-infrastructure-services.md)
 
-[Azure PowerShell](http://msdn.microsoft.com/library/jj156055)
+[Azure 인프라 서비스 워크로드: 인트라넷 SharePoint 팜](virtual-machines-workload-intranet-sharepoint-farm)
 
-[Azure 관리 Cmdlet](http://msdn.microsoft.com/library/jj152841)
+[Azure 인프라 서비스 구현 지침](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=58_postMigration-->

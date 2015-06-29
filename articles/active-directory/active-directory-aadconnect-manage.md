@@ -4,8 +4,8 @@
 	services="active-directory" 
 	documentationCenter="" 
 	authors="billmath" 
-	manager="terrylan" 
-	editor="lisatoft"/>
+	manager="swadhwa" 
+	editor="curtand"/>
 
 <tags 
 	ms.service="active-directory" 
@@ -85,5 +85,6 @@ Azure AD Sync용으로 만들어진 설명서 중 일부는 Azure AD Connect에�
 * [Azure AD Connect 시작](../active-directory-aadconnect-getstarted.md)
 * [Azure AD Connect 관리](active-directory-aadconnect-manage.md)
 * [MSDN의 Azure AD Connect](https://msdn.microsoft.com/library/azure/dn832695.aspx)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

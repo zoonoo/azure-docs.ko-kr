@@ -77,5 +77,6 @@ Azure 가상 컴퓨터를 CoreOS 또는 Ubuntu 이미지에서 온 경우, Custo
 [역할 서비스 관리 REST API 참조 추가](http://msdn.microsoft.com/library/azure/jj157186.aspx)
 
 [Azure 명령줄 인터페이스](https://github.com/Azure/azure-sdk-tools-xplat)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

@@ -1,2 +1,3 @@
-﻿가격, 실린더 및 MPG 수와 같은 기능, 보험 위험 점수를 포함하여 상표 및 모델별 자동차에 대한 정보입니다.<p> </p>위험 점수는 처음에 자동차 가격과 관련되고 보험 회계사에게 기호화로 알려진 프로세스에서 실제 위험에 맞게 조정됩니다. +3 값은 자동차가 위험함을 나타내고 -3 값은 매우 안전함을 나타냅니다.<p> </p><b>사용법:</b> 회귀 및 다변수 분류를 사용하여 기능별 위험 점수를 예측합니다. <p> </p><b>관련 조사:</b> Schlimmer, J.C. (1987). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science
-<!--HONumber=42-->
+가격, 실린더 및 MPG 수와 같은 기능, 보험 위험 점수를 포함하여 상표 및 모델별 자동차에 대한 정보입니다.<p> </p>위험 점수는 처음에 자동차 가격과 관련되고 보험 회계사에게 기호화로 알려진 프로세스에서 실제 위험에 맞게 조정됩니다. +3 값은 자동차가 위험함을 나타내고 -3 값은 매우 안전함을 나타냅니다.<p> </p><b>사용:</b> 회귀 및 다변수 분류를 사용하여 기능별 위험 점수를 예측합니다. <p> </p><b>관련 조사:</b> Schlimmer, J.C. (1987). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science
+
+<!---HONumber=58_postMigration-->

@@ -1,6 +1,7 @@
 <properties 
-	pageTitle="기계 학습 스튜디오에서 샘플 데이터 집합 사용 | Azure" 
-	description="Azure 기계 학습 스튜디오에 포함된 샘플 데이터 집합에 대한 설명" 
+	pageTitle="기계 학습 스튜디오에서 샘플 데이터 집합 사용 | Microsoft Azure" 
+	description="기계 학습 스튜디오에 포함된 샘플 모델에 사용되는 데이터 집합에 대한 설명 실험에 대해 이 샘플 데이터 집합을 사용할 수 있습니다." 
+	keywords="data sets,datasets,ml studio,sample data sets"
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="garyericson" 
@@ -13,346 +14,365 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/16/2014" 
+	ms.date="04/22/2015" 
 	ms.author="garye"/>
 
 
+# Azure 기계 학습 스튜디오에서 예제 데이터 집합 사용
 
-# Azure 기계 학습 스튜디오에서 샘플 데이터 집합 사용
+[top]: #machine-learning-sample-datasets
 
-기계 학습 스튜디오에 들어 있는 몇 가지 샘플 데이터 집합을 사용할 수 있습니다. 이러한 데이터 집합은 공용 도메인의 표준 기계 학습 데이터 집합입니다. 
+Azure 기계 학습에서 새 작업 영역을 만들 때 다양한 샘플 데이터 집합 및 실험이 기본적으로 포함됩니다. 이 샘플 데이터 집합의 많은 부분이 [Azure 기계 학습 모델 갤러리](http://azure.microsoft.com/documentation/services/machine-learning/models/)에서 샘플 모델로 사용되며, 나머지는 기계 학습에 사용되는 데이터의 다양한 형식의 예제로 포함됩니다.
 
-기계 학습 스튜디오에서 다양한 유형의 분석 기계 학습 모델을 살펴보는 것처럼 실험에서 이러한 데이터 집합을 사용할 수 있습니다. 
+일부 데이터 집합은 Azure BLOB 저장소에서 사용할 수 있습니다. 이 데이터 집합의 경우 다음 표에는 바로 이동할 수 있는 링크를 제공합니다. [Reader][reader] 모듈을 통해 실험에서 이러한 데이터 집합을 사용하여 데이터 집합에 액세스하는 방법에 대한 예제를 보고, 데이터 집합과 연관된 샘플 실험에서 [Reader][reader] 모듈의 속성을 확인할 수 있습니다.
 
-- 기계 학습 스튜디오에서 이러한 표준 데이터 집합 목록을 **데이터 집합** 탭을 클릭합니다. 각 데이터 집합에 대한 데이터 집합 이름, 제출한 사람, 간략한 설명 같은 정보를 볼 수 있습니다.
- 
-    데이터 집합을 정렬하려면 열 머리글을 클릭합니다. 예를 들어 **제출자**를 클릭하여 Microsoft Corporation에서 제공하는 모든 샘플 데이터 집합을 그룹화합니다. 이렇게 하면 작업 영역에서 자신과 다른 사용자가 가져온 데이터 집합을 간편하게 볼 수 있습니다. 
+이러한 샘플 데이터 집합의 나머지는 기계 학습 스튜디오에서 새 실험을 만들거나 열 때 실험 캔버스 왼쪽에 있는 모듈 팔레트의 **Saved Datasets** 아래에 나열됩니다. 실험 캔버스로 끌어와 이러한 데이터 집합을 실험에서 사용할 수 있습니다.
 
-- 실험에서 데이터 집합을 사용하려면 모듈 팔레트의 **저장된 데이터 집합** 섹션을 실험 캔버스 왼쪽으로 확장하거나, 팔레트 위의 검색 상자에 이름을 입력하여 특정 데이터 집합을 검색합니다. 데이터 집합을 캔버스로 끌어서 실험에 추가합니다. 
 
-##샘플 데이터 집합
+<!--
+For a list of sample experiments available in ML Studio, see [Machine Learning Sample Experiments][sample-experiments].
 
-다음 표에서는 기계 학습 스튜디오의 기계 학습 기능을 살펴보는 동안 유용할 수 있는 데이터 집합에 대한 추가 정보를 제공합니다. 표에는 각 데이터 집합에 대한 다음 정보가 나와 있습니다.
- 
-- 각 데이터 집합의 이름 및 원본.
-- 데이터 집합의 가능한 사용에 대한 설명 및 데이터 집합을 사용한 기계 학습 조사에 대한 인용.
-- 데이터 집합에 포함된 중요한 열의 요약 및 기타 유용한 특성.
-
-몇몇 설명은 원본(일반적으로 [UC Irvine Machine Learning Repository](http://archive.ics.uci.edu/ml/ "UC Irvine Machine Learning Repository"))에서 제공된 설명에서 조정되었으나 기타 설명은 추가 조사를 기반으로 하거나 이러한 샘플에서 변경된 내용을 반영합니다.
-
-<table>
-<tr valign=top>
-<th>데이터 집합 이름</th>
-<th>데이터 집합 설명</th>
-<th>관련 조사</th>
-</tr>
-<tr valign=top>
-<td>성인 인구 조사 소득 이진 분류 데이터 집합</td>
-<td>
-<p>조정 소득 지수가 100보다 큰 16세 이상 취업한 성인을 대상으로 한 1994 인구 조사 데이터베이스의 하위 집합입니다.</p>
-<p><strong>Usage:</strong> 인구 통계를 기반으로 사람을 분류하여 개인의 소득이 연간 50,000을 초과할지 예측합니다.</p>
-</td>
-<td>
-<p>Kohavi, R., Becker, B., (1996). UCI Machine Learning Repository [<a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>]. Irvine, CA: University of California, School of Information and Computer Science</p>
-</td>
-</tr>
-
-<tr valign=top>
-<td>
-<p>자동차 가격 데이터(원시)</p>
-</td>
-<td>
-<p>가격, 실린더 및 MPG 수와 같은 기능, 보험 위험 점수를 포함하여 상표 및 모델별 자동차에 대한 정보입니다.</p>
-<p>위험 점수는 처음에 자동차 가격과 관련되고 보험 회계사에게 <legacyItalic>기호화</legacyItalic>로 알려진 프로세스에서 실제 위험에 맞게 조정됩니다. +3 값은 자동차가 위험함을 나타내고 -3 값은 매우 안전함을 나타냅니다.</p>
-<p><strong>Usage:</strong> 회귀 및 다변수 분류를 사용하여 기능별 위험 점수를 예측합니다.</p>
-</td>
-<td>
-<p>
-Schlimmer, J.C. (1987). UCI Machine Learning Repository [<a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>]. Irvine, CA: University of California, School of Information and Computer Science
-</p>
-</td>
-</tr>
-
-<tr valign=top>
-<td>
-<p>헌혈 데이터</p>
-</td>
-<td>
-<p>대만, Hsin-Chu City, Blood Transfusion Service Center 헌혈자 데이터베이스의 데이터 하위 집합입니다.</p>
-  <p>현혈자 데이터에는 마지막 헌혈 이후 지난 개월 수, 빈도 또는 총 헌혈 횟수, 마지막 헌혈 이후 시간, 헌혈량이 포함됩니다.</p>
-  <p><strong>Usage:</strong> 목표는 헌혈자가 2007년 3월 헌혈을 했는지를 분류를 통해 예측하는 것입니다. 여기서 1은 목표 기간 중 헌혈자를 나타내고 0은 비헌혈자를 나타냅니다.</p>
-</td>
-<td>
-<list class="bullet">
-<listItem>
-<p>
-Yeh, I.C., (2008). UCI Machine Learning Repository [<a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>]. Irvine, CA: University of California, School of Information and Computer Science
-</p>
-</listItem>
-<listItem>
-<p>
-Yeh, I-Cheng, Yang, King-Jang, and Ting, Tao-Ming, "Knowledge discovery on RFM model using Bernoulli sequence, "Expert Systems with Applications, 2008, [<a href="http://dx.doi.org/10.1016/j.eswa.2008.07.018">http://dx.doi.org/10.1016/j.eswa.2008.07.018</a>]
-</p>
-</listItem>
-</list>
-</td>
-</tr>
-
-<tr valign=top>
-<td>
-<p>유방암 데이터</p>
-</td>
-<td>
-<p>기계 학습 문헌에서 자주 나타나는 Oncology Institute에서 제공하는 세 가지 암 관련 데이터 집합의 하나입니다. 진단 정보를 300여 개 조직 샘플에 대한 실험실 분석의 기능과 결합합니다.</p>
-<p><strong>Usage:</strong> 특성 9개에 따라 암 유형을 분류합니다. 이들 중 몇몇은 선형이고 몇몇은 범주입니다.</p>
-</td>
-<td>
-<p>
-Wohlberg, W.H., Street, W.N., &amp; Mangasarian, O.L. (1995). UCI Machine Learning Repository [<a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>]. Irvine, CA: University of California, School of Information and Computer Science
-</p>
-</td>
-</tr>
-
-<tr valign=top>
-<td>
-<p>에너지 효율 회귀 데이터</p>
-</td>
-<td>
-<p>12가지 건물 형태에 따라 시뮬레이트된 에너지 프로필의 컬렉션입니다. 건물은 창호 면적, 창호 면적 분포, 방향 같은 8개의 특징으로 구분된다는 점에서 다릅니다.</p>
-<p><strong>Usage:</strong> 회귀 또는 분류를 사용하여 두 가지 실제 값 응답의 하나를 기반으로 에너지 효율 등급을 예측합니다. 다중 클래스 분류에 대해서는 가장 가까운 정수로 응답 변수를 반올림합니다.</p>
-</td>
-<td>
-<p>
-Xifara, A. &amp; Tsanas, A. (2012). UCI Machine Learning Repository  [<a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>]. Irvine, CA: University of California, School of Information and Computer Science
-</p>
-</td>
-</tr>
-
-<tr valign=top>
-<td>
-<p>비행 운항정시성(원시)</p>
-</td>
-<td>
-<p>2011년 10월부터 미국 내의 비행 도착 및 출발 레코드입니다.</p>
-<p><strong>Usage:</strong> 비행 지연을 예측합니다.</p>
-</td>
-<td>
-<p>
-US 교통국(Dept. of Transportation) [<a href="http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&amp;DB_Short_Name=On-Time</a>]
-</p>
-</td>
-</tr>
-
-<tr valign=top>
-<td>
-<p>산불 데이터</p>
-</td>
-<td>
-<p>산불 레코드와 결합된 포르투갈 북동부 지역의 기온 및 습도 지수, 풍속 같은 날씨 데이터를 포함합니다.</p>
-<p><strong>Usage:</strong> 이 작업은 산불 피해지를 예측하기 위한 어려운 회귀 작업입니다.</p>
-</td>
-<td>
-<list class="bullet">
-<listItem>
-<p>
-Cortez, P., &amp; Morais, A. (2008). UCI Machine Learning Repository [<a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>]. Irvine, CA: University of California, School of Information and Computer Science
-</p>
-</listItem>
-<listItem>
-<p>
-[Cortez and Morais, 2007] P. Cortez and A. Morais. 
-A Data Mining Approach to Predict Forest Fires using Meteorological Data. 
-In J. Neves, M. F. Santos and J. Machado Eds., New Trends in Artificial Intelligence, 
-Proceedings of the 13th EPIA 2007 - Portuguese Conference on Artificial Intelligence, 
-December, Guimar&#227;es, Portugal, pp. 512-523, 2007. APPIA, ISBN-13 978-989-95618-0-9. 사용 가능한 위치:
-[<a href="http://www.dsi.uminho.pt/~pcortez/fires.pdf">http://www.dsi.uminho.pt/~pcortez/fires.pdf</a>]
-</p>
-</listItem>
-</list>
-</td>
-</tr>
-
-<tr valign=top>
-<td>
-<p>붓꽃 2종 데이터</p>
-</td>
-<td>
-<p>이 데이터베이스는 패턴 인식 문헌에서 찾을 수 있는 가장 잘 알려진 데이터베이스일 것입니다. 데이터 집합은 비교적 작으며, 세 가지 붓꽃 품종의 꽃잎 측정값별로 예제 50개를 포함합니다.</p>
-<p><strong>Usage:</strong> 측정값에서 붓꽃 종류를 예측합니다. 
-<!-- I believe the following doesn't apply anymore, but I'm not sure so I'll remove it for now.
-One class is linearly separable from the other two; but the latter are not linearly separable from each other.
+[sample-experiments]: machine-learning-sample-experiments.md
 -->
-</p>
-</td>
-<td>
-<p>
-Fisher, R.A. (1988). UCI Machine Learning Repository  [<a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>]. Irvine, CA: University of California, School of Information and Computer Science
-</p>
+
+[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
+
+## 기계 학습 갤러리에서 모델과 연관된 샘플 데이터 집합
+
+다음 데이터 집합은 [Azure 기계 학습 모델 갤러리](http://azure.microsoft.com/documentation/services/machine-learning/models/)의 샘플 모델에서 사용됩니다. 모델 및 해당 관련 실험에 대한 자세한 내용은 표의 링크를 따라 모델 세부 정보를 참조하세요.
+
+<table>
+
+<tr>
+  <th align=left>샘플 모델</th>
+  <th align=left>관련 실험</th>
+  <th align=left>데이터 집합 이름</th>
+  <th align=left>데이터 집합 설명</th>
+</tr>
+
+<tr ID=bill-gates-rgb-image>
+  <td valign=top><a href="http://azure.microsoft.com/documentation/articles/machine-learning-sample-color-quantization-using-k-means-clustering/">K-평균 클러스터링을 사용한 색상 양자화</a></td>
+  <td valign=top>샘플 실험 - K-Means 클러스터링을 사용한 색상 기반 이미지 압축 - 개발</td>
+  <td valign=top>Bil Gates RGB 이미지</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-bill-gates-rgb-image](../../includes/machine-learning-sample-dataset-bill-gates-rgb-image.md)]
+  </td>
+</tr>
+
+<tr ID=german-credit-card-uci-dataset>
+  <td valign=top><a href="http://azure.microsoft.com/documentation/articles/machine-learning-sample-credit-risk-prediction/">신용 위험 예측</a></td>
+  <td valign=top>샘플 실험 - 독일 신용 - 개발</td>
+  <td valign=top>독일 신용 카드 UCI 데이터 집합</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-german-credit-card-uci-dataset](../../includes/machine-learning-sample-dataset-german-credit-card-uci-dataset.md)]
+  </td>
+</tr>
+
+<tr ID=crm-dataset-shared>
+  <td rowspan=4 valign=top><a href="http://azure.microsoft.com/documentation/articles/machine-learning-sample-crm-task/">CRM 작업</a></td>
+  <td rowspan=4 valign=top>샘플 실험 - CRM - 개발</td>
+  <td valign=top>CRM 데이터 집합 공유</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-crm-dataset-shared](../../includes/machine-learning-sample-dataset-crm-dataset-shared.md)]
+  </td>
+</tr>
+<tr ID=crm-appetency-labels-shared>
+  <td valign=top>CRM 욕구 레이블 공유</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-crm-appetency-labels-shared](../../includes/machine-learning-sample-dataset-crm-appetency-labels-shared.md)]
+  </td>
+</tr>
+<tr ID=crm-churn-labels-shared>
+  <td valign=top>CRM 이탈 레이블 공유</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-crm-churn-labels-shared](../../includes/machine-learning-sample-dataset-crm-churn-labels-shared.md)]
+  </td>
+</tr>
+<tr ID=crm-upselling-labels-shared>
+  <td valign=top>CRM 상향 판매 레이블 공유</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-crm-upselling-labels-shared](../../includes/machine-learning-sample-dataset-crm-upselling-labels-shared.md)]
+  </td>
+</tr>
+
+<tr ID=wikipedia-sp-500-dataset>
+  <td valign=top><a href="http://azure.microsoft.com/documentation/articles/machine-learning-sample-finding-similar-companies/">비슷한 회사 찾기</a></td>
+  <td valign=top>샘플 실험 - S &amp; P 500 회사 클러스터링 - 개발</td>
+  <td valign=top>Wikipedia SP 500 데이터 집합</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-wikipedia-sp-500](../../includes/machine-learning-sample-dataset-wikipedia-sp-500.md)]
+  </td>
+</tr>
+
+<tr ID=airport-codes-dataset>
+  <td rowspan=3 valign=top><a href="http://azure.microsoft.com/documentation/articles/machine-learning-sample-flight-delay-prediction/">비행 지연 예측</a></td>
+  <td rowspan=3 valign=top>샘플 실험 - 비행 지연 예측 - 개발</td>
+  <td valign=top>공항 코드 데이터 집합</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-airport-codes](../../includes/machine-learning-sample-dataset-airport-codes.md)]
+  </td>
+</tr>
+
+<tr ID=flight-delays-data>
+  <td valign=top>비행 지연 데이터</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-flight-delays-data](../../includes/machine-learning-sample-dataset-flight-delays-data.md)]
 </td>
 </tr>
 
-<tr valign=top>
-<td>
-<p>다양한 자동차에 대한 MPG 데이터</p>
-</td>
-<td>
-<p>이 데이터 집합은 Carnegie Mellon University의 StatLib 도서관에서 제공한 데이터 집합의 약간 수정된 버전입니다. 이 데이터 집합은 1983 American Statistical Association Exposition에서 사용되었습니다.</p>
-<p>데이터에는 다양한 자동차에 대한 연료 소비량(m.p.g), 실린더 수, 엔진 배기량, 마력, 총 중량, 가속도가 함께 나열됩니다.</p>
-<p><strong>Usage:</strong> 다중 값 개별 특성 3개 및 연속 특성 5개를 기반으로 연비를 예측합니다.</p>
-</td>
-<td>
-<p>
-StatLib, Carnegie Mellon University, (1993). UCI Machine Learning Repository [<a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>]. Irvine, CA: University of California, School of Information and Computer Science
-</p>
-</td>
+<tr ID=weather-dataset>
+  <td valign=top>날씨 데이터 집합</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-weather-dataset](../../includes/machine-learning-sample-dataset-weather-dataset.md)]
+  </td>
 </tr>
 
-<tr valign=top>
-<td>
-<p>피마 인디언 당뇨병 이진 분류 데이터 집합</p>
-</td>
-<td>
-<p>NIDDK(National Institute of Diabetes and Digestive and Kidney Diseases) 데이터베이스의 데이터 하위 집합입니다. 데이터 집합은 피마 인디언 혈통의 여성 환자에게 초점을 맞추도록 필터링되었습니다. 데이터에는 포도당 및 인슐린 수준 같은 의료 데이터와 생활양식 요인이 포함됩니다.</p>
-<p><strong>Usage:</strong> 대상에게 당뇨병이 있는지를 예측합니다(이진 분류).</p>
-</td>
-<td>
-<p>
-Sigillito, V. (1990). UCI Machine Learning Repository  [<a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>]. Irvine, CA: University of California, School of Information and Computer Science
-</p>
-</td>
+<tr ID=intrusion-detection>
+  <td valign=top> <a href="http://azure.microsoft.com/documentation/articles/machine-learning-sample-network-intrusion-detection/">네트워크 침입 검색</a></td>
+  <td valign=top>샘플 실험 - 네트워크 침입 감지 - 개발</td>
+  <td valign=top><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/network_intrusion_detection.csv">network_intrusion_detection.csv</a><br></td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-network-intrusion](../../includes/machine-learning-sample-dataset-network-intrusion.md)]
+  </td>
 </tr>
 
-<tr valign=top>
-<td>
-<p>음식점 고객 데이터</p>
-</td>
-<td>
-<p>인구 통계 및 선호도를 비롯한 고객에 대한 메타데이터 집합입니다.</p>
-<p><strong>Usage:</strong> 이 데이터 집합을 다른 두 가지 음식점 데이터 집합과 함께 사용하여 추천 시스템을 학습 및 테스트합니다.</p>
-</td>
-<td>
-<p>
-Bache, K. and Lichman, M. (2013). UCI Machine Learning Repository 
-[<a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>].
-Irvine, CA: University of California, School of Information and Computer Science.
-</p>
-</td>
+<tr ID=bike-rental-uci-dataset>
+  <td valign=top><a href="http://azure.microsoft.com/documentation/articles/machine-learning-sample-prediction-of-number-of-bike-rentals/">임대 자전거 대수 예측</a></td>
+  <td valign=top>샘플 실험 - 자전거 수요 예측</td>
+  <td valign=top>자전거 임대 UCI 데이터 집합</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-bike-rental-uci-dataset](../../includes/machine-learning-sample-dataset-bike-rental-uci-dataset.md)]
+  </td>
 </tr>
 
-<tr valign=top>
-<td>
-<p>음식점 기능 데이터</p>
-</td>
-<td>
-<p>음식점 및 음식 종료, 식사 스타일, 위치 같은 기능에 대한 메타데이터 집합입니다.</p>
-<p><strong>Usage:</strong> 이 데이터 집합을 다른 두 가지 음식점 데이터 집합과 함께 사용하여 추천 시스템을 학습 및 테스트합니다.</p>
-</td>
-<td>
-<p>
-Bache, K. and Lichman, M. (2013). UCI Machine Learning Repository 
-[<a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>].
-Irvine, CA: University of California, School of Information and Computer Science.
-</p>
-</td>
+<tr ID=student-performance>
+  <td valign=top><a href="http://azure.microsoft.com/documentation/articles/machine-learning-sample-prediction-of-student-performance/">학생 성취도 예측</a></td>
+  <td valign=top>샘플 실험 - 학생 성취도 - 개발</td>
+  <td valign=top><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/student_performance.txt">student_performance.txt</a></td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-student-performance](../../includes/machine-learning-sample-dataset-student-performance.md)]
+  </td>
 </tr>
 
-<tr valign=top>
-<td>
-<p>음식점 등급</p>
-</td>
-<td>
-<p>0-2점 사이에 사용자가 제공한 음식점 등급을 포함합니다.</p>
-<p><strong>Usage:</strong> 이 데이터 집합을 다른 두 가지 음식점 데이터 집합과 함께 사용하여 추천 시스템을 학습 및 테스트합니다.</p>
-</td>
-<td>
-<p>
-Bache, K. and Lichman, M. (2013). UCI Machine Learning Repository 
-[<a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>].
-Irvine, CA: University of California, School of Information and Computer Science.
-</p>
-</td>
-</tr>
-
-<tr valign=top>
-<td>
-<p>강철 가열 냉각 다중 클래스 데이터 집합</p>
-</td>
-<td>
-<p>이 데이터 집합은 강철 가열 냉각 시도에서 얻은 일련의 레코드를 결과 강철 유형의 물리적 특성(너비, 두께, 유형(코일, 시트 등))과 함께 포함합니다.</p>
-<p><strong>Usage:</strong> 두 가지 숫자 클래스 특성인 경도 또는 강도의 하나를 예측합니다. 특성 간의 상관관계를 분석할 수도 있습니다.</p>
-<p>강철 등급은 SAE 및 기타 조직에서 정의된 집합 표준을 따릅니다. 특정 '등급'(클래스 변수)을 찾고 있고 필요한 값을 파악하려고 합니다.</p>
-</td>
-<td>
-<p>
-Sterling, D. &amp; Buntine, W., (NA). UCI Machine Learning Repository  [<a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>]. Irvine, CA: University of California, School of Information and Computer Science
-</p>
-<p>강철 등급에 대한 유용한 가이드:</p>
-<p>[<a href="http://www.outokumpu.com/SiteCollectionDocuments/Outokumpu-steel-grades-properties-global-standards.pdf">http://www.outokumpu.com/SiteCollectionDocuments/Outokumpu-steel-grades-properties-global-standards.pdf>]
-  </p>
-</td>
-</tr>
-
-<tr valign=top>
-<td>
-<p>망원경 데이터</p>
-</td>
-<td>
-<p>배경 소음과 함께 고에너지 감마 미립자 폭발에 대한 레코드로서, 두 항목 모두 Monte Carlo 프로세스를 사용하여 시뮬레이트됩니다.</p>
-<p>시뮬레이션의 의도는 통계적 방법을 사용하여 원하는 신호(체렌코프 방사선 샤워)와 배경 소음(상층부 대기의 우주 방사선에서 시작된 하드론 샤워)을 구분하는 지상 대기 체렌코프 감마 망원경을 향상하는 것이었습니다.</p>
-<p>데이터는 긴 축이 카메라 중심을 향하도록 하여 가늘고 긴 클러스터를 만들도록 전처리되었습니다. 이 타원의 특성(Hillas 매개 변수라고도 함)은 구분에 사용할 수 있는 이미지 매개 변수 중 하나입니다.</p>
-<p><strong>Usage:</strong> 샤워 이미지가 신호 또는 배경 소음을 나타내는지를 예측합니다.</p>
-<p><strong>참고:</strong> 배경 이벤트를 신호로 분류하는 것은 신호 이벤트를 배경으로 분류하는 것보다 비효율적이므로 단순 분류 정확도는 이 데이터에 대해 의미가 없습니다. 다양한 분류자를 비교하려면 ROC 그래프를 사용해야 합니다. 배경 이벤트를 신호로 수락할 가능성은 임계값 0.01 , 0.02 , 0.05 , 0.1 또는 0.2의 하나보다 낮아야 합니다.</p>
-<p>또한 배경 이벤트 수(h, 하드론 샤워의 경우)는 과소 예측되지만 실제 측정값에서 h 또는 소음 클래스는 대부분 이벤트를 나타냅니다.</p>
-</td>
-<td>
-<p>
-Bock, R.K. (1995). UCI Machine Learning Repository [<a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>]. Irvine, CA: University of California, School of Information and Computer Science
-</p>
-</td>
+<tr ID=book-reviews-from-amazon>
+  <td valign=top><a href="http://azure.microsoft.com/documentation/articles/machine-learning-sample-sentiment-analysis/">정서 분석</a></td>
+  <td valign=top>샘플 실험 - 정서 분류 - 개발</td>
+  <td valign=top>Amazon의 도서 리뷰</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-book-reviews-from-amazon](../../includes/machine-learning-sample-dataset-book-reviews-from-amazon.md)]
+  </td>
 </tr>
 
 </table>
 
-발견할 수 있는 데이터 집합 형식은 다음과 같습니다.
+
+
+## 기계 학습 스튜디오 샘플 실험에서 사용된 데이터 집합
+
+다음 데이터 집합은 [기계 학습 스튜디오](https://studio.azureml.net/Home)에 포함된 샘플 실험에서 사용됩니다.
+
+기계 학습 스튜디오에서 새 실험을 열거나 만들 때 실험 캔버스의 왼쪽에 있는 모듈 색상표에서 **저장된 데이터 집합** 아래 이 데이터 집합이 나열됩니다. 실험 캔버스로 끌어와 이러한 데이터 집합을 실험에서 사용할 수 있습니다.
+
+기계 학습 스튜디오의 **Experiments** 페이지에 있는 **Samples** 탭에서 여기에 나열된 모든 샘플 실험을 확인할 수 있습니다. 편집할 수 있는 샘플 실험을 복사하려면 기계 학습 스튜디오에서 해당 실험을 열고 **Save As**를 클릭합니다.
+
+
+<table>
+
+<tr>
+  <th align=left>데이터 집합 이름</th>
+  <th align=left>샘플 실험</th>
+  <th align=left>데이터 집합 설명</th>
+</tr>
+
+<tr ID=breast-cancer-features>
+  <td valign=top>유방암 기능
+  <td valign=top>샘플 실험 - 유방암 - 개발</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-breast-cancer-features](../../includes/machine-learning-sample-dataset-breast-cancer-features.md)]
+  </td>
+</tr>
+
+<tr ID=breast-cancer-info>
+  <td valign=top>유방암 정보</td>
+  <td valign=top><i>동일</i></td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-breast-cancer-info](../../includes/machine-learning-sample-dataset-breast-cancer-info.md)]
+  </td>
+</tr>
+
+<tr ID=direct-marketing>
+  <td valign=top><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/direct_marketing.csv">direct_marketing.csv</a></td>
+  <td valign=top>샘플 실험 - 다이렉트 마케팅 - 개발 - 교육</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-direct-marketing](../../includes/machine-learning-sample-dataset-direct-marketing.md)]
+  </td>
+</tr>
+
+<tr ID=imdb-movie-titles>
+  <td valign=top>IMDB 영화 제목</td>
+  <td valign=top>샘플 실험 - 영화 추천 - 개발</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-imdb-movie-titles](../../includes/machine-learning-sample-dataset-imdb-movie-titles.md)]
+  </td>
+</tr>
+
+<tr ID=movie-tweets>
+  <td valign=top>영화 트윗</td>
+  <td valign=top>샘플 실험 - 향후 인기도에 따른 영화 트윗 등급 - 개발</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-movie-tweets](../../includes/machine-learning-sample-dataset-movie-tweets.md)]
+  </td>
+</tr>
+
+<tr ID=lyrl2004-tokens-test>
+  <td valign=top><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/lyrl2004_tokens_test.csv">lyrl2004_tokens_test.csv</a></td>
+  <td valign=top>샘플 실험 - 뉴스 분류 - 개발</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-lyrl2004-tokens-test](../../includes/machine-learning-sample-dataset-lyrl2004-tokens-test.md)]
+  </td>
+</tr>
+
+<tr ID=lyrl2004-tokens-train>
+  <td valign=top><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/lyrl2004_tokens_train.csv">lyrl2004_tokens_train.csv</a></td>
+  <td valign=top><i>동일</i></td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-lyrl2004-tokens-train](../../includes/machine-learning-sample-dataset-lyrl2004-tokens-train.md)]
+  </td>
+</tr>
+
+<tr ID=rcv1-v2-topics-qrels>
+  <td valign=top><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/rcv1-v2.topics.qrels.csv">rcv1-v2.topics.qrels.csv</a></td>
+  <td valign=top><i>동일</i></td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-rcv1-v2-topics](../../includes/machine-learning-sample-dataset-rcv1-v2-topics.md)]
+  </td>
+</tr>
+
+</table>
+
+
+
+## 기계 학습 스튜디어의 기타 샘플 데이터 집합
+
+다음 데이터 집합은 [기계 학습 스튜디오](https://studio.azureml.net/Home)에 포함되어 기계 학습에 사용되는 다양한 데이터 형식의 예를 제공합니다. 이러한 데이터 집합은 기계 학습 스튜디오에서 새 실험을 만들거나 열 때 실험 캔버스 왼쪽에 있는 모듈 팔레트의 **Saved Datasets** 아래에 나열됩니다. 실험 캔버스로 끌어와 이러한 데이터 집합을 실험에서 사용할 수 있습니다.
 
 <table>
 <tr>
-<th>데이터 형식</th>
-<th>설명</th>
+  <th align=left>데이터 집합 이름</th>
+  <th align=left>설명</th>
 </tr>
+
 <tr>
-<td>
-CSV(쉼표로 구분된 값)
-</td>
-<td>
-모든 데이터 플랫폼에 대한 잘 알려진 교환 형식입니다. 기계 학습 스튜디오에서는 이 데이터를 로드하여 각 열에서 샘플링된 데이터를 기반으로 한 메타데이터를 적용하는 열 범위 유형 추측을 통합합니다.
-</td>
+  <td valign=top>성인 인구 조사 소득 이진 분류 데이터 집합</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-adult-census-income](../../includes/machine-learning-sample-dataset-adult-census-income.md)]
+  </td>
 </tr>
+
 <tr>
-<td>
-ARFF(Attribute Relationship File Format)
-</td>
-<td>
-WEKA에서 정의한 기계 학습 데이터 형식입니다. 기계 학습 스튜디오 데이터 테이블로 직접 변환되는 메타데이터(명목, 숫자 및 문자열 형식)를 포함합니다.
-</td>
+  <td valign=top>자동차 가격 데이터(원시)</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-automobile-price](../../includes/machine-learning-sample-dataset-automobile-price.md)]
+  </td>
 </tr>
+
 <tr>
-<td>
-일반 텍스트
-</td>
-<td>
-일반 텍스트를 읽고 다운스트림 전처리 모듈을 통해 열로 분할할 수 있습니다. 지원되는 주요 일반 텍스트 형식은 JSON입니다.
-</td>
+  <td valign=top>헌혈 데이터</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-blood-donation](../../includes/machine-learning-sample-dataset-blood-donation.md)]
+  </td>
 </tr>
+
 <tr>
-<td>
-DotNetTable
-</td>
-<td>
-기계 학습 스튜디오에서 모듈 간에 전달된 기본 컨테이너의 직렬화된 버전입니다(<i>데이터 집합</i>).
-</td>
+  <td valign=top>유방암 데이터</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-breast-cancer-data](../../includes/machine-learning-sample-dataset-breast-cancer-data.md)]
+  </td>
 </tr>
+
+<tr>
+  <td valign=top>에너지 효율 회귀 데이터</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-energy-efficiency-regression](../../includes/machine-learning-sample-dataset-energy-efficiency-regression.md)]
+  </td>
+</tr>
+
+<tr>
+  <td valign=top>비행 운항정시성(원시)</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-flight-on-time-performance](../../includes/machine-learning-sample-dataset-flight-on-time-performance.md)]
+  </td>
+</tr>
+
+<tr>
+  <td valign=top>산불 데이터</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-forest-fires](../../includes/machine-learning-sample-dataset-forest-fires.md)]
+  </td>
+</tr>
+
+<tr>
+  <td valign=top>붓꽃 2종 데이터</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-iris-two-class](../../includes/machine-learning-sample-dataset-iris-two-class.md)]
+  </td>
+</tr>
+
+<tr>
+  <td valign=top>다양한 자동차에 대한 MPG 데이터</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-automobile-mpg](../../includes/machine-learning-sample-dataset-automobile-mpg.md)]
+  </td>
+</tr>
+
+<tr>
+  <td valign=top>피마 인디언 당뇨병 이진 분류 데이터 집합</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-pima-indians-diabetes](../../includes/machine-learning-sample-dataset-pima-indians-diabetes.md)]
+  </td>
+</tr>
+
+<tr>
+  <td valign=top>음식점 고객 데이터</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-restaurant-customer-data](../../includes/machine-learning-sample-dataset-restaurant-customer-data.md)]
+  </td>
+</tr>
+
+<tr>
+  <td valign=top>음식점 기능 데이터</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-restaurant-feature-data](../../includes/machine-learning-sample-dataset-restaurant-feature-data.md)]
+  </td>
+</tr>
+
+<tr>
+  <td valign=top>음식점 등급</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-restaurant-ratings](../../includes/machine-learning-sample-dataset-restaurant-ratings.md)]
+  </td>
+</tr>
+
+<tr>
+  <td valign=top>강철 가열 냉각 다중 클래스 데이터 집합</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-steel-annealing](../../includes/machine-learning-sample-dataset-steel-annealing.md)]
+  </td>
+</tr>
+
+<tr>
+  <td valign=top>망원경 데이터</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-telescope-data](../../includes/machine-learning-sample-dataset-telescope-data.md)]
+  </td>
+</tr>
+
+
 </table>
 
-<!--HONumber=46--> 
+
+<!-- Module References -->
+[reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
+
+<!---HONumber=58_postMigration-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/15/2015" 
+	ms.date="06/03/2015" 
 	ms.author="szark"/>
 
 
@@ -29,7 +29,7 @@ Azure 갤러리의 Linux 이미지는 다양한 파트너에서 제공되며, �
 
 Hyper-V 및 Azure용 LIS(Linux 통합 서비스) 드라이버는 Microsoft가 업스트림 Linux 커널로 직접 제공되는 커널 모듈입니다. LIS 드라이버는 기본적으로 분포의 커널로 빌드되거나 이전 RHEL/CentOS 기반 분포는 [여기](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409)에서 별도의 다운로드로 사용 가능합니다. LIS 드라이버에 대한 자세한 내용은 [이 문서](virtual-machines-linux-create-upload-vhd-generic.md#linux-kernel-requirements)를 참조하세요.
 
-Azure Linux 에이전트는 Linux 갤러리 이미지에 사전에 이미 설치되며 분포의 패키지 저장소에서 일반적으로 사용할 수 있습니다. 소스 코드는 [GitHub](https://github.com/azure/walinuxagent)에서 찾을 수 있습니다.
+Azure Linux 에이전트는 Azure 갤러리 이미지에 사전에 이미 설치되며 분포의 패키지 저장소에서 일반적으로 사용할 수 있습니다. 소스 코드는 [GitHub](https://github.com/azure/walinuxagent)에서 찾을 수 있습니다.
 
 <table border="1" width="600">
   <tr bgcolor="#E9E7E7">
@@ -40,14 +40,14 @@ Azure Linux 에이전트는 Linux 갤러리 이미지에 사전에 이미 설치
 			</tr>
 	<tr>
 		<th>  Canonical Ubuntu </th>
-		<td> Ubuntu 12.04.1 이상, 14.04 및 14.10 </td>
+		<td> Ubuntu 12.04, 14.04, 14.10 and 15.04 </td>
 		<td>커널에 있음</td>
 		<td>패키지: "walinuxagent"의 리포지토리에 있음 <br />
 			원본: <a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
 			</tr>
 	<tr>
 		<th> OpenLogic의 CentOS </th>
-		<td> CentOS 6.3 이상</td>
+		<td> CentOS 6.3 이상, 7.0 이상</td>
 	    <td> CentOS 6.3: <a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409">LIS 다운로드</a><br/>
 	        CentOS 6.4 이상: 커널에 있음</td>
 		<td>패키지: "WALinuxAgent"의 <a href="http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/">OpenLogic 리포지토리</a>에 있음<br />
@@ -63,7 +63,7 @@ Azure Linux 에이전트는 Linux 갤러리 이미지에 사전에 이미 설치
 	</tr>
 	<tr>
 		<th> Oracle Linux </th>
-		<td> 6.4 이상</td>
+		<td> 6.4 이상, 7.0 이상 </td>
         <td>커널에 있음</td>
 		<td>패키지: "WALinuxAgent"의 리포지토리에 있음<br />
 			원본: <a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
@@ -71,9 +71,9 @@ Azure Linux 에이전트는 Linux 갤러리 이미지에 사전에 이미 설치
 	</tr>
 	<tr>
 		<th> SUSE Linux Enterprise </th>
-		<td> SLES 11 SP3 이상</td>
+		<td> SLES 11 SP3 이상, SLES 12 이상 및 <br /> SAP용 SLES 11.3 이상 </td>
         <td>커널에 있음</td>
-		<td>패키지: "WALinuxAgent"의 <a href="https://build.opensuse.org/project/show/Cloud:Tools" >Cloud:Tools</a> 리포지토리에 있음<br />
+		<td>패키지: "WALinuxAgent"의 <a href="https://build.opensuse.org/project/show/Cloud:Tools">Cloud:Tools</a> 리포지토리에 있음<br />
 			원본: <a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
 		
 	</tr>
@@ -122,4 +122,6 @@ Oracle의 전략은 공용 및 사설 클라우드에 대한 솔루션의 다양
 
 SUSE Linux Enterprise Server on Azure는 클라우드 컴퓨팅에 대해 우수한 안정성과 보안을 제공하는 검증된 플랫폼입니다. SUSE의 다양한 Linux 플랫폼은 Azure 클라우드 서비스와 자연스럽게 통합되어 쉽게 관리할 수 있는 클라우드 환경을 제공합니다. 1,800곳이 넘는 SUSE Linux Enterprise Server의 독립 소프트웨어 공급업체에서 9,200개 이상의 인증된 응용 프로그램을 통해 SUSE는 데이터 센터에서 지원되는 실행 중인 작업이 확실히 Azure에 배포될 수 있도록 합니다.
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=58_postMigration-->

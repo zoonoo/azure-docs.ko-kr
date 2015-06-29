@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/14/2015" 
+	ms.date="04/14/2015"
 	ms.author="jparrel"/>
 
 # 부하 분산 집합을 사용하여 Linux에서 MySQL 클러스터화
@@ -324,7 +324,7 @@ Pacemaker를 처음 설치할 때는 구성이 다음과 같이 단순합니다.
 
 ## STONITH
 
-실제 장치를 제어하는 STONITH 스크립트 대신, Linux용 Azure 명령줄 도구를 통해 VM 종료를 실행할 수 있습니다. `/usr/lib/stonith/plugins/external/ssh`를 기반으로 사용하고 클러스터의 구성에서 STONITH를 사용하도록 설정할 수 있습니다. Azure CLI는 전역적으로 설치해야 하며 클러스터 사용자를 위해 게시 설정/프로필을 로드해야 합니다.
+실제 장치를 제어하는 STONITH 스크립트 대신, Azure CLI를 통해 VM 종료를 실행할 수 있습니다. `/usr/lib/stonith/plugins/external/ssh`를 기반으로 사용하고 클러스터의 구성에서 STONITH를 사용하도록 설정할 수 있습니다. Azure CLI는 전역적으로 설치해야 하며 클러스터 사용자를 위해 게시 설정/프로필을 로드해야 합니다.
 
 [GitHub](https://github.com/bureado/aztonith)에서 사용할 수 있는 리소스에 대한 샘플 코드입니다. `sudo crm configure`에 다음을 추가하여 클러스터 구성을 변경해야 합니다.
 
@@ -346,5 +346,6 @@ Pacemaker를 처음 설치할 때는 구성이 다음과 같이 단순합니다.
 - 부하 분산 장치가 응답하는 데 5초 이상 필요하므로 응용 프로그램은 클러스터를 인식할 수 있어야 하고 시간 제한을 좀 더 허용해야 합니다. 앱 내 큐, 쿼리 미들웨어 등의 다른 아키텍처도 도움이 될 수 있습니다.
 - 동일한 간격으로 쓰기가 수행되고 캐시가 메모리 손실을 최소화할만큼 자주 디스크에 플러시되도록 하기 위해 MySQL 튜닝이 필요합니다.
 - 쓰기 성능은 DRBD가 장치 복제에 사용하는 메커니즘인 가상 스위치의 VM 상호 연결에 따라 좌우됩니다.
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

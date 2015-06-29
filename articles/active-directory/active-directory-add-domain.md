@@ -72,7 +72,7 @@ contoso.onmicrosoft.com과 같이 등록 중 클라우드 서비스에서 사용
 
 ### 클라우드 서비스에 대한 DNS 레코드 편집
 
-> [AZURE.NOTE]Microsoft Intune을 사용하고 계시나요? Windows Intune 클라우드 서비스에 대한 DNS 레코드는 편집할 필요가 없습니다.
+> [AZURE.NOTE]Microsoft Intune을 사용하고 계시나요? Microsoft Intune 클라우드 서비스에 대한 DNS 레코드를 편집할 필요가 없습니다.
 
 사용자 지정 도메인 이름을 추가하고 확인한 후 다음 단계에서는 도메인 등록 기관이나 DNS 호스팅 공급자에서 클라우드 서비스에 트래픽을 전달하는 DNS 레코드를 편집합니다. Azure AD는 필요한 DNS 정보를 제공합니다.
 
@@ -209,6 +209,6 @@ Azure AD에 도메인 이름을 추가한 후 새 사용자 계정을 만들 때
 - [Azure AD 포럼](https://social.msdn.microsoft.com/Forums/home?forum=WindowsAzureAD)
 - [Stackoverflow](http://stackoverflow.com/questions/tagged/azure)
 - [조직으로 Azure에 등록](sign-up-organization.md)
-- [Azure AD에서 도메인 관리](https://msdn.microsoft.com/library/azure/dn919677.aspx)
+- [Azure AD에서 도메인 관리](https://msdn.microsoft.com/library/azure/dn919677.aspx) 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

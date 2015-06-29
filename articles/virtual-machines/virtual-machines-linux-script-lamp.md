@@ -20,7 +20,7 @@
 
 Linux용 Azure CustomScript 확장을 사용하면 Python, Bash 등 VM에서 지원하는 모든 스크립팅 언어로 작성된 임의 코드를 실행하여 VM(가상 컴퓨터)을 사용자 지정할 수 있습니다. 이렇게 하면 매우 유동적으로 응용 프로그램을 여러 컴퓨터에 자동으로 배포할 수 있습니다.
 
-Azure 포털, PowerShell 또는 Azure 플랫폼 간 명령줄 인터페이스(Azure CLI)를 사용하여 CustomScript 확장을 배포할 수 있습니다.
+Azure 포털, PowerShell 또는 Azure 명령줄 인터페이스(Azure CLI)를 사용하여 CustomScript 확장을 배포할 수 있습니다.
 
 이 예제에서는 Azure CLI를 사용하여 간단한 LAMP 응용 프로그램을 Ubuntu에 배포하는 과정을 안내합니다.
 
@@ -57,7 +57,7 @@ Azure에서 Linux VM을 만들 때 도움이 필요하면 [Linux를 실행하는
 
 	# write some PHP
 	echo <center><h1>My Demo App</h1><br/></center> > /var/www/html/phpinfo.php
-	echo <\?php phpinfo()\; \?> >> /var/www/html/phpinfo.php
+	echo <\?php phpinfo()\; \?> > /var/www/html/phpinfo.php
 
 	# restart Apache
 	apachectl restart
@@ -105,5 +105,6 @@ CustomScript 확장 실행이 완료되면 앞에서 만든 PHP 페이지를 찾
 [Azure Linux 확장(GitHub)](https://github.com/Azure/azure-linux-extensions)
 
 [Azure에서 Linux 및 오픈 소스 컴퓨팅](virtual-machines-linux-opensource.md)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

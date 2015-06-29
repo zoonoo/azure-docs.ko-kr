@@ -5,7 +5,7 @@
    documentationCenter="NA"
    authors="SharS"
    manager="adinah"
-   editor="tysonn" /> 
+   editor="tysonn" />
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
@@ -16,9 +16,9 @@
    ms.author="v-sharos" />
 
 
-### 새 서비스를 만들려면
+#### 새 서비스를 만들려면
 
-1. Microsoft 계정 자격 증명을 사용하여 Microsoft Azure 관리 포털에 로그온합니다. [Azure 관리 포털](https://manage.windowsazure.com/)
+1. Microsoft 계정 자격 증명을 사용하여 다음 URL로 관리 포털에 로그인합니다. [http://azure.microsoft.com/](http://azure.microsoft.com/)
 
 2. 관리 포털에서 **새로 만들기** > **데이터 서비스** > **StorSimple 관리자** > **빠른 생성**을 클릭합니다.
 
@@ -35,4 +35,4 @@
  
        ![서비스 만들기](./media/storsimple-create-new-service/HCS_StorSimpleManagerServicePage-include.png)
 
-<!--HONumber=52-->
+<!---HONumber=58_postMigration-->

@@ -3,7 +3,7 @@
 	description="Visual Studio의 클라우드 서비스 프로젝트에서 Azure 큐 저장소를 사용하는 방법" 
 	services="storage" 
 	documentationCenter="" 
-	authors="kempb" 
+	authors="patshea123" 
 	manager="douge" 
 	editor="tglee"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="04/20/2015" 
-	ms.author="kempb"/>
+	ms.author="patshea123"/>
 
 # Azure 저장소 시작(클라우드 서비스 프로젝트)
 
@@ -272,5 +272,6 @@ Azure 큐 저장소는 HTTP 또는 HTTPS를 사용하여 인증된 호출을 통
   [OData]: http://nuget.org/packages/Microsoft.Data.OData/5.0.2
   [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

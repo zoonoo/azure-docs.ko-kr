@@ -1,9 +1,9 @@
 <properties
-	pageTitle="Windows에서 PHP를 사용하여 SQL 데이터베이스에 연결"
+	pageTitle="SQL DB에 대한 Windows의 PHP | Microsoft Azure"
 	description="Windows 클라이언트에서 Azure SQL 데이터베이스에 연결하는 샘플 PHP 프로그램을 제시하고, 클라이언트에 필요한 필수 소프트웨어 구성 요소의 링크를 제공합니다."
 	services="sql-database"
 	documentationCenter=""
-	authors="MightyPen"
+	authors="meet-bhagdev"
 	manager="jeffreyg"
 	editor=""/>
 
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="php"
 	ms.topic="article"
-	ms.date="04/27/2015"
-	ms.author="genemi"/>
+	ms.date="06/10/2015"
+	ms.author="mebha"/>
 
 
 # Windows에서 PHP를 사용하여 SQL 데이터베이스에 연결
@@ -35,17 +35,17 @@
 
 - [Microsoft SQL Server용 Microsoft PHP 드라이버](http://www.microsoft.com/download/details.aspx?id=20098)(SQLSRV32.EXE에 최신 자료 포함)
 - [Microsoft SQL Server Native Client 11.0](http://www.microsoft.com/download/details.aspx?id=36434)
-- 특정 설치 작업은 [웹 플랫폼 설치 관리자](http://www.microsoft.com/web/downloads/platform.aspx)를 사용하여 수행해야 합니다. 자세한 내용은 다음 섹션을 참조하세요.
+- [Microsoft ODBC Driver](https://www.microsoft.com/ko-kr/download/details.aspx?id=36434)
+- IIS Express
+- [PHP 5.6 for IIS Express](http://www.microsoft.com/web/downloads/platform.aspx) : 플랫폼 설치 관리자를 사용하여 다운로드합니다. Internet Explorer를 사용하여 플랫폼 설치 관리자를 다운로드하고 있는지 확인
+
+[팀 블로그](http://blogs.msdn.com/b/sqlphp/archive/2015/05/11/getting-started-with-php-and-microsoft-sql-server.aspx) 및 [비디오](https://www.youtube.com/watch?v=0oCjiRK_tUk)를 선택하여 앞에서 언급한 요구 사항을 설치하고 설정하는 방법을 배울 수 있습니다.
 
 
-### 웹 플랫폼 설치 관리자를 사용한 설치
+## 데이터베이스를 만들고 연결 문자열 검색
 
 
-1. [웹 플랫폼 설치 관리자](http://www.microsoft.com/web/downloads/platform.aspx)를 다운로드 및 실행하고 필요한 모듈을 선택합니다.
-2. [웹 플랫폼 설치 관리자](http://www.microsoft.com/web/downloads/platform.aspx)를 사용하여 다음 구성 요소를 설치합니다.
- - IIS 또는 IIS Express.<br/>예를 들어, [IIS Express 8.0 다운로드](http://www.microsoft.com/download/details.aspx?id=34679)는 웹에서 IIS Express 다운로드를 검색하면 찾을 수 있습니다.
- - Windows용 PHP, 버전 5.5 이상, 32비트 버전.
-3. PHP.INI 파일 편집, Dynamic Extensions 섹션 아래에 다음과 같은 항목 추가:<br/>**extension=php_sqlsrv_55_nts.dll**
+샘플 데이터베이스를 만들고 연결 문자열을 검색하는 방법을 알아보려면 [시작 항목](sql-database-get-started.md)을 참조하세요. 안내에 따라 **AdventureWorks 데이터베이스 템플릿**을 만드는 것이 중요합니다. 아래 표시된 샘플은 **AdventureWorks 스키마**에서만 작동합니다.
 
 
 ## SQL 데이터베이스 데이터베이스에 연결
@@ -59,12 +59,9 @@
 		try
 		{
 			$serverName = "tcp:myserver.database.windows.net,1433";
-
 			$connectionOptions = array("Database"=>"AdventureWorks",
 				"Uid"=>"MyUser", "PWD"=>"MyPassword");
-
 			$conn = sqlsrv_connect($serverName, $connectionOptions);
-
 			if($conn == false)
 				die(FormatErrors(sqlsrv_errors()));
 		}
@@ -75,7 +72,40 @@
 	}
 
 
-## 테이블에 값 삽입
+## 쿼리를 실행하고 결과 집합을 검색합니다.
+
+[sqlsrv_query()](http://php.net/manual/en/function.sqlsrv-query.php) 함수를 사용하여 SQL 데이터베이스에 대한 쿼리에서 결과 집합을 검색할 수 있습니다. 이 함수는 본질적으로 모든 쿼리를 허용하며, [sqlsrv_fetch_array()](http://php.net/manual/en/function.sqlsrv-fetch-array.php)를 사용하여 반복될 수 있는 결과 집합을 반환합니다.
+
+	function ReadData()
+	{
+		try
+		{
+			$conn = OpenConnection();
+			$tsql = "SELECT [CompanyName] FROM SalesLT.Customer";
+			$getProducts = sqlsrv_query($conn, $tsql);
+			if ($getProducts == FALSE)
+				die(FormatErrors(sqlsrv_errors()));
+			$productCount = 0;
+			while($row = sqlsrv_fetch_array($getProducts, SQLSRV_FETCH_ASSOC))
+			{
+				echo($row['CompanyName']);
+				echo("<br/>");
+				$productCount++;
+			}
+			sqlsrv_free_stmt($getProducts);
+			sqlsrv_close($conn);
+		}
+		catch(Exception $e)
+		{
+			echo("Error!");
+		}
+	}
+	
+
+## 행을 삽입하고, 매개 변수를 전달하며, 생성된 기본 키를 검색합니다.
+
+
+SQL 데이터베이스에서 [IDENTITY](https://msdn.microsoft.com/library/ms186775.aspx) 속성 및 [SEQUENECE](https://msdn.microsoft.com/library/ff878058.aspx) 개체를 사용하여 [기본 키](https://msdn.microsoft.com/library/ms179610.aspx) 값을 자동으로 생성할 수 있습니다.
 
 
 	function InsertData()
@@ -84,91 +114,17 @@
 		{
 			$conn = OpenConnection();
 
-			$tsql = "INSERT INTO [SalesLT].[Customer]
-					   ([NameStyle],[FirstName],[MiddleName],[LastName],
-					   [PasswordHash],[PasswordSalt],[rowguid],[ModifiedDate])
-					   VALUES (?,?,?,?,?,?,?,?)";
-
-			$params = array("0", "Luiz", "F", "Santos",
-				"L/Rlwxzp4w7RWmEgXX+/A7cXaePEPcp+KwQhl2fJL7w=",
-				"1KjXYs4=", "88949BFE-0BB4-4148-AFC2-DD8C8DAE4CD6",
-				date("Y-m-d"));
-
-			$insertReview = sqlsrv_prepare($conn, $tsql, $params);
+			$tsql = "INSERT SalesLT.Product (Name, ProductNumber, StandardCost, ListPrice, SellStartDate) OUTPUT 			INSERTED.ProductID VALUES ('SQL Server 1', 'SQL Server 2', 0, 0, getdate())";
+			//Insert query
+			$insertReview = sqlsrv_query($conn, $tsql);
 			if($insertReview == FALSE)
 				die(FormatErrors( sqlsrv_errors()));
-
-			if(sqlsrv_execute($insertReview) == FALSE)
-				die(FormatErrors(sqlsrv_errors()));
-
-			sqlsrv_free_stmt($insertReview);
-
-			sqlsrv_close($conn);
-		}
-		catch(Exception $e)
-		{
-			echo("Error!");
-		}
-	}
-
-
-## 테이블에서 값 삭제
-
-
-	function DeleteData()
-	{
-		try
-		{
-			$conn = OpenConnection();
-
-			$tsql = "DELETE FROM [SalesLT].[Customer] WHERE FirstName=? AND LastName=?";
-			$params = array($_REQUEST['FirstName'], $_REQUEST['LastName']);
-
-			$deleteReview = sqlsrv_prepare($conn, $tsql, $params);
-			if($deleteReview == FALSE)
-				die(FormatErrors(sqlsrv_errors()));
-
-			if(sqlsrv_execute($deleteReview) == FALSE)
-				die(FormatErrors(sqlsrv_errors()));
-
-			sqlsrv_free_stmt($deleteReview);
-
-			sqlsrv_close($conn);
-		}
-		catch(Exception $e)
-		{
-			echo("Error!");
-		}
-	}
-
-
-## 테이블에서 값 선택
-
-
-	function ReadData()
-	{
-		try
-		{
-			$conn = OpenConnection();
-
-			$tsql = "SELECT [CompanyName] FROM SalesLT.Customer";
-
-			$getProducts = sqlsrv_query($conn, $tsql);
-
-			if ($getProducts == FALSE)
-				die(FormatErrors(sqlsrv_errors()));
-
-			$productCount = 0;
-
-			while($row = sqlsrv_fetch_array($getProducts, SQLSRV_FETCH_ASSOC))
-			{
-				echo($row['CompanyName']);
-				echo("<br/>");
-				$productCount++;
+			echo "Product Key inserted is :";	
+			while($row = sqlsrv_fetch_array($insertReview, SQLSRV_FETCH_ASSOC))
+			{   
+				echo($row['ProductID']);
 			}
-
-			sqlsrv_free_stmt($getProducts);
-
+			sqlsrv_free_stmt($insertReview);
 			sqlsrv_close($conn);
 		}
 		catch(Exception $e)
@@ -176,9 +132,17 @@
 			echo("Error!");
 		}
 	}
-
 
 ## 트랜잭션
+
+
+이 코드 예제는 다음과 같은 트랜잭션의 사용법을 보여줍니다.
+
+-트랜잭션 시작
+
+-데이터의 행 삽입, 데이터의 다른 행 업데이트
+
+-삽입 및 업데이트가 성공한 경우 트랜잭션 커미트, 둘 중 하나가 성공하지 못한 경우 트랜잭션 롤백
 
 
 	function Transactions()
@@ -190,73 +154,29 @@
 			if (sqlsrv_begin_transaction($conn) == FALSE)
 				die(FormatErrors(sqlsrv_errors()));
 
-			/* Initialize parameter values. */
-			$orderId = 43659;
-			$qty = 5;
-			$productId = 709;
-			$offerId = 1;
-			$price = 5.70;
-
-			/* Set up and execute the first query. */
-			$tsql1 = "INSERT INTO SalesLT.SalesOrderDetail
-			   (SalesOrderID,OrderQty,ProductID,SpecialOfferID,UnitPrice)
-			   VALUES (?, ?, ?, ?, ?)";
-			$params1 = array($orderId, $qty, $productId, $offerId, $price);
-			$stmt1 = sqlsrv_query($conn, $tsql1, $params1);
-
+			$tsql1 = "INSERT INTO SalesLT.SalesOrderDetail (SalesOrderID,OrderQty,ProductID,UnitPrice) 
+			VALUES (71774, 22, 709, 33)";
+			$stmt1 = sqlsrv_query($conn, $tsql1);
+			
 			/* Set up and execute the second query. */
-			$tsql2 = "UPDATE Production.ProductInventory SET Quantity = (Quantity - ?)
-					  WHERE ProductID = ?";
-			$params2 = array($qty, $productId);
-			$stmt2 = sqlsrv_query( $conn, $tsql2, $params2 );
-
+			$tsql2 = "UPDATE SalesLT.SalesOrderDetail SET OrderQty = (OrderQty + 1) WHERE ProductID = 709";
+			$stmt2 = sqlsrv_query( $conn, $tsql2);
+			
 			/* If both queries were successful, commit the transaction. */
 			/* Otherwise, rollback the transaction. */
 			if($stmt1 && $stmt2)
 			{
-					sqlsrv_commit($conn);
-					echo "Transaction was committed.\n";
+			       sqlsrv_commit($conn);
+			       echo("Transaction was commited");
 			}
 			else
 			{
-					sqlsrv_rollback($conn);
-					echo "Transaction was rolled back.\n";
+			    sqlsrv_rollback($conn);
+			    echo "Transaction was rolled back.\n";
 			}
-
 			/* Free statement and connection resources. */
 			sqlsrv_free_stmt( $stmt1);
 			sqlsrv_free_stmt( $stmt2);
-
-			sqlsrv_close($conn);
-		}
-		catch(Exception $e)
-		{
-			echo("Error!");
-		}
-	}
-
-
-## 저장 프로시저
-
-
-	function ExecuteSProc()
-	{
-		try
-		{
-			$conn = OpenConnection();
-
-			$tsql = "EXEC [dbo].[uspLogError]";
-
-			$execReview = sqlsrv_prepare($conn, $tsql);
-			if($execReview == FALSE)
-				die(FormatErrors( sqlsrv_errors()));
-
-			if(sqlsrv_execute($execReview) == FALSE)
-				die(FormatErrors(sqlsrv_errors()));
-
-			sqlsrv_free_stmt($execReview);
-
-			sqlsrv_close($conn);
 		}
 		catch(Exception $e)
 		{
@@ -270,4 +190,6 @@
 
 PHP 설치 및 사용에 대한 자세한 내용은[PHP로 SQL Server 데이터베이스 액세스](http://technet.microsoft.com/library/cc793139.aspx)를 참조하세요.
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=58_postMigration-->

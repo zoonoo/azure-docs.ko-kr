@@ -10,30 +10,26 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/24/2015" 
+	ms.date="06/11/2015" 
 	ms.author="glenga"/>
 
 
 # 모바일 서비스 앱에 푸시 알림 추가
 
-[AZURE.INCLUDE [mobile-services-selector-get-started-push-legacy](../../includes/mobile-services-selector-get-started-push-legacy.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
-이 항목은 Azure 모바일 서비스를 사용하여 Windows Phone Silverlight 앱에 푸시 알림을 보내는 방법을 보여 줍니다. 이 자습서에서는 빠른 시작 프로젝트에 대한 Azure 알림 허브를 사용하여 푸시 알림을 사용하도록 설정합니다. 이 작업을 완료하면 레코드가 삽입될 때마다 모바일 서비스에서 알림 허브를 사용하여 푸시 알림을 전송합니다. 모바일 서비스를 통해 무료로 만드는 알림 허브는 모바일 서비스와 별도로 관리할 수 있으며, 다른 응용 프로그램과 서비스에서도 사용 가능합니다.
+##개요
 
-이 자습서에서는 푸시 알림을 사용하도록 설정하는 다음 기본 단계를 단계별로 안내합니다.
+이 항목에서는 Azure 모바일 서비스를 사용하여 Windows Phone Silverlight 앱에 푸시 알림을 보내는 방법을 보여 줍니다. 이 자습서에서는 빠른 시작 프로젝트에 대한 Azure 알림 허브를 사용하여 푸시 알림을 사용하도록 설정합니다. 이 작업을 완료하면 레코드가 삽입될 때마다 모바일 서비스에서 알림 허브를 사용하여 푸시 알림을 전송합니다. 모바일 서비스를 통해 무료로 만드는 알림 허브는 모바일 서비스와 별도로 관리할 수 있으며, 다른 응용 프로그램과 서비스에서 도 사용 가능합니다.
 
-1. [알림 등록을 위해 앱 업데이트](#update-app)
-2. [푸시 알림을 전송하도록 서버 스크립트 업데이트](#update-scripts)
-3. [푸시 알림을 받기 위한 데이터 삽입](#test)
-
-이 자습서는 모바일 서비스 quickstart를 기반으로 합니다. 이 자습서를 시작하기 전에 먼저 [모바일 서비스 시작하기] 또는 [데이터 시작하기]를 완료하여 프로젝트를 모바일 서비스에 연결해야 합니다. 모바일 서비스가 연결되지 않은 경우 푸시 알림 추가 마법사에서 대신 연결해줍니다.
+이 자습서는 TodoList 샘플 앱을 기반으로 합니다. 이 자습서를 시작하기 전에 먼저 [기존 앱에 모바일 서비스 추가] 항목을 완료하여 프로젝트를 모바일 서비스에 연결해야 합니다. 모바일 서비스가 연결되지 않은 경우 푸시 알림 추가 마법사에서 대신 연결해 줍니다.
 
 >[AZURE.NOTE]Windows Phone 8.1 스토어 앱으로 푸시 알림을 보내려면 이 자습서의 [Windows 스토어 앱](../mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md) 버전을 참조하세요.
 
-## <a id="update-app"></a> 알림 등록을 위해 앱 업데이트
+##<a id="update-app"></a> 알림 등록을 위해 앱 업데이트
 
 앱에서 푸시 알림을 받을 수 있으려면 알림 채널을 등록해야 합니다.
 
@@ -84,7 +80,7 @@
 
    	이제 앱에서 알림 메시지를 표시할 수 있습니다.
 
-## <a id="update-scripts"></a> 푸시 알림을 전송하도록 서버 스크립트 업데이트
+##<a id="update-scripts"></a> 푸시 알림을 전송하도록 서버 스크립트 업데이트
 
 마지막으로 TodoItem 테이블에서 삽입 작업에 등록된 스크립트를 업데이트하여 알림을 보내야 합니다.
 
@@ -124,7 +120,7 @@
 
 	>[AZURE.NOTE]이 자습서에서는 인증되지 않은 모드로 MPNS를 사용합니다. 이 모드에서 MPNS는 장치 채널로 전송할 수 있는 알림 수를 제한합니다. 이 제한을 제거하려면 **업로드**를 클릭하고 인증서를 선택하여 인증서를 생성 및 업로드해야 합니다. 인증서 생성에 대한 자세한 내용은 [Windows Phone의 푸시 알림을 보내도록 인증된 웹 서비스 설정]을 참조하십시오.
 
-## <a id="test"></a> 앱에서 푸시 알림 테스트
+##<a id="test"></a> 앱에서 푸시 알림 테스트
 
 1. Visual Studio에서 F5 키를 눌러 앱을 실행합니다.
 
@@ -138,7 +134,7 @@
 
 	![수신된 알림 메시지](./media/mobile-services-javascript-backend-windows-phone-get-started-push/mobile-quickstart-push5-wp8.png)
 
-	>[AZURE.NOTE]계속 앱을 열어 두면 알림이 수신되지 않습니다. 앱이 활성 상태인 동안 알림 메시지를 수신하려면 [ShellToastNotificationReceived](http://msdn.microsoft.com/library/windowsphone/develop/microsoft.phone.notification.httpnotificationchannel.shelltoastnotificationreceived(v=vs.105).aspx) 이벤트를 처리해야 합니다.
+	>[AZURE.NOTE]계속 앱을 열어 두면 알림이 수신되지 않습니다. 앱이 활성 상태인 동안 알림 메시지를 수신하려면 [ShellToastNotificationReceived](http://msdn.microsoft.com/library/windowsphone/develop/microsoft.phone.notification.httpnotificationchannel.shelltoastnotificationreceived.aspx) 이벤트를 처리해야 합니다.
 
 ## <a name="next-steps"> </a>다음 단계
 
@@ -172,8 +168,7 @@
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[모바일 서비스 시작하기]: ../mobile-services-windows-phone-get-started.md
-[데이터 시작하기]: mobile-services-windows-phone-get-started-data.md
+[기존 앱에 모바일 서비스 추가]: mobile-services-windows-phone-get-started-data.md
 [인증 시작]: mobile-services-windows-phone-get-started-users.md
 
 [Windows Phone의 푸시 알림을 보내도록 인증된 웹 서비스 설정]: http://msdn.microsoft.com/library/windowsphone/develop/ff941099(v=vs.105).aspx
@@ -183,5 +178,6 @@
 
 [알림 허브 정의]: ../notification-hubs-overview.md
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=58_postMigration-->

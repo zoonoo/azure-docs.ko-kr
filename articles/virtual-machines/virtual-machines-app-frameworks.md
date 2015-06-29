@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="infrastructure"
-   ms.date="05/14/2015"
+   ms.date="06/03/2015"
    ms.author="rasquill"/>
 
 # 템플릿을 사용하는 응용 프로그램 프레임워크
@@ -22,7 +22,7 @@
 
 | 템플릿 이름 | 설명 | 템플릿 보기 | 즉시 배포 |
 |:---|:---|:---:|:---:|
-| Active Directory 포리스트 및 도메인 | 이 템플릿은 새 VNet, 저장소 계정 및 부하 분산 장치와 함께 새 VM 2개를 배포하며, 새 AD 포리스트 및 도메인을 만듭니다. 각 VM은 새 도메인의 DC로 생성되고 가용성 집합에 배치되며, 공용 부하 분산 IP 주소와 함께 추가되는 RDP 끝점도 있습니다. | [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/activedirectorynewdomain-ha-2-dc) | <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Factivedirectorynewdomain-ha-2-dc%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
+| Active Directory 포리스트 및 도메인 | 이 템플릿은 새 VNet, 저장소 계정 및 부하 분산 장치와 함께 새 VM 2개를 배포하며, 새 AD 포리스트 및 도메인을 만듭니다. 각 VM은 새 도메인의 DC로 생성되고 가용성 집합에 배치되며, 공용 부하 분산 IP 주소와 함께 추가되는 RDP 끝점도 있습니다. | [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/active-directory-new-domain-ha-2-dc) | <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Factive-directory-new-domain-ha-2-dc%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
 | Apache Webserver | 이 템플릿은 Azure Linux CustomScript 확장을 사용하여 Apache 웹 서버를 배포합니다. 이 템플릿은 Ubuntu VM을 만들고, Apache2를 설치하며, 간단한 HTML 파일을 만듭니다.| [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/apache2-on-ubuntu-vm) | <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapache2-on-ubuntu-vm%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
 | Couchbase 클러스터 | 이 템플릿은 Ubuntu 가상 컴퓨터에 Couchbase 클러스터를 배포합니다. | [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/couchbase-on-ubuntu) | <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fcouchbase-on-ubuntu%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
 | Datastax 클러스터 | 이 템플릿은 Azure Linux CustomScript 확장을 사용하여 Ubuntu VM에 Datastax 클러스터를 설치합니다. [자세한 연습입니다.](virtual-machines-datastax-template.md)| [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/datastax-on-ubuntu) | <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fdatastax-on-ubuntu%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
@@ -47,5 +47,6 @@
 [GitHub](https://github.com/Azure/azure-quickstart-templates)에서 모든 템플릿을 검색할 수 있습니다.
 
 Azure 리소스 관리에 대한 자세한 내용은 [여기](../resource-group-template-deploy.md)를 참조하세요.
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

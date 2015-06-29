@@ -1,27 +1,27 @@
-<properties 
-    pageTitle="Azure 저장소에서 Azure CLI 사용 | Microsoft Azure" 
-    description="Azure 저장소에서 Azure 플랫폼간 명령줄 인터페이스(Azure CLI)를 사용하여 저장소 계정을 만들어 관리하고 Azure blob과 파일 작업을 수행하는 방법에 대해 알아봅니다." 
-    services="storage" 
-    documentationCenter="na" 
-    authors="tamram" 
+<properties
+    pageTitle="Azure 저장소에서 Azure CLI 사용 | Microsoft Azure"
+    description="Azure 저장소에서 Azure 명령줄 인터페이스(Azure CLI)를 사용하여 저장소 계정을 만들어 관리하고 Azure blob과 파일 작업을 수행하는 방법에 대해 알아봅니다."
+    services="storage"
+    documentationCenter="na"
+    authors="tamram"
     manager="jdial"/>
 
-<tags 
-    ms.service="storage" 
-    ms.workload="storage" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
+<tags
+    ms.service="storage"
+    ms.workload="storage"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
     ms.topic="article" 
-    ms.date="05/27/2015" 
+    ms.date="05/27/2015"
     ms.author="chungli;jiyang;yaxia;tamram"/>
 
-# Azure 저장소에서 Azure CLI 사용 
+# Azure 저장소에서 Azure CLI 사용
 
 ## 개요
 
 Azure CLI는 Azure 플랫폼 작업을 위한 플랫폼 간 오픈 소스 명령 집합을 제공합니다. 다양한 데이터 액세스 기능 뿐만 아니라 Azure 관리 포털에 있는 동일한 기능을 대부분 제공합니다.
 
-이 가이드에서는 [Azure 플랫폼간 명령줄 인터페이스(Azure CLI)](../xplat-cli.md)를 사용하여 다양한 Azure 저장소에서의 개발 및 관리 작업을 수행하는 방법을 살펴봅니다. 이 가이드를 사용하기 전에 최신 Azure CLI를 다운로드 및 설치하거나, 최신 버전으로 업그레이드하는 것이 좋습니다.
+이 가이드에서는 [Azure CLI(명령줄 인터페이스 Azure)](../xplat-cli.md)을 사용하여 Azure 저장소와 다양한 개발 및 관리 작업을 수행할 수 있는 방법을 설명합니다. 이 가이드를 사용하기 전에 최신 Azure CLI를 다운로드 및 설치하거나, 최신 버전으로 업그레이드하는 것이 좋습니다.
 
 이 가이드에서는 Azure 저장소의 기본 개념을 이해하고 있다고 가정합니다. 이 가이드는 Azure 저장소에서 Azure CLI를 사용하는 방법을 보여주는 몇 가지 스크립트를 제공합니다. 각 스크립트를 실행하기 전에 구성에 따라 스크립트 변수를 업데이트 해야 합니다.
 
@@ -55,33 +55,33 @@ Azure 구독에 대한 자세한 내용은 [계정, 구독 및 관리 역할 관
 		export blob_name=<blob_name>
 		export image_to_upload=<image_to_upload>
 		export destination_folder=<destination_folder>
-			   
-		echo "Creating the container..."       
+
+		echo "Creating the container..."
 		azure storage container create $container_name
 
-		echo "Uploading the image..."       
+		echo "Uploading the image..."
 		azure storage blob upload $image_to_upload $container_name $blob_name
 
-		echo "Listing the blobs..."       
+		echo "Listing the blobs..."
 		azure storage blob list $container_name
 
-		echo "Downloading the image..."       
+		echo "Downloading the image..."
 		azure storage blob download $container_name $blob_name $destination_folder
 
 		echo "Done"
-     
+
 5. 로컬 컴퓨터에서 원하는 텍스트 편집기(예: vim)를 엽니다. 텍스트 편집기에 위의 스크립트를 입력합니다.
 
 6. 이제, 구성 설정에 따라 스크립트 변수를 업데이트해야 합니다.
-    
+
     - **<storage_account_name>** 스크립트에 지정된 이름을 사용하거나 사용자 저장소 계정에 대한 새 이름을 입력합니다. **중요:** 저장소 계정 이름은 Azure에서 고유해야 합니다. 소문자여야 합니다.
 
     - **<storage_account_key>** 저장소 계정의 액세스 키.
-      
+
     - **<container_name>** 스크립트에 지정된 이름을 사용하거나 사용자 컨테이너에 대한 새 이름을 입력합니다.
-    
+
     - **<image_to_upload>** 로컬 컴퓨터의 그림 경로(예: "~/images/HelloWorld.png")를 입력합니다.
-    
+
     - **<destination_folder>** Azure 저장소에서 다운로드한 파일을 보관할 로컬 디렉터리의 경로(예: “~/downloadImages”)를 입력합니다.
 
 7. vim에서 필요한 변수를 업데이트 한 후 키 조합 "Esc,:, wq!"를 눌러 스크립트를 저장합니다.
@@ -104,7 +104,7 @@ Azure 저장소를 사용하려면 저장소 계정이 있어야 합니다. 구�
 
 사용자의 저장소 계정 이름은 3자에서 24자 사이여야 하고 숫자 및 소문자만 사용해야 합니다.
 
-### 환경 변수에서 기본 Azure 저장소 계정 설정 
+### 환경 변수에서 기본 Azure 저장소 계정 설정
 
 구독에서 여러 저장소 계정을 사용할 수 있습니다. 그중 하나를 선택하여 동일한 세션의 모든 저장소 명령에 대한 환경 변수에서 설정할 수 있습니다. 이렇게 하면 저장소 계정 및 키를 명시적으로 지정하지 않고 Azure CLI 저장소 명령을 실행할 수 있습니다.
 
@@ -112,7 +112,7 @@ Azure 저장소를 사용하려면 저장소 계정이 있어야 합니다. 구�
         export AZURE_STORAGE_ACCESS_KEY=<key>
 
 기본 저장소 계정을 설정하는 다른 방법은 연결 문자열을 사용하는 것입니다. 첫째, 명령으로 연결 문자열을 가져옵니다.
-        
+
         azure storage account connectionstring show <account_name>
 
 그런 다음 출력 연결 문자열을 복사 하여 환경 변수로 설정합니다.
@@ -142,7 +142,7 @@ Azure Blob 저장소는 블록 Blob 및 페이지 Blob을 지원합니다. 자�
 ### 컨테이너에서 Blob 다운로드
 
 다음 예제에서는 컨테이너에서 Blob을 다운로드하는 방법을 보여 줍니다.
-    
+
         azure storage blob download mycontainer myBlockBlob '~/downloadImages/downloaded.png'
 
 ### Blob 복사
@@ -152,9 +152,9 @@ Azure Blob 저장소는 블록 Blob 및 페이지 Blob을 지원합니다. 자�
 다음 예제에서는 한 저장소 계정에서 다른 계정으로 Blob을 복사하는 방법을 보여줍니다. 이 샘플에서는 blob을 공개적으로 하는 컨테이너 만들어 익명으로 액세스할 수 있습니다.
 
     azure storage container create mycontainer2 -a <accountName2> -k <accountKey2> -p Blob
-    
+
     azure storage blob upload '~/Images/HelloWorld.png' mycontainer2 myBlockBlob2 -a <accountName2> -k <accountKey2>
-    
+
     azure storage blob copy start 'https://<accountname2>.blob.core.windows.net/mycontainer2/myBlockBlob2' mycontainer
 
 이 예제에서는 비동기 복사를 수행합니다. `azure storage blob copy show` 작업을 실행하여 각 복사 작업의 상태를 모니터링할 수 있습니다.
@@ -178,7 +178,7 @@ Azure 파일 저장소는 표준 SMB 2.1 프로토콜을 사용하여 응용 프
 Azure에서 Azure 파일 공유는 SMB 2.1 파일 공유입니다. 모든 디렉터리 및 파일을 파일 공유에서 만들어야 합니다. 계정에 포함할 수 있는 공유 수에는 제한이 없으며, 공유에 저장할 수 있는 파일 수에는 저장소 계정의 최대 용량 한도까지 제한이 없습니다. 다음 예제에서는 **myshare**라는 파일 공유를 만듭니다.
 
         azure storage share create myshare
-        
+
 ### 디렉터리 만들기
 
 디렉터리는 Azure 파일 공유에 대한 선택적 계층적 구조를 제공합니다. 다음 예에서는 파일 공유에 **myDir**이라는 디렉터리를 만듭니다.
@@ -186,7 +186,7 @@ Azure에서 Azure 파일 공유는 SMB 2.1 파일 공유입니다. 모든 디렉
         azure storage directory create myshare myDir
 
 해당 디렉터리 경로에 여러 수준이 포함 될 수 있습니다(*예:* **a/b**). 그러나 모든 부모 디렉터리가 존재하는지 확인해야 합니다. 예를 들어, 경로 **a/b**의 경우, 먼저 디렉터리 **a**를 만든 다음, **b** 디렉터리를 만듭니다.
-        
+
 ### 디렉터리에 로컬 파일 업로드
 
 다음 예제에서는 **~/temp/samplefile.txt**에서 **myDir**로 파일을 업로드합니다. 로컬 컴퓨터의 유효한 파일을 가리키도록 파일 경로를 편집합니다.
@@ -202,7 +202,7 @@ Azure에서 Azure 파일 공유는 SMB 2.1 파일 공유입니다. 모든 디렉
         azure storage file list myshare myDir
 
 나열 작업에 대해 디렉터리 이름은 선택적입니다. 생략하면 명령이 공유의 루트 디렉터리의 내용을 나열합니다.
-        
+
 ## 다음 단계
 
 다음은 Azure 저장소에 대한 자세한 내용을 확인할 수 있는 몇 가지 관련 항목 및 리소스입니다.
@@ -212,5 +212,6 @@ Azure에서 Azure 파일 공유는 SMB 2.1 파일 공유입니다. 모든 디렉
 
 
 [Image1]: ./media/storage-azure-cli/azure_command.png
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

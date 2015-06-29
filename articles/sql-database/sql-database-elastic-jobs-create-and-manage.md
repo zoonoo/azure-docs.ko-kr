@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="탄력적 데이터베이스 작업 만들기 및 관리" 
-	description="탄력적 데이터베이스 작업 만들기 및 관리 과정을 단계별로 안내합니다." 
-	services="sql-database" 
-	documentationCenter="" 
-	manager="jhubbard" 
-	authors="sidneyh" 
+<properties
+	pageTitle="탄력적 데이터베이스 작업 만들기 및 관리"
+	description="탄력적 데이터베이스 작업 만들기 및 관리 과정을 단계별로 안내합니다."
+	services="sql-database"
+	documentationCenter=""
+	manager="jhubbard"
+	authors="sidneyh"
 	editor=""/>
 
-<tags 
-	ms.service="sql-database" 
-	ms.workload="sql-database" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/29/2015" 
+<tags
+	ms.service="sql-database"
+	ms.workload="sql-database"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/12/2015"
 	ms.author="sidneyh"/>
 
 # 탄력적 데이터베이스 작업 만들기 및 관리
@@ -29,12 +29,15 @@
 ## 작업 만들기
 
 1. 탄력적 데이터베이스 작업 풀 블레이드에서 **작업 만들기**를 클릭합니다.
-2. 데이터베이스 관리자의 이름과 암호를 입력합니다(설치 시 생성됨).
-2. **작업 만들기** 블레이드에 작업 이름을 입력합니다.
-3. T-SQL 스크립트를 붙여넣거나 입력합니다.
-4. **저장**을 클릭한 다음 **실행**을 클릭합니다.
+2. 작업 제어 DB(작업에 대한 메타 데이터 저장소)에 대한 데이터베이스 관리자(작업의 설치 시 생성됨)의 사용자 이름과 암호를 입력합니다.
 
 	![작업 이름을 지정하고 코드에 입력하거나 붙여넣은 다음 실행을 클릭합니다.][1]
+2. **작업 만들기** 블레이드에 작업 이름을 입력합니다.
+3. 스크립트 실행이 성공하기에 충분한 권한이 있는 대상 데이터베이스에 연결하려면 사용자 이름과 암호를 입력합니다.
+4. T-SQL 스크립트를 붙여넣거나 입력합니다.
+5. **저장**을 클릭한 다음 **실행**을 클릭합니다.
+
+	![작업 만들기 및 실행][5]
 
 ## 멱등원 작업 실행
 
@@ -44,36 +47,36 @@
             WHERE name = N'IX_ProductVendor_VendorID')
     DROP INDEX IX_ProductVendor_VendorID ON Purchasing.ProductVendor;
 	GO
-	CREATE INDEX IX_ProductVendor_VendorID 
+	CREATE INDEX IX_ProductVendor_VendorID
     ON Purchasing.ProductVendor (VendorID);
 
 또는 새 인스턴스를 만들기 전에 "IF NOT EXISTS" 절을 사용합니다.
 
-	IF NOT EXISTS (SELECT name FROM sys.tables WHERE name = 'TestTable') 
-	BEGIN 
-	 CREATE TABLE TestTable( 
-	  TestTableId INT PRIMARY KEY IDENTITY, 
-	  InsertionTime DATETIME2 
-	 ); 
-	END 
-	GO 
-	
-	INSERT INTO TestTable(InsertionTime) VALUES (sysutcdatetime()); 
-	GO 
+	IF NOT EXISTS (SELECT name FROM sys.tables WHERE name = 'TestTable')
+	BEGIN
+	 CREATE TABLE TestTable(
+	  TestTableId INT PRIMARY KEY IDENTITY,
+	  InsertionTime DATETIME2
+	 );
+	END
+	GO
+
+	INSERT INTO TestTable(InsertionTime) VALUES (sysutcdatetime());
+	GO
 
 그러면 스크립트에서 이전에 만든 테이블을 업데이트합니다.
 
-	IF NOT EXISTS (SELECT columns.name FROM sys.columns INNER JOIN sys.tables on columns.object_id = tables.object_id WHERE tables.name = 'TestTable' AND columns.name = 'AdditionalInformation') 
-	BEGIN 
-	
-	ALTER TABLE TestTable 
-	
-	ADD AdditionalInformation NVARCHAR(400); 
-	END 
-	GO 
-	
-	INSERT INTO TestTable(InsertionTime, AdditionalInformation) VALUES (sysutcdatetime(), 'test'); 
-	GO 
+	IF NOT EXISTS (SELECT columns.name FROM sys.columns INNER JOIN sys.tables on columns.object_id = tables.object_id WHERE tables.name = 'TestTable' AND columns.name = 'AdditionalInformation')
+	BEGIN
+
+	ALTER TABLE TestTable
+
+	ADD AdditionalInformation NVARCHAR(400);
+	END
+	GO
+
+	INSERT INTO TestTable(InsertionTime, AdditionalInformation) VALUES (sysutcdatetime(), 'test');
+	GO
 
 
 ## 작업 상태 확인
@@ -103,6 +106,8 @@
 [2]: ./media/sql-database-elastic-jobs-create-and-manage/click-manage-jobs.png
 [3]: ./media/sql-database-elastic-jobs-create-and-manage/running-jobs.png
 [4]: ./media/sql-database-elastic-jobs-create-and-manage/failed.png
-[5]: ./media/sql-database-elastic-jobs-create-and-manage/provide-creds.png
+[5]: ./media/sql-database-elastic-jobs-create-and-manage/screen-2.png
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=58_postMigration-->

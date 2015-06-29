@@ -209,5 +209,6 @@ Azure에서 가상 컴퓨터를 만드는 데 사용할 수 있도록 .vhd 파�
 [2단계: Azure에서 저장소 계정 만들기]: #createstorage
 [3단계: Azure 연결 준비]: #prepAzure
 [4단계: .vhd 파일 업로드]: #upload
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

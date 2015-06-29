@@ -12,13 +12,13 @@
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
-	ms.topic="hero-article"
+	ms.topic="get-started-article"
 	ms.date="05/22/2015"
 	ms.author="rasquill"/>
 
 # Linux를 실행하는 가상 컴퓨터 만들기
 
-Linux를 실행하는 Azure 가상 컴퓨터(VM)  만들기는 명령줄 또는 포털에서 수행하는 것이 쉽습니다. 이 자습서는 Mac, Linux 및 Windows용 Azure 명령줄 인터페이스(Azure CLI)를 사용하여 Azure에서 실행하는 Ubuntu Server VM을 신속하게 만들고, **ssh**를 사용하여 새 디스크를 작성 및 탑재하여 연결합니다. (이 항목에서는 Ubuntu Server VM을 사용 하지만 [템플릿으로 사용자 고유의 이미지](virtual-machines-linux-create-upload-vhd.md)를 사용하여 Linux VM을 만들 수도 있습니다.)
+Linux를 실행하는 Azure 가상 컴퓨터(VM) 만들기는 명령줄 또는 포털에서 수행하는 것이 쉽습니다. 이 자습서는 Mac, Linux 및 Windows용 Azure 명령줄 인터페이스(Azure CLI)를 사용하여 Azure에서 실행하는 Ubuntu Server VM을 신속하게 만들고, **ssh**를 사용하여 새 디스크를 작성 및 탑재하여 연결합니다. (이 항목에서는 Ubuntu Server VM을 사용 하지만 [템플릿으로 사용자 고유의 이미지](virtual-machines-linux-create-upload-vhd.md)를 사용하여 Linux VM을 만들 수도 있습니다.)
 
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 
@@ -288,12 +288,13 @@ Azure의 Linux에 대한 자세한 내용은 다음 을 참조하세요.
 
 - [Azure에서 Linux 및 오픈 소스 컴퓨팅](virtual-machines-linux-opensource.md)
 
-- [Mac 및 Linux용 Azure 명령줄 도구를 사용하는 방법](../virtual-machines-command-line-tools.md)
+- [Azure 명령줄 인터페이스를 사용하는 방법](../virtual-machines-command-line-tools.md)
 
 - [Linux용 Azure CustomScript 확장을 사용하여 LAMP 앱 배포](virtual-machines-linux-script-lamp.md)
 
 - [Azure VM 구성 설정 정보](http://msdn.microsoft.com/library/azure/dn763935.aspx)
 
 - [Azure의 Linux용 Docker 가상 컴퓨터 확장](virtual-machines-docker-vm-extension.md)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

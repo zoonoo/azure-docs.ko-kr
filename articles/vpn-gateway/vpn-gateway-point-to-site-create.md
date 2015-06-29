@@ -10,7 +10,7 @@
 <tags
    ms.service="vpn-gateway"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="05/12/2015"
@@ -118,9 +118,9 @@
 
 ### 클라이언트에 VPN 구성 패키지를 설치하고 연결 시작
 
-1. 가상 네트워크에 연결할 컴퓨터에 구성 파일을 로컬로 복사하고 .exe 파일을 두 번 클릭합니다. 패키지가 설치되어 있다면 VPN 연결을 시작할 수 있습니다. 구성 패키지는 Microsoft에서 서명하지 않습니다. 조직의 서명 서비스를 사용하여 패키지에 서명하거나 [SignTool]를 사용하여 직접 서명합니다(https://msdn.microsoft.com/library/windows/desktop/aa387764(v=vs.85).aspx). 서명 없이 패키지를 사용해도 괜찮습니다. 그러나 패키지가 서명되지 않은 경우, 패키지를 설치할 때 경고가 표시됩니다. 
+1. 가상 네트워크에 연결할 컴퓨터에 구성 파일을 로컬로 복사하고 .exe 파일을 두 번 클릭합니다. 패키지가 설치되어 있다면 VPN 연결을 시작할 수 있습니다. 구성 패키지는 Microsoft에서 서명하지 않습니다. 조직의 서명 서비스를 사용하여 패키지에 서명하거나 [SignTool](https://msdn.microsoft.com/library/windows/desktop/aa387764(v=vs.85).aspx)를 사용하여 직접 서명합니다. 서명 없이 패키지를 사용해도 괜찮습니다. 그러나 패키지가 서명되지 않은 경우, 패키지를 설치할 때 경고가 표시됩니다.
 2. 클라이언트 컴퓨터에서 VPN 연결로 이동 하고 방금 만든 VPN 연결을 찾습니다. 가상 네트워크와 같은 이름입니다. **Connect**를 클릭합니다.
-3. 게이트웨이 끝점에 대한 자체 서명된 인증서를 만드는 데 사용되는 팝업 메시지가  나타납니다. **계속**을 클릭하여 상승된 권한을 사용합니다.
+3. 게이트웨이 끝점에 대한 자체 서명된 인증서를 만드는 데 사용되는 팝업 메시지가 나타납니다. **계속**을 클릭하여 상승된 권한을 사용합니다.
 4. **연결** 상태 페이지에서 연결을 시작하도록 **연결**을 클릭합니다.
 5. **인증서 선택** 화면에서 표시되는 클라이언트 인증서가 연결하는 데 사용할 인증서인지 확인합니다. 그렇지 않은 경우, 드롭다운 화살표를 사용하여 올바른 인증서를 선택한 다음 **확인**을 클릭합니다.
 6. 이제 가상 네트워크에 연결하고 가상 네트워크에 호스팅된 가상 컴퓨터 및 서비스에 완전히 액세스할 수 있습니다.
@@ -142,7 +142,7 @@
 		Autoconfiguration Enabled.......: Yes
 		IPv4 Address....................: 192.168.130.2(Preferred)
 		Subnet Mask.....................: 255.255.255.255
-		Default Gateway.................: 
+		Default Gateway.................:
 		NetBIOS over Tcpip..............: Enabled
 
 
@@ -150,12 +150,13 @@
 ## 참고 항목
 
 
- [가상 네트워크 보안 크로스-프레미스 연결 정보](https://msdn.microsoft.com/library/azure/dn133798.aspx) 문서에서 가상 네트워크 크로스-프레미스 연결에 대해 알아볼 수 있습니다.
+[가상 네트워크 보안 크로스-프레미스 연결 정보](https://msdn.microsoft.com/library/azure/dn133798.aspx) 문서에서 가상 네트워크 크로스-프레미스 연결에 대해 알아볼 수 있습니다.
 
 사이트간 VPN 연결을 구성하려는 경우 [사이트간 VPN 연결 구성](vpn-gateway-site-to-site-create.md)을 참조하세요.
 
 가상 네트워크에 가상 컴퓨터를 추가할 수 있습니다. [사용자 지정 가상 컴퓨터를 만드는 방법](../virtual-machines/virtual-machines-create-custom.md) 참조
 
 RRAS를 사용하여 VNet 연결을 구성하려는 경우, [Windows Server 2012 라우팅 및 원격 액세스 서비스(RRAS)를 사용하여 사이트간 VPN 구성](https://msdn.microsoft.com/library/dn636917.aspx) 참조
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

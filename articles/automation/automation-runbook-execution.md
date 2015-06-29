@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Azure 자동화에서 Runbook 실행"
    description="Azure 자동화의 Runbook이 처리되는 방법에 대한 자세한 내용을 설명합니다."
    services="automation"
@@ -6,10 +6,10 @@
    authors="bwren"
    manager="stevenka"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="automation"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="04/28/2015"
@@ -43,5 +43,6 @@ Runbook을 만들 때 두 검사점 간의 모든 활동을 실행할 시간을 
 
 - [Azure 자동화에서 Runbook 시작](automation-starting-a-runbook)
 - [Azure 자동화에서 Runbook 작업의 상태 보기](automation-viewing-the-status-of-a-runbook-job)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

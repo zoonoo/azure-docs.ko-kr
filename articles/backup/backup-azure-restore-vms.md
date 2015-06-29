@@ -1,3 +1,4 @@
+
 <properties
 	pageTitle="Azure 백업 - 가상 컴퓨터 복원"
 	description="Azure 가상 컴퓨터 복원 방법 알아보기"
@@ -41,7 +42,7 @@
 
     ![날짜 선택](./media/backup-azure-restore-vms/select-date.png)
 
-    달력 컨트롤에서 날짜를 클릭하면 아래의 복구 지점 표에 해당 날짜에서 사용 가능한 복구 지점이 나타납니다. **시간** 열은 스냅숏이 만들어진 시간을 나타냅니다.  **유형** 열이 표시는 [일관성](https://azure.microsoft.com/documentation/articles/backup-azure-vms/#consistency-of-recovery-points) 의 복구 지점. 테이블 머리글의 괄호 안에는 해당 날짜에 사용할 수 있는 복구 지점의 수가 표시됩니다.
+    달력 컨트롤에서 날짜를 클릭하면 아래의 복구 지점 표에 해당 날짜에서 사용 가능한 복구 지점이 나타납니다. **시간** 열은 스냅숏이 만들어진 시간을 나타냅니다. **유형** 열은 복구 지점의 [일관성](https://azure.microsoft.com/documentation/articles/backup-azure-vms/#consistency-of-recovery-points)을 표시합니다. 테이블 머리글의 괄호 안에는 해당 날짜에 사용할 수 있는 복구 지점의 수가 표시됩니다.
 
     ![복구 지점](./media/backup-azure-restore-vms/recovery-points.png)
 
@@ -54,9 +55,9 @@
   - 가상 컴퓨터 이름 지정: 가상 컴퓨터 이름은 주어진 클라우드 서비스 내에서 고유해야 합니다. 기존 VM을 같은 이름으로 대체하려는 경우 먼저 기존 VM 및 데이터 디스크를 삭제하고 Azure 백업에서 데이터를 복원합니다.
   - VM에 대한 클라우드 서비스 선택: VM을 만들기 위한 필수 항목입니다. 기존 클라우드 서비스를 사용하거나 새 클라우드 서비스 만들기를 선택할 수 있습니다.
 
-        Whatever cloud service name is picked should be globally unique. Typically, the cloud service name gets associated with a public-facing URL in the form of [cloudservice].cloudapp.net. Azure will not allow you to create a new cloud service if the name has already been used. If you choose to create select create a new cloud service, it will be given the same name as the virtual machine – in which case the VM name picked should be unique enough to be applied to the associated cloud service.
+        클라우드 서비스 이름이 무엇이든 간에 전체적으로 고유한 것이어야 합니다. 일반적으로 클라우드 서비스 이름은 [cloudservice].cloudapp.net과 같은 형태의 공용 URL과 관련이 있습니다. Azure는 새로운 클라우드 서비스를 만들 때 이미 사용된 이름을 허용하지 않습니다. 새로운 클라우드 서비스를 만들기로 한 경우 가상 컴퓨터와 동일한 이름이 부여됩니다. 이 경우 선택된 VM 이름은 관련된 클라우드 서비스에 적용할 수 있는 고유한 것이어야 합니다.
 
-        We only display cloud services and virtual networks that are not associated with any affinity groups in the restore instance details. [Learn More](https://msdn.microsoft.com/en-us/library/azure/jj156085.aspx).
+        선호도 그룹과 관련 없는 클라우드 서비스와 가상 네트워크만 복원 인스턴스 정보에 표시합니다. [자세한 정보](https://msdn.microsoft.com/ko-kr/library/azure/jj156085.aspx).
 
 2. VM에 대한 저장소 계정 선택: VM을 만들기 위한 필수 항목입니다. Azure 백업 자격 증명 모음과 동일한 지역에 있는 기존 저장소 계정 중에서 선택할 수 있습니다. 영역 중복 또는 프리미엄 저장소 형식의 저장소 계정은 지원되지 않습니다.
 
@@ -70,7 +71,7 @@
 
     ![가상 네트워크 선택](./media/backup-azure-restore-vms/restore-cs-vnet.png)
 
-4. 서브넷 선택: VNET에 서브넷이 있는 경우 기본적으로 첫 번째 서브넷이 선택됩니다. 드롭다운 옵션 중에서 원하는 서브넷을 선택합니다. 서브넷 세부 정보에 대 한 네트워크 확장에서 이동 된 [포털 홈페이지](https://manage.windowsazure.com/), 가상 네트워크로 이동 하 고 가상 네트워크를 선택 하 고 서브넷 세부 정보를 보려면 구성으로 드릴 다운 합니다.
+4. 서브넷 선택: VNET에 서브넷이 있는 경우 기본적으로 첫 번째 서브넷이 선택됩니다. 드롭다운 옵션 중에서 원하는 서브넷을 선택합니다. 서브넷 세부 정보를 보려면 [포털 홈페이지](https://manage.windowsazure.com/)의 네트워크 확장, 가상 네트워크로 차례로 이동하고 가상 네트워크를 선택한 다음 구성으로 드릴다운하여 서브넷 세부 정보를 확인합니다.
 
     ![서브넷 선택](./media/backup-azure-restore-vms/select-subnet.png)
 
@@ -89,7 +90,7 @@
 
 ![복원 작업 완료](./media/backup-azure-restore-vms/restore-job-complete.png)
 
-가상 컴퓨터 복원 작업 후 원래 VM에서 기존 확장 프로그램을 다시 설치 해야할 수 및 [끝점을 다시](virtual-machines-set-up-endpoints) Azure 포털에서 가상 컴퓨터에 대 한 합니다.
+가상 컴퓨터를 복원한 후 원래 VM에 있던 확장을 다시 설치하고 Azure 포털에서 가상 컴퓨터에 대한 [끝점을 다시 만들어야](virtual-machines-set-up-endpoints) 할 수도 있습니다.
 
 ## 문제 해결
 대부분의 오류에 대해 오류 정보에 제시된 권장 조치를 따를 수 있습니다. 문제 해결에 도움이 되는 몇 가지 추가 사항은 다음과 같습니다.
@@ -101,4 +102,6 @@
 ## 다음 단계
 - [가상 컴퓨터 관리](backup-azure-manage-vms)
 
-<!---HONumber=GIT-SubDir--> 
+ 
+
+<!---HONumber=58_postMigration-->

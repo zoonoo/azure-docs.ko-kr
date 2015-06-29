@@ -4,24 +4,55 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 <tags 
 	ms.service="application-insights" 
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/21/2015" 
+	ms.date="06/18/2015" 
 	ms.author="awills"/>
  
 # Application Insights SDK for Java에 대한 릴리스 정보
 
-[SDK for Java 사용](app-insights-java-get-started.md)
+[Application Insights SDK for Java](app-insights-java-get-started.md)는 라이브 앱에 대한 원격 분석을 [Application Insights](http://azure.microsoft.com/services/application-insights/)에 보내며 사용법과 성능을 분석할 수 있습니다.
+
+#### 응용 프로그램에 SDK를 설치하려면
+
+[Java용 SDK 시작](app-insights-java-get-started.md)을 참조하세요.
+
+#### 최신 SDK를 업그레이드하려면 
+
+업그레이드 후에 ApplicationInsights.xml에 대해 작성된 모든 사용자을 다시 병합해야 합니다. 새 파일와 비교할 개체의 복사본을 수행 합니다.
+
+*Maven 또는 Gradle를 사용하는 경우*
+
+1. pom.xml 또는 build.gradle에서 특정 버전 번호를 지정한 경우 업데이트합니다.
+2. 프로젝트의 종속성을 새로 고칩니다.
+
+*그렇지 않은 경우*
+
+* 최신 버전의 [Java용 Azure 라이브러리](http://dl.msopentech.com/lib/PackageForWindowsAzureLibrariesForJava.html)를 다운로드하고 이전 버전을 대체합니다. 
+ 
+이전 버전과 새 ApplicationInsights.xml을 비교합니다. 대부분 변경 내용은 모듈을 추가하고 제거하기 때문입니다. 변경한 모든 사용자 지정을 복구합니다.
+
+## 버전 0.9.6
+- Java SDK를 서블릿 v2.5 및 HttpClient pre-v4.3과 호환되도록 하기
+- Java EE 인터셉터에 대한 지원 추가
+- Logback 어펜더에서 중복 종속성 제거
+
+## 버전 0.9.5  
+
+- 오류를 분석하는 쿠키로 인한 사용자 지정 이벤트가 사용자/세션과 상관되는 문제를 수정합니다.  
+- ApplicationInsights.xml 구성 파일의 위치를 확인하기 위한 논리를 개선합니다.
+- 세션 및 사용자 추적을 제거합니다(클라이언트 측 SDK에서만 제거).
 
 ## 버전 0.9.4
 
 - 32비트 Windows 컴퓨터에서 성능 카운터를 수집할 수 있습니다.
 - 새로운 ```trackDependency``` 메서드 API를 사용하여 수동으로 종속성을 추적할 수 있습니다.
 - 보고된 항목에 ```SyntheticSource``` 속성을 추가하여 원격 분석 항목에 가상으로 태그를 지정할 수 있습니다.
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

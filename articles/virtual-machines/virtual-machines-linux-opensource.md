@@ -63,6 +63,7 @@ Ubuntu는 매우 널리 사용되는 Azure 보증 Linux 배포판으로, dkpg �
 9. [이미지: Moodle](http://azure.microsoft.com/marketplace/partners/bitnami/moodle270ubuntu1404/)
 11. [이미지: Mono as a Service](http://azure.microsoft.com/marketplace/partners/aegis/monoasaserviceubuntu1204/)
 
+
 ### [Debian](https://vmdepot.msopentech.com/List/Index?sort=Featured&search=Debian)
 
 Debian은 Linux 및 오픈 소스 환경에 중요한 배포판으로, dpgk 및 apt-get 패키지 관리를 기반으로 합니다. MSOpenTech VM Depot에 사용할 여러 이미지가 있습니다.
@@ -72,14 +73,14 @@ Debian은 Linux 및 오픈 소스 환경에 중요한 배포판으로, dpgk 및 
 CentOS Linux 배포판은 RHEL(Red Hat Enterprise Linux) 원본에서 파생된 안정적이고, 예측 가능하며, 관리가 용이하고, 재현 가능한 플랫폼입니다.
 
 1. [MSOpenTech VM Depot](https://vmdepot.msopentech.com/List/Index?sort=Featured&search=centos)
-2. [이미지 갤러리](http://azure.microsoft.com/en-in/marketplace/partners/OpenLogic/)
+2. [이미지 갤러리](http://azure.microsoft.com/ko-kr/marketplace/partners/OpenLogic/)
 3. [방법: Azure에 대한 사용자 지정 CentOS 기반 VM 준비](virtual-machines-linux-create-upload-vhd-centos.md)
 4. [블로그: OpenLogic에서 CentOS VM 이미지를 배포하는 방법](http://azure.microsoft.com/blog/2013/01/11/deploying-openlogic-centos-images-on-windows-azure-virtual-machines/)
 6. [방법: AMQP 및 서비스 버스용 Apache Qpid Proton-C 설치](http://msdn.microsoft.com/library/azure/dn235560.aspx)
 7. [이미지: OpenLogic CentOS 6.3의 Apache 2.2.15](http://azure.microsoft.com/marketplace/partners/cognosys/apache2215onopenlogiccentos63/)
 8. [이미지: Drupal 7.2, OpenLogic CentOS 6.3의 LAMP 서버](http://azure.microsoft.com/marketplace/partners/cognosys/drupal720lampserveronopenlogiccentos63/)
 
-### SUSE Enterprise Linux 및 OpenSUSE
+### SUSE Linux Enterprise Server 및 openSUSE
 
 9. [MSOpenTech VM Depot](https://vmdepot.msopentech.com/List/Index?sort=Featured&search=OpenSUSE)
 11. [방법: MySQL 설치 및 실행](virtual-machines-linux-mysql-use-opensuse.md)
@@ -91,7 +92,7 @@ CentOS Linux 배포판은 RHEL(Red Hat Enterprise Linux) 원본에서 파생된 
 
 CoreOS는 사용자 지정에 대한 제어 수준이 뛰어난 순수 계산용으로 최적화된 소규모 Linux 배포판입니다.
 
-10. [이미지 갤러리](http://azure.microsoft.com/en-in/marketplace/partners/coreos/)  
+10. [이미지 갤러리](http://azure.microsoft.com/ko-kr/marketplace/partners/coreos/)  
 11. [방법: Azure에서 CoreOS를 사용하는 방법](virtual-machines-linux-coreos-how-to.md)
 12. [방법: Azure의 CoreOS에서 Fleet 및 Docker 시작](virtual-machines-linux-coreos-fleet-get-started.md)
 13. [블로그: TechEd Europe - Windows Docker 클라이언트 및 Linux 컨테이너](http://azure.microsoft.com/blog/2014/10/28/new-docker-coreos-topics-linux-on-azure/)
@@ -167,7 +168,6 @@ CoreOS는 사용자 지정에 대한 제어 수준이 뛰어난 순수 계산용
 5. [Azure 서비스 관리 SDK: Go](https://github.com/MSOpenTech/azure-sdk-for-go)
 5. [Azure 서비스 관리 SDK: Ruby](https://github.com/MSOpenTech/azure-sdk-for-ruby)
     - [방법: Ruby on Rails 설치](virtual-machines-ruby-rails-web-app-linux.md)
-    - [방법: Capistrano, Nginx, Unicorn 및 PostgreSQL을 사용하여 Rails에 Ruby 설치](virtual-machines-ruby-deploy-capistrano-host-nginx-unicorn.md)
 6. [Azure 서비스 관리 SDK: Python](https://github.com/Azure/azure-sdk-for-python)
     - [방법: Django Hello World 웹 응용 프로그램 (Mac-Linux)](virtual-machines-python-django-web-app-linux.md)
 7. [Azure 서비스 관리 SDK: Node.js](https://github.com/MSOpenTech/azure-sdk-for-node)
@@ -228,8 +228,6 @@ CoreOS는 사용자 지정에 대한 제어 수준이 뛰어난 순수 계산용
     - [Microsoft Azure에서 MySQL 고가용성 아키텍처](http://download.microsoft.com/download/6/1/C/61C0E37C-F252-4B33-9557-42B90BA3E472/MySQL_HADR_solution_in_Azure.pdf)
 7. MariaDB
     - [방법: MariaDbs의 다중 마스터 클러스터 만들기](virtual-machines-mariadb-cluster.md)
-7. PostgreSQL
-    - [방법: Capistrano, Nginx, Unicorn 및 PostgreSQL을 사용하여 Rails에 Ruby 설치](virtual-machines-ruby-deploy-capistrano-host-nginx-unicorn.md)
 8. [ILB를 사용하여 corosync, pg_bouncer와 함께 Postgres 설치](https://github.com/chgeuer/postgres-azure)
 
 
@@ -296,5 +294,6 @@ CoreOS는 사용자 지정에 대한 제어 수준이 뛰어난 순수 계산용
 <!--Link references--In actual articles, you only need a single period before the slash. -->
 [How to use docker-machine on Azure]: virtual-machines-docker-machine.md
 [How to use docker with swarm on Azure]: virtual-machines-docker-swarm.md
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

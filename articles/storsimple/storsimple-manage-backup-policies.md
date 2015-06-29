@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="StorSimple 백업 정책 관리"
+   pageTitle="StorSimple 백업 정책 관리 | Microsoft Azure"
    description="StorSimple Manager 서비스를 사용하여 백업 작업 및 백업 일정을 만들고 관리하는 방법을 설명합니다."
    services="storsimple"
    documentationCenter="NA"
-   authors="alkohli"
+   authors="SharS"
    manager="adinah"
-   editor="tysonn" />
+   editor=""/>
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/22/2015"
-   ms.author="alkohli" />
+   ms.date="06/17/2015"
+   ms.author="v-sharos"/>
 
 # StorSimple 백업 정책 관리
 
@@ -21,7 +21,7 @@
 
 이 자습서에서는 StorSimple Manager 서비스 **백업 정책** 페이지를 사용하여 StorSimple 볼륨에 대한 백업 프로세스 및 백업 보존을 제어하는 방법을 설명합니다. 수동 백업을 완료하는 방법도 설명합니다.
 
-**백업 정책** 페이지에서는 백업 정책을 관리하고 로컬과 클라우드 스냅숏을 예약할 수 있습니다. (백업 정책이 볼륨의 컬렉션에 대한 백업 보존 및 백업 일정을 구성하는데 사용됩니다.) 이 페이지는 백업 정책, 해당 형식, 연결된 볼륨, 보존된 백업의 수 및 이 정책을 사용하도록 설정하는 옵션을 나열합니다.
+**백업 정책** 페이지에서는 백업 정책을 관리하고 로컬과 클라우드 스냅숏을 예약할 수 있습니다. (백업 정책이 볼륨의 컬렉션에 대한 백업 보존 및 백업 일정을 구성하는데 사용됩니다.) 백업 정책을 통해 동시에 여러 볼륨의 스냅숏을 사용할 수 있습니다. 이 백업 정책에서 생성된 백업은 크래시 일관성이 있는 복사본임을 의미합니다. 이 페이지는 백업 정책, 해당 형식, 연결된 볼륨, 보존된 백업의 수 및 이 정책을 사용하도록 설정하는 옵션을 나열합니다.
 
 **백업 정책** 페이지에서 다음 필드 중 하나 이상의 기존 백업 정책을 필터링 할 수도 있습니다.
 
@@ -84,4 +84,4 @@ StorSimple 장치에 대한 백업 정책을 삭제하려면 관리 포털에서
 
 [StorSimple 스냅숏 관리자](https://msdn.microsoft.com/library/azure/dn772365.aspx)를 사용하여 StorSimple 백업을 관리하는 방법에 대해 알아봅니다.
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

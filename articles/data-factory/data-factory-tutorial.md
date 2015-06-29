@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Azure 데이터 팩터리를 사용하여 로그 파일 이동 및 처리" 
-	description="이 고급 자습서는 거의 실제 업무 시나리오에 설명 하 고 Azure 데이터 팩터리 서비스 및 데이터 팩터리 편집기를 사용 하는 시나리오를 구현 합니다." 
+	description="이 고급 자습서에서는 거의 실제 시나리오를 설명하고 Azure 데이터 팩터리 서비스 및 데이터 팩터리 편집기를 사용하여 시나리오를 구현합니다." 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -13,80 +13,80 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/18/2015" 
+	ms.date="06/04/2015" 
 	ms.author="spelluru"/>
 
-# 자습서: 마케팅 캠페인의 효과 측정합니다.  
-Contoso는 여러 플랫폼에 대 한 게임을 만드는 게임 회사: 게임 콘솔, 핸드헬드의 장치 및 개인용 컴퓨터 (Pc). 이러한 게임 로그 많이 생성 및 Contoso의 목표는 수집 하 고 고객 환경 설정, 인구 통계, 상향 판매 및 교차 판매 기회를 식별 하 고, 비즈니스를 성장 시키십시오에 강력한 새 기능을 개발 하 고, 고객에 게 더 나은 환경을 제공 하는 등 사용 현황 동작에 대 한 통찰력을 얻으려고 이러한 로그를 분석 합니다.
+# 자습서: 마케팅 캠페인의 효과 측정  
+Contoso는 게임 콘솔, 핸드헬드 장치, PC(개인용 컴퓨터) 등 다양한 플랫폼용 게임을 만드는 게임 회사입니다. 이러한 게임은 많은 로그를 생성하며, Contoso의 목표는 이러한 로그를 수집 및 분석하여 고객 선호도, 인구 통계, 사용 동작 등에 대한 정보를 얻고, 업셀 및 교차 판매 기회를 포착하고, 탁월한 새 기능을 개발하여 비즈니스 성장을 견인하고, 고객에게 더 나은 환경을 제공하는 것입니다.
 
-이 자습서에서는 Contoso가 샘플 로그를 수집, 처리 및 참조 데이터를 보강 하 및 데이터를 변환 하 여 최근에 출시 하는 마케팅 캠페인의 효율성을 평가 하기 위해 데이터 팩터리 파이프라인을 만듭니다. 여기에 다음 세 파이프라인이 있습니다.
+이 자습서에서는 샘플 로그를 수집하고, 참조 데이터를 사용하여 이 로그를 처리 및 보강하고, 데이터를 변환하여 Contoso가 최근 시작한 마케팅 캠페인의 효과를 평가하는 데이터 팩터리 파이프라인을 만듭니다. 다음 3개의 파이프라인이 있습니다.
 
-1.	 **PartitionGameLogsPipeline** blob 저장소에서 원시 게임 이벤트를 읽고 연도, 월 및 일을 기반으로 파티션을 만듭니다.
-2.	 **EnrichGameLogsPipeline** 지역 코드 참조 데이터를 사용 하 여 분할 된 게임 이벤트를 조인 하 고 해당 지리적 위치를 IP 주소에 매핑하여 데이터를 강화 합니다.
-3.	 **AnalyzeMarketingCampaignPipeline** 파이프라인 풍부해 진된 데이터를 활용 하 고 마케팅 캠페인 효과 포함 하는 최종 출력을 만들려면 광고 데이터를 사용 하 여 처리 합니다.
+1.	**PartitionGameLogsPipeline**은 Blob 저장소에서 원시 게임 이벤트를 읽고 연도, 월 및 일을 기준으로 파티션을 만듭니다.
+2.	**EnrichGameLogsPipeline**은 분할된 게임 이벤트를 지역 코드 참조 데이터와 조인하고 IP 주소를 해당하는 지리적 위치에 매핑하여 데이터를 강화합니다.
+3.	**AnalyzeMarketingCampaignPipeline** 파이프라인은 강화된 데이터를 활용하고 이 데이터를 광고 데이터와 함께 처리하여 마케팅 캠페인 효과가 포함된 최종 출력을 만듭니다.
 
 ## 자습서 수행을 위한 준비
-1.	읽기 [Azure 데이터 팩터리 소개][adfintroduction] Azure 데이터 팩터리의 개요 및 최상위 개념의 이해를 가져올 수 있습니다.
+1.	[Azure 데이터 팩터리 소개][adfintroduction]를 읽고 Azure 데이터 팩터리에 대한 개요를 확인하고 최상위 개념을 이해합니다.
 2.	이 자습서를 수행하려면 Azure 구독이 있어야 합니다. 구독을 얻는 방법에 대한 자세한 내용은 [구매 옵션](http://azure.microsoft.com/pricing/purchase-options/), [구성원 제공 항목](http://azure.microsoft.com/pricing/member-offers/) 또는 [무료 평가판](http://azure.microsoft.com/pricing/free-trial/)을 참조하십시오.
-3.	다운로드 하 여 설치 해야 [Azure PowerShell][download-azure-powershell] 컴퓨터에 있습니다. 예제 데이터를 업로드 및 pig/hive 스크립트도 blob 저장소에 데이터 팩터리 cmdlet를 실행 합니다. 
-2.	**(권장)** 검토에 대 한 자습서를 연습 하 고는 [Azure 데이터 팩터리 시작][adfgetstarted] 포털 및 cmdlet을 익힐 수에 대 한 간단한 자습서에 대 한 문서.
-3.	**(권장)** 검토의 연습을 연습 하 고는 [사용 하 여 Pig 및 Hive Azure 데이터 팩터리로][usepigandhive] 를 Azure blob 저장소에 온-프레미스 데이터 원본에서 데이터를 이동 하는 파이프라인을 만드는 방법에 대 한 연습에 대 한 문서.
-4.	다운로드 [ADFWalkthrough][adfwalkthrough-download] 파일을 **C:\ADFWalkthrough** 폴더 **폴더 구조를 유지**:
-	- **파이프라인:** 파이프라인의 정의 포함 하는 JSON 파일 포함 됩니다.
-	- **테이블:** 테이블의 정의 포함 하는 JSON 파일 포함 됩니다.
-	- **LinkedServices:** (HDInsight) 계산 및 저장소의 정의 포함 하는 JSON 파일 포함 클러스터 
-	- **스크립트:** 데이터 처리를 위한 사용 및 파이프라인에서 호출 되는 Hive 및 Pig 스크립트를 포함 하는 것
-	- **SampleData:** 이 연습에 대 한 샘플 데이터를 포함
-	- **온 프레미스:** 온-프레미스 데이터에 액세스를 보여주는데 사용 되는 JSON 파일 및 스크립트를 포함
-	- **uploadSampleDataAndScripts.ps1:** 이 스크립트는 샘플 데이터 및 스크립트 Azure에 업로드 합니다.
+3.	컴퓨터에 [Azure PowerShell][download-azure-powershell]을 다운로드하고 설치해야 합니다. 데이터 팩터리 cmdlet을 실행하여 샘플 데이터 및 pig/hive 스크립트를 Blob 저장소로 업로드합니다. 
+2.	**(권장)** [Azure 데이터 팩터리 시작][adfgetstarted] 문서의 간단한 자습서를 검토하고 연습하여 포털 및 cmdlet을 익힙니다.
+3.	**(권장)** [Azure 데이터 팩터리에서 Pig 및 Hive 사용][usepigandhive] 문서의 연습을 검토하고 실습하여 온-프레미스에서 Azure Blob 저장소로 데이터를 복사하는 파이프라인을 만들어 봅니다.
+4.	[ADFWalkthrough][adfwalkthrough-download] 파일을 **C:\ADFWalkthrough** 폴더로 다운로드합니다. 이때 다음과 같이 **폴더 구조를 유지**합니다.
+	- **Pipelines:** 파이프라인 정의가 포함된 JSON 파일을 포함합니다.
+	- **Tables:** 테이블 정의가 포함된 JSON 파일을 포함합니다.
+	- **LinkedServices:** 저장소 및 계산(HDInsight) 클러스터에 대한 정의가 포함된 JSON 파일을 포함합니다. 
+	- **Scripts:** 데이터 처리에 사용되고 파이프라인에서 호출되는 Hive 및 Pig 스크립트를 포함합니다.
+	- **SampleData:** 이 연습의 샘플 데이터를 포함합니다.
+	- **OnPremises:** 온-프레미스 데이터 액세스를 보여 주는 데 사용되는 스크립트 및 JSON 파일을 포함합니다.
+	- **uploadSampleDataAndScripts.ps1:** 이 스크립트는 샘플 데이터 및 스크립트를 Azure에 업로드합니다.
 5. 다음과 같은 Azure 리소스를 만들었는지 확인합니다.			
 	- Azure 저장소 계정
 	- Azure SQL 데이터베이스
-	- Azure HDInsight 클러스터 버전 3.1 이상 (또는 데이터 팩터리 서비스를 자동으로 만듭니다 하는 요청 시 사용 하 여 HDInsight 클러스터)	
+	- Azure HDInsight 클러스터 버전 3.1 이상(또는 데이터 팩터리 서비스에서 자동으로 만드는 주문형 HDInsight 클러스터 사용)	
 7. Azure 리소스를 만들었으면 이러한 각 리소스에 연결하는 데 필요한 정보를 알고 있는지 확인합니다.
- 	- **Azure 저장소 계정** -계정 이름 및 계정 키입니다.  
-	- **Azure SQL 데이터베이스** -서버, 데이터베이스, 사용자 이름 및 암호입니다.
-	- **Azure HDInsight 클러스터**.-HDInsight 클러스터의 이름, 사용자 이름, 암호 및 계정 이름 및이 클러스터와 연결 된 Azure 저장소에 대 한 계정 키입니다. HDInsight 클러스터 사용자 고유의 대신 주문형 HDInsight 클러스터를 사용 하려는 경우이 단계를 건너뛸 수 있습니다.  
-8. 시작 **Azure PowerShell** 하 고 다음 명령을 실행 합니다. Azure PowerShell을 열어둡니다. 닫고 다시 열 경우 이러한 명령을 다시 실행 해야 합니다.
-	- 실행 **Add-azureaccount** 사용자 이름 및 Azure 미리 보기 포털에 로그인 하는데 사용할 암호를 입력 합니다.  
-	- 실행 **Get-azuresubscription** 이 계정에 대 한 모든 구독을 볼 수 있습니다.
-	- 실행 **Select-azuresubscription** 를 사용 하려면 구독을 선택 합니다. 이 구독은 Azure 미리 보기 포털에서 사용한 것과 같아야 합니다.	
+ 	- **Azure 저장소 계정** - 계정 이름 및 계정 키  
+	- **Azure SQL 데이터베이스** - 서버, 데이터베이스, 사용자 이름 및 암호
+	- **Azure HDInsight 클러스터** - HDInsight 클러스터 이름, 사용자 이름, 암호 및 이 클러스터와 연결된 Azure 저장소의 계정 이름과 계정 키. 사용자 고유의 HDInsight 클러스터 대신 주문형 HDInsight 클러스터를 사용하려는 경우 이 단계를 건너뛸 수 있습니다.  
+8. **Azure PowerShell**을 시작하고 다음 명령을 실행합니다. Azure PowerShell을 열어둡니다. 닫은 후 다시 여는 경우 이러한 명령을 다시 실행해야 합니다.
+	- **Add-AzureAccount**를 실행하고 Azure Preview 포털에 로그인하는 데 사용하는 사용자 이름 및 암호를 입력합니다.  
+	- **Get-AzureSubscription**을 실행하여 이 계정의 모든 구독을 확인합니다.
+	- **Select-AzureSubscription**을 실행하여 사용하려는 구독을 선택합니다. 이 구독은 Azure 미리 보기 포털에서 사용한 것과 같아야 합니다.	
 
 ## 개요
 종단 간 워크플로는 아래와 같습니다.
 
-![자습서 종단간 흐름][image-data-factory-tutorial-end-to-end-flow]
+![자습서 종단 간 흐름][image-data-factory-tutorial-end-to-end-flow]
 
-1.  **PartitionGameLogsPipeline** blob 저장소 (RawGameEventsTable)에서 원시 게임 이벤트를 읽고 연도, 월 및 일 (PartitionedGameEventsTable)를 기반으로 파티션을 만듭니다.
-2.  **EnrichGameLogsPipeline** 지역 코드 (RefGetoCodeDictionaryTable)와 분할 된 게임 이벤트 (PartitionedGameEvents 테이블은 PartitionGameLogsPipeline의 출력)를 조인 및 해당 지리적 위치 (EnrichedGameEventsTable)를 IP 주소에 매핑하여 데이터를 강화 합니다.
-3.  **AnalyzeMarketingCampaignPipeline** 파이프라인 풍부해 진된 데이터 (EnrichedGameEventTable는 EnrichGameLogsPipeline에서 생성)를 활용 하 고 Azure SQL 데이터베이스 (MarketingCampainEffectivensessSQLTable) 및 분석에 대 한 Azure blob 저장소 (MarketingCampaignEffectivenessBlobTable)에 복사 되는 광고 데이터 마케팅 캠페인 효과의 최종 출력을 만들려면 (RefMarketingCampaignnTable)를 사용 하 여 처리 합니다.
+1. **PartitionGameLogsPipeline**은 Blob 저장소에서 원시 게임 이벤트(RawGameEventsTable)를 읽고 연도, 월 및 일을 기준으로 파티션(PartitionedGameEventsTable)을 만듭니다.
+2. **EnrichGameLogsPipeline**은 분할된 게임 이벤트(PartitionedGameEvents 테이블, PartitionGameLogsPipeline의 출력)를 지역 코드(RefGetoCodeDictionaryTable)와 조인하고 IP 주소를 해당하는 지리적 위치(EnrichedGameEventsTable)에 매핑하여 데이터를 보강합니다.
+3. **AnalyzeMarketingCampaignPipeline** 파이프라인은 보강된 데이터(EnrichGameLogsPipeline에서 생성한 EnrichedGameEventTable)를 활용하고 이 데이터를 광고 데이터(RefMarketingCampaignnTable)와 함께 처리하여 마케팅 캠페인 효과에 대한 최종 출력을 만듭니다. 이 출력은 Azure SQL 데이터베이스(MarketingCampainEffectivensessSQLTable) 및 Azure Blob 저장소(MarketingCampaignEffectivenessBlobTable)로 복사되어 분석됩니다.
     
-## 연습: 만들기, 배포 및 워크플로 모니터링 합니다.
-1. [1 단계: 예제 데이터 및 스크립트를 업로드](#MainStep1). 이 단계에서는 모든 샘플 데이터(모든 로그 및 참조 데이터 포함)와 워크플로에서 실행할 Hive/Pig 스크립트를 업로드합니다. 실행하는 스크립트에서는 MarketingCampaigns라는 Azure SQL 데이터베이스, 테이블, 사용자 정의 형식 및 저장 프로시저도 만듭니다.
-2. [2 단계: 프로그램 Azure 데이터 팩터리 만들기](#MainStep2). 이 단계에서는 LogProcessingFactory라는 Azure 데이터 팩터리를 만듭니다.
-3. [3 단계: 연결 된 서비스를 만드는](#MainStep3). 이 단계에서는 연결된 서비스 
+## 연습: 워크플로 만들기, 배포 및 모니터링
+1. [1단계: 샘플 데이터 및 스크립트 업로드](#MainStep1) 이 단계에서는 모든 샘플 데이터(모든 로그 및 참조 데이터 포함)와 워크플로에서 실행할 Hive/Pig 스크립트를 업로드합니다. 실행하는 스크립트에서는 MarketingCampaigns라는 Azure SQL 데이터베이스, 테이블, 사용자 정의 형식 및 저장 프로시저도 만듭니다.
+2. [2단계: Azure 데이터 팩터리 만들기](#MainStep2) 이 단계에서는 LogProcessingFactory라는 Azure 데이터 팩터리를 만듭니다.
+3. [3단계: 연결된 서비스 만들기](#MainStep3) 이 단계에서는 연결된 서비스 
 	
 	- 	**StorageLinkedService**. 원시 게임 이벤트, 분할된 게임 이벤트, 보강된 게임 이벤트, 마케팅 캠페인 효과 정보, 참조 지역 코드 데이터 및 참조 마케팅 캠페인 데이터를 포함하는 Azure 저장소 위치를 LogProcessingFactory에 연결합니다.   
 	- 	**AzureSqlLinkedService**. 마케팅 캠페인 효과 정보를 포함하는 Azure SQL 데이터베이스를 연결합니다. 
 	- 	**HDInsightStorageLinkedService**. HDInsightLinkedService가 참조하는 HDInsight 클러스터와 관련된 Azure Blob 스토리지를 연결합니다. 
 	- 	**HDInsightLinkedService**. Azure HDInsight 클러스터를 LogProcessingFactory에 연결합니다. 이 클러스터는 데이터에 대한 pig/hive 처리를 수행하는 데 사용됩니다. 
  		
-4. [4 단계: 테이블 만들기](#MainStep4). 이 단계에서는 다음 테이블을 만듭니다.
+4. [4단계: 테이블 만들기](#MainStep4) 이 단계에서는 다음 테이블을 만듭니다.
 	
 	- **RawGameEventsTable**. 이 테이블은 StorageLinkedService에서 정의한 Azure Blob 저장소 내의 원시 게임 이벤트 데이터가 있는 위치를 지정합니다(adfwalkthrough/logs/rawgameevents/). 
 	- **PartitionedGameEventsTable**. 이 테이블은 StorageLinkedService에서 정의한 Azure Blob 저장소 내의 분할된 게임 이벤트 데이터가 있는 위치를 지정합니다(adfwalkthrough/logs/partitionedgameevents/). 
 	- **RefGeoCodeDictionaryTable**. 이 테이블은 StorageLinkedService에서 정의한 Azure Blob 저장소 내에서 참조 지역 코드 데이터가 있는 위치를 지정합니다(adfwalkthrough/refdata/refgeocodedictionary/).
 	- **RefMarketingCampaignTable**. 이 테이블은 StorageLinkedService에서 정의한 Azure Blob 저장소 내에서 참조 마케팅 캠페인 데이터가 있는 위치를 지정합니다(adfwalkthrough/refdata/refmarketingcampaign/).
 	- **EnrichedGameEventsTable**. 이 테이블은 StorageLinkedService에서 정의한 Azure Blob 저장소 내의 강화된 게임 이벤트 데이터가 있는 위치를 지정합니다(adfwalkthrough/logs/enrichedgameevents/).
-	- **MarketingCampaignEffectivenessSQLTable**. 이 표에서 AzureSqlLinkedService 마케팅 캠페인 효율성 데이터를 포함 하 여 정의 된 Azure SQL 데이터베이스의 SQL 테이블 (MarketingCampaignEffectiveness)을 지정 합니다. 
+	- **MarketingCampaignEffectivenessSQLTable**. 이 테이블은 AzureSqlLinkedService에서 정의한 Azure SQL 데이터베이스에서 마케팅 캠페인 효과 데이터를 포함하는 SQL 테이블(MarketingCampaignEffectiveness)을 지정합니다. 
 	- **MarketingCampaignEffectivenessBlobTable**. 이 테이블은 StorageLinkedService에서 정의한 Azure Blob 저장소 내에서 마케팅 캠페인 효과 데이터가 있는 위치를 지정합니다(adfwalkthrough/marketingcampaigneffectiveness/). 
 
 	
-5. [5 단계: 만들기 및 예약 파이프라인](#MainStep5). 이 단계에서는 다음 파이프라인을 만듭니다.
+5. [5단계: 파이프라인 만들기 및 예약](#MainStep5) 이 단계에서는 다음 파이프라인을 만듭니다.
 	- **PartitionGameLogsPipeline**. 이 파이프라인은 Blob 저장소에서 원시 게임 이벤트(RawGameEventsTable)를 읽고 연도, 월 및 일을 기준으로 파티션(PartitionedGameEventsTable)을 만듭니다. 
 
 
-		![PartitionGamesLogs 파이프라인][image-data-factory-tutorial-partition-game-logs-pipeline]
+		![PartitionGamesLogs pipeline][image-data-factory-tutorial-partition-game-logs-pipeline]
 
 
 	- **EnrichGameLogsPipeline**. 이 파이프라인은 분할된 게임 이벤트(PartitionedGameEvents 테이블, PartitionGameLogsPipeline의 출력)를 지역 코드(RefGetoCodeDictionaryTable)와 조인하고 IP 주소를 해당하는 지리적 위치(EnrichedGameEventsTable)에 매핑하여 데이터를 보강합니다.
@@ -99,14 +99,14 @@ Contoso는 여러 플랫폼에 대 한 게임을 만드는 게임 회사: 게임
 		![MarketingCampaignPipeline][image-data-factory-tutorial-analyze-marketing-campaign-pipeline]
 
 
-6. [6 단계: 모니터링 파이프라인 및 데이터 조각을](#MainStep6). 이 단계에서는 Azure 포털을 사용하여 파이프라인, 테이블 및 데이터 조각을 모니터링합니다.
+6. [6단계: 파이프라인 및 데이터 조각 모니터링](#MainStep6) 이 단계에서는 Azure 포털을 사용하여 파이프라인, 테이블 및 데이터 조각을 모니터링합니다.
 
-## <a name="MainStep1"></a> 1 단계: 예제 데이터 및 스크립트를 업로드 합니다.
-이 단계에서는 모든 샘플 데이터(로그 및 참조 데이터 모두 포함)와 워크플로에서 호출되는 Hive/Pig 스크립트를 업로드합니다. 또한 실행 하면 스크립트 라는 Azure SQL 데이터베이스를 만들 **MarketingCampaigns**, 테이블, 사용자 정의 형식 및 저장 프로시저입니다.
+## <a name="MainStep1"></a> 1단계: 샘플 데이터 및 스크립트 업로드
+이 단계에서는 모든 샘플 데이터(로그 및 참조 데이터 모두 포함)와 워크플로에서 호출되는 Hive/Pig 스크립트를 업로드합니다. 실행하는 스크립트에서는 **MarketingCampaigns**라는 Azure SQL 데이터베이스, 테이블, 사용자 정의 형식 및 저장 프로시저도 만듭니다.
 
 테이블, 사용자 정의 형식 및 저장 프로시저는 Azure Blob 저장소에서 Azure SQL 데이터베이스로 마케팅 캠페인 효과 결과를 이동할 때 사용됩니다.
 
-1. 열기 **uploadSampleDataAndScripts.ps1** 에서 **C:\ADFWalkthrough** 폴더 (또는 압축 푼된 파일에 포함 된 폴더) 선호 하는 편집기에서 귀하의 클러스터 정보를 강조 표시 된 대체 하 고 파일을 저장 합니다.
+1. 즐겨 사용하는 편집기에서 **uploadSampleDataAndScripts.ps1** 파일을 **C:\ADFWalkthrough** 폴더(또는 압축을 푼 파일이 포함된 폴더)에서 열고 강조 표시된 내용을 클러스터 정보로 바꾼 다음 파일을 저장합니다.
 
 
 		$storageAccount = <storage account name>
@@ -116,10 +116,13 @@ Contoso는 여러 플랫폼에 대 한 게임을 만드는 게임 회사: 게임
 		$azuresqlPassword = <sql azure password>
 
  
-	> [AZURE.NOTE][다운로드][sqlcmd-install]   
-2. 로컬 컴퓨터가 Azure SQL 데이터베이스에 액세스할 수 있는지 확인합니다. 사용 하 여 액세스를 활성화 하려면는 **Azure 관리 포털** 또는 **sp_set_firewall_rule** 컴퓨터의 IP 주소에 대 한 방화벽 규칙을 만들려면 master 데이터베이스에 있습니다. 이 변경 내용이 적용되려면 최대 5분까지 걸릴 수 있습니다. 참조 [SQL Azure에 대 한 방화벽 규칙을 설정][azure-sql-firewall].
-4. Azure PowerShell의 위치로 이동 하 여 예제를 추출한 (예: **C:\ADFWalkthrough**)
-5. 실행 **uploadSampleDataAndScripts.ps1** 
+	이 스크립트를 사용하려면 컴퓨터에 sqlcmd 유틸리티가 설치되어 있어야 합니다. SQL Server를 설치한 경우에는 이 유틸리티가 이미 설치되어 있습니다. 그렇지 않은 경우 유틸리티를 [다운로드][sqlcmd-install]하고 설치합니다.
+	
+	또는 C:\ADFWalkthrough\Scripts 폴더의 파일을 사용하여 pig/hive 스크립트 및 샘플 파일을 blob 저장소의 adfwalkthrough 컨테이너로 업로드하고 MarketingCamapaigns Azure SQL 데이터베이스에 MarketingCampaignEffectiveness 테이블을 만들 수 있습니다.
+   
+2. 로컬 컴퓨터가 Azure SQL 데이터베이스에 액세스할 수 있는지 확인합니다. 액세스할 수 있게 하려면 **Azure 관리 포털**이나 master 데이터베이스의 **sp_set_firewall_rule**을 사용하여 컴퓨터의 IP 주소에 대한 방화벽 규칙을 만듭니다. 이 변경 내용이 적용되려면 최대 5분까지 걸릴 수 있습니다. [Azure SQL에 대한 방화벽 규칙 설정][azure-sql-firewall]을 참조하세요.
+4. Azure PowerShell에서 샘플의 압축을 푼 위치(**C:\ADFWalkthrough**)로 이동합니다.
+5. **uploadSampleDataAndScripts.ps1** 실행 
 6. 스크립트가 성공적으로 실행되면 다음이 표시됩니다.
 
 		$storageAccount = <storage account name>
@@ -151,45 +154,45 @@ Contoso는 여러 플랫폼에 대 한 게임을 만드는 게임 회사: 게임
 		6/6/2014 11:54:36 AM 3. Created ‘MarketingCampaigns’ Azure SQL database and tables.
 		6/6/2014 11:54:36 AM You are ready to deploy Linked Services, Tables and Pipelines. 
 
-## <a name="MainStep2"></a> 2 단계: 프로그램 Azure 데이터 팩터리 만들기
-이 단계에서는 라는 한 Azure 데이터 팩터리를 만듭니다 **LogProcessingFactory**.
+## <a name="MainStep2"></a> 2단계: Azure 데이터 팩터리 만들기
+이 단계에서는 **LogProcessingFactory**라는 Azure 데이터 팩터리를 만듭니다.
 
-1.	로그인 한 후는 [Azure 미리 보기 포털][azure-preview-portal], 클릭 **새로 만들기** 왼쪽 아래 모퉁이에서 클릭 하 여 **데이터 분석** 에 **만들기** 블레이드를 클릭 하 고 **데이터 팩터리** 에 **데이터 분석** 블레이드. 
+1.	[Azure Preview 포털][azure-preview-portal]에 로그인한 후 왼쪽 아래에서 **새로 만들기**를 클릭하고 **만들기** 블레이드에서 **데이터 분석**을 클릭한 다음 **데이터 분석** 블레이드에서 **데이터 팩터리**를 클릭합니다. 
 
-	![새로운 사용할->][image-data-factory-new-datafactory-menu]
+	![새로 만들기->DataFactory][image-data-factory-new-datafactory-menu]
 
-5. 에 **새 데이터 팩터리** 블레이드, 입력 **LogProcessingFactory** 에 대 한는 **이름**.
+5. **새 데이터 팩터리** 블레이드에서 **LogProcessingFactory**를 **이름**으로 입력합니다.
 
 	![데이터 팩터리 블레이드][image-data-factory-tutorial-new-datafactory-blade]
 
-6. 명명 된는 Azure 리소스 그룹을 만들지 않은 경우 **ADF** 이미, 다음을 수행 합니다.
-	1. 클릭 하 여 **리소스 그룹 이름**, 를 클릭 하 고 **새 리소스 그룹을 만들**.
+6. **ADF**라는 Azure 리소스 그룹을 아직 만들지 않은 경우 다음을 수행합니다.
+	1. **리소스 그룹 이름**을 클릭하고 **새 리소스 그룹 만들기**를 클릭합니다.
 	
 		![리소스 그룹 블레이드][image-data-factory-tutorial-resourcegroup-blade]
-	2. 에 **리소스 그룹 만들기** 블레이드, 입력 **ADF** 를클릭하고 리소스 그룹의 이름에 대 한 **확인**.
+	2. **리소스 그룹 만들기** 블레이드에서 리소스 그룹 이름으로 **ADF**를 입력하고 **확인**을 클릭합니다.
 	
 		![리소스 그룹 만들기][image-data-factory-tutorial-create-resourcegroup]
-7. 선택 **ADF** 에 대 한는 **리소스 그룹 이름**.  
-8.	에 **새 데이터 팩터리** 블레이드에서 있음을 **시작 보드에 추가** 기본적으로 선택 됩니다. 선택된 경우 데이터 팩터리에 대한 링크가 시작 보드(Azure 미리 보기 포털에 로그인할 때 표시되는 페이지)에 추가됩니다.
+7. **리소스 그룹 이름**으로 **ADF**를 선택합니다.  
+8.	**새 데이터 팩터리** 블레이드에서는 **시작 보드에 추가**가 기본적으로 선택되어 있습니다. 선택된 경우 데이터 팩터리에 대한 링크가 시작 보드(Azure 미리 보기 포털에 로그인할 때 표시되는 페이지)에 추가됩니다.
 
-	![데이터 팩터리 블레이드 만들기][image-data-factory-tutorial-create-datafactory]
+	![데이터 팩터리 만들기 블레이드][image-data-factory-tutorial-create-datafactory]
 
-9.	에 **새 데이터 팩터리** 블레이드를 클릭 하 여 **만들기** 데이터 팩터리를 만드는 합니다.
-10.	데이터 팩터리를 만든 후 나타나야는 **데이터 팩터리** 블레이드 라는 **LogProcessingFactory**.
+9.	**새 데이터 팩터리** 블레이드에서 **만들기**를 클릭하여 데이터 팩터리를 만듭니다.
+10.	데이터 팩터리가 만들어지면 **LogProcessingFactory**라는 제목의 **데이터 팩터리** 블레이드가 표시됩니다.
 
 	![데이터 팩터리 홈페이지][image-data-factory-tutorial-datafactory-homepage]
 
 	
 	이 블레이드가 표시되지 않는 경우 다음 중 하나를 수행합니다.
 
-	- 클릭 하 여 **LogProcessingFactory** 에 **시작 보드** (홈 페이지)
-	- 클릭 하 여 **찾아보기** 는 왼쪽에서 **모든**, 클릭 **데이터 팩터리**, 데이터 팩터리를 클릭 합니다.
+	- **시작 보드**(홈페이지)에서 **LogProcessingFactory**를 클릭합니다.
+	- 왼쪽에서 **찾아보기**를 클릭하고, **모두**, **데이터 팩터리**를 차례로 클릭한 다음 데이터 팩터리를 클릭합니다.
  
-	> [AZURE.NOTE]Azure 데이터 팩터리 이름은 전역적으로 고유해야 합니다. 오류를 수신 하는 경우: **데이터 팩터리 이름을 "LogProcessingFactory" 사용할 수 없으면**, 이름 (예: yournameLogProcessingFactory)을 변경 합니다. 이 자습서의 단계를 수행 하는 동안 LogProcessingFactory 대신이 이름을 사용 합니다.
+	Azure 데이터 팩터리 이름은 전역적으로 고유해야 합니다. **데이터 팩터리 이름 “LogProcessingFactory”를 사용할 수 없습니다.** 오류가 표시되는 경우 이름을 변경합니다(예: yournameLogProcessingFactory). 이 자습서의 단계를 수행하는 동안 LogProcessingFactory 대신 이 이름을 사용합니다.
  
-## <a name="MainStep3"></a> 3 단계: 연결 된 서비스 만들기
+## <a name="MainStep3"></a> 3단계: 연결된 서비스 만들기
 
-> [AZURE.NOTE]이 문서 Azure 포털, 특히 데이터 팩터리 편집기를 사용 하 여 연결 된 서비스, 테이블 및 파이프라인을 만듭니다. 참조 [Azure PowerShell을 사용 하 여 자습서][adftutorial-using-powershell] Azure PowerShell을 사용 하 여이 자습서를 수행 하려는 경우.
+> [AZURE.NOTE]이 문서에서는 Azure 포털, 특히 데이터 팩터리 편집기를 사용하여 연결된 서비스, 테이블 및 파이프라인을 만듭니다. Azure PowerShell을 사용하여 이 자습서를 수행하려면 [Azure PowerShell 사용 자습서][adftutorial-using-powershell]를 참조하세요.
 
 이 단계에서는 연결된 서비스
 
@@ -200,44 +203,44 @@ Contoso는 여러 플랫폼에 대 한 게임을 만드는 게임 회사: 게임
 
 ### StorageLinkedService 및 HDInsightStorageLinkedService 만들기
 
-1.	에 **데이터 팩터리** 블레이드를 클릭 하 여 **작성자 및 배포** 타일을 시작는 **편집기** 데이터 팩터리에 대 한 합니다.
+1.	**데이터 팩터리** 블레이드에서 **작성자 및 배포** 타일을 클릭하여 데이터 팩터리에 대한 **편집기**를 시작합니다.
 
 	![작성 및 배포 타일][image-author-deploy-tile]
 
-	> [AZURE.NOTE]참조 [데이터 팩터리 편집기][data-factory-editor] 데이터 팩터리 편집기의 자세한 개요에 대 한 항목입니다.
+	데이터 팩터리 편집기에 대한 자세한 개요는 [데이터 팩터리 편집기][data-factory-editor] 토픽을 참조하세요.
 
-2.  에 **편집기**, 를 클릭 하 여 **새로운 데이터 저장소** 선택 도구 모음에서 단추 **Azure 저장소** 의 드롭다운 메뉴에서에서. 오른쪽 창에는 연결 된 Azure 저장소 서비스를 만들기 위한 JSON 템플릿을 표시 되어야 합니다.
+2.  **편집기**의 도구 모음에서 **새 데이터 저장소** 단추를 클릭하고 드롭다운 메뉴에서 **Azure 저장소**를 선택합니다. 오른쪽 창에 Azure 저장소 연결된 서비스를 만들기 위한 JSON 템플릿이 표시됩니다.
 	
-	![새 데이터 저장소 단추 편집기][image-editor-newdatastore-button]
+	![편집기 새 데이터 저장소 단추][image-editor-newdatastore-button]
 
-3. 대체 **accountname** 및 **accountkey** 계정 이름 및 Azure 저장소 계정에 대 한 계정 키 값입니다.
+3. **accountname** 및 **accountkey**를 Azure 저장소 계정의 계정 이름 및 계정 키 값으로 바꿉니다.
 
-	![JSON 편집기 Blob 저장소][image-editor-blob-storage-json]
+	![편집기 Blob 저장소 JSON][image-editor-blob-storage-json]
 	
-	> [AZURE.NOTE]참조 [JSON 스크립팅 참조](http://go.microsoft.com/fwlink/?LinkId=516971) JSON 속성에 대 한 세부 정보에 대 한 합니다.
+	JSON 속성에 대한 자세한 내용은 [JSON 스크립트 참조](http://go.microsoft.com/fwlink/?LinkId=516971)를 참조하세요.
 
-4. 클릭 하 여 **배포** 는 StorageLinkedService를 배포 하려면 도구 모음입니다. 메시지가 표시 되는지 확인 **연결 된 서비스 만든 성공적으로** 제목 표시줄에 있습니다.
+4. 도구 모음에서 **배포**를 클릭하여 StorageLinkedService를 배포합니다. 제목 표시줄에 **연결된 서비스가 성공적으로 생성됨** 메시지가 표시되는지 확인합니다.
 
 	![편집기 Blob 저장소 배포][image-editor-blob-storage-deploy]
 
-5. 다른 Azure 저장소를 만드는 단계 라는 서비스를 연결 하는 반복: **HDInsightStorageLinkedService** HDInsight 클러스터와 연결 된 저장소에 대 한 합니다. 연결 된 서비스에 대 한 JSON 스크립트에서의 값을 변경는 **이름** 속성을 **HDInsightStorageLinkedService**.
+5. 단계를 반복하여 HDInsight 클러스터와 연결된 저장소에 대해 **HDInsightStorageLinkedService**라는 다른 Azure 저장소 연결된 서비스를 만듭니다. 연결된 서비스에 대한 JSON 스크립트에서 **name** 속성의 값을 **HDInsightStorageLinkedService**로 변경합니다.
 
 ### AzureSqlLinkedService 만들기
-1. 에 **데이터 팩터리 편집기** , 를 클릭 하 여 **새로운 데이터 저장소** 선택 도구 모음에서 단추 **Azure SQL 데이터베이스** 의 드롭다운 메뉴에서에서. 오른쪽 창에서 Azure SQL 연결 서비스를 만들기 위한 JSON 템플릿을 표시 되어야 합니다.
-2. 대체 **servername**, **username@servername**, 및 **암호** SQL Azure 서버, 사용자 계정 및 암호의 이름으로. 3. 대체 **databasename** 와 **MarketingCampaigns**. 1 단계에서에서 실행 되는 스크립트로 만든 Azure SQL 데이터베이스입니다. 이 데이터베이스 실제로 만들어졌는지 스크립트를 통해 (경우에 오류가 발생 했습니다)를 확인 해야 합니다. 
-3. 클릭 하 여 **배포** 만들기 및 배포는 AzureSqlLinkedService 도구 모음에 있습니다.
+1. **데이터 팩터리 편집기**의 도구 모음에서 **새 데이터 저장소** 단추를 클릭하고 드롭다운 메뉴에서 **Azure SQL 데이터베이스**를 선택합니다. 오른쪽 창에 Azure SQL 연결된 서비스를 만들기 위한 JSON 템플릿이 표시됩니다.
+2. **servername**, **username@servername** 및 **password**를 Azure SQL Server, 사용자 계정의 이름 및 암호로 바꿉니다. 3. **databasename**을 **MarketingCampaigns**로 바꿉니다. 이 Azure SQL 데이터베이스는 1단계에서 실행한 스크립트에 의해 생성되었습니다. 이 데이터베이스가 스크립트에 의해 실제로 생성되었는지 확인해야 합니다(오류가 발생한 경우). 
+3. 도구 모음에서 **배포**를 클릭하여 AzureSqlLinkedService를 만들고 배포합니다.
 
 ### HDInsightLinkedService 만들기
 Azure 데이터 팩터리 서비스는 주문형 클러스터 만들기를 지원하며 이 클러스터를 사용하여 입력을 처리하고 출력 데이터를 생성합니다. 또한 고유한 클러스터를 사용하여 같은 작업을 할 수도 있습니다. 주문형 HDInsight 클러스터를 사용하면 각 조각에 대해 클러스터가 생성됩니다. 반면 고유한 HDInsight 클러스터를 사용하는 경우에는 클러스터에서 조각을 즉시 처리할 수 있습니다. 따라서 주문형 클러스터를 사용하는 경우 출력 데이터가 고유한 클러스터를 사용할 때처럼 빠르게 표시되지 않을 수 있습니다. 샘플을 보여 주기 위해 주문형 클러스터를 사용해 보겠습니다.
 
 #### 주문형 HDInsight 클러스터를 사용하려면
-1. 클릭 하 여 **새 계산** 를선택하고 명령 모음에서 **주문형 HDInsight 클러스터** 메뉴에서.
-2. JSON 스크립트에서 다음을 수행 합니다. 
-	1. 에 대 한는 **clusterSize** 속성을 HDInsight 클러스터의 크기를 지정 합니다.
-	2. 에 대 한는 **jobsContainer** 속성, 클러스터 로그를 저장할 기본 컨테이너의 이름을 지정 합니다. 이 자습서에서는 지정 **adfjobscontainer**.
-	3. 에 대 한는 **timeToLive** 속성을 얼마나 오래 고객 유휴 상태일 수 있는 삭제 하기 전에 지정 합니다. 
-	4. 에 대 한는 **버전** 속성을 사용 하려는 HDInsight 버전을 지정 합니다. 이 속성을 제외 하는 경우에 최신 버전이 사용 됩니다.  
-	5. 에 대 한는 **linkedServiceName**, 지정 **HDInsightStorageLinkedService** 가져오기에서 만들었을 자습서를 시작 합니다. 
+1. 명령 모음에서 **새 계산**을 클릭하고 메뉴에서 **주문형 HDInsight 클러스터**를 선택합니다.
+2. JSON 스크립트에서 다음을 수행합니다. 
+	1. **clusterSize** 속성에 대해 HDInsight 클러스터의 크기를 지정합니다.
+	2. **jobsContainer** 속성에 대해 클러스터 로그를 저장할 기본 컨테이너의 이름을 지정합니다. 이 자습서에서는 **adfjobscontainer**를 지정합니다.
+	3. **timeToLive** 속성에 대해 고객이 삭제되기 전에 유휴 상태로 유지될 수 있는 기간을 지정합니다. 
+	4. **version** 속성에 대해 사용할 HDInsight 버전을 지정합니다. 이 속성을 제외하면 최신 버전이 사용됩니다.  
+	5. **linkedServiceName**에 대해 시작 자습서에서 만든 **HDInsightStorageLinkedService**를 지정합니다. 
 
 			{
 		    	"name": "HDInsightLinkedService",
@@ -251,26 +254,26 @@ Azure 데이터 팩터리 서비스는 주문형 클러스터 만들기를 지�
 		    	}
 			}
 
-		이때는 **유형** 로 설정 된 연결 된 서비스의 **HDInsightOnDemandLinkedService**.
+		연결된 서비스의 **type**을 **HDInsightOnDemandLinkedService**로 설정합니다.
 
-2. 클릭 하 여 **배포** 연결 된 서비스를 배포 하려면 명령 모음에 있습니다.
+2. 명령 모음에서 **배포**를 클릭하여 연결된 서비스를 배포합니다.
    
    
 #### 고유한 HDInsight 클러스터를 사용하려면 
 
-1. 클릭 하 여 **새 계산** 를선택하고 명령 모음에서 **HDInsight 클러스터** 메뉴에서.
-2. JSON 스크립트에서 다음을 수행 합니다. 
-	1. 에 대 한는 **clusterUri** 속성을 프로그램 HDInsight에 대 한 URL을 입력 합니다. 예: https://<clustername>.azurehdinsight.net/     
-	2. 에 대 한는 **UserName** 속성을 HDInsight 클러스터에 대 한 액세스 권한이 있는 사용자 이름을 입력 합니다.
-	3. 에 대 한는 **암호** 속성을 사용자에 대 한 암호를 입력 합니다. 
-	4. 에 대 한는 **LinkedServiceName** 속성, 입력 **StorageLinkedService**. 시작된 자습서 다운로드에에서 만들 때 연결 된 서비스입니다. 
+1. 명령 모음에서 **새 계산**을 클릭하고 메뉴에서 **HDInsight 클러스터**를 선택합니다.
+2. JSON 스크립트에서 다음을 수행합니다. 
+	1. **clusterUri** 속성에 대해 HDInsight의 URL을 입력합니다. 예를 들어 https://<clustername>.azurehdinsight.net/을 입력합니다.     
+	2. **UserName** 속성에 대해 HDInsight 클러스터에 액세스할 수 있는 사용자 이름을 입력합니다.
+	3. **password** 속성에 대해 사용자 암호를 입력합니다. 
+	4. **LinkedServiceName** 속성에 대해 **StorageLinkedService**를 입력합니다. 시작 자습서에서 만든 연결된 서비스입니다. 
 
-	Nore 하는 **유형** 로 설정 된 연결 된 서비스의 **HDInsightBYOCLinkedService** (BYOC의 자체 클러스터 가져오기에 대 한 약어).
+	연결된 서비스의 **type**을 **HDInsightBYOCLinkedService**로 설정합니다(BYOC는 사용자 고유의 클러스터 가져오기의 약어임).
 
-2. 클릭 하 여 **배포** 연결 된 서비스를 배포 하려면 명령 모음에 있습니다.
+2. 명령 모음에서 **배포**를 클릭하여 연결된 서비스를 배포합니다.
 
 
-## <a name="MainStep4"></a> 4 단계: 테이블 만들기
+## <a name="MainStep4"></a> 4단계: 테이블 만들기
  
 이 단계에서는 다음 데이터 팩터리 테이블을 만듭니다.
 
@@ -282,136 +285,136 @@ Azure 데이터 팩터리 서비스는 주문형 클러스터 만들기를 지�
 - MarketingCampaignEffectivenessSQLTable
 - MarketingCampaignEffectivenessBlobTable
 
-	![자습서-종단간 흐름][image-data-factory-tutorial-end-to-end-flow]
+	![자습서 종단 간 흐름][image-data-factory-tutorial-end-to-end-flow]
  
 위 그림에서는 가운데 행에는 파이프라인을, 위쪽과 아래쪽 행에는 테이블을 표시합니다.
 
 ### 테이블을 만들려면
 	
-1. 에 **편집기** 데이터 팩터리를 클릭 합니다. **새 데이터 집합** 클릭 하 여 도구 모음에서 단추 **Azure Blob 저장소** 의 드롭다운 메뉴에서에서. 
-2. 오른쪽 창에서 JSON 스크립트에서 JSON 바꿉니다는 **RawGameEventsTable.json** 에서 파일의 **C:\ADFWalkthrough\Tables** 폴더입니다.
-3. 클릭 하 여 **배포** 만들어 테이블을 배포 하는 도구 모음의 합니다. 표시 되는지 확인은 **테이블 만든 성공적으로** 편집기의 제목 표시줄에는 메시지입니다.
-4. 다음 파일 내용 사용 하 여 1-3 단계를 반복 합니다. 
+1. 데이터 팩터리에 대한 **편집기**의 도구 모음에서 **새 데이터 집합** 단추를 클릭하고 드롭다운 메뉴에서 **Azure Blob 저장소**를 클릭합니다. 
+2. 오른쪽 창의 JSON을 **C:\ADFWalkthrough\Tables** 폴더의 **RawGameEventsTable.json** 파일에 있는 JSON 스크립트로 바꿉니다.
+3. 도구 모음에서 **배포**를 클릭하여 테이블을 만들고 배포합니다. 편집기의 제목 표시줄에 **테이블이 성공적으로 생성됨** 메시지가 표시되는지 확인합니다.
+4. 다음 파일의 내용으로 1-3단계를 반복합니다. 
 	1. PartitionedGameEventsTable.json
 	2. RefGeoCodeDictionaryTable.json
 	3. RefMarketingCampaignTable.json
 	4. EnrichedGameEventsTable.json
 	5. MarketingCampaignEffectivenessBlobTable.json 
-5. 다음 파일 내용 사용 하 여 1-3 단계를 반복 합니다. 하지만 선택 **Azure Sql** 클릭 한 후 **새 데이터 집합**.
+5. 다음 파일의 내용으로 1-3단계를 반복합니다. 하지만 **새 데이터 집합**을 클릭한 후 **Azure SQL**을 선택합니다.
 	1. MarketingCampaignEffectivenessSQLTable.json
 	
 
-## <a name="MainStep5"></a> 5 단계: 만들기 및 파이프라인을 예약
+## <a name="MainStep5"></a> 5단계: 파이프라인 만들기 및 예약
 이 단계에서는 다음 파이프라인을 만듭니다.
 
 - PartitionGameLogsPipeline
 - EnrichGameLogsPipeline
 - AnalyzeMarketingCampaignPipeline
 
-### 파이프라인을 만들 수
+### 파이프라인을 만들려면
 
 1. **데이터 팩터리 편집기**의 도구 모음에서 **새 파이프라인** 단추를 클릭합니다. 단추가 표시되지 않는 경우 도구 모음에서 **... (줄임표)**을 클릭합니다. 또는 트리 뷰에서 **파이프라인**을 마우스 오른쪽 단추로 클릭하고 **새 파이프라인**을 클릭할 수 있습니다.
-2. 오른쪽 창에서 JSON 스크립트에서 JSON 바꿉니다는 **PartitionGameLogsPipeline.json** 에서 파일의 **C:\ADFWalkthrough\Pipelines** 폴더입니다.
+2. 오른쪽 창의 JSON을 **C:\ADFWalkthrough\Pipelines** 폴더의 **PartitionGameLogsPipeline.json** 파일에 있는 JSON 스크립트로 바꿉니다.
 3. JSON의 **닫는 대괄호 (']')** 끝에 **쉼표 (',')**를 추가한 다음 닫는 대괄호 후 다음 세 줄을 추가합니다. 
 
         "start": "2014-05-01T00:00:00Z",
         "end": "2014-05-05T00:00:00Z",
         "isPaused": false
 
-	[AZURE.NOTE]이 연습에서 예제 데이터는 2014년 5월 1일부터 2014년 5월 5일까지이기 때문에 시작 시간과 종료 시간이 2014년 5월 1일부터 2014년 5월 5일까지 설정됩니다.
+	이 연습에서 예제 데이터는 2014년 5월 1일부터 2014년 5월 5일까지이기 때문에 시작 시간과 종료 시간이 2014년 5월 1일부터 2014년 5월 5일까지 설정됩니다.
  
 3. 도구 모음에서 **배포**를 클릭하여 파이프라인을 배포합니다. 편집기의 제목 표시줄에 **파이프라인이 성공적으로 생성됨** 메시지가 표시되는지 확인합니다.
-4. 다음 파일 내용 사용 하 여 1-3 단계를 반복 합니다. 
+4. 다음 파일의 내용으로 1-3단계를 반복합니다. 
 	1. EnrichGameLogsPipeline.json
 	2. AnalyzeMarketingCampaignPipeline.json
-4. 키를 눌러 데이터 팩터리 블레이드를 닫고 **X** 홈페이지를 볼 수 (오른쪽 위 모퉁이) (* * 데이터 팩터리 **블레이드) 팩터리를 데이터에 대 한. 
-### 다이어그램 보기
+4. **X**(오른쪽 위)를 눌러 데이터 팩터리 블레이드를 닫으면 데이터 팩터리의 홈페이지(**데이터 팩터리 **블레이드)가 표시됩니다. 
+### 다이어그램 뷰
 
-1. 에 **데이터 팩터리** 에 대 한 블레이드는 **LogProcessingFactory**, 클릭 **다이어그램**. 
+1. **LogProcessingFactory**의 **데이터 팩터리** 블레이드에서 **다이어그램**을 클릭합니다. 
 
 	![다이어그램 링크][image-data-factory-tutorial-diagram-link]
 
-2. 다이어그램을 다시 정렬할 수 있으며, 다음은 맨 위에 직접 입력, 맨 아래에 출력이 표시되도록 다시 정렬한 다이어그램입니다. 볼 수 있습니다의 출력의 **PartitionGameLogsPipeline** EnrichGameLogsPipeline 및의 출력에 대 한 입력으로 전달 되어는 **EnrichGameLogsPipeline** 에 전달 되는 **AnalyzeMarketingCampaignPipeline**. 제목을 두 번 클릭하면 블레이드가 나타내는 아티팩트에 대한 자세한 내용이 표시됩니다.
+2. 다이어그램을 다시 정렬할 수 있으며, 다음은 맨 위에 직접 입력, 맨 아래에 출력이 표시되도록 다시 정렬한 다이어그램입니다. 표시된 대로 **PartitionGameLogsPipeline**의 출력이 EnrichGameLogsPipeline의 입력으로 전달되고 **EnrichGameLogsPipeline**의 출력이 **AnalyzeMarketingCampaignPipeline**으로 전달됩니다. 제목을 두 번 클릭하면 블레이드가 나타내는 아티팩트에 대한 자세한 내용이 표시됩니다.
 
-	![다이어그램 보기][image-data-factory-tutorial-diagram-view]
+	![다이어그램 뷰][image-data-factory-tutorial-diagram-view]
 
-3. 마우스 오른쪽 단추로 클릭 **AnalyzeMarketingCampaignPipeline**, 를 클릭 하 고 **개방 된 파이프라인이**. 활동에 대 한 입력 및 출력 데이터 집합을 함께 파이프라인에서 모든 활동에 표시 되어야 합니다.
+3. **AnalyzeMarketingCampaignPipeline**을 마우스 오른쪽 단추로 클릭하고 **파이프라인 열기**를 클릭합니다. 작업에 대한 입력 및 출력 데이터 집합과 함께 파이프라인의 모든 작업이 표시됩니다.
  
-	![개방 된 파이프라인이](./media/data-factory-tutorial/AnalyzeMarketingCampaignPipeline-OpenPipeline.png)
+	![파이프라인 열기](./media/data-factory-tutorial/AnalyzeMarketingCampaignPipeline-OpenPipeline.png)
 
-	클릭 하 여 **데이터 팩터리** 모든 파이프라인을 사용 하 여 다이어그램 뷰 돌아가려면 왼쪽 위 모서리의 이동 경로에 있습니다.
+	왼쪽 위의 이동 경로에서 **데이터 팩터리**를 클릭하여 모든 파이프라인이 포함된 다이어그램 뷰로 돌아갑니다.
 
 
 **축하합니다.** Azure 데이터 팩터리, 연결된 서비스, 파이프라인, 테이블을 만들었고 워크플로를 시작했습니다.
 
 
-## <a name="MainStep6"></a> 6 단계: 모니터링 파이프라인 및 데이터 조각 
+## <a name="MainStep6"></a> 6단계: 파이프라인 및 데이터 조각 모니터링 
 
-1.	하지 않은 경우는 **데이터 팩터리** 에 대 한 블레이드는 **LogProcessingFactory** 열기를 할 수 있는 다음 중 하나:
-	1.	클릭 하 여 **LogProcessingFactory** 에 **시작 보드**. 데이터 팩터리를 만드는 동안는 **시작 보드에 추가** 옵션이 자동으로 선택 되었습니다.
+1.	**LogProcessingFactory**에 대한 **데이터 팩터리** 블레이드가 없는 경우, 다음 중 하나를 수행할 수 있습니다.
+	1.	**시작 보드**에서 **LogProcessingFactory**를 클릭합니다. 데이터 팩터리를 만들 때 **시작 보드에 추가** 옵션이 자동으로 선택되어 있었습니다.
 
-		![시작 보드를 모니터링합니다.][image-data-factory-monitoring-startboard]
+		![모니터링 시작 보드][image-data-factory-monitoring-startboard]
 
-	2. 클릭 하 여 **찾아보기** 허브, 를클릭하고 **모든**.
+	2. **찾아보기** 허브를 클릭하고 **모두**를 클릭합니다.
 	 	
-		![모든 허브 모니터링][image-data-factory-monitoring-hub-everything]
+		![모니터링 허브 모두][image-data-factory-monitoring-hub-everything]
 
-		에 **찾아보기** 블레이드를 **데이터 팩터리** 선택 하 고 **LogProcessingFactory** 에 **데이터 팩터리** 블레이드입니다.
+		**찾아보기** 블레이드에서 **데이터 팩터리**를 선택하고 **데이터 팩터리** 블레이드에서 **LogProcessingFactory**를 선택합니다.
 
-		![찾아보기 Datafactories 모니터링][image-data-factory-monitoring-browse-datafactories]
+		![모니터링 찾아보기 데이터 팩터리][image-data-factory-monitoring-browse-datafactories]
 2. 여러 가지 방법으로 데이터 팩터리를 모니터링할 수 있습니다. 파이프라인이나 데이터 집합으로 시작할 수 있습니다. 우선 파이프라인부터 자세히 다루겠습니다. 
-3.	클릭 하 여 **파이프라인** 에 **데이터 팩터리** 블레이드입니다. 
-4.	클릭 하 여 **PartitionGameLogsPipeline** 파이프라인 블레이드에서 합니다. 
-5.	에 **파이프라인** 에 대 한 블레이드 **PartitionGameLogsPipeline**, 파이프라인에서 사용 하는 것이 표시 **RawGameEventsTable** 데이터 집합입니다. 클릭 하 여 **RawGameEventsTable**.
+3.	**데이터 팩터리** 블레이드에서 **파이프라인**을 클릭합니다. 
+4.	파이프라인 블레이드에서 **PartitionGameLogsPipeline**을 클릭합니다. 
+5.	**PartitionGameLogsPipeline**의 **파이프라인** 블레이드에 이 파이프라인이 **RawGameEventsTable** 데이터 집합을 사용한다고 표시됩니다. **RawGameEventsTable**을 클릭합니다.
 
-	![사용 하 고 생성 된 파이프라인][image-data-factory-monitoring-pipeline-consumed-produced]
+	![사용 및 생성된 파이프라인][image-data-factory-monitoring-pipeline-consumed-produced]
 
-6. 에 대 한 테이블 블레이드에서 **RawGameEventsTable**, 모든 슬라이스를 참조 하십시오. 에서는 다음 스크린샷과, 모든 조각에는 **준비** 상태 되며 문제가 조각 없습니다. 즉, 데이터를 처리할 준비가 되었습니다.
+6. **RawGameEventsTable**에 대한 테이블 블레이드에서 모든 슬라이스를 참조하세요. 다음 스크린샷에서는 모든 조각이 **Ready** 상태이고 문제 조각이 없습니다. 즉, 데이터를 처리할 준비가 되었습니다.
 
 	![RawGameEventsTable 테이블 블레이드][image-data-factory-monitoring-raw-game-events-table]
 
-	모두 **조각 최근에 업데이트** 및 **최근에 조각 실패 한** 목록을 기준으로 정렬 됩니다는 **마지막 업데이트 시간**. 다음과 같은 상황에서 조각의 업데이트 시간이 변경 됩니다.
+	**Recently updated slices(최근에 업데이트된 조각)** 및 **Recently failed slices(최근에 실패한 조각)** 목록은 둘 다 **마지막 업데이트 시간**을 기준으로 정렬됩니다. 조각의 업데이트 시간은 다음과 같은 상황에서 변경됩니다.
 
-	-  수동으로 업데이트할 있습니다 조각의 상태, 예를 사용 하 여는 **집합 AzureDataFactorySliceStatus** (또는)를 클릭 하 여 **실행** 에 **조각** 블레이드는 조각에 대 한 합니다.
-	-  실행으로 인해 상태를 변경 하는 조각 (예: 시작을 실행 하는, 종료 하 고 실패 한 실행, 실행을 종료 하 고 성공, 등).
+	-  **Set-AzureDataFactorySliceStatus**를 사용하거나 조각의 **조각** 블레이드에서 **실행**을 클릭하여 수동으로 조각 상태를 업데이트합니다.
+	-  실행(예: 실행 시작, 실행 종료 및 실패, 실행 종료 및 성공 등)으로 인해 조각 상태가 변경됩니다.
  
-	목록 또는 의 제목을 클릭 **... (타원)** 더 큰 조각 목록을 확인 합니다. 클릭 하 여 **필터** 슬라이스를 필터링 하려면 도구 모음입니다.
+	목록의 제목 또는 **...(줄임표)**을 클릭하여 더 큰 조각 목록을 표시합니다. 도구 모음의 **필터**를 클릭하여 조각을 필터링합니다.
 	
-	기준으로 정렬 된 조각 시작/종료 시간 대신 데이터 조각이 보려면 클릭 합니다. **(시간별 slice) 데이터 조각이** 바둑판식으로 배열 합니다.
+	조각 시작/종료 시간을 기준으로 정렬된 데이터 조각을 보려면 **데이터 조각(조각 시간별)** 타일을 클릭합니다.
 
-	![Slice 시간별 데이터 조각][DataSlicesBySliceTime]
+	![조각 시간별 데이터 조각][DataSlicesBySliceTime]
  
-7. 이제는 **파이프라인** 에 대 한 블레이드 **PartiionGameLogsPipeline**, 클릭 **생산**.
+7. 이제 **PartiionGameLogsPipeline**의 **파이프라인** 블레이드에서 **Produced**를 클릭합니다.
 8. 이 파이프라인에서 생성하는 데이터 집합 목록이 표시됩니다. 
-9. 클릭 하 여 **PartitionedGameEvents** 테이블에 **데이터 집합 생성** 블레이드입니다. 
-10.	확인 하는 **상태** 로 설정 된 모든 조각 **준비**. 
-11.	조각 중 하나를 클릭 **준비** 참조 하는 **데이터 조각을** 에 대 한 해당 조각의 블레이드입니다.
+9. **Produced datasets(생성된 데이터 집합)** 블레이드에서 **PartitionedGameEvents** 테이블을 클릭합니다. 
+10.	모든 조각의 **상태**가 **Ready**로 설정되어 있는지 확인합니다. 
+11.	**Ready** 상태인 조각 중 하나를 클릭하여 해당 조각에 대한 **데이터 조각** 블레이드를 확인합니다.
 
-	![RawGameEventsTable 데이터 조각을 블레이드][image-data-factory-monitoring-raw-game-events-table-dataslice-blade]
+	![RawGameEventsTable 데이터 조각 블레이드][image-data-factory-monitoring-raw-game-events-table-dataslice-blade]
 
-	오류가 있으면 표시 되는 한 **실패 **여기 상태입니다. 상태와 함께 분할 두 영역을 볼 수도 있습니다 **준비**, 또는 둘 모두 상태와 함께 **PendingValidation**, 조각이 처리 되는 속도에 따라 합니다.
+	오류가 발생한 경우 여기에 **Failed** 상태가 표시됩니다. 두 조각의 상태가 모두 **Ready**이거나 **PendingValidation**일 수 있으며, 이는 조각이 얼마나 빨리 처리되는지에 따라 다릅니다.
 
-	조각에 없는 경우는 **준비** 상태를 준비 하지 않으며는 현재 조각에서 실행할 수 없도록 차단 여부를 지정 하는 업스트림 조각을 볼 수 있습니다는 **준비 하지 않은 업스트림 조각** 목록입니다.
+	조각이 **Ready** 상태가 아닌 경우 **Upstream slices that are not ready(준비되지 않은 업스트림 조각)** 목록에서 Ready 상태가 아니고 현재 조각의 실행을 차단하는 업스트림 조각을 확인할 수 있습니다.
  
-	참조는 [Azure 데이터 팩터리 개발자 참조][developer-reference] 의 모든 가능한 슬라이스 상태 이해할 수 있습니다.
+	조각의 가능한 모든 상태에 대해 알아보려면 [Azure 데이터 팩터리 개발자 참조][developer-reference](영문)를 참조하세요.
 
-12.	에 **데이터 조각을** 블레이드를에서 실행을 클릭는 **활동 실행** 목록입니다. 해당 조각의 Activity Run 블레이드가 표시됩니다. 다음을 참조 해야 **작업 실행 세부 정보** 블레이드입니다.
+12.	**데이터 조각** 블레이드의 **작업 실행** 목록에서 실행을 클릭합니다. 해당 조각의 Activity Run 블레이드가 표시됩니다. 다음과 같은 **작업 실행 세부 정보** 블레이드가 표시됩니다.
 
-	![활동 실행 정보 블레이드][image-data-factory-monitoring-activity-run-details]
+	![작업 실행 세부 정보 블레이드][image-data-factory-monitoring-activity-run-details]
 
-13.	클릭 하 여 **다운로드** 파일을 다운로드 합니다. 이 화면은 HDInsight 처리의 오류를 해결할 때 특히 유용합니다.
+13.	**다운로드**를 클릭하여 파일을 다운로드합니다. 이 화면은 HDInsight 처리의 오류를 해결할 때 특히 유용합니다.
 	 
 	
-모든 파이프라인 실행을 완료 하는 경우로 볼 수 있습니다는 **MarketingCampaignEffectivenessTable** 에 **MarketingCampaigns** Azure SQL 데이터베이스는 결과 볼 수 있습니다.
+모든 파이프라인의 실행이 완료되면 **MarketingCampaigns** Azure SQL 데이터베이스에서 **MarketingCampaignEffectivenessTable**을 조사하여 결과를 볼 수 있습니다.
 
 **축하합니다.** 이제 워크플로를 모니터링하고 문제를 해결할 수 있습니다. 지금까지 Azure 데이터 팩터리를 사용하여 데이터를 처리하고 분석 결과를 얻는 방법을 배웠습니다.
 
-## 온-프레미스 데이터를 사용 하 여이 자습서를 확장 합니다.
-이 문서에서는 연습에서 시나리오를 처리 하는 로그의 마지막 단계에서는 마케팅 캠페인 효율성 출력 Azure SQL 데이터베이스에 복사 되었습니다. 이 데이터를 조직 내에서 분석하기 위해 온-프레미스 SQL Server로 이동할 수도 있습니다.
+## 온-프레미스 데이터를 사용하도록 자습서 확장
+이 문서의 연습에서 로그 처리 시나리오의 마지막 단계에 마케팅 캠페인 효과 출력이 Azure SQL 데이터베이스에 복사되었습니다. 이 데이터를 조직 내에서 분석하기 위해 온-프레미스 SQL Server로 이동할 수도 있습니다.
  
-Azure Blob에서 마케팅 캠페인 효율성 데이터를 복사 하기 위해 온-프레미스 SQL Server, 추가 온-프레미스 연결 된 서비스를 만들 필요가,이 문서의 연습에 도입 된 테이블 및 파이프라인.
+Azure Blob에서 온-프레미스 SQL Server로 마케팅 캠페인 효과 데이터를 복사하려면 이 문서의 연습에서 소개한 온-프레미스 연결된 서비스, 테이블 및 파이프라인을 추가로 만들어야 합니다.
 
-연습에서 [연습:를 사용 하 여 온-프레미스 데이터 원본][tutorial-onpremises] 마케팅 캠페인 효율성 데이터는 온-프레미스 SQL Server 데이터베이스를 복사 하는 파이프라인을 만드는 방법을 배울 수 있습니다.
+[연습: 온-프레미스 데이터 원본 사용][tutorial-onpremises]을 실습하여 마케팅 캠페인 효과 데이터를 온-프레미스 SQL Server 데이터베이스로 복사하는 파이프라인을 만드는 방법을 알아봅니다.
 
 
 [monitor-manage-using-powershell]: data-factory-monitor-manage-using-powershell.md
@@ -522,4 +525,4 @@ Azure Blob에서 마케팅 캠페인 효율성 데이터를 복사 하기 위해
 
 [image-data-factory-new-datafactory-create-button]: ./media/data-factory-tutorial/DataFactoryCreateButton.png
 
-<!---HONumber=GIT-SubDir--> 
+<!---HONumber=58_postMigration-->

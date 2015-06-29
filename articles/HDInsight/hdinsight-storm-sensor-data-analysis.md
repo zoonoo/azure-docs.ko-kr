@@ -1,6 +1,6 @@
 <properties
    pageTitle="Apache Storm 및 HBase를 사용하여 센서 데이터 분석 | Microsoft Azure"
-   description="HDInsight의 Apache Storm 및 HBase를 사용하여 Azure 이벤트 허브에서 센서 데이터를 처리하고, D3.js를 통해 이를 시각화하는 방법에 대해 알아봅니다. 또한 가상 네트워크와 Storm을 연결합니다."
+   description="가상 네트워크를 사용하여 Apache Storm에 연결하는 방법을 알아봅니다. HBase와 함께 Storm을 사용하여 이벤트 허브에서 센서 데이터를 처리하고 D3.js를 통해 이를 시각화합니다."
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
@@ -22,7 +22,7 @@ HDInsight의 Apache Storm을 사용하여 Azure 이벤트 허브에서 센서 �
 
 ## 필수 조건
 
-* Azure 구독
+* Azure 구독. [Azure 무료 평가판](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
 
 * [HDInsight의 Apache Storm 클러스터](../hdinsight-storm-getting-started.md)
 
@@ -105,8 +105,7 @@ HDInsight의 Apache Storm을 사용하여 Azure 이벤트 허브에서 센서 �
 <tr><th>이름</th><th>권한</th></tr>
 <tr><td>장치</td><td>보내기</td></tr>
 <tr><td>Storm</td><td>수신 대기</td></tr>
-</table>
-권한을 만든 후 페이지 아래쪽의 **저장** 아이콘을 선택합니다. 그러면 이 허브로 메시지를 보내고 이 허브에서 메시지를 읽는 데 사용할 공유 액세스 정책이 만들어집니다.
+</table>권한을 만든 후 페이지 아래쪽의 **저장** 아이콘을 선택합니다. 그러면 이 허브로 메시지를 보내고 이 허브에서 메시지를 읽는 데 사용할 공유 액세스 정책이 만들어집니다.
 
 5. 정책을 저장한 후 페이지 아래쪽의 **공유 액세스 키 생성기**를 사용하여 **장치** 및 **Storm** 정책의 키를 검색합니다. 이러한 키는 나중에 사용되므로 저장합니다.
 
@@ -239,7 +238,7 @@ HDInsight의 Apache Storm을 사용하여 Azure 이벤트 허브에서 센서 �
 
 2. 다음 명령을 사용하여 로컬로 토폴로지를 시작합니다.
 
-		mvn compile exec:java -Dstorm.topology=com.microsoft.examples.Temperature
+	mvn compile exec:java -Dstorm.topology=com.microsoft.examples.Temperature
 
 	그러면 토폴로지가 시작되고 이벤트 허브에서 파일을 읽은 후 Azure 웹 사이트에서 실행되는 대시보드로 파일을 보냅니다. 웹 대시보드에 다음과 유사한 줄이 표시됩니다.
 
@@ -259,7 +258,7 @@ HDInsight의 Apache Storm을 사용하여 Azure 이벤트 허브에서 센서 �
 
 2. 웹 사이트가 만들어지면 Azure 포털에서 해당 사이트로 이동하여 **구성** 탭을 선택합니다. **웹 소켓**을 사용하도록 설정하고 페이지 아래쪽에서 **저장**을 클릭합니다.
 
-2. **hdinsight-eventhub-example\\TemperatureMonitor\\src\\main\\java\\com\\microsoft\\examples\\bolts\\DashboardBolt.java**를 열고 다음 줄을 게시된 대시보드의 URL을 가리키도록 변경합니다.
+2. **hdinsight-eventhub-example\TemperatureMonitor\src\main\java\com\microsoft\examples\bolts\DashboardBolt.java**를 열고 다음 줄을 게시된 대시보드의 URL을 가리키도록 변경합니다.
 
 		socket = IO.socket("http://mywebsite.azurewebsites.net");
 
@@ -363,13 +362,13 @@ Storm 클러스터에서 HBase에 쓰려면 HBase 클러스터의 FQDN(정규화
 
 ### HBase bolt 사용
 
-1. **hdinsight-eventhub-example\\TemperatureMonitor\\conf\\hbase-site.xml**을 열고 다음 줄의 `suffix` 항목을 앞에서 가져온 HBase 클러스터의 DNS 접미사로 바꿉니다. 변경을 완료한 후 파일을 저장합니다.
+1. **hdinsight-eventhub-example\TemperatureMonitor\conf\hbase-site.xml**을 열고 다음 줄의 `suffix` 항목을 앞에서 가져온 HBase 클러스터의 DNS 접미사로 바꿉니다. 변경을 완료한 후 파일을 저장합니다.
 
 		<value>zookeeper0.suffix,zookeeper1.suffix,zookeeper2.suffix</value>
 
 	이는 HBase bolt에서 HBase 클러스터와 통신하는 데 사용됩니다.
 
-1. 텍스트 편집기에서 **hdinsight-eventhub-example\\TemperatureMonitor\\src\\main\\java\\com\\microsoft\\examples\\bolts**를 열고 시작 부분에서 `//`를 제거하여 다음 줄의 주석 처리를 제거합니다. 변경을 완료한 후 파일을 저장합니다.
+1. 텍스트 편집기에서 **hdinsight-eventhub-example\TemperatureMonitor\src\main\java\com\microsoft\examples\bolts**를 열고 시작 부분에서 `//`를 제거하여 다음 줄의 주석 처리를 제거합니다. 변경을 완료한 후 파일을 저장합니다.
 
 		topologyBuilder.setBolt("HBase", new HBaseBolt("SensorData", mapper).withConfigKey("hbase.conf"), spoutConfig.getPartitionCount())
     	  .fieldsGrouping("Parser", "hbasestream", new Fields("deviceid")).setNumTasks(spoutConfig.getPartitionCount());
@@ -386,15 +385,15 @@ Storm 클러스터에서 HBase에 쓰려면 HBase 클러스터의 FQDN(정규화
 
 2. 데스크톱에서 HDInsight 명령줄을 시작하고 다음 명령을 입력합니다.
 
-		cd %HBASE_HOME% bin\\hbase shell
+    cd %HBASE_HOME% bin\hbase shell
 
 3. HBase 셸에서 다음 명령을 입력하여 센서 데이터를 저장할 테이블을 만듭니다.
 
-		create 'SensorData', 'cf'
+    create 'SensorData', 'cf'
 
 4. 다음 명령을 입력하여 테이블에 데이터가 없음을 확인합니다.
 
-		scan 'SensorData'
+    scan 'SensorData'
 
 Storm 클러스터에서 토폴로지를 시작하고 데이터를 처리한 경우 다시 `scan 'SensorData'` 명령을 사용하여 데이터가 HBase에 삽입되었는지 확인할 수 있습니다.
 
@@ -420,5 +419,6 @@ Storm 클러스터에서 토폴로지를 시작하고 데이터를 처리한 경
 * .NET에서 토폴로지를 만들기에 대한 자세한 내용은 [Visual Studio를 사용하여 HDInsight의 Apache Storm용 C# 토폴로지 개발](hdinsight-storm-develop-csharp-visual-studio-topology.md)을 참조하세요.
 
 [azure-portal]: https://manage.windowsazure.com/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=58_postMigration-->

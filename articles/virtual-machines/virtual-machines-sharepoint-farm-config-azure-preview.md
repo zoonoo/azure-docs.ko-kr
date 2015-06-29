@@ -134,5 +134,6 @@ SharePoint Server 팜은 미리 구성된 SharePoint Server 2013 팜을 자동�
 [Azure 인프라 서비스의 SharePoint](http://msdn.microsoft.com/library/azure/dn275955.aspx)
 
 [테스트용 하이브리드 클라우드에 SharePoint 인트라넷 팜 설치](../virtual-network/virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

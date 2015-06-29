@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="HDInsight의 HBase | Microsoft Azure" 
-	description="Hadoop을 기반으로 하는 NoSQL 데이터베이스인 HDInsight의 Apache HBase를 소개합니다. 이 빅 데이터 기술 및 사용 사례를 알아보고 다른 Hadoop 클러스터와 비교합니다." 
+	description="Hadoop을 기반으로 하는 NoSQL 데이터베이스인 HDInsight의 Apache HBase를 소개합니다. 사용 사례에 대해 알아보고 HBase를 다른 Hadoop 클러스터와 비교합니다." 
 	keywords="bigtable,nosql,what is hbase"
 	services="hdinsight" 
 	documentationCenter="" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/31/2015" 
+	ms.date="05/20/2015" 
 	ms.author="jgao"/>
 
 
@@ -40,20 +40,24 @@ HBase의 HBase 셸에서 `create`, `get`, `put` 및 `scan` 명령을 사용하�
 ## 시나리오: HBase의 사용 사례
 BigTable 및 확장에 의해 HBase를 만드는 정식 사용 사례는 웹 검색입니다. 검색 엔진은 엔진을 포함하는 웹 페이지에 용어를 매핑하는 인덱스를 구축합니다. 그러나 HBase가 적합한 다른 많은 사용 사례가 있으며, 몇 가지 사례가 이 섹션에 나와 있습니다.
 
-### 키-값 저장소
-HBase를 키-값 저장소로 사용할 수 있으며 메시지 시스템 관리에 적합합니다. Facebook은 해당 메시징 시스템에 HBase를 사용하며 인터넷 통신 저장 및 관리에 유용합니다. WebTable은 HBase를 사용하여 웹 페이지에서 추출된 테이블을 검색하고 관리합니다.
+- 키-값 저장소
 
-### 센서 데이터
-HBase는 다양한 소스에서 증분 방식으로 수집된 데이터를 캡처하는 데 유용합니다. 여기에는 소셜 분석, 시계열, 추세 및 카운터로 대화형 대시보드를 최신 상태로 유지, 감사 로그 시스템 관리가 포함됩니다. 예를 들어 서버 시스템 상태에 대해 수집된 메트릭을 저장하고 액세스를 제공하는 OpenTSDB(Open Time Series Database) 및 Bloomberg 중개인 터미널이 있습니다.
+	HBase를 키-값 저장소로 사용할 수 있으며 메시지 시스템 관리에 적합합니다. Facebook은 해당 메시징 시스템에 HBase를 사용하며 인터넷 통신 저장 및 관리에 유용합니다. WebTable은 HBase를 사용하여 웹 페이지에서 추출된 테이블을 검색하고 관리합니다.
 
-### 실시간 쿼리
-[Phoenix](http://phoenix.apache.org/)는 Apache HBase용 SQL 쿼리 엔진입니다. JDBC 드라이버로 액세스되며 SQL을 사용하여 HBase 테이블을 쿼리하고 관리할 수 있도록 합니다.
+- 센서 데이터
 
-### HBase를 플랫폼으로 사용
-HBase를 데이터 저장소로 사용하여 HBase 위에서 응용 프로그램을 실행할 수 있습니다. 예를 들어 Phoenix, OpenTSDB, Kiji, Titan 등이 있습니다. 응용 프로그램이 HBase와 통합될 수도 있습니다. 예를 들어 Hive, Pig, Solr, Storm, Flume, Impala, Spark, Ganglia, Drill 등이 있습니다.
+	HBase는 다양한 소스에서 증분 방식으로 수집된 데이터를 캡처하는 데 유용합니다. 여기에는 소셜 분석, 시계열, 추세 및 카운터로 대화형 대시보드를 최신 상태로 유지, 감사 로그 시스템 관리가 포함됩니다. 예를 들어 서버 시스템 상태에 대해 수집된 메트릭을 저장하고 액세스를 제공하는 OpenTSDB(Open Time Series Database) 및 Bloomberg 중개인 터미널이 있습니다.
+
+- 실시간 쿼리
+
+	[Phoenix](http://phoenix.apache.org/)는 Apache HBase용 SQL 쿼리 엔진입니다. JDBC 드라이버로 액세스되며 SQL을 사용하여 HBase 테이블을 쿼리하고 관리할 수 있도록 합니다.
+
+- HBase를 플랫폼으로 사용
+
+	HBase를 데이터 저장소로 사용하여 HBase 위에서 응용 프로그램을 실행할 수 있습니다. 예를 들어 Phoenix, OpenTSDB, Kiji, Titan 등이 있습니다. 응용 프로그램이 HBase와 통합될 수도 있습니다. 예를 들어 Hive, Pig, Solr, Storm, Flume, Impala, Spark, Ganglia, Drill 등이 있습니다.
 
 
-## <a name="next-steps"></a>다음 단계
+##<a name="next-steps"></a>다음 단계
 
 - [HDInsight의 Hadoop에서 HBase 사용 시작][hbase-get-started]
 - [Azure 가상 네트워크에 HDInsight 클러스터 프로비전][hbase-provision-vnet]
@@ -61,7 +65,7 @@ HBase를 데이터 저장소로 사용하여 HBase 위에서 응용 프로그램
 - [HDInsight에서 HBase를 사용하여 Twitter 데이터 분석][hbase-twitter-sentiment]
 - [Maven을 사용하여 HDInsight(Hadoop)에서 HBase를 사용하는 Java 응용 프로그램 빌드][hbase-build-java-maven]
 
-## <a name="see-also"></a>참고 항목
+##<a name="see-also"></a>참고 항목
 
 - [Apache HBase](https://hbase.apache.org/)
 - [Bigtable: 구조화된 데이터의 분산 저장소 시스템](http://research.google.com/archive/bigtable.html)
@@ -98,5 +102,6 @@ HBase를 데이터 저장소로 사용하여 HBase 위에서 응용 프로그램
 
 
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=58_postMigration-->

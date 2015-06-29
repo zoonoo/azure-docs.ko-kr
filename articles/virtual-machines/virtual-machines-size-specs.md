@@ -12,7 +12,7 @@ ms.service="virtual-machines"
  ms.topic="article" 
  ms.tgt_pltfrm="vm-multiple" 
  ms.workload="infrastructure-services"
- ms.date="05/26/2015" 
+ ms.date="05/28/2015" 
  ms.author="kathydav"/>
 
 # 가상 컴퓨터의 크기
@@ -76,10 +76,10 @@ Azure 가상 컴퓨터 및 클라우드 서비스는 Azure에서 제공하는 �
 |A5(동일)|2|14 GB|<p>OS = 1023GB</p><p>임시 = 135GB</p>|4|4X500|
 |A6(동일)|4|28GB|<p>OS = 1023GB</p><p>임시 = 285GB</p>|8|8x500|
 |A7(동일)|8|56GB|<p>OS = 1023GB</p><p>임시 = 605GB</p>|16|16x500|
-|A8(동일)|8|56GB|<p><p>OS = 1023GB</p><p>임시 = 382GB</p><blockquote><p>[AZURE.NOTE]이 크기의 사용과 관련된 자세한 내용 및 고려 사항에 대해서는 <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">A8, A9, A10 및 A11 계산 집약적 인스턴스 정보</a>를 참조하세요.</p></blockquote>|16|16x500|
-|A9(동일)|16|112GB|<p><p>OS = 1023GB</p><p>임시 = 382GB</p><blockquote><p>[AZURE.NOTE]이 크기의 사용과 관련된 자세한 내용 및 고려 사항에 대해서는 <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">A8, A9, A10 및 A11 계산 집약적 인스턴스 정보</a>를 참조하세요.</p></blockquote>|16|16x500|
-|A10(동일)|8|56GB|<p><p>OS = 1023GB</p><p>임시 = 382GB</p><blockquote><p>[AZURE.NOTE]이 크기의 사용과 관련된 자세한 내용 및 고려 사항에 대해서는 <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">A8, A9, A10 및 A11 계산 집약적 인스턴스 정보</a>를 참조하세요.</p></blockquote>|16|16x500|
-|A11(동일)|16|112GB|<p><p>OS = 1023GB</p><p>임시 = 382GB</p><blockquote><p>[AZURE.NOTE]이 크기의 사용과 관련된 자세한 내용 및 고려 사항에 대해서는 <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">A8, A9, A10 및 A11 계산 집약적 인스턴스 정보</a>를 참조하세요.</p></blockquote>|16|16x500|
+|A8(동일)|8|56GB|<p><p>OS = 1023GB</p><p>Temporary = 382GB</p><blockquote><p>참고: 이 크기의 사용과 관련된 자세한 내용 및 고려 사항에 대해서는 <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">A8, A9, A10 및 A11 계산 집약적 인스턴스 정보</a>를 참조하세요.</p></blockquote>|16|16x500|
+|A9(동일)|16|112GB|<p><p>OS = 1023GB</p><p>Temporary = 382GB</p><blockquote><p>참고: 이 크기의 사용과 관련된 자세한 내용 및 고려 사항에 대해서는 <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">A8, A9, A10 및 A11 계산 집약적 인스턴스 정보</a>를 참조하세요.</p></blockquote>|16|16x500|
+|A10(동일)|8|56GB|<p><p>OS = 1023GB</p><p>Temporary = 382GB</p><blockquote><p>참고: 이 크기의 사용과 관련된 자세한 내용 및 고려 사항에 대해서는 <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">A8, A9, A10 및 A11 계산 집약적 인스턴스 정보</a>를 참조하세요.</p></blockquote>|16|16x500|
+|A11(동일)|16|112GB|<p><p>OS = 1023GB</p><p>Temporary = 382GB</p><blockquote><p>참고: 이 크기의 사용과 관련된 자세한 내용 및 고려 사항에 대해서는 <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">A8, A9, A10 및 A11 계산 집약적 인스턴스 정보</a>를 참조하세요.</p></blockquote>|16|16x500|
 |Standard_D1(동일)|1|3.5 GB|<p>OS = 1023GB</p><p>임시 (SSD) =50GB</p>|2|2x500|
 |Standard_D2(동일)|2|7 GB|<p>OS = 1023GB</p><p>임시 (SSD) = 100GB</p>|4|4x500|
 |Standard_D3(동일)|4|14 GB|<p>OS = 1023GB</p><p>임시 (SSD) = 200GB</p>|8|8x500|
@@ -117,18 +117,9 @@ Azure 가상 컴퓨터 및 클라우드 서비스는 Azure에서 제공하는 �
 
 ### 참고 항목
 
-#### 개념
-
-[Azure용 클라우드 서비스 설정](https://msdn.microsoft.com/library/hh124108)
-
- [클라우드 서비스에 맞는 크기 구성](https://msdn.microsoft.com/library/ee814754)
-
-#### 기타 리소스
-
 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-subscription-service-limits.md)
  
- [A8, A9, A10 및 A11 계산 집약적인 인스턴스 정보](http://go.microsoft.com/fwlink/p/?linkid=328042)
+[A8, A9, A10 및 A11 계산 집약적인 인스턴스 정보](http://go.microsoft.com/fwlink/p/?linkid=328042)
+ 
 
-[클라우드 서비스 크기](../cloud-services-sizes-specs.md)
-
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

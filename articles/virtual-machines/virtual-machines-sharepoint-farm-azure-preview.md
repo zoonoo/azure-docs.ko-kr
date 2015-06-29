@@ -95,4 +95,4 @@ SharePoint 서버 팜은 Azure 리소스 관리자 및 스크립트를 사용하
 
 [Azure 인프라 서비스에서 호스트되는 SharePoint 팜](virtual-machines-sharepoint-infrastructure-services.md)
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

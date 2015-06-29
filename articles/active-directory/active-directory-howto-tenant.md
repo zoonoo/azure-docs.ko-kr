@@ -18,7 +18,7 @@
 
 # Azure Active Directory 테넌트를 얻는 방법
 
-Azure Active Directory (Azure AD)에서 [테넌트](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant)는 조직을 나타냅니다. 조직이 Azure, InTune 또는 Office 365와 같은 Microsoft 클라우드 서비스에 등록할 때 받아서 소유하는 Azure AD 서비스의 전용 인스턴스입니다. 각 Azure AD 테넌트는 서로 전혀 다르고 다른 Azure AD 테넌트와 별개입니다.
+Azure Active Directory (Azure AD)에서 [테넌트](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant)는 조직을 나타냅니다. 조직이 Azure, Microsoft InTune 또는 Office 365와 같은 Microsoft 클라우드 서비스에 등록할 때 받아서 소유하는 Azure AD 서비스의 전용 인스턴스입니다. 각 Azure AD 테넌트는 서로 전혀 다르고 다른 Azure AD 테넌트와 별개입니다.
 
 테넌트는 회사에 사용자 및 암호, 사용자 프로필 데이터, 사용 권한 등에 대한 사용자의 정보를 저장합니다. 또한 그룹, 응용 프로그램, 조직 및 보안에 관련된 기타 정보도 포함합니다.
 
@@ -40,7 +40,7 @@ Azure AD 사용자가 응용 프로그램에 로그인하도록 허용하려면 
 이렇게 하려면 다음 단계를 따르세요. 또는 새 테넌트를 만들고 유사한 프로세스 후에 이 테넌트에 관리자를 만들 수도 있습니다.
 
 1.	개인 계정으로 [Azure 관리 포털](https://manage.windowsazure.com)에 로그인합니다.
-2.	포털의 "Active Directory" 섹션으로 이동합니다(왼쪽 탐색 모음에 있음). 
+2.	포털의 "Active Directory" 섹션으로 이동합니다(왼쪽 탐색 모음에 있음).
 3.	사용 가능한 디렉터리 목록에서 "기본 디렉터리" 항목을 선택합니다.
 4.	페이지의 맨 위에서 사용자 링크를 클릭합니다. 원본 위치 열의 "Microsoft 계정" 목록에 단일 사용자가 표시됩니다.
 5.	페이지 맨 아래에 있는 “사용자 추가"를 클릭합니다.
@@ -48,7 +48,7 @@ Azure AD 사용자가 응용 프로그램에 로그인하도록 허용하려면 
     - 사용자 유형: 조직의 새 사용자
     - 사용자 이름: (이 관리자의 사용자 이름 선택)
     - 이름/성/표시 이름: (적절한 값 선택)
-    - 역할: 전역 관리자 
+    - 역할: 전역 관리자
     - 암호 확인용 메일: (적절한 값 입력)
     - 옵션: Multi-Factor Authentication 사용
     - 마지막으로 녹색 "만들기" 단추를 클릭해 사용자 만들기를 완료합니다(및 임시 암호를 표시합니다).
@@ -64,5 +64,6 @@ Azure AD 사용자가 응용 프로그램에 로그인하도록 허용하려면 
 위의 모든 항목을 이해할 수 없어도 걱정하지 마세요. 새 조직으로 Azure에 등록하려면 [https://account.windowsazure.com/organization](https://account.windowsazure.com/organization)을 방문하기만 하면 됩니다. 프로세스를 완료하면 등록할 때 선택한 도메인 이름을 가진 자신만의 Azure AD 테넌트가 생깁니다. [Azure 관리 포털](https://manage.windowsazure.com)의 왼쪽 탐색 모음에서 "Active Directory"로 이동하여 테넌트를 찾을 수 있습니다.
 
 Azure 등록 과정의 일부로 신용 카드 정보를 제공해야 합니다. 믿고 진행할 수 있습니다. Azure AD에서의 응용 프로그램 게시 및 새 테넌트 만들기에 대한 비용은 청구되지 않습니다.
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

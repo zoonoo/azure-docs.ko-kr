@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Azure에서 Linux용 Docker VM 확장 사용"
-	description="Docker 및 Azure 가상 컴퓨터 확장에 대해 설명하고, azure-cli 명령 인터페이스를 사용하여 명령줄에서 Docker 호스트인 가상 컴퓨터를 Azure에 프로그래밍 방식으로 만드는 방법을 안내합니다."
+	description="Docker 및 Azure 가상 컴퓨터 확장에 대해 설명하고, Azure CLI를 사용하여 명령줄에서 Docker 호스트인 가상 컴퓨터를 Azure에 프로그래밍 방식으로 만드는 방법을 안내합니다."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="squillace"
@@ -142,5 +142,6 @@ WARNING: No swap limit support
 
 [https를 사용하여 Docker 실행]: http://docs.docker.com/articles/https/
 [Docker 사용자 가이드]: https://docs.docker.com/userguide/
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

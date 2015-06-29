@@ -32,7 +32,7 @@ Microsoft Azure에서 차세대 SQL 데이터베이스를 활용하려면 SQL �
 | 2. **찾아보기**를 클릭합니다. | ![서비스 찾아보기][2] |
 | 3. **SQL Server**를 클릭합니다. SQL Server 이름 목록이 표시됩니다. | ![SQL Server 서비스 선택][3] |
 | 4. SQL 데이터베이스 업데이트를 사용하여 새 서버로 복사할 서버를 선택합니다. | ![SQL Server 목록 표시][4] |
-| 5. **최신 SQL 데이터베이스 업데이트 V12**를 클릭합니다. | ![최신 미리 보기 기능][5] |
+| 5. **설정** 또는 **서버 버전**을 클릭하여 서버를 V12로 업그레이드합니다. | ![최신 미리 보기 기능][5] |
 | 6. **이 서버 업그레이드**를 클릭합니다. | ![미리 보기로 SQL Server 업그레이드][6] |
 
 
@@ -77,18 +77,19 @@ Stop- cmdlet은 취소를 의미하는 것으로, 일시 중지가 아닙니다.
 
 ## 관련 링크
 
--  [SQL 데이터베이스 V12의 새로운 기능](sql-database-v12-whats-new.md)
+-  [SQL 데이터베이스 V12의 새로운 기능](sql-database-v12-whats-new.md) 
 - [SQL 데이터베이스 V12로 업그레이드 계획 및 준비](sql-database-v12-plan-prepare-upgrade.md)
 
 
 <!--Image references-->
 [1]: ./media/sql-database-v12-upgrade/firstscreenportal.png
-[2]: ./media/sql-database-v12-upgrade/browse.png
-[3]: ./media/sql-database-v12-upgrade/sqlserver.png
+[2]: ./media/sql-database-v12-upgrade/firstscreenportal.png
+[3]: ./media/sql-database-v12-upgrade/sqlserverlist.png
 [4]: ./media/sql-database-v12-upgrade/sqlserverlist.png
 [5]: ./media/sql-database-v12-upgrade/latestprview.png
 [6]: ./media/sql-database-v12-upgrade/upgrade.png
 [7]: ./media/sql-database-v12-upgrade/typeservername.png
 [8]: ./media/sql-database-v12-upgrade/enabled.png
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

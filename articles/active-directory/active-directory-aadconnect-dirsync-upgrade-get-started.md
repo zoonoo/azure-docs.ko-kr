@@ -48,7 +48,7 @@ Azure AD Connect를 다운로드하여 기존 DirSync 서버에 복사합니다.
 2. 현재 DirSync 구성 분석
 3. Azure AD 전역 관리자 암호 수집
 4. 엔터프라이즈 관리자 계정에 대한 자격 증명 수집(Azure AD Connect 설치 도중에만 사용됨)
-5. AAD Connect  설치
+5. AAD Connect 설치
     * DirSync 제거
 	* AAD Connect 설치
 	* (선택 사항) 동기화 시작
@@ -114,7 +114,7 @@ DirSync에서 사용 중인 기존 SQL Server 데이터베이스 서버와 관�
 
 병렬 배포를 진행하려는 경우 다음 단계를 수행해야 합니다.
 
-- "설정 내보내기" 단추를 클릭합니다. 별도 서버에 Azure AD Connect를 설치하면 이 설정을 가져와 현재 DirSync에서 새  AAD Connect 설치로 설정이 마이그레이션됩니다.
+- "설정 내보내기" 단추를 클릭합니다. 별도 서버에 Azure AD Connect를 설치하면 이 설정을 가져와 현재 DirSync에서 새 AAD Connect 설치로 설정이 마이그레이션됩니다.
 
 설정을 성공적으로 내보내고 나면 DirSync 서버에서 Azure AD Connect 마법사를 종료할 수 있습니다.
 
@@ -143,8 +143,8 @@ Azure AD Connect가 연결되고 다음 UI가 표시됩니다.
 ![Azure AD 자격 증명 입력](./media/active-directory-aadconnect-dirsync-upgrade-get-started/advancedsettings.png)
 
 7. 다음을 클릭합니다. 
-8. "구성 준비 완료" 페이지에서 "초기 구성이 완료되자마자 동기화 프로세스를 시작합니다."의 선택을 취소합니다.
-8. "설치"를 클릭합니다.
+8. "구성 준비 완료" 페이지에서 "구성이 완료되자마자 동기화 프로세스를 시작합니다."를 선택한 상태로 둡니다.[AZURE.NOTE]Windows Server Active Directory와 Azure Active Directory 간의 동기화가 시작되지만 Azure AD로 내보내는 변경 내용은 없습니다. 하나의 동기화 도구만이 변경 내용을 한 번에 내보낼 수 있습니다.
+9. "설치"를 클릭합니다.
 
 [AZURE.NOTE]DirSync가 여전히 설치되어 있고 실행되며 Azure AD Connect가 동시에 AAD에 쓰기를 시도하지 않도록, 동기화 시작 확인란의 선택을 취소합니다.
 
@@ -203,5 +203,6 @@ Azure AD Connect가 DirSync로부터 인수할 준비가 되었는지 여부를 
 * [Azure AD Connect의 다음 단계](active-directory-aadconnect-whats-next.md)
 * [자세한 정보](active-directory-aadconnect-learn-more.md)
 * [MSDN의 Azure AD Connect](https://msdn.microsoft.com/library/azure/dn832695.aspx)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

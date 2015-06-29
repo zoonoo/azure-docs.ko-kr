@@ -4,17 +4,33 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 <tags 
 	ms.service="application-insights" 
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/28/2015" 
+	ms.date="06/18/2015" 
 	ms.author="sergkanz"/>
  
-# Application Insights SDK for ASP.NET에 대한 릴리스 정보
+# Windows Phone 및 Store용 Application Insights SDK에 대한 릴리스 정보
+
+[Application Insights SDK](app-insights-windows-get-started.md)는 라이브 앱에 대한 원격 분석을 [Application Insights](http://azure.microsoft.com/services/application-insights/)에 보내며 사용법과 성능을 분석할 수 있습니다.
+
+
+#### 응용 프로그램에 SDK를 설치하려면
+
+[Windows Phone 및 Store 앱용 Application Insights 시작](app-insights-windows-get-started.md)을 참조하세요.
+
+#### 최신 SDK를 업그레이드하려면 
+
+* ApplicationInsights.config의 복사본을 수행하려면, 수행한 모든 사용자 지정을 유지합니다.
+* 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 선택합니다.
+* 설치된 패키지를 표시하도록 필터를 설정합니다. 
+* 설치된 Application Insights 패키지를 선택하고 업그레이드를 선택합니다.
+* 이전 및 새 버전의 ApplicationInsights.config를 비교합니다. 이전 파일에 대한 모든 사용자 지정을 복구합니다.
+* 솔루션을 다시 빌드합니다.
 
 
 ## 버전 0.16 
@@ -34,4 +50,4 @@
 
 이전 버전에 대한 릴리스 정보가 없습니다.
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/07/2015" 
+	ms.date="05/29/2015" 
 	ms.author="josephd"/>
 
 # 테스트용 하이브리드 클라우드 환경 설정
@@ -238,7 +238,7 @@ CLIENT1의 관리자 수준 Windows PowerShell 명령 프롬프트에서 다음 
 3.	DC2.rdp를 여는 대화 상자가 나타나면 **열기**를 클릭합니다.
 4.	원격 데스크톱 연결 메시지 상자가 포함된 메시지가 나타나면 **연결**을 클릭합니다.
 5.	자격 증명을 묻는 메시지가 나타나면 다음을 사용합니다.
-	- 이름: **DC2**[로컬 관리자 계정 이름을]
+	- 이름: **DC2**[로컬 관리자 계정 이름]
 	- 암호: [로컬 관리자 계정 암호]
 6.	인증서를 참조하는 원격 데스크톱 연결 메시지 상자가 포함된 메시지가 나타나면 **예**를 클릭합니다.
 
@@ -299,6 +299,7 @@ TestVNET 가상 네트워크에는 고유한 DNS 서버(DC2)가 있으므로 이
 
 [Azure 하이브리드 클라우드 테스트 환경](../virtual-machines/virtual-machines-hybrid-cloud-test-environments.md)
 
+[Azure 인프라 서비스 구현 지침](../virtual-machines/virtual-machines-infrastructure-services-implementation-guidelines.md)
 
 ## 이 환경의 지속적인 비용 최소화
 
@@ -322,5 +323,6 @@ Azure VPN 게이트웨이는 지속적인 비용이 발생하는 두 개의 Azur
 	Set-VpnS2SInterface -Name S2StoTestVNET -Destination "<IP address of the Azure VPN gateway>" -SharedSecret $PresharedKey
 
 그런 다음 로컬 컴퓨터에서 Azure 관리 포털로 이동하여 TestVNET 가상 네트워크의 상태가 연결됨으로 표시될 때까지 기다립니다.
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

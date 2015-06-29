@@ -1,27 +1,12 @@
-<properties 
-pageTitle="볼륨 탑재, 초기화 및 포맷" 
-description="StorSimple 장치에서 볼륨을 구성하는 방법을 설명합니다." 
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   edito**r="tysonn" />
-<tags 
-   ms.se**rvice="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="04/01/2015"
-   ms.author="v-sharos" />
+<properties pageTitle="Mount, initialize, and format a volume" description="Explains how to configure a volume on a StorSimple device." services="storsimple" documentationCenter="NA" authors="SharS" manager="adinah" edito**r="tysonn" /> <tags ms.se**rvice="storsimple" ms.devlang="NA" ms.topic="article" ms.tgt_pltfrm="NA" ms.workload="TBD" ms.date="04/29/2015" ms.author="v-sharos" />
 
-### 볼륨을 탑재, 초기화 및 포맷하려면
+#### 볼륨을 탑재, 초기화 및 포맷하려면
 
 1. Microsoft iSCSI 초기자를 시작합니다.
 
 2. **iSCSI 초기자 속성** 창의 **검색** 탭에서 **포털 검색**을 클릭합니다.
 
-3. **대상 포털 검색** 대화 상자에서 iSCSI 사용 네트워크 인터페이스의 IP 주소를 입력하고 **확인**을 클릭합니다. 
+3. **대상 포털 검색** 대화 상자에서 iSCSI 사용 네트워크 인터페이스의 IP 주소를 입력하고 **확인**을 클릭합니다.
 
 4. **iSCSI 초기자 속성** 창의 **대상** 탭에서 **검색된 대상**을 찾습니다. 장치 상태가 **비활성**으로 표시되어야 합니다.
 
@@ -46,4 +31,4 @@ description="StorSimple 장치에서 볼륨을 구성하는 방법을 설명합�
 <!--Link references-->
 [1]: https://technet.microsoft.com/library/ee338480(WS.10).aspx
 
-<!--HONumber=52-->
+<!---HONumber=58_postMigration-->

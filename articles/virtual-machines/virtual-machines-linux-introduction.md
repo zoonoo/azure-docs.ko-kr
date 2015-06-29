@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/25/2015"
+	ms.date="06/11/2015"
 	ms.author="szark"/>
 
 
@@ -74,10 +74,13 @@ Azure Linux 에이전트에는 이 이름 변경을 자동으로 검색하여 �
 
  - [Azure Linux 에이전트 사용자 가이드](virtual-machines-linux-agent-user-guide.md)
 
-### Ubuntu 이미지
-Ubuntu 이미지는 cloud-init를 활용하여 가상 컴퓨터를 부트스트랩하기 위한 추가 기능을 제공합니다.
+### Cloud-Init
+**Ubuntu** 및 **CoreOS** 이미지는 cloud-init pn Azure를 활용하여 가상 컴퓨터를 부트스트랩하기 위한 추가 기능을 제공합니다.
 
- - [사용자 지정 데이터를 주입하는 방법](virtual-machines-how-to-inject-custom-data.md) 및 [Microsoft Azure에서 사용자 지정 데이터 및 Cloud-Init](http://azure.microsoft.com/blog/2014/04/21/custom-data-and-cloud-init-on-windows-azure/) 참조
+ - [사용자 지정 데이터를 삽입 하는 방법](virtual-machines-how-to-inject-custom-data.md)
+ - [Microsoft Azure의 사용자 지정 데이터 및 Cloud-Init](http://azure.microsoft.com/blog/2014/04/21/custom-data-and-cloud-init-on-windows-azure/)
+ - [Init 클라우드를 사용하여 Azure 스왑 파티션 만들기](https://wiki.ubuntu.com/AzureSwapPartitions)
+ - [Azure에서 CoreOS를 사용하는 방법](virtual-machines-linux-coreos-how-to.md)
 
 
 ## <a id="virtualmachine"></a>가상 컴퓨터 이미지 캡처
@@ -99,10 +102,12 @@ Azure는 기존 가상 컴퓨터의 상태를 이미지로 캡처하는 기능�
 
 Linux에서 리소스 디스크는 일반적으로 Azure Linux 에이전트에 의해 관리되며 **/mnt/resource**(또는 Ubuntu 이미지의 **/mnt**)에 자동으로 탑재됩니다.
 
+
 	>[AZURE.NOTE] Note that the resource disk is a **temporary** disk, and might be deleted and reformatted when the VM is rebooted.
 
 Linux에서 데이터 디스크 이름은 커널에서 `/dev/sdc`로 지정될 수 있으며 사용자는 해당 리소스를 파티셔닝, 형식 지정 및 마운트해야 합니다. [데이터 디스크를 가상 컴퓨터에 연결하는 방법](virtual-machines-linux-how-to-attach-disk.md)에 대한 자습서의 단계를 다루었습니다.
 
- - 참고 항목: [Linux에서 소프트웨어 RAID 구성](virtual-machines-linux-configure-raid.md)
+ - **참고 항목**: [Linux에서 소프트웨어 RAID 구성](virtual-machines-linux-configure-raid.md)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

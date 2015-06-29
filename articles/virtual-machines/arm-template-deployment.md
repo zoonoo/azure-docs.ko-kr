@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/27/2015" 
+	ms.date="06/15/2015" 
 	ms.author="davidmu"/>
 
 # .NET 라이브러리 및 템플릿을 사용하여 Azure 리소스 배포
@@ -27,7 +27,7 @@
 - [Visual Studio](http://msdn.microsoft.com/library/dd831853.aspx)
 - [Azure 저장소 계정](../storage-create-storage-account.md)
 - [Windows Management Framework 3.0](http://www.microsoft.com/ko-kr/download/details.aspx?id=34595) 또는 [Windows Management Framework 4.0](http://www.microsoft.com/ko-kr/download/details.aspx?id=40855)
-- [Azure PowerShell](../install-configure-powershell.md)
+- [Azure PowerShell](../powershell-install-configure.md)
 
 이러한 단계를 수행하려면 약 30분이 걸립니다.
 
@@ -450,4 +450,4 @@ Azure에서 사용되는 리소스에 대한 요금이 부과되기 때문에, �
 
 	![AD 응용 프로그램 만들기](./media/arm-template-deployment/crpportal.png)
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

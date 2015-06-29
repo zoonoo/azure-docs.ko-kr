@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="05/02/2015" 
+	ms.date="06/09/2015" 
 	ms.author="mahender"/>
 
 # 사용자 지정 인증 시작
@@ -52,9 +52,7 @@
 
         public DbSet<Account> Accounts { get; set; }
 
-	>[AZURE.NOTE]이 자습서 사용에서 코드 조각은 컨텍스트 이름으로 `todoContext`을(를) 사용합니다. 프로젝트의 컨텍스트에 대한 코드 조각을 업데이트해야 합니다.
-
-	그런 다음 이 데이터를 사용하기 위한 보안 기능을 설정합니다.
+	>[AZURE.NOTE]이 자습서 사용에서 코드 조각은 컨텍스트 이름으로 `todoContext`을(를) 사용합니다. 프로젝트의 컨텍스트에 대한 코드 조각을 업데이트해야 합니다. &nbsp; 다음으로,이 데이터로 작업하기 위한 보안 기능을 설정합니다.
  
 5. `CustomLoginProviderUtils`(이)라는 클래스를 만들고 여기에 다음 `using` 문을 추가합니다.
 
@@ -162,7 +160,7 @@
 
         [AuthorizeLevel(AuthorizationLevel.Anonymous)]
 
->[AZURE.IMPORTANT]이 등록 끝점은 HTTP를 통해 모든 클라이언트에서 액세스할 수 있습니다. 게시하기 전에
+>[AZURE.IMPORTANT]이 등록 끝점은 HTTP를 통해 모든 클라이언트에서 액세스할 수 있습니다. 이 서비스를 프로덕션 환경에 게시하기 전에 SMS 또는 전자 메일 기반 확인과 같은 일종의 스키마를 구현하여 등록의 유효성을 검사해야 합니다. 이렇게 하면 악의적인 사용자가 사기성 등록을 만들지 못합니다.
 
 ## LoginProvider 만들기
 
@@ -217,11 +215,16 @@
             return;
         }
 
-	**CustomLoginProvider**가 인증 파이프라인과 통합되지 않기 때문에 이 메서드는 여기에서 수행되는 작업이 없습니다.
+	**CustomLoginProvider**가 인증 파이프라인과 통합되지 않기 때문에 이 메서드는 구현되지 않습니다.
 
 4. 추상 메서드 `ParseCredentials`에 대한 다음 구현을 **CustomLoginProvider**에 추가합니다.
 
-        public override ProviderCredentials ParseCredentials(JObject serialized) { if (serialized == null) { throw new ArgumentNullException("serialized"); }
+        public override ProviderCredentials ParseCredentials(JObject serialized)
+        {
+            if (serialized == null)
+            {
+                throw new ArgumentNullException("serialized");
+            }
 
             return serialized.ToObject<CustomLoginProviderCredentials>();
         }
@@ -242,10 +245,17 @@
             {
                 UserId = this.TokenHandler.CreateUserId(this.Name, username)
             };
+
             return credentials;
         }
 
 	이 메서드는 [ClaimsIdentity]를 [ProviderCredentials] 개체로 변환합니다. 이 개체는 인증 토큰 발행 단계에서 사용됩니다. 여기에서 추가 클레임을 다시 캡처해야 합니다.
+	
+6. App_Start 폴더에서 WebApiConfig.cs 프로젝트 파일을 열면 **ConfigOptions** 뒤에 다음 줄의 코드가 작성됩니다.
+		
+		options.LoginProviders.Add(typeof(CustomLoginProvider));
+
+	
 
 ## 로그인 끝점 만들기
 
@@ -408,4 +418,6 @@
 
 [ClaimsIdentity]: https://msdn.microsoft.com/library/system.security.claims.claimsidentity(v=vs.110).aspx
 [ProviderCredentials]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.security.providercredentials.aspx
-<!--HONumber=54--> 
+ 
+
+<!---HONumber=58_postMigration-->

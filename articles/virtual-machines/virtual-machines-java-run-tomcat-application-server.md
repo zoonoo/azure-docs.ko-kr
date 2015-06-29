@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="02/20/2015" 
+	ms.date="06/03/2015" 
 	ms.author="robmcm"/>
 
 # 가상 컴퓨터에서 Java 응용 프로그램 서버를 실행하는 방법
@@ -158,5 +158,6 @@ Tomcat이 외부 컴퓨터에서 실행되는 것을 보려면 끝점을 만들�
 [NewRuleAction]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleAction.png
 [NewRuleName]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleName.png
 [NewRuleProfile]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleProfile.png
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

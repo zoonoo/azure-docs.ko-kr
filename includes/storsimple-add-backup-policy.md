@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Add StorSimple backup policies"
-   description="Explains how you can use the StorSimple Manager service to create a backup policy."
+   pageTitle="StorSimple 백업 정책 추가"
+   description="StorSimple 관리자 서비스를 사용하여 백업 정책을 만드는 방법을 설명합니다."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
@@ -15,20 +15,19 @@
    ms.date="05/22/2015"
    ms.author="alkohli" />
 
-#### To add a StorSimple backup policy
+#### StorSimple 백업 정책을 추가하려면
 
-1. On the device **Quick Start** page, click the **Backup Policies** tab. This will take you to the **Backup Policies** page.
+1. 장치 **퀵스타트** 페이지에서 **백업 정책** 탭을 클릭합니다. 이렇게 하면 **백업 정책** 페이지로 이동됩니다.
 
-2. At the bottom of the page, click **Add**.
+2. 페이지 아래쪽에서 **추가**를 클릭합니다.
 
-3. In the **Add Backup Policy** dialog box, do the following:
+3. **백업 정책 추가** 대화 상자에서 다음을 수행합니다.
 
-    1. Specify a backup policy name that contains between 3 and 150 characters.
-    2. Assign one or more volumes to this backup policy. If you are using other cloud service providers, based on your first selection, the dropdown list will show volumes belonging to only that cloud service provider. This will allow you to group volumes belonging to a single cloud service provider for taking a snapshot.
-    3. Click the check icon ![check icon](./media/storsimple-add-backup-policy/HCS_CheckIcon-include.png) to save the policy.
+    1. 백업 정책 이름을 3~150자 사이로 지정합니다.
+    2. 이 백업 정책에 하나 이상의 볼륨을 할당합니다. 첫 번째 선택에 따라 다른 클라우드 서비스 공급자를 사용하는 경우 드롭다운 목록에 해당 클라우드 서비스 공급자에 속하는 볼륨만 표시됩니다. 이렇게 하면 스냅숏 만들기에 대한 단일 클라우드 서비스 공급자에 속하는 볼륨을 그룹화할 수 있습니다.
+    3. 확인 아이콘 ![확인 아이콘](./media/storsimple-add-backup-policy/HCS_CheckIcon-include.png)을 클릭하여 정책을 저장합니다.
 
-The newly added policy will be displayed in the tabular view on the **Backup Policies** page.
+새로 추가된 정책은 **백업 정책** 페이지입에서 테이블 형식 뷰로 표시됩니다.
  
 
-
-
+<!---HONumber=58_postMigration-->

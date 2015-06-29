@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="가상 컴퓨터의 SQL Server에서 Azure 프리미엄 저장소 사용" 
-	description="이 문서에서는 Azure 가상 컴퓨터에서 실행되는 SQL Server에서 Azure 프리미엄 저장소 사용을 시작하는 방법에 대한 지침을 제공합니다. 여기에는 IaaS의 기존 SQL Server 배포 마이그레이션 및 새 배포의 예제가 포함됩니다." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="danielsollondon" 
+	pageTitle="가상 컴퓨터의 SQL Server에서 Azure 프리미엄 저장소 사용"
+	description="이 문서에서는 Azure 가상 컴퓨터에서 실행되는 SQL Server에서 Azure 프리미엄 저장소 사용을 시작하는 방법에 대한 지침을 제공합니다. 여기에는 IaaS의 기존 SQL Server 배포 마이그레이션 및 새 배포의 예제가 포함됩니다."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="danielsollondon"
 	manager="jeffreyg"
 	editor=""/>
 
@@ -12,11 +12,12 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
-	ms.workload="infrastructure-services" 
-	ms.date="04/29/2015"
+	ms.workload="infrastructure-services"
+	ms.date="06/02/2015"
 	ms.author="jroth"/>
 
 # 가상 컴퓨터의 SQL Server에서 Azure 프리미엄 저장소 사용
+
 
 ## 개요
 
@@ -32,7 +33,7 @@ IaaS VM의 SQL Server에서 Azure 프리미엄 저장소를 활용하는 전체 
 
 Azure 가상 컴퓨터의 SQL Server에 대한 추가 배경 정보는 [Azure 가상 컴퓨터의 SQL Server](virtual-machines-sql-server-infrastructure-services.md)를 참조하세요.
 
-**기술 검토자:** Luis Carlos Vargas Herring, Sanjay Mishra, Pravin Mital, Juergen Thomas, Gonzalo Ruiz
+**작성자:** Daniel Sol **기술 검토자:** Luis Carlos Vargas Herring, Sanjay Mishra, Pravin Mital, Juergen Thomas, Gonzalo Ruiz.
 
 ## 프리미엄 저장소 사용을 위한 필수 구성 요소
 
@@ -664,7 +665,7 @@ Azure에서 AlwaysOn을 배포할 때는 다른 단계를 수행하여 수신기
 
 SQL 클라이언트 응용 프로그램에서 .NET 4.5 SQLClient를 지원하는 경우 ‘MULTISUBNETFAILOVER=TRUE’ 키워드를 사용할 수 있습니다. 이 키워드를 사용하면 장애 조치(failover) 중에 SQL AlwaysOn 가용성 그룹에 더 빠르게 연결할 수 있으므로 적용하는 것이 좋습니다. 이 키워드는 AlwaysOn 수신기에 연결된 모든 IP 주소를 병렬로 열거하며 장애 조치(failover) 중에 TCP 연결 다시 시도를 더 빠르게 수행합니다.
 
-위의 설정에 대한 자세한 내용은 [MultiSubnetFailover 키워드 및 관련 기능](https://msdn.microsoft.com/library/hh213080.aspx#MultiSubnetFailover)을 참조하세요. 또한 [SqlClient의 고가용성 및 재해 복구 지원]https://msdn.microsoft.com/library/hh205662(v=vs.110).aspx)도 참조하세요.
+위의 설정에 대한 자세한 내용은 [MultiSubnetFailover 키워드 및 관련 기능](https://msdn.microsoft.com/library/hh213080.aspx#MultiSubnetFailover)을 참조하세요. 또한 [SqlClient의 고가용성 및 재해 복구 지원](https://msdn.microsoft.com/library/hh205662(v=vs.110).aspx)도 참조하세요.
 
 #### 5단계: 클러스터 쿼럼 설정
 
@@ -1011,7 +1012,7 @@ TLOG 볼륨의 경우 디스크 캐싱을 NONE으로 설정해야 합니다.
     Get-AzureStorageBlobCopyState -Blob "danRegSvcAms-dansqlams1-2014-07-03.vhd" -Container $containerName -Context $xioContext
      
     
- ForEach ($disk in $diskobjects) { $lun = $disk.Lun $vhdname = $disk.vhdname $cacheoption = $disk.HostCaching $disklabel = $disk.DiskLabel $diskName = $disk.DiskName을 사용하면 모든 VHD의 VHD 복사 상태를 확인할 수 있습니다.
+ForEach ($disk in $diskobjects) { $lun = $disk.Lun $vhdname = $disk.vhdname $cacheoption = $disk.HostCaching $disklabel = $disk.DiskLabel $diskName = $disk.DiskName을 사용하면 모든 VHD의 VHD 복사 상태를 확인할 수 있습니다.
       
        $copystate = Get-AzureStorageBlobCopyState -Blob $vhdname -Container $containerName -Context $xioContextnode2
     Write-Host "Copying Disk Lun $lun, Label : $disklabel, VHD : $vhdname, STATUS = " $copystate.Status 
@@ -1140,5 +1141,6 @@ IP 주소를 추가하려면 [부록](#appendix-migrating-a-multisite-alwayson-c
 [23]: ./media/virtual-machines-sql-server-use-premium-storage/10_Appendix_13.png
 [24]: ./media/virtual-machines-sql-server-use-premium-storage/10_Appendix_14.png
 [25]: ./media/virtual-machines-sql-server-use-premium-storage/10_Appendix_15.png
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

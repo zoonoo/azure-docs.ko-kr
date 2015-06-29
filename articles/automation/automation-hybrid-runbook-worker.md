@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Azure 자동화 Hybrid Runbook Worker"
    description="이 문서에서는 로컬 데이터 센터의 컴퓨터에서 Runbook을 실행할 수 있도록 해주는 Azure 자동화의 기능인 Hybrid Runbook Worker를 설치하고 사용하는 방법에 대한 정보를 제공합니다."
    services="automation"
@@ -6,10 +6,10 @@
    authors="bwren"
    manager="stevenka"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="automation"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="05/11/2015"
@@ -59,7 +59,7 @@ Microsoft 관리 에이전트는 컴퓨터를 Operational Insights에 연결하�
 
 관리자 모드에서 PowerShell 세션을 열고 다음 명령을 실행하여 모듈을 가져옵니다.
 
-	Import-Module HybridRegistration 
+	Import-Module HybridRegistration
 
 모듈 파일을 찾을 수 없다는 오류 메시지가 나타나면 모듈 파일의 전체 경로를 사용하는 다음 명령을 사용해야 할 수 있습니다.
 
@@ -75,7 +75,7 @@ Microsoft 관리 에이전트는 컴퓨터를 Operational Insights에 연결하�
 - **Token**은 **키 관리** 블레이드의 **기본 액세스 키**입니다. 자동화 계정의 요소 패널에서 키 아이콘을 클릭하여 키 관리 블레이드를 열 수 있습니다.<br><br>![Hybrid Runbook Worker 개요](./media/automation-hybrid-runbook-worker/elements-panel-keys.png)
 
 
-#### 3. PowerShell 모듈 설치 
+#### 3. PowerShell 모듈 설치
 Runbook은 Azure 자동화 환경에 설치된 모듈에 정의된 활동 및 cmdlet을 사용할 수 있습니다. 이러한 모듈은 온-프레미스 컴퓨터에 자동으로 배포되지 않으므로 수동으로 설치해야 합니다. 단, 기본적으로 설치되어 Azure 자동화의 모든 Azure 서비스 및 활동에 사용되는 cmdlet에 대한 액세스를 제공하는 Azure 모듈은 예외입니다.
 
 Hybrid Runbook Worker 기능의 주 목적은 로컬 리소스를 관리하는 것이므로 이러한 리소스를 지원하는 모듈을 설치해야 할 수 있습니다. Windows PowerShell 모듈 설치에 대한 자세한 내용은 [모듈 설치](http://msdn.microsoft.com/library/dd878350.aspx)를 참조하세요.
@@ -123,16 +123,17 @@ Azure 자동화에서 Hybrid Runbook Worker용 Runbook을 편집할 수 있지�
 
 다음 조건을 사용하여 Azure 자동화 Hybrid Runbook Worker와 Service Management Automation 중 어떤 것이 요구 사항에 보다 적합한지 결정할 수 있습니다.
 
-- SMA에는 로컬 Runbook Worker에 에이전트를 설치하기만 하면 되는 Azure 자동화보다 로컬 리소스 및 유지 관리 비용이 더 많이 드는 Microsoft Azure 팩의 로컬 설치가 필요합니다. Azure 자동화에서는 에이전트가 Operational Insights에 의해 관리되므로 유지 관리 비용이 절감됩니다. 
+- SMA에는 로컬 Runbook Worker에 에이전트를 설치하기만 하면 되는 Azure 자동화보다 로컬 리소스 및 유지 관리 비용이 더 많이 드는 Microsoft Azure 팩의 로컬 설치가 필요합니다. Azure 자동화에서는 에이전트가 Operational Insights에 의해 관리되므로 유지 관리 비용이 절감됩니다.
 - Azure 자동화는 해당 Runbook을 클라우드에 저장하여 온-프레미스 Hybrid Runbooks Worker에 전달합니다. 보안 정책에서 이 동작을 허용하지 않는 경우에는 SMA를 사용해야 합니다.
 - Microsoft Azure 팩은 무료로 다운로드할 수 있지만 Azure 자동화에는 구독 요금이 발생할 수 있습니다. 고유해야 합니다. SMA에 대한 여러 데이터베이스를 유지 관리해야 합니다.
 - Azure 자동화 Hybrid Runbook Worker를 사용하면 Azure 자동화와 SMA를 둘 다 별도로 관리할 필요 없이 클라우드 리소스와 로컬 리소스의 Runbook을 한 곳에서 관리할 수 있습니다.
-- Azure 자동화에는 SMA에서 사용할 수 없는 그래픽 작성 등의 고급 기능이 있습니다. 
+- Azure 자동화에는 SMA에서 사용할 수 없는 그래픽 작성 등의 고급 기능이 있습니다.
 
 
 ## 관련된 문서
 
 - [Azure 자동화에서 Runbook 시작](../automation-starting-a-runbook)
 - [Azure 자동화에서 Runbook 편집](https://msdn.microsoft.com/library/dn879137.aspx)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

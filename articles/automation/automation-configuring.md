@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Azure 자동화 구성"
    description="초기 사용을 위해 Azure 자동화를 구성하는 데 필요한 단계를 설명합니다."
    services="automation"
@@ -6,10 +6,10 @@
    authors="bwren"
    manager="stevenka"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="automation"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="04/13/2015"
@@ -24,6 +24,11 @@
 Azure 자동화를 처음 시작하려면 자동화 계정을 하나 이상 만들어야 합니다. 자동화 계정을 사용하면 다른 자동화 계정에 포함된 자동화 리소스에서 사용자의 자동화 리소스(Runbook, 자산)를 격리할 수 있습니다. 자동화 계정을 사용하여 자동화 리소스를 별도의 논리적 환경으로 구분할 수 있습니다. 예를 들어 개발 및 프로덕션에 서로 다른 계정을 사용할 수 있습니다.
 
 각 자동화 계정의 자동화 리소스는 단일 Azure 지역과 연결되지만 자동화 계정에서 모든 지역의 Azure 서비스를 관리할 수 있습니다. 여러 지역에서 자동화 계정을 만드는 주된 이유는 데이터 및 리소스를 특정 지역으로 격리해야 하는 정책이 있을 수 있기 때문입니다.
+
+>[AZURE.NOTE]Azure Preview 포털에서 작성된자동화 계정 및 자동화 계정이 포함하는 리소스는 Azure 포털에서 액세스할 수 없습니다. 이러한 계정 또는 해당 리소스를 Windows PowerShell을 사용하여 관리하려는 경우 Azure 리소스 관리자 모듈을 사용해야 합니다.
+>
+>Azure 포털을 사용하여 만든 자동화 계정을 전체 포털 및 각 cmdlet 집합에서 관리할 수 있습니다. 계정이 만들어지면 계정 내에서 리소스를 만들고 관리하는 방법에는 차이가 없습니다. Azure 포털을 계속 사용하려는 경우, Azure Preview 포털 대신 사용하여 모든 자동화 계정을 만들어야 합니다.
+
 
 Azure 계정에 지불 연체와 같은 문제가 있는 경우 자동화 계정이 일시 중단될 수 있습니다. 이 경우 계정에 액세스할 수 없으며, 실행 중인 모든 작업이 일시 중단되고, 모든 일정이 사용할 수 없도록 설정됩니다. 계정을 볼 수 있지만 해당 계정의 리소스는 볼 수 없습니다. 문제를 해결하고 자동화 계정을 사용할 수 있게 되면 일정을 사용하도록 설정하고 일시 중단된 모든 Runbook을 다시 시작해야 합니다.
 
@@ -58,7 +63,8 @@ Azure 계정에 지불 연체와 같은 문제가 있는 경우 자동화 계정
 
 Runbook의 모든 [검사점](automation-runbook-execution/#checkpoints) 뒤에 이러한 줄을 반복해야 합니다. Runbook이 일시 중단된 후 다른 작업자에서 다시 시작되는 경우에는 인증을 다시 수행해야 합니다.
 
-# 관련된 문서
-- [Azure 자동화: Azure Active Directory를 사용하여 Azure에 인증](http://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/) 
+## 관련된 문서
+- [Azure 자동화: Azure Active Directory를 사용하여 Azure에 인증](http://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

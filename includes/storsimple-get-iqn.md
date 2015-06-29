@@ -5,7 +5,7 @@
    documentationCenter="NA"
    authors="SharS"
    manager="adinah"
-   editor="tysonn" /> 
+   editor="tysonn" />
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
@@ -15,7 +15,7 @@
    ms.date="04/27/2015"
    ms.author="v-sharos" />
 
-### Windows Server 호스트의 IQN을 가져오려면
+#### Windows Server 호스트의 IQN을 가져오려면
 
 1. Windows 호스트에서 Microsoft iSCSI 초기자를 시작합니다.
 
@@ -25,4 +25,4 @@
 
 3. 이 문자열을 저장합니다.
 
-<!--HONumber=52-->
+<!---HONumber=58_postMigration-->

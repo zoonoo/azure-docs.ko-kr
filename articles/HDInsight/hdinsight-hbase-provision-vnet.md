@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="가상 네트워크에 HBase 클러스터 프로비전 | Microsoft Azure" 
-	description="Azure HDInsight에서 HBase 사용 시작 Azure 가상 네트워크에서 HDInsight HBase 클러스터를 만드는 방법에 대해 알아봅니다." 
+	description="Azure HDInsight에서 HBase 사용 시작 Azure 가상 네트워크에 HDInsight HBase 클러스터를 만드는 방법을 알아봅니다." 
 	keywords=""	
 	services="hdinsight,virtual-network" 
 	documentationCenter="" 
@@ -27,12 +27,12 @@
 - 트래픽이 여러 게이트웨이 및 부하 분산 장치를 통과하지 않도록 하여 성능을 향상시킵니다.
 - 공용 끝점을 노출하지 않고 중요한 정보를 보다 안전한 방식으로 처리할 수 있습니다.
 
-## 필수 조건
+##필수 조건
 이 자습서를 시작하기 전에 다음이 있어야 합니다.
 
-- **Azure 구독**. Azure는 구독 기반 플랫폼입니다. 구독을 얻는 방법에 대한 자세한 내용은 [구매 옵션][azure-purchase-options], [구성원 제공 항목][azure-member-offers] 또는 [무료 평가판][azure-free-trial]을 참조하세요.
+- **Azure 구독**. [Azure 무료 평가판](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
 
-- **Azure PowerShell이 설치 및 구성된 워크스테이션**. 자세한 내용은 [Azure PowerShell 설치 및 구성](../install-configure-powershell.md)을 참조하세요. Azure PowerShell 스크립트를 실행하려면 관리자로 Azure PowerShell을 실행하고 실행 정책을 *RemoteSigned*로 설정해야 합니다. [Set-executionpolicy cmdlet 사용][2]을 참조하세요.
+- **Azure PowerShell이 포함된 워크스테이션**. [Azure PowerShell 설치 및 사용](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/)을 참조하세요. 자세한 내용은 [Azure PowerShell 설치 및 구성](../install-configure-powershell.md)을 참조하세요. Azure PowerShell 스크립트를 실행하려면 관리자로 Azure PowerShell을 실행하고 실행 정책을 *RemoteSigned*로 설정해야 합니다. [Set-executionpolicy cmdlet 사용][2]을 참조하세요.
 
 	Azure PowerShell 스크립트를 실행하기 전에 cmdlet을 사용하여 Azure 구독에 연결되어 있는지 확인합니다.
 
@@ -43,7 +43,7 @@
 		Select-AzureSubscription <AzureSubscriptionName>
 
 
-## 가상 네트워크에 HBase 클러스터 프로비전 
+##가상 네트워크에 HBase 클러스터 프로비전 
 
 HBase 클러스터를 프로비전하기 전에 Azure 가상 네트워크가 있어야 합니다.
 
@@ -129,9 +129,7 @@ DNS 서버는 선택 사항이지만 반드시 필요한 경우도 있습니다.
 	<tr><td>헤드 노드 크기</td><td><p>헤드 노드에 대한 VM 크기를 선택합니다.</p></td></tr>
 	<tr><td>데이터 노드 크기</td><td><p>데이터 노드에 대한 VM 크기를 선택합니다.</p></td></tr>
 	<tr><td>Zookeeper 크기</td><td><p>Zookeeper 노드에 대한 VM 크기를 선택합니다.</p></td></tr>
-	</table>
-
-	>[AZURE.NOTE]선택한 VM에 따라 비용이 달라질 수 있습니다. HDInsight에서는 클러스터 노드에 모든 표준 계층 VM을 사용합니다. VM 크기가 가격에 미치는 영향에 대한 자세한 내용은 <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">HDInsight 가격</a>을 참조하세요.
+</table>[AZURE.NOTE]선택한 VM에 따라 비용이 달라질 수 있습니다. HDInsight에서는 클러스터 노드에 모든 표준 계층 VM을 사용합니다. VM 크기가 가격에 미치는 영향에 대한 자세한 내용은 <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">HDInsight 가격</a>을 참조하세요.
 
 	오른쪽 단추를 클릭합니다.
 
@@ -176,8 +174,7 @@ DNS 서버는 선택 사항이지만 반드시 필요한 경우도 있습니다.
     </td></tr>
 	<tr><td>추가 저장소 계정</td>
 		<td>필요한 경우 클러스터의 추가 저장소 계정을 지정합니다. HDInsight는 여러 저장소 계정을 지원합니다. 클러스터에서 사용할 수 있는 추가 저장소 계정에는 한도가 없습니다. 하지만 Azure 포털을 사용하여 클러스터를 만드는 경우에는 UI 제약으로 인해 7개로 제한됩니다. 지정하는 각 추가 저장소 계정은 마법사에 계정 정보를 지정할 수 있는 <strong>저장소 계정</strong> 페이지를 더합니다. 예를 들어 위의 스크린샷에서는 선택된 추가 저장소 계정이 없으므로 추가 페이지가 마법사에 추가되지 않았습니다.</td></tr>
-	</table>
-	오른쪽 화살표를 클릭합니다.
+</table>오른쪽 화살표를 클릭합니다.
 
 7. **스크립트 작업** 페이지에서 오른쪽 아래에 있는 확인 표시를 선택합니다. 이 자습서에서는 사용자 지정 클러스터 설정이 필요 없으므로 **스크립트 작업 추가** 단추를 클릭하지 마세요.
 	
@@ -187,9 +184,9 @@ DNS 서버는 선택 사항이지만 반드시 필요한 경우도 있습니다.
 	
 새 HBase 클러스터 사용을 시작하려는 경우 [HDInsight에서 Hadoop을 통해 HBase 사용 시작](../hdinsight-hbase-get-started.md)의 절차를 사용할 수 있습니다.
 
-## HBase Java RPC API를 사용하여 가상 네트워크에 프로비전된 HBase 클러스터에 연결
+##HBase Java RPC API를 사용하여 가상 네트워크에 프로비전된 HBase 클러스터에 연결
 
-1.	동일한 Azure 가상 네트워크와 동일한 서브넷에 IaaS(infrastructure as a service) 가상 컴퓨터를 프로비전합니다. 따라서 가상 컴퓨터와 HBase 클러스터가 둘 다 동일한 내부 DNS 서버를 사용하여 호스트 이름을 확인합니다. 이렇게 하려면 **갤러리에서** 옵션을 선택한 다음 데이터 센터 대신 가상 네트워크를 선택해야 합니다. 지침에 대해서는 [Windows Server를 실행하는 가상 컴퓨터 만들기](../virtual-machines-windows-tutorial.md)를 참조하십시오. 작은 VM 크기의 표준 Windows Server 2012 이미지면 충분합니다.
+1.	동일한 Azure 가상 네트워크와 동일한 서브넷에 IaaS(infrastructure as a service) 가상 컴퓨터를 프로비전합니다. 따라서 가상 컴퓨터와 HBase 클러스터가 둘 다 동일한 내부 DNS 서버를 사용하여 호스트 이름을 확인합니다. 이렇게 하려면 **갤러리에서** 옵션을 선택한 다음 데이터 센터 대신 가상 네트워크를 선택해야 합니다. 지침에 대해서는 [Windows Server를 실행하는 가상 컴퓨터 만들기](../virtual-machines-windows-tutorial.md)를 참조하세요. 작은 VM 크기의 표준 Windows Server 2012 이미지면 충분합니다.
 	
 2.	Java 응용 프로그램을 사용하여 HBase에 원격으로 연결할 때는 FQDN(정규화된 도메인 이름)을 사용해야 합니다. FQDN을 확인하려면 HBase 클러스터의 연결별 DNS 접미사를 가져와야 합니다. 이렇게 하려면 Curl을 사용하여 Ambari를 쿼리하거나 원격 데스크톱을 사용하여 클러스터에 연결합니다.
 
@@ -334,7 +331,7 @@ Java 응용 프로그램에서 이 정보를 사용하려는 경우 [Maven을 �
 
 > [AZURE.NOTE]자체 DNS 서버를 사용하는 방법을 포함한 Azure 가상 네트워크의 이름 확인에 대한 자세한 내용은 [이름 확인(DNS)](http://msdn.microsoft.com/library/azure/jj156088.aspx)을 참조하세요.
 
-## Azure PowerShell을 사용하여 HBase 클러스터 프로비전
+##Azure PowerShell을 사용하여 HBase 클러스터 프로비전
 
 **Azure PowerShell을 사용하여 HBase 클러스터를 프로비전하려면**
 
@@ -373,7 +370,7 @@ Java 응용 프로그램에서 이 정보를 사용하려는 경우 [Maven을 �
 
 	Get-AzureHDInsightCluster
 
-## 다음 단계
+##다음 단계
 
 이 자습서에서는 HBase 클러스터를 프로비전하는 방법을 배웠습니다. 자세한 내용은 다음을 참조하세요.
 
@@ -403,7 +400,7 @@ Java 응용 프로그램에서 이 정보를 사용하려는 경우 [Maven을 �
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
 [hdinsight-admin-portal]: hdinsight-administer-use-management-portal.md#rdp
 
-[hdinsight-powershell-reference]: http://msdn.microsoft.com/library/windowsazure/dn479228.aspx
+[hdinsight-powershell-reference]: https://msdn.microsoft.com/library/dn858087.aspx
 
 
 [twitter-streaming-api]: https://dev.twitter.com/docs/streaming-apis
@@ -428,5 +425,6 @@ Java 응용 프로그램에서 이 정보를 사용하려는 경우 [Maven을 �
 [img-primary-dns-suffix]: ./media/hdinsight-hbase-provision-vnet/PrimaryDNSSuffix.png
 [img-provision-cluster-page1]: ./media/hdinsight-hbase-provision-vnet/hbasewizard1.png "새 HBase 클러스터에 대한 프로비전 정보"
 [img-provision-cluster-page5]: ./media/hdinsight-hbase-provision-vnet/hbasewizard5.png "스크립트 작업을 사용하여 HBase 클러스터 사용자 지정"
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=58_postMigration-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/22/2015"
+   ms.date="06/03/2015"
    ms.author="telmos" />
 
 # 인스턴스 수준 공용 IP(ILPIP) 개요
@@ -24,8 +24,10 @@
 
 그림 1에 표시된 것과 같이, 클라우드 서비스는 VIP를 사용하여 액세스하지만 개별 VM은 보통 VIP:&lt;포트 번호&gt;를 사용하여 액세스됩니다. 특정 VM에 ILPIP를 할당하면 해당 VM은 해당 IP 주소를 사용하여 직접 액세스할 수 있습니다.
 
-Azure에서 클라우드 서비스를 만들면 해당 DNS A 레코드가 자동으로 만들어져, 실제 VIP를 사용하지 않고 정규화된 도메인 이름(FQDN)을 통해 서비스에 액세스할 수 있습니다. 동일한 프로세스가 ILPIP에 대해 발생하며 ILPIP 대신 FQDN으로 VM 또는 역할 인스턴스에 액세스할 수 있습니다.
+Azure에서 클라우드 서비스를 만들면 해당 DNS A 레코드가 자동으로 만들어져, 실제 VIP를 사용하지 않고 정규화된 도메인 이름(FQDN)을 통해 서비스에 액세스할 수 있습니다. 동일한 프로세스가 ILPIP에 대해 발생하며 ILPIP 대신 FQDN으로 VM 또는 역할 인스턴스에 액세스할 수 있습니다. 예를 들어, *contosoadservice*라는 클라우드 서비스를 만들고 두 인스턴스가 있는 *contosoweb*이라는 웹 역할을 구성한 경우, Azure는 인스턴스에 대해 다음 A 레코드를 등록합니다.
 
+- contosoweb_IN_0.contosoadservice.cloudapp.net
+- contosoweb_IN_1.contosoadservice.cloudapp.net 
 
 >[AZURE.NOTE]각 VM 또는 역할 인스턴스에 대해 하나의 ILPIP를 할당할 수 있습니다. 구독 당 최대 5개의 ILPIP를 사용할 수 있습니다. 이때 ILPIP는 다중 NIC VM에 대해 지원되지 않습니다.
 
@@ -116,14 +118,11 @@ Azure에서 클라우드 서비스를 만들면 해당 DNS A 레코드가 자동
 	  </NetworkConfiguration>
 	</ServiceConfiguration>
 
-## 참고 항목
+## 다음 단계
 
-[예약된 개인 IP(DIP)](../virtual-networks-reserved-private-ip)
-
-[예약된 공용 IP](../virtual-networks-reserved-public-ip)
-
-[가상 네트워크 개요](https://msdn.microsoft.com/library/azure/jj156007.aspx)
+[예약된 IP](../virtual-networks-reserved-public-ip)
 
 [예약된 IP REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

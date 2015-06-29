@@ -3,7 +3,7 @@
 	description="Visual Studio의 ASP.NET 프로젝트에서 Azure 큐 저장소를 사용하는 방법" 
 	services="storage" 
 	documentationCenter="" 
-	authors="kempb" 
+	authors="patshea123" 
 	manager="douge" 
 	editor="tglee"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="04/20/2015" 
-	ms.author="kempb"/>
+	ms.author="patshea123"/>
 
 # Azure 저장소 시작(ASP.NET 프로젝트)
 
@@ -251,7 +251,7 @@ Azure 큐 저장소는 HTTP 또는 HTTPS를 사용하여 인증된 호출을 통
     <li><a href="http://msdn.microsoft.com/library/azure/dd179355">REST API 참조</a></li>
   </ul>
 </li>
-<li>Azure 저장소를 사용하여 수행할 수 있는 고급 작업에 대한 자세한 내용은 <a href="http://msdn.microsoft.com/library/azure/gg433040.aspx">Azure에 데이터 저장 및 액세스</a>를 참조하십시오.</li>
+<li>Azure 저장소를 사용하여 수행할 수 있는 고급 작업에 대한 자세한 내용은 <a href="http://msdn.microsoft.com/library/azure/gg433040.aspx">Azure에 데이터 저장 및 액세스</a>를 참조하세요.</li>
 <li>Azure WebJobs SDK를 사용하여 <a href="../websites-dotnet-webjobs-sdk/">Azure 저장소 작업을 위해 작성하는 코드를 간소화하는 방법을 알아봅니다.</li>
 <li>Azure에 데이터를 저장하기 위한 추가 옵션에 대한 자세한 내용은 추가 기능 가이드를 참조하세요.
   <ul>
@@ -273,4 +273,6 @@ Azure 큐 저장소는 HTTP 또는 HTTPS를 사용하여 인증된 호출을 통
   [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=58_postMigration-->

@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Optional: Configure a new storage account for the service"
-   description="Explains how to configure a storage account for the StorSimple Manager service running Update 1."
+   pageTitle="선택 사항: 서비스에 대한 새 저장소 계정 구성"
+   description="업데이트 1을 실행하는 StorSimple 관리자 서비스에 대한 저장소 계정을 구성하는 방법에 대해 설명합니다."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
@@ -15,20 +15,20 @@
    ms.date="05/18/2015"
    ms.author="alkohli" />
 
-#### To add a storage account in StorSimple 8000 Series Update 1.0
+#### StorSimple 8000 시리즈 업데이트 1.0에서 저장소 계정을 추가하려면
 
-1. On the StorSimple Manager service landing page, select your service and double-click it. This will take you to the **Quick Start** page. Select the **Configure** page.
+1. StorSimple 관리자 서비스 방문 페이지에서 서비스를 선택하고 두번 클릭합니다. 이렇게 하면 **퀵 스타트** 페이지로 이동됩니다. **구성** 페이지를 선택합니다.
 
-2. Click **Add/edit storage account**.
+2. **저장소 계정 추가/편집**을 클릭합니다.
 
-3. In the **Add/Edit Storage Account** dialog box, click **Add new**.
+3. **저장소 계정 추가/편집** 대화 상자에서 **새로 추가**를 클릭합니다.
 
-4. In the **Provider** field, select the appropriate cloud service provider. The supported providers are Azure, Amazon S3, Amazon S3 with RRS, HP and OpenStack. Specify the credentials and the location associated with the storage account of your cloud service providers. The fields presented for credentials will be different depending upon the cloud service provider you have specified. 
-  - If you have selected Azure as your cloud service provider, supply the **Name** and the primary **Access Key** for your Microsoft Azure storage account. For an Azure account, the location will be automatically populated.
+4. **공급자** 필드에서 적절한 클라우드 서비스 공급자를 선택합니다. 지원되는 공급자는 Azure, Amazon S3, Amazon S3 with RRS, HP 및 OpenStack입니다. 클라우드 서비스 공급자의 저장소 계정과 연결된 위치 및 자격 증명을 지정합니다. 자격 증명에 대해 제공하는 필드는 지정하는 클라우드 서비스 공급자에 따라 달라질 수 있습니다.
+  - Azure를 클라우드 서비스 공급자로 선택한 경우 Microsoft Azure 저장소 계정에 대한 **이름** 및 기본 **액세스 키**를 제공합니다. Azure 계정에 대한 위치는 자동으로 채워집니다.
 
         ![Add Azure storage account](./media/storsimple-configure-new-storage-account-u1/AddAzureStorageaccount-include.png)
 
- - If you have selected Amazon S3 or Amazon S3 with RRS, provide a friendly **Storage Account name**, **Access Key**, and **Secret Key**. For Amazon S3 and Amazon S3 with RRS, the following locations are supported:
+ - Amazon S3 또는 Amazon S3 with RRS을 선택한 경우 친숙한 **저장소 계정 이름**, **액세스 키**, 및 **비밀 키**를 제공합니다. Amazon S3 및 Amazon S3 with RRS의 경우 다음 위치가 지원됩니다.
 
 		- US Standard
 		- US West (Oregon)
@@ -41,23 +41,25 @@
 
         ![Add Amazon storage account](./media/storsimple-configure-new-storage-account-u1/AddAmazonStorageaccount-include.png)
 	  		
- - If you have selected HP as your cloud service provider, supply a friendly **Storage Account Name**, **Tenant ID**, **Username**, and **Password**. For HP, the following locations are supported:
+ - 클라우드 서비스 공급자로 HP를 선택한 경우, 친숙한 **저장소 계정 이름**, **테넌트 ID**, **사용자 이름** 및 **암호**를 제공합니다. HP의 경우 다음 위치가 지원됩니다.
 
 		- US East
 		- US West
 	  
         ![Add HP storage account](./media/storsimple-configure-new-storage-account-u1/AddHPStorageaccount-include.png)
 	  		
- - If you have selected **Openstack** as your cloud service provider, provide a **Hostname**, **Access Key**, and **Secret Key**.
+ - **Openstack**을 클라우드 서비스 공급자로 선택한 경우, **호스트 이름**, **액세스 키** 및 **비밀 키**를 제공합니다.
 
         > [AZURE.NOTE] For all the cloud service providers, excluding Azure, a friendly name is allowed. You can use different friendly names and create more than one storage account with the same set of credentials.
 
         ![Add Openstack storage account](./media/storsimple-configure-new-storage-account-u1/AddOpenstackStorageaccount-include.png)
 
-5. Select **Enable SSL Mode** to create a secure channel for network communication between your device and the cloud. Clear the **Enable SSL Mode** check box only if you are operating within a private cloud.
+5. **SSL 모드 사용**을 선택하여 장치와 클라우드 간의 네트워크 통신을 위한 안전한 채널을 만듭니다. 사설 클라우드 내에서 작업 중인 경우에만 **SSL 모드 사용** 확인란을 지웁니다.
 
-      > [AZURE.NOTE] If you are using HP as your provider, SSL will always be enabled.
+      >[AZURE.NOTE]HP를 공급자로 사용하는 경우 SSL을 항상 사용할 수 있습니다.
   		
-6. Click the check icon ![check icon](./media/storsimple-configure-new-storage-account/HCS_CheckIcon-include.png). You will be notified after the storage account is successfully created.
+6. 확인 아이콘![확인 아이콘](./media/storsimple-configure-new-storage-account/HCS_CheckIcon-include.png)을 클릭합니다. 저장소 계정이 성공적으로 만들어진 후 알림이 표시됩니다.
 
-7. The newly created storage account will be displayed on the **Configure** page under **Storage accounts**. Click **Save** to save the new storage account. Click **OK** when prompted for confirmation.
+7. 새로 만들어진 저장소 계정이 **저장소 계정**의 **구성** 페이지에 표시됩니다. **저장**을 클릭하여 새 저장소 계정을 저장합니다. 확인하라는 메시지가 표시되면 **확인**을 클릭합니다.
+
+<!---HONumber=58_postMigration-->

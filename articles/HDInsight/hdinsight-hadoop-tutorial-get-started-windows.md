@@ -1,19 +1,19 @@
-<properties 
-   pageTitle="Hadoop 자습서: Windows에서 Hadoop 시작 | Microsoft Azure" 
-   description="HDInsight에서 Hadoop을 시작합니다. Windows에서 Hadoop 클러스터를 프로비전하고, 데이터에 대해 Hive 쿼리를 실행하고 Excel에서 결과를 분석하는 방법을 알아봅니다." 
+<properties
+   pageTitle="Hadoop 자습서: Windows에서 Hadoop 시작 | Microsoft Azure"
+   description="HDInsight에서 Hadoop을 시작합니다. Windows에서 Hadoop 클러스터를 프로비전하고, 데이터에 대해 Hive 쿼리를 실행하고 Excel에서 결과를 분석하는 방법을 알아봅니다."
    keywords="hadoop tutorial,hadoop on windows,hadoop cluster,learn hadoop, hive query"
-   services="hdinsight" 
-   documentationCenter="" 
-   authors="nitinme" 
-   manager="paulettm" 
+   services="hdinsight"
+   documentationCenter=""
+   authors="nitinme"
+   manager="paulettm"
    editor="cgronlun"/>
 
 <tags
    ms.service="hdinsight"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="na"
-   ms.workload="big-data" 
+   ms.workload="big-data"
    ms.date="05/20/2015"
    ms.author="nitinme"/>
 
@@ -26,7 +26,7 @@
 
 Windows의 Hadoop에 대해 알아보고 HDInsight를 사용하여 시작하는 데 도움이 되도록 이 자습서에서는 Hadoop 클러스터의 구조화되지 않은 데이터에서 Hive 쿼리를 실행하고 Microsoft Excel에서 결과를 분석하는 방법을 보여줍니다.
 
-## 이 Hadoop 자습서의 목표 
+## 이 Hadoop 자습서의 목표
 
 구조화되지 않은 대량의 데이터 집합이 있고 Hive 쿼리를 실행하여 의미 있는 일부 정보를 추출하려고 한다면 이 자습서를 통해 적절한 도움을 얻을 수 있을 것입니다. 해당 방법은 다음과 같습니다.
 
@@ -48,8 +48,8 @@ Azure HDInsight의 일반적인 가용성과 더불어 Microsoft는 Azure용 HDI
 Windows의 Hadoop에 대해 이 자습서를 시작하기 전에 다음이 있어야 합니다.
 
 
-- Azure 구독. 구독을 얻는 방법에 대한 자세한 내용은 [구매 옵션][azure-purchase-options], [구성원 제공 항목][azure-member-offers] 또는 [무료 평가판][azure-free-trial]을 참조하세요.
-- Office 2013 Professional Plus, Office 365 Pro Plus, Excel 2013 Standalone 또는 Office 2010 Professional Plus가 있는 컴퓨터
+- **Azure 구독**. [Azure 무료 평가판](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
+- Office 2013 Professional Plus, Office 365 Pro Plus, Excel 2013 Standalone 또는 Office 2010 Professional Plus가 있는 **워크스테이션 컴퓨터**
 
 **이 자습서를 완료하기 위한 예상 시간:** 30분
 
@@ -75,7 +75,7 @@ HDInsight의 Hadoop 클러스터를 프로비전할 때 Azure 저장소 계정�
 >[AZURE.NOTE]클러스터에 대해 지원되는 위치에 저장소 계정을 만들어야 합니다. **동아시아**, **동남아시아**, **북유럽**, **서유럽**, **미국 동부**, **미국 서부**, **미국 중북부**, **미국 중남부**입니다.
 
 목록에서 새 저장소 계정을 선택하고 페이지 아래쪽에서 **액세스 키 관리**를 클릭합니다. **기본 액세스 키**(또는 **보조 액세스 키** 중 작동하는 키)를 적어 둡니다. 이 정보는 자습서의 뒷부분에서 필요합니다. 자세한 내용은 [저장소 계정을 만드는 방법][azure-create-storageaccount]을 참조하세요.
-	
+
 ##<a name="provision"></a>Hadoop 클러스터 프로비전
 
 클러스터를 프로비전할 때는 Hadoop과 관련 응용 프로그램을 포함하는 Azure 계산 리소스를 프로비전합니다. 이 섹션에서는 Hadoop 버전 2.4를 기반으로 하는 HDInsight 버전 3.1 클러스터를 프로비전합니다. Azure 포털, HDInsight PowerShell cmdlet 또는 HDInsight .NET SDK를 사용하여 다른 버전용 Hadoop 클러스터를 만들 수도 있습니다. 지침에 대해서는 [사용자 지정 옵션을 사용하여 HDInsight 클러스터 프로비전][hdinsight-provision]을 참조하세요. HDInsight 버전 및 해당 SLA에 대한 내용은 [HDInsight 구성 요소 버전 관리](hdinsight-component-versioning.md)를 참조하세요.
@@ -85,7 +85,7 @@ HDInsight의 Hadoop 클러스터를 프로비전할 때 Azure 저장소 계정�
 
 **Hadoop 클러스터를 프로비전하려면**
 
-1. [Azure 포털][azure-management-portal]에 로그인합니다. 
+1. [Azure 포털][azure-management-portal]에 로그인합니다.
 
 2. 왼쪽 하단에서 **새로 만들기**를 클릭하고 이미지에 표시된 대로 값을 입력합니다.
 
@@ -95,7 +95,7 @@ HDInsight의 Hadoop 클러스터를 프로비전할 때 Azure 저장소 계정�
 
 4. Enter or select the following values:
 
-	
+
 	<table border="1">
 	<tr><th>Name</th><th>Value</th></tr>
 	<tr><td>Cluster Name</td><td>Name of the cluster.</td></tr>
@@ -105,13 +105,13 @@ HDInsight의 Hadoop 클러스터를 프로비전할 때 Azure 저장소 계정�
 
 	When a storage account is chosen, it cannot be changed. If the storage account is removed, the cluster will no longer be available for use.
 
-	The HDInsight cluster is located in the same datacenter as the storage account. 
+	The HDInsight cluster is located in the same datacenter as the storage account.
 	</td></tr>
 	</table>
-	
+
 	Keep a copy of the cluster name. You will need it later in the tutorial.
 
-	
+
 5. Click **Create HDInsight Cluster**. When the provisioning completes, the  status column shows **Running**.
 
 -- COMMENTED OUT TEXT ENDS -->
@@ -140,9 +140,9 @@ HDInsight 클러스터를 프로비전했으므로 다음 단계는 Hive 작업�
 
 **클러스터 대시보드에서 Hive 작업 실행**
 
-1. [Azure 포털][azure-management-portal]에 로그인합니다. 
+1. [Azure 포털][azure-management-portal]에 로그인합니다.
 2. 왼쪽 창에서 **HDINSIGHT**를 클릭합니다. 이전 섹션에서 방금 만든 클러스터를 포함하여 클러스터의 목록이 표시됩니다.
-3. Hive 작업을 실행하는 데 사용할 클러스터 이름을 클릭하고 페이지 아래쪽에서 **쿼리 콘솔**을 클릭합니다. 
+3. Hive 작업을 실행하는 데 사용할 클러스터 이름을 클릭하고 페이지 아래쪽에서 **쿼리 콘솔**을 클릭합니다.
 4. 웹 페이지가 다른 브라우저 탭에서 열립니다. Hadoop 사용자 계정과 암호를 입력합니다. 기본 사용자 이름은 **admin**이고 암호는 클러스터를 프로비전하는 동안 입력한 암호입니다. 대시보드는 다음과 유사하게 표시됩니다.
 
 	![HDInsight 클러스터 대시보드의 Have 편집기 탭.][img-hdi-dashboard]
@@ -152,7 +152,7 @@ HDInsight 클러스터를 프로비전했으므로 다음 단계는 Hive 작업�
 	> [AZURE.NOTE]웹 페이지의 URL은 *&lt;ClusterName&gt;.azurehdinsight.net*입니다. 따라서 포털에서 대시보드를 여는 대신, URL을 사용하여 웹 브라우저에서 대시보드를 열 수도 있습니다.
 
 6. **Hive 편집기** 탭에서 **쿼리 이름**으로 **HTC20**을 입력합니다. 쿼리 이름은 작업 제목입니다. 쿼리 창에서 이미지에 표시된 대로 Hive 쿼리를 입력합니다.
-		
+
 	![Hive 편집기의 쿼리 창에 입력된 Hive 쿼리.][img-hdi-dashboard-query-select]
 
 4. **Submit**를 클릭합니다. 잠시 후에 결과가 표시됩니다. 화면은 30초마다 한 번씩 새로 고쳐집니다. **새로 고침**을 클릭하여 화면을 새로 고칠 수도 있습니다.
@@ -168,7 +168,7 @@ HDInsight 클러스터를 프로비전했으므로 다음 단계는 Hive 작업�
 
 **출력 파일 찾아보기**
 
-1. 클러스터 대시보드에서 **파일 브라우저**를 클릭합니다. 
+1. 클러스터 대시보드에서 **파일 브라우저**를 클릭합니다.
 2. 저장소 계정 이름을 클릭하고 컨테이너 이름(클러스터 이름과 동일)을 클릭한 후 **사용자**를 클릭합니다.
 3. **admin**을 클릭하고 마지막으로 수정한 시간(앞서 기록한 작업 시작 시간보다 약간 나중)이 있는 GUID를 클릭합니다. 이 GUID를 복사합니다. 다음 섹션에서 필요합니다.
 
@@ -176,7 +176,7 @@ HDInsight 클러스터를 프로비전했으므로 다음 단계는 Hive 작업�
    	![파일 브라우저 탭에 나열된 Hive 쿼리 출력 파일 GUID.][img-hdi-dashboard-query-browse-output]
 
 
-##<a name="powerquery"></a>Excel용 Microsoft 비즈니스 인텔리전스 도구에 연결 
+##<a name="powerquery"></a>Excel용 Microsoft 비즈니스 인텔리전스 도구에 연결
 
 Microsoft Excel용 파워 쿼리 추가 기능을 사용하여 HDInsight의 작업 출력을 Excel로 내보낼 수 있습니다. 그런 다음 Microsoft 비즈니스 인텔리전스 도구를 사용하여 결과를 추가적으로 분석할 수 있습니다.
 
@@ -194,8 +194,8 @@ Microsoft Excel용 파워 쿼리 추가 기능을 사용하여 HDInsight의 작�
 	![Azure HDInsight에 대해 열린 Excel 파워 쿼리 가져오기 메뉴.][image-hdi-gettingstarted-powerquery-importdata]
 
 3. 클러스터와 연결된 Azure Blob 저장소 계정의 **계정 이름**을 입력하고 **확인**을 클릭합니다. (이 계정은 자습서의 앞부분에서 만든 저장소 계정입니다.)
-4. Azure Blob 저장소 계정의 **계정 키**를 입력한 다음 **저장**을 클릭합니다. 
-5. 오른쪽 창에서 blob 이름을 두 번 클릭합니다. 기본적으로 blob 이름은 클러스터 이름과 동일합니다. 
+4. Azure Blob 저장소 계정의 **계정 키**를 입력한 다음 **저장**을 클릭합니다.
+5. 오른쪽 창에서 blob 이름을 두 번 클릭합니다. 기본적으로 blob 이름은 클러스터 이름과 동일합니다.
 
 6. **이름** 열에서 **stdout**을 찾습니다. 해당 **폴더 경로** 열의 GUID가 이전에 적어둔 GUID와 일치하는지 확인합니다. 두 GUID가 일치하는 경우 출력 데이터가 제출한 작업에 해당하는 것입니다. **stdout**의 왼쪽 열에서 **이진**을 클릭합니다.
 
@@ -274,5 +274,6 @@ Microsoft Excel용 파워 쿼리 추가 기능을 사용하여 HDInsight의 작�
 
 [image-hdi-gettingstarted-powerquery-importdata]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData.png
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData2.png
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

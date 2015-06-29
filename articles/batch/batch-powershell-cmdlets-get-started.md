@@ -1,25 +1,25 @@
 <properties
-	pageTitle="Azure 배치 PowerShell Cmdlet 시작"
-	description="Azure 배치 서비스를 관리하는 데 사용되는 Azure PowerShell cmdlet을 소개합니다."
-	services="batch"
-	documentationCenter=""
-	authors="dlepow"
-	manager="timlt"
-	editor="yidingz"/>
+   pageTitle="Azure 배치 PowerShell cmdlet 시작 | Microsoft Azure"
+   description="Azure 배치 서비스를 관리하는 데 사용되는 Azure PowerShell cmdlet을 소개합니다."
+   services="batch"
+   documentationCenter=""
+   authors="dlepow"
+   manager="timlt"
+   editor=""/>
 
 <tags
-	ms.service="batch"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="powershell"
-	ms.workload="big-compute"
-	ms.date="04/15/2015"
-	ms.author="danlep"/>
+   ms.service="batch"
+   ms.devlang="NA"
+   ms.topic="get-started-article"
+   ms.tgt_pltfrm="powershell"
+   ms.workload="big-compute"
+   ms.date="05/29/2015"
+   ms.author="danlep"/>
 
 # Azure 배치 PowerShell Cmdlet 시작
 이 문서에서는 배치 계정을 관리하고 배치 작업 항목, 작업 및 태스크에 대 한 정보를 얻는 데 사용할 수 있는 Azure PowerShell cmdlet에 대해 간략히 소개합니다.
 
-자세한 cmdlet 구문을 보려면 ```get-help <Cmdlet_name>```을 입력하세요.
+자세한 cmdlet 구문은 `get-help <Cmdlet_name>`을 입력하거나 [Azure 배치 cmdlet 참조](https://msdn.microsoft.com/library/azure/mt125957.aspx)을 참조하세요.
 
 
 ## 필수 조건
@@ -123,9 +123,9 @@ Get-AzureBatchPool -BatchContext $context
 **Filter** 매개 변수를 사용하여 OData 필터를 제공하면 사용자와 관계가 있는 개체만 찾을 수 있습니다. 예를 들어, "myWork"로 시작하는 이름을 가진 모든 작업 항목을 찾을 수 있습니다.
 
 ```
-$filter = "startswith(name,'myWork') and state eq 'active'" 
+$filter = "startswith(name,'myWork') and state eq 'active'"
 Get-AzureBatchWorkItem -Filter $filter -BatchContext $context
-``` 
+```
 
 이 방법은 로컬 파이프라인에서 "Where-Object"를 사용하는 것만큼 유연하지는 않습니다. 그러나 쿼리가 배치 서비스에 직접 전송되므로 서버에서 모든 필터링이 수행되어 인터넷 대역폭이 절약됩니다.
 
@@ -133,18 +133,18 @@ Get-AzureBatchWorkItem -Filter $filter -BatchContext $context
 
 OData 필터의 대안으로 **Name** 매개 변수를 사용합니다. "myWorkItem"이라는 특정 작업 항목을 쿼리하려면 다음과 같이 수행합니다.
 
-``` 
-Get-AzureBatchWorkItem -Name "myWorkItem" -BatchContext $context 
+```
+Get-AzureBatchWorkItem -Name "myWorkItem" -BatchContext $context
 
 ```
- **Name** 매개 변수는 전체 이름 검색만 지원하며 와일드 카드 또는 OData 스타일 필터는 지원하지 않습니다.
+**Name** 매개 변수는 전체 이름 검색만 지원하며 와일드 카드 또는 OData 스타일 필터는 지원하지 않습니다.
 
 ### 파이프라인 사용
 
 배치 cmdlet은 PowerShell 파이프라인을 활용하여 cmdlet 간에 데이터를 전송할 수 있습니다. 이 방식은 매개 변수를 지정하는 것과 동일한 효과를 갖지만 보다 쉽게 여러 엔터티를 나열할 수 있습니다. 예를 들어, 다음과 같이 사용자 계정 아래의 모든 작업을 찾을 수 있습니다.
 
 ```
-Get-AzureBatchWorkItem -BatchContext $context | Get-AzureBatchJob -BatchContext $context | Get-AzureBatchTask -BatchContext $context 
+Get-AzureBatchWorkItem -BatchContext $context | Get-AzureBatchJob -BatchContext $context | Get-AzureBatchTask -BatchContext $context
 ```
 
 ### MaxCount 매개 변수 사용
@@ -152,7 +152,7 @@ Get-AzureBatchWorkItem -BatchContext $context | Get-AzureBatchJob -BatchContext 
 기본적으로 각 cmdlet은 최대 1000개의 개체를 반환합니다. 이 제한에 도달하면 더 적은 수의 개체를 반환하도록 필터를 조정하거나 **MaxCount** 매개 변수를 사용하여 최대값을 명시적으로 설정합니다. 예:
 
 ```
-Get-AzureBatchWorkItem -MaxCount 2500 -BatchContext $context 
+Get-AzureBatchWorkItem -MaxCount 2500 -BatchContext $context
 
 ```
 
@@ -161,6 +161,7 @@ Get-AzureBatchWorkItem -MaxCount 2500 -BatchContext $context
 ## 관련된 항목
 * [배치 기술 개요](batch-technical-overview.md)
 * [Azure PowerShell 다운로드](http://go.microsoft.com/p/?linkid=9811175)
-* [Azure cmdlet 참조](https://msdn.microsoft.com/library/jj554330.aspx)
+* [Azure 배치 cmdlet 참조](https://msdn.microsoft.com/library/azure/mt125957.aspx)
+* [효율적인 목록 쿼리](batch-efficient-list-queries.md)
 
-<!---HONumber=GIT-SubDir-->
+<!---HONumber=58_postMigration-->

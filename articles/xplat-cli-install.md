@@ -4,7 +4,7 @@
 	editor="tysonn"
 	manager="timlt"
 	documentationCenter=""
-	authors="dsk-2015"
+	authors="dlepow"
 	services=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/22/2015"
-	ms.author="dkshir"/>
+	ms.date="06/02/2015"
+	ms.author="danlep"/>
 
 # Azure CLI 설치
 
@@ -22,7 +22,7 @@
 
 > [AZURE.NOTE]Azure CLI를 이미 설치한 경우 Azure 리소스와 연결합니다. 자세한 내용을 보려면 [Azure 구독에 연결하는 방법](xplat-cli-connect.md#configure)을 참조합니다.
 
- Azure CLI는 JavaScript로 작성되므로 [Node.js](https://nodejs.org)가 필요합니다. [노드용 Azure SDK](https://github.com/azure/azure-sdk-for-node)를 사용하여 구현되고, Apache 2.0 라이선스 하에 릴리스되었습니다. 프로젝트 리포지토리는 [https://github.com/azure/azure-xplat-cli](https://github.com/azure/azure-xplat-cli)에 있습니다.
+Azure CLI는 JavaScript로 작성되므로 [Node.js](https://nodejs.org)가 필요합니다. [노드용 Azure SDK](https://github.com/azure/azure-sdk-for-node)를 사용하여 구현되고, Apache 2.0 라이선스 하에 릴리스되었습니다. 프로젝트 리포지토리는 [https://github.com/azure/azure-xplat-cli](https://github.com/azure/azure-xplat-cli)에 있습니다.
 
 <a id="install"></a>
 ## Azure CLI를 설치하는 방법
@@ -84,7 +84,7 @@ RPM 기반 배포에 node.js를 설치하려면 EPEL 리포지토리를 사용�
 	yum install npm [enter]
 	npm install -g azure-cli  [enter]
 
-### Windows 및 Mac OS X에 node.js 및 npm 설치 
+### Windows 및 Mac OS X에 node.js 및 npm 설치
 
 [Nodejs.org](https://nodejs.org/download/)로부터 설치 관리자를 사용하여 node.js 및 npm을 Windows 및 OS X에 설치할 수 있습니다 . 설치를 완료하려면 컴퓨터를 다시 시작해야 합니다. 명령 프롬프트를 열고 입력하여 노드 및 npm이 제대로 설치되었는지 확인하십시오.
 
@@ -94,7 +94,7 @@ RPM 기반 배포에 node.js를 설치하려면 EPEL 리포지토리를 사용�
 
 	npm install -g azure-cli
 
-Azure CLI가 설치되었으면 명령줄 사용자 인터페이스(Bash, 터미널, cmd.exe 등)에서 **azure** 명령을 사용하여 Azure CLI 명령에 액세스할 수 있습니다. 설치가 끝나면 다음과 유사하게 표시됩니다.
+Azure CLI가 설치되었으면 명령줄 사용자 인터페이스에서 **azure** 명령을 사용하여 Azure CLI 명령에 액세스할 수 있습니다. 설치가 끝나면 다음과 유사하게 표시됩니다.
 
 	azure-cli@0.8.0 ..\node_modules\azure-cli
 	|-- easy-table@0.0.1
@@ -116,20 +116,27 @@ Azure CLI가 설치되었으면 명령줄 사용자 인터페이스(Bash, 터미
 
 >[AZURE.NOTE]Linux 시스템의 경우 [소스](http://go.microsoft.com/fwlink/?linkid=253472&clcid=0x409)에서 빌드하여 Azure CLI를 설치할 수도 있습니다. 소스에서 빌드하는 방법에 대한 자세한 내용은 보관 파일에 포함된 INSTALL 파일을 참조하세요.
 
-이제 준비가 되었습니다! 이제 [Azure CLI로부터 Azure 구독에 연결하고](xplat-cli-connect.md) **azure** 명령의 사용을 시작할 수 있습니다.
-
 ## Docker 컨테이너 사용
 
 Docker 호스트에서 다음을 실행합니다. ```
-	docker run -it kmouss/azure-cli
+	docker run -it microsoft/azure-cli
 ```
+
+## Azure CLI 명령 실행
+
+Azure CLI가 설치되었으면 명령줄 사용자 인터페이스(Bash, 터미널, cmd.exe 등)에서 **azure** 명령을 사용하여 Azure CLI 명령에 액세스할 수 있습니다. 예를 들어, Windows에서 도움말 명령을 실행하려면 관리자 권한으로 명령 프롬프트(cmd.exe)를 시작합니다. ```
+	c:> azure help
+```
+
+이제 준비가 되었습니다! 이제 [Azure CLI로부터 Azure 구독에 연결하고](xplat-cli-connect.md) **azure** 명령의 사용을 시작할 수 있습니다.
+
 
 <a id="additional-resources"></a>
 ## 추가 리소스
 
-* [서비스 관리(또는 ASM 모드) 명령과 함께 Azure CLI 사용하기][xplatasm]
+* [서비스 관리(또는 ASM 모드) 명령과 함께 Azure CLI 사용하기][cliasm]
 
-* [리소스 관리(또는 ASM 모드) 명령과 함께 Azure CLI 사용하기][xplatarm]
+* [리소스 관리(또는 ASM 모드) 명령과 함께 Azure CLI 사용하기][cliarm]
 
 * Azure CLI에 대한 자세한 내용을 보거나, 소스 코드를 다운로드하거나, 문제를 보고하거나, 프로젝트에 기여하려면 [Azure CLI에 대한 GitHub 리포지토리](https://github.com/azure/azure-xplat-cli)를 방문하세요.
 
@@ -143,7 +150,7 @@ Docker 호스트에서 다음을 실행합니다. ```
 [mac-installer]: http://go.microsoft.com/fwlink/?LinkId=252249
 [windows-installer]: http://go.microsoft.com/?linkid=9828653&clcid=0x409
 [linux-installer]: http://go.microsoft.com/fwlink/?linkid=253472
-[xplatasm]: virtual-machines-command-line-tools.md
-[xplatarm]: xplat-cli-azure-resource-manager.md
+[cliasm]: virtual-machines-command-line-tools.md
+[cliarm]: xplat-cli-azure-resource-manager.md
 
-<!---HONumber=58-->
+<!---HONumber=58_postMigration-->

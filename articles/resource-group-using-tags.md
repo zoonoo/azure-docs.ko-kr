@@ -56,7 +56,7 @@ Azure 클래식 포털에서는 리소스를 분류하고 그룹화하기 위해
 
 ![PowerShell에서 Set-AzureResourceGroup을 사용하여 태그 설정](./media/resource-group-using-tags/Set-AzureResourceGroup-in-PowerShell.png)
 
-태그는 전체적으로 업데이트되므로 이미 태그가 지정된 리소스에 태그를 추가하려는 경우 유지하려는 모든 태그가 있는 배열을 저장해야 합니다. 태그를 제거하려는 경우에는 제거하려는 태그가 없는 배열을 저장하면 됩니다.
+태그는 전체적으로 업데이트되므로 이미 태그가 지정된 리소스에 태그를 추가하려는 경우 유지하려는 모든 태그가 있는 배열을 사용해야 합니다. 태그를 제거하려는 경우에는 제거하려는 태그가 없는 배열을 저장하면 됩니다.
 
 이 프로세스는 `Get-AzureResource` 및 `Set-AzureResource` cmdlet을 사용한다는 점을 제외하고 리소스에도 동일하게 적용됩니다. 특정 태그가 있는 리소스 또는 리소스 그룹을 가져오려면 `-Tag` 매개 변수와 함께 `Get-AzureResource` 또는 `Get-AzureResourceGroup` cmdlet을 사용합니다.
 
@@ -112,4 +112,4 @@ PowerShell을 사용하여 구독 내의 모든 태그 목록을 가져오려면
 - [Azure 클래식 포털을 사용하여 새 Azure 서비스 사용자 만들기](./resource-group-create-service-principal-portal.md)  
   
 
-<!---HONumber=58-->
+<!---HONumber=58_postMigration-->

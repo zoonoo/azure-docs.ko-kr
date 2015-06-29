@@ -315,4 +315,6 @@ Ubuntu 클라우드 이미지는 [cloud-init](https://launchpad.net/ubuntu/+sour
  - [Ubuntu Wiki: Swap 파티션 구성](http://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
  - [Azure 가상 컴퓨터에 사용자 지정 데이터 삽입](virtual-machines-how-to-inject-custom-data.md)
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=58_postMigration-->

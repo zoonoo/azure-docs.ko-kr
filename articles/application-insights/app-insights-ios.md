@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Windows 데스크톱 앱용 Application Insights" 
-    description="Application Insights를 사용하여 Windows 앱의 사용량 및 성능을 분석합니다." 
+    pageTitle="iOS 앱용 Application Insights" 
+    description="Application Insights를 사용하여 iOS 앱의 사용 현황 및 성능을 분석합니다." 
     services="application-insights" 
     documentationCenter="ios"
     authors="alancameronwills" 
@@ -139,4 +139,6 @@ http://portal.azure.com으로 돌아가서 Application Insights 리소스를 찾
 [qna]: app-insights-troubleshoot-faq.md
 [track]: app-insights-custom-events-metrics-api.md
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=58_postMigration-->

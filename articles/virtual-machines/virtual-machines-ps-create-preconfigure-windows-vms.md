@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/22/2015"
+	ms.date="06/10/2015"
 	ms.author="josephd"/>
 
 # Azure PowerShell을 사용하여 Windows 기반 가상 컴퓨터 만들기 및 미리 구성
@@ -27,7 +27,11 @@
 
 다음 단계에서는 빈 칸 채우기 접근 방식에 따라 Azure PowerShell 명령 집합을 만듭니다. 이 접근 방식은 PowerShell을 처음 접하거나 성공적인 구성을 위해 지정할 값만 알기를 원하는 경우에 유용할 수 있습니다. 고급 PowerShell 사용자는 명령을 가져와 고유한 변수 값("$"로 시작하는 줄)을 대체할 수 있습니다.
 
-Linux 기반 가상 컴퓨터에 대한 관련 항목은 [Azure PowerShell을 사용하여 Linux 기반 가상 컴퓨터 만들기 및 미리 구성](virtual-machines-ps-create-preconfigure-linux-vms.md)을 참조하세요.
+Linux 기반 가상 컴퓨터에 대한 관련 항목은 [Azure PowerShell을 사용하여 Linux 기반 가상 컴퓨터 만들기 및 미리 구성](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)을 참조하세요.
+
+[AZURE.INCLUDE [service-management-pointer-to-resource-manager](../../includes/service-management-pointer-to-resource-manager.md)]
+
+- [리소스 관리자 및 Azure PowerShell을 사용하여 Windows 가상 컴퓨터 만들기 및 미리 구성](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
 
 ## 1단계: Azure PowerShell 설치
 
@@ -42,7 +46,7 @@ Azure PowerShell 명령 프롬프트에서 다음 명령을 실행하여 Azure �
 	Select-AzureSubscription -SubscriptionName $subscr –Current
 	Set-AzureSubscription -SubscriptionName $subscr -CurrentStorageAccountName $staccount
 
-**Get-AzureSubscription** 명령의 출력에 표시된 SubscriptionName 속성에서 올바른 구독 이름을 가져올 수 있습니다. **Select-AzureSubscription** 명령을 실행한 후 **Get-AzureStorageAccount** 명령의 출력에 표시된 Label 속성에서 올바른 저장소 계정 이름을 가져올 수 있습니다. 또한 이러한 명령을 텍스트 파일에 저장하여 나중에 사용할 수 있습니다.
+**Get-AzureSubscription** 명령의 출력에 표시된 SubscriptionName 속성에서 올바른 구독 이름을 가져올 수 있습니다. **Select-AzureSubscription** 명령을 실행한 후 **Get-AzureStorageAccount** 명령의 출력에 표시된 Label 속성에서 올바른 저장소 계정 이름을 가져올 수 있습니다.
 
 ## 3단계: ImageFamily 확인
 
@@ -61,7 +65,7 @@ Azure PowerShell 명령 프롬프트에서 다음 명령을 실행하여 Azure �
 - Windows Server Technical Preview
 - Windows Server 2012의 SQL Server 2012 SP1 Enterprise
 
-원하는 이미지를 찾으면 선택한 텍스트 편집기의 새 인스턴스를 열고(또는 [ISE](PowerShell Integrated Scripting Environment)의 인스턴스) ImageFamily 값을 대체하는 새 텍스트 파일에 복사합니다.
+검색할 이미지를 찾은 경우, 선택한 텍스트 편집기 또는 PowerShell ISE(통합 스크립팅 환경)의 새 인스턴스를 엽니다. 새 텍스트 파일 또는 ImageFamily 값을 대체하는 PowerShell ISE에 다음을 복사합니다.
 
 	$family="<ImageFamily value>"
 	$image=Get-AzureVMImage | where { $_.ImageFamily -eq $family } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
@@ -70,14 +74,14 @@ Azure PowerShell 명령 프롬프트에서 다음 명령을 실행하여 Azure �
 
 	Get-AzureVMImage | select Label -Unique
 
-이 명령을 사용하여 올바른 이미지를 찾으려면, 선택한 텍스트 편집기의 새 인스턴스(또는 PowerShell ISE의 인스턴스)를 열고 ImageFamily 값을 대체하여 다음을 새 텍스트 파일에 복사합니다.
+이 명령을 사용하여 올바른 이미지를 찾은 경우, 사용자가 선택한 텍스트 편집기 또는 PowerShell ISE의 새 인스턴스를 엽니다. 새 텍스트 파일 또는 레이블 값을 대체하는 PowerShell ISE에 다음을 복사합니다.
 
 	$label="<Label value>"
 	$image = Get-AzureVMImage | where { $_.Label -eq $label } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 
 ## 4단계: 명령 집합 작성
 
-아래에서 해당 블록 집합을 새 텍스트 파일에 복사한 다음 변수 값을 입력하고 < and > 문자를 제거하여 나머지 명령 집합을 작성합니다. 최종 결과의 개념은 이 문서 끝의 두 [예제](#examples)를 참조하세요.
+아래에서 해당 블록 집합을 새 텍스트 파일 또는 ISE에 복사한 다음 변수 값을 입력하고 < and > 문자를 제거하여 나머지 명령 집합을 작성합니다. 최종 결과의 개념은 이 문서 끝의 두 [예제](#examples)를 참조하세요.
 
 다음 두 명령 블록 중 하나를 선택하여 명령 집합을 시작합니다(필수).
 
@@ -163,13 +167,13 @@ Active Directory 도메인 컨트롤러에 대해 $hcaching을 "None"으로 설�
 
 ## 5단계: 명령 집합 실행
 
-텍스트 편집기에서 작성한 Azure PowerShell 명령 집합(4단계의 여러 명령 블록으로 구성)을 검토합니다. 필요한 모든 변수를 지정하고 해당 변수에 올바른 값이 있는지 확인합니다. 또한 < and > 문자를 모두 제거했는지 확인합니다.
+텍스트 편집기 또는 PowerShell ISE에서 작성한 Azure PowerShell 명령 집합(4단계의 여러 명령 블록으로 구성)을 검토합니다. 필요한 모든 변수를 지정하고 해당 변수에 올바른 값이 있는지 확인합니다. 또한 < and > 문자를 모두 제거했는지 확인합니다.
 
-클립보드에 명령 집합을 복사한 다음 열려 있는 Azure PowerShell 명령 프롬프트를 마우스 오른쪽 버튼으로 클릭합니다. 그러면 명령 집합이 일련의 PowerShell 명령으로 실행되고 Azure 가상 컴퓨터가 만들어집니다.
+텍스트 편집기를 사용하는 경우 명령 집합을 클립보드로 복사한 다음, 열려 있는 Azure PowerShell 명령 프롬프트를 마우스 오른쪽 단추로 클릭합니다. 그러면 명령 집합이 일련의 PowerShell 명령으로 실행되고 Azure 가상 컴퓨터가 만들어집니다. 또는 PowerShell ISE에서 명령 집합을 실행합니다.
 
 이 가상 컴퓨터 또는 이와 유사한 가상 컴퓨터를 다시 만들려는 경우 다음과 같이 할 수 있습니다.
 
-- 이 명령 집합을 텍스트 파일 또는 PowerShell 스크립트 파일(*.ps1)로 저장
+- 이 명령 집합을 PowerShell 스크립트 파일(*.ps1)로 저장
 - Azure 관리 포털의 **자동화** 섹션에서 이 명령을 Azure 자동화 Runbook으로 저장
 
 ## <a id="examples"></a>예제
@@ -263,4 +267,7 @@ Active Directory 도메인 컨트롤러에 대해 $hcaching을 "None"으로 설�
 
 [Azure PowerShell을 사용하여 Linux 기반 가상 컴퓨터 만들기 및 미리 구성](virtual-machines-ps-create-preconfigure-linux-vms.md)
 
-<!---HONumber=58--> 
+[리소스 관리자 및 Azure PowerShell을 사용하여 Windows 가상 컴퓨터 만들기 및 미리 구성](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
+ 
+
+<!---HONumber=58_postMigration-->

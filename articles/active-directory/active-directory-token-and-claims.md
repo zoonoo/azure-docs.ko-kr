@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/29/2015"
+   ms.date="06/01/2015"
    ms.author="mbaldwin"/>
 
 # 지원되는 토큰 및 클레임 유형
@@ -409,8 +409,8 @@ JWT 토큰에서 사용자 계정 이름은 upn 클레임에 표시됩니다.
     }.
 
 ##참고 항목
-### 개념
 
-[Azure Active Directory 인증 프로토콜](active-directory-authentication-protocols.md)
+[Azure Active Directory 인증 프로토콜](https://msdn.microsoft.com/library/azure/dn151124.aspx)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

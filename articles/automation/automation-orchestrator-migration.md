@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Orchestrator에서 Runbook 및 통합 팩 마이그레이션"
    description="System Center Orchestrator에서 Azure 자동화로 Runbook 및 통합 팩을 마이그레이션하는 방법에 대해 설명합니다."
    services="automation"
@@ -6,10 +6,10 @@
    authors="bwren"
    manager="stevenka"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="automation"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="05/22/2015"
@@ -24,9 +24,9 @@
 
 다음은 Orchestrator Runbook을 Azure 자동화로 변환하는 기본 프로세스입니다. 각 단계에 대한 자세한 설명은 아래 섹션에 나와 있습니다.
 
-1.  이 문서에 설명된 도구 및 모듈이 포함되어 있는 [System Center Orchestrator Migration Toolkit](http://www.microsoft.com/download/details.aspx?id=47323&WT.mc_id=rss_alldownloads_all)을 다운로드합니다. 
+1.  이 문서에 설명된 도구 및 모듈이 포함되어 있는 [System Center Orchestrator Migration Toolkit](http://www.microsoft.com/download/details.aspx?id=47323&WT.mc_id=rss_alldownloads_all)을 다운로드합니다.
 2.  [Standard Activities Module](#standard-activities-module)을 Azure 자동화에 설치합니다. 여기에는 변환된 Runbook에서 사용할 수 있는 변환된 버전의 표준 Orchestrator 활동이 들어 있습니다.
-2.  Runbook에서 사용하는 통합 팩을 위해 [System Center Orchestrator Integration Modules](#system-center-orchestrator-integration-modules)를 Azure 자동화에 설치합니다. 
+2.  Runbook에서 사용하는 통합 팩을 위해 [System Center Orchestrator Integration Modules](#system-center-orchestrator-integration-modules)를 Azure 자동화에 설치합니다.
 3.  [Integration Pack Converter](#integration-pack-converter)를 사용하여 사용자 지정 및 타사 통합 팩을 변환하고 Azure 자동화에서 설치합니다.
 4.  이 마이그레이션을 수행할 자동화된 방법은 없으므로 Azure 자동화에서 Orchestrator의 전역 자산을 수동으로 다시 만듭니다.
 5.  [Runbook Converter](#runbook-converter-coming-soon)(출시 예정)를 사용하여 Orchestrator Runbook을 변환하고 Azure 자동화에서 설치합니다.
@@ -79,5 +79,6 @@ Microsoft에서는 System Center 구성 요소 및 기타 제품을 자동화하
 - [Service Management Automation](https://technet.microsoft.com/library/dn469260.aspx)
 - [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md)
 - [Orchestrator Standard Activities](http://technet.microsoft.com/library/hh403832.aspx)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

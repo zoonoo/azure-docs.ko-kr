@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="액세스 및 사용 보고서 보기" 
-	description="액세스 및 사용 보고서를 사용하여 조직 디렉터리의 무결성 및 보안을 보는 방법에 대해 설명하는 항목입니다." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="kenhoff" 
-	manager="TerryLan" 
+<properties
+	pageTitle="액세스 및 사용 보고서 보기"
+	description="액세스 및 사용 보고서를 사용하여 조직 디렉터리의 무결성 및 보안을 보는 방법에 대해 설명하는 항목입니다."
+	services="active-directory"
+	documentationCenter=""
+	authors="kenhoff"
+	manager="TerryLan"
 	editor="LisaToft"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/10/2015" 
+<tags
+	ms.service="active-directory"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/23/2015"
 	ms.author="kenhoff;Justinha"/>
 
 # 액세스 및 사용 보고서 보기
@@ -22,40 +22,68 @@ Azure Active Directory의 액세스 및 사용 보고서를 사용하여 조직 
 
 Azure 관리 포털에서 보고서는 다음과 같은 방식으로 분류되어 있습니다.
 
-- 비정상 보고서 – 비정상으로 확인된 로그인 이벤트가 포함됩니다. 이러한 활동을 인식하고 이벤트가 의심스러운지 확인할 수 있게 해 줍니다. 
-- 통합 응용 프로그램 보고서 – 클라우드 응용 프로그램이 조직에서 사용되는 방식을 파악할 수 있게 해 줍니다. Azure Active Directory는 수천 개의 클라우드 응용 프로그램과 통합을 제공합니다. 
+- 비정상 보고서 – 비정상으로 확인된 로그인 이벤트가 포함됩니다. 이러한 활동을 인식하고 이벤트가 의심스러운지 확인할 수 있게 해 줍니다.
+- 통합 응용 프로그램 보고서 – 클라우드 응용 프로그램이 조직에서 사용되는 방식을 파악할 수 있게 해 줍니다. Azure Active Directory는 수천 개의 클라우드 응용 프로그램과 통합을 제공합니다.
 - 오류 보고서 – 외부 응용 프로그램에 계정을 프로비전할 때 발생할 수 있는 오류를 나타냅니다.
 - 사용자별 보고서 – 특정 사용자에 대한 장치/로그인 활동 데이터를 표시합니다.
 - 활동 로그 - 최근 24시간, 최근 7일 또는 최근 30일 이내에 감사된 모든 이벤트의 레코드와 그룹 활동 변경 사항, 암호 재설정 및 등록 활동이 포함됩니다.
 
 > [AZURE.NOTE]
-> 
+>
 - 일부 고급 비정상 보고서 및 리소스 사용 보고서는 [Azure Active Directory Premium](active-directory-get-started-premium.md)을 사용하도록 설정하는 경우에만 사용할 수 있습니다. 고급 보고서는 액세스 보안을 향상하고, 잠재적 위협에 대응하고, 장치 액세스 및 응용 프로그램 사용에 대한 진단에 액세스하는 데 도움이 됩니다.
-- 중국 고객의 경우 전 세계의 Azure Active Directory 인스턴스를 사용하여 Azure Active Directory Premium 및 Basic 버전을 사용할 수 있습니다. 중국의 21Vianet에서 운영하는 Microsoft Azure 서비스는 현재 Azure Active Directory Premium 및 Basic 버전을 지원하지 않습니다. 자세한 내용은 [Azure Active Directory 포럼](http://feedback.azure.com/forums/169401-azure-active-directory)을 통해 문의하세요.
+- 중국 고객의 경우 전 세계의 Azure Active Directory 인스턴스를 사용하여 Azure Active Directory Premium 및 Basic 버전을 사용할 수 있습니다. Azure Active Directory Premium 및 Basic 버전은 현재 중국 21Vianet이 운영하는 Microsoft Azure에서 지원되지 않습니다. 자세한 내용은 [Azure Active Directory 포럼](http://feedback.azure.com/forums/169401-azure-active-directory)을 통해 문의하세요.
 
+## 보고서 설명
 
-## 비정상 보고서
+|	보고서 |	설명 |
+|	------												|	-----																						|
+|	알 수 없는 원본에서 로그인 |	추적 없이 로그인하려고 한 경우를 나타낼 수 있습니다. |
+|	여러 번의 실패 후 로그인 |	성공적인 무작위 공격을 나타낼 수 있습니다. |
+|	여러 지역에서의 로그인 |	여러 사용자가 같은 계정으로 로그인함을 나타낼 수 있습니다. |
+|	의심스러운 활동을 포함하는 IP 주소의 로그인 |	지속적인된 침입 시도 후에 성공적인 로그인을 나타낼 수 있습니다. |
+|	감염 가능성이 있는 장치에서의 로그인 |	감염 가능성이 있는 장치에서 로그인하려고 한 경우를 나타낼 수 있습니다. |
+|	비정상적인 로그인 활동 |	사용자의 로그인 패턴에 대한 비정상적인 이벤트를 나타낼 수 있습니다. |
+|	비정상적인 로그인 활동을 포함하는 사용자 보고서 |	손상된 계정을 가진 사용자를 나타냅니다. |
+|	자격 증명이 손실된 사용자 |	자격 증명이 손실된 사용자 |
+|	감사 보고서 |	디렉토리에서 감사된 이벤트 |
+|	암호 재설정 활동 |	조직에서 발생하는 암호 재설정의 세부 정보 보기를 제공합니다. |
+|	암호 재설정 등록 활동 |	조직에서 발생하는 암호 재설정 등록의 세부 정보 보기를 제공합니다. |
+|	셀프 서비스 그룹 활동 |	사용자 디렉토리의 모든 그룹 자체 서비스 활동에 대한 활동 로그를 제공합니다. |
+|	응용 프로그램 사용 |	디렉토리와 통합하는 모든 SaaS 응용 프로그램에 대한 사용 현황 요약을 제공합니다. |
+|	계정 프로비저닝 활동 |	외부 응용 프로그램에 계정을 프로비전하려는 시도의 기록을 제공합니다. |
+|	암호 롤오버 상태 |	SaaS 응용 프로그램의 자동 암호 롤오버 상태의 자세한 개요를 제공합니다. |
+|	계정 프로비전 오류 |	외부 응용 프로그램에 대한 사용자의 액세스에 대한 영향을 나타냅니다. |
+|	RMS 사용 현황 |	권한 관리 사용 현황에 대한 요약을 제공합니다. |
+|	가장 활동적인 RMS 사용자 |	RMS로 보호된 파일에 액세스하는 상위 1000명의 활성 사용자를 나열합니다. |
+|	RMS 장치 사용 |	RMS로 보호된 파일에 액세스하는 데 사용된 장치를 나열합니다. |
+|	RMS 사용 응용 프로그램 사용 현황 |	RMS 사용 응용 프로그램의 사용 현황을 제공합니다. |
 
-보고서 이름 | 사용 가능한 버전    	
-------------- | -------------  
-[알 수 없는 원본에서 로그인](#sign-ins-from-unknown-sources) | Free 및 Premium
-[여러 번의 실패 후 로그인](#sign-ins-after-multiple-failures) | Free 및 Premium
-[여러 지역에서의 로그인](sign-ins-from-multiple-geographies) | Free 및 Premium
-[의심스러운 활동을 포함하는 IP 주소의 로그인](#sign-ins-from-ip-addresses-with-suspicious-activity) | Premium
-[비정상적인 로그인 활동](#anamolous-sign-in-activity) | Premium
-[감염 가능성이 있는 장치에서의 로그인](#sign-ins-from-possibly-infected-devices) | Premium
-[비정상적인 로그인 활동을 포함하는 사용자 보고서](#users-with-anomalous-sign-in-activity) | Premium
-[응용 프로그램 사용: 요약](#application-usage-summary) | Premium
-[응용 프로그램 사용: 세부](#application-usage-detailed) | Premium
-[응용 프로그램 대시보드](#application-dashboard) | Free 및 Premium
-[계정 프로비전 오류](#account-provisioning-errors) | Free 및 Premium
-[장치](#devices) | Premium
-[활동](#activity) | Free 및 Premium
-[감사 보고서](#audit-report) | Free 및 Premium
-[그룹 활동 보고서](#groups-activity-report) | Premium
-[암호 재설정 등록 활동 보고서](#password-reset-registration-activity-report) | Premium
-[암호 재설정 활동](#password-reset-activity) | Premium
- 
+## 보고서 버전
+
+|	보고서 |	무료 |	Basic |	Premium |
+|	------												|	----	|	-----	|	--------	|
+|	알 수 없는 원본에서 로그인 |	✓ |	✓ |	✓ |
+|	여러 번의 실패 후 로그인 |	✓ |	✓ |	✓ |
+|	여러 지역에서의 로그인 |	✓ |	✓ |	✓ |
+|	의심스러운 활동을 포함하는 IP 주소의 로그인 | | |	✓ |
+|	감염 가능성이 있는 장치에서의 로그인 | | |	✓ |
+|	비정상적인 로그인 활동 | | |	✓ |
+|	비정상적인 로그인 활동을 포함하는 사용자 보고서 | | |	✓ |
+|	자격 증명이 손실된 사용자 | | |	✓ |
+|	감사 보고서 | | |	✓ |
+|	암호 재설정 활동 | | |	✓ |
+|	암호 재설정 등록 활동 | | |	✓ |
+|	셀프 서비스 그룹 활동 | | |	✓ |
+|	응용 프로그램 사용 | | |	✓ |
+|	계정 프로비저닝 활동 |	✓ |	✓ |	✓ |
+|	암호 롤오버 상태 | | |	✓ |
+|	계정 프로비전 오류 |	✓ |	✓ |	✓ |
+|	RMS 사용 현황 | | |	RMS만 해당 |
+|	가장 활동적인 RMS 사용자 | | |	RMS만 해당 |
+|	RMS 장치 사용 | | |	RMS만 해당 |
+|	RMS 사용 응용 프로그램 사용 현황 | | |	RMS만 해당 |
+
+## 세부 정보 보고서
 
 ### 알 수 없는 원본에서 로그인
 
@@ -63,11 +91,16 @@ Azure 관리 포털에서 보고서는 다음과 같은 방식으로 분류되�
 | :-------------     | :-------        |
 | <p>이 보고서에는 Microsoft에서 익명 프록시 IP 주소로 인식한 클라이언트 IP 주소가 디렉터리에 할당되는 동안 사용자의 디렉터리에 로그인한 다른 사용자가 포함됩니다. 이 프록시는 흔히 자신의 컴퓨터의 IP 주소를 숨기려는 사용자가 사용하며 때로는 해커가 악의적인 의도로 이 프록시를 사용할 수 있습니다. </p><p> 이 보고서의 결과는 사용자가 해당 주소 및 프록시의 IP 주소에서 디렉터리에 로그인한 횟수를 보여 줍니다.</p> | 디렉터리 > 보고서 탭 |
 
+![알 수 없는 원본에서 로그인](./media/active-directory-view-access-usage-reports/signInsFromUnknownSources.PNG)]
+
 ### 여러 번의 실패 후 로그인
 
 | 설명 | 보고서 위치 |
 | :-------------     | :-------        |
 | 이 보고서에는 여러 번의 로그인 시도를 연속해서 실패한 이후 로그인에 성공한 사용자가 표시됩니다. 다음과 같은 경우가 해당될 수 있습니다. <ul><li>사용자가 암호를 잊어버린 경우</li><li>사용자의 계정이 무차별 암호 추측 공격에 당한 경우</li></ul><p>이 보고서의 결과는 로그인하기 전에 연속해서 실패한 로그인 시도 수 및 처음 성공한 로그인과 연관된 타임스탬프를 보여 줍니다.</p><p><b>보고서 설정</b>: 보고서에 표시되기 전에 먼저 발생해야 하는 연속 실패한 최소 로그인 시도 횟수를 설정할 수 있습니다. 이 설정을 변경할 때에는 해당 설정이 현재 기존 보고서에 표시되는 실패한 기존 로그인에 적용되지 않도록 해야 합니다. 그러나 이러한 변경 사항은 향후 모든 로그인에 적용됩니다. 이 보고서에 대한 변경 작업은 허가받은 관리자만 수행할 수 있습니다. | 디렉터리 > 보고서 탭 |
+
+![여러 번의 실패 후 로그인](./media/active-directory-view-access-usage-reports/signInsAfterMultipleFailures.PNG)]
+
 
 ### 여러 지역에서의 로그인
 
@@ -75,11 +108,17 @@ Azure 관리 포털에서 보고서는 다음과 같은 방식으로 분류되�
 | :-------------     | :-------        |
 | <p>한 사용자의 두 로그인이 각각 다른 지역에서 시작된 것으로 보이고 로그인 간격이 사용자가 두 지역 간에 이동하기에는 불가능한 시간인 경우 해당 사용자의 모든 성공적인 로그인 활동이 이 보고서에 포함됩니다. 다음과 같은 경우가 해당될 수 있습니다.</p><ul><li>사용자가 암호를 공유하고 있는 경우</li><li>사용자가 로그인할 웹 브라우저를 원격 데스크톱에서 시작하는 경우</li><li>해커가 다른 국가에서 사용자의 계정에 로그인한 경우</li></ul><p>이 보고서의 결과는 성공적인 로그인 이벤트와 함께 로그인 간의 시간, 로그인이 시작된 것으로 나타난 지역 및 두 지역을 이동하는 데 걸리는 예상 시간을 보여 줍니다.</p><p>표시된 이동 시간은 예측 시간일 뿐이며 두 지역을 실제로 이동하는 데 걸리는 시간과 차이가 날 수 있습니다. 또한 인접 지역 간의 로그인에 대한 이벤트는 생성되지 않습니다.</p> | 디렉터리 > 보고서 탭 |
 
+![여러 지역에서의 로그인](./media/active-directory-view-access-usage-reports/signInsFromMultipleGeographies.PNG)]
+
+
 ### 의심스러운 활동을 포함하는 IP 주소의 로그인
 
 | 설명 | 보고서 위치 |
 | :-------------     | :-------        |
 | <p>이 보고서에는 의심스러운 활동이 확인된 IP 주소에서의 로그인 시도가 포함됩니다. 의심스러운 활동에는 짧은 기간 동안 동일한 IP 주소에서의 많은 실패한 로그인 시도와 의심스러운 것으로 간주된 기타 활동이 포함됩니다. 이는 해커가 이 IP 주소에서 로그인하려고 하고 있음을 나타낼 수 있습니다.</p><p>이 보고서의 결과는 의심스러운 활동이 확인된 IP 주소에서 시작된 로그인 시도와 함께 해당 로그인과 연관된 타임스탬프를 보여 줍니다.</p> | 디렉터리 > 보고서 탭 |
+
+![의심스러운 활동을 포함하는 IP 주소의 로그인](./media/active-directory-view-access-usage-reports/signInsFromIPAddressesWithSuspiciousActivity.PNG)]
+
 
 ### 비정상적인 로그인 활동
 
@@ -87,17 +126,25 @@ Azure 관리 포털에서 보고서는 다음과 같은 방식으로 분류되�
 | :-------------     | :-------        |
 | <p>이 보고서에는 기계 학습 알고리즘에 의해 “비정상”으로 확인된 로그인이 포함됩니다. 로그인 시도를 비정상으로 표시하는 이유에는 예기치 않은 로그인 위치, 시간 또는 이들의 조합이 포함됩니다. 이는 해커가 이 계정을 사용하여 로그인하려고 하고 있음을 나타낼 수 있습니다. 기계 학습 알고리즘은 이벤트를 “비정상” 또는 “의심스러운” 것으로 분류합니다. “의심스러운” 이벤트는 보안 위반이 발생할 가능성이 높음을 나타냅니다.</p><p>이 보고서의 결과는 이러한 로그인 시도와 함께 해당 로그인과 연관된 분류, 위치 및 타임스탬프를 보여 줍니다.</p><p>30일 이하의 기간 동안 비정상 로그인 이벤트가 10회 이상 발생한 경우 글로벌 관리자에게 전자 메일 알림이 전송됩니다. 수신 허용 - 보낸 사람 목록에 aad-alerts-noreply@mail.windowsazure.com이 포함되어야 합니다.</p> | 디렉터리 > 보고서 탭 |
 
+
+
 ### 감염 가능성이 있는 장치에서의 로그인
 
 | 설명 | 보고서 위치 |
 | :-------------     | :-------        |
 | <p>맬웨어(악성 소프트웨어)가 실행되고 있을 수 있는 장치에서의 로그인 시도를 확인하려면 이 보고서를 사용합니다. 로그인의 IP 주소를 맬웨어 서버와의 연결이 시도된 IP 주소와 연관하여 보여줍니다.</p><p>권장 사항: 이 보고서는 IP 주소가 양쪽 다 동일한 장치와 연결된 것으로 간주하므로 사용자에게 연락하여 사용자 장치의 확실성을 검사하는 것이 좋습니다.</p><p>맬웨어 감염 문제를 해결하는 방법은 [맬웨어 보호 센터](http://go.microsoft.com/fwlink/?linkid=335773)를 참조하세요. </p> | 디렉터리 > 보고서 탭 |
 
+![감염 가능성이 있는 장치에서의 로그인](./media/active-directory-view-access-usage-reports/signInsFromPossiblyInfectedDevices.PNG)]
+
+
 ### 비정상적인 로그인 활동을 포함하는 사용자 보고서
 
 | 설명 | 보고서 위치 |
 | :-------------     | :-------        |
 | <p>비정상적인 로그인 활동이 식별된 모든 사용자 계정을 보려는 경우 이 보고서를 사용합니다. 이 보고서에는 기타 모든 비정상적인 활동 보고서의 데이터가 포함됩니다. 이 보고서의 결과는 사용자에 대한 세부 정보, 로그인 이벤트가 비정상으로 식별된 이유, 날짜와 시간 및 이벤트에 대한 기타 관련 정보를 보여 줍니다.</p> | 디렉터리 > 보고서 탭 |
+
+![비정상적인 로그인 활동을 포함하는 사용자 보고서](./media/active-directory-view-access-usage-reports/usersWithAnomalousSignInActivity.PNG)]
+
 
 ## 통합 응용 프로그램 보고서
 
@@ -106,6 +153,9 @@ Azure 관리 포털에서 보고서는 다음과 같은 방식으로 분류되�
 | 설명 | 보고서 위치 |
 | :-------------     | :-------        |
 | 디렉터리에서의 모든 SaaS 응용 프로그램에 대한 사용 현황을 확인하려는 경우 이 보고서를 사용합니다. 이 보고서는 액세스 패널에서 해당 응용 프로그램을 클릭한 횟수를 기반으로 작성됩니다. | 디렉터리 > 보고서 탭 |
+
+![응용 프로그램 사용 요약](./media/active-directory-view-access-usage-reports/applicationUsage.PNG)]
+
 
 ### 응용 프로그램 사용: 세부
 
@@ -126,6 +176,9 @@ Azure 관리 포털에서 보고서는 다음과 같은 방식으로 분류되�
 | 설명 | 보고서 위치 |
 | :-------------     | :-------        |
 | 이 보고서를 사용하면 SaaS 응용 프로그램에서 Azure Active Directory로의 계정 동기화 중에 발생한 오류를 모니터링할 수 있습니다. | 디렉터리 > 보고서 탭 |
+
+![계정 프로비전 오류](./media/active-directory-view-access-usage-reports/accountProvisioningErrors.PNG)]
+
 
 ## 사용자별 보고서
 
@@ -153,8 +206,9 @@ Azure 관리 포털에서 보고서는 다음과 같은 방식으로 분류되�
 | [Office 365 포털](http://portal.office.com/)에 로그인 | 예 |
 | Outlook 같은 네이티브 응용 프로그램에 로그인(아래 예외 참조) | 예 |
 | Salesforce 같은 액세스 패널을 통해 페더레이션/프로 비전된 응용 프로그램에 로그인 | 예 |
-| Twitter 같은 액세스 패널을 통해 암호 기반 응용 프로그램에 로그인 | 아니요(포함 예정) |
+| Twitter 같은 액세스 패널을 통해 암호 기반 응용 프로그램에 로그인 | 예 |
 | 디렉터리에 추가된 사용자 지정 비즈니스 응용 프로그램에 로그인 | 아니요(포함 예정) |
+| 디렉토리에 추가된 Azure AD 응용 프로그램 프록시 앱에 로그인 | 아니요(포함 예정) |
 
 > 참고: 이 보고서의 노이즈를 줄이기 위해 [Microsoft Online Services 로그인 도우미](http://community.office365.com/ko-kr/w/sso/534.aspx)를 통해 [비즈니스용 Lync/Skype](http://products.office.com/ko-kr/skype-for-business/online-meetings) 네이티브 응용 프로그램에 로그인한 이벤트는 표시되지 않습니다.
 
@@ -166,11 +220,17 @@ Azure 관리 포털에서 보고서는 다음과 같은 방식으로 분류되�
 | :-------------     | :-------        |
 | 최근 24시간, 최근 7일 또는 최근 30일 내에 감사된 모든 이벤트의 레코드를 보여 줍니다. <br /> 자세한 내용은 [Azure Active Directory 감사 보고서 이벤트](active-directory-reporting-audit-events.md)를 참조하세요. | 디렉터리 > 보고서 탭 |
 
+![감사 보고서](./media/active-directory-view-access-usage-reports/auditReport.PNG)]
+
+
 ### 그룹 활동 보고서
 
 | 설명 | 보고서 위치 |
 | :-------------     | :-------        |
 | 디렉터리의 셀프 서비스 관리 그룹에 대한 모든 활동을 보여 줍니다. | 디렉터리 > 사용자 > <i>사용자</i> > 장치 탭 |
+
+![셀프 서비스 그룹 활동](./media/active-directory-view-access-usage-reports/selfServiceGroupsActivity.PNG)]
+
 
 ### 암호 재설정 등록 활동 보고서
 
@@ -178,11 +238,17 @@ Azure 관리 포털에서 보고서는 다음과 같은 방식으로 분류되�
 | :-------------     | :-------        |
 | 조직 내에서 발생한 모든 암호 재설정 등록을 보여 줍니다. | 디렉터리 > 보고서 탭 |
 
+![암호 재설정 등록 활동](./media/active-directory-view-access-usage-reports/passwordResetRegistrationActivity.PNG)]
+
+
 ### 암호 재설정 활동
 
 | 설명 | 보고서 위치 |
 | :-------------     | :-------        |
 | 조직 내에서 발생한 모든 암호 재설정 시도를 보여 줍니다. | 디렉터리 > 보고서 탭 |
+
+![암호 재설정 활동](./media/active-directory-view-access-usage-reports/passwordResetActivity.PNG)]
+
 
 ## 보안 위반이 의심될 때 고려할 사항
 
@@ -198,19 +264,21 @@ Azure 관리 포털에서 보고서는 다음과 같은 방식으로 분류되�
 2. 보고서 페이지에서 보거나 다운로드하려는 보고서를 클릭합니다.
     >
     > [AZURE.NOTE]
-    
+
 3. 간격 옆의 드롭다운 메뉴를 클릭한 후 이 보고서를 생성할 때 사용해야 하는 다음 시간 범위 중 하나를 선택합니다.
     - 최근 24시간
     - 최근 7일
     - 최근 30일
 4. 확인 표시 아이콘을 클릭하여 보고서를 실행합니다.
+	- 최대 1000개의 이벤트가 Azure 관리 포털에 표시됩니다.
 5. 해당하는 경우 **다운로드**를 클릭하여 오프라인으로 보거나 보관하기 위해 CSV(쉼표로 구분된 값) 형식의 압축된 파일로 보고서를 다운로드합니다.
+	- 최대 75,000개의 이벤트가 다운로드한 파일에 포함됩니다.
 
 ## 이벤트 무시
 
 비정상 보고서를 본다면 관련 보고서에 표시된 다양한 이벤트를 무시할 수 있다는 것을 알 수 있습니다. 이벤트를 무시하려면 보고서에서 해당 이벤트를 강조 표시한 후 **무시**를 클릭합니다. **무시** 단추를 클릭하면 강조 표시된 이벤트가 영구적으로 보고서에서 제거되며 허가받은 전역 관리자만 사용할 수 있습니다.
 
-## 자동 전자 메일 알림 
+## 자동 전자 메일 알림
 
 ### 어떤 보고서가 전자 메일 알림을 생성하나요?
 
@@ -250,7 +318,7 @@ Active Directory Premium 라이선스가 할당된 모든 전역 관리자에게
 링크를 클릭하면 Azure 관리 포털 내의 보고서 페이지로 리디렉션됩니다. 보고서에 액세스하려면 다음 조건을 둘 다 충족해야 합니다.
 
 - Azure 구독의 관리자 또는 공동 관리자
-- 디렉터리의 전역 관리자 및 Active Directory Premium 라이선스가 할당됨. 자세한 내용은 Azure Active Directory 버전을 참조하세요. 
+- 디렉터리의 전역 관리자 및 Active Directory Premium 라이선스가 할당됨. 자세한 내용은 Azure Active Directory 버전을 참조하세요.
 
 ### 이러한 전자 메일을 끌 수 있나요?
 
@@ -261,4 +329,4 @@ Active Directory Premium 라이선스가 할당된 모든 전역 관리자에게
 - [Azure Active Directory Premium 시작](active-directory-get-started-premium.md)
 - [로그인 및 액세스 패널 페이지에 회사 브랜딩 추가](active-directory-add-company-branding.md)
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

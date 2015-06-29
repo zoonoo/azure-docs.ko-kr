@@ -13,35 +13,26 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/18/2014" 
+	ms.date="06/10/2015" 
 	ms.author="sdanie"/>
 
 # Azure API 관리에서 OAuth 2.0을 사용하여 개발자 계정에 권한을 부여하는 방법
 
-API 관리는 사용자가 OAuth 2.0 권한 부여를 사용하여 개발자 포털에 액세스하는 기능을 제공합니다. 이 가이드에서는 OAuth 2.0 권한 부여를 사용하도록 API 관리 서비스 인스턴스를 구성하는 방법을 설명합니다.
-
-> OAuth 2.0에 대한 자세한 내용은 [http://oauth.net/2/][http://oauth.net/2/] 의 사양을 참조하세요.
-
-## 항목 내용
-
--   [필수 조건][필수 조건]
--   [API 관리에서 OAuth 2.0 권한 부여 서버 구성][API 관리에서 OAuth 2.0 권한 부여 서버 구성]
--   [OAuth 2.0 사용자 권한 부여를 사용하도록 API 구성][OAuth 2.0 사용자 권한 부여를 사용하도록 API 구성]
--   [개발자 포털에서 OAuth 2.0 사용자 권한 부여 테스트][개발자 포털에서 OAuth 2.0 사용자 권한 부여 테스트]
+대부분의 API는 [OAuth 2.0](http://oauth.net/2/)을 지원하여 API를 보호하고 유효한 사용자만 액세스 권한이 부여되고 자격이 있는 리소스에만 액세스할 수 있도록 합니다. 이러한 API와 함께 Azure API 관리의 대화형 개발자 콘솔을 사용하기 위해 서비스에서 OAuth 2.0 사용 API로 작동하도록 서비스 인스턴스를 구성할 수 있습니다.
 
 ## <a name="prerequisites"> </a>필수 조건
 
 이 가이드에서는 개발자 계정에 대해 OAuth 2.0 권한 부여를 사용하도록 API 관리 서비스 인스턴스를 구성하는 방법을 설명합니다. 그러나 OAuth 2.0 공급자를 구성하는 방법은 설명하지 않습니다. 각 OAuth 2.0 공급자의 구성은 서로 다르지만 구성 단계는 비슷하며, API 관리 서비스 인스턴스에서 OAuth 2.0을 구성하는 데 사용되는 필수 정보도 동일합니다. 이 항목에서는 OAuth 2.0 공급자로서 Azure Active Directory를 사용하는 예제를 설명합니다.
 
-> Azure Active Directory를 사용하여 OAuth 2.0을 구성하는 방법에 대한 자세한 내용은 [WebApp-GraphAPI-DotNet][WebApp-GraphAPI-DotNet] 샘플을 참조하세요.
+>[AZURE.NOTE]Azure Active Directory를 사용하여 OAuth 2.0을 구성하는 방법에 대한 자세한 내용은 [WebApp-GraphAPI-DotNet][] 샘플을 참조하세요.
 
 ## <a name="step1"> </a>API 관리에서 OAuth 2.0 권한 부여 서버 구성
 
-시작하려면 Azure 포털에서 API 관리 서비스에 대한 **관리 콘솔**을 클릭합니다. API 관리의 관리용 포털이 열립니다.
+시작하려면 API 관리 서비스에 대해 Azure 포털에서 **관리**를 클릭합니다. API 관리 게시자 포털로 이동됩니다.
 
-![API 관리 콘솔][api-management-management-console]
+![게시자 포털][api-management-management-console]
 
-> 아직 API 관리 서비스 인스턴스를 만들지 않은 경우 [Azure API 관리 시작][Azure API 관리 시작] 자습서의 [API 관리 서비스 인스턴스 만들기][API 관리 서비스 인스턴스 만들기]를 참조하세요.
+>[AZURE.NOTE]아직 API 관리 서비스 인스턴스를 만들지 않은 경우 [Azure API 관리 시작][] 자습서의 [API 관리 서비스 인스턴스 만들기][]를 참조하세요.
 
 왼쪽의 **API 관리** 메뉴에서 **보안**을 클릭하고 **OAuth 2.0**을 클릭한 다음 **권한 부여 서버 추가**를 클릭합니다.
 
@@ -53,9 +44,9 @@ API 관리는 사용자가 OAuth 2.0 권한 부여를 사용하여 개발자 포
 
 **이름** 필드에 이름을 입력하고 원하는 경우 **설명** 필드에 설명을 입력합니다.
 
-> 이러한 필드는 현재 API 관리 서비스 인스턴스 내에서 OAuth 2.0 권한 부여 서버를 식별하는 데 사용되며, 해당 값은 OAuth 2.0 서버에서 제공되지 않습니다.
+>[AZURE.NOTE]이러한 필드는 현재 API 관리 서비스 인스턴스 내에서 OAuth 2.0 권한 부여 서버를 식별하는 데 사용되며, 해당 값은 OAuth 2.0 서버에서 제공되지 않습니다.
 
-**클라이언트 등록 페이지 URL**을 입력합니다. 사용자는 이 페이지에서 계정을 만들고 관리할 수 있습니다. 사용되는 OAuth 2.0 공급자에 따라 페이지는 달라집니다.
+**클라이언트 등록 페이지 URL**을 입력합니다. 사용자는 이 페이지에서 계정을 만들고 관리할 수 있습니다. 사용되는 OAuth 2.0 공급자에 따라 페이지는 달라집니다. **클라이언트 등록 페이지 URL**은 사용자가 계정의 사용자 관리를 지원하는 OAuth 2.0 공급자에 대한 계정을 만들고 구성하는 데 사용할 수 있는 페이지를 가리킵니다. 일부 조직에서는 OAuth 2.0 공급자가 지원하는 경우에도 이 기능을 구성 또는 사용하지 않습니다. OAuth 2.0 공급자에 계정의 사용자 관리가 구성되지 않은 경우 회사의 URL 또는 `https://placeholder.contoso.com` 등의 URL과 같은 자리 표시자 URL을 여기에 입력합니다.
 
 양식의 다음 섹션에는 **인증 코드 부여 형식**, **권한 부여 끝점 URL** 및 **권한 부여 요청 방법** 설정이 포함되어 있습니다.
 
@@ -109,7 +100,7 @@ OAuth 2.0 권한 부여 서버를 구성하고 해당 서버를 사용하도록 
 
 ![Echo API][api-management-apis-echo-api]
 
-> API 한 개만 구성했거나 계정에 표시한 경우에는 API를 클릭하면 해당 API에 대한 작업으로 직접 연결됩니다.
+>[AZURE.NOTE]API 한 개만 구성했거나 계정에 표시한 경우에는 API를 클릭하면 해당 API에 대한 작업으로 직접 연결됩니다.
 
 **GET 리소스** 작업을 선택하고 **콘솔 시작**을 클릭한 후에 드롭다운에서 **인증 코드**를 선택합니다.
 
@@ -117,7 +108,7 @@ OAuth 2.0 권한 부여 서버를 구성하고 해당 서버를 사용하도록 
 
 **인증 코드**를 선택하면 OAuth 2.0 공급자의 로그인 양식이 포함된 팝업 창이 표시됩니다. 이 예제에서는 Azure Active Directory에서 로그인 양식을 제공합니다.
 
-> 팝업을 사용하지 않도록 설정한 경우 브라우저에서 팝업을 사용하도록 설정하라는 메시지가 표시됩니다. 팝업을 사용하도록 설정한 후 **인증 코드**를 다시 선택하면 로그인 양식이 표시됩니다.
+>[AZURE.NOTE]팝업을 사용하지 않도록 설정한 경우 브라우저에서 팝업을 사용하도록 설정하라는 메시지가 표시됩니다. 팝업을 사용하도록 설정한 후 **인증 코드**를 다시 선택하면 로그인 양식이 표시됩니다.
 
 ![로그인][api-management-oauth2-signin]
 
@@ -127,27 +118,46 @@ OAuth 2.0 권한 부여 서버를 구성하고 해당 서버를 사용하도록 
 
 이제 나머지 매개 변수에 대해 원하는 값을 구성하고 요청을 제출할 수 있습니다.
 
-  [http://oauth.net/2/]: http://oauth.net/2/
-  [필수 조건]: #prerequisites
-  [API 관리에서 OAuth 2.0 권한 부여 서버 구성]: #step1
-  [OAuth 2.0 사용자 권한 부여를 사용하도록 API 구성]: #step2
-  [개발자 포털에서 OAuth 2.0 사용자 권한 부여 테스트]: #step3
-  [WebApp-GraphAPI-DotNet]: https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet
-  [Azure API 관리 시작]: ../api-management-get-started
-  [API 관리 서비스 인스턴스 만들기]: ../api-management-get-started/#create-service-instance
-  [api-management-management-console]: ./media/api-management-howto-oauth2/api-management-management-console.png
-  [api-management-oauth2]: ./media/api-management-howto-oauth2/api-management-oauth2.png
-  [api-management-user-authorization]: ./media/api-management-howto-oauth2/api-management-user-authorization.png
-  [api-management-user-authorization-save]: ./media/api-management-howto-oauth2/api-management-user-authorization-save.png
-  [api-management-oauth2-signin]: ./media/api-management-howto-oauth2/api-management-oauth2-signin.png
-  [api-management-request-header-token]: ./media/api-management-howto-oauth2/api-management-request-header-token.png
-  [api-management-developer-portal-menu]: ./media/api-management-howto-oauth2/api-management-developer-portal-menu.png
-  [api-management-open-console]: ./media/api-management-howto-oauth2/api-management-open-console.png
-  [api-management-oauth2-server-1]: ./media/api-management-howto-oauth2/api-management-oauth2-server-1.png
-  [api-management-oauth2-server-2]: ./media/api-management-howto-oauth2/api-management-oauth2-server-2.png
-  [api-management-oauth2-server-3]: ./media/api-management-howto-oauth2/api-management-oauth2-server-3.png
-  [api-management-oauth2-server-4]: ./media/api-management-howto-oauth2/api-management-oauth2-server-4.png
-  [api-management-oauth2-server-5]: ./media/api-management-howto-oauth2/api-management-oauth2-server-5.png
-  [api-management-apis-echo-api]: ./media/api-management-howto-oauth2/api-management-apis-echo-api.png
-<!--HONumber=46--> 
- 
+## 다음 단계
+
+OAuth 2.0 및 API 관리 사용에 대한 자세한 내용은 다음 비디오를 참조하세요.
+
+> [AZURE.VIDEO protecting-web-api-backend-with-azure-active-directory-and-api-management]
+
+[api-management-management-console]: ./media/api-management-howto-oauth2/api-management-management-console.png
+[api-management-oauth2]: ./media/api-management-howto-oauth2/api-management-oauth2.png
+[api-management-user-authorization]: ./media/api-management-howto-oauth2/api-management-user-authorization.png
+[api-management-user-authorization-save]: ./media/api-management-howto-oauth2/api-management-user-authorization-save.png
+[api-management-oauth2-signin]: ./media/api-management-howto-oauth2/api-management-oauth2-signin.png
+[api-management-request-header-token]: ./media/api-management-howto-oauth2/api-management-request-header-token.png
+[api-management-developer-portal-menu]: ./media/api-management-howto-oauth2/api-management-developer-portal-menu.png
+[api-management-open-console]: ./media/api-management-howto-oauth2/api-management-open-console.png
+[api-management-oauth2-server-1]: ./media/api-management-howto-oauth2/api-management-oauth2-server-1.png
+[api-management-oauth2-server-2]: ./media/api-management-howto-oauth2/api-management-oauth2-server-2.png
+[api-management-oauth2-server-3]: ./media/api-management-howto-oauth2/api-management-oauth2-server-3.png
+[api-management-oauth2-server-4]: ./media/api-management-howto-oauth2/api-management-oauth2-server-4.png
+[api-management-oauth2-server-5]: ./media/api-management-howto-oauth2/api-management-oauth2-server-5.png
+[api-management-apis-echo-api]: ./media/api-management-howto-oauth2/api-management-apis-echo-api.png
+
+
+[How to add operations to an API]: api-management-howto-add-operations.md
+[How to add and publish a product]: api-management-howto-add-products.md
+[Monitoring and analytics]: api-management-monitoring.md
+[Add APIs to a product]: api-management-howto-add-products.md#add-apis
+[Publish a product]: api-management-howto-add-products.md#publish-product
+[API 관리 서비스 인스턴스 만들기]: api-management-get-started.md
+[Get started with advanced API configuration]: api-management-get-started-advanced.md
+[API Management policy reference]: api-management-policy-reference.md
+[Caching policies]: api-management-policy-reference.md#caching-policies
+[Azure API 관리 시작]: api-management-get-started.md#create-service-instance
+
+[http://oauth.net/2/]: http://oauth.net/2/
+[WebApp-GraphAPI-DotNet]: https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet
+
+[Prerequisites]: #prerequisites
+[Configure an OAuth 2.0 authorization server in API Management]: #step1
+[Configure an API to use OAuth 2.0 user authorization]: #step2
+[Test the OAuth 2.0 user authorization in the Developer Portal]: #step3
+[Next steps]: #next-steps
+
+<!---HONumber=58_postMigration-->

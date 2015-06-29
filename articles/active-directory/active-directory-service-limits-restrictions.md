@@ -31,7 +31,7 @@
 
 ## 개체
 
-- Azure Active Directory Premium 또는 Azure Active Directory Basic, Enterprise Mobility Suite, Office 365, Windows Intune 또는 디렉터리 서비스에 대해 Azure Active Directory를 사용하는 기타 Microsoft 온라인 서비스의 구독자는 제한이 없습니다.
+- Azure Active Directory Premium 또는 Azure Active Directory Basic, Enterprise Mobility Suite, Office 365, Microsoft Intune 또는 디렉토리 서비스에 대해 Azure Active Directory를 사용하는 기타 Microsoft 온라인 서비스의 구독자는 제한이 없습니다.
 - Azure Active Directory의 무료 버전으로 단일 디렉터리에 최대 50만 개의 개체를 사용할 수 있습니다.
 - 관리자가 아닌 사용자는 최대 250개의 개체를 만들 수 있습니다.
 
@@ -72,4 +72,7 @@
 - [Azure 구독과 Azure AD의 연관 관계](active-directory-how-subscriptions-associated-directory.md)
 - [Azure AD 용어](active-directory-terminology.md)
 
-<!---HONumber=58--> 
+
+ 
+
+<!---HONumber=58_postMigration-->

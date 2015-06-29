@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="온-프레미스 StorSimple 장치 배포"
+   pageTitle="정부 포털에서 온-프레미스 StorSimple 장치 배포"
    description="Azure 정부 포털에서 StorSimple 업데이트 1 장치 및 서비스를 배포하기 위한 단계 및 모범 사례입니다."
    services="storsimple"
    documentationCenter="NA"
@@ -12,18 +12,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/27/2015"
+   ms.date="06/12/2015"
    ms.author="v-sharos" />
 
-# 온-프레미스 StorSimple 장치 배포
-
-[AZURE.INCLUDE [storsimple-version-selector](../../includes/storsimple-version-selector.md)]
+# 정부 포털에서 온-프레미스 StorSimple 장치 배포
 
 ## 개요
 
 Microsoft Azure StorSimple 장치 배포를 시작합니다.
 
-이러한 배포 자습서는 Azure 정부 포털에서 StorSimple 8000 시리즈에 적용됩니다.
+이러한 배포 자습서는 Azure 정부 포털에서 업데이트 1 소프트웨어를 실행하는 StorSimple 8000 시리즈에 적용됩니다.
 
 이 자습서 시리즈에서는 StorSimple 장치를 구성하는 방법에 대해 설명하며 사전 설치 검사 목록, 구성 필수 목록 및 자세한 구성 단계를 포함합니다.
 
@@ -39,7 +37,7 @@ Microsoft Azure StorSimple 장치 배포를 시작합니다.
 
 | | 요구 사항 | 세부 정보 | 값 |
 |---| --------------------- | ---------------------- | ------------- |
-| 1 | 네트워크 설정 <ol><li>장치 IP 주소</li><li>네트워크 인터페이스, 1GbE 4개, 10GbE 2개</li><li>고정 컨트롤러 IP</li><li>서브넷 마스크</li><li>게이트웨이</li></ol> | 필요한 IP는 총 8개 <ol><li>장치당 1개</li><li>사용할 수 있는 네트워크 인터페이스당 1개, 총 6개</li><li>컨트롤러당 1개, 총 2개</li><li>각 IP 주소당 1개</li><li>장치당 1개</li></ol>로 업데이트를 제공하기 위해 인터넷에 연결되어 있어야 합니다. | |
+| 1 | 네트워크 설정 <ol><li>네트워크 인터페이스, 1GbE 4개, 10GbE 2개</li><li>고정 컨트롤러 IP</li><li>서브넷 마스크</li><li>게이트웨이</li></ol> | 필요한 IP는 총 8개로 <ol><li>사용할 수 있는 네트워크 인터페이스당 1개, 총 6개</li><li>컨트롤러당 1개, 총 2개</li><li>각 IP 주소당 1개</li><li>장치당 1개</li></ol>로 업데이트를 제공하기 위해 인터넷에 연결되어 있어야 합니다. | |
 | 2 | 직렬 액세스 | 초기 장치 구성 | 예/아니요 |
 | 3 | DNS 서버 IP 주소 | Microsoft Azure 연결에 필요한 수: 고가용성을 위해 총 2개 필요 | |
 | 4 | NTP 서버 IP 주소 | Azure와 시간을 동기화 하는 데 필요한 수: 필수 1개, 선택 사항 1개 | |
@@ -211,5 +209,6 @@ MPIO 설치 지침은 [StorSimple 장치에 대한 MPIO 구성](storsimple-confi
 [가상 장치](storsimple-virtual-device.md)를 구성합니다.
 
 [StorSimple 관리자 서비스](https://msdn.microsoft.com/library/azure/dn772396.aspx)를 사용하여 StorSimple 장치를 관리할 수 있습니다.
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

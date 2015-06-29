@@ -13,12 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/05/2015"
+	ms.date="06/02/2015"
 	ms.author="curtand"/>
 
 # Azure AD에 대해 자세히 알아보기
 
-[Azure AD란?](active-directory-whatis.md)<br> [작동 원리](active-directory-works.md)<br> [시작하기](active-directory-get-started.md)<br> [다음 단계](active-directory-next-steps.md)
+###이 항목에 대한 다른 문서
+[Azure AD란?](active-directory-whatis.md)<br> [작동 원리](active-directory-works.md)<br> [시작](active-directory-get-started.md)<br> [다음 단계](active-directory-next-steps.md)<br> [자세한 정보](active-directory-learn-map.md)
 
 Azure 구독이 이미 있습니다. Azure AD와 어떻게 연관되어 있나요? [구독과 디렉터리의 연관 관계](active-directory-how-subscriptions-associated-directory.md)
 
@@ -33,7 +34,8 @@ Azure Active Directory 서비스의 사용 제약 및 기타 서비스 제한을
 
 ## 추가 리소스
 
-* [조직으로 Azure에 등록](sign-up-organization.md)
+* [조직으로 Azure 등록](sign-up-organization.md)
 * [Azure ID](fundamentals-identity.md)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

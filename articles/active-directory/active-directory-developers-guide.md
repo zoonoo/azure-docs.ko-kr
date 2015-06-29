@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/08/2015"
+   ms.date="06/10/2015"
    ms.author="mbaldwin"/>
 
 
@@ -23,7 +23,7 @@
 IDMaaS(Identity Management As A Service) 플랫폼인 Azure Active Directory는 개발자에게 응용 프로그램에 ID 관리 기능을 통합하는 효과적인 방법을 제공합니다. 다음 문서에서는 Azure Active Directory의 구현 및 주요 기능에 대한 개요를 제공합니다. 자세히 살펴볼 준비가 되면 순서대로 읽어보거나 [시작](#getting-started)부터 진행합니다.
 
 
-1. **[Azure AD와 통합하는 방법](active-directory-how-to-integrate.md)**: Azure Active Directory와 통합할 경우 보안 로그인 및 권한 부여를 위한 최상의 솔루션이 구현될 수 있는 이유를 알아보세요.
+1. **[Azure AD 통합의 장점](active-directory-how-to-integrate.md)**: Azure Active Directory와 통합할 경우 보안 로그인 및 권한 부여를 위한 최상의 솔루션이 구현될 수 있는 이유를 알아보세요.
 
 1. **[로그인에 Azure AD 사용](active-directory-authentication-scenarios.md)**: Azure Active Directory의 간단한 인증을 활용하여 응용 프로그램에 대한 로그온을 제공하세요.
 
@@ -33,12 +33,8 @@ IDMaaS(Identity Management As A Service) 플랫폼인 Azure Active Directory는 
 
 1. **[라이브러리](https://msdn.microsoft.com/library/azure/dn151135.aspx)**: 사용자가 Azure 인증 라이브러리에서 액세스 토큰을 얻을 수 있도록 쉽게 인증할 수 있습니다.
 
-#### 비디오
-비디오를 통해 학습하려면 Azure Active Directory를 사용하는 앱 개발에 대한 다음의 개요 프레젠테이션을 확인해보세요. 일반적으로 이러한 프레젠테이션에는 직접적으로 엔지니어링 팀에서 일하는 발표자와 IDMaaS, 인증, ID 페더레이션 및 Single Sign-On을 비롯한 기본적인 연습 항목이 포함되어 있습니다.
+빌드 2015 회의에서 제시한 AAD 개요를 보려면 아래 [비디오](#videos) 섹션을 참조하세요.
 
-- **[Azure Active Directory: 최신 응용 프로그램에 대한 ID 관리 서비스](http://azure.microsoft.com/documentation/videos/build-2015-azure-active-directory-identity-management-as-a-service-for-modern-applications)**(영문)
-- **[Azure Active Directory를 사용하여 최신 웹 응용 프로그램 개발](http://azure.microsoft.com/documentation/videos/build-2015-develop-modern-web-applications-with-azure-active-directory)**(영문)
-- **[Azure Active Directory를 사용하여 최신 네이티브 응용 프로그램 개발](http://azure.microsoft.com/documentation/videos/build-2015-develop-modern-native-applications-with-azure-active-directory)**(영문)
 
 ## 시작
 
@@ -70,30 +66,31 @@ IDMaaS(Identity Management As A Service) 플랫폼인 Azure Active Directory는 
 - [Azure AD 테넌트를 가져오는 방법](active-directory-howto-tenant.md)
 - [Azure AD 응용 프로그램 갤러리에 응용 프로그램을 나열하는 방법](active-directory-app-gallery-listing.md)
 - [앱에서 Office 365 API를 시작하는 방법](https://msdn.microsoft.com/office/office365/howto/getting-started-Office-365-APIs)(영문)
+- [판매자 대시보드로 Office 365용 웹앱을 제출하는 방법](https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard)
 
 
 ## 참조
 
 이러한 문서는 REST 및 인증 라이브러리 API, 프로토콜, 오류, 코드 샘플 및 끝점에 대한 기초 참조를 제공합니다.
 
-####  지원
+###  지원
 - **[지원 받는 위치](http://stackoverflow.com/questions/tagged/azure-active-directory)**: [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory)(영문) 및 [adal](http://stackoverflow.com/questions/tagged/adal)(영문) 태그를 검색하여 스택 오버플로에서 Azure AD 솔루션을 찾습니다.
 
-#### 코드
+### 코드
 
 - **[Azure AD 오픈 소스 라이브러리](http://github.com/AzureAD)**: 라이브러리의 소스를 찾는 가장 쉬운 방법은 [라이브러리 목록](https://msdn.microsoft.com/library/azure/dn151135.aspx)을 사용하는 것입니다.
 
 - **[Azure AD 샘플](http://github.com/AzureADSamples)**(영문): 샘플 목록을 탐색하는 가장 쉬운 방법은 [코드 샘플 인덱스](active-directory-code-samples.md)를 사용하는 것입니다.
 
 
-#### 그래프 API
+### 그래프 API
 
 - **[Graph API 참조](https://msdn.microsoft.com/library/azure/hh974476.aspx)**: Azure Active Directory Graph API에 대한 REST 참조입니다. [새로운 대화형 Graph API 참조 환경을 확인해보세요](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog).
 
 - **[Graph API 사용 권한 범위](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/graph-api-permission-scopes)**(영문): 앱이 테넌트의 디렉터리 데이터에 대해 가져야 하는 액세스 권한을 제어하는 데 사용되는 OAuth 2.0 사용 권한 범위입니다.
 
 
-#### 인증 프로토콜
+### 인증 프로토콜
 
 - **[SAML 2.0 프로토콜 참조](https://msdn.microsoft.com/library/azure/dn195591.aspx)**: SAML 2.0 프로토콜을 사용하여 응용 프로그램은 사용자에게 Single Sign-On 환경을 제공할 수 있습니다.
 
@@ -108,8 +105,17 @@ IDMaaS(Identity Management As A Service) 플랫폼인 Azure Active Directory는 
 
 - **[지원되는 보안 토큰 및 클레임](active-directory-token-and-claims.md)**: SAML 2.0 및 JWT(JSON 웹 토큰) 토큰의 클레임을 이해하고 평가하기 위한 가이드입니다.
 
-#### 비디오
+## 비디오
 
+### 빌드 2015
+
+Azure Active Directory를 사용한 앱 개발에 관한 이 개요 프레젠테이션에는 직접적으로 엔지니어링 팀에서 일하는 발표자와 IDMaaS, 인증, ID 페더레이션 및 Single Sign-On을 비롯한 기본적인 연습 항목이 포함되어 있습니다.
+
+- **[Azure Active Directory: 최신 응용 프로그램에 대한 ID 관리 서비스](http://azure.microsoft.com/documentation/videos/build-2015-azure-active-directory-identity-management-as-a-service-for-modern-applications)**(영문)
+- **[Azure Active Directory를 사용하여 최신 웹 응용 프로그램 개발](http://azure.microsoft.com/documentation/videos/build-2015-develop-modern-web-applications-with-azure-active-directory)**(영문)
+- **[Azure Active Directory를 사용하여 최신 네이티브 응용 프로그램 개발](http://azure.microsoft.com/documentation/videos/build-2015-develop-modern-native-applications-with-azure-active-directory)**(영문)
+
+### Azure Friday
 [Azure Friday](http://azure.microsoft.com/documentation/videos/azure-friday/)는 금요일마다 다양한 전문가를 대상으로 진행된 Azure 토픽에 대한 10~15분 정도의 짧은 인터뷰를 집중적으로 소개하는 1:1 비디오 시리즈입니다. 이 페이지의 서비스 필터 기능을 사용하여 모든 Azure Active Directory 비디오를 시청할 수 있습니다.
 
 - **[Azure Identity 101](http://azure.microsoft.com/documentation/videos/azure-identity-basics/)**(영문)
@@ -126,4 +132,4 @@ IDMaaS(Identity Management As A Service) 플랫폼인 Azure Active Directory는 
 
 - **[Twitter의 Azure AD](https://twitter.com/azuread)**(영문): 140자 이하의 Azure AD 알림입니다.
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

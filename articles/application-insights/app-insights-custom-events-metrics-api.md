@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/28/2015" 
+	ms.date="06/01/2015" 
 	ms.author="awills"/>
 
 # 사용자 지정 이벤트 및 메트릭용 Application Insights API 
@@ -133,6 +133,10 @@ TelemetryClient는 스레드로부터 안전합니다.
 
 메트릭 값이 0 이상이어야 올바르게 표시됩니다.
 
+
+[속성 수, 속성 값 및 메트릭에 사용 가능한 제한](#limits)이 몇 가지 있습니다.
+
+
 *JavaScript*
 
     appInsights.trackEvent // or trackPageView, trackMetric, ...
@@ -209,7 +213,7 @@ TelemetryClient는 스레드로부터 안전합니다.
 
 ![검색에 용어를 입력합니다.](./media/app-insights-custom-events-metrics-api/appinsights-23-customevents-5.png)
 
-[검색 문자열에 대해 자세히 알아보세요][diagnostic].
+[검색 식에 대해 자세히 알아보세요][diagnostic].
 
 #### 속성 및 메트릭을 설정하는 또 다른 방법
 
@@ -227,23 +231,10 @@ TelemetryClient는 스레드로부터 안전합니다.
     telemetry.TrackEvent(event);
 
 
-## <a name="timed"></a> 시간 제한 이벤트
+#### <a name="timed"></a> 타이밍 이벤트
 
-어떤 작업을 수행하는 데 걸리는 시간을 차트로 표시하고 싶은 경우가 있습니다. 예를 들어 게임에서 사용자가 옵션을 선택하는 데 걸리는 시간을 알고 싶을 수 있습니다.
+어떤 작업을 수행하는 데 걸리는 시간을 차트로 표시하고 싶은 경우가 있습니다. 예를 들어 게임에서 사용자가 옵션을 선택하는 데 걸리는 시간을 알고 싶을 수 있습니다. 다음은 측정 매개 변수 사용 방법을 보여 주는 유용한 예입니다.
 
-이벤트에 타이밍 데이터를 연결할 수 있습니다. 웹 클라이언트에서 trackEvent를 호출하는 대신 다음 호출을 사용합니다.
-
-*웹 클라이언트에서 JavaScript*
-
-    // At the start of the game:
-    appInsights.startTrackEvent(game.id);
-
-    // At the end of the game:
-    appInsights.stopTrackEvent(game.id, {GameName: game.name}, {Score: game.score});
-
-호출 시작 및 중지에서 동일한 문자열을 첫 번째 매개 변수로 사용합니다.
-
-이 기능은 다른 SDK에 내장되어 있지 않습니다. 하지만 이와 같은 사용자 고유의 코드를 작성할 수 있습니다.
 
 *C#*
 
@@ -307,6 +298,7 @@ TrackMetric을 사용하여 특정 이벤트에 연결되지 않은 메트릭을
 
 ![새 차트를 추가하거나 차트를 선택하고, 사용자 지정 아래에서 메트릭을 선택합니다.](./media/app-insights-custom-events-metrics-api/03-track-custom.png)
 
+[메트릭 수에 제한을 적용](#limits)할 수 있습니다.
 
 ## 페이지 보기
 
@@ -388,8 +380,7 @@ Application Insights로 예외를 보낸 후 [집계][metrics]하여 문제 발�
        telemetry.TrackException(ex);
     }
 
-Windows 모바일 앱에서 SDK는 처리되지 않은 예외를 catch합니다. 따라서 모바일 앱에 로그인할 필요가 없습니다.
-
+Windows 모바일 앱에서 SDK는 처리되지 않은 예외를 catch합니다. 따라서 모바일 앱에 로그인할 필요가 없습니다. ASP.NET에서 [예외를 자동으로 catch하는 코드를 작성][exceptions]할 수 있습니다.
 
 
 ## 흔적 추적 
@@ -408,11 +399,11 @@ Windows 모바일 앱에서 SDK는 처리되지 않은 예외를 catch합니다.
 `message`의 크기 제한이 속성의 크기 제한보다 훨씬 높습니다. 메시지 내용을 검색할 수 있지만 속성 값과는 달리 필터링할 수는 없습니다.
 
 
-## 모든 원격 분석에 대한 기본 속성 설정
+## <a name="default-properties"></a>모든 원격 분석에 대한 기본 속성 설정
 
-유니버설 아니셜라이저를 설정하여 새로운 모든 TelemetryClients는 사용자 컨텍스트를 자동으로 사용할 수 있습니다.
+유니버설 아니셜라이저를 설정하여 새로운 모든 TelemetryClients는 사용자 컨텍스트를 자동으로 사용할 수 있습니다. 여기에는 웹 서버 요청 추적처럼 플랫폼별 원격 분석 모듈에서 전송하는 표준 원격 분석이 포함됩니다.
 
-여기에는 웹 서버 요청 추적처럼 플랫폼별 원격 분석 모듈에서 전송하는 표준 원격 분석이 포함됩니다.
+일반적으로 여러 앱 버전 또는 여러 앱 구성 요소에서 들어오는 원격 분석을 식별하는 데 사용됩니다. 포털에서 이 속성을 사용하여 결과를 필터링 또는 그룹화할 수 있습니다.
 
 *C#*
 
@@ -450,12 +441,13 @@ Windows 모바일 앱에서 SDK는 처리되지 않은 예외를 catch합니다.
     TelemetryConfiguration.getActive().getContextInitializers().add(new MyTelemetryInitializer());
 
 
+JavaScript 웹 클라이언트에서 현재 기본 속성을 설정하는 방법은 없습니다.
 
-## 코드에서 모든 원격 분석에 대한 계측 키 설정
+## <a name="dynamic-ikey"></a> 동적 계측 키
 
-구성 파일에서 계측 키를 가져오는 대신 코드에서 설정할 수 있습니다. 예를 들어 테스트 설치에서 다른 Application Insights 리소스로 원격 분석을 보낸 후 라이브 응용 프로그램의 원격 분석을 보낼 때 이 방법을 사용할 수 있습니다.
+개발, 테스트 및 프로덕션 환경에서 원격 분석이 섞이지 않게 방지하려면 [별도의 Application Insights 리소스를 만들고][create] 환경에 따라 키를 변경하세요.
 
-ASP.NET 서비스의 global.aspx.cs 같은 초기화 메서드에서 키를 설정합니다.
+구성 파일에서 계측 키를 가져오는 대신 코드에서 설정할 수 있습니다. ASP.NET 서비스의 global.aspx.cs 같은 초기화 메서드에서 키를 설정합니다.
 
 *C#*
 
@@ -533,6 +525,17 @@ ASP.NET 서비스의 global.aspx.cs 같은 초기화 메서드에서 키를 설�
     telemetry.Context.InstrumentationKey = "---my key---";
     // ...
 
+## 데이터 플러시
+
+일반적으로 SDK는 사용자에 미치는 영향을 최소화하기 위해 선택한 시간에 데이터를 보냅니다. 그러나 버퍼를 플러시하려는 경우가 있습니다. 종료되는 응용 프로그램에서 SDK를 사용하는 경우를 예로 들 수 있습니다.
+
+*C#*
+
+    telemetry.Flush();
+
+함수는 방식입니다.
+
+
 
 ## 표준 원격 분석을 사용하지 않도록 설정
 
@@ -554,15 +557,51 @@ ASP.NET 서비스의 global.aspx.cs 같은 초기화 메서드에서 키를 설�
 
     TelemetryConfiguration.Active.TelemetryChannel.DeveloperMode = True
 
+## TelemetryContext
 
+TelemetryClient에는 컨텍스트 속성이 있고, 이 속성은 모든 원격 분석 데이터와 함께 전송되는 다양한 값을 포함하고 있습니다. 일반적으로 표준 원격 분석 모듈에 의해 설정되지만 사용자가 직접 설정할 수도 있습니다.
+
+이러한 값을 직접 설정하는 경우 사용자의 값과 표준 값이 혼동되지 않도록 [ApplicationInsights.config][config]에서 관련 줄을 제거해야 합니다.
+
+* **Component** 앱 및 앱 버전을 식별합니다.
+* **Device** 앱이 실행되는 장치에 대한 데이터입니다(웹 앱의 경우 원격 분석을 보내는 서버 또는 클라이언트).
+* **InstrumentationKey** Azure에서 원격 분석이 표시되는 Application Insights 리소스를 식별합니다. 일반적으로 ApplicationInsights.config에서 선택합니다.
+* **Location** 장치의 지리적 위치를 식별합니다.
+* **Operation** 웹 앱에서 현재 HTTP 요청입니다. 다른 유형의 앱에서는 이 값을 설정하여 이벤트를 그룹화할 수 있습니다.
+ * **Id**: 진단 검색의 이벤트를 검사할 때 "항목 관련"을 찾을 수 있도록 여러 이벤트를 상호 연결하는 생성된 값입니다.
+ * **Name**: HTTP 요청의 URL입니다.
+ * **SyntheticSource**: null이거나 비어 있지 않다면 이 문자열은 요청의 원본이 로봇 또는 웹 테스트로 확인되었음을 나타냅니다. 기본적으로 메트릭 탐색기의 계산에서 제외됩니다.
+* **Properties** 모든 원격 분석 데이터와 함께 전송되는 속성입니다. 개별 Track* 호출에서 재정의할 수 있습니다.
+* **Session** 사용자의 세션을 식별합니다. ID는 생성된 값으로 설정되며, 사용자가 잠시 동안 비활성 상태이면 값이 변경됩니다.
+* **User** 사용자 수를 계산할 수 있습니다. 웹 앱의 경우 쿠키가 있으면 해당 쿠키에서 사용자 ID를 가져옵니다. 쿠키가 없으면 새 쿠키가 생성됩니다. 사용자가 앱에 로그인해야 하는 경우 사용자의 인증된 ID로 ID를 설정하면 사용자가 다른 컴퓨터에서 로그인하더라도 사용자 수를 정확하게 계산할 수 있습니다. 
+
+## 제한
+
+응용프로그램당 허용되는 메트릭 및 이벤트 수가 제한되어 있습니다.
+
+1. 계측 키마다 초당(즉, 응용 프로그램별로) 최대 500개의 원격 분석 데이터 요소가 허용됩니다. 여기에는 SDK 모듈 및 사용자 지정 이벤트에서 보낸 표준 원격 분석과 코드에서 보낸 메트릭 및 기타 원격 분석이 모두 포함됩니다.
+1.	응용 프로그램에는 최대 200개의 고유한 메트릭 이름과 200개의 고유한 속성 이름이 허용됩니다. 메트릭은 TrackMetric을 통해 전송된 데이터와 이벤트 같은 기타 데이터 유형의 측정을 포함합니다. 메트릭 및 속성 이름의 범위는 데이터 유형으로 한정되지 않고 계측 키마다 전역적입니다.
+2.	속성은 필터링 및 그룹화에만 사용할 수 있으며 각 속성에 허용되는 고유한 값은 100개 미만입니다. 고유한 값이 100개를 초과할 경우 해당 속성을 검색 및 필터링에는 계속 사용할 수 있지만 필터에는 더 이상 사용할 수 없습니다.
+3.	요청 이름 및 페이지 URL 같은 표준 속성은 일주일에 고유한 값 1000개로 제한됩니다. 고유한 값이 1000개를 초과할 경우 초과하는 값이 "기타 값"으로 표시됩니다. 원래 값을 전체 텍스트 검색 및 필터링에 계속 사용할 수 있습니다.
+
+* *Q: 데이터가 얼마 동안 보존되나요?*
+
+    [데이터 보존 및 개인 정보][data]를 참조하세요.
 
 ## 참조 문서
 
 * [ASP.NET 참조](https://msdn.microsoft.com/library/dn817570.aspx)
 * [Java 참조](http://dl.windowsazure.com/applicationinsights/javadoc/)
 
+## 질문
 
-* *질문: REST API가 있나요?*
+* *Track * 호출에서 throw할 수 있는 예외는 무엇인가요?*
+    
+    없음 catch 절에 래핑할 필요가 없습니다.
+
+
+
+* *REST API가 있나요?*
 
     예, 하지만 아직은 게시하지 않고 있습니다.
 
@@ -578,7 +617,10 @@ ASP.NET 서비스의 global.aspx.cs 같은 초기화 메서드에서 키를 설�
 
 [client]: app-insights-javascript.md
 [config]: app-insights-configuration-with-applicationinsights-config.md
+[create]: app-insights-create-new-resource.md
+[data]: app-insights-data-retention-privacy.md
 [diagnostic]: app-insights-diagnostic-search.md
+[exceptions]: app-insights-asp-net-exceptions.md
 [greenbrown]: app-insights-start-monitoring-app-health-usage.md
 [java]: app-insights-java-get-started.md
 [metrics]: app-insights-metrics-explorer.md
@@ -586,4 +628,6 @@ ASP.NET 서비스의 global.aspx.cs 같은 초기화 메서드에서 키를 설�
 [trace]: app-insights-search-diagnostic-logs.md
 [windows]: app-insights-windows-get-started.md
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=58_postMigration-->

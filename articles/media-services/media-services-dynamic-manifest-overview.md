@@ -176,7 +176,7 @@
 
 다음 항목에서는 필터와 연결된 미디어 서비스 엔터티에 대해 설명합니다. 또한 이 항목에서는 프로그래밍 방식으로 필터를 만드는 방법을 보여줍니다.
 
-[REST API를 사용하여 필터 만들기](media-services-rest-create-filters)
+[REST API를 사용하여 필터 만들기](media-services-rest-dynamic-manifest.md)
 
 ##알려진 문제 및 제한 사항
 
@@ -207,5 +207,6 @@
 [language_filter]: ./media/media-services-dynamic-manifest-overview/media-services-language-filter.png
 [dvr_filter]: ./media/media-services-dynamic-manifest-overview/media-services-dvr-filter.png
 [skiing]: ./media/media-services-dynamic-manifest-overview/media-services-skiing.png
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->
