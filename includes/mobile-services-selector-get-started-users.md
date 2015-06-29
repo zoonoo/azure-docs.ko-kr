@@ -1,4 +1,4 @@
-﻿> [AZURE.SELECTOR-LIST(플랫폼 | 백 엔드)]
+> [AZURE.SELECTOR-LIST (플랫폼 | 백 엔드)]
 - [(iOS | .NET)](../articles/mobile-services-dotnet-backend-ios-get-started-users.md)
 - [(iOS | JavaScript)](../articles/mobile-services-ios-get-started-users.md)
 - [(Windows 범용 C# | .NET)](../articles/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users.md)
@@ -14,4 +14,4 @@
 - [(HTML | Javascript)](../articles/mobile-services-html-get-started-users.md)
 - [(Appcelerator | Javascript)](../articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-users.md)
 
-<!--HONumber=49-->
+<!---HONumber=49-->
