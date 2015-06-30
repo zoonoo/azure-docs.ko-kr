@@ -268,7 +268,8 @@ maven에서 리포지토리로 jar 파일을 가져와 프로젝트의 *libs* �
      mContext.acquireTokenSilent(resource, clientid, userId, callback );
     ```
 
-11. **Broker**: Microsoft Intune의 회사 포털 앱은 broker 구성 요소를 제공합니다. Adal은 broker 계정을 사용하며, 사용자 계정이 하나만 만들어지면 인증자 및 개발자는 해당 계정을 건너뛰지 않도록 선택합니다. 개발자는 다음을 사용해서 broker 사용자를 건너뛸 수 있습니다.
+11. **Broker**:
+  Microsoft Intune의 회사 포털 앱은 broker 구성 요소를 제공합니다. Adal은 broker 계정을 사용하며, 사용자 계정이 하나만 만들어지면 인증자 및 개발자는 해당 계정을 건너뛰지 않도록 선택합니다. 개발자는 다음을 사용해서 broker 사용자를 건너뛸 수 있습니다.
 
     ```java
      AuthenticationSettings.Instance.setSkipBroker(true);
@@ -280,7 +281,8 @@ maven에서 리포지토리로 jar 파일을 가져와 프로젝트의 *libs* �
 
  ```java
  String brokerAccount =  mContext.getBrokerUser();
- ``` 계정이 유효하면 Broker 사용자가 반환됩니다.
+ ```
+ 계정이 유효하면 Broker 사용자가 반환됩니다.
 
  앱 매니페스트에는 AccountManager 계정을 사용할 수 있는 권한이 있어야 합니다. http://developer.android.com/reference/android/accounts/AccountManager.html
 
@@ -423,7 +425,8 @@ CookieSyncManager.createInstance(getApplicationContext());
 CookieManager cookieManager = CookieManager.getInstance();
 cookieManager.removeSessionCookie();
 CookieSyncManager.getInstance().sync();
-``` 쿠키에 대한 추가 정보: http://developer.android.com/reference/android/webkit/CookieSyncManager.html
+```
+쿠키에 대한 추가 정보: http://developer.android.com/reference/android/webkit/CookieSyncManager.html
 
 ### 리소스 재정의
 
@@ -447,4 +450,4 @@ ADAL 라이브러리에는 다음 두 ProgressDialog 메시지에 대한 영어 
 Adal 버전 1.1.0은 WebViewClient의 onReceivedHttpAuthRequest 이벤트를 통해 처리되는 NTLM 대화 상자를 지원합니다. 대화 상자 레이아웃 및 문자열은 사용자 지정할 수 있습니다.### 5단계: iOS 네이티브 클라이언트 샘플 코드 다운로드
  
 
-<!---HONumber=58_postMigration-->
+<!----HONumber=58_postMigration-->
