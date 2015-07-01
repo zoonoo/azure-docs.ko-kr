@@ -350,8 +350,8 @@ DocumentDB 쿼리 모델은 기능, 효율성 및 간결성 간의 균형을 이
 	        console.log("Error");
 	    });
 
-###Unregistering a stored procedure
-Un-registering a stored procedure is simply done by issuing an HTTP DELETE against an existing stored procedure resource.   
+###저장 프로시저 등록 취소
+저장 프로시저 등록 취소는 단순히 기존 저장 프로시저 리소스에 대해 HTTP DELETE를 실행하여 수행합니다.   
 
 	client.deleteStoredProcedureAsync(createdStoredProcedure.resource._self)
 	    .then(function (response) {

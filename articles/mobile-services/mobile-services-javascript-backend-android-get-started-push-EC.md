@@ -200,11 +200,13 @@ USB 케이블로 Android 휴대폰을 직접 연결하거나 에뮬레이터에�
 [Get started with Mobile Services]: mobile-services-android-get-started.md
 [데이터 시작]: mobile-services-android-get-started-data.md
 [Get started with authentication]: mobile-services-android-get-started-users.md
+[모바일 서비스 시작]: mobile-services-android-get-started.md
 [Get started with push notifications]: /develop/mobile/tutorials/get-started-with-push-js
 [Push notifications to app users]: /develop/mobile/tutorials/push-notifications-to-users-js
 [Authorize users with scripts]: /develop/mobile/tutorials/authorize-users-in-scripts-js
 [JavaScript and HTML]: /develop/mobile/tutorials/get-started-with-push-js
 [Google Play Services SDK 설정]: http://go.microsoft.com/fwlink/?LinkId=389801
+[Azure 관리 포털]: https://manage.windowsazure.com/
 [Azure Management Portal]: https://manage.windowsazure.com/
 [모바일 서비스용 Android 클라이언트 라이브러리를 사용하는 방법]: mobile-services-android-how-to-use-client-library.md
 
