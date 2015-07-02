@@ -46,7 +46,150 @@ Azure 응용 프로그램은 일반적으로 원하는 목표를 충족시키기
 
 ## 식 및 함수
 
-템플릿의 기본 구문은 JSON이지만 식 및 함수를 통해 템플릿에서 사용할 수 있는 JSON을 확장하면 엄격한 리터럴 값이 아닌 값을 만들 수 있습니다. 식은 괄호([ 및 ]) 안에 들어 있고 템플릿을 배포할 때 평가됩니다. 식은 JSON 문자열 값에서 어느 위치에나 나타날 수 있으며 항상 다른 JSON 값을 반환합니다. 대괄호( [ )로 시작하는 리터럴 문자열을 사용해야 하는 경우는 대괄호 두 개([[)를 사용해야 합니다. 일반적으로 배포를 구성하기 위한 작업을 수행하는 함수를 식과 함께 사용합니다. JavaScript에서와 마찬가지로 함수 호출은 **functionName(arg1,arg2,arg3)** 형식으로 수행됩니다. 점과 [인덱스] 연산자를 사용하여 속성을 참조할 수 있습니다. 다음 목록에서는 일반적인 함수를 보여줍니다. - **parameters(parameterName)** 배포를 실행할 때 제공되는 매개 변수 값을 반환합니다. - **variables(variableName)** 템플릿에 정의되어 있는 변수를 변환합니다. - **concat(arg1,arg2,arg3,...)** 여러 문자열 값을 결합합니다. 이 함수는 임의의 수의 인수를 사용할 수 있습니다. - **base64(inputString)** 입력 문자열의 base64 표현을 반환합니다. - **resourceGroup()** 현재 리소스 그룹을 나타내는 구조화된 개체(ID, 이름 및 위치 속성 포함)를 반환합니다. - **resourceId([resourceGroupName], resourceType, resourceName1, [resourceName2]...)** 리소스의 고유 식별자를 반환합니다. 다른 리소스 그룹에서 리소스를 검색하는 데 사용할 수 있습니다. 다음 예제에서는 값을 생성할 때 여러 함수를 사용하는 방법을 보여 줍니다. "variables": { "location": "[resourceGroup().location]", "usernameAndPassword": "[concat('parameters('username'), ':', parameters('password'))]", "authorizationHeader": "[concat('Basic ', base64(variables('usernameAndPassword')))]" } 이제 템플릿의 섹션을 이해하는 데 필요한 식과 함수에 대해 충분히 알았습니다. 반환된 값의 형식 및 매개 변수를 포함하여 모든 템플릿 함수에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿 함수](./resource-group-template-functions.md)를 참조하세요. ## 매개 변수 템플릿의 parameters 섹션에서 리소스를 배포할 때 사용자가 입력할 수 있는 값을 지정합니다. 배포된 리소스에 대한 값을 설정하는 템플릿 전체에서 이들 매개 변수 값을 사용할 수 있습니다. parameters 섹션에서 선언한 매개 변수만 템플릿의 다른 섹션에서 사용할 수 있습니다. parameters 섹션 내에서는 다른 매개 변수 값을 생성하는 매개 변수 값을 사용할 수 없습니다. 일반적으로 이 유형의 작업은 variables 섹션에서 수행됩니다. 다음과 같은 구조로 매개 변수를 정의합니다. "parameters": { "<parameterName>" : { "type" : "<type-of-parameter-value>", "defaultValue": "<optional-default-value-of-parameter>", "allowedValues": [ "<optional-array-of-allowed-values>" ] } } | 요소 이름 | 필수 | 설명 | :------------: | :------: | :---------- | parameterName | 예 | 매개 변수의 이름입니다. 유효한 JavaScript 식별자여야 합니다. | type | 예 | 매개 변수 값의 유형입니다. 허용되는 유형은 아래의 목록을 참조하세요. | defaultValue | 아니요 | 매개 변수의 값을 제공하지 않는 경우 사용되는 매개 변수의 기본값입니다. | allowedValues | 아니요 | 올바른 값을 제공할 수 있도록 매개 변수에 대해 허용되는 값의 배열입니다. 허용되는 유형과 값은 다음과 같습니다. - string 또는 secureString - 모든 유효한 JSON 문자열 - int - 모든 유효한 JSON 정수 - bool - 모든 유효한 JSON 부울 - object - 모든 유효한 JSON 개체 - array - 모든 유효한 JSON 배열 >[AZURE.NOTE] 모든 암호, 키 및 기타 비밀은 **secureString** 형식을 사용해야 합니다. 리소스 배포 후에는 secureString 형식의 템플릿 매개 변수를 읽을 수 없습니다. 다음 예제에서는 매개 변수를 정의하는 방법을 보여줍니다. "parameters": { "siteName": { "type": "string" }, "siteLocation": { "type": "string" }, "hostingPlanName": { "type": "string" }, "hostingPlanSku": { "type": "string", "allowedValues": [ "무료", "공유", "기본", "표준", "프리미엄" ], "defaultValue": "무료" } } ## 변수 variables 섹션에서 템플릿 언어 식을 단순화하는 데 사용할 수 있는 값을 생성합니다. 일반적으로 이들 변수는 매개 변수에서 제공되는 값에 따라 달라집니다. 다음 예제에서는 두 매개 변수 값에서 생성된 변수 하나를 정의하는 방법을 보여줍니다. "parameters": { "username": { "type": "string" }, "password": { "type": "secureString" } }, "variables": { "connectionString": "[concat('Name=', parameters('username'), ';Password=', parameters('password'))]" } 다음 예제에서는 복합 JSON 형식의 변수 및 다른 변수에서 생성된 변수를 보여줍니다. "parameters": { "environmentName": { "type": "string", "allowedValues": [ "test", "prod" ] } }, "variables": { "environmentSettings": { "test": { "instancesSize": "Small", "instancesCount": 1 }, "prod": { "instancesSize": "Large", "instancesCount": 4 } }, "currentEnvironmentSettings": "[variables('environmentSettings')[parameters('environmentName')]]", "instancesSize": "[variables('currentEnvironmentSettings').instancesSize", "instancesCount": "[variables('currentEnvironmentSettings').instancesCount" }
+템플릿의 기본 구문은 JSON이지만 식 및 함수를 통해 템플릿에서 사용할 수 있는 JSON을 확장하면 엄격한 리터럴 값이 아닌 값을 만들 수 있습니다. 식은 대괄호([ 및 ]) 안에 들어 있고 템플릿을 배포할 때 평가됩니다. 식은 JSON 문자열 값에서 어느 위치에나 나타날 수 있으며 항상 다른 JSON 값을 반환합니다. 대괄호([)로 시작하는 리터럴 문자열을 사용해야 하는 경우 대괄호를 두 개([[) 사용해야 합니다.
+
+일반적으로 배포를 구성하기 위한 작업을 수행하는 함수를 식과 함께 사용합니다. JavaScript에서와 마찬가지로 함수 호출은 **functionName(arg1,arg2,arg3)**으로 형식이 지정됩니다. 점과 [인덱스] 연산자를 사용하여 속성을 참조할 수 있습니다.
+
+다음 목록에는 일반 함수가 나와 있습니다.
+
+- **parameters(parameterName)**
+
+    배포를 실행할 때 제공되는 매개 변수 값을 반환합니다.
+
+- **variables(variableName)**
+
+    템플릿에 정의된 변수를 반환합니다.
+
+- **concat(arg1,arg2,arg3,...)**
+
+    여러 문자열 값을 결합합니다. 이 함수는 임의의 수의 인수를 사용할 수 있습니다.
+
+- **base64(inputString)**
+
+    입력 문자열의 base64 표현을 반환합니다.
+
+- **resourceGroup()**
+
+    현재 리소스 그룹을 나타내는 구조화된 개체(ID, 이름 및 위치 속성 포함)를 반환합니다.
+
+- **resourceId([resourceGroupName], resourceType, resourceName1, [resourceName2]...)**
+
+    리소스의 고유 식별자를 반환합니다. 다른 리소스 그룹에서 리소스를 검색하는 데 사용할 수 있습니다.
+
+다음 예제에서는 값을 생성할 때 여러 함수를 사용하는 방법을 보여줍니다.
+ 
+    "variables": {
+       "location": "[resourceGroup().location]",
+       "usernameAndPassword": "[concat('parameters('username'), ':', parameters('password'))]",
+       "authorizationHeader": "[concat('Basic ', base64(variables('usernameAndPassword')))]"
+    }
+
+이제 템플릿 섹션을 이해하기 위한 식과 함수에 대해 충분히 알게 되었습니다. 매개 변수와 반환된 값 형식 등 모든 템플릿 함수에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿 함수](./resource-group-template-functions.md)를 참조하세요.
+
+
+## 매개 변수
+
+템플릿의 매개 변수 섹션에서는 사용자가 리소스를 배포할 때 입력할 수 있는 값을 지정합니다. 배포된 리소스에 대한 값을 설정하는 템플릿 전체에서 이들 매개 변수 값을 사용할 수 있습니다. parameters 섹션에서 선언한 매개 변수만 템플릿의 다른 섹션에서 사용할 수 있습니다.
+
+parameters 섹션 내에서는 다른 매개 변수 값을 생성하는 매개 변수 값을 사용할 수 없습니다. 일반적으로 이 유형의 작업은 variables 섹션에서 수행됩니다.
+
+다음과 같은 구조를 사용하여 매개 변수를 정의합니다.
+
+    "parameters": {
+       "<parameterName>" : {
+         "type" : "<type-of-parameter-value>",
+         "defaultValue": "<optional-default-value-of-parameter>",
+         "allowedValues": [ "<optional-array-of-allowed-values>" ]
+       }
+    }
+
+| 요소 이름 | 필수 | 설명
+| :------------: | :------: | :----------
+| parameterName | 예 | 매개 변수의 이름입니다. 유효한 JavaScript 식별자여야 합니다.
+| type | 예 | 매개 변수 값의 유형입니다. 아래의 허용되는 유형 목록을 참조하세요.
+| defaultValue | 아니요 | 매개 변수 값을 제공하지 않는 경우 매개 변수의 기본값입니다.
+| allowedValues | 아니요 | 올바른 값을 제공하도록 매개 변수에 대해 허용되는 값의 배열입니다.
+
+허용되는 유형 및 값은 다음과 같습니다.
+
+- string 또는 secureString - 유효한 모든 JSON 문자열
+- int - 유효한 모든 JSON 정수
+- bool - 유효한 모든 JSON 부울
+- object - 유효한 모든 JSON 개체
+- array - 유효한 모든 JSON 배열
+
+
+>[AZURE.NOTE]모든 암호와 키, 기타 비밀은 **secureString** 유형을 사용해야 합니다. 리소스 배포 후에는 secureString 형식의 템플릿 매개 변수를 읽을 수 없습니다.
+
+다음 예제에서는 매개 변수를 정의하는 방법을 보여줍니다.
+
+    "parameters": {
+       "siteName": {
+          "type": "string"
+       },
+       "siteLocation": {
+          "type": "string"
+       },
+       "hostingPlanName": {
+          "type": "string"
+       },  
+       "hostingPlanSku": {
+          "type": "string",
+          "allowedValues": [
+            "Free",
+            "Shared",
+            "Basic",
+            "Standard",
+            "Premium"
+          ],
+          "defaultValue": "Free"
+       }
+    }
+
+## 변수
+
+변수 섹션에서는 템플릿 언어 식을 단순화하는 데 사용할 수 있는 값을 생성합니다. 일반적으로 이들 변수는 매개 변수에서 제공되는 값에 따라 달라집니다.
+
+다음 예제에서는 두 매개 변수 값에서 생성된 변수를 정의하는 방법을 보여줍니다.
+
+    "parameters": {
+       "username": {
+         "type": "string"
+       },
+       "password": {
+         "type": "secureString"
+       }
+     },
+     "variables": {
+       "connectionString": "[concat('Name=', parameters('username'), ';Password=', parameters('password'))]"
+    }
+
+다음 예제에서는 복합 JSON 유형인 변수와 다른 변수에서 생성된 변수를 보여줍니다.
+
+    "parameters": {
+       "environmentName": {
+         "type": "string",
+         "allowedValues": [
+           "test",
+           "prod"
+         ]
+       }
+    },
+    "variables": {
+       "environmentSettings": {
+         "test": {
+           "instancesSize": "Small",
+           "instancesCount": 1
+         },
+         "prod": {
+           "instancesSize": "Large",
+           "instancesCount": 4
+         }
+       },
+       "currentEnvironmentSettings": "[variables('environmentSettings')[parameters('environmentName')]]",
+       "instancesSize": "[variables('currentEnvironmentSettings').instancesSize",
+       "instancesCount": "[variables('currentEnvironmentSettings').instancesCount"
+    }
 
 ## 리소스
 
@@ -254,7 +397,7 @@ Outputs 섹션에서, 배포에서 반환되는 값을 지정합니다. 예를 �
 
 ## 다음 단계
 - [Azure 리소스 관리자 템플릿 함수](./resource-group-template-functions.md)
-- [Azure 리소스 관리자 템플릿을 사용하여 응용 프로그램 배포](azure-portal/resource-group-template-deploy.md)
+- [Azure 리소스 관리자 템플릿을 사용하여 응용 프로그램 배포](./resource-group-template-deploy.md)
 - [고급 템플릿 작업](./resource-group-advanced-template.md)
 - [Azure 리소스 관리자 개요](./resource-group-overview.md)
 
