@@ -27,7 +27,7 @@ Azure의 디스크 I/O 처리량 및 I/O 응답 시간은 RAID를 통해 크게 
 
 디스크 I/O 외에도 RAID 수준을 높일 경우 MySQL 성능이 향상됩니다. 자세한 내용은 [부록 B](#AppendixB)를 참조하세요.  
 
-또한 청크 크기를 고려할 수도 있습니다. 일반적으로 청크 크기가 크면 특히 대량 쓰기에서 오버헤드가 낮아집니다. 그러나 청크 크기가 너무 크면 추가 오버헤드가 발생할 수 있으므로 RAID를 활용할 수 없습니다. 현재 기본 크기는 512KB입니다. 이 크기는 대부분의 일반적인 프로덕션 환경에 가장 적합한 것으로 증명되었습니다. 자세한 내용은 [부록 C](#AppendixC)를 참조하세요.  
+또한 청크 크기를 고려할 수도 있습니다. 일반적으로 청크 크기가 크면 특히 대량 쓰기에서 오버헤드가 낮아집니다. 그러나 청크 크기가 너무 크면 추가 오버헤드가 발생할 수 있으므로 RAID를 활용할 수 없습니다. 현재 기본 크기는 512KB입니다. 이 크기는 대부분의 일반적인 프로덕션 환경에 가장 적합한 것으로 증명되었습니다. 자세한 내용은 [부록 C](#AppendixC)를 참조하세요.   
 
 여러 유형의 가상 컴퓨터에 대해 추가할 수 있는 디스크 수에 대한 제한이 있습니다. 이러한 제한은 [Azure를 위한 가상 컴퓨터 및 클라우드 서비스 크기](http://msdn.microsoft.com/library/azure/dn197896.aspx)에 자세히 설명되어 있습니다. 보다 적은 수의 디스크로 RAID를 설정하도록 선택할 수 있지만 이 문서의 RAID 예제를 따르려면 연결된 데이터 디스크 4개가 필요합니다.  
 
@@ -42,7 +42,7 @@ Azure 관리 포털의 가상 컴퓨터 페이지에서 데이터 디스크를 �
 
 ![][1]
 
-가상 컴퓨터에 대한 페이지에서 **대시보드**를 클릭합니다.
+가상 컴퓨터에 대한 페이지에서 **대시보드**를 클릭합니다.  
 
 ![][2]
  
@@ -59,12 +59,12 @@ Azure 관리 포털의 가상 컴퓨터 페이지에서 데이터 디스크를 �
 
 그러면 가상 컴퓨터에 빈 디스크 하나가 추가됩니다. RAID의 데이터 디스크가 4개가 되도록 이 단계를 세 번 더 반복합니다.
 
-커널 메시지 로그에서 가상 컴퓨터에 추가된 드라이브를 확인할 수 있습니다. 예를 들어 Ubuntu에서 이를 보려면 다음 명령을 사용합니다.
+커널 메시지 로그에서 가상 컴퓨터에 추가된 드라이브를 확인할 수 있습니다. 예를 들어 Ubuntu에서 이를 보려면 다음 명령을 사용합니다.  
 
 	sudo grep SCSI /var/log/dmesg
 
 ####2단계: 추가 디스크를 사용하여 RAID 만들기
-자세한 RAID 설치 단계는
+자세한 RAID 설치 단계는  
 
 [http://azure.microsoft.com/documentation/articles/virtual-machines-linux-configure-RAID/](http://azure.microsoft.com/documentation/articles/virtual-machines-linux-configure-RAID/)
 
@@ -118,7 +118,7 @@ Debian 배포 패밀리의 경우 다음을 수행합니다.
 
 	root@mysqlnode1:~# cat /sys/block/sda/queue/scheduler 
 
-현재 스케줄러를 나타내는 다음 출력이 표시됩니다.
+현재 스케줄러를 나타내는 다음 출력이 표시됩니다.  
 
 	noop [deadline] cfq 
 
@@ -167,7 +167,7 @@ atime 로깅을 사용하지 않도록 설정하려면 파일 시스템 구성 �
 
 수정된 결과를 테스트합니다. 테스트 파일을 수정한 경우에는 액세스 시간이 업데이트되지 않습니다.
 
-이전 예제:
+이전 예제:		
 
 ![][5]
  
@@ -285,7 +285,7 @@ MySQL 느린 쿼리 로그를 사용하면 MySQL에 대한 느린 쿼리를 식�
  
 ![][13]
 
-**테스트 명령:**
+**테스트 명령:**  
 
 	fio -filename=/path/test -iodepth=64 -ioengine=libaio -direct=1 -rw=randwrite -bs=4k -size=30G -numjobs=64 -runtime=30 -group_reporting -name=test-randwrite
 	fio -filename=/path/test -iodepth=64 -ioengine=libaio -direct=1 -rw=randwrite -bs=4k -size=1G -numjobs=64 -runtime=30 -group_reporting -name=test-randwrite  
@@ -304,15 +304,15 @@ MySQL 느린 쿼리 로그를 사용하면 MySQL에 대한 느린 쿼리를 식�
 
 **기본 및 최적화에 대한 구성 설정은 다음과 같습니다.**
 
-|매개 변수 |기본값 |optmization
+|매개 변수	|기본값	|optmization
 |-----------|-----------|-----------
-|**innodb_buffer_pool_size** |없음 |7G
-|**innodb_log_file_size** |5M |512M
-|**max_connections** |100 |5000
-|**innodb_file_per_table** |0 |1
-|**innodb_flush_log_at_trx_commit** |1 |2
-|**innodb_log_buffer_size** |8M |128M
-|**query_cache_size** |16M |0
+|**innodb_buffer_pool_size**	|없음 |7G
+|**innodb_log_file_size**	|5M	|512M
+|**max_connections**	|100	|5000
+|**innodb_file_per_table**	|0	|1
+|**innodb_flush_log_at_trx_commit**	|1	|2
+|**innodb_log_buffer_size**	|8M	|128M
+|**query_cache_size**	|16M	|0
 
 
 지속적으로 증가하고 있는 세부적인 최적화 구성 매개 변수는 MySQL 공식 지침을 참조하세요.
@@ -321,14 +321,14 @@ MySQL 느린 쿼리 로그를 사용하면 MySQL에 대한 느린 쿼리를 식�
 
 [http://dev.mysql.com/doc/refman/5.6/en/innodb-parameters.html#sysvar_innodb_flush_method](http://dev.mysql.com/doc/refman/5.6/en/innodb-parameters.html#sysvar_innodb_flush_method)
 
-**테스트 환경**
+**테스트 환경**  
 
 |하드웨어 |세부 정보
 |-----------|-------
-|CPU |AMD Opteron(tm) 프로세서 4171 HE/4 코어
-|메모리 |14G
-|disk |10G/disk
-|os |Ubuntu 14.04.1 LTS
+|CPU	|AMD Opteron(tm) 프로세서 4171 HE/4 코어
+|메모리	|14G
+|disk	|10G/disk
+|os	|Ubuntu 14.04.1 LTS
 
 
 
@@ -347,4 +347,4 @@ MySQL 느린 쿼리 로그를 사용하면 MySQL에 대한 느린 쿼리를 식�
 [13]: ./media/virtual-machines-linux-optimize-mysql-perf/virtual-machines-linux-optimize-mysql-perf-13.png
 [14]: ./media/virtual-machines-linux-optimize-mysql-perf/virtual-machines-linux-optimize-mysql-perf-14.png
 
-<!---HONumber=58--> 
+<!----HONumber=58--> 
