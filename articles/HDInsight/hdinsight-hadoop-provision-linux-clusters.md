@@ -93,20 +93,21 @@ HDInsight 클러스터는 Azure Blob 저장소 컨테이너를 기본 파일 시
 	![Hadoop HDInsight 클러스터 세부 정보 제공](./media/hdinsight-hadoop-provision-linux-clusters/HDI.CustomProvision.Page1.png)
 
     <table border='1'>
-	<tr><th>속성</th><th>값</th></tr>
-	<tr><td>클러스터 이름</td>
-		<td><p>클러스터의 이름 </p>
-			<ul>
-			<li>DNS(Domain Name System) 이름은 영숫자로 시작 및 끝나야 하고 대시를 포함할 수 있습니다.</li>
-			<li>필드는 3자에서 63자 사이의 문자열이어야 합니다.</li>
-			</ul></td></tr>
-	<tr><td>클러스터 유형</td>
-		<td><strong>Hadoop</strong>을 선택합니다.</td></tr>
-	<tr><td>운영 체제</td>
-		<td>Linux에서 HDInsight을 프로비전하려면 <b>Ubuntu 12.04 LTS 미리 보기</b>를 선택합니다. Windows 클러스터를 프로비전하려면 <a href="http://azure.microsoft.com/documentation/articles/hdinsight-provision-clusters/" target="_blank">Windows 기반 HDInsight에서 Hadoop 클러스터 프로비전</a>을 참조하세요.</td></tr>
-	<tr><td>HDInsight 버전</td>
-		<td>버전 선택. Linux에서 HDInsight의 기본값은 HDInsight 버전 3.2이며 Hadoop 2.6을 사용합니다.</td></tr>
-	</table>
+		<tr><th>속성</th><th>값</th></tr>
+		<tr><td>클러스터 이름</td>
+			<td><p>클러스터의 이름 </p>
+				<ul>
+				<li>DNS(Domain Name System) 이름은 영숫자로 시작 및 끝나야 하고 대시를 포함할 수 있습니다.</li>
+				<li>필드는 3자에서 63자 사이의 문자열이어야 합니다.</li>
+				</ul></td></tr>
+		<tr><td>클러스터 유형</td>
+			<td><strong>Hadoop</strong>을 선택합니다.</td></tr>
+		<tr><td>운영 체제</td>
+			<td>Linux에서 HDInsight을 프로비전하려면 <b>Ubuntu 12.04 LTS 미리 보기</b>를 선택합니다. Windows 클러스터를 프로비전하려면 <a href="http://azure.microsoft.com/documentation/articles/hdinsight-provision-clusters/" target="_blank">Windows 기반 HDInsight에서 Hadoop 클러스터 프로비전</a>을 참조하세요.</td></tr>
+		<tr><td>HDInsight 버전</td>
+			<td>버전 선택. Linux에서 HDInsight의 기본값은 HDInsight 버전 3.2이며 Hadoop 2.6을 사용합니다.</td></tr>
+		</table>
+
 	테이블에 표시되는 대로 값을 입력하거나 선택하고 오른쪽 화살표를 클릭합니다.
 
 4. **클러스터 구성** 페이지에서 다음 값을 입력하거나 선택합니다.
@@ -129,23 +130,25 @@ HDInsight 클러스터는 Azure Blob 저장소 컨테이너를 기본 파일 시
     ![Hadoop HDInsight 클러스터 사용자 제공](./media/hdinsight-hadoop-provision-linux-clusters/HDI.CustomProvision.Page3.png)
 
     <table border='1'>
-	<tr><th>속성</th><th>값</th></tr>
-	<tr><td>HTTP 암호</td>
-		<td>기본 HTTP 사용자 <strong>admin</strong>의 암호를 지정합니다.</td></tr>
-	<tr><td>SSH 사용자 이름</td>
-		<td>SSH 사용자 이름을 지정합니다. 이 사용자 이름은 HDInsight 클러스터 노드에서 원격 SSH 세션을 시작하려면 사용합니다.</td></tr>
-	<tr><td>SSH 인증 유형</td>
-		<td>SSH 사용자를 인증하는 암호를 사용할지 또는 SSH 키를 사용할지 여부를 지정합니다.</td></tr>
-	<tr><td>SSH 암호</td>
-		<td>인증 유형으로 암호를 선택한 경우 SSH 사용자를 인증하기 위해 SSH 암호를 지정합니다. 원격 Linux 컴퓨터에서 SSH 세션을 시작하려고 할 때 이 암호에 대한 메시지가 표시됩니다.</td></tr>
-	<tr><td>SSH 공개 키</td>
-		<td>인증 유형으로 키를 선택한 경우 이미 생성한 SSH 공개 키를 지정합니다. Linux 클러스터의 노드에서 SSH 세션을 시작하면 이 공개 키와 연결된 개인 키를 사용합니다.<br>
-		Linux 컴퓨터에서 SSH 키를 생성하는 방법에 대한 지침은 <a href="http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-linux-use-ssh-unix/" target="_blank">여기</a>를 참조하세요. Windows 기반 컴퓨터에서 SSH 키를 생성하는 방법에 대한 지침은 <a href="http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-linux-use-ssh-windows/" target="_blank">여기</a>를 참조하세요.
-	</td></tr>
-	<tr><td>Hive/Oozie Metastore 입력</td>
-		<td>클러스터와 동일한 데이터 센터에서 Hive/Oozie Metastore로 사용할 SQL 데이터베이스를 지정하려면 이 확인란을 선택합니다. 이 확인란을 선택한 경우 마법사의 후속 페이지에서 Azure SQL 데이터베이스에 대한 세부 정보를 지정해야 합니다. 이 확인란은 클러스터가 삭제된 후에도 Hive/Oozie 작업에 대한 메타데이터를 유지하려는 경우에 유용합니다.</td></tr>
-	</td></tr>
-	</table>
+		<tr><th>속성</th><th>값</th></tr>
+		<tr><td>HTTP 암호</td>
+			<td>기본 HTTP 사용자 <strong>admin</strong>의 암호를 지정합니다.</td></tr>
+		<tr><td>SSH 사용자 이름</td>
+			<td>SSH 사용자 이름을 지정합니다. 이 사용자 이름은 HDInsight 클러스터 노드에서 원격 SSH 세션을 시작하려면 사용합니다.</td></tr>
+		<tr><td>SSH 인증 유형</td>
+			<td>SSH 사용자를 인증하는 암호를 사용할지 또는 SSH 키를 사용할지 여부를 지정합니다.</td></tr>
+		<tr><td>SSH 암호</td>
+			<td>인증 유형으로 암호를 선택한 경우 SSH 사용자를 인증하기 위해 SSH 암호를 지정합니다. 원격 Linux 컴퓨터에서 SSH 세션을 시작하려고 할 때 이 암호에 대한 메시지가 표시됩니다.</td></tr>
+		<tr><td>SSH 공개 키</td>
+			<td>인증 유형으로 키를 선택한 경우 이미 생성한 SSH 공개 키를 지정합니다. Linux 클러스터의 노드에서 SSH 세션을 시작하면 이 공개 키와 연결된 개인 키를 사용합니다.<br>
+			Linux 컴퓨터에서 SSH 키를 생성하는 방법에 대한 지침은 <a href="http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-linux-use-ssh-unix/" target="_blank">여기</a>를 참조하세요. Windows 기반 컴퓨터에서 SSH 키를 생성하는 방법에 대한 지침은 <a href="http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-linux-use-ssh-windows/" target="_blank">여기</a>를 참조하세요.
+		</td></tr>
+		<tr><td>Hive/Oozie Metastore 입력</td>
+			<td>클러스터와 동일한 데이터 센터에서 Hive/Oozie Metastore로 사용할 SQL 데이터베이스를 지정하려면 이 확인란을 선택합니다. 이 확인란을 선택한 경우 마법사의 후속 페이지에서 Azure SQL 데이터베이스에 대한 세부 정보를 지정해야 합니다. 이 확인란은 클러스터가 삭제된 후에도 Hive/Oozie 작업에 대한 메타데이터를 유지하려는 경우에 유용합니다.</td></tr>
+		</td></tr>
+		</table>
+
+
 	>[AZURE.NOTE]암호 인증보다 더 안전하기 때문에 SSH와 함께 SSH 공개 키 인증을 사용하는 것을 좋습니다.
 
 	오른쪽 화살표를 클릭합니다.
@@ -167,29 +170,30 @@ HDInsight 클러스터는 Azure Blob 저장소 컨테이너를 기본 파일 시
     ![Hadoop HDInsight 클러스터에 대한 저장소 계정 제공](./media/hdinsight-hadoop-provision-linux-clusters/HDI.CustomProvision.Page5.png)
 
 	<table border='1'>
-	<tr><th>속성</th><th>값</th></tr>
-	<tr><td>저장소 계정</td>
-		<td>HDInsight 클러스터의 기본 파일 시스템으로 사용할 Azure 저장소 계정 지정. 세 가지 옵션 중 하나를 선택할 수 있습니다.
-		<ul>
-			<li><strong>기존 저장소 사용</strong></li>
-			<li><strong>새 저장소 만들기</strong></li>
-			<li><strong>다른 구독의 저장소 사용</strong></li>
-		</ul>
-		</td></tr>
-	<tr><td>계정 이름</td>
-		<td><ul>
-			<li>기존 저장소를 사용하도록 선택한 경우 <strong>계정 이름</strong>에서 기존 저장소 계정을 선택합니다. 드롭다운에는 클러스터를 프로비전하도록 선택한 것과 동일한 데이터 센터에 있는 저장소 계정만 표시됩니다.</li>
-			<li><strong>새 저장소 만들기</strong> 또는 <strong>다른 구독의 저장소 사용</strong> 옵션을 선택한 경우에는 저장소 계정 이름을 제공해야 합니다.</li>
-		</ul></td></tr>
-	<tr><td>계정 키</td>
-		<td><strong>다른 구독의 저장소 사용</strong> 옵션을 선택한 경우 해당 저장소 계정의 계정 키를 지정합니다.</td></tr>
-	<tr><td>기본 컨테이너</td>
-		<td><p>HDInsight 클러스터의 기본 파일 시스템으로 사용할 저장소 계정의 기본 컨테이너를 지정합니다. <strong>저장소 계정</strong> 필드에 대해 <strong>기존 저장소 사용</strong>을 선택한 경우, 해당 계정에 기존 컨테이너가 없으면 기본적으로 클러스터 이름과 동일한 이름으로 컨테이너가 생성됩니다. 클러스터의 이름을 가진 컨테이너가 이미 있는 경우에는 컨테이너 이름에 시퀀스 번호가 추가됩니다. 예를 들어 mycontainer1, mycontainer2 등과 같습니다. 그렇지만 기존 저장소 계정에 지정한 클러스터 이름과는 다른 이름의 컨테이너가 들어 있으면 해당 컨테이너도 사용할 수 있습니다.</p>
-        <p>새 저장소를 만들거나 다른 Azure 구독의 저장소를 사용하도록 선택한 경우 기본 컨테이너 이름을 지정해야 합니다.</p>
-    </td></tr>
-	<tr><td>추가 저장소 계정</td>
-		<td>HDInsight는 여러 저장소 계정을 지원합니다. 클러스터에서 사용할 수 있는 추가 저장소 계정에는 한도가 없습니다. 하지만 Azure 포털을 사용하여 클러스터를 만드는 경우에는 UI 제약으로 인해 7개로 제한됩니다. 추가 저장소 계정을 지정할 때마다 계정 정보를 지정할 수 있는 <strong>저장소 계정</strong> 페이지가 마법사에 추가됩니다. 예를 들어 위의 스크린샷에서는 하나의 추가 저장소 계정이 선택되었으므로 5페이지가 대화 상자에 추가되었습니다.</td></tr>
+		<tr><th>속성</th><th>값</th></tr>
+		<tr><td>저장소 계정</td>
+			<td>HDInsight 클러스터의 기본 파일 시스템으로 사용할 Azure 저장소 계정 지정. 세 가지 옵션 중 하나를 선택할 수 있습니다.
+			<ul>
+				<li><strong>기존 저장소 사용</strong></li>
+				<li><strong>새 저장소 만들기</strong></li>
+				<li><strong>다른 구독의 저장소 사용</strong></li>
+			</ul>
+			</td></tr>
+		<tr><td>계정 이름</td>
+			<td><ul>
+				<li>기존 저장소를 사용하도록 선택한 경우 <strong>계정 이름</strong>에서 기존 저장소 계정을 선택합니다. 드롭다운에는 클러스터를 프로비전하도록 선택한 것과 동일한 데이터 센터에 있는 저장소 계정만 표시됩니다.</li>
+				<li><strong>새 저장소 만들기</strong> 또는 <strong>다른 구독의 저장소 사용</strong> 옵션을 선택한 경우에는 저장소 계정 이름을 제공해야 합니다.</li>
+			</ul></td></tr>
+		<tr><td>계정 키</td>
+			<td><strong>다른 구독의 저장소 사용</strong> 옵션을 선택한 경우 해당 저장소 계정의 계정 키를 지정합니다.</td></tr>
+		<tr><td>기본 컨테이너</td>
+			<td><p>HDInsight 클러스터의 기본 파일 시스템으로 사용할 저장소 계정의 기본 컨테이너를 지정합니다. <strong>저장소 계정</strong> 필드에 대해 <strong>기존 저장소 사용</strong>을 선택한 경우, 해당 계정에 기존 컨테이너가 없으면 기본적으로 클러스터 이름과 동일한 이름으로 컨테이너가 생성됩니다. 클러스터의 이름을 가진 컨테이너가 이미 있는 경우에는 컨테이너 이름에 시퀀스 번호가 추가됩니다. 예를 들어 mycontainer1, mycontainer2 등과 같습니다. 그렇지만 기존 저장소 계정에 지정한 클러스터 이름과는 다른 이름의 컨테이너가 들어 있으면 해당 컨테이너도 사용할 수 있습니다.</p>
+            <p>새 저장소를 만들거나 다른 Azure 구독의 저장소를 사용하도록 선택한 경우 기본 컨테이너 이름을 지정해야 합니다.</p>
+        </td></tr>
+		<tr><td>추가 저장소 계정</td>
+			<td>HDInsight는 여러 저장소 계정을 지원합니다. 클러스터에서 사용할 수 있는 추가 저장소 계정에는 한도가 없습니다. 하지만 Azure 포털을 사용하여 클러스터를 만드는 경우에는 UI 제약으로 인해 7개로 제한됩니다. 추가 저장소 계정을 지정할 때마다 계정 정보를 지정할 수 있는 <strong>저장소 계정</strong> 페이지가 마법사에 추가됩니다. 예를 들어 위의 스크린샷에서는 하나의 추가 저장소 계정이 선택되었으므로 5페이지가 대화 상자에 추가되었습니다.</td></tr>
 	</table>
+
 	오른쪽 화살표를 클릭합니다.
 
 7. 클러스터에 대한 추가 저장소를 구성하도록 선택한 경우 **저장소 계정** 페이지에서 추가 저장소 계정에 대한 계정 정보를 입력합니다.

@@ -1,4 +1,4 @@
-> [AZURE.SELECTOR-LIST(플랫폼 | 백 엔드)]
+> [AZURE.SELECTOR-LIST (플랫폼 | 백 엔드 )]
 - [(C# | EventProcessorHost C#)](../articles/service-bus-event-hubs-csharp-ephcs-getstarted.md)
 - [(C# | Apache Storm)](../articles/service-bus-event-hubs-csharp-storm-getstarted.md)
 - [(Java | EventProcessorHost C#)](../articles/service-bus-event-hubs-java-ephcs-getstarted.md)

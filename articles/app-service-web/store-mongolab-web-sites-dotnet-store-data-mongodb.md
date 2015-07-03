@@ -53,7 +53,7 @@
 1. Azure 웹 응용 프로그램 구성 메뉴의 연결 문자열 목록에 값을 추가합니다. 
 	![WebSiteConnectionStrings][focus-website-connectinfo]
 
-1. **Name**에 MONGOLAB_URI를 입력합니다.
+1. **Name**에 MONGOLAB\_URI를 입력합니다.
 
 1. **값**에 이전 섹션에서 얻은 연결 문자열을 붙여 넣습니다.
 
@@ -70,7 +70,7 @@
         MongoUrl url = new MongoUrl(connectionString);
         MongoClient client = new MongoClient(url);
 
-> **참고:** Azure는**CUSTOMCONNSTR_** 접두사를 처음에 선언된 연결 문자열에 추가합니다. 따라서 코드가 **MONGOLAB_URI** 대신 **CUSTOMCONNSTR_MONGOLAB_URI.**를 참조합니다.
+> **참고:** Azure는**CUSTOMCONNSTR\_** 접두사를 처음에 선언된 연결 문자열에 추가합니다. 따라서 코드가 **MONGOLAB\_URI** 대신 **CUSTOMCONNSTR\_MONGOLAB\_URI.**를 참조합니다.
 
 이제, 전체 자습서에서...
 
@@ -499,4 +499,4 @@ Azure 앱 서비스에서 웹 앱을 만드는 것은 매우 쉽습니다. 특�
 [manage]: #manage
 
 
-<!--HONumber=54--> 
+<!---HONumber=54--> 
