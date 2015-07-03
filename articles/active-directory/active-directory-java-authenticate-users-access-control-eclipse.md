@@ -117,13 +117,16 @@ Azure에서 네임스페이스를 만들고 활성화합니다. 계속하기 전
         App**을 입력합니다.
     2.  **모드**에서 **Enter settings manually**를 선택합니다.
     3.  **영역**에 ACS가 발급한 보안 토큰이 적용되는 URI를 입력합니다. 이 작업의 경우 **http://localhost:8080/**을 입력합니다.
-        ![계산 에뮬레이터에 사용할 신뢰 당사자 영역][relying_party_realm_emulator]
-        4.  **반환 URL**에 ACS가 보안 토큰을 반환하는 URL을 입력합니다. 이 작업의 경우 **http://localhost:8080/MyACSHelloWorld/index.jsp**를 입력합니다.
-        ![계산 에뮬레이터에 사용할 신뢰 당사자 반환 URL][relying_party_return_url_emulator] 5.  나머지 필드는 기본값을 그대로 사용합니다.
+        ![Relying party realm for use in compute emulator][relying_party_realm_emulator]
+    4.  **반환 URL**에 ACS가 보안 토큰을 반환하는 URL을 입력합니다. 이 작업의 경우 **http://localhost:8080/MyACSHelloWorld/index.jsp**를 입력합니다.
+        ![Relying party return URL for use in compute emulator][relying_party_return_url_emulator]
+    5.  나머지 필드는 기본값을 그대로 사용합니다.
 
 4.  **Save**를 클릭합니다.
 
-이제 Java 웹 응용 프로그램이 Azure 계산 에뮬레이터(http://localhost:8080/)에서 실행될 때 ACS 네임스페이스에서 RP가 되도록 Java 웹 응용 프로그램을 구성했습니다. 다음 단계에서는 ACS가 RP에 대한 클레임을 처리하는 데 사용하는 규칙을 만듭니다.
+이제 Java 웹 응용 프로그램이 Azure 계산 에뮬레이터(http://localhost:8080/)에서
+실행될 때 ACS 네임스페이스에서 RP가 되도록 Java 웹 응용 프로그램을 구성했습니다.
+다음 단계에서는 ACS가 RP에 대한 클레임을 처리하는 데 사용하는 규칙을 만듭니다.
 
 ## 규칙 만들기
 
@@ -313,4 +316,4 @@ ACS에 의해 응용 프로그램으로 반환되는 SAML(Security Assertion Mar
 [add_token_signing_cert]: ./media/active-directory-java-authenticate-users-access-control-eclipse/AddTokenSigningCertificate.png
  
 
-<!---HONumber=58_postMigration-->
+<!----HONumber=58_postMigration-->
