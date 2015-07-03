@@ -21,7 +21,7 @@
 
 # Azure에서 MongoLab 추가 기능을 사용하는 MongoDB로 NET 웹 앱 만들기
 
-<!-- The MongoLab workflow is not yet supported in the Preview Portal -->
+  	<!-- The MongoLab workflow is not yet supported in the Preview Portal -->
 
 <p><em>작성자: Eric Sedor, MongoLab</em></p>
 
@@ -37,20 +37,20 @@
 ## 빠른 시작
 사용할 Azure 앱 서비스에 웹 앱이 이미 있거나 Azure 마켓플레이스에 대해 잘 알고 있는 경우 이 섹션을 사용하여 빠르게 시작할 수 있습니다. 그렇지 않은 경우 아래의 [데이터베이스 프로비전][provision]을 계속 진행합니다.
  
-1. **새로 만들기** > **마켓플레이스**를 클릭하여 Azure 마켓플레이스를 엽니다. 
+1. **새로 만들기** > **마켓플레이스**를 클릭하여 Azure 마켓플레이스를 엽니다.  
 	<!-- ![Store][button-store] -->
 
-1. MongoLab 추가 기능을 구입합니다.
+1. MongoLab 추가 기능을 구입합니다.  
 	![MongoLab][entry-mongolab]
 
-1. 추가 기능 목록에서 MongoLab 추가 기능을 클릭하고 **연결 정보**를 클릭합니다. 
+1. 추가 기능 목록에서 MongoLab 추가 기능을 클릭하고 **연결 정보**를 클릭합니다.  
 	![ConnectionInfoButton][button-connectioninfo]
 
 1. MONGOLAB_URI를 클립보드로 복사합니다. 
-	![ConnectionInfoScreen][screen-connectioninfo] 
+	![ConnectionInfoScreen][screen-connectioninfo]  
 	**이 URI에는 데이터베이스 사용자 이름과 암호가 포함되어 있습니다. 중요한 정보로 처리하고 공유하지 마십시오.**
 
-1. Azure 웹 응용 프로그램 구성 메뉴의 연결 문자열 목록에 값을 추가합니다. 
+1. Azure 웹 응용 프로그램 구성 메뉴의 연결 문자열 목록에 값을 추가합니다.  
 	![WebSiteConnectionStrings][focus-website-connectinfo]
 
 1. **Name**에 MONGOLAB\_URI를 입력합니다.
@@ -89,7 +89,7 @@
 ### 프로젝트 만들기
 샘플 앱에서는 Visual Studio 템플릿을 사용하여 시작합니다. .NET Framework 4.5를 사용해야 합니다.
 
-1. **파일 > 새 프로젝트**를 선택합니다. 새 프로젝트 대화 상자가 표시됩니다. 
+1. **파일 > 새 프로젝트**를 선택합니다. 새 프로젝트 대화 상자가 표시됩니다.    
 	![NewProject][dialog-mongolab-csharp-newproject]
 
 1. **설치됨 > 템플릿 > Visual C# > 웹**을 선택합니다.
