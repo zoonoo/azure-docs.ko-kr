@@ -61,7 +61,11 @@ Azure Site Recovery 배포의 일환으로 보호하려는 가상 컴퓨터를 �
 - 최신 버전의 공급자 및 에이전트를 실행해야 합니다.
 - 자격 증명 모음상의 모든 Hyper-V 서버는 동일한 버전이어야 합니다.
 - 공급자는 인터넷을 통해 Azure Site Recovery에 연결해야 합니다. 현재 VMM 서버에 구성된 프록시 설정 또는 공급자 설치 중에 구성하는 사용자 지정 프록시 설정을 사용하여 프록시 없이 이를 수행하도록 선택할 수 있습니다. 기존 프록시 서버를 사용하려면 Azure에 연결하기 위한 URL이 방화벽을 통해 허용되도록 해야 합니다.
-	- *.hypervrecoverymanager.windowsazure.com - *.accesscontrol.windows.net - *.backup.windowsazure.com - *.blob.core.windows.net - *.store.core.windows.net 
+	- *.hypervrecoverymanager.windowsazure.com
+	- *.accesscontrol.windows.net
+	- *.backup.windowsazure.com
+	- *.blob.core.windows.net
+	- *.store.core.windows.net 
 - 사용자 지정 프록시를 사용하려면 공급자 설치 전에 프록시 서버를 설정합니다. 공급자를 설치하는 동안 프록시 서버 주소 및 포트와 액세스를 위해 사용할 수 있는 자격 증명을 지정해야 합니다.
 
 아래 그림에서는 조정 및 복제를 위해 Azure Site Recovery에서 사용되는 다양한 통신 채널을 보여줍니다.
@@ -139,7 +143,11 @@ Azure Site Recovery 배포의 일환으로 보호하려는 가상 컴퓨터를 �
 	- Hyper-V 서버에서 기본 프록시에 인증이 필요한 경우 사용자 지정 프록시 서버를 사용하도록 선택해야 합니다. 기본 프록시 세부 정보에서 입력하고 자격 증명을 지정합니다.
 	- 사용자 지정 프록시 서버를 사용하려는 경우 공급자를 설치하기 전에 설정해야 합니다. 
 	- 다음 url은 Hyper-v 호스트에서 액세스할 수 있어야 합니다.
-		- *.hypervrecoverymanager.windowsazure.com - *.accesscontrol.windows.net - *.backup.windowsazure.com - *.blob.core.windows.net - *.store.core.windows.net 
+		- *.hypervrecoverymanager.windowsazure.com
+		- *.accesscontrol.windows.net
+		- *.backup.windowsazure.com
+		- *.blob.core.windows.net
+		- *.store.core.windows.net 
 	- [Azure 데이터센터 IP 범위](http://go.microsoft.com/fwlink/?LinkId=511094) 및 HTTPS(443) 프로토콜에 설명된 IP 주소를 허용합니다. 사용하려는 Azure 지역 및 미국 서부의 IP 범위를 허용해야 합니다.
 
 9. **자격 증명 모음 설정** 페이지에서 **찾아보기**를 클릭하고 키 파일을 선택합니다. Azure Site Recovery 구독, 자격 증명 모음 이름 및 Hyper-V 서버가 속한 Hyper-V 사이트를 지정합니다.
@@ -188,7 +196,8 @@ Windows Server 2012 R2용 Server Core 또는 독립 실행형 Hyper-V Server 201
 
 ## 5단계: 보호 그룹 만들기 및 구성
 
-보호 그룹은 동일한 보호 설정을 사용하여 보호하려는 가상 컴퓨터의 논리적 그룹화입니다. 보호 설정을 보호 그룹에 적용하면 이러한 설정은 그룹에 추가한 가상 컴퓨터 모두에 적용됩니다. 1. **보호 그룹 만들기 및 구성**에서 **보호 그룹 만들기**를 클릭합니다. 필수 조건이 갖추어지지 않은 경우 메시지가 표시되며 **세부 정보 보기**를 클릭하여 자세한 내용을 확인할 수 있습니다.
+보호 그룹은 동일한 보호 설정을 사용하여 보호하려는 가상 컴퓨터의 논리적 그룹화입니다. 보호 설정을 보호 그룹에 적용하면 이러한 설정은 그룹에 추가한 가상 컴퓨터 모두에 적용됩니다. 
+1. **보호 그룹 만들기 및 구성**에서 **보호 그룹 만들기**를 클릭합니다. 필수 조건이 갖추어지지 않은 경우 메시지가 표시되며 **세부 정보 보기**를 클릭하여 자세한 내용을 확인할 수 있습니다.
 
 2. **보호 그룹** 탭에서 보호 그룹을 추가합니다. 이름, 원본 Hyper-V 사이트, 대상 **Azure**, Azure Site Recovery 구독 이름 및 Azure 저장소 계정을 지정합니다.
 
