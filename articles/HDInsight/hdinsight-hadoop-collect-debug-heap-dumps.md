@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="디버깅 및 분석을 위해 힙 덤프 수집 | Azure" 
-	description="디버깅 및 분석을 위해 힙 덤프 수집" 
+	pageTitle="힙 덤프를 사용하여 Hadoop 서비스 디버그 및 분석 | Microsoft Azure" 
+	description="자동으로 Hadoop 서비스에 대한 힙 덤프를 수집하고 디버깅 및 분석을 위해 Azure Blob 저장소 계정 내부에 배치합니다." 
 	services="hdinsight" 
 	documentationCenter="" 
 	authors="bradsev" 
@@ -16,7 +16,8 @@
 	ms.date="03/31/2015" 
 	ms.author="bradsev"/>
 
-# 디버깅 및 분석을 위해 힙 덤프 수집
+
+# Blob 저장소에서 힙 덤프를 수집하여 Hadoop 서비스 디버그 및 분석
 
 Hadoop 서비스의 힙 덤프가 자동으로 수집되어 사용자 Azure Blob 저장소 계정 내의 HDInsightHeapDumps/ 아래에 저장될 수 있습니다. 힙을 사용하는 서비스의 덤프 파일에는 응용 프로그램 메모리의 스냅숏이 포함됩니다. 이 스냅숏에는 덤프가 생성될 당시의 변수 값이 포함됩니다.
 
@@ -48,7 +49,7 @@ Hadoop 서비스의 힙 덤프가 자동으로 수집되어 사용자 Azure Blob
 
 	$MapRedConfigValues = new-object 'Microsoft.WindowsAzure.Management.HDInsight.Cmdlet.DataObjects.AzureHDInsightMapReduceConfiguration'
 
-	$MapRedConfigValues.Configuration = @{ "javaargs.jobhistoryserver.XX:+HeapDumpOnOutOfMemoryError"="-XX:+HeapDumpOnOutOfMemoryError" ; "javaargs.jobhistoryserver.XX:HeapDumpPath" = "-XX:HeapDumpPath=c:\\Dumps\\jobhistoryserver_%date:~4,2%_%date:~7,2%_%date:~10,2%_%time:~0,2%_%time:~3,2%_%time:~6,2%.hprof" }
+	$MapRedConfigValues.Configuration = @{ "javaargs.jobhistoryserver.XX:+HeapDumpOnOutOfMemoryError"="-XX:+HeapDumpOnOutOfMemoryError" ; "javaargs.jobhistoryserver.XX:HeapDumpPath" = "-XX:HeapDumpPath=C:\Dumps\jobhistoryserver_%date:~4,2%_%date:~7,2%_%date:~10,2%_%time:~0,2%_%time:~3,2%_%time:~6,2%.hprof" }
 
 ## <a name="sdk"></a>Azure HDInsight .NET SDK를 사용하여 힙 덤프를 사용하도록 설정하는 방법
 
@@ -56,9 +57,10 @@ Hadoop 서비스의 힙 덤프가 자동으로 수집되어 사용자 Azure Blob
 
 	clusterInfo.MapReduceConfiguration.ConfigurationCollection.Add(new KeyValuePair<string, string>("javaargs.jobhistoryserver.XX:+HeapDumpOnOutOfMemoryError", "-XX:+HeapDumpOnOutOfMemoryError"));
 
-	clusterInfo.MapReduceConfiguration.ConfigurationCollection.Add(new KeyValuePair<string, string>("javaargs.jobhistoryserver.XX:HeapDumpPath", "-XX:HeapDumpPath=c:\\Dumps\\jobhistoryserver_%date:~4,2%_%date:~7,2%_%date:~10,2%_%time:~0,2%_%time:~3,2%_%time:~6,2%.hprof"));
+	clusterInfo.MapReduceConfiguration.ConfigurationCollection.Add(new KeyValuePair<string, string>("javaargs.jobhistoryserver.XX:HeapDumpPath", "-XX:HeapDumpPath=C:\Dumps\jobhistoryserver_%date:~4,2%_%date:~7,2%_%date:~10,2%_%time:~0,2%_%time:~3,2%_%time:~6,2%.hprof"));
 
 
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

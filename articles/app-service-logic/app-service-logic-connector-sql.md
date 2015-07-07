@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="SQL 커넥터" 
+   pageTitle="Microsoft Azure 앱 서비스의 SQL 커넥터 사용" 
    description="SQL 커넥터를 사용하는 방법" 
    services="app-service\logic" 
    documentationCenter=".net,nodejs,java" 
@@ -13,162 +13,125 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="03/20/2015"
+   ms.date="06/17/2015"
    ms.author="sutalasi"/>
 
 
-# Microsoft SQL 커넥터 #
+# Microsoft SQL 커넥터
 
-커넥터는 논리 앱에 사용하여 흐름의 일부로 데이터 가져오기, 처리 또는 푸시를 수행할 수 있습니다. 온-프레미스 및 방화벽 뒤에 설치되는 Azure SQL 또는 SQL Server에서 SQL 데이터베이스를 사용해야 하는 경우가 있습니다. 흐름에서 SQL 커넥터를 활용하여 다양한 시나리오를 얻을 수 있습니다. 몇 가지 예:  
+사용자의 정보 또는 데이터를 만들고 변경하려면 온-프레미스SQL Server 또는 Azure SQL 데이터베이스에 연결합니다. 커넥터는 논리 앱에 사용하여 "워크플로"의 일부로 데이터 검색하기, 처리 또는 푸시를 수행할 수 있습니다. 워크플로에서 SQL 커넥터를 활용하면 다양한 시나리오를 얻을 수 있습니다. 예를 들어 다음을 수행할 수 있습니다.
 
-1.	웹 또는 모바일 사용자 프런트 엔드를 통해 SQL 데이터베이스에 상주하는 데이터의 섹션을 표시합니다.
-2.	저장소(예: 직원 레코드, 판매 주문 등)에 대한 SQL 데이터베이스 테이블에 데이터를 삽입합니다.
-3.	비즈니스 프로세스에서 사용할 데이터를 SQL에서 추출합니다.
+- 웹 또는 모바일 애플리케이션을 통해 SQL 데이터베이스에 상주하는 데이터의 섹션을 표시합니다. 
+- 저장소를 위한 SQL 데이터베이스 테이블에 데이터를 삽입합니다. 예를 들어, 직원 레코드를 입력하고 판매 주문을 업데이트할 수 있습니다.
+- SQL에서 데이터를 가져오고 비즈니스 프로세스에서 사용합니다. 예를 들어, 고객 레코드를 가져오고 SalesForce에 해당 고객 레코드를 입력할 수 있습니다. 
 
-이러한 시나리오의 경우 다음과 같은 요구 사항을 수행해야 합니다. 
+## 트리거 및 동작
+*트리거*가 발생하는 이벤트입니다. 예를 들어 주문을 업데이트하거나 새 고객이 추가되는 경우입니다. *동작*은 트리거의 결과입니다. 예를 들어 주문을 업데이트하면 영업 직원에 경고를 보냅니다. 또는 새 고객이 추가되면 새 고객에게 환영 전자 메일을 보냅니다.
 
-1. SQL 커넥터 API 앱의 인스턴스를 만듭니다.
-2. 온-프레미스 SQL과 통신하는 API 앱에 대한 하이브리드 연결을 설정합니다. 이 단계는 선택 사항이며 SQL Azure가 아니라 온-프레미스 SQL Server의 경우에만 필수입니다.
-3. 논리 앱에서 생성된 API 앱을 사용하여 원하는 비즈니스 프로세스를 달성합니다.
+SQL 커넥터는 논리 앱에서 트리거 또는 동작으로 사용할 수 있으며 JSON 및 XML 형식에서 데이터를 지원합니다. 패키지 설정에 포함된 모든 테이블에(항목의 뒷부분에 자세히 설명) JSON 작업 및 XML 작업 집합이 있습니다.
 
-	###기본 트리거 및 동작
-		
-    - 데이터 폴링(트리거) 
-    - 테이블에 삽입
-    - 테이블 업데이트
-    - 테이블에서 선택
-    - 테이블에서 삭제
-    - 저장 프로시저 호출
+SQL 커넥터에는 다음의 트리거 및 사용할 수 있는 작업이 있습니다.
 
-## SQL 커넥터 API 앱의 인스턴스를 만듭니다. ##
+트리거 | actions
+--- | ---
+데이터 폴링 | <ul><li>테이블에 삽입</li><li>테이블을 업데이트</li><li>테이블에서 선택</li><li>테이블에서 삭제</li><li>저장된 프로시저를 호출</li>
 
-SQL 커넥터를 사용하려면 먼저 SQL 커넥터 API 앱의 인스턴스를 만들어야 합니다. 이 작업은 다음과 같이 수행할 수 있습니다.
+## SQL 커넥터 만들기
 
-1. Azure 포털의 왼쪽 아래에 있는 '+ 새로 만들기' 옵션을 사용하여 Azure 마켓플레이스를 엽니다.
-2. "웹 및 모바일 > API 앱"으로 이동하고 "SQL 커넥터"를 검색합니다.
-3. 첫 번째 블레이드에서 이름, 앱 서비스 계획 등과 같은 일반 세부 정보를 제공합니다.
-4. 아래 테이블에서 언급한 패키지 설정을 제공합니다.	
+커넥터는 논리 앱 내에서 또는 Azure Marketplace에서 직접 만들 수 있습니다. 마켓플레이스에서 커넥터를 만들려면
 
-<style type="text/css">
-	table.tableizer-table {
-	border: 1px solid #CCC; font-family: Arial, Helvetica, sans-serif;
-	font-size: 12px;
-} 
-.tableizer-table td {
-	padding: 4px;
-	margin: 3px;
-	border: 1px solid #ccc;
-}
-.tableizer-table th {
-	background-color: #525B64; 
-	color: #FFF;
-	font-weight: bold;
-}
-</style><table class="tableizer-table">
-<tr class="tableizer-firstrow"><th>이름</th><th>필수</th><th>기본값</th><th>설명</th></tr>
- <tr><td>서버 이름</td><td>예</td><td>&nbsp;</td><td>SQL Server 이름을 지정합니다. 예제: "SQLserver", "SQLserver/sqlexpress" 또는 "SQLserver.mydomain.com".</td></tr>
- <tr><td>포트</td><td>아니요</td><td> 1433</td><td>선택 사항입니다. 연결이 설정되는 포트 번호입니다. 값을 지정하지 않는 경우 커넥터는 기본 포트를 통해 연결됩니다.</td></tr>
- <tr><td>사용자 이름</td><td>예</td><td>&nbsp;</td><td>SQL Server에 연결할 유효한 사용자 이름을 지정합니다.</td></tr>
- <tr><td>암호</td><td>예</td><td>&nbsp;</td><td>SQL Server에 연결할 유효한 암호를 지정합니다.</td></tr>
- <tr><td>데이터베이스 이름</td><td>예</td><td>&nbsp;</td><td>SQL Server에서 유효한 데이터베이스 이름을 지정합니다. 예제: "orders" 또는 "dbo/orders" 또는 "myaccount/employees".</td></tr>
- <tr><td>온-프레미스</td><td>예</td><td>FALSE</td><td>SQL Server가 방화벽 뒤의 온-프레미스인지 여부를 지정합니다. TRUE로 설정한 경우 SQL Server에 액세스할 수 있는 서버에 수신기 에이전트를 설치해야 합니다. API 앱 통계 페이지로 이동하고 '하이브리드 연결'을 클릭하여 에이전트를 설치할 수 있습니다.</td></tr>
- <tr><td>서비스 버스 연결 문자열</td><td>아니요</td><td>&nbsp;</td><td>선택 사항입니다. SQL Server가 온-프레미스인 경우 이 매개 변수를 지정합니다. 이 문자열은 유효한 서비스 버스 네임스페이스 연결 문자열이어야 합니다. Azure Service Bus에서 'Basic'이 아니라 'Standard' 에디션을 사용해야 합니다.</td></tr>
- <tr><td>파트너 서버 이름</td><td>아니요</td><td>&nbsp;</td><td>선택 사항입니다. 주 서버가 다운되었을 때 연결할 파트너 서버를 지정합니다.</td></tr>
- <tr><td>테이블</td><td>아니요</td><td>&nbsp;</td><td>선택 사항입니다. 커텍터를 통해 수정할 수 있는 데이터베이스의 테이블을 지정합니다. Ex:OrdersTable,EmployeeTable</td></tr>
- <tr><td>저장 프로시저</td><td>아니요</td><td>&nbsp;</td><td>선택 사항입니다. 커넥터를 통해 호출할 수 있는 데이터베이스의 저장 프로시저를 지정합니다. 예제: IsEmployeeEligible,CalculateOrderDiscount</td></tr>
- <tr><td>사용 가능한 데이터 쿼리</td><td>아니요</td><td>&nbsp;</td><td>선택 사항입니다. SQL Server 데이터베이스 테이블 폴링에 사용할 수 있는 데이터를 결정할 SQL 문을 지정합니다. 예제: SELECT COUNT(*) from table_name.</td></tr>
- <tr><td>데이터 폴링 쿼리</td><td>아니요</td><td>&nbsp;</td><td>선택 사항입니다. SQL Server 데이터베이스 테이블을 폴링할 SQL 문을 지정합니다. 세미콜론으로 구분되는 SQL 문의 개수를 지정할 수 있습니다. 예제: SELECT * from table_name; DELETE from table_name. 참고: 무한 루프에서 종료되지 않는 방식으로 폴링 문을 제공해야 합니다. 예를 들어 선택은 삭제 다음에 수행되어야 하고 플래그를 기반으로 하는 선택은 플래그 업데이트 다음에 수행되어야 합니다.</td></tr>
-</table>
+1. Azure 시작 보드에서 **Marketplace**를 선택합니다.
+2. **API 앱**을 선택하고 "SQL 커넥터"를 검색합니다.
+3. 이름, 앱 서비스 계획 및 기타 속성을 입력합니다.
+4. 다음 패키지 설정을 입력합니다.
 
+이름 | 필수 | 설명
+--- | --- | ---
+서버 이름 | 예 | SQL Server 이름을 입력합니다. 예를 들어 *SQLserver/sqlexpress* 또는 *SQLserver.mydomain.com*를 입력합니다.
+포트 | 아니요 | 기본값은 1433입니다.
+사용자 이름 | 예 | SQL Server에 로그인할 수 있는 사용자 이름을 입력합니다. 온-프레미스 SQL Server에 연결하는 경우 도메인\사용자 이름을 입력합니다. 
+암호 | 예 | 사용자 이름 암호를 입력합니다.
+데이터베이스 이름 | 예 | 연결 중인 데이터베이스를 입력합니다. 예를 들어 *고객* 또는 *dbo/주문*을 입력할 수 있습니다.
+온-프레미스 | 예 | 기본값은 False입니다. Azure SQL 데이터베이스에 연결하는 경우 False를 입력합니다. 온-프레미스 SQL Server에 연결하는 경우 True를 입력합니다. 
+서비스 버스 연결 문자열 | 아니요 | 온-프레미스에 연결할 경우 서비스 버스 릴레이 연결 문자열을 입력합니다.<br/><br/>[하이브리드 연결 관리자](app-service-logic-hybrid-connection-manager.md)<br/>[서비스 버스 가격](http://azure.microsoft.com/pricing/details/service-bus/)을 사용
+파트너 서버 이름 | 아니요 | 기본 서버를 사용할 수 없는 경우 대체 또는 백업 서버로 파트너 서버를 입력할 수 있습니다. 
+테이블 | 아니요 | 커넥터를 통해 업데이트할 수 있는 데이터베이스 테이블을 나열합니다. 예를 들어 *OrdersTable* 또는 *EmployeeTable*을 입력합니다. 테이블이 입력되지 않은 경우 모든 테이블을 사용할 수 있습니다. 유효한 테이블 및/또는 저장 프로시저는 해당 커넥터를 작업으로서 사용하도록 요구됩니다. 
+저장 프로시저 | 아니요 | 커넥터를 통해 호출할 수 있는 기존 저장된 프로시저를 입력합니다. 예를 들어 *sp_IsEmployeeEligible* 또는 *sp_CalculateOrderDiscount*를 입력합니다. 유효한 테이블 및/또는 저장 프로시저는 해당 커넥터를 작업으로서 사용하도록 요구됩니다. 
+사용 가능한 데이터 쿼리 | 트리거 지원용 | SQL Server 데이터베이스 테이블 폴링에 사용할 수 있는 데이터를 결정할 SQL 문입니다. 이것은 사용할 수 있는 데이터 행의 수를 나타내는 숫자 값을 반환해야 합니다. 예: table_name에서 개수(*)를 선택합니다. 
+데이터 폴링 쿼리 | 트리거 지원용 | SQL Server 데이터베이스 테이블을 폴링할 SQL 문입니다. 세미콜론으로 구분되는 SQL 문의 개수를 입력할 수 있습니다. 이 문은 데이터가 논리 앱에 안전하게 저장된 경우 트랜잭션 측면에서 실행되고 커밋됩니다. 예: table_name에서 * 선택하고 table_name에서 삭제합니다. <br/><br/>* * 참고 * *<br/>동일한 데이터가 다시 폴링되지 않았는지를 확인하려면 선택한 데이터 삭제, 이동, 또는 업데이트로 무한 루프를 방지하는 폴링 문을 제공해야 합니다. 
 
- ![][1]  
+5. 완료되면 패키지 설정은 다음과 유사합니다. <br/> ![][1]
 
-## 하이브리드 구성(선택 사항) ##
+## 커넥터를 트리거로 사용
+SQL 테이블에서 데이터를 폴링하는 단순한 논리 앱을 보고 다른 테이블에 데이터를 추가하며 데이터를 업데이트해 봅니다.
 
-참고: 이 단계는 방화벽 뒤의 SQL Server 온-프레미스를 사용하는 경우에만 필요합니다.
+SQL 커넥터를 트리거로 사용하려면 **데이터 사용 가능한 쿼리** 및 **데이터 폴링 쿼리** 값을 입력합니다. **데이터 사용 가능한 쿼리**는 입력된 일정에 따라 실행되고 사용 가능한 데이터가 있는지를 확인합니다. 이 쿼리는 스칼라 숫자를 반환하므로 빈번한 실행에 맞게 조정되고 최적화될 수 있습니다.
 
-찾아보기-> API 앱 -> <방금 만든 API 앱의 이름>을 통해 방금 만든 API 앱으로 이동하면 다음과 같은 동작이 표시됩니다. 하이브리드 연결이 아직 설정되지 않았으므로 설치가 완료되지 않습니다.
+**데이터 폴링 쿼리**는 데이터 사용 가능 쿼리가 데이터를 사용 가능한 것으로 나타내는 경우에 실행됩니다. 이 문은 트랜잭션 내에서 실행되고 추출한 데이터가 워크플로에 영구적으로 저장될 때만 커밋됩니다. 동일한 데이터를 무한으로 다시 추출하는 것을 방지하는 것이 중요합니다. 다음에 데이터를 쿼리할 때 수집하지 않도록 확인하기 위해 데이터를 삭제하거나 업데이트하려면 실행의 트랜잭션 특성을 사용할 수 있습니다.
 
-![][2] 
+> [AZURE.NOTE]이 문에 의해 반환되는 스키마는 커넥터에 사용 가능한 속성을 식별합니다. 모든 열은 이름을 지정해야 합니다.
 
-하이브리드 연결을 설정하려면 다음을 수행합니다.
+#### 데이터 사용 가능한 쿼리 예제
 
-1. 기본 연결 문자열을 복사합니다.
-2.  '다운로드 및 구성' 링크를 클릭합니다.
-3. 시작된 설치 프로세스를 따르고 메시지가 표시되면 기본 연결 문자열을 제공합니다.
-4. 설치 프로세스가 완료되면 다음과 유사한 대화 상자가 표시됩니다.
+	SELECT COUNT(*) FROM [Order] WHERE OrderStatus = 'ProcessedForCollection'
 
-![][3] 
+#### 데이터 폴링 쿼리 예제
 
-이제 생성된 API 앱으로 다시 이동하면 하이브리드 연결 상태가 연결됨인 것을 볼 수 있습니다. 
+	SELECT *, GetData() as 'PollTime' FROM [Order] 
+		WHERE OrderStatus = 'ProcessedForCollection' 
+		ORDER BY Id DESC; 
+	UPDATE [Order] SET OrderStatus = 'ProcessedForFrontDesk' 
+		WHERE Id = 
+		(SELECT Id FROM [Order] WHERE OrderStatus = 'ProcessedForCollection' ORDER BY Id DESC)
 
-![][4] 
+### 트리거 추가
+1. 논리 앱 만들기 또는 편집을 수행할 때 트리거로 만든 SQL 커넥터를 선택합니다. 이는 사용할 수 있는 트리거 - **데이터 폴링(JSON)** 및 **데이터 폴링(XML)**을 나열합니다.<br/> ![][5] 
 
-참고: 보조 연결 문자열로 전환하려는 경우 하이브리드 설치 프로세스를 다시 수행하고 기본 연결 문자열 대신 보조 연결 문자열을 제공합니다.  
+2. **데이터 폴링(JSON)** 트리거를 선택하고 빈도를 지정한 다음 ✓을 클릭합니다.<br/> ![][6]
 
-## 논리 앱에서 사용 ##
+3. 이제 논리 앱에서 구성된 대로 트리거가 나타납니다. 트리거의 출력이 표시되며 후속 동작에서 입력으로 사용될 수 있습니다.<br/> ![][7]
 
-SQL 커넥터는 논리 앱에서 트리거/동작으로만 사용할 수 있습니다. 트리거 및 모든 동작은 JSON 및 XML 데이터 형식을 모두 지원합니다. 패키지 설정의 일부로 제공되는 모든 테이블의 경우, 일련의 JSON 동작 및 일련의 XML 동작이 됩니다. XML 트리거/동작을 사용하는 경우, 변환 API 앱을 사용하여 데이터를 다른 XML 데이터 형식으로 변환할 수 있습니다. 
+## 커넥터를 동작으로 사용
+SQL 테이블에서 데이터를 폴링하는 단순한 논리 앱 시나리오를 사용하여 다른 테이블에 데이터를 추가하고 데이터를 업데이트합니다.
 
-SQL 테이블에서 데이터를 폴링하는 단순한 논리 앱을 사용하여 다른 테이블에 데이터를 추가하고 데이터를 업데이트해 봅니다.
+SQL 커넥터를 동작으로 사용하려면 SQL 커넥터를 만들 때 입력한 테이블 및/또는 저장 프로시저의 이름을 입력합니다.
 
+1. 트리거 (또는 '이 논리를 수동으로 실행'을 선택) 이후 갤러리에서 만든 SQL 커넥터를 추가합니다. *Insert Into TempEmployeeDetails (JSON)*같은 삽입 동작 중 하나를 선택합니다.<br/> ![][8] 
 
+2. 삽입될 레코드의 입력 값을 입력하고 ✓을 클릭합니다.<br/> ![][9]
 
--  논리 앱 만들기/편집을 수행할 때 트리거로 만든 SQL 커넥터 API 앱을 선택합니다. 이는 사용할 수 있는 트리거 - 데이터 폴링(JSON) 및 데이터 폴링(XML)을 나열합니다.
+3. 갤러리에서 만든 동일한 SQL 커넥터를 선택합니다. 작업으로 동일한 테이블에서 *EmployeeDetails 업데이트*같은 업데이트 작업을 선택합니다.<br/> ![][11]
 
- ![][5] 
-
-
-- 트리거 - 데이터 폴링(JSON)을 선택하고 빈도를 지정한 다음 ✓을 클릭합니다.
-
-![][6] 
-
-
-
-- 이제 논리 앱에서 구성된 대로 트리거가 나타납니다. 트리거의 출력이 표시되며 후속 동작에서 입력으로 사용될 수 있습니다. 
-
-![][7] 
-
-
-- 갤러리에서 동일한 SQL 커넥터를 동작으로 선택합니다. 삽입 동작 중 하나 - Insert Into TempEmployeeDetails(JSON)를 선택합니다.
-
-![][8] 
-
-
-
-- 삽입될 레코드의 입력을 제공하고 ✓을 클릭합니다. 
-
-![][9] 
-
-
-
-- 갤러리에서 동일한 SQL 커넥터를 동작으로 선택합니다. 동일한 테이블에서 업데이트 동작을 선택합니다(예: Update EmployeeDetails).
-
-![][11] 
-
-
-
-- 업데이트 동작에 대해 입력하고 ✓을 클릭합니다. 
-
-![][12] 
+4. 업데이트 동작으로 입력 값을 입력하고 ✓을 클릭합니다.<br/> ![][12]
 
 폴링 중인 테이블에서 새 레코드를 추가하여 논리 앱을 테스트할 수 있습니다.
 
+## 하이브리드 구성(선택 사항)
+
+> [AZURE.NOTE]이 단계는 방화벽 뒤의 SQL Server 온-프레미스를 사용하는 경우에만 필요합니다.
+
+앱 서비스는 하이브리드 구성 관리자를 사용하여 온-프레미스 시스템에 안전하게 연결합니다. 커넥터로 온-프레미스 SQL Server를 사용하는 경우 하이브리드 연결 관리자가 필요합니다.
+
+[하이브리드 연결 관리자 사용](app-service-logic-hybrid-connection-manager.md)을 참고합니다.
+
+
+## 커넥터의 추가 기능
+이제 커넥터를 만들었으므로 논리 앱을 사용하여 비즈니스 워크플로에 추가할 수 있습니다. [논리 앱 정의](app-service-logic-what-are-logic-apps.md)를 참고합니다.
+
+커넥터의 성능 통계 및 제어 보안을 검토할 수 있습니다. [API 앱 및 커넥터를 관리 및 모니터링](../app-service-api/app-service-api-manage-in-portal.md)을 참고합니다.
+
+
 <!--Image references-->
-[1]: ./media/app-service-logic-connector-sql/Create.jpg
-[2]: ./media/app-service-logic-connector-sql/BrowseSetupIncomplete.jpg
-[3]: ./media/app-service-logic-connector-sql/HybridSetup.jpg
-[4]: ./media/app-service-logic-connector-sql/BrowseSetupComplete.jpg
-[5]: ./media/app-service-logic-connector-sql/LogicApp1.jpg
-[6]: ./media/app-service-logic-connector-sql/LogicApp2.jpg
-[7]: ./media/app-service-logic-connector-sql/LogicApp3.jpg
-[8]: ./media/app-service-logic-connector-sql/LogicApp4.jpg
-[9]: ./media/app-service-logic-connector-sql/LogicApp5.jpg
-[10]: ./media/app-service-logic-connector-sql/LogicApp6.jpg
-[11]: ./media/app-service-logic-connector-sql/LogicApp7.jpg
-[12]: ./media/app-service-logic-connector-sql/LogicApp8.jpg
+[1]: ./media/app-service-logic-connector-sql/Create.png
+[5]: ./media/app-service-logic-connector-sql/LogicApp1.png
+[6]: ./media/app-service-logic-connector-sql/LogicApp2.png
+[7]: ./media/app-service-logic-connector-sql/LogicApp3.png
+[8]: ./media/app-service-logic-connector-sql/LogicApp4.png
+[9]: ./media/app-service-logic-connector-sql/LogicApp5.png
+[11]: ./media/app-service-logic-connector-sql/LogicApp7.png
+[12]: ./media/app-service-logic-connector-sql/LogicApp8.png
 
 
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=62-->

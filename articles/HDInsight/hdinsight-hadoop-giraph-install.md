@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="HDInsight에서 스크립트 작업을 사용하여 Hadoop 클러스터에 Giraph설치| Azure" 
-	description="HDInsight 클러스터를 사용자 지정하여 Giraph를 설치하는 방법을 알아봅니다. 스크립트 작업 구성 옵션을 사용하여 스크립트를 사용하고 Giraph를 설치합니다." 
+	pageTitle="HDInsight의 Hadoop 클러스터에 Giraph 설치 및 사용 | Microsoft Azure" 
+	description="Giraph를 사용하여 HDInsight 클러스터를 사용자 지정하는 방법에 대해 알아봅니다. 스크립트 작업 구성 옵션을 사용하여 스크립트를 사용하고 Giraph를 설치합니다." 
 	services="hdinsight" 
 	documentationCenter="" 
 	authors="nitinme" 
@@ -16,7 +16,7 @@
 	ms.date="03/03/2015" 
 	ms.author="nitinme"/>
 
-# HDInsight Hadoop 클러스터에 Giraph 설치 및 사용
+# HDInsight Hadoop 클러스터에 Giraph를 설치하고 Giraph를 사용하여 대규모 그래프를 처리합니다.
 
 **스크립트 작업** 클러스터 사용자 지정을 사용하여 Azure HDInsight의 Hadoop에서 모든 유형의 클러스터에 Giraph를 설치할 수 있습니다. 스크립트 작업을 사용하면 클러스터를 생성할 때에만 클러스터를 사용자 지정하는 스크립트를 실행할 수 있습니다. 자세한 내용은 [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정][hdinsight-cluster-customize](영문)을 참조하세요.
 
@@ -46,15 +46,14 @@ HDInsight 클러스터에 Giraph를 설치하는 샘플 스크립트는 읽기 �
 	<table border='1'>
 	<tr><th>속성</th><th>값</th></tr>
 	<tr><td>이름</td>
-	<td>스크립트 작업의 이름을 지정합니다. 예: <b>Install Giraph</b>.</td></tr>
+		<td>스크립트 작업의 이름을 지정합니다. 예: <b>Install Giraph</b>.</td></tr>
 	<tr><td>스크립트 URI</td>
-	<td>클러스터를 사용자 지정하기 위해 호출되는 스크립트에 URI(Uniform Resource Identifier)를 지정합니다. 예: <i>https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1</i></td></tr>
+		<td>클러스터를 사용자 지정하기 위해 호출되는 스크립트에 URI(Uniform Resource Identifier)를 지정합니다. 예: <i>https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1</i></td></tr>
 	<tr><td>노드 유형</td>
-	<td>사용자 지정 스크립트가 실행되는 노드를 지정합니다. <b>모든 노드</b>, <b>헤드 노드만</b> 또는 <b>작업자 노드만</b>을 선택할 수 있습니다.
+		<td>사용자 지정 스크립트가 실행되는 노드를 지정합니다. <b>모든 노드</b>, <b>헤드 노드만</b> 또는 <b>작업자 노드만</b>을 선택할 수 있습니다.
 	<tr><td>매개 변수</td>
-	<td>스크립트에 필요한 경우 매개 변수를 지정합니다. Giraph를 설치하는 스크립트는 매개 변수가 필요하지 않으므로 공백으로 둘 수 있습니다.</td></tr>
-	</table>
-두 개 이상의 스크립트 작업을 추가하여 클러스터에 여러 구성 요소를 설치할 수 있습니다. 스크립트를 추가한 후 확인 표시를 클릭하여 클러스터 프로비저닝을 시작합니다.
+		<td>스크립트에 필요한 경우 매개 변수를 지정합니다. Giraph를 설치하는 스크립트는 매개 변수가 필요하지 않으므로 공백으로 둘 수 있습니다.</td></tr>
+</table>두 개 이상의 스크립트 작업을 추가하여 클러스터에 여러 구성 요소를 설치할 수 있습니다. 스크립트를 추가한 후 확인 표시를 클릭하여 클러스터 프로비저닝을 시작합니다.
 
 스크립트를 사용하여 Azure PowerShell 또는 HDInsight.NET SDK로 HDInsight에 Giraph를 설치할 수도 있습니다. 이 절차에 대한 자세한 내용은 이 항목의 뒷부분에 제공됩니다.
 
@@ -72,7 +71,7 @@ SimpleShortestPathsComputation 예제를 사용하여 그래프의 개체 간 �
 
 	tiny_graph.txt 파일을 HDInsight 클러스터의 기본 저장소에 업로드합니다. 데이터를 업로드하는 방법은 [HDInsight에서 Hadoop 작업에 대한 데이터 업로드](hdinsight-upload-data.md)를 참조하세요.
 
-	이 데이터는 [source_id, source_value,[[dest_id], [edge_value],...]] 등의 형식을 사용하여 방향이 지정된 그래프의 개체 간 관계를 설명합니다. 각 줄은 **source_id** 개체와 하나 이상의 **dest_id** 개체 간 관계를 나타냅니다. **edge_value**(또는 가중치)는 **source_id**와 **dest_id** 간 연결의 강도 또는 거리로 생각할 수 있습니다.
+	이 데이터는 [source_id, source_value,[[dest_id], [edge_value],...]]의 형식을 사용하여 방향이 지정된 그래프의 개체 간 관계를 설명합니다. 각 줄은 **source_id** 개체와 하나 이상의 **dest_id** 개체 간 관계를 나타냅니다. **edge_value**(또는 가중치)는 **source_id**와 **dest_id** 간 연결의 강도 또는 거리로 생각할 수 있습니다.
 
 	개체 간 거리로 위의 값(또는 가중치)을 사용하여 그리면 다음과 같을 수 있습니다.
 
@@ -80,7 +79,7 @@ SimpleShortestPathsComputation 예제를 사용하여 그래프의 개체 간 �
 
 	
 
-4. SimpleShortestPathsComputation 예제를 실행합니다. 다음 Azure PowerShell cmdlet에서 tiny_graph.txt 파일을 입력으로 사용하여 예제를 실행합니다. 그렇게 하려면 [Azure PowerShell][powershell-install-configure]을 설치하고 구성해야 합니다.
+4. SimpleShortestPathsComputation 예제를 실행합니다. 다음 Azure PowerShell cmdlet에서 tiny_graph.txt 파일을 입력으로 사용하여 예제를 실행합니다. 그렇게 하려면 [Azure PowerShell][powershell-install]을 설치하고 구성해야 합니다.
 
 		$clusterName = "clustername"
 		# Giraph examples jar
@@ -151,7 +150,7 @@ SimpleShortestPathsComputation 예제를 사용하여 그래프의 개체 간 �
 
 ## <a name="usingPS"></a>Azure PowerShell을 사용하여 HDInsight Hadoop 클러스터에 Giraph 설치
 
-이 섹션에서는 스크립트 작업을 통해 스크립트를 호출하여 클러스터를 사용자 지정하는 **<a href = "http://msdn.microsoft.com/library/dn858088.aspx" target="_blank">Add-AzureHDInsightScriptAction</a>** cmdlet을 사용합니다. 계속하기 전에 Azure PowerShell을 설치 및 구성했는지 확인하세요. HDInsight용 Azure PowerShell cmdlet을 실행하도록 워크스테이션을 구성하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성][powershell-install-configure]을 참조하세요.
+이 섹션에서는 스크립트 작업을 통해 스크립트를 호출하여 클러스터를 사용자 지정하는 **<a href = "http://msdn.microsoft.com/library/dn858088.aspx" target="_blank">Add-AzureHDInsightScriptAction</a>** cmdlet을 사용합니다. 계속하기 전에 Azure PowerShell을 설치 및 구성했는지 확인하세요. HDInsight용 Azure PowerShell cmdlet을 실행하도록 워크스테이션을 구성하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성][powershell-install]을 참조하세요.
 
 다음 단계를 수행합니다.
 
@@ -223,16 +222,16 @@ HDInsight .NET SDK는 .NET Framework 응용 프로그램에서 HDInsight로 더 
 - 응용 프로그램 실행
 
 
-**HDInsight .NET SDK 설치**
+**HDInsight .NET SDK를 설치하려면**
 
-[NuGet](http://nuget.codeplex.com/wikipage?title=Getting%20Started)(영문)에서 최근에 게시된 SDK 빌드를 설치할 수 있습니다. 지침은 다음 절차에서 설명합니다.
+[NuGet](http://nuget.codeplex.com/wikipage?title=Getting%20Started)에서 최근에 게시된 SDK 빌드를 설치할 수 있습니다. 지침은 다음 절차에서 설명합니다.
 
-**자체 서명된 인증서 만들기**
+**자체 서명된 인증서를 만들려면**
 
 자체 서명 인증서를 만들어 워크스테이션에 설치한 다음 Azure 구독에 업로드합니다. 관련 지침은 [자체 서명된 인증서 만들기](http://go.microsoft.com/fwlink/?LinkId=511138)를 참조하세요.
 
 
-**Visual Studio 응용 프로그램 만들기**
+**Visual Studio 응용 프로그램을 만들려면**
 
 1. Visual Studio 2013을 엽니다.
 
@@ -328,9 +327,9 @@ HDInsight .NET SDK는 .NET Framework 응용 프로그램에서 HDInsight로 더 
 
 12. 응용 프로그램에 대한 변경 내용을 저장하고 솔루션을 빌드합니다.
 
-**응용 프로그램 실행**
+**응용 프로그램을 실행하려면**
 
-Azure PowerShell 콘솔을 열고 Visual Studio 프로젝트를 저장한 위치로 이동하고 프로젝트 내의 \\bin\\debug 디렉터리로 이동한 후 다음 명령을 실행합니다.
+Azure PowerShell 콘솔을 열고 Visual Studio 프로젝트를 저장한 위치로 이동하고 프로젝트 내의 \bin\debug 디렉터리로 이동한 후 다음 명령을 실행합니다.
 
 	.\CreateGiraphCluster <cluster-name>
 
@@ -347,9 +346,11 @@ Azure PowerShell 콘솔을 열고 Visual Studio 프로젝트를 저장한 위치
 [tools]: https://github.com/Blackmist/hdinsight-tools
 [aps]: http://azure.microsoft.com/documentation/articles/install-configure-powershell/
 
+[powershell-install]: ../powershell-install-configure.md
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

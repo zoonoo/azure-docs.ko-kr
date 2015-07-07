@@ -1,7 +1,7 @@
 <properties 
-   pageTitle="두 Azure 가상 네트워크 간의 DNS 구성 | Azure" 
-   description="두 Azure 가상 네트워크 간의 VPN 연결을 구성하는 방법, 두 가상 네트워크 간의 도메인 이름 확인을 구성하는 방법 및 HBase 지역에서 복제를 구성하는 방법에 대해 알아봅니다." 
-   services="hdinsight" 
+   pageTitle="두 Azure 가상 네트워크 간 DNS 구성 | Microsoft Azure" 
+   description="VPN 연결을 구성하는 방법, 두 가상 네트워크 간의 도메인 이름 확인을 구성하는 방법 및 HBase 지역에서 복제를 구성하는 방법에 대해 알아봅니다." 
+   services="hdinsight,virtual-network" 
    documentationCenter="" 
    authors="mumian" 
    manager="paulettm" 
@@ -37,12 +37,12 @@ Azure 가상 네트워크에 DNS 서버를 추가하고 구성하여 가상 네�
 
 ![HDInsight HBase 복제 가상 네트워크 다이어그램][img-vnet-diagram]
 
-## 필수 조건
+##필수 조건
 이 자습서를 시작하기 전에 다음이 있어야 합니다.
 
-- **Azure 구독**. Azure는 구독 기반 플랫폼입니다. 구독을 얻는 방법에 대한 자세한 내용은 [구매 옵션][azure-purchase-options], [구성원 제공 항목][azure-member-offers] 또는 [무료 평가판][azure-free-trial]을 참조하세요.
+- **Azure 구독**. [Azure 무료 평가판](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
 
-- **Azure PowerShell이 설치 및 구성된 워크스테이션**. 자세한 내용은 [Azure PowerShell 설치 및 구성][powershell-install]을 참조하세요.
+- **Azure PowerShell이 포함된 워크스테이션**. [Azure PowerShell 설치 및 사용](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/)을 참조하세요.
 
 	PowerShell 스크립트를 실행하기 전에 cmdlet을 사용하여 Azure 구독에 연결되어 있는지 확인합니다.
 
@@ -52,12 +52,12 @@ Azure 가상 네트워크에 DNS 서버를 추가하고 구성하여 가상 네�
 
 		Select-AzureSubscription <AzureSubscriptionName>
 
-- **VPN으로 연결된 두 개의 Azure 가상 네트워크**. 자세한 내용은 [두 Azure 가상 네트워크 간의 VPN 연결 구성][hdinsight-hbase-replication-vnet]을 참조하세요.
+- **VPN으로 연결된 두 개의 Azure 가상 네트워크**. 자세한 내용은 [두 Azure 가상 네트워크 간의 VPN 연결 구성][hdinsight-hbase-geo-replication-vnet]을 참조하세요.
 
->[AZURE.NOTE]Azure 서비스 이름과 가상 컴퓨터 이름은 고유해야 합니다. 이 자습서에서 사용되는 이름은 Contoso-[Azure 서비스/VM 이름]-[EU/US]입니다. 예를 들어 Contoso-VNet-EU는 북유럽 데이터 센터에 있는 Azure 가상 네트워크이고, Contoso-DNS-US는 미국 동부 데이터 센터에 있는 DNS 서버 VM입니다. 사용자 고유의 이름을 사용해야 합니다.
+>[AZURE.NOTE]Azure 서비스 이름과 가상 컴퓨터 이름은 고유해야 합니다. 이 자습서에서 사용되는 이름은 Contoso-[Azure Service/VM name]-[EU/US]입니다. 예를 들어 Contoso-VNet-EU는 북유럽 데이터 센터에 있는 Azure 가상 네트워크이고, Contoso-DNS-US는 미국 동부 데이터 센터에 있는 DNS 서버 VM입니다. 사용자 고유의 이름을 사용해야 합니다.
  
  
-## DNS 서버로 사용할 Azure 가상 컴퓨터 만들기
+##DNS 서버로 사용할 Azure 가상 컴퓨터 만들기
 
 **Contoso-VNet-EU 내에서 Contoso-DNS-EU라는 가상 컴퓨터를 만들려면**
 
@@ -73,9 +73,9 @@ Azure 가상 네트워크에 DNS 서버를 추가하고 구성하여 가상 네�
 	- **가상 네트워크 서브넷**: 서브넷-1
 	- **저장소 계정**: 자동으로 생성된 저장소 계정 사용
 	
-		클라우드 서비스 이름은 가상 컴퓨터 이름과 같습니다. 이 경우 Contoso-DNS-EU입니다. 이후 가상 컴퓨터에 대해 동일한 클라우드 서비스를 사용하도록 선택할 수 있습니다. 동일한 클라우드 서비스 아래의 모든 가상 컴퓨터는 동일한 가상 네트워크 및 도메인 접미사를 공유합니다.
+		클라우드 서비스 이름은 가상 컴퓨터 이름과 같아야 합니다. 이 경우 Contoso-DNS-EU입니다. 이후 가상 컴퓨터의 경우, 동일한 클라우드 서비스를 사용하도록 선택할 수 있습니다. 동일한 클라우드 서비스 내의 모든 가상 컴퓨터는 동일한 가상 네트워크 및 도메인 접미사를 공유합니다.
 
-		저장소 계정은 가상 컴퓨터 이미지 파일을 저장하는 데 사용됩니다. 
+		저장소 계정이 가상 컴퓨터 이미지 파일을 저장하는데 사용됩니다. 
 	- **끝점**:(아래로 스크롤하여 **DNS** 선택) 
 
 가상 컴퓨터를 만든 후 내부 IP 및 외부 IP를 확인합니다.
@@ -96,7 +96,7 @@ Azure 가상 네트워크에 DNS 서버를 추가하고 구성하여 가상 네�
 	- 저장소 계정: 자동으로 생성된 저장소 계정 사용
 	- 끝점:(DNS 선택)
 
-## 두 가상 컴퓨터에 대한 고정 IP 주소 설정
+##두 가상 컴퓨터에 대한 고정 IP 주소 설정
 
 DNS 서버에는 고정 IP 주소가 필요합니다. 이 단계는 Azure 포털에서 수행할 수 없습니다. Azure PowerShell을 사용합니다.
 
@@ -116,7 +116,7 @@ DNS 서버에는 고정 IP 주소가 필요합니다. 이 단계는 Azure 포털
 	ServiceName 및 Name을 사용자가 소유한 이름과 일치하도록 업데이트해야 할 수 있습니다.
 
 
-## 두 가상 컴퓨터에 DNS 서버 역할 추가
+##두 가상 컴퓨터에 DNS 서버 역할 추가
 
 **Contoso-DNS-EU에 대한 DNS 서버 역할을 추가하려면**
 
@@ -138,7 +138,7 @@ DNS 서버에는 고정 IP 주소가 필요합니다. 이 단계는 Azure 포털
 
 - 같은 단계를 반복하여 **Contoso-DNS-US**에 DNS 역할을 추가합니다
 
-## 가상 네트워크에 DNS 서버 할당
+##가상 네트워크에 DNS 서버 할당
 
 **두 DNS 서버를 등록하려면**
 
@@ -171,7 +171,7 @@ DNS 서버 구성을 업데이트하려면 가상 네트워크에 배포된 모�
 5. 같은 단계를 반복하여 **Contoso-DNS-US**를 다시 부팅합니다.
 
 
-## DNS 조건부 전달자 구성
+##DNS 조건부 전달자 구성
 
 각 가상 네트워크의 DNS 서버에서 해당 가상 네트워크 내 DNS 이름을 확인할 수 있습니다. 피어 가상 네트워크에서의 이름 확인을 위해 피어 DNS 서버를 가리키도록 조건부 전달자를 구성해야 합니다.
 
@@ -200,12 +200,12 @@ DNS 서버 구성을 업데이트하려면 가상 네트워크에 배포된 모�
 	- **DNS 도메인**: Contoso-DNS-EU의 DNS 접미사를 입력합니다. 
 	- **마스터 서버의 IP 주소**: Contoso-DNS-EU의 IP 주소인 10.2.0.4를 입력합니다.
 
-## 가상 네트워크에서 이름 확인 테스트
+##가상 네트워크에서 이름 확인 테스트
 
 이제 가상 네트워크에서 이름 확인을 테스트할 수 있습니다. Ping은 기본적으로 방화벽에 의해 차단됩니다. nslookup을 사용하여 피어 네트워크에서 DNS 서버 가상 컴퓨터(FQDN을 사용해야 함)를 확인할 수 있습니다.
 
 
-## 다음 단계
+##다음 단계
 
 이 자습서에서는 VPN 연결을 사용하여 가상 네트워크에서 이름 확인을 구성하는 방법에 대해 알아보았습니다. 시리즈의 다른 두 문서에서는 다음 내용을 다룹니다.
 
@@ -216,7 +216,8 @@ DNS 서버 구성을 업데이트하려면 가상 네트워크에 배포된 모�
 
 [hdinsight-hbase-geo-replication]: hdinsight-hbase-geo-replication.md
 [hdinsight-hbase-geo-replication-vnet]: hdinsight-hbase-geo-replication-configure-VNets.md
+[powershell-install]: ../install-configure-powershell.md
 
 [img-vnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-DNS/HDInsight.HBase.VPN.diagram.png
-<!--HONumber=52-->
- 
+
+<!---HONumber=62-->

@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="HDinsight에서 Apache Phoenix 및 SQuirrel 사용 | Azure" 
-   description="HDInsight에서 Apache Phoenix를 사용하는 방법 및 워크스테이션에서 SQuirrel을 설치 및 구성하여 HDInsight에서 HBase 클러스터에 연결하는 방법에 대해 알아봅니다." 
+   pageTitle="HDinsight에서 Apache Phoenix 및 SQuirreL 사용 | Microsoft Azure" 
+   description="HDInsight에서 Apache Phoenix를 사용하는 방법 및 워크스테이션에서 SQuirreL을 설치 및 구성하여 HDInsight에서 HBase 클러스터에 연결하는 방법에 대해 알아봅니다." 
    services="hdinsight" 
    documentationCenter="" 
    authors="mumian" 
@@ -13,19 +13,19 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="04/15/2015"
+   ms.date="05/05/2015"
    ms.author="jgao"/>
 
-# HDinsight에서 Apache Phoenix 및 SQuirrel 사용  
+# HDinsight에서 HBase 클러스터와 함께 Apache Phoenix 및 SQuirreL 사용  
 
-HDInsight에서 [Apache Phoenix](http://phoenix.apache.org/)를 사용하는 방법 및 워크스테이션에서 SQuirrel을 설치 및 구성하여 HDInsight에서 HBase 클러스터에 연결하는 방법에 대해 알아봅니다. Phoenix에 대한 자세한 내용은 [15분 이내의 Phoenix](http://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html)를 참조하세요.
+HDInsight에서 [Apache Phoenix](http://phoenix.apache.org/)를 사용하는 방법 및 워크스테이션에서 SQuirrel을 설치 및 구성하여 HDInsight에서 HBase 클러스터에 연결하는 방법에 대해 알아봅니다. Phoenix에 대한 자세한 내용은 [15분 이내의 Phoenix](http://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html)를 참조하세요. Phoenix 문법은 [피닉스 문법](http://phoenix.apache.org/language/index.html)을 참조하세요.
 
 >[AZURE.NOTE]HDInsight의 Phoenix 버전 정보는 [HDInsight에서 제공하는 Hadoop 클러스터 버전의 새로운 기능][hdinsight-versions]을 참조하세요.
 
-## SQLLine 사용
+##SQLLine 사용
 [SQLLine](http://sqlline.sourceforge.net/)은 SQL을 실행하는 명령줄 유틸리티입니다.
 
-### 필수 조건
+###필수 조건
 SQLLine을 시작하려면 다음이 있어야 합니다.
 
 - **HDInsight의 HBase 클러스터**. HBase 클러스터 프로비전에 대한 자세한 내용은 [HDInsight에서 Apache HBase 시작][hdinsight-hbase-get-started]을 참조하세요.
@@ -34,7 +34,7 @@ SQLLine을 시작하려면 다음이 있어야 합니다.
 **호스트 이름을 확인하려면**
 
 1. 데스크톱에서 **Hadoop 명령줄**을 엽니다.
-2. 다음 명령을 실행합니다.
+2. 다음 명령을 실행하여 DNS 접미사를 가져옵니다.
 
 		ipconfig
 
@@ -43,14 +43,24 @@ SQLLine을 시작하려면 다음이 있어야 합니다.
 **SQLLine을 사용하려면**
 
 1. 데스크톱에서 **Hadoop 명령줄**을 엽니다.
-2. 다음 명령을 실행합니다.
+2. 다음 명령을 실행하여 SQLLine을 엽니다.
 
 		cd %phoenix_home%\bin
 		sqlline.py [The FQDN of one of the Zookeepers]
 
 	![hdinsight hbase phoenix sqlline][hdinsight-hbase-phoenix-sqlline]
 
-자세한 내용은 [SQLLine 설명서](http://sqlline.sourceforge.net/#manual)를 참조하세요.
+	이 샘플에 사용되는 명령:
+
+		CREATE TABLE Company (COMPANY_ID INTEGER PRIMARY KEY, NAME VARCHAR(225));
+		
+		!tables;
+		
+		UPSERT INTO Company VALUES(1, 'Microsoft');
+		
+		SELECT * FROM Company;
+
+자세한 내용은 [SQLLine 설명서](http://sqlline.sourceforge.net/#manual) 및 [Phoenix 문법](http://phoenix.apache.org/language/index.html)을 참조하세요.
 
 
 
@@ -69,28 +79,28 @@ SQLLine을 시작하려면 다음이 있어야 합니다.
 
 
 
-## SQuirrel 사용
+##SQuirrel 사용
 
-[SQuirreL SQL Client](http://squirrel-sql.sourceforge.net/)는 JDBC 호환 데이터베이스를 보고, 테이블에서 데이터를 찾고, SQL 명령을 실행할 수 있는 그래픽 Java 프로그램입니다.
+[SQuirreL SQL Client](http://squirrel-sql.sourceforge.net/)는 JDBC 호환 데이터베이스를 보고, 테이블에서 데이터를 찾고, SQL 명령을 실행할 수 있는 그래픽 Java 프로그램입니다. HDInsight에서 Apache 피닉스에 연결하는데 사용할 수 있습니다.
 
-이 섹션에서는 워크스테이션에서 SQuirrel을 설치 및 구성하여 HDInsight에서 VPN을 통해 HBase 클러스터에 연결하는 방법에 대해 알아봅니다.
+이 섹션에서는 워크스테이션에서 SQuirreL을 설치 및 구성하여 HDInsight에서 VPN을 통해 HBase 클러스터에 연결하는 방법에 대해 알아봅니다.
 
-### 필수 조건
+###필수 조건
 
 다음 절차를 수행하기 전에 다음이 있어야 합니다.
 
 - DNS 가상 컴퓨터를 사용하여 Azure 가상 네트워크에 배포한 HBase 클러스터. 자세한 내용은 [Azure 가상 네트워크에 HBase 클러스터 프로비전][hdinsight-hbase-provision-vnet]을 참조하세요. 
 
-	>[AZURE.IMPORTANT]가상 네트워크에 DNS 서버를 설치해야 합니다.
+	>[AZURE.IMPORTANT]가상 네트워크에 DNS 서버를 설치해야 합니다. 자세한 내용은 [두 Azure 가상 네트워크 간 DNS 구성](hdinsight-hbase-geo-replication-configure-DNS.md)을 참조하세요.
 
 - HBase 클러스터 연결별 DNS 접미사를 가져옵니다. 이렇게 하려면 클러스터에 RDP를 연결하고 IPConfig를 실행합니다. DNS 접미사는 다음과 유사합니다.
 
 		myhbase.b7.internal.cloudapp.net
 - 워크스테이션에서 [Microsoft Visual Studio Express 2013 for Windows Desktop](https://www.visualstudio.com/products/visual-studio-express-vs.aspx)을 다운로드하여 설치합니다. 인증서를 만들려면 패키지의 makecert가 필요합니다.  
-- 워크스테이션에서 [Java Runtime Environment](http://www.oracle.com/technetwork/java/javase/downloads/jre7-downloads-1880261.html)을 다운로드하여 설치합니다. SQuirrel SQL Client 버전 3.0 이상에는 JRE 버전 1.6 이상이 필요합니다.  
+- 워크스테이션에서 [Java Runtime Environment](http://www.oracle.com/technetwork/java/javase/downloads/jre7-downloads-1880261.html)을 다운로드하여 설치합니다. SQuirreL SQL Client 버전 3.0 이상에는 JRE 버전 1.6 이상이 필요합니다.  
 
 
-### Azure 가상 네트워크에 대한 지점 및 사이트 간 VPN 연결 구성
+###Azure 가상 네트워크에 대한 지점 및 사이트 간 VPN 연결 구성
 
 지점 및 사이트 간 VPN 연결을 구성하는 단계는 3단계로 구성됩니다.
 
@@ -153,13 +163,13 @@ X.509 인증서를 만드는 한 가지 방법은 [Microsoft Visual Studio Expre
 
   		makecert.exe -n "CN=HBaseVnetVPNClientCertificate" -pe -sky exchange -m 96 -ss My -in "HBaseVnetVPNRootCertificate" -is my -a sha1
 
-	HBaseVnetVPNRootCertificate는 루트 인증서 이름입니다. 루트 인증서 이름과 일치해야 합니다.  
+	HBaseVnetVPNRootCertificate는 루트 인증서 이름입니다. 루트 인증서 이름과 일치해야 합니다.
 
-	루트 인증서와 클라이언트 인증서는 둘 다 컴퓨터의 개인 인증서 저장소에 저장됩니다. certmgr.msc를 사용하여 확인하세요.
+	루트 인증서 및 클라이언트 인증서는 컴퓨터의 개인 인증서 저장소에 저장됩니다. Certmgr.msc를 사용하여 확인합니다.
 
-	![Azure virtual network point-to-site vpn certificate][img-certificate]
+	![Azure 가상 네트워크 지점 대 사이트 vpn 인증서][img-certificate]
 
-	가상 네트워크에 연결하려는 각 컴퓨터에서 클라이언트 인증서를 설치해야 합니다. 가상 네트워크에 연결하려는 각 컴퓨터에 대해 고유한 클라이언트 인증서를 만드는 것이 좋습니다. 클라이언트 인증서를 내보내려면 certmgr.msc를 사용합니다. 
+	클라이언트 인증서는 가상 네트워크에 연결하려는 각 컴퓨터에 설치되어야 합니다. 가상 네트워크에 연결 하려는 각 컴퓨터에 대해 고유한 클라이언트 인증서를 만드는 것이 좋습니다. 클라이언트 인증서를 내보내려면 certmgr.msc를 사용합니다.
 
 **Azure 포털에 루트 인증서를 업로드하려면**
 
@@ -198,17 +208,17 @@ X.509 인증서를 만드는 한 가지 방법은 [Microsoft Visual Studio Expre
 		headnode1.myhbase.b7.internal.cloudapp.net
 		workernode0.myhbase.b7.internal.cloudapp.net
 
-### 워크스테이션에서 SQuirrel 설치 및 구성
+###워크스테이션에서 SQuirreL 설치 및 구성
 
-**SQuirrel을 설치하려면**
+**SQuirreL을 설치하려면**
 
-1. [http://squirrel-sql.sourceforge.net/#installation](http://squirrel-sql.sourceforge.net/#installation)에서 SQuirrel SQL Client jar 파일을 다운로드합니다.
+1. [http://squirrel-sql.sourceforge.net/#installation](http://squirrel-sql.sourceforge.net/#installation)에서 SQuirreL SQL Client jar 파일을 다운로드합니다.
 2. jar 파일을 엽니다/실행합니다. [Java Runtime Environment](http://www.oracle.com/technetwork/java/javase/downloads/jre7-downloads-1880261.html)가 필요합니다.
 3. **다음**를 두 번 클릭합니다.
 4. 쓰기 권한이 있는 경로를 지정하고 **다음**을 클릭합니다.
-	>[AZURE.NOTE]기본 설치 폴더는 C:\\Program Files\\squirrel-sql-3.6 폴더에 있습니다. 이 경로에 쓰려면 설치 관리자에 관리자 권한이 부여되어야 합니다. 관리자 권한으로 명령 프롬프트를 열고 Java의 bin 폴더로 이동한 후 다음을 실행합니다.
+	>[AZURE.NOTE]기본 설치 폴더는 C:\Program Files\squirrel-sql-3.6 폴더에 있습니다. 이 경로에 쓰려면 설치 관리자에 관리자 권한이 부여되어야 합니다. 관리자 권한으로 명령 프롬프트를 열고 Java의 bin 폴더로 이동한 후 다음을 실행합니다.
 	>
-	>     java.exe -jar [the path of the SQuirrel jar file] 
+	>     java.exe -jar [the path of the SQuirreL jar file] 
 5. **확인**을 클릭하여 대상 디렉터리 만들기를 확인합니다.
 6. 기본 설정은 기본 및 표준 패키지를 설치하는 것입니다. **다음**을 클릭합니다.
 7. **다음**을 두 번 클릭한 후 **완료**를 클릭합니다.
@@ -221,9 +231,9 @@ Phoenix 드라이버 jar 파일은 HBase 클러스터에 있습니다. 경로는
 	C:\apps\dist\phoenix-4.0.0.2.1.11.0-2316\phoenix-4.0.0.2.1.11.0-2316-client.jar
 워크스테이션의 [SQuirrel 설치 폴더]/lib 경로 아래에 복사해야 합니다. 가장 쉬운 방법은 RDP를 통해 클러스터에 연결한 후 파일 복사/붙여넣기(Ctrl+C 및 Ctrl+V)를 사용하여 워크스테이션에 복사하는 것입니다.
 
-**SQuirrel에 Phoenix 드라이버를 추가하려면**
+**SQuirreL에 Phoenix 드라이버를 추가하려면**
 
-1. 워크스테이션에서 SQuirrel SQL Client를 엽니다.
+1. 워크스테이션에서 SQuirreL SQL Client를 엽니다.
 2. 왼쪽에서 **드라이버** 탭을 클릭합니다.
 2. **드라이버** 메뉴에서 **새 드라이버**를 클릭합니다.
 3. 다음 정보를 입력합니다.
@@ -232,28 +242,28 @@ Phoenix 드라이버 jar 파일은 HBase 클러스터에 있습니다. 경로는
 	- **예제 URL**: jdbc:phoenix:zookeeper2.contoso-hbase-eu.f5.internal.cloudapp.net
 	- **클래스 이름**: org.apache.phoenix.jdbc.PhoenixDriver
 
-	>[AZURE.WARNING]예제 URL에는 모두 소문자를 사용합니다.
+	>[AZURE.WARNING]예제 URL에는 모두 소문자를 사용합니다. 그 중 하나가 다운된 경우 전체 zookeeper 쿼럼을 사용할 수 있습니다. 호스트 이름은 zookeeper0, zookeeper1 및 zookeeper2입니다.
 
-	![HDInsight HBase Phoenix SQuirrel 드라이버][img-squirrel-driver]
+	![HDInsight HBase Phoenix SQuirreL 드라이버][img-squirrel-driver]
 4. **확인**을 클릭합니다.
 
 **HBase 클러스터에 대한 별칭을 만들려면**
 
-1. SQuirrel에서 왼쪽의 **별칭** 탭을 클릭합니다.
+1. SQuirreL에서 왼쪽의 **별칭** 탭을 클릭합니다.
 2. **별칭** 메뉴에서 **새 별칭**을 클릭합니다.
 3. 다음 정보를 입력합니다.
 
 	- **이름**: HBase 클러스터의 이름 또는 사용자가 원하는 이름
 	- **드라이버**: Phoenix. 마지막 절차에서 만든 드라이버 이름과 일치해야 합니다.
 	- **URL**: 드라이버 구성에서 복사됩니다. 모두 소문자를 사용해야 합니다.
-	- **사용자 이름**: HBase 클러스터 HTTP 사용자 이름
-	- **암호**: HBase 클러스터 Hadoop 사용자 암호
+	- **사용자 이름**: 모든 텍스트일 수 있습니다. 여기 VPN 연결을 사용하기 때문에 사용자 이름은 전혀 사용되지 않습니다.
+	- **암호**: 모든 텍스트일 수 있습니다.
 
-	![HDInsight HBase Phoenix SQuirrel 드라이버][img-squirrel-alias]
+	![HDInsight HBase Phoenix SQuirreL 드라이버][img-squirrel-alias]
 4. **테스트**를 클릭합니다. 
-5. **Connect**를 클릭합니다. 연결된 경우 SQuirrel은 다음과 같습니다.
+5. **연결**을 클릭합니다. 연결된 경우 SQuirreL은 다음과 같습니다.
 
-	![HBase Phoenix SQuirrel][img-squirrel]
+	![HBase Phoenix SQuirreL][img-squirrel]
 
 **테스트를 실행하려면**
 
@@ -263,11 +273,11 @@ Phoenix 드라이버 jar 파일은 HBase 클러스터에 있습니다. 경로는
 		CREATE TABLE IF NOT EXISTS us_population (state CHAR(2) NOT NULL, city VARCHAR NOT NULL, population BIGINT  CONSTRAINT my_pk PRIMARY KEY (state, city))
 3. 실행 단추를 클릭합니다.
 
-	![HBase Phoenix SQuirrel][img-squirrel-sql]
+	![HBase Phoenix SQuirreL][img-squirrel-sql]
 4. **개체** 탭으로 다시 전환합니다.
 5. 별칭 이름을 확장한 다음 **테이블**을 확장합니다. 새 테이블이 나열됩니다.
  
-## 다음 단계
+##다음 단계
 이 문서에서는 HDInsight에서 Apache Phoenix를 사용하는 방법에 대해 알아보았습니다. 자세한 내용은 다음을 참조하세요.
 
 - [HDInsight HBase 개요][hdinsight-hbase-overview]: HBase는 비구조적/반구조적 대량 데이터에 대해 임의 액세스 및 강력한 일관성을 제공하는 Hadoop 기반의 Apache 오픈 소스 NoSQL 데이터베이스입니다.
@@ -294,6 +304,6 @@ Phoenix 드라이버 jar 파일은 HBase 클러스터에 있습니다. 경로는
 [img-squirrel-sql]: ./media/hdinsight-hbase-phoenix-squirrel/hdinsight-hbase-squirrel-sql.png
 
 
-
-<!--HONumber=52-->
  
+
+<!---HONumber=62-->

@@ -1,6 +1,6 @@
 <properties
    pageTitle="Visual Studio용 Hadoop 도구를 사용한 Hive 쿼리 | Microsoft Azure"
-   description="Visual Studio를 통해 HDInsight와 Hive를 사용하는 방법에 대해 알아봅니다."
+   description="Visual Studio Hadoop 도구를 사용하여 HDInsight에서 Hadoop으로 Hive를 사용하는 방법에 대해 알아봅니다."
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
@@ -16,7 +16,7 @@
    ms.date="04/03/2015"
    ms.author="larryfr"/>
 
-# Visual Studio용 HDInsight 도구를 사용하여 Hive 쿼리 실행
+#Visual Studio용 HDInsight 도구를 사용하여 Hive 쿼리 실행
 
 [AZURE.INCLUDE [hive-selector](../../includes/hdinsight-selector-use-hive.md)]
 
@@ -24,7 +24,7 @@
 
 > [AZURE.NOTE]이 문서에는 예제에 사용된 HiveQL 문이 수행하는 작업에 대해 자세한 설명을 제공하지 않습니다. 이 예제에서 사용된 HiveQL에 대한 자세한 내용은 <a href="hdinsight-use-hive.md" target="_blank">HDInsight에서 Hadoop과 Hive 사용</a>을 참조하세요.
 
-## <a id="prereq"></a>필수 조건
+##<a id="prereq"></a>필수 조건
 
 이 문서의 단계를 완료하려면 다음이 필요합니다.
 
@@ -32,7 +32,7 @@
 
 * Visual Studio 2012 <a href="http://www.microsoft.com/download/details.aspx?id=39305" target="_blank">업데이트 4</a>, Visual Studio 2013 <a href="http://go.microsoft.com/fwlink/?LinkId=390465" target="_blank">업데이트 3</a> 또는 <a href="http://www.microsoft.com/download/details.aspx?id=40769" target="_blank">Visual Studio Express 2013</a>
 
-## <a id="run"></a> Visual Studio용 HDInsight 도구를 사용하여 Hive 쿼리 실행
+##<a id="run"></a> Visual Studio용 HDInsight 도구를 사용하여 Hive 쿼리 실행
 
 1. **Visual Studio**를 열고 **새로 만들기** > **프로젝트** > **HDInsight** > **Hive 응용 프로그램**을 선택합니다. 이 프로젝트에 대한 이름을 입력합니다.
 
@@ -75,17 +75,17 @@
         > [AZURE.NOTE]**EXTERNAL** 테이블과 달리 내부 테이블을 삭제하면 기본 데이터도 삭제됩니다.
 
     * **STORED AS ORC**: 데이터를 ORC(Optimized Row Columnar) 형식으로 저장합니다. Hive 데이터를 저장하기 위한 고도로 최적화되고 효율적인 형식입니다.
-    * **INSERT OVERWRITE ... SELECT**: **[ERROR]**가 포함된 **log4jLogs** 테이블에서 행을 선택하고 데이터를 **errorLogs** 테이블에 삽입합니다.
+    * **덮어쓰기 삽입... SELECT**: **[ERROR]**가 포함된 **log4jLogs** 테이블에서 행을 선택하고 데이터를 **errorLogs** 테이블에 삽입합니다.
 
 7. 도구 모음에서 **제출**을 선택하여 작업을 실행합니다. **작업 상태**를 사용하여 작업이 성공적으로 완료되었는지 결정합니다.
 
 8. 작업이 완료되고 새 테이블이 만들어졌는지 확인하려면 **서버 탐색기**를 사용하여 **Azure** > **HDInsight** > HDInsight 클러스터 > **Hive 데이터베이스** > **기본값**을 확장합니다. **errorLogs** 및 **log4jLogs** 테이블이 표시됩니다.
 
-## <a id="summary"></a>요약
+##<a id="summary"></a>요약
 
 여기에서 볼 수 있듯이 Visual Studio용 HDInsight 도구는 HDInsight 클러스터에서 Hive 쿼리 실행 작업 상태를 모니터링하고, 출력을 검색하는 쉬운 방법을 제공합니다.
 
-## <a id="nextsteps"></a>다음 단계
+##<a id="nextsteps"></a>다음 단계
 
 HDInsight의 Hive에 대한 일반적인 정보:
 
@@ -133,5 +133,6 @@ Visual Studio용 HDInsight 도구에 대한 자세한 내용은 다음을 참조
 [image-hdi-hive-powershell]: ./media/hdinsight-use-hive/HDI.HIVE.PowerShell.png
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="사용자 등록 및 제품 구독을 위임하는 방법" 
-	description="Azure API 관리에서 사용자 등록 및 제품 구독을 타사에 위임하는 방법에 대해 알아봅니다.." 
+	description="Azure API 관리에서 사용자 등록 및 제품 구독을 타사에 위임하는 방법에 대해 알아봅니다." 
 	services="api-management" 
 	documentationCenter="" 
 	authors="antonba" 
@@ -13,18 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/14/2015" 
+	ms.date="06/10/2015" 
 	ms.author="antonba"/>
 
 # 사용자 등록 및 제품 구독을 위임하는 방법
 
 위임을 통해 개발자 로그인/등록 및 제품 구독을 처리하는 데 개발자 포털의 기본 제공된 기능이 아닌 기존 웹 사이트를 사용할 수 있습니다. 따라서 웹 사이트에서 사용자 데이터를 소유하고 이러한 단계에 대한 유효성 검사를 편리한 방식으로 수행할 수 있습니다.
 
+위임에 대한 자세한 내용은 다음 비디오를 참조하세요.
 
-## 항목 내용
-
--   [개발자 로그인 및 등록 위임][]
--   [제품 구독 위임][]
+> [AZURE.VIDEO delegating-user-authentication-and-product-subscription-to-a-3rd-party-site]
 
 ## <a name="delegate-signin-up"> </a>개발자 로그인 및 등록 위임
 
@@ -40,32 +38,28 @@
 
 먼저, 위임 끝점을 통해 요청을 라우팅하도록 API 관리를 설정하겠습니다. API 관리 게시자 포털에서 **보안**을 클릭하고 **위임** 탭을 클릭합니다. '위임 로그인 및 등록' 확인란을 클릭하여 사용하도록 설정합니다.
 
-![Delegation page][api-management-delegation-signin-up]
+![위임 페이지][api-management-delegation-signin-up]
 
 * 특수한 위임 끝점의 URL을 결정하고 **위임 끝점 URL** 필드에 이 URL을 입력합니다. 
 
-* **위임 인증 키** 필드에서 요청이 Azure API 관리에서 들어오는지 확인하기 위해 사용자에게 제공된 서명을 계산하는 데 사용되는 암호를 입력합니다. **생성** 단추를 클릭하여 API 관리에서 키가 임의로 생성되도록 할 수 있습니다.
+* **위임 인증 키** 필드에서 요청이 Azure API 관리에서 들어오는지 확인하기 위해 사용자에게 제공된 서명을 계산하는 데 사용되는 암호를 입력합니다. **생성** 단추를 클릭하여 API 관리가 임의로 사용자를 위해 키를 생성하도록 할 수 있습니다.
 
 이제 **위임 끝점**을 만들어야 합니다. 몇 가지 작업을 수행해야 합니다.
 
 1. 다음 형식의 요청을 받습니다.
 
-	> *http://www.yourwebsite.com/apimdelegation?operation=SignIn&returnUrl={원본 페이지의 URL}&salt={문자열}&sid={문자열}*
+	> *원본 페이지의 http://www.yourwebsite.com/apimdelegation?operation=SignIn&returnUrl={URL}&salt={문자열}&sig={문자열}*
 
-	로그인/등록 케이스의 쿼리 매개 변수:
-	- **operation**: 위임 요청이 무엇인지 식별합니다. 이 경우 "SignIn"이 될 수 있습니다.
-	- **returnUrl**: 사용자가 로그인 또는 등록 링크를 클릭하는 페이지의 URL입니다.
-	- **salt**: 보안 해시를 계산하는 데 사용되는 특수한 salt 문자열입니다.
-	- **sig**: 사용자의 계산된 해시와 비교하는 데 사용할 계산된 보안 해시입니다.
+	로그인/등록 사례에 대한 쿼리 매개 변수: - **operation**: 위임 요청 유형 식별 - 이 경우에는 **SignIn**만 가능 - **returnUrl**: 사용자가 로그인 또는 등록 링크를 클릭한 페이지의 URL - **salt**: 보안 해시 계산에 사용되는 특수 salt 문자열 - **sig**: 자신의 계산된 해시와 비교하는 데 사용되는 계산된 보안 해시
 
 2. 요청이 Azure API 관리에서 들어오는지 확인합니다(선택 사항이지만 보안을 위해 상당히 권장됨).
 
 	* **returnUrl** 및 **salt** 쿼리 매개 변수([아래 제공된 예제 코드])에 따라 문자열의 HMAC-SHA512 해시를 계산합니다.
-        > HMAC(**salt** + '\n' + **returnUrl**)
+        > **returnUrl**
 		 
 	* 위의 계산된 해시와 **sig** 쿼리 매개 변수 값을 비교합니다. 두 해시가 일치하면 다음 단계를 진행하고, 그렇지 않으면 요청을 거부합니다.
 
-2. 로그인/등록을 위한 요청을 받고 있는지 확인합니다. **operation** 쿼리 매개 변수가 "**SignIn**"으로 설정됩니다.
+2. 로그인/등록에 대한 요청을 받고 있음을 확인합니다. **작업** 쿼리 매개 변수는 "**SignIn**"으로 설정됩니다.
 
 3. 로그인 또는 등록에 대한 UI를 사용자에게 표시합니다.
 
@@ -73,13 +67,25 @@
 
 5. 사용자가 인증되면
 
-	* [API 관리 REST API를 통해 ]SSO(Single-Sign-On) 토큰을 요청합니다.
+	* API 관리 REST API를 통해 [SSO(Single-Sign-On) 토큰을 요청]합니다.
 
 	* returnUrl 쿼리 매개 변수를 위의 API 호출에서 받은 SSO URL에 추가합니다.
-		> 예: https://customer.portal.azure-api.net/signin-sso?token&returnUrl=/return/url 
+		> 예: https://customer.portal.azure-api.net/signin-sso?token&returnUrl=/return/url
 
 	* 사용자를 위에서 생성한 URL로 리디렉션합니다.
 
+이전 단계를 수행하고 다음 작업 중 하나를 사용하여 **SignIn** 작업뿐만 아니라 계정 관리도 수행할 수 있습니다.
+
+-	**ChangePassword**
+-	**ChangeProfile**
+-	**CloseAccount**
+
+계정 관리 작업에 대한 다음 쿼리 매개 변수를 전달해야 합니다.
+
+-	**operation**: 위임 요청의 유형을 식별합니다(ChangePassword, ChangeProfile 또는 CloseAccount).
+-	**userId**: 관리할 계정의 사용자 ID입니다.
+-	**salt**: 보안 해시를 계산하는 데 사용되는 특수 salt 문자열입니다.
+-	**sig**: 자신의 계산된 해시와 비교하는 데 사용되는 계산된 보안 해시입니다.
 
 ## <a name="delegate-product-subscription"> </a>제품 구독 위임
 
@@ -97,23 +103,15 @@
 
 1. 다음 형식의 요청을 받습니다.
 
-	> *http://www.yourwebsite.com/apimdelegation?operation={operation}&productId={구독할 제품}&userId={요청하는 사용자}&salt={문자열}&sid={문자열}*
+	> *구독하려는 http://www.yourwebsite.com/apimdelegation?operation={operation}&productId={product}&userId={요청하는 사용자}&salt={문자열}&sig={문자열}*
 
-	제품 구독 케이스에 대한 쿼리 매개 변수:
-	- **operation**: 위임 요청 유형이 무엇인지 식별합니다. 제품 구독 요청의 경우 유효한 옵션은 다음과 같습니다.
-		- "Subscribe": 지정된 ID를 사용하여 사용자가 지정된 제품을 구독하도록 요청합니다(아래 참조).
-		- "Unsubscribe": 제품에 대한 사용자 구독을 취소하는 요청입니다.
-		- "Renew": 구독을 갱신하는 요청입니다(예: 만료일이 다가오는 경우).
-	- **productId**: 사용자가 구독을 요청한 제품의 ID입니다.
-	- **userId**: 요청이 생성된 사용자의 ID입니다.
-	- **salt**: 보안 해시를 계산하는 데 사용되는 특수한 salt 문자열입니다.
-	- **sig**: 사용자의 계산된 해시와 비교하는 데 사용할 계산된 보안 해시입니다.
+	제품 구독 사례에 대한 쿼리 매개 변수: - **operation**: 위임 요청 유형 식별합니다. 제품 구독 요청의 경우 유효한 옵션: - "구독": 제공된 ID로 지정된 제품에 사용자를 구독하기 위한 요청(아래 참조) - "구독 취소": 사용자의 제품 구독을 취소하기 위한 요청 - "갱신": 구독을 갱신하기 위한 요청(예: 만료 직전의 제품) - **productId**: 사용자가 구독하려고 요청한 제품 ID - **userId**: 요청한 사용자 ID - **salt**: 보안 해시 계산에 사용되는 특수 salt 문자열 - **sig**: 자신의 계산된 해시와 비교하는 데 사용되는 계산된 보안 해시
 
 
 2. 요청이 Azure API 관리에서 들어오는지 확인합니다(선택 사항이지만 보안을 위해 상당히 권장됨).
 
-	* **productId**, **userId** 및 **salt** 쿼리 매개 변수를 기반으로 하여 문자열의 HMAC-SHA512를 계산합니다.
-		> HMAC(**salt** + '\n' + **productId** + '\n' + **userId**)
+	* **productId**, **userId** 및 **salt** 쿼리 매개 변수를 기반으로 하여 문자열의 HMAC-SHA512를 다음과 같이 계산합니다.
+		> **productId****userId**
 		 
 	* 위의 계산된 해시와 **sig** 쿼리 매개 변수 값을 비교합니다. 두 해시가 일치하면 다음 단계를 진행하고, 그렇지 않으면 요청을 거부합니다.
 	
@@ -121,25 +119,27 @@
 
 4. 사용자의 제품 구독을 마치면 [제품 구독을 위해 REST API를 호출]하여 사용자가 API 관리 제품도 구독하도록 합니다.
 
-5. 요청을 받을 때 지정된 **returnUrl**로 사용자를 다시 리디렉션합니다.
+5. 요청을 받을 때 지정한 **returnUrl**로 사용자를 다시 리디렉션합니다.
 
-## <a name="delegate-example-code"> </a> 예제 코드 ##
+## <a name="delegate-example-code"> </a>예제 코드 ##
 
-이러한 코드 샘플에서는 서명의 유효성을 검사하는 데 사용 되는 HMAC를 만들어 전달된 returnUrl의 유효성을 증명하기 위해 API 관리 포털의 위임 화면에 설정된 위임 *유효성 검사 키*를 가져오는 방법을 보여 줍니다. 약간만 수정하면 동일한 코드를 productId 및 userId에도 사용할 수 있습니다.
+이러한 코드 샘플에서는 서명의 유효성을 검사하는 데 사용될 HMAC를 만들어 전달된 returnUrl의 유효성을 증명하기 위해 API 관리 포털의 위임 화면에 설정된 *위임 유효성 검사 키*를 가져오는 방법을 보여 줍니다. 약간만 수정하면 동일한 코드를 productId 및 userId에도 사용할 수 있습니다.
 
 **returnUrl의 해시를 생성하는 C# 코드**
 
-	using System.Security.Cryptography;
+    using System.Security.Cryptography;
 
-	string key = "delegation validation key";
-	string returnUrl = "returnUrl query parameter";
-	string salt = "salt query parameter";
-	string signature;
-	using (var encoder = new HMACSHA512(Convert.FromBase64String(key)))
-	{
-		signature = encoder.ComputeHash(Encoding.UTF8.GetBytes(salt + "\n" + returnUrl));
-		// change to (salt + "\n" + productId + "\n" + userId) for point 2 above
-	}
+    string key = "delegation validation key";
+    string returnUrl = "returnUrl query parameter";
+    string salt = "salt query parameter";
+    string signature;
+    using (var encoder = new HMACSHA512(Convert.FromBase64String(key)))
+    {
+        signature = Convert.ToBase64String(encoder.ComputeHash(Encoding.UTF8.GetBytes(salt + "\n" + returnUrl)));
+        // change to (salt + "\n" + productId + "\n" + userId) when delegating product subscription
+        // compare signature to sig query parameter
+    }
+
 
 **returnUrl의 해시를 생성하는 NodeJS 코드**
 
@@ -151,19 +151,19 @@
 	
 	var hmac = crypto.createHmac('sha512', new Buffer(key, 'base64'));
 	var digest = hmac.update(salt + '\n' + returnUrl).digest();
-	// change to (salt + '\n' + productId + '\n' + userId) for point 2 above
+    // change to (salt + "\n" + productId + "\n" + userId) when delegating product subscription
+    // compare signature to sig query parameter
 	
 	var signature = digest.toString('base64');
 
-[개발자 로그인 및 등록 위임]: #delegate-signin-up
-[제품 구독 위임]: #delegate-product-subscription
-[Single Sign-On(SSO) 토큰 요청]: http://go.microsoft.com/fwlink/?LinkId=507409
-[사용자 만들기]: http://go.microsoft.com/fwlink/?LinkId=507655#CreateUser
-[제품 구독에 대한 REST API 호출]: http://go.microsoft.com/fwlink/?LinkId=507655#SSO
-[다음 단계]: #next-steps
-[아래에 제공된 예제 코드]: #delegate-example-code
+[Delegating developer sign-in and sign-up]: #delegate-signin-up
+[Delegating product subscription]: #delegate-product-subscription
+[SSO(Single-Sign-On) 토큰을 요청]: http://go.microsoft.com/fwlink/?LinkId=507409
+[사용자를 만듭니다]: http://go.microsoft.com/fwlink/?LinkId=507655#CreateUser
+[제품 구독을 위해 REST API를 호출]: http://go.microsoft.com/fwlink/?LinkId=507655#SSO
+[Next steps]: #next-steps
+[아래 제공된 예제 코드]: #delegate-example-code
 
 [api-management-delegation-signin-up]: ./media/api-management-howto-setup-delegation/api-management-delegation-signin-up.png
 
-<!--HONumber=46--> 
- 
+<!---HONumber=62-->

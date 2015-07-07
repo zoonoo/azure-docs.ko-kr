@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Azure 앱 서비스, 클라우드 서비스 및 가상 컴퓨터 비교" 
+<properties
+	pageTitle="Azure 앱 서비스, 클라우드 서비스 및 가상 컴퓨터 비교"
 	description="웹 응용 프로그램을 호스트하는 데 Azure 앱 서비스, 클라우드 서비스 및 가상 컴퓨터를 사용하는 경우에 대해 알아봅니다."
-	services="•app-service\web, virtual-machines, cloud-services" 
-	documentationCenter="" 
-	authors="tdykstra" 
-	manager="wpickett" 
+	services="app-service\web, virtual-machines, cloud-services"
+	documentationCenter=""
+	authors="tdykstra"
+	manager="wpickett"
 	editor="jimbe"/>
 
-<tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/29/2015" 
+<tags
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article" 
+	ms.date="04/29/2015"
 	ms.author="tdykstra"/>
 
 # Azure 앱 서비스, 클라우드 서비스 및 가상 컴퓨터 비교
@@ -52,20 +52,20 @@ Azure 앱 서비스 또는 Azure 클라우드 서비스에서 실행하려면 �
 
 복잡한 비즈니스 응용 프로그램에 적합한 솔루션인 Azure 앱 서비스에서는 부하 분산된 플랫폼에서 자동으로 확장되고 Active Directory를 통해 보호되며 온-프레미스 리소스에 연결되는 앱을 개발할 수 있습니다. 또한 최고의 기능을 제공하는 관리 포털과 API를 통해 이러한 앱을 쉽게 관리할 수 있으며 앱 정보 도구를 사용하여 고객이 앱을 사용하는 방법을 파악할 수 있습니다. 새로운 [Webjobs][] 기능을 사용하면 웹 계층의 일부분으로 백그라운드 프로세스와 작업을 실행할 수 있으며 하이브리드 연결 및 [VNET 기능](../fundamentals-introduction-to-azure.md#networking/)을 사용하면 온-프레미스 리소스에 쉽게 다시 연결할 수 있습니다. Azure 앱 서비스는 웹앱에 대해 999의 SLA를 제공하며 다음 작업을 수행할 수 있게 해줍니다.
 
-* 자동 복구 및 패치되는 클라우드 플랫폼에서 응용 프로그램을 안정적으로 실행할 수 있습니다. 
+* 자동 복구 및 패치되는 클라우드 플랫폼에서 응용 프로그램을 안정적으로 실행할 수 있습니다.
 * 전 세계 데이터 센터 네트워크로 자동 확장할 수 있습니다.
-* 재해 복구를 위한 백업 및 복원을 수행할 수 있습니다. 
+* 재해 복구를 위한 백업 및 복원을 수행할 수 있습니다.
 * ISO, SOC2 및 PCI 호환성을 제공할 수 있습니다.
 * Active Directory와 통합할 수 있습니다.
 
-### <a id="corp"></a> 효율적으로 확장 가능하며 전 세계적으로 제공할 수 있는 회사 웹 사이트를 호스트할 안정적인 방법이 필요한 경우 
+### <a id="corp"></a> 효율적으로 확장 가능하며 전 세계적으로 제공할 수 있는 회사 웹 사이트를 호스트할 안정적인 방법이 필요한 경우
 
 회사 웹 사이트를 호스트하는 데 적합한 솔루션인 Azure 앱 서비스에서는 전 세계 데이터 센터 네트워크의 요구를 충족하도록 웹앱을 빠르고 쉽게 확장할 수 있습니다. Azure 웹 사이트는 로컬 연결, 내결함성 및 지능형 트래픽 관리 기능을 제공합니다. 이러한 모든 기능이 최고 수준의 관리 도구가 포함된 플랫폼에서 제공되므로 사이트 상태와 사이트 트래픽을 빠르고 쉽게 파악할 수 있습니다. Azure 앱 서비스는 웹앱에 대해 999의 SLA를 제공하며 다음 작업을 수행할 수 있게 해줍니다.
 
-* 자동 복구 및 패치되는 클라우드 플랫폼에서 웹 사이트를 안정적으로 실행할 수 있습니다. 
+* 자동 복구 및 패치되는 클라우드 플랫폼에서 웹 사이트를 안정적으로 실행할 수 있습니다.
 * 전 세계 데이터 센터 네트워크로 자동 확장할 수 있습니다.
-* 재해 복구를 위한 백업 및 복원을 수행할 수 있습니다. 
-* 통합된 도구로 로그 및 트래픽을 관리할 수 있습니다. 
+* 재해 복구를 위한 백업 및 복원을 수행할 수 있습니다.
+* 통합된 도구로 로그 및 트래픽을 관리할 수 있습니다.
 * ISO, SOC2 및 PCI 호환성을 제공할 수 있습니다.
 * Active Directory와 통합할 수 있습니다.
 
@@ -74,8 +74,8 @@ Azure 앱 서비스 또는 Azure 클라우드 서비스에서 실행하려면 �
 Azure 앱 서비스에서는 이전의 IIS6 응용 프로그램 마이그레이션과 관련된 인프라 비용 문제를 쉽게 해결할 수 있습니다. Microsoft는 호환성을 확인하고 수행해야 하는 변경을 식별할 수 있는 [간편한 마이그레이션 도구와 자세한 마이그레이션 지침](https://www.movemetowebsites.net/)을 제작했습니다. Visual Studio, TFS 및 일반 CMS 도구와의 통합을 통해 IIS6 응용 프로그램을 쉽게 클라우드로 직접 배포할 수 있습니다. 배포 후에는 Azure 관리 포털에서 제공하는 유용한 관리 도구를 사용하여 응용 프로그램을 축소해 비용을 관리하고 필요에 따라 수요 충족을 위해 응용 프로그램을 확장할 수 있습니다. 마이그레이션 도구를 통해 다음을 수행할 수 있습니다.
 
 * 레거시 Windows Server 2003 웹 응용 프로그램을 클라우드로 빠르고 쉽게 마이그레이션할 수 있습니다.
-* 연결된 SQL 데이터베이스를 온-프레미스에 유지하여 하이브리드 응용 프로그램을 만들 수 있습니다. 
-* 레거시 응용 프로그램과 함께 SQL 데이터베이스를 자동으로 이동할 수 있습니다. 
+* 연결된 SQL 데이터베이스를 온-프레미스에 유지하여 하이브리드 응용 프로그램을 만들 수 있습니다.
+* 레거시 응용 프로그램과 함께 SQL 데이터베이스를 자동으로 이동할 수 있습니다.
 
 ### <a id="smallbusiness"></a>작은 비즈니스 소유자가 사이트를 저렴하게 호스트할 방법을 찾고 있지만 미래 성장도 염두에 두고 있는 경우
 
@@ -108,16 +108,16 @@ Azure 앱 서비스는 처음에 무료로 사용한 후 필요할 때 기능을
 
 응용 프로그램에 소프트웨어 및 운영 체제의 복잡한 설치나 구성이 필요한 경우 가상 컴퓨터가 최상의 솔루션일 수 있습니다. 가상 컴퓨터를 통해 다음을 수행할 수 있습니다.
 
-- 가상 컴퓨터 갤러리를 사용하여 Windows, Linux 등의 운영 체제에서 시작한 후 응용 프로그램 요구 사항에 맞게 사용자 지정할 수 있습니다. 
-- Azure의 가상 컴퓨터에서 실행되도록 기존 온-프레미스 서버의 사용자 지정 이미지를 만들고 업로드할 수 있습니다. 
+- 가상 컴퓨터 갤러리를 사용하여 Windows, Linux 등의 운영 체제에서 시작한 후 응용 프로그램 요구 사항에 맞게 사용자 지정할 수 있습니다.
+- Azure의 가상 컴퓨터에서 실행되도록 기존 온-프레미스 서버의 사용자 지정 이미지를 만들고 업로드할 수 있습니다.
 
 ### <a id="oss"></a>사이트가 오픈 소스 소프트웨어를 사용하며 Azure에서 호스트하려는 경우
 
 앱 서비스에서 오픈 소스 프레임워크가 지원되는 경우 응용 프로그램에 필요한 언어와 프레임워크는 자동으로 구성됩니다. 앱 서비스를 통해 다음 작업을 수행할 수 있습니다.
 
-- [.NET][dotnet], [PHP][], [Node.js][nodejs], [Python][] 등의 여러 인기 있는 오픈 소스 언어를 사용할 수 있습니다. 
-- WordPress, Drupal, Umbraco, DNN 및 다른 여러 타사 웹 응용 프로그램을 설정할 수 있습니다. 
-- 기존 응용 프로그램을 마이그레이션하거나 응용 프로그램 갤러리에서 새로 만들 수 있습니다. 
+- [.NET][dotnet], [PHP][], [Node.js][nodejs], [Python][] 등의 여러 인기 있는 오픈 소스 언어를 사용할 수 있습니다.
+- WordPress, Drupal, Umbraco, DNN 및 다른 여러 타사 웹 응용 프로그램을 설정할 수 있습니다.
+- 기존 응용 프로그램을 마이그레이션하거나 응용 프로그램 갤러리에서 새로 만들 수 있습니다.
 
 앱 서비스에서 오픈 소스 프레임워크가 지원되지 않는 경우에는 나머지 두 Azure 웹 호스팅 옵션 중 하나에서 해당 프레임워크를 실행할 수 있습니다. 클라우드 서비스를 선택하는 경우 시작 작업을 사용하여 Windows에서 실행되는 필수 오픈 소스 소프트웨어를 설치 및 구성합니다. 가상 컴퓨터를 선택하는 경우 Windows 또는 Linux 기반일 수 있는 컴퓨터 이미지에 소프트웨어를 설치 및 구성합니다.
 
@@ -131,10 +131,10 @@ HTTP 기반 웹 서비스를 사용하면 모바일 클라이언트를 포함하
 
 - 빠르게 웹앱을 만들어 전 세계에 분산된 Azure 데이터 센터 중 하나에서 HTTP 웹 서비스를 호스트할 수 있습니다.
 - 기존 서비스를 마이그레이션하거나 새 서비스를 만들 수 있습니다.
-- 단일 인스턴스로 가용성에 대한 SLA를 달성하거나 여러 전용 컴퓨터로 규모를 확장할 수 있습니다. 
+- 단일 인스턴스로 가용성에 대한 SLA를 달성하거나 여러 전용 컴퓨터로 규모를 확장할 수 있습니다.
 - 게시된 사이트를 사용하여 모바일 클라이언트를 비롯한 모든 HTTP 클라이언트에 REST API를 제공할 수 있습니다.
 
-또한 Azure 앱 서비스에는 REST API에 대한 새로운 미리 보기 기능인 API 앱이 있습니다. API 앱에 대한 자세한 내용은 [API 앱 정의](app-service-api/app-service-api-apps-why-best-platform.md)를 참조하세요.
+또한 Azure 앱 서비스에는 REST API에 대한 새로운 미리 보기 기능인 API 앱이 있습니다. API 앱에 대한 자세한 내용은 [API 앱 정의](../app-service-api/app-service-api-apps-why-best-platform.md)를 참조하세요.
 
 ##<a name="features"></a>기능 비교
 
@@ -230,7 +230,7 @@ HTTP 기반 웹 서비스를 사용하면 모바일 클라이언트를 포함하
    <td valign="middle">X</td>
    <td valign="middle">X</td>
    <td valign="middle">X</td>
-   <td valign="middle">앱 서비스 웹앱은 REST API 중간 계층을 쉽게 호스트할 수 있고, <a href="http://go.microsoft.com/fwlink/?linkid=390226">WebJobs</a> 기능은 백그라운드 처리 작업을 호스트할 수 있습니다. 전용 웹 사이트에서 WebJobs를 실행하여 계층을 독립적으로 확장할 수 있습니다. 미리 보기[API 앱](app-service-api/app-service-api-apps-why-best-platform.md) 기능은 REST 서비스를 호스트하기 위한 추가 기능을 제공합니다.</td>
+   <td valign="middle">앱 서비스 웹앱은 REST API 중간 계층을 쉽게 호스트할 수 있고, <a href="http://go.microsoft.com/fwlink/?linkid=390226">WebJobs</a> 기능은 백그라운드 처리 작업을 호스트할 수 있습니다. 전용 웹 사이트에서 WebJobs를 실행하여 계층을 독립적으로 확장할 수 있습니다. 미리 보기[API 앱](../app-service-api/app-service-api-apps-why-best-platform.md) 기능은 REST 서비스를 호스트하기 위한 추가 기능을 제공합니다.</td>
 </tr>
 <tr>
    <td valign="middle"><p>통합된 MySQL-as-a-Service 지원</p></td>
@@ -349,21 +349,22 @@ HTTP 기반 웹 서비스를 사용하면 모바일 클라이언트를 포함하
 * [Azure 클라우드 서비스](/documentation/services/cloud-services/)
 * [Azure 가상 컴퓨터](/documentation/services/virtual-machines/)
 
-[ChoicesDiagram]: ./media/choose-web-site-cloud-service-vm/Websites_CloudServices_VMs_3.png
-[Azure 앱 서비스]: /services/app-service/
-[클라우드 서비스]: http://go.microsoft.com/fwlink/?LinkId=306052
-[가상 컴퓨터]: http://go.microsoft.com/fwlink/?LinkID=306053
-[ClearDB]: http://www.cleardb.com/
-[WebJobs]: http://go.microsoft.com/fwlink/?linkid=390226&clcid=0x409
-[Configuring an SSL certificate for an Azure Website]: http://www.windowsazure.com/develop/net/common-tasks/enable-ssl-web-site/
-[azurestore]: http://www.windowsazure.com/gallery/store/
-[scripting]: http://www.windowsazure.com/documentation/scripts/?services=web-sites
-[dotnet]: http://www.windowsazure.com/develop/net/
-[nodejs]: http://www.windowsazure.com/develop/nodejs/
-[PHP]: http://www.windowsazure.com/develop/php/
-[Python]: http://www.windowsazure.com/develop/python/
-[servicebus]: http://www.windowsazure.com/documentation/services/service-bus/
-[sqldatabase]: http://www.windowsazure.com/documentation/services/sql-database/
-[저장소]: http://www.windowsazure.com/documentation/services/storage/
+  [ChoicesDiagram]: ./media/choose-web-site-cloud-service-vm/Websites_CloudServices_VMs_3.png
+  [Azure 앱 서비스]: /services/app-service/
+  [클라우드 서비스]: http://go.microsoft.com/fwlink/?LinkId=306052
+  [가상 컴퓨터]: http://go.microsoft.com/fwlink/?LinkID=306053
+  [ClearDB]: http://www.cleardb.com/
+  [WebJobs]: http://go.microsoft.com/fwlink/?linkid=390226&clcid=0x409
+  [Configuring an SSL certificate for an Azure Website]: http://www.windowsazure.com/develop/net/common-tasks/enable-ssl-web-site/
+  [azurestore]: http://www.windowsazure.com/gallery/store/
+  [scripting]: http://www.windowsazure.com/documentation/scripts/?services=web-sites
+  [dotnet]: http://www.windowsazure.com/develop/net/
+  [nodejs]: http://www.windowsazure.com/develop/nodejs/
+  [PHP]: http://www.windowsazure.com/develop/php/
+  [Python]: http://www.windowsazure.com/develop/python/
+  [servicebus]: http://www.windowsazure.com/documentation/services/service-bus/
+  [sqldatabase]: http://www.windowsazure.com/documentation/services/sql-database/
+  [저장소]: http://www.windowsazure.com/documentation/services/storage/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

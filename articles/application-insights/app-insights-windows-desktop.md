@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Windows 데스크톱 앱용 Application Insights" 
+	pageTitle="Windows 데스크톱 앱 및 서비스용 Application Insights" 
 	description="Application Insights를 사용하여 Windows 앱의 사용량 및 성능을 분석합니다." 
 	services="application-insights" 
     documentationCenter="windows"
 	authors="alancameronwills" 
-	manager="keboyd"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,10 +12,10 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/04/2015" 
+	ms.date="06/13/2015" 
 	ms.author="awills"/>
 
-# Windows 데스크톱 앱의 Application Insights
+# Windows 데스크톱 앱 및 서비스의 Application Insights
 
 *Application Insights는 미리 보기 상태입니다.*
 
@@ -23,19 +23,16 @@
 
 Application Insights를 사용하면 사용량 및 성능을 위해 배포된 응용 프로그램을 모니터링할 수 있습니다.
 
-*Application Insights SDK는 데스크톱 앱에서 작동하도록 할 수 있지만 현재 지원하는 시나리오는 아닙니다. 하지만 실험적으로 시도해 보고자 하는 경우, 다음은 이를 수행하기 위한 팁입니다.*
-
-
+Application Insights SDK은 Windows 데스크톱 앱 및 서비스에 대한 지원을 제공합니다. 이 SDK는 모든 원격 분석 데이터에 대 해 전체 API 지원을 제공하지만 원격 분석 자동 컬렉션을 제공하지는 않습니다.
 
 
 ## <a name="add"></a> Application Insights 리소스 만들기
 
 
-1.  [Azure 포털][portal]에서 새 Application Insights 리소스를 만듭니다. 응용 프로그램 종류에 대해 ASP.NET 앱 또는 Windows 스토어 앱을 선택합니다. 
+1.  [Azure 포털][portal]에서 새 Application Insights 리소스를 만듭니다. 응용 프로그램 종류에 대해 Windows 스토어 앱을 선택합니다. 
 
     ![새로 만들기, Application Insights 클릭](./media/app-insights-windows-desktop/01-new.png)
 
-    (응용 프로그램 종류 선택은 개요 블레이드의 내용 및 [메트릭 탐색기][metrics]에서 사용할 수 있는 속성을 설정합니다.)
 
 2.  계측 키를 복사합니다.
 
@@ -46,11 +43,9 @@ Application Insights를 사용하면 사용량 및 성능을 위해 배포된 �
 
 1. Visual Studio에서 데스크톱 앱 프로젝트의 NuGet 패키지를 편집합니다. ![마우스 오른쪽 단추로 프로젝트 클릭 및 Nuget 패키지 관리 선택](./media/app-insights-windows-desktop/03-nuget.png)
 
-2. Application Insights SDK 코어를 설치합니다.
+2. Application Insights API 패키지를 설치합니다.
 
     ![**온라인**, **시험판 포함** 선택 및 "Application Insights" 검색](./media/app-insights-windows-desktop/04-ai-nuget.png)
-
-    (다른 방법으로 웹 앱에 대한 Application Insights SDK를 선택할 수 있습니다. 이는 일부 기본 제공 성능 카운터 원격 분석을 제공합니다.)
 
 3. ApplicationInsights.config(NuGet 설치로 추가됨)를 편집합니다. 닫는 태그 바로 전에 삽입합니다.
 
@@ -60,11 +55,10 @@ Application Insights를 사용하면 사용량 및 성능을 위해 배포된 �
     
     `TelemetryConfiguration.Active.InstrumentationKey = "your key";`
 
-4. 웹 앱 SDK를 설치한 경우 ApplicationInsights.config에서 웹 원격 분석 모듈 주석 처리도 하고 싶을 수 있습니다.
 
 ## <a name="telemetry"></a>원격 분석 호출 삽입
 
-`TelemetryClient` 인스턴스를 만들고 [이를 사용하여 원격 분석을 전송][track]합니다.
+`TelemetryClient` 인스턴스를 만들고 [이를 사용하여 원격 분석을 전송][api]합니다.
 
 `TelemetryClient.Flush`을(를) 사용하여 앱을 닫기 전에 메시지를 보냅니다. (다른 종류의 앱에는 사용하지 않는 것이 좋습니다.)
 
@@ -78,6 +72,15 @@ Application Insights를 사용하면 사용량 및 성능을 위해 배포된 �
         ...
         private void Form1_Load(object sender, EventArgs e)
         {
+            // Alternative to setting ikey in config file:
+            tc.InstrumentationKey = "key copied from portal";
+
+            // Set session data:
+            tc.Context.User.Id = Environment.GetUserName();
+            tc.Context.Session.Id = Guid.NewGuid().ToString();
+            tc.Context.Device.OperatingSystem = Environment.OSVersion.ToString();
+
+            // Log a page view:
             tc.TrackPageView("Form1");
             ...
         }
@@ -94,23 +97,25 @@ Application Insights를 사용하면 사용량 및 성능을 위해 배포된 �
 
 ```
 
-[Application Insights API][track] 중 하나를 사용하여 원격 분석을 보냅니다. Windows 데스크톱 응용 프로그램에서는 원격 분석이 자동으로 전송되지 않습니다. 일반적으로 다음을 사용할 수 있습니다.
+[Application Insights API][api] 중 하나를 사용하여 원격 분석을 보냅니다. Windows 데스크톱 응용 프로그램에서는 원격 분석이 자동으로 전송되지 않습니다. 일반적으로 다음을 사용할 수 있습니다.
 
 * 양식, 페이지 또는 탭 전환 시 TrackPageView(pageName)
 * 다른 사용자 동작에 대해서는 TrackEvent(eventName)
+* 특정 이벤트에 연결되지 않은 메트릭의 정기적인 보고서를 보내기 위한 배경 작업에서는 TrackMetric(name, value)
 * [진단 로깅][diagnostic]에 대해서는 TrackTrace(logEvent)
 * Catch 절에서는 TrackException(exception)
-* 특정 이벤트에 연결되지 않은 메트릭의 정기적인 보고서를 보내기 위한 배경 작업에서는 TrackMetric(name, value)
 
-사용자 및 세션의 수를 보려면 컨텍스트 이니셜라이저를 설정합니다.
+#### 컨텍스트 이니셜라이저
 
-    class TelemetryInitializer: IContextInitializer
+각 TelemetryClient 인스턴스에서 세션 데이터를 설정하는 대안으로 컨텍스트 이니셜라이저를 사용할 수 있습니다.
+
+```C#
+    class UserSessionInitializer: IContextInitializer
     {
         public void Initialize(TelemetryContext context)
         {
             context.User.Id = Environment.UserName;
-            context.Session.Id = DateTime.Now.ToFileTime().ToString();
-            context.Session.IsNewSession = true;
+            context.Session.Id = Guid.NewGuid().ToString();
         }
     }
 
@@ -120,8 +125,9 @@ Application Insights를 사용하면 사용량 및 성능을 위해 배포된 �
         static void Main()
         {
             TelemetryConfiguration.Active.ContextInitializers.Add(
-                new TelemetryInitializer());
+                new UserSessionInitializer());
             ...
+```
 
 
 
@@ -149,7 +155,7 @@ TrackMetric 또는 TrackEvent의 측정 매개 변수를 사용한 경우 [메�
 
 ## <a name="usage"></a>다음 단계
 
-[앱 사용량 추적][track]
+[앱 사용량 추적][knowUsers]
 
 [진단 로그 캡처 및 검색][diagnostic]
 
@@ -164,7 +170,9 @@ TrackMetric 또는 TrackEvent의 측정 매개 변수를 사용한 경우 [메�
 [metrics]: app-insights-metrics-explorer.md
 [portal]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
-[track]: app-insights-custom-events-metrics-api.md
+[knowUsers]: app-insights-overview-usage.md
+[api]: app-insights-api-custom-events-metrics.md
+[CoreNuGet]: https://www.nuget.org/packages/Microsoft.ApplicationInsights
+ 
 
-
-<!--HONumber=54--> 
+<!---HONumber=62-->

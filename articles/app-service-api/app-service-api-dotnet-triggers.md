@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/31/2015" 
+	ms.date="06/09/2015" 
 	ms.author="guayan;tarcher"/>
 
 # Azure 앱 서비스 API 앱 트리거
@@ -22,11 +22,7 @@
 
 이 문서에서는 API 앱 트리거를 구현하고 논리 앱에서 이를 사용하는 방법을 설명합니다.
 
-API 앱을 처음 접하는 경우 다음 문서를 통해 시작할 수 있습니다.
-
-1. [API 앱 만들기](app-service-dotnet-create-api-app.md) - 새 API 앱을 처음부터 만들거나 기존 Web API 프로젝트를 API 앱으로 변환합니다. 
-2. [API 앱 배포](app-service-dotnet-deploy-api-app.md) - API 앱을 Azure 구독에 배포합니다.
-3. [API 앱 디버그](../app-service-dotnet-remotely-debug-api-app.md) - Visual Studio를 사용하여 Azure에서 실행되는 API 앱을 원격으로 디버그합니다.
+[Azure 앱 서비스](../app-service/app-service-value-prop-what-is.md)에서 [API 앱](app-service-api-apps-why-best-platform.md)을 처음 사용하는 경우, [API 앱 만들기](app-service-dotnet-create-api-app.md)에서 여러 요소 시리즈를 읽는 것이 좋습니다.
 
 또한 이 항목의 모든 코드 조각은 [FileWatcher API 앱 코드 샘플](http://go.microsoft.com/fwlink/?LinkId=534802)에서 복사할 수 있습니다.
 
@@ -343,6 +339,6 @@ API 앱에 트리거를 추가한 후에는 몇 가지 작업을 통해 논리 �
             }
         }
     }
-
-<!--HONumber=52-->
  
+
+<!---HONumber=62-->

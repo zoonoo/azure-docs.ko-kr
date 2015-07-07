@@ -12,68 +12,60 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/20/2015" 
+	ms.date="05/06/2015" 
 	ms.author="awills"/>
  
-#Application Insights: 플랫폼
+# Application Insights: 플랫폼
 
 [AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
 
-####Application Insights와 같이 사용할 수 있나요...?
+#### Application Insights와 같이 사용할 수 있나요...?
 
 
-##언어
+## 언어
 
-+ [C#, VB](app-insights-start-monitoring-app-health-usage.md)
-+ [JavaScript 웹 페이지](app-insights-web-track-usage.md)
-+ [Windows 스토어 JavaScript 앱](#cordova)
++ [C#|VB (.NET)](app-insights-start-monitoring-app-health-usage.md)
++ [C#|VB (Windows 스토어)](app-insights-windows-get-started.md)
++ [C++ (Windows 스토어)](app-insights-windows-cpp.md)
 + [Java](../app-insights-java.md)
-+ [Ruby](https://rubygems.org/gems/application_insights) 
-+ [PHP](https://github.com/Microsoft/AppInsights-PHP)
++ [JavaScript 웹 페이지](app-insights-web-track-usage.md)
++ [PHP](https://github.com/Microsoft/ApplicationInsights-PHP)
 + [Python](https://pypi.python.org/pypi/applicationinsights/0.1.0)
++ [Ruby](https://rubygems.org/gems/application_insights) 
++ [다른 항목](#projects)
 
-##플랫폼
+## 플랫폼
 
 + [ASP.NET](app-insights-start-monitoring-app-health-usage.md)
++ [ASP.NET 5](app-insights-asp-net-five.md)
++ [Android](https://github.com/Microsoft/ApplicationInsights-Android)
 + [Azure 웹 앱 및 VM](../insights-perf-analytics.md)
-+ [Android](https://github.com/Microsoft/AppInsights-Android)
-+ [iOS](https://github.com/Microsoft/AppInsights-iOS)
-+ [Cordova](#cordova)
++ [Azure 클라우드 서비스](app-insights-cloudservices.md)
++ [iOS](https://github.com/Microsoft/ApplicationInsights-iOS)
++ [OSX](https://github.com/Microsoft/ApplicationInsights-OSX)
 + [Angular](https://www.npmjs.com/package/angular-applicationinsights)
 + [Node.JS](https://www.npmjs.com/package/applicationinsights)
 + [Joomla](https://github.com/fidmor89/AppInsights-Joomla)
 + [SharePoint](app-insights-sharepoint.md)
 + [WordPress](https://wordpress.org/plugins/application-insights/)
-+ [Windows 데스크톱](app-insights-windows-desktop.md)
++ [Windows 스토어 C#|VB](app-insights-windows-get-started.md)
++ [Windows 스토어 C++](app-insights-windows-cpp.md)
++ [응용 프로그램 및 서비스 보기](app-insights-windows-desktop.md)
++ [다른 항목](#projects)
 
 
-##로깅 프레임워크
+## 로깅 프레임워크
 
 +	[Log4Net, NLog 또는 System.Diagnostics.Trace](app-insights-diagnostic-search.md)
 +	[Java, Log4J 또는 Logback](app-insights-java-trace-logs.md)
 
 
-##프로젝트
+## <a name="projects"></a> 사용자 고유의 SDK를 빌드합니다
 
-또한 [GitHub에서 Application Insights SDK 프로젝트](https://github.com/Microsoft/AppInsights-Home)를 방문해보세요.
+아직 사용자 언어나 플랫폼에 대한 SDK가 없다면 빌드하고자 합니까? [GitHub에서 Application Insights SDK 프로젝트](https://github.com/Microsoft/AppInsights-Home)에 나열된 기존 SDK의 코드를 살펴보십시오.
 
 
-###<a name="cordova"></a>Cordova 및 Windows 스토어 JavaScript 앱
 
-Visual Studio에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 선택합니다.
-
-**온라인** 및 Application Insights에서 검색합니다.
-
-**JavaScript 응용 프로그램용 Application Insights API**를 설치합니다.
-
-한 가지만 변경하여 표준 클라이언트 쪽 [웹 앱 스크립트](app-insights-web-track-usage.md)를 사용합니다.
-
-Application Insights 포털에서 스크립트를 가져올 때 계측 키 다음에 다음과 같은 줄을 삽입합니다.
-
-    ...{
-        instrumentationKey:"00000000-662d-4479-0000-40c89770e67c",
-        endpointUrl:"https://dc.services.visualstudio.com/v2/track"
-    } ...
 
 [Cordova](http://cordova.apache.org/)
 
@@ -81,6 +73,4 @@ Application Insights 포털에서 스크립트를 가져올 때 계측 키 다�
 
 <!--Link references-->
 
-
-
-<!--HONumber=54--> 
+<!---HONumber=62-->

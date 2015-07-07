@@ -20,7 +20,7 @@
 # Mac, Linux 및 Windows용 Azure CLI를 사용한 VM 작업에 해당하는 리소스 관리자 및 서비스 관리 명령
 이 문서에서는 서비스 관리(asm) 모드와 리소스 관리자(arm) 모드에서 Azure VM을 관리하는 해당 Azure CLI(Azure 명령줄 인터페이스) 명령을 보여 줍니다. 이를 사용하여 명령 모드 간에 스크립트를 쉽게 마이그레이션할 수 있습니다.
 
-* 아직 Azure CLI를 설치하고 구독에 연결하지 않은 경우 [Mac, Linux 및 Windows용 Azure CLI 설치](../xplat-cli-install.md) 및 [Mac, Linux 및 Windows용 Azure CLI에서 Azure 구독에 연결](../xplat-cli-connect.md)을 참조하세요. arm 모드 명령을 사용할 때는 로그인 메서드로 연결해야 합니다.
+* 아직 Azure CLI를 설치하고 구독에 연결하지 않은 경우 [Azure CLI 설치](../xplat-cli-install.md) 및 [Azure CLI에서 Azure 구독에 연결](../xplat-cli-connect.md)을 참조하세요. arm 모드 명령을 사용할 때는 로그인 메서드로 연결해야 합니다.
 
 * Azure CLI에서 arm 모드로 시작하고 명령 모드를 전환하려면 [리소스 관리자에서 Azure 명령줄 인터페이스 사용](xplat-cli-azure-resource-manager.md)을 참조하세요.
 
@@ -61,7 +61,7 @@ VM 이미지 표시 | `azure vm image show [options]` | 사용할 수 없음
 ## 다음 단계
 
 * Azure CLI를 사용하여 arm 모드에서 리소스 작업을 수행하는 방법에 대한 자세한 내용은 [리소스 관리자에서 Azure 명령줄 인터페이스 사용](xplat-cli-azure-resource-manager.md) 및 [Azure 명령줄 인터페이스를 사용하여 역할 기반 액세스 제어 관리](../role-based-access-control-xplat-cli.md)를 참조하세요.
-* CLI 명령에 대한 추가 예제는 [Mac, Linux 및 Windows용 Azure 명령줄 인터페이스 사용](../virtual-machines-command-line-tools.md) 및 [Azure 리소스 관리자에서 Mac, Linux 및 Windows용 Azure CLI 사용](azure-cli-arm-commands.md)을 참조하세요.
-
-<!--HONumber=52-->
+* CLI 명령에 대한 다른 예는 [Azure 명령줄 인터페이스 사용](../virtual-machines-command-line-tools.md) 및 [Azure 리소스 관리자에서 Azure CLI 사용](azure-cli-arm-commands.md)을 참조하세요.
  
+
+<!---HONumber=62-->

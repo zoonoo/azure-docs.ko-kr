@@ -3,7 +3,7 @@
 	description="이 자습서에 따라 Azure 앱 서비스를 사용하여 iOS 개발을 시작할 수 있습니다."
 	services="app-service\mobile"
 	documentationCenter="ios"
-	authors="yuaxu"
+	authors="ysxu"
 	manager="dwrede"
 	editor=""/>
 
@@ -12,7 +12,7 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
-	ms.topic="hero-article"
+	ms.topic="get-started-article"
 	ms.date="02/20/2015"
 	ms.author="yuaxu"/>
 
@@ -84,6 +84,6 @@
 
 [Management Portal]: https://manage.windowsazure.com/
 [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
-
-<!--HONumber=52-->
  
+
+<!---HONumber=62-->

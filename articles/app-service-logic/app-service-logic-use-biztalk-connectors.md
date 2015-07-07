@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="커넥터 사용" 
-   description="커넥터 사용" 
-   services="app-service\logic" 
-   documentationCenter=".net,nodejs,java" 
-   authors="anuragdalmia" 
-   manager="dwrede" 
+<properties
+   pageTitle="커넥터 사용"
+   description="커넥터 사용"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="anuragdalmia"
+   manager="dwrede"
    editor=""/>
 
 <tags
@@ -12,7 +12,7 @@
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="integration" 
+   ms.workload="integration"
    ms.date="03/20/2015"
    ms.author="prkumar"/>
 
@@ -35,7 +35,6 @@ Azure 앱 서비스는 바로 사용할 수 있는 다양한 커넥터를 제공
 * [HTTP 커넥터]
 * [Office 365 커넥터]
 * [OneDrive 커넥터]
-* [Oracle 커넥터]
 * [POP3 커넥터]
 * [QuickBooks 커넥터]
 * [Salesforce 커넥터]
@@ -53,18 +52,18 @@ Azure 앱 서비스는 바로 사용할 수 있는 다양한 커넥터를 제공
 ##프리미엄 커넥터 및 API 앱##
 * AS2 커넥터
 * BizTalk EDIFACT
-* BizTalk 플랫 파일 인코더
+* [BizTalk 플랫 파일 인코더]
 * BizTalk 변환 서비스
-* BizTalk 규칙
+* [BizTalk 규칙]
 * BizTalk X12
-* BizTalk XPath 추출기
-* BizTalk XML 유효성 검사기
+* [BizTalk XPath 추출기]
+* [BizTalk XML 유효성 검사기]
 * DB2 커넥터
 * Informix 커넥터
-* Oracle 데이터베이스 커넥터
+* [Oracle 커넥터]
 * MQ 커넥터
 * [SAP 커넥터]
- 
+
 자세한 내용은 커넥터 API 참조 [http://aka.ms/appservicesconnectorreference](http://aka.ms/appservicesconnectorreference)를 참조하세요.
 
 ##커넥터 및 논리 앱##
@@ -108,6 +107,10 @@ Azure 앱 서비스는 바로 사용할 수 있는 다양한 커넥터를 제공
 [OneDrive 커넥터]: app-service-logic-connector-onedrive.md
 [파일 커넥터]: app-service-logic-connector-file.md
 [Slack 커넥터]: app-service-logic-connector-slack.md
+[BizTalk 플랫 파일 인코더]: app-service-logic-flatfile-encoder.md
+[BizTalk XPath 추출기]: app-service-logic-xpath-extract.md
+[BizTalk XML 유효성 검사기]: app-service-logic-xml-validator.md
+[BizTalk 규칙]: app-service-logic-use-biztalk-rules.md
+ 
 
-
-<!--HONumber=54--> 
+<!---HONumber=62-->

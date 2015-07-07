@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="릴리스 정보: Microsoft HDInsight Emulator for Azure | Microsoft Azure" 
-	description="HDInsight Hadoop Emulator의 최신 릴리스에 대한 새로운 정보를 제공합니다." 
+	description="HDInsight Hadoop Emulator의 최신 릴리스, Hadoop 샌드박스 환경에 대한 새로운 정보를 제공합니다." 
 	editor="cgronlun" 
 	manager="paulettm" 
 	services="hdinsight" 
@@ -19,7 +19,7 @@
 
 
 
-# 릴리스 정보: Microsoft HDInsight Emulator for Azure 
+# 릴리스 정보: Microsoft HDInsight Emulator for Hadoop 
 
 
 
@@ -43,7 +43,7 @@
 
 ### 새로운 기능 
  
-* 모든 Apache Hadoop 서비스의 자동 시작 또는 수동 시작 설정을 간소화하는 스크립트가 추가되었습니다. 기본값은 이전처럼 자동이지만 이제 C:\\Hadoop에 설치된 set-onebox-manualstart.cmd 또는 set-onebox-autostart.cmd 스크립트를 사용하여 모든 서비스를 변경할 수 있습니다. 
+* 모든 Apache Hadoop 서비스의 자동 시작 또는 수동 시작 설정을 간소화하는 스크립트가 추가되었습니다. 기본값은 이전처럼 자동이지만 이제 C:\Hadoop에 설치된 set-onebox-manualstart.cmd 또는 set-onebox-autostart.cmd 스크립트를 사용하여 모든 서비스를 변경할 수 있습니다. 
 
 * 필요한 설치 종속성 수는 크게 줄었으며 설치 속도는 더욱 빨라졌습니다.
 
@@ -110,7 +110,7 @@
 
 	대시보드에 "local(hdfs)"이라는 기본 로컬 클러스터가 표시됩니다. Azure Blob 저장소를 로컬 설치를 위한 저장소로 사용하려면 다음을 수행합니다.
 
-	1. C:\\Hadoop\\hadoop-1.1.0-SNAPSHOT\\conf에 있는 core-site.xml에 account 태그를 추가합니다.       
+	1. C:\Hadoop\hadoop-1.1.0-SNAPSHOT\conf에 있는 core-site.xml에 account 태그를 추가합니다.       
 
 			<property>
         		<name>fs.azure.account.key.{AccountName}</name>
@@ -145,6 +145,7 @@
 				<description>The name of the default file system.  Either the literal string "local" or a host:port for NDFS.</description>
 				<final>true</final>
 			</property>
+        
 
 	2. 바탕 화면에서 관리자 모드로 Hadoop 명령 셸을 열고 다음 명령을 실행합니다.
 	 
@@ -244,7 +245,7 @@
 
 * 임시 디렉터리
 	
-	hadoop.tmp.dir 파일이 잘못된 위치를 나타냅니다. C:\\hadoop\\hdfs를 가리키지 않고 잘못된 위치인 c:\\hdfs를 가리킵니다. 이 버그는 HDP 비트의 다음 업데이트에서 수정됩니다.
+	hadoop.tmp.dir 파일이 잘못된 위치를 나타냅니다. C:\hadoop\hdfs를 가리키지 않고 잘못된 위치인 C:\hdfs를 가리킵니다. 이 버그는 HDP 비트의 다음 업데이트에서 수정됩니다.
 
 * OS 제한
 
@@ -273,5 +274,6 @@
 
 [hdinsight-hadoop-emulator-get-started]: ../hdinsight-get-started-emulator.md
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

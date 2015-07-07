@@ -1,30 +1,30 @@
-<properties 
-	pageTitle="Azure 앱 서비스에서 웹 앱 모니터링" 
-	description="관리 포털을 사용하여 Azure 앱 서비스에서 웹 앱을 모니터링 하는 방법에 알아봅니다." 
-	services="app-service\web" 
-	documentationCenter="" 
-	authors="cephalin" 
-	manager="wpickett" 
+<properties
+	pageTitle="Azure 앱 서비스에서 웹 앱 모니터링"
+	description="관리 포털을 사용하여 Azure 앱 서비스에서 웹 앱을 모니터링 하는 방법에 알아봅니다."
+	services="app-service\web"
+	documentationCenter=""
+	authors="cephalin"
+	manager="wpickett"
 	editor="mollybos"/>
 
-<tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="03/24/2015" 
+<tags
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="03/24/2015"
 	ms.author="cephalin"/>
 
 
 
-#<a name="howtomonitor"></a>Azure 앱 서비스에서 웹 앱 모니터링 
+#<a name="howtomonitor"></a>Azure 앱 서비스에서 웹 앱 모니터링
 
 [앱 서비스 웹 앱](http://go.microsoft.com/fwlink/?LinkId=529714)은 모니터 관리 페이지를 통해 표준 및 프리미엄 앱 서비스 계획에 대한 모니터링 기능을 제공합니다. 모니터 관리 페이지는 아래에 설명된 대로 웹 앱에 대한 성능 통계를 제공합니다.
 
 ##<a name="websitemetrics"></a>방법: 웹 앱 메트릭 추가
 
-1. [Azure 포털](http://go.microsoft.com/fwlink/?LinkId=529715)의 웹 앱 관리 페이지에서, **모니터** 탭을 클릭하여 **모니터** 관리 페이지를 표시합니다. 기본적으로 **모니터** 페이지의 차트는 **대시보드** 페이지의 차트와 동일한 메트릭을 표시합니다. 
+1. [Azure 포털](http://go.microsoft.com/fwlink/?LinkId=529715)의 웹 앱 관리 페이지에서, **모니터** 탭을 클릭하여 **모니터** 관리 페이지를 표시합니다. 기본적으로 **모니터** 페이지의 차트는 **대시보드** 페이지의 차트와 동일한 메트릭을 표시합니다.
 
 2. 웹 앱의 추가 메트릭을 보려면 페이지 맨 아래에 있는 **메트릭 추가**를 클릭하여 **메트릭 선택** 대화 상자를 표시합니다.
 
@@ -44,7 +44,7 @@
 웹 앱의 **크기 조정** 관리 페이지에서 **공유** 또는 **표준** 모드에서 웹 앱을 실행하도록 구성할 수 있습니다. 각 Azure 구독은 **공유** 모드에서 지역당 최대 100개의 웹 앱을 실행하도록 제공된 리소스 풀에 액세스할 수 있습니다. 이런 목적으로 각 웹 앱 구독에서 사용할 수 있는 리소스 풀은 동일한 지역에 있으며 **공유** 모드로 실행되도록 구성된 다른 웹 앱에서 공유됩니다. 이러한 리소스가 다른 웹 앱에서도 사용할 수 있도록 공유되기 때문에 모든 구독은 이러한 리소스 사용과 관련하여 제한을 받습니다. 이러한 리소스의 구독 사용에 적용된 제한은 각 웹 앱의 **대시보드** 관리 페이지에 있는 사용 개요 섹션 아래에 나열된 사용 할당량으로 표시됩니다.
 
 >[AZURE.NOTE]웹 앱이 **표준** 모드에서 실행되도록 구성되면 [Azure의 가상 컴퓨터 및 클라우드 서비스 크기][vmsizes]로 테이블에 **작음**(기본값), **중간** 또는 **큼** 가상 컴퓨터 크기에 해당하는 전용 리소스가 할당됩니다. 구독이 **표준** 모드에서 실행 중인 웹 앱에 사용할 수 있는 리소스에는 제한이 없습니다. 그러나 지역당 만들 수 있는 **표준** 모드 웹 앱의 수는 500개입니다.
- 
+
 ### 방법: 공유 모드로 구성된 웹 앱에 대한 사용 할당량 보기 ###
 웹 앱이 리소스 사용 할당량에 영향을 미치는 범위를 확인하려면 다음 단계를 따르십시오.
 
@@ -52,7 +52,7 @@
 2. **사용 개요** 섹션에서 개별 [앱 서비스](http://go.microsoft.com/fwlink/?LinkId=529714) 계획에 대한 사용 할당량이 표시되며, 다음의 하위 집합입니다.
 	-	**데이터 출력**, **CPU 시간** 및 **메모리** - 할당량이 초과되면 Azure는 현재 할당량 간격의 남은 시간 동안 웹 앱을 중지합니다. Azure는 다음 할당 간격이 시작될 때 웹 앱을 시작합니다.
 	-	**파일 시스템 저장소** - 이 할당량에 도달하면 읽기 작업 중에는 파일 시스템 저장소에 액세스할 수 있지만 정상적인 웹 앱 활동에 필요한 작업을 비롯한 모든 쓰기 작업 중에는 파일 시스템 저장소가 차단됩니다. 파일 사용량을 줄이거나 웹 앱을 할당량이 더 높은 웹 호스팅 계획으로 전환하면 쓰기 작업이 다시 시작됩니다.
-	-	**연결된 리소스** - 데이터베이스 또는 저장소와 같은 웹 앱의 연결된 리소스 할당량도 여기에 표시됩니다.   
+	-	**연결된 리소스** - 데이터베이스 또는 저장소와 같은 웹 앱의 연결된 리소스 할당량도 여기에 표시됩니다.
 
 	일부 할당량은 웹 호스팅 계획을 기준으로 적용할 수 있지만 사이트 기준으로 적용할 수 있는 할당량도 있습니다. 각 웹 호스팅 계획의 사용 할당량에 대한 자세한 내용은 [웹 사이트 제한](azure-subscription-service-limits.md#websiteslimits)을 참조하세요.
 
@@ -61,7 +61,7 @@
 
 할당량은 성능이나 비용 문제가 아니며, Azure에서 테넌트가 공유 리소스를 과도하게 사용하지 못하도록 하여 다중 테넌트 환경의 리소스 사용을 제어하는 방식입니다. 할당량을 초과하면 웹 앱의 작동이 중지되거나 기능이 감소하므로 할당량 제한에 도달하려고 할 때 사이트를 계속 실행하려면 다음을 고려하는 것이 좋습니다.
 
-- 더 큰 할당량을 사용할 수 있도록 웹 앱을 상위 계층 앱 서비스 계획으로 전환합니다. 예를 들어 **기본** 및 **표준** 계획에 대한 할당량은 파일 시스템 저장소뿐입니다. 
+- 더 큰 할당량을 사용할 수 있도록 웹 앱을 상위 계층 앱 서비스 계획으로 전환합니다. 예를 들어 **기본** 및 **표준** 계획에 대한 할당량은 파일 시스템 저장소뿐입니다.
 - 웹 앱의 인스턴스 수가 늘어나면 공유 리소스 할당량을 초과할 가능성도 높아집니다. 가능한 경우 공유 리소스 할당량을 초과하려고 할 때 웹 앱의 추가 인스턴스를 줄이는 것을 고려하는 것이 좋습니다.
 
 
@@ -98,14 +98,14 @@ Azure 저장소 계정에 대한 자세한 내용은 [저장소 계정을 관리
 > [AZURE.NOTE]**응용 프로그램 진단(파일 시스템)**, **응용 프로그램 진단(테이블 저장소)** 및 **응용 프로그램 진단(Blob 저장소)**을 동시에 사용하도록 설정할 수 있으며 각 진단은 개별 로그 수준 구성을 포함합니다. 예를 들어 문제를 해결하기 위해 응용 프로그램 코드를 계측한 후 세부 정보 표시 수준의 파일 시스템 로깅을 사용하면서 오류 및 경고를 장기 로깅 솔루션으로 저장소에 로깅할 수 있습니다.
 
 > [AZURE.NOTE]Azure PowerShell에서 **Set-AzureWebsite** cmdlet을 사용해서도 진단을 사용하도록 설정할 수 있습니다.
-> 
+>
 > Azure PowerShell을 설치하지 않았거나 Azure 구독을 사용하도록 이를 구성하지 않은 경우 [Azure PowerShell을 사용하는 방법](/develop/nodejs/how-to-guides/powershell-cmdlets/)(영문)을 참조하십시오.
 
 > [AZURE.NOTE]응용 프로그램 로깅은 응용 프로그램에서 생성되는 로그 정보를 사용합니다. 로그 정보뿐 아니라 정보의 형식을 생성하는 데 사용되는 메서드는 응용 프로그램을 작성한 언어에 따라 달라집니다. 응용 프로그램 로깅 사용에 관한 특정 언어는 다음 문서를 참조합니다.
-> 
+>
 > - **.NET** - [Azure 웹 사이트의 진단 로깅 사용](/develop/net/common-tasks/diagnostics-logging-and-instrumentation/)
 > - **Node.js** - [Azure 웹 사이트에서 Node.js 응용 프로그램 디버그 방법](/develop/nodejs/how-to-guides/Debug-Website/)
-> 
+>
 > 테이블 또는 Blob 저장소에 대한 응용 프로그램 로깅은 .NET 응용 프로그램에서만 지원됩니다.
 
 #### 사이트 진단 ####
@@ -137,7 +137,7 @@ Azure 저장소 계정에 대한 자세한 내용은 [저장소 계정을 관리
 
 - 웹 루트를 기준으로 하여 응용 프로그램 로그가 저장되는 위치입니다.
 
-- 기본값: ....\\LogFiles\\Application
+- 기본값: ....\LogFiles\Application
 
 **DIAGNOSTICS_TEXTTRACEMAXBUFFERSIZEBYTES**
 
@@ -153,7 +153,7 @@ Azure 저장소 계정에 대한 자세한 내용은 [저장소 계정을 관리
 
 ###웹 앱의 로그 파일 다운로드
 
-로그 파일은 FTP, Azure PowerShell 또는 Azure 명령줄 도구를 사용하여 다운로드할 수 있습니다.
+로그 파일은 FTP, Azure PowerShell 또는 Azure CLI를 사용하여 다운로드할 수 있습니다.
 
 **FTP**
 
@@ -173,14 +173,14 @@ Azure 저장소 계정에 대한 자세한 내용은 [저장소 계정을 관리
 		Save-AzureWebSiteLog -Name webappname
 
 	**webappname**으로 지정된 웹 앱의 로그 파일이 다운로드되어 현재 디렉터리에 **log.zip** 파일로 저장됩니다.
-	
+
 	또한 다음 명령을 사용하여 로그 이벤트의 실시간 스트림을 볼 수도 있습니다.
 
 		Get-AzureWebSiteLog -Name webappname -Tail
 
 	로그가 생성되는 대로 Azure PowerShell 프롬프트에 로그 정보가 표시됩니다.
 
-**Azure 명령줄 도구**
+**Azure CLI**
 
 새 명령 프롬프트, PowerShell, bash 또는 터미널 세션을 열고 다음 명령을 사용하여 로그 파일을 다운로드합니다.
 
@@ -194,7 +194,7 @@ Azure 저장소 계정에 대한 자세한 내용은 [저장소 계정을 관리
 
 명령이 실행된 명령 프롬프트, PowerShell, bash 또는 터미널 세션에 로그 정보가 표시됩니다.
 
-> [AZURE.NOTE]**azure** 명령이 설치되지 않은 경우 설치 및 구성 정보에 대해서는 [Azure 명령줄 도구를 사용하는 방법](../virtual-machines-command-line-tools.md)(영문)을 참조하십시오.
+> [AZURE.NOTE]**azure** 명령이 설치되지 않은 경우 설치 및 구성 정보에 대해서는 [Azure CLI를 사용하는 방법](../virtual-machines-command-line-tools.md)을 참조하세요.
 
 ### 로그 파일 읽기 ###
 
@@ -208,13 +208,13 @@ Azure 저장소 계정에 대한 자세한 내용은 [저장소 계정을 관리
 
 **로그 파일 형식: 실패한 요청 추적**
 
-- 위치: /LogFiles/W3SVC#########/. 이 폴더에는 하나의 XSL 파일 및 하나 이상의 XML 파일이 포함되어 있습니다. XSL 파일은 XML 파일을 Internet Explorer에서 볼 때 XML 파일의 내용에 서식을 지정하고 필터링하는 기능을 제공하므로 XSL 파일은 XML 파일과 동일한 디렉터리에 다운로드해야 합니다. 
+- 위치: /LogFiles/W3SVC#########/. 이 폴더에는 하나의 XSL 파일 및 하나 이상의 XML 파일이 포함되어 있습니다. XSL 파일은 XML 파일을 Internet Explorer에서 볼 때 XML 파일의 내용에 서식을 지정하고 필터링하는 기능을 제공하므로 XSL 파일은 XML 파일과 동일한 디렉터리에 다운로드해야 합니다.
 
 - 파일을 읽는 방법: Internet Explorer
 
 **로그 파일 형식: 자세한 오류 로깅**
 
-- 위치: /LogFiles/DetailedErrors/. /LogFiles/DetailedErrors/ 폴더에는 발생한 HTTP 오류에 대한 광범위한 정보를 제공하는 .htm 파일이 하나 이상 들어 있습니다. 
+- 위치: /LogFiles/DetailedErrors/. /LogFiles/DetailedErrors/ 폴더에는 발생한 HTTP 오류에 대한 광범위한 정보를 제공하는 .htm 파일이 하나 이상 들어 있습니다.
 
 - 파일을 읽는 방법: 웹 브라우저
 
@@ -248,10 +248,10 @@ Azure 저장소 계정에 대한 자세한 내용은 [저장소 계정을 관리
 **끝점 모니터링을 구성하려면:**
 
 1.	**웹 앱**을 엽니다. 구성할 웹 앱의 이름을 클릭합니다.
-2.	**구성** 탭을 클릭합니다. 
+2.	**구성** 탭을 클릭합니다.
 3.     **모니터링** 섹션으로 이동하여 끝점 설정을 입력합니다.
 4.	끝점의 이름을 입력합니다.
-5.	모니터링할 웹 앱 일부의 URL을 입력합니다. 예를 들어, [http://contoso.azurewebsites.net/archive](http://contoso.azurewebsites.net/archive)입니다. 
+5.	모니터링할 웹 앱 일부의 URL을 입력합니다. 예를 들어, [http://contoso.azurewebsites.net/archive](http://contoso.azurewebsites.net/archive)입니다.
 6.	목록에서 지리적 위치를 하나 이상 선택합니다.
 7.	선택적으로, 앞의 단계를 반복하여 두 번째 끝점을 만듭니다.
 8.	**Save**를 클릭합니다. 웹 끝점 모니터링 데이터가 **대시보드** 및 **모니터** 탭에서 사용 가능해질 때까지 어느 정도 시간이 걸릴 수 있습니다.
@@ -281,6 +281,6 @@ Azure 저장소 계정에 대한 자세한 내용은 [저장소 계정을 관리
 
 [fzilla]: http://go.microsoft.com/fwlink/?LinkId=247914
 [vmsizes]: http://go.microsoft.com/fwlink/?LinkID=309169
+ 
 
-
-<!--HONumber=54--> 
+<!---HONumber=62-->

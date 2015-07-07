@@ -4,8 +4,8 @@
 	services="app-service\api"
 	documentationCenter="nodejs"
 	authors="pkefal"
-  manager="",
-  editor=""/>
+	manager=""
+	editor=""/>
 
 <tags
 	ms.service="app-service-api"
@@ -24,10 +24,11 @@
 
 ![][sample-api-app-page]
 
+> [AZURE.NOTE]또한 Azure 앱 서비스에서 Node.js API 앱을 빌드하고 배포하기 위해 Visual Studio 코드를 사용할 수 있습니다. Visual Studio 코드 및 Node.js에 대한 자세한 내용은 [Visual Studio 코드](http://code.visualstudio.com/Docs/) 및 [노드 응용 프로그램 개발](http://code.visualstudio.com//Docs/nodejs)을 참조하십시오.
+
 ## Azure Preview 포털에서 API 앱 만들기
 
-> [AZURE.NOTE]이 자습서를 완료하려면 Microsoft Azure 계정이 필요합니다. 계정이 없는 경우 [MSDN 구독자 혜택을 활성화](/pricing/member-offers/msdn-benefits-details/)하거나 [무료 평가판을 등록](/pricing/free-trial/)할 수 있습니다.
-> 또한 무료 [앱 서비스 앱 샘플](http://tryappservice.azure.com)을 사용해 볼 수 있습니다.
+> [AZURE.NOTE]이 자습서를 완료하려면 Microsoft Azure 계정이 필요합니다. 계정이 없는 경우 [MSDN 구독자 혜택을 활성화](/pricing/member-offers/msdn-benefits-details/)하거나 [무료 평가판을 등록](/pricing/free-trial/)할 수 있습니다. 또한 무료 [앱 서비스 앱 샘플](http://tryappservice.azure.com)을 사용해 볼 수 있습니다.
 
 1. [Azure Preview 포털](https://portal.azure.com)에 로그인합니다.
 
@@ -190,7 +191,7 @@
 
 		remote: Deployment successful.
 		To https://user@testsite.scm.azurewebsites.net/testsite.git
-	 	* [new branch] master -> master
+	 	* [new branch]      master -> master
 
 ## Azure Preview 포털에서 API 정의 보기
 
@@ -220,8 +221,6 @@ Azure Preview 포털에서 API 앱에 대한 **API 앱 호스트** 블레이드�
 
 이전에 샘플 앱을 로컬로 실행할 때 표시된 홈 페이지가 브라우저에 표시됩니다.
 
-## API 앱 메타데이터
-
 [AZURE.INCLUDE [app-service-api-direct-deploy-metadata](../../includes/app-service-api-direct-deploy-metadata.md)]
 
 ## 다음 단계
@@ -244,6 +243,6 @@ API 앱 백 엔드를 사용하는 Node.js 웹 응용 프로그램을 Azure에 �
 [server-js]: ./media/app-service-api-nodejs-api-app/server-js.png
 [sample-api-app-page]: ./media/app-service-api-nodejs-api-app/sample-api-app-page.png
 [browse-api-app-page]: ./media/app-service-api-nodejs-api-app/browse-api-app-page.png
-
-<!--HONumber=52-->
  
+
+<!---HONumber=62-->

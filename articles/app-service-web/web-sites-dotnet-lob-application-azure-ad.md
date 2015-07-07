@@ -18,11 +18,11 @@
 
 # Azure Active Directory 인증을 통해 Azure 앱 서비스에서 .NET MVC 웹 앱 만들기 #
 
-이 문서에서는 ID 공급자로 [Azure Active Directory](/services/active-directory/)를 사용하여 [Azure 앱 서비스 웹 앱](http://go.microsoft.com/fwlink/?LinkId=529714)에서 ASP.NET MVC 기간 업무 응용 프로그램을 만드는 방법에 대해 알아봅니다. 또한 [Azure Active Directory Graph 클라이언트 라이브러리](http://blogs.msdn.com/b/aadgraphteam/archive/2014/06/02/azure-active-directory-graph-client-library-1-0-publish.aspx)를 사용하여 응용 프로그램의 디렉터리 데이터를 쿼리하는 방법에 대해 알아봅니다.
+이 문서에서는 ID 공급자로 [Azure Active Directory](/services/active-directory/)를 사용하여 [Azure 앱 서비스 웹앱](http://go.microsoft.com/fwlink/?LinkId=529714)에서 ASP.NET MVC 기간 업무 응용 프로그램을 만드는 방법을 알아봅니다. 또한 [Azure Active Directory Graph 클라이언트 라이브러리](http://blogs.msdn.com/b/aadgraphteam/archive/2014/06/02/azure-active-directory-graph-client-library-1-0-publish.aspx)를 사용하여 응용 프로그램의 디렉터리 데이터를 쿼리하는 방법에 대해 알아봅니다.
 
 사용하는 Azure Active Directory 테넌트에는 Azure 전용 디렉터리가 있거나, 온-프레미스 AD(Active Directory)와의 디렉터리 동기화를 통해 온-프레미스 또는 원격에 있는 작업자를 위한 SSO(Single Sign-On) 환경을 만들 수 있습니다.
 
->[AZURE.NOTE] Azure 앱 서비스 웹 앱에서 간편한 인증 기능을 사용하면 단추를 몇 번 클릭하는 것만으로 Azure Active Directory 테넌트에 단순한 인증을 설정할 수 있습니다. 자세한 내용은 [Azure 앱 서비스에서 인증을 위해 Active Directory 사용](web-sites-authentication-authorization.md)을 참조하세요.
+>[AZURE.NOTE]Azure 앱 서비스 웹 앱에서 간편한 인증 기능을 사용하면 단추를 몇 번 클릭하는 것만으로 Azure Active Directory 테넌트에 단순한 인증을 설정할 수 있습니다. 자세한 내용은 [Azure 앱 서비스에서 인증을 위해 Active Directory 사용](web-sites-authentication-authorization.md)을 참조하세요
 
 <a name="bkmk_build"></a>
 ## 빌드할 내용 ##
@@ -30,7 +30,7 @@
 앱 서비스 웹 앱에서 다음 기능을 통해 작업 항목을 추적하는 간단한 기간 업무 CRUD(만들기-읽기-업데이트-삭제) 응용 프로그램을 빌드합니다.
 
 - Azure Active Directory에 대해 사용자 인증
-- 로그인 및 로그아웃 기능
+- 로그인 및 로그아웃 기능 구현
 - `[Authorize]`를 사용하여 다른 CRUD 동작에 대해 사용자에게 권한 부여
 - [Azure Active Directory Graph API](http://msdn.microsoft.com/library/azure/hh974476.aspx)를 사용하여 Azure Active Directory 데이터 쿼리
 - [Microsoft.Owin](http://www.asp.net/aspnet/overview/owin-and-katana/an-overview-of-project-katana)(Windows Identity Foundation, 즉 WIF 대신)을 사용합니다. 이는 ASP.NET의 미래이며 WIF보다 인증 및 권한 부여 설정이 훨씬 간편합니다.
@@ -40,7 +40,7 @@
 
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 
->[AZURE.NOTE] Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 응용 프로그램을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+>[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
 이 자습서를 완료하려면 다음 항목이 필요합니다.
 
@@ -63,48 +63,51 @@
 <a name="bkmk_run" />
 ## 예제 응용 프로그램 실행 ##
 
-1.	 [WebApp-GroupClaims-DotNet](https://github.com/AzureADSamples/WebApp-GroupClaims-DotNet)에서 로컬 디렉터리에 예제 솔루션을 복제하거나 다운로드합니다.
-2.	 [README.md](https://github.com/AzureADSamples/WebApp-GroupClaims-DotNet/blob/master/README.md)의 지침에 따라 Azure Active Directory 응용 프로그램 및 프로젝트를 설정합니다.
+1.	[WebApp-GroupClaims-DotNet](https://github.com/AzureADSamples/WebApp-GroupClaims-DotNet)에서 로컬 디렉터리에 예제 솔루션을 복제하거나 다운로드합니다.
 
-	> [AZURE.NOTE] Azure Active Directory 응용 프로그램에 구성된 권한에는 **전역 관리자**가 아니라 <strong>사용자</strong> 역할만 필요합니다.
+2.	[README.md](https://github.com/AzureADSamples/WebApp-GroupClaims-DotNet/blob/master/README.md)의 지침에 따라 Azure Active Directory 응용 프로그램 및 프로젝트를 설정합니다.
+
+	> [AZURE.NOTE]Azure Active Directory 응용 프로그램에 구성된 권한에는 **전역 관리자**가 아니라 <strong>사용자</strong> 역할만 필요합니다.
 	
 3.	응용 프로그램 구성을 마친 후에는 `F5` 키를 눌러 응용 프로그램을 실행합니다.
-4.	응용 프로그램이 로드되면 **로그인**. 을 클릭합니다.
-5.	Azure Active Directory 응용 프로그램을 구성하고 Web.config에서 해당 설정을 지정한 경우 로그인으로 리디렉션됩니다. 이 경우 Azure Active Directory 응용 프로그램의 기본 소유자이므로 Azure 포털에서 Azure Active Directory 응용 프로그램을 만드는 데 사용한 계정으로 로그인하기만 하면 됩니다. 
+
+4.	응용 프로그램이 로드되면 **로그인**을 클릭합니다.
+
+5.	Azure Active Directory 응용 프로그램을 올바르게 구성하고 Web.config에서 해당 설정을 지정하면 로그인으로 리디렉션되어야 합니다. Azure 포털에서 Azure Active Directory 응용 프로그램을 만드는 데 사용된 계정이 Azure Active Directory 응용 프로그램의 기본 소유자이므로 이 계정을 사용하여 로그인하면 됩니다.
 	
-	> [AZURE.NOTE] 샘플 프로젝트의 Startup.Auth.cs에서 응용 프로그램에는 <code>AddOwnerAdminClaim</code>라는 메서드가 호출됩니다. 관리자 역할에 응용 프로그램 소유자를 추가하는 데 사용됩니다. 이 메서드를 사용하여 Roles 컨트롤러에서 응용 프로그램 역할 관리를 <code>즉시</code> 시작할 수 있습니다.
+	> [AZURE.NOTE]예제 프로젝트의 Startup.Auth.cs에서 응용 프로그램 소유자를 관리자 역할에 추가하는 데 사용되는 <code>AddOwnerAdminClaim</code>이라는 메서드가 응용 프로그램에 있는지 확인합니다. 이 메서드가 있으면 <code>Roles</code> 컨트롤러에서 응용 프로그램 역할 관리를 즉시 시작할 수 있습니다.
 	
 4.	로그인되면 **역할**을 클릭하여 응용 프로그램 역할을 관리합니다.
+
 5.	**사용자/그룹 검색**에서 원하는 사용자 이름 또는 그룹 이름을 입력하기 시작하면 드롭다운 목록에 Azure Active Directory 테넌트의 사용자 또는 그룹에 대한 필터링된 목록이 표시됩니다.
 
-	![](./media/web-sites-dotnet-lob-application-azure-ad/select-user-group.png) 
+	![](./media/web-sites-dotnet-lob-application-azure-ad/select-user-group.png)
 
-	> [AZURE.NOTE] Views\Roles\Index.cshtml에서 해당 뷰가 <code>AadPicker</code>(Scripts\AadPickerLibrary.js에 정의됨)라는 JavaScript 개체를 사용하는 것이 보입니다. <code>이를 통해 검색</code> 동작( <code>역할</code> 컨트롤러)에 액세스합니다.
-		<pre class="prettyprint">var searchUrl = window.location.protocol + "//" + window.location.host + "<mark>/Roles/Search</mark>";
-	...
-    var picker = new <mark>AadPicker(searchUrl, maxResultsPerPage, input, token, tenant)</mark>;</pre>
-		Controllers\RolesController.cs에 Azure Active Directory Graph API에 실제 요청을 보내고 페이지에 응답을 반환하는 <code>검색</code> 동작이 보입니다.
-		나중에 동일한 메서드를 사용하여 응용 프로그램에서 간단한 기능을 만들 수 있습니다.
+	> [AZURE.NOTE]Views\Roles\Index.cshtml에 보기에서 <code>AadPicker</code>라는 JavaScript 개체(Scripts\AadPickerLibrary.js에 정의됨)를 사용하여 <code>Roles</code> 컨트롤러에서 <code>색</code> 작업에 액세스하는 것을 확인할 수 있습니다. <pre class="prettyprint">var searchUrl = window.location.protocol + "//" + window.location.host + "<mark>/Roles/Search</mark>"; ... var picker = new <mark>AadPicker(searchUrl, maxResultsPerPage, input, token, tenant)</mark>;</pre> Controllers\RolesController.cs에서 <code>검색</code> 작업이 실제 요청을 Azure Active Directory Graph API로 보내고 응답을 해당 페이지에 다시 반환하는 것을 확인할 수 있습니다. 나중에 동일한 메서드를 사용하여 응용 프로그램에서 간단한 기능을 만들 수 있습니다.
 
 6.	드롭다운에서 사용자 또는 그룹을 선택하고 역할을 선택한 후 **역할 할당**을 클릭합니다.
 
 <a name="bkmk_deploy"></a>
 ## 앱 서비스 웹 앱에 샘플 응용 프로그램 배포
 
-여기에서는 Azure 앱 서비스에서 웹 앱에 응용 프로그램을 게시합니다. [README.md](https://github.com/AzureADSamples/WebApp-GroupClaims-DotNet/blob/GroupClaims/README.md)에 이미 앱 서비스 웹 앱 배포에 대한 지침이 있지만 이러한 단계는 로컬 디버그 환경에 대한 구성을 취소하기도 합니다. 디버그 구성을 유지하면서 배포하는 방법에 대해 알아보겠습니다.
+여기에서는 Azure 앱 서비스에서 웹 앱에 응용 프로그램을 게시합니다. [README.md](https://github.com/AzureADSamples/WebApp-GroupClaims-DotNet/blob/GroupClaims/README.md)에 이미 앱 서비스 웹앱 배포에 대한 지침이 있지만 이러한 단계는 로컬 디버그 환경에 대한 구성을 취소하기도 합니다. 디버그 구성을 유지하면서 배포하는 방법에 대해 알아보겠습니다.
 
 1. 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다.
 
 	![](./media/web-sites-dotnet-lob-application-azure-ad/publish-app.png)
 
-2. **Microsoft Azure 웹 앱**을 선택합니다.
+2. **Microsoft Azure 웹앱**을 선택합니다.
+
 3. Azure에 로그인하지 않은 경우 **로그인**을 클릭하고 Azure 구독에 대한 Microsoft 계정을 사용하여 로그인합니다.
-4. 로그인되면 **새로 만들기**를 클릭하여 Azure에서 새 웹 앱을 만듭니다.
+
+4. 로그인되면 **새로 만들기**를 클릭하여 Azure에서 새 웹앱을 만듭니다.
+
 5. 모든 필수 필드를 입력합니다. 이 응용 프로그램이 역할 매핑, 캐시된 토큰 및 모든 응용 프로그램 데이터를 저장하려면 데이터베이스에 연결해야 합니다.
 
 	![](./media/web-sites-dotnet-lob-application-azure-ad/4-create-website.png)
 
-6. **만들기**를 클릭합니다. 웹 앱이 만들어지면 웹 게시 대화 상자가 열립니다.
+6. **만들기**를 클릭합니다. 웹앱이 만들어지면 **웹 게시** 대화 상자가 열립니다.
+
 7. **대상 URL**에서 **http**를 **https**로 변경합니다. 전체 URL을 텍스트 편집기에 복사합니다. 이 URL은 나중에 사용합니다. 그런 후 **다음**을 클릭합니다.
 
 	![](./media/web-sites-dotnet-lob-application-azure-ad/5-change-to-https.png)
@@ -114,54 +117,61 @@
 	![](./media/web-sites-dotnet-lob-application-azure-ad/6-disable-organizational-authentication.png)
 
 9. **게시**를 클릭하여 웹 게시를 진행하는 대신 **닫기**를 클릭합니다. **예**를 클릭하여 게시 프로필에 변경 사항을 저장합니다.
+
 2. [Azure 관리 포털](https://manage.windowsazure.com)에서 Azure Active Directory 테넌트로 이동하여 **응용 프로그램** 탭을 클릭합니다.
+
 2. 페이지 맨 아래에 있는 **추가**를 클릭합니다.
+
 3. **웹 응용 프로그램 및/또는 API**를 선택합니다.
+
 4. 응용 프로그램의 이름을 지정하고 **다음**을 클릭합니다.
-5. 앱 속성에서 **로그온 URL**을 이전에 저장된 웹 앱 URL(예: `https://<site-name>.azurewebsites.net`)로 설정하고 **앱 ID URI**를  `https://<aad-tenanet-name>/<app-name>`으로 설정합니다. 그런 후 **완료**를 클릭합니다.
+
+5. 앱 속성에서 **로그온 URL**을 이전에 저장된 웹앱 URL(예: `https://<site-name>.azurewebsites.net`)로 설정하고 **앱 ID URI**를 `https://<aad-tenanet-name>/<app-name>`으로 설정합니다. 그런 후 **완료**를 클릭합니다.
 
 	![](./media/web-sites-dotnet-lob-application-azure-ad/7-app-properties.png)
 
 6. 응용 프로그램이 만들어지면 **구성**을 클릭합니다.
+
 7. **키** 아래의 드롭다운에서 **1년**을 선택하여 새 키를 만듭니다.
+
 8. **다른 응용 프로그램에 대한 권한** 아래의 **위임된 권한** 드롭다운에서 **Azure Active Directory** 항목에 대해 **조직의 디렉터리에 액세스**를 선택합니다.
 
-	> [AZURE.NOTE] 여기에서 필요한 정확한 권한은 응용 프로그램의 원하는 기능에 따라 다릅니다. 일부 권한에는 **전역 관리자** 역할을 설정해야 하지만 이 자습서에는 **사용자** 역할만 필요합니다.
+	> [AZURE.NOTE]여기에서 필요한 정확한 권한은 응용 프로그램의 원하는 기능에 따라 다릅니다. 일부 권한에는 **전역 관리자** 역할을 설정해야 하지만 이 자습서에는 **사용자** 역할만 필요합니다.
 
-9.  **저장**을 클릭합니다.  
+9.  **Save**를 클릭합니다.
+
 10.  저장한 구성 페이지에서 나가기 전에 다음 정보를 텍스트 편집기에 복사합니다.
 
 	-	클라이언트 ID
 	-	키(페이지에서 나간 경우에는 키를 다시 볼 수 없음)
 
-11. Visual Studio,에서 프로젝트의 **Web.Release.config**를 엽니다. 다음 XML을 `<configuration>` 태그에 삽입하고 각 키 값을 새 Azure Active Directory 응용 프로그램에 대해 저장한 정보로 바꿉니다.  
+11. Visual Studio에서 프로젝트의 **Web.Release.config**를 엽니다. 다음 XML을 `<configuration>` 태그에 삽입하고 각 키 값을 새 Azure Active Directory 응용 프로그램에 대해 저장한 정보로 바꿉니다.
 	<pre class="prettyprint">
-&lt;appSettings&gt;
-   &lt;add key="ida:ClientId" value="<mark>[e.g. 82692da5-a86f-44c9-9d53-2f88d52b478b]</mark>" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" /&gt;
-   &lt;add key="ida:AppKey" value="<mark>[e.g. rZJJ9bHSi/cYnYwmQFxLYDn/6EfnrnIfKoNzv9NKgbo=]</mark>" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" /&gt;
-   &lt;add key="ida:PostLogoutRedirectUri" value="<mark>[e.g. https://mylobapp.azurewebsites.net/]</mark>" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" /&gt;
-&lt;/appSettings&gt;</pre>
+&lt;appSettings>
+   &lt;add key="ida:ClientId" value="<mark>[e.g. 82692da5-a86f-44c9-9d53-2f88d52b478b]</mark>" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" />
+   &lt;add key="ida:AppKey" value="<mark>[e.g. rZJJ9bHSi/cYnYwmQFxLYDn/6EfnrnIfKoNzv9NKgbo=]</mark>" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" />
+   &lt;add key="ida:PostLogoutRedirectUri" value="<mark>[e.g. https://mylobapp.azurewebsites.net/]</mark>" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" />
+&lt;/appSettings></pre>ida:PostLogoutRedirectUri 값은 슬래시("/")로 끝나야 합니다.
 
-	ida:PostLogoutRedirectUri 값은 슬래시("/")로 끝나야 합니다.
+1. 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다.
 
-1. 프로젝트를 다시 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다.
-2. **게시**를 클릭하여 Azure 앱 서비스 웹 앱을 게시합니다.
+2. **게시**를 클릭하여 Azure 앱 서비스 웹앱을 게시합니다.
 
-작업을 마치면 Azure 관리 포털에 Azure Active Directory 응용 프로그램 두 개가 구성됩니다. 하나는 Visual Studio의 디버그 환경용이고, 나머지 하나는 Azure에 게시된 웹 앱용입니다. 디버그하는 동안 Web.config의 응용 프로그램 설정을 통해 **디버그** 구성이 Azure Active Directory와 작동하도록 설정되며, 게시된 경우(기본적으로 **릴리스** 구성이 게시됨) 변환된 Web.config가 업로드되어 응용 프로그램 설정 변경 사항이 Web.Release.config에 포함됩니다.
+작업을 마치면 Azure 관리 포털에 Azure Active Directory 응용 프로그램 두 개가 구성됩니다. 하나는 Visual Studio의 디버그 환경용이고, 나머지 하나는 Azure에 게시된 웹앱용입니다. 디버그하는 동안 Web.config의 응용 프로그램 설정을 통해 **디버그** 구성이 Azure Active Directory와 작동하도록 설정되며, 게시된 경우(기본적으로 **릴리스** 구성이 게시됨) 변환된 Web.config가 업로드되어 응용 프로그램 설정 변경 사항이 Web.Release.config에 포함됩니다.
 
-게시된 웹 앱을 디버거에 연결하려는 경우(즉, 게시된 웹 앱에서 코드의 디버그 기호를 업로드해야 함) Web.Release.config의 Azure Active Directory 설정을 사용하는 고유한 사용자 지정 Web.config 변환(예: Web.AzureDebug.config)을 통해 Azure 디버깅을 위한 디버그 구성의 복제본을 만들 수 있습니다. 이렇게 하면 여러 환경에서 정적 구성을 유지 관리할 수 있습니다.
+게시된 웹앱을 디버거에 연결하려는 경우(즉, 게시된 웹앱에서 코드의 디버그 기호를 업로드해야 함) Web.Release.config의 Azure Active Directory 설정을 사용하는 고유한 사용자 지정 Web.config 변환(예: Web.AzureDebug.config)을 통해 Azure 디버깅을 위한 디버그 구성의 복제본을 만들 수 있습니다. 이렇게 하면 여러 환경에서 정적 구성을 유지 관리할 수 있습니다.
 
 <a name="bkmk_crud"></a>
 ## 예제 응용 프로그램에 기간 업무 기능 추가
 
-자습서의 이 부분에서는 예제 응용 프로그램을 기반으로 원하는 기간 업무 기능을 빌드하는 방법에 대해 알아봅니다. TaskTracker 컨트롤러와 유사하지만 표준 CRUD 스캐폴딩 및 디자인 패턴을 사용하는 간단한 CRUD 작업 항목 추적기를 만듭니다. 또한 포함된 Scripts\AadPickerLibrary.js를 사용하여 Azure Active Directory Graph API의 데이터로 응용 프로그램을 보강합니다.  
+자습서의 이 부분에서는 예제 응용 프로그램을 기반으로 원하는 기간 업무 기능을 빌드하는 방법에 대해 알아봅니다. TaskTracker 컨트롤러와 유사하지만 표준 CRUD 스캐폴딩 및 디자인 패턴을 사용하는 간단한 CRUD 작업 항목 추적기를 만듭니다. 또한 포함된 Scripts\AadPickerLibrary.js를 사용하여 Azure Active Directory Graph API의 데이터로 응용 프로그램을 보강합니다.
 
 5.	Models 폴더에서 WorkItem.cs라는 새 모델을 만들고 코드를 다음 코드로 바꿉니다.
 
-		using System.ComponentModel.DataAnnotations;
+			using System.ComponentModel.DataAnnotations;
 		
-		namespace WebAppGroupClaimsDotNet.Models
-		{
+			namespace WebAppGroupClaimsDotNet.Models
+			{
 		    public class WorkItem
 		    {
 		        [Key]
@@ -179,23 +189,26 @@
 		        Resolved, 
 		        Closed
 		    }
-		}
+			}
 
-6.	DAL\GroupClaimContext.cs를 열고 강조 표시된 코드를 추가합니다.  
+6.	DAL\GroupClaimContext.cs를 열고 강조 표시된 코드를 추가합니다.
 	<pre class="prettyprint">
-    public class GroupClaimContext : DbContext
-    {
-        public GroupClaimContext() : base("GroupClaimContext") { }
+	public class GroupClaimContext : DbContext
+	{
+    public GroupClaimContext() : base("GroupClaimContext") { }
 
-        public DbSet&lt;RoleMapping&gt; RoleMappings { get; set; }
-        public DbSet&lt;Task&gt; Tasks { get; set; }
-        <mark>public DbSet&lt;WorkItem&gt; WorkItems { get; set; }</mark>
-        public DbSet&lt;TokenCacheEntry&gt; TokenCacheEntries { get; set; }
-    }</pre>
+    public DbSet&lt;RoleMapping> RoleMappings { get; set; }
+    public DbSet&lt;Task> Tasks { get; set; }
+    <mark>public DbSet&lt;WorkItem> WorkItems { get; set; }</mark>
+    public DbSet&lt;TokenCacheEntry> TokenCacheEntries { get; set; }
+}</pre>
 
 7.	프로젝트를 빌드하여 새 모델이 Visual Studio에서 스캐폴딩 논리에 액세스할 수 있도록 합니다.
-8.	스캐폴드된 새 항목 `WorkItemsController`를 Controllers 폴더에 추가합니다. 이렇게 하려면 **컨트롤러**를 마우스 오른쪽 단추로 클릭하고 **추가**를 가리킨 후 **새 스캐폴드된 항목**을 선택합니다. 
+
+8.	스캐폴드된 새 항목 `WorkItemsController`를 Controllers 폴더에 추가합니다. 이렇게 하려면 **컨트롤러**를 마우스 오른쪽 단추로 클릭하고 **추가**를 가리킨 후 **새 스캐폴드된 항목**을 선택합니다.
+
 9.	**뷰가 포함된 MVC 5 컨트롤러, Entity Framework 사용**을 선택하고 **추가**를 클릭합니다.
+
 10.	방금 만든 모델을 선택하고 **추가**를 클릭합니다.
 
 	![](./media/web-sites-dotnet-lob-application-azure-ad/8-add-scaffolded-controller.png)
@@ -204,129 +217,121 @@
 
 11. 강조 표시된 [Authorize] 장식을 아래의 각 작업에 추가합니다.
 	<pre class="prettyprint">
+...
+
+	<mark>[Authorize(Roles = "Admin, Observer, Writer, Approver")]</mark>
+	public class WorkItemsController : Controller
+	{
 	...
 
-    <mark>[Authorize(Roles = "Admin, Observer, Writer, Approver")]</mark>
-    public class WorkItemsController : Controller
-    {
-		...
+    <mark>[Authorize(Roles = "Admin, Writer")]</mark>
+    public ActionResult Create()
+    ...
 
-        <mark>[Authorize(Roles = "Admin, Writer")]</mark>
-        public ActionResult Create()
-        ...
+    <mark>[Authorize(Roles = "Admin, Writer")]</mark>
+    public async Task&lt;ActionResult> Create([Bind(Include = "ItemID,AssignedToID,AssignedToName,Description,Status")] WorkItem workItem)
+    ...
 
-        <mark>[Authorize(Roles = "Admin, Writer")]</mark>
-        public async Task&lt;ActionResult&gt; Create([Bind(Include = "ItemID,AssignedToID,AssignedToName,Description,Status")] WorkItem workItem)
-        ...
+    <mark>[Authorize(Roles = "Admin, Writer")]</mark>
+    public async Task&lt;ActionResult> Edit(int? id)
+    ...
 
-        <mark>[Authorize(Roles = "Admin, Writer")]</mark>
-        public async Task&lt;ActionResult&gt; Edit(int? id)
-        ...
+    <mark>[Authorize(Roles = "Admin, Writer")]</mark>
+    public async Task&lt;ActionResult> Edit([Bind(Include = "ItemID,AssignedToID,AssignedToName,Description,Status")] WorkItem workItem)
+    ...
 
-        <mark>[Authorize(Roles = "Admin, Writer")]</mark>
-        public async Task&lt;ActionResult&gt; Edit([Bind(Include = "ItemID,AssignedToID,AssignedToName,Description,Status")] WorkItem workItem)
-        ...
+    <mark>[Authorize(Roles = "Admin, Writer, Approver")]</mark>
+    public async Task&lt;ActionResult> Delete(int? id)
+    ...
 
-        <mark>[Authorize(Roles = "Admin, Writer, Approver")]</mark>
-        public async Task&lt;ActionResult&gt; Delete(int? id)
-        ...
+    <mark>[Authorize(Roles = "Admin, Writer, Approver")]</mark>
+    public async Task&lt;ActionResult> DeleteConfirmed(int id)
+    ...
+}</pre>Roles 컨트롤러에서 역할 매핑에 주의했기 때문에 각 작업에서 올바른 역할에 권한을 부여하는지만 확인하면 됩니다.
 
-        <mark>[Authorize(Roles = "Admin, Writer, Approver")]</mark>
-        public async Task&lt;ActionResult&gt; DeleteConfirmed(int id)
-        ...
-	}</pre>
+	> [AZURE.NOTE]일부 작업에서 <code>[ValidateAntiForgeryToken]</code> 장식이 표시될 수 있습니다. [MVC 4, AntiForgeryToken 및 클레임](http://brockallen.com/2012/07/08/mvc-4-antiforgerytoken-and-claims/)의 [Brock Allen](https://twitter.com/BrockLAllen)에 설명된 동작으로 인해 HTTP POST가 위조 방지 토큰의 유효성을 검사하지 못할 수 있습니다. 이유: + Azure Active Directory가 위조 방지 토큰에 기본적으로 필요한 http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider를 전송하지 않습니다. + Azure Active Directory가 AD FS와 동기화된 디렉터리인 경우 기본적으로 AD FS 트러스트는 http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider 클레임을 전송하지 않습니다. 이 클레임을 전송하도록 AD FS를 수동으로 구성할 수 있습니다. 다음 단계에서 이 문제를 해결할 수 있습니다.
 
-	Roles 컨트롤러에서 역할 매핑에 주의했기 때문에 각 작업에서 올바른 역할에 권한을 부여하는지만 확인하면 됩니다.
-
-	> [AZURE.NOTE] 일부 작업에 <code>[ValidateAntiForgeryToken]</code> 장식이 표시될 수 있습니다. [MVC 4, AntiForgeryToken 및 클레임](http://brockallen.com/2012/07/08/mvc-4-antiforgerytoken-and-claims/)에서 [Brock Allen](https://twitter.com/BrockLAllen)이 설명한 동작으로 인해 다음과 같은 사유로 HTTP POST에서 위조 방지 토큰 유효성 검사에 실패할 수 있습니다.
-	> + Azure Active Directory가 위조 방지 토큰에 기본적으로 필요한 http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider를 보내지 않습니다.
-	> + Azure Active Directory가 AD FS와 디렉터리 동기화된 경우 http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider 클레임을 보내도록 AD FS를 수동으로 구성할 수 있지만 AD FS 트러스트에서 기본적으로 이 클레임을 보내지 않습니다.
-	> 다음 단계에서 이 문제를 해결할 수 있습니다.
-
-12.  App_Start\Startup.Auth.cs에서  `ConfigureAuth` 메서드에 다음 코드 줄을 추가합니다.
+12.  App_Start\Startup.Auth.cs에서 `ConfigureAuth` 메서드에 다음 코드 줄을 추가합니다.
 
 		AntiForgeryConfig.UniqueClaimTypeIdentifier = ClaimTypes.NameIdentifier;
 	
-	`ClaimTypes.NameIdentifies`는 Azure Active Directory에서 제공하는 클레임 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier`을 지정합니다. 이제 인증 부분을 해결했으므로(오래 걸리지는 않았음) 작업의 실제 기능에 집중할 수 있습니다. 
+	`ClaimTypes.NameIdentifies`는 Azure Active Directory에서 제공하는 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier` 클레임을 지정합니다. 이제 인증 부분을 해결했으므로(오래 걸리지는 않았음) 작업의 실제 기능에 집중할 수 있습니다.
 
-13.	Create() 및 Edit()에서 다음 코드를 추가하여 나중에 JavaScript에서 일부 변수를 사용할 수 있도록 합니다.
-            ViewData["token"] = GraphHelper.AcquireToken(ClaimsPrincipal.Current.FindFirst(Globals.ObjectIdClaimType).Value);
-            ViewData["tenant"] = ConfigHelper.Tenant;
-14.	Views\WorkItems\Create.cshtml(자동으로 스캐폴드된 항목)에서 `Html.BeginForm` 도우미 메서드를 찾아 다음과 같이 수정합니다.  
+13.	Create() 및 Edit()에서 다음 코드를 추가하여 나중에 JavaScript에서 일부 변수를 사용할 수 있도록 합니다. ViewData["token"] = GraphHelper.AcquireToken(ClaimsPrincipal.Current.FindFirst(Globals.ObjectIdClaimType).Value); ViewData["tenant"] = ConfigHelper.Tenant;
+
+14.	Views\WorkItems\Create.cshtml(자동으로 스캐폴드된 항목)에서 `Html.BeginForm` 도우미 메서드를 찾아 다음과 같이 수정합니다.
 	<pre class="prettyprint">@using (Html.BeginForm(<mark>"Create", "WorkItems", FormMethod.Post, new { id = "main-form" }</mark>))
-	{
-	    @Html.AntiForgeryToken()
-	    
-	    &lt;div class="form-horizontal"&gt;
-	        &lt;h4&gt;WorkItem&lt;/h4&gt;
-	        &lt;hr /&gt;
-	        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-	
-	        &lt;div class="form-group"&gt;
-	            &lt;div class="col-md-10"&gt;
-	                @Html.EditorFor(model =&gt; model.AssignedToID, new { htmlAttributes = new { @class = "form-control"<mark>, @type=&quot;hidden&quot;</mark> } })
-	                @Html.ValidationMessageFor(model =&gt; model.AssignedToID, "", new { @class = "text-danger" })
-	            &lt;/div&gt;
-	        &lt;/div&gt;
-	
-	        &lt;div class="form-group"&gt;
-	            @Html.LabelFor(model =&gt; model.AssignedToName, htmlAttributes: new { @class = "control-label col-md-2" })
-	            &lt;div class="col-md-10"&gt;
-	                @Html.EditorFor(model =&gt; model.AssignedToName, new { htmlAttributes = new { @class = "form-control" } })
-	                @Html.ValidationMessageFor(model =&gt; model.AssignedToName, "", new { @class = "text-danger" })
-	            &lt;/div&gt;
-	        &lt;/div&gt;
-	
-	        &lt;div class="form-group"&gt;
-	            @Html.LabelFor(model =&gt; model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
-	            &lt;div class="col-md-10"&gt;
-	                @Html.EditorFor(model =&gt; model.Description, new { htmlAttributes = new { @class = "form-control" } })
-	                @Html.ValidationMessageFor(model =&gt; model.Description, "", new { @class = "text-danger" })
-	            &lt;/div&gt;
-	        &lt;/div&gt;
-	
-	        &lt;div class="form-group"&gt;
-	            @Html.LabelFor(model =&gt; model.Status, htmlAttributes: new { @class = "control-label col-md-2" })
-	            &lt;div class="col-md-10"&gt;
-	                @Html.EnumDropDownListFor(model =&gt; model.Status, htmlAttributes: new { @class = "form-control" })
-	                @Html.ValidationMessageFor(model =&gt; model.Status, "", new { @class = "text-danger" })
-	            &lt;/div&gt;
-	        &lt;/div&gt;
-	
-	        &lt;div class="form-group"&gt;
-	            &lt;div class="col-md-offset-2 col-md-10"&gt;
-	                &lt;input type="submit" value="Create" class="btn btn-default" <mark>id="submit-button"</mark> /&gt;
-	            &lt;/div&gt;
-	        &lt;/div&gt;
-	    &lt;/div&gt;
-	
-	    <mark>&lt;script&gt;
-	            // People/Group Picker Code
-	            var maxResultsPerPage = 14;
-	            var searchUrl = window.location.protocol + "//" + window.location.host + "/Roles/Search";
-	            var input = document.getElementById("AssignedToName");
-	            var token = "@ViewData["token"]";
-	            var tenant = "@ViewData["tenant"]";
-	
-	            var picker = new AadPicker(searchUrl, maxResultsPerPage, input, token, tenant);
-	
-	            // Submit the selected user/group to be asssigned.
-	            $("#submit-button").click({ picker: picker }, function () {
-	                if (!picker.Selected())
-	                    return;
-	                $("#main-form").get()[0].elements["AssignedToID"].value = picker.Selected().objectId;
-	            });
-	    &lt;/script&gt;</mark>
-	
-	}</pre>
+{
+    @Html.AntiForgeryToken()
 
-	스크립트에서 AadPicker 개체는 `~/Roles/Search` 동작에서 입력과 일치하는 Azure Active Directory 사용자 및 그룹을 검색합니다. 그런 다음 제출 단추가 클릭되면 AadPicker 개체가 사용자 ID를 숨겨진 `AssignedToID` 필드에 저장합니다.  
+    &lt;div class="form-horizontal">
+        &lt;h4>WorkItem&lt;/h4>
+        &lt;hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        &lt;div class="form-group">
+            &lt;div class="col-md-10">
+                @Html.EditorFor(model => model.AssignedToID, new { htmlAttributes = new { @class = "form-control"<mark>, @type="hidden"</mark> } })
+                @Html.ValidationMessageFor(model => model.AssignedToID, "", new { @class = "text-danger" })
+            &lt;/div>
+        &lt;/div>
+
+        &lt;div class="form-group">
+            @Html.LabelFor(model => model.AssignedToName, htmlAttributes: new { @class = "control-label col-md-2" })
+            &lt;div class="col-md-10">
+                @Html.EditorFor(model => model.AssignedToName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.AssignedToName, "", new { @class = "text-danger" })
+            &lt;/div>
+        &lt;/div>
+
+        &lt;div class="form-group">
+            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+            &lt;div class="col-md-10">
+                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+            &lt;/div>
+        &lt;/div>
+
+        &lt;div class="form-group">
+            @Html.LabelFor(model => model.Status, htmlAttributes: new { @class = "control-label col-md-2" })
+            &lt;div class="col-md-10">
+                @Html.EnumDropDownListFor(model => model.Status, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+            &lt;/div>
+        &lt;/div>
+
+        &lt;div class="form-group">
+            &lt;div class="col-md-offset-2 col-md-10">
+                &lt;input type="submit" value="Create" class="btn btn-default" <mark>id="submit-button"</mark> />
+            &lt;/div>
+        &lt;/div>
+    &lt;/div>
+
+    <mark>&lt;script>
+            // People/Group Picker Code
+            var maxResultsPerPage = 14;
+            var searchUrl = window.location.protocol + "//" + window.location.host + "/Roles/Search";
+            var input = document.getElementById("AssignedToName");
+            var token = "@ViewData["token"]";
+            var tenant = "@ViewData["tenant"]";
+
+            var picker = new AadPicker(searchUrl, maxResultsPerPage, input, token, tenant);
+
+            // Submit the selected user/group to be asssigned.
+            $("#submit-button").click({ picker: picker }, function () {
+                if (!picker.Selected())
+                    return;
+                $("#main-form").get()[0].elements["AssignedToID"].value = picker.Selected().objectId;
+            });
+    &lt;/script></mark>
+
+}</pre>스크립트에서 AadPicker 개체는 `~/Roles/Search` 동작에서 입력과 일치하는 Azure Active Directory 사용자 및 그룹을 검색합니다. 그런 다음 제출 단추가 클릭되면 AadPicker 개체가 사용자 ID를 숨겨진 `AssignedToID` 필드에 저장합니다.
 
 15. 이제 응용 프로그램을 Visual Studio 디버거에서 실행하거나 Azure 앱 서비스 웹 앱에 게시합니다. 응용 프로그램 소유자로 로그인하여 `~/WorkItems/Create`로 이동합니다. 이 예제의 게시된 기간 업무 앱의 경우 `https://mylobapp.azurewebsites.net/WorkItems/Create`로 이동합니다. 이제 동일한 AadPicker 검색 필터를 사용하여 Azure Active Directory 사용자를 선택할 수 있습니다.
 
 	![](./media/web-sites-dotnet-lob-application-azure-ad/9-create-workitem.png)
 
-16. 양식의 나머지 부분을 입력하고 **만들기**를 선택합니다. ~/WorkItems/Index 페이지에 새로 만든 작업 항목이 표시됩니다. 또한 아래의 스크린샷을 보면 Views\WorkItems\Index.cshtml에서 `AssignedToID` 열이 제거된 것을 알 수 있습니다. 
+16. 양식의 나머지 부분을 입력하고 **만들기**를 선택합니다. ~/WorkItems/Index 페이지에 새로 만든 작업 항목이 표시됩니다. 또한 아래의 스크린샷을 보면 Views\WorkItems\Index.cshtml에서 `AssignedToID` 열이 제거된 것을 알 수 있습니다.
 
 	![](./media/web-sites-dotnet-lob-application-azure-ad/10-workitem-index.png)
 
@@ -342,8 +347,8 @@
 ## 추가 리소스
 
 - [SSL 및 Authorize 특성을 사용하여 응용 프로그램 보호](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md#protect-the-application-with-ssl-and-the-authorize-attribute)
-- [Azure 앱 서비스에서 인증을 위해 Active Directory를 사용합니다.](web-sites-authentication-authorization.md)
-- [AD FS 인증을 통해 Azure 앱 서비스에서 .NET MVC 웹 앱 만들기](web-sites-dotnet-lob-application-adfs.md)
+- [Azure 앱 서비스에서 인증을 위해 Active Directory 사용](web-sites-authentication-authorization.md)
+- [AD FS 인증을 통해 Azure 앱 서비스에서 .NET MVC 웹앱 만들기](web-sites-dotnet-lob-application-adfs.md)
 - [Microsoft Azure Active Directory 샘플 및 설명서](https://github.com/AzureADSamples)
 - [Vittorio Bertocci의 블로그](http://blogs.msdn.com/b/vbertocci/)
 - [WIF에서 Katana로 VS2013 웹 프로젝트 마이그레이션](http://www.cloudidentity.com/blog/2014/09/15/MIGRATE-A-VS2013-WEB-PROJECT-FROM-WIF-TO-KATANA/)
@@ -352,9 +357,9 @@
 - [SSO(Single Sign-On)으로 디렉터리 동기화 시나리오](http://technet.microsoft.com/library/dn441213.aspx)
 - [Azure Active Directory 지원 토큰 및 클레임 유형](http://msdn.microsoft.com/library/azure/dn195587.aspx)
 
-## 변경된 내용
-* 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 다음을 참조하세요. [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)
-* 이전 포털에서 새 포털로의 변경에 대한 지침은 다음을 참조하세요. [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)
+[AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
+[AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
+ 
 
-<!--HONumber=52--> 
+<!---HONumber=62-->

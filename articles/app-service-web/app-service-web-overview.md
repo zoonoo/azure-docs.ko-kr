@@ -45,6 +45,7 @@ Azure 앱 서비스 웹앱은 엔터프라이즈급 웹앱을 몇 초 내에 빌
 - **배포 슬롯** - [스테이징된 배포][Slots]를 구현하여 Azure 앱 서비스의 프로덕션 웹앱과 동일한 프로덕션 전 환경에서 코드를 검증합니다. 만족할 경우 교환 작업을 수행하여 가동 중지 시간 0으로 새 버전의 앱을 릴리스합니다. 
 - **프로덕션에서 테스트** - 다음 수준으로 스테이징된 배포를 사용하고 A/B 테스트를 수행하여 구성 가능한 일부 라이브 트래픽으로 새 코드를 검증합니다. 
 - **WebJobs** - 웹앱 VM에서 프로그램이나 스크립트를 실행합니다. 지속형 또는 예약형 작업을 실행하고 여러 VM에서 실행되도록 크기를 조정합니다. Azure [WebJobs SDK][Webjobs]를 사용하여 Azure 저장소 또는 서비스 버스와 통합합니다.
+- **하이브리드 연결** - - [하이브리드 연결](../integration-hybrid-connection-overview.md) 및 [VNET](../app-service-web/web-sites-integrate-with-vnet.md)를 사용하는 온-프레미스 데이터에 액세스.
 
 ## 시작 ##
 웹앱을 시작하려면 [ASP.NET 웹앱 만들기][create] 자습서를 따르세요.
@@ -62,5 +63,6 @@ Azure 앱 서비스 플랫폼에 대한 자세한 내용은 [Azure 앱 서비스
 [Webjobs]: websites-dotnet-webjobs-sdk-get-started.md
 [Slots]: web-sites-staged-publishing.md
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

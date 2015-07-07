@@ -1,29 +1,28 @@
-<properties 
-	pageTitle="HDInsight 학습 지도 | Azure" 
-	description="HDInsight에 대해 확인해야 하는 모든 내용을 익히기 위해 진행할 수 있는 권장 리소스 흐름을 소개합니다." 
-	services="hdinsight" 
-	documentationCenter="" 
-	authors="nitinme" 
-	manager="paulettm" 
+<properties
+	pageTitle="HDInsight의 Hadoop 학습 과정 | Microsoft Azure"
+	description="HDInsight에서 Hadoop 및 해당 구성 요소를 사용하는 방법을 학습하려면 설명서 및 리소스를 통해 이 학습 과정을 따릅니다."
+	services="hdinsight"
+	documentationCenter=""
+	authors="nitinme"
+	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="hdinsight" 
-	ms.workload="big-data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="01/16/2015" 
+<tags
+	ms.service="hdinsight"
+	ms.workload="big-data"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article" 
+	ms.date="01/16/2015"
 	ms.author="nitinme"/>
 
 
-# HDInsight 학습 지도
-HDInsight에서는 Hadoop, HBase 및 사용자 지정된 클러스터의 클라우드에 있는 빅데이터로 작업할 수 있습니다. HDInsight 설명서를 사용하는 효과적인 학습 경로를 알려면 이 페이지의 지침을 따르세요.
+
+# HDInsight의 Hadoop 학습 과정
+HDInsight에서는 Hadoop, HBase, Apache Storm 및 사용자 지정된 클러스터의 클라우드에 있는 빅데이터로 작업할 수 있습니다. Hadoop 및 해당 구성 요소를 학습하는 도움말은 HDInsight 설명서를 통해 이 학습 과정에 대한 지침을 따릅니다.
+
 
 <object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/HDI.Content.Flow.svg" width="100%" height="100%"> </object>
+ 
 
-
-
-
-
-<!--HONumber=54--> 
+<!---HONumber=62-->

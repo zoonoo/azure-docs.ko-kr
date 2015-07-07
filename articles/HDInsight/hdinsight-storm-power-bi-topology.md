@@ -1,6 +1,6 @@
 <properties
- pageTitle="Apache Storm에서 Power BI로 데이터 기록"
- description="HDInsight 클러스터의 Apache Storm에서 실행되는 C# 토폴로지에서 Power BI로 데이터를 기록하는 방법에 대한 예제입니다. 데이터를 기록한 후에는 Power BI를 사용하여 보고서 및 실시간 대시보드를 만드는 방법에 대해 알아봅니다."
+ pageTitle="Apache Storm에서 Power BI로 데이터 기록 | Microsoft Azure"
+ description="HDInsight 내 Apache Storm 클러스터에서 실행되는 C# 토폴로지로부터 Power BI로 데이터를 기록합니다. 또한, Power BI를 사용하여 보고서 및 실시간 대시보드를 만듭니다."
  services="hdinsight"
  documentationCenter=""
  authors="Blackmist"
@@ -16,7 +16,7 @@
  ms.date="04/28/2015"
  ms.author="larryfr"/>
 
-# Power BI(미리 보기)를 사용하여 Storm 토폴로지에서 데이터 시각화
+# Power BI(미리 보기)를 사용하여 Apache Storm 토폴로지에서 데이터 시각화
 
 Power BI 미리 보기를 사용하여 데이터를 보고서 또는 대시보드로 시각적으로 표시할 수 있습니다. Power BI REST API를 사용하면 HDInsight 클러스터의 Apache Storm에서 실행되는 토폴로지의 데이터를 Power BI에서 손쉽게 사용할 수 있습니다.
 
@@ -24,7 +24,7 @@ Power BI 미리 보기를 사용하여 데이터를 보고서 또는 대시보�
 
 ## 필수 조건
 
-* Microsoft Azure 구독
+- Azure 구독. [Azure 무료 평가판](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
 
 * [Power BI](https://powerbi.com) 액세스 권한이 있는 Azure Active Directory 사용자
 
@@ -54,15 +54,15 @@ Power BI 미리 보기를 사용하여 데이터를 보고서 또는 대시보�
 
 ## Power BI 응용 프로그램 등록
 
-1. [Power BI 빠른 시작](https://msdn.microsoft.com/en-US/library/dn931989.aspx) 단계에 따라 Power BI에 등록합니다.
+1. [Power BI 빠른 시작](https://msdn.microsoft.com/ko-kr/library/dn931989.aspx) 단계에 따라 Power BI에 등록합니다.
 
-2. [앱 등록](https://msdn.microsoft.com/en-US/library/dn877542.aspx) 단계에 따라 응용 프로그램 등록을 만듭니다. 이는 Power BI REST API에 액세스할 때 사용됩니다.
+2. [앱 등록](https://msdn.microsoft.com/ko-kr/library/dn877542.aspx) 단계에 따라 응용 프로그램 등록을 만듭니다. 이는 Power BI REST API에 액세스할 때 사용됩니다.
 
     > [AZURE.IMPORTANT]응용 프로그램 등록을 위한 **클라이언트 ID**를 저장합니다.
 
 ## 예제 다운로드
 
-[HDInsight C# Storm Power BI 예제]](https://github.com/Blackmist/hdinsight-csharp-storm-powerbi)를 다운로드합니다. 다운로드하려면 [git](http://git-scm.com/)를 사용하여 포크/복제하거나, **다운로드** 링크를 사용하여 .zip 보관 파일을 다운로드합니다.
+[HDInsight C# Storm Power BI 예제](https://github.com/Blackmist/hdinsight-csharp-storm-powerbi)를 다운로드합니다. 다운로드하려면 [git](http://git-scm.com/)를 사용하여 포크/복제하거나, **다운로드** 링크를 사용하여 .zip 보관 파일을 다운로드합니다.
 
 ## 샘플 구성
 
@@ -137,6 +137,6 @@ Power BI 미리 보기를 사용하여 데이터를 보고서 또는 대시보�
 이 문서에서는 REST를 사용하여 Storm 토폴로지에서 Power BI로 데이터를 보내는 방법을 알아보았습니다. 다른 Azure 기술을 사용하는 방법에 대한 자세한 내용은 다음을 참조하세요.
 
 * [HDInsight의 Storm에 대한 예제 토폴로지](hdinsight-storm-example-topology.md)
-
-<!--HONumber=52-->
  
+
+<!---HONumber=62-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="HDInsight에서 클러스터 크기 조정 | Azure"
-   description="클러스터를 삭제한 후 다시 생성하지 않고 HDInsight에서 실행되는 클러스터의 데이터 노드 수를 변경합니다."
+   pageTitle="HDInsight에서 Hadoop, HBase, 또는 Apache Storm 클러스터 크기 조정 | Microsoft Azure"
+   description="클러스터를 삭제한 후 다시 생성하지 않고 HDInsight에서 실행되는 Hadoop, Apache Storm 또는 HBase 클러스터의 데이터 노드 수를 변경합니다."
    services="hdinsight"
    documentationCenter=""
    authors="mumian"
@@ -16,15 +16,15 @@
    ms.date="04/02/2015"
    ms.author="jgao"/>
 
-#HDInsight에서 클러스터 크기 조정
+#Hadoop, HBase, 또는 Apache Storm 클러스터의 크기를 조정하여 HDInsight에서 데이터 노드 수를 변경 
 
 클러스터 크기 조정 기능을 사용하여 클러스터를 삭제한 후 다시 생성하지 않고 Azure HDInsight에서 실행되는 클러스터에서 사용되는 데이터 노드 수를 변경합니다. Azure PowerShell, HDInsight SDK 또는 Azure 포털을 사용하여 작업을 수행할 수 있습니다.
 
 ## 기능 세부사항
 이 섹션에서는 HDInsight에서 지원되는 클러스터의 각 형식에 대한 데이터 노드 수를 변경하는 영향에 대해 설명합니다.
 
-* Hadoop은
-* Storm
+* Hadoop
+* Apache Storm
 * HBase 
 
 ## Hadoop은 
@@ -84,7 +84,7 @@ Azure PowerShell을 사용하여 Hadoop 클러스터 크기를 변경하려면 �
 
 > [AZURE.NOTE]이 명령을 사용하려면 클라이언트 컴퓨터에 Azure PowerShell 버전 0.8.14 이상이 설치되어 있어야 합니다.
 
-### SDK
+### SDK)
 HDInsight SDK를 사용하여 Hadoop 클러스터 크기를 변경하려면 다음 두 방법 중 하나를 사용합니다.
 
 	ChangeClusterSize(string dnsName, string location, int newSize) 
@@ -143,5 +143,6 @@ HDInsight SDK를 사용하여 Hadoop 클러스터 크기를 변경하려면 다�
 
 
 HDInsight .NET SDK 사용 정보에 대한 자세한 내용은 [사용자 지정 옵션을 사용하여 HDInsight에서 Hadoop 클러스터 프로비전](hdinsight-provision-clusters.md) 주제를 참조하세요.
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

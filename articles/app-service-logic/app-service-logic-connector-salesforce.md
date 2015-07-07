@@ -28,7 +28,7 @@
 
 커넥터 패키지 설정의 일부로, 사용자가 커넥터에서 관리할 수 있는 엔터티를 지정할 수 있으며, 작업, 입력 및 출력 매개 변수가 동적으로 채워집니다. 다음은 Salesforce 커넥터에서 사용할 수 있는 다양한 작업입니다.
  
-- 엔터티 만들기- 계정 및 사례와 같은 새 Salesforce 엔터티를 만들려면 이 작업을 사용합니다.
+- 엔터티 만들기- 계정 또는 사용자 지정 개체와 같은 새 Salesforce 엔터티를 만들려면 이 작업을 사용합니다.
 
 - 엔터티 업데이트 - 기존 Salesforce 엔터티를 업데이트하려면 이 작업을 사용합니다.
 
@@ -134,5 +134,6 @@ Salesforce에서 계정을 만들고 동일한 계정의 청구 주소 정보를
 [15]: ./media/app-service-logic-connector-salesforce/15_Create_new_salesforce_connector.png
 
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

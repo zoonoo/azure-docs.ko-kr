@@ -1,45 +1,46 @@
-<properties 
-	pageTitle="Azure 포털을 사용하여 HDInsight의 Hadoop 클러스터 관리 | Microsoft Azure" 
-	description="HDInsight 서비스를 관리하는 방법에 대해 알아봅니다. HDInsight 클러스터를 만들고 대화형 JavaScript 콘솔을 열고 Hadoop 명령 콘솔을 여는 방법에 대해 설명합니다." 
-	services="hdinsight" 
-	documentationCenter="" 
-	authors="mumian" 
-	manager="paulettm" 
+<properties
+	pageTitle="Azure 포털을 사용하여 HDInsight의 Hadoop 클러스터 관리 | Microsoft Azure"
+	description="HDInsight 서비스를 관리하는 방법에 대해 알아봅니다. HDInsight 클러스터를 만들고 대화형 JavaScript 콘솔을 열고 Hadoop 명령 콘솔을 여는 방법에 대해 설명합니다."
+	services="hdinsight"
+	documentationCenter=""
+	authors="mumian"
+	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="hdinsight" 
-	ms.workload="big-data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="03/12/2015" 
+<tags
+	ms.service="hdinsight"
+	ms.workload="big-data"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/02/2015"
 	ms.author="jgao"/>
 
 # Azure 포털을 사용하여 HDInsight의 Hadoop 클러스터 관리
 
-Azure 포털에서 Azure HDInsight의 Hadoop 클러스터를 프로비전하고, Hadoop 사용자 암호를 변경하고, RDP(원격 데스크톱 프로토콜)를 사용하도록 설정하여 클러스터의 Hadoop 명령 콘솔에 액세스할 수 있습니다.
+[Azure 포털](https://manage.windowsazure.com)에서 Azure HDInsight의 Hadoop 클러스터를 프로비전하고, Hadoop 사용자 암호를 변경하고, RDP(원격 데스크톱 프로토콜)를 사용하도록 설정하여 클러스터의 Hadoop 명령 콘솔에 액세스할 수 있습니다.
 
 ## HDInsight를 관리하기 위한 기타 도구
 Azure 포털뿐 아니라 HDInsight 관리에 사용할 수 있는 기타 도구도 있습니다.
 
 - Azure PowerShell을 사용하여 HDInsight를 관리하는 방법에 대한 자세한 내용은 [Azure PowerShell을 사용하여 HDInsight 관리](hdinsight-administer-use-powershell.md)를 참조하세요.
 
-- 플랫폼 간 명령줄 도구를 사용하여 HDInsight를 관리하는 방법에 대한 자세한 내용은 [플랫폼 간 명령줄 인터페이스를 사용하여 HDInsight 관리](hdinsight-administer-use-command-line.md)를 참조하세요.
+- Azure CLI를 사용하여 HDInsight를 관리하는 방법에 대한 자세한 내용은 [Azure CLI를 사용하여 HDInsight 관리](hdinsight-administer-use-command-line.md)를 참조하세요.
 
 ##필수 조건
 
 이 문서를 시작하기 전에 다음이 있어야 합니다.
 
-- **Azure 구독** - Azure는 구독 기반 플랫폼입니다. 구독을 얻는 방법에 대한 자세한 내용은 [구매 옵션](http://azure.microsoft.com/pricing/purchase-options/), [구성원 제공 항목](http://azure.microsoft.com/pricing/member-offers/) 또는 [무료 평가판](http://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
+- **Azure 구독**. [Azure 무료 평가판](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
 - **Azure 저장소 계정** - HDInsight 클러스터는 Azure Blob 저장소 컨테이너를 기본 파일 시스템으로 사용합니다. Azure Blob 저장소가 HDInsight 클러스터에서 매끄럽게 작동하는 방식에 대한 자세한 내용은 [HDInsight에서 Azure Blob 저장소 사용](../hdinsight-use-blob-storage.md)을 참조하세요. Azure 저장소 계정 만들기에 대한 자세한 내용은 [저장소 계정을 만드는 방법](../storage-create-storage-account.md)을 참조하세요.
+
 
 ##HDInsight 클러스터 프로비전
 
 빠른 생성 또는 사용자 지정 만들기 옵션을 사용하여 Azure 포털에서 HDInsight 클러스터를 프로비전할 수 있습니다. 자세한 내용은 다음 링크를 참조하세요.
 
 - [빠른 생성을 사용하여 클러스터 프로비전](../hdinsight-get-started.md#provision)
-- [사용자 지정 만들기를 사용하여 클러스터 프로비전](hdinsight-provision-clusters.md#portal) 
+- [사용자 지정 만들기를 사용하여 클러스터 프로비전](hdinsight-provision-clusters.md#portal)
 
 [AZURE.INCLUDE [데이터 센터 목록](../../includes/hdinsight-pricing-data-centers-clusters.md)]
 
@@ -50,11 +51,11 @@ HDInsight는 다양한 Hadoop 구성 요소에서 작동합니다. 검증되어 
 
 - 스크립트 작업을 사용하여 클러스터 구성을 변경하거나 Giraph 또는 Solr과 같은 사용자 지정 구성 요소를 설치하도록 클러스터를 사용자 지정할 수 있는 사용자 지정 스크립트를 실행합니다. 자세한 내용은 [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster.md)(영문)을 참조하세요.
 - 클러스터 프로비전 중 HDInsight .NET SDK 또는 Azure PowerShell의 클러스터 사용자 지정 매개 변수를 사용합니다. 그러면 이러한 구성 변경 내용이 클러스터 수명 동안 유지되며 Azure 플랫폼이 유지 관리를 위해 정기적으로 수행하는 클러스터 노드 이미지로 다시 설치의 영향을 받지 않습니다. 클러스터 사용자 지정 매개 변수 사용에 대한 자세한 내용은 [HDInsight 클러스터 프로비전](hdinsight-provision-clusters.md)을 참조하세요.
-- Mahout, Cascading 등의 일부 네이티브 Java 구성 요소는 클러스터에서 JAR 파일로 실행할 수 있습니다. 이러한 JAR 파일은 Azure Blob 저장소에 배포되고 Hadoop 작업 제출 메커니즘을 통해 HDInsight 클러스터에 제출될 수 있습니다. 자세한 내용은 [프로그래밍 방식으로 Hadoop 작업 제출](hdinsight-submit-hadoop-jobs-programmatically.md)을 참조하세요. 
+- Mahout, Cascading 등의 일부 네이티브 Java 구성 요소는 클러스터에서 JAR 파일로 실행할 수 있습니다. 이러한 JAR 파일은 Azure Blob 저장소에 배포되고 Hadoop 작업 제출 메커니즘을 통해 HDInsight 클러스터에 제출될 수 있습니다. 자세한 내용은 [프로그래밍 방식으로 Hadoop 작업 제출](hdinsight-submit-hadoop-jobs-programmatically.md)을 참조하세요.
 
 
 	>[AZURE.NOTE]HDInsight 클러스터에 Jar 파일을 배포하거나 HDInsight 클러스터에서 Jar 파일을 호출하는 데 문제가 있는 경우 [Microsoft 지원 센터](http://azure.microsoft.com/support/options/)로 문의하세요.
-	
+
 	> Cascading은 HDInsight에서 지원되지 않으며 Microsoft 지원 대상이 아닙니다. 지원되는 구성 요소 목록은 [HDInsight에서 제공하는 클러스터 버전의 새로운 기능](hdinsight-component-versioning.md)을 참조하세요.
 
 
@@ -87,7 +88,7 @@ HDInsight 클러스터마다 두 개의 사용자 계정이 포함될 수 있습
 3. 연결할 HDInsight 클러스터를 클릭합니다.
 4. 페이지 맨 위에서 **구성**을 클릭합니다.
 5. 페이지 맨 아래에서 **원격 사용**을 클릭합니다.
-6. **원격 데스크톱 구성** 마법사에서 원격 데스크톱의 사용자 이름 및 암호를 입력합니다. 사용자 이름은 클러스터를 만드는 데 사용된 이름(빠른 생성 옵션을 사용한 경우 기본적으로 **admin**)과 달라야 합니다. **만료 날짜** 상자에 만료 날짜를 입력합니다. 만료 날짜는 지금부터 1주일 이내의 미래 날짜여야 합니다. 만료 시간은 기본적으로 지정한 날짜의 자정으로 가정됩니다. 확인 아이콘을 클릭합니다.
+6. **원격 데스크톱 구성** 마법사에서 원격 데스크톱의 사용자 이름 및 암호를 입력합니다. 사용자 이름은 클러스터를 만드는 데 사용된 이름(빠른 생성 옵션을 사용한 경우 기본적으로 **admin**)과 달라야 합니다. **만료 날짜** 상자에 만료 날짜를 입력합니다. 만료 날짜는 지금부터최대 90일 이내의 미래 날짜여야 합니다. 만료 시간은 기본적으로 지정한 날짜의 자정으로 가정됩니다. 확인 아이콘을 클릭합니다.
 
 	![HDI.CreateRDPUser][image-hdi-create-rpd-user]
 
@@ -97,7 +98,7 @@ HDInsight 클러스터마다 두 개의 사용자 계정이 포함될 수 있습
 
 
 > [AZURE.NOTE]클러스터에 RDP를 사용하도록 설정한 후 페이지를 새로 고쳐야 클러스터에 연결할 수 있습니다.
- 
+
 **RDP를 사용하여 클러스터에 연결하려면**
 
 1. [Azure 포털](https://manage.windowsazure.com/)에 로그인합니다.
@@ -113,7 +114,7 @@ HDInsight 클러스터마다 두 개의 사용자 계정이 포함될 수 있습
 **자체 서명된 인증서 만들기**
 
 1. 요청을 인증하는 데 사용되는 자체 서명된 인증서를 만듭니다. IIS(인터넷 정보 서비스) 또는 [makecert](http://go.microsoft.com/fwlink/?LinkId=534000)를 사용하여 인증서를 만들 수 있습니다.
- 
+
 2. 인증서 위치로 이동한 후 인증서를 마우스 오른쪽 단추로 클릭하고 **인증서 설치**를 클릭한 후 컴퓨터의 개인 저장소에 인증서를 설치합니다. 인증서 속성을 편집하여 이름을 지정합니다.
 
 3. 인증서를 Azure 포털로 가져옵니다. 포털에서 페이지 왼쪽 아래에 있는 **설정**을 클릭하고 **관리 인증서**를 클릭합니다. 페이지 맨 아래에서 **업로드**를 클릭하고 지침에 따라 이전 단계에서 만든 .cer 파일을 업로드합니다.
@@ -167,7 +168,7 @@ Azure PowerShell cmdlet을 통해 이 작업을 수행할 수도 있습니다.
 6. 자격 증명을 입력한 다음 **확인**을 클릭합니다. 클러스터를 만들 때 구성한 사용자 이름 및 암호를 사용합니다.
 7. **예**를 클릭합니다.
 8. 데스크톱에서 **Hadoop 명령줄**을 두 번 클릭합니다.
-		
+
 	![HDI.HadoopCommandLine][image-hadoopcommandline]
 
 
@@ -178,7 +179,7 @@ Azure PowerShell cmdlet을 통해 이 작업을 수행할 수도 있습니다.
 	cd %hadoop_home%
 	cd %hive_home%
 	cd %pig_home%
-	cd %sqoop_home%   
+	cd %sqoop_home%
 	cd %hcatalog_home%
 
 ##클러스터 크기 조정
@@ -188,7 +189,7 @@ Azure PowerShell cmdlet을 통해 이 작업을 수행할 수도 있습니다.
 이 문서에서는 Azure 포털을 사용하여 HDInsight 클러스터를 만드는 방법 및 Hadoop 명령줄 도구를 여는 방법을 배웠습니다. 자세한 내용은 다음 문서를 참조하세요.
 
 * [Azure PowerShell을 사용하여 HDInsight 관리](hdinsight-administer-use-powershell.md)
-* [플랫폼 간 명령줄 인터페이스를 사용하여 HDInsight 관리](hdinsight-administer-use-command-line.md)
+* [Azure CLI를 사용하여 HDInsight 관리](hdinsight-administer-use-command-line.md)
 * [HDInsight 클러스터 프로비전](hdinsight-provision-clusters.md)
 * [프로그래밍 방식으로 Hadoop 작업 제출](hdinsight-submit-hadoop-jobs-programmatically.md)
 * [Azure HDInsight 시작](../hdinsight-get-started.md)
@@ -199,5 +200,6 @@ Azure PowerShell cmdlet을 통해 이 작업을 수행할 수도 있습니다.
 [image-hdi-create-rpd-user]: ./media/hdinsight-administer-use-management-portal/HDI.CreateRDPUser.png
 [image-hadoopcommandline]: ./media/hdinsight-administer-use-management-portal/HDI.HadoopCommandLine.PNG "Hadoop 명령줄"
 [image-hdiclustercreate-uploadcert]: ./media/hdinsight-administer-use-management-portal/HDI.ClusterCreate.UploadCert.png
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

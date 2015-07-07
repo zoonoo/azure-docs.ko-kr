@@ -1,5 +1,5 @@
 <properties
-	pageTitle="10GB GraySort 샘플 | Azure"
+	pageTitle="10GB GraySort Hadoop MapReduce 샘플 | Microsoft Azure"
 	description="HDInsight의 Hadoop에서 보통 최소 100TB 정도 되는 매우 많은 양의 데이터에 대해 Azure PowerShell을 사용하여 일반적인 목적의 GraySort를 실행하는 방법에 대해 알아봅니다."
 	editor="cgronlun"
 	manager="paulettm"
@@ -16,7 +16,7 @@
 	ms.date="03/30/2015" 
 	ms.author="bradsev"/>
 
-# HDInsight의 10GB GraySort Hadoop 샘플
+# HDInsight의 10GB GraySort Hadoop MapReduce 샘플
 
 이 샘플 항목은 Azure PowerShell을 사용하여 Azure HDInsight에서 범용 GraySort Hadoop MapReduce 프로그램을 실행하는 방법을 보여 줍니다. GraySort는 메트릭이 대량의 데이터를 정렬하는 동안 도달하는 정렬 속도(TB/분)가 일반적으로 최소 100TB인 벤치마크 정렬입니다.
 
@@ -31,21 +31,18 @@
 세 응용 프로그램 모두에 사용된 입력 및 출력 형식은 올바른 형식의 텍스트 파일을 읽고 씁니다. 벤치마크 콘테스트에서는 출력 데이터를 여러 노드로 복제할 필요가 없으므로 reduce의 출력에서 복제를 기본값인 3 대신 1로 설정했습니다.
 
 
-**다음 내용을 배웁니다.** 
-* Azure PowerShell을 사용하여 Azure HDInsight에서 일련의 MapReduce 프로그램을 실행하는 방법 
-* Java로 작성한 MapReduce 프로그램
+**다음 내용을 배웁니다.** * Azure PowerShell을 사용하여 Azure HDInsight에서 일련의 MapReduce 프로그램을 실행하는 방법 * Java로 작성한 MapReduce 프로그램
 
 
 **필수 조건:**
 
-- Azure 계정이 있어야 합니다. 계정 등록 옵션은 [Azure 평가판 사용](http://azure.microsoft.com/pricing/free-trial/) 페이지를 참조하세요.
-
-- HDInsight 클러스터를 미리 프로비전해야 합니다. 이 클러스터를 만드는 여러 방법에 대한 자세한 내용은 [HDInsight 클러스터 프로비전](hdinsight-provision-clusters.md)을 참조하세요.
-
-- Azure PowerShell을 설치하고 계정과 함께 사용하도록 구성해야 합니다. 설치 방법에 대한 지침은 [Azure PowerShell 설치 및 구성][powershell-install-configure]을 참조하십시오.
+- **Azure 구독**. [Azure 무료 평가판](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
+- **HDInsight 클러스터**. 이 클러스터를 만드는 여러 방법에 대한 자세한 내용은 [HDInsight 클러스터 프로비전](hdinsight-provision-clusters.md)(영문)을 참조하세요.
+- **Azure PowerShell이 포함된 워크스테이션**. [Azure PowerShell 설치 및 사용](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/)을 참조하세요.
 
 
-## Azure PowerShell을 사용하여 샘플 실행
+
+##Azure PowerShell로 샘플 실행
 
 소개 부분에서 설명한 각 MapReduce 프로그램에 해당하는 샘플에는 다음과 같은 세 가지 작업이 필요합니다.
 
@@ -130,7 +127,7 @@
 		$teravalidate | Start-AzureHDInsightJob -Cluster $clustername | Wait-AzureHDInsightJob -WaitTimeoutInSeconds 3600 | Get-AzureHDInsightJobOutput -Cluster $clustername -StandardError
 
 
-## TeraSort MapReduce 프로그램의 Java 코드
+##TeraSort MapReduce 프로그램의 Java 코드
 
 이 섹션에서는 TeraSort MapReduce 프로그램 코드가 검사용으로 제시되었습니다.
 
@@ -401,11 +398,11 @@
 	}
 
 
-## 요약
+##요약
 
 이 샘플에서는 Azure HDInsight를 사용하여 한 작업의 데이터 출력이 계열 내 다음 작업의 입력이 되는 일련의 MapReduce 작업을 실행하는 방법에 대해 설명했습니다.
 
-## 다음 단계
+##다음 단계
 
 다른 샘플 실행 과정을 안내하고 Azure PowerShell을 통해 Azure HDInsight에서 Pig, Hive 및 MapReduce 작업을 사용하는 방법에 대한 지침을 제공하는 자습서는 다음 항목을 참조하세요.
 
@@ -420,7 +417,7 @@
 [hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
 
 
-[Powershell-install-configure]: ../install-configure-powershell.md
+[powershell-install-configure]: ../install-configure-powershell.md
 
 [hdinsight-get-started]: ../hdinsight-get-started.md
 
@@ -432,5 +429,6 @@
 
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

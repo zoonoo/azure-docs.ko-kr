@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Hive ODBC 드라이버로 Hadoop에 Excel 연결 | Microsoft Azure" 
-   description="Excel용 Microsoft Hive ODBC 드라이버를 설정하고 HDInsight 클러스터에서 데이터를 쿼리하는 데 사용하는 방법에 대해 알아봅니다." 
-   services="hdinsight" 
-   documentationCenter="" 
-   authors="bradsev" 
-   manager="paulettm" 
+<properties
+   pageTitle="Hive ODBC 드라이버로 Hadoop에 Excel 연결 | Microsoft Azure"
+   description="Excel용 Microsoft Hive ODBC 드라이버를 설정하고 HDInsight 클러스터에서 데이터를 쿼리하는 데 사용하는 방법에 대해 알아봅니다."
+   services="hdinsight"
+   documentationCenter=""
+   authors="bradsev"
+   manager="paulettm"
    editor="cgronlun"/>
 
 <tags
@@ -12,8 +12,8 @@
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="big-data" 
-   ms.date="03/31/2015"
+   ms.workload="big-data"
+   ms.date="06/08/2015"
    ms.author="bradsev"/>
 
 #Microsoft Hive ODBC 드라이버로 Hadoop에 Excel 연결
@@ -23,13 +23,14 @@ Microsoft의 빅데이터 솔루션은 Microsoft BI(비즈니스 인텔리전스
 
 Excel에서 Microsoft Excel용 파워 쿼리 추가 기능을 사용하여 HDInsight 클러스터 및 기타 데이터 원본(예: 기타(비 HDInsight) Hadoop 클러스터)과 연결된 데이터를 연결할 수도 있습니다. 파워 쿼리 설치 및 사용에 대한 자세한 내용은 [HDInsight에 파워 쿼리로 Excel 연결][hdinsight-power-query]을 참조하세요.
 
+> [AZURE.NOTE]이 문서의 단계는 Linux 또는 Windows 기반 HDInsight 클러스터와 함께 사용할 수 있지만, Windows는 클라이언트 워크스테이션에 필요합니다.
+
 **필수 조건**:
 
 이 문서를 시작하기 전에 다음이 있어야 합니다.
 
-- HDInsight 클러스터. 구성하려면 [Azure HDInsight 시작][hdinsight-get-started]을 참조하세요.
-- Windows 8, Windows 7, Windows Server 2012 또는 Windows Server 2008 R2를 실행하는 컴퓨터.
-- Office 2013 Professional Plus, Office 365 Pro Plus, Excel 2013 Standalone 또는 Office 2010 Professional Plus
+- **HDInsight 클러스터**. 구성하려면 [Azure HDInsight 시작][hdinsight-get-started]을 참조하세요.
+- Office 2013 Professional Plus, Office 365 Pro Plus, Excel 2013 Standalone 또는 Office 2010 Professional Plus가 있는 **워크스테이션**
 
 
 ##<a id="InstallHiveODBCDriver"></a>Microsoft Hive ODBC 드라이버 설치
@@ -43,44 +44,40 @@ Excel에서 Microsoft Excel용 파워 쿼리 추가 기능을 사용하여 HDIns
 다음 단계에 따라 Hive ODBC 데이터 원본을 만들 수 있습니다.
 
 1. Windows 8에서 Windows 키를 눌러 시작 화면을 연 후 **data sources**를 입력합니다.
-2. Office 버전에 따라 **ODBC 데이터 원본 설정(32비트)** 또는 **ODBC 데이터 원본 설정(64비트)**을 클릭합니다. Windows 7을 사용하는 경우 **관리 도구**에서 **ODBC 데이터 원본(32비트)** 또는 **ODBC 데이터 원본(64비트)**을 선택합니다. **ODBC 데이터 원본 관리자** 대화 상자가 시작됩니다. 
- 
+2. Office 버전에 따라 **ODBC 데이터 원본 설정(32비트)** 또는 **ODBC 데이터 원본 설정(64비트)**을 클릭합니다. Windows 7을 사용하는 경우 **관리 도구**에서 **ODBC 데이터 원본(32비트)** 또는 **ODBC 데이터 원본(64비트)**을 선택합니다. **ODBC 데이터 원본 관리자** 대화 상자가 시작됩니다.
+
 	![OBDC 데이터 원본 관리자][img-hdi-simbahiveodbc-datasource-admin]
 
 3. 사용자 DNS에서 **추가**를 클릭하여 **새 데이터 원본 만들기** 마법사를 엽니다.
-4. **Microsoft Hive ODBC 드라이버**를 선택한 후 **마침**을 클릭합니다. **Microsoft Hive ODBC Driver DNS Setup** 대화 상자가 시작됩니다. 
+4. **Microsoft Hive ODBC 드라이버**를 선택한 후 **마침**을 클릭합니다. **Microsoft Hive ODBC Driver DNS Setup** 대화 상자가 시작됩니다.
 
 5. 다음 값을 입력하거나 선택합니다.
 
 	<table border="1">
-	<tr><td><strong>속성</strong></td><td><strong>설명</strong></td></tr>
-	<tr><td>데이터 원본 이름</td><td>데이터 원본에 이름 지정</td></tr>
-	<tr><td>호스트</td><td><HDInsightClusterName>.azurehdinsight.net을 입력합니다. 예를 들면 myHDICluster.azurehdinsight.net과 같습니다.</td></tr>
-	<tr><td>포트</td><td><strong>443</strong> 사용 (이 포트는 563에서 443으로 변경됨)</td></tr>
-	<tr><td>데이터베이스</td><td><strong>기본값</strong> 사용</td></tr>
-	<tr><td>Hive 서버 유형</td><td><strong>Hive 서버 2</strong> 선택</td></tr>
-	<tr><td>메커니즘</td><td><strong>Azure HDInsight Service</strong> 선택</td></tr>
-	<tr><td>HTTP 경로</td><td>비워 둠</td></tr>
-	<tr><td>사용자 이름</td><td>HDInsight 클러스터 사용자의 사용자 이름 입력. 클러스터 프로비전 프로세스 동안 만들어진 사용자 이름입니다. 빠른 생성 옵션을 사용한 경우 기본 사용자 이름은 <strong>admin</strong>입니다.</td></tr>
-	<tr><td>암호</td><td>HDInsight 클러스터 사용자 암호 입력</td></tr>
-	</table>
-
-	**고급 옵션**을 클릭할 때 알아야 할 중요한 매개 변수가 몇 가지 있습니다.
+<tr><td><strong>속성</strong></td><td><strong>설명</strong></td></tr>
+<tr><td>데이터 원본 이름</td><td>데이터 원본에 이름 지정</td></tr>
+<tr><td>호스트</td><td><HDInsightClusterName>.azurehdinsight.net을 입력합니다. 예를 들면 myHDICluster.azurehdinsight.net과 같습니다.</td></tr>
+<tr><td>포트</td><td><strong>443</strong> 사용 (이 포트는 563에서 443으로 변경됨)</td></tr>
+<tr><td>데이터베이스</td><td><strong>기본값</strong> 사용</td></tr>
+<tr><td>Hive 서버 유형</td><td><strong>Hive 서버 2</strong> 선택</td></tr>
+<tr><td>메커니즘</td><td><strong>Azure HDInsight Service</strong> 선택</td></tr>
+<tr><td>HTTP 경로</td><td>비워 둠</td></tr>
+<tr><td>사용자 이름</td><td>HDInsight 클러스터 사용자의 사용자 이름 입력. 클러스터 프로비전 프로세스 동안 만들어진 사용자 이름입니다. 빠른 생성 옵션을 사용한 경우 기본 사용자 이름은 <strong>admin</strong>입니다.</td></tr>
+<tr><td>암호</td><td>HDInsight 클러스터 사용자 암호 입력</td></tr>
+</table>**고급 옵션**을 클릭할 때 알아야 할 중요한 매개 변수가 몇 가지 있습니다.
 
 	<table border="1">
-	<tr><td>Use Native Query</td><td>선택하면 ODBC 드라이버가 TSQL을 HiveQL로 변환하지 않습니다. 순수 HiveQL 문을 제출하는 것이 확실한 경우에만 이 옵션을 사용합니다. SQL Server 또는 Azure SQL 데이터베이스에 연결하는 경우에는 이 옵션을 선택 취소한 상태로 둬야 합니다.</td></tr>
-	<tr><td>Rows fetched per block</td><td>대량의 레코드를 가져오는 경우 최적의 성능을 위해 이 매개 변수를 조정해야 할 수 있습니다.</td></tr>
-	<tr><td>Default string column length, <br/>
+<tr><td>Use Native Query</td><td>선택하면 ODBC 드라이버가 TSQL을 HiveQL로 변환하지 않습니다. 순수 HiveQL 문을 제출하는 것이 확실한 경우에만 이 옵션을 사용합니다. SQL Server 또는 Azure SQL 데이터베이스에 연결하는 경우에는 이 옵션을 선택 취소한 상태로 둬야 합니다.</td></tr>
+<tr><td>Rows fetched per block</td><td>대량의 레코드를 가져오는 경우 최적의 성능을 위해 이 매개 변수를 조정해야 할 수 있습니다.</td></tr>
+<tr><td>Default string column length, <br/>
 		Binary column length,  <br/>
 		Decimal column scale</td><td>데이터 형식 길이 및 정밀도는 데이터가 반환되는 방식에 영향을 줄 수 있습니다. 정밀도 손실 및/또는 잘림으로 인해 잘못된 정보가 반환될 수 있습니다.</td></tr>
-	</table>
-
-	![고급 옵션][img-HiveOdbc-DataSource-AdvancedOptions]
+</table>![고급 옵션][img-HiveOdbc-DataSource-AdvancedOptions]
 
 6. **테스트**를 클릭하여 데이터 원본을 테스트합니다. 원본이 올바르게 구성된 경우 *테스트를 성공적으로 완료했습니다.*가 표시됩니다.
-7. **확인**을 클릭하여 테스트 대화 상자를 닫습니다. 이제 새 데이터 원본이 **ODBC 데이터 원본 관리자**에 나열됩니다. 
+7. **확인**을 클릭하여 테스트 대화 상자를 닫습니다. 이제 새 데이터 원본이 **ODBC 데이터 원본 관리자**에 나열됩니다.
 8. **확인**을 클릭하여 마법사를 종료합니다.
-	
+
 ##<a id="ImportData"></a>HDInsight 클러스터에서 Excel로 데이터 가져오기
 
 다음 단계에 따라 위 단계에서 만든 ODBC 데이터 원본을 사용하여 hive 테이블에서 Excel 통합 문서로 데이터를 가져올 수 있습니다.
@@ -128,5 +125,6 @@ Excel에서 Microsoft Excel용 파워 쿼리 추가 기능을 사용하여 HDIns
 [img-HiveOdbc-DataSource-AdvancedOptions]: ./media/hdinsight-connect-excel-hive-ODBC-driver/HDI.HiveOdbc.DataSource.AdvancedOptions1.png
 [img-hdi-simbahiveodbc-excel-connectionproperties]: ./media/hdinsight-connect-excel-hive-ODBC-driver/HDI.SimbaHiveODBC.Excel.ConnectionProperties1.png
 [img-hdi-simbahiveodbc.excel.dataconnection]: ./media/hdinsight-connect-excel-hive-ODBC-driver/HDI.SimbaHiveOdbc.Excel.DataConnection1.png
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

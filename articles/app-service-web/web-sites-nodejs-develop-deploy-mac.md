@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Azure 앱 서비스에서 Node.js 웹 앱 만들기" 
-	description="Azure에서 Node.js 웹 앱을 빌드 및 배포하는 방법에 대해 알아봅니다." 
-	services="app-service\web" 
-	documentationCenter="nodejs" 
-	authors="MikeWasson" 
-	manager="wpickett" 
+<properties
+	pageTitle="Azure 앱 서비스에서 Node.js 웹 앱 만들기"
+	description="Azure에서 Node.js 웹 앱을 빌드 및 배포하는 방법에 대해 알아봅니다."
+	services="app-service\web"
+	documentationCenter="nodejs"
+	authors="MikeWasson"
+	manager="wpickett"
 	editor=""/>
 
-<tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="nodejs" 
-	ms.topic="article" 
-	ms.date="03/24/2015" 
+<tags
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="nodejs"
+	ms.topic="hero-article"
+	ms.date="03/24/2015"
 	ms.author="mwasson"/>
 
 # Azure 앱 서비스에서 Node.js 웹 앱 빌드 및 만들기
@@ -31,7 +31,7 @@
 > [AZURE.NOTE]이 자습서를 완료하려면 Microsoft Azure 계정이 필요합니다. 계정이 없는 경우 [MSDN 구독자 혜택을 활성화](/ko-kr/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)하거나 [무료 평가판을 등록](/ko-kr/pricing/free-trial/?WT.mc_id=A261C142F)할 수 있습니다.
 
 1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
- 
+
 2. 포털의 왼쪽 아래에서 **+ 새로 만들기** 아이콘을 클릭합니다.
 
 3. **웹 + 모바일**, **웹 앱**을 차례로 클릭합니다.
@@ -93,7 +93,7 @@
 
 ##응용 프로그램 게시
 
-1. 명령줄에서 **helloworld** 디렉터리로 이동한 후 다음 명령을 입력하여 로컬 Git 리포지토리를 초기화합니다. 
+1. 명령줄에서 **helloworld** 디렉터리로 이동한 후 다음 명령을 입력하여 로컬 Git 리포지토리를 초기화합니다.
 
 		git init
 
@@ -108,7 +108,7 @@
 
 		git remote add azure [URL for remote repository]
 
- 
+
 4. 다음 명령을 사용하여 변경 내용을 Azure에 푸시합니다.
 
 		git push azure master
@@ -128,13 +128,13 @@
 		remote: Deployment successful.
 		To https://user@testsite.scm.azurewebsites.net/testsite.git
 		 * [new branch]      master -> master
-    
+
 
 5. 앱을 보려면 관리 포털 내 **웹 앱** 부분에서 **찾아보기** 단추를 클릭합니다.
 
 ##응용 프로그램의 변경 내용 게시
 
-1. 텍스트 편집기에서 **server.js** 파일을 열고 'Hello World\\n'를 'Hello Azure\\n'로 변경합니다. 파일을 저장합니다.
+1. 텍스트 편집기에서 **server.js** 파일을 열고 'Hello World\n'를 'Hello Azure\n'로 변경합니다. 파일을 저장합니다.
 2. 명령줄에서 **helloworld** 디렉터리로 이동한 후 다음 명령을 실행합니다.
 
 		git add .
@@ -142,7 +142,7 @@
 		git push azure master
 
 	이전에 만든 암호를 입력하라는 메시지가 나타납니다.
-	
+
 3. **찾아보기** 단추를 클릭하여 앱으로 이동한 후 업데이트가 적용되었는지 확인합니다.
 
 	!['Hello Azure'를 표시하는 웹 페이지][helloworld-completed]
@@ -153,7 +153,7 @@
 
 ##다음 단계
 
-이 문서의 단계에 따라 Azure 포털을 사용하여 웹 앱을 만들 수 있지만 [Mac 및 Linux용 Azure 명령줄 도구](../xplat-cli.md)를 사용하여 동일한 작업을 수행할 수도 있습니다.
+이 문서의 단계에 따라 Azure 포털을 사용하여 웹앱을 만들 수 있지만 [Azure 명령줄 인터페이스](../xplat-cli.md)를 사용하여 동일한 작업을 수행할 수도 있습니다.
 
 Node.js는 응용 프로그램에 사용될 수 있는 풍부한 모듈 에코시스템을 제공합니다. 웹 앱 모듈 사용하는 방법을 알아보려면 [Azure 응용 프로그램에서 Node.js 모듈 사용](../nodejs-use-node-modules-azure-apps.md)을 참조하세요.
 
@@ -165,7 +165,7 @@ Azure에 제공되는 Node.js 버전에 대한 정보 및 응용 프로그램에
 ##추가 리소스
 
 * [Azure PowerShell](../install-configure-powershell.md)
-* [Mac 및 Linux용 Azure 명령줄 도구](../xplat-cli.md)
+* [Azure 명령줄 인터페이스](../xplat-cli.md)
 
 ## 변경된 내용
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.
@@ -195,5 +195,6 @@ Azure에 제공되는 Node.js 버전에 대한 정보 및 응용 프로그램에
 
 
 [git-url]: ./media/web-sites-nodejs-develop-deploy-mac/git-url.png
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

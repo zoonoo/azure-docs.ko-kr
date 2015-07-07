@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Linux 기반 HDInsight에서 Hadoop에 대해 알아야 할 정보 | Azure"
-   description="Linux 기반 HDInsight 클러스터는 Azure 클라우드에서 실행되는 친숙한 Linux 환경에서 Hadoop을 제공합니다."
+   pageTitle="Linux 기반 HDInsight에서 Hadoop을 사용 하기 위한 팁 | Microsoft Azure"
+   description="zure 클라우드에서 실행되는 친숙한 Linux 환경에서 Linux 기반 HDInsight(Hadoop) 클러스터를 사용하기 위한 구현 팁을 제공합니다."
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/17/2015"
+   ms.date="05/27/2015"
    ms.author="larryfr"/>
 
-# Linux에서 HDInsight 작업(미리 보기)
+# Linux에서 HDInsight 사용에 관한 정보(미리 보기)
 
 Linux 기반 Azure HDInsight 클러스터는 Azure 클라우드에서 실행되는 친숙한 Linux 환경에서 Hadoop을 제공합니다. 대부분의 작업에 대해 Linux 설치에서 모든 다른 Hadoop으로 정확하게 작동해야 합니다. 이 문서를 알고 있어야 하는 특정 차이점을 호출합니다.
 
@@ -76,7 +76,7 @@ HDInsight에 대한 기본 저장소가 된 이후 일반적으로 사용하기 
 
 	hadoop fs -ls /example/data
 
-일부 명령은 Blob 저장소를 사용할지 지정해야 할 수 있습니다. 이러한 경우 **WASB://**.를  명령 앞에 붙일 수 있습니다.
+일부 명령은 Blob 저장소를 사용할지 지정해야 할 수 있습니다. 이러한 경우 **WASB://**.를 명령 앞에 붙일 수 있습니다.
 
 HDInsight은 클러스터와 여러 개의 Blob 저장소 계정을 연결할 수도 있습니다. 기본이 아닌 Blob 저장소 계정 데이터에 액세스하려면 **WASB://&lt;container-name>@&lt;account-name>.blob.core.windows.net/** 형식을 사용할 수 있습니다. 예를 들어 다음은 지정된 컨테이너 및 Blob 저장소 계정에 대한 **/example/data** 디렉터리 콘텐츠를 나열합니다.
 
@@ -92,13 +92,24 @@ HDInsight은 클러스터와 여러 개의 Blob 저장소 계정을 연결할 �
 
         curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1"
 
-2. `fs.defaultFS` 항목을 찾습니다. 이 항목은 다음과 유사한 형식으로 기본 컨테이너 및 저장소 계정 이름을 포함합니다.
+2. 반환되는 JSON 데이터에서 `fs.defaultFS` 항목을 찾습니다. 이 항목은 다음과 유사한 형식으로 기본 컨테이너 및 저장소 계정 이름을 포함합니다.
 
         wasb://CONTAINTERNAME@STORAGEACCOUNTNAME.blob.core.windows.net
 
-> [AZURE.TIP][jq](http://stedolan.github.io/jq/)를 설치한 경우 다음을 사용하여 `fs.defaultFS` 항목만 반환할 수 있습니다.
->
-> `curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["fs.defaultFS"] | select(. != null)'`
+	> [AZURE.TIP][jq](http://stedolan.github.io/jq/)를 설치한 경우 다음을 사용하여 `fs.defaultFS` 항목만 반환할 수 있습니다.
+	>
+	> `curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["fs.defaultFS"] | select(. != null)'`
+	
+3. 클러스터와 연결된 모든 보조 저장소 계정을 찾거나 저장소 계정을 인증하는 데 사용되는 키를 찾으려면 다음을 사용합니다.
+
+		curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1"
+		
+4. 반환되는 JSON 데이터에서 `fs.azure.account.key`로 시작하는 항목을 찾습니다. 항목 이름의 나머지 부분은 저장소 계정 이름입니다. 예: `fs.azure.account.key.mystorage.blob.core.windows.net` 이 항목에 저장된 값은 저장소 계정 인증에 사용되는 키입니다.
+
+	> [AZURE.TIP][jq](http://stedolan.github.io/jq/)를 설치한 경우, 다음을 사용하여 키 및 값의 목록을 반환할 수 있습니다.
+	>
+	> `curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties as $in | $in | keys[] | select(. | contains("fs.azure.account.key.")) as $item | $item | ltrimstr("fs.azure.account.key.") | { storage_account: ., storage_account_key: $in[$item] }'`
+
 
 **Azure 포털**
 
@@ -114,7 +125,7 @@ HDInsight은 클러스터와 여러 개의 Blob 저장소 계정을 연결할 �
 
 클러스터에서 Hadoop 명령을 통하는 것 외에 blob에 액세스할 수 있는 다양한 방법이 있습니다.
 
-* [Mac, Linux 및 Windows용 Azure CLI](../xplat-cli.md): Azure로 작업하기 위한 크로스 플랫폼 명령입니다. 설치 후 저장소 사용에 대한 도움말은 `azure storage`를 참조하고 Blob 관련 명령에 대한 도움말은 `azure blob`을 참조하세요.
+* [Mac, Linux 및 Windows용 Azure CLI](../xplat-cli.md): Azure로 작업하기 위한 명령줄 인터페이스 명령입니다. 설치 후 저장소 사용에 대한 도움말은 `azure storage`를 참조하고 Blob 관련 명령에 대한 도움말은 `azure blob`을 참조하세요.
 
 * [blobxfer.py](https://github.com/Azure/azure-batch-samples/tree/master/Python/Storage): Azure 저장소의 Blob 작업을 위한 python 스크립트입니다.
 
@@ -139,5 +150,6 @@ HDInsight은 클러스터와 여러 개의 Blob 저장소 계정을 연결할 �
 * [HDInsight에서 Hive 사용](hdinsight-use-hive.md)
 * [HDInsight에서 Pig 사용](hdinsight-use-pig.md)
 * [HDInsight에서 MapReduce 작업 사용](hdinsight-use-mapreduce.md)
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

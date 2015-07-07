@@ -1,6 +1,6 @@
 <properties
    pageTitle="HDInsight에서 PowerShell과 Hadoop Hive 사용 | Microsoft Azure"
-   description="PowerShell 통해 HDInsight에서 Hadoop Hive를 사용합니다."
+   description="PowerShell을 사용하여 HDInsight의 Hadoop에서 Hive 쿼리 실행"
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
@@ -16,7 +16,7 @@
    ms.date="04/03/2015"
    ms.author="larryfr"/>
 
-# PowerShell을 사용하여 Hive 쿼리 실행
+#PowerShell을 사용하여 Hive 쿼리 실행
 
 [AZURE.INCLUDE [hive-selector](../../includes/hdinsight-selector-use-hive.md)]
 
@@ -25,16 +25,14 @@
 > [AZURE.NOTE]이 문서에는 예제에 사용된 HiveQL 문이 수행하는 작업에 대해 자세한 설명을 제공하지 않습니다. 이 예제에서 사용된 HiveQL에 대한 자세한 내용은 <a href="hdinsight-use-hive.md" target="_blank">HDInsight에서 Hadoop과 Hive 사용</a>을 참조하세요.
 
 
-## <a id="prereq"></a>필수 조건
+##<a id="prereq"></a>필수 조건
 
 이 문서의 단계를 완료하려면 다음이 필요합니다.
 
-* Azure HDInsight(HDInsight의 Hadoop) 클러스터(Windows 기반 또는 Linux 기반)
+- **Azure HDInsight(HDInsight의 Hadoop) 클러스터(Windows 기반 또는 Linux 기반)**
+- **Azure PowerShell이 포함된 워크스테이션**. [Azure PowerShell 설치 및 사용](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/)을 참조하세요.
 
-* <a href="http://azure.microsoft.com/documentation/articles/install-configure-powershell/" target="_blank">Azure PowerShell</a>
-
-
-## <a id="powershell"></a>Azure PowerShell을 사용하여 Hive 쿼리 실행
+##<a id="powershell"></a>Azure PowerShell을 사용하여 Hive 쿼리 실행
 
 Azure PowerShell은 HDInsight에서 Hive 쿼리를 원격으로 실행할 수 있는 *cmdlet*을 제공합니다. 내부적으로는 HDInsight 클러스터에서 실행되는 <a href="https://cwiki.apache.org/confluence/display/Hive/WebHCat" target="_blank">WebHCat</a>(이전의 Templeton)에 대한 REST 호출을 사용하여 이 작업을 수행합니다.
 
@@ -119,7 +117,7 @@ Azure PowerShell은 HDInsight에서 Hive 쿼리를 원격으로 실행할 수 �
 	>
 	> **Here-Strings**에 대한 자세한 내용은 <a href="http://technet.microsoft.com/library/ee692792.aspx" target="_blank">Windows PowerShell Here-Strings 사용</a>을 참조하세요.
 
-## <a id="troubleshooting"></a>문제 해결
+##<a id="troubleshooting"></a>문제 해결
 
 작업이 완료될 때 정보가 반환되지 않은 경우, 처리하는 동안 오류가 발생했을 수 있습니다. 이 작업에 대한 오류 정보를 보려면 **hivejob.ps1** 파일의 끝에 다음 내용을 추가하고 파일을 저장한 다음 다시 실행합니다.
 
@@ -129,11 +127,11 @@ Azure PowerShell은 HDInsight에서 Hive 쿼리를 원격으로 실행할 수 �
 
 이 명령은 작업을 실행할 때 서버의 STDERR에 기록된 정보를 반환하며 이 정보는 작업이 실패한 이유를 확인하는 데 도움이 될 수 있습니다.
 
-## <a id="summary"></a>요약
+##<a id="summary"></a>요약
 
 여기에서 볼 수 있듯이 Azure PowerShell은 HDInsight 클러스터에서 Hive 쿼리 실행 작업 상태를 모니터링하고, 출력을 검색하는 쉬운 방법을 제공합니다.
 
-## <a id="nextsteps"></a>다음 단계
+##<a id="nextsteps"></a>다음 단계
 
 HDInsight의 Hive에 대한 일반적인 정보:
 
@@ -144,5 +142,6 @@ HDInsight에서 Hadoop으로 작업하는 다른 방법에 관한 정보:
 * [HDInsight에서 Hadoop과 Pig 사용](hdinsight-use-pig.md)
 
 * [HDInsight에서 Hadoop과 MapReduce 사용](hdinsight-use-mapreduce.md)
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="HDInsight에서 Apache Storm에 대한 Java 기반 토폴로지 개발 | Azure"
+   pageTitle="Apache Storm에 대한 Java 기반 토폴로지 개발| Microsoft Azure"
    description="간단한 단어 개수 토폴로지를 만들어 Java에서 Storm 토폴로지를 만드는 방법에 대해 배웁니다."
    services="hdinsight"
    documentationCenter=""
@@ -16,13 +16,13 @@
    ms.date="04/28/2015"
    ms.author="larryfr"/>
 
-# HDInsight에서 Apache Storm에 대한 Java 기반 토폴로지 개발
+#HDInsight에서 Apache Storm 및 Maven으로 기본 단어 개수 응용 프로그램에 대한 Java 기반 토폴로지를 개발합니다.
 
 Maven을 사용하여 HDInsight에서 Apache Storm에 대한 Java 기반 토폴로지를 만드는 기본 프로세스를 알아봅니다. Maven 및 Java를 사용하여 기본 단어 개수 응용 프로그램을 만드는 과정을 안내합니다. 지침에서는 Eclipse를 사용하지만 원하는 텍스트 편집기를 사용할 수도 있습니다.
 
 이 문서의 단계를 완료하면 HDInsight에서 Apache Storm에 배포할 수 있는 기본 토폴로지가 생깁니다.
 
-## 필수 조건
+##필수 조건
 
 * <a href="https://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html" target="_blank">JDK(Java Developer Kit) 버전 7</a>
 
@@ -32,7 +32,7 @@ Maven을 사용하여 HDInsight에서 Apache Storm에 대한 Java 기반 토폴�
 
 	> [AZURE.NOTE]편집기 또는 IDE에 이 문서에서 다루지 않은 Eclipse와 함께 동작하는 특정 기능이 있을 수 있습니다. 편집 환경 기능에 대한 내용은 사용 중인 제품의 설명서를 참조하세요.
 
-## 환경 변수 구성
+##환경 변수 구성
 
 Java 및 JDK를 설치할 때 다음 환경 변수를 설정할 수 있습니다. 하지만 변수가 존재하며 시스템에 대한 올바른 값을 포함하는지 확인해야 합니다.
 
@@ -42,11 +42,11 @@ Java 및 JDK를 설치할 때 다음 환경 변수를 설정할 수 있습니다
 
 	* **JAVA_HOME** 또는 그와 동등한 경로
 
-	* **JAVA_HOME\\bin** 또는 그와 동등한 경로
+	* **JAVA_HOME\bin** 또는 그와 동등한 경로
 
 	* Maven이 설치된 디렉터리
 
-## 새 Maven 프로젝트 만들기
+##새 Maven 프로젝트 만들기
 
 명령줄에서 다음 코드를 사용하여 **WordCount**라는 새 Maven을 만듭니다.
 
@@ -58,19 +58,19 @@ Java 및 JDK를 설치할 때 다음 환경 변수를 설정할 수 있습니다
 
 * **pom.xml**: Maven 프로젝트에 대한 설정을 포함합니다.
 
-* **src\\main\\java\\com\\microsoft\\example**:응용 프로그램 코드를 포함합니다.
+* **src\main\java\com\microsoft\example**:응용 프로그램 코드를 포함합니다.
 
-* **src\\test\\java\\com\\microsoft\\example**:응용 프로그램에 대한 테스트를 포함합니다. 이 예제에서는 테스트를 만들지 않습니다.
+* **src\test\java\com\microsoft\example**:응용 프로그램에 대한 테스트를 포함합니다. 이 예제에서는 테스트를 만들지 않습니다.
 
-### 예제 코드를 제거합니다.
+###예제 코드를 제거합니다.
 
 처음부터 응용 프로그램을 만들 것이므로 생성된 테스트 및 응용 프로그램 필드를 삭제합니다.
 
-*  **src\\test\\java\\com\\microsoft\\example\\AppTest.java**
+*  **src\test\java\com\microsoft\example\AppTest.java**
 
-*  **src\\main\\java\\com\\microsoft\\example\\App.java**
+*  **src\main\java\com\microsoft\example\App.java**
 
-## 종속성 추가
+##종속성 추가
 
 이는 Storm 토폴로지이므로 Storm 구성 요소에 대한 종속성을 추가해야 합니다. **pom.xml** 파일을 열고 **&lt;dependencies>** 섹션에 다음 코드를 추가합니다.
 
@@ -86,7 +86,7 @@ Java 및 JDK를 설치할 때 다음 환경 변수를 설정할 수 있습니다
 
 > [AZURE.NOTE]추가한 섹션에서 `<scope>provided</scope>` 줄을 확인합니다. 이는 Maven에 만든 JAR 파일에서 **storm-core**를 제외하도록 요청합니다. 시스템을 통해 제공되기 때문입니다. 이를 통해 만든 패키지를 좀 더 작게 할 수 있으며 이는 HDInsight에서 Storm에 포함된 **storm-core** 비트를 사용합니다.
 
-## 빌드 구성
+##빌드 구성
 
 Maven 플러그인을 사용하면 프로젝트를 컴파일하는 방법 또는 JAR 파일로 패키지하는 방법과 같은 프로젝트 빌드 단계를 사용자 지정할 수 있습니다. **pom.xml** 파일을 열고 `</project>` 줄 바로 위에 다음 코드를 추가합니다.
 
@@ -97,7 +97,7 @@ Maven 플러그인을 사용하면 프로젝트를 컴파일하는 방법 또는
 
 이 섹션은 플러그 및 다른 빌드 구성 옵션을 추가하는 데 사용됩니다.
 
-### 플러그 인 추가
+###플러그 인 추가
 
 Storm 토폴로지의 경우 <a href="http://mojo.codehaus.org/exec-maven-plugin/" target="_blank">Exec Maven 플러그 인</a>을 사용하면 개발 환경에서 로컬로 토폴로지를 쉽게 실행할 수 있으므로 유용합니다. Exec Maven 플러그 인을 추가하려면 **pom.xml** 파일의 `<plugins>` 섹션에 다음을 추가합니다.
 
@@ -133,7 +133,7 @@ Apache MavenCompiler 플러그 인을 포함하고 원본 및 대상 버전을 1
       </configuration>
     </plugin>
 
-## 토폴로지 만들기
+##토폴로지 만들기
 
 Java 기반 Storm 토폴로지는 사용자가 작성자이거나 종속성으로 참조되는 세 개의 구성 요소로 이루어져 있습니다.
 
@@ -143,7 +143,7 @@ Java 기반 Storm 토폴로지는 사용자가 작성자이거나 종속성으�
 
 * **토폴로지**: Spout 및 Bolt 배열 방식을 정의하고 토폴로지에 대한 진입점을 제공합니다.
 
-### Spout 만들기
+###Spout 만들기
 
 외부 데이터 소스 설정에 대한 요구를 줄이기 위해 다음 spout가 임의의 문장을 내보냅니다. 이는 <a href="https://github.com/apache/storm/blob/master/examples/storm-starter/" target="_blank">Storm-Starter 예제</a>와 함께 제공된 Spout의 수정된 버전입니다.
 
@@ -153,7 +153,7 @@ Java 기반 Storm 토폴로지는 사용자가 작성자이거나 종속성으�
 >
 > * <a href="https://github.com/apache/storm/tree/master/external/storm-kafka" target="_blank">Storm-Kafka</a>: Kafka에서 읽는 Spout
 
-Spout의 경우, **src\\main\\java\\com\\microsoft\\example** 디렉터리에 **RandomSentenceSpout.java**라는 새 파일을 만들고 다음을 파일 내용으로 사용합니다.
+Spout의 경우, **src\main\java\com\microsoft\example** 디렉터리에 **RandomSentenceSpout.java**라는 새 파일을 만들고 다음을 파일 내용으로 사용합니다.
 
     /**
      * Licensed to the Apache Software Foundation (ASF) under one
@@ -241,7 +241,7 @@ Spout의 경우, **src\\main\\java\\com\\microsoft\\example** 디렉터리에 **
 
 > [AZURE.NOTE]이 토폴로지는 하나의 spout만 사용하지만 다른 토폴로지는 다른 소스에서 해당 토폴로지로 데이터를 피드하는 여러 spout를 사용할 수 있습니다.
 
-### Bolt 만들기
+###Bolt 만들기
 
 Bolt는 데이터 처리를 다룹니다. 이 토폴로지의 경우 다음 두 가지 Bolt가 있습니다.
 
@@ -251,7 +251,7 @@ Bolt는 데이터 처리를 다룹니다. 이 토폴로지의 경우 다음 두 
 
 > [AZURE.NOTE]Bolt는 계산, 지속성, 외부 구성 요소에 말하기 등 문자 그대로 아무 작업이나 수행할 수 있습니다.
 
-**src\\main\\java\\com\\microsoft\\example** 디렉터리에 **SplitSentence.java** 및 **WordCount.Java**라는 두 개의 새 파일을 만듭니다. 파일 내용으로 다음을 사용합니다.
+**src\main\java\com\microsoft\example** 디렉터리에 **SplitSentence.java** 및 **WordCount.Java**라는 두 개의 새 파일을 만듭니다. 파일 내용으로 다음을 사용합니다.
 
 **SplitSentence**
 
@@ -285,7 +285,7 @@ Bolt는 데이터 처리를 다룹니다. 이 토폴로지의 경우 다음 두 
           //get the word
           String word=sentence.substring(start,end);
           //If a word is whitespace characters, replace it with empty
-          word=word.replaceAll("\\s+","");
+          word=word.replaceAll("\s+","");
           //if it's an actual word, emit it
           if (!word.equals("")) {
             collector.emit(new Values(word));
@@ -344,7 +344,7 @@ Bolt는 데이터 처리를 다룹니다. 이 토폴로지의 경우 다음 두 
 
 코드 주석을 읽어보면 각각의 Bolt가 어떻게 동작하는지 이해할 수 있습니다.
 
-### 토폴로지 만들기
+###토폴로지 만들기
 
 토폴로지는 spout 및 bolt를 그래프로 묶습니다. 이 그래프는 구성 요소 사이의 데이터 흐름 방식을 정의합니다. Storm이 클러스터 내에서 구성 요소의 인스턴스를 만들 대 사용하는 병렬 처리 힌트도 제공합니다.
 
@@ -352,7 +352,7 @@ Bolt는 데이터 처리를 다룹니다. 이 토폴로지의 경우 다음 두 
 
 ![Spout 및 Bolt 배열을 보여 주는 다이어그램](./media/hdinsight-storm-develop-java-topology/wordcount-topology.png)
 
-토폴로지를 구현하려면 **WordCountTopology.java**라는 새 파일을 **src\\main\\java\\com\\microsoft\\example** 디렉터리에 만듭니다. 파일 내용으로 다음을 사용합니다.
+토폴로지를 구현하려면 **WordCountTopology.java**라는 새 파일을 **src\main\java\com\microsoft\example** 디렉터리에 만듭니다. 파일 내용으로 다음을 사용합니다.
 
 	package com.microsoft.example;
 
@@ -414,7 +414,7 @@ Bolt는 데이터 처리를 다룹니다. 이 토폴로지의 경우 다음 두 
 
 코드 주석을 읽어보면 토폴로지가 정의되고 클러스터로 제출되는 방식을 이해할 수 있습니다.
 
-## 로컬에서 토폴로지 테스트
+##로컬에서 토폴로지 테스트
 
 파일을 저장한 후 다음 명령을 사용하여 토폴로지를 로컬로 테스트할 수 있습니다.
 
@@ -446,7 +446,7 @@ Bolt는 데이터 처리를 다룹니다. 이 토폴로지의 경우 다음 두 
 
 Count bolt가 내보낸 데이터를 보면 ‘apple’을 53번 내보낸 것을 알 수 있습니다. 동일한 문장을 계속해서 임의로 내보내고 횟수는 재설정되지 않기 때문에 토폴로지가 실행되는 동안 횟수는 계속해서 증가합니다.
 
-## Trident
+##Trident
 
 Trident는 Storm에서 제공하는 높은 수준의 추상화이며 상태 저장 처리를 지원합니다. Trident의 주요 이점은 토폴로지가 입력하는 모든 메시지가 한 번만 처리된다는 점입니다. 해당 메시지를 한 번 이상 처리하는 원시 Java 토폴로지에서는 이루기 어렵습니다. Bolt를 만드는 대신 사용할 수 있는 기본 제공 구성 요소와 같은 다른 차이점도 있습니다. 사실 Bolt는 필터, 프로젝션 및 함수와 같이 덜 일반적인 구성 요소로 완전히 대체됩니다.
 
@@ -456,7 +456,7 @@ Trident에 대한 자세한 내용은 <a href="http://storm.apache.org/documenta
 
 Trident 응용 프로그램 예제는 [HDInsight에서 Apache Storm을 사용하는 Twitter 추세 항목](hdinsight-storm-twitter-trending.md)을 참조하세요.
 
-## 다음 단계
+##다음 단계
 
 Java를 사용하여 Storm 토폴로지를 만드는 방법을 배웠으므로 이제 다음으로 이동합니다.
 
@@ -465,5 +465,6 @@ Java를 사용하여 Storm 토폴로지를 만드는 방법을 배웠으므로 �
 * [Visual Studio를 사용하여 HDInsight에서 Apache Storm에 대한 C# 토폴로지 개발](hdinsight-storm-develop-csharp-visual-studio-topology.md)
 
 Storm 토폴로지에 대한 추가 예제는 [HDInsight의 Storm에 대한 예제 토폴로지](hdinsight-storm-example-topology.md)를 참조하세요.
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

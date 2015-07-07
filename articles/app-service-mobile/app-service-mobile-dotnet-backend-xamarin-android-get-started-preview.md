@@ -3,7 +3,7 @@
 	description="이 자습서에 따라 Azure 모바일 앱을 사용하여 Xamarin Android 개발을 시작할 수 있습니다."
 	services="app-service\mobile"
 	documentationCenter="xamarin"
-	authors="chrande"
+	authors="chrisanderson"
 	manager="dwrede"
 	editor="mollybos"/>
 
@@ -12,8 +12,8 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
-	ms.topic="hero-article"
-	ms.date="11/11/2014"
+	ms.topic="get-started-article"
+	ms.date="05/01/2015"
 	ms.author="chrande"/>
 
 # <a name="getting-started"> </a>Xamarin.Android 앱 만들기
@@ -54,13 +54,13 @@
     모바일 앱 백 엔드에 연결된 Xamarin Android 앱을 만들기 위한 쉬운 3단계가 표시됩니다.
 
 
-3. 아직 하지 않은 경우 로컬 컴퓨터나 가상 컴퓨터에 <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a>을 다운로드하여 설치합니다.  
+3. 아직 하지 않은 경우 로컬 컴퓨터나 가상 컴퓨터에 <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a>을 다운로드하여 설치합니다.
 
 4. 아직 하지 않은 경우 [Xamarin Studio]를 다운로드하여 설치합니다. 또한 Visual Studio용 Xamarin을 사용할 수도 있습니다.
 
 5. **서비스를 다운로드하고 클라우드에 게시** 아래에서 **다운로드**를 클릭합니다.
 
-  모바일 앱 백 엔드 코드 및 모바일 앱 백 엔드에 연결된 샘플 _할 일 모음_ 클라이언트 응용 프로그램 둘 다에 대한 프로젝트가 포함된 솔루션이 다운로드됩니다. 압축된 프로젝트 파일을 로컬 컴퓨터에 저장하고 저장 위치를 기록해 둡니다.
+  	모바일 앱 백 엔드 코드 및 모바일 앱 백 엔드에 연결된 샘플 _할 일 모음_ 클라이언트 응용 프로그램 둘 다에 대한 프로젝트가 포함된 솔루션이 다운로드됩니다. 압축된 프로젝트 파일을 로컬 컴퓨터에 저장하고 저장 위치를 기록해 둡니다.
 
 6. 게시 프로필을 다운로드하고, 다운로드한 파일을 로컬 컴퓨터에 저장한 다음 저장 위치를 기록해 둡니다.
 
@@ -92,8 +92,7 @@
 
 	Azure에 호스트된 새 모바일 앱 백 엔드에 POST 요청이 전송됩니다. 요청에서 데이터가 TodoItem 테이블에 삽입됩니다. TodoItem 테이블에 저장된 항목이 모바일 앱 백 엔드에서 반환된 후 데이터가 목록에 표시됩니다.
 
-	> [AZURE.NOTE]
-	> 모바일 앱 백 엔드에 액세스하여 데이터를 쿼리 및 삽입하는 코드를 검토할 수 있습니다. 이 코드는 ToDoActivity.cs C# 파일에 있습니다.
+	> [AZURE.NOTE]모바일 앱 백 엔드에 액세스하여 데이터를 쿼리 및 삽입하는 코드를 검토할 수 있습니다. 이 코드는 ToDoActivity.cs C# 파일에 있습니다.
 
 
 
@@ -109,6 +108,6 @@
 [Xamarin Studio]: http://xamarin.com/download
 [Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532&clcid=0x409
 [Xamarin for Windows]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409
-
-<!--HONumber=52-->
  
+
+<!---HONumber=62-->

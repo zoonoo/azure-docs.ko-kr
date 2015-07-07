@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="파워 쿼리로 Hadoop에 Excel 연결 | Microsoft Azure" 
-	description="비즈니스 인텔리전스 구성 요소를 사용하는 방법과 Excel용 파워 쿼리를 사용하여 HDInsight의 Hadoop에 저장된 데이터에 액세스하는 방법에 대해 알아봅니다." 
-	services="hdinsight" 
-	documentationCenter="" 
-	authors="bradsev" 
-	manager="paulettm" 
+<properties
+	pageTitle="파워 쿼리로 Hadoop에 Excel 연결 | Microsoft Azure"
+	description="비즈니스 인텔리전스 구성 요소를 사용하는 방법과 Excel용 파워 쿼리를 사용하여 HDInsight의 Hadoop에 저장된 데이터에 액세스하는 방법에 대해 알아봅니다."
+	services="hdinsight"
+	documentationCenter=""
+	authors="bradsev"
+	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="hdinsight" 
-	ms.workload="big-data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/20/2015" 
+<tags
+	ms.service="hdinsight"
+	ms.workload="big-data"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/08/2015"
 	ms.author="bradsev"/>
 
 
@@ -21,13 +21,15 @@
 
 Microsoft의 빅데이터 솔루션이 가진 주요 기능 중 하나는 Microsoft BI(비즈니스 인텔리전스) 구성 요소를 Azure HDInsight의 Hadoop 클러스터와 통합하는 것입니다. 이 통합의 주요 예제로 Microsoft Excel용 파워 쿼리 추가 기능을 사용하여 Hadoop 클러스터와 연결된 데이터가 포함된 Azure 저장소 계정에 Excel을 연결하는 기능이 있습니다. 이 자습서에서는 파워 쿼리를 설정하고 사용하여 HDInsight로 관리하는 Hadoop 클러스터와 연결된 데이터를 쿼리하는 방법을 단계별로 안내합니다.
 
+> [AZURE.NOTE]이 문서의 단계는 Linux 또는 Windows 기반 HDInsight 클러스터와 함께 사용할 수 있지만, Windows는 클라이언트 워크스테이션에 필요합니다.
+
 ## 필수 조건
 
 이 문서를 시작하기 전에 다음이 있어야 합니다.
 
-- HDInsight 클러스터. 구성하려면 [Azure HDInsight 시작][hdinsight-get-started]을 참조하세요.
-- Windows 7, Windows Server 2008 R2 이상 운영 체제를 실행 중인 컴퓨터입니다.
-- Office 2013 Professional Plus, Office 365 ProPlus, Excel 2013 Standalone 또는 Office 2010 Professional Plus.
+- **HDInsight 클러스터**. 구성하려면 [Azure HDInsight 시작][hdinsight-get-started]을 참조하세요.
+- Windows 7, Windows Server 2008 R2 이상 운영 체제를 실행 중인 **워크스테이션**.
+- **Office 2013 Professional Plus, Office 365 ProPlus, Excel 2013 Standalone 또는 Office 2010 Professional Plus**.
 
 
 ## <a id="InstallPowerQuery"></a>Microsoft Excel용 파워 쿼리 설치
@@ -82,5 +84,6 @@ Excel용 파워 쿼리 추가 기능을 사용하면 HDInsight 클러스터에�
 [image-hdi-powerquery-imported-table]: ./media/hdinsight-connect-excel-power-query/HDI.PowerQuery.ImportedTable.PNG
 
 [powerquery-download]: http://go.microsoft.com/fwlink/?LinkID=286689
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

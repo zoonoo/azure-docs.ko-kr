@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="11/10/2014" 
+	ms.date="05/19/2014" 
 	ms.author="bradsev"/>
 
 
-# HDInsight에서 Hadoop 클러스터의 가용성 및 안정성
+#HDInsight에서 Hadoop 클러스터의 가용성 및 안정성
 
-## 소개 ##
+
 Azure HDInsight에서 배포한 Hadoop 클러스터에는 작업을 관리하는 데 필요한 서비스 가용성 및 안정성을 높이기 위해 두 번째 헤드 노드가 추가되었습니다. 일반적으로 표준 방식으로 구현된 Hadoop 클러스터에는 헤드 노드가 1개뿐입니다. 이러한 클러스터는 작업자 노드의 실패를 원활하게 관리하도록 디자인되었지만 헤드 노드에서 실행되는 마스터 서비스가 작동 중단되면 클러스터 작동이 중단될 수 있습니다.
 
 ![HDInsight Hadoop 구현의 매우 안정적인 헤드 노드의 다이어그램](http://i.imgur.com/jrUmrH4.png)
 
-HDInsight는 보조 헤드 노드(헤드 노드 1)를 추가하여 이러한 단일 오류 지점을 없앱니다. ZK([ZooKeeper][zookeeper]) 노드가 추가되었으며 헤드 노드의 리더 선택을 위해, 그리고 활성 헤드 노드(헤드 노드 0)가 비활성화될 때 보조 헤드 노드(헤드 노드 1)로 장애 조치(failover)될 때 작업자 노드 및 GW(게이트웨이)에서 알 수 있도록 하는 데 사용됩니다.
+HDInsight는 보조 헤드 노드(헤드 노드 1)를 추가하여 이러한 단일 오류 지점을 없앱니다. ZK([ZooKeeper](http://zookeeper.apache.org/)) 노드가 추가되었으며 헤드 노드의 리더 선택을 위해, 그리고 활성 헤드 노드(헤드 노드 0)가 비활성화될 때 보조 헤드 노드(헤드 노드 1)로 장애 조치(failover)될 때 작업자 노드 및 GW(게이트웨이)에서 알 수 있도록 하는 데 사용됩니다.
 
 
 ## 활성 헤드 노드의 서비스 상태를 확인하는 방법 ##
@@ -33,7 +33,7 @@ HDInsight는 보조 헤드 노드(헤드 노드 1)를 추가하여 이러한 단
 ![](http://i.imgur.com/MYTkCHW.png)
 
 
-## 보조 헤드 노드의 로그 파일에 액세스하는 방법 ##
+## 보조 헤드 노드의 로그 파일에 액세스하는 방법 \
 
 보조 헤드 노드가 활성 헤드 노드가 될 경우 이 노드의 작업 로그에 액세스하려는 경우 기본 활성 노드에서와 같이 JobTracker UI를 사용하면 됩니다. JobTracker에 액세스하려면 이전 섹션에 설명된 것처럼 RDP를 사용하여 Hadoop 클러스터에 연결해야 합니다. 클러스터에 원격으로 연결한 경우 바탕 화면에 있는 **Hadoop 이름 노드** 아이콘을 두 번 클릭한 후 **NameNode 로그**를 클릭하여 보조 헤드 노드의 로그 디렉터리로 이동합니다.
 
@@ -71,17 +71,16 @@ SDK의 경우에도 상황은 비슷합니다. SDK를 사용하는 클러스터�
 
 **참조**
 
-- [ZooKeeper][zookeeper]
+- [ZooKeeper](http://zookeeper.apache.org/)
 - [RDP를 사용하여 HDInsight 클러스터에 연결](hdinsight-administer-use-management-portal.md#rdp)
 - [HDInsight .NET SDK 사용](hdinsight-provision-clusters.md#sdk) 
 
 
-[zookeeper]: http://zookeeper.apache.org/
 
 
 
 
 
+ 
 
-
-<!--HONumber=54--> 
+<!---HONumber=62-->

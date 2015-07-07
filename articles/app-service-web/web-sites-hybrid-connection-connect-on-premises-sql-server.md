@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/23/2015" 
+	ms.date="06/02/2015" 
 	ms.author="cephalin"/>
 
 # 하이브리드 연결을 사용하여 Azure 앱 서비스의 웹 앱에서 온-프레미스 SQL Server에 연결
@@ -23,8 +23,8 @@
 이 자습서에서 [Azure 미리 보기](http://go.microsoft.com/fwlink/?LinkId=529715)에서 앱 서비스 웹 앱을 만들고, 새 하이브리드 연결 기능을 사용하여 로컬 온-프레미스 SQL Server 데이터베이스에 웹 앱을 연결하고, 하이브리드 연결을 사용하는 단순한 ASP.NET 응용 프로그램을 만들고, 앱 서비스 웹 앱에 응용 프로그램을 배포하는 방법에 대해 알아봅니다. Azure의 완전한 웹 앱은 온-프레미스인 멤버 자격 데이터베이스에서 사용자 자격 증명을 저장합니다. 이 자습서는 이전에 Azure 또는 ASP.NET을 사용해 본 경험이 있다고 가정합니다.
 
 >[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
-
-> [AZURE.NOTE]하이브리드 연결 기능의 웹 앱 부분은 [Azure Preview 포털](https://portal.azure.com)에서만 사용할 수 있습니다. BizTalk 서비스에서 연결을 만들려면 [하이브리드 연결](http://go.microsoft.com/fwlink/p/?LinkID=397274)(영문)을 참조하세요.
+>
+>하이브리드 연결 기능의 웹 앱 부분은 [Azure Preview 포털](https://portal.azure.com)에서만 사용할 수 있습니다. BizTalk 서비스에서 연결을 만들려면 [하이브리드 연결](http://go.microsoft.com/fwlink/p/?LinkID=397274)(영문)을 참조하세요.
 
 ## 필수 조건 ##
 
@@ -178,33 +178,7 @@ Visual Studio 웹 응용 프로그램을 사용하려면 Azure에서 액세스�
 <a name="InstallHCM"></a>
 ## D. 온-프레미스 하이브리드 연결 관리자를 설치하여 연결 완료 ##
 
-1. **하이브리드 연결** 블레이드에서 방금 만든 하이브리드 연결을 클릭한 다음 **수신기 설치**를 클릭합니다.
-	
-	![수신기 설정 클릭][ClickListenerSetup]
-	
-4. **하이브리드 연결 속성** 블레이드가 열립니다. **온-프레미스 하이브리드 연결 관리자**에서 **설치하려면 여기를 클릭하세요.**를 선택합니다.
-	
-	![설치하려면 여기를 클릭][ClickToInstallHCM]
-	
-5. 응용 프로그램 실행 보안 경고 대화 상자에서 **실행**을 선택하여 계속합니다.
-	
-	![실행을 선택하여 계속합니다.][ApplicationRunWarning]
-	
-6.	**사용자 계정 컨트롤** 대화 상자에서 **예**를 선택합니다.
-	
-	![예 선택][UAC]
-	
-7. 하이브리드 연결 관리자가 자동으로 다운로드되어 설치됩니다.
-	
-	![설치][HCMInstalling]
-	
-8. 설치가 완료되면 **닫기**를 클릭합니다.
-	
-	![닫기 클릭][HCMInstallComplete]
-	
-	**하이브리드 연결** 블레이드에서 이제 **상태** 열은 **연결됨**을 표시합니다.
-	
-	![연결됨 상태][HCStatusConnected]
+[AZURE.INCLUDE [app-service-hybrid-connections-manager-install](../../includes/app-service-hybrid-connections-manager-install.md)]
 
 하이브리드 연결 인프라를 완성했으므로 이 인프라를 사용하는 웹 응용 프로그램을 만듭니다.
 
@@ -244,7 +218,7 @@ Visual Studio 웹 응용 프로그램을 사용하려면 Azure에서 액세스�
 	
 	연결 문자열을 작성할 때 다음 사항을 기억하세요.
 	
-	- 기본 인스턴스(예: YourServer\\SQLEXPRESS)가 아닌 명명된 인스턴스에 연결하는 경우 정적 포트를 사용하도록 SQL Server를 구성해야 합니다. 정적 포트를 구성하는 방법에 대한 자세한 내용은 [특정 포트에서 수신하도록 SQL Server를 구성하는 방법](http://support.microsoft.com/kb/823938)을 참조하세요. 기본적으로, 명명된 인스턴는 하이브리드 연결에서 지원되지 않는 UDP 및 동적 포트를 사용합니다. 
+	- 기본 인스턴스(예: YourServer\SQLEXPRESS)가 아닌 명명된 인스턴스에 연결하는 경우 정적 포트를 사용하도록 SQL Server를 구성해야 합니다. 정적 포트를 구성하는 방법에 대한 자세한 내용은 [특정 포트에서 수신하도록 SQL Server를 구성하는 방법](http://support.microsoft.com/kb/823938)을 참조하세요. 기본적으로, 명명된 인스턴는 하이브리드 연결에서 지원되지 않는 UDP 및 동적 포트를 사용합니다. 
 	
 	- 로컬 SQL Server가 TCP를 사용하도록 설정하고 올바른 포트를 사용하고 있는지 확인할 수 있도록 연결 문자열에서 포트(예와 같이 기본적으로는 1433)를 지정하는 것이 좋습니다.
 	
@@ -303,7 +277,7 @@ Visual Studio 웹 응용 프로그램을 사용하려면 Azure에서 액세스�
 	
 	**게시**를 클릭합니다.
 	
-	게시가 완료되면 브라우저가 시작되고 현재 Azure 클라우드에서 라이브라는 점을 제외하고는 이제 친숙한 ASP.NET 응용 프로그램이 표시됩니다! 
+	게시가 완료되면 브라우저가 시작되고 현재 Azure 클라우드에서 라이브라는 점을 제외하고는 이제 친숙한 ASP.NET 응용 프로그램이 표시됩니다!
 
 이제 라이브 웹 응용 프로그램을 사용하여 작동 중인 하이브리드 연결을 알아봅니다.
 
@@ -402,5 +376,6 @@ Visual Studio 웹 응용 프로그램을 사용하려면 Azure에서 액세스�
 [HCTestRegisterRelecloud]: ./media/web-sites-hybrid-connection-connect-on-premises-sql-server/F09HCTestRegisterRelecloud.png
 [HCTestSSMSTree]: ./media/web-sites-hybrid-connection-connect-on-premises-sql-server/F10HCTestSSMSTree.png
 [HCTestShowMemberDb]: ./media/web-sites-hybrid-connection-connect-on-premises-sql-server/F11HCTestShowMemberDb.png
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

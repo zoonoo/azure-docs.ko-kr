@@ -23,7 +23,7 @@ Django 응용 프로그램에 대한 정적 파일 수집을 건너뛰려는 경
 배포를 더 효율적으로 제어하려면 다음 파일을 만들어 기본 배포 스크립트를 재정하면 됩니다.
 
     .deployment
-    deploy.cmd
+    \deploy.cmd
 
 [Azure 명령줄 인터페이스][]를 사용하여 파일을 만들 수 있습니다. 프로젝트 폴더에서 다음 명령을 사용합니다.
 
@@ -33,4 +33,4 @@ Django 응용 프로그램에 대한 정적 파일 수집을 건너뛰려는 경
 
 [Azure 명령줄 인터페이스]: http://azure.microsoft.com/downloads/
 
-<!--HONumber=54-->
+<!---HONumber=62-->

@@ -13,20 +13,20 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/09/2015" 
+	ms.date="05/28/2015" 
 	ms.author="jgao"/>
 
-# HDInsight의 Hadoop에서 Twitter 데이터 분석
+# HDInsight에서 Hive를 사용하여 Twitter 데이터 분석
 
-##개요
 소셜 웹 사이트는 빅데이터 채택의 주요 추진력 중 하나입니다. Twitter와 같은 사이트에서 제공하는 공개 API는 대중적인 추세를 분석하고 이해하는 데 유용한 데이터 원본입니다. 이 자습서에서는 Twitter 스트리밍 API를 사용해 트윗을 가져온 다음 Azure HDInsight의 Apache Hive를 사용하여 특정 단어가 포함된 트윗을 가장 많이 보낸 Twitter 사용자 목록을 가져옵니다.
 
 > [AZURE.NOTE]비슷한 샘플이 HDInsight 샘플 갤러리에 있습니다. Channel 9 동영상 보기: <a href="http://channel9.msdn.com/Series/Getting-started-with-Windows-Azure-HDInsight-Service/Analyze-Twitter-trend-using-Apache-Hive-in-HDInsight" target="_blank">HDInsight의 Apache Hive를 사용하여 Twitter 추세를 분석합니다</a>.
 
-##필수 조건
+###필수 조건
+
 이 자습서를 시작하기 전에 다음이 있어야 합니다.
 
-- Azure PowerShell이 설치 및 구성된 **워크스테이션**. 자세한 내용은 [Azure PowerShell 설치 및 구성][powershell-install]을 참조하세요. Windows PowerShell 스크립트를 실행하려면 관리자로 Azure PowerShell을 실행하고 실행 정책을 *RemoteSigned*로 설정해야 합니다. [Windows PowerShell 스크립트 실행][powershell-script](영문)을 참조하세요.
+- Azure PowerShell이 설치 및 구성된 **워크스테이션**. [Azure PowerShell 설치 및 사용](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/)을 참조하세요. Windows PowerShell 스크립트를 실행하려면 관리자로 Azure PowerShell을 실행하고 실행 정책을 *RemoteSigned*로 설정해야 합니다. [Windows PowerShell 스크립트 실행][powershell-script](영문)을 참조하세요.
 
 	Windows PowerShell 스크립트를 실행하기 전에 cmdlet을 사용하여 Azure 구독에 연결되어 있는지 확인합니다.
 
@@ -240,19 +240,19 @@ OAuth를 사용하는 첫 단계는 Twitter 개발자 사이트에서 새 응용
 		
 		Write-Host "Completed!" -ForegroundColor Green
 
-3. 스크립트에서 첫 번째 5\~8개의 변수를 설정합니다.
+3. 스크립트에서 첫 번째 5~8개의 변수를 설정합니다.
 
 	<table border="1">
-	<tr><th>변수</th><th>설명</th></tr>
-	<tr><td>$clusterName</td><td>응용 프로그램을 실행하려는 HDInsight 클러스터의 이름입니다.</td></tr><tr><td>$oauth_consumer_key</td><td>앞에서 Twitter 응용 프로그램을 만들 때 적어 둔 Twitter 응용 프로그램 <strong>consumer key</strong>입니다.</td></tr>
-	<tr><td>$oauth_consumer_secret</td><td>앞에서 기록해 둔 Twitter 응용 프로그램 <strong>consumer secret</strong>입니다.</td></tr>
-	<tr><td>$oauth_token</td><td>앞에서 기록해 둔 Twitter 응용 프로그램 <strong>access token</strong>입니다.</td></tr>
-	<tr><td>$oauth_token_secret</td><td>앞에서 기록해 둔 Twitter 응용 프로그램 <strong>access token secret</strong>입니다.</td></tr>	
-	<tr><td>$destBlobName</td><td>출력 Blob 이름입니다. 기본값은 <strong>tutorials/twitter/data/tweets.txt</strong>입니다. 기본값을 변경하는 경우 이에 따라 Windows PowerShell 스크립트를 업데이트해야 합니다.</td></tr>
-	<tr><td>$trackString</td><td>웹 서비스가 이 키워드와 관련된 트윗을 반환합니다. 기본값은 <strong>Azure, Cloud, HDInsight</strong>입니다. 기본값을 변경하는 경우 이에 따라 Windows PowerShell 스크립트를 업데이트합니다.</td></tr>
-	<tr><td>$lineMax</td><td>이 값은 스크립트가 읽는 트윗의 수를 결정합니다. 트윗 100개를 읽는 데 약 3분이 걸립니다. 더 큰 수를 설정할 수 있지만 그러면 다운로드하는 데 더 많은 시간이 걸립니다.</td></tr>
+<tr><th>변수</th><th>설명</th></tr>
+<tr><td>$clusterName</td><td>응용 프로그램을 실행하려는 HDInsight 클러스터의 이름입니다.</td></tr><tr><td>$oauth_consumer_key</td><td>앞에서 Twitter 응용 프로그램을 만들 때 적어 둔 Twitter 응용 프로그램 <strong>consumer key</strong>입니다.</td></tr>
+<tr><td>$oauth_consumer_secret</td><td>앞에서 기록해 둔 Twitter 응용 프로그램 <strong>consumer secret</strong>입니다.</td></tr>
+<tr><td>$oauth_token</td><td>앞에서 기록해 둔 Twitter 응용 프로그램 <strong>access token</strong>입니다.</td></tr>
+<tr><td>$oauth_token_secret</td><td>앞에서 기록해 둔 Twitter 응용 프로그램 <strong>access token secret</strong>입니다.</td></tr>	
+<tr><td>$destBlobName</td><td>출력 Blob 이름입니다. 기본값은 <strong>tutorials/twitter/data/tweets.txt</strong>입니다. 기본값을 변경하는 경우 이에 따라 Windows PowerShell 스크립트를 업데이트해야 합니다.</td></tr>
+<tr><td>$trackString</td><td>웹 서비스가 이 키워드와 관련된 트윗을 반환합니다. 기본값은 <strong>Azure, Cloud, HDInsight</strong>입니다. 기본값을 변경하는 경우 이에 따라 Windows PowerShell 스크립트를 업데이트합니다.</td></tr>
+<tr><td>$lineMax</td><td>이 값은 스크립트가 읽는 트윗의 수를 결정합니다. 트윗 100개를 읽는 데 약 3분이 걸립니다. 더 큰 수를 설정할 수 있지만 그러면 다운로드하는 데 더 많은 시간이 걸립니다.</td></tr>
 
-	</table>
+</table>
 
 5. **F5** 키를 눌러 스크립트를 실행합니다. 문제가 발생하는 경우 해결하려면 모든 줄을 선택하고 **F8** 키를 누릅니다.
 6. 출력 끝부분에 "Complete!"가 표시됩니다. 오류 메시지는 빨간색으로 표시됩니다.
@@ -520,7 +520,7 @@ HiveQL 스크립트는 다음을 수행합니다.
 	Write-Host "==================================" -ForegroundColor Green
 	#end region
 
-> [AZURE.NOTE]Hive 테이블은 필드 구분 기호로 \\001을 사용합니다. 구분 기호는 출력에서 보이지 않습니다.
+> [AZURE.NOTE]Hive 테이블은 필드 구분 기호로 \001을 사용합니다. 구분 기호는 출력에서 보이지 않습니다.
 
 분석 결과가 Azure Blob 저장소에 배치된 후에는 데이터를 Azure SQL 데이터베이스/SQL Server로 내보내거나, 파워 쿼리를 사용하여 데이터를 Excel로 내보내거나, Hive ODBC 드라이버를 사용하여 응용 프로그램을 데이터에 연결할 수 있습니다. 자세한 내용은 [HDInsight에서 Sqoop 사용][hdinsight-use-sqoop], [HDInsight를 사용하여 비행 지연 데이터 분석][hdinsight-analyze-flight-delay-data], [파워 쿼리로 HDInsight에 Excel 연결][hdinsight-power-query] 및 [Microsoft Hive ODBC 드라이버로 HDInsight에 Excel 연결][hdinsight-hive-odbc]을 참조하세요.
 
@@ -557,5 +557,6 @@ HiveQL 스크립트는 다음을 수행합니다.
 [hdinsight-power-query]: hdinsight-connect-excel-power-query.md
 [hdinsight-hive-odbc]: hdinsight-connect-excel-hive-ODBC-driver.md
 [hdinsight-hbase-twitter-sentiment]: hdinsight-hbase-analyze-twitter-sentiment.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Azure 앱 서비스에서 웹 앱에 대한 진단 로깅 설정" 
-	description="진단 로그를 사용하도록 설정하는 방법, 응용 프로그램에 계측을 추가하는 방법 및 Azure에서 기록된 정보에 액세스하는 방법에 대해 알아봅니다." 
-	services="app-service\web" 
-	documentationCenter=".net" 
-	authors="cephalin" 
-	manager="wpickett" 
+<properties
+	pageTitle="Azure 앱 서비스에서 웹 앱에 대한 진단 로깅 설정"
+	description="진단 로그를 사용하도록 설정하는 방법, 응용 프로그램에 계측을 추가하는 방법 및 Azure에서 기록된 정보에 액세스하는 방법에 대해 알아봅니다."
+	services="app-service\web"
+	documentationCenter=".net"
+	authors="cephalin"
+	manager="wpickett"
 	editor=""/>
 
-<tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="03/29/2015" 
+<tags
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="03/29/2015"
 	ms.author="cephalin"/>
 
 # Azure 앱 서비스에서 웹 앱에 대한 진단 로깅 설정
@@ -22,7 +22,7 @@
 
 Azure는 [앱 서비스](http://go.microsoft.com/fwlink/?LinkId=529714)에 호스팅된 웹 앱을 디버그하는 데 도움이 되는 기본 제공 진단을 제공합니다. 이 문서에서는 진단 로그를 사용하도록 설정하는 방법, 응용 프로그램에 계측을 추가하는 방법 및 Azure에서 기록된 정보에 액세스하는 방법을 설명합니다.
 
-> [AZURE.NOTE]이 문서에서는 [Azure preview 포털](http://go.microsoft.com/fwlink/?LinkId=529715), Azure PowerShell 및 Azure 플랫폼 간 명령줄 인터페이스를 사용하여 진단 로그로 작업하는 방법을 사용합니다. Visual Studio를 사용하여 진단 로그로 작업하는 방법에 대한 자세한 내용은 [Visual Studio에서 Azure 문제 해결](../troubleshoot-web-sites-in-visual-studio.md)을 참조하세요.
+> [AZURE.NOTE]이 문서에서는 [Azure Preview 포털](http://go.microsoft.com/fwlink/?LinkId=529715), Azure PowerShell 및 Azure 명령줄 인터페이스를 사용하여 진단 로그로 작업하는 방법을 사용합니다. Visual Studio를 사용하여 진단 로그로 작업하는 방법에 대한 자세한 내용은 [Visual Studio에서 Azure 문제 해결](../troubleshoot-web-sites-in-visual-studio.md)을 참조하세요.
 
 ## <a name="whatisdiag"></a>웹 서버 진단 및 응용 프로그램 진단
 
@@ -66,7 +66,7 @@ Visual Studio를 사용하여 응용 프로그램 진단으로 작업하는 방�
 다음은 **응용 프로그램 진단**을 사용하도록 설정한 경우에 사용할 수 있는 설정입니다.
 
 * **로깅 수준** - 이 옵션을 통해 **정보**, **경고** 또는 **오류** 정보에 캡처된 정보를 필터링할 수 있습니다. 이를 **세부 정보 표시**로 설정하면 응용 프로그램에서 생성된 모든 정보가 로깅됩니다. **로깅 수준**은 **파일 시스템**, **테이블 저장소** 및 **Blob 저장소** 로깅별로 다르게 설정할 수 있습니다.
-* **파일 시스템** - 웹 앱 파일 시스템에 응용 프로그램 진단 정보를 저장합니다. 이러한 파일은 FTP로 액세스하거나, Azure PowerShell 또는 Azure 명령줄 도구를 사용하여 Zip 보관 파일로 다운로드할 수 있습니다.
+* **파일 시스템** - 웹 앱 파일 시스템에 응용 프로그램 진단 정보를 저장합니다. 이러한 파일은 FTP로 액세스하거나, Azure PowerShell 또는 Azure 명령줄 인터페이스(Azure CLI)를 사용하여 Zip 보관 파일로 다운로드할 수 있습니다.
 * **테이블 저장소** - 지정된 Azure 저장소 계정 및 테이블 이름에 응용 프로그램 진단 정보를 저장합니다.
 * **Blob 저장소** - 지정된 Azure 저장소 계정 및 Blob 컨테이너에 응용 프로그램 진단 정보를 저장합니다.
 * **보존 기간** - 기본적으로 로그는 **Blob 저장소**에서 자동으로 삭제되지 않습니다. 자동으로 로그를 삭제하려면 **set retention**을 선택하고 로그를 보관할 기간(일)을 입력합니다.
@@ -77,7 +77,7 @@ Visual Studio를 사용하여 응용 프로그램 진단으로 작업하는 방�
 
 ##<a name="download"></a> 방법: 로그 다운로드
 
-웹 앱 파일 시스템에 저장된 진단 정보는 FTP를 사용하여 직접 액세스할 수 있습니다. 또한 Azure PowerShell 또는 Azure 명령줄 도구를 사용하여 Zip 보관 파일로 다운로드할 수도 있습니다.
+웹 앱 파일 시스템에 저장된 진단 정보는 FTP를 사용하여 직접 액세스할 수 있습니다. 또한 Azure PowerShell 또는 Azure 명령줄 인터페이스를 사용하여 Zip 보관 파일로 다운로드할 수도 있습니다.
 
 로그가 저장되는 디렉터리 구조는 다음과 같습니다.
 
@@ -107,36 +107,36 @@ FTP를 사용하여 진단 정보에 액세스하려면 Azure 관리 포털에�
 
 > [AZURE.NOTE]Azure PowerShell을 설치하지 않았거나 Azure 구독을 사용하도록 이를 구성하지 않은 경우 [Azure PowerShell을 사용하는 방법](/develop/nodejs/how-to-guides/powershell-cmdlets/)(영문)을 참조하십시오.
 
-### Azure 명령줄 도구로 다운로드
+### Azure 명령줄 인터페이스로 다운로드
 
-Azure 명령줄 도구를 사용하여 로그 파일을 다운로드하려면 새 명령 프롬프트, PowerShell, Bash 또는 터미널 세션을 열고 다음 명령을 입력합니다.
+Azure 명령줄 인터페이스를 사용하여 로그 파일을 다운로드하려면 새 명령 프롬프트, PowerShell, Bash 또는 터미널 세션을 열고 다음 명령을 입력합니다.
 
 	azure site log download webappname
 
 이 명령을 실행하면 'webappname'이라는 웹 앱의 로그가 현재 디렉터리의 **diagnostics.zip**이라는 파일에 저장됩니다.
 
-> [AZURE.NOTE]Azure 명령줄 도구를 설치하지 않았거나 Azure 구독을 사용하도록 Azure 명령줄 도구를 구성하지 않은 경우 [Azure 명령줄 사용 방법](../xplat-cli.md)을 참조하세요.
+> [AZURE.NOTE]Azure 명령줄 인터페이스를 설치하지 않았거나 Azure 구독을 사용하도록 Azure 명령줄 도구를 구성하지 않은 경우 [Azure CLI 사용 방법](../xplat-cli.md)을 참조하세요.
 
 ## 방법: Application Insights에서 로그 보기
 
 Visual Studio Application Insights는 로그 필터링과 검색을 위한 도구, 및 요청과 다른 이벤트와 로그를 연결하기 위한 도구를 제공합니다.
 
-1. Visual Studio의 프로젝트에 Application Insights SDK 추가 
+1. Visual Studio의 프로젝트에 Application Insights SDK 추가
  * 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 Application Insights 추가를 선택합니다. Application Insights 리소스 만들기를 포함 하는 단계를 안내합니다. [자세히 알아보기](../application-insights/app-insights-start-monitoring-app-health-usage.md)
 2. 추적 수신기 패키지를 프로젝트에 추가 합니다.
  * 프로젝트를 마우스 오른쪽 단추로 클릭하고 NuGet 패키지 관리를 선택합니다. `Microsoft.ApplicationInsights.TraceListener` [자세히 알아보기](../application-insights/app-insights-asp-net-trace-logs.md) 선택
 3. 프로젝트를 업로드하고 실행하여 로그 데이터를 생성합니다.
-4. [Azure preview 포털](http://portal.azure.com/)에서, 새  Application Insights 리소스를 찾고 **검색**을 엽니다. 요청, 사용법 및 다른 원격 분석와 함께 로그 데이터가 표시됩니다. 일부 원격 분석에 몇 분 정도 걸릴 수 있습니다. 새로 고침을 클릭합니다. [자세히 알아보기](../application-insights/app-insights-diagnostic-search.md)
+4. [Azure preview 포털](http://portal.azure.com/)에서, 새 Application Insights 리소스를 찾고 **검색**을 엽니다. 요청, 사용법 및 다른 원격 분석와 함께 로그 데이터가 표시됩니다. 일부 원격 분석에 몇 분 정도 걸릴 수 있습니다. 새로 고침을 클릭합니다. [자세히 알아보기](../application-insights/app-insights-diagnostic-search.md)
 
 [Application Insights로 추적되는 성능에 대해 알아보기](../insights-perf-analytics.md)
 
 ##<a name="streamlogs"></a> 방법: 스트림 로그
 
-응용 프로그램을 개발하는 동안 거의 실시간의 로깅 정보를 보는 것이 종종 유용합니다. 이는 Azure PowerShell 또는 Azure 명령줄 도구 중 하나를 사용하여 개발 환경에 로깅 정보를 스트리밍하도록 하면 가능합니다.
+응용 프로그램을 개발하는 동안 거의 실시간의 로깅 정보를 보는 것이 종종 유용합니다. 이는 Azure PowerShell 또는 Azure 명령줄 인터페이스 중 하나를 사용하여 개발 환경에 로깅 정보를 스트리밍하도록 하면 가능합니다.
 
 > [AZURE.NOTE]일부 유형의 로깅 버퍼는 로그 파일에 기록하고 이로 인해 스크림에서 이벤트가 작동하지 않을 수 있습니다. 예를 들어 사용자가 페이지를 방문할 때 발생한 응용 프로그램 로그 항목이 페이지 요청에 대한 해당 HTTP 로그 항목보다 먼저 스트림에 표시될 수 있습니다.
 
-> [AZURE.NOTE]로그 스트리밍은 **D:\\home\\LogFiles** 폴더에 저장된 모든 텍스트 파일에 기록된 정보를 스트리밍할 수도 있습니다.
+> [AZURE.NOTE]로그 스트리밍은 **D:\home\LogFiles** 폴더에 저장된 모든 텍스트 파일에 기록된 정보를 스트리밍할 수도 있습니다.
 
 ### Azure PowerShell로 스트리밍
 
@@ -158,7 +158,7 @@ HTTP와 같은 특정 로그 유형을 필터링하려면 **-Path** 매개 변�
 
 > [AZURE.NOTE]Azure PowerShell을 설치하지 않았거나 Azure 구독을 사용하도록 이를 구성하지 않은 경우 [Azure PowerShell을 사용하는 방법](/develop/nodejs/how-to-guides/powershell-cmdlets/)(영문)을 참조하십시오.
 
-### Azure 명령줄 도구로 스트리밍
+### Azure 명령줄 인터페이스로 스트리밍
 
 로깅 정보를 스트리밍하려면 새 명령 프롬프트, PowerShell, Bash 또는 터미널 세션을 열고 다음 명령을 입력합니다.
 
@@ -174,7 +174,7 @@ HTTP와 같은 특정 로그 유형을 필터링하려면 **-Path** 매개 변�
 
 	azure site log tail webappname --path http
 
-> [AZURE.NOTE]Azure 명령줄 도구를 설치하지 않았거나 Azure 구독을 사용하도록 Azure 명령줄 도구를 구성하지 않은 경우 [Azure 명령줄 사용 방법](../xplat-cli.md)을 참조하세요.
+> [AZURE.NOTE]Azure 명령줄 인터페이스를 설치하지 않았거나 Azure 구독을 사용하도록 Azure 명령줄 인터페이스를 구성하지 않은 경우 [Azure 명령줄 인터페이스 사용 방법](../xplat-cli.md)을 참조하세요.
 
 ##<a name="understandlogs"></a> 방법: 진단 로그 이해
 
@@ -335,5 +335,6 @@ Blob에 저장된 데이터는 다음과 비슷합니다.
 ## 변경된 내용
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.
 * 이전 포털에서 새 포털로의 변경에 대한 지침은 [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

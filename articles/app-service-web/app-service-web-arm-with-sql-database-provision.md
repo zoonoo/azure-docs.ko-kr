@@ -1,0 +1,436 @@
+<properties 
+	pageTitle="SQL 데이터베이스를 사용하는 웹 앱을 프로비전" 
+	description="SQL 데이터베이스가 포함된 웹 앱을 배포하는 Azure 리소스 관리자 템플릿을 사용합니다." 
+	services="app-service\web" 
+	documentationCenter="" 
+	authors="tfitzmac" 
+	manager="wpickett" 
+	editor=""/>
+
+<tags 
+	ms.service="app-service-web" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="06/01/2015" 
+	ms.author="tomfitz"/>
+
+# SQL 데이터베이스를 사용하는 웹 앱을 프로비전
+
+이 항목에서는 웹 앱 및 SQL 데이터베이스를 배포하는 Azure 리소스 관리자 템플릿을 만드는 방법을 배웁니다. 어떤 리소스를 배포할지 정의하는 방법 및 배포를 실행할 때 매개 변수를 지정하는 방법을 알게 됩니다. 배포를 위해 이 템플릿을 사용하거나 요구 사항에 맞게 사용자 지정을 할 수 있습니다.
+
+템플릿을 만드는 더 자세한 내용은 [Azure 리소스 관리자 템플릿 작성하기](../resource-group-authoring-templates.md)를 참조하십시오.
+
+전체 서식 파일을 보려면 [SQL 데이터베이스 템플릿을 사용하는 웹 앱](https://github.com/tfitzmac/AppServiceTemplates/blob/master/webandsql.json)을 참조하십시오.
+
+## 배포할 내용
+
+이 서식 파일에서 다음을 배포합니다:
+
+- 웹 앱
+- SQL 데이터베이스 서버
+- SQL 데이터베이스
+- 자동 크기 조정 설정
+- 경고 규칙
+- App Insights
+
+## 지정할 매개변수
+
+[AZURE.INCLUDE [app-service-web-deploy-web-parameters](../../includes/app-service-web-deploy-web-parameters.md)]
+
+### serverName
+
+만들려는 새 데이터베이스 서버의 이름입니다.
+
+    "serverName": {
+      "type": "string"
+    }
+
+### serverLocation
+
+데이터베이스 서버의 위치입니다. 최상의 성능을 위해 이 위치는 웹 앱의 위치와 같아야 합니다.
+
+    "serverLocation": {
+      "type": "string"
+    }
+
+### administratorLogin
+
+데이터베이스 서버 관리자에 사용할 계정 이름입니다.
+
+    "administratorLogin": {
+      "type": "string"
+    }
+
+### administratorLoginPassword
+
+데이터베이스 서버 관리자에 사용할 암호입니다.
+
+    "administratorLoginPassword": {
+      "type": "securestring"
+    }
+
+### databaseName
+
+만들려는 새 데이터베이스의 이름입니다.
+
+    "databaseName": {
+      "type": "string"
+    }
+
+### collation
+
+문자의 적절한 사용을 제어하기 위해 사용하는 데이터베이스 데이터 정렬입니다.
+
+    "collation": {
+      "type": "string",
+      "defaultValue": "SQL_Latin1_General_CP1_CI_AS"
+    }
+
+### 버전
+
+만들려는 데이터베이스의 형식입니다.
+
+    "edition": {
+      "type": "string",
+      "defaultValue": "Web"
+    }
+
+### maxSizeBytes
+
+    "maxSizeBytes": {
+      "type": "string",
+      "defaultValue": "1073741824"
+    }
+
+### requestedServiceObjectiveId
+
+    "requestedServiceObjectiveId": {
+        "type": "string",
+        "defaultValue": "910b4fcb-8a29-4c3e-958f-f7ba794388b2"
+    }
+
+
+## 배포할 리소스
+
+### SQL Server 및 데이터베이스
+
+새 SQL Server 및 데이터베이스를 만듭니다. 서버 이름은 **serverName** 매개 변수에 지정되고 위치는 **serverLocation** 매개변수에 지정됩니다. 새 서버를 만들 때 데이터베이스 서버 관리자용 로그인 이름 및 암호를 제공해야 합니다.
+
+    {
+      "name": "[parameters('serverName')]",
+      "type": "Microsoft.Sql/servers",
+      "location": "[parameters('serverLocation')]",
+      "apiVersion": "2.0",
+      "properties": {
+        "administratorLogin": "[parameters('administratorLogin')]",
+        "administratorLoginPassword": "[parameters('administratorLoginPassword')]"
+      },
+      "resources": [
+        {
+          "name": "[parameters('databaseName')]",
+          "type": "databases",
+          "location": "[parameters('serverLocation')]",
+          "apiVersion": "2.0",
+          "dependsOn": [
+            "[concat('Microsoft.Sql/servers/', parameters('serverName'))]"
+          ],
+          "properties": {
+            "edition": "[parameters('edition')]",
+            "collation": "[parameters('collation')]",
+            "maxSizeBytes": "[parameters('maxSizeBytes')]",
+            "requestedServiceObjectiveId": "[parameters('requestedServiceObjectiveId')]"
+          }
+        },
+        {
+          "apiVersion": "2.0",
+          "dependsOn": [
+            "[concat('Microsoft.Sql/servers/', parameters('serverName'))]"
+          ],
+          "location": "[parameters('serverLocation')]",
+          "name": "AllowAllWindowsAzureIps",
+          "properties": {
+            "endIpAddress": "0.0.0.0",
+            "startIpAddress": "0.0.0.0"
+          },
+          "type": "firewallrules"
+        }
+      ]
+    },
+
+
+[AZURE.INCLUDE [app-service-web-deploy-web-host](../../includes/app-service-web-deploy-web-host.md)]
+
+
+### 웹 앱
+
+    {
+      "apiVersion": "2014-06-01",
+      "name": "[parameters('siteName')]",
+      "type": "Microsoft.Web/Sites",
+      "location": "[parameters('siteLocation')]",
+      "dependsOn": ["[concat('Microsoft.Web/serverFarms/', parameters('hostingPlanName'))]"],
+      "tags": {
+        "[concat('hidden-related:', resourceGroup().id, '/providers/Microsoft.Web/serverfarms/', parameters('hostingPlanName'))]": "empty"
+      },
+      "properties": {
+        "name": "[parameters('siteName')]",
+        "serverFarm": "[parameters('hostingPlanName')]"
+      },
+      "resources": [
+        {
+          "apiVersion": "2014-11-01",
+          "type": "config",
+          "name": "connectionstrings",
+          "dependsOn": [ "[concat('Microsoft.Web/Sites/', parameters('siteName'))]" ],
+          "properties": {
+              "DefaultConnection":{
+              "value":"[concat('Data Source=tcp:', reference(concat('Microsoft.Sql/servers/', parameters('serverName'))).fullyQualifiedDomainName, ',1433;Initial Catalog=', parameters('databaseName'), ';User Id=', parameters('administratorLogin'), '@', parameters('serverName'), ';Password=', parameters('administratorLoginPassword'), ';')]",
+              "type": 2 //SQL
+            },
+          }
+        }
+      ]
+    }
+
+### AutoScale
+
+    {
+      "apiVersion": "2014-04-01",
+      "name": "[concat(parameters('hostingPlanName'), '-', resourceGroup().name)]",
+      "type": "microsoft.insights/autoscalesettings",
+      "location": "East US",
+      "tags": {"[concat('hidden-link:', resourceGroup().id, '/providers/Microsoft.Web/serverfarms/', parameters('hostingPlanName'))]": "Resource"},
+      "dependsOn": ["[concat('Microsoft.Web/serverfarms/', parameters('hostingPlanName'))]"],
+      "properties": {
+        "profiles": [
+        {
+          "name": "Default",
+          "capacity": {
+            "minimum": "1",
+            "maximum": "2",
+            "default": "1"
+            },
+            "rules": [
+            {
+              "metricTrigger": 
+              {
+                "metricName": "CpuPercentage",
+                "metricResourceUri": "[concat(resourceGroup().id, '/providers/Microsoft.Web/serverfarms/', parameters('hostingPlanName'))]",
+                "timeGrain": "PT1M",
+                "statistic": "Average",
+                "timeWindow": "PT10M",
+                "timeAggregation": "Average",
+                "operator": "GreaterThan",
+                "threshold": 80.0
+              },
+              "scaleAction": 
+              {
+                  "direction": "Increase",
+                  "type": "ChangeCount",
+                  "value": "1",
+                  "cooldown": "PT10M"
+              }
+            },
+            {
+              "metricTrigger": 
+              {
+                "metricName": "CpuPercentage",
+                "metricResourceUri": "[concat(resourceGroup().id, '/providers/Microsoft.Web/serverfarms/', parameters('hostingPlanName'))]",
+                "timeGrain": "PT1M",
+                "statistic": "Average",
+                "timeWindow": "PT1H",
+                "timeAggregation": "Average",
+                "operator": "LessThan",
+                "threshold": 60.0
+              },
+              "scaleAction": 
+              {
+                "direction": "Decrease",
+                "type": "ChangeCount",
+                "value": "1",
+                "cooldown": "PT1H"
+              }
+            }
+            ]
+          }
+          ],
+          "enabled": false,
+          "name": "[concat(parameters('hostingPlanName'), '-', resourceGroup().name)]",
+          "targetResourceUri": "[concat(resourceGroup().id, '/providers/Microsoft.Web/serverfarms/', parameters('hostingPlanName'))]"
+        }
+    }
+
+### 경고는 상태 코드 403 및 500's, 높은 CPU 사용률 및 HTTP 큐 길이를 규정해야 합니다. 
+
+    {
+      "apiVersion": "2014-04-01",
+      "name": "[concat('ServerErrors ', parameters('siteName'))]",
+      "type": "microsoft.insights/alertrules",
+      "location": "East US",
+      "dependsOn": ["[concat('Microsoft.Web/sites/', parameters('siteName'))]"],
+      "tags": {"[concat('hidden-link:', resourceGroup().id, '/providers/Microsoft.Web/sites/', parameters('siteName'))]": "Resource"},
+      "properties": 
+      {
+        "name": "[concat('ServerErrors ', parameters('siteName'))]",
+        "description": "[concat(parameters('siteName'), ' has some server errors, status code 5xx.')]",
+        "isEnabled": false,
+        "condition": 
+        {
+          "odata.type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.ThresholdRuleCondition",
+          "dataSource": 
+          {
+            "odata.type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.RuleMetricDataSource",
+            "resourceUri": "[concat(resourceGroup().id, '/providers/Microsoft.Web/sites/', parameters('siteName'))]",
+            "metricName": "Http5xx"
+          },
+          "operator": "GreaterThan",
+          "threshold": 0.0,
+          "windowSize": "PT5M"
+        },
+        "action": 
+        {
+          "odata.type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.RuleEmailAction",
+          "sendToServiceOwners": true,
+          "customEmails": []
+        }
+      }
+    },
+    //Alert-Rules --> 403
+    {
+        "apiVersion": "2014-04-01",
+        "name": "[concat('ForbiddenRequests ', parameters('siteName'))]",
+        "type": "microsoft.insights/alertrules",
+        "location": "East US",
+        "dependsOn": [
+            "[concat('Microsoft.Web/sites/', parameters('siteName'))]"
+        ],
+        "tags": {
+            "[concat('hidden-link:', resourceGroup().id, '/providers/Microsoft.Web/sites/', parameters('siteName'))]": "Resource"
+        },
+        "properties": {
+            "name": "[concat('ForbiddenRequests ', parameters('siteName'))]",
+            "description": "[concat(parameters('siteName'), ' has some requests that are forbidden, status code 403.')]",
+            "isEnabled": false,
+            "condition": {
+                "odata.type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.ThresholdRuleCondition",
+                "dataSource": {
+                    "odata.type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.RuleMetricDataSource",
+                    "resourceUri": "[concat(resourceGroup().id, '/providers/Microsoft.Web/sites/', parameters('siteName'))]",
+                    "metricName": "Http403"
+                },
+                "operator": "GreaterThan",
+                "threshold": 0,
+                "windowSize": "PT5M"
+            },
+            "action": {
+                "odata.type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.RuleEmailAction",
+                "sendToServiceOwners": true,
+                "customEmails": []
+            }
+        }
+    },
+    //Alert-Rules --> High CPU
+    {
+        "apiVersion": "2014-04-01",
+        "name": "[concat('CPUHigh ', parameters('hostingPlanName'))]",
+        "type": "microsoft.insights/alertrules",
+        "location": "East US",
+        "dependsOn": [
+            "[concat('Microsoft.Web/serverfarms/', parameters('hostingPlanName'))]"
+        ],
+        "tags": {
+            "[concat('hidden-link:', resourceGroup().id, '/providers/Microsoft.Web/serverfarms/', parameters('hostingPlanName'))]": "Resource"
+        },
+        "properties": {
+            "name": "[concat('CPUHigh ', parameters('hostingPlanName'))]",
+            "description": "[concat('The average CPU is high across all the instances of ', parameters('hostingPlanName'))]",
+            "isEnabled": false,
+            "condition": {
+                "odata.type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.ThresholdRuleCondition",
+                "dataSource": {
+                    "odata.type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.RuleMetricDataSource",
+                    "resourceUri": "[concat(resourceGroup().id, '/providers/Microsoft.Web/serverfarms/', parameters('hostingPlanName'))]",
+                    "metricName": "CpuPercentage"
+                },
+                "operator": "GreaterThan",
+                "threshold": 90,
+                "windowSize": "PT15M"
+            },
+            "action": {
+                "odata.type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.RuleEmailAction",
+                "sendToServiceOwners": true,
+                "customEmails": []
+            }
+        }
+    },
+    //Alert-Rules --> HTTP Queue Length
+    {
+        "apiVersion": "2014-04-01",
+        "name": "[concat('LongHttpQueue ', parameters('hostingPlanName'))]",
+        "type": "microsoft.insights/alertrules",
+        "location": "East US",
+        "dependsOn": [
+            "[concat('Microsoft.Web/serverfarms/', parameters('hostingPlanName'))]"
+        ],
+        "tags": {
+            "[concat('hidden-link:', resourceGroup().id, '/providers/Microsoft.Web/serverfarms/', parameters('hostingPlanName'))]": "Resource"
+        },
+        "properties": {
+            "name": "[concat('LongHttpQueue ', parameters('hostingPlanName'))]",
+            "description": "[concat('The HTTP queue for the instances of ', parameters('hostingPlanName'), ' has a large number of pending requests.')]",
+            "isEnabled": false,
+            "condition": {
+                "odata.type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.ThresholdRuleCondition",
+                "dataSource": {
+                    "odata.type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.RuleMetricDataSource",
+                    "resourceUri": "[concat(resourceGroup().id, '/providers/Microsoft.Web/serverfarms/', parameters('hostingPlanName'))]",
+                    "metricName": "HttpQueueLength"
+                },
+                "operator": "GreaterThan",
+                "threshold": 100.0,
+                "windowSize": "PT5M"
+            },
+            "action": {
+                "odata.type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.RuleEmailAction",
+                "sendToServiceOwners": true,
+                "customEmails": []
+            }
+        }
+    }
+
+### App Insights
+
+    {
+        "apiVersion": "2014-04-01",
+        "name": "[parameters('siteName')]",
+        "type": "microsoft.insights/components",
+        "location": "Central US",
+        "dependsOn": [
+            "[concat('Microsoft.Web/sites/', parameters('siteName'))]"
+        ],
+        "tags": {
+            "[concat('hidden-link:', resourceGroup().id, '/providers/Microsoft.Web/sites/', parameters('siteName'))]": "Resource"
+        },
+        "properties": {
+            "ApplicationId": "[parameters('siteName')]"
+        }
+    }
+
+## 배포 실행 명령
+
+[AZURE.INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
+
+### PowerShell
+
+    New-AzureResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/tfitzmac/AppServiceTemplates/master/webandsql.json
+
+### Azure CLI
+
+    azure group deployment create --template-uri https://raw.githubusercontent.com/tfitzmac/AppServiceTemplates/master/webandsql.json
+
+
+ 
+
+<!---HONumber=62-->

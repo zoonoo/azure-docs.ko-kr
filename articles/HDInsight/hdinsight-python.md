@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure HDInsight에서 Hive 및 Pig와 함께 Python 사용"
-	description="Azure HDInsight의 Hive 및 Pig에서 Python UDF(사용자 정의 함수)를 사용하는 방법에 대해 알아봅니다."
+	pageTitle="HDInsight에서 Hive 및 Pig와 함께 Python 사용 | Microsoft Azure"
+	description="HDInsight의 Hive 및 Pig에서 Python UDF(사용자 정의 함수)를 사용하는 방법, Azure에서의 Hadoop 기술 스택에 대해 알아봅니다."
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
@@ -16,20 +16,20 @@
 	ms.date="04/23/2015" 
 	ms.author="larryfr"/>
 
-# HDInsight에서 Hive 및 Pig와 함께 Python 사용
+#HDInsight에서 Hive 및 Pig와 함께 Python 사용
 
 Hive 및 Pig는 HDInsight의 데이터 작업에 적합하지만 보다 일반적인 언어가 필요한 경우도 있습니다. Hive 및 Pig를 통해 다양한 프로그래밍 언어를 사용하여 UDF(사용자 정의 함수)를 만들 수 있습니다. 이 문서에서는 Hive 및 Pig에서 Python UDF를 사용하는 방법을 알아봅니다.
 
 > [AZURE.NOTE]이 문서의 단계는 HDInsight 클러스터 버전 2.1, 3.0, 3.1 및 3.2에 적용됩니다.
 
 
-## <a name="python"></a>HDInsight의 Python
+##<a name="python"></a>HDInsight의 Python
 
 Python2.7은 기본적으로 HDInsight 3.0 이상의 클러스터에 설치됩니다. Hive는 이 버전의 Python과 함께 사용하여 스트림을 처리할 수 있습니다(데이터는 STDOUT/STDIN을 사용하여 Hive와 Python 간에 전달됨).
 
 HDInsight에는 Java로 작성된 Python 구현인 Jython도 포함되어 있습니다. Pig는 스트리밍을 사용하지 않고도 Jython과 통신하는 방법을 인식하므로, Pig를 사용할 때 Jython이 선호됩니다.
 
-### <a name="hivepython"></a>Hive 및 Python
+###<a name="hivepython"></a>Hive 및 Python
 
 Python은 HiveQL **TRANSFORM** 문을 통해 Hive의 UDF로 사용할 수 있습니다. 예를 들어 다음 HiveQL은 **streaming.py** 파일에 저장된 Python 스크립트를 호출합니다.
 
@@ -97,7 +97,7 @@ Python은 HiveQL **TRANSFORM** 문을 통해 Hive의 UDF로 사용할 수 있습
 
 HDInsight 클러스터에서 이 예제를 실행하는 방법에 대해서는 [예제 실행](#running)을 참조하세요.
 
-### <a name="pigpython"></a>Pig 및 Python
+###<a name="pigpython"></a>Pig 및 Python
 
 **GENERATE** 문을 통해 Python 스크립트를 Pig의 UDF로 사용할 수 있습니다. 예를 들어 다음 예제에서는 **jython.py** 파일에 저장된 Python 스크립트를 사용합니다.
 
@@ -148,11 +148,11 @@ HDInsight 클러스터에서 이 예제를 실행하는 방법에 대해서는 [
 
 데이터가 Pig로 반환되면 **@outputSchema** 문에 정의된 일관된 스키마를 포함합니다.
 
-## <a name="running"></a>예제 실행
+##<a name="running"></a>예제 실행
 
 Linux 기반 HDInsight 클러스터를 사용하는 경우 아래의 **SSH** 단계를 사용합니다. Windows 기반 HDInsight 클러스터 및 Windows 클라이언트를 사용하는 경우 아래의 **PowerShell** 단계를 사용합니다.
 
-### SSH
+###SSH
 
 SSH 사용에 대한 자세한 내용은 <a href="../hdinsight-hadoop-linux-use-ssh-unix/" target="_blank">Linux, Unix 또는 OS X의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용</a> 또는 <a href="../hdinsight-hadoop-linux-use-ssh-windows/" target="_blank">Windows의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용</a>을 참조하세요.
 
@@ -173,7 +173,7 @@ SSH 사용에 대한 자세한 내용은 <a href="../hdinsight-hadoop-linux-use-
 
 파일을 업로드한 후 다음 단계를 사용하여 Hive 및 Pig 작업을 실행합니다.
 
-#### Hive
+####Hive
 
 1. `hive` 명령을 사용하여 Hive 셸을 시작합니다. 셸이 로드되면 `hive>` 프롬프트가 한 번 표시됩니다.
 
@@ -194,7 +194,7 @@ SSH 사용에 대한 자세한 내용은 <a href="../hdinsight-hadoop-linux-use-
 		100042	Apple iPhone 4.2.x	375ad9a0ddc4351536804f1d5d0ea9b9
 		100042	Apple iPhone 4.2.x	375ad9a0ddc4351536804f1d5d0ea9b9
 
-#### Pig
+####Pig
 
 1. `pig` 명령을 사용하여 셸을 시작합니다. 셸이 로드되면 `grunt>` 프롬프트가 한 번 표시됩니다.
 
@@ -214,7 +214,7 @@ SSH 사용에 대한 자세한 내용은 <a href="../hdinsight-hadoop-linux-use-
 		((2012-02-03,20:11:56,SampleClass3,[TRACE],verbose detail for id 1718828806))
 		((2012-02-03,20:11:56,SampleClass3,[INFO],everything normal for id 530537821))
 
-### PowerShell
+###PowerShell
 
 이 단계에서는 Azure PowerShell을 사용합니다. 이 도구를 아직 개발 컴퓨터에 설치하여 구성하지 않은 경우 다음 단계를 사용하기 전에 [Azure PowerShell을 설치 및 구성하는 방법](../install-configure-powershell.md)을 참조하세요.
 
@@ -241,7 +241,7 @@ SSH 사용에 대한 자세한 내용은 <a href="../hdinsight-hadoop-linux-use-
 
 파일을 업로드한 후 다음 PowerShell 스크립트를 사용하여 작업을 시작합니다. 작업이 완료되면 출력이 PowerShell 콘솔에 작성됩니다.
 
-#### Hive
+####Hive
 
     # Replace 'YourHDIClusterName' with the name of your cluster
 	$clusterName = YourHDIClusterName
@@ -271,7 +271,7 @@ SSH 사용에 대한 자세한 내용은 <a href="../hdinsight-hadoop-linux-use-
 	100042	Apple iPhone 4.2.x	375ad9a0ddc4351536804f1d5d0ea9b9
 	100042	Apple iPhone 4.2.x	375ad9a0ddc4351536804f1d5d0ea9b9
 
-#### Pig
+####Pig
 
 	# Replace 'YourHDIClusterName' with the name of your cluster
 	$clusterName = YourHDIClusterName
@@ -300,7 +300,7 @@ SSH 사용에 대한 자세한 내용은 <a href="../hdinsight-hadoop-linux-use-
 	((2012-02-03,20:11:56,SampleClass3,[TRACE],verbose detail for id 1718828806))
 	((2012-02-03,20:11:56,SampleClass3,[INFO],everything normal for id 530537821))
 
-## <a name="troubleshooting"></a>문제 해결
+##<a name="troubleshooting"></a>문제 해결
 
 이 예제를 실행하는 데 사용된 두 가지 예제 PowerShell 스크립트는 작업의 오류 출력을 표시하는 주석 처리된 줄을 포함합니다. 작업의 필요한 출력이 표시되지 않으면 다음 줄의 주석 처리를 제거하고 오류 정보가 문제를 나타내는지 확인합니다.
 
@@ -318,7 +318,7 @@ SSH 사용에 대한 자세한 내용은 <a href="../hdinsight-hadoop-linux-use-
 </tr>
 </table>
 
-## <a name="next"></a>다음 단계
+##<a name="next"></a>다음 단계
 
 기본적으로 제공되지 않는 Python 모듈을 로드해야 하는 경우 수행 방법의 예제에 대해서는 [Azure HDInsight에 모듈을 배포하는 방법](http://blogs.msdn.com/b/benjguin/archive/2014/03/03/how-to-deploy-a-python-module-to-windows-azure-hdinsight.aspx)(영문)을 참조하세요.
 
@@ -328,6 +328,7 @@ Pig 및 Hive를 사용하고 MapReduce 사용에 대해 배우는 다른 방법�
 
 * [HDInsight에서 Pig 사용](hdinsight-use-pig.md)
 
-* [HDInsight에서 MapReduce 사용](hdinsight-use-mapreduce.md)
+* [HDInsight와 함께 MapReduce 사용](hdinsight-use-mapreduce.md)
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

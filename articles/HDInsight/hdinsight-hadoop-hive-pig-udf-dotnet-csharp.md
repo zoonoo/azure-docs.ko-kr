@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure HDInsight에서 Hive 및 Pig와 함께 C# 사용"
+	pageTitle="HDInsight의 Hadoop에서 Hive 및 Pig와 함께 C# 사용 | Microsoft Azure"
 	description="Azure HDInsight에서 Hive 및 Pig 스트림과 함께 C# UDF(사용자 정의 함수)를 사용하는 방법에 대해 알아봅니다."
 	services="hdinsight"
 	documentationCenter=""
@@ -17,13 +17,13 @@
 	ms.author="larryfr"/>
 
 
-# HDInsight에서 Hive 및 Pig와 함께 C# 사용
+#HDInsight에서 Hive 및 Pig 스트림과 함께 C# UDF(사용자 정의 함수) 사용 
 
 Hive 및 Pig는 Azure HDInsight의 데이터 작업에 적합하지만 보다 일반적인 언어가 필요한 경우도 있습니다. Hive 및 Pig 모두 사용자 정의 함수(UDF) 또는 스트리밍을 통해 외부 코드를 호출할 수 있습니다.
 
 이 문서에서 Hive 및 Pig와 함께 C#를 사용 하는 방법에 대해 알아봅니다.
 
-## 필수 조건
+##필수 조건
 
 * Windows 7, Windows 8, 또는 Windows 8.1
 
@@ -39,21 +39,21 @@ Hive 및 Pig는 Azure HDInsight의 데이터 작업에 적합하지만 보다 �
 
 * Visual Studio용 Hadoop 도구 도구 설치 및 구성에 대한 단계는 <a href="../hdinsight-hadoop-visual-studio-tools-get-started" target="_blank">Visual Studio용 HDInsight Hadoop 도구를 사용하여 시작</a>을 참조하세요.
 
-## HDInsight에서.NET
+##HDInsight에서.NET
 
 .NET 공용 언어 런타임(CLR) 및 프레임 워크는 Windows 기반 HDInsight 클러스터에 기본적으로 설치됩니다. 이렇게 하면 Hive 및 Pig 스트리밍과 함께 C# 응용 프로그램을 사용할 수 있습니다 (stdout/stdin을 통해 Hive/Pig 및 C# 응용 프로그램 간 데이터가 전달됨).
 
 현재 Linux 기반 HDInsight 클러스터에서 .NET Framework 응용 프로그램 실행에 대 한 지원은 없습니다.
 
-## .NET 및 스트리밍
+##.NET 및 스트리밍
 
 스트리밍은 stdout을 통해 외부 응용 프로그램에 데이터를 전달하고 stdin을 통해 결과를 받는 Hive 및 Pig 데이터를 포함합니다. C# 응용 프로그램의 경우, `Console.ReadLine()` 및 `Console.WriteLine()`을 통해 가장 쉽게 수행됩니다.
 
 Hive 및 Pig가 런타임에 응용 프로그램을 호출해야 하므로 **콘솔 응용 프로그램** 템플릿은 C# 프로젝트에 대해 사용되어야 합니다.
 
-## Hive 및 C&#35;
+##Hive 및 C&#35;
 
-### C# 프로젝트 만들기
+###C# 프로젝트 만들기
 
 1. Visual Studio를 열고 새 솔루션을 만듭니다. 프로젝트 형식의 경우, **콘솔 응용 프로그램**을 선택하고 새 프로젝트의 이름을 **HiveCSharp**로 지정합니다.
 
@@ -108,7 +108,7 @@ Hive 및 Pig가 런타임에 응용 프로그램을 호출해야 하므로 **콘
 
 3. 프로젝트를 빌드합니다.
 
-### 저장소에 업로드
+###저장소에 업로드
 
 1. Visual Studio에서 **서버 탐색기**를 엽니다.
 
@@ -122,13 +122,13 @@ Hive 및 Pig가 런타임에 응용 프로그램을 호출해야 하므로 **콘
 
 6. 클러스터의 경우 **기본 컨테이너**를 두 번 클릭합니다. 기본 컨테이너의 내용을 표시하는 새 창이 열립니다.
 
-7. 업로드 아이콘을 클릭한 다음**HiveCSharp** 프로젝트에 대한 **bin\\debug** 폴더로 이동합니다. 마지막으로 **HiveCSharp.exe** 파일을 선택하고 **확인**을 클릭합니다.
+7. 업로드 아이콘을 클릭한 다음**HiveCSharp** 프로젝트에 대한 **bin\debug** 폴더로 이동합니다. 마지막으로 **HiveCSharp.exe** 파일을 선택하고 **확인**을 클릭합니다.
 
 	![업로드 아이콘](./media/hdinsight-hadoop-hive-pig-udf-dotnet-csharp/upload.png)
 
 8. 업로드가 완료되면 Hive 쿼리에서 응용 프로그램을 사용할 수 있습니다.
 
-### Hive 쿼리
+###Hive 쿼리
 
 1. Visual Studio에서 **서버 탐색기**를 엽니다.
 
@@ -152,9 +152,9 @@ Hive 및 Pig가 런타임에 응용 프로그램을 호출해야 하므로 **콘
 
 6. **새로 고침**을 클릭하여 **작업 상태**가 **Completed**로 변경될 때까지 요약을 새로 고칩니다. 작업 출력을 보려면 **작업 출력**을 클릭합니다.
 
-### Pig 및 C&#35;
+###Pig 및 C&#35;
 
-### C# 프로젝트 만들기
+###C# 프로젝트 만들기
 
 1. Visual Studio를 열고 새 솔루션을 만듭니다. 프로젝트 형식의 경우, **콘솔 응용 프로그램**을 선택하고 새 프로젝트의 이름을 **PigUDF**로 지정합니다.
 
@@ -191,13 +191,13 @@ Hive 및 Pig가 런타임에 응용 프로그램을 호출해야 하므로 **콘
 
 3. **Program.cs**를 저장한 다음 프로젝트를 빌드합니다.
 
-### 응용 프로그램 업로드
+###응용 프로그램 업로드
 
-1. Pig 스트리밍은 응용 프로그램이 클러스터 파일 시스템에서 로컬일 것이라고 예상합니다. HDInsight 클러스터용 원격 데스크톱을 사용하도록 설정한 다음, RDP</a>를 사용하여 <a href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">HDInsight 클러스터에 연결의 지침에 따라 연결합니다</a>.
+1. Pig 스트리밍은 응용 프로그램이 클러스터 파일 시스템에서 로컬일 것이라고 예상합니다. HDInsight 클러스터용 원격 데스크톱을 사용하도록 설정한 다음, RDP</a>를 사용하여 <a href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">HDInsight 클러스터에 연결의 지침에 따라 연결합니다.
 
 2. 복사되면, 로컬 컴퓨터에서 PigUDF 프로젝트용 **bin/debug** 디렉터리에서 **PigUDF.exe**를 복사하고 클러스터의 **%PIG_HOME%** 디렉터리에 붙여넣습니다.
 
-### Pig Latin에서 응용 프로그램 사용
+###Pig Latin에서 응용 프로그램 사용
 
 1. 원격 데스크톱 세션에서, 데스크톱의 **Hadoop 명령줄** 아이콘을 사용하여 Hadoop 명령줄을 시작합니다.
 
@@ -228,7 +228,7 @@ Hive 및 Pig가 런타임에 응용 프로그램을 호출해야 하므로 **콘
 		(2012-02-03 20:11:56 SampleClass5 [TRACE] verbose detail for id 1737534798)
 		(2012-02-03 20:11:56 SampleClass7 [DEBUG] detail for id 1475865947)
 
-## 요약
+##요약
 
 이 문서에서는 HDInsight의 Hive 및 Pig에서 .NET Framework 응용 프로그램을 사용하는 방법에 대해 배웠습니다. Python을 Hive 및 Pig와 함께 사용하는 방법에 대해 알고 싶으면 [HDInsight에서 Hive 및 Pig와 함께 Python 사용](hdinsight-python.md)을 참조하세요.
 
@@ -238,6 +238,7 @@ Pig 및 Hive를 사용하고 MapReduce 사용에 대해 배우는 다른 방법�
 
 * [HDInsight에서 Pig 사용](hdinsight-use-pig.md)
 
-* [HDInsight에서 MapReduce 사용](hdinsight-use-mapreduce.md)
+* [HDInsight와 함께 MapReduce 사용](hdinsight-use-mapreduce.md)
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

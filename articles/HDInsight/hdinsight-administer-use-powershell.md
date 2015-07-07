@@ -25,9 +25,9 @@ Azure PowerShell은 Azure에서 작업의 배포와 관리를 제어 및 자동�
 
 이 문서를 시작하기 전에 다음이 있어야 합니다.
 
-- Azure 구독. Azure는 구독 기반 플랫폼입니다. HDInsight용 Azure PowerShell cmdlet은 구독을 사용하여 작업을 수행합니다. 구독을 얻는 방법에 대한 자세한 내용은 [구매 옵션][azure-purchase-options], [구성원 제공 항목][azure-member-offers] 또는 [무료 평가판][azure-free-trial]을 참조하세요.
+- **Azure 구독**. [Azure 무료 평가판](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
 
-- Azure PowerShell이 포함된 워크스테이션. 자세한 내용은 [Azure PowerShell 설치 및 구성][powershell-install-configure]을 참조하세요.
+- **Azure PowerShell이 포함된 워크스테이션**. [Azure PowerShell 설치 및 사용](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/)을 참조하세요.
 
 
 ##HDInsight 클러스터 프로비전
@@ -270,12 +270,13 @@ Hive 사용에 대한 자세한 내용은 [HDInsight와 함께 Hive 사용][hdin
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-flight]: hdinsight-analyze-flight-delay-data.md
 
-[hdinsight-powershell-reference]: http://msdn.microsoft.com/library/windowsazure/dn479228.aspx
+[hdinsight-powershell-reference]: https://msdn.microsoft.com/library/dn858087.aspx
 
 [powershell-install-configure]: ../install-configure-powershell.md
 
 [image-hdi-ps-provision]: ./media/hdinsight-administer-use-powershell/HDI.PS.Provision.png
 
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

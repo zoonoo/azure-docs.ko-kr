@@ -1,10 +1,10 @@
-<properties 
+<properties
 	pageTitle="FTP Connector"
 	description="FTP Connector 시작"
-	authors="anuragdalmia" 
-	manager="dwrede" 
-	editor="" 
-	services="app-service\logic" 
+	authors="anuragdalmia"
+	manager="dwrede"
+	editor=""
+	services="app-service\logic"
 	documentationCenter=""/>
 
 <tags
@@ -29,22 +29,19 @@ FTP Connector를 사용하면 FTP 서버에서/로 데이터를 이동할 수 �
 - 요청 시 FTP 서버에서 파일을 삭제하는 기능
 
 ##새 FTP Connector 만들기
-새 FTP 커넥터를 만들려면 아래에 설명된 단계를 따르세요. 
-- Azure 포털을 시작합니다. 
-- +새로 만들기(페이지 아래쪽에 있음) -> 웹 + 모바일 -> Azure 마켓플레이스를 사용하여 Azure 마켓플레이스를 엽니다.
+새 FTP 커넥터를 만들려면 아래에 설명된 단계를 따르세요. - Azure 포털을 시작합니다. - +새로 만들기(페이지 아래쪽에 있음) -> 웹 + 모바일 -> Azure 마켓플레이스를 사용하여 Azure 마켓플레이스를 엽니다.
 
-![Azure 마켓플레이스 시작][1]
+	![Launch Azure Marketplace][1]
 
- - API 앱을 클릭합니다. 
- - FTP를 검색하고 FTP 커넥터를 선택합니다.
+- API 앱을 클릭합니다.
+- FTP를 검색하고 FTP Connector를 선택합니다.
 
-![FTP 커넥터 선택][2]
+	![FTP 커넥터 선택][2]
 
- - 만들기를 클릭합니다. 
- - 열리는 FTP 커넥터 블레이드에서 다음 데이터를 입력합니다.
+- 만들기를 클릭합니다.
+- 열리는 FTP Connector 블레이드에서 다음 데이터를 입력합니다.
 
-
-![FTP 커넥터 만들기][3]
+	![FTP 커넥터 만들기][3]
 
 - **위치** - 커넥터를 배포할 지리적 위치를 선택합니다.
 - **구독** - 이 커넥터를 만들 구독을 선택합니다.
@@ -52,7 +49,7 @@ FTP Connector를 사용하면 FTP 서버에서/로 데이터를 이동할 수 �
 - **웹 호스팅 계획** - 웹 호스팅 계획을 선택하거나 만듭니다.
 - **가격 책정 계층** - 커넥터에 대한 가격 책정 계층을 선택합니다.
 - **이름** - FTP 커넥터의 이름을 지정합니다.
-- **패키지 설정** 
+- **패키지 설정**
 	- **서버 주소** - FTP 서버 이름 또는 IP 주소를 지정합니다.
 	- **사용자 이름** - FTP 서버에 연결할 때 사용할 사용자 이름을 지정합니다.
 	- **암호** - FTP 서버에 연결할 때 사용할 암호를 지정합니다.
@@ -80,19 +77,19 @@ FTP Connector는 트리거와 동작 둘 다로 사용할 수 있습니다.
 
 ![FTP 트리거 선택][6]
 
-FTP Connector에는 트리거 하나 TriggerOnFileAvailable이 있습니다. 이 트리거는
+FTP 커넥터에는 하나의 트리거 ‘File Available(파일을 사용할 수 있는 경우)(읽은 후 삭제)’가 있습니다. 이 트리거는
 
 - 새 파일에 대한 폴더 경로를 폴링합니다.
 - 새 파일이 만들어질 때마다 논리 흐름을 인스턴스화합니다.
 - 논리 흐름이 인스턴스화된 후 폴더 경로에서 파일을 삭제합니다.
 
-'TriggerOnFileAvailable' 트리거를 클릭합니다.
+‘File Available(파일을 사용할 수 있는 경우)(읽은 후 삭제)’ 트리거를 클릭합니다.
 
 ![기본 입력 FTP 트리거][7]
 
 입력은 예약된 빈도로 폴링되도록 특정 폴더 경로를 구성하는 데 도움이 됩니다. 기본 입력은 다음과 같습니다. - Frequency(빈도) - FTP 폴링의 빈도를 지정합니다. - Interval(간격) - 예약된 빈도에 대한 간격을 지정합니다. - Folder Path(폴더 경로) - FTP 서버의 폴더 경로를 지정합니다. - Type of file(파일 형식) - 파일 형식이 텍스트인지 또는 이진인지를 지정합니다.
 
-...를 클릭하면 고급 입력이 표시됩니다.
+말줄임표 ‘...’를 클릭하면 고급 입력이 표시됩니다.
 
 ![기본 입력 FTP 트리거][8]
 
@@ -102,12 +99,12 @@ FTP Connector에는 트리거 하나 TriggerOnFileAvailable이 있습니다. 이
 
 ![기본 입력 FTP 트리거][9]
 
-구성된 FTP 트리거에는 구성된 입력 매개 변수와 FTP 트리거의 출력이 둘 다 표시되어 있습니다.
+구성된 FTP 트리거에는 구성된 입력 매개 변수와 출력이 둘 다 표시되어 있습니다.
 
 ####후속 동작에 FTP 트리거의 출력 사용
 FTP Connector의 출력을 흐름에 있는 다른 동작의 입력으로 사용할 수 있습니다.
 
-동작의 입력 대화 상자에서 +를 클릭하고 드롭다운 상자에서 직접 FTP의 출력을 선택할 수 있습니다.
+동작의 입력 대화 상자에서 ‘...’를 클릭하고 드롭다운 상자에서 직접 FTP의 출력을 선택할 수 있습니다.
 
 동작의 입력 상자에 직접 식을 작성할 수도 있습니다. FTP 트리거의 출력을 참조하는 흐름 식은 다음과 같습니다.
 
@@ -123,7 +120,7 @@ FTP Connector는 4가지 동작을 지원합니다. 이러한 동작은 다음�
 - **Get File(파일 가져오기)** - 특정 파일의 내용을 가져옵니다.
 - **Upload File(파일 업로드)** - FTP 폴더 경로에 파일을 업로드합니다.
 - **Delete File(파일 삭제)** - FTP 폴더 경로에서 파일을 삭제합니다.
-- **List File(파일 나열)** - FTP 폴더 경로에 있는 모든 파일을 나열합니다.
+- **List Files(파일 나열)** - FTP 폴더 경로에 있는 모든 파일을 나열합니다.
 
 파일 업로드를 한 가지 예로 들겠습니다. Upload File(파일 업로드)을 클릭합니다.
 
@@ -141,12 +138,16 @@ FTP Connector는 4가지 동작을 지원합니다. 이러한 동작은 다음�
 ![파일 업로드 동작의 기본 입력][12]
 
 
-- **Append If Exists(있는 경우 추가)** - ‘Append If Exists(있는 경우 추가)’를 사용하거나 사용하지 않도록 설정합니다. 사용하도록 설정하는 경우, 파일이 있으면 데이터가 파일에 추가됩니다. 사용하지 않도록 설정하는 경우, 파일이 있으면 덮어씁니다.
+- **Append If Exists(있는 경우 추가)** - ‘Append If Exists(있는 경우 추가)’의 true나 false를 선택합니다. 사용하도록 설정하는 경우, 파일이 있으면 데이터가 파일에 추가됩니다. 사용하지 않도록 설정하는 경우, 파일이 있으면 덮어씁니다.
 - **Temporary Folder(임시 폴더)** - 선택 사항입니다. 제공되는 경우, 어댑터가 해당 파일을 ‘임시 폴더 경로’로 업로드하고 업로드가 완료되면 해당 파일이 ‘폴더 경로’로 이동됩니다. 이동 작업이 원자성을 지니도록 하려면 ‘임시 폴더 경로’가 ‘폴더 경로’와 동일한 실제 디스크에 있어야 합니다. 임시 폴더는 ‘있는 경우 추가’ 속성을 사용하지 않도록 설정한 경우에만 사용할 수 있습니다.
 
 입력을 입력하고 확인 표시를 클릭하여 입력 구성을 완료합니다.
 
 ![구성된 파일 업로드 동작][13]
+
+‘File Path(파일 경로)’ 매개 변수는 다음과 같이 설정됩니다.
+
+	@concat('/Output/',triggers().outputs.body.FileName)
 
 구성된 FTP 파일 업로드 동작에는 입력 매개 변수와 출력 매개 변수가 둘 다 표시되어 있습니다.
 
@@ -175,5 +176,6 @@ Content를 원하는 값으로 설정할 수 있습니다. 이것은 예로 든 
 [11]: ./media/app-service-logic-connector-ftp/BasicInputsUploadFile.PNG
 [12]: ./media/app-service-logic-connector-ftp/AdvancedInputsUploadFile.PNG
 [13]: ./media/app-service-logic-connector-ftp/ConfiguredUploadFile.PNG
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

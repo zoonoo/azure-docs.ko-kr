@@ -1,7 +1,7 @@
 <properties 
-   pageTitle="두 Azure 데이터 센터 간에 HBase 복제 구성 | Azure" 
-   description="두 Azure 가상 네트워크 간의 VPN 연결을 구성하는 방법, 두 가상 네트워크 간의 도메인 이름 확인을 구성하는 방법 및 HBase 지역에서 복제를 구성하는 방법에 대해 알아봅니다." 
-   services="hdinsight" 
+   pageTitle="두 데이터 센터 간에 HBase 복제 구성 | Microsoft Azure" 
+   description="두 데이터 센터 HBase 복제를 구성하는 방법 및 클러스터 복제에 대한 사용 사례에 대해 알아봅니다." 
+   services="hdinsight,virtual-network" 
    documentationCenter="" 
    authors="mumian" 
    manager="paulettm" 
@@ -43,11 +43,12 @@
 ![HDInsight HBase 복제 가상 네트워크 다이어그램][img-vnet-diagram]
 
 ## <a id="prerequisites"></a>필수 조건
+
 이 자습서를 시작하기 전에 다음이 있어야 합니다.
 
-- **Azure 구독**. Azure는 구독 기반 플랫폼입니다. 구독을 얻는 방법에 대한 자세한 내용은 [구매 옵션][azure-purchase-options], [구성원 제공 항목][azure-member-offers] 또는 [무료 평가판][azure-free-trial]을 참조하세요.
+- **Azure 구독**. [Azure 무료 평가판](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
 
-- **Azure PowerShell이 설치 및 구성된 워크스테이션**. 자세한 내용은 [Azure PowerShell 설치 및 구성][powershell-install]을 참조하세요. PowerShell 스크립트를 실행하려면 관리자로 Azure PowerShell을 실행하고 실행 정책을 *RemoteSigned*로 설정해야 합니다. [Set-executionpolicy cmdlet 사용][2]을 참조하세요.
+- **Azure PowerShell이 포함된 워크스테이션**. [Azure PowerShell 설치 및 사용](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/)을 참조하세요. PowerShell 스크립트를 실행하려면 관리자로 Azure PowerShell을 실행하고 실행 정책을 *RemoteSigned*로 설정해야 합니다. Set-executionpolicy cmdlet 사용을 참조하세요.
 
 - **VPN 연결 및 DNS가 구성된 두 개의 Azure 가상 네트워크**. 자세한 내용은 [두 Azure 가상 네트워크 간의 VPN 연결 구성][hdinsight-hbase-replication-vnet] 및 [두 Azure 가상 네트워크 간의 DNS 구성][hdinsight-hbase-replication-dns]을 참조하세요.
 
@@ -147,7 +148,7 @@ Azure 포털은 사용자 지정 구성 옵션을 사용한 HDInsight 클러스�
 
 
 
-# DNS 조건부 전달자 구성
+## DNS 조건부 전달자 구성
 
 [가상 네트워크에 대한 DNS 구성][hdinsight-hbase-replication-dns]에서 두 네트워크에 대한 DNS 서버를 구성했습니다. HBase 클러스터는 도메인 접미사가 서로 다릅니다. 따라서 추가 DNS 조건부 전달자를 구성해야 합니다.
 
@@ -298,7 +299,7 @@ Azure 포털은 사용자 지정 구성 옵션을 사용한 HDInsight 클러스�
 
 [img-vnet-diagram]: ./media/hdinsight-hbase-geo-replication/HDInsight.HBase.Replication.Network.diagram.png
 
-
+[powershell-install]: ../install-configure-powershell.md
 [hdinsight-hbase-get-started]: ../hdinsight-hbase-get-started.md
 [hdinsight-manage-portal]: hdinsight-administer-use-management-portal.md
 [hdinsight-provision]: hdinsight-provision-clusters.md
@@ -309,5 +310,5 @@ Azure 포털은 사용자 지정 구성 옵션을 사용한 HDInsight 클러스�
 [hdinsight-hbase-overview]: hdinsight-hbase-overview.md
 [hdinsight-hbase-provision-vnet]: hdinsight-hbase-provision-vnet.md
 [hdinsight-hbase-get-started]: ../hdinsight-hbase-get-started.md
-<!--HONumber=52-->
- 
+
+<!---HONumber=62-->

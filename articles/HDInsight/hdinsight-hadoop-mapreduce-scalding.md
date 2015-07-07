@@ -1,5 +1,5 @@
 <properties
- pageTitle="Maven을 사용하여 Scalding MapReduce 작업 개발"
+ pageTitle="Maven을 사용하여 Scalding MapReduce 작업 개발 | Microsoft Azure"
  description="Maven을 사용하여 Scalding MapReduce 작업을 만든 다음 HDInsight 클러스터의 Hadoop에서 작업을 배포하고 실행하는 방법에 대해 알아봅니다."
  services="hdinsight"
  documentationCenter=""
@@ -23,13 +23,12 @@ Scalding은 Hadoop MapReduce 작업을 쉽게 만들 수 있도록 해주는 Sca
 
 ## 필수 조건
 
-* Azure 구독
+- **Azure 구독**. [Azure 무료 평가판](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
+* **HDInsight 클러스터의 Windows 또는 Linux 기반 Hadoop** 자세한 내용은 [HDInsight에서 Linux 기반 Hadoop 프로비전](hdinsight-hadoop-provision-linux-clusters.md) 또는 [HDInsight에서 Windows 기반 Hadoop 프로비전](hdinsight-provision-clusters.md)을 참조하세요.
 
-* HDInsight 클러스터의 Windows 또는 Linux 기반 Hadoop - 자세한 내용은 [HDInsight에서 Linux 기반 Hadoop 프로비전 ](hdinsight-hadoop-provision-linux-clusters.md) 또는 [HDInsight에서 Windows 기반 Hadoop 프로비전](hdinsight-provision-clusters.md)을 참조하세요.
+* **[Maven](http://maven.apache.org/)**
 
-* [Maven](http://maven.apache.org/)
-
-* [Java 플랫폼 JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 7 이상
+* **[Java 플랫폼 JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 7 이상**
 
 ## 프로젝트 만들기 및 빌드
 
@@ -76,7 +75,7 @@ Scalding은 Hadoop MapReduce 작업을 쉽게 만들 수 있도록 해주는 Sca
             </dependency>
           </dependencies>
           <build>
-            <sourceDirectory>src/main/scala</sourceDirectory
+            <sourceDirectory>src/main/scala</sourceDirectory>
             <plugins>
               <plugin>
                 <groupId>org.scala-tools</groupId>
@@ -108,7 +107,7 @@ Scalding은 Hadoop MapReduce 작업을 쉽게 만들 수 있도록 해주는 Sca
                       <excludes>
                         <exclude>META-INF/*.SF</exclude>
                         <exclude>META-INF/*.DSA</exclude>
-                        <exclude>META-INF/*.RSA</exclude>y
+                        <exclude>META-INF/*.RSA</exclude>
                       </excludes>
                     </filter>
                   </filters>
@@ -145,9 +144,9 @@ Scalding은 Hadoop MapReduce 작업을 쉽게 만들 수 있도록 해주는 Sca
 
     * **maven-shade-plugin**: shaded(fat) jar을 만드는 플러그 인입니다. 이 플러그 인은 필터 및 변환을 적용합니다.
 
-        * **필터**: 적용된 필터는 jar 파일 내에 포함된 메타 정보를 수정합니다. 런타임에서 예외가 등록되지 않도록 하기 위해 다양한 서명 파일이 종속성을 포함할 수 있습니다.
+        * **필터**: jar 파일에 포함된 메타 정보를 수정하는 필터를 적용합니다. 런타임에서 서명 예외를 방지하도록 종속성과 함께 포함될 수 있는 다양한 서명 파일을 제외합니다.
 
-        * **실행**: 패키지 단계 실행 구성은 **com.twitter.scalding.Tool** 클래스를 패키지의 기본 클래스로 지정합니다. 이렇게 하지 않으면 Hadoop 명령이 있는 작업을 실행할 때 응용 프로그램 논리가 포함된 클래스 뿐만 아니라 com.twitter.scalding.Tool 클래스를 지정해야 합니다.
+        * **실행**: 패키지 단계 실행 구성은 **com.twitter.scalding.Tool** 클래스를 패키지에 대한 기본 클래스로 지정합니다. 이렇게 하지 않으면 hadoop 명령으로 작업을 실행할 때 com.twitter.scalding.Tool 및 응용 프로그램을 논리를 포함하는 클래슬르 지정해야 합니다.
 
 3. 이 예제에서는 테스트를 만들지 않을 것이므로 **src/test** 디렉터리를 삭제합니다.
 
@@ -169,7 +168,7 @@ Scalding은 Hadoop MapReduce 작업을 쉽게 만들 수 있도록 해주는 Sca
 
           //Tokenizer to split sentance into words
           def tokenize(text : String) : Array[String] = {
-            text.toLowerCase.replaceAll("[^a-zA-Z0-9\\s]", "").split("\\s+")
+            text.toLowerCase.replaceAll("[^a-zA-Z0-9\s]", "").split("\s+")
           }
         }
 
@@ -289,6 +288,6 @@ Scalding을 사용하여 HDInsight용 MapRedcue 작업을 만드는 방법을 �
 * [HDInsight에서 Pig 사용](hdinsight-use-pig.md)
 
 * [HDInsight에서 MapReduce 작업 사용](hdinsight-use-mapreduce.md)
-
-<!--HONumber=52-->
  
+
+<!---HONumber=62-->

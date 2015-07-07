@@ -1,7 +1,7 @@
 <properties
    pageTitle="HDInsight의 Storm으로 이벤트 허브에서 이벤트 처리 | Azure"
    description="Visual Studio용 HDInsight 도구를 사용하여 Visual Studio에서 만든 C# Storm 토폴로지로 이벤트 허브 데이터를 처리하는 방법에 대해 알아봅니다."
-   services="hdinsight"
+   services="hdinsight,notification hubs"
    documentationCenter=""
    authors="Blackmist"
    manager="paulettm"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/28/2015"
+   ms.date="05/29/2015"
    ms.author="larryfr"/>
 
 # HDInsight의 Storm으로 Azure 이벤트 허브에서 이벤트 처리
@@ -88,8 +88,7 @@ Spout 및 Bolt는 **eventhubs-storm-spout-0.9-jar-with-dependencies.jar**이라�
 <tr><th>이름</th><th>권한</th></tr>
 <tr><td>기록기</td><td>보내기</td></tr>
 <tr><td>읽기 권한자</td><td>수신 대기</td></tr>
-</table>
-권한을 만든 후 페이지 아래쪽의 **저장** 아이콘을 선택합니다. 그러면 이 이벤트 허브로 보내고(기록기) 수신하는(판독기) 데 사용되는 공유 액세스 정책이 만들어집니다.
+</table>권한을 만든 후 페이지 아래쪽의 **저장** 아이콘을 선택합니다. 그러면 이 이벤트 허브로 보내고(기록기) 수신하는(판독기) 데 사용되는 공유 액세스 정책이 만들어집니다.
 
 	![정책](./media/hdinsight-storm-develop-csharp-event-hub-topology/policy.png)
 
@@ -227,12 +226,12 @@ Spout 및 Bolt는 **eventhubs-storm-spout-0.9-jar-with-dependencies.jar**이라�
 
 이제 **Program.cs** 작업을 마쳤습니다. 토폴로지는 정의되었지만 이제 이벤트 허브 Bolt에서 사용할 수 있는 형식으로 데이터를 생성하도록 **Spout.cs**를 수정해야 합니다.
 
-> [AZURE.NOTE]이 토폴로지는 기본적으로 하나의 작업자 프로세스를 만들며, 이는 예제의 목적에 충분합니다. 이를 프로덕션 클러스터에 맞게 조정하려면 다음을 추가하고 만들려는 작업자 수로 조정해야 합니다.
->
-> ```topologyBuilder.SetTopologyConfig(new Dictionary<string, string>()
-                {
-                    {"topology.workers", "1"}  //Change to set the number of workers to create
-                });```
+> [AZURE.NOTE]이 토폴로지는 기본적으로 하나의 작업자 프로세스를 만들며, 이는 예제의 목적에 충분합니다. 이를 프로덕션 클러스터에 맞게 조정하려면 다음을 추가하고 작업자 수를 변경해야 합니다.
+
+    StormConfig config = new StormConfig();
+    config.setNumWorkers(1);
+    topologyBuilder.SetTopologyConfig(config);
+
 
 ### spout 수정
 
@@ -303,10 +302,9 @@ Spout 및 Bolt는 **eventhubs-storm-spout-0.9-jar-with-dependencies.jar**이라�
 <tr><th style="text-align:left">EventHubPartitionCount</th><th style="text-align:left">int</th><th style="text-align:left">응용 프로그램</th></tr>
 <tr><th style="text-align:left">StorageConnection</th><th style="text-align:left">(연결 문자열)</th><th style="text-align:left">응용 프로그램</th></tr>
 <tr><th style="text-align:left">TableName</th><th style="text-align:left">string</th><th style="text-align:left">응용 프로그램</th></tr>
-</table>
-**TableName**에 대해 이벤트를 저장하려는 테이블의 이름을 입력합니다.
+</table>**TableName**에 대해 이벤트를 저장하려는 테이블의 이름을 입력합니다.
 
-  **StorageConnection**에 대해 `DefaultEndpointsProtocol=https;AccountName=myAccount;AccountKey=myKey;` 값을 입력합니다. **myAccount** 및 **myKey**를 저장소 계정 이름 및 앞에서 가져온 키로 바꿉니다.
+    **StorageConnection**에 대해 `DefaultEndpointsProtocol=https;AccountName=myAccount;AccountKey=myKey;` 값을 입력합니다. **myAccount** 및 **myKey**를 저장소 계정 이름 및 앞에서 가져온 키로 바꿉니다.
 
 	이러한 값은 토폴로지에서 이벤트 허브 및 테이블 저장소와 통신하는 데 사용됩니다.
 
@@ -319,23 +317,16 @@ Spout 및 Bolt는 **eventhubs-storm-spout-0.9-jar-with-dependencies.jar**이라�
 2. **Program.cs** 파일을 열고 `TopologyBuilder topologyBuilder = new TopologyBuilder("EventHubReader");` 줄 바로 뒤에 다음 코드를 추가합니다.
 
 		int partitionCount = Properties.Settings.Default.EventHubPartitionCount;
-		JavaComponentConstructor constructor = JavaComponentConstructor.CreateFromClojureExpr(
-            String.Format(@"(com.microsoft.eventhubs.spout.EventHubSpout. (com.microsoft.eventhubs.spout.EventHubSpoutConfig. " +
-                @"""{0}"" ""{1}"" ""{2}"" ""{3}"" {4} ""{5}""))",
+		EventHubSpoutConfig ehConfig = new EventHubSpoutConfig(
                 Properties.Settings.Default.EventHubPolicyName,
                 Properties.Settings.Default.EventHubPolicyKey,
                 Properties.Settings.Default.EventHubNamespace,
                 Properties.Settings.Default.EventHubName,
-                partitionCount,
-                "")); //Last value is the zookeeper connection string - leave empty
+                partitionCount);
 
 	파티션 개수를 읽고 로컬 변수에 할당합니다. 이 값은 여러 번 사용됩니다.
 
-	`JavaComponentConstructor`는 런타임에 Java Spout가 생성되는 방법을 정의합니다. 이 경우 <a href="http://storm.apache.org/documentation/Clojure-DSL.html" target="_blank">Apache Storm Clojure DSL</a>을 사용하여 이전에 추가한 이벤트 허브 구성 정보로 Spout를 구성합니다. 더욱 구체적으로 설명하자면 이 코드는 런타임에 HDInsight에서 다음을 수행하는 데 사용됩니다.
-
-	* 제공한 이벤트 허브 정보를 사용하여 **com.microsoft.eventhubs.spout.EventHubSpoutConfig**의 새 인스턴스를 만듭니다.
-
-	* **com.microsoft.eventhubs.spout.EventHubSpout**의 새 인스턴스를 만들어 **EventHubSpoutConfig** 인스턴스에 전달합니다.
+	`EventHubSpoutConfig`은(는) 이벤트 허브 spout에 대한 구성을 정의합니다. 이 경우에는 이전에 추가한 이벤트 허브 구성 정보입니다. 백그라운드에서 이것은 Java 이벤트 허브 spout을 사용하고 이벤트 허브 정보를 사용하여 **com.microsoft.eventhubs.spout.EventHubSpoutConfig**의 새 인스턴스를 만듭니다.
 
 5. 다음 코드를 찾습니다.
 
@@ -350,12 +341,12 @@ Spout 및 Bolt는 **eventhubs-storm-spout-0.9-jar-with-dependencies.jar**이라�
 
 	다음으로 바꿉니다.
 
-        topologyBuilder.SetJavaSpout(
-            "EventHubSpout",
-            constructor,
-            partitionCount);
+        topologyBuilder.SetEventHubSpout(
+            "EventHubSpout", 
+            ehConfig, 
+            partitionCount); 
 
-	이렇게 하면 이전 단계의 **JavaComponentConstructor**를 Spout로 사용하고 "EventHubSpout"의 이름을 지정하도록 토폴로지에 명령이 전달됩니다. 또한 이 구성 요소에 대한 병렬 처리 힌트를 이벤트 허브의 파티션 개수로 설정합니다.
+	이것은 새로운 이벤트 허브 spout을 만들고 이전 단계의 `EventHubSpoutConfig`을 구성으로 사용하도록 토폴로지에 지시합니다. "EventHubSpout"은 spout의 친숙한 이름을 설정하며 `partitionCount`은 병렬 처리 힌트를 설정하는 데 사용됩니다. 이것은 백그라운드에서 제공된 구성 정보를 사용하여 **com.microsoft.eventhubs.spout.EventHubSpout** Java 구성 요소의 새로운 인스턴스를 만듭니다.
 
 2. 이전 코드 바로 뒤에 다음을 추가합니다.
 
@@ -388,12 +379,12 @@ Spout 및 Bolt는 **eventhubs-storm-spout-0.9-jar-with-dependencies.jar**이라�
 
 이제 **Program.cs** 작업을 마쳤습니다. 토폴로지는 정의되었지만 이제 테이블 저장소에 데이터를 기록하는 도우미 클래스를 만든 다음 Spout에 의해 생성된 데이터를 이해할 수 있도록 **Bolt.cs**를 수정해야 합니다.
 
-> [AZURE.NOTE]이 토폴로지는 기본적으로 하나의 작업자 프로세스를 만들며, 이는 예제의 목적에 충분합니다. 이를 프로덕션 클러스터에 맞게 조정하려면 다음을 추가하고 만들려는 작업자 수로 조정해야 합니다.
->
-> ```topologyBuilder.SetTopologyConfig(new Dictionary<string, string>()
-                {
-                    {"topology.workers", "1"}  //Change to set the number of workers to create
-                });```
+> [AZURE.NOTE]이 토폴로지는 기본적으로 하나의 작업자 프로세스를 만들며, 이는 예제의 목적에 충분합니다. 이를 프로덕션 클러스터에 맞게 조정하려면 다음을 추가하고 작업자 수를 변경해야 합니다.
+
+    StormConfig config = new StormConfig();
+    config.setNumWorkers(1);
+    topologyBuilder.SetTopologyConfig(config);
+
 
 ### 도우미 클래스 만들기
 
@@ -529,45 +520,7 @@ Spout 및 Bolt는 **eventhubs-storm-spout-0.9-jar-with-dependencies.jar**이라�
 
 ![토폴로지를 중단하는 이미지](./media/hdinsight-storm-develop-csharp-event-hub-topology/killtopology.png)
 
-## 참고 사항
-
-### 구성
-
-EventHubSpoutConfig를 만들 때 오버로드된 여러 방법이 있습니다. 아래 정보를 사용하여 사용자의 요구에 가장 적합한 방법을 찾습니다.
-
-* EventHubSpoutConfig(String PolicyName, String PolicyKey, String Namespace, String HubName, Int PartitionCount)
-
-    * PolicyName: 지정된 허브에서 읽을 수 있는 공유 액세스 정책의 이름입니다.
-
-    * PolicyKey: 공유 액세스 정책의 키입니다.
-
-    * Namespace: 허브가 있는 ServiceBus 네임스페이스입니다.
-
-    * HubName: 읽을 수 있는 이벤트 허브의 이름입니다.
-
-    * PartitionCount: 허브의 파티션 수입니다.
-
-* EventHubSpoutConfig(String PolicyName, String PolicyKey, String Namespace, String HubName, Int PartitionCount, String ZooKeeperConnection)
-
-    앞에서 설명한 속성 외에 다음 속성도 있습니다.
-
-    * ZooKeeperConnection: ZooKeeper 노드에 대한 연결 문자열입니다. HDInsight 서버의 Storm에는 빈 상태로 둡니다.
-
-* EventHubSpoutConfig(String PolicyName, String PolicyKey, String Namespace, String HubName, Int PartitionCount, String ZooKeeperConnection, Int CheckPointIntervalInSeconds,Int ReceiverCredits)
-
-    앞에서 설명한 속성 외에 다음 속성도 있습니다.
-
-    * CheckPointIntervalInSeconds: 상태가 Zookeeper에 유지되는 빈도입니다.
-
-    * ReceiverCredits: Storm 토폴로지로 릴리스되기 전에 일괄 처리되는 이벤트 수입니다.
-
-* EventHubSpoutConfig(String PolicyName, String PolicyKey, String Namespace, String HubName, Int PartitionCount, String ZooKeeperConnection, Int CheckPointIntervalInSeconds, Int ReceiverCredits, Int MaxPendingMsgsPerPartition, Long EnqueueTimeFilter)
-
-    앞에서 설명한 속성 외에 다음 속성도 있습니다.
-
-    * MaxPendingMsgsPerPartition: 허브에서 가져오는 최대 이벤트 수입니다. 기본값은 1024입니다.
-
-    * EnqueueTimeFilter: 이벤트가 큐에 삽입된 타임스탬프를 기반으로 이벤트를 필터링합니다.
+## 참고
 
 ### 검사점 설정
 
@@ -579,7 +532,7 @@ EventHubSpout는 해당 상태의 검사점을 큐에서 읽은 메시지의 현
 
 * 토폴로지자 종료되고 **동일한 이름**으로 다시 시작된 경우
 
-영구 검사점을 WASB(HDInsight 클러스터에서 사용하는 Azure 저장소)로 내보내고 가져올 수도 있습니다. 이 작업을 수행하는 스크립트는 HDInsight의 Storm 클러스터(**c:\\apps\\dist\\storm-0.9.3.2.2.1.0-2340\\zkdatatool-1.0\\bin**)에 있습니다.
+영구 검사점을 WASB(HDInsight 클러스터에서 사용하는 Azure 저장소)로 내보내고 가져올 수도 있습니다. 이 작업을 수행하는 스크립트는 HDInsight의 Storm 클러스터(**C:\apps\dist\storm-0.9.3.2.2.1.0-2340\zkdatatool-1.0\bin**)에 있습니다.
 
 >[AZURE.NOTE]클러스터에 설치된 Storm 버전이 나중에 변경될 수 있으므로 경로의 버전 번호는 다를 수 있습니다.
 
@@ -602,5 +555,6 @@ EventHubSpout는 해당 상태의 검사점을 큐에서 읽은 메시지의 현
 * [Visual Studio를 사용하여 HDInsight에서 Apache Storm에 대한 C# 토폴로지 개발](hdinsight-storm-develop-csharp-visual-studio-topology.md)
 
 * [HDInsight의 Storm에 대한 예제 토폴로지](hdinsight-storm-example-topology.md)
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

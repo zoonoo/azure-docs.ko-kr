@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/20/2015"
+	ms.date="05/23/2015"
 	ms.author="stepsic"/>
 	
 # 논리 앱 기능 사용
@@ -89,15 +89,17 @@
 		    "defaultValue" : "MicrosoftAzure"
 	    }
     
-2. `twitterconnector` 동작으로 스크롤하고 쿼리 값을 찾은 다음 `@concat('#', parameters('topic'))`으로 바꿉니다. **concat** 함수는 두 개 이상의 문자열을 결합합니다.
+2. `twitterconnector` 동작으로 스크롤하고 쿼리 값을 찾은 다음 `#@{parameters('topic')}`으로 바꿉니다. **concat** 함수를 사용하여 둘 이상의 문자열을 함께 조인할 수 있습니다. 예를 들어 `@concat('#',parameters('topic'))`는 위의 동일합니다
  
 3. 끝으로, `dropboxconnector` 동작으로 이동하여 다음과 같이 topic 매개 변수를 추가합니다.
 
-    	@concat('/tweets/', parameters('topic'), '/',repeatItem().TweetID,'.txt')
+    	/tweets/@{parameters('topic')}/@{repeatItem().TweetID}.txt
 
 매개 변수는 자주 변경하는 값을 끌어오는 좋은 방법입니다. 다양한 환경에서 매개 변수를 재정의해야 하는 경우에 특히 유용합니다. 환경에 따라 매개 변수를 재정의하는 방법에 대한 자세한 내용은 [REST API 설명서](http://go.microsoft.com/fwlink/?LinkID=525617&clcid=0x409)를 참조하세요.
 
 이제 **저장**을 클릭하면 리트윗이 5개를 초과한 새 트윗은 매시간마다 Dropbox의 **tweets** 폴더로 배달됩니다.
+
+논리 앱 정의에 대해 더 알아보려면 [논리 응용 프로그램 정의 작성](app-service-logic-author-definitions.md)을 참조하십시오.
 
 ## 논리 앱 워크플로 시작
 논리 앱에 정의된 워크플로를 시작하는 여러 가지 옵션이 있습니다. [Azure 포털]에서 요청 시 언제든지 워크플로를 시작할 수 있습니다.
@@ -130,4 +132,5 @@
 [Create a new logic app]: app-service-logic-create-a-logic-app.md
 [새 논리 앱 만들기]: app-service-logic-create-a-logic-app.md
 [Azure 포털]: https://portal.azure.com
-<!--HONumber=54--> 
+
+<!---HONumber=62-->

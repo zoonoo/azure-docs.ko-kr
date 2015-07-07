@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="03/18/2015"
+   ms.date="05/11/2015"
    ms.author="rajram"/>
    
 #Azure Storage Blob Connector
@@ -22,23 +22,11 @@
 Azure Storage Blob Connector를 사용하면 Blob 컨테이너의 Blob을 업로드, 다운로드 및 삭제할 수 있습니다.
 
 ##새 Azure Storage Blob Connector 만들기
-새 Azure Storage Connector를 만들려면 아래에 설명된 단계를 따르세요.
-<ul>
-<li>Azure 포털을 시작합니다. <li>+새로 만들기(페이지 아래쪽에 있음) -> 웹 + 모바일 -> Azure 마켓플레이스를 사용하여 Azure 마켓플레이스를 엽니다.
-</ul>
+새 Azure Storage Connector를 만들려면 아래에 설명된 단계를 따르세요. <ul> <li>Azure 포털을 시작합니다. <li>+새로 만들기(페이지 아래쪽에 있음) -> 웹 + 모바일 -> Azure 마켓플레이스를 사용하여 Azure 마켓플레이스를 엽니다. </ul>
 
-![Azure 마켓플레이스 시작][1]<br>
-<ul>
-<li>API 앱을 클릭합니다.
-<li><i>Blob</i>을 검색하고 Azure 저장소 Blob 커넥터를 선택합니다.
-</ul>
+![Azure 마켓플레이스 시작][1]<br> <ul> <li>API 앱을 클릭합니다. <li><i>Blob</i>을 검색하고 Azure 저장소 Blob 커넥터를 선택합니다. </ul>
 
-![Azure 저장소 Blob 커넥터 선택][2]
-<br>
-<ul>
-<li>만들기를 클릭합니다.
-<li>열리는 Azure 저장소 Blob 커넥터 블레이드에서 다음 데이터를 입력합니다.
-</ul>
+![Azure 저장소 Blob 커넥터 선택][2] <br> <ul> <li>만들기를 클릭합니다. <li>열리는 Azure 저장소 Blob 커넥터 블레이드에서 다음 데이터를 입력합니다. </ul>
 
 ![Azure 저장소 Blob 커넥터 만들기][3]
 
@@ -71,7 +59,7 @@ Azure 저장소 Blob 커넥터는 동작으로 사용할 수 있습니다.
 
 ![Azure 저장소 Blob 동작 목록][10]
 
-Azure Storage Blob Connector는 4가지 동작을 지원합니다. 이러한 동작은 다음과 같습니다.
+Azure Storage Blob Connector는 6가지 동작을 지원합니다. 이러한 동작은 다음과 같습니다.
 
 - **Get Blob(Blob 가져오기)** - 컨테이너에서 특정 Blob을 가져옵니다.
 - **Upload Blob(Blob 업로드)** - 새 Blob을 업로드하거나 기존 Blob을 업데이트합니다.
@@ -118,5 +106,6 @@ Content를 원하는 값으로 설정할 수 있습니다. 이것은 예로 든 
 [9]: ./media/app-service-logic-connector-azurestorageblob/ConfiguredBlobAvailableTrigger.PNG
 [10]: ./media/app-service-logic-connector-azurestorageblob/ListOfAzureStorageBlobActions.PNG
 [11]: ./media/app-service-logic-connector-azurestorageblob/BasicInputsUploadBlob.PNG
+ 
 
-<!---HONumber=54--> 
+<!---HONumber=62-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/24/2015" 
+	ms.date="06/08/2015" 
 	ms.author="tdykstra"/>
 
 # Visual Studio를 사용하여 Azure 앱 서비스에서 웹 앱 문제 해결
@@ -51,8 +51,7 @@ Visual Studio를 사용하면 [Azure 포털](http://go.microsoft.com/fwlink/?Lin
 
 	계정에 액세스할 수 있게 해 주는 또 다른 방법은 관리 인증서를 설치하는 것입니다. 인증서를 설치하도록 선택한 경우 **서버 탐색기**에서 **Azure** 노드를 마우스 오른쪽 단추로 클릭한 후 상황에 맞는 메뉴에서 **구독 관리**를 클릭합니다. **Azure 구독 관리** 대화 상자에서 **인증서** 탭을 클릭한 후 **가져오기**를 클릭합니다. 지침에 따라 Azure 계정에 대한 구독 파일(*.publishsettings* 파일이라고도 함)을 다운로드하고 가져옵니다.
 
-	> [AZURE.NOTE]
-	> 구독 파일을 다운로드한 경우 소스 코드 디렉터리 외부 폴더(예: Downloads 폴더)에 구독 파일을 저장한 다음 가져오기가 완료되면 해당 파일을 삭제해야 합니다. 악의적인 사용자가 구독 파일에 액세스할 경우 Azure 서비스를 편집, 생성 및 삭제할 수 있습니다.
+	> [AZURE.NOTE]구독 파일을 다운로드한 경우 소스 코드 디렉터리 외부 폴더(예: Downloads 폴더)에 구독 파일을 저장한 다음 가져오기가 완료되면 해당 파일을 삭제해야 합니다. 악의적인 사용자가 구독 파일에 액세스할 경우 Azure 서비스를 편집, 생성 및 삭제할 수 있습니다.
 
 	Visual Studio에서 Azure 리소스에 연결하는 방법에 대한 자세한 내용은 [계정, 구독 및 관리 역할 관리](http://go.microsoft.com/fwlink/?LinkId=324796#BKMK_AccountVCert)를 참조하십시오.
 
@@ -90,17 +89,15 @@ Visual Studio를 사용하면 [Azure 포털](http://go.microsoft.com/fwlink/?Lin
 
 오류의 원인을 찾는 가장 쉬운 방법은 주로 자세한 오류 메시지를 사용하도록 설정하는 것입니다. 이전 스크린샷 중 첫 번째 스크린샷에 그 방법이 설명되어 있습니다. 배포된 Web.config 파일의 변경이 필요합니다. 프로젝트에서 *Web.config* 파일을 편집한 후 프로젝트를 다시 배포하거나 [Web.config 변환](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/web-config-transformations)을 만들고 디버그 빌드를 배포할 수도 있지만 더 빠른 방법이 있습니다. **솔루션 탐색기**에서 *원격 보기* 기능을 사용하면 원격 웹 앱의 파일을 직접 보고 편집할 수 있습니다.
 
-1. **서버 탐색기**에서 **Azure**를 확장하고, **웹 앱**을 확장하고 배포하는 웹 앱에 대한 노드를 확장합니다.
+1. **서버 탐색기**에서 **Azure**, **앱 서비스**, 웹앱이 있는 리소스 그룹, 웹앱의 노드를 차례로 확장합니다.
 
 	표시되는 노드를 통해 웹 앱의 콘텐츠 파일 및 로그 파일에 액세스할 수 있습니다.
-
-	![파일 및 로그 파일](./media/web-sites-dotnet-troubleshoot-visual-studio/fileandlogfiles.png)
 
 2. **파일** 노드를 확장하고 *Web.config* 파일을 두 번 클릭합니다.
 
 	![Web.config 열기](./media/web-sites-dotnet-troubleshoot-visual-studio/webconfig.png)
 
-	원격 앱의 Visual Studio에서 Web.config 파일이 열리고 제목 표시줄의 파일 이름 옆에 [원격]이 표시됩니다.
+	원격 웹앱의 Visual Studio에서 Web.config 파일이 열리고 제목 표시줄의 파일 이름 옆에 [원격]이 표시됩니다.
 
 3. `system.web` 요소에 다음 줄을 추가합니다.
 
@@ -112,7 +109,7 @@ Visual Studio를 사용하면 [Azure 포털](http://go.microsoft.com/fwlink/?Lin
 
 	![자세한 오류 메시지](./media/web-sites-dotnet-troubleshoot-visual-studio/detailederror.png)
 
-	(표시된 오류는 빨간색으로 표시된 줄이 *Views\\Home\\Index.cshtml*에 추가되어 생성됨)
+	(표시된 오류는 빨간색으로 표시된 줄이 *Views\Home\Index.cshtml*에 추가되어 생성됨)
 
 Web.config 파일을 편집하는 방법은 문제를 더 쉽게 해결할 수 있도록 Azure 웹 앱의 파일 읽기/편집 기능을 사용하는 한 가지 예에 지나지 않습니다.
 
@@ -126,7 +123,7 @@ Web.config 파일을 편집하는 방법은 문제를 더 쉽게 해결할 수 �
 
 1. [Azure 및 ASP.NET 시작][GetStarted]에서 만든 웹 프로젝트를 엽니다.
 
-1. *Controllers\\HomeController.cs*를 엽니다.
+1. *Controllers\HomeController.cs*를 엽니다.
 
 2. `About()` 메서드를 삭제하고 그 자리에 다음 코드를 삽입합니다.
 
@@ -299,7 +296,7 @@ WebJob에서 응용 프로그램을 만드는 방법에 대한 자세한 내용�
 
 ### 응용 프로그램에 추적 문 추가
 
-1. *Controllers\\HomeController.cs*를 열고 파일 내용을 다음 코드로 바꿔 `System.Diagnostics`에 대한 `Trace` 문과 `using` 문을 추가합니다.
+1. *Controllers\HomeController.cs*를 열고 파일 내용을 다음 코드로 바꿔 `System.Diagnostics`에 대한 `Trace` 문과 `using` 문을 추가합니다.
 
 		using System;
 		using System.Collections.Generic;
@@ -353,7 +350,7 @@ WebJob에서 응용 프로그램을 만드는 방법에 대한 자세한 내용�
 
 	다음 단계는 디버그 모드에서 컴파일하지 않고 웹 페이지에서 추적 출력을 보는 방법을 보여 줍니다.
 
-2. 프로젝트 폴더에 위치한 응용 프로그램 Web.config 파일을 열고 파일 끝에 있는 닫는 `<system.diagnostics>` 요소 바로 앞에 `<configuration>` 요소를 추가합니다.
+2. 프로젝트 폴더에 위치한 응용 프로그램 Web.config 파일을 열고 파일 끝에 있는 닫는 `<system.diagnostics>` 요소 바로 앞에 `</configuration>` 요소를 추가합니다.
 
   		<system.diagnostics>
 		    <trace>
@@ -520,9 +517,9 @@ WebJob에서 응용 프로그램을 만드는 방법에 대한 자세한 내용�
 
 	![다운로드한 파일](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-logfilefolders.png)
 
-	* 응용 프로그램 추적 로그는 *LogFiles\\Application* 폴더에 *.txt* 파일로 기록됩니다.
-	* 웹 서버 로그는 *LogFiles\\http\\RawLogs* 폴더에 *.log* 파일로 기록됩니다. [Log Parser](http://www.microsoft.com/download/details.aspx?displaylang=en&id=24659) 같은 도구를 사용하여 이들 파일을 보고 조작할 수 있습니다.
-	* 자세한 오류 메시지 로그는 *LogFiles\\DetailedErrors* 폴더에 *.html* 파일로 기록됩니다.
+	* 응용 프로그램 추적 로그는 *LogFiles\Application* 폴더에 *.txt* 파일로 기록됩니다.
+	* 웹 서버 로그는 *LogFiles\http\RawLogs* 폴더에 *.log* 파일로 기록됩니다. [Log Parser](http://www.microsoft.com/download/details.aspx?displaylang=en&id=24659) 같은 도구를 사용하여 이들 파일을 보고 조작할 수 있습니다.
+	* 자세한 오류 메시지 로그는 *LogFiles\DetailedErrors* 폴더에 *.html* 파일로 기록됩니다.
 
 	참고로, *deployments* 폴더는 소스 제어 게시로 인해 생성되는 것이며 Visual Studio 게시와는 전혀 관계가 없습니다. *Git* 폴더는 소스 제어 게시 및 로그 파일 스트리밍 서비스와 관련된 추적 로그용입니다.
 
@@ -568,8 +565,7 @@ WebJob에서 응용 프로그램을 만드는 방법에 대한 자세한 내용�
 
 1. Visual Studio **Azure 웹 앱** 창에서 **로그** 탭을 클릭한 다음 **관리 포털에서 로깅 구성**을 클릭합니다.
 
-    <!-- todo:screenshot of new portal if the VS page link goes to new portal -->
-	![Configure logging](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-configlogging.png)
+    <!-- todo:screenshot of new portal if the VS page link goes to new portal -->![로깅 구성](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-configlogging.png)
 
 	웹 앱에 대한 관리 포털에서 **구성** 탭이 열립니다. 여기로 이동하는 또 다른 방법은 **웹 앱** 탭을 클릭하고 사용자의 웹 앱을 클릭한 후 **구성** 탭을 클릭하는 것입니다.
 
@@ -647,7 +643,7 @@ Visual Studio를 사용하여 실패한 요청 추적을 사용하도록 설정�
 
 5. 관리 포털의 **대시보드** 탭에서 F5 키를 눌러 페이지를 새로 고치고 **Deployment / FTP User**가 표시될 때까지 아래로 스크롤합니다. 웹 앱 이름이 사용자 이름 앞에 있습니다. **여기에 표시된 것처럼 로그인할 때 앞에 웹 앱 이름이 있는 상태로 전체 사용자 이름을 사용해야 합니다.**
 
-5. 사용자 웹 앱에 대한 관리 포털 페이지의 **대시보드** 탭에서 **FTP 호스트 이름**아래에 표시된 URL로 새 브라우저 창을 사용하여 이동합니다. **FTP 호스트 이름**은 **간략 상태** 섹션의 **Deployment / FTP User** 근처에 위치합니다.
+5. 사용자 웹 앱에 대한 관리 포털 페이지의 **대시보드** 탭에서 **FTP 호스트 이름 **아래에 표시된 URL로 새 브라우저 창을 사용하여 이동합니다. **FTP 호스트 이름**은 **간략 상태** 섹션의 **Deployment / FTP User** 근처에 위치합니다.
 
 6. 이전에 만든 FTP 자격 증명을 사용하여 로그인합니다(사용자 이름 앞에 웹 앱 이름 포함).
 
@@ -738,7 +734,7 @@ Azure 웹 앱 및 WebJob의 원격 디버깅에 대한 자세한 내용은 다�
 
 오류 로깅과 관련하여, 사용자 자신의 추적 코드를 기록하는 또 다른 방법은 [ELMAH](http://nuget.org/packages/elmah/) 같은 오픈 소스 로깅 프레임워크를 사용하는 것입니다. 자세한 내용은 [Scott Hanselman의 ELMAH 관련 블로그 게시물](http://www.hanselman.com/blog/NuGetPackageOfTheWeek7ELMAHErrorLoggingModulesAndHandlersWithSQLServerCompact.aspx)(영문)을 참조하십시오.
 
-또한 Azure에서 로그를 스트리밍하려면 ASP.NET 또는 System.Diagnostics 추적 기능을 사용할 필요가 없습니다. Azure 웹 앱 로그 스트리밍 서비스는 *LogFiles* 폴더에 위치한 *.txt*, *.html* 또는 *.log* 파일로 스트리밍합니다. 따라서 웹 앱의 파일 시스템에 기록하는 사용자 자신의 로깅 시스템을 만들 수 있습니다. 그러면 파일이 자동으로 스트리밍되어 다운로드됩니다. 그러려면 *d:\\home\\logfiles* 폴더에 파일을 만드는 응용 프로그램 코드만 작성하면 됩니다.
+또한 Azure에서 로그를 스트리밍하려면 ASP.NET 또는 System.Diagnostics 추적 기능을 사용할 필요가 없습니다. Azure 웹 앱 로그 스트리밍 서비스는 *LogFiles* 폴더에 위치한 *.txt*, *.html* 또는 *.log* 파일로 스트리밍합니다. 따라서 웹 앱의 파일 시스템에 기록하는 사용자 자신의 로깅 시스템을 만들 수 있습니다. 그러면 파일이 자동으로 스트리밍되어 다운로드됩니다. 그러려면 *d:\home\logfiles* 폴더에 파일을 만드는 응용 프로그램 코드만 작성하면 됩니다.
 
 ### 웹 서버 로그 분석
 
@@ -765,5 +761,6 @@ Microsoft TechNet 웹 사이트에 포함된 [실패한 요청 추적 사용](ht
 
 [GetStarted]: web-sites-dotnet-get-started.md
 [GetStartedWJ]: websites-dotnet-webjobs-sdk.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

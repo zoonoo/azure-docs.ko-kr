@@ -1,5 +1,5 @@
 <properties
-	pageTitle="HDInsight의 C# 스트리밍 단어 수 Hadoop 샘플 | Azure"
+	pageTitle="C# 스트리밍 단어 수 Hadoop 샘플 | Microsoft Azure"
 	description="Hadoop 스트리밍 인터페이스를 사용하는 MapReduce 프로그램을 C#으로 작성하는 방법과 PowerShell cmdlet을 사용하여 HDInsight에서 프로그램을 실행하는 방법"
 	editor="cgronlun"
 	manager="paulettm"
@@ -44,11 +44,10 @@ Hadoop 스트리밍 인터페이스에 대한 자세한 내용은 [Hadoop 스트
 
 시작하기 전에 다음이 있어야 합니다.
 
-- Azure 계정. 계정 등록 옵션은 [Azure 평가판 사용](http://azure.microsoft.com/pricing/free-trial/) 페이지를 참조하세요.
+- **Azure 구독**. [Azure 무료 평가판](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
+- **HDInsight 클러스터**. 이 클러스터를 만드는 여러 방법에 대한 자세한 내용은 [HDInsight 클러스터 프로비전](hdinsight-provision-clusters.md)(영문)을 참조하세요.
+- **Azure PowerShell이 포함된 워크스테이션**. [Azure PowerShell 설치 및 사용](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/)을 참조하세요.
 
-- 프로비전된 HDInsight 클러스터. 이 클러스터를 만드는 여러 방법에 대한 지침은 [HDInsight 클러스터 프로비전](hdinsight-provision-clusters.md)을 참조하세요.
-
-- Azure PowerShell. 사용자 계정에서 사용하도록 구성해야 합니다. 작업 방법에 대한 지침은 [Azure PowerShell 설치 및 구성][powershell-install-configure]을 참조하세요.
 
 
 ## <a id="run-sample"></a>Azure PowerShell을 사용하여 샘플 실행
@@ -88,7 +87,7 @@ Hadoop 스트리밍 인터페이스에 대한 자세한 내용은 [Hadoop 스트
 		Select-AzureSubscription $subscriptionName
 
 		# Blob storage container and account name
-		$storageAccountKey = Get-AzureStorageKey -StorageAccountName $storageAccountName | %{ $_.Primary } $storageContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
+      $storageAccountKey = Get-AzureStorageKey -StorageAccountName $storageAccountName | %{ $_.Primary } $storageContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
 
 		# Retrieve the output
 		Get-AzureStorageBlobContent -Container $containerName -Blob "example/data/StreamingOutput/wc.txt/part-00000" -Context $storageContext -Force
@@ -98,7 +97,9 @@ Hadoop 스트리밍 인터페이스에 대한 자세한 내용은 [Hadoop 스트
 
 	MapReduce 작업의 출력 파일은 변경할 수 없습니다. 따라서 이 샘플을 다시 실행하는 경우 출력 파일의 이름을 변경해야 합니다.
 
+
 ## <a id="java-code"></a>Hadoop 스트리밍의 C# 코드
+
 
 MapReduce 프로그램은 cat.exe 응용 프로그램을 매핑 인터페이스로 사용하여 텍스트를 콘솔로 스트리밍하고 wc.exe 응용 프로그램을 리듀싱 인터페이스로 사용하여 문서에서 스트리밍되는 단어 수를 계산합니다. mapper와 reducer는 둘 다 표준 입력 스트림(stdin)에서 문자를 줄 단위로 읽고 표준 출력 스트림(stdout)에 씁니다.
 
@@ -164,11 +165,13 @@ cat.cs 파일의 mapper 코드는 [StreamReader][streamreader] 개체를 사용�
 
 wc.cs 파일의 리듀서 코드는 [StreamReader][streamreader] 개체를 사용하여 cat.exe 매퍼에 의해 출력된 표준 입력 스트림에서 문자를 읽습니다. [Console.Writeline][console-writeline] 메서드를 사용하여 문자를 읽고 공백 및 각 단어 끝에 있는 줄의 끝 문자를 계산하여 단어 수를 셉니다. 그런 다음 [Console.Writeline][console-writeline] 메서드를 사용하여 합계를 표준 출력 스트림에 작성합니다.
 
+
 ## <a id="summary"></a>요약
 
 이 자습서에서는 Hadoop 스트리밍을 사용하여 HDInsight에 MapReduce 작업을 배포하는 방법을 살펴보았습니다.
 
 ## <a id="next-steps"></a>다음 단계
+
 
 다른 샘플을 실행하고 Azure PowerShell을 통해 Azure HDInsight에서 Pig, Hive 및 MapReduce 작업을 실행하는 방법에 대한 지침을 제공하는 자습서는 다음 문서를 참조하세요.
 
@@ -199,5 +202,6 @@ wc.cs 파일의 리듀서 코드는 [StreamReader][streamreader] 개체를 사�
 
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

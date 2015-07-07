@@ -1,69 +1,76 @@
 <properties 
 	pageTitle="Application Insights를 시작합니다." 
-	description="Application Insights를 사용하여 온-프레미스 또는 Microsoft Azure 웹 응용 프로그램의 사용량, 가용성 및 성능을 분석합니다.." 
+	description="Application Insights를 사용하여 온-프레미스 또는 Microsoft Azure 웹 응용 프로그램의 사용량, 가용성 및 성능을 분석합니다." 
 	services="application-insights" 
-documentationCenter=""
+    documentationCenter=""
 	authors="alancameronwills" 
-	manager="kamrani"/>
+	manager="ronmart"/>
 
 <tags 
 	ms.service="application-insights" 
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/10/2015" 
+	ms.topic="hero-article" 
+	ms.date="04/26/2015" 
 	ms.author="awills"/>
 
-# Application Insights - 앱의 상태 및 사용 현황 모니터링 시작
+# Visual Studio Application Insights 시작하기
 
 *Application Insights는 미리 보기 상태입니다.*
 
-Application Insights에서는 라이브 응용 프로그램에 대한 다음 항목을 모니터링할 수 있습니다.
+문제를 감지하고, 문제를 해결하고, 지속적으로 응용 프로그램을 개선합니다. 라이브 응용 프로그램의 모든 문제를 신속하게 진단합니다. 사용자가 어떤 작업을 하는지 확인합니다.
 
-* **가용성** - 전 세계 어디든지 사용자의 URL을 몇 분마다 테스트합니다.
-* **성능** - 성능 문제와 예외를 검색하고 진단합니다.
-* **사용 현황** - 앱을 보다 효율적으로 개선하기 위해 사용자가 앱을 통해 수행하는 작업을 확인합니다.
+구성은 매우 간단하며 결과는 몇 분 내에 확인할 수 있습니다.
 
-구성은 매우 간단하며 결과는 몇 분 내에 확인할 수 있습니다. 현재는 사용자의 자체 서버나 Azure에 설치된 ASP.NET 웹 앱이 지원됩니다.
-
+현재는 iOS, Android, Windows 앱과 J2EE 및 ASP.NET 웹 응용 프로그램, WCF 서비스를 지원합니다. 웹앱은 Azure 또는 고유한 온-프레미스 서버에서 실행될 수 있습니다. JavaScript SDK는 모든 웹 페이지에서 실행됩니다.
 
 ## 시작
 
-순서에 관계 없이 이 차트 왼쪽의 시작 위치를 조합해서 시작할 수 있습니다. 본인에게 적합한 경로를 선택하세요. ASP.NET 웹 앱을 개발하는 경우는 먼저 웹 프로젝트에 Application Insights를 추가합니다. 다른 항목은 나중에 쉽게 추가할 수 있습니다.
+이 맵 왼쪽에서 순서에 상관없이 어떤 조합의 진입점으로든 시작할 수 있습니다. 사용자에게 적합한 경로를 따릅니다.
 
-[Microsoft Azure](http://azure.com) 계정이 필요합니다(VSO 버전을 사용하지 않는 경우).
+Application Insights는 앱에 SDK를 추가하여 작동하며, [Azure 포털](http://portal.azure.com)에 원격 분석을 보냅니다. 지원되는 플랫폼, 언어, IDE의 다양한 조합에 대한 여러 SDK가 있습니다.
 
-<table >
-<tr valign="top"><th>필요한 항목</th><th colspan="2">수행할 작업</th><th>결과</th></tr>
-<tr valign="top"><td>내 ASP.NET 앱의 성능 및 사용 현황 분석</td><td colspan="2"><a href="../app-insights-start-monitoring-app-health-usage/">웹 프로젝트에 Application Insights 추가</a></td><td>성능 메트릭: 로드 수, 응답 시간...</td></tr>
-<tr valign="top"><td></td><td></td><td><a href="../app-insights-web-track-usage-custom-events-metrics/">서버 코드에서 이벤트 및 메트릭 보내기</a></td><td>사용자 지정 비즈니스 분석</td></tr>
-<tr valign="top"><td></td><td></td><td><a href="../app-insights-search-diagnostic-logs/">서버에서 추적 및 예외 원격 분석을 보내거나 타사 로그 데이터를 캡처합니다.</td><td>서버 앱 진단. 로그 데이터를 검색 및 필터링합니다.</a></td></tr>
-<tr valign="top"><td>모든 플랫폼의 웹 페이지에 대한 사용 분석 가져오기</td><td colspan="2"><a href="../app-insights-web-track-usage/">웹 페이지에 AI 스크립트 삽입</a></td><td>사용 현황 분석: 페이지 뷰, 복귀 사용자, 세션 수</td></tr>
-<tr valign="top"><td></td><td>&nbsp;&nbsp;</td><td><a href="../app-insights-web-track-usage-custom-events-metrics/">웹 페이지 스크립트에 이벤트 및 메트릭 호출 쓰기</a></td><td>사용자 지정 사용자 환경 분석</td></tr>
-<tr valign="top"><td></td><td></td><td><a href="../app-insights-search-diagnostic-logs/">웹 페이지 스크립트에 추적 및 진단 호출 쓰기</a></td><td>로그 데이터를 검색 및 필터링합니다.</td></tr>
-<tr valign="top"><td>웹 서버에서 이미 실행 중인 ASP.NET 앱의 문제 진단</td><td colspan="2"><a href="../app-insights-monitor-performance-live-website-now/">웹 서버에 상태 모니터 설치</a></td><td>종속성 호출 기간 및 수, CPU, 메모리 및 네트워크 카운터, 로드 수, 응답 시간</td></tr>
-<tr valign="top"><td>웹 페이지의 가용성 모니터링</td><td colspan="2"><a href="../app-insights-monitor-web-app-availability/">Application Insights에 웹 테스트 설정</a></td><td>가용성 모니터 및 경고</td></tr>
-<tr valign="top"><td>Windows Phone 앱, Windows 스토어 앱 또는 Java 웹 사이트에 대한 성능 및 사용 현황 분석 가져오기</td><td colspan="2"><a href="http://msdn.microsoft.com/library/dn481095.aspx">이제 이전 VSO 버전의 Application Insights 사용</a></td><td>사용 현황 및 성능 분석. <a href="http://msdn.microsoft.com/library/dn793604.aspx">Azure 버전에서 기능을 점진적으로 구축하고 있습니다.</a></td></tr>
-</table>
+[Microsoft Azure](http://azure.com)의 계정이 필요합니다. 조직을 통해 이미 그룹 계정에 대한 액세스 권한이 있을 수 있습니다. 또는 종량제 계정을 만들 수 있습니다. Application Insights가 미리 보기인 동안은 무료입니다.
 
+원하는 작업 | 수행할 작업 | 결과
+---|---|---
+ <a href="app-insights-start-monitoring-app-health-usage.md">![ASP.NET](./media/app-insights-get-started/appinsights-gs-i-01-perf.png)</a> | <a href="app-insights-start-monitoring-app-health-usage.md">웹 프로젝트에 Application Insights SDK 추가</a> <br/> ![가져오기](./media/app-insights-get-started/appinsights-00arrow.png) | <a href="app-insights-start-monitoring-app-health-usage.md">![성능 및 사용량 모니터링](./media/app-insights-get-started/appinsights-gs-r-01-perf.png)</a>
+<a href="app-insights-monitor-performance-live-website-now.md">![이미 라이브 상태인 ASP.NET 사이트](./media/app-insights-get-started/appinsights-gs-i-04-red2.png)</a><br/><a href="app-insights-monitor-performance-live-website-now.md">![종속성 및 성능 모니터링](./media/app-insights-get-started/appinsights-gs-i-03-red.png)</a>|<a href="app-insights-monitor-performance-live-website-now.md">IIS 서버에 상태 모니터 설치</a> <br/> ![가져오기](./media/app-insights-get-started/appinsights-00arrow.png) | <a href="app-insights-monitor-performance-live-website-now.md">![ASP.NET 종속성 모니터링](./media/app-insights-get-started/appinsights-gs-r-03-red.png)</a>
+<a href="insights-perf-analytics.md">![Azure 웹앱 또는 VM](./media/app-insights-get-started/appinsights-gs-i-10-azure.png)</a>|<a href="insights-perf-analytics.md">Azure 웹앱 또는 VM에서 Insights 사용</a> <br/> ![가져오기](./media/app-insights-get-started/appinsights-00arrow.png) | <a href="insights-perf-analytics.md">![종속성 및 성능 모니터링](./media/app-insights-get-started/appinsights-gs-r-03-red.png)</a>
+<a href="app-insights-java-get-started.md">![Java](./media/app-insights-get-started/appinsights-gs-i-11-java.png)</a>|<a href="app-insights-java-get-started.md">Java 프로젝트에 SDK 추가</a><br/>![가져오기](./media/app-insights-get-started/appinsights-00arrow.png) | <a href="app-insights-java-get-started.md">![성능 및 사용량 모니터링](./media/app-insights-get-started/appinsights-gs-r-10-java.png)</a>
+<a href="app-insights-web-track-usage.md">![JavaScript](./media/app-insights-get-started/appinsights-gs-i-02-usage.png)</a>|<a href="app-insights-web-track-usage.md">웹 페이지에 Application Insights 스크립트 삽입</a><br/>![가져오기](./media/app-insights-get-started/appinsights-00arrow.png) | <a href="app-insights-web-track-usage.md">![페이지 보기 및 브라우저 성능](./media/app-insights-get-started/appinsights-gs-r-02-usage.png)</a>
+<a href="app-insights-monitor-web-app-availability.md">![Availability](./media/app-insights-get-started/appinsights-gs-i-05-avail.png)</a>|<a href="app-insights-monitor-web-app-availability.md">웹 테스트 만들기</a><br/>![가져오기](./media/app-insights-get-started/appinsights-00arrow.png) | <a href="app-insights-monitor-web-app-availability.md">![Availability](./media/app-insights-get-started/appinsights-gs-r-05-avail.png)</a>
+<a href="app-insights-windows-get-started.md">![Windows 및 Windows Phone](./media/app-insights-get-started/appinsights-gs-i-06-device.png)</a>|<a href="app-insights-windows-get-started.md">장치 앱 프로젝트에 Application Insights 추가</a><br/>![가져오기](./media/app-insights-get-started/appinsights-00arrow.png) | <a href="app-insights-windows-get-started.md">![충돌 및 사용 현황 데이터](./media/app-insights-get-started/appinsights-gs-r-06-device.png)</a>
 
-## <a name="video"></a>비디오
+## 지원 및 피드백
 
-#### 소개
-
-> [AZURE.VIDEO application-insights-introduction]
-
-#### 시작
-
-> [AZURE.VIDEO getting-started-with-application-insights]
-
+* 질문 및 문제:
+ * [문제 해결][qna]
+ * [MSDN 포럼](https://social.msdn.microsoft.com/Forums/vstudio/ko-kr/home?forum=ApplicationInsights)
+ * [StackOverflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
+* 버그:
+ * [연결](https://connect.microsoft.com/VisualStudio/Feedback/LoadSubmitFeedbackForm?FormID=6076)
+* 제안:
+ * [사용자 음성](http://visualstudio.uservoice.com/forums/121579-visual-studio/category/77108-application-insights)
 
 
 
-[AZURE.INCLUDE [app-insights-learn-more](../../includes/app-insights-learn-more.md)]
+## <a name="video"></a>동영상
+
+
+> [AZURE.VIDEO 218]
+
+> [AZURE.VIDEO usage-monitoring-application-insights]
+
+> [AZURE.VIDEO performance-monitoring-application-insights]
 
 
 
-<!--HONumber=46--> 
+<!--Link references-->
+
+[qna]: app-insights-troubleshoot-faq.md
+
  
+
+<!---HONumber=62-->

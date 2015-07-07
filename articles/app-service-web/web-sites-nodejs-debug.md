@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Azure 앱 서비스에서 Node.js 웹 앱을 디버그하는 방법" 
+<properties
+	pageTitle="Azure 앱 서비스에서 Node.js 웹 앱을 디버그하는 방법"
 	description="Azure 앱 서비스에서 Node.js 웹 앱을 디버그하는 방법에 대해 알아봅니다."
-	tags="azure-portal" 
-	services="app-service\web" 
-	documentationCenter="nodejs" 
-	authors="MikeWasson" 
-	manager="wpickett" 
+	tags="azure-portal"
+	services="app-service\web"
+	documentationCenter="nodejs"
+	authors="MikeWasson"
+	manager="wpickett"
 	editor="mollybos"/>
 
-<tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="nodejs" 
-	ms.topic="article" 
-	ms.date="04/23/2015" 
+<tags
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="nodejs"
+	ms.topic="article"
+	ms.date="04/23/2015"
 	ms.author="mwasson"/>
 
 # Azure 앱 서비스에서 Node.js 웹 앱을 디버그하는 방법
@@ -63,7 +63,7 @@ Azure 명령줄 도구가 개발 환경에 설치되어 있는 경우 다음 명
 
 	npm install azure-cli -g
 
-설치한 도구에는 'azure' 명령을 사용하여 액세스할 수 있습니다. 먼저 Azure 구독을 사용하도록 명령줄 도구를 구성해야 합니다. 이 작업을 수행하는 방법에 대한 자세한 내용은 **Azure 명령줄 도구 사용 방법**(영문) 문서의 [게시 설정을 다운로드하여 가져오는 방법] 섹션을 참조하십시오.
+설치한 도구에는 'azure' 명령을 사용하여 액세스할 수 있습니다. 먼저 Azure 구독을 사용하도록 명령줄 도구를 구성해야 합니다. 이 작업을 수행하는 방법에 대한 자세한 내용은 [Azure 명령줄 도구를 사용하는 방법] 문서의 **게시 설정을 다운로드하여 가져오는 방법** 섹션을 참조하세요.
 
 ###FTP
 
@@ -118,10 +118,11 @@ Node.js 버전의 응용 프로그램 지정에 대한 자세한 내용은 [Azur
 
 [IISNode]: https://github.com/tjanczuk/iisnode
 [IISNode 추가 정보]: https://github.com/tjanczuk/iisnode#readme
-[게시 설정을 다운로드하여 가져오는 방법]: ../xplat-cli.md
+[How to Use The Azure Command-Line Interface]: ../xplat-cli.md
 [Azure 응용 프로그램에 Node.js 모듈 사용]: ../nodejs-use-node-modules-azure-apps.md
 [Azure 응용 프로그램에서 Node.js 버전 지정]: ../nodejs-specify-node-version-azure-apps.md
 
 [restart-button]: ./media/web-sites-nodejs-debug/restartbutton.png
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

@@ -1,9 +1,9 @@
 <properties
-   pageTitle="Mac, Linux 및 Windows용 Azure CLI를 사용하여 템플릿 배포"
+   pageTitle="Mac, Linux 및 Windows용 Azure CLI를 사용하여 템플릿 배포 | Microsoft Azure"
    description="템플릿을 배포하거나 업데이트하는 기본 단계를 설명합니다."
    services="virtual-machines"
    documentationCenter=""
-   authors="squillace"
+   authors="dlepow"
    manager="timlt"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="infrastructure"
-   ms.date="04/21/2015"
-   ms.author="rasquill"/>
+   ms.date="06/09/2015"
+   ms.author="danlep"/>
 
 # Mac, Linux 및 Windows용 Azure CLI를 사용하여 템플릿 배포
 
@@ -30,11 +30,11 @@
 배포할 템플릿에 대한 azuredeploy-parameters.json 파일이 있는 경우 다운로드합니다.
 
     curl -O https://github.com/azure/azurermtemplates/raw/master/linux-virtual-machine-with-customdata/azuredeploy-parameters.json
-    
+
 ## 리소스 그룹 배포 정보 입력
-    
+
 선호하는 편집기에서 이 파일을 엽니다. 여러 키, 특히 **adminUsername**, **adminPassword**(복잡성 규칙 기억) 및 원하는 저장소 계정 이름과 DNS 이름 값을 지정해야 합니다.
-    
+
     {
       "newStorageAccountName": {
         "value": "uniquestorageaccountname"
@@ -70,7 +70,7 @@
         "value": "myNic"
       }
     }
-    
+
 새 값을 추가(가능한 경우 Azure에서 새 저장소 및 DNS 리소스를 자동으로 만듬)하거나 이미 만든 리소스를 사용합니다. 다음 azuredeploy-parameters.json 파일은 예제를 보여 줍니다.
 
 
@@ -89,7 +89,7 @@
 템플릿에 직접 해당 매개 변수가 포함되어 있거나 매개 변수 데이터를 직접 추출할 수 있습니다. 템플릿 구조에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿 언어](https://msdn.microsoft.com/library/azure/dn835138.aspx)를 참조하세요.
 
 
-https://github.com/azure/azurermtemplates/raw/master/linux-virtual-machine-with-customdata/azuredeploy.json (또는 azuredeploy-parameters.json 파일) 템플릿의 parameters 섹션을 추출할 수 있습니다. 이 경우 템플릿 자체 내에 다시 저장하거나 별도의 azuredeploy-parameters.json 파일로 다시 저장해야 합니다. parameters에 배치할 값을 가져와야 합니다.
+https://github.com/azure/azurermtemplates/raw/master/linux-virtual-machine-with-customdata/azuredeploy.json(또는 azuredeploy-parameters.json 파일) 템플릿의 parameters 섹션을 추출할 수 있습니다. 이 경우 템플릿 자체 내에 다시 저장하거나 별도의 azuredeploy-parameters.json 파일로 다시 저장해야 합니다. parameters에 배치할 값을 가져와야 합니다.
 
 ## azuredeploy-templates.json 파일 수정
 
@@ -105,6 +105,6 @@ Vestibul ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia C
 [6]: ./media/markdown-template-for-new-articles/pretty49.png
 [7]: ./media/markdown-template-for-new-articles/channel-9.png
 [8]: ./media/markdown-template-for-new-articles/copytemplate.png
-
-<!--HONumber=52-->
  
+
+<!---HONumber=62-->

@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/29/2015"
+	ms.date="05/12/2015"
 	ms.author="mwasson"/>
 
 # Azure 앱 서비스에서 사용자 지정 도메인 이름 구성
 
 <div class="dev-center-tutorial-selector sublanding">
-  <a href="/documentation/articles/web-sites-custom-domain-name" title="웹 앱" class="current">웹 앱</a> <a href="/documentation/articles/web-sites-traffic-manager-custom-domain-name/" title="트래픽 관리자에서 웹 앱">트래픽 관리자에서 웹 앱</a> <a href="/documentation/articles/web-sites-godaddy-custom-domain-name" title="GoDaddy">GoDaddy</a>
+  <a href="/documentation/articles/custom-dns-web-site-buydomains-web-app" title="웹 앱">웹 앱 도메인 구입</a> <a href="/documentation/articles/web-sites-custom-domain-name" title="웹 앱" class="current">외부 도메인에서 웹 앱</a> <a href="/documentation/articles/web-sites-traffic-manager-custom-domain-name/" title="트래픽 관리자에서 웹 앱">트래픽 관리자에서 웹 앱</a> <a href="/documentation/articles/web-sites-godaddy-custom-domain-name" title="GoDaddy">GoDaddy</a>
 
 </div>
 
@@ -27,14 +27,14 @@
 
 웹 앱을 만들면 Azure에서 azurewebsites.net의 하위 도메인에 할당됩니다. 예를 들어 웹 앱의 이름이 **contoso**인 경우 URL은 **contoso.azurewebsites.net**입니다. Azure는 가상 IP 주소도 할당합니다.
 
-프로덕션 웹 앱의 경우 사용자에게 사용자 지정 도메인 이름을 표시할 수 있습니다. 이 문서에서는 [앱 서비스 웹 앱](http://go.microsoft.com/fwlink/?LinkId=529714)으로 사용자 지정 도메인을 구성하는 방법에 대해 설명합니다. (이 문서는 도메인 등록 기관을 위한 일반적인 지침을 제공합니다. 이 문서의 맨 위에 있늩 탭은 특정 등록 기관의 일부 문서로 연결됩니다.)
+프로덕션 웹 앱의 경우 사용자에게 사용자 지정 도메인 이름을 표시할 수 있습니다. 이 문서에서는 [앱 서비스 웹앱](http://go.microsoft.com/fwlink/?LinkId=529714)으로 사용자 지정 도메인을 예약 또는 구성하는 방법에 대해 설명합니다. (이 문서는 도메인 등록 기관을 위한 일반적인 지침을 제공합니다. 이 문서의 맨 위에 있늩 탭은 특정 등록 기관의 일부 문서로 연결됩니다.)
 
 [AZURE.INCLUDE [introfooter](../../includes/custom-dns-web-site-intro-notes.md)]
 
 
 ## 개요
 
-다음은 사용자 지정 도메인 이름을 구성하기 위한 일단적인 단계입니다.
+도메인 이름이 이미 있거나 다른 도메인 등록 기관에서 도메인을 예약하려는 경우 웹앱에서 사용자 지정 도메인 이름을 가져오는 일반적인 단계는 다음과 같습니다.
 
 1. 도메인 이름을 예약합니다. 이 문서에서는 해당 과정을 다루지 않습니다. 여러 등록 기관 중에서 선택할 수 있습니다. 가입하면 해당 사이트에서 프로세스를 안내해 줍니다.
 1. 도메인을 Azure 웹 앱에 매핑하는 DNS 레코드를 만듭니다.
@@ -44,7 +44,7 @@
 
 - 루트 도메인을 매핑합니다. 루트 도메인은 도메인 등록 기관을 통해 예약한 도메인입니다. 예를 들어 **contoso.com**입니다.
 - 하위 도메인을 매핑합니다. 예를 들어 **blogs.contoso.com**입니다. 다른 웹 앱에 여러 하위 도메인을 매핑할 수 있습니다.
-- 와일드카드를 매핑합니다. 예를들어, ***.contoso.com**입니다. 와일드카드 항목은 도메인의 모든 하위 도메인에 적용됩니다.
+- 와일드카드를 매핑합니다. 예를 들어, ***.contoso.com**입니다. 와일드카드 항목은 도메인의 모든 하위 도메인에 적용됩니다.
 
 [AZURE.INCLUDE [modes](../../includes/custom-dns-web-site-modes.md)]
 
@@ -67,7 +67,7 @@ CNAME 레코드를 만들 경우에는 이 단계를 건너뛰십시오. A 레�
 
 1.	브라우저에서 [Azure 포털](https://portal.azure.com)을 엽니다.
 2.	페이지의 왼쪽에서 **찾아보기** 옵션을 클릭합니다.
-3.	**웹 앱** 블레이드를 클릭합니다.
+3.	**웹앱** 블레이드를 클릭합니다.
 4.	웹 앱의 이름을 클릭 합니다.
 5.	**필수** 페이지에서 **모든 설정**을 클릭합니다.
 6.	**사용자 지정 도메인 및 SSL**을 클릭합니다. IP 주소는 페이지의 아래쪽에 있습니다(**SSL 바인딩** 섹션 바로 위).
@@ -108,8 +108,10 @@ CNAME 레코드를 만들 경우에는 이 단계를 건너뛰십시오. A 레�
 - 127.0.0.1에 매핑된 **contoso.com**
 - **contoso.azurewebsites.net**에 매핑된 **www.contoso.com**
 
+>[AZURE.NOTE]Azure DNS를 사용하여 웹앱에 필요한 도메인 레코드를 호스트할 수 있습니다. 사용자 지정 도메인을 구성하고 사용자 레코드를 만들려면 Azure DNS에서 [웹앱에 대한 사용자 지정 DNS 레코드 만들기](../dns-web-sites-custom-domain)를 참조하세요.
+
 <a name="awverify" />
-## “awverify” 레코드 만들기(A 레코드 전용)
+## awverify 레코드 만들기(A 레코드 전용)
 
 A 레코드를 만들면 웹 앱에서 특수 CNAME 레코드도 필요하며, 이 레코드는 사용하려는 도메인을 소유하고 있는지를 확인하는 데 사용됩니다. 이 CNAME 레코드에는 다음과 같은 형식이 있어야 합니다.
 
@@ -124,6 +126,11 @@ A 레코드를 만들면 웹 앱에서 특수 CNAME 레코드도 필요하며, �
 
 >[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
+
+## 다음 단계
+
+자세한 내용은 [Azure DNS 시작](http://azure.microsoft.com/documentation/articles/dns-getstarted-create-dnszone) 및 [Azure DNS로 도메인 위임](http://azure.microsoft.com/documentation/articles/dns-domain-delegation)을 참조하세요.
+
 ## 변경된 내용
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.
 * 이전 포털에서 새 포털로의 변경에 대한 지침은 [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
@@ -137,5 +144,6 @@ A 레코드를 만들면 웹 앱에서 특수 CNAME 레코드도 필요하며, �
 
 <!-- Images -->
 [subdomain]: media/web-sites-custom-domain-name/azurewebsites-subdomain.png
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

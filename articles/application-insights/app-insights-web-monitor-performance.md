@@ -2,9 +2,9 @@
 	pageTitle="Application Insights로 앱 상태 및 사용 현황 모니터링" 
 	description="Application Insights를 시작합니다. 온-프레미스 또는 Microsoft Azure 웹 응용 프로그램의 사용량, 가용성 및 성능을 분석합니다." 
 	services="application-insights" 
-documentationCenter=""
+    documentationCenter=""
 	authors="alancameronwills" 
-	manager="kamrani"/>
+	manager="keboyd"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@ documentationCenter=""
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/11/2014" 
+	ms.date="04/02/2015" 
 	ms.author="awills"/>
  
 # 웹 응용 프로그램의 성능 모니터링
@@ -22,13 +22,8 @@ documentationCenter=""
 
 응용 프로그램이 정상적으로 작동하는지 확인하고 오류가 발생하는지 신속하게 파악합니다. [Application Insights][start]는 성능 문제 및 예외에 대한 정보와, 이러한 현상에 대한 근본 원인을 확인하고 진단하는 기능을 제공합니다.
 
-Application Insights는 온-프레미스 또는 가상 컴퓨터와 Microsoft Azure 웹 사이트에서 호스트되는 ASP.NET 웹 응용 프로그램을 모니터링할 수 있습니다. 
+Application Insights는 온-프레미스 또는 가상 컴퓨터와 Microsoft Azure 웹 사이트에서 호스트되는 ASP.NET 웹 응용 프로그램과 WCF 서비스를 모니터링할 수 있습니다.
 
-* [성능 모니터링 설정](#setup)
-* [데이터 확인](#view)
-* [성능 메트릭의 의미](#metrics)
-* [문제 진단](#diagnosis)
-* [다음 단계](#next)
 
 ## <a name="setup"></a>성능 모니터링 설정
 
@@ -36,43 +31,23 @@ Application Insights를 아직 프로젝트에 추가하지 않은 경우(프로
 
 * [Visual Studio의 앱 프로젝트에 Application Insights 추가][greenbrown] - 권장 방법입니다. 이 방식을 사용하면 수동 성능 모니터링을 수행할 수 있을 뿐 아니라 진단 로깅을 삽입하고 사용 현황을 추적할 수도 있습니다.
 * [라이브 웹 사이트의 성능 모니터링][redfield] - 이 방식을 사용하는 경우 응용 프로그램 프로젝트를 업데이트하거나 웹 사이트를 다시 배포하지 않아도 됩니다.
-* [Microsoft Azure 웹 사이트의 경우](../insights-how-to-customize-monitoring.md)  웹 사이트의 모니터링 렌즈에서 이미 메트릭을 볼 수 있습니다. 
+* [Microsoft Azure 웹 사이트](../insights-how-to-customize-monitoring.md)의 경우웹 사이트의 모니터링 렌즈에서도 이미 메트릭을 볼 수 있습니다. 
+
+이러한 방법 중 하나를 사용하여 Application Insights의 개요 블레이드에서 데이터를 신속하게 보게됩니다.
 
 
-## <a name="view"></a>보고서 보기
+## <a name="view"></a>메트릭 탐색
 
-F5 키를 눌러 응용 프로그램을 실행하고 여러 페이지를 열어 봅니다.
-
-Visual Studio에 수신된 이벤트의 수가 표시됩니다.
-
-![](./media/app-insights-web-monitor-performance/appinsights-09eventcount.png)
+무엇이든 클릭하면 추가 세부 정보와 장기간에 걸친 결과를 확인할 수 있습니다. 예를 들어 요청 타일을 클릭하고 시간 범위를 선택합니다.
 
 
-프로젝트에서 Application Insights를 엽니다.
-
-![Right-click your project and open the Azure portal](./media/app-insights-web-monitor-performance/appinsights-04-openPortal.png)
-
-
-**응용 프로그램 상태** 타일에서 데이터를 찾습니다. 처음에는 요소가 1~2개만 표시됩니다. 예를 들면 다음과 같습니다.
-
-![Click through to more data](./media/app-insights-web-monitor-performance/appinsights-41firstHealth.png)
-
-디버그 모드에서 실행할 때는 파이프라인을 통해 원격 분석이 신속하게 수행되므로 데이터가 몇 초 내에 표시됩니다. 앱을 배포할 때는 데이터가 더 천천히 누적됩니다.
-
-처음에 데이터가 표시되지 않으면 잠시 기다렸다가 새로 고침을 클릭합니다.
-
-### 메트릭 탐색
-
-원하는 타일을 클릭하면 추가 세부 정보와 장기간에 걸친 결과를 확인할 수 있습니다. 예를 들어 요청 타일을 클릭하고 시간 범위를 선택합니다.
-
-
-![Click through to more data and select a time range](./media/app-insights-web-monitor-performance/appinsights-48metrics.png)
+![클릭하여 추가 데이터를 표시한 다음 시간 범위 선택](./media/app-insights-web-monitor-performance/appinsights-48metrics.png)
 
 차트를 클릭하여 표시되는 메트릭을 선택하거나 새 차트를 추가하고 해당 메트릭을 선택합니다.
 
-![Click a graph to choose metrics](./media/app-insights-web-monitor-performance/appinsights-61perfchoices.png)
+![그래프를 클릭하여 메트릭 선택](./media/app-insights-web-monitor-performance/appinsights-61perfchoices.png)
 
-> [AZURE.NOTE] 사용 가능한 전체 선택 항목을 확인하려면 **모든 메트릭의 선택을 취소**합니다. 메트릭은 그룹으로 구분되며 그룹 내의 모든 멤버를 선택하면 해당 그룹의 다른 멤버만 표시됩니다.
+> [AZURE.NOTE]사용 가능한 전체 선택 항목을 확인하려면 **모든 메트릭의 선택을 취소합니다**. 메트릭은 그룹으로 구분되며 그룹 내의 모든 멤버를 선택하면 해당 그룹의 다른 멤버만 표시됩니다.
 
 
 ## <a name="metrics"></a>성능 메트릭의 의미 성능 타일 및 보고서
@@ -114,7 +89,7 @@ HTTP 요청에는 페이지, 데이터 및 이미지에 대한 모든 GET 또는
 
 catch되지 않은 예외를 throw한 요청의 수입니다.
 
-타일을 클릭하면 특정 오류의 세부 정보를 확인할 수 있으며 개별 요청을 선택하면 해당 세부 정보를 볼 수 있습니다. 
+타일을 클릭하면 특정 오류의 세부 정보를 확인할 수 있으며 개별 요청을 선택하면 해당 세부 정보를 볼 수 있습니다.
 
 오류의 대표 샘플만 개별적으로 조사할 수 있도록 보관됩니다.
 
@@ -122,10 +97,40 @@ catch되지 않은 예외를 throw한 요청의 수입니다.
 
 표시할 수 있는 기타 메트릭을 보려면 그래프를 클릭하고 모든 메트릭의 선택을 취소하여 사용 가능한 전체 집합을 표시합니다. (i)를 클릭하면 각 메트릭의 정의가 표시됩니다.
 
-![Deselect all metrics to see the whole set](./media/app-insights-web-monitor-performance/appinsights-62allchoices.png)
+![모든 메트릭의 선택을 취소하여 전체 집합 표시](./media/app-insights-web-monitor-performance/appinsights-62allchoices.png)
 
 
 메트릭을 선택하면 같은 차트에 표시할 수 없는 다른 메트릭은 사용하지 않도록 설정됩니다.
+
+## 더 많은 성능 카운터 수집
+
+선택할 수 있는 메트릭 중 일부는 [성능 카운터](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters)입니다. Windows는 광범위하고 다양한 것들을 제공하며 사용자가 정의할 수 있습니다.
+
+원하는 카운터가 목록에 없으면 SDK가 수집하는 집합에 추가할 수 있습니다. ApplicationInsights.config를 열고 성능 수집기 지시문을 편집합니다:
+
+    <Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCollector.PerformanceCollectorModule, Microsoft.ApplicationInsights.Extensibility.PerfCollector">
+      <Counters>
+        <Add PerformanceCounter="\Objects\Processes"/>
+        <Add PerformanceCounter="\Sales(electronics)# Items Sold" ReportAs="Item sales"/>
+      </Counters>
+    </Add>
+
+형식은 `\Category(instance)\Counter"` 또는 인스턴스가 없는 범주에는 `\Category\Counter`입니다.
+
+`ReportAs`은 다음 이외의 문자를 포함하는 카운터 이름에 필요합니다: 둥근 괄호, 정방향 슬래쉬, 하이픈, 밑줄 문자, 공백 및 점선입니다.
+
+인스턴스를 지정하면 보고된 메트릭의 "CounterInstanceName" 속성으로 수집 됩니다.
+
+원하는 경우 같은 효과를 가진 코드를 작성할 수 있습니다.
+
+    var perfCollector = new PerformanceCollectorModule();
+    perfCollector.Counters = new List<CustomPerformanceCounterCollectionRquest>();
+    perfCollector.Counters.Add(new CustomPerformanceCounterCollectionRquest(
+      @"\Sales(electronics)# Items Sold", "Items sold"));
+    perfCollector.Initialize(TelemetryConfiguration.Active);
+    TelemetryConfiguration.Active.TelemetryModules.Add(perfCollector);
+
+
 
 ## 경고 설정
 
@@ -137,7 +142,7 @@ catch되지 않은 예외를 throw한 요청의 수입니다.
 
 임계값을 입력하라는 단위에 주의하세요.
 
-*경고 추가 단추가 보이지 않습니다.* - 읽기 전용 권한이 있기 때문일 수 있습니다. 
+*경고 추가 단추가 보이지 않습니다.*-이것은 읽기 전용 액세스 권한이 있는 그룹 계정입니까? 계정 관리자에게 확인하십시오.
 
 ## <a name="diagnosis"></a>문제 진단
 
@@ -145,7 +150,7 @@ catch되지 않은 예외를 throw한 요청의 수입니다.
 
 * 웹 사이트의 작동이 중단되거나 응답이 잘못되거나 속도가 느려지는 경우 경고를 받도록 [웹 테스트][availability]를 설정합니다. 
 * 요청 수를 다른 메트릭과 비교하여 오류 또는 느린 응답이 부하와 관련되어 있는지 확인합니다.
-* 코드에서 [추적 문을 삽입 및 검색][diagnostic]하여 문제를 파악합니다.
+* 코드에서 [검사 추적 문을 삽입 및 검색][diagnostic]하여 문제를 파악합니다.
 
 ## <a name="next"></a>다음 단계
 
@@ -157,14 +162,20 @@ catch되지 않은 예외를 throw한 요청의 수입니다.
 
 [문제 해결][qna] - 문제 해결 정보 및 질문과 대답을 확인합니다.
 
+## 비디오
 
+[AZURE.VIDEO performance-monitoring-application-insights]
 
-[AZURE.INCLUDE [app-insights-learn-more](../../includes/app-insights-learn-more.md)]
+<!--Link references-->
 
+[availability]: app-insights-monitor-web-app-availability.md
+[diagnostic]: app-insights-diagnostic-search.md
+[greenbrown]: app-insights-start-monitoring-app-health-usage.md
+[qna]: app-insights-troubleshoot-faq.md
+[redfield]: app-insights-monitor-performance-live-website-now.md
+[start]: app-insights-get-started.md
+[usage]: app-insights-web-track-usage.md
 
-
-
-<!--HONumber=35.2-->
-
-<!--HONumber=46--> 
  
+
+<!---HONumber=62-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정| Azure" 
+	pageTitle="스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정 | Microsoft Azure" 
 	description="스크립트 작업을 사용하여 HDInsight 클러스터를 사용자 지정하는 방법을 알아봅니다." 
 	services="hdinsight" 
 	documentationCenter="" 
@@ -43,7 +43,7 @@ HDInsight 클러스터를 사용자 지정하는 방법은 추가 Azure 저장�
 
 > [AZURE.NOTE]**Cluster 사용자 지정** 단계 중 클러스터 노드에 대한 관리 권한이 있으므로 스크립트를 사용하여 Hadoop 관련 서비스를 비롯한 서비스의 중지 및 시작과 같은 작업을 수행할 수 있습니다. 따라서 스크립트의 일부로 스크립트 실행이 완료되기 전에 Ambari 서비스 및 기타 Hadoop 관련 서비스가 실행 중인지 확인해야 합니다. 클러스터가 생성되는 동안 클러스터의 상태를 확인하려면 이러한 서비스가 필요합니다. 클러스터에서 이러한 서비스에 영향을 주는 구성을 변경하는 경우 제공되는 도우미 함수를 사용해야 합니다. 도우미 함수에 대한 자세한 내용은 [HDInsight를 사용한 스크립트 작업 개발][hdinsight-write-script](영문)을 참조하세요.
 
-스크립트의 출력 및 오류 로그는 클러스터에 대해 지정한 기본 저장소 계정에 저장됩니다. 오류는 **u<\\cluster-name-fragment><\\time-stamp>setuplog**라는 이름으로 테이블에 저장됩니다. 클러스터의 모든 노드(헤드 노드 및 작업자 노드)에서 실행된 스크립트의 집계 로그입니다.
+스크립트의 출력 및 오류 로그는 클러스터에 대해 지정한 기본 저장소 계정에 저장됩니다. 오류는 **u<\cluster-name-fragment><\time-stamp>setuplog**라는 이름으로 테이블에 저장됩니다. 클러스터의 모든 노드(헤드 노드 및 작업자 노드)에서 실행된 스크립트의 집계 로그입니다.
 
 ## <a name="writescript"></a>클러스터 사용자 지정을 위한 스크립트 작성 방법
 
@@ -58,19 +58,20 @@ Azure 포털, Azure PowerShell cmdlet 또는 HDInsight.NET SDK에서 스크립�
 1. [사용자 지정 옵션을 사용하여 클러스터를 프로비저닝](hdinsight-provision-clusters.md#portal)에 설명된 대로 **사용자 지정 만들기** 옵션을 사용하여 클러스터 프로비저닝을 시작합니다. 
 2. 아래와 같이 마법사의 **스크립트 작업** 페이지에서 **스크립트 작업 추가**를 클릭하여 스크립트 작업에 대한 세부 정보를 제공합니다.
 
-![스크립트 작업을 사용하여 클러스터 사용자 지정](./media/hdinsight-hadoop-customize-cluster/HDI.CustomProvision.Page6.png "스크립트 작업을 사용하여 클러스터 사용자 지정")
+	![스크립트 작업을 사용하여 클러스터 사용자 지정](./media/hdinsight-hadoop-customize-cluster/HDI.CustomProvision.Page6.png "스크립트 작업을 사용하여 클러스터 사용자 지정")
 	
-<table border='1'>
-<tr><th>속성</th><th>값</th></tr>
-<tr><td>이름</td>
-<td>스크립트 작업의 이름을 지정합니다.</td></tr>
-<tr><td>스크립트 URI</td>
-<td>클러스터를 사용자 지정하기 위해 호출되는 스크립트에 URI를 지정합니다.</td></tr>
-<tr><td>노드 유형</td>
-<td>사용자 지정 스크립트가 실행되는 노드를 지정합니다. <b>모든 노드</b>, <b>헤드 노드만</b> 또는 <b>작업자 노드만</b>을 선택할 수 있습니다.
-<tr><td>매개 변수</td>
-<td>스크립트에 필요한 경우 매개 변수를 지정합니다.</td></tr>
-</table>
+	<table border='1'>
+		<tr><th>속성</th><th>값</th></tr>
+		<tr><td>이름</td>
+			<td>스크립트 작업의 이름을 지정합니다.</td></tr>
+		<tr><td>스크립트 URI</td>
+			<td>클러스터를 사용자 지정하기 위해 호출되는 스크립트에 URI를 지정합니다.</td></tr>
+		<tr><td>노드 유형</td>
+			<td>사용자 지정 스크립트가 실행되는 노드를 지정합니다. <b>모든 노드</b>, <b>헤드 노드만</b> 또는 <b>작업자 노드만</b>을 선택할 수 있습니다.
+		<tr><td>매개 변수</td>
+			<td>스크립트에 필요한 경우 매개 변수를 지정합니다.</td></tr>
+	</table>
+
 두 개 이상의 스크립트 작업을 추가하여 클러스터에 여러 구성 요소를 설치할 수 있습니다. 스크립트를 추가한 후 확인 표시를 클릭하여 클러스터 프로비저닝을 시작합니다.
   
 **Azure PowerShell cmdlet 사용**
@@ -163,5 +164,6 @@ HDInsight 서비스는 사용자 지정 구성 요소를 사용하는 여러 방
 
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster/HDI-Cluster-state.png "클러스터 프로 비전 중의 단계"
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

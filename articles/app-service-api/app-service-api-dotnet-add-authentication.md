@@ -20,7 +20,7 @@
 
 ## 개요
 
-[API 앱 배포](app-service-dotnet-deploy-api-app.md) 자습서에서는 **Available to anyone(누구나 사용 가능)** 액세스 수준으로 API 앱을 배포했습니다. 이 자습서에서는 인증된 사용자만 API 앱에 액세스할 수 있도록 API 앱을 보호하는 방법을 보여 줍니다.
+이 자습서에서는 인증된 사용자만 API 앱에 액세스할 수 있도록 API 앱을 보호하는 방법을 보여 줍니다. 또한 자습서는 로그온한 사용자에 대 한 정보를 검색하는 ASP.NET API 앱에서 사용할 수 있는 코드를 보여줍니다.
 
 다음 단계를 수행합니다.
 
@@ -29,6 +29,7 @@
 - API 앱을 다시 호출하여 인증되지 않은 요청을 거부하는지 확인
 - 구성된 공급자에 로그인
 - API 앱을 다시 호출하여 인증된 액세스가 작동하는지 확인
+- 로그온한 사용자에 대한 클레임을 검색하는 코드를 작성하고 테스트합니다.
 
 ## 필수 조건
 
@@ -158,7 +159,13 @@ Azure 포털에서 **Azure Active Directory** 탭에서 만든 응용 프로그�
 
 	![게이트웨이 URL](./media/app-service-api-dotnet-add-authentication/gatewayurl.png)
 
-	[providername] 값은 "microsoftaccount", "facebook", "twitter", "google" 또는 "aad"입니다.
+	[Providername]은 다음 값 중 하나여야 합니다.
+	
+	* "microsoftaccount"
+	* "facebook"
+	* "twitter"
+	* "google"
+	* "aad"
 
 	다음은 Azure Active Directory에 대한 샘플 로그인 URL입니다.
 
@@ -230,6 +237,74 @@ Azure 포털에서 **Azure Active Directory** 탭에서 만든 응용 프로그�
 
 	![403 Forbidden 응답](./media/app-service-api-dotnet-add-authentication/403forbidden.png)
 
+## 로그온한 사용자에 대한 정보 가져오기
+
+이 섹션에서는 ContactsList API 앱의 코드를 변경하여 로그온한 사용자의 이름 및 전자 메일 주소를 검색하고 반환합니다.
+
+1. Visual Studio에서는 [API 앱 배포](app-service-dotnet-deploy-api-app.md)에서 배포되고 이 자습서를 위해 호출된 API 앱 프로젝트를 엽니다.
+
+3. Apiapp.json 파일을 열고 Azure Active Directory 인증을 사용하는 API 앱임을 나타내는 줄을 추가합니다.
+
+		"authentication": [{"type": "aad"}]
+
+	최종 apiapp.json 파일은 다음 예와 유사합니다:
+
+		{
+		    "$schema": "http://json-schema.org/schemas/2014-11-01/apiapp.json#",
+		    "id": "ContactsList",
+		    "namespace": "microsoft.com",
+		    "gateway": "2015-01-14",
+		    "version": "1.0.0",
+		    "title": "ContactsList",
+		    "summary": "",
+		    "author": "",
+		    "endpoints": {
+		        "apiDefinition": "/swagger/docs/v1",
+		        "status": null
+		    },
+		    "authentication": [{"type": "aad"}]
+		}
+
+	이 자습서에서는 예로 Azure Active Directory를 사용합니다. 다른 공급자에 대해 적절한 식별자를 사용하게 됩니다. 다음은 올바른 공급자 값입니다:
+
+	* "aad"
+	* "microsoftaccount"
+	* "google"
+	* "twitter"
+	* "facebook". 
+
+2. *ContactsController.cs* 파일에서 `Get` 메서드의 코드를 다음 코드로 바꿉니다.
+
+		var runtime = Runtime.FromAppSettings(Request);
+		var user = runtime.CurrentUser;
+		TokenResult token = await user.GetRawTokenAsync("aad");
+		var name = (string)token.Claims["name"];
+		var email = (string)token.Claims["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn"];
+		return new Contact[]
+		{
+		    new Contact { Id = 1, EmailAddress = email, Name = name }
+		};
+
+	코드는 세 샘플 연락처 대신 로그온한 사용자에 대한 연락처 정보를 반환합니다.
+
+	샘플 코드는 Azure Active Directory를 사용합니다. 다른 공급자에 대해 이전 단계에서와 같이 적절한 토큰 이름 및 클레임 식별자를 사용하게 됩니다.
+
+	사용할 수 있는 Azure Active Directory 클레임에 대한 정보는 [지원 토큰 및 클레임 유형](https://msdn.microsoft.com/library/dn195587.aspx)을 참조하십시오.
+
+3. `Microsoft.Azure.AppService.ApiApps.Service`에 using 문을 추가합니다.
+
+		using Microsoft.Azure.AppService.ApiApps.Service;
+
+3. 프로젝트를 다시 배포합니다.
+
+	Visual Studio에서는 [배포](app-service-dotnet-deploy-api-app.md) 자습서를 따르는 동안 프로젝트를 배포할 때 설정을 기억합니다. 프로젝트를 마우스 오른쪽 단추로 클릭하여, **게시**를 클릭하고 **웹 게시** 대화 상자의 **게시**를 클릭하십시오.
+
+6. 보호된 API 앱으로 Get 요청을 보내기에 앞서 수행한 절차를 따릅니다.
+
+	응답 메시지는 로그인한 ID의 이름과 ID를 보여줍니다.
+
+	![로그온한 사용자의 응답 메시지](./media/app-service-api-dotnet-add-authentication/chromegetuserinfo.png)
+
 ## 다음 단계
 
 Azure Active Directory 또는 소셜 공급자 인증을 요구하여 Azure API 앱을 보호하는 방법을 살펴봤습니다. 자세한 내용은 [API 앱 정의](app-service-api-apps-why-best-platform.md)를 참조하세요.
@@ -238,4 +313,6 @@ Azure Active Directory 또는 소셜 공급자 인증을 요구하여 Azure API 
 [Azure Preview 포털]: https://portal.azure.com/
 
 
-<!--HONumber=54--> 
+ 
+
+<!---HONumber=62-->

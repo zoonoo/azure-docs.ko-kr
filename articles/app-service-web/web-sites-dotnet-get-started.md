@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Azure 앱 서비스에서 ASP.NET 웹 응용 프로그램 만들기" 
-	description="이 자습서에서는 Visual Studio 2013에서 ASP.NET 웹 프로젝트를 만들어 Azure 앱 서비스의 앱 응용 프로그램에 배포하는 방법에 대해 알아봅니다. 15분 이내에 클라우드에서 앱을 작동 및 실행할 수 있습니다." 
-	services="app-service\web" 
-	documentationCenter=".net" 
-	authors="tdykstra" 
-	manager="wpickett" 
+<properties
+	pageTitle="Azure 앱 서비스에서 ASP.NET 웹 응용 프로그램 만들기"
+	description="이 자습서에서는 Visual Studio 2013에서 ASP.NET 웹 프로젝트를 만들어 Azure 앱 서비스의 앱 응용 프로그램에 배포하는 방법에 대해 알아봅니다. 15분 이내에 클라우드에서 앱을 작동 및 실행할 수 있습니다."
+	services="app-service\web"
+	documentationCenter=".net"
+	authors="tdykstra"
+	manager="wpickett"
 	editor="mollybos"/>
 
-<tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="hero-article" 
-	ms.date="03/24/2015" 
+<tags
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="get-started-article" 
+	ms.date="03/24/2015"
 	ms.author="tdykstra"/>
 
 # Azure 앱 서비스에서 ASP.NET 웹 응용 프로그램 만들기
@@ -59,7 +59,7 @@
 3. **.NET Framework 4.5**가 대상 프레임워크로 선택되었는지 확인합니다.
 
 4. **프로젝트에 Application Insights 추가** 확인란의 선택을 취소합니다.
- 
+
 4. 응용 프로그램 이름을 **MyExample**로 지정하고 **확인**을 클릭합니다.
 
 	![새 프로젝트 대화 상자](./media/web-sites-dotnet-get-started/GS13newprojdb.png)
@@ -85,13 +85,13 @@
 	기본 설정은 Visual Studio에서 웹 프로젝트용 Azure 웹 응용 프로그램을 만들도록 지정합니다. 자습서의 다음 섹션에서는 새로 만든 웹 응용 프로그램에 웹 프로젝트를 배포합니다.
 
 5. Azure에 아직 로그인하지 않은 경우 로그인하라는 메시지가 Visual Studio에 표시됩니다. Azure 구독을 관리하는 데 사용하는 계정의 ID 및 암호로 로그인합니다.
-	
+
 	로그인하면 만들려는 리소스에 대해 묻는 **Microsoft Azure 웹앱 설정 구성** 대화 상자가 표시됩니다.
 
 	![Azure에 로그인함](./media/web-sites-dotnet-get-started/configuresitesettings.png)
 
 3. **Microsoft Azure 웹앱 설정 구성** 대화 상자에서 기본값을 그대로 둡니다.
- 
+
 	필요한 경우 다른 **웹앱 이름**을 입력할 수 있지만 이름은 *azurewebsites.net* 도메인에서 고유해야 합니다. Visual Studio에서 제공하는 기본 이름을 고유합니다.
 
 	Azure에서는 응용 프로그램의 URL에 대한 접두사로 이 이름을 사용합니다. 전체 URL은 이 이름과 *.azurewebsites.net*(**웹앱 이름** 텍스트 상자 옆에 표시)으로 구성됩니다. 예를 들어 이름이 `MyExample6442`이면 URL은 `MyExample6442.azurewebsites.net`이 됩니다. URL은 고유해야 합니다. 입력한 URL을 다른 사용자가 이미 사용한 경우 녹색 확인 표시 대신 오른쪽에 빨간색 느낌표가 표시되며, 다른 이름을 입력해야 합니다.
@@ -105,7 +105,7 @@
 6. **리소스 그룹** 드롭다운에서 **새 리소스 그룹 만들기**를 선택합니다.
 
 	[다음 단계](#next-steps) 섹션에 리소스 그룹에 대한 정보의 링크가 있습니다.
- 
+
 5. 리소스 그룹 이름에 *MyExampleResourceGroup* 또는 원하는 다른 이름을 입력합니다.
 
 5. **지역** 드롭다운 목록에서 가장 가까운 위치를 선택합니다.
@@ -163,19 +163,19 @@
 	**구성** 드롭다운에서 원격 디버깅을 위한 디버그 빌드를 배포할 수 있습니다. [다음 단계](#next-steps) 섹션은 Visual Studio를 원격에서 디버그 모드로 실행하는 방법을 보여 주는 자습서로 연결됩니다.
 
 	**파일 게시 옵션**을 확장하면 이 자습서에는 적용되지 않는 다음과 같은 상황을 처리할 수 있는 몇 가지 설정이 표시됩니다.
- 
+
 	* 대상에 있는 추가적인 파일을 제거합니다.
-	  
+
 		서버에서 프로젝트에 포함되지 않은 파일을 모두 삭제합니다. 앞서 다른 프로젝트를 배포한 웹 응용 프로그램에 프로젝트를 배포하는 경우 이 작업을 수행해야 할 수 있습니다.
 
-	* 게시 중 미리 컴파일합니다. 
-	 
+	* 게시 중 미리 컴파일합니다.
+
 		대형 응용 프로그램에 대한 최초 요청 준비 시간을 줄일 수 있습니다.
 
-	* App_Data 폴더에서 파일을 실행합니다. 
-	 
+	* App_Data 폴더에서 파일을 실행합니다.
+
 		테스팅을 위해 프로덕션에 배포하지 않을 SQL Server 데이터베이스 파일을 App_Data에 포함하는 경우가 가끔 있습니다.
-	
+
 11. **미리 보기** 탭에서 **미리 보기 시작**을 클릭합니다.
 
 	![미리 보기 탭의 미리 보기 시작 단추](./media/web-sites-dotnet-get-started/GS13Preview.png)
@@ -202,7 +202,7 @@
 
 자습서의 이 섹션에서는 홈페이지의 **h1** 제목을 변경하고 개발 컴퓨터에서 로컬로 프로젝트를 실행하여 변경 내용을 확인한 다음 Azure에 변경 내용을 배포합니다.
 
-2. *솔루션 탐색기*에서 *Views/Home/Index.cshtml* 또는 **.vbhtml** 파일을 열고 **h1** 제목을 "ASP.NET"에서 "ASP.NET and Azure"로 변경한 다음 파일을 저장합니다. 
+2. *솔루션 탐색기*에서 *Views/Home/Index.cshtml* 또는 **.vbhtml** 파일을 열고 **h1** 제목을 "ASP.NET"에서 "ASP.NET and Azure"로 변경한 다음 파일을 저장합니다.
 
 	![MVC index.cshtml](./media/web-sites-dotnet-get-started/index.png)
 
@@ -237,22 +237,22 @@
 ## 관리 포털에서 웹 응용 프로그램 모니터링 및 관리
 
 [Azure 관리 포털](/services/management-portal/)은 Azure 서비스(예: 방금 만든 웹 응용 프로그램)를 관리하고 모니터링하는 데 사용할 수 있는 웹 인터페이스입니다. 자습서의 이 섹션에서는 포털에서 수행할 수 있는 작업 중 일부를 살펴봅니다.
-  
-1. 브라우저에서 [http://portal.azure.com]()으로 이동하여 Azure 자격 증명으로 로그인합니다.
+
+1. 브라우저에서 [https://portal.azure.com]()으로 이동하여 Azure 자격 증명으로 로그인합니다.
 
 2. **찾아보기 > 웹앱**을 클릭한 다음 웹 응용 프로그램의 이름을 클릭합니다.
 
 	웹앱에 대한 **웹앱** 블레이드에 자주 사용되는 웹앱 관리 기능에 대한 링크 및 사용량 통계가 표시됩니다.
-  
-	![웹앱 블레이드](./media/web-sites-dotnet-get-started/portaldashboard.png)
+
+	![웹앱 블레이드](./media/web-sites-dotnet-get-started/portaldashboard.png)-->
 
 	지금은 웹 응용 프로그램의 트래픽이 그다지 많지 않아서 그래픽에 아무것도 표시되지 않을 수 있습니다. 응용 프로그램을 탐색하고, 페이지를 몇 번 새로 고친 다음 포털 페이지를 새로 고치면 몇 가지 통계가 표시됩니다.
 
 3. 더 많은 웹앱 구성 옵션을 보려면 **모든 설정**을 클릭합니다.
 
 	설정 유형 목록이 표시됩니다.
-  
-	![](./media/web-sites-dotnet-get-started/portalconfigure1.png)
+
+	![](./media/web-sites-dotnet-get-started/portalconfigure1.png)-->
 
 4. **응용 프로그램 설정**을 클릭하여 포털에서 구성할 수 설정 유형의 예를 볼 수 있습니다.
 
@@ -290,7 +290,7 @@
 
 	SSL 및 사용자만의 도메인(예: contoso.azurewebsites.net가 아닌 www.contoso.com 사용)을 사용하는 방법에 대한 자세한 내용은 다음 리소스를 참조하세요.
 
-	* [Azure 웹 사이트에 대한 사용자 지정 도메인 이름 구성](web-sites-custom-domain-name.md) 
+	* [Azure 웹 사이트에 대한 사용자 지정 도메인 이름 구성](web-sites-custom-domain-name.md)
 	* [Azure 웹 사이트에 HTTPS 사용](web-sites-configure-ssl-certificate.md)
 
 * 유휴 시간 제한 후 절전 모드 해제 대기 시간을 방지하는 방법
@@ -309,11 +309,11 @@
 
 * [리소스 그룹을 선택하거나 만드는 방법](../azure-preview-portal-using-resource-groups.md)
 
-	  
+
 
 ## 변경된 내용
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.
 * 이전 포털에서 새 포털로의 변경에 대한 지침은 [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
-
-<!--HONumber=52-->
  
+
+<!---HONumber=62-->

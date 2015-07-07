@@ -1,55 +1,55 @@
 
-This section shows you how to install a SQL Server Express, enable TCP/IP, set a static port, and create a database that can be used with Hybrid Connections.  
+이 섹션에서는 SQL Server Express를 설치하고 TCP/IP를 활성화하고 정적 포트를 설정하고 하이브리드 연결과 함께 사용할 수 있는 데이터베이스를 생성하는 방법을 보여줍니다.
 
-###Install SQL Server Express
+###SQL Server Express 설치
 
-To use an on-premises SQL Server or SQL Server Express database with a hybrid connection, TCP/IP needs to be enabled on a static port. Default instances on SQL Server use static port 1433, whereas named instances do not. Because of this, we will install the default instance. If you already have the default instance of SQL Server Express installed, you can skip this section.
+하이브리드 연결을 사용하여 온-프레미스 SQL Server 또는 SQL Server Express 데이터베이스를 사용하려면 TCP/IP를 고정 포트에서 사용할 수 있어야 합니다. SQL Server의 기본 인스턴스에서는 고정 포트 1433을 사용하는 반면 명명된 인스턴스에서는 이 포트를 사용하지 않습니다. 이러한 이유 때문에 기본 인스턴스를 설치하겠습니다. 이미 SQL Server Express의 기본 인스턴스가 설치되어 있다면 이 섹션을 건너뛸 수 있습니다.
 
-1. To install SQL Server Express, run the **SQLEXPRWT_x64_ENU.exe** or **SQLEXPR_x86_ENU.exe** file that you downloaded. The SQL Server Installation Center wizard appears.
+1. SQL Server Express를 설치하기 위해 다운로드한 **SQLEXPRWT_x64_ENU.exe** 또는 **SQLEXPR_x86_ENU.exe** 파일을 실행합니다. SQL Server 설치 센터 마법사가 나타납니다.
 	
-2. Choose **New SQL Server stand-alone installation or add features to an existing installation**, follow the instructions, accepting the default choices and settings, until you get to the **Instance Configuration** page.
+2. **새 SQL Server 독립 실행형 설치 또는 기존 설치**에 기능 추가를 클릭한 다음 **인스턴스 구성** 페이지가 나타날 때까지 지침에 따라 기본 선택 및 설정을 수락합니다.
 	
-3. On the **Instance Configuration** page, choose **Default instance**, then accept the default settings on the **Server Configuration** page.
+3. **인스턴스 구성** 페이지에서 **기본 인스턴스**를 선택하고 **서버 구성** 페이지에서 기본 설정을 수락합니다.
 
-	>[AZURE.NOTE]If you already have a default instance of SQL Server installed, you can skip to the next section and use this instance with Hybrid Connections. 
+	>[AZURE.NOTE]이미 SQL Server의 기본 인스턴스가 설치되어 있다면 다음 섹션으로 건너뛰어서 Hybrid Connection과 함께 이 인스턴스를 사용할 수 있습니다.
 	
-5. On the **Database Engine Configuration** page, under **Authentication Mode**, choose **Mixed Mode (SQL Server authentication and Windows authentication)**, and provide a secure password for the built-in **sa** administrator account.
+5. **데이터베이스 엔진 구성** 페이지의 **인증 모드**에서 **혼합 모드(SQL Server 인증 및 Windows 인증)**를 선택하고 기본 제공 ** sa** 관리자 계정에 대한 보안 암호를 입력합니다.
 	
-	In this tutorial, you will be using SQL Server authentication. Be sure to remember the password that you provide, because you will need it later.
+	이 자습서에서는 SQL Server 인증을 사용합니다. 나중에 필요하므로, 입력하는 암호는 기억해 두어야 합니다.
 	
-6. Finish the wizard to complete the installation.
+6. 마법사를 끝내서 설치를 완료합니다.
 
-###Enable TCP/IP and setting a static port
+###TCP/IP 사용 및 정적 포트 설정
 
-This section uses SQL Server Configuration Manager, which was installed when you installed SQL Server Express, to enable TCP/IP and set a static IP address. 
+이 섹션에서는 SQL Server Express를 설치할 때 설치된 SQL Server 구성 관리자를 사용하여 TCP/IP를 사용하고 정적 IP 주소를 설정합니다.
 
-1. Follow the steps in [Enable TCP/IP Network Protocol for SQL Server](http://technet.microsoft.com/library/hh231672%28v=sql.110%29.aspx) to enable TCP/IP access to the instance.
+1. [SQL Server에 대한 TCP/IP 네트워크 프로토콜 사용](http://technet.microsoft.com/library/hh231672%28v=sql.110%29.aspx)에 있는 단계를 따라 인스턴스에 대한 TCP/IP 액세스를 사용합니다.
 
-2. (Optional) If you are not able to use the default instance, you must follow the steps in [Configure a Server to Listen on a Specific TCP Port ](https://msdn.microsoft.com/library/ms177440.aspx) to set a static port for the instance. If you complete this step, you will connect using the new port that you define, instead of port 1433.
+2. (선택 사항) 기본 인스턴스를 사용할 수 없다면 [특정 TCP 포트로 수신하도록 서버 구성](https://msdn.microsoft.com/library/ms177440.aspx)의 단계를 따라 인스턴스에 대한 정적 포트를 설정합니다. 이 단계를 완료하면 포트 1433 대신에 정의하는 새 포트를 사용하여 연결됩니다.
 
-3. (Optional) If needed, add exceptions in the firewall to allow remote access to the SQL Server process (sqlservr.exe).
+3. (선택 사항) 필요한 경우 SQL Server 프로세스 (sqlservr.exe)에 원격 액세스를 허용하도록 방화벽에서 예외를 추가합니다.
 
-###Create a new database in the on-premises SQL Server instance
+###온-프레미스 SQL Server 인스턴스에 새 데이터베이스 만들기
 
-1. In SQL Server Management Studio, connect to the SQL Server you just installed. (If the **Connect to Server** dialog does not appear automatically, navigate to **Object Explorer** in the left pane, click **Connect**, and then click **Database Engine**.) 	
+1. SQL Server Management Studio에서 방금 설치한 SQL Server에 연결합니다. (**서버에 연결** 대화 상자가 자동으로 나타나지 않으면 왼쪽 창의 **개체 탐색기**로 이동하고 **연결**을 클릭한 후 **데이터베이스 엔진**을 클릭합니다.) 	
 
-	![Connect to Server](./media/hybrid-connections-create-on-premises-database/A04SSMSConnectToServer.png)
+	![서버에 연결](./media/hybrid-connections-create-on-premises-database/A04SSMSConnectToServer.png)
 	
-	For **Server type**, choose **Database Engine**. For **Server name**, you can use **localhost** or the name of the computer where you installed SQL Server. Choose **SQL Server authentication**, and supply the password for the sa login that you created earlier. 
+	**서버 유형**으로 **데이터베이스 엔진**을 선택합니다. **서버 이름**으로 **localhost** 또는 SQL Server를 설치한 컴퓨터의 이름을 사용할 수 있습니다. **SQL Server 인증**을 선택한 다음 앞서 만든 sa 로그인에 대한 암호를 입력합니다.
 	
-2. To create a new database by using SQL Server Management Studio, right-click **Databases** in Object Explorer, and then click **New Database**.
+2. SQL Server Management Studio를 사용하여 새 데이터베이스를 만들려면 개체 탐색기에서 **데이터베이스**를 마우스 오른쪽 단추로 클릭한 다음 **새 데이터베이스**를 클릭합니다.
 	
-3. In the **New Database** dialog, type `OnPremisesDB`, and then click **OK**. 
+3. **새 데이터베이스** 대화 상자에 `OnPremisesDB`를 입력하고 **OK**를 클릭합니다.
 	
-4. In Object Explorer, if you expand **Databases**, you will see that the new database is created.
+4. 개체 탐색기에서 **데이터베이스**를 확장하면 새로운 데이터베이스가 생성된 것을 볼 수 있습니다.
 
-###Create a new SQL Server login and set permissions
+###새 SQL Server 로그인 만들기 및 사용 권한 설정
 
-Finally, you will create a new SQL Server login with restricted permissions. Your Azure service will connect to the on-premise SQL Server using this login instead of the built-in sa login, which has full permissions on the server.
+마지막으로 제한된 권한으로 새 SQL Server 로그인을 만듭니다. Azure 서비스는 서버에 대한 모든 권한을 가진 기본 제공 sa 로그인 대신 이 로그인을 사용하여 온-프레미스 SQL Server에 연결합니다.
 
-1. In SQL Server Management Studio Object Explorer, right-click the **OnPremisesDB** database and click **New Query**.
+1. SQL Server Management Studio 개체 탐색기에서 마우스 오른쪽 단추로 **OnPremisesDB** 데이터베이스를 클릭하고 **새 쿼리**를 클릭합니다.
 
-2.  Paste the following TSQL query into the query window.
+2.  다음 TSQL 쿼리를 쿼리 창에 붙여넣습니다.
 
 		USE [master]
 		GO
@@ -74,7 +74,8 @@ Finally, you will create a new SQL Server login with restricted permissions. You
 		GRANT CREATE SCHEMA TO [HybridConnectionLogin]
 		GO  
    
-3. In the above script, replace the string `<**secure_password**>` with a secure password for the new *HybridConnectionsLogin*.
+3. 위의 스크립트에서 `<**secure_password**>` 문자열을 새 *HybridConnectionsLogin*에 대한 보안 암호로 대체합니다.
 
-4. **Execute** the query to create the new login and grant the required permissions in the on-premises database.
+4. 쿼리를 **실행**하여 새 로그인을 만들고 온-프레미스 데이터베이스에 필요한 권한을 부여합니다.
 
+<!---HONumber=62-->

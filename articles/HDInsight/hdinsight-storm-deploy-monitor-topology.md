@@ -1,6 +1,6 @@
 <properties
-   pageTitle="HDInsight에서 Storm 토폴로지 배포 및 관리 | Azure"
-   description="HDInsight에서 Apache Storm에 포함된 Storm 대시보드를 사용하여 Storm 토폴로지를 배포, 모니터링 및 관리하는 방법에 대해 배웁니다."
+   pageTitle="HDInsight | Microsoft Azure에서 Apache Storm 토폴로지 배포 및 관리"
+   description="HDInsight에서 Storm 대시보드를 사용하여 Apache Storm 토폴로지를 배포, 모니터링 및 관리하는 방법에 대해 배웁니다. Visual Studio용 Hadoop 도구를 사용합니다."
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
@@ -16,13 +16,13 @@
    ms.date="04/28/2015"
    ms.author="larryfr"/>
 
-# HDInsight에서 Apache Storm 토폴로지 배포 및 관리
+#HDInsight에서 Apache Storm 토폴로지 배포 및 관리
 
 Storm 대시보드를 사용하면 사용자의 웹 브라우저를 사용하는 HDInsight 클러스터에 Apache Storm 토폴로지를 쉽게 배포 및 실행할 수 있습니다. 실행 중인 토폴로지를 모니터링 및 관리하기 위해 대시보드를 사용할 수도 있습니다. Visual Studio를 사용하는 경우 Visual Studio용 HDInsight 도구는 Visual Studio에서 유사한 기능을 제공합니다.
 
 Storm 대시보드와 HDInsight 도구의 Storm 기능은 사용자 고유의 모니터링 및 관리 솔루션을 만들기 위해 사용할 수 있는 Storm REST API를 필요로 합니다.
 
-## 필수 조건
+##필수 조건
 
 * **HDInsight의 Apache Storm** - 클러스터를 만드는 단계는 <a href="../hdinsight-storm-getting-started/" target="_blank">HDInsight에서 Apache Storm 시작</a>을 참조하세요.
 
@@ -40,7 +40,7 @@ Storm 대시보드와 HDInsight 도구의 Storm 기능은 사용자 고유의 �
 
 	> [AZURE.NOTE]현재 Visual Studio용 HDInsight 도구는 HDInsight 클러스터 버전 3.2의 Storm만 지원합니다.
 
-## Storm 대시보드
+##Storm 대시보드
 
 Storm 대시보드는 Storm 클러스터에서 사용할 수 있습니다. URL은 **https://&lt;clustername>.azurehdinsight.net/**(여기서 **clustername**은 HDInsight의 Storm 클러스터 이름)입니다. Azure 포털의 클러스터 대시보드에서 **Storm 대시보드** 링크를 사용하여 대시보드에 액세스할 수도 있습니다.
 
@@ -50,7 +50,7 @@ Storm 대시보드의 위쪽에서 **토폴로지 제출**을 선택합니다. �
 
 ![토폴로지 제출 페이지][storm-dashboard-submit]
 
-### Storm UI
+###Storm UI
 
 Storm 대시보드에서 **Storm UI** 링크를 선택합니다. 실행 중인 토폴로지뿐 아니라 클러스터에 대한 정보가 표시됩니다.
 
@@ -58,7 +58,7 @@ Storm 대시보드에서 **Storm UI** 링크를 선택합니다. 실행 중인 �
 
 > [AZURE.NOTE]일부 버전의 Internet Explorer에서는 처음으로 방문한 후 rm UI가 새로 고쳐지지 않습니다. 예를 들어 제출한 새 토폴로지가 표시되지 않거나 이전에 비활성화한 토폴로지가 활성 상태로 표시될 수 있습니다. Microsoft는 이 문제를 알고 있으며 해결 방법을 찾기 위해 노력하고 있습니다.
 
-#### 기본 페이지
+####기본 페이지
 
 Storm UI의 기본 페이지에서는 다음 정보를 제공합니다.
 
@@ -70,7 +70,7 @@ Storm UI의 기본 페이지에서는 다음 정보를 제공합니다.
 
 * **Nimbus 구성**: 클러스터에 대한 Nimbus 구성입니다.
 
-#### 토폴로지 요약
+####토폴로지 요약
 
 **토폴로지 요약** 섹션의 링크를 선택하면 토폴로지에 대한 다음 정보가 표시됩니다.
 
@@ -96,7 +96,7 @@ Storm UI의 기본 페이지에서는 다음 정보를 제공합니다.
 
 * **토폴로지 구성**: 선택한 토폴로지의 구성입니다.
 
-#### Spout 및 Bolt 요약
+####Spout 및 Bolt 요약
 
 **Spout** 또는 **Bolt** 섹션에서 Spout를 선택하면 선택한 항목에 대해 다음 정보가 표시됩니다.
 
@@ -112,7 +112,7 @@ Storm UI의 기본 페이지에서는 다음 정보를 제공합니다.
 
 * **오류**: 이 Spout 또는 Bolt에 대한 오류 정보입니다.
 
-## Visual Studio용 HDInsight 도구
+##Visual Studio용 HDInsight 도구
 
 HDInsight 도구는 Storm 클러스터에 C# 또는 하이브리드 토폴로지를 제출하는 데 사용할 수 있습니다. 다음 단계는 샘플 응용 프로그램을 사용합니다. HDInsight 도구를 사용하여 자신만의 토폴로지 만들기에 대한 자세한 내용은 [Visual Studio용 HDInsight 도구를 사용하여 C# 토폴로지 개발](hdinsight-storm-develop-csharp-visual-studio-topology.md)을 참조하세요.
 
@@ -144,27 +144,27 @@ HDInsight 도구는 Storm 클러스터에 C# 또는 하이브리드 토폴로지
 
 	> [AZURE.NOTE]Storm 토폴로지는 중지되거나 클러스터가 삭제될 때까지 계속 실행됩니다.
 
-## REST API
+##REST API
 
 Storm UI는 REST API의 맨 위에 기본 제공되므로 REST API를 사용하여 유사한 관리 및 모니터링 기능을 수행할 수 있습니다. REST API를 사용하여 Storm 토폴로지를 관리 및 모니터링하는 사용자 지정 도구를 만들 수 있습니다.
 
 자세한 내용은 <a href="https://github.com/apache/storm/blob/master/STORM-UI-REST-API.md" target="_base">Storm UI REST API</a>를 참조하세요. 다음 정보는 HDInsight에서 Apache Storm과 REST API 사용하기에 관한 것입니다.
 
-### 기본 URI
+###기본 URI
 
 HDInsight 클러스터에서 REST API의 기본 URI는 **https://&lt;clustername>.azurehdinsight.net/stormui/api/v1/**(여기서 **clustername**은 HDInsight의 Storm 클러스터 이름)입니다.
 
-### 인증
+###인증
 
 REST API 요청에서는 **기본 인증**을 사용해야 하므로 HDInsight 클러스터 관리자 이름 및 암호를 사용합니다.
 
 > [AZURE.NOTE]기본 인증은 일반 텍스트로 전송되기 때문에 클러스터와의 안전한 통신을 위해서는 **항상** HTTPS를 사용해야 합니다.
 
-### 반환 값
+###반환 값
 
 REST API에서 반환되는 정보는 클러스터와 동일한 Azure 가상 네트워크에 있는 클러스터 또는 가상 컴퓨터 내에서만 사용할 수 있습니다. 예를 들어, Zookeeper 서버에 대해 반환된 FQDN(정규화된 도메인 이름)은 인터넷에서 액세스할 수 없습니다.
 
-## 다음 단계
+##다음 단계
 
 Storm 대시보드를 사용하여 토폴로지를 배포 및 모니터링하는 방법을 배웠으므로 이제 다음 방법을 알아봅니다.
 
@@ -177,5 +177,6 @@ Storm 대시보드를 사용하여 토폴로지를 배포 및 모니터링하는
 [hdinsight-dashboard]: ./media/hdinsight-storm-deploy-monitor-topology/dashboard-link.png
 [storm-dashboard-submit]: ./media/hdinsight-storm-deploy-monitor-topology/submit.png
 [storm-dashboard-ui]: ./media/hdinsight-storm-deploy-monitor-topology/storm-ui-summary.png
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

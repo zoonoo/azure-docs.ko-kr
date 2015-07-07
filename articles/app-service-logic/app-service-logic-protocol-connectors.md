@@ -105,7 +105,7 @@ Azure 포털을 사용하여 커넥터를 만들 수 있습니다.
 
 Azure 마켓플레이스를 사용하여 SMTP 커넥터를 만드는 과정을 살펴보겠습니다.
 
-1. Microsoft Azure [포털](https://manage.windowsazure.com)에 로그인합니다.
+1. [Microsoft Azure Preview 포털](https://portal.azure.com)에 로그인합니다.
 2. **새로 만들기** > **웹 + 모바일** > **Azure 마켓플레이스**를 선택합니다.
 3. **검색 상자**에 **프로토콜**을 입력하고 **Enter** 키를 누릅니다. 목록에서 선택할 수도 있습니다. 선택하면 새 블레이드나 창이 열립니다. **만들기**를 선택합니다. 
 4. 다음과 같은 속성을 입력합니다.
@@ -130,7 +130,7 @@ Microsoft Azure 앱 서비스는 이러한 커넥터를 사용할 수 있는 다
 
 *논리* 앱 내에서 커넥터를 사용하려는 경우 목록에서 미리 구성된 커넥터를 선택하고 디자인 워크플로에 추가한 다음 필요에 따라 구성을 변경하면 사용할 준비가 완료됩니다.
 
-다음 단계를 따르려면 웹앱, 모바일 앱 또는 논리 앱이 필요합니다. 특정 단계는 <>을(를) 참조하세요. 응용 프로그램을 사용할 수 있게 되면 커넥터를 추가합니다. 방법은 다음과 같습니다.
+다음 단계를 따르려면 웹앱, 모바일 앱 또는 논리 앱이 필요합니다. 응용 프로그램을 사용할 수 있게 되면 커넥터를 추가합니다. 방법은 다음과 같습니다.
 
 다음 단계에 따라 논리 앱에 커넥터를 추가합니다.
 
@@ -149,11 +149,12 @@ Microsoft Azure 앱 서비스는 이러한 커넥터를 사용할 수 있는 다
 커넥터는 OAuth 또는 사용자 이름 및 암호를 사용합니다.
 
 ## 논리 앱 및 웹앱 알아보기
-[논리 앱 정의](app-service-logic-what-are-logic-apps.md) | [Azure 앱 서비스의 웹 사이트 및 웹앱](../app-service-web/app-service-web-app-azure-portal.md) |
+[논리 앱 정의](app-service-logic-what-are-logic-apps.md) | [Azure 앱 서비스의 웹 사이트 및 웹앱](../app-service-web/app-service-web-overview.md) |
 
 
 ## 추가 커넥터
 
 [BizTalk 통합 커넥터](app-service-logic-integration-connectors.md) | [엔터프라이즈 커넥터](app-service-logic-enterprise-connectors.md) | [B2B 커넥터](app-service-logic-b2b-connectors.md) | [소셜 커넥터](app-service-logic-social-connectors.md) | [앱 및 데이터 서비스 커넥터](app-service-logic-data-connectors.md) | [커넥터 및 API 앱 목록](app-service-logic-connectors-list.md)<br/><br/> [커넥터 및 BizTalk API 앱 정의](app-service-logic-what-are-biztalk-api-apps.md)
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

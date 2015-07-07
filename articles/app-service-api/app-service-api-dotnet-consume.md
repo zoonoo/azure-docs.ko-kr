@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/19/2015" 
-	ms.author="bradyg;tarcher"/>
+	ms.date="05/16/2015" 
+	ms.author="tdykstra"/>
 
 # .NET 클라이언트의 Azure 앱 서비스에서 API 앱 사용 
 
@@ -27,9 +27,11 @@
 
 이러한 자습서 섹션은 각각 독립적입니다. 따라서 첫 번째 섹션의 단계를 완료하지 않고도 두 번째 시나리오에 대한 지침을 따를 수 있습니다.
 
+**내부** API 앱을 호출하는 방법에 대한 내용은 [.NET 클라이언트에서 내부 API 앱 소비](app-service-api-dotnet-consume-internal.md)를 참조하십시오.
+
 ## 필수 조건
 
-이 자습서에서는 프로젝트를 만들고 Visual Studio에서 프로젝트에 코드를 추가하는 방법 및 [Azure Preview포털에서 API 앱을 관리하는](../app-service-api-apps-manage-in-portal.md) 방법을 잘 알고 있다고 가정합니다.
+이 자습서에서는 프로젝트를 만들고 Visual Studio에서 프로젝트에 코드를 추가하는 방법 및 [Azure Preview포털에서 API 앱을 관리하는](app-service-api-apps-manage-in-portal.md) 방법을 잘 알고 있다고 가정합니다.
 
 이 문서의 프로젝트 및 코드 샘플은 다음 문서에서 생성, 배포 및 보호하는 API 앱 프로젝트를 기반으로 합니다.
 
@@ -110,7 +112,7 @@ API 앱을 호출하려면 다음 예제와 같이 클라이언트 개체를 만
 
 3. Ctrl+F5를 눌러 응용 프로그램을 실행합니다.
 
-	![Generation Complete](./media/app-service-api-dotnet-consume/consoleappoutput.png)
+	![생성 완료](./media/app-service-api-dotnet-consume/consoleappoutput.png)
 
 ## Windows 데스크톱 응용 프로그램에서 인증된 호출
 
@@ -201,6 +203,6 @@ Azure API 앱은 클라이언트 인증 흐름도 지원합니다. 클라이언�
 이 문서에서는 .NET 클라이언트에서 **공용(인증됨)** 및 **공용(익명)** 액세스 수준으로 설정된 API 앱을 사용하는 방법을 보여 주었습니다.
 
 .NET 클라이언트에서 API 앱을 호출하는 코드에 대한 추가 예제를 보려면 [Azure Cards](https://github.com/Azure-Samples/API-Apps-DotNet-AzureCards-Sample) 샘플 응용 프로그램을 다운로드하세요.
-
-<!--HONumber=52-->
  
+
+<!---HONumber=62-->

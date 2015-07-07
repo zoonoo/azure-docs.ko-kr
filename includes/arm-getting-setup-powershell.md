@@ -77,4 +77,4 @@ Azure 리소스 관리자 모듈을 사용하려면 기본 Azure 명령 집합�
 
 > [AZURE.NOTE]**Switch-AzureMode AzureServiceManagement** 명령을 사용하여 기본 명령 집합으로 다시 전환할 수 있습니다.
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

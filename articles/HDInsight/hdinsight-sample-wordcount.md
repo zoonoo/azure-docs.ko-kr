@@ -1,5 +1,5 @@
 <properties
-	pageTitle="HDInsight에서 Hadoop MapReduce 단어 개수 예제 실행 | Azure"
+	pageTitle="HDInsight에서 Hadoop MapReduce 단어 개수 예제 | Microsoft Azure"
 	description="HDInsight의 Hadoop 클러스터에서 MapReduce 단어 개수 예제를 실행합니다. Java로 작성된 프로그램이 텍스트 파일에 있는 단어 수를 계산합니다."
 	editor="cgronlun"
 	manager="paulettm"
@@ -13,13 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2015" 
+	ms.date="06/15/2015" 
 	ms.author="bradsev"/>
 
-# HDInsight의 Hadoop 클러스터에서 MapReduce 단어 개수 예제를 실행합니다.
+#HDInsight에서 Java로 작성된 Hadoop 클러스터에서 MapReduce 단어 개수 예제를 실행합니다.
 
 이 자습서에서는 HDInsight의 Hadoop 클러스터에서 MapReduce 단어 개수 예제를 실행하는 방법을 보여 줍니다. 프로그램은 Java로 작성되었습니다. 이 프로그램에서는 텍스트 파일에서 단어 발생 수를 계산하고 발생 빈도와 쌍을 이룬 각 단어가 포함된 새 텍스트 파일을 출력합니다. 이 샘플에서 분석한 텍스트 파일은 "The Notebooks of Leonardo Da Vinci"의 Project Gutenberg 전자책 버전입니다.
 
+> [AZURE.NOTE]이 문서의 단계에서는 Windows 클라이언트가 필요합니다. Linux 기반 HDInsight 클러스터와 함께 Linux, OS X 또는 Unix 클라이언트에서 단어 개수 예제를 사용하는 단계는 [SSH와 함께 HDInsight에서 Hadoop과 MapReduce 사용](hdinsight-hadoop-use-mapreduce-ssh.md) 또는 [Curl을 사용하여 HDInsight에서 Hadoop과 MapReduce 사용](hdinsight-hadoop-use-mapreduce-curl.md)을 참조하세요.
 
 **다음 내용을 배웁니다.**
 
@@ -29,13 +30,15 @@
 
 **필수 조건**:
 
-- Azure 계정이 있어야 합니다. 계정 등록 옵션은 [Azure 평가판 사용](http://azure.microsoft.com/pricing/free-trial/) 페이지를 참조하세요.
+- **Azure 구독**. [Azure 무료 평가판](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
 
-- HDInsight 클러스터를 미리 프로비전해야 합니다. 이 클러스터를 만드는 여러 방법에 대한 자세한 내용은 [Azure HDInsight 시작][hdinsight-get-started] 또는 [HDInsight 클러스터 프로비전](hdinsight-provision-clusters.md)을 참조하세요.
+- **HDInsight 클러스터**. 이 클러스터를 만드는 여러 방법에 대한 자세한 내용은 [Azure HDInsight 시작][hdinsight-get-started] 또는 [HDInsight 클러스터 프로비전](hdinsight-provision-clusters.md)을 참조하세요.
 
-- Azure PowerShell을 설치하고 계정과 함께 사용하도록 구성해야 합니다. 작업 방법에 대한 지침은 [Azure PowerShell 설치 및 구성][powershell-install-configure]을 참조하세요.
+- **Azure PowerShell이 포함된 워크스테이션**. [Azure PowerShell 설치 및 사용](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/)을 참조하세요.
 
-<h2><a id="run-sample"></a>Azure PowerShell을 사용하여 샘플 실행</h2>
+
+
+## <a id="run-sample"></a>Azure PowerShell을 사용하여 샘플 실행</h2>
 
 **MapReduce 작업을 제출하려면**
 
@@ -95,7 +98,7 @@
 		# Download the job output to the workstation
 		Get-AzureStorageBlobContent -Container $ContainerName -Blob example/data/WordCountOutput/part-r-00000 -Context $storageContext -Force
 
-	*/example/data/WordCountOutput* 폴더는 MapReduce 작업을 실행할 때 지정된 출력 폴더입니다. *part-r-00000*은 MapReduce 작업 출력의 기본 파일 이름입니다. 로컬 폴더의 동일한 폴더 구조에 파일이 다운로드됩니다. 예를 들어 다음 스크린샷에서 현재 폴더는 C 루트 폴더입니다. *C:\\example\\data\\WordCountOutput* 폴더에 파일이 다운로드됩니다.
+	*/example/data/WordCountOutput* 폴더는 MapReduce 작업을 실행할 때 지정된 출력 폴더입니다. *part-r-00000*은 MapReduce 작업 출력의 기본 파일 이름입니다. 로컬 폴더의 동일한 폴더 구조에 파일이 다운로드됩니다. 예를 들어 다음 스크린샷에서 현재 폴더는 C 루트 폴더입니다. *C:\example\data\WordCountOutput* 폴더에 파일이 다운로드됩니다.
 
 5. 다음 명령을 실행하여 MapReduce 작업 출력 파일을 인쇄합니다.
 
@@ -110,7 +113,7 @@ WordCount 스크립트의 출력이 명령 창에 표시됩니다.
 
 MapReduce 작업의 출력 파일은 변경할 수 없습니다. 따라서 이 샘플을 다시 실행하는 경우 출력 파일의 이름을 변경해야 합니다.
 
-<h2><a id="java-code"></a>WordCount MapReduce 프로그램의 Java 코드</h2>
+## <a id="java-code"></a>WordCount MapReduce 프로그램의 Java 코드</h2>
 
 
 
@@ -186,7 +189,7 @@ MapReduce 작업의 출력 파일은 변경할 수 없습니다. 따라서 이 �
 
 이 자습서에서는 Azure PowerShell을 사용하여 HDInsight에서 텍스트 파일에 나타나는 단어 수를 계산하는 MapReduce 프로그램의 실행 방법을 알아보았습니다.
 
-<h2><a id="next-steps"></a>다음 단계</h2>
+## <a id="next-steps"></a>다음 단계</h2>
 
 다른 샘플을 실행하고 Azure PowerShell을 사용하여 Azure HDInsight에서 Pig, Hive 및 MapReduce 작업을 사용하는 방법에 대한 지침을 제공하는 자습서는 다음 항목을 참조하세요.
 
@@ -210,8 +213,9 @@ MapReduce 작업의 출력 파일은 변경할 수 없습니다. 따라서 이 �
 
 [hdinsight-get-started]: ../hdinsight-get-started.md
 
-[Powershell-install-configure]: ../install-configure-powershell.md
+[powershell-install-configure]: ../install-configure-powershell.md
 
 [image-hdi-sample-wordcount-output]: ./media/hdinsight-sample-wordcount/HDI.Sample.WordCount.Output.png
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

@@ -69,6 +69,8 @@
 
 그러나 Azure API 앱의 새 프로젝트 템플릿은 API 테스트 페이지를 사용하지 않도록 설정합니다. API 앱 프로젝트 템플릿을 사용하여 API 앱 프로젝트를 만든 경우 테스트 페이지를 사용하려면 다음 단계를 수행해야 합니다.
 
+**참고:** API 앱을 *공용(익명)*으로 Swagger UI를 사용 가능하도록 배포하는 경우 누구든지 API를 검색하고 호출하는 Swagger UI를 사용할 수 있습니다.
+
 1. *App_Start/SwaggerConfig.cs* 파일을 열고 **EnableSwaggerUI**를 검색합니다.
 
 	![](./media/app-service-api-define-api-app/12-enable-swagger-ui-with-box.png)
@@ -95,4 +97,4 @@ API 테스트 페이지를 보려면 다음 단계를 수행합니다.
 
 	![](./media/app-service-api-define-api-app/15-swagger-ui-post-test.png)
 
-<!--HONumber=54-->
+<!---HONumber=62-->

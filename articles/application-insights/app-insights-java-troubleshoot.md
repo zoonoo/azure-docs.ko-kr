@@ -2,7 +2,7 @@
 	pageTitle="Java 웹 프로젝트에서 Application Insights 문제 해결" 
 	description="문제 해결 가이드 및 질문과 대답입니다." 
 	services="application-insights" 
-    documentationCenter=""
+    documentationCenter="java"
 	authors="alancameronwills" 
 	manager="keboyd"/>
 
@@ -12,10 +12,10 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/24/2015" 
+	ms.date="03/30/2015" 
 	ms.author="awills"/>
  
-# Java용 Application Insights 문제 해결 및 Q&A
+# Java용 Application Insights 문제 해결과 질문 및 답변
 
 [Java의 Visual Studio Application Insights][java]와 관련된 질문이나 문제가 있나요? 다음은 몇 가지 팁입니다.
 
@@ -24,7 +24,7 @@
 
 *Eclipse에서 Maven 또는 Gradle을 통해 Application Insights SDK를 추가할 때 빌드 또는 체크섬 유효성 검사 오류가 표시됩니다.*
 
-* 종속성 <version> 요소가 와일드카드 문자와 함께 패턴을 사용하는 경우(예: <version>[0.9,)</version>) <version>0.9.1</version>과 같이 특정 버전을 대신 지정합니다.
+* 종속성 <version> 요소가 와일드카드 문자가 포함된 패턴을 사용하는 경우(예: (Maven) `<version>[0.9,)</version>` 또는 (Gradle) `version:'0.9.+'`) `0.9.3`과 같이 특정 버전을 대신 지정해 보세요.
 
 ## 데이터 없음 
 
@@ -35,7 +35,17 @@
 * xml 파일에 `<DisableTelemetry>true</DisableTelemetry>` 노드가 없는지 확인합니다.
 * 방화벽에서 dc.services.visualstudio.com 및 f5.services.visualstudio.com으로 나가는 트래픽에 대해 TCP 포트 80 및 443을 열어야 할 수 있습니다.
 * Microsoft Azure 시작 보드에서 서비스 상태 맵을 살펴보세요. 어떤 경고 표시가 있는 경우 정상으로 돌아갈 때까지 기다린 후 Application Insights 응용 프로그램 블레이드를 닫고 다시 엽니다.
-* ApplicationInsights.xml 파일(프로젝트의 리소스 폴더에 있음)의 루트 노드 아래에 <SDKLogger /> 요소를 추가하여 IDE 콘솔 창에 기록을 켜고 앞에 [Error]가 붙은 항목을 확인합니다.
+* ApplicationInsights.xml 파일(프로젝트의 리소스 폴더에 있음)의 루트 노드 아래에 `<SDKLogger />` 요소를 추가하여 IDE 콘솔 창에 기록을 켜고 앞에 [Error]가 붙은 항목을 확인합니다.
+* 콘솔의 출력 메시지에서 “구성 파일을 찾았습니다.”라는 문을 찾아 ApplicationInsights.xml 파일이 Java SDK에 의해 성공적으로 로드되었음을 확인합니다.
+* 구성 파일이 없으면 출력 메시지를 확인하여 구성 파일이 검색되고 있는 위치를 확인하고, ApplicationInsights.xml이 그러한 검색 위치 중 한 위치에 있는지 확인합니다. 일반적으로 구성 파일을 Application Insights SDK JAR 주위에 배치할 수 있습니다. 예: Tomcat에서는 WEB-INF/lib 폴더를 의미합니다.
+
+
+
+#### 데이터를 보는 데 중지되었습니다.
+
+* [상태 블로그](http://blogs.msdn.com/b/applicationinsights-status/)를 참조하세요.
+* 데이터 요소의 월간 할당량에 도달했습니까? 설정/할당량 및 가격을 열어 알아봅니다. 그렇다면 계획을 업그레이드하거나 추가 용량에 대한 비용을 지불할 수 있습니다. [가격 체계](http://azure.microsoft.com/pricing/details/application-insights/)를 참조하세요.
+
 
 
 ## 사용 현황 데이터 없음
@@ -44,7 +54,7 @@
 
 서버에서 원격 분석을 보내도록 앱을 설정했습니다. 이제 다음 단계로 [웹 브라우저에서 원격 분석을 보내도록 웹 페이지를 설정][usage]해야 합니다.
 
-또는 클라이언트가 [휴대폰이나 기타 장치][platforms]의 앱인 경우 해당 장치에서 원격 분석을 보낼 수 있습니다. 
+또는 클라이언트가 [휴대폰이나 기타 장치][platforms]의 앱인 경우 해당 장치에서 원격 분석을 보낼 수 있습니다.
 
 동일한 계측 키를 사용하여 클라이언트 및 서버 원격 분석을 둘 다 설정합니다. 데이터가 동일한 Application Insights 리소스에 표시되며, 클라이언트와 서버의 이벤트에 상관 관계를 지정할 수 있습니다.
 
@@ -60,7 +70,7 @@
     config.setTrackingIsDisabled(true);
 
 
-**또는** 
+**또는**
 
 ApplicationInsights.xml(프로젝트의 리소스 폴더에 있음)을 업데이트합니다. 루트 노드 아래에 다음을 추가합니다.
 
@@ -73,7 +83,7 @@ XML 메서드를 사용하여 값 변경 시 응용 프로그램을 다시 시�
 *내 프로젝트에서 데이터를 보내는 Azure 리소스를 변경하려면 어떻게 해야 하나요?*
 
 * [새 리소스의 계측 키를 가져옵니다.][java]
-* Azure Toolkit for Eclipse를 사용하여 프로젝트에 Application Insights를 추가한 경우 웹 프로젝트를 마우스 오른쪽 단추로 클릭하고 **Azure**, **Application Insights 구성**을 차례로 선택한 다음 키를 변경합니다.
+* Azure Toolkit for Eclipse를 사용하여 프로젝트에 Application Insights를 추가한 경우 웹 프로젝트를 마우스 오른쪽 단추로 클릭하고**Azure**, **Application Insights 구성**을 차례로 선택한 다음 키를 변경합니다.
 * 그렇지 않으면 프로젝트의 리소스 폴더에 있는 ApplicationInsights.xml에서 키를 업데이트합니다.
 
 
@@ -91,7 +101,7 @@ XML 메서드를 사용하여 값 변경 시 응용 프로그램을 다시 시�
 
 *내 인트라넷의 서버를 모니터링할 수 있나요?*
 
-예, 서버가 공용 인터넷을 통해 Application Insights 포털에 원격 분석을 보낼 수 있는 경우 가능합니다. 
+예, 서버가 공용 인터넷을 통해 Application Insights 포털에 원격 분석을 보낼 수 있는 경우 가능합니다.
 
 방화벽에서 dc.services.visualstudio.com 및 f5.services.visualstudio.com으로 나가는 트래픽에 대해 TCP 포트 80 및 443을 열어야 할 수 있습니다.
 
@@ -116,10 +126,16 @@ XML 메서드를 사용하여 값 변경 시 응용 프로그램을 다시 시�
 
 * [스택 오버플로](http://stackoverflow.com/questions/tagged/ms-application-insights)
 
-[AZURE.INCLUDE [app-insights-learn-more](../../includes/app-insights-learn-more.md)]
+<!--Link references-->
 
+[availability]: app-insights-monitor-web-app-availability.md
+[data]: app-insights-data-retention-privacy.md
+[java]: app-insights-java-get-started.md
+[javalogs]: app-insights-java-trace-logs.md
+[platforms]: app-insights-platforms.md
+[track]: app-insights-custom-events-metrics-api.md
+[usage]: app-insights-web-track-usage.md
 
+ 
 
-
-
-<!--HONumber=49--> 
+<!---HONumber=62-->

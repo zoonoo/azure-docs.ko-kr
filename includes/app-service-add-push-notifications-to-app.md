@@ -1,14 +1,14 @@
 
-## <a id="add-push"></a>Add Push Notifications to App
+## <a id="add-push"></a>앱에 푸시 알림 추가
 
-* In QSAppDelegate.m, import the iOS SDK and QSTodoService.h:
+* QSAppDelegate.m에서 iOS SDK 및 QSTodoService.h를 가져옵니다.
 
 ```
         #import <WindowsAzureMobileServices/WindowsAzureMobileServices.h>
         #import "QSTodoService.h"
 ```
 
-* In `didFinishLaunchingWithOptions` in QSAppDelegate.m, insert the following lines right before `return YES;`:
+* QSAppDelegate.m의 `didFinishLaunchingWithOptions`에서 `return YES;` 바로 앞에 다음 줄을 삽입합니다.
 
 ```
         UIUserNotificationSettings* notificationSettings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound categories:nil];
@@ -16,7 +16,7 @@
         [[UIApplication sharedApplication] registerForRemoteNotifications];
 ```
 
-* In QSAppDelegate.m, add the following handler methods. Your app is now updated to support push notifications.
+* QSAppDelegate.m에서 다음 처리기 메서드를 추가합니다. 이제 앱이 푸시 알림을 지원하도록 업데이트되었습니다.
 
 ```
         // Registration with APNs is successful
@@ -56,3 +56,5 @@
             [alert show];
         }
 ```
+
+<!---HONumber=62-->

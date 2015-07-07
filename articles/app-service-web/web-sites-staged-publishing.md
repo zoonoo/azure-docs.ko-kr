@@ -36,7 +36,7 @@
 
 - 연결된 리소스 관리는 프로덕션이 아닌 슬롯에 대해 지원되지 않습니다.
 
-	> [AZURE.NOTE] 특별히 [Azure Preview 포털](http://go.microsoft.com/fwlink/?LinkId=529715)에서는 프로덕션이 아닌 슬롯을 다른 앱 서비스 계획으로 일시적으로 전환함으로써 프로덕션 슬롯에 미칠 수 있는 영향을 방지할 수 있습니다. 프로덕션 슬롯이 아닌 경우에는 두 슬롯을 교환하려면 프로덕션 슬롯과 같은 모드로 다시 한 번 공유해야 합니다.
+	> [AZURE.NOTE]특별히 [Azure Preview 포털](http://go.microsoft.com/fwlink/?LinkId=529715)에서는 프로덕션이 아닌 슬롯을 다른 앱 서비스 계획으로 일시적으로 전환함으로써 프로덕션 슬롯에 미칠 수 있는 영향을 방지할 수 있습니다. 프로덕션 슬롯이 아닌 경우에는 두 슬롯을 교환하려면 프로덕션 슬롯과 같은 모드로 다시 한 번 공유해야 합니다.
 
 <a name="Add"></a>
 ## 웹앱에 배포 슬롯 추가 ##
@@ -48,7 +48,7 @@
 
 	![새 배포 슬롯 추가][QGAddNewDeploymentSlot]
 
-	> [AZURE.NOTE] 웹 앱이 **표준** 또는 **프리미엄** 모드가 아닌 경우 준비된 게시를 사용하려면 지원 모델을 나타내는 메시지를 받게 됩니다. 이때 **업그레이드**를 선택할 수 있는 옵션이 제공되고 계속하기 전에 웹 앱의 **크기 조정** 탭으로 이동합니다.
+	> [AZURE.NOTE]웹 앱이 **표준** 또는 **프리미엄** 모드가 아닌 경우 준비된 게시를 사용하려면 지원 모델을 나타내는 메시지를 받게 됩니다. 이때 **업그레이드**를 선택할 수 있는 옵션이 제공되고 계속하기 전에 웹 앱의 **크기 조정** 탭으로 이동합니다.
 
 2. **슬롯 추가** 블레이드에서 슬롯에 이름을 지정하고, 다른 기존 배포 슬롯으로부터 웹 앱 구성을 복제할 것인지 여부를 선택합니다. 확인 표시를 클릭하여 계속합니다.
 
@@ -96,7 +96,7 @@
 <a name="Swap"></a>
 ## 배포 슬롯을 교환하려면 ##
 
->[AZURE.IMPORTANT] 배포 슬롯에서 프로덕션으로 웹 앱을 교환하기 전에 특정 슬롯이 아닌 모든 설정이 해당 교환 대상에서 원하는 대로 정확히 구성되어야 합니다.
+>[AZURE.IMPORTANT]배포 슬롯에서 프로덕션으로 웹 앱을 교환하기 전에 특정 슬롯이 아닌 모든 설정이 해당 교환 대상에서 원하는 대로 정확히 구성되어야 합니다.
 
 1. 배포 슬롯을 교환하려면 웹앱의 명령 모음 또는 배포 슬롯의 명령 모음에서 **교환** 단추를 클릭합니다. 교환 원본 및 교환 대상이 제대로 설정되어야 합니다. 일반적으로 교환 대상은 프로덕션 슬롯입니다.  
 
@@ -122,7 +122,7 @@
 
 	![][Autoswap2]
 
-	>[AZURE.NOTE] 웹앱에 대한 자동 교환을 테스트하려면 먼저 **자동 교환 슬롯**에서 비 프로덕션 대상 슬롯을 선택하여 기능에 익숙해져야 합니다.
+	>[AZURE.NOTE]웹앱에 대한 자동 교환을 테스트하려면 먼저 **자동 교환 슬롯**에서 비 프로덕션 대상 슬롯을 선택하여 기능에 익숙해져야 합니다.
 
 3. 해당 배포 슬롯에 코드 푸시를 실행합니다. 자동 교환은 짧은 시간 후에 발생하며 업데이트는 대상 슬롯의 URL에 반영됩니다.
 
@@ -192,16 +192,16 @@ Azure PowerShell은 Windows PowerShell을 통해 Azure를 관리하기 위한 cm
 
 ----------
 
-<!-- ======== XPLAT-CLI =========== -->
+<!-- ======== Azure CLI =========== -->
 
 <a name="CLI"></a>
-## 배포 슬롯에 대한 Azure 플랫폼 간 명령줄 인터페이스(xplat-cli) 명령
+## 배포 슬롯에 대한 Azure CLI(Azure 명령줄 인터페이스) 명령
 
-Azure 플랫폼 간 명령줄 인터페이스(xplat-cli)는 Azure 작업을 위한 플랫폼 간 명령을 제공하며, 웹 앱 배포 슬롯을 관리하는 기능을 지원합니다.
+Azure CLI는 Azure 작업을 위한 플랫폼 간 명령을 제공하며, 웹앱 배포 슬롯을 관리하는 기능을 지원합니다.
 
-- xplat-cli 설치 및 구성 지침과 xplat-cli를 Azure 구독에 연결하는 방법에 대한 자세한 내용은 [Azure 플랫폼 간 명령줄 인터페이스 설치 및 구성](../xplat-cli.md)(영문)을 참조하십시오.
+- Azure CLI 설치 및 구성 지침과 Azure CLI를 Azure 구독에 연결하는 방법에 대한 자세한 내용은 [Azure CLI 설치 및 구성](../xplat-cli.md)을 참조하세요.
 
--  xplat-cli에서 Azure 앱 서비스에 사용할 수 있는 명령을 나열하려면 `azure site -h`를 호출합니다.
+-  Azure CLI에서 Azure 앱 서비스에 사용할 수 있는 명령을 나열하려면 `azure site -h`를 호출합니다.
 
 ----------
 ### azure site list
@@ -233,7 +233,7 @@ Azure 플랫폼 간 명령줄 인터페이스(xplat-cli)는 Azure 작업을 위�
 
 ----------
 
->[AZURE.NOTE] Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 시작 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+>[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
 ## 다음 단계 ##
 [Azure 앱 서비스 웹 앱 – 비 프로덕션 배포 슬롯에 대한 웹 액세스 차단](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)
@@ -258,5 +258,6 @@ Azure 플랫폼 간 명령줄 인터페이스(xplat-cli)는 Azure 작업을 위�
 [Autoswap1]: ./media/web-sites-staged-publishing/AutoSwap01.png
 [Autoswap2]: ./media/web-sites-staged-publishing/AutoSwap02.png
 [SlotSettings]: ./media/web-sites-staged-publishing/SlotSetting.png
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

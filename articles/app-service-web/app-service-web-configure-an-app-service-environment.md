@@ -1,14 +1,14 @@
 <properties 
 	pageTitle="앱 서비스 환경을 구성하는 방법" 
 	description="앱 서비스 환경 구성, 관리 및 모니터링" 
-	services="app-services\web" 
+	services="app-service\web" 
 	documentationCenter="" 
 	authors="ccompy" 
 	manager="stefsch" 
 	editor=""/>
 
 <tags 
-	ms.service="app-services-web" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
@@ -20,7 +20,7 @@
 
 ## 개요 ##
 
-앱 서비스 환경은 미리 보기에서 제공되는 새로운 프리미엄 계층 기능입니다. 새 크기 조정 및 네트워크 액세스 기능을 제공합니다. 이 새 크기 조정 기능을 통해 Azure 앱 서비스의 인스턴스를 VNET에 배치할 수 있습니다. ASE(앱 서비스 환경) 기능을 잘 모르는 경우 [앱 서비스 환경 정의][WhatisASE] 문서를 참조하세요. ASE를 만드는 방법에 대한 자세한 내용은 [앱 서비스 환경을 만드는 방법][HowtoCreateASE] 문서를 참조하세요.
+앱 서비스 환경은 미리 보기에서 제공되는 새로운 프리미엄 계층 기능입니다. 새 크기 조정 및 네트워크 액세스 기능을 제공합니다. 이 새 크기 조정 기능을 통해 Azure 앱 서비스의 인스턴스를 VNET에 배치할 수 있습니다. ASE(앱 서비스 환경) 기능을 잘 모르는 경우 [앱 서비스 환경 정의] 문서(/app-service-app-service-environment-intro.md)를 참조하세요. ASE를 만드는 방법에 대한 자세한 내용은 [앱 서비스 환경을 만드는 방법](app-service-web-how-to-create-an-app-service-environment.md) 문서를 참조하세요.
 
 앱 서비스 환경은 크게 몇 가지 주요 구성 요소로 이루어져 있습니다.
 
@@ -30,7 +30,7 @@
 - 하나 이상의 서브넷이 있는 가상 네트워크
 - Azure 앱 환경 호스팅 서비스를 실행 중인 서브넷
 
-앱 서비스 환경을 손쉽게 관리하고 모니터링하기 위해 Azure 포털의 찾아보기 -> 앱 서비스 환경에서 해당 목적에 적합한 UI에 액세스할 수 있습니다. 초기 릴리스에는 시스템을 관리하는 데 필요한 항목이 포함되어 있으며, 앞으로 몇 주 이내에 추가 기능으로 계속 개선될 예정입니다.
+앱 서비스 환경을 손쉽게 관리하고 모니터링하기 위해 Azure Preview 포털의 찾아보기 -> 앱 서비스 환경에서 해당 목적에 적합한 UI에 액세스할 수 있습니다. 초기 릴리스에는 시스템을 관리하는 데 필요한 항목이 포함되어 있으며, 앞으로 몇 주 이내에 추가 기능으로 계속 개선될 예정입니다.
 
 ![][1]
 
@@ -61,7 +61,7 @@
 - X가 21~40인 경우 작업에 사용할 수 있는 계산 리소스 양은 X-2입니다.
 - X가 41~53인 경우 작업에 사용할 수 있는 계산 리소스 양은 X-3입니다.
 
-지정된 풀에 할당할 수 있는 계산 리소스의 양을 관리하는 것 외에 크기를 제어할 수도 있습니다. 앱 서비스 환경에서는 P1~P4의 레이블이 지정된 네 가지 크기 중에서 선택할 수 있습니다. 이러한 크기 및 해당 가격에 대한 자세한 내용은 [앱 서비스 가격][AppServicePricing]을 참조하세요. P1~P3 계산 리소스 크기는 일반적으로 사용할 수 있는 것과 동일합니다. P4 계산 리소스는 14GB RAM의 8개 코어를 제공하며, 앱 서비스 환경에서만 사용할 수 있습니다.
+지정된 풀에 할당할 수 있는 계산 리소스의 양을 관리하는 것 외에 크기를 제어할 수도 있습니다. 앱 서비스 환경에서는 P1~P4의 레이블이 지정된 네 가지 크기 중에서 선택할 수 있습니다. 이러한 크기 및 해당 가격에 대한 자세한 내용은 [앱 서비스 가격](../app-service/app-service-value-prop-what-is.md)을 참조하세요. P1~P3 계산 리소스 크기는 일반적으로 사용할 수 있는 것과 동일합니다. P4 계산 리소스는 14GB RAM의 8개 코어를 제공하며, 앱 서비스 환경에서만 사용할 수 있습니다.
 
 앞서 설명한 대로 앱 서비스 환경 기능은 현재 미리 보기로 제공되며 여전히 개선될 여지가 있습니다. 추가 모니터링 기능 외에도 앱 서비스 환경이 GA로 이동할 대 더 많은 관리 기능이 출시될 예정입니다. 현재는 다음과 같은 몇 가지 사항만 이 인터페이스에서 관리할 수 있습니다.
 
@@ -84,7 +84,7 @@
 - 사용하지 않는 작업자 풀을 사용하여 필요한 크기의 인스턴스를 불러옵니다.
 - 앱 서비스 계획을 새 작업자 풀로 확장합니다.  
  
-이렇게 하면 작업을 실행 중인 계산 리소스의 크기를 변경하는 것보다 실행 중인 작업에 미치는 영향이 훨씬 적습니다. 앱 서비스 환경에서 웹앱의 크기를 조정하는 방법에 대한 자세한 내용은 [앱 서비스 환경에서 웹앱 크기 조정][HowtoScale]을 참조하세요.
+이렇게 하면 작업을 실행 중인 계산 리소스의 크기를 변경하는 것보다 실행 중인 작업에 미치는 영향이 훨씬 적습니다. 앱 서비스 환경에서 웹앱의 크기를 조정하는 방법에 대한 자세한 내용은 [앱 서비스 환경에서 웹앱 크기 조정](app-service-web-scale-a-web-app-in-an-app-service-environment.md)을 참조하세요.
 
 ## 가상 네트워크 ##
 
@@ -98,7 +98,7 @@ VNET 관리는 일반적인 가상 네트워크 UI를 통해 수행됩니다.
 
 이 기능은 Azure 앱 서비스를 VNET에 두기 때문에 ASE에서 호스트되는 앱이 ExpressRoute 또는 사이트 간 VPN을 통해 사용할 수 있는 리소스에 직접 액세스할 수 있습니다. 앱 서비스 환경 내의 앱은 추가 네트워킹 기능 없이도 앱 서비스 환경을 호스트하는 VNET에서 사용할 수 있는 리소스에 액세스할 수 있습니다.
 
-또한 필요한 경우 네트워크 보안 그룹을 사용하여 액세스를 제어할 수도 있습니다. 이 기능을 사용하면 제한하려는 IP 주소로만 앱 서비스 환경을 잠글 수 있습니다. 이 작업을 수행하는 방법에 대한 자세한 내용은 [앱 서비스 환경에서 인바운드 트래픽을 제어하는 방법][ControlInbound]을 참조하세요.
+또한 필요한 경우 네트워크 보안 그룹을 사용하여 액세스를 제어할 수도 있습니다. 이 기능을 사용하면 제한하려는 IP 주소로만 앱 서비스 환경을 잠글 수 있습니다. 이 작업을 수행하는 방법에 대한 자세한 내용은 [앱 서비스 환경에서 인바운드 트래픽을 제어하는 방법](app-service-app-service-environment-control-inbound-traffic.md)을 참조하세요.
 
 ## 앱 서비스 환경 삭제 ##
 
@@ -106,10 +106,13 @@ VNET 관리는 일반적인 가상 네트워크 UI를 통해 수행됩니다.
 
 ## 시작
 
-앱 서비스 환경을 시작하려면 [앱 서비스 환경을 만드는 방법][HowtoCreateASE]을 참조하세요.
+앱 서비스 환경을 시작하려면 [앱 서비스 환경을 만드는 방법](app-service-web-how-to-create-an-app-service-environment.md)을 참조하세요.
 
-Azure 앱 서비스 플랫폼에 대한 자세한 내용은 [Azure 앱 서비스][AzureAppService]를 참조하세요.
+Azure 앱 서비스 플랫폼에 대한 자세한 내용은 [Azure 앱 서비스](../app-service/app-service-value-prop-what-is.md)를 참조하세요.
 
+[AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
+
+[AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
 
 <!--Image references-->
 [1]: ./media/app-service-web-configure-an-app-service-environment/configureaseblade.png
@@ -120,11 +123,12 @@ Azure 앱 서비스 플랫폼에 대한 자세한 내용은 [Azure 앱 서비스
 <!--Links-->
 [WhatisASE]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-intro/
 [Appserviceplans]: http://azure.microsoft.com/documentation/articles/azure-web-sites-web-hosting-plans-in-depth-overview/
-[HowtoCreateASE]: http://azure.microsoft.com/documentation/articles/app-service-web-how-to-create-an-app-service-environment-in-an-ase/
-[HowtoScale]: http://azure.microsoft.com/documentation/articles/app-service-web-how-to-scale-a-web-app-in-an-app-service-environment/
+[HowtoCreateASE]: http://azure.microsoft.com/documentation/articles/app-service-web-how-to-create-an-app-service-environment/
+[HowtoScale]: http://azure.microsoft.com/documentation/articles/app-service-web-scale-a-web-app-in-an-app-service-environment/
 [ControlInbound]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-control-inbound-traffic/
 [virtualnetwork]: https://msdn.microsoft.com/library/azure/dn133803.aspx
 [AppServicePricing]: http://azure.microsoft.com/pricing/details/app-service/
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
-<!--HONumber=52-->
  
+
+<!---HONumber=62-->

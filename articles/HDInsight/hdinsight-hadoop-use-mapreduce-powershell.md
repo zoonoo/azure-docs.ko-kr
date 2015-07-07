@@ -16,21 +16,21 @@
    ms.date="02/18/2015"
    ms.author="larryfr"/>
 
-# PowerShell을 사용하여 HDInsight에서 Hadoop과 Hive 쿼리 실행
+#PowerShell을 사용하여 HDInsight에서 Hadoop과 Hive 쿼리 실행
 
 [AZURE.INCLUDE [mapreduce-selector](../../includes/hdinsight-selector-use-mapreduce.md)]
 
 이 문서에서는 Azure PowerShell을 사용하여 HDInsight 클러스터의 Hadoop에서 MapReduce 작업을 실행하는 예제를 제공합니다.
 
-## <a id="prereq"></a>필수 조건
+##<a id="prereq"></a>필수 조건
 
 이 문서의 단계를 완료하려면 다음이 필요합니다.
 
-* Azure HDInsight(HDInsight의 Hadoop) 클러스터(Windows 기반 또는 Linux 기반)
+- **Azure HDInsight(HDInsight의 Hadoop) 클러스터(Windows 기반 또는 Linux 기반)**
 
-* <a href="http://azure.microsoft.com/documentation/articles/install-configure-powershell/" target="_blank">Azure PowerShell</a>
+- **Azure PowerShell이 포함된 워크스테이션**. [Azure PowerShell 설치 및 사용](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/)을 참조하세요.
 
-## <a id="powershell"></a>Azure PowerShell을 사용하여 MapReduce 작업 실행
+##<a id="powershell"></a>Azure PowerShell을 사용하여 MapReduce 작업 실행
 
 Azure PowerShell은 HDInsight에서 MapReduce 작업을 원격으로 실행할 수 있는 *cmdlet*을 제공합니다. 내부적으로는 HDInsight 클러스터에서 실행되는 <a href="https://cwiki.apache.org/confluence/display/Hive/WebHCat" target="_blank">WebHCat</a>(이전의 Templeton)에 대한 REST 호출을 사용하여 이 작업을 수행합니다.
 
@@ -102,7 +102,7 @@ Azure PowerShell은 HDInsight에서 MapReduce 작업을 원격으로 실행할 �
 	
 	> [AZURE.NOTE]**ExitCode**가 0이 아닌 값이면 [문제 해결](#troubleshooting)을 참조하세요.
 
-## <a id="results"></a>작업 출력 보기
+##<a id="results"></a>작업 출력 보기
 
 MapReduce 작업은 작업 인수로 지정한 **wasb:///example/data/WordCountOutput** 경로의 Azure Blob 저장소에 작업 결과를 저장합니다. Azure Blob 저장소는 Azure PowerShell을 통해 액세스할 수 있지만 저장소 계정 이름, 키 및 파일에 직접 액세스하기 위해 HDInsight 클러스터에서 사용되는 컨테이너를 알고 있어야 합니다.
 
@@ -147,7 +147,7 @@ MapReduce 작업의 출력은 *part-r-#####* 이름으로 파일에 저장됩니
 
 > [AZURE.NOTE]MapReduce 작업의 출력 파일은 변경할 수 없습니다. 따라서 이 샘플을 다시 실행하는 경우 출력 파일의 이름을 변경해야 합니다.
 
-## <a id="troubleshooting"></a>문제 해결
+##<a id="troubleshooting"></a>문제 해결
 
 작업이 완료될 때 정보가 반환되지 않은 경우, 처리하는 동안 오류가 발생했을 수 있습니다. 이 작업에 대한 오류 정보를 보려면 **mapreducejob.ps1** 파일의 끝에 다음 명령을 추가하고 파일을 저장한 다음 다시 실행합니다.
 
@@ -157,11 +157,11 @@ MapReduce 작업의 출력은 *part-r-#####* 이름으로 파일에 저장됩니
 
 이 명령은 작업을 실행할 때 서버의 STDERR에 기록된 정보를 반환하며 이 정보는 작업이 실패한 이유를 확인하는 데 도움이 될 수 있습니다.
 
-## <a id="summary"></a>요약
+##<a id="summary"></a>요약
 
 여기에서 볼 수 있듯이 Azure PowerShell은 HDInsight 클러스터에서 MapReduce 작업 상태를 모니터링하고, 출력을 검색하는 쉬운 방법을 제공합니다.
 
-## <a id="nextsteps"></a>다음 단계
+##<a id="nextsteps"></a>다음 단계
 
 HDInsight의 MapReduce 작업에 대한 일반적인 정보:
 
@@ -172,5 +172,6 @@ HDInsight에서 Hadoop으로 작업하는 다른 방법에 관한 정보:
 * [HDInsight에서 Hadoop과 Hive 사용](hdinsight-use-hive.md)
 
 * [HDInsight에서 Hadoop과 Pig 사용](hdinsight-use-pig.md)
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

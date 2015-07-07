@@ -1,19 +1,19 @@
-<properties 
-   pageTitle="샘플 갤러리를 사용하여 HDInsight에서 Hadoop에 대해 알아보기 | Microsoft Azure" 
-   description="HDInsight 시작 갤러리는 HDInsight에서 샘플 응용 프로그램을 실행하여 Hadoop을 학습하는 빠른 방법을 제공합니다. 일부 샘플에는 샘플 데이터가 있으며, 사용자 고유의 데이터를 제공할 수도 있습니다." 
-   services="hdinsight" 
-   documentationCenter="" 
-   authors="mumian" 
-   manager="paulettm" 
+<properties
+   pageTitle="샘플 갤러리를 사용하여 HDInsight에서 Hadoop에 대해 알아보기 | Microsoft Azure"
+   description="HDInsight 시작 갤러리에서 샘플 응용 프로그램을 실행하여 Hadoop을 학습하는 빠른 방법을 제공합니다. 샘플 데이터를 사용하거나 직접 제공합니다."
+   services="hdinsight"
+   documentationCenter=""
+   authors="mumian"
+   manager="paulettm"
    editor="cgronlun"/>
 
-<tags 
-   ms.service="hdinsight" 
-   ms.workload="big-data" 
-   ms.tgt_pltfrm="na" 
-   ms.devlang="na" 
-   ms.topic="article" 
-   ms.date="03/31/2015" 
+<tags
+   ms.service="hdinsight"
+   ms.workload="big-data"
+   ms.tgt_pltfrm="na"
+   ms.devlang="na"
+   ms.topic="get-started-article" 
+   ms.date="03/31/2015"
    ms.author="jgao"/>
 
 # HDInsight 시작 갤러리를 사용하여 Hadoop에 대해 알아보기
@@ -39,7 +39,7 @@ HDInsight 시작 갤러리는 HDInsight에서 샘플 응용 프로그램을 실�
 **시작 갤러리에서 샘플을 실행하려면**
 
 1.	[Azure 포털][azure.portal]에 로그인합니다.
-2.	왼쪽 메뉴에서 **HDInsight**를 클릭합니다. Hadoop, Storm 및 HBase 클러스터를 비롯한 기존의 HDInsight 클러스터 목록이 보입니다. 
+2.	왼쪽 메뉴에서 **HDInsight**를 클릭합니다. Hadoop, Storm 및 HBase 클러스터를 비롯한 기존의 HDInsight 클러스터 목록이 보입니다.
 3.	샘플을 실행하려는 클러스터를 클릭합니다.
 4.	페이지 아래쪽에서 **쿼리 콘솔**을 선택합니다.
 5.	클러스터의 Hadoop 사용자 이름 및 암호를 입력합니다.
@@ -62,4 +62,6 @@ HDInsight에 대해 알아볼 수 있는 다른 방법은 다음과 같습니다
 [hdinsight.learn.map]: hdinsight-learn-map.md
 [hdinsight.infographic]: http://go.microsoft.com/fwlink/?linkid=523960
 [azure.portal]: https://manage.windowsazure.com
-<!--HONumber=54--> 
+ 
+
+<!---HONumber=62-->

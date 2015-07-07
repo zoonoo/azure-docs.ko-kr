@@ -20,7 +20,7 @@
 
 ## 개요
 
-이 문서에서는 [Azure 앱 서비스](/documentation/services/app-service/)에서 [API 앱](app-service-api-apps-why-best-platform.md)용 HTML 및 JavaScript 클라이언트를 만드는 방법을 보여 줍니다. 이 문서에서는 HTML 및 JavaScript에 대한 실무 지식이 있다고 가정하며, [AngularJS](https://angularjs.org/) JavaScript 프레임워크를 사용하여 API 앱에 대한 REST 호출을 수행하는 방법에 중점을 둡니다.
+이 문서에서는 [Azure 앱 서비스](/documentation/services/app-service/)에서 [API 앱](app-service-api-apps-why-best-platform.md)용 HTML 및 JavaScript 클라이언트를 만드는 방법을 보여 줍니다. 이 문서에서는 HTML 및 JavaScript에 대한 실무 지식이 있다고 가정하며, [AngularJS](https://angularjs.org/) JavaScript 프레임워크를 사용하여 API 앱에 대한 REST 호출을 수행하합니다.
 
 이 작업에 앞서 시작하는 데 도움이 되는 몇 가지 문서는 다음과 같습니다.
 
@@ -143,7 +143,7 @@ Web API에서 CORS를 사용하도록 설정하는 프로세스는 ASP.NET 문�
 
 이 섹션에서는 비어 있는 새 웹 응용 프로그램을 만들고 여기에 AngularJS를 설치하고 사용하며 간단한 HTML 프런트 엔드를 API 앱에 바인딩합니다. 사용하는 웹앱을 Azure 앱 서비스에 배포합니다. HTML 웹앱은 API 앱에 바인딩되고 API 앱에서 검색한 데이터를 표시하며, 사용자에게 Contacts API에 대한 간단한 UI를 제공합니다.
 
-1. 솔루션을 마우스 오른쪽 단추로 클릭하고 **추가 > 새 프로젝트**를 선택합니다.
+1. [API 앱 만들기](app-service-dotnet-create-api-app.md)에서 이전에 만든 솔루션을 마우스 오른쪽 단추로 클릭하고 **추가 -> 새 프로젝트**를 선택합니다.
 
 	![솔루션 탐색기의 apiapp.json 및 Metadata](./media/app-service-api-javascript-client/02-add-project.png)
 
@@ -231,16 +231,16 @@ Web API에서 CORS를 사용하도록 설정하는 프로세스는 ASP.NET 문�
             </thead>
             <tbody>
                 <tr ng-repeat="con in contacts">
-                    <td>{{con.Id}}</td>
-                    <td>{{con.Name}}</td>
-                    <td>{{con.EmailAddress}}</td>
+                    <td>[[con.Id]]</td>
+                    <td>[[con.Name</td>
+                    <td>[[con.EmailAddress]]</td>
                     <td></td>
                 </tr>
             </tbody>
             <tfoot>
                 <tr>
                     <th>Create a new Contact</th>
-                    <th colspan="2">API Status: {{status}}</th>
+                    <th colspan="2">API Status: [[status]]</th>
                     <th><button class="btn btn-sm btn-info" ng-click="refresh()">Refresh</button></th>
                 </tr>
                 <tr>
@@ -252,11 +252,13 @@ Web API에서 CORS를 사용하도록 설정하는 프로세스는 ASP.NET 문�
             </tfoot>
         </table>
 
-1. *index.html* 파일을 마우스 오른쪽 단추로 클릭하고 **시작 페이지로 설정** 메뉴 항목을 선택합니다. 그런 다음 기본 브라우저에서 열리도록 웹 프로젝트를 디버그합니다.
+1. `tbody`과 `tfoot`에서 요소는 [ with { and each ] with }를 각각 대체합니다. (이 사이트는 현재 코드 블록에서 이중 둥근 괄호 표현을 표시할 수 없습니다.)
 
-	![솔루션 탐색기의 apiapp.json 및 Metadata](./media/app-service-api-javascript-client/08-run-the-web-app.png)
+2. *index.html* 파일을 마우스 오른쪽 단추로 클릭하고 **시작 페이지로 설정**을 선택합니다.
 
-1. HTML 출력의 템플릿 핸들 모음을 기록해 둡니다. 다음 단계에서 AngularJS를 사용하여 이러한 HTML 요소를 데이터 바인딩합니다.
+3. *index.html* 파일을 마우스 오른쪽 단추로 클릭하고 **브라우저에서 보기**를 클릭합니다.
+
+	HTML 출력의 템플릿 핸들 모음을 확인합니다. 다음 단계에서 AngularJS를 사용하여 이러한 HTML 요소를 데이터 바인딩합니다.
 
 	![솔루션 탐색기의 apiapp.json 및 Metadata](./media/app-service-api-javascript-client/09-template-ui.png)
 
@@ -308,13 +310,15 @@ Web API에서 CORS를 사용하도록 설정하는 프로세스는 ASP.NET 문�
             $scope.refresh();
         });
 
-	> **참고**: 포트 번호는 다를 수 있으므로 API 프로젝트가 다른 포트에서 실행되는 경우 사용자 환경을 반영하도록 위 JavaScript를 변경하면 됩니다.
+1, index.html에 방금 추가한 코드에서 기본 URL(`http://localhost:1578`)의 포트 번호를 API 프로젝트에 대한 실제 포트 번호로 바꿉니다.
 
-1. API 앱 프로젝트도 실행 중인지 또는 JavaScript HTML이 제대로 작동하지 않는지 확인합니다. 솔루션을 마우스 오른쪽 단추로 클릭하고 **속성**을 선택합니다. 그런 다음 두 개의 웹 프로젝트를 모두 **디버깅하지 않고 시작**으로 설정하면 API 프로젝트가 먼저 실행됩니다.
+	> **Note** Don't use the port number of the HTML client project. You can right-click the API project and click **Debug > Start New Instance** to get a browser window that shows the port number.
+
+1. HTML 클라이언트를 실행할 때 API 앱 프로젝트도 실행 중인지 또는 JavaScript HTML이 제대로 작동하지 않는지 확인합니다. 솔루션을 마우스 오른쪽 단추로 클릭하고 **속성**을 선택합니다. 그런 다음 두 개의 웹 프로젝트를 모두 **디버깅하지 않고 시작**으로 설정하면 API 프로젝트가 먼저 실행됩니다. 
 
 	![솔루션 탐색기의 apiapp.json 및 Metadata](./media/app-service-api-javascript-client/10-run-both-web-projects.png)
 
-1. 솔루션을 디버그하면 HTML/JavaScript 클라이언트가 API 앱 프로젝트에 연결되고 해당 프로젝트의 데이터를 표시할 수 있게 됩니다.
+1. 솔루션을 실행하면 HTML/JavaScript 클라이언트가 API 앱 프로젝트에 연결되고 해당 프로젝트의 데이터를 표시합니다.
 
 	![솔루션 탐색기의 apiapp.json 및 Metadata](./media/app-service-api-javascript-client/11-web-client-running.png)
 
@@ -331,6 +335,8 @@ Web API에서 CORS를 사용하도록 설정하는 프로세스는 ASP.NET 문�
 1. API 앱의 URL을 붙여 넣어 JavaScript 코드에서 **$scope.baseUrl** 속성의 이전 값을 덮어씁니다.
 
 		$scope.baseUrl = 'https://microsoft-apiappf7e042ba8e5233ab4312021d2aae5d86.azurewebsites.net';
+
+	URL이 HTTPS을 지정합니다. HTTPS 사용은 선택 사항이 아닙니다. API 앱은 HTTP를 지원하지 않습니다.
 
 1. HTML/JavaScript 웹 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시** 상황에 맞는 메뉴 항목을 선택합니다.
 
@@ -361,5 +367,7 @@ Web API에서 CORS를 사용하도록 설정하는 프로세스는 ASP.NET 문�
 
 ## 요약 
 이 예제에서는 AngularJS를 API 앱 백 엔드에 액세스하기 위한 JavaScript 플랫폼으로 사용하는 방법을 알아보았습니다. REST 액세스 기능을 변경하여 다른 JavaScript 프레임워크를 사용할 수 있습니다.
-<!--HONumber=52-->
+
  
+
+<!---HONumber=62-->

@@ -67,9 +67,11 @@ API 앱이 웹앱을 기반으로 한다는 사실은 ASP.NET 이외의 플랫�
 
 	![API 앱 배포](./media/app-service-dotnet-deploy-api-app/26-5-deployment-success-v3.png)
 
-**Azure App Service Activity(Azure 앱 서비스 활동)** 창에 배포 진행률이 표시됩니다.
+	**Azure App Service Activity(Azure 앱 서비스 활동)** 창에 배포 진행률이 표시됩니다.
 
-![Azure 앱 서비스 활동 창의 상태 알림](./media/app-service-dotnet-deploy-api-app/26-5-deployment-success-v4.png)
+	![Azure 앱 서비스 활동 창의 상태 알림](./media/app-service-dotnet-deploy-api-app/26-5-deployment-success-v4.png)
+
+	이 배포 과정 중에 Visual Studio가 *게이트웨이*를 자동으로 다시 시작합니다. 게이트웨이는 리소스 그룹의 모든 API 앱에 대한 관리 기능을 처리하는 웹앱이며, API 앱에서 변경한 API를 인식하도록 다시 시작해야 합니다. 다른 메서드를 사용하여 API 앱을 배포하는 경우 및 배포가 API를 변경하는 경우, 게이트웨이를 수동으로 다시 시작해야 합니다. 포털에서 게이트웨이를 다시 시작하는 방법에 대한 정보는 [API 앱 관리](app-service-api-manage-in-portal.md)를 참조하십시오.
 
 ## Azure Preview 포털에서 앱 보기
 
@@ -125,5 +127,6 @@ API 앱이 웹앱을 기반으로 한다는 사실은 ASP.NET 이외의 플랫�
 ## 다음 단계
 
 Visual Studio의 직접 배포 기능을 통해 API를 빠르게 반복하고 배포하며 API가 올바르게 작동하는지 테스트하는 작업을 얼마나 쉽게 수행할 수 있는지 살펴봤습니다. [다음 자습서](../app-service-dotnet-remotely-debug-api-app.md)에서는 Azure에서 API 앱이 실행되는 동안 API 앱을 디버그하는 방법을 확인할 수 있습니다.
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

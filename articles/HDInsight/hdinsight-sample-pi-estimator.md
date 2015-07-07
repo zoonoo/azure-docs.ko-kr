@@ -1,6 +1,6 @@
 <properties
-	pageTitle="HDInsight의 Pi 추정 Hadoop 샘플 | Azure"
-	description="HDInsight에서 Hadoop MapReduce 샘플을 실행하는 방법에 대해 알아봅니다."
+	pageTitle="HDInsight의 Pi 추정 Hadoop 샘플 | Microsoft Azure"
+	description="HDInsight에서 Hadoop MapReduce Pi 추정 샘플을 실행하는 방법에 대해 알아봅니다."
 	editor="cgronlun"
 	manager="paulettm"
 	services="hdinsight"
@@ -37,14 +37,13 @@ HDInsight를 사용하여 MapReduce 작업을 실행하는 데 도움이 될 수
 
 **필수 조건**:
 
-- Azure 계정이 있어야 합니다. 계정 등록 옵션은 [Azure 평가판 사용](http://azure.microsoft.com/pricing/free-trial/) 페이지를 참조하세요.
-
-- HDInsight 클러스터를 미리 프로비전해야 합니다. 이 클러스터를 만드는 여러 방법에 대한 자세한 내용은 [HDInsight 클러스터 프로비전](hdinsight-provision-clusters.md)(영문)을 참조하세요.
-
-- Azure PowerShell을 설치하고 계정과 함께 사용하도록 구성해야 합니다. 설치 방법에 대한 지침은 [Azure PowerShell 설치 및 구성][powershell-install-configure]을 참조하십시오.
+- **Azure 구독**. [Azure 무료 평가판](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
+- **HDInsight 클러스터**. 이 클러스터를 만드는 여러 방법에 대한 자세한 내용은 [HDInsight 클러스터 프로비전](hdinsight-provision-clusters.md)(영문)을 참조하세요.
+- **Azure PowerShell이 포함된 워크스테이션**. [Azure PowerShell 설치 및 사용](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/)을 참조하세요.
 
 
-<h2><a id="run-sample"></a>Azure PowerShell로 샘플 실행</h2>
+
+## <a id="run-sample"></a>Azure PowerShell을 사용하여 샘플 실행
 
 **MapReduce 작업을 제출하려면**
 
@@ -78,7 +77,7 @@ HDInsight를 사용하여 MapReduce 작업을 실행하는 데 도움이 될 수
 	비교를 위해, Pi의 첫 소수점 이하의 10자리는 3.1415926535입니다.
 
 
-<h2><a id="java-code"></a>Pi 추정 MapReduce 프로그램의 Java 코드</h2>
+## <a id="java-code"></a>Pi 추정 MapReduce 프로그램의 Java 코드
 
 
 
@@ -419,8 +418,7 @@ HDInsight를 사용하여 MapReduce 작업을 실행하는 데 도움이 될 수
 	 }
 	 }
 
-
-<h2><a id="summary"></a>요약</h2>
+## <a id="summary"></a>요약
 
 이 자습서에서는 HDInsight에서 MapReduce 작업을 실행하는 방법과 이 서비스에서 관리할 수 있는 대량의 데이터 집합을 필요에 따라 생성하는 몬테카를로 방법을 사용하는 방법에 대해 알아보았습니다.
 
@@ -447,7 +445,7 @@ HDInsight를 사용하여 MapReduce 작업을 실행하는 데 도움이 될 수
 
 
 
-<h2><a id="next-steps"></a>다음 단계</h2>
+## <a id="next-steps"></a>다음 단계
 
 다른 샘플 실행을 설명하고 Azure PowerShell을 통해 Azure HDInsight에서 Pig, Hive 및 MapReduce 작업을 사용하는 방법에 대한 지침을 제공하는 자습서는 다음 항목을 참조하세요.
 
@@ -461,7 +459,7 @@ HDInsight를 사용하여 MapReduce 작업을 실행하는 데 도움이 될 수
 
 [hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
 
-[Powershell-install-configure]: ../install-configure-powershell.md
+[powershell-install-configure]: ../install-configure-powershell.md
 
 [hdinsight-get-started]: ../hdinsight-get-started.md
 
@@ -473,5 +471,6 @@ HDInsight를 사용하여 MapReduce 작업을 실행하는 데 도움이 될 수
 
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

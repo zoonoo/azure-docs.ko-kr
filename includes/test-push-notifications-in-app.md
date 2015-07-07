@@ -1,10 +1,12 @@
 
-## <a id="test"></a>Test Push Notifications in App
+## <a id="test"></a>앱에서 푸시 알림 테스트
 
-* Press **Run** in Xcode and start the app on an actual iOS device (not the simulator.) Then click **OK** to accept push notifications. You must explicitly accept push notifications from your app; this request occurs only the first time that the app runs.
+* Xcode에서 **실행**을 눌러 시뮬레이터에서가 아니라 실제 iOS 장치에서 해당 앱을 시작합니다. 그런 다음 **확인**을 클릭하여 푸시 알림을 허용하도록 합니다. 앱에서 푸시 알림을 명시적으로 허용해야 합니다. 이 요청은 해당 앱이 처음 실행될 때에만 발생합니다.
 
-* In the app, add a new item, such as _A new Mobile Services task_ and then click the **+** icon.
+* 앱에서 **새 모바일 서비스 작업**과 같은 새 항목을 추가한 다음 _+_ 아이콘을 클릭합니다.
 
-* Verify that a notification is received, then click **OK** to dismiss the notification. You have now successfully completed this tutorial.
+* 알림이 수신되는지 확인하고, **확인**을 클릭하여 알림을 해제합니다. 이제 이 자습서를 성공적으로 완료했습니다.
 
   	![](../articles/media/mobile-services-ios-get-started-push/mobile-quickstart-push3-ios.png)
+
+<!---HONumber=62-->

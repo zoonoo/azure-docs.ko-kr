@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Azure WebJob 리소스" 
+	pageTitle="Azure WebJobs 설명서 리소스" 
 	description="Azure WebJobs 및 Azure WebJobs SDK를 사용하는 방법에 대해 설명하는 권장 리소스입니다." 
 	services="app-service\web" 
 	documentationCenter=".net" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/03/2015" 
+	ms.date="06/07/2015" 
 	ms.author="tdykstra"/>
 
-# Azure WebJob 리소스
+# Azure WebJobs 설명서 리소스
 
 ## 개요
 
@@ -31,14 +31,15 @@ Azure 포털의 WebJob 대시보드는 WebJob 내의 개별 함수를 호출하�
 ##<a name="getstarted"></a>WebJobs 및 WebJobs SDK 시작
 
 * [Azure WebJobs 소개](http://www.hanselman.com/blog/IntroducingWindowsAzureWebJobs.aspx)
+* [놀라운 기능의 Azure WebJobs를 지금 바로 사용해 보세요!](http://www.troyhunt.com/2015/01/azure-webjobs-are-awesome-and-you.html) Troy Hunt의 블로그 게시물입니다.
 * [Azure WebJobs 기능](/blog/2014/10/22/webjobs-goes-into-full-production/)
 * [WebJobs SDK 정의](websites-dotnet-webjobs-sdk.md)
 * [Microsoft Patterns and Practices에 따른 백그라운드 작업 지침](https://github.com/mspnp/azure-guidance/blob/master/Background-Jobs.md)
 * [Microsoft Azure WebJobs SDK 1.0.0 RTM 발표](/blog/2014/10/25/announcing-the-1-0-0-rtm-of-microsoft-azure-webjobs-sdk/)
 * [Azure WebJobs SDK 시작](websites-dotnet-webjobs-sdk-get-started.md)
 * [WebJobs SDK를 사용하여 Azure 큐 저장소로 작업하는 방법](websites-dotnet-webjobs-sdk-storage-queues-how-to.md)
-* [WebJobs SDK를 사용하여 Azure Blob 저장소로 작업하는 방법](websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
-* [WebJobs SDK를 사용하여 Azure 테이블 저장소로 작업하는 방법](websites-dotnet-webjobs-sdk-storage-tables-how-to.md)
+* [WebJob SDK를 사용하여 Azure Blob 저장소로 작업하는 방법](websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
+* [WebJob SDK를 사용하여 Azure 테이블 저장소로 작업하는 방법](websites-dotnet-webjobs-sdk-storage-tables-how-to.md)
 * [WebJobs SDK를 사용하여 Azure 서비스 버스로 작업하는 방법](websites-dotnet-webjobs-sdk-service-bus.md)
 * [Azure WebJobs SDK 빠른 참조(PDF 다운로드)](http://go.microsoft.com/fwlink/?LinkID=524028&clcid=0x409)
 * 비디오
@@ -54,7 +55,8 @@ Azure 포털의 WebJob 대시보드는 WebJob 내의 개별 함수를 호출하�
 * [Visual Studio를 사용하여 Azure WebJobs를 배포하는 방법](websites-dotnet-deploy-webjobs.md)
 * [Azure 관리 포털을 사용하여 WebJobs를 배포하는 방법](web-sites-create-web-jobs.md)
 * [Azure WebJobs의 명령줄 또는 연속 배달 사용](http://azure.microsoft.com/blog/2014/08/18/enabling-command-line-or-continuous-delivery-of-azure-webjobs/)
-* [WebJobs를 사용하여 Azure에 .NET 콘솔 앱을 배포하는 Git](http://blog.amitapple.com/post/73574681678/git-deploy-console-app/) 
+* [WebJobs를 사용하여 Azure에 .NET 콘솔 앱을 배포하는 Git](http://blog.amitapple.com/post/73574681678/git-deploy-console-app/)
+* [Azure에 F# WebJob 배포](http://blogs.msdn.com/b/dave_crooks_dev_blog/archive/2015/02/18/deploying-f-web-job-to-azure.aspx)
 * 비디오
 	* [WebJobs Tooling for Visual Studio 소개](http://channel9.msdn.com/Shows/Web+Camps+TV/Introducing-WebJobs-Tooling-for-Visual-Studio-with-Brady-Gaster) 
 	* [WebJobs Tooling 및 원격 디버깅](http://channel9.msdn.com/Shows/Web+Camps+TV/WebJobs-GA-Series-Episode-1-WebJobs-Tooling-with-Brady-Gaster) 
@@ -102,11 +104,6 @@ Azure 포털의 WebJob 대시보드는 WebJob 내의 개별 함수를 호출하�
 ##<a name="additionalsdk"></a>추가 WebJobs SDK 리소스
 
 * [WebJobs SDK 소스 코드](https://github.com/Azure/azure-webjobs-sdk)
-* [AzureJobs의 Triggers, Bindings 및 Route 매개 변수](http://blogs.msdn.com/b/jmstall/archive/2014/01/28/trigger-bindings-and-route-parameters-in-azurejobs.aspx) 
-* Azure 저장소 바인딩
-	* [Blob](http://blogs.msdn.com/b/jmstall/archive/2014/02/18/azure-storage-bindings-part-1-blobs.aspx)
-	* [큐](http://blogs.msdn.com/b/jmstall/archive/2014/02/18/azure-storage-bindings-part-2-queues.aspx)
-	* [테이블](http://blogs.msdn.com/b/jmstall/archive/2014/03/06/azure-storage-bindings-part-3-tables.aspx)
 * [[BlobTrigger] 작동 방식](http://blogs.msdn.com/b/jmstall/archive/2014/04/17/how-does-blobinput-work.aspx) 
 * [Azure WebJobs SDK와의 고급 바인딩](http://victorhurdugaci.com/advanced-bindings-with-the-windows-azure-web-jobs-sdk/)
 * [WebJobs SDK를 사용하여 Azure 저장소에 FREB 파일을 업로드하기 위한 WebJob](http://thenextdoorgeek.com/post/WAWS-WebJob-to-upload-FREB-files-to-Azure-Storage-using-the-WebJobs-SDK)
@@ -135,9 +132,11 @@ Azure 포털의 WebJob 대시보드는 WebJob 내의 개별 함수를 호출하�
 * [Azure 앱 서비스 웹앱 포럼](http://social.msdn.microsoft.com/Forums/azure/home?forum=windowsazurewebsitespreview)
 * [Azure 웹앱 사용자 음성 사이트](http://feedback.azure.com/forums/169385-websites)
 * [Twitter](http://twitter.com/). 해시 태그 #AzureWebJobs를 사용합니다.
+* [WebJobs 버그 또는 문제 보고](https://github.com/projectkudu/kudu/wiki/Reporting-WebJobs-issues)
 
 ## 변경된 내용
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.
 * 이전 포털에서 새 포털로의 변경에 대한 지침은 [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

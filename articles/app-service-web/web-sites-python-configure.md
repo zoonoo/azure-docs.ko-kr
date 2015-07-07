@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Azure 웹 사이트를 사용하여 Python 구성" 
-	description="이 자습서에서는 Azure 웹 사이트에서 기본 WSGI(Web Server Gateway Interface) 규격 Python 응용 프로그램을 제작 및 구성하는 옵션을 설명합니다." 
+	pageTitle="Azure 앱 서비스 웹앱에서 Python 구성" 
+	description="이 자습서에서는 Azure 앱 서비스 웹앱에서 기본 WSGI(Web Server Gateway Interface) 규격 Python 응용 프로그램을 제작 및 구성하는 옵션을 설명합니다." 
 	services="app-service\web" 
 	documentationCenter="python" 
 	tags="python"
@@ -14,49 +14,44 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="02/09/2015" 
+	ms.date="04/15/2015" 
 	ms.author="huguesv"/>
 
 
 
 
-# Azure 웹 사이트를 사용하여 Python 구성
+# Azure 앱 서비스 웹앱에서 Python 구성
 
-이 자습서에서는 Azure 웹 사이트에서 기본 WSGI(Web Server Gateway Interface) 규격 Python 응용 프로그램을 제작 및 구성하는 옵션을 설명합니다.
+이 자습서에서는 [Azure 앱 서비스 웹앱](http://go.microsoft.com/fwlink/?LinkId=529714)에서 기본 WSGI(Web Server Gateway Interface) 규격 Python 응용 프로그램을 제작 및 구성하는 옵션을 설명합니다.
 
 또한 가상 환경 및 requirements.txt를 사용한 패키지 설치 등 Git 배포의 추가 기능에 대해 설명합니다.
 
 
 ## Bottle, Django 또는 Flask
 
-Azure 갤러리에는 Bottle, Django 및 Flask 프레임워크용 템플릿이 들어 있습니다.  Azure 웹 사이트를 처음 개발하거나 Git에 익숙하지 않은 경우 다음 자습서 중 하나를 따르는 것이 좋습니다. 이러한 자습서에는 Windows 또는 Mac에서 Git 배포를 사용하여 갤러리를 통해 작업 응용 프로그램을 빌드하는 방법에 대한 단계별 지침이 포함되어 있습니다.
+Azure 마켓플레이스에는 Bottle, Django 및 Flask 프레임워크용 템플릿이 들어 있습니다. Azure 앱 서비스에서 웹앱을 처음 개발하거나 Git에 익숙하지 않은 경우 다음 자습서 중 하나를 따르는 것이 좋습니다. 이러한 자습서에는 Windows 또는 Mac에서 Git 배포를 사용하여 갤러리를 통해 작업 응용 프로그램을 빌드하는 방법에 대한 단계별 지침이 포함되어 있습니다.
 
-- [Bottle을 사용하여 웹 사이트 만들기][]
-- [Django를 사용하여 웹 사이트 만들기][]
-- [Flask를 사용하여 웹 사이트 만들기][]
+- [Bottle을 사용하여 웹앱 만들기](web-sites-python-create-deploy-bottle-app.md)
+- [Django를 사용하여 웹앱 만들기](web-sites-python-create-deploy-django-app.md)
+- [Flask를 사용하여 웹앱 만들기](web-sites-python-create-deploy-flask-app.md)
 
 
-## 포털에서 웹 사이트 만들기
+## Azure Preview 포털에서 웹앱 만들기
 
-이 자습서에서는 기존 Azure 구독 및 Azure 관리 포털에 대한 액세스 권한이 있다고 가정합니다.
+이 자습서에서는 기존 Azure 구독 및 Azure Preview 포털에 대한 액세스 권한이 있다고 가정합니다.
 
-기존 웹 사이트가 없는 경우 Azure 관리 포털에서 웹 사이트를 만들 수 있습니다.  왼쪽 아래에 있는 새로 만들기 단추를 클릭합니다. 창이 나타납니다. 계산, 웹 사이트, 빠른 생성을 차례로 클릭합니다.
-
-![](./media/web-sites-python-configure/configure-python-create-website.png)
-
+기존 웹앱이 없는 경우 [Azure Preview 포털](https://portal.azure.com)에서 웹앱을 만들 수 있습니다. 왼쪽 아래에 있는 새로 만들기 단추를 클릭한 다음 **웹 + 모바일** > **웹앱**을 클릭합니다.
 
 ## Git 게시
 
-새로 만든 웹 사이트에 대해 퀵 스타트 또는 대시보드 탭을 사용하여 Git 게시를 구성합니다.  이 자습서에서는 Git를 사용하여 Python 웹 사이트를 만들고 관리하며 Azure 웹 사이트에 게시합니다.
+[Azure 앱 서비스에서 GIT를 사용하여 연속 배포](web-sites-publish-source-control.md)의 지침에 따라 새로 만든 웹앱에 대한 Git 게시를 구성합니다. 이 자습서에서는 Git를 사용하여 Python 웹앱을 만들고 관리하며 Azure 앱 서비스에 게시합니다.
 
-![](./media/web-sites-python-configure/configure-python-git.png)
-
-Git 게시가 설정되면 Git 리포지토리가 생성되고 웹 사이트와 연결됩니다.  리포지토리의 URL이 표시되고 로컬 개발 환경에서 클라우드로 데이터를 보내는 데 사용할 수 있습니다. Git를 통해 응용 프로그램을 게시하려면 Git 클라이언트가 설치되어 있는지 확인하고 제공된 지침에 따라 웹 사이트 콘텐츠를 Azure 웹 사이트에 게시합니다.
+Git 게시가 설정되면 Git 리포지토리가 생성되고 웹앱과 연결됩니다. 리포지토리의 URL이 표시되고 로컬 개발 환경에서 클라우드로 데이터를 보내는 데 사용할 수 있습니다. Git를 통해 응용 프로그램을 게시하려면 Git 클라이언트가 설치되어 있는지 확인하고 제공된 지침에 따라 웹앱 콘텐츠를 Azure 앱 서비스에 게시합니다.
 
 
 ## 응용 프로그램 개요
 
-다음 섹션에서는 다음 파일을 만듭니다.  이러한 파일은 Git 리포지토리의 루트에 배치해야 합니다.
+다음 섹션에서는 다음 파일을 만듭니다. 이러한 파일은 Git 리포지토리의 루트에 배치해야 합니다.
 
     app.py
     requirements.txt
@@ -67,9 +62,9 @@ Git 게시가 설정되면 Git 리포지토리가 생성되고 웹 사이트와 
 
 ## WSGI 처리기
 
-WSGI는 웹 서버와 Python 간 인터페이스를 정의하는 [PEP 3333](http://www.python.org/dev/peps/pep-3333/)에 설명된 Python 표준입니다. WSGI는 Python을 사용하여 다양한 웹 응용 프로그램 및 프레임워크 쓰기에 대해 표준화된 인터페이스를 제공합니다.  오늘날 인기 있는 Python 웹 프레임워크는 WSGI를 사용합니다.  Azure 웹 사이트는 그러한 프레임워크에 대한 지원을 제공하며, 고급 사용자는 사용자 지정 처리기가 WSGI 사양 지침을 따르는 경우 고유한 프레임워크를 제작할 수도 있습니다.
+WSGI는 웹 서버와 Python 간 인터페이스를 정의하는 [PEP 3333](http://www.python.org/dev/peps/pep-3333/)(영문)에 설명된 Python 표준입니다. WSGI는 Python을 사용하여 다양한 웹 응용 프로그램 및 프레임워크 쓰기에 대해 표준화된 인터페이스를 제공합니다. 오늘날 인기 있는 Python 웹 프레임워크는 WSGI를 사용합니다. Azure 앱 서비스 웹앱은 그러한 프레임워크에 대한 지원을 제공하며, 고급 사용자는 사용자 지정 처리기가 WSGI 사양 지침을 따르는 경우 고유한 프레임워크를 제작할 수도 있습니다.
 
-다음은 사용자 지정 처리기를 정의하는  `app.py`의 예입니다.
+다음은 사용자 지정 처리기를 정의하는 `app.py`의 예입니다.
 
     def wsgi_app(environ, start_response):
         status = '200 OK'
@@ -84,7 +79,7 @@ WSGI는 웹 서버와 Python 간 인터페이스를 정의하는 [PEP 3333](http
         httpd = make_server('localhost', 5555, wsgi_app)
         httpd.serve_forever()
 
- `python app.py`를 사용하여 이 응용 프로그램을 로컬로 실행한 다음 웹 브라우저에서 `http://localhost:5555`로 이동합니다.
+`python app.py`를 사용하여 이 응용 프로그램을 로컬로 실행한 다음 웹 브라우저에서 `http://localhost:5555`로 이동합니다.
 
 
 ## 가상 환경
@@ -93,14 +88,14 @@ WSGI는 웹 서버와 Python 간 인터페이스를 정의하는 [PEP 3333](http
 
 외부 패키지 종속성을 관리하도록 도와주기 위해 Azure Git 배포에서는 가상 환경 만들기를 지원합니다.
 
-Azure에서는 리포지토리의 루트에서 requirements.txt를 발견한 경우  `env`라는 가상 환경으로 자동으로 만듭니다.  이는 최초 배포 또는 선택한 Python 런타임이 변경된 이후의 모든 배포 중에 발생합니다.
+Azure에서는 리포지토리의 루트에서 requirements.txt를 발견한 경우 `env`라는 가상 환경으로 자동으로 만듭니다. 이는 최초 배포 또는 선택한 Python 런타임이 변경된 이후의 모든 배포 중에 발생합니다.
 
 개발을 위해 가상 환경을 로컬로 만들 수 있지만 이를 Git 리포지토리에 포함하지 마세요.
 
 
 ## 패키지 관리
 
-requirements.txt에 나열된 패키지는 pip를 사용하여 가상 환경에 자동으로 설치됩니다.  이는 모든 배포에서 발생하지만 패키지가 이미 설치된 경우에는 pip에서 설치를 건너뜁니다.
+requirements.txt에 나열된 패키지는 pip를 사용하여 가상 환경에 자동으로 설치됩니다. 이는 모든 배포에서 발생하지만 패키지가 이미 설치된 경우에는 pip에서 설치를 건너뜁니다.
 
 예제 `requirements.txt`:
 
@@ -122,9 +117,9 @@ web.config 파일을 만들어 서버에서 요청을 처리하는 방법을 지
 
 web.x.y.config 파일(여기서 x.y는 선택한 Python 런타임과 일치)이 리포지토리에 있으면 Azure에서 해당 파일을 web.config로 자동으로 복사합니다.
 
-다음 web.config 예제는 다음 섹션에 설명된 가상 환경 프록시 스크립트를 기반으로 합니다.  이는 위 예제  `app.py`에서 사용된 WSGI 처리기에 적용됩니다.
+다음 web.config 예제는 다음 섹션에 설명된 가상 환경 프록시 스크립트를 기반으로 합니다. 이는 위 예제 `app.py`에서 사용된 WSGI 처리기에 적용됩니다.
 
-Python 2.7용 예제  `web.config`:
+Python 2.7용 예제 `web.config`:
 
     <?xml version="1.0"?>
     <configuration>
@@ -173,7 +168,7 @@ Python 2.7용 예제  `web.config`:
     </configuration>
 
 
-Python 3.4용 예제  `web.config`:
+Python 3.4용 예제 `web.config`:
 
     <?xml version="1.0"?>
     <configuration>
@@ -222,16 +217,16 @@ Python 3.4용 예제  `web.config`:
 
 정적 파일은 성능 향상을 위해 Python 코드를 거치지 않고 웹 서버에서 직접 처리됩니다.
 
-위 예제에서 디스크에 있는 정적 파일의 위치는 URL 내의 위치와 일치해야 합니다.  이는  `http://pythonapp.azurewebsites.net/static/site.css`에 대한 요청 시  `\static\site.css`에서 디스크의 파일이 제공됨을 의미합니다.
+위 예제에서 디스크에 있는 정적 파일의 위치는 URL 내의 위치와 일치해야 합니다. 이는 `http://pythonapp.azurewebsites.net/static/site.css`에 대한 요청 시 `\static\site.css`에서 디스크의 파일이 제공됨을 의미합니다.
 
-URL 내의 위치와 다른 디스크 위치에서 파일을 제공하도록  `Static Files` 규칙을 구성할 수 있습니다.  다음 규칙 정의에서는  `http://pythonapp.azurewebsites.net/static/site.css`에 대한 요청 시  `\static\site.css` 대신  `\FlaskWebProject\static\site.css`에서 디스크의 파일이 제공됩니다.
+URL 내의 위치와 다른 디스크 위치에서 파일을 제공하도록 규칙 `Static Files`을 구성할 수 있습니다. 다음 규칙 정의에서는 `http://pythonapp.azurewebsites.net/static/site.css`에 대한 요청 시 `\static\site.css` 대신 `\FlaskWebProject\static\site.css`의 디스크의 파일이 제공됩니다.
 
     <rule name="Static Files" stopProcessing="true">
       <match url="^/static/.*" ignoreCase="true" />
       <action type="Rewrite" url="^/FlaskWebProject/static/.*" appendQueryString="true" />
     </rule>
 
-`WSGI_ALT_VIRTUALENV_HANDLER`는 WSGI 처리기를 지정하는 위치입니다.  위 예제에서는 처리기가 루트 폴더의  `app.py`에 있는  `wsgi_app`이라는 함수이므로  `app.wsgi_app`입니다.
+`WSGI_ALT_VIRTUALENV_HANDLER`는 지정한 WSGI 처리기의 위치입니다. 위 예제에서는 처리기가 루트 폴더의 `app.py`에 있는 `wsgi_app`이라는 함수이므로 `app.wsgi_app`입니다.
 
 `PYTHONPATH`를 사용자 지정할 수 있지만 requirements.txt에서 모든 종속성을 지정하여 가상 환경에 설치한 경우에는 변경해서는 안 됩니다.
 
@@ -240,19 +235,19 @@ URL 내의 위치와 다른 디스크 위치에서 파일을 제공하도록  `S
 
 다음 스크립트는 WSGI 처리기를 검색하고 가상 환경을 활성화하며 오류를 기록하는 데 사용됩니다. 이 스크립트는 수정 없이 범용적으로 사용됩니다.
 
- `ptvs_virtualenv_proxy.py`의 내용:
+`ptvs_virtualenv_proxy.py`의 내용:
 
      # ############################################################################
      #
      # Copyright (c) Microsoft Corporation. 
      #
-     # 이 소스 코드는 Apache 라이선스 Version 2.0 사용 약관의 대상입니다. 문자열(UTF-8 형식) 또는 
-     # 이 배포의 루트에 있는 License.html 파일에서 라이선스의 복사본을 찾을 수 있습니다. If 
-     # Apache 라이선스 버전 2.0을 찾을 수 없는 경우, 
-     # vspython@microsoft.com으로 이메일을 보내주세요. 어떤 방식으로든 이 소스 코드를 사용하는 것은 
-     # Apache 라이선스 버전 2.0의 약관에 동의하는 것입니다.
+     # This source code is subject to terms and conditions of the Apache License, Version 2.0. A 
+     # copy of the license can be found in the License.html file at the root of this distribution. If 
+     # you cannot locate the Apache License, Version 2.0, please send an email to 
+     # vspython@microsoft.com. By using this source code in any fashion, you are agreeing to be bound 
+     # by the terms of the Apache License, Version 2.0.
      #
-     # 그렇지 않으면 이 소프트웨어에서 이 공지를 제거해서는 안 됩니다.
+     # You must not remove this notice, or any other, from this software.
      #
      # ###########################################################################
 
@@ -367,11 +362,6 @@ URL 내의 위치와 다른 디스크 위치에서 파일을 제공하도록  `S
 [AZURE.INCLUDE [web-sites-python-customizing-runtime](../../includes/web-sites-python-customizing-deployment.md)]
 
 
-## 문제 해결 - 배포
-
-[AZURE.INCLUDE [web-sites-python-troubleshooting-deployment](../../includes/web-sites-python-troubleshooting-deployment.md)]
-
-
 ## 문제 해결 - 패키지 설치
 
 [AZURE.INCLUDE [web-sites-python-troubleshooting-package-installation](../../includes/web-sites-python-troubleshooting-package-installation.md)]
@@ -381,11 +371,16 @@ URL 내의 위치와 다른 디스크 위치에서 파일을 제공하도록  `S
 
 [AZURE.INCLUDE [web-sites-python-troubleshooting-virtual-environment](../../includes/web-sites-python-troubleshooting-virtual-environment.md)]
 
+>[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+
+## 변경된 내용
+* 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.
+* 이전 포털에서 새 포털로의 변경에 대한 지침은 [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
 
 
-[Bottle을 사용하여 웹 사이트 만들기]: web-sites-python-create-deploy-bottle-app.md
-[Django를 사용하여 웹 사이트 만들기]: web-sites-python-create-deploy-django-app.md
-[Flask를 사용하여 웹 사이트 만들기]: web-sites-python-create-deploy-flask-app.md
 
 
-<!--HONumber=52--> 
+
+ 
+
+<!---HONumber=62-->

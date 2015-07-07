@@ -1,39 +1,35 @@
-<properties 
-	pageTitle="Azure 앱 서비스에 대한 사용자 지정 도메인 이름 구성(GoDaddy)" 
-	description="Azure 웹 앱에서 GoDaddy의 도메인 이름을 사용하는 방법에 대해 알아봅니다." 
-	services="app-service\web" 
-	documentationCenter="" 
-	authors="wadepickett" 
-	manager="wpickett" 
+<properties
+	pageTitle="Azure 앱 서비스에 대한 사용자 지정 도메인 이름 구성(GoDaddy)"
+	description="Azure 웹 앱에서 GoDaddy의 도메인 이름을 사용하는 방법에 대해 알아봅니다."
+	services="app-service\web"
+	documentationCenter=""
+	authors="MikeWasson"
+	manager="wpickett"
 	editor=""/>
 
-<tags 
-	ms.service="app-services-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="03/24/2015" 
-	ms.author="wpickett"/>
+<tags
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="05/12/2015"
+	ms.author="mwasson"/>
 
-#Azure 앱 서비스에 대한 사용자 지정 도메인 이름 구성(GoDaddy)
+# GoDaddy에서 직접 구입한 Azure 앱 서비스에서 사용자 지정 도메인 이름 구성
 
 [AZURE.INCLUDE [web-selector](../../includes/websites-custom-domain-selector.md)]
 
 
 [AZURE.INCLUDE [websites-cloud-services-css-guided-walkthrough](../../includes/websites-cloud-services-css-guided-walkthrough.md)]
 
+> [AZURE.NOTE]Azure 앱 서비스 웹앱을 통해 도메인을 구입한 경우 <a href="/documentation/articles/custom-dns-web-site-buydomains-web-app" title="Web Apps" class="current">웹앱 도메인 구입</a> 문서의 최종 단계를 참조하세요.
+
 [AZURE.INCLUDE [intro](../../includes/custom-dns-web-site-intro.md)]
 
-이 문서에서는 [앱 서비스 웹 앱](http://go.microsoft.com/fwlink/?LinkId=529714) 및 [Go Daddy](https://godaddy.com)에서 구매한 사용자 지정 도메인 이름 사용에 대한 지침을 제공합니다.
+이 문서에서는 [앱 서비스 웹앱](http://go.microsoft.com/fwlink/?LinkId=529714)을 사용하여 [GoDaddy](https://godaddy.com)에서 직접 구매한 사용자 지정 도메인 이름 사용에 대한 지침을 제공합니다.
 
 [AZURE.INCLUDE [introfooter](../../includes/custom-dns-web-site-intro-notes.md)]
-
-이 문서의 내용
-
--   [DNS 레코드 이해](#understanding-records)
--   [사용자 지정 도메인에 대한 DNS 레코드 추가](#bkmk_configurecname)
--   [웹에서 도메인 사용](#enabledomain)
 
 <a name="understanding-records"></a>
 ##DNS 레코드 이해
@@ -42,7 +38,7 @@
 
 
 <a name="bkmk_configurecname"></a>
-## 사용자 지정 도메인에 대한 DNS 레코드 추가 
+## 사용자 지정 도메인에 대한 DNS 레코드 추가
 
 사용자 지정 도메인과 앱 서비스의 웹 앱을 연결하려면 GoDaddy에서 제공하는 도구를 사용하여 DNS 테이블에서 사용자 지정 도메인에 대한 새 항목을 추가해야 합니다. GoDaddy.comy용 DNS 도구를 찾으려면 다음 단계를 따르십시오.
 
@@ -69,11 +65,11 @@
 	![영역 레코드 추가](./media/web-sites-godaddy-custom-domain-name/godaddy-addzonerecord.png)
 
 	* **A (host) record**를 추가할 때 **Host** 필드를 **@**(**contoso.com**과 같은 루트 도메인 이름을 나타냄) * (모든 하위 도메인을 나타내는 와일드카드) 또는 사용할 하위 도메인(예: **www**)으로 설정해야 합니다. **Points to** 필드를 Azure 웹 앱의 IP 주소로 설정해야 합니다.
-	
+
 		> [AZURE.NOTE]A(호스트) 레코드를 사용할 때 다음 구성으로 CNAME 레코드도 추가해야 합니다.
-		> 
+		>
 		> * **awverify.&lt;yourwebappname&gt;.azurewebsites.net**의 값을 **가리키는** **awverify**의 **Host** 값입니다.
-		> 
+		>
 		> 이 CNAME 레코드는 Azure에서 A 레코드가 설명하는 도메인을 개발자가 소유하고 있는지 확인하는 데 사용됩니다.
 
 	* **CNAME (alias) record**를 추가할 때 **Host** 필드를, 사용할 하위 도메인으로 설정해야 합니다. 예를 들면 **www**로 설정해야 합니다. **Points to** 필드는 Azure 웹 앱의 **.azurewebsites.net** 도메인 이름으로 설정해야 합니다. 예를 들면 **contoso.azurwebsites.net**으로 설정해야 합니다.
@@ -82,7 +78,7 @@
 5. 레코드 추가 또는 수정을 완료하면 **Finish**를 클릭하여 변경 내용을 저장합니다.
 
 <a name="enabledomain"></a>
-## 웹 앱에서 도메인 이름 사용 
+## 웹 앱에서 도메인 이름 사용
 
 [AZURE.INCLUDE [modes](../../includes/custom-dns-web-site-enable-on-web-site.md)]
 
@@ -91,5 +87,6 @@
 ## 변경된 내용
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.
 * 이전 포털에서 새 포털로의 변경에 대한 지침은 [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

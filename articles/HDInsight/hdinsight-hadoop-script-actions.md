@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/31/2015" 
+	ms.date="06/10/2015" 
 	ms.author="bradsev"/>
 
 # HDInsight를 사용하여 스크립트 작업 개발 
@@ -44,11 +44,11 @@ HDInsight 버전 3.1(Hadoop 2.4) 이상만 클러스터에 사용자 지정 구�
 
 
 ### <a name="bPS3"></a>클러스터 사용자 지정 스크립트가 멱등원인지 확인
-HDInsight 클러스터의 노드가 클러스터 수명 동안 재이미징된다고 예상해야 합니다. 클러스터가 재이미징될 때마다 클러스터 사용자 지정 스크립트가 실행됩니다. 이 스크립트는 멱등원이 되도록 설계해야 합니다. 즉, 재이미징될 때 스크립트에서는 클러스터가 처음 생성될 때 스크립트가 처음으로 실행된 직후의 상태와 동일한 사용자 지정된 상태로 클러스터가 돌아가는지 확인해야 합니다. 예를 들어 사용자 지정 스크립트가 처음 실행될 때와 이후 실행될 때마다 응용 프로그램을 D:\\AppLocation에 설치 설치한 경우 재이미징될 때 스크립트에서는 응용 프로그램이 D:\\AppLocation 위치에 있는지 확인한 이후에 스크립트의 다른 단계를 진행해야 합니다.
+HDInsight 클러스터의 노드가 클러스터 수명 동안 재이미징된다고 예상해야 합니다. 클러스터가 재이미징될 때마다 클러스터 사용자 지정 스크립트가 실행됩니다. 이 스크립트는 멱등원이 되도록 설계해야 합니다. 즉, 재이미징될 때 스크립트에서는 클러스터가 처음 생성될 때 스크립트가 처음으로 실행된 직후의 상태와 동일한 사용자 지정된 상태로 클러스터가 돌아가는지 확인해야 합니다. 예를 들어 사용자 지정 스크립트가 처음 실행될 때와 이후 실행될 때마다 응용 프로그램을 D:\AppLocation에 설치 설치한 경우 재이미징될 때 스크립트에서는 응용 프로그램이 D:\AppLocation 위치에 있는지 확인한 이후에 스크립트의 다른 단계를 진행해야 합니다.
 
 
 ### <a name="bPS4"></a>최적의 위치에 사용자 지정 구성 요소 설치 
-클러스터 노드가 재이미징될 때 C:\\ 리소스 드라이브 및 D:\\ 시스템 드라이브를 다시 포맷하면 해당 드라이브에 설치된 응용 프로그램 및 데이터를 잃을 수 있습니다. 클러스터의 일부인 Azure VM(가상 컴퓨터) 노드가 작동 중단되거나 새 노드로 대체되는 경우에도 이 문제가 발생할 수 있습니다. 클러스터에서 D:\\ 드라이브나 C:\\apps 위치에 구성 요소를 설치할 수 있습니다. C:\\ 드라이브의 다른 모든 위치는 예약되어 있습니다. 클러스터 사용자 지정 스크립트에 설치할 응용 프로그램 또는 라이브러리의 위치를 지정합니다.
+클러스터 노드가 재이미징될 때 C:\ 리소스 드라이브 및 D:\ 시스템 드라이브를 다시 포맷하면 해당 드라이브에 설치된 응용 프로그램 및 데이터를 잃을 수 있습니다. 클러스터의 일부인 Azure VM(가상 컴퓨터) 노드가 작동 중단되거나 새 노드로 대체되는 경우에도 이 문제가 발생할 수 있습니다. 클러스터에서 D:\ 드라이브나 C:\apps 위치에 구성 요소를 설치할 수 있습니다. C:\ 드라이브의 다른 모든 위치는 예약되어 있습니다. 클러스터 사용자 지정 스크립트에 설치할 응용 프로그램 또는 라이브러리의 위치를 지정합니다.
 
 
 ### <a name="bPS5"></a>클러스터 아키텍처의 고가용성 확인
@@ -96,13 +96,15 @@ HDInsight는 고가용성을 위해 한 헤드 노드는 활성 모드(HDInsight
 	Write-HDILog "Starting environment variable setting at: $(Get-Date)";
 	[Environment]::SetEnvironmentVariable('MDS_RUNNER_CUSTOM_CLUSTER', 'true', 'Machine');
 
-이 문은 환경 변수 **MDS_RUNNER_CUSTOM_CLUSTER**를 'true' 값으로 설정하고 이 변수의 범위를 컴퓨터 수준이 되도록 설정합니다. 환경 변수를 적절한 범위(컴퓨터 또는 사용자)로 설정하는 것이 중요한 경우가 있습니다. 환경 변수 설정에 대한 자세한 내용은 [여기](https://msdn.microsoft.com/library/96xafkes(v=vs.110).aspx "여기")를 참조하세요.
+이 문은 환경 변수 **MDS_RUNNER_CUSTOM_CLUSTER**를 'true' 값으로 설정하고 이 변수의 범위를 컴퓨터 수준이 되도록 설정합니다. 환경 변수를 적절한 범위(컴퓨터 또는 사용자)로 설정하는 것이 중요한 경우가 있습니다. 환경 변수 설정에 대한 자세한 내용은 [여기][1]를 참조하세요.
 
 ### 사용자 지정 스크립트가 저장된 위치 액세스
 
 클러스터를 사용자 지정하는 데 사용되는 스크립트는 클러스터의 기본 저장소 계정 또는 다른 모든 저장소 계정의 공용 읽기 전용 컨테이너에 있어야 합니다. 스크립트에서 다른 곳에 있는 리소스에 액세스할 경우 이러한 리소스는 공개적으로 액세스 가능(최소한 공용 읽기 전용)해야 합니다. 예를 들어 파일에 액세스한 후 SaveFile-HDI 명령을 사용하여 해당 파일을 저장할 수 있습니다.
 
 	Save-HDIFile -SrcUri 'https://somestorageaccount.blob.core.windows.net/somecontainer/some-file.jar' -DestFile 'C:\apps\dist\hadoop-2.4.0.2.1.9.0-2196\share\hadoop\mapreduce\some-file.jar'
+
+이 예에서는 'somestorageaccount' 저장소 계정의 'somecontainer' 컨테이너가 공개적으로 액세스할 수 있는지 확인해야 합니다. 그렇지 않은 경우 스크립트는 ' 찾을 수 없음 ' 예외를 발생시키고 실패합니다.
 
 ### 실패한 클러스터 배포에 대한 예외 발생
 
@@ -116,6 +118,17 @@ HDInsight는 고가용성을 위해 한 헤드 노드는 활성 모드(HDInsight
 	exit
 	}
 
+이 코드 조각에서 파일이 존재하지 않는 경우, 스크립트가 오류 메시지를 인쇄 후 정상적으로 실제로 종료하고 클러스터는 클러스터 사용자 지정 프로세스가 "성공적으로" 완료되었다고 가정하고 실행 중인 상태에 도달합니다. 누락된 파일 때문에 예상대로 클러스터 사용자 지점이 성공하지 못했다는 사실을 정확하게 알리지 않으려면, 예외를 발생하고 클러스터 사용자 지정 단계를 실패하는 것이 더 적절합니다. 이렇게 하려면 다음 샘플 코드 조각을 대신 사용해야 합니다.
+
+	If(Test-Path($SomePath)) {
+		#Process file in some way
+	} else {
+		# File does not exist; handle error case
+		# Print error message
+	throw
+	}
+
+
 ## <a name="deployScript"></a>스크립트 작업 배포를 위한 검사 목록
 이러한 스크립트 배포를 준비할 때 수행하는 단계는 다음과 같습니다.
 
@@ -123,7 +136,7 @@ HDInsight는 고가용성을 위해 한 헤드 노드는 활성 모드(HDInsight
 2. 스크립트가 동일한 노드에서 여러 번 실행될 수 있도록 멱등원으로 실행되는지 확인하는 검사를 스크립트에 추가합니다.
 3. **Write-Output** Azure PowerShell cmdlet을 사용하여 STDOUT 및 STDERR로 인쇄합니다. **Write-Host**를 사용하지 마세요.
 4. 임시 파일 폴더(예: $env:TEMP)를 사용하여 스크립트에서 사용되는 다운로드된 파일을 보관하고 스크립트가 실행된 후 이 파일을 정리합니다.
-5. D:\\ 또는 C:\\apps에만 사용자 지정 소프트웨어를 설치합니다. C: 드라이브의 다른 위치는 예약되어 있으므로 사용하면 안 됩니다. C: 드라이브에서 C:\\apps 외의 폴더에 파일을 설치하면 노드 재이미징 동안 설치에 실패할 수 있습니다.
+5. D:\ 또는 C:\apps에만 사용자 지정 소프트웨어를 설치합니다. C: 드라이브의 다른 위치는 예약되어 있으므로 사용하면 안 됩니다. C: 드라이브에서 C:\apps 외의 폴더에 파일을 설치하면 노드 재이미징 동안 설치에 실패할 수 있습니다.
 6. OS 수준 설정이나 Hadoop 서비스 구성 파일이 변경된 경우에는 HDInsight 서비스에서 스크립트에 설정된 환경 변수와 같은 OS 수준 설정을 선택할 수 있도록 해당 서비스를 다시 시작할 수 있습니다.
 
 
@@ -176,9 +189,9 @@ HDInsight 스크립트 작업 명령에서 사용하기 전에 사용자 지정 
 
 ## <a name="debugScript"></a>사용자 지정 스크립트를 디버그하는 방법
 
-스크립트 오류 로그는 클러스터 생성 시 클러스터에 대해 지정한 기본 스토리지 계정에 다른 출력과 함께 저장됩니다. 오류는 *u<\\cluster-name-fragment><\\time-stamp>setuplog*라는 이름으로 테이블에 저장됩니다. 이러한 로그는 클러스터에서 스크립트가 실행되는 모든 노드(헤드 노드 및 작업자 노드)의 레코드를 포함하는 집계된 로그입니다.
+스크립트 오류 로그는 클러스터 생성 시 클러스터에 대해 지정한 기본 스토리지 계정에 다른 출력과 함께 저장됩니다. 오류는 *u<\cluster-name-fragment><\time-stamp>setuplog*라는 이름으로 테이블에 저장됩니다. 이러한 로그는 클러스터에서 스크립트가 실행되는 모든 노드(헤드 노드 및 작업자 노드)의 레코드를 포함하는 집계된 로그입니다.
 
-또한 클러스터 노드에 원격 액세스하여 사용자 지정 스크립트의 STDOUT 및 STDERR을 확인할 수 있습니다. 각 노드의 로그는 해당 노드 전용이며 **C:\\HDInsightLogs\\DeploymentAgent.log**에 로깅됩니다. 이러한 로그 파일은 사용자 지정 스크립트의 모든 출력을 기록합니다. Spark 스크립트 작업에 대한 예제 로그 조각은 다음과 같습니다.
+또한 클러스터 노드에 원격 액세스하여 사용자 지정 스크립트의 STDOUT 및 STDERR을 확인할 수 있습니다. 각 노드의 로그는 해당 노드 전용이며 **C:\HDInsightLogs\DeploymentAgent.log**에 로깅됩니다. 이러한 로그 파일은 사용자 지정 스크립트의 모든 출력을 기록합니다. Spark 스크립트 작업에 대한 예제 로그 조각은 다음과 같습니다.
 
 	Microsoft.Hadoop.Deployment.Engine.CustomPowershellScriptCommand; Details : BEGIN: Invoking powershell script https://configactions.blob.core.windows.net/sparkconfigactions/spark-installer.ps1.; 
 	Version : 2.1.0.0; 
@@ -234,4 +247,8 @@ HDInsight 스크립트 작업 명령에서 사용하기 전에 사용자 지정 
 [hdinsight-r-scripts]: ../hdinsight-hadoop-r-scripts/
 [powershell-install-configure]: ../install-configure-powershell/
 
-<!--HONumber=54--> 
+<!--Reference links in article-->
+[1]: https://msdn.microsoft.com/library/96xafkes(v=vs.110).aspx
+ 
+
+<!---HONumber=62-->

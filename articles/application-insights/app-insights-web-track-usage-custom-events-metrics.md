@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Application Insights API를 사용한 웹 앱의 사용 현황 및 이벤트 추적" 
-	description="코드를 몇 줄 삽입하여 사용 현황을 추적하고 문제를 진단합니다." 
-	services="application-insights" 
-documentationCenter="" 
+	pageTitle="사용자 지정 이벤트 및 메트릭용 Application Insights API" 
+	description="장치 또는 데스크톱 앱, 웹 페이지, 서비스에 코드를 몇 줄 삽입하여 사용 및 진단 문제를 추적할 수 있습니다." 
+	services="application-insights"
+    documentationCenter="" 
 	authors="alancameronwills" 
-	manager="kamrani"/>
+	manager="ronmart"/>
  
 <tags 
 	ms.service="application-insights" 
@@ -12,210 +12,324 @@ documentationCenter=""
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/06/2015" 
+	ms.date="06/01/2015" 
 	ms.author="awills"/>
 
-# 웹 앱의 사용자 지정 사용 현황 이벤트 및 메트릭 추적
+# 사용자 지정 이벤트 및 메트릭용 Application Insights API 
 
 *Application Insights는 미리 보기 상태입니다.*
 
-웹 응용 프로그램에 몇 줄의 코드를 삽입하여 해당 작업을 수행하는 사용자를 확인합니다. 이벤트, 메트릭 및 페이지 뷰를 추적할 수 있습니다. 모든 사용자에 대해 집계된 데이터의 차트 및 테이블을 확인할 수 있습니다. 
+응용 프로그램에 몇 줄의 코드를 삽입하여 사용자가 해당 응용 프로그램으로 어떤 작업을 하는지 살펴보거나 진단 문제를 지원할 수 있습니다. 장치 및 데스크톱 앱, 웹 클라이언트, 웹 서버에서 원격 분석을 보낼 수 있습니다.
 
-> [AZURE.NOTE] 현재 전체 사용자 환경이 구현된 것은 아닙니다. 사용자 지정 이벤트 및 메트릭을 Application Insights로 보내고 [진단 검색][diagnostic]에서 원시 원격 분석을 검색할 수 있습니다. 그렇지만 다이제스트 통계 차트는 아직 확인할 수 없습니다. 이 차트는 곧 제공될 예정입니다.
+Application Insights 데이터 수집기는 이 API를 사용하여 페이지 보기 및 예외 보고서 같은 표준 원격 분석을 보냅니다. 하지만 이 API를 사용하여 사용자 지정 원격 분석을 보낼 수도 있습니다.
 
-<!-- Sample pic -->
+## API 요약
 
-* [클라이언트 및 서버 추적](#clientServer)
-* [시작하기 전에](#prep)
-* [메트릭 추적](#metrics)
-* [이벤트 추적](#events)
-* [페이지 뷰 추적](#pageViews)
-* [속성을 사용하여 데이터를 필터링, 검색 및 분할](#properties)
-* [메트릭 및 이벤트 조합](#measurements)
-* [기본 속성 값 설정](#defaults)
-* [여러 컨텍스트 정의](#contexts)
-* [원격 분석 켜기 및 끄기](#disable)
-* [다음 단계](#next)
+API는 사소한 차이를 제외하고 모든 플랫폼에서 동일합니다.
 
+메서드 | 용도
+---|---
+[`TrackPageView`](#page-views)로 바꿉니다. | 페이지, 화면, 블레이드 또는 양식
+[`TrackEvent`](#track-event)로 바꿉니다. | 사용자 작업 및 기타 이벤트. 사용자 동작을 추적하거나 성능을 모니터링하는 데 사용됩니다.
+[`TrackMetric`](#track-metric)로 바꿉니다. | 특정 이벤트와 관련이 없는 큐 길이와 같은 성능 측정
+[`TrackException`](#track-exception)로 바꿉니다.|진단 예외를 기록합니다. 다른 이벤트와 관련하여 발생 위치를 추적하고 스택 추적을 검사합니다.
+[`TrackRequest`](#track-request)로 바꿉니다.| 성능 분석에 대한 서버 요청 빈도 및 기간을 기록합니다.
+[`TrackTrace`](#track-trace)로 바꿉니다.|진단 로그 메시지. 타사 로그도 캡처할 수 있습니다.
 
-
-## <a name="clientServer"></a> 클라이언트 및 서버 추적
-
-앱의 클라이언트 쪽(웹 페이지)이나 서버 쪽 또는 둘 다에서 원격 분석을 보낼 수 있습니다.
-
-클라이언트 및 서버 API는 매우 비슷합니다. 사용자의 웹 브라우저와 웹 서버에서 동일한 유형의 원격 분석을 보낼 수 있습니다. 보낼 수 있는 데이터의 범위에는 차이가 있습니다.
-
-* 웹 클라이언트에서 추적하는 방식은 활성 웹 페이지에 많은 JavaScript를 포함되어 있을 때 특히 유용합니다. 예를 들어 사용자가 특정 단추를 클릭하는 빈도나 유효성 검사 오류가 발생하는 빈도를 모니터링할 수 있습니다.
-* 웹 서버에서 추적하는 방식은 고객의 장바구니에 포함된 값이나 중단된 주문 수와 같은 비즈니스 메트릭 및 이벤트를 모니터링하는 데 더 유용합니다.
-
-일반적인 ASP.NET 웹 응용 프로그램에서는 웹 마스터 페이지에 trackPageView()에 대한 기본 JavaScript 호출이 있으며 서버 코드에서 이벤트 및 메트릭을 추적하는 일부 호출을 추가하게 됩니다. 클라이언트 쪽 코드는 매우 다양하므로 클라이언트에서 이벤트 및 메트릭을 추적하는 호출도 추가할 수 있습니다.
+이러한 대부분의 원격 분석 호출에 [속성 및 메트릭을 연결](#properties)할 수 있습니다.
 
 
 ## <a name="prep"></a>시작하기 전에
 
 다음 작업을 아직 수행하지 않은 경우
 
-* ASP.NET 웹 앱에서 원격 분석 가져오려면
-    [프로젝트에 Application Insights 추가][greenbrown]
-    웹 서버 코드에 다음을 포함합니다.
-    (C#) `using Microsoft.ApplicationInsights;`
-	(VB) `Imports Microsoft.ApplicationInsights`
-* [웹 사용 현황 분석 설정][usage]. JavaScript 초기화 코드는 모니터링 코드를 작성하려는 모든 웹 페이지와 마스터 페이지에 포함되어야 합니다. 
-    이러한 경우 개요 블레이드의 사용 현황 분석에서 데이터를 확인할 수 있습니다.
+* 프로젝트에 Application Insights SDK 추가:
+ * [ASP.NET 프로젝트][greenbrown]
+ * [Windows 프로젝트][windows]
+ * [Java 프로젝트][java] 
+ * [각 웹 페이지의 JavaScript][client]   
 
-개발 컴퓨터의 앱을 디버그 모드에서 실행하는 경우 몇 초 안에 Application Insights에 결과가 표시됩니다. 앱을 배포하는 경우 서버 및 클라이언트에서 파이프라인을 통해 데이터가 이동하는 데 더 오래 걸립니다.
+* 장치 또는 웹 서버 코드에 다음을 포함합니다.
 
-<!--
-## <a name="metrics"></a> 메트릭 추적
+    *C#:* `using Microsoft.ApplicationInsights;`
 
-페이지 뷰와 같은 기본 사용 현황 데이터를 가져오기 위해 더 이상 작업을 수행할 필요가 없습니다. 하지만 코드 줄 몇 개를 작성하여 사용자가 앱으로 수행하는 작업에 대해 자세히 알아볼 수 있습니다.
+    *VB:* `Imports Microsoft.ApplicationInsights`
 
-예를 들어 앱이 게임인 경우 사용자가 보관하는 평균 점수를 확인하고, 새 버전을 게시한 후에 이러한 정보를 확인하는 것이 더 쉬워졌는지 아니면 더 어려워졌는지를 알려고 할 수 있습니다.
+    *Java:* `import com.microsoft.applicationinsights.TelemetryClient;`
 
-메트릭, 즉 점수와 같은 숫자 값을 추적하려면 스크립트 줄을 앱의 적절한 위치에 삽입합니다.
+## TelemetryClient 생성
 
-클라이언트의 JavaScript
+TelemetryClient의 인스턴스를 생성합니다(웹 페이지의 JavaScript는 제외).
 
-    appInsights.trackMetric("Alerts", notifications.Count);
+*C#:*
 
-서버의 C#
+    private TelemetryClient telemetry = new TelemetryClient();
 
-    var telemetry = new TelemetryClient();
-    telemetry.TrackMetric ("Users online", currentUsers.Count);
+*VB:*
 
-서버의 VB
+    Private Dim telemetry As New TelemetryClient
 
-    Dim telemetry = New TelemetryClient
-    telemetry.TrackMetric ("Users online", currentUsers.Count)
+*Java*
 
-앱을 테스트하고 trackMetric() 호출 실행과 관련해서 사용합니다.
+    private TelemetryClient telemetry = new TelemetryClient();
 
+웹 앱의 각 요청에 대해 또는 다른 앱의 각 세션에 대해 `TelemetryClient` 인스턴스를 하나만 사용하는 것이 좋습니다. `TelemetryClient.Context.User.Id` 같은 속성을 설정하여 사용자 및 세션을 추적할 수 있습니다. 이 정보는 인스턴스에서 보낸 모든 이벤트에 연결됩니다.
 
-Application Insights에서 응용 프로그램으로 이동한 다음 [메트릭][metrics] 타일까지 클릭합니다. 해당 메트릭을 선택하여 첫 번째 결과를 확인합니다.
+TelemetryClient는 스레드로부터 안전합니다.
 
 
-그래프에는 모든 사용자가 기록한 값의 최근 평균이 표시됩니다. 
 
+## 이벤트 추적
 
-(그렇지만 메트릭이 문제 진단에 맞게 최적화되어 있지 않습니다. 최적화가 필요한 경우 [진단 로깅][diagnostic]을 확인합니다.) -->
+[메트릭 탐색기][metrics]에 이벤트 총 집계를 표시할 수도 있고 [진단 검색][diagnostic]에 개별 항목을 표시할 수도 있습니다.
 
+코드에 이벤트를 삽입하여 해당 이벤트에서 특정 기능을 얼마나 자주 사용하는지, 특정 목표를 얼마나 자주 달성하는지, 특정 항목을 얼마나 자주 선택하는지 집계할 수 있습니다.
 
-## <a name="events"></a>이벤트 추적
+예를 들어 게임 앱은 사용자가 이길 때마다 이벤트를 보냅니다.
 
-이벤트는 여러 사용자에서 평균적인 발생 빈도를 알려줍니다. 예를 들어 사용자가 게임을 완료하는 빈도를 알고 싶은 경우 게임을 끝내는 코드에서 다음과 같은 줄을 삽입합니다.
+*JavaScript*
 
-클라이언트의 JavaScript
+    appInsights.trackEvent("WinGame");
 
-    appInsights.trackEvent("EndOfGame");
-
-서버의 C#
+*C#*
     
-    var telemetry = new TelemetryClient();
-    telemetry.TrackEvent("EndOfGame");
+    telemetry.TrackEvent("WinGame");
 
-서버의 VB
-
-
-    Dim telemetry = New TelemetryClient
-    telemetry.TrackEvent("EndOfGame")
-
-클라이언트 및 서버 둘 다에서 원격 분석을 보내는 경우 이벤트에 다른 이름을 지정해야 합니다.
+*VB*
 
 
-## <a name="pageViews"></a>페이지 뷰(클라이언트만 해당)
+    telemetry.TrackEvent("WinGame")
 
-기본적으로 웹 페이지 제목의 초기화 스크립트는 페이지 뷰를 기록하고 페이지의 상대 URL로 이벤트 이름을 지정합니다. 이러한 호출은 기본 페이지 사용 통계를 제공합니다. 
+*Java*
 
-![Usage analytics on main app blade](./media/app-insights-web-track-usage-custom-events-metrics/appinsights-05-usageTiles.png)
+    telemetry.trackEvent("WinGame");
 
-### 사용자 지정 페이지 데이터
 
-원할 경우 호출을 수정하여 이름을 변경하거나 추가 호출을 삽입할 수 있습니다. 예를 들어 단일 페이지 웹 앱에 여러 탭이 표시되는 경우 사용자가 다른 탭으로 전환할 때 페이지 뷰를 기록하려고 할 수 있습니다. 예를 들면 다음과 같습니다.
+개요 블레이드에서 사용자 지정 이벤트 타일을 클릭합니다.
 
-클라이언트의 JavaScript:
+![Portal.azure.com에서 응용 프로그램 리소스를 찾습니다.](./media/app-insights-web-track-usage-custom-events-metrics/01-custom.png)
 
-    appInsights.trackPageView("tab1");
+클릭하여 개요 차트와 전체 목록을 살펴봅니다.
 
-여러 다른 HTML 페이지 내에 여러 탭이 있으면 URL도 지정할 수 있습니다.
+차트를 선택하고 이벤트 이름별로 분할하여 가장 중요한 이벤트의 상대적인 기여도를 살펴봅니다.
 
-    appInsights.trackPageView("tab1", "http://fabrikam.com/page1.htm");
+![차트를 선택하고 그룹화를 선택합니다.](./media/app-insights-web-track-usage-custom-events-metrics/02-segment.png)
 
+차트 아래에 있는 목록에서 이벤트 이름을 선택합니다. 클릭하여 개별 이벤트 항목을 살펴봅니다.
+
+![이벤트를 드릴스루합니다.](./media/app-insights-web-track-usage-custom-events-metrics/03-instances.png)
+
+원하는 항목을 클릭하여 자세히 살펴볼 수 있습니다.
 
 ## <a name="properties"></a>속성을 사용하여 데이터를 필터링, 검색 및 분할
 
-페이지 뷰 및 기타 원격 분석 데이터에 속성 및 측정을 연결할 수 있습니다. 
+이벤트에(그리고 메트릭, 페이지 보기 및 기타 원격 분석 데이터에) 속성 및 측정을 연결할 수 있습니다.
 
-**속성**은 사용 현황 보고서에서 원격 분석을 필터링하는 데 사용할 수 잇는 문자열 값입니다. 예를 들어 앱이 여러 게임을 제공하는 경우 각 이벤트에 게임 이름을 연결하여 인기가 더 많은 게임을 확인할 수 있습니다.
+**속성**은 사용 현황 보고서에서 원격 분석을 필터링하는 데 사용할 수 잇는 문자열 값입니다 예를 들어 앱이 여러 게임을 제공하는 경우 각 이벤트에 게임 이름을 연결하여 인기가 더 많은 게임을 확인할 수 있습니다.
 
-**측정값**은 사용 현황 보고서에서 통계를 얻을 수 있는 숫자 값입니다.
+문자열 길이는 약 1k로 제한됩니다. 많은 양의 데이터를 보내려면 메시지 매개 변수 [TrackTrace](#track-trace)를 사용하세요.
+
+**메트릭**은 그래픽으로 표시할 수 있는 숫자 값입니다. 예를 들어 게이머의 획득 점수가 점진적으로 증가하는지 확인할 수 있습니다. 여러 게임에 대한 별도의 그래프 또는 누적 그래프를 볼 수 있도록 이벤트와 함께 전송된 속성을 사용하여 그래프를 분할할 수 있습니다.
+
+메트릭 값이 0 이상이어야 올바르게 표시됩니다.
 
 
-클라이언트의 JavaScript
+[속성 수, 속성 값 및 메트릭에 사용 가능한 제한](#limits)이 몇 가지 있습니다.
 
-    appInsights.trackEvent("EndOfGame",
+
+*JavaScript*
+
+    appInsights.trackEvent // or trackPageView, trackMetric, ...
+      ("WinGame",
          // String properties:
          {Game: currentGame.name, Difficulty: currentGame.difficulty},
-         // Numeric measurements:
+         // Numeric metrics:
          {Score: currentGame.score, Opponents: currentGame.opponentCount}
          );
 
-서버의 C#
+*C#*
 
-    // Set up some properties:
+    // Set up some properties and metrics:
     var properties = new Dictionary <string, string> 
        {{"game", currentGame.Name}, {"difficulty", currentGame.Difficulty}};
-    var measurements = new Dictionary <string, double>
+    var metrics = new Dictionary <string, double>
        {{"Score", currentGame.Score}, {"Opponents", currentGame.OpponentCount}};
 
     // Send the event:
-    telemetry.TrackEvent("endOfGame", properties, measurements);
+    telemetry.TrackEvent("WinGame", properties, metrics);
 
 
-서버의 VB
+*VB*
 
     ' Set up some properties:
     Dim properties = New Dictionary (Of String, String)
     properties.Add("game", currentGame.Name)
     properties.Add("difficulty", currentGame.Difficulty)
 
-    Dim measurements = New Dictionary (Of String, Double)
-    measurements.Add("Score", currentGame.Score)
-    measurements.Add("Opponents", currentGame.OpponentCount)
+    Dim metrics = New Dictionary (Of String, Double)
+    metrics.Add("Score", currentGame.Score)
+    metrics.Add("Opponents", currentGame.OpponentCount)
 
     ' Send the event:
-    telemetry.TrackEvent("endOfGame", properties, measurements)
+    telemetry.TrackEvent("WinGame", properties, metrics)
 
 
-동일한 방식으로 페이지 뷰에 속성을 연결합니다.
-
-클라이언트의 JavaScript
-
-    appInsights.trackPageView("Win", 
-     {Game: currentGame.Name}, 
-     {Score: currentGame.Score});
-
- 
-
-<!--
-To see the filters, expand the parent event group, and select a particular event in the table - in this example, we expanded 'open' and selected 'buy':
-
-////// pic //////
--->
-
-> [WACOM.NOTE] 속성에 개인 식별이 가능한 정보를 기록하지 않도록 주의해야 합니다.
+*Java*
+    
+    Map<String, String> properties = new HashMap<String, String>();
+    properties.put("game", currentGame.getName());
+    properties.put("difficulty", currentGame.getDifficulty());
+    
+    Map<String, Double> metrics = new HashMap<String, Double>();
+    metrics.put("Score", currentGame.getScore());
+    metrics.put("Opponents", currentGame.getOpponentCount());
+    
+    telemetry.trackEvent("WinGame", properties, metrics2/7/2015 12:05:25 AM );
 
 
-## 시간 제한 페이지 뷰 및 이벤트
+> [AZURE.NOTE]속성에 개인 식별이 가능한 정보를 기록하지 않도록 주의해야 합니다.
 
-이벤트 및 페이지 뷰에 타이밍 데이터를 연결할 수 있습니다. trackEvent 또는 trackPageView를 호출하는 대신 다음 호출을 사용합니다.
+**메트릭을 사용한 경우** 메트릭 탐색기를 열고 사용자 지정 그룹에서 메트릭을 선택합니다.
 
-클라이언트의 JavaScript
+![메트릭 탐색기를 열고, 차트를 선택하고, 메트릭을 선택합니다.](./media/app-insights-web-track-usage-custom-events-metrics/03-track-custom.png)
 
-    // At the start of the game:
-    appInsights.startTrackEvent(game.id);
+*메트릭이 나타나지 않으면 선택 블레이드를 닫고 잠시 기다린 후 새로 고침을 클릭합니다.*
 
-    // At the end of the game:
-    appInsights.stopTrackEvent(game.id, {GameName: game.name}, {Score: game.score});
+**속성 및 메트릭을 사용한 경우** 속성에 따라 메트릭을 분할합니다.
+
+
+![그룹화를 설정한 다음 그룹화 기준 아래에서 속성을 선택합니다.](./media/app-insights-web-track-usage-custom-events-metrics/04-segment-metric-event.png)
+
+
+
+**진단 검색**에서 개별 이벤트 항목의 속성 및 메트릭을 볼 수 있습니다.
+
+
+![인스턴스를 선택한 다음 '...'를 선택합니다.](./media/app-insights-web-track-usage-custom-events-metrics/appinsights-23-customevents-4.png)
+
+
+검색 필드를 사용하여 특정 속성 값이 포함된 이벤트 항목을 볼 수 있습니다.
+
+
+![검색에 용어를 입력합니다.](./media/app-insights-web-track-usage-custom-events-metrics/appinsights-23-customevents-5.png)
+
+[검색 식에 대해 자세히 알아보세요][diagnostic].
+
+#### 속성 및 메트릭을 설정하는 또 다른 방법
+
+이벤트 매개 변수를 별도의 개체에 수집하는 방법이 더 편하다면 이 방법을 사용해도 됩니다.
+
+    var event = new EventTelemetry();
+
+    event.Name = "WinGame";
+    event.Metrics["processingTime"] = stopwatch.Elapsed.TotalMilliseconds;
+    event.Properties["game"] = currentGame.Name;
+    event.Properties["difficulty"] = currentGame.Difficulty;
+    event.Metrics["Score"] = currentGame.Score;
+    event.Metrics["Opponents"] = currentGame.Opponents.Length;
+
+    telemetry.TrackEvent(event);
+
+
+#### <a name="timed"></a> 타이밍 이벤트
+
+어떤 작업을 수행하는 데 걸리는 시간을 차트로 표시하고 싶은 경우가 있습니다. 예를 들어 게임에서 사용자가 옵션을 선택하는 데 걸리는 시간을 알고 싶을 수 있습니다. 다음은 측정 매개 변수 사용 방법을 보여 주는 유용한 예입니다.
+
+
+*C#*
+
+    var stopwatch = System.Diagnostics.Stopwatch.StartNew();
+
+    // ... perform the timed action ...
+
+    stopwatch.Stop();
+
+    var metrics = new Dictionary <string, double>
+       {{"processingTime", stopwatch.Elapsed.TotalMilliseconds}};
+
+    // Set up some properties:
+    var properties = new Dictionary <string, string> 
+       {{"signalSource", currentSignalSource.Name}};
+
+    // Send the event:
+    telemetry.TrackEvent("SignalProcessed", properties, metrics);
+
+
+
+## 메트릭 추적
+
+TrackMetric을 사용하여 특정 이벤트에 연결되지 않은 메트릭을 보낼 수 있습니다. 예를 들어 정기적으로 큐 길이를 모니터링할 수 있습니다.
+
+메트릭은 메트릭 탐색기에 통계 차트로 표시됩니다. 하지만 이벤트와는 달리 진단 검색에서 개별 항목을 검색할 수 없습니다.
+
+메트릭 값이 0 이상이어야 올바르게 표시됩니다.
+
+
+*JavaScript*
+
+    appInsights.trackMetric("Queue", queue.Length);
+
+*C#*
+
+    telemetry.TrackMetric("Queue", queue.Length);
+
+*VB*
+
+    telemetry.TrackMetric("Queue", queue.Length)
+
+*Java*
+
+    telemetry.trackMetric("Queue", queue.Length);
+
+사실, 이 작업을 백그라운드 스레드에서 수행할 수도 있습니다.
+
+*C#*
+
+    private void Run() {
+     var appInsights = new TelemetryClient();
+     while (true) {
+      Thread.Sleep(60000);
+      appInsights.TrackMetric("Queue", queue.Length);
+     }
+    }
+
+
+결과를 보려면 메트릭 탐색기를 열고 새 차트를 추가합니다. 메트릭을 표시하도록 설정합니다.
+
+![새 차트를 추가하거나 차트를 선택하고, 사용자 지정 아래에서 메트릭을 선택합니다.](./media/app-insights-web-track-usage-custom-events-metrics/03-track-custom.png)
+
+[메트릭 수에 제한을 적용](#limits)할 수 있습니다.
+
+## 페이지 보기
+
+장치 또는 웹 페이지 앱에서 각 화면 또는 페이지가 로드되면 기본적으로 페이지 보기 원격 분석이 전송됩니다. 하지만 추가 시간에 또는 다른 시간에 페이지 보기를 추적하도록 변경할 수 있습니다. 예를 들어 탭 또는 블레이드를 표시하는 앱에서 사용자가 새 블레이드를 열 때마다 "페이지"를 추적할 수 있습니다.
+
+![개요 블레이드의 사용 현황 렌즈](./media/app-insights-web-track-usage-custom-events-metrics/appinsights-47usage-2.png)
+
+사용자 및 세션 데이터는 페이지 보기와 함께 속성으로 전송됩니다. 따라서 페이지 보기 원격 분석이 있으면 사용자 및 세션 차트가 실시간으로 표시됩니다.
+
+#### 사용자 지정 페이지 보기
+
+*JavaScript*
+
+    appInsights.trackPageView("tab1");
+
+*C#*
+
+    telemetry.TrackPageView("GameReviewPage");
+
+*VB*
+
+    telemetry.TrackPageView("GameReviewPage")
+
+
+여러 다른 HTML 페이지 내에 여러 탭이 있으면 URL도 지정할 수 있습니다.
+
+    appInsights.trackPageView("tab1", "http://fabrikam.com/page1.htm");
+
+#### 시간 제한 페이지 보기
+
+trackPageView 대신 이 메서드 쌍을 호출하여 사용자가 페이지에 머문 시간을 분석할 수 있습니다.
 
     // At the start of a page view:
     appInsights.startTrackPage(myPage.name);
@@ -225,34 +339,271 @@ To see the filters, expand the parent event group, and select a particular event
 
 호출 시작 및 중지에서 동일한 문자열을 첫 번째 매개 변수로 사용합니다.
 
-## <a name="defaults"></a>기본 속성 값 설정(웹 클라이언트에서는 해당되지 않음)
+[메트릭 탐색기][metrics]에서 페이지 기간 메트릭을 살펴봅니다.
 
-TelemetryContext에서 기본값을 설정할 수 있습니다. 이러한 기본값은 컨텍스트에서 전송되는 모든 메트릭 및 이벤트에 연결됩니다. 
+
+## 요청 추적
+
+서버 SDK에서 HTTP 요청을 기록하는 데 사용합니다.
+
+실행 중인 웹 서비스 모듈이 없는 상황에서 요청을 시뮬레이션하고 싶다면 사용자가 직접 호출할 수도 있습니다.
+
+*C#*
+
+    // At start of processing this request:
+
+    // Operation Id is attached to all telemetry and helps you identify
+    // telemetry associated with one request:
+    telemetry.Context.Operation.Id = Guid.NewGuid().ToString();
     
+    var stopwatch = System.Diagnostics.Stopwatch.StartNew();
 
-서버의 C#
+    // ... process the request ...
 
-    var context = new TelemetryContext();
-    context.Properties["Game"] = currentGame.Name;
-    var telemetry = new TelemetryClient(context);
+    stopwatch.Stop();
+    telemetryClient.TrackRequest(requestName, DateTime.Now,
+       stopwatch.Elapsed, 
+       "200", true);  // Response code, success
+
+## 예외 추적
+
+Application Insights로 예외를 보낸 후 [집계][metrics]하여 문제 발생 빈도를 확인하거나 [개별 항목을 검사][diagnostic]할 수 있습니다.
+
+*C#*
+
+    try
+    {
+        ...
+    }
+    catch (Exception ex)
+    {
+       telemetry.TrackException(ex);
+    }
+
+Windows 모바일 앱에서 SDK는 처리되지 않은 예외를 catch합니다. 따라서 모바일 앱에 로그인할 필요가 없습니다. ASP.NET에서 [예외를 자동으로 catch하는 코드를 작성][exceptions]할 수 있습니다.
+
+
+## 흔적 추적 
+
+이 코드를 사용하여 Application Insights에 '이동 경로 트레일'을 전송하면 문제 진단에 도움이 됩니다. 진단 데이터의 청크를 보내고 [진단 검색][diagnostic]에서 검사합니다.
+
+ 
+
+[로그 어댑터][trace] 이 API를 사용하여 포털에 타사 로그를 보냅니다.
+
+
+*C#*
+
+    telemetry.TrackTrace(message, SeverityLevel.Warning, properties);
+
+`message`의 크기 제한이 속성의 크기 제한보다 훨씬 높습니다. 메시지 내용을 검색할 수 있지만 속성 값과는 달리 필터링할 수는 없습니다.
+
+
+## <a name="default-properties"></a>모든 원격 분석에 대한 기본 속성 설정
+
+유니버설 아니셜라이저를 설정하여 새로운 모든 TelemetryClients는 사용자 컨텍스트를 자동으로 사용할 수 있습니다. 여기에는 웹 서버 요청 추적처럼 플랫폼별 원격 분석 모듈에서 전송하는 표준 원격 분석이 포함됩니다.
+
+일반적으로 여러 앱 버전 또는 여러 앱 구성 요소에서 들어오는 원격 분석을 식별하는 데 사용됩니다. 포털에서 이 속성을 사용하여 결과를 필터링 또는 그룹화할 수 있습니다.
+
+*C#*
+
+    // Telemetry initializer class
+    public class MyTelemetryInitializer : IContextInitializer
+    {
+        public void Initialize (TelemetryContext context)
+        {
+            context.Properties["AppVersion"] = "v2.1";
+        }
+    }
+
+    // In the app initializer such as Global.asax.cs:
+
+    protected void Application_Start()
+    {
+        // ...
+        TelemetryConfiguration.Active.ContextInitializers
+        .Add(new MyTelemetryInitializer());
+    }
+
+*Java*
+
+    import com.microsoft.applicationinsights.extensibility.ContextInitializer;
+    import com.microsoft.applicationinsights.telemetry.TelemetryContext;
+
+    public class MyTelemetryInitializer implements ContextInitializer {
+      @Override
+      public void initialize(TelemetryContext context) {
+        context.getProperties().put("AppVersion", "2.1");
+      }
+    }
+
+    // load the context initializer
+    TelemetryConfiguration.getActive().getContextInitializers().add(new MyTelemetryInitializer());
+
+
+현재 JavaScript 웹 클라이언트에서 기본 속성을 설정하는 방법은 없습니다.
+
+## <a name="dynamic-ikey"></a> 동적 계측 키
+
+개발, 테스트 및 프로덕션 환경에서 원격 분석이 섞이지 않게 방지하려면 [별도의 Application Insights 리소스를 만들고][create] 환경에 따라 키를 변경하세요.
+
+구성 파일에서 계측 키를 가져오는 대신 코드에서 설정할 수 있습니다. ASP.NET 서비스의 global.aspx.cs 같은 초기화 메서드에서 키를 설정합니다.
+
+*C#*
+
+    protected void Application_Start()
+    {
+      Microsoft.ApplicationInsights.Extensibility.
+        TelemetryConfiguration.Active.InstrumentationKey = 
+          // - for example -
+          WebConfigurationManager.Settings["ikey"];
+      ...
+
+*JavaScript*
+
+    appInsights.config.instrumentationKey = myKey; 
+
+
+
+웹 페이지에서 문자 그대로 스크립트에 코딩하는 대신 웹 서버의 상태를 이용하여 설정할 수 있습니다. 예를 들어 ASP.NET 앱에서 생성된 웹 페이지에서 다음과 같이 설정합니다.
+
+*Razor에서 JavaScript*
+
+    <script type="text/javascript">
+    // Standard Application Insights web page script:
+    var appInsights = window.appInsights || function(config){ ...
+    // Modify this part:
+    }({instrumentationKey:  
+      // Generate from server property:
+      @Microsoft.ApplicationInsights.Extensibility.
+         TelemetryConfiguration.Active.InstrumentationKey"
+    }) // ...
+
+
+## <a name="defaults"></a>선택한 사용자 지정 원격 분석에 대한 기본값 설정
+
+작성하는 사용자 정의 이벤트의 일부에 대해 기본 속성 값을 설정하려는 경우 TelemetryClient에서 설정할 수 있습니다. 설정된 값은 해당 클라이언트에서 보낸 모든 원격 분석 항목에 연결됩니다.
+
+*C#*
+
+    using Microsoft.ApplicationInsights.DataContracts;
+
+    var gameTelemetry = new TelemetryClient();
+    gameTelemetry.Context.Properties["Game"] = currentGame.Name;
     // Now all telemetry will automatically be sent with the context property:
-    telemetry.TrackEvent("EndOfGame");
+    gameTelemetry.TrackEvent("WinGame");
     
-서버의 VB
+*VB*
 
-    Dim context = New TelemetryContext
-    context.Properties("Game") = currentGame.Name
-    Dim telemetry = New TelemetryClient(context)
+    Dim gameTelemetry = New TelemetryClient()
+    gameTelemetry.Context.Properties("Game") = currentGame.Name
     ' Now all telemetry will automatically be sent with the context property:
-    telemetry.TrackEvent("EndOfGame")
+    gameTelemetry.TrackEvent("WinGame")
 
+*Java*
+
+    import com.microsoft.applicationinsights.TelemetryClient;
+    import com.microsoft.applicationinsights.TelemetryContext;
+    ...
+
+
+    TelemetryClient gameTelemetry = new TelemetryClient();
+    TelemetryContext context = gameTelemetry.getContext();
+    context.getProperties().put("Game", currentGame.Name);
     
+    gameTelemetry.TrackEvent("WinGame");
     
-개별 원격 분석에서 기본값을 재정의할 수 있습니다.
-
-기본 속성 값 그룹 간을 전환하려는 경우 여러 컨텍스트를 설정합니다.
+개별 원격 분석 호출이 자신의 속성 사전에 있는 기본값을 재정의할 수 있습니다.
 
 
+
+## <a name="ikey"></a> 선택한 사용자 지정 원격 분석에 대해 계측 키를 설정합니다.
+
+*C#*
+    
+    var telemetry = new TelemetryClient();
+    telemetry.Context.InstrumentationKey = "---my key---";
+    // ...
+
+## 데이터 플러시
+
+일반적으로 SDK는 사용자에 미치는 영향을 최소화하기 위해 선택한 시간에 데이터를 보냅니다. 그러나 버퍼를 플러시하려는 경우가 있습니다. 종료되는 응용 프로그램에서 SDK를 사용하는 경우를 예로 들 수 있습니다.
+
+*C#*
+
+    telemetry.Flush();
+
+함수는 방식입니다.
+
+
+
+## 표준 원격 분석을 사용하지 않도록 설정
+
+`ApplicationInsights.config`를 편집하여 [표준 원격 분석에서 선택한 부분을 사용하지 않도록 설정][config]할 수 있습니다. 사용자 고유의 TrackRequest 데이터를 전송하려는 경우를 예로 들 수 있습니다.
+
+[자세히 알아봅니다][config].
+
+
+## <a name="debug"></a>개발자 모드
+
+디버깅하는 동안 결과를 즉시 볼 수 있도록 파이프라인을 통해 원격 분석을 신속하게 처리할 때 유용합니다. 또한 원격 분석과 관련된 모든 문제를 추적하는 데 도움이 되는 추가 메시지가 제공됩니다. 앱이 느려질 수 있으므로 프로덕션 환경에서는 끄는 것이 좋습니다.
+
+
+*C#*
+    
+    TelemetryConfiguration.Active.TelemetryChannel.DeveloperMode = true;
+
+*VB*
+
+    TelemetryConfiguration.Active.TelemetryChannel.DeveloperMode = True
+
+## TelemetryContext
+
+TelemetryClient에는 컨텍스트 속성이 있고, 이 속성은 모든 원격 분석 데이터와 함께 전송되는 다양한 값을 포함하고 있습니다. 일반적으로 표준 원격 분석 모듈에 의해 설정되지만 사용자가 직접 설정할 수도 있습니다.
+
+이러한 값을 직접 설정하는 경우 사용자의 값과 표준 값이 혼동되지 않도록 [ApplicationInsights.config][config]에서 관련 줄을 제거해야 합니다.
+
+* **Component** 앱 및 앱 버전을 식별합니다.
+* **Device** 앱이 실행되는 장치에 대한 데이터입니다(웹 앱의 경우 원격 분석을 보내는 서버 또는 클라이언트).
+* **InstrumentationKey** Azure에서 원격 분석이 표시되는 Application Insights 리소스를 식별합니다. 일반적으로 ApplicationInsights.config에서 선택합니다.
+* **Location** 장치의 지리적 위치를 식별합니다.
+* **Operation** 웹 앱에서 현재 HTTP 요청입니다. 다른 유형의 앱에서는 이 값을 설정하여 이벤트를 그룹화할 수 있습니다.
+ * **Id**: 진단 검색의 이벤트를 검사할 때 "항목 관련"을 찾을 수 있도록 여러 이벤트를 상호 연결하는 생성된 값입니다.
+ * **Name**: HTTP 요청의 URL입니다.
+ * **SyntheticSource**: null이거나 비어 있지 않다면 이 문자열은 요청의 원본이 로봇 또는 웹 테스트로 확인되었음을 나타냅니다. 기본적으로 메트릭 탐색기의 계산에서 제외됩니다.
+* **Properties** 모든 원격 분석 데이터와 함께 전송되는 속성입니다. 개별 Track* 호출에서 재정의할 수 있습니다.
+* **Session** 사용자의 세션을 식별합니다. ID는 생성된 값으로 설정되며, 사용자가 잠시 동안 비활성 상태이면 값이 변경됩니다.
+* **User** 사용자 수를 계산할 수 있습니다. 웹 앱의 경우 쿠키가 있으면 해당 쿠키에서 사용자 ID를 가져옵니다. 쿠키가 없으면 새 쿠키가 생성됩니다. 사용자가 앱에 로그인해야 하는 경우 사용자의 인증된 ID로 ID를 설정하면 사용자가 다른 컴퓨터에서 로그인하더라도 사용자 수를 정확하게 계산할 수 있습니다. 
+
+## 제한
+
+응용프로그램당 허용되는 메트릭 및 이벤트 수가 제한되어 있습니다.
+
+1. 계측 키마다 초당(즉, 응용 프로그램별로) 최대 500개의 원격 분석 데이터 요소가 허용됩니다. 여기에는 SDK 모듈 및 사용자 지정 이벤트에서 보낸 표준 원격 분석과 코드에서 보낸 메트릭 및 기타 원격 분석이 모두 포함됩니다.
+1.	응용 프로그램에는 최대 200개의 고유한 메트릭 이름과 200개의 고유한 속성 이름이 허용됩니다. 메트릭은 TrackMetric을 통해 전송된 데이터와 이벤트 같은 기타 데이터 유형의 측정을 포함합니다. 메트릭 및 속성 이름의 범위는 데이터 유형으로 한정되지 않고 계측 키마다 전역적입니다.
+2.	속성은 필터링 및 그룹화에만 사용할 수 있으며 각 속성에 허용되는 고유한 값은 100개 미만입니다. 고유한 값이 100개를 초과할 경우 해당 속성을 검색 및 필터링에는 계속 사용할 수 있지만 필터에는 더 이상 사용할 수 없습니다.
+3.	요청 이름 및 페이지 URL 같은 표준 속성은 일주일에 고유한 값 1000개로 제한됩니다. 고유한 값이 1000개를 초과할 경우 초과하는 값이 "기타 값"으로 표시됩니다. 원래 값을 전체 텍스트 검색 및 필터링에 계속 사용할 수 있습니다.
+
+* *Q: 데이터가 얼마 동안 보존되나요?*
+
+    [데이터 보존 및 개인 정보][data]를 참조하세요.
+
+## 참조 문서
+
+* [ASP.NET 참조](https://msdn.microsoft.com/library/dn817570.aspx)
+* [Java 참조](http://dl.windowsazure.com/applicationinsights/javadoc/)
+
+## 질문
+
+* *Track * 호출에서 throw할 수 있는 예외는 무엇인가요?*
+    
+    없음 catch 절에 래핑할 필요가 없습니다.
+
+
+
+* *REST API가 있나요?*
+
+    예, 하지만 아직은 게시하지 않고 있습니다.
 
 ## <a name="next"></a>다음 단계
 
@@ -262,11 +613,21 @@ TelemetryContext에서 기본값을 설정할 수 있습니다. 이러한 기본
 [문제 해결][qna]
 
 
-[AZURE.INCLUDE [app-insights-learn-more](../../includes/app-insights-learn-more.md)]
+<!--Link references-->
 
+[client]: app-insights-javascript.md
+[config]: app-insights-configuration-with-applicationinsights-config.md
+[create]: app-insights-create-new-resource.md
+[data]: app-insights-data-retention-privacy.md
+[diagnostic]: app-insights-diagnostic-search.md
+[exceptions]: app-insights-asp-net-exceptions.md
+[greenbrown]: app-insights-start-monitoring-app-health-usage.md
+[java]: app-insights-java-get-started.md
+[metrics]: app-insights-metrics-explorer.md
+[qna]: app-insights-troubleshoot-faq.md
+[trace]: app-insights-search-diagnostic-logs.md
+[windows]: app-insights-windows-get-started.md
 
-
-
-
-<!--HONumber=46--> 
  
+
+<!---HONumber=62-->

@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter="windows"
 	authors="alancameronwills" 
-	manager="keboyd"/>
+	manager="ronmart"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/02/2015" 
+	ms.date="05/12/2015" 
 	ms.author="awills"/>
 
 # Windows Phone 및 스토어 앱용 Application Insights
@@ -64,13 +64,11 @@ Windows 유니버설 앱인 경우 Windows Phone 및 Windows 프로젝트 모두
 
     ![](./media/app-insights-windows-get-started/04-ai-nuget.png)
 
-3. 다음 중 적합한 패키지의 최신 버전을 선택합니다.
-   * Windows 응용 프로그램용 Application Insights - *Windows 스토어 앱용*
-   * Windows Phone 응용 프로그램용 Application Insights
-   * 웹 앱용 application Insights - *데스크톱 응용 프로그램에 사용* 
+3. **Windows 응용 프로그램용 Application Insights**을 선택합니다.
+
 4. ApplicationInsights.config(NuGet 설치로 추가됨)를 편집합니다. 닫는 태그 바로 전에 삽입합니다.
 
-    `<InstrumentationKey>`*복사한 키*`</InstrumentationKey>`
+    `<InstrumentationKey>`*the key you copied*`</InstrumentationKey>`
 
 **Windows 유니버설 앱**: Phone 및 스토어 프로젝트 모두에 대해 단계를 반복합니다.
 
@@ -108,11 +106,18 @@ Visual Studio에 수신된 이벤트의 수가 표시됩니다.
 
 [응용 프로그램을 게시](http://dev.windows.com/publish)하고 사용자가 다운로드하고 사용함에 따른 데이터 누적을 관찰합니다.
 
-## <a name="ide"></a>자동화된 방법
+## 다음 작업
+
+* [앱에서 충돌 감지 및 진단][windowsCrash]
+* [매트릭에 대해 알아보기][metrics]
+* [진단 검색에 대해 알아보기][diagnostic]
+
+
+## <a name="ide"></a>자동화된 설치
 
 Visual Studio를 사용하여 설치 단계를 수행하려면 Windows Phone, Windows 스토어 및 기타 다양한 앱을 사용할 수 있습니다.
 
-### <a name="new"></a> 새 Windows 앱 프로젝트를 만드는 경우...
+###<a name="new"></a> 새 Windows 앱 프로젝트를 만드는 경우...
 
 새 프로젝트 대화 상자에서 Application Insights를 선택합니다.
 
@@ -121,7 +126,7 @@ Visual Studio를 사용하여 설치 단계를 수행하려면 Windows Phone, Wi
 ![](./media/app-insights-windows-get-started/appinsights-d21-new.png)
 
 
-### <a name="existing"></a>또는 기존 프로젝트의 경우...
+###<a name="existing"></a> 또는 기존 프로젝트의 경우...
 
 솔루션 탐색기에서 Application Insights를 추가합니다.
 
@@ -131,11 +136,13 @@ Visual Studio를 사용하여 설치 단계를 수행하려면 Windows Phone, Wi
 
 ## <a name="usage"></a>다음 단계
 
-[앱 사용량 추적][windowsUsage]
 
 [앱에서 충돌 감지 및 진단][windowsCrash]
 
 [진단 로그 캡처 및 검색][diagnostic]
+
+
+[앱 사용량 추적][windowsUsage]
 
 [사용자 지정 원격 분석 전송에 API 사용][api]
 
@@ -148,11 +155,13 @@ Visual Studio를 사용하여 설치 단계를 수행하려면 Windows Phone, Wi
 [api]: app-insights-api-custom-events-metrics.md
 [azure]: ../insights-perf-analytics.md
 [diagnostic]: app-insights-diagnostic-search.md
+[metrics]: app-insights-metrics-explorer.md
 [portal]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
 [roles]: app-insights-resources-roles-access-control.md
 [windowsCrash]: app-insights-windows-crashes.md
 [windowsUsage]: app-insights-windows-usage.md
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

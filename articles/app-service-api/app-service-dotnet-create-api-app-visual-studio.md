@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/19/2015" 
+	ms.date="05/19/2015" 
 	ms.author="bradyg;tarcher"/>
 
 # Web API 프로젝트를 API 앱으로 구성
@@ -33,8 +33,13 @@ API 앱에 대한 자세한 내용은 [API 앱 정의](app-service-api-apps-why-
 이 섹션에서는 기존 Web API 프로젝트를 API 앱으로 구성하는 방법을 보여 줍니다. 먼저 Web API 프로젝트 템플릿을 사용하여 Web API 프로젝트를 만든 후 API 앱으로 구성합니다.
 
 1. Visual Studio 2013을 엽니다.
-2. **파일 > 새 프로젝트**를 선택합니다. 
-3. **ASP.NET 웹 응용 프로그램** 템플릿을 선택합니다.  
+
+2. **파일 > 새 프로젝트**를 선택합니다.
+
+3. **ASP.NET 웹 응용 프로그램** 템플릿을 선택합니다.
+
+4. **프로젝트에 Application Insights 추가** 확인란의 선택이 취소되었는지 확인하십시오.
+
 4. 프로젝트의 이름을 *ContactsList*로 지정합니다.
 
 	![](./media/app-service-dotnet-create-api-app-visual-studio/01-filenew-v3.png)
@@ -76,5 +81,6 @@ API 앱에 대한 자세한 내용은 [API 앱 정의](app-service-api-apps-why-
 ## 다음 단계
 
 이제 API 앱을 배포할 준비가 되었으며 [API 앱 배포](app-service-dotnet-deploy-api-app.md) 자습서에 따라 API 앱을 배포할 수 있습니다.
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->
