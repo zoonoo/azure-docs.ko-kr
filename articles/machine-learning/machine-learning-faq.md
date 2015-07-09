@@ -93,7 +93,8 @@ Azure 기계 학습은 완벽하게 관리되는 서비스로, 이 서비스를 
 
 **Amazon S3에서 데이터를 읽을 수 있나요?**
 
-소량의 데이터를 http URL을 통해 노출하려는 경우 [Reader][reader] 모듈을 사용할 수 있습니다. Azure 저장소로 전송할 데이터가 많은 경우에는 먼저 [Reader][reader] 모듈을 사용하여 실험으로 가져옵니다. <!--
+소량의 데이터를 http URL을 통해 노출하려는 경우 [Reader][reader] 모듈을 사용할 수 있습니다. Azure 저장소로 전송할 데이터가 많은 경우에는 먼저 [Reader][reader] 모듈을 사용하여 실험으로 가져옵니다. 
+<!--
 <SEE CLOUD DS PROCESS>
 -->
 
