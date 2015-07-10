@@ -4,10 +4,15 @@ MongoLab UI를 사용하여 문서 삽입 및 쿼리, 데이터베이스 통계 
 
 MongoLab UI에 액세스하려면 다음을 수행합니다.
 
-1. **Add-ons**를 선택합니다. ![AddonsButton][button-addons]
-1. 추가 기능 목록에서 해당 MongoLab 서비스를 찾습니다. ![MongolabEntry][entry-mongolabaddon]
+1. **Add-ons**를 선택합니다.  
+![AddonsButton][button-addons]
+1. 추가 기능 목록에서 해당 MongoLab 서비스를 찾습니다.  
+![MongolabEntry][entry-mongolabaddon]
 1. 추가 기능의 이름을 클릭하여 추가 기능 페이지에 액세스합니다.
-1. **관리**를 클릭합니다. ![ManageButton][button-manage] 새 브라우저 탭이 열리고 MongoLab 데이터베이스 홈 페이지가 표시됩니다. ![DbHome][screen-dblanding]
+1. **관리**를 클릭합니다.  
+![ManageButton][button-manage]  
+새 브라우저 탭이 열리고 MongoLab 데이터베이스 홈 페이지가 표시됩니다.  
+![DbHome][screen-dblanding]
 
 여기서 특정 컬렉션을 선택하고 개별 문서로 드릴다운할 수 있습니다. 작업을 마쳤으면 로그아웃합니다.
 
@@ -16,4 +21,4 @@ MongoLab UI에 액세스하려면 다음을 수행합니다.
 [button-addons]: ./media/howto-access-mongolab-ui/button-addons.png
 [screen-dblanding]: ./media/howto-access-mongolab-ui/screen-mongolab_dblanding.png
 
-<!---HONumber=62-->
+<!-----HONumber=62-->
