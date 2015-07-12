@@ -8,7 +8,8 @@ Azure 스토어에서 Azure에 호스트되고 완전히 관리되는 MongoDB �
 1. MongoLab을 선택합니다. **App Services** 범주와 **All**에서 찾을 수 있습니다.  
 ![MongoLab][entry-mongolab]
 1. **다음**을 클릭합니다.  
-![다음][button-next] MongoLab 스토어 항목이 표시됩니다.  
+![다음][button-next]  
+  MongoLab 스토어 항목이 표시됩니다.  
 ![NewMongoLab][screen-newmongolab]
 1. 원하는 **Subscription** 옵션을 선택합니다.
 1. 데이터베이스의 **Name**을 입력합니다. 이름에는 영숫자 문자, 대시, 점, 밑줄만 포함될 수 있습니다. 또한 MongoLab에서 이 이름이 고유해야 하므로 이름이 사용된 경우 요청을 다시 제출하라는 메시지가 표시될 수도 있습니다.
@@ -33,4 +34,4 @@ Azure 스토어에서 Azure에 호스트되고 완전히 관리되는 MongoDB �
 [screen-newmongolab]: ./media/howto-provision-mongolab/screen-newmongolab.png
 [message-success]: ./media/howto-provision-mongolab/message-provisionsuccess.png
 
-<!----HONumber=62-->
+<!-----HONumber=62-->
