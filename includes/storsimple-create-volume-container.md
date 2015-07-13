@@ -1,20 +1,3 @@
-<properties 
-   pageTitle="볼륨 컨테이너 만들기"
-   description="StorSimple 장치에 볼륨 컨테이너를 만드는 방법에 대해 설명합니다."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="04/01/2015"
-   ms.author="v-sharos" />
-
 #### 볼륨 컨테이너를 만들려면
 
 1. 장치 **퀵 스타트** 페이지에서 **볼륨 컨테이너 추가**를 클릭합니다. **볼륨 컨테이너 만들기** 대화 상자가 나타납니다.
@@ -31,4 +14,4 @@
 
   새로 만들어진 볼륨 컨테이너가 **볼륨 컨테이너** 페이지에 나열됩니다.
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

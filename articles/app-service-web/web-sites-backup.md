@@ -127,8 +127,7 @@ Azure 웹 앱을 백업에서 복원하는 방법에 대한 자세한 내용은 
 
 이전 이미지를 포함하는 사이트의 전체 백업이 이미 있습니다. 이제 매일 사이트를 백업하려고 하지만 변경되지 않는 정적 이미지 파일 또는 로그 파일을 저장하는 비용은 지불하고 싶지 않습니다.
 
-![Logs 폴더][LogsFolder]
-![Images 폴더][ImagesFolder]
+![Logs 폴더][LogsFolder] ![Images 폴더][ImagesFolder]
 	
 아래 단계에서는 이러한 파일을 백업에서 제외하는 방법을 보여 줍니다.
 
@@ -268,4 +267,4 @@ Azure에 등록하려면 [Microsoft Azure 무료 평가판](/pricing/free-trial/
 [GhostUpgradeWarning]: ./media/web-sites-backup/13GhostUpgradeWarning.png
  
 
-<!----HONumber=62-->
+<!---HONumber=62-->

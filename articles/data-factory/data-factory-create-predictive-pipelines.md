@@ -324,4 +324,4 @@ Azure SQL 판독기와 마찬가지로, Azure SQL 기록기의 속성도 웹 서
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

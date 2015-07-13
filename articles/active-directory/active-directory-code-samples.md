@@ -58,7 +58,7 @@ GitHub에서 샘플에 참가: [Microsoft Azure Active Directory 샘플 및 설�
  
 | 언어/플랫폼 | 샘플 | 설명
 | ----------------- | ------ | -----------
-| JavaScript | [NativeClient-MultiTarget-Cordova](https://github.com/AzureADSamples/NativeClient-MultiTarget-Cordova) | 웹 API를 호출하고  인증을 위해 Azure AD를 사용하는 Apache Cordova 앱을 빌드하는 데 Apache Cordova용 ADAL 플러그인을 사용합니다.
+| JavaScript | [NativeClient-MultiTarget-Cordova](https://github.com/AzureADSamples/NativeClient-MultiTarget-Cordova) | 웹 API를 호출하고 인증을 위해 Azure AD를 사용하는 Apache Cordova 앱을 빌드하는 데 Apache Cordova용 ADAL 플러그인을 사용합니다.
 | C#/.NET | [NativeClient-DotNet](http://github.com/AzureADSamples/NativeClient-DotNet) | Azure AD를 사용하여 보안되는 웹 API를 호출하는 .NET WPF 응용 프로그램입니다.
 | C#/.NET | [NativeClient-WindowsStore](http://github.com/AzureADSamples/NativeClient-WindowsStore) | Azure AD를 사용하여 보안되는 웹 API를 호출하는 Windows 스토어 응용 프로그램입니다.
 | C#/.NET | [NativeClient-WebAPI-MultiTenant-WindowsStore](https://github.com/AzureADSamples/NativeClient-WebAPI-MultiTenant-WindowsStore) | Azure AD를 사용하여 보안되는 다중 테넌트 웹 API를 호출하는 Windows 스토어 응용 프로그램입니다.
@@ -150,4 +150,9 @@ PHP | [Azure AD Graph API용 PHP 샘플 앱](http://code.msdn.microsoft.com/PHP-
 
 [OAuth 및 Active Directory Federation Services를 사용하여 최신 응용 프로그램 개발](http://msdn.microsoft.com/library/dn633593.aspx)
 
-<!---HONumber=58--> 
+
+
+
+ 
+
+<!---HONumber=62-->

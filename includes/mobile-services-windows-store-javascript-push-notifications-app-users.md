@@ -1,13 +1,11 @@
-﻿
+
 이제 등록이 시도되기 전에 사용자가 인증되도록 푸시 알림이 등록되는 방법을 변경해야 합니다. 클라이언트 앱 업데이트는 푸시 알림을 구현한 방법에 따라 달라집니다.
 
 ###Visual Studio 2013 업데이트 2 이상 버전에서 푸시 알림 마법사 사용
 
 이 방법에서는 마법사가 프로젝트에 새 push.register.js 및 service.js 파일을 생성합니다.
 
->[AZURE.NOTE]푸시 알림 추가 마법사는 현재 .NET 백 엔드 모바일 장치에서만 지원됩니다.
-
-1. Visual Studio 솔루션 탐색기에서 push.register.js 프로젝트 파일을 열고 **addEventListener**에 대한 호출을 주석으로 처리하거나 삭제합니다. 
+1. Visual Studio 솔루션 탐색기에서 push.register.js 프로젝트 파일을 열고 **addEventListener**에 대한 호출을 주석 처리하거나 삭제합니다. 
 
 2. default.js 프로젝트 파일에서 기존 **login** 함수를 다음 코드로 바꿉니다.
  
@@ -80,4 +78,4 @@
 		    });
 		}  
 
-<!--HONumber=42-->
+<!---HONumber=62-->

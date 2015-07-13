@@ -5,9 +5,9 @@
 
 1. Visual Studio의 솔루션 탐색기에서 프로젝트의 **속성**을 확장합니다. WMAppManifest.xml 파일이 열리면 **기능** 탭에서 **ID_CAP_ISV_CAMERA**를 클릭하여 카메라를 사용하도록 설정합니다. 파일을 닫아 변경 내용을 저장합니다.
 
-	![](./media/mobile-services-windows-phone-upload-to-blob-storage/mobile-upload-blob-app-WMAppmanifest-wp8.png)
+   	![](./media/mobile-services-windows-phone-upload-to-blob-storage/mobile-upload-blob-app-WMAppmanifest-wp8.png)
 
-   이제 앱에서 컴퓨터에 연결된 카메라를 사용할 수 있습니다. 앱을 처음으로 실행하면 카메라 액세스를 허용하라는 메시지가 표시됩니다.
+   	이제 앱에서 컴퓨터에 연결된 카메라를 사용할 수 있습니다. 앱을 처음으로 실행하면 카메라 액세스를 허용하라는 메시지가 표시됩니다.
 
 2. MainPage.xaml 파일을 열고 이름이 **ContentPanel**인 **Grid** 요소를 다음 코드로 바꿉니다.
 
@@ -44,7 +44,7 @@
         </Grid>
 
 
-   이 코드는 [CameraCaptureTask]를 시작하는 새 단추를 추가하고, **ItemTemplate**에 이미지를 추가하고, 바인딩 소스를 Blob 저장소 서비스에 업로드된 이미지 URI로 설정합니다.
+   	이 코드는 [CameraCaptureTask]를 시작하는 새 단추를 추가하고, **ItemTemplate**에 이미지를 추가하고, 바인딩 소스를 Blob 저장소 서비스에 업로드된 이미지 URI로 설정합니다.
 
 3. MainPage.xaml.cs 프로젝트 파일을 열고 다음 **using** 문을 추가합니다.
 	
@@ -146,7 +146,7 @@
         }
 
 
-   이 코드는 요청을 모바일 서비스로 전송하여 이미지 파일 이름을 비롯한 새 TodoItem을 삽입합니다. 응답에는 SAS가 포함되며 이는 Blob 저장소의 이미지 및 데이터 바인딩의 이미지 URI를 삽입하는 데 사용됩니다.
+	이 코드는 요청을 모바일 서비스로 전송하여 이미지 파일 이름을 비롯한 새 TodoItem을 삽입합니다. 응답에는 SAS가 포함되며 이는 Blob 저장소의 이미지 및 데이터 바인딩의 이미지 URI를 삽입하는 데 사용됩니다.
 
 마지막 단계로, 앱을 테스트하고 제대로 업로드되었는지 확인합니다.
 		
@@ -156,13 +156,13 @@
 
 2. 텍스트 상자에 일부 텍스트를 입력한 후 **Capture Image**를 클릭합니다.
 
-	![](./media/mobile-services-windows-phone-upload-to-blob-storage/mobile-upload-blob-app-view-wp8.png)
+   	![](./media/mobile-services-windows-phone-upload-to-blob-storage/mobile-upload-blob-app-view-wp8.png)
 
   	그러면 카메라 캡처 UI가 표시됩니다.
 
 3. 휴대폰에서 이미지 또는 스냅숏 단추를 클릭하여 사진을 찍습니다.
   
-	![](./media/mobile-services-windows-phone-upload-to-blob-storage/mobile-upload-blob-app-view-camera-wp8.png)
+   	![](./media/mobile-services-windows-phone-upload-to-blob-storage/mobile-upload-blob-app-view-camera-wp8.png)
 
 4. **accept**를 클릭하여 이미지를 허용하고 카메라 UI를 종료합니다.
 
@@ -183,4 +183,4 @@
 [CameraCaptureTask]: http://msdn.microsoft.com/library/windowsphone/develop/microsoft.phone.tasks.cameracapturetask(v=vs.105).aspx
 [PhotoCamera]: http://msdn.microsoft.com/library/windowsphone/develop/microsoft.devices.photocamera(v=vs.105).aspx
 
-<!--HONumber=54-->
+<!---HONumber=62-->

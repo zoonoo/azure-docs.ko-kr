@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/02/2015" 
+	ms.date="06/16/2015"
 	ms.author="adegeo"/>
 
 
@@ -152,5 +152,6 @@ Azure 관리 포털 **클라우드 서비스** 영역에서 서비스 역할 또
 
 > [AZURE.NOTE]클라우드 서비스에 대해 자세한 모니터링이 구성되어 있는 경우, 클라우드 서비스를 삭제해도 Azure는 저장소 계정에서 모니터링 데이터를 삭제하지 않습니다. 이 데이터를 수동으로 삭제해야 합니다. 메트릭 테이블이 있는 위치에 대한 자세한 내용은 <a href="http://azure.microsoft.com/documentation/articles/cloud-services-how-to-monitor/">클라우드 서비스를 모니터링하는 방법</a>에서 "방법: 관리 포털 외부에서 자세한 모니터링 데이터 액세스"를 참조하세요.
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

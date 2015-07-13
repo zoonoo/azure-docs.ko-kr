@@ -64,7 +64,7 @@ Azure 스트림 분석은 마지막 출력에서 작업 재시작을 지원하�
 4.  데이터베이스 마스터 유형: ![graphic17][graphic17]
 5.  사용자 이름, 암호를 입력하고 로그를 클릭합니다. ![graphic18][graphic18]
 6.  새 쿼리를 클릭합니다. ![graphic19][graphic19]
-7.  <login_name>을 사용자 이름으로 교체하고 <enterStrongPasswordHere>를 새 암호로 교체하는`CREATE LOGIN <login_name> WITH PASSWORD = '<enterStrongPasswordHere>'` 다음 쿼리에 입력합니다. 
+7.  <login_name>을 사용자 이름으로 교체하고 <enterStrongPasswordHere>를 새 암호로 교체하는`CREATE LOGIN <login_name> WITH PASSWORD = '<enterStrongPasswordHere>'` 다음 쿼리에 입력합니다.
 8.  실행을 클릭합니다. ![graphic20][graphic20]
 9.  2단계로 돌아가서 데이터베이스를 클릭합니다. ![graphic21][graphic21]
 10. 관리 명령을 클릭합니다. ![graphic22][graphic22]
@@ -136,12 +136,12 @@ Azure 스트림 분석은 마지막 출력에서 작업 재시작을 지원하�
 	Command(s) completed successfully.
 
 ## 도움말 보기
-추가적인 도움이 필요하면 [Azure 스트림 분석 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)을 참조하세요.
+추가 지원이 필요할 경우 [Azure 스트림 분석 포럼](https://social.msdn.microsoft.com/Forums/ko-kr/home?forum=AzureStreamAnalytics)을 참조하세요.
 
 ## 다음 단계
 
 - [Azure 스트림 분석 소개](stream-analytics-introduction.md)
-- [Azure 스트림 분석을 사용하여 시작](stream-analytics-get-started.md)
+- [Azure 스트림 분석 사용 시작](stream-analytics-get-started.md)
 - [Azure 스트림 분석 작업 규모 지정](stream-analytics-scale-jobs.md)
 - [Azure 스트림 분석 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Azure 스트림 분석 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
@@ -190,6 +190,6 @@ Azure 스트림 분석은 마지막 출력에서 작업 재시작을 지원하�
 [graphic41]: ./media/stream-analytics-login-credentials-inputs-outputs/41-stream-analytics-login-credentials-inputs-outputs.png
 [graphic42]: ./media/stream-analytics-login-credentials-inputs-outputs/42-stream-analytics-login-credentials-inputs-outputs.png
 [graphic43]: ./media/stream-analytics-login-credentials-inputs-outputs/43-stream-analytics-login-credentials-inputs-outputs.png
-
-<!--HONumber=52-->
  
+
+<!---HONumber=62-->

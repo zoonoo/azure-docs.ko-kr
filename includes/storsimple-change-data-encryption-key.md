@@ -1,94 +1,75 @@
-<properties 
-   pageTitle="Change the StorSimple data encryption key"
-   description="Describes how to authorize a StorSimple device so that it can change the data encryption key, and then explains the key change process."
-   services="storsimple"
-   documentationCenter=""
-   authors="SharS"
-   manager="carolz"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="06/17/2015"
-   ms.author="v-sharos" />
+### 1단계: 장치에 관리 포털에서 서비스 데이터 암호화 키를 변경할 권한 부여
 
-### Step 1: Authorize a device to change the service data encryption key in the Management Portal
+일반적으로 장치 관리자는 서비스 관리자가 장치에 서비스 데이터 암호화 키를 변경할 수 있는 권한을 부여하도록 요청합니다. 그러면 서비스 관리자는 장치에 키를 변경할 수 있는 권한을 부여합니다.
 
-Typically, the device administrator will request that the service administrator authorize a device to change service data encryption keys. The service administrator will then authorize the device to change the key.
+이 단계는 관리 포털에서 수행됩니다. 서비스 관리자는 권한을 부여할 수 있는 표시된 장치 목록에서 장치를 선택할 수 있습니다. 그러면 장치에 서비스 데이터 암호화 키 변경 프로세스를 시작할 수 있는 권한이 부여됩니다.
 
-This step is performed in the Management Portal. The service administrator can select a device from a displayed list of the devices that are eligible to be authorized. The device is then authorized to start the service data encryption key change process.
+#### 서비스 데이터 암호화 키를 변경할 권한이 부여될 수 있는 장치
 
-#### Which devices can be authorized to change service data encryption keys?
+서비스 데이터 암호화 키 변경을 시작할 권한을 부여받으려면 장치가 다음 조건을 충족해야 합니다.
 
-A device must meet the following criteria before it can be authorized to initiate service data encryption key changes:
+- 장치는 온라인 상태여야 서비스 데이터 암호화 키 변경 권한 부여 대상이 됩니다.
 
-- The device must be online to be eligible for service data encryption key change authorization.
+- 키 변경이 시작되지 않은 경우 30분 후에 동일한 장치에 권한을 다시 부여할 수 있습니다.
 
-- You can authorize the same device again after 30 minutes if the key change has not been initiated.
+- 이전에 권한을 부여받은 장치에서 키 변경을 시작하지 않은 경우 다른 장치에 권한을 부여할 수 있습니다. 새 장치에 권한을 부여하면 이전 장치는 변경을 시작할 수 없습니다.
 
-- You can authorize a different device, provided that the key change has not been initiated by the previously authorized device. After the new device has been authorized, the old device cannot initiate the change.
+- 서비스 데이터 암호화 키 롤오버가 진행 중인 동안에는 장치에 권한을 부여할 수 없습니다.
 
-- You cannot authorize a device while the rollover of the service data encryption key is in progress.
+- 서비스에 등록된 장치 중 일부만 롤오버한 경우에는 장치에 권한을 부여할 수 있습니다. 이 경우는 적합한 장치는 서비스 데이터 암호화 키 변경을 완료한 장치입니다.
 
-- You can authorize a device when some of the devices registered with the service have rolled over the encryption while others have not. In such cases, the eligible devices are the ones that have completed the service data encryption key change.
+> [AZURE.NOTE]StorSimple 가상 장치는 관리 포털에서 키 변경을 시작할 권한을 부여받을 수 있는 장치 목록에 표시되지 않습니다.
 
-> [AZURE.NOTE]
-> In the Management Portal, StorSimple virtual devices are not shown in the list of devices that can be authorized to start the key change.
+다음 단계에 따라 장치를 선택하고 서비스 데이터 암호화 키 변경을 시작할 권한을 부여합니다.
 
-Perform the following steps to select and authorize a device to initiate the service data encryption key change.
+#### 장치에 키 변경 권한을 부여하려면
 
-#### To authorize a device to change the key
+1. 서비스 대시보드 페이지에서 **서비스 데이터 암호화 키 변경**을 클릭합니다.
 
-1. On the service dashboard page, click **Change service data encryption key**.
+    ![서비스 암호화 키 변경](./media/storsimple-change-data-encryption-key/HCS_ChangeServiceDataEncryptionKey-include.png)
 
-    ![Change service encryption key](./media/storsimple-change-data-encryption-key/HCS_ChangeServiceDataEncryptionKey-include.png)
+2. **서비스 데이터 암호화 키 변경** 대화 상자에서 장치를 선택하고 서비스 데이터 암호화 키 변경을 시작할 권한을 부여합니다. 드롭다운 목록에 권한을 부여할 수 있는 모든 장치가 나와 있습니다.
 
-2. In the **Change service data encryption key** dialog box, select and authorize a device to initiate the service data encryption key change. The drop-down list has all the eligible devices that can be authorized.
+3. 확인 아이콘 ![확인 아이콘](./media/storsimple-change-data-encryption-key/HCS_CheckIcon-include.png)을 클릭합니다.
 
-3. Click the check icon ![check icon](./media/storsimple-change-data-encryption-key/HCS_CheckIcon-include.png).
+### 2단계: StorSimple용 Windows PowerShell을 사용하여 서비스 데이터 암호화 키 변경 시작
 
-### Step 2: Use Windows PowerShell for StorSimple to initiate the service data encryption key change
+이 단계는 권한이 부여된 StorSimple 장치의 StorSimple용 Windows PowerShell 인터페이스에서 수행됩니다.
 
-This step is performed in the Windows PowerShell for StorSimple interface on the authorized StorSimple device.
+> [AZURE.NOTE]키 롤오버가 완료될 때까지 StorSimple 관리자 서비스의 관리 포털에서 수행할 수 있는 작업은 없습니다.
 
-> [AZURE.NOTE] No operations can be performed in the Management Portal of your StorSimple Manager service until the key rollover is completed.
+장치 직렬 콘솔을 사용하여 Windows PowerShell 인터페이스에 연결하는 경우 다음 단계를 수행합니다.
 
-If you are using the device serial console to connect to the Windows PowerShell interface, perform the following steps.
+#### 서비스 데이터 암호화 키 변경을 시작하려면
 
-#### To initiate the service data encryption key change
+1. 옵션 1을 선택하여 모든 권한으로 로그온합니다.
 
-1. Select option 1 to log on with full access.
-
-2. At the command prompt, type:
+2. 명령 프롬프트에 다음을 입력합니다.
 
      `Invoke-HcsmServiceDataEncryptionKeyChange`
 
-3. After the cmdlet has successfully completed, you will get a new service data encryption key. Copy and save this key for use in step 3 of this process. This key will be used to update all the remaining devices registered with the StorSimple Manager service.
+3. cmdlet이 성공적으로 완료되면 새 서비스 데이터 암호화 키를 얻을 수 있습니다. 이 키를 복사하고 저장해 두었다가 이 프로세스의 3단계에서 사용합니다. 이 키는 StorSimple 관리자 서비스에 등록된 나머지 모든 장치를 업데이트하는 데 사용됩니다.
 
-    > [AZURE.NOTE] This process must be initiated within four hours of authorizing a StorSimple device.
+    > [AZURE.NOTE]이 프로세스는 StorSimple 장치에 권한을 부여한 후 4시간 이내에 시작되어야 합니다.
 
-    This new key is then sent to the service to be pushed to all the devices that are registered with the service. An alert will then appear on the service dashboard. The service will disable all the operations on the registered devices, and the device administrator will then need to update the service data encryption key on the other devices. However, the I/Os (hosts sending data to the cloud) will not be disrupted.
+    이 새 키는 서비스로 전송되어 서비스에 등록된 모든 장치에 푸시됩니다. 서비스 대시보드에 경고가 표시됩니다. 서비스는 등록된 장치에서 모든 작업을 사용할 수 없도록 설정합니다. 그러면 장치 관리자는 다른 장치에서 서비스 데이터 암호화 키를 업데이트해야 합니다. 그러나 I/O(클라우드로 데이터를 보내는 호스트)는 중단되지 않습니다.
 
-    If you have a single device registered to your service, the rollover process is now complete and you can skip the next step. If you have multiple devices registered to your service, proceed to step 3.
+    단일 장치를 서비스에 등록한 경우 이제 롤오버 프로세스가 완료되었으므로 다음 단계를 건너뛸 수 있습니다. 여러 장치를 서비스에 등록한 경우 3단계를 진행합니다.
 
-### Step 3: Update the service data encryption key on other StorSimple devices
+### 3단계: 다른 StorSimple 장치에서 서비스 데이터 암호화 키 업데이트
 
-These steps must be performed in the Windows PowerShell interface of your StorSimple device if you have multiple devices registered to your StorSimple Manager service. The key that you obtained in Step 2: Use Windows PowerShell for StorSimple to initiate the service data encryption key change must be used to update all the remaining StorSimple device registered with the StorSimple Manager service.
+여러 장치를 StorSimple 관리자 서비스에 등록한 경우 StorSimple 장치의 Windows PowerShell 인터페이스에서 다음 단계를 수행해야 합니다. 2단계: StorSimple용 Windows PowerShell을 사용하여 서비스 데이터 암호화 키 변경 시작에서 얻은 키를 사용하여 StorSimple 관리자 장치에 등록된 나머지 모든 StorSimple 장치를 업데이트해야 합니다.
 
-Perform the following steps to update the service data encryption on your device.
+다음 단계를 수행하여 장치에서 서비스 데이터 암호화를 업데이트합니다.
 
-#### To update the service data encryption key
+#### 서비스 데이터 암호화 키를 업데이트하려면
 
-1. Use Windows PowerShell for StorSimple to connect to the console. Select option 1 to log on with full access.
+1. StorSimple용 Windows PowerShell을 사용하여 콘솔에 연결합니다. 옵션 1을 선택하여 모든 권한으로 로그온합니다.
 
-2. At the command prompt, type:
+2. 명령 프롬프트에 다음을 입력합니다.
 
     `Invoke-HcsmServiceDataEncryptionKeyChange – ServiceDataEncryptionKey`
 
-3. Provide the service data encryption key that you obtained in [Step 2: Use Windows PowerShell for StorSimple to initiate the service data encryption key change](##to-initiate-the-service-data-encryption-key-change).
+3. [2단계: StorSimple용 Windows PowerShell을 사용하여 서비스 데이터 암호화 키 변경 시작](#step-2:-use-windows-powershell-to-initiate-the-service-data-encryption-key-change)에서 얻은 서비스 데이터 암호화 키를 제공합니다.
 
-
-
+<!---HONumber=62-->

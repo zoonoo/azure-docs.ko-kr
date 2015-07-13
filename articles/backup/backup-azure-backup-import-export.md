@@ -1,20 +1,19 @@
 <properties
-	pageTitle="Azure 백업 - Azure 가져오기/내보내기 서비스를 사용한 오프라인 백업 또는 초기 시드 작업"
-	description="Azure 백업이 Azure 가져오기/내보내기 서비스를 사용하여 네트워크를 통해 데이터를 보내는 방법에 대해 알아봅니다. 이 문서에서는 Azure 가져오기 내보내기 서비스를 사용한 초기 백업 데이터의 오프라인 시드 작업을 설명합니다."
-	services="backup"
-	documentationCenter=""
-	authors="prvijay"
-	manager="shreeshd"
-	editor=""/>
-
+   pageTitle="Azure 백업 - Azure 가져오기/내보내기 서비스를 사용한 오프라인 백업 또는 초기 시드 작업"
+   description="Azure 백업이 Azure 가져오기/내보내기 서비스를 사용하여 네트워크를 통해 데이터를 보내는 방법에 대해 알아봅니다. 이 문서에서는 Azure 가져오기 내보내기 서비스를 사용한 초기 백업 데이터의 오프라인 시드 작업을 설명합니다."
+   services="backup"
+   documentationCenter=""
+   authors="prvijay"
+   manager="shreeshd"
+   editor=""/>
 <tags
-	ms.service="backup"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="storage-backup-recovery"
-	ms.date="04/07/2015"
-	ms.author="prvijay"/>
+   ms.service="backup"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="storage-backup-recovery"
+   ms.date="04/07/2015"
+   ms.author="prvijay"/>
 
 # Azure 백업의 오프라인 백업 워크플로
 
@@ -133,5 +132,6 @@ SCDPM의 해당 워크플로는 **보호 그룹**을 클릭하고 **복구 지�
 [7]: ./media/backup-azure-backup-import-export/complete.png
 [8]: ./media/backup-azure-backup-import-export/dpmoffline.png
 [9]: ./media/backup-azure-backup-import-export/dpmbackupnow.png
+ 
 
-<!---HONumber=GIT-SubDir--> 
+<!---HONumber=62-->

@@ -50,12 +50,12 @@ Azure 앱 서비스는 바로 사용할 수 있는 다양한 커넥터를 제공
 * [Yammer 커넥터]
 
 ##프리미엄 커넥터 및 API 앱##
-* AS2 커넥터
-* BizTalk EDIFACT
+* [AS2 커넥터]
+* [BizTalk EDIFACT]
 * [BizTalk 플랫 파일 인코더]
 * BizTalk 변환 서비스
 * [BizTalk 규칙]
-* BizTalk X12
+* [BizTalk X12]
 * [BizTalk XPath 추출기]
 * [BizTalk XML 유효성 검사기]
 * DB2 커넥터
@@ -111,6 +111,8 @@ Azure 앱 서비스는 바로 사용할 수 있는 다양한 커넥터를 제공
 [BizTalk XPath 추출기]: app-service-logic-xpath-extract.md
 [BizTalk XML 유효성 검사기]: app-service-logic-xml-validator.md
 [BizTalk 규칙]: app-service-logic-use-biztalk-rules.md
- 
+[AS2 커넥터]: app-service-logic-connector-as2.md
+[BizTalk EDIFACT]: app-service-logic-connector-edifact
+[BizTalk X12]: app-service-logic-connector-x12.md
 
 <!---HONumber=62-->

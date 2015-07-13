@@ -1,21 +1,3 @@
-<properties 
-   pageTitle="새 StorSimple 관리자 서비스 만들기"
-   description="Azure Government 포털을 사용하여 StorSimple 관리자 서비스의 새 인스턴스를 만드는 방법에 대해 설명합니다."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="05/20/2015"
-   ms.author="v-sharos" />
-
-
 #### 새 서비스를 만들려면
 
 1. Microsoft 계정 자격 증명을 사용하여 [Microsoft Azure Government 포털](https://manage.windowsazure.us/)에 로그온합니다.
@@ -35,4 +17,4 @@
  
        ![서비스 만들기](./media/storsimple-create-new-service-gov/HCS_StorSimpleManagerServicePage-gov-include.png)
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

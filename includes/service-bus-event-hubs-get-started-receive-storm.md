@@ -1,4 +1,4 @@
-﻿## Apache Storm을 사용하여 메시지 수신
+## Apache Storm을 사용하여 메시지 수신
 
 [**Apache Storm**](https://storm.incubator.apache.org)은 분산된 실시간 계산 시스템으로, 바인딩되지 않은 데이터 스트림의 안정적인 처리를 간소화합니다. 이 섹션에서는 이벤트 허브 스톰 스파우트를 사용하여 이벤트 허브에서 이벤트를 수신하는 방법을 보여 줍니다. Apache Storm을 사용하면 다른 노드에 호스트된 여러 프로세스 간에 이벤트를 분할할 수 있습니다. 이벤트 허브와 Storm을 통합하면 Storm의 Zookeeper 설치를 통해 진행률을 투명하게 확인하고 지속적인 검사점을 관리하여 이벤트 사용이 간소화되고 이벤트 허브에서 병렬 수신됩니다.
 
@@ -6,9 +6,9 @@
 
 이 자습서에서는 이미 사용할 수 있는 이벤트 허브 spout와 함께 제공되는 [HDInsight Storm] 설치를 사용합니다.
 
-1. [HDInsight Storm - 시작](../articles/hdinsight-storm-getting-started.md) 절차에 따라 새 HDInsight 클러스터를 만들고 원격 데스크톱을 통해 이 클러스터에 연결합니다.
+1. [HDInsight Storm - 시작 절차](../articles/hdinsight-storm-getting-started.md)에 따라 새 HDInsight 클러스터를 만들고 원격 데스크톱을 통해 이 클러스터에 연결합니다.
 
-2.  `%STORM_HOME%\examples\eventhubspout\eventhubs-storm-spout-0.9-jar-with-dependencies.jar` 파일을 로컬 개발 환경에 복사합니다. 이 파일에는 events-storm-spout가 포함되어 있습니다.
+2. `%STORM_HOME%\examples\eventhubspout\eventhubs-storm-spout-0.9-jar-with-dependencies.jar` 파일을 로컬 개발 환경에 복사합니다. 이 파일에는 events-storm-spout가 포함되어 있습니다.
 
 3. 다음 명령을 사용하여 패키지를 로컬 Maven 저장소에 설치합니다. 그러면 이후 단계에서 Storm 프로젝트에 참조로 추가할 수 있습니다.
 
@@ -18,7 +18,7 @@
 
    	![][12]
 
-5. **Use default Workspace location(기본 작업 영역 위치 사용)**을 선택하고 **다음**을 클릭합니다.
+5. **Use default Workspace location**(기본 작업 영역 위치 사용)을 선택하고 **다음**을 클릭합니다.
 
 6. **maven-archetype-quickstart** 원형을 선택하고 **다음**을 클릭합니다.
 
@@ -107,7 +107,7 @@
 
 			@Override
 			public void declareOutputFields(OutputFieldsDeclarer declarer) {
-				// 출력 필드 없음
+				// no output fields
 			}
 
 		}
@@ -153,7 +153,7 @@
 						.getProperty("eventhubspout.checkpoint.interval"));
 				int receiverCredits = Integer.parseInt(properties
 						.getProperty("eventhub.receiver.credits")); // prefetch count
-																	// (옵션)
+																	// (opt)
 				System.out.println("Eventhub spout config: ");
 				System.out.println("  partition count: " + partitionCount);
 				System.out.println("  checkpoint interval: "
@@ -164,14 +164,14 @@
 						namespaceName, entityPath, partitionCount, zkEndpointAddress,
 						checkpointIntervalInSeconds, receiverCredits);
 
-				// 작업자 수를 파티션 번호와 동일하게 설정합니다.
-				// spout 및 로거 볼트가 하나에 존재하도록 합니다.
-				// storm 클러스터에서 작업자 간에 메시지가 유실되지 않도록 방지합니다.
+				// set the number of workers to be the same as partition number.
+				// the idea is to have a spout and a logger bolt co-exist in one
+				// worker to avoid shuffling messages across workers in storm cluster.
 				numWorkers = spoutConfig.getPartitionCount();
 
 				if (args.length > 0) {
-					// 샘플 Trident 토폴로지를 스트림 이름으로 사용하도록 토폴로지 이름을
-					// 설정합니다.
+					// set topology name so that sample Trident topology can use it as
+					// stream name.
 					spoutConfig.setTopologyName(args[0]);
 				}
 			}
@@ -230,4 +230,4 @@
 [13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
 [14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
 
-<!--HONumber=52--> 
+<!---HONumber=62-->

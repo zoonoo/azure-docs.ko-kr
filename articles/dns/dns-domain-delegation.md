@@ -28,7 +28,7 @@ Azure DNS는 DNS 도메인에 대한 호스팅 서비스입니다. 도메인에 
 
 도메인은 Domain Name System의 고유 이름입니다(예: 'contoso.com'). 도메인 등록 기관은 인터넷 도메인 이름을 제공할 수 있는 회사입니다. 사용하려는 인터넷 도메인이 사용 가능한지 확인하고 구입할 수 있게 해줍니다. 도메인 이름이 등록되면 도메인 이름에 대한 법적 소유자가 됩니다. 인터넷 도메인이 이미 있는 경우 현재 도메인 등록 기관을 사용하여 Azure DNS에 위임합니다.
 
->[AZURE.NOTE]지정된 도메인 이름의 소유자에 대한 추가 정보를 확인하거나 도메인을 구입하려면 도메인 등록 기관, 도메인 찾기 및 구입을 참조하세요.
+>[AZURE.NOTE]지정된 도메인 이름의 소유자에 대한 자세한 정보나 도메인 구입 방법에 대한 정보를 알아보려면 [Azure AD에서 인터넷 도메인 관리](https://msdn.microsoft.com/library/azure/hh969248.aspx)를 참조하세요.
 
 DNS 영역은 특정 도메인에 대한 DNS 레코드를 호스트하는 데 사용됩니다. 예를 들어 'contoso.com' 도메인은 'mail.contoso.com'(메일 서버) 및 'www.contoso.com'(웹 사이트)과 같은 많은 DNS 레코드를 포함할 수 있습니다.
 
@@ -72,8 +72,8 @@ Azure DNS에서 DNS 영역을 만든 후 부모 영역에서 NS 레코드를 설
 
 Azure PowerShell을 사용하면 권한이 있는 NS 레코드를 다음과 같이 검색할 수 있습니다(레코드 이름 "@"는 영역 루트에 있는 레코드를 가리키는 데 사용됨).
 
-	PS C:> $zone = New-AzureDnsZone –Name contoso.com –ResourceGroupName MyAzureResourceGroup
-	PS C:> Get-AzureDnsRecordSet –Name “@” –RecordType NS –Zone $zone
+	PS C:\> $zone = New-AzureDnsZone –Name contoso.com –ResourceGroupName MyAzureResourceGroup
+	PS C:\> Get-AzureDnsRecordSet –Name “@” –RecordType NS –Zone $zone
 
 	Name              : @
 	ZoneName          : contoso.com
@@ -93,7 +93,7 @@ Azure PowerShell을 사용하면 권한이 있는 NS 레코드를 다음과 같�
 
 일반적인 DNS 확인 프로세스는 위임이 올바르게 설정된 경우 자동으로 이름 서버를 찾기 때문에 Azure DNS 이름 서버를 지정할 필요가 없습니다.
 
-	PS C:> nslookup –type=SOA contoso.com
+	PS C:\> nslookup –type=SOA contoso.com
 
 	Server: ns1-04.azure-dns.com
 	Address: 208.76.47.4
@@ -119,22 +119,22 @@ Azure dns에서 'contoso.com'을 설정하고 위임하면 별도의 자식 영�
 
 다음 PowerShell 예를 보여줍니다. 첫째, 부모 및 자식 영역을 만들며, 동일한 리소스 그룹 또는 다른 리소스 그룹에 있을 수 있습니다.
 
-	PS C:> $parent = New-AzureDnsZone -Name contoso.com -ResourceGroupName RG1
-	PS C:> $child = New-AzureDnsZone -Name partners.contoso.com -ResourceGroupName RG1
+	PS C:\> $parent = New-AzureDnsZone -Name contoso.com -ResourceGroupName RG1
+	PS C:\> $child = New-AzureDnsZone -Name partners.contoso.com -ResourceGroupName RG1
 
 다음으로 자식 영역에서 신뢰할 수 있는 NS 레코드 검색합니다.
 
-	PS C:> $child_ns_recordset = Get-AzureDnsRecordSet -Zone $child -Name "@" -RecordType NS
+	PS C:\> $child_ns_recordset = Get-AzureDnsRecordSet -Zone $child -Name "@" -RecordType NS
 
 마지막으로, 부모 영역에 해당 NS 레코드 집합을 만듭니다(부모 영역의 레코드 집합 이름은 자식 영역 이름과 동일해야 하며, 이 경우 "partners"임).
 
-	PS C:> $parent_ns_recordset = New-AzureDnsRecordSet -Zone $parent -Name "partners" -RecordType NS -Ttl 3600
-	PS C:> $parent_ns_recordset.Records = $child_ns_recordset.Records
-	PS C:> Set-AzureDnsRecordSet -RecordSet $parent_ns_recordset 
+	PS C:\> $parent_ns_recordset = New-AzureDnsRecordSet -Zone $parent -Name "partners" -RecordType NS -Ttl 3600
+	PS C:\> $parent_ns_recordset.Records = $child_ns_recordset.Records
+	PS C:\> Set-AzureDnsRecordSet -RecordSet $parent_ns_recordset 
 
 등록자를 사용하여 위임하는 경우 자식 영역의 SOA 레코드를 조회하여 모두 올바르게 설정되어 있는지 확인할 수 있습니다.
 
-	PS C:> nslookup –type=SOA partners.contoso.com
+	PS C:\> nslookup –type=SOA partners.contoso.com
 	
 	Server: ns1-08.azure-dns.com
 	Address: 208.76.47.8
@@ -161,4 +161,4 @@ Azure dns에서 'contoso.com'을 설정하고 위임하면 별도의 자식 영�
 [Azure DNS REST API 참조](https://msdn.microsoft.com/library/azure/mt163862.aspx)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

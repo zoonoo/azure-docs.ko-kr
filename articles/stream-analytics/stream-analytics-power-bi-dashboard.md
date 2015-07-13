@@ -1,6 +1,7 @@
 <properties 
-	pageTitle="스트림 분석 Power BI 대시보드 | Azure" 
-	description="라이브 Power BI 대시보드를 스트림 분석 작업의 데이터로 채우는 방법에 대해 알아봅니다." 
+	pageTitle="스트림 분석의 Power BI 대시보드 | Microsoft Azure" 
+	description="실시간 스트리밍 Power BI 대시보드를 사용하여 비즈니스 인텔리전스를 수집하고 스트림 분석 작업에서 대량의 데이터를 분석합니다." 
+	keywords="business intelligence tools,power bi,streaming data,power bi dashboard"	
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -13,17 +14,23 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="04/24/2015" 
+	ms.date="05/12/2015" 
 	ms.author="jeffstok"/>
 	
-#Azure 스트림 분석 및 Power BI: 스트리밍 데이터의 실시간으로 분석에 대한 라이브 대시보드
+# Azure 스트림 분석 및 Power BI: 스트리밍 데이터의 실시간 분석에 대한 라이브 대시보드
 
-Azure 스트림 분석에 대한 일반적인 사용 사례 중 하나는 실시간으로 고용량 스트리밍 데이터를 분석하고(사용자가 브라우저를 새로 고칠 필요가 없이 실시간으로 업데이트하는 대시보드) 라이브 대시보드에 대한 통찰력을 확보하는 것입니다. [Microsoft Power BI](https://powerbi.com/)는 단시간에 라이브 대시보드를 빌드하는데 적합합니다. [다음은 시나리오를 설명하기 위한 예제 비디오입니다](https://www.youtube.com/watch?v=SGUpT-a99MA). 이 문서에서는 Azure 스트림 분석 작업에 대한 출력으로 Power BI를 사용하는 방법에 대해 알아봅니다. 비-Azure 스트림 분석은 일반적으로 이 시점에서 사용 가능하지만 Power BI 출력은 Azure 스트림 분석의 미리보기 기능입니다.
+Azure 스트림 분석을 사용하면 최고의 비즈니스 인텔리전스 도구 중 하나인 Microsoft Power BI를 이용할 수 있습니다. Azure 스트림 분석을 사용하여 대용량, 스트리밍 데이터를 분석하고 실시간 Power BI 대시보드에서 이해를 넓히는 방법에 대해 알아봅니다.
+
+[Microsoft Power BI](https://powerbi.com/)를 사용하여 라이브 대시보드를 빠르게 만들 수 있습니다. [시나리오를 설명하는 동영상을 시청합니다](https://www.youtube.com/watch?v=SGUpT-a99MA).
+
+이 문서에서는 Azure 스트림 분석 작업에 대한 출력으로 Power BI를 사용하여 사용자 고유의 사용자 지정 비즈니스 인텔리전스 도구를 만드는 방법에 대해 알아봅니다.
+
+> [AZURE.NOTE]Power BI 출력은 Azure 스트림 분석의 미리 보기 기능입니다.
 
 ##필수 조건
 
-* 조직 ID를 사용하는 Microsoft Azure 계정(Power BI는 조직 ID와만 동작합니다. 조직 ID는 xyz@mycompany.com과 같은 직장 또는 비즈니스 메일입니다. xyz@hotmail.com과 같은 개인 메일은 조직 ID가 아닙니다. [조직 ID에 대해 더 알아볼 수 있습니다.](https://www.arin.net/resources/request/org.html) )
-* 스트리밍 데이터를 소비하는 ASA (Azure 스트림 분석)의 입력 스트림. 이 시점에서 ASA는 Azure 이벤트 허브 또는 Azure Blob 저장소의 입력을 허용합니다.  
+* 조직 ID를 사용하는 Microsoft Azure 계정(Power BI는 조직 ID와만 동작합니다. 조직 ID는 xyz@mycompany.com과 같은 직장 또는 비즈니스 메일입니다. xyz@hotmail.com과 같은 개인 메일은 조직 ID가 아닙니다. 조직 ID에 대한 자세한 내용은 [여기](https://msdn.microsoft.com/subscriptions/dn531048.aspx)에서 알아볼 수 있으며 [여기](http://go.microsoft.com/fwlink/?linkid=331007&clcid=0x409)에서 다운로드할 수 있는 FAQ도 있습니다.)
+* 스트리밍 데이터를 소비하는 스트림 분석 작업에 대한 입력. 스트림 분석은 Azure 이벤트 허브 또는 Azure Blob 저장소의 입력을 허용합니다.  
 
 ##Azure 스트림 분석 작업 만들기
 
@@ -72,14 +79,14 @@ Azure 스트림 분석에 대한 일반적인 사용 사례 중 하나는 실시
 
 ![graphic2][graphic2]
 
-> [AZURE.NOTE]참고 - Power BI 출력은 조직 ID를 사용하여 Azure 계정에 대해서만 사용할 수 있습니다. Azure 계정에 대해 조직 ID를 사용하지 않는 경우(예: 사용자의 라이브 ID / 개인 Microsoft 계정), Power BI 출력 옵션을 표시하지 않습니다.
+> [AZURE.NOTE]Power BI 출력은 조직 ID를 사용하여 Azure 계정에 대해서만 사용할 수 있습니다. Azure 계정에 대해 조직 ID를 사용하지 않는 경우(예: 사용자의 라이브 ID / 개인 Microsoft 계정), Power BI 출력 옵션을 표시하지 않습니다.
 
 2.  **Power BI**를 선택한 다음 오른쪽 단추를 클릭합니다.
 3.  다음과 유사한 화면이 표시됩니다.
 
 ![graphic3][graphic3]
 
-4.  이 단계에서는 ASA 업무에 사용 중인 동일한 조직 ID 사용에 조심해야 합니다. 이 시점에서 Power BI 출력은 ASA 작업이 사용하는 동일한 조직 ID를 사용해야 합니다. 동일한 조직 ID를 사용하는 Power BI 계정이 이미 있는 경우 "지금 권한 부여"를 선택합니다. 그렇지 않은 경우, "지금 등록"을 선택하고 Power BI에 등록하는 동안 동일한 조직 ID를 azure 계정으로 사용합니다. [다음은 Power BI 등록에 대한 세부 정보를 통해 탐색하는 좋은 블로그입니다](http://blogs.technet.com/b/powerbisupport/archive/2015/02/06/power-bi-sign-up-walkthrough.aspx).
+4.  이 단계에서는 스트림 분석 작업에 사용 중인 동일한 조직 ID 사용에 조심해야 합니다. 이 시점에서 Power BI 출력은 스트림 분석 작업이 사용하는 동일한 조직 ID를 사용해야 합니다. 동일한 조직 ID를 사용하는 Power BI 계정이 이미 있는 경우 "지금 권한 부여"를 선택합니다. 그렇지 않은 경우, "지금 등록"을 선택하고 Power BI에 등록하는 동안 동일한 조직 ID를 azure 계정으로 사용합니다. [다음은 Power BI 등록에 대한 세부 정보를 통해 탐색하는 좋은 블로그입니다](http://blogs.technet.com/b/powerbisupport/archive/2015/02/06/power-bi-sign-up-walkthrough.aspx).
 5.  그러면 다음과 같은 화면이 표시됩니다.
 
 ![graphic4][graphic4]
@@ -88,13 +95,13 @@ Azure 스트림 분석에 대한 일반적인 사용 사례 중 하나는 실시
 
 * **출력 별칭** – 쉽게 참조할 수 있는 모든 출력 별칭을 입력할 수 있습니다. 이 출력 별칭은 작업에 대한 여러 출력을 포함하려는 경우에 특히 유용합니다. 이 경우 쿼리에서 이 출력을 참조해야 합니다. 예를 들어, 출력 별칭 값 = “OutPbi”을 사용합니다.
 * **데이터 집합 이름** - Power BI 출력에 포함할 데이터 집합 이름을 입력합니다. 예를 들어, “pbidemo”를 사용합니다.
-*	**테이블 이름** -Power BI 출력의 데이터 집합 아래 테이블 이름을 입력합니다. "Pbidemo"라고 입력합니다. 현재, ASA 작업에서의 Power BI 출력에는 데이터 집합에 하나의 테이블만 있을 수 있습니다.
+*	**테이블 이름** -Power BI 출력의 데이터 집합 아래 테이블 이름을 입력합니다. "Pbidemo"라고 입력합니다. 현재, 스트림 분석 작업의 Power BI 출력에는 하나의 데이터 집합에 하나의 테이블만 있을 수 있습니다.
 
->	[AZURE.NOTE] Note - You should not explicitly create this dataset and table in your Power BI account. They will be automatically created when you start your ASA job and the job starts pumping output into Power BI. If your ASA job query doesn’t return any results, the dataset and table will not be created.
+>	[AZURE.NOTE] You should not explicitly create this dataset and table in your Power BI account. They will be automatically created when you start your Stream Analytics job and the job starts pumping output into Power BI. If your job query doesn’t return any results, the dataset and table will not be created.
 
 *	**확인**, **연결 테스트**를 클릭하면 이제 출력 구성이 완료됩니다.
 
->	[AZURE.WARNING] Also be aware that if Power BI already had a dataset and table with the same name as the one you provided in this ASA job, the existing data will be overwritten.
+>	[AZURE.WARNING] Also be aware that if Power BI already had a dataset and table with the same name as the one you provided in this Stream Analytics job, the existing data will be overwritten.
 
 
 ##쿼리 작성
@@ -120,7 +127,7 @@ Azure 스트림 분석에 대한 일반적인 사용 사례 중 하나는 실시
 
 ##Power BI에서 대시보드 만들기
 
-[Powerbi.com](https://powerbi.com)으로 이동하고 조직 ID로 로그인합니다. ASA 작업 쿼리가 결과를 출력하면, 사용자 데이터 집합이 이미 생성되어 표시됩니다.
+[Powerbi.com](https://powerbi.com)으로 이동하고 조직 ID로 로그인합니다. 스트림 분석 작업 쿼리가 결과를 출력하면, 사용자 데이터 집합이 이미 생성되어 표시됩니다.
 
 ![graphic5][graphic5]
 
@@ -130,7 +137,7 @@ Azure 스트림 분석에 대한 일반적인 사용 사례 중 하나는 실시
 
 이 예에서는 "데모 대시보드"라고 레이블을 지정합니다.
 
-이제 ASA 작업에서 만든 데이터 집합을 클릭합니다(현재 예제에서 pbidemo). 이 데이터 집합 위에 차트를 만들려면 페이지로 이동합니다. 다음은 만들 수 있는 보고서의 한 예입니다.
+이제 스트림 분석 작업에서 만든 데이터 집합을 클릭합니다(현재 예제에서는 pbidemo). 이 데이터 집합 위에 차트를 만들려면 페이지로 이동합니다. 다음은 만들 수 있는 보고서의 한 예입니다.
 
 Σ temp 및 시간 필드를 선택합니다. 자동으로 차트에 대한 값과 축으로 이동됩니다.
 
@@ -150,17 +157,17 @@ Azure 스트림 분석에 대한 일반적인 사용 사례 중 하나는 실시
 
 이제이 고정된 이 보고서를 사용하여 대시보드를 보면 실시간으로 업데이트되는 보고서가 표시됩니다. 스파이크 temp나 이와 같은 이벤트에서 데이터를 변경하려고 시도하면 사용자 대시보드에 반영된 실시간 효과가 표시됩니다.
 
-이 자습서에서는 데이터 집합에 대한 한 종류의 차트를 만드는 방법에 대해 설명합니다. 그러나 Power BI와의 가능성은 무제한입니다. Power BI 대시보드의 다른 예제는 [Power BI 시작](https://youtu.be/L-Z_6P56aas?t=1m58s) 비디오를 보세요.
+이 자습서에서는 데이터 집합에 대한 한 종류의 차트를 만드는 방법에 대해 설명합니다. Power BI는 조직에 대한 다른 고객 비즈니스 인텔리전스 도구를 만드는 데 도움이 됩니다. Power BI 대시보드의 다른 예제는 [Power BI 시작](https://youtu.be/L-Z_6P56aas?t=1m58s) 비디오를 보세요.
 
 Power BI를 사용한 대시보드 만들기에 대해 알 수 있는 다른 유용한 리소스는 [Power BI 미리 보기의 대시보드](http://support.powerbi.com/knowledgebase/articles/424868-dashboards-in-power-bi-preview)입니다.
 
 ## 도움말 보기
-추가적인 도움이 필요하면 [Azure 스트림 분석 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)을 참조하세요.
+추가 지원이 필요할 경우 [Azure 스트림 분석 포럼](https://social.msdn.microsoft.com/Forums/ko-kr/home?forum=AzureStreamAnalytics)을 참조하세요.
 
 ## 다음 단계
 
 - [Azure 스트림 분석 소개](stream-analytics-introduction.md)
-- [Azure 스트림 분석을 사용하여 시작](stream-analytics-get-started.md)
+- [Azure 스트림 분석 사용 시작](stream-analytics-get-started.md)
 - [Azure 스트림 분석 작업 규모 지정](stream-analytics-scale-jobs.md)
 - [Azure 스트림 분석 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Azure 스트림 분석 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
@@ -176,6 +183,6 @@ Power BI를 사용한 대시보드 만들기에 대해 알 수 있는 다른 유
 [graphic8]: ./media/stream-analytics-power-bi-dashboard/8-stream-analytics-power-bi-dashboard.png
 [graphic9]: ./media/stream-analytics-power-bi-dashboard/9-stream-analytics-power-bi-dashboard.png
 [graphic10]: ./media/stream-analytics-power-bi-dashboard/10-stream-analytics-power-bi-dashboard.png
-
-<!--HONumber=52-->
  
+
+<!---HONumber=62-->

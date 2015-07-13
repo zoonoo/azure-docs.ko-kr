@@ -87,4 +87,7 @@ Azure는 SQL 데이터베이스의 과거 리소스 사용량을 평가하여 �
 [4]: ./media/sql-database-service-tier-advisor/choose-pricing-tier.png
 [5]: ./media/sql-database-service-tier-advisor/usage-details.png
 
-<!---HONumber=58--> 
+
+ 
+
+<!---HONumber=62-->

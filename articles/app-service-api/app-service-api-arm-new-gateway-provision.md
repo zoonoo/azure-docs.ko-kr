@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/02/2015" 
+	ms.date="06/23/2015" 
 	ms.author="tomfitz"/>
 
 # 새 게이트웨이로 API 앱을 프로비전
@@ -22,7 +22,9 @@
 
 템플릿을 만드는 더 자세한 내용은 [Azure 리소스 관리자 템플릿 작성하기](../resource-group-authoring-templates.md)를 참조하십시오.
 
-전체 템플릿은 [새 게이트웨이 템플릿과 API 앱](https://github.com/tfitzmac/AppServiceTemplates/blob/master/new-gateway-new-plan-new-apiapp.json)을 참조하십시오.
+앱 배포에 대한 자세한 내용은 [Azure에서 예측 가능하도록 복잡한 응용 프로그램을 배포](../app-service-web/app-service-deploy-complex-application-predictably.md)를 참조하십시오.
+
+전체 템플릿은 [새 게이트웨이 템플릿과 API 앱](../../templates/app-service-api-arm-new-gateway-provision/)을 참조하십시오.
 
 ## 배포할 내용
 
@@ -266,7 +268,7 @@ API 앱을 만듭니다.
 
 ## 배포 실행 명령
 
-[AZURE.INCLUDE [앱-서비스-배포-명령](../../includes/app-service-deploy-commands.md)]
+[AZURE.INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ### PowerShell
 

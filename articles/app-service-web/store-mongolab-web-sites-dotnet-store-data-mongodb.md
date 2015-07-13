@@ -40,20 +40,15 @@
 1. **새로 만들기** > **마켓플레이스**를 클릭하여 Azure 마켓플레이스를 엽니다.  
 	<!-- ![Store][button-store] -->
 
-1. MongoLab 추가 기능을 구입합니다.  
-	![MongoLab][entry-mongolab]
+1. MongoLab 추가 기능을 구입합니다.![MongoLab][entry-mongolab]
 
-1. 추가 기능 목록에서 MongoLab 추가 기능을 클릭하고 **연결 정보**를 클릭합니다.  
-	![ConnectionInfoButton][button-connectioninfo]
+1. 추가 기능 목록에서 MongoLab 추가 기능을 클릭하고 **연결 정보**를 클릭합니다. ![ConnectionInfoButton][button-connectioninfo]
 
-1. MONGOLAB_URI를 클립보드로 복사합니다. 
-	![ConnectionInfoScreen][screen-connectioninfo]  
-	**이 URI에는 데이터베이스 사용자 이름과 암호가 포함되어 있습니다. 중요한 정보로 처리하고 공유하지 마십시오.**
+1. MONGOLAB_URI를 클립보드로 복사합니다. ![ConnectionInfoScreen][screen-connectioninfo] **이 URI에는 데이터베이스 사용자 이름과 암호가 포함되어 있습니다. 중요한 정보로 처리하고 공유하지 마십시오.**
 
-1. Azure 웹 응용 프로그램 구성 메뉴의 연결 문자열 목록에 값을 추가합니다.  
-	![WebSiteConnectionStrings][focus-website-connectinfo]
+1. Azure 웹 응용 프로그램 구성 메뉴의 연결 문자열 목록에 값을 추가합니다. ![WebSiteConnectionStrings][focus-website-connectinfo]
 
-1. **Name**에 MONGOLAB\_URI를 입력합니다.
+1. **Name**에 MONGOLAB_URI를 입력합니다.
 
 1. **값**에 이전 섹션에서 얻은 연결 문자열을 붙여 넣습니다.
 
@@ -70,7 +65,7 @@
         MongoUrl url = new MongoUrl(connectionString);
         MongoClient client = new MongoClient(url);
 
-> **참고:** Azure는**CUSTOMCONNSTR\_** 접두사를 처음에 선언된 연결 문자열에 추가합니다. 따라서 코드가 **MONGOLAB\_URI** 대신 **CUSTOMCONNSTR\_MONGOLAB\_URI.**를 참조합니다.
+> **참고:** Azure는**CUSTOMCONNSTR_** 접두사를 처음에 선언된 연결 문자열에 추가합니다. 따라서 코드가 **MONGOLAB_URI** 대신 **CUSTOMCONNSTR_MONGOLAB_URI.**를 참조합니다.
 
 이제, 전체 자습서에서...
 
@@ -89,8 +84,7 @@
 ### 프로젝트 만들기
 샘플 앱에서는 Visual Studio 템플릿을 사용하여 시작합니다. .NET Framework 4.5를 사용해야 합니다.
 
-1. **파일 > 새 프로젝트**를 선택합니다. 새 프로젝트 대화 상자가 표시됩니다.    
-	![NewProject][dialog-mongolab-csharp-newproject]
+1. **파일 > 새 프로젝트**를 선택합니다. 새 프로젝트 대화 상자가 표시됩니다. ![NewProject][dialog-mongolab-csharp-newproject]
 
 1. **설치됨 > 템플릿 > Visual C# > 웹**을 선택합니다.
 
@@ -100,9 +94,7 @@
 
 1. _mongoNotes_를 **프로젝트 이름**으로 입력합니다. 다른 이름을 선택할 경우 자습서 전체에 제공된 코드를 수정해야 합니다.
 
-1. **도구 > 라이브러리 패키지 관리자 > 패키지 관리자 콘솔**을 선택합니다. PM 콘솔에서 **Install-Package mongocsharpdriver**를 입력하고 **Enter** 키를 누릅니다. 
-	![PMConsole][focus-mongolab-csharp-pmconsole] 
-	MongoDB C# 드라이버가 프로젝트에 통합되고, 다음 줄이 _packages.config_ 파일에 자동으로 추가됩니다.
+1. **도구 > 라이브러리 패키지 관리자 > 패키지 관리자 콘솔**을 선택합니다. PM 콘솔에서 **Install-Package mongocsharpdriver**를 입력하고 **Enter** 키를 누릅니다. ![PMConsole][focus-mongolab-csharp-pmconsole] MongoDB C# 드라이버가 프로젝트에 통합되고, 다음 줄이 _packages.config_ 파일에 자동으로 추가됩니다.
 
         < package id="mongocsharpdriver" version="1.9.2" targetFramework="net45" / >
 
@@ -429,21 +421,18 @@ C# MongoDB 드라이버를 활용하는 방법에 대한 자세한 내용은 mon
 ### 새 웹 앱 만들기 및 게시 설정 파일 가져오기
 Azure 앱 서비스에서 웹 앱을 만드는 것은 매우 쉽습니다. 특히, Azure에서는 Visual Studio에 대한 게시 프로필을 자동으로 생성합니다.
 
-1. Azure 포털에서 **새로 만들기**를 클릭합니다. 
-	![새로 만들기][button-new]
+1. Azure 포털에서 **새로 만들기**를 클릭합니다. ![새로 만들기][button-new]
 
-1. **계산 > 웹 앱 > 빠른 생성**을 선택합니다.
+1. **계산 > 웹앱 > 빠른 생성**을 선택합니다.
 	<!-- ![CreateWebApp][screen-mongolab-newwebsite] -->
 
 1. URL 접두사를 입력합니다. 원하는 이름을 선택합니다. 이름은 고유해야 합니다('mongoNotes'는 사용 불가능할 가능성이 높음).
 
 1. **웹 앱 만들기**를 클릭합니다.
 
-1. 웹 앱 만들기가 완료되면 웹 앱 목록에서 웹 앱 이름을 클릭합니다. 웹 앱 대시보드가 표시됩니다. 
-	![WebAppDashboard][screen-mongolab-websitedashboard]
+1. 웹 앱 만들기가 완료되면 웹 앱 목록에서 웹 앱 이름을 클릭합니다. 웹 앱 대시보드가 표시됩니다. ![WebAppDashboard][screen-mongolab-websitedashboard]
 
-1. **간략 상태**에서 **게시 프로필 다운로드**를 클릭하고 .PublishSettings 파일을 선택한 디렉터리에 저장합니다. 
-	![DownloadPublishProfile][button-website-downloadpublishprofile]
+1. **간략 상태**에서 **게시 프로필 다운로드**를 클릭하고 .PublishSettings 파일을 선택한 디렉터리에 저장합니다. ![DownloadPublishProfile][button-website-downloadpublishprofile]
 
 또는 Visual Studio에서 직접 웹 앱을 구성할 수도 있습니다. Azure 계정을 Visual Studio에 연결하면 표시되는 메시지에 따라 Visual Studio에서 웹 앱을 구성합니다. 작업이 완료되면 솔루션 탐색기에서 프로젝트 이름을 마우스 오른쪽 단추로 클릭하여 Azure에 배포하면 됩니다. 아래 단계에 설명된 대로 MongoLab 연결 문자열을 구성해야 합니다.
 
@@ -456,7 +445,7 @@ Azure 앱 서비스에서 웹 앱을 만드는 것은 매우 쉽습니다. 특�
 [AZURE.INCLUDE [howto-save-connectioninfo-mongolab](../../includes/howto-save-connectioninfo-mongolab.md)]
 
 ### 웹 앱 게시
-1. Visual Studio의 솔루션 탐색기에서 **mongoNotes** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다. 게시 대화 상자가 표시됩니다. 
+1. Visual Studio의 솔루션 탐색기에서 **mongoNotes** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다. 게시 대화 상자가 표시됩니다.  
 	<!-- ![Publish][dialog-mongolab-vspublish] -->
 
 1. **가져오기**를 클릭하고 선택한 다운로드 디렉터리에서 .PublishSettings 파일을 선택합니다. 이 파일은 게시 대화 상자에 값을 자동으로 채웁니다.
@@ -465,8 +454,7 @@ Azure 앱 서비스에서 웹 앱을 만드는 것은 매우 쉽습니다. 특�
 
 1. 유효성 검사에 성공하면 **게시**를 클릭합니다. 게시가 완료되면 새 브라우저 탭이 열리고 웹 앱이 표시됩니다.
 
-1. 메모 텍스트를 입력하고 **만들기**를 클릭하여 결과를 확인합니다! 
-	![HelloMongoAzure][screen-mongolab-sampleapp]
+1. 메모 텍스트를 입력하고 **만들기**를 클릭하여 결과를 확인합니다! ![HelloMongoAzure][screen-mongolab-sampleapp]
 
 <a name="manage"></a>
 ## 데이터베이스 관리
@@ -498,5 +486,6 @@ Azure 앱 서비스에서 웹 앱을 만드는 것은 매우 쉽습니다. 특�
 [deploy]: #deploy
 [manage]: #manage
 
+ 
 
-<!---HONumber=54--> 
+<!---HONumber=62-->

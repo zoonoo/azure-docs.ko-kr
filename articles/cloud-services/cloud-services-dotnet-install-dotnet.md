@@ -18,7 +18,7 @@
 
 # 클라우드 서비스 역할에 .NET 설치 
 
-이 문서에서는 클라우드 서비스 웹 및 작업자 역할에 .NET Framework를 설치하는 방법을 설명합니다. 이러한 단계를 사용하여 Azure 게스트 OS에서 기본적으로 제공되지 않는 버전의 .NET Framework를 설치할 수 있습니다. 게스트 OS 릴리스에 대한 최신 정보는 [Azure 게스트 OS 릴리스 및 SDK 호환성 매트릭스](cloud-services-guestos-update-matrix.md)를 참조하세요.
+이 문서에서는 클라우드 서비스 웹 및 작업자 역할에 .NET Framework를 설치하는 방법을 설명합니다. Azure 게스트 OS 제품군 4에서 이들 단계를 사용하여 .NET 프레임워크 4.5.2를 설치할 수 있습니다. 게스트 OS 릴리스에 대한 최신 정보는 [Azure 게스트 OS 릴리스 및 SDK 호환성 매트릭스](cloud-services-guestos-update-matrix.md)를 참조하세요.
 
 웹 및 작업자 역할에 .NET을 설치하는 프로세스에는 .NET 설치 관리자 패키지를 클라우드 프로젝트의 일부로 포함하고 설치 관리자를 해당 역할의 시작 작업의 일부로 시작하는 과정이 포함됩니다.
 
@@ -115,6 +115,6 @@
 [1]: ./media/cloud-services-dotnet-install-dotnet/rolecontentwithinstallerfiles.png
 [2]: ./media/cloud-services-dotnet-install-dotnet/rolecontentwithallfiles.png
 
-
-<!--HONumber=52-->
  
+
+<!---HONumber=62-->

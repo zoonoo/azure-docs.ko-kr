@@ -74,7 +74,7 @@ Visual Studio에 전송한 이벤트 수가 표시됩니다.
 
 [Azure 포털][portal]로 돌아가 Application Insights 리소스를 찾습니다.
 
-개요 차트에서 데이터를 찾습니다. 처음에는 요소가 1\~2개만 표시됩니다. 예:
+개요 차트에서 데이터를 찾습니다. 처음에는 요소가 1~2개만 표시됩니다. 예:
 
 ![클릭하여 추가 데이터 확인](./media/app-service-app-insights-get-started/12-first-perf.png)
 
@@ -123,5 +123,6 @@ Visual Studio에 전송한 이벤트 수가 표시됩니다.
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [windows]: app-insights-windows-get-started.md
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

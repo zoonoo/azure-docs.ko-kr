@@ -353,4 +353,4 @@ HDInsight 클러스터와 연결된 Azure Blob 저장소에 Pig/Hive 스크립�
 [Azure Portal]: http://portal.azure.com
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

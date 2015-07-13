@@ -34,8 +34,8 @@
 
 #### 데이터를 보는 데 중지되었습니다.
 
-* [상태 블로그](http://blogs.msdn.com/b/applicationinsights-status/)를 확인하세요.
-* 데이터 요소의 월간 할당량에 도달했습니까? 설정/할당량 및 가격을 열어 찾아봅니다. 그렇다면 계획을 업그레이드하거나 추가 용량에 대한 비용을 지불할 수 있습니다. [가격 체계](http://azure.microsoft.com/pricing/details/application-insights/)를 참조하세요.
+* [상태 블로그](http://blogs.msdn.com/b/applicationinsights-status/)를 참조하세요.
+* 데이터 요소의 월간 할당량에 도달했습니까? 설정/할당량 및 가격을 열어 알아봅니다. 그렇다면 계획을 업그레이드하거나 추가 용량에 대한 비용을 지불할 수 있습니다. [가격 체계](http://azure.microsoft.com/pricing/details/application-insights/)를 참조하세요.
 
 
 ## Application Insights를 유니버설 앱에 추가하려면 어떻게 해야 하나요?
@@ -120,4 +120,4 @@
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

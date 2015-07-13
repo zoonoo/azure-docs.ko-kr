@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="03/23/2015"
+   ms.date="06/24/2015"
    ms.author="rajram"/>
 
 
@@ -107,5 +107,6 @@ Azure 관리 포털 화면의 왼쪽 아래에서 **+새로 만들기** 단추�
 [4]: ./media/app-service-logic-create-EAI-logic-app-using-VETR/BizTalkTransforms.PNG
 [5]: ./media/app-service-logic-create-EAI-logic-app-using-VETR/AzureServiceBus.PNG
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

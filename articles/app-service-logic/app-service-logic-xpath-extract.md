@@ -63,4 +63,4 @@ BizTalk XPath Extract 커넥터는 앱 조회를 지원하며, 지정된 XPath�
 <!-- Links -->
 [새 논리 앱 만들기]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

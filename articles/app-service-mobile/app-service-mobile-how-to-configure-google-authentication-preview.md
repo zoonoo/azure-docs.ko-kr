@@ -1,19 +1,19 @@
-<properties 
+<properties
 	pageTitle="앱 서비스 응용 프로그램에 대해 Google 인증을 구성하는 방법"
-	description="앱 서비스 응용 프로그램에 대해 Google 인증을 구성하는 방법을 알아봅니다." 
-    services="app-service\mobile" 
-	documentationCenter="" 
-	authors="mattchenderson,ggailey777" 
-	manager="dwrede" 
+	description="앱 서비스 응용 프로그램에 대해 Google 인증을 구성하는 방법을 알아봅니다."
+    services="app-service\mobile"
+	documentationCenter=""
+	authors="mattchenderson" 
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="app-service-mobile" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="02/19/2015" 
+<tags
+	ms.service="app-service-mobile"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="05/26/2015"
 	ms.author="mahender"/>
 
 # Google 로그인을 사용하도록 응용 프로그램을 구성하는 방법
@@ -69,5 +69,6 @@
 [Google apis]: http://go.microsoft.com/fwlink/p/?LinkId=268303
 
 [Azure 관리 포털]: https://portal.azure.com/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

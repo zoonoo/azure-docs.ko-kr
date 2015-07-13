@@ -178,7 +178,7 @@ user 매개 변수에 다음 텍스트를 사용할 수 있습니다.
 
 ### 배열
 
-매개 변수가 [array] 또는 [string[]]과 같은 배열인 경우 *[Value1,Value2,Value3]* JSON 형식을 사용하여 값 목록으로 전송해야 합니다. 이러한 값은 단순한 형식이어야 합니다.
+매개 변수가 [array] 또는 [string]과 같은 배열인 경우 *[Value1,Value2,Value3]* JSON 형식을 사용하여 값 목록으로 전송해야 합니다. 이러한 값은 단순한 형식이어야 합니다.
 
 예를 들어 다음 테스트 Runbook에서는 *user*라는 매개 변수를 허용합니다.
 
@@ -230,6 +230,6 @@ user 매개 변수에 다음 텍스트를 사용할 수 있습니다.
 
 ## 관련된 문서
 
-- [다른 Runbook에서 Runbook 시작](http://msdn.microsoft.com/library/azure/dn857355.aspx)
+- [다른 Runbook에서 Runbook 시작](http://msdn.microsoft.com/library/azure/dn857355.aspx) 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

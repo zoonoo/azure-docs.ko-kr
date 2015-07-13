@@ -1,17 +1,17 @@
-﻿
+
 1. Visual Studio의 솔루션 탐색기에서 서비스 프로젝트를 마우스 오른쪽 단추로 클릭하고 **디버그** 상황에 맞는 메뉴에서 **새 인스턴스 시작**을 클릭합니다.
 
-    ![start mobile service project locally](./media/mobile-services-dotnet-backend-test-local-service-api-documentation/vs-start-debug-service-project.png)
+    ![로컬에서 모바일 서비스 프로젝트 시작](./media/mobile-services-dotnet-backend-test-local-service-api-documentation/vs-start-debug-service-project.png)
 
     Visual Studio에서 서비스용 기본 웹 페이지가 열립니다. Visual Studio는 기본적으로 IIS Express에서 로컬로 모바일 서비스를 호스트합니다.
 
 2. Windows 작업 표시줄에서 IIS Express의 트레이 아이콘을 마우스 오른쪽 단추로 클릭하고 모바일 서비스가 시작되었는지 확인합니다.
 
-	 ![verify the mobile service in the taskbar](./media/mobile-services-dotnet-backend-test-local-service-api-documentation/iis-express-tray.png)
+	 ![작업 표시줄에서 모바일 서비스 확인](./media/mobile-services-dotnet-backend-test-local-service-api-documentation/iis-express-tray.png)
 
-3. 모바일 서비스 시작 페이지에서 **체험**을 클릭합니다.
+3. .NET 백 엔드 시작 페이지에서 **체험**을 클릭합니다.
 
-    ![mobile service start up page](./media/mobile-services-dotnet-backend-test-local-service-api-documentation/service-welcome-page.png)
+    ![모바일 서비스 시작 페이지](./media/mobile-services-dotnet-backend-test-local-service-api-documentation/service-welcome-page.png)
 
     그러면 표시되는 API 설명서 페이지에서 모바일 서비스를 테스트할 수 있습니다.
 
@@ -27,9 +27,8 @@
  
 	![](./media/mobile-services-dotnet-backend-test-local-service-api-documentation/service-try-this-out-get-todoitems.png)
 
-	그러면 TodoItem 테이블의 모든 행을 반환하는 GET 요청을 로컬 모바일 서비스로 보냅니다. 테이블은 이니셜라이저가 시드하므로 응답 메시지 본문에서는 TodoItem 개체 두 개가 반환됩니다. 이니셜라이저에 대한 자세한 내용은 [.NET 백 엔드 모바일 서비스에 대한 데이터 모델 변경 방법](./ko-kr/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations/)을 참조하세요.
+	그러면 TodoItem 테이블의 모든 행을 반환하는 GET 요청을 로컬 모바일 서비스로 보냅니다. 테이블은 이니셜라이저가 시드하므로 응답 메시지 본문에서는 TodoItem 개체 두 개가 반환됩니다. 이니셜라이저에 대한 자세한 내용은 [.NET 백 엔드 모바일 서비스에 대한 데이터 모델 변경 방법](../articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations.md)을 참조하세요.
 
 	![](./media/mobile-services-dotnet-backend-test-local-service-api-documentation/service-try-this-out-get-response.png)
 
-
-<!--HONumber=42-->
+<!---HONumber=62-->

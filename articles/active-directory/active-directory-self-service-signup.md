@@ -62,7 +62,7 @@ Dan이 이 셀프 서비스 제공 사항에 등록하는 BellowsCollege.com 메
 - 각 사용자 개체는 바이럴로 표시됩니다.
 - 각 사용자는 등록한 서비스에 대한 액세스 권한을 받습니다.
 
-### 소유한 도메인의 셀프 서비스 Azure 테넌트를 어떻게 요구하나요? 
+### 소유한 도메인의 셀프 서비스 Azure 테넌트를 어떻게 요구하나요?
 
 도메인 유효성 검사를 수행하여 셀프 서비스 Azure 테넌트를 요구할 수 있습니다. 도메인 유효성 검사는 DNS 레코드를 만들어 도메인 소유권을 증명합니다.
 
@@ -234,4 +234,6 @@ Bellows College의 IT 관리자가 셀프 서비스 제공 사항에 등록한 �
 <!--Image references-->
 [1]: ./media/active-directory-self-service-signup/SelfServiceSignUpControls.png
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=62-->

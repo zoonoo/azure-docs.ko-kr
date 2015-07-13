@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/22/2015" 
+	ms.date="06/23/2015" 
 	ms.author="mahender"/>
 
 # 기존 Azure 모바일 서비스를 Azure 앱 서비스 모바일 앱으로 마이그레이션
@@ -114,4 +114,5 @@
 [Azure 스케줄러]: /ko-kr/documentation/services/scheduler/
 [웹 작업]: ../app-service-web/websites-webjobs-resources.md
 [플랫폼 간 푸시 알림 전송]: app-service-mobile-dotnet-backend-xamarin-ios-push-notifications-to-user-preview.md
-<!--HONumber=54--> 
+
+<!---HONumber=62-->

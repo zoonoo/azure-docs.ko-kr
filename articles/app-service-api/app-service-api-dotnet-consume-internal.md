@@ -261,5 +261,6 @@ ContactNames Web API를 빌드합니다. Web API의 Get 메서드는 ContactsLis
 이 문서에서는 .NET 클라이언트에서 내부 API 앱을 사용하는 방법을 알아보았습니다. **공용(익명)** 또는 **공용(인증)** 액세스 수준으로 설정된 API 앱을 사용하는 방법은 [.NET 클라이언트의 Azure 앱 서비스에서 API 앱 사용](app-service-api-dotnet-consume.md)을 참조하세요.
 
 .NET 클라이언트에서 API 앱을 호출하는 코드에 대한 추가 예제를 보려면 [Azure Cards](https://github.com/Azure-Samples/API-Apps-DotNet-AzureCards-Sample) 샘플 응용 프로그램을 다운로드하세요.
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

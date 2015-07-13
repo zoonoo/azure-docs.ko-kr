@@ -170,9 +170,9 @@
 
 <sup>2</sup>기본 및 표준 사이트는 전용 컴퓨터에서 실행됩니다. 이러한 컴퓨터에서 호스팅할 수 있는 사이트의 실제 수는 사이트의 활동, 컴퓨터 인스턴스 및 해당 리소스 사용률의 크기에 따라 달라집니다.
 
-<sup>3</sup>무료 계층을 제외하고, 웹 호스팅 계획에 대한 제한은 리소스 그룹당 설정됩니다. 리소스 그룹 만들기 및 관리에 대한 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리][useresourcegroups]를 참조하세요.
+<sup>3</sup>무료 계층을 제외하고, 웹 호스팅 계획에 대한 제한은 리소스 그룹당 설정됩니다. 리소스 그룹 만들기 및 관리에 대한 자세한 내용은 [Azure 리소스 관리자 개요](../articles/resource-group-overview.md)를 참조하세요.
 
-<sup>4</sup>전용 인스턴스는 작음, 중간 또는 큼일 수 있습니다. 자세한 내용은 [Azure 웹 사이트 가격 책정 페이지][websitespricing]를 참조하세요. 지원 요청을 열어서 추가 인스턴스를 사용할 수 있습니다.
+<sup>4</sup>전용 인스턴스는 작음, 중간 또는 큼일 수 있습니다. 자세한 내용은 [Azure 웹 사이트 가격 책정 페이지](http://azure.microsoft.com/pricing/details/web-sites/)를 참조하세요. 지원 요청을 열어서 추가 인스턴스를 사용할 수 있습니다.
 
 <sup>5</sup>모든 웹 사이트는 사이트 콘텐츠에 대해 동일한 저장소 리소스를 공유합니다. 따라서 저장 용량 제한은 웹 사이트 단위가 아닌 모든 사이트에서의 총 크기입니다. 저장소 제한은 지원 요청을 열어 늘릴 수 있습니다.
 
@@ -182,12 +182,8 @@
 
 <sup>8</sup>이 값은 웹 사이트 인스턴스당 동시 웹 소켓 연결 수를 나타냅니다. 예를 들어, 기본 웹 사이트를 두 인스턴스로 배율 조정 하는 경우에 700 동시 연결(350 x 2)을 해야 효과적입니다.
 
-<sup>9</sup>기본 계층의 경우 표준 [SSL 가격 책정이 적용됩니다][sslpricing].
+<sup>9</sup>기본 계층의 경우 표준 [SSL 가격 책정이 적용됩니다](http://azure.microsoft.com/pricing/details/web-sites/#ssl-connections).
 
 <sup>10</sup>사용자 지정 실행 파일 및/또는 스크립트를 주문형, 예약형 또는 지속형으로 웹 사이트 인스턴스 내에서 백그라운드 작업으로 실행합니다. Always On은 연속 Webjob 실행을 위해 필요합니다. Azure 스케줄러 무료 또는 표준은 예약된 WebJobs에 필요합니다.
 
-  [useresourcegroups]: http://azure.microsoft.com/documentation/articles/azure-preview-portal-using-resource-groups/
-  [websitespricing]: http://azure.microsoft.com/pricing/details/web-sites/
-  [sslpricing]: http://azure.microsoft.com/pricing/details/web-sites/#ssl-connections
-
-<!---HONumber=58-->
+<!---HONumber=62-->

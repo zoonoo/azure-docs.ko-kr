@@ -1,20 +1,3 @@
-<properties 
-   pageTitle="StorSimple 백업 정책 추가"
-   description="StorSimple 관리자 서비스를 사용하여 백업 정책을 만드는 방법을 설명합니다."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="alkohli"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="05/22/2015"
-   ms.author="alkohli" />
-
 #### StorSimple 백업 정책을 추가하려면
 
 1. 장치 **퀵스타트** 페이지에서 **백업 정책** 탭을 클릭합니다. 이렇게 하면 **백업 정책** 페이지로 이동됩니다.
@@ -30,4 +13,4 @@
 새로 추가된 정책은 **백업 정책** 페이지입에서 테이블 형식 뷰로 표시됩니다.
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

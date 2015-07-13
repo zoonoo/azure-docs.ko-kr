@@ -11,7 +11,7 @@
 
    	![](./media/mobile-services-ios-run-app/mobile-quickstart-startup-ios.png)
 
-   Azure에 호스트된 새 모바일 앱에 POST 요청이 전송됩니다. 요청의 데이터가 TodoItem 테이블에 삽입됩니다. 테이블에 저장된 항목이 모바일 앱에서 반환되고 데이터가 목록에 표시됩니다.
+   	Azure에 호스트된 새 모바일 앱에 POST 요청이 전송됩니다. 요청의 데이터가 TodoItem 테이블에 삽입됩니다. 테이블에 저장된 항목이 모바일 앱에서 반환되고 데이터가 목록에 표시됩니다.
 
  	</div>
 

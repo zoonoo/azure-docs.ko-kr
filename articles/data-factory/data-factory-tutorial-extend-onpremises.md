@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/14/2015" 
+	ms.date="06/04/2015" 
 	ms.author="spelluru"/>
 
 
@@ -129,7 +129,7 @@
         "end": "2014-05-05T00:00:00Z",
         "isPaused": false
 
-	[AZURE.NOTE]이 연습에서 예제 데이터는 2014년 5월 1일부터 2014년 5월 5일까지이기 때문에 시작 시간과 종료 시간이 2014년 5월 1일부터 2014년 5월 5일까지 설정됩니다.
+	이 연습에서 예제 데이터는 2014년 5월 1일부터 2014년 5월 5일까지이기 때문에 **시작** 시간과 **종료** 시간이 2014년 5월 1일부터 2014년 5월 5일까지 설정됩니다.
  
 3. 도구 모음에서 **배포**를 클릭하여 파이프라인을 배포합니다. 편집기의 제목 표시줄에 **파이프라인이 성공적으로 생성됨** 메시지가 표시되는지 확인합니다.
 	
@@ -167,4 +167,6 @@
 
 [image-data-factory-datamanagementgateway-configuration-manager]: ./media/data-factory-tutorial-extend-onpremises/DataManagementGatewayConfigurationManager.png
 
-<!---HONumber=GIT-SubDir--> 
+ 
+
+<!---HONumber=62-->

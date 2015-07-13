@@ -185,4 +185,6 @@ Azure AD의 일부 사용자 지정 가능한 요소에는 여러 가지 사용 
 [7]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_croppedtop.png
 [8]: ./media/active-directory-add-company-branding/APBranding.png
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=62-->

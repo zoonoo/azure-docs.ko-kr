@@ -1,15 +1,15 @@
 <properties
-	pageTitle="Azure 백업 - Windows 서버 또는 Windows 클라이언트에서 백업 및 복원"
-	description="Windows 서버 또는 Windows 클라이언트에서 백업 및 복원하는 방법을 알아보세요. 이 문서에서는 대체 서버 복구에 대해서도 설명합니다."
-	services="backup"
-	documentationCenter=""
-	authors="prvijay"
-	manager="shreeshd"
-	editor=""/>
+   pageTitle="Azure 백업 - Windows 서버 또는 Windows 클라이언트에서 백업 및 복원"
+   description="Windows 서버 또는 Windows 클라이언트에서 백업 및 복원하는 방법을 알아보세요. 이 문서에서는 대체 서버 복구에 대해서도 설명합니다."
+   services="backup"
+   documentationCenter=""
+   authors="prvijay"
+   manager="shreeshd"
+   editor=""/>
 
 <tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
+   ms.service="backup"
+   ms.workload="storage-backup-recovery"
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="article"
@@ -112,5 +112,6 @@
 [16]: ./media/backup-azure-backup-and-recover/searchitems.png
 [17]: ./media/backup-azure-backup-and-recover/restorelocation.png
 [18]: ./media/backup-azure-backup-and-recover/encryption.png
+ 
 
-<!---HONumber=GIT-SubDir--> 
+<!---HONumber=62-->

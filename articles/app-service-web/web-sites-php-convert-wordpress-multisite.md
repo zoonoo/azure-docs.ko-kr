@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="03/24/2015" 
+	ms.date="06/24/2015" 
 	ms.author="tomfitz"/>
 
 
@@ -70,7 +70,7 @@
 
 이제 관리 표시줄에 **내 사이트**라는 레이블의 추가 메뉴가 표시됩니다. 이 메뉴를 사용하여 **네트워크 관리** 대시보드를 통해 새 네트워크를 제어할 수 있습니다.
 
-# 사용자 지정 도메인 추가
+## 사용자 지정 도메인 추가
 
 [WordPress MU 도메인 매핑][wordpress-plugin-wordpress-mu-domain-mapping] 플러그 인을 사용하면 네트워크에 있는 임의의 사이트에 사용자 지정 도메인을 쉽게 추가할 수 있습니다. 플러그 인의 정상적인 작동을 위해서는 포털과 도메인 등록 기관에서 추가 설정을 해야 합니다.
 
@@ -152,5 +152,6 @@ Azure 웹 앱에서는 웹 앱에 도메인을 무제한으로 추가할 수 있
 
 [wordpress-manage-domains]: ./media/web-sites-php-convert-wordpress-multisite/wordpress-manage-domains.png
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

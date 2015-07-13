@@ -12,21 +12,21 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/02/2015" 
+	ms.date="05/26/2015" 
 	ms.author="awills"/>
  
-#Java 웹 응용 프로그램에서 HTTP 요청 추적
+# Java 웹 응용 프로그램에서 HTTP 요청 추적
 
 Java 웹 응용 프로그램을 실행하는 경우, 요청된 리소스, 실패한 리소스 및 응답 시간, Application Insights 포털의 모든 것과 같이 응용 프로그램에 보낸 HTTP 요청에 대한 정보를 볼 수 있습니다.
 
 아직 수행하지 않은 경우 [Java용 Application Insights SDK][java]를 설치합니다.
 
 
-##프로젝트에 이진 파일 추가
+## 프로젝트에 이진 파일 추가
 
 *프로젝트에 적합한 방법을 선택합니다.*
 
-###Maven을 사용하는 경우...
+### Maven을 사용하는 경우...
 
 빌드에 Maven을 사용하도록 프로젝트가 이미 설정된 경우 pom.xml 파일에 다음 코드 조각을 병합합니다.
 
@@ -40,7 +40,7 @@ Java 웹 응용 프로그램을 실행하는 경우, 요청된 리소스, 실패
       </dependency>
     </dependencies>
 
-###Gradle을 사용하는 경우...
+### Gradle을 사용하는 경우...
 
 빌드에 Gradle을 사용하도록 프로젝트가 이미 설정된 경우 다음 코드 조각을 build.gradle 파일에 병합합니다.
 
@@ -50,7 +50,7 @@ Java 웹 응용 프로그램을 실행하는 경우, 요청된 리소스, 실패
       compile group: 'com.microsoft.azure', name: 'applicationinsights-web', version: '0.9.+'
     }
 
-##프로젝트에 Application Insights HTTP 필터 추가
+## 프로젝트에 Application Insights HTTP 필터 추가
 
 프로젝트에서 web.xml 파일을 찾아 열고, 응용 프로그램 필터가 구성된 웹 앱 노드 아래 다음 코드 조각을 병합합니다.
 
@@ -67,7 +67,7 @@ Java 웹 응용 프로그램을 실행하는 경우, 요청된 리소스, 실패
        <url-pattern>/*</url-pattern>
     </filter-mapping>
 
-##프로젝트에 HTTP 모듈 추가
+## 프로젝트에 HTTP 모듈 추가
 
 프로젝트에서 ApplicationInsights.xml 파일을 찾아 열고 <TelemetryModules> 요소 아래 다음 코드 조각을 병합합니다.
 
@@ -79,7 +79,7 @@ Java 웹 응용 프로그램을 실행하는 경우, 요청된 리소스, 실패
       <Add type="com.microsoft.applicationinsights.web.extensibility.modules.WebUserTrackingTelemetryModule"/>
     </TelemetryModules>
 
-##이벤트 상관 관계에 대한 원격 분석 이니셜라이저 추가
+## 이벤트 상관 관계에 대한 원격 분석 이니셜라이저 추가
 
 이벤트 상관 관계와 함께, 이러한 원격 분석 이벤트 각각에 연결된 작업 ID 속성을 사용하여 요청 처리 중 전송된 모든 원격 분석 이벤트아 HTTP 요청 사이를 연결할 수 있습니다. 이를 통해 호출된 모든 이벤트와 함께 HTTP 요청을 탐색하고 진단 및 문제 해결을 용이하게 합니다.
 
@@ -88,12 +88,15 @@ Java 웹 응용 프로그램을 실행하는 경우, 요청된 리소스, 실패
 이 파일에 < TelemetryInitializers> 요소가 없는 경우 <ApplicationInsights> 요소 아래에 추가합니다.
 
     <TelemetryInitializers>
-      <Add   type="com.microsoft.applicationinsights.web.extensibility.initializers.WebOperationIdTelemetryInitializer"/>
-      <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebOperationNameTelemetryInitializer"/>
+     <Add  type="com.microsoft.applicationinsights.web.extensibility.initializers.WebOperationIdTelemetryInitializer"/>
+     <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebOperationNameTelemetryInitializer"/>
+     <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebSessionTelemetryInitializer"/>
+     <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebUserTelemetryInitializer"/>
+     <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebUserAgentTelemetryInitializer"/>
     </TelemetryInitializers>
 
 
-##Application Insights에서 요청 정보 보기
+## Application Insights에서 요청 정보 보기
 
 응용 프로그램을 실행합니다.
 
@@ -120,7 +123,7 @@ HTTP 요청 데이터가 개요 블레이드에 표시됩니다. (없는 경우 
 
 
 
-##다음 단계
+## 다음 단계
 
 * [이벤트 및 로그를 검색][diagnostic]하여 문제를 진단할 수 있습니다.
 * [Log4J 또는 Logback 추적 캡처][javalogs]
@@ -134,5 +137,6 @@ HTTP 요청 데이터가 개요 블레이드에 표시됩니다. (없는 경우 
 [javalogs]: app-insights-java-trace-logs.md
 [metrics]: app-insights-metrics-explorer.md
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

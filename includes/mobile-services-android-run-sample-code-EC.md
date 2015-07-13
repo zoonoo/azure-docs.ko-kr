@@ -15,4 +15,5 @@
    	![](./media/download-android-sample-code/mobile-quickstart-startup-android.png)
 
    	메모리 내 컬렉션에 저장된 텍스트가 저장되고 아래 목록에 표시됩니다.
-<!--HONumber=54-->
+
+<!---HONumber=62-->

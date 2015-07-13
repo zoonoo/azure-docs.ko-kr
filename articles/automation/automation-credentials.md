@@ -101,4 +101,6 @@
 
 - [그래픽 작성의 링크](automation-graphical-authoring-intro.md#links-and-workflow)
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=62-->

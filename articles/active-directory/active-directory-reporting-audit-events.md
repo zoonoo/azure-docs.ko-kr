@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Azure Active Directory 감사 보고서 이벤트" 
-   description="Azure Active Directory에서 확인하고 다운로드할 수 있는 감사된 이벤트" 
-   services="active-directory" 
-   documentationCenter="" 
-   authors="kenhoff" 
-   manager="mbaldwin" 
+<properties
+   pageTitle="Azure Active Directory 감사 보고서 이벤트"
+   description="Azure Active Directory에서 확인하고 다운로드할 수 있는 감사된 이벤트"
+   services="active-directory"
+   documentationCenter=""
+   authors="kenhoff"
+   manager="mbaldwin"
    editor=""/>
 
 <tags
@@ -12,18 +12,24 @@
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="identity" 
-   ms.date="04/13/2015"
+   ms.workload="identity"
+   ms.date="06/18/2015"
    ms.author="kenhoff"/>
 
 # Azure Active Directory 감사 보고서 이벤트
 
-Azure Active Directory 감사 보고서를 통해 고객은 자신의 Azure Active Directory에서 발생한 권한 있는 작업을 식별할 수 있습니다. 권한 있는 작업에는 권한 상승 변경(예: 역할 만들기 또는 암호 재설정), 정책 구성 변경(예: 암호 정책) 또는 디렉터리 구성 변경(예: 도메인 페더레이션 설정 변경)이 포함됩니다. 보고서는 이벤트 이름의 감사 레코드, 작업을 수행한 행위자, 변경으로 인한 영향을 받은 대상 리소스, 날짜 및 시간(UTC)을 제공합니다. 고객은 [Azure 관리 포털](https://manage.windowsazure.com/)을 통해 Azure Active Directory의 감사 이벤트 목록을 검색할 수 있습니다.
+Azure Active Directory 감사 보고서를 통해 고객은 자신의 Azure Active Directory에서 발생한 권한 있는 작업을 식별할 수 있습니다. 권한 있는 작업에는 권한 상승 변경(예: 역할 만들기 또는 암호 재설정), 정책 구성 변경(예: 암호 정책) 또는 디렉터리 구성 변경(예: 도메인 페더레이션 설정 변경)이 포함됩니다. 보고서는 이벤트 이름의 감사 레코드, 작업을 수행한 행위자, 변경으로 인한 영향을 받은 대상 리소스, 날짜 및 시간(UTC)을 제공합니다. 고객은 [액세스 및 사용 보고서 보기](active-directory-view-access-usage-reports.md)에서 설명한 대로 [Azure 관리 포털](https://manage.windowsazure.com/)을 통해 Azure Active Directory의 감사 이벤트 목록을 검색할 수 있습니다.
+
+## 감사 보고서 보존
+
+Azure AD 감사 보고서의 이벤트는 180일 동안 보존됩니다. 보고서에 보존하는 방법에 대한 자세한 내용은 [Azure Active Directory 보고서 보존 정책](active-directory-reporting-retention.md)을 참조하세요.
+
+더 긴 보존 기간 동안 감사 이벤트를 저장하려는 고객은 Reporting API를 사용하여 별도의 데이터 저장소에 정기적으로 감사 이벤트를 저장할 수 있습니다. 자세한 내용은 [Reporting API 시작](active-directory-reporting-api-getting-started.md)을 참조하세요.
 
 ## 각 감사 이벤트에 포함된 속성
 
 | 속성 | 설명 |
-| ------	| ------								|		
+| ------	| ------								|
 | 날짜 및 시간 | 감사 이벤트가 발생한 날짜 및 시간 |
 | 행위자 | 작업을 수행한 사용자 또는 서비스 주체 |
 | 작업 | 수행된 작업 |
@@ -66,7 +72,7 @@ Azure Active Directory 감사 보고서를 통해 고객은 자신의 Azure Acti
 | 회사 정보 설정 | 회사 수준 정보를 업데이트합니다. 자세한 내용은 [Get-msolcompanyinformation](https://msdn.microsoft.com/library/azure/dn194126.aspx) PowerShell cmdlet을 참조하세요. |
 | 사용자 암호 강제 변경 설정 | 로그인 시 사용자가 강제로 암호를 변경하도록 하는 속성을 설정합니다. |
 
-<!--- 
+<!---
 
 List of events that still need descriptions:
 
@@ -95,5 +101,6 @@ Promote tenant to partner
 | TelephoneNumber | 사용자의 전화 번호입니다. |
 
 감사 레코드는 많은 규정 준수 규칙의 필수 컨트롤입니다. Azure Active Directory 감사 보고서를 사용하여 규정 준수 규칙을 충족하려는 고객은 보고서 세부 정보를 설명하는 데 도움이 되도록 내보낸 고객 감사 보고서의 복사본과 함께 이 도움말 항목의 복사본을 제출하는 것이 좋습니다. Azure에서 현재 충족하는 규정 준수 규칙을 알려고 하는 감사자는 직접 Microsoft Azure 보안 센터의 [규정 준수 페이지](http://azure.microsoft.com/support/trust-center/compliance/)로 안내하세요.
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

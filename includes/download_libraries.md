@@ -58,4 +58,4 @@ Java용 Azure 라이브러리는 [Apache 라이선스 버전 2.0][license](영�
 [license]: http://www.apache.org/licenses/LICENSE-2.0.html
 [zip-download]: http://go.microsoft.com/fwlink/?LinkId=253887
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

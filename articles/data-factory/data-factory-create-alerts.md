@@ -170,5 +170,6 @@ StorageAccountName은 배포된 경고 JSON 파일을 저장하기 위한 저장
 다음 명령을 실행하여 생성된 이벤트를 봅니다.
 
 	Get-AzureResourceGroupLog –Name $ResourceGroup -All | Where-Object EventSource -eq "Microsoft.DataFactory"
+ 
 
-<!---HONumber=GIT-SubDir--> 
+<!---HONumber=62-->

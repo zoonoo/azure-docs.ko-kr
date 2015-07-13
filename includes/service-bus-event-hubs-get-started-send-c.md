@@ -39,7 +39,7 @@
 		  {                                                                          \
 		    if(pn_messenger_errno(messenger))                                        \
 		    {                                                                        \
-		      printf("확인\n");													 \
+		      printf("check\n");													 \
 		      die(__FILE__, __LINE__, pn_error_text(pn_messenger_error(messenger))); \
 		    }                                                                        \
 		  }  
@@ -82,7 +82,7 @@
 		}
 
 		int main(int argc, char** argv) {
-			printf("Sender 프로세스를 중단하려면 Ctrl-C를 누르세요\n");
+			printf("Press Ctrl-C to stop the sender process\n");
 
 			pn_messenger_t *messenger = pn_messenger(NULL);
 			pn_messenger_set_outgoing_window(messenger, 1);
@@ -90,11 +90,11 @@
 
 			while(true) {
 				sendMessage(messenger);
-				printf("메시지 보내기\n");
+				printf("Sent message\n");
 				sleep(1);
 			}
 
-			// 메신저 리소스 릴리스
+			// release messenger resources
 			pn_messenger_stop(messenger);
 			pn_messenger_free(messenger);
 
@@ -105,6 +105,6 @@
 
 		gcc sender.c -o sender -lqpid-proton
 
-> [AZURE.NOTE] 위의 코드에서 발신 창 1을 사용하여 메시지가 최대한 빨리 출력되게 합니다. 일반적 응용 프로그램에서는 메시지를 일괄 처리하여 처리량을 늘려야 합니다. 이 환경과 다른 환경 및 바인딩이 제공되는 플랫폼(현재 Perl, PHP, Python 및 Ruby)에서 Qpid Proton 라이브러리를 사용하는 방법에 대한 자세한 내용은 [Qpid AMQP Messenger 페이지](http://qpid.apache.org/components/messenger/index.html)(영문)를 참조하세요.
+> [AZURE.NOTE]위의 코드에서 발신 창 1을 사용하여 메시지가 최대한 빨리 출력되게 합니다. 일반적 응용 프로그램에서는 메시지를 일괄 처리하여 처리량을 늘려야 합니다. 이 환경과 다른 환경 및 바인딩이 제공되는 플랫폼(현재 Perl, PHP, Python 및 Ruby)에서 Qpid Proton 라이브러리를 사용하는 방법에 대한 자세한 내용은 [Qpid AMQP Messenger 페이지](http://qpid.apache.org/components/messenger/index.html)(영문)를 참조하세요.
 
-<!--HONumber=52--> 
+<!---HONumber=62-->

@@ -45,7 +45,7 @@ ASP.NET MVC 5에서 빌드되고 데이터베이스 액세스에 ADO.NET Entity 
 1. **파일** 메뉴에서 **새 프로젝트**를 클릭합니다.
 3. **새 프로젝트** 대화 상자에서 **Visual C#**을 확장하고 **웹**을 선택한 다음 **ASP.NET MVC 5 웹 응용 프로그램**을 선택합니다. 응용 프로그램 이름을 **ContactManager**로 지정하고 **확인**을 클릭합니다.
 
-	![새 프로젝트 대화 상자](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr4.PNG)
+	![새 프로젝트 대화 상자](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr4.PNG)]
 
 1. **새 ASP.NET 프로젝트** 대화 상자에서 **MVC** 템플릿을 선택하고 **Web API**를 선택한 후 **인증 변경**을 클릭합니다.
 
@@ -75,10 +75,10 @@ ASP.NET MVC 5에서 빌드되고 데이터베이스 액세스에 ADO.NET Entity 
 ### 페이지 머리글 및 바닥글 설정
 
 
-1. **솔루션 탐색기**에서 *Views\\Shared* 폴더를 확장하고 *_Layout.cshtml* 파일을 엽니다. 
+1. **솔루션 탐색기**에서 *Views\Shared* 폴더를 확장하고 *_Layout.cshtml* 파일을 엽니다. 
 	![솔루션 탐색기의 _Layout.cshtml][newapp004]
 
-1. *Views\\Shared_Layout.cshtml* 파일 내용을 다음 코드로 바꿉니다.
+1. *Views\Shared_Layout.cshtml* 파일 내용을 다음 코드로 바꿉니다.
 
 
 		<!DOCTYPE html>
@@ -235,7 +235,7 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 
 	**Initial** 클래스의 **Up** 메서드는 Contacts 테이블을 만들고 이전 상태로 돌아가려는 경우 사용되는 **Down** 메서드는 테이블을 삭제합니다.
 
-3. *Migrations\\Configuration.cs* 파일을 엽니다.
+3. *Migrations\Configuration.cs* 파일을 엽니다.
 
 4. 다음 네임스페이스를 추가합니다.
 
@@ -318,7 +318,7 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 
 <h2><a name="bkmk_addview"></a>뷰 편집</h2>
 
-1. *Views\\Home\\Index.cshtml* 파일을 엽니다. 다음 단계에서는 생성된 변경 내용을 [jQuery](http://jquery.com/) 및 [Knockout.js](http://knockoutjs.com/)를 사용하는 코드로 바꿀 것입니다. 이 새 코드는 웹 API 및 JSON을 사용하여 연락처 목록을 가져온 후 knockout.js를 사용하여 연락처 데이터를 UI에 바인딩합니다. 자세한 내용은 이 자습서의 후반부에서 [다음 단계](#nextsteps) 섹션을 참조하세요. 
+1. *Views\Home\Index.cshtml* 파일을 엽니다. 다음 단계에서는 생성된 변경 내용을 [jQuery](http://jquery.com/) 및 [Knockout.js](http://knockoutjs.com/)를 사용하는 코드로 바꿀 것입니다. 이 새 코드는 웹 API 및 JSON을 사용하여 연락처 목록을 가져온 후 knockout.js를 사용하여 연락처 데이터를 UI에 바인딩합니다. 자세한 내용은 이 자습서의 후반부에서 [다음 단계](#nextsteps) 섹션을 참조하세요. 
 
 
 2. 파일 내용을 다음 코드로 바꿉니다.
@@ -475,7 +475,7 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 
 	Contact Manager 앱에 사용되는 레이아웃, 색 및 스타일에 이 스타일시트를 사용하겠습니다.
 
-6. *App_Start\\BundleConfig.cs* 파일을 엽니다.
+6. *App_Start\BundleConfig.cs* 파일을 엽니다.
 
 
 7. 다음 코드를 추가하여 [Knockout](http://knockoutjs.com/index.html "KO") 플러그인을 등록합니다.
@@ -548,7 +548,7 @@ XSRF 또는 CSRF라고도 하는 교차 사이트 요청 위조는 웹 호스팅
 
 XSRF 공격은 피싱 공격과는 구분됩니다. 피싱 공격에는 피해자의 상호 작용이 필요합니다. 피싱 공격에서 악성 웹 사이트는 대상 웹 사이트를 가장하고 피해자는 공격자에게 중요 정보를 제공하는 실수를 저지르게 됩니다. XSRF 공격에서는 종종 피해자의 상호 작용이 필요하지 않습니다. 대신, 공격자는 대상 웹 사이트에 모든 관련 쿠키를 자동으로 보내는 브라우저를 사용합니다.
 
-자세한 내용은 [OWASP(Open Web Application Security Project)](https://www.owasp.org/index.php/Main_Page) [XSRF](https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF))(영문)를 참조하세요.
+자세한 내용은 [OWASP(Open Web Application Security Project)](https://www.owasp.org/index.php/Main_Page) [XSRF](https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)))를 참조하세요.
 
 1. **솔루션 탐색기**에서 **ContactManager** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가**를 클릭한 후 **클래스**를 클릭합니다.
 
@@ -622,16 +622,15 @@ XSRF 공격은 피싱 공격과는 구분됩니다. 피싱 공격에는 피해�
             }
         }
 
-1. **[ValidateHttpAntiForgeryToken]** 특성에 대한 액세스 권한을 받을 수 있도록 다음 *using* 문을 연락처 컨트롤러에 추가합니다.
+1. *[ValidateHttpAntiForgeryToken]* 특성에 대한 액세스 권한을 받을 수 있도록 다음 **using** 문을 연락처 컨트롤러에 추가합니다.
 
 	using ContactManager.Filters;
 
 1. XSRF 위협으로부터 보호할 수 있도록 **ContactsController**의 Post 메서드에 **[ValidateHttpAntiForgeryToken]** 특성을 추가합니다. "PutContact", "PostContact" 및 **DeleteContact** 작업 메서드에 이 특성을 추가하겠습니다.
 
-	[ValidateHttpAntiForgeryToken] 
-        public IHttpActionResult PutContact(int id, Contact contact)
-        {
-1. *Views\\Home\\Index.cshtml* 파일의 *Scripts* 섹션을 업데이트하여 XSRF 토큰을 가져오는 코드를 포함합니다.
+	[ValidateHttpAntiForgeryToken] public IHttpActionResult PutContact(int id, Contact contact) {
+
+1. *Views\Home\Index.cshtml* 파일의 *Scripts* 섹션을 업데이트하여 XSRF 토큰을 가져오는 코드를 포함합니다.
 
          @section Scripts {
             @Scripts.Render("~/bundles/knockout")
@@ -810,5 +809,6 @@ Azure 응용 프로그램에 데이터를 저장하는 또 다른 방법은 Azur
 [ValidateConnection]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/ValidateConnection.png
 [WebPIAzureSdk20NetVS12]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/WebPIAzureSdk20NetVS12.png
 [prevent-csrf-attacks]: http://www.asp.net/web-api/overview/security/preventing-cross-site-request-forgery-(csrf)-attacks
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

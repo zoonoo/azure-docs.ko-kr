@@ -1,5 +1,3 @@
-
-
 >[AZURE.NOTE]이 절차를 완료하려면 검증된 메일 주소가 포함된 Google 계정이 있어야 합니다. 새 Google 계정을 만들려면 <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>으로 이동하세요.
 
 
@@ -15,7 +13,7 @@
 
 	이 자습서 뒷부분에서 이 값을 클라이언트의 PROJECT_ID 변수로 설정합니다.
 
-4. 왼쪽 열에서 **APIs & auth**를 확장하고 **APIs**를 클릭한 다음 아래로 스크롤하여 **Google Cloud Messaging for Android**를 사용하도록 토글을 클릭합니다. 다음 페이지에서 **Enable API**를 클릭하고 서비스의 조건에 동의합니다.
+4. 왼쪽 열에서 **APIs & auth**를 확장하고 **APIs**를 클릭한 다음 아래로 스크롤하여 **Cloud Messaging for Android**를 클릭합니다. 다음 페이지에서 **Enable API**를 클릭하고 서비스의 조건에 동의합니다.
 
 	![](./media/notification-hubs-android-get-started/mobile-services-google-enable-GCM.png)
 
@@ -33,5 +31,4 @@
 
 	이 API 키를 사용하여 Azure 에서 GCM에 인증하고 앱 대신 푸시 알림을 보낼 수 있게 합니다.
 
-
-<!--HONumber=54-->
+<!---HONumber=62-->

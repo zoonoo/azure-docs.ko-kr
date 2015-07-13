@@ -35,8 +35,7 @@
 
 4. **템플릿**을 선택하면 **확인**을 누릅니다.
 
-이제 논리 앱 프로젝트를 솔루션에 추가 됩니다. 솔루션 탐색기에서 배포가 표시되어야 합니다.
-![Deployment](./media/app-service-logic-deploy-from-vs/deployment.png)
+이제 논리 앱 프로젝트를 솔루션에 추가 됩니다. 솔루션 탐색기에서 배포가 표시되어야 합니다. ![배포](./media/app-service-logic-deploy-from-vs/deployment.png)
 
 ## 논리 앱 구성
 
@@ -46,17 +45,13 @@
 
 오늘날, Visual Studio에 기본 제공된 디자이너가 없으므로 그래픽 인터페이스(JSON와 대조적)를 사용하려는 경우 Azure 포털을 사용해야 합니다.
 
-Azure 포털 내에서 이전에 논리 앱을 만들었고 이제 소스 제어를 위해 이를 확인하려는 경우 다음을 수행할 수 있습니다.
- - 포털에서 **코드 보기**로 이동하여 정의를 복사합니다.
- - [REST API](https://msdn.microsoft.com/library/azure/dn948510.aspx) 논리 앱을 사용하여 정의를 확인합니다.
- - [Azure 리소스 관리자 powershell](../powershell-azure-resource-manager.md), 특히 [`Get-AzureResource` 명령](https://msdn.microsoft.com/library/dn654579.aspx)을 사용하여 정의를 다운로드합니다.
+Azure 포털 내에서 이전에 논리 앱을 만들었고 이제 소스 제어를 위해 이를 확인하려는 경우 다음을 수행할 수 있습니다. - 포털에서 **코드 보기**로 이동하여 정의를 복사합니다. - [REST API](https://msdn.microsoft.com/library/azure/dn948510.aspx) 논리 앱을 사용하여 정의를 확인합니다. - [Azure 리소스 관리자 powershell](../powershell-azure-resource-manager.md), 특히 [`Get-AzureResource` 명령](https://msdn.microsoft.com/library/dn654579.aspx)을 사용하여 정의를 다운로드합니다.
 
 ## 논리 앱 배포
 
 마지막으로, 앱을 구성한 후 몇 단계만에 Visual Studio에서 직접 배포할 수 있습니다.
 
-1. 솔루션 탐색기에서 배포를 마우스 오른쪽 단추로 클릭하고 **배포** > **새 배포...**로 이동합니다.
-    ![New deployment](./media/app-service-logic-deploy-from-vs/newdeployment.png)
+1. 솔루션 탐색기에서 배포를 마우스 오른쪽 단추로 클릭하고 **배포** > **새 배포...** ![새 배포](./media/app-service-logic-deploy-from-vs/newdeployment.png)로 이동합니다.
 
 2. Azure 구독에 로그인하라는 메시지가 표시됩니다.
 
@@ -69,4 +64,5 @@ Azure 포털 내에서 이전에 논리 앱을 만들었고 이제 소스 제어
 나중에 소스 제어에서 논리 앱을 수정하고 새 버전을 배포하기 위해 Visual Studio를 사용할 수 있습니다. Azure 포털에서 정의를 직접 수정하면 다음에 Visual Studio에서 변경 내용을 배포하면 해당 변경 내용이 재정의됩니다.
 
 Visual Studio를 사용하지 않고 싶지만 소스 제어에서 논리 앱을 배포하기 위해 여전히 장사를 하고 싶은 경우 [API](https://msdn.microsoft.com/library/azure/dn948510.aspx) 또는 [Powershell](../powershell-azure-resource-manager.md)을 직접 사용하여 배포를 자동화하는 데 사용할 수 있습니다.
-<!--HONumber=54--> 
+
+<!---HONumber=62-->

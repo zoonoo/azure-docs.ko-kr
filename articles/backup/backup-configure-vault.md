@@ -16,22 +16,24 @@
 	ms.date="06/03/2015" 
 	ms.author="markgal"/>
 
+
+
 #Windows Server를 빠르고 쉽게 백업하도록 Azure 백업 구성
 
 이 자습서를 완료하려면 Azure 계정이 필요합니다. 이 자습서에서는 Azure 백업 기능을 사용하도록 설정하는 단계를 안내합니다.
->[AZURE.NOTE]이전에는 백업 서버를 등록하려면 X.509 v3 인증서를 만들거나 얻어야 했습니다. 인증서는 계속 지원되지만 이제는 Azure 저장소를 서버에 보다 간단히 등록할 수 있도록 하기 위해 빠른 시작 페이지에서 바로 저장소 자격 증명을 생성할 수 있습니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/)을 참조하십시오.
+>[AZURE.NOTE]이전에는 백업 서버를 등록하려면 X.509 v3 인증서를 만들거나 얻어야 했습니다. 인증서는 계속 지원되지만 이제는 Azure 저장소를 서버에 보다 간단히 등록할 수 있도록 하기 위해 빠른 시작 페이지에서 바로 저장소 자격 증명을 생성할 수 있습니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
-Windows Server의 파일과 데이터를 Azure에 백업하려면 데이터를 저장하려는 지역에 백업 자격 증명 모음을 만들어야 합니다. 이 자습서에서는 과정을 안내 합니다.
+Windows Server의 파일과 데이터를 Azure에 백업하려면 데이터를 저장하려는 지역에 백업 자격 증명 모음을 만들어야 합니다. 이 자습서에서는 다음 과정을 안내합니다.
 
-- 백업을 저장 하는데 사용할 자격 증명 모음 만들기
-- 자격 증명을 자격 증명 모음 다운로드
+- 백업을 저장하는 데 사용할 자격 증명 모음 만들기
+- 저장소 자격 증명 다운로드
 - 백업 에이전트 설치
-- 관리 포털을 통해 사용 가능한 백업 관리 작업의 개요
+- 관리 포털을 통해 사용할 수 있는 백업 관리 작업의 개요
 
 ##백업 자격 증명 모음 만들기
 
 1. [관리 포털](https://manage.windowsazure.com)에 로그인합니다.
-2. 클릭 하 여 **새** > **데이터 서비스** > **복구 서비스** > **백업 자격 증명 모음** > **빨리 만들기**.
+2. **새로 만들기** > **데이터 서비스** > **복구 서비스** > **백업 자격 증명 모음** > **빠른 생성**을 클릭합니다.
 3. **이름**에 백업 저장소를 식별할 이름을 입력합니다.
 4. **지역**에서 백업 저장소의 지역을 선택합니다.
 
@@ -39,7 +41,7 @@ Windows Server의 파일과 데이터를 Azure에 백업하려면 데이터를 �
 
 5. **자격 증명 모음 만들기**를 클릭합니다.
 
-    백업 저장소름 만드는 데 시간이 걸릴 수 있습니다. 상태를 확인하려면 포털 화면의 아래쪽에서 알림을 모니터링할 수 있습니다. 백업 저장소를 만든 후 메시지 알려줍니다 자격 증명 모음 성공적으로 만들었으며으로 복구 서비스에 대 한 리소스에 나열 됩니다 **활성**.
+    백업 저장소름 만드는 데 시간이 걸릴 수 있습니다. 상태를 확인하려면 포털 화면의 아래쪽에서 알림을 모니터링할 수 있습니다. 백업 자격 증명 모음이 생성된 후 자격 증명 모음이 성공적으로 만들어졌으며 복구 서비스 리소스에 **활성** 상태로 나열됨을 알리는 메시지가 나타납니다.
 
     ![백업 저장소 만들기](./media/backup-configure-vault/RS_backupvaultcreation.png)
 
@@ -51,7 +53,7 @@ Windows Server의 파일과 데이터를 Azure에 백업하려면 데이터를 �
 
 1. [관리 포털](https://manage.windowsazure.com)에 로그인합니다.
 2. **복구 서비스**를 클릭한 후 서버에 등록하려는 백업 저장소를 선택합니다. 그러면 이 백업 자격 증명 모음의 빠른 시작 페이지가 나타납니다.
-3. 에 **빠른 시작 페이지**, 를 클릭 하 여 **다운로드 보관 자격 증명** 생성 하 고 백업 자격 증명 모음에 서버를 등록 하는데 사용할 보관 자격 증명 다운로드 포털을 요청 하도록 합니다.
+3. **빠른 시작 페이지**에서 **저장소 자격 증명 다운로드**를 클릭하여 백업 자격 증명 모음에 서버를 등록하는 데 사용할 저장소 자격 증명을 포털에서 생성 및 다운로드하도록 합니다.
 
     포털에서는 저장소 이름과 현재 날짜를 조합하여 저자격 증명 모음 자격 증명을 생성합니다.
 
@@ -63,8 +65,8 @@ Windows Server의 파일과 데이터를 Azure에 백업하려면 데이터를 �
 2. **복구 서비스**를 클릭한 후 백업 저장소를 선택하여 해당 빠른 시작 페이지를 표시합니다.
 3. 빠른 시작 페이지에서 다운로드하려는 에이전트의 유형을 선택합니다. **Azure Backup Agent 다운로드**, **Windows Server 및 System Center Data Protection Manager** 또는 **Windows Server Essentials**를 선택할 수 있습니다. 자세한 내용은 다음을 참조하세요.
 
-	* [Windows Server 2012 및 System Center 2012 SP1-Data Protection Manager 용 Azure 백업 에이전트 설치](http://technet.microsoft.com/library/hh831761.aspx#BKMK_installagent)
-	* [Windows Server 2012 Essentials 용 Azure 백업 에이전트 설치](http://technet.microsoft.com/library/jj884318.aspx)
+	* [Windows Server 2012 및 System Center 2012 SP1 - Data Protection Manager용 Azure 백업 에이전트 설치](http://technet.microsoft.com/library/hh831761.aspx#BKMK_installagent)
+	* [Windows Server 2012 Essentials용 Azure 백업 에이전트 설치](http://technet.microsoft.com/library/jj884318.aspx)
 
 에이전트가 설치된 후 해당 로컬 관리 인터페이스(예: Microsoft Management Console 스냅인, System Center Data Protection Manager Console 또는 Windows Server Essentials Dashboard)를 사용하여 서버에 대한 백업 정책을 구성할 수 있습니다.
 
@@ -91,7 +93,10 @@ Windows Server의 파일과 데이터를 Azure에 백업하려면 데이터를 �
 
 ##다음 단계
 
-- Azure 백업에 대한 자세한 내용은 [Azure 백업 개요](http://go.microsoft.com/fwlink/p/?LinkId=222425)를 참조하십시오. 
-- [Azure 백업 포럼](http://go.microsoft.com/fwlink/p/?LinkId=290933)을 방문하십시오.
+- Azure 백업에 대한 자세한 내용은 [Azure 백업 개요](http://go.microsoft.com/fwlink/p/?LinkId=222425)를 참조하세요. 
+- [Azure 백업 포럼](http://go.microsoft.com/fwlink/p/?LinkId=290933)을 방문하세요.
 
-<!---HONumber=GIT-SubDir--> 
+
+ 
+
+<!---HONumber=62-->

@@ -67,13 +67,11 @@ Visual Studio에서 기본 ASP.NET MVC 템플릿을 사용하여 Azure 앱 서�
 
 8. Azure에서 웹앱을 만들지 않은 경우 Visual Studio에서 쉽게 만들 수 있습니다. **Microsoft Azure 웹 사이트 구성** 대화 상자에서 사이트 이름이 고유한지 확인합니다. 그런 다음 **확인**을 클릭합니다.
 
-	<!--todo: need 2.5.1 screenshot-->
-	![](media/cdn-websites-with-cdn/5-create-website.png)
+	<!--todo: need 2.5.1 screenshot-->![](media/cdn-websites-with-cdn/5-create-website.png)
 
 9. ASP.NET 응용 프로그램이 만들어지면 **지금 이 사이트에 `<app name>` 게시**를 클릭하여 웹 게시 활동 창에서 해당 응용 프로그램을 Azure에 게시합니다. **게시**를 클릭하여 프로세스를 완료합니다.
 
-	<!--todo: need 2.5.1 screenshot-->
-	![](media/cdn-websites-with-cdn/6-publish-website.png)
+	<!--todo: need 2.5.1 screenshot-->![](media/cdn-websites-with-cdn/6-publish-website.png)
 
 	게시가 완료되면 브라우저에 게시된 웹앱이 표시됩니다.
 
@@ -163,18 +161,18 @@ Azure 웹앱을 Azure CDN과 통합하는 경우 Azure CDN을 통해 컨트롤�
 
 1. *\Controllers* 폴더에서 *MemeGeneratorController.cs*라는 새로운 .cs 파일을 만들고 내용을 다음 코드로 바꿉니다. 또한 강조 표시된 부분을 사용 중인 파일 경로 및 CDN 이름으로 바꿉니다.
 	<pre class="prettyprint">
-	using System;
-	using System.Collections.Generic;
-	using System.Diagnostics;
-	using System.Drawing;
-	using System.IO;
-	using System.Net;
-	using System.Web.Hosting;
-	using System.Web.Mvc;
-	using System.Web.UI;
-	
-	namespace cdnwebapp.Controllers
-	{
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Drawing;
+using System.IO;
+using System.Net;
+using System.Web.Hosting;
+using System.Web.Mvc;
+using System.Web.UI;
+
+namespace cdnwebapp.Controllers
+{
     public class MemeGeneratorController : Controller
     {
         static readonly Dictionary&lt;string, Tuple&lt;string ,string>> Memes = new Dictionary&lt;string, Tuple&lt;string, string>>();
@@ -193,7 +191,7 @@ Azure 웹앱을 Azure CDN과 통합하는 경우 Azure CDN을 통해 컨트롤�
                 Memes.Add(identifier, new Tuple&lt;string, string>(top, bottom));
             }
 
-            return Content("&lt;a href="" + Url.Action("Show", new {id = identifier}) + "">밈은 다음과 같습니다.&lt;/a>");
+            return Content("&lt;a href="" + Url.Action("Show", new {id = identifier}) + "">here's your meme&lt;/a>");
         }
 
         [OutputCache(VaryByParam = "*", Duration = 1, Location = OutputCacheLocation.Downstream)]
@@ -282,7 +280,7 @@ Azure 웹앱을 Azure CDN과 통합하는 경우 Azure CDN을 통해 컨트롤�
 
 5. Azure 웹앱을 다시 게시하고 브라우저에서 **http://*&lt;serviceName>*.cloudapp.net/MemeGenerator/Index**로 이동합니다.
 
-양식 값을 `/MemeGenerator/Index`로 제출할 경우 `Index_Post` 동작 메서드가 각각의 입력 식별자와 함께 `Show` 동작 메서드에 대한 링크를 반환합니다. 링크를 클릭하면 다음 코드가 표시됩니다. <pre class="prettyprint"> [OutputCache(VaryByParam = &quot;*&quot;, Duration = 1, Location = OutputCacheLocation.Downstream)] public ActionResult Show(string id) { Tuple&lt;string, string&gt; data = null; if (!Memes.TryGetValue(id, out data)) { return new HttpStatusCodeResult(HttpStatusCode.NotFound); }
+양식 값을 `/MemeGenerator/Index`로 제출할 경우 `Index_Post` 동작 메서드가 각각의 입력 식별자와 함께 `Show` 동작 메서드에 대한 링크를 반환합니다. 링크를 클릭하면 다음 코드에 도달합니다. <pre class="prettyprint"> [OutputCache(VaryByParam = &quot;*&quot;, Duration = 1, Location = OutputCacheLocation.Downstream)] public ActionResult Show(string id) { Tuple&lt;string, string&gt; data = null; if (!Memes.TryGetValue(id, out data)) { return new HttpStatusCodeResult(HttpStatusCode.NotFound); }
 
     if (Debugger.IsAttached) // Preserve the debug experience
     {
@@ -404,17 +402,17 @@ public static void RegisterBundles(BundleCollection bundles)
 	<pre class="prettyprint">
 ...
 
-	&lt;link href="http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25449" rel="stylesheet"/>
-	
-	&lt;script src="http://az673227.vo.msecnd.net/bundles/modernizer?v=1.0.0.25449">&lt;/script>
-	
-	...
-	
-	&lt;script src="http://az673227.vo.msecnd.net/bundles/jquery?v=1.0.0.25449">&lt;/script>
-	
-	&lt;script src="http://az673227.vo.msecnd.net/bundles/bootstrap?v=1.0.0.25449">&lt;/script>
+&lt;link href="http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25449" rel="stylesheet"/>
 
-	...</pre>
+&lt;script src="http://az673227.vo.msecnd.net/bundles/modernizer?v=1.0.0.25449">&lt;/script>
+
+...
+
+&lt;script src="http://az673227.vo.msecnd.net/bundles/jquery?v=1.0.0.25449">&lt;/script>
+
+&lt;script src="http://az673227.vo.msecnd.net/bundles/bootstrap?v=1.0.0.25449">&lt;/script>
+
+...</pre>
 
 5. Visual Studio에서 `F5` 키를 눌러 ASP.NET 응용 프로그램을 디버그합니다.
 
@@ -432,7 +430,7 @@ public static void RegisterBundles(BundleCollection bundles)
     &lt;script src="/Scripts/jquery-1.10.2.js">&lt;/script>
 
     &lt;script src="/Scripts/bootstrap.js">&lt;/script>
-	&lt;script src="/Scripts/respond.js">&lt;/script>
+&lt;script src="/Scripts/respond.js">&lt;/script>
 
 ...    
 </pre>
@@ -560,4 +558,4 @@ bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css"
 * 이전 포털에서 새 포털로의 변경에 대한 지침은 [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
  
 
-<!----HONumber=62-->
+<!---HONumber=62-->

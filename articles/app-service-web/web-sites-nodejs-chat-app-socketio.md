@@ -99,7 +99,7 @@ Socket.IO는 WebSocket을 사용하여 node.js 서버와 클라이언트 간의 
 
 		azure site set -w
 
-	메시지가 표시되면 웹 앱 이름을 입력하십시오.
+	메시지가 표시되면 웹 앱 이름을 입력하세요.
 
 	>[AZURE.NOTE]'azure site set -w' 명령은 버전 0.7.4 이상의 Azure 명령줄 인터페이스에서만 작동합니다. 또한 [Azure 포털](https://portal.azure.com)에서 WebSocket 지원을 사용하도록 설정할 수도 있습니다.
 	>

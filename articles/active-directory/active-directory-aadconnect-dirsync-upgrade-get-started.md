@@ -205,4 +205,4 @@ Azure AD Connect가 DirSync로부터 인수할 준비가 되었는지 여부를 
 * [MSDN의 Azure AD Connect](https://msdn.microsoft.com/library/azure/dn832695.aspx)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

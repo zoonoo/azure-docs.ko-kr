@@ -1,4 +1,4 @@
-1. 프로젝트 탐색기에서 **app** => **java** => **com.example.GetStartedWithData**, **src** 및 **.com.example.GetStartedWithData**를 차례로 확장하고 *ToDoActivity.java* 파일을 엽니다.
+1. 프로젝트 탐색기에서 **app** => **src** => **main** => **java** => **com.example.GetStartedWithData**를 확장하고 *ToDoActivity.java* 파일을 엽니다.
 
    	![](./media/download-android-sample-code/mobile-services-android-studio-project.png)
 
@@ -24,4 +24,5 @@
    	![](./media/download-android-sample-code/mobile-quickstart-startup-android.png)
 
    	메모리 내 컬렉션에 저장된 텍스트가 저장되고 아래 목록에 표시됩니다.
-<!--HONumber=54-->
+
+<!---HONumber=62-->

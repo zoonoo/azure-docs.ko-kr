@@ -101,7 +101,7 @@
 <!--     >[AZURE.NOTE] To remove records from the device local store when they have been deleted in your mobile service database, you should enable [Soft Delete]. Otherwise, your app should periodically call `MSSyncTable.purgeWithQuery` to purge the local store.
  -->
 
-5. `QSTodoService` 클래스에서 `syncData` 메서드는 데이터, `addItem` 및 `completeItem`을 수정하는 작업 뒤에 호출됩니다. 사용자가 새로 고침 제스처를 수행할 때마다 최신 데이터를 가져오도록 `QSTodoListViewController.refresh`에서도 호출됩니다. `QSTodoListViewController.init`가 `refresh`를 호출하므로 앱이 시작될 때도 동기화를 수행합니다.
+5. `QSTodoService` 클래스에서 `syncData` 메서드는 데이터, `addItem` 및 `completeItem`을 수정하는 작업 뒤에 호출됩니다. 사용자가 새로 고침 제스처를 수행할 때마다 최신 데이터를 가져오도록 `QSTodoListViewController.refresh`에서도 호출됩니다. `QSTodoListViewController.init`이(가) `refresh`을(를) 호출하므로 앱이 시작될 때도 동기화를 수행합니다.
 
     `syncData`는 데이터가 수정될 때마다 호출되므로 이 앱은 데이터를 편집할 때마다 사용자가 온라인 상태인 것으로 가정합니다. 다른 섹션에서는 오프라인 상태일 때도 편집할 수 있도록 앱을 업데이트합니다.
 
@@ -212,17 +212,17 @@
 
 오프라인 동기화 기능을 지원하기 위해 `MSSyncTable` 인터페이스를 사용하고 로컬 저장소를 사용하여 `MSClient.syncContext`를 초기화했습니다. 이 경우 로컬 저장소는 핵심 데이터 기반 데이터베이스였습니다.
 
-핵심 데이터 로컬 저장소를 사용할 경우 [올바른 시스템 속성][Review the Core Data model]을 사용하여 여러 테이블을 정의해야 합니다.
+핵심 데이터 로컬 저장소를 사용할 경우 [올바른 시스템 속성], [핵심 데이터 모델 검토]를 사용하여 여러 테이블을 정의해야 합니다.
 
 모바일 앱에 대한 일반적인 CRUD 작업은 앱이 계속 연결되어 있는 것처럼 작동하지만 모든 작업은 로컬 저장소에 대해 수행됩니다.
 
 서버와 로컬 저장소를 동기화하려는 경우 `MSSyncTable.pullWithQuery` 및 `MSClient.syncContext.pushWithCompletion` 메서드를 사용했습니다.
 
-*  서버의 변경 내용을 푸시하기 위해 `Review the Core Data model`를 호출했습니다. 이 메서드는 모든 테이블에서 변경 사항을 푸시하므로 동기화 테이블이 아닌 `MSSyncContext`의 멤버입니다.
+*  서버의 변경 내용을 푸시하기 위해 `Review the Core Data model`을(를) 호출했습니다. 이 메서드는 모든 테이블에서 변경 사항을 푸시하므로 동기화 테이블이 아닌 `MSSyncContext`의 멤버입니다.
 
     CUD 작업을 통해 로컬에서 수정된 레코드만 서버에 전송됩니다.
 
-* 서버의 테이블에서 앱으로 데이터를 끌어오기 위해 `MSSyncTable.pullWithQuery`를 호출했습니다.
+* 서버의 테이블에서 앱으로 데이터를 끌어오기 위해 `MSSyncTable.pullWithQuery`을(를) 호출했습니다.
 
     끌어오기 작업에서는 항상 푸시 작업을 먼저 수행합니다. 이는 로컬 저장소의 모든 테이블 및 관계를 동기화된 상태로 유지하기 위해서입니다.
 
@@ -275,6 +275,7 @@
 [Soft Delete]: ../mobile-services-using-soft-delete.md
 
 [클라우드 커버: Azure 모바일 서비스의 오프라인 동기화]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
-[Azure Friday: Azure 모바일 서비스의 오프라인 지원 앱]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
+[Azure Friday: Azure 모바일 서비스의 오프라인 지원 앱]: http://azure.microsoft.com/ko-kr/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

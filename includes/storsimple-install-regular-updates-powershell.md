@@ -1,33 +1,16 @@
-<properties
-   pageTitle="StorSimple용 Windows PowerShell을 통해 정기적인 업데이트 설치"
-   description="StorSimple 업데이트 기능 및 StorSimple용 Windows PowerShell을 사용하여 정기적인 업데이트를 설치하는 방법을 설명합니다."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" /> 
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="04/27/2015"
-   ms.author="v-sharos" />
-
-### StorSimple용 Windows PowerShell을 통해 정기적인 업데이트를 설치하려면
+#### StorSimple용 Windows PowerShell을 통해 정기적인 업데이트를 설치하려면
 
 1. 장치 직렬 콘솔을 열고 옵션 1, **모든 권한으로 로그인**을 선택합니다. 암호를 입력합니다. 기본 암호는 *Password1*입니다. 
 
 2. 명령 프롬프트에 다음을 입력합니다.
 
-    **Get-HcsUpdateAvailability**
-
+     `Get-HcsUpdateAvailability`
+    
     업데이트가 사용 가능한지 여부 및 업데이트 시 장치를 중단해야 하는지 여부에 대한 알림이 표시됩니다.
 
 3. 명령 프롬프트에 다음을 입력합니다.
 
-    **Start-HcsUpdate**
+     `Start-HcsUpdate`
 
     업데이트 프로세스가 시작됩니다.
 
@@ -36,4 +19,4 @@
 > - 이 명령은 정기적인 업데이트에만 적용됩니다. 컨트롤러 하나에서만 이 명령을 실행하면 두 컨트롤러가 모두 업데이트됩니다. 
 > - 업데이트 프로세스 중에 컨트롤러 장애 조치(failover)가 수행되지만 시스템 가용성이나 작업에는 영향이 없습니다.
 
-<!--HONumber=52-->
+<!---HONumber=62-->

@@ -1,59 +1,45 @@
+| 계산 옵션 | 대상 |
+| ------------------ | --------   |
+| [앱 서비스] | 모든 장치에 대한 확장 가능한 웹앱, 모바일 앱, API 앱 및 논리 앱 |
+| [클라우드 서비스] | 운영 체제의 향상된 제어를 통한 고가용성의 확장 가능한 N 계층 클라우드 앱 |
+| [가상 컴퓨터] | OS의 완벽한 제어와 더불어 사용자 지정된 Windows 및 Linux VM |
+
 <a name="tellmevm"></a>
-## Tell me about virtual machines
+## 가상 컴퓨터에 대한 정보
 
-Azure Virtual Machines lets developers, IT operations people, and others create and use virtual machines in the cloud. Providing what's known as *Infrastructure as a Service (IaaS)*, this technology can be used in variety of ways. This figure shows its basic components.
+Azure 가상 컴퓨터를 사용하여 클라우드에서 가상 컴퓨터를 만들고 사용할 수 있습니다. *IaaS(Infrastructure as a Service)*라는 가상 컴퓨터 기술을 통해 다양한 방법으로 사용될 수 있습니다. 일부 사례:
 
-<a name="fig_createvms"></a>
-![vm_diagram](./media/virtual-machines-choose-me-content/diagram.png)
+- **개발 및 테스트용 VM(가상 컴퓨터).** 일반적으로 개발 그룹은 코드에 필요한 특정 구성을 가진 컴퓨터를 만들고 응용 프로그램을 테스트할 쉽고 빠른 방법을 제공하기 때문에 VM을 사용합니다. Azure 가상 컴퓨터는 이러한 VM을 만들고 사용한 다음 더 이상 필요 없을 때 삭제하기 위해 간단하고 경제적인 방법을 제공합니다.
+- **클라우드에서 응용 프로그램 실행.** 일부 응용 프로그램의 경우 공용 클라우드에서 실행하면 경제적입니다. 한 가지 예는 스파이크 수요가 많은 응용 프로그램입니다. 최대 수요를 처리하기 위한 충분한 하드웨어와 함께 사용자 고유의 데이터센터를 갖출 수 있다고 해도 상당한 시간 동안 해당 하드웨어를 활용하지 못할 수 있습니다. Azure에서 이 응용 프로그램을 실행하면 추가 VM이 필요할 때만 사용 요금을 지불할 수 있으며 필요하지 않을 때에는 사용을 종료할 수 있습니다. 또는 주문형 컴퓨팅 리소스가 무약정으로 급히 필요한 신규업체라고 가정합니다. Azure는 올바른 선택이 될 수 있습니다.
+- **공용 클라우드로 데이터센터 확장.** Azure 가상 네트워크를 사용하면 조직에서는 고유한 온-프레미스 네트워크의 확장인 VNET(가상 네트워크)을 만들 수 있으며 해당 VNET에 VM을 추가할 수 있습니다. [SharePoint](virtual-machines-sharepoint-infrastructure-services.md), [SQL Server](virtual-machines-sql-server-infrastructure-services.md) 및 Azure VM상의 기타 응용 프로그램과 같은 응용 프로그램을 실행할 수 있습니다. 이 방법을 통해 사용자 고유의 데이터센터에서 실행하는 것보다 더 쉽게 배포하거나 더 저렴하게 이용할 수 있습니다.   
+- **재해 복구.** 거의 사용되지 않는 백업 데이터 센터에 대해 지속적으로 지불하는 것보다 IaaS 기반 재해 복구를 사용하면 필요한 경우에만 필요한 컴퓨팅 리소스에 대해 지불할 수 있습니다. 예를 들어 기본 데이터 센터가 작동 중단되면 Azure에서 실행되는 VM을 만들어 필수 응용 프로그램을 실행한 다음 더 이상 필요 없을 때 종료할 수 있습니다.
 
-**Figure: Azure Virtual Machines provides Infrastructure as a Service.**
-
-As the figure shows, you can create virtual machines using either the Azure Management Portal or the REST-based Azure Service Management API. The Management Portal can be accessed from any popular browser, including Internet Explorer, Mozilla, and Chrome. For the REST API, Microsoft provides client scripting tools for Windows, Linux, and Macintosh systems. Other software is also free to use this interface.
-
-However you access the platform, creating a new VM requires choosing a virtual hard disk (VHD) for the VM's image. These VHDs are stored in [Azure blobs](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage). 
-
-To get started you have two choices 
-
-1. Upload your own VHD 
-2. Use VHDs provided by Microsoft and its partners in the Azure Virtual Machines gallery or on the Microsoft open source [VMDepot](http://vmdepot.msopentech.com/) website. 
-
-The VHDs in the gallery and on VMDepot include clean Microsoft and Linux operating system images as well as images that include Microsoft and other third party products installed on them.  The options are growing all the time. Examples include various versions, editions and configurations of:
+다른 가상 컴퓨터와 같이 Azure의 VM에도 운영 체제, 저장소 및 네트워킹 기능이 있으며 다양한 응용 프로그램을 실행할 수 있습니다. Azure 또는 파트너 중 하나에서 제공하는 이미지를 사용하거나 자신만의 이미지를 사용할 수 있습니다. 그 예로는 다음과 같은 다양한 버전 및 구성이 있습니다.
  
 -	Windows Server 
--	Linux servers such as Suse, Ubuntu and CentOS
+-	Suse, Ubuntu 및 CentOS와 같은 Linux 서버
 -	SQL Server
 -	BizTalk Server 
 -	SharePoint Server
 
-Along with a VHD, you specify the size of your new VM.  The full stats for each size are listed [in the Azure library](http://msdn.microsoft.com/library/windowsazure/dn197896.aspx).  
+가상 컴퓨터는 VHD(가상 하드 디스크)를 사용하여 해당 OS(운영 체제) 및 데이터를 저장합니다. VHD는 OS를 설치하도록 선택할 수 있는 이미지에도 사용됩니다. 다음 그림은 이뿐 아니라 VM 만들기 및 관리를 위한 두 가지 도구도 보여 줍니다.
 
--	**Extra Small**, with a shared core and 768MB  of memory.
--	**Small**, with 1 core and 1.75GB  of memory.
--	**Medium**, with 2 cores and 3.5GB  of memory.
--	**Large**, with 4 cores and 7GB of memory.
--	**Extra Large**, with 8 cores and 14GB of memory.
--	**A6**, with 4 cores and 28GB of memory.
--	**A7**, with 8 cores and 56GB of memory.
+<a name="fig_createvms"></a> ![vm_diagram](./media/virtual-machines-choose-me-content/diagram.png)
 
-Finally, you choose which Azure datacenter your new VM should run in, whether in the US, Europe, or Asia. 
+**그림: Azure 가상 컴퓨터는 IaaS(Infrastructure as a Service)를 제공합니다.**
 
-Once a VM is running, you pay for each hour it runs, and you stop paying when you remove that VM. The amount you pay doesn't depend on how much your VM is used -- it's based solely on wall-clock time. A VM that sits idle for an hour costs the same as one that's heavily loaded. 
+VM은 스크립팅 지원을 통해 브라우저 기반 포털, 명령줄 도구를 사용하거나 또는 REST API를 통해 직접적으로 관리할 수 있습니다. 또한 RightScale 및 ScaleXtreme과 같은 Microsoft 파트너도 REST API를 사용하는 관리 서비스를 제공합니다.
 
-Each running VM has an associated *OS disk*, kept in a blob. When you create a VM using a gallery VHD, that VHD is copied to your VM's OS disk. Any changes you make to the operating system of your running VM are stored here. For example, if you install an application that modifies the Windows registry, that change will be stored in your VM's OS disk. The next time you create a VM from that OS disk, the VM continues running in the same state you left it in. For VHDs stored in the gallery, Microsoft applies updates when needed, such as operating system patches. For the VHDs in your own OS disks, however, you're responsible for applying these updates (although Windows Update is turned on by default).
+운영 체제와 함께 다음을 포함하는 VM으로 기타 구성을 선택할 수 있습니다.
 
-Running VMs can also be modified and then captured using the sysprep tool. Sysprep removes specifics like the machine name so that a VHD image can be used to create additional VMs with the same general configuration. These images are stored in the Management portal alongside your uploaded images so they can be used as a starting point for additional VMs. 
+- 연결할 수 있는 디스크 수 및 처리 능력과 같은 요소를 결정하는 크기. Azure는 다양한 크기를 제공하여 다양한 유형의 사용을 지원합니다. 자세한 내용은 [가상 컴퓨터의 크기](virtual-machines-size-specs.md)를 참조하세요.  
+- 미국, 유럽 또는 아시아와 같이 새 VM이 호스팅되는 Azure 지역. 
+- Windows PowerShell의 필요한 상태 구성 기능 사용 또는 바이러스 백신 실행과 같은 가상 컴퓨터의 추가 기능을 제공하는 VM 확장 프로그램.
 
-Virtual Machines also monitors the hardware hosting each VM you create. If a physical server running a VM fails, the platform notices this and starts the same VM on another machine. And assuming you have the right licensing, you can copy a changed VHD out of your OS disk, then run it someplace else, such as in your own on-premises datacenter or at another cloud provider. 
+VM에 대해 고려할 기타 혜택은 다음과 같습니다.
 
-Along with its OS disk, your VM has one or more data disks. Even though each of these looks like a mounted disk drive to your VM, the contents of each one is in fact stored in a blob. Every write made to a data disk is stored persistently in the underlying blob. As with all blobs, Azure replicates these both within a single datacenter and across datacenters to guard against failures.
+**종량제** -- Azure는 VM의 크기와 운영 체제에 기반한 시간당 가격을 청구합니다. 부분 시간의 경우 Azure는 사용 시간(분)에 대해서만 청구합니다. 저장소는 가격이 책정되며 개별적으로 청구됩니다. 자세한 내용은 [가상 컴퓨터 가격](http://azure.microsoft.com/pricing/details/virtual-machines/)을 참조하세요.
 
-Running VMs can be managed using the Management Portal, PowerShell and other scripting tools, or directly through the REST API. (In fact, whatever you can do through the Management Portal can be done programmatically through this API.) Microsoft partners such as RightScale and ScaleXtreme also provide management services that rely on the REST API.
+**복원력** -- Azure는 실행 중인 각 VM을 호스팅하는 실제 하드웨어를 모니터링 합니다. VM을 실행하는 실제 서버에 오류가 생기는 경우, Azure가 이를 공지하며 VM을 새 하드웨어로 옮기고 VM을 다시 시작합니다. 이 프로세스는 서비스 복구라고도 합니다. 또한 Azure는 Blob 저장소에 VHD의 중복 복사본을 유지하여 가상 컴퓨터의 데이터를 보호합니다.
 
-Azure Virtual Machines can be used in a variety of ways. The primary scenarios that Microsoft targets include these:
-
-- **VMs for development and test.** Development groups commonly need VMs with specific configurations for creating applications. Azure Virtual Machines provides a straightforward and economical way to create these VMs, use them, then remove them when they're no longer needed.
-- **Running applications in the cloud.** For some applications, running on the public cloud makes economic sense. Think about an application with large spikes in demand, for example. It's always possible to buy enough machines for your own datacenter to run this application, but most of those machines are likely to sit unused much of the time. Running this application on Azure lets you pay for extra VMs only when you need them, shutting them down when a demand spike has ended. Or suppose you're a start-up that needs on-demand computing resources quickly and with no commitment. Once again, Azure can be the right choice.
-- **Extending your own datacenter into the public cloud.** With Azure Virtual Network, your organization can create a virtual network (VNET) that makes a group of Azure VMs appear to be part of your own on-premises network. This allows running applications such as SharePoint and others on Azure, an approach that might be easier to deploy and/or less expensive than running them in your own datacenter. You can also run [SQL Server on VMs](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/data-storage-options/#sqliaas) if that meets your needs better than Azure SQL Database.  
-- **Disaster recovery.** Rather than paying continuously for a backup datacenter that's rarely used, IaaS-based disaster recovery lets you pay for the computing resources you need only when you really need them.  For example, if your primary datacenter goes down, you can create VMs running on Azure to run essential applications, then shut them down when they're no longer needed.
-
-These aren't the only possibilities, but they're good examples of how you might use Azure Virtual Machines.  
+<!---HONumber=62-->

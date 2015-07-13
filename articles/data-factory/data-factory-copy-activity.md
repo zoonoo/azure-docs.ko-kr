@@ -56,10 +56,12 @@
 		<th>Azure SQL 데이터베이스</th>
 		<th>온-프레미스 SQL Server</th>
 		<th>IaaS의 SQL Server</th>
+		<th>Azure DocumentDB</th>
 	</tr>	
 
 	<tr>
 		<td><b>Azure Blob</b></td>
+		<td>X</td>
 		<td>X</td>
 		<td>X</td>
 		<td>X</td>
@@ -74,10 +76,12 @@
 		<td>X</td>
 		<td></td>
 		<td></td>
+		<td>X</td>
 	</tr>	
 
 	<tr>
 		<td><b>Azure SQL 데이터베이스</b></td>
+		<td>X</td>
 		<td>X</td>
 		<td>X</td>
 		<td>X</td>
@@ -93,6 +97,7 @@
 		<td>X</td>
 		<td></td>
 		<td></td>
+		<td></td>
 	</tr>
 
 	<tr>
@@ -102,11 +107,13 @@
 		<td>X</td>
 		<td></td>
 		<td></td>
+		<td></td>
 	</tr>
 
 	<tr>
 		<td><b>온-프레미스 파일 시스템</b></td>
 		<td>X</td>
+		<td></td>
 		<td></td>
 		<td></td>
 		<td></td>
@@ -120,13 +127,85 @@
 		<td></td>
 		<td></td>
 		<td></td>
+		<td></td>
 	</tr>
 
+	<tr>
+		<td><b>온-프레미스 파일 시스템</b></td>
+		<td>X</td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+
+	<tr>
+		<td><b>온-프레미스 MySQL 데이터베이스</b></td>
+		<td>X</td>
+		<td></td>
+		<td>X</td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+
+	<tr>
+		<td><b>온-프레미스 DB2 데이터베이스</b></td>
+		<td>X</td>
+		<td></td>
+		<td>X</td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+
+	<tr>
+		<td><b>온-프레미스 Teradata 데이터베이스</b></td>
+		<td>X</td>
+		<td></td>
+		<td>X</td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+
+	<tr>
+		<td><b>온-프레미스 Sybase 데이터베이스</b></td>
+		<td>X</td>
+		<td></td>
+		<td>X</td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+
+	<tr>
+		<td><b>온-프레미스 PostgreSQL 데이터베이스</b></td>
+		<td>X</td>
+		<td></td>
+		<td>X</td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+
+	<tr>
+		<td><b>Azure DocumentDB</b></td>
+		<td>X</td>
+		<td>X</td>
+		<td>X</td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
 
 </table>
 
+자세한 내용은 MSDN 라이브러리에서 [지원되는 원본 및 싱크](https://msdn.microsoft.com/library/dn894007.aspx) 항목을 참조하십시오.
+
 ### IaaS(Infrastructure-as-a-Service)의 SQL
-SQL Server IaaS에서 원본 및 싱크를 모두로 지원 됩니다. 데이터 관리 게이트웨이 IaaS에서 SQL Server에 연결 된 서비스를 만들 때 필요 합니다. SQL 서버와 게이트웨이 리소스에 대 한 경쟁으로 인해 성능 저하를 방지 하려면 한 호스팅 SQL Server 이외의 가상 컴퓨터에서 데이터 관리 게이트웨이 설치 하는 것이 좋습니다. 데이터 관리 게이트웨이에 대한 자세한 내용은 [파이프라인에서 온-프레미스 데이터에 액세스할 수 있도록 설정][use-onpremises-datasources]을 참조하세요.
+IaaS의 SQL Server도 원본 및 싱크로 지원됩니다. IaaS의 SQL Server에 대한 연결된 서비스를 만들 때는 데이터 관리 게이트웨이가 필요합니다. SQL 서버와 게이트웨이의 리소스 경합으로 인한 성능 저하를 방지하기 위해 SQL Server를 호스트하는 것과 다른 가상 컴퓨터에 데이터 관리 게이트웨이를 설치하는 것이 좋습니다. 데이터 관리 게이트웨이에 대한 자세한 내용은 [파이프라인에서 온-프레미스 데이터에 액세스할 수 있도록 설정][use-onpremises-datasources]을 참조하세요.
 
 1.	공용 DNS 이름 및 고정 공용 포트 : 개인 포트 매핑을 사용하는 VM
 2.	표시된 SQL 끝점 없이 공용 DNS 이름을 사용하는 VM
@@ -146,7 +225,7 @@ SQL Server IaaS에서 원본 및 싱크를 모두로 지원 됩니다. 데이터
 복사 작업에는 하나의 **입력 테이블**과 하나의 **출력 테이블**이 있을 수 있습니다.
 
 ## <a name="CopyActivityJSONSchema"></a>복사 작업에 대한 JSON
-파이프라인은 하나 이상의 작업으로 구성됩니다. 파이프라인의 작업은 **activities []** 섹션에 정의합니다. 파이프라인에 대한 JSON은 다음과 같습니다.
+파이프라인은 하나 이상의 작업으로 구성됩니다. 파이프라인의 작업은 **activities ** 섹션에 정의합니다. 파이프라인에 대한 JSON은 다음과 같습니다.
          
 	{
 		"name": "PipelineName",
@@ -364,7 +443,7 @@ HTTPS 연결을 제공하는 데이터 저장소의 경우 복사 작업에 대�
 
 **Azure SQL 데이터베이스**의 경우 “메시지 가로채기" 공격을 방지하려면 암호화된 연결을 명시적으로 요청하고 서버 인증서를 신뢰하지 않아야 합니다. 이렇게 하려면 연결 문자열에서 **Encrypt=True** 및 **TrustServerCertificate=False**를 사용합니다. 자세한 내용은 [Azure SQL 데이터베이스 보안 지침 및 제한 사항](https://msdn.microsoft.com/library/azure/ff394108.aspx)을 참조하세요.
 
-**SQL Server**와 같은 기존 데이터베이스는 특히 인스턴스가 Azure 가상 컴퓨터에 있는 경우 연결 문자열에서 **Encrypt=True** 및 **TrustServerCertificate=False**를 사용해 서명된 인증서를 구성하여 암호화된 연결 옵션을 사용하도록 설정합니다. 자세한 내용은 [데이터베이스 엔진에 암호화된 연결 사용](https://msdn.microsoft.com/library/ms191192(v=sql.110).aspx) 및 [연결 문자열 구문](https://msdn.microsoft.com/library/ms254500.aspx)을 참조하세요.
+**SQL Server**와 같은 기존 데이터베이스는 특히 인스턴스가 Azure 가상 컴퓨터에 있는 경우 연결 문자열에서 **Encrypt=True** 및 **TrustServerCertificate=False**를 사용해 서명된 인증서를 구성하여 암호화된 연결 옵션을 사용하도록 설정합니다. 자세한 내용은 [데이터베이스 엔진에 암호화된 연결 사용](https://msdn.microsoft.com/library/ms191192(v=sql.110).aspx) 및 [연결 문자열 구문](https://msdn.microsoft.com/library/ms254500.aspx)을 참조하십시오.
 
 ## 고급 시나리오
 - **구조 정의를 사용한 열 필터링**. 테이블 유형에 따라서는 기본 데이터 원본에 있는 열보다 적은 수의 열을 테이블 정의의 **Structure** 정의에 지정하여 원본에 있는 열의 하위 집합을 지정할 수 있습니다.
@@ -405,5 +484,6 @@ HTTPS 연결을 제공하는 데이터 저장소의 경우 복사 작업에 대�
 [image-data-factory-copy-actvity]: ./media/data-factory-copy-activity/VPNTopology.png
 [image-data-factory-column-mapping-1]: ./media/data-factory-copy-activity/ColumnMappingSample1.png
 [image-data-factory-column-mapping-2]: ./media/data-factory-copy-activity/ColumnMappingSample2.png
+ 
 
-<!---HONumber=GIT-SubDir--> 
+<!---HONumber=62-->

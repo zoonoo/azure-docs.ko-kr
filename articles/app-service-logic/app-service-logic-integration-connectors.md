@@ -100,7 +100,7 @@ Azure 관리 포털에서 BizTalk API 앱을 엽니다. **작업** 섹션에서 
 
 - 정보 및 오류 이벤트 보기
 - 작업자 프로세스(w3wp)의 메모리 사용 및 스레드 수 보기
-- 응용 프로그램 및 웹 서버 로그 보기\\
+- 응용 프로그램 및 웹 서버 로그 보기\
 
 자세한 내용은 [논리 앱 모니터링](app-service-logic-monitor-your-logic-apps.md)을 참조하세요.
 
@@ -124,23 +124,14 @@ Microsoft Azure 앱 서비스는 이러한 통합 API 앱을 사용할 수 있�
 
 
 ## 추가 통합 API 앱 리소스
-[VETR을 사용하여 EAI 논리 앱 만들기](app-service-logic-create-EAI-logic-app-using-VETR.md)<br/>
-[XML 문서 변환](app-service-logic-transform-xml-documents.md)<br/>
-[BizTalk 규칙 사용](app-service-logic-use-biztalk-rules.md)<br/>
-[커넥터 및 BizTalk API 앱 정의](app-service-logic-what-are-biztalk-api-apps.md)
+[VETR을 사용하여 EAI 논리 앱 만들기](app-service-logic-create-EAI-logic-app-using-VETR.md)<br/> [XML 문서 변환](app-service-logic-transform-xml-documents.md)<br/> [BizTalk 규칙 사용](app-service-logic-use-biztalk-rules.md)<br/> [커넥터 및 BizTalk API 앱 정의](app-service-logic-what-are-biztalk-api-apps.md)
 
 
 ## 논리 앱 및 웹앱 알아보기
-[논리 앱 정의](app-service-logic-what-are-logic-apps.md)<br/>
-[Azure 앱 서비스의 웹 사이트 및 웹앱](../app-service-web/app-service-web-app-azure-portal.md)
+[논리 앱 정의](app-service-logic-what-are-logic-apps.md)<br/> [Azure 앱 서비스의 웹 사이트 및 웹앱](../app-service-web/app-service-web-overview.md)
 
 
 ## 추가 커넥터
-[엔터프라이즈 커넥터](app-service-logic-enterprise-connectors.md)<br/>
-[B2B 커넥터](app-service-logic-b2b-connectors.md)<br/>
-[소셜 커넥터](app-service-logic-social-connectors.md)<br/>
-[프로토콜 커넥터](app-service-logic-protocol-connectors.md)<br/>
-[앱 + 데이터 서비스 커넥터](app-service-logic-data-connectors.md)<br/>
-[커넥터 및 API 앱 목록](app-service-logic-connectors-list.md)<br/><br/>
-[커넥터 및 BizTalk API 앱 정의](app-service-logic-what-are-biztalk-api-apps.md)
-<!--HONumber=54--> 
+[엔터프라이즈 커넥터](app-service-logic-enterprise-connectors.md)<br/> [B2B 커넥터](app-service-logic-b2b-connectors.md)<br/> [소셜 커넥터](app-service-logic-social-connectors.md)<br/> [프로토콜 커넥터](app-service-logic-protocol-connectors.md)<br/> [앱 + 데이터 서비스 커넥터](app-service-logic-data-connectors.md)<br/> [커넥터 및 API 앱 목록](app-service-logic-connectors-list.md)<br/><br/> [커넥터 및 BizTalk API 앱 정의](app-service-logic-what-are-biztalk-api-apps.md)
+
+<!---HONumber=62-->

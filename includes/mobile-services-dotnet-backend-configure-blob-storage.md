@@ -127,20 +127,9 @@ TodoItem 클래스는 데이터 개체를 정의하고, 클라이언트에서 �
 <!-- Anchors. -->
 
 <!-- Images. -->
-[0]: ./media/mobile-services-configure-blob-storage/mobile-blob-storage-account.png
-[1]: ./media/mobile-services-configure-blob-storage/mobile-blob-storage-account-keys.png
-
-[3]: ./media/mobile-services-configure-blob-storage/mobile-portal-data-tables.png
-[4]: ./media/mobile-services-configure-blob-storage/mobile-insert-script-blob.png
-
-
-
-
-
-[10]: ./media/mobile-services-configure-blob-storage/mobile-blob-storage-app-settings.png
 
 <!-- URLs. -->
-[저장소 계정을 만드는 방법]: /manage/services/storage/how-to-create-a-storage-account
+[저장소 계정을 만드는 방법]: ../articles/storage/storage-create-storage-account.md
 [앱 설정]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 
-<!--HONumber=54-->
+<!---HONumber=62-->

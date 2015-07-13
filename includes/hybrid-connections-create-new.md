@@ -1,24 +1,30 @@
 
-1. On the on-premises machine, log on to the [Azure Management Portal](http://manager.windowsazure.com) (this is the old portal).
+1. 온-프레미스 컴퓨터에서 [Azure 관리 포털](http://manager.windowsazure.com)(이전 포털)에 로그온합니다.
 
-2. At the bottom of the navigation pane, select **+NEW** and then select **App Services**, **BizTalk Service**, and then **Custom Create**
+2. 탐색 창 아래에서 **+새로 만들기** > **앱 서비스** > **BizTalk 서비스** > **사용자 지정 만들기**를 선택합니다.
 
-3. Provide a **BizTalk Service Name** and select an **Edition**. 
+3. **BizTalk 서비스 이름**을 입력하고 **버전**을 선택합니다.
 
-	This tutorial uses **mobile1**. You will need to supply a unique name for your new BizTalk Service.
+	이 자습서에서는 **mobile1**을 사용합니다. 새로운 BizTalk 서비스의 고유한 이름을 지정해야 합니다.
 
-4. Once the BizTalk Service has been created, select the **Hybrid Connections** tab, then click **Add**.
+4. BizTalk 서비스를 만든 후에는 **하이브리드 연결** 탭을 선택한 다음 **추가**를 클릭합니다.
 
-	![Add Hybrid Connection](./media/hybrid-connections-create-new/3.png)
+	![하이브리드 연결 추가](./media/hybrid-connections-create-new/3.png)
 
-	This creates a new hybrid connection.
+	이제 새로운 하이브리드 연결이 생성됩니다.
 
-5. Provide a **Name** and **Host Name** for your hybrid connection and set **Port** to `1433`. 
+5. 하이브리드 연결의 **이름** 및 **호스트 이름**을 입력하고 **포트**를 `1433`(으)로 설정합니다.
   
-	![Configure Hybrid Connection](./media/hybrid-connections-create-new/4.png)
+	![하이브리드 연결 구성](./media/hybrid-connections-create-new/4.png)
 
-	The host name is the name of the on-premises server. This configures the hybrid connection to access SQL Server running on port 1433. If you are using a named SQL Server instance, instead use the static port you defined earlier.
+	호스트 이름은 온-프레미스 서버의 이름입니다. 이제 포트 1433에서 실행 중인 SQL Server에 액세스하는 하이브리드 연결이 구성됩니다. 명명된 SQL Server 인스턴스를 사용하는 경우 앞에서 정의한 정적 포트를 대신 사용합니다.
 
-6. After the new connection is created, the status of the of the new connection shows **On-premises setup incomplete**.
+6. 새 연결이 만들어진 후 새로운 연결의 상태는 **온-프레미스 설정 완료 안 됨**으로 표시됩니다.
 
-Next, you'll need to install the Hybrid Connection Manager on the on-premises computer.
+7. 모바일 서비스로 다시 이동하여 **구성**을 클릭하고 아래의 **하이브리드 연결**로 스크롤하여 **하이브리드 연결 추가**를 클릭하고 방금 만든 하이브리드 연결을 선택한 다음 **확인**을 클릭합니다.
+
+    이렇게 하면 모바일 서비스에서 새 하이브리드 연결을 사용할 수 있습니다.
+
+이제 온-프레미스 컴퓨터에 하이브리드 연결 관리자를 설치해야 합니다.
+
+<!---HONumber=62-->

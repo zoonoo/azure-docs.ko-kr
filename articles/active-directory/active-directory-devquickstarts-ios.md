@@ -219,12 +219,12 @@ ADAL은 응용 프로그램에 이러한 모든 일반적인 ID 기능을 쉽게
 
 참조를 위해 완성된 샘플(사용자 구성 값 제외)이 [여기](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/complete.zip)에 제공됩니다. 이제 추가 시나리오로 이동할 수 있습니다. 다음 작업을 시도할 수 있습니다.
 
-[Azure AD를 사용하여 Node.JS Web API 보안 유지 >](../active-directory-devquickstarts-webapi-nodejst.md)
+[Azure AD를 사용하여 Node.JS Web API 보안 유지 >>](../active-directory-devquickstarts-webapi-nodejst.md)
 
 ##추가 리소스는 다음을 확인해보세요.
-- [GitHub에서 AzureADSamples >](https://github.com/AzureAdSamples)
-- [CloudIdentity.com >](https://cloudidentity.com)
-- [Azure.com >](http://azure.microsoft.com/documentation/services/active-directory/)의 Azure AD 설명서
+- [GitHub에서 AzureADSamples >>](https://github.com/AzureAdSamples)
+- [CloudIdentity.com >>](https://cloudidentity.com)
+- [Azure.com >>](http://azure.microsoft.com/documentation/services/active-directory/)의 Azure AD 설명서
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

@@ -1,20 +1,3 @@
-<properties 
-   pageTitle="StorSimple 백업 일정 추가 또는 수정"
-   description="StorSimple 관리자 서비스를 사용하여 백업 일정을 만드는 방법을 설명합니다."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="05/13/2015"
-   ms.author="v-sharos" />
-
 #### StorSimple 백업 일정을 추가 또는 수정하려면
 
 1. 장치 **퀵스타트** 페이지에서 **백업 정책** 탭을 클릭합니다. 이렇게 하면 **백업 정책** 페이지로 이동됩니다.
@@ -44,4 +27,4 @@
 **백업 정책** 페이지가 정책에 변경 내용을 저장하도록 업데이트 됩니다.
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

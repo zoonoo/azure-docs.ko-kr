@@ -1,20 +1,3 @@
-<properties 
-   pageTitle="선택 사항: 서비스에 대한 새 저장소 계정 구성"
-   description="업데이트 1을 실행하는 StorSimple 관리자 서비스에 대한 저장소 계정을 구성하는 방법에 대해 설명합니다."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="alkohli"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="05/18/2015"
-   ms.author="alkohli" />
-
 #### StorSimple 8000 시리즈 업데이트 1.0에서 저장소 계정을 추가하려면
 
 1. StorSimple 관리자 서비스 방문 페이지에서 서비스를 선택하고 두번 클릭합니다. 이렇게 하면 **퀵 스타트** 페이지로 이동됩니다. **구성** 페이지를 선택합니다.
@@ -50,7 +33,7 @@
 	  		
  - **Openstack**을 클라우드 서비스 공급자로 선택한 경우, **호스트 이름**, **액세스 키** 및 **비밀 키**를 제공합니다.
 
-        > [AZURE.NOTE] Azure를 제외한 모든 클라우드 서비스 공급자는 친숙한 이름을 허용합니다. 따라서 다른 친숙한 이름을 사용할 수 있고 동일한 자격 증명 집합을 가진 둘 이상의 저장소 계정을 만들 수도 있습니다.
+        > [AZURE.NOTE] For all the cloud service providers, excluding Azure, a friendly name is allowed. You can use different friendly names and create more than one storage account with the same set of credentials.
 
         ![Add Openstack storage account](./media/storsimple-configure-new-storage-account-u1/AddOpenstackStorageaccount-include.png)
 
@@ -62,4 +45,4 @@
 
 7. 새로 만들어진 저장소 계정이 **저장소 계정**의 **구성** 페이지에 표시됩니다. **저장**을 클릭하여 새 저장소 계정을 저장합니다. 확인하라는 메시지가 표시되면 **확인**을 클릭합니다.
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

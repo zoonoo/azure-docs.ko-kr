@@ -1,20 +1,3 @@
-<properties 
-   pageTitle="PuTTY를 사용하여 장치 직렬 콘솔에 연결"
-   description="PuTTY 터미널 에뮬레이션 소프트웨어를 사용하여 StorSimple 장치에 연결하는 방법을 설명합니다."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="04/01/2015"
-   ms.author="v-sharos" />
-
 #### 직렬 콘솔을 통해 연결하려면
 
 1. 직렬 케이블을 직접 장치에 연결하거나 USB 직렬 어댑터를 통해 연결합니다.
@@ -45,4 +28,4 @@
 7. **열기**를 클릭하여 직렬 세션을 시작합니다.
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

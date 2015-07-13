@@ -29,7 +29,7 @@
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
->[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 시작 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+>[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
 ## Azure에 로그인
 
@@ -51,7 +51,7 @@ Azure 앱 서비스에서 웹앱을 만들려면 다음 단계를 따르세요.
 
 	![템플릿 갤러리에서 새 사이트 만들기][sitefromtemplate]
 
-2. **템플릿의 사이트** 대화 상자에서 **노드**를 선택한 후 **빠른 사이트**를 선택합니다. 마지막으로 **다음**을 클릭합니다. **빠른 사이트** 템플릿의 필수 조건
+2. **템플릿의 사이트** 대화 상자에서 **노드**를 선택한 후 **빠른 사이트**를 선택합니다. 마지막으로 **다음**을 클릭합니다. **빠른 사이트** 템플릿의 필수 조건  
 이 없는 경우 해당 요소를 설치하라는 메시지가 표시됩니다.
 
 	![빠른 템플릿 선택][webmatrix-templates]
@@ -125,5 +125,6 @@ Azure에 제공되는 Node.js 버전에 대한 정보 및 응용 프로그램에
 [signin]: ./media/web-sites-nodejs-use-webmatrix/webmatrix-sign-in.png
 [sitefromtemplate]: ./media/web-sites-nodejs-use-webmatrix/webmatrix-site-from-template.png
 [nodesitefromtemplateazure]: ./media/web-sites-nodejs-use-webmatrix/webmatrix-node-site-azure.png
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

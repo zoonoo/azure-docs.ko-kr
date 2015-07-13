@@ -1,16 +1,18 @@
 
-The Hybrid Connection Manager enables your on-premises machine to connect to Azure and relay TCP traffic. You must  install the manager to an on-premises computer that can connect to the your SQL Server instance.
+하이브리드 연결 관리자를 통해 온-프레미스 컴퓨터에서 Azure에 연결하여 TCP 트래픽을 중계할 수 있습니다. SQL Server 인스턴스에 연결할 수 있는 온-프레미스 컴퓨터에 관리자를 설치해야 합니다.
 
-1. The connection you just created should have a **Status** of **On-premesis setup incomplete**. Click this connection and click **On-premises Setup**.
+1. 방금 만든 연결의 **상태**는 **온-프레미스 설정 완료 안 됨**입니다. 이 연결을 클릭하고 **온-프레미스 설정**을 클릭합니다.
 
-	![On-Premises Setup](./media/hybrid-connections-install-connection-manager/5-1.png)
+	![온-프레미스 설치](./media/hybrid-connections-install-connection-manager/5-1.png)
 
-2. Click **Install and Configure**.
+2. **설치 및 구성**을 클릭합니다.
 
-	This installs a customized instance of the Connection Manager, which is already pre-configured to work with the hybrid connection you just created.
+	이제 연결 관리자의 사용자 지정된 인스턴스가 설치됩니다. 이 연결 관리자는 방금 만든 하이브리드 연결과 함께 작동하도록 미리 구성되어 있습니다.
 
-3. Complete the rest of the setup steps for the Connection Manager.
+3. 연결 관리자의 나머지 설치 단계를 완료합니다.
 
-	After the installation is complete, the hybrid connection status will change to **1 Instance Connected**. You may need to refresh the browser and wait a few minutes. 
+	설치가 완료되면 하이브리드 연결 상태가 **1 인스턴스 연결됨**으로 변경됩니다. 브라우저를 새로 고쳐서 몇 분 정도 기다려야 합니다.
 
-The hybrid connection setup is now complete.
+이제 하이브리드 연결 설정이 완료되었습니다.
+
+<!---HONumber=62-->

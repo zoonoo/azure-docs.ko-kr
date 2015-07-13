@@ -1,20 +1,3 @@
-<properties 
-   pageTitle="사용자 지정 StorSimple 백업 정책 만들기"
-   description="StorSimple 관리자 서비스를 사용하여 사용자 지정 백업 정책을 만드는 방법에 대해 설명합니다."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="05/14/2015"
-   ms.author="v-sharos" />
-
 #### 사용자 지정 백업 정책을 만들려면
 
 1. **장치** 페이지에서 **백업 정책**을 클릭하고 **추가**를 클릭합니다.
@@ -55,4 +38,4 @@
 
     ![사용자 지정 백업 정책](./media/storsimple-create-custom-backup-policy/HCS_CustomBackupPolicyM-include.png).
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

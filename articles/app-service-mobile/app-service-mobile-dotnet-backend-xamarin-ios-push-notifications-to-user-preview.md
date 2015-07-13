@@ -111,4 +111,5 @@
 [인증 시작]: app-service-mobile-dotnet-backend-xamarin-ios-get-started-users-preview.md
 [푸시 알림 시작]: app-service-mobile-dotnet-backend-xamarin-ios-get-started-push-preview.md
 [템플릿]: https://msdn.microsoft.com/ko-kr/library/dn530748.aspx
-<!--HONumber=54--> 
+
+<!---HONumber=62-->

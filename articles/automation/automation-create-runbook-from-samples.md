@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Azure 자동화 시작" 
-	description="Azure에서 자동화 작업을 가져오고 실행하는 방법에 대해 알아봅니다." 
-	services="automation" 
-	documentationCenter="" 
-	authors="bwren" 
-	manager="stevenka" 
+<properties
+	pageTitle="Azure 자동화 시작"
+	description="Azure에서 자동화 작업을 가져오고 실행하는 방법에 대해 알아봅니다."
+	services="automation"
+	documentationCenter=""
+	authors="bwren"
+	manager="stevenka"
 	editor=""/>
 
-<tags 
-	ms.service="automation" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="hero-article" 
-	ms.date="02/20/2015" 
+<tags
+	ms.service="automation"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article" 
+	ms.date="05/19/2015"
 	ms.author="bwren"/>
 
 
@@ -49,13 +49,13 @@ Microsoft Azure 자동화를 통해 사용자는 일반적으로 클라우드 �
 [Runbook 갤러리](http://aka.ms/runbookgallery)에는 다른 Azure 자동화 및 PowerShell 사용자의 작업을 활용할 수 있도록 Azure 자동화 계정으로 직접 가져올 수 있는 샘플 Runbook이 포함되어 있습니다. 이 단계에서는 갤러리를 사용하여 "Hello World" 샘플 Runbook을 가져옵니다.
 
 4.	**자동화** 페이지에서 방금 만든 새 계정을 클릭합니다.
- 
+
 	![새 계정](./media/automation-create-runbook-from-samples/automation_03_NewAutoAcct.png)
 
 5.	**Runbook**을 클릭합니다.
 
 	![Runbook 탭](./media/automation-create-runbook-from-samples/automation_04_RunbooksTab.png)
-  
+
 6.	**새로 만들기** > **Runbook** > **갤러리에서**를 클릭합니다.
 
 	![Runbook 갤러리](./media/automation-create-runbook-from-samples/automation_05_ImportGallery.png)
@@ -72,7 +72,7 @@ Microsoft Azure 자동화를 통해 사용자는 일반적으로 클라우드 �
 
 	![Runbook 세부 정보](./media/automation-create-runbook-from-samples/automation_08_RunbookDetails.png)
 
-## <a name="publishrunbook"></a>Runbook 게시 
+## <a name="publishrunbook"></a>Runbook 게시
 
 처음에는 초안 모드로 Runbook을 가져옵니다. 따라서 실행할 수 있는 새 버전으로 권한을 부여하기 전에 작업을 계속 수행할 수 있습니다. 이 샘플 Runbook에는 추가 구성이 필요 없으므로 지금 있는 그대로 게시합니다. 자세한 내용은 [Runbook 게시](http://aka.ms/runbookauthor/azure/publishrunbook)를 참조하세요.
 
@@ -85,13 +85,13 @@ Microsoft Azure 자동화를 통해 사용자는 일반적으로 클라우드 �
 	초안 모드에서 Runbook의 콘텐츠를 수정할 수 있습니다. 이 Runbook의 경우에는 수정할 필요가 없습니다.
 
 	![만든 이 초안](./media/automation-create-runbook-from-samples/automation_08_AuthorDraft.png)
- 
+
 10.	**게시**를 클릭하여 프로덕션에 사용할 수 있도록 Runbook의 수준을 올립니다.
 
 	![게시](./media/automation-create-runbook-from-samples/automation_085_Publish.png)
-   
+
 11.	확인하라는 메시지가 표시되면 **예**를 클릭합니다.
- 
+
 	![저장 및 게시 프롬프트](./media/automation-create-runbook-from-samples/automation_09_SavePubPrompt.png)
 
 ## <a name="startrunbook"></a>Runbook 시작
@@ -101,22 +101,22 @@ Runbook을 가져오고 게시했으면 이제 Runbook을 실행하고 출력을
 12.	**Write-HelloWorld** Runbook을 열어 두고 **시작**을 클릭합니다.
 
 	![게시됨](./media/automation-create-runbook-from-samples/automation_10_PublishStart.png)
- 
+
 13.	**Specify the runbook parameter values** 페이지에서 Write-HelloWorld.ps1 스크립트의 입력 매개 변수로 사용할 **이름**을 입력한 후 확인 표시를 클릭합니다.
 
 	![Runbook 매개 변수](./media/automation-create-runbook-from-samples/automation_11_RunbookParams.png)
-  
+
 14.	**작업**을 클릭하여 방금 시작한 Runbook 작업의 상태를 확인한 후 **JOB START** 열의 타임스탬프를 클릭하여 작업 요약을 봅니다.
 
 	![Runbook 상태](./media/automation-create-runbook-from-samples/automation_12_RunbookStatus.png)
 
 15.	**요약** 페이지에서 작업의 요약, 입력 매개 변수 및 출력을 볼 수 있습니다.
- 
+
 	![Runbook 요약](./media/automation-create-runbook-from-samples/automation_13_RunbookSummary_callouts.png)
 
 축하합니다. 이 자습서를 완료했습니다.
 
-## <a name="nextsteps"></a>다음 단계 
+## <a name="nextsteps"></a>다음 단계
 1. 이 자습서의 간단한 Runbook에서는 **Azure 서비스를 관리 하지 않습니다**. 대부분 Runbook은 [Azure cmdlet](http://msdn.microsoft.com/library/jj156055.aspx)을 사용하여 이 작업을 수행하며, 이를 위해 Azure 구독에 대한 인증이 필요합니다. 이러한 cmdlet으로 작업하도록 Azure 구독을 구성하려면 [Runbook을 통해 관리하도록 Azure 구성](http://aka.ms/azureautomationauthentication)의 지침을 따르세요.  
 2. Azure 자동화 기능에 대한 자세한 내용은 아래에 나열된 [리소스](#resources)를 참조하세요.
 3. Azure 자동화 팀에서 제공하는 최신 정보를 받으려면 [Azure 자동화 블로그](http://azure.microsoft.com/blog/tag/azure-automation)를 구독하세요.
@@ -125,7 +125,7 @@ Runbook을 가져오고 게시했으면 이제 Runbook을 실행하고 출력을
 
 다양한 리소스를 통해 Azure 자동화 및 고유한 Runbook 만들기에 대한 자세한 내용을 확인할 수 있습니다.
 
-- [Azure 자동화 라이브러리](http://go.microsoft.com/fwlink/p/?LinkId=392860)에서는 Azure 자동화를 구성 및 관리하고 사용자 고유의 Runbook을 만드는 방법에 대한 전체 설명서를 제공합니다. 
+- [Azure 자동화 라이브러리](http://go.microsoft.com/fwlink/p/?LinkId=392860)에서는 Azure 자동화를 구성 및 관리하고 사용자 고유의 Runbook을 만드는 방법에 대한 전체 설명서를 제공합니다.
 - [Azure PowerShell cmdlet](http://msdn.microsoft.com/library/jj156055.aspx)에서는 Windows PowerShell을 사용하여 Azure 작업을 자동화하는 방법에 대한 정보를 제공합니다. Runbook에서는 이러한 cmdlet을 사용하여 Azure 리소스로 작업합니다.
 - [Azure 자동화 블로그](http://azure.microsoft.com/blog/tag/azure-automation)에서는 Microsoft에서 제공하는 Azure 자동화에 대한 최신 정보를 제공합니다.
 - [자동화 포럼](http://go.microsoft.com/fwlink/p/?LinkId=390561)에서는 Microsoft 및 자동화 커뮤니티에서 다루는 Azure 자동화에 대한 질문을 게시할 수 있습니다.
@@ -134,11 +134,11 @@ Runbook을 가져오고 게시했으면 이제 Runbook을 실행하고 출력을
 ## 샘플 및 유틸리티 Runbook
 
 Microsoft 및 Azure 자동화 커뮤니티에서는 사용자 고유의 솔루션 만들기를 시작하는 데 도움이 되는 샘플 Runbook 및 대규모 자동화 작업을 위한 구성 요소로 사용할 수 있는 유틸리티 Runbook을 제공합니다. 이러한 Runbook을 [스크립트 센터](http://go.microsoft.com/fwlink/p/?LinkId=393029)에서 다운로드하거나 [Runbook 갤러리](http://aka.ms/runbookgallery)를 사용하여 Azure 자동화로 직접 가져올 수 있습니다.
-  
+
 
 ## 사용자 의견
 
 <strong>사용자 의견 보내기</strong> Azure 자동화 Runbook 솔루션 또는 통합 모듈을 찾고 있는 경우 스크립트 센터에 스크립트 요청을 게시하세요. Azure 자동화에 대한 의견이나 기능 요청이 있는 경우 [사용자 음성](http://feedback.windowsazure.com/forums/34192--general-feedback)에 게시하세요. 감사합니다.
-
-<!--HONumber=52-->
  
+
+<!---HONumber=62-->

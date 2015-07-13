@@ -23,7 +23,7 @@
 
 이 항목에서는 [빠른 시작 프로젝트](app-service-mobile-dotnet-backend-ios-get-started-preview.md)에 푸시 알림을 추가하는 방법을 보여주어 레코드를 삽입할 때마다 모바일 서비스가 푸시 알림을 보냅니다. [모바일 앱 시작]을 우선 완료해야 합니다.
 
-> [AZURE.NOTE] [iOS 시뮬레이터는 푸시 알림을 지원하지 않으므로](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html) 실제 iOS 장치를 사용해야 합니다. [Apple 개발자 프로그램 멤버 자격](https://developer.apple.com/programs/ios/)에 유료 등록해야 합니다.
+> [AZURE.NOTE][iOS 시뮬레이터는 푸시 알림을 지원하지 않으므로](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html) 실제 iOS 장치를 사용해야 합니다. [Apple 개발자 프로그램 멤버 자격](https://developer.apple.com/programs/ios/)에 유료 등록해야 합니다.
 
 [AZURE.INCLUDE [Apple 푸시 알림 사용](../../includes/enable-apple-push-notifications.md)]
 
@@ -31,16 +31,16 @@
 
 [AZURE.INCLUDE [app-service-mobile-apns-configure-push-preview](../../includes/app-service-mobile-apns-configure-push-preview.md)]
 
-##<a id="update-server"></a>푸시 알림을 전송하도록 백 엔드 업데이트
+##<a id="update-server"></a>푸시 알림을 전송하도록 백 엔드 코드 업데이트
 
-* 백엔드 코드용 Visual Studio 프로젝트를 다운로드합니다. 포털에서 **찾아보기** > 앱 이름 > **클라이언트 추가** > **iOS** (개체-C 또는 Swift) > **서버 프로젝트 다운로드 및 실행**를 클릭합니다. **Controllers** > TodoItemController.cs를 열고 다음 using 문을 추가합니다.
+* 백엔드 코드용 Visual Studio 프로젝트를 다운로드합니다. 포털에서 **찾아보기** > 앱 이름 > **클라이언트 추가** > **iOS**(개체-C 또는 Swift) > **서버 프로젝트 다운로드 및 실행**을 클릭합니다. **Controllers** > TodoItemController.cs를 열고 다음 using 문을 추가합니다.
 
 ```
 			using Microsoft.Azure.Mobile.Server.Config;
 			using Microsoft.Azure.NotificationHubs;
 ```
 
-* `InsertAsync` 호출한 다음 `PostTodoItem` 뒤에 다음을 추가합니다. todo 항목을 삽입하면 이 코드가 항목의 텍스트와 함께 푸시 알림을 보냅니다.
+* `InsertAsync`을(를) 호출한 다음 `PostTodoItem` 뒤에 다음을 추가합니다. todo 항목을 삽입하면 이 코드가 항목의 텍스트와 함께 푸시 알림을 보냅니다.
 
 ```
         // get Notification Hubs credentials associated with this Mobile App

@@ -1,0 +1,98 @@
+<properties 
+	pageTitle="Azure Preview 포털을 사용하여 Azure 리소스 관리" 
+	description="여러 리소스를 포함된 리소스에 대한 수명 주기 경계 역할을 하는 논리 그룹으로 그룹화합니다." 
+	services="azure-portal" 
+	documentationCenter="" 
+	authors="" 
+	writer="tfitzmac" 
+	manager="wpickett" 
+	editor=""/>
+
+<tags 
+	ms.service="azure-portal" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="06/22/2015" 
+	ms.author="tomfitz"/>
+
+
+# Azure Preview 포털을 사용하여 Azure 리소스 관리
+
+## 소개
+
+일반적으로 Microsoft Azure에서 리소스(데이터베이스 서버, 데이터베이스, 웹 사이트 등과 같이 사용자가 관리하는 엔터티)를 관리하려면 한 번에 한 리소스에 대해 작업을 수행해야 했습니다. 여러 리소스로 구성된 복잡한 응용 프로그램이 있는 경우 이 응용 프로그램을 관리하는 일은 복잡한 작업이 되었습니다. Azure Preview 포털에서는 리소스 그룹을 만들어 응용 프로그램의 모든 리소스를 함께 관리할 수 있습니다. 리소스 그룹은 포함된 모든 리소스를 위한 수명 주기 경계 역할을 하는 새로운 Azure 개념입니다.
+
+리소스 그룹을 사용하면 응용 프로그램의 모든 리소스를 함께 관리할 수 있습니다. 리소스 그룹은 새 관리 기능인 Azure 리소스 관리자에서 사용 설정됩니다. Azure 리소스 관리자에서는 포함된 모든 리소스를 위한 수명 주기 경계 역할을 하는 논리 그룹으로 여러 리소스를 그룹화할 수 있습니다. 일반적으로 그룹은 특정 응용 프로그램과 관련된 리소스를 포함합니다. 예를 들어 그룹은 공용 웹 사이트를 호스트하는 웹 사이트 리소스, 사이트에서 사용되는 관계형 데이터를 저장하는 SQL 데이터베이스, 비관계형 자산을 저장하는 저장소 계정을 포함할 수 있습니다.
+
+다음은 Azure 포털 내에서 리소스 그룹을 사용하는 방법에 대한 간단한 개요입니다.
+
+## 리소스 그룹 만들기
+
+이 포털에서 리소스가 만들어질 때는 항상 리소스가 리소스 그룹 내에 만들어집니다. 새 리소스 그룹을 만들거나 만들기 흐름에서 기존 리소스 그룹을 사용하도록 선택할 수 있습니다.<br><br />
+
+![리소스 그룹 만들기](./media/resource-group-portal/1_createWebsite.png)
+
+함께 작동하는 몇 가지 리소스(예: 웹 사이트 + 데이터베이스)로 구성된 응용 프로그램을 만들면 항상 이 응용 프로그램은 고유한 리소스 그룹에 만들어지므로, 리소스 그룹을 사용하여 모든 관련 자산의 수명 주기를 관리할 수 있습니다. 응용 프로그램이 발전함에 따라 리소스 그룹에서 더 많은 리소스를 추가하거나 제거할 수 있습니다.
+
+![리소스 그룹 만들기](./media/resource-group-portal/2_createWSandDB.png)
+
+## 리소스 그룹 찾아보기
+
+화면 왼쪽에 있는 점프 모음을 클릭하여 모든 리소스 그룹을 찾아볼 수 있습니다. 리소스 그룹에는 특정 리소스 그룹에 대한 모든 정보를 제공하는 블레이드가 있습니다. 리소스 그룹 블레이드에서 리소스 그룹의 모든 리소스에 대한 청구 및 모니터링 정보를 통합적으로 볼 수도 있습니다.
+
+요약 섹션에서는 리소스 그룹의 모든 리소스에 대한 시각적 리소스 맵뿐만 아니라 리소스 그룹과 연결된 다른 리소스 그룹의 리소스도 보여 줍니다. 리소스 맵은 또한 각 리소스의 상태를 보여 줍니다.![리소스 그룹 요약](./media/resource-group-portal/3_1BrowseRGs.png)
+
+리소스 맵 파트는 리소스 그룹에 포함된 모든 리소스 및 연결된 다른 리소스 그룹의 리소스를 보여 주는 더 큰 크기로 표시되도록 사용자 지정할 수 있습니다. 이 파트는 시작 보드에 고정할 수 있으며, 그러면 파트가 시작 보드가 복사됩니다.
+
+![핀](./media/resource-group-portal/3_2BrowseRGs.png)
+
+리소스 맵을 클릭하면 리소스 맵에 있는 모든 리소스의 목록 보기가 시작됩니다. 이 보기에는 리소스 그룹 내부 또는 리소스 그룹과 연결된 모든 리소스가 나열됩니다. 이 리소스를 클릭하면 해당 블레이드가 시작됩니다.
+
+![리소스 보기](./media/resource-group-portal/3_3BrowseRGs.png)
+
+## 리소스 그룹에 리소스 추가
+
+리소스 그룹 블레이드에서 **추가** 명령을 사용하여 리소스 그룹에 리소스를 추가할 수 있습니다. 흐름의 다음 단계에서 리소스 그룹에 다른 리소스를 추가할 수 있습니다.
+
+![리소스 추가](./media/resource-group-portal/4_AddResource.png)
+
+다른 Azure 리소스와 동일한 리소스 그룹에 팀 프로젝트를 넣지 않는 것이 좋습니다. 새 계정 및 그룹에서 팀 프로젝트를 만든 후 웹 사이트를 만드는 경우, 사이트 그룹은 마지막으로 사용된 그룹(VSO 그룹)으로 기본 지정되며 이에 따라 런타임 리소스와 개발자 리소스가 동일한 그룹에 속하게 됩니다.
+
+## 리소스 그룹 삭제
+
+리소스 그룹을 사용하면 포함된 모든 리소스의 수명 주기를 관리할 수 있으므로 리소스 그룹을 삭제하면 그룹 내에 포함된 모든 리소스가 삭제됩니다. 리소스 그룹 내부의 개별 리소스를 삭제할 수도 있습니다. 연결된 다른 리소스가 있을 수 있으므로 리소스 그룹을 삭제할 때는 주의해야 합니다. 리소스 그룹을 삭제할 때 연결된 리소스를 리소스 맵에서 보고 의도하지 않은 결과가 발생하지 않도록 필요한 조치를 취할 수 있습니다.
+
+## 다음 단계
+시작하기
+
+- [Azure 리소스 관리자 개요](../resource-group-overview.md)  
+- [Azure 리소스 관리자로 Azure PowerShell 사용](../powershell-azure-resource-manager.md)
+- [Azure 리소스 관리에서 Mac, Linux 및 Windows용 Azure CLI 사용](../xplat-cli-azure-resource-manager.md)  
+  
+응용 프로그램 만들기 및 배포
+  
+- [Azure 리소스 관리자 템플릿 작성](../resource-group-authoring-templates.md)  
+- [Azure 리소스 관리자 템플릿을 사용하여 응용 프로그램 배포](resource-group-template-deploy.md)
+- [Azure에서 예측 가능하도록 복잡한 응용 프로그램을 배포](../app-service-web/app-service-deploy-complex-application-predictably.md)
+- [Azure에서 리소스 그룹 배포 문제 해결](../resource-group-deploy-debug.md)  
+- [Azure 리소스 관리자 템플릿 함수](../resource-group-template-functions.md)  
+- [고급 템플릿 작업](../resource-group-advanced-template.md)  
+- [.NET 라이브러리 및 템플릿을 사용하여 Azure 리소스 배포](../arm-template-deployment.md)
+  
+리소스 구성
+  
+- [태그를 사용하여 Azure 리소스 구성](../resource-group-using-tags.md)  
+  
+액세스 관리 및 감사
+  
+- [리소스에 대한 액세스 관리 및 감사](resource-group-rbac.md)  
+- [Azure 리소스 관리자를 사용하여 서비스 사용자 인증](../resource-group-authenticate-service-principal.md)  
+- [Azure 클래식 포털을 사용하여 새 Azure 서비스 사용자 만들기](../resource-group-create-service-principal-portal.md)  
+  
+
+
+ 
+
+<!---HONumber=62-->

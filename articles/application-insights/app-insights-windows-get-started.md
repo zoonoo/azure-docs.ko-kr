@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter="windows"
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2015" 
+	ms.date="06/16/2015" 
 	ms.author="awills"/>
 
 # Windows Phone 및 스토어 앱용 Application Insights
@@ -60,11 +60,11 @@ Windows 유니버설 앱인 경우 Windows Phone 및 Windows 프로젝트 모두
 
     ![](./media/app-insights-windows-get-started/03-nuget.png)
 
-2. **온라인**, **시험판 포함**을 선택하고 "Application Insights"를 검색합니다.
+2. "Application Insights"를 검색합니다.
 
     ![](./media/app-insights-windows-get-started/04-ai-nuget.png)
 
-3. **Windows 응용 프로그램용 Application Insights**을 선택합니다.
+3. **.NET Windows 응용 프로그램용 Application Insights**를 선택합니다.
 
 4. ApplicationInsights.config(NuGet 설치로 추가됨)를 편집합니다. 닫는 태그 바로 전에 삽입합니다.
 
@@ -132,6 +132,10 @@ Visual Studio를 사용하여 설치 단계를 수행하려면 Windows Phone, Wi
 
 
 ![](./media/app-insights-windows-get-started/appinsights-d22-add.png)
+
+## SDK의 새 릴리스로 업그레이드하려면
+
+[새 SDK 버전이 출시된 경우](app-insights-release-notes-windows.md): * 프로젝트를 마우스 오른쪽 단추로 클릭하고 NuGet 패키지 관리를 선택합니다. * 설치된 Application Insights 패키지를 선택하고 작업: 업그레이드를 선택합니다.
 
 
 ## <a name="usage"></a>다음 단계

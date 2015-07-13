@@ -38,7 +38,7 @@ Azure는 [앱 서비스](http://go.microsoft.com/fwlink/?LinkId=529714)에 호�
 
 ### 응용 프로그램 진단
 
-응용 프로그램 진단을 통해 웹 응용 프로그램에서 생성된 정보를 캡처할 수 있습니다. ASP.NET 응용 프로그램은 [System.Diagnostics.Trace](http://msdn.microsoft.com/library/36hhw2t6.aspx) 클래스를 사용하여 응용 프로그램 진단 로그에 정보를 로깅할 수 있습니다. 예를 들면 다음과 같습니다.
+응용 프로그램 진단을 통해 웹 응용 프로그램에서 생성된 정보를 캡처할 수 있습니다. ASP.NET 응용 프로그램은 [System.Diagnostics.Trace](http://msdn.microsoft.com/ko-kr/library/36hhw2t6.aspx) 클래스를 사용하여 응용 프로그램 진단 로그에 정보를 로깅할 수 있습니다. 예를 들면 다음과 같습니다.
 
 	System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
 
@@ -105,7 +105,7 @@ FTP를 사용하여 진단 정보에 액세스하려면 Azure 관리 포털에�
 
 이 명령을 실행하면 **-Name** 매개 변수로 지정된 웹 앱이 로그가 현재 디렉터리의 **logs.zip**이라는 파일에 저장됩니다.
 
-> [AZURE.NOTE]Azure PowerShell을 설치하지 않았거나 Azure 구독을 사용하도록 이를 구성하지 않은 경우 [Azure PowerShell을 사용하는 방법](/develop/nodejs/how-to-guides/powershell-cmdlets/)(영문)을 참조하십시오.
+> [AZURE.NOTE]Azure PowerShell을 설치하지 않았거나 Azure 구독을 사용하도록 이를 구성하지 않은 경우 [Azure PowerShell을 사용하는 방법](/develop/nodejs/how-to-guides/powershell-cmdlets/)을 참조하세요.
 
 ### Azure 명령줄 인터페이스로 다운로드
 
@@ -156,7 +156,7 @@ HTTP와 같은 특정 로그 유형을 필터링하려면 **-Path** 매개 변�
 
 사용 가능한 경로 목록을 보려면 -ListPath 매개 변수를 사용합니다.
 
-> [AZURE.NOTE]Azure PowerShell을 설치하지 않았거나 Azure 구독을 사용하도록 이를 구성하지 않은 경우 [Azure PowerShell을 사용하는 방법](/develop/nodejs/how-to-guides/powershell-cmdlets/)(영문)을 참조하십시오.
+> [AZURE.NOTE]Azure PowerShell을 설치하지 않았거나 Azure 구독을 사용하도록 이를 구성하지 않은 경우 [Azure PowerShell을 사용하는 방법](/develop/nodejs/how-to-guides/powershell-cmdlets/)을 참조하세요.
 
 ### Azure 명령줄 인터페이스로 스트리밍
 
@@ -170,7 +170,7 @@ HTTP와 같은 특정 로그 유형을 필터링하려면 **-Path** 매개 변�
 
 	azure site log tail webappname --filter Error
 
-HTTP와 같은 특정 로그 유형을 필터링하려면 **-Path** 매개 변수를 사용합니다. 예:
+HTTP와 같은 특정 로그 유형을 필터링하려면 **-Path** 매개 변수를 사용합니다. 예를 들면 다음과 같습니다.
 
 	azure site log tail webappname --path http
 

@@ -1,20 +1,19 @@
 <properties
-	pageTitle="Azure 백업에 자격 증명 모음 자격 증명 다운로드"
-	description="자격 증명 모음 자격 증명을 사용하여 백업 자격 증명 모음 및 Azure Backup 서비스에 컴퓨터를 인증하는 방법을 알아봅니다."
-	services="backup"
-	documentationCenter=""
-	authors="prvijay"
-	manager="shreeshd"
-	editor=""/>
-
+   pageTitle="Azure 백업에 자격 증명 모음 자격 증명 다운로드"
+   description="자격 증명 모음 자격 증명을 사용하여 백업 자격 증명 모음 및 Azure Backup 서비스에 컴퓨터를 인증하는 방법을 알아봅니다."
+   services="backup"
+   documentationCenter=""
+   authors="prvijay"
+   manager="shreeshd"
+   editor=""/>
 <tags
-	ms.service="backup"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="storage-backup-recovery"
-	ms.date="03/27/2015"
-	ms.author="prvijay"/>
+   ms.service="backup"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="storage-backup-recovery"
+   ms.date="03/27/2015"
+   ms.author="prvijay"/>
 
 # 자격 증명 모음 자격 증명을 사용하여 Azure 백업 서비스 인증
 
@@ -52,5 +51,6 @@
 <!--Image references-->
 [1]: ./media/backup-azure-backup-download-vc/quickview.png
 [2]: ./media/backup-azure-backup-download-vc/downloadvc.png
+ 
 
-<!---HONumber=GIT-SubDir--> 
+<!---HONumber=62-->

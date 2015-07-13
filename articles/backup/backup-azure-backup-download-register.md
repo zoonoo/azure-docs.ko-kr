@@ -1,20 +1,19 @@
 <properties
-	pageTitle="Azure 백업 에이전트 다운로드, 설치 및 등록"
-	description="Azure 백업 에이전트 다운로드 방법 및 위치, 설치 단계, 자격 증명 모음 자격 증명을 사용하여 Azure 백업 에이전트를 등록하는 방법을 알아봅니다."
-	services="backup"
-	documentationCenter=""
-	authors="prvijay"
-	manager="shreeshd"
-	editor=""/>
-
+   pageTitle="Azure 백업 에이전트 다운로드, 설치 및 등록"
+   description="Azure 백업 에이전트 다운로드 방법 및 위치, 설치 단계, 자격 증명 모음 자격 증명을 사용하여 Azure 백업 에이전트를 등록하는 방법을 알아봅니다."
+   services="backup"
+   documentationCenter=""
+   authors="prvijay"
+   manager="shreeshd"
+   editor=""/>
 <tags
-	ms.service="backup"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="storage-backup-recovery"
-	ms.date="04/08/2015"
-	ms.author="prvijay"/>
+   ms.service="backup"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="storage-backup-recovery"
+   ms.date="04/08/2015"
+   ms.author="prvijay"/>
 
 # Azure 백업 에이전트 다운로드, 설치 및 등록
 
@@ -57,5 +56,6 @@ Azure 백업 자격 증명 모음을 만든 후에는 각 온-프레미스 서�
 [4]: ./media/backup-azure-backup-download-register/vc.png
 [5]: ./media/backup-azure-backup-download-register/encryption.png
 [6]: ./media/backup-azure-backup-download-register/change.png
+ 
 
-<!---HONumber=GIT-SubDir--> 
+<!---HONumber=62-->

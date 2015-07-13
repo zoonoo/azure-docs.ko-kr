@@ -1,5 +1,5 @@
-﻿
-아래 지침과 스크린샷은 Windows 스토어 클라이언트 테스트에 적용되지만 Azure 모바일 서비스에서 지원하는 다른 플랫폼에서도 테스트할 수 있습니다. 
+
+아래 지침과 스크린샷은 Windows 스토어 클라이언트 테스트에 적용되지만 Azure 모바일 서비스에서 지원하는 다른 플랫폼에서도 테스트할 수 있습니다.
 
 1. Visual Studio에서 클라이언트 앱을 실행하고 앞서 만든 Dave라는 사용자 계정으로 인증을 시도합니다. 
 
@@ -17,7 +17,4 @@
 
     ![](./media/mobile-services-aad-rbac-test-app/success.png)
 
-
-
-
-<!--HONumber=49-->
+<!---HONumber=62-->

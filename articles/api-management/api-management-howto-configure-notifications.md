@@ -114,4 +114,4 @@ API 관리 인스턴스의 메일 템플릿을 보고 구성하려면 왼쪽 **A
 [API 관리 서비스 인스턴스 만들기]: api-management-get-started.md
 [Azure API 관리 시작]: api-management-get-started.md#create-service-instance
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

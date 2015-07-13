@@ -78,15 +78,16 @@
 - [Azure에서 VIP를 교환하여 프로덕션에 서비스 업그레이드를 배포하는 방법]
 - [Azure의 배포 관리 개요]
 
-[1단계: 응용 프로그램 스테이징]: #step1
-[Step 2: Deploy an Application to Production by Swapping VIPs]: #step2
-[2단계: VIP를 교환하여 프로덕션에 응용 프로그램 배포]: #step2
-[Azure 관리 포털]: http://manage.windowsazure.com
+  [1단계: 응용 프로그램 스테이징]: #step1
+  [Step 2: Deploy an Application to Production by Swapping VIPs]: #step2
+  [2단계: VIP를 교환하여 프로덕션에 응용 프로그램 배포]: #step2
+  [Azure 관리 포털]: http://manage.windowsazure.com
 [cloud-service]: ./media/cloud-services-nodejs-stage-application/staging-cloud-service-running.png
 [cloud-service-dashboard]: ./media/cloud-services-nodejs-stage-application/cloud-service-dashboard-staging.png
-[cloud-service-staging-url]: ./media/cloud-services-nodejs-stage-application/cloud-service-staging-url.png
-[vip-swap-dialog]: ./media/cloud-services-nodejs-stage-application/vip-swap-dialog.png
-[Azure에서 VIP를 교환하여 프로덕션에 서비스 업그레이드를 배포하는 방법]: http://msdn.microsoft.com/library/windowsazure/ee517253.aspx
-[Azure의 배포 관리 개요]: http://msdn.microsoft.com/library/windowsazure/hh386336.aspx
+  [cloud-service-staging-url]: ./media/cloud-services-nodejs-stage-application/cloud-service-staging-url.png
+  [vip-swap-dialog]: ./media/cloud-services-nodejs-stage-application/vip-swap-dialog.png
+  [Azure에서 VIP를 교환하여 프로덕션에 서비스 업그레이드를 배포하는 방법]: http://msdn.microsoft.com/library/windowsazure/ee517253.aspx
+  [Azure의 배포 관리 개요]: http://msdn.microsoft.com/library/windowsazure/hh386336.aspx
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

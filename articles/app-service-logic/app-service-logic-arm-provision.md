@@ -38,7 +38,7 @@
 
      "testUri": {
         "type": "string",
-        "defaultValue": "http://azure.microsoft.com/status/feed/"
+        "defaultValue": "http://azure.microsoft.com/ko-kr/status/feed/"
       }
     
 ## 배포할 리소스

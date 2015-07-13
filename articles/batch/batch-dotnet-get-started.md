@@ -80,7 +80,7 @@ Azure 배치 관련 배경 정보 및 시나리오에 대해서는 [Azure 배치
 		private const string AccountName = "[name-of-batch-account]";
 		private const string AccountKey = "[key-of-batch-account]";
 		private const string Uri = "https://batch.core.windows.net";
-	다음 값을 바꿉니다. **[name-of-pool]** - 풀에 사용할 이름. - **[name-of-batch-account]** - 배치 계정의 이름. - **[key-of-batch-account]** - 배치 계정에 대해 제공된 키.
+	다음 값을 바꿉니다. - **[name-of-pool]** - 풀에 사용할 이름. - **[name-of-batch-account]** - 배치 계정의 이름. - **[key-of-batch-account]** - 배치 계정에 대해 제공된 키.
 5.	사용할 자격 증명을 정의하는 다음 코드를 Main에 추가합니다.
 
 		BatchCredentials cred = new BatchCredentials(AccountName, AccountKey);
@@ -326,7 +326,7 @@ VM에서 Hello world를 실행할 수 있으므로 좀 더 실질적인 작업�
 1.	Program 클래스에 다음 변수를 추가합니다.
 
 		private const string BlobPath = "[storage-path]";
-	다음 값을 바꿉니다. **[storage-path]** -저장소에서 blob에 대한 경로. 예: http://yiding.blob.core.windows.net/gettingstarted/
+	다음 값을 바꿉니다. - **[storage-path]** -저장소에서 blob에 대한 경로. 예: http://yiding.blob.core.windows.net/gettingstarted/
 
 2. 태스크 제출 코드를 다음과 같이 업데이트합니다.
 
@@ -602,4 +602,4 @@ RunExternalMergeProcess의 구현은 다음을 제외하고 RunExternalTaskProce
 [3]: ./media/batch-dotnet-get-started/batch-dotnet-get-started-03.jpg
 [4]: ./media/batch-dotnet-get-started/batch-dotnet-get-started-04.jpg
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

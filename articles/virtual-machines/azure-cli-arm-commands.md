@@ -305,7 +305,7 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다. 
 리소스 그룹의 모든 가상 네트워크를 나열하는 데 사용되는 명령입니다.
 
 
-	C:>azure network vnet list myresourcegroup
+	C:\>azure network vnet list myresourcegroup
 
 	info:    Executing command network vnet list
 	+ Listing virtual networks
@@ -410,7 +410,7 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다. 
 리소스 그룹 내 특정 가상 네트워크 서브넷을 설정합니다.
 
 
-	C:>azure network vnet subnet set -g myresourcegroup --vnet-name newvnet -n subnet1
+	C:\>azure network vnet subnet set -g myresourcegroup --vnet-name newvnet -n subnet1
 
 	info:    Executing command network vnet subnet set
 	+ Looking up the subnet "subnet1"
@@ -653,7 +653,7 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다. 
 
 부하 분산 장치 집합의 검색 속성을 나열합니다.
 
-	C:>azure network lb probe list -g myresourcegroup -l mylb
+	C:\>azure network lb probe list -g myresourcegroup -l mylb
 
 	info:    Executing command network lb probe list
 	+ Looking up the load balancer "mylb"
@@ -1737,4 +1737,4 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다. 
 	vm image list [options] <location> <publisher> [offer] [sku]
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

@@ -81,13 +81,13 @@ Microsoft Azure에서 앱의 성능 및 처리량 향상을 위해 [Azure 포털
 
 - 개발자를 비롯하여 모든 사용자에게 유용한 가격 및 기능을 포함하여 앱 서비스 계획의 나머지 모든 기능에 대한 자세한 내용은 [앱 서비스 가격 정보](/pricing/details/web-sites/)를 참조하세요.
 
->[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+>[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 시작 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
 <a name="Next Steps"></a>
 ## 다음 단계
 
 - Azure에 등록하려면 [Microsoft Azure 무료 평가판](/pricing/free-trial/)을 참조하세요.
-- 가격, 지원 및 SLA에 대한 자세한 내용은 다음 링크를 방문하세요.
+- 가격, 지원 및 SLA에 대한 자세한 내용은 다음 링크를 방문하십시오.
 	
 	[데이터 전송 가격 정보](/pricing/details/data-transfers/)
 	
@@ -105,11 +105,11 @@ Microsoft Azure에서 앱의 성능 및 처리량 향상을 위해 [Azure 포털
 
 - 확장 가능하며 복원력이 뛰어난 아키텍처 빌드를 포함하여 Azure 앱 서비스 모범 사례에 대한 자세한 내용은 [모범 사례: Azure 앱 서비스 웹앱](http://blogs.msdn.com/b/windowsazure/archive/2014/02/10/best-practices-windows-azure-websites-waws.aspx)을 참조하세요.
 
-- 웹앱 크기 조정에 대한 비디오:
+- 웹 앱 크기 조정에 대한 비디오:
 	
-	- [Azure 웹 사이트 크기를 조정하는 방법 - 스테판 스차코우(Stefan Schackow)](/documentation/videos/azure-web-sites-free-vs-standard-scaling/)(영문)
-	- [Azure 웹 사이트, CPU 또는 예약 리소스 크기 자동 조정 - 스테판 스차코우(Stefan Schackow)](/documentation/videos/auto-scaling-azure-web-sites/)(영문)
-	- [Azure 웹 사이트 크기 조정 방법 - 스테판 스차코우(Stefan Schackow)](/documentation/videos/how-azure-web-sites-scale/)(영문)
+	- [Azure 웹 사이트 크기를 조정하는 방법 - 스테판 스차코우(Stefan Schackow)](/documentation/videos/azure-web-sites-free-vs-standard-scaling/)
+	- [Azure 웹 사이트, CPU 또는 예약 리소스 크기 자동 조정 - 스테판 스차코우(Stefan Schackow)](/documentation/videos/auto-scaling-azure-web-sites/)
+	- [Azure 웹 사이트 크기 조정 방법 - 스테판 스차코우(Stefan Schackow)](/documentation/videos/how-azure-web-sites-scale/)
 
 ## 변경된 내용
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.
@@ -125,5 +125,6 @@ Microsoft Azure에서 앱의 성능 및 처리량 향상을 위해 [Azure 포털
 [ResourceGroup]: ./media/web-sites-scale/scale10ResourceGroup.png
 [ScaleDatabase]: ./media/web-sites-scale/scale11SQLScale.png
 [GeoReplication]: ./media/web-sites-scale/scale12SQLGeoReplication.png
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

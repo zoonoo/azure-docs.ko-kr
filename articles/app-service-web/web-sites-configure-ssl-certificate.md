@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Azure 앱 서비스에서 웹 앱에 대한 HTTPS를 사용하도록 설정" 
+	pageTitle="Azure 앱 서비스에서 웹앱에 대한 HTTPS를 사용하도록 설정" 
 	description="Azure 앱 서비스에서 SSL을 사용하도록 설정하는 방법에 대해 알아봅니다." 
 	services="app-service\web" 
 	documentationCenter=".net" 
@@ -18,5 +18,6 @@
 
 
 [AZURE.INCLUDE [configure-ssl-web-site](../../includes/configure-ssl-web-site.md)]
+ 
 
-<!--HONumber=49--> 
+<!---HONumber=62-->

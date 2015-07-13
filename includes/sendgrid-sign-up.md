@@ -76,5 +76,4 @@ Azure 고객은 매달 25,000통의 무료 전자 메일의 잠금을 해제할 
 [SendGrid 프로비전 프로세스]: https://support.sendgrid.com/hc/articles/200181628-Why-is-my-account-being-provisioned-
 [모든 API]: https://sendgrid.com/docs/API_Reference/index.html
 
-
-<!--HONumber=54-->
+<!---HONumber=62-->

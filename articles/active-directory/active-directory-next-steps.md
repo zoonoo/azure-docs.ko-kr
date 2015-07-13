@@ -41,4 +41,4 @@ Azure AD 장치 등록은 사용자가 로그인할 때 장치를 인증하는 �
 * [Azure ID](fundamentals-identity.md)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

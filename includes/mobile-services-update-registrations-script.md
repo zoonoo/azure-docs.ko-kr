@@ -1,10 +1,10 @@
-﻿
 
-1. 관리 포털에서 **데이터** 탭을 클릭한 후 **Registrations** 테이블을 클릭합니다. 
+
+1. 관리 포털에서 **Data** 탭을 클릭한 후 **Registrations** 테이블을 클릭합니다. 
 
 	![](./media/mobile-services-update-registrations-script/mobile-portal-data-tables-registrations.png)
 
-2. **Registrations**에서 **스크립트** 탭을 클릭하고 **삽입**을 선택합니다.
+2. **Registrations**에서 **Script** 탭을 클릭하고 **Insert**를 선택합니다.
    
 	![](./media/mobile-services-update-registrations-script/mobile-insert-script-registrations.png)
 
@@ -28,5 +28,4 @@
 
    이렇게 하면 새 테이블에 등록 정보를 저장하는 새 삽입 스크립트가 등록됩니다.
 
-
-<!--HONumber=42-->
+<!---HONumber=62-->

@@ -41,7 +41,7 @@
 
 이 자습서를 사용하려면 다음이 필요합니다.
 
-* [Xamarin 확장]이 포함된 Visual Studio **또는 OS X의** [Xamarin Studio]
+* [Xamarin 확장]이 포함된 Visual Studio **또는 OS X의 ** [Xamarin Studio]
 * XCode 4.5 및 iOS 6.0(또는 이후 버전) 
 * [모바일 서비스 시작] 자습서 완료
 
@@ -155,7 +155,7 @@ Azure 모바일 서비스의 오프라인 동기화를 사용하면 최종 사�
 
 5. 모바일 서비스에 대한 데이터베이스에서 변경 내용이 동기화되었는지 확인합니다.
 
-## 요약
+##요약
 
 [AZURE.INCLUDE [mobile-services-offline-summary-csharp](../../includes/mobile-services-offline-summary-csharp.md)]
 
@@ -182,5 +182,6 @@ Azure 모바일 서비스의 오프라인 동기화를 사용하면 최종 사�
 
 [Xamarin Studio]: http://xamarin.com/download
 [Xamarin 확장]: http://xamarin.com/visual-studio
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

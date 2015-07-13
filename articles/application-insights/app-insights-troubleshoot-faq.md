@@ -21,6 +21,21 @@
 
 [플랫폼 참조][platforms]
 
+## 무료입니까?
+
+* 예, 무료 [가격 책정 계층](app-insights-pricing.md)을 선택하는 경우. 대부분의 기능 및 많은 데이터 할당량을 받습니다. 
+* Microsoft Azure에 등록하려면 사용자의 신용 카드 데이터를 제공해야 하지만 다른 유료 Azure 서비스를 사용하거나 명시적으로 유료 계층으로 업그레이드하지 않는 한 요금이 부과되지 않습니다.
+* 사용자의 앱을 무료 계층에 대해 월간 할당량보다 더 많이 보내면 기록이 중지됩니다. 이 경우 지불 시작을 선택하거나 월말에 할당량이 다시 설정될 때까지 기다릴 수 있습니다.
+* 기본 사용량 및 세션 데이터에는 할당량이 적용되지 않습니다.
+* 무료로 프리미엄 기능을 받는 무료 30일 평가판도 있습니다.
+* 각 응용 프로그램 리소스에는 별도 할당량이 있으며 해당 가격 책정 계층을 다른 리소스와 독립적으로 설정합니다.
+
+#### 지불을 할 경우 받는 혜택은 무엇입니까?
+
+* 더 큰 [월간 데이터 할당량](http://azure.microsoft.com/pricing/details/application-insights/).
+* 월간 할당량을 초과해도 데이터를 계속 수집하고 '초과분'에 대해 요금을 지불하는 옵션입니다. 사용자의 데이터가 할당량을 초과하면 Mb당 요금이 청구됩니다.
+* [연속 내보내기](app-insights-export-telemetry.md).
+
 ## SDK 추가
 
 #### <a name="q01"></a>Visual Studio의 내 프로젝트에 Application Insights를 추가하는 옵션이 표시되지 않습니다.
@@ -101,6 +116,11 @@ Application Insights를 설치하는 동안 문제가 발생했거나 로깅 어
 4. 파일을 저장합니다.
 5. 다시 프로젝트 단추를 클릭하고 *yourProject.csproj* 다시 로드를 선택합니다.
 
+## 이전 SDK 버전에서 업그레이드하려면 어떻게 해야 합니까?
+
+사용자의 응용 프로그램 유형에 적합한 SDK는 [릴리스 정보](app-insights-release-notes.md)를 참조하세요.
+
+
 ## 데이터 없음
 
 #### <a name="q03"></a>Application Insights를 추가하고 앱을 실행했는데 포털에 데이터가 표시되지 않습니다.
@@ -131,7 +151,7 @@ Dc.services.visualstudio.com에 https POST 호출을 릴레이할 수 있는 프
 
 #### 데이터를 보는 데 중지되었습니다.
 
-* [상태 블로그](http://blogs.msdn.com/b/applicationinsights-status/)를 확인하십시오
+* [상태 블로그](http://blogs.msdn.com/b/applicationinsights-status/)를 참조하세요.
 * 데이터 요소의 월간 할당량에 도달했습니까? 설정/할당량 및 가격을 열어 찾아봅니다. 그렇다면 계획을 업그레이드하거나 추가 용량에 대한 비용을 지불할 수 있습니다. [가격 체계](http://azure.microsoft.com/pricing/details/application-insights/)를 참고하십시오.
 
 
@@ -197,6 +217,9 @@ POST 데이터를 자동으로 기록 하지 않지만 TrackTrace 호출을 사�
 
 웹 서비스를 Azure VM에서 실행하는 경우 이 위치에서도 [진단을 가져올][azurediagnostic] 수 있습니다.
 
+## 자동화
+
+Application Insights 리소스를 만드는 [PowerShell script 스크립트를 작성](app-insights-powershell-script-create-resource.md)할 수 있습니다.
 
 
 <!--Link references-->

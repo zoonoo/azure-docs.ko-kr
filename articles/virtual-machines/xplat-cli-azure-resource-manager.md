@@ -7,14 +7,7 @@
 	authors="dlepow"
 	services="virtual-machines"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="command-line-interface" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/09/2015" 
-	ms.author="danlep"/>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services"" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="06/09/2015" ms.author="danlep"/>
 
 # Azure 리소스 관리에서 Mac, Linux 및 Windows용 Azure CLI 사용
 
@@ -80,7 +73,7 @@ Azure CLI를 통해 리소스 관리자에 대한 작업을 하려면 회사 또
 
 요구 사항에 맞는 가상 컴퓨터를 구성하고 만드는 데 기본적으로 사용되는 접근 방식입니다. **arm** 모드에서는 네트워킹과 같은 일부 필수 리소스를 먼저 구성해야 **vm create** 명령을 사용할 수 있습니다.
 
->[AZURE.NOTE]명령줄에서 처음으로 구독에 대해 리소스를 만드는 경우 특정 리소스 공급자를 등록하라는 메시지가 표시될 수 있습니다. 이 경우 간단히 해당 공급자를 등록하고 실패한 명령을 다시 시도하세요. 예:
+>[AZURE.NOTE]명령줄에서 처음으로 구독에 대해 리소스를 만드는 경우 특정 리소스 공급자를 등록하라는 메시지가 표시될 수 있습니다. 이 경우 간단히 해당 공급자를 등록하고 실패한 명령을 다시 시도하세요. 예를 들면 다음과 같습니다.
 >
 > `azure provider register Microsoft.Storage`
 >
@@ -91,7 +84,7 @@ Azure CLI를 통해 리소스 관리자에 대한 작업을 하려면 회사 또
 
 #### 공용 IP 리소스 만들기
 
-모든 의미 있는 작업에 대해 새 가상 컴퓨터에 SSH를 설치하려면 공용 IP를 만들어야 합니다. 공용 IP를 만드는 작업은 간단합니다. 명령에는 리소스 그룹, 공용 IP 리소스의 이름 및 위치가 순서대로 있어야 합니다. 예:
+모든 의미 있는 작업에 대해 새 가상 컴퓨터에 SSH를 설치하려면 공용 IP를 만들어야 합니다. 공용 IP를 만드는 작업은 간단합니다. 명령에는 리소스 그룹, 공용 IP 리소스의 이름 및 위치가 순서대로 있어야 합니다. 예를 들면 다음과 같습니다.
 
 	azure network public-ip create "testrg" "testip" "westus"
 
@@ -320,7 +313,7 @@ Azure CLI는 기본 VM 크기로 가상 컴퓨터를 만듭니다. 또한 저장
 
 		azure resource show "testRG" "testHost" Microsoft.ClassicCompute/virtualMachines -o "2014-06-01" --json
 
-	>[AZURE.NOTE]&gt; 문자를 사용하여 출력을 파일에 파이프하면 JSON 데이터를 파일에 저장할 수 있습니다. 예:
+	>[AZURE.NOTE]&gt; 문자를 사용하여 출력을 파일에 파이프하면 JSON 데이터를 파일에 저장할 수 있습니다. 예를 들면 다음과 같습니다.
 	>
 	> `azure resource show "testRG" "testHost" Microsoft.ClassicCompute/virtualMachines -o "2014-06-01" --json > myfile.json`
 

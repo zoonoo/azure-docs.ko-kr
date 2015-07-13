@@ -66,4 +66,4 @@ Azure 가상 컴퓨터 및 클라우드 서비스는 Azure에서 제공하는 �
 
 [Azure 용 클라우드 서비스 설정](https://msdn.microsoft.com/library/hh124108) [클라우드 서비스에 대한 크기 구성](https://msdn.microsoft.com/library/ee814754)
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

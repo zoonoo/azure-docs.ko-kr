@@ -1,9 +1,5 @@
 
-1. 공유 프로젝트 파일 MainPage.cs를 열고 다음 using 문을 추가합니다.
-
-        using Windows.UI.Popups;
-
-2. MainPage 클래스에 다음 코드 조각을 추가합니다.
+1. 공유 프로젝트 파일 MainPage.cs를 열고 MainPage 클래스에 다음 코드 조각을 추가합니다.
 	
 		// Define a member variable for storing the signed-in user. 
         private MobileServiceUser user;
@@ -60,7 +56,10 @@
 		<Button Name="ButtonLogin" Click="ButtonLogin_Click" 
                         Visibility="Visible">Sign in</Button>
 
-6. 위의 단계를 Windows Phone 스토어 앱 프로젝트에 대해 반복하되 이번에는 **TitlePanel**에서 **TextBlock** 요소 다음에 **Button**을 추가합니다.
+6. Windows Phone 앱 프로젝트에서 **저장** 단추를 정의하는 요소 바로 앞에 다음 **단추** 요소를 추가합니다.
+
+		<Button Grid.Row ="1" Grid.Column="1" Name="ButtonLogin" Click="ButtonLogin_Click" 
+                        Visibility="Visible">Sign in</Button> 
 
 5. 공유 App.xaml.cs 프로젝트 파일을 열고 다음 using 문이 없으면 추가합니다.
 
@@ -90,4 +89,5 @@
    	로그인하고 나면 앱이 오류 없이 실행되며 모바일 서비스를 쿼리하고 데이터를 업데이트할 수 있게 됩니다.
 
 9. Windows Phone 스토어 앱 프로젝트를 마우스 오른쪽 단추로 클릭하고 **시작 프로젝트로 설정**을 클릭한 다음 위의 단계를 반복하여 Windows Phone 스토어 앱도 올바르게 실행되는지 확인합니다.
-<!--HONumber=54-->
+
+<!---HONumber=62-->

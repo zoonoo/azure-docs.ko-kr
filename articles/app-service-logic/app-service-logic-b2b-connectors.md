@@ -198,9 +198,10 @@ Microsoft Azure 앱 서비스는 이러한 B2B API 앱에서 사용할 수 있�
 
 
 ## 논리 앱 및 웹앱 알아보기
-[논리 앱 정의](app-service-logic-what-are-logic-apps.md)<br/> [Azure 앱 서비스의 웹 사이트 및 웹앱](../app-service-web/app-service-web-app-azure-portal.md)
+[논리 앱 정의](app-service-logic-what-are-logic-apps.md)<br/> [Azure 앱 서비스의 웹 사이트 및 웹앱](../app-service-web/app-service-web-overview.md)
 
 
 ## 추가 커넥터
 [BizTalk 통합 커넥터](app-service-logic-integration-connectors.md)<br/> [엔터프라이즈 커넥터](app-service-logic-enterprise-connectors.md)<br/> [소셜 커넥터](app-service-logic-social-connectors.md)<br/> [프로토콜 커넥터](app-service-logic-protocol-connectors.md)<br/> [앱 + 데이터 서비스 커넥터](app-service-logic-data-connectors.md)<br/> [커넥터 및 API 앱 목록](app-service-logic-connectors-list.md)<br/><br/> [커넥터 및 BizTalk API 앱 정의](app-service-logic-what-are-biztalk-api-apps.md)
-<!--HONumber=54--> 
+
+<!---HONumber=62-->

@@ -1,72 +1,66 @@
-<properties 
-	title="Split and Merge Service Tutorial" 
-	pageTitle="Azure SQL 분할 및 병합 서비스 자습서" 
-	description="탄력적인 확장을 사용하는 분할 및 병합" 
-	metaKeywords="sharding scaling, Azure SQL Database sharding, elastic scale, splitting and merging elastic scale" 
+<properties
+	title="Elastic database Split-Merge tool tutorial"
+	pageTitle="탄력적 데이터베이스 분할/병합 도구 자습서 | Microsoft Azure"
+	description="탄력적 데이터베이스 도구를 사용하는 분할 및 병합"
+	metaKeywords="elastic database tools, split and merge, Azure SQL Database sharding, elastic scale, splitting and merging elastic databases"
 	services="sql-database" documentationCenter=""  
-	manager="jhubbard" authors="torsteng"/>
+	manager="jeffreyg"
+	authors="sidneyh"/>
 
-<tags 
-	ms.service="sql-database" 
-	ms.workload="sql-database" 
-	ms.tgt_pltfrm="na" ms.devlang="na" 
-	ms.topic="article" ms.date="03/05/2015" 
-	ms.author="torsteng" />
+<tags
+	ms.service="sql-database"
+	ms.workload="sql-database"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/08/2015"
+	ms.author="sidneyh" />
 
-# 탄력적인 확장 분할 및 병합 서비스 자습서
+# 탄력적 데이터베이스 분할/병합 도구 자습서
 
-## 분할-병합 패키지 다운로드 
-1. [NuGet](http://docs.nuget.org/docs/start-here/installing-nuget)에서 최신 NuGet 버전을 다운로드합니다. 
-2. 명령 프롬프트를 열고 nuget.exe를 다운로드한 디렉터리로 이동합니다. 
-3. 아래 명령을 사용하여 최신 분할/병합 패키지를 현재 디렉터리에 다운로드합니다. 
-`nuget install Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge`  
+## 분할-병합 패키지 다운로드
+1. [NuGet](http://docs.nuget.org/docs/start-here/installing-nuget)에서 최신 NuGet 버전을 다운로드합니다.
+2. 명령 프롬프트를 열고 nuget.exe를 다운로드한 디렉터리로 이동합니다.
+3. 아래 명령을 사용하여 최신 분할/병합 패키지를 현재 디렉터리에 다운로드합니다. `nuget install Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge`  
 
-위의 단계에서는 현재 디렉터리에 분할/병합 파일을 다운로드합니다. 파일은 **Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge.x.x.xxx.x** 디렉터리에 저장됩니다.여기서 *x.x.xxx.x*는 버전 번호를 나타냅니다. **content\splitmerge\service** 하위 디렉터리에서 분할/병합 서비스 파일을 찾고 **content\splitmerge\powershell** 하위 디렉터리에서 분할/병합 PowerShell 스크립트 및 필요한 클라이언트 .dll을 찾습니다.
+위의 단계에서는 현재 디렉터리에 분할/병합 파일을 다운로드합니다. 파일은 **Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge.x.x.xxx.x**라는 디렉터리에 저장됩니다. 여기서 *x.x.xxx.x*는 버전 번호를 나타냅니다. **content\splitmerge\service** 하위 디렉터리에서 분할/병합 서비스 파일을 찾고 **content\splitmerge\powershell** 하위 디렉터리에서 분할/병합 PowerShell 스크립트 및 필요한 클라이언트 .dll을 찾습니다.
 
-## 필수 조건 
+## 필수 조건
 
-1. 분할/병합 상태 데이터베이스로 사용할 Azure SQL DB 데이터베이스를 만듭니다. [Azure 관리 포털](https://manage.windowsazure.com)로 이동합니다. 왼쪽 아래에서 **새로 만들기**를 클릭한 다음 **데이터 서비스** -> **SQL 데이터베이스** -> **사용자 지정 만들기**를 클릭합니다. 데이터베이스 이름을 입력하고 새 사용자 및 암호를 만듭니다. 나중에 사용할 수 있도록 이름과 암호를 기록합니다.
+1. 분할/병합 상태 데이터베이스로 사용할 Azure SQL DB 데이터베이스를 만듭니다. [Azure Preview 포털](https://ms.portal.azure.com)로 이동합니다. 새 **SQL 데이터베이스**를 만듭니다. 데이터베이스 이름을 입력하고 새 사용자 및 암호를 만듭니다. 나중에 사용할 수 있도록 이름과 암호를 기록합니다.
 
-2. Azure SQL DB 서버에서 Microsoft Azure 서비스의 연결을 허용하는지 확인합니다. [Azure 관리 포털](https://manage.windowsazure.com)로 이동하여 왼쪽 창에서 **SQL 데이터베이스**를 클릭합니다. 그런 다음 화면 위쪽의 리본에서 **서버**를 클릭하고 서버를 선택합니다. 그런 다음 위쪽에서 **구성**을 클릭하고 **Microsoft Azure 서비스** 설정이 **예**로 설정되어 있는지 확인합니다.
+2. Azure SQL DB 서버에서 Azure 서비스의 연결을 허용하는지 확인합니다. [미리 보기 포털](https://ms.portal.azure.com)의 **방화벽 설**정에서 **Azure 서비스에 대한 액세스 허용** 설정이 **On**인지 확인합니다. "저장" 아이콘을 클릭합니다.
 
-    ![Allowed services][1]
+    ![허용된 서비스][1]
 
-3. 진단 출력에 사용할 Azure 저장소 계정을 만듭니다. [Azure 관리 포털](https://manage.windowsazure.com)로 이동합니다. 왼쪽 아래에서 **새로 만들기**, **데이터 서비스**, **저장소**, **빨리 만들기**를 차례로 클릭합니다. 
+3. 진단 출력에 사용할 Azure 저장소 계정을 만듭니다. [Azure 관리 포털](https://manage.windowsazure.com)로 이동합니다. 왼쪽 아래에서 **새로 만들기**, **데이터 서비스**, **저장소**, **빠른 생성**을 차례로 클릭합니다.
 
-4. 분할/병합 서비스를 포함할 Azure 클라우드 서비스를 만듭니다.  [Azure 관리 포털](https://manage.windowsazure.com)로 이동합니다. 왼쪽 아래에서 **새로 만들기**, **계산**, **클라우드 서비스**, **빨리 만들기**를 차례로 클릭합니다. 
+4. 분할/병합 서비스를 포함할 Azure 클라우드 서비스를 만듭니다. [Azure 관리 포털](https://manage.windowsazure.com)로 이동합니다. 왼쪽 아래에서 **새로 만들기**, **계산**, **클라우드 서비스**, **빠른 생성**을 차례로 클릭합니다.
 
 
-## 분할/병합 서비스 구성 
+## 분할/병합 서비스 구성하기
 
-### 분할/병합 서비스 구성 
+### 분할/병합 서비스 구성
 
 1. 분할/병합 비트를 다운로드한 폴더에서 **SplitMergeService.cspkg**와 함께 제공된 **ServiceConfiguration.Template.cscfg** 파일의 복사본을 만들고 이름을 **ServiceConfiguration.cscfg**로 지정합니다.
 
-2. 원하는 텍스트 편집기에서 ServiceConfiguration.cscfg를 엽니다. Visual Studio를 사용하여 인증서 지문의 형식과 같은 입력의 유효성을 검사하는 것이 좋습니다. 
+2. 원하는 텍스트 편집기에서 ServiceConfiguration.cscfg를 엽니다. Visual Studio를 사용하여 인증서 지문의 형식과 같은 입력의 유효성을 검사하는 것이 좋습니다.
 
 3. 새 데이터베이스를 만들거나 분할/병합 작업에 대한 상태 데이터베이스로 사용할 기존 데이터베이스를 선택하고 해당 데이터베이스의 연결 문자열을 검색합니다. Azure SQL DB를 사용할 경우 연결 문자열의 형식은 일반적으로 다음과 같습니다.
 
         "Server=myservername.database.windows.net; Database=mydatabasename;User ID=myuserID; Password=mypassword; Encrypt=True; Connection Timeout=30" .
 4.    ElasticScaleMetadata 설정의 **SplitMergeWeb** 및 **SplitMergeWorker** 역할 섹션에서 cscfg 파일에 이 연결 문자열을 입력합니다.
 
-5.    진단 로그의 대상을 구성하려면 Azure 저장소 계정이 필요합니다. 분할/병합을 구성하려면 Azure 저장소 계정에 대한 연결 문자열이 필요합니다. 연결 문자열은 다음 형식이어야 합니다.
+5.    **SplitMergeWorker** 역할의 경우, **WorkerRoleSynchronizationStorageAccountConnectionString** 설정에 대해 Azure 저장소에 유효한 연결 문자열을 입력합니다.
+        
+### 보안 구성
+서비스의 보안을 구성하는 자세한 지침은 [분할-병합 보안 구성](../sql-database-elastic-scale-configure-security.md)을 참조하세요.
 
-        "DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccessKey" 
-    
-액세스 키를 확인하려면 [Azure 관리 포털](https://manage.windowsazure.com)로 이동하여 왼쪽의 **저장소** 탭을 클릭하고, 저장소 계정에 해당하는 이름을 선택한 후에 아래쪽에서 **액세스 키 관리**를 클릭합니다. **기본 액세스 키**에 대해 **복사** 단추를 클릭합니다.
+이 자습서를 완료하기에 적합한 간단한 테스트를 배포하기 위해 서비스를 작동하고 실행하는 데 필요한 최소 구성 단계가 수행됩니다. 이러한 단계에서는 단계를 실행하는 데 사용하는 컴퓨터/계정 하나만 서비스와 통신할 수 있습니다.
 
-![manage access keys][2]
+### 자체 서명된 인증서 만들기
 
-6.    저장소 계정 이름과 제공된 액세스 키 중 하나를 저장소 연결 문자열의 자리 표시자에 입력합니다. 이 연결 문자열은 **Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString** 설정의 **SplitMergeWeb** 및 **SplitMergeWorker** 역할 섹션에서 모두 사용됩니다. 역할에 따라 다른 저장소 계정을 사용할 수 있습니다. 
-
-### 보안 구성 
-서비스의 보안을 구성하는 자세한 지침은 [탄력적인 확장 보안 구성](../sql-database-elastic-scale-configure-security.md)을참조하세요.
-
-이 자습서를 완료하기에  적합한 간단한 테스트를 배포하기 위해 서비스를 작동하고 실행하는 데 필요한 최소 구성 단계가 수행됩니다. 이러한 단계에서는 단계를 실행하는 데 사용하는 컴퓨터/계정 하나만 서비스와 통신할 수 있습니다.
-
-### 자체 서명된 인증서 만들기 
-
-새 디렉터리를 만들고 이 디렉터리에서 [Visual Studio용 개발자 명령 프롬프트](http://msdn.microsoft.com/library/ms229859.aspx) 창을 사용하여 다음 명령을 실행합니다.
+새 디렉터리를 만들고 이 디렉터리에서 [Visual Studio용 개발자 명령 프롬프트](http://msdn.microsoft.com/ko-kr/library/ms229859.aspx) 창을 사용하여 다음 명령을 실행합니다.
 
     makecert ^
     -n "CN=*.cloudapp.net" ^
@@ -77,7 +71,7 @@
 
 개인 키를 보호 하기 위해 암호를 입력하라는 메시지가 표시됩니다. 강력한 암호를 입력하고 이를 확인합니다. 이후에 사용할 암호를 한 번 더 입력하라는 메시지가 표시됩니다. 마지막에 **예**를 클릭하여 신뢰할 수 있는 인증 기관 루트 저장소로 인증서를 가져옵니다.
 
-### PFX 파일 만들기 
+### PFX 파일 만들기
 
 makecert가 실행된 동일한 창에서 다음 명령을 실행하고, 인증서를 만드는 데 사용한 동일한 암호를 사용합니다.
 
@@ -88,7 +82,7 @@ makecert가 실행된 동일한 창에서 다음 명령을 실행하고, 인증�
 2. **인증서 가져오기 마법사**에서 **현재 사용자**를 선택하고 **다음**을 클릭합니다.
 3. 파일 경로를 확인하고 **다음**을 클릭합니다.
 4. 암호를 입력하고 **확장 속성 모두 포함**을 선택된 상태로 두고 **다음**을 클릭합니다.
-5. **인증서 저장소를 자동으로 선택[...]**을 선택된 상태로 두고 **다음**을 클릭합니다.
+5. **인증서 저장소를 자동으로 선택[…]**을 선택된 상태로 두고 **다음**을 클릭합니다.
 6. **마침**, **확인**을 차례로 클릭합니다.
 
 ### 클라우드 서비스에 PFX 파일 업로드
@@ -104,10 +98,9 @@ makecert가 실행된 동일한 창에서 다음 명령을 실행하고, 인증�
 
 ### 서비스 구성 파일 업데이트
 
-이러한 설정의 지문/값 특성에 위의 복사한 인증서 지문을 붙여넣습니다.
-웹 역할의 경우:
+이러한 설정의 지문/값 특성에 위의 복사한 인증서 지문을 붙여넣습니다. 웹 역할의 경우:
 
-    <Setting name="DataEncryptionPrimaryCertificateThumbprint" value="" /> 
+    <Setting name="DataEncryptionPrimaryCertificateThumbprint" value="" />
     <Certificate name="DataEncryptionPrimary" thumbprint="" thumbprintAlgorithm="sha1" />
 
 작업자 역할의 경우:
@@ -120,40 +113,36 @@ makecert가 실행된 동일한 창에서 다음 명령을 실행하고, 인증�
     <Certificate name="DataEncryptionPrimary" thumbprint="" thumbprintAlgorithm="sha1" />
 
 
-프로덕션 배포의 경우 CA, 암호화, 서버 인증서 및 클라이언트 인증서에 개별 인증서를 사용해야 합니다. 이와 관련된 자세한 지침은 [보안 구성](../sql-database-elastic-scale-configure-security.md)을참조하세요.
+프로덕션 배포의 경우 CA, 암호화, 서버 인증서 및 클라이언트 인증서에 개별 인증서를 사용해야 합니다. 이와 관련된 자세한 지침은 [보안 구성](../sql-database-elastic-scale-configure-security.md)을 참조하세요.
 
 ### 분할/병합 서비스 배포
 1. [Azure 관리 포털](https://manage.windowsazure.com)로 이동합니다.
-2. 왼쪽에서 **클라우드 서비스** 탭을 클릭하고 앞에서 만든 클라우드 서비스를 선택합니다. 
-3. **대시보드**를 클릭합니다. 
-4. 스테이징 환경을 선택한 다음 **새 스테이징 배포를 업로드하세요.**를 클릭합니다.
+2. 왼쪽에서 **클라우드 서비스** 탭을 클릭하고 앞에서 만든 클라우드 서비스를 선택합니다.
+3. **대시보드**를 클릭합니다.
+4. 스테이징 환경을 선택한 다음 **새 스테이징 배포 업로드**를 클릭합니다.
 
-    ![Staging][3]
+    ![스테이징][3]
 
-5. 대화 상자에서 배포 레이블을 입력합니다. 그런 다음 'Package' 및 'Configuration' 둘 다에 대해 'From Local'를 클릭하고 **SplitMergeService.cspkg** 파일 및 앞에서 구성한 .cscfg 파일을 선택합니다.
-6. **단일 인스턴스가 포함된 역할이 하나 이상 있는 경우에도 배포합니다.** 확인란이 선택되어 있는지 확인합니다.
+5. 대화 상자에서 배포 레이블을 입력합니다. '패키지'와 '구성' 모두에 대해, '로컬에서'를 클릭하고 **SplitMergeService.cspkg** 파일 및 이전에 구성한 .cscfg 파일을 선택합니다.
+6. **단일 인스턴스가 포함된 역할이 하나 이상 있는 경우에도 배포** 확인란이 선택되어 있는지 확인합니다.
 7. 오른쪽 아래의 눈금 단추를 눌러 배포를 시작합니다. 배포를 완료하려면 몇 분 정도 걸립니다.
 
-![Upload][4]
+![업로드][4]
 
 
 ## 배포 문제 해결
 웹 역할을 온라인 상태로 전환하지 못하면 보안 구성에 문제가 있는 것입니다. 위에서 설명한 대로 SSL이 구성되었는지 확인합니다.
 
-작업자 역할을 온라인 상태로 전환하지 못했지만 웹 역할은 성공하면 대개 이전에 만든 상태 데이터베이스에 대한 연결 문제가 있는 것입니다. 
+작업자 역할을 온라인 상태로 전환하지 못했지만 웹 역할은 성공하면 대개 이전에 만든 상태 데이터베이스에 대한 연결 문제가 있는 것입니다.
 
-* .cscfg의 연결 문자열이 정확한지 확인합니다. 
+* .cscfg의 연결 문자열이 정확한지 확인합니다.
 * 서버 및 데이터베이스가 존재하며, 사용자 ID 및 암호가 올바른지 확인합니다.
-* Azure SQL DB의 경우 연결 문자열은 다음 형식이어야 합니다. 
+* Azure SQL DB의 경우 연결 문자열은 다음 형식이어야 합니다.
 
         "Server=myservername.database.windows.net; Database=mydatabasename;User ID=myuserID; Password=mypassword; Encrypt=True; Connection Timeout=30" .
 
 * 서버 이름이 **https://**로 시작하지 않는지 확인합니다.
-* Azure SQL DB 서버에서 Microsoft Azure 서비스의 연결을 허용하는지 확인합니다. 그렇게 하려면 https://manage.windowsazure.com를 열고, 왼쪽에서 "SQL 데이터베이스"를 클릭하고, 위쪽에서 "서버"를 클릭하고 사용 중인 서버를 선택합니다. 위쪽에서 **구성**을 클릭하고 **Microsoft Azure 서비스** 설정이 "예"로 지정되어 있는지 확인합니다. 관련 정보는 이 문서 앞부분의 필수 조건 섹션을 참조하세요.
-
-* 분할/병합 서비스 인스턴스에 대한 진단 로그를 검토합니다. Visual Studio 인스턴스를 열고 메뉴 모음에서 **보기**와 **서버 탐색기**를 차례로 클릭합니다. **Microsoft Azure** 아이콘을 클릭하여 Azure 구독에 연결합니다. 그런 다음 Microsoft Azure -> 저장소-> < 저장소 계정 >-> 테이블 -> WADLogsTable->로 이동합니다. 자세한 내용은 [서버 탐색기로 저장소 리소스 탐색](http://msdn.microsoft.com/library/azure/ff683677.aspx)을 참조하세요. 
-
-    ![][5]
+* Azure SQL DB 서버에서 Azure 서비스의 연결을 허용하는지 확인합니다. 그렇게 하려면 https://manage.windowsazure.com을(를) 열고, 왼쪽에서 “SQL 데이터베이스”를 클릭하고, 위쪽에서 “서버”를 클릭하여 사용 중인 서버를 선택합니다. 위쪽에서 **구성**을 클릭하고 **Azure 서비스** 설정이 “예”로 지정되어 있는지 확인합니다. 관련 정보는 이 문서 앞부분의 필수 조건 섹션을 참조하세요.
 
 ## 분할/병합 서비스 배포 테스트
 ### 웹 브라우저로 연결
@@ -166,11 +155,11 @@ makecert가 실행된 동일한 창에서 다음 명령을 실행하고, 인증�
 
 포함된 스크립트 파일은 다음과 같습니다.
 
-1. **SetupSampleSplitMergeEnvironment.ps1** - 분할/병합에 대한 테스트 데이터 계층을 설정합니다. 자세한 설명은 아래 표를 참조하세요.
-2. **ExecuteSampleSplitMerge.ps1** - 데이터 계층에 대한 테스트 작업을 실행합니다. 자세한 설명은 아래 표를 참조하세요.
-3. **GetMappings.ps1** - 분할된 데이터베이스 매핑의 현재 상태를 출력하는 최상위 샘플 스크립트입니다.
-4. **ShardManagement.psm1**  - helper script that wraps the ShardManagement API
-5. **SqlDatabaseHelpers.psm1** - SQL 데이터베이스 생성 및 관리를 위한 도우미 스크립트입니다.
+1. **SetupSampleSplitMergeEnvironment.ps1** - 분할/병합에 대한 테스트 데이터 계층을 설정합니다. 자세한 설명은 아래 테이블을 참조하세요.
+2. **ExecuteSampleSplitMerge.ps1** - 데이터 계층에 대한 테스트 작업을 실행합니다. 자세한 설명은 아래 테이블을 참조하세요.
+3. **GetMappings.ps1** – 분할된 데이터베이스 매핑의 현재 상태를 출력하는 최상위 샘플 스크립트입니다.
+4. **ShardManagement.psm1** – ShardManagement API를 래핑하는 도우미 스크립트입니다.
+5. **SqlDatabaseHelpers.psm1** – SQL 데이터베이스 생성 및 관리를 위한 도우미 스크립트입니다.
 
 <table style="width:100%">
   <tr>
@@ -179,19 +168,19 @@ makecert가 실행된 동일한 창에서 다음 명령을 실행하고, 인증�
   </tr>
   <tr>
     <th rowspan="5">SetupSampleSplitMergeEnvironment.ps1</th>
-    <td>1.    분할된 데이터베이스 맵 관리자 데이터베이스를 만듭니다.</td>
+    <td>1. 분할된 데이터베이스 맵 관리자 데이터베이스를 만듭니다.</td>
   </tr>
   <tr>
-    <td>2.    분할된 데이터베이스를 2개 만듭니다. 
+    <td>2. 분할된 데이터베이스를 2개 만듭니다.
   </tr>
   <tr>
-    <td>3.    해당 데이터베이스에 대한 분할된 데이터베이스 맵을 만듭니다. 이때 해당 데이터베이스의 기존 분할된 데이터베이스 맵은 삭제됩니다. </td>
+    <td>3. 해당 데이터베이스에 대한 분할된 데이터베이스 맵을 만듭니다. 이때 해당 데이터베이스의 기존 분할된 데이터베이스 맵은 삭제됩니다. </td>
   </tr>
   <tr>
-    <td>4.    두 분할된 데이터베이스에서 작은 샘플 테이블을 만들고 둘 중 하나의 테이블을 채웁니다.</td>
+    <td>4. 두 분할된 데이터베이스에서 작은 샘플 테이블을 만들고 둘 중 하나의 테이블을 채웁니다.</td>
   </tr>
   <tr>
-    <td>5.    분할된 테이블에 대한 SchemaInfo를 선언합니다.</td>
+    <td>5. 분할된 테이블에 대한 SchemaInfo를 선언합니다.</td>
   </tr>
 
 </table>
@@ -203,23 +192,23 @@ makecert가 실행된 동일한 창에서 다음 명령을 실행하고, 인증�
   </tr>
 <tr>
     <th rowspan="4">ExecuteSampleSplitMerge.ps1 </th>
-    <td>1.    첫 번째 분할된 데이터베이스에서 두 번째 분할된 데이터베이스로 데이터의 절반을 분할하는 분할 요청을 분할/병합 서비스 웹 프런트 엔드로 보냅니다.</td>
+    <td>1. 첫 번째 분할된 데이터베이스에서 두 번째 분할된 데이터베이스로 데이터의 절반을 분할하는 분할 요청을 분할/병합 서비스 웹 프런트 엔드로 보냅니다.</td>
   </tr>
   <tr>
-    <td>2.    분할 요청 상태를 확인하기 위해 웹 프런트 엔드를 폴링한 다음 요청이 완료될 때까지 기다립니다.</td>
+    <td>2. 분할 요청 상태를 확인하기 위해 웹 프런트 엔드를 폴링한 다음 요청이 완료될 때까지 기다립니다.</td>
   </tr>
   <tr>
-    <td>3.    두 번째 분할된 데이터베이스에서 첫 번째 분할된 데이터베이스로 데이터를 다시 이동하는 병합 요청을 분할/병합 서비스 웹 프런트 엔드로 보냅니다.</td>
+    <td>3. 두 번째 분할된 데이터베이스에서 첫 번째 분할된 데이터베이스로 데이터를 다시 이동하는 병합 요청을 분할/병합 서비스 웹 프런트 엔드로 보냅니다.</td>
   </tr>
   <tr>
-    <td>4.    병합 요청 상태를 확인하기 위해 웹 프런트 엔드를 폴링한 다음 요청이 완료될 때까지 기다립니다.</td>
+    <td>4. 병합 요청 상태를 확인하기 위해 웹 프런트 엔드를 폴링한 다음 요청이 완료될 때까지 기다립니다.</td>
   </tr>
 </table>
 
-## PowerShell을 사용하여 배포 확인
+##PowerShell을 사용하여 배포 확인
 
 1.    새 PowerShell 창을 열고 분할/병합 패키지를 다운로드한 디렉터리로 이동한 다음 "powershell" 디렉터리로 이동합니다.
-2.    Azure SQL 데이터베이스 서버를 만들거나 기존 서버를 선택합니다. 이 서버에 분할된 데이터베이스 맵 관리자 및 분할된 데이터베이스가 생성됩니다. 
+2.    Azure SQL 데이터베이스 서버를 만들거나 기존 서버를 선택합니다. 이 서버에 분할된 데이터베이스 맵 관리자 및 분할된 데이터베이스가 생성됩니다.
 
     참고: SetupSampleSplitMergeEnvironment.ps1 스크립트가 기본적으로 동일한 서버에 이러한 모든 데이터베이스를 만들어 스크립트를 단순하게 유지합니다. 이 제한은 분할/병합 서비스 자체의 제한은 아닙니다.
 
@@ -227,7 +216,7 @@ makecert가 실행된 동일한 창에서 다음 명령을 실행하고, 인증�
 
     Azure SQL Server가 이러한 스크립트를 실행하는 컴퓨터의 IP 주소에서 액세스할 수 있도록 구성되었는지 확인합니다. 이 설정은 Azure SQL Server/구성/허용된 IP 주소에서 찾을 수 있습니다.
 
-3.    SetupSampleSplitMergeEnvironment.ps1 스크립트를 실행하여 샘플 환경을 만듭니다. 
+3.    SetupSampleSplitMergeEnvironment.ps1 스크립트를 실행하여 샘플 환경을 만듭니다.
 
     이 스크립트를 실행하면 분할된 데이터베이스 맵 관리자 데이터베이스 및 분할된 데이터베이스에서 기존의 분할된 데이터베이스 맵 관리 데이터 구조가 모두 초기화됩니다. 분할된 데이터베이스 맵 또는 분할된 데이터베이스를 다시 초기화하려는 경우에 이 스크립트를 다시 실행하는 것이 유용할 수 있습니다.
 
@@ -237,7 +226,7 @@ makecert가 실행된 동일한 창에서 다음 명령을 실행하고, 인증�
             -UserName 'mysqluser' `
             -Password 'MySqlPassw0rd' `
             -ShardMapManagerServerName 'abcdefghij.database.windows.net'
-    
+
 4.    현재 샘플 환경에 있는 매핑을 보려면 Getmappings.ps1 스크립트를 실행합니다.
 
         .\GetMappings.ps1 `
@@ -262,7 +251,7 @@ makecert가 실행된 동일한 창에서 다음 명령을 실행하고, 인증�
 
     정상적으로 연결되는 경우의 출력은 다음과 같습니다.
 
-        > .\ExecuteSampleSplitMerge.ps1 -UserName 'mysqluser' -Password 'MySqlPassw0rd' -ShardMapManagerServerName 'abcdefghij.database.windows.net' -SplitMergeServiceEndpoint 'http://mysplitmergeservice.cloudapp.net' -CertificateThumbprint 0123456789abcdef0123456789abcdef01234567
+        > .\ExecuteSampleSplitMerge.ps1 -UserName 'mysqluser' -Password 'MySqlPassw0rd' -ShardMapManagerServerName 'abcdefghij.database.windows.net' -SplitMergeServiceEndpoint 'http://mysplitmergeservice.cloudapp.net' –CertificateThumbprint 0123456789abcdef0123456789abcdef01234567
         Sending split request
         Began split operation with id dc68dfa0-e22b-4823-886a-9bdc903c80f3
         Polling split-merge request status. Press Ctrl-C to end
@@ -278,7 +267,7 @@ makecert가 실행된 동일한 창에서 다음 명령을 실행하고, 인증�
         ...
         Progress: 90% | Status: Completing | Details: [Informational] Successfully deleted shardlets in table     [dbo].[MyShardedTable].
         Progress: 90% | Status: Completing | Details: [Informational] Deleting any temp tables that were created     while processing the request.
-        Progress: 100% | Status: Succeeded | Details: [Informational] Successfully processed request. 
+        Progress: 100% | Status: Succeeded | Details: [Informational] Successfully processed request.
         Sending merge request
         Began merge operation with id 6ffc308f-d006-466b-b24e-857242ec5f66
         Polling request status. Press Ctrl-C to end
@@ -294,9 +283,9 @@ makecert가 실행된 동일한 창에서 다음 명령을 실행하고, 인증�
         Progress: 90% | Status: Completing | Details: [Informational] Deleting any temp tables that were created     while processing the request.
         Progress: 100% | Status: Succeeded | Details: [Informational] Successfully processed request.
 
-6.    다른 데이터 형식으로도 연결해 봅니다. 이러한 모든 스크립트는 키 유형을 지정할 수 있도록 하는 선택적인 -ShardKeyType 매개 변수를 사용합니다. 기본값은 Int32지만 Int64, GUID 또는 이진 파일을 지정할 수도 있습니다. 
+6.    다른 데이터 형식으로도 연결해 봅니다. 이러한 모든 스크립트는 키 유형을 지정할 수 있도록 하는 선택적인 -ShardKeyType 매개 변수를 사용합니다. 기본값은 Int32지만 Int64, GUID 또는 이진 파일을 지정할 수도 있습니다.
 
-## 고유한 요청 만들기 
+## 고유한 요청 만들기
 
 웹 UI를 사용하거나 웹 역할을 통해 요청을 제출하는 SplitMerge.psm1 PowerShell 모듈을 가져와서 사용하여 서비스를 사용할 수 있습니다.
 
@@ -304,8 +293,8 @@ makecert가 실행된 동일한 창에서 다음 명령을 실행하고, 인증�
 
 분할/병합 작업을 수행하려면 이동할 분할된 테이블 및 참조 테이블을 선언해야 합니다. **SchemaInfo** API를 사용하여 이 작업을 수행합니다. 이 API는 **Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement.Schema** 네임스페이스에 있습니다.
 
-1.    각 분할된 테이블에 대해 테이블의 부모 스키마 이름(선택 사항, 기본값은 "dbo"), 테이블 이름 및 분할 키가 포함된 해당 테이블의 열 이름을 설명하는 **ShardedTableInfo** 개체를 만듭니다.
-2.    각 참조 테이블에 대해 테이블의 부모 스키마 이름(선택 사항, 기본값은 "dbo") 및 테이블 이름을 설명하는 **ReferenceTableInfo** 개체를 만듭니다.
+1.    각 분할된 테이블에 대해 테이블의 부모 스키마 이름(선택 사항, 기본값은 “dbo”), 테이블 이름 및 분할 키가 포함된 해당 테이블의 열 이름을 설명하는 **ShardedTableInfo** 개체를 만듭니다.
+2.    각 참조 테이블에 대해 테이블의 부모 스키마 이름(선택 사항, 기본값은 “dbo”) 및 테이블 이름을 설명하는 **ReferenceTableInfo** 개체를 만듭니다.
 3.    새 **SchemaInfo** 개체에 위의 TableInfo 개체를 추가합니다.
 4.    **ShardMapManager** 개체에 대한 참조를 가져와 **GetSchemaInfoCollection**을 호출합니다.
 5.    **SchemaInfo**를 **SchemaInfoCollection**에 추가하고 분할된 데이터베이스 맵 이름을 입력합니다.
@@ -322,15 +311,20 @@ makecert가 실행된 동일한 창에서 다음 명령을 실행하고, 인증�
 
 이 오류는 SSL 인증서가 제대로 구성되지 않은 것을 의미합니다. '웹 브라우저로 연결' 섹션의 지침을 따르세요.
 
+요청을 제출할 수 없는 경우에 다음이 나타날 수 있습니다.
+
+ [예외] System.Data.SqlClient.SqlException (0x80131904): 저장 프로시저 'dbo.InsertRequest'를 찾을 수 없습니다.
+
+이 경우 구성 파일, 특히 **WorkerRoleSynchronizationStorageAccountConnectionString**에 대한 설정을 확인합니다. 이 오류는 일반적으로 작업자 역할이 처음 사용할 때 메타데이터 데이터베이스를 성공적으로 초기화하지 못했을 때 나타납니다.
+
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
- 
+
 <!--Image references-->
 [1]: ./media/sql-database-elastic-scale-configure-deploy-split-and-merge/allowed-services.png
 [2]: ./media/sql-database-elastic-scale-configure-deploy-split-and-merge/manage.png
 [3]: ./media/sql-database-elastic-scale-configure-deploy-split-and-merge/staging.png
 [4]: ./media/sql-database-elastic-scale-configure-deploy-split-and-merge/upload.png
 [5]: ./media/sql-database-elastic-scale-configure-deploy-split-and-merge/storage.png
-[6]: ./media/sql-database-elastic-scale-split-and-merge-tutorial/logs.png
-
-<!--HONumber=47-->
  
+
+<!---HONumber=62-->

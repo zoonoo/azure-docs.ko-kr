@@ -67,5 +67,6 @@ Azure 앱 서비스 플랫폼에 대한 자세한 내용은 [Azure 앱 서비스
 [tpm]: app-service-logic-create-a-trading-partner-agreement
 [rules]: app-service-logic-use-biztalk-rules
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

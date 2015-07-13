@@ -51,7 +51,7 @@
 
 사용할 수 있는 기존 데이터 게이트웨이가 있는 경우 이 단계를 건너뜁니다.
 
-1.	논리 데이터 게이트웨이를 만듭니다. 에 **Azure 미리 보기 포털**, 를 클릭 하 여 **연결 된 서비스** 에 **데이터 팩터리** 블레이드입니다.
+1.	논리 데이터 게이트웨이를 만듭니다. **Azure Preview 포털**의 **데이터 팩터리** 블레이드에서 **연결된 서비스**를 클릭합니다.
 2.	명령 모음에서 **데이터 게이트웨이 추가(+)**를 클릭합니다.  
 3.	**새 데이터 게이트웨이** 블레이드에서 **만들기**를 클릭합니다.
 4.	**만들기** 블레이드에서, **MyGateway**를 데이터 게이트웨이 **이름**으로 입력하세요.
@@ -97,46 +97,46 @@
 
 ### 연결된 서비스 만들기
 
-1.	에 **Azure 미리 보기 포털**, 클릭 **연결 된 서비스** 타일에 **데이터 팩터리** 블레이드에 대 한 **LogProcessingFactory**.
-2.	에 **연결 된 서비스** 블레이드를 클릭 하 여 **추가 (+) 데이터 저장소**.
-3.	에 **새로운 데이터 저장소** 블레이드, 입력 **OnPremSqlLinkedService** 에 대 한는 **이름**. 
-4.	클릭 하 여 **유형 (설정 필요)** 선택 하 고 **SQL Server**. 표시 되어야는 **데이터 게이트웨이**, **서버**, **데이터베이스**, 및 **자격 증명** 설정에는 **새로운 데이터 저장소** 블레이드 이제. 
-5.	클릭 하 여 **데이터 게이트웨이 (필요한 설정을 구성)** 선택 하 고 **MyGateway** 이전에 만든 했습니다. 
-6.	입력 **이름** 를 호스팅하는 데이터베이스 서버는 **MarketingCampaigns** 데이터베이스입니다. 
-7.	입력 **MarketingCampaigns** 데이터베이스입니다. 
-8.	클릭 하 여 **자격 증명**. 
-9.	에 **자격 증명** 블레이드를 클릭 하 여 **자격 증명을 안전 하 게 설정 하려면 여기를 클릭 합니다.**.
-10.	처음으로 원클릭 응용 프로그램을 설치 하 고 시작의 **자격 증명 설정 **대화 상자. 11.	에 **자격 증명 설정** 대화 상자에 입력 합니다 **사용자 이름** 및 **암호**, 를 클릭 하 고 **확인**. 대화 상자가 닫힐 때까지 기다립니다. 
-12.	클릭 하 여 **확인** 에 **새로운 데이터 저장소** 블레이드입니다. 
-13.	에 **연결 된 서비스** 블레이드를 확인 하는 **OnPremSqlLinkedService** 목록에 표시 및 **상태** 는 연결 된 서비스의 **좋은**.
+1.	**Azure Preview 포털**에서 **LogProcessingFactory**의 **데이터 팩터리** 블레이드에 있는 **연결된 서비스** 타일을 클릭합니다.
+2.	**연결된 서비스** 블레이드에서 **데이터 저장소 추가(+)**를 클릭합니다.
+3.	**새 데이터 저장소** 블레이드에서 **OnPremSqlLinkedService**를 **이름**으로 입력합니다. 
+4.	**유형(필요한 설정)**을 클릭하고 **SQL Server**를 선택합니다. 이제 **새 데이터 저장소** 블레이드에 **데이터 게이트웨이**, **서버**, **데이터베이스** 및 **자격 증명** 설정이 표시됩니다. 
+5.	**데이터 게이트웨이(필요한 설정 구성)**를 클릭하고 앞에서 만든 **MyGateway**를 선택합니다. 
+6.	**MarketingCampaigns** 데이터베이스를 호스트하는 데이터베이스 서버의 **이름**을 입력합니다. 
+7.	**MarketingCampaigns**를 데이터베이스로 입력합니다. 
+8.	**자격 증명**을 클릭합니다. 
+9.	**자격 증명** 블레이드에서 **Click here to set Credentials securely(자격 증명을 안전하게 설정하려면 여기를 클릭하세요.)**를 클릭합니다.
+10.	One-Click 응용프로그램이 처음으로 설치되고 **자격 증명 설정 **대화 상자가 시작됩니다. 11.	**자격 증명 설정** 대화 상자에서 **사용자 이름** 및 **암호**를 입력하고 **확인**을 클릭합니다. 대화 상자가 닫힐 때까지 기다립니다. 
+12.	**새 데이터 저장소** 블레이드에서 **확인**을 클릭합니다. 
+13.	**연결된 서비스** 블레이드에서 **OnPremSqlLinkedService**가 목록에 표시되고 연결된 서비스의 **상태**가 **Good**인지 확인합니다.
 
 ## <a name="OnPremStep3"></a> 3단계: 테이블 및 파이프라인을 만듭니다.
 
 ### 온-프레미스 논리 테이블 만들기
 
-1.	 **Azure PowerShell**, 전환할는 **C:\ADFWalkthrough\OnPremises** 폴더입니다. 
-2.	Cmdlet을 사용 하 여 **새로 AzureDataFactoryTable** 에 대 한 다음과 같은 테이블을 만들기 위해 **MarketingCampaignEffectivenessOnPremSQLTable.json**.
+1.	**Azure PowerShell**에서 **C:\ADFWalkthrough\OnPremises** 폴더로 전환합니다. 
+2.	다음과 같이 **New-AzureDataFactoryTable** cmdlet을 사용하여 **MarketingCampaignEffectivenessOnPremSQLTable.json**에 대한 테이블을 만듭니다.
 
 			
 		New-AzureDataFactoryTable -ResourceGroupName ADF -DataFactoryName $df –File .\MarketingCampaignEffectivenessOnPremSQLTable.json
 	 
 #### Azure Blob에서 SQL Server로 데이터를 복사하는 파이프라인 만들기
 
-1.	Cmdlet을 사용 하 여 **새로 AzureDataFactoryPipeline** 에 대 한 파이프라인을 다음과 같이 만들려는 **EgressDataToOnPremPipeline.json**.
+1.	다음과 같이 **New-AzureDataFactoryPipeline** cmdlet을 사용하여 **EgressDataToOnPremPipeline.json**에 대한 파이프라인을 만듭니다.
 
 			
 		New-AzureDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName $df –File .\EgressDataToOnPremPipeline.json
 	 
-2. Cmdlet을 사용 하 여 **집합 AzureDataFactoryPipelineActivePeriod** 에 대 한 현재 기간을 지정 하려면 **EgressDataToOnPremPipeline**.
+2. **Set-AzureDataFactoryPipelineActivePeriod** cmdlet을 사용하여 **EgressDataToOnPremPipeline**의 활성 기간을 지정합니다.
 
 			
 		Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADF -DataFactoryName $df -StartDateTime 2014-05-01Z -EndDateTime 2014-05-05Z –Name EgressDataToOnPremPipeline
 
-	키를 눌러 **'Y'** 를 계속 합니다.
+	**‘Y’**를 눌러 계속합니다.
 	
 ## <a name="OnPremStep4"></a> 4단계: 파이프라인을 모니터링하고 결과를 봅니다.
 
-에 도입 된 동일한 단계를 이제 사용할 수 있습니다 [6 단계: 테이블 및 파이프라인 모니터링](#MainStep6) 새 파이프라인 및 새 온-프레미스 ADF 테이블에 대 한 데이터 조각이 모니터링할 수 있습니다.
+이제 [6단계: 테이블 및 파이프라인 모니터링](#MainStep6)에 소개된 것과 동일한 단계를 사용하여 새로운 온-프레미스 ADF 테이블에 대한 새 파이프라인과 데이터 조각을 모니터링할 수 있습니다.
  
 **MarketingCampaignEffectivenessOnPremSQLTable** 테이블의 조각 상태가 Ready로 변경되면 파이프라인이 조각에 대한 실행을 완료했음을 의미합니다. 결과를 보려면 SQL Server의 **MarketingCampaigns** 데이터베이스에서 **MarketingCampaignEffectiveness** 테이블을 쿼리합니다.
  
@@ -168,4 +168,6 @@
 
 [image-data-factory-datamanagementgateway-configuration-manager]: ./media/data-factory-tutorial-extend-onpremises-using-powershell/DataManagementGatewayConfigurationManager.png
 
-<!---HONumber=GIT-SubDir--> 
+ 
+
+<!---HONumber=62-->

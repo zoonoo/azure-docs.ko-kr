@@ -5,7 +5,7 @@
 		compile 'com.android.support:support-v4:21.0.3'
     	compile 'com.google.code.gson:gson:2.2.2'
 	    compile 'com.google.guava:guava:18.0'
-	    compile 'com.microsoft.azure:azure-mobile-services-android-sdk:2.0.2-beta'
+	    compile 'com.microsoft.azure:azure-mobile-services-android-sdk:2.0.2+'
 
 
 2. 이제 **Gradle 파일과 프로젝트 동기화**를 클릭하여 프로젝트를 다시 빌드합니다.
@@ -15,11 +15,7 @@
 		<uses-permission android:name="android.permission.INTERNET" />
 
 
-6. AndroidManifest.xml 파일을 열어 Azure에서 모바일 서비스에 액세스할 수 있게 하는 다음 줄을 추가합니다.
-
-		<uses-permission android:name="android.permission.INTERNET" />
-
-5. 프로젝트 탐색기에서 **GetStartedWithData => app => src => java** 폴더에 있는 TodoActivity.java 파일을 열고 다음 코드 줄의 주석 처리를 제거합니다.
+4. 프로젝트 탐색기에서 **GetStartedWithData => app => src => java** 폴더에 있는 TodoActivity.java 파일을 열고 다음 코드 줄의 주석 처리를 제거합니다.
 
 
 
@@ -165,4 +161,5 @@
 
 <!-- URLs. -->
 [Mobile Services Android SDK]: http://aka.ms/Iajk6q
-<!--HONumber=54-->
+
+<!---HONumber=62-->

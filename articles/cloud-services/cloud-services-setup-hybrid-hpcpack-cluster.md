@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/28/2015"
+	ms.date="06/24/2015"
 	ms.author="danlep"/>
 
 
@@ -26,7 +26,7 @@
 
 이 자습서는 이전에 계산 클러스터나 HPC 팩을 사용한 경험이 없다고 가정합니다. 데모를 위해 하이브리드 계산 클러스터를 신속하게 배포하도록 도와주는 역할만 합니다. 하이브리드 HPC 팩 클러스터를 프로덕션 환경에 대규모로 배포하는 단계와 고려 사항은 [자세한 지침](http://go.microsoft.com/fwlink/p/?LinkID=200493)을 참조하십시오. Azure에서 전체 HPC 팩 클러스터를 설정하려면 [Azure VM의 Microsoft HPC 팩](http://go.microsoft.com/fwlink/p/?linkid=330375)을 참조하세요.
 
->[AZURE.NOTE]Azure는 각 작업에 적합한 [다양한 크기](http://go.microsoft.com/fwlink/p/?LinkId=389844)를 계산 리소스에 제공합니다. 예를 들어 A8 및 A9 인스턴스는 특정 HPC 응용 프로그램에 필요한 낮은 대기 시간, 높은 처리량의 응용 프로그램 네트워크 액세스와 고성능을 결합합니다. 자세한 내용은 [A8, A9, A10 및 A11 계산 집약적인 인스턴스 정보](http://go.microsoft.com/fwlink/p/?Linkid=328042)를 참조하세요.
+>[AZURE.NOTE]Azure는 각 작업에 적합한 [다양한 크기](../virtual-machines/virtual-machines-size-specs.md)를 계산 리소스에 제공합니다. 예를 들어 A8 및 A9 인스턴스는 특정 HPC 응용 프로그램에 필요한 낮은 대기 시간, 높은 처리량의 응용 프로그램 네트워크 액세스와 고성능을 결합합니다. [A8, A9, A10 및 A11 계산 집약적인 인스턴스 정보](../virtual-machines/virtual-machines-a8-a9-a10-a11-specs.md)를 참조하세요.
 
 ## 필수 조건
 
@@ -44,7 +44,7 @@
 
 	* 중요 업데이트가 설치되었는지 확인합니다.
 
-* 무료로 사용할 수 있는 HPC Pack 2012 R2용 설치 파일. 최신 버전은 HPC Pack 2012 R2 업데이트 1입니다. 전체 설치 패키지를 [다운로드](http://go.microsoft.com/fwlink/p/?linkid=328024)하고 헤드 노드 컴퓨터나 네트워크 위치에 파일을 복사합니다. Windows Server 설치와 동일한 언어의 설치 파일을 선택합니다.
+* 무료로 사용할 수 있는 HPC Pack 2012 R2용 설치 파일. 최신 버전을 [다운로드](http://go.microsoft.com/fwlink/p/?linkid=328024)하고 헤드 노드 컴퓨터나 네트워크 위치에 파일을 복사합니다. Windows Server 설치와 동일한 언어의 설치 파일을 선택합니다.
 
 * 헤드 노드에서 로컬 관리자 권한을 가진 도메인 계정
 
@@ -58,29 +58,29 @@
 
 2. HPC 팩 설치 파일에서 Setup.exe를 실행하여 HPC Pack Installation Wizard를 시작합니다.
 
-3. **HPC Pack 2012 R2 설치** 화면에서 **새 설치 또는 기존 설치에 새 기능 추가**을 클릭합니다.
+3. **HPC Pack 2012 R2 Setup** 화면에서 **New installation or add new features to an existing installation**을 클릭합니다.
 
 	![HPC Pack 2012 설치][install_hpc1]
 
-4. **Microsoft 소프트웨어 사용자 계약 페이지**에서 **다음**를 클릭합니다.
+4. **Microsoft Software User Agreement page**에서 **Next**를 클릭합니다.
 
-5. **설치 종류 선택** 페이지에서 **헤드 노드를 만들어 새 HPC 클러스터 만들기**를 클릭한 후 **다음**를 클릭합니다.
+5. **Select Installation Type** 페이지에서 **Create a new HPC cluster by creating a head node**를 클릭한 후 **Next**를 클릭합니다.
 
 	![설치 유형 선택][install_hpc2]
 
-6. 마법사에서 여러 개의 사전 설치 테스트를 실행합니다. 테스트를 모두 통과한 경우 **설치 규칙** 페이지에서 **다음**를 클릭합니다. 그렇지 않으면 제공된 정보를 검토하고 필요에 따라 환경을 변경합니다. 다시 테스트를 실행하거나 필요한 경우 Installation Wizard를 다시 시작합니다.
+6. 마법사에서 여러 개의 사전 설치 테스트를 실행합니다. 테스트를 모두 통과한 경우 **Installation Rules** 페이지에서 **Next**를 클릭합니다. 그렇지 않으면 제공된 정보를 검토하고 필요에 따라 환경을 변경합니다. 다시 테스트를 실행하거나 필요한 경우 Installation Wizard를 다시 시작합니다.
 
 	![설치 규칙][install_hpc3]
 
-7. **HPC DB 구성** 페이지에서 모든 HPC 데이터베이스에 대해 **헤드 노드**가 선택되었는지 확인하고 **다음**를 클릭합니다.
+7. **HPC DB Configuration** 페이지에서 모든 HPC 데이터베이스에 대해 **Head Node**가 선택되었는지 확인하고 **Next**를 클릭합니다.
 
 	![DB 구성][install_hpc4]
 
-8. 마법사의 나머지 페이지에서 기본 선택을 적용합니다. **필수 구성 요소 설치** 페이지에서 **설치**을 클릭합니다.
+8. 마법사의 나머지 페이지에서 기본 선택을 적용합니다. **Install Required Components** 페이지에서 **Install**을 클릭합니다.
 
 	![설치][install_hpc6]
 
-9. 설치가 완료되면 **HPC 클러스터 관리자 시작**를 선택 취소하고 **마침**를 클릭합니다. 이후 단계에서 HPC Cluster Manager를 시작하여 헤드 노드 구성을 완료할 것입니다.
+9. 설치가 완료되면 **Start HPC Cluster Manager**를 선택 취소하고 **Finish**를 클릭합니다. 이후 단계에서 HPC Cluster Manager를 시작하여 헤드 노드 구성을 완료할 것입니다.
 
 	![마침][install_hpc7]
 
@@ -106,7 +106,7 @@ HPC 팩은 Azure 관리 인증서로 업로드할 수 있는 자체 서명된 �
 
 	![인증서 설정][upload_cert1]
 
-4. 헤드 노드에서 C:\\Program Files\\Microsoft HPC Pack 2012\\Bin\\hpccert.cer 파일을 찾은 다음 **선택 단추**를 클릭합니다.
+4. 헤드 노드에서 C:\Program Files\Microsoft HPC Pack 2012\Bin\hpccert.cer 파일을 찾은 다음 **선택 단추**를 클릭합니다.
 
 	![인증서 업로드][install_hpc10]
 
@@ -138,13 +138,13 @@ HPC 팩은 Azure 관리 인증서로 업로드할 수 있는 자체 서명된 �
 
 HPC Cluster Manager를 사용하여 Azure 노드를 배포하고 작업을 제출하려면 먼저 필요한 클러스터 구성 단계를 수행합니다.
 
-1. 헤드 노드에서 HPC Cluster Manager를 시작합니다. **헤드 노드 선택** 대화 상자가 표시되면 **로컬 컴퓨터**를 클릭합니다. **Deployment To-do List**가 나타납니다.
+1. 헤드 노드에서 HPC Cluster Manager를 시작합니다. **Select Head Node** 대화 상자가 표시되면 **Local Computer**를 클릭합니다. **Deployment To-do List**가 나타납니다.
 
-2. **필수 배포 작업**에서 **네트워크 구성**를 클릭합니다.
+2. **Required deployment tasks**에서 **Configure your network**를 클릭합니다.
 
 	![네트워크 구성][config_hpc2]
 
-3. Network Configuration Wizard에서 **모든 노드가 엔터프라이즈 네트워크에만 있음**(Topology 5)를 선택합니다.
+3. Network Configuration Wizard에서 **All nodes only on an enterprise network**(Topology 5)를 선택합니다.
 
 	![토폴로지 5][config_hpc3]
 
@@ -307,8 +307,7 @@ HPC 팩 **clusrun** 명령을 사용하여 하나 이상의 클러스터 노드�
 * [HPC Pack 2012 R2 및 HPC Pack 2012](http://go.microsoft.com/fwlink/p/?LinkID=263697)
 * [Microsoft HPC Pack을 사용하여 Azure로 전환](http://go.microsoft.com/fwlink/p/?LinkID=200493)
 * [Azure VM의 Microsoft HPC 팩](http://go.microsoft.com/fwlink/p/?linkid=330375)
-* [Azure 큰 계산: HPC 및 일괄 처리](http://azure.microsoft.com/solutions/big-compute/)
-* [Azure 큰 계산: HPC 및 일괄 처리 기술 문서](http://msdn.microsoft.com/library/azure/dn482128.aspx)
+* [Azure에서의 큰 계산: 배치 및 HPC(고성능 컴퓨팅)에 대한 기술 리소스](big-compute-resources.md)
 
 
 [Overview]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/hybrid_cluster_overview.png
@@ -348,4 +347,4 @@ HPC 팩 **clusrun** 명령을 사용하여 하나 이상의 클러스터 노드�
 [stop_node4]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/stop_node4.png
 [view_instances2]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/view_instances2.png
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

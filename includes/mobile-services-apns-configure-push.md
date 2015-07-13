@@ -1,32 +1,6 @@
-APNS에 앱을 등록하고 프로젝트를 구성했으면 APNS와 통합되도록 모바일 서비스를 구성해야 합니다.
 
-1. Keychain Access에서 **키** 또는 **내 인증서**의 퀵 스타트 앱의 새 인증서를 마우스 오른쪽 단추로 클릭하고 **내보내기**를 클릭한 다음 파일의 이름을 QuickstartPusher로 지정하고 **.p12** 형식을 선택한 다음 **저장**을 클릭합니다.
+* [서버에 클라이언트 SSL 서명 ID 설치](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/ConfiguringPushNotifications/ConfiguringPushNotifications.html#//apple_ref/doc/uid/TP40012582-CH32-SW15) 단계에 따라 이전 단계에서 다운로드한 인증서를 .p12 파일로 내보냅니다.
 
-   	![](./media/mobile-services-apns-configure-push/mobile-services-ios-push-step18.png)
+* Azure 포털에서 **모바일 서비스** > 앱 > **푸시** 탭 > "apple 푸시 알림 설정** > "**업로드**를 클릭합니다. 올바른 **모드**(생성한 클라이언트 SSL 인증서가 개발인지 또는 배포인지에 따라 샌드박스 또는 프로덕션)를 선택하여 .p12 파일을 업로드합니다. 이제 iOS의 푸시 알림과 작동하도록 모바일 서비스가 구성되었습니다.
 
-  내보낸 인증서의 파일 이름과 위치를 적어둡니다.
-
->[AZURE.NOTE]이 자습서에서는 QuickstartPusher.p12 파일을 만듭니다. Your file name and location might be different.
-
-2. [Azure 관리 포털]에 로그온하여 **모바일 서비스**를 클릭한 후 앱을 클릭합니다.
-
-   	![](./media/mobile-services-apns-configure-push/mobile-services-selection.png)
-
-3. **푸시** 탭을 클릭한 후 **업로드**를 클릭합니다.
-
-   	![](./media/mobile-services-apns-configure-push/mobile-push-tab-ios.png)
-
-	인증서 업로드 대화 상자가 표시됩니다.
-
-4. **파일**을 클릭하고 내보낸 인증서 QuickstartPusher.p12 파일을 선택하고 **암호**를 입력하여 올바른 **모드**를 선택했는지 확인하고(Dev/Sandbox 또는 Prod/Production) 확인 아이콘을 클릭한 다음 **저장**을 클릭합니다.
-
-   	![](./media/mobile-services-apns-configure-push/mobile-push-tab-ios-upload.png)
-
-    > [AZURE.NOTE]이 자습서에서는 개발 인증서를 사용합니다.
-
-모바일 서비스가 이제 APNS와 작동하도록 구성됩니다.
-
-<!-- URLs. -->
-[Azure 관리 포털]: https://manage.windowsazure.com/
-
-<!--HONumber=54-->
+<!---HONumber=62-->

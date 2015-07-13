@@ -37,7 +37,7 @@
 
 ##Azure 웹 앱 만들기 및 Git 게시 설정
 
-Azure 웹 앱 및 SQL 데이터베이스를 만들려면 다음 단계를 따르십시오.
+Azure 웹 앱 및 SQL 데이터베이스를 만들려면 다음 단계를 따르세요.
 
 1. [Azure Preview 포털](https://portal.azure.com/)에 로그인합니다.
 

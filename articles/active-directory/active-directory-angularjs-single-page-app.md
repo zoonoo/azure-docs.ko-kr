@@ -178,5 +178,6 @@ Azure AD를 사용하여 웹 응용 프로그램 및 Web API에 인증 및 권�
 
 + [Azure Active Directory 코드 샘플](https://msdn.microsoft.com/library/azure/dn646737.aspx)
 + [Azure AD의 인증 시나리오](https://msdn.microsoft.com/library/azure/dn499820.aspx)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

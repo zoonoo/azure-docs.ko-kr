@@ -1,10 +1,4 @@
-<properties 
-	pageTitle="C++ 앱용 Application Insights" 
-	description="Application Insights를 사용하여 C++ 앱의 사용 현황 및 성능을 분석합니다." 
-	services="application-insights" 
-	documentationCenter="cpp" 
-	authors="crystk" 
-	manager="jakubo"/>
+<properties pageTitle="Application Insights for C++ apps" description="Analyze usage and performance of your C++ app with Application Insights." services="application-insights" documentationCenter="cpp" authors="crystk" manager="jakubo""/>
 
 <tags 
     ms.service="application-insights" 
@@ -49,7 +43,7 @@ Visual Studio Application Insights를 사용하여 모바일 응용 프로그램
 
 2. C++ 앱용 Application Insights SDK를 설치합니다.
 
-    ![**온라인**, **시험판 포함** 선택 및 "Application Insights" 검색](./media/app-insights-windows-cpp/04-ai-nuget.png)
+    ![**시험판 포함**을 선택하고 "Application Insights"를 검색합니다.](./media/app-insights-windows-cpp/04-nuget.png)
 
 3. 릴리스 및 디버그용 프로젝트 설정에:
   - 프로젝트 속성에 $(SolutionDir)packages\ApplicationInsights-CPP.1.0.0-Beta\src\inc 추가 -> VC++ 디렉터리 -> 디렉터리 포함
@@ -57,6 +51,14 @@ Visual Studio Application Insights를 사용하여 모바일 응용 프로그램
 
 4. $(SolutionDir)packages\ApplicationInsights.1.0.0-Beta\lib\native<PLATFORM TYPE>\release\ApplicationInsights에서 프로젝트에 ApplicationInsights.winmd를 참조로 추가
 5. AppInsights_Win10-UAP.dll from $(SolutionDir)packages\ApplicationInsights.1.0.0-Beta\lib\native<PLATFORM TYPE>\release\AppInsights_Win10-UAP을 추가합니다. 속성으로 이동하여 콘텐츠를 '예'로 설정합니다. 이렇게 dll을 빌드 디렉터리에 복사합니다.
+
+
+#### SDK를 이후 버전으로 업데이트하려면
+
+새 [SDK가 출시](app-insights-release-notes-windows-cpp.md)될 때:
+
+* NuGet 패키지 관리자에서 설치된 SDK를 선택하고 작업:: 업그레이드를 선택합니다
+* 새 버전 번호를 사용하여 설치 단계를 반복합니다.
 
 ## SDK 사용
 

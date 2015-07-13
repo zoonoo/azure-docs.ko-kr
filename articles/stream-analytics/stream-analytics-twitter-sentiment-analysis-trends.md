@@ -1,33 +1,36 @@
 <properties
-   pageTitle="실시간으로 Twitter 데이터 및 추세 분석 | Microsoft Azure"
-   description="스트림 분석을 사용하여 Twitter의 데이터 및 추세를 실시간으로 분석하는 방법에 대해 알아봅니다. 이 자습서에는 이벤트 생성부터 라이브 대시보드의 데이터에 이르는 단계가 포함되어 있습니다."
-   services="stream-analytics"
-   documentationCenter=""
-   authors="jeffstokes72"
-   manager="paulettm"
-   editor="cgronlun"/>
+	pageTitle="스트림 분석을 사용한 실시간 Twitter 정서 분석 | Microsoft Azure"
+	description="실시간 Twitter 정서 분석에 대한 스트림 분석을 사용하는 방법에 대해 알아봅니다. 이벤트 생성부터 라이브 대시보드의 데이터에 이르는 단계별 지침이 포함되어 있습니다."
+	keywords="real-time twitter,sentiment analysis,social media analysis,social media analytics tools"
+	services="stream-analytics"
+	documentationCenter=""
+	authors="jeffstokes72"
+	manager="paulettm"
+	editor="cgronlun"/>
 
 <tags
-   ms.service="stream-analytics"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="big-data"
-   ms.date="04/28/2015"
-   ms.author="jeffstok"/>
+	ms.service="stream-analytics"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="big-data"
+	ms.date="04/28/2015"
+	ms.author="jeffstok"/>
 
 
-# 소셜 미디어 분석: 실시간 Twitter 데이터 분석
+# 소셜 미디어 분석: Azure 스트림 분석에서 실시간 Twitter 정서 분석
 
 이 자습서에서는 Twitter 이벤트를 이벤트 허브로 가져오고 스트림 분석 쿼리를 작성하여 데이터를 분석한 후 결과를 저장하거나 대시보드를 통해 정보를 실시간으로 제공하여 솔루션을 빌드하는 방법에 대해 알아봅니다.
 
+소셜 미디어 분석 도구는 조직이 소셜 미디어에서 대량의 게시물을 사용하여 추세 항목, 의미 있는 주제 및 자세를 이해하도록 돕습니다. "의견 마이닝"이라는 정서 분석은 소셜 미디어 분석 도구를 사용하여 제품, 아이디어 등에 대한 자세를 결정합니다.
+
 ## 시나리오
 
-뉴스 미디어 웹 사이트는 독자와 직접적으로 관련이 있는 사이트 콘텐츠를 부각시켜 경쟁 우위를 확보하는 데 관심이 있습니다. 이러한 웹 사이트에서는 Twitter 데이터를 실시간으로 분석하여 독자와 관련된 항목에 대한 소셜 미디어 정보를 사용합니다. 특히 인기 항목을 파악하기 위해 주요 항목의 트윗 양 및 데이터에 대한 실시간 분석을 필요로 합니다.
+뉴스 미디어 웹 사이트는 독자와 직접적으로 관련이 있는 사이트 콘텐츠를 부각시켜 경쟁 우위를 확보하는 데 관심이 있습니다. 이러한 웹 사이트에서는 Twitter 데이터를 실시간으로 정서를 분석하여 독자와 관련된 항목에 대한 소셜 미디어 정보를 사용합니다. 특히 Twitter에서 실시간으로 추세를 분석할 토픽을 식별하기 위해 주요 토픽에 대한 트윗 볼륨 및 정서에 대한 실시간 분석이 필요합니다.
 
 ## 필수 조건
 1.	이 자습서에는 Twitter 계정이 필요합니다.  
-2.	이 연습에서는 GitHub에 있는 이벤트 생성기를 활용합니다. [여기](https://github.com/streamanalytics/samples/tree/master/TwitterClient)에서 다운로드하여 아래 단계에 따라 솔루션을 설정합니다.
+2.	이 연습에서 GitHub에 있는 이벤트 생성기를 사용합니다. [여기](https://github.com/streamanalytics/samples/tree/master/TwitterClient)에서 다운로드하여 아래 단계에 따라 솔루션을 설정합니다.
 
 ## 이벤트 허브 입력 및 소비자 그룹 만들기
 
@@ -41,8 +44,7 @@
 4.	**공유 액세스 정책**에서 **관리** 권한을 사용하여 새 정책을 만듭니다.
 
 
-
-  ![관리 권한을 사용하여 정책을 만들 수 있는 공유 액세스 정책](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-ananlytics-shared-access-policies.png)
+  	![관리 권한을 사용하여 정책을 만들 수 있는 공유 액세스 정책입니다.](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-ananlytics-shared-access-policies.png)
 
 5.	페이지 아래쪽에서 **저장**을 클릭합니다.
 6.	**대시보드**로 이동하여 페이지 아래쪽에서 **연결 정보**를 클릭하고 연결 정보를 복사 및 저장합니다. 검색 아이콘 아래에 표시된 복사 아이콘을 사용하세요.
@@ -58,17 +60,17 @@ Microsoft에서는 매개 변수화된 항목 집합에 대한 트윗 이벤트�
 
 	[OAuth 액세스 토큰을 생성하는 단계](https://dev.twitter.com/oauth/overview/application-owner-access-tokens)
 
-	토큰을 생성하는 빈 응용 프로그램을 만들어야 합니다.
+	토큰을 생성하는 빈 응용 프로그램을 만들어야 합니다.  
 3.	App.config의 EventHubConnectionString 및 EventHubName 값을 이벤트 허브 연결 문자열 및 이름으로 바꿉니다.
 4.	*선택 사항:* 검색할 키워드를 조정합니다. 기본적으로 이 응용 프로그램은 "Azure,Skype,XBox,Microsoft,Seattle"을 찾습니다. 필요한 경우 App.config에서 twitter_keywords 값을 조정할 수 있습니다.
 5.	솔루션을 빌드합니다.
 6.	응용 프로그램을 시작합니다. CreatedAt, Topic 및 SentimentScore 값이 이벤트 허브로 전송 중인 트윗 이벤트가 표시됩니다.
 
-	![이벤트 허브로 전송되는 SentimentScore 값](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-twitter-sentiment-output-to-event-hub.png)
+	![정서 분석: 이벤트 허브로 전송되는 SentimentScore 값](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-twitter-sentiment-output-to-event-hub.png)
 
 ## 스트림 분석 작업 만들기
 
-이제 트윗 이벤트 스트림을 만들었으므로 이러한 이벤트를 실시간으로 분석하도록 스트림 분석 작업을 설정할 수 있습니다.
+이제 Twitter에서 실시간으로 트윗 이벤트 스트림을 만들었으므로 이러한 이벤트를 실시간으로 분석하도록 스트림 분석 작업을 설정할 수 있습니다.
 
 ### 스트림 분석 작업 프로비전
 
@@ -92,7 +94,7 @@ Microsoft에서는 매개 변수화된 항목 집합에 대한 트윗 이벤트�
 
 	* **입력 별칭** - 이 작업 입력의 이름(예: TwitterStream)을 입력합니다. 이 이름은 나중에 쿼리에서 사용하게 됩니다. **이벤트 허브**: 만든 이벤트 허브가 스트림 분석 작업과 동일한 구독에 포함된 경우 이벤트 허브가 있는 네임스페이스를 선택합니다.
 
-		If your event hub is in a different subscription, select **Use Event Hub from Another Subscription**, and then manually enter information for **SERVICE BUS NAMESPACE**, **EVENT HUB NAME**, **EVENT HUB POLICY NAME**, **EVENT HUB POLICY KEY**, and **EVENT HUB PARTITION COUNT**.
+		이벤트 허브가 다른 구독에 있으면 **다른 구독의 이벤트 허브 사용**을 선택하고 **서비스 버스 네임스페이스**, **이벤트 허브 이름**, **이벤트 허브 정책 이름**, **이벤트 허브 정책 키** 및 **이벤트 허브 파티션 수**에 대한 정보를 수동으로 입력합니다.
 
 	* **이벤트 허브 이름**: 이벤트 허브의 이름을 선택합니다.
 	* **이벤트 허브 정책 이름**: 이 자습서의 앞부분에서 만든 이벤트 허브 정책을 선택합니다.
@@ -139,9 +141,9 @@ Microsoft에서는 매개 변수화된 항목 집합에 대한 트윗 이벤트�
 
 1.	코드 편집기에서 쿼리를 다음으로 변경합니다.
 
-			SELECT System.Timestamp as Time, Topic, COUNT(*)
-			FROM TwitterStream TIMESTAMP BY CreatedAt
-			GROUP BY TUMBLINGWINDOW(s, 5), Topic
+		SELECT System.Timestamp as Time, Topic, COUNT(*)
+		FROM TwitterStream TIMESTAMP BY CreatedAt
+		GROUP BY TUMBLINGWINDOW(s, 5), Topic
 
 	이 쿼리에서는 **TIMESTAMP BY** 키워드를 사용하여 임시 계산에서 사용할 페이로드에 타임스탬프 필드를 지정합니다. 이 필드를 지정하지 않으면 각 이벤트가 이벤트 허브에 도착한 시간을 사용하여 창 작업이 수행됩니다. 자세한 내용은 [스트림 분석 쿼리 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)에서 “도착 시간과 응용 프로그램 시간”을 참조하세요.
 
@@ -155,10 +157,10 @@ Microsoft에서는 매개 변수화된 항목 집합에 대한 트윗 이벤트�
 
 1.	코드 편집기에서 쿼리를 다음으로 변경합니다.
 
-			SELECT System.Timestamp as Time, Topic, COUNT(*) as Mentions
-			FROM TwitterStream TIMESTAMP BY CreatedAt
-			GROUP BY SLIDINGWINDOW(s, 5), topic
-			HAVING COUNT(*) > 20
+		SELECT System.Timestamp as Time, Topic, COUNT(*) as Mentions
+		FROM TwitterStream TIMESTAMP BY CreatedAt
+		GROUP BY SLIDINGWINDOW(s, 5), topic
+		HAVING COUNT(*) > 20
 
 2.	쿼리 편집기에서 **다시 실행**을 클릭하여 쿼리 결과를 확인합니다.
 
@@ -170,10 +172,10 @@ Microsoft에서는 매개 변수화된 항목 집합에 대한 트윗 이벤트�
 
 1.	코드 편집기에서 쿼리를 다음으로 변경합니다.
 
-			SELECT System.Timestamp as Time, Topic, COUNT(*), AVG(SentimentScore), MIN(SentimentScore),
-	    	Max(SentimentScore), STDEV(SentimentScore)
-			FROM TwitterStream TIMESTAMP BY CreatedAt
-			GROUP BY TUMBLINGWINDOW(s, 5), Topic
+		SELECT System.Timestamp as Time, Topic, COUNT(*), AVG(SentimentScore), MIN(SentimentScore),
+    	Max(SentimentScore), STDEV(SentimentScore)
+		FROM TwitterStream TIMESTAMP BY CreatedAt
+		GROUP BY TUMBLINGWINDOW(s, 5), Topic
 
 2.	쿼리 편집기에서 **다시 실행**을 클릭하여 쿼리 결과를 확인합니다.
 3.	이 쿼리를 대시보드에 사용합니다. 페이지 아래쪽에서 **저장**을 클릭합니다.
@@ -215,23 +217,23 @@ Blob 저장소의 컨테이너가 없는 경우 아래 단계에 따라 만듭�
 2.	대화 상자가 표시되면 **작업 시작 시간**을 선택하고 대화 상자 아래쪽에 있는 확인 표시 단추를 클릭합니다. 작업 상태가 **시작 중**으로 변경되었다가 곧 **실행 중**으로 변경됩니다.
 
 
-## 출력 보기
+## 정서 분석에 대한 출력 보기
 
-[Azure 저장소 탐색기](https://azurestorageexplorer.codeplex.com/) 또는 [Azure 탐색기](http://www.cerebrata.com/products/azure-explorer/introduction)와 같은 도구를 사용하여 작업 출력을 실시간으로 볼 수 있습니다. 여기에서 출력에 대해 아래의 [Power BI](https://powerbi.com/)와 같은 사용자 지정 대시보드를 포함하도록 응용 프로그램을 확장할 수 있습니다.
+작업이 실시간 Twitter 스트림을 실행 및 처리하면 정서 분석에 대한 출력을 보려면 원하는 형식을 선택합니다. [Azure 저장소 탐색기](https://azurestorageexplorer.codeplex.com/) 또는 [Azure 탐색기](http://www.cerebrata.com/products/azure-explorer/introduction)와 같은 도구를 사용하여 작업 출력을 실시간으로 볼 수 있습니다. 여기에서 출력에 대해 아래의 [Power BI](https://powerbi.com/)와 같은 사용자 지정 대시보드를 포함하도록 응용 프로그램을 확장할 수 있습니다.
 
-![Power BI 대시보드의 스트림 분석 출력](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-output-power-bi.png)
+![소셜 미디어 분석: Power BI 대시보드에 정서 분석(의견 마이닝) 출력을 스트림 분석합니다.](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-output-power-bi.png)
 
 ## 지원 받기
-추가적인 도움이 필요하면 [Azure 스트림 분석 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)을 참조하세요.
+추가 지원이 필요한 경우 [Azure 스트림 분석 포럼](https://social.msdn.microsoft.com/Forums/ko-kr/home?forum=AzureStreamAnalytics)을 참조하세요.
 
 
 ## 다음 단계
 
 - [Azure 스트림 분석 소개](stream-analytics-introduction.md)
-- [Azure 스트림 분석을 사용하여 시작](stream-analytics-get-started.md)
+- [Azure 스트림 분석 사용 시작](stream-analytics-get-started.md)
 - [Azure 스트림 분석 작업 규모 지정](stream-analytics-scale-jobs.md)
 - [Azure 스트림 분석 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Azure 스트림 분석 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-
-<!--HONumber=52-->
  
+
+<!---HONumber=62-->

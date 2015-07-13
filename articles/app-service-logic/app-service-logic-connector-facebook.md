@@ -58,9 +58,7 @@ API 앱을 만들고 나면 이제 Facebook Connector를 논리 앱의 트리거
 	![][5]
 5.	"Azure AppService Logic Apps(Azure AppService 논리 앱)"를 허용합니다. 
 
-	![][6] 
-	![][7] 
-	![][8] 
+	![][6] ![][7] ![][8]     
 6.	트리거를 선택합니다.
  
 	![][9]
@@ -85,5 +83,6 @@ API 앱을 만들고 나면 이제 Facebook Connector를 논리 앱의 트리거
 [9]: ./media/app-service-logic-connector-facebook/img9.png
 [10]: ./media/app-service-logic-connector-facebook/img10.png
 [11]: ./media/app-service-logic-connector-facebook/img11.png
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

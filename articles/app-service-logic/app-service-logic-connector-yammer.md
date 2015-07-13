@@ -32,12 +32,12 @@ Yammer 커넥터를 사용하려면 먼저 Yammer 커넥터 API 앱의 인스턴
  
  ![][1]
  
-	- **위치** - 커넥터를 배포할 지리적 위치를 선택합니다. 
-	- **구독** - 이 커넥터를 만들기 원하는 구독을 선택합니다.
-	- **리소스 그룹** - 커넥터가 상주할 리소스 그룹을 선택하거나 만듭니다.
-	- **앱 서비스 계획** - 웹 호스팅 계획을 선택하거나 만듭니다.
-	- **가격 책정 계층** - 커넥터에 대한 가격 책정 계층을 선택합니다.
-	- **이름** - Yammer 커넥터에 이름을 부여합니다. 
+	- **Location** - choose the geographic location where you would like the connector to be deployed
+	- **Subscription** - choose a subscription you want this connector to be created in
+	- **Resource group** - select or create a resource group where the connector should reside
+	- **App Service plan** - select or create a web hosting plan
+	- **Pricing tier** - choose a pricing tier for the connector
+	- **Name** - give a name for your Yammer Connector 
 
 4.	만들기를 클릭합니다. 새 Yammer 커넥터가 만들어집니다.
 5.	API 앱 인스턴스가 생성되면 동일한 리소스 그룹에서 논리 앱을 만들어 Yammer 커넥터를 사용할 수 있습니다. 
@@ -71,7 +71,7 @@ API 앱을 만들고 나면 이제 Yammer 커넥터를 논리 앱에 대한 트�
 
 1.	 흐름의 다른 동작에서 Yammer 트리거("새 메시지")로부터 검색된 새 메시지를 사용할 수 있습니다. 다음과 같이 Yammer 트리거에 대한 입력 속성을 구성합니다.
 
-	- **그룹 ID** - 새 메시지를 검색할 그룹의 ID입니다. 그룹 ID를 제공하지 않는 경우 다음 피드에서 메시지가 검색됩니다. Yammer의 그룹 URL에서 그룹 ID를 검색할 수 있습니다. 예: 아래 URL에서 그룹 ID는 "5453203"입니다https://www.yammer.com/microsoft.com/#/threads/inGroup?type=in_group&feedId=5453203
+	- **그룹 ID** - 새 메시지를 검색할 그룹의 ID입니다. 그룹 ID를 제공하지 않는 경우 다음 피드에서 메시지가 검색됩니다. Yammer의 그룹 URL에서 그룹 ID를 검색할 수 있습니다. 예: 아래 URL에서 그룹 ID는 "5453203"입니다. https://www.yammer.com/microsoft.com/#/threads/inGroup?type=in_group&feedId=5453203
 
 	![][8]
  
@@ -79,10 +79,10 @@ API 앱을 만들고 나면 이제 Yammer 커넥터를 논리 앱에 대한 트�
 
 ## Yammer 커넥터를 사용하여 메시지 게시
 
-6.	논리 앱에서 동작으로 Yammer 커넥터를 사용할 수 있습니다. 먼저, 논리 앱에 대한 트리거를 지정하거나 '이 논리를 수동으로 실행'을 (아래와 같이) 확인합니다. Yammer 커넥터를 추가하고 적절하게 권한을 부여하며 "메시지 게시" 작업을 선택합니다. 다음과 같이 "메시지 게시" 동작에 대한 입력 속성을 구성합니다.
+6.	논리 앱에서 작업으로 Yammer 커넥터를 사용할 수 있습니다. 먼저 논리 앱에 대한 트리거를 지정하거나 아래와 같이 '이 논리를 수동으로 실행' 확인란을 선택합니다. Yammer 커넥터를 추가하고 적절하게 권한을 부여한 다음 "메시지 게시" 작업을 선택합니다. 다음과 같이 "메시지 게시" 동작에 대한 입력 속성을 구성합니다.
 
-	- **메시지 텍스트** - 게시할 메시지의 텍스트내용입니다.
-	- **그룹 ID** - 새 메시지를 게시할 그룹의 ID를 지정합니다. 그룹 ID를 제공하지 않는 경우 회사 전체 피드로 게시됩니다. Yammer의 그룹 URL에서 그룹 ID를 검색할 수 있습니다. 예: 아래 URL에서 그룹 ID는 "5453203"입니다https://www.yammer.com/microsoft.com/#/threads/inGroup?type=in_group&feedId=5453203
+	- **메시지 텍스트** - 게시할 메시지의 텍스트 내용입니다.
+	- **그룹 ID** - 새 메시지를 게시할 그룹의 ID를 지정합니다. 그룹 ID를 제공하지 않는 경우 메시지는 회사 전체 피드로 게시됩니다. Yammer의 그룹 URL에서 그룹 ID를 검색할 수 있습니다. 예: 아래 URL에서 그룹 ID는 "5453203"입니다. https://www.yammer.com/microsoft.com/#/threads/inGroup?type=in_group&feedId=5453203
 	- 	**사용자 태그** - 메시지에 태그되어야 하는 사용자 네트워크의 배열입니다. 
 
 	![][10]

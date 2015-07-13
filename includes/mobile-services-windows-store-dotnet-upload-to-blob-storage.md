@@ -2,9 +2,9 @@
 
 1. Visual Studio 2012에서 Package.appxmanifest 파일을 열고 **기능** 탭에서 **웹캠** 및 **마이크** 기능을 사용하도록 설정합니다.
 
-	![](./media/mobile-services-windows-store-dotnet-upload-to-blob-storage/mobile-app-manifest-camera.png)
+   	![](./media/mobile-services-windows-store-dotnet-upload-to-blob-storage/mobile-app-manifest-camera.png)
  
-   이제 앱에서 컴퓨터에 연결된 카메라를 사용할 수 있습니다. 앱을 처음으로 실행하면 카메라 액세스를 허용하라는 메시지가 표시됩니다.
+   	이제 앱에서 컴퓨터에 연결된 카메라를 사용할 수 있습니다. 앱을 처음으로 실행하면 카메라 액세스를 허용하라는 메시지가 표시됩니다.
 
 1. MainPage.xaml 파일을 열어 첫 번째 **Task** 요소 바로 다음에 있는 **StackPanel** 요소를 다음 코드로 바꿉니다.
 
@@ -50,7 +50,7 @@
         [JsonProperty(PropertyName = "imageUri")]
         public string ImageUri { get; set; } 
 
-   >[AZURE.NOTE]TodoItem 개체에 새 속성을 추가하려면 모바일 서비스에서 동적 스키마를 사용하도록 설정해야 합니다. 동적 스키마를 사용하도록 설정한 경우 새 속성에 매핑된 새 열이 TodoItem 테이블에 자동으로 추가됩니다.
+   	>[AZURE.NOTE]TodoItem 개체에 새 속성을 추가하려면 모바일 서비스에서 동적 스키마를 사용하도록 설정해야 합니다. 동적 스키마를 사용하도록 설정한 경우 새 속성에 매핑된 새 열이 TodoItem 테이블에 자동으로 추가됩니다.
 
 5. MainPage 클래스에 다음 코드를 추가합니다.
 
@@ -124,13 +124,13 @@
 
 2. **Insert a TodoItem**의 텍스트 상자에 텍스트를 입력한 후 **Photo**를 클릭합니다.
 
-	![](./media/mobile-services-windows-store-dotnet-upload-to-blob-storage/mobile-quickstart-blob-appbar.png)
+   	![](./media/mobile-services-windows-store-dotnet-upload-to-blob-storage/mobile-quickstart-blob-appbar.png)
 
   	그러면 카메라 캡처 UI가 표시됩니다.
 
 3. 이미지를 클릭하여 사진을 찍은 후 **OK**를 클릭합니다.
   
-	![](./media/mobile-services-windows-store-dotnet-upload-to-blob-storage/mobile-quickstart-blob-camera.png)
+   	![](./media/mobile-services-windows-store-dotnet-upload-to-blob-storage/mobile-quickstart-blob-camera.png)
 
 4. **Upload**를 클릭하여 새 항목을 삽입하고 이미지를 업로드합니다.
 
@@ -140,7 +140,6 @@
 
 	![](./media/mobile-services-windows-store-dotnet-upload-to-blob-storage/mobile-quickstart-blob-ie.png)
 
-   >[AZURE.NOTE]이미지는 새 항목의 <code>imageUri</code> 속성이 <strong>이미지</strong> 컨트롤에 연결될 때 Blob 저장소 서비스에서 자동으로 다운로드됩니다.
+   	>[AZURE.NOTE]이미지는 새 항목의 <code>imageUri</code> 속성이 <strong>이미지</strong> 컨트롤에 연결될 때 Blob 저장소 서비스에서 자동으로 다운로드됩니다.
 
-
-<!--HONumber=54-->
+<!---HONumber=62-->

@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,10 +12,10 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/07/2015" 
+	ms.date="06/17/2015" 
 	ms.author="awills"/>
  
-#Application Insights에서 메트릭 탐색
+# Application Insights에서 메트릭 탐색
 
 [Application Insights][start]의 메트릭은 응용 프로그램의 원격 분석에서 전송된 측정된 값 및 이벤트 수입니다. 성능 문제를 감지하고 응용 프로그램 사용 방식의 추세를 볼 수 있습니다. 다양한 표준 메트릭이 있으며 사용자 고유의 사용자 지정 메트릭 및 이벤트를 만들 수도 있습니다.
 
@@ -29,7 +29,7 @@
 
 점선은 1주 전에 메트릭 값을 보여줍니다.
 
-##지점 값
+## 지점 값
 
 해당 지점에서 메트릭 값을 표시하려면 차트 위로 마우스를 가져갑니다.
 
@@ -42,7 +42,7 @@
 
 ![블레이드의 헤더입니다.](./media/app-insights-metrics-explorer/11-grain.png)
 
-##시간 범위
+## 시간 범위
 
 모든 블레이드에서 대부분의 차트 또는 표에서 다루는 시간 범위를 변경할 수 있습니다.
 
@@ -57,7 +57,7 @@
 ![차트의 일부를 끕니다.](./media/app-insights-metrics-explorer/12-drag.png)
 
 
-##메트릭 탐색기
+## 메트릭 탐색기
 
 개요 블레이드에서 차트를 클릭하여 보다 자세한 관련 차트 및 표 집합을 볼 수 있습니다. 이러한 차트 및 표를 편집하여 관심이 있는 세부 정보에 초점을 맞출 수 있습니다.
 
@@ -66,7 +66,7 @@
 ![개요 블레이드에서 차트 클릭](./media/app-insights-metrics-explorer/14-trix.png)
 
 
-##수치는 무엇을 의미하나요?
+## 수치는 무엇을 의미하나요?
 
 기본적으로 옆쪽의 범례는 차트의 기간에 걸쳐 집계된 값을 보여줍니다.
 
@@ -84,7 +84,7 @@
  
 
 
-##차트 및 표 편집
+## 차트 및 표 편집
 
 블레이드에 새 차트를 추가하려면:
 
@@ -98,7 +98,7 @@
 
 [사용자 지정 메트릭][track]을 앱으로 코딩하는 경우(TrackMetric 및 TrackEvent 호출) 여기에 나열됩니다.
 
-##데이터 분할
+## 데이터 분할
 
 차트 또는 표를 선택하고 그룹으로 전환하여 그룹별로 속성을 선택합니다.
 
@@ -112,7 +112,7 @@
 ![슬라이더 조정](./media/app-insights-metrics-explorer/18-height.png)
 
 
-##데이터 필터링
+## 데이터 필터링
 
 속성 값의 선택한 집합에 대한 메트릭 보기:
 
@@ -122,19 +122,19 @@
 
 각 속성 값과 함께 이벤트 수를 확인합니다. 한 속성 값을 선택하면 다른 속성 값과 함께 수가 조정됩니다.
 
-##봇 및 웹 테스트 트래픽 제거
+## 봇 및 웹 테스트 트래픽 제거
 
 **실제 또는 가상 트래픽** 필터를 사용하여 **실제**를 선택합니다.
 
 **가상 트래픽 소스**로 필터링할 수도 있습니다.
 
-##차트 종류 편집
+## 차트 종류 편집
 
 특히, 표 및 그래프 사이에서 전환할 수 있습니다.
 
 ![표 또는 그래프를 선택한 다음 차트 종류 선택](./media/app-insights-metrics-explorer/16-chart-grid.png)
 
-##매트릭 블레이드 저장
+## 매트릭 블레이드 저장
 
 차트를 만든 경우 즐겨찾기로 저장합니다. 조직 계정을 사용하는 경우 다른 팀 구성원과 이를 공유할지 선택할 수 있습니다.
 
@@ -146,19 +146,40 @@
 
 저장했을 때 상대 시간을 선택한 경우 해당 블레이드가 최신 메트릭으로 업데이트됩니다. 절대 시간 범위를 선택한 경우 매번 동일한 데이터가 표시됩니다.
 
-##블레이드 다시 설정
+## 블레이드 다시 설정
 
 블레이드를 편집하지만 저장된 원본 세트로 되돌아가려는 경우 재설정을 클릭하면 됩니다.
 
 ![메트릭 탐색기 위쪽에 있는 단추](./media/app-insights-metrics-explorer/17-reset.png)
 
-##경고 설정
+## 경고 설정
 
 메트릭의 비정상적인 값에 대한 알림을 메일로 받으려면 경고를 추가합니다. 계정 관리자나 특정 메일 주소로 메일을 보내도록 선택할 수 있습니다.
 
 ![메트릭 탐색기에서 경고 규칙, 경고 추가 선택](./media/app-insights-metrics-explorer/appinsights-413setMetricAlert.png)
 
-[자세히 알아봅니다][alerts].
+[경고에 대해 알아봅니다][alerts].
+
+## Excel로 내보내기
+
+메트릭 탐색기에 표시된 메트릭 데이터를 Excel 파일로 내보낼 수 있습니다. 내보낸 데이터에는 포털에서 볼 수 있는 모든 차트와 테이블의 데이터가 포함되어 있습니다.
+
+
+![메트릭 탐색기에서 경고 규칙, 경고 추가 선택](./media/app-insights-metrics-explorer/31-export.png)
+
+각 차트 또는 테이블에 대한 데이터는 Excel 파일의 별도 시트에 내보내집니다.
+
+표시된 내용이 내보내지는 내용입니다. 내보내는 데이터의 범위를 변경하려면 시간 범위 또는 필터를 변경합니다. 테이블의 경우, **추가 로드** 명령이 표시되어 있으면 내보내기를 클릭하기 전에 이 명령을 클릭하여 내보낼 데이터를 더 지정할 수 있습니다.
+
+*내보내기는 현재 Internet Explorer 및 Chrome에 대해서만 작동합니다. 우리는 다른 브라우저에 대한 지원 추가에 관하여 연구 중입니다.*
+
+데이터를 외부에서 처리할 수 있도록 지속적으로 내보내려면 [연속 내보내기](app-insights-export-telemetry.md)를 사용하는 것이 좋습니다.
+
+
+## 다음 단계
+
+* [Application Insights를 사용하여 사용량 모니터링](app-insights-overview-usage.md)
+* [진단 검색 사용](app-insights-diagnostic-search.md)
 
 
 <!--Link references-->
@@ -167,5 +188,6 @@
 [start]: app-insights-get-started.md
 [track]: app-insights-custom-events-metrics-api.md
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

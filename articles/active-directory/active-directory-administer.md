@@ -46,7 +46,7 @@ Azure AD 디렉터리는 이러한 Microsoft 클라우드 서비스에 등록하
 
 추가 서비스에서는 구성된 기존 사용자 계정, 정책, 설정 또는 온-프레미스 디렉터리 통합을 완벽하게 활용하여 조직의 ID 인프라 온-프레미스와 Azure AD 간의 효율성을 향상시킬 수 있습니다.
 
-예를 들어 처음에 Microsoft Intune 구독에 등록하고 디렉터리 동기화 및/또는  single sign-on 서버를 배포하여 Azure AD 디렉터리와 온-프레미스 Active Directory를 추가로 통합하는 데 필요한 단계를 완료한 경우 Office 365와 같은 다른 Microsoft 클라우드 서비스에 등록하여 Microsoft Intune에서 사용하는 것과 동일한 디렉터리 통합을 활용할 수도 있습니다.
+예를 들어 처음에 Microsoft Intune 구독에 등록하고 디렉터리 동기화 및/또는 single sign-on 서버를 배포하여 Azure AD 디렉터리와 온-프레미스 Active Directory를 추가로 통합하는 데 필요한 단계를 완료한 경우 Office 365와 같은 다른 Microsoft 클라우드 서비스에 등록하여 Microsoft Intune에서 사용하는 것과 동일한 디렉터리 통합을 활용할 수도 있습니다.
 
 Azure AD와 온-프레미스 디렉터리 통합에 대한 자세한 내용은 [디렉터리 통합](active-directory-aadconnect.md)을 참조하세요.
 
@@ -145,4 +145,7 @@ Azure AD에서 디렉터리를 삭제하려면 특정 조건을 충족해야 합
 [1]: ./media/active-directory-administer/aad_portals.png
 [2]: ./media/active-directory-administer/azure_tenants.png
 
-<!---HONumber=58--> 
+
+ 
+
+<!---HONumber=62-->

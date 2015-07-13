@@ -217,4 +217,4 @@ cmdlet에 대한 자세한 내용은 [Set-AzureDataFactorySliceStatus][set-azure
 [hdinsight-alternate-storage-2]: http://blogs.msdn.com/b/cindygross/archive/2014/05/05/use-additional-storage-accounts-with-hdinsight-hive.aspx
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

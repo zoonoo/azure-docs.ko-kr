@@ -1,21 +1,4 @@
-<properties
-   pageTitle="유지 관리 모드 설정"
-   description="StorSimple 장치를 유지 관리 모드로 설정하는 방법을 설명합니다."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" /> 
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="04/21/2015"
-   ms.author="v-sharos" />
-
-### 유지 관리 모드를 설정하려면
+#### 유지 관리 모드를 설정하려면
 
 1. 직렬 콘솔 메뉴에서 옵션 1, **모든 권한으로 로그인**을 선택합니다.
 
@@ -23,10 +6,10 @@
 
 3. 명령 프롬프트에 다음을 입력합니다.
 
-    **Enter-HcsMaintenanceMode**
+     `Enter-HcsMaintenanceMode`
 
 4. 유지 관리 모드에서는 모든 I/O 요청이 중단되며 관리 포털에 대한 연결이 끊어짐을 알리는 경고 메시지와 확인 요청 메시지가 표시됩니다. **Y**를 입력하여 유지 관리 모드를 설정합니다.
 
     두 컨트롤러가 모두 다시 시작됩니다. 다시 시작이 완료되면 장치가 유지 관리 모드임을 나타내는 다른 메시지가 표시됩니다.
 
-<!--HONumber=52-->
+<!---HONumber=62-->

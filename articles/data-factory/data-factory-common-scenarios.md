@@ -72,4 +72,8 @@ Azure 데이터 팩터리는 생성되는 데이터를 간단히 사용할 수 �
 
 [image-data-factory-introduction-secenario2-operationalize-infoproduction]: ./media/data-factory-common-scenarios/Scenario2-OperationalizeInformationProduction.png
 
-<!---HONumber=GIT-SubDir--> 
+
+
+ 
+
+<!---HONumber=62-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/13/2015" 
+	ms.date="06/19/2015" 
 	ms.author="awills"/>
 
 # 새 Application Insights 리소스 만들기
@@ -78,6 +78,9 @@ Visual Studio Application Insights는 Microsoft Azure *리소스*에 응용 프�
 
 더 많은 데이터를 기대하는 경우 몇 초 후에 새로고침을 클릭합니다.
 
+## 자동으로 리소스 만들기
+
+리소스를 자동으로 만드는 [PowerShell 스크립트](app-insights-powershell-script-create-resource.md)를 작성할 수 있습니다.
 
 
 <!--Link references-->

@@ -261,4 +261,4 @@ Linux 기반 가상 컴퓨터에 대한 추가 사전 구성 옵션은 [Add-Azur
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

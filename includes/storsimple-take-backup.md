@@ -1,20 +1,3 @@
-<properties 
-   pageTitle="백업 수행"
-   description="StorSimple 백업 정책을 정의하는 방법을 설명합니다."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="04/01/2015"
-   ms.author="v-sharos" />
-
 ### 백업을 수행하려면
 
 1. 장치 **빠른 시작** 페이지에서 **백업 정책 추가**를 클릭합니다. 그러면 백업 정책 추가 마법사가 시작됩니다. 
@@ -40,4 +23,4 @@
 
 장치 구성을 완료했습니다.
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

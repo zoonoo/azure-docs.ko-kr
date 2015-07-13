@@ -21,7 +21,7 @@
 
 # Python Tools 2.1 for Visual Studio가 있는 Azure의 Flask 및 MongoDB
 
-<!-- The MongoLab workflow is not yet supported in the Preview Portal -->
+  	<!-- The MongoLab workflow is not yet supported in the Preview Portal -->
 
 이 자습서에서는 PTVS 샘플 템플릿 중 하나를 사용하여 간단한 설문 조사 웹앱을 만들기 위해 [Python Tools for Visual Studio]를 사용해 보겠습니다. 이 자습서는 [비디오](https://www.youtube.com/watch?v=eql-crFgrAE)로도 제공됩니다.
 

@@ -119,7 +119,7 @@ private void SignOut(object sender = null, RoutedEventArgs args = null)
 }
 ```
 
-- 그러나 사용자가 "로그아웃" 단추를 클릭하지 않으면 다음에 DirectorySearcher를 실행할 때 사용자 세션이 유지되도록 하려고 합니다. 앱이 시작되면 ADAL의 토큰 캐시에서 기존 토큰이 있는지 확인하고 그에 따라 UI를 업데이트할 수 있습니다. `MainWindow()`로 다시 돌아와 `AcquireToken(...)`을 한 번 더  호출합니다. 이번에는 `PromptBehavior.Never` 매개 변수를 제공합니다. `PromptBehavior.Never`는 로그인 메시지를 표시하지 않도록 ADAL에 지시하고, 대신 토큰을 반환할 수 없는 경우 ADAL은 예외를 발생합니다.
+- 그러나 사용자가 "로그아웃" 단추를 클릭하지 않으면 다음에 DirectorySearcher를 실행할 때 사용자 세션이 유지되도록 하려고 합니다. 앱이 시작되면 ADAL의 토큰 캐시에서 기존 토큰이 있는지 확인하고 그에 따라 UI를 업데이트할 수 있습니다. `MainWindow()`로 다시 돌아와 `AcquireToken(...)`을 한 번 더 호출합니다. 이번에는 `PromptBehavior.Never` 매개 변수를 제공합니다. `PromptBehavior.Never`는 로그인 메시지를 표시하지 않도록 ADAL에 지시하고, 대신 토큰을 반환할 수 없는 경우 ADAL은 예외를 발생합니다.
 
 ```C#
 public MainWindow()
@@ -161,5 +161,6 @@ ADAL은 응용 프로그램에 이러한 모든 일반적인 ID 기능을 쉽게
 [Azure AD를 사용하여 .NET Web API 보안 유지 >>](active-directory-devquickstarts-webapi-dotnet.md)
 
 추가 리소스를 보려면 다음을 확인하세요. [GitHub의 AzureADSamples >>](https://github.com/AzureAdSamples)(영문) - [CloudIdentity.com >>](https://cloudidentity.com)(영문) - [Azure.com >>](http://azure.microsoft.com/documentation/services/active-directory/)(영문)의 Azure AD 설명서
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

@@ -163,7 +163,7 @@ TwiML에 대한 자세한 내용은 [http://www.twilio.com/docs/api/twiml][twiml
 * [https://www.twilio.com/docs/security][twilio_docs_security](영문)에서 Twilio 보안 지침을 읽으십시오.
 * [https://www.twilio.com/docs][twilio_docs](영문)에서 Twilio에 대해 자세히 알아보십시오.
 
-## <a name="seealso"></a>참고 항목
+##<a name="seealso"></a>참고 항목
 * [Azure에서 음성 및 SMS 기능을 위해 Twilio를 사용하는 방법](twilio-dotnet-how-to-use-for-voice-sms.md)
 
 [twilio_pricing]: http://www.twilio.com/pricing
@@ -192,4 +192,4 @@ TwiML에 대한 자세한 내용은 [http://www.twilio.com/docs/api/twiml][twiml
 
 [azure_runtime_ref_dotnet]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.serviceruntime.aspx
 
-<!--HONumber=54-->
+<!---HONumber=62-->

@@ -20,7 +20,7 @@
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-data](../../includes/mobile-services-selector-get-started-data.md)]
 
-## 개요 
+##개요 
 
 이 항목에서는 Azure 모바일 서비스를 사용하여 HTML 앱에서 데이터를 활용하는 방법을 보여 줍니다. 이 자습서에서는 데이터를 메모리에 저장하는 앱을 다운로드하여 새 모바일 서비스를 만들고 모바일 서비스를 앱과 통합한 후 Azure 관리 포털에 로그인하여 앱을 실행할 때 수행된 데이터 변경 내용을 확인합니다.
 
@@ -28,7 +28,7 @@
 
 > [AZURE.IMPORTANT]이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A756A2826&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2documentation%2Farticles%2Fmobile-services-html-get-started-data)을 참조하십시오.
 
-### 추가 요구 사항
+###추가 요구 사항
 
 모든 웹 서버에서 GetStartedWithData 앱을 호스트할 수 있습니다. 하지만 편의를 위해 `http://localhost:8000`에서 앱을 실행할 수 있게 하는 스크립트가 제공되었습니다.
  
@@ -42,7 +42,7 @@
 
 + HTML5를 지원하는 웹 브라우저.
 
-## <a name="download-app"></a>GetStartedWithData 프로젝트 다운로드
+##<a name="download-app"></a>GetStartedWithData 프로젝트 다운로드
 
 이 자습서는 HTML5 앱인 [GetStartedWithData 앱]을 기반으로 합니다. 이 앱의 UI는 모바일 서비스 빠른 시작에서 생성된 앱과 동일합니다. 단, 추가된 항목이 로컬에서 메모리에 저장된다는 점은 예외입니다.
 
@@ -70,11 +70,11 @@
 
    	저장된 텍스트는 **staticItems** 배열에 추가되며, 페이지를 새로 고쳐 새 항목이 표시됩니다.
 
-## <a name="create-service"></a>관리 포털에서 새 모바일 서비스 만들기
+##<a name="create-service"></a>관리 포털에서 새 모바일 서비스 만들기
 
 [AZURE.INCLUDE [mobile-services-create-new-service-data](../../includes/mobile-services-create-new-service-data.md)]
 
-## <a name="add-table"></a>모바일 서비스에 새 테이블 추가
+##<a name="add-table"></a>모바일 서비스에 새 테이블 추가
 
 새 모바일 서비스에서 앱 데이터를 저장하려면 먼저 연결된 SQL 데이터베이스 인스턴스에 새 테이블을 만들어야 합니다.
 
@@ -99,7 +99,7 @@
 
 이제 새 모바일 서비스를 앱의 데이터 저장소로 사용할 준비가 되었습니다.
 
-## <a name="update-app"></a>데이터 액세스에 모바일 서비스를 사용하도록 앱 업데이트
+##<a name="update-app"></a>데이터 액세스에 모바일 서비스를 사용하도록 앱 업데이트
 
 이제 모바일 서비스를 사용할 수 있으므로 로컬 컬렉션 대신 모바일 서비스에 항목을 저장하도록 앱을 업데이트할 수 있습니다.
 
@@ -197,7 +197,7 @@
 
 이제 앱이 백 엔드 저장소에 모바일 서비스를 사용하도록 업데이트되었으므로 모바일 서비스에 대해 앱을 테스트해야 합니다.
 
-## <a name="test-app"></a>새 모바일 서비스에 대해 앱 테스트
+##<a name="test-app"></a>새 모바일 서비스에 대해 앱 테스트
 
 4. 웹 브라우저에서 URL <a href="http://localhost:8000/" target="_blank">http://localhost:8000/</a>을 다시 로드하여 앱을 시작합니다.
 
@@ -255,5 +255,6 @@
 
 [Cross-origin resource sharing]: http://msdn.microsoft.com/library/azure/dn155871.aspx
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

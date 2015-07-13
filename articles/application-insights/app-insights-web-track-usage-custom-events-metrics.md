@@ -441,7 +441,7 @@ Windows 모바일 앱에서 SDK는 처리되지 않은 예외를 catch합니다.
     TelemetryConfiguration.getActive().getContextInitializers().add(new MyTelemetryInitializer());
 
 
-현재 JavaScript 웹 클라이언트에서 기본 속성을 설정하는 방법은 없습니다.
+JavaScript 웹 클라이언트에서 현재 기본 속성을 설정하는 방법은 없습니다.
 
 ## <a name="dynamic-ikey"></a> 동적 계측 키
 

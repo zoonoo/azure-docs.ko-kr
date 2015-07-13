@@ -1,8 +1,8 @@
-# 데이터 관리 및 비즈니스 분석
+#데이터 관리 및 비즈니스 분석
 
 클라우드에서 데이터를 관리 및 분석하는 작업은 다른 곳만큼 중요합니다. 이 작업을 위해 Azure에서는 관계형 데이터 및 비관계형 데이터 작업에 사용되는 다양한 기술을 제공합니다. 이 문서에서는 각 옵션을 소개합니다.
 
-## 목차      
+##목차      
 
 - [Blob 저장소](#blob)
 - [가상 컴퓨터에서 DBMS 실행](#dbinvm)
@@ -181,4 +181,4 @@ Microsoft는 Excel용 HiveQL 드라이버도 제공합니다. 비즈니스 분�
 [SQL-tblstor]: ./media/cloud-storage/Data_06_TblStorage.png
 [hadoop]: ./media/cloud-storage/Data_07_Hadoop.png
 
-<!--HONumber=52-->
+<!---HONumber=62-->

@@ -23,7 +23,7 @@
 ## <a name="WhatIs"> </a>서비스 관리 정의
 서비스 관리 API는 [관리 포털][management-portal]을 통해 사용할 수 있는 대부분의 서비스 관리 기능에 대해 프로그래밍 방식의 액세스를 제공합니다. Python용 Azure SDK를 사용하여 클라우드 서비스 및 저장소 계정을 관리할 수 있습니다.
 
-서비스 관리 API를 사용하려면 [Azure 계정을 만들어야](http://www.windowsazure.com/pricing/free-trial/) 합니다.
+서비스 관리 API를 사용하려면 [Azure 계정을 만들어야](http://azure.microsoft.com/pricing/free-trial/) 합니다.
 
 ## <a name="Concepts"> </a>개념
 Python용 Azure SDK는 REST API인 [Azure 서비스 관리 API][svc-mgmt-rest-api]를 래핑합니다. 모든 API 작업은 SSL을 통해 수행되고 X.509 v3 인증서를 사용하여 서로 인증됩니다. 관리 서비스는 Azure에서 실행 중인 서비스 내에서 액세스할 수 있거나, HTTPS 요청을 보내고 HTTPS 응답을 받을 수 있는 응용 프로그램에서 인터넷을 통해 직접 액세스할 수 있습니다.
@@ -42,7 +42,7 @@ Python용 Azure SDK는 REST API인 [Azure 서비스 관리 API][svc-mgmt-rest-ap
 
 	`openssl x509 -inform pem -in mycert.pem -outform der -out mycert.cer`
 
-Azure 인증서에 대한 자세한 내용은 [Azure에서 인증서 관리](http://msdn.microsoft.com/library/windowsazure/gg981929.aspx)를 참조하세요. OpenSSL 매개 변수에 대한 자세한 설명은 [http://www.openssl.org/docs/apps/openssl.html](http://www.openssl.org/docs/apps/openssl.html)(영문)의 자료를 참조하세요.
+Azure 인증서에 대한 자세한 내용은 [Azure에서 인증서 관리](http://msdn.microsoft.com/ko-kr/library/windowsazure/gg981929.aspx)를 참조하세요. OpenSSL 매개 변수에 대한 자세한 설명은 [http://www.openssl.org/docs/apps/openssl.html](http://www.openssl.org/docs/apps/openssl.html)(영문)의 자료를 참조하세요.
 
 이러한 파일을 만든 후에는 [관리 포털][management-portal]에서 "설정" 탭의 "업로드" 동작을 통해 `.cer` 파일을 Azure에 업로드해야 하고, `.pem` 파일을 저장한 위치를 적어 두어야 합니다.
 
@@ -64,7 +64,7 @@ Azure 인증서에 대한 자세한 내용은 [Azure에서 인증서 관리](htt
 
     makecert -sky exchange -r -n "CN=AzureCertificate" -pe -a sha1 -len 2048 -ss My "AzureCertificate.cer"
 
-이 명령은 `.cer` 파일을 만들고 만든 파일을 **개인** 인증서 저장소에 설치합니다. 자세한 내용은 [Azure용 관리 인증서 만들기 및 업로드](http://msdn.microsoft.com/library/windowsazure/gg551722.aspx)를 참조하세요.
+이 명령은 `.cer` 파일을 만들고 만든 파일을 **개인** 인증서 저장소에 설치합니다. 자세한 내용은 [Azure용 관리 인증서 만들기 및 업로드](http://msdn.microsoft.com/ko-kr/library/windowsazure/gg551722.aspx)를 참조하세요.
 
 인증서를 만든 후에는 [관리 포털][management-portal]에서 "설정" 탭의 "업로드" 동작을 통해 `.cer` 파일을 Azure에 업로드해야 합니다.
 
@@ -74,7 +74,7 @@ Azure 인증서에 대한 자세한 내용은 [Azure에서 인증서 관리](htt
 	from azure.servicemanagement import *
 
 	subscription_id = '<your_subscription_id>'
-	certificate_path = 'CURRENT_USER\\my\\AzureCertificate'
+	certificate_path = 'CURRENT_USER\my\AzureCertificate'
 
 	sms = ServiceManagementService(subscription_id, certificate_path)
 
@@ -443,5 +443,6 @@ Windows 가상 컴퓨터를 캡처하는 방법에 대한 자세한 내용은 [W
 [Azure Service Configuration Schema (.cscfg)]: http://msdn.microsoft.com/library/windowsazure/ee758710.aspx
 [Cloud Services]: http://msdn.microsoft.com/library/windowsazure/jj155995.aspx
 [Virtual Machines]: http://msdn.microsoft.com/library/windowsazure/jj156003.aspx
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

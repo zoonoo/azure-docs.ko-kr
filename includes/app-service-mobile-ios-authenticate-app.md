@@ -16,13 +16,13 @@
         }
 
 
-    > [AZURE.NOTE]Facebook 이외의 ID 공급자를 사용하는 경우 **loginWithProvider**에 전달된 값을 변경합니다. 지원되는 값은 다음과 같습니다. _microsoftaccount_, _facebook_, _twitter_, _google_ 또는 _windowsazureactivedirectory_
+    > [AZURE.NOTE]Facebook 이외의 ID 공급자를 사용하는 경우 **loginWithProvider**에 전달된 값을 변경합니다. 지원되는 값은 다음과 같습니다. _microsoftaccount_, _facebook_, _twitter_, _google_ 또는 _windowsazureactivedirectory_.
 
 
-2. 끝에 있는 `[self refresh]`를 다음 코드로 바꿔 `viewDidLoad`를 수정합니다.
+2. 끝에 있는 `[self refresh]`을(를) 다음으로 바꿔 `viewDidLoad`을(를) 수정합니다.
 
         [self loginAndGetData];
 
 3. **Run**을 눌러 앱을 시작한 다음 선택한 ID 공급자를 사용하여 로그인합니다. 로그인할 때 할 일 목록을 보고 업데이트할 수 있어야 합니다.
 
-<!--HONumber=54-->
+<!---HONumber=62-->

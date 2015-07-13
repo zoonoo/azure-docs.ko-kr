@@ -95,8 +95,8 @@ Visual Studio Application Insights를 사용하여 모바일 응용 프로그램
 
 ```java
 
-    AppInsights.setup(this, "<YOUR-IKEY-GOES-HERE>");
-    AppInsights.start();
+    ApplicationInsights.setup(this, "<YOUR-IKEY-GOES-HERE>");
+    ApplicationInsights.start();
 ```
 
 
@@ -108,18 +108,18 @@ SDK를 초기화하고 원격 분석 추적을 시작합니다.
 
 ```java
 
-     import com.microsoft.applicationinsights.TelemetryClient;
+     import com.microsoft.applicationinsights.library.ApplicationInsights;
 ```
 
 활동의 `onCreate` 콜백에 다음을 추가합니다.
 
 ```java
 
-    AppInsights.setup(this);
-    AppInsights.start();
+    ApplicationInsights.setup(this.getApplicationContext(), this.getApplication());
+    ApplicationInsights.start();
 ```
 
-`AppInsights.start()`가 호출되면 SDK가 android 수명 주기 활동 및 처리되지 않은 모든 예외를 추적하기 시작합니다.
+`ApplicationInsights.start()`가 호출되면 SDK가 android 수명 주기 활동 및 처리되지 않은 모든 예외를 추적하기 시작합니다.
 
 > [AZURE.NOTE]응용 프로그램 수명 주기 이벤트는 Android SDK 버전 15 이상에서 수집됩니다(Ice Cream Sandwich+).
 
@@ -139,9 +139,9 @@ SDK를 초기화하고 원격 분석 추적을 시작합니다.
       @Override
       protected void onCreate(Bundle savedInstanceState) {
         
-        AppInsights.setup(this);
+        ApplicationInsights.setup(this);
         //... other initialization code ...//
-        AppInsights.start();
+        ApplicationInsights.start();
         
         // track telemetry data
         TelemetryClient client = TelemetryClient.getInstance();
@@ -197,4 +197,6 @@ http://portal.azure.com으로 돌아가서 Application Insights 리소스를 찾
 [qna]: app-insights-troubleshoot-faq.md
 [track]: app-insights-custom-events-metrics-api.md
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=62-->

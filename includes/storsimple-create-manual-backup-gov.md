@@ -1,12 +1,3 @@
-<properties pageTitle="Create a manual backup" description="Explains how to start a manual, on-demand backup job." services="storsimple" documentationCenter="NA" authors="SharS" manager="adinah" edito**r="tysonn" /> <tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="04/01/2015"
-   ms.author="v-sharos" />
-
 #### 수동 백업을 만들려면
 
 1. **장치** 페이지에서 **백업 정책** 탭으로 이동합니다. 이 탭에는 백업하려는 볼륨에 대한 정책을 비롯한 테이블 형식의 모든 백업 정책이 나열됩니다.
@@ -29,4 +20,4 @@
 
   카탈로그에 표시되는 백업 세트의 목록에 백업이 나타납니다.
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

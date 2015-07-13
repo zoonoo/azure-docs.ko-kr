@@ -400,5 +400,6 @@ ACS 기능을 자세히 살펴보고 추가 시나리오를 실험하려면 [액
   [18]: ./media/active-directory-dotnet-how-to-use-access-control/acsManagementService.png
   [19]: ./media/active-directory-dotnet-how-to-use-access-control/acsShowKey.png
   [20]: ./media/active-directory-dotnet-how-to-use-access-control/acsConfigAcsNamespace2.png
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

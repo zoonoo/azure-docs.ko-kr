@@ -78,4 +78,6 @@ Application Insights는 [다양한 플랫폼][platforms]에서 라이브 앱을 
 [roles]: app-insights-resources-roles-access-control.md
 [start]: app-insights-get-started.md
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=62-->

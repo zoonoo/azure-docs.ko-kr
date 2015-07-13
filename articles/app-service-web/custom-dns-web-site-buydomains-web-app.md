@@ -45,7 +45,7 @@
 
 1. 브라우저에서 [Azure 관리 포털](https://portal.azure.com)을 엽니다.
 
-2. **웹 앱** 탭에서 웹 앱의 이름을 클릭하고 **설정**을 선택한 다음 **사용자 지정 도메인 및 SSL**을 선택합니다.
+2. **웹앱** 탭에서 웹앱의 이름을 클릭하고 **설정**을 선택한 다음 **사용자 지정 도메인 및 SSL**을 선택합니다.
 
 	![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-6.png)
 
@@ -93,5 +93,6 @@
 	Once configuration has completed, the custom domain name will be listed in the **Hostname bindings** section of your web app.
 
 이때 브라우저에서 사용자 지정 도메인 이름을 입력해야 웹 앱으로 이동하는지 확인할 수 있습니다.
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

@@ -269,7 +269,7 @@ Web.config 파일을 편집하는 방법은 문제를 더 쉽게 해결할 수 �
 
 * 원격 디버깅 기능을 사용하도록 설정하면 서버의 타이머가 시작되고 48시간 후 기능이 자동으로 꺼집니다. 이 48시간 제한은 보안 및 성능상의 이유로 제한됩니다. 원하는 횟수만큼 기능을 쉽게 다시 켤 수 있습니다. 디버깅을 활발히 사용하지 않는 경우 이를 사용하지 않는 상태로 두는 것이 좋습니다.
 
-* 웹 앱 프로세스(w3wp.exe)뿐만 아니라 모든 프로세스에 디버거를 수동으로 연결할 수 있습니다. Visual Studio에서 디버그 모드를 사용하는 방법에 대한 자세한 내용은 [Visual Studio의 디버깅](http://msdn.microsoft.com/library/vstudio/sc65sadd.aspx)을 참조하십시오.
+* 웹 앱 프로세스(w3wp.exe)뿐만 아니라 모든 프로세스에 디버거를 수동으로 연결할 수 있습니다. Visual Studio에서 디버그 모드를 사용하는 방법에 대한 자세한 내용은 [Visual Studio의 디버깅](http://msdn.microsoft.com/ko-kr/library/vstudio/sc65sadd.aspx)을 참조하십시오.
 
 ## <a name="logsoverview"></a>진단 로그 개요
 
@@ -751,7 +751,7 @@ Microsoft TechNet 웹 사이트에 포함된 [실패한 요청 추적 사용](ht
 
 ### 클라우드 서비스 디버깅
 
-웹 앱이 아닌 Azure 클라우드 서비스를 디버그하려면 [클라우드 서비스 디버깅](http://msdn.microsoft.com/library/windowsazure/ee405479.aspx)을 참조하세요.
+웹 앱이 아닌 Azure 클라우드 서비스를 디버그하려면 [클라우드 서비스 디버깅](http://msdn.microsoft.com/ko-kr/library/windowsazure/ee405479.aspx)을 참조하세요.
 
 >[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 

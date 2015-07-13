@@ -1,5 +1,3 @@
-<properties services="virtual-machines" title="How to Log on to a Virtual Machine Running Windows Server" authors="KBDAzure" solutions="" manager="timlt" editor="tysonn" />
-
 1. 아직 로그인하지 않은 경우 [Azure 관리 포털](http://manage.windowsazure.com)에 로그인합니다.
 
 2. **가상 컴퓨터**를 클릭하고 해당 가상 컴퓨터를 선택합니다.
@@ -28,4 +26,4 @@
 
 이제 원격으로 가상 컴퓨터를 사용할 수 있습니다.
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

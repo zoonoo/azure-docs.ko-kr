@@ -1,15 +1,15 @@
 <properties
-	pageTitle="Azure 백업 - 백업 자격 증명 모음 만들기 및 저장소 중복 지정"
-	description="Azure 백업에서 백업 자격 증명 모음 생성, 저장소 중복 옵션 지정 방법에 알아보기"
-	services="backup"
-	documentationCenter=""
-	authors="prvijay"
-	manager="shreeshd"
-	editor=""/>
+   pageTitle="Azure 백업 - 백업 자격 증명 모음 만들기 및 저장소 중복 지정"
+   description="Azure 백업에서 백업 자격 증명 모음 생성, 저장소 중복 옵션 지정 방법에 알아보기"
+   services="backup"
+   documentationCenter=""
+   authors="prvijay"
+   manager="shreeshd"
+   editor=""/>
 
 <tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
+   ms.service="backup"
+   ms.workload="storage-backup-recovery"
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="article"
@@ -62,5 +62,6 @@ LRS(로컬 중복 저장소)는 데이터의 복제본을 3개 유지 관리합�
 [3]: ./media/backup-azure-backup-create-vault/backupvaultstatus1.png
 [4]: ./media/backup-azure-backup-create-vault/grs.png
 [5]: ./media/backup-azure-backup-create-vault/lrs.png
+ 
 
-<!---HONumber=GIT-SubDir--> 
+<!---HONumber=62-->

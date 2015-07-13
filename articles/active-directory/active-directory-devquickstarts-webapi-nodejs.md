@@ -1178,4 +1178,4 @@ ADAL 과정의 다음 단계에 관심이 있는 경우 여기서 권장하는 A
 [.NET용 ADAL](http://msdn.microsoft.com/library/windowsazure/jj573266.aspx)(영문)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

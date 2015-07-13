@@ -44,7 +44,7 @@
 
 2. `todoTable` 멤버의 유형이 `IMobileServiceSyncTable`인지 확인합니다. 오프라인 동기화에서는 `IMobileServiceTable` 대신 이 동기화 테이블 인터페이스를 사용합니다. 동기화 테이블을 사용하면 모든 작업이 로컬 저장소로 이동하고 명시적 푸시 및 끌어오기 작업이 있는 원격 서비스와만 동기화됩니다.
 
-    동기화 테이블에 대한 참조를 가져오려면 `GetSyncTable()` 메서드를 사용합니다. 오프라인 동기화 기능을 제거하려면 대신 `GetTable()`을 사용합니다.
+    동기화 테이블에 대한 참조를 가져오려면 `GetSyncTable()` 메서드를 사용합니다. 오프라인 동기화 기능을 제거하려면 대신 `GetTable()`을(를) 사용합니다.
 
 3. 모든 테이블 작업을 수행하려면 먼저 로컬 저장소를 초기화해야 합니다. 이 작업은 `InitializeStoreAsync` 메서드에서 수행됩니다.
 
@@ -79,20 +79,20 @@
             }
         }
 
-    먼저 `IMobileServiceSyncContext.PushAsync()`를 호출합니다. 이 메서드는 모든 테이블에서 변경 사항을 푸시하므로 동기화 테이블이 아닌 `IMobileServicesSyncContext`의 멤버입니다. CUD 작업을 통해 로컬에서 수정된 레코드만 서버에 전송됩니다.
+    먼저 `IMobileServiceSyncContext.PushAsync()`에 대해 호출합니다. 이 메서드는 모든 테이블에서 변경 사항을 푸시하므로 동기화 테이블이 아닌 `IMobileServicesSyncContext`의 멤버입니다. CUD 작업을 통해 로컬에서 수정된 레코드만 서버에 전송됩니다.
 
-    다음으로 이 메서드는 `IMobileServiceSyncTable.PullAsync()`를 호출하여 서버의 테이블에서 앱으로 데이터를 끌어옵니다. 동기화 컨텍스트에 보류 중인 변경 내용이 있으면 끌어오기에서 항상 푸시 작업을 먼저 수행합니다. 이는 로컬 저장소의 모든 테이블 및 관계를 동기화된 상태로 유지하기 위해서입니다. 이 경우 명시적으로 푸시를 호출했습니다.
+    다음으로 이 메서드는 `IMobileServiceSyncTable.PullAsync()`에 대해 호출하여 서버의 테이블에서 앱으로 데이터를 끌어옵니다. 동기화 컨텍스트에 보류 중인 변경 내용이 있으면 끌어오기에서 항상 푸시 작업을 먼저 수행합니다. 이는 로컬 저장소의 모든 테이블 및 관계를 동기화된 상태로 유지하기 위해서입니다. 이 경우 명시적으로 푸시를 호출했습니다.
 
-    이 예제에서는 원격 `TodoItem` 테이블에 있는 모든 레코드를 검색하지만 쿼리를 전달하여 레코드를 필터링할 수도 있습니다. `PullAsync()`의 첫 번째 매개 변수는 증분 동기화에 사용되는 쿼리 ID이며, `UpdatedAt` 타임스탬프를 사용하여 마지막 동기화 이후에 수정된 레코드만 가져옵니다. 쿼리 ID는 앱의 각 논리 쿼리에 고유한 설명 문자열이어야 합니다. 증분 동기화를 옵트아웃하려면 `null`을 쿼리 ID로 전달합니다. 그러면 각 끌어오기 작업에서 모든 레코드를 검색하므로 비효율적일 수 있습니다.
+    이 예제에서는 원격 `TodoItem` 테이블에 있는 모든 레코드를 검색하지만 쿼리를 전달하여 레코드를 필터링할 수도 있습니다. `PullAsync()`의 첫 번째 매개 변수는 증분 동기화에 사용되는 쿼리 ID이며, `UpdatedAt` 타임스탬프를 사용하여 마지막 동기화 이후에 수정된 레코드만 가져옵니다. 쿼리 ID는 앱의 각 논리 쿼리에 고유한 설명 문자열이어야 합니다. 증분 동기화를 옵트아웃하려면 `null`을(를) 쿼리 ID로 전달합니다. 그러면 각 끌어오기 작업에서 모든 레코드를 검색하므로 비효율적일 수 있습니다.
 
 <!--     >[AZURE.NOTE] To remove records from the device local store when they have been deleted in your mobile service database, you should enable [Soft Delete]. Otherwise, your app should periodically call `IMobileServiceSyncTable.PurgeAsync()` to purge the local store.
 
     Note that the `MobileServicePushFailedException` can occur for both a push and a pull operation. The next tutorial, [Handling conflicts with offline support for Mobile Services], shows how to handle these sync related exceptions.
 -->
 
-5. `QSTodoService` 클래스에서 `SyncAsync()` 메서드는 데이터, `InsertTodoItemAsync()` 및 `CompleteItemAsync`을 수정하는 작업 뒤에 호출됩니다. 사용자가 새로 고침 제스처를 수행할 때마다 최신 데이터를 가져오도록 `RefreshDataAsync()`에서도 호출됩니다. `QSTodoListViewController.ViewDidLoad()`가 `RefreshDataAsync()`를 호출하므로 앱이 시작될 때도 동기화를 수행합니다.
+5. `QSTodoService` 클래스에서 `SyncAsync()` 메서드는 데이터, `InsertTodoItemAsync()` 및 `CompleteItemAsync`을 수정하는 작업 뒤에 호출됩니다. 사용자가 새로 고침 제스처를 수행할 때마다 최신 데이터를 가져오도록 `RefreshDataAsync()`에서도 호출됩니다. `QSTodoListViewController.ViewDidLoad()`이(가) `RefreshDataAsync()`을(를) 호출하므로 앱이 시작될 때도 동기화를 수행합니다.
 
-    `SyncAsync()`는 데이터가 수정될 때마다 호출되므로 이 앱은 데이터를 편집할 때마다 사용자가 온라인 상태인 것으로 가정합니다. 다음 섹션에서는 사용자가 오프라인 상태에서도 편집할 수 있도록 앱을 업데이트합니다.
+    `SyncAsync()`은(는) 데이터가 수정될 때마다 호출되므로 이 앱은 데이터를 편집할 때마다 사용자가 온라인 상태인 것으로 가정합니다. 다음 섹션에서는 사용자가 오프라인 상태에서도 편집할 수 있도록 앱을 업데이트합니다.
 
 ## 앱의 동기화 동작 업데이트
 
@@ -164,5 +164,6 @@
 
 [Xamarin Studio]: http://xamarin.com/download
 [Xamarin 확장]: http://xamarin.com/visual-studio
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

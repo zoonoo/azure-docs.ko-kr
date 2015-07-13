@@ -220,4 +220,6 @@ Azure 자동화 DSC는 현재 [Azure 리소스 관리자 PowerShell 모듈](../p
 
 - `Register-AzureAutomationDscNode`, `Set-AzureAutomationDscExtension` 또는 Azure Preview 포털의 Azure 자동화 DSC VM 확장을 사용하여 Azure 자동화 DSC로 관리할 Azure VM을 등록할 때 **컴퓨터 이름이 지정되지 않았으며 구성 디렉터리에 구성 파일이 없습니다**라는 등록 실패 메시지가 나타나는 경우 이는 잘못된 알림이며 실제로는 VM 등록에 성공한 것입니다. 성공적인 등록은 `Get-AzureAutomationDscNode` cmdlet을 사용하여 확인할 수 있습니다.
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=62-->

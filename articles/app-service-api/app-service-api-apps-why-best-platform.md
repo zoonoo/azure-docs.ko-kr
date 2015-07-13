@@ -18,49 +18,31 @@
 
 # API 앱 정의
 
-API 앱은 웹앱, 모바일 앱 및 논리 앱을 포함하는 [Azure 앱 서비스](../app-service/app-service-value-prop-what-is.md) 제품군의 일부입니다.
+API 앱은 클라우드 및 온-프레미스에서 API를 빌드, 호스팅, 사용 및 배포하기 위한 풍부한 플랫폼 및 에코 시스템을 제공합니다. 사용자의 API를 API 앱으로 배포하고 엔터프라이즈급 보안, 단순 액세스 제어, 하이브리드 및 SaaS 연결, 자동 SDK 생성, 그리고 [논리 앱](../app-service-logic/app-service-logic-what-are-logic-apps.md)과의 원활한 통합에서 이점을 얻을 수 있습니다.
+
+API 앱은 웹앱, 모바일 앱 및 논리 앱도 포함하는 [Azure 앱 서비스](../app-service/app-service-value-prop-what-is.md)의 일부입니다.
 
 ![](./media/app-service-api-apps-why-best-platform/appservicesuite.png)
 
-이 제품군의 API 앱 부분에서는 클라우드 및 온-프레미스에서 API를 빌드, 호스팅, 사용 및 배포하기 위한 풍부한 플랫폼 및 에코 시스템을 제공합니다.
-
->[AZURE.NOTE] [Azure API Management](/services/api-management/)는 끝점 통합 및 제한 등의 기능을 제공하는 별도의 서비스입니다. API 앱으로 API 관리를 사용할 수 있습니다.
->
->API 앱은 현재 공개 미리 보기로 제공됩니다. 글로벌 규모로 안전한 중요 업무용 응용 프로그램을 빌드 및 호스트하도록 설계된 GA(일반 공급) 서비스인 [앱 서비스 웹앱](../app-service-web/app-service-web-overview.md)을 기반으로 합니다. 현재 API를 빌드하기 위한 GA 서비스를 찾고 있는 경우 웹앱이 유용한 옵션입니다. API 앱이 GA로 전환되면 기존 웹 앱을 통해 API 앱의 기능을 활용할 수 있는 경로가 제공될 것입니다.
-
 ## API 앱을 사용하는 이유
 
-API 앱은 RESTful 웹 API를 개발, 배포, 게시, 사용, 관리 및 수익화하는 환경을 향상시키는 추가 기능이 있는 [앱 서비스 웹앱](../app-service-web/app-service-web-overview.md)입니다.
-
-### 웹 서비스에 대한 웹 앱 기능
-
-웹 서비스를 호스팅하는 웹 앱을 사용할 수 있으며, Azure 앱 서비스 플랫폼의 기능을 호스팅하는 모든 웹을 가져옵니다:
-
-- 자동 OS 패치
-- 엔터프라이즈급 보안
-- 고가용성
-- 자동 크기 조정 및 부하 분산
-- 후순위 처리용 [WebJobs](../app-service-web/websites-webjobs-resources.md)
-- 쉽고 빠른 배포 및 [다수의 연속 배달 옵션](../app-service-web/web-sites-deploy.md)
-- [하이브리드 연결](../integration-hybrid-connection-overview.md) 및 [VNET](../app-service-web/web-sites-integrate-with-vnet.md)를 사용하는 온-프레미스 데이터에 액세스.
-
-### 미리 보기에서 지금 사용 가능한 API 앱 기능
-
-웹 앱 대신 API 앱을 사용하여 웹 서비스를 호스팅하는 경우 앱 서비스가 추가 기능을 제공합니다.
+API 앱은 RESTful 웹 API 개발, 배포, 게시, 사용 및 관리를 위한 기능을 제공합니다. 앱 서비스는 공개 미리 보기에서 현재 사용할 수 있는 다음과 같은 기능을 제공합니다.
 
 - **쉽게 사용** - 통합된 [Swagger](http://swagger.io/) 지원을 통해 다양한 클라이언트가 쉽게 API를 사용할 수 있도록 합니다. API 앱 SDK는 C#, Java 및 Javascript를 비롯한 다양한 언어로 API용 클라이언트 코드를 생성할 수 있습니다.
 
-- **단순 액세스 제어** - 기본 제공 인증 서비스가 Azure Active Directory 또는 Facebook 및 Twitter와 같은 타사 서비스를 지원합니다. 코드를 변경하지 않고 API 앱을 인증되지 않은 액세스로부터 보호할 수 있습니다. [Azure 모바일 서비스](../mobile-services-windows-dotnet-how-to-use-client-library.md#authentication)가 제공하는 인증 서비스에 익숙한 경우, API 앱은 해당 프레임 워크에 빌드하고 스스로가 호스팅하는 웹 서비스로 확장합니다. 앱 서비스 SDK를 사용하면 권한 부여 코드에 대한 간단한 구문을 사용할 수 있습니다. 자세한 내용은 [API 앱 보호](app-service-api-dotnet-add-authentication.md)를 참조하세요.
+- **단순 액세스 제어** - 기본 제공 인증 서비스가 Azure Active Directory 또는 Facebook 및 Twitter와 같은 타사 서비스를 지원합니다. 코드를 변경하지 않고 API 앱을 인증되지 않은 액세스로부터 보호할 수 있습니다. [Azure 모바일 서비스](../mobile-services-windows-dotnet-how-to-use-client-library.md#authentication)가 제공하는 인증 서비스에 익숙한 경우, API 앱은 해당 프레임워크를 기반으로 API 앱에 의해 호스팅되는 API로 확장합니다. 앱 서비스 SDK를 사용하면 권한 부여 코드에 대한 간단한 구문을 사용할 수 있습니다. 자세한 내용은 [API 앱 보호](app-service-api-dotnet-add-authentication.md)를 참조하세요.
 
 - **쉽게 SaaS 플랫폼에 연결** - Azure 마켓플레이스의 [커넥터 API 앱](../app-service-logic/app-service-logic-what-are-biztalk-api-apps.md)은 SalesForce, Office 365, Twitter, Facebook, Dropbox 등과 상호 작용하기 위해 작성하는 코드를 단순화하기 위해 Microsoft 및 타사에서 제공됩니다.
 
-- **논리 앱과 통합** - 사용자가 만든 API 앱은 [앱 서비스 논리 앱](../app-service-logic/app-service-logic-what-are-logic-apps.md)을 통해 사용할 수 있습니다.
+- **논리 앱과 통합** - 사용자가 만드는 API 앱은 [앱 서비스 논리 앱](../app-service-logic/app-service-logic-what-are-logic-apps.md)을 통해 사용할 수 있습니다.
 
 - **Visual Studio 통합** - Visual Studio의 전용 도구는 API 앱을 [생성](app-service-dotnet-create-api-app.md), [배포](app-service-dotnet-deploy-api-app.md), [디버그](app-service-dotnet-remotely-debug-api-app) 및 관리하는 작업을 간소화합니다.
 
-기존 API를 가져올 수 있기에 이러한 모든 기능을 활용하여 기존 API의 코드 중 하나를 변경할 필요가 없습니다. API 앱에 코드를 배포하십시오. API에 ASP.NET, Java, PHP, Node.js 또는 Python을 사용할 수 있습니다.
+기존 API를 가져올 수 있으므로, API 앱 기능을 활용하기 위해 기존 API의 코드를 변경할 필요가 없습니다. 사용자의 코드를 API 앱에 배포하십시오. API에 ASP.NET, Java, PHP, Node.js 또는 Python을 사용할 수 있습니다.
 
-### 미리 보기에서 이후 사용 가능한 API 앱 기능
+또한 API 앱은 [앱 서비스 웹앱의 기능](../app-service-web/app-service-web-overview.md)도 포함합니다.
+
+### 이후 사용 가능한 API 앱 기능
 
 조만간 API 앱 플랫폼은 쉽게 코드를 공유할 수 있게 하여 진정한 API 에코 시스템도 만들 것입니다.
 
@@ -71,6 +53,10 @@ API 앱은 RESTful 웹 API를 개발, 배포, 게시, 사용, 관리 및 수익�
 - **자동 업데이트** - 공유한 API 앱 패키지 중 하나의 코드를 업데이트할 때 해당 API 앱을 설치하여 실행 중인 모든 사용자에게 업데이트를 푸시할 수 있습니다. 이 기능은 사소한 변경 및 업데이트 수신을 옵트인(opt in)한 사용자에 대해 작동합니다.
 
 공용 마켓플레이스 및 자동 업데이트와 같은 대부분의 기능은 Microsoft에서 제공하는 API 앱에 이미 사용할 수 있습니다.
+
+>[AZURE.NOTE] [Azure API Management](/services/api-management/)는 끝점 통합 및 제한 등의 기능을 제공하는 별도의 서비스입니다. API 앱으로 API 관리를 사용할 수 있습니다.
+>
+>API 앱은 현재 공개 미리 보기로 제공됩니다. 글로벌 규모로 안전한 중요 업무용 응용 프로그램을 빌드 및 호스트하도록 설계된 GA(일반 공급) 서비스인 [앱 서비스 웹앱](../app-service-web/app-service-web-overview.md)을 기반으로 합니다. 현재 API를 빌드하기 위한 GA 서비스를 찾고 있는 경우 웹앱이 유용한 옵션입니다. API 앱이 GA로 전환되면 기존 웹 앱을 통해 API 앱의 기능을 활용할 수 있는 경로가 제공될 것입니다.
 
 ## API 앱 개념 ##
 

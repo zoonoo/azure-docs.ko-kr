@@ -77,7 +77,7 @@ Blob 저장소는 기본적으로 여러 지역에 지리적으로 분산되어 
 
 원하는 작업.. | 사용 기능...
 ------------------------|-----------
-**사이트 부하 분산** 또는 **사이트 지리적으로 분산** | [Azure 트래픽 관리자로 트래픽 라우팅][trafficmanager](영문)
+**사이트 부하 분산** 또는 **사이트 지리적으로 분산** | [Azure 트래픽 관리자로 트래픽 라우팅][trafficmanager]
 **백업 및 복원** | [Azure 앱 서비스에서 웹앱 백업][backup] 및 [Azure 앱 서비스에서 웹앱 복원][restore]
 
 ####성능
@@ -190,7 +190,7 @@ WordPress 사이트가 만들어지거나 마이그레이션되면 다음 정보
 **전자 메일 사용** | <ol><li><p><a href="/gallery/store/sendgrid/sendgrid-azure/">Azure Store를 사용하여 SendGrid 사용</a></p></li><li><p><a href="http://wordpress.org/plugins/sendgrid-email-delivery-simplified/">WordPress용 SendGrid 플러그 인 설치</a></p></li></ol>
 **사용자 지정 도메인 이름 구성** | [Azure 앱 서비스에서 사용자 지정 도메인 이름 구성][customdomain]
 **사용자 지정 도메인 이름에 HTTPS 사용** | [Azure 앱 서비스에서 웹앱에 대한 HTTPS를 사용하도록 설정][httpscustomdomain]
-**사이트 부하 분산 또는 지리적으로 분산** | [Azure 트래픽 관리자로 트래픽 라우팅][trafficmanager](영문) 사용자 지정 도메인을 사용하는 경우 사용자 지정 도메인 이름으로 트래픽 관리자 사용에 대한 자세한 내용은 [Azure 앱 서비스에서 사용자 지정 도메인 이름 구성][customdomain]을 참조하세요.
+**사이트 부하 분산 또는 지리적으로 분산** | [Azure 트래픽 관리자로 트래픽 라우팅][trafficmanager] 사용자 지정 도메인을 사용하는 경우 사용자 지정 도메인 이름으로 트래픽 관리자 사용에 대한 자세한 내용은 [Azure 앱 서비스에서 사용자 지정 도메인 이름 구성][customdomain]을 참조하세요.
 **자동 백업 사용** | [Azure 앱 서비스에서 웹앱 백업][backup]
 **진단 로깅 사용** | [Azure 앱 서비스에서 웹앱에 대한 진단 로깅 설정][log]
 
@@ -222,7 +222,7 @@ WordPress 사이트가 만들어지거나 마이그레이션되면 다음 정보
 
 * [WordPress 블로그를 Azure로 이동 - 3부: 사용자 지정 도메인 설정](http://www.davebost.com/2013/07/11/moving-a-wordpress-blog-to-windows-azure-part-3-setting-up-your-custom-domain)
 
-* [깔WordPress 블로그를 Azure로 이동 - 4부: 깔끔한 고정 링크 및 URL 다시 쓰기 규칙](http://www.davebost.com/2013/07/11/moving-a-wordpress-blog-to-windows-azure-part-4-pretty-permalinks-and-url-rewrite-rules)
+* [WordPress 블로그를 Azure로 이동 - 4부: 깔끔한 고정 링크 및 URL 다시 쓰기 규칙](http://www.davebost.com/2013/07/11/moving-a-wordpress-blog-to-windows-azure-part-4-pretty-permalinks-and-url-rewrite-rules)
 
 * [WordPress 블로그를 Azure로 이동 - 5부: 하위 폴더에서 루트로 이동](http://www.davebost.com/2013/07/11/moving-a-wordpress-blog-to-windows-azure-part-5-moving-from-a-subfolder-to-the-root)
 

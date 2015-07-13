@@ -133,5 +133,6 @@ Umbraco CMS는 소규모 응용 프로그램에서 복잡한 응용 프로그램
 [15CreateItemUnderOverflow]: ./media/web-sites-gallery-umbraco/15CreateItemUnderOverflow.PNG
 [16EnterAName]: ./media/web-sites-gallery-umbraco/16EnterAName.PNG
 [17MyPage]: ./media/web-sites-gallery-umbraco/17MyPage.PNG
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/18/2015" 
+	ms.date="05/29/2015" 
 	ms.author="kempb"/>
 
 # Azure 클라우드 서비스의 지속적인 전송
@@ -24,15 +24,7 @@
 
 시작하기 전에 Visual Studio에서 응용 프로그램을 게시해야 합니다. 그러면 게시 프로세스를 자동화하려고 할 때 모든 리소스가 사용 가능하며 초기화됩니다.
 
-이 작업에는 다음 단계가 포함됩니다.
-
--   [1단계: 빌드 서버 구성][]
--   [2단계: MSBuild 명령을 사용하여 패키지 빌드][]
--   [3단계: TFS 팀 빌드를 사용하여 패키지 빌드(선택 사항)][]
--   [4단계: Powershell 스크립트를 사용하여 패키지 게시][]
--   [5단계: TFS 팀 빌드를 사용하여 패키지 게시(선택 사항)][]
-
-<h2> <a name="step1"> </a>1단계: 빌드 서버 구성</h2>
+## 1단계: 빌드 서버 구성
 
 MSBuild를 사용하여 Azure 패키지를 만들려면 먼저 필요한 소프트웨어 및 도구를 빌드 서버에 설치해야 합니다.
 
@@ -41,16 +33,16 @@ Visual Studio는 빌드 서버에 설치할 필요가 없습니다. Team Foundat
 1.  빌드 서버에 MSBuild가 포함된 [.NET Framework 4][], [.NET Framework 4.5][] 또는 [.NET Framework 4.5.2][]를 설치합니다.
 2.  [Azure 작성 도구][](영문)(빌드 서버의 프로세서에 따라 MicrosoftAzureAuthoringTools-x86.msi 또는 MicrosoftAzureAuthoringTools-x64.msi 검색)를 설치합니다. 이전 파일 버전에서는 파일 이름이 WindowsAzure일 수 있습니다.
 3. [Azure 라이브러리][](MicrosoftAzureLibsForNet-x86.msi 또는 MicrosoftAzureLibsForNet-x64.msi 검색)를 설치합니다.
-4.  Visual Studio 설치에서 Microsoft.WebApplication.targets 파일을 빌드 서버에 복사합니다. Visual Studio가 설치된 컴퓨터에서 이 파일은 C:\\Program Files (x86)\\MSBuild\\Microsoft\\VisualStudio\\v11.0\\WebApplications(Visual Studio 2013의 경우 v12.0) 디렉터리에 있습니다. 빌드 서버의 동일한 디렉터리에 해당 파일을 복사해야 합니다.
+4.  Visual Studio 설치에서 Microsoft.WebApplication.targets 파일을 빌드 서버에 복사합니다. Visual Studio가 설치된 컴퓨터에서 이 파일은 C:\Program Files (x86)\MSBuild\Microsoft\VisualStudio\v11.0\WebApplications(Visual Studio 2013의 경우 v12.0) 디렉터리에 있습니다. 빌드 서버의 동일한 디렉터리에 해당 파일을 복사해야 합니다.
 5.  [Azure Tools for Visual Studio][]를 설치합니다. Visual Studio 2012 프로젝트를 빌드하려면 MicrosoftAzureTools.VS110.exe를 검색하고, Visual Studio 2013 프로젝트를 빌드하려면 MicrosoftAzureTools.VS120.exe를 검색하고, Visual Studio 2015 Preview 프로젝트를 빌드하려면 MicrosoftAzureTools.VS140.exe를 검색합니다.
 
-<h2><a name="step2"> </a>2단계: MSBuild 명령을 사용하여 패키지 빌드</h2>
+## 2단계: MSBuild 명령을 사용하여 패키지 빌드
 
 이 섹션에서는 Azure 패키지를 빌드하는 MSBuild 명령 구성 방법에 대해 설명합니다. 빌드 서버에서 이 단계를 실행하여 모든 항목이 제대로 구성되어 있고 MSBuild 명령이 원하는 대로 수행되는지 확인합니다. 다음 섹션에 설명된 대로 이 명령줄을 빌드 서버의 기존 빌드 스크립트에 추가하거나 TFS 빌드 정의에서 명령줄을 사용할 수 있습니다. 명령줄 매개 변수 및 MSBuild에 대한 자세한 내용은 [MSBuild 명령줄 참조][]를 참조하세요.
 
 1.  Visual Studio가 빌드 서버에 설치되어 있는 경우 **시작**, **모든 프로그램**을 차례로 클릭하고 **Visual Studio 도구** 폴더에서 **Visual Studio 명령 프롬프트**를 찾아 클릭합니다.
 
-    Visual Studio가 빌드 서버에 설치되어 있지 않으면 명령 프롬프트를 열고 해당 경로에서 MSBuild.exe에 액세스할 수 있는지 확인합니다. MSBuild는 .NET Framework와 함께 %WINDIR%\\Microsoft.NET\\Framework*Version* 경로에 설치됩니다. 예를 들어 .NET Framework 4를 설치한 경우 PATH 환경 변수에 MSBuild.exe를 추가하려면 명령 프롬프트에서 다음 명령을 입력하세요.
+    Visual Studio가 빌드 서버에 설치되어 있지 않으면 명령 프롬프트를 열고 해당 경로에서 MSBuild.exe에 액세스할 수 있는지 확인합니다. MSBuild는 .NET Framework와 함께 %WINDIR%\Microsoft.NET\Framework*Version* 경로에 설치됩니다. 예를 들어 .NET Framework 4를 설치한 경우 PATH 환경 변수에 MSBuild.exe를 추가하려면 명령 프롬프트에서 다음 명령을 입력하세요.
 
         set PATH=%PATH%;"C:\Windows\Microsoft.NET\Framework\v4.0.30319"
 
@@ -64,7 +56,7 @@ Visual Studio는 빌드 서버에 설치할 필요가 없습니다. Team Foundat
 
     선택적으로 프로젝트 이름을 MSBuild 매개 변수로 지정할 수 있습니다. 지정하지 않으면 현재 디렉터리가 사용됩니다. MSBuild 명령줄 옵션에 대한 자세한 내용은 [MSBuild 명령줄 참조][1]를 참조하세요.
 
-4.  출력을 찾습니다. 기본적으로 이 명령은 프로젝트의 루트 폴더를 기준으로 디렉터리를 만듭니다(예: *ProjectDir*\\bin*Configuration*\\app.publish). Azure 프로젝트를 빌드하면 패키지 파일 자체와 함께 제공되는 구성 파일의 두 파일이 생성됩니다.
+4.  출력을 찾습니다. 기본적으로 이 명령은 프로젝트의 루트 폴더를 기준으로 디렉터리를 만듭니다(예: *ProjectDir*\bin*Configuration*\app.publish). Azure 프로젝트를 빌드하면 패키지 파일 자체와 함께 제공되는 구성 파일의 두 파일이 생성됩니다.
 
     -   Project.cspkg
     -   ServiceConfiguration.*TargetProfile*.cscfg
@@ -75,19 +67,19 @@ Visual Studio는 빌드 서버에 설치할 필요가 없습니다. Team Foundat
 
         MSBuild /t:Publish /p:TargetProfile=Cloud
 
-6.  출력의 위치를 지정합니다. 다음 예제와 같이 뒤에 오는 백슬래시 구분 기호를 포함하여 /p:PublishDir=*Directory*\\ 옵션으로 경로를 설정합니다.
+6.  출력의 위치를 지정합니다. 다음 예제와 같이 뒤에 오는 백슬래시 구분 기호를 포함하여 /p:PublishDir=*Directory*\ 옵션으로 경로를 설정합니다.
 
-        MSBuild /target:Publish /p:PublishDir=\\myserver\drops\
+        MSBuild /target:Publish /p:PublishDir=\myserver\drops\
 
     적절한 MSBuild 명령줄을 구성하고 테스트하여 프로젝트를 빌드하고 Azure 패키지로 결합했으면 이 명령줄을 빌드 스크립트에 추가할 수 있습니다. 빌드 서버에서 사용자 지정 스크립트를 사용하는 경우 이 프로세스는 사용자 지정 빌드 프로세스의 세부 사항에 따라 달라집니다. TFS를 빌드 환경으로 사용하는 경우 다음 단계의 지침에 따라 Azure 패키지 빌드를 빌드 프로세스에 추가할 수 있습니다.
 
-<h2> <a name="step3"> </a>3단계: TFS 팀 빌드를 사용하여 패키지 빌드(선택 사항)</h2>
+## 3단계: TFS 팀 빌드를 사용하여 패키지 빌드(선택 사항)
 
 TFS(Team Foundation Server)를 빌드 컨트롤러로 설정하고 빌드 서버를 TFS 빌드 컴퓨터로 설정한 경우 Azure 패키지에 대해 자동화된 빌드를 설정할 수 있습니다. Team Foundation Server를 빌드 시스템으로 설정하고 사용하는 방법에 대한 자세한 내용은 [Team Foundation 빌드 시스템 이해][](영문)를 참조하세요. 특히 다음 절차에서는 빌드 서버를 [빌드 컴퓨터 구성][](영문)에 설명된 대로 구성했고, 팀 프로젝트를 만들고 팀 프로젝트에 클라우드 서비스를 만들었다고 가정합니다.
 
 Azure 패키지를 빌드하도록 TFS를 구성하려면 다음 단계를 수행하세요.
 
-1.  개발 컴퓨터의 Visual Studio 보기 메뉴에서 **팀 탐색기**를 선택하거나 Ctrl+\\, Ctrl+M을 선택합니다. 팀 탐색기 창에서 **빌드** 노드를 확장하거나 **빌드** 페이지를 선택하고 **새 빌드 정의**를 선택합니다.
+1.  개발 컴퓨터의 Visual Studio 보기 메뉴에서 **팀 탐색기**를 선택하거나 Ctrl+\, Ctrl+M을 선택합니다. 팀 탐색기 창에서 **빌드** 노드를 확장하거나 **빌드** 페이지를 선택하고 **새 빌드 정의**를 선택합니다.
 
     ![][0]
 
@@ -99,7 +91,7 @@ Azure 패키지를 빌드하도록 TFS를 구성하려면 다음 단계를 수�
 
 5.  **프로세스** 탭을 클릭합니다. 프로세스 탭에서 기본 템플릿을 선택하고 **빌드**에서 프로젝트를 선택한 다음(선택되지 않은 경우) 표의 **빌드** 섹션에서 **고급** 섹션을 확장합니다.
 
-6.  **MSBuild Arguments**를 선택하고 위의 2단계에서 설명한 대로 적절한 MSBuild 명령줄 인수를 설정합니다. 예를 들어 패키지를 빌드하고 패키지 파일을 \\\\myserver\\drops\\ 위치에 복사하려면 **/t:Publish /p:PublishDir=\\\\myserver\\drops**를 입력합니다.
+6.  **MSBuild Arguments**를 선택하고 위의 2단계에서 설명한 대로 적절한 MSBuild 명령줄 인수를 설정합니다. 예를 들어 패키지를 빌드하고 패키지 파일을 \\myserver\drops\ 위치에 복사하려면 **/t:Publish /p:PublishDir=\\myserver\drops**를 입력합니다.
 
     ![][2]
 
@@ -107,7 +99,7 @@ Azure 패키지를 빌드하도록 TFS를 구성하려면 다음 단계를 수�
 
 5.  프로젝트의 변경 내용을 체크 인하여 빌드 단계의 성공 여부를 테스트하거나 새 빌드를 큐에 대기시킵니다. 새 빌드를 큐에 대기시키려면 팀 탐색기에서 **모든 빌드 정의**를 마우스 오른쪽 단추로 클릭한 다음 **새 빌드 큐 대기**를 선택합니다.
 
-<h2> <a name="step4"> </a>4단계: Powershell 스크립트를 사용하여 패키지 게시</h2>
+## 4단계: Powershell 스크립트를 사용하여 패키지 게시
 
 이 섹션에서는 선택적 매개 변수를 사용하여 클라우드 앱 패키지 출력을 Azure에 게시할 Windows PowerShell 스크립트를 구성하는 방법에 대해 설명합니다. 이 스크립트는 사용자 지정 빌드 자동화의 빌드 단계 후에 호출할 수 있으며, Visual Studio TFS 팀 빌드의 프로세스 템플릿 워크플로 작업에서 호출할 수도 있습니다.
 
@@ -121,7 +113,7 @@ Azure 패키지를 빌드하도록 TFS를 구성하려면 다음 단계를 수�
 
 4.  .publishsettings 파일에서 구독 정보를 가져와 Azure 구독에 연결할 수 있는지 확인합니다.
 
-    Import-AzurePublishSettingsFile c:\\scripts\\WindowsAzure\\default.publishsettings
+    Import-AzurePublishSettingsFile c:\scripts\WindowsAzure\default.publishsettings
 
     그런 다음 명령을 제공합니다.
 
@@ -129,7 +121,7 @@ Azure 패키지를 빌드하도록 TFS를 구성하려면 다음 단계를 수�
 
     그러면 구독에 대한 정보가 표시됩니다. 모든 정보가 올바른지 확인합니다.
 
-4.  [이 문서의 끝][]에 제공된 스크립트 템플릿을 c:\\scripts\\WindowsAzure**PublishCloudService.ps1**로 스크립트 폴더에 저장합니다.
+4.  [이 문서의 끝][]에 제공된 스크립트 템플릿을 c:\scripts\WindowsAzure**PublishCloudService.ps1**로 스크립트 폴더에 저장합니다.
 
 5.  스크립트의 매개 변수 섹션을 검토합니다. 기본값을 추가하거나 수정합니다. 이러한 값은 명시적 매개 변수를 전달하여 언제든지 재정의할 수 있습니다.
 
@@ -175,7 +167,7 @@ Azure 패키지를 빌드하도록 TFS를 구성하려면 다음 단계를 수�
 
         Add-AzureCertificate -serviceName 'mytestcloudservice' -certToDeploy (get-item cert:\CurrentUser\MY\C33B6C432C25581601B84C80F86EC2809DC224E8
 
-    또는 개인 키로 인증서 파일 PFX를 내보내고 Azure 관리 포털을 사용하여 각 대상 클라우드 서비스에 인증서를 업로드할 수 있습니다. 자세한 내용은 [http://msdn.microsoft.com/library/windowsazure/gg443832.aspx][]에서 확인할 수 있습니다.
+    또는 개인 키로 인증서 파일 PFX를 내보내고 Azure 관리 포털을 사용하여 각 대상 클라우드 서비스에 인증서를 업로드할 수 있습니다. 자세한 내용은 [http://msdn.microsoft.com/library/windowsazure/gg443832.aspx][]에서 확인할 수 있습니다..
 
     **배포 업그레이드 및 배포 삭제 -> 새 배포**
 
@@ -185,7 +177,7 @@ Azure 패키지를 빌드하도록 TFS를 구성하려면 다음 단계를 수�
 
     **경고:** 스크립트는 기존 배포가 검색될 경우 기본적으로 항상 삭제하거나 대체합니다. 사용자에게 확인할 수 없는 경우 자동화에서 지속적인 전송을 사용하도록 설정해야 합니다.
 
-<h2><a name="step5"> </a>5단계: TFS 팀 빌드를 사용하여 패키지 게시(선택 사항)</h2>
+## 5단계: TFS 팀 빌드를 사용하여 패키지 게시(선택 사항)
 
 이 단계에서는 TFS 팀 빌드를 4단계에서 만든 스크립트에 연결하여 Azure에 패키지 빌드 게시를 처리합니다. 그런 다음 빌드 정의에서 사용하는 프로세스 템플릿을 수정하여 워크플로가 끝날 때 게시 작업이 실행되도록 합니다. 게시 작업에서는 빌드에서 매개 변수를 전달하는 PowerShell 명령을 실행합니다. MSBuild 대상 및 게시 스크립트의 출력은 표준 빌드 출력에 연결됩니다.
 
@@ -333,11 +325,11 @@ Azure 패키지를 빌드하도록 TFS를 구성하려면 다음 단계를 수�
 
 9.  기타 섹션에서 매개 변수 속성 값을 다음과 같이 설정합니다.
 
-    1.  CloudConfigLocation ='c:\\drops\\app.publish\\ServiceConfiguration.Cloud.cscfg' *이 값의 파생 위치: ($PublishDir)ServiceConfiguration.Cloud.cscfg*
+    1.  CloudConfigLocation ='c:\drops\app.publish\ServiceConfiguration.Cloud.cscfg' *이 값의 파생 위치: ($PublishDir)ServiceConfiguration.Cloud.cscfg*
 
-    2.  PackageLocation = 'c:\\drops\\app.publish\\ContactManager.Azure.cspkg' *이 값의 파생 위치: ($PublishDir)($ProjectName).cspkg*
+    2.  PackageLocation = 'c:\drops\app.publish\ContactManager.Azure.cspkg' *이 값의 파생 위치: ($PublishDir)($ProjectName).cspkg*
 
-    3.  PublishScriptLocation = 'c:\\scripts\\WindowsAzure\\PublishCloudService.ps1'
+    3.  PublishScriptLocation = 'c:\scripts\WindowsAzure\PublishCloudService.ps1'
 
     4.  ServiceName = 'mycloudservicename' *여기에 적절한 클라우드 서비스 이름 사용*
 
@@ -345,7 +337,7 @@ Azure 패키지를 빌드하도록 TFS를 구성하려면 다음 단계를 수�
 
     6.  StorageAccountName = 'mystorageaccountname' *여기에 적절한 저장소 계정 이름 사용*
 
-    7.  SubscriptionDataFileLocation = 'c:\\scripts\\WindowsAzure\\Subscription.xml'
+    7.  SubscriptionDataFileLocation = 'c:\scripts\WindowsAzure\Subscription.xml'
 
     8.  SubscriptionName = 'default'
 
@@ -355,7 +347,7 @@ Azure 패키지를 빌드하도록 TFS를 구성하려면 다음 단계를 수�
 
 11. 빌드를 큐에 대기시켜 패키지 빌드와 게시를 모두 실행합니다. 트리거를 지속적인 통합으로 설정한 경우 이 동작이 체크 인할 때마다 실행됩니다.
 
-### <a name="script"> </a>PublishCloudService.ps1 스크립트 템플릿
+### PublishCloudService.ps1 스크립트 템플릿
 
 <pre>
 Param(  $serviceName = "",
@@ -563,31 +555,28 @@ Write-Output "$(Get-Date -f $timeStampFormat) - Azure Cloud Service deploy scrip
 
 지속적인 전송을 사용할 때 원격 디버깅을 사용하도록 설정하려면 [관련 지침](http://go.microsoft.com/fwlink/p/?LinkID=402354)을 참조하세요.
 
-[Visual Studio Online을 사용하여 Azure에 지속적으로 전송]: cloud-services-continuous-delivery-use-vso.md
-[1단계: 빌드 서버 구성]: #step1
-[2단계: MSBuild 명령을 사용하여 패키지 빌드]: #step2
-[3단계: TFS 팀 빌드를 사용하여 패키지 빌드(선택 사항)]: #step3
-[4단계: Powershell 스크립트를 사용하여 패키지 게시]: #step4
-[5단계: TFS 팀 빌드를 사용하여 패키지 게시(선택 사항)]: #step5
-[Team Foundation Build Service]: http://go.microsoft.com/fwlink/p/?LinkId=239963
-[.NET Framework 4]: http://go.microsoft.com/fwlink/?LinkId=239538
-[.NET Framework 4.5]: http://go.microsoft.com/fwlink/?LinkId=245484
-[.NET Framework 4.5.2]: http://go.microsoft.com/fwlink/?LinkId=521668
-[Azure 작성 도구]: http://go.microsoft.com/fwlink/?LinkId=239600
-[Azure 라이브러리]: http://go.microsoft.com/fwlink/?LinkId=257862
-[Azure Tools for Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=257862
-[MSBuild 명령줄 참조]: http://msdn.microsoft.com/library/ms164311(v=VS.90).aspx
-[1]: http://go.microsoft.com/fwlink/p/?LinkId=239966
-[Team Foundation 빌드 시스템 이해]: http://go.microsoft.com/fwlink/?LinkId=238798
-[빌드 컴퓨터 구성]: http://go.microsoft.com/fwlink/?LinkId=238799
-[0]: ./media/cloud-services-dotnet-continuous-delivery/tfs-01.png
-[2]: ./media/cloud-services-dotnet-continuous-delivery/tfs-02.png
-[Azure PowerShell cmdlet]: http://go.microsoft.com/fwlink/?LinkId=256262
-[the .publishsettings file]: https://manage.windowsazure.com/download/publishprofile.aspx?wa=wsignin1.0
-[이 문서의 끝]: #script
-[3]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-03.png
-[4]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-04.png
-[5]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-05.png
-[6]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-06.png
+  [Visual Studio Online을 사용하여 Azure에 지속적으로 전송]: cloud-services-continuous-delivery-use-vso.md
+  [Team Foundation Build Service]: http://go.microsoft.com/fwlink/p/?LinkId=239963
+  [.NET Framework 4]: http://go.microsoft.com/fwlink/?LinkId=239538
+  [.NET Framework 4.5]: http://go.microsoft.com/fwlink/?LinkId=245484
+  [.NET Framework 4.5.2]: http://go.microsoft.com/fwlink/?LinkId=521668
+  [Azure 작성 도구]: http://go.microsoft.com/fwlink/?LinkId=239600
+  [Azure 라이브러리]: http://go.microsoft.com/fwlink/?LinkId=257862
+  [Azure Tools for Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=257862
+  [MSBuild 명령줄 참조]: http://msdn.microsoft.com/library/ms164311(v=VS.90).aspx
+  [1]: http://go.microsoft.com/fwlink/p/?LinkId=239966
+  [Team Foundation 빌드 시스템 이해]: http://go.microsoft.com/fwlink/?LinkId=238798
+  [빌드 컴퓨터 구성]: http://go.microsoft.com/fwlink/?LinkId=238799
+  [0]: ./media/cloud-services-dotnet-continuous-delivery/tfs-01.png
+  [2]: ./media/cloud-services-dotnet-continuous-delivery/tfs-02.png
+  [Azure PowerShell cmdlet]: http://go.microsoft.com/fwlink/?LinkId=256262
+  [the .publishsettings file]: https://manage.windowsazure.com/download/publishprofile.aspx?wa=wsignin1.0
+  [이 문서의 끝]: #script
+  
+  [3]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-03.png
+  [4]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-04.png
+  [5]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-05.png
+  [6]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-06.png
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

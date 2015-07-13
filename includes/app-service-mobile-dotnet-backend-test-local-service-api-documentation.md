@@ -7,7 +7,7 @@
 
 	 ![작업 표시줄에서 모바일 서비스 확인](./media/mobile-services-dotnet-backend-test-local-service-api-documentation/iis-express-tray.png)
 
-3. .NET 백 엔드시작 페이지에서 **체험**을 클릭합니다.
+3. .NET 백 엔드 시작 페이지에서 **체험**을 클릭합니다.
 
     그러면 표시되는 API 설명서 페이지에서 모바일 앱을 테스트할 수 있습니다.
 

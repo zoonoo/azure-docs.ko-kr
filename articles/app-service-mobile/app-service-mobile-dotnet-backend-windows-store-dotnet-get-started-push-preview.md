@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/16/2015" 
+	ms.date="06/18/2015" 
 	ms.author="yuaxu"/>
 
 # Windows 범용 앱에 푸시 알림 추가
@@ -35,7 +35,7 @@
 이 자습서를 완료하려면 다음이 필요합니다.
 
 * 활성 [Microsoft 스토어 계정](http://go.microsoft.com/fwlink/p/?LinkId=280045)
-* <a href="https://go.microsoft.com/fwLink/p/?LinkID=391934" target="_blank">Visual Studio Community 2013</a>
+* <a href="https://go.microsoft.com/fwLink/p/?LinkID=391934" target="_blank">Visual Studio Community 2013</a>.
 
 ##<a id="register"></a>푸시 알림에 대해 앱 등록
 
@@ -65,7 +65,7 @@ Azure 앱 서비스를 사용하여 Windows 범용 앱에 푸시 알림을 전�
 
     이렇게 하면 필요한 Windows 스토어 등록 정보가 응용 프로그램 매니페스트에 추가됩니다.
 
-7. (옵션) Windows Phone 스토어 앱 프로젝트에 대해 4\~6단계를 반복합니다.
+7. (옵션) Windows Phone 스토어 앱 프로젝트에 대해 4~6단계를 반복합니다.
 
 7. 새 앱의 Windows 개발자 센터 페이지로 돌아가서 **Services**를 클릭합니다.
 
@@ -190,4 +190,5 @@ Azure 앱 서비스를 사용하여 Windows 범용 앱에 푸시 알림을 전�
 
 <!-- URLs. -->
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-<!--HONumber=54--> 
+
+<!---HONumber=62-->

@@ -1,20 +1,3 @@
-<properties 
-   pageTitle="Azure 관리 포털에서 업데이트 1 설치"
-   description="StorSimple 8000 시리즈 업데이트 1을 설치하기 위해 관리 포털을 사용하는 방법에 대해 설명합니다."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="05/22/2015"
-   ms.author="v-sharos" />
-
 #### 관리 포털에서 업데이트 1을 설치하려면
 
 1. StorSimple 서비스 페이지에서 장치를 선택합니다. **장치** > **유지 관리**로 이동합니다.
@@ -61,4 +44,4 @@
 
     ![유지 관리 페이지](./media/storsimple-install-update-via-portal/HCS_SoftwareUpdates7-include.png)
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

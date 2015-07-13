@@ -15,9 +15,9 @@
 	ms.date="04/13/2015" 
 	ms.author="heidist"/>
 
-<h1>Azure 검색 개발자 사례 연구</h1>
+# Azure 검색 개발자 사례 연구
 
-<font size="5">[WhatToPedia.com](http://whattopedia.com/)이 Microsoft Azure에서 정보 미디어 포털을 구축한 방법</font>
+## [WhatToPedia.com](http://whattopedia.com/)이 Microsoft Azure에서 정보 미디어 포털을 구축한 방법
 
  ![][6] &nbsp;&nbsp;&nbsp; <font size="9">주요 개념</font>
 
@@ -419,5 +419,6 @@ Azure 검색만 놀라움을 선사한 것이 아니었습니다. 우리는 WebJ
 [Link 1 to another azure.microsoft.com documentation topic]: ../virtual-machines-windows-tutorial.md
 [Link 2 to another azure.microsoft.com documentation topic]: ../web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

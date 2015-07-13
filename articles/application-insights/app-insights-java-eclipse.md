@@ -15,12 +15,12 @@
 	ms.date="03/03/2015" 
 	ms.author="awills"/>
  
-#Eclipse에서 Java를 사용하여 Application Insights 시작하기
+# Eclipse에서 Java를 사용하여 Application Insights 시작하기
 
 Application Insights SDK가 Java 웹 응용 프로그램에서 원격 분석을 전송하므로 사용량 및 성능을 분석할 수 있습니다. Application Insights용 Eclipse 플러그인이 프로젝트에 SDK를 자동으로 설치하므로 기본 원격 분석을 이용할 수 있을 뿐 아니라 사용자 지정 원격 분석 작성에 사용할 수 있습니다.
 
 
-##필수 조건
+## 필수 조건
 
 현재 플러그인은 Eclipse에서 동적 웹 프로젝트를 위해 동작합니다. ([다른 유형의 Java 프로젝트에 Application Insights를 추가합니다][java].)
 
@@ -31,7 +31,7 @@ Application Insights SDK가 Java 웹 응용 프로그램에서 원격 분석을 
 * [Java EE Developers용 Eclipse IDE](http://www.eclipse.org/downloads/), Indigo 이상.
 * Windows 7 이상 또는 Windows Server 2008 이상
 
-##Eclipse에 SDK를 설치합니다(한 번).
+## Eclipse에 SDK를 설치합니다(한 번).
 
 컴퓨터당 한 번씩만 수행해야 합니다. 이 단계는 SDK를 각 동적 웹 프로젝트에 추가할 수 있는 도구 키트를 설치합니다.
 
@@ -46,7 +46,7 @@ Application Insights SDK가 Java 웹 응용 프로그램에서 원격 분석을 
 
 각 Java 프로젝트에 대한 나머지 단계를 따릅니다.
 
-##Application Insights 계측 키 가져오기
+## Application Insights 계측 키 가져오기
 
 사용량 및 성능 분석은 Azure 웹 포털의 Azure 리소스에 표시됩니다. 이 단계에서는 응용 프로그램에 대한 Azure 리소스를 설정합니다.
 
@@ -61,7 +61,7 @@ Application Insights SDK가 Java 웹 응용 프로그램에서 원격 분석을 
 
     ![새 리소스 개요에서 속성을 클릭하고 계측 키 복사](./media/app-insights-java-eclipse/03-key.png)
 
-##Java 프로젝트에 SDK 추가
+## Java 프로젝트에 SDK 추가
 
 1. 웹 프로젝트의 상황에 맞는 메뉴에서 Application Insights를 추가합니다.
 
@@ -73,7 +73,7 @@ Application Insights SDK가 Java 웹 응용 프로그램에서 원격 분석을 
 
 키는 원격 분석의 모든 항목과 함께 전송되고 리소스에서 표시하도록 Application Insights에 알려줍니다.
 
-##응용 프로그램을 실행하고 메트릭을 참조하세요.
+## 응용 프로그램을 실행하고 메트릭을 참조하세요.
 
 응용 프로그램을 실행합니다.
 
@@ -98,7 +98,7 @@ HTTP 요청 데이터가 개요 블레이드에 표시됩니다. (없는 경우 
 ![이 요청에 대한 모든 추적](./media/app-insights-java-eclipse/7-instance.png)
 
 
-##클라이언트쪽 원격 분석
+## 클라이언트쪽 원격 분석
 
 개요 블레이드의 퀵 스타트에서 웹 페이지에 추가할 스크립트를 가져올 수 있습니다.
 
@@ -108,7 +108,7 @@ HTTP 요청 데이터가 개요 블레이드에 표시됩니다. (없는 경우 
 
 [클라이언트쪽 원격 분석 설정에 대해 자세히 알아봅니다.][usage]
 
-##가용성 웹 테스트
+## 가용성 웹 테스트
 
 Application Insights는 일정한 간격으로 웹 사이트를 테스트하여 잘 실행되며 제대로 응답하는지 확인할 수 있습니다. 개요 블레이드에서 빈 웹 테스트 차트를 클릭하고 공용 URL을 제공합니다.
 
@@ -118,13 +118,13 @@ Application Insights는 일정한 간격으로 웹 사이트를 테스트하여 
 
 [가용성 웹 테스트에 대한 자세히 알아봅니다.][availability]
 
-##진단 로그
+## 진단 로그
 
 추적에 Logback 또는 Log4J(v1.2 또는 v2.0)를 사용하는 경우 추적 로그를 탐색 및 검색할 수 있는 Application Insights에 추적 로그를 자동으로 전송할 수 있습니다.
 
 [진단 검색에 대해 자세히 알아보기][javalogs]
 
-##사용자 지정 원격 분석 
+## 사용자 지정 원격 분석 
 
 Java 웹 응용 프로그램에 몇 줄의 코드를 삽입하여 이를 사용하여 해당 작업을 수행하는 사용자를 확인하거나 진단 문제를 지원합니다.
 
@@ -134,16 +134,16 @@ Java 웹 응용 프로그램에 몇 줄의 코드를 삽입하여 이를 사용�
 
 
 
-##다음 단계
+## 다음 단계
 
-####문제 감지 및 진단
+#### 문제 감지 및 진단
 
 * [웹 클라이언트 원격 분석을 추가][usage]하여 웹 클라이언트에서 성능 원격 분석을 가져올 수 있습니다.
 * [웹 테스트를 설정][availability]하여 응용 프로그램이 라이브 상태로 유지되며 응답하는지 확인할 수 있습니다.
 * [이벤트 및 로그를 검색][diagnostic]하여 문제를 진단할 수 있습니다.
 * [Log4J 또는 Logback 추적 캡처][javalogs]
 
-####사용 현황 추적
+#### 사용 현황 추적
 
 * [웹 클라이언트 원격 분석을 추가][usage]하여 페이지 보기 및 기본 사용자 메트릭을 모니터링할 수 있습니다.
 * [사용자 지정 이벤트 및 메트릭을 추적][track]하여 클라이언트와 서버에서 응용 프로그램이 어떻게 사용되는지 알아볼 수 있습니다.
@@ -159,5 +159,6 @@ Java 웹 응용 프로그램에 몇 줄의 코드를 삽입하여 이를 사용�
 [track]: app-insights-custom-events-metrics-api.md
 [usage]: app-insights-web-track-usage.md
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

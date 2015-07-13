@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="03/24/2015"
+	ms.date="06/24/2015"
 	ms.author="tomfitz"/>
 
 #Azure 앱 서비스 웹 앱에서 PHP 구성
@@ -40,30 +40,30 @@ PHP 5.5 및 PHP 5.6 버전 사용할 수 있지만 기본적으로 이는 사용
 3. **웹앱 설정** 블레이드의 위쪽에서 **저장** 단추를 클릭합니다.
 
 	![구성 설정 저장][save-button]
-	
+
 ### Azure PowerShell(Windows)
 
 1. Windows PowerShell을 엽니다.
 2. `Set-AzureWebsite -PhpVersion [5.4 | 5.5 | 5.6] -Name <site-name>`을 입력하고 Enter 키를 누릅니다.
 3. PHP 버전이 설정되었습니다.
-	
+
 	![Azure PowerShell을 사용하여 PHP 버전 설정][SETPHPVERPS]
 4. `Get-AzureWebiste -Name <site-name>`을 입력하여 이러한 설정을 확인한 후 Enter 키를 누릅니다.
-	
+
 	![Azure PowerShell을 사용하여 PHP 버전 확인][GETPHPVERPS]
 
 ### Azure 명령줄 인터페이스(Linux, Mac, Windows)
 
->[Azure.Note]Azure 명령줄 인터페이스를 사용하려면 **Node.js**를 컴퓨터에 설치해야 합니다.
+Azure 명령줄 인터페이스를 사용하려면 **Node.js**를 컴퓨터에 설치해야 합니다.
 
 1. 터미널을 엽니다.
 2. `azure site set --php-version [5.4 | 5.5] [site-name]`을 입력하고 Enter 키를 누릅니다.
 3. PHP 버전이 설정되었습니다.
-	
-	![Azure 명령줄 인터페이스를 사용하여 PHP 버전 설정][SETPHPVERXPLAT]
+
+	![Azure 명령줄 인터페이스를 사용하여 PHP 버전 설정][SETPHPVERCLI]
 4. `azure site show [site-name]`을 입력하여 이러한 설정을 확인한 후 Enter 키를 누릅니다.
-	
-	![Azure 명령줄 인터페이스를 사용하여 PHP 버전 확인][GETPHPVERXPLAT]
+
+	![Azure 명령줄 인터페이스를 사용하여 PHP 버전 확인][GETPHPVERCLI]
 
 ## 방법: 기본 제공 PHP 구성 변경
 
@@ -120,7 +120,7 @@ PHP 5.5 및 PHP 5.6 버전 사용할 수 있지만 기본적으로 이는 사용
 	![웹앱 설정][settings-button]
 
 5. **설정** 블레이드에서 **응용 프로그램 설정**을 선택하고 **앱 설정** 섹션으로 스크롤합니다.
-6. **앱 설정** 섹션에서 **PHP_EXTENSIONS** 키를 만듭니다. 이 키의 값은 웹 사이트 루트 **bin\\your-ext-file**에 상대적인 경로입니다.
+6. **앱 설정** 섹션에서 **PHP_EXTENSIONS** 키를 만듭니다. 이 키의 값은 웹 사이트 루트 **bin\your-ext-file**에 상대적인 경로입니다.
 
 	![앱 설정의 확장 사용][php-extensions]
 
@@ -151,7 +151,7 @@ PHP 5.5 및 PHP 5.6 버전 사용할 수 있지만 기본적으로 이는 사용
 
 	![구성 설정 저장][save-button]
 
->[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 시작 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+>[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
 ## 변경된 내용
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.
@@ -170,9 +170,10 @@ PHP 5.5 및 PHP 5.6 버전 사용할 수 있지만 기본적으로 이는 사용
 [handler-mappings]: ./media/web-sites-php-configure/handler-mappings.png
 [http://windows.php.net/download/]: http://windows.php.net/download/
 [http://windows.php.net/downloads/releases/archives/]: http://windows.php.net/downloads/releases/archives/
-[SETPHPVERXPLAT]: ./media/web-sites-php-configure/ChangePHPVersion-XPlatCLI.png
-[GETPHPVERXPLAT]: ./media/web-sites-php-configure/ShowPHPVersion-XplatCLI.png
+[SETPHPVERCLI]: ./media/web-sites-php-configure/ChangePHPVersion-XPlatCLI.png
+[GETPHPVERCLI]: ./media/web-sites-php-configure/ShowPHPVersion-XplatCLI.png
 [SETPHPVERPS]: ./media/web-sites-php-configure/ChangePHPVersion-PS.png
 [GETPHPVERPS]: ./media/web-sites-php-configure/ShowPHPVersion-PS.png
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

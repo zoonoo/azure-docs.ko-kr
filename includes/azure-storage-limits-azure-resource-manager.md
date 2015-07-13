@@ -1,14 +1,16 @@
 <table cellspacing="0" border="1">
 <tr>
-   <th align="left" valign="middle">Resource</th>
-   <th align="left" valign="middle">Default Limit</th>
+   <th align="left" valign="middle">리소스</th>
+   <th align="left" valign="middle">기본 제한</th>
 </tr>
 <tr>
-   <td valign="middle"><p>Storage account management operations (read)</p></td>
-   <td valign="middle"><p>800 per 5 minutes</p></td>
+   <td valign="middle"><p>저장소 계정 관리 작업(읽기)</p></td>
+   <td valign="middle"><p>5분당 800</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p>Storage account management operations (write)</p></td>
-   <td valign="middle"><p>200 per hour</p></td>
+   <td valign="middle"><p>저장소 계정 관리 작업(쓰기)</p></td>
+   <td valign="middle"><p>시간당 200</p></td>
 </tr>
 </table>
+
+<!---HONumber=62-->

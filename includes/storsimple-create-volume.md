@@ -1,20 +1,3 @@
-<properties 
-   pageTitle="볼륨 만들기"
-   description="StorSimple 장치에 볼륨을 추가하는 방법에 대해 설명합니다."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="04/28/15"
-   ms.author="v-sharos" />
-
 #### 볼륨을 만들려면
 
 1. 장치 **퀵 스타트** 페이지에서 클릭 **볼륨 추가**를 클릭합니다. 추가 볼륨 마법사가 시작됩니다.
@@ -38,4 +21,4 @@
 
 4. 확인 아이콘![확인 아이콘](./media/storsimple-create-volume/HCS_CheckIcon-include.png)을 클릭합니다. 지정한 설정으로 볼륨이 만들어집니다.
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

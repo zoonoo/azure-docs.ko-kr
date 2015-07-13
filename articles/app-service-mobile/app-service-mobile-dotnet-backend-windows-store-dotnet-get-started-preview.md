@@ -12,8 +12,8 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
-	ms.topic="hero-article"
-	ms.date="02/24/2015"
+	ms.topic="get-started-article"
+	ms.date="06/16/2015"
 	ms.author="chrande"/>
 
 
@@ -46,15 +46,15 @@
 
 2. 블레이드 맨 위에서 **클라이언트 추가**를 클릭하고 **Windows(C#)**를 확장합니다.
 
-   ![모바일 앱 빠른 시작 단계](./media/app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview/windows-quickstart.png)
+    ![모바일 앱 빠른 시작 단계](./media/app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview/windows-quickstart.png)
 
-   모바일 앱 백 엔드에 연결된 Windows 스토어 앱을 만들기 위한 쉬운 3단계가 표시됩니다.
+    모바일 앱 백 엔드에 연결된 Windows 스토어 앱을 만들기 위한 쉬운 3단계가 표시됩니다.
 
 3. 아직 하지 않은 경우 로컬 컴퓨터나 가상 컴퓨터에 <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a>을 다운로드하여 설치합니다.
 
 4. **앱 및 서비스를 로컬로 다운로드 및 실행**에서 Windows 스토어 앱의 언어를 선택하고 **다운로드**를 클릭합니다.
 
-   모바일 앱 백 엔드 및 모바일 앱 백 엔드에 연결된 샘플 _할 일 모음_ 응용 프로그램 둘 다에 대한 프로젝트가 포함된 솔루션이 다운로드됩니다. 압축된 프로젝트 파일을 로컬 컴퓨터에 저장하고 저장 위치를 기록해 둡니다.
+    모바일 앱 백 엔드 및 모바일 앱 백 엔드에 연결된 샘플 _할 일 모음_ 응용 프로그램 둘 다에 대한 프로젝트가 포함된 솔루션이 다운로드됩니다. 압축된 프로젝트 파일을 로컬 컴퓨터에 저장하고 저장 위치를 기록해 둡니다.
 
 ## 모바일 앱 테스트
 
@@ -86,6 +86,6 @@
 [Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=257546
 [Mobile App SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [Azure Portal]: https://portal.azure.com/
-
-<!--HONumber=52-->
  
+
+<!---HONumber=62-->

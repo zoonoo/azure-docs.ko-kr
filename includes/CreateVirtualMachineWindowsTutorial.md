@@ -1,6 +1,4 @@
-<properties title="Create a Virtual Machine Running Windows Server" pageTitle="Windows Server를 실행하는 가상 컴퓨터를 만드는 방법" description="Windows 가상 컴퓨터를 만들고, 데이터 디스크를 추가하고, 원격으로 로그온하는 방법을 설명합니다." metaKeywords="" services="virtual machines" solutions="" documentationCenter="" authors="kathydav" videoId="" scriptId="" />
-
-#Windows Server를 실행하는 가상 컴퓨터 만들기 #
+# Windows Server를 실행하는 가상 컴퓨터 만들기 #
 
 이 자습서에서는 Windows Azure 관리 포털의 이미지 갤러리를 사용하여 Windows Server를 실행하는 Azure 가상 컴퓨터를 쉽게 만드는 방법을 보여 줍니다. 이미지 갤러리는 Windows 운영 체제, Linux 기반 운영 체제, 응용 프로그램 이미지 등 다양한 이미지를 제공합니다.
 
@@ -21,7 +19,7 @@
 
 [AZURE.INCLUDE [virtual-machines-create-WindowsVM](../includes/virtual-machines-create-WindowsVM.md)]
 
-##<a id="logon"> </a>가상 컴퓨터를 만든 후 로그온하는 방법 ##
+## <a id="logon"> </a>가상 컴퓨터를 만든 후 로그온하는 방법 ##
 
 이 섹션에서는 가상 컴퓨터에서 실행되는 설정 및 응용 프로그램을 관리할 수 있도록 가상 컴퓨터에 로그인하는 방법을 보여 줍니다.
 
@@ -35,11 +33,11 @@
 
 	![MyTestVM에 연결](./media/CreateVirtualMachineWindowsTutorial/commandbarconnect.png)
 	
-4. **열기**을 클릭하여 가상 컴퓨터에 대해 자동으로 만들어진 원격 데스크톱 프로토콜 파일을 사용합니다.
+4. **Open**을 클릭하여 가상 컴퓨터에 대해 자동으로 만들어진 원격 데스크톱 프로토콜 파일을 사용합니다.
 
 	![rdp 파일을 엽니다.](./media/CreateVirtualMachineWindowsTutorial/openrdp.png)
 	
-5. **연결**를 클릭합니다.
+5. **Connect**를 클릭합니다.
 
 	![연결 계속](./media/CreateVirtualMachineWindowsTutorial/connectrdc.png)
 
@@ -51,7 +49,7 @@
 
 	이제 사무실에 있는 서버처럼 가상 컴퓨터에서 작업할 수 있습니다.
 
-##<a id="attachdisk"> </a>새 가상 컴퓨터에 데이터 디스크를 연결하는 방법 ##
+## <a id="attachdisk"> </a>새 가상 컴퓨터에 데이터 디스크를 연결하는 방법 ##
 
 이 섹션에서는 가상 컴퓨터에 빈 데이터 디스크를 연결하는 방법을 보여 줍니다. 빈 디스크 연결 및 기존 디스크를 연결하는 방법에 대한 자세한 내용은 [데이터 디스크 연결 자습서](../articles/virtual-machines/storage-windows-attach-disk.md)를 참조하세요.
 
@@ -127,6 +125,4 @@ Azure에서 Windows 가상 컴퓨터를 구성하는 방법에 대한 자세한 
 [How to attach a data disk to the new virtual machine]: #attachdisk
 [How to set up communication with the virtual machine]: #endpoints
 
-
-
-<!--HONumber=52-->
+<!---HONumber=62-->

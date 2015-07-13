@@ -21,13 +21,13 @@
 
 [AZURE.INCLUDE [mobile-services-selector-client-library](../../includes/mobile-services-selector-client-library.md)]
 
-## 개요
+##개요
 
 이 가이드에서는 Windows Store JavaScript 및 PhoneGap/CordovaAzure 앱을 포함하는 모바일 서비스용 HTML/JavaScript 클라이언트를 사용하여 일반적인 시나리오를 수행하는 방법을 보여 줍니다. 여기서 다루는 시나리오에는 데이터 쿼리, 삽입, 업데이트, 삭제 및 사용자 인증과 오류 처리가 포함됩니다. 모바일 서비스를 처음 접하는 경우 먼저 [모바일 서비스 빠른 시작](mobile-services-html-get-started.md)을 완료하는 것이 좋습니다. 빠른 시작 자습서를 참조하여 계정을 구성하고 첫 모바일 서비스를 만들 수 있습니다.
 
 [AZURE.INCLUDE [mobile-services-concepts](../../includes/mobile-services-concepts.md)]
 
-## <a name="create-client"></a>방법: 모바일 서비스 클라이언트 만들기
+##<a name="create-client"></a>방법: 모바일 서비스 클라이언트 만들기
 
 모바일 서비스 클라이언트에 대한 참조를 추가하는 방법은 다음을 포함하는 앱 플랫폼에 따라 다릅니다.
 
@@ -48,7 +48,7 @@
 
 >[AZURE.IMPORTANT]응용 프로그램 키는 모바일 서비스에 대한 임의 요청을 필터링하기 위한 것이며 응용 프로그램과 함께 배포됩니다. 이 키는 암호화되지 않으므로 안전하다고 볼 수 없습니다. 모바일 서비스 데이터를 안전하게 유지하려면 액세스를 허용하기 전에 사용자를 인증해야 합니다. 자세한 내용은 [방법: 사용자 인증](#caching)을 참조하세요.
 
-## <a name="querying"></a>방법: 모바일 서비스에서 데이터 쿼리
+##<a name="querying"></a>방법: 모바일 서비스에서 데이터 쿼리
 
 SQL Database 테이블의 데이터에 액세스하거나 데이터를 수정하는 모든 코드는 `MobileServiceTable` 개체에 대한 함수를 호출합니다. `MobileServiceClient` 인스턴스에 대해 `getTable()` 함수를 호출하여 테이블에 대한 참조를 구합니다.
 
@@ -245,7 +245,7 @@ Query 개체에 `where` 호출을 추가하고 매개 변수로 개체를 전달
 	   alert("Error: " + err);
 	})
 
-## <a name="odata-query"></a>OData 쿼리 작업 실행
+##<a name="odata-query"></a>OData 쿼리 작업 실행
 
 모바일 서비스에서는 REST 쿼리를 작성 및 실행하는 데 OData 쿼리 URI 규칙을 사용합니다. 속성의 하위 문자열 검색 등 복잡한 필터 작업 같은 경우에는 기본 제공 쿼리 함수로 일부 OData 쿼리를 작성할 수 없습니다. 이처럼 복잡한 쿼리 유형의 경우 다음과 같이 `read` 함수로 유효한 OData 쿼리 옵션 문자열을 전달하면 됩니다.
 
@@ -259,7 +259,7 @@ Query 개체에 `where` 호출을 추가하고 매개 변수로 개체를 전달
 
 >[AZURE.NOTE]원시 OData 쿼리 옵션 문자열을 `read` 함수에 제공하는 경우에는 쿼리 작성기 메서드를 같은 쿼리에서 사용할 수도 없습니다. 이 경우 전체 쿼리를 OData 쿼리 문자열로 작성해야 합니다. OData 시스템 쿼리 옵션에 대한 자세한 내용은 [OData 시스템 쿼리 옵션 참조]를 참조하십시오.
 
-## <a name="inserting"></a>방법: 모바일 서비스에 데이터 삽입
+##<a name="inserting"></a>방법: 모바일 서비스에 데이터 삽입
 
 다음 코드는 테이블에 새 행을 삽입하는 방법을 보여 줍니다. 클라이언트가 POST 요청을 모바일 서비스에 보내 데이터 행을 삽입하도록 요청합니다. 요청 본문에는 삽입할 데이터가 JSON 개체로 포함되어 있습니다.
 
@@ -279,7 +279,7 @@ Query 개체에 `where` 호출을 추가하고 매개 변수로 개체를 전달
 	   alert("Error: " + err);
 	});
 
-### ID 값으로 작업
+###ID 값으로 작업
 
 모바일 서비스는 테이블의 **id** 열에 대한 고유한 사용자 지정 문자열 값을 지원합니다. 이를 통해 응용 프로그램에서 전자 메일 주소 또는 사용자 이름과 같은 사용자 지정 값을 ID에 사용할 수 있습니다. 예를들어 다음 코드는 고유한 ID가 이메일 주소인 경우 새 항목을 JSON 개체로 삽입합니다.
 
@@ -299,7 +299,7 @@ Query 개체에 `where` 호출을 추가하고 매개 변수로 개체를 전달
 
 또한 테이블에 정수 ID를 사용할 수 있습니다. 정수 ID를 사용하려면 `mobile table create` 명령으로 `--integerId` 옵션을 사용하여 테이블을 만들어야 합니다. 이 명령은 Azure용 CLI(명령줄 인터페이스)와 함께 사용됩니다. CLI 사용에 대한 자세한 내용은 [모바일 서비스 테이블 관리 CLI](../virtual-machines-command-line-tools.md#Mobile_Tables)(영문)를 참조하십시오.
 
-## <a name="modifying"></a>방법: 모바일 서비스의 데이터 수정
+##<a name="modifying"></a>방법: 모바일 서비스의 데이터 수정
 
 다음 코드는 테이블의 데이터를 업데이트하는 방법을 보여 줍니다. 클라이언트가 PATCH 요청을 모바일 서비스에 보내 데이터 행을 업데이트하도록 요청합니다. 요청 본문에는 업데이트할 특정 필드가 JSON 개체로 포함되어 있습니다. `todoItemTable` 테이블의 기존 항목을 업데이트합니다.
 
@@ -321,7 +321,7 @@ Query 개체에 `where` 호출을 추가하고 매개 변수로 개체를 전달
 	   alert("Error: " + err);
 	});
 
-## <a name="deleting"></a>방법: 모바일 서비스의 데이터 삭제
+##<a name="deleting"></a>방법: 모바일 서비스의 데이터 삭제
 
 다음 코드는 테이블에서 데이터를 삭제하는 방법을 보여 줍니다. 클라이언트가 DELETE 요청을 모바일 서비스에 보내 데이터 행을 삭제하도록 요청합니다. todoItemTable 테이블의 기존 항목을 삭제합니다.
 
@@ -341,7 +341,7 @@ Query 개체에 `where` 호출을 추가하고 매개 변수로 개체를 전달
 	   alert("Error: " + err);
 	});
 
-## <a name="binding"></a>방법: 사용자 인터페이스에 데이터 표시
+##<a name="binding"></a>방법: 사용자 인터페이스에 데이터 표시
 
 이 섹션에서는 반환된 데이터 개체를 UI 요소를 사용해서 표시하는 방법을 보여 줍니다. `todoItemTable`의 항목을 쿼리하여 매우 간단한 목록에 표시하려면 다음 예제 코드를 실행하면 됩니다. 어떤 종류의 선택이나 필터링 또는 정렬도 하지 않습니다.
 
@@ -365,7 +365,7 @@ Query 개체에 `where` 호출을 추가하고 매개 변수로 개체를 전달
 
 Windows 스토어 앱에서 쿼리 결과를 사용하여 [WinJS.Binding.List] 개체를 만들 수 있으며, 이 개체를 [ListView] 개체의 데이터 원본으로 바인딩할 수 있습니다. 자세한 내용은 [데이터 바인딩(JavaScript 및 HTML을 사용한 Windows 스토어 앱)](영문)을 참조하십시오.
 
-## <a name="#custom-api"></a>방법: 사용자 지정 API 호출
+##<a name="#custom-api"></a>방법: 사용자 지정 API 호출
 
 사용자 지정 API는 삽입, 업데이트, 삭제 또는 읽기 작업에 매핑되지 않는 서버 기능을 노출하는 사용자 지정 끝점을 정의할 수 있게 합니다. 사용자 지정 API를 사용하면 HTTP 메시지 헤더 읽기와 설정 및 JSON 이외의 메시지 본문 형식 정의를 비롯하여 더 효율적으로 메시징을 제어할 수 있습니다. 모바일 서비스에서 사용자 지정 API를 만드는 방법을 비롯해 전체 예제를 확인하려면 [클라이언트에서 사용자 지정 API 호출]을 참조하십시오.
 
@@ -385,9 +385,9 @@ Windows 스토어 앱에서 쿼리 결과를 사용하여 [WinJS.Binding.List] �
  
 **invokeApi**의 보다 실질적인 예와 자세한 설명을 확인하려면 [Azure 모바일 서비스 클라이언트 SDK의 사용자 지정 API](http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx)를 참조하세요.
 
-## <a name="caching"></a>방법: 사용자 인증
+##<a name="caching"></a>방법: 사용자 인증
 
-모바일 서비스는 Facebook, Google, Microsoft 계정 및 Twitter와 같이 다양한 외부 ID 공급자를 사용하여 앱 사용자의 인증 및 권한 부여를 지원합니다. 테이블에 대해 사용 권한을 설정하여 특정 작업을 위한 액세스를 인증된 사용자로만 제한할 수 있습니다. 인증된 사용자의 ID를 사용하여 서버 스크립트에 인증 규칙을 구현할 수도 있습니다. 자세한 내용은 [인증 시작] 자습서를 참조하십시오.
+모바일 서비스는 Facebook, Google, Microsoft 계정 및 Twitter와 같이 다양한 외부 ID 공급자를 사용하여 앱 사용자의 인증 및 권한 부여를 지원합니다. 테이블에 대해 사용 권한을 설정하여 특정 작업을 위한 액세스를 인증된 사용자로만 제한할 수 있습니다. 인증된 사용자의 ID를 사용하여 서버 스크립트에 인증 규칙을 구현할 수도 있습니다. 자세한 내용은 [인증 시작] 자습서를 참조하세요.
 
 >[AZURE.NOTE]PhoneGap 또는 Cordova 앱에서 인증을 사용하는 경우 프로젝트에 다음 플러그 인도 추가해야 합니다.
 >
@@ -397,7 +397,7 @@ Windows 스토어 앱에서 쿼리 결과를 사용하여 [WinJS.Binding.List] �
 
 두 가지의 인증 흐름, 즉 _서버 흐름_과 _클라이언트 흐름_이 지원됩니다. 서버 흐름의 경우 공급자의 웹 인증 인터페이스를 사용하므로 인증 경험이 가장 단순합니다. 클라이언트 흐름의 경우 공급자 특정 장치별 SDK를 사용하므로 Single Sign-On과 같은 장치 특정 기능을 통해 심도 깊은 통합이 가능합니다.
 
-### 서버 흐름
+###서버 흐름
 모바일 서비스가 Windows 스토어 또는 HTML5 앱에서 인증 프로세스를 관리하게 하려면 앱을 ID 공급자에 등록해야 합니다. 그런 다음, 모바일 서비스에서 공급자로부터 제공된 응용 프로그램 ID 및 암호를 구성해야 합니다. 자세한 내용은 [앱에 인증 추가](mobile-services-html-get-started-users.md) 자습서를 참조하세요.
 
 ID 공급자를 등록하고 나면 공급자의 [MobileServiceAuthenticationProvider] 값을 사용하여 [LoginAsync 메서드]를 호출합니다. 예를 들어 Facebook으로 로그인하려면 다음 코드를 사용합니다.
@@ -410,12 +410,11 @@ ID 공급자를 등록하고 나면 공급자의 [MobileServiceAuthenticationPro
 
 Facebook 이외의 ID 공급자를 사용하는 경우 위의 `login` 메서드에 전달된 값을 `microsoftaccount`, `facebook`, `twitter`, `google` 또는 `windowsazureactivedirectory` 중 하나로 변경합니다.
 
-이 경우 모바일 서비스는 선택한 공급자의 로그인 페이지를 표시하고 ID 공급자 로그인 후 모바일 서비스 인증 토큰을 생성하여 OAuth 2.0 인증 흐름을 관리합니다. [login] 함수를 완료하면 사용자 ID와 모바일 서비스 인증 토큰을 각각 **userId** 및 **authenticationToken** 필드에 표시하는 JSON 개체(**user**)가 반환됩니다. 이 토큰은 캐시했다가 만료될 때까지 다시 사용할 수 있습니다. 자세한 내용은 [인증 토큰 캐시]를 참조하십시오.
+이 경우 모바일 서비스는 선택한 공급자의 로그인 페이지를 표시하고 ID 공급자 로그인 후 모바일 서비스 인증 토큰을 생성하여 OAuth 2.0 인증 흐름을 관리합니다. [login] 함수를 완료하면 사용자 ID와 모바일 서비스 인증 토큰을 각각 **userId** 및 **authenticationToken** 필드에 표시하는 JSON 개체(**user**)가 반환됩니다. 이 토큰을 캐시하여 만료될 때까지 다시 사용할 수 있습니다. 자세한 내용은 [인증 토큰 캐시]를 참조하십시오.
 
-> [AZURE.NOTE]**Windows 스토어 앱** 
-Windows 스토어 앱 사용자를 인증하는 데 Microsoft 계정 로그인 공급자를 사용하는 경우 앱 패키지를 모바일 서비스에도 등록해야 합니다. 모바일 서비스에 Windows 스토어 앱 패키지 정보를 등록하는 경우 클라이언트에서 Single Sign-On 환경을 위해 Microsoft 계정 로그인 자격 증명을 다시 사용할 수 있습니다. 그렇지 않으면 로그인 메서드가 호출될 때마다 Microsoft 계정 로그인 사용자에게 로그인 프롬프트가 표시됩니다. Windows 스토어 앱 패키지를 등록하는 방법을 자세히 알아보려면 [Microsoft 인증을 위해 Windows 스토어 앱 패키지 등록](/develop/mobile/how-to-guides/register-windows-store-app-package/%20target="_blank")을 참조하십시오. 패키지 정보가 모바일 서비스에 등록된 후에는 <em>useSingleSignOn</em> 매개 변수에서 자격 증명을 다시 사용하도록 **true** 값을 제공하여 [login](http://go.microsoft.com/fwlink/p/?LinkId=322050%20target="_blank") 메서드를 호출합니다.
+> [AZURE.NOTE]**Windows 스토어 앱** Windows 스토어 앱 사용자를 인증하는 데 Microsoft 계정 로그인 공급자를 사용하는 경우 앱 패키지를 모바일 서비스에도 등록해야 합니다. 모바일 서비스에 Windows 스토어 앱 패키지 정보를 등록하는 경우 클라이언트에서 Single Sign-On 환경을 위해 Microsoft 계정 로그인 자격 증명을 다시 사용할 수 있습니다. 그렇지 않으면 로그인 메서드가 호출될 때마다 Microsoft 계정 로그인 사용자에게 로그인 프롬프트가 표시됩니다. Windows 스토어 앱 패키지를 등록하는 방법을 자세히 알아보려면 [Microsoft 인증을 위해 Windows 스토어 앱 패키지 등록](/develop/mobile/how-to-guides/register-windows-store-app-package/%20target="_blank")을 참조하십시오. 패키지 정보가 모바일 서비스에 등록된 후에는 <em>useSingleSignOn</em> 매개 변수에서 자격 증명을 다시 사용하도록 **true** 값을 제공하여 [login](http://go.microsoft.com/fwlink/p/?LinkId=322050%20target="_blank") 메서드를 호출합니다.
 
-### 클라이언트 흐름
+###클라이언트 흐름
 앱이 독립적으로 ID 공급자에 연결한 후 반환된 토큰을 인증을 위해 모바일 서비스에 제공할 수도 있습니다. 이 클라이언트 흐름을 사용하면 단일 로그인 환경을 사용자에게 제공하거나 ID 공급자로부터 더 많은 사용자 데이터를 검색할 수 있습니다.
 
 다음 예제는 Microsoft 계정을 사용하여 Windows 스토어 앱용 Single Sign-On을 지원하는 Live SDK를 사용합니다.
@@ -445,9 +444,9 @@ Windows 스토어 앱 사용자를 인증하는 데 Microsoft 계정 로그인 �
 	     alert("Error: " + err);
 	});
 
-이 예제에서는 각 공급자 SDK에서 제공된 토큰이 `token` 변수에 저장되어 있다고 가정합니다. 지금은 클라이언트 인증에 Twitter를 사용할 수 없습니다.
+이 예제에서는 각 공급자 SDK에서 제공된 토큰이 `token` 변수에 저장되어 있다고 가정합니다. 지금은 클라이언트 인증에 Twitter를 사용할 수 없습니다. 지금은 Microsoft Azure Active Directory를 JavaScript 백엔드와 함께 클라이언트 인증에 사용할 수 없습니다.
 
-### 인증 토큰 캐시
+###인증 토큰 캐시
 일부 경우, 사용자가 처음으로 인증된 후에 login 메서드 호출을 방지할 수 있습니다. [sessionStorage] 또는 [localStorage]를 사용하여 사용자가 처음 로그인할 때 현재 사용자 ID를 캐시하고 이후에 매번 캐시에서 해당 사용자 ID가 이미 있는지 여부를 확인할 수 있습니다. 캐시가 비어 있거나 호출이 실패하는 경우(현재 로그인 세션이 만료되었음을 의미함)에도 로그인 프로세스를 거쳐야 합니다.
 
     // After logging in
@@ -458,19 +457,19 @@ Windows 스토어 앱 사용자를 인증하는 데 Microsoft 계정 로그인 �
        client.currentUser = JSON.parse(sessionStorage.loggedInUser);
     } else {
        // Regular login flow
-    }
+   }
 
      // Log out
     client.logout();
     sessionStorage.loggedInUser = null;
 
-## <a name="push-notifications"></a>방법: 푸시 알림 등록
+##<a name="push-notifications"></a>방법: 푸시 알림 등록
 
 앱이 PhoneGap 또는 Apache Cordova HTML/JavaScript 앱인 경우, 네이티브 모바일 플랫폼을 사용하면 장치에 푸시 알림을 받을 수 있습니다. [Azure 모바일 서비스용 Apache Cordova 플러그인](https://github.com/Azure/azure-mobile-services-cordova)을 사용하면 Azure 알림 허브로 푸시 알림을 등록할 수 있습니다. 사용되는 특정 알림 서비스는 코드가 실행되는 네이티브 장치 플랫폼에 따라 다릅니다. 이 작업을 수행하는 방법의 예는 [Microsoft Azure를 사용하여 Cordova 앱에 푸시 알림](https://github.com/Azure/mobile-services-samples/tree/master/CordovaNotificationsArticle) 샘플을 참조하세요.
 
 >[AZURE.NOTE]이 플러그인은 현재 iOS 및 Android 장치만 지원합니다. Windows 장치를 포함하는 솔루션의 경우, [알림 허브 통합을 사용하여 PhoneGap 앱에 푸시 알림](http://blogs.msdn.com/b/azuremobile/archive/2014/06/17/push-notifications-to-phonegap-apps-using-notification-hubs-integration.aspx)을 참조하세요.
 
-## <a name="errors"></a>방법: 오류 처리
+##<a name="errors"></a>방법: 오류 처리
 
 모바일 서비스에서 오류가 발생하고, 오류의 유효성을 검사하고, 오류를 해결하는 방법이 몇 가지 있습니다.
 
@@ -510,7 +509,7 @@ Windows 스토어 앱 사용자를 인증하는 데 Microsoft 계정 로그인 �
 	client.getTable("tablename").read()
 		.then(function (data) { /* do something */ }, handleError);
 
-## <a name="promises"></a>방법: promises 사용
+##<a name="promises"></a>방법: promises 사용
 
 Promise는 완료할 작업을 아직 계산되지 않은 값으로 예약하는 메커니즘을 제공합니다. 비동기 API 조작을 관리하는 추상적 개념입니다.
 
@@ -551,7 +550,7 @@ Promise는 완료할 작업을 아직 계산되지 않은 값으로 예약하는
 	   alert(JSON.stringify(insertedAndUpdated));
 	})
 
-## <a name="customizing"></a>방법: 클라이언트 요청 헤더 사용자 지정
+##<a name="customizing"></a>방법: 클라이언트 요청 헤더 사용자 지정
 
 `withFilter` 함수를 사용하면 보낼 요청의 임의의 속성을 필터 내부에서 읽고 써서 사용자 지정 요청 헤더를 보낼 수 있습니다. 서버 쪽 스크립트에 필요하거나 이 스크립트를 강화할 수 있는 경우 이런 사용자 지정 HTTP 헤더를 추가할 수 있습니다.
 
@@ -563,7 +562,7 @@ Promise는 완료할 작업을 아직 계산되지 않은 값으로 예약하는
 
 필터는 요청 헤더를 사용자 지정하는 것 외에도 다양하게 사용됩니다. 요청 검사나 변경, 응답 검사나 변경, 네트워킹 호출 무시, 여러 호출 보내기 등에 사용할 수 있습니다.
 
-## <a name="hostnames"></a>방법: 크로스-원본 자원 공유 사용
+##<a name="hostnames"></a>방법: 크로스-원본 자원 공유 사용
 
 요청을 조작하여 모바일 서비스에 보낼 수 있는 웹 사이트를 제어하려면 호스트하는 데 사용하는 웹 사이트의 호스트 이름을 CORS(Cross Origin Resource Sharing) 허용 목록에 추가해야 합니다. JavaScript 백 엔드 모바일 서비스의 경우, [Azure 관리 포털](https://manage.windowsazure.com)의 구성 탭에서 허용 목록을 구성할 수 있습니다. 필요한 경우 와일드카드를 사용할 수 있습니다. 기본적으로 새 모바일 서비스는 `localhost`에서만 액세스를 허용하도록 브라우저에 지시하며, CORS(크로스-원본 자원 공유)는 브라우저에서 외부 호스트 이름으로 실행되는 JavaScript 코드가 모바일 서비스와 조작할 수 있게 합니다. 이 구성은 WinJS 응용 프로그램의 경우에는 필요 없습니다.
 
@@ -607,5 +606,6 @@ Promise는 완료할 작업을 아직 계산되지 않은 값으로 예약하는
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [OData 시스템 쿼리 옵션 참조]: http://go.microsoft.com/fwlink/p/?LinkId=444502
 [클라이언트에서 사용자 지정 API 호출]: mobile-services-html-call-custom-api.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

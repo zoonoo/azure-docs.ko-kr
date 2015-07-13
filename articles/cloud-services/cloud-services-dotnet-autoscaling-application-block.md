@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/14/2014" 
+	ms.date="05/18/2015" 
 	ms.author="rasquill"/>
 
 
@@ -46,7 +46,7 @@ Azure 역할이나 온-프레미스 응용 프로그램에서 블록을 호스�
 
 블록은 다음 두 가지 유형의 규칙을 사용하여 응용 프로그램의 자동 규칙 조정 동작을 정의합니다.
 
--   **제약 조건 규칙:** 인스턴스 수의 상한 및 하한을 설정하려면, 예를 들어 매일 아침 8:00\~10:00에 인스턴스를 최소 4개와 최대 6개를 설정하려면 **제약 조건 규칙**을 사용합니다. 다이어그램에서 빨간 선과 파란 선은 제약 조건 규칙을 나타냅니다. 예를 들어 다이어그램에서 **A** 지점의 역할 인스턴스 최소 수는 현재 응용 프로그램의 작업에서 예상 증가량을 수용하기 위해 2개에서 4개로 늘어납니다. 다이어그램에서 **B** 지점의 역할 인스턴스 수는 응용 프로그램의 실행 비용을 제어하기 위해 5개 위로 올라가지 못합니다.
+-   **제약 조건 규칙:** 인스턴스 수의 상한 및 하한을 설정하려면, 예를 들어 매일 아침 8:00~10:00에 인스턴스를 최소 4개와 최대 6개를 설정하려면 **제약 조건 규칙**을 사용합니다. 다이어그램에서 빨간 선과 파란 선은 제약 조건 규칙을 나타냅니다. 예를 들어 다이어그램에서 **A** 지점의 역할 인스턴스 최소 수는 현재 응용 프로그램의 작업에서 예상 증가량을 수용하기 위해 2개에서 4개로 늘어납니다. 다이어그램에서 **B** 지점의 역할 인스턴스 수는 응용 프로그램의 실행 비용을 제어하기 위해 5개 위로 올라가지 못합니다.
 
 -   **반응 규칙:** 예기치 않은 수요 변화에 따라 역할 인스턴스 수를 변경하려면 **반응 규칙**을 사용합니다. 다이어그램에서 **C** 지점의 블록은 역할 인스턴스 수를 작업의 감소에 따라 4개에서 3개로 자동으로 줄입니다. **D** 지점에서 블록은 작업 증가를 감지하여 실행 중인 역할 인스턴스 수를 3개에서 4개로 자동으로 늘립니다.
 
@@ -139,9 +139,9 @@ Visual Studio에서 서비스 모델 파일이 출력 폴더에 복사되었는�
 
 관리 포털에 로그인합니다.
 
--   **[subscriptionname]\:** 자동 크기 조정을 사용할 응용 프로그램이 포함된 Azure 구독을 참조하는 이름을 선택합니다.
+-   **[subscriptionname]:** 자동 크기 조정을 사용할 응용 프로그램이 포함된 Azure 구독을 참조하는 이름을 선택합니다.
 
--   **[subscriptionid]\:** 자동 크기 조정을 사용할 응용 프로그램이 포함된 Azure 구독의 고유 ID입니다.
+-   **[subscriptionid]:** 자동 크기 조정을 사용할 응용 프로그램이 포함된 Azure 구독의 고유 ID입니다.
 
     1.  Azure 관리 포털에서 **클라우드 서비스**를 클릭합니다.
 
@@ -150,7 +150,7 @@ Visual Studio에서 서비스 모델 파일이 출력 폴더에 복사되었는�
         ![이미지](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling05.png)
 
   
-	-   **[hostedservicednsprefix]\:** 자동 크기 조정을 사용할 호스팅 서비스의 DNS 접두사입니다.
+	-   **[hostedservicednsprefix]:** 자동 크기 조정을 사용할 호스티드 서비스의 DNS 접두사입니다.
 
     1.  Azure 관리 포털에서 **클라우드 서비스**를 클릭합니다.
 
@@ -158,7 +158,7 @@ Visual Studio에서 서비스 모델 파일이 출력 폴더에 복사되었는�
 
         ![이미지](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling06.png)
  
-	-   **[targetrolename]\:** 자동 크기 조정 규칙의 대상인 역할의 이름입니다.
+	-   **[targetrolename]:** 자동 크기 조정 규칙의 대상인 역할의 이름입니다.
 
     1.  Azure 관리 포털에서 **클라우드 서비스**를 클릭합니다.
 
@@ -167,7 +167,7 @@ Visual Studio에서 서비스 모델 파일이 출력 폴더에 복사되었는�
         ![이미지](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling07.png)
 
 
-	-   **[storageaccountname]** 및 **[storageaccountkey]\:** 대상 Azure 응용 프로그램에 사용 중인 Azure 저장소 계정의 이름입니다.
+	-   **[storageaccountname]** 및 **[storageaccountkey]:** 대상 Azure 응용 프로그램에 사용 중인 Azure 저장소 계정의 이름입니다.
 
     1.  Azure 관리 포털에서 **저장소**를 클릭합니다.
 
@@ -178,7 +178,7 @@ Visual Studio에서 서비스 모델 파일이 출력 폴더에 복사되었는�
         ![이미지](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling08.png)
   
  
-	-   **[managementcertificatethumbprint]\:** 블록이 대상 응용 프로그램에 대한 크기 조정 요청을 보호하는 데 사용하는 관리 인증서의 **지문**입니다.
+	-   **[managementcertificatethumbprint]:**블록이 대상 응용 프로그램에 대한 크기 조정 요청을 보호하는 데 사용하는 관리 인증서의 **손도장**입니다.
 
     1.  Azure 관리 포털에서 **설정**을 클릭합니다.
 
@@ -236,7 +236,7 @@ Visual Studio에서 규칙 파일이 출력 폴더에 복사되었는지 확인�
       </reactiveRules>
       <operands>
         <performanceCounter alias="WebRoleA_CPU_Avg_5m"
-          performanceCounterName="\Processor(_Total)% Processor Time"
+          performanceCounterName="\Processor(_Total)\% Processor Time"
           source ="AutoscalingApplicationRole"
           timespan="00:05:00" aggregate="Average"/>
       </operands>
@@ -353,30 +353,31 @@ Visual Studio에서 규칙 파일이 출력 폴더에 복사되었는지 확인�
 -   [Sage가 자동 크기 조정을 사용하여 Azure 호스팅 비용을 절감하는 방법][]
 -   [TechNet 및 MSDN 호스팅 비용과 Azure에서 자동 크기 조정으로 인한 환경적 영향 줄이기][]
 
-[Azure용 Microsoft Enterprise Library 5.0 통합 팩]: http://go.microsoft.com/fwlink/?LinkID=235134
-[다음 단계]: #NextSteps
-[자동 크기 조정 응용 프로그램 블록이란?]: #WhatIs
-[개념]: #Concepts
-[대상 Azure 응용 프로그램에서 성능 카운터 데이터 수집]: #PerfCounter
-[자동 크기 조정 응용 프로그램 블록의 호스트 응용 프로그램 설정]: #CreateHost
-[방법: 자동 크기 조정기 인스턴스화 및 실행]: #Instantiate
-[방법: 서비스 모델 정의]: #DefineServiceModel
-[방법: 자동 크기 조정 규칙 정의]: #DefineAutoscalingRules
-[방법: 자동 크기 조정 응용 프로그램 블록 구성]: #Configure
-[Azure에서 성능 카운터 사용]: http://www.windowsazure.com/develop/net/common-tasks/performance-profiling/
-[NuGet]: http://nuget.org/
-[Azure 관리 포털]: http://manage.windowsazure.com
-[서비스 정보 데이터 저장]: http://msdn.microsoft.com/library/hh680878(PandP.50).aspx
-[작업자 역할에서 자동 크기 조정 응용 프로그램 블록 호스트]: http://msdn.microsoft.com/library/hh680914(PandP.50).aspx
-[제한 동작 구현]: http://msdn.microsoft.com/library/hh680896(PandP.50).aspx
-[규칙 순위 및 조정 이해]: http://msdn.microsoft.com/library/hh680923(PandP.50).aspx
-[자동 크기 조정 응용 프로그램 블록 확장 및 수정]: http://msdn.microsoft.com/library/hh680889(PandP.50).aspx
-[최적화 안정기를 사용하여 고주파 진동 방지 및 비용 최적화]: http://msdn.microsoft.com/library/hh680951(PandP.50).aspx
-[알림 및 수동 크기 조정 사용]: http://msdn.microsoft.com/library/hh680885(PandP.50).aspx
-[확장 그룹 정의]: http://msdn.microsoft.com/library/hh680902(PandP.50).aspx
-[WASABiCmdlet을 사용하여 Windows PowerShell을 통해 블록 조작]: http://msdn.microsoft.com/library/hh680938(PandP.50).aspx
-[Azure용 Enterprise Library 5.0 통합 팩에 대한 개발자 가이드]: http://msdn.microsoft.com/library/hh680949(PandP.50).aspx
-[Sage가 자동 크기 조정을 사용하여 Azure 호스팅 비용을 절감하는 방법]: http://msdn.microsoft.com/library/jj838716(PandP.50).aspx
-[TechNet 및 MSDN 호스팅 비용과 Azure에서 자동 크기 조정으로 인한 환경적 영향 줄이기]: http://msdn.microsoft.com/library/jj838718(PandP.50).aspx
+  [Azure용 Microsoft Enterprise Library 5.0 통합 팩]: http://go.microsoft.com/fwlink/?LinkID=235134
+  [다음 단계]: #NextSteps
+  [자동 크기 조정 응용 프로그램 블록이란?]: #WhatIs
+  [개념]: #Concepts
+  [대상 Azure 응용 프로그램에서 성능 카운터 데이터 수집]: #PerfCounter
+  [자동 크기 조정 응용 프로그램 블록의 호스트 응용 프로그램 설정]: #CreateHost
+  [방법: 자동 크기 조정기 인스턴스화 및 실행]: #Instantiate
+  [방법: 서비스 모델 정의]: #DefineServiceModel
+  [방법: 자동 크기 조정 규칙 정의]: #DefineAutoscalingRules
+  [방법: 자동 크기 조정 응용 프로그램 블록 구성]: #Configure
+  [Azure에서 성능 카운터 사용]: http://www.windowsazure.com/develop/net/common-tasks/performance-profiling/
+  [NuGet]: http://nuget.org/
+  [Azure 관리 포털]: http://manage.windowsazure.com
+  [서비스 정보 데이터 저장]: http://msdn.microsoft.com/library/hh680878(PandP.50).aspx
+  [작업자 역할에서 자동 크기 조정 응용 프로그램 블록 호스트]: http://msdn.microsoft.com/library/hh680914(PandP.50).aspx
+  [제한 동작 구현]: http://msdn.microsoft.com/library/hh680896(PandP.50).aspx
+  [규칙 순위 및 조정 이해]: http://msdn.microsoft.com/library/hh680923(PandP.50).aspx
+  [자동 크기 조정 응용 프로그램 블록 확장 및 수정]: http://msdn.microsoft.com/library/hh680889(PandP.50).aspx
+  [최적화 안정기를 사용하여 고주파 진동 방지 및 비용 최적화]: http://msdn.microsoft.com/library/hh680951(PandP.50).aspx
+  [알림 및 수동 크기 조정 사용]: http://msdn.microsoft.com/library/hh680885(PandP.50).aspx
+  [확장 그룹 정의]: http://msdn.microsoft.com/library/hh680902(PandP.50).aspx
+  [WASABiCmdlet을 사용하여 Windows PowerShell을 통해 블록 조작]: http://msdn.microsoft.com/library/hh680938(PandP.50).aspx
+  [Azure용 Enterprise Library 5.0 통합 팩에 대한 개발자 가이드]: http://msdn.microsoft.com/library/hh680949(PandP.50).aspx
+  [Sage가 자동 크기 조정을 사용하여 Azure 호스팅 비용을 절감하는 방법]: http://msdn.microsoft.com/library/jj838716(PandP.50).aspx
+  [TechNet 및 MSDN 호스팅 비용과 Azure에서 자동 크기 조정으로 인한 환경적 영향 줄이기]: http://msdn.microsoft.com/library/jj838718(PandP.50).aspx
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

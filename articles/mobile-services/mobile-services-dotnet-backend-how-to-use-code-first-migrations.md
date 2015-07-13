@@ -11,27 +11,33 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="NA" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="02/27/2015" 
+	ms.date="06/04/2015" 
 	ms.author="glenga"/>
 
 # .NET 백 엔드 모바일 서비스에 대한 데이터 모델 변경 방법
 
 이 항목에서는 Entity Framework Code First 마이그레이션을 사용하여 기존 데이터의 손실 없이 기존 Azure SQL 데이터베이스에 대한 데이터 모델을 변경하는 방법을 보여 줍니다. 이 절차에서는 Azure에 모바일 서비스 프로젝트를 이미 게시했고, 데이터베이스에 기존 데이터가 있고, 원격 데이터 모델과 로컬 데이터 모델이 동기화되어 있다고 가정합니다. 또한 이 항목에서는 개발 중에 사용되며 Azure 모바일 서비스를 통해 구현되는 기본 Code First 이니셜라이저에 대해 설명합니다. 이러한 이니셜라이저를 사용하면 기존 데이터를 유지할 필요가 없을 때 Code First 마이그레이션을 사용하지 않고 스키마를 손쉽게 변경할 수 있습니다.
 
->[AZURE.NOTE]SQL 데이터베이스에 있는 테이블을 접두사 지정하는 데 사용되는 스키마 이름은 web.config 파일에서 <strong>MS_MobileServiceName</strong> 앱 설정을 통해 정의됩니다. 포털에서 시작 프로젝트를 다운로드 하면 이 값이 이미 모바일 서비스 이름으로 설정되어 있습니다. 스키마 이름이 모바일 서비스와 일치하면 여러 모바일 서비스에서 동일한 데이터베이스 인스턴스를 안전하게 공유할 수 있습니다.
+>[AZURE.NOTE]SQL 데이터베이스에 있는 테이블을 접두사 지정하는 데 사용되는 스키마 이름은 web.config 파일에서 MS_MobileServiceName 앱 설정을 통해 정의됩니다. 포털에서 시작 프로젝트를 다운로드 하면 이 값이 이미 모바일 서비스 이름으로 설정되어 있습니다. 스키마 이름이 모바일 서비스와 일치하면 여러 모바일 서비스에서 동일한 데이터베이스 인스턴스를 안전하게 공유할 수 있습니다.
+
+## 데이터 모델 업데이트
+
+.NET 백엔드 모바일 서비스에 기능을 추가할 때는 API에서 새 끝점을 노출하기 위해 새 컨트롤러를 추가합니다. 사용자 지정 컨트롤러 또는 테이블 컨트롤러로 새 API를 만듭니다. [TableController<TEntity>]는 [EntityData]에서 상속되는 데이터 형식을 노출합니다. 데이터베이스에서 유지되어야 하는 데이터를 사용하려면 이 데이터 형식도 [DbContext]에서 새 [DbSet<T>]으로 데이터 모델에 추가해야 합니다. Entity Framework의 Code First에 대한 내용은 참조 [Code first로 모델 만들기](https://msdn.microsoft.com/data/ee712907#codefirst)를 참조하세요.
+
+Visual Studio를 사용하면 쉽게 새 테이블 컨트롤러를 만들고 새 데이터 형식을 클라이언트 앱에 노출할 수 있습니다. 자세한 내용은 [컨트롤러를 사용하여 모바일 서비스의 데이터에 액세스하는 방법](https://msdn.microsoft.com/library/windows/apps/xaml/dn614132.aspx)을 참조하세요.
 
 ## 데이터 모델 이니셜라이저
 
-모바일 서비스는 .NET 백 엔드 모바일 서비스 프로젝트에서 두 개의 데이터 모델 이니셜라이저 기본 클래스를 지원합니다. 이러한 이니셜라이저는 Entity Framework가 [DbContext]에서 데이터 모델 변경을 감지할 때마다 데이터베이스에서 테이블을 삭제하고 다시 만듭니다. 또한 모바일 서비스가 로컬 컴퓨터에서 실행 중일 때는 물론 Azure에서 호스팅될 때도 작동하도록 디자인되었습니다.
+모바일 서비스는 .NET 백엔드 모바일 서비스 프로젝트에서 두 개의 데이터 모델 이니셜라이저 기본 클래스를 제공합니다. 두 이니셜라이저는 Entity Framework가 [DbContext]에서 데이터 모델 변경을 감지하면 데이터베이스에서 테이블을 삭제하고 다시 만듭니다. 또한 모바일 서비스가 로컬 컴퓨터에서 실행 중일 때는 물론 Azure에서 호스트될 때도 작동하도록 디자인되었습니다.
 
 >[AZURE.NOTE].NET 백 엔드 모바일 서비스를 게시하면 데이터 액세스 작업이 발생할 때까지 이니셜라이저가 실행되지 않습니다. 즉, 새로 게시된 서비스의 경우 클라이언트에서 쿼리 등의 데이터 액세스 작업이 요청되어야만 저장소에 사용되는 데이터 테이블이 만들어집니다.
 >
 >시작 페이지의 **사용해보기** 링크에서 액세스하는 기본 제공 API 도움말 기능을 사용하여 데이터 액세스 작업을 실행할 수도 있습니다. API 페이지를 사용하여 모바일 서비스를 테스트하는 방법에 대한 자세한 내용은 [기존 앱에 모바일 서비스 추가](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-data.md#test-the-service-locally)에서 로컬로 모바일 서비스 프로젝트 테스트 섹션을 참조하세요.
 
-두 이니셜라이저 기본 클래스 모두 모바일 서비스에서 사용되는 스키마에 있는 모든 테이블, 뷰, 함수 및 프로시저를 데이터베이스에서 삭제합니다.
+두 이니셜라이저는 모바일 서비스에서 사용되는 스키마에 있는 모든 테이블, 뷰, 함수 및 프로시저를 데이터베이스에서 삭제합니다.
 
 + **ClearDatabaseSchemaIfModelChanges** <br/> 스키마 개체는 Code First가 데이터 모델에서 변경을 감지하는 경우에만 삭제됩니다. [Azure 관리 포털]에서 다운로드하는 .NET 백 엔드 프로젝트의 기본 이니셜라이저는 이 기본 클래스에서 상속됩니다.
  
@@ -110,11 +116,11 @@ Code First 마이그레이션에서는 스냅숏 방법을 사용하여 데이�
     ![][1]
 
 
-## <a name="seeding"></a>마이그레이션에서 데이터 시드
+##<a name="seeding"></a>마이그레이션에서 데이터 시드
 
 마이그레이션을 실행할 때 마이그레이션에서 데이터베이스에 시드 데이터를 추가하도록 할 수 있습니다. **Configuration** 클래스에는 데이터를 삽입 또는 업데이트하도록 재정의할 수 있는 **Seed** 메서드가 있습니다. 마이그레이션을 사용하도록 설정하면 Configuration.cs 코드 파일이 마이그레이션 폴더에 추가됩니다. 이 예에서는 [TodoItems] 테이블에 데이터를 시드하도록 **Seed** 메서드를 재정의하는 방법을 보여 줍니다. 최신 버전으로 마이그레이션한 후 [Seed] 메서드가 호출됩니다.
 
-### 새 테이블 시드
+###새 테이블 시드
 
 다음 코드는 **TodoItems** 테이블을 새 데이터 행으로 시드합니다.
 
@@ -130,7 +136,7 @@ Code First 마이그레이션에서는 스냅숏 방법을 사용하여 데이�
         }
         base.Seed(context);
 
-### 테이블에서 새 열 시드
+###테이블에서 새 열 시드
 
 다음 코드는 UserId 열을 시드합니다.
  		    
@@ -160,5 +166,9 @@ Code First 마이그레이션에서는 스냅숏 방법을 사용하여 데이�
 [Azure 관리 포털]: https://manage.windowsazure.com/
 [DbContext]: http://msdn.microsoft.com/library/system.data.entity.dbcontext(v=vs.113).aspx
 [AddOrUpdate]: http://msdn.microsoft.com/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx
+[TableController<TEntity>]: https://msdn.microsoft.com/library/azure/dn643359.aspx
+[EntityData]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.entitydata.aspx
+[DbSet<T>]: https://msdn.microsoft.com/library/azure/gg696460.aspx
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

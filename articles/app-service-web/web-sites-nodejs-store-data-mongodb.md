@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="가상 컴퓨터에 MongoDB를 사용하는 Azure의 Node.js 웹앱 만들기" 
+<properties
+	pageTitle="가상 컴퓨터에 MongoDB를 사용하는 Azure의 Node.js 웹앱 만들기"
 	description="MongoDB를 사용하여 Azure에서 호스트되는 Node.js 응용 프로그램에 데이터를 저장하는 방법"
-	tags="azure-portal" 
-	services="app-service\web, virtual-machines" 
-	documentationCenter="nodejs" 
-	authors="MikeWasson" 
-	manager="wpickett" 
+	tags="azure-portal"
+	services="app-service\web, virtual-machines"
+	documentationCenter="nodejs"
+	authors="MikeWasson"
+	manager="wpickett"
 	editor=""/>
 
-<tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="nodejs" 
-	ms.topic="article" 
-	ms.date="04/23/2015" 
+<tags
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="nodejs"
+	ms.topic="article"
+	ms.date="04/23/2015"
 	ms.author="mwasson"/>
 
 
@@ -26,19 +26,19 @@
 
 * VM 디포에서 Ubuntu 및 MongoDB를 실행하는 가상 컴퓨터 설정 방법
 * 노드 응용 프로그램에서 MongoDB에 액세스하는 방법
-* Azure용 교차 플랫폼 도구를 사용하여 Azure 앱 서비스에서 웹앱을 만드는 방법
+* Azure CLI를 사용하여 Azure 앱 서비스에서 웹앱 만드는 방법
 
 이 자습서를 따라 작업을 만들고, 검색하고, 완료할 수 있는 간단한 웹 기반 작업 관리 응용 프로그램을 구축합니다. 이 작업은 MongoDB에 저장됩니다.
 
 > [AZURE.NOTE]이 자습서에서는 가상 컴퓨터에 설치된 MongoDB의 인스턴스를 사용합니다. 대신 MongoLabs에서 제공하는 호스트된 MongoDB 인스턴스를 사용하는 경우 [Azure에서 MongoLab 추가 기능을 사용하는 MongoDB로 Node.js 웹앱 만들기](store-mongolab-web-sites-nodejs-store-data-mongodb)를 참조하세요.
- 
+
 이 자습서의 프로젝트 파일은 **tasklist**라는 디렉터리에 저장되며 완료된 응용 프로그램은 다음과 유사하게 보입니다.
 
 ![빈 tasklist를 표시하는 웹 페이지][node-mongo-finished]
 
 > [AZURE.NOTE]아래의 많은 단계에서는 명령줄 사용을 언급합니다. 이러한 단계의 경우 **Windows PowerShell**(Windows) 또는 **Bash**(Unix Shell)와 같은 운영 체제의 명령줄을 사용하십시오. OS X 시스템에서는 터미널 응용 프로그램을 통해 명령줄에 액세스할 수 있습니다.
 
-## 필수 조건
+##필수 조건
 
 이 자습서의 단계에서는 최신 버전의 [Node.js][node]를 개발 환경에서 사용해야 합니다.
 
@@ -46,14 +46,14 @@
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
->[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 시작 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+>[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
-## 가상 컴퓨터를 만듭니다.
+##가상 컴퓨터를 만듭니다.
 
 <!--
 After you have created the virtual machine in Azure and installed MongoDB, be sure to remember the DNS name of the virtual machine ("testlinuxvm.cloudapp.net", for example) and the external port for MongoDB that you specified in the endpoint.  You will need this information later in the tutorial.-->
 
-새 VM을 만든 후 [MongoDB 설치 가이드][installguides]에 따라  MongoDB를 설치할 수 있지만 MongoDB가 사전 설치된 VM을 Azure 마켓플레이스에서 사용할 수 있습니다. 다음 단계에서는 이러한 많은 VM 템플릿 중 하나를 사용하는 방법을 보여 줍니다.
+새 VM을 만든 후 [MongoDB 설치 가이드][installguides]에 따라 MongoDB를 설치할 수 있지만 MongoDB가 사전 설치된 VM을 Azure 마켓플레이스에서 사용할 수 있습니다. 다음 단계에서는 이러한 많은 VM 템플릿 중 하나를 사용하는 방법을 보여 줍니다.
 
 > [AZURE.NOTE]이 자습서에서 사용하는 커뮤니티 이미지는 OS 디스크에 MongoDB 데이터를 저장합니다. 이는 자습서의 목적에는 충분하지만 MongoDB 데이터를 데이터 디스크에 저장하면 성능이 더욱 향상됩니다. 데이터 디스크를 포함하여 새 VM을 만들고 MongoDB 데이터를 데이터 디스크에 저장하는 단계는 [Azure에서 Linux에 MongoDB 설치][mongodbonazure]를 참조하세요.
 
@@ -86,7 +86,7 @@ After you have created the virtual machine in Azure and installed MongoDB, be su
 	* 프로토콜 - TCP
 	* 공용 포트 - 28017
 	* 개인 포트 - 28017
-	
+
 	![끝점 구성의 스크린샷][vmendpoint]
 
 9. **확인**을 두 번 클릭한 다음 **만들기**을 클릭하여 VM을 만듭니다.
@@ -105,28 +105,28 @@ After you have created the virtual machine in Azure and installed MongoDB, be su
 	로그에서 오류를 표시하는 경우 문제 해결 단계에 대해서는 [MongoDB 설명서][mongodocs](영문)를 참조하십시오.
 
 
-## 설치 모듈 및 스캐폴딩 생성
+##설치 모듈 및 스캐폴딩 생성
 
 이 섹션에서는 개발 환경에서 새로운 노드 응용 프로그램을 만들고 npm을 사용하여 모듈 패키지를 추가합니다. 작업 목록 응용 프로그램의 경우 [Express] 및 [Mongoose] 모듈을 사용합니다. Express 모듈은 노드에 대한 모델 보기 컨트롤러 프레임워크를 제공하며, Mongoose는 MongoDB와 통신하기 위한 드라이버입니다.
 
-### express 설치 및 스캐폴딩 생성
+###express 설치 및 스캐폴딩 생성
 
 1. 명령줄에서 **tasklist** 디렉터리로 변경합니다. **tasklist** 디렉터리가 없으면 디렉터리를 만듭니다.
 
-	> [AZURE.NOTE]이 자습서에서는 **tasklist** 폴더에 대한 참조를 만듭니다. 경로 의미 체계가 운영 체제마다 다르므로, 폴더의 전체 경로는 생략되었습니다. 로컬 파일 시스템에 쉽게 액세스할 수 있는 위치에 이 폴더를 만들어야 합니다(예: **\~/node/tasklist** 또는 **c:\\node\\tasklist**).
+	> [AZURE.NOTE]이 자습서에서는 **tasklist** 폴더에 대한 참조를 만듭니다. 경로 의미 체계가 운영 체제마다 다르므로, 폴더의 전체 경로는 생략되었습니다. 로컬 파일 시스템에 쉽게 액세스할 수 있는 위치에 이 폴더를 만들어야 합니다(예: **~/node/tasklist** 또는 **c:\node\tasklist**).
 
 2. 다음 명령을 입력하여 express 명령을 설치합니다.
 
 	npm install express-generator -g
- 
+
 	> [AZURE.NOTE]일부 운영 체제에서 '-g' 매개 변수를 사용할 때 ___Error: EPERM, chmod '/usr/local/bin/express'___ 오류 메시지와 관리자 계정으로 실행하라는 요청이 표시될 수 있습니다. 이 경우 `sudo` 명령을 사용하여 더 높은 권한 수준으로 npm을 실행하세요.
 
     이 명령의 출력은 다음과 유사합니다.
 
 		express-generator@4.0.0 C:\Users\username\AppData\Roaming\npm\node_modules\express-generator
 		├── mkdirp@0.3.5
-		└── commander@1.3.2 (keypress@0.1.0)                                                                         
- 
+		└── commander@1.3.2 (keypress@0.1.0)
+
 	> [AZURE.NOTE]express 모듈을 설치할 때 사용되는 '-g' 매개 변수는 이 모듈을 전역으로 설치합니다. 따라서 ___express___ 명령에 액세스하여 추가 경로 정보를 입력하지 않고도 웹앱 스캐폴딩을 생성할 수 있습니다.
 
 4. 이 응용 프로그램에 사용할 스캐폴딩을 만들려면 다음과 같은 **express** 명령을 사용합니다.
@@ -152,10 +152,10 @@ After you have created the virtual machine in Azure and installed MongoDB, be su
 		   create : ./public/javascripts
 		   create : ./bin
 		   create : ./bin/www
-		
+
 		   install dependencies:
 		     $ cd . && npm install
-		
+
 		   run the app:
 		     $ DEBUG=my-application ./bin/www
 
@@ -173,10 +173,10 @@ After you have created the virtual machine in Azure and installed MongoDB, be su
 
 	이는 **server.js**(이전의 **bin/www**)가 이제 필수 **app.js** 파일과 동일한 폴더에 있기 때문에 필요합니다.
 
-### 추가 모듈 설치
+###추가 모듈 설치
 
 **package.json** 파일은 **express** 명령으로 만들어진 파일 중 하나입니다. 이 파일에는 Express 응용 프로그램에 필요한 추가 모듈 목록이 포함되어 있습니다. 나중에 이 응용 프로그램을 앱 서비스 웹앱에 배포하는 경우 이 파일을 사용하여 응용 프로그램을 지원하기 위해 Azure에 설치해야 할 모듈을 결정합니다.
-	
+
 1. **tasklist** 폴더에서 다음을 사용하여 **package.json** 파일에 설명된 모듈을 설치합니다.
 
         npm install
@@ -184,19 +184,19 @@ After you have created the virtual machine in Azure and installed MongoDB, be su
     이 명령의 출력은 다음과 유사하게 표시됩니다.
 
 		debug@0.7.4 node_modules\debug
-		
+
 		cookie-parser@1.0.1 node_modules\cookie-parser
 		├── cookie-signature@1.0.3
 		└── cookie@0.1.0
-		
+
 		morgan@1.0.0 node_modules\morgan
 		└── bytes@0.2.1
-		
+
 		body-parser@1.0.2 node_modules\body-parser
 		├── qs@0.6.6
 		├── raw-body@1.1.4 (bytes@0.3.0)
 		└── type-is@1.1.0 (mime@1.2.11)
-		
+
 		express@4.0.0 node_modules\express
 		├── methods@0.1.0
 		├── parseurl@1.0.1
@@ -214,7 +214,7 @@ After you have created the virtual machine in Azure and installed MongoDB, be su
 		├── type-is@1.0.0 (mime@1.2.11)
 		├── accepts@1.0.0 (negotiator@0.3.0, mime@1.2.11)
 		└── serve-static@1.0.1 (send@0.1.4)
-		
+
 		jade@1.3.1 node_modules\jade
 		├── character-parser@1.2.0
 		├── commander@2.1.0
@@ -222,7 +222,7 @@ After you have created the virtual machine in Azure and installed MongoDB, be su
 		├── monocle@1.1.51 (readdirp@0.2.5)
 		├── constantinople@2.0.0 (uglify-js@2.4.13)
 		├── with@3.0.0 (uglify-js@2.4.13)
-		└── transformers@2.1.0 (promise@2.0.0, css@1.0.8, uglify-js@2.2.5)                                                                
+		└── transformers@2.1.0 (promise@2.0.0, css@1.0.8, uglify-js@2.2.5)
 
 	Express 응용 프로그램에 사용되는 기본 모듈이 모두 설치됩니다.
 
@@ -241,11 +241,11 @@ After you have created the virtual machine in Azure and installed MongoDB, be su
 		├── mpromise@0.4.3
 		├── ms@0.1.0
 		├── mquery@0.5.3
-		└── mongodb@1.3.23 (kerberos@0.0.3, bson@0.2.5)         
+		└── mongodb@1.3.23 (kerberos@0.0.3, bson@0.2.5)
 
     > [AZURE.NOTE]C++ bson 파서 설치에 대한 메시지는 무시해도 됩니다.
 
-## 노드 응용 프로그램에서 MongoDB 사용
+##노드 응용 프로그램에서 MongoDB 사용
 
 이 섹션에서는 작업에 대한 모듈을 포함하는 **task.js** 파일을 추가하여 **express** 명령으로 만들어진 기본 응용 프로그램을 확장합니다. 또한 해당 모델을 활용하도록 기존 **app.js**를 수정하고 새 **tasklist.js** 컨트롤러 파일을 만들겠습니다.
 
@@ -273,7 +273,7 @@ After you have created the virtual machine in Azure and installed MongoDB, be su
 
 5. **task.js** 파일을 저장하고 닫습니다.
 
-### 컨트롤러 만들기
+###컨트롤러 만들기
 
 1. **tasklist/routes** 디렉터리에서 **tasklist.js**라는 새 파일을 만들고 텍스트 편집기에서 엽니다.
 
@@ -309,7 +309,7 @@ After you have created the virtual machine in Azure and installed MongoDB, be su
     	    });
     	  	res.redirect('/');
   		  },
-  
+
 
   		  completeTask: function(req,res) {
     		var completedTasks = req.body;
@@ -356,7 +356,7 @@ After you have created the virtual machine in Azure and installed MongoDB, be su
 
 4. **app.js** 파일을 저장합니다.
 
-### 인덱스 보기 수정
+###인덱스 보기 수정
 
 1. 디렉터리를 **views** 디렉터리로 변경하고 **index.jade** 파일을 텍스트 편집기에서 엽니다.
 
@@ -383,14 +383,14 @@ After you have created the virtual machine in Azure and installed MongoDB, be su
 		  input(type="submit", value="Update tasks")
 		hr
 		form(action="/addtask", method="post")
-		  table(border="1") 
+		  table(border="1")
 		    tr
-		      td Item Name: 
-		      td 
+		      td Item Name:
+		      td
 		        input(name="item[name]", type="textbox")
 		    tr
-		      td Item Category: 
-		      td 
+		      td Item Category:
+		      td
 		        input(name="item[category]", type="textbox")
 		  input(type="submit", value="Add item")
 
@@ -435,7 +435,7 @@ To test the application on your local machine, perform the following steps:
 
 7. To stop the node process, go to the command-line and press the **CTRL** and **C** keys. -->
 
-## Azure에 응용 프로그램 배포
+##Azure에 응용 프로그램 배포
 
 이 섹션의 단계에서는 Azure 명령줄 도구를 사용하여 새 Azure 앱 서비스에서 새 웹앱을 만든 후 Git를 사용하여 응용 프로그램을 배포합니다. 이러한 단계를 수행하려면 Azure 구독이 있어야 합니다.
 
@@ -443,26 +443,26 @@ To test the application on your local machine, perform the following steps:
 
 > [AZURE.NOTE]처음으로 앱 서비스 웹앱을 만든 경우 Azure 포털을 사용하여 이 응용 프로그램을 배포해야 합니다.
 
-### Azure 크로스 플랫폼 명령줄 인터페이스 설치
+###Azure CLI(Azure 명령줄 인터페이스) 설치
 
-Azure 크로스 플랫폼 명령줄 인터페이스(xplat-cli)에서 Azure 서비스에 대한 관리 작업을 수행할 수 있습니다. 개발 환경에서 xplat-cli를 아직 설치하여 구성하지 않은 경우 [Azure 크로스 플랫폼 명령줄 인터페이스 설치 및 구성][xplatcli]의 지침을 참조하십시오.
+Azure CLI를 사용하면 Azure 서비스에 대한 관리 작업을 수행할 수 있습니다. 개발 환경에서 Azure CLI를 아직 설치하여 구성하지 않은 경우 [Azure CLI 설치 및 구성](../xplat-cli-install.md)의 지침을 참조하세요.
 
-### 앱 서비스 웹앱 만들기
+###앱 서비스 웹앱 만들기
 
 1. 명령줄에서 **tasklist** 디렉터리로 변경합니다.
 
 2. 다음 명령을 사용하여 새 앱 서비스 웹앱을 만듭니다. 'myuniqueappname'을 웹앱의 고유한 이름으로 바꿉니다. 이 값은 결과 웹앱의 URL 일부로 사용됩니다.
 
 		azure site create myuniqueappname --git
-		
+
 	웹앱을 배치할 데이터 센터를 묻는 메시지가 나타납니다. 사용자의 위치와 지리적으로 가까운 데이터 센터를 선택합니다.
-	
+
 	`--git` 매개 변수는 Git 리포지토리가 없는 경우 **tasklist** 폴더에 로컬로 만듭니다. 또한 Azure에 응용 프로그램을 게시하는 데 사용되는 'azure'라는 [Git remote](영문)를 만듭니다. Azure에서 노드 응용 프로그램을 호스트하는 데 사용하는 설정이 포함된 [iisnode.yml]이 만들어집니다. 마지막으로 .git 게시에서 node-modules 폴더를 제외하는 .gitignore 파일도 만들어집니다.
-	
+
 	> [AZURE.NOTE]이미 Git 리포지토리를 포함한 디렉터리에서 이 명령을 실행한 경우 디렉터리가 다시 초기화되지는 않습니다.
-	
-	> [AZURE.NOTE]\`--git\` 매개 변수가 생략되었지만 디렉터리에 Git 리포지토리가 포함된 경우 'azure' 원격이 계속 생성됩니다.
-	
+
+	> [AZURE.NOTE]`--git` 매개 변수가 생략되었지만 디렉터리에 Git 리포지토리가 포함된 경우 'azure' 원격이 계속 생성됩니다.
+
 	이 명령이 완료되면 다음과 유사한 출력이 표시됩니다. **Created website at**으로 시작하는 줄에 앱 서비스 웹앱 URL이 있습니다.
 
 		info:   Executing command site create
@@ -478,7 +478,7 @@ Azure 크로스 플랫폼 명령줄 인터페이스(xplat-cli)에서 Azure 서�
 
 	> [AZURE.NOTE> 구독에 대한 앱 서비스 웹앱을 처음 만드는 경우 포털을 사용하여 웹앱을 만들라는 메시지가 제공됩니다. 자세한 내용은 [Azure 앱 서비스에서 Node.js 웹앱 빌드 및 배포](web-sites-nodejs-develop-deploy-mac.md)를 참조하세요.
 
-### MONGODB_URI 환경 변수 설정
+###MONGODB_URI 환경 변수 설정
 
 MongoDB 인스턴스에 대한 연결 문자열을 MONGODB_URI 환경 변수에서 사용할 수 있어야 합니다. 웹앱에 대한 이 값을 설정하려면 다음 명령을 사용합니다.
 
@@ -486,7 +486,7 @@ MongoDB 인스턴스에 대한 연결 문자열을 MONGODB_URI 환경 변수에�
 
 웹앱에 대한 새 응용 프로그램 설정이 만들어집니다. 이 설정은 웹앱에서 읽는 MONGODB_URI 환경 변수를 채우는 데 사용됩니다. 'mymongodb.cloudapp.net'의 값을 MongoDB가 설치된 가상 컴퓨터의 이름으로 바꾸십시오.
 
-### 응용 프로그램 게시
+###응용 프로그램 게시
 
 1. 터미널 창에서 아직 이동하지 않은 경우 **tasklist** 디렉터리로 변경합니다.
 
@@ -498,7 +498,7 @@ MongoDB 인스턴스에 대한 연결 문자열을 MONGODB_URI 환경 변수에�
 3. 최신 Git 리포지토리 변경 내용을 앱 서비스 웹앱으로 푸시하는 경우 **master**가 웹앱 내용에 사용되므로 이를 대상 분기로 지정해야 합니다.
 
 		git push azure master
-	
+
 	다음과 유사한 출력이 표시됩니다. 배포가 수행될 때 Azure에서 모든 npm 모듈을 다운로드합니다.
 
 		Counting objects: 17, done.
@@ -516,10 +516,10 @@ MongoDB 인스턴스에 대한 연결 문자열을 MONGODB_URI 환경 변수에�
 		remote: Deployment successful.
 		To https://username@mongodbtasklist.azurewebsites.net/MongoDBTasklist.git
  		 * [new branch]      master -> master
- 
+
 4. 푸시 작업이 완료되면 `azure site browse` 명령을 사용해 웹앱으로 이동하여 응용 프로그램을 확인합니다.
 
-## 다음 단계
+##다음 단계
 
 이 문서의 단계에서는 MongoDB를 사용하여 정보를 저장하는 프로세스를 설명하지만 Azure 테이블 서비스도 사용할 수 있습니다. 자세한 내용은 [Azure 테이블 서비스를 사용하는 Node.js 웹앱]을 참조하세요.
 
@@ -527,11 +527,9 @@ MongoLab에서 제공하는 MongoDB의 호스트된 인스턴스를 사용하는
 
 MongoDB를 보호하는 방법을 알아보려면 [MongoDB 보안][mongosecurity]을 참조하십시오.
 
-## 추가 리소스
+##추가 리소스
 
-[Mac 및 Linux용 Azure 명령줄 도구][Build and deploy a Node.js web app in Azure App Service] 
-
-[Azure 앱 서비스에서 GIT를 사용하여 연속 배포]
+[Mac 및 Linux용 Azure 명령줄 도구][Build and deploy a Node.js web app in Azure App Service] [Azure 앱 서비스에서 GIT를 사용하여 연속 배포]
 
 ## 변경된 내용
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.
@@ -561,7 +559,7 @@ MongoDB를 보호하는 방법을 알아보려면 [MongoDB 보안][mongosecurity
 [installguides]: http://docs.mongodb.org/manual/installation/
 [azureportal]: https://portal.azure.com
 [mongodocs]: http://docs.mongodb.org/manual/
-[xplatcli]: ../xplat-cli.md
+[Azure CLI]: ../xplat-cli.md
 
 [selectdepo]: ./media/web-sites-nodejs-store-data-mongodb/browsedepot.png
 [selectedimage]: ./media/web-sites-nodejs-store-data-mongodb/selectimage.png
@@ -572,4 +570,6 @@ MongoDB를 보호하는 방법을 알아보려면 [MongoDB 보안][mongosecurity
 [vmconfig]: ./media/web-sites-nodejs-store-data-mongodb/vmconfig.png
 [vmendpoint]: ./media/web-sites-nodejs-store-data-mongodb/endpoints.png
 [mongodbonazure]: http://docs.mongodb.org/ecosystem/tutorial/install-mongodb-on-linux-in-azure/
-<!--HONumber=54--> 
+ 
+
+<!---HONumber=62-->

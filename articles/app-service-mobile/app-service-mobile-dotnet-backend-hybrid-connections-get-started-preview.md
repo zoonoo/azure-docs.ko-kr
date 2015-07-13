@@ -27,7 +27,7 @@
 
 이 자습서를 사용하려면 다음이 필요합니다.
 
-- **기존 모바일 앱 백엔드는** <br/>[빠른 시작 자습서](app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview.md)를 따라 새 .NET 백 엔드 모바일 앱을 [Azure 포털]에서 만들고 다운로드합니다.
+- **기존 모바일 앱 백엔드**는 <br/>[빠른 시작 자습서](app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview.md)를 따라 새 .NET 백 엔드 모바일 앱을 [Azure 포털]에서 만들고 다운로드합니다.
 
 [AZURE.INCLUDE [hybrid-connections-prerequisites](../../includes/hybrid-connections-prerequisites.md)]
 
@@ -37,15 +37,15 @@
 
 ## 하이브리드 연결 만들기
 
-모바일 앱 백 엔드의 코드 부분에 대해 새 하이브리드 연결 및 BizTalk 서비스를 만들어야 하고 이것은 웹 앱입니다.
+모바일 앱 백 엔드의 코드 부분에 대해 새 하이브리드 연결 및 BizTalk 서비스를 만들어야 하고 이것은 웹앱입니다.
 
-1. [Azure 포털]에서 모바일 앱으로 이동하고 웹 앱 백 엔드 단추를 클릭합니다.
+1. [Azure 포털]에서 모바일 앱으로 이동하고 웹앱 백 엔드 단추를 클릭합니다.
 
-	![웹 앱으로 이동](./media/app-service-mobile-dotnet-backend-hybrid-connections-get-started-preview/mobile-app-link-to-web-app-backend.png)
+	![웹앱으로 이동](./media/app-service-mobile-dotnet-backend-hybrid-connections-get-started-preview/mobile-app-link-to-web-app-backend.png)
 
-	그러면 모바일 앱에 대한 백 엔드 코드를 구현하는 웹 앱으로 이동하며 모바일 앱뒤에 `-code`이 나옵니다.
+	그러면 모바일 앱에 대한 백 엔드 코드를 구현하는 웹앱으로 이동하며 모바일 앱뒤에 `-code`이 나옵니다.
 
-2. 웹 앱의 블레이드를 아래로 스크롤하고 **하이브리드 연결**을 클릭합니다.
+2. 웹앱의 블레이드를 아래로 스크롤하고 **하이브리드 연결**을 클릭합니다.
 	
 	![하이브리드 연결](./media/app-service-mobile-dotnet-backend-hybrid-connections-get-started-preview/start-hybrid-connection.png)
 	
@@ -87,7 +87,7 @@
          MultipleActiveResultSets=True"
          providerName="System.Data.SqlClient" />
 
-	이 문자열에서 `<**secure_password**>`을 *HbyridConnectionLogin*에 대해 만든 암호와 대체해야 합니다.
+	이 문자열에서 `<**secure_password**>`을 *HbyridConnectionLogin*에 대해 만든 암호로 대체해야 합니다.
 	
 3. Visual Studio에서 **저장**을 클릭하여 Web.config 파일을 저장합니다.
 
@@ -117,9 +117,9 @@ Azure에 게시하고 하이브리드 연결을 사용하기 전에 로컬로 �
 
 이제 데이터베이스 연결을 확인하고 새 연결 문자열에 대한 앱 설정을 추가하여 Azure에서 사용합니다.
 
-1. 모바일 앱에 대한 웹 앱 백 엔드 코드의 [Azure 포털]로 돌아가서 **모든 설정** 그런 다음 **응용 프로그램 설정**을 클릭합니다. 
+1. 모바일 앱에 대한 웹앱 백 엔드 코드의 [Azure 포털]로 돌아가서 **모든 설정** 그런 다음 **응용 프로그램 설정**을 클릭합니다. 
 
-3. **웹 앱 설정** 블레이드에서 **연결 문자열** 아래로 스크롤하고 `Server=OnPremisesServer,1433;Database=OnPremisesDB;User ID=HybridConnectionsLogin;Password=<**secure_password**>`와 같은 값을 가지는 `OnPremisesDBConnection`로 지정한 새 **SQL Server** 연결 문자열을 추가합니다.
+3. **웹앱 설정** 블레이드에서 **연결 문자열** 아래로 스크롤하고 `Server=OnPremisesServer,1433;Database=OnPremisesDB;User ID=HybridConnectionsLogin;Password=<**secure_password**>`와 같은 값을 가지는 `OnPremisesDBConnection`로 지정한 새 **SQL Server** 연결 문자열을 추가합니다.
 
 	온-프레미스 데이터베이스의 보안 암호로 `<**secure_password**>`을(를) 바꿉니다.
 
@@ -147,7 +147,7 @@ Azure에 게시하고 하이브리드 연결을 사용하기 전에 로컬로 �
 
 	>[AZURE.NOTE]API 도움말 페이지를 시작하기 위해 **지금 시도** 단추를 사용하는 경우 사용자의 응용 프로그램 키를 암호(빈 사용자 이름)로 제공해야 합니다.
 
-4. SQL Server Management Studio에서 SQL Server 인스턴스에 연결하고 개체 탐색기를 열어 **OnPremisesDB** 데이터베이스 및 **테이블**를 확장합니다.
+4. SQL Server Management Studio에서 SQL Server 인스턴스에 연결하고 개체 탐색기를 열어 **OnPremisesDB** 데이터베이스 및 **테이블**을 확장합니다.
 
 5. **hybridService1.TodoItems** 테이블을 마우스 오른쪽 단추로 클릭하고 **상위 1000개의 행 선택**을 선택하여 결과를 봅니다.
 

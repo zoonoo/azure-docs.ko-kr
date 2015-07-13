@@ -31,7 +31,7 @@
 * Git 설치 - [Chocolatey](https://chocolatey.org/packages/git) 또는 [git-scm.com](http://git-scm.com/downloads)에서 설치할 수 있습니다. Git를 처음 사용하는 경우 [git-scm.com](http://git-scm.com/downloads)을 선택하고 GitBash와 함께 Windows 명령 프롬프트에서 Git를 사용하는 옵션을 선택합니다. Git를 설치한 후 자습서의 뒤에 나오는 VS Code에서 커밋을 수행할 때 필요하므로 Git 사용자 이름과 전자 메일을 설정해야 합니다.  
 
 ## ASP.NET 5 및 DNX 설치
-ASP.NET 5/DNX는 OS X, Linux 및 Windows에서 실행되는 최신 클라우드 및 웹앱을 빌드하기 위한 린(lean) .NET 스택입니다. ASP.NET 5/DNX는 클라우드에 배포되거나 온-프레미스로 실행될 앱에 최적화된 개발 프레임을 제공하기 위해 처음부터 다시 빌드되었습니다. 오버헤드를 최소화하는 모듈식 구성 요소로 구성되므로 솔루션을 구성하는 동안 유연성이 그대로 유지됩니다.
+ASP.NET 5/DNX는 OS X, Linux 및 Windows에서 실행되는 최신 클라우드 및 웹앱을 제작하기 위한 린(lean) .NET 스택입니다. ASP.NET 5/DNX는 클라우드에 배포되거나 온-프레미스로 실행될 앱에 최적화된 개발 프레임워크를 제공하기 위해 처음부터 다시 제작되었습니다. 오버헤드를 최소화하는 모듈식 구성 요소로 구성되므로 솔루션을 구성하는 동안 유연성이 유지할 수 있습니다.
 
 > [AZURE.NOTE]OS X 및 Linux의 ASP.NET 5 및 DNX(.NET 실행 환경)는 초기 베타/미리 보기 상태에 있습니다.
 

@@ -3,7 +3,7 @@
 	description="Azure CDN(콘텐츠 배달 네트워크) 정의와 Blob 및 정적 콘텐츠를 캐시하여 고대역폭 콘텐츠를 배달하는 데 사용하는 방법을 알아봅니다." 
 	services="cdn" 
 	documentationCenter=".NET" 
-	authors="akucer" 
+	authors="zhangmanling" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,17 +13,17 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/06/2015" 
-	ms.author="akucer"/>
+	ms.date="05/26/2015" 
+	ms.author="mazha"/>
 
 #Azure CDN(콘텐츠 배달 네트워크) 개요
 
-Azure CDN(콘텐츠 배달 네트워크)은 클라우드 서비스에서 사용하는 Azure Blob 및 정적 콘텐츠를 전략적으로 배치된 위치에 캐시하여 사용자에게 콘텐츠를 배달하는 데 최대 대역폭을 제공합니다. 
+Azure CDN(콘텐츠 배달 네트워크)은 클라우드 서비스에서 사용하는 Azure Blob 및 정적 콘텐츠를 전략적으로 배치된 위치에 캐시하여 사용자에게 콘텐츠를 배달하는 데 최대 대역폭을 제공합니다.
 
-기존 CDN 고객인 경우 이제 [Microsoft Azure 관리 포털](https://manage.windowsazure.com)을 통해 CDN 끝점을 관리할 수 있습니다. 
+기존 CDN 고객인 경우 이제 [Microsoft Azure 관리 포털](https://manage.windowsazure.com)을 통해 CDN 끝점을 관리할 수 있습니다.
 
 
->[AZURE.NOTE] Azure CDN은 Azure 저장소 또는 Azure 클라우드 서비스와 별도의 [요금제](http://www.microsoft.com/windowsazure/pricing/)를 사용합니다.
+>[AZURE.NOTE]Azure CDN은 Azure 저장소 또는 Azure 클라우드 서비스와 별도의 [요금제](http://www.microsoft.com/windowsazure/pricing/)를 사용합니다.
  
 
 CDN은 전 세계 물리적 노드에 콘텐츠를 캐시하여 고대역폭 콘텐츠를 배달하기 위한 글로벌 솔루션을 개발자에게 제공합니다. CDN 노드 위치의 현재 목록은 [Azure CDN(콘텐츠 배달 네트워크) POP 위치](http://msdn.microsoft.com/library/azure/gg680302.aspx)를 참조하세요.
@@ -34,7 +34,7 @@ CDN을 사용하여 Azure 데이터를 캐시할 경우의 이점은 다음과 �
 - 제품 런칭 이벤트 시작 시와 같이 순간적인 높은 부하를 더 효율적으로 처리하기 위한 대규모 분산 
 
 
->[AZURE.IMPORTANT] CDN 끝점을 만들거나 사용하도록 설정할 때 전 세계에 전파하려면 최대 60분이 걸릴 수 있습니다.
+>[AZURE.IMPORTANT]CDN 끝점을 만들거나 사용하도록 설정할 때 전 세계에 전파하려면 최대 60분이 걸릴 수 있습니다.
  
 CDN에 개체 요청을 처음 수행하는 경우 Blob 서비스나 클라우드 서비스에서 직접 개체가 검색됩니다. CDN 구문을 사용하여 요청을 수행하는 경우 개체에 대한 액세스를 제공하기 위해 요청이 수행된 위치에 가장 가까운 CDN 끝점으로 요청이 리디렉션됩니다. 해당 끝점에 개체가 없을 경우 서비스에서 검색되어 끝점에 캐시되며, 해당 끝점에서 캐시된 개체에 대한 TTL(Time-To-Live) 설정이 유지 관리됩니다.
  
@@ -44,7 +44,7 @@ Azure 저장소 계정에서 CDN을 사용하도록 설정하면 공용 컨테�
 
 최상의 성능을 얻으려면 크기가 10GB 미만인 Blob을 배달할 때는 CDN 에지 캐싱을 사용하세요.
 
-저장소 계정에 대해 CDN 액세스를 사용하도록 설정하면 관리 포털에서 CDN 도메인 이름을 다음 형식으로 제공합니다.: http://<identifier>.vo.msecnd.net/. 이 도메인 이름을 사용하여 공용 컨테이너의 Blob에 액세스할 수 있습니다. 예를 들어 myaccount라는 이름의 저장소 계정에 music이라는 이름의 공용 컨테이너가 있을 경우 사용자는 다음의 두 개의 URL 중 하나를 사용하여 그 컨테이너의 Blob에 액세스할 수 있습니다:
+저장소 계정에 대해 CDN 액세스를 사용하도록 설정하면 관리 포털에서 CDN 도메인 이름을 다음 형식으로 제공합니다. http://<identifier>.vo.msecnd.net/. 이 도메인 이름을 사용하여 공용 컨테이너의 Blob에 액세스할 수 있습니다. 예를 들어 myaccount라는 이름의 저장소 계정에 music이라는 이름의 공용 컨테이너가 있을 경우 사용자는 다음의 두 개의 URL 중 하나를 사용하여 그 컨테이너의 Blob에 액세스할 수 있습니다.
 
 - **Azure Blob 서비스 URL**: `http://myAccount.blob.core.windows.net/music/` 
 - **Azure CDN URL**: `http://<identifier>.vo.msecnd.net/music/` 
@@ -56,17 +56,18 @@ Azure 저장소 계정에서 CDN을 사용하도록 설정하면 공용 컨테�
 웹 사이트에 대해 CDN 액세스를 사용하도록 설정하면 관리 포털에서 CDN 도메인 이름을 http://<identifier>.vo.msecnd.net/ 형식으로 제공합니다. 이 도메인 이름을 사용하여 웹 사이트에서 개체를 검색할 수 있습니다. 예를 들어 cdn이라는 공용 컨테이너와 music.png라는 이미지 파일이 있을 경우 사용자는 다음 두 개의 URL 중 하나를 사용하여 개체에 액세스할 수 있습니다.
 
 - **Azure 웹 사이트 URL**: `http://mySiteName.azurewebsites.net/cdn/music.png` 
-- **Azure CDN URL**: `http://<identifier>.vo.msecnd.net/cdn/music.png` 
+- **Azure CDN URL**: `http://<identifier>.vo.msecnd.net/cdn/music.png`
+ 
 ##Azure 클라우드 서비스의 콘텐츠 캐시
 
-Azure 클라우드 서비스에서 제공하는 개체를 CDN에 캐시할 수 있습니다. 
+Azure 클라우드 서비스에서 제공하는 개체를 CDN에 캐시할 수 있습니다.
 
-클라우드 서비스에 대한 캐싱에는 다음과 같은 제약 조건이 있습니다. 
+클라우드 서비스에 대한 캐싱에는 다음과 같은 제약 조건이 있습니다.
 
 
 - CDN을 사용하여 정적 콘텐츠만 캐시해야 합니다.
 
-	>[AZURE.WARNING] volatile 콘텐츠나 동적 콘텐츠를 캐시하면 성능이 저하되거나 콘텐츠 문제가 발생할 수 있으며 모두 비용 증가를 초래합니다.
+	>[AZURE.WARNING]
 - 프로덕션 배포에 클라우드 서비스를 배포해야 합니다.
 - 클라우드 서비스는 HTTP를 사용하여 포트 80에서 개체를 제공해야 합니다.
 - 클라우드 서비스는 캐시하거나 배달할 콘텐츠를 클라우드 서비스의 /cdn 폴더에 배치해야 합니다.
@@ -80,7 +81,7 @@ Azure 클라우드 서비스에서 제공하는 개체를 CDN에 캐시할 수 �
 
 ###쿼리 문자열을 사용하여 특정 콘텐츠 캐시
 
-쿼리 문자열을 사용하여 클라우드 서비스에서 검색된 개체를 구별할 수 있습니다. 예를 들어 클라우드 서비스에서 달라질 수 있는 차트를 표시하는 경우 쿼리 문자열을 전달하여 필요한 특정 차트를 검색할 수 있습니다. 예를 들면 다음과 같습니다. 
+쿼리 문자열을 사용하여 클라우드 서비스에서 검색된 개체를 구별할 수 있습니다. 예를 들어 클라우드 서비스에서 달라질 수 있는 차트를 표시하는 경우 쿼리 문자열을 전달하여 필요한 특정 차트를 검색할 수 있습니다. 예:
 
 `http://<identifier>.vo.msecnd.net/chart.aspx?item=1`
 
@@ -111,5 +112,6 @@ CDN HTTP 끝점을 사용자 지정 도메인 이름에 매핑하고 해당 이�
 
 사용자 지정 도메인 매핑에 대한 자세한 내용은 [CDN(콘텐츠 배달 네트워크) 콘텐츠를 사용자 지정 도메인에 매핑하는 방법](http://msdn.microsoft.com/library/azure/gg680307.aspx)을 참조하세요.
 
+ 
 
-<!--HONumber=49--> 
+<!---HONumber=62-->

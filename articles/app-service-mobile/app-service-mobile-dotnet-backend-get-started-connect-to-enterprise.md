@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="엔터프라이즈 SaaS에 모바일 앱 연결 | 모바일 개발자 센터" 
-	description="SharePoint Online과 같은 엔터프라이즈 리소스를 호출하는 방법을 알아봅니다." 
-	documentationCenter="" 
-	authors="mattchenderson" 
-	manager="dwrede" 
-	editor="na" 
+<properties
+	pageTitle="엔터프라이즈 SaaS에 모바일 앱 연결 | 모바일 개발자 센터"
+	description="SharePoint Online과 같은 엔터프라이즈 리소스를 호출하는 방법을 알아봅니다."
+	documentationCenter=""
+	authors="mattchenderson"
+	manager="dwrede"
+	editor="na"
 	services="app-service\mobile"/>
 
-<tags 
-	ms.service="app-service-mobile" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="03/05/2015" 
+<tags
+	ms.service="app-service-mobile"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="multiple"
+	ms.topic="get-started-article" 
+	ms.date="06/19/2015"
 	ms.author="mahender"/>
 
 # SaaS API에 모바일 앱 연결
@@ -47,7 +47,7 @@ SharePoint를 호출하려면 모바일 앱이 연결할 끝점을 지정해야 
 
 3. 관리 포털의 모바일 앱 코드 섹션에서 구성 탭으로 이동한 다음 아래의 앱 설정으로 스크롤합니다. 여기에서는 필요한 자격 증명을 참조할 수 있도록 키-값 쌍을 제공할 수 있습니다.
 
-* SP_Authority를 AAD 테넌트에 대한 기관 끝점으로 설정합니다. 이 항목은 클라이언트 앱에 사용되는 기관 값과 동일해야 합니다. 형식은 `https://login.windows.net/contoso.onmicrosoft.com`입니다.
+* SP_Authority를 AAD 테넌트에 대한 기관 끝점으로 설정합니다. 이 항목은 클라이언트 앱에 사용되는 기관 값과 동일해야 합니다. `https://login.windows.net/contoso.onmicrosoft.com` 형식이 됩니다.
 
 * SP_ClientSecret를 이전에 얻은 클라이언트 암호 값으로 설정합니다.
 
@@ -90,7 +90,7 @@ SharePoint에 액세스하려면 대상으로서 SharePoint에 대한 특별 액
             AuthenticationResult ar = ac.AcquireToken(sharepointURL, new ClientCredential(clientId, clientSecret), new UserAssertion(userToken));
             accessToken = ar.AccessToken;
             string upn = ar.UserInfo.UserId;
-            mySiteApiPath = "/personal/" + upn.Replace('@','_').Replace('.','_') + "/_api/web"; 
+            mySiteApiPath = "/personal/" + upn.Replace('@','_').Replace('.','_') + "/_api/web";
             clientId = settings.AzureActiveDirectoryClientId;
             clientSecret = settings["SP_ClientSecret"];
             sharepointURL = settings["SP_SharePointURL"];
@@ -158,11 +158,11 @@ Word 문서를 만들려면 OpenXML NuGet 패키지를 사용합니다. NuGet �
         public async Task<IHttpActionResult> PostTodoItem(TodoItem item)
         {
             TodoItem current = await InsertAsync(item);
-            
+
             SharePointUploadContext context = await SharePointUploadContext.createContext((ServiceUser)this.User, Services.Settings);
             byte[] document = CreateWordDocument(item);
             bool uploadResult = await context.UploadDocument(item.Id, document);
-            
+
             return CreatedAtRoute("Tables", new { id = current.Id }, current);
         }
 
@@ -186,5 +186,6 @@ Word 문서를 만들려면 OpenXML NuGet 패키지를 사용합니다. NuGet �
 [Active Directory 인증 라이브러리 Single Sign-On으로 앱 인증]: app-service-mobile-dotnet-backend-ios-aad-sso-preview.md
 [Active Directory 인증 라이브러리 Single Sign-On을 사용하여 앱 인증]: app-service-mobile-dotnet-backend-ios-aad-sso-preview.md
 [모바일 앱 .NET 백 엔드 앱 서비스 확장]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.AppService/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

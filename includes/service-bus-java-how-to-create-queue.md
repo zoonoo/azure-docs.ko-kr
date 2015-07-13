@@ -1,90 +1,59 @@
 <a id="what-are-service-bus-queues"></a>
-## What are Service Bus Queues?
+## 서비스 버스 큐 정의
 
-Service Bus queues support a **brokered messaging** communication
-model. When using queues, components of a distributed application do not
-communicate directly with each other; instead they exchange messages via
-a queue, which acts as an intermediary (broker). A message producer (sender)
-hands off a message to the queue and then continues its processing.
-Asynchronously, a message consumer (receiver) pulls the message from the
-queue and processes it. The producer does not have to wait for a reply
-from the consumer in order to continue to process and send further
-messages. Queues offer **First In, First Out (FIFO)** message delivery
-to one or more competing consumers. That is, messages are typically
-received and processed by the receivers in the order in which they were
-added to the queue, and each message is received and processed by only
-one message consumer.
+서비스 버스 큐는 **조정된 메시징** 통신 모델을 지원합니다. 큐를 사용하는 경우 분산 응용 프로그램의 구성 요소가 서로 직접 통신하지 않고 중간자(브로커) 역할을 하는 큐를 통해 메시지를 교환합니다. 메시지 생산자(보낸 사람)는 메시지를 큐로 전달한 후 계속해서 처리합니다. 메시지 소비자(받는 사람)는 비동기적으로 큐에서 메시지를 끌어와서 처리합니다. 생산자는 계속해서 추가 메시지를 처리하고 보내기 위해 소비자의 회신을 기다릴 필요가 없습니다. 큐는 하나 이상의 경쟁 소비자에게 **FIFO(선입선출)** 메시지 배달을 제공합니다. 즉, 일반적으로 메시지가 큐에 추가된 순서대로 받는 사람이 메시지를 받고 처리하며, 각 메시지가 하나의 메시지 소비자에 의해서만 수신 및 처리됩니다.
 
 ![QueueConcepts](./media/service-bus-java-how-to-create-queue/sb-queues-08.png)
 
-Service Bus queues are a general-purpose technology that can be used for
-a wide variety of scenarios:
+서비스 버스 큐는 다양한 시나리오에 사용할 수 있는 범용 기술입니다.
 
--   Communication between web and worker roles in a multi-tier
-    Azure application.
--   Communication between on-premises apps and Azure hosted apps
-    in a hybrid solution.
--   Communication between components of a distributed application
-    running on-premises in different organizations or departments of an
-    organization.
+-   다층 계층 Azure 응용 프로그램에서 웹 역할과 작업자 역할 간의 통신
+-   하이브리드 솔루션에서 온-프레미스 앱과 Azure 호스티드 앱 간의 통신
+-   서로 다른 조직이나 조직의 부서에서 온-프레미스로 실행되는 분산 응용 프로그램 구성 요소 간의 통신
 
-Using queues enables you to scale out your applications more easily, and
-enable more resiliency to your architecture.
+큐를 사용하면 응용 프로그램 규모를 보다 쉽게 확장할 수 있으며, 아키텍처의 복원력을 증가시킬 수 있습니다.
 
-## Create a service namespace
+## 서비스 네임스페이스 만들기
 
-To begin using Service Bus queues in Azure, you must first
-create a service namespace. A namespace provides a scoping
-container for addressing Service Bus resources within your application.
+Azure에서 서비스 버스 큐 사용을 시작하려면 먼저 서비스 네임스페이스를 만들어야 합니다. 네임스페이스는 응용 프로그램 내에서 서비스 버스 리소스의 주소를 지정하기 위한 범위 컨테이너를 제공합니다.
 
-To create a service namespace:
+서비스 네임스페이스를 만들려면
 
-1.  Log on to the [Azure Management Portal][].
+1.  [Azure 관리 포털][]에 로그온합니다.
 
-2.  In the left navigation pane of the Management Portal, click
-    **Service Bus**.
+2.  관리 포털의 왼쪽 탐색 창에서 **Service Bus**를 클릭합니다.
 
-3.  In the lower pane of the Management Portal, click **Create**.
-	![](./media/service-bus-java-how-to-create-queue/sb-queues-03.png)
+3.  관리 포털의 아래쪽 창에서 **만들기**를 클릭합니다. ![](./media/service-bus-java-how-to-create-queue/sb-queues-03.png)
 
-4.  In the **Add a new namespace** dialog, enter a namespace name.
-    The system immediately checks to see if the name is available.
-	![](./media/service-bus-java-how-to-create-queue/sb-queues-04.png)
+4.  **Add a new namespace** 대화 상자에서 네임스페이스 이름을 입력합니다. 시스템에서 사용 가능한 이름인지 즉시 확인합니다. ![](./media/service-bus-java-how-to-create-queue/sb-queues-04.png)
 
-5.  After making sure the namespace name is available, choose the
-    country or region in which your namespace should be hosted (make
-    sure you use the same country/region in which you are deploying your
-    compute resources).
+5.  네임스페이스 이름이 사용 가능한지 확인한 후 해당 네임스페이스를 호스트할 국가 또는 지역을 선택합니다(계산 리소스를 배포할 국가/지역과 같아야 함).
 
-	IMPORTANT: Pick the **same region** that you intend to choose for
-    deploying your application. This will give you the best performance.
+	중요: 응용 프로그램을 배포하도록 선택할 지역과 **같은 지역**을 선택합니다. 그러면 최상의 성능을 얻을 수 있습니다.
 
-6. 	Leave the other fields in the dialog with their default values (**Messaging** and **Standard Tier**), then click the check mark. The system now creates your namespace and enables it. You might have to wait several minutes as the system provisions resources for your account.
+6. 	대화 상자의 다른 필드는 기본값으로 그대로 두고(**메시징** 및 **표준 계층**) 확인 표시를 클릭합니다. 이제 시스템이 네임스페이스를 만들고 사용하도록 설정합니다. 시스템이 계정에 대한 리소스를 프로비전하는 동안 몇 분 정도 기다려야 할 수도 있습니다.
 
 	![](./media/service-bus-java-how-to-create-queue/getting-started-multi-tier-27.png)
 
-The namespace you created takes a moment to activate, and will then appear in the management portal. Wait until the namespace status is **Active** before continuing.
+만든 네임스페이스를 활성화되는 데 약간의 시간이 걸린 후 관리 포털에 표시됩니다. 계속하기 전에 네임스페이스가 **활성** 상태가 될 때까지 기다리세요.
 
-## Obtain the default management credentials for the namespace
+## 네임스페이스에 대한 기본 관리 자격 증명 얻기
 
-In order to perform management operations, such as creating a queue on
-the new namespace, you must obtain the management credentials for the
-namespace. You can obtain these credentials from the Azure management portal.
+새 네임스페이스에 대해 큐 만들기 등의 관리 작업을 수행하려면 네임스페이스에 대한 관리 자격 증명을 받아야 합니다. Azure 관리 포털에서 이러한 자격 증명을 가져올 수 있습니다.
 
-###To obtain management credentials from the portal
+###포털에서 관리 자격 증명을 가져오려면
 
-1.  In the left navigation pane, click the **Service Bus** node, to
-    display the list of available namespaces:
-	![](./media/service-bus-java-how-to-create-queue/sb-queues-13.png)
+1.  왼쪽 탐색 창에서 **서비스 버스** 노드를 클릭하여 사용 가능한 네임스페이스 목록을 표시합니다. ![](./media/service-bus-java-how-to-create-queue/sb-queues-13.png)
 
-2.  Click on the namespace you just created from the list shown.
+2.  표시된 목록에서 방금 만든 네임스페이스를 클릭합니다.
 
-3.  Click **Configure** to view the shared access policies for your namespace.
-	![](./media/service-bus-java-how-to-create-queue/sb-queues-14.png)
+3.  **구성**을 클릭하여 네임스페이스에 대한 공유 액세스 정책을 확인합니다. ![](./media/service-bus-java-how-to-create-queue/sb-queues-14.png)
 
-4.  Make a note of the primary key, or copy it to the clipboard.
+4.  기본 키를 적어 두거나 클립보드에 복사해 둡니다.
 
   [Azure Management Portal]: http://manage.windowsazure.com
-  [Azure Management Portal]: http://manage.windowsazure.com
+  [Azure 관리 포털]: http://manage.windowsazure.com
 
   [34]: ./media/service-bus-java-how-to-create-queue/VSProperties.png
+
+<!---HONumber=62-->

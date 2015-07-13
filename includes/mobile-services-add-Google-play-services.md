@@ -15,16 +15,12 @@
 
 5. *defaultConfig* 아래에서 *minSdkVersion*을 9로 변경합니다.
  
-6. 도구 모음에서 **Gradle 파일과 프로젝트 동기화** 단추를 클릭합니다.
+6. 도구 모음에서 **Gradle 파일과 프로젝트 동기화** 아이콘을 클릭합니다.
 
-7. **AndroidManifest.xml**을 열고 이 태그를 *응용 프로그램* 태그에 추가합니다.
+7. **AndroidManifest.xml**을 열고 이 태그를 *응용프로그램* 태그에 추가합니다.
 
         <meta-data android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
  
 
-
-
-
-
-<!--HONumber=54-->
+<!---HONumber=62-->

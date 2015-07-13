@@ -12,21 +12,21 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
-	ms.topic="hero-article"
-	ms.date="04/14/2015"
-	ms.author="yuaxu"/>
+	ms.topic="get-started-article"
+	ms.date="06/09/2015"
+	ms.author="yuaxu;wesmc"/>
 
 # 알림 허브 시작
 
 [AZURE.INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
-## 개요
+##개요
 
 이 항목에서는 Azure 알림 허브를 사용하여 Xamarin.Android 응용 프로그램에 푸시 알림을 보내는 방법을 보여 줍니다. 이 자습서에서는 GCM(Google Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Xamarin.Android 앱을 만듭니다. 완료하면 알림 허브를 사용하여 앱을 실행하는 모든 장치로 푸시 알림을 브로드캐스트할 수 있습니다. 완성된 코드는 [NotificationHubs 앱][GitHub] 샘플에서 확인할 수 있습니다.
 
 이 자습서에서는 알림 허브를 사용하는 간단한 브로드캐스트 시나리오를 보여 줍니다.
 
-## 필수 조건
+##필수 조건
 
 이 자습서를 사용하려면 다음이 필요합니다.
 
@@ -40,15 +40,15 @@
 
 > [AZURE.IMPORTANT]이 자습서를 완료하려면 활성 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A9C9624B5&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fko-kr%2Fdocumentation%2Farticles%2Fpartner-xamarin-notification-hubs-android-get-started%2F)을 참조하세요.
 
-## <a name="register"></a>Google Cloud Messaging 사용
+##<a name="register"></a>Google Cloud Messaging 사용
 
 [AZURE.INCLUDE [mobile-services-enable-Google-cloud-messaging](../../includes/mobile-services-enable-Google-cloud-messaging.md)]
 
-## <a name="configure-hub"></a>알림 허브 구성
+##<a name="configure-hub"></a>알림 허브 구성
 
 [AZURE.INCLUDE [notification-hubs-android-configure-push](../../includes/notification-hubs-android-configure-push.md)]
 
-## <a name="connecting-app"></a>알림 허브에 앱 연결
+##<a name="connecting-app"></a>알림 허브에 앱 연결
 
 ### 새 프로젝트 만들기
 
@@ -76,49 +76,80 @@ Xamarin Component Store에서 제공되는 Google Cloud Messaging 클라이언�
 
 1. Xamarin.Android 앱에서 Components 폴더를 마우스 오른쪽 단추로 클릭하고 **Get More Components...**를 선택합니다.
 
-2. **Azure 모바일 서비스** 구성 요소를 검색하고 프로젝트에 구성 요소를 추가합니다.
+2. **Azure 메시징** 구성 요소를 검색하고 프로젝트에 구성 요소를 추가합니다.
 
-3. **Azure 메시징** 구성 요소를 검색하고 프로젝트에 구성 요소를 추가합니다.
-
-4. **Google Cloud Messaging 클라이언트** 구성 요소를 검색하고 프로젝트에 구성 요소를 추가합니다.
+3. **Google Cloud Messaging 클라이언트** 구성 요소를 검색하고 프로젝트에 구성 요소를 추가합니다.
 
 
 ### 프로젝트에서 알림 허브 설정
 
-1. **Constants.cs** 클래스를 만들고 다음 상수 값을 정의합니다(자리 표시자를 값으로 대체).
+1. Android 앱 및 알림 허브에 대해 다음 정보를 수집합니다.
+ 
+	- **GoogleProjectNumber**: Google 개발 포털의 앱 개요에서 이 프로젝트의 번호 값을 가져옵니다. 앞서 포털에서 앱을 생성할 때 이 값을 기입해 두었습니다.
+	- **연결 문자열 수신 대기**: Azure 포털의 대시보드에서 **연결 문자열 보기**를 클릭합니다. 이 값에 대해 *DefaultListenSharedAccessSignature* 연결 문자열을 복사합니다.
+	- **허브 이름**: Azure 포털에서 허브의 이름입니다. 예를 들어, *mynotificationhub2*입니다.
 
-        public const string SenderID = "<GoogleProjectNumber>"; // Google API Project Number
+	Xamarin 프로젝트에 대해 **Constants.cs** 클래스를 만들고 클래스에 다음 상수 값을 정의합니다. 자리 표시자는 해당 값으로 바꿉니다.
 
-        // Azure app specific connection string and hub path
-        public const string ConnectionString = "<Azure connection string>";
-        public const string NotificationHubPath = "<hub path>";
+		public const string SenderID = "<GoogleProjectNumber>"; // Google API Project Number
+		public const string ListenConnectionString = "<Listen connection string>";
+		public const string NotificationHubName = "<hub name>";
 
 2. **MainActivity.cs**에 다음 using 문을 추가합니다.
 
-		using Microsoft.WindowsAzure.MobileServices;
+		using Android.Util;
 		using Gcm.Client;
+
+3. 앱 실행 중에 경고 대화 상자를 표시하는 데 사용할 `MainActivity` 클래스에 인스턴스 변수를 추가합니다.
+
+		public static MainActivity instance;
+
 
 3. **MainActivity** 클래스에 다음 메서드를 만듭니다.
 
 		private void RegisterWithGCM()
-        {
-            // Check to ensure everything's setup right
-            GcmClient.CheckDevice(this);
-            GcmClient.CheckManifest(this);
+		{
+			// Check to ensure everything's setup right
+			GcmClient.CheckDevice(this);
+			GcmClient.CheckManifest(this);
 
-            // Register for push notifications
-            System.Diagnostics.Debug.WriteLine("Registering...");
-            GcmClient.Register(this, Constants.SenderID);
-        }
+			// Register for push notifications
+			Log.Info("MainActivity", "Registering...");
+			GcmClient.Register(this, Constants.SenderID);
+		}
+
+4. **MainActivity.cs**의 `OnCreate` 메서드에 `RegisterWithGCM`에 대한 호출을 추가합니다.
+
+		protected override void OnCreate (Bundle bundle)
+		{
+			instance = this;
+
+			base.OnCreate (bundle);
+
+			// Set our view from the "main" layout resource
+			SetContentView (Resource.Layout.Main);
+
+			// Get our button from the layout resource,
+			// and attach an event to it
+			Button button = FindViewById<Button> (Resource.Id.myButton);
+			
+			RegisterWithGCM();
+		}
+
 
 4. 새 클래스 **MyBroadcastReceiver**를 만듭니다.
 
-	> [AZURE.NOTE]아래에서는 처음부터 **BroadcastReceiver**를 만드는 과정을 단계별로 안내합니다. 그러나 수동으로 **MyBroadcastReceiver.cs**를 만드는 대신 빠른 대안으로 GitHub의 샘플 Xamarin.Android 프로젝트에 있는 **GcmService.cs** 파일을 참조할 수 있습니다. **GcmService.cs**를 복제하고 클래스 이름을 변경하면 빨리 시작할 수 있습니다.
+	> [AZURE.NOTE]아래에서는 처음부터 **BroadcastReceiver**를 만드는 과정을 단계별로 안내합니다. 그러나 수동으로 **MyBroadcastReceiver.cs**를 만드는 대신 [NotificationHubs 샘플][GitHub]에 있는 Xamarin.Android 샘플 프로젝트의 **GcmService.cs** 파일을 참조하면 더 빠르게 만들 수 있습니다. **GcmService.cs**를 복제하고 클래스 이름을 변경하면 빨리 시작할 수 있습니다.
 
 5. 다음 using 문을 **MyBroadcastReceiver.cs**(앞에서 만든 구성 요소 및 어셈블리 참조)에 추가합니다.
 
-		using WindowsAzure.Messaging;
+		using System.Collections.Generic;
+		using System.Text;
+		using Android.App;
+		using Android.Content;
+		using Android.Util;
 		using Gcm.Client;
+		using WindowsAzure.Messaging;
 
 5. **using** 문과 **namespace** 선언 사이에 다음 사용 권한 요청을 추가합니다.
 
@@ -134,11 +165,11 @@ Xamarin Component Store에서 제공되는 Google Cloud Messaging 클라이언�
 6. **MyBroadcastReceiver.cs**에서 **MyBroadcastReceiver** 클래스를 다음과 일치하도록 변경합니다.
 
     	[BroadcastReceiver(Permission=Gcm.Client.Constants.PERMISSION_GCM_INTENTS)]
-        [IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_MESSAGE }, 
+        [IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_MESSAGE },
 			Categories = new string[] { "@PACKAGE_NAME@" })]
-        [IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_REGISTRATION_CALLBACK }, 
+        [IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_REGISTRATION_CALLBACK },
 			Categories = new string[] { "@PACKAGE_NAME@" })]
-        [IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_LIBRARY_RETRY }, 
+        [IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_LIBRARY_RETRY },
 			Categories = new string[] { "@PACKAGE_NAME@" })]
         public class MyBroadcastReceiver : GcmBroadcastReceiverBase<PushHandlerService>
         {
@@ -161,68 +192,74 @@ Xamarin Component Store에서 제공되는 Google Cloud Messaging 클라이언�
         	}
     	}
 
+
 8. **GcmServiceBase**는 **OnRegistered()**, **OnUnRegistered()**, **OnMessage()**, **OnRecoverableError()** 및 **OnError()** 메서드를 구현합니다. 구현 클래스 **PushHandlerService**는 이러한 메서드를 재정의해야 하며, 해당 메서드는 알림 허브와 상호 작용에 대한 응답으로 발생합니다.
+
 
 9. **PushHandlerService**의 **OnRegistered()** 메서드를 다음 코드로 재정의합니다.
 
-        protected override void OnRegistered(Context context, string registrationId)
-        {
-            Log.Verbose(MyBroadcastReceiver.TAG, "GCM Registered: " + registrationId);
-            RegistrationID = registrationId;
+		protected override void OnRegistered(Context context, string registrationId)
+		{
+			Log.Verbose(MyBroadcastReceiver.TAG, "GCM Registered: " + registrationId);
+			RegistrationID = registrationId;
 
-            createNotification("PushHandlerService-GCM Registered...", "The device has been Registered, Tap to View!");
+			createNotification("PushHandlerService-GCM Registered...", 
+								"The device has been Registered!");
 
-            Hub = new NotificationHub (Constants.NotificationHubPath, Constants.ConnectionString);
-            try
-            {
-                Hub.UnregisterAll(registrationId);
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(ex.Message);
-                Debugger.Break();
-            }
+			Hub = new NotificationHub(Constants.NotificationHubName, Constants.ListenConnectionString, 
+										context);
+			try
+			{
+				Hub.UnregisterAll(registrationId);
+			}
+			catch (Exception ex)
+			{
+				Log.Error(MyBroadcastReceiver.TAG, ex.Message);
+			}
 
-            var tags = new List<string>() { "falcons" }; // create tags if you want
+			//var tags = new List<string>() { "falcons" }; // create tags if you want
+			var tags = new List<string>() {}; 
 
-            try
-            {
-                var hubRegistration = Hub.RegisterNative (registrationId, tags);
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(ex.Message);
-                Debugger.Break();
-            }
-        }
+			try
+			{
+				var hubRegistration = Hub.Register(registrationId, tags.ToArray());
+			}
+			catch (Exception ex)
+			{
+				Log.Error(MyBroadcastReceiver.TAG, ex.Message);
+			}
+		}
 
 	> [AZURE.NOTE]위의 **OnRegistered()** 코드에서 태그를 지정하여 특정 메시징 채널에 등록하는 기능을 확인해야 합니다.
 
 10. **PushHandlerService**의 **OnMessage** 메서드를 다음 코드로 재정의합니다.
 
-        protected override void OnMessage(Context context, Intent intent)
-        {
-            Log.Info(MyBroadcastReceiver.TAG, "GCM Message Received!");
+		protected override void OnMessage(Context context, Intent intent)
+		{
+			Log.Info(MyBroadcastReceiver.TAG, "GCM Message Received!");
 
-            var msg = new StringBuilder();
+			var msg = new StringBuilder();
 
-            if (intent != null && intent.Extras != null)
-            {
-                foreach (var key in intent.Extras.KeySet())
-                    msg.AppendLine(key + "=" + intent.Extras.Get(key).ToString());
-            }
+			if (intent != null && intent.Extras != null)
+			{
+				foreach (var key in intent.Extras.KeySet())
+					msg.AppendLine(key + "=" + intent.Extras.Get(key).ToString());
+			}
 
-            string messageText = intent.Extras.GetString("msg");
-            if (!string.IsNullOrEmpty(messageText))
-            {
-                createNotification("New hub message!", messageText);
-                return;
-            }
+			string messageText = intent.Extras.GetString("message");
+			if (!string.IsNullOrEmpty (messageText)) 
+			{
+				createNotification ("New hub message!", messageText);
+			} 
+			else 
+			{
+				createNotification ("Unknown message details", msg.ToString ());
+			}
+		}
 
-            createNotification("Unknown message details", msg.ToString());
-        }
+11. 알림이 수신되면 사용자에게 알리도록 다음 **createNotification** 및 **dialogNotify** 메서드를 **PushHandlerService**에 추가합니다.
 
-11. 위와 같이 사용자에게 알리기 위해 **PushHandlerService**에 **createNotification** 메서드를 추가합니다.
+	>[AZURE.NOTE]Android 버전 5.0 이상에서의 알림 설계는 이전 버전과 상당한 차이가 있습니다. Android 5.0에서 이를 테스트할 때는 알림 수신을 위해 앱을 실행해야 합니다. 자세한 내용은 [Android 알림](http://go.microsoft.com/fwlink/?LinkId=615880)을 참조하세요.
 
         void createNotification(string title, string desc)
         {
@@ -245,16 +282,55 @@ Xamarin Component Store에서 제공되는 Google Cloud Messaging 클라이언�
 
             //Show the notification
             notificationManager.Notify(1, notification);
+			dialogNotify (title, desc);
         }
+
+		protected void dialogNotify(String title, String message)
+		{
+
+			MainActivity.instance.RunOnUiThread(() => {
+				AlertDialog.Builder dlg = new AlertDialog.Builder(MainActivity.instance);
+				AlertDialog alert = dlg.Create();
+				alert.SetTitle(title);
+				alert.SetButton("Ok", delegate {
+					alert.Dismiss();
+				});			
+				alert.SetMessage(message);
+				alert.Show();
+			});
+		}
+
 
 12. 코드가 컴파일되도록 추상 멤버 **OnUnRegistered()**, **OnRecoverableError()** 및 **OnError()**를 재정의합니다.
 
+		protected override void OnUnRegistered(Context context, string registrationId)
+		{
+			Log.Verbose(MyBroadcastReceiver.TAG, "GCM Unregistered: " + registrationId);
 
-## <a name="run-app"></a>에뮬레이터에서 앱 실행
+			createNotification("GCM Unregistered...", "The device has been unregistered!");
+		}
+
+		protected override bool OnRecoverableError(Context context, string errorId)
+		{
+			Log.Warn(MyBroadcastReceiver.TAG, "Recoverable Error: " + errorId);
+
+			return base.OnRecoverableError (context, errorId);
+		}
+
+		protected override void OnError(Context context, string errorId)
+		{
+			Log.Error(MyBroadcastReceiver.TAG, "GCM Error: " + errorId);
+		}
+
+
+##<a name="run-app"></a>에뮬레이터에서 앱 실행
 
 에뮬레이터에서 이 앱을 실행하는 경우 Google API를 지원하는 AVD(Android Virtual Device)를 사용해야 합니다.
 
-	> [AZURE.IMPORTANT] 푸시 알림을 받으려면 Android Virtual Device에서 Google 계정을 설정해야 합니다. 이렇게 하려면 에뮬레이터에서 설정으로 이동하여 계정 추가를 클릭합니다. 에뮬레이터가 인터넷에 연결되어 있어야 합니다.
+> [AZURE.IMPORTANT]푸시 알림을 받으려면 Android Virtual Device에서 Google 계정을 설정해야 합니다(에뮬레이터에서 **Settings**로 이동하고 **Add Account** 클릭). 에뮬레이터가 인터넷에 연결되어 있어야 합니다.
+
+>[AZURE.NOTE]Android 버전 5.0 이상에서의 알림 설계는 이전 버전과 상당한 차이가 있습니다. Android 5.0에서 이를 테스트할 때는 알림 수신을 위해 앱을 실행해야 합니다. 자세한 내용은 [Android 알림](http://go.microsoft.com/fwlink/?LinkId=615880)을 참조하세요.
+
 
 1. **Tools**에서 **Open Android Emulator Manager**를 클릭하고 해당 장치를 선택한 후 **Edit**를 클릭합니다.
 
@@ -268,13 +344,31 @@ Xamarin Component Store에서 제공되는 Google Cloud Messaging 클라이언�
 
   앱이 GCM에서 *registrationId*를 검색하고 알림 허브에 등록됩니다.
 
-<a name="send"></a>백 엔드에서 알림 보내기
+##백 엔드에서 알림 보내기
 
-<a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">REST 인터페이스</a>를 사용하는 모든 백 엔드에서 알림 허브를 사용하여 알림을 보낼 수 있습니다. 이 자습서에서는 .NET 콘솔 앱 및 노드 스크립트를 사용하는 모바일 서비스를 통해 알림을 보냅니다.
 
-.NET 앱을 사용하여 알림을 보내려면
+아래 화면과 같이 알림 허브의 디버그 탭을 사용하여 Azure 포털에서 알림을 보내 앱의 알림 수신을 테스트할 수 있습니다.
 
-1. 새 Visual C\# 콘솔 응용 프로그램을 만듭니다.
+![][30]
+
+
+푸시 알림은 일반적으로 호환 라이브러리를 사용하는 모바일 서비스 또는 ASP.NET과 같은 백 엔드 서비스에서 전송됩니다. 백 엔드에 라이브러리를 사용할 수 없는 경우 직접 REST API를 사용하여 알림 메시지를 보낼 수도 있습니다.
+
+알림을 보내기 위해 검토할 수 있는 다른 자습서 목록은 다음과 같습니다.
+
+- ASP.NET: [알림 허브를 사용하여 사용자에게 푸시 알림 보내기]를 참조하세요.
+- Azure 알림 허브 Java SDK: Java에서 알림을 보내는 방법은 [Java에서 알림 허브를 사용하는 방법](notification-hubs-java-backend-how-to.md)을 참조하세요. 이는 Eclipse for Android Development에서 테스트되었습니다.
+- PHP: [PHP에서 알림 허브를 사용하는 방법](notification-hubs-php-backend-how-to.md)을 참조하세요.
+
+
+이 자습서의 다음 부분에서는 .NET 콘솔 앱과, 노드 스크립트를 사용하는 모바일 서비스를 통해 알림을 보냅니다.
+
+####.NET 앱을 사용하여 알림을 보내려면
+
+
+Microsoft는.NET 플랫폼에서 알림을 보내기 위한 Azure 서비스 버스 SDK를 제공합니다. 이 섹션에서는 Azure 서비스 버스 SDK를 사용하여 알림을 보내기 위한 .NET 콘솔 응용 프로그램을 Visual Studio로 만듭니다.
+
+1. 새 Visual C# 콘솔 응용 프로그램을 만듭니다.
 
    	![][20]
 
@@ -288,12 +382,12 @@ Xamarin Component Store에서 제공되는 Google Cloud Messaging 클라이언�
 
         using Microsoft.ServiceBus.Notifications;
 
-3. `Program` 클래스에 다음 메서드를 추가합니다.
+3. 다음 메서드를 `Program` 클래스에 추가합니다. 자리 표시자 텍스트를 *DefaultFullSharedAccessSignature* 연결 문자열과 Azure 포털의 허브 이름을 사용하여 업데이트합니다.
 
         private static async void SendNotificationAsync()
         {
             NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString("<connection string with full access>", "<hub name>");
-            await hub.SendGcmNativeNotificationAsync("{ \"data\" : {\"msg\":\"Hello from Azure!\"}}");
+            await hub.SendGcmNativeNotificationAsync("{ "data" : {"message":"Hello from Azure!"}}");
         }
 
 4. 그런 다음 Main 메서드에 다음 줄을 추가합니다.
@@ -301,11 +395,13 @@ Xamarin Component Store에서 제공되는 Google Cloud Messaging 클라이언�
          SendNotificationAsync();
 		 Console.ReadLine();
 
-5. F5 키를 눌러 앱을 실행합니다. 그러면 알림 메시지가 수신되어야 합니다.
+5. F5 키를 눌러 앱을 실행합니다. 그러면 앱에서 알림을 받게 됩니다.
 
    	![][21]
 
-모바일 서비스를 사용하여 알림을 보내려면 [모바일 서비스 시작](영문\)을 따른 후 다음을 수행하세요.
+####모바일 서비스를 사용하여 알림을 보내려면
+
+1. [모바일 서비스 시작]에 따르고
 
 1. [Azure 관리 포털]에 로그온하고 모바일 서비스를 선택합니다.
 
@@ -323,7 +419,7 @@ Xamarin Component Store에서 제공되는 Google Cloud Messaging 클라이언�
 
         var azure = require('azure');
 		var notificationHubService = azure.createNotificationHubService('<hub name>', '<connection string>');
-		notificationHubService.gcm.send(null,'{"data":{"msg" : "Hello from Mobile Services!"}}',
+		notificationHubService.gcm.send(null,'{"data":{"message" : "Hello from Mobile Services!"}}',
     	  function (error)
     	  {
         	if (!error) {
@@ -375,6 +471,9 @@ Xamarin Component Store에서 제공되는 Google Cloud Messaging 클라이언�
 [22]: ./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-scheduler1.png
 [23]: ./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-scheduler2.png
 
+[30]: ./media/partner-xamarin-notification-hubs-android-get-started/notification-hubs-debug-hub-gcm.png
+
+
 <!-- URLs. -->
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
@@ -388,6 +487,7 @@ Xamarin Component Store에서 제공되는 Google Cloud Messaging 클라이언�
 [Android용 알림 허브 방법]: http://msdn.microsoft.com/library/dn282661.aspx
 
 [알림 허브를 사용하여 사용자에게 알림 푸시]: /manage/services/notification-hubs/notify-users-aspnet
+[알림 허브를 사용하여 사용자에게 푸시 알림 보내기]: /manage/services/notification-hubs/notify-users-aspnet
 [알림 허브를 사용하여 뉴스 속보 보내기]: /manage/services/notification-hubs/breaking-news-dotnet
 [GCMClient Component page]: http://components.xamarin.com/view/GCMClient
 [Xamarin.NotificationHub GitHub page]: https://github.com/SaschaDittmann/Xamarin.NotificationHub
@@ -396,5 +496,6 @@ Xamarin Component Store에서 제공되는 Google Cloud Messaging 클라이언�
 [Azure 모바일 서비스 구성 요소]: http://components.xamarin.com/view/azure-mobile-services/
 [Google Cloud Messaging 클라이언트 구성 요소]: http://components.xamarin.com/view/GCMClient/
 [Azure 메시징 구성 요소]: http://components.xamarin.com/view/azure-messaging
-<!--HONumber=52-->
  
+
+<!---HONumber=62-->

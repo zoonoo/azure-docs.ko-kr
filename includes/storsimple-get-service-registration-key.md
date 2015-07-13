@@ -1,21 +1,3 @@
-<properties 
-   pageTitle="서비스 등록 키 가져오기"
-   description="모든 StorSimple 장치를 등록하는 데 사용되는 등록 키를 가져오는 방법을 설명합니다."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="04/01/2015"
-   ms.author="v-sharos" />
-
-
 #### StorSimple 서비스 등록 키를 가져오려면
 
 1. **StorSimple 관리자 서비스** 페이지에서 작성한 서비스를 클릭합니다. 그러면 **빠른 시작** 페이지로 이동합니다. 언제든지 빠른 시작 아이콘 ![StorSimple 빠른 시작 아이콘](./media/storsimple-get-service-registration-key/HCS_QuickStartIcon-include.png)을 클릭하여 **빠른 시작** 페이지에 액세스할 수 있습니다.

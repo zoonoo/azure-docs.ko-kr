@@ -1,40 +1,51 @@
-<properties 
-	pageTitle="BizTalk 서비스의 발급자 이름 및 발급자 키 | Azure" 
-	description="BizTalk 서비스에서 서비스 버스 또는 액세스 제어(ACS)에 대한 발급자 이름 및 발급자 키를 검색하는 방법에 대해 알아봅니다. MABS, WABS" 
-	services="biztalk-services" 
-	documentationCenter="" 
-	authors="MandiOhlinger" 
-	manager="dwrede" 
+<properties
+	pageTitle="BizTalk 서비스 버전의 기능 알아보기 | Azure"
+	description="BizTalk 서비스 버전(Developer, Basic, Standard 및 Premium)의 기능을 비교합니다. MABS, WABS"
+	services="biztalk-services"
+	documentationCenter=""
+	authors="MandiOhlinger"
+	manager="dwrede"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="biztalk-services" 
-	ms.workload="integration" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/16/2015" 
+<tags
+	ms.service="biztalk-services"
+	ms.workload="integration"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article" 
+	ms.date="03/03/2015"
 	ms.author="mandia"/>
 
 
+# BizTalk 서비스: 버전 차트
+
+Azure BizTalk 서비스는 선택할 수 있는 여러 버전을 제공합니다. 이 항목을 사용하여 시나리오 및 비즈니스 요구 사항에 적합한 버전을 확인할 수 있습니다.
 
 
-# BizTalk 서비스: Editions 차트
+## 버전 설명
 
-Azure BizTalk 서비스는 Free, Developer, Basic, Standard 및 Premium Edition으로 제공됩니다.
+**Free(Preview)**
 
-**Free(Preview)**: 하이브리드 연결을 만들고 관리하는 기능이 포함되어 있습니다. 하이브리드 연결은 Azure 웹 사이트를 SQL Server와 같은 온-프레미스 시스템에 연결하는 간편한 방법입니다. 
+하이브리드 연결을 만들고 관리하는 기능이 포함되어 있습니다. 하이브리드 연결은 Azure 웹 사이트를 SQL Server와 같은 온-프레미스 시스템에 연결하는 간편한 방법입니다.
 
-**Developer**: 하이브리드 연결, 사용하기 쉬운 거래 업체 관리 포털을 통한 EAI 및 EDI 메시지 처리, X12와 AS2를 통한 다양한 EDI 처리 및 공통 EDI 스키마 지원 등의 기능이 포함되어 있습니다. 메시지를 읽고 쓰기 위해 HTTP/S, REST, FTP, WCF 및 SFTP 프로토콜로 클라우드에서 서비스를 연결하는 일반 EAI 시나리오를 만들 수 있습니다.  미리 만들어진 SAP, Oracle eBusiness, Oracle DB, Siebel 및 SQL Server 어댑터로 온-프레미스 LOB 시스템에 연결할 수 있습니다. 쉽게 개발하고 배포하기 위해 Visual Studio 도구를 통해 모두 개발자 중심 환경으로 이루어져 있습니다. SLA(서비스 수준 계약)가 없는 개발 및 테스트 용도로만 제한됩니다.
+**DEVELOPER**
 
-**Basic**: 대부분의 Developer 기능이 포함되어 있으며, 더 많은 하이브리드 연결, EAI 브리지, EDI 계약 및 BizTalk Adapter Pack 연결을 지원합니다. 또한 SLA(서비스 수준 계약)를 통해 확장할 수 있는 옵션 및 고가용성을 제공합니다.
+하이브리드 연결, 사용하기 쉬운 거래 업체 관리 포털을 통한 EAI 및 EDI 메시지 처리, X12와 AS2를 통한 다양한 EDI 처리 및 공통 EDI 스키마 지원 등의 기능이 포함되어 있습니다. 메시지를 읽고 쓰기 위해 HTTP/S, REST, FTP, WCF 및 SFTP 프로토콜로 클라우드에서 서비스를 연결하는 일반 EAI 시나리오를 만들 수 있습니다. 미리 만들어진 SAP, Oracle eBusiness, Oracle DB, Siebel 및 SQL Server 어댑터로 온-프레미스 LOB 시스템에 연결할 수 있습니다. Visual Studio 도구가 포함된 개발자 중심 환경을 사용하여 손쉽게 개발하고 배포할 수 있습니다. SLA(서비스 수준 계약)가 없는 개발 및 테스트 용도로만 제한됩니다.
 
-**Standard**: 모든 Basic 기능이 포함되어 있으며, 더 많은 하이브리드 연결, EAI 브리지, EDI 계약 및 BizTalk Adapter Pack 연결을 지원합니다. 또한 SLA(서비스 수준 계약)를 통해 확장할 수 있는 옵션 및 고가용성을 제공합니다.
+**BASIC**
+
+대부분의 Developer 기능이 포함되어 있으며, 더 많은 하이브리드 연결, EAI 브리지, EDI 계약 및 BizTalk Adapter Pack 연결을 지원합니다. 또한 SLA(서비스 수준 계약)를 통해 확장할 수 있는 옵션 및 고가용성을 제공합니다.
+
+**STANDARD**
+
+모든 Basic 기능이 포함되어 있으며, 더 많은 하이브리드 연결, EAI 브리지, EDI 계약 및 BizTalk Adapter Pack 연결을 지원합니다. 또한 SLA(서비스 수준 계약)를 통해 확장할 수 있는 옵션 및 고가용성을 제공합니다.
+
+**PREMIUM**
+
+모든 Standard 기능이 포함되어 있으며, 더 많은 하이브리드 연결, EAI 브리지, EDI 계약 및 BizTalk Adapter Pack 연결을 지원합니다. 또한 SLA(서비스 수준 계약)를 통해 확장할 수 있는 옵션, 보관 및 고가용성을 제공합니다.
 
 
-**Premium**: 모든 Standard 기능이 포함되어 있으며, 더 많은 하이브리드 연결, EAI 브리지, EDI 계약 및 BizTalk Adapter Pack 연결을 지원합니다. 또한 SLA(서비스 수준 계약)를 통해 확장할 수 있는 옵션, 보관 및 고가용성을 제공합니다.
-
-
+## 버전 차트
 다음 표에는 차이점이 나와 있습니다.
 
 <table border="1">
@@ -46,13 +57,10 @@ Azure BizTalk 서비스는 Free, Developer, Basic, Standard 및 Premium Edition�
         <th>Standard</th>
         <th>Premium</th>
 </tr>
+
 <tr>
 <td><strong>가격</strong></td>
-<td><a HREF="http://go.microsoft.com/fwlink/p/?LinkID=304011">Azure BizTalk 서비스 가격</a>을 참조하세요.</td>
-<td><a HREF="http://go.microsoft.com/fwlink/p/?LinkID=304011">Azure BizTalk 서비스 가격</a>을 참조하세요.</td>
-<td><a HREF="http://go.microsoft.com/fwlink/p/?LinkID=304011">Azure BizTalk 서비스 가격</a>을 참조하세요.</td>
-<td><a HREF="http://go.microsoft.com/fwlink/p/?LinkID=304011">Azure BizTalk 서비스 가격</a>을 참조하세요.</td>
-<td><a HREF="http://go.microsoft.com/fwlink/p/?LinkID=304011">Azure BizTalk 서비스 가격</a>을 참조하세요.</td>
+<td colspan="5"><a HREF="http://go.microsoft.com/fwlink/p/?LinkID=304011"> Azure BizTalk 서비스 가격</a> <br/><br/> <a HREF="http://azure.microsoft.com/pricing/calculator/?scenario=full"> Azure 가격 계산기</a></td>
 </tr>
 <tr>
 <td><strong>기본 최소 구성</strong></td>
@@ -193,10 +201,11 @@ SLA(서비스 수준 계약)는 <a HREF="http://go.microsoft.com/fwlink/p/?LinkI
 </tr>
 </table>
 
-**참고**
-<br/>하드웨어 오류에 대한 복원력을 위해 고가용성은 단일 BizTalk 장치 내에 반드시 VM을 여러 개 가집니다.
+**참고** <br/>하드웨어 오류에 대한 복원력을 위해 고가용성은 단일 BizTalk 장치 내에 반드시 VM을 여러 개 가집니다.
+
 
 ## FAQ
+
 #### BizTalk 장치란 무엇입니까?
 "장치"는 원자 수준의 Azure BizTalk 서비스 배포입니다. 각 버전에는 계산 용량 및 메모리가 다른 장치가 제공됩니다. 예를 들어 Basic 장치는 Developer 장치보다 계산 용량이 더 크고, Standard 장치는 Basic 장치보다 계산 용량이 더 크며 등등합니다. BizTalk 서비스를 확장할 때 장치로 확장합니다.
 
@@ -207,22 +216,26 @@ BizTalk 서비스는 클라우드에서 통합 솔루션을 구축하는 데 진
 - Microsoft에서 가용성을 보증함
 - Azure 관리 포털을 통해 용량을 더 많거나 더 적게 간단히 요청하여 주문형 확장을 제어함
 
-Azure 가상 컴퓨터의 BizTalk Server는 IaaS(Infrastructure-as-a-Service) 아키텍처를 제공합니다. 가상 컴퓨터를 만들고 온-프레미스 환경과 똑같이 구성하여 코드를 변경하지 않고도 클라우드에서 기존 응용 프로그램을 더 쉽게 실행할 수 있습니다. IaaS를 사용하여 가상 컴퓨터를 구성하고 관리하고(예: 소프트웨어 설치 및 OS 패치)   응용 프로그램의 고가용성을 구성해야 합니다. 
+Azure 가상 컴퓨터의 BizTalk Server는 IaaS(Infrastructure-as-a-Service) 아키텍처를 제공합니다. 가상 컴퓨터를 만들고 온-프레미스 환경과 똑같이 구성하여 코드를 변경하지 않고도 클라우드에서 기존 응용 프로그램을 더 쉽게 실행할 수 있습니다. IaaS를 사용하여 가상 컴퓨터를 구성하고 관리하고(예: 소프트웨어 설치 및 OS 패치) 응용 프로그램의 고가용성을 구성해야 합니다.
 
-인프라 관리 노력을 최소화하는 새로운 통합 솔루션을 구축하려면 BizTalk 서비스를 사용하세요. 기존 BizTalk 솔루션을 마이그레이션하거나 BizTalk Server 응용 프로그램을 개발하고 테스트하기 위해 주문형 환경을 찾으려면 Azure 가상 컴퓨터에서 BizTalk Server를 사용하세요.
+인프라 관리 노력을 최소화하는 새로운 통합 솔루션을 구축하려면 BizTalk 서비스를 사용하십시오. 기존 BizTalk 솔루션을 마이그레이션하거나 BizTalk Server 응용 프로그램을 개발하고 테스트하기 위해 주문형 환경을 찾으려면 Azure 가상 컴퓨터에서 BizTalk Server를 사용하십시오.
 
 #### BizTalk 어댑터 서비스와 하이브리드 연결 간의 차이점은 무엇입니까?
-BizTalk 어댑터 서비스는 Azure BizTalk 서비스에서 사용됩니다. BizTalk 어댑터 서비스에서는 BizTalk Adapter Pack을 사용하여 온-프레미스 LOB(기간 업무) 시스템에 연결합니다. 하이브리드 연결은 웹 사이트 및 모바일 서비스와 같은 Azure 응용 프로그램을 온-프레미스 리소스에 연결할 수 있는 간단하고 편리한 방법을 제공합니다. 
+BizTalk 어댑터 서비스는 Azure BizTalk 서비스에서 사용됩니다. BizTalk 어댑터 서비스에서는 BizTalk Adapter Pack을 사용하여 온-프레미스 LOB(기간 업무) 시스템에 연결합니다. 하이브리드 연결은 웹 사이트 및 모바일 서비스와 같은 Azure 응용 프로그램을 온-프레미스 리소스에 연결할 수 있는 간단하고 편리한 방법을 제공합니다.
 
-#### BizTalk 서비스에서 계약을 생성할 때 왜 브리지 수가 하나가 아닌 두 개씩 증가합니까? 
+#### "장치당 하이브리드 연결 데이터 전송(GB)"은 무엇을 의미합니까? 분/시간/일/주/월 단위입니까? 한도에 도달하면 어떻게 됩니까?
+
+장치당 하이브리드 연결 비용은 BizTalk 서비스 버전에 따라 다릅니다. 즉, 전송하는 데이터 양에 따라 비용이 달라집니다. 예를 들어 매일 10GB 데이터를 전송하는 것이 매일 100GB를 전송하는 것보다 비용이 적게 듭니다. BizTalk 서비스용 [가격 계산기](http://azure.microsoft.com/pricing/calculator/?scenario=full)를 사용하여 특정 비용을 확인할 수 있습니다. 일반적으로 제한은 일별로 적용됩니다. 한도를 초과하면 초과분에 대해 GB당 1달러의 요금이 청구됩니다.
+
+#### BizTalk 서비스에서 계약을 생성할 때 왜 브리지 수가 하나가 아닌 두 개씩 증가합니까?
 
 각 계약은 두 개의 다른 브리지(송신 측 통신 브리지와 수신 측 통신 브리지)로 구성되어 있습니다.
 
-####  브리지 또는 계약 개수가 할당량 한도를 초과하면 어떻게 됩니까? 
+####  브리지 또는 계약 개수가 할당량 한도를 초과하면 어떻게 됩니까?
 
-새 브리지를 배포하거나 새 계약을 생성할 수 없습니다. 더 많이 배포하려면 BizTalk 서비스의 장치를 좀 더 확장하거나 더 높은 버전으로 업그레이드해야 합니다.
+새 브리지를 배포하거나 새 계약을 만들 수 없습니다. 더 많이 배포하려면 BizTalk 서비스의 장치를 좀 더 확장하거나 더 높은 버전으로 업그레이드해야 합니다.
 
-#### BizTalk 서비스의 한 단계에서 어떻게 다른 단계로 마이그레이션합니까? 
+#### BizTalk 서비스의 한 단계에서 어떻게 다른 단계로 마이그레이션합니까?
 
 백업을 사용하고 한 단계에서 다른 단계로의 마이그레이션 흐름을 복원합니다. 일부 마이그레이션 경로만 지원됩니다. 지원되는 마이그레이션 경로에 대한 자세한 내용은 [BizTalk 서비스: 백업 및 복원](http://go.microsoft.com/fwlink/p/?LinkID=329873)을 참조하세요.
 
@@ -232,16 +245,16 @@ BizTalk 어댑터 서비스는 Azure BizTalk 서비스에서 사용됩니다. Bi
 
 ## 다음
 
-Azure 관리 포털에서 Azure BizTalk 서비스를 프로비전하려면 [BizTalk 서비스: Azure 관리 포털을 사용하여 프로비전](http://go.microsoft.com/fwlink/p/?LinkID=302280)을 참조하세요. 응용 프로그램을 만들려면 [Azure BizTalk 서비스](http://go.microsoft.com/fwlink/p/?LinkID=235197)로 이동하세요.
+Azure 관리 포털에서 Azure BizTalk 서비스를 만들려면 [BizTalk 서비스: Azure 관리 포털을 사용하여 프로비전](http://go.microsoft.com/fwlink/p/?LinkID=302280)으로 이동하세요. 응용 프로그램을 만들려면 [Azure BizTalk 서비스](http://go.microsoft.com/fwlink/p/?LinkID=235197)로 이동하세요.
 
 ## 참고 항목
 - [BizTalk 서비스: Azure 관리 포털을 사용하여 프로비전](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
-- [BizTalk 서비스: 상태 차트 프로비전](http://go.microsoft.com/fwlink/p/?LinkID=329870)<br/>
+- [BizTalk 서비스: 프로비저닝 상태 차트](http://go.microsoft.com/fwlink/p/?LinkID=329870)<br/>
 - [BizTalk 서비스: 대시보드, 모니터 및 크기 조정 탭](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
 - [BizTalk 서비스: 백업 및 복원](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
 - [BizTalk 서비스: 제한](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
 - [BizTalk 서비스: 발급자 이름 및 발급자 키](http://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
 - [Azure BizTalk 서비스 SDK로 시작하는 방법](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
-
-<!--HONumber=46--> 
  
+
+<!---HONumber=62-->

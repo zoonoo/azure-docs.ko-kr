@@ -82,7 +82,7 @@ Azure 포털에서 논리 앱, 웹앱 또는 모바일 앱을 만들 때 엔터�
 
 	**<a name="AddProperties"></a>엔터프라이즈 시스템별 속성**
 
-> [AZURE.IMPORTANT] 모든 커넥터에는 해당 엔터프라이즈 시스템에 고유한 속성이 있습니다. SAP에 연결할 경우 SAP 관련 속성을 입력합니다. Salesforce에 연결할 경우에는 Salesforce 관련 속성을 입력하는 식으로 해당하는 고유 속성을 입력합니다. 다음 표에는 필수 엔터프라이즈 시스템 속성이 나와 있습니다. 
+> [AZURE.IMPORTANT]모든 커넥터에는 해당 엔터프라이즈 시스템에 고유한 속성이 있습니다. SAP에 연결할 경우 SAP 관련 속성을 입력합니다. Salesforce에 연결할 경우에는 Salesforce 관련 속성을 입력하는 식으로 해당하는 고유 속성을 입력합니다. 다음 표에는 필수 엔터프라이즈 시스템 속성이 나와 있습니다.
 	
 	Enterprise System | Required Properties
 --- | ---
@@ -113,7 +113,7 @@ Azure 관리 포털에서 엔터프라이즈 API 앱을 엽니다. **작업** �
 
 - 정보 및 오류 이벤트 보기
 - 작업자 프로세스(w3wp)의 메모리 사용 및 스레드 수 보기
-- 응용 프로그램 및 웹 서버 로그 보기\\
+- 응용 프로그램 및 웹 서버 로그 보기\
 
 자세한 내용은 [논리 앱 모니터링](app-service-logic-monitor-your-logic-apps.md)을 참조하세요.
 
@@ -147,10 +147,11 @@ Microsoft Azure 앱 서비스는 이러한 커넥터를 사용할 수 있는 다
 
 
 ## 논리 앱 및 웹앱 알아보기
-[논리 앱 정의](app-service-logic-what-are-logic-apps.md)<br/> [Azure 앱 서비스의 웹 사이트 및 웹앱](../app-service-web/app-service-web-app-azure-portal.md)
+[논리 앱 정의](app-service-logic-what-are-logic-apps.md)<br/> [Azure 앱 서비스의 웹 사이트 및 웹앱](../app-service-web/app-service-web-overview.md)
 
 
 
 ## 추가 커넥터
 [BizTalk 통합 커넥터](app-service-logic-integration-connectors.md)<br/> [B2B 커넥터](app-service-logic-b2b-connectors.md)<br/> [소셜 커넥터](app-service-logic-social-connectors.md)<br/> [프로토콜 커넥터](app-service-logic-protocol-connectors.md)<br/> [앱 + 데이터 서비스 커넥터](app-service-logic-data-connectors.md)<br/> [커넥터 및 API 앱 목록](app-service-logic-connectors-list.md)<br/><br/> [커넥터 및 BizTalk API 앱 정의](app-service-logic-what-are-biztalk-api-apps.md)
-<!--HONumber=54--> 
+
+<!---HONumber=62-->

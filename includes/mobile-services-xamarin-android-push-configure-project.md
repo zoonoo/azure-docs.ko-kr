@@ -37,15 +37,16 @@
 
 4.	**MobileServiceClient**가 만들어지고 나면 다음 코드를 **OnCreate** 메서드에 추가합니다.
 
-	        // Set the current instance of TodoActivity.
-	        instance = this;
+        // Set the current instance of TodoActivity.
+        instance = this;
 
-	        // Make sure the GCM client is set up correctly.
-	        GcmClient.CheckDevice(this);
-	        GcmClient.CheckManifest(this);
+        // Make sure the GCM client is set up correctly.
+        GcmClient.CheckDevice(this);
+        GcmClient.CheckManifest(this);
 
-	        // Register the app for push notifications.
-	        GcmClient.Register(this, ToDoBroadcastReceiver.senderIDs);
+        // Register the app for push notifications.
+        GcmClient.Register(this, ToDoBroadcastReceiver.senderIDs);
 
 이제 **ToDoActivity**이 푸시 알림 추가를 위해 준비됩니다.
-<!--HONumber=54-->
+
+<!---HONumber=62-->

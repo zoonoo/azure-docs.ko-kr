@@ -64,7 +64,7 @@
 
 1. 관리 포털에서 **Mobile Services**를 클릭한 후 방금 만든 모바일 서비스를 클릭합니다.
 
-2. **Data** 탭을 클릭한 후 **+Create**를 클릭합니다.
+2. **데이터** 탭을 클릭한 후 **+만들기**를 클릭합니다.
 
    	![][5]
 
@@ -240,5 +240,6 @@
 
 [완성된 예제 프로젝트]: http://go.microsoft.com/fwlink/p/?LinkId=331302
 [Xamarin.iOS]: http://xamarin.com/download
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

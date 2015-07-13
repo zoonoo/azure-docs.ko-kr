@@ -5,9 +5,9 @@
 
 2. **F5** 키를 눌러 프로젝트를 다시 빌드하고 앱을 시작합니다.
 
-3. 앱에서 **Insert a TodoItem**에  *Complete the tutorial* 등의 의미 있는 텍스트를 입력하고 **저장**을 클릭합니다.
+3. 앱에서 *Insert a TodoItem*에서 **Complete the tutorial** 등의 의미 있는 텍스트를 입력하고 **Save**를 클릭합니다.
 
-   	Azure에 호스트된 새 모바일 서비스에 POST 요청이 전송됩니다. 요청의 데이터가 TodoItem 테이블에 삽입됩니다. 테이블에 저장된 항목이 모바일 서비스에서 반환되고 그 데이터가 앱의 두 번째 열에 표시됩니다.
+   	Azure에 호스트된 새 모바일 서비스에 POST 요청이 전송됩니다. 요청에서 데이터가 TodoItem 테이블에 삽입됩니다. 테이블에 저장된 항목이 모바일 서비스에서 반환되고 그 데이터가 앱의 두 번째 열에 표시됩니다.
 
 4. (선택 사항) 범용 Windows 솔루션에서 기본 시작 프로젝트를 다른 앱으로 변경하고 앱을 다시 실행합니다.
 
@@ -19,4 +19,4 @@
 
    	![](./media/mobile-services-javascript-backend-run-app/mobile-data-browse.png)
 
-<!--HONumber=52--> 
+<!---HONumber=62-->

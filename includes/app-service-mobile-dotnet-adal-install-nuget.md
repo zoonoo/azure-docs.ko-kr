@@ -3,4 +3,5 @@
 2. NuGet 패키지 관리자에서 **온라인**을 클릭합니다. **Microsoft.IdentityModel.Clients.ActiveDirectory**를 검색 용어로 입력합니다. 그런 다음 **설치**를 클릭하여 [Active Directory 인증 라이브러리 Nuget 패키지]를 설치합니다.
 
 [Active Directory 인증 라이브러리 Nuget 패키지]: http://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory
-<!--HONumber=54-->
+
+<!---HONumber=62-->

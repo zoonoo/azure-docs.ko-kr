@@ -11,7 +11,7 @@ Azure 마켓플레이스에서 Microsoft, 타사 및 오픈 소스 소프트웨�
 
 ![Wordpress 블로그][13]
 
->[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+>[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
 ## 포털에서 웹 앱 만들기
 
@@ -55,9 +55,9 @@ Azure 마켓플레이스에서 Microsoft, 타사 및 오픈 소스 소프트웨�
 
 3. WordPress를 설치하지 않은 경우 WordPress에서 필요한 적절한 구성 정보를 입력하고 **WordPress 설치**를 클릭하여 구성을 완료하고 웹 앱의 로그인 페이지를 엽니다.
 
-4. **로그인**을 클릭하고 자격 증명을 입력합니다.  
+4. **로그인**을 클릭하고 자격 증명을 입력합니다.
 
-5. 아래 웹 앱과 유사한 새 WordPress 웹 앱이 만들어집니다.   
+5. 아래 웹 앱과 유사한 새 WordPress 웹 앱이 만들어집니다.
 
 	![사용자 WordPress 사이트][13]
 
@@ -78,4 +78,4 @@ Azure 마켓플레이스에서 Microsoft, 타사 및 오픈 소스 소프트웨�
 [resourcegroup]: ./media/website-from-gallery/showgroup.png
 [browse]: ./media/website-from-gallery/browse.png
 
-<!---HONumber=54-->
+<!---HONumber=62-->

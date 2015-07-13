@@ -13,14 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="big-compute"
-   ms.date="05/29/2015"
+   ms.date="06/24/2015"
    ms.author="danlep"/>
 
 # Azure에서의 큰 계산: 배치 및 HPC(고성능 컴퓨팅)에 대한 기술 리소스
 Azure에서 대규모 병렬, 배치 및 HPC 작업을 실행할 수 있도록 지원하는 기술 리소스에 대한 가이드입니다. 기존 배치 또는 HPC 작업을 Azure 클라우드로 확장하거나 다양한 Azure 서비스를 사용하여 Azure에서 새로운 큰 계산 솔루션을 구축합니다.
 
 ## 솔루션 옵션
-
 
 Azure의 큰 계산 옵션에 대해 알아보고 사용자의 작업 및 비즈니스 요구에 가장 적합한 방식을 선택합니다.
 
@@ -31,7 +30,7 @@ Azure의 큰 계산 옵션에 대해 알아보고 사용자의 작업 및 비즈
 
 ## Azure 배치
 
-[배치](http://azure.microsoft.com/services/batch/)(미리 보기)는 응용 프로그램에서 클라우드를 쉽게 지원하도록 만들고 클러스터 및 작업 스케줄러를 설정 및 관리하지 않고도 작업을 실행할 수 있게 해주는 플랫폼 서비스입니다. SDK를 사용하면 다양한 언어로 Azure 배치와 응용 프로그램을 통합하고, 데이터를 Azure에 스테이징하고, 작업 실행 파이프라인을 빌드할 수 있습니다.
+[배치](http://azure.microsoft.com/services/batch/)는 응용 프로그램에서 클라우드를 쉽게 지원하도록 만들고 클러스터 및 작업 스케줄러를 설정 및 관리하지 않고도 작업을 실행할 수 있게 해주는 플랫폼 서비스입니다. SDK를 사용하면 다양한 언어로 Azure 배치와 응용 프로그램을 통합하고, 데이터를 Azure에 스테이징하고, 작업 실행 파이프라인을 빌드할 수 있습니다.
 
 * [미리 보기](http://azure.microsoft.com/services/preview/) 등록
 
@@ -47,7 +46,7 @@ Azure의 큰 계산 옵션에 대해 알아보고 사용자의 작업 및 비즈
 
 ## HPC 클러스터 솔루션
 
-Azure에서 계산 집약적 작업을 실행할 수 있도록 기존 Windows HPC 클러스터를 마이그레이션하거나 확장합니다.
+계산 집약적 작업을 실행할 수 있도록 기존 Windows 또는 Linux HPC 클러스터를 Azure에 배포하거나 확장합니다.
 
 ### Microsoft HPC 팩
 
@@ -60,6 +59,13 @@ Azure에서 계산 집약적 작업을 실행할 수 있도록 기존 Windows HP
 * [자습서: Azure에서 HPC 팩을 사용하여 하이브리드 클러스터 설정](../cloud-services-setup-hybrid-hpcpack-cluster.md)
 
 * [Windows HPC 포럼](https://social.microsoft.com/Forums/home?category=windowshpc)
+
+### Linux 클러스터 솔루션
+Linux HPC 클러스터를 배포하려면 Azure 리소스 관리자 템플릿을 사용합니다.
+
+* [SLURM 클러스터 스핀업](http://azure.microsoft.com/documentation/templates/slurm/) 및 [블로그 게시물](http://blogs.technet.com/b/windowshpc/archive/2015/06/06/deploy-a-slurm-cluster-on-azure.aspx)
+
+* [토크 클러스터 스핀업](http://azure.microsoft.com/documentation/templates/torque-cluster/)
 
 ## Microsoft MPI
 
@@ -75,8 +81,7 @@ Azure에서 계산 집약적 작업을 실행할 수 있도록 기존 Windows HP
 
 ## 계산 집약적 인스턴스
 
-Azure는 [A8, A9, A10 및 A11 인스턴스](https://msdn.microsoft.com/library/azure/dn689095.aspx)를 비롯하여 배치 및 HPC 작업을 실행하기 위한 [다양한 크기](https://msdn.microsoft.com/library/azure/dn197896.aspx)를 제공합니다.
-
+Azure는 계산 집약적 [A8, A9, A10 및 A11 인스턴스](../virtual-machines/virtual-machines-a8-a9-a10-a11-specs.md)를 비롯하여 배치 및 HPC 작업을 실행하기 위한 [다양한 크기](../virtual-machines/virtual-machines-size-specs.md)를 제공합니다.
 
 * [A8 및 A9 인스턴스: HPC 팩을 사용한 빠른 시작](https://msdn.microsoft.com/library/azure/dn594431.aspx)
 
@@ -113,4 +118,4 @@ Azure는 [A8, A9, A10 및 A11 인스턴스](https://msdn.microsoft.com/library/a
 * 최신 공지 사항은 [Microsoft HPC 및 배치 팀 블로그](http://blogs.technet.com/b/windowshpc/) 및 [Azure 블로그](http://azure.microsoft.com/blog/tag/hpc/)를 참조하세요.
 * 또한 [배치의 새로운 기능](http://azure.microsoft.com/updates/?service=batch)을 참조하거나 [RSS 피드](http://azure.microsoft.com/updates/feed/?service=batch)를 구독하세요.
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

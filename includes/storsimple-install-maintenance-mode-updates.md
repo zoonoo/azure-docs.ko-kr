@@ -1,21 +1,4 @@
-<properties
-   pageTitle="유지 관리 모드 업데이트 설치"
-   description="StorSimple용 Windows PowerShell을 사용하여 유지 관리 모드 업데이트를 설치하는 방법을 설명합니다."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" /> 
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="04/21/2015"
-   ms.author="v-sharos" />
-
-### StorSimple용 Windows PowerShell을 통해 유지 관리 모드 업데이트를 설치하려면
+#### StorSimple용 Windows PowerShell을 통해 유지 관리 모드 업데이트를 설치하려면
 
 1. 장치 직렬 콘솔에 액세스한 다음(아직 액세스하지 않은 경우) 옵션 1, **모든 권한으로 로그인**을 선택합니다. 
 
@@ -23,20 +6,22 @@
 
 3. 명령 프롬프트에 다음을 입력합니다.
 
-   **Get-HcsUpdateAvailability**
+     `Get-HcsUpdateAvailability`
     
-    You will be notified if updates are available and whether the updates are disruptive or non-disruptive.
+4. 업데이트가 사용 가능한지 여부 및 업데이트 시 장치를 중단해야 하는지 여부에 대한 알림이 표시됩니다. 장치를 중단하는 업데이트를 적용하려면 장치를 유지 관리 모드로 설정해야 합니다. 지침은 [유지 관리 모드 전환](#enter-maintenance-mode)을 참조하세요.
 
-4. 장치를 중단하는 업데이트를 적용하려면 장치를 유지 관리 모드로 설정해야 합니다. 지침은 [유지 관리 모드를 설정하려면](#to-enter-maintenance-mode)을 참조하세요.
-
-5. 장치가 유지 관리 모드 상태일 때 명령 프롬프트에 다음을 입력합니다.
-
-    **Start-HcsUpdate**
+5. 장치가 유지 관리 모드 상태일 때 명령 프롬프트에 다음을 입력합니다. `Start-HcsUpdate`
 
 6. 확인하라는 메시지가 표시됩니다. 업데이트를 확인하고 나면 현재 액세스 중인 컨트롤러에 업데이트가 설치됩니다. 업데이트가 설치되고 나면 컨트롤러가 다시 시작됩니다.
 
-7. 첫 번째 컨트롤러의 다시 시작이 완료되면 다른 컨트롤러에 연결한 후 1~6단계를 수행합니다.
+7. 업데이트 상태를 모니터링합니다. 형식:
 
-8. 두 컨트롤러를 모두 업데이트한 후 유지 관리 모드를 종료합니다. 지침은 [유지 관리 모드를 종료하려면]](#to-exit-maintenance-mode)을 참조하세요.
+	`Get-HcsUpdateStatus`
+	
+	`RunInProgress`가 `True`이면 업데이트가 아직 진행 중입니다. `RunInProgress`가 `False`이면 업데이트가 완료된 것입니다.
 
-<!--HONumber=52-->
+7. 업데이트가 현재 컨트롤러에 설치되고 다시 시작된 경우 다른 컨트롤러에 연결하여 1~6단계를 수행합니다.
+
+8. 두 컨트롤러를 모두 업데이트한 후 유지 관리 모드를 종료합니다. 지침은 [유지 관리 모드 종료](#exit-maintenance-mode)를 참조하세요.
+
+<!---HONumber=62-->

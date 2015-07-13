@@ -313,13 +313,13 @@ HTTP PUT 요청을 사용하여 기존 데이터 원본을 업데이트할 수 �
 
 **참고** 삭제하는 데이터 원본을 참조하는 인덱서가 있어도 삭제 작업은 진행됩니다. 그러나 이러한 인덱서는 다음에 실행할 때 오류 상태로 전환됩니다.
 
-`api-version`은 필수 사항입니다. 현재 버전은 입니다. [Azure 검색 버전 관리](https://msdn.microsoft.com/library/azure/dn864560.aspx)에서는 대체 버전에 대한 세부 정보 및 추가 정보를 제공합니다.
+`api-version`은 필수 사항입니다. 현재 버전은 `2015-02-28`입니다. [Azure 검색 버전 관리](https://msdn.microsoft.com/library/azure/dn864560.aspx)에서는 대체 버전에 대한 세부 정보 및 추가 정보를 제공합니다.
 
 `api-key`는 쿼리 키가 아니라 관리 키여야 합니다. 키에 대한 자세한 내용은 [검색 서비스 REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx)에서 인증 섹션을 참조하세요. [포털에서 검색 서비스 만들기](search-create-service-portal.md)에서는 요청에 사용된 서비스 URL 및 키 속성을 가져오는 방법을 설명합니다.
 
 **응답**
 
-상태 코드: 응답에 성공하면 ‘204 콘텐츠 없음'이 반환됩니다.
+상태 코드: 응답에 성공하면 ‘204 콘텐츠 없음’이 반환됩니다.
 
 <a name="CreateIndexer"></a>
 ## 인덱서 만들기
@@ -336,7 +336,7 @@ HTTP POST 요청을 사용하여 Azure 검색 서비스 내에서 새 인덱서�
 
 **참고**: 허용되는 최대 인덱서 수는 가격 책정 계층에 따라 다릅니다. 무료 서비스에서는 인덱서를 3개까지 사용할 수 있으며 표준 서비스에서는 50개까지 사용할 수 있습니다. 자세한 내용은 [한도 및 제약 조건](https://msdn.microsoft.com/library/azure/dn798934.aspx)을 참조하세요.
 
-`api-version`은 필수 사항입니다. 현재 버전은 입니다. [Azure 검색 버전 관리](https://msdn.microsoft.com/library/azure/dn864560.aspx)에서는 대체 버전에 대한 세부 정보 및 추가 정보를 제공합니다.
+`api-version`은 필수 사항입니다. 현재 버전은 `2015-02-28`입니다. [Azure 검색 버전 관리](https://msdn.microsoft.com/library/azure/dn864560.aspx)에서는 대체 버전에 대한 세부 정보 및 추가 정보를 제공합니다.
 
 `api-key`는 쿼리 키가 아니라 관리 키여야 합니다. 키에 대한 자세한 내용은 [검색 서비스 REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx)에서 인증 섹션을 참조하세요. [포털에서 검색 서비스 만들기](search-create-service-portal.md)에서는 요청에 사용된 서비스 URL 및 키 속성을 가져오는 방법을 설명합니다.
 
@@ -430,7 +430,7 @@ HTTP PUT 요청을 사용하여 기존 인덱서를 업데이트할 수 있습�
     Content-Type: application/json
     api-key: [admin key]
 
-`api-version`은 필수 사항입니다. 현재 버전은 입니다. [Azure 검색 버전 관리](https://msdn.microsoft.com/library/azure/dn864560.aspx)에서는 대체 버전에 대한 세부 정보 및 추가 정보를 제공합니다.
+`api-version`은 필수 사항입니다. 현재 버전은 `2015-02-28`입니다. [Azure 검색 버전 관리](https://msdn.microsoft.com/library/azure/dn864560.aspx)에서는 대체 버전에 대한 세부 정보 및 추가 정보를 제공합니다.
 
 `api-key`는 쿼리 키가 아니라 관리 키여야 합니다. 키에 대한 자세한 내용은 [검색 서비스 REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx)에서 인증 섹션을 참조하세요. [포털에서 검색 서비스 만들기](search-create-service-portal.md)에서는 요청에 사용된 서비스 URL 및 키 속성을 가져오는 방법을 설명합니다.
 
@@ -530,7 +530,7 @@ HTTP PUT 요청을 사용하여 기존 인덱서를 업데이트할 수 있습�
 
 **응답**
 
-상태 코드: 응답에 성공하면 ‘204 콘텐츠 없음'이 반환됩니다.
+상태 코드: 응답에 성공하면 ‘204 콘텐츠 없음’이 반환됩니다.
 
 <a name="RunIndexer"></a>
 ## 인덱서 실행
@@ -774,4 +774,5 @@ HTTP PUT 요청을 사용하여 기존 인덱서를 업데이트할 수 있습�
 <td>지원되지 않음. Azure 검색에서는 현재 기본 형식과 문자열 컬렉션만 지원합니다.</td>
 </tr>
 </table>
-<!--HONumber=54--> 
+
+<!---HONumber=62-->

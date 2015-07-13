@@ -25,7 +25,7 @@ Azure 자동화를 처음 시작하려면 자동화 계정을 하나 이상 만�
 
 각 자동화 계정의 자동화 리소스는 단일 Azure 지역과 연결되지만 자동화 계정에서 모든 지역의 Azure 서비스를 관리할 수 있습니다. 여러 지역에서 자동화 계정을 만드는 주된 이유는 데이터 및 리소스를 특정 지역으로 격리해야 하는 정책이 있을 수 있기 때문입니다.
 
->[AZURE.NOTE]Azure Preview 포털에서 작성된자동화 계정 및 자동화 계정이 포함하는 리소스는 Azure 포털에서 액세스할 수 없습니다. 이러한 계정 또는 해당 리소스를 Windows PowerShell을 사용하여 관리하려는 경우 Azure 리소스 관리자 모듈을 사용해야 합니다.
+>[AZURE.NOTE]Azure Preview 포털에서 작성된 자동화 계정 및 자동화 계정이 포함하는 리소스는 Azure 포털에서 액세스할 수 없습니다. 이러한 계정 또는 해당 리소스를 Windows PowerShell을 사용하여 관리하려는 경우 Azure 리소스 관리자 모듈을 사용해야 합니다.
 >
 >Azure 포털을 사용하여 만든 자동화 계정을 전체 포털 및 각 cmdlet 집합에서 관리할 수 있습니다. 계정이 만들어지면 계정 내에서 리소스를 만들고 관리하는 방법에는 차이가 없습니다. Azure 포털을 계속 사용하려는 경우, Azure Preview 포털 대신 사용하여 모든 자동화 계정을 만들어야 합니다.
 
@@ -67,4 +67,4 @@ Runbook의 모든 [검사점](automation-runbook-execution/#checkpoints) 뒤에 
 - [Azure 자동화: Azure Active Directory를 사용하여 Azure에 인증](http://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

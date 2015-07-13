@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/17/2015" 
+	ms.date="06/24/2015" 
 	ms.author="sdanie"/>
 
 # Azure API 관리에서 서비스 백업 및 복원을 사용하여 재해 복구를 구현하는 방법
@@ -38,7 +38,7 @@ Azure 리소스 관리자를 사용하여 리소스에서 수행하는 모든 �
 
 첫번째 단계는 Azure Active Directory 응용 프로그램을 만드는 것입니다. API 관리 서비스 인스턴스를 포함하는 구독을 사용하여 [관리 포털](http://manage.windowsazure.com/)로 로그인하고 기본 Azure Active Directory에 대한 **응용 프로그램** 탭으로 이동합니다.
 
->[AZURE.NOTE]Azure Active Directory 기본 디렉토리에 사용자의 계정이 표시되지않는 경우, 계정에 필요한 사용 권한을 부여하려면 Azure 구독의 관리자에게 문의하세요. 기본 디렉토리 찾기에 대한 내용은 [Azure 포털에서 기본 디렉토리 찾기](resource-group-create-work-id-from-persona.md/#locate-your-default-directory-in-the-azure-portal)를 참조하세요.
+>[AZURE.NOTE]Azure Active Directory 기본 디렉토리에 사용자의 계정이 표시되지않는 경우, 계정에 필요한 사용 권한을 부여하려면 Azure 구독의 관리자에게 문의하세요. 기본 디렉토리 찾기에 대한 내용은 [Azure 포털에서 기본 디렉토리 찾기](../virtual-machines/resource-group-create-work-id-from-persona.md/#locate-your-default-directory-in-the-azure-portal)를 참조하세요.
 
 ![Azure Active Directory 응용 프로그램 만들기][api-management-add-aad-application]
 
@@ -156,7 +156,7 @@ API 관리 서비스를 백업하려면 다음 HTTP 요청을 실행합니다.
 	    backupName : {backup blob name}  
 	}'
 
-`Content-Type` 요청 헤더의 값을 `application\json`으로 설정합니다.
+`Content-Type` 요청 헤더의 값을 `application/json`으로 설정합니다.
 
 복원은 오랫동안 실행되는 작업으로, 완료되려면 30분 이상이 걸릴 수 있습니다. 요청이 정상적으로 실행되어 복원 프로세스가 시작되면 `Location` 헤더가 포함된 `202 Accepted` 응답 상태 코드를 받게 됩니다. `Location` 헤더에서 URL에 대한 'GET' 요청을 수행하면 작업 상태를 확인할 수 있습니다. 복원이 진행 중인 동안에는 '202 수락됨' 상태 코드가 계속 수신됩니다. 응답 코드가 `200 OK`이면 복원 작업이 정상적으로 완료된 것입니다.
 
@@ -189,4 +189,4 @@ API 관리 서비스를 백업하려면 다음 HTTP 요청을 실행합니다.
 [api-management-endpoint]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-endpoint.png
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

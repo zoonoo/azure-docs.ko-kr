@@ -261,21 +261,21 @@ RP 트러스트 구성에서 그룹 멤버 자격을 역할 클레임으로 포�
 1. Controllers\HomeController.cs를 엽니다.
 2. 인증된 사용자의 보안 그룹 멤버 자격을 사용하여 아래와 유사하게 `About` 및 `Contact` 작업 메서드를 장식합니다.  
 	<pre class="prettyprint">
-	<mark>[Authorize(Roles="Test Group")]</mark>
-	public ActionResult About()
-	{
+<mark>[Authorize(Roles="Test Group")]</mark>
+public ActionResult About()
+{
     ViewBag.Message = "Your application description page.";
 
     return View();
-	}
+}
 
-	<mark>[Authorize(Roles="Domain Admins")]</mark>
-	public ActionResult Contact()
-	{
+<mark>[Authorize(Roles="Domain Admins")]</mark>
+public ActionResult Contact()
+{
     ViewBag.Message = "Your contact page.";
 
     return View();
-	}
+}
 </pre>이 자습서의 AD FS 실습 환경에서는 **테스트 사용자**를 **테스트 그룹**에 추가했기 때문에 테스트 그룹을 사용하여 `About`에 대한 권한 부여를 테스트합니다. `Contact`의 경우 **테스트 사용자**가 속해 있지 않은 **Domain Admins**의 부정적인 사례를 테스트합니다.
 
 3. `F5` 키를 눌러 디버거를 시작하고 로그인한 후 **About**을 클릭합니다. 이제 인증된 사용자에게 해당 작업에 대한 권한이 부여된 경우 `~/About/Index` 페이지가 성공적으로 표시되어야 합니다.

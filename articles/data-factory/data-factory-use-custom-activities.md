@@ -36,18 +36,18 @@ Azure 데이터 팩터리는 파이프라인에서 데이터를 이동 및 처�
 
 4. 클래스를 업데이트하여 **IDotNetActivity** 인터페이스를 구현합니다.
 	<ol type='a'>
-		<li>
-			<b>IDotNetActivity</b>에서 클래스를 파생합니다.
-			<br/>
-			예: <br/>
-			공용 클래스 <b>MyDotNetActivity : IDotNetActivity</b>
-		</li>
+	<li>
+		<b>IDotNetActivity</b>에서 클래스를 파생합니다.
+		<br/>
+		예: <br/>
+		공용 클래스 <b>MyDotNetActivity : IDotNetActivity</b>
+	</li>
 
-		<li>
-			<b>IDotNetActivity</b> 인터페이스의 <b>Execute</b> 메서드를 구현합니다.
-		</li>
+	<li>
+		<b>IDotNetActivity</b> 인터페이스의 <b>Execute</b> 메서드를 구현합니다.
+	</li>
 
-	</ol>
+</ol>
 5. 프로젝트를 컴파일합니다.
 
 
@@ -58,17 +58,13 @@ Azure 데이터 팩터리는 파이프라인에서 데이터를 이동 및 처�
 2.	**Azure Blob 저장소**에 Blob으로 **zip 파일을 업로드**합니다. 
 3.	**파이프라인 JSON** 파일을 업데이트하여 파이프라인 JSON에서 zip 파일, 사용자 지정 작업 DLL, 작업 클래스 및 zip 파일이 포함된 Blob을 참조하게 합니다. JSON 파일에서 다음을 확인합니다.
 	<ol type ="a">
-		<li><b>작업 유형</b>을 <b>DotNetActivity</b>로 설정해야 합니다.</li>
-		<li><b>AssemblyName</b>은 Visual Studio 프로젝트의 출력 DLL 이름입니다.</li>
-		<li><b>EntryPoint</b>는 <b>IDotNetActivity</b> 인터페이스를 구현하는 <b>클래스</b>의 <b>네임스페이스</b> 및 <b>이름</b>을 지정합니다.</li>
-		<li><b>PackageLinkedService</b>는 zip 파일이 포함된 Blob을 참조하는 연결된 서비스입니다. </li>
-		<li><b>PackageFile</b>은 Azure Blob 저장소에 업로드된 zip 파일의 위치와 이름을 지정합니다.</li>
-		<li><b>LinkedServiceName</b>은 HDInsight 클러스터(주문형 또는 사용자 고유)를 데이터 팩터리에 연결하는 연결된 서비스의 이름입니다. 사용자 지정 작업은 지정된 HDInsight 클러스터에서 맵 전용 작업으로 실행됩니다.</li>
-	</ol>
-
-	
-
-	**부분적으로 JSON 예**
+	<li><b>작업 유형</b>을 <b>DotNetActivity</b>로 설정해야 합니다.</li>
+	<li><b>AssemblyName</b>은 Visual Studio 프로젝트의 출력 DLL 이름입니다.</li>
+	<li><b>EntryPoint</b>는 <b>IDotNetActivity</b> 인터페이스를 구현하는 <b>클래스</b>의 <b>네임스페이스</b> 및 <b>이름</b>을 지정합니다.</li>
+	<li><b>PackageLinkedService</b>는 zip 파일이 포함된 Blob을 참조하는 연결된 서비스입니다. </li>
+	<li><b>PackageFile</b>은 Azure Blob 저장소에 업로드된 zip 파일의 위치와 이름을 지정합니다.</li>
+	<li><b>LinkedServiceName</b>은 HDInsight 클러스터(주문형 또는 사용자 고유)를 데이터 팩터리에 연결하는 연결된 서비스의 이름입니다. 사용자 지정 작업은 지정된 HDInsight 클러스터에서 맵 전용 작업으로 실행됩니다.</li>
+</ol>**부분 JSON 예제**
 
 		"Name": "MyDotNetActivity",
     	"Type": "DotNetActivity",
@@ -527,4 +523,4 @@ Azure 데이터 팩터리 서비스는 주문형 클러스터 만들기를 지�
 [image-data-factory-azure-batch-tasks]: ./media/data-factory-use-custom-activities/AzureBatchTasks.png
  
 
-<!----HONumber=58_postMigration-->
+<!---HONumber=62-->

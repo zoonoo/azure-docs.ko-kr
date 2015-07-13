@@ -144,7 +144,7 @@ Azure 저장소 계정으로 직접 작업하려는 경우 메서드 서명에 `
 		    }
 		}
 
-## <a id="poison"></a> 포이즌 Blob을 처리하는 방법
+## <a id="poison"></a> 포이즌 Blob를 처리하는 방법
 
 `BlobTrigger` 함수가 일시적인 오류로 인해 실패한 경우 SDK는 이 함수를 다시 호출합니다. 그러나 Blob의 콘텐츠로 인해 실패한 경우에는 Blob를 처리하려고 할 때마다 함수가 실패합니다. 기본적으로 SDK는 지정된 Blob에 대해 함수를 최대 5번 호출합니다. 5번의 시도에 실패하면 *webjobs-blobtrigger-poison*이라는 큐에 메시지를 추가합니다.
 
@@ -156,7 +156,7 @@ Azure 저장소 계정으로 직접 작업하려는 경우 메서드 서명에 `
 * BlobType("BlockBlob" 또는 "PageBlob")
 * ContainerName
 * BlobName
-* ETag (a blob version identifier, for example: "0x8D1DC6E70A277EF")
+* ETag(Blob 버전 식별자, 예: "0x8D1DC6E70A277EF")
 
 다음 코드 샘플의 `CopyBlob` 함수에는 호출될 때마다 실패하게 만드는 코드가 있습니다. SDK에서 이 함수를 최대 재시도 횟수만큼 호출한 후에는 포이즌 Blob 큐에 메시지가 생성되고, 이 메시지가 `LogPoisonBlob` 함수에 의해 처리됩니다.
 

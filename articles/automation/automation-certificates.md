@@ -107,4 +107,4 @@ Runbook에서 인증서를 사용하려면 **Get-AutomationCertificate** 활동�
 
 - [그래픽 작성의 링크](automation-graphical-authoring-intro.md#links-and-workflow) 
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

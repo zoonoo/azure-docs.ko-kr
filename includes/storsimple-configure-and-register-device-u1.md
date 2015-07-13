@@ -1,21 +1,3 @@
-<properties 
-   pageTitle="장치 구성 및 등록"
-   description="StorSimple용 Windows PowerShell을 사용하여 업데이트 1을 실행하는 장치를 구성 및 등록하는 방법에 대해 설명합니다."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="alkohli"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="05/26/2015"
-   ms.author="alkohli" />
-
-
 ### 장치를 구성 및 등록하려면
 
 1. StorSimple 장치 직렬 콘솔에서 Windows PowerShell 인터페이스에 액세스합니다. 지침은 [장치 직렬 콘솔 연결에 PuTTY 사용](#use-putty-to-connect-to-the-device-serial-console)을 참조하세요. **과정을 정확하게 따르지 않으면 콘솔에 액세스할 수 없습니다.**
@@ -42,7 +24,7 @@
    - 게이트웨이
    - 주 DNS 서버의 IP 주소
     
-		프로세스의 각 단계가 완료된 후 시스템에서 네트워크 설정의 유효성을 검사합니다.
+		Note that the system is validating network settings after each step in the process.
    
       >[AZURE.NOTE]서브넷 마스크 및 DNS 설정을 적용하려면 몇 분간 대기할 수 있습니다. "데이터 0에 대한 네트워크 연결을 확인합니다." 오류 메시지를 받게되면, 활성 컨트롤러의 데이터 0 네트워크 인터페이스에서 실제 네트워크 연결을 확인합니다.
 
@@ -75,10 +57,10 @@
    
     	![StorSimple Devices page](./media/storsimple-configure-and-register-device-u1/HCS_DevicesPageM_U1-include.png) 
   
-        장치 상태가 **오프라인**이면 장치가 온라인 상태가 될 때까지 몇 분 정도 기다립니다. 
+        If the device status is **Offline**, wait for a couple of minutes for the device to come online. 
       
-        몇 분 후에도 장치가 여전히 오프라인 상태인 경우에는 [StorSimple 장치에 대한 네트워크 요구 사항](https://msdn.microsoft.com/library/dn772371.aspx)에서 설명한 대로 방화벽 네트워크를 구성했는지 확인해야 합니다. HTTP 1.1이 지원되지 않으면 포트 9354가 아웃바운드 통신용으로 열려 있는지 확인합니다. 이 포트는 StorSimple 관리자 서비스와 StorSimple 장치 간의 통신에 사용됩니다.
+        If the device is still offline after a few minutes, then you need to make sure that your firewall network was configured as described in the [network requirements for your StorSimple device](https://msdn.microsoft.com/library/dn772371.aspx). If you do not have HTTP 1.1 support, check port 9354 to make sure that it is open for outbound communication. This port is used for communication between the StorSimple Manager service and your StorSimple device.
      
        
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

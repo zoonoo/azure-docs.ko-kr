@@ -16,11 +16,11 @@
 	ms.date="02/24/2015"
 	ms.author="antonba"/>
 
-#Azure API 관리에서 VPN 연결을 설정하는 방법
+# Azure API 관리에서 VPN 연결을 설정하는 방법
 
 API 관리의 VPN 지원을 사용하여 API 관리 프록스를 Azure 가상 네트워크에 연결할 수 있습니다. 이렇게 하면 API 관리 고객을 온-프레미스이거나 공용 인터넷에 액세스할 수 없는 해당 백엔드 웹 서비스에 안전하게 연결할 수 있습니다.
 
-##<a name="enable-vpn"> </a>VPN 연결 사용
+## <a name="enable-vpn"> </a>VPN 연결 사용
 
 >VPN 연결은 **프리미엄** 계층에서만 사용할 수 있습니다. 전환하려면 [관리 포털][]에서 API 관리 서비스를 열고 **크기 조정** 탭을 엽니다. **일반** 섹션에서 프리미엄 계층을 선택하고 저장을 클릭합니다.
 
@@ -40,14 +40,14 @@ VPN 및 모든 지역에 대한 서브넷을 선택합니다. VPN 목록은 사�
 
 프록시의 VIP 주소는 VPN이 사용되거나 사용 해제될 때마다 변경됩니다.
 
-##<a name="connect-vpn"> </a>VPN 뒤에서 웹 서비스에 연결
+## <a name="connect-vpn"> </a>VPN 뒤에서 웹 서비스에 연결
 
 API 관리 서비스가 VPN에 연결되면 가상 네트워크 내에서 웹 서비스 액세스는 공용 서비스 액세스와 다르지 않습니다. 새 API를 만들거나 기존 API를 편집할 때 **웹 서비스 URL** 필드에 웹 서비스의 로컬 주소 또는 호스트 이름(DNS 서버가 Azure 가상 네트워크에 대해 구성된 경우)을 입력하면 됩니다.
 
 ![VPN에서 API 추가][api-management-setup-vpn-add-api]
 
 
-##<a name="related-content"> </a>관련 콘텐츠
+## <a name="related-content"> </a>관련 콘텐츠
 
 
  * [자습서: 사이트 간 연결용 프레미스 간 가상 네트워크 만들기][]
@@ -65,5 +65,6 @@ API 관리 서비스가 VPN에 연결되면 가상 네트워크 내에서 웹 �
 
 [자습서: 사이트 간 연결용 프레미스 간 가상 네트워크 만들기]: ../virtual-networks-create-site-to-site-cross-premises-connectivity
 [API 검사기를 사용하여 Azure API 관리에서 호출을 추적하는 방법]: api-management-howto-api-inspector.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

@@ -48,7 +48,7 @@ Migration Assistant에서는 온-프레미스 IIS에서 Azure 앱 서비스 웹 
 
 		웹 사이트에서 XML 문서 변환을 사용하는 방법에 대한 예제는 [Microsoft Azure 웹 사이트 변환](http://blogs.msdn.com/b/waws/archive/2014/06/17/transform-your-microsoft-azure-web-site.aspx)(영문)을 참조하세요.
 
--	SharePoint, FPSE(Front Page Server Extensions), FTP, SSL 인증서와 같은 다른 구성 요소는 마이그레이션되지 않습니다.
+-	SharePoint, FPSE*Front Page Server Extensions), FTP, SSL 인증서와 같은 다른 구성 요소는 마이그레이션되지 않습니다.
 
 ## Web App Migration Assistant 사용 방법 ##
 이 섹션에서는 SQL Server 데이터베이스를 사용하고 온-프레미스 Windows Server 2003 R2(IIS 6.0) 컴퓨터에서 실행 중인 몇 개 웹 사이트를 마이그레이션하는 예제를 단계별로 설명합니다.
@@ -130,5 +130,6 @@ Migration Assistant에서는 온-프레미스 IIS에서 Azure 앱 서비스 웹 
 ## 변경된 내용
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.
 * 이전 포털에서 새 포털로의 변경에 대한 지침은 [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

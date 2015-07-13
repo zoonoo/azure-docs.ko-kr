@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/06/2015" 
+	ms.date="06/15/2015" 
 	ms.author="spelluru"/>
 
 # Azure 데이터 팩터리에서 복사 작업을 사용하는 고급 시나리오 
@@ -193,7 +193,7 @@
 			"source":
 			{
 				"type": "SqlSource",
-				"SqlReaderQuery": "$$Text.Format('SELECT * FROM MyTable WHERE StartDateTime = \'{0:yyyyMMdd-HH}\'', SliceStart)"
+				"SqlReaderQuery": "$$Text.Format('SELECT * FROM MyTable WHERE StartDateTime = '{0:yyyyMMdd-HH}'', SliceStart)"
 			},
 			"sink":
 			{
@@ -236,7 +236,6 @@
 		<ul>
 			<li> <b>TextFormat:</b> 모든 열 형식이 문자열로 처리되고 모든 열 이름이 "Prop_&lt;0-N>"으로 설정됩니다.</li> 
 			<li><b>AvroFormat:</b> Avro 파일에 기본적으로 제공되는 열 형식 및 이름을 사용합니다.</li> 
-			<li><b>JsonFormat:</b> 모든 열 형식이 문자열로 처리되고 Json 파일에 기본 제공 열 이름을 사용합니다.</li>
 		</ul>
 		</td>
 	</tr>
@@ -283,7 +282,7 @@ SQL Server 또는 Azure SQL 데이터베이스로 데이터를 복사할 때 사
     		}
     	}
 
-2. 복사 작업 JSON의 **SqlSink** 섹션은 다음과 같이 정의합니다. 데이터를 삽입하는 동안 저장된 프로시저를 호출하려면  **SqlWriterStoredProcedureName** 및 **SqlWriterTableType** 속성이 모두 필요합니다.
+2. 복사 작업 JSON의 **SqlSink** 섹션은 다음과 같이 정의합니다. 데이터를 삽입하는 동안 저장된 프로시저를 호출하려면 **SqlWriterStoredProcedureName** 및 **SqlWriterTableType** 속성이 모두 필요합니다.
 
 		"sink":
 	    {
@@ -299,7 +298,7 @@ SQL Server 또는 Azure SQL 데이터베이스로 데이터를 복사할 때 사
                     }
 	    }
 
-3. 데이터베이스에서  **SqlWriterStoredProcedureName**과 동일한 이름으로 저장된 프로시저를 정의합니다. 지정된 원본에서 입력 데이터를 처리하고 출력 테이블로 삽입합니다. 저장된 프로시저의 매개 변수 이름은 테이블 JSON 파일에 정의된 **tableName**과 동일해야 합니다.
+3. 데이터베이스에서 **SqlWriterStoredProcedureName**과 동일한 이름으로 저장된 프로시저를 정의합니다. 지정된 원본에서 입력 데이터를 처리하고 출력 테이블로 삽입합니다. 저장된 프로시저의 매개 변수 이름은 테이블 JSON 파일에 정의된 **tableName**과 동일해야 합니다.
 
 		CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @stringData varchar(256)
 		AS
@@ -320,7 +319,7 @@ SQL Server 또는 Azure SQL 데이터베이스로 데이터를 복사할 때 사
 저장된 프로시저 기능은 [테이블 값 매개 변수][table-valued-parameters]을 이용합니다.
 
 ## 텍스트 파일의 인코딩을 지정합니다.
-UTF-8 인코딩을 많이 사용하지만, 기록 이유로 인해 Azure Blob의 시간 텍스트 파일은 다른 인코딩을 따릅니다. **encodingName** 속성을 사용하면 TextFormat 형식의 테이블에 대한 코드 페이지 이름으로 인코딩을 지정할 수 있습니다. 올바른 인코딩 이름 목록은 Encoding.EncodingName 속성을 참조하세요. 예: windows-1250 또는 shift_jis 기본값은 UTF-8입니다. 올바른 인코딩 이름은 [인코딩 클래스](https://msdn.microsoft.com/library/system.text.encoding(v=vs.110).aspx)를 참조하세요.
+UTF-8 인코딩을 많이 사용하지만, 기록 이유로 인해 Azure Blob의 시간 텍스트 파일은 다른 인코딩을 따릅니다. **encodingName** 속성을 사용하면 TextFormat 형식의 테이블에 대한 코드 페이지 이름으로 인코딩을 지정할 수 있습니다. 올바른 인코딩 이름 목록은 Encoding.EncodingName 속성을 참조하세요. 예: windows-1250 또는 shift_jis 기본값은 UTF-8입니다. 올바른 인코딩 이름은 [인코딩 클래스](https://msdn.microsoft.com/library/system.text.encoding.aspx)를 참조하세요.
 
 ## 참고 항목
 
@@ -341,10 +340,11 @@ UTF-8 인코딩을 많이 사용하지만, 기록 이유로 인해 Azure Blob의
 
 [json-script-reference]: http://go.microsoft.com/fwlink/?LinkId=516971
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
-[azure-table-data-type]: https://msdn.microsoft.com/en-us/library/azure/dd179338.aspx
+[azure-table-data-type]: https://msdn.microsoft.com/ko-kr/library/azure/dd179338.aspx
 
 [image-data-factory-copy-actvity]: ./media/data-factory-copy-activity/VPNTopology.png
 [image-data-factory-column-mapping-1]: ./media/data-factory-copy-activity-advanced/ColumnMappingSample1.png
 [image-data-factory-column-mapping-2]: ./media/data-factory-copy-activity-advanced/ColumnMappingSample2.png
+ 
 
-<!---HONumber=GIT-SubDir--> 
+<!---HONumber=62-->

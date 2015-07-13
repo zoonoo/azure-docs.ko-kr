@@ -221,11 +221,11 @@ Azure에 배포할 응용 프로그램을 만들기 위해 지금 수행해야 �
 2. 이 새 클래스 이름을 *Contacts.cs*로 지정합니다. ![새 항목 추가 대화 상자](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms13.png)
 3. 기본 코드를 다음 코드로 바꿉니다.  
 	<pre class="prettyprint">
-	using System.ComponentModel.DataAnnotations;
-	using System.Globalization;
+using System.ComponentModel.DataAnnotations;
+using System.Globalization;
 
-	namespace ContactManager.Models
-	{
+namespace ContactManager.Models
+{
     public class Contacts
     {
         [ScaffoldColumn(false)]
@@ -400,19 +400,19 @@ https://localhost:44300/signin-google
 10. **Create Client ID** 단추를 클릭합니다.
 11. Visual Studio에서 **AppId** 및 **App Secret**을 복사하여 메서드에 붙여넣어 *Startup.Auth.cs* 페이지의 `UseGoogleAuthentication` 메서드를 업데이트합니다. 아래 표시된 **AppId** 및 **App Secret** 값은 샘플이며 작동하지 않습니다.  
 	<pre class="prettyprint">  
-	using System;
-	using Microsoft.AspNet.Identity;
-	using Microsoft.AspNet.Identity.EntityFramework;
-	using Microsoft.AspNet.Identity.Owin;
-	using Microsoft.Owin;
-	using Microsoft.Owin.Security.Cookies;
-	using Microsoft.Owin.Security.DataProtection;
-	using Microsoft.Owin.Security.Google;
-	using Owin;
-	using ContactManager.Models;
-	
-	namespace ContactManager
-	{
+using System;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.AspNet.Identity.Owin;
+using Microsoft.Owin;
+using Microsoft.Owin.Security.Cookies;
+using Microsoft.Owin.Security.DataProtection;
+using Microsoft.Owin.Security.Google;
+using Owin;
+using ContactManager.Models;
+
+namespace ContactManager
+{
     public partial class Startup {
 
         // For more information on configuring authentication, please visit http://go.microsoft.com/fwlink/?LinkId=301883
@@ -541,7 +541,7 @@ Update-Database
 &lt;%@ Page Title="ContactsList" Language="C#" MasterPageFile="~/Site.Master" CodeBehind="Default.aspx.cs" Inherits="ContactManager.Contacts.Default" ViewStateMode="Disabled" %>
 &lt;%@ Register TagPrefix="FriendlyUrls" Namespace="Microsoft.AspNet.FriendlyUrls" %>
 
-	&lt;asp:Content runat="server" ContentPlaceHolderID="MainContent">
+&lt;asp:Content runat="server" ContentPlaceHolderID="MainContent">
     &lt;h2>연락처 목록&lt;/h2>
     &lt;p>
         &lt;asp:HyperLink runat="server" NavigateUrl="<mark>Admin/</mark>Insert.aspx" Text="Create new" />

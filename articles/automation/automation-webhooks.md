@@ -50,7 +50,7 @@ webhook은 runbook을 시작할 때 사용되는 runbook 매개 변수 값을 �
 |:--- |:---|
 | WebhookName | Webhook의 이름입니다. |
 | RequestHeader | 들어오는 POST 요청의 헤더를 포함한 해시 테이블입니다. |
-| RequestBody | 들어오는 POST 요청의 본문입니다. 문자열, JSON, XML 또는 인코딩된 데이터와 같은 서식을 유지합니다. Runbook은 예상 되는 데이터 형식으로 작동하도록 작성되어야 합니다.|
+| RequestBody | 들어오는 POST 요청의 본문입니다. 문자열, JSON, XML 또는 인코딩된 데이터와 같은 서식을 유지합니다. Runbook은 예상되는 데이터 형식으로 작동하도록 작성되어야 합니다.|
 
 
 **$WebhookData** 매개 변수를 지원하는 데 필요한 webhook 구성은 없으며, runbook은 이를 수락할 필요가 없습니다. runbook이 매개 변수를 정의하지 않을 경우 클라이언트에서 전송된 요청의 모든 세부 정보가 무시됩니다.
@@ -76,7 +76,7 @@ Azure Preview 포털에서 runbook에 연결된 새 webhook을 만들려면 다�
 4. **새 webhook 만들기**를 클릭하여 **webhook 블레이드 만들기**를 엽니다.
 5. webhook의 **이름**, **만료 날짜**와 사용 여부를 지정합니다. 이러한 속성에 대한 자세한 내용은 [webhook 세부 정보](#details-of-a-webhook)를 참조하십시오.
 6. 복사 아이콘을 클릭하고 Ctrl+C를 눌러 webhook의 URL을 복사합니다. 그런 다음 안전한 곳에 기록합니다. **webhook을 만들고 나면 URL을 다시 검색할 수 없습니다.** <br> ![Webhook URL](media/automation-webhooks/copy-webhook-url.png)
-3. **매개 변수**를 클릭하여 runbook 매개 변수의 값을 제공합니다. Runbook에 필수 매개 변수가 있으면 값을 제공 하지 않는 한 webhook를 만들 수 없습니다.
+3. **매개 변수**를 클릭하여 runbook 매개 변수의 값을 제공합니다. runbook에 필수 매개 변수가 있으면 값을 제공 하지 않는 한 webhook를 만들 수 없습니다.
 1. **만들기**를 클릭하여 webhook을 만듭니다.
 
 
@@ -94,7 +94,7 @@ Azure Preview 포털에서 runbook에 연결된 새 webhook을 만들려면 다�
 | 400 | 잘못된 요청 | 다음 이유 중 하나로 인해 요청이 수락되지 않았습니다. <ul> <li>webhook이 만료되었습니다.</li> <li>webhook이 비활성화되었습니다.</li> <li>URL의 토큰이 잘못되었습니다.</li> </ul>|
 | 500 | 내부 서버 오류 | URL은 유효했지만 오류가 발생했습니다. 요청을 다시 제출하십시오. |
 
-요청이 성공했다고 가정하면 Webhook 응답은 다음과 같은 JSON 형식의 작업 ID를 포함합니다. 단일 작업 ID를 포함하지만 잠재적인 이후 향상 기능에 대해 JSON 형식이 허용됩니다.
+요청이 성공했다고 가정하면 webhook 응답은 다음과 같은 JSON 형식의 작업 ID를 포함합니다. 단일 작업 ID를 포함하지만 잠재적인 이후 향상 기능에 대해 JSON 형식이 허용됩니다.
 
 	{"JobIds":["<JobId>"]}  
 
@@ -173,4 +173,4 @@ Runbook에는 요청 본문에 JSON으로 서식이 지정된 가상 컴퓨터�
 - [Runbook 시작](automation-starting-a-runbook.md)
 - [Runbook 작업의 상태 보기](automation-viewing-the-status-of-a-runbook-job.md) 
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

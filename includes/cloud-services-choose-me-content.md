@@ -1,33 +1,33 @@
 <a name="tellmecs"></a>
-## Tell me about cloud services
+## 클라우드 서비스에 대한 설명
 
-Cloud Services is an example of Platform-as-a-Service (PaaS). Like [App Services](app-service-web-overview.md), this technology is designed to support applications that are scalable, reliable, and cheap to operate. Just like an [App Services](app-service-web-overview.md) are hosted on VMs, so too are Cloud Services, however, you have more control over the VMs. You can install your own software on Cloud Service VMs and you can remote into them.
+클라우드 서비스는 PaaS(Platform-as-a-Service)의 예입니다. [앱 서비스](app-service-web-overview.md)와 마찬가지로 이 기술은 웹 사이트와 마찬가지로 확장 가능하고 안정적이며 운영 비용이 저렴한 응용 프로그램을 지원하도록 설계되었습니다. [앱 서비스](app-service-web-overview.md)가 VM에서 호스팅되는 것과 마찬가지로 클라우드 서비스도 VM에서 호스팅되지만, VM에 대한 제어력이 높습니다. 클라우드 서비스 VM에 원하는 소프트웨어를 설치하여 원격으로 실행할 수 있습니다.
 
-![cs_diagram](./media/cloud-services-choose-me-content/diagram.png) 
+![cs_diagram](./media/cloud-services-choose-me-content/diagram.png)
 
-More control also means less ease of use; unless you need the  additional control options, it's typically quicker and easier to get a web application up and running in Websites compared to Cloud Services. 
+이처럼 VM을 더욱 긴밀하게 제어하게 되면 사용 편의성은 낮아지므로 추가 제어 옵션이 필요한 경우가 아니면 일반적으로는 클라우드 서비스에 비해 웹 사이트에서 웹 응용 프로그램을 작동하고 실행하는 것이 더 빠르고 간편합니다.
 
-The technology provides two slightly different VM options: instances of *web roles* run a variant of Windows Server with IIS, while instances of *worker roles* run the same Windows Server variant without IIS. A Cloud Services application relies on some combination of these two options. 
+이 기술은 약간 다른 두 가지 VM 옵션을 제공합니다. *웹 역할* 인스턴스는 IIS로 Windows Server 변형을 실행하고, *작업자 역할*은 동일한 Windows Server 변형을 IIS를 사용하지 않고 실행합니다. 클라우드 서비스 응용 프로그램은 이러한 두 옵션을 일부 조합하여 사용합니다.
 
-Any combination of these two slightly different VM hosting options are available in a cloud service:
+이렇게 약간 다른 두 가지 VM 호스팅 옵션의 모든 조합을 클라우드 서비스에서 이용할 수 있습니다.
 
-* **Web role**  
-  Runs Windows Server with your web app automatically deployed to IIS.
-* **Worker role**  
-  Runs Windows Server without IIS.
+* **웹 역할** IIS에 자동으로 배포된 웹앱과 함께 Windows Server를 실행합니다.
+* **작업자 역할** IIS 없이 Windows Server를 실행합니다.
 
-For example, a simple application might use just a web role, while a more complex application might use a web role to handle incoming requests from users, then pass the work those requests create to a worker role for processing. (This communication could use [Service Bus](../articles/service-bus/fundamentals-service-bus-hybrid-solutions.md) or [Azure Queues](../articles/storage/storage-introduction.md).)
+예를 들어 간단한 응용 프로그램은 웹 역할만 사용할 수 있지만 좀더 복잡한 응용 프로그램은 웹 역할을 사용하여 사용자로부터의 수신 요청을 처리한 후 요청을 만든 작업을 작업자 역할에 전달하여 처리할 수 있습니다. 이 통신은 [서비스 버스](../articles/service-bus/fundamentals-service-bus-hybrid-solutions.md)나 [Azure 큐](../articles/storage/storage-introduction.md)를 사용할 수 있음)
 
-As the figure above suggests, all of the VMs in a single application run in the same cloud service. Because of this, users access the application through a single public IP address, with requests automatically load balanced across the application's VMs. The platform will [scale and deploy](../articles/cloud-services/cloud-services-how-to-scale.md) the VMs in a Cloud Services application in a way that avoids a single point of hardware failure. 
+위에 나와 있는 것처럼 단일 응용 프로그램의 모든 VM은 동일한 클라우드 서비스에서 실행됩니다. 그렇기 때문에 사용자는 응용 프로그램 VM의 자동 부하 분산 요청으로 하나의 공용 IP 주소를 통해 응용 프로그램에 액세스합니다. 플랫폼은 하드웨어 오류를 방지하는 방식으로 클라우드 서비스 응용 프로그램에 VM을 [확장 및 배포](../articles/cloud-services/cloud-services-how-to-scale.md)합니다.
 
-Even though applications run in virtual machines, it's important to understand that Cloud Services provides PaaS, not IaaS. Here's one way to think about it: With IaaS, such as Azure Virtual Machines, you first create and configure the environment your application will run in, then deploy your application into this environment. You're responsible for managing much of this world, doing things such as deploying new patched versions of the operating system in each VM. In PaaS, by contrast, it's as if the environment already exists. All you have to do is deploy your application. Management of the platform it runs on, including deploying new versions of the operating system, is handled for you.
+응용 프로그램이 가상 컴퓨터에서 실행된다 해도 클라우드 서비스가 IaaS가 아닌 PaaS를 제공한다는 사실을 이해하는 것이 중요합니다. 다음과 같이 생각해보겠습니다. Azure 가상 컴퓨터처럼 IaaS로 응용 프로그램이 실행될 환경을 우선 만들고 구성한 후 응용 프로그램을 이 환경에 배포합니다. 각 VM에 운영 체제의 새 패치 버전을 배포하는 것과 같은 작업을 수행하며 많은 작업에 대해 관리해야 합니다. 그와 반대로 PaaS에서는 환경이 이미 존재하는 것과 같아 응용 프로그램을 배포하기만 하면 됩니다. 응용 프로그램이 실행되는 플랫폼을 관리합니다(운영 체제의 새 버전 배포 포함).
 
-## Scaling and management
-With Cloud Services, you don't create virtual machines. Instead, you provide a configuration file that tells Azure how many of each you'd like, such as **three web role instances** and **two worker role instances**, and the platform creates them for you.  You still choose [what size](../articles/cloud-services/cloud-services-sizes-specs.md) those backing VMs should be, but you don't explicitly create them yourself. If your application needs to handle a greater load, you can ask for more VMs, and Azure will create those instances. If the load decreases, you can shut those instances down and stop paying for them.
+## 확장 및 관리
+클라우드 서비스로 가상 컴퓨터를 만들지 않습니다. 대신 웹 역할 인스턴스 **세 개 웹 역할 인스턴스** 및 **두 개 작업자 역할 인스턴스**같이 원하는 개수를 Azure에게 알려 주는 구성 파일을 제공하고 플랫폼에서는 이를 만듭니다. 사용자는 이들 지원 VM의 [실제 크기](../articles/cloud-services/cloud-services-sizes-specs.md)를 선택하지만 명시적으로 직접 만들는지는 않습니다. 응용 프로그램이 더 큰 부하를 처리해야 하면 더 많은 VM을 요구할 수 있으며 Azure가 그러한 인스턴스를 만듭니다. 부하가 감소하면 이러한 인스턴스를 종료하여 지불을 중지할 수 있습니다.
 
-A Cloud Services application is typically made available to users via a two-step process. A developer first [uploads the application](../articles/cloud-services/cloud-services-how-to-create-deploy.md) to the platform's staging area. When the developer is ready to make the application live, they use the Azure Management Portal to request that it be put into production. This [switch between staging and production](../articles/cloud-services/cloud-services-nodejs-stage-application.md) can be done with no downtime, which lets a running application be upgraded to a new version without disturbing its users. 
+클라우드 서비스 응용 프로그램은 사용자가 사용할 수 있도록 일반적으로 두 단계 프로세스를 통해 만들어집니다. 우선 개발자가 응용 프로그램을 플랫폼의 [준비 영역에 업로드합니다](../articles/cloud-services/cloud-services-how-to-create-deploy.md). 개발자가 응용 프로그램을 사용할 준비가 되면 Azure 관리 포털을 사용하여 프로덕션 상태가 되도록 요청합니다. [준비와 프로덕션 간의 이러한](../articles/cloud-services/cloud-services-nodejs-stage-application.md) 전환은 가동 중지 시간 없이 수행될 수 있어서 사용자를 방해하지 않고도 실행 중인 응용 프로그램을 새 버전으로 업그레이드할 수 있습니다.
 
-## Monitoring
-Cloud Services also provides monitoring. Like Azure Virtual Machines, it will detect a failed physical server and restart the VMs that were running on that server on a new machine. But Cloud Services also detects failed VMs and applications, not just hardware failures. Unlike Virtual Machines, it has an agent inside each web and worker role, and so it's able to start new VMs and application instances when failures occur.
+## 모니터링
+클라우드 서비스는 모니터링도 제공합니다. Azure 가상 컴퓨터처럼 클라우드 서비스는 오류가 발생한 물리적 서버를 검색하여 해당 서버에서 실행 중이었던 VM을 새 컴퓨터에서 다시 시작합니다. 하지만 클라우드 서비스는 하드웨어 오류뿐만 아니라 오류가 발생한 VM과 응용 프로그램도 검색합니다. 가상 컴퓨터와 달리 클라우드 서비스에는 각 웹 역할 및 작업자 역할 내에 에이전트가 있어서 오류가 발생할 때 새 VM 및 응용 프로그램 인스턴스를 시작할 수 있습니다.
 
-The PaaS nature of Cloud Services has other implications, too. One of the most important is that applications built on this technology should be written to run correctly when any web or worker role instance fails. To achieve this, a Cloud Services application shouldn't maintain state in the file system of its own VMs. Unlike VMs created with Azure Virtual Machines, writes made to Cloud Services VMs aren't persistent; there's nothing like a Virtual Machines data disk. Instead, a Cloud Services application should explicitly write all state to SQL Database, blobs, tables, or some other external storage. Building applications this way makes them easier to scale and more resistant to failure, both important goals of Cloud Services.
+클라우드 서비스의 PaaS 특성에는 다른 것도 있습니다. 가장 중요한 것 중 하나는 웹 역할 또는 작업자 역할 인스턴스에 오류가 발생할 때 이 기술로 구축된 응용 프로그램이 제대로 실행되도록 작성되어야 한다는 점입니다. 이렇게 하려면 클라우드 서비스 응용 프로그램이 자체 VM의 파일 시스템 상태를 관리해서는 안 됩니다. Azure 가상 컴퓨터로 만들어진 VM과 달리 클라우드 서비스 VM에 실행된 쓰기는 영구적이지 않습니다. 가상 컴퓨터 데이터 디스크가 가장 좋습니다. 대신 클라우드 서비스 응용 프로그램은 SQL 데이터베이스, Blob, 테이블 또는 일부 기타 외부 저장소에 모든 상태를 명확하게 작성해야 합니다. 이 방법으로 응용 프로그램을 구축하면 보다 쉽게 확장하고 오류를 방어할 수 있으며, 둘 다 클라우드 서비스의 중요한 목표입니다.
+
+<!---HONumber=62-->

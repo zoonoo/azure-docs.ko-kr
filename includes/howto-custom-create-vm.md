@@ -1,5 +1,3 @@
-<properties authors="kathydav" editor="tysonn" manager="jeffreyg" />
-
 #사용자 지정 가상 컴퓨터를 만드는 방법
 
 *사용자 지정* 가상 컴퓨터란 **갤러리에서** 방법을 사용하여 만드는 가상 컴퓨터를 말하는데, 이는 **빠른 생성** 방법보다 사용할 수 있는 구성 옵션이 더 많기 때문입니다. 이러한 옵션에는 다음이 포함됩니다.
@@ -53,7 +51,7 @@
 17. 화살표를 클릭하여 가상 컴퓨터를 만듭니다.
 
 
-	![Custom virtual machine creation successful](./media/howto-custom-create-vm/VMSuccessWindows.png)
+	![사용자 지정 가상 컴퓨터 만들기 성공](./media/howto-custom-create-vm/VMSuccessWindows.png)
 
 ##다음 단계##
 가상 컴퓨터가 만들어진 후에는 자동으로 시작됩니다. 포털에서 상태가 실행 중으로 표시되면 가상 컴퓨터에 로그인할 수 있습니다. 지침을 확인하려면 다음 문서 중 하나를 참조하십시오.
@@ -61,6 +59,4 @@
 - [Linux를 실행하는 가상 컴퓨터에 로그온하는 방법](../articles/virtual-machines/virtual-machines-linux-how-to-log-on.md)
 - [Windows Server를 실행하는 가상 컴퓨터에 로그온하는 방법](../articles/virtual-machines/virtual-machines-log-on-windows-server.md)
 
-
-
-<!--HONumber=52-->
+<!---HONumber=62-->

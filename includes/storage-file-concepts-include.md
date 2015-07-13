@@ -27,10 +27,10 @@ Azure 가상 컴퓨터나 클라우드 서비스에서 실행되는 응용 프�
 
 -	**파일:** 공유에 있는 파일입니다. 파일 1개의 크기는 최대 1TB일 수 있습니다.
 
--   **URL 형식:** 다음 URL 형식을 사용하여 파일에 주소를 지정할 수 있습니다. https://`<storage
+-   **URL 형식:** 다음 URL 형식을 사용하여 파일을 지정할 수 있습니다: https://`<storage
     account>`.file.core.windows.net/`<share>`/`<directory/directories>`/`<file>`
     
-    다음 예제 URL을 사용하여 위의 다이어그램에 있는 파일 중 하나의 주소를 지정할 수 있습니다.`http://samples.file.core.windows.net/logs/CustomLogs/Log1.txt`
+    다음 예제 URL을 사용하여 위의 다이어그램에 있는 파일 중 하나를 지정할 수 있습니다. `http://samples.file.core.windows.net/logs/CustomLogs/Log1.txt`
 
 공유, 디렉터리 및 파일 이름 지정 방법에 대한 자세한 내용은 [공유, 디렉터리, 파일 및 메타데이터 이름 지정 및 참조](http://msdn.microsoft.com/library/azure/dn167011.aspx)(영문)를 참조하세요.
 

@@ -1,25 +1,14 @@
-<properties services="virtual-machines" title="Setting up PowerShell" authors="JoeDavies-MSFT" solutions="" manager="timlt" editor="tysonn" />
+## PowerShell 설정
 
-<tags
-   ms.service="virtual-machines"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm=""
-   ms.workload="infrastructure"
-   ms.date="05/12/2015"
-   ms.author="josephd" />
+Azure PowerShell을 사용하려면 먼저 다음 단계를 수행합니다.
 
-## Setting up PowerShell
+### PowerShell 버전 확인
 
-Before you can use Azure PowerShell, follow these steps.
-
-### Verify PowerShell versions
-
-Before you can use Windows PowerShell, you must have Windows PowerShell, Version 3.0 or 4.0. To find the version of Windows PowerShell, type this command at a Windows PowerShell command prompt.
+Windows PowerShell을 사용하려면 Windows PowerShell 버전 3.0 또는 4.0이 있어야 합니다. Windows PowerShell의 버전을 확인하려면 Windows PowerShell 명령 프롬프트에 다음 명령을 입력합니다.
 
 	$PSVersionTable
 
-You should see something like this.
+다음과 유사한 결과가 표시됩니다.
 
 	Name                           Value
 	----                           -----
@@ -31,34 +20,34 @@ You should see something like this.
 	PSCompatibleVersions           {1.0, 2.0, 3.0}
 	PSRemotingProtocolVersion      2.2
 
-Verify that the value of **PSVersion** is 3.0 or 4.0. To install a compatible version, see [Windows Management Framework 3.0](http://www.microsoft.com/download/details.aspx?id=34595) or [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855).
+**PSVersion** 값이 3.0 또는 4.0인지 확인합니다. 호환 버전을 설치하려면 [Windows Management Framework 3.0 ](http://www.microsoft.com/download/details.aspx?id=34595) 또는 [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855)을 참조하세요.
 
-You should also have Azure PowerShell version 0.8.0 or later. You can check the version of Azure PowerShell that you have installed with this command at the Azure PowerShell command prompt.
+또한 Azure PowerShell 버전 0.8.0 이상이 있어야 합니다. Azure PowerShell 명령 프롬프트에서 다음 명령을 사용하여 설치한 Azure PowerShell의 버전을 확인할 수 있습니다.
 
 	Get-Module azure | format-table version
 
-You should see something like this.
+다음과 유사한 결과가 표시됩니다.
 
 	Version
 	-------
 	0.8.16.1
 
-For instructions and a link to the latest version, see [How to Install and Configure Azure PowerShell](powershell-install-configure.md).
+지침 및 최신 버전으로 연결되는 링크를 보려면 [Azure PowerShell을 설치 및 구성하는 방법](powershell-install-configure.md)을 참조하세요.
 
 
-### Set your Azure account and subscription
+### Azure 계정 및 구독 설정
 
-If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free trial](http://azure.microsoft.com/pricing/free-trial/).
+Azure 구독이 아직 없는 경우 [MSDN 구독자 혜택](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 활성화하거나 [무료 평가판](http://azure.microsoft.com/pricing/free-trial/)에 등록할 수 있습니다.
 
-Open an Azure PowerShell command prompt and log on to Azure with this command.
+Azure PowerShell 명령 프롬프트를 열고 다음 명령으로 Azure에 로그온합니다.
 
 	Add-AzureAccount
 
-If you have multiple Azure subscriptions, you can list your Azure subscriptions with this command.
+여러 Azure 구독이 있는 경우 다음 명령을 사용하여 Azure 구독을 나열할 수 있습니다.
 
 	Get-AzureSubscription
 
-You will receive the following type of information:
+다음과 같은 유형의 정보가 제공됩니다.
 
 	SubscriptionId            : fd22919d-eaca-4f2b-841a-e4ac6770g92e
 	SubscriptionName          : Visual Studio Ultimate with MSDN
@@ -71,9 +60,11 @@ You will receive the following type of information:
 	CurrentStorageAccountName : 
 	TenantId                  : 32fa88b4-86f1-419f-93ab-2d7ce016dba7
 
-You can set the current Azure subscription by running these commands at the Azure PowerShell command prompt. Replace everything within the quotes, including the < and > characters, with the correct name.
+Azure PowerShell 명령 프롬프트에서 다음 명령을 실행하여 현재 Azure 구독을 설정할 수 있습니다. < and > 문자를 포함하여 따옴표 안의 모든 항목을 올바른 이름으로 바꿉니다.
 
 	$subscr="<SubscriptionName from the display of Get-AzureSubscription>"
 	Select-AzureSubscription -SubscriptionName $subscr -Current	
 
-For more information about Azure subscriptions and accounts, see [How to: Connect to your subscription](powershell-install-configure.md#Connect).
+Azure 구독 및 계정에 대한 자세한 내용은 [방법: 구독에 연결](powershell-install-configure.md#Connect)을 참조하세요.
+
+<!---HONumber=62-->

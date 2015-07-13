@@ -160,4 +160,4 @@
   ![대시보드](./media/backup-azure-manage-vms/dashboard-protectedvms.png)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

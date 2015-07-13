@@ -4,17 +4,16 @@
 	services="mobile-services" 
 	documentationCenter="" 
 	authors="ggailey777" 
-	writer="" 
 	manager="dwrede" 
 	editor=""/>
 
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="2/26/2015" 
+	ms.date="05/20/2015" 
 	ms.author="glenga"/>
 
 # 모바일 서비스에서 되풀이 작업 예약 
@@ -29,18 +28,11 @@
 + 트윗, RSS 항목, 위치 정보 등의 외부 데이터 요청 및 저장
 + 저장된 이미지 처리 또는 크기 조정
 
-이 자습서에서는 Twitter에 트윗 데이터를 요청하고 이 트윗을 새 Updates 테이블에 저장하는 예약된 작업을 작업 스케줄러를 사용하여 만드는 단계를 안내합니다.
-
-1. [Twitter 액세스 및 저장 자격 증명 등록]
-2. [LINQ to Twitter 라이브러리 다운로드 및 설치]
-3. [새 Updates 테이블 만들기]
-4. [새 예약된 작업 만들기]
-5. [로컬에서 예약된 작업 테스트]
-6. [서비스 게시 및 작업 등록]
+이 자습서에서는 작업 스케줄러를 사용하여, Twitter에서 트윗 데이터를 요청하고 트윗을 새 Updates 테이블에 저장하는 예약된 작업을 만드는 방법을 안내합니다.
 
 >[AZURE.NOTE]이 자습서에서는 타사 LINQ to Twitter 라이브러리를 사용하여 OAuth 2.0에서 의 Twitter v1.1. API 액세스를 간소화합니다. 이 자습서를 완료하려면 LINQ to Twitter NuGet 패키지를 다운로드하여 설치해야 합니다. 자세한 내용은 [LINQ to Twitter CodePlex 프로젝트](영문)를 참조하십시오.
 
-## <a name="get-oauth-credentials"></a>Twitter v1.1 API 액세스 및 저장 자격 증명 등록
+##<a name="get-oauth-credentials"></a>Twitter v1.1 API 액세스 및 저장 자격 증명 등록
 
 [AZURE.INCLUDE [mobile-services-register-twitter-access](../../includes/mobile-services-register-twitter-access.md)]
 
@@ -55,7 +47,7 @@
 <p>모바일 서비스를 로컬 컴퓨터에서 실행하면 이러한 저장된 설정을 사용하여 예약된 작업을 게시하기 전에 테스트할 수 있습니다. Azure에서 실행 중인 경우 모바일 서비스에서는 포털에 설정된 값을 대신 사용하고 이 프로젝트 설정은 무시합니다.  </p></li>
 </ol>
 
-## <a name="install-linq2twitter"></a>LINQ to Twitter 라이브러리 다운로드 및 설치
+##<a name="install-linq2twitter"></a>LINQ to Twitter 라이브러리 다운로드 및 설치
 
 1. Visual Studio의 **솔루션 탐색기**에서 프로젝트 이름을 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 선택합니다.
 
@@ -67,7 +59,7 @@
 
 다음으로, 트윗을 저장할 새 테이블을 만들어야 합니다.
 
-## <a name="create-table"></a>새 Updates 테이블 만들기
+##<a name="create-table"></a>새 Updates 테이블 만들기
 
 1. Visual Studio의 솔루션 탐색기에서 DataObjects 폴더를 마우스 오른쪽 단추로 클릭하고 **추가**를 확장하여 **클래스**를 클릭하고 **이름**에 `Updates`을(를) 입력한 다음 **추가**를 클릭합니다.
 
@@ -106,7 +98,7 @@
 
 이제 Twitter에 액세스하고 새 Updates 테이블에 트윗 데이터를 저장하는 예약된 작업을 만듭니다.
 
-## <a name="add-job"></a>새 예약된 작업 만들기  
+##<a name="add-job"></a>새 예약된 작업 만들기  
 
 1. ScheduledJobs 폴더를 확장하고 SampleJob.cs 프로젝트 파일을 엽니다.
 
@@ -222,11 +214,11 @@
 		    }
 		}
 
-	위의 코드에서 _todolistService_ 및 _todolistContext_ 문자열을각각  <em>mobile&#95;service&#95;name</em>Service 및 <em>mobile&#95;service&#95;name</em>Context에 해당하는 다운로드한 프로젝트의 네임스페이스 및 DbContext로 바꾸어야 합니다.
+	위의 코드에서 _todolistService_ 및 _todolistContext_ 문자열을각각 <em>mobile&#95;service&#95;name</em>Service 및 <em>mobile&#95;service&#95;name</em>Context에 해당하는 다운로드한 프로젝트의 네임스페이스 및 DbContext로 바꾸어야 합니다.
    	
 	위의 코드에서 **ExecuteAsync** 재정의 메서드는 `#mobileservices` 해시태그를 포함한 최근 트윗을 요청하기 위해 저장된 자격 증명을 사용하여 Twitter 쿼리 API를 호출합니다. 중복 트윗 및 회신은 테이블에 저장되기 전에 결과에서 제거됩니다.
 
-## <a name="run-job-locally"></a>로컬에서 예약된 작업 테스트
+##<a name="run-job-locally"></a>로컬에서 예약된 작업 테스트
 
 Azure에 게시하고 포털에 등록하기 전에 로컬에서 작업 예약을 테스트할 수 있습니다.
 
@@ -248,7 +240,7 @@ Azure에 게시하고 포털에 등록하기 전에 로컬에서 작업 예약�
 
 	새 트윗이 데이터 테이블에 행으로 입력됩니다.
 
-## <a name="register-job"></a>서비스 게시 및 새 작업 등록 
+##<a name="register-job"></a>서비스 게시 및 새 작업 등록 
 
 모바일 서비스에서 정의된 일정에 따라 작업을 실행할 수 있도록 **스케줄러** 탭에서 작업을 등록해야 합니다.
 
@@ -283,12 +275,12 @@ Azure에 게시하고 포털에 등록하기 전에 로컬에서 작업 예약�
 이제 모바일 서비스에서 새로운 예약된 작업을 만들었습니다. 이 작업은 사용하지 않도록 설정하거나 수정할 때까지는 예약된 대로 실행됩니다.
 
 <!-- Anchors. -->
-[Twitter 액세스 및 저장 자격 증명 등록]: #get-oauth-credentials
-[LINQ to Twitter 라이브러리 다운로드 및 설치]: #install-linq2twitter
-[새 Updates 테이블 만들기]: #create-table
-[새 예약된 작업 만들기]: #add-job
-[로컬에서 예약된 작업 테스트]: #run-job-locally
-[서비스 게시 및 작업 등록]: #register-job
+[Register for Twitter access and store credentials]: #get-oauth-credentials
+[Download and install the LINQ to Twitter library]: #install-linq2twitter
+[Create the new Updates table]: #create-table
+[Create a new scheduled job]: #add-job
+[Test the scheduled job locally]: #run-job-locally
+[Publish the service and register the job]: #register-job
 [Next steps]: #next-steps
 
 <!-- Images. -->
@@ -308,4 +300,5 @@ Azure에 게시하고 포털에 등록하기 전에 로컬에서 작업 예약�
 [Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 [LINQ to Twitter CodePlex 프로젝트]: http://linqtotwitter.codeplex.com/
-<!--HONumber=54--> 
+
+<!---HONumber=62-->

@@ -49,4 +49,4 @@ Azure용 PHP 클라이언트 라이브러리 설치에 대한 자세한 내용(P
 [download-SDK-PHP]: ../articles/php-download-sdk.md
 [composer-phar]: http://getcomposer.org/composer.phar
 
-<!--HONumber=54-->
+<!---HONumber=62-->

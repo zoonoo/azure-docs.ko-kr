@@ -50,4 +50,4 @@ Azure AD를 관리하는 방법, 디렉터리를 얻는 방법, 디렉터리를 
 * [Azure ID](fundamentals-identity.md)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

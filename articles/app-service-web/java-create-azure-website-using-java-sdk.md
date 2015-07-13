@@ -380,7 +380,7 @@ AzureWebDemo를 실행하고 새 웹 앱을 만든 후 클래식 포털로 로�
 
 이 응용 프로그램을 실행하기 전에 몇가지 속성을 구성해야 합니다.
 
-1.  **JSPHello** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **속성**을 선택합니다.
+1. **JSPHello** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **속성**을 선택합니다.
 
 2. **속성** 대화 상자에서 **Java 빌드 경로**를 선택하고 **주문 및 내보내기** 탭을 선택하고 **JRE 시스템 라이브러리**를 확인한 다음 **위로**를 클릭하여 목록의 위쪽으로 이동합니다.
 
@@ -461,7 +461,7 @@ FTP를 사용하여 새로 만든된 웹 앱에 응용 프로그램 파일을 �
 
 1. **Essentials**에서 **FTP 호스트 이름**을 찾아 복사합니다. `ftp://waws-prod-bay-NNN.ftp.azurewebsites.windows.net`와 유사한 URI입니다.
 
-2. **Essentials**에서 **FTP/Deployment username**을 찾아 복사합니다. *webappname\\deployment-username*의 형식이 됩니다(예: `WebDemoWebApp\deployer77`).
+2. **Essentials**에서 **FTP/Deployment username**을 찾아 복사합니다. *webappname\deployment-username*의 형식이 됩니다(예: `WebDemoWebApp\deployer77`).
 
 게시 프로필에서 FTP 연결 정보를 얻으려면:
 
@@ -542,14 +542,7 @@ FTP를 사용하여 새로 만든된 웹 앱에 응용 프로그램 파일을 �
 1. FileZilla에서 **파일 > 사이트 관리자**를 클릭합니다.
 2. **사이트 관리자** 대화 상자에서 **새 사이트**를 클릭합니다. 비어 있는 새 FTP 사이트는 이름을 입력하라는 메시지를 표시하는 **항목 선택**에 나타납니다. 이 절차에 대한 이름을 `AzureWebDemo-FTP`로 지정합니다.
 
-    **일반** 탭에서 다음 설정을 지정합니다.
-    - **호스트:** 대시보드에서 복사한 **FTP 호스트 이름**을 입력합니다. 
-    - **포트:** (공백으로 둠, 수동 전송이며 서버는 사용할 포트를 결정함)-
-    - **프로토콜:** FTP 파일 전송 프로토콜
-    - **암호화:** 일반 FTP 사용
-    - **로그온 유형:** 보통
-    - **사용자:** 대시보드에서 복사한 배포 / FTP 사용자를 입력합니다. 전체 FTP 사용자 이름으로, *webappname\\username* 형식입니다.- 
-    - **암호:** 배포 자격 증명을 설정하는 경우 지정된 암호를 입력합니다.
+    **일반** 탭에서 다음 설정을 지정합니다. **호스트:** 대시보드에서 복사한 **FTP 호스트 이름**을 입력합니다. **포트:** (공백으로 둠, 수동 전송이며 서버는 사용할 포트를 결정함)- **프로토콜:** FTP 파일 전송 프로토콜- **암호화:** 일반 FTP 사용 - **로그온 유형:** 보통- **사용자:** 대시보드에서 복사한 배포 / FTP 사용자를 입력합니다. 전체 FTP 사용자 이름으로, *webappname\username* 형식입니다.- **암호:** 배포 자격 증명을 설정하는 경우 지정된 암호를 입력합니다.
 
     **전송 설정** 탭에서 **수동**을 선택합니다.
 
@@ -585,15 +578,16 @@ FTP를 사용하여 새로 만든된 웹 앱에 응용 프로그램 파일을 �
 
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
 
-[1]: ./media/java-create-azure-website-using-java-sdk/eclipse-maven-repositories-rebuild-index.png
-[2]: ./media/java-create-azure-website-using-java-sdk/eclipse-new-java-class.png
-[3]: ./media/java-create-azure-website-using-java-sdk/eclipse-new-dynamic-web-project.png
-[4]: ./media/java-create-azure-website-using-java-sdk/eclipse-java-build-path.png
-[5]: ./media/java-create-azure-website-using-java-sdk/eclipse-targeted-runtimes-tomcat-server.png
-[6]: ./media/java-create-azure-website-using-java-sdk/eclipse-targeted-runtimes-properties-page.png
-[7]: ./media/java-create-azure-website-using-java-sdk/eclipse-run-on-server.png
-[8]: ./media/java-create-azure-website-using-java-sdk/kudu-console-drag-drop.png
-[9]: ./media/java-create-azure-website-using-java-sdk/kudu-console-jsphello-war-1.png
-[10]: ./media/java-create-azure-website-using-java-sdk/kudu-console-jsphello-war-2.png
+  [1]: ./media/java-create-azure-website-using-java-sdk/eclipse-maven-repositories-rebuild-index.png
+  [2]: ./media/java-create-azure-website-using-java-sdk/eclipse-new-java-class.png
+  [3]: ./media/java-create-azure-website-using-java-sdk/eclipse-new-dynamic-web-project.png
+  [4]: ./media/java-create-azure-website-using-java-sdk/eclipse-java-build-path.png
+  [5]: ./media/java-create-azure-website-using-java-sdk/eclipse-targeted-runtimes-tomcat-server.png
+  [6]: ./media/java-create-azure-website-using-java-sdk/eclipse-targeted-runtimes-properties-page.png
+  [7]: ./media/java-create-azure-website-using-java-sdk/eclipse-run-on-server.png
+  [8]: ./media/java-create-azure-website-using-java-sdk/kudu-console-drag-drop.png
+  [9]: ./media/java-create-azure-website-using-java-sdk/kudu-console-jsphello-war-1.png
+  [10]: ./media/java-create-azure-website-using-java-sdk/kudu-console-jsphello-war-2.png
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

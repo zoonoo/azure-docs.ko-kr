@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Windows 데스크톱 앱 및 서비스용 Application Insights" 
-	description="Application Insights를 사용하여 Windows 앱의 사용량 및 성능을 분석합니다." 
+	description="Application Insights를 사용하여 Windows 데스크톱 앱의 사용량 및 성능을 분석합니다." 
 	services="application-insights" 
     documentationCenter="windows"
 	authors="alancameronwills" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/13/2015" 
+	ms.date="06/18/2015" 
 	ms.author="awills"/>
 
 # Windows 데스크톱 앱 및 서비스의 Application Insights
@@ -23,7 +23,7 @@
 
 Application Insights를 사용하면 사용량 및 성능을 위해 배포된 응용 프로그램을 모니터링할 수 있습니다.
 
-Application Insights SDK은 Windows 데스크톱 앱 및 서비스에 대한 지원을 제공합니다. 이 SDK는 모든 원격 분석 데이터에 대 해 전체 API 지원을 제공하지만 원격 분석 자동 컬렉션을 제공하지는 않습니다.
+Application Insights SDK은 Windows 데스크톱 앱 및 서비스에 대한 지원을 제공합니다. 이 SDK는 모든 원격 분석 데이터에 대해 전체 API 지원을 제공하지만 원격 분석 자동 컬렉션을 제공하지는 않습니다.
 
 
 ## <a name="add"></a> Application Insights 리소스 만들기
@@ -33,6 +33,7 @@ Application Insights SDK은 Windows 데스크톱 앱 및 서비스에 대한 지
 
     ![새로 만들기, Application Insights 클릭](./media/app-insights-windows-desktop/01-new.png)
 
+    (응용 프로그램 종류 선택은 개요 블레이드의 내용 및 [메트릭 탐색기][metrics]에서 사용할 수 있는 속성을 설정합니다.)
 
 2.  계측 키를 복사합니다.
 
@@ -45,11 +46,11 @@ Application Insights SDK은 Windows 데스크톱 앱 및 서비스에 대한 지
 
 2. Application Insights API 패키지를 설치합니다.
 
-    ![**온라인**, **시험판 포함** 선택 및 "Application Insights" 검색](./media/app-insights-windows-desktop/04-ai-nuget.png)
+    !["Application Insights" 검색](./media/app-insights-windows-desktop/04-core-nuget.png)
 
 3. ApplicationInsights.config(NuGet 설치로 추가됨)를 편집합니다. 닫는 태그 바로 전에 삽입합니다.
 
-    &lt;InstrumentationKey&gt;*복사한 키*&lt;/InstrumentationKey&gt;
+    `<InstrumentationKey>*the key you copied*</InstrumentationKey>`
 
     대신 이 코드와 동일한 효과를 얻을 수 있습니다.
     
@@ -60,7 +61,7 @@ Application Insights SDK은 Windows 데스크톱 앱 및 서비스에 대한 지
 
 `TelemetryClient` 인스턴스를 만들고 [이를 사용하여 원격 분석을 전송][api]합니다.
 
-`TelemetryClient.Flush`을(를) 사용하여 앱을 닫기 전에 메시지를 보냅니다. (다른 종류의 앱에는 사용하지 않는 것이 좋습니다.)
+`TelemetryClient.Flush()`을(를) 사용하여 앱을 닫기 전에 메시지를 보냅니다. 코어 SDK는 메모리 내 버퍼를 사용합니다. 플러시 메서드는 프로세스 종료 시 데이터 손실이 없는지 확인하기 위해 이 버퍼가 비었는지 확인합니다 (다른 종류의 앱에는 사용하지 않는 것이 좋습니다. 플랫폼 SDK는 이 동작을 자동으로 구현합니다.)
 
 예를들어, Windows Forms 응용 프로그램에서는 다음을 작성할 수 있습니다.
 
@@ -107,9 +108,10 @@ Application Insights SDK은 Windows 데스크톱 앱 및 서비스에 대한 지
 
 #### 컨텍스트 이니셜라이저
 
-각 TelemetryClient 인스턴스에서 세션 데이터를 설정하는 대안으로 컨텍스트 이니셜라이저를 사용할 수 있습니다.
+사용자 및 세션 수를 보려면 각 `TelemetryClient`인스턴스에 대한 값을 설정할 수 있습니다. 또는 컨텍스트 이니셜라이저를 사용하여 모든 클라이언트에 대해 이 덧셈을 수행할 수 있습니다.
 
 ```C#
+
     class UserSessionInitializer: IContextInitializer
     {
         public void Initialize(TelemetryContext context)
@@ -127,6 +129,7 @@ Application Insights SDK은 Windows 데스크톱 앱 및 서비스에 대한 지
             TelemetryConfiguration.Active.ContextInitializers.Add(
                 new UserSessionInitializer());
             ...
+
 ```
 
 

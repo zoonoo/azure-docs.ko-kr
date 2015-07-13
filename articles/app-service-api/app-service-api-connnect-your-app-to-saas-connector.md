@@ -79,7 +79,7 @@
 
 API가 Dropbox 계정에 액세스할 수 있게 하려면 Dropbox 개발자 사이트에서 Dropbox 앱을 만들어야 합니다. 그런 다음 Dropbox 앱의 클라이언트 ID 및 클라이언트 암호 값을 Dropbox 커넥터로 복사하고 인증된 요청만 수락하도록 커넥터를 설정합니다.
 
-### Dropbox 앱 만들기
+### <a id="createdbapp"></a>Dropbox 앱 만들기
 
 다음 단계에서는 Dropbox.com 사이트를 사용하여 Dropbox 앱을 만드는 프로세스를 보여 줍니다. Dropbox.com 사이트는 예고 없이 변경될 수 있으므로 UI가 표시된 것과 다를 수도 있습니다.
 
@@ -103,7 +103,7 @@ API가 Dropbox 계정에 액세스할 수 있게 하려면 Dropbox 개발자 사
 
 	![Dropbox 앱 만들기](./media/app-service-api-connnect-your-app-to-saas-connector/dbappsettings.png)
 
-### Dropbox 앱 설정을 Azure Dropbox 커넥터로 복사하고 반대의 경우도 마찬가지입니다. 
+### <a id="copysettings"></a>Dropbox 앱 설정을 Azure Dropbox 커넥터로 복사하고 반대의 경우도 마찬가지입니다. 
 
 4. 다른 브라우저 창이나 탭에서 [Azure Preview 포털]로 이동합니다.
 

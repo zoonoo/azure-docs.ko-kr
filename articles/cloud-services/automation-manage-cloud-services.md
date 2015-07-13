@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/20/2015"
+	ms.date="05/20/2015"
 	ms.author="jolevy"/>
 
 
 
-# Azure 자동화를 사용하여 Azure 클라우드 서비스 관리
+#Azure 자동화를 사용하여 Azure 클라우드 서비스 관리
 
 이 가이드에서는 Azure 자동화 서비스 및 이 서비스를 사용하여 Azure 클라우드 서비스 관리를 간소화하는 방법을 소개합니다.
 
@@ -40,7 +40,7 @@ Azure 자동화에 의해 자동으로 실행되도록 클라우드 관리 작�
 
 Azure 자동화의 기본 사항과 Azure 자동화를 사용하여 클라우드 서비스를 관리하는 방법을 알아보았으므로 이제 다음 링크에 따라 Azure 자동화에 대해 자세히 알아보세요.
 
-Azure 자동화 [시작 자습서](../automation/automation-create-runbook-from-samples.md) 를 참조하세요.
+Azure 자동화 [시작 자습서](../automation/automation-create-runbook-from-samples.md) 참조
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=62-->

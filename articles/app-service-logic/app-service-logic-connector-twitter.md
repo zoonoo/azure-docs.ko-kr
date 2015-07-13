@@ -61,8 +61,7 @@ API 앱이 생성되면 이제 논리 앱에 대한 트리거/동작으로 Twitt
 	![][6]
 7.	유사한 방식으로 흐름에서 Twitter 작업을 사용할 수 있습니다. Twitter 작업을 선택하고 각 작업에 대한 입력을 구성합니다.
 
-	![][7] 
-	![][8]
+	![][7] ![][8]
 
 	<!--Image references-->
 [1]: ./media/app-service-logic-connector-twitter/img1.png
@@ -73,5 +72,6 @@ API 앱이 생성되면 이제 논리 앱에 대한 트리거/동작으로 Twitt
 [6]: ./media/app-service-logic-connector-twitter/img6.png
 [7]: ./media/app-service-logic-connector-twitter/img7.png
 [8]: ./media/app-service-logic-connector-twitter/img8.png
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

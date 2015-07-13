@@ -57,7 +57,7 @@ Azure CLI를 사용하여 PHP 웹앱을 만들려면 다음을 수행하세요.
 
 ## Azure PowerShell cmdlet을 사용하여 PHP 웹 앱 만들기
 
-Azure PowerShell cmdlet을 사용하여 PHP 웹 앱을 만들려면 다음을 수행하십시오.
+Azure PowerShell cmdlet을 사용하여 PHP 웹 앱을 만들려면 다음을 수행하세요.
 
 1. [Azure PowerShell 시작](/develop/php/how-to-guides/powershell-cmdlets/#GetStarted)의 지침을 따라서 Azure PowerShell cmdlet을 설치합니다.
 
@@ -83,10 +83,10 @@ Azure 앱 서비스에서 PHP 웹 앱을 만들었으므로, 이제 앱을 관�
 * [Azure 앱 서비스 웹앱에서 PHP 구성]
 * [Azure 포털을 사용하여 웹앱 관리](web-sites-manage.md)
 * [Azure 앱 서비스에서 웹앱 모니터링](web-sites-monitor.md)
-* [Azure 앱 서비스에서 웹 앱 크기 조정]
+* [Azure 앱 서비스에서 웹앱 크기 조정]
 * [Azure 앱 서비스에서 GIT를 사용하여 연속 배포](web-sites-publish-source-control.md)
 
-종단 간 자습서에 대해서는 [PHP Developer Center - 자습서](/develop/php/tutorials/) 페이지를 참조하십시오.
+종단 간 자습서에 대해서는 [PHP Developer Center - 자습서](/develop/php/tutorials/) 페이지를 참조하세요.
 
 ## 변경된 내용
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.
@@ -100,7 +100,6 @@ Azure 앱 서비스에서 PHP 웹 앱을 만들었으므로, 이제 앱을 관�
 [Azure 앱 서비스에서 PHP-MySQL 웹앱 만들기 및 Git를 사용하여 배포]: web-sites-php-mysql-deploy-use-git.md
 [Azure 앱 서비스에서 WordPress 웹앱 만들기]: web-sites-php-web-site-gallery.md
 [앱 서비스 가격]: /pricing/details/app-service/
-[Azure 앱 서비스에서 웹 앱 크기 조정]: web-sites-scale.md
 [Azure 앱 서비스에서 웹앱 크기 조정]: web-sites-scale.md
  
 

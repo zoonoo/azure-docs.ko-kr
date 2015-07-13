@@ -110,7 +110,7 @@ CNAME 레코드를 만들 경우에는 이 단계를 건너뛰십시오. A 레�
 
 >[AZURE.NOTE]Azure DNS를 사용하여 웹앱에 필요한 도메인 레코드를 호스트할 수 있습니다. 사용자 지정 도메인을 구성하고 사용자 레코드를 만들려면 Azure DNS에서 [웹앱에 대한 사용자 지정 DNS 레코드 만들기](../dns-web-sites-custom-domain)를 참조하세요.
 
-<a name="awverify" />
+<a name="awverify" /></a>
 ## awverify 레코드 만들기(A 레코드 전용)
 
 A 레코드를 만들면 웹 앱에서 특수 CNAME 레코드도 필요하며, 이 레코드는 사용하려는 도메인을 소유하고 있는지를 확인하는 데 사용됩니다. 이 CNAME 레코드에는 다음과 같은 형식이 있어야 합니다.
@@ -129,7 +129,7 @@ A 레코드를 만들면 웹 앱에서 특수 CNAME 레코드도 필요하며, �
 
 ## 다음 단계
 
-자세한 내용은 [Azure DNS 시작](http://azure.microsoft.com/documentation/articles/dns-getstarted-create-dnszone) 및 [Azure DNS로 도메인 위임](http://azure.microsoft.com/documentation/articles/dns-domain-delegation)을 참조하세요.
+자세한 내용은 [Azure DNS 시작](http://azure.microsoft.com/ko-kr/documentation/articles/dns-getstarted-create-dnszone) 및 [Azure DNS로 도메인 위임](http://azure.microsoft.com/ko-kr/documentation/articles/dns-domain-delegation)을 참조하세요.
 
 ## 변경된 내용
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.

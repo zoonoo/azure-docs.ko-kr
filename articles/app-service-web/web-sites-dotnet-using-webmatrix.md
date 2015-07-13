@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/21/2015" 
+	ms.date="05/15/2015" 
 	ms.author="tomfitz"/>
 
 
@@ -116,7 +116,7 @@
         }*/
 
 
-5. WebMail 대신 SendGrid를 사용하여 메일을 보내는 코드를 추가합니다. 이전 단계에서 삭제한 코드 대신 다음 코드를 추가합니다.
+5. WebMail 대신 SendGrid를 사용하여 메일을 보내는 코드를 추가합니다. 이전 단계에서 삭제한 코드 대신 다음 코드를 추가합니다. NetworkCredential를 만들 때 SendGrid 사용자 이름 및 암호를 추가해야 합니다.
 
 		 if (email.IsEmpty()) {
             Response.Redirect("~/OrderSuccess?NoEmail=1");
@@ -130,14 +130,14 @@
             myMessage.Text = body;
 
             // Create credentials, specifying your user name and password.
-            var credentials = new NetworkCredential("[your user name", "[your password]");
+            var credentials = new NetworkCredential("[your user name]", "[your password]");
 
             // Create an Web transport for sending email.
             var transportWeb = new Web(credentials);
 
             // Send the email.
             try {
-                transportWeb.Deliver(myMessage);
+                transportWeb.DeliverAsync(myMessage);
                 Response.Redirect("~/OrderSuccess");
             } catch {
                 ModelState.AddFormError("There was an error and your order could not be processed at this time");
@@ -248,5 +248,6 @@ WebMatrix를 사용하여 사이트를 수정하고 웹 앱 인스턴스에 다�
 
 [sendmailissues]: http://go.microsoft.com/fwlink/?LinkId=253001#email
 [sendgridexample]: http://azure.microsoft.com/documentation/articles/sendgrid-dotnet-how-to-send-email/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

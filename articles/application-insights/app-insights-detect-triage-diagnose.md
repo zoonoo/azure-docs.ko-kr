@@ -1,21 +1,21 @@
-<properties 
-	pageTitle="감지, 심사 및 진단" 
-	description="충돌 분석 및 응용 프로그램에서 성능 문제 감지 및 진단" 
-	authors="alancameronwills" 
-	services="application-insights" 
+<properties
+	pageTitle="감지, 심사 및 진단"
+	description="충돌 분석 및 응용 프로그램에서 성능 문제 감지 및 진단"
+	authors="alancameronwills"
+	services="application-insights"
     documentationCenter=""
 	manager="keboyd"/>
 
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/02/2015" 
+<tags
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="get-started-article" 
+	ms.date="04/02/2015"
 	ms.author="awills"/>
 
-#Application Insights를 사용하여 감지, 심사 및 진단
+# Application Insights를 사용하여 감지, 심사 및 진단
 
 *Application Insights는 미리 보기 상태입니다.*
 
@@ -45,12 +45,12 @@ Application Insights는 장치 앱 및 웹 응용 프로그램에 대해 동작�
 
 
 
-##가용성 저하 감지 
+## 가용성 저하 감지
 
 
 Marcela Markova는 OBS 팀에서 테스트 전문가이며 온라인 성능 모니터링을 리드합니다. Marcela는 다음과 같이 여러 [웹 테스트][availability]를 설정합니다.
 
-* http://fabrikambank.com/onlinebanking/ 앱의 주 방문 페이지에 대한 단일 URL 테스트. HTTP 코드 200 및 '시작!' 텍스트의 조건을 설정합니다. 이 테스트에 실패하면 네트워크 또는 서버에 심각한 문제가 있거나 배포 문제일 수 있습니다. (또는 누군가 알리지 않고 해당 페이지에서 시작! 메시지를 변경한 것입니다.) 
+* http://fabrikambank.com/onlinebanking/ 앱의 주 방문 페이지에 대한 단일 URL 테스트. HTTP 코드 200 및 '시작!' 텍스트의 조건을 설정합니다. 이 테스트에 실패하면 네트워크 또는 서버에 심각한 문제가 있거나 배포 문제일 수 있습니다. (또는 누군가 알리지 않고 해당 페이지에서 시작! 메시지를 변경한 것입니다.)
 
 
 * 각 페이지에서 몇 가지 중요한 세부 정보를 나열하고 확인하는 현재 계정에 로그인하고 가져오는 보다 심화된 다단계 테스트. 이 테스트는 계정 데이터베이스에 대한 링크가 동작하고 있는지 학인합니다. Marcela는 가상 고객 ID를 사용합니다. 이 중 몇 개는 테스트 목적으로 유지 관리됩니다.
@@ -67,7 +67,7 @@ Marcela Markova는 OBS 팀에서 테스트 전문가이며 온라인 성능 모�
 하지만 더 중요한 점은 모든 오류에 대한 경고가 개발팀에 이메일로 전송된다는 것입니다. 이러한 방법으로 팀은 거의 모든 고객보다 먼저 이에 대해 알고 있습니다.
 
 
-##성능 메트릭 모니터링 
+## 성능 메트릭 모니터링
 
 
 가용성 차트와 동일한 개요 페이지에는 다양한 [주요 메트릭][perf]을 보여주는 차트가 있습니다.
@@ -83,7 +83,7 @@ Marcela Markova는 OBS 팀에서 테스트 전문가이며 온라인 성능 모�
 
 Marcela는 가끔 이러한 차트를 살펴봅니다. 실패한 요청의 상수 배경은 약간 실망스럽지만 팀이 조사하고 있는 버그와 관련되므로 수정 사항이 릴리스되면 줄어들 것입니다. 하지만 실패한 요청 또는 서버 응답 시간과 같은 일부 기타 메트릭에서 갑작스런 최고량이 있는 경우, Marcela는 이에 대해 즉시 알고 싶습니다. 코드 릴리스 로 인한 예기치 못한 문제 또는 데이터베이스와 같은 종속성에서의 오류를 나타내거나, 부하가 큰 요청에 대해 서툴게 반응할 수 있습니다.
 
-####경고
+#### 경고
 
 따라서 Marcela는 두 가지 [경고][metrics]를 설정합니다. 하나는 일반적인 임계값보다 큰 응답 시간을 위한 것이고, 다른 하나는 현재 배경보다 큰 실패한 요청의 비율을 위한 것입니다.
 
@@ -100,20 +100,20 @@ Marcela는 가끔 이러한 차트를 살펴봅니다. 실패한 요청의 상�
 
 
 
-##예외 사항 감지
+## 예외 사항 감지
 
 
 예외 사항은 [TrackException()][api]을 호출하여 Application Insights에 자동으로 보고됩니다.
 
     var telemetry = new TelemetryClient();
     ...
-    try 
+    try
     { ...
     }
     catch (Exception ex)
     {
        // Set up some properties:
-       var properties = new Dictionary <string, string> 
+       var properties = new Dictionary <string, string>
          {{"Game", currentGame.Name}};
 
        var measurements = new Dictionary <string, double>
@@ -131,7 +131,7 @@ Fabrikam 은행 팀은 명백한 복구가 있는 경우를 제외하고 예외 
     var successCode = AttemptTransfer(transferAmount, ...);
     if (successCode < 0)
     {
-       var properties = new Dictionary <string, string> 
+       var properties = new Dictionary <string, string>
             {{ "Code", returnCode, ... }};
        var measurements = new Dictionary <string, double>
          {{"Value", transferAmount}};
@@ -144,7 +144,7 @@ TrackException은 스택 복사본을 보내기 때문에 예외 사항을 보�
 
 ![진단 검색에서 특정 유형의 데이터를 표시하는 필터 사용](./media/app-insights-detect-triage-diagnose/appinsights-333facets.png)
 
-##정상적인 이벤트 모니터링 
+## 정상적인 이벤트 모니터링
 
 
 Fabrikam 개발팀은 양호하지 않은 이벤트뿐 아니라 양호한 이벤트도 추적하고자 합니다. 부분적으로는 양호한 이벤트가 발생하는 수 및 위치를 알고 싶고, 두 번째로는 양호한 이벤트가 갑자기 중단되는 시점, 즉 양호하지 않은 이벤트를 알고 싶기 때문입니다.
@@ -159,7 +159,7 @@ Fabrikam 개발팀은 양호하지 않은 이벤트뿐 아니라 양호한 이�
 UX 전문가 Ursula도 양호한 메트릭을 계속 주시합니다. 차트가 깔때기의 특정 단계에서 갑작스런 하락을 보여주면 거기에 어떠한 문제가 있음을 나타냅니다. 어쩌면 올바른 단추를 찾는 것이 어려울 수 있습니다. 또는 텍스트가 전혀 고무적이지 않을 수 있습니다. 아니면 버그가 있을 수 있습니다(사용자가 단추를 눌러도 아무 일도 일어나지 않음).
 
 
-##사전 모니터링  
+## 사전 모니터링  
 
 
 Marcela는 가만히 앉아서 경고를 기다리고 있지는 않습니다. 매든 재배포 후 곧바로 예외 수뿐 아니라 가장 느린 요청의 전체적인 수치 및 표 모두 [응답 시간][perf]을 살펴봅니다.
@@ -171,7 +171,7 @@ Marcela는 가만히 앉아서 경고를 기다리고 있지는 않습니다. �
 일반적으로 매주 마지막을 비교하여 모든 배포의 성능 효과를 평가할 수 있습니다. 갑작스러운 악화가 있는 경우 관련 개발자와 함께 해당 수치를 높입니다.
 
 
-##심사 
+## 심사
 
 
 심사(심각도 및 익스텐트는 문제의 심각도 평가)는 감지 후 첫 번째 단계입니다. 자정에 팀을 호출해야 할까요? 또는 백로그에 손쉽게 액세스할 수 있는 다음 간격까지 기다려도 될까요? 심사에는 몇 가지 핵심적인 질문이 있습니다.
@@ -197,7 +197,7 @@ Marcela는 가만히 앉아서 경고를 기다리고 있지는 않습니다. �
 차단된 시나리오는 얼마나 중요한가요? 특정 사용자 이야기를 차단하는 기능적 문제가 있는 경우 큰 문제인가요? 고객이 요금을 지불할 수 없는 경우라면 심각한 문제입니다. 고객이 화면 색상 기본 설정을 변경할 수 없는 경우라면 기다릴 수 있습니다. 이벤트 또는 예외 사항의 세부 정보 또는 느린 페이지의 ID는 고객이 문제를 겪고 있는 위치를 말해 줍니다.
 
 
-##진단 
+## 진단
 
 
 진단은 디버깅과 같지는 않습니다. 코드를 통한 추적을 시작하기 전에 문제가 발생하고 있는 이유, 위치 및 시기에 대한 대략적인 개념이 있어야 합니다.
@@ -223,7 +223,7 @@ Marcela는 가만히 앉아서 경고를 기다리고 있지는 않습니다. �
 Fabrikam은 계좌 간 이체에 간헐적인 문제가 있었으나 특정 계좌 유형에만 발생하지는 않았습니다. 자세히 이해하기 위해 계좌 유형을 각각의 호출에 속성으로 연결하여 코드에서 주요 포인트로 TrackTrace() 호출을 삽입했습니다. 이를 통해 진단 검색에서 해당 추적을 필터링하기 쉬워졌습니다. 또한 속성 및 측정값으로 매개 변수 값을 추적 호출에 연결했습니다.
 
 
-##처리 
+## 처리
 
 
 문제를 진단하면 이를 수정하기 위한 계획을 세울 수 있습니다. 최근 변경 내용을 롤백해야 할 수도 있고, 진행하여 수정할 수도 있습니다. 수정이 이루어지면 수정이 성공했는지 Application Insights에서 알려줍니다.
@@ -231,24 +231,24 @@ Fabrikam은 계좌 간 이체에 간헐적인 문제가 있었으나 특정 계�
 
 Fabrikam 은행 개발팀은 보다 구조화된 접근법으로 Application Insights를 사용하기 전에 사용했던 측정 방식을 수행합니다.
 
-* Application Insights 개요 페이지에서 특정 측정값을 기준으로 성능 목표를 설정합니다. 
+* Application Insights 개요 페이지에서 특정 측정값을 기준으로 성능 목표를 설정합니다.
 
 * 'funnels.'를 통해 사용자 진행률을 측정하는 메트릭과 같이 시작부터 응용 프로그램에 성능 측정값을 디자인합니다.
 
 
 
 
-##사용
+## 사용
 
 Application Insights는 사용자가 앱으로 수행할 작업에 대해 알아보는 데 사용할 수도 있습니다. 원활하게 실행되면 팀은 가장 인기 있는 기능, 사용자가 좋아하는 기능 또는 어려워하는 기능 및 다시 방문하는 빈도에 대해 알고자 합니다. 이는 예정된 작업의 우선 순위를 정하는 데 도움이 됩니다. 또한 개발 주기의 일환으로 각 기능의 성공을 측정할 계획을 세울 수 있습니다. [자세히 알아보기][usage].
 
-##응용 프로그램
+## 응용 프로그램
 
 이것이 한 팀이 Application Insights를 사용하여 개별 문제를 수정하는 것이 아니라 개발 수명 주기를 개선한 방법입니다. Application Insights가 자신만의 응용 프로그램 성능을 개선하는 데 어떻게 도움을 줄 수 있는지에 대한 아이디어를 제공했기 바랍니다.
 
-##비디오
+## 비디오
 
-[AZURE.VIDEO app-insights-performance-monitoring]
+[AZURE.VIDEO performance-monitoring-application-insights]
 
 <!--Link references-->
 
@@ -258,6 +258,6 @@ Application Insights는 사용자가 앱으로 수행할 작업에 대해 알아
 [metrics]: app-insights-metrics-explorer.md
 [perf]: app-insights-web-monitor-performance.md
 [usage]: app-insights-web-track-usage.md
+ 
 
-
-<!--HONumber=54--> 
+<!---HONumber=62-->

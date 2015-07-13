@@ -1,7 +1,7 @@
-﻿#####테이블 만들기
-**CloudTableClient** 개체를 사용하면 테이블 및 엔터티에 대한 참조 개체를 가져올 수 있습니다. 다음 코드는 **CloudTableClient** 개체를 만든 다음 이 개체를 사용하여 새 테이블을 만듭니다. 코드가 "people"이라는 이름의 테이블을 참조하려고 합니다. 이 이름의 테이블을 찾을 수 없으면 새로 만듭니다.
+#####테이블 만들기
+**CloudTableClient** 개체를 사용하면 테이블 및 엔터티에 대한 참조 개체를 가져올 수 있습니다. 다음 코드는 **CloudTableClient** 개체를 만든 다음 이 개체를 사용하여 새 테이블을 만듭니다. 코드가 “people”이라는 이름의 테이블을 참조하려고 합니다. 이 이름의 테이블을 찾을 수 없으면 새로 만듭니다.
 
-**참고:** 이 가이드의 모든 코드에서는 빌드되는 응용 프로그램이 Azure 클라우드 서비스 프로젝트이며 Azure 응용 프로그램의 서비스 구성에 저장된 저장소 연결 문자열을 사용한다고 가정합니다.
+**참고:** 이 가이드의 모든 코드에서는 빌드되는 응용프로그램이 Azure 클라우드 서비스 프로젝트이며 Azure 응용프로그램의 서비스 구성에 저장된 저장소 연결 문자열을 사용한다고 가정합니다.
 
 	// Create the table client.
 	CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
@@ -28,7 +28,7 @@
 	    public string PhoneNumber { get; set; }
 	}
 
-엔터티와 관련된 테이블 작업은 이전에 "테이블 만들기"에서 만든 **CloudTable** 개체를 사용하여 수행합니다. **TableOperation** 개체를 수행할 작업을 나타냅니다. 다음 코드 예제에서는 **CloudTable** 개체와 **CustomerEntity** 개체를 만드는 방법을 보여 줍니다. 작업을 준비하기 위해 고객 엔터티를 테이블에 삽입하는 **TableOperation**이 만들어집니다. 마지막으로 CloudTable.Execute를 호출하여 작업을 실행합니다.
+엔터티와 관련된 테이블 작업은 이전에 "테이블 만들기"에서 만든 **CloudTable** 개체를 사용하여 수행합니다. **TableOperation** 개체를 수행할 작업을 나타냅니다. 다음 코드 예제에서는 **CloudTable** 개체와 **CustomerEntity** 개체를 만드는 방법을 보여 줍니다. 작업을 준비하기 위해 고객 엔터티를 테이블에 삽입하는 **TableOperation**이 만들어집니다. 끝으로, CloudTable.Execute를 호출하여 작업을 실행합니다.
 
 	// Create the CloudTable object that represents the "people" table.
 	CloudTable table = tableClient.GetTableReference("people");
@@ -133,8 +133,6 @@
 	else
 	   Console.WriteLine("Couldn't delete the entity.");
 
-[Azure 저장소에 대한 자세한 정보](http://azure.microsoft.com/documentation/services/storage/)
-또한 [서버 탐색기로 저장소 리소스 탐색](http://msdn.microsoft.com/library/azure/ff683677.aspx)(영문)을 참조하세요.
+[Azure 저장소에 대한 자세한 정보](http://azure.microsoft.com/documentation/services/storage/) [서버 탐색기에서 저장소 리소스 탐색](http://msdn.microsoft.com/library/azure/ff683677.aspx)도 참조하세요.
 
-
-<!--HONumber=42-->
+<!---HONumber=62-->

@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="앱 서비스 응용 프로그램에 대해 Azure Active Directory 인증을 구성하는 방법" 
 	description="앱 서비스 응용 프로그램에 대해 Azure Active Directory 인증을 구성하는 방법을 알아봅니다." 
-	authors="mattchenderson,wesmc7777" 
+	authors="mattchenderson" 
 	services="app-service\mobile" 
 	documentationCenter="" 
 	manager="dwrede" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="02/19/2015" 
+	ms.date="05/26/2015" 
 	ms.author="mahender"/>
 
 # Azure Active Directory 로그인을 사용하도록 응용 프로그램을 구성하는 방법
@@ -71,5 +71,6 @@ Azure Active Directory Single Sign-On으로 모바일 앱의 사용자 인증: [
 [Preview Azure 관리 포털]: https://portal.azure.com/
 [Azure 관리 포털]: https://manage.windowsazure.com/
 [ios-adal]: ../app-service-mobile-dotnet-backend-xamarin-ios-aad-sso-preview.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

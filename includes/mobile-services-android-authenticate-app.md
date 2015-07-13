@@ -36,7 +36,7 @@
 
 	인증 프로세스를 처리하는 새 메서드가 만들어집니다. 사용자는 Google 로그인을 사용하여 인증됩니다. 인증된 사용자의 ID를 표시하는 대화 상자가 나타납니다. 양성 인증 없이는 진행할 수 없습니다.
 
-    > [AZURE.NOTE] Google 이외의 ID 공급자를 사용하는 경우, 위의 **login** 메서드에 전달된 값을 다음 중 하나로 변경합니다. _MicrosoftAccount_, _Facebook_, _Twitter_ 또는 _windowsazureactivedirectory_.
+    > [AZURE.NOTE]Google 이외의 ID 공급자를 사용하는 경우, 위의 **login** 메서드에 전달된 값을 다음 중 하나로 변경합니다. _MicrosoftAccount_, _Facebook_, _Twitter_ 또는 _windowsazureactivedirectory_.
 
 3. **onCreate** 메서드에서 `MobileServiceClient` 개체를 인스턴스화하는 코드 다음에 다음 코드 줄을 추가합니다.
 
@@ -65,4 +65,5 @@
 9. **실행** 메뉴에서 **앱 실행**을 클릭하여 앱을 시작하고 원하는 ID 공급자로 로그인합니다.
 
    	로그인하고 나면 앱이 오류 없이 실행되며 모바일 서비스를 쿼리하고 데이터를 업데이트할 수 있게 됩니다.
-<!--HONumber=54-->
+
+<!---HONumber=62-->

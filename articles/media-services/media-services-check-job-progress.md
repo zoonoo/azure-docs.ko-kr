@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/10/2015" 
+	ms.date="05/25/2015" 
 	ms.author="juliako"/>
 
-# 방법: 작업 진행 상태 확인
+#방법: 작업 진행 상태 확인
 
-이 문서는 [미디어 서비스 주문형 비디오 워크플로](media-services-video-on-demand-workflow.md) 시리즈의 일부입니다. 
+이 문서는 [미디어 서비스 주문형 비디오 워크플로](media-services-video-on-demand-workflow.md) 시리즈의 일부입니다.
 
-작업을 실행할 때 작업 진행 상태를 추적하는 방법이 종종 필요합니다. [StateChanged 이벤트 처리기를 정의](#statechange_event_handler) 하여 진행률을 확인할 수 있습니다. 또는 [Azure 큐 저장소를 사용하여 Media Services 작업 알림을 모니터링합니다](#check_progress_with_queues). 두 메서드는 이 항목에 설명 되어있습니다. 
+작업을 실행할 때 작업 진행 상태를 추적하는 방법이 종종 필요합니다. [StateChanged 이벤트 처리기를 정의](#statechange_event_handler)하거나 [Azure 큐 저장소를 사용해 미디어 서비스 작업 알림을 모니터링](#check_progress_with_queues)하여 진행률을 확인할 수 있습니다. 두 메서드는 이 항목에 설명 되어있습니다.
 
-## <a id="statechange_event_handler"></a>작업 진행 상태를 모니터링 하는 StateChanged 이벤트 처리기를 정의합니다.
+##<a id="statechange_event_handler"></a>작업 진행 상태를 모니터링하는 StateChanged 이벤트 처리기 정의
 
 다음 코드 예제는 StateChanged 이벤트 처리기를 정의합니다. 이 이벤트 처리기는 작업 진행 상태를 추적하고 상태에 따라 업데이트된 상태를 제공합니다. 또한 다음 코드는 LogJobStop 메서드를 정의합니다. 이 도우미 메서드는 오류 세부 정보를 기록합니다.
 
@@ -103,24 +103,24 @@
 
 
 
-## <a id="check_progress_with_queues"></a>Azure 큐 저장소를 사용하여 Media Services 작업 알림을 모니터링합니다.
+##<a id="check_progress_with_queues"></a>Azure 큐 저장소를 사용하여 Media Services 작업 알림 모니터링
 
-Microsoft Azure 미디어 서비스에는 알림 메시지를 [Azure 큐 저장소](../storage-dotnet-how-to-use-queues.md#what-is) 에 제공하는 기능이 있습니다. (미디어 작업 처리 시) 이 항목에서는 큐 저장소에서 이 알림 메시지를 가져오는 방법을 보여줍니다.
+Microsoft Azure 미디어 서비스에는 미디어 작업을 처리할 때 알림 메시지를 [Azure 큐 저장소](../storage-dotnet-how-to-use-queues.md#what-is)에 제공하는 기능이 있습니다. 이 항목에서는 큐 저장소에서 이 알림 메시지를 가져오는 방법을 보여줍니다.
 
-세계 어디에서나 큐 저장소에 배달된 메시지에 액세스할 수 있습니다. Azure 큐 메시징 아키텍처는 안정적이고 확장성이 뛰어납니다. 다른 메서드를 사용하는 동안 큐 저장소를 폴링하는 것이 좋습니다. 
+세계 어디에서나 큐 저장소에 배달된 메시지에 액세스할 수 있습니다. Azure 큐 메시징 아키텍처는 안정적이고 확장성이 뛰어납니다. 다른 메서드를 사용하는 동안 큐 저장소를 폴링하는 것이 좋습니다.
 
-Media Services 알림 수신에 대한 일반적인 시나리오는 인코딩 작업 후 일부 추가 작업을 수행해야 하는 콘텐츠 관리 시스템을 개발하는 경우(예를 들어, 다음에는 워크플로에서 다음 단계를 트리거하거나 콘텐츠를 게시)입니다. 
+Media Services 알림 수신에 대한 일반적인 시나리오는 인코딩 작업 후 일부 추가 작업을 수행해야 하는 콘텐츠 관리 시스템을 개발하는 경우(예를 들어, 다음에는 워크플로에서 다음 단계를 트리거하거나 콘텐츠를 게시)입니다.
 
-### 고려 사항
+###고려 사항
 
 Azure 저장소 큐를 사용하는 미디어 서비스 응용 프로그램을 개발할 때 다음 사항을 고려합니다.
 
 - 큐 서비스는 선입 선출(FIFO) 순차적 전달을 보장하지 않습니다. 자세한 내용은 [Azure 큐 및 Azure 서비스 버스 큐 비교 및 대조](https://msdn.microsoft.com/library/azure/hh767287.aspx)를 참조하세요.
 - Azure 저장소 큐는 푸시 서비스가 아닙니다. 큐를 폴링해야 합니다. 
 - 개수에 관계 없이 큐를 사용할 수 있습니다. 자세한 내용은 [큐 서비스 REST API](https://msdn.microsoft.com/library/azure/dd179363.aspx)를 참조하세요.
-- Azure 저장소 큐에는 일부 제한 사항이 있으며 다음 문서에서 설명합니다. [Azure 큐 및 Azure 서비스 버스 큐 비교 및 대조](https://msdn.microsoft.com/library/azure/hh767287.aspx).
+- Azure 저장소 큐에는 일부 제한 사항이 있으며 [Azure 큐 및 Azure 서비스 버스 큐 비교 및 대조](https://msdn.microsoft.com/library/azure/hh767287.aspx) 문서에서 설명합니다.
 
-### 코드 예제
+###코드 예제
 
 이 섹션의 코드는 다음 작업을 수행합니다.
 
@@ -132,13 +132,13 @@ Azure 저장소 큐를 사용하는 미디어 서비스 응용 프로그램을 �
 1. 이 예에서 우리의 관심은 작업 처리의 최종 상태에 있으므로 **NotificationJobState.FinalStatesOnly**를 **AddNew** 메서드로 전달합니다. 
 		
 		job.JobNotificationSubscriptions.AddNew(NotificationJobState.FinalStatesOnly, _notificationEndPoint);
-1. NotificationJobState.All을 전달하는 경우 모든 상태 변경 알림을 가져와야 합니다. 큐에 대기-> 예약 -> 처리-> 완료됩니다. 그러나 앞에서 설명한 대로 Azure 저장소 큐 서비스가 순차적 전달을 보장하지 않습니다. 주문 메시지에 타임스탬프 속성(아래 예제에서는 EncodingJobMessage 형식에서 정의됨)을 사용할 수 있습니다. 중복된 알림 메시지를 받을 수 있습니다. ETag 속성(EncodingJobMessage 형식에서 정의됨)을 사용하여 중복을 확인합니다. 또한 일부 상태 변경 알림을 건너뛸 수 있습니다. 
+1. NotificationJobState.All을 전달하는 경우 모든 상태 변경 알림(큐에 대기 -> 예약됨 -> 처리 중 -> 완료됨)을 가져와야 합니다. 그러나 앞에서 설명한 대로 Azure 저장소 큐 서비스가 순차적 전달을 보장하지 않습니다. 주문 메시지에 타임스탬프 속성(아래 예제에서는 EncodingJobMessage 형식에서 정의됨)을 사용할 수 있습니다. 중복된 알림 메시지를 받을 수 있습니다. ETag 속성(EncodingJobMessage 형식에서 정의됨)을 사용하여 중복을 확인합니다. 또한 일부 상태 변경 알림을 건너뛸 수 있습니다. 
 1. 10초마다 큐를 검사하여 작업이 완성된 상태가 될 때를 기다립니다. 처리된 후 메시지를 삭제합니다.
 1. 큐와 알림 끝점을 삭제합니다.
 
 >[AZURE.NOTE]작업 상태 모니터링 방법으로 다음 예제와 같이 알림 메시지 수신을 권장합니다.
 >
->또는 **IJob.State** 속성을 사용하여 작업 상태를 확인할 수 있습니다.  작업 완료에 대한 알림 메시지를 **IJob**에 대한 상태가 **마침**으로 설정되기 전에 수신할 수 있습니다. **IJob.State** 속성은 약간의 지연 시간을 포함하여 정확한 상태를 반영합니다.
+>또는 **IJob.State** 속성을 사용하여 작업 상태를 확인할 수 있습니다. 작업 완료에 대한 알림 메시지를 **IJob**에 대한 상태가 **완료됨**으로 설정되기 전에 수신할 수 있습니다. **IJob.State** 속성은 약간의 지연 시간을 포함하여 정확한 상태를 반영합니다.
 
 	
 	using System;
@@ -425,6 +425,6 @@ Azure 저장소 큐를 사용하는 미디어 서비스 응용 프로그램을 �
 	job with Id: nb:jid:UUID:526291de-f166-be47-b62a-11ffe6d4be54 reached expected 
 	State: Finished
 	
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=62-->

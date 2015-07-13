@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Azure 데이터 팩터리에서 MapReduce 프로그램 호출" 
-	description="Azure 데이터 팩터리에서 Azure HDInsight 클러스터에서 MapReduce 프로그램을 실행 하 여 데이터를 처리 하는 방법에 알아봅니다." 
+	description="Azure HDInsight 클러스터에서 Azure 데이터 팩터리의 MapReduce 프로그램을 실행하여 데이터를 처리하는 방법을 알아봅니다." 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -17,23 +17,23 @@
 	ms.author="spelluru"/>
 
 # 데이터 팩터리에서 MapReduce 프로그램 호출
-이 문서에서는 호출 하는 방법을 설명는 **MapReduce** 프로그램을 사용 하 여는 Azure 데이터 팩터리 파이프라인에서는 **HDInsight 활동** 와 **MapReduce 변환**.
+이 문서에서는 **HDInsight 작업**과 **MapReduce 변환**을 사용하여 Azure 데이터 팩터리 파이프라인에서 **MapReduce** 프로그램을 호출하는 방법을 설명합니다.
 
 ## 소개 
 Azure 데이터 팩터리의 파이프라인은 연결된 저장소 서비스의 데이터를 연결된 계산 서비스를 사용하여 처리합니다. 파이프라인에는 일련의 작업이 포함되며 각 작업에서는 특정 처리 작업을 수행합니다. 이 문서에서는 HDInsight 작업의 MapReduce 변환을 사용하는 방법을 설명합니다.
  
-참조 [사용 하 여 Pig 및 Hive 데이터 팩터리로][data-factory-pig-hive-activities] Pig/Hive를 실행 하는 방법에 대 한 세부 정보에 대 한 스크립트에는 HDInsight 클러스터는 Azure 데이터 팩터리 파이프라인에서 HDInsight 활동의 Pig/Hive 변환을 사용 하 여 합니다.
+HDInsight 작업의 Pig/Hive 변환을 사용하여 Azure 데이터 팩터리 파이프라인에서 HDInsight 클러스터에 대해 Pig/Hive 스크립트를 실행하는 방법에 대한 자세한 내용은 [데이터 팩터리에서 Pig 및 Hive 사용][data-factory-pig-hive-activities]을 참조하십시오.
 
-## MapReduce 변환을 사용 하 여 HDInsight 활동에 대 한 JSON 
+## MapReduce 변환을 사용하는 HDInsight 작업에 대한 JSON 
 
-HDInsight 활동에 대 한 JSON 정의:
+HDInsight 작업에 대한 JSON 정의에서 다음을 수행합니다:
  
-1. 설정의 **유형** 의 **활동** 를 **HDInsightActivity**.
-2. 설정의 **유형** 의 **변환** 를 **MapReduce**.
-3. 에 대 한 클래스의 이름을 지정 **className** 속성입니다.
-4. 에 대 한 파일 이름을 포함 하 여 JAR 파일의 경로를 지정 **jarFilePath** 속성입니다.
-5. 지정 하기 위한 JAR 파일을 포함 하는 Azure Blob 저장소를 참조 하는 연결 된 서비스 **jarLinkedService** 속성입니다.   
-6. MapReduce 프로그램에 대 한 모든 인수를 지정 하는 **인수** 섹션. 
+1. **activity**의 **type**을 **HDInsightActivity**로 설정합니다.
+2. **transformation**의 **type**을 **MapReduce**로 설정합니다.
+3. **className** 속성에 대한 클래스 이름을 지정합니다.
+4. **jarFilePath **속성의 JAR 파일 경로(파일 이름 포함)를 지정합니다.
+5. **jarLinkedService** 속성의 JAR 파일이 포함된 Azure Blob 저장소를 참조하는 연결된 서비스를 지정합니다.   
+6. **arguments** 섹션에 MapReduce 프로그램의 모든 인수를 지정합니다. 
 
    
  
@@ -90,14 +90,14 @@ HDInsight 활동에 대 한 JSON 정의:
 MapReduce 변환을 사용하여 HDInsight 클러스터에 대해 모든 MapReduce jar 파일을 실행할 수 있습니다. 다음 파이프라인의 샘플 JSON 정의에서 HDInsight 작업은 Mahout JAR 파일을 실행하도록 구성되어 있습니다.
 
 ## 샘플
-HDInsight 활동에서 MapReduce 변환으로 사용 하는 것에 대 한 예제를 다운로드할 수 있습니다: [github 데이터 팩터리 샘플][data-factory-samples].
+HDInsight 작업과 MapReduce 변환을 사용하는 샘플은 [GitHub의 데이터 팩터리 샘플][data-factory-samples]에서 다운로드할 수 있습니다.
 
 ## 참고 항목
 
 문서 | 설명
 ------ | ---------------
-[이동 하 고 데이터 팩터리를 사용 하 여 로그 파일을 처리 하는 자습서:][adf-tutorial] | 이 문서를 거의 실시간을 구현 하는 방법을 보여주는 프로그램-종단간 연습을 제공 Azure 데이터 팩터리를 사용 하 여 통찰력으로 로그 파일의에서 데이터를 변환 하는 업무 시나리오입니다. 이 자습서를 사용 하 여 모두 Pig 및 Hive 변환 데이터를 처리 합니다. 
-[Azure 데이터 팩터리 개발자 참조][developer-reference] | 개발자 참조에는 cmdlet, JSON 스크립트, 함수에 대 한 포괄적인 참조 콘텐츠 중... 
+[자습서: 데이터 팩터리를 사용하여 로그 파일 이동 및 처리][adf-tutorial] | 이 문서에서는 Azure 데이터 팩터리를 사용하는 거의 실제 시나리오를 구현하여 로그 파일의 데이터에서 통찰력을 얻는 방법을 보여 주는 완전한 연습을 제공합니다. 이 자습서에서는 Pig 및 Hive 변환을 사용하여 데이터를 처리합니다. 
+[Azure 데이터 팩터리 개발자 참조][developer-reference] | 개발자 참조에는 cmdlet, JSON 스크립트, 함수 등에 대한 포괄적인 참조 콘텐츠가 포함되어 있습니다. 
 
 
 [data-factory-samples]: http://go.microsoft.com/fwlink/?LinkId=516907
@@ -121,5 +121,6 @@ HDInsight 활동에서 MapReduce 변환으로 사용 하는 것에 대 한 예�
 
 [Developer Reference]: http://go.microsoft.com/fwlink/?LinkId=516908
 [Azure Portal]: http://portal.azure.com
+ 
 
-<!---HONumber=GIT-SubDir--> 
+<!---HONumber=62-->

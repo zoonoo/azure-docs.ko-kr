@@ -34,6 +34,6 @@ Azure 자동화는 90일이 넘은 작업을 자동으로 삭제하고 영구적
 보존 정책은 모든 사용자에게 적용되며 지금은 사용자 지정할 수 없습니다.
 
 ## 관련된 문서
-- [Azure 자동화 백업](https://msdn.microsoft.com/library/dn643635.aspx)
+- [Azure 자동화 백업](https://msdn.microsoft.com/library/dn643635.aspx) 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

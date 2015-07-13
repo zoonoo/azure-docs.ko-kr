@@ -3,7 +3,7 @@
 	description="특정 사용자의 모든 장치에 푸시 알림을 전송하는 방법을 알아봅니다."
 	services="app-service\mobile" 
 	documentationCenter="ios" 
-	authors="yuaxu" 
+	authors="ysxu" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-dotnet" 
 	ms.devlang="objective-c" 
 	ms.topic="article" 
-	ms.date="03/17/2015"
+	ms.date="06/23/2015"
 	ms.author="yuaxu"/>
 
 # 특정 사용자에게 크로스 플랫폼 알림 전송
@@ -104,5 +104,6 @@
 [인증 시작]: app-service-mobile-dotnet-backend-ios-get-started-push-preview.md
 [푸시 알림 시작]: app-service-mobile-dotnet-backend-ios-get-started-push-preview.md
 [템플릿]: https://msdn.microsoft.com/ko-kr/library/dn530748.aspx
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

@@ -11,4 +11,4 @@ Microsoft.WindowsAzure.CloudConfigurationManager에 대한 참조 없이 응용�
 	CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
 		ConfigurationManager.ConnectionStrings["StorageConnectionString"]);
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

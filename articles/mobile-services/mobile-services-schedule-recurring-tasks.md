@@ -10,10 +10,10 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="02/26/2015" 
+	ms.date="06/04/2015" 
 	ms.author="glenga"/>
 
 # 모바일 서비스에서 되풀이 작업 예약 
@@ -28,17 +28,13 @@
 + 트윗, RSS 항목, 위치 정보 등의 외부 데이터 요청 및 저장
 + 저장된 이미지 처리 또는 크기 조정
 
-이 자습서에서는 Twitter에 트윗 데이터를 요청하고 이 트윗을 새 Updates 테이블에 저장하는 예약된 작업을 작업 스케줄러를 사용하여 만드는 단계를 안내합니다.
+이 자습서에서는 작업 스케줄러를 사용하여, Twitter에서 트윗 데이터를 요청하고 트윗을 새 Updates 테이블에 저장하는 예약된 작업을 만드는 방법을 설명합니다.
 
-+ [Twitter 액세스 및 저장 자격 증명 등록]
-+ [새 Updates 테이블 만들기]
-+ [새 예약된 작업 만들기]
-
-## <a name="get-oauth-credentials"></a>Twitter v1.1 API 액세스 및 저장 자격 증명 등록
+##<a name="get-oauth-credentials"></a>Twitter v1.1 API 액세스 및 저장 자격 증명 등록
 
 [AZURE.INCLUDE [mobile-services-register-twitter-access](../../includes/mobile-services-register-twitter-access.md)]
 
-## <a name="create-table"></a>새 Updates 테이블 만들기
+##<a name="create-table"></a>새 Updates 테이블 만들기
 
 다음으로, 트윗을 저장할 새 테이블을 만들어야 합니다.
 
@@ -46,7 +42,7 @@
 
 3. **테이블 이름**에 _Updates_를 입력한 후 확인 단추를 클릭합니다.
 
-## <a name="add-job"></a>새 예약된 작업 만들기  
+##<a name="add-job"></a>새 예약된 작업 만들기  
 
 이제 Twitter에 액세스하고 새 Updates 테이블에 트윗 데이터를 저장하는 예약된 작업을 만들 수 있습니다.
 
@@ -136,7 +132,7 @@
 
    	이 스크립트에서는 `#mobileservices` 해시태그를 포함한 최근 트윗을 요청하기 위해 저장된 자격 증명을 사용하여 Twitter 쿼리 API를 호출합니다. 중복 트윗 및 회신은 테이블에 저장되기 전에 결과에서 제거됩니다.
 
-    >[AZURE.NOTE]이 샘플에서는 각 예약 실행 도중에 몇 개의 행만 테이블에 삽입된다고 가정합니다. 반복해서 많은 행이 삽입되는 경우에는 무료 계층에서 실행할 때 연결이 끊어질 수 있습니다. 이런 경우 일괄 처리로 삽입해야 합니다. 자세한 내용은 <a href="/develop/mobile/how-to-guides/work-with-server-scripts/#bulk-inserts">방법: 대량 삽입 수행</a>을 참조하세요.
+    >[AZURE.NOTE]이 샘플에서는 각 예약 실행 도중에 몇 개의 행만 테이블에 삽입된다고 가정합니다. 반복해서 많은 행이 삽입되는 경우에는 무료 계층에서 실행할 때 연결이 끊어질 수 있습니다. 이런 경우 일괄 처리로 삽입해야 합니다. 자세한 내용은 [방법: 대량 삽입 수행](mobile-services-how-to-use-server-scripts.md#bulk-inserts)을 참조하세요.
 
 6. **Run Once**를 클릭하여 스크립트를 테스트합니다.
 
@@ -150,29 +146,17 @@
 
 이제 모바일 서비스에서 새로운 예약된 작업을 만들었습니다. 이 작업은 사용하지 않도록 설정하거나 수정할 때까지는 예약된 대로 실행됩니다.
 
-## <a name="nextsteps"> </a>다음 단계
+## <a name="nextsteps"> </a>참고 항목
 
 * [모바일 서비스 서버 스크립트 참조] <br/>서버 스크립트의 등록 및 사용에 대해 자세히 알아봅니다.
 
 <!-- Anchors. -->
-[Twitter 액세스 및 저장 자격 증명 등록]: #get-oauth-credentials
-[새 Updates 테이블 만들기]: #create-table
-[새 예약된 작업 만들기]: #add-job
+[Register for Twitter access and store credentials]: #get-oauth-credentials
+[Create the new Updates table]: #create-table
+[Create a new scheduled job]: #add-job
 [Next steps]: #next-steps
 
 <!-- Images. -->
-[0]: ./media/mobile-services-schedule-recurring-tasks/mobile-twitter-my-apps.png
-[1]: ./media/mobile-services-schedule-recurring-tasks/mobile-twitter-app-secrets.png
-[2]: ./media/mobile-services-schedule-recurring-tasks/mobile-data-tab-empty-cli.png
-[3]: ./media/mobile-services-schedule-recurring-tasks/mobile-create-updates-table.png
-[4]: ./media/mobile-services-schedule-recurring-tasks/mobile-schedule-new-job-cli.png
-[5]: ./media/mobile-services-schedule-recurring-tasks/mobile-create-job-dialog.png
-[6]: ./media/mobile-services-schedule-recurring-tasks/mobile-schedule-job-script-new.png
-[7]: ./media/mobile-services-schedule-recurring-tasks/mobile-schedule-job-script.png
-[8]: ./media/mobile-services-schedule-recurring-tasks/mobile-browse-updates-table.png
-[9]: ./media/mobile-services-schedule-recurring-tasks/mobile-schedule-job-enabled.png
-[10]: ./media/mobile-services-schedule-recurring-tasks/mobile-schedule-job-app-settings.png
-[11]: ./media/mobile-services-schedule-recurring-tasks/mobile-identity-tab-twitter-only.png
 
 <!-- URLs. -->
 [모바일 서비스 서버 스크립트 참조]: http://go.microsoft.com/fwlink/?LinkId=262293
@@ -181,5 +165,6 @@
 [Register your apps for Twitter login with Mobile Services]: /develop/mobile/how-to-guides/register-for-twitter-authentication
 [Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

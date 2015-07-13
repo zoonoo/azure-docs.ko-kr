@@ -13,12 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="04/29/2015" 
+	ms.date="05/27/2015" 
 	ms.author="juliako"/>
 
 
 #관리 포털을 사용하여 단일 비트 전송률에서 다중 비트 전송률 스트림으로 라이브 인코딩을 수행하는 채널 만들기(미리 보기)
 
+> [AZURE.SELECTOR]
+- [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
+- [.NET SDK](media-services-dotnet-creating-live-encoder-enabled-channel.md)
+- [REST API](https://msdn.microsoft.com/library/azure/dn783458.aspx)
 
 이 자습서에서는 단일 비트 전송률 라이브 스트림을 받아서 다중 비트 전송률 스트림으로 인코딩하는 **채널**을 만드는 단계를 안내합니다.
 
@@ -218,7 +222,7 @@ IP 주소가 지정되지 않고 정의된 규칙이 없는 경우 IP 주소가 
 
 콘텐츠를 스트리밍하는 데 사용할 수 있는 URL을 사용자에게 제공하려면 먼저 로케이터를 만들어(포털을 사용하여 자산을 게시하는 경우에는 로케이터가 자동으로 만들어짐) 자산을 "게시”해야 합니다(이전 섹션에 설명되어 있음). 로케이터는 자산에 포함된 파일에 대한 액세스를 제공합니다.
 
-콘텐츠를 재생하는 데 사용하려는 스트리밍 프로토콜에 따라 채널\\프로그램의 **게시 URL** 링크에서 가져오는 URL을 수정해야 할 수 있습니다.
+콘텐츠를 재생하는 데 사용하려는 스트리밍 프로토콜에 따라 채널\프로그램의 **게시 URL** 링크에서 가져오는 URL을 수정해야 할 수 있습니다.
 
 동적 패키징은 라이브 스트림을 지정된 프로토콜로 패키지하는 작업을 처리합니다.
 
@@ -254,5 +258,5 @@ MPEG DASH 스트리밍 URL을 작성하려면 URL에 (format=mpd-time-csf)를 �
 [standard3]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard3.png
 [standard4]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard4.png
 [standard5]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard_encode.png
-<!--HONumber=52-->
- 
+
+<!---HONumber=62-->

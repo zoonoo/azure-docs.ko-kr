@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Azure에서 Django를 사용하여 웹앱 만들기" 
-	description="Azure 앱 서비스 웹앱에서 Python 웹앱을 실행하는 방법을 소개하는 자습서입니다." 
-	services="app-service\web" 
-	documentationCenter="python" 
-	authors="huguesv" 
-	manager="wpickett" 
+<properties
+	pageTitle="Azure에서 Django를 사용하여 웹앱 만들기"
+	description="Azure 앱 서비스 웹앱에서 Python 웹앱을 실행하는 방법을 소개하는 자습서입니다."
+	services="app-service\web"
+	documentationCenter="python"
+	authors="huguesv"
+	manager="wpickett"
 	editor=""/>
 
-<tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="python" 
-	ms.topic="article" 
-	ms.date="04/15/2015" 
+<tags
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="python"
+	ms.topic="hero-article" 
+	ms.date="04/15/2015"
 	ms.author="huguesv"/>
 
 
@@ -27,7 +27,7 @@
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
->[AZURE.NOTE] Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 시작 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+>[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
 
 ## 필수 조건
@@ -57,7 +57,7 @@ Python 및 Git를 이미 설치했어야 하지만 Python 버전은 2.7 또는 3
 
 앱을 만드는 첫 번째 단계는 [Azure 포털](https://portal.azure.com)을 통해 웹앱을 만드는 것입니다.
 
-1. Azure 포털에 로그인하여 왼쪽 아래에 있는 **새로 만들기** 단추를 클릭합니다. 
+1. Azure 포털에 로그인하여 왼쪽 아래에 있는 **새로 만들기** 단추를 클릭합니다.
 2. **웹 + 모바일** > **Azure 마켓플레이스** > **웹앱**을 클릭합니다.
 3. 검색 상자에 "python"을 입력합니다.
 4. 검색 결과에서 선택 **Django**를 선택하고 **만들기**를 클릭합니다.
@@ -111,7 +111,7 @@ Python 및 Git를 이미 설치했어야 하지만 Python 버전은 2.7 또는 3
     \requirements.txt
 
 이 응용 프로그램에 필요한 외부 패키지. 배포 스크립트는 이 파일에 나열된 패키지를 pip 설치합니다.
- 
+
     \web.2.7.config
     \web.3.4.config
 
@@ -229,7 +229,7 @@ Azure URL로 이동하여 변경 내용을 확인합니다.
 
     git clone <repo-url>
     cd <repo-folder>
-    git remote add azure <repo-url> 
+    git remote add azure <repo-url>
 
 ### 가상 환경 만들기
 
@@ -318,7 +318,7 @@ Azure URL로 이동하여 변경 내용을 확인합니다.
 
     git clone <repo-url>
     cd <repo-folder>
-    git remote add azure <repo-url> 
+    git remote add azure <repo-url>
 
 ### 가상 환경 만들기
 
@@ -423,7 +423,7 @@ Django에는 정적 파일 수집 개념이 있습니다. 이는 모든 정적 �
 
 Django 응용 프로그램에 대한 정적 파일 수집을 건너뛰려는 경우:
 
-    .skipDjango 
+    .skipDjango
 
 그런 다음 로컬 컴퓨터에서 수동으로 수집을 수행해야 합니다.
 
@@ -453,7 +453,7 @@ Django 응용 프로그램에 대한 정적 파일 수집을 건너뛰려는 경
     ALLOWED_HOSTS = (
         '*',
     )
- 
+
 실제로는 디버그 모드와 릴리스 모드 간의 전환 및 호스트 이름 가져오기를 처리하기 위해 보다 복잡한 작업을 수행할 수 있습니다.
 
 Azure 포털 **구성** 페이지의 **앱 설정** 섹션에서 환경 변수를 설정할 수 있습니다. 이는 소스에 표시하지 않으려는 값(연결 문자열, 암호 등)을 설정하거나, Azure와 로컬 컴퓨터 간에 다르게 설정하려는 경우에 유용할 수 있습니다. `settings.py`에서 `os.getenv`를 사용하여 환경 변수를 쿼리할 수 있습니다.
@@ -480,7 +480,7 @@ Azure에서는 Django 응용 프로그램에서 쉽게 사용할 수 있는 데�
 ## 다음 단계
 
 Django 및 Python Tools for Visual Studio에 대한 자세한 내용은 다음 링크를 참조하세요.
- 
+
 - [Django 설명서]
 - [Python Tools for Visual Studio 설명서]
 
@@ -513,6 +513,6 @@ SQL 데이터베이스 및 MySQL 사용에 대한 자세한 정보:
 [PTVS 설명서]: http://pytools.codeplex.com/documentation
 [Python Tools for Visual Studio 설명서]: http://pytools.codeplex.com/documentation
 [Django 설명서]: https://www.djangoproject.com/
+ 
 
-
-<!--HONumber=54--> 
+<!---HONumber=62-->

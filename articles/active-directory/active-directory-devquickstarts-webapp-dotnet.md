@@ -174,5 +174,6 @@ public ActionResult About()
 [Azure AD를 사용하여 Web API 보안 유지 >>](active-directory-devquickstarts-webapi-dotnet.md)
 
 추가 리소스를 보려면 다음을 확인하세요. [GitHub의 AzureADSamples >>](https://github.com/AzureAdSamples)(영문) - [CloudIdentity.com >>](https://cloudidentity.com)(영문) - [Azure.com >>](http://azure.microsoft.com/documentation/services/active-directory/)(영문)의 Azure AD 설명서
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

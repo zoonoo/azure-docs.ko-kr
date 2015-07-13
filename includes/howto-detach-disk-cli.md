@@ -1,28 +1,24 @@
-<properties writer="kathydav" editor="tysonn" manager="timlt" />
+#CLI를 사용하여 가상 컴퓨터에서 데이터 디스크를 분리하는 방법
+
+가상 컴퓨터에 연결된 데이터 디스크가 더 이상 필요하지 않은 경우 쉽게 분리할 수 있습니다. 디스크를 분리하면 가상 컴퓨터에서 디스크가 제거되지만, 저장소에서는 제거되지 않습니다. 디스크에 있는 기존 데이터를 다시 사용하려는 경우 동일한 또는 다른 가상 컴퓨터에 다시 연결할 수 있습니다.
+
+> [AZURE.NOTE]Azure의 가상 컴퓨터는 운영 체제 디스크, 로컬 임시 디스크, 선택적 데이터 디스크 등 다양한 유형의 디스크를 사용합니다. 가상 컴퓨터에서 데이터를 저장하려는 경우 데이터 디스크를 사용하는 것을 권장합니다. 디스크에 대한 자세한 내용은 [디스크 및 이미지 정보](http://go.microsoft.com/fwlink/p/?LinkId=263439)를 참조하세요. 현재 운영 체제 디스크를 분리할 수 없습니다.
 
 
-
-#How to Detach a Data Disk from a Virtual Machine with the CLI
-
-When you no longer need a data disk that is attached to a virtual machine, you can easily detach it. This removes the disk from the virtual machine, but doesn't remove it from storage. If you want to use the existing data on the disk again, you can reattach it to the same virtual machine, or another one.
-
-> [AZURE.NOTE] A virtual machine in Azure uses different types of disks: an operating system disk, a local temporary disk, and optional data disks. Data disks are the recommended way to store data for a virtual machine. For details about disks, see [About disks and images](http://go.microsoft.com/fwlink/p/?LinkId=263439). It is not currently possible to detach an operating system disk.
-
-
-1. Get the list of disks attached to your VM:
+1. VM에 연결된 디스크 목록을 가져옵니다.
 
         vm disk list <vm-name>
 
-    If you omit `<vm-name>`, you will get a list of all disks in your subscription.
+    `<vm-name>`을 생략하면 구독에 포함된 모든 디스크 목록이 표시됩니다.
 
 
-2. Detach a disk:
+2. 디스크를 분리합니다.
 
         vm disk detach <vm-name> <lun>
 
-    `lun` identifies the disk to be detached, and will be a number which can be found in your VM's disk list.
+    `lun`은 분리할 디스크를 식별하며, VM의 디스크 목록에서 확인할 수 있는 번호입니다.
 
-Sample walkthrough including terminal output:
+터미널 출력을 포함하는 샘플 연습:
 
     ~$ azure vm disk list kmlinux
     info:    Executing command vm disk list
@@ -50,3 +46,5 @@ Sample walkthrough including terminal output:
     data:         30        kmlinux-kmlinux-2015-02-05.vhd          Linux
     data:    1    5         kmlinux-f8ef0006ab182209.vhd
     info:    vm disk list command OK
+
+<!---HONumber=62-->

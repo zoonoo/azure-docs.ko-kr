@@ -10,10 +10,10 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/20/2015" 
+	ms.date="05/28/2015" 
 	ms.author="glenga"/>
 
 
@@ -29,19 +29,13 @@
 <div class="dev-onpage-video-wrapper"><a href="http://go.microsoft.com/fwlink/?LinkID=298628" target="_blank" class="label">자습서 보기</a> <a style="background-image: url('/media/devcenter/mobile/videos/mobile-wp8-get-started-data-180x120.png') !important;" href="http://go.microsoft.com/fwlink/?LinkID=298628" target="_blank" class="dev-onpage-video"><span class="icon">동영상 재생</span></a> <span class="time">오후 12:54:00</span></div>
 </div>
 
-이 자습서에서는 다음 기본 단계를 단계별로 안내합니다.
+##필수 조건 
 
-1. [Windows Phone 8 앱 프로젝트 다운로드] 
-2. [모바일 서비스 만들기]
-3. [저장소로 사용할 데이터 테이블 추가]
-4. [모바일 서비스를 사용하도록 앱 업데이트]
-5. [모바일 서비스에 대해 앱 테스트]
++ Visual Studio 2012 Express for Windows Phone 8 및 Windows 8에서 시행 중인 [Windows Phone 8 SDK]. 이 자습서를 완료하여 Windows Phone 8.1 앱을 만들려면 Visual Studio 2013 업데이트 2 이상 버전을 사용해야 합니다. 
 
-이 자습서에는 Visual Studio 2012 Express for Windows Phone 8 및 Windows 8에서 실행 중인 [Windows Phone 8 SDK]가 필요합니다. 이 자습서를 완료하여 Windows Phone 8.1 앱을 만들려면 Visual Studio 2013 업데이트 2 이상 버전을 사용해야 합니다.
++ Azure 계정. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A756A2826&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Farticles%2Fdocumentation%2Fmobile-services-windows-phone-get-started-data%2F)을 참조하십시오.
 
->[AZURE.NOTE]이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A756A2826&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fko-kr%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-wp8%2F" target="_blank">Azure 무료 평가판</a>을 참조하세요.
-
-## <a name="download-app"></a>GetStartedWithData 프로젝트 다운로드
+##<a name="download-app"></a>GetStartedWithData 프로젝트 다운로드
 
 이 자습서는 Windows Phone Silverlight 8 앱 프로젝트인 [GetStartedWithData 앱][Developer Code Samples site]을 기반으로 합니다.
 
@@ -61,15 +55,15 @@
 
    	저장된 텍스트가 아래 목록에 표시됩니다.
 
-<h2><a name="create-service"></a>관리 포털에서 새 모바일 서비스 만들기</h2>
+##<a name="create-service"></a>관리 포털에서 새 모바일 서비스 만들기
 
 [AZURE.INCLUDE [mobile-services-create-new-service-data](../../includes/mobile-services-create-new-service-data.md)]
 
-<h2><a name="add-table"></a>모바일 서비스에 새 테이블 추가</h2>
+##<a name="add-table"></a>모바일 서비스에 새 테이블 추가
 
 [AZURE.INCLUDE [mobile-services-create-new-service-data-2](../../includes/mobile-services-create-new-service-data-2.md)]
 
-<h2><a name="update-app"></a>데이터 액세스에 모바일 서비스를 사용하도록 앱 업데이트</h2>
+##<a name="update-app"></a>데이터 액세스에 모바일 서비스를 사용하도록 앱 업데이트
 
 이제 모바일 서비스를 사용할 수 있으므로 로컬 컬렉션 대신 모바일 서비스에 항목을 저장하도록 앱을 업데이트할 수 있습니다.
 
@@ -93,7 +87,7 @@
 
        	using Microsoft.WindowsAzure.MobileServices;
 
-6. 이 파일에서 **MobileService** 변수를 정의하는 코드의 주석 처리를 제거하고 **MobileServiceClient** 생성자에 모바일 서비스의 URL 및 응용 프로그램 키를 이 순서대로 제공합니다.
+6. 이 파일에서 **MobileService** 변수를 정의하는 다음 코드의 주석 처리를 제거하고 **MobileServiceClient** 생성자에 모바일 서비스의 URL 및 응용 프로그램 키를 이 순서대로 제공합니다.
 
 		//public static MobileServiceClient MobileService = new MobileServiceClient( 
         //    "AppUrl", 
@@ -148,7 +142,7 @@
 
 이제 앱이 백 엔드 저장소에 모바일 서비스를 사용하도록 업데이트되었으므로 모바일 서비스에 대해 앱을 테스트해야 합니다.
 
-<h2><a name="test-app"></a>새 모바일 서비스에 대해 앱 테스트</h2>
+##<a name="test-app"></a>새 모바일 서비스에 대해 앱 테스트
 
 1. Visual Studio에서 F5 키를 눌러 앱을 실행합니다.
 
@@ -170,44 +164,27 @@
 
 이 자습서에서는 Windows Phone 8 앱이 모바일 서비스의 데이터로 작업할 수 있게 하는 과정의 기본 사항을 설명했습니다. 다음으로 다른 항목 중 하나를 읽는 것이 좋습니다.
 
-* [인증 시작] 
-  <br/>앱 사용자를 인증하는 방법을 알아봅니다.
+* [앱에 인증 추가](mobile-services-windows-phone-get-started-users.md) <br/>앱 사용자를 인증하는 방법을 알아봅니다.
 
-* [푸시 알림 시작] 
-  <br/>모바일 서비스를 사용하여 기본적인 푸시 알림을 앱에 보내는 방법을 알아봅니다.
+* [앱에 푸시 알림 추가](mobile-services-javascript-backend-windows-phone-get-started-push.md) <br/>모바일 서비스를 사용하여 기본적인 푸시 알림을 앱에 보내는 방법을 알아봅니다.
 
-* [모바일 서비스 C# 방법 개념 참조](mobile-services-windows-dotnet-how-to-use-client-library.md) 
-  <br/>.NET과 함께 모바일 서비스를 사용하는 방법을 자세히 알아봅니다.
+* [모바일 서비스 C# 방법 개념 참조](mobile-services-windows-dotnet-how-to-use-client-library.md) <br/>.NET과 함께 모바일 서비스를 사용하는 방법을 자세히 알아봅니다.
  
 <!-- Anchors. -->
-[Windows Phone 8 앱 프로젝트 다운로드]: #download-app
-[모바일 서비스 만들기]: #create-service
-[저장소로 사용할 데이터 테이블 추가]: #add-table
-[모바일 서비스를 사용하도록 앱 업데이트]: #update-app
-[모바일 서비스에 대해 앱 테스트]: #test-app
+[Download the Windows Phone 8 app project]: #download-app
+[Create the mobile service]: #create-service
+[Add a data table for storage]: #add-table
+[Update the app to use Mobile Services]: #update-app
+[Test the app against Mobile Services]: #test-app
 [Next Steps]: #next-steps
 
 <!-- Images. -->
 [0]: ./media/mobile-services-windows-phone-get-started-data/mobile-quickstart-startup-wp8.png
-
-
-
-
-
-
 [7]: ./media/mobile-services-windows-phone-get-started-data/mobile-add-nuget-package-wp.png
 [8]: ./media/mobile-services-windows-phone-get-started-data/mobile-dashboard-tab.png
 [9]: ./media/mobile-services-windows-phone-get-started-data/mobile-todoitem-data-browse.png
 
-
-
 <!-- URLs. -->
-[Validate and modify data with scripts]: /develop/mobile/tutorials/validate-modify-and-augment-data-wp8
-[Refine queries with paging]: /develop/mobile/tutorials/add-paging-to-data-wp8
-[Get started with Mobile Services]: /develop/mobile/tutorials/get-started-wp8
-[Get started with data]: /develop/mobile/tutorials/get-started-with-data-wp8
-[인증 시작]: /develop/mobile/tutorials/get-started-with-users-wp8
-[푸시 알림 시작]: /develop/mobile/tutorials/get-started-with-push-wp8
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 [관리 포털]: https://manage.windowsazure.com/
@@ -215,5 +192,6 @@
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/p/?LinkID=268375
 [Developer Code Samples site]: http://go.microsoft.com/fwlink/p/?LinkId=271146
 [개발자 코드 샘플 사이트]: http://go.microsoft.com/fwlink/p/?LinkId=271146
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

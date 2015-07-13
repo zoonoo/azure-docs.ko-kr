@@ -1,22 +1,4 @@
-<properties 
-   pageTitle="최소 장치 설정 완료"
-   description="최소 StorSimple 장치 구성을 완료하는 방법에 대해 설명합니다."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="04/01/2015"
-   ms.author="v-sharos" />
-
-
-### 최소 StorSimple 장치 설치를 완료하려면
+#### 최소 StorSimple 장치 설치를 완료하려면
 
 1. 장치를 선택하고 **퀵 스타트**를 클릭합니다. **장치 설치 완료**를 클릭하여 장치 구성 마법사를 시작합니다.
 
@@ -38,6 +20,6 @@
 
 5. 확인 아이콘![StorSimple 확인 아이콘](./media/storsimple-complete-minimum-device-setup/HCS_CheckIcon-include.png)을 클릭합니다. 장치 **퀵 스타트** 페이지로 돌아갑니다.
 
- > [AZURE.NOTE]**구성** 페이지에 액세스하여 언제든지 다른 모든 장치 설정을 수정할 수 있습니다.
+ >[AZURE.NOTE]**구성** 페이지에 액세스하여 언제든지 다른 모든 장치 설정을 수정할 수 있습니다.
 
-<!--HONumber=52-->
+<!---HONumber=62-->

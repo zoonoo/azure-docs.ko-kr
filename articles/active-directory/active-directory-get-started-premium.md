@@ -122,4 +122,7 @@ Microsoft 클라우드 서비스의 서비스 및 기능에 대한 가용성은 
 [11]: ./media/active-directory-get-started-premium/Assignlicensespicker.png
 [12]: ./media/active-directory-get-started-premium/Usagelocation.png
 
-<!---HONumber=58--> 
+
+ 
+
+<!---HONumber=62-->

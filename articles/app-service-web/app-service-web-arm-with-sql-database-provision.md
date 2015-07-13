@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="SQL 데이터베이스를 사용하는 웹 앱을 프로비전" 
-	description="SQL 데이터베이스가 포함된 웹 앱을 배포하는 Azure 리소스 관리자 템플릿을 사용합니다." 
+	pageTitle="SQL 데이터베이스를 사용하는 웹앱을 프로비전" 
+	description="SQL 데이터베이스가 포함된 웹앱을 배포하는 Azure 리소스 관리자 템플릿을 사용합니다." 
 	services="app-service\web" 
 	documentationCenter="" 
 	authors="tfitzmac" 
@@ -13,22 +13,24 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/01/2015" 
+	ms.date="06/22/2015" 
 	ms.author="tomfitz"/>
 
-# SQL 데이터베이스를 사용하는 웹 앱을 프로비전
+# SQL 데이터베이스를 사용하는 웹앱을 프로비전
 
-이 항목에서는 웹 앱 및 SQL 데이터베이스를 배포하는 Azure 리소스 관리자 템플릿을 만드는 방법을 배웁니다. 어떤 리소스를 배포할지 정의하는 방법 및 배포를 실행할 때 매개 변수를 지정하는 방법을 알게 됩니다. 배포를 위해 이 템플릿을 사용하거나 요구 사항에 맞게 사용자 지정을 할 수 있습니다.
+이 항목에서는 웹앱 및 SQL 데이터베이스를 배포하는 Azure 리소스 관리자 템플릿을 만드는 방법을 배웁니다. 어떤 리소스를 배포할지 정의하는 방법 및 배포를 실행할 때 매개 변수를 지정하는 방법을 알게 됩니다. 배포를 위해 이 템플릿을 사용하거나 요구 사항에 맞게 사용자 지정을 할 수 있습니다.
 
 템플릿을 만드는 더 자세한 내용은 [Azure 리소스 관리자 템플릿 작성하기](../resource-group-authoring-templates.md)를 참조하십시오.
 
-전체 서식 파일을 보려면 [SQL 데이터베이스 템플릿을 사용하는 웹 앱](https://github.com/tfitzmac/AppServiceTemplates/blob/master/webandsql.json)을 참조하십시오.
+앱 배포에 대한 자세한 내용은 [Azure에서 예측 가능하도록 복잡한 응용 프로그램을 배포](app-service-deploy-complex-application-predictably.md)를 참조하십시오.
+
+전체 서식 파일을 보려면 [SQL 데이터베이스 템플릿을 사용하는 웹앱](../../templates/app-service-web-arm-with-sql-database-provision/)을 참조하십시오.
 
 ## 배포할 내용
 
 이 서식 파일에서 다음을 배포합니다:
 
-- 웹 앱
+- 웹앱
 - SQL 데이터베이스 서버
 - SQL 데이터베이스
 - 자동 크기 조정 설정
@@ -49,7 +51,7 @@
 
 ### serverLocation
 
-데이터베이스 서버의 위치입니다. 최상의 성능을 위해 이 위치는 웹 앱의 위치와 같아야 합니다.
+데이터베이스 서버의 위치입니다. 최상의 성능을 위해 이 위치는 웹앱의 위치와 같아야 합니다.
 
     "serverLocation": {
       "type": "string"
@@ -88,7 +90,7 @@
       "defaultValue": "SQL_Latin1_General_CP1_CI_AS"
     }
 
-### 버전
+### edition
 
 만들려는 데이터베이스의 형식입니다.
 
@@ -163,7 +165,7 @@
 [AZURE.INCLUDE [app-service-web-deploy-web-host](../../includes/app-service-web-deploy-web-host.md)]
 
 
-### 웹 앱
+### 웹앱
 
     {
       "apiVersion": "2014-06-01",
@@ -176,7 +178,7 @@
       },
       "properties": {
         "name": "[parameters('siteName')]",
-        "serverFarm": "[parameters('hostingPlanName')]"
+        "serverFarmId": "[parameters('hostingPlanName')]"
       },
       "resources": [
         {
@@ -187,14 +189,14 @@
           "properties": {
               "DefaultConnection":{
               "value":"[concat('Data Source=tcp:', reference(concat('Microsoft.Sql/servers/', parameters('serverName'))).fullyQualifiedDomainName, ',1433;Initial Catalog=', parameters('databaseName'), ';User Id=', parameters('administratorLogin'), '@', parameters('serverName'), ';Password=', parameters('administratorLoginPassword'), ';')]",
-              "type": 2 //SQL
+              "type": 2 
             },
           }
         }
       ]
     }
 
-### AutoScale
+### 자동 크기 조정
 
     {
       "apiVersion": "2014-04-01",

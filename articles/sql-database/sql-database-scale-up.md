@@ -31,6 +31,8 @@ Azure 관리 포털, [PowerShell](https://msdn.microsoft.com/library/azure/dn546
 
 - 데이터베이스를 다운그레이드하려면 데이터베이스가 대상 서비스 계층의 최대 허용 크기보다 작아야 합니다. 각 서비스 계층에서 허용되는 크기에 대한 자세한 내용은 이 섹션의 뒷부분에 나오는 서비스 계층 및 데이터베이스 크기 테이블을 참조하세요.
 
+- [표준 지역에서 복제](https://msdn.microsoft.com/library/azure/dn758204.aspx) 또는 [활성 지역 복제](https://msdn.microsoft.com/library/azure/dn741339.aspx)를 사용할 수 있는 데이터베이스를 업그레이드하는 경우에는 주 데이터베이스를 업그레이드하기 전에 먼저 해당 보조 데이터베이스를 원하는 성능 계층으로 업그레이드해야 합니다.
+
 - 프리미엄 서비스 계층에서 다운그레이드하는 경우는 먼저 모든 지역에서 복제 관계를 종료해야 합니다. [연속 복사 관계 종료](https://msdn.microsoft.com/library/azure/dn741323.aspx) 항목에 설명된 단계에 따라 주 데이터베이스와 활성 보조 데이터베이스 간의 복제 프로세스를 중지할 수 있습니다.
 
 - 복원 서비스는 여러 서비스 계층에서 서로 다르게 제공됩니다. 다운그레이드하는 경우 지정 시간으로 복원하는 기능을 잃게 되거나 백업 보존 기간이 단축될 수 있습니다. 자세한 내용은 [Azure SQL 데이터베이스 백업 및 복원](https://msdn.microsoft.com/library/azure/jj650016.aspx)을 참조하세요.
@@ -225,5 +227,6 @@ Azure 관리 포털, [PowerShell](https://msdn.microsoft.com/library/azure/dn546
 [New-AzureSqlDatabase](http://go.microsoft.com/fwlink/?LinkId=391027)
 
 [Set-AzureSqlDatabase](http://go.microsoft.com/fwlink/?LinkId=391412)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

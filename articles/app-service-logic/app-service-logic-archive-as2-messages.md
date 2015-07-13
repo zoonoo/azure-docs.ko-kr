@@ -39,5 +39,6 @@ AS2 커넥터 API 앱 인스턴스를 찾아 ‘추적'을 클릭합니다. 필�
 
 <!--Image references-->
 [1]: ./media/app-service-logic-archive-as2-messages/Tracking.jpg
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

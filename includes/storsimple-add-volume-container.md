@@ -1,38 +1,23 @@
-<properties 
-   pageTitle="Add a volume container"
-   description="Explains how you can use the StorSimple Manager service volume containers page to add a volume container."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="05/13/2015"
-   ms.author="v-sharos" />
+#### 볼륨 컨테이너를 추가하려면
 
-#### To add a volume container
+1. **장치** 페이지에서 장치를 선택하고 두 번 클릭한 다음 **볼륨 컨테이너** 탭을 클릭합니다.
 
-1. On the **Devices** page, select the device, double-click it, and then click the **Volume containers** tab.
+2. 페이지 맨 아래에 있는 **추가**를 클릭합니다. **볼륨 컨테이너 만들기** 대화 상자에서 다음을 수행합니다.
 
-2. Click **Add** at the bottom of the page. In the **Create volume container** dialog box, do the following:
+  1. 볼륨 컨테이너의 고유한 **이름**을 지정합니다. 이 이름은 최대 32자까지를 포함할 수 있습니다.
+  2. 이 볼륨 컨테이너와 연결할 **저장소 계정**을 선택합니다. 동일한 구독 내 기존 저장소 계정에서 선택하거나 **더 추가**를 선택하여 다른 구독에서 저장소 계정을 선택합니다. 또한 서비스를 만들 때 처음으로 생성된 저장소 계정을 선택할 수 있습니다.
+  3. 사용 가능한 모든 대역폭을 사용하려는 경우 대역폭을 **Unlimited**으로 지정하거나, 또는 **사용자 지정**을 선택하여 대역폭을 제어합니다. 사용자 지정 대역폭의 경우 1 ~ 1000mbps 사이의 값을 제공합니다. 일정에 따라 대역폭을 할당하려면, **대역폭 템플릿 선택**을 선택할 수 있습니다.
+  4. 클라우드로 이동되는 데이터를 암호화하려면 **클라우드 저장소 암호화 사용**을 선택하는 것이 좋습니다. 데이터를 암호화하는 다른 방법을 사용 중인 경우에만 암호화를 사용하지 않도록 설정합니다.
+  5. 8자에서 32자를 포함하는 **클라우드 저장소 암호화 키**를 제공합니다. 장치는 이 키를 사용하여 암호화된 데이터에 액세스합니다. **클라우드 저장소 암호화 키 확인** 필드에 확인을 위해 다시 클라우드 저장소 암호화 키를 입력합니다.
+  6. 화살표를 클릭하여 다음 페이지로 이동합니다.
 
-  1. Supply a unique **Name** for your volume container. This name can contain a maximum of 32 characters.
-  2. Select a **Storage Account** to be associated with this volume container. You can choose from an existing storage account within the same subscription or select **Add more** to select a storage account from another subscription. You can also choose the storage account that was first generated when the service was created.
-  3. Specify bandwidth as **Unlimited** if you want to consume all available bandwidth, or **Custom** to employ bandwidth controls. For a custom bandwidth, supply a value between 1 and 1000 Mbps. To allocate bandwidth based on a schedule, you can **Select a bandwidth template**.
-  4. We recommend that you keep **Enable Cloud Storage Encryption** selected to encrypt the data that is going to the cloud. Disable encryption only if you are employing other means to encrypt your data.
-  5. Provide a **Cloud Storage Encryption Key** that contains between 8 and 32 characters. The device uses this key to access the encrypted data. In the **Confirm Cloud Storage Encryption Key** field, enter the cloud storage encryption key again to confirm it.
-  6. Click the arrow to proceed to the next page.
+    ![대역폭 템플릿 1을 사용하여 볼륨 컨테이너 만들기](./media/storsimple-add-volume-container/HCS_CreateVCBT1-include.png)
 
-    ![Create volume container with bandwidth template 1](./media/storsimple-add-volume-container/HCS_CreateVCBT1-include.png) 
+3. **대역폭 템플릿 선택**을 지정한 경우, 기존 대역폭 템플릿 드롭다운 목록에서 선택합니다. 일정 설정을 검토하고 확인 아이콘![확인 아이콘](./media/storsimple-configure-new-storage-account/HCS_CheckIcon-include.png)을 클릭합니다.
 
-3. If you specified **Select a bandwidth template**, choose from the drop-down list of existing bandwidth templates. Review the schedule settings and click the check icon ![check icon](./media/storsimple-configure-new-storage-account/HCS_CheckIcon-include.png).
+    ![대역폭 템플릿 2를 사용하여 볼륨 컨테이너 만들기](./media/storsimple-add-volume-container/HCS_CreateVCBT2-include.png)
 
-    ![Create volume container with bandwidth template 2](./media/storsimple-add-volume-container/HCS_CreateVCBT2-include.png) 
-
-The volume container will be saved and the newly created volume container will be listed on the **Volume container** page.
+볼륨 컨테이너가 저장되며 새로 만들어진 볼륨 컨테이너가 **볼륨 컨테이너** 페이지에 나열됩니다.
  
+
+<!---HONumber=62-->

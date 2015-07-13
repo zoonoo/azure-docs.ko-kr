@@ -1,21 +1,4 @@
-<properties 
-   pageTitle="선택 사항: 서비스에 대한 새 저장소 계정 구성"
-   description="StorSimple 서비스에 대한 저장소 계정을 구성하는 방법에 대해 설명합니다."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" /> 
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="04/01/2015"
-   ms.author="v-sharos" />
-
-### 새 저장소 계정을 구성하려면
+#### StorSimple 릴리스 버전(GA)에서 새 저장소 계정을 추가하려면
 
 1. StorSimple 관리자 서비스 방문 페이지에서 서비스를 선택하고 두번 클릭합니다. 이렇게 하면 **퀵 스타트** 페이지로 이동됩니다. **구성** 페이지를 선택합니다.
 
@@ -33,4 +16,4 @@
 
 4. 새로 만들어진 저장소 계정이 **저장소 계정**의 **구성** 페이지에 표시됩니다. **저장**을 클릭하여 새로 만들어진 저장소 계정을 저장합니다. 확인하라는 메시지가 표시되면 **확인**을 클릭합니다.
 
-<!--HONumber=52-->
+<!---HONumber=62-->

@@ -22,15 +22,13 @@
 
 먼저 Azure에서 가상 네트워크(VNET)를 설정합니다. 그런 다음 VNET에 Active Directory 도메인 컨트롤러(Azure 가상 컴퓨터에서 호스팅되는)를 추가합니다. 그런 다음, 기존 클라우드 서비스 역할을 사전에 만든 VNET에 추가한 후 도메인 컨트롤러에 연결합니다.
 
-시작하기 전에 다음 몇 가지를 유의하십시오.
-1.	이 자습서에서는 Powershell을 사용하므로, Azure Powershell이 설치되어 있고 사용할 수 있는지 확인하십시오. Azure Powershell 설정에 대한 도움을 얻으려면 [Azure PowerShell 설치 및 구성 방법](../install-configure-powershell.md) 을 참조하세요.
-2.	사용자의 AD 도메인 컨트롤러와 웹/작업자 역할 인스턴스는 VNET에 있어야 합니다.
+시작하기 전에 다음 몇 가지를 유의하십시오.1. 이 자습서에서는 Powershell을 사용하므로, Azure Powershell이 설치되어 있고 사용할 수 있는지 확인하십시오. Azure Powershell 설정에 대한 도움을 얻으려면 [Azure PowerShell 설치 및 구성 방법](../install-configure-powershell.md)을 참조하세요 2. 사용자의 AD 도메인 컨트롤러와 웹/작업자 역할 인스턴스는 VNET에 있어야 합니다.
 
 이 단계별 가이드를 따르고 문제가 발생하는 경우 아래에 의견을 남겨 주세요. 담당자가 연락드립니다(물론, 저희는 여러분의 의견을 확인합니다.).
 
 ## 가상 네트워크 만들기
 
-Azure 포털 또는 Powershell을 사용하여 Azure에서 가상 네트워크를 만들 수 있습니다. 이 자습서에서는 Powershell을 사용합니다. Azure 포털을 사용하여 가상 네트워크를 만들려면 [가상 네트워크 만들기](../create-virtual-network.md) 를 참조하세요.
+Azure 포털 또는 Powershell을 사용하여 Azure에서 가상 네트워크를 만들 수 있습니다. 이 자습서에서는 Powershell을 사용합니다. Azure 포털을 사용하여 가상 네트워크를 만들려면 [가상 네트워크 만들기](../create-virtual-network.md)를 참조하세요
 
     #Create Virtual Network
 
@@ -67,11 +65,11 @@ Azure 포털 또는 Powershell을 사용하여 Azure에서 가상 네트워크�
 
     $vnetname = '<your-vnet-name>'
     $subnetname = '<your-subnet-name>'
-    $vmsvc1 = '<your-hosted-service>'
-    $vm1 = '<your-vm-name>'
-    $username = '<your-username>'
-    $password = '<your-password>'
-    $ affgrp = '<your- affgrp>'
+    $vmsvc1 = ‘<your-hosted-service>’
+    $vm1 = ‘<your-vm-name>’
+    $username = ‘<your-username>’
+    $password = ‘<your-password>’
+    $ affgrp = ‘<your- affgrp>’
 
     #Create a VM and add it to the Virtual Network
 
@@ -87,7 +85,7 @@ VM에 로그인하려면 Powershell을 통해 RDP 파일을 가져올 수 있으
 
     Get-AzureRemoteDesktopFile -ServiceName $vmsvc1 -Name $vm1 -LocalPath <rdp-file-path>
 
-VM에 로그인한 후 [고객 AD 도메인 컨트롤러 설치 방법](http://social.technet.microsoft.com/wiki/contents/articles/12370.windows-server-2012-set-up-your-first-domain-controller-step-by-step.aspx)에 대한 단계별 가이드에 따라 가상 컴퓨터를 AD 도메인 컨트롤러로 설정합니다.
+VM에 로그인한 후 [고객 AD 도메인 컨트롤러 설치 방법에 대한 단계별 가이드](http://social.technet.microsoft.com/wiki/contents/articles/12370.windows-server-2012-set-up-your-first-domain-controller-step-by-step.aspx)에 따라 가상 컴퓨터를 AD 도메인 컨트롤러로 설정합니다.
 
 ## 클라우드 서비스 배포를 가상 네트워크에 추가
 
@@ -119,7 +117,7 @@ VM에 로그인한 후 [고객 AD 도메인 컨트롤러 설치 방법](http://s
       </NetworkConfiguration>
     </ServiceConfiguration>
 
-그런 다음 클라우드 서비스 프로젝트를 빌드하고 Azure에 배포합니다. 서비스 패키지를 Azure에 클라우드 배포에 대한 도움을 얻으려면 [클라우드 서비스 만들기 및 배포 방법](cloud-services-how-to-create-deploy.md#deploy) 을 참조하세요.
+그런 다음 클라우드 서비스 프로젝트를 빌드하고 Azure에 배포합니다. 서비스 패키지를 Azure에 클라우드 배포에 대한 도움을 얻으려면 [클라우드 서비스 만들기 및 배포 방법](cloud-services-how-to-create-deploy.md#deploy)을 참조하세요.
 
 ## AD 도메인 확장을 사용하여 웹/작업자 역할을 사용자 지정 도메인에 연결
 
@@ -127,8 +125,8 @@ Azure에서 클라우드 서비스 프로젝트가 배포되면 AD 도메인 확
 
     #Initialize domain variables
 
-    $domain = '<your-domain-name>';
-    $dmuser = '$domain<your-username>';
+    $domain = ‘<your-domain-name>’;
+    $dmuser = ‘$domain<your-username>’;
     $dmpswd = '<your-domain-password>';
     $dmspwd = ConvertTo-SecureString $dmpswd -AsPlainText -Force;
     $dmcred = New-Object System.Management.Automation.PSCredential ($dmuser, $dmspwd);
@@ -147,6 +145,6 @@ Azure에서 클라우드 서비스 프로젝트가 배포되면 AD 도메인 확
 가상 컴퓨터를 도메인 컨트롤러로 승격하는 확장명이 유용한 경우, 여러분의 피드백을 주세요. 유용하다고 생각하시는 경우, 저희들이 알 수 있도록 의견 섹션에 의견을 남겨 주세요.
 
 도움이 되었기를 바랍니다!
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=62-->

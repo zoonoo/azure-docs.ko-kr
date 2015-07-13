@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="storage-backup-recovery" 
-   ms.date="02/24/2015"
+   ms.date="03/17/2015"
    ms.author="elfish; v-romcal"/>
 
 # REST API를 통해 지역에서 복원 기능을 사용하여 Azure SQL 데이터베이스 복구
 
 > [AZURE.SELECTOR]
-- [지역에서 복원 - 포털](http://azure.microsoft.com/documentation/articles/sql-database-geo-restore-tutorial-management-portal/)
-- [지역에서 복원 - PowerShell](http://azure.microsoft.com/documentation/articles/sql-database-geo-restore-tutorial-powershell/)
+- [Geo-Restore - portal](sql-database-geo-restore-tutorial-management-portal.md)
+- [Geo-Restore - PowerShell](sql-database-geo-restore-tutorial-powershell.md)
 
 ## 개요
 
@@ -28,7 +28,7 @@
 
 ## 제한 사항 및 보안
 
-[Azure 포털의 지역에서 복원 기능을 사용하여 Azure SQL 데이터베이스 복구](http://azure.microsoft.com/documentation/articles/sql-database-geo-restore-tutorial-management-portal/)를 참조하세요.
+[Azure 포털의 지역에서 복원 기능을 사용하여 Azure SQL 데이터베이스 복구](sql-database-geo-restore-tutorial-management-portal.md)를 참조하세요.
 
 ## 방법: REST API를 사용하여 Azure SQL 데이터베이스 복구
 
@@ -44,9 +44,9 @@
 
 자세한 내용은 다음을 참조하세요.
 
-[Azure 포털의 지정 시간 복원 기능을 사용하여 Azure SQL 데이터베이스 복원](http://azure.microsoft.com/documentation/articles/sql-database-point-in-time-restore-tutorial-management-portal/)
+[Azure 포털의 특정 시점 복원 기능을 사용하여 Azure SQL 데이터베이스 복원](sql-database-point-in-time-restore-tutorial-management-portal.md)
 
-[Azure 포털에서 삭제된 Azure SQL 데이터베이스 복원](http://azure.microsoft.com/documentation/articles/sql-database-restore-deleted-database-tutorial-management-portal/)
+[Azure 포털에서 삭제된 Azure SQL 데이터베이스 복원](sql-database-restore-deleted-database-tutorial-management-portal.md)
 
 [Azure SQL 데이터베이스 비즈니스 연속성](http://msdn.microsoft.com/library/azure/hh852669.aspx)
 
@@ -55,6 +55,6 @@
 [Azure SQL 데이터베이스 지역에서 복원(블로그)](http://azure.microsoft.com/blog/2014/09/13/azure-sql-database-geo-restore/)
 
 [서비스 관리 REST API 참조](https://msdn.microsoft.com/library/azure/ee460799.aspx)
-
-<!--HONumber=47-->
  
+
+<!---HONumber=62-->

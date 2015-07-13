@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/13/2015" 
+	ms.date="06/16/2015"
 	ms.author="adegeo"/>
 
 
@@ -149,14 +149,15 @@ SSL(Secure Socket Layer) 암호화는 인터넷을 통해 전송되는 데이터
 
 * [HTTPS 끝점에서 SSL 인증서를 구성하는 방법][]
 
-[역할에 대한 인증서를 만드는 방법]: http://msdn.microsoft.com/library/azure/gg432987.aspx
-[인증서를 서비스와 연결하는 방법]: http://msdn.microsoft.com/library/azure/gg465718.aspx
-[Azure 관리 포털]: http://manage.windowsazure.com
-[0]: ./media/cloud-services-configure-ssl-certificate/CreateCloudService.png
-[1]: ./media/cloud-services-configure-ssl-certificate/AddCertificate.png
-[2]: ./media/cloud-services-configure-ssl-certificate/CopyURL.png
-[3]: ./media/cloud-services-configure-ssl-certificate/SSLCloudService.png
-[4]: ./media/cloud-services-configure-ssl-certificate/AddCertificateComplete.png
-[HTTPS 끝점에서 SSL 인증서를 구성하는 방법]: http://msdn.microsoft.com/library/azure/ff795779.aspx
+  [역할에 대한 인증서를 만드는 방법]: http://msdn.microsoft.com/library/azure/gg432987.aspx
+  [인증서를 서비스와 연결하는 방법]: http://msdn.microsoft.com/library/azure/gg465718.aspx
+  [Azure 관리 포털]: http://manage.windowsazure.com
+  [0]: ./media/cloud-services-configure-ssl-certificate/CreateCloudService.png
+  [1]: ./media/cloud-services-configure-ssl-certificate/AddCertificate.png
+  [2]: ./media/cloud-services-configure-ssl-certificate/CopyURL.png
+  [3]: ./media/cloud-services-configure-ssl-certificate/SSLCloudService.png
+  [4]: ./media/cloud-services-configure-ssl-certificate/AddCertificateComplete.png
+  [HTTPS 끝점에서 SSL 인증서를 구성하는 방법]: http://msdn.microsoft.com/library/azure/ff795779.aspx
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

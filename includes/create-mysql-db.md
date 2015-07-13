@@ -1,14 +1,8 @@
-#Azure에서 MySQL 데이터베이스를 만드는 방법
-
 이 가이드에서는 [ClearDB]를 사용하여 [Azure 스토어]에서 MySQL 데이터베이스를 만드는 방법 및 [Azure 웹 사이트][waws]를 만들 때 MySQL 데이터베이스를 연결된 리소스로 만드는 방법을 보여 줍니다. [ClearDB]는 Azure 데이터 센터에서 MySQL 데이터베이스를 실행 및 관리하고 모든 응용 프로그램에서 연결할 수 있게 해 주는 내결함성 DasS(Database-as-a-Service) 공급자입니다.
-
-##목차
-* [방법: Azure 스토어에서 MySQL 데이터베이스 만들기](#CreateFromStore)
-* [방법: Azure 웹 사이트에 대한 연결된 리소스로 MySQL 데이터베이스 만들기](#CreateForWebSite)
 
 > [AZURE.NOTE]웹 사이트를 만드는 과정에서 MySQL 데이터베이스를 만드는 경우 무료 데이터베이스만 만들 수 있습니다. Azure 스토어에서 MySQL 데이터베이스를 만드는 경우 무료 데이터베이스를 만들거나 유료 옵션 중에서 선택할 수 있습니다.
 
-<h2><a id="CreateFromStore"></a>방법: Azure 스토어에서 MySQL 데이터베이스 만들기</h2>
+## 방법: Azure 스토어에서 MySQL 데이터베이스 만들기
 
 [Azure 스토어]에서 MySQL 데이터베이스를 만들려면 다음을 수행합니다.
 
@@ -38,7 +32,7 @@
 	![MySql 연결 정보](./media/create-mysql-db/mysql-conn-info.png)
 
 
-<h2><a id="CreateForWebSite"></a>방법: Azure 웹 사이트에 대한 연결된 리소스로 MySQL 데이터베이스 만들기</h2>
+## 방법: Azure 웹 사이트에 대한 연결된 리소스로 MySQL 데이터베이스 만들기
 
 [Azure 웹 사이트][waws]를 만들 때 MySQL 데이터베이스를 연결된 리소스로 만들려면 다음을 수행합니다.
 
@@ -79,4 +73,4 @@
 [portal]: http://manage.windowsazure.com
 [configure]: ../article/app-service-web/web-sites-configure.md
 
-<!--HONumber=52-->
+<!---HONumber=62-->

@@ -165,23 +165,31 @@ SSL 인증서를 가져오려면 다음 단계를 따르세요.
 
 [HTTPS 끝점에서 SSL 인증서를 구성하는 방법]
 
-[1단계: Node.js 서비스 만들기 및 클라우드에 서비스 게시]: #step1
-[2단계: SSL 인증서 다운로드]: #step2
-[3단계: SSL 인증서 가져오기]: #step3
-[4단계: 서비스 정의 및 구성 파일 수정]: #step4
-[5단계: HTTPS를 사용하여 역할 인스턴스에 연결]: #step5
-[**Azure PowerShell**]: http://go.microsoft.com/?linkid=9790229&clcid=0x409
-[1]: ./media/cloud-services-nodejs-configure-ssl-certificate/enable-ssl-01.png
-[2]: ./media/cloud-services-nodejs-configure-ssl-certificate/enable-ssl-02.png
-[3]: ./media/cloud-services-nodejs-configure-ssl-certificate/enable-ssl-03.png
-[Azure Management Portal]: http://manage.windowsazure.com
-[인증서를 서비스와 연결하는 방법]: http://msdn.microsoft.com/library/windowsazure/gg465718.aspx
-[site-url]: ./media/cloud-services-nodejs-configure-ssl-certificate/site-url.png
-[8]: ./media/cloud-services-nodejs-configure-ssl-certificate/enable-ssl-08.png
-[HTTPS 끝점에서 SSL 인증서를 구성하는 방법]: http://msdn.microsoft.com/library/windowsazure/ff795779.aspx
-[powershell-menu]: ./media/cloud-services-nodejs-configure-ssl-certificate/azure-powershell-start.png
-[cert-wizard]: ./media/cloud-services-nodejs-configure-ssl-certificate/certificateimport.png
-[key-protection]: ./media/cloud-services-nodejs-configure-ssl-certificate/exportable.png
-[Azure 작업자 역할에서 Node.js 응용 프로그램에 대한 SSL 구성]: /develop/nodejs/common-tasks/enable-ssl-worker-role/
+  [1단계: Node.js 서비스 만들기 및 클라우드에 서비스 게시]: #step1
+  [2단계: SSL 인증서 다운로드]: #step2
+  [3단계: SSL 인증서 가져오기]: #step3
+  [4단계: 서비스 정의 및 구성 파일 수정]: #step4
+  [5단계: HTTPS를 사용하여 역할 인스턴스에 연결]: #step5
+  [**Azure PowerShell**]: http://go.microsoft.com/?linkid=9790229&clcid=0x409
+  
+  
+  
+  
+  [1]: ./media/cloud-services-nodejs-configure-ssl-certificate/enable-ssl-01.png
+  [2]: ./media/cloud-services-nodejs-configure-ssl-certificate/enable-ssl-02.png
+  [3]: ./media/cloud-services-nodejs-configure-ssl-certificate/enable-ssl-03.png
+  [Azure Management Portal]: http://manage.windowsazure.com
+  
+  
+  [인증서를 서비스와 연결하는 방법]: http://msdn.microsoft.com/library/windowsazure/gg465718.aspx
+  
+  [site-url]: ./media/cloud-services-nodejs-configure-ssl-certificate/site-url.png
+  [8]: ./media/cloud-services-nodejs-configure-ssl-certificate/enable-ssl-08.png
+  [HTTPS 끝점에서 SSL 인증서를 구성하는 방법]: http://msdn.microsoft.com/library/windowsazure/ff795779.aspx
+  [powershell-menu]: ./media/cloud-services-nodejs-configure-ssl-certificate/azure-powershell-start.png
+  [cert-wizard]: ./media/cloud-services-nodejs-configure-ssl-certificate/certificateimport.png
+  [key-protection]: ./media/cloud-services-nodejs-configure-ssl-certificate/exportable.png
+  [Azure 작업자 역할에서 Node.js 응용 프로그램에 대한 SSL 구성]: /develop/nodejs/common-tasks/enable-ssl-worker-role/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

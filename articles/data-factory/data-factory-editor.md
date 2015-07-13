@@ -32,7 +32,7 @@ Azure 데이터 팩터리 편집기는 Azure 미리 보기 포털의 일부인 �
 Azure 데이터 팩터리 엔터티를 만드는 데 사용할 수 있는 도구 모음에 단추 4개가 있습니다.
  
 - **새로운 데이터 저장소**는 데이터 저장소 연결 서비스를 만듭니다. 이 단추를 클릭하면 Azure 저장소, Azure SQL 데이터베이스, 온-프레미스 SQL 서버 데이터베이스 옵션이 있는 메뉴가 표시됩니다.
-- **새 계산**은 계산 연결 서비스를 만듭니다. 이 단추를 클릭하면 주문형 HDInsight 클러스터, HDInsight 클러스터, AzureML 연결  서비스 옵션이 있는 메뉴가 표시됩니다.      
+- **새 계산**은 계산 연결 서비스를 만듭니다. 이 단추를 클릭하면 주문형 HDInsight 클러스터, HDInsight 클러스터, AzureML 연결 서비스 옵션이 있는 메뉴가 표시됩니다.      
 - **새 데이터 집합**은 데이터 집합을 만듭니다. 이 단추를 클릭하면 Blob 테이블, Azure SQL 테이블, 온-프레미스 테이블 옵션이 표시됩니다.  
 - **새 파이프라인**은 파이프라인을 만듭니다. 도구 모음에 이 단추가 표시되지 않으면 도구 모음에서 **... (줄임표)**를 클릭합니다.
  
@@ -44,7 +44,7 @@ Azure 데이터 팩터리 엔터티를 만드는 데 사용할 수 있는 도구
 	1. **Azure 저장소**의 경우: **<accountname >** 및 **<accountkey>**를 Azure 저장소 계정 이름 및 키로 대체합니다.
 	2. **Azure SQL 데이터베이스**의 경우: **<servername>**을 Azure SQL 서버의 이름으로, **<databasename>**을 데이터베이스의 이름으로, **<username>@<servername>**을 사용자의 이름으로, **<password>**를 사용자 계정에 대한 암호로 대체합니다. 
 	3. **온-프레미스 SQL 서버 데이터베이스**의 경우: **<servername>**을 온-프레미스 SQL 서버의 이름으로, **<databasename>**을 데이터베이스의 이름으로, **<username>**을 사용자의 이름으로, **<password>**를 사용자 계정에 대한 암호로 대체합니다.
-4. 도구 모음에서 **배포**를 클릭하여 연결된 서비스를 배포합니다. **취소**를 클릭하여 만든 JSON 초안을  버립니다.
+4. 도구 모음에서 **배포**를 클릭하여 연결된 서비스를 배포합니다. **취소**를 클릭하여 만든 JSON 초안을 버립니다.
  
 	![배포 단추][deploy-button]
 
@@ -145,7 +145,7 @@ Azure 데이터 팩터리 엔터티를 만드는 데 사용할 수 있는 도구
 
 ![활동 옵션 추가][add-activity-options]
 
-Azure SQL 데이터베이스에서 Azure Blob 저장소로 데이터를 복사하고 HDInsight 클러스터에서 Pig 스크립트를 사용하여 Blob 저장소의 데이터를 처리하려면, 먼저 **복사 작업**을 추가한 다음 **Pig 작업**을 파이프라인에 추가합니다. 이렇게 하면 파이프라인 JSON의 활동[] 섹션에 두 섹션이 만들어집니다. Pig 작업은 Pig 변환을 포함한 HDInsight 활동일 뿐입니다.
+Azure SQL 데이터베이스에서 Azure Blob 저장소로 데이터를 복사하고 HDInsight 클러스터에서 Pig 스크립트를 사용하여 Blob 저장소의 데이터를 처리하려면, 먼저 **복사 작업**을 추가한 다음 **Pig 작업**을 파이프라인에 추가합니다. 이렇게 하면 파이프라인 JSON의 활동 섹션에 두 섹션이 만들어집니다. Pig 작업은 Pig 변환을 포함한 HDInsight 활동일 뿐입니다.
 
 	"activities": [
     	{
@@ -221,4 +221,4 @@ Azure 데이터 팩터리 엔터티(연결 서비스, 테이블 또는 파이프
 [clone-datafactory-entity]: ./media/data-factory-editor/clone-datafactory-entity.png
 [add-activity-options]: ./media/data-factory-editor/add-activity-options.png
 
-<!---HONumber=GIT-SubDir--> 
+<!---HONumber=62-->

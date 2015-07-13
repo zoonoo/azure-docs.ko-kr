@@ -1,4 +1,4 @@
-﻿
+
 1. Windows 스토어 프로젝트를 마우스 오른쪽 단추로 클릭하고 **시작 프로젝트로 설정**을 클릭한 다음 F5 키를 눌러 Windows 스토어 앱을 실행합니다.
 	
 	앱이 시작되면 장치가 푸시 알림에 대해 등록됩니다.
@@ -19,5 +19,4 @@
 
    	![](./media/mobile-services-javascript-backend-windows-universal-test-push/mobile-quickstart-push5-wp8.png)
 
-
-<!--HONumber=42-->
+<!---HONumber=62-->

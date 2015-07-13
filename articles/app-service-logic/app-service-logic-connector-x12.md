@@ -1,0 +1,112 @@
+<properties 
+   pageTitle="BizTalk X12 커넥터" 
+   description="BizTalk X12 커넥터" 
+   services="app-service\logic" 
+   documentationCenter=".net,nodejs,java" 
+   authors="rajeshramabathiran" 
+   manager="dwrede" 
+   editor=""/>
+
+<tags
+   ms.service="app-service-logic"
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="integration" 
+   ms.date="06/14/2015"
+   ms.author="rajram"/>
+
+#BizTalk X12 커넥터
+Microsoft Azure X12 서비스를 사용하면 X12 프로토콜에 따라 기업 간 커뮤니케이션을 위해 메시지를 받고 보낼 수 있습니다. X12는 일반적으로 ASC X12 또는 공인 표준 위원회 X12라고 합니다. 이는 업계 전체에서 널리 사용됩니다.
+
+##필수 구성 요소
+- TPM API 앱: X12 커넥터를 만들기 전에 [BizTalk 거래 업체 관리 커넥터][1]를 만들어야 합니다.
+- SQL Azure 데이터베이스: 각 B2B API 앱에는 자체 Azure SQL 데이터베이스가 필요합니다.
+- Azure 서비스 버스: 선택 사항이며, 일괄 처리에만 사용됩니다.
+
+##BizTalk X12 커넥터 사용
+BizTalk X12 커넥터를 사용하려면 먼저 BizTalk X12 커넥터 API 앱의 인스턴스를 만들어야 합니다. 이 작업은 논리 앱을 만드는 동안 인라인으로 수행하거나 Azure 마켓플레이스에서 BizTalk X12 커넥터 API 앱을 선택하여 수행할 수 있습니다.
+
+##BizTalk X12 커넥터 구성
+거래 업체는 B2B(Business to Business) 통신과 관련된 엔터티입니다. 두 파트너가 관계를 설정하는 경우 이를 규약이라고 합니다. 정의된 규약은 두 파트너가 수행하려고 하는 통신을 기반으로 하며 특정 프로토콜 또는 전송입니다.
+
+거래 업체 규약을 만드는 단계에 대한 문서는 [여기][2]에 있습니다.
+
+##논리 앱 디자이너 화면에서 X12 커넥터 사용
+X12 커넥터는 트리거 또는 작업으로 사용할 수 있습니다.
+
+###트리거
+- Azure 논리 앱 흐름 디자이너를 시작합니다.
+- 오른쪽 창에서 X12 커넥터를 클릭합니다.
+
+	![트리거 설정][3]
+- ->를 클릭합니다.
+
+	![트리거 옵션][4]
+- BizTalk X12 커넥터에 하나의 트리거가 표시됩니다. *일괄 처리 릴리스*를 선택합니다.
+
+	![일괄 처리 릴리스 입력][5]
+- 이 트리거는 입력이 없습니다. ->를 클릭합니다.
+
+	![구성된 일괄 처리 릴리스][6]
+- 출력의 일부로 커넥터는 X12 페이로드, 규약 ID뿐 아니라 메시지가 일괄 처리되었는지 아닌지에 대한 정보도 반환합니다.
+
+###작업
+- 오른쪽 창에서 X12 커넥터를 클릭합니다.
+
+	![작업 설정][7]
+- ->를 클릭합니다.
+
+	![작업 목록][8]
+- X12 커넥터는 여러 작업을 지원합니다. *인코딩*을 선택합니다.
+
+	![입력 인코딩][9]
+- 작업에 대한 입력 제공 및 구성
+
+	![구성된 인코딩][10]
+
+<table>
+	<tr>
+		<th>매개 변수</th>
+		<th>형식</th>
+		<th>매개 변수에 대한 설명</th>
+	</tr>
+	<tr>
+		<td>콘텐츠</td>
+		<td>문자열</td>
+		<td>XML 메시지</td>
+	</tr>
+	<tr>
+		<td>규약 ID</td>
+		<td>문자열</td>
+		<td>규약 ID</td>
+	</tr>
+	<tr>
+		<td>메시지 일괄 처리 여부</td>
+		<td>문자열</td>
+		<td>메시지 일괄 처리 여부</td>
+	</tr>
+</table>
+
+작업은 X12 페이로드를 포함하는 개체를 반환합니다.
+
+## 커넥터의 추가 기능
+이제 커넥터를 만들었으므로 논리 앱을 사용하여 비즈니스 흐름에 추가할 수 있습니다. [논리 앱 정의](app-service-logic-what-are-logic-apps.md)를 참조하세요.
+
+커넥터의 성능 통계 및 제어 보안을 검토할 수 있습니다. [API 앱 및 커넥터를 관리 및 모니터링](../app-service-api/app-service-api-manage-in-portal.md)을 참조하세요.
+
+
+<!--References -->
+[1]: app-service-logic-connector-tpm.md
+[2]: app-service-logic-create-a-trading-partner-agreement.md
+[3]: ./media/app-service-logic-connector-x12/TriggerSettings.PNG
+[4]: ./media/app-service-logic-connector-x12/ListOfTriggers.PNG
+[5]: ./media/app-service-logic-connector-x12/ReleaseBatchTriggerInput.PNG
+[6]: ./media/app-service-logic-connector-x12/ReleaseBatchTriggerConfigured.PNG
+[7]: ./media/app-service-logic-connector-x12/ActionSettings.PNG
+[8]: ./media/app-service-logic-connector-x12/ListOfActions.PNG
+[9]: ./media/app-service-logic-connector-x12/EncodeInput.PNG
+[10]: ./media/app-service-logic-connector-x12/EncodeConfigured.PNG
+[11]: ./media/app-service-logic-connector-x12/TriggerSettings.PNG
+
+<!---HONumber=62-->

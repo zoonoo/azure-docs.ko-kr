@@ -13,16 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/10/2015" 
+	ms.date="06/18/2015" 
 	ms.author="sdanie"/>
 
 # Azure API 관리 정책 참조
 
 이 섹션에서는 [API 관리 정책 참조][]에 있는 정책에 대한 인덱스를 제공합니다. 정책의 추가 및 구성에 대한 자세한 내용은 [API 관리 정책][]을 참조하세요.
 
-정책이 다르게 지정하지 않는 한 정책 식은 어떤 API 관리 정책에서든 특성 값 또는 텍스트 값으로 사용될 수 있습니다. [제어 흐름][] 및 [변수 설정][] 정책 등의 일부 정책은 정책 식을 기반으로 합니다. 자세한 내용은 [고급 정책][], [정책 식][] 및 다음 비디오를 참조하세요.
-
-> [AZURE.VIDEO policy-expressions-in-azure-api-management]
+정책이 다르게 지정하지 않는 한 정책 식은 어떤 API 관리 정책에서든 특성 값 또는 텍스트 값으로 사용될 수 있습니다. [제어 흐름][] 및 [변수 설정][] 정책 등의 일부 정책은 정책 식을 기반으로 합니다. 자세한 내용은 [고급 정책][] 및 [정책 식][]을 참조하세요.
 
 ## 정책 참조 인덱스
 
@@ -56,6 +54,11 @@
 	-	[쿼리 문자열 매개 변수 설정][] - 요청 쿼리 문자열 매개 변수를 추가하거나 그 값을 바꾸거나 삭제합니다.
 	-	[URL 다시 쓰기][] - 요청 URL을 공용 양식에서 웹 서비스에 필요한 양식으로 변환합니다.
 
+## 다음 단계
+
+정책 식에 대한 자세한 내용은 다음 비디오를 참조하세요.
+
+> [AZURE.VIDEO policy-expressions-in-azure-api-management]
 
 [액세스 제한 정책]: https://msdn.microsoft.com/library/azure/dn894078.aspx
 [HTTP 헤더 확인]: https://msdn.microsoft.com/library/azure/034febe3-465f-4840-9fc6-c448ef520b0f#CheckHTTPHeader

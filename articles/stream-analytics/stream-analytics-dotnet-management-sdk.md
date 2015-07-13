@@ -1,9 +1,10 @@
 <properties 
-	pageTitle="Azure 스트림 분석 관리.NET SDK 사용 | Azure" 
-	description="스트림 분석 관리.NET SDK를 사용하는 방법에 대해 알아봅니다." 
+	pageTitle="스트림 분석 관리 .NET SDK를 사용하는 방법 알아보기 | Microsoft Azure" 
+	description="스트림 분석 관리 .NET SDK를 시작합니다. 분석 작업 설정 및 실행 방법 알아보기: 프로젝트, 입력, 출력 및 변환을 만듭니다." 
+	keywords=".net skd,analytics jobs,event hub"
 	services="stream-analytics" 
 	documentationCenter="" 
-	authors="mumian" 
+	authors="jeffstokes72" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -13,17 +14,17 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="03/05/2015" 
-	ms.author="jgao"/>
+	ms.date="06/17/2015" 
+	ms.author="jeffstok"/>
 
 
-# Azure 스트림 분석 관리.NET SDK 사용
+# Azure 스트림 분석 관리 .NET SDK를 사용하여 분석 작업 설정 및 실행
 
-[이 설명서는 시험판 설명서이며 향후 릴리스에서 변경될 수 있습니다.] 
+스트림 분석 관리 .NET SDK를 사용하여 분석 작업을 설정 및 실행하는 방법에 대해 알아봅니다. 프로젝트를 설정하고, 입출력 소스를 만들고, 변환하고, 작업을 시작 및 중지합니다. 분석 작업에 대해 Blob 저장소 또는 이벤트 허브에서 데이터를 스트리밍할 수 있습니다.
 
-Azure 스트림 분석은 완전히 관리되는 서비스로, 클라우드의 스트리밍 데이터에 대해 대기 시간이 짧고 확장성이 뛰어난 고가용성의 복합 이벤트 처리 기능을 제공합니다. 시험판 릴리스에서 스트림 분석 기능은 고객이 데이터 스트림을 분석하도록 스트리밍 작업을 설정하고 거의 실시간으로 분석할 수 있도록 해 줍니다.  
+Azure 스트림 분석은 완전히 관리되는 서비스로, 클라우드의 스트리밍 데이터에 대해 대기 시간이 짧고 확장성이 뛰어난 고가용성의 복합 이벤트 처리 기능을 제공합니다. 스트림 분석 기능은 고객이 데이터 스트림을 분석하도록 스트리밍 작업을 설정하고 거의 실시간으로 분석할 수 있도록 해 줍니다.
 
-이 문서에서는 Azure 스트림 분석 관리.NET SDK를 사용하는 방법을 보여줍니다.
+.NET API 참조는 [스트림 분석 관리 .NET SDK](https://msdn.microsoft.com/library/azure/dn889315.aspx)를 참조하세요.
 
 
 ## 필수 조건
@@ -34,16 +35,16 @@ Azure 스트림 분석은 완전히 관리되는 서비스로, 클라우드의 �
 - 구독에서 Azure 리소스 그룹을 만듭니다. 다음은 샘플 Azure PowerShell 스크립트입니다. Azure PowerShell 정보는 [Azure PowerShell 설치 및 구성](../install-configure-powershell.md)을 참조하세요.  
 
 
-		# Azure 리소스 관리자에 액세스하도록 Azure PowerShell 세션을 구성
+		# Configure the Azure PowerShell session to access Azure Resource Manager
 		Switch-AzureMode AzureResourceManager
 
-		# Azure 계정에 로그인
+		# Log in to your Azure account
 		Add-AzureAccount
 
-		# 리소스 그룹을 만들기 위해 사용하려는 Azure 구독을 선택합니다.
+		# Select the Azure subscription you want to use to create the resource group
 		Select-AzureSubscription -SubscriptionName <subscription name>
 
-		# Azure 리소스 그룹 만들기	
+		# Create an Azure resource group	
 		New-AzureResourceGroup -Name <YOUR RESORUCE GROUP NAME> -Location <LOCATION>
 
 
@@ -51,6 +52,8 @@ Azure 스트림 분석은 완전히 관리되는 서비스로, 클라우드의 �
 
 
 ## 프로젝트 설정
+
+분석 작업을 만들려면 먼저 프로젝트를 설정합니다.
 
 1. Visual Studio C# .NET 콘솔 응용 프로그램을 만듭니다.
 2. 패키지 관리자 콘솔에서 NuGet 패키지를 설치하려면 다음 명령을 실행합니다. 첫 번째는 Azure 스트림 분석 관리.NET SDK입니다. 두 번째는 인증에 사용되는 Azure Active Directory 클라이언트 인증입니다.
@@ -86,7 +89,7 @@ Azure 스트림 분석은 완전히 관리되는 서비스로, 클라우드의 �
 		using Microsoft.Azure.Management.StreamAnalytics.Models;
 		using Microsoft.IdentityModel.Clients.ActiveDirectory;
 
-6.	Add an authentication helper method:
+6.	인증 도우미 메서드를 추가합니다.
 
 		public static string GetAuthorizationHeader()
 		{
@@ -127,9 +130,9 @@ Azure 스트림 분석은 완전히 관리되는 서비스로, 클라우드의 �
 
 ## 스트림 분석 관리 클라이언트 만들기
 
- **StreamAnalyticsManagementClient** 개체를 사용하면 입력, 출력 및 변환 등의 작업 구성 요소와 작업을 관리할 수 있습니다. 
+**StreamAnalyticsManagementClient** 개체를 사용하면 입력, 출력 및 변환 등의 작업 구성 요소와 작업을 관리할 수 있습니다.
 
-**Main** 메서드의 시작에 다음 코드를 추가합니다. 
+**Main** 메서드의 시작에 다음 코드를 추가합니다.
 
 	string resourceGroupName = "<YOUR AZURE RESOURCE GROUP NAME>";
 	string streamAnalyticsJobName = "<YOUR STREAM ANALYTICS JOB NAME>";
@@ -218,7 +221,7 @@ Azure 스트림 분석은 완전히 관리되는 서비스로, 클라우드의 �
 	InputCreateOrUpdateResponse inputCreateResponse = 
 		client.Inputs.CreateOrUpdate(resourceGroupName, streamAnalyticsJobName, jobInputCreateParameters);
 
-입력 소스는 특정 작업에 연결됩니다. 다른 작업에 대해 동일한 입력 소스를 사용하려면, 메서드를 다시 호출하고 다른 작업 이름을 지정해야 합니다.
+Blob 저장소 또는 이벤트 허브의 입력 소스는 특정 작업에 연결됩니다. 다른 작업에 대해 동일한 입력 소스를 사용하려면, 메서드를 다시 호출하고 다른 작업 이름을 지정해야 합니다.
 
 
 ## 스트림 분석 입력 소스 테스트
@@ -294,7 +297,7 @@ Azure 스트림 분석은 완전히 관리되는 서비스로, 클라우드의 �
 입력 및 출력의 경우와 마찬가지로 변환에는 작성된 특정 스트림 분석 작업과 연결됩니다.
 
 ## 스트림 분석 작업 시작
-스트림 분석 작업 및 해당 input(s), output(s) 및 변환을 만든 후, **Start** 메서드를 호출하여 시작할 수 있습니다. 
+스트림 분석 작업 및 해당 입력, 출력 및 변환을 만든 후, **Start** 메서드를 호출하여 시작할 수 있습니다.
 
 다음 샘플 코드는 2012년 12월 12일, 12:12:12 UTC로 시작 시간이 설정된 사용자 지정 출력이 있는 스트림 분석 작업을 시작합니다.
 
@@ -316,21 +319,26 @@ Azure 스트림 분석은 완전히 관리되는 서비스로, 클라우드의 �
 	LongRunningOperationResponse jobStopResponse = client.StreamingJobs.Stop(resourceGroupName, streamAnalyticsJobName);
 
 ## 스트림 분석 작업 삭제
-**Delete** 메서드는 input(s), output(s) 및 변환 작업을 포함한 기본 하위 리소스 및 작업을 삭제합니다.
+**Delete** 메서드는 입력, 출력 및 변환 작업을 포함한 기본 하위 리소스 및 작업을 삭제합니다.
 
 	// Delete a Stream Analytics job
 	LongRunningOperationResponse jobDeleteResponse = client.StreamingJobs.Delete(resourceGroupName, streamAnalyticsJobName);
 
 
+## 지원 받기
+추가 지원이 필요한 경우 [Azure 스트림 분석 포럼](https://social.msdn.microsoft.com/Forums/ko-kr/home?forum=AzureStreamAnalytics)을 참조하세요.
+
+
 ## 다음 단계
 
-- [Azure 스트림 분석 소개][stream.analytics.introduction]
-- [Azure 스트림 분석을 사용하여 시작][stream.analytics.get.started]
-- [Azure 스트림 분석 작업의 크기 조정][stream.analytics.scale.jobs]
-- [Azure 스트림 분석 제한 사항 및 알려진 문제][stream.analytics.limitations]
-- [Azure 스트림 분석 쿼리 언어 참조][stream.analytics.query.language.reference]
-- [Azure 스트림 분석 관리 REST API 참조][stream.analytics.rest.api.reference] 
+.NET SDK를 사용하여 분석 작업을 만들고 실행하는 기본을 알아보았습니다. 자세한 알아보려면 다음을 참조하세요.
 
+- [Azure 스트림 분석 소개](stream-analytics-introduction.md)
+- [Azure 스트림 분석 사용 시작](stream-analytics-get-started.md)
+- [Azure 스트림 분석 작업 규모 지정](stream-analytics-scale-jobs.md)
+- [Azure 스트림 분석 관리 .NET SDK](https://msdn.microsoft.com/library/azure/dn889315.aspx).
+- [Azure 스트림 분석 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+- [Azure 스트림 분석 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 
 <!--Image references-->
@@ -353,9 +361,8 @@ Azure 스트림 분석은 완전히 관리되는 서비스로, 클라우드의 �
 [stream.analytics.get.started]: stream-analytics-get-started.md
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md
 [stream.analytics.scale.jobs]: stream-analytics-scale-jobs.md
-[stream.analytics.limitations]: ../stream-analytics-limitations.md
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=62-->

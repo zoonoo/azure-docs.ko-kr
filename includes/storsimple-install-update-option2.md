@@ -1,34 +1,17 @@
-<properties 
-   pageTitle="Option 2: Use the Azure Management Portal to apply Update 1"
-   description="Explains how to use the Management Portal to install StorSimple 8000 Series Update 1."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="05/14/2015"
-   ms.author="v-sharos" />
+#### Azure 관리 포털에서 업데이트 1을 설치하려면
 
-#### To install Update 1 from the Azure Management Portal
-
-1. In the Management Portal, go to the **Devices** page and select your device.
+1. 관리 포털에서 **장치** 페이지로 이동하여 해당 장치를 선택합니다.
  
-2. Navigate to **Devices** > **Configure**. 
+2. **장치** > **구성**으로 이동합니다.
 
-3. Under **Network Interfaces**, locate the network interface that has a gateway assigned. This will be a network interface other than DATA 0. 
+3. **네트워크 인터페이스**에서 게이트웨이가 할당된 네트워크 인터페이스를 찾습니다. DATA 0이 아닌 네트워크 인터페이스가 됩니다.
 
-4. Clear the gateway setting. Note that because gateway settings are required on a cloud-enabled network interface, you will need to disable the cloud access for this interface to clear the setting.
+4. 게이트웨이 설정을 지웁니다. 클라우드 사용 네트워크 인터페이스에서 게이트웨이 설정이 필요하기 때문에 해당 설정을 지우려면 이 인터페이스에 대한 클라우드 액세스를 사용하지 않도록 설정해야 합니다.
 
-5. Repeat step 4 for any other network interface that has a gateway assigned (excluding DATA 0).
+5. 게이트웨이가 할당된(DATA 0 제외) 다른 네트워크 인터페이스에 대해 4단계를 반복합니다.
 
-6. Save the modified configuration.
+6. 수정된 구성을 저장합니다.
 
-7. You can now [use the Management Portal to install Update 1](#use-the-management-portal-to-install-update-1). 
+7. 이제 [관리 포털을 사용하여 업데이트 1 설치를 사용](#use-the-management-portal-to-install-update-1)할 수 있습니다.
 
-
+<!---HONumber=62-->

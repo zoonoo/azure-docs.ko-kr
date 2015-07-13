@@ -244,7 +244,7 @@ Azure 관리 포털은 보다 제한적이지만 로컬 설치 없이 사용 가
 
     ![Azure 관리 포털 - SQL 데이터베이스][PortalSqlManagement]
 
-<a name="AdvancedDiagnosing"> </a>
+<a name="AdvancedDiagnosing" />
 ### 고급 진단
 
 **Azure 관리 포털**에서는 많은 진단 작업을 쉽게 완료할 수 있지만 일부 고급 진단 작업의 경우 **SQL Server Management Studio** 또는 **SQL 데이터베이스 관리 포털**을 통해서만 가능합니다. 여기에서는 데이터베이스에 대한 진단 정보로 자동으로 채워진 일련의 보기인 동적 관리 보기를 사용합니다. 이 섹션에서는 다양한 메트릭을 검사하기 위해 이러한 보기에 대해 실행할 수 있는 쿼리 집합을 제공합니다. 자세한 내용은 [동적 관리 뷰를 사용하여 SQL 데이터베이스 모니터링][](영문)을 참조하세요.
@@ -270,8 +270,7 @@ Basic, Standard 및 Premium 계층을 사용 중인 경우 관리 포털에서 �
     WHERE database_name = 'todoitem_db' 
     ORDER BY start_time DESC
 
-> [AZURE.NOTE]
-> 이 쿼리는 서버의 **master** 데이터베이스에서 실행하세요. **sys.resource_stats** 뷰는 이 데이터베이스에서만 제공됩니다.
+> [AZURE.NOTE]이 쿼리는 서버의 **master** 데이터베이스에서 실행하세요. **sys.resource_stats** 뷰는 이 데이터베이스에서만 제공됩니다.
 
 결과에는 다음과 같은 유용한 메트릭이 포함됩니다. CPU(계층 제한의 %), 저장소(MB), 물리적 데이터 읽기(계층 제한의 %), 로그 쓰기(계층 제한의 %), 메모리(계층 제한의 %), 작업자 수, 세션 수 등입니다.
 
@@ -284,10 +283,9 @@ Basic, Standard 및 Premium 계층을 사용 중인 경우 관리 포털에서 �
     and event_type like 'throttling%'
     order by start_time desc
 
-> [AZURE.NOTE]
-> 이 쿼리는 서버의 **master** 데이터베이스에서 실행하세요. **sys.event_log** 뷰는 이 데이터베이스에서만 제공됩니다.
+> [AZURE.NOTE]이 쿼리는 서버의 **master** 데이터베이스에서 실행하세요. **sys.event_log** 뷰는 이 데이터베이스에서만 제공됩니다.
 
-<a name="AdvancedIndexing"> </a>
+<a name="AdvancedIndexing" />
 ### 고급 인덱싱
 
 테이블 또는 뷰에 포함될 수 있는 인덱스 유형은 다음과 같습니다.
@@ -298,8 +296,7 @@ Basic, Standard 및 Premium 계층을 사용 중인 경우 관리 포털에서 �
 
 실제 비유를 제공하려면 책이나 기술 매뉴얼을 고려해보세요. 각 페이지의 콘텐츠를 레코드라고 할 때 페이지 번호는 클러스터형 인덱스가 되고, 책 뒷면에 있는 색인은 비클러스터형 인덱스가 됩니다. 색인의 각 항목은 클러스터형 인덱스인 페이지 번호를 가리킵니다.
 
-> [AZURE.NOTE]
-> 기본적으로 Azure 모바일 서비스의 JavaScript 백 엔드는 **_createdAt**을 클러스터형 인덱스로 설정합니다. 이 열을 제거하거나 다른 클러스터형 인덱스를 원할 경우에는 아래의 [클러스터형 인덱스 디자인 지침](#ClusteredIndexes)을 따라야 합니다. .NET 백 엔드에서 `EntityData` 클래스는 `[Index(IsClustered = true)]` 주석을 사용하여 `CreatedAt`을(를) 클러스터형 인덱스로 정의합니다.
+> [AZURE.NOTE]기본적으로 Azure 모바일 서비스의 JavaScript 백 엔드는 **_createdAt**을 클러스터형 인덱스로 설정합니다. 이 열을 제거하거나 다른 클러스터형 인덱스를 원할 경우에는 아래의 [클러스터형 인덱스 디자인 지침](#ClusteredIndexes)을 따라야 합니다. .NET 백 엔드에서 `EntityData` 클래스는 `[Index(IsClustered = true)]` 주석을 사용하여 `CreatedAt`을(를) 클러스터형 인덱스로 정의합니다.
 
 <a name="ClusteredIndexes"></a>
 #### 클러스터형 인덱스 디자인 지침
@@ -371,7 +368,7 @@ JavaScript 백 엔드의 경우, SQL Server Management Studio 또는 Azure SQL �
 
 자세한 내용은 [동적 관리 뷰를 사용하여 SQL 데이터베이스 모니터링][] 및 [누락 인덱스 동적 관리 뷰](sys-missing-index-stats)를 참조하세요.
 
-<a name="AdvancedQuery"> </a>
+<a name="AdvancedQuery" />
 ### 고급 쿼리 디자인 
 
 데이터베이스에서 가장 비용이 높은 쿼리를 진단하기가 어려운 경우가 많습니다.
@@ -477,5 +474,6 @@ JavaScript 백 엔드의 경우, SQL Server Management Studio 또는 Azure SQL �
 
 <!-- BLOG LINKS -->
 [키 비용 확인]: http://www.sqlskills.com/blogs/kimberly/how-much-does-that-key-cost-plus-sp_helpindex9/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

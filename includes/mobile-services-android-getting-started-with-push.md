@@ -20,12 +20,9 @@
         </receiver>
 
 
-4. 다음 줄을 app 디렉터리에 있는 **build.gradle** 파일의 *종속성* 아래에 추가합니다.
+4. 앱 디렉터리의 **build.gradle** 파일에서 *dependencies* 아래에 이 줄을 추가하고 gradle을 프로젝트와 다시 동기화합니다.
 
-	    compile 'com.google.guava:guava:18.0'
-	    compile 'com.microsoft.azure:azure-mobile-services-android-sdk:2.0-beta'
 	    compile(group: 'com.microsoft.azure', name: 'azure-notifications-handler', version: '1.0.1', ext: 'jar')
-   		compile 'com.google.android.gms:play-services-base:6.5.87'
 
 
 5. *ToDoItemActivity.java* 파일을 열고 다음 import 문을 추가합니다.
@@ -43,7 +40,7 @@
 
 
 
-8. 다음으로 알림을 처리하는 새 클래스를 추가해야 합니다. 프로젝트 탐색기에서 `src` 노드를 찾아 열고 패키지 이름 노드를 마우스 오른쪽 단추로 클릭한 후 **새로 만들기**, **Java 클래스**를 차례로 클릭합니다.
+8. 다음으로 알림을 처리하는 새 클래스를 추가해야 합니다. Project Explorer에서 **src** => **main** => **java** 노드를 열고 패키지 이름 노드를 마우스 오른쪽 단추로 클릭한 후 **New**, **Java Class**를 차례로 클릭합니다.
 
 9. **이름**에 `MyHandler`을(를) 입력하고 **확인**을 클릭합니다.
 
@@ -138,4 +135,4 @@
 <!-- URLs. -->
 [Mobile Services Android SDK]: http://aka.ms/Iajk6q
 
-<!--HONumber=54-->
+<!---HONumber=62-->

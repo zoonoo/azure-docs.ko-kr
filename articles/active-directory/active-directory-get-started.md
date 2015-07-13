@@ -45,4 +45,4 @@ Azure AD는 관리자를 위한 다양한 보고서를 제공합니다. Azure AD
 * [Azure ID](fundamentals-identity.md)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

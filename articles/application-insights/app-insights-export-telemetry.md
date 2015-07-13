@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/13/2015" 
+	ms.date="06/17/2015" 
 	ms.author="awills"/>
  
 # Application Insights에서 원격 분석 내보내기
@@ -20,6 +20,8 @@
 원격 분석에서 사용자 지정된 분석을 수행하시겠습니까? 또는 특정 속성으로 이벤트에 대한 이메일 경고를 받으시겠습니까? 그렇다면 연속 내보내기가 적합합니다. Application Insights 포털에 표시되는 이벤트는 JSON 형식으로 Microsoft Azure에서 저장소로 내보낼 수 있습니다. 여기에서 데이터를 다운로드하고 프로세스에 필요한 모든 코드를 작성할 수 있습니다.
 
 연속 내보내기는 무료 평가 기간에 사용할 수 있고 [표준 및 프리미엄 요금제](http://azure.microsoft.com/pricing/details/application-insights/)에서 확인할 수 있습니다.
+
+(단순히 메트릭에서 보거나 블레이드를 검색할 내용의 [일회성 내보내기](app-insights-metrics-explorer.md#export-to-excel)를 수행하려면 블레이드 맨 위의 내보내기를 클릭합니다.)
 
 ## <a name="setup"></a> 연속 내보내기 설정
 
@@ -138,7 +140,7 @@ Application Insights 포털의 응용 프로그램 개요 블레이드에서 연
 
 * *하지만 원하는 모든 것은 차트의 일회성 다운로드입니다.*  
  
-    별도록 하려고 작업 중입니다.
+    예, 수행할 수 있습니다. 블레이드 맨 위에서 [데이터 내보내기](app-insights-metrics-explorer.md#export-to-excel)를 클릭합니다.
 
 * *내보내기를 설정했지만 내 저장소에 데이터가 없습니다.*
 
@@ -152,7 +154,7 @@ Application Insights 포털의 응용 프로그램 개요 블레이드에서 연
 
 * *나만의 온-프레미스 저장소로 직접 내보낼 수 있나요?*
 
-    아니요. 죄송합니다. 저희 내보내기 엔진은 데이터를 푸시하기 위해 크게 열린 목구멍에 의존할 수 밖에 없습니다.
+    아니요. 죄송합니다. 우리의 내보내기 엔진은 현재 Azure 저장소에서만 작동합니다.
 
 * *내 저장소에 보관하는 데이터량에 제한이 있나요?*
 

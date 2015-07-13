@@ -81,7 +81,7 @@ Azure SQL 데이터베이스는 항상 새로운 데이터베이스로 복원됩
 ###PowerShell
 프로그래밍 방식으로 데이터베이스 복원을 수행하려면 PowerShell을 사용합니다.
 
-삭제된 데이터베이스를 복원하려면  [Start-AzureSqlDatabaseRestore](https://msdn.microsoft.com/library/dn720218.aspx?f=255&MSPPError=-2147217396) cmdlet을 사용합니다. 자세한 연습에 대해서는 [방법 비디오](http://azure.microsoft.com/documentation/videos/restore-a-deleted-sql-database-with-microsoft-azure-powershell/)를 참조하세요.
+삭제된 데이터베이스를 복원하려면 [Start-AzureSqlDatabaseRestore](https://msdn.microsoft.com/library/dn720218.aspx?f=255&MSPPError=-2147217396) cmdlet을 사용합니다. 자세한 연습에 대해서는 [방법 비디오](http://azure.microsoft.com/documentation/videos/restore-a-deleted-sql-database-with-microsoft-azure-powershell/)를 참조하세요.
 
 1. 삭제된 데이터베이스 목록에서 삭제된 데이터베이스와 삭제 날짜를 찾습니다.
 		
@@ -107,5 +107,6 @@ Azure SQL 데이터베이스는 항상 새로운 데이터베이스로 복원됩
 4.	[데이터베이스 작업 상태](http://msdn.microsoft.com/library/azure/dn720371.aspx) 작업을 사용하여 복원 상태를 추적합니다.
 
 복원이 완료된 후 [복구된 데이터베이스 마무리](sql-database-recovered-finalize.md) 가이드에 따라 복구된 데이터베이스를 사용하도록 구성할 수 있습니다.
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

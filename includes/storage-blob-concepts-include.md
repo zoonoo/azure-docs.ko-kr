@@ -30,5 +30,4 @@ Blob 서비스에는 다음 구성 요소가 포함됩니다.
 
 [Blob1]: ./media/storage-blob-concepts-include/blob1.jpg
 
-
-<!--HONumber=52-->
+<!---HONumber=62-->

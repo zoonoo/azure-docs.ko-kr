@@ -54,7 +54,7 @@
 
 이 자습서의 예제 응용 프로그램 [WebApp-GroupClaims-DotNet](https://github.com/AzureADSamples/WebApp-GroupClaims-DotNet)은 Azure Active Directory 팀이 만들었으며, 새 기간 업무 응용 프로그램을 간편하게 만들 수 있는 템플릿으로 사용될 수 있습니다. 기본 제공 기능은 다음과 같습니다.
 
-- [OpenID Connect](http://openid.net/connect/)을 사용하여 Azure Active Directory 인증
+- [OpenID Connect](http://openid.net/connect/)를 사용하여 Azure Active Directory 인증
 - Azure Active Directory 검색 필터가 포함되어 있으며 Azure Active Directory 사용자 또는 그룹을 응용 프로그램 역할에 쉽게 매핑할 수 있도록 해주는 `Roles` 컨트롤러.
 - `[Authorize]`의 표준 사용을 포함하여 응용 프로그램의 특정 작업에 대한 권한을 여러 역할에 부여할 수 있는 방법을 보여 주는 예제 `TaskTracker` 컨트롤러. 
 
@@ -83,12 +83,7 @@
 
 	![](./media/web-sites-dotnet-lob-application-azure-ad/select-user-group.png)
 
-	> [AZURE.NOTE]Views\Roles\Index.cshtml에 보기에서 <code>AadPicker</code>라는 JavaScript 개체(Scripts\AadPickerLibrary.js에 정의됨)를 사용하여 <code>Roles</code> 컨트롤러에서 <code>색</code> 작업에 액세스하는 것을 확인할 수 있습니다.
-		<pre class="prettyprint">var searchUrl = window.location.protocol + "//" + window.location.host + "<mark>/Roles/Search</mark>";
-	...
-    var picker = new <mark>AadPicker(searchUrl, maxResultsPerPage, input, token, tenant)</mark>;</pre>
-		Controllers\RolesController.cs에서 <code>검색</code> 작업이 실제 요청을 Azure Active Directory Graph API로 보내고 응답을 해당 페이지에 다시 반환하는 것을 확인할 수 있습니다.
-		나중에 동일한 메서드를 사용하여 응용 프로그램에서 간단한 기능을 만들 수 있습니다.
+	> [AZURE.NOTE]Views\Roles\Index.cshtml에 보기에서 <code>AadPicker</code>라는 JavaScript 개체(Scripts\AadPickerLibrary.js에 정의됨)를 사용하여 <code>Roles</code> 컨트롤러에서 <code>색</code> 작업에 액세스하는 것을 확인할 수 있습니다. <pre class="prettyprint">var searchUrl = window.location.protocol + "//" + window.location.host + "<mark>/Roles/Search</mark>"; ... var picker = new <mark>AadPicker(searchUrl, maxResultsPerPage, input, token, tenant)</mark>;</pre> Controllers\RolesController.cs에서 <code>검색</code> 작업이 실제 요청을 Azure Active Directory Graph API로 보내고 응답을 해당 페이지에 다시 반환하는 것을 확인할 수 있습니다. 나중에 동일한 메서드를 사용하여 응용 프로그램에서 간단한 기능을 만들 수 있습니다.
 
 6.	드롭다운에서 사용자 또는 그룹을 선택하고 역할을 선택한 후 **역할 할당**을 클릭합니다.
 
@@ -143,7 +138,7 @@
 
 	> [AZURE.NOTE]여기에서 필요한 정확한 권한은 응용 프로그램의 원하는 기능에 따라 다릅니다. 일부 권한에는 **전역 관리자** 역할을 설정해야 하지만 이 자습서에는 **사용자** 역할만 필요합니다.
 
-9.  **Save**를 클릭합니다.
+9.  **저장**을 클릭합니다.
 
 10.  저장한 구성 페이지에서 나가기 전에 다음 정보를 텍스트 편집기에 복사합니다.
 
@@ -156,9 +151,7 @@
    &lt;add key="ida:ClientId" value="<mark>[e.g. 82692da5-a86f-44c9-9d53-2f88d52b478b]</mark>" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" />
    &lt;add key="ida:AppKey" value="<mark>[e.g. rZJJ9bHSi/cYnYwmQFxLYDn/6EfnrnIfKoNzv9NKgbo=]</mark>" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" />
    &lt;add key="ida:PostLogoutRedirectUri" value="<mark>[e.g. https://mylobapp.azurewebsites.net/]</mark>" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" />
-&lt;/appSettings></pre>
-
-	ida:PostLogoutRedirectUri 값은 슬래시("/")로 끝나야 합니다.
+&lt;/appSettings></pre>ida:PostLogoutRedirectUri 값은 슬래시("/")로 끝나야 합니다.
 
 1. 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다.
 
@@ -171,14 +164,14 @@
 <a name="bkmk_crud"></a>
 ## 예제 응용 프로그램에 기간 업무 기능 추가
 
-자습서의 이 부분에서는 예제 응용 프로그램을 기반으로 원하는 기간 업무 기능을 빌드하는 방법에 대해 알아봅니다. TaskTracker 컨트롤러와 유사하지만 표준 CRUD 스캐폴딩 및 디자인 패턴을 사용하는 간단한 CRUD 작업 항목 추적기를 만듭니다. 또한 포함된 Scripts\AadPickerLibrary.js를 사용하여 Azure Active Directory Graph API의 데이터로 응용 프로그램을 보강합니다.  
+자습서의 이 부분에서는 예제 응용 프로그램을 기반으로 원하는 기간 업무 기능을 빌드하는 방법에 대해 알아봅니다. TaskTracker 컨트롤러와 유사하지만 표준 CRUD 스캐폴딩 및 디자인 패턴을 사용하는 간단한 CRUD 작업 항목 추적기를 만듭니다. 또한 포함된 Scripts\AadPickerLibrary.js를 사용하여 Azure Active Directory Graph API의 데이터로 응용 프로그램을 보강합니다.
 
 5.	Models 폴더에서 WorkItem.cs라는 새 모델을 만들고 코드를 다음 코드로 바꿉니다.
 
-			using System.ComponentModel.DataAnnotations;
+		using System.ComponentModel.DataAnnotations;
 		
-			namespace WebAppGroupClaimsDotNet.Models
-			{
+		namespace WebAppGroupClaimsDotNet.Models
+		{
 		    public class WorkItem
 		    {
 		        [Key]
@@ -196,19 +189,19 @@
 		        Resolved, 
 		        Closed
 		    }
-			}
+		}
 
 6.	DAL\GroupClaimContext.cs를 열고 강조 표시된 코드를 추가합니다.
 	<pre class="prettyprint">
-	public class GroupClaimContext : DbContext
-	{
+public class GroupClaimContext : DbContext
+{
     public GroupClaimContext() : base("GroupClaimContext") { }
 
     public DbSet&lt;RoleMapping> RoleMappings { get; set; }
     public DbSet&lt;Task> Tasks { get; set; }
     <mark>public DbSet&lt;WorkItem> WorkItems { get; set; }</mark>
     public DbSet&lt;TokenCacheEntry> TokenCacheEntries { get; set; }
-    }</pre>
+}</pre>
 
 7.	프로젝트를 빌드하여 새 모델이 Visual Studio에서 스캐폴딩 논리에 액세스할 수 있도록 합니다.
 
@@ -224,124 +217,115 @@
 
 11. 강조 표시된 [Authorize] 장식을 아래의 각 작업에 추가합니다.
 	<pre class="prettyprint">
+...
+
+<mark>[Authorize(Roles = "Admin, Observer, Writer, Approver")]</mark>
+public class WorkItemsController : Controller
+{
 	...
 
-    <mark>[Authorize(Roles = "Admin, Observer, Writer, Approver")]</mark>
-    public class WorkItemsController : Controller
-    {
-		...
+    <mark>[Authorize(Roles = "Admin, Writer")]</mark>
+    public ActionResult Create()
+    ...
 
-        <mark>[Authorize(Roles = "Admin, Writer")]</mark>
-        public ActionResult Create()
-        ...
+    <mark>[Authorize(Roles = "Admin, Writer")]</mark>
+    public async Task&lt;ActionResult> Create([Bind(Include = "ItemID,AssignedToID,AssignedToName,Description,Status")] WorkItem workItem)
+    ...
 
-        <mark>[Authorize(Roles = "Admin, Writer")]</mark>
-        public async Task&lt;ActionResult> Create([Bind(Include = "ItemID,AssignedToID,AssignedToName,Description,Status")] WorkItem workItem)
-        ...
-
-        <mark>[Authorize(Roles = "Admin, Writer")]</mark>
+    <mark>[Authorize(Roles = "Admin, Writer")]</mark>
     public async Task&lt;ActionResult> Edit(int? id)
     ...
 
-        <mark>[Authorize(Roles = "Admin, Writer")]</mark>
-        public async Task&lt;ActionResult> Edit([Bind(Include = "ItemID,AssignedToID,AssignedToName,Description,Status")] WorkItem workItem)
-        ...
+    <mark>[Authorize(Roles = "Admin, Writer")]</mark>
+    public async Task&lt;ActionResult> Edit([Bind(Include = "ItemID,AssignedToID,AssignedToName,Description,Status")] WorkItem workItem)
+    ...
 
-        <mark>[Authorize(Roles = "Admin, Writer, Approver")]</mark>
-        public async Task&lt;ActionResult> Delete(int? id)
-        ...
+    <mark>[Authorize(Roles = "Admin, Writer, Approver")]</mark>
+    public async Task&lt;ActionResult> Delete(int? id)
+    ...
 
-        <mark>[Authorize(Roles = "Admin, Writer, Approver")]</mark>
+    <mark>[Authorize(Roles = "Admin, Writer, Approver")]</mark>
     public async Task&lt;ActionResult> DeleteConfirmed(int id)
-        ...
-}</pre>
+    ...
+}</pre>Roles 컨트롤러에서 역할 매핑에 주의했기 때문에 각 작업에서 올바른 역할에 권한을 부여하는지만 확인하면 됩니다.
 
-	Roles 컨트롤러에서 역할 매핑에 주의했기 때문에 각 작업에서 올바른 역할에 권한을 부여하는지만 확인하면 됩니다.
-
-	> [AZURE.NOTE]일부 작업에서 <code>[ValidateAntiForgeryToken]</code> 장식이 표시될 수 있습니다. [MVC 4, AntiForgeryToken 및 클레임](http://brockallen.com/2012/07/08/mvc-4-antiforgerytoken-and-claims/) 의 [Brock Allen](https://twitter.com/BrockLAllen) 에 설명된 동작으로 인해 HTTP POST가 위조 방지 토큰의 유효성을 검사하지 못할 수 있습니다. 이유:
-	> + Azure Active Directory가 위조 방지 토큰에 기본적으로 필요한 http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider 를 전송하지 않습니다.
-	> + Azure Active Directory가 AD FS와 동기화된 디렉터리인 경우 기본적으로 AD FS 트러스트는 http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider 클레임을 전송하지 않습니다. 이 클레임을 전송하도록 AD FS를 수동으로 구성할 수 있습니다.
-	> 다음 단계에서 이 문제를 해결할 수 있습니다.
+	> [AZURE.NOTE]일부 작업에서 <code>[ValidateAntiForgeryToken]</code> 장식이 표시될 수 있습니다. [MVC 4, AntiForgeryToken 및 클레임](http://brockallen.com/2012/07/08/mvc-4-antiforgerytoken-and-claims/)의 [Brock Allen](https://twitter.com/BrockLAllen)에 설명된 동작으로 인해 HTTP POST가 위조 방지 토큰의 유효성을 검사하지 못할 수 있습니다. 이유: + Azure Active Directory가 위조 방지 토큰에 기본적으로 필요한 http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider를 전송하지 않습니다. + Azure Active Directory가 AD FS와 동기화된 디렉터리인 경우 기본적으로 AD FS 트러스트는 http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider 클레임을 전송하지 않습니다. 이 클레임을 전송하도록 AD FS를 수동으로 구성할 수 있습니다. 다음 단계에서 이 문제를 해결할 수 있습니다.
 
 12.  App_Start\Startup.Auth.cs에서 `ConfigureAuth` 메서드에 다음 코드 줄을 추가합니다.
 
 		AntiForgeryConfig.UniqueClaimTypeIdentifier = ClaimTypes.NameIdentifier;
 	
-	`ClaimTypes.NameIdentifies`는 Azure Active Directory에서 제공하는 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier` 클레임을 지정합니다. 이제 인증 부분을 해결했으므로(오래 걸리지는 않았음) 작업의 실제 기능에 집중할 수 있습니다. 
+	`ClaimTypes.NameIdentifies`는 Azure Active Directory에서 제공하는 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier` 클레임을 지정합니다. 이제 인증 부분을 해결했으므로(오래 걸리지는 않았음) 작업의 실제 기능에 집중할 수 있습니다.
 
-13.	Create() 및 Edit()에서 다음 코드를 추가하여 나중에 JavaScript에서 일부 변수를 사용할 수 있도록 합니다.
-            ViewData["token"] = GraphHelper.AcquireToken(ClaimsPrincipal.Current.FindFirst(Globals.ObjectIdClaimType).Value);
-            ViewData["tenant"] = ConfigHelper.Tenant;
+13.	Create() 및 Edit()에서 다음 코드를 추가하여 나중에 JavaScript에서 일부 변수를 사용할 수 있도록 합니다. ViewData["token"] = GraphHelper.AcquireToken(ClaimsPrincipal.Current.FindFirst(Globals.ObjectIdClaimType).Value); ViewData["tenant"] = ConfigHelper.Tenant;
 
-14.	Views\WorkItems\Create.cshtml(자동으로 스캐폴드된 항목)에서 `Html.BeginForm` 도우미 메서드를 찾아 다음과 같이 수정합니다.  
+14.	Views\WorkItems\Create.cshtml(자동으로 스캐폴드된 항목)에서 `Html.BeginForm` 도우미 메서드를 찾아 다음과 같이 수정합니다.
 	<pre class="prettyprint">@using (Html.BeginForm(<mark>"Create", "WorkItems", FormMethod.Post, new { id = "main-form" }</mark>))
-	{
-	    @Html.AntiForgeryToken()
-	    
-	    &lt;div class="form-horizontal">
-	        &lt;h4>WorkItem&lt;/h4>
-	        &lt;hr />
-	        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-	
-	        &lt;div class="form-group">
-	            &lt;div class="col-md-10">
-	                @Html.EditorFor(model => model.AssignedToID, new { htmlAttributes = new { @class = "form-control"<mark>, @type="hidden"</mark> } })
-	                @Html.ValidationMessageFor(model => model.AssignedToID, "", new { @class = "text-danger" })
-	            &lt;/div>
-	        &lt;/div>
-	
-	        &lt;div class="form-group">
-	            @Html.LabelFor(model => model.AssignedToName, htmlAttributes: new { @class = "control-label col-md-2" })
-	            &lt;div class="col-md-10">
-	                @Html.EditorFor(model => model.AssignedToName, new { htmlAttributes = new { @class = "form-control" } })
-	                @Html.ValidationMessageFor(model => model.AssignedToName, "", new { @class = "text-danger" })
-	            &lt;/div>
-	        &lt;/div>
-	
-	        &lt;div class="form-group">
-	            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
-	            &lt;div class="col-md-10">
-	                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
-	                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
-	            &lt;/div>
-	        &lt;/div>
-	
-	        &lt;div class="form-group">
-	            @Html.LabelFor(model => model.Status, htmlAttributes: new { @class = "control-label col-md-2" })
-	            &lt;div class="col-md-10">
-	                @Html.EnumDropDownListFor(model => model.Status, htmlAttributes: new { @class = "form-control" })
-	                @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
-	            &lt;/div>
-	        &lt;/div>
-	
-	        &lt;div class="form-group">
-            &lt;div class="col-md-offset-2 col-md-10">
-	                &lt;input type="submit" value="Create" class="btn btn-default" <mark>id="submit-button"</mark> />
-	            &lt;/div>
-	        &lt;/div>
-	    &lt;/div>
-	
-	    <mark>&lt;script>
-	            // People/Group Picker Code
-	            var maxResultsPerPage = 14;
-	            var searchUrl = window.location.protocol + "//" + window.location.host + "/Roles/Search";
-	            var input = document.getElementById("AssignedToName");
-	            var token = "@ViewData["token"]";
-	            var tenant = "@ViewData["tenant"]";
-	
-	            var picker = new AadPicker(searchUrl, maxResultsPerPage, input, token, tenant);
-	
-	            // Submit the selected user/group to be asssigned.
-	            $("#submit-button").click({ picker: picker }, function () {
-	                if (!picker.Selected())
-	                    return;
-	                $("#main-form").get()[0].elements["AssignedToID"].value = picker.Selected().objectId;
-	            });
-	    &lt;/script></mark>
-	
-	}</pre>
+{
+    @Html.AntiForgeryToken()
 
-	스크립트에서 AadPicker 개체는 `~/Roles/Search` 동작에서 입력과 일치하는 Azure Active Directory 사용자 및 그룹을 검색합니다. 그런 다음 제출 단추가 클릭되면 AadPicker 개체가 사용자 ID를 숨겨진 `AssignedToID` 필드에 저장합니다.  
+    &lt;div class="form-horizontal">
+        &lt;h4>WorkItem&lt;/h4>
+        &lt;hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        &lt;div class="form-group">
+            &lt;div class="col-md-10">
+                @Html.EditorFor(model => model.AssignedToID, new { htmlAttributes = new { @class = "form-control"<mark>, @type="hidden"</mark> } })
+                @Html.ValidationMessageFor(model => model.AssignedToID, "", new { @class = "text-danger" })
+            &lt;/div>
+        &lt;/div>
+
+        &lt;div class="form-group">
+            @Html.LabelFor(model => model.AssignedToName, htmlAttributes: new { @class = "control-label col-md-2" })
+            &lt;div class="col-md-10">
+                @Html.EditorFor(model => model.AssignedToName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.AssignedToName, "", new { @class = "text-danger" })
+            &lt;/div>
+        &lt;/div>
+
+        &lt;div class="form-group">
+            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+            &lt;div class="col-md-10">
+                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+            &lt;/div>
+        &lt;/div>
+
+        &lt;div class="form-group">
+            @Html.LabelFor(model => model.Status, htmlAttributes: new { @class = "control-label col-md-2" })
+            &lt;div class="col-md-10">
+                @Html.EnumDropDownListFor(model => model.Status, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+            &lt;/div>
+        &lt;/div>
+
+        &lt;div class="form-group">
+            &lt;div class="col-md-offset-2 col-md-10">
+                &lt;input type="submit" value="Create" class="btn btn-default" <mark>id="submit-button"</mark> />
+            &lt;/div>
+        &lt;/div>
+    &lt;/div>
+
+    <mark>&lt;script>
+            // People/Group Picker Code
+            var maxResultsPerPage = 14;
+            var searchUrl = window.location.protocol + "//" + window.location.host + "/Roles/Search";
+            var input = document.getElementById("AssignedToName");
+            var token = "@ViewData["token"]";
+            var tenant = "@ViewData["tenant"]";
+
+            var picker = new AadPicker(searchUrl, maxResultsPerPage, input, token, tenant);
+
+            // Submit the selected user/group to be asssigned.
+            $("#submit-button").click({ picker: picker }, function () {
+                if (!picker.Selected())
+                    return;
+                $("#main-form").get()[0].elements["AssignedToID"].value = picker.Selected().objectId;
+            });
+    &lt;/script></mark>
+
+}</pre>스크립트에서 AadPicker 개체는 `~/Roles/Search` 동작에서 입력과 일치하는 Azure Active Directory 사용자 및 그룹을 검색합니다. 그런 다음 제출 단추가 클릭되면 AadPicker 개체가 사용자 ID를 숨겨진 `AssignedToID` 필드에 저장합니다.
 
 15. 이제 응용 프로그램을 Visual Studio 디버거에서 실행하거나 Azure 앱 서비스 웹 앱에 게시합니다. 응용 프로그램 소유자로 로그인하여 `~/WorkItems/Create`로 이동합니다. 이 예제의 게시된 기간 업무 앱의 경우 `https://mylobapp.azurewebsites.net/WorkItems/Create`로 이동합니다. 이제 동일한 AadPicker 검색 필터를 사용하여 Azure Active Directory 사용자를 선택할 수 있습니다.
 

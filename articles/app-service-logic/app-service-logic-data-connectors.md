@@ -211,7 +211,17 @@ Azure 포털을 사용하여 커넥터 API 앱을 만들 수 있습니다.
 
 1. Azure 포털에서 **새로 만들기** > **웹 + 모바일** > **Azure 마켓플레이스**를 선택합니다.
 2. 커넥터를 **검색**하거나 목록에서 선택합니다. 선택하면 새 블레이드나 창이 열립니다. **만들기**를 선택합니다. 
-3. 커넥터에 대해 다음과 같은 속성을 입력합니다. <table> <tr><th>속성</th> <th>설명</th> </tr> <tr><td>이름</td> <td>API 앱의 이름을 임의로 입력합니다. 예를 들어 이름을 RulesDiscountTaxCode 또는 APIAppValidateXML로 지정할 수 있습니다.</td> </tr> <tr><td>앱 서비스 계획</td> <td>요금제를 나열합니다. 필요한 리소스가 더 많거나 적은 경우 변경할 수 있습니다.</th> </td> <tr><td>가격 책정 계층</td> <td>Azure 구독 내에서 가격 책정 범주를 나열하는 읽기 전용 속성입니다.</td> </tr> <tr><td>리소스 그룹</td> <td>새 그룹을 만들거나 기존 그룹을 사용합니다. 이 속성은 리소스 그룹 사용에서 설명합니다.</td> </tr> <tr><td>구독</td> <td>현재 구독을 나열하는 읽기 전용 속성입니다.</td> </tr> <tr><td>위치</td> <td>Azure 서비스를 호스트하는 지리적 위치입니다. </td></tr> <tr><td>시작 보드에 추가</td> <td>시작 보드(홈페이지)에 API 앱을 추가하려면 이 속성을 선택합니다.</td></tr> </table> 
+3. 커넥터에 대해 다음과 같은 속성을 입력합니다. 
+	<table>
+    <tr><th>속성</th> <th>설명</th> </tr>
+    <tr><td>이름</td> <td>API 앱의 이름을 임의로 입력합니다. 예를 들어 이름을 RulesDiscountTaxCode 또는 APIAppValidateXML로 지정할 수 있습니다.</td> </tr>
+    <tr><td>앱 서비스 계획</td> <td>요금제를 나열합니다. 필요한 리소스가 더 많거나 적은 경우 변경할 수 있습니다.</th> </td>
+    <tr><td>가격 책정 계층</td> <td>Azure 구독 내에서 가격 책정 범주를 나열하는 읽기 전용 속성입니다.</td> </tr>
+    <tr><td>리소스 그룹</td> <td>새 그룹을 만들거나 기존 그룹을 사용합니다. 이 속성은 리소스 그룹 사용에서 설명</td> </tr>
+    <tr><td>구독</td> <td>현재 구독을 나열하는 읽기 전용 속성</td> </tr>
+    <tr><td>위치</td> <td>Azure 서비스를 호스트하는 지리적 위치 </td></tr>
+    <tr><td>시작 보드에 추가</td> <td>시작 보드(홈페이지)에 API 앱을 추가하려면 이 속성을 선택합니다.</td></tr>
+</table>
 4. **만들기**를 선택합니다. 커넥터가 만들어집니다. 완료되는 데 시간이 걸릴 수 있으며, 커넥터를 만드는 동안 홈 화면이 표시됩니다. 왼쪽의 알림 메뉴 항목을 사용하여 커넥터 상태를 모니터링합니다.
 
 첫 번째 커넥터를 만들었으므로 이제 이 커넥터를 사용한 웹앱, 모바일 앱 또는 논리 앱 빌드를 고려해 보세요.
@@ -246,11 +256,12 @@ Microsoft Azure 앱 서비스는 이러한 커넥터를 사용할 수 있는 다
 
 
 ## 논리 앱 및 웹앱 알아보기
-[논리 앱 정의](app-service-logic-what-are-logic-apps.md) | [Azure 앱 서비스의 웹 사이트 및 웹앱](../app-service-web/app-service-web-app-azure-portal.md) |
+[논리 앱 정의](app-service-logic-what-are-logic-apps.md) | [Azure 앱 서비스의 웹 사이트 및 웹앱](../app-service-web/app-service-web-overview.md) |
 
 
 
 ## 추가 커넥터
 [BizTalk 통합 커넥터](app-service-logic-integration-connectors.md) | [엔터프라이즈 커넥터](app-service-logic-enterprise-connectors.md) | [B2B 커넥터](app-service-logic-b2b-connectors.md) | [소셜 커넥터](app-service-logic-social-connectors.md) | [프로토콜 커넥터](app-service-logic-protocol-connectors.md) | [앱 및 데이터 서비스 커넥터](app-service-logic-data-connectors.md) | [커넥터 및 API 앱 목록](app-service-logic-connectors-list.md)<br/><br/> [커넥터 및 BizTalk API 앱 정의](app-service-logic-what-are-biztalk-api-apps.md)
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

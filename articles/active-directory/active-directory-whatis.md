@@ -52,4 +52,4 @@ Azure Active Directory 기능에 대한 자세한 내용은 링크를 따르십�
 [1]: ./media/active-directory-whatis/Azure_Active_Directory.png
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

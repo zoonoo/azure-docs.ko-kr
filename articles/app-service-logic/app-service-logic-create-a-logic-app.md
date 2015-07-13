@@ -17,7 +17,7 @@
 	ms.author="stepsic"/>
 
 #새 논리 앱 만들기
-이 항목에서는 단 몇 분 안에 [앱 서비스 논리 앱](app-service-logic-what-are-logic-apps.md)을 시작할 수 있는 방법을 보여 줍니다. 관심이 있는 일련의 트윗을 Dropbox 폴더로 전달할 수 있는 워크플로 단계별로 안내합니다.
+이 항목에서는 단 몇 분 안에 [앱 서비스 논리 앱](app-service-logic-what-are-logic-apps.md)을 시작할 수 있는 방법을 보여줍니다. 관심이 있는 일련의 트윗을 Dropbox 폴더로 전달할 수 있는 워크플로 단계별로 안내합니다.
 
 이 시나리오를 사용하려면 다음이 필요합니다.
 
@@ -53,11 +53,11 @@
 
 7. **위치**를 선택하여 논리 앱을 실행합니다.
 
-	![API 앱 뷰 만들기](./media/app-service-logic-create-a-logic-app/gallery.png)
+	![API 앱 만들기 뷰](./media/app-service-logic-create-a-logic-app/gallery.png)
 
 8. **만들기**를 클릭합니다. 프로비전 단계는 2분 이상 걸릴 수 있습니다.
 
-9. 이제 [드롭 상자](https://portal.azure.com/#create/microsoft_com.DropboxConnector.0.2.2)를 사용하여 프로세스를 반복합니다.
+9. 이제 [Dropbox](https://portal.azure.com/#create/microsoft_com.DropboxConnector.0.2.2)를 사용하여 프로세스를 반복합니다.
 
 ##논리 앱 시작
 
@@ -65,9 +65,9 @@
 
 1. 화면의 왼쪽 아래에서 **+ 새로 만들기** 단추를 클릭하고, **웹 + 모바일**을 확장한 다음 **논리 앱**을 클릭합니다.
 
- 	그러면 논리 앱 뷰 만들기가 표시되며, 여기서 시작할 몇 가지 기본 설정을 제공합니다.
+ 	그러면 논리 앱 만들기 뷰가 표시되며, 여기서 시작할 몇 가지 기본 설정을 입력해야 합니다.
 
-	![논리 앱 뷰 만들기](./media/app-service-logic-create-a-logic-app/createlogicapp.png)
+	![논리 앱 만들기 뷰](./media/app-service-logic-create-a-logic-app/createlogicapp.png)
 
 2. **이름**에 논리 앱에 대한 의미 있는 이름을 입력합니다.
 
@@ -79,7 +79,7 @@
 
 트리거란 논리 앱을 실행하도록 설정하는 것입니다. 이제, 미리 정의된 일정에 따라 워크플로 시작하는 되풀이 트리거를 추가합니다.
 
-1. **논리 앱 만들기** 뷰에서 **트리거 및 동작**을 클릭합니다.
+1. **논리 앱 만들기** 뷰에서 **트리거 및 작업**을 클릭합니다.
 
 	그러면 흐름을 표시하는 전체 화면 디자이너가 표시됩니다. 오른쪽에 트리거를 포함할 수 있는 모든 서비스의 목록이 표시됩니다.
 
@@ -137,7 +137,7 @@ Twitter 커넥터는 이제 워크플로의 일부입니다.
 
 	텍스트 상자에 `@first(body('twitterconnector')).TweetText` 값이 입력됩니다. 생성된 값에는 다음과 같은 부분이 포함됩니다.
 
-콘텐츠 부분 | 설명
+	콘텐츠 부분 | 설명
 	------------------------------------------ | ------------
 	 `@` | 실제 값 대신 함수를 입력하고 있음을 나타냅니다.
 	`actions('twitterconnector').outputs.body` | Twitter 커넥터 쿼리에 의해 반환된 트윗을 가져옵니다.
@@ -164,7 +164,7 @@ Twitter 커넥터는 이제 워크플로의 일부입니다.
 
 5. 앱을 끄려면 명령 모음에서 **사용 안 함**을 클릭합니다.
 
-5분 이내에 클라우드에서 간단한 논리 앱이 실행되도록 설정할 수 있습니다. 논리 앱 기능을 사용하는 방법에 대한 자세한 내용은 [논리 앱 기능 사용]을 참조하세요. 논리 앱 정의 자체에 대해 알아보려면 [논리 응용 프로그램 정의 작성](app-service-logic-author-definitions.md)을 참조하십시오.
+5분 이내에 클라우드에서 간단한 논리 앱이 실행되도록 설정할 수 있습니다. 논리 앱 기능을 사용하는 방법에 대한 자세한 내용은 [논리 앱 기능 사용]을 참조하세요. 논리 앱 정의 자체에 대해 알아보려면 [논리 응용 프로그램 정의 작성](app-service-logic-author-definitions.md)을 참조하세요.
 
 <!-- Shared links -->
 [Azure portal]: https://portal.azure.com

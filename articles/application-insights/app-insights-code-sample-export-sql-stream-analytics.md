@@ -50,10 +50,14 @@
 
 4. 이 예제에서는 웹앱을 모니터링하므로 Visual Studio에서 Azure 도구를 사용하여 SDK를 설치할 수 있습니다. 여기에 Application Insights 리소스의 이름을 알려줍니다.
 
-    ![Visual Studio의 새 프로젝트 대화 상자에서 Application Insights 추가를 선택하고 원격 분석 보내기 대상에서 새 앱을 만들거나 기존 앱을 사용하도록 선택합니다.](./media/app-insights-code-sample-export-sql-stream-analytics/030-new-project.png)
+    ![Visual Studio 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 Application Insights 추가를 선택합니다. 송신 원격 분석에서 새 리소스를 만들거나 기존 리소스를 사용합니다.](./media/app-insights-code-sample-export-sql-stream-analytics/appinsights-d012-addbrown.png)
+
+5. 앱을 게시하고 Application Insights 리소스에 표시되는 원격 분석 데이터를 확인합니다.
 
 
 ## Azure에서 저장소 만들기
+
+연속 내보내기는 항상 Azure 저장소 계정에 데이터를 출력하므로 저장소를 먼저 만들어야 합니다.
 
 1. [Azure 포털][portal]에서 구독에 저장소 계정을 만듭니다.
 
@@ -95,7 +99,7 @@
 
 ![Visual Studio에서 서버 브라우저, Azure, 저장소 열기](./media/app-insights-code-sample-export-sql-stream-analytics/087-explorer.png)
 
-이벤트는 JSON 형식으로 blob 파일에 기록됩니다. 각 파일에는 하나 이상의 이벤트가 있을 수 있습니다. 따라서 이벤트 데이터를 읽고 원하는 필드를 필터링하는 일부 코드를 작성하려고 합니다. 데이터로 온갖 종류의 작업을 수행할 수 있지만, 지금은 데이터를 SQL 데이터베이스로 이동하는 코드를 작성하려고 합니다. 이렇게 하면 흥미로운 많은 쿼리를 쉽게 실행할 수 있습니다.
+이벤트는 JSON 형식으로 blob 파일에 기록됩니다. 각 파일에는 하나 이상의 이벤트가 있을 수 있습니다. 따라서 이벤트 데이터를 읽고 원하는 필드를 필터링하려고 합니다. 데이터로 온갖 종류의 작업을 수행할 수 있지만, 지금은 스트림 분석을 사용하여 데이터를 SQL 데이터베이스로 이동하려고 합니다. 이렇게 하면 흥미로운 많은 쿼리를 쉽게 실행할 수 있습니다.
 
 ## Azure SQL 데이터베이스 만들기
 

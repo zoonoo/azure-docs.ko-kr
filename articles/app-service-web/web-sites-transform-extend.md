@@ -42,7 +42,7 @@
 	</configuration>
 
 
-변환 상태가 포함된 로그 파일 및 자세한 정보는 FTP 루트의 LogFiles\\Transform 아래에서 사용할 수 있습니다.
+변환 상태가 포함된 로그 파일 및 자세한 정보는 FTP 루트의 LogFiles\Transform 아래에서 사용할 수 있습니다.
 
 추가 샘플은 [https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions)(영문)를 참조하십시오.
 
@@ -81,7 +81,7 @@ PHP Manager 확장은 Visual Studio ASP.NET MVC 4 웹 응용 프로그램 템플
 
 ![TransformSiteSolEx][TransformSiteSolEx]
 
-파일 I/O에 필요한 유일한 특수 논리는 웹 앱의 wwwroot 디렉터리가 있는 위치를 나타내는 것입니다. 다음 코드 예제에서 환경 변수 "HOME"은 웹 앱의 루트 경로를 나타내며 wwwroot 경로는 "site\\wwwroot"를 추가하여 구성할 수 있음을 알 수 있습니다.
+파일 I/O에 필요한 유일한 특수 논리는 웹 앱의 wwwroot 디렉터리가 있는 위치를 나타내는 것입니다. 다음 코드 예제에서 환경 변수 "HOME"은 웹 앱의 루트 경로를 나타내며 wwwroot 경로는 "site\wwwroot"를 추가하여 구성할 수 있음을 알 수 있습니다.
 
 	/// <summary>
 	/// Gives the location of the .user.ini file, even if one doesn't exist yet
@@ -112,7 +112,7 @@ PHP Manager 확장은 Visual Studio ASP.NET MVC 4 웹 응용 프로그램 템플
 
 ####<a id="XDT"></a> applicationHost.xdt 파일
 
-웹앱 확장용 코드는 %HOME%\\SiteExtensions[확장 이름] 아래에 위치합니다. 이를 확장 루트라고 합니다.
+웹앱 확장용 코드는 %HOME%\SiteExtensions[확장 이름] 아래에 위치합니다. 이를 확장 루트라고 합니다.
 
 applicationHost.config 파일에 웹 앱 확장을 등록하려면 확장 루트에 ApplicationHost.xdt라는 파일을 배치해야 합니다. ApplicationHost.xdt 파일의 내용은 다음과 같습니다.
 
@@ -169,7 +169,7 @@ applicationHost.config 파일에 웹 앱 확장을 등록하려면 확장 루트
 
 키 `WEBSITE_PRIVATE_EXTENSIONS` 및 `0` 값으로 앱 설정을 추가하여 배포 및 확인 중에 웹앱의 모든 개인(사전 설치 아님) 확장을 사용하지 않도록 설정할 수 있습니다.
 
->[AZURE.NOTE] Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 시작 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+>[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 시작 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
 ## 변경된 내용
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.
@@ -178,5 +178,6 @@ applicationHost.config 파일에 웹 앱 확장을 등록하려면 확장 루트
 <!-- IMAGES -->
 [TransformSitePHPUI]: ./media/web-sites-transform-extend/TransformSitePHPUI.png
 [TransformSiteSolEx]: ./media/web-sites-transform-extend/TransformSiteSolEx.png
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

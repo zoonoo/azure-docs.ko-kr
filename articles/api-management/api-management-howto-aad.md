@@ -3,7 +3,7 @@
 	description="API 관리에서 Azure Active Directory를 사용하여 권한을 부여하는 방법" 
 	services="api-management" 
 	documentationCenter="API Management" 
-	authors="sdanie" 
+	authors="steved0x" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/10/2015" 
+	ms.date="06/16/2015" 
 	ms.author="sdanie"/>
 
-#Azure API 관리에서 Azure Active Directory를 사용하여 개발자 계정에 권한을 부여하는 방법
+# Azure API 관리에서 Azure Active Directory를 사용하여 개발자 계정에 권한을 부여하는 방법
 
 
-##개요
+## 개요
 이 가이드에서는 하나 이상의 Azure Active Directory의 모든 사용자에게 개발자 포털에 액세스할 수 있도록 하는 방법을 보여줍니다. 또한 이 가이드에서는 Azure Active Directory의 사용자를 포함하는 외부 그룹을 추가하여 Azure Active Directory 사용자 그룹을 관리하는 방법을 보여줍니다.
 
 >이 가이드의 단계를 완료하려면 먼저 응용 프로그램을 만들 Azure Active Directory가 있어야 합니다.
 
-##Azure Active Directory를 사용하여 개발자 계정에 권한을 부여하는 방법
+## Azure Active Directory를 사용하여 개발자 계정에 권한을 부여하는 방법
 
 시작하려면 API 관리 서비스에 대해 Azure 포털에서 **관리**를 클릭합니다. API 관리 게시자 포털로 이동됩니다.
 
@@ -114,7 +114,7 @@ Azure Active Directory 구성으로 다시 전환하고 **키** 섹션에서 **�
 
 변경 내용이 저장되면 [Azure Active Directory 계정을 사용하여 개발자 포털에 로그인][]의 단계를 수행하여 지정된 Azure Active Directory의 사용자가 개발자 포털에 로그인할 수 있습니다.
 
-##외부 Azure Active Directory 그룹을 추가하는 방법
+## 외부 Azure Active Directory 그룹을 추가하는 방법
 
 Azure Active Directory의 사용자가 액세스할 수 있게 되면 Azure Active Directory 그룹을 API 관리에 추가하여 원하는 제품이 있는 그룹에서 개발자와의 연계를 보다 쉽게 관리할 수 있습니다.
 
@@ -154,7 +154,7 @@ Azure Active Directory 그룹이 한 제품에서 구성되면 API 관리 서비
 
 구성된 Azure Active Directory의 사용자는 개발자 포털에 로그인할 수 있으며 다음 섹션의 지침을 수행하여 표시 여부가 있는 그룹을 보고 구독할 수 있습니다.
 
-##Azure Active Directory 계정을 사용하여 개발자 포털에 로그인하는 방법
+## Azure Active Directory 계정을 사용하여 개발자 포털에 로그인하는 방법
 
 이전 섹션에서 구성된 Azure Active Directory 계정을 사용하여 개발자 포털에 로그인하려면 Active Directory 응용 프로그램 구성에서 **로그온 URL**을 사용하여 새 브라우저 창을 열고 **Azure Active Directory**를 클릭합니다.
 
@@ -207,7 +207,7 @@ Azure Active Directory에서 사용자 중 하나의 자격 증명을 입력하�
 
 [How to add operations to an API]: api-management-howto-add-operations.md
 [How to add and publish a product]: api-management-howto-add-products.md
-[Monitoring and analytics]: ../api-management-monitoring.md
+[Monitoring and analytics]: api-management-monitoring.md
 [Add APIs to a product]: api-management-howto-add-products.md#add-apis
 [Publish a product]: api-management-howto-add-products.md#publish-product
 [API 관리 서비스 인스턴스 만들기]: api-management-get-started.md
@@ -228,5 +228,4 @@ Azure Active Directory에서 사용자 중 하나의 자격 증명을 입력하�
 
 [Azure Active Directory 계정을 사용하여 개발자 포털에 로그인]: #Log-in-to-the-Developer-portal-using-an-Azure-Active-Directory-account
 
-
-<!--HONumber=54--> 
+<!---HONumber=62-->
