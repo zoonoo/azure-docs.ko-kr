@@ -27,4 +27,4 @@
 
 9. **Apply**를 클릭한 후 **OK**를 클릭합니다.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO1-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/13/2015" 
+	ms.date="05/15/2015" 
 	ms.author="szarkos"/>
 
 # Azure용 CentOS 기반 가상 컴퓨터 준비
@@ -23,18 +23,18 @@
 
 ##필수 조건##
 
-이 문서에서는 가상 하드 디스크에 CentOS 또는 그와 비슷한 파생 Linux 운영 체제를 이미 설치했다고 가정합니다. Hyper-V와 같은 가상화 솔루션 등의 다양한 도구를 사용하여 .vhd 파일을 만들 수 있습니다. 관련 지침은 [Hyper-V 역할 설치 및 가상 컴퓨터 구성](http://technet.microsoft.com/library/hh846766.aspx)을 참조하세요. 
+이 문서에서는 가상 하드 디스크에 CentOS 또는 그와 비슷한 파생 Linux 운영 체제를 이미 설치했다고 가정합니다. .vhd 파일을 만드는 여러 도구가 있습니다(예: Hyper-V와 같은 가상화 솔루션). 자세한 내용은 [Hyper-V 역할 설치 및 가상 시스템 구성](http://technet.microsoft.com/library/hh846766.aspx)을 참조하십시오.
 
 
 **CentOS 설치 참고 사항**
 
 - 새 VHDX 형식은 Azure에서 지원되지 않습니다. Hyper-V 관리자 또는 convert-vhd cmdlet을 사용하여 디스크를 VHD 형식으로 변환할 수 있습니다.
 
-- Linux 시스템 설치 시에는 LVM(설치 기본값인 경우가 많음)이 아닌 표준 파티션을 사용하는 것이 좋습니다. 이렇게 하면 특히 문제 해결을 위해 OS 디스크를 다른 VM에 연결해야 하는 경우 복제된 VM과 LVM 이름이 충돌하지 않도록 방지합니다.  원하는 경우에는 데이터 디스크에서 LVM 또는 [RAID](virtual-machines-linux-configure-raid.md)를 사용할 수 있습니다.
+- Linux 시스템 설치 시에는 LVM(설치 기본값인 경우가 많음)이 아닌 표준 파티션을 사용하는 것이 좋습니다. 이렇게 하면 특히 문제 해결을 위해 OS 디스크를 다른 VM에 연결해야 하는 경우 복제된 VM과 LVM 이름이 충돌하지 않도록 방지합니다. 원하는 경우에는 데이터 디스크에서 LVM 또는 [RAID](virtual-machines-linux-configure-raid.md)를 사용할 수 있습니다.
 
 - 2.6.37보다 낮은 Linux 커널 버전의 버그 때문에 더 큰 VM 크기에서는 NUMA가 지원되지 않습니다. 이 문제는 주로 업스트림 Red Hat 2.6.32 커널을 사용하는 분산에 영향을 줍니다. Azure Linux 에이전트(waagent)를 수동으로 설치하면 Linux 커널의 GRUB 구성에서 NUMA가 자동으로 사용하지 않도록 설정됩니다. 여기에 대한 자세한 내용은 아래 단계에서 확인할 수 있습니다.
 
-- OS 디스크에 스왑 파티션을 구성하지 마세요. 임시 리소스 디스크에서 스왑 파일을 만들도록 Linux 에이전트를 구성할 수 있습니다.  여기에 대한 자세한 내용은 아래 단계에서 확인할 수 있습니다.
+- OS 디스크에 스왑 파티션을 구성하지 마세요. 임시 리소스 디스크에서 스왑 파일을 만들도록 Linux 에이전트를 구성할 수 있습니다. 여기에 대한 자세한 내용은 아래 단계에서 확인할 수 있습니다.
 
 - 모든 VHD 크기는 1MB의 배수여야 합니다.
 
@@ -49,7 +49,7 @@
 
 		# sudo rpm -e --nodeps NetworkManager
 
-	**참고:** 패키지가 아직 설치되어 있지 않은 경우 이 명령이 실패하고 오류 메시지가 표시됩니다. 이는 예상된 동작입니다.
+	**참고:** 패키지가 아직 설치되어 있지 않은 경우 이 명령이 실패하고 오류 메시지가 표시됩니다. 예상된 동작입니다.
 
 4.	다음 텍스트가 포함된 **network** 파일을 `/etc/sysconfig/` 디렉터리에 만듭니다.
 
@@ -80,17 +80,17 @@
 
 8. **CentOS 6.3에만 해당**: Linux 통합 서비스 드라이버 설치
 
-	**중요: 이 단계는 CentOS 6.3 이하 버전에만 적용됩니다.**  CentOS 6.4 이상에서는 에서는 Linux 통합 서비스를 *already available in the kernel*.
+	**중요: 이 단계는 CentOS 6.3 이하 버전에만 적용됩니다.** CentOS 6.4 이상 버전에서는 Linux 통합 서비스가 *커널에서 이미 제공됩니다*.
 
-	a) [Microsoft 다운로드 센터](http://www.microsoft.com/ko-kr/download/details.aspx?id=41554)에서 Linux 통합 서비스 드라이버가 포함된 .iso 파일을 다운로드합니다.
+	a) [Microsoft 다운로드 센터](http://www.microsoft.com/download/details.aspx?id=41554)에서 Linux 통합 서비스 드라이버가 포함된 .iso 파일을 다운로드합니다.
 
 	b) Hyper-V 관리자의 **작업** 창에서 **설정**을 클릭합니다.
 
-	![Open Hyper-V settings](./media/virtual-machines-linux-create-upload-vhd-centos/settings.png)
+	![Hyper-V 설정 열기](./media/virtual-machines-linux-create-upload-vhd-centos/settings.png)
 
 	c) **하드웨어** 창에서 **IDE 컨트롤러 1**을 클릭합니다.
 
-	![Add DVD drive with install media](./media/virtual-machines-linux-create-upload-vhd-centos/installiso.png)
+	![DVD 드라이브와 설치 미디어 추가](./media/virtual-machines-linux-create-upload-vhd-centos/installiso.png)
 
 	d) **IDE 컨트롤러** 상자에서 **DVD 드라이브**를 클릭하고 **추가**를 클릭합니다.
 
@@ -110,7 +110,7 @@
 
 		# sudo yum install python-pyasn1
 
-10. Azure 데이터 센터 내에서 호스트되는 OpenLogic 미러를 사용하려면 /etc/yum.repos.d/CentOS-Base.repo 파일을 다음 리포지토리로 바꿉니다.  그러면 Azure Linux 에이전트의 패키지가 포함된 **[openlogic]** 리포지토리도 추가됩니다.
+10. Azure 데이터 센터 내에서 호스트되는 OpenLogic 미러를 사용하려면 /etc/yum.repos.d/CentOS-Base.repo 파일을 다음 리포지토리로 바꿉니다. 그러면 Azure Linux 에이전트의 패키지가 포함된 **[openlogic]** 리포지토리도 추가됩니다.
 
 		[openlogic]
 		name=CentOS-$releasever - openlogic packages for $basearch
@@ -161,7 +161,7 @@
 
 		http_caching=packages
 
-	또한 **CentOS 6.3에 한해** 다음 줄을 추가합니다.
+	**CentOS 6.3에 한해** 다음 줄을 추가합니다.
 
 		exclude=kernel*
 
@@ -183,7 +183,7 @@
 
 	이렇게 하면 모든 콘솔 메시지가 첫 번째 직렬 포트로 전송되므로 Azure 지원에서 문제를 디버깅하는 데에도 도움이 될 수 있습니다. 또한 CentOS 6에서 사용하는 커널 버전의 버그로 인해 NUMA가 사용하지 않도록 설정됩니다.
 
-	위의 작업을 수행하는 동시에 다음 매개 변수도 *remove*하는 것이 좋습니다.
+	위의 작업을 수행하는 동시에 다음 매개 변수도 *제거*하는 것이 좋습니다.
 
 		rhgb quiet crashkernel=auto
 
@@ -192,7 +192,7 @@
 	원하는 경우에는 `crashkernel` 옵션을 구성한 상태로 유지할 수도 있지만 이 매개 변수를 사용하는 경우 VM에서 사용 가능한 메모리의 양이 128MB 이상 감소하므로 VM 크기가 작은 경우 문제가 될 수 있습니다.
 
 
-16.	SSH 서버가 설치되어 부팅 시 시작되도록 구성되어 있는지 확인합니다.  보통 SSH 서버는 기본적으로 이와 같이 구성되어 있습니다.
+16.	SSH 서버가 설치되어 부팅 시 시작되도록 구성되어 있는지 확인합니다. 보통 SSH 서버는 기본적으로 이와 같이 구성되어 있습니다.
 
 17. 다음 명령을 실행하여 Azure Linux 에이전트를 설치합니다.
 
@@ -200,9 +200,9 @@
 
 	WALinuxAgent 패키지를 설치하면 NetworkManager 및 NetworkManager-gnome 패키지가 2단계에서 설명된 대로 아직 제거되지 않은 경우 이러한 패키지를 제거합니다.
 
-18.	OS 디스크에 스왑 공간을 만들지 마세요.
+18.	OS 디스크에 스왑 공간을 만들지 마십시오.
 
-	Azure Linux 에이전트는 Azure에서 프로비전한 후 VM에 연결된 로컬 리소스 디스크를 사용하여 자동으로 스왑 공간을 구성할 수 있습니다. 리소스 디스크는 *temporary* 디스크이며 VM의 프로비전을 해제할 때 비워질 수 있습니다. Azure Linux 에이전트를 설치한 후(이전 단계 참조) /etc/waagent.conf에서 다음 매개 변수를 적절하게 수정합니다.
+	Azure Linux 에이전트는 Azure에서 프로비전한 후 VM에 연결된 로컬 리소스 디스크를 사용하여 자동으로 스왑 공간을 구성할 수 있습니다. 로컬 리소스 디스크는 *임시* 디스크이며 VM의 프로비전을 해제할 때 비워질 수 있습니다. Azure Linux 에이전트를 설치한 후(이전 단계 참조) /etc/waagent.conf에서 다음 매개 변수를 적절하게 수정합니다.
 
 		ResourceDisk.Format=y
 		ResourceDisk.Filesystem=ext4
@@ -268,7 +268,7 @@ Azure용으로 CentOS 7 가상 컴퓨터를 준비하는 작업은 CentOS 6과 �
 
 		# sudo yum install python-pyasn1
 
-8. Azure 데이터 센터 내에서 호스트되는 OpenLogic 미러를 사용하려면 /etc/yum.repos.d/CentOS-Base.repo 파일을 다음 리포지토리로 바꿉니다.  그러면 Azure Linux 에이전트의 패키지가 포함된 **[openlogic]** 리포지토리도 추가됩니다.
+8. Azure 데이터 센터 내에서 호스트되는 OpenLogic 미러를 사용하려면 /etc/yum.repos.d/CentOS-Base.repo 파일을 다음 리포지토리로 바꿉니다. 그러면 Azure Linux 에이전트의 패키지가 포함된 **[openlogic]** 리포지토리도 추가됩니다.
 
 		[openlogic]
 		name=CentOS-$releasever - openlogic packages for $basearch
@@ -325,7 +325,7 @@ Azure용으로 CentOS 7 가상 컴퓨터를 준비하는 작업은 CentOS 6과 �
 
 		GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0"
 
-	이렇게 하면 모든 콘솔 메시지가 첫 번째 직렬 포트로 전송되므로 Azure 지원에서 문제를 디버깅하는 데에도 도움이 될 수 있습니다. 위의 작업을 수행하는 동시에 다음 매개 변수도 *remove*하는 것이 좋습니다.
+	이렇게 하면 모든 콘솔 메시지가 첫 번째 직렬 포트로 전송되므로 Azure 지원에서 문제를 디버깅하는 데에도 도움이 될 수 있습니다. 위의 작업을 수행하는 동시에 다음 매개 변수도 *제거*하는 것이 좋습니다.
 
 		rhgb quiet crashkernel=auto
 
@@ -337,15 +337,15 @@ Azure용으로 CentOS 7 가상 컴퓨터를 준비하는 작업은 CentOS 6과 �
 
 		# sudo grub2-mkconfig -o /boot/grub2/grub.cfg
 
-12.	SSH 서버가 설치되어 부팅 시 시작되도록 구성되어 있는지 확인합니다.  보통 SSH 서버는 기본적으로 이와 같이 구성되어 있습니다.
+12.	SSH 서버가 설치되어 부팅 시 시작되도록 구성되어 있는지 확인합니다. 보통 SSH 서버는 기본적으로 이와 같이 구성되어 있습니다.
 
 13. 다음 명령을 실행하여 Azure Linux 에이전트를 설치합니다.
 
 		# sudo yum install WALinuxAgent
 
-14.	OS 디스크에 스왑 공간을 만들지 마세요.
+14.	OS 디스크에 스왑 공간을 만들지 마십시오.
 
-	Azure Linux 에이전트는 Azure에서 프로비전한 후 VM에 연결된 로컬 리소스 디스크를 사용하여 자동으로 스왑 공간을 구성할 수 있습니다. 리소스 디스크는 *temporary* 디스크이며 VM의 프로비전을 해제할 때 비워질 수 있습니다. Azure Linux 에이전트를 설치한 후(이전 단계 참조) /etc/waagent.conf에서 다음 매개 변수를 적절하게 수정합니다.
+	Azure Linux 에이전트는 Azure에서 프로비전한 후 VM에 연결된 로컬 리소스 디스크를 사용하여 자동으로 스왑 공간을 구성할 수 있습니다. 로컬 리소스 디스크는 *임시* 디스크이며 VM의 프로비전을 해제할 때 비워질 수 있습니다. Azure Linux 에이전트를 설치한 후(이전 단계 참조) /etc/waagent.conf에서 다음 매개 변수를 적절하게 수정합니다.
 
 		ResourceDisk.Format=y
 		ResourceDisk.Filesystem=ext4
@@ -362,6 +362,6 @@ Azure용으로 CentOS 7 가상 컴퓨터를 준비하는 작업은 CentOS 6과 �
 16. Hyper-V 관리자에서 **작업 -> 종료**를 클릭합니다. 이제 Linux VHD를 Azure에 업로드할 수 있습니다.
 
 
-
-<!--HONumber=45--> 
  
+
+<!---HONumber=July15_HO1-->

@@ -3,8 +3,7 @@
 	description="" 
 	services="" 
 	documentationCenter="" 
-	authors="flanakin" 
-	writer="" 
+	authors="tfitzmac"
 	manager="wpickett" 
 	editor=""/>
 
@@ -14,8 +13,8 @@
 	ms.tgt_pltfrm="AzurePortal" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/28/2015" 
-	ms.author="micflan"/>
+	ms.date="06/24/2015" 
+	ms.author="tomfitz"/>
 
 
 # 태그를 사용하여 Azure 리소스 구성
@@ -89,6 +88,16 @@ PowerShell을 사용하여 구독 내의 모든 태그 목록을 가져오려면
 
 ![시작 보드에 태그 고정](./media/resource-group-using-tags/pin-tags.png)
 
+## 태그 지정 및 대금 청구
+
+지원 되는 서비스에 대한 청구 데이터를 그룹화하는 데 태그를 사용할 수 있습니다. 예를 들어, [Azure 리소스 관리자와 통합된 가상 컴퓨터](/virtual-machines/virtual-machines-azurerm-versus-azuresm.md)를 사용하면 가상 컴퓨터에 대한 청구 사용을 구성하는 태그를 정의하고 적용할 수 있습니다. 서로 다른 조직에 여러 VM을 실행하는 경우 비용 센터에 따라 그룹 사용에 대한 태그를 사용할 수 있습니다. 또한 프로덕션 환경에서 실행 중인 VM에 대한 청구 사용과 같이 런타임 환경으로 비용을 분류하는 데 태그를 사용할 수 있습니다.
+
+[Azure 계정 포털](https://account.windowsazure.com/) 또는 [EA 포털](https://ea.azure.com)에서 다운로드할 수 있는 [사용 api](billing-usage-rate-card-overview.md) 또는 사용 쉼표로 구분된 값(CSV) 파일을 통해 태그에 대한 정보를 검색할 수 있습니다.
+
+대금 청구에 태그를 지원하는 서비스용 사용 CSV를 다운로드하면 **태그** 열에 태그가 나타납니다 더 자세한 내용은 [Microsoft Azure 청구서 이해](billing-understand-your-bill.md)를 참조하십시오.
+
+![요금 청구에 대한 태그를 참조하십시오.](./media/resource-group-using-tags/billing_csv.png)
+
 ## 다음 단계
 시작하기
 
@@ -112,4 +121,4 @@ PowerShell을 사용하여 구독 내의 모든 태그 목록을 가져오려면
 - [Azure 클래식 포털을 사용하여 새 Azure 서비스 사용자 만들기](./resource-group-create-service-principal-portal.md)  
   
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

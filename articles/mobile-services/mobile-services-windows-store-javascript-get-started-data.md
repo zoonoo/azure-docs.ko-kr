@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="02/26/2015" 
+	ms.date="06/04/2015" 
 	ms.author="glenga"/>
 
 
@@ -21,21 +21,21 @@
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-data-legacy](../../includes/mobile-services-selector-get-started-data-legacy.md)]
 
-# 개요
-이 토픽은 Azure 모바일 서비스를 사용하여 Windows 스토어 앱에서 데이터를 활용하는 방법을 보여 줍니다. 이 자습서에서는 데이터를 메모리에 저장하는 앱용 Visual Studio 2013 프로젝트를 다운로드하여 새 모바일 서비스를 만들고 모바일 서비스를 앱과 통합한 후 Azure 관리 포털에 로그인하여 앱을 실행할 때 수행된 데이터 변경 내용을 확인합니다.
+##개요
+이 항목에서는 Azure 모바일 서비스를 사용하여 Windows 스토어 앱에서 데이터를 활용하는 방법을 보여 줍니다. 이 자습서에서는 데이터를 메모리 내에 저장하는 앱용 Visual Studio 2013 프로젝트를 다운로드하여 새 모바일 서비스를 만들고 모바일 서비스를 앱과 통합한 후 Azure 관리 포털에 로그인하여 앱을 실행할 때 변경된 데이터를 확인합니다.
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
 * 활성 Azure 계정. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fko-kr%2Fdocumentation%2Farticles%2Fmobile-services-windows-store-javascript-get-started-data%2F)을 참조하십시오.
 * Visual Studio 2013에서는 Windows 스토어 앱을 모바일 서비스에 쉽게 연결할 수 있도록 합니다.
 
-## GetStartedWithData 프로젝트 다운로드
+##GetStartedWithData 프로젝트 다운로드
 
 이 자습서는 Visual Studio 2013의 Windows 스토어 앱 프로젝트인 [GetStartedWithMobileServices 앱][Developer Code Samples site]을 기반으로 합니다. 이 앱의 UI는 모바일 서비스 빠른 시작에서 생성된 앱과 동일합니다. 단, 추가된 항목이 로컬에서 메모리에 저장된다는 점은 예외입니다.
 
 1. [개발자 코드 샘플 사이트](영문)에서 GetStartedWithData 샘플 앱의 JavaScript 버전을 다운로드합니다. 
 
-2. Visual Studio 2012 Express for Windows 8에서 다운로드한 프로젝트를 열고 **js** 폴더를 확장한 후 default.js 파일을 검사합니다.
+2. Visual Studio에서 다운로드한 프로젝트를 열고 **js** 폴더를 확장한 후 default.js 파일을 검사합니다.
 
    	추가된 **TodoItem** 개체가 메모리 내 **List** 개체에 저장됩니다.
 
@@ -47,12 +47,12 @@
 
    	저장된 텍스트는 **데이터 쿼리 및 업데이트** 아래 두 번째 열에 표시됩니다.
 
-## <a name="create-service"></a>Visual Studio에서 새 모바일 서비스 만들기
+##<a name="create-service"></a>Visual Studio에서 새 모바일 서비스 만들기
 
 [AZURE.INCLUDE [mobile-services-create-new-service-vs2013](../../includes/mobile-services-create-new-service-vs2013.md)]
 
 <ol start="7">
-<li><p>솔루션 탐색기에서 <strong>services</strong>, <strong>mobile services</strong>, <strong>&lt;your_service></strong> 폴더를 확장하고 service.js 스크립트 파일을 연 후 새 전역 변수를 확인합니다. 다음 예제와 같이 표시됩니다.</p> 
+<li><p>솔루션 탐색기에서 **services**, **mobile services**, **&lt;your_service>** 폴더를 확장하고 service.js 스크립트 파일을 연 후 새 전역 변수를 확인합니다. 다음 예제와 같이 표시됩니다.</p> 
 
 		<pre><code>var todolistClient = new WindowsAzure.MobileServiceClient(
                 "https://todolist.azure-mobile.net/",
@@ -62,15 +62,15 @@
 </li>
 </ol>
 
-## 데이터 저장소로 사용할 새 테이블 추가
+##데이터 저장소로 사용할 새 테이블 추가
 
 [AZURE.INCLUDE [mobile-services-create-new-table-vs2013](../../includes/mobile-services-create-new-table-vs2013.md)]
 
-# 모바일 서비스를 사용하도록 앱 업데이트
+##모바일 서비스를 사용하도록 앱 업데이트
 
 [AZURE.INCLUDE [mobile-services-windows-javascript-update-data-app](../../includes/mobile-services-windows-javascript-update-data-app.md)]
 
-## 새 모바일 서비스에 대해 앱 테스트
+##새 모바일 서비스에 대해 앱 테스트
 
 1. Visual Studio에서 F5 키를 눌러 앱을 실행합니다.
 
@@ -110,9 +110,9 @@
 
 이 자습서에서는 Windows 스토어 앱에서 모바일 서비스의 데이터로 작업하기 위한 기본 사항에 대해 설명했습니다. 다음으로 다른 항목 중 하나를 읽는 것이 좋습니다.
 
-* [인증 시작] <br/>앱 사용자를 인증하는 방법을 알아봅니다.
+* [앱에 인증 추가](mobile-services-windows-store-javascript-get-started-users.md) <br/>앱 사용자를 인증하는 방법을 알아봅니다.
 
-* [푸시 알림 시작] <br/>기본적인 푸시 알림을 앱에 보내는 방법을 알아봅니다.
+* [앱에 푸시 알림 추가](mobile-services-javascript-backend-windows-store-javascript-get-started-push.md) <br/>기본적인 푸시 알림을 앱에 보내는 방법을 알아봅니다.
 
 * [모바일 서비스 HTML/JavaScript 방법 개념 참조](mobile-services-html-how-to-use-client-library.md) <br/>HTML 및 JavaScript와 함께 모바일 서비스를 사용하는 방법을 자세히 알아봅니다.
 
@@ -133,18 +133,12 @@
 
 
 <!-- URLs. -->
-[Validate and modify data with scripts]: ../mobile-services-windows-store-javascript-validate-modify-data-server-scripts.md
-[Refine queries with paging]: ../mobile-services-windows-store-javascript-add-paging-data.md
-[Get started with Mobile Services]: mobile-services-javascript-backend-windows-store-javascript-get-started.md
-[Get started with data]: mobile-services-windows-store-javascript-get-started-data.md
-[인증 시작]: mobile-services-windows-store-javascript-get-started-users.md
-[푸시 알림 시작]: mobile-services-javascript-backend-windows-store-javascript-get-started-push.md
-
 [Azure Management Portal]: https://manage.windowsazure.com/
 [관리 포털]: https://manage.windowsazure.com/
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [Developer Code Samples site]: http://go.microsoft.com/fwlink/p/?LinkId=328660
 [개발자 코드 샘플 사이트]: http://go.microsoft.com/fwlink/p/?LinkId=328660
 [Mobile Services HTML/JavaScript How-to Conceptual Reference]: mobile-services-html-how-to-use-client-library.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

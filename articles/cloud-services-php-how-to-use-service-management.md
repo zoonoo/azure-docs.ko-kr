@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Azure 서비스 관리 API 사용 방법(PHP)" 
-	description="Azure PHP 서비스 관리 API를 사용하여 클라우드 서비스 및 기타 Azure 응용 프로그램을 관리하는 방법에 대해 알아봅니다." 
-	services="web-sites" 
-	documentationCenter="php" 
-	authors="tfitzmac" 
-	manager="wpickett" 
+<properties
+	pageTitle="Azure 서비스 관리 API 사용 방법(PHP)"
+	description="Azure PHP 서비스 관리 API를 사용하여 클라우드 서비스 및 기타 Azure 응용 프로그램을 관리하는 방법에 대해 알아봅니다."
+	services="web-sites"
+	documentationCenter="php"
+	authors="tfitzmac"
+	manager="wpickett"
 	editor="mollybos"/>
 
-<tags 
-	ms.service="cloud-services" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="PHP" 
-	ms.topic="article" 
-	ms.date="11/17/2014" 
+<tags
+	ms.service="cloud-services"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="PHP"
+	ms.topic="article"
+	ms.date="11/17/2014"
 	ms.author="tomfitz"/>
 
 # PHP에서 서비스 관리를 사용하는 방법
@@ -52,14 +52,14 @@ Azure 서비스 관리를 사용하는 PHP 응용 프로그램을 만드는 데 
 
 Azure 인증서에 대한 자세한 내용은 [Azure의 인증서 개요](http://msdn.microsoft.com/library/azure/gg981929.aspx)를 참조하세요. OpenSSL 매개 변수에 대한 자세한 설명은 [http://www.openssl.org/docs/apps/openssl.html](http://www.openssl.org/docs/apps/openssl.html)(영문)의 자료를 참조하세요.
 
-[Azure 명령줄 도구][command-line-tools]를 사용하여 게시 설정 파일을 다운로드하고 가져온 경우 고유한 파일을 만드는 대신 도구에서 만든 `.pem` 파일을 사용할 수 있습니다. 도구에서 자동으로 `.cer` 파일을 만들어 Azure에 업로드하며, 컴퓨터의 사용자 디렉터리에 있는 `.azure` 디렉터리에 해당 `.pem` 파일을 저장합니다.
+[Azure 명령줄 인터페이스][Azure CLI]를 사용하여 게시 설정 파일을 다운로드하고 가져온 경우 고유한 파일을 만드는 대신 도구에서 만든 `.pem` 파일을 사용할 수 있습니다. 도구에서 자동으로 `.cer` 파일을 만들어 Azure에 업로드하며, 컴퓨터의 사용자 디렉터리에 있는 `.azure` 디렉터리에 해당 `.pem` 파일을 저장합니다.
 
 이러한 파일을 만든 후에는 [관리 포털][management-portal]을 통해 `.cer` 파일을 Azure에 업로드해야 하고, `.pem` 파일을 저장한 위치를 기록해 두어야 합니다.
 
 구독 ID를 얻어 인증서를 만들고 `.cer` 파일을 Azure에 업로드하고 나면 연결 문자열을 만들고 **ServicesBuilder** 클래스의 **createServiceManagementService** 메서드에 전달하여 Azure 관리 끝점에 연결할 수 있습니다.
 
 	require_once 'vendor\autoload.php';
-	
+
 	use WindowsAzure\Common\ServicesBuilder;
 
 	$conn_string = "SubscriptionID=<your_subscription_id>;CertificatePath=<path_to_.pem_certificate>";
@@ -79,9 +79,9 @@ Azure 인증서에 대한 자세한 내용은 [Azure의 인증서 개요](http:/
 
 	try{
 		$serviceManagementRestProxy = ServicesBuilder::getInstance()->createServiceManagementService($conn_string);
-	
+
 		$result = $serviceManagementRestProxy->listLocations();
-	
+
 		$locations = $result->getLocations();
 
 		foreach($locations as $location){
@@ -90,7 +90,7 @@ Azure 인증서에 대한 자세한 내용은 [Azure의 인증서 개요](http:/
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
-		// Error codes and messages are here: 
+		// Error codes and messages are here:
 		// http://msdn.microsoft.com/library/windowsazure/ee460801
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
@@ -99,19 +99,19 @@ Azure 인증서에 대한 자세한 내용은 [Azure의 인증서 개요](http:/
 
 클라우드 서비스, 저장소 서비스 또는 선호도 그룹을 만드는 경우 유효한 위치를 제공해야 합니다. **listLocations** 메서드는 항상 현재 사용 가능한 위치의 최신 목록을 반환합니다. 현재 사용 가능한 위치는 다음과 같습니다.
 
-- 미국 전역 
-- 유럽 전역 
-- 서유럽 
-- 아시아 전역 
-- 동남아시아 
-- 동아시아 
-- 미국 중북부 
-- 북유럽 
-- 미국 중남부 
-- 미국 서부 
+- 미국 전역
+- 유럽 전역
+- 서유럽
+- 아시아 전역
+- 동남아시아
+- 동아시아
+- 미국 중북부
+- 북유럽
+- 미국 중남부
+- 미국 서부
 - 미국 동부
 
-뒤에 나오는 코드 예제에서는 위치가 문자열로 메서드에 전달됩니다. 그러나 <code>WindowsAzure\\ServiceManagement\\Models\\Locations</code> 클래스를 사용하여 위치를 열거로 전달할 수도 있습니다. 예를 들어 위치를 수락하는 메서드에 "West US"를 전달하는 대신 <code>Locations::WEST_US</code>를 전달할 수 있습니다.
+뒤에 나오는 코드 예제에서는 위치가 문자열로 메서드에 전달됩니다. 그러나 <code>WindowsAzure\ServiceManagement\Models\Locations</code> 클래스를 사용하여 위치를 열거로 전달할 수도 있습니다. 예를 들어 위치를 수락하는 메서드에 "West US"를 전달하는 대신 <code>Locations::WEST_US</code>를 전달할 수 있습니다.
 
 ## 방법: 클라우드 서비스 만들기
 
@@ -126,7 +126,7 @@ Azure 인증서에 대한 자세한 내용은 [Azure의 인증서 개요](http:/
 	try{
 		// Create REST proxy.
 		$serviceManagementRestProxy = ServicesBuilder::getInstance()->createServiceManagementService($conn_string);
-		
+
         $name = "myhostedservice";
         $label = base64_encode($name);
         $options = new CreateServiceOptions();
@@ -138,7 +138,7 @@ Azure 인증서에 대한 자세한 내용은 [Azure의 인증서 개요](http:/
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
-		// Error codes and messages are here: 
+		// Error codes and messages are here:
 		// http://msdn.microsoft.com/library/windowsazure/ee460801
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
@@ -162,9 +162,9 @@ Azure 인증서에 대한 자세한 내용은 [Azure의 인증서 개요](http:/
 특정 호스팅 서비스에 대한 정보를 가져오려는 경우 호스팅 서비스 이름을 **getHostedServiceProperties** 메서드에 전달하면 됩니다.
 
 	$getHostedServicePropertiesResult = $serviceManagementRestProxy->getHostedServiceProperties("myhostedservice");
-		
+
 	$hosted_service = $getHostedServicePropertiesResult->getHostedService();
-		
+
 	echo "Service name: ".$hosted_service->getName()."<br />";
 	echo "Management URL: ".$hosted_service->getUrl()."<br />";
 	echo "Affinity group: ".$hosted_service->getAffinityGroup()."<br />";
@@ -203,7 +203,7 @@ Azure 인증서에 대한 자세한 내용은 [Azure의 인증서 개요](http:/
 	try{
 		// Create REST proxy.
 		$serviceManagementRestProxy = ServicesBuilder::getInstance()->createServiceManagementService($conn_string);
-		
+
         $name = "myhostedservice";
 		$deploymentName = "v1";
         $slot = DeploymentSlot::PRODUCTION;
@@ -217,13 +217,13 @@ Azure 인증서에 대한 자세한 내용은 [Azure의 인증서 개요](http:/
 														 $packageUrl,
 														 $configuration,
 														 $label);
-		
+
 		$status = $serviceManagementRestProxy->getOperationStatus($result);
 		echo "Operation status: ".$status->getStatus()."<br />";
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
-		// Error codes and messages are here: 
+		// Error codes and messages are here:
 		// http://msdn.microsoft.com/library/windowsazure/ee460801
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
@@ -236,7 +236,7 @@ Azure 인증서에 대한 자세한 내용은 [Azure의 인증서 개요](http:/
 
 	$options = new GetDeploymentOptions();
 	$options->setSlot(DeploymentSlot::PRODUCTION);
-		
+
 	$getDeploymentResult = $serviceManagementRestProxy->getDeployment("myhostedservice", $options);
 	$deployment = $getDeploymentResult->getDeployment();
 
@@ -268,20 +268,20 @@ Azure 인증서에 대한 자세한 내용은 [Azure의 인증서 개요](http:/
 	try{
 		// Create REST proxy.
 		$serviceManagementRestProxy = ServicesBuilder::getInstance()->createServiceManagementService($conn_string);
-		
+
         $name = "myhostedservice";
 		$configuration = base64_encode(file_get_contents('path to .cscfg file'));
 		$options = new ChangeDeploymentConfigurationOptions();
 		$options->setSlot(DeploymentSlot::PRODUCTION);
 
         $result = $serviceManagementRestProxy->changeDeploymentConfiguration($name, $configuration, $options);
-		
+
 		$status = $serviceManagementRestProxy->getOperationStatus($result);
 		echo "Operation status: ".$status->getStatus()."<br />";
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
-		// Error codes and messages are here: 
+		// Error codes and messages are here:
 		// http://msdn.microsoft.com/library/windowsazure/ee460801
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
@@ -299,19 +299,19 @@ Azure 인증서에 대한 자세한 내용은 [Azure의 인증서 개요](http:/
 	use WindowsAzure\ServiceManagement\Models\DeploymentSlot;
 	use WindowsAzure\ServiceManagement\Models\GetDeploymentOptions;
 	use WindowsAzure\Common\ServiceException;
-	
+
 	try{
 		// Create REST proxy.
 		$serviceManagementRestProxy = ServicesBuilder::getInstance()->createServiceManagementService($conn_string);
-		
+
 		$options = new GetDeploymentOptions();
 		$options->setSlot(DeploymentSlot::PRODUCTION);
-		
+
         $result = $serviceManagementRestProxy->updateDeploymentStatus("myhostedservice", DeploymentStatus::RUNNING, $options);
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
-		// Error codes and messages are here: 
+		// Error codes and messages are here:
 		// http://msdn.microsoft.com/library/windowsazure/ee460801
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
@@ -324,7 +324,7 @@ Azure에서는 스테이징 및 프로덕션이라는 두 가지 환경을 제�
 
 다음 예제는 **swapDeployment** 메서드를 사용하여 두 배포(이름이 `v1`과 `v2`인 배포)를 교환하는 방법을 보여 줍니다. 예제에서는 **swapDeployment**를 호출하기 전 배포 `v1`은 프로덕션 슬롯에 있고 배포 `v2`는 스테이징 슬롯에 있습니다. **swapDeployment**를 호출한 후 `v2`는 프로덕션에 있고 `v1`은 스테이징에 있습니다.
 
-	require_once 'vendor\autoload.php';	
+	require_once 'vendor\autoload.php';
 
 	use WindowsAzure\Common\ServicesBuilder;
 	use WindowsAzure\Common\ServiceException;
@@ -332,12 +332,12 @@ Azure에서는 스테이징 및 프로덕션이라는 두 가지 환경을 제�
 	try{
 		// Create REST proxy.
 		$serviceManagementRestProxy = ServicesBuilder::getInstance()->createServiceManagementService($conn_string);
-		
+
 		$result = $serviceManagementRestProxy->swapDeployment("myhostedservice", "v2", "v1");
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
-		// Error codes and messages are here: 
+		// Error codes and messages are here:
 		// http://msdn.microsoft.com/library/windowsazure/ee460801
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
@@ -358,15 +358,15 @@ Azure에서는 스테이징 및 프로덕션이라는 두 가지 환경을 제�
 	try{
 		// Create REST proxy.
 		$serviceManagementRestProxy = ServicesBuilder::getInstance()->createServiceManagementService($conn_string);
-		
+
 		$options = new GetDeploymentOptions();
 		$options->setSlot(DeploymentSlot::STAGING);
-		
+
 		$result = $serviceManagementRestProxy->deleteDeployment("myhostedservice", $options);
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
-		// Error codes and messages are here: 
+		// Error codes and messages are here:
 		// http://msdn.microsoft.com/library/windowsazure/ee460801
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
@@ -378,16 +378,16 @@ Azure에서는 스테이징 및 프로덕션이라는 두 가지 환경을 제�
 [저장소 서비스]로 Azure [Blob][azure-blobs], [테이블][azure-tables], [큐][azure-queues]에 액세스할 수 있습니다. 저장소 서비스를 만들려면 서비스 이름(3자에서 24자 사이의 소문자로서 Azure 내에서 고유해야 함), 레이블(base64로 인코딩된 서비스 이름으로 최대 100자까지 가능) 및 위치 또는 선호도 그룹이 필요합니다. 선택적으로 서비스에 대한 설명을 제공할 수 있습니다. 위치, 선호도 그룹 및 설명은 [createStorageService] 메서드에 전달되는 **CreateServiceOptions** 개체에서 설정됩니다. 다음 예제에서는 위치를 지정하여 저장소 서비스를 만드는 방법을 보여 줍니다. 선호도 그룹을 사용하려면 먼저 선호도 그룹을 만들고([방법: 선호도 그룹 만들기](#CreateAffinityGroup)) **CreateServiceOptions->setAffinityGroup** 메서드로 설정해야 합니다.
 
 	require_once 'vendor\autoload.php';
-	 
+
 	use WindowsAzure\Common\ServicesBuilder;
 	use WindowsAzure\ServiceManagement\Models\CreateServiceOptions;
 	use WindowsAzure\Common\ServiceException;
-	 
-	 
+
+
 	try{
 		// Create REST proxy.
 		$serviceManagementRestProxy = ServicesBuilder::getInstance()->createServiceManagementService($conn_string);
-		
+
         $name = "mystorageaccount";
         $label = base64_encode($name);
         $options = new CreateServiceOptions();
@@ -401,7 +401,7 @@ Azure에서는 스테이징 및 프로덕션이라는 두 가지 환경을 제�
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
-		// Error codes and messages are here: 
+		// Error codes and messages are here:
 		// http://msdn.microsoft.com/library/windowsazure/ee460801
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
@@ -430,19 +430,19 @@ Azure에서는 스테이징 및 프로덕션이라는 두 가지 환경을 제�
 저장소 서비스 이름을 **deleteStorageService** 메서드에 전달하여 저장소 서비스를 삭제할 수 있습니다. 저장소 서비스를 삭제하면 그 서비스에 저장되어 있는 모든 데이터(Blob, 테이블, 큐)가 삭제됩니다.
 
 	require_once 'vendor\autoload.php';
-	
+
 	use WindowsAzure\Common\ServicesBuilder;
 	use WindowsAzure\Common\ServiceException;
 
 	try{
 		// Create REST proxy.
 		$serviceManagementRestProxy = ServicesBuilder::getInstance()->createServiceManagementService($conn_string);
-		
+
 		$serviceManagementRestProxy->deleteStorageService("mystorageservice");
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
-		// Error codes and messages are here: 
+		// Error codes and messages are here:
 		// http://msdn.microsoft.com/library/windowsazure/ee460801
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
@@ -456,27 +456,27 @@ Azure에서는 스테이징 및 프로덕션이라는 두 가지 환경을 제�
 선호도 그룹을 만들려면 이름, 레이블(base64로 인코딩된 이름) 및 위치가 필요합니다. 설명은 선택적으로 제공할 수 있습니다.
 
 	require_once 'vendor\autoload.php';
-	
+
 	use WindowsAzure\Common\ServicesBuilder;
 	use WindowsAzure\ServiceManagement\Models\CreateAffinityGroupOptions;
 	use WindowsAzure\Common\ServiceException;
-	 
+
 	try{
 		// Create REST proxy.
 		$serviceManagementRestProxy = ServicesBuilder::getInstance()->createServiceManagementService($conn_string);
-		
+
         $name = "myAffinityGroup";
         $label = base64_encode($name);
         $location = "West US";
 
         $options = new CreateAffinityGroupOptions();
 		$options->setDescription = "My affinity group description.";
-		
+
         $serviceManagementRestProxy->createAffinityGroup($name, $label, $location, $options);
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
-		// Error codes and messages are here: 
+		// Error codes and messages are here:
 		// http://msdn.microsoft.com/library/windowsazure/ee460801
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
@@ -488,7 +488,7 @@ Azure에서는 스테이징 및 프로덕션이라는 두 가지 환경을 제�
 **listAffinityGroups** 메서드를 호출한 다음 [AffinityGroup] 클래스의 해당 메서드를 호출하여 선호도 그룹을 나열하고 해당 속성을 검사할 수 있습니다.
 
 	$result = $serviceManagementRestProxy->listAffinityGroups();
-	
+
 	$groups = $result->getAffinityGroups();
 
 	foreach($groups as $group){
@@ -499,31 +499,33 @@ Azure에서는 스테이징 및 프로덕션이라는 두 가지 환경을 제�
 	}
 
 ## 방법: 선호도 그룹 삭제
-	
+
 그룹 이름을 **deleteAffinityGroup** 메서드에 전달하여 선호도 그룹을 삭제할 수 있습니다. 선호도 그룹은 서비스(또는 선호도 그룹을 삭제해야 하는 데 사용하는 서비스)와의 연결을 끊어야만 삭제할 수 있습니다.
 
 	require_once 'vendor\autoload.php';
-	
+
 	use WindowsAzure\Common\ServicesBuilder;
 	use WindowsAzure\Common\ServiceException;
 
 	try{
 		// Create REST proxy.
 		$serviceManagementRestProxy = ServicesBuilder::getInstance()->createServiceManagementService($conn_string);
-		
-		// An affinity group must be disassociated from all services 
+
+		// An affinity group must be disassociated from all services
 		// before it can be deleted.
 		$serviceManagementRestProxy->deleteAffinityGroup("myAffinityGroup");
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
-		// Error codes and messages are here: 
+		// Error codes and messages are here:
 		// http://msdn.microsoft.com/library/windowsazure/ee460801
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
 	}
+
 [ServiceManagementRestProxy]: https://github.com/WindowsAzure/azure-sdk-for-php/blob/master/WindowsAzure/ServiceManagement/ServiceManagementRestProxy.php
+
 [PHP용 Azure SDK]: https://github.com/WindowsAzure/azure-sdk-for-php/blob/master/WindowsAzure/ServiceManagement/ServiceManagementRestProxy.php
 [management-portal]: https://manage.windowsazure.com/
 [svc-mgmt-rest-api]: http://msdn.microsoft.com/library/windowsazure/ee460799.aspx
@@ -531,7 +533,7 @@ Azure에서는 스테이징 및 프로덕션이라는 두 가지 환경을 제�
 [storage-account]: storage/storage-create-storage-account.md
 
 [download-SDK-PHP]: php-download-sdk.md
-[command-line-tools]: virtual-machines-command-line-tools.md
+[Azure CLI]: virtual-machines/virtual-machines-command-line-tools.md
 [Composer]: http://getcomposer.org/
 [ServiceManagementSettings]: https://github.com/WindowsAzure/azure-sdk-for-php/blob/master/WindowsAzure/ServiceManagement/ServiceManagementSettings.php
 
@@ -557,4 +559,4 @@ Azure에서는 스테이징 및 프로덕션이라는 두 가지 환경을 제�
 
 [Azure 서비스 구성 스키마(.cscfg)]: http://msdn.microsoft.com/library/windowsazure/ee758710.aspx
 
-<!--HONumber=54-->
+<!---HONumber=July15_HO1-->

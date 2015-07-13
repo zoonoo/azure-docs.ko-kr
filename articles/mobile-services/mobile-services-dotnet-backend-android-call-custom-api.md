@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="02/16/2015" 
-	ms.author="ricksal,glenga"/>
+	ms.date="06/03/2015" 
+	ms.author="ricksal"/>
 
 # 클라이언트에서 사용자 지정 API 호출
 
@@ -33,7 +33,7 @@
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-create-custom-api](../../includes/mobile-services-dotnet-backend-create-custom-api.md)]
 
-[AZURE.INCLUDE [mobile-services-android-call-custom-api](mobile-services-android-call-custom-api.md)]
+[AZURE.INCLUDE [mobile-services-android-call-custom-api](../../includes/mobile-services-android-call-custom-api.md)]
 
 ## 다음 단계
 
@@ -62,5 +62,6 @@
 [Get started with push notifications]: mobile-services-dotnet-backend-android-get-started-push.md
 
 [원본 제어에 서버 스크립트 저장]: mobile-services-store-scripts-source-control.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

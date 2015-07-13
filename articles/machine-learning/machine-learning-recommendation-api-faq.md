@@ -130,4 +130,4 @@ API 설명서는 [Azure 기계 학습 권장 사항 - 빠른 시작 가이드](m
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

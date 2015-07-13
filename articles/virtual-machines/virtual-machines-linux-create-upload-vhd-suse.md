@@ -177,4 +177,7 @@
 
 13. Hyper-V 관리자에서 **작업 -> 종료**를 클릭합니다. 이제 Linux VHD를 Azure에 업로드할 수 있습니다.
 
-<!---HONumber=58--> 
+
+ 
+
+<!---HONumber=July15_HO1-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="미디어 서비스에서 스트리밍 콘텐츠를 제공하는 방법 - Azure" 
+	pageTitle="미디어 서비스에서 스트리밍 콘텐츠를 제공하는 방법" 
 	description="스트리밍 URL을 작성하는 데 사용되는 로케이터를 만드는 방법에 대해 알아봅니다. 코드 샘플은 C#으로 작성되었으며 Media Services SDK for .NET을 사용합니다." 
 	authors="juliako" 
 	manager="dwrede" 
@@ -13,24 +13,24 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/17/2015" 
+	ms.date="05/24/2015" 
 	ms.author="juliako"/>
 
 
-# 방법: 스트리밍 콘텐츠 제공
+#방법: 스트리밍 콘텐츠 제공
 
 
-이 문서는 [미디어 서비스 주문형 비디오 워크플로](media-services-video-on-demand-workflow.md) 및 [미디어 서비스 라이브 스트리밍 워크플로](media-services-live-streaming-workflow.md) 시리즈의 일부입니다.  
+이 문서는 [미디어 서비스 주문형 비디오 워크플로](media-services-video-on-demand-workflow.md) 및 [미디어 서비스 라이브 스트리밍 워크플로](media-services-live-streaming-workflow.md) 시리즈의 일부입니다.
 
-## 개요
+##개요
 
-적응 비트 전송률 MP4 집합은 주문형 스트리밍 로케이터를 만들고 스트리밍 URL을 작성하여 스트리밍할 수 있습니다. [자산 인코딩](media-services-encode-asset.md) 항목에서는 적응 비트 전송률 MP4 집합으로 인코딩하는 방법을 보여줍니다. 로케이터를 만들기 전에 [이](media-services-dotnet-configure-asset-delivery-policy.md) 항목에서 설명한 대로 자산 배달 정책을 구성해야 합니다. 
+적응 비트 전송률 MP4 집합은 주문형 스트리밍 로케이터를 만들고 스트리밍 URL을 작성하여 스트리밍할 수 있습니다. [자산 인코딩](media-services-encode-asset.md) 항목에서는 적응 비트 전송률 MP4 집합으로 인코딩하는 방법을 보여줍니다. 로케이터를 만들기 전에 [이](media-services-dotnet-configure-asset-delivery-policy.md) 항목에서 설명한 대로 자산 배달 정책을 구성해야 합니다.
 
-주문형 스트리밍 로케이터는 점진적으로 다운로드할 수 있는 MP4 파일을 가리키는 URL을 작성하는 데 사용할 수도 있습니다.  
+주문형 스트리밍 로케이터는 점진적으로 다운로드할 수 있는 MP4 파일을 가리키는 URL을 작성하는 데 사용할 수도 있습니다.
 
-이 항목에서는 자산을 게시하고 부드러운 MPEG DASH 및 HLS 스트리밍 URL을 개발하기 위해 주문형 스트리밍 로케이터를 만드는 방법을 보여 줍니다. 또한 점진적 다운로드 URL을 작성하는 핫을 보여 줍니다. 
+이 항목에서는 자산을 게시하고 부드러운 MPEG DASH 및 HLS 스트리밍 URL을 개발하기 위해 주문형 스트리밍 로케이터를 만드는 방법을 보여 줍니다. 또한 점진적 다운로드 URL을 작성하는 핫을 보여 줍니다.
   	 
-## 주문형 스트리밍 로케이터 만들기
+##주문형 스트리밍 로케이터 만들기
 
 주문형 스트리밍 로케이터를 만들고 URL을 가져오려면 다음을 수행해야 합니다.
 
@@ -42,9 +42,9 @@
    4. 매니페스트 파일 또는 MP4 파일에 URL을 작성합니다. 
    
 
-### Media Services .NET SDK 사용 
+###Media Services .NET SDK 사용 
 
-스트리밍 URL 작성 
+스트리밍 URL 작성
 
 	private static void BuildStreamingURLs(IAsset asset)
 	{
@@ -92,7 +92,7 @@
 	http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny.ism/manifest(format=mpd-time-csf)
 	
 
-점진적 다운로드 URL 작성 
+점진적 다운로드 URL 작성
 
 	private static void BuildProgressiveDownloadURLs(IAsset asset)
 	{
@@ -131,7 +131,7 @@
 	
 	. . . 
 
-### Media Services .NET SDK Extensions 사용
+###Media Services .NET SDK Extensions 사용
 
 다음 코드는 로케이터를 만들고 적응 스트리밍에 대한 부드러운 스트리밍, HLS 및 MPEG-DASH URL을 생성하는 .NET SDK 확장 메서드를 호출합니다.
 
@@ -150,6 +150,6 @@
 	Console.WriteLine(smoothStreamingUri);
 	Console.WriteLine(hlsUri);
 	Console.WriteLine(mpegDashUri);
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=July15_HO1-->

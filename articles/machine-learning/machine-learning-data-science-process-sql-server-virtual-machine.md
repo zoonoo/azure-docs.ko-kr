@@ -1,7 +1,6 @@
 <properties 
-	pageTitle="SQL Azure에서 데이터 처리 | Azure" 
+	pageTitle="SQL Azure에서 데이터 처리 | Microsoft Azure" 
 	description="SQL Azure에서 데이터 처리" 
-	metaKeywords="" 
 	services="machine-learning" 
 	solutions="" 
 	documentationCenter="" 
@@ -15,8 +14,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/19/2015" 
-	ms.author="fashah,garye" /> 
+	ms.date="05/29/2015" 
+	ms.author="fashah;garye" />
 
 #<a name="heading"></a>Azure의 SQL Server 가상 컴퓨터에서 데이터 처리
 
@@ -44,13 +43,13 @@ SQL Server에서 데이터 저장소를 탐색하는 데 사용할 수 있는 �
 
 1. 일별 관찰 수 가져오기
 
-	`SELECT CONVERT(date, <date_columnname>) as date, count(*) as c from <tablename> group by CONVERT(date, <date_columnname>)` 
+	`SELECT CONVERT(date, <date_columnname>) as date, count(*) as c from <tablename> group by CONVERT(date, <date_columnname>)`
 
 2. 범주 열의 수준 가져오기
 
 	`select  distinct <column_name> from <databasename>`
 
-3. 두 범주 열 조합의 수준 수 가져오기 
+3. 두 범주 열 조합의 수준 수 가져오기
 
 	`select <column_a>, <column_b>,count(*) from <tablename> group by <column_a>, <column_b>`
 
@@ -61,14 +60,14 @@ SQL Server에서 데이터 저장소를 탐색하는 데 사용할 수 있는 �
 
 ####<a name="sql-featuregen"></a>기능 생성
 
-이 섹션에서는 SQL을 사용하여 기능을 생성하는 방법에 대해 설명합니다.  
+이 섹션에서는 SQL을 사용하여 기능을 생성하는 방법에 대해 설명합니다.
 
 1. [개수 기반 기능 생성](#sql-countfeature)
 2. [범주화 기능 생성](#sql-binningfeature)
 3. [단일 열에서 기능 롤아웃](#sql-featurerollout)
 
 **참고**
->추가 기능을 생성한 후 이를 기존 테이블에 열로 추가하거나, 추가 기능 및 기본 키를 사용하여 새 테이블을 만들어 원래 테이블에 조인할 수 있습니다. 
+>추가 기능을 생성한 후 이를 기존 테이블에 열로 추가하거나, 추가 기능 및 기본 키를 사용하여 새 테이블을 만들어 원래 테이블에 조인할 수 있습니다.
 
 ####<a name="sql-countfeature"></a>개수 기반 기능 생성
 
@@ -90,7 +89,7 @@ SQL Server에서 데이터 저장소를 탐색하는 데 사용할 수 있는 �
 
 이 섹션에서는 테이블의 단일 열을 롤아웃하여 추가 기능을 생성하는 방법을 보여 줍니다. 이 예제에서는 기능을 생성하려는 테이블에 위도 또는 경도 열이 있는 것으로 가정합니다.
 
-다음은 위도/경도 위치 데이터에 대한 간략한 기초 정보입니다(stackoverflow `http://gis.stackexchange.com/questions/8650/how-to-measure-the-accuracy-of-latitude-and-longitude`에서 발췌). 위치 필드를 기능화하기 전에 이 정보를 이해하는 것이 좋습니다.
+다음은 위도/경도 위치 데이터에 대한 간략한 기초 정보입니다(stackoverflow(`http://gis.stackexchange.com/questions/8650/how-to-measure-the-accuracy-of-latitude-and-longitude`)에서 발췌). 위치 필드를 기능화하기 전에 이 정보를 이해하는 것이 좋습니다.
 
 - 부호는 지구에서 현재 위치의 방위(북쪽, 남쪽, 동쪽 또는 서쪽)를 알려 줍니다.
 - 0이 아닌 100자리수는 위도가 아니라 경도를 사용하고 있음을 알려 줍니다.
@@ -116,19 +115,19 @@ SQL Server에서 데이터 저장소를 탐색하는 데 사용할 수 있는 �
 		,l7=case when LEN (PARSENAME(round(ABS(<location_columnname>) - FLOOR(ABS(<location_columnname>)),6),1)) >= 6 then substring(PARSENAME(round(ABS(<location_columnname>) - FLOOR(ABS(<location_columnname>)),6),1),6,1) else '0' end 	
 	from <tablename>
 
-위의 위치 기반 기능을 사용하여 앞서 설명한 대로 추가 개수 기능을 생성할 수도 있습니다. 
+위의 위치 기반 기능을 사용하여 앞서 설명한 대로 추가 개수 기능을 생성할 수도 있습니다.
 
 
 **팁**
 
-> 1. 선택한 언어를 사용하여 프로그래밍 방식으로 레코드를 삽입할 수 있습니다. 쓰기 효율성을 개선하기 위해 청크에 데이터를 삽입해야 할 수도 있습니다. [pyodbc를 사용하여 이 작업을 수행하는 방법에 대한 예제는 여기를 참조하세요](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python). 
+> 1. 선택한 언어를 사용하여 프로그래밍 방식으로 레코드를 삽입할 수 있습니다. 쓰기 효율성을 개선하기 위해 청크에 데이터를 삽입해야 할 수도 있습니다. [pyodbc를 사용하여 이 작업을 수행하는 방법에 대한 예제는 여기를 참조](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python)하세요. 
 > 2. 또 다른 방법은 [BCP 유틸리티](https://msdn.microsoft.com/library/ms162802.aspx)를 사용하여 데이터베이스에 데이터를 삽입하는 것입니다.
 
 ####<a name="sql-aml"></a>Azure 기계 학습에 연결
 
-새로 생성한 기능을 기존 테이블에 열로 추가하거나, 새 테이블에 저장하여 기계 학습을 위해 원래 테이블과 조인할 수 있습니다. Azure 기계 학습에서는 아래 표시된 대로 *Reader Module*을 사용하여 기능을 생성하거나 액세스(이미 만든 경우)할 수 있습니다.
+새로 생성한 기능을 기존 테이블에 열로 추가하거나, 새 테이블에 저장하여 기계 학습을 위해 원래 테이블과 조인할 수 있습니다. Azure 기계 학습에서는 아래 표시된 대로 [판독기][reader] 모듈을 사용하여 기능을 생성하거나 액세스(이미 만든 경우)할 수 있습니다.
 
-![azureml readers][1] 
+![azureml 판독기][1]
 
 ###<a name="python"></a>Python과 같은 프로그래밍 언어 사용
 
@@ -149,8 +148,13 @@ Python의 [Pandas 라이브러리](http://pandas.pydata.org/)에서는 Python �
 
 ### Azure 데이터 과학 작동 예제
 
-공용 데이터 집합을 사용한 Azure 데이터 과학 프로세스의 종단 간 연습 예제는 [Azure 데이터 과학 프로세스 작동](machine-learning-data-science-process-sql-walkthrough.md)을 참조하세요.
+공용 데이터 집합을 사용한 Azure 데이터 과학 프로세스의 종단 간 연습 예제는 [Azure에서 Azure 데이터 과학 프로세스](machine-learning-data-science-process-sql-walkthrough.md)를 참조하세요.
 
 [1]: ./media/machine-learning-data-science-process-sql-server-virtual-machine/reader_db_featurizedinput.png
 
-<!--HONumber=49--> 
+
+<!-- Module References -->
+[reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+ 
+
+<!---HONumber=July15_HO1-->

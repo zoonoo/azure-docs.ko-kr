@@ -1,6 +1,6 @@
 <properties 
    pageTitle="StorSimple이란?" 
-   description="StorSimple 기능, 아키텍처 및 구성 요소를 설명합니다." 
+   description="StorSimple 기능 및 아키텍처를 설명하고 StorSimple 구성 요소를 소개합니다." 
    services="storsimple" 
    documentationCenter="NA" 
    authors="SharS" 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="02/17/2015"
+   ms.date="05/27/2015"
    ms.author="v-sharos@microsoft.com"/>
 
 # StorSimple이란? 
@@ -24,11 +24,11 @@ Microsoft Azure StorSimple은 다양한 문제 및 엔터프라이즈 저장소 
 
 Microsoft Azure StorSimple은 다음과 같은 이점을 제공합니다.
 
-- **투명한 통합** - Microsoft Azure StorSimple은 Internet Small Computer System Interface(iSCSI) 프로토콜을 사용하여 데이터 저장소 기능을 눈에 보이지 않게 연결합니다. 이 클라우드, 데이터 센터 또는 원격 서버에 저장된 데이터가 단일 위치에 저장된 것처럼 보이게 합니다.
-- **저장소 비용 감소** - Microsoft Azure StorSimple은 현재 요구에 맞게 충분한 로컬 또는 클라우드 저장소를 할당하고 필요한 경우 클라우드 저장소를 확장합니다. 동일한 데이터의 중복 버전을 제거하고(중복 제거) 압축을 사용하여 추가로 저장소 요구 사항 및 비용을 줄입니다.
-- **단순화된 저장소 관리** - Microsoft Azure StorSimple는 온-프레미스, 원격 서버와 클라우드 저장된 데이터를 구성 및 관리하는데 사용할 수 있는 시스템 관리 도구를 제공합니다. 또한 Microsoft MMC(Management Console) 스냅인에서 백업 및 복원 기능을 관리할 수 있습니다. StorSimple은 StorSimple 관리 및 데이터 보호 서비스를 SharePoint 서버에 저장 된 콘텐츠까지 확장하는데 사용할 수 있는 별도의 선택적 인터페이스를 제공합니다. 
-- **향상된 재해 복구 및 규정 준수** - Microsoft Azure StorSimple은 복구 시간을 연장하지 않아도 됩니다. 대신, 필요할 때마다 데이터를 복원합니다. 즉, 정상 작업 중단을 최소화하면서 계속할 수 있습니다. 또한 백업 일정 및 데이터 보존 기간을 지정하는 정책을 구성할 수 있습니다.
-- **데이터 이동성** - Microsoft Azure 복구 및 마이그레이션을 위해 다른 사이트에서 클라우드 서비스에 업로드된 데이터에 액세스할 수 있습니다. 또한 Microsoft Azure에서 실행 중인 가상 컴퓨터(Vm)에서 StorSimple 가상 장치를 구성하도록 StorSimple을 사용할 수 있습니다. VM을 가상 장치 사용하여 테스트 또는 복구 목적으로 저장된 데이터에 액세스할 수 있습니다. 
+- **투명한 통합** – Microsoft Azure StorSimple은 Internet Small Computer System Interface(iSCSI) 프로토콜을 사용하여 데이터 저장소 기능을 눈에 보이지 않게 연결합니다. 이 클라우드, 데이터 센터 또는 원격 서버에 저장된 데이터가 단일 위치에 저장된 것처럼 보이게 합니다.
+- **저장소 비용 감소** – Microsoft Azure StorSimple은 현재 요구에 맞게 충분한 로컬 또는 클라우드 저장소를 할당하고 필요한 경우 클라우드 저장소를 확장합니다. 동일한 데이터의 중복 버전을 제거하고(중복 제거) 압축을 사용하여 추가로 저장소 요구 사항 및 비용을 줄입니다.
+- **단순화된 저장소 관리** – Microsoft Azure StorSimple은 온-프레미스, 원격 서버와 클라우드에 저장된 데이터를 구성 및 관리하는 데 사용할 수 있는 시스템 관리 도구를 제공합니다. 또한 Microsoft Management Console(MMC) 스냅인에서 백업 및 복원 기능을 관리할 수 있습니다. StorSimple은 StorSimple 관리 및 데이터 보호 서비스를 SharePoint 서버에 저장된 콘텐츠까지 확장하는 데 사용할 수 있는 별도의 선택적 인터페이스를 제공합니다. 
+- **향상된 재해 복구 및 규정 준수** – Microsoft Azure StorSimple은 복구 시간을 연장하지 않아도 됩니다. 대신, 필요할 때마다 데이터를 복원합니다. 즉, 정상 작업 중단을 최소화하면서 계속할 수 있습니다. 또한 백업 일정 및 데이터 보존 기간을 지정하는 정책을 구성할 수 있습니다.
+- **데이터 이동성** – 복구 및 마이그레이션을 위해 다른 사이트에서 Microsoft Azure 클라우드 서비스에 업로드된 데이터에 액세스할 수 있습니다. 또한 Microsoft Azure에서 실행 중인 가상 컴퓨터(Vm)에서 StorSimple 가상 장치를 구성하도록 StorSimple을 사용할 수 있습니다. VM을 가상 장치 사용하여 테스트 또는 복구 목적으로 저장된 데이터에 액세스할 수 있습니다. 
 
 다음 다이어그램은 Microsoft Azure StorSimple 솔루션에 대한 상위 레벨 보기를 제공합니다.
 
@@ -40,12 +40,13 @@ Microsoft Azure StorSimple은 다음과 같은 이점을 제공합니다.
 
 Microsoft Azure StorSimple 솔루션에는 다음 구성 요소가 포함됩니다.
 
-- **Microsoft Azure StorSimple 장치** - 안정된 상태를 포함하는 온-프레미스 하이브리드 저장소 배열을 및 드라이브 (Ssd) 및 하드 디스크 드라이브(HDD)로, 중복 컨트롤러 및 자동 장애 조치 기능을 함께 제공합니다. 컨트롤러는 현재 사용되는(또는 핫) 데이터를 로컬 저장소(장치 또는 온-프레미스 서버)에 배치하고 덜 자주 사용되는 데이터는 클라우드로 이동하여 저장소 계층화를 관리합니다.
-- **StorSimple 가상 장치** - StorSimple 가상 어플라이언스라고도 하며, 물리적 하이브리드 저장 장치의 아키텍처와 기능을 복제하는 StorSimple 장치의 소프트웨어 버전입니다. StorSimple 가상 장치는 Azure 가상 컴퓨터의 단일 노드에서 실행됩니다. 가상 장치는 테스트 및 소규모 파일럿 시나리오에 사용하기에 적합합니다. 온-프레미스 서버나 StorSimple 장치에서 StorSimple 가상 장치를 만들 수 없습니다.
-- **StorSimple용 Windows PowerShell** - StorSimple 장치를 관리하는데 사용할 수 있는 명령줄 인터페이스입니다. StorSimple용 Windows PowerShell에는 StorSimple 장치를 등록하고, 장치에서 네트워크 인터페이스를 구성하고 특정 형식의 업데이트를 설치하고, 지원 세션에 액세스하여 장치 문제를 해결하고 장치 상태를 변경할 수 있는 기능이 있습니다. 직렬 콘솔에 연결하거나 Windows PowerShell 원격 기능을 사용하여 StorSimple용 Windows PowerShell에 액세스할 수 있습니다.
-- **StorSimple Manager 서비스** - 단일 웹 인터페이스에서 StorSimple 장치 또는 StorSimple 가상 장치를 관리할 수 있는 Azure 관리 포털의 확장입니다. StorSimple Manager 서비스를 사용하여 서비스를 만들고 관리하고, 장치를 보고 관리하고, 경고를 보고, 볼륨을 관리하고 백업 정책 및 백업 카탈로그를 보고 관리할 수 있습니다.
-- **StorSimple 스냅숏 관리자** - 볼륨 그룹 및 Windows 볼륨 섀도 복사본 서비스를 사용하여 응용 프로그램에 일관된 백업을 생성하는 MMC 스냅인입니다. 또한 백업 일정 및 복제를 만들거나 볼륨을 복원하려면 StorSimple 스냅숏 관리자를 사용할 수 있습니다. 
-- **SharePoint용 StorSimple 어댑터** - SharePoint 관리 포털에서 StorSimple 저장소를 볼 수 있고 관리할 수 있도록 하는 동안 SharePoint 서버에 Microsoft Azure StorSimple 저장소 및 데이터 보호를 투명하게 확장하는 도구입니다.
+- **Microsoft Azure StorSimple 장치** – SSD(반도체 드라이브) 및 HDD(하드 디스크 드라이브)가 포함된 온-프레미스 하이브리드 저장소 배열로, 중복 컨트롤러 및 자동 장애 조치 기능을 함께 제공합니다. 컨트롤러는 현재 사용되는(또는 핫) 데이터를 로컬 저장소(장치 또는 온-프레미스 서버)에 배치하고 덜 자주 사용되는 데이터는 클라우드로 이동하여 저장소 계층화를 관리합니다.
+- **StorSimple 가상 장치** – StorSimple 가상 어플라이언스라고도 하며, 물리적 하이브리드 저장 장치의 아키텍처와 기능을 복제하는 StorSimple 장치의 소프트웨어 버전입니다. StorSimple 가상 장치는 Azure 가상 컴퓨터의 단일 노드에서 실행됩니다. 가상 장치는 테스트 및 소규모 파일럿 시나리오에 사용하기에 적합합니다. 온-프레미스 서버나 StorSimple 장치에서 StorSimple 가상 장치를 만들 수 없습니다.
+- **StorSimple용 Windows PowerShell** – StorSimple 장치를 관리하는 데 사용할 수 있는 명령줄 인터페이스입니다. StorSimple용 Windows PowerShell에는 StorSimple 장치를 등록하고, 장치에서 네트워크 인터페이스를 구성하고 특정 형식의 업데이트를 설치하고, 지원 세션에 액세스하여 장치 문제를 해결하고 장치 상태를 변경할 수 있는 기능이 있습니다. 직렬 콘솔에 연결하거나 Windows PowerShell 원격 기능을 사용하여 StorSimple용 Windows PowerShell에 액세스할 수 있습니다.
+- **Azure PowerShell StorSimple cmdlet** – 명령줄에서 서비스 수준 작업 및 마이그레이션 작업을 자동화할 수 있도록 하는 Windows PowerShell cmdlet 모음입니다. StorSimple용 Azure PowerShell cmdlet에 대한 자세한 내용은 [cmdlet 참조](https://msdn.microsoft.com/library/dn920427.aspx)를 참조하세요.
+- **StorSimple Manager 서비스** – 단일 웹 인터페이스에서 StorSimple 장치 또는 StorSimple 가상 장치를 관리할 수 있는 Azure 관리 포털의 확장입니다. StorSimple Manager 서비스를 사용하여 서비스를 만들고 관리하고, 장치를 보고 관리하고, 경고를 보고, 볼륨을 관리하고 백업 정책 및 백업 카탈로그를 보고 관리할 수 있습니다.
+- **StorSimple 스냅숏 관리자** – 볼륨 그룹 및 Windows 볼륨 섀도 복사본 서비스를 사용하여 응용 프로그램에 일관된 백업을 생성하는 MMC 스냅인입니다. 또한 백업 일정 및 복제를 만들거나 볼륨을 복원하려면 StorSimple 스냅숏 관리자를 사용할 수 있습니다. 
+- **SharePoint용 StorSimple 어댑터** – SharePoint 관리 포털에서 StorSimple 저장소를 볼 수 있고 관리할 수 있도록 하면서 SharePoint 서버 팜으로 Microsoft Azure StorSimple 저장소 및 데이터 보호를 투명하게 확장하는 도구입니다.
 
 ## 다음 단계
 
@@ -53,6 +54,6 @@ Microsoft Azure StorSimple 솔루션에는 다음 구성 요소가 포함됩니�
 
 
 
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=July15_HO1-->

@@ -11,7 +11,7 @@
 	ms.service="mobile-engagement" 
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="mobile-windows-phone" 
-	ms.devlang="C#" 
+	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="04/07/2015" 
 	ms.author="piyushjo" />
@@ -35,5 +35,6 @@
 - `EngagementIconCloseDark.png`: Windows Phone 어두운 테마용 Mobile Engagement 도달률 알림의 "닫기" 아이콘입니다.
 
 - `EngagementConfiguration.xml`: Mobile Engagement 구성 파일입니다. 이 파일에서 Engagement 연결 문자열, 작동 중단 보고 등의 Engagement 설정을 사용자 지정할 수 있습니다.
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

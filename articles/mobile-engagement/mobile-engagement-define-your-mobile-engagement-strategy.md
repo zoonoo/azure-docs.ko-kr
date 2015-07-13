@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Mobile Engagement 전략 정의" 
-	description="분석 및 푸시 알림에 Mobile Engagement를 사용, 등록 및 최적화하는 방법에 관해 알아봅니다." 
-	services="mobile-engagement" 
-	documentationCenter="Mobile" 
-	authors="kpiteira" 
-	manager="dwrede" 
+<properties
+	pageTitle="Mobile Engagement 전략 정의"
+	description="분석 및 푸시 알림에 Mobile Engagement를 사용, 등록 및 최적화하는 방법에 관해 알아봅니다."
+	services="mobile-engagement"
+	documentationCenter="Mobile"
+	authors="kpiteira"
+	manager="dwrede"
 	editor="" />
 
-<tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
-	ms.devlang="" 
-	ms.topic="article" 
-	ms.date="02/10/2015" 
+<tags
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="02/10/2015"
 	ms.author="kapiteir" />
 
 #Mobile Engagement 전략 정의
@@ -48,9 +48,9 @@
 통합을 기반으로 하여 응용 프로그램을 게시한 후 마케터로서 실시간으로 분석을 확인하고 대상을 분류한 후 올바르게 대상을 선정한 푸시 알림을 보내기 시작하여 앱 내/외에서 최종 사용자와 관계를 맺을 수 있습니다.
 
 ###시작할 사용 사례
-1. 환영 전략: 첫 번째 세션의 D+2/5/10/15일 후에 다시 참여를 끌어내려면 응용 프로그램 시작 시 최종 사용자의 행동에 따라 여러 푸시 알림 캠페인을 만들어 첫 번째 실행 유지를 늘립니다.	
-2. 최종 사용자의 행동에 따라 새 콘텐츠(기능, 문서/비디오, 제품 등)를 홍보하고 참여할 가능성이 높은 최종 사용자에게만 정보를 보냅니다.	
-3. 응용 프로그램 평가: 스토어에서 앱을 5개 별점으로 평가할 가능성이 가장 높은 1% 미만의 사용자를 대상으로 합니다.	
+1. 환영 전략: 첫 번째 세션의 D+2/5/10/15일 후에 다시 참여를 끌어내려면 응용 프로그램 시작 시 최종 사용자의 행동에 따라 여러 푸시 알림 캠페인을 만들어 첫 번째 실행 유지를 늘립니다.
+2. 최종 사용자의 행동에 따라 새 콘텐츠(기능, 문서/비디오, 제품 등)를 홍보하고 참여할 가능성이 높은 최종 사용자에게만 정보를 보냅니다.
+3. 응용 프로그램 평가: 스토어에서 앱을 5개 별점으로 평가할 가능성이 가장 높은 1% 미만의 사용자를 대상으로 합니다.
 4. 가입 촉진: 아직 앱을 접하지 못한 최종 사용자에게 유용한 콘텐츠를 홍보하여 가입을 늘립니다.
 5. 자습서: 더 이상 모든 사용자를 위한 필수 자습서는 없습니다. 사용자가 기능을 사용하지 않거나 사용에 어려움이 있는 것처럼 보이는 경우에만 앱에서 적절한 자습서를 구성한 후 앱 내 메시지를 통해 트리거할 수 있습니다.
 
@@ -91,7 +91,7 @@
 ###적절한 태그 계획은 어떻게 만드나요?
 
 태그 계획은 사용자 경로 또는 일종의 응용 프로그램 워크플로에 대한 설명과 같아야 하며, 사용자 행동을 이해하고 사용자 층의 세그먼트를 제대로 나누기 위한 분석을 위해 수집해야 하는 필요한 모든 태그(데이터)를 제공해야 합니다. 태그 계획은 기술 프로세스가 아닙니다. 따라서 마케터는 Mobile Engagement 전략에 따라 수집할 데이터를 지정할 수 있습니다.
- 
+
 적어도 응용 프로그램의 모든 화면(Mobile Engagement에서 `Activities`(이)라고 함)에 태그를 지정해야 합니다. 그러면 사용자 경로를 이해할 수 있습니다.
 
 작업은 단추를 클릭하는 것과 같은 동작 정보를 수집하는 `Events`을(를) 포함할 수 있습니다. 그러면 응용 프로그램 내에서 조작을 수집할 수 있습니다. 따라서 마케터는 사용자가 방문한 화면과 수행한 행동을 알 수 있습니다.
@@ -126,5 +126,6 @@
 <!-- URLs. -->
 [Mobile Engagement 개념]: http://azure.microsoft.com/documentation/articles/mobile-engagement-concepts/
 [자습서]: http://azure.microsoft.com/documentation/articles/mobile-engagement-ios-get-started/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

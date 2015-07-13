@@ -244,4 +244,6 @@ Linux 가상 컴퓨터를 만들 때는 사용자의 이름을 선택하거나 �
 - whoopsie
 - www-data
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=July15_HO1-->

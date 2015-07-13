@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Azure의 SQL Server에서 데이터 샘플링 | Azure" 
+	pageTitle="Azure의 SQL Server에서 데이터 샘플링 | Microsoft Azure" 
 	description="Azure의 SQL Server에서 데이터 샘플링" 
 	services="machine-learning" 
 	documentationCenter="" 
@@ -13,20 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/18/2015" 
-	ms.author="fashah,garye" /> 
+	ms.date="05/29/2015" 
+	ms.author="fashah;garye;bradsev" />
 
 #<a name="heading"></a>Azure의 SQL Server에서 데이터 샘플링
 
-이 문서에서는 Azure의 SQL Server에 저장된 데이터를 샘플링하는 다음 방법에 대해 알아봅니다.
+이 문서에서는 Azure의 SQL Server에 저장된 데이터를 샘플링하고 SQL 및 Python 프로그래밍 언어를 사용하는 방법을 설명합니다.
 
-1. [SQL 사용](#sql)
-2. [Python 프로그래밍 언어 사용](#python) 
+>[AZURE.NOTE]이 문서의 샘플 SQL 코드에서는 데이터가 Azure의 SQL Server에 있는 것으로 가정합니다. 그렇지 않은 경우 Azure의 SQL Server로 데이터를 이동하는 방법에 대한 지침은 [고급 데이터 프로세스 가이드](machine-learning-data-science-advanced-data-processing.md)의 [Azure의 SQL Server로 데이터 이동](machine-learning-data-science-move-sql-server-virtual-machine.md) 항목을 참조하세요.
 
-**참고**
->이 문서의 샘플 SQL 코드에서는 데이터가 Azure의 SQL Server에 있는 것으로 가정합니다. 그렇지 않은 경우 데이터를 Azure의 SQL Server로 이동하는 방법은 클라우드 데이터 과학 프로세스 맵을 참조하세요.
-
-###<a name="SQL"></a>SQL 사용
+##<a name="SQL"></a>SQL 사용
 
 이 섹션에는 SQL을 사용하여 데이터베이스의 데이터에 대해 간단한 무작위 샘플링을 수행하는 몇 가지 방법을 설명합니다. 데이터 크기 및 해당 분포에 따라 방법을 선택하세요.
 
@@ -37,7 +33,7 @@
 	    select  * from <table_name> where <primary_key> in 
     	(select top 10 percent <primary_key> from <table_name> order by newid())
 
-2. 높은 수준 무작위 샘플 
+2. 높은 수준 무작위 샘플
 
 	    SELECT * FROM <table_name>
     	WHERE 0.1 >= CAST(CHECKSUM(NEWID(), <primary_key>) & 0x7fffffff AS float)/ CAST (0x7fffffff AS int)
@@ -52,13 +48,13 @@
 > 이 샘플링된 데이터를 새 테이블에 저장하여 기능을 탐색하고 생성할 수 있습니다.
 
 
-####<a name="sql-aml"></a>Azure 기계 학습에 연결
+###<a name="sql-aml"></a>Azure 기계 학습에 연결
 
 Azure 기계 학습 판독기 모듈에서 위의 샘플 쿼리를 직접 사용하여 데이터를 즉시 다운 샘플링한 후 Azure 기계 학습 실험으로 가져올 수 있습니다. 판독기 모듈을 사용하여 샘플링된 데이터를 읽는 스크린 샷이 아래에 표시되어 있습니다.
    
-![reader sql][1]
+![판독기 sql][1]
 
-###<a name="python"></a>Python 프로그래밍 언어 사용 
+##<a name="python"></a>Python 프로그래밍 언어 사용 
 
 이 섹션에서는 pyodbc 라이브러리를 사용하여 Python에서 SQL server 데이터베이스에 연결하는 방법을 보여 줍니다. 데이터베이스 연결 문자열은 다음과 같습니다. 여기서 servername, dbname, username 및 password를 고유한 구성으로 바꿉니다.
 
@@ -73,11 +69,11 @@ Python의 [Pandas](http://pandas.pydata.org/) 라이브러리에서는 Python �
 	# Query database and load the returned results in pandas data frame
 	data_frame = pd.read_sql('''select column1, cloumn2... from <table_name> tablesample (0.1 percent)''', conn)
 
-이제 Pandas 데이터 프레임에서 샘플링된 데이터로 작업할 수 있습니다. 
+이제 Pandas 데이터 프레임에서 샘플링된 데이터로 작업할 수 있습니다.
 
-####<a name="python-aml"></a>Azure 기계 학습에 연결
+###<a name="python-aml"></a>Azure 기계 학습에 연결
 
-다음 샘플 코드를 사용하여 다운 샘플링한 데이터를 파일에 저장한 후 Azure Blob에 업로드할 수 있습니다. *Reader Module*을 사용하여 Blob의 데이터를 Azure 기계 학습 실험으로 직접 읽을 수 있습니다. 단계는 다음과 같습니다. 
+다음 샘플 코드를 사용하여 다운 샘플링한 데이터를 파일에 저장한 후 Azure Blob에 업로드할 수 있습니다. *판독기 모듈*을 사용하여 Blob의 데이터를 Azure 기계 학습 실험으로 직접 읽을 수 있습니다. 단계는 다음과 같습니다.
 
 1. pandas 데이터 프레임을 로컬 파일에 기록합니다.
 
@@ -105,16 +101,17 @@ Python의 [Pandas](http://pandas.pydata.org/) 라이브러리에서는 Python �
 	    except:	        
 		    print ("Something went wrong with uploading blob:"+BLOBNAME)
 
-3. 아래 화면에 표시된 대로 Azure 기계 학습 *Reader Module*을 사용하여 Azure Blob에서 데이터를 읽습니다.
+3. 아래 화면에 표시된 대로 Azure 기계 학습 *판독기 모듈*을 사용하여 Azure Blob에서 데이터를 읽습니다.
  
-![reader blob][2]
+![판독기 blob][2]
 
-### Azure 데이터 과학 작동 예제
+## ADAPT(고급 분석 프로세스 및 기술) 작동 예제
 
-공용 데이터 집합을 사용한 Azure 데이터 과학 프로세스의 종단 간 연습 예제는 [Azure 데이터 과학 프로세스 작동](machine-learning-data-science-process-sql-walkthrough.md)을 참조하세요.
+공용 데이터 집합을 사용하는 ADAPT(고급 분석 프로세스 및 기술)의 종단 간 연습 예제는 [Azure 고급 분석 프로세스 및 기술 작동: SQL Server 사용](machine-learning-data-science-process-sql-walkthrough.md)을 참조하세요.
 
 [1]: ./media/machine-learning-data-science-sample-sql-server-virtual-machine/reader_database.png
 [2]: ./media/machine-learning-data-science-sample-sql-server-virtual-machine/reader_blob.png
 
+ 
 
-<!--HONumber=49--> 
+<!---HONumber=July15_HO1-->

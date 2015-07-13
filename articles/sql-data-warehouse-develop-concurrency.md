@@ -1,0 +1,239 @@
+<properties
+   pageTitle="SQL 데이터 웨어하우스 | Microsoft Azure의 동시성 및 워크로드 관리"
+   description="솔루션 개발을 위한 Azure SQL 데이터 웨어하우스의 동시성 및 워크로드 관리를 이해합니다."
+   services="sql-data-warehouse"
+   documentationCenter="NA"
+   authors="jrowlandjones"
+   manager="barbkess"
+   editor=""/>
+
+<tags
+   ms.service="sql-data-warehouse"
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-services"
+   ms.date="06/26/2015"
+   ms.author="JRJ@BigBangData.co.uk;barbkess"/>
+
+# SQL 데이터 웨어하우스의 동시성 및 워크로드 관리
+대규모로 예측 가능한 성능을 제공하기 위해 SQL 데이터 웨어하우스는 계산 리소스 워크로드 동시성과 계산 리소스 할당을 모두 관리할 수 있는 메커니즘을 구현합니다.
+
+이 문서에서는 동시성 및 워크로드 관리 개념을 소개하며, 두 기능 모두 구현된 방법 및 데이터 웨어하우스에서 이들을 제어할 수 있는 방법을 설명합니다.
+
+## 동시성
+SQL 데이터 웨어하우스의 동시성은 **동시 쿼리** 및 **동시성 슬롯** 두 개념에 의해 관리된다는 것을 이해해야 합니다.
+
+동시 쿼리는 여러 쿼리를 동시에 실행하는 것과 같습니다. SQL 데이터 웨어하우스는 **동시 쿼리**를 32개까지 지원합니다. 각 쿼리 실행은 직렬 쿼리(단일 스레드)인지 아니면 병렬 쿼리(다중 스레드)인지 여하와 상관없이 단일 쿼리로 계산됩니다. 이는 고정된 값이며 모든 서비스 수준에 적용 됩니다.
+
+동시성 슬롯은 더 동적인 개념이며 사용자 데이터 웨어하우스에 대한 데이터 웨어하우스의 단위(DWU) 서비스 수준 목표를 기준으로 합니다. SQL 데이터 웨어하우스에 할당의 DWU 수를 늘리면 더 많은 계산 리소스가 할당됩니다. 그러나 DWU 수를 늘리면 사용 가능한 **동시성 슬롯** 수도 증가합니다.
+
+SQL 데이터 웨어하우스는 두 임계값 내에 존재해야 합니다. 동시 쿼리가 32개보다 많거나 동시성 슬롯 수를 초과하면 두 임계값을 모두 만족할 수 있게 될 때까지 쿼리가 큐에 저장됩니다.
+
+동시에 실행하는 각 쿼리는 동시성 슬롯을 한 개 이상 사용합니다. 정확한 슬롯 수는 다음 두 가지 요인에 따라 달라집니다.
+
+1. SQL 데이터 웨어하우스에 대한 DWU 설정
+2. 사용자가 속한 **리소스 클래스** 
+
+<!--
+| Concurrency Slot Consumption | DW100 | DW200 | DW300 | DW400 | DW500 | DW600 | DW1000 | DW1200 | DW1500 | DW2000 | DW3000 | DW6000 |
+| :--------------------------- | :---- | :---- | :---- | :---- | :---- | :---- | :----- | :----- | :----- | :----- | :----- | :----- |
+| Max Concurrent Queries       | 32    | 32    | 32    | 32    | 32    | 32    | 32     | 32     | 32     | 32     | 32     | 32     |
+| Max Concurrency Slots        | 4     | 8     | 12    | 16    | 20    | 24    | 40     | 48     | 60     | 80     | 120    | 240    |
+-->
+
+| 동시성 슬롯 사용량 | DW100 | DW200 | DW300 | DW400 | DW500 | DW600 | DW1000 | DW1200 | DW1500 | DW2000 |
+| :--------------------------- | :---- | :---- | :---- | :---- | :---- | :---- | :----- | :----- | :----- | :----- | 
+| 최대 동시 쿼리 수 | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 
+| 최대 동시성 슬롯 수 | 4 | 8 | 12 | 16 | 20 | 24 | 40 | 48 | 60 | 80 | 
+
+리소스 클래스는 쿼리에 할당된 계산 리소스를 관리할 때 SQL 데이터 웨어하우스 워크로드의 필수적인 부분입니다. 아래 워크로드 관리 섹션에서 이 내용을 다룹니다.
+
+## 워크로드 관리
+
+SQL 데이터 웨어하우스는 해당 워크로드 관리 구현의 일부로 **데이터베이스 역할** 형식의 네 가지 리소스 클래스를 표시합니다.
+
+역할은 다음과 같습니다.
+
+- smallrc
+- mediumrc
+- largerc
+- xlargerc
+
+다음 쿼리를 사용하여 자신의 역할을 볼 수 있습니다.
+
+```
+SELECT  ro.[name]           AS [db_role_name]
+FROM    sys.database_principals ro
+WHERE   ro.[type_desc]      = 'DATABASE_ROLE'
+AND     ro.[is_fixed_role]  = 0
+;
+```
+
+기본적으로 각 사용자는 작은 리소스 클래스인 smallrc의 멤버입니다. 그러나 어떤 사용자도 더 높은 리소스 클래스 한 개 이상에 추가될 수 있습니다. SQL 데이터 웨어하우스는 쿼리 실행을 위해 가장 높은 역할 멤버 자격을 가져옵니다. 더 높은 리소스 클래스에 사용자를 추가하면 해당 사용자에 대한 리소스가 증가하지만 더 많은 동시성 슬롯을 사용하게 되며 동시성에 제한을 받을 수 있습니다. 왜냐하면 한 쿼리에 더 많은 리소스가 할당되므로 시스템이 다른 사용자가 사용하는 리소스를 제한해야 하기 때문입니다. 세상에 공짜란 없는 법입니다.
+
+더 높은 리소스 클래스가 관리하는 가장 중요한 리소스는 메모리입니다. 의미 있는 크기를 가진 대부분의 데이터 웨어하우스 테이블은 클러스터형 columnstore 인덱스를 사용합니다. 이 인덱스는 일반적으로 데이터 웨어하우스에 최고의 성능을 제공하지만 이를 유지하기 위해 메모리를 많이 사용해야 합니다. 인덱스 다시 빌드 같은 데이터 관리 작업에 더 높은 리소스 클래스를 사용하면 매우 유리한 경우가 많습니다.
+
+메모리를 늘리려면 데이터베이스 사용자를 위에서 설명한 역할 중 하나에 추가하기만 하면 됩니다.
+
+`sp_addrolemember` 및 `sp_droprolemember` 프로시저를 사용하여 워크로드 관리 데이터베이스 역할에 대해 자기 자신을 추가 및 제거할 수 있습니다. 참고로 이 작업을 수행하려면 `ALTER ROLE` 사용 권한이 필요합니다. ALTER ROLE DDL 구문은 사용할 수 없습니다. 앞에서 언급한 저장 프로시저를 사용해야 합니다.
+
+> [AZURE.NOTE]워크로드 관리 그룹에 대해 사용자를 추가하기보다는 더 높은 리소스 클래스에 영구적으로 할당된 별도 로그인/사용자를 통해 더 집약적인 작업을 시작하는 것이 더 간단한 경우가 많습니다.
+
+다음 테이블은 각 쿼리에 사용할 수 있는 메모리 증가 및 이를 실행하는 사용자에게 적용되는 리소스 클래스를 자세히 설명합니다.
+
+<!--
+| Memory Available (per dist) | Priority | DW100  | DW200  | DW300  | DW400   | DW500   | DW600   | DW1000  | DW1200  | DW1500  | DW2000  | DW3000  | DW6000   |
+| :-------------------------- | :------- | :----  | :----- | :----- | :------ | :------ | :------ | :------ | :------ | :------ | :------ | :------ | :------- |
+| smallrc(default) (s)        | Medium   | 100 MB | 100 MB | 100 MB | 100  MB | 100 MB  | 100 MB  | 100 MB  | 100 MB  | 100 MB  | 100 MB  | 100  MB | 100   MB |
+| mediumrc (m)                | Medium   | 100 MB | 200 MB | 200 MB | 400  MB | 400 MB  | 400 MB  | 800 MB  | 800 MB  | 800 MB  | 1600 MB | 1600 MB | 3200  MB |
+| largerc (l)                 | High     | 200 MB | 400 MB | 400 MB | 800  MB | 800 MB  | 800 MB  | 1600 MB | 1600 MB | 1600 MB | 3200 MB | 3200 MB | 6400  MB |
+| xlargerc (xl)               | High     | 400 MB | 800 MB | 800 MB | 1600 MB | 1600 MB | 1600 MB | 3200 MB | 3200 MB | 3200 MB | 6400 MB | 6400 MB | 12800 MB |
+-->
+| 사용 가능한 메모리(dist당) | 우선 순위 | DW100 | DW200 | DW300 | DW400 | DW500 | DW600 | DW1000 | DW1200 | DW1500 | DW2000 |
+| :-------------------------- | :------- | :----  | :----- | :----- | :------ | :------ | :------ | :------ | :------ | :------ | :------ |
+| smallrc(기본값) (s) | 중간 | 100 MB | 100 MB | 100 MB | 100 MB | 100 MB | 100 MB | 100 MB | 100 MB | 100 MB | 100 MB |
+| mediumrc(m) | 중간 | 100 MB | 200 MB | 200 MB | 400 MB | 400 MB | 400 MB | 800 MB | 800 MB | 800 MB | 1600 MB |
+| largerc(l) | 높음 | 200 MB | 400 MB | 400 MB | 800 MB | 800 MB | 800 MB | 1600 MB | 1600 MB | 1600 MB | 3200 MB |
+| xlargerc(xl) | 높음 | 400 MB | 800 MB | 800 MB | 1600 MB | 1600 MB | 1600 MB | 3200 MB | 3200 MB | 3200 MB | 6400 MB |
+
+
+또한 위에서 설명했듯이 사용자에게 할당된 리소스 클래스가 높을수록 동시 슬롯 사용량이 더 많습니다. 다음 테이블은 지정된 리소스 클래스의 쿼리당 동시성 슬롯 사용량을 설명합니다.
+
+<!--
+| Concurrency slot consumption | DW100 | DW200 | DW300 | DW400 | DW500 | DW600 | DW1000 | DW1200 | DW1500 | DW2000 | DW3000 | DW6000 |
+| :--------------------------- | :---- | :---- | :---- | :---- | :---- | :---- | :----- | :----- | :----- | :----- | :----- | :----- |
+| Max Concurrent Queries       | 32    | 32    | 32    | 32    | 32    | 32    | 32     | 32     | 32     | 32     | 32     | 32     |
+| Max Concurrency Slots        | 4     | 8     | 12    | 16    | 20    | 24    | 40     | 48     | 60     | 80     | 120    | 240    |
+| smallrc(default) (s)         | 1     | 1     | 1     | 1     | 1     | 1     | 1      | 1      | 1      | 1      | 1      | 1      |
+| mediumrc (m)                 | 1     | 2     | 2     | 4     | 4     | 4     | 8      | 8      | 8      | 16     | 16     | 32     |
+| largerc (l)                  | 2     | 4     | 4     | 8     | 8     | 8     | 16     | 16     | 16     | 32     | 32     | 64     |
+| xlargerc (xl)                | 4     | 8     | 8     | 16    | 16    | 16    | 32     | 32     | 32     | 64     | 64     | 128    |
+-->
+
+| 동시성 슬롯 사용량 | DW100 | DW200 | DW300 | DW400 | DW500 | DW600 | DW1000 | DW1200 | DW1500 | DW2000 |
+| :--------------------------- | :---- | :---- | :---- | :---- | :---- | :---- | :----- | :----- | :----- | :----- |
+| 최대 동시 쿼리 수 | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 |
+| 최대 동시성 슬롯 수 | 4 | 8 | 12 | 16 | 20 | 24 | 40 | 48 | 60 | 80 |
+| smallrc(기본값) (s) | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 |
+| mediumrc(m) | 1 | 2 | 2 | 4 | 4 | 4 | 8 | 8 | 8 | 16 |
+| largerc(l) | 2 | 4 | 4 | 8 | 8 | 8 | 16 | 16 | 16 | 32 |
+| xlargerc(xl) | 4 | 8 | 8 | 16 | 16 | 16 | 32 | 32 | 32 | 64 |
+
+활성 쿼리 워크로드가 동시 쿼리 및 동시성 슬롯 임계값에 모두 맞아야 한다는 것을 기억해야 합니다. 하나 이상의 임계값을 초과하면 쿼리가 큐에 저장되기 시작합니다. 큐에 저장된 쿼리는 제출 시간이 지난 후 우선 순위에 따라 해결됩니다.
+
+## 큐에 저장된 쿼리 검색
+동시성 큐에 저장된 쿼리를 식별하려면 언제나 `sys.dm_pdw_exec_requests` DMV를 참조할 수 있습니다.
+
+```
+SELECT 	 r.[request_id]									AS Request_ID
+		,r.[status]										AS Request_Status
+		,r.[submit_time]								AS Request_SubmitTime
+		,r.[start_time]									AS Request_StartTime
+        ,DATEDIFF(ms,[submit_time],[start_time])		AS Request_InitiateDuration_ms
+FROM    sys.dm_pdw_exec_requests r
+;
+```
+
+SQL 데이터 웨어하우스에는 동시성을 측정하기 위한 특정 대기 유형이 있습니다.
+
+아래에 이 계정과 키의 예제가 나와 있습니다.
+ 
+- LocalQueriesConcurrencyResourceType
+- UserConcurrencyResourceType
+- DmsConcurrencyResourceType
+- BackupConcurrencyResourceType
+
+LocalQueriesConcurrencyResourceType은 동시성 슬롯 프레임워크 외부에 존재하는 쿼리를 참조합니다. DMV 쿼리 및 SELECT @@VERSION 같은 시스템 함수는 로컬 쿼리의 예입니다.
+
+UserConcurrencyResourceType은 동시성 슬롯 프레임워크 내에 존재하는 쿼리를 참조합니다. 최종 사용자 테이블에 대한 쿼리는 이 리소스 유형을 사용할 수 있는 예를 나타냅니다.
+
+DmsConcurrencyResourceType은 데이터 이동 작업으로 초래된 대기를 참조합니다.
+
+데이터베이스가 백업될 때 BackupConcurrencyResourceType을 볼 수 있습니다. 이 리소스 유형에 대한 최대값은 1입니다. 여러 백업을 동시에 요청한 경우 다른 백업 요청은 큐에 저장됩니다.
+
+
+현재 큐에 저장된 쿼리를 분석하여 요청 대기 중인 리소스를 알아내려면 `sys.dm_pdw_waits` DMV를 참조하세요.
+
+```
+SELECT  w.[wait_id]
+,       w.[session_id]
+,       w.[type]											AS Wait_type
+,       w.[object_type]
+,       w.[object_name]
+,       w.[request_id]
+,       w.[request_time]
+,       w.[acquire_time]
+,       w.[state]
+,       w.[priority]
+,		SESSION_ID()										AS Current_session
+,		s.[status]											AS Session_status
+,		s.[login_name]
+,		s.[query_count]
+,		s.[client_id]
+,		s.[sql_spid]
+,		r.[command]											AS Request_command
+,		r.[label]
+,		r.[status]											AS Request_status
+,		r.[submit_time]
+,		r.[start_time]
+,		r.[end_compile_time]
+,		r.[end_time]
+,		DATEDIFF(ms,r.[submit_time],r.[start_time])			AS Request_queue_time_ms
+,		DATEDIFF(ms,r.[start_time],r.[end_compile_time])	AS Request_compile_time_ms
+,		DATEDIFF(ms,r.[end_compile_time],r.[end_time])		AS Request_execution_time_ms
+,		r.[total_elapsed_time]
+FROM    sys.dm_pdw_waits w
+JOIN    sys.dm_pdw_exec_sessions s  ON w.[session_id] = s.[session_id]
+JOIN    sys.dm_pdw_exec_requests r  ON w.[request_id] = r.[request_id]
+WHERE	w.[session_id] <> SESSION_ID()
+;
+```
+
+지정된 쿼리가 사용하는 리소스 대기만 보려면 `sys.dm_pdw_resource_waits` DMV를 참조하세요. 리소스 대기 시간은 기본 SQL Server가 CPU에 대해 쿼리를 예약하는 데 소요되는 대기 시간을 나타내는 것과 달리 리소스가 제공될 때까지 대기하는 시간만 측정합니다.
+
+```
+SELECT  [session_id]
+,       [type]
+,       [object_type]
+,       [object_name]
+,       [request_id]
+,       [request_time]
+,       [acquire_time]
+,       DATEDIFF(ms,[request_time],[acquire_time])  AS acquire_duration_ms
+,       [concurrency_slots_used]                    AS concurrency_slots_reserved
+,       [resource_class]
+,       [wait_id]                                   AS queue_position
+FROM    sys.dm_pdw_resource_waits
+WHERE	[session_id] <> SESSION_ID()
+;
+```
+
+마지막으로 대기에 대한 기록 추세 분석을 위해 SQL 데이터 웨어하우스는 `sys.dm_pdw_wait_stats` DMV를 제공합니다.
+
+```
+SELECT	w.[pdw_node_id]
+,		w.[wait_name]
+,		w.[max_wait_time]
+,		w.[request_count]
+,		w.[signal_time]
+,		w.[completed_count]
+,		w.[wait_time]
+FROM	sys.dm_pdw_wait_stats w
+;
+```
+
+## 다음 단계
+더 많은 개발 팁은 [개발 개요][]를 참조하세요.
+
+<!--Image references-->
+
+<!--Article references-->
+[개발 개요]: sql-data-warehouse-overview-develop.md
+
+<!--MSDN references-->
+
+
+<!--Other Web references-->
+
+<!---HONumber=July15_HO1-->

@@ -211,4 +211,4 @@ Azure에서 가상 컴퓨터를 만드는 데 사용할 수 있도록 .vhd 파�
 [4단계: .vhd 파일 업로드]: #upload
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

@@ -72,25 +72,25 @@ Docker VM 확장을 선택하면 Docker 설명 및 중요 링크가 표시됩니
 
 ![](./media/virtual-machines-docker-with-portal/AddExtensionFormFilled.png)
 
-> [AZURE.NOTE]위의 이미지에 나와 있는 것처럼 포트에는 기본적으로 4243이 입력되어 있습니다. 여기에는 원하는 어떤 끝점이든 입력할 수 있지만 다음 단계에서 일치하는 끝점을 열어야 합니다. 기본값을 변경하는 경우에는 다음 단계에서 일치하는 끝점을 여세요.
+> [AZURE.NOTE]위의 이미지에 나와 있는 것처럼 포트에는 기본적으로 2376이 입력되어 있습니다. 여기에는 원하는 어떤 끝점이든 입력할 수 있지만 다음 단계에서 일치하는 끝점을 열어야 합니다. 기본값을 변경하는 경우에는 다음 단계에서 일치하는 끝점을 여세요.
 
 ## Docker 통신 끝점 추가
 직접 만든 리소스 그룹에서 VM을 표시하고 아래쪽으로 스크롤하여 **끝점**을 클릭합니다. 그러면 아래 그림과 같이 VM의 끝점이 표시됩니다.
 
 ![](./media/virtual-machines-docker-with-portal/AddingEndpoint.png)
 
-**+ 추가**를 클릭하여 다른 끝점을 추가합니다. 기본 끝점의 경우 끝점 이름을 입력하고(여기서는 **docker**) 공용 포트와 개인 포트에 대해 모두 4243을 입력합니다. 프로토콜 값은 **TCP**로 유지하고 **확인**을 클릭하여 끝점을 만듭니다.
+**+ 추가**를 클릭하여 다른 끝점을 추가합니다. 기본 끝점의 경우 끝점 이름을 입력하고(여기서는 **docker**) 공용 포트와 개인 포트에 대해 모두 2376을 입력합니다. 프로토콜 값은 **TCP**로 유지하고 **확인**을 클릭하여 끝점을 만듭니다.
 
 ![](./media/virtual-machines-docker-with-portal/AddEndpointFormFilledOut.png)
 
 
 ## Docker 클라이언트 및 Azure Docker 호스트 테스트
-VM 도메인의 이름을 찾아서 복사한 다음 클라이언트 컴퓨터의 명령줄에 `docker --tls -H tcp://`*dockerextension*`.cloudapp.net:4243 info`를 입력합니다. 여기서 *dockerextension*은 VM의 하위 도메인으로 바꿉니다.
+VM 도메인의 이름을 찾아서 복사한 다음 클라이언트 컴퓨터의 명령줄에 `docker --tls -H tcp://`*dockerextension*`.cloudapp.net:2376 info`를 입력합니다. 여기서 *dockerextension*은 VM의 하위 도메인으로 바꿉니다.
 
 결과는 다음과 같이 표시됩니다.
 
 ```
-$ docker --tls -H tcp://dockerextension.cloudapp.net:4243 info
+$ docker --tls -H tcp://dockerextension.cloudapp.net:2376 info
 Containers: 0
 Images: 0
 Storage Driver: devicemapper
@@ -144,4 +144,4 @@ WARNING: No swap limit support
 [Docker 사용자 가이드]: https://docs.docker.com/userguide/
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

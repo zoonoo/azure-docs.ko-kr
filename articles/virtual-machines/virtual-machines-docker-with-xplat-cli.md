@@ -87,7 +87,7 @@ azure vm docker create -e 22 -l "West US" <vm-cloudservice name> "b39f27a8b8c64d
 
 Azure에 만든 Docker VM을 테스트하려면 다음을 입력합니다.
 
-`docker --tls -H tcp://<vm-name-you-used>.cloudapp.net:4243 info`
+`docker --tls -H tcp://<vm-name-you-used>.cloudapp.net:2376 info`
 
 여기서 *<vm-name-you-used>*는 `azure vm docker create` 호출에 사용한 가상 컴퓨터의 이름입니다. 다음과 같은 결과가 표시됩니다. 이 결과는 Azure에서 Docker 호스트 VM이 작동하여 실행 중이며 명령을 기다리고 있음을 나타냅니다.
 
@@ -96,10 +96,10 @@ Azure에 만든 Docker VM을 테스트하려면 다음을 입력합니다.
 ### Docker Host VM 인증
 Docker VM을 만드는 것뿐만 아니라 `azure vm docker create` 명령은 Docker 클라이언트 컴퓨터가 HTTPS를 사용하여 Azure 컨테이너 호스트에 연결할 수 있도록 필요한 인증서도 자동으로 만듭니다. 인증서는 해당하는 경우 클라이언트와 호스트 컴퓨터 둘 다에 저장됩니다. 이후에 실행할 때는 기존 인증서가 다시 사용되며 새 호스트와 공유됩니다.
 
-기본적으로 인증서는 `~/.docker`에 배치되고 Docker는 포트 **4243**에서 실행되도록 구성됩니다. 다른 포트나 디렉터리를 사용하려는 경우 다음 `azure vm docker create` 명령줄 옵션 중 하나를 사용하여 클라이언트 연결에 다른 포트나 다른 인증서를 사용하도록 Docker 컨테이너 호스트 VM을 구성할 수 있습니다.
+기본적으로 인증서는 `~/.docker`에 배치되고 Docker는 포트 **2376**에서 실행되도록 구성됩니다. 다른 포트나 디렉터리를 사용하려는 경우 다음 `azure vm docker create` 명령줄 옵션 중 하나를 사용하여 클라이언트 연결에 다른 포트나 다른 인증서를 사용하도록 Docker 컨테이너 호스트 VM을 구성할 수 있습니다.
 
 ```
--dp, --docker-port [port]              Port to use for docker [4243]
+-dp, --docker-port [port]              Port to use for docker [2376]
 -dc, --docker-cert-dir [dir]           Directory containing docker certs [.docker/]
 ```
 
@@ -139,4 +139,4 @@ Docker VM을 만드는 것뿐만 아니라 `azure vm docker create` 명령은 Do
 [Docker 사용자 가이드]: https://docs.docker.com/userguide/
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

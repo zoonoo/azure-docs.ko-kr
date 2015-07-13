@@ -10,66 +10,55 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/26/2015" 
+	ms.date="06/04/2015" 
 	ms.author="glenga"/>
 
 # 인증된 사용자에게 푸시 알림 보내기
 
 [AZURE.INCLUDE [mobile-services-selector-push-users](../../includes/mobile-services-selector-push-users.md)]
 
-이 항목에서는 등록된 모든 장치에서 인증된 사용자에게 푸시 알림을 보내는 방법을 보여 줍니다. 이전의 [푸시 알림][Get started with push notifications] 자습서와 달리, 이 자습서에서는 먼저 사용자가 인증된 후에야 클라이언트가 푸시 알림을 받기 위해 알림 허브에 등록할 수 있도록 모바일 서비스를 변경합니다. 할당된 사용자 ID에 따라 태그를 추가하도록 등록도 수정됩니다. 마지막으로 서버 코드는 모든 등록 대신 인증된 사용자에게만 알림을 보내도록 업데이트됩니다.
+이 항목에서는 등록된 모든 장치에서 인증된 사용자에게 푸시 알림을 보내는 방법을 보여 줍니다. 이전의 [앱에 푸시 알림 추가] 자습서와 달리, 이 자습서에서는 먼저 사용자가 인증된 후에야 클라이언트가 푸시 알림을 받기 위해 알림 허브에 등록할 수 있도록 모바일 서비스를 변경합니다. 할당된 사용자 ID에 따라 태그를 추가하도록 등록도 수정됩니다. 마지막으로 서버 코드는 모든 등록 대신 인증된 사용자에게만 알림을 보내도록 업데이트됩니다.
 
-이 자습서에서는 다음 프로세스를 단계별로 안내합니다.
-
-1. [등록에 인증이 필요하도록 서비스 업데이트]
-2. [등록 전에 로그인하도록 앱 업데이트]
-3. [앱 테스트]
- 
 이 자습서에서는 Windows Phone 8.0 및 Windows Phone 8.1Silverlight 앱이 지원됩니다. Windows Phone 8.1 스토어 앱의 경우 [이 항목의 Windows 스토어 버전](mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users.md)을 참조하세요.
 
-## 필수 조건 
+##필수 조건 
 
 이 자습서를 시작하려면 먼저 다음 모바일 서비스 자습서를 완료해야 합니다.
 
-+ [인증 시작]<br/>TodoList 샘플 앱에 로그인 요구 사항을 추가합니다.
++ [앱에 인증 추가]<br/>TodoList 샘플 앱에 로그인 요구 사항을 추가합니다.
 
-+ [푸시 알림 시작]<br/>알림 허브를 사용하여 푸시 알림에 맞게 TodoList 샘플 앱을 구성합니다.
++ [앱에 푸시 알림 추가]<br/>알림 허브를 사용하여 푸시 알림에 맞게 TodoList 샘플 앱을 구성합니다.
 
 두 자습서를 모두 완료한 다음에는 인증되지 않은 사용자가 모바일 서비스의 푸시 알림을 등록할 수 없도록 방지할 수 있습니다.
 
-## <a name="register"></a>등록에 인증이 필요하도록 서비스 업데이트
+##<a name="register"></a>등록에 인증이 필요하도록 서비스 업데이트
 
-[AZURE.INCLUDE [mobile-services-dotnet-backend-push-notifications-app-users](../../includes/mobile-services-dotnet-backend-push-notifications-app-users.md)] 
+[AZURE.INCLUDE [mobile-services-dotnet-backend-push-notifications-app-users](../../includes/mobile-services-dotnet-backend-push-notifications-app-users.md)]
 
-## <a name="update-app"></a>등록 전에 로그인하도록 앱 업데이트
+##<a name="update-app"></a>등록 전에 로그인하도록 앱 업데이트
 
-[AZURE.INCLUDE [mobile-services-windows-phone-push-notifications-app-users](mobile-services-windows-phone-push-notifications-app-users.md)] 
+[AZURE.INCLUDE [mobile-services-windows-phone-push-notifications-app-users](mobile-services-windows-phone-push-notifications-app-users.md)]
 
 
-## <a name="test"></a>앱 테스트
+##<a name="test"></a>앱 테스트
 
-[AZURE.INCLUDE [mobile-services-windows-test-push-users](../../includes/mobile-services-windows-test-push-users.md)] 
-
-<!---## <a name="next-steps"> </a>Next steps
-
-In the next tutorial, [Service-side authorization of Mobile Services users][Authorize users with scripts], you will take the user ID value provided by Mobile Services based on an authenticated user and use it to filter the data returned by Mobile Services. Learn more about how to use Mobile Services with .NET in [Mobile Services .NET How-to Conceptual Reference]-->
+[AZURE.INCLUDE [mobile-services-windows-test-push-users](../../includes/mobile-services-windows-test-push-users.md)]
 
 <!-- Anchors. -->
-[등록에 인증이 필요하도록 서비스 업데이트]: #register
-[등록 전에 로그인하도록 앱 업데이트]: #update-app
-[앱 테스트]: #test
+[Updating the service to require authentication for registration]: #register
+[Updating the app to log in before registration]: #update-app
+[Testing the app]: #test
 [Next Steps]: #next-steps
 
 
 <!-- URLs. -->
-[인증 시작]: mobile-services-dotnet-backend-windows-phone-get-started-users.md
-[Get started with push notifications]: mobile-services-dotnet-backend-windows-phone-get-started-push.md
-[푸시 알림 시작]: mobile-services-dotnet-backend-windows-phone-get-started-push.md
+[앱에 인증 추가]: mobile-services-dotnet-backend-windows-phone-get-started-users.md
+[앱에 푸시 알림 추가]: mobile-services-dotnet-backend-windows-phone-get-started-push.md
 
 [Azure Management Portal]: https://manage.windowsazure.com/
-[Mobile Services .NET How-to Conceptual Reference]: /develop/mobile/how-to-guides/work-with-net-client-library
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

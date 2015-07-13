@@ -1,11 +1,10 @@
 <properties 
-	pageTitle="Azure Blob  데이터 처리" 
-	description="Azure Blob 데이터 처리" 
-	metaKeywords="" 
-	services="machine-learning" 
+	pageTitle="고급 분석을 사용하여 Azure blob 데이터 처리 | Microsoft Azure" 
+	description="Azure Blob 저장소에서 데이터 처리" 
+	services="machine-learning,storage" 
 	solutions="" 
 	documentationCenter="" 
-	authors="sunliangms,fashah,msolhab" 
+	authors="msolhab" 
 	manager="paulettm" 
 	editor="cgronlun" />
 
@@ -15,12 +14,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/18/2015" 
-	ms.author="sunliangms,fashah,msolhab,garye" /> 
+	ms.date="05/29/2015" 
+	ms.author="sunliangms;fashah;msolhab;garye;bradsev" />
 
-#<a name="heading"></a>데이터 과학 환경에서 Azure Blob 데이터 처리
+#<a name="heading"></a>고급 분석을 사용하여 Azure blob 데이터 처리
 
-이 문서에서는 Azure Blob에 저장된 데이터를 탐색하고 기능을 생성하는 방법을 다룹니다. 이렇게 하려면 우선 blob 원본에서 로컬 파일로 데이터를 다운로드해야 합니다. 그런 다음 Pandas 데이터 프레임에서 데이터를 로드하여 탐색 및 조작할 수 있습니다. 수행할 단계는 다음과 같습니다.
+이 문서에서는 Azure Blob 저장소에 저장된 데이터를 탐색하고 기능을 생성하는 방법을 다룹니다. 이렇게 하려면 우선 blob 원본에서 로컬 파일로 데이터를 다운로드해야 합니다. 그런 다음 Pandas 데이터 프레임에서 데이터를 로드하여 탐색 및 조작할 수 있습니다. 수행할 단계는 다음과 같습니다.
 
 1. blob 서비스를 사용하여 다음 샘플 Python 코드로 Azure blob에서 데이터를 다운로드합니다. 아래의 코드 변수를 사용자가 원하는 값으로 대체합니다. 
 
@@ -48,7 +47,7 @@
 
 이제 데이터를 탐색하고 이 데이터 집합에 기능을 생성할 준비가 완료되었습니다.
 
-####<a name="blob-dataexploration"></a>데이터 탐색
+##<a name="blob-dataexploration"></a>데이터 탐색
 
 다음은 Pandas를 사용하여 데이터를 탐색하는 방법의 예입니다.
 
@@ -89,7 +88,7 @@
 	
 		dataframe_blobdata_mode = dataframe_blobdata.fillna({'<column_name>':dataframe_blobdata['<column_name>'].mode()[0]})		
 
-8. 가변 bin을 사용하여 히스토그램 플롯을 만들고 변수 분포 그리기	
+8. 가변 bin을 사용하여 히스토그램 플롯을 만들고 변수 분포 그리기
 	
 		dataframe_blobdata['<column_name>'].value_counts().plot(kind='bar')
 		
@@ -104,11 +103,11 @@
 		dataframe_blobdata[['<column_a>', '<column_b>']].corr()
 	
 	
-####<a name="blob-featuregen"></a>기능 생성
+##<a name="blob-featuregen"></a>기능 생성
 	
 다음과 같이 Python을 사용하여 기능을 생성할 수 있습니다.
 
-#####<a name="blob-countfeature"></a>표시기 값 기반 기능 생성
+###<a name="blob-countfeature"></a>표시기 값 기반 기능 생성
 
 범주 기능은 다음과 같은 방법으로 만들 수 있습니다.
 
@@ -121,7 +120,7 @@
 		#generate the indicator column
 		dataframe_blobdata_identity = pd.get_dummies(dataframe_blobdata['<categorical_column>'], prefix='<categorical_column>_identity')
 
-3. 표시기 열을 원래 데이터 프레임에 조인합니다. 
+3. 표시기 열을 원래 데이터 프레임에 조인합니다.
  
 			#Join the dummy variables back to the original data frame
 			dataframe_blobdata_with_identity = dataframe_blobdata.join(dataframe_blobdata_identity)
@@ -131,7 +130,7 @@
 		#Remove the original column rate_code in df1_with_dummy
 		dataframe_blobdata_with_identity.drop('<categorical_column>', axis=1, inplace=True)
 	
-#####<a name="blob-binningfeature"></a>범주화 기능 생성
+###<a name="blob-binningfeature"></a>범주화 기능 생성
 
 범주화된 기능을 생성하려면 다음 단계를 진행합니다.
 
@@ -148,11 +147,9 @@
 
 		dataframe_blobdata_with_bin_bool = dataframe_blobdata.join(dataframe_blobdata_bin_bool)	
 
-####<a name="sql-featuregen"></a>다시 Azure blob에 데이터를 쓰고 Azure ML에서 데이터 사용
+##<a name="sql-featuregen"></a>다시 Azure blob에 데이터를 쓰고 Azure 기계 학습에서 데이터 사용
 
-데이터를 탐색하고 필요한 기능을 만든 후에는 다음 단계에 따라 샘플링한 또는 기능화한 데이터를 Azure blob에 업로드하여 Azure ML에서 사용할 수 있습니다.
-Azure ML Studio에서도 추가 기능을 만들 수 있습니다. 
-1. 로컬 파일에 데이터 프레임을 씁니다.
+데이터를 탐색하고 필요한 기능을 만든 후에는 다음 단계에 따라 샘플링한 또는 기능화한 데이터를 Azure blob에 업로드하여 Azure 기계 학습에서 사용할 수 있습니다. Azure 기계 학습 스튜디오에서 추가 기능을 만들 수도 있습니다. 1. 로컬 파일에 데이터 프레임을 씁니다.
 
 		dataframe.to_csv(os.path.join(os.getcwd(),LOCALFILENAME), sep='\t', encoding='utf-8', index=False)
 
@@ -178,10 +175,15 @@ Azure ML Studio에서도 추가 기능을 만들 수 있습니다.
 	    except:	        
 		    print ("Something went wrong with uploading blob:"+BLOBNAME)
 
-3. 이제 아래 그림과 같이 Azure ML *Reader Module*을 사용하여 blob에서 데이터를 읽을 수 있습니다.
+3. 이제 아래 그림과 같이 Azure 기계 학습 [판독기][reader] 모듈을 사용하여 blob에서 데이터를 읽을 수 있습니다.
  
-![reader blob][1]
+![판독기 blob][1]
 
 [1]: ./media/machine-learning-data-science-process-data-blob/reader_blob.png
 
-<!--HONumber=49--> 
+
+<!-- Module References -->
+[reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+ 
+
+<!---HONumber=July15_HO1-->

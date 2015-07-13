@@ -372,11 +372,11 @@ Azure 모바일 서비스에서 알림을 수행하는 코드를 작성할 수�
 ###사이트 복구###
 
  
-Azure 사이트 복구(이전의 Hyper-V 복구 관리자)를 사용하면 사이트 간에 Hyper-V 이미지의 복제 및 복구를 조정하여 중요 응용 프로그램을 보호할 수 있습니다. 호스팅 서비스 공급자의 사이트인 고유한 보조 사이트를 백업하거나 Azure를 사용하여 고유한 보조 위치를 빌드하고 관리하는 비용과 복잡성을 피할 수 있습니다. Azure는 데이터 및 통신을 암호화하고 저장 데이터에 대한 암호화를 사용하는 옵션도 제공합니다.
+Azure 사이트 복구(이전의 Hyper-V 복구 관리자)를 사용하면 사이트 간에 복제 및 복구를 조정하여 중요 응용 프로그램을 보호할 수 있습니다. 사이트 복구는 보조 사이트, 호스터의 사이트 또는 Azure에 대한 Hyper-v, VMWare 또는 SAN 기반 응용 프로그램을 보호하고 보조 위치를 직접 구축하고 관리하는 비용 및 복잡성을 방지하는 기능을 제공합니다. Azure는 데이터 및 통신을 암호화하고 저장 데이터에 대한 암호화를 사용하는 옵션도 제공합니다.
 
-이 기능은 서비스의 상태를 지속적으로 모니터하여 기본 데이터 센터에서 사이트 중단 시 순차적인 서비스 복구를 자동화합니다. 가상 컴퓨터를 오케스트레이션된 방식으로 가져오므로 다계층 작업을 위해서도 서비스를 빠르게 복원할 수 있습니다.
+이 기능은 서비스의 상태를 지속적으로 모니터하여 기본 데이터 센터에서 사이트 중단 시 순차적인 서비스 복구를 자동화합니다. 가상 컴퓨터를 오케스트레이션된 방식으로 가져오므로 다계층 작업을 위해서도 응용 프로그램을 빠르게 복원할 수 있습니다.
 
-사이트 복구는 Hyper-V 복제본, System Center, SQL Server AlwaysOn 등의 기존 기술에서도 작동합니다.
+사이트 복구는 Hyper-V 복제본, System Center, SQL Server AlwaysOn 등의 기존 기술에서도 작동합니다. 자세한 내용은 [Azure 사이트 복구 개요](hyper-v-recovery-manager-overview.md)를 확인합니다.
 
 ###Azure 백업###
 ![Azure 백업](./media/intro-to-azure/AzureBackupIntroNew.png) **그림: Azure 백업은 온-프레미스 Windows Server에서 클라우드로 데이터를 백업합니다.**
@@ -578,4 +578,4 @@ SendGrid는 메일을 보낼 수 있는 Azure 스토어의 응용 프로그램�
 
 [Azure Media Services Poster]: http://azure.microsoft.com/documentation/infographics/media-services/
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO1-->

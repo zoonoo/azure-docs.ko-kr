@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Windows Phone Silverlight SDK 개요" 
-	description="Azure Mobile Engagement용 Windows Phone Silverlight SDK의 개요" 
+	description="Azure Mobile Engagement용 Windows Phone Silverlight SDK의 개요" 					
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
 	authors="piyushjo" 
@@ -11,7 +11,7 @@
 	ms.service="mobile-engagement" 
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="mobile-windows-phone" 
-	ms.devlang="C#" 
+	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="04/07/2015" 
 	ms.author="piyushjo" />
@@ -53,5 +53,6 @@
 ### 이전 버전에서 업그레이드
 
 [업그레이드 절차](mobile-engagement-windows-phone-upgrade-procedure/)를 참조하세요.
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

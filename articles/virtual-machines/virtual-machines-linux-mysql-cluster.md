@@ -348,4 +348,4 @@ Pacemaker를 처음 설치할 때는 구성이 다음과 같이 단순합니다.
 - 쓰기 성능은 DRBD가 장치 복제에 사용하는 메커니즘인 가상 스위치의 VM 상호 연결에 따라 좌우됩니다.
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

@@ -27,7 +27,8 @@ Microsoft Monitoring Agent를 사용하여 Operational Insights 서비스에 연
 
 |**에이전트 리소스**|**포트**|
 |--------------|-----|
-|*.ods.opinsights.azure.com|Port 443| |*.oms.opinsights.azure.com|포트 443|
+|*.ods.opinsights.azure.com|Port 443|
+|*.oms.opinsights.azure.com|포트 443|
 |ods.systemcenteradvisor.com|포트 443|
 |*.blob.core.windows.net/*|포트 443|
 
@@ -85,7 +86,11 @@ Operations Manager 관리 그룹에서 Operational Insights 서비스에 연결�
 
 |**관리 서버 리소스**|**포트**|
 |--------------|-----|
-|*.ods.opinsights.azure.com|Port 443| |service.systemcenteradvisor.com|Port 443| |scadvisor.accesscontrol.windows.net|Port 443| |scadvisorservice.accesscontrol.windows.net|Port 443| |*.blob.core.windows.net/*|포트 443|
+|*.ods.opinsights.azure.com|Port 443|
+|service.systemcenteradvisor.com|Port 443|
+|scadvisor.accesscontrol.windows.net|Port 443|
+|scadvisorservice.accesscontrol.windows.net|Port 443|
+|*.blob.core.windows.net/*|포트 443|
 |data.systemcenteradvisor.com|포트 443|
 |ods.systemcenteradvisor.com|포트 443|
 |*.systemcenteradvisor.com|Port 443|
@@ -93,8 +98,10 @@ Operations Manager 관리 그룹에서 Operational Insights 서비스에 연결�
 
 |**Operational Insights 및 Operations Manager 콘솔 리소스**|**포트**|
 |---|---|
-|*.systemcenteradvisor.com|Port 80 and 443| |*.live.com|포트 80 및 443|
-|*.microsoftonline.com|Port 80 and 443| |login.windows.net|Port 80 and 443|
+|*.systemcenteradvisor.com|Port 80 and 443|
+|*.live.com|포트 80 및 443|
+|*.microsoftonline.com|Port 80 and 443|
+|login.windows.net|Port 80 and 443|
 
 
 Operations Manager 관리 그룹을 Operational Insights 서비스에 등록하려면 다음 절차를 사용하세요. 관리 그룹과 Operational Insights 서비스 간에 통신 문제가 발생한 경우 유효성 검사 절차를 사용하여 Operational Insights 서비스로의 데이터 통신 문제를 해결할 수 있습니다.
@@ -169,5 +176,6 @@ Operations Manager 관리 그룹을 Operational Insights 서비스에 등록하�
 3. **HTTP**로 시작하는 모든 카운터를 추가합니다. ![카운터 추가](./media/operational-insights-proxy-firewall/sendingdata1.png)
 4. Operations Manager 구성이 적절한 경우 Operational Insights에서 추가한 관리 팩 및 구성한 로그 수집 정책에 따라 이벤트 및 기타 데이터 항목에 대한 상태 서비스 관리 카운터 활동이 표시됩니다. ![성능 모니터 표시 활동](./media/operational-insights-proxy-firewall/sendingdata2.png)
  
+<!--BugFixing Comment-->
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

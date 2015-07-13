@@ -79,5 +79,6 @@ Docker 명령을 실행해 보세요. 이 Azure VM의 기본 구성에는 **`sud
 [Docker scratch image]: https://docs.docker.com/articles/baseimages/#creating-a-simple-base-image-using-scratch
 [Canonical]: http://www.canonical.com/
 [MSOpenTech]: http://msopentech.com/
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO1-->

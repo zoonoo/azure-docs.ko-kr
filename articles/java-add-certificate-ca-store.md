@@ -52,4 +52,4 @@ Baltimore CyberTrust Root를 추가해야 하는 경우 일련 번호 02:00:00:b
 
 Azure에서 사용되는 루트 인증서에 대한 자세한 내용은 [Azure 루트 인증서 마이그레이션](http://blogs.msdn.com/b/windowsazure/archive/2013/03/15/windows-azure-root-certificate-migration.aspx)(영문)을 참조하세요.
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

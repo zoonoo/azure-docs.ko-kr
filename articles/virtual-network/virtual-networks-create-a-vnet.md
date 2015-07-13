@@ -1,68 +1,62 @@
-<properties 
-   pageTitle="가상 네트워크 만들기" 
-   description="기본 가상 네트워크를 쉽게 만드는 단계를 안내합니다." 
-   services="virtual-network" 
-   documentationCenter="" 
-   authors="cherylmc" 
-   manager="adinah" 
+<properties
+   pageTitle="가상 네트워크 만들기"
+   description="기본 가상 네트워크를 쉽게 만드는 단계를 안내합니다."
+   services="virtual-network"
+   documentationCenter=""
+   authors="telmos"
+   manager="carolz"
    editor="tysonn"/>
 
 <tags
    ms.service="virtual-network"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services" 
-   ms.date="02/20/2015"
-   ms.author="cherylmc"/>
+   ms.workload="infrastructure-services"
+   ms.date="06/08/2015"
+   ms.author="telmosampaio"/>
 
-# 가상 네트워크 만들기 
+# 가상 네트워크 만들기
 
-
-
-가상 네트워크를 만들 때는 Vnet 내의 VM과 서비스가 인터넷을 거치지 않고도 서로 안전하게 통신할 수 있습니다. 클라우드만 사용하는 전용 가상 네트워크는 비교적 빠르고 쉽게 만들 수 있습니다. 클라우드만 사용하는 가상 네트워크는 프레미스 간 연결용으로 사용할 수 없으므로 VPN 장치나 인증 인증서를 확보하고 구성할 필요가 없습니다. 
+가상 네트워크를 만들 때는 Vnet 내의 VM과 서비스가 인터넷을 거치지 않고도 서로 안전하게 통신할 수 있습니다. 클라우드만 사용하는 전용 가상 네트워크는 비교적 빠르고 쉽게 만들 수 있습니다. 클라우드만 사용하는 가상 네트워크는 프레미스 간 연결용으로 사용할 수 없으므로 VPN 장치나 인증 인증서를 확보하고 구성할 필요가 없습니다.
 
 가상 네트워크를 만든 후에 새 VM 및 PaaS 인스턴스를 네트워크에 추가할 수 있습니다. 관리 포털을 사용하여 VM을 만드는 경우에는 가상 네트워크를 지정할 수 있도록 **갤러리에서**를 선택해야 합니다. VM을 만든 후에는 이전 단계로 돌아가서 가상 네트워크에 VM을 배치할 수 없기 때문입니다.
 
-[Azure Note] **이 절차를 사용하여 클라우드만 사용하는 전용 가상 네트워크를 만듭니다.** 프레미스 간 구성을 만드는 과정은 더 복잡하므로, 나중에 온-프레미스 네트워크에 연결할 가상 네트워크를 이 절차에 따라 만들어서는 안 됩니다. Azure 및 온-프레미스 네트워크 간에 보안 프레미스 간 연결을 만들려면 [보안 프레미스 간 연결 정보](https://msdn.microsoft.com/library/azure/dn133798.aspx)를 참조하세요.
+[Azure 참고 사항] **이 절차를 사용하여 클라우드만 사용하는 전용 가상 네트워크를 만듭니다.** 프레미스 간 구성을 만드는 과정은 더 복잡하므로, 나중에 온-프레미스 네트워크에 연결할 가상 네트워크를 이 절차에 따라 만들어서는 안 됩니다. Azure 및 온-프레미스 네트워크 간에 보안 프레미스 간 연결을 만들려면 [보안 프레미스 간 연결 정보](https://msdn.microsoft.com/library/azure/dn133798.aspx)를 참조하세요.
 
-## <a name="CreateyourVNet">가상 네트워크 만들기</a>
+## 가상 네트워크 만들기
 
 1. **관리 포털**에 로그인합니다.
 2. 화면의 왼쪽 아래에서 **새로 만들기**를 클릭합니다. 탐색 창에서 **네트워크 서비스**를 클릭한 다음 **가상 네트워크**를 클릭합니다. **사용자 지정 만들기**를 클릭하여 구성 마법사를 시작합니다.
-3. **가상 네트워크 정보** 페이지에서 다음 정보를 입력한 후 오른쪽 아래에서 다음 화살표를 클릭합니다. 정보 페이지의 설정에 대한 자세한 내용은 [관리 포털의 가상 네트워크 구성 정보](https://msdn.microsoft.com/library/azure/jj156074.aspx)의 **가상 네트워크 정보** 섹션을 참조하세요
-	-  **이름:** 가상 네트워크 이름을 지정합니다. VM과 서비스를 배포할 때 이 가상 네트워크 이름을 사용하므로 너무 복잡하지 않은 이름을 사용하는 것이 좋습니다.
+3. **가상 네트워크 세부 정보** 페이지에서 다음 정보를 입력한 후 오른쪽 아래에서 다음 화살표를 클릭합니다. 세부 정보 페이지의 설정에 대한 자세한 내용은 [VNet 속성을 관리하는 방법](../virtual-networks-settings)의 **가상 네트워크 정보** 섹션을 참조하세요.
+	-  **이름:** 가상 네트워크 이름을 지정합니다. VM 및 서비스를 배포할 때 이 가상 네트워크 이름을 사용하므로 너무 복잡하지 않은 이름을 사용하는 것이 좋습니다.
 
-	-  **위치:** 드롭다운 목록에서 원하는 지역을 선택합니다. 가상 네트워크는 지정한 지역에 있는 Azure 데이터 센터에 작성됩니다.
+	-  **위치:** 드롭다운 목록에서 원하는 지역을 선택합니다. 지정한 지역에 있는 Azure 데이터 센터에 가상 네트워크가 만들어집니다.
 
 
 
-4. **DNS 서버 및 VPN 연결** 페이지에서는 아무 항목도 변경하지 않습니다. 화살표를 클릭하여 다음 페이지로 이동하세요. Azure에서는 기본적으로 가상 네트워크에 대한 기본 이름 확인 기능을 제공합니다. 이름 확인 요구 사항이 기본 Azure 이름 확인을 통해 처리할 수 있는 것보다 더 복잡할 수도 있습니다. 이 경우에는 나중에 DNS를 실행하는 가상 컴퓨터를 가상 네트워크에 추가할 수 있습니다. Azure 이름 확인 및 DNS에 대한 자세한 내용은 [이름 확인](https://msdn.microsoft.com/library/azure/jj156088.aspx)을 참조하세요. 
-5. **가상 네트워크 주소 공간** 페이지에서 이 VNet에 사용할 주소 공간을 입력합니다. VM에 대해 특정 내부 IP 주소 범위를 사용해야 하거나 고정 DIP를 수신할 VM용 특정 서브넷을 만들려는 경우가 아니면 이 페이지의 항목을 변경할 필요가 없습니다. 여러 서브넷을 만들려는 경우에는 이 페이지에서 **서브넷 추가**를 클릭하면 됩니다. 정보 페이지의 설정에 대한 자세한 내용은 [관리 포털의 가상 네트워크 구성 정보](https://msdn.microsoft.com/library/azure/jj156074.aspx)의 **가상 네트워크 정보** 섹션을 참조하세요
+4. **DNS 서버 및 VPN 연결** 페이지에서는 아무 항목도 변경하지 않습니다. 화살표를 클릭하여 다음 페이지로 이동하세요. Azure에서는 기본적으로 가상 네트워크에 대한 기본 이름 확인 기능을 제공합니다. 이름 확인 요구 사항이 기본 Azure 이름 확인을 통해 처리할 수 있는 것보다 더 복잡할 수도 있습니다. 이 경우에는 나중에 DNS를 실행하는 가상 컴퓨터를 가상 네트워크에 추가할 수 있습니다. Azure 이름 확인 및 DNS에 대한 자세한 내용은 [이름 확인](https://msdn.microsoft.com/library/azure/jj156088.aspx)을 참조하세요.
+5. **가상 네트워크 주소 공간** 페이지에서 이 VNet에 사용할 주소 공간을 입력합니다. VM에 대해 특정 내부 IP 주소 범위를 사용해야 하거나 고정 DIP를 수신할 VM용 특정 서브넷을 만들려는 경우가 아니면 이 페이지의 항목을 변경할 필요가 없습니다. 여러 서브넷을 만들려는 경우에는 이 페이지에서 **서브넷 추가**를 클릭하면 됩니다. 세부 정보 페이지의 설정에 대한 자세한 내용은 [VNet 속성을 관리하는 방법](../virtual-networks-settings)의 **가상 네트워크 정보** 섹션을 참조하세요.
 
-	-  정보 페이지의 설정에 대한 자세한 내용은 [관리 포털의 가상 네트워크 구성 정보](https://msdn.microsoft.com/library/azure/jj156074.aspx)의 **가상 네트워크 정보** 섹션을 참조하세요
+	-  세부 정보 페이지의 설정에 대한 자세한 내용은 [VNet 속성을 관리하는 방법](../virtual-networks-settings)의 **가상 네트워크 정보** 섹션을 참조하세요.
 	-  여기서는 프레미스 간 VPN 구성을 사용하여 이 개인 가상 네트워크를 온-프레미스 네트워크에 연결하지 않을 것이므로 기존 온-프레미스 네트워크 IP 주소 범위로 이러한 설정을 조정할 필요가 없습니다. 나중에 프레미스 간 구성을 만들어야 할 수도 있다고 생각되는 경우 로컬 사이트에 이미 있는 범위를 사용하여 주소 공간을 지금 조정해야 라우팅 문제를 방지할 수 있습니다. 나중에 범위를 변경하면 작업이 다소 복잡해질 수 있으며 배포를 다시 수행해야 하는 경우가 많습니다.
 
 
 6. 가상 네트워크 주소 공간 페이지 오른쪽 아래의 확인 표시를 클릭하면 가상 네트워크 만들기가 시작됩니다. 가상 네트워크가 만들어지면 관리 포털의 네트워크 페이지에 있는 상태 아래에 Created가 나열됩니다.
-7. 가상 네트워크가 작성되면 VNet에 배포할 수 있습니다. 예를 들어 VNet에 VM을 배포하려는 경우 [가상 네트워크에 가상 컴퓨터 추가](http://www.windowsazure.com/manage/services/networking/add-a-vm-to-a-virtual-network/)를 참조하세요. 가상 네트워크 선택 옵션을 사용하려면 새 VM을 만들 때 **갤러리에서**를 선택해야 합니다. 기존에 이미 배포한 VM 및 PaaS 인스턴스를 단순히 새 VNet으로 이동할 수는 없습니다. 배포 중에 네트워크 구성 설정이 자동으로 구성되었기 때문입니다. 따라서 이러한 인스턴스는 새 VNet으로 다시 배포해야 합니다.
+7. 가상 네트워크가 작성되면 VNet에 배포할 수 있습니다. 예를 들어 VNet에 VM을 배포하려는 경우 [사용자 지정 VM을 만드는 방법](../virtual-machines/virtual-machines-create-custom.md)을 참조하세요. 가상 네트워크 선택 옵션을 사용하려면 새 VM을 만들 때 **갤러리에서**를 선택해야 합니다. 기존에 이미 배포한 VM 및 PaaS 인스턴스를 단순히 새 VNet으로 이동할 수는 없습니다. 배포 중에 네트워크 구성 설정이 자동으로 구성되었기 때문입니다. 따라서 이러한 인스턴스는 새 VNet으로 다시 배포해야 합니다.
 
 
 
 ## 다음 단계
 -  [가상 네트워크 기술 개요](http://msdn.microsoft.com/library/windowsazure/jj156007.aspx)
 
- 
--  [가상 네트워크에 가상 컴퓨터 추가](http://www.windowsazure.com/manage/services/networking/add-a-vm-to-a-virtual-network/)
+-  [가상 네트워크에 가상 컴퓨터 추가](virtual-machines-create-custom)
 
 -  [가상 네트워크 FAQ](http://msdn.microsoft.com/library/windowsazure/dn133803.aspx)
 
--  [네트워크 구성 파일을 사용하여 가상 네트워크 구성](http://azure.microsoft.com/documentation/articles/virtual-networks-using-network-configuration-file/)
+-  [네트워크 구성 파일을 사용하여 가상 네트워크 구성](virtual-networks-using-network-configuration-file)
 
 -  [Azure 이름 확인 개요](http://go.microsoft.com/fwlink/?LinkId=248097)
  
 
-
-
-<!--HONumber=47-->
- 
+<!---HONumber=July15_HO1-->

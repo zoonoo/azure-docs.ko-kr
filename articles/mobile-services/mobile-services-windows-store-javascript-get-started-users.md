@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="02/26/2015" 
+	ms.date="06/03/2015" 
 	ms.author="glenga"/>
 
 # 모바일 서비스 앱에 인증 추가
@@ -33,9 +33,9 @@
 
 >[AZURE.NOTE]이 자습서는 다양한 ID 공급자를 사용하여 모바일 서비스에서 관리하는 인증 흐름을 보여 줍니다. 이 방법은 간편하게 구성할 수 있으며 여러 공급자를 지원합니다. 대신 Live Connect와 클라이언트 관리 인증을 함께 사용하고 Windows Phone 앱에서 Single Sign-On을 제공하려면 [Live Connect를 사용한 Windows 스토어 앱의 Single Sign-On] 항목을 참조하십시오. 클라이언트 관리 인증을 사용하면 앱에서 ID 공급자를 통해 유지 관리되는 추가적인 사용자 데이터에 액세스할 수 있게 됩니다. 서버 스크립트에서 **user.getIdentities()** 함수를 호출하여 모바일 서비스에서 동일한 사용자 데이터를 가져올 수 있습니다. 자세한 내용은 [이 게시물](http://go.microsoft.com/fwlink/p/?LinkId=506605)을 참조하십시오.
 
-## <a name="register"></a> 인증을 위해 앱 등록 및 모바일 서비스 구성
+##<a name="register"></a> 인증을 위해 앱 등록 및 모바일 서비스 구성
 
-[AZURE.INCLUDE [mobile-services-register-authentication](../../includes/mobile-services-register-authentication.md)] 
+[AZURE.INCLUDE [mobile-services-register-authentication](../../includes/mobile-services-register-authentication.md)]
 
 <ol start="5">
 <li><p>(옵션) <a href="/documentation/articles/mobile-services-how-to-register-store-app-package-microsoft-authentication/">Microsoft 인증을 위해 Windows 스토어 앱 패키지 등록</a>의 단계를 완료합니다.</p>
@@ -46,9 +46,9 @@
 </ol>
 이제 모바일 서비스와 앱이 선택한 인증 공급자를 사용하도록 둘 다 구성되었습니다.
 
-## <a name="permissions"></a> 사용 권한을 인증된 사용자로 제한
+##<a name="permissions"></a> 사용 권한을 인증된 사용자로 제한
 
-[AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../../includes/mobile-services-restrict-permissions-javascript-backend.md)] 
+[AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../../includes/mobile-services-restrict-permissions-javascript-backend.md)]
 
 <ol start="3">
 <li><p>Visual Studio 2012 Express for Windows 8에서 <a href="/develop/mobile/tutorials/get-started/">모바일 서비스 시작하기</a> 자습서를 완료했을 때 작성한 프로젝트를 엽니다.</p></li> 
@@ -59,13 +59,13 @@
 
 다음에는 모바일 서비스의 리소스를 요청하기 전에 사용자를 인증하도록 앱을 업데이트합니다.
 
-## <a name="add-authentication"></a> 앱에 인증 추가
+##<a name="add-authentication"></a> 앱에 인증 추가
 
-[AZURE.INCLUDE [mobile-services-windows-store-javascript-authenticate-app](../../includes/mobile-services-windows-store-javascript-authenticate-app.md)] 
+[AZURE.INCLUDE [mobile-services-windows-store-javascript-authenticate-app](../../includes/mobile-services-windows-store-javascript-authenticate-app.md)]
 
-## <a name="tokens"></a>클라이언트에 권한 부여 토큰 저장
+##<a name="tokens"></a>클라이언트에 권한 부여 토큰 저장
 
-[AZURE.INCLUDE [mobile-services-windows-store-javascript-authenticate-app-with-token](../../includes/mobile-services-windows-store-javascript-authenticate-app-with-token.md)] 
+[AZURE.INCLUDE [mobile-services-windows-store-javascript-authenticate-app-with-token](../../includes/mobile-services-windows-store-javascript-authenticate-app-with-token.md)]
 
 ## <a name="next-steps"> </a>다음 단계
 
@@ -92,5 +92,6 @@
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Register your Windows Store app package for Microsoft authentication]: /develop/mobile/how-to-guides/register-windows-store-app-package
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

@@ -3,7 +3,7 @@
 	description="Python 백 엔드에서 Azure 알림 허브를 사용하는 방법에 대해 알아봅니다." 
 	services="notification-hubs" 
 	documentationCenter="" 
-	authors="yuaxu" 
+	authors="ysxu" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="python" 
 	ms.devlang="php" 
 	ms.topic="article" 
-	ms.date="12/09/2014" 
+	ms.date="04/14/2015" 
 	ms.author="yuaxu"/>
 
 # Python에서 알림 허브를 사용하는 방법
@@ -21,11 +21,11 @@
     	<a href="/documentation/articles/notification-hubs-java-backend-how-to/" title="Java">Java</a><a href="/documentation/articles/notification-hubs-php-backend-how-to/" title="PHP">PHP</a><a href="/documentation/articles/notification-hubs-python-backend-how-to/" title="Python" class="current">Python</a><a href="/documentation/articles/notification-hubs-nodejs-how-to-use-notification-hubs/" title="Node.js">Node.js</a>
 </div>
 
-MSDN 항목 [알림 허브 REST API](http://msdn.microsoft.com/library/dn223264.aspx)에서 설명하는 것처럼 알림 허브 REST 인터페이스를 사용하여 Java/PHP/Python/Ruby 백 엔드에서 모든 알림 허브 기능에 액세스할 수 있습니다.
+MSDN [항목 알림 허브 REST API](http://msdn.microsoft.com/library/dn223264.aspx)에 설명된 대로 알림 허브 REST 인터페이스를 사용하여 Java/PHP/Python/Ruby 백 엔드에서 모든 알림 허브 기능에 액세스할 수 있습니다.
 
-> [AZURE.NOTE] 이는 Python에서 알림 보내기를 구현하기 위한 샘플 참조 구현이며 공식적으로 지원되는 알림 허브 Python SDK가 아닙니다.
+> [AZURE.NOTE]이는 Python에서 알림 보내기를 구현하기 위한 샘플 참조 구현이며 공식적으로 지원되는 알림 허브 Python SDK가 아닙니다.
 
-> [AZURE.NOTE] 이 샘플은 Python 3.4를 사용하여 작성되었습니다.
+> [AZURE.NOTE]이 샘플은 Python 3.4를 사용하여 작성되었습니다.
 
 이 항목에서는 다음 방법을 보여 줍니다.
 
@@ -33,9 +33,9 @@ MSDN 항목 [알림 허브 REST API](http://msdn.microsoft.com/library/dn223264.
 * Python 인터페이스를 사용하여 알림 허브 REST API에 알림을 보냅니다. 
 * 디버그/교육 용도로 HTTP REST 요청/응답의 덤프를 가져옵니다. 
 
-선택한 모바일 플랫폼에 대한 [시작 자습서]에 따라(notification-hubs-windows-store-dotnet-get-started.md) Python에서 백 엔드 부분을 구현합니다.
+선택한 모바일 플랫폼에 대한 [시작 자습서](notification-hubs-windows-store-dotnet-get-started.md)에 따라 Python에서 백 엔드 부분을 구현할 수 있습니다.
 
-> [AZURE.NOTE] 샘플 범위는 알림 보내기로만 제한되며 등록 관리는 수행하지 않습니다.
+> [AZURE.NOTE]샘플 범위는 알림 보내기로만 제한되며 등록 관리는 수행하지 않습니다.
 
 ## 클라이언트 인터페이스
 기본 클라이언트 인터페이스에서는 [.NET 알림 허브 SDK](http://msdn.microsoft.com/library/jj933431.aspx)에서 제공되는 것과 같은 메서드를 제공할 수 있습니다. 따라서 현재 이 사이트에서 사용 가능하며 인터넷 커뮤니티에서 제공한 모든 자습서 및 샘플을 직접 변환할 수 있습니다.
@@ -51,7 +51,7 @@ Windows 알림 메시지를 보내려면
 	wns_payload = """<toast><visual><binding template="ToastText01"><text id="1">Hello world!</text></binding></visual></toast>"""
 	hub.send_windows_notification(wns_payload)
 	
-## Implementation
+## 구현
 아직 하지 않았으면 백 엔드를 구현해야 하는 [시작 자습서]의 마지막 섹션까지 수행하세요.
 
 전체 REST 래퍼를 구현하는 방법에 대한 자세한 내용은 [MSDN](http://msdn.microsoft.com/library/dn530746.aspx)을 참조하세요. 이 섹션에서는 알림 허브 REST 끝점에 액세스하고 알림을 보내는 데 필요한 기본 단계의 Python 구현에 대해 설명합니다.
@@ -87,8 +87,7 @@ Windows 알림 메시지를 보내려면
 
 
 ### 보안 토큰 만들기
-보안 토큰 만들기에 대한 자세한 내용은 [여기](http://msdn.microsoft.com/library/dn495627.aspx)를 참조하세요.
-현재 요청의 URI 및 연결 문자열에서 추출된 자격 증명에 따라 토큰을 만들려면 **NotificationHub** 클래스에 다음 메서드를 추가해야 합니다.
+보안 토큰 만들기에 대한 자세한 내용은 [여기](http://msdn.microsoft.com/library/dn495627.aspx)를 참조하세요. 현재 요청의 URI 및 연결 문자열에서 추출된 자격 증명에 따라 토큰을 만들려면 **NotificationHub** 클래스에 다음 메서드를 추가해야 합니다.
 
 	@staticmethod
     def get_expiry():
@@ -139,7 +138,7 @@ Windows 알림 메시지를 보내려면
 
 이 클래스는 기본 알림 본문(또는 템플릿 알림의 경우 속성 집합), 형식(기본 플랫폼 또는 템플릿)이 포함된 헤더 집합 및 플랫폼 특정 속성(예: Apple 만료 속성 및 WNS 헤더)에 대한 컨테이너입니다.
 
-사용할 수 있는 모든 옵션은 [알림 허브 REST API 설명서](http://msdn.microsoft.com/library/dn495827.aspx) 및 특정 알림 플랫폼의 형식을 참조하세요.
+모든 사용할 수 있는 옵션은 [알림 허브 REST API 설명서](http://msdn.microsoft.com/library/dn495827.aspx) 및 특정 알림 플랫폼의 형식을 참조하세요.
 
 이제 이 클래스를 사용하여 **NotificationHub** 클래스 내부에서 알림 보내기 메서드를 쓸 수 있습니다.
 
@@ -210,14 +209,11 @@ Windows 알림 메시지를 보내려면
 위의 메서드는 알림을 보내기 위한 올바른 본문과 헤더가 있는 알림 허브의 /messages 끝점으로 HTTP POST 요청을 보냅니다.
 
 ### 디버그 속성을 통해 자세한 로깅 사용
-알림 허브를 초기화하는 동안 디버그 속성을 사용하면 HTTP 요청 및 응답 덤프에 대한 자세한 로깅 정보 및 자세한 알림 메시지 전송 결과가 기록됩니다. 
-최근에 추가된 이 속성을 [알림 허브 TestSend 속성](http://msdn.microsoft.com/library/microsoft.servicebus.notifications.notificationhubclient.enabletestsend.aspx)이라고 하며,
-알림 전송 결과에 대한 자세한 정보가 반환됩니다. 
-이 속성을 사용하려면 다음을 사용하여 초기화합니다.
+알림 허브를 초기화하는 동안 디버그 속성을 사용하면 HTTP 요청 및 응답 덤프에 대한 자세한 로깅 정보 및 자세한 알림 메시지 전송 결과가 기록됩니다. 최근에 알림 보내기 결과에 대한 자세한 정보를 반환하는 [Notification Hubs TestSend](http://msdn.microsoft.com/library/microsoft.servicebus.notifications.notificationhubclient.enabletestsend.aspx)라는 속성을 추가했습니다. 이 속성을 사용하려면 다음을 사용하여 초기화합니다.
 
 	hub = NotificationHub("myConnectionString", "myNotificationHubName", isDebug)
 
-그 결과, 알림 허브 전송 요청 HTTP URL에 "test" 쿼리 문자열이 추가됩니다. 
+그 결과, 알림 허브 전송 요청 HTTP URL에 "test" 쿼리 문자열이 추가됩니다.
 
 ##<a name="complete-tutorial"></a>자습서 완료
 이제 Python 백 엔드에서 알림을 보내 시작 자습서를 완료할 수 있습니다.
@@ -226,7 +222,7 @@ Windows 알림 메시지를 보내려면
 
 	hub = NotificationHub("myConnectionString", "myNotificationHubName")
 
-그리고 대상 모바일 플랫폼에 따라 보내기 코드를 추가합니다. 또한 이 샘플은 플랫폼에 따라 알림 보내기를 사용하도록 설정하는 상위 수준의 메서드를 추가합니다(예: send_windows_notification(Windows), send_apple_notification(Apple) 등). 
+그리고 대상 모바일 플랫폼에 따라 보내기 코드를 추가합니다. 또한 이 샘플은 플랫폼에 따라 알림 보내기를 사용하도록 설정하는 상위 수준의 메서드를 추가합니다(예: send_windows_notification(Windows), send_apple_notification(Apple) 등).
 
 ### Windows 스토어 및 Windows Phone 8.1(비 Silverlight)
 
@@ -279,10 +275,9 @@ Python 코드를 실행하면 대상 장치에 나타나는 알림이 생성됩�
 ## 예제:
 
 ### 디버그 속성 사용
-NotificationHub를 초기화하는 동안 디버그 플래그를 사용하도록 설정하면 자세한 HTTP 요청 및 응답 덤프뿐 아니라 요청 시 전달된 HTTP 헤더 및 알림 허브에서 수신된 HTTP 응답을 확인할 수 있는 다음과 같은 NotificationOutcome이 표시됩니다.
-   	![][1]
+NotificationHub를 초기화하는 동안 디버그 플래그를 사용하도록 설정하면 자세한 HTTP 요청 및 응답 덤프뿐 아니라 요청 시 전달된 HTTP 헤더 및 알림 허브에서 수신된 HTTP 응답을 확인할 수 있는 다음과 같은 NotificationOutcome이 표시됩니다. ![][1]
 
-예를 들어 메시지가 푸시 알림 서비스로 전송되면 
+예를 들어 메시지가 푸시 알림 서비스로 전송되면
 
 - 자세한 알림 허브 결과가 표시됩니다. 
 	
@@ -294,7 +289,7 @@ NotificationHub를 초기화하는 동안 디버그 플래그를 사용하도록
 
 ### Windows로 보내는 브로드캐스트 알림 메시지 
 
-Windows 클라이언트로 브로드캐스트 알림 메시지를 보낼 때 전송되는 헤더를 확인합니다. 
+Windows 클라이언트로 브로드캐스트 알림 메시지를 보낼 때 전송되는 헤더를 확인합니다.
 
 	hub.send_windows_notification(wns_payload)
 
@@ -302,7 +297,7 @@ Windows 클라이언트로 브로드캐스트 알림 메시지를 보낼 때 전
 
 ### 태그(또는 태그 식)를 지정하여 알림 보내기
 
-HTTP 요청에 추가되는 태그 HTTP 헤더를 확인합니다. 아래 예제에서는  '스포츠' 페이로드가 있는 등록에만 알림을 보냅니다.
+HTTP 요청에 추가되는 태그 HTTP 헤더를 확인합니다. 아래 예제에서는 '스포츠' 페이로드가 있는 등록에만 알림을 보냅니다.
 
 	hub.send_windows_notification(wns_payload, "sports")
 
@@ -310,7 +305,7 @@ HTTP 요청에 추가되는 태그 HTTP 헤더를 확인합니다. 아래 예제
 
 ### 여러 태그를 지정하여 알림 보내기
 
-여러 태그를 보낼 때 태그 HTTP 헤더가 어떻게 변경되는지 확인합니다. 
+여러 태그를 보낼 때 태그 HTTP 헤더가 어떻게 변경되는지 확인합니다.
 	
 	tags = {'sports', 'politics'}
 	hub.send_windows_notification(wns_payload, tags)
@@ -353,5 +348,6 @@ HTTP 요청에 추가되는 태그 HTTP 헤더를 확인합니다. 아래 예제
 [3]: ./media/notification-hubs-python-backend-how-to/SendWithOneTag.png
 [4]: ./media/notification-hubs-python-backend-how-to/SendWithMultipleTags.png
 [5]: ./media/notification-hubs-python-backend-how-to/TemplatedNotification.png
+ 
 
-<!--HONumber=49--> 
+<!---HONumber=July15_HO1-->

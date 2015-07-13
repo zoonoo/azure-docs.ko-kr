@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Mobile Engagement 개념" 
+<properties
+	pageTitle="Mobile Engagement 개념"
 	description="Mobile Engagement 개념"
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="kpiteira" 
-	manager="dwrede" 
+	services="mobile-engagement"
+	documentationCenter="mobile"
+	authors="kpiteira"
+	manager="dwrede"
 	editor="" />
 
-<tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="" 
-	ms.topic="article" 
-	ms.date="01/24/2015" 
+<tags
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="01/24/2015"
 	ms.author="kapiteir" />
 
 #Azure Mobile Engagement 개념
@@ -67,14 +67,16 @@ Mobile Engagement는 각 장치에 대한 고유 식별자를 생성하여 사�
 
 Mobile Engagement SDK의 API 또는 Mobile Engagement 플랫폼의 장치 API를 사용하여 앱 정보를 등록할 수 있습니다.
 
-앱 정보는 장치에 연결된 키/값 쌍입니다. 키는 앱 정보의 이름(64자의 ASCII 문자 [a-zA-Z], 숫자 [0-9] 및 밑줄 [_]로 제한됨)입니다. 값(1024자로 제한됨)은 문자열, 정수, 날짜(yyyy-MM-dd) 또는 부울(true 또는 false)이 될 수 있습니다.
+앱 정보는 장치에 연결된 키/값 쌍입니다. 키는 앱 정보의 이름(64자의 ASCII 문자 [zA-A-z], [0-9] 숫자 및 밑줄 [_]로 제한됨)입니다. 값(1024자로 제한됨)은 문자열, 정수, 날짜(yyyy-MM-dd) 또는 부울(true 또는 false)이 될 수 있습니다.
 
 앱 정보는 개수에 관계없이 Mobile Engagement 가격 조건으로 정의된 제한 내에서 장치에 연결할 수 있습니다. 지정된 단일 키에 대해 Mobile Engagement는 최신 값 집합의 추적(기록 제외)만 유지합니다. 앱 정보의 값을 설정 또는 변경하면 Mobile Engagement에서 이 앱 정보(있는 경우)에 대한 대상 기준을 다시 평가합니다. 즉, 앱 정보를 사용하여 실시간 푸시를 트리거할 수 있습니다.
 
 ##추가 데이터
 추가 데이터(또는 기타 데이터)는 이벤트, 오류, 작업 및 작업에 연결할 수 있는 임의의 데이터입니다.
 
-추가 데이터는 JSON 개체와 비슷하게 구조화됩니다. 이러한 데이터는 키/값 쌍의 트리로 구성됩니다. 키가 64자의 ASCII 문자 [a-zA-Z], 숫자 [0-9] 및 밑줄 [_]로 제한되며 추가 데이터의 총 크기는 1024 자(Mobile Engagement SDK에 의해 JSON에서 한번 인코딩됨)로 제한됩니다.
+추가 데이터는 JSON 개체와 비슷하게 구조화됩니다. 이러한 데이터는 키/값 쌍의 트리로 구성됩니다. 키가 64자의 ASCII 문자 [zA-A-z], 숫자 [0-9] 및 밑줄 [_]로 제한되며 추가 데이터의 총 크기는 1024 자(Mobile Engagement SDK에 의해 JSON에서 한번 인코딩됨)로 제한됩니다.
 
 키/값 쌍의 전체 트리는 JSON 개체로 저장됩니다. 그러나 첫 번째 수준의 키/값은 Segments와 같은 일부 고급 함수에서 직접 액세스할 수 있도록 구성 해제됩니다. 예를 들어 지난 달에 추가 키 "content_type"이 "scifi" 값으로 설정된 "content_viewed"라는 이벤트를 10번 이상 전송한 모든 사용자로 구성된 "SciFi 팬" 세그먼트를 쉽게 정의할 수 있습니다. 따라서 스칼라 값(예: 문자열, 날짜, 정수 또는 부울)을 사용하여 키/값 쌍의 간단한 목록으로 구성된 기타 데이터만 보내는 것이 좋습니다.
-<!--HONumber=54--> 
+ 
+
+<!---HONumber=July15_HO1-->

@@ -3,7 +3,6 @@
 	description="모바일 서비스를 사용하여 Azure Blob 저장소에 이미지를 업로드하는 방법에 대해 알아봅니다." 
 	documentationCenter="windows" 
 	authors="ggailey777" 
-	writer="glenga" 
 	services="mobile-services,storage" 
 	manager="dwrede" 
 	editor=""/>
@@ -11,28 +10,24 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/25/2015" 
+	ms.date="06/04/2015" 
 	ms.author="glenga"/>
 
 # 모바일 서비스를 사용하여 Azure 저장소에 이미지 업로드
 
 [AZURE.INCLUDE [mobile-services-selector-upload-data-blob-storage](../../includes/mobile-services-selector-upload-data-blob-storage.md)]
 
+##개요
 이 항목에서는 Azure 모바일 서비스를 사용하여 사용자가 만든 이미지를 Azure 저장소에 업로드하고 저장하도록 Windows Phone 8 또는 Windows Phone 8.1 Silverlight 앱을 설정하는 방법에 대해 설명합니다. 모바일 서비스에서는 SQL 데이터베이스를 사용하여 데이터를 저장합니다. 그러나 Azure Blob 저장소 서비스에는 Blob(Binary Large Object) 데이터를 저장하는 것이 좀 더 효율적입니다.
 
 클라이언트 앱에서는 Blob 저장소 서비스에 데이터를 안전하게 업로드하는 데 필요한 자격 증명을 안전하게 배포할 수 없습니다. 대신 이러한 자격 증명을 모바일 서비스에 저장하고, 이를 사용하여 새로운 이미지 업로드에 사용되는 SAS(공유 액세스 서명)를 생성해야 합니다. 만료 기간이 짧은(이 경우 5분) 자격 증명인 SAS는 모바일 서비스에 의해 클라이언트 앱으로 안전하게 반환됩니다. 그러면 앱은 이 임시 자격 증명을 사용하여 이미지를 업로드합니다. 이 예제에서 Blob 서비스의 다운로드 파일은 공개 파일입니다.
 
-이 자습서에서는 모바일 서비스에서 생성한 SAS를 사용하여 사진을 찍고 이미지를 Azure에 업로드하는 기능을 [GetStartedWithData 샘플 앱 프로젝트](mobile-services-dotnet-backend-windows-phone-get-started-data.md)에 추가합니다. 이 자습서에서는 간단한 TodoList 앱을 업데이트하여 Blob 저장소 서비스에 이미지를 업로드하는 다음과 같은 기본 단계를 안내합니다.
+이 자습서에서는 모바일 서비스에서 생성한 SAS를 사용하여 사진을 찍고 이미지를 Azure에 업로드하는 기능을 [GetStartedWithData 샘플 앱 프로젝트](mobile-services-dotnet-backend-windows-phone-get-started-data.md)에 추가합니다.
 
-1. [저장소 클라이언트 라이브러리 설치]
-2. [클라이언트 앱을 업데이트하여 이미지 캡처]
-3. [모바일 서비스 프로젝트에 저장소 클라이언트 설치]
-4. [데이터 모델에서 TodoItem 정의 업데이트]
-5. [테이블 컨트롤러를 업데이트하여 SAS 생성]
-6. [이미지를 업로드하여 앱 테스트]
+##필수 조건 
 
 이 자습서를 사용하려면 다음이 필요합니다.
 
@@ -46,7 +41,7 @@
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-configure-blob-storage](../../includes/mobile-services-dotnet-backend-configure-blob-storage.md)]
 
-## <a name="install-storage-client"></a>Windows 스토어 앱용 저장소 클라이언트 설치
+##<a name="install-storage-client"></a>Windows 스토어 앱용 저장소 클라이언트 설치
 
 SAS를 사용하여 앱에서 Blob 저장소에 이미지를 업로드하려면 먼저 Windows 스토어 앱용 저장소 클라이언트 라이브러리를 설치하는 NuGet 패키지를 추가해야 합니다.
 
@@ -61,12 +56,12 @@ SAS를 사용하여 앱에서 Blob 저장소에 이미지를 업로드하려면 
 [AZURE.INCLUDE [mobile-services-windows-phone-upload-to-blob-storage](../../includes/mobile-services-windows-phone-upload-to-blob-storage.md)]
  
 <!-- Anchors. -->
-[저장소 클라이언트 라이브러리 설치]: #install-storage-client
-[클라이언트 앱을 업데이트하여 이미지 캡처]: #add-select-images
-[모바일 서비스 프로젝트에 저장소 클라이언트 설치]: #storage-client-server
-[데이터 모델에서 TodoItem 정의 업데이트]: #update-data-model
-[테이블 컨트롤러를 업데이트하여 SAS 생성]: #update-scripts
-[이미지를 업로드하여 앱 테스트]: #test
+[Install the Storage Client library]: #install-storage-client
+[Update the client app to capture images]: #add-select-images
+[Install the storage client in the mobile service project]: #storage-client-server
+[Update the TodoItem definition in the data model]: #update-data-model
+[Update the table controller to generate an SAS]: #update-scripts
+[Upload images to test the app]: #test
 [Next Steps]: #next-steps
 
 <!-- Images. -->
@@ -84,5 +79,6 @@ SAS를 사용하여 앱에서 Blob 저장소에 이미지를 업로드하려면 
 [Windows Phone SDK 8.0]: http://www.microsoft.com/download/details.aspx?id=35471
 
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

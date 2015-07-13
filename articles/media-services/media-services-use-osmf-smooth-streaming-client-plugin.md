@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/30/2014" 
+	ms.date="06/17/2015" 
 	ms.author="juliako"/>
 
 
@@ -21,6 +21,8 @@
 # Adobe 오픈 소스 미디어 프레임워크용 Microsoft 부드러운 스트리밍 플러그 인을 사용하는 방법 #
 
 ##개요 ##
+
+
 오픈 소스 미디어 프레임워크용 Microsoft 부드러운 스트리밍 플러그 인 2.0(SS for OSMF)은 OSMF의 기본 기능을 확장하며 기존 및 새로운 OSMF 플레이어에 Microsoft 부드러운 스트리밍 콘텐츠 재생을 추가합니다. 이 플러그 인은 또한 SMP(Strobe Media Playback)에 부드러운 스트리밍 재생 기능을 추가합니다.
 
 SS for OSMF에는 두 가지 버전의 플러그 인이 포함됩니다.
@@ -43,21 +45,13 @@ SS for OSMF에는 두 가지 버전의 플러그 인이 포함됩니다.
 - OSMF 기본 제공 API로 여러 오디오 언어 전환
 - OSMF 기본 제공 API로 최대 재생 품질 선택
 - OSMF 캡션 플러그 인으로 사이드카 선택 캡션
-- Adobe&reg; Flash&reg; Player 10.2 이상
+- Adobe&reg; Flash&reg; Player 11.4 이상
 - 이 버전은 OSMF 2.0만 지원함
 
-다음은 지원되지 않는 기능입니다.
+## 지원되는 기능 및 알려진 문제
 
-- VC-1 및 WMA 코덱
-- 콘텐츠 보호(PlayReady)
-- 텍스트 및 스파스 트랙
-- 트릭 플레이(느린 동작, 빨리 감기, 되감기)
+지원되는 기능, 지원되지 않는 기능 및 알려진 문제의 전체 목록은 [이 문서](http://download.microsoft.com/download/3/1/B/31B63D97-574E-4A8D-BF8D-170744181724/Smooth_Streaming_Plugin_for_OSMF.pdf)를 참조하세요.
 
-다음은 알려진 문제 목록입니다.
-
-- 48KHz 오디오 트랙으로 부드러운 스트리밍 콘텐츠를 재생하는 경우 문제가 있습니다. 플래시 런타임에 48KHz 오디오 콘텐츠 렌더링과 관련하여 알려진 문제가 있습니다. 이 문제로 인해 48KHz 설정으로 인코드된 부드러운 스트리밍 콘텐츠가 예상대로 작동하지 않을 수 있습니다. 자세한 내용은 [Flash Player 사용](http://forums.adobe.com/message/4483498#4483498)(영문) 및 [Adobe Flash Player 11.3 - 버그 3210964](https://bugbase.adobe.com/index.cfm?event=bug&id=3210964)(영문)를 참조하십시오.
-- 단일 페이지에서 여러 개의 부드러운 스트리밍 콘텐츠를 재생하면 문제가 발생할 수 있습니다. 이는 OSMF의 알려진 문제입니다.
-- Stage 비디오 재생 시 문제가 발생하고 일부 컴퓨터에서 비디오 없음 오류가 발생합니다. 해결하려면 하드웨어 가속이나 Stage 비디오를 사용하지 않도록 설정하면 됩니다.
 
 ## 플러그 인 로드
 OSMF 플러그 인은 정적으로(컴파일 시간에) 또는 동적으로(런타임에) 로드할 수 있습니다. OSMF용 부드러운 스트리밍 플러그 인 다운로드에는 동적 버전과 정적 버전이 모두 있습니다.
@@ -404,4 +398,9 @@ OSMF용 부드러운 스트리밍 동적 플러그 인은 [SMP(Strobe Media Play
 
 일반적인 OSMF 개발에 대한 자세한 내용은 공식 [OSMF 개발 페이지](http://osmf.org/resources.html)(영문)를 참조하십시오.
 
-<!--HONumber=54--> 
+
+##참고 항목
+
+[OSMF용 Microsoft 적응 스트리밍 플러그 인 업데이트](http://azure.microsoft.com/blog/2014/10/27/microsoft-adaptive-streaming-plugin-for-osmf-update/)
+
+<!---HONumber=July15_HO1-->

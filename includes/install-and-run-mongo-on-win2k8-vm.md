@@ -8,21 +8,21 @@
 5. Zip 파일을 마우스 오른쪽 단추로 클릭하고 **압축 풀기...**를 선택합니다. "C:"를 지정하고 **추출**을 클릭합니다. 파일의 압축을 푼 후 설치 폴더 이름을 보다 간단하게 바꿀 수 있습니다. 예를 들어 "MongoDB"
 6. 위 단계에서 만든 데이터 디스크(예: **F:** 드라이브)에 MongoDB 데이터 및 로그 디렉터리를 만듭니다. **시작** 메뉴에서 **명령 프롬프트** 메뉴를 선택하여 명령 프롬프트 창을 엽니다. 다음을 입력합니다.
 
-		C:> F:
+		C:\> F:
 		F:> mkdir \MongoData
 		F:> mkdir \MongoLogs
 
 7. 데이터베이스를 실행하려면 다음을 실행합니다.
 
 		F:> C:
-		C:> cd \MongoDB\bin
+		C:\> cd \MongoDB\bin
 		C:\my_mongo_dir\bin> mongod --dbpath F:\MongoData\ --logpath F:\MongoLogs\mongolog.log
 
 	mongod.exe 서버가 시작되고 저널 파일을 사전 할당되면 모든 로그 메시지가 *F:\MongoLogs\mongolog.log* 파일로 보내집니다. MongoDB가 저널 파일을 사전 할당하고 연결이 수신될 때까지 몇 분이 걸릴 수 있습니다.
 
 8. MongoDB 관리 셸을 시작하려면 **시작** 메뉴에서 명령 창을 하나 더 열어 다음을 입력합니다.
 
-		C:> cd \my_mongo_dir\bin  
+		C:\> cd \my_mongo_dir\bin  
 		C:\my_mongo_dir\bin> mongo  
 		>db  
 		test  	  
@@ -93,4 +93,4 @@
 [Image8]: ./media/install-and-run-mongo-on-win2k8-vm/WinVmAddEndpoint2.png
 [Image9]: ./media/install-and-run-mongo-on-win2k8-vm/WinVmAddEndpoint3.png
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO1-->

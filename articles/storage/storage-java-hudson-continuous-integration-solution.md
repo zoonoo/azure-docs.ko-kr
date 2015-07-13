@@ -106,7 +106,7 @@ Hudson으로 Blob 서비스를 사용하려면 Azure 저장소 플러그 인을 
         cd text
         echo Hello Azure Storage from Hudson > hello.txt
         date /t > date.txt
-        time /t > date.txt
+        time /t >> date.txt
  
 5. 작업 구성의 **Post-build Actions** 섹션에서 **Upload artifacts to Microsoft Azure Blob storage**를 클릭합니다.
 6. **Storage Account Name**에서는 사용할 저장소 계정을 선택합니다.
@@ -168,4 +168,4 @@ Azure Blob 저장소에서 다운로드할 추가 항목이 있는 경우에는 
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

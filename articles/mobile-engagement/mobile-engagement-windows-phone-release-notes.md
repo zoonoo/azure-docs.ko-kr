@@ -11,7 +11,7 @@
 	ms.service="mobile-engagement" 
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="mobile-windows-phone" 
-	ms.devlang="C#" 
+	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="04/07/2015" 
 	ms.author="piyushjo" />
@@ -29,5 +29,6 @@
 -   Azure Mobile Engagement의 최초 릴리스입니다.
 -   appId/sdkKey 구성이 연결 문자열 구성으로 바뀌었습니다.
 -   보안이 개선되었습니다.
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

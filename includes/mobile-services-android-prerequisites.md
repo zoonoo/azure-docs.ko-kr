@@ -1,6 +1,6 @@
 이 자습서를 완료하려면 다음이 필요합니다.
 
-- Azure 계정. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://www.windowsazure.com/ko-kr/pricing/free-trial/?WT.mc_id=AED8DE357" target="_blank">Azure 무료 평가판</a>을 참조하세요.
+- Azure 계정. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AED8DE357" target="_blank">Azure 무료 평가판</a>을 참조하세요.
 
 
 - [Azure 모바일 서비스 Android SDK](http://aka.ms/Iajk6q)
@@ -14,4 +14,4 @@
 [모바일 서비스 시작]: ../articles/mobile-services/mobile-services-android-get-started.md
 [기존 앱에 모바일 서비스 추가]: ../articles/mobile-services/mobile-services-android-get-started-data.md
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO1-->

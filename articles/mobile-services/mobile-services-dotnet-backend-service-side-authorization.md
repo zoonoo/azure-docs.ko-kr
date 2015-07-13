@@ -2,6 +2,7 @@
 	pageTitle=".NET 백엔드로 모바일 서비스 사용자의 서비스 쪽 권한 부여 | 모바일 개발자 센터"
 	description="Azure 모바일 서비스의.NET 백엔드에서 사용자에게 권한을 부여하는 방법에 대해 알아봅니다."
 	services="mobile-services"
+	documentationCenter="windows"
 	authors="krisragh"
 	manager="dwrede"
 	editor=""/>
@@ -9,9 +10,10 @@
 <tags
 	ms.service="mobile-services"
 	ms.workload="mobile"
-	ms.tgt_pltfrm=""
+	ms.tgt_pltfrm="mobile-multiple"
 	ms.topic="article"
-	ms.date="2/18/2015"
+	ms.devlang="dotnet"
+	ms.date="05/10/2015"
 	ms.author="krisragh"/>
 
 # 모바일 서비스에서 사용자의 서비스 쪽 권한 부여
@@ -20,7 +22,7 @@
 - [(Any | .NET)](mobile-services-dotnet-backend-service-side-authorization.md)
 - [(Any | Javascript)](mobile-services-javascript-backend-service-side-authorization.md)
 
-이 항목에서는 사용자에게 권한을 부여하기 위해 서버 쪽 논리를 사용하는 방법을 보여줍니다. 이 자습서에서는 .NET의 데이터 액세스 방법을 수정하고 사용자 ID를 기반으로 쿼리를 필터링하며 사용자에게 자신의 데이터에 대한 액세스만 제공합니다.
+이 항목에서는 사용자에게 권한을 부여하기 위해 서버 쪽 논리를 사용하는 방법을 보여줍니다. 이 자습서에서는 테이블 컨트롤러를 수정하고 사용자 ID를 기반으로 쿼리를 필터링하며 사용자에게 자신의 데이터에 대한 액세스만 제공합니다. 사용자 ID에 따라 사용자의 쿼리 결과를 필터링하는 방식이 가장 기본적인 형태의 권한 부여입니다. 특정 시나리오에 따라, 사용자 또는 역할 테이블을 만들어 지정된 사용자에게 액세스가 허용된 끝점과 같은 보다 자세한 사용자 권한 부여 정보를 추적할 수도 있습니다.
 
 이 자습서는 모바일 서비스 퀵 스타트 및 [기존 모바일 서비스 앱에 인증 추가] 자습서를 기반으로 합니다. [기존 모바일 서비스 앱에 인증 추가]를 먼저 완료하세요.
 
@@ -67,11 +69,7 @@
 [3]: ./media/mobile-services-dotnet-backend-ios-authorize-users-in-scripts/mobile-quickstart-startup-ios.png
 
 <!-- URLs. -->
-[Get started with Mobile Services]: mobile-services-dotnet-backend-ios-get-started.md
-[Get started with data]: mobile-services-dotnet-backend-ios-get-started-data.md
 [기존 모바일 서비스 앱에 인증 추가]: mobile-services-dotnet-backend-ios-get-started-users.md
-[Get started with push notifications]: mobile-services-dotnet-backend-ios-get-started-push.md
+ 
 
-[Mobile Services .NET How-to Conceptual Reference]: mobile-services-windows-dotnet-how-to-use-client-library.md
-
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

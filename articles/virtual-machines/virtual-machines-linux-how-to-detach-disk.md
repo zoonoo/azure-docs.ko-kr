@@ -13,13 +13,17 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/10/2015" 
+	ms.date="05/27/2015" 
 	ms.author="kathydav"/>
 
-
+# Linux 가상 컴퓨터에서 디스크를 분리하는 방법
 
 
 [AZURE.INCLUDE [howto-detach-disk-windows-linux](../../includes/howto-detach-disk-windows-linux.md)]
 
-<!--HONumber=45--> 
+## 추가 리소스
+
+[Linux 가상 컴퓨터에 데이터 디스크를 연결하는 방법](virtual-machines-linux-how-to-attach-disk.md)
  
+
+<!---HONumber=July15_HO1-->

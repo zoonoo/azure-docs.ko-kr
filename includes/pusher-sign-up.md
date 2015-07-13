@@ -68,4 +68,4 @@
 [Azure 관리 포털]: https://manage.windowsazure.com
 [푸셔 이해]: http://pusher.com/docs
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO1-->

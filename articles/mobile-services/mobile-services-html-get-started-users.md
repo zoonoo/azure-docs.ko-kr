@@ -10,10 +10,10 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="02/15/2015" 
+	ms.date="05/28/2015" 
 	ms.author="glenga"/>
 
 # 모바일 서비스 앱에 인증 추가 
@@ -22,21 +22,15 @@
 
 이 항목에서는 PhoneGap 또는 Cordova 앱을 비롯한 HTML 앱에서 Azure 모바일 서비스의 사용자를 인증하는 방법을 설명합니다. 이 자습서에서는 모바일 서비스가 지원하는 ID 공급자를 사용하여 퀵 스타트 프로젝트에 인증을 추가합니다. 모바일 서비스에서 인증되고 권한이 부여된 후 사용자 ID 값이 표시됩니다.
 
-이 자습서에서는 앱에서 인증을 사용하도록 설정하는 다음 기본 단계를 단계별로 안내합니다.
-
-1. [인증을 위해 앱 등록 및 모바일 서비스 구성]
-2. [테이블 사용 권한을 인증된 사용자로 제한]
-3. [앱에 인증 추가]
-
 이 자습서는 모바일 서비스 quickstart를 기반으로 합니다. 먼저 [모바일 서비스 시작] 자습서를 완료해야 합니다.
 
-## <a name="register"></a>인증을 위해 앱 등록 및 모바일 서비스 구성
+##<a name="register"></a>인증을 위해 앱 등록 및 모바일 서비스 구성
 
-[AZURE.INCLUDE [mobile-services-register-authentication](../../includes/mobile-services-register-authentication.md)] 
+[AZURE.INCLUDE [mobile-services-register-authentication](../../includes/mobile-services-register-authentication.md)]
 
-## <a name="permissions"></a>사용 권한을 인증된 사용자로 제한
+##<a name="permissions"></a>사용 권한을 인증된 사용자로 제한
 
-[AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../../includes/mobile-services-restrict-permissions-javascript-backend.md)] 
+[AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../../includes/mobile-services-restrict-permissions-javascript-backend.md)]
 
 
 3. 앱 디렉터리의 **server** 하위 폴더에서 다음 명령 파일 중 하나를 시작합니다.
@@ -57,7 +51,7 @@
 
 다음에는 모바일 서비스의 리소스를 요청하기 전에 인증을 허용하도록 앱을 업데이트합니다.
 
-## <a name="add-authentication"></a>앱에 인증 추가
+##<a name="add-authentication"></a>앱에 인증 추가
 
 >[AZURE.NOTE]팝업에서 로그인이 이루어지기 때문에 단추 클릭 이벤트에서 <strong>login</strong> 메서드를 호출해야 합니다. 그렇지 않으면 많은 브라우저에서 로그인 창이 표시되지 않습니다.
 
@@ -107,10 +101,9 @@
 			$("#logged-in button").click(logOut);
 		});
 
-    인증 프로세스를 처리하는 함수 집합이 만들어집니다. 사용자는 Facebook 로그인을 사용하여 인증됩니다. Facebook 이외의 ID 공급자를 사용하는 경우, 위의 <strong>login</strong> 메서드에 전달된 값을 다음 중 하나로 변경합니다. <em>microsoftaccount</em>, <em>facebook</em>, <em>twitter</em>, <em>google</em> 또는 <em>aad</em>.
+    인증 프로세스를 처리하는 함수 집합이 만들어집니다. 사용자는 Facebook 로그인을 사용하여 인증됩니다. Facebook 이외의 ID 공급자를 사용하는 경우, 위의 **login** 메서드에 전달된 값을 다음 중 하나로 변경합니다. *microsoftaccount*, *facebook*, *twitter*, *google* 또는 *aad*.
 
-	>[AZURE.IMPORTANT]PhoneGap 앱에서 프로젝트에 다음 플러그 인도 추가해야 합니다.
-	><ul><li><code>phonegap plugin add https://git-wip-us.apache.org/repos/asf/cordova-plugin-device.git</code></li> <li><code>phonegap plugin add https://git-wip-us.apache.org/repos/asf/cordova-plugin-inappbrowser.git</code></li></ul>
+	>[AZURE.IMPORTANT]PhoneGap 앱에서 프로젝트에 다음 플러그 인도 추가해야 합니다.<ul><li><code>phonegap plugin add https://git-wip-us.apache.org/repos/asf/cordova-plugin-device.git</code></li> <li><code>phonegap plugin add https://git-wip-us.apache.org/repos/asf/cordova-plugin-inappbrowser.git</code></li></ul>
 
 9. 앱이 실행 중인 브라우저로 돌아가 페이지를 새로 고칩니다.
 
@@ -123,9 +116,9 @@
 다음 자습서인 [스크립트를 통해 사용자 권한 부여]에서는 인증된 사용자를 기준으로 모바일 서비스에서 제공한 사용자 ID 값을 가져와 모바일 서비스에서 반환된 데이터를 필터링하는 데 사용합니다. HTML/JavaScript와 함께 모바일 서비스를 사용하는 방법에 대한 자세한 내용은 [모바일 서비스 HTML/JavaScript 방법 개념 참조]를 참조하십시오.
 
 <!-- Anchors. -->
-[인증을 위해 앱 등록 및 모바일 서비스 구성]: #register
-[테이블 사용 권한을 인증된 사용자로 제한]: #permissions
-[앱에 인증 추가]: #add-authentication
+[Register your app for authentication and configure Mobile Services]: #register
+[Restrict table permissions to authenticated users]: #permissions
+[Add authentication to the app]: #add-authentication
 [Next Steps]: #next-steps
 
 <!-- Images. -->
@@ -142,6 +135,7 @@
 [스크립트를 통해 사용자 권한 부여]: mobile-services-javascript-backend-service-side-authorization.md
 
 [Azure Management Portal]: https://manage.windowsazure.com/
-[모바일 서비스 HTML/JavaScript 방법 개념 참조]: /documentation/articles/mobile-services-html-how-to-use-client-library
+[모바일 서비스 HTML/JavaScript 방법 개념 참조]: mobile-services-html-how-to-use-client-library.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

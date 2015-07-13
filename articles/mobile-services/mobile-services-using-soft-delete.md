@@ -10,15 +10,15 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/19/2015" 
+	ms.date="06/18/2015" 
 	ms.author="wesmc"/>
 
 # 모바일 서비스에서 일시 삭제 사용
 
-## 개요
+##개요
 
 JavaScript 또는 .NET 백 엔드를 사용하여 만든 테이블에서 선택적으로 일시 삭제를 사용하도록 설정할 수 있습니다. 일시 삭제를 사용할 때는 [SQL 비트 유형]의 새 열인 *__deleted*가 데이터베이스에 추가됩니다. 일시 삭제를 사용하도록 설정한 상태로 삭제 작업을 수행해도 데이터베이스에서 행이 실제로 삭제되는 것은 아니며 삭제된 열의 값이 TRUE로 설정됩니다.
 
@@ -37,7 +37,7 @@ JavaScript 또는 .NET 백 엔드를 사용하여 만든 테이블에서 선택�
 
 
 
-## .NET 백 엔드에 대해 일시 삭제를 사용하도록 설정
+##.NET 백 엔드에 대해 일시 삭제를 사용하도록 설정
 
 .NET 백 엔드에 대한 일시 삭제 지원은 Microsoft Azure 모바일 서비스 .NET 백 엔드 버전 1.0.402에서 처음 공개되었습니다. 최신 NuGet 패키지는 [Microsoft Azure 모바일 서비스 .NET 백 엔드](http://go.microsoft.com/fwlink/?LinkId=513165)에서 제공됩니다.
 
@@ -57,7 +57,7 @@ JavaScript 또는 .NET 백 엔드를 사용하여 만든 테이블에서 선택�
         }
 
 
-## JavaScript 백 엔드에 대해 일시 삭제를 사용하도록 설정
+##JavaScript 백 엔드에 대해 일시 삭제를 사용하도록 설정
 
 모바일 서비스에 대해 새 테이블을 만드는 경우 테이블 만들기 페이지에서 일시 삭제를 사용하도록 설정할 수 있습니다.
 
@@ -108,7 +108,7 @@ JavaScript 백 엔드의 기존 테이블에 대해 일시 삭제를 사용하�
 
 
 
-## JavaScript 백 엔드에서 일시 삭제 사용
+##JavaScript 백 엔드에서 일시 삭제 사용
 
 테이블 스크립트를 사용하여 JavaScript 백 엔드 모바일 서비스의 일시 삭제 기능과 관련된 논리를 추가합니다.
 
@@ -161,5 +161,6 @@ JavaScript 백 엔드 모바일 서비스와 예약된 작업에 대해 자세�
 [관리 포털]: https://manage.windowsazure.com/
 
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

@@ -43,4 +43,7 @@ Puppet은 클라이언트-서버 시스템입니다. Puppet Master와 Puppet Ent
 [Linux를 실행하는 가상 컴퓨터에 로그온하는 방법]: virtual-machines-linux-how-to-log-on.md
 [Azure VM Extensions and Features]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
 
-<!---HONumber=58--> 
+
+ 
+
+<!---HONumber=July15_HO1-->

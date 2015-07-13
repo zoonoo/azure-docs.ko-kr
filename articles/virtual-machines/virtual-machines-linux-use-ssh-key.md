@@ -174,5 +174,6 @@ Windows용 `openssl`을 포함하는 다양한 유틸리티가 있습니다. 다
 	![linuxputtyprivatekey](./media/virtual-machines-linux-use-ssh-key/linuxputtyprivatekey.png)
 
 5.	**열기**를 클릭하여 가상 컴퓨터에 연결합니다.
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO1-->

@@ -123,5 +123,6 @@ LAMP 스택은 다음과 같은 여러 요소로 구성됩니다.
 Ubuntu에 LAMP 스택을 설치하는 여러 다른 리소스가 있습니다.
 
 - [https://help.ubuntu.com/community/ApacheMySQLPHP](https://help.ubuntu.com/community/ApacheMySQLPHP)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO1-->

@@ -5,21 +5,21 @@
 	documentationCenter="" 
 	authors="ggailey777" 
 	manager="dwrede" 
-	editor="mollybos"/> 
+	editor="mollybos"/>
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="02/25/2015" 
+	ms.date="06/04/2015" 
 	ms.author="glenga"/>
 
 # 단일 모바일 장치에서 여러 장치 플랫폼 지원
  
-모바일 앱 개발에서 Azure 모바일 서비스를 사용할 때의 주요 이점 중 하나는 여러 클라이언트 플랫폼에서 앱을 지원하는 단일 백 엔드 서비스를 사용할 수 있다는 것입니다. 모바일 서비스에서는 모든 주요 장치 플랫폼에 대해 네이티브 클라이언트 라이브러리를 제공하기 때문에 단일 백 엔드 서비스를 사용하고 교차 플랫폼 개발자 도구를 사용하여 앱을 좀 더 쉽게 개발할 수 있습니다. 이 항목에서는 단일 모바일 서비스 백 엔드를 사용하면서도 여러 클라이언트 플랫폼에서 앱을 실행할 수 있도록 하기 위한 고려 사항에 대해 설명합니다. 모바일 서비스에 대해 더 많은 일반적인 정보를 보려면 [모바일 서비스 개발자 센터](/documentation/services/mobile-services/)를 참조하십시오.
+모바일 앱 개발에서 Azure 모바일 서비스를 사용할 때의 주요 이점 중 하나는 여러 클라이언트 플랫폼에서 앱을 지원하는 단일 백 엔드 서비스를 사용할 수 있다는 것입니다. 모바일 서비스에서는 모든 주요 장치 플랫폼에 대해 네이티브 클라이언트 라이브러리를 제공하기 때문에 단일 백 엔드 서비스를 사용하고 교차 플랫폼 개발자 도구를 사용하여 앱을 좀 더 쉽게 개발할 수 있습니다. 이 항목에서는 단일 모바일 서비스 백 엔드를 사용하면서도 여러 클라이언트 플랫폼에서 앱을 실행할 수 있도록 하기 위한 고려 사항에 대해 설명합니다.
 
-## <a id="push"></a>교차 플랫폼 푸시 알림
+##<a id="push"></a>교차 플랫폼 푸시 알림
 
 모바일 서비스는 Azure 알림 허브를 사용하여 모든 주요 장치 플랫폼의 클라이언트 앱에 푸시 알림을 보냅니다. 알림 허브에서는 장치 등록을 만들고 관리하며 교차 플랫폼 푸시 알림을 보내는 데 사용되는 일관된 통합 인프라를 제공합니다. 알림 허브는 다음과 같은 플랫폼별 알림 서비스를 사용하여 푸시 알림을 보내는 것을 지원합니다.
 
@@ -42,7 +42,7 @@
 
 다음 섹션에 있는 표는 .NET 및 JavaScript 백 엔드 모바일 서비스 모두에서 푸시 알림을 구현하는 방법을 보여 주는 클라이언트별 자습서로 연결됩니다.
 
-### .NET 백 엔드
+###.NET 백 엔드
 
 .NET 백 엔드 모바일 서비스에서는 [ApiServices.Push] 속성에서 가져온 [PushClient](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.notifications.pushclient.aspx) 개체에 [SendAsync](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.apiservices.push.aspx) 메서드를 호출함으로써 알림을 보냅니다. 보낸 푸시 알림(기본 또는 템플릿)은 다음 표에서와 같이 [SendAsync](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.notifications.ipushmessage.aspx) 메서드에 전달된 특정 [IPushMessage] 파생 개체에 따라 다릅니다.
 
@@ -77,7 +77,7 @@
 	// Send a push notification to all template registrations.
     await Services.Push.SendAsync(templatePayload); 
  
-### JavaScript 백 엔드
+###JavaScript 백 엔드
 
 JavaScript 백 엔드 모바일 서비스에서는 다음 표에서와 같이 글로벌 **푸시 개체**에서 가져온 플랫폼별 개체에 [send] 메서드를 호출함으로써 알림을 보냅니다.
 
@@ -117,7 +117,7 @@ JavaScript 백 엔드 모바일 서비스에서는 다음 표에서와 같이 �
 
 다른 기본 클라이언트 플랫폼에 푸시 알림을 보내는 방법에 대한 예제를 보려면 위 표의 헤더에서 플랫폼 링크를 클릭하십시오.
 
-기본 클라이언트 등록 대신 템플릿 클라이언트 등록을 사용할 때는 글로벌 [푸시 개체]에 대한 **send** 기능의 단일 호출만으로 같은 알림을 보냄으로써 다음과 같이 템플릿 메시지 페이로드를 제공할 수 있습니다.
+기본 클라이언트 등록 대신 템플릿 클라이언트 등록을 사용할 때는 글로벌 **푸시 개체**에 대한 [send] 기능의 단일 호출만으로 같은 알림을 보냄으로써 다음과 같이 템플릿 메시지 페이로드를 제공할 수 있습니다.
 
 	// Create a new template message with the 'message' parameter.    
 	var templatePayload = { "message": item.text };
@@ -132,7 +132,7 @@ JavaScript 백 엔드 모바일 서비스에서는 다음 표에서와 같이 �
                     }
                 }); 
 
-## <a id="xplat-app-dev"></a>교차 플랫폼 앱 개발
+##<a id="xplat-app-dev"></a>교차 플랫폼 앱 개발
 모든 주요 모바일 장치 플랫폼에 대한 기본 모바일 장치 앱을 개발하려면 최소한 Objective-C, Java 및 C# 또는 JavaScript 프로그래밍 언어에 대한 전문 지식이 필요합니다. 이처럼 여러 가지 플랫폼에서 개발해야 하는 비용 부담 때문에 일부 개발자들은 완전한 웹 브라우저 기반 환경을 앱에 사용하기로 선택합니다. 하지만 이러한 웹 기반 환경은 사용자들이 모바일 장치에서 기대하는 풍부한 환경을 제공하는 대다수의 기본 리소스에 액세스할 수 없습니다.
 
 교차 플랫폼 도구는 단일 코드 기반(주로 JavaScript)을 공유하면서도 모바일 장치에 보다 풍부한 기본 환경을 제공합니다. 모바일 서비스를 사용하면 다음과 같은 개발 플랫폼에 대해 빠른 시작 자습서를 제공함으로써 교차 플랫폼 앱 개발 플랫폼의 백 엔드 서비스를 쉽게 만들고 관리할 수 있습니다.
@@ -150,7 +150,7 @@ JavaScript 백 엔드 모바일 서비스에서는 다음 표에서와 같이 �
 	Xamarin Studio 또는 Visual Studio 2013을 사용하여 Xamarin 앱을 만들 수 있습니다. 자세한 내용은 [Visual Studio에서의 교차 플랫폼 개발](http://msdn.microsoft.com/library/dn771552.aspx)(영문)을 참조하십시오.
 
 
-## <a id="shared-vs"></a>Visual Studio 프로젝트에서 코드 공유 및 재사용
+##<a id="shared-vs"></a>Visual Studio 프로젝트에서 코드 공유 및 재사용
 
 모바일 서비스에는 모든 Windows 플랫폼에서의 개발을 지원하는 .NET Framework PCL(Portable Class Library)인 .NET 클라이언트 라이브러리가 포함되어 있습니다. 자세한 내용은 [.NET 클라이언트를 모바일 서비스와 함께 사용하는 방법]을 참조하십시오. 따라서 여러 C# 프로젝트에서 데이터 액세스 또는 인증 등에 동일 모바일 서비스 코드를 쉽게 재사용할 수 있습니다.
 
@@ -166,7 +166,7 @@ Visual Studio 2013 업데이트 2는 범용 Windows 앱 프로젝트에 대한 �
 
 >[AZURE.NOTE]포털에서 제공하는 빠른 시작 앱 프로젝트의 C# 버전은 MainPage.xaml.cs 코드 숨김 페이지를 공유하지만 뷰 모델을 사용하지 않습니다. C#에서 MVVM을 사용하는 범용 Windows 앱 프로젝트로서의 TodoList 앱에 대한 예를 보려면 [MVVM을 사용하는 Azure 모바일 서비스의 범용 Windows 앱 프로젝트](영문)를 참조하십시오.
 
-### <a id="xamarin"></a>Xamarin 개발
+###<a id="xamarin"></a>Xamarin 개발
 
 Xamarin 및 Visual Studio 또는 Xamarin Studio를 사용하여 iOS 및 Android용 앱을 개발함으로써 Visual Studio 및 C# 개발 환경을 활용할 수 있습니다. Xamarin은 C# 코드를 사용하여 iOS 및 Android 앱을 개발할 수 있게 해 주는 .NET Framework의 교차 플랫폼 구현을 사용합니다. Xamarin을 사용하면 Windows 프로젝트에서 모바일 서비스 .NET 클라이언트 라이브러리를 사용하는 기존 코드를 활용하여 모바일 서비스에 액세스할 수 있습니다. 자세한 내용은 [Visual Studio에서의 교차 플랫폼 개발](http://msdn.microsoft.com/library/dn771552.aspx)(영문)을 참조하십시오.
 
@@ -197,7 +197,7 @@ Windows Phone 8.1에서는 이전 Silverlight 기반 XAML을 사용하여 앱을
 [Get started with push Android]: /develop/mobile/tutorials/get-started-with-push-android/
 [Dynamic schema]: http://msdn.microsoft.com/library/windowsazure/jj193175.aspx
 [.NET 클라이언트를 모바일 서비스와 함께 사용하는 방법]: documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library/
-[푸시 개체]: http://msdn.microsoft.com/library/windowsazure/jj554217.aspx
+[send]: http://msdn.microsoft.com/library/windowsazure/jj554217.aspx
 [TemplatePushMessage]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.templatepushmessage.aspx
 [PhoneGap]: mobile-services-javascript-backend-phonegap-get-started.md
 [Sencha]: partner-sencha-mobile-services-get-started.md
@@ -208,5 +208,6 @@ Windows Phone 8.1에서는 이전 Silverlight 기반 XAML을 사용하여 앱을
 [Windows Phone 8 개발자를 위한 향후 계획]: http://msdn.microsoft.com/library/windows/apps/dn655121(v=vs.105).aspx
 [모든 Windows 장치에 대한 범용 Windows 앱 만들기]: http://go.microsoft.com/fwlink/p/?LinkId=509905
 [MVVM을 사용하는 Azure 모바일 서비스의 범용 Windows 앱 프로젝트]: http://code.msdn.microsoft.com/Universal-Windows-app-for-db3564de
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

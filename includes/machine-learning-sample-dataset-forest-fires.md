@@ -1,3 +1,3 @@
 산불 레코드와 결합된 포르투갈 북동부 지역의 기온 및 습도 지수, 풍속 같은 날씨 데이터를 포함합니다.<p> </p><b>사용:</b> 이 작업은 산불 피해지를 예측하기 위한 어려운 회귀 작업입니다. <p> </p><b>관련 조사:</b> Cortez, P., & Morais, A. (2008). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science <p> </p>[Cortez and Morais, 2007] P. Cortez and A. Morais. A Data Mining Approach to Predict Forest Fires using Meteorological Data. In J. Neves, M. F. Santos and J. Machado Eds., New Trends in Artificial Intelligence, Proceedings of the 13th EPIA 2007 - Portuguese Conference on Artificial Intelligence, December, Guimarães, Portugal, pp. 512-523, 2007. APPIA, ISBN-13 978-989-95618-0-9. 제공 위치: <a href="http://www.dsi.uminho.pt/~pcortez/fires.pdf">http://www.dsi.uminho.pt/~pcortez/fires.pdf</a>.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO1-->

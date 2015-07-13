@@ -25,7 +25,6 @@ SKU 제품군입니다.
 
     "redisCacheFamily": {
       "type": "string",
-      "allowedValues": [ "C" ],
       "defaultValue": "C"
     }
 
@@ -47,8 +46,7 @@ SKU 제품군입니다.
 
     "redisCacheVersion": {
       "type": "string",
-      "allowedValues": [ "2.8" ],
       "defaultValue": "2.8"
     }
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO1-->

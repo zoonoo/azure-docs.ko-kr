@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="02/06/2015" 
+	ms.date="06/03/2015" 
 	ms.author="ricksal"/>
 
 # 모바일 서비스 앱에 푸시 알림 추가
@@ -34,21 +34,21 @@
 
 >[AZURE.NOTE]완성된 앱의 소스 코드를 참조하려는 경우 <a href="https://github.com/RickSaling/mobile-services-samples/tree/futures/GettingStartedWithPush/Android" target="_blank">여기</a>로 이동하세요.
 
-## 필수 조건
+##필수 조건
 
 [AZURE.INCLUDE [mobile-services-android-prerequisites](../../includes/mobile-services-android-prerequisites-EC.md)]
 
-## <a id="register"></a>Google Cloud Messaging 사용
+##<a id="register"></a>Google Cloud Messaging 사용
 
 [AZURE.INCLUDE [GCM 사용](../../includes/mobile-services-enable-Google-cloud-messaging.md)]
 
-## <a id="configure"></a>푸시 요청을 전송하도록 모바일 서비스 구성
+##<a id="configure"></a>푸시 요청을 전송하도록 모바일 서비스 구성
 
 [AZURE.INCLUDE [mobile-services-android-configure-push](../../includes/mobile-services-android-configure-push.md)]
 
-## <a id="add-push"></a>앱에 푸시 알림 추가
+##<a id="add-push"></a>앱에 푸시 알림 추가
 
-### Android SDK 버전 확인
+###Android SDK 버전 확인
 
 [AZURE.INCLUDE [SDK 확인](../../includes/mobile-services-verify-android-sdk-version-EC.md)]
 
@@ -56,16 +56,16 @@
 
 이전 장치로 테스트할 경우 이 값을 적절하게 설정할 수 있는 최소값을 확인하려면 [Google Play Services SDK 설정](영문)을 참조하십시오.
 
-### 프로젝트에 Google Play Services 추가
+###프로젝트에 Google Play Services 추가
 
 [AZURE.INCLUDE [Play 서비스 추가](../../includes/mobile-services-add-Google-play-services-EC.md)]
 
-### 코드 추가
+###코드 추가
 
 [AZURE.INCLUDE [mobile-services-android-getting-started-with-push](../../includes/mobile-services-android-getting-started-with-push-EC.md)]
 
 
-## <a id="update-scripts"></a>관리 포털에서 등록된 삽입 스크립트 업데이트
+##<a id="update-scripts"></a>관리 포털에서 등록된 삽입 스크립트 업데이트
 
 1. 관리 포털에서 **데이터** 탭을 클릭한 후 **TodoItem** 테이블을 클릭합니다. 
 
@@ -109,11 +109,11 @@
 
    	이 코드는 새 삽입 스크립트를 등록합니다. 그러면 삽입이 성공한 이후에 [gcm 개체]를 사용하여 모든 등록된 장치에 푸시 알림을 보냅니다.
 
-## <a id="test"></a>앱에서 푸시 알림 테스트
+##<a id="test"></a>앱에서 푸시 알림 테스트
 
 USB 케이블로 Android 휴대폰을 직접 연결하거나 에뮬레이터에서 가상 장치를 사용하여 앱을 테스트할 수 있습니다.
 
-### 테스트를 위해 에뮬레이터 설정
+###테스트를 위해 에뮬레이터 설정
 
 에뮬레이터에서 이 앱을 실행하는 경우 Google API를 지원하는 AVD(Android Virtual Device)를 사용해야 합니다.
 
@@ -133,7 +133,7 @@ USB 케이블로 Android 휴대폰을 직접 연결하거나 에뮬레이터에�
 
 	AVD 대상이 Google API를 사용하도록 설정됩니다.
 
-### 테스트 실행
+###테스트 실행
 
 1. Eclipse의 **Run** 메뉴에서 **Run**을 클릭하여 앱을 시작합니다.
 
@@ -163,23 +163,17 @@ USB 케이블로 Android 휴대폰을 직접 연결하거나 에뮬레이터에�
 
 다음 항목에서 모바일 서비스 및 알림 허브에 대해 알아보세요.
 
-* [데이터 시작] 
-  <br/>모바일 서비스를 사용하여 데이터를 저장 및 쿼리하는 방법을 자세히 알아봅니다.
+* [데이터 시작] <br/>모바일 서비스를 사용하여 데이터를 저장 및 쿼리하는 방법을 자세히 알아봅니다.
 
-* [앱에 인증 추가][Get started with authentication] 
-  <br/>모바일 서비스를 사용하여 서로 다른 계정 유형의 앱 사용자를 인증하는 방법에 대해 알아봅니다.
+* [앱에 인증 추가][Get started with authentication] <br/>모바일 서비스를 사용하여 서로 다른 계정 유형의 앱 사용자를 인증하는 방법에 대해 알아봅니다.
 
-* [알림 허브 정의] 
-  <br/>모든 주요 클라이언트 플랫폼에 걸쳐 알림 허브가 앱에 알림을 전달하는 방법에 대해 알아봅니다.
+* [알림 허브 정의] <br/>모든 주요 클라이언트 플랫폼에 걸쳐 알림 허브가 앱에 알림을 전달하는 방법에 대해 알아봅니다.
 
-* [알림 허브 응용 프로그램 디버깅](http://go.microsoft.com/fwlink/p/?linkid=386630)
-  </br>알림 허브 솔루션 문제를 해결하고 디버깅하기 위한 지침을 얻습니다.
+* [알림 허브 응용 프로그램 디버깅](http://go.microsoft.com/fwlink/p/?linkid=386630) </br>알림 허브 솔루션 문제를 해결하고 디버깅하기 위한 지침을 얻습니다.
 
-* [모바일 서비스용 Android 클라이언트 라이브러리를 사용하는 방법] 
-  <br/>Android와 함께 모바일 서비스를 사용하는 방법을 자세히 알아봅니다.
+* [모바일 서비스용 Android 클라이언트 라이브러리를 사용하는 방법] <br/>Android와 함께 모바일 서비스를 사용하는 방법을 자세히 알아봅니다.
 
-* [모바일 서비스 서버 스크립트 참조] 
-  <br/>모바일 서비스에서 비즈니스 논리를 구현하는 방법에 대해 자세히 알아봅니다.
+* [모바일 서비스 서버 스크립트 참조] <br/>모바일 서비스에서 비즈니스 논리를 구현하는 방법에 대해 자세히 알아봅니다.
 
 
 <!-- Anchors. -->
@@ -200,13 +194,11 @@ USB 케이블로 Android 휴대폰을 직접 연결하거나 에뮬레이터에�
 [Get started with Mobile Services]: mobile-services-android-get-started.md
 [데이터 시작]: mobile-services-android-get-started-data.md
 [Get started with authentication]: mobile-services-android-get-started-users.md
-[모바일 서비스 시작]: mobile-services-android-get-started.md
 [Get started with push notifications]: /develop/mobile/tutorials/get-started-with-push-js
 [Push notifications to app users]: /develop/mobile/tutorials/push-notifications-to-users-js
 [Authorize users with scripts]: /develop/mobile/tutorials/authorize-users-in-scripts-js
 [JavaScript and HTML]: /develop/mobile/tutorials/get-started-with-push-js
 [Google Play Services SDK 설정]: http://go.microsoft.com/fwlink/?LinkId=389801
-[Azure 관리 포털]: https://manage.windowsazure.com/
 [Azure Management Portal]: https://manage.windowsazure.com/
 [모바일 서비스용 Android 클라이언트 라이브러리를 사용하는 방법]: mobile-services-android-how-to-use-client-library.md
 
@@ -219,5 +211,6 @@ USB 케이블로 Android 휴대폰을 직접 연결하거나 에뮬레이터에�
 [알림 허브 정의]: ../notification-hubs-overview.md
 [Send broadcast notifications to subscribers]: ../notification-hubs-android-send-breaking-news.md
 [Send template-based notifications to subscribers]: ../notification-hubs-android-send-localized-breaking-news.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

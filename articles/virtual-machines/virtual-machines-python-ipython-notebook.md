@@ -276,4 +276,4 @@ IPython Notebook은 Azure에서 Python 에코시스템의 기능에 대화형으
 [OpenSSL]: http://slproweb.com/products/Win32OpenSSL.html
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

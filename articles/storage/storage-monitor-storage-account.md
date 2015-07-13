@@ -13,158 +13,150 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/17/2014" 
+	ms.date="06/22/2015" 
 	ms.author="tamram"/>
 
-# <a id="createstorageaccount"></a>Azure 관리 포털에서 저장소 계정 모니터링
+# Azure 관리 포털에서 저장소 계정 모니터링
 
-Azure 관리 포털에서 저장소 계정을 모니터링할 수 있습니다. 포털을 통해 모니터링할 저장소 계정을 구성하면 Azure 저장소에서 [저장소 분석](http://msdn.microsoft.com/library/azure/hh343270.aspx)을 사용하여 계정에 대한 메트릭을 추적하고 요청 데이터를 로깅합니다. 
+## 개요
 
-> [AZURE.NOTE] 관리 포털에서 모니터링 데이터를 검사하면 추가 비용이 발생할 수 있습니다. 자세한 내용은 <a href="http://msdn.microsoft.com/library/windowsazure/hh360997.aspx">저장소 분석 및 청구</a>를 참조하세요. <br />
+Azure 관리 포털에서 저장소 계정을 모니터링할 수 있습니다. 포털을 통해 모니터링할 저장소 계정을 구성하면 Azure 저장소에서 [저장소 분석](http://msdn.microsoft.com/library/azure/hh343270.aspx)을 사용하여 사용자의 계정에 대한 메트릭을 추적하고 요청 데이터를 기록합니다.
+
+> [AZURE.NOTE]관리 포털에서 모니터링 데이터를 검사하면 추가 비용이 발생할 수 있습니다. 자세한 내용은 <a href="http://msdn.microsoft.com/library/azure/hh360997.aspx">저장소 분석 및 청구</a>를 참조하십시오.<br />
 
 > Azure 파일 서비스는 현재 저장소 분석을 지원하지 않습니다.
 
-> 저장소 분석 및 기타 도구를 사용하여 Azure 저장소 관련 문제를 식별, 진단 및 해결하는 방법에 대한 자세한 가이드는 [Microsoft Azure 저장소 모니터링, 진단 및 문제 해결](storage-monitoring-diagnosing-troubleshooting.md)을 참조하세요.
+> 저장소 분석 및 기타 도구를 사용하여 Azure 저장소 관련 문제를 식별, 진단 및 해결하는 방법에 대한 자세한 지침은 [Microsoft Azure 저장소 모니터링, 진단 및 문제 해결](../storage-monitoring-diagnosing-troubleshooting/)을 참조하세요.
 
 
-##목차##
-
-* [방법: 저장소 계정에 대한 모니터링 구성](#configurestoragemonitoring)
-* [방법: 모니터링을 위한 대시보드 사용자 지정](#customizestoragemonitoring)
-* [방법: 모니터 페이지 사용자 지정](#customizemonitorpage)
-* [방법: 메트릭 테이블에 메트릭 추가](#addmonitoringmetrics)
-* [방법: 모니터 페이지의 메트릭 차트 사용자 지정](#customizemetricschart)
-* [방법: 로깅 구성](#configurelogging)
-
-
-<h2><a id="configurestoragemonitoring"></a>방법: 저장소 계정에 대한 모니터링 구성</h2>
+## 방법: 저장소 계정에 대한 모니터링 구성
 
 1. [관리 포털](https://manage.windowsazure.com/)에서 **저장소**를 클릭한 후 대시보드를 열 저장소 계정 이름을 클릭합니다.
 
-2. **구성**을 클릭하고 아래에 표시된 Blob, 테이블 및 큐 서비스의 **모니터링** 설정까지 아래로 스크롤합니다.
+2. **구성**을 클릭하고 아래와 같이 Blob, 테이블 및 큐 서비스의 **모니터링** 설정까지 아래로 스크롤합니다.
 
-	![MonitoringOptions](./media/storage-monitor-storage-account/Storage_MonitoringOptions.png)
+	![모니터링 옵션](./media/storage-monitor-storage-account/Storage_MonitoringOptions.png)
 
-3. **모니터링**에서 다음과 같이 각 서비스에 대해 모니터링 수준 및 데이터 보존 정책을 설정합니다.
+3. **모니터링**에서 다음과 같이 각 서비스의 모니터링 수준 및 데이터 보존 정책을 설정합니다.
 
 -  모니터링 수준을 설정하려면 다음 중 하나를 선택합니다.
 
       **최소** - 수신/송신, 가용성, 대기 시간, 성공 비율 등 Blob, 테이블 및 큐 서비스에 대해 집계되는 메트릭을 수집합니다.
 
-      **세부 정보 표시** - 최소 메트릭뿐 아니라 Azure 저장소 서비스 API의 각 저장소 작업에 대한 동일한 메트릭 집합을 수집합니다. 세부 정보 표시 메트릭을 사용하면 응용 프로그램 작업 중 발생하는 문제를 더 면밀하게 분석할 수 있습니다. 
+      **세부 정보 표시** - 최소 메트릭뿐 아니라 Azure 저장소 서비스 API의 각 저장소 작업에 대한 동일한 메트릭 집합을 수집합니다. 세부 정보 표시 메트릭을 사용하면 응용 프로그램 작업 중 발생하는 문제를 더 면밀하게 분석할 수 있습니다.
 
       **해제** - 모니터링을 해제합니다. 기존 모니터링 데이터는 보존 기간의 끝까지 저장됩니다.
 
-- 데이터 보존 정책을 설정하려면 **보존(일)**에 1~365일 중 보존할 데이터 기간(일수)을 입력합니다. 보존 정책을 설정하지 않으려면 0을 입력합니다. 보존 정책이 없는 경우 언제든 모니터링 데이터를 삭제할 수 있습니다. 오래되고 사용하지 않는 분석 데이터를 비용 부담 없이 시스템에서 삭제할 수 있도록 계정의 저장소 분석 데이터를 보존하려는 기간에 따라 보존 정책을 설정하는 것이 좋습니다.
+- 데이터 보존 정책을 설정하려면 **보존(일)**에 1 - 365일 중 보존할 데이터 기간(일수)을 입력합니다. 보존 정책을 설정하지 않으려면 0을 입력합니다. 보존 정책이 없는 경우 언제든 모니터링 데이터를 삭제할 수 있습니다. 오래되고 사용하지 않는 분석 데이터를 비용 부담 없이 시스템에서 삭제할 수 있도록 계정의 저장소 분석 데이터를 보존하려는 기간에 따라 보존 정책을 설정하는 것이 좋습니다.
 
-4. 모니터링 구성을 완료하면 **저장**을 클릭합니다.
+4. 모니터링 구성을 완료한 경우 **저장**을 클릭합니다.
 
-약 한 시간 후 대시보드 및 **모니터** 페이지에 모니터링 데이터가 표시되기 시작합니다.
+대략 한 시간 이후부터 대시보드 및 **모니터** 페이지에서 모니터링 데이터를 볼 수 있습니다.
 
 저장소 계정에 대한 모니터링을 구성할 때까지 모니터링 데이터가 수집되지 않으며 대시보드의 메트릭 차트 및 **모니터** 페이지는 비어 있습니다.
 
-모니터링 수준 및 보존 정책을 설정한 후 관리 포털에서 모니터링에 사용할 수 있는 메트릭과 메트릭 차트에 넣을 메트릭을 선택할 수 있습니다. 기본 메트릭 집합이 각 모니터링 수준에서 표시됩니다. **메트릭 추가**를 사용하여 메트릭 목록에서 메트릭을 추가하거나 제거할 수 있습니다.
+모니터링 수준 및 보존 정책을 설정한 후 관리 포털에서 모니터링에 사용할 수 있는 메트릭과 메트릭 차트에 넣을 메트릭을 선택할 수 있습니다. 기본 메트릭 집합이 각 모니터링 수준에서 표시됩니다. **메트릭 추가**를 사용하여 메트릭 목록에 메트릭을 추가하거나 제거할 수 있습니다.
 
-메트릭은 저장소 계정에서 이름이 $MetricsTransactionsBlob, $MetricsTransactionsTable, $MetricsTransactionsQueue 및 $MetricsCapacityBlob인 네 가지 테이블에 저장됩니다. 자세한 내용은 저장소 [분석 메트릭 정보](http://msdn.microsoft.com/library/windowsazure/hh343258.aspx)를 참조하세요.
+메트릭은 저장소 계정에서 이름이 $MetricsTransactionsBlob, $MetricsTransactionsTable, $MetricsTransactionsQueue 및 $MetricsCapacityBlob인 네 가지 테이블에 저장됩니다. 자세한 내용은 [저장소 분석 메트릭 정보](http://msdn.microsoft.com/library/azure/hh343258.aspx)(영문)를 참조하십시오.
 
 
-<h2><a id="customizestoragemonitoring"></a>방법: 모니터링을 위한 대시보드 사용자 지정</h2>
+## 방법: 모니터링을 위한 대시보드 사용자 지정
 
 대시보드에서 사용 가능한 9개의 메트릭 중 메트릭 차트에 넣을 메트릭을 6개까지 선택할 수 있습니다. 각 서비스(Blob, 테이블 및 큐)에 대해 가용성, 성공 비율 및 총 요청 메트릭을 사용할 수 있습니다. 대시보드에서 최소 또는 세부 정보 표시 모니터링에 대해 사용할 수 있는 메트릭은 동일합니다.
 
-1. [관리 포털에](https://manage.windowsazure.com/)서 **저장소**를 클릭한 후 대시보드를 열 저장소 계정 이름을 클릭합니다.
+1. [관리 포털](https://manage.windowsazure.com/)에서 **저장소**를 클릭한 후 대시보드를 열 저장소 계정 이름을 클릭합니다.
 
 2. 차트에 넣을 메트릭을 변경하려면 다음 작업 중 하나를 수행합니다.
 
-- 차트에 새 메트릭을 추가하려면 메트릭 헤더 옆에 있는 확인란을 클릭합니다. 좁은 화면에서 ***n* 자세히**를 클릭하여 헤더 영역에 표시되지 않는 헤더에 액세스합니다.
-
-- 차트에 그려진 메트릭을 숨기려면 메트릭 헤더 옆에 있는 확인란의 선택을 취소합니다.
-
-	![Monitoring_nmore](./media/storage-monitor-storage-account/storage_Monitoring_nmore.png)
+	- 차트에 새 메트릭을 추가하려면 차트 아래 테이블의 메트릭 헤더 옆에 있는 색이 지정된 확인란을 클릭합니다.
+	
+	- 차트에 그려진 메트릭을 숨기려면 메트릭 헤더 옆에 있는 색이 지정된 확인란의 선택을 취소합니다.
+	
+		![모니터링_n자세히](./media/storage-monitor-storage-account/storage_Monitoring_nmore.png)
   
-3. 기본적으로 차트는 추세를 보여 주며, 각 메트릭의 현재 값(차트 맨 위의 **상대** 옵션)만 표시합니다. 절대값을 볼 수 있도록 Y축을 표시하려면 **절대**를 선택합니다.
+3. 기본적으로 차트는 추세를 보여 주며, 각 메트릭의 현재 값(차트 맨 위의 **상대값** 옵션)만 표시합니다. 절대값을 볼 수 있도록 Y축을 표시하려면 **절대값**을 선택합니다.
 
 4. 메트릭 차트가 표시되는 시간 범위를 변경하려면 차트 맨 위에서 6시간, 24시간 또는 7일을 선택합니다.
      
 
-<h2><a id="customizemonitorpage"></a>방법: 모니터 페이지 사용자 지정</h2>
+## 방법: 모니터 페이지 사용자 지정
 
-**모니터** 페이지에서 저장소 계정의 전체 메트릭 집합을 볼 수 있습니다. 
+**모니터** 페이지에서 저장소 계정의 전체 메트릭 집합을 볼 수 있습니다.
 
 - 저장소 계정에 대해 최소 모니터링을 구성한 경우 수신/송신, 가용성, 대기 시간, 성공 비율 등의 메트릭을 Blob, 테이블 및 큐 서비스에서 수집합니다.
 
 - 저장소 계정에 대해 세부 정보 표시 모니터링을 구성한 경우 서비스 수준 집계뿐 아니라 개별 저장소 작업의 세부적인 확인 수준에서 메트릭을 사용할 수 있습니다.
 
-메트릭 차트에서 검토할 저장소 메트릭과 **모니터** 페이지에 표시되는 테이블을 선택하려면 다음 절차를 사용하세요. 이러한 설정은 저장소 계정에서 모니터링 데이터의 컬렉션, 집계 및 저장소에 영향을 주지 않습니다.
+메트릭 차트에서 검토할 저장소 메트릭과 **모니터** 페이지에 표시할 테이블을 선택하려면 다음 절차를 사용하십시오. 이러한 설정은 저장소 계정에서 모니터링 데이터의 컬렉션, 집계 및 저장소에 영향을 주지 않습니다.
 
-<h2><a id="addmonitoringmetrics"></a>방법: 메트릭 테이블에 메트릭 추가</h2>
+## 방법: 메트릭 테이블에 메트릭 추가
 
 
-1. [관리 포털에](https://manage.windowsazure.com/)서 **저장소**를 클릭한 후 대시보드를 열 저장소 계정 이름을 클릭합니다.
+1. [관리 포털](https://manage.windowsazure.com/)에서 **저장소**를 클릭한 후 대시보드를 열 저장소 계정 이름을 클릭합니다.
 
 2. **모니터**를 클릭합니다.
 
 	**모니터** 페이지가 열립니다. 기본적으로 메트릭 테이블에는 모니터링에 사용할 수 있는 메트릭의 하위 집합이 표시됩니다. 다음 그림은 세 가지 서비스 모두에 대해 세부 정보 표시 모니터링을 구성한 저장소 계정의 기본 모니터 화면을 보여 줍니다. 사용 가능한 모든 메트릭에서 모니터링할 메트릭을 선택하려면 **메트릭 추가**를 사용합니다.
 
 
-	![Monitoring_VerboseDisplay](./media/storage-monitor-storage-account/Storage_Monitoring_VerboseDisplay.png)
+	![모니터링_세부 정보 표시 화면](./media/storage-monitor-storage-account/Storage_Monitoring_VerboseDisplay.png)
 
-	> [AZURE.NOTE] 메트릭을 선택할 때 비용을 고려하세요. 모니터링 화면 새로 고침과 관련한 트랜잭션 및 송신 비용이 발생할 수 있습니다. 자세한 내용은 [저장소 분석 및 청구](http://msdn.microsoft.com/library/windowsazure/hh360997.aspx)를 참조하세요.
+	> [AZURE.NOTE]메트릭을 선택할 때 비용을 고려하세요. 모니터링 화면 새로 고침과 관련한 트랜잭션 및 송신 비용이 발생할 수 있습니다. 자세한 내용은 [저장소 분석 및 청구](http://msdn.microsoft.com/library/azure/hh360997.aspx)를 참조하세요.
 
-3. **메트릭 추가**를 클릭합니다. 
+3. **메트릭 추가**를 클릭합니다.
 
-	최소 모니터링에서 사용할 수 있는 집계 메트릭은 목록의 맨 위에 있습니다. 확인란을 선택하면 해당 메트릭이 메트릭 목록에 표시됩니다. 
+	최소 모니터링에서 사용할 수 있는 집계 메트릭은 목록의 맨 위에 있습니다. 확인란을 선택하면 해당 메트릭이 메트릭 목록에 표시됩니다.
 
-	![AddMetricsInitialDisplay](./media/storage-monitor-storage-account/Storage_AddMetrics_InitialDisplay.png)
+	![메트릭 추가 초기 화면](./media/storage-monitor-storage-account/Storage_AddMetrics_InitialDisplay.png)
  
 4. 대화 상자의 오른쪽을 마우스로 가리키면 스크롤 막대가 표시됩니다. 이 스크롤 막대를 끌어서 스크롤하면 추가 메트릭을 볼 수 있습니다.
 
-	![AddMetricsScrollbar](./media/storage-monitor-storage-account/Storage_AddMetrics_Scrollbar.png)
+	![메트릭 추가 스크롤 막대](./media/storage-monitor-storage-account/Storage_AddMetrics_Scrollbar.png)
 
 
 5. 메트릭 옆에 있는 아래쪽 화살표를 클릭하여 작업 목록을 확장해 메트릭을 자세히 살펴봅니다. 관리 포털의 메트릭 테이블에서 검토하려는 각 작업을 선택합니다.
 
 	다음 그림은 AUTHORIZATION ERROR PERCENTAGE 메트릭이 확장된 예입니다.
 
-	![ExpandCollapse](./media/storage-monitor-storage-account/Storage_AddMetrics_ExpandCollapse.png)
+	![확장/축소](./media/storage-monitor-storage-account/Storage_AddMetrics_ExpandCollapse.png)
 
 
 6. 모든 서비스에 대해 메트릭을 선택한 후 예(확인 표시)를 클릭하여 모니터링 구성을 업데이트합니다. 선택한 메트릭이 메트릭 테이블에 추가됩니다.
 
 7. 테이블에서 메트릭을 삭제하려면 아래와 같이 메트릭을 클릭하여 선택한 후 **메트릭 삭제**를 클릭합니다.
 
-	![DeleteMetric](./media/storage-monitor-storage-account/Storage_DeleteMetric.png)
+	![메트릭 삭제](./media/storage-monitor-storage-account/Storage_DeleteMetric.png)
 
-<h2><a id="customizemetricschart"></a>방법: 모니터 페이지의 메트릭 차트 사용자 지정</h2>
+## 방법: 모니터 페이지의 메트릭 차트 사용자 지정
 
-1. 저장소 계정의 **모니터** 페이지에 있는 메트릭 테이블에서 메트릭 차트에 넣을 메트릭을 6개까지 선택합니다. 메트릭을 선택하려면 왼쪽에 있는 확인란을 클릭합니다. 차트에서 메트릭을 제거하려면 확인란의 선택을 취소합니다.
+1. 저장소 계정의 **모니터** 페이지에 있는 메트릭 테이블에서 메트릭 차트에 넣을 메트릭을 6개까지 선택할 수 있습니다. 메트릭을 선택하려면 왼쪽에 있는 확인란을 클릭합니다. 차트에서 메트릭을 제거하려면 확인란의 선택을 취소합니다.
 
-2. 상대값(최종값만 표시됨)과 절대값(Y축이 표시됨) 간에 차트를 전환하려면 차트 맨 위에서 **상대** 또는 **절대**를 선택합니다.
+2. 상대값(최종값만 표시됨)과 절대값(Y축이 표시됨) 간에 차트를 전환하려면 차트 맨 위에서 **상대값** 또는 **절대값**을 선택합니다.
 
 3.	메트릭 차트가 표시되는 시간 범위를 변경하려면 차트 맨 위에서 **6시간**, **24시간** 또는 **7일**을 선택합니다.
 
 
 
-<h2><a id="configurelogging"></a>방법: 로깅 구성</h2>
+## 방법: 로깅 구성
 
 저장소 계정(Blob, 테이블 및 큐)에서 사용 가능한 각 저장소 서비스에 대해 읽기 요청, 쓰기 요청 및/또는 삭제 요청의 진단 로그를 저장할 수 있으며 각 서비스의 데이터 보존 정책을 설정할 수 있습니다.
 
-1. [관리 포털에](https://manage.windowsazure.com/)서 **저장소**를 클릭한 후 대시보드를 열 저장소 계정 이름을 클릭합니다.
+1. [관리 포털](https://manage.windowsazure.com/)에서 **저장소**를 클릭한 후 대시보드를 열 저장소 계정 이름을 클릭합니다.
 
-2. **구성**을 클릭하고 키보드의 아래쪽 화살표를 사용하여 **로깅**까지 아래로 스크롤합니다(아래 참조).
+2. **구성**을 클릭하고 키보드의 아래쪽 화살표를 사용하여 **기록**까지 아래로 스크롤합니다(아래와 같이).
 
-	![Storagelogging](./media/storage-monitor-storage-account/Storage_LoggingOptions.png)
+	![저장소 로깅](./media/storage-monitor-storage-account/Storage_LoggingOptions.png)
 
  
 3. 각 서비스(Blob, 테이블 및 큐)에 대해 다음을 구성합니다.
 
-	- 로깅할 요청의 유형: 읽기 요청, 쓰기 요청 및 삭제 요청
+	- 기록할 요청 유형: 읽기 요청, 쓰기 요청 및 삭제 요청
 
 	- 로깅한 데이터의 보존 기간(일수). 보존 정책을 설정하지 않으려면 0을 입력합니다. 보존 정책을 설정하지 않은 경우 언제든 로그를 삭제할 수 있습니다.
 
 4. **저장**을 클릭합니다.
 
-진단 로그는 저장소 계정의 이름이 $logs인 Blob 컨테이너에 저장됩니다. $logs 컨테이너 액세스에 대한 자세한 내용은 [저장소 분석 로깅 정보](http://msdn.microsoft.com/library/windowsazure/hh343262.aspx)를 참조하세요.
-
-<!--HONumber=42-->
+진단 로그는 저장소 계정의 이름이 $logs인 Blob 컨테이너에 저장됩니다. $logs 컨테이너 액세스에 대한 자세한 내용은 [저장소 분석 로깅 정보](http://msdn.microsoft.com/library/azure/hh343262.aspx)를 참조하십시오.
  
+
+<!---HONumber=July15_HO1-->

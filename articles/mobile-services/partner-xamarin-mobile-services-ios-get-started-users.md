@@ -10,10 +10,10 @@
 <tags
 	ms.service="mobile-services"
 	ms.workload="mobile"
-	ms.tgt_pltfrm=""
+	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/23/2014"
+	ms.date="05/14/2015"
 	ms.author="donnam"/>
 
 # 모바일 서비스 앱에 인증 추가
@@ -32,11 +32,11 @@
 
 이 자습서를 완료하려면 [Xamarin.iOS], XCode 6.0 및 iOS 7.0 이상 버전이 필요합니다.
 
-<h2><a name="register"></a>인증을 위해 앱 등록 및 모바일 서비스 구성</h2>
+##<a name="register"></a>인증을 위해 앱 등록 및 모바일 서비스 구성
 
 [AZURE.INCLUDE [mobile-services-register-authentication](../../includes/mobile-services-register-authentication.md)]
 
-<h2><a name="permissions"></a>사용 권한을 인증된 사용자로 제한</h2>
+##<a name="permissions"></a>사용 권한을 인증된 사용자로 제한
 
 
 [AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../../includes/mobile-services-restrict-permissions-javascript-backend.md)]
@@ -50,17 +50,17 @@
 
 다음에는 모바일 서비스의 리소스를 요청하기 전에 사용자를 인증하도록 앱을 업데이트합니다.
 
-<h2><a name="add-authentication"></a>앱에 인증 추가</h2>
+##<a name="add-authentication"></a>앱에 인증 추가
 
-1. **TodoService** 프로젝트 파일을 열고 다음 변수를 추가합니다.
+1. **ToDoService** 프로젝트 파일을 열고 다음 변수를 추가합니다.
 
 		// Mobile Service logged in user
 		private MobileServiceUser user;
 		public MobileServiceUser User { get { return user; } }
 
-2. 다음과 같이 정의된 새 메서드 **Authenticate**를 **TodoService**에 추가합니다.
+2. 다음과 같이 정의된 새 메서드 **Authenticate**를 **ToDoService**에 추가합니다.
 
-        private async Task Authenticate(UIViewController view)
+        private async Task Authenticate(MonoTouch.UIKit.UIViewController view)
         {
             try
             {
@@ -74,34 +74,34 @@
 
 	> [AZURE.NOTE]Facebook 이외의 ID 공급자를 사용하는 경우 위의 **LoginAsync**에 전달된 값을 _Facebook_, _Twitter_, _Google_ 또는 _WindowsAzureActiveDirectory_ 중 하나로 변경합니다.
 
-3. **TodoItem** 테이블에 대한 요청을 **TodoService** 생성자에서 새 메서드 **CreateTable**로 이동합니다.
+3. **ToDoItem** 테이블에 대한 요청을 **ToDoService** 생성자에서 새 메서드 **CreateTable**로 이동합니다.
 
         private async Task CreateTable()
         {
-            // Create an MSTable instance to allow us to work with the TodoItem table
-            todoTable = client.GetTable<TodoItem>();
+            // Create an MSTable instance to allow us to work with the ToDoItem table
+            todoTable = client.GetSyncTable<ToDoItem>();
         }
 
 4. 다음과 같이 정의된 새 비동기 public 메서드 **LoginAndGetData**를 만듭니다.
 
-        public async Task LoginAndGetData(UIViewController view)
+        public async Task LoginAndGetData(MonoTouch.UIKit.UIViewController view)
         {
             await Authenticate(view);
             await CreateTable();
         }
 
-5. **TodoListViewController**에서 **ViewDidAppear** 메서드를 무시하고 아래와 같이 정의합니다. 그러면 **TodoService**에 사용자에 대한 핸들이 없는 경우 사용자가 로그인됩니다.
+5. **TodoListViewController**에서 **ViewDidAppear** 메서드를 무시하고 아래와 같이 정의합니다. 그러면 **ToDoService**에 사용자에 대한 핸들이 없는 경우 사용자가 로그인됩니다.
 
         public override async void ViewDidAppear(bool animated)
         {
             base.ViewDidAppear(animated);
 
-            if (TodoService.DefaultService.User == null)
+            if (QSToDoService.DefaultService.User == null)
             {
-                await TodoService.DefaultService.LoginAndGetData(this);
+                await QSToDoService.DefaultService.LoginAndGetData(this);
             }
 
-            if (TodoService.DefaultService.User == null)
+            if (QSToDoService.DefaultService.User == null)
             {
                 // TODO:: show error
                 return;
@@ -149,5 +149,6 @@
 [Azure Management Portal]: https://manage.windowsazure.com/
 [완성된 예제 프로젝트]: http://go.microsoft.com/fwlink/p/?LinkId=331328
 [Xamarin.iOS]: http://xamarin.com/download
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

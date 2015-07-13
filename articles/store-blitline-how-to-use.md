@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="이미지 처리에 Blitline을 사용하는 방법 - Azure" 
+	pageTitle="이미지 처리에 Blitline을 사용하는 방법 - Azure 기능 가이드" 
 	description="Azure 응용 프로그램 내에서 Blitline 서비스를 사용하여 이미지를 처리하는 방법에 대해 알아봅니다." 
 	services="" 
 	documentationCenter=".net" 
@@ -143,12 +143,11 @@ Blitline의 Azure 저장소 문서의 최신 버전을 [여기](http://www.blitl
 * 타사 Nuget 라이브러리 <http://nuget.org/packages/Blitline.Net>
 
 
-[다음 단계]: #nextsteps
-[Blitline 정의]: #whatis
-[Blitline이 수행할 수 없는 작업]: #whatisnot
-[Blitline 계정 만들기]: #createaccount
-[Blitline 작업을 만드는 방법]: #createjob
-[Azure 저장소에 이미지를 저장하는 방법]: #saveazure
+  [다음 단계]: #nextsteps
+  [Blitline 정의]: #whatis
+  [Blitline이 수행할 수 없는 작업]: #whatisnot
+  [Blitline 계정 만들기]: #createaccount
+  [Blitline 작업을 만드는 방법]: #createjob
+  [Azure 저장소에 이미지를 저장하는 방법]: #saveazure
 
-
-<!--HONumber=52-->
+<!---HONumber=July15_HO1-->

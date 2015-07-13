@@ -16,7 +16,6 @@
    ms.date="02/19/2015"
    ms.author="kundanap"/>
 
-
 # Windows용 사용자 지정 스크립트 확장
 
 이 문서에서는 Azure PowerShell cmdlet을 사용하여 Windows에서 사용자 지정 스크립트 확장을 사용하는 방법을 간략하게 설명합니다.
@@ -79,5 +78,6 @@ Linux용 사용자 지정 스크립트 사용법 및 샘플도 곧 추가될 예
 
 <!--Image references-->
 [5]: ./media/virtual-machines-extensions-customscript/addcse.png
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO1-->

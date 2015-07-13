@@ -1,5 +1,11 @@
-<properties 
-	pageTitle="Azure 알림 허브 다양한 푸시" description="Azure에서 iOS 앱에 다양한 푸시 알림을 보내는 방법에 대해 알아봅니다. 코드 샘플은 Objective-C 및 C#으로 작성되었습니다." documentationCenter="ios" services="notification-hubs" authors="wesmc7777" manager="dwrede" editor=""/>
+<properties
+	pageTitle="Azure 알림 허브 다양한 푸시"
+	description="Azure에서 iOS 앱에 다양한 푸시 알림을 보내는 방법에 대해 알아봅니다. 코드 샘플은 Objective-C 및 C#으로 작성되었습니다."
+	documentationCenter="ios"
+	services="notification-hubs"
+	authors="wesmc7777"
+	manager="dwrede"
+	editor=""/>
 
 <tags 
 	ms.service="notification-hubs" 
@@ -7,7 +13,7 @@
 	ms.tgt_pltfrm="ios" 
 	ms.devlang="objective-c" 
 	ms.topic="article" 
-	ms.date="02/26/2015" 
+	ms.date="06/02/2015" 
 	ms.author="wesmc"/>
 
 #Azure 알림 허브 다양한 푸시
@@ -18,10 +24,9 @@
 
 ##개요
 
-사용자에게 즉각적인 풍부한 콘텐츠를 제공하기 위해 응용 프로그램은 일반 텍스트 이상을 푸시할 수 있습니다. 이러한 알림은 사용자 조작을 촉진하고 URL, 소리, 이미지/쿠폰 등의 콘텐츠를 제공합니다. 이 자습서는 [사용자에게 알림](notification-hubs-aspnet-backend-ios-notify-users.md) 항목을 기반으로 하며 페이로드(예: 이미지)를 통합하는 푸시 알림을 보내는 방법을 보여 줍니다.
+사용자에게 즉각적인 풍부한 콘텐츠를 제공하기 위해 응용 프로그램은 일반 텍스트 이상을 푸시할 수 있습니다. 이러한 알림은 사용자 조작을 촉진하고 URL, 소리, 이미지/쿠폰 등의 콘텐츠를 제공합니다. 이 자습서는 [사용자에게 알림](notification-hubs-aspnet-backend-ios-notify-users.md) 항목을 기반으로 하며 페이로드(예: 이미지)를 통합하는 푸시 알림을 보내는 방법을 보여줍니다.
 
-이 자습서는 iOS 7 및 8과 호환됩니다.
-    ![][IOS1]
+이 자습서는 iOS 7 및 8과 호환됩니다. ![][IOS1]
 
 개요:
 
@@ -35,7 +40,7 @@
 
 ## WebAPI 프로젝트
 
-1. Visual Studio에서 [사용자에게 알림] 자습서에서 만든 **AppBackend** 프로젝트를(notification-hubs-aspnet-backend-ios-notify-users.md) 엽니다.
+1. Visual Studio에서 **사용자에게 알림** 자습서에서 만든 [AppBackend](notification-hubs-aspnet-backend-ios-notify-users.md) 프로젝트를 엽니다.
 2. 사용자에게 알릴 이미지를 얻어 프로젝트 디렉터리의 **img** 폴더에 배치합니다.
 3. 솔루션 탐색기에서 **모든 파일 표시**를 클릭하고 **프로젝트에 포함**할 폴더를 마우스 오른쪽 단추로 클릭합니다.
 4. 이미지를 선택한 상태로 속성 창에서 해당 빌드 작업을 **포함 리소스**로 변경합니다.
@@ -91,7 +96,7 @@
             }
         }
 
-> [AZURE.NOTE]  (옵션) 프로젝트 리소스를 추가하고 얻는 방법에 대한 자세한 내용은 [Visual C#을 사용하여 리소스를 포함 및 액세스하는 방법](http://support.microsoft.com/kb/319292)을 참조하세요.
+> [AZURE.NOTE](optional) 프로젝트 리소스를 추가하고 얻는 방법에 대한 자세한 내용은 [Visual C#을 사용하여 리소스를 포함 및 액세스하는 방법](http://support.microsoft.com/kb/319292)을 참조하세요.
 
 7. **NotificationsController.cs**에서 **NotificationsController**를 다음 조각으로 다시 정의합니다. 그러면 초기 자동 풍부한 알림 ID가 장치에 전송되고 클라이언트 쪽에서 이미지를 검색할 수 있습니다.
 
@@ -129,7 +134,7 @@
 
 ## iOS 프로젝트 수정
 
-알림의  *id*만 보내도록 앱 백 엔드를 수정했으므로 해당 ID를 처리하고 백 엔드에서 풍부한 메시지를 검색하도록 iOS 앱을 변경합니다.
+알림의 *id*만 보내도록 앱 백 엔드를 수정했으므로 해당 ID를 처리하고 백 엔드에서 풍부한 메시지를 검색하도록 iOS 앱을 변경합니다.
 
 1. iOS 프로젝트를 열고 **대상** 섹션에서 기본 앱 대상으로 이동하여 원격 알림을 사용하도록 설정합니다.
 
@@ -137,7 +142,7 @@
 
     ![][IOS3]
 
-3. **Main.storyboard**로 이동하여 [사용자에게 알림] 자습서의 보기 컨트롤러(이 자습서에서는 홈 보기 컨트롤러라고 함)가 있는지(notification-hubs-aspnet-backend-ios-notify-users.md) 확인합니다.
+3. **Main.storyboard**로 이동하여 [사용자에게 알림](notification-hubs-aspnet-backend-ios-notify-users.md) 자습서의 보기 컨트롤러(이 자습서에서는 홈 보기 컨트롤러라고 함)가 있는지 확인합니다.
 
 4. 스토리보드에 **탐색 컨트롤러**를 추가하고 Ctrl 키를 누른 상태에서 홈 보기 컨트롤러로 끌어 탐색의 **루트 보기**로 만듭니다. 특성 검사기에서 **Is Initial View Controller**가 탐색 컨트롤러에 대해서만 선택되어 있어야 합니다.
 
@@ -366,7 +371,7 @@
 
 2. iOS 앱 UI에서 인증에 대해 동일한 값의 사용자 이름과 암호를 입력하고 **로그인**을 클릭합니다.
 
-3. **푸시 보내기**를 클릭하면 앱 내 경고가 표시됩니다. **More**를 클릭하면 앱 백 엔드에 포함되도록 선택한 이미지가 표시됩니다.
+3. **푸시 보내기**를 클릭하면 앱 내 경고가 표시됩니다. **더 보기**를 클릭하면 앱 백 엔드에 포함되도록 선택한 이미지가 표시됩니다.
 
 4. **푸시 보내기**를 클릭하고 즉시 장치의 홈 단추를 누를 수도 있습니다. 곧 푸시 알림을 받게 됩니다. 푸시 알림을 탭하거나 More를 클릭하면 앱과 풍부한 이미지 콘텐츠가 표시됩니다.
 
@@ -375,5 +380,6 @@
 [IOS2]: ./media/notification-hubs-aspnet-backend-ios-rich-push/rich-push-ios-2.png
 [IOS3]: ./media/notification-hubs-aspnet-backend-ios-rich-push/rich-push-ios-3.png
 [IOS4]: ./media/notification-hubs-aspnet-backend-ios-rich-push/rich-push-ios-4.png
+ 
 
-<!--HONumber=49--> 
+<!---HONumber=July15_HO1-->

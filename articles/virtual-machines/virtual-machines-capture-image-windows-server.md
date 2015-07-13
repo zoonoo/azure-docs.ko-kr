@@ -87,5 +87,6 @@ Azure에서는 이 템플릿이 이미지로 취급되고 **내 이미지**에 �
 [Enter the image name]: ./media/virtual-machines-capture-image-windows-server/Capture.png
 [Image capture successful]: ./media/virtual-machines-capture-image-windows-server/CaptureSuccess.png
 [Use the captured image]: ./media/virtual-machines-capture-image-windows-server/MyImagesWindows.png
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO1-->

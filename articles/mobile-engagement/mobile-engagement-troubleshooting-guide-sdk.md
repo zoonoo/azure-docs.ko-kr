@@ -13,9 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="02/17/2015"
+   ms.date="06/18/2015"
    ms.author="piyushjo"/>
-
 
 # SDK 통합 문제에 대한 문제 해결 가이드
 
@@ -34,7 +33,7 @@
 
 - Azure Mobile Engagement SDK를 사용하여 해결해야 하는 대부분의 문제는 UI 데이터 수집 오류, 푸시 오류, 고급 기능 오류, API 오류, 응용 프로그램 작동 중단, 명백한 서비스 중단과 같은 응용 프로그램의 오류를 통해 검색됩니다.  
 - Azure Mobile Engagement의 특정 기능이 앱에서 한 번도 정상적으로 작동한 적이 없다면 통합을 완료해야 합니다. 
-- Azure Mobile Engagement의 특정 기능이 작동하다가 중지되는 경우에는 Azure Mobile Engagement SDK를 사용하여 최신 버전으로 업그레이드해야 할 수 있습니다. Azure Mobile Engagement에서 지원하는 각 플랫폼(Android, iOS, 웹, Windows, Windows Phone)에 대해 다른 버전의 Azure Mobile Engagement SDK가 제공됩니다.
+- Azure Mobile Engagement의 특정 기능이 작동하다가 중지되는 경우에는 Azure Mobile Engagement SDK를 사용하여 최신 버전으로 업그레이드해야 할 수 있습니다. Azure Mobile Engagement에서 지원하는 각 플랫폼(Android, iOS, Windows, Windows Phone)에 대해 다른 버전의 Azure Mobile Engagement SDK가 제공됩니다.
 
 #### SDK 통합
 
@@ -43,19 +42,32 @@
 - 인증서가 만료되었거나 프로덕션/개발 버전이 잘못되었습니다(iOS에만 해당).
 - GCM 또는 ADM이 SDK에 올바르게 통합되지 않았습니다(Android에만 해당 - 서비스별 푸시).
 - 추적이 SDK에 올바르게 통합되지 않았습니다(설치 스토어 추적).
-- 지연 위치 또는 GPS 위치가 SDK에 올바르게 통합되지 않았습니다(지리적 위치 기준 대상 지정). [SDK 설명서 - 통합 가이드][Link 5], [문제 해결 가이드 - 푸시][Link 23]
+- 지연 위치 또는 GPS 위치가 SDK에 올바르게 통합되지 않았습니다(지리적 위치 기준 대상 지정).
+
+
+**참고 항목:**
+
+- [SDK 설명서 - 통합 가이드][Link 5] 
+- [문제 해결 가이드 - 푸시][Link 23]
 
 #### SDK 업그레이드
 
 - SDK를 업그레이드하여 이전 버전 SDK의 문제를 해결해야 합니다(대개 최신 버전 장치 OS와 관련이 있음).
-- 모든 이전 버전 앱을 장치에서 제거한 다음 최신 버전 앱을 다시 설치하고 Azure Mobile Engagement UI에서 장치 ID를 다시 등록하여 장치에서 최신 버전의 앱을 사용 중임을 확인합니다. [SDK 설명서 - 릴리스 정보](http://go.microsoft.com/fwlink/?LinkId= 525554), [SDK 설명서 - 업그레이드 가이드](http://go.microsoft.com/fwlink/?LinkId= 525554), [UI 설명서 - 설정][Link 20]
+- 모든 이전 버전 앱을 장치에서 제거한 다음 최신 버전 앱을 다시 설치하고 Azure Mobile Engagement UI에서 장치 ID를 다시 등록하여 장치에서 최신 버전의 앱을 사용 중임을 확인합니다.
+
+**참고 항목:**
+
+- [SDK 설명서 - 릴리스 정보](http://go.microsoft.com/fwlink/?LinkId= 525554) 
+- [SDK 설명서 - 업그레이드 가이드](http://go.microsoft.com/fwlink/?LinkId= 525554)
 
 #### 기타 SDK 관련 문제
 
-- Azure Mobile Engagement 관련 코드 섹션의 오류로 인해 Azure Mobile Engagement가 작동하지 않습니다.
 - 응용 프로그램 매니페스트 "AndroidManifest.xml"의 오류로 인해 Azure Mobile Engagement가 작동하지 않습니다(Android에만 해당).
-- SDK 통합과 API 사용에 관한 일반적인 문제는 
-- SDK 키와 API 키를 혼동한다는 점입니다. [개념 - 용어집][Link 6]
+- SDK 통합과 API 사용에 관한 일반적인 문제는 SDK 키와 API 키를 혼동한다는 점입니다.
+
+**참고 항목:**
+
+- [개념 - 용어집][Link 6]
 
 ## 고급 코딩 문제
 
@@ -70,46 +82,38 @@
 - 인증서가 잘못되었거나 인증서의 개발 버전 또는 프로덕션 버전을 잘못 사용하면 푸시 문제가 발생합니다(iOS에만 해당).
 - Android 및 iOS에서 시스템 센터가 앱 외부 푸시에 대해 작동하는 방식 등 Azure Mobile Engagement에서 제어할 수 없는 플랫폼의 기본적인 제한이 있습니다.
 - Azure Mobile Engagement는 iOS 및 Android에 대해 참조용으로 Azure Mobile Engagement에서 사용하는 내부 패키지의 전체 목록을 게시합니다. Azure Mobile Engagement의 일부 기능은 Android, iOS, 웹, Windows, Windows Phone 등의 특정 플랫폼에만 제공됩니다.
-- 각 플랫폼용 SDK는 다음 프로그래밍 언어로 작성됩니다.
-    -     Android SDK - Java
-    -     iOS SDK - objective C
-    -     웹 SDK - JavaScript
-    -     Windows SDK - C# 및 JavaScript
-    -     Windows Phone SDK - C# 및 JavaScript
 
 ### 참고 항목
 
- - [문제 해결 가이드 - 푸시][Link 23], [SDK 설명서 - 릴리스 정보][Link 5], [SDK 설명서 - 업그레이드 가이드][Link 5], [SDK 설명서 - Android - Azure Mobile Engagement 기술 문서 개요][Link 5], [SDK 설명서 - iOS - Azure Mobile Engagement 기술 문서 개요][Link 5], [SDK 설명서 - iOS - Apple 푸시 알림을 받도록 응용 프로그램을 준비하는 방법][Link 5], [Android 개발자](https://developer.android.com/), [iOS 개발자](https://developer.apple.com/), [Windows 개발자](https://developer.windows.com/) 
- 
+ - [문제 해결 가이드 - 푸시][Link 23] 
+ - [SDK 설명서 - 릴리스 정보][Link 5]
+ - [SDK 설명서 - 업그레이드 가이드][Link 5]
 
-## 응용 프로그램 크래시
+## 응용 프로그램 작동 중단
 
 ### 문제
 - 최종 사용자 장치에서 응용 프로그램 작동이 중단됩니다.
 
 ### 원인
 
-- 분석 UI 또는 분석 API에서 작동 중단 정보를 확인할 수 있습니다.
+- *분석 UI* 또는 *분석 API*에서 작동 중단 정보를 확인할 수 있습니다.
 - 테스트 장치의 장치 ID를 찾은 다음 최종 사용자가 작동 중단 문제를 파악할 수 있도록 응용 프로그램 작동을 중단시킨 동일 작업을 수행할 수 있습니다.
 - 최신 버전의 SDK로 업그레이드하면 응용 프로그램 작동 중단의 원인이 되는 Azure Mobile Engagement SDK의 알려진 문제가 해결되는 경우도 있습니다. 따라서 작동 중단 문제를 조사할 때는 사용 중인 플랫폼의 릴리스 정보를 확인하세요.
 
 ### 참고 항목
 
-- [개념 - FAQ][Link 6], [개념 - 용어집][Link 6], [API 설명서 - 분석 API - 크래시][Link 4], [UI 설명서 - 분석 - 크래시][Link 15], [UI 설명서 - 설정][Link 20], [SDK 설명서 - 릴리스 정보][Link 5], [SDK 설명서 - 업그레이드 가이드][Link 5]
+- [SDK 설명서 - 릴리스 정보][Link 5]
+- [SDK 설명서 - 업그레이드 가이드][Link 5]
 
 ## 앱 스토어 업로드 오류
 
 ### 문제
-- 최신 버전 앱을 iTunes, GooglePlay, Windows 또는 Windows Phone 스토어에 업로드할 때 발생하는 오류에 대해 설명합니다.
+- 최신 버전의 앱을 Apple, Google 또는 Windows 앱 스토어에 업로드할 때 발생하는 오류에 대해 설명합니다.
 
 ### 원인
 
-- 앱 스토어에서는 특정 기능이 사용하도록 설정된 앱을 차단할 수 있습니다. 예를 들어 iTunes 스토어에서는 앱에서 IDFV 사용을 금지하며, GooglePlay 스토어에서는 앱 간의 응용 프로그램 정보 공유를 금지합니다. 
+- 앱 스토어에서는 특정 기능이 사용하도록 설정된 앱을 차단할 수 있습니다. 예를 들어 Apple 스토어에서는 앱에서 IDFV 사용을 금지하며, GooglePlay 스토어에서는 앱 간의 응용 프로그램 정보 공유를 금지합니다. 
 - 스토어에 앱을 업로드하는 데 문제가 있으면 최신 버전 SDK 및 사용 중인 플랫폼의 릴리스 정보를 확인하세요.
-
-### 참고 항목
-
-- [SDK 설명서 - 릴리스 정보][Link 5], [SDK 설명서 - 업그레이드 가이드][Link 5] 
 
 <!--Link references-->
 [Link 1]: mobile-engagement-user-interface.md
@@ -141,5 +145,6 @@
 [Link 27]: mobile-engagement-user-interface-reach-campaign.md
 [Link 28]: mobile-engagement-user-interface-reach-criterion.md
 [Link 29]: mobile-engagement-user-interface-reach-content.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

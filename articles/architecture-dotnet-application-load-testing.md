@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="부하 테스트 응용 프로그램 패턴 - Azure 아키텍처 패턴" 
 	description="Azure에서 부하 테스트 시스템을 구현하는 방법을 설명하는 아키텍처 개요 및 디자인 패턴을 찾습니다." 
 	services="" 
@@ -22,13 +22,10 @@
 
 <!--links-->
 
-[Azure 및 Visual Studio Ultimate]: http://www.microsoft.com/visualstudio/eng/products/visual-studio-ultimate-2012#product-edition-ultimate-details
-[혼합 환경에서 부하 테스트 실행]: http://msdn.microsoft.com/library/windowsazure/hh966776.aspx
-[Azure 역할에서 Visual Studio 부하 테스트 사용]: http://msdn.microsoft.com/library/windowsazure/hh674491.aspx
+[Azure and Visual Studio Ultimate]: http://www.microsoft.com/visualstudio/eng/products/visual-studio-ultimate-2012#product-edition-ultimate-details
+[Running Load Tests In Mixed Environments]: http://msdn.microsoft.com/library/windowsazure/hh966776.aspx
+[Using Visual Studio Load Tests in Azure Roles]: http://msdn.microsoft.com/library/windowsazure/hh674491.aspx
 
 <!--images-->
 
-
-
-
-<!--HONumber=47-->
+<!---HONumber=July15_HO1-->

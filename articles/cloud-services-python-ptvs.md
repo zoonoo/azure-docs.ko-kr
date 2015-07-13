@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Python Tools 2.1 for Visual Studio의 Python 웹 및 작업자 역할" 
-	description="Python Tools for Visual Studio를 사용하여 웹 역할과 작업자 역할을 포함한 Azure 클라우드 서비스를 만드는 방법을 간략하게 설명합니다." 
-	services="" 
-	documentationCenter="python" 
-	authors="huguesv" 
-	manager="wpickett" 
+<properties
+	pageTitle="Python Tools 2.1 for Visual Studio의 Python 웹 및 작업자 역할"
+	description="Python Tools for Visual Studio를 사용하여 웹 역할과 작업자 역할을 포함한 Azure 클라우드 서비스를 만드는 방법을 간략하게 설명합니다."
+	services=""
+	documentationCenter="python"
+	authors="huguesv"
+	manager="wpickett"
 	editor=""/>
 
-<tags 
-	ms.service="cloud-services" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="python" 
-	ms.topic="article" 
-	ms.date="02/09/2015" 
+<tags
+	ms.service="cloud-services"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="python"
+	ms.topic="get-started-article" 
+	ms.date="02/09/2015"
 	ms.author="huvalo"/>
 
 
@@ -104,7 +104,7 @@ Python Tools for Visual Studio에서 웹 및 작업자 역할을 사용하는 �
 - [클라우드 서비스 프로젝트][]
 
 Azure 저장소 또는 서비스 버스를 사용하는 등 웹 및 작업자 역할에서 Azure 서비스를 사용하는 방법에 대한 자세한 내용은 다음 가이드를 참조하세요.
- 
+
 - [Blob 서비스][]
 - [테이블 서비스][]
 - [큐 서비스][]
@@ -139,4 +139,4 @@ Azure 저장소 또는 서비스 버스를 사용하는 등 웹 및 작업자 �
 [Python 2.7 32비트]: http://go.microsoft.com/fwlink/?LinkId=517190
 [Python 3.4 32비트]: http://go.microsoft.com/fwlink/?LinkId=517191
 
-<!--HONumber=54-->
+<!---HONumber=July15_HO1-->

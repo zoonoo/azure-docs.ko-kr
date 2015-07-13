@@ -1,9 +1,9 @@
 <properties
-   pageTitle="xplat-cli를 사용하여 Azure 가상 컴퓨터를 만드는 방법"
-   description="이 항목에서는 모든 플랫폼에서 xplat-cli를 설치하고, xplat-cli를 사용하여 Azure 계정에 연결하고, xplat-cli에서 VM을 만드는 방법을 설명합니다."
+   pageTitle="Azure CLI를 사용하여 Azure 가상 컴퓨터를 만드는 방법 | Microsoft Azure"
+   description="이 항목에서는 모든 플랫폼에서 Azure CLI를 설치하고, Azure CLI를 사용하여 Azure 계정에 연결하고, Azure CLI에서 VM을 만드는 방법을 설명합니다."
    services="virtual-machines"
    documentationCenter="virtual-machines"
-   authors="squillace"
+   authors="dlepow"
    manager="timlt"
    editor="tysonn"/>
 
@@ -13,21 +13,21 @@
    ms.topic="article"
    ms.tgt_pltfrm="command-line-interface"
    ms.workload="infrastructure-services"
-   ms.date="02/20/2015"
-   ms.author="rasquill"/>
+   ms.date="06/09/2015"
+   ms.author="danlep"/>
 
-# Azure 플랫폼 간 명령줄 인터페이스(xplat-cli)를 사용하여 VM 만들기
-xplat-cli를 사용하면 어떤 플랫폼에서나 Azure 인프라를 효율적으로 관리할 수 있습니다.
+# Azure CLI(Azure 명령줄 인터페이스)를 사용하여 VM 만들기
+Azure CLI를 사용하면 어떤 플랫폼에서나 Azure 인프라를 효율적으로 관리할 수 있습니다.
 
-그러나 xplat-cli를 설치하고 Azure 구독만 생성한다고 해서 VM을 즉시 만들 수는 없습니다. 이 문서에서는 VM을 만드는 단계를 설명합니다. Azure 계정이 없으면 [무료 계정을 만드세요](http://azure.microsoft.com/pricing/free-trial/).
+그러나 Azure CLI를 설치하고 Azure 구독만 생성한다고 해서 VM을 즉시 만들 수는 없습니다. 따라서 이 문서에서는 VM을 만드는 단계를 설명합니다. Azure 계정이 없으면 [무료 계정](http://azure.microsoft.com/pricing/free-trial/)을 만드세요.
 
-## xplat-cli 설치
+## Azure CLI 설치
 
-xplat-cli를 설치하려면 관련 [지침](http://azure.microsoft.com/documentation/articles/xplat-cli/#install)을 따르세요.
+[Azure CLI](../xplat-cli.md#install)를 설치하려면 관련 지침을 따르세요.
 
-## xplat-cli를 사용하여 Azure에 연결
+## Azure CLI를 사용하여 Azure에 연결
 
-xplat-cli 설치를 개인 Azure 계정이나 회사 또는 학교 Azure 계정에 연결할 수 있습니다. 각 계정 사용 시의 차이점과 선택 가능한 항목을 확인하려면 [Azure 구독에 연결하는 방법](http://azure.microsoft.com/documentation/articles/xplat-cli/#configure)을 참조하세요.
+Azure CLI 설치를 개인 Azure 계정이나 회사 또는 학교 Azure 계정에 연결할 수 있습니다. 각 계정 사용 시의 차이점과 선택 가능한 항목을 확인하려면 [Azure 구독에 연결하는 방법](../xplat-cli.md#configure)을 참조하세요.
 
 ## Azure에서 VM 작성 및 연결
 
@@ -57,24 +57,24 @@ VM을 만들 때는 먼저 이미지를 선택하거나 업로드하고 `azure v
 
     위치를 선택하려면 `vm location list` 명령을 사용하여 인근 지역을 선택할 수 있습니다.
 
-  DNS 이름은 고유해야 하며(이 이름은 `dnsname.cloudapp.net`에 매핑됨), 명령줄에서 컴퓨터 이름을 별도로 지정하지 않는 경우에는 컴퓨터 이름과 같아야 합니다.  
+  선택한 DNS 이름은 고유해야 하며(이 이름은 `dnsname.cloudapp.net`에 매핑됨), 명령줄에서 컴퓨터 이름을 별도로 지정하지 않는 경우에는 컴퓨터 이름과 같아야 합니다.
 
-    아래의 Linux 예제에서는 West US에 VM을 만들고 -e 인수를 사용하여 기본 SSH 포트 22를 연 다음 `myadminuser`라는 사용자를 만듭니다.
+    The Linux example below creates a VM in West US, opens the default SSH port 22 (the -e argument), and creates a user called `myadminuser`:
 
         azure vm create -e -l "West US"  my-new-cli-vm b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20150202-ko-kr-30GB "myadminuser" "myAdm1n@passwd"
 
 ## 다음 단계
 
-VM에서 작업을 수행해 봅니다. 
+VM에서 작업을 수행해 봅니다.
 
 위의 예제에서는 기본 SSH 포트를 열었으므로 VM이 작동 및 실행되고 나면 쉽게 VM에 연결할 수 있습니다. Linux 명령줄에서 다음 명령을 실행합니다.
 
     ssh myadminuser@my-new-cli-vm.cloudapp.net
 
-[Mac 및 Linux용 Azure 명령줄 도구](http://azure.microsoft.com/documentation/articles/virtual-machines-command-line-tools/)에서 xplat-cli를 사용하여 Azure 인프라를 관리하는 방법에 대한 더 많은 예제를 확인할 수 있습니다.
+[Azure CLI 명령 참조 페이지](../virtual-machines-command-line-tools.md)에서 Azure CLI를 사용하여 Azure 인프라를 관리하는 방법에 대한 더 많은 예제를 확인할 수 있습니다.
 
 <!--Image references-->
 [5]: ./media/markdown-template-for-new-articles/octocats.png
-
-<!--HONumber=47-->
  
+
+<!---HONumber=July15_HO1-->

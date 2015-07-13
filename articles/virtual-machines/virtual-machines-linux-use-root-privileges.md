@@ -40,7 +40,7 @@ SSH 키 또는 암호 인증을 사용하여 Linux 가상 컴퓨터에 로그인
 `/etc/sudoers.d/waagent` 파일을 편집하여 암호 없는 sudo를 사용하도록 설정할 수도 있습니다. 예를 들면 다음과 같습니다.
 
 	#/etc/sudoers.d/waagent
-	azureuser (ALL) = (ALL) NOPASSWD: ALL
+	azureuser ALL = (ALL) NOPASSWD: ALL
 
 이렇게 변경하면 azureuser 사용자가 암호 없는 sudo를 사용할 수 있습니다.
 
@@ -52,4 +52,6 @@ SSH 키 인증을 사용하여 Linux 가상 컴퓨터에 로그인한 후 `sudo`
 
 이 경우에는 사용자에게 암호를 묻는 메시지가 **표시되지 않습니다**. `<enter>`를 누르면 `sudo`에서 `root` 권한으로 명령을 실행합니다.
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=July15_HO1-->

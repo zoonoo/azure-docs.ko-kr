@@ -10,10 +10,10 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="ios" 
 	ms.devlang="objective-c" 
 	ms.topic="article" 
-	ms.date="10/10/2014" 
+	ms.date="06/05/2015" 
 	ms.author="donnam"/>
 
 
@@ -45,7 +45,7 @@ Pusher는 모바일 서비스처럼 실시간 앱을 쉽게 빌드할 수 있게
 
 이제 Pusher 계정이 설정되었으므로 다음 단계는 새 기능을 위해 iOS 앱 코드를 수정하는 것입니다.
 
-### libPusher 라이브러리 설치
+###libPusher 라이브러리 설치
 
 [libPusher][] 라이브러리를 사용하면 iOS에서 Pusher에 액세스할 수 있습니다.
 
@@ -272,7 +272,7 @@ Pusher는 모바일 서비스처럼 실시간 앱을 쉽게 빌드할 수 있게
 
 
 
-<h2><a name="install-scripts"></a>서버 스크립트 설치</h2>
+##<a name="install-scripts"></a>서버 스크립트 설치
 
 
 
@@ -385,7 +385,7 @@ Pusher는 모바일 서비스처럼 실시간 앱을 쉽게 빌드할 수 있게
 
 
 
-<h2><a name="test-app"></a>앱 테스트</h2>
+##<a name="test-app"></a>앱 테스트
 
 
 
@@ -442,5 +442,6 @@ Pusher는 모바일 서비스처럼 실시간 앱을 쉽게 빌드할 수 있게
 [Azure 관리 포털]: https://manage.windowsazure.com/
 
 [모바일 서비스 서버 스크립트 참조]: http://go.microsoft.com/fwlink/p/?LinkId=262293
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Azure 저장소 리소스에 대한 액세스 관리" 
-	description="Azure 저장소 리소스에 대한 액세스를 관리할 수 있는 다양한 방법에 대해 알아봅니다." 
+	pageTitle="Azure 저장소 리소스에 대한 액세스 관리 | Microsoft Azure" 
+	description="사용자가 Azure 저장소 리소스에 액세스하는 방식을 관리하는 방법에 대해 알아봅니다." 
 	services="storage" 
 	documentationCenter="" 
-	authors="micurd,tamram" 
-	manager="jahogg" 
+	authors="tamram" 
+	manager="jdial" 
 	editor=""/>
 
 <tags 
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/20/2015" 
-	ms.author="micurd"/>
+	ms.date="05/28/2015" 
+	ms.author="micurd;tamram"/>
 
 # Azure 저장소 리소스에 대한 액세스 관리
 
 ## 개요
 
-기본적으로는 저장소 계정 소유자만 해당 계정 내의 Blob, 테이블 및 큐에 액세스할 수 있습니다. 액세스 키를 공유하지 않고 서비스 또는 응용 프로그램이 다른 클라이언트에 이러한 리소스를 제공해야 하는 경우에는 액세스를 허용하는 데 다음 옵션을 사용할 수 있습니다.
+기본적으로는 저장소 계정 소유자만 해당 계정 내의 저장소 리소스에 액세스할 수 있습니다. 액세스 키를 공유하지 않고 서비스 또는 응용 프로그램이 다른 클라이언트에 이러한 리소스를 제공해야 하는 경우에는 액세스를 허용하는 데 다음 옵션을 사용할 수 있습니다.
 
 - 컨테이너와 해당 Blob에 대한 익명 읽기 권한을 허용하도록 컨테이너 권한을 설정할 수 있습니다. 테이블 또는 큐에 대해서는 이렇게 할 수 없습니다.
 
@@ -30,53 +30,53 @@
 
 ## 컨테이너 및 Blob에 대한 액세스 제한
 
-기본적으로는 저장소 계정 소유자만 컨테이너 및 해당 컨테이너 내의 모든 Blob에 액세스할 수 있습니다. 익명 사용자에게 컨테이너와 해당 Blob에 대한 읽기 권한을 제공하려는 경우 공용 액세스를 허용하도록 컨테이너 권한을 설정할 수 있습니다. 그러면 익명 사용자가 요청을 인증하지 않고도 공개적으로 액세스 가능한 컨테이너 내의 Blob을 읽을 수 있습니다.
+기본적으로는 저장소 계정 소유자만 컨테이너 및 해당 컨테이너 내의 모든 Blob에 액세스할 수 있습니다. 익명 사용자에게 컨테이너와 해당 Blob에 대한 읽기 권한을 제공하려면 공용 액세스를 허용하도록 컨테이너 권한을 설정할 수 있습니다. 그러면 익명 사용자가 요청을 인증하지 않고도 공개적으로 액세스 가능한 컨테이너 내의 Blob을 읽을 수 있습니다.
 
 컨테이너는 컨테이너 액세스를 관리하기 위한 다음 옵션을 제공합니다.
 
-- 모든 공용 읽기 권한: 익명 요청을 통해 컨테이너와 Blob 데이터를 읽을 수 있습니다. 클라이언트는 익명 요청을 통해 컨테이너 내에서 Blob을 열거할 수 있지만 저장소 계정 내에서 컨테이너를 열거할 수는 없습니다.
+- **전체 공개 읽기 액세스:** 익명 요청을 통해 컨테이너와 Blob 데이터를 읽을 수 있습니다. 클라이언트는 익명 요청을 통해 컨테이너 내에서 Blob을 열거할 수 있지만 저장소 계정 내에서 컨테이너를 열거할 수는 없습니다.
 
-- Blob 전용 공용 읽기 권한: 이 컨테이너 내의 Blob 데이터는 익명 요청을 통해 읽을 수 있으나 컨테이너 데이터는 읽을 수 없습니다. 클라이언트는 익명 요청을 통해 컨테이너 내의 Blob을 열거할 수 없습니다.
+- **Blob에 대해서만 공개 읽기 액세스:** 이 컨테이너 내의 Blob 데이터는 익명 요청을 통해 읽을 수 있으나 컨테이너 데이터는 읽을 수 없습니다. 클라이언트는 익명 요청을 통해 컨테이너 내의 Blob을 열거할 수 없습니다.
 
-- 공용 읽기 권한 없음: 계정 소유자만 컨테이너 및 Blob 데이터를 읽을 수 있습니다.
+- **공개 읽기 액세스 권한 없음:** 계정 소유자만 컨테이너 및 Blob 데이터를 읽을 수 있습니다.
 
->[AZURE.NOTE]서비스에서 Blob 리소스를 보다 세부적으로 제어하도록 요구하는 경우 또는 읽기 작업 이외의 작업을 위한 권한을 제공하려는 경우에는 공유 액세스 서명을 사용하여 사용자가 리소스에 액세스할 수 있도록 지정할 수 있습니다. 
+>[AZURE.NOTE]서비스에서 Blob 리소스를 보다 세부적으로 제어하도록 요구하는 경우 또는 읽기 작업 이외의 작업을 위한 권한을 제공하려는 경우에는 공유 액세스 서명을 사용하여 사용자가 리소스에 액세스할 수 있도록 지정할 수 있습니다.
 
 ### 익명 사용자에게 제공되는 기능
 아래 표에는 컨테이너 ACL이 공용 액세스를 허용하도록 설정되어 있을 때 익명 사용자가 호출할 수 있는 작업이 나와 있습니다.
 
-| REST 작업                                         | 전체 공용 읽기 액세스 권한이 있는 권한 | blob에 대한 공용 읽기 액세스 권한이 있는 권한 |
+| REST 작업 | 전체 공용 읽기가 가능한 권한 | Blob 전용 공용 읽기가 가능한 권한 |
 |--------------------------------------------------------|-----------------------------------------|---------------------------------------------------|
-| 컨테이너 목록                                        | 소유자만                              | 소유자만                                        |
-| 컨테이너 만들기                                       | 소유자만                             | 소유자만                                        |
-| 컨테이너 속성 가져오기 | 모두                                     | 소유자만                                        |
-| 컨테이너 메타데이터 가져오기                                 | 모두                                     | 소유자만                                        |
-| 컨테이너 메타데이터 설정                                                                   | 소유자만                                                                  | 소유자만                                         |
-| 컨테이너 ACL 가져오기                                      | 소유자만                              | 소유자만                                        |
-| 컨테이너 ACL 설정                                      |소유자만                               | 소유자만                                        |
-| 컨테이너 삭제                                       | 소유자만                             | 소유자만                                        |
-| Blob 목록                                             | 모두                                     | 소유자만                                        |
-| Blob 입력                                               | 소유자만                              | 소유자만                                        |
-| Blob 가져오기                                               | 모두                                     | 모두                                               |
-| Blob 속성 가져오기 | 모두                                     | 모두                                               |
-| Blob 속성 설정                                                                                      | 소유자만                                                                                                 | 소유자만                                        |
-| Blob 메타데이터 가져오기 | 모두                                     | 모두                                               |
-| Blob 메타데이터 설정                                                                                      | 소유자만                                                                                                 | 소유자만                                        |
-| 블록 입력                                               | 소유자만                              | 소유자만                                        |
-| 블록 목록 가져오기(커밋된 블록만)                                       | 모두                                     | 모두                                               |
-| 블록 목록 가져오기(커밋되지 않은 블록만 또는 모든 블록)     | 소유자만                                                                                               | 소유자만                                        |
-| 블록 목록 입력                                               | 소유자만                              | 소유자만                                        |
-| Blob 제거                                               | 소유자만                              | 소유자만                                        |
-| Blob 복사                                              | 소유자만                              | 소유자만                                        |
-| 스냅숏 blob                                              | 소유자만                              | 소유자만                                        |
-| Blob 임대                                             | 소유자만                              | 소유자만                                        |
-| 페이지 입력                                              | 소유자만                              | 소유자만                                        |
-| 페이지 범위 가져오기                                                   | 모두                                                                               | 모두                                                  |
+| 컨테이너 나열 | 소유자만 | 소유자만 |
+| 컨테이너 만들기 | 소유자만 | 소유자만 |
+| 컨테이너 속성 가져오기 | 모두 | 소유자만 |
+| 컨테이너 메타데이터 가져오기 | 모두 | 소유자만 |
+| 컨테이너 메타데이터 설정 | 소유자만 | 소유자만 |
+| 컨테이너 ACL 가져오기 | 소유자만 | 소유자만 |
+| 컨테이너 ACL 설정 | 소유자만 | 소유자만 |
+| 컨테이너 삭제 | 소유자만 | 소유자만 |
+| Blob 나열 | 모두 | 소유자만 |
+| Blob 배치 | 소유자만 | 소유자만 |
+| Blob 가져오기 | 모두 | 모두 |
+| Blob 속성 가져오기 | 모두 | 모두 |
+| Blob 속성 설정 | 소유자만 | 소유자만 |
+| Blob 메타데이터 가져오기 | 모두 | 모두 |
+| Blob 메타데이터 설정 | 소유자만 | 소유자만 |
+| 블록 배치 | 소유자만 | 소유자만 |
+| 블록 목록 가져오기(커밋된 블록만) | 모두 | 모두 |
+| 블록 목록 가져오기(커밋되지 않은 블록만 또는 모든 블록) | 소유자만 | 소유자만 |
+| 블록 목록 배치 | 소유자만 | 소유자만 |
+| Blob 삭제 | 소유자만 | 소유자만 |
+| Blob 복사 | 소유자만 | 소유자만 |
+| Blob 스냅숏 | 소유자만 | 소유자만 |
+| Blob 임대 | 소유자만 | 소유자만 |
+| 페이지 가져오기 | 소유자만 | 소유자만 |
+| 페이지 범위 가져오기 | 모두 | 모두 |
 
 ## 공유 액세스 서명 만들기 및 사용
 공유 액세스 서명은 특정 시간 간격 동안 컨테이너, Blob, 큐 및 테이블에 대한 제한적 액세스 권한을 부여하는 URI입니다. 클라이언트에 공유 액세스 서명을 제공하면 계정 키를 공유하지 않고도 클라이언트가 저장소 계정의 리소스에 액세스하도록 설정할 수 있습니다.
 
->[AZURE.NOTE] 공유 액세스 서명에 대한 자세한 개념 개요 및 자습서는 [공유 액세스 서명](storage-dotnet-shared-access-signature-part-1.md)을 참조하세요.
+>[AZURE.NOTE]공유 액세스 서명에 대한 자세한 개념 개요 및 자습서는 [공유 액세스 서명](storage-dotnet-shared-access-signature-part-1.md)을 참조하세요.
 
 공유 액세스 서명을 사용하여 수행할 수 있는 작업은 다음과 같습니다.
 
@@ -94,7 +94,7 @@
 
 공유 액세스 서명 URI 쿼리 매개 변수는 저장소 리소스에 대한 제어된 액세스 권한을 부여하는 데 필요한 모든 정보를 통합합니다. URI 쿼리 매개 변수는 공유 액세스 서명이 유효한 시간 간격, 해당 서명이 부여하는 권한, 제공하려는 리소스, 그리고 저장소 서비스에서 요청을 인증하는 데 사용해야 하는 서명을 지정합니다.
 
-또한 공유 액세스 서명 URI는 필요한 경우 리소스 액세스 권한을 수정하거나 해지하는 기능을 비롯하여 서명 집합에 대한 추가적인 제어 수준을 제공하는 저장된 액세스 정책을 참조할 수도 있습니다. 
+또한 공유 액세스 서명 URI는 필요한 경우 리소스 액세스 권한을 수정하거나 해지하는 기능을 비롯하여 서명 집합에 대한 추가적인 제어 수준을 제공하는 저장된 액세스 정책을 참조할 수도 있습니다.
 
 공유 액세스 서명의 URI 형식에 대한 자세한 내용은 [공유 액세스 서명을 사용하여 액세스 위임](https://msdn.microsoft.com/library/ee395415.aspx)을 참조하세요.
 
@@ -103,56 +103,56 @@
 
 공유 액세스 서명이 일반 사용자용이 아닌 액세스 권한을 부여하는 경우에는 최대한 적은 권한을 포함하여 서명을 생성해야 합니다. 또한 공유 액세스 서명은 보안 연결을 통해 클라이언트에 안전하게 배포해야 하고 해지용으로 저장된 액세스 정책에 연결해야 하며 서명에 대해 최대한 짧은 수명을 지정해야 합니다.
 
->[AZURE.NOTE] 공유 액세스 서명 URI는 서명을 만드는 데 사용된 계정 키 및 저장된 관련 액세스 정책(있는 경우)에 연결됩니다. 저장된 액세스 정책을 지정하지 않는 경우 공유 액세스 서명을 해지하는 방법은 계정 키를 변경하는 것뿐입니다. 
+>[AZURE.NOTE]공유 액세스 서명 URI는 서명을 만드는 데 사용된 계정 키 및 저장된 관련 액세스 정책(있는 경우)에 연결됩니다. 저장된 액세스 정책을 지정하지 않는 경우 공유 액세스 서명을 해지하는 방법은 계정 키를 변경하는 것뿐입니다.
 
 ### 공유 액세스 서명 만들기
 다음 코드 예제에서는 컨테이너에 액세스 정책을 만든 다음 컨테이너에 대한 공유 액세스 서명을 생성합니다. 이 공유 액세스 서명을 클라이언트에 제공할 수 있습니다.
 
-    // 저장소 계정에 대한 연결 문자열  Modify for your account.
+    // The connection string for the storage account.  Modify for your account.
     string storageConnectionString =
        "DefaultEndpointsProtocol=https;" +
        "AccountName=myaccount;" +
        "AccountKey=<account-key>";
     
-    // 대신 app.config 파일에서 저장소 계정 정보를 검색할 수 있습니다. 
-    // 한 가지 방법은 연결 문자열을 저장하고 검색하는 것입니다. 
-    // (Microsoft Azure가 아니라 로컬에서 실행되는 응용 프로그램을 작성하는 경우).
+    // As an alternative, you can retrieve storage account information from an app.config file. 
+    // This is one way to store and retrieve a connection string if you are 
+    // writing an application that will run locally, rather than in Microsoft Azure.
     
     // string storageConnectionString = ConfigurationManager.AppSettings["StorageAccountConnectionString"];
     
-    // 연결 문자열과 함께 저장소 계정을 만듭니다.
+    // Create the storage account with the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(storageConnectionString);
        
-    // Blob 클라이언트 개체를 만듭니다.
+    // Create the blob client object.
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
     
-    // 공유 액세스 서명을 만드는 컨테이너에 대한 참조를 가져옵니다.
+    // Get a reference to the container for which shared access signature will be created.
     CloudBlobContainer container = blobClient.GetContainerReference("mycontainer");
     container.CreateIfNotExists();
     
-    // 공유 액세스 정책 및 공유 액세스 정책으로 구성된 Blob 컨테이너 
-    // 권한을 만듭니다. 
+    // Create blob container permissions, consisting of a shared access policy 
+    // and a public access setting. 
     BlobContainerPermissions blobPermissions = new BlobContainerPermissions();
     
-    // 공유 액세스 정책은 
-    // 10시간 동안 읽기/쓰기 액세스를 컨테이너에 제공합니다.
+    // The shared access policy provides 
+    // read/write access to the container for 10 hours.
     blobPermissions.SharedAccessPolicies.Add("mypolicy", new SharedAccessBlobPolicy()
     {
-       // SAS가 유효한 지 즉시 확인하기 위해 시작 시간을 설정하지 마세요.
-       // 이러한 방식으로 시간의 작은 차이로 발생할 수 있는 오류를 방지할 수 있습니다.
+       // To ensure SAS is valid immediately, don’t set start time.
+       // This way, you can avoid failures caused by small clock differences.
        SharedAccessExpiryTime = DateTime.UtcNow.AddHours(10),
        Permissions = SharedAccessBlobPermissions.Write |
       SharedAccessBlobPermissions.Read
     });
     
-    // 공용 액세스 설정은 명시적으로 
-    // 컨테이너가 비공개로 지정하여 익명으로 액세스할 수 없습니다.
+    // The public access setting explicitly specifies that 
+    // the container is private, so that it can't be accessed anonymously.
     blobPermissions.PublicAccess = BlobContainerPublicAccessType.Off;
     
-    // 컨테이너에 사용 권한 정책을 설정합니다.
+    // Set the permission policy on the container.
     container.SetPermissions(blobPermissions);
     
-    // 사용자와 공유하도록 공유 액세스 서명을 가져옵니다.
+    // Get the shared access signature to share with users.
     string sasToken =
        container.GetSharedAccessSignature(new SharedAccessBlobPolicy(), "mypolicy");
 
@@ -161,15 +161,15 @@
 
     Uri blobUri = new Uri("https://myaccount.blob.core.windows.net/mycontainer/myblob.txt");
     
-    // SAS 토큰으로 자격 증명을 만듭니다. // 이전 예제에서 SAS 토큰을 만들었습니다.
+    // Create credentials with the SAS token. The SAS token was created in previous example.
     StorageCredentials credentials = new StorageCredentials(sasToken);
     
-    // 새 blob을 만듭니다.
+    // Create a new blob.
     CloudBlockBlob blob = new CloudBlockBlob(blobUri, credentials);
     
-    // Blob을 업로드합니다. 
-    // Blob가 아직 없는 경우 만들어집니다. 
-    // Blob가 존재하는 경우 기존 내용을 덮어씁니다.
+    // Upload the blob. 
+    // If the blob does not yet exist, it will be created. 
+    // If the blob does exist, its existing content will be overwritten.
     using (var fileStream = System.IO.File.OpenRead(@"c:\Test\myblob.txt"))
     {
     blob.UploadFromStream(fileStream);
@@ -182,10 +182,10 @@
 
 저장된 액세스 정책과 연결된 공유 액세스 서명을 발급한 경우를 예로 들어 보겠습니다. 저장된 액세스 정책 내에서 만료 시간을 지정한 경우에는 새 서명을 다시 발급하지 않고 서명의 수명을 연장하도록 액세스 정책을 수정할 수 있습니다.
 
-모범 사례에 따르면, 공유 액세스 서명을 발급하는 서명된 리소스에 대해 저장된 액세스 정책을 지정하는 것이 좋습니다. 저장된 정책을 사용하면 서명을 발급한 후 수정하거나 해지할 수 있기 때문입니다. 저장된 정책을 지정하지 않는 경우에는 저장소 계정 리소스에 대한 위험을 최소화할 수 있도록 서명의 수명을 제한하는 것이 좋습니다. 
+모범 사례에 따르면, 공유 액세스 서명을 발급하는 서명된 리소스에 대해 저장된 액세스 정책을 지정하는 것이 좋습니다. 저장된 정책을 사용하면 서명을 발급한 후 수정하거나 해지할 수 있기 때문입니다. 저장된 정책을 지정하지 않는 경우에는 저장소 계정 리소스에 대한 위험을 최소화할 수 있도록 서명의 수명을 제한하는 것이 좋습니다.
 
 ### 공유 액세스 서명을 저장된 액세스 정책에 연결
-저장된 액세스 정책에는 컨테이너, 큐 또는 테이블 내에서 고유한 최대 64자의 이름이 포함됩니다. 공유 액세스 서명을 저장된 액세스 정책에 연결하려면 공유 액세스 서명을 만들 때 이 식별자를 지정합니다. 공유 액세스 서명 URI서 *signedidentifier* 필드는 저장된 액세스 정책의 식별자를 지정합니다.
+저장된 액세스 정책에는 컨테이너, 큐 또는 테이블 내에서 고유한 최대 64자의 이름이 포함됩니다. 공유 액세스 서명을 저장된 액세스 정책에 연결하려면 공유 액세스 서명을 만들 때 이 식별자를 지정합니다. 공유 액세스 서명 URI에서 *signedidentifier* 필드는 저장된 액세스 정책의 식별자를 지정합니다.
 
 컨테이너, 큐 또는 테이블에는 최대 5개의 저장된 액세스 정책이 포함될 수 있습니다. 숫자에 상관없이 여러 공유 액세스 서명이 각 정책을 사용할 수 있습니다.
 
@@ -208,5 +208,10 @@
 
 동일한 저장된 액세스 정책을 사용하는 공유 액세스 서명에 대한 액세스를 해지하려면 저장된 정책 목록을 정책 이름이 들어 있지 않은 새 목록으로 덮어써서 저장소 리소스에서 저장된 정책을 제거합니다. 저장된 액세스 정책의 액세스 설정을 변경하려면 저장된 정책 목록을 새 액세스 제어 세부 정보가 포함된 같은 이름의 정책이 들은 새 목록으로 덮어씁니다.
 
+## 참고 항목
 
-<!--HONumber=52--> 
+- [Azure 저장소 서비스에 대한 인증](https://msdn.microsoft.com/library/azure/dd179428.aspx)
+- [공유 액세스 서명: SAS 모델 이해하기](storage-dotnet-shared-access-signature-part-1.md)
+- [공유 액세스 서명을 사용하여 액세스 위임](https://msdn.microsoft.com/library/azure/ee395415.aspx) 
+
+<!---HONumber=July15_HO1-->

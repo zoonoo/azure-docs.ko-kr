@@ -125,7 +125,7 @@ Docker 호스트에서 다음을 실행합니다. ```
 ## Azure CLI 명령 실행
 
 Azure CLI가 설치되었으면 명령줄 사용자 인터페이스(Bash, 터미널, cmd.exe 등)에서 **azure** 명령을 사용하여 Azure CLI 명령에 액세스할 수 있습니다. 예를 들어, Windows에서 도움말 명령을 실행하려면 관리자 권한으로 명령 프롬프트(cmd.exe)를 시작합니다. ```
-	c:> azure help
+	C:\> azure help
 ```
 
 이제 준비가 되었습니다! 이제 [Azure CLI로부터 Azure 구독에 연결하고](xplat-cli-connect.md) **azure** 명령의 사용을 시작할 수 있습니다.
@@ -150,7 +150,7 @@ Azure CLI가 설치되었으면 명령줄 사용자 인터페이스(Bash, 터미
 [mac-installer]: http://go.microsoft.com/fwlink/?LinkId=252249
 [windows-installer]: http://go.microsoft.com/?linkid=9828653&clcid=0x409
 [linux-installer]: http://go.microsoft.com/fwlink/?linkid=253472
-[cliasm]: virtual-machines-command-line-tools.md
-[cliarm]: xplat-cli-azure-resource-manager.md
+[cliasm]: virtual-machines/virtual-machines-command-line-tools.md
+[cliarm]: virtual-machines/xplat-cli-azure-resource-manager.md
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

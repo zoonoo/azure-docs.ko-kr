@@ -10,18 +10,18 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/23/2015" 
+	ms.date="06/15/2015" 
 	ms.author="wesmc"/>
 
 
 # 모바일 서비스에서 오프라인 데이터 동기화를 사용하여 충돌 처리
 
-[WACOM.INCLUDE [mobile-services-selector-offline-conflicts](../../includes/mobile-services-selector-offline-conflicts.md)]
+[AZURE.INCLUDE [mobile-services-selector-offline-conflicts](../../includes/mobile-services-selector-offline-conflicts.md)]
 
-## 개요
+##개요
 
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
@@ -36,12 +36,12 @@
 이 자습서는 이전 자습서인 [오프라인 데이터 시작]의 단계 및 샘플 앱을 기반으로 합니다. 이 자습서를 시작하기 전에 먼저 [오프라인 데이터 시작]을 완료해야 합니다.
 
 
-## 필수 조건
+##필수 조건
 
 이 자습서를 사용하려면 Windows 8.1에서 실행 중인 Visual Studio 2013이 필요합니다.
 
 
-## 샘플 프로젝트 다운로드
+##샘플 프로젝트 다운로드
 
 ![][0]
 
@@ -51,7 +51,7 @@
 
 2. [오프라인 데이터 시작] 자습서에 언급된 대로 Windows 8.1용 SQLite 및 Windows Phone 8.1용 SQLite를 아직 설치하지 않은 경우 두 런타임을 모두 설치합니다.
 
-3. Visual Studio 2013에서 *mobile-services-samples\\TodoOffline\\WindowsUniversal\\TodoOffline-Universal.sln* 솔루션 파일을 엽니다. **F5**를 눌러 프로젝트를 다시 빌드하고 실행합니다. NuGet 패키지가 복원되고 참조가 올바르게 설정되었는지 확인합니다.
+3. Visual Studio 2013에서 *mobile-services-samples\TodoOffline\WindowsUniversal\TodoOffline-Universal.sln* 솔루션 파일을 엽니다. **F5**를 눌러 프로젝트를 다시 빌드하고 실행합니다. NuGet 패키지가 복원되고 참조가 올바르게 설정되었는지 확인합니다.
 
     >[AZURE.NOTE][오프라인 데이터 시작] 자습서에 언급된 대로 SQLite 런타임에 대한 이전 참조를 삭제하고 업데이트된 참조로 바꿔야 할 수 있습니다.
 
@@ -62,7 +62,7 @@
 
 
 
-## 모바일 서비스에 대해 앱 테스트
+##모바일 서비스에 대해 앱 테스트
 
 이제 모바일 서비스에 대해 앱을 테스트합니다.
 
@@ -80,7 +80,7 @@
     ![][0]
 
 
-## 백 엔드에서 데이터를 업데이트하여 충돌 생성
+##백 엔드에서 데이터를 업데이트하여 충돌 생성
 
 실제로 한 앱에서 업데이트를 데이터베이스의 레코드에 푸시한 후 다른 앱에서 해당 레코드의 이전 버전 필드를 사용하는 동일한 레코드에 업데이트를 푸시하려고 하면 동기화 충돌이 발생합니다. [오프라인 데이터 시작]의 내용을 상기한다면 버전 시스템 속성이 오프라인 동기화 기능을 지원해야 합니다. 이 버전 정보는 각 데이터베이스 업데이트를 통해 검사합니다. 앱의 인스턴스에서 이전 버전을 사용하여 레코드를 업데이트하려고 하면 충돌이 발생하고 앱에서 `MobileServicePreconditionFailedException`(으)로 catch됩니다. 앱에서 `MobileServicePreconditionFailedException`을(를) catch하지 않으면 결국 발생한 동기화 오류 수를 설명하는 `MobileServicePushFailedException`이(가) 발생합니다.
 
@@ -111,7 +111,7 @@
 
 
 
-## 동기화 충돌 처리를 위한 코드 검토
+##동기화 충돌 처리를 위한 코드 검토
 
 모바일 서비스에 오프라인 기능을 사용하려면 로컬 데이터베이스와 데이터 전송 개체 둘 다에 버전 열을 포함해야 합니다. 이 작업은 `TodoItem` 클래스를 다음 멤버로 업데이트하여 수행합니다.
 
@@ -164,5 +164,6 @@
 [Handling Database Conflicts]: mobile-services-windows-store-dotnet-handle-database-conflicts.md#test-app
 [모바일 서비스 샘플 Github 리포지토리]: http://go.microsoft.com/fwlink/?LinkId=512865
 [Todo 오프라인 모바일 서비스 샘플]: http://go.microsoft.com/fwlink/?LinkId=512866
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

@@ -93,7 +93,7 @@
 
 	a) /etc/grub.d/00_header 파일을 엽니다.
 
-	b) 함수**make_timeout()**에서 **if ["\${recordfail}" = 1 ]; then**을 검색합니다.
+	b) 함수 **make_timeout()**에서 **if ["\${recordfail}" = 1 ]; then**을 검색합니다.
 
 	c) 해당 줄 아래 문을 **set timeout=5**로 변경합니다.
 
@@ -122,4 +122,7 @@
 
 11. Hyper-V 관리자에서 **작업 -> 종료**를 클릭합니다. 이제 Linux VHD를 Azure에 업로드할 수 있습니다.
 
-<!---HONumber=58--> 
+
+ 
+
+<!---HONumber=July15_HO1-->

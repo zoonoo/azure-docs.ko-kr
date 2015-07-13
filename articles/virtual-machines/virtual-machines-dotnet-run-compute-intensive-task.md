@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="03/18/2015"
+	ms.date="06/25/2015"
 	ms.author="wpickett"/>
 
 # Azure 가상 컴퓨터에서 .NET으로 계산 집약적인 작업을 실행하는 방법
@@ -443,9 +443,9 @@ Azure에서 서비스 버스 큐 사용을 시작하려면 먼저 서비스 네�
 ### 계산 집약적인 응용 프로그램을 실행하는 방법
 
 1. 가상 컴퓨터에 로그온합니다.
-2. **C:\TSP**라는 폴더를 만듭니다. 응용 프로그램을 실행할 위치입니다.
-3. TSPSolver 프로젝트의 **bin** 폴더에 있는 TSPSolver.exe 및 Microsoft.ServiceBus.dll을 **C:\TSP**에 복사합니다.
-4. 다음과 같은 정보를 포함하는 **C:\TSP\cities.txt**라는 파일을 만듭니다.
+2. **c:\TSP**라는 폴더를 만듭니다. 응용 프로그램을 실행할 위치입니다.
+3. TSPSolver 프로젝트의 **bin** 폴더에 있는 TSPSolver.exe 및 Microsoft.ServiceBus.dll을 **c:\TSP**에 복사합니다.
+4. 다음과 같은 정보를 포함하는 **c:\TSP\cities.txt**라는 파일을 만듭니다.
 
 		City_1, 1002.81, -1841.35
 		City_2, -953.55, -229.6
@@ -498,7 +498,7 @@ Azure에서 서비스 버스 큐 사용을 시작하려면 먼저 서비스 네�
 		City_49, -120.3, -463.13
 		City_50, 588.51, 679.33
 
-5. 명령 프롬프트에서 디렉터리를 C:\TSP로 변경합니다.
+5. 명령 프롬프트에서 디렉터리를 c:\TSP로 변경합니다.
 6. TSP 해 찾기 순열을 실행하기 전에 서비스 버스 큐를 먼저 만들어야 합니다. 다음 명령을 실행하여 서비스 버스 큐를 만듭니다.
 
         TSPSolver createqueue
@@ -515,9 +515,9 @@ Azure에서 서비스 버스 큐 사용을 시작하려면 먼저 서비스 네�
 
 ### 모니터링하는 클라이언트 응용 프로그램을 실행하는 방법
 1. 클라이언트 응용 프로그램을 실행할 컴퓨터에 로그온합니다. 이 컴퓨터가 **TSPSolver** 응용 프로그램을 실행하는 컴퓨터와 같을 수도 있지만 반드시 같아야 하는 것은 아닙니다.
-2. 응용 프로그램을 실행할 폴더(예: **C:\TSP**)를 만듭니다.
-3. TSPClient 프로젝트의 **bin** 폴더에 있는 **TSPClient.exe** 및 Microsoft.ServiceBus.dll을 C:\TSP 폴더에 복사합니다.
-4. 명령 프롬프트에서 디렉터리를 C:\TSP로 변경합니다.
+2. 응용 프로그램을 실행할 폴더(예: **c:\TSP**)를 만듭니다.
+3. TSPClient 프로젝트의 **bin** 폴더에 있는 **TSPClient.exe** 및 Microsoft.ServiceBus.dll을 c:\TSP 폴더에 복사합니다.
+4. 명령 프롬프트에서 디렉터리를 c:\TSP로 변경합니다.
 5. 다음 명령을 실행합니다.
 
         TSPClient
@@ -547,4 +547,4 @@ TSPSolver를 사용하여 큐를 만들거나 제거하는 대신 [Azure 관리 
 [access_key_button]: ./media/virtual-machines-dotnet-run-compute-intensive-task/AccessKey.png
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

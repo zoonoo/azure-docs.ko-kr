@@ -10,17 +10,17 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/20/2015" 
+	ms.date="06/09/2015" 
 	ms.author="wesmc"/>
 
 # 모바일 서비스 및 Azure Active Directory의 역할 기반 액세스 제어
 
 [AZURE.INCLUDE [mobile-services-selector-rbac](../../includes/mobile-services-selector-rbac.md)]
 
-## 개요
+##개요
 
 RBAC(역할 기반 액세스 제어)는 사용자가 저장할 수 있는 역할에 사용 권한을 할당하는 방법입니다. 사용자의 어느 특정 클래스가 수행할 수 있고 수행할 수 없는지에 대한 경계를 정의합니다. 이 자습서에서는 Azure 모바일 서비스에 기본 RBAC를 추가하는 방법을 안내합니다.
 
@@ -29,7 +29,7 @@ RBAC(역할 기반 액세스 제어)는 사용자가 저장할 수 있는 역할
 
 >[AZURE.NOTE]이 자습서에서는 권한 부여 방식을 포함하여 인증에 대한 다양한 지식 정보를 제공합니다. 이 자습서 이전에 Azure Active Directory 인증 공급자를 사용하여 [앱에 인증 추가] 자습서를 먼저 완료해야 합니다. 이 자습서에서는 [앱에 인증 추가] 자습서에서 사용된 TodoItem 응용 프로그램을 계속 업데이트합니다.
 
-## 필수 조건
+##필수 조건
 
 이 자습서를 사용하려면 다음이 필요합니다.
 
@@ -39,7 +39,7 @@ RBAC(역할 기반 액세스 제어)는 사용자가 저장할 수 있는 역할
  
 
 
-## 통합 응용 프로그램에 대한 키 생성
+##통합 응용 프로그램에 대한 키 생성
 
 
 [앱에 인증 추가] 자습서에서는 [Azure Active Directory 로그인 사용 등록] 단계를 완료할 때 통합 응용 프로그램에 대한 등록을 만들었습니다. 이 섹션에서는 해당 통합 응용 프로그램의 클라이언트 ID로 디렉터리 정보를 읽을 때 사용할 키를 생성합니다.
@@ -50,19 +50,19 @@ RBAC(역할 기반 액세스 제어)는 사용자가 저장할 수 있는 역할
 
 
 
-## 멤버 자격이 포함된 Sales 그룹 만들기
+##멤버 자격이 포함된 Sales 그룹 만들기
 
 [AZURE.INCLUDE [mobile-services-aad-rbac-create-sales-group](../../includes/mobile-services-aad-rbac-create-sales-group.md)]
 
 
 
-## 모바일 서비스에서 사용자 지정 권한 부여 특성 만들기 
+##모바일 서비스에서 사용자 지정 권한 부여 특성 만들기 
 
 이 섹션에서는 모바일 서비스 작업에서 액세스 확인을 수행하는 데 사용할 수 있는 새로운 사용자 지정 권한 부여 특성을 만듭니다. 이 특성은 여기에 전달된 역할 이름을 기준으로 Active Directory 그룹을 조회합니다. 그런 후 해당 그룹의 멤버 자격을 기준으로 액세스 확인을 수행합니다.
 
 1. Visual Studio에서 모바일 서비스 .NET 백 엔드 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 클릭합니다.
 
-2. NuGet 패키지 관리자 대화 상자에서 검색 조건에 **ADAL**을 입력하여 모바일 서비스에 대한 **Active Directory 인증 라이브러리**를 찾아서 설치합니다. 이 자습서는 ADAL 패키지의 3.0.110281957-alpha(시험판) 버전으로 가장 최근에 테스트 했습니다.
+2. NuGet 패키지 관리자 대화 상자에서 검색 조건에 **ADAL**을 입력하여 모바일 서비스에 대한 **Active Directory 인증 라이브러리**를 찾아서 설치합니다. 이 자습서는 ADAL 패키지의 3.3.205061641-alpha(시험판) 버전으로 가장 최근에 테스트 했습니다.
 
 3. Visual Studio에서 모바일 서비스 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가**를 클릭한 후 **새 폴더**를 클릭합니다. 새 폴더 이름을 **Utilities**로 지정합니다.
 
@@ -178,7 +178,8 @@ RBAC(역할 기반 액세스 제어)는 사용자가 저장할 수 있는 역할
 
     >[AZURE.NOTE].NET용 ADAL은 Active Directory에 대한 추가 네트워크 트래픽을 줄이기 위해 기본적으로는 메모리 내 토큰 캐시를 포함합니다. 하지만 고유한 캐시 구현을 작성하거나 완전히 캐싱을 사용하지 않도록 설정할 수 있습니다. 자세한 내용은 [.NET용 ADAL]을 참조하세요.
 
-        private string GetAADToken()
+        // Use ADAL and the authentication app settings from the Mobile Service to get an AAD access token
+        private async Task<string> GetAADToken()
         {
             // Try to get the required AAD authentication app settings from the mobile service.  
             if (!(services.Settings.TryGetValue("AAD_CLIENT_ID", out clientid) &
@@ -192,8 +193,8 @@ RBAC(역할 기반 액세스 제어)는 사용자가 저장할 수 있는 역할
             ClientCredential clientCred = new ClientCredential(clientid, clientkey);
             string authority = String.Format(CultureInfo.InvariantCulture, AadInstance, tenantdomain);
             AuthenticationContext authContext = new AuthenticationContext(authority);
-            AuthenticationResult result = authContext.AcquireTokenAsync(GraphResourceId, clientCred).Result;
 
+            AuthenticationResult result = await authContext.AcquireTokenAsync(GraphResourceId, clientCred);
             if (result != null)
                 token = result.AccessToken;
             else
@@ -324,7 +325,7 @@ RBAC(역할 기반 액세스 제어)는 사용자가 저장할 수 있는 역할
 
 12. 변경 사항을 AuthorizeAadRole.cs에 저장합니다.
 
-## 역할 기반 액세스 확인을 데이터베이스 작업에 추가
+##역할 기반 액세스 확인을 데이터베이스 작업에 추가
 
 1. Visual Studio에서 모바일 서비스 프로젝트 아래의 **컨트롤러** 폴더를 확장합니다. TodoItemController.cs를 엽니다.
 
@@ -366,7 +367,7 @@ RBAC(역할 기반 액세스 제어)는 사용자가 저장할 수 있는 역할
 5. 모바일 서비스를 Azure 계정에 게시합니다.
 
 
-## 클라이언트의 액세스 테스트
+##클라이언트의 액세스 테스트
 
 [AZURE.INCLUDE [mobile-services-aad-rbac-test-app](../../includes/mobile-services-aad-rbac-test-app.md)]
 
@@ -390,4 +391,5 @@ RBAC(역할 기반 액세스 제어)는 사용자가 저장할 수 있는 역할
 [IsMemberOf]: http://msdn.microsoft.com/library/azure/dn151601.aspx
 [Azure Active Directory 그래프 정보 액세스]: mobile-services-dotnet-backend-windows-store-dotnet-aad-graph-info.md
 [.NET용 ADAL]: https://msdn.microsoft.com/library/azure/jj573266.aspx
-<!--HONumber=54--> 
+
+<!---HONumber=July15_HO1-->

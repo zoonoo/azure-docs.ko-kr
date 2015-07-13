@@ -41,22 +41,22 @@ FreeBSD 운영 체제를 설치한 가상 컴퓨터에서 다음 절차를 완�
 
 1. **DHCP 사용**
 
-		# echo 'ifconfig_hn0="SYNCDHCP"' > /etc/rc.conf
+		# echo 'ifconfig_hn0="SYNCDHCP"' >> /etc/rc.conf
 		# service netif restart
 
 2. **SSH 사용**
 
     SSH는 디스크에서 설치 후 기본적으로 사용됩니다. 그렇지 않은 경우 또는 FreeBSD VHD를 직접 사용하는 경우 다음을 입력합니다.
 
-		# echo 'sshd_enable="YES"' > /etc/rc.conf 
+		# echo 'sshd_enable="YES"' >> /etc/rc.conf 
 		# ssh-keygen -t dsa -f /etc/ssh/ssh_host_dsa_key 
 		# ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key 
 		# service sshd restart
 
 3. **직렬 콘솔 설치**
 
-		# echo 'console="comconsole vidconsole"' > /boot/loader.conf
-		# echo 'comconsole_speed="115200"' > /boot/loader.conf
+		# echo 'console="comconsole vidconsole"' >> /boot/loader.conf
+		# echo 'comconsole_speed="115200"' >> /boot/loader.conf
 
 4. **sudo 설치**
 
@@ -206,4 +206,4 @@ Azure에서 가상 컴퓨터를 만드는 데 사용할 수 있도록 .vhd 파�
 	![azure의 freebsd 이미지](./media/virtual-machines-freebsd-create-upload-vhd/freebsdimageinazure.png)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

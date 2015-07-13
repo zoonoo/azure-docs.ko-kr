@@ -1,11 +1,10 @@
 <properties 
-	pageTitle="SQL 파티션 테이블을 사용하여 대량의 데이터를 병렬로 가져오기 | Azure" 
+	pageTitle="SQL 파티션 테이블을 사용하여 대량의 데이터를 병렬로 가져오기 | Microsoft Azure" 
 	description="SQL 파티션 테이블을 사용하여 대량의 데이터를 병렬로 가져오기" 
-	metaKeywords="" 
 	services="machine-learning" 
 	solutions="" 
 	documentationCenter="" 
-	authors="msolhab" 
+	authors="msolhab"
 	manager="paulettm" 
 	editor="cgronlun" />
 
@@ -15,12 +14,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/19/2015" 
-	ms.author="msolhab" /> 
+	ms.date="05/29/2015" 
+	ms.author="msolhab" />
 
 # SQL 파티션 테이블을 사용하여 대량의 데이터를 병렬로 가져오기
 
 SQL 데이터베이스로 빅 데이터를 로드/전송할 때 _분할된 테이블 및 뷰_를 사용하여 SQL DB로 데이터를 가져오는 작업과 후속 쿼리의 성능을 개선할 수 있습니다. 이 문서에서는 분할된 테이블을 만들어서 SQL Server 데이터베이스로 대량의 데이터를 병렬로 더 빨리 가져오는 방법을 설명합니다.
+
 
 ## 새 데이터베이스 및 파일 그룹 만들기
 
@@ -30,9 +30,9 @@ SQL 데이터베이스로 빅 데이터를 로드/전송할 때 _분할된 테�
 
 - 각 데이터베이스 파일 그룹에 파일을 하나 이상(필요한 만큼) 추가
 
- > [AZURE.NOTE] 이 파티션의 데이터를 보유할 대상 파일 그룹과 파일 그룹 데이터가 저장될 실제 데이터베이스 파일 이름을 지정합니다.
+ >[AZURE.NOTE]이 파티션의 데이터를 보유할 대상 파일 그룹과 파일 그룹 데이터가 저장될 실제 데이터베이스 파일 이름을 지정합니다.
  
-다음은 기본 그룹 및 로그 그룹이 아닌 3개의 파일 그룹이 있고 각 파일 그룹에 물리적 파일 1개가 포함되는 새 데이터베이스를 만드는 예제입니다. SQL Server 인스턴스에 구성된 것처럼 데이터베이스 파일은 기본 SQL Server 데이터 폴더에 생성됩니다. 기본 파일 위치에 대한 자세한 내용은 [SQL Server의 기본 인스턴스 및 명명된 인스턴스의 파일 위치](https://msdn.microsoft.com/library/ms143547.aspx)를 참조하세요.
+다음은 기본 그룹 및 로그 그룹이 아닌 3개의 파일 그룹이 있고 각 파일 그룹에 물리적 파일 1개가 포함되는 새 데이터베이스를 만드는 예제입니다. SQL Server 인스턴스에 구성된 것처럼 데이터베이스 파일은 기본 SQL Server 데이터 폴더에 생성됩니다. 기본 파일 위치에 대한 자세한 내용은[ SQL Server의 기본 인스턴스 및 명명된 인스턴스의 파일 위치](https://msdn.microsoft.com/library/ms143547.aspx)를 참조하세요.
 
     DECLARE @data_path nvarchar(256);
     SET @data_path = (SELECT SUBSTRING(physical_name, 1, CHARINDEX(N'master.mdf', LOWER(physical_name)) - 1)
@@ -178,10 +178,11 @@ SQL 데이터베이스로 빅 데이터를 로드/전송할 때 _분할된 테�
 	    CREATE INDEX <table_idx> ON <table_name>( [include index columns here] )
 	    ON <TablePScheme>(<partition)field>)
 
- > [AZURE.NOTE] 인덱스를 만든 후 데이터를 대량으로 가져올 수도 있습니다. 인덱스를 만든 후 대량 가져오기를 수행하면 데이터 로드 속도가 느려집니다.
+ >[AZURE.NOTE]인덱스를 만든 후 데이터를 대량으로 가져올 수도 있습니다. 인덱스를 만든 후 대량 가져오기를 수행하면 데이터 로드 속도가 느려집니다.
 
-### Azure 데이터 과학 작동 예제
+### 고급 분석 프로세스 및 기술 작동 예제
 
-공용 데이터 집합을 사용한 Azure 데이터 과학 프로세스의 종단 간 연습 예제는 [Azure 데이터 과학 프로세스 작동](machine-learning-data-science-process-sql-walkthrough.md)을 참조하세요.
+공용 데이터 집합에서 ADAPT(고급 분석 프로세스 및 기술)를 사용하는 종단 간 연습 예제는 [고급 분석 프로세스 및 기술 작동: SQL Server 사용](machine-learning-data-science-process-sql-walkthrough.md)을 참조하세요.
+ 
 
-<!--HONumber=49--> 
+<!---HONumber=July15_HO1-->

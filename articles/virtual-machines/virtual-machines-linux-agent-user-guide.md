@@ -317,4 +317,4 @@ Ubuntu 클라우드 이미지는 [cloud-init](https://launchpad.net/ubuntu/+sour
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

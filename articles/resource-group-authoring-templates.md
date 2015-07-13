@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/28/2015"
-   ms.author="tomfitz;ilygre"/>
+   ms.date="06/22/2015"
+   ms.author="tomfitz"/>
 
 # Azure 리소스 관리자 템플릿 작성
 
@@ -397,8 +397,9 @@ Outputs 섹션에서, 배포에서 반환되는 값을 지정합니다. 예를 �
 
 ## 다음 단계
 - [Azure 리소스 관리자 템플릿 함수](./resource-group-template-functions.md)
-- [Azure 리소스 관리자 템플릿을 사용하여 응용 프로그램 배포](./resource-group-template-deploy.md)
+- [Azure 리소스 관리자 템플릿을 사용하여 응용 프로그램 배포](azure-portal/resource-group-template-deploy.md)
 - [고급 템플릿 작업](./resource-group-advanced-template.md)
+- [Azure에서 예측 가능하도록 복잡한 응용 프로그램을 배포](app-service-web/app-service-deploy-complex-application-predictably.md)
 - [Azure 리소스 관리자 개요](./resource-group-overview.md)
 
-<!---HONumber=58-->
+<!---HONumber=July15_HO1-->

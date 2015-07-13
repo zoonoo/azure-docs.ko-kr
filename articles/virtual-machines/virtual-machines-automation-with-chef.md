@@ -238,4 +238,4 @@ C:\Chef 디렉터리 아래에서 다음 명령을 실행합니다.
 
 <!--Link references-->
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO1-->

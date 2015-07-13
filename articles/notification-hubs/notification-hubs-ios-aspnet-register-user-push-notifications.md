@@ -13,17 +13,17 @@
 	ms.tgt_pltfrm="ios" 
 	ms.devlang="objective-c" 
 	ms.topic="article" 
-	ms.date="02/26/2015" 
+	ms.date="06/02/2015" 
 	ms.author="wesmc"/>
 # ASP.NET을 사용하여 푸시 알림에 현재 사용자 등록
 
 <div class="dev-center-tutorial-selector sublanding">
-    <a href="/documentation/articles/notification-hubs-windows-store-aspnet-register-user-push-notifications/" title="Windows Store C#">Windows 스토어 C#</a><a href="/documentation/articles/notification-hubs-ios-aspnet-register-user-push-notifications/" title="iOS" class="current">iOS</a>
+    <a href="/documentation/articles/notification-hubs-windows-store-aspnet-register-user-push-notifications/" title="Windows 스토어 C#">Windows 스토어 C#</a><a href="/documentation/articles/notification-hubs-ios-aspnet-register-user-push-notifications/" title="iOS" class="current">iOS</a>
 </div>
 
 ##개요
 
-이 항목에서는 ASP.NET Web API에서 등록을 수행할 때 Azure 알림 허브를 통해 푸시 알림 등록을 요청하는 방법을 보여 줍니다. 이 항목은 [알림 허브를 통해 사용자에게 알림] 자습서를 확장합니다. 이미 해당 자습서의 필수 단계를 완료하여 인증된 모바일 서비스를 만든 상태여야 합니다. 사용자 알림 시나리오에 대한 자세한 내용은 [알림 허브를 통해 사용자에게 알림]을 참조하세요.
+이 항목에서는 ASP.NET Web API에서 등록을 수행할 때 Azure 알림 허브를 통해 푸시 알림 등록을 요청하는 방법을 보여 줍니다. 이 항목은 [알림 허브를 통해 사용자에게 알림] 자습서를 확장합니다. 이미 해당 자습서의 필수 단계를 완료하여 인증된 모바일 서비스를 만든 상태여야 합니다. 사용자 알림 시나리오에 대한 자세한 내용은 [알림 허브를 통해 사용자에게 알림]을 참조하십시오.
 
 ##앱 업데이트  
 
@@ -41,7 +41,7 @@
 
    	![][0]
 
-2. 단말기 편집기에서 모든 전환된 컨트롤에 대한 콘센트를 만든 다음 호출하고, 텍스트 필드를 보기 컨트롤러(대리자)에 연결하고, **로그인** 단추에 대한 **동작**을 만듭니다.
+2. 단말기 편집기에서 모든 전환된 컨트롤에 대한 콘센트를 만든 다음 호출하고, 텍스트 필드를 뷰 컨트롤러(대리자)에 연결하고, **로그인** 단추에 대한 **동작**을 만듭니다.
 
    	![][1]
 
@@ -53,7 +53,7 @@
 
 		- (IBAction)login:(id)sender;
 
-5. **DeviceInfo** 클래스를 만들고 다음 코드를 DeviceInfo.h 파일의 인터페이스 섹션에 복사합니다.
+5. **DeviceInfo**라는 클래스를 만들고 다음 코드를 DeviceInfo.h 파일의 인터페이스 섹션에 복사합니다.
 
 		@property (readonly, nonatomic) NSString* installationId;
 		@property (nonatomic) NSData* deviceToken;
@@ -100,7 +100,7 @@
 
 		[[UIApplication sharedApplication] registerForRemoteNotificationTypes: UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
 
-	첫 번째 줄은 **DeviceInfo** 단일 항목을 초기화합니다. 두 번째 줄은 푸시 알림 등록을 시작합니다. [알림 허브 시작] 자습서를 이미 완료한 경우 이 줄은 이미 있습니다.
+	첫 번째 행은 **DeviceInfo** 단일 항목을 초기화합니다. 두 번째 행은 푸시 알림 등록을 시작합니다. 이미 언급한 것처럼 [알림 허브 시작] 자습서를 이미 완료했습니다.
 
 9. PushToUserAppDelegate.m의 AppDelegate에서 **didRegisterForRemoteNotificationsWithDeviceToken** 메서드를 구현하고 다음 코드를 추가합니다.
 
@@ -108,7 +108,7 @@
 
 	이 코드는 요청에 대한 장치 토큰을 설정합니다.
 
-	> [AZURE.NOTE] 이때 이 메서드에 다른 코드가 있어서는 안 됩니다. [알림 허브 시작] 자습서를 완료할 때 추가된 **registerNativeWithDeviceToken** 메서드에 대한 호출이 이미 있는 경우(/manage/services/notification-hubs/get-started-notification-hubs-ios/%20target="_blank") 해당 호출을 주석으로 처리하거나 제거해야 합니다.
+	> [AZURE.NOTE]이때 이 메서드에 다른 코드가 있어서는 안 됩니다. [알림 허브 시작](/manage/services/notification-hubs/get-started-notification-hubs-ios/%20target="_blank") 자습서를 완료할 때 추가된 **registerNativeWithDeviceToken** 메서드에 대한 호출이 이미 있는 경우 해당 호출을 주석으로 처리하거나 제거해야 합니다.
 
 10.	PushToUserAppDelegate.m 파일에서 다음 처리기 메서드를 추가합니다.
 
@@ -232,7 +232,8 @@
 <!-- URLs. -->
 [알림 허브를 통해 사용자에게 알림]: /manage/services/notification-hubs/notify-users-aspnet
 
-[Azure 관리 포털]: https://manage.windowsazure.com/
+[Azure Management Portal]: https://manage.windowsazure.com/
 [알림 허브 시작]: /manage/services/notification-hubs/get-started-notification-hubs-ios
+ 
 
-<!--HONumber=49--> 
+<!---HONumber=July15_HO1-->

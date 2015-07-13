@@ -1,3 +1,4 @@
+
 ### 1단계: 장치에 관리 포털에서 서비스 데이터 암호화 키를 변경할 권한 부여
 
 일반적으로 장치 관리자는 서비스 관리자가 장치에 서비스 데이터 암호화 키를 변경할 수 있는 권한을 부여하도록 요청합니다. 그러면 서비스 관리자는 장치에 키를 변경할 수 있는 권한을 부여합니다.
@@ -30,7 +31,7 @@
 
 2. **서비스 데이터 암호화 키 변경** 대화 상자에서 장치를 선택하고 서비스 데이터 암호화 키 변경을 시작할 권한을 부여합니다. 드롭다운 목록에 권한을 부여할 수 있는 모든 장치가 나와 있습니다.
 
-3. 확인 아이콘 ![확인 아이콘](./media/storsimple-change-data-encryption-key/HCS_CheckIcon-include.png)을 클릭합니다.
+3. 확인 아이콘![확인 아이콘](./media/storsimple-change-data-encryption-key/HCS_CheckIcon-include.png)을 클릭합니다.
 
 ### 2단계: StorSimple용 Windows PowerShell을 사용하여 서비스 데이터 암호화 키 변경 시작
 
@@ -70,6 +71,6 @@
 
     `Invoke-HcsmServiceDataEncryptionKeyChange – ServiceDataEncryptionKey`
 
-3. [2단계: StorSimple용 Windows PowerShell을 사용하여 서비스 데이터 암호화 키 변경 시작](#step-2:-use-windows-powershell-to-initiate-the-service-data-encryption-key-change)에서 얻은 서비스 데이터 암호화 키를 제공합니다.
+3. [2단계: StorSimple용 Windows PowerShell을 사용하여 서비스 데이터 암호화 키 변경 시작](##to-initiate-the-service-data-encryption-key-change)에서 얻은 서비스 데이터 암호화 키를 제공합니다.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO1-->

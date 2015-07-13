@@ -2,8 +2,7 @@
 	pageTitle="모바일 서비스를 사용하여 Blob 저장소에 이미지 업로드(Windows Phone) | 모바일 서비스" 
 	description="모바일 서비스를 사용하여 Azure Blob 저장소에 이미지를 업로드하는 방법에 대해 알아봅니다." 
 	documentationCenter="windows" 
-	authors="wesmc7777" 
-	writer="wesmc" 
+	authors="ggailey777" 
 	services="mobile-services" 
 	manager="dwrede" 
 	editor=""/>
@@ -11,17 +10,17 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/23/2015" 
-	ms.author="wesmc"/>
+	ms.date="06/04/2015" 
+	ms.author="glenga"/>
 
 # 모바일 서비스를 사용하여 Azure 저장소에 이미지 업로드
 
 [AZURE.INCLUDE [mobile-services-selector-upload-data-blob-storage](../../includes/mobile-services-selector-upload-data-blob-storage.md)]
 
-## 개요
+##개요
 
 이 항목에서는 Azure 모바일 서비스를 사용하여, 사용자가 만든 이미지를 앱에서 Azure 저장소에 업로드하고 저장하는 방법에 대해 설명합니다. 모바일 서비스에서는 SQL 데이터베이스를 사용하여 데이터를 저장합니다. 그러나 Azure Blob 저장소 서비스에는 Blob(Binary Large Object) 데이터를 저장하는 것이 좀 더 효율적입니다.
 
@@ -30,7 +29,7 @@
 이 자습서에서는 모바일 서비스에서 생성한 SAS를 사용하여 사진을 찍고 이미지를 Azure에 업로드하는 기능을 [GetStartedWithData 샘플 앱 프로젝트](mobile-services-windows-phone-get-started-data.md)에 추가합니다.
 
 
-## 필수 조건
+##필수 조건
 
 이 자습서를 사용하려면 다음이 필요합니다.
 
@@ -41,7 +40,7 @@
 + [기존 앱에 모바일 서비스 추가](mobile-services-windows-phone-get-started-data.md) 자습서 완료  
 
 
-## Windows Phone 앱용 저장소 클라이언트 설치
+##Windows Phone 앱용 저장소 클라이언트 설치
 
 SAS를 사용하여 Blob 저장소에 이미지를 업로드하려면 먼저 Windows Phone 앱용 저장소 클라이언트 라이브러리를 설치하는 NuGet 패키지를 추가해야 합니다.
 
@@ -49,13 +48,13 @@ SAS를 사용하여 Blob 저장소에 이미지를 업로드하려면 먼저 Win
 
 2. 왼쪽 창에서 **온라인** 범주를 선택하고, **Include Prerelease**를 선택하고 **WindowsAzure.Storage-Preview**를 검색한 후 **Azure 저장소** 패키지에서 **설치**를 클릭한 다음, 사용권 계약에 동의합니다.
 
-  	![][2]
+  	![Azure 저장소 NuGet 추가](./media/mobile-services-windows-phone-upload-data-blob-storage/mobile-add-storage-nuget-package-dotnet.png)
 
   	Azure 저장소 서비스용 클라이언트 라이브러리가 프로젝트에 추가됩니다.
 
 다음 단계에서는 이미지를 캡처하고 업로드하도록 빠른 시작 앱을 업데이트합니다.
 
-## 관리 포털에서 등록된 삽입 스크립트 업데이트
+##관리 포털에서 등록된 삽입 스크립트 업데이트
 
 
 [AZURE.INCLUDE [mobile-services-configure-blob-storage](../../includes/mobile-services-configure-blob-storage.md)]
@@ -65,7 +64,7 @@ SAS를 사용하여 Blob 저장소에 이미지를 업로드하려면 먼저 Win
 [AZURE.INCLUDE [mobile-services-windows-phone-upload-to-blob-storage](../../includes/mobile-services-windows-phone-upload-to-blob-storage.md)]
 
 
-## 다음 단계
+##다음 단계
 
 이제 모바일 서비스를 Blob 서비스와 통합하여 이미지를 안전하게 업로드할 수 있게 되었으므로 몇 가지 기타 백엔드 서비스 및 통합 항목을 확인해보십시오.
 
@@ -75,7 +74,9 @@ SAS를 사용하여 Blob 저장소에 이미지를 업로드하려면 먼저 Win
 
 + [모바일 서비스에서 백 엔드 작업 예약]
 
-  모바일 서비스 작업 스케줄러 기능을 사용하여, 예약된 시간에 실행되는 서버 스크립트 코드를 정의하는 방법에 대해 알아보십시오.
+  모바일 서비스 작업 스케줄러 기능을 사용하여, 예약된 시간에 실행되는 서버 스크립트 코드를 정의하는 방법에 대해 알아봅니다.
+
+##참고 항목
 
 + [모바일 서비스 서버 스크립트 참조]
 
@@ -85,34 +86,21 @@ SAS를 사용하여 Blob 저장소에 이미지를 업로드하려면 먼저 Win
 
   모바일 서비스를 .NET과 함께 사용하는 방법에 대해 알아보십시오.
   
- 
-
 <!-- Images. -->
 
-
-[2]: ./media/mobile-services-windows-phone-upload-data-blob-storage/mobile-add-storage-nuget-package-dotnet.png
-
-
-[5]: ./media/mobile-services-windows-phone-upload-data-blob-storage/mobile-upload-blob-app-WMAppmanifest-wp8.png
-[6]: ./media/mobile-services-windows-phone-upload-data-blob-storage/mobile-upload-blob-app-view-wp8.png
-[7]: ./media/mobile-services-windows-phone-upload-data-blob-storage/mobile-upload-blob-app-view-camera-wp8.png
-[8]: ./media/mobile-services-windows-phone-upload-data-blob-storage/mobile-upload-blob-app-view-save-wp8.png
-[9]: ./media/mobile-services-windows-phone-upload-data-blob-storage/mobile-upload-blob-app-view-final-wp8.png
-
-[11]: ./media/mobile-services-windows-phone-upload-data-blob-storage/mobile-upload-blob-app-view-camera-accept-wp8.png
-
 <!-- URLs. -->
-[SendGrid로 모바일 서비스에서 메일 보내기]: /develop/mobile/tutorials/send-email-with-sendgrid/
-[모바일 서비스에서 백 엔드 작업 예약]: /develop/mobile/tutorials/schedule-backend-tasks/
-[모바일 서비스 서버 스크립트 참조]: http://go.microsoft.com/fwlink/p/?LinkId=262293
+[SendGrid로 모바일 서비스에서 메일 보내기]: store-sendgrid-mobile-services-send-email-scripts.md
+[모바일 서비스에서 백 엔드 작업 예약]: mobile-services-schedule-recurring-tasks.md
+[모바일 서비스 서버 스크립트 참조]: mobile-services-how-to-use-server-scripts.md
 [Get started with Mobile Services]: ../mobile-services-windows-phone-get-started.md
 
 [Azure Management Portal]: https://manage.windowsazure.com/
-[How To Create a Storage Account]: /manage/services/storage/how-to-create-a-storage-account
+[How To Create a Storage Account]: ../storage-create-storage-account.md
 [Azure Storage Client library for Store apps]: http://go.microsoft.com/fwlink/p/?LinkId=276866
-[모바일 서비스 .NET 방법 개념 참조]: /develop/mobile/how-to-guides/work-with-net-client-library
+[모바일 서비스 .NET 방법 개념 참조]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [Windows Phone SDK 8.0]: http://www.microsoft.com/download/details.aspx?id=35471
 
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

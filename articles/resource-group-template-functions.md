@@ -1,6 +1,6 @@
 <properties
    pageTitle="Azure 리소스 관리자 템플릿 함수"
-   description="Azure에 앱을 배포하기 위해 Azure 리소스 관리자 템플릿에서 사용할 함수에 대해 설명합니다."
+   description="값을 검색하고 문자열을 포맷하며 배포 정보를 검색하는 Azure 리소스 관리자 템플릿에서 사용하는 함수를 설명합니다."
    services="na"
    documentationCenter="na"
    authors="tfitzmac"
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/28/2015"
-   ms.author="tomfitz;ilygre"/>
+   ms.date="06/08/2015"
+   ms.author="tomfitz"/>
 
 # Azure 리소스 관리자 템플릿 함수
 
@@ -52,6 +52,33 @@
         }
     }
 
+## deployment
+
+**deployment()**
+
+현재 배포 작업에 대한 정보를 반환합니다.
+
+배포에 대한 정보는 다음 속성과 함께 개체로 반환됩니다.
+
+    {
+      "name": "",
+      "properties": {
+        "template": {},
+        "parameters": {},
+        "mode": "",
+        "provisioningState": ""
+      }
+    }
+
+다음 예에서는 출력 섹션의 배포 정보를 반환하는 방법을 보여 줍니다.
+
+    "outputs": {
+      "exampleOutput": {
+        "value": "[deployment()]",
+        "type" : "object"
+      }
+    }
+
 ## listKeys
 
 **listKeys (resourceName or resourceIdentifier, [apiVersion])**
@@ -72,7 +99,29 @@
       } 
     } 
 
-## 지정
+## padLeft
+
+**padLeft (stringToPad, totalLength, paddingCharacter)**
+
+지정된 총길이에 도달할 때까지 왼쪽에 문자를 추가하여 오른쪽 맞추어진 문자열을 반환합니다.
+  
+| 매개 변수 | 필수 | 설명
+| :--------------------------------: | :------: | :----------
+| stringToPad | 예 | 오른쪽에 맞추어진 문자열입니다.
+| totalLength | 예 | 반환된 문자열에서 문자의 총수입니다.
+| paddingCharacter | 예 | 총 길이에 도달할 때까지 왼쪽 여백에 사용는 문자입니다.
+
+다음 예제는 문자열이 10자에 도달할 때까지 0 문자를 추가하여 사용자가 제공한 매개 변수 값을 채우는 방법을 보여줍니다. 원래 매개 변수 값이 10자 보다 긴 경우 문자가 더 추가되지 않습니다.
+
+    "parameters": {
+        "appName": { "type": "string" }
+    },
+    "variables": { 
+        "paddedAppName": "[padLeft(parameters('appName'),10,'0')]"
+    }
+
+
+## 매개 변수
 
 **parameters (parameterName)**
 
@@ -146,6 +195,27 @@
           "type": "string",
           "value": "[concat('http://',reference(resourceId('Microsoft.Web/sites', parameters('siteName'))).hostNames[0])]"
       }
+    }
+
+## replace
+
+**replace(originalString, oldCharacter, newCharacter)**
+
+새 문자열을 다른 문자로 대체한 지정된 문자열에서 한 문자의 인스턴스로 반환합니다.
+
+| 매개 변수 | 필수 | 설명
+| :--------------------------------: | :------: | :----------
+| originalString | 예 | 다른 문자로 대체하는 한 문자의 모든 인스턴스가 있는 문자열입니다.
+| oldCharacter | 예 | 원래 문자열에서 제거할 문자입니다.
+| newCharacter | 예 | 제거된 문자 대신 추가하는 문자입니다.
+
+다음 예제는 사용자가 제공한 문자열에서 모든 대시를 제거하는 방법을 보여줍니다.
+
+    "parameters": {
+        "identifier": { "type": "string" }
+    },
+    "variables": { 
+        "newidentifier": "[replace(parameters('identifier'),'-','')]"
     }
 
 ## resourceGroup
@@ -256,6 +326,45 @@
       } 
     } 
 
+## toLower
+
+**toLower(stringToChange)**
+
+지정된 문자열을 소문자로 변환합니다.
+
+| 매개 변수 | 필수 | 설명
+| :--------------------------------: | :------: | :----------
+| stringToChange | 예 | 소문자로 변환할 문자열입니다.
+
+다음 예제는 사용자가 제공한 매개 변수 값을 소문자로 변환합니다.
+
+    "parameters": {
+        "appName": { "type": "string" }
+    },
+    "variables": { 
+        "lowerCaseAppName": "[toLower(parameters('appName'))]"
+    }
+
+## toUpper
+
+**toUpper(stringToChange)**
+
+지정된 문자열을 대문자로 변환합니다.
+
+| 매개 변수 | 필수 | 설명
+| :--------------------------------: | :------: | :----------
+| stringToChange | 예 | 대문자로 변환할 문자열입니다.
+
+다음 예제는 사용자가 제공한 매개 변수 값을 대문자로 변환합니다.
+
+    "parameters": {
+        "appName": { "type": "string" }
+    },
+    "variables": { 
+        "upperCaseAppName": "[toUpper(parameters('appName'))]"
+    }
+
+
 ## variables
 
 **variables (variableName)**
@@ -270,7 +379,7 @@
 ## 다음 단계
 - [Azure 리소스 관리자 템플릿 작성](./resource-group-authoring-templates.md)
 - [고급 템플릿 작업](./resource-group-advanced-template.md)
-- [Azure 리소스 관리자 템플릿을 사용하여 응용 프로그램 배포](./resouce-group-template-deploy.md)
+- [Azure 리소스 관리자 템플릿을 사용하여 응용 프로그램 배포](azure-portal/resource-group-template-deploy.md)
 - [Azure 리소스 관리자 개요](./resource-group-overview.md)
 
-<!--HONumber=52-->
+<!---HONumber=July15_HO1-->

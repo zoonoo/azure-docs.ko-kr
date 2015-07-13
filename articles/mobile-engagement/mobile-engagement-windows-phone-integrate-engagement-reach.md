@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Windows Phone 도달률 Engagement SDK 통합" 
-	description="Windows Phone Silverlight 앱에서 Azure Mobile Engagement 도달률을 통합하는 방법" 
+	description="Windows Phone Silverlight 앱에서 Azure Mobile Engagement 도달률을 통합하는 방법" 					
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
 	authors="piyushjo" 
@@ -11,7 +11,7 @@
 	ms.service="mobile-engagement" 
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="mobile-windows-phone" 
-	ms.devlang="C#" 
+	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="04/07/2015" 
 	ms.author="piyushjo" />
@@ -264,5 +264,6 @@ UI를 사용자 지정하려면 `EngagementReachHandler` 클래스의 서브클�
 [응용 프로그램 정책]: http://msdn.microsoft.com/library/windows/apps/hh184841(v=vs.105).aspx
 [Content Policies]: http://msdn.microsoft.com/library/windows/apps/hh184842(v=vs.105).aspx
 [특정 응용 프로그램 유형에 대한 추가 요구 사항]: http://msdn.microsoft.com/library/windows/apps/hh184838(v=vs.105).aspx
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

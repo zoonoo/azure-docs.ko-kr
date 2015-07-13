@@ -10,10 +10,10 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="10/10/2014" 
+	ms.date="06/03/2015" 
 	ms.author="mahender"/>
 
 # 모바일 분석 시작(Capptain)
@@ -100,5 +100,6 @@
 <!-- URLs. -->
 [Capptain]: http://www.capptain.com
 [모바일 서비스 표준 계층]: /pricing/details/mobile-services/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

@@ -13,36 +13,25 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="02/06/2015" 
+	ms.date="05/12/2015" 
 	ms.author="ricksal"/>
 
 # 모바일 서비스 앱에 푸시 알림 추가
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push-EC.md)]
 
+##개요
+
 이 항목에서는 Azure 모바일 서비스를 사용하여 Android 앱에 푸시 알림을 보내는 방법을 보여 줍니다. 이 자습서에서는 GCM(Google Cloud Messaging)을 사용하여 퀵 스타트 프로젝트에 푸시 알림을 추가합니다. 이 작업을 완료하면 레코드가 삽입될 때마다 모바일 서비스에서 푸시 알림을 전송합니다.
 
-이 자습서에서는 다음 단계를 안내합니다.
+이 자습서는 모바일 서비스 퀵 스타트를 기반으로 합니다. 이 자습서를 시작하기 전에 [모바일 서비스 시작] 또는 [기존 앱에 모바일 서비스 추가]를 완료하여 프로젝트를 모바일 서비스에 연결해야 합니다. 따라서 이 자습서를 사용하려면 Visual Studio 2013이 있어야 합니다.
 
-1. [Google Cloud Messaging 사용](#register)
-2. [푸시 요청을 전송하도록 모바일 서비스 구성](#configure)
-5. [푸시 알림을 전송하도록 서버 업데이트](#update-server)
-7. [앱에 푸시 알림 추가](#update-app)
-8. [로컬 테스트에 푸시 알림 사용](#local-testing)
-9. [게시된 모바일 서비스에 대해 앱 테스트](#test-app)
-
-
-이 자습서는 모바일 서비스 quickstart를 기반으로 합니다. 이 자습서를 시작하기 전에 먼저 [모바일 서비스 시작하기] 또는 [데이터 시작하기]를 완료하여 프로젝트를 모바일 서비스에 연결해야 합니다. 따라서 이 자습서를 사용하려면 Visual Studio 2013이 있어야 합니다.
-
->[AZURE.NOTE]이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fko-kr%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started-data%2F" target="_blank">Azure 무료 평가판</a>을 참조하세요.
-
-
-## <a id="register"></a>Google Cloud Messaging 사용
+##<a id="register"></a>Google Cloud Messaging 사용
 
 [AZURE.INCLUDE [GCM 사용](../../includes/mobile-services-enable-Google-cloud-messaging.md)]
 
 
-## <a id="configure"></a>푸시 요청을 전송하도록 모바일 서비스 구성
+##<a id="configure"></a>푸시 요청을 전송하도록 모바일 서비스 구성
 
 1. [Azure 관리 포털]에 로그온하여 **모바일 서비스**를 클릭한 후 앱을 클릭합니다.
 
@@ -58,15 +47,15 @@
 이제 모바일 서비스가 GCM 및 알림 허브와 함께 작동하도록 구성되었습니다.
 
 
-<h2><a name="download-the-service"></a>로컬 컴퓨터에 서비스 다운로드</h2>
+##<a name="download-the-service"></a>로컬 컴퓨터에 서비스 다운로드
 
 [AZURE.INCLUDE [mobile-services-download-service-locally](../../includes/mobile-services-download-service-locally.md)]
 
-<h2><a name="test-the-service"></a>모바일 서비스 테스트</h2>
+##<a name="test-the-service"></a>모바일 서비스 테스트
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-test-local-service](../../includes/mobile-services-dotnet-backend-test-local-service.md)]
 
-## <a id="update-server"></a>푸시 알림을 전송하도록 서버 업데이트
+##<a id="update-server"></a>푸시 알림을 전송하도록 서버 업데이트
 
 1. Visual Studio 솔루션 탐색기에서 모바일 서비스 프로젝트의 **컨트롤러** 폴더를 확장합니다. TodoItemController.cs를 엽니다. 파일 맨 위에 다음 `using` 문을 추가합니다.
 
@@ -101,35 +90,35 @@
     이 코드는 할 일 항목을 삽입한 후 삽입한 항목의 텍스트가 포함된 푸시 알림을 보냅니다. 오류 이벤트에서 코드는 관리 포털에서 모바일 서비스의 **로그** 탭에서 볼 수 있는 오류 로그 항목을 추가합니다.
 
 
-<h2><a name="publish-the-service"></a>Azure에 모바일 서비스 게시</h2>
+##<a name="publish-the-service"></a>Azure에 모바일 서비스 게시
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-publish-service](../../includes/mobile-services-dotnet-backend-publish-service.md)]
 
 
-## <a name="update-app"></a>앱에 푸시 알림 추가
+##<a name="update-app"></a>앱에 푸시 알림 추가
 
-### Android SDK 버전 확인
+###Android SDK 버전 확인
 
 [AZURE.INCLUDE [mobile-services-verify-android-sdk-version](../../includes/mobile-services-verify-android-sdk-version-EC.md)]
 
 
 다음 단계에서는 Google Play Services를 설치합니다. Google Cloud Messaging에는 매니페스트의 **minSdkVersion** 속성이 준수해야 하는 개발 및 테스트에 대한 최소 API 수준 요구 사항이 있습니다.
 
-이전 장치로 테스트할 경우 이 값을 적절하게 설정할 수 있는 최소값을 확인하려면 [Google Play Services SDK 설정](영문)을 참조하십시오.
+이전 장치로 테스트할 경우 이 값을 적절하게 설정할 수 있는 최소값을 확인하려면 [Google Play Services SDK 설정](영문)을 참조하세요.
 
-### 프로젝트에 Google Play Services 추가
+###프로젝트에 Google Play Services 추가
 
 [AZURE.INCLUDE [Play 서비스 추가](../../includes/mobile-services-add-Google-play-services-EC.md)]
 
-### 코드 추가
+###코드 추가
 
 [AZURE.INCLUDE [mobile-services-android-getting-started-with-push](../../includes/mobile-services-android-getting-started-with-push-EC.md)]
 
-<h2><a name="test-app"></a>게시된 모바일 서비스에 대해 앱 테스트</h2>
+##<a name="test-app"></a>게시된 모바일 서비스에 대해 앱 테스트
 
 USB 케이블로 Android 휴대폰을 직접 연결하거나 에뮬레이터에서 가상 장치를 사용하여 앱을 테스트할 수 있습니다.
 
-### 테스트에 에뮬레이터를 사용하는 경우...
+###테스트에 에뮬레이터를 사용하는 경우...
 
 Google API를 지원하는 AVD(Android Virtual Device)를 사용해야 합니다.
 
@@ -143,11 +132,11 @@ Google API를 지원하는 AVD(Android Virtual Device)를 사용해야 합니다
 
 	AVD 대상이 Google API를 사용하도록 설정됩니다. 몇 가지 버전의 Android SDK가 설치되어 있는 경우 API 수준이 앞서 프로젝트 속성에서 설정한 것과 일치하는지 확인합니다.
 
-### <a id="local-testing"></a> 로컬 테스트에 푸시 알림 사용
+###<a id="local-testing"></a> 로컬 테스트에 푸시 알림 사용
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-configure-local-push](../../includes/mobile-services-dotnet-backend-configure-local-push.md)]
 
-### 테스트 실행
+###테스트 실행
 
 1. Eclipse의 **Run** 메뉴에서 **Run**을 클릭하여 앱을 시작합니다.
 
@@ -230,20 +219,13 @@ Google API를 지원하는 AVD(Android Virtual Device)를 사용해야 합니다
 
 
 <!-- URLs. -->
-[Validate and modify data with scripts]: /develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
-[Refine queries with paging]: /develop/mobile/tutorials/add-paging-to-data-dotnet
-[모바일 서비스 시작하기]: mobile-services-dotnet-backend-android-get-started.md
-[데이터 시작]: mobile-services-dotnet-backend-android-get-started-data.md
-[데이터 시작하기]: mobile-services-dotnet-backend-android-get-started-data.md
+[모바일 서비스 시작]: mobile-services-dotnet-backend-android-get-started.md
+[기존 앱에 모바일 서비스 추가]: mobile-services-dotnet-backend-android-get-started-data.md
 [인증 시작]: mobile-services-dotnet-backend-android-get-started-users.md
-[JavaScript and HTML]: /develop/mobile/tutorials/get-started-with-data-js
-[JavaScript backend version]: /develop/mobile/tutorials/get-started-with-data-android
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Management Portal]: https://manage.windowsazure.com/
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/p/?LinkId=257545
 [Developer Code Samples site]: http://go.microsoft.com/fwlink/p/?LinkId=328660
-[Mobile Services .NET How-to Conceptual Reference]: /develop/mobile/how-to-guides/work-with-net-client-library
-[MobileServiceClient class]: http://go.microsoft.com/fwlink/p/?LinkId=302030
 
 [모바일 서비스용 Android 클라이언트 라이브러리를 사용하는 방법]: mobile-services-android-how-to-use-client-library.md
 
@@ -253,5 +235,6 @@ Google API를 지원하는 AVD(Android Virtual Device)를 사용해야 합니다
 [Send broadcast notifications to subscribers]: ../notification-hubs-windows-store-dotnet-send-breaking-news.md
 [Send template-based notifications to subscribers]: ../notification-hubs-windows-store-dotnet-send-localized-breaking-news.md
 [Azure 관리 포털]: https://manage.windowsazure.com/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

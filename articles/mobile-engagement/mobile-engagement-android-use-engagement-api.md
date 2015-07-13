@@ -11,7 +11,7 @@
 	ms.service="mobile-engagement" 
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="" 
+	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="01/24/2015" 
 	ms.author="kapiteir" />
@@ -36,7 +36,7 @@ Engagement API는 `EngagementAgent` 클래스를 통해 제공됩니다. 이 클
 
 일반적으로 *활동*은 단일 응용 프로그램 화면과 연결됩니다. 즉, *활동*은 화면을 표시하면 시작되며 화면을 닫으면 중지됩니다. `EngagementActivity` 클래스를 사용하여 Engagement SDK를 통합하는 경우 이러한 방식이 사용됩니다.
 
-그러나 Engagement API를 사용하여 *활동*을 수동으로 제어할 수도 있습니다. 이렇게 하면 지정된 화면을 여러 하위 부분으로 분할하여 해당 화면의 사용에 대해 더 많은 세부 정보(예: 이 화면 내에서 대화 상자를 사용하는 빈도와 기간)를 확인할 수 있습니다.
+하지만 Engagement API를 사용하여 *활동*을 수동으로 제어할 수도 있습니다. 이렇게 하면 지정된 화면을 여러 하위 부분으로 분할하여 해당 화면의 사용에 대해 더 많은 세부 정보(예: 이 화면 내에서 대화 상자를 사용하는 빈도와 기간)를 확인할 수 있습니다.
 
 ##활동 보고
 
@@ -113,7 +113,7 @@ Engagement API는 `EngagementAgent` 클래스를 통해 제공됩니다. 이 클
 
 세션 오류는 일반적으로 세션 중에 사용자에게 영향을 주는 오류를 보고하는 데 사용됩니다.
 
-**예:**
+**예제:**
 
 			/** The user has entered invalid data in a form */
 			public MyActivity extends EngagementActivity {
@@ -173,7 +173,7 @@ Engagement API는 `EngagementAgent` 클래스를 통해 제공됩니다. 이 클
 
 프로세스에 로그인하는 동안 오류를 보고하려고 한다고 가정합니다.
 
-			[...] public void signIn(Context context, ...) {
+[...] public void signIn(Context context, ...) {
 
 			  /* We need an Android context to call the Engagement API, if you are extending Activity, Service, you can pass "this" */
 			  EngagementAgent engagementAgent = EngagementAgent.getInstance(context);
@@ -204,7 +204,7 @@ Engagement API는 `EngagementAgent` 클래스를 통해 제공됩니다. 이 클
 
 이벤트는 현재 사용자 세션이 아닌 실행 중인 작업에 관련될 수 있습니다.
 
-**예:**
+**예제:**
 
 소셜 네트워크가 있으며 작업을 사용하여 사용자가 서버에 연결되어 있는 총 시간을 보고한다고 가정해 보겠습니다. 사용자가 다른 응용 프로그램을 사용하거나 휴대폰이 절전 모드에 있는 경우에도 사용자가 백그라운드에서 연결을 유지할 수 있으므로, 세션이 존재하지 않습니다.
 
@@ -296,5 +296,6 @@ Engagement API는 `EngagementAgent` 클래스를 통해 제공됩니다. 이 클
 위의 예제에서 서버로 전송된 JSON의 길이는 44자입니다.
 
 			{"expiration":"2016-12-07","status":"premium"}
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

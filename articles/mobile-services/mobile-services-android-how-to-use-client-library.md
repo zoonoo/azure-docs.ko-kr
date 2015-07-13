@@ -13,37 +13,29 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="02/03/2015" 
+	ms.date="06/03/2015" 
 	ms.author="ricksal"/>
 
 
 # 모바일 서비스용 Android 클라이언트 라이브러리를 사용하는 방법
 
-<div class="dev-center-tutorial-selector sublanding"> 
-  <a href="/develop/mobile/how-to-guides/work-with-net-client-library/" title=".NET Framework">.NET Framework</a><a href="/develop/mobile/how-to-guides/work-with-html-js-client/" title="HTML/JavaScript">HTML/JavaScript</a><a href="/develop/mobile/how-to-guides/work-with-ios-client-library/" title="iOS">iOS</a><a href="/develop/mobile/how-to-guides/work-with-android-client-library/" title="Android" class="current">Android</a><a href="/develop/mobile/how-to-guides/work-with-xamarin-client-library/" title="Xamarin">Xamarin</a>
-</div>
-
+[AZURE.INCLUDE [mobile-services-selector-client-library](../../includes/mobile-services-selector-client-library.md)]
 
 이 가이드에서는 Azure 모바일 서비스용 Android 클라이언트를 사용하여 일반적인 시나리오를 수행하는 방법을 보여 줍니다. 여기서 다루는 시나리오에는 데이터 쿼리, 삽입, 업데이트, 삭제 및 사용자 인증, 오류 처리 및 클라이언트 사용자 지정이 포함됩니다.
 
-모바일 서비스를 처음 접하는 경우 먼저 [모바일 서비스 퀵 스타트][Get started with Mobile Services]를 완료하는 것이 좋습니다. 이 자습서를 성공적으로 완료하면 Android Studio가 설치됩니다. 이를 통해 계정을 구성하고, 첫 번째 모바일 서비스를 만들고, 모바일 서비스 SDK(Android 버전 2.2 이상을 지원하지만 Android 버전 4.2 이상으로 기준으로 빌드하는 것이 좋음)를 설치할 수 있습니다.
+모바일 서비스를 처음 접하는 경우 먼저 [모바일 서비스 시작] 빠른 시작 자습서를 완료하는 것이 좋습니다. 이 자습서를 성공적으로 완료하면 Android Studio가 설치됩니다. 이를 통해 계정을 구성하고, 첫 번째 모바일 서비스를 만들고, 모바일 서비스 SDK(Android 버전 2.2 이상을 지원하지만 Android 버전 4.2 이상으로 기준으로 빌드하는 것이 좋음)를 설치할 수 있습니다.
 
-
-
+Android 클라이언트 라이브러리용 Javadocs API 참조는 [여기](http://go.microsoft.com/fwlink/p/?LinkId=298735)에서 확인할 수 있습니다.
 
 [AZURE.INCLUDE [mobile-services-concepts](../../includes/mobile-services-concepts.md)]
 
-
-<h2><a name="setup"></a>설정 및 필수 조건</h2>
+##<a name="setup"></a>설정 및 필수 조건
 
 이미 모바일 서비스 및 테이블을 만들었다고 가정합니다. 자세한 내용은 [테이블 만들기](http://go.microsoft.com/fwlink/p/?LinkId=298592)를 참조하십시오. 이 항목에서 사용되는 코드에서 테이블 이름이 *ToDoItem*이고 테이블에 다음과 같은 열이 있다고 가정합니다.
 
-<ul>
-<li>id</li>
-<li>text</li>
-<li>complete</li>
-
-</ul>
+- id
+- text
+- complete
 
 해당 형식화된 클라이언트 쪽 개체는 다음과 같습니다.
 
@@ -55,22 +47,21 @@
 	
 동적 스키마가 사용하도록 설정된 경우 Azure 모바일 서비스에서 삽입 또는 업데이트 요청의 개체를 기준으로 새 열을 자동으로 생성합니다. 자세한 내용은 [동적 스키마](http://go.microsoft.com/fwlink/p/?LinkId=296271)를 참조하십시오.
 
-<h2><a name="create-client"></a>방법: 모바일 서비스 클라이언트 만들기</h2>
-
+##<a name="create-client"></a>방법: 모바일 서비스 클라이언트 만들기
 다음 코드는 모바일 서비스에 액세스하는 데 사용되는 [MobileServiceClient](http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/mobileservices/MobileServiceClient.html) 개체를 만듭니다. 이 코드는 *AndroidManifest.xml*에 지정된 Activity 클래스의 `onCreate` 메서드에 **MAIN** 작업 및 **LAUNCHER** 범주로 추가됩니다.
 
-			MobileServiceClient mClient = new MobileServiceClient(
-					"MobileServiceUrl", // Replace with the above Site URL
-					"AppKey", 			// replace with the Application Key 
-					this)
+		MobileServiceClient mClient = new MobileServiceClient(
+				"MobileServiceUrl", // Replace with the above Site URL
+				"AppKey", 			// replace with the Application Key 
+				this)
 
 위 코드에서 `MobileServiceUrl` 및 `AppKey`을(를) 모바일 서비스 URL 및 응용 프로그램 키로 바꿉니다(두 항목 순서 유지). 이 두 항목은 모두 Azure 관리 포털에서 사용할 수 있습니다. 모바일 서비스를 선택한 후 *대시보드*를 클릭하면 됩니다.
 
-<h2><a name="instantiating"></a>방법: 테이블 참조 만들기</h2>
+##<a name="instantiating"></a>방법: 테이블 참조 만들기
 
-모바일 서비스에서 데이터를 쿼리하거나 수정하는 가장 쉬운 방법은 *형식화된 프로그래밍 모델*을 사용하는 것입니다. Java는 강력한 형식의 언어이기 때문입니다(*형식화되지 않은* 모델에 대해서는 나중에 다룸). 이 모델은 클라이언트와 모바일 서비스 간에 데이터를 보낼 때 <a href=" http://go.microsoft.com/fwlink/p/?LinkId=290801" target="_blank">gson</a> 라이브러리를 사용하여 JSON에 대한 원활한 serialization 및 deserialization을 제공합니다. 개발자는 아무 작업도 수행할 필요가 없으며 프레임워크가 모든 과정을 처리해줍니다.
+모바일 서비스에서 데이터를 쿼리하거나 수정하는 가장 쉬운 방법은 *형식화된 프로그래밍 모델*을 사용하는 것입니다. Java는 강력한 형식의 언어이기 때문입니다(*형식화되지 않은* 모델에 대해서는 나중에 다룸). 이 모델은 클라이언트와 모바일 서비스 간에 데이터를 보낼 때 [gson](http://go.microsoft.com/fwlink/p/?LinkId=290801) 라이브러리를 사용하여 JSON에 대한 원활한 serialization 및 deserialization을 제공합니다. 개발자는 아무 작업도 수행할 필요가 없으며 프레임워크가 모든 과정을 처리해 줍니다.
 
-데이터를 쿼리하거나 수정하기 위해 처음으로 하는 일은 [**MobileServiceClient**](http://go.microsoft.com/fwlink/p/?LinkId=296835)에 대해 **getTable** 메서드를 호출하여 [MobileServiceTable](http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/mobileservices/MobileServiceClient.html) 개체를 만드는 것입니다. 이 메서드의 오버로드 두 가지를 살펴보겠습니다.
+데이터를 쿼리하거나 수정하기 위해 처음으로 하는 일은 [**MobileServiceClient**](http://go.microsoft.com/fwlink/p/?LinkId=296835)에 대해 [getTable](http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/mobileservices/MobileServiceClient.html) 메서드를 호출하여 **MobileServiceTable** 개체를 만드는 것입니다. 이 메서드의 오버로드 두 가지를 살펴보겠습니다.
 
 	public class MobileServiceClient {
 	    public <E> MobileServiceTable<E> getTable(Class<E> clazz);
@@ -88,21 +79,18 @@
 
 		MobileServiceTable<ToDoItem> mToDoTable = mClient.getTable("ToDoItemBackup", ToDoItem.class);
 
- 
-
-
 ## <a name="api"></a>API 구조
 
 클라이언트 라이브러리 버전 2.0부터 모바일 서비스 테이블 작업에서는 삽입, 업데이트, 삭제 등의 작업 및 쿼리와 관련된 메서드와 같은 모든 비동기 작업에서 [Future](http://developer.android.com/reference/java/util/concurrent/Future.html) 및 [AsyncTask](http://developer.android.com/reference/android/os/AsyncTask.html) 개체를 사용합니다. 이를 통해 여러 중첩 콜백을 처리하지 않고도 여러 작업을 수행할 수 있습니다(백그라운드 스레드에 있는 동안).
 
 
-<h2><a name="querying"></a>방법: 모바일 서비스에서 데이터 쿼리</h2>
+##<a name="querying"></a>방법: 모바일 서비스에서 데이터 쿼리
 
 이 섹션에서는 모바일 서비스에 대한 쿼리를 실행하는 방법을 설명합니다. 하위 섹션에서는 정렬, 필터링, 페이징과 같은 다양한 측면에 대해 설명합니다. 마지막으로 이 작업을 연결할 수 있는 방법을 알아봅니다.
 
 ### <a name="showAll"></a>방법: 테이블에서 모든 항목 반환
 
-다음 코드는 *ToDoItem* 테이블의 모든 항목을 반환합니다. 어댑터에 항목을 추가하여 이를 UI에 표시합니다. 이 코드는 [모바일 서비스 퀵 스타트][Get started with Mobile Services]에 있는 것과 유사합니다.
+다음 코드는 *ToDoItem* 테이블의 모든 항목을 반환합니다. 어댑터에 항목을 추가하여 이를 UI에 표시합니다. 이 코드는 [모바일 서비스 시작] 빠른 시작 자습서에 있는 것과 유사합니다.
 
 		new AsyncTask<Void, Void, Void>() {
 
@@ -241,7 +229,7 @@
 메서드를 연결하는 데 있어 기본적인 요구 사항은 *where* 메서드 및 조건자가 먼저 나와야 한다는 것입니다. 그 뒤에 응용 프로그램의 요구 사항에 가장 부합하는 순서로 후속 메서드를 호출할 수 있습니다.
 
 
-<h2><a name="inserting"></a>방법: 모바일 서비스에 데이터 삽입</h2>
+##<a name="inserting"></a>방법: 모바일 서비스에 데이터 삽입
 
 다음 코드는 테이블에 새 행을 삽입하는 방법을 보여 줍니다.
 
@@ -310,133 +298,133 @@
 
 `id`의 값은 고유해야 하며 다음과 같은 문자를 포함해서는 안 됩니다.
 
-+ 제어 문자: [0x0000-0x001F] 및 [0x007F-0x009F]. 자세한 내용은 [ASCII 제어 코드 C0 및 C1](영문)을 참조하십시오.
-+  인쇄 가능한 문자: **"**(0x0022), **+** (0x002B), **/** (0x002F), **?** (0x003F), **\** (0x005C), **`** (0x0060)
++ 제어 문자: [0x0000 0x001F] 및 [0x007F 0x009F]. 자세한 내용은 [ASCII 제어 코드 C0 및 C1](영문)을 참조하십시오.
++  인쇄 가능한 문자: **"**(0x0022), **+** (0x002B), **/** (0x002F), **?** (0x003F), **** (0x005C), **`** (0x0060)
 +  ID "." 및 ".."
 
-또는 테이블에 정수 ID를 사용할 수 있습니다. 정수 ID를 사용하려면 `mobile table create` 명령으로 `--integerId` 옵션을 사용하여 테이블을 만들어야 합니다. 이 명령은 Azure용 CLI(명령줄 인터페이스)와 함께 사용됩니다. CLI 사용에 대한 자세한 내용은 [모바일 서비스 테이블 관리 CLI](영문)를 참조하십시오.
+또는 테이블에 정수 ID를 사용할 수 있습니다. 정수 ID를 사용하려면 `mobile table create` 명령으로 `--integerId` 옵션을 사용하여 테이블을 만들어야 합니다. 이 명령은 Azure용 CLI(명령줄 인터페이스)와 함께 사용됩니다. CLI 사용에 대한 자세한 내용은 [모바일 서비스 테이블 관리 CLI]를 참조하세요.
 
 
-<h2><a name="updating"></a>방법: 모바일 서비스의 데이터 업데이트</h2>
+##<a name="updating"></a>방법: 모바일 서비스의 데이터 업데이트
 
 다음 코드는 테이블의 데이터를 업데이트하는 방법을 보여 줍니다. 이 예제에서 *item*은 일부 변경된 *ToDoItem* 테이블의 행에 대한 참조입니다. 다음 메서드는 테이블 및 UI 어댑터를 업데이트합니다.
 
-		private void updateItem(final ToDoItem item) {
-		    if (mClient == null) {
-		        return;
-		    }
-		
-		    new AsyncTask<Void, Void, Void>() {
-		
-		        @Override
-		        protected Void doInBackground(Void... params) {
-		            try {
-		                mToDoTable.update(item).get();
-		                runOnUiThread(new Runnable() {
-		                    public void run() {
-		                        if (item.isComplete()) {
-		                            mAdapter.remove(item);
-		                        }
-		                        refreshItemsFromTable();
-		                    }
-		                });
-		            } catch (Exception exception) {
-		                createAndShowDialog(exception, "Error");
-		            }
-		            return null;
-		        }
-		    }.execute();
-		}
+	private void updateItem(final ToDoItem item) {
+	    if (mClient == null) {
+	        return;
+	    }
+	
+	    new AsyncTask<Void, Void, Void>() {
+	
+	        @Override
+	        protected Void doInBackground(Void... params) {
+	            try {
+	                mToDoTable.update(item).get();
+	                runOnUiThread(new Runnable() {
+	                    public void run() {
+	                        if (item.isComplete()) {
+	                            mAdapter.remove(item);
+	                        }
+	                        refreshItemsFromTable();
+	                    }
+	                });
+	            } catch (Exception exception) {
+	                createAndShowDialog(exception, "Error");
+	            }
+	            return null;
+	        }
+	    }.execute();
+	}
 
-<h2><a name="deleting"></a>방법: 모바일 서비스의 데이터 삭제</h2>
+##<a name="deleting"></a>방법: 모바일 서비스의 데이터 삭제
 
 다음 코드는 테이블에서 데이터를 삭제하는 방법을 보여 줍니다. UI에서 **Completed** 확인란이 선택된 기존 항목을 ToDoItem 테이블에서 삭제합니다.
 
-		public void checkItem(final ToDoItem item) {
-			if (mClient == null) {
-				return;
-			}
-	
-			// Set the item as completed and update it in the table
-			item.setComplete(true);
-			
-			new AsyncTask<Void, Void, Void>() {
-	
-	            @Override
-	            protected Void doInBackground(Void... params) {
-	                try {
-	                    mToDoTable.delete(item);
-	                    runOnUiThread(new Runnable() {
-	                        public void run() {
-	                            if (item.isComplete()) {
-	                                mAdapter.remove(item);
-	                            }
-	                            refreshItemsFromTable();
-	                        }
-	                    });
-	                } catch (Exception exception) {
-	                    createAndShowDialog(exception, "Error");
-	                }
-	                return null;
-	            }
-	        }.execute();
+	public void checkItem(final ToDoItem item) {
+		if (mClient == null) {
+			return;
 		}
+
+		// Set the item as completed and update it in the table
+		item.setComplete(true);
+		
+		new AsyncTask<Void, Void, Void>() {
+
+            @Override
+            protected Void doInBackground(Void... params) {
+                try {
+                    mToDoTable.delete(item);
+                    runOnUiThread(new Runnable() {
+                        public void run() {
+                            if (item.isComplete()) {
+                                mAdapter.remove(item);
+                            }
+                            refreshItemsFromTable();
+                        }
+                    });
+                } catch (Exception exception) {
+                    createAndShowDialog(exception, "Error");
+                }
+                return null;
+            }
+        }.execute();
+	}
 
 
 다음 코드는 이를 수행하는 다른 방법을 보여 줍니다. 이 코드는 삭제할 행의 id 필드 값을 지정하여("2FA404AB-E458-44CD-BC1B-3BC847EF0902"와 동일하다고 가정함) ToDoItem 테이블의 기존 항목을 삭제합니다. 실제 앱에서는 ID를 선택하여 변수로 전달합니다. 여기서는 테스트를 간소화하기 위해 서비스에 대한 Azure 모바일 서비스 포털로 이동하여 **데이터**를 클릭하고 테스트할 ID를 복사할 수 있습니다.
 
-	    public void deleteItem(View view) {
-	
-	        final String ID = "2FA404AB-E458-44CD-BC1B-3BC847EF0902";
-	        new AsyncTask<Void, Void, Void>() {
-	
-	            @Override
-	            protected Void doInBackground(Void... params) {
-	                try {
-	                    mToDoTable.delete(ID);
-	                    runOnUiThread(new Runnable() {
-	                        public void run() {
-	                            refreshItemsFromTable();
-	                        }
-	               });
-	                } catch (Exception exception) {
-	                    createAndShowDialog(exception, "Error");
-	                }
-	                return null;
-	            }
-	        }.execute();
-	    }
+    public void deleteItem(View view) {
 
-<h2><a name="lookup"></a>방법: 특정 항목 조회</h2>
-일반적으로 일부 조건을 충족하는 항목 컬렉션을 가져오는 쿼리와 달리, *id*를 기준으로 특정 항목을 조회하려는 경우가 있습니다. 다음 코드는 이 작업을 수행하는 방법을 보여 줍니다(*id* = "0380BAFB-BCFF-443C-B7D5-30199F730335"). 실제 앱에서는 ID를 선택하여 변수로 전달합니다. 여기서는 테스트를 간소화하기 위해 서비스에 대한 Azure 모바일 서비스 포털로 이동하여 **데이터** 탭을 클릭하고 테스트할 ID를 복사할 수 있습니다.
+        final String ID = "2FA404AB-E458-44CD-BC1B-3BC847EF0902";
+        new AsyncTask<Void, Void, Void>() {
 
-	    /**
-	     * Lookup specific item from table and UI
-	     */
-	    public void lookup(View view) {
-	
-	        final String ID = "0380BAFB-BCFF-443C-B7D5-30199F730335";
-	        new AsyncTask<Void, Void, Void>() {
-	
-	            @Override
-	            protected Void doInBackground(Void... params) {
-	                try {
-	                    final ToDoItem result = mToDoTable.lookUp(ID).get();
-	                    runOnUiThread(new Runnable() {
-	                        public void run() {
-	                            mAdapter.clear();
-	                            mAdapter.add(result);
-	                        }
-	               });
-	                } catch (Exception exception) {
-	                    createAndShowDialog(exception, "Error");
-	                }
-	                return null;
-	            }
-	        }.execute();
-	    }
+            @Override
+            protected Void doInBackground(Void... params) {
+                try {
+                    mToDoTable.delete(ID);
+                    runOnUiThread(new Runnable() {
+                        public void run() {
+                            refreshItemsFromTable();
+                        }
+               });
+                } catch (Exception exception) {
+                    createAndShowDialog(exception, "Error");
+                }
+                return null;
+            }
+        }.execute();
+    }
 
-<h2><a name="untyped"></a>방법: 형식화되지 않은 데이터 작업</h2>
+##<a name="lookup"></a>방법: 특정 항목 조회
+일반적으로 일부 조건을 충족하는 항목 컬렉션을 가져오는 쿼리와 달리, *id*를 기준으로 특정 항목을 조회하려는 경우가 있습니다. 다음 코드는 이 작업을 수행하는 방법을 보여 줍니다(*id* 값은 `0380BAFB-BCFF-443C-B7D5-30199F730335`). 실제 앱에서는 ID를 선택하여 변수로 전달합니다. 여기서는 테스트를 간소화하기 위해 서비스에 대한 Azure 모바일 서비스 포털로 이동하여 **데이터** 탭을 클릭하고 테스트할 ID를 복사할 수 있습니다.
+
+    /**
+     * Lookup specific item from table and UI
+     */
+    public void lookup(View view) {
+
+        final String ID = "0380BAFB-BCFF-443C-B7D5-30199F730335";
+        new AsyncTask<Void, Void, Void>() {
+
+            @Override
+            protected Void doInBackground(Void... params) {
+                try {
+                    final ToDoItem result = mToDoTable.lookUp(ID).get();
+                    runOnUiThread(new Runnable() {
+                        public void run() {
+                            mAdapter.clear();
+                            mAdapter.add(result);
+                        }
+               });
+                } catch (Exception exception) {
+                    createAndShowDialog(exception, "Error");
+                }
+                return null;
+            }
+        }.execute();
+    }
+
+##<a name="untyped"></a>방법: 형식화되지 않은 데이터 작업
 
 형식화되지 않은 프로그래밍 모델에서는 JSON serialization을 정확히 제어할 수 있으며, 이 모델을 사용할 수 있는 일부 시나리오가 있습니다. 예를 들어 모바일 서비스 테이블에 포함된 다수의 열 중에서 몇 개만 참조해야 하는 경우를 들 수 있습니다. 형식화된 모델을 사용하려면 모바일 서비스 테이블의 모든 열을 데이터 클래스에서 정의해야 합니다. 하지만 형식화되지 않은 모델에서는 사용해야 하는 열만 정의합니다.
 
@@ -513,42 +501,42 @@ ID를 사용하여 직접 인스턴스를 삭제할 수도 있습니다.
 
 다음 코드는 전체 테이블을 검색하는 방법을 보여 줍니다. Json 테이블을 사용하기 때문에 테이블 열의 일부만 선택적으로 검색할 수 있습니다.
 
-	    public void showAllUntyped(View view) {
-	        new AsyncTask<Void, Void, Void>() {
-	            @Override
-	            protected Void doInBackground(Void... params) {
-	                try {
-	                    final JsonElement result = mJsonToDoTable.execute().get();
-	                    final JsonArray results = result.getAsJsonArray();
-	                    runOnUiThread(new Runnable() {
-	
-	                        @Override
-	                        public void run() {
-	                            mAdapter.clear();
-	                            for (JsonElement item : results) {
-	                                String ID = item.getAsJsonObject().getAsJsonPrimitive("id").getAsString();
-	                                String mText = item.getAsJsonObject().getAsJsonPrimitive("text").getAsString();
-	                                Boolean mComplete = item.getAsJsonObject().getAsJsonPrimitive("complete").getAsBoolean();
-	                                ToDoItem mToDoItem = new ToDoItem();
-	                                mToDoItem.setId(ID);
-	                                mToDoItem.setText(mText);
-	                                mToDoItem.setComplete(mComplete);
-	                                mAdapter.add(mToDoItem);
-	                            }
-	                        }
-	                    });
-	                } catch (Exception exception) {
-	                    createAndShowDialog(exception, "Error");
-	                }
-	                return null;
-	            }
-	        }.execute();
-	    }
+    public void showAllUntyped(View view) {
+        new AsyncTask<Void, Void, Void>() {
+            @Override
+            protected Void doInBackground(Void... params) {
+                try {
+                    final JsonElement result = mJsonToDoTable.execute().get();
+                    final JsonArray results = result.getAsJsonArray();
+                    runOnUiThread(new Runnable() {
+
+                        @Override
+                        public void run() {
+                            mAdapter.clear();
+                            for (JsonElement item : results) {
+                                String ID = item.getAsJsonObject().getAsJsonPrimitive("id").getAsString();
+                                String mText = item.getAsJsonObject().getAsJsonPrimitive("text").getAsString();
+                                Boolean mComplete = item.getAsJsonObject().getAsJsonPrimitive("complete").getAsBoolean();
+                                ToDoItem mToDoItem = new ToDoItem();
+                                mToDoItem.setId(ID);
+                                mToDoItem.setText(mText);
+                                mToDoItem.setComplete(mComplete);
+                                mAdapter.add(mToDoItem);
+                            }
+                        }
+                    });
+                } catch (Exception exception) {
+                    createAndShowDialog(exception, "Error");
+                }
+                return null;
+            }
+        }.execute();
+    }
 
 형식화된 프로그래밍 모델에 사용되는 것과 같은 이름을 가진 메서드를 연결하여 필터링, 정렬, 페이징할 수 있습니다.
 
 
-<h2><a name="binding"></a>방법: 사용자 인터페이스에 데이터 바인딩</h2>
+##<a name="binding"></a>방법: 사용자 인터페이스에 데이터 바인딩
 
 데이터 바인딩에는 세 가지 구성 요소가 필요합니다.
 
@@ -566,27 +554,27 @@ ID를 사용하여 직접 인스턴스를 삭제할 수도 있습니다.
  
 레이아웃은 다수의 XML 코드 조각으로 정의됩니다. 기존 레이아웃을 고려할 때 다음 코드는 서버 데이터로 채울 **ListView**를 나타낸다고 가정하겠습니다.
 
-	    <ListView
-	        android:id="@+id/listViewToDo"
-	        android:layout_width="match_parent"
-	        android:layout_height="wrap_content"
-	        tools:listitem="@layout/row_list_to_do" >
-	    </ListView>
+    <ListView
+        android:id="@+id/listViewToDo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:listitem="@layout/row_list_to_do" >
+    </ListView>
 	
 
 위의 코드에서 *listitem* 특성은 목록의 개별 행에 대한 레이아웃의 ID를 지정합니다. 다음은 확인란 및 관련 텍스트를 지정하는 코드입니다. 이 코드는 목록의 항목별로 한 번씩 인스턴스화됩니다. 더 복잡한 레이아웃은 디스플레이의 추가 필드를 지정합니다. 이 코드는 *row_list_to_do.xml* 파일에 있습니다.
 
-		<?xml version="1.0" encoding="utf-8"?>
-		<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-		    android:layout_width="match_parent"
-		    android:layout_height="match_parent"
-		    android:orientation="horizontal">		    
-		    <CheckBox
-		        android:id="@+id/checkToDoItem"
-		        android:layout_width="wrap_content"
-		        android:layout_height="wrap_content"
-		        android:text="@string/checkbox_text" />
-		</LinearLayout>
+	<?xml version="1.0" encoding="utf-8"?>
+	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:orientation="horizontal">		    
+	    <CheckBox
+	        android:id="@+id/checkToDoItem"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="@string/checkbox_text" />
+	</LinearLayout>
 		
 
 ### <a name="adapter"></a>방법: 어댑터 정의
@@ -595,75 +583,74 @@ ID를 사용하여 직접 인스턴스를 삭제할 수도 있습니다.
 
 이 예제 코드에서 *ArrayAdapter&lt;E&gt;* 클래스의 확장인 다음 클래스를 정의합니다.
 
-		public class ToDoItemAdapter extends ArrayAdapter<ToDoItem> {
-
+	public class ToDoItemAdapter extends ArrayAdapter<ToDoItem> {
 
 
 어댑터의 *getView* 메서드를 다시 정의해야 합니다. 이 샘플 코드는 이 작업을 수행하는 방법의 한 예로, 세부 사항은 사용하는 응용 프로그램에 따라 다릅니다.
 
 	public View getView(int position, View convertView, ViewGroup parent) {
 		View row = convertView;
-
+	
 		final ToDoItem currentItem = getItem(position);
-
+	
 		if (row == null) {
 			LayoutInflater inflater = ((Activity) mContext).getLayoutInflater();
 			row = inflater.inflate(R.layout.row_list_to_do, parent, false);
 		}
-
+	
 		row.setTag(currentItem);
-
+	
 		final CheckBox checkBox = (CheckBox) row.findViewById(R.id.checkToDoItem);
 		checkBox.setText(currentItem.getText());
 		checkBox.setChecked(false);
 		checkBox.setEnabled(true);
-
+	
 		return row;
 	}
 
 작업에서 다음과 같이 이 클래스의 인스턴스를 만듭니다.
 
-		ToDoItemAdapter mAdapter;
-		mAdapter = new ToDoItemAdapter(this, R.layout.row_list_to_do);
+	ToDoItemAdapter mAdapter;
+	mAdapter = new ToDoItemAdapter(this, R.layout.row_list_to_do);
 
 ToDoItemAdapter 생성자의 두 번째 매개 변수는 레이아웃에 대한 참조입니다. 생성자 호출 뒤에 다음 코드가 나옵니다. 다음 코드는 먼저 **ListView**에 대한 참조를 가져온 후 *setAdapter*를 호출하여 방금 만든 어댑터를 사용하도록 자체 구성합니다.
 
-		ListView listViewToDo = (ListView) findViewById(R.id.listViewToDo);
-		listViewToDo.setAdapter(mAdapter);
+	ListView listViewToDo = (ListView) findViewById(R.id.listViewToDo);
+	listViewToDo.setAdapter(mAdapter);
 
 
 ### <a name="use-adapter"></a>방법: 어댑터 사용
 
 이제 데이터 바인딩을 사용할 준비가 되었습니다. 다음 코드는 모바일 서비스 테이블의 항목을 가져오고, 어댑터를 비운 후, 어댑터의 *add* 메서드를 호출하여 반환된 항목으로 어댑터를 채우는 방법을 보여 줍니다.
 
-	    public void showAll(View view) {
-	        new AsyncTask<Void, Void, Void>() {
-	            @Override
-	            protected Void doInBackground(Void... params) {
-	                try {
-	                    final MobileServiceList<ToDoItem> result = mToDoTable.execute().get();
-	                    runOnUiThread(new Runnable() {
-	
-	                        @Override
-	                        public void run() {
-	                            mAdapter.clear();
-	                            for (ToDoItem item : result) {
-	                                mAdapter.add(item);
-	                            }
-	                        }
-	                    });
-	                } catch (Exception exception) {
-	                    createAndShowDialog(exception, "Error");
-	                }
-	                return null;
-	            }
-	        }.execute();
-	    }
+    public void showAll(View view) {
+        new AsyncTask<Void, Void, Void>() {
+            @Override
+            protected Void doInBackground(Void... params) {
+                try {
+                    final MobileServiceList<ToDoItem> result = mToDoTable.execute().get();
+                    runOnUiThread(new Runnable() {
+
+                        @Override
+                        public void run() {
+                            mAdapter.clear();
+                            for (ToDoItem item : result) {
+                                mAdapter.add(item);
+                            }
+                        }
+                    });
+                } catch (Exception exception) {
+                    createAndShowDialog(exception, "Error");
+                }
+                return null;
+            }
+        }.execute();
+    }
 
 또한 *ToDoItem* 테이블을 수정할 때 그 결과를 표시하려면 언제든지 어댑터를 호출해야 합니다. 수정은 레코드별로 이루어지기 때문에 컬렉션이 아니라 단일 행을 다루게 됩니다. 항목을 삽입할 때는 어댑터에 대해 *add* 메서드를 호출하고, 삭제할 때는 *remove* 메서드를 호출합니다.
 
 
-<h2><a name="authentication"></a>방법: 사용자 인증</h2>
+##<a name="authentication"></a>방법: 사용자 인증
 
 모바일 서비스는 Facebook, Google, Microsoft 계정, Twitter 및 Azure Active Directory와 같이 다양한 외부 ID 공급자를 사용하여 앱 사용자의 인증 및 권한 부여를 지원합니다. 테이블에 대해 사용 권한을 설정하여 특정 작업을 위한 액세스를 인증된 사용자로만 제한할 수 있습니다. 인증된 사용자의 ID를 사용하여 서버 스크립트에 인증 규칙을 구현할 수도 있습니다. 자세한 내용은 [인증 시작](http://go.microsoft.com/fwlink/p/?LinkId=296316)(영문)을 참조하십시오.
 
@@ -671,11 +658,10 @@ ToDoItemAdapter 생성자의 두 번째 매개 변수는 레이아웃에 대한 
 
 앱에서 인증을 사용하도록 설정하려면 세 가지 단계가 필요합니다.
 
-<ol>
-<li>인증을 위해 공급자에 앱 등록 및 모바일 서비스 구성</li>
-<li>테이블 사용 권한을 인증된 사용자로만 제한</li>
-<li>앱에 인증 코드 추가</li>
-</ol>
+- 인증을 위해 공급자에 앱 등록 및 모바일 서비스 구성
+- 테이블 사용 권한을 인증된 사용자로만 제한
+- 앱에 인증 코드 추가
+
 
 모바일 서비스는 사용자를 인증하는 데 사용할 수 있는 다음과 같은 기존 ID 공급자를 지원합니다.
 
@@ -705,27 +691,27 @@ ToDoItemAdapter 생성자의 두 번째 매개 변수는 레이아웃에 대한 
 
 2. 활동 클래스의 **onCreate** 메서드에서 `MobileServiceClient` 개체를 만드는 코드 뒤에 다음 코드 줄을 추가합니다. `MobileServiceClient` 개체에 대한 참조가 *mClient*라고 간주합니다.
 	
-		    // Login using the Google provider.
-		    
-			ListenableFuture<MobileServiceUser> mLogin = mClient.login(MobileServiceAuthenticationProvider.Google);
-	
-	    	Futures.addCallback(mLogin, new FutureCallback<MobileServiceUser>() {
-	    		@Override
-	    		public void onFailure(Throwable exc) {
-	    			createAndShowDialog((Exception) exc, "Error");
-	    		}   		
-	    		@Override
-	    		public void onSuccess(MobileServiceUser user) {
-	    			createAndShowDialog(String.format(
-	                        "You are now logged in - %1$2s",
-	                        user.getUserId()), "Success");
-	    			createTable();	
-	    		}
-	    	}); 
+	    // Login using the Google provider.
+	    
+		ListenableFuture<MobileServiceUser> mLogin = mClient.login(MobileServiceAuthenticationProvider.Google);
+
+    	Futures.addCallback(mLogin, new FutureCallback<MobileServiceUser>() {
+    		@Override
+    		public void onFailure(Throwable exc) {
+    			createAndShowDialog((Exception) exc, "Error");
+    		}   		
+    		@Override
+    		public void onSuccess(MobileServiceUser user) {
+    			createAndShowDialog(String.format(
+                        "You are now logged in - %1$2s",
+                        user.getUserId()), "Success");
+    			createTable();	
+    		}
+    	}); 
 
     이 코드는 Google 로그인을 사용하는 사용자를 인증합니다. 인증된 사용자의 ID를 표시하는 대화 상자가 나타납니다. 양성 인증 없이는 진행할 수 없습니다.
 
-    > [AZURE.NOTE]Google 이외의 ID 공급자를 사용하는 경우, 위의 **login** 메서드에 전달된 값을 다음 중 하나로 변경합니다. _MicrosoftAccount_, _Facebook_, _Twitter_ 또는 _WindowsAzureActiveDirectory_.</div>
+    > [AZURE.NOTE]Google 이외의 ID 공급자를 사용하는 경우, 위의 **login** 메서드에 전달된 값을 다음 중 하나로 변경합니다. _MicrosoftAccount_, _Facebook_, _Twitter_ 또는 _WindowsAzureActiveDirectory_
 
 
 3. 앱을 실행할 때는 선택한 ID 공급자로 로그인합니다.
@@ -795,53 +781,57 @@ ToDoItemAdapter 생성자의 두 번째 매개 변수는 레이아웃에 대한 
 토큰이 만료되면 어떻게 될까요? 이 경우에는 연결하기 위해 토큰을 사용하려고 하면 *401 권한 없음* 응답을 받습니다. 그러면 사용자는 로그인하여 새 토큰을 획득해야 합니다. 모바일 서비스 호출 및 모바일 서비스에서 나오는 응답을 차단할 수 있게 하는 필터를 사용하면 앱에서 모바일 서비스를 호출하는 모든 위치에서 이를 처리하는 코드를 작성할 필요가 없습니다. 필터 코드가 401의 응답을 테스트하고 필요한 경우 로그인 프로세스를 트리거한 후 401을 생성한 요청을 다시 시작합니다.
 
 
-<h2><a name="customizing"></a>방법: 클라이언트 사용자 지정</h2>
+##<a name="customizing"></a>방법: 클라이언트 사용자 지정
+
+모바일 서비스 클라이언트의 기본 동작을 사용자 지정할 수 있는 여러 가지 방법이 있습니다.
 
 ### <a name="headers"></a>방법: 요청 헤더 사용자 지정
 
-모든 보내는 요청에 사용자 지정 헤더를 추가할 수 있습니다. 다음과 같이 ServiceFilter를 구성하면 됩니다.
+모든 보내는 요청에 사용자 지정 헤더를 추가할 수 있습니다. 다음과 같이 **ServiceFilter**를 구성하면 됩니다.
 
-		private class CustomHeaderFilter implements ServiceFilter {
-	
-	        @Override
-	        public ListenableFuture<ServiceFilterResponse> handleRequest(
-	                	ServiceFilterRequest request, 
-						NextServiceFilterCallback next) {
-	
-	            runOnUiThread(new Runnable() {
-	
-	                @Override
-	                public void run() {
-		        		request.addHeader("My-Header", "Value");	                }
-	            });
-	
-	            SettableFuture<ServiceFilterResponse> result = SettableFuture.create();
-	            try {
-	                ServiceFilterResponse response = next.onNext(request).get();
-	                result.set(response);
-	            } catch (Exception exc) {
-	                result.setException(exc);
-	            }
-	        }
+	private class CustomHeaderFilter implements ServiceFilter {
+
+        @Override
+        public ListenableFuture<ServiceFilterResponse> handleRequest(
+                	ServiceFilterRequest request, 
+					NextServiceFilterCallback next) {
+
+            runOnUiThread(new Runnable() {
+
+                @Override
+                public void run() {
+	        		request.addHeader("My-Header", "Value");	                }
+            });
+
+            SettableFuture<ServiceFilterResponse> result = SettableFuture.create();
+            try {
+                ServiceFilterResponse response = next.onNext(request).get();
+                result.set(response);
+            } catch (Exception exc) {
+                result.setException(exc);
+            }
+        }
 
 ### <a name="serialization"></a>방법: serialization 사용자 지정
 
-모바일 서비스에서는 기본적으로 서버의 테이블 이름, 열 이름, 데이터 형식이 모두 클라이언트와 정확히 일치한다고 가정합니다. 하지만 서버와 클라이언트의 이름이 일치하지 않는 이유가 있을 수 있습니다. 한 가지 예로 경쟁 제품 대신 Azure 모바일 서비스를 사용하도록 기존 클라이언트를 변경하려는 경우를 들 수 있습니다.
+모바일 서비스에서는 기본적으로 서버의 테이블 이름, 열 이름, 데이터 형식이 모두 클라이언트와 정확히 일치한다고 가정합니다. 하지만 서버와 클라이언트의 이름이 일치하지 않는 이유가 있을 수 있습니다. 한 가지 예로 경쟁 제품 대신 모바일 서비스를 사용하도록 기존 클라이언트를 변경하려는 경우를 들 수 있습니다.
 
-다음과 같은 사용자 지정 유형을 수행할 수 있습니다. <ul> <li> 모바일 서비스 테이블에서 사용되는 열 이름이 클라이언트에서 사용 중인 이름과 일치하지 않음</li>
+다음과 같은 종류의 사용자 지정을 수행할 수 있습니다.
 
-<li>클라이언트에서 매핑되는 클래스와 다른 이름을 가진 모바일 서비스 테이블 사용</li>
-<li>속성 자동 대문자 표시 설정</li>
-
-<li>개체에 복합 속성 추가</li>
-
-</ul>
+- 모바일 서비스 테이블에서 사용되는 열 이름이 클라이언트에서 사용 중인 이름과 일치하지 않음
+- 클라이언트에서 매핑되는 클래스와 다른 이름을 가진 모바일 서비스 테이블 사용
+- 속성 자동 대문자 표시 설정
+- 개체에 복합 속성 추가
 
 ### <a name="columns"></a>방법: 다른 클라이언트 및 서버 이름 매핑
 
-Java 클라이언트 코드에서 *ToDoItem* 개체 속성에 다음과 같이 표준 Java 스타일 이름이 사용된다고 가정하겠습니다. <ul> <li>mId</li> <li>mText</li> <li>mComplete</li> <li>mDuration</li>
+Java 클라이언트 코드에서 *ToDoItem* 개체 속성에 다음과 같이 표준 Java 스타일 이름이 사용된다고 가정하겠습니다.
 
-</ul>
+- mId
+- mText
+- mComplete
+- mDuration
+
 
 클라이언트 이름을 서버에 있는 *ToDoItem* 테이블의 열 이름과 일치하는 JSON 이름으로 직렬화해야 합니다. 다음 코드는 <a href=" http://go.microsoft.com/fwlink/p/?LinkId=290801" target="_blank">gson</a> 라이브러리를 이용하여 이를 수행합니다.
 
@@ -859,9 +849,9 @@ Java 클라이언트 코드에서 *ToDoItem* 개체 속성에 다음과 같이 �
 
 ### <a name="table"></a>방법: 클라이언트 및 모바일 서비스 간에 다른 테이블 이름 매핑
 
-클라이언트 테이블 이름을 다른 모바일 서비스 테이블 이름에 매핑하는 작업은 쉽습니다. 다음 코드에 나온 것처럼 <a href="http://go.microsoft.com/fwlink/p/?LinkId=296840" target="_blank">getTable()</a>  함수의 재정의 중 하나를 사용하면 됩니다.
+클라이언트 테이블 이름을 다른 모바일 서비스 테이블 이름에 매핑하는 작업은 쉽습니다. 다음 코드에 나온 것처럼 <a href="http://go.microsoft.com/fwlink/p/?LinkId=296840" target="_blank">getTable()</a> 함수의 재정의 중 하나를 사용하면 됩니다.
 
-		mToDoTable = mClient.getTable("ToDoItemBackup", ToDoItem.class);
+	mToDoTable = mClient.getTable("ToDoItemBackup", ToDoItem.class);
 
 
 ### <a name="conversions"></a>방법: 열 이름 매핑 자동화
@@ -895,11 +885,6 @@ Java 클라이언트 코드에서 *ToDoItem* 개체 속성에 다음과 같이 �
 이를 수행하는 방법의 예를 보려면 블로그 게시물인 <a href="http://hashtagfail.com/post/44606137082/mobile-services-android-serialization-gson" target="_blank">모바일 서비스 Android 클라이언트에서 <a href=" http://go.microsoft.com/fwlink/p/?LinkId=290801" target="_blank">gson</a> 라이브러리를 사용하여 serialization 사용자 지정</a>을 확인하십시오.
 
 이 일반적인 방법은 자동으로 JSON 및 모바일 서비스 테이블에 직렬화할 수 없는 복합 개체가 있을 때마다 사용할 수 있습니다.
-
-
-## <a name="next-steps"></a>다음 단계
-
-Android 클라이언트 API에 대한 Javadoc 참조는 [http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/mobileservices/package-summary.html](http://go.microsoft.com/fwlink/p/?LinkId=298735 "시작")에서 제공됩니다.
 
 <!-- Anchors. -->
 
@@ -938,26 +923,9 @@ Android 클라이언트 API에 대한 Javadoc 참조는 [http://dl.windowsazure.
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!-- URLs. -->
-[Get started with Mobile Services]: /develop/mobile/tutorials/get-started-android/
-[Mobile Services SDK]: http://go.microsoft.com/fwlink/p/?linkid=280126
-[Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-android/
+[모바일 서비스 시작]: mobile-services-android-get-started.md
 [ASCII 제어 코드 C0 및 C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
-[모바일 서비스 테이블 관리 CLI]: http://azure.microsoft.com/documentation/articles/command-line-tools/#Commands_to_manage_mobile_services
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->
