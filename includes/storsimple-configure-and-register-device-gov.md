@@ -95,7 +95,10 @@
 
      `Get-HcsSystem`
 
-    다음 버전이 표시되어야 합니다. - HcsSoftwareVersion: 6.3.9600.17491 - CisAgentVersion: 1.0.9037.0 - MdsAgentVersion: 26.0.4696.1433
+    다음 버전이 표시되어야 합니다.
+    - HcsSoftwareVersion: 6.3.9600.17491
+    - CisAgentVersion: 1.0.9037.0
+    - MdsAgentVersion: 26.0.4696.1433
  
 9. 펌웨어 업데이트가 제대로 적용되었는지 확인하려면 다음 cmdlet을 실행합니다.
 
@@ -133,7 +136,9 @@
 	
 	![StorSimple 등록 장치 7](./media/storsimple-configure-and-register-device-gov/HCS_RegisterYourDevice7_gov-include.png)
 
-      >[AZURE.IMPORTANT]직렬 콘솔 창에서 텍스트를 복사하려면 해당 텍스트를 선택하면 됩니다. 그런 다음 클립보드나 임의의 텍스트 편집기에 붙여넣을 수 있습니다. >> 서비스 데이터 암호화 키를 복사하려면 Ctrl + C를 사용하지 마세요. Ctrl + C를 사용하면 설치 마법사가 종료됩니다. 결과적으로, 장치 관리자 암호는 변경되지 않으며 장치는 기본 암호로 되돌아갑니다.
+      >[AZURE.IMPORTANT]직렬 콘솔 창에서 텍스트를 복사하려면 해당 텍스트를 선택하면 됩니다. 그런 다음 클립보드나 임의의 텍스트 편집기에 붙여넣을 수 있습니다. 
+      >
+      > 서비스 데이터 암호화 키를 복사하려면 Ctrl + C를 사용하지 마세요. Ctrl + C를 사용하면 설치 마법사가 종료됩니다. 결과적으로, 장치 관리자 암호는 변경되지 않으며 장치는 기본 암호로 되돌아갑니다.
 
 16. 직렬 콘솔을 종료합니다.
 
@@ -144,9 +149,9 @@
    
     	![StorSimple Devices page](./media/storsimple-configure-and-register-device-gov/HCS_DeviceOnline-gov-include.png) 
   
-        If the device status is **Offline**, wait for a couple of minutes for the device to come online. 
+        장치 상태가 **오프라인**이면 장치가 온라인 상태가 될 때까지 몇 분 정도 기다립니다. 
       
-        If the device is still offline after a few minutes, then you need to make sure that your firewall network was configured as described in the [network requirements for your StorSimple device](https://msdn.microsoft.com/library/dn772371.aspx). If you do not have HTTP 1.1 support, check port 9354 to make sure that it is open for outbound communication. This port is used for communication between the StorSimple Manager service and your StorSimple device.
+        몇 분 후에도 장치가 여전히 오프라인 상태인 경우에는 [StorSimple 장치에 대한 네트워크 요구 사항](https://msdn.microsoft.com/library/dn772371.aspx)에서 설명한 대로 방화벽 네트워크를 구성했는지 확인해야 합니다. HTTP 1.1이 지원되지 않으면 포트 9354가 아웃바운드 통신용으로 열려 있는지 확인합니다. 이 포트는 StorSimple 관리자 서비스와 StorSimple 장치 간의 통신에 사용됩니다.
      
         
 
