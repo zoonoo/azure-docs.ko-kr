@@ -262,7 +262,7 @@ Bootstrap은 ASP.NET MVC 5 전용이 아니므로 어떤 웹 응용 프로그램
 
 ![][AllSpeakersFixedDesktop]
 
-모바일 브라우저 뷰가 개선되기는 했지만 긴 발표자 목록을 탐색하기가 힘듭니다. 부트스트랩은 바로 사용 가능한 검색 필터 기능을 제공하지 않지만, 코드 몇 줄을 사용하여 추가할 수 있습니다. 먼저 검색 상자를 뷰에 추가한 후에 JavaScript 코드를 연결하여 필터 기능을 만듭니다. *Views\Home\AllSpeakers.cshtml*에서 다음과 같이 <form> 태그를 <h2> 태그 바로 뒤에 추가합니다.
+모바일 브라우저 뷰가 개선되기는 했지만 긴 발표자 목록을 탐색하기가 힘듭니다. 부트스트랩은 바로 사용 가능한 검색 필터 기능을 제공하지 않지만, 코드 몇 줄을 사용하여 추가할 수 있습니다. 먼저 검색 상자를 뷰에 추가한 후에 JavaScript 코드를 연결하여 필터 기능을 만듭니다. *Views\Home\AllSpeakers.cshtml*에서 다음과 같이 \<form\> 태그를 \<h2\> 태그 바로 뒤에 추가합니다.
 
     @model IEnumerable<string>
 
