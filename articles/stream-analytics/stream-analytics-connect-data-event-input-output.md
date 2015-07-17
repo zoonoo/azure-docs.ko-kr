@@ -126,7 +126,8 @@ Azure 테이블 저장소를 사용하여 시작하려면 테이블에 대한 �
 다음 페이지에서 Azure 테이블 정보를 입력합니다. 출력 별칭은 쿼리 출력을 이 테이블로 지정하기 위해 쿼리에서 사용할 수 있는 이름입니다.
 
 
-![graphic14][graphic14] ![graphic15][graphic15]
+![graphic14][graphic14]
+![graphic15][graphic15]
 
 일괄 처리 크기는 일괄 처리 작업에 대한 레코드의 수로, 익숙하지 않은 경우 기본값으로 그대로 두거나 자세한 내용은 [https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablebatchoperation.aspx](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablebatchoperation.aspx)를 참조하세요.
 
