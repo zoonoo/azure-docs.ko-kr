@@ -83,7 +83,12 @@
 
 	![](./media/web-sites-dotnet-lob-application-azure-ad/select-user-group.png)
 
-	> [AZURE.NOTE]Views\Roles\Index.cshtml에 보기에서 <code>AadPicker</code>라는 JavaScript 개체(Scripts\AadPickerLibrary.js에 정의됨)를 사용하여 <code>Roles</code> 컨트롤러에서 <code>색</code> 작업에 액세스하는 것을 확인할 수 있습니다. <pre class="prettyprint">var searchUrl = window.location.protocol + "//" + window.location.host + "<mark>/Roles/Search</mark>"; ... var picker = new <mark>AadPicker(searchUrl, maxResultsPerPage, input, token, tenant)</mark>;</pre> Controllers\RolesController.cs에서 <code>검색</code> 작업이 실제 요청을 Azure Active Directory Graph API로 보내고 응답을 해당 페이지에 다시 반환하는 것을 확인할 수 있습니다. 나중에 동일한 메서드를 사용하여 응용 프로그램에서 간단한 기능을 만들 수 있습니다.
+	> [AZURE.NOTE]Views\Roles\Index.cshtml에 보기에서 <code>AadPicker</code>라는 JavaScript 개체(Scripts\AadPickerLibrary.js에 정의됨)를 사용하여 <code>Roles</code> 컨트롤러에서 <code>색</code> 작업에 액세스하는 것을 확인할 수 있습니다.
+		<pre class="prettyprint">var searchUrl = window.location.protocol + "//" + window.location.host + "<mark>/Roles/Search</mark>";
+	...
+    var picker = new <mark>AadPicker(searchUrl, maxResultsPerPage, input, token, tenant)</mark>;</pre>
+		Controllers\RolesController.cs에서 <code>검색</code> 작업이 실제 요청을 Azure Active Directory Graph API로 보내고 응답을 해당 페이지에 다시 반환하는 것을 확인할 수 있습니다.
+		나중에 동일한 메서드를 사용하여 응용 프로그램에서 간단한 기능을 만들 수 있습니다.
 
 6.	드롭다운에서 사용자 또는 그룹을 선택하고 역할을 선택한 후 **역할 할당**을 클릭합니다.
 
@@ -151,7 +156,8 @@
    &lt;add key="ida:ClientId" value="<mark>[e.g. 82692da5-a86f-44c9-9d53-2f88d52b478b]</mark>" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" />
    &lt;add key="ida:AppKey" value="<mark>[e.g. rZJJ9bHSi/cYnYwmQFxLYDn/6EfnrnIfKoNzv9NKgbo=]</mark>" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" />
    &lt;add key="ida:PostLogoutRedirectUri" value="<mark>[e.g. https://mylobapp.azurewebsites.net/]</mark>" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" />
-&lt;/appSettings></pre>ida:PostLogoutRedirectUri 값은 슬래시("/")로 끝나야 합니다.
+&lt;/appSettings></pre>
+	ida:PostLogoutRedirectUri 값은 슬래시("/")로 끝나야 합니다.
 
 1. 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다.
 
@@ -247,9 +253,13 @@ public class WorkItemsController : Controller
     <mark>[Authorize(Roles = "Admin, Writer, Approver")]</mark>
     public async Task&lt;ActionResult> DeleteConfirmed(int id)
     ...
-}</pre>Roles 컨트롤러에서 역할 매핑에 주의했기 때문에 각 작업에서 올바른 역할에 권한을 부여하는지만 확인하면 됩니다.
+}</pre>
+	Roles 컨트롤러에서 역할 매핑에 주의했기 때문에 각 작업에서 올바른 역할에 권한을 부여하는지만 확인하면 됩니다.
 
-	> [AZURE.NOTE]일부 작업에서 <code>[ValidateAntiForgeryToken]</code> 장식이 표시될 수 있습니다. [MVC 4, AntiForgeryToken 및 클레임](http://brockallen.com/2012/07/08/mvc-4-antiforgerytoken-and-claims/)의 [Brock Allen](https://twitter.com/BrockLAllen)에 설명된 동작으로 인해 HTTP POST가 위조 방지 토큰의 유효성을 검사하지 못할 수 있습니다. 이유: + Azure Active Directory가 위조 방지 토큰에 기본적으로 필요한 http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider를 전송하지 않습니다. + Azure Active Directory가 AD FS와 동기화된 디렉터리인 경우 기본적으로 AD FS 트러스트는 http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider 클레임을 전송하지 않습니다. 이 클레임을 전송하도록 AD FS를 수동으로 구성할 수 있습니다. 다음 단계에서 이 문제를 해결할 수 있습니다.
+	> [AZURE.NOTE]일부 작업에서 <code>[ValidateAntiForgeryToken]</code> 장식이 표시될 수 있습니다. [MVC 4, AntiForgeryToken 및 클레임](http://brockallen.com/2012/07/08/mvc-4-antiforgerytoken-and-claims/) 의 [Brock Allen](https://twitter.com/BrockLAllen) 에 설명된 동작으로 인해 HTTP POST가 위조 방지 토큰의 유효성을 검사하지 못할 수 있습니다. 이유:
+	> + Azure Active Directory가 위조 방지 토큰에 기본적으로 필요한 http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider 를 전송하지 않습니다.
+	> + Azure Active Directory가 AD FS와 동기화된 디렉터리인 경우 기본적으로 AD FS 트러스트는 http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider 클레임을 전송하지 않습니다. 이 클레임을 전송하도록 AD FS를 수동으로 구성할 수 있습니다.
+	> 다음 단계에서 이 문제를 해결할 수 있습니다.
 
 12.  App_Start\Startup.Auth.cs에서 `ConfigureAuth` 메서드에 다음 코드 줄을 추가합니다.
 
@@ -257,7 +267,9 @@ public class WorkItemsController : Controller
 	
 	`ClaimTypes.NameIdentifies`는 Azure Active Directory에서 제공하는 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier` 클레임을 지정합니다. 이제 인증 부분을 해결했으므로(오래 걸리지는 않았음) 작업의 실제 기능에 집중할 수 있습니다.
 
-13.	Create() 및 Edit()에서 다음 코드를 추가하여 나중에 JavaScript에서 일부 변수를 사용할 수 있도록 합니다. ViewData["token"] = GraphHelper.AcquireToken(ClaimsPrincipal.Current.FindFirst(Globals.ObjectIdClaimType).Value); ViewData["tenant"] = ConfigHelper.Tenant;
+13.	Create() 및 Edit()에서 다음 코드를 추가하여 나중에 JavaScript에서 일부 변수를 사용할 수 있도록 합니다.
+            ViewData["token"] = GraphHelper.AcquireToken(ClaimsPrincipal.Current.FindFirst(Globals.ObjectIdClaimType).Value);
+            ViewData["tenant"] = ConfigHelper.Tenant;
 
 14.	Views\WorkItems\Create.cshtml(자동으로 스캐폴드된 항목)에서 `Html.BeginForm` 도우미 메서드를 찾아 다음과 같이 수정합니다.
 	<pre class="prettyprint">@using (Html.BeginForm(<mark>"Create", "WorkItems", FormMethod.Post, new { id = "main-form" }</mark>))
@@ -324,8 +336,9 @@ public class WorkItemsController : Controller
                 $("#main-form").get()[0].elements["AssignedToID"].value = picker.Selected().objectId;
             });
     &lt;/script></mark>
+	}</pre>
 
-}</pre>스크립트에서 AadPicker 개체는 `~/Roles/Search` 동작에서 입력과 일치하는 Azure Active Directory 사용자 및 그룹을 검색합니다. 그런 다음 제출 단추가 클릭되면 AadPicker 개체가 사용자 ID를 숨겨진 `AssignedToID` 필드에 저장합니다.
+	스크립트에서 AadPicker 개체는 `~/Roles/Search` 동작에서 입력과 일치하는 Azure Active Directory 사용자 및 그룹을 검색합니다. 그런 다음 제출 단추가 클릭되면 AadPicker 개체가 사용자 ID를 숨겨진 `AssignedToID` 필드에 저장합니다.  
 
 15. 이제 응용 프로그램을 Visual Studio 디버거에서 실행하거나 Azure 앱 서비스 웹 앱에 게시합니다. 응용 프로그램 소유자로 로그인하여 `~/WorkItems/Create`로 이동합니다. 이 예제의 게시된 기간 업무 앱의 경우 `https://mylobapp.azurewebsites.net/WorkItems/Create`로 이동합니다. 이제 동일한 AadPicker 검색 필터를 사용하여 Azure Active Directory 사용자를 선택할 수 있습니다.
 

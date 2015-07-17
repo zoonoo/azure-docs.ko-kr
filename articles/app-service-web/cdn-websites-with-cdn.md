@@ -67,11 +67,13 @@ Visual Studio에서 기본 ASP.NET MVC 템플릿을 사용하여 Azure 앱 서�
 
 8. Azure에서 웹앱을 만들지 않은 경우 Visual Studio에서 쉽게 만들 수 있습니다. **Microsoft Azure 웹 사이트 구성** 대화 상자에서 사이트 이름이 고유한지 확인합니다. 그런 다음 **확인**을 클릭합니다.
 
-	<!--todo: need 2.5.1 screenshot-->![](media/cdn-websites-with-cdn/5-create-website.png)
+	<!--todo: need 2.5.1 screenshot-->
+	![](media/cdn-websites-with-cdn/5-create-website.png)
 
 9. ASP.NET 응용 프로그램이 만들어지면 **지금 이 사이트에 `<app name>` 게시**를 클릭하여 웹 게시 활동 창에서 해당 응용 프로그램을 Azure에 게시합니다. **게시**를 클릭하여 프로세스를 완료합니다.
 
-	<!--todo: need 2.5.1 screenshot-->![](media/cdn-websites-with-cdn/6-publish-website.png)
+	<!--todo: need 2.5.1 screenshot-->
+	![](media/cdn-websites-with-cdn/6-publish-website.png)
 
 	게시가 완료되면 브라우저에 게시된 웹앱이 표시됩니다.
 
@@ -191,7 +193,7 @@ namespace cdnwebapp.Controllers
                 Memes.Add(identifier, new Tuple&lt;string, string>(top, bottom));
             }
 
-            return Content("&lt;a href="" + Url.Action("Show", new {id = identifier}) + "">here's your meme&lt;/a>");
+            return Content("&lt;a href="" + Url.Action("Show", new {id = identifier}) + "">밈은 다음과 같습니다.&lt;/a>");
         }
 
         [OutputCache(VaryByParam = "*", Duration = 1, Location = OutputCacheLocation.Downstream)]
@@ -558,4 +560,4 @@ bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css"
 * 이전 포털에서 새 포털로의 변경에 대한 지침은 [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
  
 
-<!---HONumber=62-->
+<!----HONumber=62-->

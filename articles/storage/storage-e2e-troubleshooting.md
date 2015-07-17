@@ -349,7 +349,18 @@ Message Analyzer를 사용하여 로그 데이터를 분석하는 데 익숙해�
 | 큐에서 메시지 배달의 예기치 않은 지연 | AzureStorageClientDotNetV4.Description은 "다시 시도 중 작업이 실패 했습니다."를 포함 | 클라이언트 |
 | PercentThrottlingError에서 HTTP 증가 | HTTP.Response.StatusCode == 500 &#124;&#124; HTTP.Response.StatusCode == 503 | 네트워크 |
 | PercentTimeoutError의 증가 | HTTP.Response.StatusCode == 500 | 네트워크 |
-| PercentTimeoutError의 증가(모두) | *StatusCode == 500 | All | | Increase in PercentNetworkError | AzureStorageClientDotNetV4.EventLogEntry.Level < 2 | Client | | HTTP 403 (Forbidden) messages | HTTP.Response.StatusCode == 403 | Network | | HTTP 404 (Not found) messages | HTTP.Response.StatusCode == 404 | Network | | 404 (all) | *StatusCode == 404 | All | | Shared Access Signature (SAS) authorization issue | AzureStorageLog.RequestStatus == "SASAuthorizationError" | Network | | HTTP 409 (Conflict) messages | HTTP.Response.StatusCode == 409 | Network | | 409 (all) | *StatusCode == 409 | All | | Low PercentSuccess or analytics log entries have operations with transaction status of ClientOtherErrors | AzureStorageLog.RequestStatus == "ClientOtherError" | Server | | Nagle Warning | ((AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS) > (AzureStorageLog.ServerLatencyMS * 1.5)) and (AzureStorageLog.RequestPacketSize <1460) and (AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS >= 200) | Server | | Range of time in Server and Network logs | #Timestamp >= 2014-10-20T16:36:38 and #Timestamp <= 2014-10-20T16:36:39 | Server, Network | | Range of time in Server logs | AzureStorageLog.Timestamp >= 2014-10-20T16:36:38 and AzureStorageLog.Timestamp <= 2014-10-20T16:36:39 | Server |
+| PercentTimeoutError의 증가(모두) | *StatusCode == 500 | All |
+| Increase in PercentNetworkError | AzureStorageClientDotNetV4.EventLogEntry.Level < 2 | Client |
+| HTTP 403 (Forbidden) messages | HTTP.Response.StatusCode == 403 | Network |
+| HTTP 404 (Not found) messages | HTTP.Response.StatusCode == 404 | Network |
+| 404 (all) | *StatusCode == 404 | All |
+| Shared Access Signature (SAS) authorization issue | AzureStorageLog.RequestStatus == "SASAuthorizationError" | Network |
+| HTTP 409 (Conflict) messages | HTTP.Response.StatusCode == 409 | Network |
+| 409 (all) | *StatusCode == 409 | All |
+| Low PercentSuccess or analytics log entries have operations with transaction status of ClientOtherErrors | AzureStorageLog.RequestStatus == "ClientOtherError" | Server |
+| Nagle Warning | ((AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS) > (AzureStorageLog.ServerLatencyMS * 1.5)) and (AzureStorageLog.RequestPacketSize <1460) and (AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS >= 200) | Server |
+| Range of time in Server and Network logs | #Timestamp >= 2014-10-20T16:36:38 and #Timestamp <= 2014-10-20T16:36:39 | Server, Network |
+| Range of time in Server logs | AzureStorageLog.Timestamp >= 2014-10-20T16:36:38 and AzureStorageLog.Timestamp <= 2014-10-20T16:36:39 | Server |
 
 
 ## 다음 단계
@@ -363,5 +374,5 @@ Azure 저장소의 종단 간 시나리오 문제 해결에 대한 자세한 내
 - [Microsoft Message Analyzer 운영 가이드](http://technet.microsoft.com/library/jj649776.aspx)
  
 
-<!--HONumber=52-->
+<!---HONumber=52-->
  

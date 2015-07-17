@@ -92,19 +92,20 @@ private static string realm = ConfigurationManager.AppSettings["ida:<mark>RPIden
 
 6.	이제 Web.config를 적절히 변경합니다. Web.config를 열고 아래에 강조 표시된 대로 응용 프로그램 설정을 수정합니다.
 	<pre class="prettyprint">
-&lt;appSettings>
-  &lt;add key="webpages:Version" value="3.0.0.0" />
-  &lt;add key="webpages:Enabled" value="false" />
-  &lt;add key="ClientValidationEnabled" value="true" />
-  &lt;add key="UnobtrusiveJavaScriptEnabled" value="true" />
-  <mark><del>&lt;add key="ida:Wtrealm" value="[Enter the App ID URI of WebApp-WSFederation-DotNet https://contoso.onmicrosoft.com/WebApp-WSFederation-DotNet]" /></del></mark>
-  <mark><del>&lt;add key="ida:AADInstance" value="https://login.windows.net" /></del></mark>
-  <mark><del>&lt;add key="ida:Tenant" value="[Enter tenant name, e.g. contoso.onmicrosoft.com]" /></del></mark>
-  <mark>&lt;add key="ida:RPIdentifier" value="[Enter the relying party identifier as configured in AD FS, e.g. https://localhost:44320/]" /></mark>
-  <mark>&lt;add key="ida:ADFS" value="[Enter the FQDN of AD FS service, e.g. adfs.contoso.com]" /></mark>
+	&lt;appSettings&gt;
+	  &lt;add key="webpages:Version" value="3.0.0.0" /&gt;
+	  &lt;add key="webpages:Enabled" value="false" /&gt;
+	  &lt;add key="ClientValidationEnabled" value="true" /&gt;
+	  &lt;add key="UnobtrusiveJavaScriptEnabled" value="true" /&gt;
+	  <mark><del>&lt;add key="ida:Wtrealm" value="[Enter the App ID URI of WebApp-WSFederation-DotNet https://contoso.onmicrosoft.com/WebApp-WSFederation-DotNet]" /&gt;</del></mark>
+	  <mark><del>&lt;add key="ida:AADInstance" value="https://login.windows.net" /&gt;</del></mark>
+	  <mark><del>&lt;add key="ida:Tenant" value="[Enter tenant name, e.g. contoso.onmicrosoft.com]" /&gt;</del></mark>
+	  <mark>&lt;add key="ida:RPIdentifier" value="[Enter the relying party identifier as configured in AD FS, e.g. https://localhost:44320/]" /&gt;</mark>
+	  <mark>&lt;add key="ida:ADFS" value="[Enter the FQDN of AD FS service, e.g. adfs.contoso.com]" /&gt;</mark>
 
-&lt;/appSettings>
-</pre>각 환경을 기반으로 키 값을 입력합니다.
+	&lt;/appSettings&gt;
+	</pre>
+	각 환경을 기반으로 키 값을 입력합니다.
 
 7.	응용 프로그램을 빌드하여 오류가 없는지 확인합니다.
 
@@ -208,7 +209,8 @@ c2:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticat
 		param = c1.OriginalIssuer,
 		param = "",
 		param = c2.Value);
-</pre>사용자 지정 규칙은 다음과 같습니다.
+	</pre>
+	사용자 지정 규칙은 다음과 같습니다.
 
 	![](./media/web-sites-dotnet-lob-application-adfs/6-per-session-identifier.png)
 
@@ -276,14 +278,22 @@ public ActionResult Contact()
 
     return View();
 }
-</pre>이 자습서의 AD FS 실습 환경에서는 **테스트 사용자**를 **테스트 그룹**에 추가했기 때문에 테스트 그룹을 사용하여 `About`에 대한 권한 부여를 테스트합니다. `Contact`의 경우 **테스트 사용자**가 속해 있지 않은 **Domain Admins**의 부정적인 사례를 테스트합니다.
+	</pre>
+	이 자습서의 AD FS 실습 환경에서는 **테스트 사용자**를 **테스트 그룹**에 추가했기 때문에 테스트 그룹을 사용하여 `About`에 대한 권한 부여를 테스트합니다. `Contact`의 경우 **테스트 사용자**가 속해 있지 않은 **Domain Admins**의 부정적인 사례를 테스트합니다.
 
 3. `F5` 키를 눌러 디버거를 시작하고 로그인한 후 **About**을 클릭합니다. 이제 인증된 사용자에게 해당 작업에 대한 권한이 부여된 경우 `~/About/Index` 페이지가 성공적으로 표시되어야 합니다.
 4. **Contact**를 클릭합니다(이 자습서에서는 **테스트 사용자**에게 작업에 대한 권한이 부여되지 않음). 그러나 브라우저가 AD FS로 리디렉션되므로 다음 메시지가 표시됩니다.
 
 	![](./media/web-sites-dotnet-lob-application-adfs/13-authorize-adfs-error.png)
 
-	AD FS 서버의 이벤트 뷰어에서 이 오류를 조사하면 다음 예외 메시지를 확인할 수 있습니다. <pre class="prettyprint"> Microsoft.IdentityServer.Web.InvalidRequestException: MSIS7042: <mark>동일한 클라이언트 브라우저 세션에서 마지막 ‘11’초 동안 '6'번 요청했습니다.</mark> 자세한 내용은 관리자에게 문의하세요. at Microsoft.IdentityServer.Web.Protocols.PassiveProtocolHandler.UpdateLoopDetectionCookie(WrappedHttpListenerContext context) at Microsoft.IdentityServer.Web.Protocols.WSFederation.WSFederationProtocolHandler.SendSignInResponse(WSFederationContext context, MSISSignInResponse response) at Microsoft.IdentityServer.Web.PassiveProtocolListener.ProcessProtocolRequest(ProtocolContext protocolContext, PassiveProtocolHandler protocolHandler) at Microsoft.IdentityServer.Web.PassiveProtocolListener.OnGetContext(WrappedHttpListenerContext context) </pre>
+	AD FS 서버의 이벤트 뷰어에서 이 오류를 조사하면 다음 예외 메시지를 확인할 수 있습니다. 
+	<pre class="prettyprint">
+	Microsoft.IdentityServer.Web.InvalidRequestException: MSIS7042: <mark>동일한 클라이언트 브라우저 세션에서 마지막 ‘11’초 동안 '6'번 요청했습니다.</mark> 자세한 내용은 관리자에게 문의하세요.
+	   at Microsoft.IdentityServer.Web.Protocols.PassiveProtocolHandler.UpdateLoopDetectionCookie(WrappedHttpListenerContext context)
+	   at Microsoft.IdentityServer.Web.Protocols.WSFederation.WSFederationProtocolHandler.SendSignInResponse(WSFederationContext context, MSISSignInResponse response)
+	   at Microsoft.IdentityServer.Web.PassiveProtocolListener.ProcessProtocolRequest(ProtocolContext protocolContext, PassiveProtocolHandler protocolHandler)
+	   at Microsoft.IdentityServer.Web.PassiveProtocolListener.OnGetContext(WrappedHttpListenerContext context)
+	</pre>
 
 	이 오류가 발생한 이유는 사용자의 역할에 권한이 부여되지 않은 경우 기본적으로 MVC에서 401 권한 없음을 반환하기 때문입니다. 이 경우 ID 공급자(AD FS)에 대한 재인증 요청이 트리거됩니다. 사용자가 이미 인증되었으므로 AD FS가 동일한 페이지로 돌아가고 또 다른 401이 발생하여 리디렉션 루프가 생성됩니다. 단순한 논리로 AuthorizeAttribute의 `HandleUnauthorizedRequest` 메서드를 재정의하여 리디렉션 루프를 계속하는 대신 의미 있는 내용을 표시할 수 있습니다.
 

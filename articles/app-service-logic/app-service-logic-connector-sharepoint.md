@@ -33,9 +33,12 @@ SharePoint Online 커넥터 및 SharePoint Server 커넥터 갤러리 앱은 Sha
 
 	이름 | 필수 | 설명
 --- | --- | ---
-사이트 URL | 예 | SharePoint 웹 사이트의 전체 URL을 입력합니다. 예를 들어 *https://microsoft.sharepoint.com/teams/wabstest*을 입력합니다. 문서 라이브러리/상대 URL 나열 | 예 | 문서 라이브러리 입력/SharePoint 사이트 URL에 상대적이며 커넥터에서 수정할 수 있는 URL을 입력합니다. 예를 들어 *목록/작업, 공유 문서*를 입력합니다.
+사이트 URL | 예 | SharePoint 웹 사이트의 전체 URL을 입력합니다. 예를 들면 *https://microsoft.sharepoint.com/teams/wabstest*
+를 입력합니다. 문서 라이브러리/목록 URL | 예 | SharePoint 사이트 URL에 상대적이며 커넥터에서 수정할 수 있는 문서 라이브러리/목록 URL을 입력합니다. 예를 들어 *목록/작업, 공유 문서*를 입력합니다.
 
-5. 완료되면 패키지 설정은 다음과 유사하게 됩니다. <br/> ![][1]
+5. 완료되면 패키지 설정은 다음과 유사합니다.
+<br/>
+![][1]
 
 작업을 완료하면 이제 동일한 리소스 그룹에서 논리 앱을 만들어 SharePoint Online 커넥터를 사용할 수 있습니다.
 
@@ -50,13 +53,16 @@ SharePoint Online 커넥터 및 SharePoint Server 커넥터 갤러리 앱은 Sha
 
 	이름 | 필수 | 설명
 --- | --- | ---
-사이트 URL | 예 | SharePoint 웹 사이트의 전체 URL을 입력합니다. 예를 들어 *https://microsoft.sharepoint.com/teams/wabstest*을 입력합니다. 인증 모드 | 예 | SharePoint 사이트에 연결하기 위한 인증 모드를 지정합니다. 옵션은 다음과 같습니다. <ul><li>Default</li><li>WindowsAuthentication</li><li>FormBasedAuthentication</li></ul><br/><br/>기본값을 선택하면 SharePoint 커넥터를 실행 중인 자격 증명을 사용합니다. 사용자 이름/암호는 필요하지 않습니다. 사용자 이름 및 암호는 다른 인증 형식에 필요합니다.<br/><br/>**참고** 익명 인증은 지원되지 않습니다.
+사이트 URL | 예 | SharePoint 웹 사이트의 전체 URL을 입력합니다. 예를 들면 *https://microsoft.sharepoint.com/teams/wabstest*
+를 입력합니다. Authentication Mode | Yes | SharePoint 사이트에 연결하기 위한 인증 모드를 지정합니다. 옵션은 다음과 같습니다. <ul><li>기본</li><li>WindowsAuthentication</li><li>FormBasedAuthentication</li></ul><br/><br/>기본값을 선택하면 SharePoint 커넥터를 실행 중인 자격 증명을 사용합니다. 사용자 이름/암호는 필요하지 않습니다. 사용자 이름 및 암호는 다른 인증 형식에 필요합니다.<br/><br/>**참고** 익명 인증이 지원되지 않습니다.
 사용자 이름 | 아니요 | 인증 모드가 기본값이 아닌 경우 SharePoint 사이트에 연결하려면 유효한 사용자 이름을 입력합니다.
 암호 | 아니요 | 인증 모드가 기본값이 아닌 경우 SharePoint 사이트에 연결하려면 유효한 암호를 입력합니다.
 문서 라이브러리/목록 상대 URL | 예 | 문서 라이브러리 입력/SharePoint 사이트 URL에 상대적이며 커넥터에서 수정할 수 있는 URL을 입력합니다. 예를 들어 *목록/작업, 공유 문서*를 입력합니다.
 서비스 버스 연결 문자열 | 아니요 | 온-프레미스에 연결할 경우 서비스 버스 릴레이 연결 문자열을 입력합니다.<br/><br/>[하이브리드 연결 관리자 사용](app-service-logic-hybrid-connection-manager.md)<br/>[서비스 버스 가격](http://azure.microsoft.com/pricing/details/service-bus/)
 
-5. 완료되면 패키지 설정은 다음과 유사하게 됩니다. <br/> ![][2]
+5. 완료되면 패키지 설정은 다음과 유사합니다.
+<br/>
+![][2]
 
 작업을 완료하면 이제 동일한 리소스 그룹에서 논리 앱을 만들어 SharePoint Server 커넥터를 사용할 수 있습니다.
 
@@ -71,13 +77,28 @@ API 앱을 만들면 이제 SharePoint 커넥터를 논리 앱의 트리거 또�
 
 3. 논리 앱의 시작 부분에 SharePoint 커넥터를 선택하면 트리거처럼 작동합니다. 그렇지 않은 경우 커넥터를 사용하는 SharePoint 계정에서 작업을 수행할 수 있습니다.
 
-4. SharePoint Online 커넥터를 사용하는 경우 논리 앱을 인증하고 사용자 대신 작업을 수행할 수 있는 권한을 부여해야 합니다. 권한 부여를 시작하려면 SharePoint 커넥터에서 **권한 부여**를 클릭합니다. <br/> ![][3]
+4. SharePoint Online 커넥터를 사용하는 경우 논리 앱을 인증하고 사용자 대신 작업을 수행할 수 있는 권한을 부여해야 합니다. 권한 부여를 시작하려면 SharePoint 커넥터에서 **권한 부여**를 클릭합니다. 
+<br/>
+![][3]
 
-5. 권한 부여를 클릭하면 SharePoint의 인증 대화 상자가 열립니다. 작업을 수행하려는 SharePoint 계정의 로그인 세부 정보를 입력합니다. <br/> ![][4]
+5. 권한 부여를 클릭하면 SharePoint의 인증 대화 상자가 열립니다. 작업을 수행하려는 SharePoint 계정의 로그인 세부 정보를 입력합니다.
+<br/>
+![][4]
 
-6. 논리 앱에 계정에 대한 액세스 권한을 부여하여 사용자를 대신하여 작업을 수행하도록 합니다. <br/> ![][5]
+6. 논리 앱에 계정에 대한 액세스 권한을 부여하여 사용자를 대신하여 작업을 수행하도록 합니다.
+<br/>
+![][5]
 
-7. SharePoint 커넥터를 트리거로 구성하는 경우 트리거가 표시됩니다. 그렇지 않은 경우 작업의 목록이 표시되고 수행 하려는 적절한 작업을 선택할 수 있습니다. <br/> ![][6] <br/> **문서 라이브러리에 대해 구성된 상대 URL** <br/> ![][7] <br/> **문서 목록에 대해 구성된 상대 URL**
+7. SharePoint 커넥터를 트리거로 구성하는 경우 트리거를 표시합니다. 그렇지 않은 경우 작업의 목록이 표시되고 수행 하려는 적절한 작업을 선택할 수 있습니다.
+<br/>
+![][6]
+<br/>
+**문서 라이브러리에 대해 구성된 상대 URL**
+<br/>
+![][7]
+<br/>
+**문서 목록에 대해 구성된 상대 URL**
+<br/>
 
 > [AZURE.NOTE]아래 트리거의 경우 사용자가 커넥터 패키지 설정에서 ‘공유 문서, 목록/작업’를 입력했다고 가정합니다. 여기서 ‘공유 문서’는 문서 라이브러리이고 ‘목록/작업’은 목록입니다.
 
@@ -463,4 +484,4 @@ ItemID | 예 | 목록 항목의 ItemId입니다.
 [7]: ./media/app-service-logic-connector-sharepoint/image_6.png
  
 
-<!---HONumber=62-->
+<!----HONumber=62-->
